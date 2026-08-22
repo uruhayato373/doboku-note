@@ -1,0 +1,60 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="フェールセーフとフールプルーフとインターロックの3者比較表">
+  <defs><style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }</style></defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <!-- ヘッダー -->
+  <rect width="400" height="72" fill="#1a3a5c"/>
+  <text x="200" y="28" text-anchor="middle" font-size="11" fill="#d4956a">技術士 総監 | 安全管理</text>
+  <text x="200" y="56" text-anchor="middle" font-size="17" font-weight="bold" fill="#fff">混同しやすい3用語の整理</text>
+
+  <!-- 比較表ヘッダー行
+       用語列:        x=12〜158  center=85
+       対象・トリガー: x=158〜268 center=213
+       目的:          x=268〜388 center=328
+  -->
+  <rect x="12" y="86" width="376" height="32" rx="4" fill="#1a3a5c"/>
+  <text x="85"  y="107" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">用語</text>
+  <text x="213" y="107" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">対象・トリガー</text>
+  <text x="328" y="107" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">目的</text>
+
+  <!-- フェールセーフ行（y=118〜218） -->
+  <rect x="12" y="118" width="376" height="100" rx="6" fill="#fce8d0" stroke="#a36b2c" stroke-width="1.5"/>
+  <rect x="12" y="118" width="5" height="100" rx="3" fill="#a36b2c"/>
+  <text x="85"  y="152" text-anchor="middle" font-size="13" font-weight="bold" fill="#a36b2c">フェールセーフ</text>
+  <text x="85"  y="168" text-anchor="middle" font-size="10" fill="#666">機械・システムの故障</text>
+  <text x="85"  y="182" text-anchor="middle" font-size="10" fill="#666">→ 故障を自動検知</text>
+  <text x="213" y="165" text-anchor="middle" font-size="11" fill="#555">故障が起きたとき</text>
+  <text x="213" y="181" text-anchor="middle" font-size="11" fill="#555">自動で安全状態へ</text>
+  <text x="328" y="157" text-anchor="middle" font-size="11" fill="#555">安全状態</text>
+  <text x="328" y="173" text-anchor="middle" font-size="11" fill="#555">（停止/代替）</text>
+  <text x="328" y="189" text-anchor="middle" font-size="11" fill="#555">へ自動移行</text>
+
+  <!-- フールプルーフ行（y=230〜330） -->
+  <rect x="12" y="230" width="376" height="100" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="12" y="230" width="5" height="100" rx="3" fill="#2e6da4"/>
+  <text x="85"  y="264" text-anchor="middle" font-size="13" font-weight="bold" fill="#2e6da4">フールプルーフ</text>
+  <text x="85"  y="280" text-anchor="middle" font-size="10" fill="#666">人間の誤操作</text>
+  <text x="85"  y="294" text-anchor="middle" font-size="10" fill="#666">→ 誤操作が起きたとき</text>
+  <text x="213" y="274" text-anchor="middle" font-size="11" fill="#555">誤操作が</text>
+  <text x="213" y="290" text-anchor="middle" font-size="11" fill="#555">行われたとき</text>
+  <text x="328" y="274" text-anchor="middle" font-size="11" fill="#555">危険な動作を</text>
+  <text x="328" y="290" text-anchor="middle" font-size="11" fill="#555">起こさせない</text>
+
+  <!-- インターロック行（y=342〜442） -->
+  <rect x="12" y="342" width="376" height="100" rx="6" fill="#f5f5f5" stroke="#777" stroke-width="1.5"/>
+  <rect x="12" y="342" width="5" height="100" rx="3" fill="#777"/>
+  <text x="85"  y="376" text-anchor="middle" font-size="13" font-weight="bold" fill="#444">インターロック</text>
+  <text x="85"  y="392" text-anchor="middle" font-size="10" fill="#666">条件の不成立</text>
+  <text x="85"  y="406" text-anchor="middle" font-size="10" fill="#666">→ 動作前に条件チェック</text>
+  <text x="213" y="381" text-anchor="middle" font-size="11" fill="#555">動作前の</text>
+  <text x="213" y="397" text-anchor="middle" font-size="11" fill="#555">条件が不成立</text>
+  <text x="328" y="381" text-anchor="middle" font-size="11" fill="#555">条件未達で</text>
+  <text x="328" y="397" text-anchor="middle" font-size="11" fill="#555">動作させない</text>
+
+  <!-- 縦区切り線（全行セルの後に描画） -->
+  <line x1="158" y1="86" x2="158" y2="442" stroke="#a0a0a0" stroke-width="1.5"/>
+  <line x1="268" y1="86" x2="268" y2="442" stroke="#a0a0a0" stroke-width="1.5"/>
+
+  <rect x="0" y="460" width="400" height="40" fill="#0f2035"/>
+  <text x="200" y="485" text-anchor="middle" font-size="12" fill="#6a8faf">doboku-note.com</text>
+</svg>

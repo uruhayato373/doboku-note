@@ -1,0 +1,122 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="労働関係調整法の 3 つの調整制度：あっせん・調停・仲裁の各 4 ステップ（開始 → 調査 → 調整方法 → 終結）と委員構成・拘束力の比較">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-col-title  { font-size: 12px; font-weight: bold; fill: #1a3a5c; } /* brand-text */
+      .t-step-label { font-size: 11px; font-weight: bold; fill: #1a3a5c; } /* brand-text */
+      .t-step-body  { font-size: 11px; fill: #222; }                       /* ink-strong */
+      .t-step-end   { font-size: 11px; font-weight: bold; fill: #222; }    /* ink-strong */
+      .t-source     { font-size: 11px; fill: #555; }                       /* ink-body */
+      .col-asn  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }     /* brand（あっせん＝最も柔軟） */
+      .col-tei  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }     /* warn（調停＝中間） */
+      .col-chu  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }     /* danger（仲裁＝拘束力あり） */
+      .body-asn { fill: #ffffff; stroke: #2e6da4; stroke-width: 1; }
+      .body-tei { fill: #ffffff; stroke: #d4a017; stroke-width: 1; }
+      .body-chu { fill: #ffffff; stroke: #b22234; stroke-width: 1; }
+      .arrow    { stroke: #555; stroke-width: 1.5; fill: none; }           /* ink-body */
+    </style>
+    <marker id="arrL" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+      <polygon points="0,0 7,3 0,6" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- 列ヘッダー -->
+  <rect class="col-asn" x="10"  y="10" width="120" height="26" rx="4"/>
+  <text class="t-col-title" x="70"  y="28" text-anchor="middle">あっせん</text>
+  <rect class="col-tei" x="140" y="10" width="120" height="26" rx="4"/>
+  <text class="t-col-title" x="200" y="28" text-anchor="middle">調　停</text>
+  <rect class="col-chu" x="270" y="10" width="120" height="26" rx="4"/>
+  <text class="t-col-title" x="330" y="28" text-anchor="middle">仲　裁</text>
+
+  <!-- Step 1: 開始 -->
+  <rect class="body-asn" x="10"  y="44" width="120" height="46" rx="4"/>
+  <text class="t-step-label" x="70" y="59" text-anchor="middle">開　始</text>
+  <text class="t-step-body"  x="70" y="74" text-anchor="middle">労使いずれか</text>
+  <text class="t-step-body"  x="70" y="87" text-anchor="middle">または双方の申請</text>
+
+  <rect class="body-tei" x="140" y="44" width="120" height="46" rx="4"/>
+  <text class="t-step-label" x="200" y="59" text-anchor="middle">開　始</text>
+  <text class="t-step-body"  x="200" y="74" text-anchor="middle">労使の申請＋</text>
+  <text class="t-step-body"  x="200" y="87" text-anchor="middle">公益委員関与</text>
+
+  <rect class="body-chu" x="270" y="44" width="120" height="46" rx="4"/>
+  <text class="t-step-label" x="330" y="59" text-anchor="middle">開　始</text>
+  <text class="t-step-body"  x="330" y="74" text-anchor="middle">労使双方の申請</text>
+  <text class="t-step-body"  x="330" y="87" text-anchor="middle">または労働協約</text>
+
+  <line class="arrow" x1="70"  y1="92" x2="70"  y2="106" marker-end="url(#arrL)"/>
+  <line class="arrow" x1="200" y1="92" x2="200" y2="106" marker-end="url(#arrL)"/>
+  <line class="arrow" x1="330" y1="92" x2="330" y2="106" marker-end="url(#arrL)"/>
+
+  <!-- Step 2: 調査・審問 -->
+  <rect class="body-asn" x="10"  y="110" width="120" height="40" rx="4"/>
+  <text class="t-step-label" x="70" y="125" text-anchor="middle">調　査</text>
+  <text class="t-step-body"  x="70" y="142" text-anchor="middle">事情・経緯を把握</text>
+
+  <rect class="body-tei" x="140" y="110" width="120" height="40" rx="4"/>
+  <text class="t-step-label" x="200" y="125" text-anchor="middle">調　査</text>
+  <text class="t-step-body"  x="200" y="142" text-anchor="middle">非常勤職員が実情</text>
+
+  <rect class="body-chu" x="270" y="110" width="120" height="40" rx="4"/>
+  <text class="t-step-label" x="330" y="125" text-anchor="middle">審　問</text>
+  <text class="t-step-body"  x="330" y="142" text-anchor="middle">公益委員 3 名で聴取</text>
+
+  <line class="arrow" x1="70"  y1="152" x2="70"  y2="166" marker-end="url(#arrL)"/>
+  <line class="arrow" x1="200" y1="152" x2="200" y2="166" marker-end="url(#arrL)"/>
+  <line class="arrow" x1="330" y1="152" x2="330" y2="166" marker-end="url(#arrL)"/>
+
+  <!-- Step 3: 調整方法・裁定 -->
+  <rect class="body-asn" x="10"  y="170" width="120" height="58" rx="4"/>
+  <text class="t-step-label" x="70" y="185" text-anchor="middle">調整方法</text>
+  <text class="t-step-body"  x="70" y="202" text-anchor="middle">あっせん員が</text>
+  <text class="t-step-body"  x="70" y="216" text-anchor="middle">あっせん案を提示</text>
+
+  <rect class="body-tei" x="140" y="170" width="120" height="58" rx="4"/>
+  <text class="t-step-label" x="200" y="185" text-anchor="middle">調停委員会</text>
+  <text class="t-step-body"  x="200" y="202" text-anchor="middle">労・公・使 各 1 名</text>
+  <text class="t-step-body"  x="200" y="216" text-anchor="middle">調停案を作成</text>
+
+  <rect class="body-chu" x="270" y="170" width="120" height="58" rx="4"/>
+  <text class="t-step-label" x="330" y="185" text-anchor="middle">仲裁裁定</text>
+  <text class="t-step-body"  x="330" y="202" text-anchor="middle">受諾義務あり</text>
+  <text class="t-step-body"  x="330" y="216" text-anchor="middle">（拘束力）</text>
+
+  <line class="arrow" x1="70"  y1="230" x2="70"  y2="244" marker-end="url(#arrL)"/>
+  <line class="arrow" x1="200" y1="230" x2="200" y2="244" marker-end="url(#arrL)"/>
+  <line class="arrow" x1="330" y1="230" x2="330" y2="244" marker-end="url(#arrL)"/>
+
+  <!-- Step 4: 終結 -->
+  <rect class="body-asn" x="10"  y="248" width="120" height="32" rx="4"/>
+  <text class="t-step-end" x="70" y="268" text-anchor="middle">終結：解決・打切り</text>
+
+  <rect class="body-tei" x="140" y="248" width="120" height="32" rx="4"/>
+  <text class="t-step-end" x="200" y="268" text-anchor="middle">終結：解決・打切り</text>
+
+  <rect class="body-chu" x="270" y="248" width="120" height="32" rx="4"/>
+  <text class="t-step-end" x="330" y="268" text-anchor="middle">終結：裁定で確定</text>
+
+  <text class="t-source" x="200" y="305" text-anchor="middle">出典：厚生労働省「労働関係調整法」</text>
+
+  <!-- 追加：拘束力の比較サマリー -->
+  <rect x="10" y="322" width="380" height="54" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text x="200" y="341" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold" font-family="Inter, sans-serif">3 制度の拘束力比較</text>
+  <text x="200" y="358" text-anchor="middle" font-size="11" fill="#222" font-family="Inter, sans-serif">あっせん：任意（受け入れ自由）</text>
+  <text x="200" y="372" text-anchor="middle" font-size="11" fill="#555" font-family="Inter, sans-serif">調停：任意（提案を受け入れるか選択可）／仲裁：義務的拘束力</text>
+
+  <rect x="10" y="388" width="185" height="54" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text x="103" y="406" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="Inter, sans-serif">労働委員会の役割</text>
+  <text x="103" y="422" text-anchor="middle" font-size="11" fill="#222" font-family="Inter, sans-serif">都道府県・中央で設置</text>
+  <text x="103" y="437" text-anchor="middle" font-size="11" fill="#555" font-family="Inter, sans-serif">公益・労使各委員で構成</text>
+
+  <rect x="205" y="388" width="185" height="54" fill="#f8d7da" stroke="#b22234" stroke-width="1.5" rx="6"/>
+  <text x="297" y="406" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="Inter, sans-serif">争議行為の制限</text>
+  <text x="297" y="422" text-anchor="middle" font-size="11" fill="#222" font-family="Inter, sans-serif">公益事業は事前届出</text>
+  <text x="297" y="437" text-anchor="middle" font-size="11" fill="#555" font-family="Inter, sans-serif">緊急調整・冷却期間</text>
+
+  <text x="200" y="460" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="Inter, sans-serif">人的資源管理の法的基盤：労使関係の正常化を担う</text>
+  <text x="200" y="476" text-anchor="middle" font-size="11" fill="#555" font-family="Inter, sans-serif">労働基準法・労働組合法・労働関係調整法を「労働三法」と呼ぶ</text>
+</svg>

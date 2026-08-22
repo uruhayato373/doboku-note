@@ -1,0 +1,80 @@
+---
+title: インターロック
+description: "インターロックの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（安全管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '5.4'
+tags:
+  - keyword
+published: true
+publishedAt: '2026-04-09'
+reviewStatus: approved
+lastRewrittenAt: '2026-04-16'
+revisionCycle: 1
+seoTitle: "インターロック ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-05-26
+---
+
+## インターロックとは
+
+インターロック（Interlock）とは、特定の条件が満たされない限り、機械の運転や危険領域への立入りができないようにする安全連動機構である。
+
+ある操作と別の操作を連動させることで、安全が確保されない状態での危険な動作を物理的に防止する。
+
+## 種類と具体例
+
+インターロックは動作原理と検知方式の違いにより、以下の4種類に大別される。
+
+| 種類 | 具体例 |
+|---|---|
+| **機械式インターロック** | 安全カバーを開けるとスイッチが切れて機械が停止する |
+| **電気式インターロック** | 安全扉の開放を検知して動力を遮断する |
+| **制御式インターロック** | プログラムにより安全条件が揃わないと起動しない |
+| **キーインターロック** | 機械停止時のみ安全柵のキーが抜ける仕組み |
+
+## フェールセーフとの関係
+
+インターロックは[フェールセーフ](/docs/pe-comprehensive-management-fail-safe)を実現する具体的な安全機構の一つである。[非常停止装置](/docs/pe-comprehensive-management-emergency-stop-device)が作業者の手動操作による緊急停止であるのに対し、インターロックは条件に基づく自動的な安全制御である。
+
+<ExamPoint
+  summary="インターロックは安全条件が揃わないと動作しない連動機構"
+  items={[
+    "特定条件を満たさない限り機械の運転・立入りを防止する",
+    "安全カバー・安全扉の開閉と機械の運転を連動させる",
+    "非常停止装置（手動）との違いを区別する",
+    "フェールセーフを実現する代表的な安全機構",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**5.4 事故・災害の未然防止活動・技術**](/docs/pe-comprehensive-management-keyword-2026#54-事故・災害の未然防止活動・技術)に位置づけられている。
+
+インターロックは[フェールセーフ](/docs/pe-comprehensive-management-fail-safe)の実現手段であり、[非常停止装置](/docs/pe-comprehensive-management-emergency-stop-device)・ホールド・ツー・ラン装置と合わせて安全機構の体系を構成する。[本質安全](/docs/pe-comprehensive-management-inherent-safety)・[機能安全](/docs/pe-comprehensive-management-functional-safety)の概念とも密接に関連する。
+
+## 規格の成立と背景
+
+インターロックの法的・規格的整備は、製造現場での機械による死傷災害の深刻化を契機に進んだ。
+
+労働安全衛生法（昭和47年法律第57号）は、機械等による危険防止措置を事業者の義務として定め、インターロックはその代表的な安全装置として位置づけられてきた。
+
+国際規格面では、ISO（国際標準化機構）が1995年にガードと共同するインターロック装置の設計原則を定めたISO 14119を制定した。その後、2013年に大幅改訂が行われ、インターロック装置を動作方式（機械式・非接触式）とコーディング有無（無符号・符号付き）で4タイプに体系化した。日本では同規格はJIS B 9710として国内整合が図られ、2019年に最新改正版が発行された。
+
+2007年には厚生労働省が「機械の包括的な安全基準に関する指針」を改正し、リスクアセスメントに基づく段階的なリスク低減措置の中でインターロックを明示的に位置づけた。この改正により、機械メーカー・使用者の双方がインターロックの設計・選定・維持管理に系統立てて取り組む枠組みが確立された。
+
+<RelatedKeywords items={[
+  { label: "フェールセーフ", slug: "fail-safe" },
+  { label: "フールプルーフ", slug: "fool-proof" },
+  { label: "機能安全", slug: "functional-safety" },
+  { label: "安全確認型システム・危険検出型システム", slug: "safety-confirmation-system" },
+  { label: "非常停止装置", slug: "emergency-stop-device" },
+]} />
+
+## 参考資料
+
+- [機械安全（インターロック装置を含む保護装置の解説）](https://www.jisha.or.jp/info/field/machinery/)（中央労働災害防止協会）
+- [「機械の包括的な安全基準に関する指針」の解説等について](https://www.jaish.gr.jp/anzen/hor/hombun/hor1-48/hor1-48-37-1-0.htm)（産業安全技術協会）
+- [JIS B 9710:2019 機械類の安全性－ガードと共同するインターロック装置－設計及び選択のための原則](https://kikakurui.com/b9/B9710-2019-01.html)（kikakurui.com）
+- [安全インターロックの評価と指定](https://www.digikey.jp/ja/articles/basics-of-safety-interlocks)（DigiKey）

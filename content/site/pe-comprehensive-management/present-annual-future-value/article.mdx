@@ -1,0 +1,103 @@
+---
+title: 現価・年価・終価
+description: "現価（現在価値）・年価・終価の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.7'
+tags:
+  - keyword
+published: true
+reviewStatus: needs-review
+lastRewrittenAt: '2026-05-17T04:44:10Z'
+revisionCycle: 1
+publishedAt: '2026-04-09'
+seoTitle: "現価・年価・終価 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-05-26
+---
+
+## 現価・年価・終価とは
+
+現価・年価・終価とは、**貨幣の時間的価値** を考慮して異なる時点の金額を同一時点に換算するための 3 つの基本概念である。現在の 100 万円と将来の 100 万円は等価ではなく、現在の資金は運用することで将来より大きな価値を生むため、投資判断・設備更新判断では金額を同一時点に揃えて比較する必要がある。
+
+## 3 つの価値の定義
+
+経済性評価では利率 $i$ と期間 $n$ 年を所与として、次の 3 つの形で金額を表現する。
+
+| 用語 | 記号 | 定義 |
+|---|---|---|
+| **現価** | $P$ | 将来額を現在に割引いた値 |
+| **終価** | $F$ | 現在額を将来に換算した値 |
+| **年価** | $A$ | 毎年均等に発生する金額 |
+
+## 計算式
+
+3 つの値は利率 $i$・期間 $n$ によって相互に変換できる。
+
+### 現価と終価の関係
+
+$$
+F = P \times (1+i)^n
+$$
+
+$$
+P = F \times \frac{1}{(1+i)^n}
+$$
+
+### 年価と現価の関係
+
+$$
+P = A \times \frac{(1+i)^n - 1}{i(1+i)^n}
+$$
+
+### 年価と終価の関係
+
+$$
+F = A \times \frac{(1+i)^n - 1}{i}
+$$
+
+## 適用例
+
+現価・年価・終価の変換は、投資判断・ローン比較・設備更新など経済性評価のあらゆる場面で用いられる。実務では各係数（**複利現価係数** $1/(1+i)^n$、**年金現価係数** $\{(1+i)^n - 1\}/\{i(1+i)^n\}$ 等）を巻末表で参照して計算することが多い。一括の将来額には複利現価係数を、毎年均等支払いの総額には年金現価係数を用いる。
+
+- **投資判断（NPV 法）**: 将来 CF を現価に変換して比較
+- **ローン・リースの比較**: 支払い総額を現価または年価で比較
+- **設備更新の判断**: 異なる耐用年数の設備を年価で比較
+- **公共事業の評価**: 便益・費用を現価に統一して費用便益分析
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**2.7 計画・管理の数理的手法**](/docs/pe-comprehensive-management-keyword-2026#27-計画・管理の数理的手法)に位置づけられている。
+
+現価・年価・終価の概念は[経済性の比較の原則](/docs/pe-comprehensive-management-economic-comparison-principle)の基礎をなす。[NPV 法](/docs/pe-comprehensive-management-npv-net-present-value)・[DCF 法](/docs/pe-comprehensive-management-dcf-method)・B/C 比等の投資判断基準は、すべて現価への変換を前提としている。[機会損失](/docs/pe-comprehensive-management-opportunity-cost)の定量評価にも不可欠な概念である。過去問 [R02 Ⅰ-1-2](/docs/pe-comprehensive-management-r02-primary#1-2) では 5 投資先 A〜E の 4 年間 CF を割引率 3% で現価換算し、合計が最大の投資先を選ぶ計算問題（正答 A = 455.8）が出題され、$P = F / (1+i)^n$ を年ごとに適用する実務計算力が問われた。
+
+<ExamPoint
+  summary="R02 Ⅰ-1-2 のように複数投資先の CF を割引率 3% で現価換算・合計して比較する"
+  items={[
+    "現価 $P$：将来の金額を現在に割り引いた値（$P = F / (1+i)^n$）",
+    "終価 $F$：現在の金額を将来に換算した値（$F = P \\times (1+i)^n$）",
+    "年価 $A$：毎年均等に発生する金額（現価・終価と相互変換可能）",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "割引率", slug: "discount-rate" },
+  { label: "DCF法", slug: "dcf-method" },
+  { label: "NPV", slug: "npv-net-present-value" },
+  { label: "経済性の比較の原則", slug: "economic-comparison-principle" },
+  { label: "投資回収計画", slug: "investment-recovery-plan" },
+]} />
+
+## 割引の考え方と経済性評価の発展
+
+現価・年価・終価の根底にある「貨幣の時間的価値」という考え方は、複利計算の普及とともに近世ヨーロッパで体系化された。17 世紀の商業金融では、将来の受取額を現在の資本と比較するために割引（ディスカウント）の概念が実務に定着し、18〜19 世紀にかけての鉄道・運河投資の評価に活用された。
+
+公共投資の分野では、20 世紀中頃に費用便益分析（CBA: Cost-Benefit Analysis）の手法が確立され、道路・ダム・灌漑といった大規模インフラの経済的妥当性を判定する標準的な枠組みとなった。日本では国土交通省が道路事業の費用便益分析マニュアルを整備しており、便益・費用の現価換算（社会的割引率 4% の適用）が義務付けられている。
+
+総合技術監理の経済性管理においては、現価・年価・終価の正確な理解が[NPV 法](/docs/pe-comprehensive-management-npv-net-present-value)・[DCF 法](/docs/pe-comprehensive-management-dcf-method)・B/C 比の適用に不可欠である。過去問では割引率と期間を変えた数値問題が繰り返し出題されており、係数の定義と変換式を体系的に把握しておくことが得点の近道となる。
+
+## 参考資料
+
+- [費用便益分析マニュアル（国土交通省道路局）](https://www.mlit.go.jp/road/ir/ir-hyouka/ben-eki_2.pdf)（国土交通省）
+- [現在価値 — Wikipedia](https://ja.wikipedia.org/wiki/%E7%8F%BE%E5%9C%A8%E4%BE%A1%E5%80%A4)（ウィキペディア）

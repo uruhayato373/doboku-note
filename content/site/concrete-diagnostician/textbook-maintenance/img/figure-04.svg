@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="単時点の計測では劣化速度が分からず、時系列の記録があってはじめて進行速度と補修時期が読めることを示す図と、記録すべき情報">
+  <defs>
+    <marker id="cdm4" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text x="200" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">1 点だけでは、速いのか遅いのか判断できない</text>
+
+  <line x1="46" y1="150" x2="186" y2="150" stroke="#222" stroke-width="1.5" marker-end="url(#cdm4)"/>
+  <line x1="46" y1="150" x2="46" y2="36" stroke="#222" stroke-width="1.5" marker-end="url(#cdm4)"/>
+  <circle cx="140" cy="96" r="5" fill="#b22234"/>
+  <path d="M140 96 l30 -34 M140 96 l30 -8 M140 96 l30 20" fill="none" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <text x="116" y="170" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b22234">単時点の計測</text>
+  <text x="116" y="186" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">傾きが決まらない</text>
+
+  <line x1="214" y1="150" x2="366" y2="150" stroke="#222" stroke-width="1.5" marker-end="url(#cdm4)"/>
+  <line x1="214" y1="150" x2="214" y2="36" stroke="#222" stroke-width="1.5" marker-end="url(#cdm4)"/>
+  <circle cx="240" cy="126" r="4" fill="#2e6da4"/>
+  <circle cx="272" cy="112" r="4" fill="#2e6da4"/>
+  <circle cx="304" cy="90" r="4" fill="#2e6da4"/>
+  <circle cx="336" cy="58" r="4" fill="#2e6da4"/>
+  <path d="M240 126 L272 112 L304 90 L336 58" fill="none" stroke="#2e6da4" stroke-width="2"/>
+  <text x="290" y="170" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2e6da4">時系列の記録</text>
+  <text x="290" y="186" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">加速・停滞が読める</text>
+
+  <rect x="20" y="204" width="360" height="128" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="224" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">記録が持つ 3 つの価値</text>
+  <text x="34" y="248" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">継続的評価</text>
+  <text x="140" y="248" font-family="sans-serif" font-size="11" fill="#555">補修時期の予測精度が上がる</text>
+  <text x="34" y="278" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">次世代への継承</text>
+  <text x="150" y="278" font-family="sans-serif" font-size="11" fill="#555">供用 50〜100 年を超える</text>
+  <text x="34" y="308" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">計画の改善</text>
+  <text x="140" y="308" font-family="sans-serif" font-size="11" fill="#555">構造物群の統計的な分析へ</text>
+
+  <rect x="20" y="346" width="360" height="136" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="366" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">記録すべき情報</text>
+  <text x="34" y="390" font-family="sans-serif" font-size="11" fill="#555">変状の位置・種類・程度</text>
+  <text x="34" y="410" font-family="sans-serif" font-size="11" fill="#555">点検年月日と担当者</text>
+  <text x="34" y="430" font-family="sans-serif" font-size="11" fill="#555">補修・補強の工法詳細と使用材料</text>
+  <text x="34" y="450" font-family="sans-serif" font-size="11" fill="#555">補修前後の写真、試験データ</text>
+  <text x="34" y="472" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2e6da4">写真と図面を紐付けて空間で管理する</text>
+</svg>

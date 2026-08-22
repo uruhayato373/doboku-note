@@ -1,0 +1,104 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="プッシュ型とプル型コミュニケーションの対比：プッシュ型は送信者がイニシアチブを持って情報を発信（電子メール・手紙）、プル型は受信者がイニシアチブを持って情報にアクセス（ポータル・イントラネット・e ラーニング）">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-actor { font-size: 11px; fill: #1a3a5c; }
+      .t-label { font-size: 11px; fill: #555; }
+      .t-note { font-size: 11px; fill: #555; font-style: italic; }
+      .t-example { font-size: 11px; fill: #1a3a5c; }
+      .col-push { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .col-pull { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .actor-push { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .actor-pull { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .arrow-push { stroke: #2e6da4; stroke-width: 2; fill: none; }
+      .arrow-pull { stroke: #3a7d44; stroke-width: 2; fill: none; stroke-dasharray: 5,3; }
+      .divider { stroke: #d7d7d7; stroke-width: 1; fill: none; }
+    </style>
+    <marker id="arrow-push" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
+    </marker>
+    <marker id="arrow-pull" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#3a7d44"/>
+    </marker>
+  </defs>
+
+  <!-- LEFT column: プッシュ型 -->
+  <rect class="col-push" x="10" y="10" width="180" height="32" rx="6"/>
+  <text class="t-title" x="100" y="30" text-anchor="middle">プッシュ型</text>
+
+  <!-- 送信者 circle -->
+  <circle class="actor-push" cx="40" cy="90" r="22"/>
+  <text class="t-actor" x="40" y="94" text-anchor="middle">送信者</text>
+
+  <!-- Arrow → -->
+  <line class="arrow-push" x1="65" y1="90" x2="135" y2="90" marker-end="url(#arrow-push)"/>
+  <text class="t-label" x="100" y="80" text-anchor="middle">情報を発信</text>
+
+  <!-- 受信者 circle -->
+  <circle class="actor-push" cx="160" cy="90" r="22"/>
+  <text class="t-actor" x="160" y="94" text-anchor="middle">受信者</text>
+
+  <!-- Note -->
+  <text class="t-note" x="100" y="135" text-anchor="middle">読まれるかは受信者次第</text>
+
+  <!-- Examples header -->
+  <text class="t-label" x="100" y="170" text-anchor="middle" font-weight="bold" fill="#1a3a5c">具体例</text>
+  <text class="t-example" x="100" y="190" text-anchor="middle">電子メール</text>
+  <text class="t-example" x="100" y="208" text-anchor="middle">手紙</text>
+
+  <!-- Push initiative summary -->
+  <line class="divider" x1="20" y1="230" x2="180" y2="230"/>
+  <text class="t-note" x="100" y="248" text-anchor="middle">送信者がイニシアチブ</text>
+  <text class="t-note" x="100" y="265" text-anchor="middle">能動: 送る側</text>
+
+  <!-- Center divider -->
+  <line class="divider" x1="200" y1="20" x2="200" y2="270"/>
+
+  <!-- RIGHT column: プル型 -->
+  <rect class="col-pull" x="210" y="10" width="180" height="32" rx="6"/>
+  <text class="t-title" x="300" y="30" text-anchor="middle">プル型</text>
+
+  <!-- 受信者 circle -->
+  <circle class="actor-pull" cx="240" cy="90" r="22"/>
+  <text class="t-actor" x="240" y="94" text-anchor="middle">受信者</text>
+
+  <!-- Arrow → 情報源 (dashed = receiver pulls) -->
+  <line class="arrow-pull" x1="265" y1="90" x2="335" y2="90" marker-end="url(#arrow-pull)"/>
+  <text class="t-label" x="300" y="80" text-anchor="middle">アクセス</text>
+
+  <!-- 情報源 circle -->
+  <circle class="actor-pull" cx="360" cy="90" r="22"/>
+  <text class="t-actor" x="360" y="94" text-anchor="middle">情報源</text>
+
+  <!-- Note -->
+  <text class="t-note" x="300" y="135" text-anchor="middle">必要な時にアクセス</text>
+
+  <!-- Examples header -->
+  <text class="t-label" x="300" y="170" text-anchor="middle" font-weight="bold" fill="#1a3a5c">具体例</text>
+  <text class="t-example" x="300" y="190" text-anchor="middle">ポータル・イントラ</text>
+  <text class="t-example" x="300" y="208" text-anchor="middle">e ラーニング</text>
+
+  <!-- Pull initiative summary -->
+  <line class="divider" x1="220" y1="230" x2="380" y2="230"/>
+  <text class="t-note" x="300" y="248" text-anchor="middle">受信者がイニシアチブ</text>
+  <text class="t-note" x="300" y="265" text-anchor="middle">能動: 受け取る側</text>
+
+  <!-- サマリー -->
+  <line class="divider" x1="20" y1="295" x2="380" y2="295"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c" x="200" y="326" text-anchor="middle">使い分けのポイント</text>
+  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" x="20" y="340" width="170" height="70" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" x="105" y="360" text-anchor="middle">プッシュ型</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="105" y="378" text-anchor="middle">緊急連絡・全員周知</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="105" y="396" text-anchor="middle">確実な配信が必要な場面</text>
+  <rect fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" x="210" y="340" width="170" height="70" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" x="295" y="360" text-anchor="middle">プル型</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="295" y="378" text-anchor="middle">リファレンス・マニュアル</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="295" y="396" text-anchor="middle">必要時のアクセスに適合</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="200" y="444" text-anchor="middle">PMBOKでは両方式を組み合わせた</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="200" y="462" text-anchor="middle">コミュニケーション計画の策定を推奨</text>
+</svg>

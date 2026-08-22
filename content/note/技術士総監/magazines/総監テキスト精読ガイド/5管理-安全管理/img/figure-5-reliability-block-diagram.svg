@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="980" viewBox="0 0 1200 980">
+  <rect width="1200" height="980" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">信頼性ブロック図 — 直列・並列・複合</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">計算公式と典型例（R6 Ⅰ-1-31 構造）</text>
+
+  <rect x="40" y="130" width="1120" height="220" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="60" y="166" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#1a3a5c">① 直列システム</text>
+  <text x="60" y="194" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">すべての要素が正常でなければ動かない</text><line x1="80" y1="248" x2="120" y2="248" stroke="#222222" stroke-width="3"/>
+  <rect x="120" y="218" width="140" height="60" rx="8" fill="#2e6da4" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="190" y="257" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">R₁</text><line x1="260" y1="248" x2="320" y2="248" stroke="#222222" stroke-width="3"/>
+  <rect x="320" y="218" width="140" height="60" rx="8" fill="#2e6da4" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="390" y="257" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">R₂</text><line x1="460" y1="248" x2="520" y2="248" stroke="#222222" stroke-width="3"/>
+  <rect x="520" y="218" width="140" height="60" rx="8" fill="#2e6da4" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="590" y="257" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">R₃</text><line x1="660" y1="248" x2="720" y2="248" stroke="#222222" stroke-width="3"/>
+  <text x="1140" y="240" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#222222" text-anchor="end">R = R₁ × R₂ × R₃</text>
+  <text x="1140" y="272" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555" text-anchor="end">例：R=0.9 → 0.9³ = 0.729</text>
+  <text x="1140" y="300" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555" text-anchor="end">直列接続は弱点に引っ張られる</text>
+  <rect x="40" y="382" width="1120" height="260" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="60" y="418" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#3a7d44">② 並列システム</text>
+  <text x="60" y="446" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">いずれかの要素が正常であれば動く（冗長化）</text><line x1="180" y1="492" x2="180" y2="592" stroke="#222222" stroke-width="3"/><line x1="440" y1="492" x2="440" y2="592" stroke="#222222" stroke-width="3"/><line x1="120" y1="542" x2="180" y2="542" stroke="#222222" stroke-width="3"/><line x1="440" y1="542" x2="500" y2="542" stroke="#222222" stroke-width="3"/><line x1="180" y1="492" x2="240" y2="492" stroke="#222222" stroke-width="3"/>
+  <rect x="240" y="472" width="140" height="40" rx="8" fill="#3a7d44" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="310" y="501" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">R₁</text><line x1="380" y1="492" x2="440" y2="492" stroke="#222222" stroke-width="3"/><line x1="180" y1="542" x2="240" y2="542" stroke="#222222" stroke-width="3"/>
+  <rect x="240" y="522" width="140" height="40" rx="8" fill="#3a7d44" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="310" y="551" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">R₂</text><line x1="380" y1="542" x2="440" y2="542" stroke="#222222" stroke-width="3"/><line x1="180" y1="592" x2="240" y2="592" stroke="#222222" stroke-width="3"/>
+  <rect x="240" y="572" width="140" height="40" rx="8" fill="#3a7d44" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="310" y="601" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">R₃</text><line x1="380" y1="592" x2="440" y2="592" stroke="#222222" stroke-width="3"/>
+  <text x="1140" y="522" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#222222" text-anchor="end">R = 1 − (1−R₁)(1−R₂)(1−R₃)</text>
+  <text x="1140" y="554" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555" text-anchor="end">例：R=0.9 → 1 − 0.1³ = 0.999</text>
+  <text x="1140" y="582" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555" text-anchor="end">並列接続は信頼度が大幅向上</text>
+  <rect x="40" y="674" width="1120" height="220" rx="10" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="60" y="710" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#b22234">③ 複合システム（並列を直列結合）</text>
+  <text x="60" y="738" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">並列部の信頼度を計算 → 直列に結合（R6 Ⅰ-1-31 型）</text><line x1="190" y1="779" x2="190" y2="829" stroke="#222222" stroke-width="3"/><line x1="400" y1="779" x2="400" y2="829" stroke="#222222" stroke-width="3"/><line x1="140" y1="804" x2="190" y2="804" stroke="#222222" stroke-width="3"/><line x1="190" y1="779" x2="240" y2="779" stroke="#222222" stroke-width="3"/>
+  <rect x="240" y="759" width="110" height="40" rx="8" fill="#2e6da4" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="295" y="788" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">R₁</text><line x1="350" y1="779" x2="400" y2="779" stroke="#222222" stroke-width="3"/><line x1="190" y1="829" x2="240" y2="829" stroke="#222222" stroke-width="3"/>
+  <rect x="240" y="809" width="110" height="40" rx="8" fill="#2e6da4" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="295" y="838" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">R₃</text><line x1="350" y1="829" x2="400" y2="829" stroke="#222222" stroke-width="3"/><line x1="400" y1="804" x2="450" y2="804" stroke="#222222" stroke-width="3"/><line x1="450" y1="779" x2="450" y2="829" stroke="#222222" stroke-width="3"/><line x1="660" y1="779" x2="660" y2="829" stroke="#222222" stroke-width="3"/><line x1="450" y1="779" x2="500" y2="779" stroke="#222222" stroke-width="3"/>
+  <rect x="500" y="759" width="110" height="40" rx="8" fill="#2e6da4" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="555" y="788" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">R₂</text><line x1="610" y1="779" x2="660" y2="779" stroke="#222222" stroke-width="3"/><line x1="450" y1="829" x2="500" y2="829" stroke="#222222" stroke-width="3"/>
+  <rect x="500" y="809" width="110" height="40" rx="8" fill="#2e6da4" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="555" y="838" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">R₄</text><line x1="610" y1="829" x2="660" y2="829" stroke="#222222" stroke-width="3"/><line x1="660" y1="804" x2="710" y2="804" stroke="#222222" stroke-width="3"/>
+  <text x="1140" y="784" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="end">R = R₁₃ × R₂₄</text>
+  <text x="1140" y="816" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555" text-anchor="end">R₁=R₃=0.8 → R₁₃=0.96</text>
+  <text x="1140" y="844" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555" text-anchor="end">R₂=R₄=0.7 → R₂₄=0.91 → R=0.874</text>
+
+</svg>

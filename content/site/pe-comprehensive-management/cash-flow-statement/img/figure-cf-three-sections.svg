@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="営業・投資・財務キャッシュ・フローの違い：何の現金か、流入と流出の取引例、望ましい符号の読み方を3区分で比較" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
+  <rect width="400" height="500" fill="#ffffff" stroke="#d7d7d7"/>
+
+  <!-- Title -->
+  <text x="200" y="26" text-anchor="middle" font-size="11" fill="#555">何の現金か・符号の読み方・何がわかるか</text>
+
+  <!-- ===== Row 1: 営業CF (brand) ===== -->
+  <rect x="3" y="50" width="70" height="126" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="38" y="108" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">営業CF</text>
+  <text x="38" y="128" text-anchor="middle" font-size="11" fill="#2e6da4">稼ぐ力</text>
+
+  <rect x="75" y="50" width="322" height="126" fill="#ffffff" stroke="#d7d7d7"/>
+  <text x="85" y="78" font-size="12.5" font-weight="bold" fill="#222">本業で稼いだ現金の増減</text>
+  <text x="85" y="104" font-size="11.5" fill="#3a7d44">＋ 売上代金の回収</text>
+  <text x="85" y="126" font-size="11.5" fill="#b22234">− 仕入・人件費・税金の支払</text>
+  <rect x="85" y="142" width="302" height="26" rx="4" fill="#d0e8d0" stroke="#3a7d44"/>
+  <text x="95" y="159" font-size="11" fill="#1a3a5c">望ましい符号：＋（−が続くと黒字倒産リスク）</text>
+
+  <!-- ===== Row 2: 投資CF (positive green) ===== -->
+  <rect x="3" y="178" width="70" height="126" fill="#d0e8d0" stroke="#3a7d44"/>
+  <text x="38" y="236" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">投資CF</text>
+  <text x="38" y="256" text-anchor="middle" font-size="11" fill="#3a7d44">将来性</text>
+
+  <rect x="75" y="178" width="322" height="126" fill="#ffffff" stroke="#d7d7d7"/>
+  <text x="85" y="206" font-size="12.5" font-weight="bold" fill="#222">将来に向けた投資と資産の回収</text>
+  <text x="85" y="232" font-size="11.5" fill="#b22234">− 設備・有価証券の取得（投資）</text>
+  <text x="85" y="254" font-size="11.5" fill="#3a7d44">＋ 固定資産・有価証券の売却</text>
+  <rect x="85" y="270" width="302" height="26" rx="4" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="95" y="287" font-size="11" fill="#1a3a5c">−が前向き（成長投資中）／＋は資産売却のサイン</text>
+
+  <!-- ===== Row 3: 財務CF (warn amber) ===== -->
+  <rect x="3" y="306" width="70" height="126" fill="#fff3cd" stroke="#d4a017"/>
+  <text x="38" y="364" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">財務CF</text>
+  <text x="38" y="384" text-anchor="middle" font-size="11" fill="#d4a017">資金繰り</text>
+
+  <rect x="75" y="306" width="322" height="126" fill="#ffffff" stroke="#d7d7d7"/>
+  <text x="85" y="334" font-size="12.5" font-weight="bold" fill="#222">資金の調達と返済の動き</text>
+  <text x="85" y="360" font-size="11.5" fill="#3a7d44">＋ 借入・社債発行・増資（調達）</text>
+  <text x="85" y="382" font-size="11.5" fill="#b22234">− 返済・自社株買い・配当（流出）</text>
+  <rect x="85" y="398" width="302" height="26" rx="4" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="95" y="415" font-size="11" fill="#1a3a5c">−は返済＝負担減で健全／＋は新たな資金調達</text>
+
+  <!-- ===== Summary ===== -->
+  <rect x="3" y="436" width="394" height="56" fill="#f5f5f5" stroke="#d7d7d7" rx="2"/>
+  <text x="200" y="459" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">3区分の合計 ＝ 現金及び現金同等物の増減額</text>
+  <text x="200" y="479" text-anchor="middle" font-size="11" fill="#555">営業＋・投資−・財務− が健全な成熟企業の型</text>
+</svg>

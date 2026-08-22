@@ -1,0 +1,124 @@
+---
+title: 線形回帰と最小二乗法
+description: "線形回帰分析の基本モデル（単回帰・重回帰）と最小二乗法による係数推定を解説。決定係数、残差分析、多重共線性などの実務的留意点も整理する。技術士総合技術監理キーワード集2026（情報管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '4.1'
+tags:
+  - 総合技術監理
+  - keyword
+published: true
+reviewStatus: approved
+lastRewrittenAt: '2026-04-17'
+revisionCycle: 1
+publishedAt: '2026-04-08'
+seoTitle: "線形回帰と最小二乗法 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-06-29
+---
+
+## 線形回帰とは
+
+線形回帰（Linear Regression）とは、**結果となる数値**と**要因となる数値**の関係を調べて、変数 $x$ を用いて変数 $y$ を $y = f(x)$ の形で表す統計手法である。要因となる数値 $x$ を **説明変数**（独立変数）、結果となる数値 $y$ を **被説明変数**（目的変数・従属変数）と呼ぶ。
+
+説明変数が 1 つの場合を **単回帰分析**、複数の場合を **重回帰分析** という。
+
+土木分野では、コンクリートの圧縮強度と配合条件の関係、工事費と工事規模の関係など、定量的な予測に広く用いられる。
+
+### 単回帰モデル
+
+説明変数 $x$ から目的変数 $y$ を予測する単回帰モデルは以下で表される。
+
+$$
+y = \beta_0 + \beta_1 x + \varepsilon
+$$
+
+$\beta_0$ は切片（定数項）、$\beta_1$ は回帰係数（傾き）、$\varepsilon$ は誤差項である。
+
+### 重回帰モデル
+
+説明変数が $p$ 個ある場合の重回帰モデルは以下で表される。
+
+$$
+y = \beta_0 + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_p x_p + \varepsilon
+$$
+
+重回帰分析では、各説明変数が目的変数に与える影響の大きさを偏回帰係数で評価できる。
+
+### 最小二乗法
+
+最小二乗法（Ordinary Least Squares, OLS）は、残差の二乗和を最小化することで回帰係数を推定する方法である。
+
+$$
+\min_{\beta_0, \beta_1} \sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i)^2
+$$
+
+単回帰の場合、回帰係数の推定値は以下で求まる。
+
+$$
+\hat{\beta}_1 = \frac{\displaystyle\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\displaystyle\sum_{i=1}^{n}(x_i - \bar{x})^2}, \quad \hat{\beta}_0 = \bar{y} - \hat{\beta}_1 \bar{x}
+$$
+
+<ExamPoint
+  summary="単回帰と重回帰の違い、最小二乗法の原理が問われやすい"
+  items={[
+    "単回帰：説明変数1つ",
+    "重回帰：説明変数が複数",
+    "最小二乗法は残差の二乗和を最小化して係数を推定する手法",
+    "目的変数が連続量のときは回帰分析、二値のときはロジスティック回帰を用いる",
+  ]}
+/>
+
+### 決定係数
+
+回帰モデルの当てはまりの良さを示す指標が決定係数 $R^2$ である。
+
+$$
+R^2 = 1 - \frac{\displaystyle\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}{\displaystyle\sum_{i=1}^{n}(y_i - \bar{y})^2}
+$$
+
+$R^2$ は 0 から 1 の値をとり、1 に近いほどモデルの説明力が高い。
+
+重回帰分析では説明変数を増やすと $R^2$ が必ず増加するため、変数の数で調整した自由度調整済み決定係数 $R^2_{\text{adj}}$ を用いる。
+
+### 回帰分析の実務的留意点
+
+回帰分析を実務で適用する際は、以下の4点に注意が必要である。
+
+- **多重共線性**: 説明変数間に強い相関があると係数の推定が不安定になる。VIF（分散拡大係数）で診断する
+- **残差分析**: 残差の正規性・等分散性・独立性を確認し、モデルの妥当性を検証する
+- **外れ値の影響**: 最小二乗法は外れ値の影響を受けやすい。ロバスト回帰の検討も必要である
+- **過学習**: 変数を増やしすぎると訓練データへの過適合が生じる。AIC・BIC で変数選択を行う
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**4.1 情報分析と情報活用**](/docs/pe-comprehensive-management-keyword-2026#41-情報分析と情報活用)に位置づけられる。
+
+線形回帰は相関分析と密接に関連するが、相関分析が「2変数の関連の強さ」を測るのに対し、回帰分析は「一方から他方を予測する式を求める」点で異なる。
+
+目的変数が二値（有・無、合格・不合格など）の場合は [ロジスティック回帰](/docs/pe-comprehensive-management-logistic-regression) を用いる。[相関分析](/docs/pe-comprehensive-management-correlation-analysis) で関連の強さを見積もった後、[記述統計](/docs/pe-comprehensive-management-descriptive-statistics) とあわせて [推定・検定](/docs/pe-comprehensive-management-estimation-testing) で評価する。
+
+過去問 [R04 Ⅰ-1-3](/docs/pe-comprehensive-management-r04-primary#1-3) では [需要予測](/docs/pe-comprehensive-management-demand-forecasting) の文脈で回帰分析による時系列予測手法が問われ、[R04 Ⅰ-1-17](/docs/pe-comprehensive-management-r04-primary#1-17) ではスーパーマーケットの売上金額に対する最寄り駅距離・店舗面積の影響分析に「重回帰分析」が正答として問われた（連続量目的変数 + 説明変数複数 → 重回帰）。
+
+過去問 [R02 Ⅰ-1-20](/docs/pe-comprehensive-management-r02-primary#1-20) では「変数 x を用いて変数 y の将来値を予測する予測式を求める」= **回帰分析** が正答として問われた。誤答肢の「主成分分析」は次元縮約手法であり、予測式の導出が目的ではない点が誤答識別の核心。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/linear-regression/img/figure-method-selection.svg"
+  alt="データ分析手法の使い分け：目的変数なし→クラスター分析、二値→ロジスティック回帰、連続量→回帰分析（単回帰・重回帰）"
+/>
+
+<RelatedKeywords items={[
+  { label: "相関分析", slug: "correlation-analysis" },
+  { label: "記述統計", slug: "descriptive-statistics" },
+  { label: "推定・検定", slug: "estimation-testing" },
+  { label: "クラスター分析", slug: "cluster-analysis" },
+  { label: "ロジスティック回帰", slug: "logistic-regression" },
+]} />
+
+## 参考資料
+
+線形回帰と最小二乗法の理解を深めるための参考資料を示す。
+
+- [線形回帰と最小二乗法](https://ocw.u-tokyo.ac.jp/lecture_2451/)（東京大学 OpenCourseWare）
+- [27-2. 最小二乗法](https://bellcurve.jp/statistics/course/24375.html)（統計WEB）

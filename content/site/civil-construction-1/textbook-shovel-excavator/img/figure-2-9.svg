@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="バケット容量の概念図。バックホゥ・ショベル（安息角 1:1）とローディングショベル（安息角 1:2）における山積容量と平積容量の比較">
+  <style>
+    text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; }
+    .bucket { fill: none; stroke: #222; stroke-width: 1.5; }
+    .top-hashes { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+    .flat { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }
+    .label { font-size: 12px; fill: #222; text-anchor: middle; }
+    .ratio { font-size: 12px; fill: #b22234; text-anchor: middle; font-weight: bold; }
+    .title { font-size: 13px; fill: #1a3a5c; text-anchor: middle; font-weight: bold; }
+    .note-box { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+  </style>
+
+  <!-- LEFT: バックホゥ・ショベル（安息角 1:1） -->
+  <text x="100" y="25" class="title">バックホゥ・ショベル</text>
+  <text x="100" y="42" font-size="11" fill="#555" text-anchor="middle">安息角 1:1</text>
+
+  <!-- 山積（1:1） -->
+  <text x="55" y="65" font-size="11" fill="#555" text-anchor="middle">山積容量</text>
+  <polygon points="15,120 55,83 95,120" class="top-hashes"/>
+  <text x="8"  y="100" class="ratio">1</text>
+  <text x="22" y="127" class="ratio">1</text>
+  <text x="90" y="100" class="ratio">1</text>
+  <text x="104" y="127" class="ratio">1</text>
+  <path d="M 15 120 L 15 175 Q 55 193 95 175 L 95 120 L 15 120" class="bucket"/>
+
+  <!-- 平積（左） -->
+  <text x="150" y="65" font-size="11" fill="#555" text-anchor="middle">平積容量</text>
+  <rect x="115" y="115" width="70" height="5" class="flat"/>
+  <path d="M 115 120 L 115 175 Q 150 193 185 175 L 185 120 L 115 120" class="bucket"/>
+
+  <!-- RIGHT: ローディングショベル（安息角 1:2） -->
+  <text x="300" y="25" class="title">ローディングショベル</text>
+  <text x="300" y="42" font-size="11" fill="#555" text-anchor="middle">安息角 1:2</text>
+
+  <!-- 山積（1:2） -->
+  <text x="255" y="65" font-size="11" fill="#555" text-anchor="middle">山積容量</text>
+  <polygon points="215,120 258,103 300,120" class="top-hashes"/>
+  <text x="208" y="109" class="ratio">1</text>
+  <text x="228" y="127" class="ratio">2</text>
+  <text x="292" y="109" class="ratio">1</text>
+  <text x="312" y="127" class="ratio">2</text>
+  <rect x="215" y="120" width="85" height="55" class="bucket"/>
+
+  <!-- 平積（右） -->
+  <text x="360" y="65" font-size="11" fill="#555" text-anchor="middle">平積容量</text>
+  <rect x="320" y="115" width="70" height="5" class="flat"/>
+  <rect x="320" y="120" width="70" height="55" class="bucket"/>
+
+  <!-- 仕切り線 -->
+  <line x1="200" y1="55" x2="200" y2="215" stroke="#d7d7d7" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- 説明ボックス -->
+  <rect x="15" y="215" width="370" height="1" fill="#d7d7d7"/>
+
+  <text x="200" y="238" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">山積：安息角 1:1（バックホゥ/ショベル）</text>
+  <text x="200" y="253" font-size="12" fill="#222" text-anchor="middle" font-weight="bold">／ 1:2（ローディング）</text>
+  <text x="200" y="265" font-size="11" fill="#555" text-anchor="middle">JIS は定格山積容量を表示し、平積容量を併記する</text>
+  <text x="200" y="285" font-size="11" fill="#b22234" text-anchor="middle">※ クラムシェルは平積容量のみで表示</text>
+
+  <!-- 比較表 -->
+  <rect x="15" y="307" width="370" height="100" rx="6" class="note-box"/>
+  <text x="200" y="327" font-size="12" fill="#1a3a5c" text-anchor="middle" font-weight="bold">山積容量 vs 平積容量</text>
+  <line x1="15" y1="335" x2="385" y2="335" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="110" y="353" font-size="11" fill="#555" text-anchor="middle">山積容量</text>
+  <text x="290" y="353" font-size="11" fill="#555" text-anchor="middle">平積容量</text>
+  <line x1="200" y1="338" x2="200" y2="405" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="110" y="373" font-size="11" fill="#222" text-anchor="middle">安息角で盛り上げた量</text>
+  <text x="290" y="373" font-size="11" fill="#222" text-anchor="middle">上縁で平らに均した量</text>
+  <text x="110" y="393" font-size="11" fill="#b22234" text-anchor="middle">定格表示（JIS 基準）</text>
+  <text x="290" y="393" font-size="11" fill="#555" text-anchor="middle">平積係数で換算</text>
+
+  <!-- 凡例 -->
+  <g transform="translate(30,425)">
+    <rect x="0" y="0" width="14" height="8" class="top-hashes"/>
+    <text x="20" y="8" font-size="11" fill="#555">山積（安息角で盛り上げ）</text>
+    <rect x="190" y="0" width="14" height="8" class="flat"/>
+    <text x="210" y="8" font-size="11" fill="#555">平積（上縁で平らに）</text>
+  </g>
+
+  <!-- サマリー -->
+  <text x="200" y="455" font-size="11" fill="#8a8a8a" text-anchor="middle">バケット容量は機械の掘削・積込み能力を示す基本指標</text>
+</svg>

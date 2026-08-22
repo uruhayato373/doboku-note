@@ -1,0 +1,6385 @@
+{
+  "meta": {
+    "startDate": "2026-02-07",
+    "endDate": "2026-05-08",
+    "dimension": "page",
+    "limit": 5000
+  },
+  "A": [
+    {
+      "slug": "360-degree-evaluation",
+      "title": "多面評価",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-360-degree-evaluation",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "access-log-analysis",
+      "title": "アクセスログ分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-access-log-analysis",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "accident-response-drill",
+      "title": "事故対応訓練",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-accident-response-drill",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "accounting-systems",
+      "title": "財務会計・管理会計システム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-accounting-systems",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "achievement-organization",
+      "title": "達成型組織",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-achievement-organization",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "air-pollution-control-act",
+      "title": "大気汚染防止法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-air-pollution-control-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "alert-levels",
+      "title": "警戒レベル",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-alert-levels",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "anonymized-information",
+      "title": "匿名加工情報",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-anonymized-information",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "antitrust-compliance",
+      "title": "独占禁止法とコンプライアンス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-antitrust-compliance",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "api",
+      "title": "API",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-api",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "asbestos-issue",
+      "title": "アスベスト問題",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-asbestos-issue",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "backcasting",
+      "title": "バックキャスティング",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-backcasting",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "basel-convention",
+      "title": "バーゼル条約",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-basel-convention",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "bid-rigging",
+      "title": "談合",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-bid-rigging",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "biosafety",
+      "title": "バイオセーフティ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-biosafety",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "blockchain-crypto",
+      "title": "ブロックチェーン・暗号資産",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-blockchain-crypto",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "budget-planning",
+      "title": "予算計画",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-budget-planning",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "carbon-neutral",
+      "title": "カーボンニュートラル",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-carbon-neutral",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "carbon-pricing",
+      "title": "環境税・カーボンプライシング",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-carbon-pricing",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "career-ownership",
+      "title": "キャリアオーナーシップ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-career-ownership",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "career-track-system",
+      "title": "総合職・一般職",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-career-track-system",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "cdp-sbt-re100",
+      "title": "CDP・SBT・RE100",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-cdp-sbt-re100",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "child-rearing-support-act",
+      "title": "次世代育成支援対策推進法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-child-rearing-support-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "child-support-act",
+      "title": "子ども・子育て支援法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-child-support-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "circular-economy",
+      "title": "サーキュラーエコノミー",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-circular-economy",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "cites",
+      "title": "ワシントン条約",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-cites",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "civil-protection-act",
+      "title": "国民保護法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-civil-protection-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "clearance-level",
+      "title": "クリアランスレベル",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-clearance-level",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "climate-change-adaptation-act",
+      "title": "気候変動適応法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-climate-change-adaptation-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "climate-change-international",
+      "title": "気候変動・国際対応",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-climate-change-international",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "cloud-on-premises",
+      "title": "クラウドコンピューティング／オンプレミス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-cloud-on-premises",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "communication-control",
+      "title": "コミュニケーション・コントロール",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-communication-control",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "confidentiality",
+      "title": "機密性",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-confidentiality",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "consensus-instruments",
+      "title": "合意的手法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-consensus-instruments",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "construction-plan",
+      "title": "工事計画",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-construction-plan",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "consumer-safety",
+      "title": "消費者安全",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-consumer-safety",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "contingency",
+      "title": "不測事態",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-contingency",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "convention-on-biodiversity",
+      "title": "生物多様性条約",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-convention-on-biodiversity",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "correlation-analysis",
+      "title": "相関分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-correlation-analysis",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "cost-maintenance",
+      "title": "原価維持",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-cost-maintenance",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "cpd",
+      "title": "CPD",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-cpd",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "crisis-communication",
+      "title": "危機広報",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-crisis-communication",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "crisis-management-manual",
+      "title": "危機管理マニュアル",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-crisis-management-manual",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "crisis-priority",
+      "title": "優先順位",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-crisis-priority",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "crm-system",
+      "title": "顧客管理システム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-crm-system",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "csr",
+      "title": "CSR",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-csr",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "customer-satisfaction",
+      "title": "顧客満足（CS）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-customer-satisfaction",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "data-cleansing",
+      "title": "データクレンジング",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-data-cleansing",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "data-collection",
+      "title": "データ収集",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-data-collection",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "data-governance",
+      "title": "データガバナンス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-data-governance",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "data-mining",
+      "title": "データマイニング",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-data-mining",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "data-visualization",
+      "title": "データ可視化",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-data-visualization",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "data-warehouse",
+      "title": "データウェアハウス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-data-warehouse",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "demand-forecasting",
+      "title": "需要予測",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-demand-forecasting",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "depreciation",
+      "title": "減価償却",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-depreciation",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "design-for-environment",
+      "title": "環境適合設計",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-design-for-environment",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "design-in",
+      "title": "デザインイン",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-design-in",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "design-review",
+      "title": "デザインレビュー",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-design-review",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "direct-manufacturing-cost",
+      "title": "製造直接費",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-direct-manufacturing-cost",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "disability-employment",
+      "title": "障害者雇用",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-disability-employment",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "disability-employment-act",
+      "title": "障害者雇用促進法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-disability-employment-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "disaster-drill",
+      "title": "防災訓練",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-disaster-drill",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "disaster-prevention",
+      "title": "防災",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-disaster-prevention",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "disaster-weather-info",
+      "title": "防災気象情報",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-disaster-weather-info",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "eco-drr",
+      "title": "Eco-DRR",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-eco-drr",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "eco-label",
+      "title": "環境ラベル",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-eco-label",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "economic-management-pillar",
+      "title": "経済性管理",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "ecosystem-services",
+      "title": "生態系サービス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ecosystem-services",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "elsi",
+      "title": "ELSI",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-elsi",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "emergency",
+      "title": "緊急事態",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-emergency",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "emergency-stop-device",
+      "title": "非常停止装置",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-emergency-stop-device",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "employee-benefits",
+      "title": "福利厚生",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-employee-benefits",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "environmental-accounting",
+      "title": "環境会計",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-environmental-accounting",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "environmental-basic-act",
+      "title": "環境基本法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-environmental-basic-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "environmental-communication",
+      "title": "環境コミュニケーション",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-environmental-communication",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "environmental-standards",
+      "title": "環境基準",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-environmental-standards",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "equal-pay-for-equal-work",
+      "title": "同一労働同一賃金",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-equal-pay-for-equal-work",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "equipment-maintainability",
+      "title": "設備の保全性",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-equipment-maintainability",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "erp",
+      "title": "ERP",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-erp",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "esd",
+      "title": "ESD",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-esd",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "esg-environmental-assessment",
+      "title": "ESG・環境評価",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-esg-environmental-assessment",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "esg-investment",
+      "title": "ESG投資・ESG金融",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-esg-investment",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "estimation-testing",
+      "title": "推定・検定",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-estimation-testing",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "evaluation-bias",
+      "title": "バイアス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-evaluation-bias",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "extrinsic-motivation",
+      "title": "外発的動機付け",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-extrinsic-motivation",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "fail-soft",
+      "title": "フェールソフト",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-fail-soft",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "fire-service-act",
+      "title": "消防法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-fire-service-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "firewall-ids",
+      "title": "ファイアウォール・侵入検知",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-firewall-ids",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "fixed-communication",
+      "title": "固定通信",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-fixed-communication",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "flat-organization",
+      "title": "フラット組織",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-flat-organization",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "flextime-system",
+      "title": "フレックスタイム制",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-flextime-system",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "fmea",
+      "title": "FMEA",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-fmea",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "followership",
+      "title": "フォロワーシップ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-followership",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "foreign-trainee-program",
+      "title": "外国人研修・技能実習制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-foreign-trainee-program",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "forests-villages-rivers-seas",
+      "title": "森里川海プロジェクト",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-forests-villages-rivers-seas",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "four-m-analysis",
+      "title": "事故の4M要因分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-four-m-analysis",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "four-m-of-production",
+      "title": "生産の4M",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-four-m-of-production",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "game-theory",
+      "title": "ゲーム理論",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-game-theory",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "gantt-chart",
+      "title": "ガントチャート",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-gantt-chart",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "gender-equality-act",
+      "title": "男女共同参画社会基本法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-gender-equality-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "global-compact",
+      "title": "グローバル・コンパクト",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-global-compact",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "global-hr-development",
+      "title": "グローバル人材開発",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-global-hr-development",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "global-warming-countermeasures-act",
+      "title": "地球温暖化対策推進法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-global-warming-countermeasures-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "green-bond",
+      "title": "グリーンボンド",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-green-bond",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "green-transformation",
+      "title": "グリーントランスフォーメーション（GX）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-green-transformation",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "h21-primary",
+      "title": "技術士二次試験 総合技術監理部門 平成21年度 択一式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h21-primary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "h21-secondary",
+      "title": "技術士二次試験 総合技術監理部門 平成21年度 記述式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h21-secondary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "h22-primary",
+      "title": "技術士二次試験 総合技術監理部門 平成22年度 択一式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h22-primary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "h22-secondary",
+      "title": "技術士二次試験 総合技術監理部門 平成22年度 記述式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h22-secondary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "h23-primary",
+      "title": "技術士二次試験 総合技術監理部門 平成23年度 択一式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h23-primary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "h23-secondary",
+      "title": "技術士二次試験 総合技術監理部門 平成23年度 記述式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h23-secondary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "h24-primary",
+      "title": "技術士二次試験 総合技術監理部門 平成24年度 択一式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h24-primary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "h24-secondary",
+      "title": "技術士二次試験 総合技術監理部門 平成24年度 記述式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h24-secondary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "h25-primary",
+      "title": "技術士二次試験 総合技術監理部門 平成25年度 択一式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h25-primary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "h25-secondary",
+      "title": "技術士二次試験 総合技術監理部門 平成25年度 記述式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h25-secondary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "h26-primary",
+      "title": "技術士二次試験 総合技術監理部門 平成26年度 択一式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h26-primary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "h26-secondary",
+      "title": "技術士二次試験 総合技術監理部門 平成26年度 記述式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h26-secondary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "h27-primary",
+      "title": "技術士二次試験 総合技術監理部門 平成27年度 択一式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h27-primary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "h27-secondary",
+      "title": "技術士二次試験 総合技術監理部門 平成27年度 記述式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h27-secondary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "h28-primary",
+      "title": "技術士二次試験 総合技術監理部門 平成28年度 択一式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h28-primary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "h28-secondary",
+      "title": "技術士二次試験 総合技術監理部門 平成28年度 記述式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h28-secondary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "h29-secondary",
+      "title": "技術士二次試験 総合技術監理部門 平成29年度 記述式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h29-secondary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "h30-secondary",
+      "title": "技術士二次試験 総合技術監理部門 平成30年度 記述式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h30-secondary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "hazard-map",
+      "title": "ハザードマップ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-hazard-map",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "hazardous-facility-disaster-prevention",
+      "title": "危険物施設防災",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-hazardous-facility-disaster-prevention",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "health-management",
+      "title": "健康経営",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-health-management",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "heinrich-law",
+      "title": "ハインリッヒの法則",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-heinrich-law",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "hierarchical-training",
+      "title": "階層別研修",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-hierarchical-training",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "hr-systems",
+      "title": "人事システム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-hr-systems",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "human-relations-management",
+      "title": "人間関係管理",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-human-relations-management",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "human-resource-assessment",
+      "title": "人材アセスメント",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-human-resource-assessment",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "idea-generation-methods",
+      "title": "発想法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-idea-generation-methods",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "immigration-control-act",
+      "title": "出入国管理及び難民認定法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-immigration-control-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "income-statement",
+      "title": "損益計算書",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-income-statement",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "individual-labor-dispute-act",
+      "title": "個別労働紛争解決促進法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-individual-labor-dispute-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "infectious-disease-pandemic",
+      "title": "感染症・パンデミック",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-infectious-disease-pandemic",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "information-disclosure",
+      "title": "情報開示",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-information-disclosure",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "information-retrieval",
+      "title": "情報検索",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-information-retrieval",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "integrity-security",
+      "title": "完全性",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-integrity-security",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "internal-rate-of-return",
+      "title": "内部収益率法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-internal-rate-of-return",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "international-filing-system",
+      "title": "国際出願制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-international-filing-system",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "internship",
+      "title": "インターンシップ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-internship",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "interpersonal-skills",
+      "title": "対人能力",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-interpersonal-skills",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "intrinsic-motivation",
+      "title": "内発的動機付け",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-intrinsic-motivation",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "ip-creation",
+      "title": "知的財産の創造",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ip-creation",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "ipbes",
+      "title": "IPBES",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ipbes",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "job-based-pay",
+      "title": "職務給",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-job-based-pay",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "job-execution-ability",
+      "title": "職務遂行能力",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-job-execution-ability",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "job-grade-system",
+      "title": "職務等級制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-job-grade-system",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "job-order-costing",
+      "title": "個別原価計算",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-job-order-costing",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "job-type-employment",
+      "title": "ジョブ型",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-job-type-employment",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "labor-contract-act",
+      "title": "労働契約法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-labor-contract-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "labor-cost-ratio",
+      "title": "労務費率",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-labor-cost-ratio",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "labor-productivity",
+      "title": "労働生産性",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-labor-productivity",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "labor-relations-adjustment-act",
+      "title": "労働関係調整法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-labor-relations-adjustment-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "labor-tribunal-act",
+      "title": "労働審判法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-labor-tribunal-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "lgbtq",
+      "title": "LGBTQ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-lgbtq",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "lifecycle-management",
+      "title": "ライフサイクルマネジメント",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-lifecycle-management",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "linear-regression",
+      "title": "線形回帰と最小二乗法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-linear-regression",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "logistic-regression",
+      "title": "ロジスティック回帰",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-logistic-regression",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "long-term-strategy-2050",
+      "title": "2050 年長期戦略",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-long-term-strategy-2050",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "malware",
+      "title": "マルウェア",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-malware",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "management-tradeoffs",
+      "title": "総合技術監理における5管理間トレードオフ 頻出パターンと解決フレーム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-management-tradeoffs",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "mandatory-management-retirement",
+      "title": "役職定年制",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-mandatory-management-retirement",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "market-research",
+      "title": "市場調査",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-market-research",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "meeting-design",
+      "title": "会議設計",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-meeting-design",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "mental-health",
+      "title": "メンタルヘルス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-mental-health",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "mental-health-care",
+      "title": "メンタルヘルスケア",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-mental-health-care",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "minamata-convention",
+      "title": "水俣条約",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-minamata-convention",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "mobile-communication",
+      "title": "移動通信",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-mobile-communication",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "multi-factor-authentication",
+      "title": "多要素認証",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-multi-factor-authentication",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "my-number-act",
+      "title": "マイナンバー法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-my-number-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "nagoya-protocol",
+      "title": "名古屋議定書",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-nagoya-protocol",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "national-resilience-act",
+      "title": "国土強靱化基本法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-national-resilience-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "nature-conservation-act",
+      "title": "自然環境保全法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-nature-conservation-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "nature-restoration-act",
+      "title": "自然再生推進法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-nature-restoration-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "network-organization",
+      "title": "ネットワーク組織",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-network-organization",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "npv-net-present-value",
+      "title": "NPV",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-npv-net-present-value",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "nuclear-disaster-act",
+      "title": "原子力災害対策特別措置法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-nuclear-disaster-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "occupational-disease",
+      "title": "職業病",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-occupational-disease",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "ocean-plastic",
+      "title": "海洋プラスチック問題",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ocean-plastic",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "online-meetings",
+      "title": "オンライン会議・Web会議",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-online-meetings",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "opt-in-opt-out",
+      "title": "オプトイン／オプトアウト",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-opt-in-opt-out",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "ozone-layer-protection",
+      "title": "オゾン層保護",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ozone-layer-protection",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "partnership",
+      "title": "パートナーシップ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-partnership",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "pattern-essay-environment-survey",
+      "title": "総監記述式 模範論文｜環境調査事務所",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-environment-survey",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "pattern-essay-general-contractor",
+      "title": "総監記述式 模範論文｜ゼネコン土木支店",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-general-contractor",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "pattern-essay-river-consultant",
+      "title": "総監記述式 模範論文｜建設コンサル 河川・砂防",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-river-consultant",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "pattern-essay-road-municipality",
+      "title": "総監記述式 模範論文｜地方公共団体 道路担当",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "pdca-cycle",
+      "title": "PDCAサイクル",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pdca-cycle",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "personal-info-utilization",
+      "title": "個人情報の活用・流通",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-personal-info-utilization",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "pert-cpm",
+      "title": "PERT/CPM",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pert-cpm",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "pfi",
+      "title": "PFI",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pfi",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "phishing-pharming",
+      "title": "フィッシング詐欺・ファーミング詐欺",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-phishing-pharming",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "pm-theory",
+      "title": "PM理論",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pm-theory",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "positive-action",
+      "title": "ポジティブアクション",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-positive-action",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "precautionary-principle",
+      "title": "予防原則",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-precautionary-principle",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "prior-use-rights",
+      "title": "先使用権制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-prior-use-rights",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "private-monopoly",
+      "title": "私的独占",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-private-monopoly",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "problem-setting-ability",
+      "title": "課題設定能力",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-problem-setting-ability",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "process-costing",
+      "title": "総合原価計算",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-process-costing",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "progress-management",
+      "title": "進捗管理",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-progress-management",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "public-private-data-act",
+      "title": "官民データ活用推進基本法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-public-private-data-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "public-relations",
+      "title": "パブリック・リレーションズ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-public-relations",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "quality-assurance",
+      "title": "品質保証",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-quality-assurance",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "quality-control",
+      "title": "品質管理",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-quality-control",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r01-secondary",
+      "title": "技術士二次試験 総合技術監理部門 令和元年度 記述式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r01-secondary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r02-primary",
+      "title": "技術士二次試験 総合技術監理部門 令和2年度 択一式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r02-primary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r02-secondary",
+      "title": "技術士二次試験 総合技術監理部門 令和2年度 記述式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r02-secondary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r03-essay-environment-survey",
+      "title": "令和3年度 総監記述式 模範論文｜環境調査事務所版（データ利活用）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r03-essay-environment-survey",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r03-essay-general-contractor",
+      "title": "令和3年度 総監記述式 模範論文｜ゼネコン版（データ利活用）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r03-essay-general-contractor",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r03-essay-river-consultant",
+      "title": "令和3年度 総監記述式 模範論文｜コンサル河川版（データ利活用）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r03-essay-river-consultant",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r03-secondary",
+      "title": "技術士二次試験 総合技術監理部門 令和3年度 記述式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r03-secondary",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r04-essay-environment-survey",
+      "title": "令和4年度 総監記述式 模範論文｜環境調査事務所版（DX 推進計画）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r04-essay-environment-survey",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r04-essay-general-contractor",
+      "title": "令和4年度 総監記述式 模範論文｜ゼネコン版（DX 推進計画）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r04-essay-general-contractor",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r04-essay-river-consultant",
+      "title": "令和4年度 総監記述式 模範論文｜コンサル河川版（DX 推進計画）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r04-essay-river-consultant",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r05-essay-environment-survey",
+      "title": "令和5年度 総監記述式 模範論文｜環境調査事務所版（SWOT 分析）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r05-essay-environment-survey",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r05-essay-general-contractor",
+      "title": "令和5年度 総監記述式 模範論文｜ゼネコン版（SWOT 分析）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r05-essay-general-contractor",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r05-essay-river-consultant",
+      "title": "令和5年度 総監記述式 模範論文｜コンサル河川版（SWOT 分析）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r05-essay-river-consultant",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r05-essay-road-municipality",
+      "title": "令和5年度 総監記述式 模範論文｜道路発注者版（SWOT分析・戦略立案）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r05-essay-road-municipality",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r06-essay-environment-survey",
+      "title": "令和6年度 総監記述式 模範論文｜環境調査事務所版（カーボンニュートラル）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r06-essay-environment-survey",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r06-essay-general-contractor",
+      "title": "令和6年度 総監記述式 模範論文｜ゼネコン版（カーボンニュートラル）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r06-essay-general-contractor",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r06-essay-river-consultant",
+      "title": "令和6年度 総監記述式 模範論文｜コンサル河川版（カーボンニュートラル）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r06-essay-river-consultant",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r06-essay-road-municipality",
+      "title": "令和6年度 総監記述式 模範論文｜道路発注者版（バイパス整備）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r06-essay-road-municipality",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r07-essay-environment-survey",
+      "title": "令和7年度 総監記述式 模範論文｜環境調査事務所版（少子高齢化）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r07-essay-environment-survey",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r07-essay-general-contractor",
+      "title": "令和7年度 総監記述式 模範論文｜ゼネコン版（少子高齢化）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r07-essay-general-contractor",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r07-essay-river-consultant",
+      "title": "令和7年度 総監記述式 模範論文｜コンサル河川版（少子高齢化）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r07-essay-river-consultant",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "r07-essay-road-municipality",
+      "title": "令和7年度 総監記述式 模範論文｜道路発注者版（橋梁長寿命化）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r07-essay-road-municipality",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "radioactive-waste",
+      "title": "放射性廃棄物",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-radioactive-waste",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "ramsar-convention",
+      "title": "ラムサール条約",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ramsar-convention",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "recruitment-management",
+      "title": "採用管理",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-recruitment-management",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "reliability-maintainability-design",
+      "title": "信頼性設計・保全性設計",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-reliability-maintainability-design",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "required-quality",
+      "title": "要求品質",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-required-quality",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "resilience",
+      "title": "レジリエンス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-resilience",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "reskilling",
+      "title": "リスキリング",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-reskilling",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "risk",
+      "title": "リスク",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-risk",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "risk-analysis",
+      "title": "リスク分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-risk-analysis",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "risk-criteria",
+      "title": "リスク基準",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-risk-criteria",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "risk-management-plan",
+      "title": "リスクマネジメント計画",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-risk-management-plan",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "risk-management-policy",
+      "title": "リスクマネジメント方針",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-risk-management-policy",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "risk-management-system",
+      "title": "リスクマネジメントシステム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-risk-management-system",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "risk-monitoring",
+      "title": "リスクモニタリング",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-risk-monitoring",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "rohs-weee",
+      "title": "RoHS規制・WEEE規制",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-rohs-weee",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "role-grade-system",
+      "title": "役割等級制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-role-grade-system",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "rpa",
+      "title": "RPA",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-rpa",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "safety-culture",
+      "title": "安全文化",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-culture",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "safety-health-education",
+      "title": "安全衛生教育",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-health-education",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "safety-health-policy",
+      "title": "安全衛生方針",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-health-policy",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "safety-investment",
+      "title": "安全投資",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-investment",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "safety-management-system",
+      "title": "安全マネジメントシステム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-management-system",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "sales-management-system",
+      "title": "販売管理システム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-sales-management-system",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "sdgs",
+      "title": "持続可能な開発目標",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-sdgs",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "second-career",
+      "title": "セカンドキャリア",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-second-career",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "security-education",
+      "title": "情報セキュリティ教育",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-security-education",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "security-software",
+      "title": "セキュリティ対策ソフト",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-security-software",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "self-declaration-system",
+      "title": "自己申告制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-self-declaration-system",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "servant-leadership",
+      "title": "サーバントリーダーシップ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-servant-leadership",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "sfa-system",
+      "title": "営業支援システム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-sfa-system",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "smart-safety",
+      "title": "スマート保安",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-smart-safety",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "social-engineering",
+      "title": "ソーシャルエンジニアリング",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-social-engineering",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "sound-water-cycle",
+      "title": "健全な水循環系",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-sound-water-cycle",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "sri",
+      "title": "社会的責任投資",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-sri",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "stakeholder",
+      "title": "ステーク・ホルダー",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-stakeholder",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "standardization-strategy",
+      "title": "標準化戦略",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-standardization-strategy",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "state-secrets-act",
+      "title": "特定秘密保護法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-state-secrets-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "stress-check-system",
+      "title": "ストレスチェック制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-stress-check-system",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "subcontracting-act",
+      "title": "下請法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-subcontracting-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "supply-chain-management",
+      "title": "サプライチェーンマネジメント",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-supply-chain-management",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "system-outage-degradation",
+      "title": "システム停止・性能低下",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-system-outage-degradation",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "system-safety",
+      "title": "システム安全",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-system-safety",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "targeted-attack",
+      "title": "標的型攻撃",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-targeted-attack",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "telework",
+      "title": "テレワーク",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-telework",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "terrorism",
+      "title": "テロリズム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-terrorism",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "timeline-disaster",
+      "title": "タイムライン",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-timeline-disaster",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "trademark-rights",
+      "title": "商標権",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-trademark-rights",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "unfair-trade-practices",
+      "title": "不公正な取引方法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-unfair-trade-practices",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "unreasonable-trade-restraint",
+      "title": "不当な取引制限",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-unreasonable-trade-restraint",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "urban-flood",
+      "title": "都市型水害",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-urban-flood",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "variable-work-hours",
+      "title": "変形労働時間制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-variable-work-hours",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "virgin-bias",
+      "title": "バージンバイアス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-virgin-bias",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "vocational-training-act",
+      "title": "職業能力開発促進法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-vocational-training-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "vpn",
+      "title": "VPN",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-vpn",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "vulnerability",
+      "title": "脆弱性",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-vulnerability",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "waste-management-act",
+      "title": "廃棄物処理法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-waste-management-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "web-services",
+      "title": "WEBサービス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-web-services",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "women-empowerment-act",
+      "title": "女性活躍推進法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-women-empowerment-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "work-planning",
+      "title": "作業計画",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-work-planning",
+      "published": true,
+      "reason": "GSC 未登録"
+    },
+    {
+      "slug": "youth-employment-act",
+      "title": "若者雇用促進法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-youth-employment-act",
+      "published": true,
+      "reason": "GSC 未登録"
+    }
+  ],
+  "A_zero": [],
+  "B": [
+    {
+      "slug": "periodic-maintenance",
+      "title": "定期保全",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-periodic-maintenance",
+      "published": true,
+      "clicks": 0,
+      "impressions": 54,
+      "ctr": 0,
+      "position": 46.44444444444444
+    },
+    {
+      "slug": "unsafe-conditions-behavior",
+      "title": "不安全状態・不安全行動",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-unsafe-conditions-behavior",
+      "published": true,
+      "clicks": 0,
+      "impressions": 53,
+      "ctr": 0,
+      "position": 36.41509433962264
+    },
+    {
+      "slug": "fool-proof",
+      "title": "フールプルーフ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-fool-proof",
+      "published": true,
+      "clicks": 0,
+      "impressions": 50,
+      "ctr": 0,
+      "position": 49.46
+    },
+    {
+      "slug": "interlock",
+      "title": "インターロック",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-interlock",
+      "published": true,
+      "clicks": 0,
+      "impressions": 44,
+      "ctr": 0,
+      "position": 32.95454545454545
+    },
+    {
+      "slug": "ppm-analysis",
+      "title": "PPM分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ppm-analysis",
+      "published": true,
+      "clicks": 0,
+      "impressions": 33,
+      "ctr": 0,
+      "position": 89.72727272727273
+    },
+    {
+      "slug": "control-limits",
+      "title": "管理限界",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-control-limits",
+      "published": true,
+      "clicks": 0,
+      "impressions": 32,
+      "ctr": 0,
+      "position": 30.15625
+    },
+    {
+      "slug": "process-capability-index",
+      "title": "工程能力指数",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-process-capability-index",
+      "published": true,
+      "clicks": 0,
+      "impressions": 32,
+      "ctr": 0,
+      "position": 45.1875
+    },
+    {
+      "slug": "risk-map-matrix",
+      "title": "リスクマップ／リスクマトリクス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-risk-map-matrix",
+      "published": true,
+      "clicks": 0,
+      "impressions": 30,
+      "ctr": 0,
+      "position": 55.96666666666667
+    },
+    {
+      "slug": "cause-and-effect-diagram",
+      "title": "特性要因図",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-cause-and-effect-diagram",
+      "published": true,
+      "clicks": 0,
+      "impressions": 28,
+      "ctr": 0,
+      "position": 70.82142857142857
+    },
+    {
+      "slug": "root-cause-analysis",
+      "title": "根本原因分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-root-cause-analysis",
+      "published": true,
+      "clicks": 1,
+      "impressions": 26,
+      "ctr": 0.038461538461538464,
+      "position": 77.92307692307692
+    },
+    {
+      "slug": "groupware",
+      "title": "グループウェア",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-groupware",
+      "published": true,
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0,
+      "position": 38.4
+    },
+    {
+      "slug": "integer-programming",
+      "title": "整数計画法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-integer-programming",
+      "published": true,
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0,
+      "position": 35.8
+    },
+    {
+      "slug": "extended-producer-responsibility",
+      "title": "拡大生産者責任",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-extended-producer-responsibility",
+      "published": true,
+      "clicks": 0,
+      "impressions": 24,
+      "ctr": 0,
+      "position": 74.29166666666667
+    },
+    {
+      "slug": "safety-and-security",
+      "title": "安全／安心",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-and-security",
+      "published": true,
+      "clicks": 0,
+      "impressions": 23,
+      "ctr": 0,
+      "position": 30.608695652173914
+    },
+    {
+      "slug": "part-time-fixed-term-act",
+      "title": "パートタイム・有期雇用労働法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-part-time-fixed-term-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 21,
+      "ctr": 0,
+      "position": 65.14285714285714
+    },
+    {
+      "slug": "normalcy-bias",
+      "title": "正常性バイアス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-normalcy-bias",
+      "published": true,
+      "clicks": 0,
+      "impressions": 20,
+      "ctr": 0,
+      "position": 59.75
+    },
+    {
+      "slug": "overall-equipment-effectiveness",
+      "title": "設備総合効率",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-overall-equipment-effectiveness",
+      "published": true,
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0,
+      "position": 65.10526315789474
+    },
+    {
+      "slug": "sl-theory",
+      "title": "SL理論",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-sl-theory",
+      "published": true,
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0,
+      "position": 70.6842105263158
+    },
+    {
+      "slug": "preventive-maintenance",
+      "title": "予防保全",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-preventive-maintenance",
+      "published": true,
+      "clicks": 0,
+      "impressions": 18,
+      "ctr": 0,
+      "position": 65.05555555555556
+    },
+    {
+      "slug": "analogous-estimation",
+      "title": "類推見積り",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-analogous-estimation",
+      "published": true,
+      "clicks": 0,
+      "impressions": 16,
+      "ctr": 0,
+      "position": 32.5
+    },
+    {
+      "slug": "herzberg-two-factor-theory",
+      "title": "ハーズバーグの二要因理論",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-herzberg-two-factor-theory",
+      "published": true,
+      "clicks": 0,
+      "impressions": 16,
+      "ctr": 0,
+      "position": 67.0625
+    },
+    {
+      "slug": "safety-objectives",
+      "title": "安全目標",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-objectives",
+      "published": true,
+      "clicks": 0,
+      "impressions": 16,
+      "ctr": 0,
+      "position": 42
+    },
+    {
+      "slug": "system-availability",
+      "title": "可用性",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-system-availability",
+      "published": true,
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 71.46666666666667
+    },
+    {
+      "slug": "green-infrastructure",
+      "title": "グリーンインフラ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-green-infrastructure",
+      "published": true,
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 74.28571428571429
+    },
+    {
+      "slug": "safety-health-plan",
+      "title": "安全衛生計画",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-health-plan",
+      "published": true,
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 43.5
+    },
+    {
+      "slug": "theory-of-constraints",
+      "title": "制約条件の理論",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-theory-of-constraints",
+      "published": true,
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 94.75
+    },
+    {
+      "slug": "decision-tree-analysis",
+      "title": "デシジョンツリー分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-decision-tree-analysis",
+      "published": true,
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 55.18181818181818
+    },
+    {
+      "slug": "skill-qualification-system",
+      "title": "職能資格制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-skill-qualification-system",
+      "published": true,
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 72
+    },
+    {
+      "slug": "utilization-rate",
+      "title": "稼働率",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-utilization-rate",
+      "published": true,
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 76.5
+    },
+    {
+      "slug": "general-overview",
+      "title": "総合技術監理の概要",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-general-overview",
+      "published": true,
+      "clicks": 1,
+      "impressions": 9,
+      "ctr": 0.1111111111111111,
+      "position": 49.888888888888886
+    },
+    {
+      "slug": "ecological-footprint",
+      "title": "エコロジカル・フットプリント",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ecological-footprint",
+      "published": true,
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 35.375
+    },
+    {
+      "slug": "patent-rights",
+      "title": "特許権",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-patent-rights",
+      "published": true,
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 36.125
+    },
+    {
+      "slug": "red-list",
+      "title": "レッドリスト",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-red-list",
+      "published": true,
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 72.625
+    },
+    {
+      "slug": "skill-based-pay",
+      "title": "職能給",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-skill-based-pay",
+      "published": true,
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 38.25
+    },
+    {
+      "slug": "communication-planning",
+      "title": "コミュニケーション計画",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-communication-planning",
+      "published": true,
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 91.57142857142857
+    },
+    {
+      "slug": "digital-twin-cps",
+      "title": "デジタルツイン・サイバーフィジカルシステム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-digital-twin-cps",
+      "published": true,
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 65.57142857142857
+    },
+    {
+      "slug": "four-p-analysis",
+      "title": "4P分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-four-p-analysis",
+      "published": true,
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 80.85714285714286
+    },
+    {
+      "slug": "matrix-organization",
+      "title": "マトリクス組織",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-matrix-organization",
+      "published": true,
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 56.285714285714285
+    },
+    {
+      "slug": "opportunity-cost",
+      "title": "機会損失",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-opportunity-cost",
+      "published": true,
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 31.571428571428573
+    },
+    {
+      "slug": "payback-period-method",
+      "title": "回収期間法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-payback-period-method",
+      "published": true,
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 41.142857142857146
+    },
+    {
+      "slug": "probabilistic-risk-assessment",
+      "title": "確率論的リスク評価",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-probabilistic-risk-assessment",
+      "published": true,
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 33.714285714285715
+    },
+    {
+      "slug": "quality-planning",
+      "title": "品質計画",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-quality-planning",
+      "published": true,
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 31.285714285714285
+    },
+    {
+      "slug": "tbm-toolbox-meeting",
+      "title": "TBM",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-tbm-toolbox-meeting",
+      "published": true,
+      "clicks": 1,
+      "impressions": 7,
+      "ctr": 0.14285714285714285,
+      "position": 35.857142857142854
+    },
+    {
+      "slug": "common-criteria",
+      "title": "セキュリティ評価基準CC",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-common-criteria",
+      "published": true,
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 31.666666666666668
+    },
+    {
+      "slug": "high-pressure-gas-act",
+      "title": "高圧ガス保安法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-high-pressure-gas-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 38.333333333333336
+    },
+    {
+      "slug": "business-continuity-plan",
+      "title": "BCP・BCM",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan",
+      "published": true,
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 71
+    },
+    {
+      "slug": "circular-society-basic-act",
+      "title": "循環型社会形成推進基本法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-circular-society-basic-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 34.4
+    },
+    {
+      "slug": "halo-effect-errors",
+      "title": "評価誤差",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-halo-effect-errors",
+      "published": true,
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 32
+    },
+    {
+      "slug": "kyt",
+      "title": "危険予知訓練",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-kyt",
+      "published": true,
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 43.8
+    },
+    {
+      "slug": "multi-objective-optimization",
+      "title": "多目的最適化",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-multi-objective-optimization",
+      "published": true,
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 40.2
+    },
+    {
+      "slug": "predictive-maintenance",
+      "title": "予知保全",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-predictive-maintenance",
+      "published": true,
+      "clicks": 1,
+      "impressions": 5,
+      "ctr": 0.2,
+      "position": 35.6
+    },
+    {
+      "slug": "push-production",
+      "title": "プッシュ型生産方式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-push-production",
+      "published": true,
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 30.8
+    },
+    {
+      "slug": "attitude-appraisal",
+      "title": "情意考課",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-attitude-appraisal",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 56.75
+    },
+    {
+      "slug": "autonomous-maintenance",
+      "title": "自主保全",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-autonomous-maintenance",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 54.75
+    },
+    {
+      "slug": "bioeconomy",
+      "title": "バイオエコノミー",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-bioeconomy",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 43.5
+    },
+    {
+      "slug": "competency-hr",
+      "title": "コンピテンシー",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-competency-hr",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 31.75
+    },
+    {
+      "slug": "corrective-maintenance",
+      "title": "事後保全",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-corrective-maintenance",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 39
+    },
+    {
+      "slug": "enterprise-portal-intranet",
+      "title": "企業内ポータル・イントラネット",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-enterprise-portal-intranet",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 57
+    },
+    {
+      "slug": "planetary-boundaries",
+      "title": "プラネタリー・バウンダリー",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-planetary-boundaries",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 46.25
+    },
+    {
+      "slug": "polluter-pays-principle",
+      "title": "汚染者負担原則",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-polluter-pays-principle",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 37.5
+    },
+    {
+      "slug": "safety-health-org-structure",
+      "title": "安全衛生管理体制",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-health-org-structure",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 79.25
+    },
+    {
+      "slug": "sop",
+      "title": "標準作業手順書",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-sop",
+      "published": true,
+      "clicks": 1,
+      "impressions": 4,
+      "ctr": 0.25,
+      "position": 64.5
+    },
+    {
+      "slug": "technical-nontechnical-skills",
+      "title": "テクニカルスキルとノンテクニカルスキル",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-technical-nontechnical-skills",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 49.75
+    },
+    {
+      "slug": "wildlife-protection-act",
+      "title": "鳥獣保護管理法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-wildlife-protection-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 31
+    },
+    {
+      "slug": "accountability-traceability",
+      "title": "責任追跡性",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-accountability-traceability",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 39.333333333333336
+    },
+    {
+      "slug": "business-intelligence",
+      "title": "ビジネスインテリジェンス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-business-intelligence",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 95.33333333333333
+    },
+    {
+      "slug": "dmz",
+      "title": "DMZ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-dmz",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 90.33333333333333
+    },
+    {
+      "slug": "inspection-methods",
+      "title": "全数検査／抜取検査",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-inspection-methods",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 63.666666666666664
+    },
+    {
+      "slug": "scm-system",
+      "title": "サプライチェーンマネジメントシステム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-scm-system",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 77
+    },
+    {
+      "slug": "verbal-nonverbal-communication",
+      "title": "言語／非言語コミュニケーション",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-verbal-nonverbal-communication",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 89
+    },
+    {
+      "slug": "visual-management",
+      "title": "可視化",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-visual-management",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 57
+    },
+    {
+      "slug": "activity-abc",
+      "title": "活動基準原価計算",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-activity-abc",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 80
+    },
+    {
+      "slug": "alps-treated-water",
+      "title": "ALPS処理水",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-alps-treated-water",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "slug": "authenticity",
+      "title": "真正性",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-authenticity",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 31.5
+    },
+    {
+      "slug": "delphi-method",
+      "title": "デルファイ法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-delphi-method",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 43.5
+    },
+    {
+      "slug": "depreciation-residual-value",
+      "title": "減価償却費・残存価値",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-depreciation-residual-value",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 48.5
+    },
+    {
+      "slug": "encryption-digital-signature",
+      "title": "暗号化・電子署名",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-encryption-digital-signature",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 45
+    },
+    {
+      "slug": "front-loading",
+      "title": "フロントローディング",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-front-loading",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 46
+    },
+    {
+      "slug": "indirect-manufacturing-cost",
+      "title": "製造間接費",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-indirect-manufacturing-cost",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 91
+    },
+    {
+      "slug": "labor-share-ratio",
+      "title": "労働分配率",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-labor-share-ratio",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 47
+    },
+    {
+      "slug": "maintenance-prevention",
+      "title": "保全予防",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-maintenance-prevention",
+      "published": true,
+      "clicks": 1,
+      "impressions": 2,
+      "ctr": 0.5,
+      "position": 49
+    },
+    {
+      "slug": "manufacturing-quality",
+      "title": "製造品質",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-manufacturing-quality",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 50.5
+    },
+    {
+      "slug": "mbo",
+      "title": "目標管理制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-mbo",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 34.5
+    },
+    {
+      "slug": "osh-management-system",
+      "title": "労働安全衛生管理システム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-osh-management-system",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 71
+    },
+    {
+      "slug": "oshms",
+      "title": "労働安全衛生マネジメントシステム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-oshms",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 71.5
+    },
+    {
+      "slug": "return-to-work-support",
+      "title": "職場復帰支援",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-return-to-work-support",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 47
+    },
+    {
+      "slug": "safety-education",
+      "title": "安全教育",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-education",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 75.5
+    },
+    {
+      "slug": "un-human-environment-conf",
+      "title": "国連人間環境会議",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-un-human-environment-conf",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 85
+    },
+    {
+      "slug": "value-chain-analysis",
+      "title": "バリューチェーン分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-value-chain-analysis",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 90
+    },
+    {
+      "slug": "cash-flow-statement",
+      "title": "キャッシュ・フロー計算書",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-cash-flow-statement",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 78
+    },
+    {
+      "slug": "chemical-substances-review-act",
+      "title": "化審法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-chemical-substances-review-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 58
+    },
+    {
+      "slug": "competency-evaluation",
+      "title": "能力考課",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-competency-evaluation",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 80
+    },
+    {
+      "slug": "cost-variance-analysis",
+      "title": "原価差異分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-cost-variance-analysis",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 85
+    },
+    {
+      "slug": "data-leak-tampering-loss",
+      "title": "情報漏洩・改ざん・消失",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-data-leak-tampering-loss",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 42
+    },
+    {
+      "slug": "descriptive-statistics",
+      "title": "記述統計",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-descriptive-statistics",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 50
+    },
+    {
+      "slug": "design-rights",
+      "title": "意匠権",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-design-rights",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 99
+    },
+    {
+      "slug": "edge-computing",
+      "title": "エッジコンピューティング",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-edge-computing",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 49
+    },
+    {
+      "slug": "fail-safe",
+      "title": "フェールセーフ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-fail-safe",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 88
+    },
+    {
+      "slug": "fault-tolerance",
+      "title": "フォールトトレランス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-fault-tolerance",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 46
+    },
+    {
+      "slug": "four-major-pollution-diseases",
+      "title": "四大公害病",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-four-major-pollution-diseases",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 76
+    },
+    {
+      "slug": "functional-safety",
+      "title": "機能安全",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-functional-safety",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 91
+    },
+    {
+      "slug": "hawthorne-experiment",
+      "title": "ホーソン実験",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-hawthorne-experiment",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 82
+    },
+    {
+      "slug": "isms-iso27001",
+      "title": "ISMS",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-isms-iso27001",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 91
+    },
+    {
+      "slug": "job-design",
+      "title": "職務設計",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-job-design",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 44
+    },
+    {
+      "slug": "labor-policy-act",
+      "title": "労働施策総合推進法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-labor-policy-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 47
+    },
+    {
+      "slug": "mass-communication",
+      "title": "マス・コミュニケーション",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-mass-communication",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 55
+    },
+    {
+      "slug": "merit-demerit-system",
+      "title": "加点主義・減点主義",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-merit-demerit-system",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 46
+    },
+    {
+      "slug": "operation-errors",
+      "title": "オペレーションミス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-operation-errors",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 38
+    },
+    {
+      "slug": "outcome-indicators",
+      "title": "アウトカム指標",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-outcome-indicators",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 80
+    },
+    {
+      "slug": "process-planning-construction",
+      "title": "工程計画",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-process-planning-construction",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 79
+    },
+    {
+      "slug": "product-liability",
+      "title": "製造物責任",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-product-liability",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 95
+    },
+    {
+      "slug": "quality-improvement",
+      "title": "品質改善活動",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-quality-improvement",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 67
+    },
+    {
+      "slug": "radioactive-decontamination-act",
+      "title": "放射性物質汚染対処特別措置法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-radioactive-decontamination-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 32
+    },
+    {
+      "slug": "right-to-know",
+      "title": "知る権利",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-right-to-know",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 77
+    },
+    {
+      "slug": "safety-patrol",
+      "title": "安全衛生パトロール",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-patrol",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 99
+    }
+  ],
+  "C": [
+    {
+      "slug": "forum-standard",
+      "title": "フォーラム標準",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-forum-standard",
+      "published": true,
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "slug": "portrait-publicity-privacy",
+      "title": "肖像権・パブリシティ権・プライバシー権",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-portrait-publicity-privacy",
+      "published": true,
+      "clicks": 0,
+      "impressions": 30,
+      "ctr": 0,
+      "position": 11.033333333333333
+    },
+    {
+      "slug": "design-quality",
+      "title": "設計品質",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-design-quality",
+      "published": true,
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 11.285714285714286
+    },
+    {
+      "slug": "prevention-principle",
+      "title": "未然防止原則",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-prevention-principle",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 11.5
+    },
+    {
+      "slug": "safety-confirmation-system",
+      "title": "安全確認型システム・危険検出型システム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-confirmation-system",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 11.5
+    },
+    {
+      "slug": "regional-circular-symbiosis",
+      "title": "地域循環共生圏",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-regional-circular-symbiosis",
+      "published": true,
+      "clicks": 0,
+      "impressions": 21,
+      "ctr": 0,
+      "position": 11.714285714285714
+    },
+    {
+      "slug": "bowtie-analysis",
+      "title": "ボウタイ分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-bowtie-analysis",
+      "published": true,
+      "clicks": 1,
+      "impressions": 18,
+      "ctr": 0.05555555555555555,
+      "position": 12.38888888888889
+    },
+    {
+      "slug": "improvement-maintenance",
+      "title": "改良保全",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-improvement-maintenance",
+      "published": true,
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 13
+    },
+    {
+      "slug": "blind-drill",
+      "title": "ブラインド型訓練",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-blind-drill",
+      "published": true,
+      "clicks": 2,
+      "impressions": 12,
+      "ctr": 0.16666666666666666,
+      "position": 13.25
+    },
+    {
+      "slug": "maintenance-cost",
+      "title": "設備維持費用",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-maintenance-cost",
+      "published": true,
+      "clicks": 0,
+      "impressions": 21,
+      "ctr": 0,
+      "position": 13.285714285714286
+    },
+    {
+      "slug": "agenda-21",
+      "title": "アジェンダ21",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-agenda-21",
+      "published": true,
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 13.363636363636363
+    },
+    {
+      "slug": "quality-characteristics",
+      "title": "品質特性",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-quality-characteristics",
+      "published": true,
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 13.571428571428571
+    },
+    {
+      "slug": "r07-secondary",
+      "title": "技術士二次試験 総合技術監理部門 令和7年度 記述式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary",
+      "published": true,
+      "clicks": 2,
+      "impressions": 16,
+      "ctr": 0.125,
+      "position": 13.625
+    },
+    {
+      "slug": "bathtub-curve",
+      "title": "バスタブカーブ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-bathtub-curve",
+      "published": true,
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 13.75
+    },
+    {
+      "slug": "quality-costing",
+      "title": "品質原価計算",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-quality-costing",
+      "published": true,
+      "clicks": 2,
+      "impressions": 8,
+      "ctr": 0.25,
+      "position": 13.75
+    },
+    {
+      "slug": "bottom-up-estimation",
+      "title": "ボトムアップ見積り",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-bottom-up-estimation",
+      "published": true,
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 14.125
+    },
+    {
+      "slug": "wced",
+      "title": "WCED",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-wced",
+      "published": true,
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 14.222222222222221
+    },
+    {
+      "slug": "deposit-system",
+      "title": "デポジット制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-deposit-system",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 14.25
+    },
+    {
+      "slug": "likelihood",
+      "title": "起こりやすさ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-likelihood",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 14.25
+    },
+    {
+      "slug": "cyber-security",
+      "title": "サイバー安全保障",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-cyber-security",
+      "published": true,
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 14.75
+    },
+    {
+      "slug": "hazard",
+      "title": "ハザード",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-hazard",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 15
+    },
+    {
+      "slug": "system-serviceability",
+      "title": "保守性",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-system-serviceability",
+      "published": true,
+      "clicks": 0,
+      "impressions": 59,
+      "ctr": 0,
+      "position": 15.338983050847459
+    },
+    {
+      "slug": "discount-rate",
+      "title": "割引率",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-discount-rate",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 16
+    },
+    {
+      "slug": "fault-avoidance",
+      "title": "フォールトアボイダンス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-fault-avoidance",
+      "published": true,
+      "clicks": 1,
+      "impressions": 14,
+      "ctr": 0.07142857142857142,
+      "position": 16.57142857142857
+    },
+    {
+      "slug": "seven-types-of-pollution",
+      "title": "典型７公害",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-seven-types-of-pollution",
+      "published": true,
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 16.6
+    },
+    {
+      "slug": "reliability-block-diagram",
+      "title": "信頼性ブロック図",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-reliability-block-diagram",
+      "published": true,
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 17
+    },
+    {
+      "slug": "unconscious-bias",
+      "title": "アンコンシャス・バイアス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-unconscious-bias",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 17.25
+    },
+    {
+      "slug": "exam-application-guide",
+      "title": "総合技術監理部門 出願の留意点 ――業務経歴票の書き方――",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-exam-application-guide",
+      "published": true,
+      "clicks": 1,
+      "impressions": 8,
+      "ctr": 0.125,
+      "position": 18.25
+    },
+    {
+      "slug": "childcare-nursing-leave-act",
+      "title": "育児・介護休業法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-childcare-nursing-leave-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 19.666666666666668
+    },
+    {
+      "slug": "location-limited-employee",
+      "title": "勤務地限定社員制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-location-limited-employee",
+      "published": true,
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 19.666666666666668
+    },
+    {
+      "slug": "risk-identification",
+      "title": "リスク特定",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-risk-identification",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 20
+    },
+    {
+      "slug": "exam-passing-strategy",
+      "title": "総合技術監理部門 合格戦略 — トレードオフ思考と学習計画",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy",
+      "published": true,
+      "clicks": 1,
+      "impressions": 3,
+      "ctr": 0.3333333333333333,
+      "position": 20.333333333333332
+    },
+    {
+      "slug": "rio-declaration",
+      "title": "環境と開発に関するリオ宣言",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-rio-declaration",
+      "published": true,
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 20.375
+    },
+    {
+      "slug": "load-leveling",
+      "title": "負荷平準化",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-load-leveling",
+      "published": true,
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 21.125
+    },
+    {
+      "slug": "prevention-activities",
+      "title": "未然防止活動",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-prevention-activities",
+      "published": true,
+      "clicks": 1,
+      "impressions": 6,
+      "ctr": 0.16666666666666666,
+      "position": 21.166666666666668
+    },
+    {
+      "slug": "lifecycle-costing-method",
+      "title": "ライフサイクルコスティング",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-lifecycle-costing-method",
+      "published": true,
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 21.545454545454547
+    },
+    {
+      "slug": "hazop",
+      "title": "HAZOP",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-hazop",
+      "published": true,
+      "clicks": 1,
+      "impressions": 7,
+      "ctr": 0.14285714285714285,
+      "position": 21.571428571428573
+    },
+    {
+      "slug": "product-liability-act",
+      "title": "製造物責任法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-product-liability-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 21.666666666666668
+    },
+    {
+      "slug": "analytic-hierarchy-process",
+      "title": "階層分析法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-analytic-hierarchy-process",
+      "published": true,
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 22.875
+    },
+    {
+      "slug": "lopa",
+      "title": "LOPA",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-lopa",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 23.25
+    },
+    {
+      "slug": "kunming-montreal-framework",
+      "title": "昆明・モントリオール生物多様性枠組",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-kunming-montreal-framework",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 23.666666666666668
+    },
+    {
+      "slug": "redundancy-safety",
+      "title": "冗長性",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-redundancy-safety",
+      "published": true,
+      "clicks": 1,
+      "impressions": 27,
+      "ctr": 0.037037037037037035,
+      "position": 23.666666666666668
+    },
+    {
+      "slug": "elderly-employment-act",
+      "title": "高年齢者雇用安定法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-elderly-employment-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 24
+    },
+    {
+      "slug": "three-point-estimation",
+      "title": "三点見積り",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-three-point-estimation",
+      "published": true,
+      "clicks": 0,
+      "impressions": 30,
+      "ctr": 0,
+      "position": 24.133333333333333
+    },
+    {
+      "slug": "pdpc-method",
+      "title": "過程決定計画図",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pdpc-method",
+      "published": true,
+      "clicks": 0,
+      "impressions": 28,
+      "ctr": 0,
+      "position": 24.392857142857142
+    },
+    {
+      "slug": "quality-objectives",
+      "title": "品質目標",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-quality-objectives",
+      "published": true,
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 24.692307692307693
+    },
+    {
+      "slug": "environmental-basic-plan",
+      "title": "環境基本計画",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-environmental-basic-plan",
+      "published": true,
+      "clicks": 1,
+      "impressions": 3,
+      "ctr": 0.3333333333333333,
+      "position": 25.333333333333332
+    },
+    {
+      "slug": "monte-carlo-simulation",
+      "title": "モンテカルロシミュレーション",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-monte-carlo-simulation",
+      "published": true,
+      "clicks": 0,
+      "impressions": 16,
+      "ctr": 0,
+      "position": 25.375
+    },
+    {
+      "slug": "lifecycle-assessment",
+      "title": "ライフサイクルアセスメント",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-lifecycle-assessment",
+      "published": true,
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 25.8
+    },
+    {
+      "slug": "master-schedule-planning",
+      "title": "大日程計画・中日程計画・小日程計画",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-master-schedule-planning",
+      "published": true,
+      "clicks": 0,
+      "impressions": 36,
+      "ctr": 0,
+      "position": 26.52777777777778
+    },
+    {
+      "slug": "series-system",
+      "title": "直列システム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-series-system",
+      "published": true,
+      "clicks": 0,
+      "impressions": 18,
+      "ctr": 0,
+      "position": 26.833333333333332
+    },
+    {
+      "slug": "conformity-bias",
+      "title": "同調バイアス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-conformity-bias",
+      "published": true,
+      "clicks": 0,
+      "impressions": 53,
+      "ctr": 0,
+      "position": 26.943396226415093
+    },
+    {
+      "slug": "iot",
+      "title": "IoT",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-iot",
+      "published": true,
+      "clicks": 0,
+      "impressions": 76,
+      "ctr": 0,
+      "position": 27.263157894736842
+    },
+    {
+      "slug": "non-repudiation",
+      "title": "否認防止",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-non-repudiation",
+      "published": true,
+      "clicks": 0,
+      "impressions": 20,
+      "ctr": 0,
+      "position": 27.3
+    },
+    {
+      "slug": "temporary-works-plan",
+      "title": "仮設計画",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-temporary-works-plan",
+      "published": true,
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 27.625
+    },
+    {
+      "slug": "access-control",
+      "title": "アクセス制御・アクセス権限設定",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-access-control",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 28
+    }
+  ],
+  "C_low_impr": [
+    {
+      "slug": "all-hazard-approach",
+      "title": "オールハザードアプローチ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-all-hazard-approach",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 11.5
+    },
+    {
+      "slug": "annual-salary-system",
+      "title": "年俸制",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-annual-salary-system",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "slug": "biodiversity-basic-act",
+      "title": "生物多様性基本法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-biodiversity-basic-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 17.5
+    },
+    {
+      "slug": "career-path",
+      "title": "キャリアパス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-career-path",
+      "published": true,
+      "clicks": 1,
+      "impressions": 2,
+      "ctr": 0.5,
+      "position": 17
+    },
+    {
+      "slug": "club-of-rome",
+      "title": "ローマクラブ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-club-of-rome",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 18.5
+    },
+    {
+      "slug": "content-process",
+      "title": "コンテント／プロセス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-content-process",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 12.5
+    },
+    {
+      "slug": "cost-effectiveness-analysis",
+      "title": "費用効果分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-cost-effectiveness-analysis",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 14
+    },
+    {
+      "slug": "e-waste",
+      "title": "E-waste問題",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-e-waste",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 14.5
+    },
+    {
+      "slug": "employment-security-act",
+      "title": "職業安定法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-employment-security-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 27.5
+    },
+    {
+      "slug": "equipment-economics",
+      "title": "設備の経済性",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-equipment-economics",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "slug": "fta",
+      "title": "フォールトツリー分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-fta",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "slug": "h29-primary",
+      "title": "技術士二次試験 総合技術監理部門 平成29年度 択一式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h29-primary",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 29
+    },
+    {
+      "slug": "haccp",
+      "title": "HACCP",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-haccp",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "slug": "heat-island-effect",
+      "title": "ヒートアイランド現象",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-heat-island-effect",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "slug": "industrial-property-rights",
+      "title": "産業財産権",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-industrial-property-rights",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "slug": "information-management-pillar",
+      "title": "情報管理",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-information-management-pillar",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "slug": "iso-14000",
+      "title": "ISO 14000シリーズ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-iso-14000",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 17.5
+    },
+    {
+      "slug": "linear-programming",
+      "title": "線形計画法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-linear-programming",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 16
+    },
+    {
+      "slug": "millennium-ecosystem-assessment",
+      "title": "ミレニアム生態系評価",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-millennium-ecosystem-assessment",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 13
+    },
+    {
+      "slug": "nature-positive",
+      "title": "ネイチャーポジティブ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-nature-positive",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 23
+    },
+    {
+      "slug": "optimism-bias",
+      "title": "楽観主義バイアス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-optimism-bias",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 15.5
+    },
+    {
+      "slug": "organizational-commitment",
+      "title": "組織コミットメント",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-organizational-commitment",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "slug": "pollution-control-manager",
+      "title": "公害防止管理者",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pollution-control-manager",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 26.5
+    },
+    {
+      "slug": "pops-convention",
+      "title": "POPs条約",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pops-convention",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "slug": "pqcdsme",
+      "title": "PQCDSME",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pqcdsme",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 22
+    },
+    {
+      "slug": "product-safety",
+      "title": "製品安全",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-product-safety",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "slug": "pyramid-organization",
+      "title": "ピラミッド組織",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pyramid-organization",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 16.5
+    },
+    {
+      "slug": "recommendation-systems",
+      "title": "情報推薦",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-recommendation-systems",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 16.5
+    },
+    {
+      "slug": "risk-treatment",
+      "title": "リスク対応",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-risk-treatment",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 18
+    },
+    {
+      "slug": "scientific-management",
+      "title": "テイラーの科学的管理法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-scientific-management",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "slug": "social-environment-management-pillar",
+      "title": "社会環境管理",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-social-environment-management-pillar",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "slug": "survey-analysis",
+      "title": "アンケート分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-survey-analysis",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "slug": "system-reliability",
+      "title": "信頼性",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-system-reliability",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "slug": "system-security",
+      "title": "安全性",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-system-security",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "slug": "talent-management",
+      "title": "タレントマネジメント",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-talent-management",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 21
+    },
+    {
+      "slug": "teal-organization",
+      "title": "ティール組織",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-teal-organization",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 16
+    },
+    {
+      "slug": "unauthorized-access",
+      "title": "不正アクセス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-unauthorized-access",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "slug": "unced-earth-summit",
+      "title": "国連環境開発会議",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-unced-earth-summit",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 13
+    },
+    {
+      "slug": "water-pollution-control-act",
+      "title": "水質汚濁防止法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-water-pollution-control-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "slug": "zero-trust",
+      "title": "ゼロトラスト",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-zero-trust",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 12
+    }
+  ],
+  "D": [
+    {
+      "slug": "direct-costing",
+      "title": "直接原価計算",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-direct-costing",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "slug": "problem-solving-ability",
+      "title": "問題解決能力",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-problem-solving-ability",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "slug": "psychological-safety",
+      "title": "心理的安全性",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-psychological-safety",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "slug": "r06-primary",
+      "title": "技術士二次試験 総合技術監理部門 令和6年度 択一式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r06-primary",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "slug": "safety-2-0",
+      "title": "Safety2.0",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-2-0",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "slug": "wacc-roic",
+      "title": "WACC・ROIC",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-wacc-roic",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "slug": "highly-professional-system",
+      "title": "高度プロフェッショナル制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-highly-professional-system",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "slug": "initial-investment",
+      "title": "初期投資",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-initial-investment",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "slug": "method-planning",
+      "title": "工法計画",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-method-planning",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "slug": "planned-usage-period",
+      "title": "使用計画期間",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-planned-usage-period",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "slug": "relative-absolute-evaluation",
+      "title": "相対評価・絶対評価",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-relative-absolute-evaluation",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "slug": "threat-awareness-training",
+      "title": "脅威攻撃の手口学習",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-threat-awareness-training",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "slug": "three-c-analysis",
+      "title": "3C分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-three-c-analysis",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 2
+    },
+    {
+      "slug": "tnfd",
+      "title": "TNFD提言",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-tnfd",
+      "published": true,
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 2
+    },
+    {
+      "slug": "last-minute-2026",
+      "title": "総合技術監理 記述式試験 直前対策2026",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-last-minute-2026",
+      "published": true,
+      "clicks": 2,
+      "impressions": 3,
+      "ctr": 0.6666666666666666,
+      "position": 2.333333333333333
+    },
+    {
+      "slug": "vr-ar-metaverse",
+      "title": "VR・AR・メタバース",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-vr-ar-metaverse",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 2.333333333333333
+    },
+    {
+      "slug": "ifrs",
+      "title": "国際会計基準",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ifrs",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 2.5
+    },
+    {
+      "slug": "impact",
+      "title": "影響",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-impact",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 2.666666666666667
+    },
+    {
+      "slug": "de-facto-standard",
+      "title": "デファクト標準",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-de-facto-standard",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "slug": "dioxin-countermeasures-act",
+      "title": "ダイオキシン類対策特別措置法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-dioxin-countermeasures-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "slug": "emergency-info-systems",
+      "title": "緊急時情報システム・サービス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-emergency-info-systems",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "slug": "safety-control",
+      "title": "安全管理",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-control",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 3
+    },
+    {
+      "slug": "tcfd",
+      "title": "TCFD提言",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-tcfd",
+      "published": true,
+      "clicks": 1,
+      "impressions": 2,
+      "ctr": 0.5,
+      "position": 3
+    },
+    {
+      "slug": "economic-comparison-principle",
+      "title": "経済性の比較の原則",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-economic-comparison-principle",
+      "published": true,
+      "clicks": 2,
+      "impressions": 5,
+      "ctr": 0.4,
+      "position": 3.4
+    },
+    {
+      "slug": "dos-ddos",
+      "title": "DoS・DDoS",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-dos-ddos",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 3.5
+    },
+    {
+      "slug": "r05-primary",
+      "title": "技術士二次試験 総合技術監理部門 令和5年度 択一式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r05-primary",
+      "published": true,
+      "clicks": 1,
+      "impressions": 6,
+      "ctr": 0.16666666666666666,
+      "position": 3.5
+    },
+    {
+      "slug": "skill-standards",
+      "title": "スキル標準",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-skill-standards",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 3.5
+    },
+    {
+      "slug": "decoupling",
+      "title": "デカップリング",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-decoupling",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 3.6666666666666665
+    },
+    {
+      "slug": "energy",
+      "title": "エネルギー",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-energy",
+      "published": true,
+      "clicks": 1,
+      "impressions": 6,
+      "ctr": 0.16666666666666666,
+      "position": 3.8333333333333335
+    },
+    {
+      "slug": "internal-job-posting",
+      "title": "社内公募制",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-internal-job-posting",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "slug": "liquefaction",
+      "title": "液状化現象",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-liquefaction",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "slug": "pmbok",
+      "title": "PMBOK",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pmbok",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "slug": "reach-regulation",
+      "title": "REACH規制",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-reach-regulation",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "slug": "membership-type-employment",
+      "title": "メンバーシップ型",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-membership-type-employment",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 4.25
+    },
+    {
+      "slug": "mcgregor-xy-theory",
+      "title": "マクレガーのX理論とY理論",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-mcgregor-xy-theory",
+      "published": true,
+      "clicks": 1,
+      "impressions": 3,
+      "ctr": 0.3333333333333333,
+      "position": 4.333333333333334
+    },
+    {
+      "slug": "r04-primary",
+      "title": "技術士二次試験 総合技術監理部門 令和4年度 択一式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r04-primary",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 4.5
+    },
+    {
+      "slug": "public-acceptance",
+      "title": "社会的受容",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-public-acceptance",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 4.75
+    },
+    {
+      "slug": "therp",
+      "title": "THERP",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-therp",
+      "published": true,
+      "clicks": 1,
+      "impressions": 5,
+      "ctr": 0.2,
+      "position": 4.8
+    },
+    {
+      "slug": "investment-recovery-plan",
+      "title": "投資回収計画",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-investment-recovery-plan",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "slug": "job-analysis",
+      "title": "職務分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-job-analysis",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "slug": "privacy-mark",
+      "title": "プライバシーマーク",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-privacy-mark",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "slug": "prtr-act",
+      "title": "化管法／PRTR法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-prtr-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "slug": "specialized-training",
+      "title": "専門別研修",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-specialized-training",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "slug": "surcharge",
+      "title": "課徴金",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-surcharge",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "slug": "work-life-balance",
+      "title": "ワーク・ライフ・バランス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-work-life-balance",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "slug": "workers-compensation-insurance",
+      "title": "労災保険制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-workers-compensation-insurance",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "slug": "individual-wage-management",
+      "title": "個別賃金管理",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-individual-wage-management",
+      "published": true,
+      "clicks": 1,
+      "impressions": 7,
+      "ctr": 0.14285714285714285,
+      "position": 5.142857142857143
+    },
+    {
+      "slug": "incentive",
+      "title": "インセンティブ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-incentive",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 5.333333333333333
+    },
+    {
+      "slug": "task-based-training",
+      "title": "課題別研修",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-task-based-training",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 5.333333333333333
+    },
+    {
+      "slug": "asch-conformity-experiment",
+      "title": "アッシュの同調実験",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-asch-conformity-experiment",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 5.5
+    },
+    {
+      "slug": "defense-in-depth",
+      "title": "深層防護",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-defense-in-depth",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5.5
+    },
+    {
+      "slug": "lead-time",
+      "title": "リードタイム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-lead-time",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5.5
+    },
+    {
+      "slug": "machine-learning",
+      "title": "機械学習",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-machine-learning",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5.5
+    },
+    {
+      "slug": "performance-linked-bonus",
+      "title": "業績連動型賞与制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-performance-linked-bonus",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 5.5
+    },
+    {
+      "slug": "r03-primary",
+      "title": "技術士二次試験 総合技術監理部門 令和3年度 択一式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r03-primary",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5.5
+    },
+    {
+      "slug": "r05-secondary",
+      "title": "技術士二次試験 総合技術監理部門 令和5年度 記述式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r05-secondary",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 5.5
+    },
+    {
+      "slug": "knowledge-sharing",
+      "title": "知識共有化",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-knowledge-sharing",
+      "published": true,
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 5.625
+    },
+    {
+      "slug": "h30-primary",
+      "title": "技術士二次試験 総合技術監理部門 平成30年度 択一式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-h30-primary",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 5.75
+    },
+    {
+      "slug": "ergonomic-principles",
+      "title": "人間工学原則の遵守",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ergonomic-principles",
+      "published": true,
+      "clicks": 4,
+      "impressions": 14,
+      "ctr": 0.2857142857142857,
+      "position": 5.785714285714286
+    },
+    {
+      "slug": "appraisal-three-principles",
+      "title": "人事考課の三原則",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-appraisal-three-principles",
+      "published": true,
+      "clicks": 1,
+      "impressions": 19,
+      "ctr": 0.05263157894736842,
+      "position": 5.7894736842105265
+    },
+    {
+      "slug": "acid-rain",
+      "title": "酸性雨",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-acid-rain",
+      "published": true,
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 5.833333333333333
+    },
+    {
+      "slug": "performance-shaping-factors",
+      "title": "行動形成要因",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-performance-shaping-factors",
+      "published": true,
+      "clicks": 6,
+      "impressions": 24,
+      "ctr": 0.25,
+      "position": 5.916666666666667
+    },
+    {
+      "slug": "e-learning",
+      "title": "eラーニング",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-e-learning",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "slug": "employment-insurance",
+      "title": "雇用保険制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-employment-insurance",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "slug": "equal-employment-act",
+      "title": "男女雇用機会均等法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-equal-employment-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "slug": "ip-utilization",
+      "title": "知的財産の活用",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ip-utilization",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "slug": "key-performance-indicators",
+      "title": "KGI・KSF・KPI",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-key-performance-indicators",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "slug": "natural-parks-act",
+      "title": "自然公園法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-natural-parks-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "slug": "output-indicators",
+      "title": "アウトプット指標",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-output-indicators",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "slug": "present-annual-future-value",
+      "title": "現価・年価・終価",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-present-annual-future-value",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "slug": "seniority-wage",
+      "title": "年功賃金",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-seniority-wage",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "slug": "sustainable-fashion",
+      "title": "サステナブルファッション",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-sustainable-fashion",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "slug": "safety-case",
+      "title": "セーフティケース",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-case",
+      "published": true,
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 6.125
+    },
+    {
+      "slug": "tripod-theory",
+      "title": "トライポッド理論",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-tripod-theory",
+      "published": true,
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 6.2
+    },
+    {
+      "slug": "indefinite-conversion-rule",
+      "title": "無期転換ルール",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-indefinite-conversion-rule",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 6.25
+    },
+    {
+      "slug": "divisional-organization",
+      "title": "事業部制組織",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-divisional-organization",
+      "published": true,
+      "clicks": 1,
+      "impressions": 6,
+      "ctr": 0.16666666666666666,
+      "position": 6.333333333333333
+    },
+    {
+      "slug": "small-group-activities",
+      "title": "小集団活動",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-small-group-activities",
+      "published": true,
+      "clicks": 2,
+      "impressions": 23,
+      "ctr": 0.08695652173913043,
+      "position": 6.3478260869565215
+    },
+    {
+      "slug": "accident-cost",
+      "title": "災害コスト",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-accident-cost",
+      "published": true,
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 6.428571428571429
+    },
+    {
+      "slug": "labor-union-act",
+      "title": "労働組合法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-labor-union-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 6.454545454545454
+    },
+    {
+      "slug": "capacity-management",
+      "title": "余力管理",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-capacity-management",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 6.5
+    },
+    {
+      "slug": "disclosure-standards",
+      "title": "開示基準",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-disclosure-standards",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6.5
+    },
+    {
+      "slug": "satoyama-initiative",
+      "title": "SATOYAMAイニシアティブ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-satoyama-initiative",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6.5
+    },
+    {
+      "slug": "source-control-principle",
+      "title": "源流対策原則",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-source-control-principle",
+      "published": true,
+      "clicks": 1,
+      "impressions": 34,
+      "ctr": 0.029411764705882353,
+      "position": 6.529411764705882
+    },
+    {
+      "slug": "behavioral-regulation",
+      "title": "行為規制",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-behavioral-regulation",
+      "published": true,
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 6.6
+    },
+    {
+      "slug": "ismap",
+      "title": "政府情報システムのためのセキュリティ評価制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ismap",
+      "published": true,
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 6.6
+    },
+    {
+      "slug": "periodic-inspection",
+      "title": "定期点検活動",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-periodic-inspection",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 6.666666666666667
+    },
+    {
+      "slug": "residual-risk",
+      "title": "残留リスク",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-residual-risk",
+      "published": true,
+      "clicks": 1,
+      "impressions": 4,
+      "ctr": 0.25,
+      "position": 6.75
+    },
+    {
+      "slug": "exam-index",
+      "title": "技術士二次試験 総合技術監理部門 試験ガイド",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-exam-index",
+      "published": true,
+      "clicks": 1,
+      "impressions": 6,
+      "ctr": 0.16666666666666666,
+      "position": 6.833333333333333
+    },
+    {
+      "slug": "human-error-probability",
+      "title": "人的過誤確率",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-human-error-probability",
+      "published": true,
+      "clicks": 3,
+      "impressions": 26,
+      "ctr": 0.11538461538461539,
+      "position": 6.846153846153846
+    },
+    {
+      "slug": "keyword-2026",
+      "title": "総合技術監理 キーワード集 2026（全文・5管理600+キーワード詳細解説リンク付き）",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026",
+      "published": true,
+      "clicks": 11,
+      "impressions": 173,
+      "ctr": 0.06358381502890173,
+      "position": 6.872832369942197
+    },
+    {
+      "slug": "cluster-analysis",
+      "title": "クラスター分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-cluster-analysis",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "slug": "design-thinking",
+      "title": "デザイン思考",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-design-thinking",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "slug": "generative-ai",
+      "title": "生成AI",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-generative-ai",
+      "published": true,
+      "clicks": 3,
+      "impressions": 7,
+      "ctr": 0.42857142857142855,
+      "position": 7
+    },
+    {
+      "slug": "gfc-chemicals-framework",
+      "title": "GFC",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-gfc-chemicals-framework",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "slug": "human-development-index",
+      "title": "人間開発指数",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-human-development-index",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "slug": "information-disclosure-act",
+      "title": "情報公開法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-information-disclosure-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "slug": "mentor",
+      "title": "メンター制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-mentor",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "slug": "parallel-system",
+      "title": "並列システム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-parallel-system",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "slug": "pension-system",
+      "title": "年金制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pension-system",
+      "published": true,
+      "clicks": 0,
+      "impressions": 12,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "slug": "performance-based-pay",
+      "title": "成果主義賃金",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-performance-based-pay",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "slug": "performance-regulation",
+      "title": "パフォーマンス規制",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-performance-regulation",
+      "published": true,
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "slug": "personal-communication",
+      "title": "パーソナル・コミュニケーション",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-personal-communication",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "slug": "qc-circle",
+      "title": "QCサークル",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-qc-circle",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "slug": "r04-secondary",
+      "title": "技術士二次試験 総合技術監理部門 令和4年度 記述式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r04-secondary",
+      "published": true,
+      "clicks": 1,
+      "impressions": 3,
+      "ctr": 0.3333333333333333,
+      "position": 7
+    },
+    {
+      "slug": "replacement-cost",
+      "title": "取替費用",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-replacement-cost",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "slug": "self-development",
+      "title": "自己啓発",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-self-development",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "slug": "tacit-knowledge",
+      "title": "暗黙知",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-tacit-knowledge",
+      "published": true,
+      "clicks": 1,
+      "impressions": 5,
+      "ctr": 0.2,
+      "position": 7
+    },
+    {
+      "slug": "break-even-point",
+      "title": "損益分岐点・限界利益・優劣分岐点",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-break-even-point",
+      "published": true,
+      "clicks": 0,
+      "impressions": 22,
+      "ctr": 0,
+      "position": 7.136363636363637
+    },
+    {
+      "slug": "end-of-pipe",
+      "title": "エンドオブパイプ型対策",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-end-of-pipe",
+      "published": true,
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 7.142857142857143
+    },
+    {
+      "slug": "system-integrity",
+      "title": "保全性",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-system-integrity",
+      "published": true,
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0,
+      "position": 7.2
+    },
+    {
+      "slug": "vta-method",
+      "title": "VTA法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-vta-method",
+      "published": true,
+      "clicks": 2,
+      "impressions": 29,
+      "ctr": 0.06896551724137931,
+      "position": 7.206896551724138
+    },
+    {
+      "slug": "nonconformity-rate",
+      "title": "不適合品率／適合品率",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-nonconformity-rate",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 7.25
+    },
+    {
+      "slug": "lgbt-understanding-act",
+      "title": "LGBT理解増進法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-lgbt-understanding-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 7.333333333333333
+    },
+    {
+      "slug": "technology-licensing",
+      "title": "ライセンス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-technology-licensing",
+      "published": true,
+      "clicks": 1,
+      "impressions": 3,
+      "ctr": 0.3333333333333333,
+      "position": 7.333333333333333
+    },
+    {
+      "slug": "employment-statistics",
+      "title": "就労状況・労働統計",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-employment-statistics",
+      "published": true,
+      "clicks": 1,
+      "impressions": 5,
+      "ctr": 0.2,
+      "position": 7.4
+    },
+    {
+      "slug": "waterfall",
+      "title": "ウォーターフォール",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-waterfall",
+      "published": true,
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 7.4
+    },
+    {
+      "slug": "explicit-knowledge",
+      "title": "形式知",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-explicit-knowledge",
+      "published": true,
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 7.428571428571429
+    },
+    {
+      "slug": "balance-sheet",
+      "title": "貸借対照表",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-balance-sheet",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7.5
+    },
+    {
+      "slug": "r01-primary",
+      "title": "技術士二次試験 総合技術監理部門 令和元年度 択一式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r01-primary",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 7.5
+    },
+    {
+      "slug": "worker-dispatch-act",
+      "title": "労働者派遣法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-worker-dispatch-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 7.5
+    },
+    {
+      "slug": "load-capacity",
+      "title": "負荷工数・生産能力",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-load-capacity",
+      "published": true,
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 7.529411764705882
+    },
+    {
+      "slug": "r07-primary",
+      "title": "技術士二次試験 総合技術監理部門 令和7年度 択一式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r07-primary",
+      "published": true,
+      "clicks": 2,
+      "impressions": 30,
+      "ctr": 0.06666666666666667,
+      "position": 7.566666666666666
+    },
+    {
+      "slug": "invasive-alien-species",
+      "title": "特定外来生物",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-invasive-alien-species",
+      "published": true,
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0,
+      "position": 7.631578947368421
+    },
+    {
+      "slug": "agile",
+      "title": "アジャイル",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-agile",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 7.666666666666667
+    },
+    {
+      "slug": "aging-infrastructure",
+      "title": "インフラ老朽化対策",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-aging-infrastructure",
+      "published": true,
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 7.666666666666667
+    },
+    {
+      "slug": "environmental-impact-assessment",
+      "title": "環境影響評価法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-environmental-impact-assessment",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 7.666666666666667
+    },
+    {
+      "slug": "performance-evaluation",
+      "title": "業績考課",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-performance-evaluation",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 7.666666666666667
+    },
+    {
+      "slug": "labor-standards-act",
+      "title": "労働基準法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-labor-standards-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 17,
+      "ctr": 0,
+      "position": 7.705882352941177
+    },
+    {
+      "slug": "formal-informal-organization",
+      "title": "公式組織・非公式組織",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-formal-informal-organization",
+      "published": true,
+      "clicks": 1,
+      "impressions": 4,
+      "ctr": 0.25,
+      "position": 7.75
+    },
+    {
+      "slug": "r06-secondary",
+      "title": "技術士二次試験 総合技術監理部門 令和6年度 記述式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r06-secondary",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 7.75
+    },
+    {
+      "slug": "natech",
+      "title": "自然災害に起因する産業事故",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-natech",
+      "published": true,
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 7.833333333333333
+    },
+    {
+      "slug": "target-cost",
+      "title": "目標原価",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-target-cost",
+      "published": true,
+      "clicks": 0,
+      "impressions": 20,
+      "ctr": 0,
+      "position": 7.9
+    },
+    {
+      "slug": "accident-statistics",
+      "title": "災害統計",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-accident-statistics",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "slug": "copyright",
+      "title": "著作権",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-copyright",
+      "published": true,
+      "clicks": 0,
+      "impressions": 27,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "slug": "disability-discrimination-act",
+      "title": "障害者差別解消法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-disability-discrimination-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "slug": "disaster-countermeasures-act",
+      "title": "災害対策基本法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-disaster-countermeasures-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "slug": "equipment-reliability",
+      "title": "設備の信頼性",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-equipment-reliability",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "slug": "essay-exam-strategy",
+      "title": "総合技術監理部門 記述式試験の解答戦略",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "slug": "eta",
+      "title": "イベントツリー分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-eta",
+      "published": true,
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "slug": "human-capital-disclosure",
+      "title": "人的資本の情報公開",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-human-capital-disclosure",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "slug": "human-factors",
+      "title": "ヒューマンファクタ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-human-factors",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "slug": "human-resource-management-pillar",
+      "title": "人的資源管理",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "slug": "inventory-control",
+      "title": "現品管理",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-inventory-control",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "slug": "jit-production",
+      "title": "JIT生産方式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-jit-production",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "slug": "password-security",
+      "title": "パスワード強化",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-password-security",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "slug": "safety-management-pillar",
+      "title": "安全管理",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "slug": "personnel-management",
+      "title": "人事管理",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-personnel-management",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 8.25
+    },
+    {
+      "slug": "ecrs-principle",
+      "title": "ECRSの原則",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ecrs-principle",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 8.333333333333332
+    },
+    {
+      "slug": "maslow-hierarchy-of-needs",
+      "title": "マズローの欲求5段階説",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-maslow-hierarchy-of-needs",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 8.333333333333332
+    },
+    {
+      "slug": "safety-instrumented-system",
+      "title": "安全計装システム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-safety-instrumented-system",
+      "published": true,
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 8.333333333333332
+    },
+    {
+      "slug": "total-wage-management",
+      "title": "総額賃金管理",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-total-wage-management",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 8.333333333333332
+    },
+    {
+      "slug": "unfair-competition-prevention-act",
+      "title": "不正競争防止法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-unfair-competition-prevention-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 8.333333333333332
+    },
+    {
+      "slug": "multi-track-hr-system",
+      "title": "複線型人事制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-multi-track-hr-system",
+      "published": true,
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 8.4
+    },
+    {
+      "slug": "side-jobs",
+      "title": "副業・兼業",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-side-jobs",
+      "published": true,
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 8.444444444444445
+    },
+    {
+      "slug": "continued-employment-system",
+      "title": "継続雇用制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-continued-employment-system",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 8.5
+    },
+    {
+      "slug": "five-s",
+      "title": "5S",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-five-s",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8.5
+    },
+    {
+      "slug": "power-harassment",
+      "title": "パワーハラスメント",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-power-harassment",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8.5
+    },
+    {
+      "slug": "sexual-harassment",
+      "title": "セクシャルハラスメント",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-sexual-harassment",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8.5
+    },
+    {
+      "slug": "internet",
+      "title": "インターネット",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-internet",
+      "published": true,
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 8.625
+    },
+    {
+      "slug": "machinery-safety-guidelines",
+      "title": "機械の包括的な安全基準に関する指針",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-machinery-safety-guidelines",
+      "published": true,
+      "clicks": 0,
+      "impressions": 37,
+      "ctr": 0,
+      "position": 8.64864864864865
+    },
+    {
+      "slug": "pha",
+      "title": "PHA",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pha",
+      "published": true,
+      "clicks": 1,
+      "impressions": 3,
+      "ctr": 0.3333333333333333,
+      "position": 8.666666666666668
+    },
+    {
+      "slug": "training-techniques",
+      "title": "教育訓練技法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-training-techniques",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 8.75
+    },
+    {
+      "slug": "centralization-decentralization",
+      "title": "集中化と分散化",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-centralization-decentralization",
+      "published": true,
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 8.818181818181818
+    },
+    {
+      "slug": "risk-assessment",
+      "title": "リスク評価",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment",
+      "published": true,
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 8.857142857142858
+    },
+    {
+      "slug": "veteran-bias",
+      "title": "ベテランバイアス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-veteran-bias",
+      "published": true,
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 8.866666666666667
+    },
+    {
+      "slug": "labor-mobility",
+      "title": "人材流動化",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-labor-mobility",
+      "published": true,
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 8.90909090909091
+    },
+    {
+      "slug": "iso-26000",
+      "title": "ISO 26000",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-iso-26000",
+      "published": true,
+      "clicks": 1,
+      "impressions": 23,
+      "ctr": 0.043478260869565216,
+      "position": 8.91304347826087
+    },
+    {
+      "slug": "concurrent-engineering",
+      "title": "コンカレントエンジニアリング",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-concurrent-engineering",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "slug": "csv",
+      "title": "CSV",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-csv",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "slug": "dcf-method",
+      "title": "DCF法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-dcf-method",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "slug": "diagnostic-od",
+      "title": "診断型組織開発",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-diagnostic-od",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "slug": "doughnut-economics",
+      "title": "ドーナツ経済",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-doughnut-economics",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "slug": "interim-storage-facility",
+      "title": "中間貯蔵施設",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-interim-storage-facility",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "slug": "job-rotation",
+      "title": "ジョブローテーション",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-job-rotation",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "slug": "ojt-off-jt",
+      "title": "OJT/OFF-JT",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ojt-off-jt",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "slug": "quality-policy",
+      "title": "品質方針",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-quality-policy",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "slug": "standard-costing",
+      "title": "標準原価計算",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-standard-costing",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "slug": "subsidiarity-principle",
+      "title": "補完性原則・補完性原理",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-subsidiarity-principle",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "slug": "wellbeing-org",
+      "title": "ウェルビーイング",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-wellbeing-org",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "slug": "de-jure-standard",
+      "title": "デジュール標準",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-de-jure-standard",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 9.25
+    },
+    {
+      "slug": "personal-information",
+      "title": "個人情報",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-personal-information",
+      "published": true,
+      "clicks": 0,
+      "impressions": 25,
+      "ctr": 0,
+      "position": 9.28
+    },
+    {
+      "slug": "gender-gap",
+      "title": "ジェンダーギャップ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-gender-gap",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 9.333333333333334
+    },
+    {
+      "slug": "soil-contamination-act",
+      "title": "土壌汚染対策法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-soil-contamination-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 9.333333333333334
+    },
+    {
+      "slug": "specialist-system",
+      "title": "専門職制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-specialist-system",
+      "published": true,
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 9.4
+    },
+    {
+      "slug": "inherent-safety",
+      "title": "本質安全",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-inherent-safety",
+      "published": true,
+      "clicks": 1,
+      "impressions": 16,
+      "ctr": 0.0625,
+      "position": 9.4375
+    },
+    {
+      "slug": "dialogic-od",
+      "title": "対話型組織開発",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-dialogic-od",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 9.5
+    },
+    {
+      "slug": "swot-analysis",
+      "title": "SWOT分析",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-swot-analysis",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 9.5
+    },
+    {
+      "slug": "value-engineering",
+      "title": "価値工学",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-value-engineering",
+      "published": true,
+      "clicks": 1,
+      "impressions": 4,
+      "ctr": 0.25,
+      "position": 9.5
+    },
+    {
+      "slug": "personal-info-protection",
+      "title": "個人情報の保護措置",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-personal-info-protection",
+      "published": true,
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 9.6
+    },
+    {
+      "slug": "catastrophe-bias",
+      "title": "カタストロフィーバイアス",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-catastrophe-bias",
+      "published": true,
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 9.636363636363637
+    },
+    {
+      "slug": "data-breach-response",
+      "title": "個人情報の漏洩時対応",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-data-breach-response",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 9.666666666666666
+    },
+    {
+      "slug": "citizen-participation",
+      "title": "住民参加",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-citizen-participation",
+      "published": true,
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 9.8
+    },
+    {
+      "slug": "digital-rights",
+      "title": "デジタルライツ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-digital-rights",
+      "published": true,
+      "clicks": 2,
+      "impressions": 16,
+      "ctr": 0.125,
+      "position": 9.8125
+    },
+    {
+      "slug": "hazid",
+      "title": "HAZID",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-hazid",
+      "published": true,
+      "clicks": 0,
+      "impressions": 23,
+      "ctr": 0,
+      "position": 9.826086956521738
+    },
+    {
+      "slug": "parametric-estimation",
+      "title": "パラメトリック見積り",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-parametric-estimation",
+      "published": true,
+      "clicks": 1,
+      "impressions": 9,
+      "ctr": 0.1111111111111111,
+      "position": 9.88888888888889
+    },
+    {
+      "slug": "collective-intelligence",
+      "title": "集合知",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-collective-intelligence",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "slug": "cost-driver",
+      "title": "コストドライバー",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-cost-driver",
+      "published": true,
+      "clicks": 0,
+      "impressions": 15,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "slug": "cybersecurity-safety",
+      "title": "サイバーセキュリティ",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-cybersecurity-safety",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "slug": "discretionary-work-system",
+      "title": "裁量労働制",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-discretionary-work-system",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "slug": "emergency-info-processing",
+      "title": "緊急時の情報処理",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-emergency-info-processing",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "slug": "functional-organization",
+      "title": "職能別組織",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-functional-organization",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "slug": "ics",
+      "title": "ICS",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ics",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "slug": "ip-protection",
+      "title": "知的財産の保護",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-ip-protection",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "slug": "minimum-wage-act",
+      "title": "最低賃金法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-minimum-wage-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "slug": "occupational-accident-prevention-plan",
+      "title": "労働災害防止計画",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-occupational-accident-prevention-plan",
+      "published": true,
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "slug": "occupational-safety-act",
+      "title": "労働安全衛生法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "slug": "production-management-system",
+      "title": "生産管理システム",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-production-management-system",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "slug": "reemployment-system",
+      "title": "再雇用制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-reemployment-system",
+      "published": true,
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "slug": "risk-perception",
+      "title": "リスク認知",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-risk-perception",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "slug": "species-preservation-act",
+      "title": "種の保存法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-species-preservation-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "slug": "four-e-countermeasures",
+      "title": "事故の4E対策",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-four-e-countermeasures",
+      "published": true,
+      "clicks": 1,
+      "impressions": 12,
+      "ctr": 0.08333333333333333,
+      "position": 10.083333333333334
+    },
+    {
+      "slug": "alarp-principle",
+      "title": "ALARPの原則",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-alarp-principle",
+      "published": true,
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 10.090909090909092
+    },
+    {
+      "slug": "equipment-characteristics",
+      "title": "設備の管理特性",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-equipment-characteristics",
+      "published": true,
+      "clicks": 1,
+      "impressions": 6,
+      "ctr": 0.16666666666666666,
+      "position": 10.166666666666666
+    },
+    {
+      "slug": "public-safety",
+      "title": "公衆安全",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-public-safety",
+      "published": true,
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 10.2
+    },
+    {
+      "slug": "eco-action-21",
+      "title": "エコアクション21",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-eco-action-21",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 10.25
+    },
+    {
+      "slug": "isolation-stop-safety",
+      "title": "隔離安全・停止安全",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-isolation-stop-safety",
+      "published": true,
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 10.25
+    },
+    {
+      "slug": "consumer-product-safety-act",
+      "title": "消費生活用製品安全法",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-consumer-product-safety-act",
+      "published": true,
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 10.333333333333334
+    },
+    {
+      "slug": "disclosure-request",
+      "title": "開示請求",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-disclosure-request",
+      "published": true,
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 10.5
+    },
+    {
+      "slug": "input-indicators",
+      "title": "インプット指標",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-input-indicators",
+      "published": true,
+      "clicks": 1,
+      "impressions": 6,
+      "ctr": 0.16666666666666666,
+      "position": 10.5
+    },
+    {
+      "slug": "utility-model-rights",
+      "title": "実用新案権",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-utility-model-rights",
+      "published": true,
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 10.5
+    },
+    {
+      "slug": "extreme-events",
+      "title": "極端現象",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-extreme-events",
+      "published": true,
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 10.6
+    },
+    {
+      "slug": "jisec",
+      "title": "ITセキュリティ評価及び認証制度",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-jisec",
+      "published": true,
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 10.642857142857142
+    },
+    {
+      "slug": "pull-production",
+      "title": "プル型生産方式",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pull-production",
+      "published": true,
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 10.75
+    },
+    {
+      "slug": "process-safety-mgmt",
+      "title": "プロセスセーフティマネジメント",
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-process-safety-mgmt",
+      "published": true,
+      "clicks": 2,
+      "impressions": 6,
+      "ctr": 0.3333333333333333,
+      "position": 10.833333333333334
+    }
+  ]
+}

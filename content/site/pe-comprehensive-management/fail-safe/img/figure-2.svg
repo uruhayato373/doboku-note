@@ -1,0 +1,52 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="フェールセーフの2パターン。フェールパッシブ（縮退停止型）：故障検知→安全な停止状態へ移行。フェールアクティブ（代替動作型）：故障検知→安全な代替動作を継続。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-head   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-body   { font-size: 12px; fill: #222; }
+      .t-note   { font-size: 11px; fill: #555; }
+      .t-label  { font-size: 11px; font-weight: bold; }
+      .t-footer { font-size: 11px; fill: #8a8a8a; }
+    </style>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text class="t-title" x="200" y="26" text-anchor="middle">フェールセーフの2パターン</text>
+  <line x1="40" y1="34" x2="360" y2="34" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- フェールパッシブ カード (y=46〜226) -->
+  <rect x="16" y="46" width="368" height="180" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <!-- ヘッダー：丸角上部＋角下部の2枚重ね -->
+  <rect x="16" y="46" width="368" height="36" rx="8" fill="#3a7d44"/>
+  <rect x="16" y="68" width="368" height="14"       fill="#3a7d44"/>
+  <text class="t-head" x="200" y="69" text-anchor="middle">フェールパッシブ（縮退停止型）</text>
+
+  <text class="t-body" x="36" y="104">故障が検知されたとき、</text>
+  <text class="t-body" x="36" y="122">システムを「安全な停止状態」に移行する。</text>
+  <rect x="36" y="134" width="328" height="1" fill="#3a7d44" opacity="0.4"/>
+  <text class="t-label" x="36" y="155" fill="#3a7d44">例：</text>
+  <text class="t-note"  x="58" y="155">信号故障 → 「赤（停止）」に固定</text>
+  <text class="t-note"  x="36" y="172">　　断線 → 自動でブレーキが締まる</text>
+  <text class="t-note"  x="36" y="189">　　加熱 → ヒューズ切断でシステム停止</text>
+
+  <!-- フェールアクティブ カード (y=242〜422) -->
+  <rect x="16" y="242" width="368" height="180" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="16" y="242" width="368" height="36" rx="8" fill="#2e6da4"/>
+  <rect x="16" y="264" width="368" height="14"       fill="#2e6da4"/>
+  <text class="t-head" x="200" y="265" text-anchor="middle">フェールアクティブ（代替動作型）</text>
+
+  <text class="t-body" x="36" y="300">故障が検知されたとき、</text>
+  <text class="t-body" x="36" y="318">安全な「代替動作」を能動的に継続する。</text>
+  <rect x="36" y="330" width="328" height="1" fill="#2e6da4" opacity="0.4"/>
+  <text class="t-label" x="36" y="351" fill="#2e6da4">例：</text>
+  <text class="t-note"  x="58" y="351">エンジン停止 → 補助電源に自動切替</text>
+  <text class="t-note"  x="36" y="368">　　冗長系が故障 → 残りの系で継続</text>
+  <text class="t-note"  x="36" y="385">　　航空機エンジン失陥 → 滑空姿勢維持</text>
+
+  <!-- 底部注記 -->
+  <rect x="16" y="438" width="368" height="44" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-footer" x="200" y="456" text-anchor="middle">どちらも「故障を検知して安全方向へ動作する」点は共通。</text>
+  <text class="t-footer" x="200" y="473" text-anchor="middle">停止が安全 → パッシブ ／ 継続が安全 → アクティブ</text>
+</svg>

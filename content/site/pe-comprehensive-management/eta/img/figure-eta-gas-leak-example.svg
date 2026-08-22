@@ -1,0 +1,91 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="ETA（イベントツリー分析）の例：初期事象「ガス漏れ」から早期発見・計器による発見・検査による発見・着火しないの 4 つのセーフガードに分岐。各分岐で成功（確率上、上方向）と失敗（確率下、下方向）に分かれ、すべての層で失敗するとガス爆発（確率 0.0005）に至る">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-event { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-event-w { font-size: 12px; font-weight: bold; fill: #ffffff; }
+      .t-branch { font-size: 10px; fill: #1a3a5c; }
+      .t-prob { font-size: 10px; fill: #555; }
+      .t-calc { font-size: 11px; fill: #1a3a5c; }
+      .branch-line { stroke: #1a3a5c; stroke-width: 1.2; fill: none; }
+      .ev-init { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .ev-out { fill: #b22234; stroke: #1a3a5c; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- タイトル -->
+  <text x="200" y="20" class="t-title" text-anchor="middle">ETA：ガス漏れの事象進展</text>
+
+  <!-- セーフガード見出し（上部） -->
+  <text x="92" y="42" class="t-branch" text-anchor="middle">早期発見</text>
+  <text x="167" y="42" class="t-branch" text-anchor="middle">計器発見</text>
+  <text x="237" y="42" class="t-branch" text-anchor="middle">検査発見</text>
+  <text x="307" y="42" class="t-branch" text-anchor="middle">着火しない</text>
+
+  <!-- 初期事象 -->
+  <rect x="10" y="135" width="60" height="32" rx="3" class="ev-init" />
+  <text x="40" y="155" class="t-event" text-anchor="middle">ガス漏れ</text>
+
+  <!-- 主水平線 -->
+  <line x1="70" y1="151" x2="335" y2="151" class="branch-line" />
+
+  <!-- 分岐 1: 早期発見 at x=92 -->
+  <line x1="92" y1="151" x2="92" y2="60" class="branch-line" />
+  <line x1="92" y1="60" x2="125" y2="60" class="branch-line" />
+  <text x="108" y="55" class="t-branch" text-anchor="middle">成功</text>
+  <text x="115" y="76" class="t-prob" text-anchor="middle">0.9</text>
+  <text x="108" y="166" class="t-branch" text-anchor="middle">失敗</text>
+  <text x="115" y="178" class="t-prob" text-anchor="middle">0.1</text>
+
+  <!-- 分岐 2: 計器発見 at x=167 -->
+  <line x1="167" y1="151" x2="167" y2="95" class="branch-line" />
+  <line x1="167" y1="95" x2="200" y2="95" class="branch-line" />
+  <text x="183" y="90" class="t-branch" text-anchor="middle">成功</text>
+  <text x="190" y="110" class="t-prob" text-anchor="middle">0.9</text>
+  <text x="183" y="166" class="t-branch" text-anchor="middle">失敗</text>
+  <text x="190" y="178" class="t-prob" text-anchor="middle">0.1</text>
+
+  <!-- 分岐 3: 検査発見 at x=237 -->
+  <line x1="237" y1="151" x2="237" y2="115" class="branch-line" />
+  <line x1="237" y1="115" x2="270" y2="115" class="branch-line" />
+  <text x="253" y="110" class="t-branch" text-anchor="middle">成功</text>
+  <text x="260" y="130" class="t-prob" text-anchor="middle">0.9</text>
+  <text x="253" y="166" class="t-branch" text-anchor="middle">失敗</text>
+  <text x="260" y="178" class="t-prob" text-anchor="middle">0.1</text>
+
+  <!-- 分岐 4: 着火しない at x=307 -->
+  <line x1="307" y1="151" x2="307" y2="135" class="branch-line" />
+  <line x1="307" y1="135" x2="335" y2="135" class="branch-line" />
+  <text x="322" y="130" class="t-branch" text-anchor="middle">成功</text>
+  <text x="328" y="148" class="t-prob" text-anchor="middle">0.5</text>
+  <text x="322" y="166" class="t-branch" text-anchor="middle">失敗</text>
+  <text x="328" y="178" class="t-prob" text-anchor="middle">0.5</text>
+
+  <!-- 最終事象（事故） -->
+  <rect x="335" y="135" width="60" height="32" rx="3" class="ev-out" />
+  <text x="365" y="155" class="t-event-w" text-anchor="middle">ガス爆発</text>
+
+  <!-- 計算式 -->
+  <text x="200" y="225" class="t-calc" text-anchor="middle">事故経路の確率</text>
+  <text x="200" y="245" class="t-calc" text-anchor="middle">＝ 0.1 × 0.1 × 0.1 × 0.5 = 0.0005</text>
+  <text x="200" y="270" class="t-prob" text-anchor="middle">（4 層のセーフガードがすべて失敗した場合のみ事故）</text>
+
+  <!-- 追加サマリー -->
+  <rect x="20" y="300" width="360" height="60" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text x="200" y="320" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c">ETA の特徴</text>
+  <text x="200" y="340" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#222">初期事象から時系列順に結果を展開（帰納的）</text>
+  <text x="200" y="356" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#222">セーフガードの有効性を確率で定量評価</text>
+
+  <rect x="20" y="376" width="360" height="60" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="6"/>
+  <text x="200" y="396" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c">FTA との違い</text>
+  <text x="200" y="416" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#222">ETA：初期事象 → 結果（トップダウン型ではない）</text>
+  <text x="200" y="432" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#222">FTA：頂上事象 → 原因（ボトムアップ展開）</text>
+
+  <text x="200" y="474" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#555">多重バリアの有効性評価・プラント安全解析で活用</text>
+  <text x="200" y="492" text-anchor="middle" font-family="Inter, sans-serif" font-size="11" fill="#3a7d44" font-weight="bold">セーフガード層数が多いほど事故確率は指数的に低下</text>
+</svg>

@@ -1,0 +1,75 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="ハインリッヒの法則ピラミッド：1 件の重大事故、29 件の軽微な事故、300 件のヒヤリハット（無傷災害）の比率を三角形で示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-num-top { font-size: 18px; font-weight: bold; fill: #1a3a5c; }
+      .t-num-mid { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-num-bot { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-label { font-size: 12px; fill: #1a3a5c; }
+      .t-cap { font-size: 11px; fill: #555; }
+    </style>
+  </defs>
+
+  <!-- 三角形（ピラミッド）の枠 -->
+  <polygon points="200,30 50,260 350,260" fill="none" stroke="#2e6da4" stroke-width="1.5" />
+
+  <!-- 内部区分線（上から：1 と 29 の境界、29 と 300 の境界） -->
+  <!-- 上層（1件・重大事故）: y=30〜90 -->
+  <line x1="161" y1="90" x2="239" y2="90" stroke="#2e6da4" stroke-width="1.2" />
+  <!-- 中層（29件・軽微事故）: y=90〜170 -->
+  <line x1="109" y1="170" x2="291" y2="170" stroke="#2e6da4" stroke-width="1.2" />
+  <!-- 下層（300件・ヒヤリハット）: y=170〜260 -->
+
+  <!-- 上層塗り -->
+  <polygon points="200,30 161,90 239,90" fill="#2e6da4" />
+  <!-- 中層塗り -->
+  <polygon points="161,90 239,90 291,170 109,170" fill="#2e6da4" fill-opacity="0.55" />
+  <!-- 下層塗り -->
+  <polygon points="109,170 291,170 350,260 50,260" fill="#e8f0fe" />
+
+  <!-- 数値ラベル -->
+  <text x="200" y="68" class="t-num-top" text-anchor="middle" fill="#ffffff">1</text>
+  <text x="200" y="138" class="t-num-mid" text-anchor="middle" fill="#ffffff">29</text>
+  <text x="200" y="222" class="t-num-bot" text-anchor="middle">300</text>
+
+  <!-- 各層の説明（右側） -->
+  <line x1="240" y1="62" x2="375" y2="62" stroke="#8a8a8a" stroke-width="0.5" />
+  <text x="375" y="58" class="t-label" text-anchor="end">重大事故（死亡・重傷）</text>
+
+  <line x1="270" y1="135" x2="375" y2="135" stroke="#8a8a8a" stroke-width="0.5" />
+  <text x="375" y="131" class="t-label" text-anchor="end">軽微な事故（軽傷）</text>
+
+  <line x1="320" y1="215" x2="375" y2="215" stroke="#8a8a8a" stroke-width="0.5" />
+  <text x="375" y="211" class="t-label" text-anchor="end">ヒヤリハット</text>
+  <text x="375" y="226" class="t-cap" text-anchor="end">（無傷災害）</text>
+
+  <!-- 矢印キャプション -->
+  <text x="200" y="290" class="t-cap" text-anchor="middle">下層を減らせば上層も減る → 予防的安全管理の根拠</text>
+
+  <!-- タイトル -->
+  <text x="200" y="310" class="t-title" text-anchor="middle">ハインリッヒの 1 : 29 : 300 の法則</text>
+
+  <!-- 追加：活用方法 -->
+  <rect x="10" y="328" width="380" height="52" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text x="200" y="347" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold" font-family="Inter, sans-serif">安全管理への示唆</text>
+  <text x="200" y="363" text-anchor="middle" font-size="11" fill="#222" font-family="Inter, sans-serif">ヒヤリハット 300 件を減らすことで重大事故を未然防止</text>
+  <text x="200" y="378" text-anchor="middle" font-size="11" fill="#555" font-family="Inter, sans-serif">ヒヤリハット報告制度の整備が安全文化の基礎</text>
+
+  <rect x="10" y="393" width="185" height="54" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="6"/>
+  <text x="103" y="411" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="Inter, sans-serif">KYT との連携</text>
+  <text x="103" y="427" text-anchor="middle" font-size="11" fill="#222" font-family="Inter, sans-serif">危険予知活動で</text>
+  <text x="103" y="441" text-anchor="middle" font-size="11" fill="#555" font-family="Inter, sans-serif">ヒヤリハットを事前回避</text>
+
+  <rect x="205" y="393" width="185" height="54" fill="#f8d7da" stroke="#b22234" stroke-width="1.5" rx="6"/>
+  <text x="298" y="411" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="Inter, sans-serif">4E 対策との組合せ</text>
+  <text x="298" y="427" text-anchor="middle" font-size="11" fill="#222" font-family="Inter, sans-serif">Engineering 優先で</text>
+  <text x="298" y="441" text-anchor="middle" font-size="11" fill="#555" font-family="Inter, sans-serif">根本原因を除去</text>
+
+  <text x="200" y="467" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="Inter, sans-serif">ハインリッヒの法則（1931）</text>
+  <text x="200" y="483" text-anchor="middle" font-size="11" fill="#555" font-family="Inter, sans-serif">H.W. Heinrich「Industrial Accident Prevention」より</text>
+</svg>

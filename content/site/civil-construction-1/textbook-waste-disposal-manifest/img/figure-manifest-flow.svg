@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="マニフェスト(産業廃棄物管理票)の流れ。排出事業者が交付し、収集運搬業者・処分業者が処理後に控えを返送することで、排出事業者が適正処理を確認する。返送は90日以内、最終処分は180日以内が目安、交付者は写しを5年間保存する">
+  <text x="200" y="24" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">排出事業者が交付、処理後に控えが返送され適正処理を確認</text>
+
+  <!-- 排出事業者 -->
+  <rect x="110" y="40" width="180" height="48" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="60" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c">排出事業者</text>
+  <text x="200" y="79" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">建設工事では元請業者</text>
+
+  <!-- 交付の矢印 -->
+  <line x1="200" y1="88" x2="200" y2="112" stroke="#8a8a8a" stroke-width="2"/>
+  <path d="M200 118 l-6 -8 h12 z" fill="#8a8a8a"/>
+  <text x="212" y="106" text-anchor="start" font-family="sans-serif" font-size="11" fill="#555">交付</text>
+
+  <!-- 収集運搬業者 -->
+  <rect x="110" y="118" width="180" height="48" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="138" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#222">収集運搬業者</text>
+  <text x="200" y="157" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">運搬終了を記録</text>
+
+  <!-- 矢印 -->
+  <line x1="200" y1="166" x2="200" y2="190" stroke="#8a8a8a" stroke-width="2"/>
+  <path d="M200 196 l-6 -8 h12 z" fill="#8a8a8a"/>
+
+  <!-- 処分業者 -->
+  <rect x="110" y="196" width="180" height="48" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="216" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#222">処分業者</text>
+  <text x="200" y="235" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">処分・最終処分を記録</text>
+
+  <!-- 返送の矢印（右側を上向きに） -->
+  <line x1="330" y1="220" x2="330" y2="64" stroke="#2e6da4" stroke-width="2"/>
+  <path d="M330 58 l-6 8 h12 z" fill="#2e6da4"/>
+  <line x1="290" y1="220" x2="330" y2="220" stroke="#2e6da4" stroke-width="2"/>
+  <line x1="330" y1="64" x2="290" y2="64" stroke="#2e6da4" stroke-width="2"/>
+  <path d="M296 64 l8 -5 v10 z" fill="#2e6da4"/>
+  <text x="340" y="150" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c" transform="rotate(90 340 150)">控えを返送</text>
+
+  <!-- 期限・保存の注記 -->
+  <rect x="30" y="262" width="340" height="100" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="284" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c">確認と保存のルール</text>
+  <text x="200" y="306" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">運搬・処分の終了票は交付から90日以内、</text>
+  <text x="200" y="324" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">最終処分の終了票は180日以内に返送</text>
+  <text x="200" y="342" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">交付者は写しを5年間保存する</text>
+  <text x="200" y="358" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">特別管理産業廃棄物の運搬・処分終了票は60日以内</text>
+
+  <!-- 未返送時 -->
+  <rect x="30" y="376" width="340" height="78" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="398" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">期限内に返送がないときは処理状況を確認し、</text>
+  <text x="200" y="416" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">期間経過日から30日以内に都道府県知事へ報告</text>
+  <text x="200" y="445" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">出典：廃棄物処理法第12条の3・同施行規則</text>
+</svg>

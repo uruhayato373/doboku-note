@@ -1,0 +1,52 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="道路・河川・騒音振動の各法令で必要な手続きの区別。道路の占用や通行制限は許可、河川区域内で工作物を設けたり土地を掘削する場合も許可、騒音規制法と振動規制法の特定建設作業は事前の届出が必要となる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-law  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-act  { font-size: 11px; fill: #222; }
+      .t-tag  { font-size: 12px; font-weight: bold; fill: #222; }
+      .t-cap  { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .row { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .tag-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .tag-n { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">同じ事前手続きでも許可と届出は別のもの</text>
+
+  <rect class="row" x="20" y="44" width="360" height="68" rx="4"/>
+  <text class="t-law" x="32" y="70">道路関係法令</text>
+  <text class="t-act" x="32" y="92">道路の占用・通行制限</text>
+  <rect class="tag-p" x="280" y="61" width="94" height="34" rx="4"/>
+  <text class="t-tag" x="327" y="83" text-anchor="middle">許可</text>
+
+  <rect class="row" x="20" y="120" width="360" height="68" rx="4"/>
+  <text class="t-law" x="32" y="146">河川法</text>
+  <text class="t-act" x="32" y="168">河川区域内の工作物設置・土地の掘削</text>
+  <rect class="tag-p" x="280" y="137" width="94" height="34" rx="4"/>
+  <text class="t-tag" x="327" y="159" text-anchor="middle">許可</text>
+
+  <rect class="row" x="20" y="196" width="360" height="68" rx="4"/>
+  <text class="t-law" x="32" y="222">騒音規制法・振動規制法</text>
+  <text class="t-act" x="32" y="244">特定建設作業（くい打ち・削岩機など）</text>
+  <rect class="tag-n" x="280" y="213" width="94" height="34" rx="4"/>
+  <text class="t-tag" x="327" y="235" text-anchor="middle">届出</text>
+
+  <text class="t-cap" x="200" y="286" text-anchor="middle">許可は行政の承認を得てから着手、届出は事前に知らせる</text>
+
+  <rect class="box-surf" x="20" y="310" width="360" height="172" rx="6"/>
+  <text class="t-sec" x="200" y="332" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="341" x2="364" y2="341"/>
+  <text class="t-item" x="40" y="366">道路の占用・通行制限には許可が必要</text>
+  <text class="t-item" x="40" y="392">車両制限令で車両の寸法・重量の限度が定められている</text>
+  <text class="t-item" x="40" y="418">河川区域内での工作物設置・土地の掘削は許可が必要</text>
+  <text class="t-item" x="40" y="444">現場の外部（周辺環境・公共インフラ）も管理対象になる</text>
+</svg>

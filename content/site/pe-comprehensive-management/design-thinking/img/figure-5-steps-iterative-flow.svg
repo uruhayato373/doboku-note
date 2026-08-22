@@ -1,0 +1,48 @@
+<svg width="400" height="500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" font-family="sans-serif" style="max-width:400px;width:100%" role="img" aria-label="デザイン思考の5ステップとイテレーティブフロー">
+  <defs>
+    <marker id="arrowSolid" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#1a3a5c"/>
+    </marker>
+  </defs>
+
+  <!-- 5 step boxes 縦並び -->
+  <!-- ① 共感 -->
+  <rect x="80" y="30" width="240" height="58" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <text x="200" y="57" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a3a5c">① 共感</text>
+  <text x="200" y="78" text-anchor="middle" font-size="12" fill="#2e6da4">Empathize</text>
+
+  <line x1="200" y1="90" x2="200" y2="108" stroke="#1a3a5c" stroke-width="2" marker-end="url(#arrowSolid)"/>
+
+  <!-- ② 定義 -->
+  <rect x="80" y="110" width="240" height="58" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <text x="200" y="137" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a3a5c">② 定義</text>
+  <text x="200" y="158" text-anchor="middle" font-size="12" fill="#2e6da4">Define</text>
+
+  <line x1="200" y1="170" x2="200" y2="188" stroke="#1a3a5c" stroke-width="2" marker-end="url(#arrowSolid)"/>
+
+  <!-- ③ 創造 -->
+  <rect x="80" y="190" width="240" height="58" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <text x="200" y="217" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a3a5c">③ 創造</text>
+  <text x="200" y="238" text-anchor="middle" font-size="12" fill="#2e6da4">Ideate</text>
+
+  <line x1="200" y1="250" x2="200" y2="268" stroke="#1a3a5c" stroke-width="2" marker-end="url(#arrowSolid)"/>
+
+  <!-- ④ 試作 -->
+  <rect x="80" y="270" width="240" height="58" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <text x="200" y="297" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a3a5c">④ 試作</text>
+  <text x="200" y="318" text-anchor="middle" font-size="12" fill="#2e6da4">Prototype</text>
+
+  <line x1="200" y1="330" x2="200" y2="348" stroke="#1a3a5c" stroke-width="2" marker-end="url(#arrowSolid)"/>
+
+  <!-- ⑤ 検証 -->
+  <rect x="80" y="350" width="240" height="58" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="2"/>
+  <text x="200" y="377" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a3a5c">⑤ 検証</text>
+  <text x="200" y="398" text-anchor="middle" font-size="12" fill="#d4a017">Test</text>
+
+  <!-- 反復矢印: ⑤ 検証の右端から右側を通って ① 共感の右端へ -->
+  <path d="M 320 379 C 380 379, 380 59, 320 59" fill="none" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#arrowSolid)"/>
+  <text x="386" y="225" text-anchor="middle" font-size="11" fill="#8a8a8a" transform="rotate(90,386,225)">問題発見時は前段階に戻る（反復）</text>
+
+  <!-- キャプション -->
+  <text x="200" y="473" text-anchor="middle" font-size="11" fill="#555">5段階は直線でなく、検証の気づきを前段階に還流する反復プロセス</text>
+</svg>

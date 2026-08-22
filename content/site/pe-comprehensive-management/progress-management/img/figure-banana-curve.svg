@@ -1,0 +1,54 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" style="max-width:400px;width:100%" role="img" aria-label="バナナ曲線（工程管理曲線）— 上方許容限界・予定工程・下方許容限界と実績曲線の関係">
+  <!-- scale 440 -> 400: 400/440 = 0.9091 -->
+  <g transform="scale(0.9091 0.9091)">
+    <!-- Banana envelope fill -->
+    <path d="M 55 230 C 130 120 230 60 405 50 C 310 50 200 210 55 230 Z" fill="#f5f5f5" opacity="0.8"/> <!-- surface fill (allowlist) -->
+
+    <!-- Axes -->
+    <line x1="55" y1="230" x2="415" y2="230" stroke="#222" stroke-width="1.5"/>
+    <line x1="55" y1="40" x2="55" y2="230" stroke="#222" stroke-width="1.5"/>
+
+    <!-- Y-axis ticks and labels -->
+    <line x1="52" y1="50" x2="55" y2="50" stroke="#222" stroke-width="1"/>
+    <line x1="52" y1="140" x2="55" y2="140" stroke="#222" stroke-width="1"/>
+    <text x="48" y="54" text-anchor="end" font-size="10" fill="#555">100</text>
+    <text x="48" y="144" text-anchor="end" font-size="10" fill="#555">50</text>
+    <text x="48" y="234" text-anchor="end" font-size="10" fill="#555">0</text>
+    <text x="20" y="135" font-size="11" fill="#222" transform="rotate(-90 20 135)" text-anchor="middle">出来高 (%)</text>
+
+    <!-- X-axis labels -->
+    <text x="55" y="248" text-anchor="middle" font-size="10" fill="#555">着工</text>
+    <text x="380" y="248" text-anchor="middle" font-size="10" fill="#555">竣工</text>
+    <text x="230" y="275" text-anchor="middle" font-size="11" fill="#222">工期</text>
+
+    <!-- Upper limit (dashed gray) -->
+    <path d="M 55 230 C 130 120 230 60 405 50" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="6,3"/>
+
+    <!-- Lower limit (dashed gray) -->
+    <path d="M 55 230 C 200 230 310 160 405 50" fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="6,3"/>
+
+    <!-- Planned (solid dark) -->
+    <path d="M 55 230 C 170 200 260 90 405 50" fill="none" stroke="#222" stroke-width="2.5"/>
+
+    <!-- Actual (#b22234 dashed, up to current time) -->
+    <path d="M 55 230 L 90 225 L 130 215 L 170 195 L 210 165 L 245 140" fill="none" stroke="#b22234" stroke-width="2.5" stroke-dasharray="5,2"/>
+    <circle cx="245" cy="140" r="3.8" fill="#b22234"/>
+    <text x="252" y="136" font-size="10" fill="#b22234" font-weight="bold">現在</text>
+
+    <!-- Legend labels -->
+    <text x="318" y="80" font-size="10" fill="#555">上方許容限界</text>
+    <text x="318" y="180" font-size="10" fill="#555">下方許容限界</text>
+    <text x="295" y="125" font-size="10" fill="#222" font-weight="bold">予定</text>
+    <text x="150" y="180" font-size="10" fill="#b22234" font-weight="bold">実績</text>
+  </g>
+
+  <!-- サマリー（290 * 0.9091 = 263.6 → 余白 236px） -->
+  <line x1="20" y1="278" x2="380" y2="278" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="200" y="308" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c" font-family="sans-serif">バナナ曲線の見方</text>
+  <rect x="20" y="322" width="360" height="70" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="30" y="344" font-size="11" fill="#555" font-family="sans-serif">・実績が上限を上回る → 前倒し（出来高過多・品質確認要）</text>
+  <text x="30" y="362" font-size="11" fill="#555" font-family="sans-serif">・実績が下限を下回る → 遅れ（工程挽回措置が必要）</text>
+  <text x="30" y="382" font-size="11" fill="#555" font-family="sans-serif">・実績が両限界の間　 → 正常な進捗</text>
+  <text x="200" y="420" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">S 字曲線の上下に許容帯を設けた工程管理手法</text>
+  <text x="200" y="440" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">EVM（アーンドバリュー管理）と併用して精度を高める</text>
+</svg>

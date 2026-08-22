@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="移動式クレーンの作業。定格荷重を超える使用の禁止、アウトリガーの最大限張り出し、つり荷直下の立入禁止、合図者の指名を模式化した図">
+  <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">定格荷重超過禁止・アウトリガー最大張出し・つり荷直下立入禁止</text>
+
+  <!-- 地面 -->
+  <line x1="24" y1="360" x2="376" y2="360" stroke="#555" stroke-width="2"/>
+
+  <!-- 車体 -->
+  <rect x="150" y="316" width="100" height="30" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="336" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">車体</text>
+
+  <!-- アウトリガー（左右に最大張出し） -->
+  <line x1="150" y1="340" x2="96" y2="358" stroke="#2e6da4" stroke-width="3"/>
+  <line x1="250" y1="340" x2="304" y2="358" stroke="#2e6da4" stroke-width="3"/>
+  <rect x="86" y="356" width="20" height="8" fill="#555"/>
+  <rect x="294" y="356" width="20" height="8" fill="#555"/>
+
+  <!-- アウトリガー張出しラベル -->
+  <line x1="96" y1="374" x2="304" y2="374" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M96 374 l6 -3 v6 z" fill="#2e6da4"/>
+  <path d="M304 374 l-6 -3 v6 z" fill="#2e6da4"/>
+  <text x="200" y="392" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">アウトリガーは最大限に張り出す（第70条の5）</text>
+
+  <!-- ブーム -->
+  <line x1="200" y1="316" x2="120" y2="150" stroke="#2e6da4" stroke-width="4"/>
+
+  <!-- 作業半径ラベル（頂点から下ろす） -->
+  <line x1="120" y1="150" x2="120" y2="250" stroke="#d7d7d7" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="200" y1="250" x2="120" y2="250" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M200 250 l-6 -3 v6 z" fill="#2e6da4"/>
+  <path d="M120 250 l6 -3 v6 z" fill="#2e6da4"/>
+  <text x="160" y="243" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">作業半径</text>
+
+  <!-- つりロープと荷 -->
+  <line x1="120" y1="150" x2="120" y2="270" stroke="#555" stroke-width="1.5"/>
+  <rect x="106" y="270" width="28" height="22" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="120" y="285" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">荷</text>
+
+  <!-- 立入禁止（つり荷直下） -->
+  <line x1="94" y1="360" x2="146" y2="360" stroke="#555" stroke-width="4"/>
+  <text x="120" y="316" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">立入禁止</text>
+
+  <!-- 合図者 -->
+  <circle cx="300" cy="326" r="8" fill="#f5f5f5" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="300" y="306" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">合図者</text>
+
+  <!-- 注記パネル -->
+  <rect x="24" y="408" width="352" height="76" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="430" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">定格荷重を超える荷重で使用しない（第69条）</text>
+  <text x="200" y="450" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">合図者を指名し合図を行わせる（第71条）</text>
+  <text x="200" y="470" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">根拠：クレーン等安全規則</text>
+</svg>

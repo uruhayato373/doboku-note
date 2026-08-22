@@ -1,0 +1,125 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="FTA フォールトツリー解析の例：頂上事象 T を AND ゲートで A1・A2 に分解し、A1 を AND で X1・X2、A2 を OR で X3 と OR(X4・X5) に分解した木構造">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-top    { font-size: 14px; font-weight: bold; fill: #1a3a5c; }   /* brand-text */
+      .t-mid    { font-size: 13px; font-weight: bold; fill: #1a3a5c; }   /* brand-text */
+      .t-cause  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }   /* brand-text */
+      .t-label  { font-size: 11px; fill: #555; }                         /* ink-body */
+      .t-gate   { font-size: 11px; fill: #222; }                         /* ink-strong */
+      .t-legend { font-size: 11px; fill: #555; }                         /* ink-body */
+      .box-top    { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger（最重要） */
+      .box-mid    { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn（中間） */
+      .box-cause  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand（原因） */
+      .gate-and   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.2; } /* brand */
+      .gate-or    { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.2; } /* warn */
+      .conn       { stroke: #555; stroke-width: 1.5; fill: none; }       /* ink-body */
+    </style>
+  </defs>
+
+  <!-- 頂上事象 T -->
+  <rect class="box-top" x="160" y="10" width="80" height="34" rx="5"/>
+  <text class="t-top"   x="200" y="32" text-anchor="middle">T</text>
+  <text class="t-label" x="200" y="56" text-anchor="middle">頂上事象</text>
+
+  <!-- AND ゲート（T 直下） -->
+  <text class="t-gate"  x="200" y="74" text-anchor="middle">AND</text>
+  <path class="gate-and" d="M 175 76 Q 175 90 200 90 Q 225 90 225 76 Z"/>
+  <line class="conn" x1="200" y1="44" x2="200" y2="76"/>
+
+  <!-- T → A1, A2 -->
+  <line class="conn" x1="200" y1="90" x2="120" y2="112"/>
+  <line class="conn" x1="200" y1="90" x2="280" y2="112"/>
+
+  <!-- 中間事象 A1 -->
+  <rect class="box-mid" x="80" y="112" width="80" height="32" rx="5"/>
+  <text class="t-mid"   x="120" y="132" text-anchor="middle">A1</text>
+  <text class="t-label" x="120" y="156" text-anchor="middle">中間事象</text>
+
+  <!-- A1 の AND -->
+  <text class="t-gate"  x="120" y="174" text-anchor="middle">AND</text>
+  <path class="gate-and" d="M 98 176 Q 98 190 120 190 Q 142 190 142 176 Z"/>
+  <line class="conn" x1="120" y1="144" x2="120" y2="176"/>
+
+  <!-- A1 → X1, X2 -->
+  <line class="conn" x1="120" y1="190" x2="80" y2="216"/>
+  <line class="conn" x1="120" y1="190" x2="160" y2="216"/>
+
+  <!-- X1 -->
+  <rect class="box-cause" x="50" y="216" width="58" height="28" rx="4"/>
+  <text class="t-cause"   x="79" y="234" text-anchor="middle">X1</text>
+  <text class="t-label"   x="79" y="252" text-anchor="middle">原因事象</text>
+
+  <!-- X2 -->
+  <rect class="box-cause" x="130" y="216" width="58" height="28" rx="4"/>
+  <text class="t-cause"   x="159" y="234" text-anchor="middle">X2</text>
+  <text class="t-label"   x="159" y="252" text-anchor="middle">原因事象</text>
+
+  <!-- 中間事象 A2 -->
+  <rect class="box-mid" x="240" y="112" width="80" height="32" rx="5"/>
+  <text class="t-mid"   x="280" y="132" text-anchor="middle">A2</text>
+  <text class="t-label" x="280" y="156" text-anchor="middle">中間事象</text>
+
+  <!-- A2 の OR: 閉じたアーチ形（平坦な上辺＋下方尖頂） -->
+  <line class="conn" x1="280" y1="144" x2="280" y2="168"/>
+  <path class="gate-or" d="M 258 168 L 302 168 Q 302 184 280 196 Q 258 184 258 168 Z"/>
+  <text class="t-gate"  x="280" y="183" text-anchor="middle">OR</text>
+
+  <!-- A2 → X3, OR(X4,X5): ゲート頂点(y=196)から分岐 -->
+  <line class="conn" x1="280" y1="196" x2="240" y2="216"/>
+  <line class="conn" x1="280" y1="196" x2="320" y2="216"/>
+
+  <!-- X3 -->
+  <rect class="box-cause" x="210" y="216" width="58" height="28" rx="4"/>
+  <text class="t-cause"   x="239" y="234" text-anchor="middle">X3</text>
+  <text class="t-label"   x="239" y="252" text-anchor="middle">原因事象</text>
+
+  <!-- OR ゲート（X4/X5） -->
+  <text class="t-gate"  x="320" y="234" text-anchor="middle">OR</text>
+  <path class="gate-or" d="M 298 228 Q 320 246 342 228" fill="#fff3cd"/>
+  <line class="conn" x1="320" y1="216" x2="320" y2="228"/>
+
+  <!-- OR → X4, X5 -->
+  <line class="conn" x1="320" y1="246" x2="298" y2="266"/>
+  <line class="conn" x1="320" y1="246" x2="342" y2="266"/>
+
+  <!-- X4 -->
+  <rect class="box-cause" x="278" y="266" width="44" height="28" rx="4"/>
+  <text class="t-cause"   x="300" y="284" text-anchor="middle">X4</text>
+
+  <!-- X5 -->
+  <rect class="box-cause" x="328" y="266" width="44" height="28" rx="4"/>
+  <text class="t-cause"   x="350" y="284" text-anchor="middle">X5</text>
+
+  <!-- 凡例 -->
+  <rect class="box-top"   x="10" y="290" width="16" height="10" rx="2"/>
+  <text class="t-legend"  x="32" y="299">頂上事象</text>
+  <rect class="box-mid"   x="86" y="290" width="16" height="10" rx="2"/>
+  <text class="t-legend"  x="108" y="299">中間事象</text>
+  <rect class="box-cause" x="162" y="290" width="16" height="10" rx="2"/>
+  <text class="t-legend"  x="184" y="299">原因事象</text>
+
+  <!-- 追加：FTA の特徴と活用 -->
+  <rect x="10" y="320" width="380" height="60" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text x="200" y="340" text-anchor="middle" class="t-legend" font-size="12" fill="#1a3a5c" font-weight="bold" font-family="Inter, sans-serif">FTA の特徴</text>
+  <text x="200" y="358" text-anchor="middle" class="t-legend" font-size="11" fill="#222" font-family="Inter, sans-serif">演繹的・トップダウン型（頂上事象から原因へ展開）</text>
+  <text x="200" y="373" text-anchor="middle" class="t-legend" font-size="11" fill="#555" font-family="Inter, sans-serif">AND/OR ゲートで複合原因の組み合わせを分析</text>
+
+  <rect x="10" y="393" width="180" height="70" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="6"/>
+  <text x="100" y="412" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="Inter, sans-serif">カット集合（CS）</text>
+  <text x="100" y="430" text-anchor="middle" font-size="11" fill="#222" font-family="Inter, sans-serif">頂上事象を引き起こす</text>
+  <text x="100" y="446" text-anchor="middle" font-size="11" fill="#222" font-family="Inter, sans-serif">原因の最小組合せ</text>
+  <text x="100" y="458" text-anchor="middle" font-size="11" fill="#555" font-family="Inter, sans-serif">→ 重点対策箇所を特定</text>
+
+  <rect x="210" y="393" width="180" height="70" fill="#f8d7da" stroke="#b22234" stroke-width="1.5" rx="6"/>
+  <text x="300" y="412" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="Inter, sans-serif">FMEA との違い</text>
+  <text x="300" y="430" text-anchor="middle" font-size="11" fill="#222" font-family="Inter, sans-serif">FTA：演繹（1事象→原因）</text>
+  <text x="300" y="446" text-anchor="middle" font-size="11" fill="#222" font-family="Inter, sans-serif">FMEA：帰納（部品→影響）</text>
+  <text x="300" y="458" text-anchor="middle" font-size="11" fill="#555" font-family="Inter, sans-serif">→ 補完的に使用</text>
+
+  <text x="200" y="487" text-anchor="middle" font-size="11" fill="#3a7d44" font-weight="bold" font-family="Inter, sans-serif">設計審査・化学プラント安全解析に適用</text>
+</svg>

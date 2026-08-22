@@ -1,0 +1,64 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="建設業法で問われる技術者配置と施工体制台帳の範囲。工事現場には主任技術者を配置し、一定規模以上の工事では監理技術者の配置が求められる。施工体制台帳は元請が発注者から直接受注した工事について下請を含む施工体制を書面化するもの">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-hd   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-box  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub  { font-size: 11px; fill: #222; }
+      .t-cond { font-size: 11px; fill: #555; }
+      .t-brk  { font-size: 11px; font-weight: bold; fill: #3a7d44; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .b1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .b2 { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .b3 { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .arw { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .brk { stroke: #3a7d44; stroke-width: 1.5; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="cs-a" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#1a3a5c"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">誰を置くか、どこまでを書面にするか</text>
+
+  <text class="t-hd" x="200" y="46" text-anchor="middle">工事現場の技術者配置</text>
+  <rect class="b1" x="34" y="62" width="120" height="48" rx="4"/>
+  <text class="t-box" x="94" y="84" text-anchor="middle">主任技術者</text>
+  <text class="t-sub" x="94" y="102" text-anchor="middle">現場に配置する</text>
+  <line class="arw" x1="168" y1="93" x2="232" y2="93" marker-end="url(#cs-a)"/>
+  <text class="t-cond" x="200" y="84" text-anchor="middle">一定規模以上</text>
+  <rect class="b2" x="246" y="62" width="120" height="48" rx="4"/>
+  <text class="t-box" x="306" y="84" text-anchor="middle">監理技術者</text>
+  <text class="t-sub" x="306" y="102" text-anchor="middle">配置が求められる</text>
+
+  <text class="t-hd" x="200" y="152" text-anchor="middle">施工体制台帳がカバーする範囲</text>
+  <rect class="b3" x="24" y="170" width="100" height="42" rx="4"/>
+  <text class="t-box" x="74" y="196" text-anchor="middle">発注者</text>
+  <line class="arw" x1="128" y1="191" x2="144" y2="191" marker-end="url(#cs-a)"/>
+  <rect class="b1" x="150" y="170" width="100" height="42" rx="4"/>
+  <text class="t-box" x="200" y="196" text-anchor="middle">元請</text>
+  <line class="arw" x1="254" y1="191" x2="270" y2="191" marker-end="url(#cs-a)"/>
+  <rect class="b1" x="276" y="170" width="100" height="42" rx="4"/>
+  <text class="t-box" x="326" y="196" text-anchor="middle">下請</text>
+
+  <polyline class="brk" points="150,222 150,232 376,232 376,222"/>
+  <text class="t-brk" x="263" y="252" text-anchor="middle">施工体制台帳（下請を含む体制を書面化）</text>
+
+  <text class="t-cond" x="200" y="282" text-anchor="middle">2 級土木施工管理技士は主任技術者になれる資格</text>
+
+  <rect class="box-surf" x="20" y="300" width="360" height="182" rx="6"/>
+  <text class="t-sec" x="200" y="322" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="331" x2="364" y2="331"/>
+  <text class="t-item" x="40" y="356">建設工事の現場には必ず主任技術者を配置する</text>
+  <text class="t-item" x="40" y="380">一定規模以上ではより高い資格要件の監理技術者が必要</text>
+  <text class="t-item" x="40" y="404">台帳は元請が発注者から直接受注した工事が対象</text>
+  <text class="t-item" x="40" y="428">建設業法の目的は適正な施工の確保と発注者の保護</text>
+  <text class="t-item" x="40" y="452">技術者配置の規定が試験の中心的な出題テーマ</text>
+</svg>

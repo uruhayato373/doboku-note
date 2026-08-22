@@ -1,0 +1,96 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="PPM分析マトリクス。縦軸が市場成長率、横軸が相対的市場占有率。花形・問題児・金のなる木・負け犬の4象限と各打ち手を示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-label  { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 12px; fill: #555; }
+      .t-note   { font-size: 12px; fill: #555; }
+      .t-axis   { font-size: 12px; font-weight: bold; fill: #8a8a8a; }
+      .t-axistk { font-size: 11px; fill: #8a8a8a; }
+      .t-icon   { font-size: 22px; }
+      .t-foot   { font-size: 11px; fill: #8a8a8a; }
+      .box-warn    { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-danger  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-pos     { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-muted   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .badge-warn  { fill: #ffffff; stroke: #d4a017; stroke-width: 1.5; }
+      .badge-danger{ fill: #ffffff; stroke: #b22234; stroke-width: 1.5; }
+      .badge-pos   { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+      .badge-muted { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .lbl-warn  { fill: #d4a017; font-size: 14px; font-weight: bold; }
+      .lbl-danger{ fill: #b22234; font-size: 14px; font-weight: bold; }
+      .lbl-pos   { fill: #3a7d44; font-size: 14px; font-weight: bold; }
+      .lbl-muted { fill: #8a8a8a; font-size: 14px; font-weight: bold; }
+    </style>
+    <marker id="arrow" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- 縦軸：市場成長率 x=46（Y軸を左へ22px移動してマトリクスを中央寄せ） -->
+  <line x1="46" y1="12" x2="46" y2="440" stroke="#8a8a8a" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text class="t-axis" x="16" y="230" text-anchor="middle" transform="rotate(-90,16,230)">市場成長率</text>
+  <text class="t-axistk" x="36" y="28"  text-anchor="end">高</text>
+  <text class="t-axistk" x="36" y="432" text-anchor="end">低</text>
+
+  <!-- 横軸：相対的市場占有率 y=442, x=46→368 -->
+  <line x1="46" y1="442" x2="368" y2="442" stroke="#8a8a8a" stroke-width="1.8" marker-end="url(#arrow)"/>
+  <text class="t-axis" x="207" y="468" text-anchor="middle">相対的市場占有率</text>
+  <text class="t-axistk" x="64"  y="457">← 高</text>
+  <text class="t-axistk" x="333" y="457">低 →</text>
+
+  <!-- 中央分割線 x分割=207, y分割=226 -->
+  <line x1="46"  y1="226" x2="364" y2="226" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="207" y1="12"  x2="207" y2="442" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- 象限1: 左上 — 花形 x=50 y=16 w=153 h=206 -->
+  <rect class="box-warn" x="50" y="16" width="153" height="206" rx="8"/>
+  <circle class="badge-warn" cx="82" cy="52" r="18"/>
+  <text class="t-icon" x="82" y="61" text-anchor="middle" fill="#d4a017">★</text>
+  <text class="lbl-warn" x="196" y="52" text-anchor="end">花形</text>
+  <text class="t-sub"    x="196" y="70" text-anchor="end">Star</text>
+  <text class="t-note"   x="196" y="100" text-anchor="end">成長率：高</text>
+  <text class="t-note"   x="196" y="118" text-anchor="end">占有率：高</text>
+  <text class="t-sub"    x="196" y="148" text-anchor="end" font-weight="bold">→ 投資継続</text>
+  <text class="t-note"   x="196" y="168" text-anchor="end">シェア維持・拡大に</text>
+  <text class="t-note"   x="196" y="186" text-anchor="end">積極投資が必要</text>
+
+  <!-- 象限2: 右上 — 問題児 x=211 y=16 w=153 h=206 -->
+  <rect class="box-danger" x="211" y="16" width="153" height="206" rx="8"/>
+  <circle class="badge-danger" cx="243" cy="52" r="18"/>
+  <text class="t-icon" x="243" y="61" text-anchor="middle" fill="#b22234">?</text>
+  <text class="lbl-danger" x="360" y="52" text-anchor="end">問題児</text>
+  <text class="t-sub"      x="360" y="70" text-anchor="end">Question Mark</text>
+  <text class="t-note"     x="360" y="100" text-anchor="end">成長率：高</text>
+  <text class="t-note"     x="360" y="118" text-anchor="end">占有率：低</text>
+  <text class="t-sub"      x="360" y="148" text-anchor="end" font-weight="bold">→ 選択と集中</text>
+  <text class="t-note"     x="360" y="168" text-anchor="end">資源集中か</text>
+  <text class="t-note"     x="360" y="186" text-anchor="end">撤退かを選択</text>
+
+  <!-- 象限3: 左下 — 金のなる木 x=50 y=230 w=153 h=208 -->
+  <rect class="box-pos" x="50" y="230" width="153" height="208" rx="8"/>
+  <circle class="badge-pos" cx="82" cy="266" r="18"/>
+  <text class="t-icon" x="82" y="275" text-anchor="middle" fill="#3a7d44">¥</text>
+  <text class="lbl-pos" x="196" y="266" text-anchor="end">金のなる木</text>
+  <text class="t-sub"   x="196" y="284" text-anchor="end">Cash Cow</text>
+  <text class="t-note"  x="196" y="314" text-anchor="end">成長率：低</text>
+  <text class="t-note"  x="196" y="332" text-anchor="end">占有率：高</text>
+  <text class="t-sub"   x="196" y="362" text-anchor="end" font-weight="bold">→ 収益源</text>
+  <text class="t-note"  x="196" y="382" text-anchor="end">最小投資で</text>
+  <text class="t-note"  x="196" y="400" text-anchor="end">安定収益を確保</text>
+
+  <!-- 象限4: 右下 — 負け犬 x=211 y=230 w=153 h=208 -->
+  <rect class="box-muted" x="211" y="230" width="153" height="208" rx="8"/>
+  <circle class="badge-muted" cx="243" cy="266" r="18"/>
+  <text class="t-icon" x="243" y="275" text-anchor="middle" fill="#8a8a8a">×</text>
+  <text class="lbl-muted" x="360" y="266" text-anchor="end">負け犬</text>
+  <text class="t-sub"     x="360" y="284" text-anchor="end">Dog</text>
+  <text class="t-note"    x="360" y="314" text-anchor="end">成長率：低</text>
+  <text class="t-note"    x="360" y="332" text-anchor="end">占有率：低</text>
+  <text class="t-sub"     x="360" y="362" text-anchor="end" font-weight="bold">→ 撤退検討</text>
+  <text class="t-note"    x="360" y="382" text-anchor="end">資源を他事業へ</text>
+  <text class="t-note"    x="360" y="400" text-anchor="end">再配分する判断</text>
+
+  <!-- フッター -->
+  <text class="t-foot" x="207" y="490" text-anchor="middle">戦略資源を花形・問題児に集中配分することが基本</text>
+</svg>

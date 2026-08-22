@@ -1,0 +1,88 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  width="400" height="500"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="パワーハラスメントの6類型と成立3要素。成立には優越的関係・業務逸脱・就業環境悪化の3要素を全て満たす必要がある">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-head   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-label  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-note   { font-size: 11px; fill: #555; }
+      .t-num    { font-size: 13px; font-weight: bold; fill: #b22234; }
+      .t-cond   { font-size: 11px; fill: #1a3a5c; }
+      .t-foot   { font-size: 11px; fill: #8a8a8a; }
+      .box-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .badge-danger { fill: #ffffff; stroke: #b22234; stroke-width: 1.5; }
+      .band-req { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- ===== 成立3要素帯 ===== -->
+  <rect class="band-req" x="8" y="8" width="384" height="96" rx="8"/>
+  <text class="t-head" x="200" y="28" text-anchor="middle">成立3要素（すべて満たすこと）</text>
+
+  <!-- 要素1 -->
+  <rect fill="#2e6da4" fill-opacity="0.10" stroke="#2e6da4" stroke-opacity="0.5" stroke-width="1" x="16" y="36" width="116" height="60" rx="5"/>
+  <text class="t-cond" fill="#1a3a5c" x="74" y="55" text-anchor="middle">優越的な関係</text>
+  <text class="t-cond" fill="#1a3a5c" x="74" y="70" text-anchor="middle">を背景とした言動</text>
+  <text class="t-cond" fill="#1a3a5c" x="74" y="88" text-anchor="middle">①</text>
+
+  <!-- 要素2 -->
+  <rect fill="#2e6da4" fill-opacity="0.10" stroke="#2e6da4" stroke-opacity="0.5" stroke-width="1" x="142" y="36" width="116" height="60" rx="5"/>
+  <text class="t-cond" fill="#1a3a5c" x="200" y="55" text-anchor="middle">業務上必要かつ</text>
+  <text class="t-cond" fill="#1a3a5c" x="200" y="70" text-anchor="middle">相当な範囲を超えた</text>
+  <text class="t-cond" fill="#1a3a5c" x="200" y="88" text-anchor="middle">②</text>
+
+  <!-- 要素3 -->
+  <rect fill="#2e6da4" fill-opacity="0.10" stroke="#2e6da4" stroke-opacity="0.5" stroke-width="1" x="268" y="36" width="116" height="60" rx="5"/>
+  <text class="t-cond" fill="#1a3a5c" x="326" y="55" text-anchor="middle">就業環境が</text>
+  <text class="t-cond" fill="#1a3a5c" x="326" y="70" text-anchor="middle">害されるもの</text>
+  <text class="t-cond" fill="#1a3a5c" x="326" y="88" text-anchor="middle">③</text>
+
+  <!-- ===== 6類型カード (各高さ58, gap=4) ===== -->
+  <!-- カード1: 身体的な攻撃 y=112 -->
+  <rect class="box-danger" x="8" y="112" width="384" height="58" rx="7"/>
+  <circle class="badge-danger" cx="30" cy="141" r="14"/>
+  <text class="t-num" x="30" y="146" text-anchor="middle">1</text>
+  <text class="t-label" x="54" y="135">身体的な攻撃</text>
+  <text class="t-note" x="54" y="154">暴行・傷害</text>
+
+  <!-- カード2: 精神的な攻撃 y=174 -->
+  <rect class="box-danger" x="8" y="174" width="384" height="58" rx="7"/>
+  <circle class="badge-danger" cx="30" cy="203" r="14"/>
+  <text class="t-num" x="30" y="208" text-anchor="middle">2</text>
+  <text class="t-label" x="54" y="197">精神的な攻撃</text>
+  <text class="t-note" x="54" y="216">脅迫・名誉棄損・侮辱・ひどい暴言</text>
+
+  <!-- カード3: 人間関係からの切り離し y=236 -->
+  <rect class="box-danger" x="8" y="236" width="384" height="58" rx="7"/>
+  <circle class="badge-danger" cx="30" cy="265" r="14"/>
+  <text class="t-num" x="30" y="270" text-anchor="middle">3</text>
+  <text class="t-label" x="54" y="259">人間関係からの切り離し</text>
+  <text class="t-note" x="54" y="278">隔離・仲間外し・無視</text>
+
+  <!-- カード4: 過大な要求 y=298 -->
+  <rect class="box-danger" x="8" y="298" width="384" height="58" rx="7"/>
+  <circle class="badge-danger" cx="30" cy="327" r="14"/>
+  <text class="t-num" x="30" y="332" text-anchor="middle">4</text>
+  <text class="t-label" x="54" y="321">過大な要求</text>
+  <text class="t-note" x="54" y="340">遂行不可能な業務の強制・仕事の妨害</text>
+
+  <!-- カード5: 過小な要求 y=360 -->
+  <rect class="box-danger" x="8" y="360" width="384" height="58" rx="7"/>
+  <circle class="badge-danger" cx="30" cy="389" r="14"/>
+  <text class="t-num" x="30" y="394" text-anchor="middle">5</text>
+  <text class="t-label" x="54" y="383">過小な要求</text>
+  <text class="t-note" x="54" y="402">能力と乖離した仕事を命じる・仕事を与えない</text>
+
+  <!-- カード6: 個の侵害 y=422 -->
+  <rect class="box-danger" x="8" y="422" width="384" height="58" rx="7"/>
+  <circle class="badge-danger" cx="30" cy="451" r="14"/>
+  <text class="t-num" x="30" y="456" text-anchor="middle">6</text>
+  <text class="t-label" x="54" y="445">個の侵害</text>
+  <text class="t-note" x="54" y="464">私的なことへの過度な立ち入り</text>
+
+  <!-- フッター -->
+  <text class="t-foot" x="200" y="492" text-anchor="middle">①②③すべて該当＝パワーハラスメントと判断</text>
+</svg>

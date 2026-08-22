@@ -1,0 +1,159 @@
+<svg viewBox="0 0 400 500" role="img" aria-label="環境基本法を頂点とした日本の環境法令体系ツリー。直下に環境基本計画を配置し、その下に公害規制・循環型社会・自然共生・横断的手法の4系統に分岐して代表法令を列挙した階層図" style="max-width:400px;width:100%" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-root   { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-plan   { font-size: 11px; fill: #555; }
+      .t-head   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-law    { font-size: 11px; fill: #555; }
+      .t-sub    { font-size: 11px; fill: #1a3a5c; }
+      .box-root { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-plan { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.2; }
+      .box-head { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-law  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.2; }
+      .line     { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+      .line-sub { stroke: #8a8a8a; stroke-width: 1.2; fill: none; }
+    </style>
+    <marker markerUnits="userSpaceOnUse" id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- ===== ROOT: 環境基本法 ===== -->
+  <rect class="box-root" x="110" y="12" width="180" height="34" rx="7"/>
+  <text class="t-root" x="200" y="34" text-anchor="middle">環境基本法（1993）</text>
+
+  <!-- ROOT → 計画 -->
+  <line class="line" x1="200" y1="46" x2="200" y2="58"/>
+
+  <!-- 環境基本計画 -->
+  <rect class="box-plan" x="105" y="58" width="190" height="38" rx="5"/>
+  <text class="t-plan" x="200" y="71" text-anchor="middle">環境基本計画</text>
+  <text class="t-plan" x="200" y="87" text-anchor="middle">（基本法に基づく国の総合計画）</text>
+
+  <!-- 計画 → 4系統分岐 水平幹線 -->
+  <line class="line" x1="50"  y1="96" x2="350" y2="96"/>
+  <line class="line" x1="50"  y1="96" x2="50"  y2="108" marker-end="url(#arr)"/>
+  <line class="line" x1="150" y1="96" x2="150" y2="108" marker-end="url(#arr)"/>
+  <line class="line" x1="250" y1="96" x2="250" y2="108" marker-end="url(#arr)"/>
+  <line class="line" x1="350" y1="96" x2="350" y2="108" marker-end="url(#arr)"/>
+
+  <!-- ===== 系統1: 公害規制系 (cx=50) ===== -->
+  <rect class="box-head" x="12" y="108" width="76" height="26" rx="5"/>
+  <text class="t-head" x="50" y="125" text-anchor="middle">公害規制系</text>
+
+  <!-- 公害規制: 6法 -->
+  <line class="line-sub" x1="50" y1="134" x2="50" y2="142"/>
+  <rect class="box-law" x="12" y="142" width="76" height="20" rx="4"/>
+  <text class="t-law" x="50" y="156" text-anchor="middle">大気汚染防止法</text>
+  <line class="line-sub" x1="50" y1="162" x2="50" y2="166"/>
+  <rect class="box-law" x="12" y="166" width="76" height="20" rx="4"/>
+  <text class="t-law" x="50" y="180" text-anchor="middle">水質汚濁防止法</text>
+  <line class="line-sub" x1="50" y1="186" x2="50" y2="190"/>
+  <rect class="box-law" x="12" y="190" width="76" height="20" rx="4"/>
+  <text class="t-law" x="50" y="204" text-anchor="middle">土壌汚染対策法</text>
+  <line class="line-sub" x1="50" y1="210" x2="50" y2="214"/>
+  <rect class="box-law" x="12" y="214" width="76" height="20" rx="4"/>
+  <text class="t-law" x="50" y="226" text-anchor="middle">騒音規制法</text>
+  <line class="line-sub" x1="50" y1="234" x2="50" y2="238"/>
+  <rect class="box-law" x="12" y="238" width="76" height="20" rx="4"/>
+  <text class="t-law" x="50" y="252" text-anchor="middle">振動規制法</text>
+  <line class="line-sub" x1="50" y1="258" x2="50" y2="262"/>
+  <rect class="box-law" x="12" y="262" width="76" height="20" rx="4"/>
+  <text class="t-law" x="50" y="276" text-anchor="middle">悪臭防止法</text>
+
+  <!-- ===== 系統2: 循環型社会系 (cx=150) ===== -->
+  <rect class="box-head" x="112" y="108" width="76" height="26" rx="5"/>
+  <text class="t-head" x="150" y="121" text-anchor="middle">循環型社会系</text>
+  <text class="t-head" x="150" y="132" text-anchor="middle"> </text>
+
+  <!-- 循環基本法 -->
+  <line class="line-sub" x1="150" y1="134" x2="150" y2="142"/>
+  <rect class="box-law" x="108" y="142" width="84" height="28" rx="4"/>
+  <text class="t-sub"  x="150" y="156" text-anchor="middle">循環型社会形成</text>
+  <text class="t-sub"  x="150" y="167" text-anchor="middle">推進基本法</text>
+
+  <!-- 循環基本法 → 個別法 -->
+  <line class="line-sub" x1="150" y1="170" x2="150" y2="180" marker-end="url(#arr)"/>
+  <rect class="box-law" x="108" y="180" width="84" height="20" rx="4"/>
+  <text class="t-law" x="150" y="194" text-anchor="middle">廃棄物処理法</text>
+  <line class="line-sub" x1="150" y1="200" x2="150" y2="204"/>
+  <rect class="box-law" x="108" y="208" width="84" height="50" rx="4"/>
+  <text class="t-law" x="150" y="220" text-anchor="middle">容器包装/家電/</text>
+  <text class="t-law" x="150" y="233" text-anchor="middle">建設/食品・</text>
+  <text class="t-law" x="150" y="250" text-anchor="middle">各リサイクル法</text>
+  <line class="line-sub" x1="150" y1="258" x2="150" y2="262"/>
+  <rect class="box-law" x="108" y="262" width="84" height="20" rx="4"/>
+  <text class="t-law" x="150" y="276" text-anchor="middle">グリーン購入法</text>
+
+  <!-- ===== 系統3: 自然共生系 (cx=250) ===== -->
+  <rect class="box-head" x="212" y="108" width="76" height="26" rx="5"/>
+  <text class="t-head" x="250" y="125" text-anchor="middle">自然共生系</text>
+
+  <line class="line-sub" x1="250" y1="134" x2="250" y2="142"/>
+  <rect class="box-law" x="212" y="142" width="76" height="32" rx="4"/>
+  <text class="t-law" x="250" y="155" text-anchor="middle">生物多様性</text>
+  <text class="t-law" x="250" y="168" text-anchor="middle">基本法</text>
+  <line class="line-sub" x1="250" y1="174" x2="250" y2="178"/>
+  <rect class="box-law" x="212" y="178" width="76" height="20" rx="4"/>
+  <text class="t-law" x="250" y="192" text-anchor="middle">自然環境保全法</text>
+  <line class="line-sub" x1="250" y1="198" x2="250" y2="202"/>
+  <rect class="box-law" x="212" y="202" width="76" height="20" rx="4"/>
+  <text class="t-law" x="250" y="216" text-anchor="middle">自然公園法</text>
+  <line class="line-sub" x1="250" y1="222" x2="250" y2="226"/>
+  <rect class="box-law" x="212" y="226" width="76" height="20" rx="4"/>
+  <text class="t-law" x="250" y="240" text-anchor="middle">種の保存法</text>
+
+  <!-- ===== 系統4: 横断的手法 (cx=350) ===== -->
+  <rect class="box-head" x="312" y="108" width="76" height="26" rx="5"/>
+  <text class="t-head" x="350" y="121" text-anchor="middle">横断的手法</text>
+  <text class="t-head" x="350" y="132" text-anchor="middle"> </text>
+
+  <line class="line-sub" x1="350" y1="134" x2="350" y2="142"/>
+  <rect class="box-law" x="312" y="142" width="76" height="20" rx="4"/>
+  <text class="t-law" x="350" y="156" text-anchor="middle">環境影響評価法</text>
+  <line class="line-sub" x1="350" y1="162" x2="350" y2="166"/>
+  <rect class="box-law" x="312" y="166" width="76" height="40" rx="4"/>
+  <text class="t-law" x="350" y="178" text-anchor="middle">化学物質審査</text>
+  <text class="t-law" x="350" y="190" text-anchor="middle">規制法</text>
+  <text class="t-law" x="350" y="202" text-anchor="middle">（化審法）</text>
+  <line class="line-sub" x1="350" y1="206" x2="350" y2="210"/>
+  <rect class="box-law" x="312" y="210" width="76" height="28" rx="4"/>
+  <text class="t-law" x="350" y="222" text-anchor="middle">化管法</text>
+  <text class="t-law" x="350" y="234" text-anchor="middle">（PRTR法）</text>
+
+  <!-- ===== 区切り線 ===== -->
+  <line x1="20" y1="298" x2="380" y2="298" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- ===== 凡例・補足エリア ===== -->
+  <text class="t-sub" x="20" y="318" font-weight="bold">系統別ポイント</text>
+
+  <!-- 公害規制 -->
+  <rect class="box-head" x="20" y="328" width="80" height="18" rx="4"/>
+  <text class="t-law" x="60" y="341" text-anchor="middle">公害規制系</text>
+  <text class="t-law" x="108" y="341">：典型7公害対策の各個別法</text>
+
+  <!-- 循環型社会 -->
+  <rect class="box-head" x="20" y="354" width="80" height="18" rx="4"/>
+  <text class="t-law" x="60" y="367" text-anchor="middle">循環型社会系</text>
+  <text class="t-law" x="108" y="367">：基本法→個別リサイクル法の2階層</text>
+
+  <!-- 自然共生 -->
+  <rect class="box-head" x="20" y="380" width="80" height="18" rx="4"/>
+  <text class="t-law" x="60" y="393" text-anchor="middle">自然共生系</text>
+  <text class="t-law" x="108" y="393">：生物多様性条約を国内実施</text>
+
+  <!-- 横断的手法 -->
+  <rect class="box-head" x="20" y="406" width="80" height="18" rx="4"/>
+  <text class="t-law" x="60" y="419" text-anchor="middle">横断的手法</text>
+  <text class="t-law" x="108" y="419">：分野横断の手続・情報公開ツール</text>
+
+  <!-- 区切り -->
+  <line x1="20" y1="434" x2="380" y2="434" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 補足：法体系の背景 -->
+  <text class="t-sub" x="20" y="452">環境基本法（1993）は公害対策基本法・自然環境保全法の理念を</text>
+  <text class="t-sub" x="20" y="468">統合して制定。全ての個別環境法の根拠法として機能する。</text>
+  <text class="t-sub" x="20" y="484">第 6 次環境基本計画（2024 年閣議決定）が現行の政府計画。</text>
+
+</svg>

@@ -1,0 +1,46 @@
+<!--
+  IG figure-pack 表紙テンプレ（SSOT）
+  新規パックはこのファイルをコピーし {{...}} だけ差し替える。chrome（ピル/区切り/バッジ/スワイプ/フッター）は変えない。
+  真実源: maslow-hierarchy-of-needs / mcgregor-xy-theory の 00-cover.svg と一致。
+  プレースホルダ:
+    {{ARIA}}        aria-label（例: 技術士総監 人的資源管理 マズローの欲求5段階説 表紙）
+    {{KANRI}}       5管理区分（人的資源管理 / 経済性管理 / 情報管理 / 安全管理 / 社会環境管理）
+    {{TITLE1}}      メインタイトル1行目（既定 42px。長い場合のみ 34→28px に段階縮小し、28px 未満になるなら 2 行に分割する＝SKILL.md「タイトル文字サイズのルール」）
+    {{TITLE2}}      メインタイトル2行目（1行で足りる場合は空文字 "" にして y=195 に寄せる）
+    {{SUB1}}{{SUB2}} サブコピー（頻出論点・引っかけの予告、各 ~18字）
+  比較（A vs B）型の表紙は mcgregor-xy-theory/00-cover.svg を別途コピー元にする（2概念を上下に大きく＝既定 68px＋中央 orange「vs」22px の対向デザイン。chrome は本テンプレと同一）。
+  注意: docs/sns/instagram/{exam}/{slug}/ 配下に置く（cem 等の試験dir必須）。色は IG 専用パレット（site allowlist 非対象）。
+-->
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="{{ARIA}}">
+  <defs><style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }</style></defs>
+  <rect width="400" height="500" fill="#1a3a5c"/>
+  <rect x="0" y="0" width="400" height="5" fill="#a36b2c"/>
+
+  <!-- 資格バッジ（塗り）＋管理区分バッジ（枠）：2ピル構造（固定） -->
+  <rect x="24" y="20" width="110" height="26" rx="13" fill="#a36b2c"/>
+  <text x="79" y="37" text-anchor="middle" font-size="11" font-weight="bold" fill="#fff">技術士 総監</text>
+  <rect x="144" y="20" width="124" height="26" rx="13" fill="none" stroke="#a36b2c" stroke-width="1.5"/>
+  <text x="206" y="37" text-anchor="middle" font-size="11" fill="#d4956a">{{KANRI}}</text>
+
+  <!-- メインタイトル -->
+  <text x="200" y="170" text-anchor="middle" font-size="42" font-weight="bold" fill="#ffffff">{{TITLE1}}</text>
+  <text x="200" y="220" text-anchor="middle" font-size="42" font-weight="bold" fill="#ffffff">{{TITLE2}}</text>
+
+  <!-- 区切り線 -->
+  <rect x="40" y="250" width="320" height="1.5" fill="#a36b2c" opacity="0.5"/>
+
+  <!-- サブコピー -->
+  <text x="200" y="286" text-anchor="middle" font-size="14" fill="#b8d0e8">{{SUB1}}</text>
+  <text x="200" y="310" text-anchor="middle" font-size="14" fill="#b8d0e8">{{SUB2}}</text>
+
+  <!-- 頻出バッジ（固定文言） -->
+  <rect x="104" y="338" width="192" height="40" rx="20" fill="#a36b2c"/>
+  <text x="200" y="363" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">択一 頻出テーマ</text>
+
+  <!-- スワイプ促進（固定） -->
+  <text x="200" y="424" text-anchor="middle" font-size="12" fill="#6a8faf">スワイプして図解を確認 ▶</text>
+
+  <!-- フッター（固定） -->
+  <rect x="0" y="460" width="400" height="40" fill="#0f2035"/>
+  <text x="200" y="485" text-anchor="middle" font-size="12" fill="#6a8faf">doboku-note.com</text>
+</svg>

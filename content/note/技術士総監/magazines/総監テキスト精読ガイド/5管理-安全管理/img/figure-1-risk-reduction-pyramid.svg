@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="840" viewBox="0 0 1200 840">
+  <rect width="1200" height="840" fill="#ffffff"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#555555"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">リスク低減措置の優先順位（厚生労働省指針）</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">本質的対策を最優先、個人用保護具は最後の手段</text>
+
+  <polygon points="510,160 690,160 780,285 420,285" fill="#3a7d44" stroke="#ffffff" stroke-width="3"/>
+  <text x="600" y="214.5" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">本質的対策</text>
+  <text x="600" y="244.5" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle">排除・代替</text>
+  <rect x="980" y="172" width="200" height="101" rx="10" fill="#ffffff" stroke="#3a7d44" stroke-width="2"/>
+  <rect x="980" y="172" width="200" height="36" rx="10" fill="#3a7d44"/>
+  <rect x="980" y="196" width="200" height="12" fill="#3a7d44"/>
+  <text x="1080" y="198" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#ffffff" text-anchor="middle">最優先 ①</text>
+  <text x="1080" y="240.5" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">設計段階で危険源を除去</text>
+  <polygon points="420,285 780,285 870,410 330,410" fill="#2e6da4" stroke="#ffffff" stroke-width="3"/>
+  <text x="600" y="339.5" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">工学的対策</text>
+  <text x="600" y="369.5" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle">ガード・安全装置</text>
+  <rect x="980" y="297" width="200" height="101" rx="10" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <rect x="980" y="297" width="200" height="36" rx="10" fill="#2e6da4"/>
+  <rect x="980" y="321" width="200" height="12" fill="#2e6da4"/>
+  <text x="1080" y="323" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#ffffff" text-anchor="middle">② 次善</text>
+  <text x="1080" y="365.5" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">インターロック等で隔離</text>
+  <polygon points="330,410 870,410 960,535 240,535" fill="#d4a017" stroke="#ffffff" stroke-width="3"/>
+  <text x="600" y="464.5" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">管理的対策</text>
+  <text x="600" y="494.5" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle">マニュアル・教育</text>
+  <rect x="980" y="422" width="200" height="101" rx="10" fill="#ffffff" stroke="#d4a017" stroke-width="2"/>
+  <rect x="980" y="422" width="200" height="36" rx="10" fill="#d4a017"/>
+  <rect x="980" y="446" width="200" height="12" fill="#d4a017"/>
+  <text x="1080" y="448" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#ffffff" text-anchor="middle">③ 補完</text>
+  <text x="1080" y="490.5" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">作業手順の標準化</text>
+  <polygon points="240,535 960,535 1050,660 150,660" fill="#b22234" stroke="#ffffff" stroke-width="3"/>
+  <text x="600" y="589.5" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">個人用保護具</text>
+  <text x="600" y="619.5" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle">最後の手段</text>
+  <rect x="980" y="547" width="200" height="101" rx="10" fill="#ffffff" stroke="#b22234" stroke-width="2"/>
+  <rect x="980" y="547" width="200" height="36" rx="10" fill="#b22234"/>
+  <rect x="980" y="571" width="200" height="12" fill="#b22234"/>
+  <text x="1080" y="573" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#ffffff" text-anchor="middle">④ 最後</text>
+  <text x="1080" y="615.5" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">残ったリスクのみ</text>
+  <line x1="150" y1="180" x2="150" y2="640" stroke="#555555" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="132" y="210" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="end">優先度</text>
+  <text x="132" y="242" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555" text-anchor="end">高</text>
+  <text x="132" y="640" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555" text-anchor="end">低</text>
+
+  <rect x="40" y="700" width="1120" height="44" rx="6" fill="#e8f0fe"/>
+  <text x="60" y="730" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">引っかけ：「保護具を最優先」「本質的対策は最後」は逆順。R5 Ⅰ-1-28 の典型誤答。</text>
+
+</svg>

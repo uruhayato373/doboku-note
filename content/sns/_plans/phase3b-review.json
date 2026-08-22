@@ -1,0 +1,343 @@
+[
+  {
+    "mgmt": "economic",
+    "concept": "PFI 3方式の比較（BTO / BOT / コンセッション）",
+    "mdRange": "§1-(6)",
+    "sendToSlug": "pe-comprehensive-management-pfi",
+    "slugPath": "pfi",
+    "layout": "2カラム比較（3列カード横並びでも可）",
+    "elements": "BTO=建設→所有権移転→民間運営／BOT=建設→民間運営→事業終了後に移転／コンセッション=所有権は公共・運営権のみ民間。各方式の所有権の所在をアイコンで対比",
+    "colorPlan": "brand=見出し、positive=コンセッション、ink-body=BTO/BOT本文、warn=所有権移転タイミングの強調",
+    "existing": [
+      "pfi-four-types.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/pfi/img/figure-1.svg"
+  },
+  {
+    "mgmt": "economic",
+    "concept": "QC7つ道具 / 新QC7つ道具の使い分け（数値データ vs 言語データ）",
+    "mdRange": "§2-(3)(a)(b)",
+    "sendToSlug": "pe-comprehensive-management-quality-control",
+    "slugPath": "quality-control",
+    "layout": "2カラム比較",
+    "elements": "左=QC7つ道具（数値データ）: 層別/パレート図/特性要因図/ヒストグラム/散布図/管理図/チェックシート。右=新QC7つ道具（言語データ）: 連関図/系統図/マトリックス図/PDPC/アローダイアグラム/親和図/マトリックスデータ解析",
+    "colorPlan": "brand=左右見出し、positive=数値データ列、warn=言語データ列、ink-body=各道具名",
+    "existing": [
+      "qc-seven-tools.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/quality-control/img/figure-1.svg"
+  },
+  {
+    "mgmt": "economic",
+    "concept": "正規分布と3σ則（68.3% / 95.4% / 99.7%）",
+    "mdRange": "§2-(3)(c)",
+    "sendToSlug": "pe-comprehensive-management-process-capability-index",
+    "slugPath": "process-capability-index",
+    "layout": "その他（ベルカーブ＋区間ブラケット）",
+    "elements": "釣鐘曲線・μ中心・±σ=68.3%・±2σ=95.4%・±3σ=99.7%の区間ラベル。本文に既存SVGあり（簡素）→記事/SNS用に色付け強化",
+    "colorPlan": "brand=曲線、positive=±σ帯、warn=±2σ帯、ink-muted=±3σ帯、ink-strong=μ軸",
+    "existing": [
+      "normal-distribution-3sigma.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/process-capability-index/img/figure-1.svg"
+  },
+  {
+    "mgmt": "economic",
+    "concept": "保全活動の体系（JIS Z 8141 ツリー）",
+    "mdRange": "§6-(3)",
+    "sendToSlug": "pe-comprehensive-management-preventive-maintenance",
+    "slugPath": "preventive-maintenance",
+    "layout": "その他（ツリー／組織図）",
+    "elements": "保全活動→維持活動（予防保全[定期保全/予知保全]・事後保全）／改善活動（改良保全・保全予防）。6種の上下関係を樹形図化",
+    "colorPlan": "brand=ルート、positive=予防保全系、warn=事後保全、ink-body=改善活動系",
+    "existing": [
+      "figure-1.svg",
+      "figure-2.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/preventive-maintenance/img/figure-1.svg"
+  },
+  {
+    "mgmt": "economic",
+    "concept": "バスタブカーブ（初期故障期/偶発故障期/摩耗故障期）",
+    "mdRange": "§6 冒頭",
+    "sendToSlug": "pe-comprehensive-management-bathtub-curve",
+    "slugPath": "bathtub-curve",
+    "layout": "その他（時系列カーブ＋3区間）",
+    "elements": "横軸=時間、縦軸=故障率のバスタブ曲線。初期故障期（高→減）／偶発故障期（一定低）／摩耗故障期（再上昇）の3区間分割と各区間の保全対応",
+    "colorPlan": "brand=曲線、warn=初期故障期・摩耗故障期帯、positive=偶発故障期帯",
+    "existing": [
+      "bathtub-curve-phases.svg",
+      "bathtub-maintenance-effect.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/bathtub-curve/img/figure-1.svg"
+  },
+  {
+    "mgmt": "economic",
+    "concept": "損益分岐点（売上高・総費用・固定費・利益/損失領域）",
+    "mdRange": "§4-(4)",
+    "sendToSlug": "pe-comprehensive-management-break-even-point",
+    "slugPath": "break-even-point",
+    "layout": "その他（グラフ＋交点）",
+    "elements": "横軸=売上数量、縦軸=収益費用。売上高線・総費用線（固定費＋変動費）・固定費線・損益分岐点交点・利益領域・損失領域",
+    "colorPlan": "brand=売上高線、warn=総費用線/損失領域、positive=利益領域、ink-muted=固定費線",
+    "existing": [
+      "bep-formulas.svg",
+      "break-even-chart.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/break-even-point/img/figure-1.svg"
+  },
+  {
+    "mgmt": "human",
+    "concept": "マズローの欲求5段階説",
+    "mdRange": "§1-(5)(b)",
+    "sendToSlug": "pe-comprehensive-management-maslow-hierarchy-of-needs",
+    "slugPath": "maslow-hierarchy-of-needs",
+    "layout": "ピラミッド/ラダー",
+    "elements": "5段ピラミッド（下→上）：生理的欲求／安全・安定／社会的（連帯）／尊厳（自我）／自己実現。下位充足→次へ上向き矢印",
+    "colorPlan": "brand濃淡で5段グラデーション、最上段（自己実現）を最濃brandで強調",
+    "existing": [
+      "maslow-pyramid.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/maslow-hierarchy-of-needs/img/figure-1.svg"
+  },
+  {
+    "mgmt": "human",
+    "concept": "PM理論（リーダーシップ4類型）",
+    "mdRange": "§1-(6)",
+    "sendToSlug": "pe-comprehensive-management-pm-theory",
+    "slugPath": "pm-theory",
+    "layout": "マトリクス表（2×2）",
+    "elements": "縦軸P機能(目標達成)×横軸M機能(集団維持)。4象限：PM型／Pm型／pM型／pm型と各特徴1行",
+    "colorPlan": "PM型をpositive、pm型をdanger、Pm/pMをwarnで強弱表現",
+    "existing": [
+      "pm-quadrant.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/pm-theory/img/figure-1.svg"
+  },
+  {
+    "mgmt": "human",
+    "concept": "ハーズバーグ二要因理論",
+    "mdRange": "§1-(5)(c)",
+    "sendToSlug": "pe-comprehensive-management-herzberg-two-factor-theory",
+    "slugPath": "herzberg-two-factor-theory",
+    "layout": "2カラム比較",
+    "elements": "衛生要因（給与・処遇・作業条件・方針＝不満予防）vs 動機付け要因（達成感・承認・充実感・責任・成長＝やる気喚起）",
+    "colorPlan": "衛生要因=ink-muted/warn、動機付け要因=positive",
+    "existing": [
+      "herzberg-two-factor.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/herzberg-two-factor-theory/img/figure-1.svg"
+  },
+  {
+    "mgmt": "info",
+    "concept": "ビッグデータ分析プロセス（収集→格納→クレンジング→マイニング→活用）",
+    "mdRange": "§1-(2)",
+    "sendToSlug": "pe-comprehensive-management-data-mining",
+    "slugPath": "data-mining",
+    "layout": "縦フロー（横5ステップ）",
+    "elements": "データ収集／データウェアハウス格納／データクレンジング／データマイニング／活用（意思決定）の5段階＋分岐注記「機械学習(仮説なし)／統計分析(仮説あり)」",
+    "colorPlan": "5段階を段階色で進行（brand→positive→warn→danger系のグラデ）、最終「活用」をbrand強調",
+    "existing": [
+      "big-data-analysis-flow.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/data-mining/img/figure-1.svg"
+  },
+  {
+    "mgmt": "info",
+    "concept": "SWOT分析マトリクス（内部/外部×プラス/マイナス）",
+    "mdRange": "§1-(3) SWOT分析",
+    "sendToSlug": "pe-comprehensive-management-swot-analysis",
+    "slugPath": "swot-analysis",
+    "layout": "2×2マトリクス",
+    "elements": "縦軸=内部環境/外部環境、横軸=プラス要因/マイナス要因、4象限=S強み/W弱み/O機会/T脅威",
+    "colorPlan": "S=positive、W=danger、O=brand、T=warn",
+    "existing": [
+      "swot-matrix.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/swot-analysis/img/figure-1.svg"
+  },
+  {
+    "mgmt": "info",
+    "concept": "プッシュ型／プル型コミュニケーション対比",
+    "mdRange": "§2-(1) コミュニケーション技法",
+    "sendToSlug": "pe-comprehensive-management-personal-communication",
+    "slugPath": "personal-communication",
+    "layout": "2カラム比較",
+    "elements": "プッシュ型=発信者起点(電子メール・手紙、読むかは受信者次第)／プル型=受信者起点(ウェブポータル・イントラ・eラーニング、必要時にアクセス)、矢印の向きで対比",
+    "colorPlan": "プッシュ=brand、プル=positive",
+    "existing": [
+      "push-pull-communication.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/personal-communication/img/figure-1.svg"
+  },
+  {
+    "mgmt": "info",
+    "concept": "知的財産権関連法規の体系（知的創作物／営業上の標識）",
+    "mdRange": "§3-(1) 知的財産権関連法規の体系",
+    "sendToSlug": "pe-comprehensive-management-industrial-property-rights",
+    "slugPath": "industrial-property-rights",
+    "layout": "縦フロー（ツリー分類）",
+    "elements": "知的財産権→知的創作物(発明=特許法/考案=実用新案法/意匠=意匠法/商品の形態=不正競争防止法/半導体=回路配置法/新品種=種苗法/著作物=著作権法)／営業上の標識(商標=商標法/商号=商法・会社法)、＊=産業財産権法",
+    "colorPlan": "知的創作物=positive系、営業上の標識=danger系、産業財産権法ノードをbrandで強調",
+    "existing": [
+      "ip-laws-system.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/industrial-property-rights/img/figure-1.svg"
+  },
+  {
+    "mgmt": "info",
+    "concept": "出願から特許取得までの流れ（拒絶経路と取得経路の分岐）",
+    "mdRange": "§3-(2) 出願から特許取得までの流れ",
+    "sendToSlug": "pe-comprehensive-management-patent-rights",
+    "slugPath": "patent-rights",
+    "layout": "縦フロー（2分岐）",
+    "elements": "出願→方式審査→出願公開→審査請求→実体審査→(拒絶理由通知→意見書/補正→拒絶査定=拒絶経路)／(特許査定→設定登録→特許権=取得経路)、先願主義注記",
+    "colorPlan": "取得経路=positive、拒絶経路=danger、主幹=brand",
+    "existing": [
+      "patent-application-flow.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/patent-rights/img/figure-1.svg"
+  },
+  {
+    "mgmt": "info",
+    "concept": "著作者の権利の構造（人格権／財産権の二分）",
+    "mdRange": "§3-(6) 著作者の権利",
+    "sendToSlug": "pe-comprehensive-management-copyright",
+    "slugPath": "copyright",
+    "layout": "縦フロー（ツリー分類）",
+    "elements": "著作者の権利→著作者人格権(公表権/氏名表示権/同一性保持権)／著作権=財産権(複製権/上演権/公衆送信権/翻案権 等)、隣接権との区別注記",
+    "colorPlan": "人格権=warn系、財産権=brand系",
+    "existing": [
+      "authors-rights-structure.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/copyright/img/figure-1.svg"
+  },
+  {
+    "mgmt": "info",
+    "concept": "知的財産権の存続期間ラダー（法律別年数比較）",
+    "mdRange": "§3-(1) 表3.2",
+    "sendToSlug": "pe-comprehensive-management-industrial-property-rights",
+    "slugPath": "industrial-property-rights",
+    "layout": "横バー比較（ランキング）",
+    "elements": "特許20年/実用新案10年/意匠25年/半導体回路配置10年/種苗25(30)年/商標10年(更新可)/著作権=死後70年、起算点(出願日/登録日/創作時)を併記",
+    "colorPlan": "年数長=brand濃、短=brand淡、著作権(更新/死後)をwarnで別扱い",
+    "existing": [
+      "ip-laws-system.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/industrial-property-rights/img/figure-1.svg"
+  },
+  {
+    "mgmt": "safety",
+    "concept": "リスクアセスメントの3プロセス（特定→分析→評価）",
+    "mdRange": "§2-(2)",
+    "sendToSlug": "pe-comprehensive-management-risk-assessment",
+    "slugPath": "risk-assessment",
+    "layout": "縦フロー（3ステップ）",
+    "elements": "ステップ1=リスク特定（発見・認識・記述）→ステップ2=リスク分析（リスクレベル決定）→ステップ3=リスク評価（リスク基準と比較し受容可否判断）、全体を囲む枠=リスクアセスメント",
+    "colorPlan": "brand=各ステップ番号、positive=評価で受容可、ink-bodyで本文",
+    "existing": [
+      "chemical-ra-flow.svg",
+      "risk-matrix.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/risk-assessment/img/figure-1.svg"
+  },
+  {
+    "mgmt": "safety",
+    "concept": "ハインリッヒの法則（1:29:300）",
+    "mdRange": "§4-(1)",
+    "sendToSlug": "pe-comprehensive-management-heinrich-law",
+    "slugPath": "heinrich-law",
+    "layout": "ピラミッド",
+    "elements": "頂点=1件の重大災害／中段=29件の軽傷／底辺=300件のヒヤリハット（無傷災害）、底辺を減らす矢印=ヒヤリハット活動",
+    "colorPlan": "頂点=danger、中段=warn、底辺=ink-body、活動矢印=positive",
+    "existing": [
+      "heinrich-pyramid.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/heinrich-law/img/figure-1.svg"
+  },
+  {
+    "mgmt": "safety",
+    "concept": "事故の4E対策",
+    "mdRange": "§4-(4)",
+    "sendToSlug": "pe-comprehensive-management-four-e-countermeasures",
+    "slugPath": "four-e-countermeasures",
+    "layout": "2×2カード",
+    "elements": "Engineering(工学的対策)・Education(教育)・Enforcement(強化/規制)・Example(模範)、各カードに1行",
+    "colorPlan": "Engineering=brand、Education=positive、Enforcement=warn、Example=ink-body",
+    "existing": [
+      "four-e-overview.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/four-e-countermeasures/img/figure-1.svg"
+  },
+  {
+    "mgmt": "safety",
+    "concept": "システム安全工学手法の方向性マップ（FMEA/FTA/ETA）",
+    "mdRange": "§6-(1)",
+    "sendToSlug": "pe-comprehensive-management-fmea",
+    "slugPath": "fmea",
+    "layout": "2カラム比較（帰納/ボトムアップ vs 演繹/トップダウン）",
+    "elements": "FMEA=故障モードから影響へ（帰納/ボトムアップ）／FTA=頂上事象から原因へ（演繹/トップダウン）／ETA=初期事象から結果へ（前向き展開）、各手法に解析方向矢印",
+    "colorPlan": "帰納系=positive、演繹系=brand、ETA=warn、矢印で方向明示",
+    "existing": [
+      "fmea-rpn-flow.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/fmea/img/figure-1.svg"
+  },
+  {
+    "mgmt": "safety",
+    "concept": "直列システムと並列システムの信頼度",
+    "mdRange": "§6-(3)",
+    "sendToSlug": "pe-comprehensive-management-system-reliability",
+    "slugPath": "system-reliability",
+    "layout": "2カラム比較",
+    "elements": "左=直列（全要素必須・故障率合算で信頼性低下・例0.729）／右=並列（冗長化・全故障時のみ停止・例0.999）、ブロック図イメージ＋信頼性計算結果",
+    "colorPlan": "直列=warn（脆い）、並列=positive（冗長で堅牢）、ブロックink-body",
+    "existing": [
+      "series-parallel-configuration.svg",
+      "series-parallel-formulas.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/system-reliability/img/figure-1.svg"
+  },
+  {
+    "mgmt": "social",
+    "concept": "循環型社会の処理優先順位5段階",
+    "mdRange": "§2-(1)",
+    "sendToSlug": "pe-comprehensive-management-circular-society-basic-act",
+    "slugPath": "circular-society-basic-act",
+    "layout": "ピラミッド/ラダー（上＝最優先）",
+    "elements": "発生抑制(リデュース)→再使用(リユース)→再生利用(リサイクル)→熱回収(サーマル)→適正処分。各段にRの英名と1行説明。最上段=最優先・最下段=最終手段の矢印",
+    "colorPlan": "上段ほどpositive(緑濃)、下段に向かいink-muted/warnへグラデーション。最終処分のみdanger寄り",
+    "existing": [
+      "figure-1.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/circular-society-basic-act/img/figure-1.svg"
+  },
+  {
+    "mgmt": "social",
+    "concept": "5段階の警戒レベルと避難行動",
+    "mdRange": "§2-(9-e)",
+    "sendToSlug": "pe-comprehensive-management-climate-change-adaptation-act",
+    "slugPath": "climate-change-adaptation-act",
+    "layout": "ピラミッド/ラダー（レベル5が頂点）",
+    "elements": "L5緊急安全確保/L4避難指示/L3高齢者等避難/L2注意報/L1早期注意情報。各段に発令者(市町村長/気象庁)ととるべき行動1行",
+    "colorPlan": "L5=danger(濃赤)→L4=warn濃→L3=warn→L2=brand→L1=positive の危険度グラデ",
+    "existing": [
+      "heavy-rainfall-trend.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/climate-change-adaptation-act/img/figure-1.svg"
+  },
+  {
+    "mgmt": "social",
+    "concept": "環境アセスメント手続フロー（配慮書→方法書→準備書→評価書→報告書）",
+    "mdRange": "§3-(4-c)",
+    "sendToSlug": "pe-comprehensive-management-environmental-impact-assessment",
+    "slugPath": "environmental-impact-assessment",
+    "layout": "縦フロー（5書類＋スクリーニング/スコーピング注記）",
+    "elements": "計画段階配慮書→(スクリーニング※第2種)→方法書(スコーピング)→調査予測評価→準備書→評価書→事後調査/報告書。住民・知事の意見聴取ポイントを左側に",
+    "colorPlan": "本流5書類をbrandグラデ、意見聴取(国民/知事)をpositive、スクリーニング/スコーピング注記をwarn",
+    "existing": [
+      "eia-target-categories.svg"
+    ],
+    "outPath": "content/site/pe-comprehensive-management/environmental-impact-assessment/img/figure-1.svg"
+  }
+]

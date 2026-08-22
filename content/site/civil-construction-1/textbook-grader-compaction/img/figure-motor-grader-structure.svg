@@ -1,0 +1,69 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="モータグレーダの構造。長い前後輪の軸距のほぼ中央にブレードを装備し、前輪車軸の揺動機構とリーニング、後4輪のタンデム装置をもつ。車体が傾斜してもブレードの変動は車輪の変動量の8分の1に抑えられる。大きさはブレードの長さで区分する">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-lbl  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .t-band { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub  { font-size: 11px; fill: #555; }
+      .wheel  { fill: #f5f5f5; stroke: #555; stroke-width: 2; }
+      .frame  { stroke: #555; stroke-width: 4; fill: none; }
+      .strut  { stroke: #555; stroke-width: 2; fill: none; }
+      .cab    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .blade  { stroke: #b22234; stroke-width: 5; fill: none; }
+      .ground { stroke: #8a8a8a; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .band   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .rule   { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">長い軸距の中央にブレードを備えるのが構造上の特徴</text>
+
+  <!-- 車体フレーム -->
+  <line class="frame" x1="92" y1="112" x2="324" y2="112"/>
+  <line class="strut" x1="92" y1="112" x2="92" y2="150"/>
+  <line class="strut" x1="282" y1="112" x2="282" y2="150"/>
+  <line class="strut" x1="324" y1="112" x2="324" y2="150"/>
+
+  <!-- 運転席 -->
+  <rect class="cab" x="266" y="74" width="58" height="38" rx="3"/>
+  <text class="t-lbl" x="295" y="64" text-anchor="middle">運転席</text>
+
+  <!-- ブレード -->
+  <line class="strut" x1="192" y1="112" x2="192" y2="150"/>
+  <line class="blade" x1="172" y1="170" x2="214" y2="142"/>
+
+  <!-- 車輪 -->
+  <circle class="wheel" cx="92" cy="154" r="18"/>
+  <circle class="wheel" cx="282" cy="154" r="18"/>
+  <circle class="wheel" cx="324" cy="154" r="18"/>
+
+  <!-- 地盤 -->
+  <line class="ground" x1="40" y1="172" x2="360" y2="172"/>
+
+  <text class="t-lbl" x="92" y="196" text-anchor="middle">前輪</text>
+  <text class="t-lbl" x="192" y="196" text-anchor="middle">ブレード</text>
+  <text class="t-lbl" x="303" y="196" text-anchor="middle">後4輪（タンデム）</text>
+
+  <rect class="box-surf" x="20" y="210" width="360" height="142" rx="6"/>
+  <text class="t-sec" x="200" y="234" text-anchor="middle">構造上の4つの特徴</text>
+  <line class="rule" x1="36" y1="243" x2="364" y2="243"/>
+  <text class="t-item" x="40" y="268">長い前後輪の軸距のほぼ中央にブレードを装備する</text>
+  <text class="t-item" x="40" y="292">前輪車軸に揺動機構（前車軸中央のピンを中心に揺動）</text>
+  <text class="t-item" x="40" y="316">タイヤを左または右に傾けられる（リーニング）</text>
+  <text class="t-item" x="40" y="340">後4輪はタンデム軸受を中心に揺動できる</text>
+
+  <rect class="band" x="20" y="364" width="360" height="48" rx="6"/>
+  <text class="t-band" x="200" y="386" text-anchor="middle">車体が前後に傾斜してもブレードの変動は</text>
+  <text class="t-band" x="200" y="404" text-anchor="middle">車輪の変動量の 1/8 に抑えられる</text>
+
+  <rect class="box-surf" x="20" y="424" width="360" height="58" rx="6"/>
+  <text class="t-sub" x="200" y="446" text-anchor="middle">大きさはブレードの最大幅（長さ）で表す</text>
+  <text class="t-item" x="200" y="468" text-anchor="middle">超大型 4.9 m以上／大型 4.0 m以上／小型 3.0 m以下</text>
+</svg>

@@ -1,0 +1,88 @@
+---
+title: 特性要因図
+description: "特性要因図（フィッシュボーン図・イシカワ図）の定義・4M構造・QC7つ道具としての位置づけを解説。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.7'
+tags:
+  - 総合技術監理
+  - keyword
+published: true
+publishedAt: '2026-04-03'
+reviewStatus: approved
+lastRewrittenAt: '2026-04-15'
+revisionCycle: 2
+seoTitle: "特性要因図 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-03
+dateModified: 2026-06-23
+---
+
+## 特性要因図とは
+
+**特性要因図**（Cause-and-Effect Diagram）とは、品質問題や不具合現象の原因を体系的に整理し、主原因（大骨）と副原因（中骨・小骨）の関係を魚の骨のような図式で表現する分析手法である。
+
+考案者の名にちなみ「イシカワ図（Ishikawa Diagram）」、図の形状から「フィッシュボーン図（Fishbone Diagram）」とも呼ばれる。QC7つ道具の一つとして体系化され、品質管理・問題解決の場面で広く用いられる。
+
+## 基本構造と4Mの考え方
+
+特性要因図は、右端に結果（特性）、そこに向かう1本の背骨、背骨から斜めに伸びる複数の大骨で構成される。大骨には要因のカテゴリーを配置する。
+
+製造業で伝統的に使われるカテゴリーは **4M** である。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/cause-and-effect-diagram/img/figure-fishbone-4m.svg"
+  alt="特性要因図（4M）"
+/>
+
+- **Man**（人）: 作業者の技能・経験・教育・疲労など
+- **Machine**（機械）: 設備の性能・保守状況・経年劣化など
+- **Method**（方法）: 作業手順・工程設計・基準の明確化など
+- **Material**（材料）: 原材料の品質・規格・ロット差など
+
+分析対象によっては4Mでは要因を捉えきれない場合がある。そのため、**Measurement**（測定：計測器の精度・校正状況）と **Environment**（環境：温度・湿度・照明）を加えた **5M+1E** が用いられることもある。
+
+## 用途による分類
+
+特性要因図には用途の異なる2つの型がある。
+
+- **原因解析型**（現状把握型）: 既に発生している問題について、想定される原因を網羅的に洗い出して真の原因を特定する
+- **管理型**（特性列挙型）: 良好な状態を維持するために管理すべき要因を整理する
+
+## 考案の経緯
+
+特性要因図は **1943年、東京大学の石川馨** が川崎製鉄の技術者グループへの説明を補助するために考案した。因果構造を視覚的に示す図式として開発され、日本科学技術連盟（JUSE）による品質管理教育の中で **QC7つ道具** の一つに体系化された。
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**2.7 計画・管理の数理的手法**](/docs/pe-comprehensive-management-keyword-2026#27-計画・管理の数理的手法)に位置づけられる。
+
+経済性管理における品質管理（TQM・[PDCAサイクル](/docs/pe-comprehensive-management-pdca-cycle)）の実務ツールとして、不具合発生時の根本原因分析や、工程管理における要因の網羅的整理に用いられる。QC7つ道具の中では唯一の「定性的分析ツール」であり、定量的手法（パレート図・ヒストグラム・管理図）と組み合わせて使われる点が問われやすい。
+
+<ExamPoint
+  summary="特性要因図は QC7つ道具のうち唯一の定性的分析ツール。4M構造と2つの用途区分を押さえる"
+  items={[
+    "考案者は石川馨（1943年）",
+    "別名イシカワ図・フィッシュボーン図",
+    "基本構造は4M（Man・Machine・Method・Material）",
+    "拡張版は5M+1Eや6M",
+    "用途: 原因解析型（問題の真因特定）と管理型（良好状態の維持要因整理）",
+    "QC7つ道具の中で唯一の定性的ツール",
+    "定量的手法と組み合わせて使う",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "過程決定計画図（PDPC法）", slug: "pdpc-method" },
+  { label: "階層分析法（AHP）", slug: "analytic-hierarchy-process" },
+  { label: "デルファイ法", slug: "delphi-method" },
+  { label: "品質管理", slug: "quality-control" },
+  { label: "品質改善活動", slug: "quality-improvement" },
+]} />
+
+## 参考資料
+
+- [石川馨先生早わかり（特性要因図の開発）](https://www.juse.jp/ishikawa/hayawakari/)（日本科学技術連盟 JUSE）
+- [特性要因図（フィッシュボーン図）の書き方｜製造業の開発事例からわかりやすく図解](https://staff.persol-xtech.co.jp/hatalabo/mono_engineer/692.html)（パーソルクロステクノロジー）
+- [特性要因図 (フィッシュボーンチャート)〜QC7つ道具〜](https://knowledge-makers.com/fishbone-diagram/)（KnowledgeMakers）
+

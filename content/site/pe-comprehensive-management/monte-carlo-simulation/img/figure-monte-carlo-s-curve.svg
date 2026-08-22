@@ -1,0 +1,78 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="モンテカルロシミュレーション結果の S 字累積確率カーブ。横軸が作業完了日数、縦軸が累積完了可能性（0〜100%）。試行回数を増やすほど滑らかな S 字曲線に収束し、特定日数までに完了する確率を読み取れる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-axis { font-size: 12px; fill: #1a3a5c; }
+      .t-tick { font-size: 11px; fill: #555; }
+      .t-cap { font-size: 11px; fill: #555; }
+    </style>
+  </defs>
+
+  <!-- タイトル -->
+  <text x="200" y="20" class="t-title" text-anchor="middle">モンテカルロシミュレーション：S 字累積確率カーブ</text>
+
+  <!-- 縦軸 -->
+  <line x1="60" y1="220" x2="60" y2="40" stroke="#1a3a5c" stroke-width="1.5" />
+  <!-- 横軸 -->
+  <line x1="60" y1="220" x2="370" y2="220" stroke="#1a3a5c" stroke-width="1.5" />
+
+  <!-- 縦軸目盛 -->
+  <text x="55" y="48" class="t-tick" text-anchor="end">100%</text>
+  <line x1="58" y1="44" x2="62" y2="44" stroke="#1a3a5c" stroke-width="1" />
+  <text x="55" y="135" class="t-tick" text-anchor="end">50%</text>
+  <line x1="58" y1="132" x2="62" y2="132" stroke="#1a3a5c" stroke-width="1" />
+  <text x="55" y="223" class="t-tick" text-anchor="end">0%</text>
+
+  <!-- 横軸目盛 -->
+  <text x="155" y="237" class="t-tick" text-anchor="middle">15 日</text>
+  <line x1="155" y1="218" x2="155" y2="222" stroke="#1a3a5c" stroke-width="1" />
+  <text x="265" y="237" class="t-tick" text-anchor="middle">30 日</text>
+  <line x1="265" y1="218" x2="265" y2="222" stroke="#1a3a5c" stroke-width="1" />
+  <text x="215" y="252" class="t-axis" text-anchor="middle">作業完了日数</text>
+
+  <!-- 縦軸ラベル -->
+  <text x="25" y="150" class="t-axis" text-anchor="middle" transform="rotate(-90,25,150)">完了可能性（累積）</text>
+
+  <!-- S字曲線（累積分布関数 CDF 風） -->
+  <path d="M 70 218 Q 110 215 145 195 Q 185 155 215 100 Q 245 60 285 50 Q 320 47 360 45"
+        fill="none" stroke="#2e6da4" stroke-width="2.5" />
+
+  <!-- 補助線（15日 50% 達成例） -->
+  <line x1="155" y1="220" x2="155" y2="180" stroke="#8a8a8a" stroke-width="0.8" stroke-dasharray="3,2" />
+  <line x1="60" y1="180" x2="155" y2="180" stroke="#8a8a8a" stroke-width="0.8" stroke-dasharray="3,2" />
+
+  <!-- 補助線（30日 95% 達成例） -->
+  <line x1="265" y1="220" x2="265" y2="55" stroke="#8a8a8a" stroke-width="0.8" stroke-dasharray="3,2" />
+  <line x1="60" y1="55" x2="265" y2="55" stroke="#8a8a8a" stroke-width="0.8" stroke-dasharray="3,2" />
+
+  <!-- 注釈 -->
+  <text x="200" y="270" class="t-cap" text-anchor="middle">試行回数を増やすほど滑らかな S 字曲線に収束する</text>
+
+  <!-- 追加：モンテカルロの特徴と活用 -->
+  <rect x="10" y="288" width="380" height="52" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text class="t-title" x="200" y="307" text-anchor="middle">モンテカルロシミュレーションの原理</text>
+  <text class="t-cap" x="200" y="323" text-anchor="middle">乱数を用いて確率的に変動する入力値を大量試行</text>
+  <text class="t-cap" x="200" y="337" text-anchor="middle">通常 1,000〜10,000 回以上の試行で確率分布を推定</text>
+
+  <rect x="10" y="352" width="185" height="56" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="6"/>
+  <text class="t-axis" x="103" y="370" text-anchor="middle">適用場面</text>
+  <text class="t-cap" x="103" y="386" text-anchor="middle">工期・コストのリスク評価</text>
+  <text class="t-cap" x="103" y="400" text-anchor="middle">プロジェクト完了確率</text>
+
+  <rect x="205" y="352" width="185" height="56" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="6"/>
+  <text class="t-axis" x="297" y="370" text-anchor="middle">経済性管理との関連</text>
+  <text class="t-cap" x="297" y="386" text-anchor="middle">NPV・ROI の確率分布</text>
+  <text class="t-cap" x="297" y="400" text-anchor="middle">感度分析・シナリオ比較</text>
+
+  <rect x="10" y="420" width="380" height="42" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5" rx="6"/>
+  <text class="t-axis" x="200" y="438" text-anchor="middle">P50（中央値）vs P80（80%確率達成日）で計画策定</text>
+  <text class="t-cap" x="200" y="453" text-anchor="middle">リスク許容度に応じて余裕工期・予備費を設定</text>
+
+  <text class="t-cap" x="200" y="475" text-anchor="middle">PERT（3点見積もり）との違い：分布仮定が不要</text>
+  <text class="t-cap" x="200" y="491" text-anchor="middle" fill="#3a7d44" font-weight="bold">不確実性を定量化する情報管理の先進手法</text>
+</svg>

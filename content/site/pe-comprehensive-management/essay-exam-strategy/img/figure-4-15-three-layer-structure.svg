@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="総監論文の三層構造：Ⅰ管理対象と前提条件→Ⅱ施策（効果＋トレードオフ）→Ⅲ将来展望と最大リスク（管理行為で克服）の因果連鎖" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
+
+  <!-- Layer 1: Ⅰ -->
+  <rect x="10" y="10" width="380" height="130" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2" rx="6"/>
+  <text x="26" y="34" fill="#1a3a5c" font-size="13" font-weight="bold">Ⅰ　管理対象と前提条件の設定</text>
+  <text x="26" y="49" fill="#555" font-size="11">論文全体の設計図 — 後段で扱う課題が成立する</text>
+  <text x="26" y="62" fill="#555" font-size="11">条件を意図的に仕込む</text>
+  <line x1="26" y1="62" x2="374" y2="62" stroke="#2e6da4" stroke-width="0.5" stroke-dasharray="3,2"/>
+  <text x="26" y="82" fill="#222" font-size="12" font-weight="bold">・管理対象を明確にする（自社の○○事業部 等）</text>
+  <text x="26" y="100" fill="#222" font-size="12" font-weight="bold">・立場・役割を明示する（PM／部門長／経営層）</text>
+  <text x="26" y="118" fill="#222" font-size="12" font-weight="bold">・前提条件を置く（人手不足／予算制約／工期 等）</text>
+
+  <!-- Arrow 1 -->
+  <line x1="200" y1="144" x2="200" y2="168" stroke="#2e6da4" stroke-width="2"/>
+  <polygon points="195,166 205,166 200,178" fill="#2e6da4"/>
+  <text x="212" y="152" fill="#555" font-size="11">Ⅰ の条件があるから</text>
+  <text x="212" y="166" fill="#555" font-size="11">Ⅱ の施策が成立する</text>
+
+  <!-- Layer 2: Ⅱ -->
+  <rect x="10" y="182" width="380" height="152" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2" rx="6"/>
+  <text x="26" y="204" fill="#1a3a5c" font-size="13" font-weight="bold">Ⅱ　現実的な施策・方策の提示</text>
+  <text x="26" y="222" fill="#555" font-size="11">Ⅰ の条件下で総監技術者として取れる具体策 — 最も点差がつく</text>
+  <line x1="26" y1="232" x2="374" y2="232" stroke="#2e6da4" stroke-width="0.5" stroke-dasharray="3,2"/>
+  <text x="26" y="252" fill="#222" font-size="12" font-weight="bold">・近い将来導入可能 / 自分の権限で動かせる</text>
+  <text x="26" y="270" fill="#222" font-size="12" font-weight="bold">・効果（どの管理分野にどう影響するか）</text>
+  <text x="26" y="295" fill="#d4a017" font-size="12" font-weight="bold">＋ トレードオフ（管理間の衝突）を必ずセットで書く</text>
+  <text x="44" y="313" fill="#555" font-size="11">典型: 経済性↔人的資源 ／ 情報↔安全 ／ 効率化↔品質・安全</text>
+  <text x="44" y="328" fill="#555" font-size="11">問題点は「施策の否定」でなく「管理すべき対象」として書く</text>
+
+  <!-- Arrow 2 -->
+  <line x1="200" y1="338" x2="200" y2="362" stroke="#2e6da4" stroke-width="2"/>
+  <polygon points="195,360 205,360 200,372" fill="#2e6da4"/>
+  <text x="212" y="348" fill="#555" font-size="11">Ⅱ を進めた結果として</text>
+  <text x="212" y="362" fill="#555" font-size="11">将来課題が自然に顕在化</text>
+
+  <!-- Layer 3: Ⅲ -->
+  <rect x="10" y="376" width="380" height="122" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2" rx="6"/>
+  <text x="26" y="398" fill="#1a3a5c" font-size="13" font-weight="bold">Ⅲ　将来展望と最大のリスク</text>
+  <text x="26" y="416" fill="#555" font-size="11">Ⅱ を進めた先に顕在化する構造的課題 — リスクは 1 つに絞る</text>
+  <line x1="26" y1="426" x2="374" y2="426" stroke="#2e6da4" stroke-width="0.5" stroke-dasharray="3,2"/>
+  <text x="26" y="442" fill="#d4a017" font-size="11" font-weight="bold">・最大リスク 1 点（トレードオフ最大／</text>
+  <text x="26" y="456" fill="#d4a017" font-size="11" font-weight="bold">　組織弱点／規模拡大破綻）</text>
+  <text x="26" y="468" fill="#222" font-size="11" font-weight="bold">・克服策 ＝ 管理行為（管理方法見直し・</text>
+  <text x="26" y="480" fill="#222" font-size="11" font-weight="bold">　体制再設計・ルール整備）</text>
+  <text x="26" y="492" fill="#555" font-size="11">→ 新技術導入で解決しない（「総合技術監理」の行為そのもの）</text>
+</svg>

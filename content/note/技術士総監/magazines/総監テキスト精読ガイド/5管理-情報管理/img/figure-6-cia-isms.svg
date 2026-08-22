@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif">
+  
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">情報セキュリティの基本 — CIA + ISMS</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">3要素と情報セキュリティマネジメントシステム</text>
+  
+    <rect x="40" y="110" width="360" height="180" rx="12" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+    <text x="220" y="152" text-anchor="middle" font-size="26" font-weight="800" fill="#2e6da4">機密性（C）</text>
+    <text x="220" y="186" text-anchor="middle" font-size="19" fill="#8a8a8a">Confidentiality</text>
+    <text x="220" y="224" text-anchor="middle" font-size="18" fill="#555555">許可された者のみが情報にアクセスできる</text>
+    <text x="220" y="268" text-anchor="middle" font-size="18" fill="#8a8a8a">CIAの「C」</text>
+    <rect x="420" y="110" width="360" height="180" rx="12" fill="#e6f1e8" stroke="#3a7d44" stroke-width="2"/>
+    <text x="600" y="152" text-anchor="middle" font-size="26" font-weight="800" fill="#3a7d44">完全性（I）</text>
+    <text x="600" y="186" text-anchor="middle" font-size="19" fill="#8a8a8a">Integrity</text>
+    <text x="600" y="224" text-anchor="middle" font-size="18" fill="#555555">情報が正確・完全で不正改ざんなし</text>
+    <text x="600" y="268" text-anchor="middle" font-size="18" fill="#8a8a8a">CIAの「I」</text>
+    <rect x="800" y="110" width="360" height="180" rx="12" fill="#fbf3df" stroke="#d4a017" stroke-width="2"/>
+    <text x="980" y="152" text-anchor="middle" font-size="26" font-weight="800" fill="#d4a017">可用性（A）</text>
+    <text x="980" y="186" text-anchor="middle" font-size="19" fill="#8a8a8a">Availability</text>
+    <text x="980" y="224" text-anchor="middle" font-size="18" fill="#555555">必要な時に許可された者がアクセスできる</text>
+    <text x="980" y="268" text-anchor="middle" font-size="18" fill="#8a8a8a">CIAの「A」</text>
+  <rect x="40" y="330" width="1120" height="310" rx="12" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1.5"/>
+  <text x="72" y="370" font-size="24" font-weight="800" fill="#2e6da4">ISMS（ISO/IEC 27001）</text>
+  
+    <text x="72" y="390" font-size="19" font-weight="700" fill="#222222">規格</text>
+    <text x="260" y="390" font-size="19" fill="#555555">ISO/IEC 27001（JIS化：JIS Q 27001）</text>
+    <text x="72" y="436" font-size="19" font-weight="700" fill="#222222">方針の確立者</text>
+    <text x="260" y="436" font-size="19" fill="#b22234">トップマネジメント（実務担当者ではない）★頻出引っかけ</text>
+    <text x="72" y="482" font-size="19" font-weight="700" fill="#222222">対象</text>
+    <text x="260" y="482" font-size="19" fill="#555555">組織全体のマネジメントシステム（技術面＋組織面）</text>
+    <text x="72" y="528" font-size="19" font-weight="700" fill="#222222">認証制度</text>
+    <text x="260" y="528" font-size="19" fill="#555555">ISMS適合性評価制度（第三者評価）</text>
+    <text x="72" y="574" font-size="19" font-weight="700" fill="#222222">ISO15408との違い</text>
+    <text x="260" y="574" font-size="19" fill="#555555">ISMSは組織・運用面、ISO15408は製品の技術機能のみ</text>
+  
+</svg>

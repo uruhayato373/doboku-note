@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">6評価バイアス一覧</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">人事考課で生じる代表的な6つの評価誤差</text>
+
+  <rect x="40" y="150" width="365" height="230" rx="12" fill="#ffffff" stroke="#2e6da4" stroke-width="3"/>
+  <rect x="40" y="150" width="365" height="60" rx="12" fill="#2e6da4"/>
+  <rect x="40" y="190" width="365" height="20" fill="#2e6da4"/>
+  <text x="64" y="190" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff">1.</text>
+  <text x="120" y="190" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff">ハロー効果</text>
+  <text x="64" y="260" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">優れた点（劣った点）に注目し他の</text>
+  <text x="64" y="292" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">点も同様評価</text>
+  <rect x="423" y="150" width="365" height="230" rx="12" fill="#ffffff" stroke="#3a7d44" stroke-width="3"/>
+  <rect x="423" y="150" width="365" height="60" rx="12" fill="#3a7d44"/>
+  <rect x="423" y="190" width="365" height="20" fill="#3a7d44"/>
+  <text x="447" y="190" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff">2.</text>
+  <text x="503" y="190" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff">中心化傾向</text>
+  <text x="447" y="260" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">人間関係配慮で無難な評価が中央値</text>
+  <text x="447" y="292" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">に偏る</text>
+  <rect x="806" y="150" width="365" height="230" rx="12" fill="#ffffff" stroke="#d4a017" stroke-width="3"/>
+  <rect x="806" y="150" width="365" height="60" rx="12" fill="#d4a017"/>
+  <rect x="806" y="190" width="365" height="20" fill="#d4a017"/>
+  <text x="830" y="190" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff">3.</text>
+  <text x="886" y="190" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff">寛大化／厳格化</text>
+  <text x="830" y="260" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">関係配慮で甘い評価／逆に厳しい評</text>
+  <text x="830" y="292" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">価へ偏る</text>
+  <rect x="40" y="398" width="365" height="230" rx="12" fill="#ffffff" stroke="#b22234" stroke-width="3"/>
+  <rect x="40" y="398" width="365" height="60" rx="12" fill="#b22234"/>
+  <rect x="40" y="438" width="365" height="20" fill="#b22234"/>
+  <text x="64" y="438" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff">4.</text>
+  <text x="120" y="438" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff">対比誤差</text>
+  <text x="64" y="508" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">評価者自身が基準。得意は厳しく苦</text>
+  <text x="64" y="540" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">手は甘く</text>
+  <rect x="423" y="398" width="365" height="230" rx="12" fill="#ffffff" stroke="#1a3a5c" stroke-width="3"/>
+  <rect x="423" y="398" width="365" height="60" rx="12" fill="#1a3a5c"/>
+  <rect x="423" y="438" width="365" height="20" fill="#1a3a5c"/>
+  <text x="447" y="438" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff">5.</text>
+  <text x="503" y="438" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff">論理的誤差</text>
+  <text x="447" y="508" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">無関係な学歴・過去失敗を考慮した</text>
+  <text x="447" y="540" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">異常評価</text>
+  <rect x="806" y="398" width="365" height="230" rx="12" fill="#ffffff" stroke="#7a4ec8" stroke-width="3"/>
+  <rect x="806" y="398" width="365" height="60" rx="12" fill="#7a4ec8"/>
+  <rect x="806" y="438" width="365" height="20" fill="#7a4ec8"/>
+  <text x="830" y="438" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff">6.</text>
+  <text x="886" y="438" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff">遠近効果</text>
+  <text x="830" y="508" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">近時期の成果を強く意識、過去事項</text>
+  <text x="830" y="540" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">は過少評価</text>
+  <rect x="40" y="730" width="1120" height="44" rx="6" fill="#e8f0fe"/>
+  <text x="60" y="760" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">択一頻出：6バイアスの定義と例。透明性・加点主義の徹底でバイアスを抑制する。</text>
+</svg>

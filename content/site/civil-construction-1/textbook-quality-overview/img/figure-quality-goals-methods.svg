@@ -1,0 +1,67 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="品質管理の2つの目標と対応する手法。目標1の規格を満足しているかは規格値で管理する工程能力図とヒストグラムで確認し、目標2の工程が安定しているかは管理限界線で管理する管理図で確認する。各手法の欠点も併記">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-goal { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-mng  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-weak { font-size: 11px; fill: #b22234; }
+      .t-note { font-size: 11px; fill: #222; }
+      .bar-pos  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .bar-brand{ fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .card     { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .weakbox  { fill: #f8d7da; stroke: #b22234; stroke-width: 1; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule     { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">2つを適切な範囲で同時に満たすことが品質管理の目標</text>
+
+  <!-- ===== 目標1 ===== -->
+  <rect class="bar-pos" x="20" y="28" width="360" height="32" rx="6"/>
+  <text class="t-goal" x="32" y="49">目標1　規格を満足している</text>
+  <text class="t-mng" x="368" y="49" text-anchor="end">規格値で管理</text>
+
+  <rect class="card" x="20" y="68" width="172" height="134" rx="6"/>
+  <text class="t-name" x="106" y="90" text-anchor="middle">工程能力図</text>
+  <line class="rule" x1="32" y1="99" x2="180" y2="99"/>
+  <text class="t-desc" x="106" y="118" text-anchor="middle">データを時間順に打点</text>
+  <text class="t-desc" x="106" y="135" text-anchor="middle">時間的な変動がわかる</text>
+  <rect class="weakbox" x="32" y="146" width="148" height="44" rx="4"/>
+  <text class="t-weak" x="106" y="165" text-anchor="middle">工程の異常は</text>
+  <text class="t-weak" x="106" y="181" text-anchor="middle">判断できない</text>
+
+  <rect class="card" x="208" y="68" width="172" height="134" rx="6"/>
+  <text class="t-name" x="294" y="90" text-anchor="middle">ヒストグラム</text>
+  <line class="rule" x1="220" y1="99" x2="368" y2="99"/>
+  <text class="t-desc" x="294" y="118" text-anchor="middle">品質特性の度数分布</text>
+  <text class="t-desc" x="294" y="135" text-anchor="middle">分布と中心がわかる</text>
+  <rect class="weakbox" x="220" y="146" width="148" height="44" rx="4"/>
+  <text class="t-weak" x="294" y="165" text-anchor="middle">時間的変化が</text>
+  <text class="t-weak" x="294" y="181" text-anchor="middle">わからない</text>
+
+  <!-- ===== 目標2 ===== -->
+  <rect class="bar-brand" x="20" y="218" width="360" height="32" rx="6"/>
+  <text class="t-goal" x="32" y="239">目標2　工程が安定している</text>
+  <text class="t-mng" x="368" y="239" text-anchor="end">管理限界線で管理</text>
+
+  <rect class="card" x="20" y="258" width="360" height="134" rx="6"/>
+  <text class="t-name" x="200" y="280" text-anchor="middle">管理図</text>
+  <line class="rule" x1="32" y1="289" x2="368" y2="289"/>
+  <text class="t-desc" x="200" y="310" text-anchor="middle">統計的に処理して管理限界線を求め、平均値や</text>
+  <text class="t-desc" x="200" y="328" text-anchor="middle">バラツキの範囲を打点し、工程の安定を評価する</text>
+  <rect class="weakbox" x="32" y="342" width="336" height="38" rx="4"/>
+  <text class="t-weak" x="200" y="366" text-anchor="middle">規格値との関係はわからない</text>
+
+  <!-- ===== 補足 ===== -->
+  <rect class="box-surf" x="20" y="408" width="360" height="74" rx="6"/>
+  <text class="t-note" x="200" y="430" text-anchor="middle">個々のデータが規格値にゆとりを持って収まること</text>
+  <text class="t-note" x="200" y="452" text-anchor="middle">ただしゆとりが過大なら不経済な工事となり適切でない</text>
+  <text class="t-note" x="200" y="474" text-anchor="middle">工程は工期工程ではなく品質が作り出される過程を指す</text>
+</svg>

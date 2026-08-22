@@ -1,0 +1,51 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="X理論Y理論 試験出題ポイント3点">
+  <defs>
+    <style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }</style>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <!-- ヘッダー帯 -->
+  <rect x="0" y="0" width="400" height="72" fill="#1a3a5c"/>
+  <text x="200" y="24" text-anchor="middle" font-size="10" fill="#d4956a">技術士 総監 | 人的資源管理</text>
+  <text x="200" y="52" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">試験での出題ポイント</text>
+
+  <!-- ポイント1 -->
+  <circle cx="44" cy="114" r="16" fill="#1a3a5c"/>
+  <text x="44" y="120" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">1</text>
+  <text x="72" y="106" font-size="13" font-weight="bold" fill="#1a3a5c">動機付け論の分類</text>
+  <text x="72" y="123" font-size="11" fill="#555">X/Y理論 = 実践論的理論</text>
+  <text x="72" y="139" font-size="11" fill="#555">（人間資源的アプローチ）</text>
+
+  <!-- 区切り線 -->
+  <line x1="24" y1="162" x2="376" y2="162" stroke="#e8e8e8" stroke-width="1"/>
+
+  <!-- ポイント2 -->
+  <circle cx="44" cy="200" r="16" fill="#1a3a5c"/>
+  <text x="44" y="206" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">2</text>
+  <text x="72" y="192" font-size="13" font-weight="bold" fill="#1a3a5c">管理アプローチの対比</text>
+  <text x="72" y="209" font-size="11" fill="#555">X理論 → 命令・統制による管理</text>
+  <text x="72" y="225" font-size="11" fill="#555">Y理論 → 参加・自律を促す管理</text>
+
+  <!-- 区切り線 -->
+  <line x1="24" y1="248" x2="376" y2="248" stroke="#e8e8e8" stroke-width="1"/>
+
+  <!-- ポイント3 -->
+  <circle cx="44" cy="286" r="16" fill="#1a3a5c"/>
+  <text x="44" y="292" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">3</text>
+  <text x="72" y="278" font-size="13" font-weight="bold" fill="#1a3a5c">現代組織はY理論が主流</text>
+  <text x="72" y="295" font-size="11" fill="#555">ただし状況によりX型管理も必要</text>
+  <text x="72" y="311" font-size="11" fill="#555">総監は「状況に応じた判断」を問う</text>
+
+  <!-- 注意Callout -->
+  <rect x="24" y="338" width="352" height="76" rx="8" fill="#fce8d0"/>
+  <rect x="24" y="338" width="5" height="76" rx="4" fill="#a36b2c"/>
+  <text x="44" y="362" font-size="11" font-weight="bold" fill="#5e3d18">試験の注意ポイント</text>
+  <text x="44" y="380" font-size="11" fill="#5e3d18">X理論・Y理論の特徴が入れ替えられた</text>
+  <text x="44" y="397" font-size="11" fill="#5e3d18">選択肢に注意！否定形も頻出</text>
+
+  <!-- フッター -->
+  <rect x="0" y="460" width="400" height="40" fill="#1a3a5c"/>
+  <text x="200" y="485" text-anchor="middle" font-size="12" fill="#6a8faf">doboku-note.com</text>
+</svg>

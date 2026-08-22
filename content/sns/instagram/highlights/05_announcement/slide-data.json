@@ -1,0 +1,46 @@
+{
+  "_meta": {
+    "kind": "highlight-announcement",
+    "format": "stories",
+    "size": { "width": 1080, "height": 1920 },
+    "slidesCount": 3,
+    "purpose": "ハイライト系統 A 5 種目「お知らせ」用テンプレート。フロー型で随時更新。雛形 3 枚を提供し、実運用では運営者が title / body / chipCta を書き換える",
+    "policy": ".claude/knowledge/reference/ig-stories-policy.md §5 系統 A",
+    "strategy": "docs/marketing/01_SNS集客戦略.md v7.1 §2 Highlight 5 種目「お知らせ」",
+    "_note": "テンプレ運用: 新記事公開・キャンペーン・受験期スポット情報の都度、本 JSON の title / body を編集して build-highlight で再生成。ハイライトに上書き追加（古い Stories はアーカイブ）"
+  },
+  "slides": [
+    {
+      "index": 1,
+      "filename": "01-cover.png",
+      "role": "cover",
+      "tagText": "お知らせ",
+      "title": "最新のお知らせ",
+      "subtitle": "サイトからの告知",
+      "chipCta": "スクロールで詳細"
+    },
+    {
+      "index": 2,
+      "filename": "02-body.png",
+      "role": "body",
+      "tagText": "お知らせ",
+      "title": "{TBD: 告知タイトル}",
+      "subtitle": "{TBD: 発信日 / カテゴリ}",
+      "body": [
+        "{TBD: 告知内容 1 行目}",
+        "{TBD: 告知内容 2 行目}",
+        "{TBD: 告知内容 3 行目}"
+      ],
+      "_runtimeNote": "運営者: 告知のたびに title / subtitle / body を書き換えてから build-highlight 再実行"
+    },
+    {
+      "index": 3,
+      "filename": "03-cta.png",
+      "role": "cta",
+      "tagText": "お知らせ",
+      "title": "詳細はこちら",
+      "subtitle": "doboku-note.com",
+      "chipCta": "サイトへ移動"
+    }
+  ]
+}

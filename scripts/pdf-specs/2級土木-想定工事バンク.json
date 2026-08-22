@@ -1,0 +1,797 @@
+{
+  "srcDir": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク",
+  "articles": [
+    {
+      "src": "工事01-道路改良盛土/article.md",
+      "out": "2級土木-想定工事-工事01-道路改良盛土",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事02-河川築堤盛土/article.md",
+      "out": "2級土木-想定工事-工事02-河川築堤盛土",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事05-サンドドレーン盛土/article.md",
+      "out": "2級土木-想定工事-工事05-サンドドレーン盛土",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事06-セメント改良土盛土/article.md",
+      "out": "2級土木-想定工事-工事06-セメント改良土盛土",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事07-切土法面地すべり/article.md",
+      "out": "2級土木-想定工事-工事07-切土法面地すべり",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事08-補強土壁テールアルメ/article.md",
+      "out": "2級土木-想定工事-工事08-補強土壁テールアルメ",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事101-住宅地道路側溝更新/article.md",
+      "out": "2級土木-想定工事-工事101-住宅地道路側溝更新",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事102-通学路歩道切下げ整備/article.md",
+      "out": "2級土木-想定工事-工事102-通学路歩道切下げ整備",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事103-市道部分舗装修繕区画線復旧/article.md",
+      "out": "2級土木-想定工事-工事103-市道部分舗装修繕区画線復旧",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事104-山間道路ガードレール更新/article.md",
+      "out": "2級土木-想定工事-工事104-山間道路ガードレール更新",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事105-路肩カラー舗装歩行空間整備/article.md",
+      "out": "2級土木-想定工事-工事105-路肩カラー舗装歩行空間整備",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事106-公共施設駐車場舗装/article.md",
+      "out": "2級土木-想定工事-工事106-公共施設駐車場舗装",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事107-道路ブロック積擁壁更新/article.md",
+      "out": "2級土木-想定工事-工事107-道路ブロック積擁壁更新",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事108-プレキャストL型水路布設/article.md",
+      "out": "2級土木-想定工事-工事108-プレキャストL型水路布設",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事109-小橋梁下面断面修復/article.md",
+      "out": "2級土木-想定工事-工事109-小橋梁下面断面修復",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事110-小橋梁伸縮装置取替/article.md",
+      "out": "2級土木-想定工事-工事110-小橋梁伸縮装置取替",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事111-落石防護柵設置/article.md",
+      "out": "2級土木-想定工事-工事111-落石防護柵設置",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事112-山間小河川かご工護岸/article.md",
+      "out": "2級土木-想定工事-工事112-山間小河川かご工護岸",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事113-河川湾曲部根固め/article.md",
+      "out": "2級土木-想定工事-工事113-河川湾曲部根固め",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事114-洪水被災河川管理用通路復旧/article.md",
+      "out": "2級土木-想定工事-工事114-洪水被災河川管理用通路復旧",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事115-切土法面植生基材吹付/article.md",
+      "out": "2級土木-想定工事-工事115-切土法面植生基材吹付",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事116-道路法面小段排水更新/article.md",
+      "out": "2級土木-想定工事-工事116-道路法面小段排水更新",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事117-住宅地水道枝線耐震管更新/article.md",
+      "out": "2級土木-想定工事-工事117-住宅地水道枝線耐震管更新",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事118-公共桝下水取付管整備/article.md",
+      "out": "2級土木-想定工事-工事118-公共桝下水取付管整備",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事119-小規模マンホール内面更生/article.md",
+      "out": "2級土木-想定工事-工事119-小規模マンホール内面更生",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事120-住宅地雨水集水施設改良/article.md",
+      "out": "2級土木-想定工事-工事120-住宅地雨水集水施設改良",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事121-農業用水路ライニング補修/article.md",
+      "out": "2級土木-想定工事-工事121-農業用水路ライニング補修",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事122-小規模ため池洪水吐改修/article.md",
+      "out": "2級土木-想定工事-工事122-小規模ため池洪水吐改修",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事123-林道路面・横断排水補修/article.md",
+      "out": "2級土木-想定工事-工事123-林道路面・横断排水補修",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事124-公園園路・排水施設整備/article.md",
+      "out": "2級土木-想定工事-工事124-公園園路・排水施設整備",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕"
+        }
+      ]
+    },
+    {
+      "src": "工事13-高含水比粘性土盛土/article.md",
+      "out": "2級土木-想定工事-工事13-高含水比粘性土盛土",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事17-RCボックスカルバート/article.md",
+      "out": "2級土木-想定工事-工事17-RCボックスカルバート",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事18-逆T式擁壁/article.md",
+      "out": "2級土木-想定工事-工事18-逆T式擁壁",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事22-暑中コンクリート/article.md",
+      "out": "2級土木-想定工事-工事22-暑中コンクリート",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事23-寒中コンクリート/article.md",
+      "out": "2級土木-想定工事-工事23-寒中コンクリート",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事25-根固めブロック/article.md",
+      "out": "2級土木-想定工事-工事25-根固めブロック",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事27-場所打ち杭オールケーシング/article.md",
+      "out": "2級土木-想定工事-工事27-場所打ち杭オールケーシング",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事28-場所打ち杭アースドリル/article.md",
+      "out": "2級土木-想定工事-工事28-場所打ち杭アースドリル",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事29-PHC杭打込み/article.md",
+      "out": "2級土木-想定工事-工事29-PHC杭打込み",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事35-橋台直接基礎/article.md",
+      "out": "2級土木-想定工事-工事35-橋台直接基礎",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事37-アスファルト舗装新設/article.md",
+      "out": "2級土木-想定工事-工事37-アスファルト舗装新設",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事38-アスファルト舗装打換え/article.md",
+      "out": "2級土木-想定工事-工事38-アスファルト舗装打換え",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事39-コンクリート舗装版/article.md",
+      "out": "2級土木-想定工事-工事39-コンクリート舗装版",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事40-道路改良拡幅/article.md",
+      "out": "2級土木-想定工事-工事40-道路改良拡幅",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事42-排水性舗装/article.md",
+      "out": "2級土木-想定工事-工事42-排水性舗装",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事44-路上路盤再生/article.md",
+      "out": "2級土木-想定工事-工事44-路上路盤再生",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事47-交差点改良/article.md",
+      "out": "2級土木-想定工事-工事47-交差点改良",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事48-歩道整備バリアフリー/article.md",
+      "out": "2級土木-想定工事-工事48-歩道整備バリアフリー",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事51-河川護岸ブロック張/article.md",
+      "out": "2級土木-想定工事-工事51-河川護岸ブロック張",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事53-樋門樋管/article.md",
+      "out": "2級土木-想定工事-工事53-樋門樋管",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事55-河道掘削しゅんせつ/article.md",
+      "out": "2級土木-想定工事-工事55-河道掘削しゅんせつ",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事56-床止め落差工/article.md",
+      "out": "2級土木-想定工事-工事56-床止め落差工",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事57-海岸護岸消波工/article.md",
+      "out": "2級土木-想定工事-工事57-海岸護岸消波工",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事62-砂防堰堤/article.md",
+      "out": "2級土木-想定工事-工事62-砂防堰堤",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事63-下水道管渠開削/article.md",
+      "out": "2級土木-想定工事-工事63-下水道管渠開削",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事65-推進工法小口径/article.md",
+      "out": "2級土木-想定工事-工事65-推進工法小口径",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事68-上水道配水管布設開削/article.md",
+      "out": "2級土木-想定工事-工事68-上水道配水管布設開削",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事79-床版取替更新/article.md",
+      "out": "2級土木-想定工事-工事79-床版取替更新",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事80-橋梁耐震補強/article.md",
+      "out": "2級土木-想定工事-工事80-橋梁耐震補強",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    },
+    {
+      "src": "工事99-法面対策吹付グラウンドアンカー/article.md",
+      "out": "2級土木-想定工事-工事99-法面対策吹付グラウンドアンカー",
+      "include": [
+        {
+          "from": "^## 〔想定工事の概要（記入例）〕",
+          "to": "^<!-- cta:civil-membership-lab"
+        }
+      ],
+      "exclude": [
+        {
+          "from": "^<!-- cta:civil-mokuji",
+          "to": "^## "
+        }
+      ]
+    }
+  ]
+}

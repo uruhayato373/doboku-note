@@ -1,0 +1,70 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="安全文化を支える4つの文化（J.リーズン）。報告する文化・正義の文化・柔軟な文化・学習する文化の2×2マトリクス">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-center-label { font-size: 13px; font-weight: bold; fill: #2e6da4; }
+      .t-card-head { font-size: 14px; font-weight: bold; fill: #2e6da4; }
+      .t-card-body { font-size: 13px; fill: #555; }
+      .box-brand  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .center-box  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <!-- サブタイトル -->
+  <text style="font-size:12px;fill:#555;font-family:Inter,'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif" x="200" y="18" text-anchor="middle">J.リーズン の提唱</text>
+
+  <!-- ===== 上段左：報告する文化 ===== -->
+  <rect class="box-brand" x="20" y="28" width="170" height="128" rx="8"/>
+  <text class="t-card-head" x="105" y="53" text-anchor="middle">報告する文化</text>
+  <line x1="36" y1="61" x2="174" y2="61" stroke="#2e6da4" stroke-width="1"/>
+  <text class="t-card-body" x="105" y="81" text-anchor="middle">ミスを報告する習慣</text>
+  <text class="t-card-body" x="105" y="100" text-anchor="middle">収集部門と処分部門</text>
+  <text class="t-card-body" x="105" y="119" text-anchor="middle">を分離する</text>
+  <text style="font-size:11px;fill:#8a8a8a;font-family:Inter,'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif" x="105" y="140" text-anchor="middle">基盤となる文化</text>
+
+  <!-- ===== 上段右：正義の文化 ===== -->
+  <rect class="box-surface" x="210" y="28" width="170" height="128" rx="8"/>
+  <text class="t-card-head" x="295" y="53" text-anchor="middle">正義の文化</text>
+  <line x1="226" y1="61" x2="364" y2="61" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-card-body" x="295" y="81" text-anchor="middle">行為の原因が故意か</text>
+  <text class="t-card-body" x="295" y="100" text-anchor="middle">過失かを区別する</text>
+  <text class="t-card-body" x="295" y="119" text-anchor="middle">仕組みを持つ</text>
+  <text style="font-size:11px;fill:#8a8a8a;font-family:Inter,'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif" x="295" y="140" text-anchor="middle">公正な評価の基盤</text>
+
+  <!-- ===== 中央：安全文化 ===== -->
+  <rect class="center-box" x="120" y="170" width="160" height="62" rx="10"/>
+  <text class="t-center-label" x="200" y="197" text-anchor="middle">安全文化</text>
+  <text style="font-size:12px;fill:#555;font-family:Inter,'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif" x="200" y="219" text-anchor="middle">4つの文化が支える</text>
+
+  <!-- 矢印：中央↔各カード -->
+  <line x1="105" y1="158" x2="150" y2="183" stroke="#2e6da4" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <line x1="295" y1="158" x2="250" y2="183" stroke="#2e6da4" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <line x1="150" y1="234" x2="105" y2="256" stroke="#2e6da4" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <line x1="250" y1="234" x2="295" y2="256" stroke="#2e6da4" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+  <!-- ===== 下段左：柔軟な文化 ===== -->
+  <rect class="box-surface" x="20" y="256" width="170" height="128" rx="8"/>
+  <text class="t-card-head" x="105" y="281" text-anchor="middle">柔軟な文化</text>
+  <line x1="36" y1="289" x2="174" y2="289" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-card-body" x="105" y="309" text-anchor="middle">変化に対応できる</text>
+  <text class="t-card-body" x="105" y="328" text-anchor="middle">分散した管理体制</text>
+  <text class="t-card-body" x="105" y="347" text-anchor="middle">を構築する</text>
+  <text style="font-size:11px;fill:#8a8a8a;font-family:Inter,'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif" x="105" y="368" text-anchor="middle">階層的→柔軟な移行</text>
+
+  <!-- ===== 下段右：学習する文化 ===== -->
+  <rect class="box-surface" x="210" y="256" width="170" height="128" rx="8"/>
+  <text class="t-card-head" x="295" y="281" text-anchor="middle">学習する文化</text>
+  <line x1="226" y1="289" x2="364" y2="289" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-card-body" x="295" y="309" text-anchor="middle">過去の経験から学ぶ</text>
+  <text class="t-card-body" x="295" y="328" text-anchor="middle">レッスンラーンの</text>
+  <text class="t-card-body" x="295" y="347" text-anchor="middle">知識ベースを活用</text>
+  <text style="font-size:11px;fill:#8a8a8a;font-family:Inter,'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif" x="295" y="368" text-anchor="middle">継続的改善の源泉</text>
+
+  <!-- footer note -->
+  <line x1="20" y1="398" x2="380" y2="398" stroke="#d7d7d7" stroke-width="1"/>
+  <text style="font-size:11px;fill:#8a8a8a;font-family:Inter,'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif" x="200" y="418" text-anchor="middle">報告する文化が基盤。他の3文化はそれを前提に成立する。</text>
+  <text style="font-size:11px;fill:#8a8a8a;font-family:Inter,'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif" x="200" y="438" text-anchor="middle">インフォームド・カルチャー：4文化が統合した状態</text>
+  <text style="font-size:11px;fill:#8a8a8a;font-family:Inter,'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif" x="200" y="458" text-anchor="middle">出典：J.リーズン「組織事故」(1997)</text>
+</svg>

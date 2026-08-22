@@ -1,0 +1,75 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="公共測量における水準測量の等級別基準。視準距離は1級2級が最大50メートル、3級4級が最大70メートル、簡易が最大100メートル。読定単位は1級0.01ミリメートル、2級0.1ミリメートル、3級以下1ミリメートル。往復較差の許容範囲は1級2.5、2級5、3級10、4級20ミリメートルにルートSを乗じた値">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-col  { font-size: 11px; font-weight: bold; fill: #555; }
+      .t-row  { font-size: 11px; fill: #222; }
+      .t-val  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note { font-size: 11px; fill: #222; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">等級ごとに視準距離・読定単位・許容範囲が定まる</text>
+
+  <rect class="box-b" x="20" y="28" width="360" height="204" rx="6"/>
+  <text class="t-sec" x="200" y="52" text-anchor="middle">視準距離と読定単位</text>
+  <line class="rule" x1="36" y1="61" x2="364" y2="61"/>
+  <text class="t-col" x="252" y="80" text-anchor="end">視準距離</text>
+  <text class="t-col" x="360" y="80" text-anchor="end">読定単位</text>
+
+  <text class="t-row" x="40" y="106">1級水準測量</text>
+  <text class="t-val" x="252" y="106" text-anchor="end">最大 50 m</text>
+  <text class="t-val" x="360" y="106" text-anchor="end">0.01 mm</text>
+
+  <text class="t-row" x="40" y="130">2級水準測量</text>
+  <text class="t-val" x="252" y="130" text-anchor="end">最大 50 m</text>
+  <text class="t-val" x="360" y="130" text-anchor="end">0.1 mm</text>
+
+  <text class="t-row" x="40" y="154">3級水準測量</text>
+  <text class="t-val" x="252" y="154" text-anchor="end">最大 70 m</text>
+  <text class="t-val" x="360" y="154" text-anchor="end">1 mm</text>
+
+  <text class="t-row" x="40" y="178">4級水準測量</text>
+  <text class="t-val" x="252" y="178" text-anchor="end">最大 70 m</text>
+  <text class="t-val" x="360" y="178" text-anchor="end">1 mm</text>
+
+  <text class="t-row" x="40" y="202">簡易水準測量</text>
+  <text class="t-val" x="252" y="202" text-anchor="end">最大 100 m</text>
+  <text class="t-val" x="360" y="202" text-anchor="end">1 mm</text>
+
+  <rect class="box-w" x="20" y="246" width="360" height="152" rx="6"/>
+  <text class="t-sec" x="200" y="270" text-anchor="middle">許容範囲（S ＝ 観測距離・片道 km）</text>
+  <line class="rule" x1="36" y1="279" x2="364" y2="279"/>
+  <text class="t-col" x="252" y="298" text-anchor="end">往復較差</text>
+  <text class="t-col" x="360" y="298" text-anchor="end">点検計算</text>
+
+  <text class="t-row" x="40" y="322">1級水準測量</text>
+  <text class="t-val" x="252" y="322" text-anchor="end">2.5 mm√S</text>
+  <text class="t-val" x="360" y="322" text-anchor="end">2.0 mm√S</text>
+
+  <text class="t-row" x="40" y="346">2級水準測量</text>
+  <text class="t-val" x="252" y="346" text-anchor="end">5 mm√S</text>
+  <text class="t-val" x="360" y="346" text-anchor="end">5 mm√S</text>
+
+  <text class="t-row" x="40" y="370">3級水準測量</text>
+  <text class="t-val" x="252" y="370" text-anchor="end">10 mm√S</text>
+  <text class="t-val" x="360" y="370" text-anchor="end">10 mm√S</text>
+
+  <text class="t-row" x="40" y="392">4級水準測量</text>
+  <text class="t-val" x="252" y="392" text-anchor="end">20 mm√S</text>
+  <text class="t-val" x="360" y="392" text-anchor="end">20 mm√S</text>
+
+  <rect class="box-surf" x="20" y="412" width="360" height="70" rx="6"/>
+  <text class="t-note" x="200" y="436" text-anchor="middle">往復観測を行い、較差が許容範囲内であることを確認する</text>
+  <text class="t-note" x="200" y="458" text-anchor="middle">前視と後視の視準距離の差も制限値以内にする</text>
+  <text class="t-note" x="200" y="476" text-anchor="middle">1測点の標尺の読みは2回以上行う</text>
+</svg>

@@ -1,0 +1,368 @@
+name: GSC auto review (record layer)
+
+# GSC 計測の「記録層」を CI で回す。データ取得（fetch-metrics / index-coverage）は既に CI 自動だが、
+# その診断を観測ログへ追記する層が手動のまま放置され、2026-07・08 の月次カバレッジ 2 回分が
+# 無記録のまま indexed_ratio が 81.6%→71.7% に低下した。「計測 → 記録」のループを人手なしで閉じる。
+#
+# なぜクラウドルーティンでなく CI か（2026-08-06 移行）:
+#   クラウドルーティンは「ローカル非依存」は満たすが、**設定と実行履歴が repo から見えない**。
+#   本機能を作る動機そのものが「沈黙が見えないこと」だったので、
+#   設定が YAML でバージョン管理され、失敗が赤い run として残る CI を正とする。
+#   （自動化マップの原則「機械的に完結する処理の実行主体は GitHub Actions を正とする」に合わせる。
+#     意味判断はクラウドに残す例外だったが、claude-code-action で CI 実行が可能になったため移す）
+#
+# 移行は 2026-08-06 に完了。クラウドルーティン `doboku-note GSC auto review`
+# （trig_01MT1RZabGfpadtoCB25kWSv）は enabled:false へ。本 workflow が唯一の実行主体。
+#
+# 立ち上げで踏んだ落とし穴（同じ形の自動化を作るとき再発しやすい）:
+#   1. workflow_dispatch も cron も **デフォルトブランチ版**で動く。main に入るまで発火しない
+#   2. `gh secret set` の隠し入力に貼り付けが効かず**値が空**で登録されることがある。
+#      成否は run ログの env が `TOKEN: ***`（値あり）か `TOKEN: `（空）かで判る
+#   3. claude-code-action は OIDC を使うので `id-token: write` が必須
+#   4. claude-code-action は workflow ファイルが**デフォルトブランチと同一内容**でないと実行をスキップ
+#   5. CI は非対話＝**turn が終わればセッションも終了**。サブエージェントを待って turn を
+#      終えると、書いていない記録は永久に失われる（同期起動・その場で書き切ること）
+#   6. **`.claude/**` への Write は sensitive file として一律拒否**される（allowlist 不可）。
+#      よって Claude は /tmp に断片を出し、反映と commit は後続の bash が行う
+#   7. claude-code-action は step 終了時に自身の app token を revoke するため、
+#      後続ステップの git push は `GITHUB_TOKEN` で remote を貼り直す必要がある
+#
+# トークン未設定の間はスキップして warning を出すだけ（赤くしない）。
+
+on:
+  schedule:
+    # 金 12:00 JST（03:00 UTC）＝ fetch-metrics（金 06:00 JST）の 6 時間後。
+    # 月曜の weekly PDCA ルーティンとは曜日も成果物も重ならない。
+    - cron: "0 3 * * 5"
+  workflow_dispatch:
+
+permissions:
+  contents: write # 観測ログ・improvements を develop へ push
+  issues: write # 失敗時に automation-failure Issue を起票（限定例外）
+  id-token: write # claude-code-action が OIDC トークンを取得するのに必須
+  # ↑ 無いと "Could not fetch an OIDC token" で落ちる（2026-08-06 実測）。
+  #   token の有無とは別の失敗なので preflight では検出できない
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@v5
+        with:
+          ref: develop
+        # fetch-depth は既定（1）。**full clone にしない**。
+        # このリポジトリは remote 11 GB あり、ubuntu-latest の空き（約 14 GB）を
+        # 実行中の一時ファイルと合わせて超える。2026-08-21 03:42Z に本 workflow が
+        # `System.IO.IOException: No space left on device` でランナーごと落ちた
+        # （全ステップが conclusion=null になり、ログすら書けず事後追跡できなかった）。
+        # 本 workflow は git 履歴を一切使わない（commit / pull --rebase / push のみ）。
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+
+      # トークン未設定でも赤くしない。ただし**黙ってスキップもしない**
+      # （CLAUDE.md §9「検査ゼロを PASS と呼ばない」）＝warning と job summary に理由を出す。
+      - name: Preflight - OAuth token check
+        id: pre
+        env:
+          TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+        run: |
+          if [ -z "$TOKEN" ]; then
+            echo "has_token=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::CLAUDE_CODE_OAUTH_TOKEN が未設定または空のため記録層をスキップしました"
+            {
+              echo "## GSC auto review: スキップ"
+              echo ""
+              echo "\`CLAUDE_CODE_OAUTH_TOKEN\` が**未設定、または登録されているが値が空**です。"
+              echo "\`gh secret list\` に名前が出ていてもここが空になることがあります"
+              echo "（PowerShell の隠し入力プロンプトへの貼り付けが効かず、空で登録されるケース）。"
+              echo ""
+              echo "対話ターミナルで token を発行し、**貼り付けに頼らない方法**で登録する:"
+              echo ""
+              echo '```powershell'
+              echo "claude setup-token                       # 表示された token をコピー"
+              echo '$t = Read-Host "token"                   # ここに貼る（可視入力なので確実）'
+              echo '$t | gh secret set CLAUDE_CODE_OAUTH_TOKEN'
+              echo 'Remove-Variable t'
+              echo '```'
+              echo ""
+              echo "登録後の確認は \`gh workflow run gsc-auto-review.yml\` を再実行し、"
+              echo "本ステップの env が \`TOKEN: ***\`（マスク表示）になること。"
+            } >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "has_token=true" >> "$GITHUB_OUTPUT"
+            echo "token 検出（値はマスクされる）"
+          fi
+
+      # 実行前の状態を **stdout にも** 出す（job summary だけだと run ログに残らず事後診断できない）。
+      # 併せて実行後の検証に使う gates を step output に保存する。
+      - name: Surface record-layer state (before)
+        id: before
+        continue-on-error: true
+        run: |
+          node scripts/check-gsc-auto-review.mjs --json > /tmp/gates-before.json || true
+          echo "--- 実行前 ---"
+          node scripts/check-gsc-auto-review.mjs || true
+          node -e '
+            const g = JSON.parse(require("fs").readFileSync("/tmp/gates-before.json","utf8")).gates;
+            const out = require("fs").createWriteStream(process.env.GITHUB_OUTPUT, {flags:"a"});
+            out.write(`stale=${g.gscDataStale}\nweekly=${g.weeklyAlreadyLogged}\nmonthly=${g.monthlyAlreadyLogged}\n`);
+            out.end();
+          '
+          {
+            echo "## 記録層の状態（実行前）"
+            echo '```'
+            node scripts/check-gsc-auto-review.mjs || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Run GSC auto review
+        if: steps.pre.outputs.has_token == 'true'
+        uses: anthropics/claude-code-action@v1
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          claude_code_oauth_token: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
+          # オーケストレーションと判断は fable、重い JSON 走査は .claude/agents/*.md の
+          # frontmatter で sonnet に固定されたサブエージェントが担う（トークン節約）。
+          claude_args: |
+            --model claude-fable-5
+            --max-turns 60
+            --allowedTools Task,Bash,Read,Write,Edit,Glob,Grep
+          prompt: |
+            あなたは doboku-note（技術士・土木施工管理技士の試験対策サイト）の **GSC 計測「記録層」** を回す定例エージェントです。データ収集は GitHub Actions が既に develop へ commit 済みで、あなたの仕事は**その診断結果を観測ログへ追記して commit すること**だけです。
+
+            **あなたの役割はオーケストレーションと判断**です。重いデータ読み（数千行の JSON 走査）はサブエージェント（sonnet）に任せ、**あなた自身は大きな JSON を Read しない**。あなたが使うトークンは「何を記録すべきか」の判断に使う。
+
+            ## この実行環境の制約（最重要・最初に読む）
+
+            **これは非対話の CI 実行です。あなたの turn が終わった瞬間にセッションごと終了します。**
+
+            - 「完了通知を待ちます」「後で続きをやります」は**できません**。次の turn は来ません。
+              turn を終えた時点で、まだ書いていない記録は**永久に失われます**。
+            - したがって **サブエージェントは必ず同期で起動し、結果を受け取ってから次へ進む**
+              （`run_in_background` は使わない・待ちに入って turn を終えない）。
+            - **各 Phase はその場で「追記 → commit → push」まで完了させてから次の Phase へ進む。**
+              後続 Phase の結果を待って一括で書かない。**書く前に turn を終えない。**
+            - サブエージェントの出力が不十分でも、**あなたが生データを再集計し直さない**。
+              返ってきたテキストの範囲で短く記録し、不足は「注記」に 1 行書いて先へ進む。
+              完璧な分析より**記録が残ること**を優先する（記録ゼロが最悪の結果）。
+
+            ### `.claude/` には書けない（試さないこと）
+
+            本 CI ハーネスは `.claude/**` への Write/Edit を **sensitive file として一律拒否**します
+            （エージェントが自分の権限設定を書き換えるのを防ぐ保護。allowlist では回避できません）。
+            2026-08-06 の実行はこれに気づかず 12 回リトライして時間を溶かしました。
+
+            **したがってあなたはリポジトリのファイルを一切書きません。** 代わりに:
+
+            - 週次エントリ → `/tmp/weekly-entry.md` に**追記する本文だけ**を書く
+            - 月次エントリ → `/tmp/monthly-entry.md` に同様に書く
+            - metrics-analyzer の分析結果 → `/tmp/improvements.md` に書く
+            - **commit / push もしない**
+
+            後続の bash ステップが、これらを検証したうえで所定のパスへ追記し commit します。
+            `/tmp` は書けます。`.claude/` への書き込みは 1 回も試さないでください。
+            サブエージェントにも**ファイルを書かせず、本文をテキストで返させて**ください
+            （サブエージェントも同じブロックに当たります）。
+
+            ## 禁止事項（最初に読む）
+
+            - `npm install` / `npm ci` を実行しない。診断はコミット済み JSON の Read/Grep だけで完結する
+            - GSC/GA4 API を叩かない・ライブ fetch しない（計測は CI 供給が正）
+            - **`.claude/state/metrics/` 配下の JSON を自分で Read しない**（数千行ある）。診断は必ずサブエージェントにやらせる
+            - **`gsc-management.md` を全文 Read しない**（300 行超・成長中）。後述の tail 読みだけを使う
+            - **リポジトリ内のファイルを書かない・commit / push もしない**（上記のとおり bash ステップの担当）
+            - 実験の start もしない（**推奨まで**。実行判断は人間）
+            - メタ（title/description）の**一括変更は絶対に提案しない**（2026-07 に 723 件一括変更がコアアップデート demote を増幅した）。メタ実験は最大 5 URL・14〜28 日の形でのみ提案
+            - 既存のログエントリを編集・削除しない（append-only。人間が後から上書き・追記する運用）
+
+            ## Phase 0: 準備とゲート（全てコマンドで決める）
+
+            1. 既に develop が checkout 済み。git 操作は不要（commit は bash ステップの担当）
+            2. `TZ=Asia/Tokyo date +%F` で `TODAY` を決める
+            3. **ゲートは 1 コマンドで取る**: `node scripts/check-gsc-auto-review.mjs --json`。出力の `gates` をそのまま使い、自分で日付を数え直さない:
+               - `gates.gscDataStale === true` → Phase 1 を中止し、最終報告の先頭を `【要確認】fetch-metrics 停止の疑い: 最新 GSC データが {gates.daysSinceGscQuery} 日前` にする（回復は `gh workflow run fetch-metrics.yml`）。Phase 2 の判定へは進む
+               - `gates.weeklyAlreadyLogged === true` → Phase 1 をスキップ
+               - `gates.monthlyAlreadyLogged === true` → Phase 2 をスキップ
+            4. **文脈ゲート**（直近 2 エントリだけを tail 読みする）:
+               `S=$(grep -n '^### [0-9]' .claude/knowledge/reference/gsc-management.md | tail -2 | head -1 | cut -d: -f1)` のあと `sed -n "${S},\$p" .claude/knowledge/reference/gsc-management.md`
+               裁定済みの候補には「再浮上の条件」が書かれている。**条件を満たさない候補を再提案しない**（同じ指摘の蒸し返しは価値ゼロ）
+
+            ## Phase 1: 週次 performance 記録
+
+            1. サブエージェント `metrics-analyzer`（sonnet）を**同期で**起動し、`.claude/state/metrics/` の最新 GSC/GA4 JSON から 8 パターンの改善候補を抽出させる。**結果はファイルに書かせず本文をテキストで返させる**（`.claude/` は書けないため）。**生の計測 JSON をあなたが開かない**。返ってきたら即座に次へ（ここで turn を終えない）
+            2. 返ってきた内容を `/tmp/improvements.md` に Write する（後続 bash が所定パスへ配置する）
+            3. Phase 0-4 で除外すべき候補を落としたうえで、`/tmp/weekly-entry.md` に**追記本文だけ**を Write する（**20 行以内**。上位 3 件まで、残りは「他 N 件 → improvements/{TODAY}.md」と参照で済ませる。問題なしの軸は 1 行で「✓」）。1 行目は必ず `### {TODAY}（週次・自動レビュー）` とし、続けて **観測**（窓とパターン別件数を 1 行）/ **上位候補と推奨**（URL・数値・推奨アクションを最大 3 件）/ **自動裁定**（各候補に「推奨=実験化候補」「見送り(理由)」「保留(再浮上条件)」を 1 行ずつ）/ **注記**（自動生成・人間の上書き歓迎）の 4 ブロック
+
+            ## Phase 2: 月次 coverage 記録（条件付き）
+
+            1. **整合ゲート**: `.claude/state/metrics/gsc/index-coverage-history.json` の**最終エントリだけ**を `tail` 相当の手段で見て、`gates.latestBatch` と同月か確かめる。同月でなければ月次エントリは書かず `【要確認】batch はあるが history 未追記（append-coverage-history の失敗疑い）` として報告のみ
+            2. サブエージェント `gsc-index-auditor`（sonnet）を**同期で**起動し、最新 batch（1,000 件超）と history を診断させる。**batch JSON をあなたが開かない**。**Phase 1 の `/tmp/weekly-entry.md` を書き終えてから**起動すること（週次を人質にしない）
+            3. **異常判定**（1 つでも該当なら最終報告を【要確認】にする）: indexed_ratio < 60% / 前回比 −5pt 超の低下 / discovered_not_indexed が sitemap の 20% 超 / hygiene（404+redirect）> 0 / inspected < sitemap_urls / batch の results が空 or 前回比 50% 以上減
+            4. `/tmp/monthly-entry.md` に**追記本文だけ**を Write する（**25 行以内**。hygiene URL は代表 3 件＋総数）。1 行目は `### {TODAY}（月次・自動レビュー）` とし、続けて **観測**（history.json の該当月エントリを正として inspected/sitemap/indexed/ratio/前回比/discovered/crawled-not-indexed/hygiene）/ **原因バケット**（権威性・技術・hygiene の auditor 判定を各 1 行）/ **推奨アクション**（本 doc 上部の「判断マトリクス」に沿って 1〜3 行）/ **異常フラグ**（該当項目。なければ「なし」）/ **注記**（自動生成・最終決定は人間）
+
+            ## Phase 3: 報告
+
+            1. **異常なし**: 3 行以内の要約で静かに終わる（「週次: /tmp/weekly-entry.md に出力（候補 N 件）/ 月次: スキップ or 出力済み」）
+            2. **異常あり**（Phase 0 の鮮度ゲート・Phase 2 の異常判定）: 最終報告の先頭を `【要確認】` にして数値と回復コマンドを列挙し、**GitHub Issue に記録する**:
+               `node scripts/report-automation-failure.mjs --channel gsc-auto-review --title "<事象を 1 行で>" --body-file /tmp/body.md`
+               このスクリプトが重複防止（同 channel の open Issue があればコメント追記）を担う
+            3. **エントリ本文は Issue に貼らない**（`/tmp/*.md` を後続 bash が確実に反映するため）。ただし
+               `/tmp/weekly-entry.md` をどうしても書けなかった場合だけ、その理由と本文を Issue 本文に含める
+
+      # Claude の実行ログを artifact に残す。無いと「緑なのに何もしていない」が
+      # 完全なブラックボックスになる（2026-08-06 の初回成功実行がまさにこれだった）。
+      - name: Upload Claude execution log
+        if: always() && steps.pre.outputs.has_token == 'true'
+        continue-on-error: true
+        uses: actions/upload-artifact@v4
+        with:
+          name: claude-execution-log-${{ github.run_id }}
+          path: /home/runner/work/_temp/claude-execution-output.json
+          if-no-files-found: warn
+          retention-days: 14
+
+      # Claude が /tmp に出した断片を、決定的なコードで所定パスへ反映して commit する。
+      # なぜ分離したか: claude-code-action は `.claude/**` への Write を sensitive file として
+      # 一律拒否する（エージェントが自分の権限設定を書き換えるのを防ぐ保護・allowlist 不可）。
+      # 2026-08-06 の実行が 12 回リトライして全滅した。加えて、追記位置・見出し形式・pathspec
+      # commit は決定的に決まるのでモデルに委ねる理由が無い（CLAUDE.md §5）。
+      - name: Apply records and commit
+        if: steps.pre.outputs.has_token == 'true'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          LOG=.claude/knowledge/reference/gsc-management.md
+          TODAY=$(TZ=Asia/Tokyo date +%F)
+          APPLIED=0
+
+          # 追記本文の妥当性を機械で確かめる（見出し形式・行数上限）。
+          validate() {
+            local f="$1" kind="$2" max="$3"
+            [ -s "$f" ] || { echo "  $f: 無し/空 → スキップ"; return 1; }
+            if ! head -1 "$f" | grep -qE "^### [0-9]{4}-[0-9]{2}-[0-9]{2}（${kind}・自動レビュー）$"; then
+              echo "::error::$f の 1 行目が見出し規約に一致しない: $(head -1 "$f")"
+              return 2
+            fi
+            local n; n=$(wc -l < "$f")
+            if [ "$n" -gt "$max" ]; then
+              echo "::warning::$f が $n 行（上限 $max 行）"
+            fi
+            echo "  $f: OK（$n 行）"
+            return 0
+          }
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # claude-code-action は step の最後に自身の app token を revoke するため、
+          # checkout が仕込んだ認証がこの時点で無効化されている（2026-08-06 実測:
+          # "Invalid username or token" で push だけ失敗し、commit は成功していた）。
+          # GITHUB_TOKEN で貼り直す。
+          git remote set-url origin "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+
+          echo "--- 断片の検証 ---"
+          set +e
+          validate /tmp/weekly-entry.md "週次" 20;  W=$?
+          validate /tmp/monthly-entry.md "月次" 25; M=$?
+          set -e
+          [ "$W" = 2 ] && exit 1
+          [ "$M" = 2 ] && exit 1
+
+          # append-only。既存エントリには一切触れない。
+          if [ "$W" = 0 ]; then
+            printf '\n' >> "$LOG"; cat /tmp/weekly-entry.md >> "$LOG"; APPLIED=1
+            if [ -s /tmp/improvements.md ]; then
+              mkdir -p .claude/state/improvements
+              cp /tmp/improvements.md ".claude/state/improvements/${TODAY}.md"
+            fi
+          fi
+          if [ "$M" = 0 ]; then
+            printf '\n' >> "$LOG"; cat /tmp/monthly-entry.md >> "$LOG"; APPLIED=1
+          fi
+
+          if [ "$APPLIED" = 0 ]; then
+            echo "::warning::反映する断片が無い（Claude が /tmp に何も書かなかった）"
+            exit 0
+          fi
+
+          git add "$LOG"
+          [ -f ".claude/state/improvements/${TODAY}.md" ] && git add ".claude/state/improvements/${TODAY}.md"
+          if git diff --cached --quiet; then echo "差分なし"; exit 0; fi
+          git commit -m "docs(gsc): auto review ${TODAY} [skip ci]"
+
+          # 並行 push に備えて rebase 再試行。append-only なので競合しても両方残すのが常に正しい。
+          for i in 1 2 3; do
+            if git pull --rebase origin develop && git push origin develop; then
+              echo "push 成功（試行 $i）"; exit 0
+            fi
+            echo "push 再試行 $i"; sleep 5
+          done
+          echo "::error::push に失敗した（記録は commit 済みだが未 push）"
+          exit 1
+
+      # 本 workflow 自身に「検査ゼロを PASS と呼ばない」を適用する。
+      # Claude が成功終了しても記録が増えていなければ、それは成功ではない。
+      - name: Verify - record was actually written
+        if: steps.pre.outputs.has_token == 'true'
+        env:
+          STALE_BEFORE: ${{ steps.before.outputs.stale }}
+          WEEKLY_BEFORE: ${{ steps.before.outputs.weekly }}
+          MONTHLY_BEFORE: ${{ steps.before.outputs.monthly }}
+        run: |
+          echo "--- 実行後 ---"
+          node scripts/check-gsc-auto-review.mjs || true
+          node scripts/check-gsc-auto-review.mjs --json > /tmp/gates-after.json
+          {
+            echo "## 記録層の状態（実行後）"
+            echo '```'
+            node scripts/check-gsc-auto-review.mjs || true
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          node -e '
+            const after = JSON.parse(require("fs").readFileSync("/tmp/gates-after.json","utf8")).gates;
+            const staleBefore = process.env.STALE_BEFORE === "true";
+            const weeklyBefore = process.env.WEEKLY_BEFORE === "true";
+            const monthlyBefore = process.env.MONTHLY_BEFORE === "true";
+            console.log(`before: stale=${staleBefore} weekly=${weeklyBefore} monthly=${monthlyBefore}`);
+            console.log(`after : weekly=${after.weeklyAlreadyLogged} monthly=${after.monthlyAlreadyLogged}`);
+            // 週次はスキップ条件が gates で完全に表現できるので hard fail にする。
+            const weeklyDue = !staleBefore && !weeklyBefore;
+            if (weeklyDue && !after.weeklyAlreadyLogged) {
+              console.error("::error::週次の記録が必要だったのに追記されていない（Claude は成功終了したが仕事をしていない）。artifact の claude-execution-log を確認する");
+              process.exit(1);
+            }
+            // 月次は整合ゲート（history 未追記）で正当にスキップされうるので warning に留める。
+            if (!monthlyBefore && !after.monthlyAlreadyLogged) {
+              console.log("::warning::月次の記録が未追記のまま。整合ゲートで止まった可能性（Claude の最終報告を確認）");
+            }
+            console.log("[verify] 記録層の更新を確認");
+          '
+
+      # Claude 自体が落ちたら Issue に記録する（沈黙させない）。
+      - name: Report - action failure
+        if: failure() && steps.pre.outputs.has_token == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          {
+            echo "GSC auto review の CI 実行が失敗しました（Claude 実行ステップの異常、または記録が書かれなかった）。"
+            echo ""
+            echo "- run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo "- 実行ログ: 同 run の artifact \`claude-execution-log-${{ github.run_id }}\`"
+            echo "- 記録層の現状:"
+            echo '```'
+            node scripts/check-gsc-auto-review.mjs || true
+            echo '```'
+            echo "- 応急: 対話セッションで \`/gsc-review\`（月次）・\`/weekly-improve\`（週次）"
+          } > /tmp/action-body.md
+          node scripts/report-automation-failure.mjs \
+            --channel gsc-auto-review \
+            --title "CI 実行が失敗（gsc-auto-review.yml）" \
+            --body-file /tmp/action-body.md

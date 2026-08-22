@@ -1,0 +1,69 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="システム安全工学手法の体系。FTAはトップダウン（演繹的）で事故事象から原因を遡る。FMEA・HAZOPはボトムアップ（帰納的）で部品の故障モードや工程の逸脱から影響を評価する。ETAはフォワード（帰納的）で起因事象から結果を分岐展開する。ボウタイはFTAとETAを統合し原因と結果を一体で可視化する。演繹的はFTA、帰納的はFMEA・HAZOP・ETA。">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-sub  { font-size: 11px; fill: #8a8a8a; }
+      .t-head { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 14px; font-weight: bold; }
+      .t-tag  { font-size: 12px; fill: #555; }
+      .t-desc { font-size: 12px; fill: #555; }
+      .t-foot { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note { font-size: 11px; fill: #8a8a8a; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.3; }
+    </style>
+  </defs>
+
+  <text class="t-head" x="200" y="40" text-anchor="middle">解析の向きで使い分ける</text>
+
+  <!-- FTA -->
+  <rect class="card" x="16" y="58" width="368" height="84" rx="8"/>
+  <rect x="16" y="58" width="6" height="84" rx="3" fill="#2e6da4"/>
+  <text class="t-name" x="34" y="82" fill="#2e6da4">FTA（フォールトツリー）</text>
+  <text class="t-tag"  x="34" y="102">トップダウン・演繹的</text>
+  <text class="t-desc" x="34" y="124">事故事象から原因を論理ツリーで遡る</text>
+  <rect x="330" y="70" width="18" height="11" fill="none" stroke="#2e6da4" stroke-width="1.3"/>
+  <line x1="339" y1="81" x2="328" y2="96" stroke="#2e6da4" stroke-width="1.2"/>
+  <line x1="339" y1="81" x2="350" y2="96" stroke="#2e6da4" stroke-width="1.2"/>
+  <circle cx="328" cy="99" r="3" fill="#2e6da4"/><circle cx="350" cy="99" r="3" fill="#2e6da4"/>
+  <line x1="362" y1="100" x2="362" y2="80" stroke="#2e6da4" stroke-width="1.5"/>
+  <polygon points="358,82 366,82 362,73" fill="#2e6da4"/>
+
+  <!-- FMEA・HAZOP -->
+  <rect class="card" x="16" y="150" width="368" height="84" rx="8"/>
+  <rect x="16" y="150" width="6" height="84" rx="3" fill="#3a7d44"/>
+  <text class="t-name" x="34" y="174" fill="#3a7d44">FMEA・HAZOP</text>
+  <text class="t-tag"  x="34" y="194">ボトムアップ・帰納的</text>
+  <text class="t-desc" x="34" y="216">部品の故障モード・工程の逸脱から影響</text>
+  <rect x="324" y="206" width="13" height="9" fill="#3a7d44"/><rect x="341" y="206" width="13" height="9" fill="#3a7d44"/>
+  <rect x="332" y="166" width="14" height="10" fill="none" stroke="#3a7d44" stroke-width="1.3"/>
+  <line x1="339" y1="204" x2="339" y2="184" stroke="#3a7d44" stroke-width="1.5"/>
+  <polygon points="335,186 343,186 339,177" fill="#3a7d44"/>
+
+  <!-- ETA -->
+  <rect class="card" x="16" y="242" width="368" height="84" rx="8"/>
+  <rect x="16" y="242" width="6" height="84" rx="3" fill="#d4a017"/>
+  <text class="t-name" x="34" y="266" fill="#d4a017">ETA（イベントツリー）</text>
+  <text class="t-tag"  x="34" y="286">フォワード・帰納的</text>
+  <text class="t-desc" x="34" y="308">起因事象から結果を分岐で展開する</text>
+  <circle cx="322" cy="284" r="3" fill="#d4a017"/>
+  <line x1="325" y1="284" x2="352" y2="272" stroke="#d4a017" stroke-width="1.3"/>
+  <line x1="325" y1="284" x2="352" y2="284" stroke="#d4a017" stroke-width="1.3"/>
+  <line x1="325" y1="284" x2="352" y2="296" stroke="#d4a017" stroke-width="1.3"/>
+  <circle cx="355" cy="272" r="2.6" fill="#d4a017"/><circle cx="355" cy="284" r="2.6" fill="#d4a017"/><circle cx="355" cy="296" r="2.6" fill="#d4a017"/>
+
+  <!-- ボウタイ -->
+  <rect class="card" x="16" y="334" width="368" height="84" rx="8"/>
+  <rect x="16" y="334" width="6" height="84" rx="3" fill="#1a3a5c"/>
+  <text class="t-name" x="34" y="358" fill="#1a3a5c">ボウタイ分析</text>
+  <text class="t-tag"  x="34" y="378">FTA ＋ ETA の統合</text>
+  <text class="t-desc" x="34" y="400">原因 ← 事象 → 結果 を一体で可視化</text>
+  <polygon points="320,366 338,376 320,386" fill="none" stroke="#1a3a5c" stroke-width="1.3"/>
+  <polygon points="356,366 338,376 356,386" fill="none" stroke="#1a3a5c" stroke-width="1.3"/>
+  <circle cx="338" cy="376" r="2.6" fill="#1a3a5c"/>
+
+  <!-- フッタ -->
+  <rect x="16" y="426" width="368" height="60" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.3"/>
+  <text class="t-foot" x="200" y="452" text-anchor="middle">演繹的（結果→原因）＝FTA</text>
+  <text class="t-note" x="200" y="472" text-anchor="middle">帰納的（要素・起因→影響/結果）＝FMEA・HAZOP・ETA</text>
+</svg>

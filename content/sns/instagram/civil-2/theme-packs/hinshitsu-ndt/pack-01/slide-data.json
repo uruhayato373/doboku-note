@@ -1,0 +1,313 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "hinshitsu",
+      "label": "品質管理"
+    },
+    "subtopic": {
+      "key": "ndt",
+      "label": "鉄筋の継手・加工組立の検査・非破壊検査ほか"
+    },
+    "packNum": "01",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 3,
+    "years": [
+      "r07z",
+      "r07k",
+      "r05k",
+      "r04k"
+    ],
+    "yearsLabel": "令和7・5・4年度",
+    "questionIds": [
+      "r07z-13",
+      "r07k-55",
+      "r05k-50",
+      "r04k-60"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "鉄筋の継手・加工組立の検査・非破壊検査ほか",
+      "themeLabel": "品質管理",
+      "subtopicLabel": "鉄筋の継手・加工組立の検査・非破壊検査ほか",
+      "stars": 3,
+      "yearsLabel": "令和7・5・4年度",
+      "firstQuestion": "鉄筋の加工及び組立てに関する次の記述のうち，適当でないものはどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "鉄筋の加工及び組立てに関する次の記述のうち，適当でな",
+        "いものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "鉄筋の加工は，加熱して行うものとする。"
+        },
+        {
+          "num": 2,
+          "text": "鉄筋どうしの交点の要所は，焼なまし鉄線で緊結する。"
+        },
+        {
+          "num": 3,
+          "text": "曲げ加工した鉄筋の曲げ戻しは行わないものとする。"
+        },
+        {
+          "num": 4,
+          "text": "型枠に接するスペーサは，モルタル製あるいはコンクリート製を使用する。"
+        }
+      ],
+      "topic": "令和7年度前期",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 2,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "鉄筋の加工及び組立て",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "鉄筋加工は常温で行うのが原則、加熱加工は誤り ",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "焼なまし鉄線で交点を緊結、正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "曲げ戻しは鉄筋を傷めるため行わない、正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "スペーサはモルタル製・コンクリート製を使用、正しい <ExamPoint>鉄筋の加工は常温で行い加熱加工は行わない</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "鉄筋加工は常温で行うのが原則、加熱加工は誤り ",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 3,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "土木工事の品質管理における「工種・品質特性」と「確認",
+        "方法」に関する次の組合せとして，適当でないものはどれ",
+        "か。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "路盤工・路盤材料の最適含水比 — 突固めによる土の締固め試験"
+        },
+        {
+          "num": 2,
+          "text": "アスファルト舗装工・アスファルト合材の安定度 — マーシャル安定度試験"
+        },
+        {
+          "num": 3,
+          "text": "土工・支持力等 — RI 計器による土の密度試験"
+        },
+        {
+          "num": 4,
+          "text": "コンクリート工・骨材の粒度 — ふるい分け試験"
+        }
+      ],
+      "topic": "令和7年度後期",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 4,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "土木工事の品質管理における「工種・品",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "路盤材料の含水比管理試験は正しい組合せ",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "マーシャル安定度試験は正しい組合せ",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "土の支持力測定は平板載荷試験等が標準でRI計器は密度測定機器のため組合せが不一致",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "骨材粒度のふるい分け試験は正しい組合せ <ExamPoint>支持力試験は平板載荷RI計器は密度測定用</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "土の支持力測定は平板載荷試験等が標準でRI計器は密度測定機器のため組合せが不一致",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 5,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "工事の品質管理活動における品質管理の PDCA（Pl",
+        "an, Do, Check, Action）に関する",
+        "次の記述のうち，適当でないものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "第 1 段階（計画 Plan）では，品質特性の選定と品質規格を決定する。"
+        },
+        {
+          "num": 2,
+          "text": "第 2 段階（実施 Do）では，作業日報に基づき，作業を実施する。"
+        },
+        {
+          "num": 3,
+          "text": "第 3 段階（検討 Check）では，統計的手法により，解析・検討を行う。"
+        },
+        {
+          "num": 4,
+          "text": "第 4 段階（処理 Action）では，異常原因を追求し，是正する処置をとる。"
+        }
+      ],
+      "topic": "令和5年度後期",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 6,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "工事の品質管理活動における品質管理の",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "Plan で品質特性選定と品質規格決定は正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "Do は作業標準・施工計画に従って実施する段階で「作業日報に基づく」は誤り",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "Check で統計的手法による解析・検討は正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "Action で異常原因の追求と是正処置は正しい <ExamPoint>Do 段階は作業標準に基づき実施する</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "Do は作業標準・施工計画に従って実施する段階で「作業日報に基づく」は誤り",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 7,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "品質管理に用いられる x̄−R管理図に関する下記の文",
+        "章中の の(イ)〜(ニ)に当てはまる語句の組合せとし",
+        "て，適当なものは次のうちどれか。",
+        "",
+        "・データには，連続量として測定される(イ)がある。",
+        "・x̄管理図は，工程平均を各組ごとのデータの(ロ)に",
+        "よって管理する。",
+        "・R管理図は，工程のばらつきを各組のデータの(ハ)に",
+        "よって管理する。",
+        "・x̄−R管理図の管理線として，(ニ)及び上方・下方",
+        "管理限界がある。",
+        "",
+        "(イ) / (ロ) / (ハ) / (ニ)"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "計量値 ……… 平均値 ……… 最大・最小の差 ……… バナナカーブ"
+        },
+        {
+          "num": 2,
+          "text": "計量値 ……… 平均値 ……… 最大・最小の差 ……… 中心線"
+        },
+        {
+          "num": 3,
+          "text": "計数値 ……… 最大・最小の差 ……… 平均値 ……… 中心線"
+        },
+        {
+          "num": 4,
+          "text": "計数値 ……… 最大・最小の差 ……… 平均値 ……… バナナカーブ"
+        }
+      ],
+      "topic": "令和4年度後期",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 8,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "品質管理に用いられる x̄−R管理図",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "(ニ)をバナナカーブとした組合せは誤り",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "連続量として測定されるのは(イ)計量値，x̄管理図は(ロ)平均値で，R管理図は(ハ)最大・最小の差で管理し，管理線は(ニ)中心線及び上方・下方管理限界。組合せが正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "(イ)を計数値とした組合せは誤り",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "(イ)を計数値・(ニ)をバナナカーブとした組合せは誤り <ExamPoint>計量値はx̄−R管理図，中心線＋上下管理限界で管理する</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "連続量として測定されるのは(イ)計量値，x̄管理図は(ロ)平均値で，R管理図は(ハ)最大・最小の差で管理し，管理線は(ニ)中心線及び上方・下方管理限界。",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 9,
+      "totalPages": 10
+    },
+    {
+      "type": "cta",
+      "pageIndex": 10,
+      "totalPages": 10
+    }
+  ]
+}

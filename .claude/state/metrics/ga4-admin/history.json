@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "channel": "ga4-admin",
+  "runs": [
+    {
+      "runId": "2026-07-30T05-24-04Z",
+      "collectedAt": "2026-07-30T05:24:04.323Z",
+      "mode": "dry-run",
+      "status": "property-mismatch",
+      "desiredCount": 2,
+      "presentCount": 0,
+      "missing": [],
+      "created": [],
+      "createFailures": [],
+      "dataRetentionDrift": null
+    },
+    {
+      "runId": "2026-07-30T05-26-24Z",
+      "collectedAt": "2026-07-30T05:26:24.371Z",
+      "mode": "dry-run",
+      "status": "custom-definitions-unreachable",
+      "desiredCount": 2,
+      "presentCount": 0,
+      "missing": [],
+      "created": [],
+      "createFailures": [],
+      "dataRetentionDrift": null
+    },
+    {
+      "runId": "2026-07-30T05-27-41Z",
+      "collectedAt": "2026-07-30T05:27:41.432Z",
+      "mode": "dry-run",
+      "status": "custom-definitions-unreachable",
+      "desiredCount": 2,
+      "presentCount": 0,
+      "missing": [],
+      "created": [],
+      "createFailures": [],
+      "dataRetentionDrift": null
+    },
+    {
+      "runId": "2026-07-30T05-30-31Z",
+      "collectedAt": "2026-07-30T05:30:31.274Z",
+      "mode": "dry-run",
+      "status": "ok",
+      "desiredCount": 2,
+      "presentCount": 2,
+      "missing": [],
+      "created": [],
+      "createFailures": [],
+      "dataRetentionDrift": null
+    },
+    {
+      "runId": "2026-07-30T05-32-13Z",
+      "collectedAt": "2026-07-30T05:32:13.137Z",
+      "mode": "dry-run",
+      "status": "ok",
+      "desiredCount": 2,
+      "presentCount": 2,
+      "missing": [],
+      "created": [],
+      "createFailures": [],
+      "dataRetentionDrift": null
+    },
+    {
+      "runId": "2026-07-30T05-35-18Z",
+      "collectedAt": "2026-07-30T05:35:18.126Z",
+      "mode": "dry-run",
+      "status": "ok",
+      "desiredCount": 2,
+      "presentCount": 2,
+      "missing": [],
+      "created": [],
+      "createFailures": [],
+      "dataRetentionDrift": null
+    },
+    {
+      "runId": "2026-08-17T13-16-07Z",
+      "collectedAt": "2026-08-17T13:16:07.737Z",
+      "mode": "dry-run",
+      "status": "ok",
+      "desiredCount": 2,
+      "presentCount": 2,
+      "missing": [],
+      "created": [],
+      "createFailures": [],
+      "dataRetentionDrift": null
+    }
+  ]
+}

@@ -1,0 +1,120 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  width="400" height="500"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="記述統計の代表値4種（平均値・中央値・最頻値・四分位数）の特性カード。メリットをpositive、デメリットをwarnのバッジで示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-main   { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-def    { font-size: 11px; fill: #555; }
+      .t-badge  { font-size: 11px; font-weight: bold; }
+      .t-tag    { font-size: 11px; fill: #555; }
+      .t-quart  { font-size: 12px; fill: #2e6da4; font-weight: bold; }
+      .t-quart-sub { font-size: 11px; fill: #555; }
+      .t-sub    { font-size: 11px; fill: #555; }
+      .card-pos  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .badge-merit { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.2; }
+      .t-merit  { fill: #3a7d44; }
+      .badge-demerit { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.2; }
+      .t-demerit { fill: #1a3a5c; }
+      .card-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .bar-fill { fill: #2e6da4; opacity: 0.25; }
+      .bar-line { stroke: #2e6da4; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <!-- ===== CARD 1: 平均値 (y=8, h=108) ===== -->
+  <rect class="card-pos" x="8" y="8" width="384" height="108" rx="8"/>
+  <text class="t-main" x="28" y="30">平均値</text>
+  <text class="t-def"  x="28" y="47">全データの合計 ÷ データ数</text>
+  <rect class="badge-merit"  x="28" y="54" width="134" height="32" rx="5"/>
+  <text class="t-badge t-merit"  x="38" y="65">メリット</text>
+  <text class="t-badge t-merit"  x="96" y="65">全値が</text>
+  <text class="t-badge t-merit"  x="96" y="78">反映される</text>
+  <rect class="badge-demerit" x="28" y="90" width="142" height="20" rx="5"/>
+  <text class="t-badge t-demerit" x="38" y="104">デメリット</text>
+  <text class="t-badge t-demerit" x="102" y="104">外れ値に弱い</text>
+  <!-- mini illustration -->
+  <rect class="bar-fill" x="234" y="52" width="12" height="28" rx="2"/>
+  <rect class="bar-fill" x="250" y="44" width="12" height="36" rx="2"/>
+  <rect class="bar-fill" x="266" y="48" width="12" height="32" rx="2"/>
+  <rect x="282" y="64" width="12" height="16" rx="2" fill="#f8d7da" stroke="#b22234" stroke-width="1"/>
+  <text class="t-def" x="288" y="60" text-anchor="middle" font-size="11" fill="#b22234">!</text>
+  <line x1="228" y1="78" x2="306" y2="78" class="bar-line" stroke-dasharray="4 2"/>
+  <text class="t-tag" x="316" y="76" font-size="11" fill="#2e6da4">平均</text>
+  <line x1="228" y1="85" x2="306" y2="85" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="4 2"/>
+  <text class="t-tag" x="316" y="93" font-size="11" fill="#3a7d44">中央</text>
+
+  <!-- ===== CARD 2: 中央値 (y=124, h=108) ===== -->
+  <rect class="card-pos" x="8" y="124" width="384" height="108" rx="8"/>
+  <text class="t-main" x="28" y="146">中央値（メジアン）</text>
+  <text class="t-def"  x="28" y="163">データを昇順に並べた時の真ん中の値</text>
+  <rect class="badge-merit"  x="28" y="170" width="142" height="20" rx="5"/>
+  <text class="t-badge t-merit"  x="38" y="184">メリット</text>
+  <text class="t-badge t-merit"  x="102" y="184">外れ値に強い</text>
+  <rect class="badge-demerit" x="28" y="194" width="170" height="32" rx="5"/>
+  <text class="t-badge t-demerit" x="38" y="205">デメリット</text>
+  <text class="t-badge t-demerit" x="102" y="205">全体の</text>
+  <text class="t-badge t-demerit" x="102" y="218">比較に不向き</text>
+  <!-- mini illustration -->
+  <circle cx="240" cy="163" r="5" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/>
+  <circle cx="256" cy="163" r="5" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/>
+  <circle cx="272" cy="163" r="5" fill="#2e6da4" stroke="#2e6da4" stroke-width="1"/>
+  <circle cx="288" cy="163" r="5" fill="#d7d7d7" stroke="#8a8a8a" stroke-width="1"/>
+  <circle cx="304" cy="163" r="5" fill="#f8d7da" stroke="#b22234" stroke-width="1"/>
+  <line x1="272" y1="172" x2="272" y2="182" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-tag" x="272" y="193" text-anchor="middle" font-size="11" fill="#2e6da4">中央値</text>
+
+  <!-- ===== CARD 3: 最頻値 (y=240, h=108) ===== -->
+  <rect class="card-pos" x="8" y="240" width="384" height="108" rx="8"/>
+  <text class="t-main" x="28" y="262">最頻値（モード）</text>
+  <text class="t-def"  x="28" y="279">最も個数が多い階級の値</text>
+  <rect class="badge-merit"  x="28" y="286" width="142" height="20" rx="5"/>
+  <text class="t-badge t-merit"  x="38" y="300">メリット</text>
+  <text class="t-badge t-merit"  x="102" y="300">外れ値に強い</text>
+  <rect class="badge-demerit" x="28" y="310" width="174" height="20" rx="5"/>
+  <text class="t-badge t-demerit" x="38" y="324">デメリット</text>
+  <text class="t-badge t-demerit" x="102" y="324">少数データに弱い</text>
+  <!-- mini illustration -->
+  <rect x="234" y="316" width="12" height="10" rx="2" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <rect x="250" y="302" width="12" height="24" rx="2" fill="#3a7d44" opacity="0.5"/>
+  <rect x="266" y="310" width="12" height="16" rx="2" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <rect x="282" y="320" width="12" height="6" rx="2" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <text class="t-tag" x="256" y="296" text-anchor="middle" font-size="11" fill="#3a7d44">最多</text>
+
+  <!-- ===== CARD 4: 四分位数 (y=356, h=136) ===== -->
+  <rect class="card-brand" x="8" y="356" width="384" height="136" rx="8"/>
+  <text class="t-main" x="28" y="378">四分位数</text>
+  <text class="t-def"  x="28" y="394">昇順に並べ25%刻みで4区分した境界値</text>
+
+  <!-- Q1 -->
+  <rect x="28" y="400" width="22" height="18" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.2"/>
+  <text class="t-quart" x="39" y="413" text-anchor="middle">Q1</text>
+  <text class="t-def"   x="56" y="413">第一四分位数</text>
+  <text class="t-def"   x="206" y="413">下から 25% の位置</text>
+
+  <!-- Q2 -->
+  <rect x="28" y="422" width="22" height="18" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.2"/>
+  <text class="t-badge" x="39" y="435" text-anchor="middle" fill="#1a3a5c">Q2</text>
+  <text class="t-def"   x="56" y="435">第二四分位数（中央値）</text>
+  <text class="t-def"   x="206" y="435">下から 50% の位置</text>
+
+  <!-- Q3 -->
+  <rect x="28" y="444" width="22" height="18" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.2"/>
+  <text class="t-quart" x="39" y="457" text-anchor="middle">Q3</text>
+  <text class="t-def"   x="56" y="457">第三四分位数</text>
+  <text class="t-def"   x="206" y="457">下から 75% の位置</text>
+
+  <!-- mini box-plot -->
+  <line x1="310" y1="470" x2="388" y2="470" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="316" y1="460" x2="316" y2="470" stroke="#8a8a8a" stroke-width="1.5"/>
+  <rect x="316" y="450" width="34" height="20" rx="2" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <line x1="333" y1="450" x2="333" y2="470" stroke="#2e6da4" stroke-width="2"/>
+  <line x1="350" y1="460" x2="376" y2="460" stroke="#8a8a8a" stroke-width="1.5"/>
+  <line x1="376" y1="455" x2="376" y2="465" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="t-quart-sub" x="345" y="484" text-anchor="middle">箱ひげ図</text>
+
+  <!-- IQR label -->
+  <text class="t-def" x="28" y="484">四分位範囲（IQR = Q3 − Q1）で散布度を把握</text>
+</svg>

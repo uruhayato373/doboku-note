@@ -1,0 +1,15 @@
+{
+  "bookId": "a-03",
+  "background": "scripts/kindle-covers/backgrounds/a-03.png",
+  "accent": "#1E73C8",
+  "kicker": "1級土木施工管理技士 第1次検定",
+  "titleLines": [
+    { "text": "施工計画", "size": 336 },
+    { "text": "論点別過去問", "size": 196 }
+  ],
+  "subLines": [
+    "平成26〜令和7年度 12年分",
+    "42問を6論点に再構成"
+  ],
+  "brand": "doboku-note"
+}

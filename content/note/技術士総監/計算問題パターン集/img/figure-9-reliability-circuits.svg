@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="40" y="50" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="bold" fill="#1a3a5c">信頼度計算 — 直列・並列の基本構造（FT ゲート等価）</text>
+  <text x="40" y="86" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#8a8a8a">R = 0.9 の要素 2 つを直列と並列でつないだ場合の信頼度比較</text>
+
+  <!-- 中央仕切り線 -->
+  <line x1="600" y1="115" x2="600" y2="620" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="6,6"/>
+
+  <!-- ========== 左：直列接続 ========== -->
+  <text x="300" y="140" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" fill="#2e6da4" text-anchor="middle" font-weight="bold">直列接続</text>
+  <text x="300" y="170" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#555555" text-anchor="middle">全要素が正常で動作 / FT 上は AND ゲート</text>
+
+  <!-- 直列回路 -->
+  <!-- Input -->
+  <circle cx="80" cy="295" r="12" fill="#1a3a5c"/>
+  <text x="80" y="340" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555" text-anchor="middle">入力</text>
+
+  <!-- Wire 1 -->
+  <line x1="92" y1="295" x2="170" y2="295" stroke="#1a3a5c" stroke-width="3"/>
+
+  <!-- Box R1 -->
+  <rect x="170" y="260" width="120" height="70" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="3"/>
+  <text x="230" y="287" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">R1</text>
+  <text x="230" y="315" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">= 0.9</text>
+
+  <!-- Wire 2 -->
+  <line x1="290" y1="295" x2="350" y2="295" stroke="#1a3a5c" stroke-width="3"/>
+
+  <!-- Box R2 -->
+  <rect x="350" y="260" width="120" height="70" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="3"/>
+  <text x="410" y="287" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">R2</text>
+  <text x="410" y="315" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">= 0.9</text>
+
+  <!-- Wire 3 -->
+  <line x1="470" y1="295" x2="548" y2="295" stroke="#1a3a5c" stroke-width="3"/>
+
+  <!-- Output -->
+  <circle cx="560" cy="295" r="12" fill="#1a3a5c"/>
+  <text x="560" y="340" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555" text-anchor="middle">出力</text>
+
+  <!-- 公式（直列） -->
+  <rect x="40" y="395" width="540" height="60" rx="6" fill="#e8f0fe"/>
+  <text x="310" y="433" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" fill="#1a3a5c" text-anchor="middle" font-weight="bold">R直列 = R1 × R2 × ... × Rn</text>
+
+  <!-- 計算例（直列） -->
+  <text x="310" y="495" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">R = 0.9 × 0.9</text>
+
+  <rect x="180" y="525" width="260" height="55" rx="6" fill="#2e6da4"/>
+  <text x="310" y="562" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="white" text-anchor="middle" font-weight="bold">R = 0.81</text>
+
+  <!-- ========== 右：並列接続 ========== -->
+  <text x="900" y="140" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" fill="#3a7d44" text-anchor="middle" font-weight="bold">並列接続</text>
+  <text x="900" y="170" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#555555" text-anchor="middle">1 つでも正常で動作 / FT 上は OR ゲート</text>
+
+  <!-- 並列回路 -->
+  <!-- Input -->
+  <circle cx="660" cy="295" r="12" fill="#1a3a5c"/>
+  <text x="660" y="340" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555" text-anchor="middle">入力</text>
+
+  <!-- Wire from input to left junction -->
+  <line x1="672" y1="295" x2="730" y2="295" stroke="#1a3a5c" stroke-width="3"/>
+
+  <!-- Left junction: vertical wire connecting top and bottom branches -->
+  <line x1="730" y1="235" x2="730" y2="355" stroke="#1a3a5c" stroke-width="3"/>
+
+  <!-- Top branch -->
+  <line x1="730" y1="235" x2="790" y2="235" stroke="#1a3a5c" stroke-width="3"/>
+  <rect x="790" y="205" width="120" height="60" rx="4" fill="#e6f4ea" stroke="#3a7d44" stroke-width="3"/>
+  <text x="850" y="230" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">R1</text>
+  <text x="850" y="256" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">= 0.9</text>
+  <line x1="910" y1="235" x2="1020" y2="235" stroke="#1a3a5c" stroke-width="3"/>
+
+  <!-- Bottom branch -->
+  <line x1="730" y1="355" x2="790" y2="355" stroke="#1a3a5c" stroke-width="3"/>
+  <rect x="790" y="325" width="120" height="60" rx="4" fill="#e6f4ea" stroke="#3a7d44" stroke-width="3"/>
+  <text x="850" y="350" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">R2</text>
+  <text x="850" y="376" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">= 0.9</text>
+  <line x1="910" y1="355" x2="1020" y2="355" stroke="#1a3a5c" stroke-width="3"/>
+
+  <!-- Right junction: vertical wire -->
+  <line x1="1020" y1="235" x2="1020" y2="355" stroke="#1a3a5c" stroke-width="3"/>
+
+  <!-- Wire from right junction to output -->
+  <line x1="1020" y1="295" x2="1108" y2="295" stroke="#1a3a5c" stroke-width="3"/>
+
+  <!-- Output -->
+  <circle cx="1120" cy="295" r="12" fill="#1a3a5c"/>
+  <text x="1120" y="340" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555" text-anchor="middle">出力</text>
+
+  <!-- 公式（並列） -->
+  <rect x="620" y="395" width="540" height="60" rx="6" fill="#e6f4ea"/>
+  <text x="890" y="433" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" fill="#1a3a5c" text-anchor="middle" font-weight="bold">R並列 = 1 − (1−R1)(1−R2)...(1−Rn)</text>
+
+  <!-- 計算例（並列） -->
+  <text x="890" y="495" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">R = 1 − (1 − 0.9)(1 − 0.9) = 1 − 0.01</text>
+
+  <rect x="760" y="525" width="260" height="55" rx="6" fill="#3a7d44"/>
+  <text x="890" y="562" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="white" text-anchor="middle" font-weight="bold">R = 0.99</text>
+
+  <!-- 下部：比較メッセージ -->
+  <rect x="40" y="620" width="1120" height="68" rx="8" fill="#fff8e1" stroke="#d4a017" stroke-width="2"/>
+  <text x="600" y="650" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">同じ要素（R=0.9）を 2 つ使うだけで、並列接続なら信頼度は 0.81 → 0.99 へ大幅向上</text>
+  <text x="600" y="676" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555" text-anchor="middle">並列の公式は「故障確率 (1−R) の積を 1 から引く」と覚える</text>
+
+  <!-- クレジット -->
+  <text x="1160" y="708" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

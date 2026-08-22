@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "startDate": "2026-08-11",
+    "endDate": "2026-08-18",
+    "dimensions": [
+      "date"
+    ],
+    "dimension": "date",
+    "limit": 100,
+    "pages_fetched": 1,
+    "row_count": 8,
+    "truncated": false,
+    "api_note": "Search Analytics API は全行の返却を保証しない（sampling / privacy filtering で低ボリューム行が欠落し得る）。row_count は startRow ページングの合算実測値であり、母集合全体とは限らない。"
+  },
+  "rows": [
+    {
+      "keys": [
+        "2026-08-11"
+      ],
+      "clicks": 1,
+      "impressions": 88,
+      "ctr": 0.011363636363636364,
+      "position": 19.636363636363637
+    },
+    {
+      "keys": [
+        "2026-08-12"
+      ],
+      "clicks": 2,
+      "impressions": 74,
+      "ctr": 0.02702702702702703,
+      "position": 28.35135135135135
+    },
+    {
+      "keys": [
+        "2026-08-13"
+      ],
+      "clicks": 2,
+      "impressions": 95,
+      "ctr": 0.021052631578947368,
+      "position": 22.36842105263158
+    },
+    {
+      "keys": [
+        "2026-08-14"
+      ],
+      "clicks": 4,
+      "impressions": 101,
+      "ctr": 0.039603960396039604,
+      "position": 27.257425742574256
+    },
+    {
+      "keys": [
+        "2026-08-15"
+      ],
+      "clicks": 1,
+      "impressions": 112,
+      "ctr": 0.008928571428571428,
+      "position": 22.241071428571427
+    },
+    {
+      "keys": [
+        "2026-08-16"
+      ],
+      "clicks": 4,
+      "impressions": 129,
+      "ctr": 0.031007751937984496,
+      "position": 22.790697674418606
+    },
+    {
+      "keys": [
+        "2026-08-17"
+      ],
+      "clicks": 4,
+      "impressions": 153,
+      "ctr": 0.026143790849673203,
+      "position": 21.209150326797385
+    },
+    {
+      "keys": [
+        "2026-08-18"
+      ],
+      "clicks": 2,
+      "impressions": 129,
+      "ctr": 0.015503875968992248,
+      "position": 21.48062015503876
+    }
+  ]
+}

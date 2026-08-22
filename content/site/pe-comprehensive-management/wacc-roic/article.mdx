@@ -1,0 +1,78 @@
+---
+title: WACC・ROIC
+description: "WACC・ROICの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.4'
+tags:
+  - keyword
+published: true
+publishedAt: '2026-04-09'
+seoTitle: "WACC・ROIC ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-03
+dateModified: 2026-06-20
+reviewStatus: needs-review
+lastRewrittenAt: '2026-05-17T10:10:00+09:00'
+revisionCycle: 1
+---
+
+## WACCとは
+
+WACC（Weighted Average Cost of Capital）とは、株主資本コストと負債コストを資本構成比率で加重平均した企業の総合的な資本コストである。
+
+$$
+WACC = r_E \times \frac{E}{E+D} + r_D \times (1-t) \times \frac{D}{E+D}
+$$
+
+- $r_E$：株主資本コスト、$r_D$：負債コスト（金利）
+- $E$：株主資本、$D$：有利子負債、$t$：法人税率
+
+## ROICとは
+
+ROIC（Return on Invested Capital）とは、事業に投下した資本に対してどれだけの利益を生み出したかを示す収益性指標である。
+
+$$
+ROIC = \dfrac{\text{税引後営業利益（}NOPAT\text{）}}{\text{投下資本（有利子負債}+\text{株主資本）}}
+$$
+
+## 企業価値創造の判断基準
+
+ROIC と WACC の大小関係で企業価値創造の有無を判断する。
+
+- **ROIC > WACC**: 資本コストを上回る利益を創出し、企業価値を創造している状態
+- **ROIC = WACC**: 資本コストと同等であり、価値を維持しているが創造はしていない
+- **ROIC < WACC**: 資本コストを下回る利益しか生んでおらず、企業価値を毀損している
+
+## WACC・ROICの歴史的背景
+
+WACCとROICは、20世紀後半のアメリカにおけるコーポレートファイナンス理論の発展から生まれた概念である。1950年代にモジリアーニとミラーが資本構造と企業価値の関係を論じた「MM理論」を発表し、資本コストを明示的に扱う枠組みが整備された。この流れを受けて、1960〜70年代には機関投資家・年金基金の運用高度化とともに、企業が調達するコストを加重平均した資本コスト（WACC）が実務的に普及していった。
+
+ROICの概念が経営管理指標として広まったのは1990年代以降である。スターン・スチュワート社が提唱したEVA（経済付加価値）の普及とともに「投下した資本を超えるリターンを生んでいるか」という問いが経営の中心に置かれるようになった。EVAはROICとWACCの差（EVAスプレッド）に投下資本を乗じて算出され、ROIC > WACC が企業価値創造の条件として定着した。日本でも2000年代以降、ROE（自己資本利益率）に替わる指標としてROICが注目され、2014年の伊藤レポート（「持続的成長への競争力とインセンティブ〜企業と投資家の望ましい関係構築〜」）を機に、資本コストを意識した経営（資本コスト経営）が広く議論されるようになった。
+
+## 総合技術監理における位置づけ
+
+総合技術監理キーワード集では[**2.4 原価管理・管理会計**](/docs/pe-comprehensive-management-keyword-2026#24-原価管理・管理会計)に位置づけられている。
+
+WACC・ROICは設備投資や事業採算性の評価に用いられ、[ライフサイクルコスティング](/docs/pe-comprehensive-management-lifecycle-costing-method)における割引率の設定や、[損益分岐点・限界利益・優劣分岐点](/docs/pe-comprehensive-management-break-even-point)と合わせた経営判断の基礎となる。総合技術監理の経済性管理では、技術系プロジェクトの採算性評価において WACC をハードルレート（最低要求収益率）として用いた投資判断の枠組みが重要とされる。
+
+<ExamPoint
+  summary="ROIC＞WACCの実現が企業価値創造の条件であり、資本コスト経営の基本指標"
+  items={[
+    "WACCは株主資本コストと負債コストの加重平均",
+    "ROICは投下資本に対する税引後営業利益の比率",
+    "ROIC＞WACCで企業価値を創造する（WACCはハードルレート）",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "活動基準原価計算（ABC）", slug: "activity-abc" },
+  { label: "損益分岐点・限界利益・優劣分岐点", slug: "break-even-point" },
+  { label: "コストドライバー", slug: "cost-driver" },
+  { label: "原価維持", slug: "cost-maintenance" },
+  { label: "原価差異分析", slug: "cost-variance-analysis" },
+]} />
+
+## 参考資料
+
+- [コーポレートガバナンス・コード（金融庁）](https://www.fsa.go.jp/singi/corporategovernance/) — 資本コストを意識した経営を求める枠組み
+- [WACC（加重平均資本コスト）とは - 野村総合研究所用語解説](https://www.nri.com/jp/knowledge/glossary/lst/wa/wacc)

@@ -1,0 +1,44 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="フェールセーフ 択一頻出ポイント3点">
+  <defs><style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }</style></defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <!-- ヘッダー -->
+  <rect width="400" height="72" fill="#1a3a5c"/>
+  <text x="200" y="28" text-anchor="middle" font-size="11" fill="#d4956a">技術士 総監 | 安全管理</text>
+  <text x="200" y="56" text-anchor="middle" font-size="17" font-weight="bold" fill="#fff">択一でここが問われる</text>
+
+  <!-- ポイント1 -->
+  <circle cx="40" cy="116" r="16" fill="#1a3a5c"/>
+  <text x="40" y="122" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">1</text>
+  <text x="68" y="108" font-size="14" font-weight="bold" fill="#1a3a5c">「安全側」＝停止とは限らない</text>
+  <text x="68" y="128" font-size="12" fill="#555">フェールパッシブ（停止）だけでなく、</text>
+  <text x="68" y="146" font-size="12" fill="#555">フェールアクティブ（代替継続）もある。</text>
+
+  <line x1="24" y1="168" x2="376" y2="168" stroke="#e8e8e8" stroke-width="1"/>
+
+  <!-- ポイント2 -->
+  <circle cx="40" cy="206" r="16" fill="#1a3a5c"/>
+  <text x="40" y="212" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">2</text>
+  <text x="68" y="198" font-size="14" font-weight="bold" fill="#1a3a5c">FSとFPの違い</text>
+  <text x="68" y="218" font-size="12" fill="#555">FS＝機械の故障が起点（自動検知）</text>
+  <text x="68" y="236" font-size="12" fill="#555">FP＝人間の誤操作が起点（事前防止）</text>
+
+  <line x1="24" y1="258" x2="376" y2="258" stroke="#e8e8e8" stroke-width="1"/>
+
+  <!-- ポイント3 -->
+  <circle cx="40" cy="296" r="16" fill="#1a3a5c"/>
+  <text x="40" y="302" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">3</text>
+  <text x="68" y="288" font-size="14" font-weight="bold" fill="#1a3a5c">FSとILの違い</text>
+  <text x="68" y="308" font-size="12" fill="#555">IL＝動作前の条件チェック（予防的）</text>
+  <text x="68" y="326" font-size="12" fill="#555">FS＝故障後の安全誘導（事後的）</text>
+
+  <!-- 注意Callout -->
+  <rect x="24" y="354" width="352" height="86" rx="8" fill="#fce8d0"/>
+  <rect x="24" y="354" width="5" height="86" rx="4" fill="#a36b2c"/>
+  <text x="44" y="380" font-size="12" font-weight="bold" fill="#5e3d18">制御機構4区分（R6 1-1-27 頻出）</text>
+  <text x="44" y="400" font-size="11" fill="#5e3d18">ガードIL ／ 急停止 ／ 非常停止 ／ ホールド・ツー・ラン</text>
+  <text x="44" y="420" font-size="11" fill="#5e3d18">急停止＝機械検知、非常停止＝作業者操作（混同注意）</text>
+
+  <rect x="0" y="460" width="400" height="40" fill="#0f2035"/>
+  <text x="200" y="485" text-anchor="middle" font-size="12" fill="#6a8faf">doboku-note.com</text>
+</svg>

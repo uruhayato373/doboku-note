@@ -1,0 +1,17 @@
+{
+  "bookId": "d-01",
+  "title": "技術士第一次試験 基礎科目 過去問7年分完全解説",
+  "subtitle": "令和元〜7年度 210問",
+  "price": 980,
+  "description": "技術士第一次試験 基礎科目の過去問（令和元〜7年度・210問）を全問収録し、正答と選択肢ごとの正誤理由を完全解説。設計・計画（最適化・信頼性工学・待ち行列・材料力学）、情報・論理（基数変換・アルゴリズム・情報セキュリティ）、解析（ベクトル解析・数値解析・有限要素法）、材料・化学・バイオ（結晶構造・生化学・DNA/PCR）、環境・エネルギー・技術（白書統計・エネルギー需給・科学技術史）の5群を7年分横断で演習できる一冊。計算問題の数式はKindle対応のMathML表示で正確に再現。",
+  "sources": [
+    "content/site/pe-first-stage/r01-basic/article.mdx",
+    "content/site/pe-first-stage/r02-basic/article.mdx",
+    "content/site/pe-first-stage/r03-basic/article.mdx",
+    "content/site/pe-first-stage/r04-basic/article.mdx",
+    "content/site/pe-first-stage/r05-basic/article.mdx",
+    "content/site/pe-first-stage/r06-basic/article.mdx",
+    "content/site/pe-first-stage/r07-basic/article.mdx"
+  ],
+  "frontMatter": "content/kindle/books/d-01/front-matter.md"
+}

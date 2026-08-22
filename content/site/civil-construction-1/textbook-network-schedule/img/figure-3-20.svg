@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="クリティカルパス：EST と LFT が等しいイベントを通る最長経路を太線で強調">
+  <defs>
+    <marker markerUnits="userSpaceOnUse" id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+    <marker markerUnits="userSpaceOnUse" id="arrow-cp" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b22234"/>
+    </marker>
+  </defs>
+  <style>
+    .title { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #555; }
+    .node-num { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 14px; fill: #1a3a5c; font-weight: 600; }
+    .node-num-cp { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 14px; fill: #b22234; font-weight: 700; }
+    .activity { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #222; font-weight: 600; }
+    .duration { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #555; }
+    .sub { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #555; }
+    .cp-label { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #b22234; font-weight: 700; }
+    .rule-title { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+    .rule-body { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #222; }
+  </style>
+
+  <text x="200" y="16" text-anchor="middle" class="title">クリティカルパス（赤太線）：</text>
+  <text x="200" y="30" text-anchor="middle" class="title">最長経路が全体工期を決定する</text>
+
+  <!-- nodes -->
+  <circle cx="40" cy="165" r="20" fill="#f8d7da" stroke="#b22234" stroke-width="2.5"/>
+  <text x="40" y="171" text-anchor="middle" class="node-num-cp">①</text>
+
+  <circle cx="155" cy="165" r="20" fill="#f8d7da" stroke="#b22234" stroke-width="2.5"/>
+  <text x="155" y="171" text-anchor="middle" class="node-num-cp">②</text>
+
+  <circle cx="265" cy="80" r="20" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="265" y="86" text-anchor="middle" class="node-num">③</text>
+
+  <circle cx="370" cy="165" r="20" fill="#f8d7da" stroke="#b22234" stroke-width="2.5"/>
+  <text x="370" y="171" text-anchor="middle" class="node-num-cp">④</text>
+
+  <!-- CP arrows (bold #b22234) -->
+  <line x1="60" y1="165" x2="135" y2="165" stroke="#b22234" stroke-width="4" marker-end="url(#arrow-cp)"/>
+  <text x="98" y="157" text-anchor="middle" class="activity">A</text>
+  <text x="98" y="181" text-anchor="middle" class="duration">5</text>
+
+  <line x1="175" y1="165" x2="350" y2="165" stroke="#b22234" stroke-width="4" marker-end="url(#arrow-cp)"/>
+  <text x="262" y="157" text-anchor="middle" class="activity">D</text>
+  <text x="262" y="181" text-anchor="middle" class="duration">17</text>
+
+  <!-- non-CP arrows (thin) -->
+  <line x1="168" y1="151" x2="252" y2="94" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="197" y="111" class="activity">B</text>
+  <text x="215" y="135" class="duration">7</text>
+
+  <line x1="278" y1="94" x2="357" y2="151" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="330" y="111" class="activity">C</text>
+  <text x="313" y="136" class="duration">6</text>
+
+  <!-- path summary -->
+  <rect x="20" y="208" width="360" height="68" rx="4" fill="#f8d7da" stroke="#b22234" stroke-width="1.2"/>
+  <text x="32" y="228" class="cp-label">クリティカルパス：① → ② → ④</text>
+  <text x="32" y="246" class="sub">A＋D = 5＋17 = 22日（全体工期を決定する最長経路）</text>
+  <text x="32" y="264" class="sub">CP上のフロート = 0日（遅延は即座に工期超過につながる）</text>
+
+  <!-- non-CP path -->
+  <rect x="20" y="290" width="360" height="52" rx="4" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="32" y="310" class="rule-title" fill="#555">迂回路：① → ② → ③ → ④</text>
+  <text x="32" y="328" class="sub">A＋B＋C = 5＋7＋6 = 18日　→ フロート 4日の余裕あり</text>
+
+  <!-- CP identification rule -->
+  <rect x="20" y="358" width="360" height="120" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.2"/>
+  <text x="32" y="379" class="rule-title">クリティカルパスの特定方法</text>
+  <line x1="20" y1="386" x2="380" y2="386" stroke="#2e6da4" stroke-width="0.8"/>
+  <text x="32" y="403" class="rule-body">条件: イベントの EST = LFT のノードを連ねた経路</text>
+  <text x="32" y="421" class="rule-body">判定: ①EST=LFT=0、②EST=LFT=5、④EST=LFT=22</text>
+  <text x="32" y="439" class="rule-body">　　 ③EST=12 ≠ LFT=16　→ ③はCP外</text>
+  <text x="32" y="457" class="rule-body">注意: CPは必ず1本とは限らない（複数存在する場合あり）</text>
+
+  <text x="200" y="492" text-anchor="middle" class="sub">CP = Critical Path（クリティカルパス）</text>
+</svg>

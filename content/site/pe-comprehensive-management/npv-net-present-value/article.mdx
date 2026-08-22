@@ -1,0 +1,118 @@
+---
+title: NPV
+description: "NPVの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.1'
+tags:
+  - keyword
+published: true
+publishedAt: '2026-04-09'
+reviewStatus: needs-review
+lastRewrittenAt: '2026-04-18'
+revisionCycle: 3
+seoTitle: "NPV ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-07-24
+---
+
+## NPVとは
+
+NPV（Net Present Value：**正味現在価値**）とは、投資によって得られる将来のキャッシュフローの現在価値合計から、投資額を差し引いた値である。
+
+NPV＞0であれば投資価値があると判断する。投資評価手法の中で最も理論的に優れた手法とされる。
+
+## 基本計算式
+
+$$
+NPV = \sum_{t=1}^{n} \frac{CF_t}{(1+r)^t} - I_0
+$$
+
+- $CF_t$：$t$ 年後のキャッシュフロー、$r$：割引率、$I_0$：初期投資額
+
+展開して書くと次のようになる。初期投資額を $I$、$t$ 年後の正味現金流入額を $C_t$、期間を $n$ 年とすると:
+
+$$
+NPV = \frac{C_1}{1+r} + \frac{C_2}{(1+r)^2} + \cdots + \frac{C_n}{(1+r)^n} - I
+$$
+
+**採択基準**: NPV > 0 であれば投資価値があると判断する。複数案を比較する場合はNPVが最大の案を選択する。NPVが同額であれば投資規模の小さい案（効率が高い案）を優先する。
+
+## 計算例
+
+初期投資1,000万円、年間収益400万円（3年間）、割引率5%の場合：
+
+$$
+NPV = \frac{400}{1.05} + \frac{400}{1.05^2} + \frac{400}{1.05^3} - 1000 \approx 89 \text{万円}
+$$
+
+NPV＞0のため、投資価値ありと判断する。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/npv-net-present-value/img/figure-1.svg"
+  alt="将来CF400万円を割引率5%で現在価値（381・363・346万円）に換算し、合計1090万円から初期投資1000万円を引いてNPV＝＋90万円を求める仕組みの図"
+/>
+
+## 追加投資の可否をNPVで判断する
+
+既存プロジェクトに途中から追加投資する場合も、NPVで判断できる。「追加投資による増分収益の現在価値」が「追加投資額の現在価値」を上回れば、追加投資する価値がある。両者が等しくなる損益分岐点を求める問題は総監の頻出パターンである（[R06 Ⅰ-1-2](/docs/pe-comprehensive-management-r06-primary#1-2)）。
+
+たとえば3年目の年初に400万円を追加投資し、それにより3年目以降の毎年末の収益が x 万円ずつ増えるとする。割引率5%のとき、追加投資する場合としない場合でNPVが等しくなる x は次式で求める。
+
+<Callout type="warn" title="時点の取り違えに注意">
+「3年目の年初」は2年目の年末と同じ時点。追加投資額400万円は t＝2 として割り引く。ここを1年ずらすと答えが選択肢の140や154に寄ってしまう。
+</Callout>
+
+$$
+\frac{400}{1.05^{2}} = x\left(\frac{1}{1.05^{3}}+\frac{1}{1.05^{4}}+\frac{1}{1.05^{5}}\right)
+$$
+
+左辺（追加投資の現在価値）は約362.8万円、右辺の割引係数の和は約2.470。したがって
+
+$$
+x = \frac{362.8}{2.470} \approx 147 \text{万円}
+$$
+
+増分収益が年147万円を超えれば、追加投資にNPV上の価値があると判断できる。
+
+## 他の投資評価手法との比較
+
+NPVと同種の投資評価指標には、判断基準の軸が異なる3手法がある。
+
+| 手法 | NPV法との違い |
+|---|---|
+| **IRR法** | IRRは利率で表され投資規模を反映しない |
+| **回収期間法** | 回収後のCFと貨幣の時間価値を無視する |
+| **B/C比** | 判断は同じだが投資規模の差を反映しない |
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**2.1 事業企画**](/docs/pe-comprehensive-management-keyword-2026#21-事業企画)に位置づけられている。
+
+NPVは[DCF法](/docs/pe-comprehensive-management-dcf-method)の代表的手法であり、[割引率](/docs/pe-comprehensive-management-discount-rate)を用いて計算する。[内部収益率法](/docs/pe-comprehensive-management-internal-rate-of-return)・[回収期間法](/docs/pe-comprehensive-management-payback-period-method)と合わせて[投資回収計画](/docs/pe-comprehensive-management-investment-recovery-plan)の策定に用いられる。過去問 [R02 Ⅰ-1-2](/docs/pe-comprehensive-management-r02-primary#1-2) では 5 投資先の 4 年間 CF を割引率 3% で現価換算して合計を比較する計算問題が出題され、NPV の定義式 $\sum CF_t / (1+r)^t$ を年ごとに適用して最大値を選ぶ実務計算力が問われた。
+
+<ExamPoint
+  summary="NPVは将来CFの現在価値合計から投資額を差し引いた値で投資を評価する"
+  items={[
+    "NPV＞0なら投資価値あり、複数案ではNPV最大の案を選択する",
+    "割引率が高いほどNPVは低下する",
+    "IRRとNPVの大小関係は投資規模が異なると一致しないことがある",
+    "R02 Ⅰ-1-2 のような複数投資先の現価比較は頻出計算問題",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "DCF法", slug: "dcf-method" },
+  { label: "割引率", slug: "discount-rate" },
+  { label: "内部収益率法", slug: "internal-rate-of-return" },
+  { label: "投資回収計画", slug: "investment-recovery-plan" },
+  { label: "回収期間法", slug: "payback-period-method" },
+  { label: "費用便益分析（CBA）", slug: "cost-benefit-analysis" },
+]} />
+
+## 参考資料
+
+- [公共事業評価の費用便益分析に関する技術指針](https://www.mlit.go.jp/sogoseisaku/environment/sosei_environment_tk_000011.html)（国土交通省）：道路・河川など公共インフラのB/C算定でDCF法・NPVの適用方法を規定する公式技術指針。
+- [正味現在価値 — Wikipedia](https://ja.wikipedia.org/wiki/%E6%AD%A3%E5%91%B3%E7%8F%BE%E5%9C%A8%E4%BE%A1%E5%80%A4)（ウィキペディア）：NPV の定義・計算手順・IRR との比較・感度分析の包括解説。
+- [プロジェクト投資評価のDCF分析入門](https://moneyforward.com/blog/accounting/)（マネーフォワードクラウド会計コラム）：割引率の設定根拠（WACC・リスクプレミアム）とNPV感度分析の実務的な解説。建設部門の事業採算性評価への応用例あり。

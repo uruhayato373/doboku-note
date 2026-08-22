@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">PFI 4方式の比較</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">所有権・運営主体・事業終了時の処理で見分ける</text>
+
+  <rect x="40" y="140" width="200" height="56" fill="#1a3a5c"/>
+  <text x="140" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">方式</text>
+  <rect x="240" y="140" width="280" height="56" fill="#1a3a5c"/>
+  <text x="380" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">所有権</text>
+  <rect x="520" y="140" width="200" height="56" fill="#1a3a5c"/>
+  <text x="620" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">運営主体</text>
+  <rect x="720" y="140" width="260" height="56" fill="#1a3a5c"/>
+  <text x="850" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">事業終了時</text>
+  <rect x="980" y="140" width="180" height="56" fill="#1a3a5c"/>
+  <text x="1070" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">代表例</text>
+  <rect x="40" y="204" width="200" height="100" fill="#e8f0fe" stroke="#e2e8f0"/>
+  <text x="140" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#1a3a5c" text-anchor="middle">BTO</text>
+  <text x="140" y="276" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">Build-Transfer-Operate</text>
+  <rect x="240" y="204" width="280" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="256" y="263" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">完成後すぐ公共</text>
+  <rect x="520" y="204" width="200" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="536" y="263" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">SPC（民間）</text>
+  <rect x="720" y="204" width="260" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="736" y="263" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">所有公共のまま</text>
+  <rect x="980" y="204" width="180" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="996" y="263" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">学校・庁舎・病院</text>
+  <rect x="40" y="304" width="200" height="100" fill="#e8f0fe" stroke="#e2e8f0"/>
+  <text x="140" y="346" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#1a3a5c" text-anchor="middle">BOT</text>
+  <text x="140" y="376" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">Build-Operate-Transfer</text>
+  <rect x="240" y="304" width="280" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="256" y="363" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">事業期間中は民間</text>
+  <rect x="520" y="304" width="200" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="536" y="363" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">SPC（民間）</text>
+  <rect x="720" y="304" width="260" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="736" y="363" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">期間終了後に移転</text>
+  <rect x="980" y="304" width="180" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="996" y="363" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">有料道路・空港</text>
+  <rect x="40" y="404" width="200" height="100" fill="#e8f0fe" stroke="#e2e8f0"/>
+  <text x="140" y="446" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#1a3a5c" text-anchor="middle">RO</text>
+  <text x="140" y="476" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">Rehabilitate-Operate</text>
+  <rect x="240" y="404" width="280" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="256" y="463" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">公共（既存施設）</text>
+  <rect x="520" y="404" width="200" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="536" y="463" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">SPC（民間）</text>
+  <rect x="720" y="404" width="260" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="736" y="463" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">所有公共のまま</text>
+  <rect x="980" y="404" width="180" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="996" y="463" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">老朽インフラ改修</text>
+  <rect x="40" y="504" width="200" height="100" fill="#e8f0fe" stroke="#e2e8f0"/>
+  <text x="140" y="546" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#1a3a5c" text-anchor="middle">コンセッション</text>
+  <text x="140" y="576" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">公共施設等運営権</text>
+  <rect x="240" y="504" width="280" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="256" y="563" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">公共（運営権のみ民間）</text>
+  <rect x="520" y="504" width="200" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="536" y="563" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">SPC（民間）</text>
+  <rect x="720" y="504" width="260" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="736" y="563" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">運営権設定期間で終了</text>
+  <rect x="980" y="504" width="180" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="996" y="563" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">空港・上下水道</text>
+  <rect x="40" y="636" width="1120" height="44" rx="6" fill="#e8f0fe"/>
+  <text x="60" y="666" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">引っかけ：BTO は「完成後すぐ公共所有」、BOT は「事業期間中は民間所有」。所有権タイミングが核心。</text>
+  <text x="1160" y="740" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

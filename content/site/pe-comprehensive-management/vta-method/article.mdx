@@ -1,0 +1,90 @@
+---
+title: VTA法
+description: "VTA法（Variation Tree Analysis）の定義・分析手順・通常からの逸脱の可視化を解説。技術士総合技術監理キーワード集2026（安全管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '5.6'
+tags:
+  - keyword
+published: true
+publishedAt: '2026-04-09'
+reviewStatus: approved
+lastRewrittenAt: '2026-04-16'
+revisionCycle: 1
+seoTitle: "VTA法 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-05-26
+---
+
+## VTA法とは
+
+VTA法（Variation Tree Analysis：変動要因分析法）とは、事故・トラブルの経過を時系列に沿って整理し、通常からの逸脱（バリエーション）を特定・可視化する分析手法である。
+
+スウェーデンの労働安全衛生研究所で開発された。事後的な事故分析手法であり、事故に至る過程でどの時点で「いつもと違う状態」が発生したかを明確にすることが目的である。
+
+<Callout type="warn" title="VTA は逸脱を特定する分析手法">
+VTA の核心は通常からの **逸脱（バリエーション）** を時系列上で特定することにある。「通常通りに進行していても事故は起こるという前提」は VTA の前提ではない（むしろ Safety-II 等の別系統の考え方）。過去問 [R04 Ⅰ-1-28](/docs/pe-comprehensive-management-r04-primary#1-28) でこの前提を書き換えた誤答が出題された。FMEA（ボトムアップ故障モード分析）、HAZOP（ガイドワードによる設計意図からの逸脱同定）、THERP（ヒューマンエラー確率予測）との違いも併せて整理する。
+</Callout>
+
+## 分析の手順
+
+VTA法による分析は 5 つのステップで構成される。各ステップで「通常との差異」に着目することが、手法の核心である。
+
+| ステップ | 内容 |
+|---|---|
+| **1. 事実の収集** | 事故の経過に関する事実を時系列順に収集する |
+| **2. 通常状態の記述** | 正常な作業手順・状態を記述する |
+| **3. 逸脱の特定** | 通常状態からの逸脱（バリエーション）を特定する |
+| **4. ツリーの作成** | 時間軸に沿って、通常の流れと逸脱を並列に図示する |
+| **5. 対策の検討** | 各逸脱に対する是正策・予防策を検討する |
+
+## 記号と表記
+
+VTA法では、各事象を以下のように分類して図示する。
+
+| 記号 | 分類 | 内容 |
+|---|---|---|
+| **○** | 通常事象 | 正常な手順どおりの事象 |
+| **◇** | バリエーション | 通常からの逸脱 |
+| **△** | 前提条件 | 逸脱が生じる背景条件 |
+
+## 開発の背景と歴史
+
+VTA法は、1980年代にスウェーデンの国立労働安全衛生研究所（National Board of Occupational Safety and Health）が開発した手法である。背景には、産業災害の事後分析において、従来の「誰が悪かったか」という責任追及型のアプローチが、再発防止に十分機能しないという認識があった。
+
+スウェーデンでは当時、ヒューマンエラー研究の蓄積から「人は誰でも間違える」という前提に立ち、システムとして安全を設計する考え方が広まっていた。VTA法は、こうした**ヒューマンファクターズ研究**の流れの中で、「逸脱の連鎖」を時系列で可視化するツールとして生まれた。
+
+日本への普及は 1990 年代以降で、建設現場における労働災害分析や、宇宙開発事業団（現 JAXA）でのヒューマンエラー分析に活用された実績がある。医療安全分野でも RCA（根本原因分析）と並ぶ事後分析手法として定着しており、[根本原因分析（RCA）](/docs/pe-comprehensive-management-root-cause-analysis)との併用により、逸脱の特定から根本原因の追究まで一貫した分析が可能となる。
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**5.6 システム安全工学手法**](/docs/pe-comprehensive-management-keyword-2026#56-システム安全工学手法)に位置づけられている。
+
+VTA法は[根本原因分析（RCA）](/docs/pe-comprehensive-management-root-cause-analysis)とともに事故の事後分析に用いられる手法である。[FTA](/docs/pe-comprehensive-management-fta)や[ETA](/docs/pe-comprehensive-management-eta)が設計段階での事前分析に主に用いられるのに対し、VTA法は発生した事故の原因究明に活用される。
+
+過去問 [R02 Ⅰ-1-25](/docs/pe-comprehensive-management-r02-primary#1-25) では VTA の定義として「作業がすべて通常通りに進行していれば事故は起こらないと考える下で、通常から逸脱した操作や判断、その結果としての状態を時間軸に沿って分析する」が正しい記述として出題された。FTA（因果関係のツリー展開）・ETA（進展分析）・[FMEA](/docs/pe-comprehensive-management-fmea)（故障モード分析）と異なり、**VTA は時系列 × 逸脱の 2 軸分析** が核心識別点。
+
+<ExamPoint
+  summary="VTA法の特徴と他の分析手法との違いを理解する"
+  items={[
+    "時系列型：事故の経過を時間軸に沿って分析する",
+    "通常からの逸脱（バリエーション）を特定する手法",
+    "事後分析（事故発生後に原因を分析）に用いられる",
+    "FTA・ETAが論理的な因果関係を分析するのに対し、VTAは時系列的な逸脱に着目",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "イベントツリー分析（ETA）", slug: "eta" },
+  { label: "FMEA", slug: "fmea" },
+  { label: "フォールトツリー分析（FTA）", slug: "fta" },
+  { label: "HAZOP", slug: "hazop" },
+  { label: "根本原因分析（RCA）", slug: "root-cause-analysis" },
+]} />
+
+## 参考資料
+
+- [ヒューマンエラーによる失敗・事故の分析手法（先進的な設計・検証技術の適用事例報告書2017年度版）](https://www.ipa.go.jp/archive/files/000064279.pdf)（独立行政法人情報処理推進機構）
+- [事故＆インシデントを分析するVTA法とは何か？](https://studying.jp/engineer/blog/20250522.html)（スタディング 技術士応援ブログ）
+- [VTA／ETA の解説と実務活用](https://www.monodukuri.com/gihou/article_list/60/VTA%EF%BC%8FETA)（モノづくり.com）

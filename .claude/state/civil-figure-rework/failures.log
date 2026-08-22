@@ -1,0 +1,14 @@
+# civil-figure-rework failures log
+
+## 2026-05-28 セッション
+
+### スキップしたページ (PDF原本未配置)
+- primary-r01-a: 10 PNG existing, 0 MDX refs - R1-1ji-A.pdf not in repo
+- primary-r01-b: 4 PNG existing, 3 MDX refs - R1-1ji-B.pdf not in repo
+- primary-r02-a: 13 PNG existing, 0 MDX refs - R2-1ji-A.pdf not in repo
+- primary-r02-b: 3 PNG existing, 2 MDX refs - R2-1ji-B.pdf not in repo
+
+### 復旧手順
+1. R1-1ji-{A,B}.pdf / R2-1ji-{A,B}.pdf を content/sources/textbook/１級土木施工管理技士/ に配置
+2. /civil-figure-rework r01-a などで再実行
+3. 完了後この log から該当行を削除

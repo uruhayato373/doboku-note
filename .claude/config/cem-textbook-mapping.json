@@ -1,0 +1,33 @@
+{
+  "_comment": "CEM キーワードページ frontmatter section → 総監標準テキスト md ファイルへのマッピング。keyword-rewriter Pattern H が自動解決に使用する。マッピング未登録の section には Pattern H を適用しない。",
+  "_updated": "2026-05-26",
+  "_source": "content/sources/textbook/技術士（総監）/テキスト/総監標準テキスト/",
+  "mappings": {
+    "6.1": {
+      "file": "content/sources/textbook/技術士（総監）/テキスト/総監標準テキスト/社会環境管理.md",
+      "anchor": "## 1. 地球的規模の環境問題",
+      "mapping_table_lines": "11-31"
+    },
+    "6.2": {
+      "file": "content/sources/textbook/技術士（総監）/テキスト/総監標準テキスト/社会環境管理.md",
+      "anchor": "## 2. 地域環境問題",
+      "mapping_table_lines": "33-46"
+    },
+    "6.3": {
+      "file": "content/sources/textbook/技術士（総監）/テキスト/総監標準テキスト/社会環境管理.md",
+      "anchor": "## 3. 環境保全の基本原則",
+      "mapping_table_lines": "48-59"
+    },
+    "6.4": {
+      "file": "content/sources/textbook/技術士（総監）/テキスト/総監標準テキスト/社会環境管理.md",
+      "anchor": "## 4. 組織の社会的責任と環境管理活動",
+      "mapping_table_lines": "61-69"
+    }
+  },
+  "_other_chapters_status": {
+    "1.x_経済性管理": "content/sources/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.md (未マッピング、必要時に追加)",
+    "2.x_人的資源管理": "content/sources/textbook/技術士（総監）/テキスト/総監標準テキスト/人的資源管理.md (未マッピング)",
+    "3.x_情報管理": "content/sources/textbook/技術士（総監）/テキスト/総監標準テキスト/情報管理.md (未マッピング)",
+    "4.x_5.x_安全管理": "content/sources/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理.md (未マッピング)"
+  }
+}

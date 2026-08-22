@@ -1,0 +1,114 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="ERP による業務統合。財務会計・管理会計・人事・販売・購買・生産の各業務モジュールが、中央の統合データベースを共有して部門横断でデータを一元管理する。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-mod   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-code  { font-size: 11px; fill: #8a8a8a; }
+      .t-dbtitle { font-size: 16px; font-weight: bold; fill: #3a7d44; }
+      .t-db    { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-cap   { font-size: 11px; fill: #555; }
+      .t-leg   { font-size: 11px; fill: #555; }
+      .box-mod { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-db  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.8; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .conn    { stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- ====== 左列モジュール: x=10 w=100 gap=12 ====== -->
+  <!-- FI: y=30–88 center=59 -->
+  <rect class="box-mod" x="10" y="30" width="100" height="58" rx="6"/>
+  <text class="t-mod"  x="60" y="57" text-anchor="middle">財務会計</text>
+  <text class="t-code" x="60" y="74" text-anchor="middle">FI</text>
+
+  <!-- CO: y=100–158 center=129 -->
+  <rect class="box-mod" x="10" y="100" width="100" height="58" rx="6"/>
+  <text class="t-mod"  x="60" y="127" text-anchor="middle">管理会計</text>
+  <text class="t-code" x="60" y="144" text-anchor="middle">CO</text>
+
+  <!-- HR: y=170–228 center=199 -->
+  <rect class="box-mod" x="10" y="170" width="100" height="58" rx="6"/>
+  <text class="t-mod"  x="60" y="197" text-anchor="middle">人事管理</text>
+  <text class="t-code" x="60" y="214" text-anchor="middle">HR</text>
+
+  <!-- ====== 中央 ERP 統合 DB: x=122 w=156 y=30–228 ====== -->
+  <rect class="box-db" x="122" y="30" width="156" height="198" rx="8"/>
+  <text class="t-dbtitle" x="200" y="110" text-anchor="middle">ERP</text>
+  <text class="t-db"  x="200" y="132" text-anchor="middle">統合データベース</text>
+  <text class="t-cap" x="200" y="152" text-anchor="middle">経営資源を一元管理</text>
+
+  <!-- ====== 右列モジュール: x=290 w=100 ====== -->
+  <!-- SD: y=30–88 center=59 -->
+  <rect class="box-mod" x="290" y="30" width="100" height="58" rx="6"/>
+  <text class="t-mod"  x="340" y="57" text-anchor="middle">販売管理</text>
+  <text class="t-code" x="340" y="74" text-anchor="middle">SD</text>
+
+  <!-- MM: y=100–158 center=129 -->
+  <rect class="box-mod" x="290" y="100" width="100" height="58" rx="6"/>
+  <text class="t-mod"  x="340" y="127" text-anchor="middle">購買管理</text>
+  <text class="t-code" x="340" y="144" text-anchor="middle">MM</text>
+
+  <!-- PP: y=170–228 center=199 -->
+  <rect class="box-mod" x="290" y="170" width="100" height="58" rx="6"/>
+  <text class="t-mod"  x="340" y="197" text-anchor="middle">生産管理</text>
+  <text class="t-code" x="340" y="214" text-anchor="middle">PP</text>
+
+  <!-- ====== 接続線（交差なし・水平） ====== -->
+  <line class="conn" x1="110" y1="59"  x2="122" y2="59"/>
+  <line class="conn" x1="110" y1="129" x2="122" y2="129"/>
+  <line class="conn" x1="110" y1="199" x2="122" y2="199"/>
+  <line class="conn" x1="278" y1="59"  x2="290" y2="59"/>
+  <line class="conn" x1="278" y1="129" x2="290" y2="129"/>
+  <line class="conn" x1="278" y1="199" x2="290" y2="199"/>
+
+  <!-- ====== 比較表 y=248–486 ====== -->
+  <rect class="box-surface" x="10" y="248" width="380" height="238" rx="6"/>
+  <text class="t-leg" x="26" y="268" font-weight="bold" fill="#1a3a5c">従来システム vs ERP の違い</text>
+  <line x1="10" y1="276" x2="390" y2="276" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 列ヘッダー -->
+  <text class="t-leg" x="30"  y="293" font-weight="bold" fill="#555">項目</text>
+  <text class="t-leg" x="148" y="293" font-weight="bold" fill="#555">従来（部門別）</text>
+  <text class="t-leg" x="284" y="293" font-weight="bold" fill="#555">ERP</text>
+  <line x1="10"  y1="300" x2="390" y2="300" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="138" y1="276" x2="138" y2="486" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="274" y1="276" x2="274" y2="486" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 行1: データ管理 -->
+  <text class="t-leg" x="30"  y="318">データ管理</text>
+  <text class="t-leg" x="148" y="318">部門ごとに分散</text>
+  <text class="t-leg" x="284" y="318">一元管理</text>
+  <line x1="10" y1="326" x2="390" y2="326" stroke="#d7d7d7" stroke-width="0.8"/>
+
+  <!-- 行2: 情報共有 -->
+  <text class="t-leg" x="30"  y="344">情報共有</text>
+  <text class="t-leg" x="148" y="344">手動連携・遅延</text>
+  <text class="t-leg" x="284" y="344">リアルタイム</text>
+  <line x1="10" y1="352" x2="390" y2="352" stroke="#d7d7d7" stroke-width="0.8"/>
+
+  <!-- 行3: 経営判断 -->
+  <text class="t-leg" x="30"  y="370">経営判断</text>
+  <text class="t-leg" x="148" y="370">データ収集に時間</text>
+  <text class="t-leg" x="284" y="370">即時把握</text>
+  <line x1="10" y1="378" x2="390" y2="378" stroke="#d7d7d7" stroke-width="0.8"/>
+
+  <!-- 行4: データ整合性 -->
+  <text class="t-leg" x="30"  y="396">整合性</text>
+  <text class="t-leg" x="148" y="396">矛盾が生じやすい</text>
+  <text class="t-leg" x="284" y="396">常に一貫</text>
+  <line x1="10" y1="404" x2="390" y2="404" stroke="#d7d7d7" stroke-width="0.8"/>
+
+  <!-- 行5: 導入メリット -->
+  <text class="t-leg" x="30"  y="422">導入効果</text>
+  <text class="t-leg" x="148" y="422">縦割り・属人化</text>
+  <text class="t-leg" x="284" y="422">業務統合・可視化</text>
+
+  <!-- 補足 -->
+  <line x1="10" y1="432" x2="390" y2="432" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-leg" x="200" y="450" text-anchor="middle" fill="#1a3a5c" font-weight="bold">ERP の代表製品：SAP・Oracle・Microsoft Dynamics</text>
+  <text class="t-leg" x="200" y="467" text-anchor="middle">モジュール単位で段階的導入が可能（疎結合アーキテクチャ）</text>
+</svg>

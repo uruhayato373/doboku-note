@@ -1,0 +1,117 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="改善活動の3手法。ECRS（排除・結合・再配置・簡素化の優先順）・5S（整理整頓清掃清潔躾）・目で見る管理（可視化）を並列カードで示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 11px; fill: #8a8a8a; }
+      .t-head   { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-en     { font-size: 11px; fill: #555; }
+      .t-note   { font-size: 12px; fill: #555; }
+      .t-num    { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-label  { font-size: 13px; fill: #222; }
+      .t-desc   { font-size: 11px; fill: #555; }
+      .t-foot   { font-size: 11px; fill: #8a8a8a; }
+      /* semantic backgrounds */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      /* ECRS step rows */
+      .row-e { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }
+      .row-c { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      .row-r { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      .row-s { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      /* badge circles */
+      .badge-positive { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+      .badge-brand    { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-surface  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+    <marker id="arrowdown" markerWidth="7" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <polygon points="0,0 7,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- ===== CARD 1: ECRS ===== -->
+  <!-- brand: ECRS見出しカード -->
+  <rect class="box-brand" x="14" y="12" width="372" height="32" rx="8"/>
+  <text class="t-head" x="200" y="33" text-anchor="middle">ECRS の原則</text>
+
+  <!-- ECRS sub-label -->
+  <text class="t-sub" x="200" y="56" text-anchor="middle">改善の優先順位（上ほど効果大）</text>
+
+  <!-- priority axis -->
+  <text class="t-sub" x="22" y="80" text-anchor="middle">高</text>
+  <line x1="22" y1="86" x2="22" y2="242" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrowdown)"/>
+  <text class="t-sub" x="22" y="262" text-anchor="middle">低</text>
+
+  <!-- E: Eliminate 排除 (positive = 最優先) -->
+  <rect class="row-e" x="38" y="64" width="348" height="40" rx="6"/>
+  <circle class="badge-positive" cx="64" cy="84" r="14"/>
+  <text class="t-num" x="64" y="89" text-anchor="middle">E</text>
+  <text class="t-label" x="88" y="80">排除</text>
+  <text class="t-en"   x="88" y="96">Eliminate</text>
+  <text class="t-note" x="384" y="87" text-anchor="end">不要な作業をなくす</text>
+
+  <!-- C: Combine -->
+  <rect class="row-c" x="38" y="110" width="348" height="40" rx="6"/>
+  <circle class="badge-brand" cx="64" cy="130" r="14"/>
+  <text class="t-num" x="64" y="135" text-anchor="middle">C</text>
+  <text class="t-label" x="88" y="126">結合</text>
+  <text class="t-en"   x="88" y="142">Combine</text>
+  <text class="t-note" x="384" y="133" text-anchor="end">工程・作業をまとめる</text>
+
+  <!-- R: Rearrange -->
+  <rect class="row-r" x="38" y="156" width="348" height="40" rx="6"/>
+  <circle class="badge-brand" cx="64" cy="176" r="14"/>
+  <text class="t-num" x="64" y="181" text-anchor="middle">R</text>
+  <text class="t-label" x="88" y="172">再配置</text>
+  <text class="t-en"   x="88" y="188">Rearrange</text>
+  <text class="t-note" x="384" y="179" text-anchor="end">順序・手順を組み替える</text>
+
+  <!-- S: Simplify -->
+  <rect class="row-s" x="38" y="202" width="348" height="40" rx="6"/>
+  <circle class="badge-brand" cx="64" cy="222" r="14"/>
+  <text class="t-num" x="64" y="227" text-anchor="middle">S</text>
+  <text class="t-label" x="88" y="218">簡素化</text>
+  <text class="t-en"   x="88" y="234">Simplify</text>
+  <text class="t-note" x="384" y="225" text-anchor="end">業務・作業を単純化する</text>
+
+  <!-- ===== CARD 2: 5S ===== -->
+  <rect class="box-surface" x="14" y="268" width="181" height="190" rx="8"/>
+  <!-- 見出し -->
+  <text class="t-head" x="104" y="292" text-anchor="middle">5S</text>
+  <!-- 5項目 -->
+  <text class="t-label" x="32" y="318">整理</text>
+  <text class="t-desc"  x="80" y="318">不要なものを除く</text>
+  <line x1="28" y1="326" x2="188" y2="326" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-label" x="32" y="346">整頓</text>
+  <text class="t-desc"  x="80" y="346">必要なものを置く</text>
+  <line x1="28" y1="354" x2="188" y2="354" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-label" x="32" y="374">清掃</text>
+  <text class="t-desc"  x="80" y="374">きれいに掃除する</text>
+  <line x1="28" y1="382" x2="188" y2="382" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-label" x="32" y="402">清潔</text>
+  <text class="t-desc"  x="80" y="402">3Sを維持する</text>
+  <line x1="28" y1="410" x2="188" y2="410" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-label" x="32" y="430">躾</text>
+  <text class="t-desc"  x="80" y="430">ルールを守る習慣</text>
+
+  <!-- ===== CARD 3: 目で見る管理 ===== -->
+  <rect class="box-surface" x="205" y="268" width="181" height="190" rx="8"/>
+  <!-- 見出し -->
+  <text class="t-head" x="296" y="292" text-anchor="middle">目で見る管理</text>
+  <!-- 内容 -->
+  <text class="t-label" x="222" y="322">可視化</text>
+  <text class="t-desc"  x="222" y="340">問題・状態を</text>
+  <text class="t-desc"  x="222" y="356">誰でも一目で</text>
+  <text class="t-desc"  x="222" y="372">分かるようにする</text>
+  <line x1="218" y1="382" x2="380" y2="382" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-desc"  x="222" y="402">例: 掲示板・</text>
+  <text class="t-desc"  x="222" y="418">アンドン・</text>
+  <text class="t-desc"  x="222" y="434">かんばん 等</text>
+
+  <!-- footer -->
+  <text class="t-foot" x="200" y="488" text-anchor="middle">3M（ムリ・ムラ・ムダ）の排除と合わせて活用する</text>
+</svg>

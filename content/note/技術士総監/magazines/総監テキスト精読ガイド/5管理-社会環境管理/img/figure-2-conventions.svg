@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">国際条約 4種 — 対象物の対応マトリクス</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">ラムサール/バーゼル/ワシントン/ストックホルムの4対応暗記が択一の鍵</text>
+
+  <rect x="40" y="140" width="220" height="56" fill="#1a3a5c"/>
+  <text x="150" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">条約名</text>
+  <rect x="260" y="140" width="110" height="56" fill="#1a3a5c"/>
+  <text x="315" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">採択年</text>
+  <rect x="370" y="140" width="280" height="56" fill="#1a3a5c"/>
+  <text x="510" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">対象物</text>
+  <rect x="650" y="140" width="510" height="56" fill="#1a3a5c"/>
+  <text x="905" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">正式名称・要点</text>
+  <rect x="40" y="204" width="220" height="100" fill="#e8f0fe" stroke="#e2e8f0"/>
+  <rect x="40" y="204" width="6" height="100" fill="#2e6da4"/>
+  <text x="150" y="263" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#2e6da4" text-anchor="middle">ラムサール条約</text>
+  <rect x="260" y="204" width="110" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="315" y="263" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#222222" text-anchor="middle">1971</text>
+  <rect x="370" y="204" width="280" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="386" y="263" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">湿地・水鳥</text>
+  <rect x="650" y="204" width="510" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="666" y="263" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">特に水鳥の生息地として重要な湿地の保全</text>
+  <rect x="40" y="304" width="220" height="100" fill="#e8f0fe" stroke="#e2e8f0"/>
+  <rect x="40" y="304" width="6" height="100" fill="#b22234"/>
+  <text x="150" y="363" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#b22234" text-anchor="middle">バーゼル条約</text>
+  <rect x="260" y="304" width="110" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="315" y="363" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#222222" text-anchor="middle">1989</text>
+  <rect x="370" y="304" width="280" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="386" y="363" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">有害廃棄物</text>
+  <rect x="650" y="304" width="510" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="666" y="363" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">有害廃棄物の越境移動の規制。プラごみも対象</text>
+  <rect x="40" y="404" width="220" height="100" fill="#e8f0fe" stroke="#e2e8f0"/>
+  <rect x="40" y="404" width="6" height="100" fill="#d4a017"/>
+  <text x="150" y="463" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#d4a017" text-anchor="middle">ワシントン条約</text>
+  <rect x="260" y="404" width="110" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="315" y="463" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#222222" text-anchor="middle">1973</text>
+  <rect x="370" y="404" width="280" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="386" y="463" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">絶滅危惧種</text>
+  <rect x="650" y="404" width="510" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="666" y="463" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">絶滅のおそれがある動植物の国際取引規制</text>
+  <rect x="40" y="504" width="220" height="100" fill="#e8f0fe" stroke="#e2e8f0"/>
+  <rect x="40" y="504" width="6" height="100" fill="#3a7d44"/>
+  <text x="150" y="563" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#3a7d44" text-anchor="middle">ストックホルム条約</text>
+  <rect x="260" y="504" width="110" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="315" y="563" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#222222" text-anchor="middle">2001</text>
+  <rect x="370" y="504" width="280" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="386" y="563" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">POPs（残留性有機汚染物質）</text>
+  <rect x="650" y="504" width="510" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="666" y="563" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">PCB・DDT 等 POPs の製造・使用規制</text>
+  <rect x="40" y="636" width="1120" height="44" rx="6" fill="#e8f0fe"/>
+  <text x="60" y="666" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">引っかけ：4条約と対象物の組合せ。一語入れ替えで誤答を作る択一の典型。</text>
+</svg>

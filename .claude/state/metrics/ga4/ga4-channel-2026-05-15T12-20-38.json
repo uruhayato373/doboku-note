@@ -1,0 +1,75 @@
+{
+  "meta": {
+    "startDate": "2026-04-17",
+    "endDate": "2026-05-14",
+    "dimension": "channel",
+    "dimensionApiName": "sessionDefaultChannelGroup",
+    "metrics": [
+      "activeUsers",
+      "sessions",
+      "screenPageViewsPerSession",
+      "averageSessionDuration",
+      "engagementRate",
+      "bounceRate"
+    ],
+    "limit": 100,
+    "organicOnly": false,
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "channel": "Direct",
+      "activeUsers": 2165,
+      "sessions": 2314,
+      "screenPageViewsPerSession": 1.5579083837510803,
+      "averageSessionDuration": 85.6921523755402,
+      "engagementRate": 0.2964563526361279,
+      "bounceRate": 0.7035436473638721
+    },
+    {
+      "channel": "Organic Search",
+      "activeUsers": 1995,
+      "sessions": 2554,
+      "screenPageViewsPerSession": 3.441660140955364,
+      "averageSessionDuration": 284.6963513727486,
+      "engagementRate": 0.3065779169929522,
+      "bounceRate": 0.6934220830070478
+    },
+    {
+      "channel": "Unassigned",
+      "activeUsers": 61,
+      "sessions": 88,
+      "screenPageViewsPerSession": 8.409090909090908,
+      "averageSessionDuration": 492.61140900000004,
+      "engagementRate": 0.5340909090909091,
+      "bounceRate": 0.4659090909090909
+    },
+    {
+      "channel": "Referral",
+      "activeUsers": 47,
+      "sessions": 151,
+      "screenPageViewsPerSession": 4.6158940397351,
+      "averageSessionDuration": 558.647835437086,
+      "engagementRate": 0.6887417218543046,
+      "bounceRate": 0.31125827814569534
+    },
+    {
+      "channel": "Organic Video",
+      "activeUsers": 4,
+      "sessions": 4,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 0,
+      "engagementRate": 0,
+      "bounceRate": 1
+    },
+    {
+      "channel": "Organic Social",
+      "activeUsers": 3,
+      "sessions": 3,
+      "screenPageViewsPerSession": 2.6666666666666665,
+      "averageSessionDuration": 212.06879466666666,
+      "engagementRate": 0.3333333333333333,
+      "bounceRate": 0.6666666666666666
+    }
+  ]
+}

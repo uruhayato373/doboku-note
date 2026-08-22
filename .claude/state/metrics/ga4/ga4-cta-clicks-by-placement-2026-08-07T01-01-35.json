@@ -1,0 +1,99 @@
+{
+  "meta": {
+    "startDate": "2026-07-10",
+    "endDate": "2026-08-06",
+    "eventNames": [
+      "note_cta_click",
+      "affiliate_cta_click",
+      "affiliate_cta_impression",
+      "note_article_click"
+    ],
+    "japanOnly": true,
+    "byDevice": false,
+    "byLabel": false,
+    "byPlacement": true,
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "placement": "sidebar",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2959
+    },
+    {
+      "placement": "article-mid",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 566
+    },
+    {
+      "placement": "article-end",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 555
+    },
+    {
+      "placement": "article-inline",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 501
+    },
+    {
+      "placement": "category-sidebar",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 389
+    },
+    {
+      "placement": "(not set)",
+      "eventName": "note_cta_click",
+      "eventCount": 233
+    },
+    {
+      "placement": "(unknown)",
+      "eventName": "note_cta_click",
+      "eventCount": 96
+    },
+    {
+      "placement": "(not set)",
+      "eventName": "note_article_click",
+      "eventCount": 49
+    },
+    {
+      "placement": "category-mobile",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 42
+    },
+    {
+      "placement": "article-end-mobile",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 17
+    },
+    {
+      "placement": "(not set)",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 11
+    },
+    {
+      "placement": "(unknown)",
+      "eventName": "note_article_click",
+      "eventCount": 8
+    },
+    {
+      "placement": "article-inline",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 2
+    },
+    {
+      "placement": "article-mid",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 2
+    },
+    {
+      "placement": "category-career-section",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "placement": "sidebar",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 2
+    }
+  ]
+}

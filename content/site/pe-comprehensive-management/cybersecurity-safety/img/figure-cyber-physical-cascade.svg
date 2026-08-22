@@ -1,0 +1,56 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="サイバー攻撃の物理インフラへの3層波及：サイバー空間の攻撃がOT/IT接続点を経由して物理インフラの安全に影響を及ぼす">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-body  { font-size: 12px; fill: #555; }
+      .t-muted { font-size: 11px; fill: #8a8a8a; }
+      .t-warn  { font-size: 11px; fill: #b22234; }
+      .l-danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .l-warn   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .l-brand  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .arr { stroke: #b22234; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <!-- Layer 1: サイバー空間 -->
+  <rect class="l-danger" x="10" y="10" width="380" height="72" rx="6"/>
+  <text class="t-title" x="200" y="32" text-anchor="middle">サイバー空間（攻撃元）</text>
+  <text class="t-body"  x="200" y="52" text-anchor="middle">ランサムウェア ／ 標的型攻撃 ／ サプライチェーン攻撃</text>
+  <text class="t-muted" x="200" y="70" text-anchor="middle">IoT 機器の脆弱性 ／ 内部不正</text>
+
+  <!-- Arrow 1 -->
+  <line class="arr" x1="200" y1="84" x2="200" y2="103" marker-end="url(#arr)"/>
+  <text class="t-warn" x="211" y="97">攻撃の波及</text>
+
+  <!-- Layer 2: OT/IT 接続点 -->
+  <rect class="l-warn" x="10" y="105" width="380" height="72" rx="6"/>
+  <text class="t-title" x="200" y="127" text-anchor="middle">OT / IT 接続点</text>
+  <text class="t-body"  x="200" y="147" text-anchor="middle">SCADA ／ ICS ／ 産業用制御システム</text>
+  <text class="t-muted" x="200" y="165" text-anchor="middle">制御コマンドの改ざん・システム停止</text>
+
+  <!-- Arrow 2 -->
+  <line class="arr" x1="200" y1="179" x2="200" y2="198" marker-end="url(#arr)"/>
+  <text class="t-warn" x="211" y="192">物理的影響</text>
+
+  <!-- Layer 3: 物理インフラ -->
+  <rect class="l-brand" x="10" y="200" width="380" height="75" rx="6"/>
+  <text class="t-title" x="200" y="222" text-anchor="middle">物理インフラ（Safety）</text>
+  <text class="t-body"  x="200" y="242" text-anchor="middle">電力 ／ 水道 ／ 交通 ／ 重要施設</text>
+  <text class="t-muted" x="200" y="262" text-anchor="middle">停止・誤作動 → 公衆安全への危害</text>
+
+  <!-- 下部サマリー -->
+  <rect x="10" y="330" width="380" height="150" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="4"/>
+  <text x="200" y="358" text-anchor="middle" font-size="13" fill="#222" font-weight="bold">サイバーセキュリティ対策の原則</text>
+  <text x="25" y="385" font-size="12" fill="#555">① Security by Design：設計段階からセキュリティを組込む</text>
+  <text x="25" y="410" font-size="12" fill="#555">② 多層防御（Defense in Depth）：単一対策に頼らない</text>
+  <text x="25" y="435" font-size="12" fill="#555">③ インシデント対応計画：被害を想定した事前準備</text>
+  <text x="25" y="460" font-size="12" fill="#555">④ サプライチェーンリスク管理：取引先含めた対策</text>
+</svg>

@@ -1,0 +1,63 @@
+<svg width="100%" viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg" width="380" height="300">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+      <polygon points="0 8, 8 4, 0 0" fill="#333"/>
+    </marker>
+  </defs>
+
+  <!-- 縦軸（P機能） -->
+  <line x1="110" y1="260" x2="110" y2="20" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- 横軸（M機能） -->
+  <line x1="60" y1="150" x2="360" y2="150" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- 軸ラベル -->
+  <text x="105" y="15" text-anchor="middle" font-size="11" fill="#333">⊕</text>
+  <text x="105" y="268" text-anchor="middle" font-size="11" fill="#333">⊖</text>
+  <text x="65" y="154" text-anchor="middle" font-size="11" fill="#333">⊖</text>
+  <text x="355" y="154" text-anchor="middle" font-size="11" fill="#333">⊕</text>
+
+  <!-- P機能ラベル -->
+  <text x="50" y="90" text-anchor="middle" font-size="10" fill="#333" transform="rotate(-90,50,90)">P機能（目標達成機能）</text>
+
+  <!-- M機能ラベル -->
+  <text x="210" y="285" text-anchor="middle" font-size="10" fill="#333">M機能（集団維持機能）</text>
+
+  <!-- 4象限の枠 -->
+  <!-- 左上 Pm型 -->
+  <rect x="62" y="22" width="96" height="126" fill="#e8f4fd" stroke="#aaa" stroke-width="1"/>
+  <!-- 右上 PM型 -->
+  <rect x="112" y="22" width="246" height="126" fill="#d0e8f0" stroke="#aaa" stroke-width="1"/>
+  <!-- 左下 pm型 -->
+  <rect x="62" y="152" width="96" height="106" fill="#f5f5f5" stroke="#aaa" stroke-width="1"/>
+  <!-- 右下 pM型 -->
+  <rect x="112" y="152" width="246" height="106" fill="#e8f4fd" stroke="#aaa" stroke-width="1"/>
+
+  <!-- 左上: Pm型 -->
+  <text x="110" y="45" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">Pm型</text>
+  <text x="110" y="62" text-anchor="middle" font-size="9.5" fill="#333">成果を上げるが</text>
+  <text x="110" y="76" text-anchor="middle" font-size="9.5" fill="#333">人望がなく</text>
+  <text x="110" y="90" text-anchor="middle" font-size="9.5" fill="#333">グループをまとめる</text>
+  <text x="110" y="104" text-anchor="middle" font-size="9.5" fill="#333">のが苦手</text>
+
+  <!-- 右上: PM型 -->
+  <text x="235" y="45" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">PM型</text>
+  <text x="235" y="62" text-anchor="middle" font-size="9.5" fill="#333">成果を上げられ</text>
+  <text x="235" y="76" text-anchor="middle" font-size="9.5" fill="#333">人望があって</text>
+  <text x="235" y="90" text-anchor="middle" font-size="9.5" fill="#333">グループをまとめる</text>
+  <text x="235" y="104" text-anchor="middle" font-size="9.5" fill="#333">力がある</text>
+
+  <!-- 左下: pm型 -->
+  <text x="110" y="175" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">pm型</text>
+  <text x="110" y="192" text-anchor="middle" font-size="9.5" fill="#333">成果を上げる力も</text>
+  <text x="110" y="206" text-anchor="middle" font-size="9.5" fill="#333">グループをまとめる</text>
+  <text x="110" y="220" text-anchor="middle" font-size="9.5" fill="#333">力も低い</text>
+
+  <!-- 右下: pM型 -->
+  <text x="235" y="175" text-anchor="middle" font-size="12" font-weight="bold" fill="#333">pM型</text>
+  <text x="235" y="192" text-anchor="middle" font-size="9.5" fill="#333">成果を上げる力は</text>
+  <text x="235" y="206" text-anchor="middle" font-size="9.5" fill="#333">低いが、人望があって</text>
+  <text x="235" y="220" text-anchor="middle" font-size="9.5" fill="#333">グループをまとめる</text>
+  <text x="235" y="234" text-anchor="middle" font-size="9.5" fill="#333">力がある</text>
+
+  <text x="190" y="298" text-anchor="middle" font-size="11" fill="#333">図表2.2　PM理論</text>
+</svg>

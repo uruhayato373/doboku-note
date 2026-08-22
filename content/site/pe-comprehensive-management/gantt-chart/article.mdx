@@ -1,0 +1,100 @@
+---
+title: ガントチャート
+description: "ガントチャートの定義・構成要素・PERT/CPM との比較・進捗表示を解説。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.3'
+tags:
+  - keyword
+published: true
+reviewStatus: needs-review
+publishedAt: '2026-04-09'
+lastRewrittenAt: '2026-05-17T03:24:30Z'
+revisionCycle: 3
+seoTitle: "ガントチャート ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-06-23
+---
+
+## ガントチャートとは
+
+ガントチャート（Gantt Chart）とは、横軸に時間・縦軸に作業項目を配置し、各作業の期間と進捗を**横棒（バー）で表す工程管理図**である。
+
+直感的に工程全体を把握でき、小日程計画や進捗管理に広く用いられる。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/gantt-chart/img/figure-gantt-chart-example.svg"
+  alt="ガントチャートの構成例：横軸に時間、縦軸に作業項目を配置し、計画バー（淡色）と実績バー（濃色）を重ねて進捗を可視化、現在日ラインで遅れを把握する"
+/>
+
+## 構成要素
+
+ガントチャートは以下の要素で構成される。
+
+- **横軸**: 時間（日・週・月）
+- **縦軸**: 作業項目（タスク）
+- **バー（横棒）**: 各作業の期間と進捗
+- **マイルストーン**: 重要な節目・完了時点
+
+## 進捗表示
+
+ガントチャートでは計画と実績を同じ時間軸上で並べて表示することで進捗を可視化する。
+
+- **計画線（ベースライン）**：当初計画の期間・進捗をバーで表示
+- **実績線**：各作業の実際の開始・完了・現在進捗率をバーで上書き
+- **現在時刻ライン**：今日の日付を縦線で表示し、計画と実績の差を一目で把握
+- **進捗率の色分け**：完了（濃色）・進行中（中間色）・未着手（淡色）
+
+## PERT/CPMとの比較
+
+ガントチャートと PERT/CPM の主な違いは次のとおり。
+
+| 項目 | ガントチャート | PERT/CPM |
+|---|---|---|
+| **視認性** | 直感的で分かりやすい | 複雑だが論理的 |
+| **作業間の依存関係** | 表現しにくい | 明確に表現できる |
+| **クリティカルパス** | 識別できない | 識別できる |
+| **適用場面** | 小日程計画・進捗報告 | 中〜大日程計画 |
+
+<Callout type="warn">
+ガントチャートは**作業間の依存関係（先行・後続）を明示できない**のが最大の限界。工期短縮を検討する際には[PERT/CPM](/docs/pe-comprehensive-management-pert-cpm)でクリティカルパスを識別し、ガントチャートで進捗を可視化するという**併用**が実務の標準的な運用。
+</Callout>
+
+## ガントチャートの発展と背景
+
+ガントチャートは、20 世紀初頭にアメリカの機械工学者ヘンリー・ガント（Henry L. Gantt）が考案した工程管理図である。第一次世界大戦中の 1910 年代、造船所での大規模な生産管理に活用されたのが始まりとされており、当時の工場監督者が労働者の作業進捗をリアルタイムで把握する手段として開発された。
+
+それ以前、大規模工事の工程管理は複雑なネットワーク図や文章による記録に依存しており、全体の進捗を直感的に把握する手段が乏しかった。ガントが横棒グラフという単純な視覚化手法を導入したことで、計画と実績の差異が一目で分かるようになり、工程管理の標準ツールとして急速に普及した。
+
+今日では PMBOK（プロジェクトマネジメント知識体系）でも正式に位置づけられており、IT 系・建設系を問わずプロジェクト管理の基礎ツールとして世界的に使われ続けている。総監キーワード集の工程管理（2.3 節）においても、バーチャートやネットワーク工程表と並ぶ基本手法として記載されている。
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**2.3 工程管理**](/docs/pe-comprehensive-management-keyword-2026#23-工程管理)に位置づけられている。
+
+ガントチャートは [PERT/CPM](/docs/pe-comprehensive-management-pert-cpm) と併用されることが多く、[進捗管理](/docs/pe-comprehensive-management-progress-management) のビジュアルツールとして活用される。[大日程計画・中日程計画・小日程計画](/docs/pe-comprehensive-management-master-schedule-planning) のうち小日程計画で主に用いられる。過去問 [R04 Ⅰ-1-8](/docs/pe-comprehensive-management-r04-primary#1-8) では PERT/CPM と合わせてクリティカルパスの識別が問われたが、ガントチャートは作業間の依存関係表現が弱いため PERT/CPM の補助ツールとして位置づけられる。過去問 [R02 Ⅰ-1-3](/docs/pe-comprehensive-management-r02-primary#1-3) では PMBOK の用語が問われ、「ガントチャートは縦軸にアクティビティをリストアップし横軸に時間軸をとる」という定義が正答肢として確認された。
+
+<ExamPoint
+  summary="ガントチャートは横棒グラフで作業の期間・進捗を視覚的に表す工程管理図"
+  items={[
+    "作業間の依存関係を表現しにくい点が最大の限界",
+    "クリティカルパスの識別にはPERT/CPMが必要（両者を併用するのが実務標準）",
+    "小日程計画や進捗報告に適した直感的な手法",
+    "計画線（ベースライン）と実績線を重ねて表示し進捗の遅れを可視化",
+    "マイルストーンで重要な節目を明示できる",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "PERT/CPM", slug: "pert-cpm" },
+  { label: "工程計画", slug: "process-planning-construction" },
+  { label: "進捗管理", slug: "progress-management" },
+  { label: "大日程計画・中日程計画・小日程計画", slug: "master-schedule-planning" },
+  { label: "パラメトリック見積り", slug: "parametric-estimation" },
+]} />
+
+## 参考資料
+
+- [土木工事施工管理基準 第5章 工程管理](https://www.cbr.mlit.go.jp/architecture/kensetsugijutsu/doboku_shiyousyo/pdf/h25doboku_shiyousyo05.pdf)（国土交通省 中部地方整備局）
+- [ガントチャート](https://ja.wikipedia.org/wiki/%E3%82%AC%E3%83%B3%E3%83%88%E3%83%81%E3%83%A3%E3%83%BC%E3%83%88)（Wikipedia）

@@ -1,0 +1,76 @@
+<svg width="400" height="500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="択一式と記述式の得点バランス3パターン比較。理想型は両式60%、記述式偏重は択一45%・記述75%、択一式偏重は択一75%・記述45%。両式とも60%に届くバランス型が最も安全。" style="max-width:400px;width:100%">
+  <style>
+    text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; fill: #1a3a5c; }
+  </style>
+
+  <!-- Legend -->
+  <rect x="144" y="14" width="12" height="12" rx="2" fill="#2e6da4"/>
+  <text x="160" y="24" font-size="12">択一式</text>
+  <rect x="220" y="14" width="12" height="12" rx="2" fill="#d4a017"/>
+  <text x="236" y="24" font-size="12">記述式</text>
+
+  <!-- 60% threshold label -->
+  <text x="206" y="48" text-anchor="middle" font-size="12" fill="#555">各式60%（合格の目安）</text>
+
+  <!-- ===== パターン1（理想） ===== -->
+  <text x="16" y="74" font-size="14" font-weight="bold">パターン1（理想）</text>
+  <text x="62" y="96" text-anchor="end" font-size="12" fill="#555">択一式</text>
+  <rect x="68" y="82" width="234" height="18" rx="2" fill="#f5f5f5"/>
+  <rect x="68" y="82" width="140" height="18" rx="2" fill="#2e6da4"/>
+  <text x="214" y="95" font-size="12" font-weight="bold" fill="#3a7d44">60%</text>
+  <text x="62" y="122" text-anchor="end" font-size="12" fill="#555">記述式</text>
+  <rect x="68" y="108" width="234" height="18" rx="2" fill="#f5f5f5"/>
+  <rect x="68" y="108" width="140" height="18" rx="2" fill="#d4a017"/>
+  <text x="214" y="121" font-size="12" font-weight="bold" fill="#3a7d44">60%</text>
+  <rect x="308" y="86" width="80" height="34" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <text x="348" y="107" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">合格・安定</text>
+
+  <!-- ===== パターン2（記述式偏重） ===== -->
+  <text x="16" y="160" font-size="14" font-weight="bold">パターン2（記述式偏重）</text>
+  <text x="62" y="182" text-anchor="end" font-size="12" fill="#555">択一式</text>
+  <rect x="68" y="168" width="234" height="18" rx="2" fill="#f5f5f5"/>
+  <rect x="68" y="168" width="105" height="18" rx="2" fill="#2e6da4"/>
+  <text x="179" y="181" font-size="12" font-weight="bold" fill="#b22234">45%</text>
+  <text x="62" y="208" text-anchor="end" font-size="12" fill="#555">記述式</text>
+  <rect x="68" y="194" width="234" height="18" rx="2" fill="#f5f5f5"/>
+  <rect x="68" y="194" width="176" height="18" rx="2" fill="#d4a017"/>
+  <text x="250" y="207" font-size="12" font-weight="bold" fill="#3a7d44">75%</text>
+  <rect x="308" y="172" width="80" height="34" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
+  <text x="348" y="193" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a3a5c">合格可だが稀</text>
+
+  <!-- ===== パターン3（択一式偏重） ===== -->
+  <text x="16" y="248" font-size="14" font-weight="bold">パターン3（択一式偏重）</text>
+  <text x="62" y="270" text-anchor="end" font-size="12" fill="#555">択一式</text>
+  <rect x="68" y="256" width="234" height="18" rx="2" fill="#f5f5f5"/>
+  <rect x="68" y="256" width="176" height="18" rx="2" fill="#2e6da4"/>
+  <text x="250" y="269" font-size="12" font-weight="bold" fill="#3a7d44">75%</text>
+  <text x="62" y="296" text-anchor="end" font-size="12" fill="#555">記述式</text>
+  <rect x="68" y="282" width="234" height="18" rx="2" fill="#f5f5f5"/>
+  <rect x="68" y="282" width="105" height="18" rx="2" fill="#d4a017"/>
+  <text x="179" y="295" font-size="12" font-weight="bold" fill="#b22234">45%</text>
+  <rect x="308" y="260" width="80" height="34" rx="8" fill="#f8d7da" stroke="#b22234" stroke-width="1"/>
+  <text x="348" y="281" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">口頭でリスク</text>
+
+  <!-- 60% vertical threshold line -->
+  <line x1="208" y1="56" x2="208" y2="312" stroke="#555" stroke-width="1.2" stroke-dasharray="4,3"/>
+
+  <!-- axis -->
+  <line x1="68" y1="316" x2="302" y2="316" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="68" y1="316" x2="68" y2="320" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="208" y1="316" x2="208" y2="320" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="302" y1="316" x2="302" y2="320" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="68" y="334" text-anchor="middle" font-size="12" fill="#8a8a8a">0%</text>
+  <text x="208" y="334" text-anchor="middle" font-size="12" fill="#8a8a8a">60%</text>
+  <text x="302" y="334" text-anchor="middle" font-size="12" fill="#8a8a8a">100%</text>
+
+  <!-- ===== 凡例まとめ ===== -->
+  <rect x="18" y="352" width="364" height="130" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="200" y="376" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">3パターンの合否判定まとめ</text>
+  <rect x="32" y="388" width="12" height="12" rx="2" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <text x="50" y="399" font-size="12" fill="#555">理想型：両式60%以上 → 合格・安定</text>
+  <rect x="32" y="410" width="12" height="12" rx="2" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
+  <text x="50" y="421" font-size="12" fill="#555">記述偏重：択一45%は基準割れリスク</text>
+  <rect x="32" y="432" width="12" height="12" rx="2" fill="#f8d7da" stroke="#b22234" stroke-width="1"/>
+  <text x="50" y="443" font-size="12" fill="#555">択一偏重：記述45%は口頭前に失格の恐れ</text>
+  <text x="200" y="470" text-anchor="middle" font-size="11" fill="#8a8a8a">各式60%以上の「バランス型」が最も安全な戦略</text>
+</svg>

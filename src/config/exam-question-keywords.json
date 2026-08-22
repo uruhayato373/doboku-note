@@ -1,0 +1,6250 @@
+{
+  "pe-comprehensive-management-h21-primary": {
+    "1-1": {
+      "heading": "Ⅱ-1-1",
+      "slugs": [
+        "quality-control",
+        "quality-policy",
+        "quality-assurance",
+        "iso-14000"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅱ-1-2",
+      "slugs": [
+        "balance-sheet",
+        "income-statement",
+        "accounting-systems",
+        "break-even-point"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅱ-1-3",
+      "slugs": [
+        "consumer-product-safety-act",
+        "product-safety",
+        "product-liability",
+        "product-liability-act"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅱ-1-4",
+      "slugs": [
+        "production-management-system",
+        "master-schedule-planning",
+        "supply-chain-management",
+        "scm-system"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅱ-1-5",
+      "slugs": [
+        "pert-cpm",
+        "gantt-chart"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅱ-1-6",
+      "slugs": [
+        "pfi",
+        "present-annual-future-value",
+        "lifecycle-costing-method",
+        "lifecycle-management"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅱ-1-7",
+      "slugs": [
+        "load-leveling",
+        "pert-cpm",
+        "load-capacity",
+        "labor-productivity"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅱ-1-8",
+      "slugs": [
+        "autonomous-maintenance",
+        "preventive-maintenance",
+        "improvement-maintenance",
+        "maintenance-prevention"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅱ-1-9",
+      "slugs": [
+        "mcgregor-xy-theory",
+        "maslow-hierarchy-of-needs",
+        "sl-theory",
+        "scientific-management",
+        "herzberg-two-factor-theory",
+        "intrinsic-motivation"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅱ-1-10",
+      "slugs": [
+        "formal-informal-organization",
+        "matrix-organization",
+        "functional-organization"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅱ-1-11",
+      "slugs": [
+        "labor-standards-act",
+        "variable-work-hours"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅱ-1-12",
+      "slugs": [
+        "labor-productivity",
+        "labor-share-ratio",
+        "total-wage-management",
+        "individual-wage-management"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅱ-1-13",
+      "slugs": [
+        "worker-dispatch-act",
+        "equal-pay-for-equal-work"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅱ-1-14",
+      "slugs": [
+        "formal-informal-organization",
+        "hawthorne-experiment",
+        "intrinsic-motivation",
+        "extrinsic-motivation"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅱ-1-15",
+      "slugs": [
+        "worker-dispatch-act",
+        "equal-employment-act"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅱ-1-16",
+      "slugs": [
+        "training-techniques",
+        "ojt-off-jt",
+        "hierarchical-training"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅱ-1-17",
+      "slugs": [
+        "isms-iso27001",
+        "security-education",
+        "cybersecurity-safety"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅱ-1-18",
+      "slugs": [
+        "cloud-on-premises",
+        "centralization-decentralization"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅱ-1-19",
+      "slugs": [
+        "cloud-on-premises",
+        "erp"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅱ-1-20",
+      "slugs": [
+        "phishing-pharming",
+        "dos-ddos",
+        "malware",
+        "unauthorized-access"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅱ-1-21",
+      "slugs": [
+        "personal-info-protection",
+        "personal-information",
+        "data-breach-response"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅱ-1-22",
+      "slugs": [
+        "industrial-property-rights",
+        "copyright",
+        "unfair-competition-prevention-act",
+        "trademark-rights"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅱ-1-23",
+      "slugs": [
+        "business-continuity-plan",
+        "crisis-communication",
+        "data-leak-tampering-loss",
+        "crisis-management-manual"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅱ-1-24",
+      "slugs": [
+        "system-availability"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅱ-1-25",
+      "slugs": [
+        "safety-and-security",
+        "safety-management-system",
+        "occupational-safety-act",
+        "oshms"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅱ-1-26",
+      "slugs": [
+        "mental-health",
+        "mental-health-care",
+        "stress-check-system"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅱ-1-27",
+      "slugs": [
+        "risk-treatment",
+        "risk-assessment",
+        "risk-management-system",
+        "probabilistic-risk-assessment"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅱ-1-28",
+      "slugs": [
+        "veteran-bias",
+        "normalcy-bias",
+        "virgin-bias",
+        "optimism-bias",
+        "risk-perception"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅱ-1-29",
+      "slugs": [
+        "fault-tolerance",
+        "fail-safe",
+        "fool-proof",
+        "fault-avoidance",
+        "redundancy-safety"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅱ-1-30",
+      "slugs": [
+        "fire-service-act",
+        "risk-assessment",
+        "occupational-safety-act"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅱ-1-31",
+      "slugs": [
+        "fta",
+        "fmea",
+        "reliability-block-diagram"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅱ-1-32",
+      "slugs": [
+        "machinery-safety-guidelines",
+        "risk-assessment",
+        "inherent-safety"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅱ-1-33",
+      "slugs": [
+        "extended-producer-responsibility",
+        "circular-society-basic-act",
+        "polluter-pays-principle"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅱ-1-34",
+      "slugs": [
+        "acid-rain",
+        "ozone-layer-protection",
+        "water-pollution-control-act",
+        "air-pollution-control-act"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅱ-1-35",
+      "slugs": [
+        "lifecycle-assessment",
+        "lifecycle-management",
+        "environmental-accounting"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅱ-1-36",
+      "slugs": [
+        "ramsar-convention",
+        "invasive-alien-species",
+        "natural-parks-act",
+        "biodiversity-basic-act"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅱ-1-37",
+      "slugs": [
+        "waste-management-act",
+        "circular-society-basic-act"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅱ-1-38",
+      "slugs": [
+        "environmental-accounting",
+        "environmental-basic-plan"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅱ-1-39",
+      "slugs": [
+        "environmental-impact-assessment",
+        "environmental-standards",
+        "environmental-basic-plan"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅱ-1-40",
+      "slugs": [
+        "carbon-neutral",
+        "climate-change-international",
+        "carbon-pricing"
+      ]
+    }
+  },
+  "pe-comprehensive-management-h22-primary": {
+    "1-1": {
+      "heading": "Ⅱ-1-1",
+      "slugs": [
+        "cost-effectiveness-analysis",
+        "demand-forecasting",
+        "market-research"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅱ-1-2",
+      "slugs": [
+        "quality-planning",
+        "quality-policy",
+        "quality-objectives",
+        "quality-assurance"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅱ-1-3",
+      "slugs": [
+        "present-annual-future-value",
+        "discount-rate",
+        "npv-net-present-value",
+        "dcf-method"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅱ-1-4",
+      "slugs": [
+        "construction-plan",
+        "bid-rigging"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅱ-1-5",
+      "slugs": [
+        "product-liability-act",
+        "product-liability",
+        "product-safety",
+        "consumer-product-safety-act"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅱ-1-6",
+      "slugs": [
+        "accounting-systems",
+        "depreciation",
+        "balance-sheet",
+        "income-statement"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅱ-1-7",
+      "slugs": [
+        "progress-management",
+        "load-leveling",
+        "inventory-control",
+        "capacity-management"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅱ-1-8",
+      "slugs": [
+        "monte-carlo-simulation"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅱ-1-9",
+      "slugs": [
+        "incentive",
+        "maslow-hierarchy-of-needs",
+        "intrinsic-motivation",
+        "mcgregor-xy-theory",
+        "herzberg-two-factor-theory"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅱ-1-10",
+      "slugs": [
+        "functional-organization",
+        "divisional-organization",
+        "matrix-organization",
+        "pyramid-organization",
+        "flat-organization"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅱ-1-11",
+      "slugs": [
+        "childcare-nursing-leave-act",
+        "work-life-balance",
+        "gender-equality-act"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅱ-1-12",
+      "slugs": [
+        "job-design",
+        "intrinsic-motivation",
+        "herzberg-two-factor-theory"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅱ-1-13",
+      "slugs": [
+        "formal-informal-organization",
+        "hawthorne-experiment",
+        "organizational-commitment"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅱ-1-14",
+      "slugs": [
+        "ojt-off-jt",
+        "training-techniques",
+        "hierarchical-training",
+        "specialized-training"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅱ-1-15",
+      "slugs": [
+        "performance-evaluation",
+        "evaluation-bias",
+        "appraisal-three-principles",
+        "attitude-appraisal"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅱ-1-16",
+      "slugs": [
+        "worker-dispatch-act",
+        "labor-contract-act",
+        "part-time-fixed-term-act"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅱ-1-17",
+      "slugs": [
+        "information-disclosure",
+        "crisis-communication",
+        "disclosure-standards",
+        "accountability-traceability"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅱ-1-18",
+      "slugs": [
+        "visual-management",
+        "five-s",
+        "data-visualization"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅱ-1-19",
+      "slugs": [
+        "information-disclosure",
+        "antitrust-compliance",
+        "unfair-competition-prevention-act"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅱ-1-20",
+      "slugs": [
+        "crisis-communication",
+        "public-relations",
+        "emergency",
+        "accountability-traceability"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅱ-1-21",
+      "slugs": [
+        "data-mining",
+        "tacit-knowledge",
+        "explicit-knowledge",
+        "knowledge-sharing"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅱ-1-22",
+      "slugs": [
+        "internet",
+        "digital-twin-cps",
+        "encryption-digital-signature"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅱ-1-23",
+      "slugs": [
+        "isms-iso27001",
+        "security-education",
+        "vulnerability"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅱ-1-24",
+      "slugs": [
+        "malware",
+        "security-software",
+        "vulnerability",
+        "threat-awareness-training"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅱ-1-25",
+      "slugs": [
+        "risk-assessment",
+        "risk-map-matrix",
+        "hazard",
+        "probabilistic-risk-assessment"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅱ-1-26",
+      "slugs": [
+        "disaster-weather-info",
+        "liquefaction",
+        "hazard-map",
+        "natech"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅱ-1-27",
+      "slugs": [
+        "oshms",
+        "risk-assessment",
+        "occupational-safety-act",
+        "safety-management-system"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅱ-1-28",
+      "slugs": [
+        "crisis-management-manual",
+        "emergency",
+        "business-continuity-plan",
+        "crisis-priority"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅱ-1-29",
+      "slugs": [
+        "human-factors",
+        "tripod-theory",
+        "human-error-probability",
+        "safety-culture"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅱ-1-30",
+      "slugs": [
+        "consumer-safety",
+        "periodic-inspection",
+        "consumer-product-safety-act",
+        "product-safety"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅱ-1-31",
+      "slugs": [
+        "interlock",
+        "fail-safe",
+        "functional-safety",
+        "system-safety"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅱ-1-32",
+      "slugs": [
+        "prevention-activities",
+        "safety-confirmation-system",
+        "kyt",
+        "small-group-activities"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅱ-1-33",
+      "slugs": [
+        "carbon-neutral",
+        "energy",
+        "climate-change-international",
+        "carbon-pricing"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅱ-1-34",
+      "slugs": [
+        "environmental-communication",
+        "environmental-accounting",
+        "environmental-basic-plan",
+        "esg-environmental-assessment"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅱ-1-35",
+      "slugs": [
+        "eco-label",
+        "eco-action-21",
+        "circular-economy"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅱ-1-36",
+      "slugs": [
+        "prtr-act",
+        "chemical-substances-review-act",
+        "reach-regulation",
+        "gfc-chemicals-framework"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅱ-1-37",
+      "slugs": [
+        "environmental-impact-assessment",
+        "nature-conservation-act",
+        "millennium-ecosystem-assessment"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅱ-1-38",
+      "slugs": [
+        "environmental-accounting",
+        "environmental-communication",
+        "lifecycle-costing-method"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅱ-1-39",
+      "slugs": [
+        "environmental-accounting",
+        "cost-effectiveness-analysis",
+        "esg-environmental-assessment"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅱ-1-40",
+      "slugs": [
+        "lifecycle-assessment",
+        "lifecycle-management",
+        "lifecycle-costing-method"
+      ]
+    }
+  },
+  "pe-comprehensive-management-h23-primary": {
+    "1-1": {
+      "heading": "Ⅱ-1-1",
+      "slugs": [
+        "master-schedule-planning",
+        "demand-forecasting",
+        "load-leveling",
+        "capacity-management"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅱ-1-2",
+      "slugs": [
+        "cash-flow-statement",
+        "accounting-systems",
+        "balance-sheet",
+        "income-statement"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅱ-1-3",
+      "slugs": [
+        "pmbok",
+        "pert-cpm",
+        "three-point-estimation"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅱ-1-4",
+      "slugs": [
+        "preventive-maintenance",
+        "improvement-maintenance",
+        "maintenance-prevention",
+        "corrective-maintenance",
+        "bathtub-curve"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅱ-1-5",
+      "slugs": [
+        "quality-control",
+        "cause-and-effect-diagram",
+        "nonconformity-rate",
+        "quality-improvement"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅱ-1-6",
+      "slugs": [
+        "gantt-chart",
+        "process-planning-construction",
+        "work-planning",
+        "pert-cpm"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅱ-1-7",
+      "slugs": [
+        "supply-chain-management",
+        "theory-of-constraints",
+        "push-production",
+        "pull-production"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅱ-1-8",
+      "slugs": [
+        "consumer-product-safety-act",
+        "product-safety",
+        "product-liability-act"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅱ-1-9",
+      "slugs": [
+        "maslow-hierarchy-of-needs",
+        "mcgregor-xy-theory",
+        "scientific-management",
+        "herzberg-two-factor-theory",
+        "incentive"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅱ-1-10",
+      "slugs": [
+        "labor-standards-act",
+        "variable-work-hours",
+        "occupational-safety-act",
+        "labor-contract-act"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅱ-1-11",
+      "slugs": [
+        "flextime-system",
+        "discretionary-work-system",
+        "variable-work-hours",
+        "highly-professional-system",
+        "labor-standards-act"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅱ-1-12",
+      "slugs": [
+        "pension-system",
+        "employee-benefits",
+        "total-wage-management",
+        "continued-employment-system"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅱ-1-13",
+      "slugs": [
+        "career-track-system",
+        "location-limited-employee",
+        "multi-track-hr-system",
+        "specialist-system"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅱ-1-14",
+      "slugs": [
+        "work-life-balance",
+        "childcare-nursing-leave-act",
+        "health-management"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅱ-1-15",
+      "slugs": [
+        "performance-evaluation",
+        "human-resource-assessment",
+        "merit-demerit-system",
+        "mbo"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅱ-1-16",
+      "slugs": [
+        "hawthorne-experiment",
+        "formal-informal-organization",
+        "scientific-management"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅱ-1-17",
+      "slugs": [
+        "copyright",
+        "patent-rights",
+        "ip-protection",
+        "technology-licensing"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅱ-1-18",
+      "slugs": [
+        "knowledge-sharing",
+        "tacit-knowledge",
+        "explicit-knowledge",
+        "collective-intelligence",
+        "data-mining"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅱ-1-19",
+      "slugs": [
+        "industrial-property-rights",
+        "copyright",
+        "unfair-competition-prevention-act",
+        "trademark-rights",
+        "patent-rights"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅱ-1-20",
+      "slugs": [
+        "cloud-on-premises",
+        "erp",
+        "system-availability"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅱ-1-21",
+      "slugs": [
+        "internet",
+        "web-services",
+        "mobile-communication"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅱ-1-22",
+      "slugs": [
+        "unauthorized-access",
+        "password-security",
+        "access-control",
+        "security-education"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅱ-1-23",
+      "slugs": [
+        "emergency-info-systems",
+        "business-continuity-plan",
+        "fixed-communication",
+        "mobile-communication"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅱ-1-24",
+      "slugs": [
+        "risk-analysis",
+        "isms-iso27001",
+        "vulnerability",
+        "threat-awareness-training"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅱ-1-25",
+      "slugs": [
+        "risk-management-system",
+        "risk-treatment",
+        "risk-perception",
+        "risk-identification",
+        "risk-criteria"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅱ-1-26",
+      "slugs": [
+        "risk-perception",
+        "public-acceptance",
+        "stakeholder"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅱ-1-27",
+      "slugs": [
+        "crisis-management-manual",
+        "business-continuity-plan",
+        "emergency",
+        "terrorism"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅱ-1-28",
+      "slugs": [
+        "safety-and-security",
+        "risk-assessment",
+        "alarp-principle",
+        "residual-risk"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅱ-1-29",
+      "slugs": [
+        "mental-health",
+        "mental-health-care",
+        "stress-check-system",
+        "return-to-work-support"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅱ-1-30",
+      "slugs": [
+        "parallel-system",
+        "series-system",
+        "system-reliability",
+        "fault-tolerance",
+        "redundancy-safety"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅱ-1-31",
+      "slugs": [
+        "eta",
+        "fta",
+        "fmea",
+        "hazop",
+        "root-cause-analysis"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅱ-1-32",
+      "slugs": [
+        "accident-statistics",
+        "occupational-safety-act",
+        "accident-cost"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅱ-1-33",
+      "slugs": [
+        "environmental-impact-assessment",
+        "environmental-basic-plan",
+        "environmental-standards"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅱ-1-34",
+      "slugs": [
+        "energy",
+        "carbon-neutral",
+        "carbon-pricing"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅱ-1-35",
+      "slugs": [
+        "circular-society-basic-act",
+        "waste-management-act",
+        "extended-producer-responsibility",
+        "circular-economy"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅱ-1-36",
+      "slugs": [
+        "carbon-neutral",
+        "climate-change-international",
+        "unced-earth-summit",
+        "sdgs"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅱ-1-37",
+      "slugs": [
+        "eco-action-21",
+        "iso-14000",
+        "environmental-accounting",
+        "esg-investment",
+        "environmental-communication"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅱ-1-38",
+      "slugs": [
+        "lifecycle-assessment",
+        "design-for-environment",
+        "circular-economy"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅱ-1-39",
+      "slugs": [
+        "pops-convention",
+        "minamata-convention",
+        "chemical-substances-review-act"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅱ-1-40",
+      "slugs": [
+        "iso-14000",
+        "lifecycle-assessment",
+        "eco-label",
+        "environmental-communication",
+        "environmental-accounting"
+      ]
+    }
+  },
+  "pe-comprehensive-management-h24-primary": {
+    "1-1": {
+      "heading": "Ⅱ-1-1",
+      "slugs": [
+        "process-planning-construction",
+        "progress-management",
+        "master-schedule-planning",
+        "production-management-system"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅱ-1-2",
+      "slugs": [
+        "activity-abc",
+        "cost-driver",
+        "standard-costing",
+        "cost-variance-analysis"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅱ-1-3",
+      "slugs": [
+        "pdpc-method",
+        "cause-and-effect-diagram",
+        "problem-solving-ability"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅱ-1-4",
+      "slugs": [
+        "linear-programming",
+        "integer-programming",
+        "multi-objective-optimization"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅱ-1-5",
+      "slugs": [
+        "initial-investment",
+        "equipment-economics",
+        "npv-net-present-value",
+        "internal-rate-of-return",
+        "payback-period-method"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅱ-1-6",
+      "slugs": [
+        "supply-chain-management",
+        "jit-production",
+        "business-continuity-plan",
+        "resilience",
+        "scm-system"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅱ-1-7",
+      "slugs": [
+        "npv-net-present-value",
+        "discount-rate",
+        "present-annual-future-value",
+        "dcf-method",
+        "investment-recovery-plan"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅱ-1-8",
+      "slugs": [
+        "quality-assurance",
+        "customer-satisfaction",
+        "quality-control"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅱ-1-9",
+      "slugs": [
+        "mcgregor-xy-theory",
+        "intrinsic-motivation",
+        "maslow-hierarchy-of-needs",
+        "herzberg-two-factor-theory"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅱ-1-10",
+      "slugs": [
+        "employment-security-act",
+        "employment-insurance",
+        "equal-employment-act",
+        "vocational-training-act"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅱ-1-11",
+      "slugs": [
+        "variable-work-hours",
+        "labor-standards-act",
+        "childcare-nursing-leave-act",
+        "discretionary-work-system"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅱ-1-12",
+      "slugs": [
+        "qc-circle",
+        "small-group-activities",
+        "ojt-off-jt"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅱ-1-13",
+      "slugs": [
+        "functional-organization",
+        "matrix-organization",
+        "divisional-organization",
+        "network-organization"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅱ-1-14",
+      "slugs": [
+        "labor-standards-act",
+        "labor-contract-act",
+        "labor-union-act"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅱ-1-15",
+      "slugs": [
+        "labor-relations-adjustment-act",
+        "labor-tribunal-act",
+        "individual-labor-dispute-act",
+        "labor-union-act"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅱ-1-16",
+      "slugs": [
+        "labor-share-ratio",
+        "employment-statistics",
+        "seniority-wage",
+        "performance-based-pay"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅱ-1-17",
+      "slugs": [
+        "personal-info-protection",
+        "personal-information",
+        "personal-info-utilization",
+        "data-breach-response"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅱ-1-18",
+      "slugs": [
+        "internet",
+        "firewall-ids",
+        "cloud-on-premises",
+        "iot"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅱ-1-19",
+      "slugs": [
+        "private-monopoly",
+        "technology-licensing",
+        "antitrust-compliance",
+        "patent-rights",
+        "standardization-strategy"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅱ-1-20",
+      "slugs": [
+        "knowledge-sharing",
+        "cloud-on-premises",
+        "scm-system",
+        "iot"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅱ-1-21",
+      "slugs": [
+        "social-engineering",
+        "security-education",
+        "malware",
+        "isms-iso27001"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅱ-1-22",
+      "slugs": [
+        "targeted-attack",
+        "threat-awareness-training",
+        "phishing-pharming",
+        "security-education"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅱ-1-23",
+      "slugs": [
+        "business-continuity-plan",
+        "system-availability",
+        "data-leak-tampering-loss"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅱ-1-24",
+      "slugs": [
+        "encryption-digital-signature",
+        "vpn",
+        "blockchain-crypto"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅱ-1-25",
+      "slugs": [
+        "tripod-theory",
+        "human-factors",
+        "human-error-probability",
+        "sop"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅱ-1-26",
+      "slugs": [
+        "risk-treatment",
+        "risk-management-system",
+        "risk-assessment",
+        "risk-map-matrix"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅱ-1-27",
+      "slugs": [
+        "crisis-management-manual",
+        "crisis-communication",
+        "business-continuity-plan",
+        "emergency-info-systems"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅱ-1-28",
+      "slugs": [
+        "probabilistic-risk-assessment",
+        "disaster-countermeasures-act",
+        "likelihood"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅱ-1-29",
+      "slugs": [
+        "occupational-safety-act",
+        "safety-health-org-structure",
+        "safety-health-education",
+        "oshms"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅱ-1-30",
+      "slugs": [
+        "accident-statistics",
+        "occupational-accident-prevention-plan",
+        "safety-health-plan"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅱ-1-31",
+      "slugs": [
+        "heinrich-law",
+        "prevention-activities",
+        "small-group-activities",
+        "kyt",
+        "periodic-inspection"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅱ-1-32",
+      "slugs": [
+        "interlock",
+        "fault-avoidance",
+        "fault-tolerance",
+        "fool-proof",
+        "safety-confirmation-system"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅱ-1-33",
+      "slugs": [
+        "waste-management-act",
+        "radioactive-waste",
+        "extended-producer-responsibility"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅱ-1-34",
+      "slugs": [
+        "carbon-pricing",
+        "polluter-pays-principle",
+        "environmental-basic-plan",
+        "environmental-standards"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅱ-1-35",
+      "slugs": [
+        "lifecycle-assessment",
+        "design-for-environment",
+        "lifecycle-costing-method",
+        "lifecycle-management"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅱ-1-36",
+      "slugs": [
+        "csr",
+        "extended-producer-responsibility",
+        "environmental-accounting",
+        "esg-investment",
+        "sdgs"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅱ-1-37",
+      "slugs": [
+        "air-pollution-control-act",
+        "seven-types-of-pollution",
+        "pollution-control-manager"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅱ-1-38",
+      "slugs": [
+        "environmental-impact-assessment",
+        "environmental-basic-plan",
+        "nature-conservation-act"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅱ-1-39",
+      "slugs": [
+        "un-human-environment-conf",
+        "rio-declaration",
+        "climate-change-international",
+        "unced-earth-summit",
+        "sdgs"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅱ-1-40",
+      "slugs": [
+        "energy",
+        "carbon-neutral",
+        "carbon-pricing"
+      ]
+    }
+  },
+  "pe-comprehensive-management-h25-primary": {
+    "1-1": {
+      "heading": "Ⅰ-1-1",
+      "slugs": [
+        "master-schedule-planning",
+        "demand-forecasting",
+        "npv-net-present-value",
+        "dcf-method"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅰ-1-2",
+      "slugs": [
+        "quality-control",
+        "cause-and-effect-diagram",
+        "pdpc-method",
+        "quality-planning",
+        "quality-improvement"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅰ-1-3",
+      "slugs": [
+        "method-planning",
+        "five-s",
+        "work-planning",
+        "sop"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅰ-1-4",
+      "slugs": [
+        "standard-costing",
+        "direct-costing",
+        "job-order-costing",
+        "cost-variance-analysis"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅰ-1-5",
+      "slugs": [
+        "present-annual-future-value",
+        "discount-rate",
+        "investment-recovery-plan",
+        "payback-period-method",
+        "internal-rate-of-return"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅰ-1-6",
+      "slugs": [
+        "improvement-maintenance",
+        "predictive-maintenance",
+        "maintenance-prevention",
+        "preventive-maintenance",
+        "corrective-maintenance"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅰ-1-7",
+      "slugs": [
+        "pert-cpm",
+        "linear-programming",
+        "integer-programming"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅰ-1-8",
+      "slugs": [
+        "iso-14000",
+        "isms-iso27001",
+        "oshms",
+        "quality-control",
+        "quality-assurance"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅰ-1-9",
+      "slugs": [
+        "incentive",
+        "intrinsic-motivation",
+        "maslow-hierarchy-of-needs",
+        "herzberg-two-factor-theory"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅰ-1-10",
+      "slugs": [
+        "labor-standards-act",
+        "flextime-system",
+        "discretionary-work-system",
+        "variable-work-hours",
+        "labor-contract-act"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅰ-1-11",
+      "slugs": [
+        "labor-union-act",
+        "labor-relations-adjustment-act",
+        "worker-dispatch-act",
+        "labor-policy-act",
+        "individual-labor-dispute-act"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅰ-1-12",
+      "slugs": [
+        "performance-evaluation",
+        "360-degree-evaluation",
+        "appraisal-three-principles",
+        "merit-demerit-system"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅰ-1-13",
+      "slugs": [
+        "pm-theory",
+        "sl-theory",
+        "servant-leadership",
+        "mcgregor-xy-theory"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅰ-1-14",
+      "slugs": [
+        "job-design",
+        "job-analysis",
+        "job-grade-system",
+        "personnel-management"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅰ-1-15",
+      "slugs": [
+        "ojt-off-jt",
+        "hierarchical-training",
+        "training-techniques",
+        "self-development"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅰ-1-16",
+      "slugs": [
+        "pmbok",
+        "interpersonal-skills",
+        "pm-theory",
+        "communication-planning"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅰ-1-17",
+      "slugs": [
+        "patent-rights",
+        "copyright",
+        "trademark-rights",
+        "unfair-competition-prevention-act",
+        "industrial-property-rights",
+        "utility-model-rights"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅰ-1-18",
+      "slugs": [
+        "api",
+        "internet",
+        "web-services"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅰ-1-19",
+      "slugs": [
+        "copyright",
+        "ip-protection",
+        "ip-utilization"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅰ-1-20",
+      "slugs": [
+        "fixed-communication",
+        "mobile-communication",
+        "emergency-info-systems",
+        "emergency-info-processing"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅰ-1-21",
+      "slugs": [
+        "data-collection",
+        "descriptive-statistics",
+        "data-visualization"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅰ-1-22",
+      "slugs": [
+        "information-disclosure",
+        "accountability-traceability",
+        "disclosure-standards",
+        "environmental-communication"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅰ-1-23",
+      "slugs": [
+        "data-leak-tampering-loss",
+        "data-breach-response",
+        "personal-info-protection",
+        "crisis-communication"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅰ-1-24",
+      "slugs": [
+        "dos-ddos",
+        "targeted-attack",
+        "malware",
+        "unauthorized-access",
+        "vulnerability"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅰ-1-25",
+      "slugs": [
+        "crisis-management-manual",
+        "business-continuity-plan",
+        "emergency",
+        "contingency"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅰ-1-26",
+      "slugs": [
+        "crisis-communication",
+        "communication-control",
+        "stakeholder",
+        "public-acceptance"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅰ-1-27",
+      "slugs": [
+        "fta",
+        "parallel-system",
+        "probabilistic-risk-assessment",
+        "reliability-block-diagram",
+        "series-system"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅰ-1-28",
+      "slugs": [
+        "disaster-weather-info",
+        "alert-levels",
+        "disaster-countermeasures-act",
+        "extreme-events"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅰ-1-29",
+      "slugs": [
+        "oshms",
+        "osh-management-system",
+        "safety-health-policy",
+        "hazard"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅰ-1-30",
+      "slugs": [
+        "mental-health-care",
+        "mental-health",
+        "stress-check-system",
+        "return-to-work-support"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅰ-1-31",
+      "slugs": [
+        "periodic-inspection",
+        "safety-patrol",
+        "sop",
+        "safety-education"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅰ-1-32",
+      "slugs": [
+        "fail-safe",
+        "fault-tolerance",
+        "fool-proof",
+        "redundancy-safety"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅰ-1-33",
+      "slugs": [
+        "environmental-impact-assessment",
+        "environmental-standards",
+        "environmental-basic-plan",
+        "performance-regulation"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅰ-1-34",
+      "slugs": [
+        "circular-society-basic-act",
+        "waste-management-act",
+        "extended-producer-responsibility",
+        "circular-economy"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅰ-1-35",
+      "slugs": [
+        "satoyama-initiative",
+        "convention-on-biodiversity",
+        "basel-convention",
+        "ecosystem-services",
+        "nagoya-protocol"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅰ-1-36",
+      "slugs": [
+        "eco-action-21",
+        "carbon-pricing",
+        "iso-14000",
+        "csr"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅰ-1-37",
+      "slugs": [
+        "environmental-standards",
+        "seven-types-of-pollution",
+        "air-pollution-control-act",
+        "water-pollution-control-act"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅰ-1-38",
+      "slugs": [
+        "environmental-impact-assessment",
+        "environmental-basic-plan",
+        "citizen-participation"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅰ-1-39",
+      "slugs": [
+        "energy",
+        "carbon-pricing",
+        "carbon-neutral"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅰ-1-40",
+      "slugs": [
+        "prtr-act",
+        "information-disclosure-act",
+        "chemical-substances-review-act",
+        "pops-convention"
+      ]
+    }
+  },
+  "pe-comprehensive-management-h26-primary": {
+    "1-1": {
+      "heading": "Ⅰ-1-1",
+      "slugs": [
+        "analytic-hierarchy-process",
+        "delphi-method",
+        "pdpc-method",
+        "cause-and-effect-diagram",
+        "problem-solving-ability"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅰ-1-2",
+      "slugs": [
+        "target-cost",
+        "cost-maintenance",
+        "standard-costing"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅰ-1-3",
+      "slugs": [
+        "present-annual-future-value",
+        "discount-rate",
+        "dcf-method",
+        "npv-net-present-value"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅰ-1-4",
+      "slugs": [
+        "pert-cpm",
+        "gantt-chart",
+        "process-planning-construction"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅰ-1-5",
+      "slugs": [
+        "master-schedule-planning",
+        "demand-forecasting",
+        "load-leveling"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅰ-1-6",
+      "slugs": [
+        "product-safety",
+        "product-liability",
+        "design-quality"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅰ-1-7",
+      "slugs": [
+        "progress-management",
+        "capacity-management",
+        "inventory-control"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅰ-1-8",
+      "slugs": [
+        "preventive-maintenance",
+        "overall-equipment-effectiveness",
+        "periodic-maintenance",
+        "maintenance-prevention"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅰ-1-9",
+      "slugs": [
+        "labor-union-act",
+        "labor-relations-adjustment-act",
+        "labor-contract-act"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅰ-1-10",
+      "slugs": [
+        "job-design",
+        "intrinsic-motivation",
+        "herzberg-two-factor-theory"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅰ-1-11",
+      "slugs": [
+        "hr-systems",
+        "training-techniques",
+        "hierarchical-training"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅰ-1-12",
+      "slugs": [
+        "qc-circle",
+        "quality-control",
+        "small-group-activities",
+        "quality-improvement"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅰ-1-13",
+      "slugs": [
+        "functional-organization",
+        "divisional-organization",
+        "matrix-organization",
+        "formal-informal-organization"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅰ-1-14",
+      "slugs": [
+        "sl-theory",
+        "pm-theory",
+        "servant-leadership",
+        "followership"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅰ-1-15",
+      "slugs": [
+        "labor-standards-act",
+        "labor-contract-act",
+        "workers-compensation-insurance"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅰ-1-16",
+      "slugs": [
+        "equal-employment-act",
+        "gender-equality-act",
+        "positive-action",
+        "women-empowerment-act"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅰ-1-17",
+      "slugs": [
+        "personal-info-protection",
+        "personal-information",
+        "anonymized-information"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅰ-1-18",
+      "slugs": [
+        "patent-rights",
+        "copyright",
+        "industrial-property-rights",
+        "prior-use-rights"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅰ-1-19",
+      "slugs": [
+        "knowledge-sharing",
+        "tacit-knowledge",
+        "explicit-knowledge"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅰ-1-20",
+      "slugs": [
+        "isms-iso27001",
+        "encryption-digital-signature",
+        "authenticity"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅰ-1-21",
+      "slugs": [
+        "targeted-attack",
+        "cyber-security",
+        "malware",
+        "security-education"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅰ-1-22",
+      "slugs": [
+        "isms-iso27001",
+        "confidentiality",
+        "integrity-security",
+        "system-availability"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅰ-1-23",
+      "slugs": [
+        "business-continuity-plan",
+        "crisis-management-manual",
+        "emergency",
+        "emergency-info-processing"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅰ-1-24",
+      "slugs": [
+        "cyber-security",
+        "targeted-attack",
+        "malware",
+        "security-software"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅰ-1-25",
+      "slugs": [
+        "occupational-safety-act",
+        "safety-health-org-structure",
+        "safety-health-education"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅰ-1-26",
+      "slugs": [
+        "safety-confirmation-system",
+        "interlock",
+        "fail-safe",
+        "inherent-safety",
+        "functional-safety"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅰ-1-27",
+      "slugs": [
+        "accident-statistics",
+        "occupational-safety-act",
+        "labor-standards-act"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅰ-1-28",
+      "slugs": [
+        "fault-tolerance",
+        "fail-soft",
+        "fault-avoidance",
+        "redundancy-safety",
+        "reliability-block-diagram"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅰ-1-29",
+      "slugs": [
+        "risk-perception",
+        "public-acceptance",
+        "crisis-communication"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅰ-1-30",
+      "slugs": [
+        "crisis-management-manual",
+        "business-continuity-plan",
+        "risk-management-plan",
+        "emergency"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅰ-1-31",
+      "slugs": [
+        "fta",
+        "fmea",
+        "eta",
+        "hazop",
+        "therp"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅰ-1-32",
+      "slugs": [
+        "eta",
+        "fta",
+        "probabilistic-risk-assessment",
+        "bowtie-analysis"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅰ-1-33",
+      "slugs": [
+        "circular-society-basic-act",
+        "waste-management-act",
+        "circular-economy",
+        "extended-producer-responsibility"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅰ-1-34",
+      "slugs": [
+        "lifecycle-assessment",
+        "iso-14000",
+        "design-for-environment",
+        "environmental-accounting"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅰ-1-35",
+      "slugs": [
+        "extended-producer-responsibility",
+        "polluter-pays-principle",
+        "prtr-act",
+        "sri",
+        "esg-investment"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅰ-1-36",
+      "slugs": [
+        "radioactive-decontamination-act",
+        "nuclear-disaster-act",
+        "radioactive-waste"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅰ-1-37",
+      "slugs": [
+        "environmental-standards",
+        "environmental-basic-plan",
+        "dioxin-countermeasures-act"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅰ-1-38",
+      "slugs": [
+        "environmental-impact-assessment",
+        "environmental-basic-plan"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅰ-1-39",
+      "slugs": [
+        "environmental-impact-assessment",
+        "carbon-pricing"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅰ-1-40",
+      "slugs": [
+        "carbon-neutral",
+        "carbon-pricing",
+        "energy"
+      ]
+    }
+  },
+  "pe-comprehensive-management-h27-primary": {
+    "1-1": {
+      "heading": "Ⅰ-1-1",
+      "slugs": [
+        "pmbok",
+        "pdpc-method",
+        "pert-cpm"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅰ-1-2",
+      "slugs": [
+        "load-capacity",
+        "utilization-rate",
+        "work-planning",
+        "load-leveling"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅰ-1-3",
+      "slugs": [
+        "pfi",
+        "lifecycle-management",
+        "investment-recovery-plan"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅰ-1-4",
+      "slugs": [
+        "quality-control",
+        "quality-policy",
+        "pdca-cycle"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅰ-1-5",
+      "slugs": [
+        "product-liability-act",
+        "product-safety",
+        "product-liability"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅰ-1-6",
+      "slugs": [
+        "five-s",
+        "quality-control",
+        "visual-management",
+        "small-group-activities"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅰ-1-7",
+      "slugs": [
+        "standard-costing",
+        "direct-costing",
+        "job-order-costing",
+        "process-costing"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅰ-1-8",
+      "slugs": [
+        "erp",
+        "scm-system",
+        "lead-time"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅰ-1-9",
+      "slugs": [
+        "maslow-hierarchy-of-needs",
+        "mcgregor-xy-theory",
+        "incentive",
+        "scientific-management"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅰ-1-10",
+      "slugs": [
+        "elderly-employment-act",
+        "continued-employment-system",
+        "reemployment-system",
+        "mandatory-management-retirement"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅰ-1-11",
+      "slugs": [
+        "performance-evaluation",
+        "360-degree-evaluation",
+        "mbo"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅰ-1-12",
+      "slugs": [
+        "labor-share-ratio",
+        "labor-productivity",
+        "total-wage-management",
+        "individual-wage-management"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅰ-1-13",
+      "slugs": [
+        "labor-standards-act",
+        "childcare-nursing-leave-act",
+        "flextime-system",
+        "variable-work-hours"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅰ-1-14",
+      "slugs": [
+        "formal-informal-organization",
+        "hawthorne-experiment",
+        "organizational-commitment",
+        "psychological-safety"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅰ-1-15",
+      "slugs": [
+        "ojt-off-jt",
+        "hierarchical-training",
+        "problem-solving-ability",
+        "job-execution-ability"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅰ-1-16",
+      "slugs": [
+        "labor-union-act",
+        "labor-relations-adjustment-act",
+        "labor-contract-act",
+        "individual-labor-dispute-act"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅰ-1-17",
+      "slugs": [
+        "lifecycle-costing-method",
+        "initial-investment",
+        "maintenance-cost",
+        "system-availability"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅰ-1-18",
+      "slugs": [
+        "patent-rights",
+        "utility-model-rights",
+        "design-rights"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅰ-1-19",
+      "slugs": [
+        "opt-in-opt-out",
+        "personal-info-protection",
+        "personal-info-utilization"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅰ-1-20",
+      "slugs": [
+        "encryption-digital-signature",
+        "web-services",
+        "confidentiality",
+        "vpn"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅰ-1-21",
+      "slugs": [
+        "data-mining",
+        "my-number-act",
+        "iot"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅰ-1-22",
+      "slugs": [
+        "social-engineering",
+        "malware",
+        "security-education"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅰ-1-23",
+      "slugs": [
+        "emergency-info-processing",
+        "emergency",
+        "emergency-info-systems"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅰ-1-24",
+      "slugs": [
+        "password-security",
+        "multi-factor-authentication",
+        "access-control",
+        "security-education"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅰ-1-25",
+      "slugs": [
+        "risk-map-matrix",
+        "risk-treatment",
+        "risk-assessment",
+        "risk-criteria"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅰ-1-26",
+      "slugs": [
+        "business-continuity-plan",
+        "supply-chain-management",
+        "resilience"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅰ-1-27",
+      "slugs": [
+        "occupational-safety-act",
+        "labor-contract-act",
+        "safety-health-education",
+        "safety-health-org-structure"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅰ-1-28",
+      "slugs": [
+        "parallel-system",
+        "system-reliability",
+        "series-system",
+        "reliability-block-diagram"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅰ-1-29",
+      "slugs": [
+        "crisis-management-manual",
+        "disaster-drill",
+        "emergency",
+        "crisis-communication"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅰ-1-30",
+      "slugs": [
+        "fail-safe",
+        "fool-proof",
+        "interlock"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅰ-1-31",
+      "slugs": [
+        "mental-health-care",
+        "mental-health",
+        "return-to-work-support"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅰ-1-32",
+      "slugs": [
+        "crisis-communication",
+        "risk-perception",
+        "public-acceptance",
+        "public-relations"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅰ-1-33",
+      "slugs": [
+        "environmental-impact-assessment",
+        "circular-society-basic-act",
+        "carbon-neutral"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅰ-1-34",
+      "slugs": [
+        "extended-producer-responsibility",
+        "deposit-system",
+        "circular-society-basic-act"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅰ-1-35",
+      "slugs": [
+        "iso-14000",
+        "lifecycle-assessment",
+        "eco-label"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅰ-1-36",
+      "slugs": [
+        "environmental-standards",
+        "seven-types-of-pollution",
+        "air-pollution-control-act",
+        "soil-contamination-act"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅰ-1-37",
+      "slugs": [
+        "circular-society-basic-act",
+        "extended-producer-responsibility",
+        "waste-management-act",
+        "circular-economy"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅰ-1-38",
+      "slugs": [
+        "carbon-neutral",
+        "climate-change-international"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅰ-1-39",
+      "slugs": [
+        "environmental-impact-assessment",
+        "environmental-basic-plan",
+        "citizen-participation"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅰ-1-40",
+      "slugs": [
+        "environmental-accounting",
+        "cost-effectiveness-analysis",
+        "carbon-pricing",
+        "eco-label"
+      ]
+    }
+  },
+  "pe-comprehensive-management-h28-primary": {
+    "1-1": {
+      "heading": "Ⅰ-1-1",
+      "slugs": [
+        "delphi-method",
+        "analytic-hierarchy-process",
+        "cause-and-effect-diagram",
+        "problem-solving-ability"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅰ-1-2",
+      "slugs": [
+        "push-production",
+        "pull-production",
+        "theory-of-constraints",
+        "supply-chain-management",
+        "jit-production",
+        "inventory-control"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅰ-1-3",
+      "slugs": [
+        "present-annual-future-value",
+        "discount-rate",
+        "payback-period-method",
+        "investment-recovery-plan"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅰ-1-4",
+      "slugs": [
+        "multi-objective-optimization",
+        "integer-programming",
+        "linear-programming",
+        "decision-tree-analysis"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅰ-1-5",
+      "slugs": [
+        "pert-cpm",
+        "process-planning-construction",
+        "master-schedule-planning"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅰ-1-6",
+      "slugs": [
+        "quality-control",
+        "quality-assurance",
+        "quality-improvement",
+        "quality-planning",
+        "quality-policy"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅰ-1-7",
+      "slugs": [
+        "accounting-systems",
+        "balance-sheet",
+        "income-statement"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅰ-1-8",
+      "slugs": [
+        "activity-abc",
+        "cost-driver",
+        "indirect-manufacturing-cost"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅰ-1-9",
+      "slugs": [
+        "maslow-hierarchy-of-needs",
+        "mcgregor-xy-theory",
+        "incentive",
+        "herzberg-two-factor-theory",
+        "intrinsic-motivation"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅰ-1-10",
+      "slugs": [
+        "labor-productivity",
+        "employment-statistics",
+        "work-life-balance"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅰ-1-11",
+      "slugs": [
+        "labor-standards-act",
+        "variable-work-hours",
+        "discretionary-work-system"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅰ-1-12",
+      "slugs": [
+        "pm-theory",
+        "servant-leadership"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅰ-1-13",
+      "slugs": [
+        "equal-employment-act",
+        "positive-action",
+        "women-empowerment-act",
+        "equal-pay-for-equal-work"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅰ-1-14",
+      "slugs": [
+        "membership-type-employment",
+        "job-type-employment",
+        "job-design",
+        "personnel-management"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅰ-1-15",
+      "slugs": [
+        "recruitment-management",
+        "worker-dispatch-act",
+        "internal-job-posting",
+        "multi-track-hr-system"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅰ-1-16",
+      "slugs": [
+        "performance-evaluation",
+        "mbo",
+        "appraisal-three-principles",
+        "halo-effect-errors"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅰ-1-17",
+      "slugs": [
+        "cyber-security",
+        "cybersecurity-safety",
+        "ismap"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅰ-1-18",
+      "slugs": [
+        "iot",
+        "digital-twin-cps"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅰ-1-19",
+      "slugs": [
+        "patent-rights",
+        "trademark-rights",
+        "utility-model-rights",
+        "copyright",
+        "ip-protection"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅰ-1-20",
+      "slugs": [
+        "encryption-digital-signature",
+        "access-control",
+        "multi-factor-authentication",
+        "password-security",
+        "vulnerability"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅰ-1-21",
+      "slugs": [
+        "my-number-act",
+        "personal-information",
+        "personal-info-protection"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅰ-1-22",
+      "slugs": [
+        "information-disclosure",
+        "accountability-traceability",
+        "disclosure-standards",
+        "information-disclosure-act"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅰ-1-23",
+      "slugs": [
+        "tacit-knowledge",
+        "explicit-knowledge",
+        "knowledge-sharing",
+        "qc-circle"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅰ-1-24",
+      "slugs": [
+        "iot",
+        "internet",
+        "scm-system"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅰ-1-25",
+      "slugs": [
+        "prevention-activities",
+        "small-group-activities",
+        "kyt",
+        "safety-patrol"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅰ-1-26",
+      "slugs": [
+        "product-liability-act",
+        "consumer-safety",
+        "consumer-product-safety-act",
+        "product-safety"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅰ-1-27",
+      "slugs": [
+        "occupational-safety-act",
+        "safety-health-education",
+        "oshms"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅰ-1-28",
+      "slugs": [
+        "crisis-management-manual",
+        "safety-and-security",
+        "crisis-communication",
+        "business-continuity-plan"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅰ-1-29",
+      "slugs": [
+        "risk",
+        "risk-analysis",
+        "risk-map-matrix",
+        "probabilistic-risk-assessment"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅰ-1-30",
+      "slugs": [
+        "pfi",
+        "risk-treatment",
+        "risk-identification",
+        "residual-risk"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅰ-1-31",
+      "slugs": [
+        "antitrust-compliance",
+        "csr"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅰ-1-32",
+      "slugs": [
+        "power-harassment",
+        "mental-health",
+        "sexual-harassment",
+        "stress-check-system"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅰ-1-33",
+      "slugs": [
+        "environmental-standards",
+        "air-pollution-control-act",
+        "water-pollution-control-act",
+        "seven-types-of-pollution"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅰ-1-34",
+      "slugs": [
+        "extended-producer-responsibility",
+        "polluter-pays-principle",
+        "prtr-act",
+        "eco-label"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅰ-1-35",
+      "slugs": [
+        "radioactive-waste",
+        "radioactive-decontamination-act",
+        "waste-management-act"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅰ-1-36",
+      "slugs": [
+        "energy",
+        "carbon-neutral",
+        "carbon-pricing"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅰ-1-37",
+      "slugs": [
+        "environmental-impact-assessment",
+        "esg-environmental-assessment",
+        "environmental-basic-plan"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅰ-1-38",
+      "slugs": [
+        "lifecycle-assessment",
+        "lifecycle-management",
+        "design-for-environment"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅰ-1-39",
+      "slugs": [
+        "environmental-accounting",
+        "eco-action-21",
+        "iso-14000",
+        "environmental-communication"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅰ-1-40",
+      "slugs": [
+        "environmental-impact-assessment",
+        "convention-on-biodiversity",
+        "nature-conservation-act"
+      ]
+    }
+  },
+  "pe-comprehensive-management-h29-primary": {
+    "1-1": {
+      "heading": "Ⅰ-1-1",
+      "slugs": [
+        "quality-control",
+        "control-limits",
+        "quality-improvement",
+        "qc-circle"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅰ-1-2",
+      "slugs": [
+        "income-statement",
+        "balance-sheet",
+        "cash-flow-statement",
+        "accounting-systems"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅰ-1-3",
+      "slugs": [
+        "break-even-point",
+        "linear-programming",
+        "ifrs"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅰ-1-4",
+      "slugs": [
+        "preventive-maintenance",
+        "predictive-maintenance",
+        "periodic-maintenance",
+        "corrective-maintenance",
+        "reliability-maintainability-design"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅰ-1-5",
+      "slugs": [
+        "parallel-system",
+        "series-system",
+        "equipment-reliability",
+        "reliability-block-diagram",
+        "redundancy-safety"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅰ-1-6",
+      "slugs": [
+        "push-production",
+        "pull-production",
+        "jit-production",
+        "supply-chain-management",
+        "load-capacity"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅰ-1-7",
+      "slugs": [
+        "pert-cpm",
+        "three-point-estimation",
+        "master-schedule-planning",
+        "process-planning-construction"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅰ-1-8",
+      "slugs": [
+        "multi-objective-optimization",
+        "linear-programming",
+        "integer-programming"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅰ-1-9",
+      "slugs": [
+        "labor-union-act",
+        "labor-relations-adjustment-act",
+        "individual-labor-dispute-act"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅰ-1-10",
+      "slugs": [
+        "stress-check-system",
+        "labor-contract-act",
+        "women-empowerment-act",
+        "worker-dispatch-act",
+        "part-time-fixed-term-act"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅰ-1-11",
+      "slugs": [
+        "functional-organization",
+        "matrix-organization",
+        "divisional-organization",
+        "network-organization",
+        "pyramid-organization",
+        "flat-organization"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅰ-1-12",
+      "slugs": [
+        "ojt-off-jt",
+        "self-development",
+        "mentor",
+        "e-learning",
+        "hierarchical-training",
+        "task-based-training"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅰ-1-13",
+      "slugs": [
+        "job-grade-system",
+        "role-grade-system",
+        "skill-qualification-system",
+        "seniority-wage",
+        "performance-based-pay"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅰ-1-14",
+      "slugs": [
+        "employment-statistics",
+        "part-time-fixed-term-act",
+        "labor-mobility"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅰ-1-15",
+      "slugs": [
+        "minimum-wage-act",
+        "individual-wage-management",
+        "equal-pay-for-equal-work"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅰ-1-16",
+      "slugs": [
+        "performance-evaluation",
+        "competency-evaluation",
+        "mbo",
+        "appraisal-three-principles",
+        "competency-hr"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅰ-1-17",
+      "slugs": [
+        "machine-learning",
+        "generative-ai",
+        "iot"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅰ-1-18",
+      "slugs": [
+        "safety-control",
+        "public-safety",
+        "product-safety"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅰ-1-19",
+      "slugs": [
+        "personal-info-protection",
+        "personal-information",
+        "anonymized-information",
+        "privacy-mark"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅰ-1-20",
+      "slugs": [
+        "iot",
+        "blockchain-crypto",
+        "digital-twin-cps",
+        "internet"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅰ-1-21",
+      "slugs": [
+        "targeted-attack",
+        "cyber-security",
+        "malware",
+        "phishing-pharming"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅰ-1-22",
+      "slugs": [
+        "confidentiality",
+        "integrity-security",
+        "system-availability",
+        "security-education",
+        "encryption-digital-signature"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅰ-1-23",
+      "slugs": [
+        "cloud-on-premises",
+        "edge-computing",
+        "internet"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅰ-1-24",
+      "slugs": [
+        "patent-rights",
+        "trademark-rights",
+        "utility-model-rights",
+        "ip-protection",
+        "ip-utilization"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅰ-1-25",
+      "slugs": [
+        "risk-assessment",
+        "chemical-substances-review-act",
+        "prtr-act",
+        "occupational-safety-act"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅰ-1-26",
+      "slugs": [
+        "risk-communication",
+        "risk-perception",
+        "stakeholder",
+        "citizen-participation"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅰ-1-27",
+      "slugs": [
+        "business-continuity-plan",
+        "disaster-countermeasures-act",
+        "natech"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅰ-1-28",
+      "slugs": [
+        "labor-standards-act",
+        "occupational-safety-act",
+        "stress-check-system",
+        "variable-work-hours"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅰ-1-29",
+      "slugs": [
+        "risk-analysis",
+        "probabilistic-risk-assessment",
+        "risk-assessment"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅰ-1-30",
+      "slugs": [
+        "disaster-countermeasures-act",
+        "disaster-prevention",
+        "alert-levels",
+        "disaster-weather-info"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅰ-1-31",
+      "slugs": [
+        "consumer-safety",
+        "consumer-product-safety-act",
+        "product-liability-act"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅰ-1-32",
+      "slugs": [
+        "accident-statistics",
+        "occupational-accident-prevention-plan",
+        "accident-cost"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅰ-1-33",
+      "slugs": [
+        "extended-producer-responsibility",
+        "polluter-pays-principle",
+        "prtr-act",
+        "iso-14000",
+        "design-for-environment",
+        "environmental-accounting"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅰ-1-34",
+      "slugs": [
+        "circular-society-basic-act",
+        "waste-management-act",
+        "extended-producer-responsibility",
+        "regional-circular-symbiosis"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅰ-1-35",
+      "slugs": [
+        "cost-effectiveness-analysis",
+        "environmental-impact-assessment",
+        "environmental-accounting"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅰ-1-36",
+      "slugs": [
+        "climate-change-international",
+        "carbon-pricing",
+        "carbon-neutral"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅰ-1-37",
+      "slugs": [
+        "citizen-participation",
+        "partnership"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅰ-1-38",
+      "slugs": [
+        "interim-storage-facility",
+        "radioactive-decontamination-act",
+        "radioactive-waste",
+        "nuclear-disaster-act"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅰ-1-39",
+      "slugs": [
+        "environmental-impact-assessment",
+        "citizen-participation",
+        "lifecycle-assessment"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅰ-1-40",
+      "slugs": [
+        "lifecycle-assessment",
+        "design-for-environment",
+        "end-of-pipe",
+        "lifecycle-management",
+        "lifecycle-costing-method"
+      ]
+    }
+  },
+  "pe-comprehensive-management-h30-primary": {
+    "1-1": {
+      "heading": "Ⅰ-1-1",
+      "slugs": [
+        "quality-control",
+        "five-s",
+        "process-capability-index",
+        "quality-assurance",
+        "quality-improvement"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅰ-1-2",
+      "slugs": [
+        "activity-abc",
+        "cost-driver",
+        "indirect-manufacturing-cost",
+        "direct-costing"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅰ-1-3",
+      "slugs": [
+        "npv-net-present-value",
+        "discount-rate",
+        "dcf-method",
+        "investment-recovery-plan"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅰ-1-4",
+      "slugs": [
+        "pert-cpm",
+        "process-planning-construction",
+        "master-schedule-planning",
+        "gantt-chart"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅰ-1-5",
+      "slugs": [
+        "supply-chain-management",
+        "theory-of-constraints",
+        "scm-system"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅰ-1-6",
+      "slugs": [
+        "market-research",
+        "crm-system"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅰ-1-7",
+      "slugs": [
+        "capacity-management",
+        "utilization-rate",
+        "load-capacity",
+        "labor-productivity"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅰ-1-8",
+      "slugs": [
+        "income-statement",
+        "balance-sheet",
+        "cash-flow-statement",
+        "accounting-systems"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅰ-1-9",
+      "slugs": [
+        "childcare-nursing-leave-act",
+        "work-life-balance"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅰ-1-10",
+      "slugs": [
+        "job-type-employment",
+        "membership-type-employment",
+        "job-design",
+        "job-rotation"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅰ-1-11",
+      "slugs": [
+        "ojt-off-jt",
+        "self-development",
+        "hierarchical-training",
+        "specialized-training"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅰ-1-12",
+      "slugs": [
+        "work-life-balance",
+        "equal-employment-act",
+        "positive-action",
+        "women-empowerment-act",
+        "childcare-nursing-leave-act"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅰ-1-13",
+      "slugs": [
+        "sl-theory",
+        "servant-leadership"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅰ-1-14",
+      "slugs": [
+        "disability-employment-act",
+        "employment-statistics",
+        "labor-mobility",
+        "reemployment-system"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅰ-1-15",
+      "slugs": [
+        "performance-evaluation",
+        "relative-absolute-evaluation",
+        "evaluation-bias",
+        "mbo",
+        "performance-based-pay"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅰ-1-16",
+      "slugs": [
+        "labor-standards-act",
+        "flextime-system",
+        "variable-work-hours"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅰ-1-17",
+      "slugs": [
+        "workers-compensation-insurance",
+        "business-continuity-plan",
+        "cyber-security"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅰ-1-18",
+      "slugs": [
+        "blockchain-crypto",
+        "encryption-digital-signature"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅰ-1-19",
+      "slugs": [
+        "patent-rights",
+        "international-filing-system",
+        "industrial-property-rights"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅰ-1-20",
+      "slugs": [
+        "digital-twin-cps"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅰ-1-21",
+      "slugs": [
+        "malware",
+        "dos-ddos",
+        "targeted-attack",
+        "phishing-pharming",
+        "cyber-security"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅰ-1-22",
+      "slugs": [
+        "personal-info-protection",
+        "anonymized-information",
+        "personal-information",
+        "privacy-mark"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅰ-1-23",
+      "slugs": [
+        "iot",
+        "machine-learning"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅰ-1-24",
+      "slugs": [
+        "iot",
+        "mobile-communication"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅰ-1-25",
+      "slugs": [
+        "risk",
+        "risk-management-system",
+        "risk-treatment",
+        "risk-assessment",
+        "risk-analysis"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅰ-1-26",
+      "slugs": [
+        "safety-control",
+        "process-safety-mgmt",
+        "safety-management-system"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅰ-1-27",
+      "slugs": [
+        "fire-service-act",
+        "disaster-prevention",
+        "hazardous-facility-disaster-prevention"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅰ-1-28",
+      "slugs": [
+        "safety-health-education",
+        "occupational-safety-act",
+        "oshms"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅰ-1-29",
+      "slugs": [
+        "accident-statistics",
+        "accident-cost",
+        "occupational-accident-prevention-plan"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅰ-1-30",
+      "slugs": [
+        "product-liability-act",
+        "antitrust-compliance",
+        "bid-rigging"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅰ-1-31",
+      "slugs": [
+        "safety-control",
+        "system-safety",
+        "iot"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅰ-1-32",
+      "slugs": [
+        "disaster-weather-info",
+        "disaster-prevention",
+        "disaster-countermeasures-act",
+        "timeline-disaster"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅰ-1-33",
+      "slugs": [
+        "cites",
+        "convention-on-biodiversity",
+        "ramsar-convention",
+        "biodiversity-basic-act"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅰ-1-34",
+      "slugs": [
+        "environmental-standards",
+        "water-pollution-control-act",
+        "air-pollution-control-act"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅰ-1-35",
+      "slugs": [
+        "precautionary-principle",
+        "environmental-basic-plan",
+        "extended-producer-responsibility"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅰ-1-36",
+      "slugs": [
+        "cost-effectiveness-analysis",
+        "survey-analysis"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅰ-1-37",
+      "slugs": [
+        "invasive-alien-species",
+        "species-preservation-act"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅰ-1-38",
+      "slugs": [
+        "environmental-impact-assessment"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅰ-1-39",
+      "slugs": [
+        "air-pollution-control-act",
+        "environmental-standards",
+        "seven-types-of-pollution"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅰ-1-40",
+      "slugs": [
+        "heat-island-effect",
+        "health-management",
+        "safety-health-education",
+        "mental-health-care"
+      ]
+    }
+  },
+  "pe-comprehensive-management-r01-primary": {
+    "1-1": {
+      "heading": "Ⅰ-1-1",
+      "slugs": [
+        "pqcdsme"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅰ-1-2",
+      "slugs": [
+        "front-loading",
+        "concurrent-engineering",
+        "design-review"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅰ-1-3",
+      "slugs": [
+        "linear-programming"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅰ-1-4",
+      "slugs": [
+        "demand-forecasting"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅰ-1-5",
+      "slugs": [
+        "present-annual-future-value",
+        "dcf-method"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅰ-1-6",
+      "slugs": [
+        "activity-abc",
+        "target-cost"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅰ-1-7",
+      "slugs": [
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅰ-1-8",
+      "slugs": [
+        "bathtub-curve"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅰ-1-9",
+      "slugs": [
+        "worker-dispatch-act",
+        "indefinite-conversion-rule"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅰ-1-10",
+      "slugs": [
+        "labor-standards-act",
+        "labor-policy-act"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅰ-1-11",
+      "slugs": [
+        "labor-union-act",
+        "labor-relations-adjustment-act"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅰ-1-12",
+      "slugs": [
+        "power-harassment",
+        "labor-policy-act"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅰ-1-13",
+      "slugs": [
+        "halo-effect-errors",
+        "360-degree-evaluation"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅰ-1-14",
+      "slugs": [
+        "mcgregor-xy-theory",
+        "maslow-hierarchy-of-needs",
+        "herzberg-two-factor-theory"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅰ-1-15",
+      "slugs": [
+        "training-techniques"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅰ-1-16",
+      "slugs": [
+        "diagnostic-od",
+        "dialogic-od",
+        "content-process"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅰ-1-17",
+      "slugs": [
+        "trademark-rights"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅰ-1-18",
+      "slugs": [
+        "descriptive-statistics"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅰ-1-19",
+      "slugs": [
+        "de-facto-standard",
+        "forum-standard",
+        "de-jure-standard"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅰ-1-20",
+      "slugs": [
+        "multi-factor-authentication",
+        "access-control"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅰ-1-21",
+      "slugs": [
+        "three-c-analysis",
+        "swot-analysis",
+        "ppm-analysis"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅰ-1-22",
+      "slugs": [
+        "groupware",
+        "online-meetings"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅰ-1-23",
+      "slugs": [
+        "targeted-attack",
+        "malware",
+        "encryption-digital-signature"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅰ-1-24",
+      "slugs": [
+        "iot",
+        "rpa"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅰ-1-25",
+      "slugs": [
+        "stress-check-system",
+        "occupational-safety-act"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅰ-1-26",
+      "slugs": [
+        "disaster-countermeasures-act",
+        "civil-protection-act",
+        "nuclear-disaster-act"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅰ-1-27",
+      "slugs": [
+        "disaster-prevention",
+        "hazard-map"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅰ-1-28",
+      "slugs": [
+        "occupational-safety-act",
+        "safety-education"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅰ-1-29",
+      "slugs": [
+        "fault-tolerance",
+        "fail-safe",
+        "fool-proof"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅰ-1-30",
+      "slugs": [
+        "risk-management-system",
+        "risk-analysis",
+        "risk-assessment"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅰ-1-31",
+      "slugs": [
+        "four-m-analysis",
+        "four-e-countermeasures",
+        "alarp-principle"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅰ-1-32",
+      "slugs": [
+        "fta"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅰ-1-33",
+      "slugs": [
+        "sdgs"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅰ-1-34",
+      "slugs": [
+        "energy",
+        "carbon-neutral"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅰ-1-35",
+      "slugs": [
+        "circular-society-basic-act",
+        "circular-economy"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅰ-1-36",
+      "slugs": [
+        "radioactive-decontamination-act",
+        "radioactive-waste"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅰ-1-37",
+      "slugs": [
+        "subsidiarity-principle",
+        "prevention-principle",
+        "precautionary-principle"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅰ-1-38",
+      "slugs": [
+        "environmental-impact-assessment"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅰ-1-39",
+      "slugs": [
+        "sri",
+        "environmental-accounting",
+        "iso-14000"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅰ-1-40",
+      "slugs": [
+        "air-pollution-control-act",
+        "environmental-standards"
+      ]
+    }
+  },
+  "pe-comprehensive-management-r02-primary": {
+    "1-1": {
+      "heading": "Ⅰ-1-1",
+      "slugs": [
+        "quality-control",
+        "process-capability-index",
+        "quality-improvement",
+        "quality-characteristics"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅰ-1-2",
+      "slugs": [
+        "npv-net-present-value",
+        "discount-rate",
+        "dcf-method",
+        "present-annual-future-value",
+        "economic-comparison-principle"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅰ-1-3",
+      "slugs": [
+        "pmbok",
+        "pert-cpm",
+        "gantt-chart",
+        "three-point-estimation",
+        "parametric-estimation"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅰ-1-4",
+      "slugs": [
+        "game-theory",
+        "delphi-method",
+        "analytic-hierarchy-process",
+        "linear-programming",
+        "multi-objective-optimization"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅰ-1-5",
+      "slugs": [
+        "supply-chain-management",
+        "business-continuity-plan",
+        "lead-time",
+        "resilience",
+        "risk-treatment"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅰ-1-6",
+      "slugs": [
+        "standard-costing",
+        "cost-variance-analysis",
+        "direct-costing",
+        "direct-manufacturing-cost"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅰ-1-7",
+      "slugs": [
+        "cash-flow-statement",
+        "balance-sheet",
+        "depreciation",
+        "income-statement",
+        "ifrs"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅰ-1-8",
+      "slugs": [
+        "preventive-maintenance",
+        "improvement-maintenance",
+        "maintenance-prevention",
+        "predictive-maintenance",
+        "corrective-maintenance"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅰ-1-9",
+      "slugs": [
+        "equal-employment-act",
+        "elderly-employment-act",
+        "continued-employment-system",
+        "employment-insurance"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅰ-1-10",
+      "slugs": [
+        "stress-check-system",
+        "mental-health-care",
+        "occupational-safety-act",
+        "health-management"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅰ-1-11",
+      "slugs": [
+        "disability-employment-act",
+        "disability-employment",
+        "disability-discrimination-act",
+        "positive-action"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅰ-1-12",
+      "slugs": [
+        "work-life-balance",
+        "positive-action",
+        "lgbtq",
+        "unconscious-bias"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅰ-1-13",
+      "slugs": [
+        "job-rotation",
+        "job-based-pay",
+        "skill-based-pay",
+        "career-path",
+        "multi-track-hr-system"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅰ-1-14",
+      "slugs": [
+        "foreign-trainee-program",
+        "minimum-wage-act",
+        "immigration-control-act",
+        "labor-standards-act"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅰ-1-15",
+      "slugs": [
+        "ojt-off-jt",
+        "self-development",
+        "hierarchical-training",
+        "training-techniques"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅰ-1-16",
+      "slugs": [
+        "competency-hr",
+        "servant-leadership",
+        "halo-effect-errors",
+        "content-process",
+        "pm-theory",
+        "diagnostic-od"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅰ-1-17",
+      "slugs": [
+        "patent-rights",
+        "utility-model-rights",
+        "international-filing-system",
+        "design-rights",
+        "trademark-rights"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅰ-1-18",
+      "slugs": [
+        "iot",
+        "mobile-communication",
+        "safety-2-0",
+        "machinery-safety-guidelines"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅰ-1-19",
+      "slugs": [
+        "system-reliability",
+        "system-availability",
+        "equipment-reliability",
+        "bathtub-curve",
+        "reliability-block-diagram"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅰ-1-20",
+      "slugs": [
+        "correlation-analysis",
+        "linear-regression",
+        "descriptive-statistics",
+        "estimation-testing",
+        "cluster-analysis"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅰ-1-21",
+      "slugs": [
+        "iot",
+        "digital-twin-cps",
+        "machine-learning",
+        "generative-ai",
+        "edge-computing"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅰ-1-22",
+      "slugs": [
+        "opt-in-opt-out",
+        "personal-info-protection",
+        "personal-information",
+        "anonymized-information"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅰ-1-23",
+      "slugs": [
+        "machine-learning",
+        "generative-ai",
+        "data-mining",
+        "data-cleansing"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅰ-1-24",
+      "slugs": [
+        "encryption-digital-signature",
+        "cyber-security",
+        "authenticity",
+        "non-repudiation"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅰ-1-25",
+      "slugs": [
+        "fta",
+        "eta",
+        "fmea",
+        "vta-method",
+        "hazop",
+        "root-cause-analysis"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅰ-1-26",
+      "slugs": [
+        "worker-dispatch-act",
+        "occupational-safety-act",
+        "labor-contract-act",
+        "safety-health-education"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅰ-1-27",
+      "slugs": [
+        "iot",
+        "cyber-security",
+        "machinery-safety-guidelines",
+        "functional-safety",
+        "safety-2-0"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅰ-1-28",
+      "slugs": [
+        "series-system",
+        "parallel-system",
+        "reliability-block-diagram",
+        "redundancy-safety",
+        "probabilistic-risk-assessment"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅰ-1-29",
+      "slugs": [
+        "public-acceptance",
+        "risk-perception",
+        "stakeholder",
+        "crisis-communication",
+        "public-relations"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅰ-1-30",
+      "slugs": [
+        "normalcy-bias",
+        "catastrophe-bias",
+        "veteran-bias",
+        "optimism-bias",
+        "virgin-bias"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅰ-1-31",
+      "slugs": [
+        "safety-culture",
+        "safety-management-system",
+        "tripod-theory",
+        "human-factors"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅰ-1-32",
+      "slugs": [
+        "consumer-product-safety-act",
+        "product-safety",
+        "product-liability-act",
+        "consumer-safety"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅰ-1-33",
+      "slugs": [
+        "climate-change-adaptation-act",
+        "climate-change-international",
+        "global-warming-countermeasures-act",
+        "environmental-basic-plan",
+        "regional-circular-symbiosis"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅰ-1-34",
+      "slugs": [
+        "cites",
+        "ramsar-convention",
+        "invasive-alien-species",
+        "convention-on-biodiversity",
+        "red-list"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅰ-1-35",
+      "slugs": [
+        "circular-society-basic-act",
+        "ocean-plastic",
+        "circular-economy",
+        "waste-management-act",
+        "extended-producer-responsibility"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅰ-1-36",
+      "slugs": [
+        "waste-management-act",
+        "circular-economy",
+        "extended-producer-responsibility",
+        "circular-society-basic-act"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅰ-1-37",
+      "slugs": [
+        "climate-change-adaptation-act",
+        "climate-change-international",
+        "urban-flood",
+        "heat-island-effect"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅰ-1-38",
+      "slugs": [
+        "sdgs",
+        "environmental-basic-plan",
+        "regional-circular-symbiosis",
+        "partnership",
+        "backcasting"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅰ-1-39",
+      "slugs": [
+        "environmental-impact-assessment",
+        "environmental-standards",
+        "precautionary-principle",
+        "prevention-principle"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅰ-1-40",
+      "slugs": [
+        "csr",
+        "esg-investment",
+        "iso-26000",
+        "eco-action-21",
+        "environmental-accounting",
+        "tcfd"
+      ]
+    }
+  },
+  "pe-comprehensive-management-r03-primary": {
+    "1-1": {
+      "heading": "Ⅰ-1-1",
+      "slugs": [
+        "npv-net-present-value",
+        "internal-rate-of-return",
+        "payback-period-method",
+        "dcf-method",
+        "cost-effectiveness-analysis"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅰ-1-2",
+      "slugs": [
+        "pfi",
+        "construction-plan",
+        "economic-comparison-principle",
+        "investment-recovery-plan"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅰ-1-3",
+      "slugs": [
+        "quality-control",
+        "process-capability-index",
+        "inspection-methods",
+        "descriptive-statistics",
+        "quality-assurance"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅰ-1-4",
+      "slugs": [
+        "pert-cpm",
+        "progress-management",
+        "gantt-chart",
+        "process-planning-construction"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅰ-1-5",
+      "slugs": [
+        "supply-chain-management",
+        "theory-of-constraints",
+        "jit-production",
+        "pull-production",
+        "demand-forecasting"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅰ-1-6",
+      "slugs": [
+        "break-even-point",
+        "direct-costing",
+        "standard-costing",
+        "cost-variance-analysis"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅰ-1-7",
+      "slugs": [
+        "cash-flow-statement",
+        "balance-sheet",
+        "income-statement",
+        "accounting-systems",
+        "dcf-method"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅰ-1-8",
+      "slugs": [
+        "equipment-economics",
+        "maintenance-cost",
+        "lifecycle-costing-method",
+        "preventive-maintenance",
+        "lifecycle-management"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅰ-1-9",
+      "slugs": [
+        "labor-union-act",
+        "labor-relations-adjustment-act",
+        "labor-standards-act",
+        "minimum-wage-act"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅰ-1-10",
+      "slugs": [
+        "worker-dispatch-act",
+        "equal-pay-for-equal-work",
+        "part-time-fixed-term-act",
+        "labor-standards-act"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅰ-1-11",
+      "slugs": [
+        "childcare-nursing-leave-act",
+        "work-life-balance",
+        "child-rearing-support-act",
+        "labor-standards-act"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅰ-1-12",
+      "slugs": [
+        "sexual-harassment",
+        "power-harassment",
+        "gender-equality-act",
+        "mental-health-care"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅰ-1-13",
+      "slugs": [
+        "organizational-commitment",
+        "psychological-safety",
+        "safety-culture",
+        "formal-informal-organization"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅰ-1-14",
+      "slugs": [
+        "labor-productivity",
+        "labor-share-ratio",
+        "employment-statistics",
+        "performance-based-pay"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅰ-1-15",
+      "slugs": [
+        "mentor",
+        "ojt-off-jt",
+        "positive-action",
+        "talent-management",
+        "career-path"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅰ-1-16",
+      "slugs": [
+        "functional-organization",
+        "divisional-organization",
+        "matrix-organization",
+        "network-organization",
+        "flat-organization"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅰ-1-17",
+      "slugs": [
+        "machine-learning",
+        "descriptive-statistics",
+        "logistic-regression",
+        "linear-regression"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅰ-1-18",
+      "slugs": [
+        "personal-info-protection",
+        "anonymized-information",
+        "personal-information",
+        "data-breach-response"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅰ-1-19",
+      "slugs": [
+        "machine-learning",
+        "cloud-on-premises",
+        "generative-ai",
+        "digital-twin-cps"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅰ-1-20",
+      "slugs": [
+        "encryption-digital-signature",
+        "isms-iso27001",
+        "online-meetings",
+        "zero-trust",
+        "confidentiality"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅰ-1-21",
+      "slugs": [
+        "correlation-analysis",
+        "linear-regression",
+        "estimation-testing",
+        "descriptive-statistics",
+        "logistic-regression"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅰ-1-22",
+      "slugs": [
+        "verbal-nonverbal-communication",
+        "information-disclosure",
+        "crisis-communication",
+        "social-engineering"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅰ-1-23",
+      "slugs": [
+        "cloud-on-premises",
+        "edge-computing",
+        "digital-twin-cps",
+        "iot"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅰ-1-24",
+      "slugs": [
+        "multi-factor-authentication",
+        "access-control",
+        "isms-iso27001",
+        "zero-trust"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅰ-1-25",
+      "slugs": [
+        "consumer-safety",
+        "product-safety",
+        "consumer-product-safety-act",
+        "product-liability-act"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅰ-1-26",
+      "slugs": [
+        "risk-assessment",
+        "risk-analysis",
+        "inherent-safety",
+        "alarp-principle"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅰ-1-27",
+      "slugs": [
+        "kyt",
+        "tbm-toolbox-meeting",
+        "stress-check-system",
+        "mental-health",
+        "safety-education"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅰ-1-28",
+      "slugs": [
+        "occupational-safety-act",
+        "safety-health-org-structure",
+        "oshms",
+        "safety-health-policy"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅰ-1-29",
+      "slugs": [
+        "oshms",
+        "safety-health-policy",
+        "pdca-cycle",
+        "safety-health-plan",
+        "risk-assessment"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅰ-1-30",
+      "slugs": [
+        "reliability-block-diagram",
+        "series-system",
+        "parallel-system",
+        "system-reliability",
+        "redundancy-safety"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅰ-1-31",
+      "slugs": [
+        "biosafety",
+        "convention-on-biodiversity",
+        "elsi",
+        "biodiversity-basic-act",
+        "precautionary-principle"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅰ-1-32",
+      "slugs": [
+        "osh-management-system",
+        "safety-health-education",
+        "mental-health-care",
+        "employment-statistics"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅰ-1-33",
+      "slugs": [
+        "sdgs",
+        "stakeholder",
+        "csr",
+        "esg-investment",
+        "iso-26000"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅰ-1-34",
+      "slugs": [
+        "energy",
+        "carbon-neutral",
+        "carbon-pricing",
+        "cdp-sbt-re100"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅰ-1-35",
+      "slugs": [
+        "convention-on-biodiversity",
+        "nagoya-protocol",
+        "ramsar-convention",
+        "biodiversity-basic-act",
+        "kunming-montreal-framework"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅰ-1-36",
+      "slugs": [
+        "circular-society-basic-act",
+        "circular-economy",
+        "extended-producer-responsibility",
+        "waste-management-act"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅰ-1-37",
+      "slugs": [
+        "air-pollution-control-act",
+        "water-pollution-control-act",
+        "soil-contamination-act",
+        "dioxin-countermeasures-act",
+        "seven-types-of-pollution"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅰ-1-38",
+      "slugs": [
+        "environmental-basic-plan",
+        "eco-label",
+        "prtr-act",
+        "carbon-pricing",
+        "environmental-impact-assessment"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅰ-1-39",
+      "slugs": [
+        "environmental-impact-assessment",
+        "environmental-standards",
+        "environmental-basic-plan",
+        "citizen-participation"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅰ-1-40",
+      "slugs": [
+        "esd",
+        "environmental-basic-plan",
+        "citizen-participation",
+        "environmental-communication"
+      ]
+    }
+  },
+  "pe-comprehensive-management-r04-primary": {
+    "1-1": {
+      "heading": "Ⅰ-1-1",
+      "slugs": [
+        "cash-flow-statement",
+        "balance-sheet",
+        "income-statement"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅰ-1-2",
+      "slugs": [
+        "value-engineering"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅰ-1-3",
+      "slugs": [
+        "demand-forecasting",
+        "linear-regression",
+        "estimation-testing"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅰ-1-4",
+      "slugs": [
+        "predictive-maintenance",
+        "maintenance-prevention",
+        "improvement-maintenance",
+        "preventive-maintenance"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅰ-1-5",
+      "slugs": [
+        "customer-satisfaction",
+        "quality-characteristics"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅰ-1-6",
+      "slugs": [
+        "theory-of-constraints",
+        "supply-chain-management",
+        "jit-production"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅰ-1-7",
+      "slugs": [
+        "agile",
+        "waterfall",
+        "pmbok"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅰ-1-8",
+      "slugs": [
+        "pert-cpm",
+        "progress-management",
+        "gantt-chart"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅰ-1-9",
+      "slugs": [
+        "flextime-system",
+        "variable-work-hours",
+        "labor-standards-act",
+        "labor-contract-act"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅰ-1-10",
+      "slugs": [
+        "equal-pay-for-equal-work",
+        "part-time-fixed-term-act",
+        "worker-dispatch-act"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅰ-1-11",
+      "slugs": [
+        "work-life-balance",
+        "discretionary-work-system",
+        "labor-standards-act"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅰ-1-12",
+      "slugs": [
+        "stress-check-system",
+        "mental-health-care",
+        "occupational-safety-act",
+        "health-management"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅰ-1-13",
+      "slugs": [
+        "teal-organization",
+        "network-organization",
+        "matrix-organization",
+        "pyramid-organization",
+        "functional-organization"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅰ-1-14",
+      "slugs": [
+        "organizational-commitment",
+        "incentive"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅰ-1-15",
+      "slugs": [
+        "job-type-employment",
+        "membership-type-employment",
+        "personnel-management"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅰ-1-16",
+      "slugs": [
+        "performance-evaluation",
+        "competency-evaluation",
+        "attitude-appraisal",
+        "mbo"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅰ-1-17",
+      "slugs": [
+        "cluster-analysis",
+        "logistic-regression",
+        "correlation-analysis",
+        "linear-regression"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅰ-1-18",
+      "slugs": [
+        "copyright",
+        "industrial-property-rights",
+        "patent-rights"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅰ-1-19",
+      "slugs": [
+        "equipment-reliability",
+        "equipment-maintainability",
+        "bathtub-curve"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅰ-1-20",
+      "slugs": [
+        "information-disclosure",
+        "income-statement",
+        "disclosure-standards"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅰ-1-21",
+      "slugs": [
+        "descriptive-statistics",
+        "data-collection",
+        "survey-analysis"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅰ-1-22",
+      "slugs": [
+        "four-p-analysis",
+        "swot-analysis",
+        "three-c-analysis",
+        "ppm-analysis"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅰ-1-23",
+      "slugs": [
+        "digital-twin-cps",
+        "iot",
+        "blockchain-crypto"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅰ-1-24",
+      "slugs": [
+        "encryption-digital-signature",
+        "confidentiality",
+        "non-repudiation"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅰ-1-25",
+      "slugs": [
+        "accident-statistics",
+        "osh-management-system",
+        "oshms"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅰ-1-26",
+      "slugs": [
+        "unsafe-conditions-behavior",
+        "heinrich-law",
+        "four-e-countermeasures",
+        "four-m-analysis"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅰ-1-27",
+      "slugs": [
+        "national-resilience-act",
+        "resilience",
+        "crisis-management-manual",
+        "disaster-countermeasures-act"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅰ-1-28",
+      "slugs": [
+        "fmea",
+        "vta-method",
+        "hazop",
+        "therp",
+        "fta",
+        "eta"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅰ-1-29",
+      "slugs": [
+        "generative-ai",
+        "machine-learning",
+        "iot"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅰ-1-30",
+      "slugs": [
+        "product-liability",
+        "consumer-product-safety-act"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅰ-1-31",
+      "slugs": [
+        "occupational-safety-act",
+        "safety-health-education",
+        "safety-health-org-structure"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅰ-1-32",
+      "slugs": [
+        "risk-management-plan",
+        "risk-management-system",
+        "stakeholder",
+        "risk-management-policy"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅰ-1-33",
+      "slugs": [
+        "carbon-neutral",
+        "green-infrastructure",
+        "sdgs"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅰ-1-34",
+      "slugs": [
+        "energy",
+        "carbon-neutral",
+        "carbon-pricing"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅰ-1-35",
+      "slugs": [
+        "invasive-alien-species",
+        "biodiversity-basic-act",
+        "convention-on-biodiversity"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅰ-1-36",
+      "slugs": [
+        "basel-convention",
+        "ocean-plastic",
+        "waste-management-act"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅰ-1-37",
+      "slugs": [
+        "alert-levels",
+        "hazard-map",
+        "disaster-countermeasures-act",
+        "timeline-disaster",
+        "disaster-prevention"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅰ-1-38",
+      "slugs": [
+        "air-pollution-control-act",
+        "soil-contamination-act",
+        "asbestos-issue",
+        "seven-types-of-pollution"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅰ-1-39",
+      "slugs": [
+        "environmental-impact-assessment",
+        "environmental-standards"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅰ-1-40",
+      "slugs": [
+        "esg-investment",
+        "green-bond",
+        "csr",
+        "tcfd",
+        "sri"
+      ]
+    }
+  },
+  "pe-comprehensive-management-r05-primary": {
+    "1-1": {
+      "heading": "Ⅰ-1-1",
+      "slugs": [
+        "linear-programming",
+        "pmbok",
+        "integer-programming",
+        "multi-objective-optimization"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅰ-1-2",
+      "slugs": [
+        "break-even-point",
+        "direct-costing",
+        "cost-variance-analysis",
+        "target-cost"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅰ-1-3",
+      "slugs": [
+        "reliability-maintainability-design",
+        "design-review",
+        "design-in",
+        "front-loading",
+        "concurrent-engineering",
+        "quality-planning"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅰ-1-4",
+      "slugs": [
+        "quality-control",
+        "cause-and-effect-diagram",
+        "quality-improvement",
+        "quality-assurance"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅰ-1-5",
+      "slugs": [
+        "overall-equipment-effectiveness",
+        "preventive-maintenance",
+        "improvement-maintenance",
+        "autonomous-maintenance",
+        "equipment-reliability"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅰ-1-6",
+      "slugs": [
+        "process-planning-construction",
+        "lead-time",
+        "progress-management",
+        "master-schedule-planning"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅰ-1-7",
+      "slugs": [
+        "ecrs-principle",
+        "five-s",
+        "visual-management",
+        "quality-improvement"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅰ-1-8",
+      "slugs": [
+        "inventory-control",
+        "bathtub-curve",
+        "equipment-reliability",
+        "jit-production"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅰ-1-9",
+      "slugs": [
+        "labor-standards-act",
+        "occupational-safety-act",
+        "discretionary-work-system",
+        "work-life-balance",
+        "highly-professional-system"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅰ-1-10",
+      "slugs": [
+        "equal-employment-act",
+        "positive-action",
+        "childcare-nursing-leave-act",
+        "women-empowerment-act",
+        "gender-equality-act"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅰ-1-11",
+      "slugs": [
+        "power-harassment",
+        "sexual-harassment",
+        "mental-health-care"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅰ-1-12",
+      "slugs": [
+        "individual-labor-dispute-act",
+        "labor-tribunal-act",
+        "labor-relations-adjustment-act",
+        "labor-contract-act"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅰ-1-13",
+      "slugs": [
+        "diagnostic-od",
+        "dialogic-od",
+        "content-process",
+        "psychological-safety",
+        "organizational-commitment"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅰ-1-14",
+      "slugs": [
+        "job-grade-system",
+        "skill-qualification-system",
+        "role-grade-system",
+        "job-type-employment",
+        "performance-based-pay",
+        "seniority-wage"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅰ-1-15",
+      "slugs": [
+        "training-techniques",
+        "idea-generation-methods",
+        "ojt-off-jt",
+        "task-based-training"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅰ-1-16",
+      "slugs": [
+        "psychological-safety",
+        "organizational-commitment",
+        "dialogic-od"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅰ-1-17",
+      "slugs": [
+        "unfair-competition-prevention-act",
+        "unfair-trade-practices",
+        "trademark-rights"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅰ-1-18",
+      "slugs": [
+        "tacit-knowledge",
+        "explicit-knowledge",
+        "knowledge-sharing",
+        "collective-intelligence",
+        "data-governance"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅰ-1-19",
+      "slugs": [
+        "isms-iso27001",
+        "privacy-mark",
+        "common-criteria",
+        "jisec",
+        "personal-info-protection"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅰ-1-20",
+      "slugs": [
+        "communication-planning",
+        "pmbok",
+        "communication-control",
+        "stakeholder"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅰ-1-21",
+      "slugs": [
+        "estimation-testing",
+        "descriptive-statistics",
+        "linear-regression",
+        "correlation-analysis"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅰ-1-22",
+      "slugs": [
+        "emergency-info-systems",
+        "crisis-communication",
+        "mobile-communication",
+        "disaster-weather-info"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅰ-1-23",
+      "slugs": [
+        "iot",
+        "rpa",
+        "blockchain-crypto",
+        "digital-twin-cps",
+        "vr-ar-metaverse"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅰ-1-24",
+      "slugs": [
+        "edge-computing",
+        "iot",
+        "internet",
+        "mobile-communication",
+        "cloud-on-premises"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅰ-1-25",
+      "slugs": [
+        "risk-identification",
+        "risk-analysis",
+        "risk-assessment",
+        "risk-treatment",
+        "risk-monitoring",
+        "risk-management-system"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅰ-1-26",
+      "slugs": [
+        "consumer-product-safety-act",
+        "product-safety",
+        "product-liability-act",
+        "consumer-safety"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅰ-1-27",
+      "slugs": [
+        "emergency",
+        "disaster-countermeasures-act",
+        "business-continuity-plan",
+        "disaster-prevention"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅰ-1-28",
+      "slugs": [
+        "osh-management-system",
+        "risk-assessment",
+        "inherent-safety",
+        "safety-management-system"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅰ-1-29",
+      "slugs": [
+        "risk-perception",
+        "public-acceptance",
+        "stakeholder",
+        "environmental-communication",
+        "citizen-participation"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅰ-1-30",
+      "slugs": [
+        "osh-management-system",
+        "health-management",
+        "personal-info-protection",
+        "elderly-employment-act",
+        "safety-health-org-structure"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅰ-1-31",
+      "slugs": [
+        "business-continuity-plan",
+        "resilience"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅰ-1-32",
+      "slugs": [
+        "fta",
+        "parallel-system",
+        "series-system",
+        "eta",
+        "reliability-block-diagram"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅰ-1-33",
+      "slugs": [
+        "carbon-neutral",
+        "energy",
+        "climate-change-international",
+        "tcfd"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅰ-1-34",
+      "slugs": [
+        "energy",
+        "carbon-neutral",
+        "climate-change-international",
+        "carbon-pricing"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅰ-1-35",
+      "slugs": [
+        "ramsar-convention",
+        "ecosystem-services",
+        "convention-on-biodiversity",
+        "nature-conservation-act"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅰ-1-36",
+      "slugs": [
+        "circular-society-basic-act",
+        "ocean-plastic",
+        "extended-producer-responsibility",
+        "waste-management-act"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅰ-1-37",
+      "slugs": [
+        "performance-regulation",
+        "carbon-pricing",
+        "prtr-act",
+        "environmental-impact-assessment",
+        "behavioral-regulation"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅰ-1-38",
+      "slugs": [
+        "backcasting",
+        "carbon-pricing",
+        "sdgs",
+        "circular-economy"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅰ-1-39",
+      "slugs": [
+        "environmental-impact-assessment",
+        "environmental-basic-plan",
+        "sdgs"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅰ-1-40",
+      "slugs": [
+        "tcfd",
+        "esg-investment",
+        "lifecycle-assessment",
+        "tnfd",
+        "cdp-sbt-re100"
+      ]
+    }
+  },
+  "pe-comprehensive-management-r06-primary": {
+    "1-1": {
+      "heading": "Ⅰ-1-1",
+      "slugs": [
+        "cash-flow-statement",
+        "balance-sheet",
+        "income-statement",
+        "ifrs"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅰ-1-2",
+      "slugs": [
+        "npv-net-present-value",
+        "discount-rate",
+        "investment-recovery-plan",
+        "internal-rate-of-return",
+        "present-annual-future-value"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅰ-1-3",
+      "slugs": [
+        "indirect-manufacturing-cost",
+        "job-order-costing",
+        "cost-variance-analysis",
+        "activity-abc",
+        "direct-manufacturing-cost"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅰ-1-4",
+      "slugs": [
+        "inspection-methods",
+        "quality-control",
+        "process-capability-index",
+        "nonconformity-rate",
+        "quality-characteristics"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅰ-1-5",
+      "slugs": [
+        "jit-production",
+        "push-production",
+        "pull-production",
+        "lead-time",
+        "visual-management"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅰ-1-6",
+      "slugs": [
+        "pert-cpm",
+        "progress-management",
+        "gantt-chart",
+        "process-planning-construction"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅰ-1-7",
+      "slugs": [
+        "linear-programming",
+        "multi-objective-optimization",
+        "integer-programming",
+        "game-theory"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅰ-1-8",
+      "slugs": [
+        "pdpc-method",
+        "cause-and-effect-diagram",
+        "quality-control",
+        "quality-improvement",
+        "quality-assurance"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅰ-1-9",
+      "slugs": [
+        "labor-standards-act",
+        "flextime-system",
+        "variable-work-hours",
+        "discretionary-work-system",
+        "highly-professional-system"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅰ-1-10",
+      "slugs": [
+        "elderly-employment-act",
+        "continued-employment-system",
+        "reemployment-system",
+        "labor-policy-act",
+        "indefinite-conversion-rule"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅰ-1-11",
+      "slugs": [
+        "childcare-nursing-leave-act",
+        "work-life-balance",
+        "gender-equality-act",
+        "labor-standards-act"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅰ-1-12",
+      "slugs": [
+        "workers-compensation-insurance",
+        "occupational-safety-act",
+        "accident-statistics",
+        "accident-cost"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅰ-1-13",
+      "slugs": [
+        "health-management",
+        "wellbeing-org",
+        "stress-check-system",
+        "mental-health-care"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅰ-1-14",
+      "slugs": [
+        "positive-action",
+        "equal-employment-act",
+        "work-life-balance",
+        "unconscious-bias",
+        "gender-gap"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅰ-1-15",
+      "slugs": [
+        "career-ownership",
+        "reskilling",
+        "career-path",
+        "ojt-off-jt",
+        "self-development"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅰ-1-16",
+      "slugs": [
+        "maslow-hierarchy-of-needs",
+        "mcgregor-xy-theory",
+        "herzberg-two-factor-theory",
+        "scientific-management",
+        "incentive",
+        "intrinsic-motivation"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅰ-1-17",
+      "slugs": [
+        "cloud-on-premises",
+        "web-services",
+        "edge-computing",
+        "iot"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅰ-1-18",
+      "slugs": [
+        "cluster-analysis",
+        "data-mining",
+        "data-visualization",
+        "machine-learning",
+        "linear-regression"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅰ-1-19",
+      "slugs": [
+        "isms-iso27001",
+        "confidentiality",
+        "integrity-security",
+        "system-availability"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅰ-1-20",
+      "slugs": [
+        "ojt-off-jt",
+        "mentor",
+        "intrinsic-motivation",
+        "dialogic-od"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅰ-1-21",
+      "slugs": [
+        "information-disclosure-act",
+        "information-disclosure",
+        "right-to-know",
+        "disclosure-request",
+        "personal-info-protection"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅰ-1-22",
+      "slugs": [
+        "patent-rights",
+        "utility-model-rights",
+        "design-rights",
+        "trademark-rights",
+        "industrial-property-rights",
+        "ip-protection"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅰ-1-23",
+      "slugs": [
+        "blockchain-crypto",
+        "encryption-digital-signature",
+        "zero-trust",
+        "iot"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅰ-1-24",
+      "slugs": [
+        "malware",
+        "targeted-attack",
+        "vulnerability",
+        "unauthorized-access",
+        "data-breach-response"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅰ-1-25",
+      "slugs": [
+        "normalcy-bias",
+        "catastrophe-bias",
+        "veteran-bias",
+        "virgin-bias",
+        "risk-perception",
+        "optimism-bias"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅰ-1-26",
+      "slugs": [
+        "mental-health-care",
+        "stress-check-system",
+        "mental-health",
+        "return-to-work-support",
+        "occupational-safety-act"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅰ-1-27",
+      "slugs": [
+        "fail-safe",
+        "interlock",
+        "emergency-stop-device",
+        "fool-proof",
+        "machinery-safety-guidelines"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅰ-1-28",
+      "slugs": [
+        "timeline-disaster",
+        "emergency",
+        "disaster-weather-info",
+        "hazard-map",
+        "alert-levels"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅰ-1-29",
+      "slugs": [
+        "safety-management-system",
+        "public-safety",
+        "antitrust-compliance",
+        "labor-standards-act"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅰ-1-30",
+      "slugs": [
+        "oshms",
+        "osh-management-system",
+        "safety-health-policy",
+        "safety-health-education",
+        "safety-management-system"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅰ-1-31",
+      "slugs": [
+        "reliability-block-diagram",
+        "series-system",
+        "parallel-system",
+        "equipment-reliability",
+        "system-reliability"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅰ-1-32",
+      "slugs": [
+        "national-resilience-act",
+        "resilience",
+        "business-continuity-plan",
+        "all-hazard-approach"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅰ-1-33",
+      "slugs": [
+        "climate-change-international",
+        "carbon-neutral",
+        "extreme-events",
+        "disaster-weather-info"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅰ-1-34",
+      "slugs": [
+        "energy",
+        "carbon-neutral",
+        "cdp-sbt-re100",
+        "carbon-pricing"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅰ-1-35",
+      "slugs": [
+        "nagoya-protocol",
+        "biosafety",
+        "convention-on-biodiversity",
+        "cites",
+        "ipbes",
+        "kunming-montreal-framework"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅰ-1-36",
+      "slugs": [
+        "circular-economy",
+        "waste-management-act",
+        "ocean-plastic",
+        "extended-producer-responsibility",
+        "circular-society-basic-act"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅰ-1-37",
+      "slugs": [
+        "green-infrastructure",
+        "eco-drr",
+        "heat-island-effect",
+        "liquefaction",
+        "disaster-prevention",
+        "hazard-map"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅰ-1-38",
+      "slugs": [
+        "environmental-basic-plan",
+        "environmental-impact-assessment",
+        "carbon-pricing",
+        "environmental-accounting",
+        "behavioral-regulation"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅰ-1-39",
+      "slugs": [
+        "iso-14000",
+        "tnfd",
+        "green-bond",
+        "esg-investment",
+        "iso-26000",
+        "sdgs"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅰ-1-40",
+      "slugs": [
+        "eco-label",
+        "csr",
+        "consumer-safety",
+        "sdgs"
+      ]
+    }
+  },
+  "pe-comprehensive-management-r07-primary": {
+    "1-1": {
+      "heading": "Ⅰ-1-1",
+      "slugs": [
+        "business-continuity-plan",
+        "risk-management-plan",
+        "supply-chain-management"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅰ-1-2",
+      "slugs": [
+        "control-limits",
+        "inspection-methods",
+        "nonconformity-rate",
+        "process-capability-index",
+        "quality-control"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅰ-1-3",
+      "slugs": [
+        "break-even-point",
+        "direct-costing"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅰ-1-4",
+      "slugs": [
+        "overall-equipment-effectiveness",
+        "preventive-maintenance",
+        "corrective-maintenance"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅰ-1-5",
+      "slugs": [
+        "ecrs-principle",
+        "five-s"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅰ-1-6",
+      "slugs": [
+        "game-theory",
+        "monte-carlo-simulation",
+        "linear-programming"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅰ-1-7",
+      "slugs": [
+        "depreciation",
+        "cash-flow-statement",
+        "balance-sheet"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅰ-1-8",
+      "slugs": [
+        "pert-cpm",
+        "gantt-chart",
+        "process-planning-construction"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅰ-1-9",
+      "slugs": [
+        "labor-standards-act",
+        "occupational-safety-act"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅰ-1-10",
+      "slugs": [
+        "part-time-fixed-term-act",
+        "equal-pay-for-equal-work",
+        "worker-dispatch-act"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅰ-1-11",
+      "slugs": [
+        "stress-check-system",
+        "mental-health-care",
+        "occupational-safety-act"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅰ-1-12",
+      "slugs": [
+        "employment-insurance",
+        "childcare-nursing-leave-act"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅰ-1-13",
+      "slugs": [
+        "specialist-system",
+        "multi-track-hr-system",
+        "career-track-system"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅰ-1-14",
+      "slugs": [
+        "pm-theory",
+        "followership",
+        "sl-theory",
+        "servant-leadership",
+        "psychological-safety"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅰ-1-15",
+      "slugs": [
+        "mentor",
+        "ojt-off-jt",
+        "career-path"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅰ-1-16",
+      "slugs": [
+        "performance-evaluation",
+        "attitude-appraisal",
+        "360-degree-evaluation"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅰ-1-17",
+      "slugs": [
+        "descriptive-statistics",
+        "estimation-testing"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅰ-1-18",
+      "slugs": [
+        "portrait-publicity-privacy",
+        "copyright",
+        "personal-info-protection"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅰ-1-19",
+      "slugs": [
+        "reliability-maintainability-design",
+        "bathtub-curve",
+        "preventive-maintenance"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅰ-1-20",
+      "slugs": [
+        "zero-trust",
+        "isms-iso27001",
+        "common-criteria"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅰ-1-21",
+      "slugs": [
+        "design-thinking",
+        "agile"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅰ-1-22",
+      "slugs": [
+        "public-acceptance",
+        "citizen-participation"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅰ-1-23",
+      "slugs": [
+        "antitrust-compliance",
+        "bid-rigging",
+        "unfair-trade-practices"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅰ-1-24",
+      "slugs": [
+        "common-criteria",
+        "firewall-ids",
+        "isms-iso27001",
+        "vpn",
+        "zero-trust"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅰ-1-25",
+      "slugs": [
+        "four-e-countermeasures",
+        "four-m-analysis",
+        "kyt",
+        "safety-patrol",
+        "technical-nontechnical-skills"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅰ-1-26",
+      "slugs": [
+        "occupational-safety-act",
+        "safety-health-policy",
+        "osh-management-system"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅰ-1-27",
+      "slugs": [
+        "disaster-countermeasures-act",
+        "alert-levels",
+        "disaster-weather-info"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅰ-1-28",
+      "slugs": [
+        "alert-levels",
+        "disaster-countermeasures-act",
+        "disaster-weather-info"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅰ-1-29",
+      "slugs": [
+        "aging-infrastructure",
+        "preventive-maintenance",
+        "corrective-maintenance"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅰ-1-30",
+      "slugs": [
+        "functional-safety",
+        "inherent-safety",
+        "isolation-stop-safety",
+        "safety-2-0"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅰ-1-31",
+      "slugs": [
+        "accident-statistics",
+        "heinrich-law",
+        "occupational-accident-prevention-plan"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅰ-1-32",
+      "slugs": [
+        "blind-drill",
+        "accident-response-drill",
+        "disaster-drill"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅰ-1-33",
+      "slugs": [
+        "unced-earth-summit",
+        "un-human-environment-conf",
+        "sdgs"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅰ-1-34",
+      "slugs": [
+        "energy",
+        "carbon-neutral"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅰ-1-35",
+      "slugs": [
+        "ramsar-convention",
+        "convention-on-biodiversity",
+        "wildlife-protection-act"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅰ-1-36",
+      "slugs": [
+        "basel-convention",
+        "circular-economy",
+        "circular-society-basic-act",
+        "regional-circular-symbiosis",
+        "sustainable-fashion"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅰ-1-37",
+      "slugs": [
+        "air-pollution-control-act",
+        "four-major-pollution-diseases",
+        "seven-types-of-pollution",
+        "water-pollution-control-act"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅰ-1-38",
+      "slugs": [
+        "alps-treated-water",
+        "radioactive-waste",
+        "nuclear-disaster-act"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅰ-1-39",
+      "slugs": [
+        "environmental-basic-plan",
+        "sdgs",
+        "backcasting"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅰ-1-40",
+      "slugs": [
+        "iso-14000",
+        "eco-action-21",
+        "iso-26000"
+      ]
+    }
+  },
+  "pe-comprehensive-management-r08-primary": {
+    "1-1": {
+      "heading": "Ⅰ-1-1",
+      "slugs": [
+        "equipment-characteristics",
+        "ergonomic-principles"
+      ]
+    },
+    "1-2": {
+      "heading": "Ⅰ-1-2",
+      "slugs": [
+        "payback-period-method",
+        "depreciation-residual-value"
+      ]
+    },
+    "1-3": {
+      "heading": "Ⅰ-1-3",
+      "slugs": [
+        "quality-costing",
+        "standard-costing"
+      ]
+    },
+    "1-4": {
+      "heading": "Ⅰ-1-4",
+      "slugs": [
+        "service-quality",
+        "required-quality"
+      ]
+    },
+    "1-5": {
+      "heading": "Ⅰ-1-5",
+      "slugs": [
+        "cash-flow-statement"
+      ]
+    },
+    "1-6": {
+      "heading": "Ⅰ-1-6",
+      "slugs": [
+        "demand-forecasting",
+        "linear-regression"
+      ]
+    },
+    "1-7": {
+      "heading": "Ⅰ-1-7",
+      "slugs": [
+        "lead-time",
+        "load-leveling"
+      ]
+    },
+    "1-8": {
+      "heading": "Ⅰ-1-8",
+      "slugs": [
+        "pert-cpm",
+        "gantt-chart"
+      ]
+    },
+    "1-9": {
+      "heading": "Ⅰ-1-9",
+      "slugs": [
+        "worker-dispatch-act",
+        "power-harassment"
+      ]
+    },
+    "1-10": {
+      "heading": "Ⅰ-1-10",
+      "slugs": [
+        "labor-union-act",
+        "labor-relations-adjustment-act"
+      ]
+    },
+    "1-11": {
+      "heading": "Ⅰ-1-11",
+      "slugs": [
+        "side-jobs",
+        "workers-compensation-insurance"
+      ]
+    },
+    "1-12": {
+      "heading": "Ⅰ-1-12",
+      "slugs": [
+        "disability-employment-act",
+        "minimum-wage-act"
+      ]
+    },
+    "1-13": {
+      "heading": "Ⅰ-1-13",
+      "slugs": [
+        "pyramid-organization",
+        "flat-organization"
+      ]
+    },
+    "1-14": {
+      "heading": "Ⅰ-1-14",
+      "slugs": [
+        "psychological-safety",
+        "wellbeing-org"
+      ]
+    },
+    "1-15": {
+      "heading": "Ⅰ-1-15",
+      "slugs": [
+        "job-type-employment",
+        "membership-type-employment"
+      ]
+    },
+    "1-16": {
+      "heading": "Ⅰ-1-16",
+      "slugs": [
+        "ojt-off-jt",
+        "self-development"
+      ]
+    },
+    "1-17": {
+      "heading": "Ⅰ-1-17",
+      "slugs": [
+        "citizen-participation",
+        "public-acceptance"
+      ]
+    },
+    "1-18": {
+      "heading": "Ⅰ-1-18",
+      "slugs": [
+        "personal-info-protection",
+        "anonymized-information"
+      ]
+    },
+    "1-19": {
+      "heading": "Ⅰ-1-19",
+      "slugs": [
+        "cloud-on-premises",
+        "web-services"
+      ]
+    },
+    "1-20": {
+      "heading": "Ⅰ-1-20",
+      "slugs": [
+        "data-governance",
+        "business-intelligence"
+      ]
+    },
+    "1-21": {
+      "heading": "Ⅰ-1-21",
+      "slugs": [
+        "generative-ai",
+        "machine-learning"
+      ]
+    },
+    "1-22": {
+      "heading": "Ⅰ-1-22",
+      "slugs": [
+        "four-p-analysis",
+        "market-research"
+      ]
+    },
+    "1-23": {
+      "heading": "Ⅰ-1-23",
+      "slugs": [
+        "encryption-digital-signature",
+        "non-repudiation"
+      ]
+    },
+    "1-24": {
+      "heading": "Ⅰ-1-24",
+      "slugs": [
+        "digital-twin-cps",
+        "iot"
+      ]
+    },
+    "1-25": {
+      "heading": "Ⅰ-1-25",
+      "slugs": [
+        "accident-statistics"
+      ]
+    },
+    "1-26": {
+      "heading": "Ⅰ-1-26",
+      "slugs": [
+        "occupational-safety-act",
+        "health-management"
+      ]
+    },
+    "1-27": {
+      "heading": "Ⅰ-1-27",
+      "slugs": [
+        "ics"
+      ]
+    },
+    "1-28": {
+      "heading": "Ⅰ-1-28",
+      "slugs": [
+        "fmea",
+        "fta"
+      ]
+    },
+    "1-29": {
+      "heading": "Ⅰ-1-29",
+      "slugs": [
+        "risk-assessment",
+        "safety-health-org-structure"
+      ]
+    },
+    "1-30": {
+      "heading": "Ⅰ-1-30",
+      "slugs": [
+        "health-management",
+        "occupational-safety-act"
+      ]
+    },
+    "1-31": {
+      "heading": "Ⅰ-1-31",
+      "slugs": [
+        "preventive-maintenance",
+        "predictive-maintenance"
+      ]
+    },
+    "1-32": {
+      "heading": "Ⅰ-1-32",
+      "slugs": [
+        "defense-in-depth"
+      ]
+    },
+    "1-33": {
+      "heading": "Ⅰ-1-33",
+      "slugs": [
+        "un-human-environment-conf",
+        "sdgs"
+      ]
+    },
+    "1-34": {
+      "heading": "Ⅰ-1-34",
+      "slugs": [
+        "carbon-pricing",
+        "carbon-neutral"
+      ]
+    },
+    "1-35": {
+      "heading": "Ⅰ-1-35",
+      "slugs": [
+        "kunming-montreal-framework",
+        "ipbes"
+      ]
+    },
+    "1-36": {
+      "heading": "Ⅰ-1-36",
+      "slugs": [
+        "circular-society-basic-act",
+        "waste-management-act"
+      ]
+    },
+    "1-37": {
+      "heading": "Ⅰ-1-37",
+      "slugs": [
+        "pops-convention",
+        "chemical-substances-review-act"
+      ]
+    },
+    "1-38": {
+      "heading": "Ⅰ-1-38",
+      "slugs": [
+        "environmental-basic-plan",
+        "extended-producer-responsibility"
+      ]
+    },
+    "1-39": {
+      "heading": "Ⅰ-1-39",
+      "slugs": [
+        "environmental-impact-assessment"
+      ]
+    },
+    "1-40": {
+      "heading": "Ⅰ-1-40",
+      "slugs": [
+        "csr",
+        "sri"
+      ]
+    }
+  }
+}

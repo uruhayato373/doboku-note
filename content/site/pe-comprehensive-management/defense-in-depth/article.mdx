@@ -1,0 +1,74 @@
+---
+title: 深層防護
+description: "深層防護の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（安全管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '5.5'
+tags:
+  - keyword
+published: true
+reviewStatus: needs-review
+lastRewrittenAt: '2026-05-17T02:28:54Z'
+revisionCycle: 1
+publishedAt: '2026-04-09'
+seoTitle: "深層防護 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-05-26
+---
+
+## 深層防護とは
+
+深層防護（Defense in Depth）とは、独立した複数の防護層を設けることで、一つの防護層が破られても次の層で食い止める多重防護の安全概念である。原子力安全分野で発展した概念だが、情報セキュリティや一般の安全管理にも広く適用される。
+
+## 原子力安全における5層の防護
+
+原子力安全の 5 層防護は、異常の発生予防から放射性物質の放出抑制まで段階的に対処する体系である。
+
+- **第 1 層（異常の発生防止）**: 設計・製造・運転の品質管理による予防的措置
+- **第 2 層（異常の拡大防止）**: 異常検知・制御システムによる早期収束
+- **第 3 層（事故への進展防止）**: 非常用炉心冷却装置（ECCS）等の安全系統
+- **第 4 層（事故の影響緩和）**: 格納容器、アクシデントマネジメントによる封じ込め
+- **第 5 層（放射性物質の放出抑制）**: サイト外の緊急時対応・防護措置
+
+## 一般的な適用
+
+- 各防護層は互いに**独立**であることが重要（共通原因故障を排除）
+- 「一つが失敗しても次で止める」という冗長性の思想
+- 情報セキュリティでは物理的防護・ネットワーク防護・アクセス制御等の多層化
+
+<ExamPoint
+  summary="深層防護は独立した複数の防護層で異常の発生から影響拡大までを段階的に防止する概念"
+  items={[
+    "各防護層の独立性が深層防護の有効性の前提",
+    "原子力安全では5層の防護概念が確立されている",
+    "共通原因故障（CCF）の排除が設計上の重要課題",
+  ]}
+/>
+
+## 概念の起源と情報セキュリティへの展開
+
+深層防護の思想は、冷戦期の軍事戦略における「縦深防御（Defense in Depth）」に由来する。単一の防衛ラインを破られても即座に全滅しないよう、複数の防衛線を縦深に配置するという発想が、原子力安全へと転用された。IAEA が 1996 年に策定した安全原則（Safety Series No. 75-INSAG-3 改訂）において深層防護が体系化され、日本では 2013 年の新規制基準策定にあたってこの 5 層構造が採用された。
+
+情報セキュリティへの応用は 2000 年代以降に広がった。ファイアウォール・侵入検知システム・アクセス制御・ログ監視などを重ねる多層防御（layered defense）は、深層防護と同じ思想に基づく。どの単一の対策も完璧ではないという前提のもと、複数の独立した対策を組み合わせることで総合的なリスクを低減する点が共通している。
+
+総監の安全管理では、この「一点突破を許さない多重性」の考え方が重要である。単一の安全対策に依存せず、各層が独立して機能する設計思想は、[フォールトトレランス](/docs/pe-comprehensive-management-fault-tolerance)や[フェールセーフ](/docs/pe-comprehensive-management-fail-safe)と並ぶ安全設計の基本原則に位置づけられる。
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**5.5 危機管理**](/docs/pe-comprehensive-management-keyword-2026#55-危機管理)に位置づけられている。
+
+深層防護は[確率論的リスク評価](/docs/pe-comprehensive-management-probabilistic-risk-assessment)と組み合わせて多重防護の有効性を定量的に評価する考え方であり、[自然災害に起因する産業事故（Natech）](/docs/pe-comprehensive-management-natech)への対策にも適用される。
+
+<RelatedKeywords items={[
+  { label: "警戒レベル", slug: "alert-levels" },
+  { label: "国民保護法", slug: "civil-protection-act" },
+  { label: "不測事態", slug: "contingency" },
+  { label: "危機広報", slug: "crisis-communication" },
+  { label: "危機管理マニュアル", slug: "crisis-management-manual" },
+]} />
+
+## 参考資料
+
+- [深層防護 - ATOMICA](https://atomica.jaea.go.jp/dic/detail/dic_detail_402.html)（日本原子力研究開発機構）
+- [多層防御（セキュリティ）- Wikipedia](https://ja.wikipedia.org/wiki/%E5%A4%9A%E5%B1%A4%E9%98%B2%E5%BE%A1_(%E3%82%BB%E3%82%AD%E3%83%A5%E3%83%EA%E3%83%86%E3%82%A3))

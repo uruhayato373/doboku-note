@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="860" viewBox="0 0 1200 860">
+  <rect width="1200" height="860" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">環境経済評価 — 5手法の系統別比較</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">顕示選好型 3 + 表明選好型 2 = 5手法</text>
+
+  <rect x="40" y="140" width="180" height="56" fill="#1a3a5c"/>
+  <text x="130" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">系統</text>
+  <rect x="220" y="140" width="220" height="56" fill="#1a3a5c"/>
+  <text x="330" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">評価手法</text>
+  <rect x="440" y="140" width="380" height="56" fill="#1a3a5c"/>
+  <text x="630" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">内容</text>
+  <rect x="820" y="140" width="340" height="56" fill="#1a3a5c"/>
+  <text x="990" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">適用範囲・特徴</text>
+  <rect x="40" y="204" width="180" height="100" fill="#e8f0fe" stroke="#e2e8f0"/>
+  <text x="130" y="263" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c" text-anchor="middle">顕示選好型</text>
+  <rect x="220" y="204" width="220" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="236" y="263" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">代替法</text>
+  <rect x="440" y="204" width="380" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="456" y="263" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">市場財で置換した費用で評価</text>
+  <rect x="820" y="204" width="340" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="836" y="263" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">置換する市場財がないと不能</text>
+  <rect x="40" y="304" width="180" height="100" fill="#e8f0fe" stroke="#e2e8f0"/>
+  <text x="130" y="363" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c" text-anchor="middle">顕示選好型</text>
+  <rect x="220" y="304" width="220" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="236" y="363" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">トラベルコスト法</text>
+  <rect x="440" y="304" width="380" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="456" y="363" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">旅行費用で訪問価値を評価</text>
+  <rect x="820" y="304" width="340" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="836" y="363" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">レクリエーション施設限定</text>
+  <rect x="40" y="404" width="180" height="100" fill="#e8f0fe" stroke="#e2e8f0"/>
+  <text x="130" y="463" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c" text-anchor="middle">顕示選好型</text>
+  <rect x="220" y="404" width="220" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="236" y="463" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">ヘドニック法</text>
+  <rect x="440" y="404" width="380" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="456" y="463" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">地価への反映から環境価値を評価</text>
+  <rect x="820" y="404" width="340" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="836" y="463" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">地域的な事項に限定</text>
+  <rect x="40" y="504" width="180" height="100" fill="#e6f1e8" stroke="#e2e8f0"/>
+  <text x="130" y="563" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#3a7d44" text-anchor="middle">表明選好型</text>
+  <rect x="220" y="504" width="220" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="236" y="563" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">仮想評価法（CVM）</text>
+  <rect x="440" y="504" width="380" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="456" y="563" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">アンケートで支払意志額を尋ねる</text>
+  <rect x="820" y="504" width="340" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="836" y="563" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">適用範囲広く非利用価値も評価可</text>
+  <rect x="40" y="604" width="180" height="100" fill="#e6f1e8" stroke="#e2e8f0"/>
+  <text x="130" y="663" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#3a7d44" text-anchor="middle">表明選好型</text>
+  <rect x="220" y="604" width="220" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="236" y="663" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">コンジョイント分析</text>
+  <rect x="440" y="604" width="380" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="456" y="663" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">複数代替案で属性単位の選好評価</text>
+  <rect x="820" y="604" width="340" height="100" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="836" y="663" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">適用範囲広く準備に手間</text>
+  <rect x="40" y="736" width="1120" height="44" rx="6" fill="#e8f0fe"/>
+  <text x="60" y="766" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">引っかけ：「ヘドニック法はアンケート」「コンジョイント分析は顕示選好型」は誤り。</text>
+</svg>

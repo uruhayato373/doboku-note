@@ -1,0 +1,174 @@
+{
+  "schemaVersion": 1,
+  "channel": "gsc-ui",
+  "runs": [
+    {
+      "runId": "2026-07-30T05-41-28Z",
+      "collectedAt": "2026-07-30T05:41:28.844Z",
+      "property": "sc-domain:doboku-note.com",
+      "status": "ok",
+      "complete": true,
+      "manifestUnits": 10,
+      "downloadedUnits": 7,
+      "normalizedUnits": 7,
+      "skippedUnits": 0,
+      "totalRows": 1964,
+      "units": [
+        {
+          "unit": "crawledNotIndexed--allKnownPages",
+          "rows": 350,
+          "added": 350,
+          "removed": 0
+        },
+        {
+          "unit": "redirect--allKnownPages",
+          "rows": 856,
+          "added": 856,
+          "removed": 0
+        },
+        {
+          "unit": "notFound--allKnownPages",
+          "rows": 297,
+          "added": 297,
+          "removed": 0
+        },
+        {
+          "unit": "alternateCanonical--allKnownPages",
+          "rows": 157,
+          "added": 157,
+          "removed": 0
+        },
+        {
+          "unit": "forbidden--allKnownPages",
+          "rows": 5,
+          "added": 5,
+          "removed": 0
+        },
+        {
+          "unit": "crawledNotIndexed--allSubmittedPages",
+          "rows": 299,
+          "added": 299,
+          "removed": 0
+        },
+        {
+          "unit": "alternateCanonical--allSubmittedPages",
+          "rows": 0,
+          "added": 0,
+          "removed": 0
+        }
+      ]
+    },
+    {
+      "runId": "2026-07-30T05-48-04Z",
+      "collectedAt": "2026-07-30T05:48:04.037Z",
+      "property": "sc-domain:doboku-note.com",
+      "status": "ok",
+      "complete": true,
+      "manifestUnits": 10,
+      "downloadedUnits": 7,
+      "normalizedUnits": 7,
+      "skippedUnits": 0,
+      "totalRows": 1964,
+      "units": [
+        {
+          "unit": "crawledNotIndexed--allKnownPages",
+          "rows": 350,
+          "added": 0,
+          "removed": 0
+        },
+        {
+          "unit": "redirect--allKnownPages",
+          "rows": 856,
+          "added": 0,
+          "removed": 0
+        },
+        {
+          "unit": "notFound--allKnownPages",
+          "rows": 297,
+          "added": 0,
+          "removed": 0
+        },
+        {
+          "unit": "alternateCanonical--allKnownPages",
+          "rows": 157,
+          "added": 0,
+          "removed": 0
+        },
+        {
+          "unit": "forbidden--allKnownPages",
+          "rows": 5,
+          "added": 0,
+          "removed": 0
+        },
+        {
+          "unit": "crawledNotIndexed--allSubmittedPages",
+          "rows": 299,
+          "added": 0,
+          "removed": 0
+        },
+        {
+          "unit": "alternateCanonical--allSubmittedPages",
+          "rows": 0,
+          "added": 0,
+          "removed": 0
+        }
+      ]
+    },
+    {
+      "runId": "2026-07-30T05-51-00Z",
+      "collectedAt": "2026-07-30T05:51:00.731Z",
+      "property": "sc-domain:doboku-note.com",
+      "status": "ok",
+      "complete": true,
+      "manifestUnits": 10,
+      "downloadedUnits": 7,
+      "normalizedUnits": 7,
+      "skippedUnits": 0,
+      "totalRows": 1964,
+      "units": [
+        {
+          "unit": "crawledNotIndexed--allKnownPages",
+          "rows": 350,
+          "added": 0,
+          "removed": 0
+        },
+        {
+          "unit": "redirect--allKnownPages",
+          "rows": 856,
+          "added": 0,
+          "removed": 0
+        },
+        {
+          "unit": "notFound--allKnownPages",
+          "rows": 297,
+          "added": 0,
+          "removed": 0
+        },
+        {
+          "unit": "alternateCanonical--allKnownPages",
+          "rows": 157,
+          "added": 0,
+          "removed": 0
+        },
+        {
+          "unit": "forbidden--allKnownPages",
+          "rows": 5,
+          "added": 0,
+          "removed": 0
+        },
+        {
+          "unit": "crawledNotIndexed--allSubmittedPages",
+          "rows": 299,
+          "added": 0,
+          "removed": 0
+        },
+        {
+          "unit": "alternateCanonical--allSubmittedPages",
+          "rows": 0,
+          "added": 0,
+          "removed": 0
+        }
+      ]
+    }
+  ]
+}

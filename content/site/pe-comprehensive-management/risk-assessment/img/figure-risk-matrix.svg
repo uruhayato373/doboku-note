@@ -1,0 +1,93 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="リスクマトリクス：縦軸が生起確率（低・中・高）、横軸が影響度（小・中・大）の 3×3 マトリクス。右上ほどリスクが高く（赤）、左下ほど低い（緑）。点線矢印は右上から左下へのリスク低減方向を示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-axis { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-mark { font-size: 12px; fill: #1a3a5c; }
+      .t-cell { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-arrow-label { font-size: 11px; fill: #555; }
+      .grid { stroke: #1a3a5c; stroke-width: 1; }
+      .h-cell { fill: #f8d7da; }
+      .m-cell { fill: #fff3cd; }
+      .l-cell { fill: #d0e8d0; }
+    </style>
+    <marker id="arr-rm" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0,0 10,3.5 0,7" fill="#555" />
+    </marker>
+  </defs>
+
+  <!-- タイトル -->
+  <text x="200" y="20" class="t-title" text-anchor="middle">リスクマトリクス（生起確率 × 影響度）</text>
+
+  <!-- 影響度ヘッダー（横軸） -->
+  <rect x="100" y="40" width="270" height="26" fill="#e8f0fe" class="grid" />
+  <text x="235" y="58" class="t-axis" text-anchor="middle">影響度</text>
+
+  <!-- 影響度サブ：小・中・大 -->
+  <rect x="100" y="66" width="90" height="24" fill="#e8f0fe" class="grid" />
+  <rect x="190" y="66" width="90" height="24" fill="#e8f0fe" class="grid" />
+  <rect x="280" y="66" width="90" height="24" fill="#e8f0fe" class="grid" />
+  <text x="145" y="83" class="t-mark" text-anchor="middle">小</text>
+  <text x="235" y="83" class="t-mark" text-anchor="middle">中</text>
+  <text x="325" y="83" class="t-mark" text-anchor="middle">大</text>
+
+  <!-- 生起確率ヘッダー（縦軸） -->
+  <rect x="20" y="40" width="80" height="50" fill="#e8f0fe" class="grid" />
+  <text x="60" y="62" class="t-axis" text-anchor="middle">生起</text>
+  <text x="60" y="78" class="t-axis" text-anchor="middle">確率</text>
+
+  <!-- 行：高（最上段） -->
+  <rect x="20" y="90" width="80" height="50" fill="#e8f0fe" class="grid" />
+  <text x="60" y="120" class="t-mark" text-anchor="middle">高</text>
+  <rect x="100" y="90" width="90" height="50" class="m-cell grid" />
+  <text x="145" y="120" class="t-cell" text-anchor="middle">中</text>
+  <rect x="190" y="90" width="90" height="50" class="h-cell grid" />
+  <text x="235" y="120" class="t-cell" text-anchor="middle">高</text>
+  <rect x="280" y="90" width="90" height="50" class="h-cell grid" />
+  <text x="325" y="120" class="t-cell" text-anchor="middle">高</text>
+
+  <!-- 行：中 -->
+  <rect x="20" y="140" width="80" height="50" fill="#e8f0fe" class="grid" />
+  <text x="60" y="170" class="t-mark" text-anchor="middle">中</text>
+  <rect x="100" y="140" width="90" height="50" class="l-cell grid" />
+  <text x="145" y="170" class="t-cell" text-anchor="middle">低</text>
+  <rect x="190" y="140" width="90" height="50" class="m-cell grid" />
+  <text x="235" y="170" class="t-cell" text-anchor="middle">中</text>
+  <rect x="280" y="140" width="90" height="50" class="h-cell grid" />
+  <text x="325" y="170" class="t-cell" text-anchor="middle">高</text>
+
+  <!-- 行：低（最下段） -->
+  <rect x="20" y="190" width="80" height="50" fill="#e8f0fe" class="grid" />
+  <text x="60" y="220" class="t-mark" text-anchor="middle">低</text>
+  <rect x="100" y="190" width="90" height="50" class="l-cell grid" />
+  <text x="145" y="220" class="t-cell" text-anchor="middle">低</text>
+  <rect x="190" y="190" width="90" height="50" class="l-cell grid" />
+  <text x="235" y="220" class="t-cell" text-anchor="middle">低</text>
+  <rect x="280" y="190" width="90" height="50" class="m-cell grid" />
+  <text x="325" y="220" class="t-cell" text-anchor="middle">中</text>
+
+  <!-- 低減方向の矢印（右上 → 左下） -->
+  <line x1="350" y1="100" x2="135" y2="225" stroke="#555" stroke-width="1.8" stroke-dasharray="6,3" marker-end="url(#arr-rm)" />
+  <text x="200" y="265" class="t-arrow-label" text-anchor="middle">→ リスク低減方向（右上：高リスク／左下：低リスク）</text>
+
+  <!-- サマリー -->
+  <line stroke="#d7d7d7" stroke-width="1" x1="20" y1="285" x2="380" y2="285"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c" x="200" y="316" text-anchor="middle">リスク対応の 4 戦略</text>
+  <rect fill="#f8d7da" stroke="#b22234" stroke-width="1" x="20" y="328" width="170" height="60" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" x="105" y="348" text-anchor="middle">高リスク向け</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="105" y="366" text-anchor="middle">回避・軽減・移転</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="105" y="382" text-anchor="middle">（即時対応が必要）</text>
+  <rect fill="#d0e8d0" stroke="#3a7d44" stroke-width="1" x="210" y="328" width="170" height="60" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" x="295" y="348" text-anchor="middle">低リスク向け</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="295" y="366" text-anchor="middle">受容・保有</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="295" y="382" text-anchor="middle">（モニタリング継続）</text>
+  <rect fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" x="20" y="404" width="360" height="62" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="424">・回避: リスク要因を取り除く（事業中止等）</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="442">・軽減: 発生確率または影響度を下げる</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="460">・移転: 保険・契約で第三者に転嫁</text>
+</svg>

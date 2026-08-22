@@ -1,0 +1,942 @@
+{
+  "fetchedAt": "2026-07-20T21:53:02.012Z",
+  "platform": "x",
+  "source": "agent-reach twitter CLI（read-only: user/user-posts）・個人アカ uruhayato373 経由・投稿アカ@doboku373 不使用",
+  "caveat": "フォロワー/総投稿は公開プロフィール由来。エンゲージ/更新頻度は直近投稿サンプル基準の推定（year は投稿時刻に無く当年補正）。有料DM/限定は取得不可。",
+  "driftBasis": null,
+  "drift": [],
+  "competitors": [
+    {
+      "handle": "sosou_nino",
+      "label": "小泉士郎",
+      "exams": [
+        "sokan",
+        "pe-construction"
+      ],
+      "note": "最大競合(note)。X ハンドル未確定(sosou_nino は note 用・CLI で not_found)＝07 の『X 突出インフル不在・note主導線』と整合。X 実ハンドル判明後に差し替え",
+      "profile": null,
+      "error": "not_found_or_auth"
+    },
+    {
+      "handle": "gijutushiindex",
+      "label": "技術士-Index",
+      "exams": [
+        "pe-construction"
+      ],
+      "note": "二次建設・予想問題連番シリーズ。導線=自社ブログ/BASE",
+      "profile": {
+        "nickname": "J-Index",
+        "screenName": "gijutushiindex",
+        "followerCount": 704
+      },
+      "counts": {
+        "tweetsTotal": 602,
+        "postsSampled": 20
+      },
+      "cadence": {
+        "recent30": 17,
+        "recent90": 20,
+        "latestDaysAgo": 0
+      },
+      "platformExtra": {
+        "following": 495,
+        "verified": false,
+        "avgEngagement": 8,
+        "medianEngagement": 6,
+        "engagementRate": 1.115,
+        "accountAgeYears": 3.4
+      },
+      "engagementLeaders": [
+        {
+          "text": "技術士二次試験 お疲れさまでした🎊 あの長時間の筆記を終えたあなたは もう立派な“戦い抜いた技術者”です💯 今日は復元論文よりもまず 自分へのご褒美を🍺 #技術士 #二次試験",
+          "likes": 30,
+          "rts": 1,
+          "engagement": 31,
+          "vsAvg": 3.9
+        },
+        {
+          "text": "技術士試験は段取りが命 受験票はカバンへ👜 時計はアナログ⌚️ 鉛筆はB✏️ 昼食と上着も必須🧥 直前まで論文を見て集中を高めよう。 準備を極めた者が本番を制する✨ #技術士 ",
+          "likes": 16,
+          "rts": 2,
+          "engagement": 18,
+          "vsAvg": 2.3
+        },
+        {
+          "text": "技術士二次は“型”が命。 完成論文を読むだけで構造が一気に身体化し、 本番で迷わず書けます。 直前期の最強ブースト、 今すぐやりましょう💯 最後の応援資料です📚 #技術士 #二",
+          "likes": 15,
+          "rts": 2,
+          "engagement": 17,
+          "vsAvg": 2.2
+        },
+        {
+          "text": "技術士試験２日前は ✅骨子確認 ✅型の固定 だけで実力を最大化しよう🆙 不安を削ぎ落とし 整える者が合格をつかみます。 あなたはもう勝てる段階にいます。 自信を持って仕上げましょ",
+          "likes": 13,
+          "rts": 0,
+          "engagement": 13,
+          "vsAvg": 1.7
+        },
+        {
+          "text": "最後の粘りが合否を分けます！ 必勝法まとめてます！ 力を出し切って 合格を掴み取ってください💯 合格祈願！！ #技術士 #二次試験当日 最後のアドバイス １２０％の実力を解放させ",
+          "likes": 12,
+          "rts": 0,
+          "engagement": 12,
+          "vsAvg": 1.5
+        },
+        {
+          "text": "選択科目Ⅲは “専門性を示せる人だけが勝つ” 本当に差がつくのは 選択科目の技術体系を どこまで深く理解しているか 採点表が全部見せますので ポイントを押さえた技術的アピールを検討",
+          "likes": 9,
+          "rts": 1,
+          "engagement": 10,
+          "vsAvg": 1.3
+        },
+        {
+          "text": "第6次重点計画で社会資本は “つくる時代”から “選ぶ・維持する時代”へ 老朽化×GX×DXが今年の技術士試験の核心 答案は因果と具体性が勝負 あなたの一文で未来を変えろ⁉️ #技",
+          "likes": 7,
+          "rts": 1,
+          "engagement": 8,
+          "vsAvg": 1
+        },
+        {
+          "text": "選択科目Ⅲは “専門知識を全段落に散らす”のが勝負 課題設定のズレは即死💀 本番直前は 制度×技術×運用の三本柱を まとめておけばOK 本番はこれをカスタマイズ🔁 #技術士 #",
+          "likes": 6,
+          "rts": 1,
+          "engagement": 7,
+          "vsAvg": 0.9
+        },
+        {
+          "text": "“採点表が丸見え”の完全攻略モード。 今回は選択科目Ⅱです🎁 定義・原理・法令を外さず、 因果で書けば一気に加点。 直前期でもまだ伸びる。ここから逆転、十分あり得ます💯 #技術",
+          "likes": 6,
+          "rts": 0,
+          "engagement": 6,
+          "vsAvg": 0.8
+        },
+        {
+          "text": "必須で確実にラインを超え‼️ 選択科目は 「全部ホームランを狙う」のではなく、 「チームとして60％以上を取りに行く」 イメージを持って臨みましょう🉐 これが合格への最短ルート\ud83d",
+          "likes": 4,
+          "rts": 2,
+          "engagement": 6,
+          "vsAvg": 0.8
+        }
+      ]
+    },
+    {
+      "handle": "Civil10Engineer",
+      "label": "技術士パパ",
+      "exams": [
+        "pe-construction",
+        "sokan"
+      ],
+      "note": "建設×総監2部門・ゼネコン15年。導線=note/YouTube",
+      "profile": {
+        "nickname": "技術士パパ | 建設×総監",
+        "screenName": "Civil10Engineer",
+        "followerCount": 1011
+      },
+      "counts": {
+        "tweetsTotal": 1574,
+        "postsSampled": 20
+      },
+      "cadence": {
+        "recent30": 20,
+        "recent90": 20,
+        "latestDaysAgo": 0
+      },
+      "platformExtra": {
+        "following": 318,
+        "verified": true,
+        "avgEngagement": 14,
+        "medianEngagement": 14,
+        "engagementRate": 1.409,
+        "accountAgeYears": 1.4
+      },
+      "engagementLeaders": [
+        {
+          "text": "【技術士試験】 明日は本番！ 前日はこれまでの復習、リラックス、睡眠の確保が重要だと思います！ 技術士試験は暗記ではなく、その場で文章構造を考えるところがポイントです。 スッキリし",
+          "likes": 37,
+          "rts": 2,
+          "engagement": 39,
+          "vsAvg": 2.7
+        },
+        {
+          "text": "【技術士試験】 試験お疲れ様でした！ みなさん手応えはどうでしたか？ 終了して一息つきたいとは思いますが、まずは再現解答を作成しておくことをお勧めします。 本日19:00にR8年度",
+          "likes": 30,
+          "rts": 0,
+          "engagement": 30,
+          "vsAvg": 2.1
+        },
+        {
+          "text": "【技術士試験】 総監部門の方は試験ですね！ 私はウイダーインゼリーとラムネで試験を乗り越えました🧐 行ってらっしゃい！ #技術士",
+          "likes": 30,
+          "rts": 0,
+          "engagement": 30,
+          "vsAvg": 2.1
+        },
+        {
+          "text": "【技術士試験】 長い長い試験に向けた勉強お疲れ様でした。 合否はどうであれ、努力したものに無駄なことはありません。むしろその努力を意味あるものに替えるのはあなた次第です。 とは言っ",
+          "likes": 28,
+          "rts": 1,
+          "engagement": 29,
+          "vsAvg": 2
+        },
+        {
+          "text": "【技術士試験】 骨子表やフロー図を作って整理するのはいいと思いますが、実際にはその中身の文章が大切だと思います。 骨子やフローは論理をブレさせないために必要なわけで、大事なのは文書",
+          "likes": 23,
+          "rts": 1,
+          "engagement": 24,
+          "vsAvg": 1.7
+        },
+        {
+          "text": "【技術士試験】 今日は技術士試験本番ですね！ 一般部門を受ける方は、これまで積み重ねた努力を元に存分に力を発揮してください！ 取り組む前に一度深呼吸を問題を冷静に読みましょう！ が",
+          "likes": 21,
+          "rts": 0,
+          "engagement": 21,
+          "vsAvg": 1.5
+        },
+        {
+          "text": "【技術士試験】 昨日は総監部門の受験生はお疲れ様でした。 地方創生に関する問題でしたね。 最初から近5年以内の設定で、ステークホルダーとの連携をメインとした問題が出ましたね。 総監",
+          "likes": 19,
+          "rts": 1,
+          "engagement": 20,
+          "vsAvg": 1.4
+        },
+        {
+          "text": "いよいよ総監ですね！ 実力発揮して合格して下さい！ #技術士",
+          "likes": 18,
+          "rts": 0,
+          "engagement": 18,
+          "vsAvg": 1.3
+        },
+        {
+          "text": "【技術士試験】 残りは動画でも観て整理する時間でもいいんじゃないですか？ 残りわずかです。 全力を出せるように明日に備えましょう！ #技術士",
+          "likes": 15,
+          "rts": 1,
+          "engagement": 16,
+          "vsAvg": 1.1
+        },
+        {
+          "text": "【技術士試験】 総監部門は択一試験があるので、最終日でも記憶する勉強も有効だと思います。 ただし、記述もあるので、睡眠時間の確保は必須ですね。 #技術士 #総監",
+          "likes": 13,
+          "rts": 1,
+          "engagement": 14,
+          "vsAvg": 1
+        }
+      ]
+    },
+    {
+      "handle": "suger_sensei",
+      "label": "シュガー先生",
+      "exams": [
+        "civil"
+      ],
+      "note": "2級土木・工業高校教員。図解『神7』/合否ドラマ型。導線=note(セコカンLAB)",
+      "profile": {
+        "nickname": "シュガー先生｜セコカンLAB",
+        "screenName": "suger_sensei",
+        "followerCount": 92
+      },
+      "counts": {
+        "tweetsTotal": 186,
+        "postsSampled": 20
+      },
+      "cadence": {
+        "recent30": 0,
+        "recent90": 1,
+        "latestDaysAgo": 83
+      },
+      "platformExtra": {
+        "following": 86,
+        "verified": false,
+        "avgEngagement": 4,
+        "medianEngagement": 3,
+        "engagementRate": 3.967,
+        "accountAgeYears": 1.8
+      },
+      "engagementLeaders": [
+        {
+          "text": "【二級土木施工管理技士】 専門土木 コンクリート劣化 現役工業高校教員が本気で解説！ 最新まで過去問10回分を徹底分析。 中性化・塩害・凍害・化学的侵食 「ひっかけ」の正体を暴露 ",
+          "likes": 10,
+          "rts": 0,
+          "engagement": 10,
+          "vsAvg": 2.7
+        },
+        {
+          "text": "父は、じいちゃんを超える。 僕は、父に車を贈る。 あと何回、会えるだろう。 そう考えたとき、 “今やる理由”がはっきりした。 家族との時間は、無限じゃない。 ▼記事はこちら htt",
+          "likes": 8,
+          "rts": 0,
+          "engagement": 8,
+          "vsAvg": 2.2
+        },
+        {
+          "text": "「迷っているなら、やったほうがいい」 生徒に言い続けてきたこの言葉を、 自分に課しました。 2026年、毎週「人生初」に 挑むミッション。 料理、AI、3Dプリンタ、漫画… まだま",
+          "likes": 8,
+          "rts": 0,
+          "engagement": 8,
+          "vsAvg": 2.2
+        },
+        {
+          "text": "リーダーシップとは「管理」ではなく、 後輩の成長を「加速」させること。 受け取った恩を、 年上の人に返すことは大切。 年下や後輩へ、 返すことはもっと大切。 未来を作るための「恩送",
+          "likes": 6,
+          "rts": 1,
+          "engagement": 7,
+          "vsAvg": 1.9
+        },
+        {
+          "text": "変わりたいなら「何を足すか」 ではなく「何を捨てるか」を考える。 見栄、上下、迷い、甘え、他人基準。 https://t.co/R51YApgZY2",
+          "likes": 5,
+          "rts": 0,
+          "engagement": 5,
+          "vsAvg": 1.4
+        },
+        {
+          "text": "スキをくれた読者のみなさんが、 消えていく。。。 通知の仕様で見失ってしまう。 皆さんが心を込めて書いた記事を、 一文字残らず読みに行きたい。 悩んでます。 noteの先輩方、 ど",
+          "likes": 4,
+          "rts": 0,
+          "engagement": 4,
+          "vsAvg": 1.1
+        },
+        {
+          "text": "二級土木施工管理技士【専門土木】 出題はほぼこの3つ 鋼材、ここで1点取れます。 ・鋼材の種類 ・弾性と塑性 ・炭素量と性質 覚える鋼材は「5つだけ」でOK ムダを削って最短合格へ",
+          "likes": 4,
+          "rts": 0,
+          "engagement": 4,
+          "vsAvg": 1.1
+        },
+        {
+          "text": "愚痴は吐いた瞬間、 魔物になる。 飼えば増える。 うまく使えば力になる。 https://t.co/h6oaG4R11r",
+          "likes": 3,
+          "rts": 0,
+          "engagement": 3,
+          "vsAvg": 0.8
+        },
+        {
+          "text": "初対面は、たった一度きり。 やり直しがきかないからこそ、 最も重要な瞬間です。 相手が見ているのは能力ではなく 「安心できるか」だけ。 https://t.co/lXnJlDgS5",
+          "likes": 3,
+          "rts": 0,
+          "engagement": 3,
+          "vsAvg": 0.8
+        },
+        {
+          "text": "二級土木施工管理技士【専門土木】 鋼道路橋は難しくない。 覚えるのは2つだけ ・工法の使い分け ・ボルトの締付けルール これで1点取れます。 https://t.co/vchyHW",
+          "likes": 3,
+          "rts": 0,
+          "engagement": 3,
+          "vsAvg": 0.8
+        }
+      ]
+    },
+    {
+      "handle": "kaminoblog",
+      "label": "カミノ",
+      "exams": [
+        "civil"
+      ],
+      "note": "土木公務員・1級土木。職種解説/DM相談",
+      "profile": {
+        "nickname": "カミノ",
+        "screenName": "kaminoblog",
+        "followerCount": 8040
+      },
+      "counts": {
+        "tweetsTotal": 6544,
+        "postsSampled": 20
+      },
+      "cadence": {
+        "recent30": 20,
+        "recent90": 20,
+        "latestDaysAgo": 0
+      },
+      "platformExtra": {
+        "following": 1076,
+        "verified": false,
+        "avgEngagement": 132,
+        "medianEngagement": 48,
+        "engagementRate": 1.639,
+        "accountAgeYears": 11.6
+      },
+      "engagementLeaders": [
+        {
+          "text": "【全国の地方公務員の皆さまへ。声を上げなければ、また市に事務負担が降りかかります】 #芦屋市長 #給付付き税額控除 給付付き税額控除の事務負担。今回も給付は市区町村になりそうです。",
+          "likes": 638,
+          "rts": 119,
+          "engagement": 757,
+          "vsAvg": 5.7
+        },
+        {
+          "text": "機電の話みたいですけど、母数が多い土木職でも応募者不足は深刻です。早く給与上げる処方箋を出さないと死にますよ。",
+          "likes": 412,
+          "rts": 56,
+          "engagement": 468,
+          "vsAvg": 3.6
+        },
+        {
+          "text": "私の市役所では残業時も冷房入りますよ。冷房入らないってありえないんで、この話は先日タイムラインに流れてきた気がしますけど、正直そんな役所は転職した方がいいと思います……。 http",
+          "likes": 274,
+          "rts": 19,
+          "engagement": 293,
+          "vsAvg": 2.2
+        },
+        {
+          "text": "録画視聴しました。今の地方公務員はあらゆる悪条件が重なり、深刻な事態になってますね。しかも少子化により急速に崩壊が進むと思います。優先的に「業務を減らす」に注力しなければ……。（ア",
+          "likes": 261,
+          "rts": 32,
+          "engagement": 293,
+          "vsAvg": 2.2
+        },
+        {
+          "text": "地方議員の出張視察はめっちゃ多いけど、ハッキリと無駄です。まずは自分の自治体内の事業をしっかり勉強してほしい。現場に来られると面倒くさいけど、より良い市政を真剣に考えていただけるな",
+          "likes": 254,
+          "rts": 22,
+          "engagement": 276,
+          "vsAvg": 2.1
+        },
+        {
+          "text": "ガードレールに袖ビームが設置される理由",
+          "likes": 80,
+          "rts": 17,
+          "engagement": 97,
+          "vsAvg": 0.7
+        },
+        {
+          "text": "人事もただの人ですから職員みんなの特性は把握しきれず適切な配置は難しいですね。部局長クラスがある程度コントロールしてると思いますが、どこの分野でも（事務方でも）不満が残るのは仕方な",
+          "likes": 60,
+          "rts": 4,
+          "engagement": 64,
+          "vsAvg": 0.5
+        },
+        {
+          "text": "いますね。そういう奴って事務職相手に限らず他人へのリスペクトが薄いんですよね。まあ部下・後輩であれば指導しますけどそれ以外ならノータッチで、私は反面教師にするしかないかなと思います",
+          "likes": 57,
+          "rts": 2,
+          "engagement": 59,
+          "vsAvg": 0.4
+        },
+        {
+          "text": "1番は流域治水ですね。豪雨凄すぎて1つ2つの要素事業をやったから解決するってレベルじゃなくなっています。最も流域治水に取り組んだ地域団体に賞金10億円をプレゼントする全国大会とかを",
+          "likes": 49,
+          "rts": 8,
+          "engagement": 57,
+          "vsAvg": 0.4
+        },
+        {
+          "text": "建設業で長年間違った運用をされている「指定」と「任意」の考え方を解説しました。正しいルールを知っておきましょう。 https://t.co/vI7PZp8PsO",
+          "likes": 48,
+          "rts": 3,
+          "engagement": 51,
+          "vsAvg": 0.4
+        }
+      ]
+    },
+    {
+      "handle": "miyabi_labo",
+      "label": "miyabi_labo",
+      "exams": [
+        "civil"
+      ],
+      "note": "note=miyabi_labo と同一主体。まとめノート",
+      "profile": {
+        "nickname": "雅@スライドで学ぶ建設工学",
+        "screenName": "miyabi_labo",
+        "followerCount": 2156
+      },
+      "counts": {
+        "tweetsTotal": 758,
+        "postsSampled": 20
+      },
+      "cadence": {
+        "recent30": 20,
+        "recent90": 20,
+        "latestDaysAgo": 3
+      },
+      "platformExtra": {
+        "following": 1235,
+        "verified": true,
+        "avgEngagement": 7,
+        "medianEngagement": 3,
+        "engagementRate": 0.304,
+        "accountAgeYears": 6.3
+      },
+      "engagementLeaders": [
+        {
+          "text": "#1級土木施工管理技士 の解答速報、再修正版をアップしました！ ※確実な解答は試験元の公開情報で確認してください。 https://t.co/M7EhmhOAc1",
+          "likes": 57,
+          "rts": 4,
+          "engagement": 61,
+          "vsAvg": 9.3
+        },
+        {
+          "text": "1級土木の専門土木の最終問題は、偶数年は「注入効果の確認方法」が鉄板で出題されています！ ■ 出題実績（専門土木・薬液注入） R2（2020）：注入効果の確認方法 R4（2022）",
+          "likes": 13,
+          "rts": 4,
+          "engagement": 17,
+          "vsAvg": 2.6
+        },
+        {
+          "text": "ウチの近くにある樋門、管理橋の下に護岸張ってないけど大丈夫そ？ https://t.co/FDN05dPGFx",
+          "likes": 15,
+          "rts": 0,
+          "engagement": 15,
+          "vsAvg": 2.3
+        },
+        {
+          "text": "noteで記事を書きました！この投稿をリポストするとお得に記事を読むことができます。 2級土木施工管理技士（第二次検定）のまとめノートPDFダウンロード | 雅@スライドで学ぶ建設",
+          "likes": 5,
+          "rts": 3,
+          "engagement": 8,
+          "vsAvg": 1.2
+        },
+        {
+          "text": "#2級土木施工管理技士 の法規（労働基準法）の頻出問題！ 使用者は，満18歳に満たない者について，その年齢を証明する戸籍証明書を事業場に備え付けなければならない。",
+          "likes": 4,
+          "rts": 0,
+          "engagement": 4,
+          "vsAvg": 0.6
+        },
+        {
+          "text": "#2級土木施工管理技士 の法規（労働基準法）の頻出問題！ 使用者は，原則として，労働者に休憩時間を除き1週間について40時間を超えて，労働させてはならない。",
+          "likes": 4,
+          "rts": 0,
+          "engagement": 4,
+          "vsAvg": 0.6
+        },
+        {
+          "text": "#2級土木施工管理技士 の法規（労働基準法）の頻出問題！ 使用者は、労働者に対して、原則として、毎週少なくとも1回の休日を与えなければならない。",
+          "likes": 3,
+          "rts": 0,
+          "engagement": 3,
+          "vsAvg": 0.5
+        },
+        {
+          "text": "noteで記事を書きました！この投稿をリポストするとお得に記事を読むことができます。 1級土木施工管理技士（第二次検定）のまとめノートPDFダウンロード | 雅@スライドで学ぶ建設",
+          "likes": 2,
+          "rts": 1,
+          "engagement": 3,
+          "vsAvg": 0.5
+        },
+        {
+          "text": "#2級土木施工管理技士 の法規（労働基準法）の頻出問題！ 使用者は、原則として、休憩時間を労働時間の途中に労働者ごとに開始時刻を変えて与えることができる。",
+          "likes": 3,
+          "rts": 0,
+          "engagement": 3,
+          "vsAvg": 0.5
+        },
+        {
+          "text": "#1級土木 の試験いよいよ明日ですね！ 頻出問題だけで構成した模擬テストなので、これやるだけで合格に近づけますよ！たったの300円で販売しています(^^♪ https://t.co",
+          "likes": 2,
+          "rts": 1,
+          "engagement": 3,
+          "vsAvg": 0.5
+        }
+      ]
+    },
+    {
+      "handle": "Yurii6ww",
+      "label": "Yurii",
+      "exams": [
+        "civil"
+      ],
+      "note": "07 のX投稿型エンゲージ実測(2026-07-14)対象の土木施工管理アカウント",
+      "profile": {
+        "nickname": "Yuri｜1級土木・経験記述対策",
+        "screenName": "Yurii6ww",
+        "followerCount": 94
+      },
+      "counts": {
+        "tweetsTotal": 457,
+        "postsSampled": 20
+      },
+      "cadence": {
+        "recent30": 20,
+        "recent90": 20,
+        "latestDaysAgo": 5
+      },
+      "platformExtra": {
+        "following": 165,
+        "verified": false,
+        "avgEngagement": 2,
+        "medianEngagement": 1,
+        "engagementRate": 1.649,
+        "accountAgeYears": 0.2
+      },
+      "engagementLeaders": [
+        {
+          "text": "1級土木の経験記述対策noteを公開しました。 丸写し用ではなく、自分の工事経験を答案の形へ近づける実践教材です。 8シート付き https://t.co/J4ERh8B47N",
+          "likes": 3,
+          "rts": 1,
+          "engagement": 4,
+          "vsAvg": 2.6
+        },
+        {
+          "text": "1級土木の経験記述は、例文をたくさん読むほど不安になることもあります。 「自分の現場と違う」と感じるからです。 例文は丸ごと真似るより、考え方を拾う方が使いやすいです。 例えば同じ",
+          "likes": 4,
+          "rts": 0,
+          "engagement": 4,
+          "vsAvg": 2.6
+        },
+        {
+          "text": "おはようございます。 昨日は研修を受けてきました。 土工事での注意点、何に着目するのか 地下水位 土層 埋設物 周辺既存構造物 重機配置 いろいろ気にするべきところはあって、これら",
+          "likes": 3,
+          "rts": 0,
+          "engagement": 3,
+          "vsAvg": 1.9
+        },
+        {
+          "text": "1級土木の経験記述では、同じコンクリート打設でも書き方は一つではありません。 品質で見るのか。 安全で見るのか。 工程で見るのか。 環境対策で見るのか。 先に切り口を決めると、書く",
+          "likes": 3,
+          "rts": 0,
+          "engagement": 3,
+          "vsAvg": 1.9
+        },
+        {
+          "text": "現場では「安全確認した」で通じることも、 経験記述ではそれだけだと少し弱く見えます。 例えば、 重機作業なのか 高所作業なのか 第三者災害なのか 作業員への周知なのか どの危険を見",
+          "likes": 3,
+          "rts": 0,
+          "engagement": 3,
+          "vsAvg": 1.9
+        },
+        {
+          "text": "経験記述で大事なのは、 すごい経験を探すことより、 普通にやっていた対応を説明できるようにすること。 現場では当たり前でも、 答案では「なぜ」「何を」「どうしたか」まで書かないと伝",
+          "likes": 3,
+          "rts": 0,
+          "engagement": 3,
+          "vsAvg": 1.9
+        },
+        {
+          "text": "1級土木の経験記述で手が止まると、 「文章を書くのが苦手だから」と考えがちです。 でも、文章力の前に、工事経験の材料が混ざったままになっていないかを確認した方が進みやすいことがあり",
+          "likes": 2,
+          "rts": 0,
+          "engagement": 2,
+          "vsAvg": 1.3
+        },
+        {
+          "text": "おはようございます。 今日から1週間また頑張りましょう！",
+          "likes": 2,
+          "rts": 0,
+          "engagement": 2,
+          "vsAvg": 1.3
+        },
+        {
+          "text": "一級土木経験記述で不安になると、 例文をたくさん探したくなります。 まず例文を増やすことより、 自分の工事経験を整理することだと思います。 👇👇",
+          "likes": 2,
+          "rts": 0,
+          "engagement": 2,
+          "vsAvg": 1.3
+        },
+        {
+          "text": "例えば、頭の中で 課題 対応 結果 が一緒になっていると、文章にしようとしても流れが作りにくくなります。 まずは、 ・何が問題になりそうだったか ・何を検討したか ・どんな対応をし",
+          "likes": 1,
+          "rts": 0,
+          "engagement": 1,
+          "vsAvg": 0.6
+        }
+      ]
+    },
+    {
+      "handle": "dobokusekoukan",
+      "label": "土木ブロガー",
+      "exams": [
+        "civil"
+      ],
+      "note": "2026-07-20 キーワード検索『土木施工管理技士 経験記述』で発掘。1級土木二次・経験記述・YouTube連動",
+      "profile": {
+        "nickname": "ちゃんさと@土木施工管理技士専門・ていねいな添削先生",
+        "screenName": "dobokusekoukan",
+        "followerCount": 1081
+      },
+      "counts": {
+        "tweetsTotal": 1707,
+        "postsSampled": 20
+      },
+      "cadence": {
+        "recent30": 20,
+        "recent90": 20,
+        "latestDaysAgo": 0
+      },
+      "platformExtra": {
+        "following": 82,
+        "verified": false,
+        "avgEngagement": 27,
+        "medianEngagement": 17,
+        "engagementRate": 2.488,
+        "accountAgeYears": 4.9
+      },
+      "engagementLeaders": [
+        {
+          "text": "1級土木一次お疲れ様でした☺️ 【試験A】 3力→やや難 土木一般→普通 専門土木→普通 法規→普通 【試験B】 施工能力（基礎）→普通 施工能力（応用）→やや簡単 難易度は例年通",
+          "likes": 72,
+          "rts": 0,
+          "engagement": 72,
+          "vsAvg": 2.7
+        },
+        {
+          "text": "今週の日曜日は1級土木施工管理技士の一次試験！👷‍♂️✨ ​最近の合格率は40％前後。 でも、勝負は周りじゃなくて「自分との戦い」です！🔥 ​ここまで来たら、自分を信じて最後ま",
+          "likes": 50,
+          "rts": 1,
+          "engagement": 51,
+          "vsAvg": 1.9
+        },
+        {
+          "text": "【裏技】 1級土木の経験記述は、ある程度の文章能力があれば即席で作れる！ 安全、品質、工程、環境を準備しておいて、施工計画はこれらをMIXして書く。 例えば安全と施工計画が出たら、",
+          "likes": 47,
+          "rts": 1,
+          "engagement": 48,
+          "vsAvg": 1.8
+        },
+        {
+          "text": "明日1級土木一次を受ける人が 周りにいる人へ☺️ 余計なことは言わない。 これが1番（笑） 気をつけて行ってらっしゃーい！ くらいがいいと思うんだけど。 ステキな送り出しの言葉あっ",
+          "likes": 45,
+          "rts": 1,
+          "engagement": 46,
+          "vsAvg": 1.7
+        },
+        {
+          "text": "今日は1級土木一次！ 受験するみんなが自分の力を出し切れますように☺️ 忘れものに気をつけて！ 応援してます！がんばって〜！",
+          "likes": 43,
+          "rts": 1,
+          "engagement": 44,
+          "vsAvg": 1.6
+        },
+        {
+          "text": "土木施工管理技士の経験記述 2級は最低でも安全、品質、工程 1級は安全、品質、工程、環境… （できれば施工計画も） 1級では長らく工程は出てないので意見は分かれると思うけど、施工計",
+          "likes": 40,
+          "rts": 0,
+          "engagement": 40,
+          "vsAvg": 1.5
+        },
+        {
+          "text": "1級土木と2級土木について、経験記述の採点は雲泥の差がある😇 1000人以上の添削と合格答案を見てきたから分かる。 2級土木の経験記述レベルだと1級土木では受からない可能性が高い",
+          "likes": 37,
+          "rts": 1,
+          "engagement": 38,
+          "vsAvg": 1.4
+        },
+        {
+          "text": "1級土木も2級土木も、二次について初めて受ける方や、前受験から時間が経っている方は、必ず過去問をチェックしてください！ 経験記述の出題形式は令和6年から大きく変わって昔の経験記述で",
+          "likes": 35,
+          "rts": 2,
+          "engagement": 37,
+          "vsAvg": 1.4
+        },
+        {
+          "text": "土木施工管理技士の第二次検定は「6割合格」の建前だけど、実質は部分点の甘辛で人数を絞る相対評価の可能性が高い。 だからこそライバルと差がつく「減点されない経験記述」が命。 さらに合",
+          "likes": 25,
+          "rts": 1,
+          "engagement": 26,
+          "vsAvg": 1
+        },
+        {
+          "text": "YouTubeアップしました😊 1級土木二次の知識問題出題傾向 https://t.co/mUuzgYSZv9",
+          "likes": 16,
+          "rts": 1,
+          "engagement": 17,
+          "vsAvg": 0.6
+        }
+      ]
+    },
+    {
+      "handle": "tvxq_pelican29",
+      "label": "ペリカン(建設業)",
+      "exams": [
+        "pe",
+        "pe-construction",
+        "concrete-diagnostician"
+      ],
+      "note": "2026-07-20 検索『コンクリート診断士 対策』で発掘。5206F・技術士/施工管理/建築士の多資格発信",
+      "profile": {
+        "nickname": "ぺりかん@婚活垢",
+        "screenName": "tvxq_pelican29",
+        "followerCount": 5206
+      },
+      "counts": {
+        "tweetsTotal": 2879,
+        "postsSampled": 20
+      },
+      "cadence": {
+        "recent30": 20,
+        "recent90": 20,
+        "latestDaysAgo": 0
+      },
+      "platformExtra": {
+        "following": 2101,
+        "verified": true,
+        "avgEngagement": 6,
+        "medianEngagement": 5,
+        "engagementRate": 0.113,
+        "accountAgeYears": 8.4
+      },
+      "engagementLeaders": [
+        {
+          "text": "技術士試験お疲れさまでした。 僕もそうでしたが、落ちたと思っていても合格になっていることがあるので、口頭試験の準備はしておいた方が良いと思います😂 と言っても少し先なので、まずは",
+          "likes": 25,
+          "rts": 0,
+          "engagement": 25,
+          "vsAvg": 4.2
+        },
+        {
+          "text": "今週末に一級施工管理技士の試験、 来週一級建築士の試験らしい！！！！！！ 頑張れ後輩！！！！",
+          "likes": 10,
+          "rts": 0,
+          "engagement": 10,
+          "vsAvg": 1.7
+        },
+        {
+          "text": "なんで有料期間終了3日前にめちゃくちゃマッチングするんだよ！！！！！！！！（逆ギレ",
+          "likes": 8,
+          "rts": 0,
+          "engagement": 8,
+          "vsAvg": 1.4
+        },
+        {
+          "text": "3株で良かったわぁ～（ギャン泣き https://t.co/ACiJYjrN4B",
+          "likes": 7,
+          "rts": 0,
+          "engagement": 7,
+          "vsAvg": 1.2
+        },
+        {
+          "text": "胸トレをした次の日だけ胸を張って歩けてる気がする😡",
+          "likes": 7,
+          "rts": 0,
+          "engagement": 7,
+          "vsAvg": 1.2
+        },
+        {
+          "text": "ぺヤーズを退会しました。 次は相談所で会いましょう😨",
+          "likes": 7,
+          "rts": 0,
+          "engagement": 7,
+          "vsAvg": 1.2
+        },
+        {
+          "text": "今年は資格試験の受験もないので夏っぽい事をしたい！！！！！！！",
+          "likes": 6,
+          "rts": 0,
+          "engagement": 6,
+          "vsAvg": 1
+        },
+        {
+          "text": "二日連続で元カノが夢に出てきて泣きました",
+          "likes": 6,
+          "rts": 0,
+          "engagement": 6,
+          "vsAvg": 1
+        },
+        {
+          "text": "学科試験は基準点というより計画の足切りが怖かったな。 建物の様式とか超苦手😂",
+          "likes": 5,
+          "rts": 0,
+          "engagement": 5,
+          "vsAvg": 0.8
+        },
+        {
+          "text": "いやいや夏なんて窓開けてれば余裕で過ごせるよ。 って思ってたけど、5分おきに通る電車2路線、ガンガン揺れる大型車両、騒音速度超過カスバイクがバンバン通る場所で窓なんて開けられたもん",
+          "likes": 5,
+          "rts": 0,
+          "engagement": 5,
+          "vsAvg": 0.8
+        }
+      ]
+    },
+    {
+      "handle": "PockyDay2",
+      "label": "Pocky(診断士)",
+      "exams": [
+        "concrete-diagnostician"
+      ],
+      "note": "2026-07-20 検索『コンクリート診断士 対策』で発掘。診断士記述式に特化・自己採点募集型。X初の concrete 競合(白地判断の訂正根拠)",
+      "profile": {
+        "nickname": "行ってクラブログ-Pocky",
+        "screenName": "PockyDay2",
+        "followerCount": 327
+      },
+      "counts": {
+        "tweetsTotal": 635,
+        "postsSampled": 20
+      },
+      "cadence": {
+        "recent30": 14,
+        "recent90": 20,
+        "latestDaysAgo": 1
+      },
+      "platformExtra": {
+        "following": 427,
+        "verified": false,
+        "avgEngagement": 3,
+        "medianEngagement": 3,
+        "engagementRate": 0.917,
+        "accountAgeYears": 4.7
+      },
+      "engagementLeaders": [
+        {
+          "text": "お願いします。🥺 コンクリート診断士試験を受け、記述式問題の自己解答を送っていただけませんか。🙇 簡潔に採点致しますので。受験者ならどなたでもいいです。宜しくお願い致します。 ",
+          "likes": 8,
+          "rts": 0,
+          "engagement": 8,
+          "vsAvg": 2.7
+        },
+        {
+          "text": "睡眠と暗記 試験前に徹夜で詰め込もうとしている人へ。 記憶の定着は「寝ている間」に起きる。 直前期ほど睡眠を削ってはいけない。 残り1週間のコンディション管理、 合格者はみんな大切",
+          "likes": 7,
+          "rts": 0,
+          "engagement": 7,
+          "vsAvg": 2.3
+        },
+        {
+          "text": "合格者の声 「記述式の型を覚えたら 急に書けるようになりました」 これは合格者の言葉です。 知識は十分あるのに書けない人は 型がないだけのことが多い。 #コンクリート診断士",
+          "likes": 6,
+          "rts": 1,
+          "engagement": 7,
+          "vsAvg": 2.3
+        },
+        {
+          "text": "記述の最終確認 記述式、最後に確認してほしいこと。 「なぜA部よりB部の方が 著しく劣化したのか？」 この問いに即答できますか？ 毎年のように出るフレーズです。 解答の型をブログで",
+          "likes": 6,
+          "rts": 0,
+          "engagement": 6,
+          "vsAvg": 2
+        },
+        {
+          "text": "直前対策としてブログをアップ致しました。よかったら覗いてみてください。😀 #コンクリート診断士",
+          "likes": 4,
+          "rts": 0,
+          "engagement": 4,
+          "vsAvg": 1.3
+        },
+        {
+          "text": "コンクリート診断士の四択問題、 「なんとなく」で解いていませんか？ 合格者の多くは26/40以上を安定して取っている。 カギは「語句の意味を正確に理解すること」。 暗記じゃなく理解",
+          "likes": 4,
+          "rts": 0,
+          "engagement": 4,
+          "vsAvg": 1.3
+        },
+        {
+          "text": "コンクリート診断士試験まで約2ヶ月！ 生成A Iに頼る方が増えています。 ハッキリと言いますが、自分で練習して型をマスターしないと基準値に達しません。 なぜか？回りくどいところ。 ",
+          "likes": 4,
+          "rts": 0,
+          "engagement": 4,
+          "vsAvg": 1.3
+        },
+        {
+          "text": "試験まであと2週間。 ✅ 四択は安定して26問以上取れるか ✅ 記述式を時間内に1000字書けるか ✅ 原因→調査→対策が一貫して書けるか 1つでもNoがあるなら今すぐ対策を。 #",
+          "likes": 3,
+          "rts": 0,
+          "engagement": 3,
+          "vsAvg": 1
+        },
+        {
+          "text": "記述式で落ちる人の9割は「知識不足」じゃない。 「原因→調査→対策」の流れが 一貫して書けていないだけ。 知識があっても型がなければ点が取れない。 残り1ヶ月、型を叩き込もう。 #",
+          "likes": 3,
+          "rts": 0,
+          "engagement": 3,
+          "vsAvg": 1
+        },
+        {
+          "text": "まだ、毎日スクワット50回やってても、じゃ100回出来るかと聞かれると、出来ませんね。 年齢が関係しているのかな😅 #筋トレ",
+          "likes": 3,
+          "rts": 0,
+          "engagement": 3,
+          "vsAvg": 1
+        }
+      ]
+    }
+  ]
+}

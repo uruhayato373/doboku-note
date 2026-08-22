@@ -1,0 +1,63 @@
+<svg width="100%" viewBox="0 0 600 310" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;width:100%;font-family:sans-serif;font-size:11px;">
+  <!-- Header -->
+  <rect x="0" y="0" width="60" height="30" fill="#d0d8e8" stroke="#555" stroke-width="1"/>
+  <rect x="60" y="0" width="320" height="30" fill="#d0d8e8" stroke="#555" stroke-width="1"/>
+  <rect x="380" y="0" width="220" height="30" fill="#d0d8e8" stroke="#555" stroke-width="1"/>
+  <text x="30" y="20" text-anchor="middle" font-weight="bold">警戒レベル</text>
+  <text x="220" y="20" text-anchor="middle" font-weight="bold">居住者等がとるべき行動</text>
+  <text x="490" y="20" text-anchor="middle" font-weight="bold">行動を居住者等に促す情報</text>
+  <!-- Row 5 -->
+  <rect x="0" y="30" width="60" height="50" fill="#ff8888" stroke="#555" stroke-width="1"/>
+  <rect x="60" y="30" width="320" height="50" fill="#fff" stroke="#555" stroke-width="1"/>
+  <rect x="380" y="30" width="220" height="50" fill="#fff" stroke="#555" stroke-width="1"/>
+  <text x="30" y="60" text-anchor="middle" font-weight="bold" font-size="14">5</text>
+  <text x="70" y="46" text-anchor="start">既に災害が発生している状況であり、命を守</text>
+  <text x="70" y="61" text-anchor="start">るための最善の行動をする。</text>
+  <text x="390" y="42" text-anchor="start">災害発生情報※</text>
+  <text x="390" y="56" text-anchor="start">※災害が実際に発生している</text>
+  <text x="390" y="70" text-anchor="start">ことを把握した場合に、可能な範囲で発令</text>
+  <!-- Row 4 -->
+  <rect x="0" y="80" width="60" height="70" fill="#ffb347" stroke="#555" stroke-width="1"/>
+  <rect x="60" y="80" width="320" height="70" fill="#fff" stroke="#555" stroke-width="1"/>
+  <rect x="380" y="80" width="220" height="70" fill="#fff" stroke="#555" stroke-width="1"/>
+  <text x="30" y="118" text-anchor="middle" font-weight="bold" font-size="14">4</text>
+  <text x="70" y="94" text-anchor="start">・指定緊急避難場所等への立退き避難</text>
+  <text x="70" y="107" text-anchor="start"> を基本とする避難行動をとる。</text>
+  <text x="70" y="120" text-anchor="start">・災害が発生するおそれが極めて高い</text>
+  <text x="70" y="133" text-anchor="start"> 状況等で、危険な場所の立退き避難はかえって</text>
+  <text x="70" y="146" text-anchor="start"> 危険な場合は近隣の安全な場所への避難又は急ぎ</text>
+  <text x="390" y="94" text-anchor="start">避難勧告</text>
+  <text x="390" y="108" text-anchor="start">避難指示（緊急）※</text>
+  <text x="390" y="122" text-anchor="start">※地域の状況に応じて緊急的</text>
+  <text x="390" y="136" text-anchor="start">又は重ねて避難を促す場合等</text>
+  <text x="390" y="150" text-anchor="start">に発令</text>
+  <!-- Row 3 -->
+  <rect x="0" y="150" width="60" height="50" fill="#ffee55" stroke="#555" stroke-width="1"/>
+  <rect x="60" y="150" width="320" height="50" fill="#fff" stroke="#555" stroke-width="1"/>
+  <rect x="380" y="150" width="220" height="50" fill="#fff" stroke="#555" stroke-width="1"/>
+  <text x="30" y="178" text-anchor="middle" font-weight="bold" font-size="14">3</text>
+  <text x="70" y="164" text-anchor="start">避難に時間のかかる高齢者等の要配慮者は</text>
+  <text x="70" y="177" text-anchor="start">立退き避難する。その他の人は立退き避難の</text>
+  <text x="70" y="190" text-anchor="start">準備をし、自発的に避難する。</text>
+  <text x="390" y="175" text-anchor="start">避難準備・高齢者避難開始</text>
+  <!-- Row 2 -->
+  <rect x="0" y="200" width="60" height="60" fill="#aaddff" stroke="#555" stroke-width="1"/>
+  <rect x="60" y="200" width="320" height="60" fill="#fff" stroke="#555" stroke-width="1"/>
+  <rect x="380" y="200" width="220" height="60" fill="#fff" stroke="#555" stroke-width="1"/>
+  <text x="30" y="232" text-anchor="middle" font-weight="bold" font-size="14">2</text>
+  <text x="70" y="214" text-anchor="start">ハザードマップ等により災害リスク、避難場</text>
+  <text x="70" y="227" text-anchor="start">所や避難経路、避難のタイミング等の再確認、</text>
+  <text x="70" y="240" text-anchor="start">避難情報の把握手段の再確認・注意など、避</text>
+  <text x="70" y="253" text-anchor="start">難に備え自らの避難行動を確認する。</text>
+  <text x="390" y="232" text-anchor="start">注意報</text>
+  <!-- Row 1 -->
+  <rect x="0" y="260" width="60" height="40" fill="#e8f8e8" stroke="#555" stroke-width="1"/>
+  <rect x="60" y="260" width="320" height="40" fill="#fff" stroke="#555" stroke-width="1"/>
+  <rect x="380" y="260" width="220" height="40" fill="#fff" stroke="#555" stroke-width="1"/>
+  <text x="30" y="282" text-anchor="middle" font-weight="bold" font-size="14">1</text>
+  <text x="70" y="276" text-anchor="start">防災気象情報等の最新情報に注意するなど、</text>
+  <text x="70" y="290" text-anchor="start">災害への心構えを高める。</text>
+  <text x="390" y="282" text-anchor="start">警報級の可能性</text>
+  <!-- Source -->
+  <text x="600" y="308" text-anchor="end" fill="#666">出典：避難勧告等に関するガイドライン（内閣府）</text>
+</svg>

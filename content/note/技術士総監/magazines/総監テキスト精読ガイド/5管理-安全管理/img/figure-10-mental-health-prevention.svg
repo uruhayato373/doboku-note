@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#ffffff"/>
+  <defs>
+    <marker id="arrR" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#555555"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">メンタルヘルス 3段階予防 — 取組内容の対応</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">一次（未然）／二次（早期）／三次（復帰）の典型取組</text>
+
+  <text x="60" y="160" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">時間軸 →</text>
+  <line x1="160" y1="155" x2="1140" y2="155" stroke="#555555" stroke-width="3" marker-end="url(#arrR)"/>
+  <rect x="70" y="200" width="340" height="320" rx="12" fill="#ffffff" stroke="#3a7d44" stroke-width="3"/>
+  <rect x="70" y="200" width="340" height="80" rx="12" fill="#3a7d44"/>
+  <rect x="70" y="268" width="340" height="12" fill="#3a7d44"/>
+  <text x="240" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">一次予防</text>
+  <text x="240" y="264" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle">未然防止</text>
+  <rect x="90" y="300" width="300" height="36" rx="6" fill="#f8fafc"/>
+  <text x="240" y="324" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#222222" text-anchor="middle">タイミング：事前</text>
+  <text x="94" y="360" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">・労働環境の点検・改善</text>
+  <text x="94" y="396" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">・ストレス要因の抑止</text>
+  <text x="94" y="432" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">・教育研修・職場環境改善</text>
+  <rect x="430" y="200" width="340" height="320" rx="12" fill="#ffffff" stroke="#d4a017" stroke-width="3"/>
+  <rect x="430" y="200" width="340" height="80" rx="12" fill="#d4a017"/>
+  <rect x="430" y="268" width="340" height="12" fill="#d4a017"/>
+  <text x="600" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">二次予防</text>
+  <text x="600" y="264" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle">早期発見・早期対処</text>
+  <rect x="450" y="300" width="300" height="36" rx="6" fill="#f8fafc"/>
+  <text x="600" y="324" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#222222" text-anchor="middle">タイミング：兆候 / 発症</text>
+  <text x="454" y="360" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">・ストレスチェック制度</text>
+  <text x="454" y="396" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">・兆候の読み取り</text>
+  <text x="454" y="432" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">・相談窓口・面接指導</text>
+  <rect x="790" y="200" width="340" height="320" rx="12" fill="#ffffff" stroke="#2e6da4" stroke-width="3"/>
+  <rect x="790" y="200" width="340" height="80" rx="12" fill="#2e6da4"/>
+  <rect x="790" y="268" width="340" height="12" fill="#2e6da4"/>
+  <text x="960" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">三次予防</text>
+  <text x="960" y="264" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle">職場復帰支援</text>
+  <rect x="810" y="300" width="300" height="36" rx="6" fill="#f8fafc"/>
+  <text x="960" y="324" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#222222" text-anchor="middle">タイミング：復帰</text>
+  <text x="814" y="360" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">・治療・精神面フォロー</text>
+  <text x="814" y="396" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">・職場復帰プログラム</text>
+  <text x="814" y="432" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">・再発・再燃防止</text>
+  <rect x="60" y="636" width="1080" height="44" rx="6" fill="#fbf3df"/>
+  <text x="80" y="666" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">引っかけ：「労働環境改善」を二次予防の中心とする選択肢は誤り（一次予防が正解）。</text>
+
+</svg>

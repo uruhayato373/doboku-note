@@ -1,0 +1,37 @@
+name: Cloudflare cleanup (one-shot)
+
+# 使い捨て workflow: kakkom Pages プロジェクトと全 deployments を削除する。
+# 実行後は `.github/workflows/cf-cleanup.yml` と `.github/scripts/cf-cleanup-kakkom.mjs` を
+# PR で削除し、不要になった secret も GitHub Settings から削除すること。
+
+on:
+  workflow_dispatch:
+    inputs:
+      confirm:
+        description: 'Type "delete-kakkom" to confirm deletion'
+        required: true
+        type: string
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Guard
+        if: inputs.confirm != 'delete-kakkom'
+        run: |
+          echo "Confirm input mismatch. Expected 'delete-kakkom'. Aborting."
+          exit 1
+
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+
+      - name: Delete kakkom (deployments + project)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: node .github/scripts/cf-cleanup-kakkom.mjs

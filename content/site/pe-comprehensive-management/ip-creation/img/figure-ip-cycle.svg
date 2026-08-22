@@ -1,0 +1,60 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="知的財産の創造・保護・活用サイクル図。知的財産基本法に基づき、創造（R&amp;D投資・職務発明・オープンイノベーション）→保護（出願戦略・権利化・侵害対応）→活用（ライセンス・オープンクローズ戦略）が循環し、活用で得た収益が次の創造に再投資される構造を示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .ttl { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .b   { font-size: 12px; fill: #222; }
+      .s   { font-size: 11px; fill: #555; }
+    </style>
+    <marker id="arw" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- 根拠法 -->
+  <text x="200" y="26" text-anchor="middle" font-size="11" fill="#555">知的財産基本法が定める3つの柱が循環する</text>
+
+  <!-- ① 創造 -->
+  <rect x="24" y="40" width="352" height="118" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <circle cx="46" cy="64" r="11" fill="#2e6da4"/>
+  <text x="46" y="68" text-anchor="middle" font-size="12" fill="#ffffff" font-weight="bold">1</text>
+  <text x="66" y="69" class="ttl">創造（Creation）</text>
+  <text x="40" y="96" class="b">・R&amp;D 投資による研究開発</text>
+  <text x="40" y="116" class="b">・職務発明制度（2015改正で原始法人帰属が可能）</text>
+  <text x="40" y="136" class="b">・オープンイノベーション（外部技術の取込み）</text>
+  <text x="40" y="152" class="s">技術・デザイン・ブランドの種を生み出す段階</text>
+
+  <!-- 矢印1→2 -->
+  <line x1="200" y1="158" x2="200" y2="176" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arw)"/>
+
+  <!-- ② 保護 -->
+  <rect x="24" y="182" width="352" height="118" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <circle cx="46" cy="206" r="11" fill="#3a7d44"/>
+  <text x="46" y="210" text-anchor="middle" font-size="12" fill="#ffffff" font-weight="bold">2</text>
+  <text x="66" y="211" class="ttl">保護（Protection）</text>
+  <text x="40" y="238" class="b">・出願戦略（基本特許＋周辺特許の面的出願）</text>
+  <text x="40" y="258" class="b">・権利化（出願→審査→登録）／営業秘密の管理</text>
+  <text x="40" y="278" class="b">・侵害対応（差止請求・損害賠償請求）</text>
+  <text x="40" y="294" class="s">生み出した知財を法的な独占権として守る段階</text>
+
+  <!-- 矢印2→3 -->
+  <line x1="200" y1="300" x2="200" y2="318" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arw)"/>
+
+  <!-- ③ 活用 -->
+  <rect x="24" y="324" width="352" height="118" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <circle cx="46" cy="348" r="11" fill="#d4a017"/>
+  <text x="46" y="352" text-anchor="middle" font-size="12" fill="#ffffff" font-weight="bold">3</text>
+  <text x="66" y="353" class="ttl">活用（Utilization）</text>
+  <text x="40" y="380" class="b">・ライセンス（専用実施権／通常実施権）</text>
+  <text x="40" y="400" class="b">・クロスライセンス・パテントプール</text>
+  <text x="40" y="420" class="b">・オープン／クローズ戦略で収益化</text>
+  <text x="40" y="436" class="s">権利を収益・競争力に変える段階</text>
+
+  <!-- 循環矢印（活用→創造への再投資） -->
+  <path d="M24,383 H10 V100 H24" fill="none" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="4,3" marker-end="url(#arw)"/>
+
+  <!-- 再投資ラベル -->
+  <rect x="116" y="456" width="168" height="36" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="200" y="471" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold">収益を次の創造へ再投資</text>
+  <text x="200" y="485" text-anchor="middle" class="s">サイクルが回り知財が価値を生む</text>
+</svg>

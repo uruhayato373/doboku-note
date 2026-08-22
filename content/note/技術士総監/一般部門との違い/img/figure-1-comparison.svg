@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="760" viewBox="0 0 1280 760">
+    <rect width="1280" height="760" fill="#ffffff"/>
+
+    <text x="60" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="800" fill="#222222">一般部門と総監部門 4 つの違い</text>
+    <text x="60" y="94" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">同じ感覚で臨むと苦戦する根本理由</text>
+
+    <!-- 列ヘッダ -->
+    <rect x="280" y="130" width="440" height="52" rx="8" fill="#9ca3af"/>
+    <text x="500" y="164" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">一般部門</text>
+    <text x="500" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="500" fill="#8a8a8a" text-anchor="middle"></text>
+
+    <rect x="780" y="130" width="440" height="52" rx="8" fill="#2e6da4"/>
+    <text x="1000" y="164" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">総合技術監理部門</text>
+
+    
+      <rect x="60" y="200" width="180" height="92" rx="8" fill="#1a3a5c"/>
+      <text x="150" y="254" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">情報源</text>
+
+      <rect x="280" y="200" width="440" height="92" rx="8" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1"/>
+      <text x="304" y="240" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#222222">学協会・白書</text><text x="304" y="274" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#222222">（土木学会・国交白書 等）</text>
+
+      <rect x="780" y="200" width="440" height="92" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+      <text x="804" y="240" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">キーワード集のみ</text><text x="804" y="274" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">（旧青本・学協会なし）</text>
+    
+      <rect x="60" y="310" width="180" height="92" rx="8" fill="#1a3a5c"/>
+      <text x="150" y="364" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">問われる力</text>
+
+      <rect x="280" y="310" width="440" height="92" rx="8" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1"/>
+      <text x="304" y="350" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#222222">専門技術の深さ</text><text x="304" y="384" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#222222">（特定分野の深掘り）</text>
+
+      <rect x="780" y="310" width="440" height="92" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+      <text x="804" y="350" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">管理技術の広さと統合</text><text x="804" y="384" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">（5 管理を横串で見る）</text>
+    
+      <rect x="60" y="420" width="180" height="92" rx="8" fill="#1a3a5c"/>
+      <text x="150" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">記述式の評価軸</text>
+
+      <rect x="280" y="420" width="440" height="92" rx="8" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1"/>
+      <text x="304" y="460" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#222222">技術的解決策の論理性</text><text x="304" y="494" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#222222">（最善解を示せれば高評価）</text>
+
+      <rect x="780" y="420" width="440" height="92" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+      <text x="804" y="460" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">トレードオフの分析・調整</text><text x="804" y="494" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">（複数管理の対立を捌く）</text>
+    
+      <rect x="60" y="530" width="180" height="92" rx="8" fill="#1a3a5c"/>
+      <text x="150" y="584" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">得点戦略</text>
+
+      <rect x="280" y="530" width="440" height="92" rx="8" fill="#f3f4f6" stroke="#e5e7eb" stroke-width="1"/>
+      <text x="304" y="570" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#222222">得意分野で稼ぎ</text><text x="304" y="604" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#222222">苦手をカバー可能</text>
+
+      <rect x="780" y="530" width="440" height="92" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+      <text x="804" y="570" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">5 分野バランス必須</text><text x="804" y="604" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">（偏りで一気に失点）</text>
+    
+
+    <text x="1220" y="736" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+  </svg>

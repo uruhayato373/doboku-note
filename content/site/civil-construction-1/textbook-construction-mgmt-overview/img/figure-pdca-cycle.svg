@@ -1,0 +1,73 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="施工管理の PDCA サイクル：Plan（計画）→ Do（実施）→ Check（検討）→ Act（処置）の循環。P・D は統制機能、C・A は改善機能">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-page-title { font-size: 15px; font-weight: bold; fill: #222; }     /* ink-strong */
+      .t-letter     { font-size: 22px; font-weight: bold; fill: #1a3a5c; }  /* brand-text */
+      .t-name       { font-size: 13px; font-weight: bold; fill: #1a3a5c; } /* brand-text */
+      .t-center     { font-size: 13px; font-weight: bold; fill: #1a3a5c; } /* brand-text */
+      .t-center-en  { font-size: 12px; fill: #555; }                       /* ink-body */
+      .t-caption    { font-size: 11px; fill: #555; }                       /* ink-body */
+      .ring         { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }   /* brand */
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; } /* positive */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand */
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn */
+      .box-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger */
+      .arc          { stroke: #1a3a5c; stroke-width: 2.5; fill: none; }    /* brand-text */
+    </style>
+    <marker id="pdcaArr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#1a3a5c"/>
+    </marker>
+  </defs>
+
+  <text class="t-page-title" x="200" y="24" text-anchor="middle">施工管理の PDCA サイクル</text>
+
+  <!-- 中心：継続的改善 -->
+  <circle class="ring" cx="200" cy="240" r="50"/>
+  <text class="t-center"    x="200" y="237" text-anchor="middle">継続的改善</text>
+  <text class="t-center-en" x="200" y="255" text-anchor="middle">Continuous</text>
+
+  <!-- P：上（positive＝計画策定の前向き行為） -->
+  <rect class="box-positive" x="150" y="90" width="100" height="70" rx="8"/>
+  <text class="t-letter" x="200" y="122"  text-anchor="middle">P</text>
+  <text class="t-name"   x="200" y="144" text-anchor="middle">Plan（計画）</text>
+
+  <!-- D：右（brand＝中立的な実行） -->
+  <rect class="box-brand" x="295" y="205" width="95" height="70" rx="8"/>
+  <text class="t-letter" x="342" y="237" text-anchor="middle">D</text>
+  <text class="t-name"   x="342" y="259" text-anchor="middle">Do（実施）</text>
+
+  <!-- C：下（warn＝注意・点検） -->
+  <rect class="box-warn" x="150" y="320" width="100" height="70" rx="8"/>
+  <text class="t-letter" x="200" y="352" text-anchor="middle">C</text>
+  <text class="t-name"   x="200" y="374" text-anchor="middle">Check（検討）</text>
+
+  <!-- A：左（danger＝是正・処置） -->
+  <rect class="box-danger" x="10" y="205" width="95" height="70" rx="8"/>
+  <text class="t-letter" x="57" y="237" text-anchor="middle">A</text>
+  <text class="t-name"   x="57" y="259" text-anchor="middle">Act（処置）</text>
+
+  <!-- 循環矢印 -->
+  <path class="arc" d="M 250 150 Q 350 160 340 205" marker-end="url(#pdcaArr)"/>
+  <path class="arc" d="M 340 275 Q 350 330 250 350" marker-end="url(#pdcaArr)"/>
+  <path class="arc" d="M 150 350 Q 50 340 60 275" marker-end="url(#pdcaArr)"/>
+  <path class="arc" d="M 60 205 Q 50 150 150 140" marker-end="url(#pdcaArr)"/>
+
+  <!-- 注釈 -->
+  <text class="t-caption" x="200" y="412" text-anchor="middle">機能分類：P・D = 統制機能 ／ C・A = 改善機能</text>
+
+  <!-- 機能別まとめ -->
+  <rect x="20" y="424" width="170" height="60" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="105" y="443" text-anchor="middle" font-size="12" font-weight="bold" fill="#3a7d44">統制機能</text>
+  <text x="105" y="460" text-anchor="middle" font-size="11" fill="#555">P：施工計画・品質基準策定</text>
+  <text x="105" y="475" text-anchor="middle" font-size="11" fill="#555">D：計画に基づく施工実施</text>
+
+  <rect x="210" y="424" width="170" height="60" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <text x="295" y="443" text-anchor="middle" font-size="12" font-weight="bold" fill="#b22234">改善機能</text>
+  <text x="295" y="460" text-anchor="middle" font-size="11" fill="#555">C：施工結果の検査・評価</text>
+  <text x="295" y="475" text-anchor="middle" font-size="11" fill="#555">A：是正処置・標準化</text>
+</svg>

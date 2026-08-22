@@ -1,0 +1,34 @@
+{
+  "slug": "pe-first-stage-r06-construction",
+  "year": "R06",
+  "sub": "construction",
+  "audited_at": "2026-06-09",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "issues": [],
+    "fixes_applied": [
+      "Ⅲ-9 ⑤: 「L荷重は車輪を1組の集中荷重に置き換えたもの」→「L荷重は車軸を1組の集中荷重に置き換えたもの」（PDF p005突合）",
+      "Ⅲ-10 ②: 「材料分離が生じやすくなり」→「材料分離が生じにくくなり」（PDF p005突合、この記述が不適切な選択肢）",
+      "Ⅲ-12 ④: 化学的侵食の総称→「化合物生成時の膨張圧によってコンクリートのひび割れや剥離を引き起こしたりする劣化現象」にPDF原文に合わせ全面修正（PDF p006突合）",
+      "Ⅲ-13 ②: 「下水道」→「上水道」（PDF p007突合）",
+      "Ⅲ-30 ②: 「上下方向の軌間変位」→「上下方向の水準変位」（PDF p015突合）",
+      "Ⅲ-34 ④: 「環境大臣に判定を求め」→「判定基準にしたがって個別に判定するが」（PDF p017突合）"
+    ],
+    "notes": "p001–p018全18ページをPDF突合。上記6箇所の問題文テキスト誤りを修正済み（一部は再監査前に先行コミット済み）。解答正答・解説ロジックは全35問とも維持される。"
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "All 35 questions present (Ⅲ-1 through Ⅲ-35). Frontmatter has title, category, group, published, source_pdf. ExamPoint=35, details=35."
+  }
+}

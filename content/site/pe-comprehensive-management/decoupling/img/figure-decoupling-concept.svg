@@ -1,0 +1,50 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="経済成長は右上に伸び続け、天然資源の利用は緩やかに頭打ち、環境影響は中盤でピークを打って減少へ転じる。経済成長と天然資源の間の隙間が相対的デカップリング、経済成長と環境影響の間の隙間が絶対的デカップリング">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-axis  { font-size: 12px; fill: #555; }
+      .t-line  { font-size: 12px; font-weight: bold; }
+      .t-anno  { font-size: 11px; font-weight: bold; }
+      .l-economic { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .l-resource { stroke: #d4a017; stroke-width: 2.5; fill: none; }
+      .l-impact   { stroke: #b22234; stroke-width: 2.5; fill: none; }
+      .axis       { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+    </style>
+  </defs>
+
+  <text class="t-title" x="200" y="22" text-anchor="middle">デカップリングの概念図</text>
+
+  <line class="axis" x1="35" y1="230" x2="295" y2="230"/>
+  <line class="axis" x1="35" y1="40" x2="35" y2="232"/>
+  <polygon points="295,230 287,226 287,234" fill="#8a8a8a"/>
+  <polygon points="35,40 31,48 39,48" fill="#8a8a8a"/>
+
+  <text class="t-axis" x="295" y="248" text-anchor="end">時間</text>
+
+  <path d="M 200,142 L 220,118 L 220,194 L 200,189 Z" fill="#b22234" opacity="0.18"/>
+  <path d="M 240,95  L 260,79  L 260,148 L 240,155 Z" fill="#d4a017" opacity="0.28"/>
+
+  <path class="l-economic" d="M 35,220 C 90,210 200,150 290,45"/>
+  <path class="l-resource" d="M 35,220 C 110,210 220,160 290,135"/>
+  <path class="l-impact"   d="M 35,220 C 90,215 140,190 165,190 C 220,190 270,200 290,210"/>
+
+  <text class="t-line" x="297" y="49" fill="#2e6da4">経済成長</text>
+  <text class="t-line" x="297" y="139" fill="#d4a017">天然資源の利用</text>
+  <text class="t-line" x="297" y="213" fill="#b22234">環境影響</text>
+
+  <text class="t-anno" x="210" y="110" text-anchor="middle" fill="#b22234">絶対的</text>
+  <text class="t-anno" x="250" y="70" text-anchor="middle" fill="#d4a017">相対的</text>
+
+  <!-- 下部サマリー -->
+  <rect x="20" y="340" width="360" height="145" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="4"/>
+  <text x="200" y="368" text-anchor="middle" font-size="13" fill="#222" font-weight="bold">デカップリングの 2 種類</text>
+  <text x="35" y="396" font-size="12" fill="#d4a017">相対的デカップリング</text>
+  <text x="35" y="416" font-size="12" fill="#555">経済成長率 ＞ 資源利用増加率（割合が低下）</text>
+  <text x="35" y="444" font-size="12" fill="#b22234">絶対的デカップリング</text>
+  <text x="35" y="464" font-size="12" fill="#555">経済成長しながら環境影響が実数で減少</text>
+</svg>

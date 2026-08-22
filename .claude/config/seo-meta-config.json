@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "description": "SEO meta 監査の対象 URL（include_routes）と HTTP 巡回互換設定。canonical/og:url/title/SSR の実判定ロジックは scripts/lib/seo-checks.mjs が真実源（主経路は out/ 直接検査・dev server 不要）。base_url/thresholds/severity は --base-url の HTTP 巡回モード互換用。Issue #125。",
+  "base_url": "http://localhost:3020",
+  "production_url": "https://doboku-note.com",
+  "url_source": "src/config/doc-meta-index.json",
+  "include_routes": [
+    "/",
+    "/about",
+    "/category/civil-construction-1",
+    "/category/pe-comprehensive-management",
+    "/category/reference-materials",
+    "/contact",
+    "/privacy",
+    "/terms",
+    "/search"
+  ],
+  "concurrency": 8,
+  "timeout_ms": 10000,
+  "output_dir": ".claude/state/metrics/seo-meta",
+  "thresholds": {
+    "title": {
+      "max_length": 70,
+      "site_name_max_count": 1,
+      "site_name": "doboku-note"
+    },
+    "description": {
+      "min_length": 50,
+      "max_length": 160
+    },
+    "canonical": {
+      "required": true,
+      "must_start_with": "https://doboku-note.com"
+    },
+    "og": {
+      "required_keys": ["title", "description", "image", "url", "type"]
+    },
+    "twitter": {
+      "required_keys": ["card"]
+    },
+    "json_ld": {
+      "min_count": 1,
+      "required_types_any_of": [["BreadcrumbList", "WebSite"]],
+      "faq_validation": {
+        "min_main_entity": 1,
+        "min_question_chars": 5,
+        "min_answer_chars": 10
+      }
+    }
+  },
+  "severity": {
+    "title_too_long": "MEDIUM",
+    "title_site_name_duplicate": "HIGH",
+    "title_missing": "HIGH",
+    "description_missing": "HIGH",
+    "description_too_short": "LOW",
+    "description_too_long": "MEDIUM",
+    "canonical_missing": "MEDIUM",
+    "canonical_invalid": "MEDIUM",
+    "og_key_missing": "MEDIUM",
+    "twitter_card_missing": "LOW",
+    "json_ld_missing": "MEDIUM",
+    "json_ld_required_type_missing": "LOW",
+    "faq_main_entity_empty": "LOW",
+    "faq_qa_too_short": "LOW"
+  }
+}

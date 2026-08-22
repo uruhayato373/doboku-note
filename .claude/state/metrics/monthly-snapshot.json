@@ -1,0 +1,105 @@
+{
+  "_doc": "このファイルの目的は「来年の自分が前年同期比を実行できる状態にしておく」こと。2026-08-17 の NSM 調査は前年データが 1 件も無く前年同期比が実行不可能で 4 週持ち越した。GA4/GSC は月合計ではなくスナップショットの窓なので sources に期間を必ず残す。2027 年に初めて前年同期比が成立する。",
+  "months": [
+    {
+      "month": "2026-05",
+      "salesYen": 33220,
+      "salesCount": 16,
+      "organicUsers": 510,
+      "gscClicks": 15,
+      "gscImpressions": 498,
+      "examEvents": [
+        {
+          "exam": "concrete-diagnostician",
+          "label": "コンクリート診断士 受験申込 締切",
+          "date": "2026-05-21"
+        }
+      ],
+      "sources": {
+        "ga4Window": "2026-08-06〜2026-08-12",
+        "gscWindow": "2026-07-13〜2026-08-10",
+        "recordedAt": "2026-08-18"
+      }
+    },
+    {
+      "month": "2026-06",
+      "salesYen": 217760,
+      "salesCount": 103,
+      "organicUsers": 510,
+      "gscClicks": 15,
+      "gscImpressions": 498,
+      "examEvents": [
+        {
+          "exam": "civil-construction-2",
+          "label": "2級土木施工管理技術検定 第一次検定（前期）",
+          "date": "2026-06-07"
+        }
+      ],
+      "sources": {
+        "ga4Window": "2026-08-06〜2026-08-12",
+        "gscWindow": "2026-07-13〜2026-08-10",
+        "recordedAt": "2026-08-18"
+      }
+    },
+    {
+      "month": "2026-07",
+      "salesYen": 275140,
+      "salesCount": 145,
+      "organicUsers": 510,
+      "gscClicks": 15,
+      "gscImpressions": 498,
+      "examEvents": [
+        {
+          "exam": "concrete-chief-engineer",
+          "label": "コンクリート主任技士 受験申込 受付開始（オンライン）",
+          "date": "2026-07-01"
+        },
+        {
+          "exam": "civil-construction-1",
+          "label": "1級土木施工管理技術検定 第一次検定",
+          "date": "2026-07-05"
+        },
+        {
+          "exam": "pe-comprehensive-management",
+          "label": "技術士第二次試験 総合技術監理部門 筆記試験（必須科目）",
+          "date": "2026-07-19"
+        },
+        {
+          "exam": "pe-comprehensive-management",
+          "label": "技術士第二次試験 総合技術監理部門 筆記試験（選択科目）",
+          "date": "2026-07-20"
+        },
+        {
+          "exam": "pe-construction",
+          "label": "技術士第二次試験 建設部門 筆記試験（総合技術監理部門を除く技術部門）",
+          "date": "2026-07-20"
+        },
+        {
+          "exam": "concrete-diagnostician",
+          "label": "コンクリート診断士 試験",
+          "date": "2026-07-26"
+        }
+      ],
+      "sources": {
+        "ga4Window": "2026-08-06〜2026-08-12",
+        "gscWindow": "2026-07-13〜2026-08-10",
+        "recordedAt": "2026-08-18"
+      }
+    },
+    {
+      "month": "2026-08",
+      "salesYen": 39520,
+      "salesCount": 16,
+      "organicUsers": 510,
+      "gscClicks": 15,
+      "gscImpressions": 498,
+      "examEvents": [],
+      "sources": {
+        "ga4Window": "2026-08-06〜2026-08-12",
+        "gscWindow": "2026-07-13〜2026-08-10",
+        "recordedAt": "2026-08-18"
+      }
+    }
+  ],
+  "updatedAt": "2026-08-18"
+}

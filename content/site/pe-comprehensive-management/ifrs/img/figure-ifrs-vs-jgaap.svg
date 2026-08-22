@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="国際会計基準IFRSと日本基準の主な違い：会計思想は原則主義と細則主義、資産評価は公正価値重視と取得原価主義、のれんは非償却と定期償却、開発費は資産計上可と費用処理、貸借対照表の名称は財政状態計算書と貸借対照表" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
+  <rect width="400" height="500" fill="#ffffff" stroke="#d7d7d7"/>
+
+  <text x="200" y="26" text-anchor="middle" font-size="11" fill="#555">財務諸表の見え方に直結する相違点</text>
+
+  <!-- のれん row highlight -->
+  <rect x="8" y="212" width="384" height="64" fill="#f5f5f5"/>
+
+  <!-- header -->
+  <rect x="8" y="60" width="72" height="24" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <rect x="80" y="60" width="156" height="24" fill="#e8f0fe" stroke="#d7d7d7"/>
+  <rect x="236" y="60" width="156" height="24" fill="#fff3cd" stroke="#d7d7d7"/>
+  <text x="44" y="76" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">項目</text>
+  <text x="158" y="76" text-anchor="middle" font-size="12" font-weight="bold" fill="#2e6da4">IFRS</text>
+  <text x="314" y="76" text-anchor="middle" font-size="12" font-weight="bold" fill="#d4a017">日本基準</text>
+
+  <!-- grid -->
+  <rect x="8" y="84" width="384" height="320" fill="none" stroke="#d7d7d7"/>
+  <line x1="80" y1="60" x2="80" y2="404" stroke="#d7d7d7"/>
+  <line x1="236" y1="60" x2="236" y2="404" stroke="#d7d7d7"/>
+  <line x1="8" y1="148" x2="392" y2="148" stroke="#d7d7d7"/>
+  <line x1="8" y1="212" x2="392" y2="212" stroke="#d7d7d7"/>
+  <line x1="8" y1="276" x2="392" y2="276" stroke="#d7d7d7"/>
+  <line x1="8" y1="340" x2="392" y2="340" stroke="#d7d7d7"/>
+
+  <!-- r1 会計思想 (84-148) -->
+  <text x="44" y="120" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">会計思想</text>
+  <text x="158" y="111" text-anchor="middle" font-size="11" fill="#222">原則主義</text>
+  <text x="158" y="131" text-anchor="middle" font-size="11" fill="#555">判断を委ねる</text>
+  <text x="314" y="111" text-anchor="middle" font-size="11" fill="#222">細則主義</text>
+  <text x="314" y="131" text-anchor="middle" font-size="11" fill="#555">詳細なルール</text>
+
+  <!-- r2 資産評価 (148-212) -->
+  <text x="44" y="184" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">資産評価</text>
+  <text x="158" y="175" text-anchor="middle" font-size="11" fill="#222">公正価値（時価）</text>
+  <text x="158" y="195" text-anchor="middle" font-size="11" fill="#555">を重視</text>
+  <text x="314" y="184" text-anchor="middle" font-size="11" fill="#222">取得原価主義</text>
+
+  <!-- r3 のれん (212-276) highlighted -->
+  <text x="44" y="240" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">のれん</text>
+  <text x="44" y="258" text-anchor="middle" font-size="11" fill="#b22234">★最頻出</text>
+  <text x="158" y="239" text-anchor="middle" font-size="11" fill="#222">非償却</text>
+  <text x="158" y="259" text-anchor="middle" font-size="11" fill="#555">毎期 減損テスト</text>
+  <text x="314" y="239" text-anchor="middle" font-size="11" fill="#222">20年以内で</text>
+  <text x="314" y="259" text-anchor="middle" font-size="11" fill="#555">定期償却</text>
+
+  <!-- r4 開発費 (276-340) -->
+  <text x="44" y="312" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">開発費</text>
+  <text x="158" y="303" text-anchor="middle" font-size="11" fill="#222">一定要件で</text>
+  <text x="158" y="323" text-anchor="middle" font-size="11" fill="#555">資産計上が可能</text>
+  <text x="314" y="303" text-anchor="middle" font-size="11" fill="#222">原則 発生時に</text>
+  <text x="314" y="323" text-anchor="middle" font-size="11" fill="#555">費用処理</text>
+
+  <!-- r5 B/S名称 (340-404) -->
+  <text x="44" y="376" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">B/S名称</text>
+  <text x="158" y="376" text-anchor="middle" font-size="11" fill="#222">財政状態計算書</text>
+  <text x="314" y="376" text-anchor="middle" font-size="11" fill="#222">貸借対照表</text>
+
+  <!-- bottom note -->
+  <rect x="8" y="412" width="384" height="74" fill="#f5f5f5" stroke="#d7d7d7" rx="2"/>
+  <text x="200" y="434" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#222">のれんの償却有無が最頻出論点</text>
+  <text x="200" y="455" text-anchor="middle" font-size="11" fill="#555">IFRS＝非償却でM&amp;A評価が膨らみ減損リスク</text>
+  <text x="200" y="474" text-anchor="middle" font-size="11" fill="#555">日本＝毎期償却で営業利益を圧迫</text>
+</svg>

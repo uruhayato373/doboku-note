@@ -1,0 +1,116 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  width="400" height="500"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="ジョブ型（職務主義）とメンバーシップ型（属人主義）の雇用形態を6項目で左右比較した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-head   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 11px; fill: #555; }
+      .t-label  { font-size: 12px; fill: #8a8a8a; font-weight: bold; }
+      .t-body   { font-size: 13px; fill: #222; }
+      .t-note   { font-size: 11px; fill: #555; }
+      .t-foot   { font-size: 11px; fill: #8a8a8a; }
+      /* brand = ジョブ型 */
+      .col-brand-hd  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .col-brand-row { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 0.8; }
+      /* positive = メンバーシップ型 */
+      .col-pos-hd    { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .col-pos-row   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 0.8; }
+      /* row label column */
+      .col-label-bg  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 0.8; }
+    </style>
+  </defs>
+
+  <!-- column widths: left=10, label=88, brand=146, positive=146 -->
+  <!-- rows: header y=10 h=44, rows at y=58 h=68 each (6 rows = 408), footer y=478 -->
+
+  <!-- === HEADER ROW y=10 h=44 === -->
+  <rect class="col-label-bg" x="10" y="10" width="88" height="44" rx="4"/>
+  <text class="t-label" x="54" y="36" text-anchor="middle">比較項目</text>
+
+  <rect class="col-brand-hd" x="102" y="10" width="146" height="44" rx="4"/>
+  <text class="t-head" x="175" y="30" text-anchor="middle">ジョブ型</text>
+  <text class="t-sub" x="175" y="47" text-anchor="middle">職務主義（欧米型）</text>
+
+  <rect class="col-pos-hd" x="252" y="10" width="146" height="44" rx="4"/>
+  <text class="t-head" x="325" y="30" text-anchor="middle">メンバーシップ型</text>
+  <text class="t-sub" x="325" y="47" text-anchor="middle">属人主義（日本型）</text>
+
+  <!-- === ROW 1: 配置原則 y=58 h=68 === -->
+  <rect class="col-label-bg" x="10" y="58" width="88" height="68" rx="2"/>
+  <text class="t-label" x="54" y="96" text-anchor="middle">配置原則</text>
+
+  <rect class="col-brand-row" x="102" y="58" width="146" height="68" rx="2"/>
+  <text class="t-body" x="175" y="90" text-anchor="middle">仕事に人を当てる</text>
+  <text class="t-note" x="175" y="108" text-anchor="middle">（職務記述書が基準）</text>
+
+  <rect class="col-pos-row" x="252" y="58" width="146" height="68" rx="2"/>
+  <text class="t-body" x="325" y="90" text-anchor="middle">人に職務を配置する</text>
+  <text class="t-note" x="325" y="108" text-anchor="middle">（人物重視・異動あり）</text>
+
+  <!-- === ROW 2: 能力評価 y=130 h=68 === -->
+  <rect class="col-label-bg" x="10" y="130" width="88" height="68" rx="2"/>
+  <text class="t-label" x="54" y="168" text-anchor="middle">能力評価</text>
+
+  <rect class="col-brand-row" x="102" y="130" width="146" height="68" rx="2"/>
+  <text class="t-body" x="175" y="162" text-anchor="middle">顕在能力を重視</text>
+  <text class="t-note" x="175" y="180" text-anchor="middle">（職務成果で測定）</text>
+
+  <rect class="col-pos-row" x="252" y="130" width="146" height="68" rx="2"/>
+  <text class="t-body" x="325" y="162" text-anchor="middle">潜在能力も評価</text>
+  <text class="t-note" x="325" y="180" text-anchor="middle">（職能資格制度）</text>
+
+  <!-- === ROW 3: 採用方式 y=202 h=68 === -->
+  <rect class="col-label-bg" x="10" y="202" width="88" height="68" rx="2"/>
+  <text class="t-label" x="54" y="240" text-anchor="middle">採用方式</text>
+
+  <rect class="col-brand-row" x="102" y="202" width="146" height="68" rx="2"/>
+  <text class="t-body" x="175" y="230" text-anchor="middle">必要時に欠員補充</text>
+  <text class="t-note" x="175" y="248" text-anchor="middle">（随時採用）</text>
+
+  <rect class="col-pos-row" x="252" y="202" width="146" height="68" rx="2"/>
+  <text class="t-body" x="325" y="230" text-anchor="middle">長期雇用・新卒</text>
+  <text class="t-note" x="325" y="248" text-anchor="middle">一括採用が典型</text>
+
+  <!-- === ROW 4: 人材育成 y=274 h=68 === -->
+  <rect class="col-label-bg" x="10" y="274" width="88" height="68" rx="2"/>
+  <text class="t-label" x="54" y="312" text-anchor="middle">人材育成</text>
+
+  <rect class="col-brand-row" x="102" y="274" width="146" height="68" rx="2"/>
+  <text class="t-body" x="175" y="302" text-anchor="middle">即戦力・外部調達</text>
+  <text class="t-note" x="175" y="320" text-anchor="middle">OFF-JT中心</text>
+
+  <rect class="col-pos-row" x="252" y="274" width="146" height="68" rx="2"/>
+  <text class="t-body" x="325" y="302" text-anchor="middle">内部育成・OJT中心</text>
+  <text class="t-note" x="325" y="320" text-anchor="middle">ジョブローテーション</text>
+
+  <!-- === ROW 5: 報酬水準 y=346 h=68 === -->
+  <rect class="col-label-bg" x="10" y="346" width="88" height="68" rx="2"/>
+  <text class="t-label" x="54" y="384" text-anchor="middle">報酬水準</text>
+
+  <rect class="col-brand-row" x="102" y="346" width="146" height="68" rx="2"/>
+  <text class="t-body" x="175" y="374" text-anchor="middle">職種市場価格に連動</text>
+  <text class="t-note" x="175" y="392" text-anchor="middle">（一般に高め）</text>
+
+  <rect class="col-pos-row" x="252" y="346" width="146" height="68" rx="2"/>
+  <text class="t-body" x="325" y="374" text-anchor="middle">年功・職能資格</text>
+  <text class="t-note" x="325" y="392" text-anchor="middle">ベースで決定</text>
+
+  <!-- === ROW 6: 変化対応 y=418 h=68 === -->
+  <rect class="col-label-bg" x="10" y="418" width="88" height="68" rx="2"/>
+  <text class="t-label" x="54" y="456" text-anchor="middle">変化対応</text>
+
+  <rect class="col-brand-row" x="102" y="418" width="146" height="68" rx="2"/>
+  <text class="t-body" x="175" y="446" text-anchor="middle">容易</text>
+  <text class="t-note" x="175" y="464" text-anchor="middle">（職務単位で対応）</text>
+
+  <rect class="col-pos-row" x="252" y="418" width="146" height="68" rx="2"/>
+  <text class="t-body" x="325" y="446" text-anchor="middle">緩やか</text>
+  <text class="t-note" x="325" y="464" text-anchor="middle">（異動・OJTで吸収）</text>
+
+  <!-- フッター y=497 (ROW6 下端 y=486 より下に置き enclosing rect 判定を回避) -->
+  <text class="t-foot" x="200" y="497" text-anchor="middle">日本は近年ジョブ型導入が増加傾向</text>
+
+</svg>

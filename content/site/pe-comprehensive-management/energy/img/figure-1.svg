@@ -1,0 +1,82 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="エネルギー政策の基本視点 S＋3E。安全性を大前提とし、安定供給・経済効率性・環境適合の3Eを優先順位順に示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 12px; fill: #555; }
+      .t-label  { font-size: 11px; font-weight: bold; fill: #8a8a8a; letter-spacing: 0.04em; }
+      .t-main   { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-en     { font-size: 11px; fill: #555; }
+      .t-note   { font-size: 12px; fill: #555; }
+      .t-badge  { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-rank   { font-size: 11px; fill: #555; }
+      /* surface/ink — 淡色背景＋濃色文字 */
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      /* brand — 安定供給 */
+      .box-brand   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      /* positive — 経済効率性 */
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      /* warn — 環境適合 */
+      .box-warn    { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      /* S badge border */
+      .badge-surface { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .badge-brand   { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-positive{ fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+      .badge-warn    { fill: #ffffff; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- ===== タイトル ===== -->
+  <text class="t-title" x="200" y="28" text-anchor="middle">エネルギー政策の基本視点</text>
+  <text class="t-sub" x="200" y="48" text-anchor="middle">S＋3E（第六次エネルギー基本計画）</text>
+
+  <!-- ===== S（安全性）— 大前提・別格 surface色 ===== -->
+  <!-- surface: ink-strongで別格化 -->
+  <rect class="box-surface" x="30" y="64" width="340" height="88" rx="10"/>
+  <!-- 「大前提」ラベル -->
+  <text class="t-label" x="370" y="82" text-anchor="end">大前提</text>
+  <!-- バッジ -->
+  <circle class="badge-surface" cx="68" cy="108" r="22"/>
+  <text class="t-badge" x="68" y="114" text-anchor="middle">S</text>
+  <!-- テキスト -->
+  <text class="t-main" x="100" y="98">安全性</text>
+  <text class="t-en" x="100" y="116">Safety</text>
+  <text class="t-note" x="100" y="138">あらゆるエネルギー政策の前提条件</text>
+
+  <!-- ===== 矢印「↓以下3Eを優先順に」===== -->
+  <line x1="200" y1="160" x2="200" y2="178" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text class="t-label" x="200" y="172" text-anchor="middle">3Eを優先順位に従い確保</text>
+
+  <!-- ===== E1: 安定供給（第一）brand ===== -->
+  <rect class="box-brand" x="30" y="186" width="340" height="84" rx="8"/>
+  <text class="t-label" x="370" y="204" text-anchor="end">第一</text>
+  <circle class="badge-brand" cx="68" cy="228" r="18"/>
+  <text class="t-badge" x="68" y="234" text-anchor="middle">E1</text>
+  <text class="t-main" x="96" y="220">安定供給</text>
+  <text class="t-en" x="96" y="238">Energy security</text>
+  <text class="t-note" x="96" y="256">サプライチェーン全体を俯瞰した供給の確保</text>
+
+  <!-- ===== E2: 経済効率性 positive ===== -->
+  <rect class="box-positive" x="30" y="284" width="340" height="84" rx="8"/>
+  <text class="t-label" x="370" y="302" text-anchor="end">第二</text>
+  <circle class="badge-positive" cx="68" cy="326" r="18"/>
+  <text class="t-badge" x="68" y="332" text-anchor="middle">E2</text>
+  <text class="t-main" x="96" y="318">経済効率性</text>
+  <text class="t-en" x="96" y="336">Economic efficiency</text>
+  <text class="t-note" x="96" y="354">低コストでのエネルギー供給の実現</text>
+
+  <!-- ===== E3: 環境適合 warn ===== -->
+  <rect class="box-warn" x="30" y="382" width="340" height="84" rx="8"/>
+  <text class="t-label" x="370" y="400" text-anchor="end">第三</text>
+  <circle class="badge-warn" cx="68" cy="424" r="18"/>
+  <text class="t-badge" x="68" y="430" text-anchor="middle">E3</text>
+  <text class="t-main" x="96" y="416">環境適合</text>
+  <text class="t-en" x="96" y="434">Environment</text>
+  <text class="t-note" x="96" y="452">気候変動・周辺環境との調和の確保</text>
+
+  <!-- ===== フッター ===== -->
+  <text class="t-label" x="200" y="490" text-anchor="middle">S は 3E すべての上位に位置する絶対条件</text>
+</svg>

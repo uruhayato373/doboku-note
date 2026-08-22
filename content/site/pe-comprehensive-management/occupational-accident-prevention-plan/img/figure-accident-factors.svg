@@ -1,0 +1,99 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="労働災害の発生要因：事故の型は人・物・環境を経由して不安全な状態と不安全な行動から発生。平成 26 年統計では不安全行動のみが 92% を占め、行動への対策が最重要">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-page-title { font-size: 13px; font-weight: bold; fill: #222; }      /* ink-strong */
+      .t-section    { font-size: 13px; font-weight: bold; fill: #1a3a5c; }  /* brand-text */
+      .t-bar-label  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }  /* brand-text */
+      .t-bar-pct    { font-size: 12px; font-weight: bold; fill: #222; }     /* ink-strong */
+      .t-detail     { font-size: 11px; fill: #555; }                        /* ink-body */
+      .t-source     { font-size: 11px; fill: #555; }                        /* ink-body */
+      .box-top      { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger（事故） */
+      .box-mid      { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn（人物環境） */
+      .box-state    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand（不安全状態） */
+      .box-action   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger（不安全行動＝主因） */
+      .bar-action   { fill: #b22234; stroke: #b22234; }                    /* danger 主役 */
+      .bar-mixed    { fill: #d4a017; stroke: #d4a017; }                    /* warn */
+      .bar-state    { fill: #2e6da4; stroke: #2e6da4; }                    /* brand */
+      .bar-none     { fill: #d7d7d7; stroke: #d7d7d7; }                    /* surface */
+      .arrow        { stroke: #555; stroke-width: 1.5; fill: none; }       /* ink-body */
+    </style>
+    <marker id="acc-arr" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+      <polygon points="0,0 7,3 0,6" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- 上：事故の型 -->
+  <rect class="box-top" x="120" y="10" width="160" height="32" rx="5"/>
+  <text class="t-page-title" x="200" y="32" text-anchor="middle">事故の型（労働災害）</text>
+
+  <line class="arrow" x1="200" y1="44" x2="200" y2="62" marker-end="url(#acc-arr)"/>
+
+  <!-- 中：人・物・環境 -->
+  <rect class="box-mid" x="65" y="66" width="270" height="34" rx="5"/>
+  <text class="t-page-title" x="200" y="86" text-anchor="middle">人・物（機械・設備）・環境</text>
+
+  <line class="arrow" x1="120" y1="102" x2="120" y2="120" marker-end="url(#acc-arr)"/>
+  <line class="arrow" x1="280" y1="102" x2="280" y2="120" marker-end="url(#acc-arr)"/>
+
+  <!-- 不安全状態 / 不安全行動 -->
+  <rect class="box-state" x="20" y="124" width="180" height="38" rx="5"/>
+  <text class="t-bar-label" x="110" y="142" text-anchor="middle">不安全な状態</text>
+  <text class="t-detail"   x="110" y="156" text-anchor="middle">（管理上の欠陥）</text>
+
+  <rect class="box-action" x="200" y="124" width="180" height="38" rx="5"/>
+  <text class="t-bar-label" x="290" y="142" text-anchor="middle">不安全な行動</text>
+  <text class="t-detail"    x="290" y="156" text-anchor="middle">（労働者の行動）</text>
+
+  <!-- 統計：労働災害の発生要因割合 -->
+  <text class="t-section" x="200" y="186" text-anchor="middle">発生要因割合（平成 26 年）</text>
+
+  <!-- バー（4 群） -->
+  <rect class="bar-action" x="20"  y="200" width="86" height="22" rx="3"/>
+  <text class="t-bar-pct"  x="63"  y="218" text-anchor="middle" fill="#ffffff">92.0%</text>
+  <text class="t-detail"   x="63"  y="240" text-anchor="middle">不安全行動</text>
+  <text class="t-detail"   x="63"  y="254" text-anchor="middle">のみ</text>
+
+  <rect class="bar-state"  x="116" y="200" width="86" height="22" rx="3"/>
+  <text class="t-bar-pct"  x="159" y="218" text-anchor="middle" fill="#ffffff">4.8%</text>
+  <text class="t-detail"   x="159" y="240" text-anchor="middle">不安全状態</text>
+  <text class="t-detail"   x="159" y="254" text-anchor="middle">のみ</text>
+
+  <rect class="bar-mixed"  x="212" y="200" width="86" height="22" rx="3"/>
+  <text class="t-bar-pct"  x="255" y="218" text-anchor="middle" fill="#1a3a5c">3.0%</text>
+  <text class="t-detail"   x="255" y="240" text-anchor="middle">状態 + 行動</text>
+  <text class="t-detail"   x="255" y="254" text-anchor="middle">複合</text>
+
+  <rect class="bar-none"   x="308" y="200" width="72" height="22" rx="3"/>
+  <text class="t-bar-pct"  x="344" y="218" text-anchor="middle" fill="#222">0.2%</text>
+  <text class="t-detail"   x="344" y="240" text-anchor="middle">両方</text>
+  <text class="t-detail"   x="344" y="254" text-anchor="middle">なし</text>
+
+  <text class="t-source" x="200" y="282" text-anchor="middle">出典：（一社）中小建設業特別教育協会</text>
+
+  <!-- 追加：対策の方向性 -->
+  <rect x="10" y="300" width="380" height="52" fill="#f8d7da" stroke="#b22234" stroke-width="1.5" rx="6"/>
+  <text class="t-section" x="200" y="320" text-anchor="middle">不安全行動への対策（最重要）</text>
+  <text class="t-detail" x="200" y="336" text-anchor="middle">KYT・ヒヤリハット活動・教育訓練・作業手順遵守</text>
+  <text class="t-detail" x="200" y="350" text-anchor="middle">4E 対策：Education（教育）+ Enforcement（徹底）が主軸</text>
+
+  <rect x="10" y="364" width="185" height="56" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text class="t-bar-label" x="103" y="382" text-anchor="middle">不安全状態の除去</text>
+  <text class="t-detail" x="103" y="398" text-anchor="middle">設備・環境の改善</text>
+  <text class="t-detail" x="103" y="412" text-anchor="middle">本質安全設計を優先</text>
+
+  <rect x="205" y="364" width="185" height="56" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="6"/>
+  <text class="t-bar-label" x="297" y="382" text-anchor="middle">安全管理体系</text>
+  <text class="t-detail" x="297" y="398" text-anchor="middle">OSHMS 導入・</text>
+  <text class="t-detail" x="297" y="412" text-anchor="middle">リスクアセスメント実施</text>
+
+  <rect x="10" y="432" width="380" height="48" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5" rx="6"/>
+  <text class="t-bar-label" x="200" y="448" text-anchor="middle">労働災害防止計画（第 14 次・2023〜2027 年）</text>
+  <text class="t-detail" x="200" y="464" text-anchor="middle">転倒・腰痛等の減少・高齢者・外国人の安全確保を重点課題に設定</text>
+
+  <text class="t-source" x="200" y="492" text-anchor="middle">総監：安全管理 × 人的資源管理の統合的視点で取り組む</text>
+</svg>

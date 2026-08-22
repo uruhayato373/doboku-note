@@ -1,0 +1,79 @@
+---
+title: 隔離安全・停止安全
+description: "隔離安全・停止安全の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（安全管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '5.4'
+tags:
+  - keyword
+published: true
+publishedAt: '2026-04-09'
+reviewStatus: approved
+lastRewrittenAt: '2026-04-16'
+revisionCycle: 1
+seoTitle: "隔離安全・停止安全 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-06-09
+---
+
+## 隔離安全・停止安全とは
+
+**隔離安全**とは、人と危険源を物理的に隔離（分離）することにより安全を確保する考え方である。**停止安全**とは、人が危険区域に入る際に機械を停止させることで安全を確保する考え方である。
+
+いずれも「人と機械の共存領域をなくす」ことで安全を実現するSafety 1.0の基本的な安全思想である。
+
+## 具体例
+
+隔離安全と停止安全はそれぞれ異なるアプローチで安全を実現する。代表的な実装例を方式ごとに示す。
+
+| 方式 | 具体例 |
+|---|---|
+| **隔離安全** | 安全柵で機械を囲い、作業者の接近を防止する |
+| | 防護カバーにより回転部への接触を防止する |
+| **停止安全** | 安全扉を開けると機械が自動停止する |
+| | [インターロック](/docs/pe-comprehensive-management-interlock)により安全柵内への立入時に機械を停止する |
+
+## 本質安全との関係
+
+隔離安全・停止安全は、[本質安全](/docs/pe-comprehensive-management-inherent-safety)設計（危険源の除去）が困難な場合に採用される安全方策である。危険源そのものは残存するが、人と危険源の接触を物理的に排除する。
+
+<ExamPoint
+  summary="隔離安全は人と危険源の物理的分離、停止安全は立入時の機械停止"
+  items={[
+    "隔離安全：安全柵・防護カバーで人と危険源を物理的に分離する",
+    "停止安全：人が危険区域に入る際に機械を停止させる",
+    "Safety 1.0の基本思想（人と機械の共存領域をなくす）",
+    "本質安全（危険源の除去）が困難な場合に採用する",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**5.4 事故・災害の未然防止活動・技術**](/docs/pe-comprehensive-management-keyword-2026#54-事故・災害の未然防止活動・技術)に位置づけられている。
+
+隔離安全・停止安全は[本質安全](/docs/pe-comprehensive-management-inherent-safety)に次ぐ安全方策であり、[インターロック](/docs/pe-comprehensive-management-interlock)・[非常停止装置](/docs/pe-comprehensive-management-emergency-stop-device)等の安全機構によって実現される。[機能安全](/docs/pe-comprehensive-management-functional-safety)の枠組みでも重要な概念である。
+
+5つの管理の観点では、**安全管理**の中核的手法として位置づけられる。設備保全の設計段階で隔離・停止の方策を盛り込むことで、[リスクアセスメント](/docs/pe-comprehensive-management-risk-assessment)で洗い出した危険源への接触リスクを低減する。また**人的管理**の観点からも重要であり、作業者のヒューマンエラーを機械的な安全装置で補完することが、[ヒューマンファクター](/docs/pe-comprehensive-management-human-factors)対策の基本となる。
+
+## 規格・制度の背景
+
+隔離安全・停止安全の概念が国際的に体系化されたのは1990年代から2000年代にかけてのことである。ISO 12100（機械安全の一般原則）が策定され、「本質的安全設計→安全防護→使用上の情報提供」という**3段階リスク低減の原則**が確立された。
+
+日本では厚生労働省が2001年に「機械の包括的な安全基準に関する指針」を策定し、2007年に改正した。同指針は「隔離の原則」（ガードで人と危険源を空間的に分ける）と「停止の原則」（インターロック等で人と危険源を時間的に分ける）を安全防護の2本柱として位置づけている。
+
+JIS B 9714（ISO 14118対応）「機械類の安全性－予期しない起動の防止」は停止安全の核心規格であり、作業者が危険区域内にいる間に機械が予期せず起動することを防ぐための設計要件を定めている。2024年に最新版が発行された。
+
+<RelatedKeywords items={[
+  { label: "事故対応訓練", slug: "accident-response-drill" },
+  { label: "ブラインド型訓練", slug: "blind-drill" },
+  { label: "防災訓練", slug: "disaster-drill" },
+  { label: "非常停止装置", slug: "emergency-stop-device" },
+  { label: "人間工学原則の遵守", slug: "ergonomic-principles" },
+]} />
+
+## 参考資料
+
+- [機械安全（隔離の原則・停止の原則の解説）](https://www.jisha.or.jp/oshms/machinery/about01.html)（中央労働災害防止協会）
+- [機械の包括的な安全基準に関する指針（本文）](https://www.jaish.gr.jp/horei/hor1-48/hor1-48-36-1-4.html)（中央労働災害防止協会 JAISH）
+- [「隔離の原則」と「停止の原則」を理解して、危険を未然に防ごう](https://note.com/onicon/n/n2234f6ea8f22)（Onicon・労働安全コンサルタント解説）

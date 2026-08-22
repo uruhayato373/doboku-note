@@ -1,0 +1,140 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1416" viewBox="0 0 1200 1416">
+  <rect width="1200" height="1416" fill="#ffffff"/>
+
+  <text x="20" y="56" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">10 ペア別 トレードオフ詳細マトリクス</text>
+  <text x="20" y="92" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">典型対立構造と有効な解決フレームを 10 通りすべて展開（出題頻度順）</text>
+
+  <rect x="20" y="116" width="1160" height="44" rx="6" fill="#e8f0fe"/>
+  <text x="36" y="146" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">記述式では「対立内容＋解決フレーム」をセットで論述する。出題頻度順に整理。</text>
+
+
+  <rect x="20" y="184" width="200" height="48" fill="#1a3a5c"/>
+  <text x="120" y="216" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">管理ペア</text>
+  <rect x="220" y="184" width="60" height="48" fill="#1a3a5c"/>
+  <text x="250" y="216" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">頻度</text>
+  <rect x="280" y="184" width="480" height="48" fill="#1a3a5c"/>
+  <text x="520" y="216" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">典型対立構造</text>
+  <rect x="760" y="184" width="420" height="48" fill="#3a7d44"/>
+  <text x="970" y="216" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">有効な解決フレーム</text>
+
+  <rect x="20" y="232" width="1160" height="100" fill="#f8fafc"/>
+  <line x1="20" y1="332" x2="1180" y2="332" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="220" y1="232" x2="220" y2="332" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="280" y1="232" x2="280" y2="332" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="760" y1="232" x2="760" y2="332" stroke="#d1d5db" stroke-width="1"/>
+  <text x="120" y="290" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">経済性 × 安全</text>
+  <rect x="228" y="260" width="44" height="44" rx="6" fill="#b22234"/>
+  <text x="250" y="291" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">S</text>
+  <text x="296" y="290" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">コスト・工期 vs 安全設備・リスク対策費</text>
+  <text x="776" y="290" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#3a7d44">ALARP / リスクベース意思決定</text>
+  <rect x="20" y="332" width="1160" height="100" fill="#ffffff"/>
+  <line x1="20" y1="432" x2="1180" y2="432" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="220" y1="332" x2="220" y2="432" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="280" y1="332" x2="280" y2="432" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="760" y1="332" x2="760" y2="432" stroke="#d1d5db" stroke-width="1"/>
+  <text x="120" y="390" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">経済性 × 社会環境</text>
+  <rect x="228" y="360" width="44" height="44" rx="6" fill="#b22234"/>
+  <text x="250" y="391" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">S</text>
+  <text x="296" y="390" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">短期コスト最小化 vs 環境負荷低減・脱炭素</text>
+  <text x="776" y="390" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#3a7d44">LCA・LCC / 段階的実施（補助金活用）</text>
+  <rect x="20" y="432" width="1160" height="100" fill="#f8fafc"/>
+  <line x1="20" y1="532" x2="1180" y2="532" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="220" y1="432" x2="220" y2="532" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="280" y1="432" x2="280" y2="532" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="760" y1="432" x2="760" y2="532" stroke="#d1d5db" stroke-width="1"/>
+  <text x="120" y="490" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">経済性 × 人的資源</text>
+  <rect x="228" y="460" width="44" height="44" rx="6" fill="#e05a4a"/>
+  <text x="250" y="491" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">A</text>
+  <text x="296" y="490" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">コスト削減 vs 人材育成・待遇改善</text>
+  <text x="776" y="490" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#3a7d44">OJT 費用対効果分析 / 段階的実施</text>
+  <rect x="20" y="532" width="1160" height="100" fill="#ffffff"/>
+  <line x1="20" y1="632" x2="1180" y2="632" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="220" y1="532" x2="220" y2="632" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="280" y1="532" x2="280" y2="632" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="760" y1="532" x2="760" y2="632" stroke="#d1d5db" stroke-width="1"/>
+  <text x="120" y="590" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">経済性 × 情報</text>
+  <rect x="228" y="560" width="44" height="44" rx="6" fill="#e05a4a"/>
+  <text x="250" y="591" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">A</text>
+  <text x="296" y="590" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">IT 基盤投資コスト vs 情報セキュリティ確保</text>
+  <text x="776" y="590" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#3a7d44">LCC / リスクベース投資判断</text>
+  <rect x="20" y="632" width="1160" height="100" fill="#f8fafc"/>
+  <line x1="20" y1="732" x2="1180" y2="732" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="220" y1="632" x2="220" y2="732" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="280" y1="632" x2="280" y2="732" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="760" y1="632" x2="760" y2="732" stroke="#d1d5db" stroke-width="1"/>
+  <text x="120" y="690" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">人的資源 × 安全</text>
+  <rect x="228" y="660" width="44" height="44" rx="6" fill="#e05a4a"/>
+  <text x="250" y="691" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">A</text>
+  <text x="296" y="690" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">若手・新人配置 vs 危険作業の経験知不足</text>
+  <text x="776" y="690" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#3a7d44">段階的実施（習熟段階別タスク）/ OJT</text>
+  <rect x="20" y="732" width="1160" height="100" fill="#ffffff"/>
+  <line x1="20" y1="832" x2="1180" y2="832" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="220" y1="732" x2="220" y2="832" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="280" y1="732" x2="280" y2="832" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="760" y1="732" x2="760" y2="832" stroke="#d1d5db" stroke-width="1"/>
+  <text x="120" y="790" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">安全 × 社会環境</text>
+  <rect x="228" y="760" width="44" height="44" rx="6" fill="#e05a4a"/>
+  <text x="250" y="791" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">A</text>
+  <text x="296" y="790" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">防災・安全対策 vs 景観・生態系への影響</text>
+  <text x="776" y="790" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#3a7d44">合意形成（住民参加）/ ALARP 適用</text>
+  <rect x="20" y="900" width="1160" height="100" fill="#f8fafc"/>
+  <line x1="20" y1="1000" x2="1180" y2="1000" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="220" y1="900" x2="220" y2="1000" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="280" y1="900" x2="280" y2="1000" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="760" y1="900" x2="760" y2="1000" stroke="#d1d5db" stroke-width="1"/>
+  <text x="120" y="958" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555" text-anchor="middle">人的資源 × 情報</text>
+  <rect x="228" y="928" width="44" height="44" rx="6" fill="#2e6da4"/>
+  <text x="250" y="959" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">B</text>
+  <text x="296" y="958" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">ベテラン活用・権限付与 vs 情報漏洩リスク管理</text>
+  <text x="776" y="958" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#3a7d44">最小権限原則 / 合意形成（規程整備）</text>
+  <rect x="20" y="1000" width="1160" height="100" fill="#ffffff"/>
+  <line x1="20" y1="1100" x2="1180" y2="1100" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="220" y1="1000" x2="220" y2="1100" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="280" y1="1000" x2="280" y2="1100" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="760" y1="1000" x2="760" y2="1100" stroke="#d1d5db" stroke-width="1"/>
+  <text x="120" y="1058" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555" text-anchor="middle">情報 × 安全</text>
+  <rect x="228" y="1028" width="44" height="44" rx="6" fill="#2e6da4"/>
+  <text x="250" y="1059" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">B</text>
+  <text x="296" y="1058" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">現場情報の即時共有 vs セキュリティ管理の厳格化</text>
+  <text x="776" y="1058" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#3a7d44">リスクベース（ゾーン分類）/ 段階的実施</text>
+  <rect x="20" y="1100" width="1160" height="100" fill="#f8fafc"/>
+  <line x1="20" y1="1200" x2="1180" y2="1200" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="220" y1="1100" x2="220" y2="1200" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="280" y1="1100" x2="280" y2="1200" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="760" y1="1100" x2="760" y2="1200" stroke="#d1d5db" stroke-width="1"/>
+  <text x="120" y="1158" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555" text-anchor="middle">情報 × 社会環境</text>
+  <rect x="228" y="1128" width="44" height="44" rx="6" fill="#2e6da4"/>
+  <text x="250" y="1159" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">B</text>
+  <text x="296" y="1158" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">環境モニタリング情報増大 vs 管理・保管コスト</text>
+  <text x="776" y="1158" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#3a7d44">LCC（データ収集コスト最適化）</text>
+  <rect x="20" y="1200" width="1160" height="100" fill="#ffffff"/>
+  <line x1="20" y1="1300" x2="1180" y2="1300" stroke="#e2e8f0" stroke-width="1"/>
+  <line x1="220" y1="1200" x2="220" y2="1300" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="280" y1="1200" x2="280" y2="1300" stroke="#d1d5db" stroke-width="1"/>
+  <line x1="760" y1="1200" x2="760" y2="1300" stroke="#d1d5db" stroke-width="1"/>
+  <text x="120" y="1258" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555" text-anchor="middle">人的資源 × 社会環境</text>
+  <rect x="228" y="1228" width="44" height="44" rx="6" fill="#8a8a8a"/>
+  <text x="250" y="1259" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">C</text>
+  <text x="296" y="1258" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">多様な人材活用 vs 地域・環境規制への対応負担</text>
+  <text x="776" y="1258" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#3a7d44">合意形成 / ステークホルダー調整</text>
+
+  <rect x="16" y="180" width="1168" height="652" rx="6" fill="none" stroke="#b22234" stroke-width="2"/>
+  <rect x="940" y="166" width="240" height="28" rx="14" fill="#b22234"/>
+  <text x="1060" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">高頻出 S/A — 最優先</text>
+
+  <rect x="20" y="856" width="1160" height="44" rx="6" fill="#8a8a8a"/>
+  <text x="600" y="886" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">中・低頻出（B / C ランク） — 余裕があれば対策</text>
+
+  <text x="20" y="1360" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">出題頻度</text>
+  <rect x="160" y="1338" width="32" height="32" rx="6" fill="#b22234"/>
+  <text x="200" y="1360" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">S 最頻出</text>
+  <rect x="330" y="1338" width="32" height="32" rx="6" fill="#e05a4a"/>
+  <text x="370" y="1360" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">A 頻出</text>
+  <rect x="500" y="1338" width="32" height="32" rx="6" fill="#2e6da4"/>
+  <text x="540" y="1360" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">B 中</text>
+  <rect x="670" y="1338" width="32" height="32" rx="6" fill="#8a8a8a"/>
+  <text x="710" y="1360" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">C 低</text>
+  <text x="852" y="1360" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#3a7d44">緑 = 解決フレーム</text>
+
+  <text x="1172" y="1394" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

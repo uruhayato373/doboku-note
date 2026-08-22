@@ -1,0 +1,69 @@
+{
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"$CLAUDE_TOOL_INPUT\" | grep -q 'git commit' && '/Users/minamidaisuke/doboku-note/.codex/hooks/check-doc-sync.sh' || true"
+          },
+          {
+            "type": "command",
+            "command": "'/Users/minamidaisuke/doboku-note/.codex/hooks/check-gemini-cost.sh'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/minamidaisuke/doboku-note/.codex/hooks/check-mojibake.sh'"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/minamidaisuke/doboku-note/.codex/hooks/check-mojibake.sh'"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/minamidaisuke/doboku-note/.codex/hooks/decision-doc-checkpoint.sh'"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/minamidaisuke/doboku-note/.codex/hooks/decision-doc-checkpoint.sh'"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "'/Users/minamidaisuke/doboku-note/.codex/hooks/check-stray-files.sh'"
+          }
+        ]
+      }
+    ]
+  }
+}

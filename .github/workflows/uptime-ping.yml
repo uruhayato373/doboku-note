@@ -1,0 +1,142 @@
+name: Uptime ping
+
+# サイト健全性監視（旧 Issue #130-C）。
+# BAILOUT_TO_CLIENT_SIDE_RENDERING（2026-W16 事件）のような「200 だが body 空」
+# パターンも検出する。失敗時は task-queue.json に append する（GitHub Issue は廃止）。
+
+on:
+  schedule:
+    # JST 08:00 / 14:00 / 20:00 (UTC 23:00 / 05:00 / 11:00)
+    - cron: "0 23,5,11 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@v5
+        with:
+          ref: develop
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+
+      - name: Check site health
+        id: check
+        continue-on-error: true
+        run: |
+          set +e
+
+          # 注: doboku-note.com は Cloudflare Bot Protection が GitHub Actions IP を
+          # 403 でブロックするため、直 URL（doboku-note.pages.dev）で SSR / body を検証する。
+          # カスタムドメイン (doboku-note.com) の DNS / CF 設定の問題は別系統で監視する想定。
+          URLS=(
+            "https://doboku-note.pages.dev/"
+            "https://doboku-note.pages.dev/docs/pe-comprehensive-management-keyword-2026"
+            "https://doboku-note.pages.dev/category/civil-construction-1"
+          )
+
+          UA_DESKTOP="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"
+          UA_MOBILE="Mozilla/5.0 (iPhone; CPU iPhone OS 17_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.0 Mobile/15E148 Safari/604.1"
+
+          FAILURES=()
+
+          for URL in "${URLS[@]}"; do
+            for UA_LABEL in desktop mobile; do
+              if [ "$UA_LABEL" = "mobile" ]; then
+                UA="$UA_MOBILE"
+              else
+                UA="$UA_DESKTOP"
+              fi
+
+              RESULT=$(curl -sS -o /tmp/body.html -w "%{http_code}|%{size_download}" \
+                --max-time 15 -A "$UA" "$URL" 2>/dev/null)
+              CURL_CODE=$?
+              CODE=$(echo "$RESULT" | cut -d'|' -f1)
+              SIZE=$(echo "$RESULT" | cut -d'|' -f2)
+
+              if [ $CURL_CODE -ne 0 ]; then
+                FAILURES+=("$URL [$UA_LABEL] curl failed (exit $CURL_CODE)")
+                continue
+              fi
+
+              if [ "$CODE" != "200" ]; then
+                FAILURES+=("$URL [$UA_LABEL] HTTP $CODE (size=$SIZE)")
+                continue
+              fi
+
+              # SSR 検証: <main> タグと body 内の実コンテンツを確認
+              # BAILOUT_TO_CLIENT_SIDE_RENDERING 対策として、単なる status/size だけでなく
+              # 実際にコンテンツがレンダリングされているかをチェック
+              if [ "$SIZE" -lt 10000 ]; then
+                FAILURES+=("$URL [$UA_LABEL] body too small (size=$SIZE < 10000)")
+                continue
+              fi
+
+              if ! grep -q '<main' /tmp/body.html; then
+                FAILURES+=("$URL [$UA_LABEL] no <main> element (size=$SIZE)")
+                continue
+              fi
+
+              # 主要コンテンツキーワードが body に含まれるか
+              if ! grep -qE '土木|doboku-note|技術士|1級' /tmp/body.html; then
+                FAILURES+=("$URL [$UA_LABEL] no content keywords matched (size=$SIZE)")
+                continue
+              fi
+
+              # GA 計装検証: gtag スクリプトが SSR HTML に載っているか。
+              # GoogleAnalytics を client-gating 等に変えると gtag が SSR から消え本番 GA が
+              # 停止する regression（2026-07-03 #6）を機械検知する。pages.dev でも script tag
+              # 自体は在る（config のみ hostname で抑止）ので、この検査は全 URL で成立する。
+              if ! grep -q 'googletagmanager' /tmp/body.html; then
+                FAILURES+=("$URL [$UA_LABEL] no GA script (googletagmanager) — GA 計装が SSR HTML から消失")
+                continue
+              fi
+
+              echo "OK: $URL [$UA_LABEL] size=$SIZE"
+            done
+          done
+
+          if [ ${#FAILURES[@]} -gt 0 ]; then
+            {
+              echo "## Uptime ping 失敗検出"
+              echo ""
+              echo "**検出時刻**: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+              echo ""
+              echo "### 失敗項目"
+              for F in "${FAILURES[@]}"; do
+                echo "- $F"
+              done
+              echo ""
+              echo "### 判定ロジック"
+              echo "- HTTP 200 以外"
+              echo "- response body < 10KB（空に近い HTML）"
+              echo "- \`<main>\` タグ不在"
+              echo "- 主要キーワード（土木/doboku-note/技術士/1級）非含有 = SSR 壊れの兆候"
+              echo ""
+              echo "### 参考"
+              echo "- 2026-W16 事件（BAILOUT_TO_CLIENT_SIDE_RENDERING / 6 日データ欠損）の再発防止"
+              echo "- 関連: .claude/reference/measurement-incidents.md（2026-W16 BAILOUT）"
+              echo "- workflow: \`.github/workflows/uptime-ping.yml\`"
+            } > /tmp/failure-report.md
+
+            echo "failed=true" >> $GITHUB_OUTPUT
+            cat /tmp/failure-report.md
+            exit 1
+          fi
+
+          echo "failed=false" >> $GITHUB_OUTPUT
+
+      # タスク自動化(task-queue.json/build-todo)は廃止(2026-06-11、.claude/todo/ 手動運用へ一本化)。
+      # SSR 壊れ等は CI 失敗として即通知（2026-W16 BAILOUT 再発監視）。人が .claude/todo/ に手動起票する。
+      - name: Fail on uptime failure (アラート)
+        if: steps.check.outputs.failed == 'true'
+        run: |
+          echo "::error::サイト健全性チェック失敗（SSR 壊れ / body 空 / HTTP エラー）。2026-W16 BAILOUT 再発監視。.claude/todo/ に手動で起票してください。"
+          exit 1

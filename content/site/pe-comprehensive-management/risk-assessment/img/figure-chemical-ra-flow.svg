@@ -1,0 +1,73 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="化学物質のリスクアセスメント 5 段階フロー：①危険性・有害性の特定→②リスクの見積もり→③リスク低減措置の内容検討→④リスク低減措置の実施→⑤労働者への結果周知。労働安全衛生法（平成 28 年改正）に基づく義務手順">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-step-num { font-size: 14px; font-weight: bold; fill: #ffffff; }
+      .t-step-text { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-cap { font-size: 11px; fill: #555; }
+      .step-box { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .step-num-circle { fill: #2e6da4; }
+      .arrow { stroke: #555; stroke-width: 1.8; fill: none; }
+    </style>
+    <marker markerUnits="userSpaceOnUse" id="arrh-ra" markerWidth="10" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0 8, 10 4, 0 0" fill="#555" />
+    </marker>
+  </defs>
+
+  <!-- タイトル -->
+  <text x="200" y="20" class="t-title" text-anchor="middle">化学物質のリスクアセスメント 5 段階フロー</text>
+
+  <!-- ステップ 1 -->
+  <rect x="40" y="40" width="320" height="42" rx="6" class="step-box" />
+  <circle cx="60" cy="61" r="14" class="step-num-circle" />
+  <text x="60" y="66" class="t-step-num" text-anchor="middle">1</text>
+  <text x="200" y="66" class="t-step-text" text-anchor="middle">危険性・有害性の特定</text>
+
+  <line x1="200" y1="82" x2="200" y2="100" class="arrow" marker-end="url(#arrh-ra)" />
+
+  <!-- ステップ 2 -->
+  <rect x="40" y="105" width="320" height="42" rx="6" class="step-box" />
+  <circle cx="60" cy="126" r="14" class="step-num-circle" />
+  <text x="60" y="131" class="t-step-num" text-anchor="middle">2</text>
+  <text x="200" y="131" class="t-step-text" text-anchor="middle">リスクの見積もり</text>
+
+  <line x1="200" y1="147" x2="200" y2="165" class="arrow" marker-end="url(#arrh-ra)" />
+
+  <!-- ステップ 3 -->
+  <rect x="40" y="170" width="320" height="42" rx="6" class="step-box" />
+  <circle cx="60" cy="191" r="14" class="step-num-circle" />
+  <text x="60" y="196" class="t-step-num" text-anchor="middle">3</text>
+  <text x="200" y="196" class="t-step-text" text-anchor="middle">リスク低減措置の内容検討</text>
+
+  <line x1="200" y1="212" x2="200" y2="230" class="arrow" marker-end="url(#arrh-ra)" />
+
+  <!-- ステップ 4 -->
+  <rect x="40" y="235" width="320" height="42" rx="6" class="step-box" />
+  <circle cx="60" cy="256" r="14" class="step-num-circle" />
+  <text x="60" y="261" class="t-step-num" text-anchor="middle">4</text>
+  <text x="200" y="261" class="t-step-text" text-anchor="middle">リスク低減措置の実施</text>
+
+  <line x1="200" y1="277" x2="200" y2="295" class="arrow" marker-end="url(#arrh-ra)" />
+
+  <!-- ステップ 5 -->
+  <rect x="40" y="300" width="320" height="42" rx="6" class="step-box" />
+  <circle cx="60" cy="321" r="14" class="step-num-circle" />
+  <text x="60" y="326" class="t-step-num" text-anchor="middle">5</text>
+  <text x="200" y="326" class="t-step-text" text-anchor="middle">労働者への結果周知</text>
+
+  <!-- 注釈 -->
+  <text x="200" y="365" class="t-cap" text-anchor="middle" font-size="10">出典：労働安全衛生法（平成 28 年改正・SDS 交付対象 640 物質が義務）</text>
+
+  <!-- サマリー -->
+  <line stroke="#d7d7d7" stroke-width="1" x1="20" y1="385" x2="380" y2="385"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c" x="200" y="412" text-anchor="middle">SDS（安全データシート）の役割</text>
+  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" x="20" y="424" width="360" height="60" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="444">・ステップ 1 の有害性特定に SDS が必須情報源</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="462">・GHS（国連勧告）に基づく 16 項目で構成</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="480">・リスク = 有害性 × ばく露量で見積もる</text>
+</svg>

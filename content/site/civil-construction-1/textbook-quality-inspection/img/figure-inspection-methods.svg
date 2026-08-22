@@ -1,0 +1,42 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="全数検査と抜取検査の適用場面。全数検査はわずかの不良品混入も許せない場合や検査が容易な場合、ロットが小さい場合に適用する。抜取検査は破壊検査や連続体、検査個数や項目が多い場合に適用し、建設工事では一般に1回抜取検査による">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-item { font-size: 11px; fill: #222; }
+      .t-note { font-size: 11px; fill: #555; }
+      .box-a { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">どちらを使うかは検査の性質と数量で決まる</text>
+
+  <rect class="box-a" x="20" y="28" width="360" height="190" rx="6"/>
+  <text class="t-sec" x="40" y="52">全数検査（100%検査）</text>
+  <text class="t-desc" x="40" y="72">品物1個1個を全部検査し、良品と不良品を選別する</text>
+  <line class="rule" x1="36" y1="84" x2="364" y2="84"/>
+  <text class="t-item" x="40" y="110">わずかの不良品混入も許せない場合</text>
+  <text class="t-item" x="40" y="136">検査が容易に行える場合</text>
+  <text class="t-item" x="40" y="162">ロットの品質をよくしたい場合</text>
+  <text class="t-item" x="40" y="188">ロットの大きさが小さく抜取検査の意味がない場合</text>
+
+  <rect class="box-b" x="20" y="232" width="360" height="250" rx="6"/>
+  <text class="t-sec" x="40" y="256">抜取検査</text>
+  <text class="t-desc" x="40" y="276">ロットから一部を抜き取り、判定基準と比較して合否を判定</text>
+  <line class="rule" x1="36" y1="288" x2="364" y2="288"/>
+  <text class="t-item" x="40" y="314">破壊検査の場合</text>
+  <text class="t-item" x="40" y="338">連続体の場合</text>
+  <text class="t-item" x="40" y="362">検査個数の多い場合</text>
+  <text class="t-item" x="40" y="386">検査項目の多い場合</text>
+  <text class="t-item" x="40" y="410">有効な品質情報を得たい場合</text>
+  <text class="t-item" x="40" y="434">管理者が構造物の実体に精通したい場合</text>
+  <line class="rule" x1="36" y1="448" x2="364" y2="448"/>
+  <text class="t-note" x="40" y="468">建設工事では一般に1回抜取検査による</text>
+</svg>

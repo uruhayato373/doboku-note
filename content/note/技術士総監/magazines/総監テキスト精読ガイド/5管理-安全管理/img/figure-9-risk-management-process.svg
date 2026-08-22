@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">リスクマネジメント全体プロセス（ISO 31000）</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">5プロセスの循環＋中央にリスク対応4分類</text>
+
+  <circle cx="600" cy="400" r="130" fill="#e8f0fe" stroke="#1a3a5c" stroke-width="3"/>
+  <text x="600" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c" text-anchor="middle">リスク対応</text>
+  <text x="600" y="372" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#3a7d44" text-anchor="middle">A. 低減（軽減）</text>
+  <text x="600" y="396" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#2e6da4" text-anchor="middle">B. 移転（保険等）</text>
+  <text x="600" y="420" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#d4a017" text-anchor="middle">C. 回避（断念等）</text>
+  <text x="600" y="444" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#555555" text-anchor="middle">D. 保有（受容）</text>
+  <rect x="500" y="120" width="200" height="80" rx="10" fill="#2e6da4"/>
+  <text x="600" y="152" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">1. リスク特定</text>
+  <text x="600" y="180" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle">発見・認識・記述</text>
+  <rect x="728.2535639108369" y="285.83592135001265" width="200" height="80" rx="10" fill="#2e6da4"/>
+  <text x="828.2535639108369" y="317.83592135001265" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">2. リスク分析</text>
+  <text x="828.2535639108369" y="345.83592135001265" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle">特質理解・レベル決定</text>
+  <rect x="641.0684605501935" y="554.1640786499875" width="200" height="80" rx="10" fill="#2e6da4"/>
+  <text x="741.0684605501935" y="586.1640786499875" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">3. リスク評価</text>
+  <text x="741.0684605501935" y="614.1640786499875" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle">基準と比較</text>
+  <rect x="358.93153944980645" y="554.1640786499875" width="200" height="80" rx="10" fill="#3a7d44"/>
+  <text x="458.93153944980645" y="586.1640786499875" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">4. リスク対応</text>
+  <text x="458.93153944980645" y="614.1640786499875" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle">4分類から選択</text>
+  <rect x="271.7464360891631" y="285.83592135001254" width="200" height="80" rx="10" fill="#d4a017"/>
+  <text x="371.7464360891631" y="317.83592135001254" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">5. モニタリング</text>
+  <text x="371.7464360891631" y="345.83592135001254" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle">継続的点検</text><line x1="600" y1="180" x2="809.2324335849338" y2="332.01626123751157" stroke="#555555" stroke-width="2" stroke-dasharray="4,4" opacity="0.4"/><line x1="809.2324335849338" y1="332.01626123751157" x2="729.3127555043441" y2="577.9837387624884" stroke="#555555" stroke-width="2" stroke-dasharray="4,4" opacity="0.4"/><line x1="729.3127555043441" y1="577.9837387624884" x2="470.68724449565593" y2="577.9837387624884" stroke="#555555" stroke-width="2" stroke-dasharray="4,4" opacity="0.4"/><line x1="470.68724449565593" y1="577.9837387624884" x2="390.7675664150662" y2="332.0162612375115" stroke="#555555" stroke-width="2" stroke-dasharray="4,4" opacity="0.4"/><line x1="390.7675664150662" y1="332.0162612375115" x2="600" y2="180" stroke="#555555" stroke-width="2" stroke-dasharray="4,4" opacity="0.4"/>
+
+</svg>

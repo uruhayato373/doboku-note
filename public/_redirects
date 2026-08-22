@@ -1,0 +1,72 @@
+# NOTE: これらのルールは Cloudflare Pages (apex: doboku-note.com) 上でのみ適用される。
+# 旧サブドメイン www.doboku-note.com / ww7.doboku-note.com は別サーバーへ向いていたため、
+# 2026-04-13 に DNS を Cloudflare 配下へ切替済み。切替後はこれらのサブドメイン経由でも
+# 本ルールが有効になる。
+
+# 壊れたURL → 正しいURLへリダイレクト
+/category/pe-comprehe%20nsive-management /category/pe-comprehensive-management 301
+
+# 重複キーワード統合: 社会的受容（PA）の2ページを1ページに統合（2026-04-13）
+# NOTE: Cloudflare Pages は物理 HTML ファイルを _redirects より優先するため、
+# `/out/docs/pe-comprehensive-management-public-acceptance-comm.html` が存在しないことが前提。
+# 本ルール追加と同時に MDX ソースを削除し、build 時に `rm -rf out` を実行するようにした。
+/docs/pe-comprehensive-management-public-acceptance-comm /docs/pe-comprehensive-management-public-acceptance 301
+
+# 書籍アフィリ廃止に伴い「おすすめ参考書ガイド」を削除（2026-06-25）。孤児・無流入のため勉強法ページへ統合。
+/docs/civil-construction-1-guide-textbooks /docs/civil-construction-1-guide-study-method 301
+
+# 重複キーワード統合（2026-04-13）— 8組を一括統合
+/docs/pe-comprehensive-management-risk-evaluation /docs/pe-comprehensive-management-risk-assessment 301
+/docs/pe-comprehensive-management-availability-security /docs/pe-comprehensive-management-system-availability 301
+/docs/pe-comprehensive-management-process-scheduling /docs/pe-comprehensive-management-process-planning-construction 301
+/docs/pe-comprehensive-management-reemployment-system-labor /docs/pe-comprehensive-management-reemployment-system 301
+/docs/pe-comprehensive-management-reliability-security /docs/pe-comprehensive-management-system-reliability 301
+/docs/pe-comprehensive-management-product-safety-process /docs/pe-comprehensive-management-product-safety 301
+/docs/pe-comprehensive-management-occupational-safety-act-osh /docs/pe-comprehensive-management-occupational-safety-act 301
+/docs/pe-comprehensive-management-labor-standards-act-osh /docs/pe-comprehensive-management-labor-standards-act 301
+
+# reference-materials カテゴリ分離: 旧 slug → 新 slug（2026-04-19）
+# 近畿地整 設計便覧・兵庫県 共通仕様書を civil-construction-1 から独立カテゴリへ
+/docs/civil-construction-1-reference-hyogo-port-materials /docs/reference-materials-hyogo-port-materials 301
+/docs/civil-construction-1-reference-river-abandonment /docs/reference-materials-river-abandonment 301
+/docs/civil-construction-1-reference-inverted-siphon /docs/reference-materials-inverted-siphon 301
+/docs/civil-construction-1-reference-floodgate /docs/reference-materials-floodgate 301
+/docs/civil-construction-1-reference-tunnel-02 /docs/reference-materials-tunnel-02 301
+
+# テキストブック再構成: 旧slug → 新slug（2026-04-16）— 11→34ページ分割
+/docs/civil-construction-1-textbook-construction-machinery-01 /docs/civil-construction-1-textbook-machinery-overview 301
+/docs/civil-construction-1-textbook-construction-machinery-02 /docs/civil-construction-1-textbook-loader 301
+/docs/civil-construction-1-textbook-surveying /docs/civil-construction-1-textbook-surveying-basics 301
+/docs/civil-construction-1-textbook-construction-plan-text-01 /docs/civil-construction-1-textbook-construction-plan-overview 301
+/docs/civil-construction-1-textbook-construction-plan-text-02 /docs/civil-construction-1-textbook-management-subplans 301
+/docs/civil-construction-1-textbook-schedule-management /docs/civil-construction-1-textbook-schedule-overview 301
+/docs/civil-construction-1-textbook-quality-management-text /docs/civil-construction-1-textbook-quality-overview 301
+/docs/civil-construction-1-textbook-related-laws-01 /docs/civil-construction-1-textbook-law-compliance 301
+/docs/civil-construction-1-textbook-related-laws-02 /docs/civil-construction-1-textbook-road-act 301
+
+# 削除済みコンテンツ → トップページ（301 Moved Permanently）
+/docs/river/* / 301
+/docs/general/* / 301
+/docs/port/* / 301
+/docs/low/* / 301
+/docs/environment/* / 301
+/docs/road/* / 301
+/docs/river-low / 301
+
+# 旧 /docs/exam/* 構造 → フラット URL へ（2026-04-21 追加、GSC Issue #28 対応）
+# フラット URL 移行（Convention A/B）前の古い URL 構造を 301 リダイレクト
+/docs/exam/civil-construction-1/primary/h26-a /docs/civil-construction-1-primary-h26-a 301
+/docs/exam/civil-construction-1/primary/h29-a /docs/civil-construction-1-primary-h29-a 301
+/docs/exam/civil-construction-1/secondary/experience-writing/guide /docs/civil-construction-1-secondary-experience-writing-guide 301
+/docs/exam/* / 301
+
+# Cloudflare Pages: 画像を R2 にリダイレクト
+# NOTE: Cloudflare Pages の _redirects は 200 ステータス（内部 rewrite）で外部オリジンへのプロキシに
+# 対応していないため、必ず 301 を使う。`<img>` タグはブラウザがリダイレクトを自動追従するので
+# URL バーには影響しない（実害なし）。
+# 顧客満足（CS）統合 2026-05-09: before/after-service, service-quality → customer-satisfaction
+/docs/pe-comprehensive-management-before-service /docs/pe-comprehensive-management-customer-satisfaction 301
+/docs/pe-comprehensive-management-after-service /docs/pe-comprehensive-management-customer-satisfaction 301
+/docs/pe-comprehensive-management-service-quality /docs/pe-comprehensive-management-customer-satisfaction 301
+
+/posts/* https://storage.doboku-note.com/posts/:splat 301

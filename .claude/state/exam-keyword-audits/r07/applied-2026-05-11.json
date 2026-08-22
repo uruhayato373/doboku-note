@@ -1,0 +1,167 @@
+{
+  "audit_path": ".claude/state/exam-keyword-audits/r07/2026-05-11.json",
+  "applied_at": "2026-05-11T07:15:00.961Z",
+  "tier_filter": "auto_apply",
+  "include_needs_review": false,
+  "dry_run": false,
+  "anchors": {
+    "1-1": {
+      "added": [
+        {
+          "slug": "supply-chain-management",
+          "confidence": 0.65,
+          "tier": "auto_apply"
+        }
+      ],
+      "removed": [],
+      "before": [
+        "business-continuity-plan",
+        "risk-management-plan"
+      ],
+      "after": [
+        "business-continuity-plan",
+        "risk-management-plan",
+        "supply-chain-management"
+      ]
+    },
+    "1-2": {
+      "added": [
+        {
+          "slug": "process-capability-index",
+          "confidence": 0.85,
+          "tier": "auto_apply"
+        }
+      ],
+      "removed": [],
+      "before": [
+        "quality-control",
+        "control-limits",
+        "inspection-methods",
+        "nonconformity-rate"
+      ],
+      "after": [
+        "quality-control",
+        "control-limits",
+        "inspection-methods",
+        "nonconformity-rate",
+        "process-capability-index"
+      ]
+    },
+    "1-24": {
+      "added": [
+        {
+          "slug": "firewall-ids",
+          "confidence": 0.84,
+          "tier": "auto_apply"
+        }
+      ],
+      "removed": [],
+      "before": [
+        "isms-iso27001",
+        "common-criteria",
+        "zero-trust",
+        "vpn"
+      ],
+      "after": [
+        "isms-iso27001",
+        "common-criteria",
+        "zero-trust",
+        "vpn",
+        "firewall-ids"
+      ]
+    },
+    "1-25": {
+      "added": [
+        {
+          "slug": "technical-nontechnical-skills",
+          "confidence": 1,
+          "tier": "auto_apply"
+        }
+      ],
+      "removed": [],
+      "before": [
+        "four-e-countermeasures",
+        "four-m-analysis",
+        "kyt",
+        "safety-patrol"
+      ],
+      "after": [
+        "four-e-countermeasures",
+        "four-m-analysis",
+        "kyt",
+        "safety-patrol",
+        "technical-nontechnical-skills"
+      ]
+    },
+    "1-30": {
+      "added": [
+        {
+          "slug": "isolation-stop-safety",
+          "confidence": 0.61,
+          "tier": "auto_apply"
+        }
+      ],
+      "removed": [],
+      "before": [
+        "safety-2-0",
+        "functional-safety",
+        "inherent-safety"
+      ],
+      "after": [
+        "safety-2-0",
+        "functional-safety",
+        "inherent-safety",
+        "isolation-stop-safety"
+      ]
+    },
+    "1-36": {
+      "added": [
+        {
+          "slug": "basel-convention",
+          "confidence": 1,
+          "tier": "auto_apply"
+        },
+        {
+          "slug": "sustainable-fashion",
+          "confidence": 1,
+          "tier": "auto_apply"
+        }
+      ],
+      "removed": [],
+      "before": [
+        "circular-economy",
+        "regional-circular-symbiosis",
+        "circular-society-basic-act"
+      ],
+      "after": [
+        "circular-economy",
+        "regional-circular-symbiosis",
+        "circular-society-basic-act",
+        "basel-convention",
+        "sustainable-fashion"
+      ]
+    },
+    "1-37": {
+      "added": [
+        {
+          "slug": "four-major-pollution-diseases",
+          "confidence": 0.92,
+          "tier": "auto_apply"
+        }
+      ],
+      "removed": [],
+      "before": [
+        "seven-types-of-pollution",
+        "air-pollution-control-act",
+        "water-pollution-control-act"
+      ],
+      "after": [
+        "seven-types-of-pollution",
+        "air-pollution-control-act",
+        "water-pollution-control-act",
+        "four-major-pollution-diseases"
+      ]
+    }
+  },
+  "skipped": {}
+}

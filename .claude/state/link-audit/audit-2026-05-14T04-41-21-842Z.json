@@ -1,0 +1,900 @@
+{
+  "meta": {
+    "generated_at": "2026-05-14T04:41:21.842Z",
+    "tool": "check-links",
+    "scope": "all",
+    "valid_slugs": 812
+  },
+  "summary": {
+    "files_scanned": 846,
+    "links_checked": 5922,
+    "HIGH": 63,
+    "INFO": 36,
+    "by_status": {
+      "BROKEN_SLUG": 39,
+      "BROKEN_ANCHOR": 24,
+      "PLACEHOLDER": 36
+    }
+  },
+  "findings": [
+    {
+      "file": "content/site/civil-construction-1/guide-concrete-key-points/article.mdx",
+      "line": 75,
+      "text": "品質管理 本文",
+      "href": "/docs/civil-construction-1-textbook-quality-management-text",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "civil-construction-1-textbook-quality-management-text"
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-concrete-key-points/article.mdx",
+      "line": 507,
+      "text": "品質管理 本文",
+      "href": "/docs/civil-construction-1-textbook-quality-management-text",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "civil-construction-1-textbook-quality-management-text"
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-concrete-key-points/article.mdx",
+      "line": 510,
+      "text": "施工計画 本文 1",
+      "href": "/docs/civil-construction-1-textbook-construction-plan-text-01",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "civil-construction-1-textbook-construction-plan-text-01"
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-concrete-key-points/article.mdx",
+      "line": 510,
+      "text": "施工計画 本文 2",
+      "href": "/docs/civil-construction-1-textbook-construction-plan-text-02",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "civil-construction-1-textbook-construction-plan-text-02"
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-concrete-key-points/article.mdx",
+      "line": 511,
+      "text": "建設業法と関連法規 1",
+      "href": "/docs/civil-construction-1-textbook-related-laws-01",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "civil-construction-1-textbook-related-laws-01"
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-concrete-key-points/article.mdx",
+      "line": 511,
+      "text": "建設業法と関連法規 2",
+      "href": "/docs/civil-construction-1-textbook-related-laws-02",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "civil-construction-1-textbook-related-laws-02"
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-earthwork-key-points/article.mdx",
+      "line": 462,
+      "text": "施工計画 本文 1",
+      "href": "/docs/civil-construction-1-textbook-construction-plan-text-01",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "civil-construction-1-textbook-construction-plan-text-01"
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-earthwork-key-points/article.mdx",
+      "line": 462,
+      "text": "施工計画 本文 2",
+      "href": "/docs/civil-construction-1-textbook-construction-plan-text-02",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "civil-construction-1-textbook-construction-plan-text-02"
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-quality-management/article.mdx",
+      "line": 401,
+      "text": "施工計画 本文 1",
+      "href": "/docs/civil-construction-1-textbook-construction-plan-text-01",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "civil-construction-1-textbook-construction-plan-text-01"
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-quality-management/article.mdx",
+      "line": 401,
+      "text": "施工計画 本文 2",
+      "href": "/docs/civil-construction-1-textbook-construction-plan-text-02",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "civil-construction-1-textbook-construction-plan-text-02"
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-schedule-management/article.mdx",
+      "line": 396,
+      "text": "施工計画 本文 1",
+      "href": "/docs/civil-construction-1-textbook-construction-plan-text-01",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "civil-construction-1-textbook-construction-plan-text-01"
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-schedule-management/article.mdx",
+      "line": 396,
+      "text": "施工計画 本文 2",
+      "href": "/docs/civil-construction-1-textbook-construction-plan-text-02",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "civil-construction-1-textbook-construction-plan-text-02"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/access-control/article.mdx",
+      "line": 119,
+      "text": "人的資源管理",
+      "href": "/docs/pe-comprehensive-management-human-resource-management",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-human-resource-management"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/access-control/article.mdx",
+      "line": 119,
+      "text": "経済性管理",
+      "href": "/docs/pe-comprehensive-management-economic-management",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-economic-management"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/asbestos-issue/article.mdx",
+      "line": 100,
+      "text": "労働安全衛生",
+      "href": "/docs/pe-comprehensive-management-occupational-safety",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-occupational-safety"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/blockchain-crypto/article.mdx",
+      "line": 82,
+      "text": "情報セキュリティ",
+      "href": "/docs/pe-comprehensive-management-information-security",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-information-security"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/blockchain-crypto/article.mdx",
+      "line": 82,
+      "text": "IoT",
+      "href": "/docs/pe-comprehensive-management-iot-security",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-iot-security"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/blockchain-crypto/article.mdx",
+      "line": 84,
+      "text": "省エネルギー",
+      "href": "/docs/pe-comprehensive-management-energy-saving",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-energy-saving"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/cause-and-effect-diagram/article.mdx",
+      "line": 26,
+      "text": "QC7つ道具",
+      "href": "/docs/pe-comprehensive-management-qc-seven-tools",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-qc-seven-tools"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/cause-and-effect-diagram/article.mdx",
+      "line": 62,
+      "text": "TQM",
+      "href": "/docs/pe-comprehensive-management-tqm",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-tqm"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/cause-and-effect-diagram/article.mdx",
+      "line": 62,
+      "text": "QC7つ道具",
+      "href": "/docs/pe-comprehensive-management-qc-seven-tools",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-qc-seven-tools"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/csv/article.mdx",
+      "line": 54,
+      "text": "SDGs",
+      "href": "/docs/pe-comprehensive-management-sustainable-development-goals",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-sustainable-development-goals"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/disaster-weather-info/article.mdx",
+      "line": 48,
+      "text": "H30 Ⅰ-1-32",
+      "href": "/docs/pe-comprehensive-management-h30-primary#132",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-h30-primary",
+      "anchor": "132"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/economic-comparison-principle/article.mdx",
+      "line": 61,
+      "text": "リスク管理",
+      "href": "/docs/pe-comprehensive-management-risk-management",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-risk-management"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/five-s/article.mdx",
+      "line": 78,
+      "text": "ISO 45001（労働安全衛生マネジメントシステム）",
+      "href": "/docs/pe-comprehensive-management-iso-45001",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-iso-45001"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/isolation-stop-safety/article.mdx",
+      "line": 59,
+      "text": "ヒューマンファクター",
+      "href": "/docs/pe-comprehensive-management-human-factor",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-human-factor"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/key-performance-indicators/article.mdx",
+      "line": 46,
+      "text": "BSC（バランスト・スコアカード）",
+      "href": "/docs/pe-comprehensive-management-balanced-scorecard",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-balanced-scorecard"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/key-performance-indicators/article.mdx",
+      "line": 52,
+      "text": "BSC（バランスト・スコアカード）",
+      "href": "/docs/pe-comprehensive-management-balanced-scorecard",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-balanced-scorecard"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/key-performance-indicators/article.mdx",
+      "line": 63,
+      "text": "BSC（バランスト・スコアカード）",
+      "href": "/docs/pe-comprehensive-management-balanced-scorecard",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-balanced-scorecard"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/occupational-disease/article.mdx",
+      "line": 55,
+      "text": "ヒューマンエラー",
+      "href": "/docs/pe-comprehensive-management-human-error",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-human-error"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/quality-control/article.mdx",
+      "line": 85,
+      "text": "コスト管理",
+      "href": "/docs/pe-comprehensive-management-cost-management",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-cost-management"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/quality-control/article.mdx",
+      "line": 85,
+      "text": "情報管理",
+      "href": "/docs/pe-comprehensive-management-information-management",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-information-management"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r03-essay-environment-survey/article.mdx",
+      "line": 122,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r03-essay-general-contractor/article.mdx",
+      "line": 122,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r03-essay-river-consultant/article.mdx",
+      "line": 123,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r04-essay-river-consultant/article.mdx",
+      "line": 149,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r05-essay-environment-survey/article.mdx",
+      "line": 123,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r05-essay-general-contractor/article.mdx",
+      "line": 124,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r05-essay-river-consultant/article.mdx",
+      "line": 124,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r05-essay-road-municipality/article.mdx",
+      "line": 124,
+      "text": "合意形成・情報開示",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r06-essay-environment-survey/article.mdx",
+      "line": 128,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r06-essay-environment-survey/article.mdx",
+      "line": 129,
+      "text": "LCA",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#lca外部不経済の内部化",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "lca外部不経済の内部化"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r06-essay-general-contractor/article.mdx",
+      "line": 123,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r06-essay-river-consultant/article.mdx",
+      "line": 121,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r06-essay-road-municipality/article.mdx",
+      "line": 116,
+      "text": "LCA・外部不経済の内部化",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#lca外部不経済の内部化",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "lca外部不経済の内部化"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r06-essay-road-municipality/article.mdx",
+      "line": 117,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r06-essay-road-municipality/article.mdx",
+      "line": 118,
+      "text": "LCA・外部不経済の内部化",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#lca外部不経済の内部化",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "lca外部不経済の内部化"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r07-essay-environment-survey/article.mdx",
+      "line": 128,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r07-essay-environment-survey/article.mdx",
+      "line": 130,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r07-essay-general-contractor/article.mdx",
+      "line": 125,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r07-essay-river-consultant/article.mdx",
+      "line": 125,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r07-essay-river-consultant/article.mdx",
+      "line": 127,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r07-essay-road-municipality/article.mdx",
+      "line": 124,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r07-essay-road-municipality/article.mdx",
+      "line": 125,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r07-essay-road-municipality/article.mdx",
+      "line": 125,
+      "text": "LCA",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#lca外部不経済の内部化",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "lca外部不経済の内部化"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/recruitment-management/article.mdx",
+      "line": 78,
+      "text": "女性活躍推進",
+      "href": "/docs/pe-comprehensive-management-womens-empowerment",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-womens-empowerment"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/residual-risk/article.mdx",
+      "line": 68,
+      "text": "ライフサイクルコスト",
+      "href": "/docs/pe-comprehensive-management-life-cycle-cost",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-life-cycle-cost"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/risk-criteria/article.mdx",
+      "line": 58,
+      "text": "リスクコミュニケーション",
+      "href": "/docs/pe-comprehensive-management-risk-communication",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-risk-communication"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/safety-education/article.mdx",
+      "line": 62,
+      "text": "ヒューマンエラー",
+      "href": "/docs/pe-comprehensive-management-human-error",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-human-error"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/technical-nontechnical-skills/article.mdx",
+      "line": 62,
+      "text": "人的資源管理",
+      "href": "/docs/pe-comprehensive-management-human-resource-management",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-human-resource-management"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/technical-nontechnical-skills/article.mdx",
+      "line": 62,
+      "text": "リスクマネジメント",
+      "href": "/docs/pe-comprehensive-management-risk-management",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-risk-management"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/veteran-bias/article.mdx",
+      "line": 58,
+      "text": "ヒューマンエラー",
+      "href": "/docs/pe-comprehensive-management-human-error",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-human-error"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/veteran-bias/article.mdx",
+      "line": 58,
+      "text": "ツールボックスミーティング",
+      "href": "/docs/pe-comprehensive-management-toolbox-meeting",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-toolbox-meeting"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-ゼネコン/R03/article.md",
+      "line": 30,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_GC_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-ゼネコン/R03/article.md",
+      "line": 152,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_GC_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-ゼネコン/R04/article.md",
+      "line": 30,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_GC_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-ゼネコン/R04/article.md",
+      "line": 178,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_GC_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-ゼネコン/R05/article.md",
+      "line": 30,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_GC_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-ゼネコン/R05/article.md",
+      "line": 155,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_GC_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-ゼネコン/R06/article.md",
+      "line": 30,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_GC_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-ゼネコン/R06/article.md",
+      "line": 155,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_GC_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-ゼネコン/R07/article.md",
+      "line": 30,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_GC_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-ゼネコン/R07/article.md",
+      "line": 157,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_GC_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-河川コンサル/R03/article.md",
+      "line": 30,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_RIVER_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-河川コンサル/R03/article.md",
+      "line": 152,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_RIVER_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-河川コンサル/R04/article.md",
+      "line": 30,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_RIVER_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-河川コンサル/R04/article.md",
+      "line": 179,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_RIVER_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-河川コンサル/R05/article.md",
+      "line": 30,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_RIVER_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-河川コンサル/R05/article.md",
+      "line": 153,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_RIVER_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-河川コンサル/R06/article.md",
+      "line": 30,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_RIVER_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-河川コンサル/R06/article.md",
+      "line": 153,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_RIVER_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-河川コンサル/R07/article.md",
+      "line": 30,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_RIVER_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-河川コンサル/R07/article.md",
+      "line": 157,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_RIVER_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-環境調査/R03/article.md",
+      "line": 30,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_ENV_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-環境調査/R03/article.md",
+      "line": 152,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_ENV_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-環境調査/R04/article.md",
+      "line": 30,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_ENV_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-環境調査/R04/article.md",
+      "line": 177,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_ENV_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-環境調査/R05/article.md",
+      "line": 30,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_ENV_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-環境調査/R05/article.md",
+      "line": 153,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_ENV_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-環境調査/R06/article.md",
+      "line": 30,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_ENV_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-環境調査/R06/article.md",
+      "line": 160,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_ENV_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-環境調査/R07/article.md",
+      "line": 30,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_ENV_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-環境調査/R07/article.md",
+      "line": 160,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_ENV_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-道路発注者/R05/article.md",
+      "line": 30,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-道路発注者/R05/article.md",
+      "line": 157,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-道路発注者/R06/article.md",
+      "line": 30,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-道路発注者/R06/article.md",
+      "line": 150,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-道路発注者/R07/article.md",
+      "line": 29,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    },
+    {
+      "file": "content/note/magazines/総監模範論文-道路発注者/R07/article.md",
+      "line": 154,
+      "text": "",
+      "href": "https://note.com/dobokunote/m/PLACEHOLDER_ROAD_MAGAZINE",
+      "severity": "INFO",
+      "status": "PLACEHOLDER"
+    }
+  ]
+}

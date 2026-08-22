@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">CCS / BECCS / DACCS の比較</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">回収対象とカーボンネガティブ達成可否で見分ける</text>
+
+  <rect x="40" y="150" width="360" height="70" rx="10" fill="#2e6da4"/>
+  <text x="220" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#ffffff" text-anchor="middle">CCS</text>
+  <text x="220" y="210" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle">Carbon Capture and Storage</text>
+  <rect x="40" y="244" width="360" height="100" rx="8" fill="#f8fafc" stroke="#2e6da4" stroke-width="2"/>
+  <text x="60" y="274" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#555555">回収対象</text>
+  <text x="60" y="304" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">発電所・工場の排出CO₂</text>
+  <text x="60" y="330" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">→ 地中深くに貯留</text>
+  <rect x="40" y="368" width="360" height="60" rx="8" fill="#e6f1e8"/>
+  <text x="60" y="396" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#3a7d44">効果</text>
+  <text x="60" y="420" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">排出抑制</text>
+  <rect x="40" y="444" width="360" height="80" rx="8" fill="#fbe5e7"/>
+  <text x="60" y="472" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#b22234">課題・限界</text>
+  <text x="60" y="496" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">カーボンネガティブにはならない</text>
+  <rect x="420" y="150" width="360" height="70" rx="10" fill="#3a7d44"/>
+  <text x="600" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#ffffff" text-anchor="middle">BECCS</text>
+  <text x="600" y="210" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle">Bioenergy with CCS</text>
+  <rect x="420" y="244" width="360" height="100" rx="8" fill="#f8fafc" stroke="#3a7d44" stroke-width="2"/>
+  <text x="440" y="274" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#555555">回収対象</text>
+  <text x="440" y="304" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">バイオマス燃焼CO₂</text>
+  <text x="440" y="330" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">→ 地中圧入・貯留</text>
+  <rect x="420" y="368" width="360" height="60" rx="8" fill="#e6f1e8"/>
+  <text x="440" y="396" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#3a7d44">効果</text>
+  <text x="440" y="420" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">カーボンネガティブ</text>
+  <rect x="420" y="444" width="360" height="80" rx="8" fill="#fbe5e7"/>
+  <text x="440" y="472" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#b22234">課題・限界</text>
+  <text x="440" y="496" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">バイオマス供給の限界</text>
+  <rect x="800" y="150" width="360" height="70" rx="10" fill="#d4a017"/>
+  <text x="980" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#ffffff" text-anchor="middle">DACCS</text>
+  <text x="980" y="210" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle">Direct Air CCS</text>
+  <rect x="800" y="244" width="360" height="100" rx="8" fill="#f8fafc" stroke="#d4a017" stroke-width="2"/>
+  <text x="820" y="274" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#555555">回収対象</text>
+  <text x="820" y="304" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">大気中のCO₂を直接回収</text>
+  <text x="820" y="330" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">→ 地中圧入・貯留</text>
+  <rect x="800" y="368" width="360" height="60" rx="8" fill="#e6f1e8"/>
+  <text x="820" y="396" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#3a7d44">効果</text>
+  <text x="820" y="420" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">カーボンネガティブ</text>
+  <rect x="800" y="444" width="360" height="80" rx="8" fill="#fbe5e7"/>
+  <text x="820" y="472" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#b22234">課題・限界</text>
+  <text x="820" y="496" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">コスト・エネルギー大</text>
+  <rect x="40" y="596" width="1120" height="44" rx="6" fill="#fbf3df"/>
+  <text x="60" y="626" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">頻出区別：CCS は排出抑制、BECCS と DACCS はカーボンネガティブ。回収対象（排出源 / バイオマス / 大気）が核心。</text>
+</svg>

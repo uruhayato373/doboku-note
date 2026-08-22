@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="40" y="50" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="bold" fill="#1a3a5c">正規分布と 3σ 則 — Cp 計算の理論基礎</text>
+  <text x="40" y="86" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#8a8a8a">平均 μ から ±σ・±2σ・±3σ の範囲に含まれるデータの割合</text>
+
+  <!-- 縦の補助線（μ・±σ・±2σ・±3σ） -->
+  <line x1="600" y1="180" x2="600" y2="500" stroke="#555555" stroke-width="2"/>
+  <line x1="460" y1="300" x2="460" y2="500" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="740" y1="300" x2="740" y2="500" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="320" y1="440" x2="320" y2="500" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="880" y1="440" x2="880" y2="500" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="180" y1="485" x2="180" y2="500" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+  <line x1="1020" y1="485" x2="1020" y2="500" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- ベル曲線 -->
+  <path d="M 60 500 Q 120 500, 180 485 Q 250 470, 320 440 Q 390 370, 460 300 Q 530 230, 600 180 Q 670 230, 740 300 Q 810 370, 880 440 Q 950 470, 1020 485 Q 1080 500, 1140 500" fill="#e6f4ea" fill-opacity="0.4" stroke="#3a7d44" stroke-width="3"/>
+
+  <!-- X 軸 -->
+  <line x1="40" y1="500" x2="1160" y2="500" stroke="#1a3a5c" stroke-width="2"/>
+
+  <!-- X 軸ラベル -->
+  <text x="180" y="538" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">-3σ</text>
+  <text x="320" y="538" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">-2σ</text>
+  <text x="460" y="538" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">-σ</text>
+  <text x="600" y="538" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" fill="#1a3a5c" text-anchor="middle" font-weight="bold">μ</text>
+  <text x="740" y="538" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">+σ</text>
+  <text x="880" y="538" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">+2σ</text>
+  <text x="1020" y="538" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">+3σ</text>
+
+  <!-- 範囲ブラケット（±σ） -->
+  <line x1="460" y1="580" x2="740" y2="580" stroke="#3a7d44" stroke-width="2"/>
+  <line x1="460" y1="572" x2="460" y2="588" stroke="#3a7d44" stroke-width="2"/>
+  <line x1="740" y1="572" x2="740" y2="588" stroke="#3a7d44" stroke-width="2"/>
+  <text x="600" y="572" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#3a7d44" text-anchor="middle" font-weight="bold">±σ : 68.3%</text>
+
+  <!-- 範囲ブラケット（±2σ） -->
+  <line x1="320" y1="625" x2="880" y2="625" stroke="#d4a017" stroke-width="2"/>
+  <line x1="320" y1="617" x2="320" y2="633" stroke="#d4a017" stroke-width="2"/>
+  <line x1="880" y1="617" x2="880" y2="633" stroke="#d4a017" stroke-width="2"/>
+  <text x="600" y="617" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#d4a017" text-anchor="middle" font-weight="bold">±2σ : 95.4%</text>
+
+  <!-- 範囲ブラケット（±3σ） -->
+  <line x1="180" y1="670" x2="1020" y2="670" stroke="#b22234" stroke-width="2"/>
+  <line x1="180" y1="662" x2="180" y2="678" stroke="#b22234" stroke-width="2"/>
+  <line x1="1020" y1="662" x2="1020" y2="678" stroke="#b22234" stroke-width="2"/>
+  <text x="600" y="662" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#b22234" text-anchor="middle" font-weight="bold">±3σ : 99.7%（規格外 0.27%）</text>
+
+  <!-- 補足: Cp との対応 -->
+  <text x="40" y="130" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#1a3a5c" font-weight="bold">Cp = 1.0 のとき、規格幅 = 6σ（±3σ）→ 規格外の割合は両側合計 0.27%</text>
+
+  <text x="1160" y="704" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

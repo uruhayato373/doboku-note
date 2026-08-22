@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="科学的管理法の全体像：経験や勘に頼る成り行き管理を排し、観察・測定・分析で標準化する。課業管理の4原則・時間研究×動作研究・差別的出来高給の3本柱で生産性を高めるが、人間観は経済人モデルを前提とし人間関係論へ発展する" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
+  <rect width="400" height="500" fill="#ffffff" stroke="#d7d7d7"/>
+
+  <text x="200" y="26" text-anchor="middle" font-size="11" fill="#555">経験・勘の管理を排し、科学的に標準化する</text>
+
+  <!-- 成り行き管理（排する旧来） -->
+  <rect x="70" y="54" width="260" height="48" rx="4" fill="#f8d7da" stroke="#b22234"/>
+  <text x="200" y="76" text-anchor="middle" font-size="12" font-weight="bold" fill="#b22234">成り行き管理（経験・勘）</text>
+  <text x="200" y="93" text-anchor="middle" font-size="11" fill="#b22234">属人的で生産性にムラが出る</text>
+
+  <text x="200" y="120" text-anchor="middle" font-size="11" fill="#555">観察・測定・分析で標準化　↓</text>
+
+  <!-- 科学的管理法 band -->
+  <rect x="70" y="130" width="260" height="32" rx="4" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="200" y="151" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">科学的管理法（テイラー）</text>
+
+  <text x="200" y="182" text-anchor="middle" font-size="11" fill="#555">3つの柱で生産性を高める</text>
+
+  <!-- 3 pillars -->
+  <!-- card1 -->
+  <rect x="12" y="192" width="120" height="138" fill="#ffffff" stroke="#2e6da4"/>
+  <rect x="12" y="192" width="120" height="34" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="72" y="208" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">① 課業管理</text>
+  <text x="72" y="222" text-anchor="middle" font-size="11" fill="#1a3a5c">の4原則</text>
+  <text x="22" y="250" font-size="11" fill="#222">・課業の設定</text>
+  <text x="22" y="270" font-size="11" fill="#222">・選抜と訓練</text>
+  <text x="22" y="290" font-size="11" fill="#222">・労使の協調</text>
+  <text x="22" y="310" font-size="11" fill="#222">・職能の分担</text>
+
+  <!-- card2 -->
+  <rect x="140" y="192" width="120" height="138" fill="#ffffff" stroke="#2e6da4"/>
+  <rect x="140" y="192" width="120" height="34" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="200" y="208" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">② 時間×</text>
+  <text x="200" y="222" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">動作研究</text>
+  <text x="150" y="250" font-size="11" fill="#222">・標準時間の設定</text>
+  <text x="150" y="270" font-size="11" fill="#222">・ムダ動作の排除</text>
+  <text x="150" y="290" font-size="11" fill="#555">統合して</text>
+  <text x="150" y="310" font-size="11" fill="#222">時間動作研究へ</text>
+
+  <!-- card3 -->
+  <rect x="268" y="192" width="120" height="138" fill="#ffffff" stroke="#2e6da4"/>
+  <rect x="268" y="192" width="120" height="34" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="328" y="208" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">③ 差別的</text>
+  <text x="328" y="222" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">出来高給</text>
+  <text x="278" y="250" font-size="11" fill="#222">・達成→高賃金</text>
+  <text x="278" y="270" font-size="11" fill="#222">・未達→低賃金</text>
+  <text x="278" y="290" font-size="11" fill="#555">前提は</text>
+  <text x="278" y="310" font-size="11" fill="#222">経済人モデル</text>
+
+  <!-- result / bridge band -->
+  <rect x="12" y="340" width="376" height="146" fill="#f5f5f5" stroke="#d7d7d7" rx="2"/>
+  <text x="200" y="368" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">成り行き管理を排し、作業を標準化</text>
+  <text x="200" y="396" text-anchor="middle" font-size="11" fill="#555">属人的なムラを無くして生産性を高める</text>
+  <text x="200" y="428" text-anchor="middle" font-size="11" fill="#555">人間観は経済人モデル（金銭的動機）が前提</text>
+  <text x="200" y="458" text-anchor="middle" font-size="11" fill="#1a3a5c">→ 人間関係論（社会人モデル）へ発展（次の図）</text>
+</svg>

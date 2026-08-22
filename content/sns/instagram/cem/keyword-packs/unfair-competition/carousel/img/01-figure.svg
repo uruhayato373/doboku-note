@@ -1,0 +1,45 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="不正競争防止法における不正競争の主な類型と、該当しない正当な競争行為の対比。該当する類型は3群に整理できる。表示・信用に関するものは周知表示混同惹起（1号）・著名表示冒用（2号）・誤認惹起表示（20号）・信用毀損（21号）。模倣・回避に関するものは商品形態模倣（3号）・技術的制限手段回避（17・18号）・ドメイン名不正取得（19号）。情報の不正取得に関するものは営業秘密侵害（4〜10号）・限定提供データ侵害（11〜16号）。一方、客観的事実に基づく比較広告や、独自に開発した結果として生じた類似は不正競争に該当しない正当な競争行為である。">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-head { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .g-t    { font-size: 12px; font-weight: bold; }
+      .item   { font-size: 11px; fill: #222; }
+      .n-foot { font-size: 11px; fill: #555; }
+    </style>
+  </defs>
+
+  <text class="t-head" x="200" y="38" text-anchor="middle">該当する9類型と、該当しない正当行為</text>
+
+  <!-- 群A 表示・信用 -->
+  <rect x="10" y="50" width="380" height="104" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.3"/>
+  <text class="g-t" x="24" y="71" text-anchor="start" fill="#2e6da4">表示・信用に関する類型</text>
+  <text class="item" x="24" y="92"  text-anchor="start">・周知表示混同惹起（1号）</text>
+  <text class="item" x="24" y="110" text-anchor="start">・著名表示冒用（2号）</text>
+  <text class="item" x="24" y="128" text-anchor="start">・誤認惹起表示（20号）</text>
+  <text class="item" x="24" y="146" text-anchor="start">・信用毀損（21号）</text>
+
+  <!-- 群B 模倣・回避 -->
+  <rect x="10" y="162" width="380" height="86" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.3"/>
+  <text class="g-t" x="24" y="183" text-anchor="start" fill="#d4a017">模倣・回避に関する類型</text>
+  <text class="item" x="24" y="204" text-anchor="start">・商品形態模倣（3号）</text>
+  <text class="item" x="24" y="222" text-anchor="start">・技術的制限手段回避（17・18号）</text>
+  <text class="item" x="24" y="240" text-anchor="start">・ドメイン名不正取得（19号）</text>
+
+  <!-- 群C 情報の不正取得 -->
+  <rect x="10" y="256" width="380" height="70" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.3"/>
+  <text class="g-t" x="24" y="277" text-anchor="start" fill="#1a3a5c">情報の不正取得に関する類型</text>
+  <text class="item" x="24" y="298" text-anchor="start">・営業秘密侵害（4〜10号）</text>
+  <text class="item" x="24" y="316" text-anchor="start">・限定提供データ侵害（11〜16号）</text>
+
+  <!-- 群D 非該当＝正当 -->
+  <rect x="10" y="334" width="380" height="152" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.3"/>
+  <text class="g-t" x="24" y="355" text-anchor="start" fill="#3a7d44">該当しない＝正当な競争行為</text>
+  <text class="item" x="24" y="377" text-anchor="start">・客観的事実に基づく比較広告</text>
+  <text class="item" x="24" y="395" text-anchor="start">・独自に開発した結果としての類似商品</text>
+  <rect x="24" y="410" width="352" height="62" rx="6" fill="#ffffff" stroke="#3a7d44" stroke-width="1"/>
+  <text class="n-foot" x="36" y="430" text-anchor="start">事実に基づく正当な比較・批判や、模倣でない</text>
+  <text class="n-foot" x="36" y="448" text-anchor="start">独自開発による類似は不正競争に当たらない。</text>
+  <text class="n-foot" x="36" y="466" text-anchor="start">これらは法の規制対象外となる正当な行為。</text>
+</svg>

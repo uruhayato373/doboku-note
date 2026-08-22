@@ -1,0 +1,366 @@
+{
+  "schemaVersion": 1,
+  "runId": "2026-08-04T05-34-59Z",
+  "collectedAt": "2026-08-04T05:34:59.201Z",
+  "property": "sc-domain:doboku-note.com",
+  "mode": "commit",
+  "scriptVersion": "21408324e",
+  "filter": {
+    "category": "civil-construction-1",
+    "group": "textbook"
+  },
+  "limit": 10,
+  "targetCount": 20,
+  "items": [
+    {
+      "slug": "civil-construction-1-textbook-road-act",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-road-act",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-demolition",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-demolition",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "クロール済み - インデックス未登録",
+        "lastCrawl": "2026/07/16 10:08:37",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-port-regulations",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-port-regulations",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-leveling",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-leveling",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-transport-machinery",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-transport-machinery",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "クロール済み - インデックス未登録",
+        "lastCrawl": "2026/06/02 18:15:25",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-explosives-act",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-explosives-act",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-tractor-bulldozer",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-tractor-bulldozer",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "クロール済み - インデックス未登録",
+        "lastCrawl": "2026/05/29 21:12:04",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-loader",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-loader",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-schedule-overview",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-schedule-overview",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "クロール済み - インデックス未登録",
+        "lastCrawl": "2026/04/28 8:47:06",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-labor-standards",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-labor-standards",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "クロール済み - インデックス未登録",
+        "lastCrawl": "2026/04/28 8:47:06",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-shovel-excavator",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-shovel-excavator",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "クロール済み - インデックス未登録",
+        "lastCrawl": "2026/04/28 2:32:35",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-work-scheduling",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-work-scheduling",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "クロール済み - インデックス未登録",
+        "lastCrawl": "2026/04/28 3:16:07",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-grader-compaction",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-grader-compaction",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-river-act",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-river-act",
+      "inspected": {
+        "state": "indexed",
+        "reason": null,
+        "lastCrawl": null,
+        "discoveredVia": "sitemap",
+        "crawlAllowed": null,
+        "indexingAllowed": null
+      },
+      "request": {
+        "requested": false,
+        "status": "already-indexed"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-distance-angle",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-distance-angle",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "クロール済み - インデックス未登録",
+        "lastCrawl": "2026/04/27 21:06:58",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-building-standards",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-building-standards",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "クロール済み - インデックス未登録",
+        "lastCrawl": "2026/04/27 20:40:59",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-surveying-basics",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-surveying-basics",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "クロール済み - インデックス未登録",
+        "lastCrawl": "2026/04/27 19:59:58",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-schedule-charts",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-schedule-charts",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "クロール済み - インデックス未登録",
+        "lastCrawl": "2026/04/27 18:22:01",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-management-subplans",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-management-subplans",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "クロール済み - インデックス未登録",
+        "lastCrawl": "2026/04/27 18:22:01",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": false,
+        "status": "button-not-found",
+        "detail": "role=button 候補 0"
+      },
+      "reachedVerdict": true
+    },
+    {
+      "slug": "civil-construction-1-textbook-site-investigation",
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-site-investigation",
+      "inspected": {
+        "state": "not-indexed",
+        "reason": "クロール済み - インデックス未登録",
+        "lastCrawl": "2026/04/26 1:31:35",
+        "discoveredVia": "sitemap",
+        "crawlAllowed": true,
+        "indexingAllowed": true
+      },
+      "request": {
+        "requested": true,
+        "status": "accepted"
+      },
+      "reachedVerdict": true
+    }
+  ],
+  "status": "ok",
+  "summary": {
+    "inspected": 20,
+    "accepted": 10,
+    "alreadyIndexed": 7,
+    "unreadable": 0
+  }
+}

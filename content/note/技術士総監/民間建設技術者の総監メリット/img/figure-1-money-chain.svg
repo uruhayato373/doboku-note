@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#f8fafc"/>
+
+  <!-- タイトル -->
+  <text x="600" y="70" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="800" fill="#222222" text-anchor="middle">3レイヤー金銭構造 — 経審 Z 点から月7.5万円手当まで連鎖する仕組み</text>
+  <text x="600" y="108" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="middle">総監を取ると、個人 → 会社 → 市場で金銭価値が連鎖する</text>
+
+  <!-- 矢印 -->
+  <line x1="392" y1="330" x2="434" y2="330" stroke="#222222" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="448,330 434,316 434,344" fill="#222222"/>
+
+  <!-- 矢印 -->
+  <line x1="792" y1="330" x2="834" y2="330" stroke="#222222" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="848,330 834,316 834,344" fill="#222222"/>
+
+  <!-- カード 1 -->
+  <rect x="60" y="160" width="320" height="340" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+
+  <!-- カード 1 ヘッダ背景 -->
+  <rect x="60" y="160" width="320" height="60" rx="8" fill="#2e6da4"/>
+  <rect x="60" y="212" width="320" height="8" fill="#2e6da4"/>
+
+  <text x="220" y="195" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">① 個人</text>
+
+  <text x="220" y="276" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="30" font-weight="800" fill="#1a3a5c" text-anchor="middle">総監合格</text>
+
+  <text x="220" y="324" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="middle">R7 合格 584 人</text>
+
+  <text x="220" y="360" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="middle">対受験者 22.7%</text>
+
+  <line x1="84" y1="388" x2="356" y2="388" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <text x="220" y="426" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c" text-anchor="middle">一時金 20〜30 万円</text>
+  <text x="220" y="460" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c" text-anchor="middle">月手当 1〜7.5 万円</text>
+
+  <!-- カード 2 -->
+  <rect x="460" y="160" width="320" height="340" rx="8" fill="#e6f1e8" stroke="#3a7d44" stroke-width="2"/>
+
+  <!-- カード 2 ヘッダ背景 -->
+  <rect x="460" y="160" width="320" height="60" rx="8" fill="#3a7d44"/>
+  <rect x="460" y="212" width="320" height="8" fill="#3a7d44"/>
+
+  <text x="620" y="195" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">② 会社</text>
+
+  <text x="620" y="276" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="30" font-weight="800" fill="#1a5c2e" text-anchor="middle">経審 Z 点 +5</text>
+
+  <text x="620" y="324" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="middle">P 点総合の 25% を占有</text>
+
+  <text x="620" y="360" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#8a8a8a" text-anchor="middle">建設・総合技術監理（建設）</text>
+
+  <line x1="484" y1="388" x2="756" y2="388" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <text x="620" y="426" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a5c2e" text-anchor="middle">入札ランクアップ</text>
+  <text x="620" y="460" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a5c2e" text-anchor="middle">→ 売上拡大</text>
+
+  <!-- カード 3 -->
+  <rect x="860" y="160" width="320" height="340" rx="8" fill="#fdf2e0" stroke="#c87e1e" stroke-width="2"/>
+
+  <!-- カード 3 ヘッダ背景 -->
+  <rect x="860" y="160" width="320" height="60" rx="8" fill="#c87e1e"/>
+  <rect x="860" y="212" width="320" height="8" fill="#c87e1e"/>
+
+  <text x="1020" y="195" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">③ 市場</text>
+
+  <text x="1020" y="276" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="30" font-weight="800" fill="#8c5a14" text-anchor="middle">年収 600-850 万</text>
+
+  <text x="1020" y="324" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="middle">建コン登録の必須要件</text>
+
+  <text x="1020" y="360" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="middle">転職で年収 +50〜150 万円</text>
+
+  <line x1="884" y1="388" x2="1156" y2="388" stroke="#c87e1e" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <text x="1020" y="426" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#8c5a14" text-anchor="middle">独立・副業の扉</text>
+  <text x="1020" y="460" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#8c5a14" text-anchor="middle">市場価値向上</text>
+
+  <text x="1172" y="738" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

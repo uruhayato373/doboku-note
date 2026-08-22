@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="連続繊維シート接着工法と外ケーブルによるプレストレス導入の模式図、および両者の品質の急所">
+  <defs>
+    <marker id="cdr5" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <text x="200" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">断面をほとんど増やさずに耐力を足す 2 つの方法</text>
+
+  <rect x="30" y="40" width="340" height="46" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <rect x="30" y="86" width="340" height="8" fill="#2e6da4"/>
+  <text x="40" y="66" font-family="sans-serif" font-size="11" fill="#8a8a8a">既設桁</text>
+  <text x="200" y="110" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2e6da4">連続繊維シートを樹脂で接着</text>
+  <text x="200" y="126" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">軽量・高強度で腐食しない</text>
+
+  <rect x="30" y="156" width="340" height="46" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <path d="M56 214 L150 236 L250 236 L344 214" fill="none" stroke="#b22234" stroke-width="2.5"/>
+  <circle cx="56" cy="214" r="5" fill="#b22234"/>
+  <circle cx="344" cy="214" r="5" fill="#b22234"/>
+  <rect x="140" y="230" width="24" height="12" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <rect x="236" y="230" width="24" height="12" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <line x1="56" y1="256" x2="110" y2="256" stroke="#b22234" stroke-width="1.5" marker-end="url(#cdr5)"/>
+  <line x1="344" y1="256" x2="290" y2="256" stroke="#b22234" stroke-width="1.5" marker-end="url(#cdr5)"/>
+  <text x="200" y="260" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b22234">外ケーブルで緊張力を導入</text>
+  <text x="200" y="278" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">黄色は偏向部（サドル）</text>
+
+  <rect x="20" y="294" width="360" height="94" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="34" y="316" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">連続繊維シートの急所</text>
+  <text x="34" y="338" font-family="sans-serif" font-size="11" fill="#555">接着剤の配合管理、繊維方向と積層数の設計</text>
+  <text x="34" y="360" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b22234">剥落すると耐力が急激に落ちる</text>
+  <text x="34" y="380" font-family="sans-serif" font-size="11" fill="#555">→ 表面処理とアンカー設計が要</text>
+
+  <rect x="20" y="398" width="360" height="84" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <text x="34" y="420" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">外ケーブルの急所</text>
+  <text x="34" y="442" font-family="sans-serif" font-size="11" fill="#555">既設の損傷が少なく、再緊張しやすい</text>
+  <text x="34" y="464" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b22234">偏向部の設計が構造的に重要</text>
+</svg>

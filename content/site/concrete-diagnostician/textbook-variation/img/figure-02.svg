@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="拘束された壁に生じる乾燥収縮ひび割れの向きと、温度ひび割れの拘束型による違い">
+  <defs>
+    <marker id="cdv2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#2e6da4"/>
+    </marker>
+    <pattern id="cdv2h" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="8" stroke="#8a8a8a" stroke-width="1.5"/>
+    </pattern>
+  </defs>
+
+  <text x="200" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">収縮が拘束されると、拘束方向と直交する向きに割れる</text>
+
+  <rect x="40" y="30" width="320" height="150" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <text x="50" y="48" font-family="sans-serif" font-size="11" font-weight="bold" fill="#222">壁（乾燥により収縮）</text>
+
+  <line x1="60" y1="110" x2="120" y2="110" stroke="#2e6da4" stroke-width="2" marker-end="url(#cdv2)"/>
+  <line x1="340" y1="110" x2="280" y2="110" stroke="#2e6da4" stroke-width="2" marker-end="url(#cdv2)"/>
+  <rect x="130" y="94" width="140" height="16" fill="#ffffff"/>
+  <text x="200" y="106" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#2e6da4">収縮しようとする向き</text>
+
+  <path d="M110 34 l-4 22 l5 24 l-4 26 l5 24 l-3 26 l4 22" fill="none" stroke="#b22234" stroke-width="2"/>
+  <path d="M180 34 l4 24 l-5 22 l4 26 l-4 24 l5 26 l-3 20" fill="none" stroke="#b22234" stroke-width="2"/>
+  <path d="M250 34 l-4 24 l5 26 l-4 22 l4 26 l-5 24 l4 20" fill="none" stroke="#b22234" stroke-width="2"/>
+  <path d="M320 34 l4 22 l-4 26 l5 24 l-4 24 l4 26 l-3 20" fill="none" stroke="#b22234" stroke-width="2"/>
+  <rect x="20" y="180" width="360" height="26" fill="url(#cdv2h)" stroke="#555" stroke-width="1.5"/>
+  <text x="200" y="198" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#222">基礎・梁（収縮を拘束する）</text>
+
+  <text x="200" y="226" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b22234">鉛直方向のひび割れが ほぼ等間隔で並ぶ</text>
+  <text x="200" y="242" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">拘束は水平方向 → 割れは鉛直方向。拘束体との位置関係が起点。</text>
+
+  <rect x="20" y="252" width="360" height="230" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="272" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">収縮系ひび割れの型を見分ける</text>
+
+  <rect x="30" y="282" width="340" height="62" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="40" y="300" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">乾燥収縮</text>
+  <text x="40" y="316" font-family="sans-serif" font-size="11" fill="#555">硬化後の乾燥で体積が減る。壁・床スラブに多い。</text>
+  <text x="40" y="332" font-family="sans-serif" font-size="11" fill="#555">拘束と直交する向きに規則的に発生。</text>
+
+  <rect x="30" y="350" width="340" height="62" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="40" y="368" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">温度ひび割れ（外部拘束型）</text>
+  <text x="40" y="384" font-family="sans-serif" font-size="11" fill="#555">水和熱の上昇後、冷却時の収縮を外部が拘束。</text>
+  <text x="40" y="400" font-family="sans-serif" font-size="11" fill="#555">表面に平行する 貫通ひび割れ になりやすい。</text>
+
+  <rect x="30" y="418" width="340" height="56" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="40" y="436" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">温度ひび割れ（内部拘束型）</text>
+  <text x="40" y="452" font-family="sans-serif" font-size="11" fill="#555">内部と表面の温度差で自己拘束。マスコンで顕著。</text>
+  <text x="40" y="468" font-family="sans-serif" font-size="11" fill="#555">表面に垂直な向きに入りやすい。</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="直列・並列の信頼度計算 基本公式">
+  <defs><style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }</style></defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <!-- ヘッダー -->
+  <rect width="400" height="72" fill="#1a3a5c"/>
+  <text x="200" y="28" text-anchor="middle" font-size="11" fill="#d4956a">技術士 総監 | 安全管理</text>
+  <text x="200" y="56" text-anchor="middle" font-size="17" font-weight="bold" fill="#fff">信頼度計算の基本公式</text>
+
+  <!-- 直列 -->
+  <rect x="20" y="86" width="360" height="118" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="20" y="86" width="5" height="118" rx="3" fill="#1a3a5c"/>
+  <text x="38" y="108" font-size="14" font-weight="bold" fill="#1a3a5c">直列接続</text>
+  <text x="38" y="130" font-size="14" fill="#1a3a5c">R = R₁ × R₂ × ···</text>
+  <text x="38" y="152" font-size="12" fill="#555">全ユニットが正常でないと機能しない</text>
+  <text x="38" y="172" font-size="12" fill="#555">例: 0.9 × 0.9 = 0.81（単独より低下）</text>
+  <!-- 小回路 -->
+  <rect x="290" y="94" width="40" height="22" rx="3" fill="#1a3a5c"/>
+  <text x="310" y="109" text-anchor="middle" font-size="10" fill="#fff">U1</text>
+  <rect x="340" y="94" width="40" height="22" rx="3" fill="#1a3a5c"/>
+  <text x="360" y="109" text-anchor="middle" font-size="10" fill="#fff">U2</text>
+  <line x1="272" y1="105" x2="290" y2="105" stroke="#1a3a5c" stroke-width="1.5"/>
+  <line x1="330" y1="105" x2="340" y2="105" stroke="#1a3a5c" stroke-width="1.5"/>
+  <line x1="380" y1="105" x2="392" y2="105" stroke="#1a3a5c" stroke-width="1.5"/>
+
+  <!-- 並列 -->
+  <rect x="20" y="220" width="360" height="130" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="20" y="220" width="5" height="130" rx="3" fill="#a36b2c"/>
+  <text x="38" y="242" font-size="14" font-weight="bold" fill="#1a3a5c">並列接続（冗長化）</text>
+  <text x="38" y="264" font-size="14" fill="#1a3a5c">R = 1 − (1−R₁)(1−R₂)</text>
+  <text x="38" y="286" font-size="12" fill="#555">1つでも正常なら機能する</text>
+  <text x="38" y="306" font-size="12" fill="#555">例: 1 − (0.1 × 0.1) = 0.99（大幅改善）</text>
+  <!-- 小回路 -->
+  <line x1="272" y1="258" x2="286" y2="258" stroke="#1a3a5c" stroke-width="1.5"/>
+  <circle cx="286" cy="258" r="3" fill="#1a3a5c"/>
+  <line x1="286" y1="258" x2="286" y2="247" stroke="#1a3a5c" stroke-width="1.2"/>
+  <rect x="294" y="240" width="36" height="16" rx="3" fill="#1a3a5c"/>
+  <text x="312" y="251" text-anchor="middle" font-size="9" fill="#fff">U1</text>
+  <line x1="330" y1="247" x2="360" y2="247" stroke="#1a3a5c" stroke-width="1.2"/>
+  <line x1="286" y1="258" x2="286" y2="270" stroke="#1a3a5c" stroke-width="1.2"/>
+  <rect x="294" y="263" width="36" height="16" rx="3" fill="#1a3a5c"/>
+  <text x="312" y="274" text-anchor="middle" font-size="9" fill="#fff">U2</text>
+  <line x1="330" y1="270" x2="360" y2="270" stroke="#1a3a5c" stroke-width="1.2"/>
+  <line x1="360" y1="247" x2="360" y2="270" stroke="#1a3a5c" stroke-width="1.2"/>
+  <circle cx="360" cy="258" r="3" fill="#1a3a5c"/>
+  <line x1="360" y1="258" x2="392" y2="258" stroke="#1a3a5c" stroke-width="1.5"/>
+
+  <!-- 比較まとめ -->
+  <rect x="20" y="366" width="360" height="78" rx="6" fill="#1a3a5c"/>
+  <text x="200" y="390" text-anchor="middle" font-size="13" font-weight="bold" fill="#d4956a">まとめ</text>
+  <text x="36" y="412" font-size="12" fill="#b8d0e8">・直列: ユニット数↑ → 信頼度↓</text>
+  <text x="36" y="432" font-size="12" fill="#b8d0e8">・並列（冗長化）: ユニット数↑ → 信頼度↑</text>
+
+  <!-- フッター -->
+  <rect x="0" y="460" width="400" height="40" fill="#0f2035"/>
+  <text x="200" y="485" text-anchor="middle" font-size="12" fill="#6a8faf">doboku-note.com</text>
+</svg>

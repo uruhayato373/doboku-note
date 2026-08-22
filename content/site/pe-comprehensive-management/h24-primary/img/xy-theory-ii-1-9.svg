@@ -1,0 +1,102 @@
+<svg width="680" height="420" viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:680px;width:100%" role="img" aria-label="マグレガーのX理論・Y理論 比較表">
+  <!-- Title -->
+  <text x="340" y="22" text-anchor="middle" font-weight="bold" font-size="13">マグレガーのX理論・Y理論　比較表</text>
+
+  <!-- Header row -->
+  <rect x="10" y="32" width="130" height="36" fill="#d7d7d7" stroke="#555" stroke-width="1"/>
+  <text x="75" y="54" text-anchor="middle" font-weight="bold">理論名称</text>
+
+  <rect x="140" y="32" width="250" height="36" fill="#e8f0fe" stroke="#555" stroke-width="1"/>
+  <text x="265" y="48" text-anchor="middle" font-weight="bold">X理論（性悪説）</text>
+  <text x="265" y="62" text-anchor="middle" font-size="10">D マグレガー</text>
+
+  <rect x="390" y="32" width="280" height="36" fill="#d0e8d0" stroke="#555" stroke-width="1"/>
+  <text x="530" y="48" text-anchor="middle" font-weight="bold">Y理論（性善説）</text>
+  <text x="530" y="62" text-anchor="middle" font-size="10">D マグレガー</text>
+
+  <!-- Row: 人間観 -->
+  <rect x="10" y="68" width="130" height="50" fill="#f5f5f5" stroke="#555" stroke-width="1"/>
+  <text x="75" y="98" text-anchor="middle">人間観</text>
+
+  <rect x="140" y="68" width="250" height="50" fill="#e8f0fe" stroke="#555" stroke-width="1"/>
+  <text x="265" y="84" text-anchor="middle" font-size="10">仕事嫌い、命令・強制されなければ</text>
+  <text x="265" y="98" text-anchor="middle" font-size="10">働かない。責任回避、指示待ち、</text>
+  <text x="265" y="112" text-anchor="middle" font-size="10">安全志向</text>
+
+  <rect x="390" y="68" width="280" height="50" fill="#d0e8d0" stroke="#555" stroke-width="1"/>
+  <text x="530" y="84" text-anchor="middle" font-size="10">仕事は自然。自己実現のために</text>
+  <text x="530" y="98" text-anchor="middle" font-size="10">自発的に働く。責任を求め、</text>
+  <text x="530" y="112" text-anchor="middle" font-size="10">創造性・想像力を発揮できる</text>
+
+  <!-- Row: 方針 -->
+  <rect x="10" y="118" width="130" height="50" fill="#f5f5f5" stroke="#555" stroke-width="1"/>
+  <text x="75" y="148" text-anchor="middle">方針</text>
+
+  <rect x="140" y="118" width="250" height="50" fill="#e8f0fe" stroke="#555" stroke-width="1"/>
+  <text x="265" y="134" text-anchor="middle" font-size="10">命令・統制・強制によって</text>
+  <text x="265" y="148" text-anchor="middle" font-size="10">組織の目標を達成させる</text>
+  <text x="265" y="162" text-anchor="middle" font-size="10">アメとムチ型の管理</text>
+
+  <rect x="390" y="118" width="280" height="50" fill="#d0e8d0" stroke="#555" stroke-width="1"/>
+  <text x="530" y="134" text-anchor="middle" font-size="10">自己統制・自己指示によって</text>
+  <text x="530" y="148" text-anchor="middle" font-size="10">目標を達成させる。参加型管理</text>
+  <text x="530" y="162" text-anchor="middle" font-size="10">目標による管理</text>
+
+  <!-- Row: 上司の役割 -->
+  <rect x="10" y="168" width="130" height="60" fill="#f5f5f5" stroke="#555" stroke-width="1"/>
+  <text x="75" y="192" text-anchor="middle">上司</text>
+  <text x="75" y="208" text-anchor="middle">監督者</text>
+
+  <rect x="140" y="168" width="250" height="60" fill="#e8f0fe" stroke="#555" stroke-width="1"/>
+  <text x="265" y="184" text-anchor="middle" font-size="10">命令・統制・強制により部下を</text>
+  <text x="265" y="198" text-anchor="middle" font-size="10">管理する。懲罰・賞金などを使用</text>
+  <text x="265" y="212" text-anchor="middle" font-size="10">し、部下の服従を強制する</text>
+  <text x="265" y="222" text-anchor="middle" font-size="10">アメとムチによる管理</text>
+
+  <rect x="390" y="168" width="280" height="60" fill="#d0e8d0" stroke="#555" stroke-width="1"/>
+  <text x="530" y="184" text-anchor="middle" font-size="10">部下との信頼関係を築きながら</text>
+  <text x="530" y="198" text-anchor="middle" font-size="10">コーチングやリーダーシップを発揮</text>
+  <text x="530" y="212" text-anchor="middle" font-size="10">自律性を促し、動機付けを行う</text>
+
+  <!-- Row: 組織構造 -->
+  <rect x="10" y="228" width="130" height="50" fill="#f5f5f5" stroke="#555" stroke-width="1"/>
+  <text x="75" y="249" text-anchor="middle">組織</text>
+  <text x="75" y="264" text-anchor="middle">（4）発電士の</text>
+  <text x="75" y="270" text-anchor="middle" font-size="9">管理階層は解消</text>
+
+  <rect x="140" y="228" width="250" height="50" fill="#e8f0fe" stroke="#555" stroke-width="1"/>
+  <text x="265" y="244" text-anchor="middle" font-size="10">中央集権的な階層型組織</text>
+  <text x="265" y="258" text-anchor="middle" font-size="10">④上司の指示に従って業務を行う</text>
+  <text x="265" y="272" text-anchor="middle" font-size="10">①〜③の前目標は解消できない</text>
+
+  <rect x="390" y="228" width="280" height="50" fill="#d0e8d0" stroke="#555" stroke-width="1"/>
+  <text x="530" y="244" text-anchor="middle" font-size="10">分権的・フラットな組織</text>
+  <text x="530" y="258" text-anchor="middle" font-size="10">目標管理・自己実現を重視</text>
+  <text x="530" y="272" text-anchor="middle" font-size="10">参加型・コンサルティブな意思決定</text>
+
+  <!-- Row: 従業員への期待 -->
+  <rect x="10" y="278" width="130" height="50" fill="#f5f5f5" stroke="#555" stroke-width="1"/>
+  <text x="75" y="298" text-anchor="middle">従業員への</text>
+  <text x="75" y="313" text-anchor="middle">期待・管理</text>
+
+  <rect x="140" y="278" width="250" height="50" fill="#e8f0fe" stroke="#555" stroke-width="1"/>
+  <text x="265" y="294" text-anchor="middle" font-size="10">受動的に目標に従い行動する</text>
+  <text x="265" y="308" text-anchor="middle" font-size="10">少しの野心も持たない</text>
+  <text x="265" y="322" text-anchor="middle" font-size="10">安全を求める</text>
+
+  <rect x="390" y="278" width="280" height="50" fill="#d0e8d0" stroke="#555" stroke-width="1"/>
+  <text x="530" y="294" text-anchor="middle" font-size="10">自己目標を設定し、積極的に働く</text>
+  <text x="530" y="308" text-anchor="middle" font-size="10">創意工夫・想像力を発揮</text>
+  <text x="530" y="322" text-anchor="middle" font-size="10">目標達成への高い動機付け</text>
+
+  <!-- Bottom note rows for 行動ポイント -->
+  <rect x="10" y="332" width="660" height="25" fill="#d7d7d7" stroke="#555" stroke-width="1"/>
+  <text x="340" y="349" text-anchor="middle" font-weight="bold" font-size="11">業務ポイント</text>
+
+  <rect x="10" y="357" width="660" height="55" fill="#f5f5f5" stroke="#555" stroke-width="1"/>
+  <text x="340" y="372" text-anchor="middle" font-size="10">＊動機付け手段</text>
+  <text x="200" y="385" text-anchor="middle" font-size="10">X理論：アメとムチ（報酬と罰）</text>
+  <text x="500" y="385" text-anchor="middle" font-size="10">Y理論：自己実現・達成感・成長</text>
+  <text x="340" y="400" text-anchor="middle" font-size="10">＊2 この人間観管理の仕組みと効果</text>
+  <text x="340" y="413" text-anchor="middle" font-size="10">＊目標による管理の定義的的意味説明</text>
+</svg>

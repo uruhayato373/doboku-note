@@ -1,0 +1,161 @@
+name: Index coverage audit (URL Inspection)
+
+# サイト全 sitemap URL の Google index 状態（送信して登録 / 検出-未登録 等）を
+# URL Inspection API で月次取得し、.claude/state/metrics/url-inspection/ と
+# index-coverage-history.json（時系列）に commit する。
+# ローカルは creds 未設定で叩けない（計測は CI/CD 供給が正・measurement-incidents.md 2026-06-05）ため CI で実行。
+# 設計の真実源: .claude/knowledge/reference/gsc-management.md / 分業: gsc-index-auditor + /gsc-review。
+# URL Inspection は 2,000 URL/日/property が上限。月次なら quota 余裕（現在 ~1030 URL）。
+
+on:
+  schedule:
+    - cron: "0 2 1 * *" # UTC 02:00 毎月1日 = JST 11:00 毎月1日
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write # 閾値の無条件異常を automation-failure Issue に記録する（限定例外）
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout develop
+        # schedule はデフォルトブランチ（main）を checkout するため、ref を明示しないと
+        # npm ci が main のフックを入れる。その後 publish step で develop へ切り替えると
+        # フックの drift guard が bot commit を拒否して落ちる（2026-08-20 に psi-audit が
+        # `[pre-commit] 導入済みフックが古い` で実際に失敗した）。fetch-metrics.yml と同じ形で
+        # 最初から develop を checkout し、順序依存そのものを無くす。
+        uses: actions/checkout@v5
+        with:
+          ref: develop
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Restore service account key
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY_JSON }}
+        run: |
+          mkdir -p credentials
+          printf '%s' "$GOOGLE_SERVICE_ACCOUNT_KEY_JSON" > credentials/gsc-service-account.json
+          chmod 600 credentials/gsc-service-account.json
+
+      - name: Build URL list from live sitemap
+        run: |
+          mkdir -p .tmp
+          node .claude/scripts/list-sitemap-urls.mjs > .tmp/all-urls.txt
+          # URL Inspection は 2,000 URL/日/property が上限。安全側に 1,900 で頭打ち。
+          head -n 1900 .tmp/all-urls.txt > .tmp/inspect-urls.txt
+          echo "SITEMAP_COUNT=$(wc -l < .tmp/all-urls.txt | tr -d ' ')" >> "$GITHUB_ENV"
+          echo "sitemap URLs: $(wc -l < .tmp/all-urls.txt) / inspecting: $(wc -l < .tmp/inspect-urls.txt)"
+
+      - name: Fetch fresh GSC page snapshot (28d)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+        run: npm run fetch-gsc-data -- --dimension page --days 28 --limit 1000
+
+      - name: URL Inspection (all sitemap URLs)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+        run: |
+          node .claude/scripts/inspect-url.mjs --file .tmp/inspect-urls.txt > /tmp/inspect.log 2>&1
+          echo "--- tail of inspection log ---"
+          tail -8 /tmp/inspect.log
+
+      - name: Summarize coverage_state (→ job summary)
+        run: |
+          LATEST=$(ls -t .claude/state/metrics/url-inspection/inspection-batch-*.json 2>/dev/null | head -1)
+          if [ -z "$LATEST" ]; then echo "::error::inspection batch not produced"; exit 1; fi
+          {
+            echo "## Index coverage audit"
+            echo ""
+            echo "snapshot: \`$LATEST\`"
+            echo ""
+            echo "inspected: $(jq '.results|length' "$LATEST")"
+            echo ""
+            echo '```'
+            jq -r '.results[].index.coverage_state // "（error/null）"' "$LATEST" | sort | uniq -c | sort -rn
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+          cat "$GITHUB_STEP_SUMMARY"
+
+      - name: Stage outputs
+        run: |
+          mkdir -p /tmp/idx
+          cp -r .claude/state/metrics/url-inspection /tmp/idx/ 2>/dev/null || true
+          cp -r .claude/state/metrics/gsc /tmp/idx/ 2>/dev/null || true
+
+      - name: Publish to develop (+ append history)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin develop
+          git checkout develop
+          git pull --rebase origin develop
+
+          # npm ci は main のフックを prepare で導入するため、develop の
+          # ソースへ切り替えた時点で bot commit 用フックも同期する。
+          npm run pre-commit:install
+
+          mkdir -p .claude/state/metrics/url-inspection .claude/state/metrics/gsc
+          cp -r /tmp/idx/url-inspection/* .claude/state/metrics/url-inspection/ 2>/dev/null || true
+          cp -r /tmp/idx/gsc/* .claude/state/metrics/gsc/ 2>/dev/null || true
+
+          # develop の現行 history.json に対し、今回 batch を1エントリ追記（冪等: 同 date は skip）
+          LATEST=$(ls -t .claude/state/metrics/url-inspection/inspection-batch-*.json 2>/dev/null | head -1)
+          node .claude/scripts/append-coverage-history.mjs \
+            --batch "$LATEST" \
+            --date "$(date -u +%Y-%m-%d)" \
+            --sitemap-count "${SITEMAP_COUNT:-0}" \
+            --notes "monthly cron (index-coverage.yml)"
+
+          git add .claude/state/metrics/url-inspection .claude/state/metrics/gsc
+          if git diff --cached --quiet; then
+            echo "No changes to publish"
+            exit 0
+          fi
+          git commit -m "chore(metrics): index-coverage audit $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          git push origin develop
+
+      # 機械ゲート: publish の**後**に走らせる（赤でも取得済みデータは develop に残る）。
+      # 赤にするのは「機械が無条件に異常と断定できるもの」だけ（inspected 0 / 1900 件上限到達 /
+      # indexed_ratio < 60%）。前月比の低下や hygiene は warning に留め、判断は
+      # クラウドルーティン（GSC auto review）が観測ログへ記録する＝月次 red の狼少年化を防ぐ。
+      - name: Gate - coverage thresholds
+        id: coverage_gate
+        run: node .claude/scripts/check-coverage-thresholds.mjs
+
+      - name: Report - coverage threshold failure
+        if: failure() && steps.coverage_gate.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          {
+            echo "月次 index coverage の閾値ゲートが赤になりました（データ自体は develop に commit 済み）。"
+            echo ""
+            echo '```'
+            node .claude/scripts/check-coverage-thresholds.mjs 2>&1 || true
+            echo '```'
+            echo ""
+            echo "- しきい値の真実源: \`.claude/knowledge/reference/gsc-management.md\` の「閾値」節"
+            echo "- 判定ロジック: \`.claude/scripts/check-coverage-thresholds.mjs\`"
+            echo "- 再実行: \`gh workflow run index-coverage.yml\`"
+          } > /tmp/coverage-body.md
+          node scripts/report-automation-failure.mjs \
+            --channel index-coverage \
+            --title "閾値ゲートが赤（無条件異常）" \
+            --body-file /tmp/coverage-body.md
+
+      - name: Cleanup credentials
+        if: always()
+        run: rm -f credentials/gsc-service-account.json

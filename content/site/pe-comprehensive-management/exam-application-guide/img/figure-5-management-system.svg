@@ -1,0 +1,96 @@
+<svg viewBox="0 0 400 500" role="img" aria-label="総合技術監理と5つの管理の体系：頂点に総合技術監理（全体最適・トレードオフ調整）を置き、経済性管理・人的資源管理・情報管理・安全管理・社会環境管理の5つが接続され、各管理の主要3要素を示す" style="max-width:400px;width:100%" xmlns="http://www.w3.org/2000/svg">
+<style>
+  text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; }
+  .node-label { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+  .node-sub { font-size: 11px; fill: #555; }
+  .mgmt-label { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+  .mgmt-item { font-size: 11px; fill: #555; }
+  .caption { font-size: 11px; fill: #8a8a8a; }
+</style>
+
+<!-- arrow marker -->
+<defs>
+  <marker markerUnits="userSpaceOnUse" id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+    <polygon points="0 0, 8 3, 0 6" fill="#2e6da4"/>
+  </marker>
+</defs>
+
+<!-- 頂点ノード: 総合技術監理 -->
+<rect x="30" y="10" width="340" height="52" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+<text x="200" y="32" class="node-label" text-anchor="middle">総合技術監理</text>
+<text x="200" y="52" class="node-sub" text-anchor="middle">5つの管理を俯瞰し全体最適・トレードオフを調整</text>
+
+<!-- 幹線（頂点ノード下端から中央縦線） -->
+<line x1="200" y1="62" x2="200" y2="80" stroke="#2e6da4" stroke-width="1.5"/>
+
+<!-- 1. 経済性管理 -->
+<line x1="200" y1="80" x2="200" y2="86" stroke="#2e6da4" stroke-width="1.5"/>
+<line x1="60" y1="86" x2="200" y2="86" stroke="#2e6da4" stroke-width="1.5"/>
+<line x1="60" y1="86" x2="60" y2="94" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="10" y="94" width="180" height="70" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="100" y="113" class="mgmt-label" text-anchor="middle">経済性管理</text>
+<text x="22" y="129" class="mgmt-item">品質管理／工程管理／原価管理</text>
+<text x="22" y="145" class="mgmt-item">（QCDの最適化）</text>
+
+<!-- 2. 人的資源管理 -->
+<line x1="200" y1="86" x2="340" y2="86" stroke="#2e6da4" stroke-width="1.5"/>
+<line x1="340" y1="86" x2="340" y2="94" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="210" y="94" width="180" height="70" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="300" y="113" class="mgmt-label" text-anchor="middle">人的資源管理</text>
+<text x="222" y="126" class="mgmt-item">人の配置・組織</text>
+<text x="222" y="139" class="mgmt-item">教育・訓練</text>
+<text x="222" y="152" class="mgmt-item">労働関係・モチベーション</text>
+
+<!-- 幹線（縦方向下へ続く） -->
+<line x1="200" y1="86" x2="200" y2="184" stroke="#2e6da4" stroke-width="1.5"/>
+
+<!-- 3. 情報管理 -->
+<line x1="60" y1="184" x2="200" y2="184" stroke="#2e6da4" stroke-width="1.5"/>
+<line x1="60" y1="184" x2="60" y2="192" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="10" y="192" width="180" height="70" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="100" y="211" class="mgmt-label" text-anchor="middle">情報管理</text>
+<text x="22" y="227" class="mgmt-item">情報の収集・分析</text>
+<text x="22" y="243" class="mgmt-item">知的財産権／情報セキュリティ</text>
+
+<!-- 4. 安全管理 -->
+<line x1="200" y1="184" x2="340" y2="184" stroke="#2e6da4" stroke-width="1.5"/>
+<line x1="340" y1="184" x2="340" y2="192" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="210" y="192" width="180" height="70" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="300" y="211" class="mgmt-label" text-anchor="middle">安全管理</text>
+<text x="222" y="224" class="mgmt-item">リスクマネジメント</text>
+<text x="222" y="237" class="mgmt-item">労働安全衛生</text>
+<text x="222" y="250" class="mgmt-item">システム安全・危機管理</text>
+
+<!-- 幹線（縦方向下へ続く） -->
+<line x1="200" y1="184" x2="200" y2="282" stroke="#2e6da4" stroke-width="1.5"/>
+
+<!-- 5. 社会環境管理（横幅いっぱい） -->
+<line x1="200" y1="282" x2="200" y2="290" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="10" y="290" width="380" height="70" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="200" y="309" class="mgmt-label" text-anchor="middle">社会環境管理</text>
+<text x="200" y="326" class="mgmt-item" text-anchor="middle">環境保全／地球環境問題</text>
+<text x="200" y="342" class="mgmt-item" text-anchor="middle">組織の社会的責任（CSR）</text>
+
+<!-- トレードオフ関係図（簡易：左右ペア間の双方向矢印） -->
+<defs>
+  <marker markerUnits="userSpaceOnUse" id="arrow2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+    <polygon points="0 0, 8 3, 0 6" fill="#8a8a8a"/>
+  </marker>
+  <marker markerUnits="userSpaceOnUse" id="arrow2r" markerWidth="8" markerHeight="6" refX="0" refY="3" orient="auto">
+    <polygon points="8 0, 0 3, 8 6" fill="#8a8a8a"/>
+  </marker>
+</defs>
+<line x1="191" y1="128" x2="210" y2="128" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrow2)" marker-start="url(#arrow2r)"/>
+<line x1="191" y1="226" x2="210" y2="226" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3,2" marker-end="url(#arrow2)" marker-start="url(#arrow2r)"/>
+
+<!-- 凡例 -->
+<rect x="10" y="374" width="380" height="26" rx="4" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+<line x1="20" y1="387" x2="40" y2="387" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3,2"/>
+<text x="48" y="391" font-size="11" fill="#555" font-family="'Hiragino Sans','Yu Gothic',sans-serif">各管理間にはトレードオフが生じ、相互調整が必要</text>
+
+<!-- キャプション -->
+<text x="200" y="426" class="caption" text-anchor="middle">5管理のトレードオフを調整し全体最適を図るのが総合技術監理</text>
+
+<!-- 下部余白調整ライン（不可視） -->
+<rect x="0" y="490" width="400" height="10" fill="none"/>
+</svg>

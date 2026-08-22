@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480">
+  <rect width="1200" height="480" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="60" y="55" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">4 フェーズを通して大切な 3 つの原則</text>
+
+  <!-- 原則 1 -->
+  <rect x="60" y="84" width="1080" height="100" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <rect x="60" y="84" width="60" height="100" rx="8" fill="#2e6da4"/>
+  <rect x="100" y="84" width="20" height="100" fill="#2e6da4"/>
+  <text x="90" y="142" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">1</text>
+  <text x="148" y="124" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#1a3a5c">フェーズ間で「完璧」を求めない</text>
+  <text x="148" y="154" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">P1 で 7 割、P2 で 8 割、P3 で 9 割の理解を目指す。P1 で完璧を目指すと P2 以降の時間が枯渇する。</text>
+  <text x="148" y="174" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">理解の深化は次のフェーズで行う、という前提で進む。</text>
+
+  <!-- 原則 2 -->
+  <rect x="60" y="204" width="1080" height="122" rx="8" fill="#e6f4ea" stroke="#3a7d44" stroke-width="2"/>
+  <rect x="60" y="204" width="60" height="122" rx="8" fill="#3a7d44"/>
+  <rect x="100" y="204" width="20" height="122" fill="#3a7d44"/>
+  <text x="90" y="272" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">2</text>
+  <text x="148" y="240" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#1a4d2b">日常業務を学習素材として活用</text>
+  <text x="148" y="270" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">日常業務で 5 管理間のトレードオフ（経済性 × 安全、人的資源 × 情報など）を意識する習慣をつける。</text>
+  <text x="148" y="294" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">「この工程遅延は経済性 × 安全だ」と捉え直すだけで、記述式の論点抽出が格段に速くなる。</text>
+  <text x="148" y="318" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#3a7d44">→ 机上学習 0 時間の日も「学習」はできる。</text>
+
+  <!-- 原則 3 -->
+  <rect x="60" y="346" width="1080" height="90" rx="8" fill="#fff8e1" stroke="#d4a017" stroke-width="2"/>
+  <rect x="60" y="346" width="60" height="90" rx="8" fill="#d4a017"/>
+  <rect x="100" y="346" width="20" height="90" fill="#d4a017"/>
+  <text x="90" y="400" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">3</text>
+  <text x="148" y="382" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#7a5800">試験本番の前日に「新しいこと」をしない</text>
+  <text x="148" y="416" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">直前期は既学習の確認に絞る。前日に新しい論点・解法に手を出すと本番で混乱を招く。</text>
+
+  <text x="1180" y="466" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

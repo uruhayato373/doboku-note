@@ -1,0 +1,80 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="労働三権の構造図。憲法第28条が根拠。団結権・団体交渉権・団体行動権（争議権）の3権を縦に並べたカード形式で示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-header { font-size: 11px; fill: #555; }
+      .t-label  { font-size: 11px; font-weight: bold; fill: #8a8a8a; }
+      .t-main   { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 12px; fill: #555; }
+      .t-note   { font-size: 12px; fill: #555; }
+      .t-small  { font-size: 11px; fill: #555; }
+      .t-art    { font-size: 11px; font-weight: bold; fill: #555; }
+      /* surface: 法的根拠帯 */
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      /* brand: 3権カード統一 */
+      .box-brand   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-brand { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .t-badge     { font-size: 13px; font-weight: bold; fill: #2e6da4; }
+    </style>
+  </defs>
+
+  <!-- ======= 憲法根拠帯（surface） ======= -->
+  <!-- 第27条 -->
+  <rect class="box-surface" x="18" y="12" width="174" height="54" rx="6"/>
+  <text class="t-art" x="105" y="30" text-anchor="middle">憲法第27条（労働権）</text>
+  <text class="t-small" x="105" y="47" text-anchor="middle">すべて国民は、勤労の権利を</text>
+  <text class="t-small" x="105" y="59" text-anchor="middle">有し、義務を負ふ。</text>
+
+  <!-- 第28条 -->
+  <rect class="box-surface" x="206" y="12" width="176" height="54" rx="6"/>
+  <text class="t-art" x="294" y="30" text-anchor="middle">憲法第28条（労働基本権）</text>
+  <text class="t-small" x="294" y="47" text-anchor="middle">勤労者の団結・団体交渉その他</text>
+  <text class="t-small" x="294" y="59" text-anchor="middle">団体行動の権利を保障する。</text>
+
+  <!-- 根拠↓矢印ライン -->
+  <line x1="200" y1="68" x2="200" y2="84" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+  <text class="t-label" x="200" y="80" text-anchor="middle">第28条が保障する3権</text>
+
+  <!-- ======= カード1：団結権 ======= -->
+  <rect class="box-brand" x="18" y="88" width="364" height="98" rx="8"/>
+  <!-- バッジ -->
+  <circle class="badge-brand" cx="50" cy="137" r="18"/>
+  <text class="t-badge" x="50" y="142" text-anchor="middle">1</text>
+  <!-- 権利名 -->
+  <text class="t-main" x="80" y="118">団結権</text>
+  <!-- 英語 -->
+  <text class="t-sub" x="80" y="137">Right to Organize</text>
+  <!-- 説明 -->
+  <text class="t-note" x="80" y="158">労働者が組合を結成・加入する権利</text>
+  <!-- 法律名 -->
+  <text class="t-small" x="372" y="118" text-anchor="end">根拠法：労働組合法</text>
+
+  <!-- ======= カード2：団体交渉権 ======= -->
+  <rect class="box-brand" x="18" y="198" width="364" height="98" rx="8"/>
+  <circle class="badge-brand" cx="50" cy="247" r="18"/>
+  <text class="t-badge" x="50" y="252" text-anchor="middle">2</text>
+  <text class="t-main" x="80" y="228">団体交渉権</text>
+  <text class="t-sub" x="80" y="247">Right to Bargain Collectively</text>
+  <text class="t-note" x="80" y="268">組合が使用者と交渉する権利</text>
+  <text class="t-small" x="372" y="228" text-anchor="end">根拠法：労働組合法</text>
+
+  <!-- ======= カード3：団体行動権（争議権） ======= -->
+  <rect class="box-brand" x="18" y="308" width="364" height="98" rx="8"/>
+  <circle class="badge-brand" cx="50" cy="357" r="18"/>
+  <text class="t-badge" x="50" y="362" text-anchor="middle">3</text>
+  <text class="t-main" x="80" y="338">団体行動権（争議権）</text>
+  <text class="t-sub" x="80" y="357">Right to Strike</text>
+  <text class="t-note" x="80" y="378">ストライキ等の争議行為を行う権利</text>
+  <text class="t-small" x="372" y="326" text-anchor="end">根拠法：労働関係調整法</text>
+
+  <!-- ======= フッター ======= -->
+  <line x1="18" y1="420" x2="382" y2="420" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-small" x="200" y="436" text-anchor="middle">3権のうち、公務員は団体行動権（争議権）が制限される</text>
+  <text class="t-small" x="200" y="452" text-anchor="middle">労働三法：労働基準法・労働組合法・労働関係調整法</text>
+</svg>

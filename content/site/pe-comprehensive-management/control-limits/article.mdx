@@ -1,0 +1,88 @@
+---
+title: 管理限界
+description: "管理限界の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.2'
+tags:
+  - keyword
+reviewStatus: approved
+lastRewrittenAt: '2026-04-16'
+revisionCycle: 1
+published: true
+publishedAt: '2026-04-09'
+seoTitle: "管理限界 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-06-23
+---
+
+## 管理限界とは
+
+管理限界（Control Limits）とは、**上方管理限界線（UCL）と下方管理限界線**（LCL）であり、工程が統計的管理状態にあるかどうかを判定する基準線である。
+
+通常、中心線（CL）から$\pm 3\sigma$（標準偏差の3倍）の位置に設定される。
+
+## 管理図の構成
+
+管理図は3本の水平線で構成される。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/control-limits/img/figure-control-chart.svg"
+  alt="管理図と管理限界（±3σ）：中心線 CL から ±3σ の上方管理限界線 UCL と下方管理限界線 LCL を引き、サンプルが管理限界を超えると工程異常と判定する"
+/>
+
+- **上方管理限界線（UCL）**: $CL + 3\sigma$
+- **中心線（CL）**: データの平均値
+- **下方管理限界線（LCL）**: $CL - 3\sigma$
+
+## 管理限界と規格限界の違い
+
+- **管理限界**：工程のばらつきから統計的に算出（$\pm 3\sigma$）
+- **規格限界**：製品が満たすべき規格値（設計で決定）
+- 管理限界は規格限界より狭く設定されるのが望ましい
+
+## 異常判定ルール
+
+管理図において以下の場合、工程に**異常あり**と判定する。
+
+- 点が管理限界線を超える
+- 点が中心線の片側に**連続して並ぶ**（連の検定）
+- 点が**一方向に連続して増減**する（傾向の検定）
+
+<ExamPoint
+  summary="管理限界は±3σで設定される管理図上の工程安定性の判定基準線"
+  items={[
+    "管理限界＝±3σ（統計的に算出）、規格限界＝設計で決定（混同に注意）",
+    "UCL・CL・LCLの3線で管理図を構成する",
+    "点が管理限界を超える、連が発生する等が異常判定の基準",
+    "管理限界内でも連・傾向があれば異常と判定する",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**2.2 品質の管理**](/docs/pe-comprehensive-management-keyword-2026#22-品質の管理)に位置づけられている。
+
+管理限界は[品質管理](/docs/pe-comprehensive-management-quality-control)のQC七つ道具のうち管理図の中核概念であり、[工程能力指数（Cp・Cpk）](/docs/pe-comprehensive-management-process-capability-index)と組み合わせて工程の安定性・能力を総合的に評価する。
+
+## 管理図の成立と実務への普及
+
+シューハート管理図（Shewhart Control Chart）は1920年代にベル研究所のウォルター・シューハートが開発した。シューハートは工程のばらつきを「偶然原因（common cause）」と「異常原因（assignable cause）」に分類し、$\pm 3\sigma$の管理限界内に収まるばらつきは偶然原因によるものと定義した。これが今日の管理限界の概念的基盤である。
+
+1950年代に統計的品質管理の手法が日本に導入されると、管理図は製造業を中心に広まった。日本規格協会（現：日本産業標準調査会）はJIS Z 9021としてシューハート管理図の規格を制定し、工程管理の標準的手法として定着した。
+
+建設部門における適用事例としては、コンクリート工場での品質管理が代表的である。出荷ロットごとのスランプや圧縮強度を管理図でモニタリングし、UCL・LCLを逸脱した場合は工程異常として調合設計の見直しや材料ロットの確認を行う。品質管理計画書においてX̄-R管理図（平均値と範囲の管理図）を用いることが発注者から求められるケースも多い。
+
+<RelatedKeywords items={[
+  { label: "品質管理", slug: "quality-control" },
+  { label: "全数検査／抜取検査", slug: "inspection-methods" },
+  { label: "不適合品率／適合品率", slug: "nonconformity-rate" },
+  { label: "品質改善活動", slug: "quality-improvement" },
+  { label: "顧客満足（CS）", slug: "customer-satisfaction" },
+]} />
+
+## 参考資料
+
+- [品質管理・TQMの解説（日本科学技術連盟）](https://www.juse.or.jp/tqm/)
+- [管理図（Wikipedia）](https://ja.wikipedia.org/wiki/%E7%AE%A1%E7%90%86%E5%9B%B3)

@@ -1,0 +1,34 @@
+{
+  "version": 1,
+  "generated_at": "2026-04-25T07:18:47.407Z",
+  "results": [
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-guide-strategy",
+      "strategy": "mobile",
+      "fetched_at": "2026-04-25T07:18:47.394Z",
+      "scores": {
+        "performance": 56,
+        "accessibility": 96,
+        "best_practices": 100,
+        "seo": 92
+      },
+      "lab_data": {
+        "LCP_ms": 12826.370837177676,
+        "TBT_ms": 0,
+        "CLS": 0.008698,
+        "FCP_ms": 9601.27535215588,
+        "TTI_ms": 12908.87327981777,
+        "SI_ms": 9601.27535215588
+      },
+      "field_data": {
+        "LCP": null,
+        "INP": null,
+        "CLS": null,
+        "FCP": null,
+        "TTFB": null
+      },
+      "analysis_utc": "2026-04-25T07:18:17.364Z",
+      "final_url": "https://doboku-note.com/docs/civil-construction-1-guide-strategy"
+    }
+  ]
+}

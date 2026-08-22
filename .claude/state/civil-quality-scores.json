@@ -1,0 +1,916 @@
+{
+  "version": 1,
+  "scored_at": "2026-06-08T05:29:49.891Z",
+  "pages": {
+    "guide-concrete-key-points": {
+      "slug": "guide-concrete-key-points",
+      "group": "guide",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 2,
+        "figures": 3,
+        "reference": 2
+      },
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・構文整合・絵文字無し。表前導入文欠落MEDIUM7件のみ。画像なし（図表軸は減点要素なし）。参考資料は公的＋民間揃うが過去問リンクが両方とも guide-strategy で実質バックリンク不足。",
+      "weighted": 2.55,
+      "scored_at": "2026-04-25T07:05:40.433Z"
+    },
+    "guide-concrete-maintenance": {
+      "slug": "guide-concrete-maintenance",
+      "group": "guide",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 2,
+        "reference": 3
+      },
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備、lint passed、表は2列中心で導入文あり、参考資料も公的（土木学会・国交省）と民間（Wikipedia）両方完備。図表は本文中になく ASCII 図のみだが文章で十分代替されている。",
+      "weighted": 2.85,
+      "scored_at": "2026-04-25T07:05:40.433Z"
+    },
+    "guide-earthwork-key-points": {
+      "slug": "guide-earthwork-key-points",
+      "group": "guide",
+      "scores": {
+        "structure": 3,
+        "principle": 2,
+        "mobile": 2,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備で構造・参考資料は良好。lint MEDIUM 6件（太字33字超1件、表前導入文欠落5件）が原則・モバイル軸で減点。画像不使用のため図表軸は満点。過去問バックリンクはTODOコメントのみで未整備。",
+      "weighted": 2.5,
+      "scored_at": "2026-04-25T07:05:40.433Z"
+    },
+    "guide-four-management": {
+      "slug": "guide-four-management",
+      "group": "guide",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備、lint通過、表は2列中心で4列以上なし、画像不使用、参考資料は公的・民間両方完備、e-Gov内部リンクとRelatedKeywordsも整備済み。ただし安全管理のテキスト誘導リンク3件が自身に向くなど一部リンク先が不整合で要追跡。",
+      "weighted": 3,
+      "scored_at": "2026-04-25T07:05:40.433Z"
+    },
+    "guide-law-key-points": {
+      "slug": "guide-law-key-points",
+      "group": "guide",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備、9法を体系整理し数値も明瞭。表は2列中心で導入文あり、Callout適切。e-Gov 11件＋Wikipedia 3件で公的＋民間両備、RelatedKeywords設置済み。lint合格、画像なしで図表軸も問題なし。",
+      "weighted": 3,
+      "scored_at": "2026-04-25T07:05:40.433Z"
+    },
+    "guide-strategy": {
+      "slug": "guide-strategy",
+      "group": "guide",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備、lint passed、表は箇条書き化されモバイル視認性良好、画像未使用、参考資料は公的+民間+e-Gov+過去問バックリンク完備で全軸高評価。",
+      "weighted": 3,
+      "scored_at": "2026-04-25T07:05:40.433Z"
+    },
+    "textbook-building-standards": {
+      "slug": "textbook-building-standards",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 2,
+        "reference": 3
+      },
+      "weighted": 2.85,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・lint全PASS・参考資料は公的/民間両立・e-Gov内部リンクあり。表7.17/7.18/7.19参照あるが実表未掲載。textbookとして合格水準。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-construction-business": {
+      "slug": "textbook-construction-business",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 2,
+        "reference": 3
+      },
+      "weighted": 2.85,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter6項目完備・HIGH/MEDIUM/LOWゼロ。条文番号付き散文で読みやすい。e-Gov法令2箇所＋参考資料公的＋民間両立。表7.x参照あるが実体表は原典参照前提。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-construction-mgmt-overview": {
+      "slug": "textbook-construction-mgmt-overview",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 2
+      },
+      "weighted": 2.85,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter必須項目完備・lint全PASS・生imgゼロ・全ArticleImage。参考資料公的＋民間両立だが労働安全衛生法・建設業法のe-Govリンクと過去問バックリンクが未設置で2点。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-construction-plan-overview": {
+      "slug": "textbook-construction-plan-overview",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 2,
+        "mobile": 3,
+        "figures": 2,
+        "reference": 2
+      },
+      "weighted": 2.5,
+      "weak_axes": [],
+      "qualitative_comment": "lint全PASS・表なし。L109に語中で切れる太字など軽微違反。図2.1-2.7/表2.1-2.10参照多数だが実画像・実表未実装。法令e-Govリンク・過去問バックリンクなし。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-control-chart": {
+      "slug": "textbook-control-chart",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 2,
+        "reference": 2
+      },
+      "weighted": 2.7,
+      "weak_axes": [],
+      "qualitative_comment": "構造・原則・モバイル満点。図4.10参照あるが画像未挿入。JIS Z 9020-1/9021がjisc.go.jp頂点止まりで規格本体に到達しない、法令e-Gov内部リンクと過去問バックリンク未設置で2点止まり。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-crane": {
+      "slug": "textbook-crane",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "全軸優秀。frontmatter完備・lintゼロ・全ArticleImage化・出典コメント7/7・参考資料公的+民間両立・関連法規節にe-Gov内部リンク完備。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-demolition": {
+      "slug": "textbook-demolition",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・lint全パス・全ArticleImage・表は全て2列または2軸比較・参考資料公的(e-Gov)+民間両立・建設リサイクル法等に内部リンク。優秀な完成度。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-distance-angle": {
+      "slug": "textbook-distance-angle",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "5軸すべて満点。全7画像ArticleImage・caption帰属情報のみ・出典コメント7/7・測量法第34条にe-Gov内部リンク。対回観測の誤差消去ロジックの論理整合性も良好。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-explosives-act": {
+      "slug": "textbook-explosives-act",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備、lint全パス、画像なし、参考資料に公的(e-Gov/経産省/全火協)＋Wikipedia完備、RelatedKeywords設置済み。条文番号と数値が正確で頻出論点Calloutも適切。",
+      "weighted": 3,
+      "scored_at": "2026-04-25T07:05:40.433Z"
+    },
+    "textbook-grader-compaction": {
+      "slug": "textbook-grader-compaction",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・lint指摘なし。全5画像ArticleImage・出典コメント完備・caption帰属情報(≤60字)のみ。参考資料公的(e-Gov/日本建設機械施工協会/道路協会)+民間(コマツ/キャタピラー)両立。優秀。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-histogram": {
+      "slug": "textbook-histogram",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 2
+      },
+      "weighted": 2.85,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・lint0件・全ArticleImage。JIS 2件が同一ドメイン頂点リンクで規格ページ直リンクでない点、e-Gov法令内部リンクや過去問バックリンク誘導がなく参考資料2点。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-labor-standards": {
+      "slug": "textbook-labor-standards",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 1,
+        "reference": 3
+      },
+      "weighted": 2.7,
+      "weak_axes": [
+        "figures"
+      ],
+      "qualitative_comment": "frontmatter完備・lint全パス。Callout冒頭集約・参考資料e-Gov+厚労省+日建連+民間で公的民間両立・法令e-Gov内部リンク設置済。ただし表7.1/7.2(年少則・女性則)が参照されるのに実体表が存在せず図表軸1点。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-law-compliance": {
+      "slug": "textbook-law-compliance",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備、lint全パス、画像なし、参考資料節に公的(e-Gov/mlit/mhlw)＋民間(Wikipedia)両方を網羅。法令名にe-Gov内部リンクあり。優秀な校正状態。",
+      "weighted": 3,
+      "scored_at": "2026-04-25T07:05:40.433Z"
+    },
+    "textbook-leveling": {
+      "slug": "textbook-leveling",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・lint0件・ArticleImage+出典コメント適切・参考資料公的(国交省/国土地理院/JIS)+民間(トプコン/ニコン)両立。表は2軸比較・箇条書き化で視認性良好。頻出論点Callout完備。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-loader": {
+      "slug": "textbook-loader",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・lint全パス。ExamPoint冒頭OK、太字スコープ適正。表全て2列、ArticleImage 1点で出典コメント完備。参考資料公的(e-Gov/業界団体)+民間(コマツ/キャタピラー/日立建機)両立。全軸3点。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-machinery-overview": {
+      "slug": "textbook-machinery-overview",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 1,
+        "reference": 2
+      },
+      "weighted": 2.55,
+      "weak_axes": [
+        "figures"
+      ],
+      "qualitative_comment": "frontmatter完備・lint全パス。表2.1/2.2参照あるが画像/SVG 1枚も存在せず図表軸1点。参考資料はe-Gov・国交省・業界団体・メーカー複数で公的+民間満たすが過去問バックリンクや関連textbook誘導が内部リンク化されていない。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-machinery-structure": {
+      "slug": "textbook-machinery-structure",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 2,
+        "reference": 3
+      },
+      "weighted": 2.85,
+      "weak_axes": [],
+      "qualitative_comment": "lintクリーン・frontmatter完備・表2-3列でセル短文・参考資料公的(e-Gov/JISC/業界団体)+民間(コマツ/日立建機)両立・法令e-Gov内部リンク設置済。図2.1参照あるが実画像未掲載で2点。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-management-subplans": {
+      "slug": "textbook-management-subplans",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 2,
+        "reference": 2
+      },
+      "weighted": 2.7,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・lint0件（表なし）・Callout冒頭配置。図2.11-2.16参照あるが実画像未配置で図表軸2点。建設業法24条の8/労安法/リサイクル法/廃棄物処理法への e-Gov内部リンク未設置。L373『戦場』誤字疑い。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-network-schedule": {
+      "slug": "textbook-network-schedule",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・lint0件・全ArticleImage(SVG 7点)・参考資料公的(mlit/jisc)+民間(nikkenren/pmi/wikipedia)両立。4時刻とフロート定義・CP性質・フォローアップまで網羅、Callout頻出論点も良好。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-port-regulations": {
+      "slug": "textbook-port-regulations",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 1
+      },
+      "weighted": 2.7,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "frontmatter完備・lint0件・2列表のみ・航法要点SVGは適切なArticleImage。しかし『## 参考資料』節完全欠落、港則法e-Govリンク・海上保安庁等の公的/民間リンク・関連テキスト誘導が未設置で1点。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-quality-inspection": {
+      "slug": "textbook-quality-inspection",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 2,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・lint全パス・画像なし。参考資料公的(mlit/jisc)+民間(nikkenren/obayashi/kajima)両立。Callout太字が複数項目に広がり §2 の30字スコープ境界、§1概念定義先行から軽微にズレ。図4.12参照残るが図本体なし。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-quality-overview": {
+      "slug": "textbook-quality-overview",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 2,
+        "mobile": 2,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・lint合格・参考資料節公的民間両方完備。図版なしのため figures 軸満点。表4.4は2列構成で工種列が空セル多く視認性は許容範囲だが、太字が多用される箇所（ISO節）が原則軸の軽微減点要因。",
+      "weighted": 2.5,
+      "scored_at": "2026-04-25T07:05:40.433Z"
+    },
+    "textbook-river-act": {
+      "slug": "textbook-river-act",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 2,
+        "reference": 3
+      },
+      "weighted": 2.85,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・lint全ゼロ。Callout warning冒頭集約・法条番号併記で試験対策機能。参考資料公的(e-Gov 2件/国交省)+民間(河川協会/五洋/鹿島)両方網羅。表7.15/7.16参照あるが実体未掲載で2点。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-road-act": {
+      "slug": "textbook-road-act",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 2,
+        "reference": 3
+      },
+      "weighted": 2.85,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・lint0件・Callout冒頭集約・番号リストで整理・4列以上表や長大セルなし。参考資料e-Gov+国交省+道路協会+民間2社で両立・法令にe-Gov内部リンクあり。図版未使用で図表2点。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-schedule-charts": {
+      "slug": "textbook-schedule-charts",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 2,
+        "mobile": 3,
+        "figures": 2,
+        "reference": 2
+      },
+      "weighted": 2.5,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・lint0件。画像不使用・図3.4/3.5等PDF参照残存で図表2点。Callout冒頭サマリが太字長文化・『図〜に示す』残存で原則軽微違反。参考資料公的+民間揃うがe-Gov法令リンク・過去問バックリンクが皆無。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-schedule-overview": {
+      "slug": "textbook-schedule-overview",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 2,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 2
+      },
+      "weighted": 2.65,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・lint pass。冒頭Calloutに太字多用で§2スコープ超過気味。ArticleImage使用・SVG自作・出典コメント完備。参考資料公的(mlit/jisc)+民間(nikkenren/obayashi/kajima)両立だがe-Gov法令内部リンク・過去問バックリンクなし。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-scraper": {
+      "slug": "textbook-scraper",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 2
+      },
+      "weighted": 2.85,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・lint全通過。画像2点全ArticleImage・caption帰属情報のみ・出典コメント完備。キャタピラーのリンク先がモーターグレーダ製品で記事内容と不整合、コマツのリンクもトップで具体性欠く。写真2.4/2.5/図2.7は原典番号残置。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-shovel-excavator": {
+      "slug": "textbook-shovel-excavator",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "lint全通過・frontmatter完備・4図すべてArticleImage化・表は3列でセル長適正・表前導入文あり。参考資料節はe-Gov法令+業界団体+主要メーカー3社で公的民間バランス良好・過去問バックリンク14件網羅的。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-site-investigation": {
+      "slug": "textbook-site-investigation",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 2,
+        "reference": 2
+      },
+      "weighted": 2.7,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・lint0件。表ゼロでモバイル視認性問題なし。図2.8/2.9/表2.11への文字参照のみで図版未掲載。参考資料公的(MLIT/地盤工学会/JIS)+民間(応用地質/ジオテック)両立だがe-Gov内部リンク・過去問バックリンク未設置。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-standard-contract": {
+      "slug": "textbook-standard-contract",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 2,
+        "reference": 3
+      },
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備、lint全項目クリア、参考資料は公的・民間両方を網羅し法令名にe-Govリンクあり。図表は本文中に画像なしのため標準点。条項番号と数字の併記が試験対策として的確で全体的に高品質。",
+      "weighted": 2.85,
+      "scored_at": "2026-04-25T07:05:40.433Z"
+    },
+    "textbook-surveying-basics": {
+      "slug": "textbook-surveying-basics",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備、lint全カテゴリ警告ゼロ、表なしで段落構成が整理され、参考資料は公的+民間混在で法令e-Govリンク有り。画像未使用のため図表軸も問題なし。",
+      "weighted": 3,
+      "scored_at": "2026-04-25T07:05:40.433Z"
+    },
+    "textbook-tractor-bulldozer": {
+      "slug": "textbook-tractor-bulldozer",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "lint全パス・frontmatter完備。ExamPoint冒頭配置・絵文字なし・太字適正。表最大3列・導入文あり。画像2点ArticleImage・出典コメント完備・caption短文。参考資料e-Gov法令+公的機関+民間メーカー両輪配置。全軸優秀。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-transport-machinery": {
+      "slug": "textbook-transport-machinery",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 2
+      },
+      "weighted": 2.85,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・lint0件・3画像全ArticleImage・出典コメント完備・caption帰属情報短文。表2-3列のみでセル長超過なし・表前導入文あり。参考資料e-Gov+業界団体+民間3社でバランス良好だが、クレーン等安全規則のような直接関連法令リンクなし。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "textbook-work-scheduling": {
+      "slug": "textbook-work-scheduling",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 2,
+        "mobile": 3,
+        "figures": 2,
+        "reference": 2
+      },
+      "weighted": 2.5,
+      "weak_axes": [],
+      "qualitative_comment": "frontmatter完備・lint全PASS。式2.1-2.13はscroll-equation対応。L33/L50段落が連続4行超で§3違反気味。画像不使用。参考資料公的(mlit×2)+民間(nikkenren/pmi)両立だがe-Gov法令内部リンク・過去問バックリンク・関連textbook誘導なし。",
+      "scored_at": "2026-04-20T05:46:29.772Z"
+    },
+    "guide-1-vs-2": {
+      "slug": "guide-1-vs-2",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 2,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [
+        "mobile"
+      ],
+      "weighted": 2.8,
+      "expansion_patterns": [
+        "G"
+      ],
+      "qualitative_comment": "原則軸MEDIUM=6(表前導入文欠落×3、太字34字)。参考資料に民間リソースなし→修正済み",
+      "group": "guide",
+      "scored_at": "2026-06-08T05:30:57.483Z",
+      "note": "P+R修正済み(2026-06-08)。mobile(3列表)は未修正"
+    },
+    "guide-career-agents": {
+      "slug": "guide-career-agents",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [],
+      "weighted": 3,
+      "expansion_patterns": [
+        "R"
+      ],
+      "qualitative_comment": "参考資料H2完全欠落→修正済み",
+      "group": "guide",
+      "scored_at": "2026-06-08T05:30:57.483Z",
+      "note": "参考資料H2追加済み(2026-06-08)"
+    },
+    "guide-career-path": {
+      "slug": "guide-career-path",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [],
+      "weighted": 3,
+      "expansion_patterns": [],
+      "group": "guide",
+      "scored_at": "2026-06-08T05:29:49.891Z"
+    },
+    "guide-career-salary": {
+      "slug": "guide-career-salary",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [],
+      "weighted": 3,
+      "expansion_patterns": [
+        "R"
+      ],
+      "qualitative_comment": "参考資料H2完全欠落→修正済み",
+      "group": "guide",
+      "scored_at": "2026-06-08T05:30:57.483Z",
+      "note": "参考資料H2追加済み(2026-06-08)"
+    },
+    "guide-difficulty": {
+      "slug": "guide-difficulty",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [],
+      "weighted": 3,
+      "expansion_patterns": [],
+      "group": "guide",
+      "scored_at": "2026-06-08T05:29:49.891Z"
+    },
+    "guide-exam-overview": {
+      "slug": "guide-exam-overview",
+      "scores": {
+        "structure": 3,
+        "principle": 2,
+        "mobile": 2,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [
+        "principle",
+        "mobile"
+      ],
+      "weighted": 2.55,
+      "expansion_patterns": [
+        "P"
+      ],
+      "group": "guide",
+      "scored_at": "2026-06-08T05:29:49.891Z"
+    },
+    "guide-grade-comparison": {
+      "slug": "guide-grade-comparison",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [],
+      "weighted": 3,
+      "expansion_patterns": [
+        "R"
+      ],
+      "qualitative_comment": "Calloutのみ→H2参考資料に格上げ修正済み",
+      "group": "guide",
+      "scored_at": "2026-06-08T05:30:57.483Z",
+      "note": "参考資料H2に格上げ済み(2026-06-08)"
+    },
+    "guide-last-minute-2026": {
+      "slug": "guide-last-minute-2026",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 2
+      },
+      "weak_axes": [
+        "reference"
+      ],
+      "weighted": 2.85,
+      "expansion_patterns": [
+        "R"
+      ],
+      "group": "guide",
+      "scored_at": "2026-06-08T05:29:49.891Z"
+    },
+    "guide-market-value": {
+      "slug": "guide-market-value",
+      "scores": {
+        "structure": 3,
+        "principle": 2,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 2
+      },
+      "weak_axes": [
+        "principle",
+        "reference"
+      ],
+      "weighted": 2.6,
+      "expansion_patterns": [
+        "P",
+        "R"
+      ],
+      "group": "guide",
+      "scored_at": "2026-06-08T05:29:49.891Z"
+    },
+    "guide-quality-management": {
+      "slug": "guide-quality-management",
+      "scores": {
+        "structure": 3,
+        "principle": 2,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [
+        "principle"
+      ],
+      "weighted": 2.75,
+      "expansion_patterns": [
+        "P"
+      ],
+      "group": "guide",
+      "scored_at": "2026-06-08T05:29:49.891Z"
+    },
+    "guide-salary-up": {
+      "slug": "guide-salary-up",
+      "scores": {
+        "structure": 3,
+        "principle": 2,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 2
+      },
+      "weak_axes": [
+        "principle",
+        "reference"
+      ],
+      "weighted": 2.6,
+      "expansion_patterns": [
+        "P",
+        "R"
+      ],
+      "group": "guide",
+      "scored_at": "2026-06-08T05:29:49.891Z"
+    },
+    "guide-schedule-management": {
+      "slug": "guide-schedule-management",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [],
+      "weighted": 3,
+      "expansion_patterns": [],
+      "group": "guide",
+      "scored_at": "2026-06-08T05:29:49.891Z"
+    },
+    "guide-study-method": {
+      "slug": "guide-study-method",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [],
+      "weighted": 3,
+      "expansion_patterns": [
+        "R"
+      ],
+      "qualitative_comment": "参考資料H2完全欠落→修正済み",
+      "group": "guide",
+      "scored_at": "2026-06-08T05:30:57.483Z",
+      "note": "参考資料H2追加済み(2026-06-08)"
+    },
+    "guide-study-plan": {
+      "slug": "guide-study-plan",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 2
+      },
+      "weak_axes": [
+        "reference"
+      ],
+      "weighted": 2.85,
+      "expansion_patterns": [
+        "R"
+      ],
+      "group": "guide",
+      "scored_at": "2026-06-08T05:29:49.891Z"
+    },
+    "guide-textbooks": {
+      "slug": "guide-textbooks",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 3,
+        "reference": 2
+      },
+      "weak_axes": [
+        "reference"
+      ],
+      "weighted": 2.7,
+      "expansion_patterns": [
+        "R"
+      ],
+      "qualitative_comment": "参考資料H2完全欠落→修正済み",
+      "group": "guide",
+      "scored_at": "2026-06-08T05:30:57.483Z",
+      "note": "参考資料H2追加済み(公的2+民間1)"
+    },
+    "guide-vs-pe": {
+      "slug": "guide-vs-pe",
+      "scores": {
+        "structure": 3,
+        "principle": 2,
+        "mobile": 1,
+        "figures": 3,
+        "reference": 3
+      },
+      "weak_axes": [
+        "principle",
+        "mobile"
+      ],
+      "weighted": 2.35,
+      "expansion_patterns": [
+        "G"
+      ],
+      "qualitative_comment": "HIGH lint(太字超過)×3→修正済み。3列表セル長は未修正",
+      "group": "guide",
+      "scored_at": "2026-06-08T05:30:57.483Z",
+      "note": "P+R修正済み(2026-06-08)。mobile(3列表)は未修正"
+    }
+  }
+}

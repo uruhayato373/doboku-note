@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "startDate": "2026-07-16",
+    "endDate": "2026-07-29",
+    "minUsers": 5,
+    "threshold": 0.8
+  },
+  "totals": {
+    "allUsers": 3036,
+    "jpUsers": 2915,
+    "foreignUsers": 121
+  },
+  "rows": [
+    {
+      "source": "bing",
+      "totalUsers": 1767,
+      "jpUsers": 1755,
+      "foreignUsers": 12,
+      "foreignRatio": 0.006791171477079796,
+      "engagementRate": 0.6306010928961748,
+      "flagged": false
+    },
+    {
+      "source": "(direct)",
+      "totalUsers": 469,
+      "jpUsers": 370,
+      "foreignUsers": 99,
+      "foreignRatio": 0.21108742004264391,
+      "engagementRate": 0.5622254758418741,
+      "flagged": false
+    },
+    {
+      "source": "note",
+      "totalUsers": 286,
+      "jpUsers": 285,
+      "foreignUsers": 1,
+      "foreignRatio": 0.0034965034965034965,
+      "engagementRate": 0.6717557251908397,
+      "flagged": false
+    },
+    {
+      "source": "google",
+      "totalUsers": 151,
+      "jpUsers": 151,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.5658362989323843,
+      "flagged": false
+    },
+    {
+      "source": "x",
+      "totalUsers": 116,
+      "jpUsers": 114,
+      "foreignUsers": 2,
+      "foreignRatio": 0.017241379310344827,
+      "engagementRate": 0.4476744186046512,
+      "flagged": false
+    },
+    {
+      "source": "note.com",
+      "totalUsers": 81,
+      "jpUsers": 80,
+      "foreignUsers": 1,
+      "foreignRatio": 0.012345679012345678,
+      "engagementRate": 0.5664739884393064,
+      "flagged": false
+    },
+    {
+      "source": "copilot.com",
+      "totalUsers": 60,
+      "jpUsers": 60,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.547945205479452,
+      "flagged": false
+    },
+    {
+      "source": "yahoo",
+      "totalUsers": 44,
+      "jpUsers": 43,
+      "foreignUsers": 1,
+      "foreignRatio": 0.022727272727272728,
+      "engagementRate": 0.6111111111111112,
+      "flagged": false
+    },
+    {
+      "source": "t.co",
+      "totalUsers": 20,
+      "jpUsers": 20,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.6666666666666666,
+      "flagged": false
+    },
+    {
+      "source": "(not set)",
+      "totalUsers": 12,
+      "jpUsers": 9,
+      "foreignUsers": 3,
+      "foreignRatio": 0.25,
+      "engagementRate": 0,
+      "flagged": false
+    },
+    {
+      "source": "teams.public.onecdn.static.microsoft",
+      "totalUsers": 5,
+      "jpUsers": 5,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.45454545454545453,
+      "flagged": false
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+# 土木 無料集客記事 公開キュー（note-publish-magazine.mjs --list 入力）
+# 用途: 眠っている draft 無料記事16本を優先順で note 公開する。
+# 実行は【ローカルマシン（note ログイン済み Chrome プロファイルがある会社PC/Mac）】で。
+#   dry（対象確認）: node scripts/note-publish-magazine.mjs --list content/note/1級・2級土木/_publish-queue-無料集客.txt
+#   即時公開:        node scripts/note-publish-magazine.mjs --list content/note/1級・2級土木/_publish-queue-無料集客.txt --commit
+#   1日1本ドリップ:  ... --schedule-start 2026-06-24T07:00 --interval-hours 24 --commit
+# 冪等: frontmatter に noteUrl があれば自動スキップ（再実行で途中再開）。
+# 公開後 note-publish が noteUrl/noteId/notePublishedAt を frontmatter に writeback → git pull で本セッションへ反映。
+# 順序の根拠: ①無料→買い切り/会員の分岐入口（リードマグネット）→ ②2級の購入直結BOFU → ③1級（現状ライブ0本＝新チャネル開通）→ ④2級の入口拡大
+
+# --- ① 無料リードマグネット（買い切り/会員への分岐入口を最初に立てる）---
+content/note/1級・2級土木/経験記述-落ちる答案診断-無料/article.md
+content/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md
+content/note/1級・2級土木/経験記述-予想問題で書く練習-無料/article.md
+
+# --- ② 2級A層 BOFU（完成答案集へ直結＝即・転換テスト）---
+content/note/1級・2級土木/2級土木/施工経験記述で落ちる答案/article.md
+content/note/1級・2級土木/2級土木/工事概要の書き方/article.md
+content/note/1級・2級土木/2級土木/経験記述R6新形式/article.md
+content/note/1級・2級土木/2級土木/経験記述テーマ選び/article.md
+content/note/1級・2級土木/2級土木/経験記述を自分の現場に置換/article.md
+
+# --- ③ 1級（現状ライブ0本。公開した瞬間に1級チャネルが開く）---
+content/note/1級・2級土木/1級土木/1級経験記述で落ちる答案/article.md
+content/note/1級・2級土木/1級土木/1級工事概要の書き方/article.md
+content/note/1級・2級土木/1級土木/1級経験記述R6新形式と設問書き分け/article.md
+content/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md
+content/note/1級・2級土木/1級土木/1級経験記述を自分の現場に置換/article.md
+content/note/1級・2級土木/1級土木/1級土木をAIで勉強する/article.md
+
+# --- ④ 2級B層 入口拡大（級選び・一次独学）---
+content/note/1級・2級土木/2級土木/2級と1級どちらから受けるか/article.md
+content/note/1級・2級土木/2級土木/第一次検定の独学突破/article.md

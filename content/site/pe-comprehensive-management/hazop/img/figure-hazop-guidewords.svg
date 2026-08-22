@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="HAZOP の 7 ガイドワード：プロセスパラメータ（例: 流量）に No / More / Less / As Well As / Part Of / Reverse / Other Than の 7 ガイドワードを掛け合わせて逸脱シナリオを網羅的に導出する">
+  <text x="190" y="22" text-anchor="middle" font-size="14" fill="#222" font-family="sans-serif" font-weight="bold">HAZOP の 7 ガイドワード</text>
+  <text x="190" y="40" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">プロセスパラメータ（例: 流量）に適用</text>
+
+  <line x1="20" y1="56" x2="360" y2="56" stroke="#222" stroke-width="1"/>
+  <text x="40" y="72" font-size="12" fill="#222" font-family="sans-serif" font-weight="bold">ガイドワード</text>
+  <text x="240" y="72" font-size="12" fill="#222" font-family="sans-serif" font-weight="bold">逸脱の例（流量）</text>
+  <line x1="20" y1="80" x2="360" y2="80" stroke="#222" stroke-width="1"/>
+
+  <text x="40" y="100" font-size="12" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">No / Not</text>
+  <text x="240" y="100" font-size="11" fill="#555" font-family="sans-serif">流れない</text>
+
+  <text x="40" y="124" font-size="12" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">More</text>
+  <text x="240" y="124" font-size="11" fill="#555" font-family="sans-serif">流量が多すぎる</text>
+
+  <text x="40" y="148" font-size="12" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">Less</text>
+  <text x="240" y="148" font-size="11" fill="#555" font-family="sans-serif">流量が少なすぎる</text>
+
+  <text x="40" y="172" font-size="12" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">As Well As</text>
+  <text x="240" y="172" font-size="11" fill="#555" font-family="sans-serif">想定外の物質が混入</text>
+
+  <text x="40" y="196" font-size="12" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">Part Of</text>
+  <text x="240" y="196" font-size="11" fill="#555" font-family="sans-serif">一部の成分が欠落</text>
+
+  <text x="40" y="220" font-size="12" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">Reverse</text>
+  <text x="240" y="220" font-size="11" fill="#555" font-family="sans-serif">逆流する</text>
+
+  <text x="40" y="244" font-size="12" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">Other Than</text>
+  <text x="240" y="244" font-size="11" fill="#555" font-family="sans-serif">別の物質が流れる</text>
+
+  <line x1="20" y1="256" x2="360" y2="256" stroke="#222" stroke-width="1"/>
+
+  <g>
+    <rect x="20" y="270" width="340" height="60" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2" rx="6"/>
+    <text x="190" y="290" text-anchor="middle" font-size="12" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">分析フロー</text>
+    <text x="190" y="308" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">ノード設定 → 設計意図 → ガイドワード適用</text>
+    <text x="190" y="324" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">→ 逸脱抽出 → 原因/結果 → 対策</text>
+  </g>
+
+  <text x="190" y="354" text-anchor="middle" font-size="11" fill="#3a7d44" font-family="sans-serif" font-weight="bold">多分野チーム審査で網羅性確保</text>
+  <text x="190" y="370" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">化学プラント・連続プロセス系の設計審査に適する</text>
+
+  <!-- 追加：他手法との比較 -->
+  <rect x="10" y="386" width="360" height="52" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text x="190" y="406" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold" font-family="sans-serif">他手法との比較</text>
+  <text x="190" y="422" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">HAZOP：プロセス逸脱 / FTA：事故原因（演繹）</text>
+  <text x="190" y="435" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">FMEA：部品故障（帰納）/ ETA：事故進展分析</text>
+
+  <rect x="10" y="450" width="360" height="40" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="6"/>
+  <text x="190" y="468" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="sans-serif">HAZOP 実施体制：プロセス・機械・安全・運転の専門家チーム</text>
+  <text x="190" y="484" text-anchor="middle" font-size="11" fill="#3a7d44" font-weight="bold" font-family="sans-serif">多分野の知見により見落としを防止</text>
+</svg>

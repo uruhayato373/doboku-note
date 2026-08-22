@@ -1,0 +1,2870 @@
+{
+  "chapters": [
+    {
+      "id": "2",
+      "title": "経済性管理",
+      "sections": [
+        {
+          "id": "2.1",
+          "title": "事業企画",
+          "keywords": [
+            {
+              "slug": "dcf-method",
+              "title": "DCF法"
+            },
+            {
+              "slug": "esg-environmental-assessment",
+              "title": "ESG・環境評価"
+            },
+            {
+              "slug": "npv-net-present-value",
+              "title": "NPV"
+            },
+            {
+              "slug": "pmbok",
+              "title": "PMBOK"
+            },
+            {
+              "slug": "outcome-indicators",
+              "title": "アウトカム指標"
+            },
+            {
+              "slug": "output-indicators",
+              "title": "アウトプット指標"
+            },
+            {
+              "slug": "input-indicators",
+              "title": "インプット指標"
+            },
+            {
+              "slug": "concurrent-engineering",
+              "title": "コンカレントエンジニアリング"
+            },
+            {
+              "slug": "supply-chain-management",
+              "title": "サプライチェーンマネジメント（SCM）"
+            },
+            {
+              "slug": "design-in",
+              "title": "デザインイン"
+            },
+            {
+              "slug": "design-review",
+              "title": "デザインレビュー"
+            },
+            {
+              "slug": "front-loading",
+              "title": "フロントローディング"
+            },
+            {
+              "slug": "lifecycle-management",
+              "title": "ライフサイクルマネジメント"
+            },
+            {
+              "slug": "risk-assessment",
+              "title": "リスク評価"
+            },
+            {
+              "slug": "safety-health-plan",
+              "title": "安全衛生計画"
+            },
+            {
+              "slug": "temporary-works-plan",
+              "title": "仮設計画"
+            },
+            {
+              "slug": "payback-period-method",
+              "title": "回収期間法"
+            },
+            {
+              "slug": "discount-rate",
+              "title": "割引率"
+            },
+            {
+              "slug": "construction-plan",
+              "title": "工事計画"
+            },
+            {
+              "slug": "process-planning-construction",
+              "title": "工程計画"
+            },
+            {
+              "slug": "method-planning",
+              "title": "工法計画"
+            },
+            {
+              "slug": "market-research",
+              "title": "市場調査"
+            },
+            {
+              "slug": "demand-forecasting",
+              "title": "需要予測"
+            },
+            {
+              "slug": "reliability-maintainability-design",
+              "title": "信頼性設計・保全性設計"
+            },
+            {
+              "slug": "investment-recovery-plan",
+              "title": "投資回収計画"
+            },
+            {
+              "slug": "internal-rate-of-return",
+              "title": "内部収益率法"
+            },
+            {
+              "slug": "cost-effectiveness-analysis",
+              "title": "費用効果分析"
+            },
+            {
+              "slug": "cost-benefit-analysis",
+              "title": "費用便益分析（CBA）"
+            },
+            {
+              "slug": "budget-planning",
+              "title": "予算計画"
+            },
+            {
+              "slug": "business-continuity-plan",
+              "title": "BCP・BCM"
+            },
+            {
+              "slug": "four-m-of-production",
+              "title": "生産の4M"
+            },
+            {
+              "slug": "key-performance-indicators",
+              "title": "KGI・KSF・KPI"
+            },
+            {
+              "slug": "pdca-cycle",
+              "title": "PDCAサイクル"
+            },
+            {
+              "slug": "pfi",
+              "title": "PFI"
+            }
+          ]
+        },
+        {
+          "id": "2.2",
+          "title": "品質の管理",
+          "keywords": [
+            {
+              "slug": "haccp",
+              "title": "HACCP"
+            },
+            {
+              "slug": "customer-satisfaction",
+              "title": "顧客満足（CS）"
+            },
+            {
+              "slug": "control-limits",
+              "title": "管理限界"
+            },
+            {
+              "slug": "process-capability-index",
+              "title": "工程能力指数（Cp・Cpk）"
+            },
+            {
+              "slug": "manufacturing-quality",
+              "title": "製造品質"
+            },
+            {
+              "slug": "product-liability",
+              "title": "製造物責任（PL）"
+            },
+            {
+              "slug": "product-safety",
+              "title": "製品安全"
+            },
+            {
+              "slug": "design-quality",
+              "title": "設計品質"
+            },
+            {
+              "slug": "inspection-methods",
+              "title": "全数検査／抜取検査"
+            },
+            {
+              "slug": "quality-improvement",
+              "title": "品質改善活動"
+            },
+            {
+              "slug": "quality-control",
+              "title": "品質管理"
+            },
+            {
+              "slug": "quality-planning",
+              "title": "品質計画"
+            },
+            {
+              "slug": "quality-characteristics",
+              "title": "品質特性"
+            },
+            {
+              "slug": "quality-assurance",
+              "title": "品質保証"
+            },
+            {
+              "slug": "quality-policy",
+              "title": "品質方針"
+            },
+            {
+              "slug": "quality-objectives",
+              "title": "品質目標"
+            },
+            {
+              "slug": "nonconformity-rate",
+              "title": "不適合品率／適合品率"
+            },
+            {
+              "slug": "required-quality",
+              "title": "要求品質"
+            }
+          ]
+        },
+        {
+          "id": "2.3",
+          "title": "工程管理",
+          "keywords": [
+            {
+              "slug": "five-s",
+              "title": "5S"
+            },
+            {
+              "slug": "ecrs-principle",
+              "title": "ECRSの原則"
+            },
+            {
+              "slug": "jit-production",
+              "title": "JIT生産方式"
+            },
+            {
+              "slug": "pert-cpm",
+              "title": "PERT/CPM"
+            },
+            {
+              "slug": "pqcdsme",
+              "title": "PQCDSME"
+            },
+            {
+              "slug": "gantt-chart",
+              "title": "ガントチャート"
+            },
+            {
+              "slug": "parametric-estimation",
+              "title": "パラメトリック見積り"
+            },
+            {
+              "slug": "push-production",
+              "title": "プッシュ型生産方式"
+            },
+            {
+              "slug": "pull-production",
+              "title": "プル型生産方式"
+            },
+            {
+              "slug": "bottom-up-estimation",
+              "title": "ボトムアップ見積り"
+            },
+            {
+              "slug": "lead-time",
+              "title": "リードタイム"
+            },
+            {
+              "slug": "visual-management",
+              "title": "可視化（目で見る管理）"
+            },
+            {
+              "slug": "utilization-rate",
+              "title": "稼働率"
+            },
+            {
+              "slug": "inventory-control",
+              "title": "現品管理"
+            },
+            {
+              "slug": "process-planning-construction",
+              "title": "工程計画"
+            },
+            {
+              "slug": "work-planning",
+              "title": "作業計画"
+            },
+            {
+              "slug": "three-point-estimation",
+              "title": "三点見積り"
+            },
+            {
+              "slug": "progress-management",
+              "title": "進捗管理"
+            },
+            {
+              "slug": "theory-of-constraints",
+              "title": "制約条件の理論（TOC）"
+            },
+            {
+              "slug": "master-schedule-planning",
+              "title": "大日程計画・中日程計画・小日程計画"
+            },
+            {
+              "slug": "load-capacity",
+              "title": "負荷工数・生産能力"
+            },
+            {
+              "slug": "load-leveling",
+              "title": "負荷平準化（山積み・山くずし）"
+            },
+            {
+              "slug": "capacity-management",
+              "title": "余力管理"
+            },
+            {
+              "slug": "analogous-estimation",
+              "title": "類推見積り"
+            }
+          ]
+        },
+        {
+          "id": "2.4",
+          "title": "原価管理・管理会計",
+          "keywords": [
+            {
+              "slug": "wacc-roic",
+              "title": "WACC・ROIC"
+            },
+            {
+              "slug": "cost-driver",
+              "title": "コストドライバー"
+            },
+            {
+              "slug": "lifecycle-costing-method",
+              "title": "ライフサイクルコスティング"
+            },
+            {
+              "slug": "activity-abc",
+              "title": "活動基準原価計算（ABC）"
+            },
+            {
+              "slug": "cost-maintenance",
+              "title": "原価維持"
+            },
+            {
+              "slug": "cost-variance-analysis",
+              "title": "原価差異分析"
+            },
+            {
+              "slug": "depreciation-residual-value",
+              "title": "減価償却費・残存価値"
+            },
+            {
+              "slug": "job-order-costing",
+              "title": "個別原価計算"
+            },
+            {
+              "slug": "indirect-manufacturing-cost",
+              "title": "製造間接費"
+            },
+            {
+              "slug": "direct-manufacturing-cost",
+              "title": "製造直接費"
+            },
+            {
+              "slug": "process-costing",
+              "title": "総合原価計算"
+            },
+            {
+              "slug": "break-even-point",
+              "title": "損益分岐点・限界利益・優劣分岐点"
+            },
+            {
+              "slug": "direct-costing",
+              "title": "直接原価計算"
+            },
+            {
+              "slug": "standard-costing",
+              "title": "標準原価計算"
+            },
+            {
+              "slug": "quality-costing",
+              "title": "品質原価計算"
+            },
+            {
+              "slug": "target-cost",
+              "title": "目標原価（＝許容原価）"
+            }
+          ]
+        },
+        {
+          "id": "2.5",
+          "title": "財務会計",
+          "keywords": [
+            {
+              "slug": "cash-flow-statement",
+              "title": "キャッシュ・フロー計算書（C/F）"
+            },
+            {
+              "slug": "depreciation",
+              "title": "減価償却"
+            },
+            {
+              "slug": "ifrs",
+              "title": "国際会計基準（IFRS）"
+            },
+            {
+              "slug": "income-statement",
+              "title": "損益計算書（P/L）"
+            },
+            {
+              "slug": "balance-sheet",
+              "title": "貸借対照表（B/S）"
+            }
+          ]
+        },
+        {
+          "id": "2.6",
+          "title": "設備管理",
+          "keywords": [
+            {
+              "slug": "bathtub-curve",
+              "title": "バスタブカーブ"
+            },
+            {
+              "slug": "improvement-maintenance",
+              "title": "改良保全"
+            },
+            {
+              "slug": "planned-usage-period",
+              "title": "使用計画期間"
+            },
+            {
+              "slug": "corrective-maintenance",
+              "title": "事後保全"
+            },
+            {
+              "slug": "autonomous-maintenance",
+              "title": "自主保全"
+            },
+            {
+              "slug": "replacement-cost",
+              "title": "取替費用"
+            },
+            {
+              "slug": "initial-investment",
+              "title": "初期投資"
+            },
+            {
+              "slug": "equipment-characteristics",
+              "title": "設備の管理特性"
+            },
+            {
+              "slug": "equipment-economics",
+              "title": "設備の経済性"
+            },
+            {
+              "slug": "equipment-reliability",
+              "title": "設備の信頼性"
+            },
+            {
+              "slug": "equipment-maintainability",
+              "title": "設備の保全性"
+            },
+            {
+              "slug": "maintenance-cost",
+              "title": "設備維持費用"
+            },
+            {
+              "slug": "overall-equipment-effectiveness",
+              "title": "設備総合効率"
+            },
+            {
+              "slug": "periodic-maintenance",
+              "title": "定期保全"
+            },
+            {
+              "slug": "maintenance-prevention",
+              "title": "保全予防"
+            },
+            {
+              "slug": "predictive-maintenance",
+              "title": "予知保全"
+            },
+            {
+              "slug": "preventive-maintenance",
+              "title": "予防保全"
+            }
+          ]
+        },
+        {
+          "id": "2.7",
+          "title": "計画・管理の数理的手法",
+          "keywords": [
+            {
+              "slug": "game-theory",
+              "title": "ゲーム理論"
+            },
+            {
+              "slug": "delphi-method",
+              "title": "デルファイ法"
+            },
+            {
+              "slug": "monte-carlo-simulation",
+              "title": "モンテカルロシミュレーション"
+            },
+            {
+              "slug": "pdpc-method",
+              "title": "過程決定計画図（PDPC法）"
+            },
+            {
+              "slug": "opportunity-cost",
+              "title": "機会損失"
+            },
+            {
+              "slug": "economic-comparison-principle",
+              "title": "経済性の比較の原則"
+            },
+            {
+              "slug": "present-annual-future-value",
+              "title": "現価（現在価値）・年価・終価"
+            },
+            {
+              "slug": "integer-programming",
+              "title": "整数計画法"
+            },
+            {
+              "slug": "linear-programming",
+              "title": "線形計画法"
+            },
+            {
+              "slug": "multi-objective-optimization",
+              "title": "多目的最適化"
+            },
+            {
+              "slug": "analytic-hierarchy-process",
+              "title": "階層分析法（AHP）"
+            },
+            {
+              "slug": "cause-and-effect-diagram",
+              "title": "特性要因図"
+            },
+            {
+              "slug": "idea-generation-methods",
+              "title": "発想法"
+            },
+            {
+              "slug": "value-engineering",
+              "title": "VE・VA"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "人的資源管理",
+      "sections": [
+        {
+          "id": "3.1",
+          "title": "人の行動と組織",
+          "keywords": [
+            {
+              "slug": "pm-theory",
+              "title": "PM理論"
+            },
+            {
+              "slug": "sl-theory",
+              "title": "SL理論"
+            },
+            {
+              "slug": "asch-conformity-experiment",
+              "title": "アッシュの同調実験"
+            },
+            {
+              "slug": "incentive",
+              "title": "インセンティブ"
+            },
+            {
+              "slug": "wellbeing-org",
+              "title": "ウェルビーイング"
+            },
+            {
+              "slug": "content-process",
+              "title": "コンテント／プロセス"
+            },
+            {
+              "slug": "servant-leadership",
+              "title": "サーバントリーダーシップ"
+            },
+            {
+              "slug": "teal-organization",
+              "title": "ティール組織"
+            },
+            {
+              "slug": "scientific-management",
+              "title": "テイラーの科学的管理法"
+            },
+            {
+              "slug": "network-organization",
+              "title": "ネットワーク組織"
+            },
+            {
+              "slug": "herzberg-two-factor-theory",
+              "title": "ハーズバーグの二要因理論"
+            },
+            {
+              "slug": "pyramid-organization",
+              "title": "ピラミッド組織"
+            },
+            {
+              "slug": "followership",
+              "title": "フォロワーシップ"
+            },
+            {
+              "slug": "flat-organization",
+              "title": "フラット組織"
+            },
+            {
+              "slug": "hawthorne-experiment",
+              "title": "ホーソン実験"
+            },
+            {
+              "slug": "mcgregor-xy-theory",
+              "title": "マクレガーのX理論とY理論"
+            },
+            {
+              "slug": "maslow-hierarchy-of-needs",
+              "title": "マズローの欲求5段階説"
+            },
+            {
+              "slug": "matrix-organization",
+              "title": "マトリクス組織"
+            },
+            {
+              "slug": "extrinsic-motivation",
+              "title": "外発的動機付け"
+            },
+            {
+              "slug": "divisional-organization",
+              "title": "事業部制組織"
+            },
+            {
+              "slug": "functional-organization",
+              "title": "職能別組織"
+            },
+            {
+              "slug": "psychological-safety",
+              "title": "心理的安全性"
+            },
+            {
+              "slug": "diagnostic-od",
+              "title": "診断型組織開発"
+            },
+            {
+              "slug": "organizational-commitment",
+              "title": "組織コミットメント"
+            },
+            {
+              "slug": "dialogic-od",
+              "title": "対話型組織開発"
+            },
+            {
+              "slug": "achievement-organization",
+              "title": "達成型組織"
+            },
+            {
+              "slug": "intrinsic-motivation",
+              "title": "内発的動機付け"
+            }
+          ]
+        },
+        {
+          "id": "3.2",
+          "title": "労働関係法と労務管理",
+          "keywords": [
+            {
+              "slug": "lgbt-understanding-act",
+              "title": "LGBT理解増進法"
+            },
+            {
+              "slug": "stress-check-system",
+              "title": "ストレスチェック制度"
+            },
+            {
+              "slug": "sexual-harassment",
+              "title": "セクシャルハラスメント"
+            },
+            {
+              "slug": "telework",
+              "title": "テレワーク"
+            },
+            {
+              "slug": "part-time-fixed-term-act",
+              "title": "パートタイム・有期雇用労働法"
+            },
+            {
+              "slug": "power-harassment",
+              "title": "パワーハラスメント"
+            },
+            {
+              "slug": "flextime-system",
+              "title": "フレックスタイム制"
+            },
+            {
+              "slug": "mental-health-care",
+              "title": "メンタルヘルスケア"
+            },
+            {
+              "slug": "work-life-balance",
+              "title": "ワーク・ライフ・バランス"
+            },
+            {
+              "slug": "childcare-nursing-leave-act",
+              "title": "育児・介護休業法"
+            },
+            {
+              "slug": "performance-linked-bonus",
+              "title": "業績連動型賞与制度"
+            },
+            {
+              "slug": "health-management",
+              "title": "健康経営"
+            },
+            {
+              "slug": "individual-wage-management",
+              "title": "個別賃金管理"
+            },
+            {
+              "slug": "individual-labor-dispute-act",
+              "title": "個別労働紛争解決促進法"
+            },
+            {
+              "slug": "employment-insurance",
+              "title": "雇用保険制度"
+            },
+            {
+              "slug": "highly-professional-system",
+              "title": "高度プロフェッショナル制度"
+            },
+            {
+              "slug": "elderly-employment-act",
+              "title": "高年齢者雇用安定法"
+            },
+            {
+              "slug": "reemployment-system",
+              "title": "再雇用制度"
+            },
+            {
+              "slug": "minimum-wage-act",
+              "title": "最低賃金法"
+            },
+            {
+              "slug": "discretionary-work-system",
+              "title": "裁量労働制"
+            },
+            {
+              "slug": "child-support-act",
+              "title": "子ども・子育て支援法"
+            },
+            {
+              "slug": "child-rearing-support-act",
+              "title": "次世代育成支援対策推進法"
+            },
+            {
+              "slug": "youth-employment-act",
+              "title": "若者雇用促進法"
+            },
+            {
+              "slug": "employment-statistics",
+              "title": "就労状況・労働統計"
+            },
+            {
+              "slug": "immigration-control-act",
+              "title": "出入国管理及び難民認定法"
+            },
+            {
+              "slug": "women-empowerment-act",
+              "title": "女性活躍推進法"
+            },
+            {
+              "slug": "disability-employment-act",
+              "title": "障害者雇用促進法"
+            },
+            {
+              "slug": "disability-discrimination-act",
+              "title": "障害者差別解消法"
+            },
+            {
+              "slug": "employment-security-act",
+              "title": "職業安定法"
+            },
+            {
+              "slug": "vocational-training-act",
+              "title": "職業能力開発促進法"
+            },
+            {
+              "slug": "return-to-work-support",
+              "title": "職場復帰支援"
+            },
+            {
+              "slug": "skill-based-pay",
+              "title": "職能給"
+            },
+            {
+              "slug": "job-based-pay",
+              "title": "職務給"
+            },
+            {
+              "slug": "labor-mobility",
+              "title": "人材流動化"
+            },
+            {
+              "slug": "human-capital-disclosure",
+              "title": "人的資本の情報公開"
+            },
+            {
+              "slug": "performance-based-pay",
+              "title": "成果主義賃金"
+            },
+            {
+              "slug": "total-wage-management",
+              "title": "総額賃金管理"
+            },
+            {
+              "slug": "gender-equality-act",
+              "title": "男女共同参画社会基本法"
+            },
+            {
+              "slug": "equal-employment-act",
+              "title": "男女雇用機会均等法"
+            },
+            {
+              "slug": "equal-pay-for-equal-work",
+              "title": "同一労働同一賃金"
+            },
+            {
+              "slug": "pension-system",
+              "title": "年金制度"
+            },
+            {
+              "slug": "seniority-wage",
+              "title": "年功賃金"
+            },
+            {
+              "slug": "annual-salary-system",
+              "title": "年俸制"
+            },
+            {
+              "slug": "side-jobs",
+              "title": "副業・兼業"
+            },
+            {
+              "slug": "employee-benefits",
+              "title": "福利厚生"
+            },
+            {
+              "slug": "variable-work-hours",
+              "title": "変形労働時間制度"
+            },
+            {
+              "slug": "indefinite-conversion-rule",
+              "title": "無期転換ルール"
+            },
+            {
+              "slug": "workers-compensation-insurance",
+              "title": "労災保険制度"
+            },
+            {
+              "slug": "occupational-safety-act",
+              "title": "労働安全衛生法"
+            },
+            {
+              "slug": "labor-relations-adjustment-act",
+              "title": "労働関係調整法"
+            },
+            {
+              "slug": "labor-standards-act",
+              "title": "労働基準法"
+            },
+            {
+              "slug": "labor-contract-act",
+              "title": "労働契約法"
+            },
+            {
+              "slug": "labor-policy-act",
+              "title": "労働施策総合推進法"
+            },
+            {
+              "slug": "worker-dispatch-act",
+              "title": "労働者派遣法"
+            },
+            {
+              "slug": "labor-tribunal-act",
+              "title": "労働審判法"
+            },
+            {
+              "slug": "labor-productivity",
+              "title": "労働生産性"
+            },
+            {
+              "slug": "labor-union-act",
+              "title": "労働組合法"
+            },
+            {
+              "slug": "labor-share-ratio",
+              "title": "労働分配率"
+            },
+            {
+              "slug": "labor-cost-ratio",
+              "title": "労務費率"
+            }
+          ]
+        },
+        {
+          "id": "3.3",
+          "title": "人材活用計画",
+          "keywords": [
+            {
+              "slug": "lgbtq",
+              "title": "LGBTQ"
+            },
+            {
+              "slug": "unconscious-bias",
+              "title": "アンコンシャス・バイアス"
+            },
+            {
+              "slug": "internship",
+              "title": "インターンシップ"
+            },
+            {
+              "slug": "gender-gap",
+              "title": "ジェンダーギャップ"
+            },
+            {
+              "slug": "job-type-employment",
+              "title": "ジョブ型（職務主義）"
+            },
+            {
+              "slug": "second-career",
+              "title": "セカンドキャリア"
+            },
+            {
+              "slug": "talent-management",
+              "title": "タレントマネジメント"
+            },
+            {
+              "slug": "positive-action",
+              "title": "ポジティブアクション"
+            },
+            {
+              "slug": "membership-type-employment",
+              "title": "メンバーシップ型（属人主義）"
+            },
+            {
+              "slug": "location-limited-employee",
+              "title": "勤務地限定社員制度"
+            },
+            {
+              "slug": "continued-employment-system",
+              "title": "継続雇用制度"
+            },
+            {
+              "slug": "formal-informal-organization",
+              "title": "公式組織・非公式組織"
+            },
+            {
+              "slug": "reemployment-system",
+              "title": "再雇用制度"
+            },
+            {
+              "slug": "recruitment-management",
+              "title": "採用管理"
+            },
+            {
+              "slug": "self-declaration-system",
+              "title": "自己申告制度"
+            },
+            {
+              "slug": "internal-job-posting",
+              "title": "社内公募制"
+            },
+            {
+              "slug": "disability-employment",
+              "title": "障害者雇用"
+            },
+            {
+              "slug": "skill-qualification-system",
+              "title": "職能資格制度"
+            },
+            {
+              "slug": "job-design",
+              "title": "職務設計"
+            },
+            {
+              "slug": "job-grade-system",
+              "title": "職務等級制度"
+            },
+            {
+              "slug": "job-analysis",
+              "title": "職務分析"
+            },
+            {
+              "slug": "human-relations-management",
+              "title": "人間関係管理"
+            },
+            {
+              "slug": "personnel-management",
+              "title": "人事管理"
+            },
+            {
+              "slug": "specialist-system",
+              "title": "専門職制度"
+            },
+            {
+              "slug": "career-track-system",
+              "title": "総合職・一般職"
+            },
+            {
+              "slug": "multi-track-hr-system",
+              "title": "複線型人事制度"
+            },
+            {
+              "slug": "role-grade-system",
+              "title": "役割等級制度"
+            },
+            {
+              "slug": "mandatory-management-retirement",
+              "title": "役職定年制"
+            }
+          ]
+        },
+        {
+          "id": "3.4",
+          "title": "人材開発",
+          "keywords": [
+            {
+              "slug": "cpd",
+              "title": "CPD"
+            },
+            {
+              "slug": "e-learning",
+              "title": "eラーニング"
+            },
+            {
+              "slug": "ojt-off-jt",
+              "title": "OJT/OFF-JT"
+            },
+            {
+              "slug": "qc-circle",
+              "title": "QCサークル"
+            },
+            {
+              "slug": "career-ownership",
+              "title": "キャリアオーナーシップ"
+            },
+            {
+              "slug": "career-path",
+              "title": "キャリアパス"
+            },
+            {
+              "slug": "global-hr-development",
+              "title": "グローバル人材開発"
+            },
+            {
+              "slug": "competency-hr",
+              "title": "コンピテンシー"
+            },
+            {
+              "slug": "job-rotation",
+              "title": "ジョブローテーション"
+            },
+            {
+              "slug": "skill-standards",
+              "title": "スキル標準"
+            },
+            {
+              "slug": "evaluation-bias",
+              "title": "バイアス"
+            },
+            {
+              "slug": "mentor",
+              "title": "メンター制度"
+            },
+            {
+              "slug": "reskilling",
+              "title": "リスキリング"
+            },
+            {
+              "slug": "merit-demerit-system",
+              "title": "加点主義・減点主義"
+            },
+            {
+              "slug": "problem-setting-ability",
+              "title": "課題設定能力"
+            },
+            {
+              "slug": "task-based-training",
+              "title": "課題別研修"
+            },
+            {
+              "slug": "hierarchical-training",
+              "title": "階層別研修"
+            },
+            {
+              "slug": "foreign-trainee-program",
+              "title": "外国人研修・技能実習制度"
+            },
+            {
+              "slug": "training-techniques",
+              "title": "教育訓練技法"
+            },
+            {
+              "slug": "performance-evaluation",
+              "title": "業績考課（成績考課）"
+            },
+            {
+              "slug": "self-development",
+              "title": "自己啓発"
+            },
+            {
+              "slug": "attitude-appraisal",
+              "title": "情意考課"
+            },
+            {
+              "slug": "job-execution-ability",
+              "title": "職務遂行能力"
+            },
+            {
+              "slug": "human-resource-assessment",
+              "title": "人材アセスメント"
+            },
+            {
+              "slug": "appraisal-three-principles",
+              "title": "人事考課の三原則"
+            },
+            {
+              "slug": "specialized-training",
+              "title": "専門別研修"
+            },
+            {
+              "slug": "relative-absolute-evaluation",
+              "title": "相対評価・絶対評価"
+            },
+            {
+              "slug": "360-degree-evaluation",
+              "title": "多面評価（360度評価）"
+            },
+            {
+              "slug": "interpersonal-skills",
+              "title": "対人能力"
+            },
+            {
+              "slug": "competency-evaluation",
+              "title": "能力考課"
+            },
+            {
+              "slug": "halo-effect-errors",
+              "title": "評価誤差"
+            },
+            {
+              "slug": "mbo",
+              "title": "目標管理制度（MBO）"
+            },
+            {
+              "slug": "problem-solving-ability",
+              "title": "問題解決能力"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "情報管理",
+      "sections": [
+        {
+          "id": "4.1",
+          "title": "情報分析と情報活用",
+          "keywords": [
+            {
+              "slug": "three-c-analysis",
+              "title": "3C分析"
+            },
+            {
+              "slug": "four-p-analysis",
+              "title": "4P分析"
+            },
+            {
+              "slug": "ppm-analysis",
+              "title": "PPM分析"
+            },
+            {
+              "slug": "swot-analysis",
+              "title": "SWOT分析"
+            },
+            {
+              "slug": "survey-analysis",
+              "title": "アンケート分析"
+            },
+            {
+              "slug": "cluster-analysis",
+              "title": "クラスター分析"
+            },
+            {
+              "slug": "data-warehouse",
+              "title": "データウェアハウス"
+            },
+            {
+              "slug": "data-cleansing",
+              "title": "データクレンジング"
+            },
+            {
+              "slug": "data-mining",
+              "title": "データマイニング"
+            },
+            {
+              "slug": "data-visualization",
+              "title": "データ可視化"
+            },
+            {
+              "slug": "data-collection",
+              "title": "データ収集"
+            },
+            {
+              "slug": "design-thinking",
+              "title": "デザイン思考"
+            },
+            {
+              "slug": "value-chain-analysis",
+              "title": "バリューチェーン分析"
+            },
+            {
+              "slug": "logistic-regression",
+              "title": "ロジスティック回帰"
+            },
+            {
+              "slug": "tacit-knowledge",
+              "title": "暗黙知"
+            },
+            {
+              "slug": "public-private-data-act",
+              "title": "官民データ活用推進基本法"
+            },
+            {
+              "slug": "machine-learning",
+              "title": "機械学習"
+            },
+            {
+              "slug": "descriptive-statistics",
+              "title": "記述統計"
+            },
+            {
+              "slug": "explicit-knowledge",
+              "title": "形式知"
+            },
+            {
+              "slug": "collective-intelligence",
+              "title": "集合知"
+            },
+            {
+              "slug": "information-retrieval",
+              "title": "情報検索"
+            },
+            {
+              "slug": "recommendation-systems",
+              "title": "情報推薦"
+            },
+            {
+              "slug": "estimation-testing",
+              "title": "推定・検定"
+            },
+            {
+              "slug": "generative-ai",
+              "title": "生成AI"
+            },
+            {
+              "slug": "linear-regression",
+              "title": "線形回帰と最小二乗法"
+            },
+            {
+              "slug": "correlation-analysis",
+              "title": "相関分析"
+            },
+            {
+              "slug": "knowledge-sharing",
+              "title": "知識共有化"
+            }
+          ]
+        },
+        {
+          "id": "4.2",
+          "title": "コミュニケーション",
+          "keywords": [
+            {
+              "slug": "online-meetings",
+              "title": "オンライン会議・Web会議"
+            },
+            {
+              "slug": "groupware",
+              "title": "グループウェア"
+            },
+            {
+              "slug": "communication-control",
+              "title": "コミュニケーション・コントロール"
+            },
+            {
+              "slug": "communication-planning",
+              "title": "コミュニケーション計画"
+            },
+            {
+              "slug": "stakeholder",
+              "title": "ステーク・ホルダー"
+            },
+            {
+              "slug": "personal-communication",
+              "title": "パーソナル・コミュニケーション"
+            },
+            {
+              "slug": "public-relations",
+              "title": "パブリック・リレーションズ（PR）"
+            },
+            {
+              "slug": "mass-communication",
+              "title": "マス・コミュニケーション"
+            },
+            {
+              "slug": "meeting-design",
+              "title": "会議設計"
+            },
+            {
+              "slug": "disclosure-standards",
+              "title": "開示基準"
+            },
+            {
+              "slug": "disclosure-request",
+              "title": "開示請求"
+            },
+            {
+              "slug": "emergency-info-processing",
+              "title": "緊急時の情報処理"
+            },
+            {
+              "slug": "emergency-info-systems",
+              "title": "緊急時情報システム・サービス"
+            },
+            {
+              "slug": "verbal-nonverbal-communication",
+              "title": "言語／非言語コミュニケーション"
+            },
+            {
+              "slug": "public-acceptance",
+              "title": "社会的受容（PA）"
+            },
+            {
+              "slug": "citizen-participation",
+              "title": "住民参加"
+            },
+            {
+              "slug": "information-disclosure",
+              "title": "情報開示"
+            },
+            {
+              "slug": "information-disclosure-act",
+              "title": "情報公開法"
+            },
+            {
+              "slug": "right-to-know",
+              "title": "知る権利"
+            }
+          ]
+        },
+        {
+          "id": "4.3",
+          "title": "知的財産権と情報の保護と活用",
+          "keywords": [
+            {
+              "slug": "opt-in-opt-out",
+              "title": "オプトイン／オプトアウト"
+            },
+            {
+              "slug": "digital-rights",
+              "title": "デジタルライツ"
+            },
+            {
+              "slug": "de-jure-standard",
+              "title": "デジュール標準"
+            },
+            {
+              "slug": "de-facto-standard",
+              "title": "デファクト標準"
+            },
+            {
+              "slug": "forum-standard",
+              "title": "フォーラム標準"
+            },
+            {
+              "slug": "my-number-act",
+              "title": "マイナンバー法"
+            },
+            {
+              "slug": "technology-licensing",
+              "title": "ライセンス（技術実施許諾）"
+            },
+            {
+              "slug": "design-rights",
+              "title": "意匠権（意匠法）"
+            },
+            {
+              "slug": "subcontracting-act",
+              "title": "下請法"
+            },
+            {
+              "slug": "personal-information",
+              "title": "個人情報"
+            },
+            {
+              "slug": "personal-info-utilization",
+              "title": "個人情報の活用・流通"
+            },
+            {
+              "slug": "personal-info-protection",
+              "title": "個人情報の保護措置"
+            },
+            {
+              "slug": "data-breach-response",
+              "title": "個人情報の漏洩時対応"
+            },
+            {
+              "slug": "international-filing-system",
+              "title": "国際出願制度"
+            },
+            {
+              "slug": "industrial-property-rights",
+              "title": "産業財産権"
+            },
+            {
+              "slug": "private-monopoly",
+              "title": "私的独占"
+            },
+            {
+              "slug": "utility-model-rights",
+              "title": "実用新案権（実用新案法）"
+            },
+            {
+              "slug": "trademark-rights",
+              "title": "商標権（商標法）"
+            },
+            {
+              "slug": "portrait-publicity-privacy",
+              "title": "肖像権・パブリシティ権・プライバシー権"
+            },
+            {
+              "slug": "prior-use-rights",
+              "title": "先使用権制度"
+            },
+            {
+              "slug": "bid-rigging",
+              "title": "談合（入札談合）"
+            },
+            {
+              "slug": "ip-utilization",
+              "title": "知的財産の活用"
+            },
+            {
+              "slug": "ip-creation",
+              "title": "知的財産の創造"
+            },
+            {
+              "slug": "ip-protection",
+              "title": "知的財産の保護"
+            },
+            {
+              "slug": "copyright",
+              "title": "著作権（著作権法）"
+            },
+            {
+              "slug": "anonymized-information",
+              "title": "匿名加工情報"
+            },
+            {
+              "slug": "patent-rights",
+              "title": "特許権（特許法）"
+            },
+            {
+              "slug": "state-secrets-act",
+              "title": "特定秘密保護法"
+            },
+            {
+              "slug": "antitrust-compliance",
+              "title": "独占禁止法とコンプライアンス"
+            },
+            {
+              "slug": "standardization-strategy",
+              "title": "標準化戦略"
+            },
+            {
+              "slug": "unfair-trade-practices",
+              "title": "不公正な取引方法"
+            },
+            {
+              "slug": "unfair-competition-prevention-act",
+              "title": "不正競争防止法"
+            },
+            {
+              "slug": "unreasonable-trade-restraint",
+              "title": "不当な取引制限"
+            }
+          ]
+        },
+        {
+          "id": "4.4",
+          "title": "情報通信技術動向",
+          "keywords": [
+            {
+              "slug": "api",
+              "title": "API"
+            },
+            {
+              "slug": "erp",
+              "title": "ERP"
+            },
+            {
+              "slug": "iot",
+              "title": "IoT（Internet of Things）"
+            },
+            {
+              "slug": "rpa",
+              "title": "RPA"
+            },
+            {
+              "slug": "vr-ar-metaverse",
+              "title": "VR・AR・メタバース"
+            },
+            {
+              "slug": "web-services",
+              "title": "WEBサービス"
+            },
+            {
+              "slug": "agile",
+              "title": "アジャイル"
+            },
+            {
+              "slug": "internet",
+              "title": "インターネット"
+            },
+            {
+              "slug": "waterfall",
+              "title": "ウォーターフォール"
+            },
+            {
+              "slug": "edge-computing",
+              "title": "エッジコンピューティング"
+            },
+            {
+              "slug": "cloud-on-premises",
+              "title": "クラウドコンピューティング／オンプレミス"
+            },
+            {
+              "slug": "scm-system",
+              "title": "サプライチェーンマネジメント（SCM）システム"
+            },
+            {
+              "slug": "digital-twin-cps",
+              "title": "デジタルツイン・サイバーフィジカルシステム（CPS）"
+            },
+            {
+              "slug": "business-intelligence",
+              "title": "ビジネスインテリジェンス（BI）"
+            },
+            {
+              "slug": "blockchain-crypto",
+              "title": "ブロックチェーン・暗号資産"
+            },
+            {
+              "slug": "system-security",
+              "title": "安全性（Security）"
+            },
+            {
+              "slug": "mobile-communication",
+              "title": "移動通信"
+            },
+            {
+              "slug": "sfa-system",
+              "title": "営業支援（SFA）システム"
+            },
+            {
+              "slug": "system-availability",
+              "title": "可用性（Availability）"
+            },
+            {
+              "slug": "enterprise-portal-intranet",
+              "title": "企業内ポータル・イントラネット"
+            },
+            {
+              "slug": "fixed-communication",
+              "title": "固定通信"
+            },
+            {
+              "slug": "crm-system",
+              "title": "顧客管理（CRM）システム"
+            },
+            {
+              "slug": "accounting-systems",
+              "title": "財務会計・管理会計システム"
+            },
+            {
+              "slug": "centralization-decentralization",
+              "title": "集中化と分散化"
+            },
+            {
+              "slug": "system-reliability",
+              "title": "信頼性（Reliability）"
+            },
+            {
+              "slug": "hr-systems",
+              "title": "人事システム"
+            },
+            {
+              "slug": "production-management-system",
+              "title": "生産管理システム"
+            },
+            {
+              "slug": "sales-management-system",
+              "title": "販売管理システム"
+            },
+            {
+              "slug": "system-serviceability",
+              "title": "保守性（Serviceability）"
+            },
+            {
+              "slug": "system-integrity",
+              "title": "保全性（Integrity）"
+            }
+          ]
+        },
+        {
+          "id": "4.5",
+          "title": "情報セキュリティ",
+          "keywords": [
+            {
+              "slug": "dmz",
+              "title": "DMZ"
+            },
+            {
+              "slug": "dos-ddos",
+              "title": "DoS・DDoS"
+            },
+            {
+              "slug": "isms-iso27001",
+              "title": "ISMS（ISO/IEC 27001）"
+            },
+            {
+              "slug": "jisec",
+              "title": "ITセキュリティ評価及び認証制度（JISEC）"
+            },
+            {
+              "slug": "vpn",
+              "title": "VPN"
+            },
+            {
+              "slug": "access-log-analysis",
+              "title": "アクセスログ分析"
+            },
+            {
+              "slug": "access-control",
+              "title": "アクセス制御・アクセス権限設定"
+            },
+            {
+              "slug": "operation-errors",
+              "title": "オペレーションミス"
+            },
+            {
+              "slug": "cyber-security",
+              "title": "サイバー安全保障"
+            },
+            {
+              "slug": "system-outage-degradation",
+              "title": "システム停止・性能低下"
+            },
+            {
+              "slug": "security-software",
+              "title": "セキュリティ対策ソフト"
+            },
+            {
+              "slug": "common-criteria",
+              "title": "セキュリティ評価基準CC（ISO/IEC 15408）"
+            },
+            {
+              "slug": "zero-trust",
+              "title": "ゼロトラスト"
+            },
+            {
+              "slug": "social-engineering",
+              "title": "ソーシャルエンジニアリング"
+            },
+            {
+              "slug": "data-governance",
+              "title": "データガバナンス"
+            },
+            {
+              "slug": "password-security",
+              "title": "パスワード強化"
+            },
+            {
+              "slug": "firewall-ids",
+              "title": "ファイアウォール・侵入検知"
+            },
+            {
+              "slug": "phishing-pharming",
+              "title": "フィッシング詐欺・ファーミング詐欺"
+            },
+            {
+              "slug": "privacy-mark",
+              "title": "プライバシーマーク"
+            },
+            {
+              "slug": "malware",
+              "title": "マルウェア"
+            },
+            {
+              "slug": "encryption-digital-signature",
+              "title": "暗号化・電子署名"
+            },
+            {
+              "slug": "system-availability",
+              "title": "可用性（Availability）"
+            },
+            {
+              "slug": "integrity-security",
+              "title": "完全性（Integrity）"
+            },
+            {
+              "slug": "confidentiality",
+              "title": "機密性（Confidentiality）"
+            },
+            {
+              "slug": "threat-awareness-training",
+              "title": "脅威攻撃の手口学習"
+            },
+            {
+              "slug": "security-education",
+              "title": "情報セキュリティ教育"
+            },
+            {
+              "slug": "data-leak-tampering-loss",
+              "title": "情報漏洩・改ざん・消失"
+            },
+            {
+              "slug": "system-reliability",
+              "title": "信頼性（Reliability）"
+            },
+            {
+              "slug": "authenticity",
+              "title": "真正性（Authenticity）"
+            },
+            {
+              "slug": "ismap",
+              "title": "政府情報システムのためのセキュリティ評価制度（ISMAP）"
+            },
+            {
+              "slug": "vulnerability",
+              "title": "脆弱性（セキュリティホール）"
+            },
+            {
+              "slug": "accountability-traceability",
+              "title": "責任追跡性（Accountability）"
+            },
+            {
+              "slug": "multi-factor-authentication",
+              "title": "多要素認証"
+            },
+            {
+              "slug": "non-repudiation",
+              "title": "否認防止（Non-repudiation）"
+            },
+            {
+              "slug": "targeted-attack",
+              "title": "標的型攻撃"
+            },
+            {
+              "slug": "unauthorized-access",
+              "title": "不正アクセス"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "安全管理",
+      "sections": [
+        {
+          "id": "5.1",
+          "title": "安全の概念",
+          "keywords": [
+            {
+              "slug": "elsi",
+              "title": "ELSI"
+            },
+            {
+              "slug": "safety-2-0",
+              "title": "Safety2.0"
+            },
+            {
+              "slug": "aging-infrastructure",
+              "title": "インフラ老朽化対策"
+            },
+            {
+              "slug": "all-hazard-approach",
+              "title": "オールハザードアプローチ"
+            },
+            {
+              "slug": "cybersecurity-safety",
+              "title": "サイバーセキュリティ"
+            },
+            {
+              "slug": "system-safety",
+              "title": "システム安全"
+            },
+            {
+              "slug": "smart-safety",
+              "title": "スマート保安"
+            },
+            {
+              "slug": "process-safety-mgmt",
+              "title": "プロセスセーフティマネジメント（PSM）"
+            },
+            {
+              "slug": "resilience",
+              "title": "レジリエンス"
+            },
+            {
+              "slug": "safety-and-security",
+              "title": "安全／安心"
+            },
+            {
+              "slug": "safety-management-system",
+              "title": "安全マネジメントシステム"
+            },
+            {
+              "slug": "safety-control",
+              "title": "安全管理"
+            },
+            {
+              "slug": "safety-investment",
+              "title": "安全投資"
+            },
+            {
+              "slug": "safety-culture",
+              "title": "安全文化"
+            },
+            {
+              "slug": "safety-objectives",
+              "title": "安全目標"
+            },
+            {
+              "slug": "machinery-safety-guidelines",
+              "title": "機械の包括的な安全基準に関する指針"
+            },
+            {
+              "slug": "public-safety",
+              "title": "公衆安全"
+            },
+            {
+              "slug": "high-pressure-gas-act",
+              "title": "高圧ガス保安法"
+            },
+            {
+              "slug": "consumer-safety",
+              "title": "消費者安全"
+            },
+            {
+              "slug": "consumer-product-safety-act",
+              "title": "消費生活用製品安全法"
+            },
+            {
+              "slug": "fire-service-act",
+              "title": "消防法"
+            },
+            {
+              "slug": "product-liability-act",
+              "title": "製造物責任法（PL法）"
+            },
+            {
+              "slug": "product-safety",
+              "title": "製品安全"
+            },
+            {
+              "slug": "disaster-prevention",
+              "title": "防災"
+            }
+          ]
+        },
+        {
+          "id": "5.2",
+          "title": "安全に関するリスクマネジメント",
+          "keywords": [
+            {
+              "slug": "alarp-principle",
+              "title": "ALARPの原則"
+            },
+            {
+              "slug": "catastrophe-bias",
+              "title": "カタストロフィーバイアス"
+            },
+            {
+              "slug": "virgin-bias",
+              "title": "バージンバイアス"
+            },
+            {
+              "slug": "hazard",
+              "title": "ハザード（潜在的危険要因）"
+            },
+            {
+              "slug": "veteran-bias",
+              "title": "ベテランバイアス"
+            },
+            {
+              "slug": "risk",
+              "title": "リスク"
+            },
+            {
+              "slug": "risk-map-matrix",
+              "title": "リスクマップ／リスクマトリクス"
+            },
+            {
+              "slug": "risk-management-system",
+              "title": "リスクマネジメントシステム"
+            },
+            {
+              "slug": "risk-management-plan",
+              "title": "リスクマネジメント計画"
+            },
+            {
+              "slug": "risk-management-policy",
+              "title": "リスクマネジメント方針"
+            },
+            {
+              "slug": "risk-monitoring",
+              "title": "リスクモニタリング"
+            },
+            {
+              "slug": "risk-criteria",
+              "title": "リスク基準"
+            },
+            {
+              "slug": "risk-treatment",
+              "title": "リスク対応"
+            },
+            {
+              "slug": "risk-identification",
+              "title": "リスク特定"
+            },
+            {
+              "slug": "risk-perception",
+              "title": "リスク認知"
+            },
+            {
+              "slug": "risk-assessment",
+              "title": "リスク評価"
+            },
+            {
+              "slug": "risk-analysis",
+              "title": "リスク分析"
+            },
+            {
+              "slug": "impact",
+              "title": "影響（影響の種類・影響の規模）"
+            },
+            {
+              "slug": "optimism-bias",
+              "title": "楽観主義バイアス"
+            },
+            {
+              "slug": "likelihood",
+              "title": "起こりやすさ（発生確率・頻度）"
+            },
+            {
+              "slug": "residual-risk",
+              "title": "残留リスク"
+            },
+            {
+              "slug": "public-acceptance",
+              "title": "社会的受容（PA）"
+            },
+            {
+              "slug": "normalcy-bias",
+              "title": "正常性バイアス"
+            },
+            {
+              "slug": "conformity-bias",
+              "title": "同調バイアス"
+            }
+          ]
+        },
+        {
+          "id": "5.3",
+          "title": "労働安全衛生管理",
+          "keywords": [
+            {
+              "slug": "mental-health",
+              "title": "メンタルヘルス"
+            },
+            {
+              "slug": "safety-health-org-structure",
+              "title": "安全衛生管理体制"
+            },
+            {
+              "slug": "safety-health-education",
+              "title": "安全衛生教育"
+            },
+            {
+              "slug": "safety-health-policy",
+              "title": "安全衛生方針"
+            },
+            {
+              "slug": "accident-cost",
+              "title": "災害コスト"
+            },
+            {
+              "slug": "accident-statistics",
+              "title": "災害統計"
+            },
+            {
+              "slug": "occupational-disease",
+              "title": "職業病"
+            },
+            {
+              "slug": "oshms",
+              "title": "労働安全衛生マネジメントシステム（OSHMS）"
+            },
+            {
+              "slug": "osh-management-system",
+              "title": "労働安全衛生管理システム"
+            },
+            {
+              "slug": "occupational-safety-act",
+              "title": "労働安全衛生法"
+            },
+            {
+              "slug": "labor-standards-act",
+              "title": "労働基準法"
+            }
+          ]
+        },
+        {
+          "id": "5.4",
+          "title": "事故・災害の未然防止活動・技術",
+          "keywords": [
+            {
+              "slug": "lopa",
+              "title": "LOPA"
+            },
+            {
+              "slug": "tbm-toolbox-meeting",
+              "title": "TBM（ツールボックスミーティング）"
+            },
+            {
+              "slug": "interlock",
+              "title": "インターロック"
+            },
+            {
+              "slug": "safety-case",
+              "title": "セーフティケース（安全立証）"
+            },
+            {
+              "slug": "technical-nontechnical-skills",
+              "title": "テクニカルスキルとノンテクニカルスキル"
+            },
+            {
+              "slug": "heinrich-law",
+              "title": "ハインリッヒの法則"
+            },
+            {
+              "slug": "human-factors",
+              "title": "ヒューマンファクタ"
+            },
+            {
+              "slug": "fool-proof",
+              "title": "フールプルーフ"
+            },
+            {
+              "slug": "fail-safe",
+              "title": "フェールセーフ"
+            },
+            {
+              "slug": "fail-soft",
+              "title": "フェールソフト"
+            },
+            {
+              "slug": "fault-avoidance",
+              "title": "フォールトアボイダンス"
+            },
+            {
+              "slug": "fault-tolerance",
+              "title": "フォールトトレランス"
+            },
+            {
+              "slug": "blind-drill",
+              "title": "ブラインド型訓練"
+            },
+            {
+              "slug": "safety-patrol",
+              "title": "安全衛生パトロール"
+            },
+            {
+              "slug": "safety-confirmation-system",
+              "title": "安全確認型システム・危険検出型システム"
+            },
+            {
+              "slug": "safety-education",
+              "title": "安全教育"
+            },
+            {
+              "slug": "safety-instrumented-system",
+              "title": "安全計装システム（SIS）"
+            },
+            {
+              "slug": "isolation-stop-safety",
+              "title": "隔離安全・停止安全"
+            },
+            {
+              "slug": "kyt",
+              "title": "危険予知訓練（KYT）"
+            },
+            {
+              "slug": "functional-safety",
+              "title": "機能安全"
+            },
+            {
+              "slug": "four-e-countermeasures",
+              "title": "事故の4E対策"
+            },
+            {
+              "slug": "four-m-analysis",
+              "title": "事故の4M要因分析"
+            },
+            {
+              "slug": "accident-response-drill",
+              "title": "事故対応訓練"
+            },
+            {
+              "slug": "small-group-activities",
+              "title": "小集団活動"
+            },
+            {
+              "slug": "redundancy-safety",
+              "title": "冗長性（安全設計）"
+            },
+            {
+              "slug": "ergonomic-principles",
+              "title": "人間工学原則の遵守"
+            },
+            {
+              "slug": "periodic-inspection",
+              "title": "定期点検活動"
+            },
+            {
+              "slug": "emergency-stop-device",
+              "title": "非常停止装置"
+            },
+            {
+              "slug": "sop",
+              "title": "標準作業手順書（SOP）"
+            },
+            {
+              "slug": "unsafe-conditions-behavior",
+              "title": "不安全状態・不安全行動"
+            },
+            {
+              "slug": "disaster-drill",
+              "title": "防災訓練"
+            },
+            {
+              "slug": "inherent-safety",
+              "title": "本質安全"
+            },
+            {
+              "slug": "prevention-activities",
+              "title": "未然防止活動"
+            },
+            {
+              "slug": "occupational-accident-prevention-plan",
+              "title": "労働災害防止計画"
+            }
+          ]
+        },
+        {
+          "id": "5.5",
+          "title": "危機管理",
+          "keywords": [
+            {
+              "slug": "business-continuity-plan",
+              "title": "BCP・BCM"
+            },
+            {
+              "slug": "ics",
+              "title": "ICS"
+            },
+            {
+              "slug": "timeline-disaster",
+              "title": "タイムライン"
+            },
+            {
+              "slug": "terrorism",
+              "title": "テロリズム"
+            },
+            {
+              "slug": "liquefaction",
+              "title": "液状化現象"
+            },
+            {
+              "slug": "probabilistic-risk-assessment",
+              "title": "確率論的リスク評価"
+            },
+            {
+              "slug": "infectious-disease-pandemic",
+              "title": "感染症・パンデミック"
+            },
+            {
+              "slug": "crisis-management-manual",
+              "title": "危機管理マニュアル"
+            },
+            {
+              "slug": "crisis-communication",
+              "title": "危機広報"
+            },
+            {
+              "slug": "hazardous-facility-disaster-prevention",
+              "title": "危険物施設防災"
+            },
+            {
+              "slug": "extreme-events",
+              "title": "極端現象"
+            },
+            {
+              "slug": "emergency",
+              "title": "緊急事態"
+            },
+            {
+              "slug": "alert-levels",
+              "title": "警戒レベル"
+            },
+            {
+              "slug": "national-resilience-act",
+              "title": "国土強靱化基本法"
+            },
+            {
+              "slug": "civil-protection-act",
+              "title": "国民保護法"
+            },
+            {
+              "slug": "disaster-countermeasures-act",
+              "title": "災害対策基本法"
+            },
+            {
+              "slug": "natech",
+              "title": "自然災害に起因する産業事故（Natech）"
+            },
+            {
+              "slug": "defense-in-depth",
+              "title": "深層防護"
+            },
+            {
+              "slug": "contingency",
+              "title": "不測事態"
+            },
+            {
+              "slug": "disaster-weather-info",
+              "title": "防災気象情報"
+            },
+            {
+              "slug": "crisis-priority",
+              "title": "優先順位"
+            }
+          ]
+        },
+        {
+          "id": "5.6",
+          "title": "システム安全工学手法",
+          "keywords": [
+            {
+              "slug": "fmea",
+              "title": "FMEA"
+            },
+            {
+              "slug": "hazid",
+              "title": "HAZID"
+            },
+            {
+              "slug": "hazop",
+              "title": "HAZOP"
+            },
+            {
+              "slug": "pha",
+              "title": "PHA"
+            },
+            {
+              "slug": "therp",
+              "title": "THERP"
+            },
+            {
+              "slug": "vta-method",
+              "title": "VTA法"
+            },
+            {
+              "slug": "eta",
+              "title": "イベントツリー分析（ETA）"
+            },
+            {
+              "slug": "decision-tree-analysis",
+              "title": "デシジョンツリー分析"
+            },
+            {
+              "slug": "tripod-theory",
+              "title": "トライポッド理論"
+            },
+            {
+              "slug": "fta",
+              "title": "フォールトツリー分析（FTA）"
+            },
+            {
+              "slug": "bowtie-analysis",
+              "title": "ボウタイ分析"
+            },
+            {
+              "slug": "performance-shaping-factors",
+              "title": "行動形成要因（PSF）"
+            },
+            {
+              "slug": "root-cause-analysis",
+              "title": "根本原因分析（RCA）"
+            },
+            {
+              "slug": "reliability-block-diagram",
+              "title": "信頼性ブロック図"
+            },
+            {
+              "slug": "human-error-probability",
+              "title": "人的過誤確率（HEP）"
+            },
+            {
+              "slug": "series-system",
+              "title": "直列システム"
+            },
+            {
+              "slug": "parallel-system",
+              "title": "並列システム"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "社会環境管理",
+      "sections": [
+        {
+          "id": "6.1",
+          "title": "地球的規模の環境問題",
+          "keywords": [
+            {
+              "slug": "ipbes",
+              "title": "IPBES"
+            },
+            {
+              "slug": "s-plus-3e",
+              "title": "S+3E"
+            },
+            {
+              "slug": "satoyama-initiative",
+              "title": "SATOYAMAイニシアティブ"
+            },
+            {
+              "slug": "wced",
+              "title": "WCED"
+            },
+            {
+              "slug": "agenda-21",
+              "title": "アジェンダ21"
+            },
+            {
+              "slug": "ecological-footprint",
+              "title": "エコロジカル・フットプリント"
+            },
+            {
+              "slug": "energy",
+              "title": "エネルギー"
+            },
+            {
+              "slug": "ozone-layer-protection",
+              "title": "オゾン層保護"
+            },
+            {
+              "slug": "decoupling",
+              "title": "デカップリング"
+            },
+            {
+              "slug": "doughnut-economics",
+              "title": "ドーナツ経済"
+            },
+            {
+              "slug": "top-runner-system",
+              "title": "トップランナー制度"
+            },
+            {
+              "slug": "nature-positive",
+              "title": "ネイチャーポジティブ"
+            },
+            {
+              "slug": "biosafety",
+              "title": "バイオセーフティ"
+            },
+            {
+              "slug": "planetary-boundaries",
+              "title": "プラネタリー・バウンダリー（地球の限界）"
+            },
+            {
+              "slug": "millennium-ecosystem-assessment",
+              "title": "ミレニアム生態系評価"
+            },
+            {
+              "slug": "ramsar-convention",
+              "title": "ラムサール条約"
+            },
+            {
+              "slug": "red-list",
+              "title": "レッドリスト"
+            },
+            {
+              "slug": "club-of-rome",
+              "title": "ローマクラブ"
+            },
+            {
+              "slug": "cites",
+              "title": "ワシントン条約（CITES）"
+            },
+            {
+              "slug": "rio-declaration",
+              "title": "環境と開発に関するリオ宣言"
+            },
+            {
+              "slug": "climate-change-international",
+              "title": "気候変動・国際対応"
+            },
+            {
+              "slug": "renewable-energy-act",
+              "title": "再生可能エネルギー特別措置法"
+            },
+            {
+              "slug": "energy-conservation-act",
+              "title": "省エネ法"
+            },
+            {
+              "slug": "global-warming-countermeasures-act",
+              "title": "地球温暖化対策推進法"
+            },
+            {
+              "slug": "climate-change-adaptation-act",
+              "title": "気候変動適応法"
+            },
+            {
+              "slug": "long-term-strategy-2050",
+              "title": "2050年長期戦略"
+            },
+            {
+              "slug": "green-transformation",
+              "title": "グリーントランスフォーメーション（GX）"
+            },
+            {
+              "slug": "carbon-neutral",
+              "title": "カーボンニュートラル"
+            },
+            {
+              "slug": "unced-earth-summit",
+              "title": "国連環境開発会議（UNCED）"
+            },
+            {
+              "slug": "un-human-environment-conf",
+              "title": "国連人間環境会議"
+            },
+            {
+              "slug": "kunming-montreal-framework",
+              "title": "昆明・モントリオール生物多様性枠組"
+            },
+            {
+              "slug": "acid-rain",
+              "title": "酸性雨"
+            },
+            {
+              "slug": "sdgs",
+              "title": "持続可能な開発目標（SDGs）"
+            },
+            {
+              "slug": "nature-conservation-act",
+              "title": "自然環境保全法"
+            },
+            {
+              "slug": "natural-parks-act",
+              "title": "自然公園法"
+            },
+            {
+              "slug": "nature-restoration-act",
+              "title": "自然再生推進法"
+            },
+            {
+              "slug": "species-preservation-act",
+              "title": "種の保存法"
+            },
+            {
+              "slug": "forests-villages-rivers-seas",
+              "title": "森里川海プロジェクト"
+            },
+            {
+              "slug": "human-development-index",
+              "title": "人間開発指数（HDI）"
+            },
+            {
+              "slug": "ecosystem-services",
+              "title": "生態系サービス"
+            },
+            {
+              "slug": "biodiversity-basic-act",
+              "title": "生物多様性基本法"
+            },
+            {
+              "slug": "convention-on-biodiversity",
+              "title": "生物多様性条約"
+            },
+            {
+              "slug": "wildlife-protection-act",
+              "title": "鳥獣保護管理法"
+            },
+            {
+              "slug": "invasive-alien-species",
+              "title": "特定外来生物（外来生物法）"
+            },
+            {
+              "slug": "nagoya-protocol",
+              "title": "名古屋議定書"
+            }
+          ]
+        },
+        {
+          "id": "6.2",
+          "title": "地域環境問題",
+          "keywords": [
+            {
+              "slug": "alps-treated-water",
+              "title": "ALPS処理水"
+            },
+            {
+              "slug": "e-waste",
+              "title": "E-waste問題"
+            },
+            {
+              "slug": "eco-drr",
+              "title": "Eco-DRR（生態系を活用した防災・減災）"
+            },
+            {
+              "slug": "gfc-chemicals-framework",
+              "title": "GFC"
+            },
+            {
+              "slug": "pops-convention",
+              "title": "POPs条約"
+            },
+            {
+              "slug": "reach-regulation",
+              "title": "REACH規制"
+            },
+            {
+              "slug": "rohs-weee",
+              "title": "RoHS規制・WEEE規制"
+            },
+            {
+              "slug": "asbestos-issue",
+              "title": "アスベスト問題"
+            },
+            {
+              "slug": "clearance-level",
+              "title": "クリアランスレベル"
+            },
+            {
+              "slug": "green-infrastructure",
+              "title": "グリーンインフラ"
+            },
+            {
+              "slug": "circular-economy",
+              "title": "サーキュラーエコノミー"
+            },
+            {
+              "slug": "sustainable-fashion",
+              "title": "サステナブルファッション"
+            },
+            {
+              "slug": "dioxin-countermeasures-act",
+              "title": "ダイオキシン類対策特別措置法"
+            },
+            {
+              "slug": "basel-convention",
+              "title": "バーゼル条約"
+            },
+            {
+              "slug": "hazard-map",
+              "title": "ハザードマップ"
+            },
+            {
+              "slug": "heat-island-effect",
+              "title": "ヒートアイランド現象"
+            },
+            {
+              "slug": "prtr-act",
+              "title": "化管法／PRTR法"
+            },
+            {
+              "slug": "chemical-substances-review-act",
+              "title": "化審法"
+            },
+            {
+              "slug": "ocean-plastic",
+              "title": "海洋プラスチック問題"
+            },
+            {
+              "slug": "landscape-act",
+              "title": "景観法"
+            },
+            {
+              "slug": "sound-water-cycle",
+              "title": "健全な水循環系"
+            },
+            {
+              "slug": "nuclear-disaster-act",
+              "title": "原子力災害対策特別措置法"
+            },
+            {
+              "slug": "four-major-pollution-diseases",
+              "title": "四大公害病"
+            },
+            {
+              "slug": "circular-society-basic-act",
+              "title": "循環型社会形成推進基本法"
+            },
+            {
+              "slug": "water-pollution-control-act",
+              "title": "水質汚濁防止法"
+            },
+            {
+              "slug": "minamata-convention",
+              "title": "水俣条約"
+            },
+            {
+              "slug": "air-pollution-control-act",
+              "title": "大気汚染防止法"
+            },
+            {
+              "slug": "regional-circular-symbiosis",
+              "title": "地域循環共生圏"
+            },
+            {
+              "slug": "interim-storage-facility",
+              "title": "中間貯蔵施設"
+            },
+            {
+              "slug": "seven-types-of-pollution",
+              "title": "典型７公害"
+            },
+            {
+              "slug": "urban-flood",
+              "title": "都市型水害"
+            },
+            {
+              "slug": "soil-contamination-act",
+              "title": "土壌汚染対策法"
+            },
+            {
+              "slug": "waste-management-act",
+              "title": "廃棄物処理法"
+            },
+            {
+              "slug": "radioactive-waste",
+              "title": "放射性廃棄物"
+            },
+            {
+              "slug": "radioactive-decontamination-act",
+              "title": "放射性物質汚染対処特別措置法"
+            }
+          ]
+        },
+        {
+          "id": "6.3",
+          "title": "環境保全の基本原則",
+          "keywords": [
+            {
+              "slug": "esd",
+              "title": "ESD"
+            },
+            {
+              "slug": "end-of-pipe",
+              "title": "エンドオブパイプ型対策"
+            },
+            {
+              "slug": "deposit-system",
+              "title": "デポジット制度"
+            },
+            {
+              "slug": "partnership",
+              "title": "パートナーシップ"
+            },
+            {
+              "slug": "backcasting",
+              "title": "バックキャスティング"
+            },
+            {
+              "slug": "performance-regulation",
+              "title": "パフォーマンス規制"
+            },
+            {
+              "slug": "lifecycle-assessment",
+              "title": "ライフサイクルアセスメント"
+            },
+            {
+              "slug": "polluter-pays-principle",
+              "title": "汚染者負担原則（PPP）"
+            },
+            {
+              "slug": "surcharge",
+              "title": "課徴金"
+            },
+            {
+              "slug": "extended-producer-responsibility",
+              "title": "拡大生産者責任（EPR）"
+            },
+            {
+              "slug": "eco-label",
+              "title": "環境ラベル"
+            },
+            {
+              "slug": "environmental-impact-assessment",
+              "title": "環境影響評価法"
+            },
+            {
+              "slug": "environmental-standards",
+              "title": "環境基準"
+            },
+            {
+              "slug": "environmental-basic-plan",
+              "title": "環境基本計画"
+            },
+            {
+              "slug": "environmental-basic-act",
+              "title": "環境基本法"
+            },
+            {
+              "slug": "carbon-pricing",
+              "title": "環境税・カーボンプライシング"
+            },
+            {
+              "slug": "source-control-principle",
+              "title": "源流対策原則"
+            },
+            {
+              "slug": "behavioral-regulation",
+              "title": "行為規制"
+            },
+            {
+              "slug": "consensus-instruments",
+              "title": "合意的手法"
+            },
+            {
+              "slug": "subsidiarity-principle",
+              "title": "補完性原則・補完性原理"
+            },
+            {
+              "slug": "prevention-principle",
+              "title": "未然防止原則"
+            },
+            {
+              "slug": "precautionary-principle",
+              "title": "予防原則"
+            }
+          ]
+        },
+        {
+          "id": "6.4",
+          "title": "組織の社会的責任と環境管理活動",
+          "keywords": [
+            {
+              "slug": "cdp-sbt-re100",
+              "title": "CDP・SBT・RE100"
+            },
+            {
+              "slug": "csr",
+              "title": "CSR"
+            },
+            {
+              "slug": "csv",
+              "title": "CSV"
+            },
+            {
+              "slug": "esg-investment",
+              "title": "ESG投資・ESG金融"
+            },
+            {
+              "slug": "iso-14000",
+              "title": "ISO 14000シリーズ"
+            },
+            {
+              "slug": "iso-26000",
+              "title": "ISO 26000"
+            },
+            {
+              "slug": "tcfd",
+              "title": "TCFD提言"
+            },
+            {
+              "slug": "tnfd",
+              "title": "TNFD提言"
+            },
+            {
+              "slug": "eco-action-21",
+              "title": "エコアクション21"
+            },
+            {
+              "slug": "green-bond",
+              "title": "グリーンボンド"
+            },
+            {
+              "slug": "global-compact",
+              "title": "グローバル・コンパクト"
+            },
+            {
+              "slug": "bioeconomy",
+              "title": "バイオエコノミー"
+            },
+            {
+              "slug": "environmental-communication",
+              "title": "環境コミュニケーション"
+            },
+            {
+              "slug": "environmental-accounting",
+              "title": "環境会計"
+            },
+            {
+              "slug": "design-for-environment",
+              "title": "環境適合設計"
+            },
+            {
+              "slug": "pollution-control-manager",
+              "title": "公害防止管理者"
+            },
+            {
+              "slug": "sri",
+              "title": "社会的責任投資（SRI）"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

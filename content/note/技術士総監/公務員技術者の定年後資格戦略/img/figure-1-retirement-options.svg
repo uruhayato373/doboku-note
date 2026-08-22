@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="792" viewBox="0 0 1200 792">
+  <rect width="1200" height="792" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="600" y="62" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#222222" text-anchor="middle">公務員技術者の定年後</text>
+  <text x="600" y="106" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#2e6da4" text-anchor="middle">選択肢と総監の効き方</text>
+
+  <!-- テーブルヘッダ -->
+  <rect x="40" y="162" width="320" height="60" rx="6" fill="#2e6da4"/>
+  <text x="200" y="201" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">定年後の選択肢</text>
+  <rect x="376" y="162" width="784" height="60" rx="6" fill="#2e6da4"/>
+  <text x="768" y="201" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">総監がどう効くか</text>
+
+  <!-- テーブルデータ行 -->
+  <!-- 行 1: 再任用・OB活動 -->
+  <rect x="40" y="262" width="1120" height="90" fill="#ffffff"/>
+  <line x1="368" y1="262" x2="368" y2="352" stroke="#dde1e7" stroke-width="1"/>
+  <text x="200" y="316" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">再任用・OB活動</text>
+  <text x="396" y="301" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">後進指導・技術継承・研修講師。</text>
+  <text x="396" y="331" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">5管理の枠組みで経験を体系的に語れる</text>
+  <!-- 行 2: 建設コンサルタント -->
+  <rect x="40" y="352" width="1120" height="90" fill="#f3f4f6"/>
+  <line x1="368" y1="352" x2="368" y2="442" stroke="#dde1e7" stroke-width="1"/>
+  <line x1="40" y1="352" x2="1160" y2="352" stroke="#dde1e7" stroke-width="1"/>
+  <text x="200" y="406" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">建設コンサルタント</text>
+  <text x="396" y="391" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">一担当でなく、複数管理を統合し</text>
+  <text x="396" y="421" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">プロジェクト全体を見る立場で処遇される</text>
+  <!-- 行 3: 建設会社 -->
+  <rect x="40" y="442" width="1120" height="90" fill="#ffffff"/>
+  <line x1="368" y1="442" x2="368" y2="532" stroke="#dde1e7" stroke-width="1"/>
+  <line x1="40" y1="442" x2="1160" y2="442" stroke="#dde1e7" stroke-width="1"/>
+  <text x="200" y="496" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">建設会社</text>
+  <text x="396" y="481" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">技術・安全管理・経営企画など</text>
+  <text x="396" y="511" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">「現場を一段引いて見る」役割で評価される</text>
+  <!-- 行 4: 公益法人・第三者機関 -->
+  <rect x="40" y="532" width="1120" height="90" fill="#f3f4f6"/>
+  <line x1="368" y1="532" x2="368" y2="622" stroke="#dde1e7" stroke-width="1"/>
+  <line x1="40" y1="532" x2="1160" y2="532" stroke="#dde1e7" stroke-width="1"/>
+  <text x="200" y="586" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">公益法人・第三者機関</text>
+  <text x="396" y="571" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">検査・性能評価・技術審査。</text>
+  <text x="396" y="601" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">コスト/安全/環境/工程を見渡す総合判断が効く</text>
+  <!-- 行 5: 非常勤・講師・技術士事務所 -->
+  <rect x="40" y="622" width="1120" height="90" fill="#ffffff"/>
+  <line x1="368" y1="622" x2="368" y2="712" stroke="#dde1e7" stroke-width="1"/>
+  <line x1="40" y1="622" x2="1160" y2="622" stroke="#dde1e7" stroke-width="1"/>
+  <text x="200" y="661" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">非常勤・講師・</text>
+  <text x="200" y="691" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c" text-anchor="middle">技術士事務所</text>
+  <text x="396" y="661" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">専門知識を活かした独立的な働き。</text>
+  <text x="396" y="691" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">総監は対外的な信頼の裏づけになる</text>
+  <!-- テーブル外枠 -->
+  <rect x="40" y="162" width="1120" height="550" rx="6" fill="none" stroke="#ccd0d8" stroke-width="1.5"/>
+
+    <text x="1172" y="770" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

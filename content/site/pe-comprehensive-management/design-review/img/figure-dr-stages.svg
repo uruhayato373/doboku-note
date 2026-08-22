@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="デザインレビューの 5 段階（DR0 企画〜DR4 量産移行）と各段階の審査対象、品質ゲートとして設計者以外の関係部門が多角的に審査する">
+
+  <text x="200" y="26" text-anchor="middle" font-size="15" fill="#222" font-family="sans-serif" font-weight="bold">デザインレビューの実施段階（DR0〜DR4）</text>
+
+  <!-- 左：設計プロセスの進行を示す縦矢印 -->
+  <line x1="30" y1="50" x2="30" y2="352" stroke="#2e6da4" stroke-width="2"/>
+  <polygon points="30,360 24,348 36,348" fill="#2e6da4"/>
+
+  <!-- DR0: y=48 -->
+  <rect x="52" y="48" width="340" height="54" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="4"/>
+  <line x1="115" y1="52" x2="115" y2="98" stroke="#2e6da4" stroke-width="1" opacity="0.4"/>
+  <text x="84" y="70" text-anchor="middle" font-size="16" fill="#2e6da4" font-family="sans-serif" font-weight="bold">DR0</text>
+  <text x="124" y="70" text-anchor="start" font-size="14" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">企画段階</text>
+  <text x="124" y="88" text-anchor="start" font-size="13" fill="#555" font-family="sans-serif">製品コンセプト・仕様の妥当性を審査</text>
+
+  <!-- DR1: y=112 -->
+  <rect x="52" y="112" width="340" height="54" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="4"/>
+  <line x1="115" y1="116" x2="115" y2="162" stroke="#2e6da4" stroke-width="1" opacity="0.4"/>
+  <text x="84" y="134" text-anchor="middle" font-size="16" fill="#2e6da4" font-family="sans-serif" font-weight="bold">DR1</text>
+  <text x="124" y="134" text-anchor="start" font-size="14" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">基本設計</text>
+  <text x="124" y="152" text-anchor="start" font-size="13" fill="#555" font-family="sans-serif">基本設計の技術的成立性を審査</text>
+
+  <!-- DR2: y=176 -->
+  <rect x="52" y="176" width="340" height="54" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="4"/>
+  <line x1="115" y1="180" x2="115" y2="226" stroke="#2e6da4" stroke-width="1" opacity="0.4"/>
+  <text x="84" y="198" text-anchor="middle" font-size="16" fill="#2e6da4" font-family="sans-serif" font-weight="bold">DR2</text>
+  <text x="124" y="198" text-anchor="start" font-size="14" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">詳細設計</text>
+  <text x="124" y="216" text-anchor="start" font-size="13" fill="#555" font-family="sans-serif">製造容易性・信頼性を審査</text>
+
+  <!-- DR3: y=240 -->
+  <rect x="52" y="240" width="340" height="54" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="4"/>
+  <line x1="115" y1="244" x2="115" y2="290" stroke="#2e6da4" stroke-width="1" opacity="0.4"/>
+  <text x="84" y="262" text-anchor="middle" font-size="16" fill="#2e6da4" font-family="sans-serif" font-weight="bold">DR3</text>
+  <text x="124" y="262" text-anchor="start" font-size="14" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">試作・評価</text>
+  <text x="124" y="280" text-anchor="start" font-size="13" fill="#555" font-family="sans-serif">試作品の評価結果を審査</text>
+
+  <!-- DR4: y=304 -->
+  <rect x="52" y="304" width="340" height="54" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="4"/>
+  <line x1="115" y1="308" x2="115" y2="354" stroke="#2e6da4" stroke-width="1" opacity="0.4"/>
+  <text x="84" y="326" text-anchor="middle" font-size="16" fill="#2e6da4" font-family="sans-serif" font-weight="bold">DR4</text>
+  <text x="124" y="326" text-anchor="start" font-size="14" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">量産移行</text>
+  <text x="124" y="344" text-anchor="start" font-size="13" fill="#555" font-family="sans-serif">量産準備の完了状況を審査</text>
+
+  <!-- 品質ゲート -->
+  <rect x="8" y="376" width="384" height="58" fill="none" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+  <text x="200" y="400" text-anchor="middle" font-size="14" fill="#3a7d44" font-family="sans-serif" font-weight="bold">品質ゲート</text>
+  <text x="200" y="420" text-anchor="middle" font-size="13" fill="#555" font-family="sans-serif">設計者以外の関係部門（製造・品質・保全・調達等）が審査</text>
+
+  <!-- サマリー行 -->
+  <text x="200" y="462" text-anchor="middle" font-size="12" fill="#555" font-family="sans-serif">DR は不具合を早期に発見・是正し手戻りコストを最小化する</text>
+  <text x="200" y="482" text-anchor="middle" font-size="11" fill="#8a8a8a" font-family="sans-serif">早期発見ほど是正コストが低い（「10 倍ルール」）</text>
+
+</svg>

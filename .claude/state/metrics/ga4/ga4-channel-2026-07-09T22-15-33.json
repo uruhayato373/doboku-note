@@ -1,0 +1,89 @@
+{
+  "meta": {
+    "startDate": "2026-06-11",
+    "endDate": "2026-07-08",
+    "dimension": "channel",
+    "dimensionApiName": "sessionDefaultChannelGroup",
+    "metrics": [
+      "activeUsers",
+      "sessions",
+      "screenPageViewsPerSession",
+      "averageSessionDuration",
+      "engagementRate",
+      "bounceRate"
+    ],
+    "limit": 100,
+    "organicOnly": false,
+    "snsOnly": false,
+    "snsSources": [],
+    "japanOnly": true,
+    "excludeSpam": true,
+    "spamSourcesExcluded": [],
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "channel": "Organic Search",
+      "activeUsers": 3491,
+      "sessions": 6079,
+      "screenPageViewsPerSession": 2.265833196249383,
+      "averageSessionDuration": 372.1996514586281,
+      "engagementRate": 0.6341503536765916,
+      "bounceRate": 0.36584964632340844
+    },
+    {
+      "channel": "Direct",
+      "activeUsers": 411,
+      "sessions": 761,
+      "screenPageViewsPerSession": 3.4494086727989486,
+      "averageSessionDuration": 400.9979638015768,
+      "engagementRate": 0.5295663600525624,
+      "bounceRate": 0.4704336399474376
+    },
+    {
+      "channel": "Referral",
+      "activeUsers": 168,
+      "sessions": 766,
+      "screenPageViewsPerSession": 4.563968668407311,
+      "averageSessionDuration": 553.5493728185379,
+      "engagementRate": 0.6109660574412533,
+      "bounceRate": 0.38903394255874674
+    },
+    {
+      "channel": "Organic Social",
+      "activeUsers": 93,
+      "sessions": 101,
+      "screenPageViewsPerSession": 1.613861386138614,
+      "averageSessionDuration": 39.03894088118812,
+      "engagementRate": 0.38613861386138615,
+      "bounceRate": 0.6138613861386139
+    },
+    {
+      "channel": "AI Assistant",
+      "activeUsers": 91,
+      "sessions": 131,
+      "screenPageViewsPerSession": 1.3740458015267176,
+      "averageSessionDuration": 237.92444102290077,
+      "engagementRate": 0.5038167938931297,
+      "bounceRate": 0.4961832061068702
+    },
+    {
+      "channel": "Unassigned",
+      "activeUsers": 70,
+      "sessions": 85,
+      "screenPageViewsPerSession": 2.411764705882353,
+      "averageSessionDuration": 263.18896597647057,
+      "engagementRate": 0.27058823529411763,
+      "bounceRate": 0.7294117647058823
+    },
+    {
+      "channel": "Organic Video",
+      "activeUsers": 13,
+      "sessions": 13,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 0,
+      "engagementRate": 0,
+      "bounceRate": 1
+    }
+  ]
+}

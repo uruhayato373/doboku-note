@@ -1,0 +1,116 @@
+/* =============================================================================
+   SpecSheetList.module.css
+   土木ノート仕様書調リスト — Editorial tokens (globals.css) 準拠
+   ============================================================================= */
+
+.root {
+  border: 1px solid var(--rule-soft);
+  border-top: 2px solid var(--ink);
+  border-radius: var(--radius-card-content);
+  padding: 4px 16px;
+  margin: 1.5rem 0;
+  background: var(--paper);
+}
+
+/* アクセント: ブランド色上罫線（ExamPoint など用） */
+.rootAccentBrand {
+  border-top-color: var(--accent);
+}
+
+.head {
+  padding: 12px 0 10px;
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.headRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.title {
+  margin: 0;
+  font-size: var(--font-size-secondary);
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+}
+
+/* サブタイトル: summary 相当。マーカーペン風グラデで下線強調 */
+.subtitle {
+  margin: 6px 0 0;
+  font-size: var(--font-size-small);
+  line-height: 1.6;
+  color: var(--ink-body);
+  font-weight: 600;
+}
+
+.subtitleHighlight {
+  background: linear-gradient(
+    transparent 60%,
+    var(--accent-fill) 60%
+  );
+  padding: 0 2px;
+}
+
+/* prose-blog の .prose-blog ul / .prose-blog li は specificity (0, 1, 1) で、
+   単独の .list / .row（CSS モジュール単体 = (0, 1, 0)）に勝ってしまう。
+   .root をプレフィックスしてネスト形式にすることで (0, 2, 0) に引き上げ、
+   prose-blog の padding-left / margin を確実に上書きする。*/
+.root .list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.root .row {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  column-gap: 8px;
+  align-items: baseline;
+  padding: 6px 0;
+  margin: 0;
+  border-bottom: 1px dashed var(--rule-soft);
+}
+
+.root .row:last-child {
+  border-bottom: none;
+}
+
+.idx {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: var(--font-size-xsmall);
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 1.6em;
+}
+
+.idxGlyph {
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1;
+}
+
+.idxDot {
+  position: relative;
+}
+
+.idxDot::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-left: 2px;
+}
+
+.text {
+  color: var(--ink-body);
+  font-size: 1em;
+  line-height: 1.8;
+}

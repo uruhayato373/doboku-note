@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="60" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">1 年間スケジュール — 4 フェーズ ガントチャート</text>
+  <text x="60" y="94" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">学習開始（前年 12 月）〜 口頭試験合否（翌 1 月）の約 14 ヶ月</text>
+
+  <!-- サブヘッダ帯 -->
+  <rect x="60" y="120" width="1120" height="42" rx="6" fill="#e8f0fe"/>
+  <text x="80" y="147" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="600" fill="#1a3a5c">合格者に共通する「フェーズ分け」 — 直前詰め込みでは届かない理由がここにある</text>
+
+  <!-- 月グリッドライン（x=200 start, 70px/month, 14 months） -->
+  <line x1="200" y1="196" x2="200" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="270" y1="196" x2="270" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="340" y1="196" x2="340" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="410" y1="196" x2="410" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="480" y1="196" x2="480" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="550" y1="196" x2="550" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="620" y1="196" x2="620" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="690" y1="196" x2="690" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="760" y1="196" x2="760" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="830" y1="196" x2="830" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="900" y1="196" x2="900" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="970" y1="196" x2="970" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="1040" y1="196" x2="1040" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="1110" y1="196" x2="1110" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="1180" y1="196" x2="1180" y2="580" stroke="#e5e7eb" stroke-width="1"/>
+
+  <!-- 月ラベル（font-size=16, center of each 70px slot） -->
+  <text x="235" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#555555" text-anchor="middle">前12月</text>
+  <text x="305" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#222222" text-anchor="middle">1月</text>
+  <text x="375" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#222222" text-anchor="middle">2月</text>
+  <text x="445" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#222222" text-anchor="middle">3月</text>
+  <text x="515" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#222222" text-anchor="middle">4月</text>
+  <text x="585" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#222222" text-anchor="middle">5月</text>
+  <text x="655" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#222222" text-anchor="middle">6月</text>
+  <text x="725" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#222222" text-anchor="middle">7月</text>
+  <text x="795" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#222222" text-anchor="middle">8月</text>
+  <text x="865" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#222222" text-anchor="middle">9月</text>
+  <text x="935" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#222222" text-anchor="middle">10月</text>
+  <text x="1005" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#222222" text-anchor="middle">11月</text>
+  <text x="1075" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#222222" text-anchor="middle">12月</text>
+  <text x="1145" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="700" fill="#555555" text-anchor="middle">翌1月</text>
+
+  <!-- Phase 1: 前年12月〜2月（x=200, 3ヶ月=210px） -->
+  <text x="190" y="256" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#3a7d44" text-anchor="end">Phase 1</text>
+  <text x="190" y="276" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#8a8a8a" text-anchor="end">全体像把握</text>
+  <rect x="200" y="212" width="210" height="76" rx="8" fill="#e6f4ea" stroke="#3a7d44" stroke-width="2"/>
+  <text x="305" y="248" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#3a7d44" text-anchor="middle">通読・傾向把握</text>
+  <text x="305" y="270" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#3a7d44" text-anchor="middle">業務接続</text>
+
+  <!-- Phase 2: 3月〜5月（上下2段スタック） -->
+  <text x="190" y="346" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#2e6da4" text-anchor="end">Phase 2</text>
+  <text x="190" y="366" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#8a8a8a" text-anchor="end">本格学習</text>
+  <!-- Phase 2 上段: 申込書作成 3月〜4月中旬 (x=410, w=102, ends at 受験申込マーカー) -->
+  <rect x="410" y="304" width="102" height="32" rx="6" fill="#ddeeff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="461" y="325" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="600" fill="#2e6da4" text-anchor="middle">申込書作成</text>
+  <!-- Phase 2 下段: 択一演習・記述骨子 3月〜5月末 (x=410, w=210, full Phase 2) -->
+  <rect x="410" y="342" width="210" height="32" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <text x="515" y="363" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="600" fill="#2e6da4" text-anchor="middle">択一演習・記述骨子</text>
+
+  <!-- Phase 3: 6月〜7月中旬（x=620, 1.5ヶ月=105px） -->
+  <text x="190" y="436" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#d4a017" text-anchor="end">Phase 3</text>
+  <text x="190" y="456" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#8a8a8a" text-anchor="end">直前期</text>
+  <rect x="620" y="392" width="105" height="76" rx="8" fill="#fff8e1" stroke="#d4a017" stroke-width="2"/>
+  <text x="672" y="428" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#d4a017" text-anchor="middle">直前仕上げ</text>
+  <text x="672" y="450" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#d4a017" text-anchor="middle">→ 本番</text>
+
+  <!-- Phase 4: 7月後半〜11月末（x=725, w=315, 口頭試験マーカーx=1040で終端） -->
+  <text x="190" y="526" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#b22234" text-anchor="end">Phase 4</text>
+  <text x="190" y="546" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="500" fill="#8a8a8a" text-anchor="end">試験後対策</text>
+  <rect x="725" y="482" width="315" height="76" rx="8" fill="#fce8eb" stroke="#b22234" stroke-width="2"/>
+  <text x="882" y="518" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#b22234" text-anchor="middle">記述再現・業務経歴整理</text>
+  <text x="882" y="540" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#b22234" text-anchor="middle">口頭試験対策</text>
+
+  <!-- 受験申込マーカー: 4月中旬（x=515） -->
+  <line x1="515" y1="196" x2="515" y2="588" stroke="#2e6da4" stroke-width="2" stroke-dasharray="5,3"/>
+  <rect x="455" y="592" width="120" height="44" rx="6" fill="#2e6da4"/>
+  <text x="515" y="611" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="800" fill="#ffffff" text-anchor="middle">受験申込</text>
+  <text x="515" y="629" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="600" fill="#cce0ff" text-anchor="middle">（4 月中旬）</text>
+
+  <!-- 試験マーカー: 筆記試験（7月中旬 x=725） -->
+  <line x1="725" y1="196" x2="725" y2="588" stroke="#1a3a5c" stroke-width="3" stroke-dasharray="6,4"/>
+  <rect x="675" y="592" width="100" height="30" rx="6" fill="#1a3a5c"/>
+  <text x="725" y="613" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="800" fill="#ffffff" text-anchor="middle">筆記試験</text>
+
+  <!-- 試験マーカー: 口頭試験（12月開始 x=1040） -->
+  <line x1="1040" y1="196" x2="1040" y2="588" stroke="#b22234" stroke-width="3" stroke-dasharray="6,4"/>
+  <rect x="980" y="592" width="120" height="44" rx="6" fill="#b22234"/>
+  <text x="1040" y="611" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="800" fill="#ffffff" text-anchor="middle">口頭試験</text>
+  <text x="1040" y="629" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" font-weight="600" fill="#ffd0d6" text-anchor="middle">（最短 12月〜）</text>
+
+  <!-- 合格発表マーカー: 10月下旬（x=935） -->
+  <line x1="935" y1="482" x2="935" y2="588" stroke="#3a7d44" stroke-width="2" stroke-dasharray="4,4"/>
+  <text x="935" y="648" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="600" fill="#3a7d44" text-anchor="middle">筆記合格</text>
+  <text x="935" y="668" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="600" fill="#3a7d44" text-anchor="middle">発表(10月)</text>
+
+  <!-- doboku-note.com -->
+  <text x="1180" y="776" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

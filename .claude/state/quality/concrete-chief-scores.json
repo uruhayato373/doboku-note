@@ -1,0 +1,338 @@
+{
+  "version": 1,
+  "categories": [
+    "concrete-chief-engineer"
+  ],
+  "scored_at": "2026-07-10T00:00:00.000Z",
+  "pages": {
+    "guide-essay": {
+      "slug": "concrete-chief-engineer-guide-essay",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 3,
+        "volume": 3,
+        "funnel": 2,
+        "mobile": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [
+        "funnel"
+      ],
+      "qualitative_comment": "択一と小論文の対比で始まる読者ベネフィット型リードが秀逸。全見出しに導入文・ですます統一・lintクリーン・12,700字と厚い。末尾は承認型まとめだがSeeAlso無しでfunnelのみ2。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-overview": {
+      "slug": "concrete-chief-engineer-guide-overview",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 2,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "readability",
+        "funnel",
+        "mobile"
+      ],
+      "qualitative_comment": "どこから手をつければの悩み直撃リードが強い。全H2に導入文。L28で145字の1文が読みやすさとモバイルを1段下げる。8,300字で下限は十分超過。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "guide-trends": {
+      "slug": "concrete-chief-engineer-guide-trends",
+      "group": "guide",
+      "scores": {
+        "intro": 2,
+        "readability": 3,
+        "volume": 3,
+        "funnel": 2,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "intro",
+        "funnel"
+      ],
+      "qualitative_comment": "リードがやや傾向データ記述寄りで読者ベネフィット型として弱め。ですます統一・lintクリーン・10,900字。末尾は承認型・SeeAlso無しでfunnel2。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-construction": {
+      "slug": "concrete-chief-engineer-primary-construction",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [],
+      "qualitative_comment": "ExamPoint 62件を折衷案形式で追加、RelatedKeywords 5件追加",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-durability": {
+      "slug": "concrete-chief-engineer-primary-durability",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [],
+      "qualitative_comment": "ExamPoint 13件を折衷案形式で追加、RelatedKeywords 5件追加",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-materials": {
+      "slug": "concrete-chief-engineer-primary-materials",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [],
+      "qualitative_comment": "ExamPoint 40件を折衷案形式で追加、RelatedKeywords 5件追加",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-mix-design": {
+      "slug": "concrete-chief-engineer-primary-mix-design",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [],
+      "qualitative_comment": "ExamPoint 15件を折衷案形式で追加、RelatedKeywords 5件追加",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-production-qc": {
+      "slug": "concrete-chief-engineer-primary-production-qc",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 1,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "exampoint"
+      ],
+      "qualitative_comment": "RelatedKeywords 5件追加（exampoint=1: 太字ポイント形式のまま・要component化はfollow-up）",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-products": {
+      "slug": "concrete-chief-engineer-primary-products",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 1,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "exampoint"
+      ],
+      "qualitative_comment": "RelatedKeywords 5件追加（exampoint=1: 太字ポイント形式のまま）",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-properties": {
+      "slug": "concrete-chief-engineer-primary-properties",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 1,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "exampoint"
+      ],
+      "qualitative_comment": "RelatedKeywords 5件追加（exampoint=1: 太字ポイント形式のまま）",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "primary-structural-design": {
+      "slug": "concrete-chief-engineer-primary-structural-design",
+      "group": "primary",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 1,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "exampoint"
+      ],
+      "qualitative_comment": "RelatedKeywords 5件追加（exampoint=1: 太字ポイント形式のまま）",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "textbook-construction": {
+      "slug": "concrete-chief-engineer-textbook-construction",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 2,
+        "figures": 2,
+        "reference": 1
+      },
+      "weighted": 2.25,
+      "weak_axes": [
+        "mobile",
+        "figures",
+        "reference"
+      ],
+      "qualitative_comment": "構成・原則は良好。2列表のセルが長くモバイルでやや窮屈。参考資料が技報堂1冊のみで公的リンク・e-Gov欠落。図表なし。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "textbook-durability": {
+      "slug": "concrete-chief-engineer-textbook-durability",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 2,
+        "figures": 2,
+        "reference": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "mobile",
+        "figures",
+        "reference"
+      ],
+      "qualitative_comment": "劣化機構を原因→対策で整理し明快。ASR対策3列表の説明セルが長くモバイル減点。参考資料は書籍+JCI+示方書だが法令e-Govリンクなし。図表なし。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "textbook-materials": {
+      "slug": "concrete-chief-engineer-textbook-materials",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 2,
+        "reference": 2
+      },
+      "weighted": 2.7,
+      "weak_axes": [
+        "figures",
+        "reference"
+      ],
+      "qualitative_comment": "データ表を持たず散文中心でモバイル良好。JIS参考資料が網羅的だが法令e-Govリンク・関連テキスト誘導なし。図表なし。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "textbook-mix-design": {
+      "slug": "concrete-chief-engineer-textbook-mix-design",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 2,
+        "reference": 2
+      },
+      "weighted": 2.7,
+      "weak_axes": [
+        "figures",
+        "reference"
+      ],
+      "qualitative_comment": "配合計算を数式手順で整理し表なしでモバイル良好。参考資料は書籍+JCI+示方書+JISで良好だが法令リンクなし。配合表の図解があると理解が深まる。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "textbook-production-qc": {
+      "slug": "concrete-chief-engineer-textbook-production-qc",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 2,
+        "reference": 2
+      },
+      "weighted": 2.7,
+      "weak_axes": [
+        "figures",
+        "reference"
+      ],
+      "qualitative_comment": "許容差・統計を数式で整理し表なしでモバイル良好。JIS参考資料網羅的だが附属書列挙のみで関連テキスト誘導・法令リンクなし。管理図の図解があると良い。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "textbook-products": {
+      "slug": "concrete-chief-engineer-textbook-products",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 2,
+        "figures": 2,
+        "reference": 1
+      },
+      "weighted": 2.25,
+      "weak_axes": [
+        "mobile",
+        "figures",
+        "reference"
+      ],
+      "qualitative_comment": "製造方法の対応整理は明快。JIS規格3列表の説明セルが長くモバイル減点。参考資料が技報堂1冊のみで公的リンク欠落。製法図解があると効果的。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "textbook-properties": {
+      "slug": "concrete-chief-engineer-textbook-properties",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 2,
+        "reference": 2
+      },
+      "weighted": 2.7,
+      "weak_axes": [
+        "figures",
+        "reference"
+      ],
+      "qualitative_comment": "フレッシュ〜硬化を数式中心に整理し表なしでモバイル良好。JIS/JSCE参考資料が最も網羅的だが法令リンク・関連テキスト誘導なし。応力ひずみ図等があると理解促進。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "textbook-structural-design": {
+      "slug": "concrete-chief-engineer-textbook-structural-design",
+      "group": "textbook",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 3,
+        "figures": 2,
+        "reference": 2
+      },
+      "weighted": 2.7,
+      "weak_axes": [
+        "figures",
+        "reference"
+      ],
+      "qualitative_comment": "曲げ・せん断の論点区別が明快で表なしモバイル良好。参考資料は書籍+土木学会+建築学会で良好だが法令リンクなし。応力分布・ひび割れ図があると視覚的に強い。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    }
+  }
+}

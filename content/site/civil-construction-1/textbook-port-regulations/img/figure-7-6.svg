@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="港内の航法要点。防波堤を挟んだ港湾内と港湾外、航路と航法ルール（出船優先・右側航行・追越禁止・並行禁止・投びょう禁止・えい航 200m）を配置した概念図">
+  <style>
+    text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; }
+    .ink-strong { fill: #222; }  /* ink-strong */
+    .ink-body { fill: #555; }    /* ink-body */
+    .ink-muted { fill: #8a8a8a; }
+    .rule-label { font-size: 11px; fill: #1a3a5c; }
+    .section-label { font-size: 12px; fill: #222; font-weight: bold; }
+    .zone-label { font-size: 13px; fill: #555; }
+  </style>
+  <defs>
+    <marker markerUnits="userSpaceOnUse" id="arrow-end" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
+    </marker>
+    <marker markerUnits="userSpaceOnUse" id="arrow-end-danger" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <!-- Port interior zone (top) -->
+  <rect x="10" y="10" width="380" height="180" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.2" rx="4"/>  <!-- brand-fill / brand -->
+  <text x="25" y="30" class="zone-label">港湾内（特定港）</text>
+
+  <!-- Breakwater (2 segments with opening) -->
+  <rect x="10" y="180" width="150" height="15" fill="#8a8a8a"/>
+  <rect x="240" y="180" width="150" height="15" fill="#8a8a8a"/>
+  <text x="85" y="175" font-size="11" class="ink-body" text-anchor="middle">防波堤</text>
+  <text x="315" y="175" font-size="11" class="ink-body" text-anchor="middle">防波堤</text>
+
+  <!-- 航路 (channel) through opening -->
+  <rect x="160" y="30" width="80" height="310" fill="#fff3cd" stroke="#d4a017" stroke-width="1.2" stroke-dasharray="4,3"/>  <!-- warn-fill / warn -->
+  <text x="200" y="52" class="section-label" text-anchor="middle">航路</text>
+
+  <!-- Out-going ship (in channel, moving down = leaving) -->
+  <g transform="translate(200,80)">
+    <polygon points="-10,-8 10,-8 12,4 -12,4" fill="#3a7d44" stroke="#1a3a5c" stroke-width="1"/>  <!-- positive -->
+    <line x1="0" y1="4" x2="0" y2="20" stroke="#3a7d44" stroke-width="2" marker-end="url(#arrow-end-danger)"/>
+    <text x="-12" y="0" font-size="11" fill="#1a3a5c" text-anchor="end">出港船</text>
+    <text x="-12" y="14" font-size="11" fill="#555" text-anchor="end">（優先）</text>
+  </g>
+
+  <!-- Waiting ship (inside port, to the right) -->
+  <g transform="translate(320,100)">
+    <polygon points="-10,-8 10,-8 12,4 -12,4" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
+    <text x="-42" y="20" font-size="10" class="ink-body" text-anchor="start">待機船</text>
+  </g>
+
+  <!-- Incoming ship (outside, moving up-right into channel, but waits outside) -->
+  <g transform="translate(180,260)">
+    <polygon points="-10,-8 10,-8 12,4 -12,4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+    <line x1="0" y1="-10" x2="0" y2="-30" stroke="#2e6da4" stroke-width="2" marker-end="url(#arrow-end)"/>
+    <text x="-70" y="20" font-size="10" fill="#1a3a5c">入港船</text>
+    <text x="-70" y="34" font-size="10" class="ink-body">（防波堤の外で待機</text>
+    <text x="-70" y="46" font-size="10" class="ink-body">→右側航行）</text>
+  </g>
+
+  <!-- Port exterior zone (bottom) -->
+  <rect x="10" y="340" width="380" height="100" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="4"/>
+  <text x="25" y="360" class="zone-label">港湾外</text>
+
+  <!-- Annotation lines and labels around the figure -->
+
+  <!-- Channel rules (left side, arrow into channel) -->
+  <line x1="85" y1="110" x2="160" y2="110" stroke="#b22234" stroke-width="1" stroke-dasharray="3,2"/>
+  <g font-size="11" fill="#b22234">
+    <text x="15" y="95" font-weight="bold">航路内の禁止</text>
+    <text x="15" y="110">① 追越し</text>
+    <text x="15" y="125">② 並行航行</text>
+    <text x="15" y="140">③ 投びょう</text>
+  </g>
+
+  <!-- Right-side rules about 突端・停泊船 -->
+  <line x1="290" y1="240" x2="245" y2="240" stroke="#555" stroke-width="1" stroke-dasharray="3,2"/>
+  <g font-size="11" fill="#555" text-anchor="end">
+    <text x="390" y="225" font-weight="bold">突端付近の航行</text>
+    <text x="390" y="240">右げん=近寄る</text>
+    <text x="390" y="255">左げん=遠ざかる</text>
+  </g>
+
+  <!-- 出船優先 callout -->
+  <line x1="200" y1="175" x2="200" y2="195" stroke="#2e6da4" stroke-width="1"/>
+  <text x="200" y="207" font-size="11" fill="#2e6da4" text-anchor="middle" font-weight="bold">出船優先</text>
+  <text x="200" y="220" font-size="11" fill="#2e6da4" text-anchor="middle" font-weight="bold">（入口付近）</text>
+
+  <!-- えい航 200m visualization -->
+  <g transform="translate(60,390)">
+    <polygon points="-8,-5 8,-5 10,3 -10,3" fill="#555" stroke="#222" stroke-width="1"/>
+    <line x1="10" y1="0" x2="95" y2="0" stroke="#555" stroke-width="1"/>
+    <rect x="95" y="-4" width="20" height="8" fill="#d7d7d7" stroke="#555"/>
+    <text x="-14" y="3" font-size="10" fill="#1a3a5c" text-anchor="end">引船</text>
+    <text x="125" y="3" font-size="10" fill="#1a3a5c">被えい航物件</text>
+    <line x1="-10" y1="-15" x2="115" y2="-15" stroke="#b22234" stroke-width="1" marker-start="url(#arrow-end-danger)" marker-end="url(#arrow-end-danger)"/>
+    <text x="52" y="-20" font-size="11" fill="#b22234" text-anchor="middle" font-weight="bold">200 m 以下</text>
+  </g>
+
+  <!-- Speed limit label -->
+  <text x="390" y="358" font-size="11" class="ink-body" text-anchor="end">速力制限: 港内・境界付近で</text>
+  <text x="390" y="372" font-size="11" class="ink-body" text-anchor="end">「危険を及ぼさない速力」</text>
+
+  <!-- Legend at bottom -->
+  <g transform="translate(20,460)">
+    <text x="0" y="0" font-size="11" fill="#222" font-weight="bold">凡例:</text>
+    <rect x="50" y="-8" width="14" height="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+    <text x="70" y="0" font-size="11" class="ink-body">港湾内</text>
+    <rect x="120" y="-8" width="14" height="10" fill="#fff3cd" stroke="#d4a017" stroke-width="1" stroke-dasharray="2,2"/>
+    <text x="140" y="0" font-size="11" class="ink-body">航路</text>
+    <rect x="180" y="-8" width="14" height="10" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+    <text x="200" y="0" font-size="11" class="ink-body">港湾外</text>
+    <rect x="250" y="-8" width="14" height="10" fill="#3a7d44"/>
+    <text x="270" y="0" font-size="11" class="ink-body">出港船（優先）</text>
+  </g>
+
+  <g transform="translate(20,490)">
+    <text x="0" y="0" font-size="11" fill="#b22234" font-weight="bold">赤:</text>
+    <text x="30" y="0" font-size="11" fill="#555">禁止事項・距離制限</text>
+    <text x="200" y="0" font-size="11" fill="#2e6da4" font-weight="bold">青:</text>
+    <text x="225" y="0" font-size="11" fill="#555">優先・義務の対象</text>
+  </g>
+
+</svg>

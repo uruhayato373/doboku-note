@@ -1,0 +1,66 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="マーケティング分析フレームワークの識別。4Pは売り手の手段の組合せ（製品・価格・流通・販促）、4Cは買い手視点（顧客価値・コスト・利便性・コミュニケーション）、SWOTは内部の強み弱みと外部の機会脅威、3Cは自社・顧客・競合の3視点、BCG（PPM）は市場成長率と市場占有率の4象限。4Pだけが手段の組合せ（マーケティング・ミックス）で、他は分析の枠組み。">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-sub  { font-size: 11px; fill: #8a8a8a; }
+      .t-head { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 14px; font-weight: bold; }
+      .t-desc { font-size: 12px; fill: #555; }
+      .t-foot { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note { font-size: 11px; fill: #8a8a8a; }
+      .card   { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.3; }
+    </style>
+  </defs>
+
+  <text class="t-head" x="200" y="40" text-anchor="middle">混同しやすい5フレームの識別</text>
+
+  <!-- 4P -->
+  <rect class="card" x="16" y="50" width="368" height="70" rx="8"/>
+  <rect x="16" y="50" width="6" height="70" rx="3" fill="#2e6da4"/>
+  <text class="t-name" x="34" y="77" fill="#2e6da4">4P ― 売り手の手段の組合せ</text>
+  <text class="t-desc" x="34" y="100">Product・Price・Place・Promotion</text>
+  <rect x="338" y="76" width="9" height="9" fill="#2e6da4"/><rect x="349" y="76" width="9" height="9" fill="#2e6da4"/>
+  <rect x="338" y="87" width="9" height="9" fill="#2e6da4"/><rect x="349" y="87" width="9" height="9" fill="#2e6da4"/>
+
+  <!-- 4C -->
+  <rect class="card" x="16" y="126" width="368" height="70" rx="8"/>
+  <rect x="16" y="126" width="6" height="70" rx="3" fill="#3a7d44"/>
+  <text class="t-name" x="34" y="153" fill="#3a7d44">4C ― 買い手視点</text>
+  <text class="t-desc" x="34" y="176">顧客価値・コスト・利便性・コミュニケーション</text>
+  <rect x="338" y="152" width="9" height="9" fill="none" stroke="#3a7d44" stroke-width="1.5"/><rect x="349" y="152" width="9" height="9" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+  <rect x="338" y="163" width="9" height="9" fill="none" stroke="#3a7d44" stroke-width="1.5"/><rect x="349" y="163" width="9" height="9" fill="none" stroke="#3a7d44" stroke-width="1.5"/>
+
+  <!-- SWOT -->
+  <rect class="card" x="16" y="202" width="368" height="70" rx="8"/>
+  <rect x="16" y="202" width="6" height="70" rx="3" fill="#d4a017"/>
+  <text class="t-name" x="34" y="229" fill="#d4a017">SWOT ― 経営環境の分析</text>
+  <text class="t-desc" x="34" y="252">内部（強み・弱み）× 外部（機会・脅威）</text>
+  <rect x="338" y="225" width="24" height="24" fill="none" stroke="#d4a017" stroke-width="1.3"/>
+  <line x1="350" y1="225" x2="350" y2="249" stroke="#d4a017" stroke-width="1.3"/>
+  <line x1="338" y1="237" x2="362" y2="237" stroke="#d4a017" stroke-width="1.3"/>
+
+  <!-- 3C -->
+  <rect class="card" x="16" y="278" width="368" height="70" rx="8"/>
+  <rect x="16" y="278" width="6" height="70" rx="3" fill="#b22234"/>
+  <text class="t-name" x="34" y="305" fill="#b22234">3C ― 3つの視点で分析</text>
+  <text class="t-desc" x="34" y="328">自社・顧客・競合の現状と方向性</text>
+  <circle cx="345" cy="309" r="8" fill="none" stroke="#b22234" stroke-width="1.3"/>
+  <circle cx="355" cy="309" r="8" fill="none" stroke="#b22234" stroke-width="1.3"/>
+  <circle cx="350" cy="318" r="8" fill="none" stroke="#b22234" stroke-width="1.3"/>
+
+  <!-- BCG / PPM -->
+  <rect class="card" x="16" y="354" width="368" height="70" rx="8"/>
+  <rect x="16" y="354" width="6" height="70" rx="3" fill="#1a3a5c"/>
+  <text class="t-name" x="34" y="381" fill="#1a3a5c">BCG（PPM）― 資源配分</text>
+  <text class="t-desc" x="34" y="404">市場成長率 × 市場占有率の4象限</text>
+  <rect x="338" y="377" width="24" height="24" fill="none" stroke="#1a3a5c" stroke-width="1.3"/>
+  <line x1="350" y1="377" x2="350" y2="401" stroke="#1a3a5c" stroke-width="1.3"/>
+  <line x1="338" y1="389" x2="362" y2="389" stroke="#1a3a5c" stroke-width="1.3"/>
+  <circle cx="344" cy="383" r="2.4" fill="#1a3a5c"/>
+
+  <!-- フッタ -->
+  <rect x="16" y="432" width="368" height="54" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.3"/>
+  <text class="t-foot" x="200" y="456" text-anchor="middle">4P だけが「手段の組合せ（ミックス）」</text>
+  <text class="t-note" x="200" y="476" text-anchor="middle">4C＝買い手視点／SWOT・3C・BCG は分析の枠組み</text>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">経済性管理 × 他の4管理 — トレードオフマップ</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">記述式で頻出の4ペアを対立軸・解決フレーム・例で整理</text>
+
+  <rect x="40" y="140" width="545" height="230" rx="10" fill="#ffffff" stroke="#b22234" stroke-width="3"/>
+  <rect x="40" y="140" width="545" height="50" rx="10" fill="#b22234"/>
+  <rect x="40" y="170" width="545" height="20" fill="#b22234"/>
+  <text x="312.5" y="172" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">経済性 × 安全管理</text>
+  <text x="64" y="228" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#b22234">対立軸</text>
+  <text x="64" y="256" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">コスト圧縮 ↔ 予防保全</text>
+  <text x="64" y="288" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4">解決フレーム</text>
+  <text x="64" y="316" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">ALARP / RBM</text>
+  <text x="64" y="346" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">例: 橋梁点検頻度の削減 — 突発損傷リスクの上昇</text>
+  <rect x="615" y="140" width="545" height="230" rx="10" fill="#ffffff" stroke="#3a7d44" stroke-width="3"/>
+  <rect x="615" y="140" width="545" height="50" rx="10" fill="#3a7d44"/>
+  <rect x="615" y="170" width="545" height="20" fill="#3a7d44"/>
+  <text x="887.5" y="172" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">経済性 × 人的資源管理</text>
+  <text x="639" y="228" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#b22234">対立軸</text>
+  <text x="639" y="256" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">人件費圧縮 ↔ 組織能力</text>
+  <text x="639" y="288" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4">解決フレーム</text>
+  <text x="639" y="316" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">コア／ノンコア分離</text>
+  <text x="639" y="346" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">例: 請負化の拡大 — 技能伝承の断絶</text>
+  <rect x="40" y="400" width="545" height="230" rx="10" fill="#ffffff" stroke="#2e6da4" stroke-width="3"/>
+  <rect x="40" y="400" width="545" height="50" rx="10" fill="#2e6da4"/>
+  <rect x="40" y="430" width="545" height="20" fill="#2e6da4"/>
+  <text x="312.5" y="432" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">経済性 × 情報管理</text>
+  <text x="64" y="488" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#b22234">対立軸</text>
+  <text x="64" y="516" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">IT投資 ↔ 短期収益</text>
+  <text x="64" y="548" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4">解決フレーム</text>
+  <text x="64" y="576" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">ROI 評価 / 段階導入</text>
+  <text x="64" y="606" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">例: BIM/CIM 導入の初期投資 — 数年スパンの回収</text>
+  <rect x="615" y="400" width="545" height="230" rx="10" fill="#ffffff" stroke="#d4a017" stroke-width="3"/>
+  <rect x="615" y="400" width="545" height="50" rx="10" fill="#d4a017"/>
+  <rect x="615" y="430" width="545" height="20" fill="#d4a017"/>
+  <text x="887.5" y="432" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">経済性 × 社会環境管理</text>
+  <text x="639" y="488" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#b22234">対立軸</text>
+  <text x="639" y="516" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">コスト最適化 ↔ 外部不経済</text>
+  <text x="639" y="548" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4">解決フレーム</text>
+  <text x="639" y="576" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">LCA / ライフサイクルコスト</text>
+  <text x="639" y="606" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">例: 安価建材の採用 — CO₂ 排出量増・地域景観影響</text>
+  <rect x="40" y="636" width="1120" height="44" rx="6" fill="#e8f0fe"/>
+  <text x="60" y="666" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">記述式：4管理いずれも「対立構造→解決フレーム→残余リスクと監視」の3段階で論じる。</text>
+  <text x="1160" y="740" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

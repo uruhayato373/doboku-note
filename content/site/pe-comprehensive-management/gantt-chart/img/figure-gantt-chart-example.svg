@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="ガントチャートの構成例：横軸に時間、縦軸に作業項目を配置し、計画バー（薄色）と実績バー（濃色）を重ねて進捗を可視化、現在日ラインで遅れを把握する">
+  <text x="190" y="22" text-anchor="middle" font-size="14" fill="#222" font-family="sans-serif" font-weight="bold">ガントチャートの構成</text>
+  <text x="190" y="40" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">横軸=時間 / 縦軸=作業項目 / バー=期間と進捗</text>
+
+  <line x1="100" y1="60" x2="360" y2="60" stroke="#222" stroke-width="1.5"/>
+  <text x="100" y="55" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">第1週</text>
+  <text x="165" y="55" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">第2週</text>
+  <text x="230" y="55" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">第3週</text>
+  <text x="295" y="55" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">第4週</text>
+  <text x="360" y="55" text-anchor="end" font-size="11" fill="#222" font-family="sans-serif">第5週</text>
+
+  <line x1="100" y1="60" x2="100" y2="270" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="165" y1="60" x2="165" y2="270" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="230" y1="60" x2="230" y2="270" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="295" y1="60" x2="295" y2="270" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3,3"/>
+  <line x1="360" y1="60" x2="360" y2="270" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3,3"/>
+
+  <text x="20" y="90" font-size="11" fill="#222" font-family="sans-serif">設計</text>
+  <rect x="100" y="80" width="100" height="14" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="0.5"/>
+  <rect x="100" y="80" width="100" height="14" fill="#2e6da4"/>
+
+  <text x="20" y="120" font-size="11" fill="#222" font-family="sans-serif">調達</text>
+  <rect x="135" y="110" width="100" height="14" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="0.5"/>
+  <rect x="135" y="110" width="80" height="14" fill="#2e6da4"/>
+
+  <text x="20" y="150" font-size="11" fill="#222" font-family="sans-serif">試作</text>
+  <rect x="200" y="140" width="100" height="14" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="0.5"/>
+  <rect x="200" y="140" width="40" height="14" fill="#2e6da4"/>
+
+  <text x="20" y="180" font-size="11" fill="#222" font-family="sans-serif">評価</text>
+  <rect x="265" y="170" width="65" height="14" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="0.5"/>
+
+  <text x="20" y="210" font-size="11" fill="#222" font-family="sans-serif">出荷</text>
+  <rect x="330" y="200" width="30" height="14" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="0.5"/>
+
+  <polygon points="240,225 234,235 246,235" fill="#d4a017" stroke="#222" stroke-width="0.5"/>
+  <text x="240" y="246" text-anchor="middle" font-size="11" fill="#d4a017" font-family="sans-serif" font-weight="bold">マイルストーン</text>
+
+  <line x1="240" y1="60" x2="240" y2="220" stroke="#b22234" stroke-width="2"/>
+  <text x="252" y="220" font-size="11" fill="#b22234" font-family="sans-serif" font-weight="bold">現在</text>
+
+  <g>
+    <rect x="20" y="270" width="80" height="14" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="0.5"/>
+    <text x="105" y="281" font-size="11" fill="#222" font-family="sans-serif">計画</text>
+    <rect x="140" y="270" width="80" height="14" fill="#2e6da4"/>
+    <text x="225" y="281" font-size="11" fill="#222" font-family="sans-serif">実績（進捗）</text>
+  </g>
+
+  <text x="190" y="310" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">作業間の先行・後続関係は表現しにくい</text>
+
+  <!-- 追加：ガントチャートの特徴 -->
+  <rect x="10" y="328" width="360" height="52" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text x="190" y="347" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold" font-family="sans-serif">ガントチャートの特徴と限界</text>
+  <text x="190" y="364" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">視覚的な進捗管理が容易・作業期間の重複を把握しやすい</text>
+  <text x="190" y="378" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">先行後続依存関係・クリティカルパスの表現が困難</text>
+
+  <rect x="10" y="392" width="172" height="50" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="6"/>
+  <text x="96" y="410" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="sans-serif">PERT との比較</text>
+  <text x="96" y="426" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">PERT：矢線式・依存関係</text>
+  <text x="96" y="438" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">CPM：最長経路算出</text>
+
+  <rect x="196" y="392" width="172" height="50" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="6"/>
+  <text x="282" y="410" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="sans-serif">適用範囲</text>
+  <text x="282" y="426" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">比較的単純な工程</text>
+  <text x="282" y="438" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">定期報告・進捗会議</text>
+
+  <text x="190" y="462" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="sans-serif">WBS（作業分解構造）と組み合わせて運用</text>
+  <text x="190" y="478" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">マイルストーン管理で節目の意識付けを強化</text>
+  <text x="190" y="492" text-anchor="middle" font-size="11" fill="#3a7d44" font-weight="bold" font-family="sans-serif">作業遅延の早期発見 → 後工程への影響を最小化</text>
+</svg>

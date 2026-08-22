@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1064" viewBox="0 0 1200 1064">
+  <rect width="1200" height="1064" fill="#f8fafc"/>
+
+  <!-- タイトル -->
+  <text x="600" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#222222" text-anchor="middle">自治体の技術職員が総監を取る</text>
+  <text x="600" y="100" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#2e6da4" text-anchor="middle">5つのメリット</text>
+
+  <!-- メリット 1 カード -->
+  <rect x="48" y="148" width="1104" height="148" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+
+  <!-- 番号バッジ -->
+  <circle cx="106" cy="222" r="34" fill="#2e6da4"/>
+  <text x="106" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">1</text>
+
+  <!-- メリット 1 テキスト -->
+  <text x="164" y="212" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#1a3a5c" text-anchor="start">発注者業務の「判断軸」が増える</text>
+  <text x="164" y="250" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">5管理のトレードオフ思考が日常の判断に効く</text>
+
+  <!-- メリット 2 カード -->
+  <rect x="48" y="320" width="1104" height="148" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+
+  <!-- 番号バッジ -->
+  <circle cx="106" cy="394" r="34" fill="#2e6da4"/>
+  <text x="106" y="408" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">2</text>
+
+  <!-- メリット 2 テキスト -->
+  <text x="164" y="384" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#1a3a5c" text-anchor="start">技術士の中で「管理職に向かう人」の資格</text>
+  <text x="164" y="422" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">専門技術の深さより、組織・事業を俯瞰する力を問われる</text>
+
+  <!-- メリット 3 カード -->
+  <rect x="48" y="492" width="1104" height="148" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+
+  <!-- 番号バッジ -->
+  <circle cx="106" cy="566" r="34" fill="#2e6da4"/>
+  <text x="106" y="580" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">3</text>
+
+  <!-- メリット 3 テキスト -->
+  <text x="164" y="556" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#1a3a5c" text-anchor="start">昇任・人事評価で評価されることがある</text>
+  <text x="164" y="594" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">ただし扱いは自治体によって差あり（まず人事規程を確認）</text>
+
+  <!-- メリット 4 カード -->
+  <rect x="48" y="664" width="1104" height="148" rx="8" fill="#e6f1e8" stroke="#3a7d44" stroke-width="2"/>
+
+  <!-- 番号バッジ -->
+  <circle cx="106" cy="738" r="34" fill="#3a7d44"/>
+  <text x="106" y="752" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">4</text>
+
+  <!-- メリット 4 テキスト -->
+  <text x="164" y="728" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#1e5c2a" text-anchor="start">定年後の選択肢が広がる</text>
+  <text x="164" y="766" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">建設コンサル等への再就職で強い武器になる</text>
+
+  <!-- メリット 4 ノートラベル（ピル） -->
+  <rect x="988" y="676" width="148" height="32" rx="16" fill="#3a7d44"/>
+  <text x="1062" y="700" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">退職後に効く</text>
+
+  <!-- メリット 5 カード -->
+  <rect x="48" y="836" width="1104" height="148" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+
+  <!-- 番号バッジ -->
+  <circle cx="106" cy="910" r="34" fill="#2e6da4"/>
+  <text x="106" y="924" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">5</text>
+
+  <!-- メリット 5 テキスト -->
+  <text x="164" y="900" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#1a3a5c" text-anchor="start">これまでの経験が「言語化」される</text>
+  <text x="164" y="938" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">5管理の枠組みで実務経験を棚卸しできる</text>
+
+    <text x="1172" y="1042" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

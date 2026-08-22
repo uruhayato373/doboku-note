@@ -1,0 +1,81 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="事故の4M要因分析。Man・Machine・Media・Managementの4視点で事故原因を分類する手法の概念図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 11px; fill: #555; }
+      .t-head   { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-en     { font-size: 11px; fill: #555; }
+      .t-note   { font-size: 12px; fill: #555; }
+      .t-foot   { font-size: 11px; fill: #8a8a8a; }
+      /* brand: Man */
+      .box-brand  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-brand { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      /* surface: Machine */
+      .box-surf   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .badge-surf  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      /* warn: Media */
+      .box-warn   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .badge-warn  { fill: #ffffff; stroke: #d4a017; stroke-width: 1.5; }
+      /* positive: Management */
+      .box-pos    { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .badge-pos   { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- 2×2 グリッド：左上=Man / 右上=Machine / 左下=Media / 右下=Management -->
+  <!-- カード寸法: 幅178 高さ192, ガター12 -->
+  <!-- 行1 y=12, 行2 y=216 / 列1 x=12, 列2 x=202 -->
+
+  <!-- Man（人） brand -->
+  <rect class="box-brand" x="12" y="12" width="178" height="192" rx="10"/>
+  <circle class="badge-brand" cx="38" cy="38" r="16"/>
+  <text class="t-head" x="38" y="43" text-anchor="middle" fill="#2e6da4">M</text>
+  <text class="t-head" x="105" y="38">Man</text>
+  <text class="t-en"   x="64" y="58">人</text>
+  <text class="t-note" x="24" y="88">心理的・生理的・</text>
+  <text class="t-note" x="24" y="106">職場的要因</text>
+  <text class="t-note" x="24" y="130" fill="#8a8a8a">例：不注意・疲労・</text>
+  <text class="t-note" x="24" y="148" fill="#8a8a8a">　　コミュニケーション不足</text>
+  <text class="t-note" x="24" y="166" fill="#8a8a8a">　　（職場的要因）</text>
+
+  <!-- Machine（設備） surface -->
+  <rect class="box-surf" x="202" y="12" width="178" height="192" rx="10"/>
+  <circle class="badge-surf" cx="228" cy="38" r="16"/>
+  <text class="t-head" x="228" y="43" text-anchor="middle" fill="#555">M</text>
+  <text class="t-head" x="252" y="38">Machine</text>
+  <text class="t-en"   x="254" y="58">設備</text>
+  <text class="t-note" x="214" y="88">機械・設備等の</text>
+  <text class="t-note" x="214" y="106">ハードウェア要因</text>
+  <text class="t-note" x="214" y="130" fill="#8a8a8a">例：欠陥・整備不良・</text>
+  <text class="t-note" x="214" y="148" fill="#8a8a8a">　　設計ミス</text>
+
+  <!-- Media（作業環境） warn -->
+  <rect class="box-warn" x="12" y="216" width="178" height="192" rx="10"/>
+  <circle class="badge-warn" cx="38" cy="242" r="16"/>
+  <text class="t-head" x="38" y="247" text-anchor="middle" fill="#d4a017">M</text>
+  <text class="t-head" x="64" y="242">Media</text>
+  <text class="t-en"   x="64" y="262">作業環境</text>
+  <text class="t-note" x="24" y="292">Man と Machine を</text>
+  <text class="t-note" x="24" y="310">つなぐ媒体の要因</text>
+  <text class="t-note" x="24" y="334" fill="#8a8a8a">例：作業環境・</text>
+  <text class="t-note" x="24" y="350" fill="#8a8a8a">マニュアル・</text>
+  <text class="t-note" x="24" y="366" fill="#8a8a8a">不適切手順設定</text>
+
+  <!-- Management（管理） positive -->
+  <rect class="box-pos" x="202" y="216" width="178" height="192" rx="10"/>
+  <circle class="badge-pos" cx="228" cy="242" r="16"/>
+  <text class="t-head" x="228" y="247" text-anchor="middle" fill="#3a7d44">M</text>
+  <text class="t-head" x="254" y="242">Mgmt</text>
+  <text class="t-en"   x="254" y="262">管理</text>
+  <text class="t-note" x="214" y="292">管理システムに</text>
+  <text class="t-note" x="214" y="310">関する要因</text>
+  <text class="t-note" x="214" y="334" fill="#8a8a8a">例：規定・教育訓練・</text>
+  <text class="t-note" x="214" y="352" fill="#8a8a8a">　　監理・監督</text>
+
+  <!-- 凡例帯 -->
+  <line x1="12" y1="424" x2="388" y2="424" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-foot" x="200" y="444" text-anchor="middle">4視点で要因を漏れなく抽出し、対策（4E対策）へ展開する</text>
+  <text class="t-foot" x="200" y="462" text-anchor="middle">4E対策：Education（教育）・Engineering（設備）・</text>
+  <text class="t-foot" x="200" y="478" text-anchor="middle">Enforcement（規制）・Environment（環境改善）</text>
+</svg>

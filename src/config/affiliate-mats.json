@@ -1,0 +1,76 @@
+{
+  "_comment": "アフィリエイト A8 mat の SSOT 許可リスト。scripts/check-affiliate-mats.mjs が src/** と content/site/** に出現する a8mat= 値を本リストと突合し、未登録 mat（タイポ/新規未申告）を fail させる。expiresAt が過去日で、かつ src/MDX に出現する mat は WARN（失効 creative の配置放置を検知）。creative の URL 実体は src/config/affiliate-creatives.ts・各コンポーネント・.claude/knowledge/reference/affiliate-operations.md を参照。mat を追加/変更したら本ファイルも更新する。2026-06-25: 講座/教材/添削（SAT・独学サポート）と書籍アフィリを完全廃止（note 有料商品とのカニバリ回避）。残すアフィリは転職のみ。",
+  "mats": [
+    {
+      "mat": "4B3VR8+F0LMU2+4R40+TSBE9",
+      "program": "gks",
+      "label": "GKSキャリア（施工管理 転職エージェント）",
+      "surfaces": ["sidebar", "inline"],
+      "definedIn": "src/config/affiliate-creatives.ts (CIVIL_CAREER_AD)",
+      "expiresAt": null
+    },
+    {
+      "mat": "4B5OO5+FHBA2+5B0Y+NTZCH",
+      "program": "buildjob",
+      "label": "ビルドジョブ（建設業界特化 転職エージェント）",
+      "surfaces": ["sidebar", "inline", "article-end"],
+      "definedIn": "src/config/affiliate-creatives.ts (BUILDJOB_CAREER_AD)",
+      "expiresAt": "2026-08-31",
+      "note": "新規無料キャリア面談 ¥50,000 の増額キャンペーン期限。期限後は (1) サイドバー resolveCareerSidebarAd / (2) モバイル記事末 resolveCareerArticleEndCard / (3) 本文 inline CareerAffiliate(program=gks 経由) のすべてが GKS へ自動復帰（同一 period 境界・ビルド時 SSG 確定）。期限後に本 mat が配置され続けていれば WARN。href は src(affiliate-creatives.ts)に集約され MDX には a8mat を直書きしないため、inline 化でも MDX 側に本 mat は出現しない。"
+    },
+    {
+      "mat": "4B5OO5+FHBA2+5B0Y+NTJWY",
+      "program": "buildjob",
+      "label": "ビルドジョブ（建設業界特化 転職エージェント）／note 記事用テキストリンク",
+      "surfaces": ["note-article"],
+      "definedIn": "content/note/1級・2級土木/**（note リンクカード・A8「リンク先URLコピー」版。NTZCH バナーと同一プログラム・同一アカウント、creative 末尾のみ別）",
+      "expiresAt": "2026-08-31",
+      "note": "note.com は外部 ASP バナー不可のため A8「リンク先URLコピー」URL を URL 単独行で貼りリンクカード化（A8 公式手順）。景表法のため PR 表記を併記。check-affiliate-mats は content/note を走査しないため本登録はゲート対象外＝SSOT 衛生目的。注意: note 記事は静的で、サイトの resolveCareerSidebarAd のような期間自動復帰が効かない。8/31 の ¥50,000 キャンペーン終了後は手動で見直す（リンクは生き続けるが報酬が通常レートに戻る）。"
+    },
+    {
+      "mat": "4B5OO5+FHBA2+5B0Y+NTRMQ",
+      "program": "buildjob",
+      "label": "ビルドジョブ（建設業界特化 転職エージェント）／本文テキストリンク",
+      "surfaces": ["inline"],
+      "definedIn": "src/config/affiliate-creatives.ts (BUILDJOB_TEXT_AD / resolveCareerTextLink)",
+      "expiresAt": "2026-08-31",
+      "note": "career 記事の本文中間テキスト CTA 用に発行した mat。**2026-07-28 以降 未使用**（本文中間は 1 行テキストリンクではなくネイティブカード＝resolveCareerArticleEndCard に格上げしたため）。mat は A8 で発行済みの実体なので resolveCareerTextLink ごと残置＝テキストリンク面を再開するときの入口。再開時は href のみ・PR 表記必須・label=BuildJob-midtext。"
+    },
+    {
+      "mat": "4B5OO5+FHBA2+5B0Y+NU729",
+      "program": "buildjob",
+      "label": "ビルドジョブ（建設業界特化 転職エージェント）／120×60 小バナー",
+      "surfaces": ["inline"],
+      "definedIn": "src/config/affiliate-creatives.ts (BUILDJOB_BANNER_120 / resolveCareerSmallBanner)",
+      "expiresAt": "2026-08-31",
+      "note": "カテゴリ hub「キャリア・転職」セクションの小バナー（300×250 が大きすぎる面用）。href のみ（hub は既に 2 ピクセル発火中）。9/1 以降 null。label=BuildJob-hubcareer。"
+    },
+    {
+      "mat": "4B5OO5+FHBA2+5B0Y+NUES1",
+      "program": "buildjob",
+      "label": "ビルドジョブ（建設業界特化 転職エージェント）／100×60 小バナー（予備・未配線）",
+      "surfaces": ["inline"],
+      "definedIn": "未配線（別サイズが要るとき用の予備。suffix NUES1 は DX コンサル mat と同名だが full mat は別）",
+      "expiresAt": "2026-08-31",
+      "note": "A8 発行の 100×60 小バナー。現状はコード未使用（120×60=NU729 を hub に配線）。将来別面で使う場合に creative 化。DX コンサルの 4B5OO5+NTCZ6+4SXU+NUES1 とは先頭 program 部が異なる別 mat。"
+    },
+    {
+      "mat": "4B5OO5+NTCZ6+4SXU+NUES1",
+      "program": "dx-consulting",
+      "label": "ハイクラス DX・コンサル転職（技術士/総監 シニア層向け）",
+      "surfaces": ["sidebar", "inline"],
+      "definedIn": "src/config/affiliate-creatives.ts (PE_CONSULTING_CAREER_AD)",
+      "expiresAt": null,
+      "note": "pe-comprehensive-management カテゴリ hub 専用。GKS（20代未経験/施工管理）が総監（シニア技術者）にミスマッチなため差替（resolveCategoryCareerAds）。"
+    },
+    {
+      "mat": "4B41ZD+GGZS2I+4XWQ+BXB8X",
+      "program": "kensetsu-jobs",
+      "label": "建設JOBs（リアルエステートWORKS・施工管理/建設業界特化 転職サイト）",
+      "surfaces": ["sidebar", "article-end"],
+      "definedIn": "src/config/affiliate-creatives.ts (KENSETSU_JOBS_CAREER_AD)",
+      "expiresAt": null,
+      "note": "成果点=会員登録 ¥4,500/件（ビルドジョブの面談 ¥50,000 より低単価だが低摩擦＝高成約率の見込み）。施工管理/建設セグメントのサイドバー＋モバイル記事末＋カテゴリ枠で、ビルドジョブ/GKS と slug ハッシュ 50/50 の A/B（resolveCareerSidebarAbArm・isKensetsuJobsArm）。trackLabel=KensetsuJobs-sidebar。EPC（報酬 × 成約率）で勝者を決め、負けたら撤去予定。mat 先頭が他案件（4B5OO5/4B3VR8）と異なる＝A8 の別 wid 登録の可能性、A8 レポートはプログラム単位で集計。"
+    }
+  ]
+}

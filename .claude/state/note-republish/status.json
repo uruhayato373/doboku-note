@@ -1,0 +1,38 @@
+{
+  "_comment": "2026-08-04 のサイト送客リンク追加（142本）のライブ反映状況。2026-08-06 に全量完了（無料26/26・有料116/116）。check-note-republish の本文 drift からも 6 本すべてが消えたことを実査確認済み。残る corpus 全体の drift 178 件は別枠（建設部門 UTM 欠落・総監分など・backlog 参照）。",
+  "updatedAt": "2026-08-06",
+  "completed": true,
+  "free": {
+    "total": 26,
+    "applied": 26,
+    "pending": [],
+    "note": "最後の1本 nd4c5c13ee445 は 8/5 に画像CDN確定で2回タイムアウトしたが、8/6 に --force-retry で成功（画像 3/3 確定）。原因は一過性のCDN遅延で、同一画像2枚重複（著者バナー）は無関係だった。"
+  },
+  "paid": {
+    "total": 116,
+    "applied": 116,
+    "batches": [
+      "day1(46本)",
+      "day2(41本)",
+      "day3(29本)"
+    ],
+    "resumePlan": {
+      "decidedAt": "2026-08-05",
+      "policy": "【2026-08-11 撤回】旧: 閲覧＝会員／所有＝買い切りで会員特典マガジン内には新規添付しない。→ 実際には対象記事の本文に「## 印刷用PDF」節があり PDF を約束していたため、添付しないのは不履行だった。**約束している記事は全件添付する**へ変更。方針が使えるのは本文が約束していない場合だけ。",
+      "lists": {
+        "noAttach": {
+          "file": "（完了・空）",
+          "count": 0,
+          "cmd": "完了"
+        },
+        "withAttach": {
+          "file": ".claude/state/note-republish/paid-rest-with-attach.txt",
+          "count": 0,
+          "cmd": "完了"
+        }
+      },
+      "note": "note のアップロード上限は1日100件（画像含む疑い）。添付なし群は画像のみ＝1本あたり約1件で軽い。",
+      "progress": "2026-08-06: 最後の 2級学科記述テーマ別出る順 5本を --reattach-pdf --force-retry で反映し 116/116 完了。8/5 の中断記録により初回は安全弁で SKIP されたため、先に check-note-attachments --live --only で 5/5 充足（ライブ無傷）を確認してから --force-retry を付けた。全件で boundaryBeforeExam=true・PDF添付復元OK・API実体検証OK。"
+    }
+  }
+}

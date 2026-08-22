@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="TBM（時間基準保全）とCBM（状態基準保全）の比較：契機・特徴・長所・短所">
+<!-- source: https://en.musashi-engineering.co.jp/blog/column/mt008 (構図着想のみ・独自作図) -->
+<style>
+  text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; fill: #1a3a5c; }
+  .main-sub { font-size: 12px; fill: #555; }
+  .col-title { font-size: 14px; font-weight: bold; }
+  .col-sub { font-size: 12px; fill: #555; }
+  .axis-label { font-size: 12px; font-weight: bold; }
+  .axis-value { font-size: 12px; }
+</style>
+
+<!-- Left column: TBM -->
+<rect x="5" y="10" width="192" height="310" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="101" y="37" text-anchor="middle" class="col-title">定期保全（TBM）</text>
+<text x="101" y="57" text-anchor="middle" class="col-sub">時間基準 — 推測で交換</text>
+<line x1="15" y1="68" x2="187" y2="68" stroke="#2e6da4" stroke-width="1"/>
+
+<text x="20" y="91" class="axis-label">契機</text>
+<text x="20" y="111" class="axis-value">時間・使用量</text>
+
+<text x="20" y="141" class="axis-label">特徴</text>
+<text x="20" y="161" class="axis-value">周期的に交換・整備</text>
+
+<text x="20" y="191" class="axis-label">長所</text>
+<text x="20" y="211" class="axis-value">計画が立てやすい</text>
+
+<text x="20" y="241" class="axis-label">短所</text>
+<text x="20" y="261" class="axis-value">部品を無駄に交換</text>
+<text x="20" y="278" class="axis-value">する場合がある</text>
+
+<!-- Right column: CBM -->
+<rect x="203" y="10" width="192" height="310" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+<text x="299" y="37" text-anchor="middle" class="col-title">予知保全（CBM）</text>
+<text x="299" y="57" text-anchor="middle" class="col-sub">状態基準 — 実測で判断</text>
+<line x1="213" y1="68" x2="385" y2="68" stroke="#3a7d44" stroke-width="1"/>
+
+<text x="218" y="91" class="axis-label">契機</text>
+<text x="218" y="111" class="axis-value">設備の状態・劣化兆候</text>
+
+<text x="218" y="141" class="axis-label">特徴</text>
+<text x="218" y="161" class="axis-value">状態監視で最適化</text>
+
+<text x="218" y="191" class="axis-label">長所</text>
+<text x="218" y="211" class="axis-value">残存寿命を最大活用</text>
+
+<text x="218" y="241" class="axis-label">短所</text>
+<text x="218" y="261" class="axis-value">初期投資・センサー</text>
+<text x="218" y="278" class="axis-value">設置コストが必要</text>
+
+<!-- 下部：適用場面サマリー -->
+<rect x="5" y="333" width="390" height="155" rx="8" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+<text x="200" y="357" text-anchor="middle" font-size="13" font-weight="bold" fill="#222" font-family="'Hiragino Sans','Yu Gothic',sans-serif">適用場面の目安</text>
+<line x1="15" y1="363" x2="385" y2="363" stroke="#d7d7d7" stroke-width="1"/>
+
+<text x="20" y="384" font-size="12" font-weight="bold" fill="#2e6da4" font-family="'Hiragino Sans','Yu Gothic',sans-serif">TBM を選ぶとき</text>
+<text x="20" y="402" font-size="11" fill="#555" font-family="'Hiragino Sans','Yu Gothic',sans-serif">・故障の発生が時間に依存する設備</text>
+<text x="20" y="418" font-size="11" fill="#555" font-family="'Hiragino Sans','Yu Gothic',sans-serif">・センサー設置が困難な環境</text>
+
+<text x="20" y="443" font-size="12" font-weight="bold" fill="#3a7d44" font-family="'Hiragino Sans','Yu Gothic',sans-serif">CBM を選ぶとき</text>
+<text x="20" y="461" font-size="11" fill="#555" font-family="'Hiragino Sans','Yu Gothic',sans-serif">・重要設備でダウンタイムを最小化したい</text>
+<text x="20" y="477" font-size="11" fill="#555" font-family="'Hiragino Sans','Yu Gothic',sans-serif">・劣化兆候を連続監視できる環境</text>
+</svg>

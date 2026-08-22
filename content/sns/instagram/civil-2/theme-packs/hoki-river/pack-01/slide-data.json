@@ -1,0 +1,298 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "hoki",
+      "label": "法規"
+    },
+    "subtopic": {
+      "key": "river",
+      "label": "河川法（河川区域内の行為許可）"
+    },
+    "packNum": "01",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 3,
+    "years": [
+      "r07z",
+      "r07k",
+      "r06z",
+      "r05k"
+    ],
+    "yearsLabel": "令和7・6・5年度",
+    "questionIds": [
+      "r07z-42",
+      "r07k-42",
+      "r06z-42",
+      "r05k-37"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "河川法（河川区域内の行為許可）",
+      "themeLabel": "法規",
+      "subtopicLabel": "河川法（河川区域内の行為許可）",
+      "stars": 3,
+      "yearsLabel": "令和7・6・5年度",
+      "firstQuestion": "河川法に関する次の記述のうち，河川管理者の許可を必要としないものはどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "河川法に関する次の記述のうち，河川管理者の許可を必要",
+        "としないものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "河川区域内の土地を利用した鉄道橋下の資材置場の設置"
+        },
+        {
+          "num": 2,
+          "text": "河川区域内の民有地に堆積した土砂の採取"
+        },
+        {
+          "num": 3,
+          "text": "河川区域内に設置されている水道用水取水口近くに堆もった土砂の排除"
+        },
+        {
+          "num": 4,
+          "text": "河川区域上空に設けられる送電線の架設"
+        }
+      ],
+      "topic": "令和7年度前期",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 2,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "河川法に関する次の記述のうち，河川管",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "河川区域内の土地利用は許可必要、誤り",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "土砂採取は許可必要、誤り",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "水道用水取水口付近の堆積土砂排除は維持管理行為で許可不要",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "上空の送電線架設も占用許可必要、誤り <ExamPoint>維持管理目的の堆積土砂排除は河川管理者の許可を要しない</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "水道用水取水口付近の堆積土砂排除は維持管理行為で許可不要",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 3,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "河川法に関する次の記述のうち，誤っているものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "河川法の目的には，洪水防御や適正な水利用に加えて，河川環境の整備と保全が含まれる。"
+        },
+        {
+          "num": 2,
+          "text": "河川法上の河川には，ダム，堰，水門，床止め，堤防，護岸等の河川管理施設が含まれる。"
+        },
+        {
+          "num": 3,
+          "text": "河川保全区域は，河川管理施設を保全するために河川管理者が指定した，一定の区域である。"
+        },
+        {
+          "num": 4,
+          "text": "二級河川の管理は，原則として，当該河川の存する市町村長が行う。"
+        }
+      ],
+      "topic": "令和7年度後期",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 4,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "河川法に関する次の記述のうち，誤って",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "河川法の目的説明は正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "河川管理施設の例示は正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "河川保全区域の定義として正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "二級河川の管理は当該河川の存する都道府県知事が行い「市町村長」は誤り <ExamPoint>一級河川は国土交通大臣二級河川は都道府県知事が管理</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "二級河川の管理は当該河川の存する都道府県知事が行い「市町村長」は誤り <ExamPoint>一級河川は国土交通大臣二級河川は都道府県知事が管理</Exa",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 5,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "河川法に関する次の記述のうち，正しいものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "河川法は，河川環境の整備と保全は含まず，洪水防御と水利用に関することを目的とした法律である。"
+        },
+        {
+          "num": 2,
+          "text": "河川の管理は，原則として，一級河川を国土交通大臣，二級河川を都道府県知事が行う。"
+        },
+        {
+          "num": 3,
+          "text": "河川区域は，堤防に挟まれた流水が継続して存在する土地の区域に，堤内地側の河川保全区域を含めた区域である。"
+        },
+        {
+          "num": 4,
+          "text": "堤防又はダム貯水池に沿って設置された樹林帯は，全て河川管理施設である。"
+        }
+      ],
+      "topic": "令和6年度前期",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 6,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "河川法に関する次の記述のうち，正しい",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "河川法の目的は治水・利水に加え河川環境の整備と保全も含むため、「含まず」は誤り",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "一級河川は国土交通大臣、二級河川は都道府県知事が管理する原則で正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "河川区域と河川保全区域は別概念で、河川区域に保全区域は含まれないため誤り",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "樹林帯のうち河川管理施設として位置づけられるのは指定されたものに限るため「全て」は誤り",
+          "correct": false
+        }
+      ],
+      "pointText": "一級河川は国土交通大臣、二級河川は都道府県知事が管理する原則で正しい",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 7,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "河川法上，河川区域内において，河川管理者の許可を必要",
+        "としないものは次のうちどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "河川区域内に設置されているトイレの撤去"
+        },
+        {
+          "num": 2,
+          "text": "河川区域内の空き地を駐車場の改築"
+        },
+        {
+          "num": 3,
+          "text": "河川区域内の土地を利用した鉄道橋工事の資材置場の設置"
+        },
+        {
+          "num": 4,
+          "text": "取水施設の機能維持のために行う取水口付近に堆積した土砂の撤去"
+        }
+      ],
+      "topic": "令和5年度後期",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 8,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "河川法上，河川区域内において，河川管",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "河川区域内の工作物撤去は許可対象 （許可必要）",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "駐車場改築（土地形状変更）は許可対象 （許可必要）",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "資材置場設置は土地占用に当たり許可対象 （許可必要）",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "取水口付近の堆積土砂撤去は維持管理行為で許可不要 <ExamPoint>維持管理目的の堆積土砂撤去は河川法許可不要</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "取水口付近の堆積土砂撤去は維持管理行為で許可不要 <ExamPoint>維持管理目的の堆積土砂撤去は河川法許可不要</ExamPoint>",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 9,
+      "totalPages": 10
+    },
+    {
+      "type": "cta",
+      "pageIndex": 10,
+      "totalPages": 10
+    }
+  ]
+}

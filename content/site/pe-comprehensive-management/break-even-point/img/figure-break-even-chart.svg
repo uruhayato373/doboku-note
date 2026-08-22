@@ -1,0 +1,51 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:400px;width:100%" role="img" aria-label="損益分岐点グラフ">
+  <defs>
+    <marker id="bep-arrow" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L7,3.5 z" fill="#222"/>
+    </marker>
+  </defs>
+
+  <!-- 軸 -->
+  <line x1="55" y1="280" x2="345" y2="280" stroke="#222" stroke-width="1.5" marker-end="url(#bep-arrow)"/>
+  <line x1="55" y1="280" x2="55" y2="30" stroke="#222" stroke-width="1.5" marker-end="url(#bep-arrow)"/>
+  <text x="340" y="300" text-anchor="end" fill="#555" font-size="11">売上高（数量）</text>
+  <text x="28" y="155" text-anchor="middle" fill="#555" font-size="11" transform="rotate(-90,28,155)">金額</text>
+  <text x="43" y="294" fill="#555" font-size="10">0</text>
+
+  <!-- 固定費（水平破線） -->
+  <line x1="55" y1="200" x2="330" y2="200" stroke="#d7d7d7" stroke-width="1" stroke-dasharray="5,4"/>
+
+  <!-- 総費用ライン: y=200→140 -->
+  <line x1="55" y1="200" x2="330" y2="140" stroke="#b22234" stroke-width="2"/>
+
+  <!-- 売上高ライン: (55,280)→(330,65) -->
+  <line x1="55" y1="280" x2="330" y2="65" stroke="#2e6da4" stroke-width="2.5"/>
+
+  <!-- 損益分岐点マーカー 交点計算: 売高=(55,280)→(330,65) 総費=(55,200)→(330,140) -->
+  <!-- 売高: y=280-(x-55)*(215/275)  総費: y=200-(x-55)*(60/275) -->
+  <!-- 差が0: 280-(215/275)(x-55)=200-(60/275)(x-55) → 80=(155/275)(x-55) → x=55+80*275/155≈197 -->
+  <!-- y=280-(197-55)*215/275≈280-111=169 -->
+  <circle cx="197" cy="169" r="5" fill="#fff" stroke="#222" stroke-width="2"/>
+  <line x1="197" y1="174" x2="197" y2="280" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="197" y="298" text-anchor="middle" fill="#222" font-size="10" font-weight="bold">損益分岐点</text>
+
+  <!-- ライン凡例 -->
+  <text x="333" y="67" fill="#2e6da4" font-size="10" font-weight="bold">売上高</text>
+  <text x="333" y="142" fill="#b22234" font-size="10" font-weight="bold">総費用</text>
+  <text x="333" y="203" fill="#8a8a8a" font-size="10">固定費</text>
+
+  <!-- 利益・損失ラベル -->
+  <text x="258" y="138" fill="#2e6da4" font-size="13" font-weight="bold">利益</text>
+  <text x="118" y="208" fill="#b22234" font-size="13" font-weight="bold">損失</text>
+
+  <!-- 費用構成ラベル -->
+  <text x="290" y="177" fill="#8a8a8a" font-size="9">変動費</text>
+  <text x="290" y="245" fill="#8a8a8a" font-size="9">固定費</text>
+
+  <!-- 下部サマリー -->
+  <rect x="20" y="380" width="360" height="100" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="4"/>
+  <text x="200" y="407" text-anchor="middle" font-size="13" fill="#222" font-weight="bold">損益分岐点分析のポイント</text>
+  <text x="35" y="432" font-size="12" fill="#555">BEP = 固定費 ÷ 限界利益率</text>
+  <text x="35" y="454" font-size="12" fill="#555">売上高がBEPを超えると利益が発生する</text>
+  <text x="35" y="472" font-size="12" fill="#555">固定費削減・変動費率低下でBEP改善</text>
+</svg>

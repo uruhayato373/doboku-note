@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="中性化深さとかぶり厚の関係を示す断面模式図と、中性化深さが時間の平方根に比例して進行するグラフ">
+  <defs>
+    <marker id="cdd1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text x="200" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">中性化残り（かぶり − 中性化深さ）が小さいほど腐食リスクが高い</text>
+
+  <rect x="30" y="30" width="340" height="110" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <rect x="30" y="30" width="130" height="110" fill="#fff3cd" stroke="none"/>
+  <line x1="160" y1="30" x2="160" y2="140" stroke="#d4a017" stroke-width="2" stroke-dasharray="4 3"/>
+  <text x="42" y="50" font-family="sans-serif" font-size="11" fill="#1a3a5c">中性化した領域</text>
+  <text x="42" y="64" font-family="sans-serif" font-size="11" fill="#8a8a8a">アルカリ性を失う</text>
+  <text x="250" y="50" font-family="sans-serif" font-size="11" fill="#1a3a5c">健全部（強アルカリ）</text>
+
+  <circle cx="230" cy="100" r="11" fill="#8a8a8a" stroke="#555" stroke-width="1.5"/>
+  <text x="230" y="127" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">鉄筋</text>
+
+  <line x1="30" y1="158" x2="230" y2="158" stroke="#555" stroke-width="1.2" marker-start="url(#cdd1)" marker-end="url(#cdd1)"/>
+  <text x="130" y="172" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">かぶり c</text>
+
+  <line x1="30" y1="186" x2="160" y2="186" stroke="#d4a017" stroke-width="1.2" marker-start="url(#cdd1)" marker-end="url(#cdd1)"/>
+  <text x="95" y="200" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#d4a017">中性化深さ x</text>
+
+  <line x1="160" y1="186" x2="230" y2="186" stroke="#b22234" stroke-width="1.2" marker-start="url(#cdd1)" marker-end="url(#cdd1)"/>
+  <text x="290" y="190" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b22234">中性化残り c − x</text>
+
+  <text x="200" y="222" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">前線が鉄筋に達すると不動態被膜が崩れ、腐食が始まる</text>
+
+  <line x1="60" y1="410" x2="360" y2="410" stroke="#222" stroke-width="1.5" marker-end="url(#cdd1)"/>
+  <line x1="60" y1="410" x2="60" y2="245" stroke="#222" stroke-width="1.5" marker-end="url(#cdd1)"/>
+  <text x="360" y="428" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">経過年数 t</text>
+  <text x="66" y="256" font-family="sans-serif" font-size="11" fill="#222">中性化深さ x</text>
+
+  <line x1="60" y1="310" x2="350" y2="310" stroke="#555" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <text x="352" y="308" font-family="sans-serif" font-size="11" fill="#555">c</text>
+
+  <path d="M60 410 Q 140 350 200 322 T 340 272" fill="none" stroke="#d4a017" stroke-width="2.5"/>
+  <text x="286" y="352" font-family="sans-serif" font-size="11" font-weight="bold" fill="#d4a017">x = A√t</text>
+
+  <circle cx="214" cy="310" r="4" fill="#b22234"/>
+  <line x1="214" y1="310" x2="214" y2="410" stroke="#b22234" stroke-width="1.2" stroke-dasharray="3 3"/>
+  <text x="214" y="428" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b22234">腐食開始</text>
+
+  <text x="20" y="452" font-family="sans-serif" font-size="11" fill="#555">A（中性化速度係数）が大きいほど 腐食開始が早まる</text>
+  <text x="20" y="468" font-family="sans-serif" font-size="11" fill="#8a8a8a">A に効く条件: 水セメント比・セメント種類・CO₂濃度・湿度</text>
+  <text x="20" y="484" font-family="sans-serif" font-size="11" fill="#8a8a8a">診断では 中性化深さ と かぶり厚 を必ず一組で把握する</text>
+</svg>

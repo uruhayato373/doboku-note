@@ -1,0 +1,51 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="安全衛生管理体制の全体像。総括安全衛生管理者が事業を統括し、管理者を指揮する。その下に常時50人以上で選任する安全管理者・衛生管理者・産業医がある。調査審議機関として毎月1回以上開催する安全委員会・衛生委員会がある。常時10〜49人の小規模事業場では安全衛生推進者または衛生推進者を選任する。">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-head { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .bx     { font-size: 14px; font-weight: bold; }
+      .sub    { font-size: 11px; fill: #555; }
+      .sect   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .wt     { font-size: 15px; font-weight: bold; fill: #ffffff; }
+      .wsub   { font-size: 11px; fill: #b8d0e8; }
+    </style>
+  </defs>
+
+  <text class="t-head" x="200" y="38" text-anchor="middle">総括の指揮下に管理者と委員会</text>
+
+  <!-- 総括 -->
+  <rect x="50" y="54" width="300" height="56" rx="8" fill="#1a3a5c"/>
+  <text class="wt"   x="200" y="80" text-anchor="middle">総括安全衛生管理者</text>
+  <text class="wsub" x="200" y="99" text-anchor="middle">事業を統括し、各管理者を指揮する</text>
+
+  <text class="sect" x="200" y="130" text-anchor="middle">↓ 指揮（常時50人以上で選任）</text>
+
+  <!-- 管理者3種 -->
+  <rect x="14"  y="142" width="120" height="70" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.3"/>
+  <text class="bx" x="74"  y="176" text-anchor="middle" fill="#2e6da4">安全管理者</text>
+  <text class="sub" x="74" y="196" text-anchor="middle">安全の技術事項</text>
+  <rect x="140" y="142" width="120" height="70" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.3"/>
+  <text class="bx" x="200" y="176" text-anchor="middle" fill="#2e6da4">衛生管理者</text>
+  <text class="sub" x="200" y="196" text-anchor="middle">衛生の技術事項</text>
+  <rect x="266" y="142" width="120" height="70" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.3"/>
+  <text class="bx" x="326" y="176" text-anchor="middle" fill="#2e6da4">産業医</text>
+  <text class="sub" x="326" y="196" text-anchor="middle">健康管理</text>
+
+  <!-- 委員会 -->
+  <text class="sect" x="200" y="242" text-anchor="middle">調査審議機関（毎月1回以上開催）</text>
+  <rect x="40"  y="252" width="150" height="60" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.3"/>
+  <text class="bx" x="115" y="282" text-anchor="middle" fill="#3a7d44">安全委員会</text>
+  <text class="sub" x="115" y="300" text-anchor="middle">特定業種で設置</text>
+  <rect x="210" y="252" width="150" height="60" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.3"/>
+  <text class="bx" x="285" y="282" text-anchor="middle" fill="#3a7d44">衛生委員会</text>
+  <text class="sub" x="285" y="300" text-anchor="middle">全業種で設置</text>
+
+  <!-- 小規模 -->
+  <rect x="40" y="344" width="320" height="60" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.3"/>
+  <text class="bx" x="200" y="374" text-anchor="middle" fill="#d4a017">10〜49人の小規模事業場</text>
+  <text class="sub" x="200" y="394" text-anchor="middle">安全衛生推進者・衛生推進者を選任</text>
+
+  <text class="sub" x="200" y="432" text-anchor="middle">建設業の元請は統括安全衛生責任者（50人以上）も選任。</text>
+  <text class="sub" x="200" y="452" text-anchor="middle">管理者ごとに対象業種が異なる（全業種／特定業種）。</text>
+</svg>

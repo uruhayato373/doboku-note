@@ -1,0 +1,101 @@
+---
+title: VPN
+description: "VPNの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（情報管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '4.5'
+tags:
+  - 総合技術監理
+  - keyword
+published: true
+publishedAt: '2026-04-08'
+seoTitle: "VPN ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-05-26
+---
+
+## VPNとは
+
+VPN（Virtual Private Network：仮想プライベートネットワーク）とは、公衆ネットワーク（インターネット等）上に暗号化されたトンネルを構築し、あたかも専用回線のように安全な通信を実現する技術である。
+
+物理的な専用回線を敷設するよりも低コストで、拠点間通信やリモートアクセスの安全性を確保できるため、企業ネットワークで広く利用されている。
+
+VPNは**境界型防御**の代表的な手段であり、社内ネットワークへの安全な接続経路を提供する。
+
+公衆ネットワークであるインターネットは本来、盗聴・改ざんの危険がある経路である。VPNはその上に暗号化されたトンネルを構築し、トンネル内の通信内容を第三者から保護する。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/vpn/img/figure-1.svg"
+  alt="VPNのトンネリングの概念図。拠点Aと拠点Bが、公衆ネットワークであるインターネット上に構築された暗号化トンネルを通じて安全に接続される"
+/>
+
+### VPNの主要プロトコル
+
+VPN を実現する代表的なプロトコルは 4 種類あり、動作レイヤと用途で使い分ける。
+
+- **IPsec**（L3、ネットワーク層）── パケット単位で暗号化・認証する高セキュリティ方式。拠点間 VPN の標準
+- **SSL/TLS**（L4〜L7、トランスポート〜アプリ層）── Web ブラウザだけで利用でき導入が容易。リモートアクセス VPN の主流
+- **L2TP/IPsec**（L2＋L3）── L2TP でトンネリング、IPsec で暗号化する組み合わせ。リモートアクセス向けの定番
+- **WireGuard**（L3）── 軽量・高速でコードベースが小さい新世代プロトコル。拠点間・リモートのどちらにも適用可能
+
+### IPsec-VPN と SSL-VPN の比較
+
+リモートアクセス VPN を選定する際の中心的な対立軸が IPsec と SSL である。以下に主要な差異を 2 軸比較で示す。
+
+| 項目 | IPsec-VPN | SSL-VPN |
+|---|---|---|
+| 通信レイヤ | L3（ネットワーク層） | L7（アプリ層） |
+| 必要環境 | 専用クライアント | Web ブラウザのみ |
+| アクセス範囲 | 社内全体 | 特定アプリに限定可 |
+| 暗号化粒度 | パケットレベル | アプリレベル |
+| 導入容易性 | 設定変更が必要 | 比較的容易 |
+| 主な用途 | 拠点間常時接続 | リモートワーク |
+
+### VPN の接続形態
+
+利用シナリオによって接続形態は 2 つに大別される。
+
+- **拠点間 VPN（Site-to-Site）**: 拠点のルータ同士を常時接続する形態。本社⇔支社などのネットワーク統合に使う
+- **リモートアクセス VPN**: 個人端末から社内ネットワークへ接続する形態。在宅勤務や出張先での業務アクセスに使う
+
+### VPN 導入の留意点
+
+VPN は安全な通信経路を提供するが、万能ではない。次の 2 点に留意する必要がある。
+
+第一に、**VPN 機器の脆弱性を突いた攻撃事例が増加** している。ファームウェア更新とアカウント管理を怠ると、VPN そのものが攻撃の入口になる。
+
+第二に、**VPN 接続後は社内ネットワーク上の端末として扱われる** ため、マルウェアに感染した端末が VPN 経由で社内に侵入するリスクがある。エンドポイント対策を併用する設計が必須である。
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**4.5 情報セキュリティ**](/docs/pe-comprehensive-management-keyword-2026#45-情報セキュリティ)に位置づけられる。
+
+VPNは[ファイアウォール](/docs/pe-comprehensive-management-firewall-ids)・[DMZ](/docs/pe-comprehensive-management-dmz)と並ぶ**境界型防御**の基本技術である。
+
+一方、[ゼロトラスト](/docs/pe-comprehensive-management-zero-trust)の考え方ではVPNへの依存を見直し、個々のアクセスを都度検証するモデルへの移行が進んでいる。
+
+VPNにおける通信の秘匿性は[暗号化技術](/docs/pe-comprehensive-management-encryption-digital-signature)に依存しており、暗号方式の選択やPKIとの連携が設計上の重要な要素である。
+
+<ExamPoint
+  summary="VPN は境界型防御の代表的手段であり、ゼロトラストとは設計思想が異なる"
+  items={[
+    "IPsec-VPN は L3 で拠点間接続／SSL-VPN は L7 でリモートアクセス向け",
+    "VPN 機器の脆弱性が攻撃の入口となる事例が増加（ファーム更新が重要）",
+    "VPN は境界型防御の手段でありゼロトラストとは別物",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "暗号化・電子署名", slug: "encryption-digital-signature" },
+  { label: "セキュリティ評価基準CC（ISO/IEC 15408）", slug: "common-criteria" },
+  { label: "機密性（Confidentiality）", slug: "confidentiality" },
+  { label: "ISMS（ISO/IEC 27001）", slug: "isms-iso27001" },
+  { label: "ゼロトラスト", slug: "zero-trust" },
+]} />
+
+## 参考資料
+
+- [テレワークセキュリティガイドライン](https://www.soumu.go.jp/main_sosiki/cybersecurity/telework/index.html)（総務省）
+- [VPN 機器を狙った攻撃に注意](https://www.ipa.go.jp/security/announce/vpn-attack.html)（IPA 情報処理推進機構）
+- [WireGuard 公式ドキュメント](https://www.wireguard.com/)

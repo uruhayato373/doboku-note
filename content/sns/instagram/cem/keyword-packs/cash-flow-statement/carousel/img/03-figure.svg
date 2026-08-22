@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="キャッシュ・フローの増減マトリクス：営業・投資・財務の3区分それぞれで現金を増やす取引と減らす取引の対応" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
+  <rect width="400" height="500" fill="#ffffff" stroke="#d7d7d7"/>
+  <!-- サマリー行 -->
+  <rect x="3" y="430" width="394" height="60" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="2"/>
+  <text x="200" y="452" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">営業CF がプラスでも投資・財務のマイナスは正常</text>
+  <text x="200" y="472" text-anchor="middle" font-size="11" fill="#555">成長期は投資CF(-)・財務CF(+)の組合せが多い</text>
+  <!-- Title -->
+  <text x="200" y="20" text-anchor="middle" font-size="13" font-weight="bold" fill="#222">キャッシュ・フローの増減（3区分マトリクス）</text>
+
+  <!-- Column headers -->
+  <rect x="66" y="30" width="164" height="24" fill="#d0e8d0" stroke="#3a7d44"/>
+  <text x="148" y="47" text-anchor="middle" font-size="12" font-weight="bold" fill="#3a7d44">CF 増加 (+)</text>
+
+  <rect x="233" y="30" width="164" height="24" fill="#f8d7da" stroke="#b22234"/>
+  <text x="315" y="47" text-anchor="middle" font-size="12" font-weight="bold" fill="#b22234">CF 減少 (−)</text>
+
+  <!-- Row 1: 営業CF -->
+  <rect x="3" y="58" width="60" height="120" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="33" y="124" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">営業CF</text>
+
+  <rect x="66" y="58" width="164" height="120" fill="#ffffff" stroke="#d7d7d7"/>
+  <text x="76" y="88" font-size="11.5" fill="#222">・売上債権 減少</text>
+  <text x="76" y="110" font-size="11.5" fill="#222">・棚卸資産 減少</text>
+  <text x="76" y="132" font-size="11.5" fill="#222">・購入債務 増加</text>
+
+  <rect x="233" y="58" width="164" height="120" fill="#ffffff" stroke="#d7d7d7"/>
+  <text x="243" y="88" font-size="11.5" fill="#222">・売上債権 増加</text>
+  <text x="243" y="110" font-size="11.5" fill="#222">・棚卸資産 増加</text>
+  <text x="243" y="132" font-size="11.5" fill="#222">・購入債務 減少</text>
+
+  <!-- Row 2: 投資CF -->
+  <rect x="3" y="182" width="60" height="120" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="33" y="248" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">投資CF</text>
+
+  <rect x="66" y="182" width="164" height="120" fill="#ffffff" stroke="#d7d7d7"/>
+  <text x="76" y="212" font-size="11.5" fill="#222">・固定資産 売却</text>
+  <text x="76" y="234" font-size="11.5" fill="#222">・有価証券 売却</text>
+  <text x="76" y="256" font-size="11.5" fill="#222">・貸付金 回収</text>
+
+  <rect x="233" y="182" width="164" height="120" fill="#ffffff" stroke="#d7d7d7"/>
+  <text x="243" y="212" font-size="11.5" fill="#222">・固定資産 取得</text>
+  <text x="243" y="234" font-size="11.5" fill="#222">・有価証券 取得</text>
+  <text x="243" y="256" font-size="11.5" fill="#222">・貸付金 実行</text>
+
+  <!-- Row 3: 財務CF -->
+  <rect x="3" y="306" width="60" height="120" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="33" y="372" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">財務CF</text>
+
+  <rect x="66" y="306" width="164" height="120" fill="#ffffff" stroke="#d7d7d7"/>
+  <text x="76" y="336" font-size="11.5" fill="#222">・借入金 増加</text>
+  <text x="76" y="358" font-size="11.5" fill="#222">・社債 発行</text>
+  <text x="76" y="380" font-size="11.5" fill="#222">・株式発行（増資）</text>
+
+  <rect x="233" y="306" width="164" height="120" fill="#ffffff" stroke="#d7d7d7"/>
+  <text x="243" y="328" font-size="11.5" fill="#222">・借入金 返済</text>
+  <text x="243" y="350" font-size="11.5" fill="#222">・社債 償還</text>
+  <text x="243" y="372" font-size="11.5" fill="#222">・自社株買い</text>
+  <text x="243" y="394" font-size="11.5" fill="#222">・配当金 支払</text>
+</svg>

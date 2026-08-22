@@ -1,0 +1,149 @@
+---
+title: 信頼性設計・保全性設計
+description: "MTBF・MTTR・稼働率の定義と計算方法、フォールトアボイダンス・フォールトトレランスなどの信頼性設計手法、直列・並列構成の信頼性計算、予防保全・予知保全を解説。技術士総合技術監理キーワード集2026（経済性管理）。5管。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.1'
+tags:
+  - 総合技術監理
+  - keyword
+published: true
+publishedAt: '2026-04-07'
+reviewStatus: approved
+lastRewrittenAt: '2026-04-15'
+revisionCycle: 1
+seoTitle: "信頼性設計・保全性設計 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-05-26
+---
+
+## 信頼性設計・保全性設計とは
+
+信頼性設計（Reliability Design）とは、システム・機器が規定条件下で**意図する機能を果たす確率を高めるための設計手法**である。
+
+保全性設計（Maintainability Design）とは、故障時に短時間で修復できるよう**設計段階から保全のしやすさを組み込む手法**である。
+
+信頼性と保全性は表裏一体の概念であり、両者を統合的に扱うことでシステムの可用性（稼働率）が決まる。
+
+## 主要指標：MTBF・MTTR・稼働率
+
+### MTBF
+
+MTBF（Mean Time Between Failures）は、故障と故障の間の**稼働時間の平均値**であり、**信頼性の高さ**を示す指標である。
+
+$$
+\text{MTBF} = \dfrac{\text{稼働時間の合計}}{\text{故障件数}}
+$$
+
+MTBFが大きいほど、故障が起きにくく信頼性が高い。
+
+### MTTR
+
+MTTR（Mean Time To Repair）は、故障発生から修復完了までの**停止時間の平均値**であり、**保全性の高さ**を示す指標である。
+
+$$
+\text{MTTR} = \dfrac{\text{停止時間の合計}}{\text{故障件数}}
+$$
+
+MTTRが小さいほど、短時間で復旧でき保全性が高い。
+
+### 稼働率
+
+$$
+\text{稼働率} = \dfrac{\text{MTBF}}{\text{MTBF} + \text{MTTR}} = \dfrac{\text{稼働時間}}{\text{総時間}}
+$$
+
+稼働率は0〜1の値をとり、1に近いほど高稼働であることを意味する。
+
+### 計算の手順
+
+「総時間・稼働率・故障件数」が与えられた場合：
+
+1. 稼働時間 ＝ 総時間 × 稼働率
+2. 停止時間 ＝ 総時間 × （1 − 稼働率）
+3. MTBF ＝ 稼働時間 ÷ 故障件数
+4. MTTR ＝ 停止時間 ÷ 故障件数
+
+## 信頼性設計の手法
+
+信頼性を高めるための設計手法は大きく3つに分類される。
+
+- [フォールトアボイダンス](/docs/pe-comprehensive-management-fault-avoidance): 故障そのものが発生しないよう、部品品質の向上・設計マージンの確保で対処する
+- [フォールトトレランス](/docs/pe-comprehensive-management-fault-tolerance): 故障が発生しても全体機能を維持できるよう、冗長性・多重化を持たせる
+- **フォールトディテクション**: 故障を早期に検出し、影響の拡大を防ぐ仕組みを組み込む
+
+### フォールトトレランスの代表手法
+
+フォールトトレランスは、故障発生時のシステム挙動の違いによってさらに3つの手法に分かれる。
+
+- [フェールセーフ](/docs/pe-comprehensive-management-fail-safe): 故障時に安全側（停止・警告）の状態に移行する設計
+- [フェールソフト](/docs/pe-comprehensive-management-fail-soft): 故障時に一部機能を縮退させながら動作を継続する設計（縮退運転）
+- **フェールオーバー**: 主系の故障を検知したとき、自動的に予備系へ切り替える仕組み
+
+## システム信頼性の構成
+
+複数の部品・サブシステムで構成されるシステムの信頼性は、接続の形式によって異なる。
+
+### 直列構成
+
+全部品が正常に動作して初めてシステムが機能する構成。
+
+$$
+R_{\text{直列}} = R_1 \times R_2 \times \cdots \times R_n
+$$
+
+部品を直列に追加するほど、システム全体の信頼性は**低下**する。
+
+### 並列構成
+
+少なくとも1つの部品が正常であればシステムが機能する構成（冗長系）。
+
+$$
+R_{\text{並列}} = 1 - (1-R_1)(1-R_2)\cdots(1-R_n)
+$$
+
+部品を並列に追加するほど、システム全体の信頼性は**向上**する。
+
+## 保全性設計の手法
+
+保全性設計では、故障後の復旧時間（MTTR）を短縮するための仕組みを設計段階から組み込む。代表的な保全方式は以下の3つである。
+
+- [予防保全（PM）](/docs/pe-comprehensive-management-preventive-maintenance): 故障が起きる前に定期的に点検・交換を行い故障を未然に防ぐ
+- [事後保全](/docs/pe-comprehensive-management-corrective-maintenance): 故障が発生してから修復作業を行う。計画外保全ともいう
+- [予知保全](/docs/pe-comprehensive-management-predictive-maintenance): センサー等で状態を常時監視し、劣化兆候を検知してから保全を行う
+
+予知保全は予防保全の進化形であり、不必要な定期交換を排除して**保全コストと信頼性のバランスを最適化**する。
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では、信頼性設計・保全性設計は[**2.1 事業企画**](/docs/pe-comprehensive-management-keyword-2026#21-事業企画)に位置づけられている。
+
+設備・システムの信頼性と保全性は、プロジェクト企画段階での[ライフサイクルコスティング](/docs/pe-comprehensive-management-lifecycle-costing-method)による経済性評価や[初期投資](/docs/pe-comprehensive-management-initial-investment)の判断に直結する。設備の故障率が時間経過とともにどう変化するかは[バスタブカーブ](/docs/pe-comprehensive-management-bathtub-curve)で把握し、冗長系を含むシステム全体の信頼性は[システム信頼度](/docs/pe-comprehensive-management-system-reliability)の計算で定量的に評価する。
+
+総合技術監理者として、MTBF・MTTR・稼働率を用いた定量的な信頼性評価を行い、設計・調達・保全計画を一体的に管理する能力が求められる。
+
+<ExamPoint
+  summary="MTBF・MTTR計算と信頼性設計の3手法・保全の3方式が頻出"
+  items={[
+    "MTBF大 = 信頼性高（故障しにくい）、MTTR小 = 保全性高（素早く直せる）",
+    "稼働率 = MTBF / (MTBF + MTTR)",
+    "稼働率が高いほどMTTRが小さい傾向",
+    "信頼性設計3手法：フォールトアボイダンス・フォールトトレランス・フォールトディテクション",
+    "保全3方式：予防保全（定期）・事後保全（発生後）・予知保全（状態監視）",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "コンカレントエンジニアリング", slug: "concurrent-engineering" },
+  { label: "デザインイン", slug: "design-in" },
+  { label: "デザインレビュー", slug: "design-review" },
+  { label: "フロントローディング", slug: "front-loading" },
+  { label: "予算計画", slug: "budget-planning" },
+]} />
+
+## 参考資料
+
+- [システムの信頼性](https://informatics.sist.ac.jp/suganuma/kougi/other_lecture/SE/rely/rely.htm)（静岡理工科大学 菅沼研究室）
+- [信頼性と信頼性管理](https://www.jstage.jst.go.jp/article/sfj/70/6/70_290/_article/-char/ja/)（表面技術 / J-STAGE）
+- [MTBFとMTTRってなんだ？〜信頼性と保守性の話〜](https://sibucho-laboratory.com/mtbf-mttr/)（しぶちょー技術研究所）

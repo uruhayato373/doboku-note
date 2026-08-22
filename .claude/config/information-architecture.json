@@ -1,0 +1,104 @@
+{
+  "_doc": "情報アーキテクチャの機械ゲート設定（scripts/check-information-architecture.mjs が読む）。誤検知回避の allowlist はここに明示し、コードへ散らさない。既存違反を巨大 baseline で恒久黙認しない（allowlist に載せるときは理由を書く）。真実源: .claude/knowledge/reference/information-architecture.md",
+  "forbiddenRoots": {
+    "_doc": "2026-08-18 の移行で廃止した置き場。ここへ新規ファイルを作ると旧構成へ逆戻りする。",
+    "paths": [
+      "docs/project",
+      "docs/ui",
+      "docs/note",
+      "docs/sns",
+      "docs/textbook",
+      "docs/coconala-blog",
+      ".claude/content",
+      ".local/r2/posts",
+      ".claude/prompts",
+      ".claude/plans/completed",
+      ".claude/plans/archive",
+      "docs/_archive",
+      "content/_archive"
+    ]
+  },
+  "docsIsNotContent": {
+    "_doc": "docs/ は人が読む恒久判断の置き場。制作物（記事本文・投稿素材・状態 JSON・バイナリ）が入り込んだら content/ へ出す。",
+    "denyBasenames": [
+      "article.md",
+      "article.mdx",
+      "slide-data.json",
+      "posted.json",
+      "caption.txt",
+      "_meta.yaml"
+    ],
+    "denyExtensions": [
+      ".mdx",
+      ".mp4",
+      ".wav",
+      ".epub",
+      ".pdf"
+    ],
+    "allowDirs": [
+      "docs/design/images",
+      "docs/handoffs",
+      "docs/reviews"
+    ]
+  },
+  "contentIsNotFlow": {
+    "_doc": "content/ は顧客へ届ける制作物とその入力。実装計画・TODO 台帳・進捗ログは flow なので .claude/ か docs/ へ置く。",
+    "denyBasenames": [
+      "backlog.md",
+      "weekly.md",
+      "monthly.md",
+      "annual.md",
+      "TODO.md"
+    ],
+    "denyPatterns": [
+      "^content/[^/]+/plans?/",
+      "^content/[^/]+/todo/"
+    ]
+  },
+  "dualSsot": {
+    "_doc": "旧ルートと新ルートに同じ相対パスが同時に存在する状態。移行が途中で止まった形。",
+    "pairs": []
+  },
+  "allowlist": {
+    "_doc": "個別に許す実パス。理由を必ず書く。空にできるのが理想。",
+    "entries": []
+  },
+  "stalePathLiterals": {
+    "_doc": "ソース中に残った旧パスの文字列。**正規表現リテラル内はスラッシュがエスケープされる**（`/^docs\\/note\\//`）ため、素の文字列置換では素通りする。2026-08-18 の移行で 18 ファイル 27 箇所が残り、check-x-utm --staged が 1 件も拾わず pre-commit で常に緑になっていた（検査ゼロを PASS と呼ばない・CLAUDE.md §9）。",
+    "paths": [
+      "docs/project",
+      "docs/ui",
+      "docs/note",
+      "docs/sns",
+      "docs/textbook",
+      "docs/coconala-blog",
+      ".claude/content/",
+      ".local/r2/posts"
+    ],
+    "scanGlobs": [
+      "scripts/",
+      ".claude/scripts/",
+      ".claude/skills/",
+      "src/",
+      "tools/",
+      "tests/",
+      ".github/"
+    ],
+    "allowFiles": [
+      "scripts/check-information-architecture.mjs",
+      ".claude/config/information-architecture.json",
+      "tests/information-architecture.test.mjs",
+      "scripts/check-project-task-refs.mjs",
+      "tools/admin-app/src/lib/project.ts",
+      ".claude/scripts/lib/git-dates.mjs",
+      "tools/admin-app/src/app/project/[...path]/page.tsx",
+      "tools/admin-app/src/lib/document-store.ts",
+      "tests/admin-document-store.test.mjs",
+      "tests/project-task-refs.test.mjs",
+      "tests/repository-paths.test.mjs",
+      "tests/relative-links.test.mjs",
+      "scripts/check-doc-refs.mjs",
+      "scripts/check-relative-links.mjs"
+    ]
+  }
+}

@@ -1,0 +1,1792 @@
+{
+  "version": 1,
+  "generated_at": "2026-04-25T06:55:58.829Z",
+  "summary": {
+    "total_docs": 40,
+    "by_group": {
+      "textbook": 34,
+      "guide": 6
+    },
+    "docs_with_relations": 39,
+    "docs_below_target": 1,
+    "isolated_docs": [
+      "guide-strategy"
+    ]
+  },
+  "config": {
+    "top_n": 5,
+    "weights": {
+      "topic": 10,
+      "order": 3,
+      "other": 1,
+      "guide_overlap": 5
+    },
+    "order_proximity": 10,
+    "excluded_tags": [
+      "textbook",
+      "guide",
+      "civil-construction-1",
+      "1級土木施工管理技士",
+      "exam-preparation"
+    ],
+    "topic_tags": [
+      "law",
+      "quality",
+      "machinery",
+      "construction-plan",
+      "schedule",
+      "surveying",
+      "demolition"
+    ],
+    "tag_cap": 3
+  },
+  "relations": {
+    "guide-concrete-key-points": [
+      {
+        "slug": "guide-concrete-maintenance",
+        "label": "コンクリート維持管理",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
+        "slug": "guide-earthwork-key-points",
+        "label": "土工",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
+        "slug": "guide-four-management",
+        "label": "施工管理4大管理",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
+        "slug": "textbook-construction-mgmt-overview",
+        "label": "施工管理の概要",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-construction-plan-overview",
+        "label": "施工計画と計画書",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "guide-concrete-maintenance": [
+      {
+        "slug": "guide-concrete-key-points",
+        "label": "コンクリート",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
+        "slug": "guide-earthwork-key-points",
+        "label": "土工",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
+        "slug": "guide-four-management",
+        "label": "施工管理4大管理",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
+        "slug": "textbook-construction-mgmt-overview",
+        "label": "施工管理の概要",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-construction-plan-overview",
+        "label": "施工計画と計画書",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "guide-earthwork-key-points": [
+      {
+        "slug": "guide-concrete-key-points",
+        "label": "コンクリート",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
+        "slug": "guide-concrete-maintenance",
+        "label": "コンクリート維持管理",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
+        "slug": "guide-four-management",
+        "label": "施工管理4大管理",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
+        "slug": "textbook-construction-mgmt-overview",
+        "label": "施工管理の概要",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-construction-plan-overview",
+        "label": "施工計画と計画書",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "guide-four-management": [
+      {
+        "slug": "guide-concrete-key-points",
+        "label": "コンクリート",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
+        "slug": "guide-concrete-maintenance",
+        "label": "コンクリート維持管理",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
+        "slug": "guide-earthwork-key-points",
+        "label": "土工",
+        "score": 15,
+        "signals": [
+          "topic",
+          "guide_overlap"
+        ]
+      },
+      {
+        "slug": "textbook-construction-mgmt-overview",
+        "label": "施工管理の概要",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-construction-plan-overview",
+        "label": "施工計画と計画書",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "guide-law-key-points": [
+      {
+        "slug": "textbook-building-standards",
+        "label": "建築基準法",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-construction-business",
+        "label": "建設業法",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-explosives-act",
+        "label": "火薬類取締法",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-labor-standards",
+        "label": "労働基準法",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-law-compliance",
+        "label": "建設工事の法令遵守",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "guide-strategy": [],
+    "textbook-building-standards": [
+      {
+        "slug": "textbook-explosives-act",
+        "label": "火薬類取締法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-river-act",
+        "label": "河川法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-port-regulations",
+        "label": "港則法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-road-act",
+        "label": "道路法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-standard-contract",
+        "label": "標準請負契約約款",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-construction-business": [
+      {
+        "slug": "textbook-labor-standards",
+        "label": "労働基準法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-standard-contract",
+        "label": "標準請負契約約款",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-law-compliance",
+        "label": "建設工事の法令遵守",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-road-act",
+        "label": "道路法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-river-act",
+        "label": "河川法",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-construction-mgmt-overview": [
+      {
+        "slug": "textbook-construction-plan-overview",
+        "label": "施工計画と計画書",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-site-investigation",
+        "label": "事前調査・基本計画",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-work-scheduling",
+        "label": "工程計画",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-management-subplans",
+        "label": "各種管理計画",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "guide-concrete-key-points",
+        "label": "コンクリート",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-construction-plan-overview": [
+      {
+        "slug": "textbook-construction-mgmt-overview",
+        "label": "施工管理の概要",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-site-investigation",
+        "label": "事前調査・基本計画",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-work-scheduling",
+        "label": "工程計画",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-management-subplans",
+        "label": "各種管理計画",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "guide-concrete-key-points",
+        "label": "コンクリート",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-control-chart": [
+      {
+        "slug": "textbook-histogram",
+        "label": "ヒストグラム",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-quality-inspection",
+        "label": "品質検査の方式",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-quality-overview",
+        "label": "品質管理の概要",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "guide-concrete-key-points",
+        "label": "コンクリート",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "guide-concrete-maintenance",
+        "label": "コンクリート維持管理",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-crane": [
+      {
+        "slug": "textbook-grader-compaction",
+        "label": "グレーダ・締固め機械",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-transport-machinery",
+        "label": "運搬機械",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-loader",
+        "label": "積込機械（ローダ）",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-shovel-excavator",
+        "label": "ショベル系掘削機",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-scraper",
+        "label": "スクレーパ",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-demolition": [
+      {
+        "slug": "textbook-leveling",
+        "label": "水準測量・地形測量",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-distance-angle",
+        "label": "測距と測角",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-surveying-basics",
+        "label": "測量の基本",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-construction-mgmt-overview",
+        "label": "施工管理の概要",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-grader-compaction",
+        "label": "グレーダ・締固め機械",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      }
+    ],
+    "textbook-distance-angle": [
+      {
+        "slug": "textbook-surveying-basics",
+        "label": "測量の基本",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-leveling",
+        "label": "水準測量・地形測量",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-grader-compaction",
+        "label": "グレーダ・締固め機械",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-demolition",
+        "label": "解体工事",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-crane",
+        "label": "クレーン・高所作業車",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      }
+    ],
+    "textbook-explosives-act": [
+      {
+        "slug": "textbook-building-standards",
+        "label": "建築基準法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-port-regulations",
+        "label": "港則法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-river-act",
+        "label": "河川法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-road-act",
+        "label": "道路法",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-standard-contract",
+        "label": "標準請負契約約款",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-grader-compaction": [
+      {
+        "slug": "textbook-crane",
+        "label": "クレーン・高所作業車",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-transport-machinery",
+        "label": "運搬機械",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-loader",
+        "label": "積込機械（ローダ）",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-shovel-excavator",
+        "label": "ショベル系掘削機",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-scraper",
+        "label": "スクレーパ",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-histogram": [
+      {
+        "slug": "textbook-quality-overview",
+        "label": "品質管理の概要",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-control-chart",
+        "label": "管理図",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-quality-inspection",
+        "label": "品質検査の方式",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "guide-concrete-key-points",
+        "label": "コンクリート",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "guide-concrete-maintenance",
+        "label": "コンクリート維持管理",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-labor-standards": [
+      {
+        "slug": "textbook-law-compliance",
+        "label": "建設工事の法令遵守",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-construction-business",
+        "label": "建設業法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-standard-contract",
+        "label": "標準請負契約約款",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-road-act",
+        "label": "道路法",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-river-act",
+        "label": "河川法",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-law-compliance": [
+      {
+        "slug": "textbook-labor-standards",
+        "label": "労働基準法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-construction-business",
+        "label": "建設業法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-standard-contract",
+        "label": "標準請負契約約款",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-road-act",
+        "label": "道路法",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-river-act",
+        "label": "河川法",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-leveling": [
+      {
+        "slug": "textbook-distance-angle",
+        "label": "測距と測角",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-surveying-basics",
+        "label": "測量の基本",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-demolition",
+        "label": "解体工事",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-grader-compaction",
+        "label": "グレーダ・締固め機械",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-crane",
+        "label": "クレーン・高所作業車",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      }
+    ],
+    "textbook-loader": [
+      {
+        "slug": "textbook-shovel-excavator",
+        "label": "ショベル系掘削機",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-transport-machinery",
+        "label": "運搬機械",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-crane",
+        "label": "クレーン・高所作業車",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-scraper",
+        "label": "スクレーパ",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-grader-compaction",
+        "label": "グレーダ・締固め機械",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-machinery-overview": [
+      {
+        "slug": "textbook-machinery-structure",
+        "label": "建設機械の構造",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-tractor-bulldozer",
+        "label": "トラクタ・ブルドーザ",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-scraper",
+        "label": "スクレーパ",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-shovel-excavator",
+        "label": "ショベル系掘削機",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-loader",
+        "label": "積込機械（ローダ）",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-machinery-structure": [
+      {
+        "slug": "textbook-machinery-overview",
+        "label": "建設機械の概要",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-tractor-bulldozer",
+        "label": "トラクタ・ブルドーザ",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-scraper",
+        "label": "スクレーパ",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-shovel-excavator",
+        "label": "ショベル系掘削機",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-loader",
+        "label": "積込機械（ローダ）",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-management-subplans": [
+      {
+        "slug": "textbook-work-scheduling",
+        "label": "工程計画",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-site-investigation",
+        "label": "事前調査・基本計画",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-construction-plan-overview",
+        "label": "施工計画と計画書",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-construction-mgmt-overview",
+        "label": "施工管理の概要",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "guide-concrete-key-points",
+        "label": "コンクリート",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-network-schedule": [
+      {
+        "slug": "textbook-schedule-charts",
+        "label": "工程図表",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-schedule-overview",
+        "label": "工程管理の概要",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "guide-four-management",
+        "label": "施工管理4大管理",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-management-subplans",
+        "label": "各種管理計画",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-quality-overview",
+        "label": "品質管理の概要",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      }
+    ],
+    "textbook-port-regulations": [
+      {
+        "slug": "textbook-explosives-act",
+        "label": "火薬類取締法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-building-standards",
+        "label": "建築基準法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-river-act",
+        "label": "河川法",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-road-act",
+        "label": "道路法",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-standard-contract",
+        "label": "標準請負契約約款",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-quality-inspection": [
+      {
+        "slug": "textbook-control-chart",
+        "label": "管理図",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-histogram",
+        "label": "ヒストグラム",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-quality-overview",
+        "label": "品質管理の概要",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "guide-concrete-key-points",
+        "label": "コンクリート",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "guide-concrete-maintenance",
+        "label": "コンクリート維持管理",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-quality-overview": [
+      {
+        "slug": "textbook-histogram",
+        "label": "ヒストグラム",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-control-chart",
+        "label": "管理図",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-quality-inspection",
+        "label": "品質検査の方式",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "guide-concrete-key-points",
+        "label": "コンクリート",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "guide-concrete-maintenance",
+        "label": "コンクリート維持管理",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-river-act": [
+      {
+        "slug": "textbook-building-standards",
+        "label": "建築基準法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-road-act",
+        "label": "道路法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-explosives-act",
+        "label": "火薬類取締法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-standard-contract",
+        "label": "標準請負契約約款",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-construction-business",
+        "label": "建設業法",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-road-act": [
+      {
+        "slug": "textbook-river-act",
+        "label": "河川法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-standard-contract",
+        "label": "標準請負契約約款",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-building-standards",
+        "label": "建築基準法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-construction-business",
+        "label": "建設業法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-explosives-act",
+        "label": "火薬類取締法",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-schedule-charts": [
+      {
+        "slug": "textbook-schedule-overview",
+        "label": "工程管理の概要",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-network-schedule",
+        "label": "ネットワーク式工程表",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "guide-four-management",
+        "label": "施工管理4大管理",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-management-subplans",
+        "label": "各種管理計画",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-work-scheduling",
+        "label": "工程計画",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      }
+    ],
+    "textbook-schedule-overview": [
+      {
+        "slug": "textbook-schedule-charts",
+        "label": "工程図表",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-network-schedule",
+        "label": "ネットワーク式工程表",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "guide-four-management",
+        "label": "施工管理4大管理",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "textbook-management-subplans",
+        "label": "各種管理計画",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-work-scheduling",
+        "label": "工程計画",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      }
+    ],
+    "textbook-scraper": [
+      {
+        "slug": "textbook-shovel-excavator",
+        "label": "ショベル系掘削機",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-tractor-bulldozer",
+        "label": "トラクタ・ブルドーザ",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-loader",
+        "label": "積込機械（ローダ）",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-machinery-structure",
+        "label": "建設機械の構造",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-machinery-overview",
+        "label": "建設機械の概要",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-shovel-excavator": [
+      {
+        "slug": "textbook-loader",
+        "label": "積込機械（ローダ）",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-scraper",
+        "label": "スクレーパ",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-tractor-bulldozer",
+        "label": "トラクタ・ブルドーザ",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-transport-machinery",
+        "label": "運搬機械",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-crane",
+        "label": "クレーン・高所作業車",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-site-investigation": [
+      {
+        "slug": "textbook-construction-plan-overview",
+        "label": "施工計画と計画書",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-work-scheduling",
+        "label": "工程計画",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-construction-mgmt-overview",
+        "label": "施工管理の概要",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-management-subplans",
+        "label": "各種管理計画",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "guide-concrete-key-points",
+        "label": "コンクリート",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-standard-contract": [
+      {
+        "slug": "textbook-construction-business",
+        "label": "建設業法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-road-act",
+        "label": "道路法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-labor-standards",
+        "label": "労働基準法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-river-act",
+        "label": "河川法",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-law-compliance",
+        "label": "建設工事の法令遵守",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-surveying-basics": [
+      {
+        "slug": "textbook-distance-angle",
+        "label": "測距と測角",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-leveling",
+        "label": "水準測量・地形測量",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-grader-compaction",
+        "label": "グレーダ・締固め機械",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-crane",
+        "label": "クレーン・高所作業車",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      },
+      {
+        "slug": "textbook-demolition",
+        "label": "解体工事",
+        "score": 0,
+        "signals": [
+          "fallback_order"
+        ]
+      }
+    ],
+    "textbook-tractor-bulldozer": [
+      {
+        "slug": "textbook-machinery-structure",
+        "label": "建設機械の構造",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-scraper",
+        "label": "スクレーパ",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-machinery-overview",
+        "label": "建設機械の概要",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-shovel-excavator",
+        "label": "ショベル系掘削機",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-loader",
+        "label": "積込機械（ローダ）",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-transport-machinery": [
+      {
+        "slug": "textbook-crane",
+        "label": "クレーン・高所作業車",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-loader",
+        "label": "積込機械（ローダ）",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-grader-compaction",
+        "label": "グレーダ・締固め機械",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-shovel-excavator",
+        "label": "ショベル系掘削機",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-scraper",
+        "label": "スクレーパ",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ],
+    "textbook-work-scheduling": [
+      {
+        "slug": "textbook-management-subplans",
+        "label": "各種管理計画",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-site-investigation",
+        "label": "事前調査・基本計画",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-construction-plan-overview",
+        "label": "施工計画と計画書",
+        "score": 13,
+        "signals": [
+          "topic",
+          "order"
+        ]
+      },
+      {
+        "slug": "textbook-construction-mgmt-overview",
+        "label": "施工管理の概要",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      },
+      {
+        "slug": "guide-concrete-key-points",
+        "label": "コンクリート",
+        "score": 10,
+        "signals": [
+          "topic"
+        ]
+      }
+    ]
+  }
+}

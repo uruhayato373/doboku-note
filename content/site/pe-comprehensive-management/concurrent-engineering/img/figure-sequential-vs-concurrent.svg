@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="逐次開発とコンカレントエンジニアリングの比較：逐次は前工程完了後に後工程を開始するため期間が長いが、コンカレントは各工程をオーバーラップさせて期間を圧縮する">
+  <text x="190" y="22" text-anchor="middle" font-size="14" fill="#222" font-family="sans-serif" font-weight="bold">逐次開発 vs コンカレントエンジニアリング</text>
+
+  <text x="20" y="50" font-size="13" fill="#222" font-family="sans-serif" font-weight="bold">従来型（逐次開発・ウォーターフォール）</text>
+
+  <g>
+    <rect x="20" y="60" width="80" height="22" fill="#8a8a8a" rx="3"/>
+    <text x="60" y="76" text-anchor="middle" font-size="13" fill="#fff" font-family="sans-serif">設計</text>
+  </g>
+  <g>
+    <rect x="100" y="60" width="80" height="22" fill="#8a8a8a" rx="3"/>
+    <text x="140" y="76" text-anchor="middle" font-size="13" fill="#fff" font-family="sans-serif">試作</text>
+  </g>
+  <g>
+    <rect x="180" y="60" width="80" height="22" fill="#8a8a8a" rx="3"/>
+    <text x="220" y="76" text-anchor="middle" font-size="13" fill="#fff" font-family="sans-serif">生産準備</text>
+  </g>
+  <g>
+    <rect x="260" y="60" width="80" height="22" fill="#8a8a8a" rx="3"/>
+    <text x="300" y="76" text-anchor="middle" font-size="13" fill="#fff" font-family="sans-serif">販売準備</text>
+  </g>
+
+  <line x1="20" y1="92" x2="340" y2="92" stroke="#222" stroke-width="1"/>
+  <line x1="20" y1="88" x2="20" y2="96" stroke="#222" stroke-width="1"/>
+  <line x1="340" y1="88" x2="340" y2="96" stroke="#222" stroke-width="1"/>
+  <text x="180" y="106" text-anchor="middle" font-size="13" fill="#b22234" font-family="sans-serif" font-weight="bold">開発期間: 長い</text>
+
+  <line x1="20" y1="130" x2="360" y2="130" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <text x="20" y="158" font-size="13" fill="#222" font-family="sans-serif" font-weight="bold">コンカレント（同時並行）</text>
+
+  <g>
+    <rect x="20" y="170" width="100" height="22" fill="#2e6da4" rx="3"/>
+    <text x="70" y="186" text-anchor="middle" font-size="13" fill="#fff" font-family="sans-serif">設計</text>
+  </g>
+  <g>
+    <rect x="80" y="200" width="100" height="22" fill="#2e6da4" rx="3"/>
+    <text x="130" y="216" text-anchor="middle" font-size="13" fill="#fff" font-family="sans-serif">試作</text>
+  </g>
+  <g>
+    <rect x="120" y="230" width="100" height="22" fill="#2e6da4" rx="3"/>
+    <text x="170" y="246" text-anchor="middle" font-size="13" fill="#fff" font-family="sans-serif">生産準備</text>
+  </g>
+  <g>
+    <rect x="160" y="260" width="100" height="22" fill="#2e6da4" rx="3"/>
+    <text x="210" y="276" text-anchor="middle" font-size="13" fill="#fff" font-family="sans-serif">販売準備</text>
+  </g>
+
+  <line x1="20" y1="290" x2="260" y2="290" stroke="#222" stroke-width="1"/>
+  <line x1="20" y1="286" x2="20" y2="294" stroke="#222" stroke-width="1"/>
+  <line x1="260" y1="286" x2="260" y2="294" stroke="#222" stroke-width="1"/>
+  <text x="140" y="304" text-anchor="middle" font-size="13" fill="#3a7d44" font-family="sans-serif" font-weight="bold">開発期間: 短縮</text>
+
+  <g>
+    <rect x="20" y="320" width="360" height="36" fill="none" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+    <text x="200" y="338" text-anchor="middle" font-size="13" fill="#3a7d44" font-family="sans-serif" font-weight="bold">各工程をオーバーラップ → 部門間情報共有が密に</text>
+    <text x="200" y="352" text-anchor="middle" font-size="13" fill="#555" font-family="sans-serif">前工程完了を待たず後工程を早期着手</text>
+  </g>
+
+  <!-- 下部サマリー -->
+  <rect x="20" y="395" width="360" height="90" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="4"/>
+  <text x="200" y="422" text-anchor="middle" font-size="13" fill="#222" font-family="sans-serif" font-weight="bold">コンカレントEの効果と前提</text>
+  <text x="35" y="448" font-size="12" fill="#555" font-family="sans-serif">開発期間短縮・早期問題検出・コスト削減</text>
+  <text x="35" y="470" font-size="12" fill="#555" font-family="sans-serif">前提：部門横断チーム編成と情報共有体制</text>
+</svg>

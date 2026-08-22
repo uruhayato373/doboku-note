@@ -1,0 +1,114 @@
+{
+  "schemaVersion": 2,
+  "_note": "A8.net メディア管理画面（media-console.a8.net）のレポート CSV 取得設定。schemaVersion 2 = 2026-07-27 の実機調査で確定した値に置換（推測値ではない）。ラベルが外れたら .local/playwright-a8-debug/<runId>/visible-text.txt を見てここを直す（スクリプトは変更しない）。",
+  "a8": {
+    "baseUrl": "https://media-console.a8.net",
+    "homePath": "/home",
+    "reAuthPattern": "re-authentication|/login",
+
+    "targetSite": "doboku-note",
+    "mediaId": "a25050375786",
+    "_accountNote": "2026-07-27 実機確認: A8 の管理画面に **サイト切替は存在しない**。メディアID=口座で、ヘッダーの「サイト名」は口座の代表サイト（統計で見る都道府県）が常に表示されるだけ。したがって assert すべきは『正しい口座か』（mediaId）であり、doboku-note の分離はレポート単位で行う。",
+
+    "_isolationNote": "レポートごとに siteScope が異なる（2026-07-27 実機確認）:\n  site-rows    = サイト列があり targetSite の行だけ採れば **完全に分離できる**（/report/site のみ）。doboku-note 実績の真実源。\n  account-wide = 口座横断でサイト分離不能（program/detail・period/*）。programIdMap の allowlist で doboku 分を抽出し、site-rows と突合して混入を検算する（allowlist 合計が doboku-note 行を超えたら混入の疑い）。\n代替案の検討結果: /report/program/detail は category フィルタのみでサイト列なし。/report/material の「素材ID」は 001/003/999 の3桁で a8mat の第4トークン（TSBE9 等）とは別物のため素材による分離も不可。",
+
+    "_periodNote": "**期間は URL クエリでは制御できない**（start_date/end_date を付けても無視され既定期間が返る＝2026-07-27 実測）。画面のフォームを操作する必要がある。既定は A8 の累計期間（年初〜当月）。実際に取れた期間は CSV のファイル名にしか出ない（例 site_202601-202607_20260727105756.csv）ので manifest に記録し、要求と一致しなければ取り込まない（fail-closed）。",
+    "periodForm": {
+      "granularity": "month",
+      "startPlaceholder": "開始月",
+      "endPlaceholder": "終了月",
+      "valueFormat": "YYYY年MM月",
+      "applyButtonLabel": "適用",
+      "monthTabLabel": "月指定",
+      "pickerRoot": ".datepicker-dropdown",
+      "monthCell": ".datepicker-cell.month",
+      "disabledCellClass": "disabled",
+      "yearSwitch": ".datepicker-picker .view-switch",
+      "prevYearLabel": "«",
+      "nextYearLabel": "»"
+    },
+    "_periodFormNote": "2026-07-28 の実機観察（--probe-period）で確定した値。推測ではない。\n**同名 input `start`/`end` を一意に選ぶ鍵は placeholder**（name では選べない）:\n  site-summary(/report/site)        … 月レンジのみ。開始月/終了月 が visible。日指定は存在しない\n  program-detail(/report/program/detail) … 月レンジ（開始月/終了月・visible・既定）と日レンジ（開始日/終了日・hidden）が併存し、\n                                          「月指定」「日指定」のタブで切り替わる。既定が月指定なので通常はタブ操作不要\n値の表記は **和暦でも ISO でもなく `2026年01月`**（日レンジは `2026年07月01日`）。入力後に「適用」ボタンで確定する。\nperiod-monthly / period-daily は単月取得の対象外（EPC に必要なのは site-summary と program-detail の 2 つ）。",
+
+    "reports": {
+      "site-summary": {
+        "label": "サイト別",
+        "path": "/report/site",
+        "siteScope": "site-rows",
+        "_note": "**doboku-note 実績の真実源**。CSV は合計行を含まず、doboku-note と 統計で見る都道府県 の2行のみ"
+      },
+      "program-detail": {
+        "label": "プログラム別（詳細）",
+        "path": "/report/program/detail",
+        "siteScope": "account-wide",
+        "_note": "口座横断。programIdMap（プログラムID 基準）の allowlist で doboku 分のみ抽出し site-summary と突合。EPC 内訳の中核"
+      },
+      "period-monthly": {
+        "label": "期間別（月別）",
+        "path": "/report/period/monthly",
+        "siteScope": "account-wide",
+        "_note": "口座横断。月次トレンドの参考値（doboku 単独の月次は取れない＝期間フォーム対応後に site-summary を月ごとに取る）"
+      },
+      "period-daily": {
+        "label": "期間別（日別）",
+        "path": "/report/period/daily",
+        "siteScope": "account-wide",
+        "_note": "口座横断。日次の異常検知用（水準ではなく変化を見る）"
+      }
+    },
+
+    "exportButtonLabels": ["CSV"],
+    "_exportButtonNote": "実機は <button>CSV</button> の1個だけ。findUniqueByLabels は exact:false で全ラベル分を集計し 1 件のときだけ押すため、候補語を増やすと同一ボタンに複数ヒットして『曖昧』になり押せなくなる。ここは増やさない。",
+
+    "csvEncoding": "shift_jis",
+    "_csvEncodingNote": "2026-07-27 実測で Shift_JIS 確定。decodeCsvBuffer は U+FFFD を数えて UTF-8 へ自動フォールバックもする。",
+
+    "columnAliases": {
+      "site": ["サイト", "サイト名"],
+      "programId": ["プログラムID", "プログラム ID"],
+      "programName": ["プログラム名", "プログラム"],
+      "date": ["日付", "年月日", "Date"],
+      "month": ["年月", "対象月", "Month"],
+      "impressions": ["imp数", "インプレッション", "表示回数"],
+      "clicks": ["click数", "クリック数", "クリック"],
+      "conversions": ["発生件数", "成果件数"],
+      "grossRevenueYen": ["発生金額", "発生報酬"],
+      "approved": ["確定件数", "承認件数"],
+      "revenueYen": ["確定金額", "確定報酬"],
+      "cancelledCount": ["キャンセル件数"],
+      "cancelledYen": ["キャンセル金額"],
+      "pendingCount": ["未確定件数"],
+      "pendingRevenueYen": ["未確定金額"]
+    },
+    "_columnAliasesNote": "2026-07-27 実測の CSV ヘッダー（画面の説明文つきヘッダーとは別物・CSV はクリーンな短い列名）:\n  site:    サイト,imp数,click数,CTR,発生件数,発生金額,CVR,確定件数,確定金額,確定率,キャンセル件数,キャンセル金額,未確定件数,未確定金額\n  program: プログラムID,プログラム名,imp数,click数,CTR,発生件数,発生金額,CVR,EPC,確定件数,確定金額,確定率,キャンセル件数,キャンセル金額,未確定件数,未確定金額\n**確定金額（EPC の分子）と発生金額を取り違えないこと**。未確定金額は『確定金額』を部分文字列に含むため、mapColumns は完全一致を先に全列で走査してから部分一致に落ちる。CTR/CVR/EPC/確定率 は派生値なので取り込まない（必要なら再計算する）。このキーは columnAliases の外に置く＝中に置くと mapColumns が文字列を配列として舐めて落ちる。",
+
+    "programIdMap": {
+      "_note": "**プログラムID 基準**（2026-07-27 実機で確定）。プログラムID↔自社 mat の照合は **a8mat の第2トークン**で行える（実測: programId s00000022413004 の広告リンクは全て `4B5OO5+NTCZ6+…` を吐き、affiliate-mats.json の dx-consulting `4B5OO5+NTCZ6+4SXU+NUES1` と一致。第4トークンは素材種別で複数プログラムに共通するので識別に使えない）。プログラム名は A8 側の都合で変わるが ID は不変。名前でも部分一致で拾えるよう別名も残す。語彙は src/config/affiliate-mats.json / report-buildjob-affiliate.mjs の PROGRAM_BY_LABEL と一致させる。ここに無い ID は a8-results.json へ書かず unmapped として報告する（取りこぼしを黙って捨てない）。",
+      "s00000024757004": "buildjob",
+      "s00000023057002": "kensetsu-jobs",
+      "s00000022176005": "gks",
+      "s00000022413004": "dx-consulting",
+      "ビルドジョブ": "buildjob",
+      "建設JOBs": "kensetsu-jobs",
+      "GKSキャリア": "gks"
+    },
+    "_stats47Programs": {
+      "_note": "参考: 同一口座で stats47 が扱うプログラム（doboku の allowlist に入れないこと）。転職系が混ざるため名前だけで判断しない根拠。",
+      "s00000027444001": "AI Agent Camp",
+      "s00000027186001": "eラーニング現場系・国家資格",
+      "s00000026573001": "明光キャリアパートナーズエンジニア転職",
+      "s00000027288001": "キャリアカンパニー",
+      "s00000024824001": "転職AGENT Navi"
+    }
+  },
+
+  "browser": {
+    "channel": "chrome",
+    "headless": false,
+    "profileDir": ".local/playwright-a8-profile",
+    "stateFile": ".local/playwright-a8-state.json",
+    "debugDir": ".local/playwright-a8-debug",
+    "timeoutMs": 30000,
+    "statusIntervalMs": 120000,
+    "loginMaxWaitMs": 900000
+  }
+}

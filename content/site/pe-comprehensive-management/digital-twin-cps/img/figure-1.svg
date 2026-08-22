@@ -1,0 +1,64 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="サイバーフィジカルシステムの双方向ループ。フィジカル空間のデータを IoT センサーでサイバー空間へ収集し、サイバー空間での分析・予測の結果をフィジカル空間へフィードバックする。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-name  { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub   { font-size: 12px; fill: #1a3a5c; }
+      .t-body  { font-size: 11px; fill: #555; }
+      .t-flow  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-note  { font-size: 11px; fill: #222; }
+      .box-phys  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-cyber { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-info  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="dt-arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="9" refX="9" refY="4.5" orient="auto">
+      <polygon points="0,0 10,4.5 0,9" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <!-- 上の矢印：データ収集 -->
+  <text class="t-flow" x="200" y="22" text-anchor="middle">① IoT センサーでデータを収集</text>
+  <path d="M 150 56 C 150 30 250 30 250 42 L 250 56" fill="none" stroke="#2e6da4" stroke-width="2" marker-end="url(#dt-arrow)"/>
+
+  <!-- フィジカル空間 -->
+  <rect class="box-phys" x="24" y="56" width="164" height="134" rx="8"/>
+  <text class="t-name" x="106" y="86" text-anchor="middle">フィジカル空間</text>
+  <text class="t-sub"  x="106" y="105" text-anchor="middle">（現実世界）</text>
+  <text class="t-body" x="106" y="133" text-anchor="middle">設備・建物・都市・</text>
+  <text class="t-body" x="106" y="149" text-anchor="middle">人体などの実体</text>
+  <text class="t-body" x="106" y="169" text-anchor="middle">センサー・アクチュエータ</text>
+
+  <!-- サイバー空間 -->
+  <rect class="box-cyber" x="212" y="56" width="164" height="134" rx="8"/>
+  <text class="t-name" x="294" y="84" text-anchor="middle">サイバー空間</text>
+  <text class="t-sub"  x="294" y="102" text-anchor="middle">（仮想世界）</text>
+  <text class="t-body" x="294" y="128" text-anchor="middle">デジタルツイン＝</text>
+  <text class="t-body" x="294" y="144" text-anchor="middle">物理対象の仮想モデル</text>
+  <text class="t-body" x="294" y="166" text-anchor="middle">AI が分析・予測・最適化</text>
+
+  <!-- 下の矢印：フィードバック -->
+  <path d="M 250 190 C 250 216 150 216 150 204 L 150 190" fill="none" stroke="#2e6da4" stroke-width="2" marker-end="url(#dt-arrow)"/>
+  <text class="t-flow" x="200" y="238" text-anchor="middle">② 分析・予測の結果をフィードバック（制御・最適化）</text>
+
+  <!-- 活用事例ボックス -->
+  <rect x="15" y="254" width="370" height="130" rx="6" class="box-info"/>
+  <text x="200" y="274" font-size="12" fill="#1a3a5c" text-anchor="middle" font-weight="bold">土木・インフラ分野の活用事例</text>
+  <line x1="15" y1="281" x2="385" y2="281" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="25" y="300" class="t-note">橋梁・トンネル：センサーで変位・ひずみを常時監視</text>
+  <text x="25" y="320" class="t-note">河川管理：水位データで洪水シミュレーションを即時更新</text>
+  <text x="25" y="340" class="t-note">道路交通：流量データで信号制御・渋滞予測を最適化</text>
+  <text x="25" y="360" class="t-note">建設現場：3D モデルで施工進捗・品質をリアルタイム管理</text>
+  <text x="25" y="376" font-size="11" fill="#555">→ 物理とデジタルを循環させることで予防保全を実現</text>
+
+  <!-- 総監観点ボックス -->
+  <rect x="15" y="398" width="370" height="84" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text x="200" y="418" font-size="12" fill="#1a3a5c" text-anchor="middle" font-weight="bold">総監との接続</text>
+  <line x1="15" y1="425" x2="385" y2="425" stroke="#2e6da4" stroke-width="0.5"/>
+  <text x="200" y="444" font-size="11" fill="#222" text-anchor="middle">情報管理：リアルタイムデータ収集・分析基盤の整備</text>
+  <text x="200" y="462" font-size="11" fill="#222" text-anchor="middle">社会環境管理：インフラ長寿命化・予防保全との結合</text>
+  <text x="200" y="478" font-size="11" fill="#222" text-anchor="middle">安全管理：異常検知・リスク予測への応用</text>
+</svg>

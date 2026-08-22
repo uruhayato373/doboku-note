@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="対回観測による視準軸誤差の消去原理">
+  <!-- Title -->
+  <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#222">対回観測（正位 R ＋ 反位 L）で誤差を消去</text>
+
+  <!-- Left panel: 正位 R -->
+  <g transform="translate(0,30)">
+    <rect x="10" y="40" width="180" height="220" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="4"/>
+    <text x="100" y="60" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a3a5c">① 正位（R）</text>
+
+    <!-- Station -->
+    <circle cx="100" cy="200" r="5" fill="#222"/>
+    <text x="100" y="220" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#555">器械点</text>
+
+    <!-- Ideal sight (straight up) -->
+    <line x1="100" y1="200" x2="100" y2="80" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="3 2"/>
+    <text x="108" y="86" font-family="sans-serif" font-size="11" fill="#8a8a8a">理想視準</text>
+
+    <!-- Actual sight (tilted right by error) -->
+    <line x1="100" y1="200" x2="130" y2="80" stroke="#b22234" stroke-width="2"/>
+    <text x="105" y="100" font-family="sans-serif" font-size="11" fill="#b22234">実測（+e）</text>
+
+    <!-- Angle indicator -->
+    <path d="M 100 140 A 60 60 0 0 1 115 140" fill="none" stroke="#d4a017" stroke-width="1.5"/>
+    <text x="105" y="155" font-family="sans-serif" font-size="12" fill="#d4a017">+e</text>
+  </g>
+
+  <!-- Right panel: 反位 L -->
+  <g transform="translate(210,30)">
+    <rect x="0" y="40" width="180" height="220" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="4"/>
+    <text x="90" y="60" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a3a5c">② 反位（L）</text>
+
+    <!-- Station -->
+    <circle cx="90" cy="200" r="5" fill="#222"/>
+    <text x="90" y="220" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#555">器械点</text>
+
+    <!-- Ideal sight -->
+    <line x1="90" y1="200" x2="90" y2="80" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="3 2"/>
+    <text x="98" y="95" font-family="sans-serif" font-size="11" fill="#8a8a8a">理想視準</text>
+
+    <!-- Actual sight (tilted left: same error in opposite direction) -->
+    <line x1="90" y1="200" x2="60" y2="80" stroke="#b22234" stroke-width="2"/>
+    <text x="10" y="95" font-family="sans-serif" font-size="11" fill="#b22234">実測（−e）</text>
+
+    <!-- Angle indicator -->
+    <path d="M 75 140 A 60 60 0 0 1 90 140" fill="none" stroke="#d4a017" stroke-width="1.5"/>
+    <text x="68" y="155" font-family="sans-serif" font-size="12" fill="#d4a017">−e</text>
+  </g>
+
+  <!-- Bottom equation -->
+  <rect x="60" y="272" width="280" height="42" fill="#f5f5f5" stroke="#2e6da4" stroke-width="1"/>
+  <text x="200" y="288" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c">平均 = （+e − e）／2 = 0</text>
+  <text x="200" y="306" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c">→ 視準軸誤差は消える</text>
+
+  <!-- 対回観測の手順まとめ -->
+  <rect x="20" y="326" width="360" height="164" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="346" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">対回観測の手順と消去できる誤差</text>
+
+  <rect x="30" y="356" width="340" height="40" rx="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text x="50" y="372" font-family="sans-serif" font-size="11" fill="#1a3a5c" font-weight="bold">手順</text>
+  <text x="100" y="372" font-family="sans-serif" font-size="11" fill="#555">正位（R）で観測 → 反位（L）で観測</text>
+  <text x="100" y="388" font-family="sans-serif" font-size="11" fill="#555">→ 平均値を採用</text>
+
+  <rect x="30" y="400" width="340" height="26" rx="3" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <text x="50" y="418" font-family="sans-serif" font-size="11" fill="#3a7d44" font-weight="bold">消去</text>
+  <text x="100" y="418" font-family="sans-serif" font-size="11" fill="#555">視準軸誤差・水平軸誤差・目盛盤偏心誤差</text>
+
+  <rect x="30" y="430" width="340" height="26" rx="3" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
+  <text x="50" y="448" font-family="sans-serif" font-size="11" fill="#d4a017" font-weight="bold">残留</text>
+  <text x="100" y="448" font-family="sans-serif" font-size="11" fill="#555">整準誤差・目盛誤差（→繰り返し観測で低減）</text>
+
+  <text x="200" y="472" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">1 対回 = 正位 + 反位 の組み合わせ 1 セット</text>
+  <text x="200" y="488" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">精度向上には複数対回（n 対回）を実施</text>
+</svg>

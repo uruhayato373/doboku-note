@@ -1,0 +1,44 @@
+name: Audit internal links
+
+on:
+  schedule:
+    - cron: "0 22 * * 4" # 毎週金曜 07:00 JST（木曜 22:00 UTC）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@v5
+        with:
+          ref: develop
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+
+      # check-links.mjs は npm 依存ゼロ（fs/path と #lib 内ローカル import のみ）のため
+      # npm ci は不要。
+      - name: Run internal link audit
+        continue-on-error: true
+        run: npm run check-links-audit
+
+      - name: Publish report to develop branch (.claude/state/link-audit/)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add .claude/state/link-audit
+          if git diff --cached --quiet; then
+            echo "No link-audit changes to publish"
+            exit 0
+          fi
+
+          BROKEN=$(node -e "const fs=require('fs');const f=fs.readdirSync('.claude/state/link-audit').filter(x=>x.startsWith('audit-')).sort().pop();console.log(JSON.parse(fs.readFileSync('.claude/state/link-audit/'+f,'utf8')).summary.HIGH);")
+          git commit -m "chore(metrics): link audit $(date -u +%Y-%m-%dT%H:%MZ) — ${BROKEN} broken [skip ci]"
+          git push origin develop

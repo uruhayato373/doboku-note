@@ -1,0 +1,124 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="廃棄物処理法に基づく廃棄物の区分。一般廃棄物（市町村責任）と産業廃棄物（事業者責任）の2系統に分類し、各枝の特別管理区分をwarnで強調した縦フロー図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .t-label { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-body  { font-size: 13px; fill: #222; }
+      .t-small { font-size: 11px; fill: #555; }
+      .t-resp  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-note  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      /* brand系: 一般廃棄物 */
+      .box-brand  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      /* positive系: 産業廃棄物 */
+      .box-pos    { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      /* warn系: 特別管理（両枝） */
+      .box-warn   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      /* root / surface */
+      .box-root   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      /* 処理責任バッジ */
+      .badge-brand { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-pos   { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+      /* connector */
+      .line { stroke: #8a8a8a; stroke-width: 1.5; fill: none; }
+    </style>
+    <marker markerUnits="userSpaceOnUse" id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- sub: 法令参照 -->
+  <text class="t-sub"   x="200" y="16" text-anchor="middle">廃棄物処理法 第2条に基づく分類と処理責任</text>
+
+  <!-- ROOT: 廃棄物 -->
+  <rect class="box-root" x="145" y="26" width="110" height="36" rx="7"/>
+  <text class="t-label" x="200" y="49" text-anchor="middle">廃棄物</text>
+
+  <!-- root → 左右分岐 -->
+  <line class="line" x1="200" y1="62"  x2="200" y2="78"/>
+  <line class="line" x1="90"  y1="78" x2="310" y2="78"/>
+  <line class="line" x1="90"  y1="78" x2="90"  y2="90" marker-end="url(#arr)"/>
+  <line class="line" x1="310" y1="78" x2="310" y2="90" marker-end="url(#arr)"/>
+
+  <!-- ===== LEFT: 一般廃棄物 ===== -->
+  <rect class="box-brand" x="22" y="90" width="136" height="42" rx="7"/>
+  <text class="t-label" x="90" y="107" text-anchor="middle">一般廃棄物</text>
+  <text class="t-small" x="90" y="124" text-anchor="middle">産業廃棄物以外</text>
+
+  <!-- 一般廃棄物 → 3枝 -->
+  <line class="line" x1="90"  y1="132" x2="90"  y2="144"/>
+  <line class="line" x1="35"  y1="144" x2="145" y2="144"/>
+  <line class="line" x1="35"  y1="144" x2="35"  y2="156" marker-end="url(#arr)"/>
+  <line class="line" x1="90"  y1="144" x2="90"  y2="156" marker-end="url(#arr)"/>
+  <line class="line" x1="145" y1="144" x2="145" y2="156" marker-end="url(#arr)"/>
+
+  <!-- ごみ (center=35) -->
+  <rect class="box-brand" x="12" y="156" width="46" height="44" rx="5"/>
+  <text class="t-body"  x="35" y="175" text-anchor="middle">ごみ</text>
+  <text class="t-small" x="35" y="191" text-anchor="middle">家庭系等</text>
+
+  <!-- し尿 (center=90) -->
+  <rect class="box-brand" x="68" y="156" width="44" height="44" rx="5"/>
+  <text class="t-body" x="90" y="175" text-anchor="middle">し尿</text>
+  <text class="t-small" x="90" y="191" text-anchor="middle"> </text>
+
+  <!-- 特別管理一般廃棄物 (center=145) warn -->
+  <rect class="box-warn" x="112" y="156" width="66" height="44" rx="5"/>
+  <text class="t-note"  x="145" y="172" text-anchor="middle">特別管理</text>
+  <text class="t-small" x="145" y="189" text-anchor="middle">一般廃棄物</text>
+
+  <!-- 市町村 責任バッジ -->
+  <rect class="badge-brand" x="22" y="210" width="136" height="24" rx="6"/>
+  <text class="t-resp" x="90" y="226" text-anchor="middle">市町村の処理責任</text>
+
+  <!-- ===== RIGHT: 産業廃棄物 ===== -->
+  <rect class="box-pos" x="242" y="90" width="136" height="42" rx="7"/>
+  <text class="t-label" x="310" y="107" text-anchor="middle">産業廃棄物</text>
+  <text class="t-small" x="310" y="124" text-anchor="middle">事業活動に伴う廃棄物</text>
+
+  <!-- 産業廃棄物 → 2枝 -->
+  <line class="line" x1="310" y1="132" x2="310" y2="144"/>
+  <line class="line" x1="272" y1="144" x2="348" y2="144"/>
+  <line class="line" x1="272" y1="144" x2="272" y2="156" marker-end="url(#arr)"/>
+  <line class="line" x1="348" y1="144" x2="348" y2="156" marker-end="url(#arr)"/>
+
+  <!-- 20種類 (center=272) -->
+  <rect class="box-pos" x="242" y="156" width="60" height="44" rx="5"/>
+  <text class="t-body"  x="272" y="175" text-anchor="middle">20種類</text>
+  <text class="t-small" x="272" y="191" text-anchor="middle">法令定め</text>
+
+  <!-- 特別管理産業廃棄物 (center=348) warn -->
+  <rect class="box-warn" x="318" y="156" width="60" height="44" rx="5"/>
+  <text class="t-note"  x="348" y="172" text-anchor="middle">特別管理</text>
+  <text class="t-small" x="348" y="189" text-anchor="middle">産業廃棄物</text>
+
+  <!-- 事業者 責任バッジ -->
+  <rect class="badge-pos" x="242" y="210" width="136" height="24" rx="6"/>
+  <text class="t-resp" x="310" y="226" text-anchor="middle">事業者の処理責任</text>
+
+  <!-- ===== 区切り線 ===== -->
+  <line x1="20" y1="248" x2="380" y2="248" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 産業廃棄物20種類 -->
+  <text class="t-note"  x="22" y="268">産業廃棄物 20種類（代表例）</text>
+  <text class="t-small" x="22" y="284">燃え殻・汚泥・廃油・廃酸・廃プラスチック類 等</text>
+
+  <!-- 特別管理産業廃棄物 -->
+  <text class="t-note"  x="22" y="308">特別管理（両枝）</text>
+  <text class="t-small" x="22" y="324">爆発性・毒性・感染性等の有害性を有するもの（政令）</text>
+
+  <!-- ごみの内訳 -->
+  <text class="t-note"  x="22" y="348">ごみの内訳</text>
+  <text class="t-small" x="22" y="364">家庭系：一般ごみ・粗大ごみ</text>
+  <text class="t-small" x="22" y="380">事業系ごみも一般廃棄物に含まれる</text>
+
+  <!-- 凡例 -->
+  <line x1="20" y1="400" x2="380" y2="400" stroke="#d7d7d7" stroke-width="1"/>
+  <rect class="box-warn" x="22" y="410" width="14" height="13" rx="3"/>
+  <text class="t-small" x="42" y="421">特別管理区分（有害性が高く厳格な規制対象）</text>
+
+  <!-- マニフェスト補足 -->
+  <text class="t-small" x="22" y="450" fill="#8a8a8a">産業廃棄物はマニフェスト（管理票）で処理追跡（第12条の3）</text>
+  <text class="t-small" x="22" y="466" fill="#8a8a8a">排出事業者は写しを5年間保存</text>
+</svg>

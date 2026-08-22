@@ -1,0 +1,177 @@
+---
+title: フォールトツリー分析
+description: "FTA（Fault Tree Analysis）の定義・手順・論理ゲート（AND/OR）の使い方を解説。技術士総合技術監理キーワード集2026（安全管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '5.6'
+tags:
+  - keyword
+published: true
+publishedAt: '2026-04-09'
+reviewStatus: needs-review
+lastRewrittenAt: '2026-04-18'
+revisionCycle: 2
+seoTitle: "フォールトツリー分析 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-06-23
+---
+
+## FTAとは
+
+FTA（Fault Tree Analysis：故障の木分析）とは、望ましくない事象（トップ事象）を頂点に置き、その原因を**論理ゲートを用いてツリー状に展開**して分析する手法である。
+
+1961年にベル研究所で開発され、原子力・航空宇宙分野を中心に広く普及した。**トップダウン型**の演繹的分析手法であり、[ETA](/docs/pe-comprehensive-management-eta)（ボトムアップ型）と対の関係にある。
+
+## 分析の手順
+
+FTAは以下の5ステップで進める。
+
+1. **トップ事象の設定** — 分析対象とする望ましくない事象を定義する
+2. **原因の展開** — トップ事象の直接原因を論理ゲートで接続しながら下位へ展開する
+3. **基本事象の特定** — これ以上展開できない末端の事象（基本事象）を特定する
+4. **定性的分析** — ミニマルカットセット（トップ事象を引き起こす最小の基本事象の組合せ）を求める
+5. **定量的分析** — 各基本事象の発生確率からトップ事象の発生確率を計算する
+
+## ツリー構造と定量分析
+
+### 事象の階層
+
+FTAのツリーは**トップダウン**に3層で構成される。
+
+- **頂上事象（トップ事象）** — 防止すべき望ましくない最終事象。例：「作業員の転落死亡」
+- **中間事象** — 頂上事象の直接原因。さらに下位へ展開できる事象
+- **基本事象** — これ以上分解できない根本原因。発生確率を与える末端要素
+
+### 最小カットセット
+
+最小カットセットとは、**トップ事象を発生させる最小の基本事象の組合せ**である。そのセット内の基本事象がすべて発生したとき、トップ事象に至る経路が成立する。
+
+最小カットセットを求めることで、どの基本事象の組合せが最もトップ事象に直結するかを把握できる。カットセットの要素数が少ないほど（特に要素が1つの「シングルポイント」）、単独の故障でトップ事象に至るため優先的に対策する必要がある。
+
+### 定量的分析
+
+各基本事象の発生確率が既知のとき、論理ゲートの接続関係から頂上事象の発生確率を求める。
+
+- **ORゲートでの結合**（独立な2事象 $A$、$B$）
+
+$$
+P(A \cup B) = P(A) + P(B) - P(A \cap B)
+$$
+
+$P(A)$ と $P(B)$ がいずれも小さい場合（稀少事象の近似）：
+
+$$
+P(A \cup B) \approx P(A) + P(B)
+$$
+
+- **ANDゲートでの結合**（独立な2事象 $A$、$B$）
+
+$$
+P(A \cap B) = P(A) \times P(B)
+$$
+
+ANDゲートで接続された経路は確率が掛け算で小さくなるため、ORゲート接続経路より発生確率が低くなる。
+
+### 事後解析における活用
+
+FTAは**事前分析**（設計・計画段階でのリスク特定）だけでなく、**事後解析**（事故発生後の原因特定）にも用いられる。事故後にトップ事象を「発生した事故」として設定し、どの基本事象が組み合わさって事故に至ったかを遡及的に解析することで、再発防止策の優先度を決定する。
+
+## 論理ゲート
+
+FTAで原因を接続する論理ゲートは主に2種類ある。
+
+- **ANDゲート**（半円形の記号）
+  - すべての入力事象が同時に発生したときのみ、出力事象が発生する
+  - [並列システム](/docs/pe-comprehensive-management-parallel-system)に対応し、冗長化による安全確保の効果を表現できる
+- **ORゲート**（尖った弧形の記号）
+  - いずれか1つの入力事象が発生すれば出力事象が発生する
+  - [直列システム](/docs/pe-comprehensive-management-series-system)に対応し、単一故障点（Single Point of Failure）を見つけるのに適している
+
+ANDゲートで接続されている経路ほど、複数の対策を同時に破らなければトップ事象に至らないため、相対的にリスクが低い。ORゲートで接続されている経路は1つの要因だけで致命的事象に至るため、優先的に対策を講じる必要がある。
+
+{/* quiz-figures:start */}
+## 図解
+
+択一過去問の解説に掲載されていた図表。同キーワードの理解を補助する。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/fta/img/figure-fault-tree-diagram.svg"
+  alt="フォールトツリー図"
+  caption="図: フォールトツリー（頂上事象T・AND/ORゲート・原因事象）"
+/>
+
+{/* quiz-figures:end */}
+
+## 論理回路
+
+FTAの論理ゲートは**2値論理回路**の考え方に基づいている。入力端子の状態（1=発生・0=未発生）と出力（1=事象発生）の関係を**真理値表**で整理すると、ゲートの動作が明確になる。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/fta/img/figure-or-and-gates.svg"
+  alt="OR ゲート（X+Y=Z）と AND ゲート（X·Y=Z）の記号と真理値表"
+/>
+
+### OR回路
+
+OR回路（ORゲート）は、**入力端子のどれか1つが1であれば出力が1**となる論理回路で、**論理和**と呼ばれる。
+
+2つの基本事象 $A$、$B$ に対して：
+
+$$
+P(A \cup B) = P(A) + P(B) - P(A \cap B)
+$$
+
+$A$ と $B$ が独立かつ稀少（発生確率が十分に小さい）場合は近似式 $P(A \cup B) \approx P(A) + P(B)$ を用いることが多い。
+
+FTAでは、ORゲートで結合された経路が[直列システム](/docs/pe-comprehensive-management-series-system)に対応し、単一の基本事象だけでトップ事象に至る構造を表す。このため**単一故障点（SPOF）の発見**に適している。
+
+### AND回路
+
+AND回路（ANDゲート）は、**入力端子のすべてに1が入ったときのみ出力が1**となる論理回路で、**論理積**と呼ばれる。
+
+2つの基本事象 $A$、$B$ が独立のとき：
+
+$$
+P(A \cap B) = P(A) \times P(B)
+$$
+
+積算により確率は大幅に小さくなる。FTAでは、ANDゲートで結合された経路が[並列システム](/docs/pe-comprehensive-management-parallel-system)に対応し、**冗長化（二重化・多重化）による安全確保の効果**を表現できる。複数の基本事象が同時に発生しなければトップ事象に至らないため、OR経路より相対的にリスクが低い。
+
+### FTAと論理回路の対応
+
+論理回路の真理値は 0/1 の2値だが、FTAでは各基本事象に**発生確率**を割り当て、上記の確率計算式でゲートを積み上げていく。ツリー全体を頂上事象まで計算することで、システム全体のリスク（トップ事象発生確率）が定量的に得られる。
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**5.6 システム安全工学手法**](/docs/pe-comprehensive-management-keyword-2026#56-システム安全工学手法)に位置づけられている。
+
+FTA は [FMEA](/docs/pe-comprehensive-management-fmea) や [ETA](/docs/pe-comprehensive-management-eta) とともにシステム安全工学の代表的手法である。[信頼性ブロック図](/docs/pe-comprehensive-management-reliability-block-diagram) と組み合わせることで、システムの弱点を体系的に把握し、効果的な安全対策の立案に活用される。過去問 [R04 Ⅰ-1-28](/docs/pe-comprehensive-management-r04-primary#1-28) では [VTA](/docs/pe-comprehensive-management-vta-method)・ETA・[HAZOP](/docs/pe-comprehensive-management-hazop)・[THERP](/docs/pe-comprehensive-management-therp) と並ぶシステム安全工学の手法群として FTA も位置づけられた。
+
+過去問 [R02 Ⅰ-1-25](/docs/pe-comprehensive-management-r02-primary#1-25) では FTA の定義として「直上事象の発生に必要な条件と要因の因果関係を明らかにし、ツリー状に展開」が正しい記述として出題された（[ETA](/docs/pe-comprehensive-management-eta) の「初期事象からの進展分析」との識別、[FMEA](/docs/pe-comprehensive-management-fmea) の「構成要素ごとの故障モード分析」との識別、[VTA](/docs/pe-comprehensive-management-vta-method) の「通常からの逸脱の時系列分析」との識別が 4 手法区別の核心）。
+
+建設部門では、橋梁・トンネル・ダムといった重要構造物の維持管理計画や、施工中の安全管理においてFTAが活用されている。「崩壊」「出水」「接触事故」などをトップ事象として設定し、設計・施工・運用の各段階で発生しうる基本事象を展開することで、設計変更や工事手順の見直しに繋げる。
+
+<ExamPoint
+  summary="FTAの分析方向と論理ゲートの役割を区別して理解する"
+  items={[
+    "トップダウン型：望ましくない結果（トップ事象）から原因へ遡る演繹的手法",
+    "ANDゲート：全原因が同時発生で事象発生 — 冗長系の多重故障を表現",
+    "ORゲート：いずれか1つの原因で事象発生 — 単一故障点を抽出",
+    "ETAとは分析方向が逆（FTA：トップダウン、ETA：ボトムアップ）",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "イベントツリー分析（ETA）", slug: "eta" },
+  { label: "FMEA", slug: "fmea" },
+  { label: "HAZOP", slug: "hazop" },
+  { label: "信頼性ブロック図", slug: "reliability-block-diagram" },
+  { label: "並列システム", slug: "parallel-system" },
+]} />
+
+## 参考資料
+
+- [故障の影響解析(FMEA)と、故障の木解析（FTA)の活用](https://www.jspmi.or.jp/system/l_cont.php?ctid=130403&rid=831)（一般財団法人 機械振興協会 技術研究所）
+- [安全分析手法の解説（FTA・FMEA等）](https://www.nite.go.jp/jiko/chuikanki/consumer/analysis/index.html)（製品評価技術基盤機構 NITE）
+- [FTA（故障木解析）とは何か？FT図の作成手順も含めて解説](https://ssaits.jp/promapedia/method/fta.html)（Promapedia）

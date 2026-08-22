@@ -1,0 +1,54 @@
+<svg width="580" height="280" viewBox="0 0 580 280" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:580px;width:100%" role="img" aria-label="BPT分布による地震発生確率（活動時期が明らかな場合）">
+  <defs>
+    <marker id="arq" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#222"/>
+    </marker>
+  </defs>
+
+  <!-- Axes -->
+  <line x1="60" y1="230" x2="540" y2="230" stroke="#222" stroke-width="1.5" marker-end="url(#arq)"/>
+  <line x1="60" y1="230" x2="60" y2="20" stroke="#222" stroke-width="1.5" marker-end="url(#arq)"/>
+
+  <!-- Y-axis label -->
+  <text x="12" y="130" font-size="10" transform="rotate(-90,12,130)" text-anchor="middle">確率密度</text>
+  <text x="14" y="85" font-size="9">0.001</text>
+  <text x="14" y="105" font-size="9">0.0008</text>
+  <text x="14" y="130" font-size="9">0.0006</text>
+  <text x="14" y="155" font-size="9">0.0004</text>
+  <text x="14" y="185" font-size="9">0.0002</text>
+
+  <!-- Y grid lines -->
+  <line x1="57" y1="83" x2="60" y2="83" stroke="#222"/>
+  <line x1="57" y1="103" x2="60" y2="103" stroke="#222"/>
+  <line x1="57" y1="128" x2="60" y2="128" stroke="#222"/>
+  <line x1="57" y1="153" x2="60" y2="153" stroke="#222"/>
+  <line x1="57" y1="183" x2="60" y2="183" stroke="#222"/>
+
+  <!-- X-axis labels -->
+  <text x="60"  y="245" text-anchor="middle" font-size="10">1000</text>
+  <text x="155" y="245" text-anchor="middle" font-size="10">2000</text>
+  <text x="250" y="245" text-anchor="middle" font-size="10">2500</text>
+  <text x="325" y="245" text-anchor="middle" font-size="10">3000</text>
+  <text x="420" y="245" text-anchor="middle" font-size="10">4000</text>
+  <text x="510" y="245" text-anchor="middle" font-size="10">5000</text>
+  <text x="290" y="260" text-anchor="middle" font-size="11">最新活動からの経過時間（年）</text>
+
+  <!-- BPT curve (bell-shaped, peaking around x=250 which is 2500 year) -->
+  <path d="M 60,228 C 80,226 100,222 120,215 150,204 180,185 210,155 230,125 250,60 270,40 280,35 290,38 310,55 330,90 350,130 370,165 400,195 430,212 460,220 500,226 530,228" fill="none" stroke="#2e6da4" stroke-width="2"/>
+
+  <!-- Shade area A: from 2500 to "now" (2530) -->
+  <path d="M 250,60 C 260,45 270,40 280,35 290,38 295,40 298,43 L 298,230 L 250,230 Z" fill="#ffaaaa" fill-opacity="0.5" stroke="none"/>
+  <text x="268" y="200" font-size="10" fill="#b22234">面積A</text>
+
+  <!-- Shade area B: from "now" to right tail -->
+  <path d="M 298,43 C 305,50 310,55 330,90 350,130 370,165 400,195 430,212 460,220 500,226 530,228 L 530,230 L 298,230 Z" fill="#aaaaff" fill-opacity="0.4" stroke="none"/>
+  <text x="390" y="200" font-size="10" fill="#2222cc">面積B</text>
+
+  <!-- "Now" marker at 2530 year -->
+  <line x1="298" y1="30" x2="298" y2="230" stroke="#b22234" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="265" y="25" font-size="10" fill="#b22234">2500年　2530年</text>
+  <text x="298" y="15" text-anchor="middle" font-size="10" fill="#b22234">↑現在</text>
+
+  <!-- Labels -->
+  <text x="300" y="270" text-anchor="middle" font-size="11" font-weight="bold">活動時期が明らかな場合の地震発生確率の密度分布</text>
+</svg>

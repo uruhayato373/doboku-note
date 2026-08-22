@@ -1,0 +1,78 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="プッシュ型とプル型生産方式の違いを生産指示（情報）の向きと中間在庫の量で対比した図。プッシュ型は需要予測で前工程から後工程へ押し出し在庫が多く、プル型はかんばんで後工程から前工程へ引き取り在庫が少ない。モノの流れは両者とも前工程から後工程で共通。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #222; }   /* ink-strong */
+      .t-sub   { font-size: 12px; fill: #555; }                      /* ink-body */
+      .t-panel { font-size: 13px; font-weight: bold; fill: #222; }   /* ink-strong */
+      .t-box   { font-size: 12px; fill: #1a3a5c; }                   /* ink-strong */
+      .t-flow  { font-size: 11px; fill: #555; }                      /* ink-body */
+      .t-tag   { font-size: 11px; font-weight: bold; fill: #1a3a5c; }/* ink-strong */
+      .t-sum   { font-size: 12px; fill: #1a3a5c; }                   /* ink-strong */
+      .t-note  { font-size: 11px; fill: #8a8a8a; }                   /* ink-muted */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="arrowB" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>  <!-- brand -->
+    </marker>
+    <marker id="arrowG" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#3a7d44"/>  <!-- positive -->
+    </marker>
+  </defs>
+
+  <!-- タイトル -->
+  <text class="t-title" x="200" y="30" text-anchor="middle">プッシュ型とプル型の違い</text>
+  <text class="t-sub" x="200" y="50" text-anchor="middle">モノは前→後で共通、生産指示の向きと在庫量が逆</text>
+
+  <!-- ===== プッシュ型パネル ===== -->
+  <rect class="box-warn" x="20" y="66" width="12" height="12" rx="2"/>
+  <text class="t-panel" x="38" y="76">プッシュ型（押し出し）</text>
+
+  <text class="t-flow" x="200" y="96" text-anchor="middle">生産指示：需要予測 → 前工程 → 後工程（押し出す）</text>
+  <line x1="40" y1="104" x2="360" y2="104" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrowB)"/>
+
+  <rect class="box-brand" x="24"  y="116" width="100" height="44" rx="6"/>
+  <text class="t-box" x="74"  y="143" text-anchor="middle">前工程</text>
+  <rect class="box-warn"  x="150" y="116" width="100" height="44" rx="6"/>
+  <text class="t-box" x="200" y="143" text-anchor="middle">中間在庫</text>
+  <rect class="box-brand" x="276" y="116" width="100" height="44" rx="6"/>
+  <text class="t-box" x="326" y="143" text-anchor="middle">後工程</text>
+
+  <rect class="box-warn" x="150" y="168" width="100" height="22" rx="4"/>
+  <text class="t-tag" x="200" y="183" text-anchor="middle">在庫 多い</text>
+
+  <line x1="20" y1="202" x2="380" y2="202" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- ===== プル型パネル ===== -->
+  <rect class="box-positive" x="20" y="214" width="12" height="12" rx="2"/>
+  <text class="t-panel" x="38" y="224">プル型（引き取り）</text>
+
+  <text class="t-flow" x="200" y="244" text-anchor="middle">生産指示：かんばん ← 後工程 ← 前工程（引き取る）</text>
+  <line x1="360" y1="252" x2="40" y2="252" stroke="#3a7d44" stroke-width="1.5" marker-end="url(#arrowG)"/>
+
+  <rect class="box-brand"    x="24"  y="264" width="100" height="44" rx="6"/>
+  <text class="t-box" x="74"  y="291" text-anchor="middle">前工程</text>
+  <rect class="box-positive" x="150" y="264" width="100" height="44" rx="6"/>
+  <text class="t-box" x="200" y="291" text-anchor="middle">中間在庫</text>
+  <rect class="box-brand"    x="276" y="264" width="100" height="44" rx="6"/>
+  <text class="t-box" x="326" y="291" text-anchor="middle">後工程</text>
+
+  <rect class="box-positive" x="150" y="316" width="100" height="18" rx="4"/>
+  <text class="t-tag" x="200" y="329" text-anchor="middle">在庫 少ない</text>
+
+  <line x1="20" y1="346" x2="380" y2="346" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- ===== まとめ ===== -->
+  <rect class="box-surface" x="20" y="356" width="360" height="128" rx="8"/>
+  <text class="t-panel" x="34" y="378">ちがいの要点</text>
+  <text class="t-sum"  x="34" y="402">起点：プッシュ＝需要予測／プル＝後工程の実需</text>
+  <text class="t-sum"  x="34" y="426">在庫：プッシュ＝多い／プル＝少ない</text>
+  <text class="t-sum"  x="34" y="450">代表例：プッシュ＝MRP／プル＝かんばん・JIT</text>
+  <text class="t-note" x="34" y="474">共通：モノは前工程→後工程に流れる（情報の向きが逆）</text>
+</svg>

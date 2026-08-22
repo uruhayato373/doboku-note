@@ -1,0 +1,134 @@
+---
+title: BCP・BCM
+description: "BCP・BCMの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+date created: '2025-01-14 14:38'
+date modified: '2025-02-19 11:37'
+tags:
+  - keyword
+published: true
+reviewStatus: approved
+lastRewrittenAt: '2026-04-15'
+revisionCycle: 1
+publishedAt: '2026-04-03'
+category: pe-comprehensive-management
+group: keyword
+section: '2.1'
+seoTitle: "BCP・BCM ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-03
+dateModified: 2026-06-29
+---
+
+## 事業継続計画とは
+
+事業継続計画（BCP: Business Continuity Plan）とは、自然災害・感染症・テロ・大事故などの緊急事態が発生した際に、事業資産の損害を最小限にとどめつつ、**中核事業の継続または早期復旧**を可能にするために、平常時に行うべき活動や緊急時の事業継続のための方法・手段などを取り決めておく計画である。
+
+### BCPの基本的な考え方
+
+従来の防災計画が「被害を出さないこと」に重点を置くのに対し、BCPは**被害を受けることを前提**として、いかに事業を継続・復旧させるかに焦点を当てる。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/business-continuity-plan/img/figure-1.svg"
+  alt="従来の防災活動とBCM（事業継続マネジメント）の比較—目的・対象・主体・時間軸の4観点での対比"
+/>
+
+| 観点 | 防災計画 | BCP |
+|---|---|---|
+| 基本姿勢 | 被害を防ぐ・軽減する | 被害を受けても事業を継続する |
+| 対象 | 人命・建物・設備の保全 | 中核事業の継続・復旧 |
+| 目標 | 被害の最小化 | 許容時間内の復旧（RTO） |
+| 代替手段 | 通常は想定しない | 代替拠点・代替手段を事前に確保 |
+
+### BCP策定の手順
+
+内閣府「事業継続ガイドライン」に基づく基本的な策定手順は以下のとおりである。
+
+<Timeline items={[
+  { title: "方針の策定", description: "経営者が事業継続の基本方針を決定する" },
+  { title: "重要業務の特定", description: "中核事業・優先業務を選定する" },
+  { title: "被害想定", description: "想定されるリスクと被害のシナリオを分析する" },
+  { title: "事前対策の検討", description: "代替手段・バックアップ・資源確保を計画する" },
+  { title: "BCP文書の作成", description: "発動基準・体制・手順を文書化する" },
+  { title: "教育・訓練の実施", description: "計画の実効性を確保する" },
+]} />
+
+### 目標復旧時間と目標復旧レベル
+
+- **RTO（Recovery Time Objective）**: 中核事業を復旧させるまでの目標時間
+- **RLO（Recovery Level Objective）**: 復旧時に達成すべき事業レベルの目標値
+
+RTOとRLOの設定は、経営判断として行われる。取引先との契約上の要求、業界標準、社会的責任などを考慮して決定する。
+
+<ExamPoint
+  summary="BCPの本質は「中核事業の継続・早期復旧」にある"
+  items={[
+    "全事業の復旧ではなく、優先すべき中核事業を特定する",
+    "目標復旧時間（RTO）と目標復旧レベル（RLO）を設定する",
+    "代替手段（代替拠点・代替要員・バックアップ等）を事前に確保する",
+    "平常時からの訓練・見直しが不可欠（策定して終わりではない）",
+  ]}
+/>
+
+## 事業継続マネジメントとは
+
+事業継続マネジメント（BCM: Business Continuity Management）とは、BCPの策定から運用・見直しまでを含む**包括的なマネジメントプロセス**である。BCPが「計画文書」であるのに対し、BCMはその計画を組織に定着させ、継続的に改善していく経営管理の仕組みを指す。
+
+### BCMの検討範囲はサプライチェーン全体
+
+BCMの検討範囲は自社内の人的・物的被害の軽減にとどまらず、**委託先・調達先・供給先などサプライチェーン全体**に及ぶ。自社が事業を継続できても、部品供給元が停止すれば製品提供は不可能となるため、取引先のBCP整備状況の確認、代替調達先の確保、重要な委託先との事前協議が実務上の要点となる。内閣府「事業継続ガイドライン（令和5年3月）」でも、委託先・調達先・供給先のBCMへの関与が明示されている。
+
+### BCMのPDCAサイクル
+
+BCMは以下のPDCAサイクルによって継続的に改善される。
+
+<PdcaCycle items={[
+  { label: "Plan（計画）", description: "事業影響度分析（BIA）、リスクアセスメント、BCP策定" },
+  { label: "Do（実行）", description: "事前対策の実施、教育・訓練の実施" },
+  { label: "Check（評価）", description: "訓練結果の評価、BCP監査、課題の抽出" },
+  { label: "Act（改善）", description: "BCPの見直し・更新、新たなリスクへの対応" },
+]} />
+
+### 事業影響度分析
+
+事業影響度分析（BIA: Business Impact Analysis）は、BCM の出発点となる分析手法である。各業務が停止した場合の経営への影響度を時系列で評価し、優先的に復旧すべき業務とそのRTOを特定する。
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では、BCPは **2つのセクション** で登場する横断的概念である。
+
+- [**2.1 事業企画**](/docs/pe-comprehensive-management-keyword-2026#21-事業企画)（経済性管理）: 事業企画段階のリスク対策として、[リスクマネジメント](/docs/pe-comprehensive-management-risk-management-plan)と並ぶ中核キーワード
+- [**5.5 危機管理**](/docs/pe-comprehensive-management-keyword-2026#55-危機管理)（安全管理）: [危機管理マニュアル](/docs/pe-comprehensive-management-crisis-management-manual)の中核要素として、[不測事態](/docs/pe-comprehensive-management-contingency)への備えを具体化する手段
+
+### 危機管理文脈でのBCP運用
+
+安全管理（5.5 危機管理）の観点では、BCPは単なる計画文書ではなく、ISO 22301に基づく**事業継続マネジメントシステム（BCMS）** の仕組みとして捉える。[危機管理マニュアル](/docs/pe-comprehensive-management-crisis-management-manual)と一体的に整備され、[危機広報](/docs/pe-comprehensive-management-crisis-communication)や緊急時の意思決定プロセスと連動させることで、**不測事態発生時の組織の事業継続能力** を確保する。
+
+特に、**中核業務の特定とボトルネック分析**、**目標復旧時間（RTO）と目標復旧レベル（RLO）の設定**、**代替戦略の策定** が危機管理視点でのBCP策定の出発点となる。過去問 [R02 Ⅰ-1-5](/docs/pe-comprehensive-management-r02-primary#1-5) では、災害後のサプライチェーン途絶に対するレジリエンス向上策として「サプライヤ支援体制・早期復旧計画」が正答肢となり、BCP は自社内だけでなく**委託先・調達先・供給先を含むサプライチェーン全体**を対象とする視点が論点となった。
+
+<ExamPoint
+  summary="総合技術監理では2つの文脈でBCPが出題される"
+  items={[
+    "経済性管理（2.1）：事業企画段階のリスク対策としてのBCP",
+    "安全管理（5.5）：危機管理における事業継続の観点からのBCP",
+    "両方の観点から問われるため、横断的な理解が求められる",
+    "ISO 22301は事業継続マネジメントシステム（BCMS）の国際規格",
+    "BCMの検討範囲は自社内にとどまらず委託先・調達先・供給先を含む（[R07 Ⅰ-1-1](/docs/pe-comprehensive-management-r07-primary#-1-1) の正答トラップ）",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "サプライチェーンマネジメント（SCM）", slug: "supply-chain-management" },
+  { label: "危機管理マニュアル", slug: "crisis-management-manual" },
+  { label: "緊急事態", slug: "emergency" },
+  { label: "予算計画", slug: "budget-planning" },
+  { label: "コンカレントエンジニアリング", slug: "concurrent-engineering" },
+]} />
+
+## 関連テーマ記事
+
+
+## 参考資料
+
+- [事業継続ガイドライン（令和5年3月改定）](https://www.bousai.go.jp/kyoiku/kigyou/pdf/guideline202303.pdf)（内閣府）
+- [中小企業BCP策定運用指針](https://www.chusho.meti.go.jp/bcp/)（中小企業庁）
+- [BCP（事業継続計画）用語解説](https://www.nri.com/jp/knowledge/glossary/bcp.html)（野村総合研究所）

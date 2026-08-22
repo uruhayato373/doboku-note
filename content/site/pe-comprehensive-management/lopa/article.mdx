@@ -1,0 +1,74 @@
+---
+title: LOPA
+description: "LOPAの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（安全管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '5.4'
+tags:
+  - keyword
+published: true
+reviewStatus: needs-review
+lastRewrittenAt: '2026-05-16T05:55:29+09:00'
+revisionCycle: 1
+publishedAt: '2026-04-09'
+seoTitle: "LOPA ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-05-26
+---
+
+## LOPAとは
+
+LOPA（Layer of Protection Analysis: 防護層解析）とは、事故シナリオに対して、独立した複数の防護層（IPL: Independent Protection Layer）がどの程度リスクを低減するかを定量的に評価する手法である。
+
+各防護層が独立して機能することを前提とし、防護層の積層効果によってリスクが許容レベルまで低減されるかを検証する。
+
+## 防護層の例
+
+LOPAで評価される防護層は、設計段階から緊急対応まで多層で構成される。プロセス設計を基盤とし、自動化・人的介入・物理装置・緊急対応を積み重ねることでリスクを段階的に低減する。
+
+- **プロセス設計**: [本質安全](/docs/pe-comprehensive-management-inherent-safety)設計による危険源の除去
+- **制御系**: 基本プロセス制御システム（BPCS）による自動制御
+- **警報・操作介入**: 異常時の警報と運転員の対応
+- [**安全計装システム**](/docs/pe-comprehensive-management-safety-instrumented-system): 自動的な安全停止システム（SIS）
+- **物理的防護**: 安全弁・破裂板等の受動的防護装置
+- **緊急対応**: 避難・消火等の緊急時対応計画
+
+## リスク評価における位置づけ
+
+LOPAは、ハザード分析（HAZOP等）で特定されたシナリオに対して、既存の防護層の妥当性を検証し、追加の防護層の必要性を判断するために用いられる。
+
+<ExamPoint
+  summary="LOPAは独立防護層の積層によるリスク低減効果を評価する手法"
+  items={[
+    "各防護層が独立して機能することが前提条件",
+    "防護層の積層効果でリスクが許容レベルに達するかを検証する",
+    "HAZOPで特定したシナリオに対して適用する",
+    "安全計装システム（SIS）の安全度水準（SIL）決定に活用される",
+  ]}
+/>
+
+## LOPAが生まれた背景
+
+LOPA は 1990 年代に米国の化学プロセス安全センター（CCPS/AIChE）が中心となって体系化した手法である。1984 年のインド・ボパール化学工場事故や 1989 年の米国テキサスシティ爆発事故など、多重防護の欠落が招いた大規模災害を教訓として、既存の定性的ハザード分析（HAZOP 等）だけでは防護の十分性を証明できないという課題認識から生まれた。
+
+HAZOP がシナリオの「何が起きるか」を特定することに特化するのに対し、LOPA は「どの程度のリスク低減が必要か、現状の防護層で足りているか」を半定量的に検証する。この役割分担により、LOPA は HAZOP の後工程として位置づけられ、安全計装システム（SIS）の安全度水準（SIL）決定の根拠としても広く活用されてきた。日本でも高圧ガス保安法に基づくプロセス安全管理（PSM）の文脈で普及が進み、化学・石油・ガス産業での標準的リスク評価手法となっている。
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**5.4 事故・災害の未然防止活動・技術**](/docs/pe-comprehensive-management-keyword-2026#54-事故・災害の未然防止活動・技術)に位置づけられている。
+
+LOPAは[本質安全](/docs/pe-comprehensive-management-inherent-safety)・[機能安全](/docs/pe-comprehensive-management-functional-safety)の概念と関連し、[安全計装システム](/docs/pe-comprehensive-management-safety-instrumented-system)の設計要件決定に活用される。[セーフティケース](/docs/pe-comprehensive-management-safety-case)の根拠資料としても重要である。
+
+<RelatedKeywords items={[
+  { label: "事故対応訓練", slug: "accident-response-drill" },
+  { label: "ブラインド型訓練", slug: "blind-drill" },
+  { label: "防災訓練", slug: "disaster-drill" },
+  { label: "非常停止装置", slug: "emergency-stop-device" },
+  { label: "人間工学原則の遵守", slug: "ergonomic-principles" },
+]} />
+
+## 参考資料
+
+- [重大ハザードのリスクを下げる LOPA―防護層解析― 簡素化したプロセスリスクアセスメント（書評・新刊紹介）](https://www.jstage.jst.go.jp/article/jaesjb/65/2/65_125_2/_article/-char/ja/)（J-STAGE / 日本原子力学会誌）
+- [実務で使える LOPA 手順：防護層の「効き目」を数字で示す](https://www.yamatoblog.tech/lopa)（化学プラント大全）

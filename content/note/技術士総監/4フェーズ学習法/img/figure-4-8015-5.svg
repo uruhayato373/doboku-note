@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <rect width="1200" height="520" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="60" y="55" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">過去問 80% / キーワード集 15% / 白書 5%</text>
+  <text x="60" y="90" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="500" fill="#555555">学習時間の配分モデルと各フェーズへの落とし込み</text>
+
+  <!-- メイン配分バー（y=120, height=72） -->
+  <!-- 80%: width=864 -->
+  <rect x="60" y="120" width="864" height="72" rx="0" fill="#2e6da4"/>
+  <rect x="60" y="120" width="864" height="72" rx="6" fill="#2e6da4"/>
+  <text x="492" y="164" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">過去問   80%</text>
+  <!-- 15%: width=162 -->
+  <rect x="924" y="120" width="162" height="72" fill="#3a7d44"/>
+  <text x="1005" y="164" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">KW集 15%</text>
+  <!-- 5%: width=54 -->
+  <rect x="1086" y="120" width="54" height="72" fill="#d4a017"/>
+  <rect x="1086" y="120" width="54" height="72" rx="6" fill="#d4a017"/>
+  <text x="1113" y="158" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">白書</text>
+  <text x="1113" y="180" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">5%</text>
+
+  <!-- フェーズ別配分テーブル -->
+  <!-- ヘッダ行 -->
+  <rect x="60" y="228" width="1080" height="44" rx="4" fill="#1a3a5c"/>
+  <text x="180" y="256" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">フェーズ</text>
+  <text x="480" y="256" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">過去問（80%）の使い方</text>
+  <text x="810" y="256" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">KW集（15%）の使い方</text>
+  <text x="1060" y="256" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#ffffff" text-anchor="middle">白書5%</text>
+  <!-- 縦仕切り -->
+  <line x1="300" y1="228" x2="300" y2="492" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="660" y1="228" x2="660" y2="492" stroke="#e5e7eb" stroke-width="1"/>
+  <line x1="960" y1="228" x2="960" y2="492" stroke="#e5e7eb" stroke-width="1"/>
+
+  <!-- 行 1: Phase 1 -->
+  <rect x="60" y="272" width="1080" height="54" rx="0" fill="#e6f4ea"/>
+  <text x="180" y="304" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44" text-anchor="middle">Phase 1</text>
+  <text x="480" y="297" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="middle">5年分を速読（解かない）</text>
+  <text x="480" y="319" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="middle">出題傾向・テーマの把握</text>
+  <text x="810" y="297" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="middle">全体通読（暗記不要）</text>
+  <text x="810" y="319" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="middle">5 管理の構造把握</text>
+  <text x="1060" y="304" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="middle">—</text>
+
+  <!-- 行 2: Phase 2 -->
+  <rect x="60" y="326" width="1080" height="54" rx="0" fill="#e8f0fe"/>
+  <text x="180" y="358" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4" text-anchor="middle">Phase 2</text>
+  <text x="480" y="351" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="middle">R03-R07 年度別演習（主）</text>
+  <text x="480" y="373" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="middle">H28/H29/R02 補助的に</text>
+  <text x="810" y="351" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="middle">フェーズ 1 で見つけた</text>
+  <text x="810" y="373" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="middle">弱い領域を重点補強</text>
+  <text x="1060" y="351" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="middle">概要のみ</text>
+  <text x="1060" y="373" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="middle">（白書本体不要）</text>
+
+  <!-- 行 3: Phase 3 -->
+  <rect x="60" y="380" width="1080" height="54" rx="0" fill="#fff8e1"/>
+  <text x="180" y="412" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#d4a017" text-anchor="middle">Phase 3</text>
+  <text x="480" y="405" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="middle">模擬試験形式（40問 2時間）</text>
+  <text x="480" y="427" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="middle">誤答問題の徹底復習</text>
+  <text x="810" y="405" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="middle">頻出キーワードの</text>
+  <text x="810" y="427" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="middle">最終確認のみ</text>
+  <text x="1060" y="412" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="middle">—</text>
+
+  <!-- 行 4: Phase 4 -->
+  <rect x="60" y="434" width="1080" height="54" rx="0" fill="#fce8eb"/>
+  <text x="180" y="466" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#b22234" text-anchor="middle">Phase 4</text>
+  <text x="480" y="459" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="middle">記述内容を振り返り</text>
+  <text x="480" y="481" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="middle">論点整理に活用</text>
+  <text x="810" y="459" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="middle">口頭試験の質疑準備に</text>
+  <text x="810" y="481" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555" text-anchor="middle">5 管理キーワードを参照</text>
+  <text x="1060" y="466" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="middle">—</text>
+
+  <rect x="60" y="488" width="1080" height="2" fill="#e5e7eb"/>
+
+  <text x="1180" y="514" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

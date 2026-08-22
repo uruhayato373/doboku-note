@@ -1,0 +1,74 @@
+{
+  "_meta": {
+    "kind": "highlight-reels-roundup",
+    "format": "stories",
+    "size": { "width": 1080, "height": 1920 },
+    "slidesCount": 5,
+    "purpose": "ハイライト系統 A 3 種目「Reels まとめ」用の 5 枚 Stories シリーズ。直近代表 Reels への入口",
+    "policy": ".claude/knowledge/reference/ig-stories-policy.md §5 系統 A",
+    "strategy": "docs/marketing/01_SNS集客戦略.md v7.1 §2 Highlight 3 種目「Reels まとめ」",
+    "_note": "実投稿後、各スライドのリンクスタンプを対応 Reels 投稿 URL に貼り替える。テーマは四半期で更新（運営者手動）"
+  },
+  "slides": [
+    {
+      "index": 1,
+      "filename": "01-cover.png",
+      "role": "cover",
+      "tagText": "Reels まとめ",
+      "title": "Reels ピックアップ",
+      "subtitle": "短尺で論点を学ぶ",
+      "chipCta": "スクロールで一覧"
+    },
+    {
+      "index": 2,
+      "filename": "02-r1.png",
+      "role": "reel",
+      "tagText": "Reels まとめ",
+      "title": "過去問パック",
+      "subtitle": "01 ／ 4 シリーズ",
+      "body": [
+        "R03〜R07 の 4 問パック",
+        "1 動画で 1 年分の入口",
+        "音声＋字幕で 90 秒"
+      ],
+      "chipCta": "代表 Reels へ"
+    },
+    {
+      "index": 3,
+      "filename": "03-r2.png",
+      "role": "reel",
+      "tagText": "Reels まとめ",
+      "title": "5 管理解説",
+      "subtitle": "02 ／ 4 シリーズ",
+      "body": [
+        "経済性 / 人的資源 / 情報 /",
+        "安全 / 社会環境の各 1 本",
+        "トレードオフを 1 分で"
+      ],
+      "chipCta": "代表 Reels へ"
+    },
+    {
+      "index": 4,
+      "filename": "04-r3.png",
+      "role": "reel",
+      "tagText": "Reels まとめ",
+      "title": "頻出引っかけ",
+      "subtitle": "03 ／ 4 シリーズ",
+      "body": [
+        "費用便益分析の罠",
+        "労働時間の上限規制",
+        "個人情報の取扱い等"
+      ],
+      "chipCta": "代表 Reels へ"
+    },
+    {
+      "index": 5,
+      "filename": "05-cta.png",
+      "role": "cta",
+      "tagText": "Reels まとめ",
+      "title": "Reels タブで全部",
+      "subtitle": "プロフィール経由",
+      "chipCta": "プロフィールへ移動"
+    }
+  ]
+}

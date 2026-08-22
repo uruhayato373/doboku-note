@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="工程能力図: 品質特性値が規格中心付近で時間的に変動する様子を折れ線で示す。上限規格値・規格中心・下限規格値の 3 本の線とデータ点を配置">
+  <style>
+    text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; }
+  </style>
+
+  <!-- Y-axis label (vertical stacked "品質特性値") -->
+  <text x="22" y="105" font-size="13" fill="#222" text-anchor="middle">品</text>  <!-- ink-strong -->
+  <text x="22" y="123" font-size="13" fill="#222" text-anchor="middle">質</text>
+  <text x="22" y="141" font-size="13" fill="#222" text-anchor="middle">特</text>
+  <text x="22" y="159" font-size="13" fill="#222" text-anchor="middle">性</text>
+  <text x="22" y="177" font-size="13" fill="#222" text-anchor="middle">値</text>
+
+  <!-- Y-axis line -->
+  <line x1="45" y1="25" x2="45" y2="345" stroke="#222" stroke-width="1.5"/>
+  <!-- X-axis line -->
+  <line x1="45" y1="345" x2="320" y2="345" stroke="#222" stroke-width="1.5"/>
+
+  <!-- Upper spec limit (dashed) -->
+  <line x1="45" y1="65" x2="320" y2="65" stroke="#555" stroke-width="1" stroke-dasharray="5,3"/>  <!-- ink-body -->
+  <!-- Center line (solid) -->
+  <line x1="45" y1="185" x2="320" y2="185" stroke="#222" stroke-width="1"/>  <!-- ink-strong -->
+  <!-- Lower spec limit (dashed) -->
+  <line x1="45" y1="305" x2="320" y2="305" stroke="#555" stroke-width="1" stroke-dasharray="5,3"/>
+
+  <!-- Right-side labels -->
+  <text x="325" y="69" font-size="13" fill="#222">上限規格値</text>
+  <text x="325" y="189" font-size="13" fill="#222">規格中心</text>
+  <text x="325" y="309" font-size="13" fill="#222">下限規格値</text>
+
+  <!-- Data polyline (brand) -->
+  <!-- Original relative positions preserved; mapped to new Y range 65-305 (center=185) -->
+  <!-- Shift: -25 from original -->
+  <polyline points="70,139 90,199 110,219 130,165 150,195 170,175 190,131 210,171 230,155 250,139 270,205 290,219 310,151"
+    fill="none" stroke="#2e6da4" stroke-width="2"/>  <!-- brand -->
+
+  <!-- Data points -->
+  <g fill="#2e6da4">
+    <circle cx="70" cy="139" r="5"/>
+    <circle cx="90" cy="199" r="5"/>
+    <circle cx="110" cy="219" r="5"/>
+    <circle cx="130" cy="165" r="5"/>
+    <circle cx="150" cy="195" r="5"/>
+    <circle cx="170" cy="175" r="5"/>
+    <circle cx="190" cy="131" r="5"/>
+    <circle cx="210" cy="171" r="5"/>
+    <circle cx="230" cy="155" r="5"/>
+    <circle cx="250" cy="139" r="5"/>
+    <circle cx="270" cy="205" r="5"/>
+    <circle cx="290" cy="219" r="5"/>
+    <circle cx="310" cy="151" r="5"/>
+  </g>
+
+  <!-- X-axis label -->
+  <text x="182" y="375" font-size="13" fill="#222" text-anchor="middle">測定 No. または月日</text>
+
+  <!-- Legend -->
+  <g transform="translate(50,405)">
+    <text x="0" y="0" font-size="13" font-weight="bold" fill="#222">凡例</text>
+    <!-- Brand line -->
+    <line x1="0" y1="18" x2="30" y2="18" stroke="#2e6da4" stroke-width="2"/>
+    <circle cx="15" cy="18" r="4" fill="#2e6da4"/>
+    <text x="36" y="22" font-size="12" fill="#555">品質特性値（測定値）</text>
+    <!-- Center line -->
+    <line x1="160" y1="18" x2="190" y2="18" stroke="#222" stroke-width="1"/>
+    <text x="196" y="22" font-size="12" fill="#555">規格中心</text>
+    <!-- Spec dashed -->
+    <line x1="0" y1="40" x2="30" y2="40" stroke="#555" stroke-width="1" stroke-dasharray="5,3"/>
+    <text x="36" y="44" font-size="12" fill="#555">上限・下限規格値（破線）</text>
+  </g>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="作業（アクティビティ）の記法：矢線上に作業名、下に所要時間を書く">
+  <defs>
+    <marker markerUnits="userSpaceOnUse" id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+  </defs>
+  <style>
+    .label-main { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 16px; fill: #222; font-weight: 600; }
+    .label-sub  { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 15px; fill: #555; }
+    .title      { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 15px; fill: #222; font-weight: 600; }
+    .note       { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #555; }
+    .node-num   { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 18px; fill: #1a3a5c; font-weight: 600; }
+    .annotation { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #2e6da4; }
+  </style>
+
+  <!-- Title -->
+  <text x="200" y="48" text-anchor="middle" class="title">作業（アクティビティ）の記法</text>
+
+  <!-- nodes -->
+  <circle cx="90" cy="230" r="30" fill="#ffffff" stroke="#2e6da4" stroke-width="2.5"/>
+  <text x="90" y="238" text-anchor="middle" class="node-num">①</text>
+
+  <circle cx="310" cy="230" r="30" fill="#ffffff" stroke="#2e6da4" stroke-width="2.5"/>
+  <text x="310" y="238" text-anchor="middle" class="node-num">②</text>
+
+  <!-- arrow -->
+  <line x1="122" y1="230" x2="276" y2="230" stroke="#222" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- labels -->
+  <text x="200" y="210" text-anchor="middle" class="label-main">作業 A</text>
+  <text x="200" y="256" text-anchor="middle" class="label-sub">5 日</text>
+
+  <!-- node labels -->
+  <text x="90" y="282" text-anchor="middle" class="label-sub">開始</text>
+  <text x="310" y="282" text-anchor="middle" class="label-sub">終了</text>
+
+  <!-- annotation callouts -->
+  <line x1="200" y1="198" x2="200" y2="130" stroke="#2e6da4" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="200" y="120" text-anchor="middle" class="annotation">矢線の上：作業名</text>
+
+  <line x1="200" y1="258" x2="200" y2="318" stroke="#2e6da4" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="200" y="330" text-anchor="middle" class="annotation">矢線の下：所要時間（日数）</text>
+
+  <!-- divider -->
+  <line x1="30" y1="360" x2="370" y2="360" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- Rule summary -->
+  <text x="200" y="392" text-anchor="middle" class="note">矢線の向き = 作業の進行方向</text>
+  <text x="200" y="416" text-anchor="middle" class="note">○（イベント）間を1本の矢線が表す1作業</text>
+  <text x="200" y="440" text-anchor="middle" class="note">矢線の長さは所要時間に比例しなくてよい</text>
+  <text x="200" y="476" text-anchor="middle" class="note" font-size="11">ネットワーク工程表（アローダイアグラム）の基本単位</text>
+</svg>

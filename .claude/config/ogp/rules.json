@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "description": "OGP テンプレートの自動選定ルール。T06 Mono Tag 統一以降は default のみ。カテゴリ別出し分けが必要になったら rules 配列に上から順に評価するルールを追加する。",
+  "default": "mono-tag",
+  "rules": []
+}

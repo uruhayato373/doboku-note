@@ -1,0 +1,2208 @@
+{
+  "version": 1,
+  "description": "過去問起点の校正サイクル履歴。/exam-keyword-cycle スキルが追記する。",
+  "cycles": [
+    {
+      "date": "2026-04-20",
+      "exam": "r07-primary",
+      "question": "1-1",
+      "theme": "BCP・BCM とサプライチェーン",
+      "keywords": [
+        "business-continuity-plan",
+        "risk-management-plan"
+      ],
+      "pr": null,
+      "log": "2026-04-20-r07-primary-1-1.md"
+    },
+    {
+      "date": "2026-04-20",
+      "exam": "r06-primary",
+      "question": "1-35",
+      "theme": "生物多様性の保全（CITES・LMO・IPBES・30by30）",
+      "keywords": [
+        "nagoya-protocol",
+        "biosafety",
+        "convention-on-biodiversity",
+        "cites",
+        "ipbes",
+        "kunming-montreal-framework"
+      ],
+      "pr": null,
+      "log": "2026-04-20-r06-primary-1-35.md"
+    },
+    {
+      "date": "2026-04-21",
+      "exam": "r04-primary",
+      "question": "1-1",
+      "theme": "キャッシュ・フロー計算書の3区分と財務活動",
+      "keywords": [
+        "cash-flow-statement"
+      ],
+      "pr": 43,
+      "log": "2026-04-21-r04-primary-1-1.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-1",
+      "theme": "PQCDSMEの7要素と管理指標",
+      "keywords": [
+        "pqcdsme"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-1.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-2",
+      "theme": "製品開発手法（FL・CE・DR）",
+      "keywords": [
+        "front-loading",
+        "concurrent-engineering",
+        "design-review"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-2.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-3",
+      "theme": "数理計画法とOR/QC手法の適用場面",
+      "keywords": [
+        "linear-programming"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-3.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-4",
+      "theme": "移動平均法と指数平滑法",
+      "keywords": [
+        "demand-forecasting"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-4.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-5",
+      "theme": "現在価値計算（リース vs 買取り）",
+      "keywords": [
+        "present-annual-future-value",
+        "dcf-method"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-5.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-6",
+      "theme": "原価計算手法（ABC・原価企画）",
+      "keywords": [
+        "activity-abc",
+        "target-cost"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-6.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-7",
+      "theme": "財務3表（B/S・P/L・C/F）",
+      "keywords": [
+        "balance-sheet",
+        "income-statement",
+        "cash-flow-statement"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-7.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-8",
+      "theme": "バスタブカーブ",
+      "keywords": [
+        "bathtub-curve"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-8.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-9",
+      "theme": "労働者派遣・無期転換",
+      "keywords": [
+        "worker-dispatch-act",
+        "indefinite-conversion-rule"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-9.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-10",
+      "theme": "働き方改革関連法",
+      "keywords": [
+        "labor-standards-act",
+        "labor-policy-act"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-10.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-11",
+      "theme": "労使関係（労組法・労働協約）",
+      "keywords": [
+        "labor-union-act",
+        "labor-relations-adjustment-act"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-11.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-12",
+      "theme": "パワーハラスメントの法的根拠",
+      "keywords": [
+        "power-harassment",
+        "labor-policy-act"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-12.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-13",
+      "theme": "人事評価バイアス",
+      "keywords": [
+        "halo-effect-errors",
+        "360-degree-evaluation"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-13.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-14",
+      "theme": "行動モデル理論（XY理論・欲求階層・二要因）",
+      "keywords": [
+        "mcgregor-xy-theory",
+        "maslow-hierarchy-of-needs",
+        "herzberg-two-factor-theory"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-14.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-15",
+      "theme": "教育訓練技法",
+      "keywords": [
+        "training-techniques"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-15.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-16",
+      "theme": "組織開発（診断型・対話型）",
+      "keywords": [
+        "diagnostic-od",
+        "dialogic-od",
+        "content-process"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-16.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-17",
+      "theme": "商標権（新5タイプ商標）",
+      "keywords": [
+        "trademark-rights"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-17.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-18",
+      "theme": "記述統計（平均・中央値・四分位）",
+      "keywords": [
+        "descriptive-statistics"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-18.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-19",
+      "theme": "標準化（デファクト・フォーラム・デジュール）",
+      "keywords": [
+        "de-facto-standard",
+        "forum-standard",
+        "de-jure-standard"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-19.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-20",
+      "theme": "生体認証・多要素認証",
+      "keywords": [
+        "multi-factor-authentication",
+        "access-control"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-20.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-21",
+      "theme": "マーケティング分析手法",
+      "keywords": [
+        "three-c-analysis",
+        "swot-analysis",
+        "ppm-analysis"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-21.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-22",
+      "theme": "デジタルコミュニケーションツール",
+      "keywords": [
+        "groupware",
+        "online-meetings"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-22.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-23",
+      "theme": "情報セキュリティ脅威",
+      "keywords": [
+        "targeted-attack",
+        "malware",
+        "encryption-digital-signature"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-23.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-24",
+      "theme": "ICT 生産性向上策",
+      "keywords": [
+        "iot",
+        "rpa"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-24.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-25",
+      "theme": "ストレスチェック制度",
+      "keywords": [
+        "stress-check-system",
+        "occupational-safety-act"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-25.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-26",
+      "theme": "危機管理関連法",
+      "keywords": [
+        "disaster-countermeasures-act",
+        "civil-protection-act",
+        "nuclear-disaster-act"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-26.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-27",
+      "theme": "地震・津波防災",
+      "keywords": [
+        "disaster-prevention",
+        "hazard-map"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-27.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-28",
+      "theme": "墜落制止用器具",
+      "keywords": [
+        "occupational-safety-act",
+        "safety-education"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-28.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-29",
+      "theme": "高信頼化（フォールトトレランス等）",
+      "keywords": [
+        "fault-tolerance",
+        "fail-safe",
+        "fool-proof"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-29.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-30",
+      "theme": "JIS Q 31000 リスクマネジメント",
+      "keywords": [
+        "risk-management-system",
+        "risk-analysis",
+        "risk-assessment"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-30.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-31",
+      "theme": "安全設計（4M・4E・ALARP）",
+      "keywords": [
+        "four-m-analysis",
+        "four-e-countermeasures",
+        "alarp-principle"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-31.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-32",
+      "theme": "フォールトツリー解析",
+      "keywords": [
+        "fta"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-32.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-33",
+      "theme": "SDGs",
+      "keywords": [
+        "sdgs"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-33.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-34",
+      "theme": "エネルギー基本計画",
+      "keywords": [
+        "energy",
+        "climate-change-decarbonization"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-34.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-35",
+      "theme": "循環型社会形成推進基本法",
+      "keywords": [
+        "circular-society-basic-act",
+        "circular-economy"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-35.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-36",
+      "theme": "原発事故後の環境回復",
+      "keywords": [
+        "radioactive-decontamination-act",
+        "radioactive-waste"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-36.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-37",
+      "theme": "環境政策の原則",
+      "keywords": [
+        "subsidiarity-principle",
+        "prevention-principle",
+        "precautionary-principle"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-37.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-38",
+      "theme": "環境影響評価法の手続き",
+      "keywords": [
+        "environmental-impact-assessment"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-38.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-39",
+      "theme": "環境管理活動（SRI・環境会計・EMS）",
+      "keywords": [
+        "sri",
+        "environmental-accounting",
+        "iso-14000"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-39.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r01-primary",
+      "question": "1-40",
+      "theme": "大気汚染環境基準達成状況",
+      "keywords": [
+        "air-pollution-control-act",
+        "environmental-standards"
+      ],
+      "pr": 132,
+      "log": "2026-04-25-r01-primary-1-40.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-1",
+      "theme": "R07 Ⅰ-1-1",
+      "keywords": [
+        "business-continuity-plan",
+        "risk-management-plan"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-1.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-2",
+      "theme": "R07 Ⅰ-1-2",
+      "keywords": [
+        "quality-control",
+        "control-limits",
+        "inspection-methods",
+        "nonconformity-rate"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-2.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-3",
+      "theme": "R07 Ⅰ-1-3",
+      "keywords": [
+        "break-even-point",
+        "direct-costing"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-3.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-4",
+      "theme": "R07 Ⅰ-1-4",
+      "keywords": [
+        "overall-equipment-effectiveness",
+        "preventive-maintenance",
+        "corrective-maintenance"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-4.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-5",
+      "theme": "R07 Ⅰ-1-5",
+      "keywords": [
+        "ecrs-principle",
+        "five-s"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-5.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-6",
+      "theme": "R07 Ⅰ-1-6",
+      "keywords": [
+        "game-theory",
+        "monte-carlo-simulation",
+        "linear-programming"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-6.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-7",
+      "theme": "R07 Ⅰ-1-7",
+      "keywords": [
+        "depreciation",
+        "cash-flow-statement",
+        "balance-sheet"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-7.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-8",
+      "theme": "R07 Ⅰ-1-8",
+      "keywords": [
+        "pert-cpm",
+        "gantt-chart",
+        "process-planning-construction"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-8.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-9",
+      "theme": "R07 Ⅰ-1-9",
+      "keywords": [
+        "labor-standards-act",
+        "occupational-safety-act"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-9.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-10",
+      "theme": "R07 Ⅰ-1-10",
+      "keywords": [
+        "part-time-fixed-term-act",
+        "equal-pay-for-equal-work",
+        "worker-dispatch-act"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-10.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-11",
+      "theme": "R07 Ⅰ-1-11",
+      "keywords": [
+        "stress-check-system",
+        "mental-health-care",
+        "occupational-safety-act"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-11.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-12",
+      "theme": "R07 Ⅰ-1-12",
+      "keywords": [
+        "employment-insurance",
+        "childcare-nursing-leave-act"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-12.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-13",
+      "theme": "R07 Ⅰ-1-13",
+      "keywords": [
+        "specialist-system",
+        "multi-track-hr-system",
+        "career-track-system"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-13.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-14",
+      "theme": "R07 Ⅰ-1-14",
+      "keywords": [
+        "pm-theory",
+        "followership",
+        "sl-theory",
+        "servant-leadership",
+        "psychological-safety"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-14.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-15",
+      "theme": "R07 Ⅰ-1-15",
+      "keywords": [
+        "mentor",
+        "ojt-off-jt",
+        "career-path"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-15.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-16",
+      "theme": "R07 Ⅰ-1-16",
+      "keywords": [
+        "performance-evaluation",
+        "attitude-appraisal",
+        "360-degree-evaluation"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-16.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-17",
+      "theme": "R07 Ⅰ-1-17",
+      "keywords": [
+        "descriptive-statistics",
+        "estimation-testing"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-17.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-18",
+      "theme": "R07 Ⅰ-1-18",
+      "keywords": [
+        "portrait-publicity-privacy",
+        "copyright",
+        "personal-info-protection"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-18.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-19",
+      "theme": "R07 Ⅰ-1-19",
+      "keywords": [
+        "reliability-maintainability-design",
+        "bathtub-curve",
+        "preventive-maintenance"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-19.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-20",
+      "theme": "R07 Ⅰ-1-20",
+      "keywords": [
+        "zero-trust",
+        "isms-iso27001",
+        "common-criteria"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-20.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-21",
+      "theme": "R07 Ⅰ-1-21",
+      "keywords": [
+        "design-thinking",
+        "agile"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-21.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-22",
+      "theme": "R07 Ⅰ-1-22",
+      "keywords": [
+        "public-acceptance",
+        "citizen-participation"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-22.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-23",
+      "theme": "R07 Ⅰ-1-23",
+      "keywords": [
+        "antitrust-compliance",
+        "bid-rigging",
+        "unfair-trade-practices"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-23.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-24",
+      "theme": "R07 Ⅰ-1-24",
+      "keywords": [
+        "isms-iso27001",
+        "common-criteria",
+        "zero-trust",
+        "vpn"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-24.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-25",
+      "theme": "R07 Ⅰ-1-25",
+      "keywords": [
+        "four-e-countermeasures",
+        "four-m-analysis",
+        "kyt",
+        "safety-patrol"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-25.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-26",
+      "theme": "R07 Ⅰ-1-26",
+      "keywords": [
+        "occupational-safety-act",
+        "safety-health-policy",
+        "osh-management-system"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-26.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-27",
+      "theme": "R07 Ⅰ-1-27",
+      "keywords": [
+        "disaster-countermeasures-act",
+        "alert-levels",
+        "disaster-weather-info"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-27.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-28",
+      "theme": "R07 Ⅰ-1-28",
+      "keywords": [
+        "alert-levels",
+        "disaster-countermeasures-act",
+        "disaster-weather-info"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-28.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-29",
+      "theme": "R07 Ⅰ-1-29",
+      "keywords": [
+        "aging-infrastructure",
+        "preventive-maintenance",
+        "corrective-maintenance"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-29.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-30",
+      "theme": "R07 Ⅰ-1-30",
+      "keywords": [
+        "safety-2-0",
+        "functional-safety",
+        "inherent-safety"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-30.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-31",
+      "theme": "R07 Ⅰ-1-31",
+      "keywords": [
+        "accident-statistics",
+        "heinrich-law",
+        "occupational-accident-prevention-plan"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-31.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-32",
+      "theme": "R07 Ⅰ-1-32",
+      "keywords": [
+        "blind-drill",
+        "accident-response-drill",
+        "disaster-drill"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-32.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-33",
+      "theme": "R07 Ⅰ-1-33",
+      "keywords": [
+        "unced-earth-summit",
+        "un-human-environment-conf",
+        "sdgs"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-33.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-34",
+      "theme": "R07 Ⅰ-1-34",
+      "keywords": [
+        "energy",
+        "climate-change-decarbonization"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-34.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-35",
+      "theme": "R07 Ⅰ-1-35",
+      "keywords": [
+        "ramsar-convention",
+        "convention-on-biodiversity",
+        "wildlife-protection-act"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-35.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-36",
+      "theme": "R07 Ⅰ-1-36",
+      "keywords": [
+        "circular-economy",
+        "regional-circular-symbiosis",
+        "circular-society-basic-act"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-36.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-37",
+      "theme": "R07 Ⅰ-1-37",
+      "keywords": [
+        "seven-types-of-pollution",
+        "air-pollution-control-act",
+        "water-pollution-control-act"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-37.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-38",
+      "theme": "R07 Ⅰ-1-38",
+      "keywords": [
+        "alps-treated-water",
+        "radioactive-waste",
+        "nuclear-disaster-act"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-38.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-39",
+      "theme": "R07 Ⅰ-1-39",
+      "keywords": [
+        "environmental-basic-plan",
+        "sdgs",
+        "backcasting"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-39.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r07-primary",
+      "question": "1-40",
+      "theme": "R07 Ⅰ-1-40",
+      "keywords": [
+        "iso-14000",
+        "eco-action-21",
+        "iso-26000"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r07-primary-1-40.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-1",
+      "theme": "R06 Ⅰ-1-1",
+      "keywords": [
+        "cash-flow-statement",
+        "balance-sheet",
+        "income-statement",
+        "ifrs"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-1.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-2",
+      "theme": "R06 Ⅰ-1-2",
+      "keywords": [
+        "npv-net-present-value",
+        "discount-rate",
+        "investment-recovery-plan",
+        "internal-rate-of-return",
+        "present-annual-future-value"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-2.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-3",
+      "theme": "R06 Ⅰ-1-3",
+      "keywords": [
+        "indirect-manufacturing-cost",
+        "job-order-costing",
+        "cost-variance-analysis",
+        "activity-abc",
+        "direct-manufacturing-cost"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-3.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-4",
+      "theme": "R06 Ⅰ-1-4",
+      "keywords": [
+        "inspection-methods",
+        "quality-control",
+        "process-capability-index",
+        "nonconformity-rate",
+        "quality-characteristics"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-4.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-5",
+      "theme": "R06 Ⅰ-1-5",
+      "keywords": [
+        "jit-production",
+        "push-production",
+        "pull-production",
+        "lead-time",
+        "visual-management"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-5.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-6",
+      "theme": "R06 Ⅰ-1-6",
+      "keywords": [
+        "pert-cpm",
+        "progress-management",
+        "gantt-chart",
+        "process-planning-construction"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-6.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-7",
+      "theme": "R06 Ⅰ-1-7",
+      "keywords": [
+        "linear-programming",
+        "multi-objective-optimization",
+        "integer-programming",
+        "game-theory"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-7.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-8",
+      "theme": "R06 Ⅰ-1-8",
+      "keywords": [
+        "pdpc-method",
+        "cause-and-effect-diagram",
+        "quality-control",
+        "quality-improvement",
+        "quality-assurance"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-8.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-9",
+      "theme": "R06 Ⅰ-1-9",
+      "keywords": [
+        "labor-standards-act",
+        "flextime-system",
+        "variable-work-hours",
+        "discretionary-work-system",
+        "highly-professional-system"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-9.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-10",
+      "theme": "R06 Ⅰ-1-10",
+      "keywords": [
+        "elderly-employment-act",
+        "continued-employment-system",
+        "reemployment-system",
+        "labor-policy-act",
+        "indefinite-conversion-rule"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-10.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-11",
+      "theme": "R06 Ⅰ-1-11",
+      "keywords": [
+        "childcare-nursing-leave-act",
+        "work-life-balance",
+        "gender-equality-act",
+        "labor-standards-act"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-11.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-12",
+      "theme": "R06 Ⅰ-1-12",
+      "keywords": [
+        "workers-compensation-insurance",
+        "occupational-safety-act",
+        "accident-statistics",
+        "accident-cost"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-12.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-13",
+      "theme": "R06 Ⅰ-1-13",
+      "keywords": [
+        "health-management",
+        "wellbeing-org",
+        "stress-check-system",
+        "mental-health-care"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-13.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-14",
+      "theme": "R06 Ⅰ-1-14",
+      "keywords": [
+        "positive-action",
+        "equal-employment-act",
+        "work-life-balance",
+        "unconscious-bias",
+        "gender-gap"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-14.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-15",
+      "theme": "R06 Ⅰ-1-15",
+      "keywords": [
+        "career-ownership",
+        "reskilling",
+        "career-path",
+        "ojt-off-jt",
+        "self-development"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-15.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-16",
+      "theme": "R06 Ⅰ-1-16",
+      "keywords": [
+        "maslow-hierarchy-of-needs",
+        "mcgregor-xy-theory",
+        "herzberg-two-factor-theory",
+        "scientific-management",
+        "incentive",
+        "intrinsic-motivation"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-16.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-17",
+      "theme": "R06 Ⅰ-1-17",
+      "keywords": [
+        "cloud-on-premises",
+        "web-services",
+        "edge-computing",
+        "iot"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-17.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-18",
+      "theme": "R06 Ⅰ-1-18",
+      "keywords": [
+        "cluster-analysis",
+        "data-mining",
+        "data-visualization",
+        "machine-learning",
+        "linear-regression"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-18.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-19",
+      "theme": "R06 Ⅰ-1-19",
+      "keywords": [
+        "isms-iso27001",
+        "confidentiality",
+        "integrity-security",
+        "system-availability"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-19.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-20",
+      "theme": "R06 Ⅰ-1-20",
+      "keywords": [
+        "ojt-off-jt",
+        "mentor",
+        "intrinsic-motivation",
+        "dialogic-od"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-20.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-21",
+      "theme": "R06 Ⅰ-1-21",
+      "keywords": [
+        "information-disclosure-act",
+        "information-disclosure",
+        "right-to-know",
+        "disclosure-request",
+        "personal-info-protection"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-21.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-22",
+      "theme": "R06 Ⅰ-1-22",
+      "keywords": [
+        "patent-rights",
+        "utility-model-rights",
+        "design-rights",
+        "trademark-rights",
+        "industrial-property-rights",
+        "ip-protection"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-22.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-23",
+      "theme": "R06 Ⅰ-1-23",
+      "keywords": [
+        "blockchain-crypto",
+        "encryption-digital-signature",
+        "zero-trust",
+        "iot"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-23.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-24",
+      "theme": "R06 Ⅰ-1-24",
+      "keywords": [
+        "malware",
+        "targeted-attack",
+        "vulnerability",
+        "unauthorized-access",
+        "data-breach-response"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-24.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-25",
+      "theme": "R06 Ⅰ-1-25",
+      "keywords": [
+        "normalcy-bias",
+        "catastrophe-bias",
+        "veteran-bias",
+        "virgin-bias",
+        "risk-perception",
+        "optimism-bias"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-25.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-26",
+      "theme": "R06 Ⅰ-1-26",
+      "keywords": [
+        "mental-health-care",
+        "stress-check-system",
+        "mental-health",
+        "return-to-work-support",
+        "occupational-safety-act"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-26.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-27",
+      "theme": "R06 Ⅰ-1-27",
+      "keywords": [
+        "fail-safe",
+        "interlock",
+        "emergency-stop-device",
+        "fool-proof",
+        "machinery-safety-guidelines"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-27.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-28",
+      "theme": "R06 Ⅰ-1-28",
+      "keywords": [
+        "timeline-disaster",
+        "emergency",
+        "disaster-weather-info",
+        "hazard-map",
+        "alert-levels"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-28.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-29",
+      "theme": "R06 Ⅰ-1-29",
+      "keywords": [
+        "safety-management-system",
+        "public-safety",
+        "antitrust-compliance",
+        "labor-standards-act"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-29.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-30",
+      "theme": "R06 Ⅰ-1-30",
+      "keywords": [
+        "oshms",
+        "osh-management-system",
+        "safety-health-policy",
+        "safety-health-education",
+        "safety-management-system"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-30.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-31",
+      "theme": "R06 Ⅰ-1-31",
+      "keywords": [
+        "reliability-block-diagram",
+        "series-system",
+        "parallel-system",
+        "equipment-reliability",
+        "system-reliability"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-31.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-32",
+      "theme": "R06 Ⅰ-1-32",
+      "keywords": [
+        "national-resilience-act",
+        "resilience",
+        "business-continuity-plan",
+        "all-hazard-approach"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-32.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-33",
+      "theme": "R06 Ⅰ-1-33",
+      "keywords": [
+        "climate-change-international",
+        "climate-change-decarbonization",
+        "extreme-events",
+        "disaster-weather-info"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-33.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-34",
+      "theme": "R06 Ⅰ-1-34",
+      "keywords": [
+        "energy",
+        "climate-change-decarbonization",
+        "cdp-sbt-re100",
+        "carbon-pricing"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-34.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-35",
+      "theme": "R06 Ⅰ-1-35",
+      "keywords": [
+        "nagoya-protocol",
+        "biosafety",
+        "convention-on-biodiversity",
+        "cites",
+        "ipbes",
+        "kunming-montreal-framework"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-35.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-36",
+      "theme": "R06 Ⅰ-1-36",
+      "keywords": [
+        "circular-economy",
+        "waste-management-act",
+        "ocean-plastic",
+        "extended-producer-responsibility",
+        "circular-society-basic-act"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-36.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-37",
+      "theme": "R06 Ⅰ-1-37",
+      "keywords": [
+        "green-infrastructure",
+        "eco-drr",
+        "heat-island-effect",
+        "liquefaction",
+        "disaster-prevention",
+        "hazard-map"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-37.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-38",
+      "theme": "R06 Ⅰ-1-38",
+      "keywords": [
+        "environmental-basic-plan",
+        "environmental-impact-assessment",
+        "carbon-pricing",
+        "environmental-accounting",
+        "behavioral-regulation"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-38.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-39",
+      "theme": "R06 Ⅰ-1-39",
+      "keywords": [
+        "iso-14000",
+        "tnfd",
+        "green-bond",
+        "esg-investment",
+        "iso-26000",
+        "sdgs"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-39.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r06-primary",
+      "question": "1-40",
+      "theme": "R06 Ⅰ-1-40",
+      "keywords": [
+        "eco-label",
+        "csr",
+        "consumer-safety",
+        "sdgs"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r06-primary-1-40.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-1",
+      "theme": "R05 Ⅰ-1-1",
+      "keywords": [
+        "linear-programming",
+        "pmbok",
+        "integer-programming",
+        "multi-objective-optimization"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-1.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-2",
+      "theme": "R05 Ⅰ-1-2",
+      "keywords": [
+        "break-even-point",
+        "direct-costing",
+        "cost-variance-analysis",
+        "target-cost"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-2.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-3",
+      "theme": "R05 Ⅰ-1-3",
+      "keywords": [
+        "reliability-maintainability-design",
+        "design-review",
+        "design-in",
+        "front-loading",
+        "concurrent-engineering",
+        "quality-planning"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-3.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-4",
+      "theme": "R05 Ⅰ-1-4",
+      "keywords": [
+        "quality-control",
+        "cause-and-effect-diagram",
+        "quality-improvement",
+        "quality-assurance"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-4.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-5",
+      "theme": "R05 Ⅰ-1-5",
+      "keywords": [
+        "overall-equipment-effectiveness",
+        "preventive-maintenance",
+        "improvement-maintenance",
+        "autonomous-maintenance",
+        "equipment-reliability"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-5.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-6",
+      "theme": "R05 Ⅰ-1-6",
+      "keywords": [
+        "process-planning-construction",
+        "lead-time",
+        "progress-management",
+        "master-schedule-planning"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-6.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-7",
+      "theme": "R05 Ⅰ-1-7",
+      "keywords": [
+        "ecrs-principle",
+        "five-s",
+        "visual-management",
+        "quality-improvement"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-7.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-8",
+      "theme": "R05 Ⅰ-1-8",
+      "keywords": [
+        "inventory-control",
+        "bathtub-curve",
+        "equipment-reliability",
+        "jit-production"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-8.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-9",
+      "theme": "R05 Ⅰ-1-9",
+      "keywords": [
+        "labor-standards-act",
+        "occupational-safety-act",
+        "discretionary-work-system",
+        "work-life-balance",
+        "highly-professional-system"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-9.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-10",
+      "theme": "R05 Ⅰ-1-10",
+      "keywords": [
+        "equal-employment-act",
+        "positive-action",
+        "childcare-nursing-leave-act",
+        "women-empowerment-act",
+        "gender-equality-act"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-10.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-11",
+      "theme": "R05 Ⅰ-1-11",
+      "keywords": [
+        "power-harassment",
+        "sexual-harassment",
+        "mental-health-care"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-11.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-12",
+      "theme": "R05 Ⅰ-1-12",
+      "keywords": [
+        "individual-labor-dispute-act",
+        "labor-tribunal-act",
+        "labor-relations-adjustment-act",
+        "labor-contract-act"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-12.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-13",
+      "theme": "R05 Ⅰ-1-13",
+      "keywords": [
+        "diagnostic-od",
+        "dialogic-od",
+        "content-process",
+        "psychological-safety",
+        "organizational-commitment"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-13.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-14",
+      "theme": "R05 Ⅰ-1-14",
+      "keywords": [
+        "job-grade-system",
+        "skill-qualification-system",
+        "role-grade-system",
+        "job-type-employment",
+        "performance-based-pay",
+        "seniority-wage"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-14.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-15",
+      "theme": "R05 Ⅰ-1-15",
+      "keywords": [
+        "training-techniques",
+        "idea-generation-methods",
+        "ojt-off-jt",
+        "task-based-training"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-15.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-16",
+      "theme": "R05 Ⅰ-1-16",
+      "keywords": [
+        "psychological-safety",
+        "organizational-commitment",
+        "dialogic-od"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-16.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-17",
+      "theme": "R05 Ⅰ-1-17",
+      "keywords": [
+        "unfair-competition-prevention-act",
+        "unfair-trade-practices",
+        "trademark-rights"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-17.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-18",
+      "theme": "R05 Ⅰ-1-18",
+      "keywords": [
+        "tacit-knowledge",
+        "explicit-knowledge",
+        "knowledge-sharing",
+        "collective-intelligence",
+        "data-governance"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-18.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-19",
+      "theme": "R05 Ⅰ-1-19",
+      "keywords": [
+        "isms-iso27001",
+        "privacy-mark",
+        "common-criteria",
+        "jisec",
+        "personal-info-protection"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-19.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-20",
+      "theme": "R05 Ⅰ-1-20",
+      "keywords": [
+        "communication-planning",
+        "pmbok",
+        "communication-control",
+        "stakeholder"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-20.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-21",
+      "theme": "R05 Ⅰ-1-21",
+      "keywords": [
+        "estimation-testing",
+        "descriptive-statistics",
+        "linear-regression",
+        "correlation-analysis"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-21.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-22",
+      "theme": "R05 Ⅰ-1-22",
+      "keywords": [
+        "emergency-info-systems",
+        "crisis-communication",
+        "mobile-communication",
+        "disaster-weather-info"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-22.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-23",
+      "theme": "R05 Ⅰ-1-23",
+      "keywords": [
+        "iot",
+        "rpa",
+        "blockchain-crypto",
+        "digital-twin-cps",
+        "vr-ar-metaverse"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-23.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-24",
+      "theme": "R05 Ⅰ-1-24",
+      "keywords": [
+        "edge-computing",
+        "iot",
+        "internet",
+        "mobile-communication",
+        "cloud-on-premises"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-24.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-25",
+      "theme": "R05 Ⅰ-1-25",
+      "keywords": [
+        "risk-identification",
+        "risk-analysis",
+        "risk-assessment",
+        "risk-treatment",
+        "risk-monitoring",
+        "risk-management-system"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-25.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-26",
+      "theme": "R05 Ⅰ-1-26",
+      "keywords": [
+        "consumer-product-safety-act",
+        "product-safety",
+        "product-liability-act",
+        "consumer-safety"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-26.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-27",
+      "theme": "R05 Ⅰ-1-27",
+      "keywords": [
+        "emergency",
+        "disaster-countermeasures-act",
+        "business-continuity-plan",
+        "disaster-prevention"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-27.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-28",
+      "theme": "R05 Ⅰ-1-28",
+      "keywords": [
+        "osh-management-system",
+        "risk-assessment",
+        "inherent-safety",
+        "safety-management-system"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-28.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-29",
+      "theme": "R05 Ⅰ-1-29",
+      "keywords": [
+        "risk-perception",
+        "public-acceptance",
+        "stakeholder",
+        "environmental-communication",
+        "citizen-participation"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-29.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-30",
+      "theme": "R05 Ⅰ-1-30",
+      "keywords": [
+        "osh-management-system",
+        "health-management",
+        "personal-info-protection",
+        "elderly-employment-act",
+        "safety-health-org-structure"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-30.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-31",
+      "theme": "R05 Ⅰ-1-31",
+      "keywords": [
+        "business-continuity-plan",
+        "resilience"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-31.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-32",
+      "theme": "R05 Ⅰ-1-32",
+      "keywords": [
+        "fta",
+        "parallel-system",
+        "series-system",
+        "eta",
+        "reliability-block-diagram"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-32.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-33",
+      "theme": "R05 Ⅰ-1-33",
+      "keywords": [
+        "climate-change-decarbonization",
+        "energy",
+        "climate-change-international",
+        "tcfd"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-33.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-34",
+      "theme": "R05 Ⅰ-1-34",
+      "keywords": [
+        "energy",
+        "climate-change-decarbonization",
+        "climate-change-international",
+        "carbon-pricing"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-34.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-35",
+      "theme": "R05 Ⅰ-1-35",
+      "keywords": [
+        "ramsar-convention",
+        "ecosystem-services",
+        "convention-on-biodiversity",
+        "nature-conservation-act"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-35.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-36",
+      "theme": "R05 Ⅰ-1-36",
+      "keywords": [
+        "circular-society-basic-act",
+        "ocean-plastic",
+        "extended-producer-responsibility",
+        "waste-management-act"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-36.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-37",
+      "theme": "R05 Ⅰ-1-37",
+      "keywords": [
+        "performance-regulation",
+        "carbon-pricing",
+        "prtr-act",
+        "environmental-impact-assessment",
+        "behavioral-regulation"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-37.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-38",
+      "theme": "R05 Ⅰ-1-38",
+      "keywords": [
+        "backcasting",
+        "carbon-pricing",
+        "sdgs",
+        "circular-economy"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-38.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-39",
+      "theme": "R05 Ⅰ-1-39",
+      "keywords": [
+        "environmental-impact-assessment",
+        "environmental-basic-plan",
+        "sdgs"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-39.md"
+    },
+    {
+      "date": "2026-04-25",
+      "exam": "r05-primary",
+      "question": "1-40",
+      "theme": "R05 Ⅰ-1-40",
+      "keywords": [
+        "tcfd",
+        "esg-investment",
+        "lifecycle-assessment",
+        "tnfd",
+        "cdp-sbt-re100"
+      ],
+      "pr": null,
+      "log": "2026-04-25-r05-primary-1-40.md"
+    }
+  ]
+}

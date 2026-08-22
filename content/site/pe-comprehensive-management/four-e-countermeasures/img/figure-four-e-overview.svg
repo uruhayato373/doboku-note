@@ -1,0 +1,67 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" style="max-width:400px;width:100%" role="img" aria-labelledby="title4e desc4e" aria-label="事故の4E対策の4要素 — Education(教育)・Engineering(技術)・Enforcement(徹底)・Example(模範)を2×2グリッドで配置">
+  <title id="title4e">事故の4E対策の4要素</title>
+  <desc id="desc4e">Education(教育)・Engineering(技術)・Enforcement(徹底)・Example(模範)の4つの観点を2×2グリッドで配置した図。各観点はカード形式で表示され、英名・日本語訳・具体例を含む。</desc>
+
+  <!-- Title -->
+  <text x="200" y="22" text-anchor="middle" font-size="16" font-weight="bold" fill="#222">事故の4E対策</text>
+
+  <!-- GRID: left col x=10 w=185 / right col x=205 w=185 / h-gap=10 -->
+  <!-- Row 1: y=40 h=148 bottom=188 / Row 2: y=200 h=148 bottom=348 / v-gap=12 -->
+
+  <!-- Card 1: Education (top-left) -->
+  <rect x="10" y="40" width="185" height="148" rx="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <rect x="22" y="55" width="40" height="40" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <text x="42" y="83" text-anchor="middle" font-size="24" font-weight="bold" fill="#2e6da4">E</text>
+  <text x="72" y="73" font-size="16" font-weight="bold" fill="#1a3a5c">Education</text>
+  <text x="72" y="91" font-size="13" fill="#1a3a5c">教育</text>
+  <text x="22" y="118" font-size="12" font-weight="bold" fill="#555">安全教育・訓練の実施</text>
+  <text x="22" y="138" font-size="11" fill="#555">・新人教育・KYT</text>
+  <text x="22" y="154" font-size="11" fill="#555">・資格取得支援</text>
+  <text x="22" y="170" font-size="11" fill="#555">・危険予知活動</text>
+
+  <!-- Card 2: Engineering (top-right) -->
+  <rect x="205" y="40" width="185" height="148" rx="10" fill="#d0e8d0" stroke="#3a7d44" stroke-width="2"/>
+  <rect x="217" y="55" width="40" height="40" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="2"/>
+  <text x="237" y="83" text-anchor="middle" font-size="24" font-weight="bold" fill="#3a7d44">E</text>
+  <text x="267" y="73" font-size="16" font-weight="bold" fill="#3a7d44">Engineering</text>
+  <text x="267" y="91" font-size="13" fill="#3a7d44">技術</text>
+  <text x="217" y="118" font-size="12" font-weight="bold" fill="#555">設備・技術的対策</text>
+  <text x="217" y="138" font-size="11" fill="#555">・安全装置の設置</text>
+  <text x="217" y="154" font-size="11" fill="#555">・作業環境の改善</text>
+  <text x="217" y="170" font-size="11" fill="#555">・本質安全設計</text>
+
+  <!-- Card 3: Enforcement (bottom-left) -->
+  <rect x="10" y="200" width="185" height="148" rx="10" fill="#fff3cd" stroke="#b22234" stroke-width="2"/>
+  <rect x="22" y="215" width="40" height="40" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="2"/>
+  <text x="42" y="243" text-anchor="middle" font-size="24" font-weight="bold" fill="#b22234">E</text>
+  <text x="72" y="233" font-size="16" font-weight="bold" fill="#1a3a5c">Enforcement</text>
+  <text x="72" y="251" font-size="13" fill="#1a3a5c">徹底</text>
+  <text x="22" y="278" font-size="12" font-weight="bold" fill="#555">規則遵守と管理強化</text>
+  <text x="22" y="298" font-size="11" fill="#555">・安全規則の制定</text>
+  <text x="22" y="314" font-size="11" fill="#555">・安全パトロール</text>
+  <text x="22" y="330" font-size="11" fill="#555">・違反時の指導</text>
+
+  <!-- Card 4: Example (bottom-right) -->
+  <rect x="205" y="200" width="185" height="148" rx="10" fill="#f8d7da" stroke="#b22234" stroke-width="2"/>
+  <rect x="217" y="215" width="40" height="40" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="2"/>
+  <text x="237" y="243" text-anchor="middle" font-size="24" font-weight="bold" fill="#b22234">E</text>
+  <text x="267" y="233" font-size="16" font-weight="bold" fill="#1a3a5c">Example</text>
+  <text x="267" y="251" font-size="13" fill="#1a3a5c">模範</text>
+  <text x="217" y="278" font-size="12" font-weight="bold" fill="#555">管理者の率先垂範</text>
+  <text x="217" y="298" font-size="11" fill="#555">・管理者自身の</text>
+  <text x="217" y="314" font-size="11" fill="#555">　安全行動の実践</text>
+  <text x="217" y="330" font-size="11" fill="#555">・組織風土の醸成</text>
+
+  <!-- Footer note -->
+  <text x="200" y="362" text-anchor="middle" font-size="10" fill="#555">4 つの観点を補完的に組み合わせて運用する</text>
+
+  <!-- 優先順位サマリー -->
+  <rect x="10" y="372" width="380" height="52" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text x="200" y="391" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold">4E 対策の優先順位</text>
+  <text x="200" y="407" text-anchor="middle" font-size="11" fill="#222">Engineering（技術）→ Enforcement（徹底）</text>
+  <text x="200" y="421" text-anchor="middle" font-size="11" fill="#222">→ Education（教育）→ Example（模範）</text>
+
+  <rect x="10" y="432" width="380" height="52" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="6"/>
+  <text x="200" y="451" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold">Engineering が最も効果的（人の行動に依存しない）</text>
+  <text x="200" y="467" text-anchor="middle" font-size="11" fill="#555">ハインリッヒの法則と組み合わせて事故防止計画を立案</text>
+</svg>

@@ -1,0 +1,85 @@
+---
+title: サプライチェーンマネジメント
+description: "サプライチェーンマネジメント（SCM）の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.1'
+tags:
+  - keyword
+reviewStatus: approved
+lastRewrittenAt: '2026-04-16'
+revisionCycle: 1
+published: true
+publishedAt: '2026-04-09'
+seoTitle: "サプライチェーンマネジメント ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-03
+dateModified: 2026-06-01
+---
+
+## SCMとは
+
+サプライチェーンマネジメント（SCM: Supply Chain Management）とは、**サプライチェーン全体を統合的に管理し、全体最適を図る**マネジメント手法である。
+
+モノだけでなく情報・サービスの流れも管理対象に含む。
+
+## デカップリングポイントによる分類
+
+デカップリングポイントとは、受注前（見込み）と受注後（確定）の生産活動の境界点を指す。この位置によってSCMの形態が4種に分類される。過去問 [R03 Ⅰ-1-5](/docs/pe-comprehensive-management-r03-primary#1-5) で、完成在庫出荷・組立・設計といった違いによって SCM 形態が変わる点が問われた（同時に TOC はボトルネック工程自体の改善でシステム全体を最適化する理論である点も出題）。
+
+- **MTS**（Make to Stock・見込生産）: 完成在庫から出荷
+- **ATO**（Assemble to Order・受注組立）: 受注後に組み立て出荷
+- **MTO**（Make to Order・受注生産）: 受注後に生産開始
+- **ETO**（Engineer to Order・受注設計）: 受注後に設計から開始
+
+## 主要概念
+
+- **プッシュ型**：需要予測に基づき生産・供給する方式
+- **プル型**：実需（後工程の要求）に基づき生産する方式（JIT等）
+- **TOC（制約条件の理論）**：ボトルネック工程を特定し全体最適を図る
+- **ブルウィップ効果**：需要情報が上流ほど増幅される現象
+- **DBR（ドラム・バッファ・ロープ）**：TOC の同期化手法。ボトルネックのスケジュールを**先頭工程**に通知して投入を制御（R04 Ⅰ-1-6 核心）
+- **CPFR**（Collaborative Planning, Forecasting and Replenishment）：取引先との協調計画・予測・補充で情報共有を深化させる
+
+<Callout type="warn">
+**ブルウィップ効果**は需要情報が**下流（小売）から上流（原材料）に向かって拡大**する現象。需要変動に対する発注変動が、小売 → 卸 → メーカー → 部品メーカー → 原材料の順に振れ幅を増幅させる。方向を逆に覚えると誤答になるため注意。
+
+対策：POS データの上流共有・EDI・CPFR 等の情報統合、リードタイム短縮、発注ロット最小化。
+</Callout>
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**2.1 事業企画**](/docs/pe-comprehensive-management-keyword-2026#21-事業企画)に位置づけられている。
+
+SCM は 5 管理すべてに関わる横断的概念として出題される。過去問 [R04 Ⅰ-1-6](/docs/pe-comprehensive-management-r04-primary#1-6) では [TOC](/docs/pe-comprehensive-management-theory-of-constraints) ボトルネック改善・デカップリングポイント（MTS/ATO/MTO/ETO）・[JIT 生産方式](/docs/pe-comprehensive-management-jit-production)（引取かんばんと生産指示かんばんの役割）等の論点が問われた。過去問 [R02 Ⅰ-1-5](/docs/pe-comprehensive-management-r02-primary#1-5) では、災害後のサプライチェーン途絶リスク対策として「調達リードタイム・発注間隔の短縮」が**不適切選択肢**（正答）として問われ、効率化（JIT・短納期）が在庫バッファを減少させ途絶時の脆弱性を高めるトレードオフが論点となった。一方で複数サプライヤ確保・部品共通化・情報一元把握は[レジリエンス](/docs/pe-comprehensive-management-resilience) / ロバストネス向上策として正答肢となった。
+
+- **経済性管理**: 在庫コスト・リードタイム・調達コストの最適化がSCMの主目的であり、ライフサイクルコスト低減と直結する
+- **情報管理**: ブルウィップ効果の抑制には上流から下流まで需要情報をリアルタイム共有することが不可欠。EDI・ERP・IoTによる情報連携が鍵となる
+- **安全管理**: 自然災害・地政学リスクによるサプライチェーン途絶は事業継続上の重大リスクであり、[リスク評価](/docs/pe-comprehensive-management-risk-assessment)と[BCP](/docs/pe-comprehensive-management-business-continuity-plan)の文脈で問われる
+- **社会環境管理**: 近年は人権デュー・ディリジェンスや温室効果ガス排出量の可視化など、持続可能なサプライチェーンへの対応が求められている
+- **人的資源管理**: SCM推進には部門横断チームの形成と取引先との関係構築力が必要であり、組織能力の観点から評価される
+
+[需要予測](/docs/pe-comprehensive-management-demand-forecasting)に基づく生産計画との連携、[ライフサイクルマネジメント](/docs/pe-comprehensive-management-lifecycle-management)の供給段階を担う視点も重要である。
+
+<ExamPoint
+  summary="SCMは経済性管理の最適化手法であると同時に、情報・安全・社会環境管理との交差点として出題される"
+  items={[
+    "ブルウィップ効果は情報管理の問題（需要情報の歪み拡大）として整理する",
+    "サプライチェーン途絶リスクはBCP・リスク評価と組み合わせて出題される",
+    "人権デュー・ディリジェンス・Scope3排出量など社会環境管理との交差が近年の出題傾向",
+    "デカップリングポイント（MTS/ATO/MTO/ETO）は経済性管理（リードタイム・在庫水準）との関係で問われる",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "JIT生産方式", slug: "jit-production" },
+  { label: "制約条件の理論（TOC）", slug: "theory-of-constraints" },
+  { label: "需要予測", slug: "demand-forecasting" },
+  { label: "プル型生産方式", slug: "pull-production" },
+  { label: "予算計画", slug: "budget-planning" },
+]} />
+
+## 参考資料
+
+- [ISO 9001（品質マネジメントシステム）](https://www.jisc.go.jp/mss/qms-9000.html)（日本産業標準調査会 JISC：サプライチェーン全体の品質統合管理の国際規格）
+- [サプライチェーン・マネジメント](https://ja.wikipedia.org/wiki/%E3%82%B5%E3%83%97%E3%83%A9%E3%82%A4%E3%83%81%E3%82%A7%E3%83%BC%E3%83%B3%E3%83%BB%E3%83%9E%E3%83%8D%E3%82%B8%E3%83%A1%E3%83%B3%E3%83%88)（Wikipedia：SCM・ブルウィップ効果・CPFR の包括解説）

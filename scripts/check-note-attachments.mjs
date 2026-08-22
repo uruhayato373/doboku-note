@@ -1,0 +1,258 @@
+#!/usr/bin/env node
+/**
+ * check-note-attachments.mjs
+ * ---------------------------------------------------------------------------
+ * 「PDF を配ると書いてある note 記事に、実際に PDF が添付されているか」を検査する。
+ *
+ * 2026-07-28 の事故: 1級土木 一次過去問PDF（¥1,980）が本文で「この記事の末尾に添付」と
+ * 約束しているのに **note ライブに添付が無い**（購入しても PDF が手に入らない）状態で公開
+ * されていた。同型が他2本。PDF 実体はビルド済みでローカルにあり、アップロードだけが漏れて
+ * いた＝「公開」と「添付」が別工程で、後者を忘れても誰も落とさなかった。
+ *
+ * 2層に分ける（CI で見える範囲と、ログインしないと見えない範囲が違うため）:
+ *   --source（既定・CI 可・ネットワーク不要）
+ *       本文が PDF 配布を約束している記事に、添付すべき PDF 実体がディスク上にあるか。
+ *       「約束したが PDF を作っていない／置き場がずれた」を落とす。
+ *   --live（ローカル専用・要ログイン Playwright）
+ *       添付すべき PDF がある記事の**ライブ**に、実際に添付リンクがその本数あるか。
+ *       「作ったがアップロードしていない」を落とす＝今回の事故そのもの。
+ *
+ * なぜ --live を CI に載せないか: 有料エリア内の添付カードは**未ログインの HTML には出ない**
+ * （2026-07-28 実測＝添付済み記事2本とも未ログイン HTML で出現0）。Actions からは原理的に
+ * 見えないので、載っているフリをさせない（CLAUDE.md §9「検査ゼロを PASS と呼ばない」）。
+ *
+ * 使い方:
+ *   node scripts/check-note-attachments.mjs                 # source 層（CI）
+ *   node scripts/check-note-attachments.mjs --live          # live 層（要ログイン・約15分）
+ *   node scripts/check-note-attachments.mjs --live --only n155093f42183,na84b001e827e
+ *   node scripts/check-note-attachments.mjs --json
+ * ---------------------------------------------------------------------------
+ */
+import { readdirSync, readFileSync, existsSync } from 'node:fs';
+import { join, dirname, relative } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
+const BASE = join(ROOT, 'content/note');
+
+// 配布 PDF は DN-0111 Phase 4-D で private R2 へ退避し Git 追跡から外した。実体はローカルに
+// 残るが、CI や新規 clone のツリーには無い。ディスクを readdir するだけだと
+// **「本文で約束しているのに実体が無い」が全記事で成立して CI が偽の赤になる**。
+// 退避台帳に sha256 付きで載っているものは「在る」と数える（実体は R2）。
+const MANIFEST_PDFS = (() => {
+  const byDir = new Map();
+  let m;
+  try { m = JSON.parse(readFileSync(join(ROOT, '.claude/state/assets/manifest.json'), 'utf8')); } catch { return byDir; }
+  for (const [logical, e] of Object.entries(m.entries || {})) {
+    if (e.group !== 'note-delivery-pdf' || !e.sha256 || !e.bytes) continue;
+    const abs = join(ROOT, logical);
+    const d = dirname(abs);
+    if (!byDir.has(d)) byDir.set(d, []);
+    byDir.get(d).push(abs);
+  }
+  return byDir;
+})();
+
+/** dir 直下の PDF を「ディスク実体 ∪ 退避台帳」で列挙する。 */
+function pdfsIn(dir) {
+  const disk = existsSync(dir) ? readdirSync(dir).filter((f) => /\.pdf$/i.test(f)).map((f) => join(dir, f)) : [];
+  return [...new Set([...disk, ...(MANIFEST_PDFS.get(dir) || [])])];
+}
+const ALLOW_PATH = join(ROOT, '.claude/config/note-attachments-allow.json');
+
+const argv = process.argv.slice(2);
+const LIVE = argv.includes('--live');
+const STAGED = argv.includes('--staged');
+const JSON_OUT = argv.includes('--json');
+const ONLY = (() => { const i = argv.indexOf('--only'); return i >= 0 ? new Set(argv[i + 1].split(',').map((s) => s.trim())) : null; })();
+
+const ARTICLE_RE = /^article(-[^/\\]+)?\.md$/;      // 型別 article-II1.md 等を落とさない
+const TYPE_PDF = { II1: /-II-1-/, II2: /-II-2-/, III: /-III-/ };
+// 本文が「PDF を配る」と約束している signature。prose 側の網。
+// 「印刷用PDF」は**半角スペース入りの表記も実在する**（2026-08-18 実測: なし 413 / あり 136）。
+// 日本語と欧文の間に空白を入れる組版慣習によるもので、総監模範論文 77 本はすべてこの形。
+// スペースを許さないと、案内済みの記事が「一言も触れていない」と誤検出される
+// （実際 backlog 🔴 が「総監 77 本に節を追加」というカードになっていた＝偽赤。
+//  指示どおり足していたら案内が重複した記事を 77 本作っていた）。
+const PROMISE_RE = /(印刷用[ 　]?PDF|末尾に添付|記事末尾に添付|添付しています|PDF[^\n]{0,24}(ダウンロード|添付)|ダウンロードできます)/;
+
+const allow = existsSync(ALLOW_PATH) ? JSON.parse(readFileSync(ALLOW_PATH, 'utf8')) : { entries: [] };
+const allowMap = new Map((allow.entries || []).map((e) => [e.noteId, e]));
+
+function walk(dir, acc = []) {
+  for (const e of readdirSync(dir, { withFileTypes: true })) {
+    const p = join(dir, e.name);
+    if (e.isDirectory()) walk(p, acc);
+    else if (ARTICLE_RE.test(e.name)) acc.push(p);
+  }
+  return acc;
+}
+const fm = (raw, k) => {
+  const block = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? '';
+  return (block.match(new RegExp('^' + k + ':\\s*(?:"(.*?)"|\'(.*?)\'|(.+?))\\s*$', 'm')) || []).slice(1).find(Boolean) || '';
+};
+
+// --- 記事ごとに「添付されているべき PDF」を実体から決める（frontmatter に依存しない） ---
+function expectedPdfs(file) {
+  const dir = dirname(file);
+  const name = file.split(/[\\/]/).pop();
+  const here = pdfsIn(dir);
+  const sub = join(dir, 'pdf');
+  const nested = pdfsIn(sub);
+  const type = (name.match(/^article-(.+)\.md$/) || [])[1];
+  if (type && TYPE_PDF[type]) {
+    const hit = here.find((p) => TYPE_PDF[type].test(p.split(/[\\/]/).pop()));
+    return hit ? [hit] : [];
+  }
+  // 型別 article がある dir の素の article.md は、型別の PDF を自分のものと見なさない
+  if (!type) {
+    const siblingTyped = readdirSync(dir).some((f) => /^article-.+\.md$/.test(f));
+    if (siblingTyped) return nested;
+  }
+  return [...here, ...nested];
+}
+
+// --staged: 今回コミットする article*.md だけを見る（pre-commit 用・全量は CI）
+let stagedSet = null;
+if (STAGED) {
+  const { execFileSync } = await import('node:child_process');
+  const out = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACMR'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 });
+  stagedSet = new Set(out.split(/\r?\n/).filter((p) => /^content\/note\/.*\/article(-[^/]+)?\.md$/.test(p)));
+}
+
+const targets = [];
+for (const file of walk(BASE)) {
+  if (stagedSet && !stagedSet.has(relative(ROOT, file).replace(/\\/g, '/'))) continue;
+  const raw = readFileSync(file, 'utf8');
+  const noteId = fm(raw, 'noteId');
+  if (!noteId) continue;                                   // 未公開はスキップ
+  if (fm(raw, 'noteStatus') && fm(raw, 'noteStatus') !== 'published') continue;
+  if (ONLY && !ONLY.has(noteId)) continue;
+  const body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---/, '');
+  targets.push({
+    file: relative(ROOT, file).replace(/\\/g, '/'),
+    noteId,
+    title: (body.split(/\r?\n/).find((l) => l.startsWith('# ')) || '').slice(2, 54),
+    promises: PROMISE_RE.test(body),
+    expected: expectedPdfs(file).map((p) => relative(ROOT, p).replace(/\\/g, '/')),
+    allow: allowMap.get(noteId) || null,
+  });
+}
+
+// ============================ source 層 ============================
+if (!LIVE) {
+  const violations = targets.filter((t) => t.promises && t.expected.length === 0 && !t.allow);
+  const withPdf = targets.filter((t) => t.expected.length > 0);
+    // 逆向きの取りこぼし（非ゲート surfacer）: PDF は作ってあるのに本文が一言も触れていない。
+    // 2026-07-31 実測で総監模範論文 93 本がこの状態だった（添付はされていたが本文に案内が無く、
+    // 読者には「PDF が付く」ことが伝わっていない＝作った資産が売り物として見えていない）。
+    const silent = targets.filter((t) => t.expected.length > 0 && !t.promises);
+  if (JSON_OUT) {
+    console.log(JSON.stringify({ mode: 'source', inspected: targets.length, withPdf: withPdf.length, violations, silent: silent.map((t) => ({ noteId: t.noteId, title: t.title, file: t.file, pdfs: t.expected })) }, null, 2));
+  } else {
+    console.log(`[check-note-attachments${STAGED ? ' --staged' : ' --source'}] 実検査 ${targets.length} 件（公開済み・noteId 付き）`);
+    console.log(`  PDF 配布を約束: ${targets.filter((t) => t.promises).length} 件 / 添付すべき PDF 実体あり: ${withPdf.length} 件 / allowlist: ${allowMap.size} 件`);
+    if (violations.length) {
+      console.error(`\n✗ 約束しているのに PDF 実体が見つからない: ${violations.length} 件`);
+      for (const v of violations) console.error(`  ${v.noteId}  ${v.title}\n      ${v.file}`);
+      console.error('\n  → PDF を生成して記事 dir（または <dir>/pdf/）へ置くか、正当な例外なら .claude/config/note-attachments-allow.json に理由付きで登録する');
+    } else {
+      console.log('\n✓ 約束と PDF 実体の不一致なし');
+    }
+    if (silent.length) {
+      const byMag = {};
+      for (const s of silent) {
+        const k = (s.file.match(/magazines\/([^/]+)/) || [, s.file.split('/').slice(1, 3).join('/')])[1];
+        byMag[k] = (byMag[k] || 0) + 1;
+      }
+      console.log(`\n△ PDF 実体はあるが本文で案内していない: ${silent.length} 件（非ゲート・訴求もれの候補）`);
+      Object.entries(byMag).sort((a, b) => b[1] - a[1]).slice(0, 12)
+        .forEach(([k, v]) => console.log(`    ${String(v).padStart(4)} ${k}`));
+      console.log('    → 本文に「## 印刷用PDF」節を足すと購入判断の材料になる（節の文面は建設部門 200 本が既存例）');
+    }
+    console.log(`\n  ライブに実際に添付されているかは CI では見えない（有料エリアの添付カードは未ログイン HTML に出ない）。`);
+    console.log(`  ローカルで: node scripts/check-note-attachments.mjs --live`);
+  }
+  // 検査ゼロで PASS を返さない（--staged は「note 記事を触っていない」が正常なので除く）
+  if (!STAGED && targets.length === 0) { console.error('✗ 検査対象0件＝走査が壊れている疑い（検査不成立）'); process.exit(1); }
+  process.exit(violations.length ? 1 : 0);
+}
+
+// ============================ live 層 ============================
+// live 層の対象は「ローカルに PDF 実体がある記事」。ただし **本文が配布を約束しているか**で
+// 重大度が全く違うので、ここで分けておく（2026-08-11 是正）:
+//   promises=true  → 約束したのに届かない＝**購入者が受け取れない**（緊急・無条件で直す）
+//   promises=false → PDF は作ってあるが本文は触れていない。会員特典など「閲覧のみで所有は
+//                    渡さない」方針の記事が該当し、添付しないのが正しい場合がある（要方針判断）
+// 両者を同じ「不足 N 件」に混ぜると、緊急分が方針分に埋没して誰も見なくなる。
+// 実際 2026-08-03 の実査は「不足 192 件」と出したまま4日放置され、その中に居た
+// 建設部門 7 本（約束あり）は購入者からの指摘で初めて発覚した。
+const need = targets.filter((t) => t.expected.length > 0);
+if (need.length === 0) { console.error('✗ 検査対象0件＝走査が壊れている疑い（検査不成立）'); process.exit(1); }
+
+const { chromium } = await import('playwright');
+const PROFILE = join(ROOT, '.local/playwright-note-profile');
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+const ctx = await chromium.launchPersistentContext(PROFILE, { headless: false, channel: 'chrome', viewport: { width: 1280, height: 900 } });
+const page = ctx.pages()[0] || (await ctx.newPage());
+await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded' });
+await sleep(1500);
+if (!(await page.evaluate(() => document.body.innerText.includes('dobokunote')))) {
+  console.error('✗ ABORT: note にログインしていない（npm run note-edit-session で1回ログインする）');
+  await ctx.close(); process.exit(2);
+}
+console.log(`[check-note-attachments --live] 対象 ${need.length} 件を実査（著者ログイン＝有料エリアも見える）\n`);
+
+const short = []; const fetchFail = []; let ok = 0;
+for (const [i, t] of need.entries()) {
+  let live = null;
+  for (let attempt = 0; attempt < 2 && live === null; attempt++) {
+    try {
+      await page.goto(`https://note.com/dobokunote/n/${t.noteId}`, { waitUntil: 'domcontentloaded', timeout: 45000 });
+      await sleep(2500);
+      await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+      await sleep(1500);
+      live = await page.evaluate(() => [...document.querySelectorAll('a')]
+        .filter((a) => /api\/v2\/attachments\/download/.test(a.getAttribute('href') || '')).length);
+    } catch { await sleep(3000); }
+  }
+  if (live === null) { fetchFail.push(t); console.log(`  [${i + 1}/${need.length}] FETCH_ERR ${t.noteId}`); continue; }
+  const want = t.allow?.expected ?? t.expected.length;
+  if (live < want) { short.push({ ...t, live, want }); console.log(`  [${i + 1}/${need.length}] ✗ live=${live}/期待${want}  ${t.noteId}  ${t.title}`); }
+  else { ok++; if ((i + 1) % 20 === 0) console.log(`  [${i + 1}/${need.length}] …OK ${ok}`); }
+}
+await ctx.close();
+
+const inspected = need.length - fetchFail.length;
+const shortPromised = short.filter((s) => s.promises);
+const shortSilent = short.filter((s) => !s.promises);
+console.log(`\n実検査 ${inspected} 件（対象 ${need.length}・取得失敗 ${fetchFail.length}）: 充足 ${ok} / 不足 ${short.length}`);
+console.log(`  内訳: **本文で約束していて未添付 ${shortPromised.length} 件（購入者が受け取れない・緊急）** / 本文で触れず未添付 ${shortSilent.length} 件（方針判断）`);
+
+// 復旧は note の 1日100アップロード上限で複数日に分かれる。別日・別PCから再開できるよう
+// 欠落リストを state に残す（.tmp は git 管理外で、過去の添付 done-log はこれで失われている）。
+if (!ONLY) {
+  const { writeFileSync, mkdirSync } = await import('node:fs');
+  const outPath = join(ROOT, '.claude/state/note-attachments-missing.json');
+  mkdirSync(dirname(outPath), { recursive: true });
+  writeFileSync(outPath, JSON.stringify({
+    // JST 基準。UTC だと JST 09:00 前の実測が前日付になり、note-attach-batch の鮮度判定が
+    // 常に「1日古い」と誤警告する。
+    measuredAt: new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10),
+    inspected, target: need.length, fetchFail: fetchFail.length, satisfied: ok,
+    missingPromised: shortPromised.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected })),
+    missingSilent: shortSilent.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected })),
+    missing: short.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected, promises: !!s.promises })),
+  }, null, 2) + '\n');
+  console.log(`\n欠落リスト: .claude/state/note-attachments-missing.json（${short.length} 件）`);
+}
+if (short.length) {
+  console.error('\n✗ ライブに PDF が添付されていない（購入者が受け取れない）:');
+  for (const s of short) {
+    console.error(`  ${s.noteId}  live=${s.live}/期待${s.want}  ${s.title}`);
+    for (const p of s.expected) console.error(`      node scripts/note-attach-file.mjs --note ${s.noteId} --file "${p}" --commit`);
+  }
+}
+if (fetchFail.length / need.length > 0.2) { console.error('\n✗ 取得失敗が支配的＝検査不成立'); process.exit(1); }
+process.exit(short.length ? 1 : 0);

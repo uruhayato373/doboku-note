@@ -1,0 +1,133 @@
+---
+title: 進捗管理
+description: "進捗管理の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.3'
+tags:
+  - keyword
+published: true
+reviewStatus: needs-review
+lastRewrittenAt: '2026-05-17T04:47:12Z'
+revisionCycle: 1
+publishedAt: '2026-04-09'
+seoTitle: "進捗管理 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-06-23
+---
+
+## 進捗管理とは
+
+進捗管理（Progress Management）とは、工程計画に対する作業の進み具合を把握し、**計画と実績の差異を是正する** 管理活動である。
+
+PDCA サイクルの C（Check）と A（Act）に相当し、計画どおりの工期達成を目指す。
+
+## 進捗管理の手順
+
+進捗管理は把握から是正まで一連のサイクルとして実施する。
+
+1. **進捗の把握**: 作業の出来高・進捗率を測定する
+2. **計画との比較**: 計画日程と実績の差異を分析する
+3. **原因分析**: 遅延の原因を特定する
+4. **是正措置**: 工程の調整・資源の追加投入等を行う
+5. **報告・記録**: 進捗状況を関係者に報告する
+
+## 曲線式工程表
+
+工事全体の進捗を **出来高の累積曲線** で把握する手法。縦軸に出来高（%）、横軸に工期をとり、上方許容限界・予定・下方許容限界の 3 本でバナナ状の許容領域を描き、そこに実績曲線を重ねる。
+
+<ArticleImage src="/posts/pe-comprehensive-management/progress-management/img/figure-banana-curve.svg" alt="バナナ曲線（工程管理曲線）— 上方許容限界・予定工程・下方許容限界と実績曲線の関係" />
+
+- **上方許容限界曲線**: これを超えると資源の過剰投入（不経済）を示す
+- **予定工程曲線**: 工期全体の累積出来高計画
+- **下方許容限界曲線**: これを下回ると工程遅延で、突貫工事等の是正措置が必要
+- **実績曲線**: 両許容限界の間に収まっていれば許容範囲内
+
+累積曲線が S 字型になるのは、着工直後と竣工直前は進捗率が小さく工期中盤で出来高が集中するため。建設工事では請負金額ベースで計画・実績を月次集計し、±10% 程度を管理目安とすることが多い。
+
+## EVM
+
+進捗とコストを **金銭価値で統合管理** する手法。次の 3 つの基本指標で計画と実績を照合する。
+
+<ArticleImage src="/posts/pe-comprehensive-management/progress-management/img/figure-evm-chart.svg" alt="EVM の基本グラフ — PV・EV・AC と SV・CV の関係" />
+
+- **PV（Planned Value）**: 計画した作業量を予算で表した値（累積）
+- **EV（Earned Value）**: 現時点で完了済みの作業を予算換算した値（出来高）
+- **AC（Actual Cost）**: 現時点で実際に消費したコスト
+
+差異と効率は次式で算出する。
+
+$$
+\mathrm{SV} = \mathrm{EV} - \mathrm{PV}, \quad \mathrm{CV} = \mathrm{EV} - \mathrm{AC}
+$$
+
+$$
+\mathrm{SPI} = \frac{\mathrm{EV}}{\mathrm{PV}}, \quad \mathrm{CPI} = \frac{\mathrm{EV}}{\mathrm{AC}}
+$$
+
+$\mathrm{SV} < 0$ または $\mathrm{SPI} < 1.0$ なら **進捗が計画より遅れている**。$\mathrm{CV} < 0$ または $\mathrm{CPI} < 1.0$ なら **コストが計画より超過している**。
+
+### 計算例
+
+工期中盤のある時点で次の値が得られたとする。
+
+- PV = 500 万円
+- EV = 350 万円
+- AC = 450 万円
+
+このときの各指標は次のように求まる。
+
+- $\mathrm{SV} = 350 - 500 = -150$ 万円（スケジュール遅延 150 万円相当）
+- $\mathrm{CV} = 350 - 450 = -100$ 万円（コスト超過 100 万円）
+- $\mathrm{SPI} = 350 / 500 = 0.70$（計画の 70% しか進んでいない）
+- $\mathrm{CPI} = 350 / 450 \approx 0.78$（投入 1 円につき 0.78 円分の出来高）
+
+SPI・CPI ともに 1.0 未満のため、**進捗遅延かつコスト超過** の状況にあり、次節の是正措置の検討が必要となる。
+
+## マイルストーン管理
+
+重要な節目（マイルストーン）の達成有無で進捗を把握する手法。主要工種完了・中間検査合格等、**日付で明確に判定できるイベント** を設定する。バナナ曲線や EVM が連続的な累積出来高を扱うのに対し、マイルストーン管理は離散的な達成イベントで進捗を管理する。
+
+## 遅延時の是正措置
+
+計画に対して遅延が生じた場合、クリティカルパス上の工期短縮を図る代表的な手法は次の 2 つ。トレードオフの性質が異なる。
+
+- **クラッシング（Crashing）**: 作業に資源を追加投入して作業期間を短縮する（コスト増を伴う）
+- **ファストトラッキング（Fast Tracking）**: 本来は直列で行う作業を並行化して全体工期を短縮する（手戻りリスクを伴う）
+
+## 進捗管理手法の発展経緯
+
+工程管理の歴史は、バナナ曲線に代表される **出来高累積管理** から始まった。20 世紀初頭のガントチャート（ヘンリー・ガントが 1910 年代に体系化）は日程と作業の対応を視覚化したが、コストと進捗の乖離を同時に捉える手段がなかった。
+
+この課題を解決したのが **EVM（Earned Value Management）** である。1960 年代に米国国防総省が大規模防衛調達プロジェクトへ適用し、「消費コストと達成された仕事量を同じ金銭単位で比較する」考え方を確立した。その後 ANSI/EIA-748 規格として標準化され、現在では国内公共工事の工程管理にも国土交通省の手引きとして導入されている。
+
+マイルストーン管理も古くから存在するが、重要な転換点は EVM の普及によって **定性的な節目確認** から **定量的な効率指数（SPI・CPI）による早期警戒** へと移行したことである。SPI が 0.7 を下回る段階で是正措置を判断できるようになり、竣工直前の突貫工事を未然に防ぐ考え方が定着した。
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**2.3 工程管理**](/docs/pe-comprehensive-management-keyword-2026#23-工程管理)に位置づけられている。
+
+進捗管理は [PERT/CPM](/docs/pe-comprehensive-management-pert-cpm)・[ガントチャート](/docs/pe-comprehensive-management-gantt-chart) で策定した計画に対する実績管理であり、[余力管理](/docs/pe-comprehensive-management-capacity-management) と連携して資源の再配分を行う。過去問 [R04 Ⅰ-1-8](/docs/pe-comprehensive-management-r04-primary#1-8) では PERT 計算（EST/LFT・全余裕時間・クリティカルパス）が問われ、進捗管理はその計画の実績追跡として位置づけられた。
+
+<ExamPoint
+  summary="進捗管理は計画と実績の差異を分析し是正措置を講じる管理活動"
+  items={[
+    "PDCAサイクルのC（Check）とA（Act）に相当する",
+    "EVMでは SPI（EV÷PV）で進捗・CPI（EV÷AC）でコスト効率を定量評価する",
+    "遅延是正はクラッシング（資源追加・コスト増）またはファストトラッキング（並行化・手戻りリスク）",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "工程計画", slug: "process-planning-construction" },
+  { label: "ガントチャート", slug: "gantt-chart" },
+  { label: "PERT/CPM", slug: "pert-cpm" },
+  { label: "余力管理", slug: "capacity-management" },
+  { label: "現品管理", slug: "inventory-control" },
+]} />
+
+## 参考資料
+
+- [EVMS による公共工事の出来高・工程管理の手引き（案）](https://www.nilim.go.jp/lab/pbg/theme/theme2/evms/evmstebiki/tebiki.pdf)（国土交通省 国土技術政策総合研究所）
+- [EVM とは？プロジェクトのコストと進捗を一元管理する方法](https://asana.com/ja/resources/what-is-evm)（Asana）

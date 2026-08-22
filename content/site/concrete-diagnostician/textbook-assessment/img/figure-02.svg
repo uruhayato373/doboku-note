@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="塩化物イオン濃度の深さ方向分布が経年で内部へ進み、鋼材位置で腐食発生限界に達する時期を予測する概念図">
+  <defs>
+    <marker id="cda2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text x="200" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">鋼材位置の濃度が限界に達する時期を読む</text>
+
+  <line x1="56" y1="240" x2="380" y2="240" stroke="#222" stroke-width="1.5" marker-end="url(#cda2)"/>
+  <line x1="56" y1="240" x2="56" y2="40" stroke="#222" stroke-width="1.5" marker-end="url(#cda2)"/>
+  <text x="378" y="258" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">表面からの深さ</text>
+  <text x="62" y="52" font-family="sans-serif" font-size="11" fill="#222">塩化物イオン濃度</text>
+
+  <circle cx="56" cy="64" r="4" fill="#2e6da4"/>
+  <text x="66" y="70" font-family="sans-serif" font-size="11" font-weight="bold" fill="#2e6da4">表面濃度</text>
+
+  <path d="M56 64 C 92 148 128 190 200 214 C 248 228 282 234 320 236" fill="none" stroke="#2e6da4" stroke-width="2.5"/>
+  <path d="M56 64 C 112 118 168 168 230 198 C 278 220 312 230 352 234" fill="none" stroke="#d4a017" stroke-width="2.5"/>
+  <text x="150" y="120" font-family="sans-serif" font-size="11" fill="#2e6da4">若い時期</text>
+  <text x="236" y="150" font-family="sans-serif" font-size="11" fill="#d4a017">年数が経つほど内部へ</text>
+
+  <line x1="56" y1="186" x2="360" y2="186" stroke="#b22234" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="360" y="180" text-anchor="end" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b22234">腐食発生限界</text>
+
+  <line x1="210" y1="40" x2="210" y2="240" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3"/>
+  <text x="216" y="56" font-family="sans-serif" font-size="11" fill="#8a8a8a">鋼材位置（かぶり）</text>
+
+  <circle cx="210" cy="186" r="5" fill="#b22234"/>
+  <text x="120" y="272" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b22234">交点に達した時が腐食開始</text>
+
+  <rect x="20" y="288" width="360" height="194" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="308" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">予測に必要な 3 つの入力</text>
+
+  <rect x="30" y="318" width="340" height="44" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="42" y="336" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">表面塩化物イオン濃度</text>
+  <text x="42" y="354" font-family="sans-serif" font-size="11" fill="#555">環境条件（飛来塩・凍結防止剤）から推定</text>
+
+  <rect x="30" y="368" width="340" height="44" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="42" y="386" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">見かけの拡散係数</text>
+  <text x="42" y="404" font-family="sans-serif" font-size="11" fill="#555">材料試験または既往データから設定</text>
+
+  <rect x="30" y="418" width="340" height="44" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="42" y="436" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">かぶり厚さ</text>
+  <text x="42" y="454" font-family="sans-serif" font-size="11" fill="#555">電磁誘導法などで実測する</text>
+</svg>

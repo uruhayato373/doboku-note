@@ -1,0 +1,51 @@
+name: Audit Cloudflare via MCP
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+
+      - name: Install MCP client
+        run: npm install --prefix .tmp/cloudflare-mcp-runtime --no-save --package-lock=false --ignore-scripts @modelcontextprotocol/client@2.0.0
+
+      - name: Audit Cloudflare configuration through MCP
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_NAME: doboku-note.com
+          CLOUDFLARE_MCP_URL: https://mcp.cloudflare.com/mcp
+          CLOUDFLARE_AUDIT_OUTPUT_DIR: .tmp/cloudflare-mcp-audit
+        run: node .github/scripts/cloudflare-mcp-audit.mjs
+
+      - name: Publish audit summary
+        if: always()
+        shell: bash
+        run: |
+          if [ -f .tmp/cloudflare-mcp-audit/report.md ]; then
+            cat .tmp/cloudflare-mcp-audit/report.md >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Cloudflare MCP audit did not produce a report." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload audit report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cloudflare-mcp-audit
+          path: .tmp/cloudflare-mcp-audit/
+          if-no-files-found: warn
+          retention-days: 14

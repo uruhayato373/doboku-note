@@ -1,0 +1,26 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP', sans-serif" style="max-width:400px;width:100%" role="img" aria-label="bep formulas">
+  <!-- 3つの公式をボックスに入れて縦に並べる -->
+  <rect x="10" y="40" width="380" height="80" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="4"/>
+  <text x="200" y="72" text-anchor="middle" font-size="14" fill="#222">
+    <tspan font-weight="bold">限界利益</tspan>
+  </text>
+  <text x="200" y="100" text-anchor="middle" font-size="13" fill="#555">売上高 − 変動費</text>
+
+  <rect x="10" y="150" width="380" height="80" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="4"/>
+  <text x="200" y="182" text-anchor="middle" font-size="14" fill="#222">
+    <tspan font-weight="bold">限界利益率</tspan>
+  </text>
+  <text x="200" y="210" text-anchor="middle" font-size="13" fill="#555">限界利益 ÷ 売上高 ＝ 1 − 変動費率</text>
+
+  <rect x="10" y="260" width="380" height="80" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="4"/>
+  <text x="200" y="292" text-anchor="middle" font-size="14" fill="#222">
+    <tspan font-weight="bold">損益分岐点売上高</tspan>
+  </text>
+  <text x="200" y="320" text-anchor="middle" font-size="13" fill="#555">固定費 ÷ 限界利益率</text>
+
+  <!-- サマリー -->
+  <rect x="20" y="390" width="360" height="90" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="4"/>
+  <text x="200" y="418" text-anchor="middle" font-size="13" fill="#222" font-weight="bold">損益分岐点分析の活用</text>
+  <text x="35" y="443" font-size="12" fill="#555">限界利益率が高いほど損益分岐点が低い</text>
+  <text x="35" y="465" font-size="12" fill="#555">固定費削減 or 限界利益率向上で改善</text>
+</svg>

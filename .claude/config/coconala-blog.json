@@ -1,0 +1,15 @@
+{
+  "_note": "ココナラブログ（記事型）の偵察対象と運用パラメータ。scripts/scout-coconala-blogs.mjs が読む。競合の『出品サービス』を見る coconala-competitors.json とは対象が別（あちらはサービス・こちらはブログ記事）。取得は公開ページ read-only・低頻度・書き込みなし。記事の本文/価格/導線の真実源は別（本文=content/coconala/blog/**、価格=src/lib/coconala-services.ts、ルール=.claude/knowledge/reference/coconala-blog-policy.md）。ここには価格を書かない。",
+  "cadenceDays": 90,
+  "queries": [
+    { "q": "経験記述", "exam": "civil", "note": "主戦場。2026-08-12 実測 646 件" },
+    { "q": "施工管理技士", "exam": "civil", "note": "2026-08-12 実測 82 件" },
+    { "q": "施工管理", "exam": "civil", "note": "2026-08-12 実測 376 件（職業話題を多く含む）" },
+    { "q": "技術士", "exam": "pe", "note": "2026-08-12 実測 1,100 件。部分一致でノイズ多" },
+    { "q": "総合技術監理", "exam": "pe-sokan", "note": "総監の実需を測る（技術士のノイズを除く）" }
+  ],
+  "watchUsers": [
+    { "id": "1761437", "label": "たくえい☘️アステラ法務コンサルティング", "exams": ["civil"], "note": "2026-08-12 発掘。『経験記述』検索の最上位。元建設会社＋市役所30年を名乗り、経験記述特化の連載ブログを運用。販売実績53・評価4.9" }
+  ],
+  "watchUsersTodo": "セコカンサポート長 / 小泉士郎（技術士 建設・総監）の userId は未特定（coconala-operations.md §9.2 で記事は確認済み）。scout の検索結果から著者リンクを拾って追記する。"
+}

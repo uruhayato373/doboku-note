@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500"
+     style="max-width:400px;width:100%" role="img"
+     aria-label="5S活動の5要素。整理・整頓・清掃・清潔・躾の実施内容と効果を示す図">
+  <defs>
+    <style>
+      text { font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", Inter, sans-serif; }
+    </style>
+  </defs>
+
+  <text x="200" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#222">5S活動の5要素</text>
+
+  <!-- ===== 1: 整理 ===== -->
+  <rect x="10" y="44" width="380" height="72" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <circle cx="44" cy="80" r="22" fill="#2e6da4"/>
+  <text x="44" y="86" text-anchor="middle" font-size="18" font-weight="bold" fill="#fff">1</text>
+  <text x="78" y="68" font-size="16" font-weight="bold" fill="#2e6da4">整理</text>
+  <text x="120" y="68" font-size="11" fill="#8a8a8a">Sort</text>
+  <text x="78" y="87" font-size="11" fill="#555">不要品を特定して除去し、作業場を整える</text>
+  <text x="78" y="103" font-size="11" fill="#2e6da4">→ スペース確保・探索時間の削減</text>
+
+  <!-- ===== 2: 整頓 ===== -->
+  <rect x="10" y="124" width="380" height="72" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <circle cx="44" cy="160" r="22" fill="#3a7d44"/>
+  <text x="44" y="166" text-anchor="middle" font-size="18" font-weight="bold" fill="#fff">2</text>
+  <text x="78" y="148" font-size="16" font-weight="bold" fill="#3a7d44">整頓</text>
+  <text x="120" y="148" font-size="11" fill="#8a8a8a">Set in Order</text>
+  <text x="78" y="167" font-size="11" fill="#555">定位置・定品・定量の管理を徹底する</text>
+  <text x="78" y="183" font-size="11" fill="#3a7d44">→ 必要なものがすぐ取り出せる</text>
+
+  <!-- ===== 3: 清掃 ===== -->
+  <rect x="10" y="204" width="380" height="72" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <circle cx="44" cy="240" r="22" fill="#d4a017"/>
+  <text x="44" y="246" text-anchor="middle" font-size="18" font-weight="bold" fill="#fff">3</text>
+  <text x="78" y="228" font-size="16" font-weight="bold" fill="#d4a017">清掃</text>
+  <text x="120" y="228" font-size="11" fill="#8a8a8a">Shine</text>
+  <text x="78" y="247" font-size="11" fill="#555">清掃しながら点検し、異常を早期発見する</text>
+  <text x="78" y="263" font-size="11" fill="#d4a017">→ 設備不具合の早期発見・品質維持</text>
+
+  <!-- ===== 4: 清潔 ===== -->
+  <rect x="10" y="284" width="380" height="72" rx="8" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <circle cx="44" cy="320" r="22" fill="#b22234"/>
+  <text x="44" y="326" text-anchor="middle" font-size="18" font-weight="bold" fill="#fff">4</text>
+  <text x="78" y="308" font-size="16" font-weight="bold" fill="#b22234">清潔</text>
+  <text x="120" y="308" font-size="11" fill="#8a8a8a">Standardize</text>
+  <text x="78" y="327" font-size="11" fill="#555">整理・整頓・清掃の 3S を標準化・維持する</text>
+  <text x="78" y="343" font-size="11" fill="#b22234">→ 再発防止・品質水準の安定化</text>
+
+  <!-- ===== 5: 躾 ===== -->
+  <rect x="10" y="364" width="380" height="72" rx="8" fill="#f5f5f5" stroke="#555" stroke-width="1.5"/>
+  <circle cx="44" cy="400" r="22" fill="#555"/>
+  <text x="44" y="406" text-anchor="middle" font-size="18" font-weight="bold" fill="#fff">5</text>
+  <text x="78" y="388" font-size="16" font-weight="bold" fill="#555">躾</text>
+  <text x="104" y="388" font-size="11" fill="#8a8a8a">Sustain</text>
+  <text x="78" y="407" font-size="11" fill="#555">決めたルールを守り、継続する習慣をつける</text>
+  <text x="78" y="423" font-size="11" fill="#555">→ 自律的な改善文化・組織風土の醸成</text>
+
+  <!-- ===== 効果まとめ ===== -->
+  <text x="200" y="450" text-anchor="middle" font-size="11" fill="#8a8a8a">5S 実践の効果</text>
+
+  <rect x="10"  y="456" width="90" height="36" rx="5" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text x="55"  y="479" text-anchor="middle" font-size="12" font-weight="bold" fill="#2e6da4">品質向上</text>
+
+  <rect x="106" y="456" width="90" height="36" rx="5" fill="#f8d7da" stroke="#b22234" stroke-width="1"/>
+  <text x="151" y="479" text-anchor="middle" font-size="12" font-weight="bold" fill="#b22234">安全性向上</text>
+
+  <rect x="202" y="456" width="90" height="36" rx="5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <text x="247" y="479" text-anchor="middle" font-size="12" font-weight="bold" fill="#3a7d44">生産性向上</text>
+
+  <rect x="298" y="456" width="92" height="36" rx="5" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
+  <text x="344" y="479" text-anchor="middle" font-size="12" font-weight="bold" fill="#d4a017">納期厳守</text>
+</svg>

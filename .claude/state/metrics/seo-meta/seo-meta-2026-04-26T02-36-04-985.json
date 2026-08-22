@@ -1,0 +1,259 @@
+{
+  "version": 1,
+  "generated_at": "2026-04-26T02:36:04.985Z",
+  "base_url": "http://localhost:3020",
+  "summary": {
+    "urls_checked": 5,
+    "urls_with_violations": 4,
+    "by_severity": {
+      "HIGH": 0,
+      "MEDIUM": 2,
+      "LOW": 3
+    },
+    "by_type": {
+      "og_key_missing": 2,
+      "description_too_short": 3
+    },
+    "duration_ms": 622
+  },
+  "results": [
+    {
+      "url": "/",
+      "title": {
+        "value": "doboku-note - 土木系資格試験 専門技術ノート",
+        "length": 29,
+        "doboku_note_count": 1
+      },
+      "description": {
+        "value": "1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。",
+        "length": 54
+      },
+      "canonical": "https://doboku-note.com",
+      "og": {
+        "title": "doboku-note - 土木系資格試験 専門技術ノート",
+        "description": "1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。",
+        "url": "https://doboku-note.com",
+        "site_name": "doboku-note",
+        "locale": "ja_JP",
+        "image": "https://doboku-note.com/images/og-default.png",
+        "image:width": "1200",
+        "image:height": "630",
+        "image:alt": "doboku-note - 土木系資格試験 専門技術ノート",
+        "type": "website"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "doboku-note - 土木系資格試験 専門技術ノート",
+        "description": "1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。",
+        "image": "https://doboku-note.com/images/og-default.png"
+      },
+      "json_ld": {
+        "count": 2,
+        "types": [
+          "WebSite",
+          "Organization"
+        ],
+        "faq_count": 0
+      },
+      "violations": []
+    },
+    {
+      "url": "/about",
+      "title": {
+        "value": "1級土木施工管理技士・技術士 試験対策サイトについて | doboku-note",
+        "length": 40,
+        "doboku_note_count": 1
+      },
+      "description": {
+        "value": "doboku-noteは1級土木施工管理技士・技術士の受験者向け技術ノート・試験対策サイトです。過去問解説・キーワード解説・勉強方法を提供。",
+        "length": 70
+      },
+      "canonical": "https://doboku-note.com",
+      "og": {
+        "title": "doboku-noteについて — 1級土木施工管理技士・技術士 試験対策サイト",
+        "description": "doboku-noteは1級土木施工管理技士・技術士の受験者向け技術ノート・試験対策サイトです。",
+        "url": "https://doboku-note.com/about"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "doboku-note - 土木系資格試験 専門技術ノート",
+        "description": "1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。",
+        "image": "https://doboku-note.com/images/og-default.png"
+      },
+      "json_ld": {
+        "count": 2,
+        "types": [
+          "WebSite",
+          "Organization"
+        ],
+        "faq_count": 0
+      },
+      "violations": [
+        {
+          "type": "og_key_missing",
+          "severity": "MEDIUM",
+          "message": "og:image 未設定",
+          "key": "image"
+        },
+        {
+          "type": "og_key_missing",
+          "severity": "MEDIUM",
+          "message": "og:type 未設定",
+          "key": "type"
+        }
+      ]
+    },
+    {
+      "url": "/category/civil-construction-1",
+      "title": {
+        "value": "1級土木施工管理技士 | doboku-note",
+        "length": 24,
+        "doboku_note_count": 1
+      },
+      "description": {
+        "value": "第1次・第2次検定 完全対策",
+        "length": 14
+      },
+      "canonical": "https://doboku-note.com",
+      "og": {
+        "title": "doboku-note - 土木系資格試験 専門技術ノート",
+        "description": "1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。",
+        "url": "https://doboku-note.com",
+        "site_name": "doboku-note",
+        "locale": "ja_JP",
+        "image": "https://doboku-note.com/images/og-default.png",
+        "image:width": "1200",
+        "image:height": "630",
+        "image:alt": "doboku-note - 土木系資格試験 専門技術ノート",
+        "type": "website"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "doboku-note - 土木系資格試験 専門技術ノート",
+        "description": "1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。",
+        "image": "https://doboku-note.com/images/og-default.png"
+      },
+      "json_ld": {
+        "count": 2,
+        "types": [
+          "WebSite",
+          "Organization"
+        ],
+        "faq_count": 0
+      },
+      "violations": [
+        {
+          "type": "description_too_short",
+          "severity": "LOW",
+          "message": "description が 14 文字（下限 50）",
+          "length": 14
+        }
+      ]
+    },
+    {
+      "url": "/category/pe-comprehensive-management",
+      "title": {
+        "value": "技術士（総合技術監理部門） | doboku-note",
+        "length": 27,
+        "doboku_note_count": 1
+      },
+      "description": {
+        "value": "筆記・口頭試験 論文対策",
+        "length": 12
+      },
+      "canonical": "https://doboku-note.com",
+      "og": {
+        "title": "doboku-note - 土木系資格試験 専門技術ノート",
+        "description": "1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。",
+        "url": "https://doboku-note.com",
+        "site_name": "doboku-note",
+        "locale": "ja_JP",
+        "image": "https://doboku-note.com/images/og-default.png",
+        "image:width": "1200",
+        "image:height": "630",
+        "image:alt": "doboku-note - 土木系資格試験 専門技術ノート",
+        "type": "website"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "doboku-note - 土木系資格試験 専門技術ノート",
+        "description": "1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。",
+        "image": "https://doboku-note.com/images/og-default.png"
+      },
+      "json_ld": {
+        "count": 2,
+        "types": [
+          "WebSite",
+          "Organization"
+        ],
+        "faq_count": 0
+      },
+      "violations": [
+        {
+          "type": "description_too_short",
+          "severity": "LOW",
+          "message": "description が 12 文字（下限 50）",
+          "length": 12
+        }
+      ]
+    },
+    {
+      "url": "/category/reference-materials",
+      "title": {
+        "value": "実務参照資料 | doboku-note",
+        "length": 20,
+        "doboku_note_count": 1
+      },
+      "description": {
+        "value": "近畿地整 設計便覧・兵庫県 共通仕様書",
+        "length": 19
+      },
+      "canonical": "https://doboku-note.com",
+      "og": {
+        "title": "doboku-note - 土木系資格試験 専門技術ノート",
+        "description": "1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。",
+        "url": "https://doboku-note.com",
+        "site_name": "doboku-note",
+        "locale": "ja_JP",
+        "image": "https://doboku-note.com/images/og-default.png",
+        "image:width": "1200",
+        "image:height": "630",
+        "image:alt": "doboku-note - 土木系資格試験 専門技術ノート",
+        "type": "website"
+      },
+      "twitter": {
+        "card": "summary_large_image",
+        "title": "doboku-note - 土木系資格試験 専門技術ノート",
+        "description": "1級土木施工管理技士・技術士（総合技術監理部門）の試験対策サイト。体系的な技術解説と過去問で合格をサポート。",
+        "image": "https://doboku-note.com/images/og-default.png"
+      },
+      "json_ld": {
+        "count": 2,
+        "types": [
+          "WebSite",
+          "Organization"
+        ],
+        "faq_count": 0
+      },
+      "violations": [
+        {
+          "type": "description_too_short",
+          "severity": "LOW",
+          "message": "description が 19 文字（下限 50）",
+          "length": 19
+        }
+      ]
+    }
+  ],
+  "violations_by_type": {
+    "og_key_missing": [
+      "/about",
+      "/about"
+    ],
+    "description_too_short": [
+      "/category/civil-construction-1",
+      "/category/pe-comprehensive-management",
+      "/category/reference-materials"
+    ]
+  }
+}

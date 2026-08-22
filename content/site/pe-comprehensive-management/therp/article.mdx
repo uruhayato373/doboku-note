@@ -1,0 +1,84 @@
+---
+title: THERP
+description: "THERP（人的過誤率予測法）の定義・分析手順・HEPイベントツリーの考え方を解説。技術士総合技術監理キーワード集2026（安全管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '5.6'
+tags:
+  - keyword
+published: true
+reviewStatus: approved
+lastRewrittenAt: '2026-04-16'
+revisionCycle: 1
+publishedAt: '2026-04-09'
+seoTitle: "THERP ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-05-26
+---
+
+## THERPとは
+
+THERP（Technique for Human Error Rate Prediction：人的過誤率予測法）とは、人間の作業を個々のタスクに分解し、各タスクにおけるヒューマンエラーの発生確率を定量的に評価する手法である。
+
+米国サンディア国立研究所のスウェイン（A.D. Swain）らが原子力発電所の安全性評価のために開発した。人的信頼性分析（HRA）の代表的手法である。
+
+## 分析の手順
+
+THERPの分析は以下の5ステップで進む。タスク分析から始まり、HEPの設定、PSFによる修正、イベントツリーの構築、総合確率の算出という順序で体系的に評価する。
+
+| ステップ | 内容 |
+|---|---|
+| **1. タスク分析** | 対象作業を個々の操作ステップ（タスク）に分解する |
+| **2. HEPの設定** | 各タスクに[人的過誤確率（HEP）](/docs/pe-comprehensive-management-human-error-probability)を割り当てる |
+| **3. PSFの適用** | [行動形成要因（PSF）](/docs/pe-comprehensive-management-performance-shaping-factors)を考慮してHEPを修正する |
+| **4. イベントツリーの作成** | 各タスクの成功・失敗を分岐させたHEPイベントツリーを作成する |
+| **5. 総合確率の算出** | ツリー全体を通じた成功確率・失敗確率を算出する |
+
+## HEPイベントツリー
+
+THERPでは[ETA](/docs/pe-comprehensive-management-eta)と同様の形式のツリーを用いるが、分岐は**人間の操作の成功・失敗**である。
+
+各タスクについて：
+- **上側の分岐**：正しい操作（成功確率 = 1 − HEP）
+- **下側の分岐**：誤った操作（失敗確率 = HEP）
+
+回復行為（エラーに気づいて修正する行為）も組み込むことができる。
+
+<ExamPoint
+  summary="THERPの位置づけとHEP・PSFとの関係を理解する"
+  items={[
+    "人間の作業をタスクに分解し、各タスクのエラー確率を定量評価",
+    "HEP（人的過誤確率）とPSF（行動形成要因）を用いて評価",
+    "ETAと類似したイベントツリー形式で分析",
+    "原子力分野で開発された人的信頼性分析（HRA）の代表的手法",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**5.6 システム安全工学手法**](/docs/pe-comprehensive-management-keyword-2026#56-システム安全工学手法)に位置づけられている。
+
+THERP は [人的過誤確率（HEP）](/docs/pe-comprehensive-management-human-error-probability) と [行動形成要因（PSF）](/docs/pe-comprehensive-management-performance-shaping-factors) を統合して人的信頼性を定量的に評価する手法である。機械系の信頼性分析（[FTA](/docs/pe-comprehensive-management-fta)・[FMEA](/docs/pe-comprehensive-management-fmea)）と組み合わせることで、人間−機械系全体の安全性評価が可能となる。過去問 [R04 Ⅰ-1-28](/docs/pe-comprehensive-management-r04-primary#1-28) では「タスク解析による作業ステップの分解、基本過誤率のあてはめや調整の手順で人間エラー確率を予測する」手法として THERP が正答に挙げられた。
+
+
+## 開発の経緯と歴史的背景
+
+THERPは1962年、米国サンディア国立研究所（Sandia National Laboratories）のアラン・スウェイン（Alan D. Swain）が発表した論文でその概念が初めて示された。当初は核兵器システムの信頼性評価に応用されていたが、1960年代後半には原子力発電所の安全評価への適用が検討されるようになった。
+
+1979年のスリーマイル島原子力発電所事故は、機械系の信頼性だけでなく**人間の操作エラー**が重大事故の引き金となりうることを世界に示した。この教訓を受けて、米国原子力規制委員会（NRC）はヒューマンエラーの定量評価手法の整備を急ぎ、1983年にスウェインとガットマン（H.E. Guttmann）が共著で発行した NUREG/CR-1278「Handbook of Human Reliability Analysis with Emphasis on Nuclear Power Plant Applications」がその集大成となった。
+
+この報告書はタスク分析・HEP・PSF・イベントツリーといった人的信頼性分析（HRA）の基礎概念を体系化し、その後の HRA 手法開発の出発点となった。THERPは第一世代 HRA 手法に分類され、1990年代以降に開発された第二世代手法（CREAM・ATHEANA等）の礎となっている。日本では原子力分野での確率論的リスク評価（PRA）に組み込まれており、電力中央研究所等が国内運転実績に基づく HEP データベースの整備を進めている。
+
+<RelatedKeywords items={[
+  { label: "イベントツリー分析（ETA）", slug: "eta" },
+  { label: "FMEA", slug: "fmea" },
+  { label: "フォールトツリー分析（FTA）", slug: "fta" },
+  { label: "HAZOP", slug: "hazop" },
+  { label: "VTA法", slug: "vta-method" },
+]} />
+
+## 参考資料
+
+- [人間信頼性評価のための解析支援システム使用マニュアル（JAERI-Data/Code 95-013）](https://jopss.jaea.go.jp/search/servlet/search?2074355=)（日本原子力研究所 — THERP を含む HRA 手法と支援システムの技術報告書）
+- [人間信頼性アセスメント — Wikipedia](https://ja.wikipedia.org/wiki/%E4%BA%BA%E9%96%93%E4%BF%A1%E9%A0%BC%E6%80%A7%E3%82%A2%E3%82%BB%E3%82%B9%E3%83%A1%E3%83%B3%E3%83%88)（第一世代・第二世代 HRA 手法の比較概説）

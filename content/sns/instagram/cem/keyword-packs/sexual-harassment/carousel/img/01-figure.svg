@@ -1,0 +1,83 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="セクシャルハラスメントの2類型の比較：対価型（拒否・抗議を理由とする不利益）と環境型（就業環境の悪化）の定義・典型例・区別キーワード。引っかけ注意と、均等法第11条による防止措置義務などの補足">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .th      { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .lbl     { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .cell    { font-size: 11px; fill: #222; }
+      .cap-t   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .cap-s   { font-size: 11px; fill: #555; }
+      .sum-t   { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .sum-s   { font-size: 11px; fill: #555; }
+      .hdr   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .lblc  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .taika { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      .kanky { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }
+      .plain { fill: #ffffff; stroke: #2e6da4; stroke-width: 1; }
+      .cau   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- タイトル -->
+  <rect class="hdr" x="10" y="12" width="380" height="46" rx="6"/>
+  <text class="t-title" x="200" y="37" text-anchor="middle">セクハラの2類型</text>
+  <text class="t-sub"   x="200" y="53" text-anchor="middle">均等法第11条で全事業主に防止措置を義務化</text>
+
+  <!-- 比較表 ヘッダー -->
+  <rect class="lblc"  x="10"  y="66" width="76"  height="32"/>
+  <text class="th"    x="48"  y="87" text-anchor="middle">観点</text>
+  <rect class="taika" x="86"  y="66" width="152" height="32"/>
+  <text class="th"    x="162" y="87" text-anchor="middle">対価型</text>
+  <rect class="kanky" x="238" y="66" width="152" height="32"/>
+  <text class="th"    x="314" y="87" text-anchor="middle">環境型</text>
+
+  <!-- 行: 定義 -->
+  <rect class="lblc"  x="10"  y="98" width="76"  height="64"/>
+  <text class="lbl"   x="48"  y="134" text-anchor="middle">定義</text>
+  <rect class="plain" x="86"  y="98" width="152" height="64"/>
+  <text class="cell"  x="162" y="120" text-anchor="middle">拒否・抗議を理由に</text>
+  <text class="cell"  x="162" y="137" text-anchor="middle">解雇・降格などの</text>
+  <text class="cell"  x="162" y="154" text-anchor="middle">不利益を与える</text>
+  <rect class="plain" x="238" y="98" width="152" height="64"/>
+  <text class="cell"  x="314" y="120" text-anchor="middle">性的言動で環境が</text>
+  <text class="cell"  x="314" y="137" text-anchor="middle">不快になり就業に</text>
+  <text class="cell"  x="314" y="154" text-anchor="middle">支障をきたす</text>
+
+  <!-- 行: 典型例 -->
+  <rect class="lblc"  x="10"  y="162" width="76"  height="50"/>
+  <text class="lbl"   x="48"  y="191" text-anchor="middle">典型例</text>
+  <rect class="plain" x="86"  y="162" width="152" height="50"/>
+  <text class="cell"  x="162" y="184" text-anchor="middle">交際を断った部下を</text>
+  <text class="cell"  x="162" y="201" text-anchor="middle">降格させる</text>
+  <rect class="plain" x="238" y="162" width="152" height="50"/>
+  <text class="cell"  x="314" y="184" text-anchor="middle">性的冗談の反復・</text>
+  <text class="cell"  x="314" y="201" text-anchor="middle">ポスター掲示</text>
+
+  <!-- 行: 区別キーワード -->
+  <rect class="lblc"  x="10"  y="212" width="76"  height="34"/>
+  <text class="lbl"   x="48"  y="233" text-anchor="middle">キーワード</text>
+  <rect class="plain" x="86"  y="212" width="152" height="34"/>
+  <text class="cell"  x="162" y="233" text-anchor="middle">不利益（解雇・降格）</text>
+  <rect class="plain" x="238" y="212" width="152" height="34"/>
+  <text class="cell"  x="314" y="233" text-anchor="middle">就業環境の悪化</text>
+
+  <!-- 引っかけ注意 -->
+  <rect class="cau" x="10" y="258" width="380" height="84" rx="6"/>
+  <text class="cap-t" x="24" y="280">引っかけ注意</text>
+  <text class="cap-s" x="24" y="300">不利益を受けるのは対価型。</text>
+  <text class="cap-s" x="24" y="317">環境型は就業環境の悪化で「不利益」ではない。</text>
+  <text class="cap-s" x="24" y="334">R03では両者を入れ替えた誤答が出題された。</text>
+
+  <!-- 補足 -->
+  <rect class="hdr" x="10" y="354" width="380" height="78" rx="6"/>
+  <text class="sum-t" x="200" y="378" text-anchor="middle">性別を問わず被害者・行為者になりうる（同性間も対象）</text>
+  <text class="sum-s" x="200" y="398" text-anchor="middle">行為者は社内に限らず取引先・顧客等も含む</text>
+  <text class="sum-s" x="200" y="418" text-anchor="middle">事業主の防止措置：方針周知・相談体制・事後対応・配慮</text>
+</svg>

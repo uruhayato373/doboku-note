@@ -1,0 +1,88 @@
+{
+  "schemaVersion": 1,
+  "runId": "2026-08-17T13-16-07Z",
+  "collectedAt": "2026-08-17T13:16:07.737Z",
+  "propertyId": "419382901",
+  "mode": "dry-run",
+  "scriptVersion": "0cd6d57e0f",
+  "status": "ok",
+  "desiredCount": 2,
+  "inventory": {
+    "tableVisible": true,
+    "dimensions": [
+      {
+        "displayName": "affiliate_cta_click",
+        "parameterName": "affiliate",
+        "scopeLabel": "イベント",
+        "rawCells": [
+          "affiliate_cta_click",
+          "イベント",
+          "affiliate",
+          "2026年7月7日"
+        ]
+      },
+      {
+        "displayName": "CTA label",
+        "parameterName": "event_label",
+        "scopeLabel": "イベント",
+        "rawCells": [
+          "CTA label",
+          "イベント",
+          "event_label",
+          "2026年7月7日"
+        ]
+      },
+      {
+        "displayName": "cta_placement",
+        "parameterName": "cta_placement",
+        "scopeLabel": "イベント",
+        "rawCells": [
+          "cta_placement",
+          "イベント",
+          "cta_placement",
+          "2026年7月25日"
+        ]
+      },
+      {
+        "displayName": "CTA種別",
+        "parameterName": "event_category",
+        "scopeLabel": "イベント",
+        "rawCells": [
+          "CTA種別",
+          "イベント",
+          "event_category",
+          "2026年7月7日"
+        ]
+      }
+    ],
+    "rawRowCount": 5
+  },
+  "missing": [],
+  "present": [
+    "event_label",
+    "cta_placement"
+  ],
+  "created": [],
+  "createFailures": [],
+  "dataRetention": {
+    "desired": {
+      "$note": "GA4 の既定は 2 か月。イベントデータ保持を 14 か月にしないと、週次で取った履歴を後から掘り直せない。自動変更はしない（アカウント設定）＝差分を報告して人が直す。",
+      "eventDataRetentionMonths": 14,
+      "resetOnNewActivity": true,
+      "autoFix": false,
+      "$observed": "2026-07-30 実機: 14 か月（期待どおり）"
+    },
+    "observed": {
+      "reached": true,
+      "via": "ui-click",
+      "months": 14,
+      "resetOnNewActivityDetected": false,
+      "unverified": false
+    },
+    "drift": null
+  },
+  "note": "GA4 管理画面の観測＋不足カスタムディメンションの作成。既定は dry-run（--commit で作成）。編集/アーカイブ/削除はしない。",
+  "routePrefix": "a121193537p419382901",
+  "navigation": "url",
+  "reachedCustomDefinitions": true
+}

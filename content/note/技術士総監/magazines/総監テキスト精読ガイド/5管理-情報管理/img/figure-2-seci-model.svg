@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif">
+  
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">SECIモデル — 知識変換の4プロセス</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">野中郁次郎のナレッジマネジメント理論</text>
+  <!-- 軸ラベル -->
+  <text x="600" y="110" text-anchor="middle" font-size="20" font-weight="600" fill="#8a8a8a">暗黙知</text>
+  <text x="600" y="670" text-anchor="middle" font-size="20" font-weight="600" fill="#8a8a8a">形式知</text>
+  <text x="110" y="386" text-anchor="middle" font-size="20" font-weight="600" fill="#8a8a8a" transform="rotate(-90 110 380)">From</text>
+  <text x="1110" y="386" text-anchor="middle" font-size="20" font-weight="600" fill="#8a8a8a" transform="rotate(90 1110 380)">To</text>
+  <!-- 軸線 -->
+  <line x1="120" y1="380" x2="1080" y2="380" stroke="#e2e8f0" stroke-width="2"/>
+  <line x1="600" y1="120" x2="600" y2="640" stroke="#e2e8f0" stroke-width="2"/>
+  <defs>
+    <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+  
+    <rect x="130" y="130" width="460" height="240" rx="16" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2.5"/>
+    <text x="360" y="176" text-anchor="middle" font-size="26" font-weight="800" fill="#2e6da4">共同化（S）</text>
+    <text x="360" y="210" text-anchor="middle" font-size="20" font-weight="600" fill="#222222">暗黙知 → 暗黙知</text>
+    <text x="360" y="244" text-anchor="middle" font-size="18" fill="#555555">体験・観察・模倣による共有</text>
+    <text x="360" y="280" text-anchor="middle" font-size="18" fill="#8a8a8a">例: OJT・現場巡回</text>
+    <rect x="610" y="130" width="460" height="240" rx="16" fill="#e6f1e8" stroke="#3a7d44" stroke-width="2.5"/>
+    <text x="840" y="176" text-anchor="middle" font-size="26" font-weight="800" fill="#3a7d44">表出化（E）</text>
+    <text x="840" y="210" text-anchor="middle" font-size="20" font-weight="600" fill="#222222">暗黙知 → 形式知</text>
+    <text x="840" y="244" text-anchor="middle" font-size="18" fill="#555555">言語化・概念化・マニュアル化</text>
+    <text x="840" y="280" text-anchor="middle" font-size="18" fill="#8a8a8a">例: ナレッジベース構築</text>
+    <rect x="130" y="390" width="460" height="240" rx="16" fill="#fbf3df" stroke="#d4a017" stroke-width="2.5"/>
+    <text x="360" y="436" text-anchor="middle" font-size="26" font-weight="800" fill="#d4a017">内面化（I）</text>
+    <text x="360" y="470" text-anchor="middle" font-size="20" font-weight="600" fill="#222222">形式知 → 暗黙知</text>
+    <text x="360" y="504" text-anchor="middle" font-size="18" fill="#555555">実践による体得・スキル習得</text>
+    <text x="360" y="540" text-anchor="middle" font-size="18" fill="#8a8a8a">例: マニュアルを実際に使う</text>
+    <rect x="610" y="390" width="460" height="240" rx="16" fill="#fbe5e7" stroke="#b22234" stroke-width="2.5"/>
+    <text x="840" y="436" text-anchor="middle" font-size="26" font-weight="800" fill="#b22234">連結化（C）</text>
+    <text x="840" y="470" text-anchor="middle" font-size="20" font-weight="600" fill="#222222">形式知 → 形式知</text>
+    <text x="840" y="504" text-anchor="middle" font-size="18" fill="#555555">体系化・統合・データベース整備</text>
+    <text x="840" y="540" text-anchor="middle" font-size="18" fill="#8a8a8a">例: 報告書まとめ・DB化</text>
+  
+</svg>

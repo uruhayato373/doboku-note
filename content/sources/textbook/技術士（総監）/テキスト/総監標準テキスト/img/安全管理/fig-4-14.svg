@@ -1,0 +1,31 @@
+<svg width="100%" viewBox="0 0 440 310" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;width:100%;font-family:sans-serif;font-size:12px;">
+  <rect x="0" y="0" width="40" height="25" fill="#d0d8e8" stroke="#555" stroke-width="1"/>
+  <rect x="40" y="0" width="120" height="25" fill="#d0d8e8" stroke="#555" stroke-width="1"/>
+  <rect x="160" y="0" width="280" height="25" fill="#d0d8e8" stroke="#555" stroke-width="1"/>
+  <text x="20" y="17" text-anchor="middle" font-weight="bold">分類</text>
+  <text x="100" y="17" text-anchor="middle" font-weight="bold"></text>
+  <text x="300" y="17" text-anchor="middle" font-weight="bold">内容例</text>
+  <!-- Rows -->
+  <rect x="0" y="25" width="40" height="25" fill="#f0f4ff" stroke="#555" stroke-width="1"/><rect x="40" y="25" width="120" height="25" fill="#fff" stroke="#555" stroke-width="1"/><rect x="160" y="25" width="280" height="25" fill="#fff" stroke="#555" stroke-width="1"/>
+  <text x="20" y="41" text-anchor="middle">1</text><text x="100" y="41" text-anchor="middle">ハードウェア</text><text x="170" y="41" text-anchor="start">道具や装置、部品の品質や状態の不備</text>
+  <rect x="0" y="50" width="40" height="25" fill="#f0f4ff" stroke="#555" stroke-width="1"/><rect x="40" y="50" width="120" height="25" fill="#fff" stroke="#555" stroke-width="1"/><rect x="160" y="50" width="280" height="25" fill="#fff" stroke="#555" stroke-width="1"/>
+  <text x="20" y="66" text-anchor="middle">2</text><text x="100" y="66" text-anchor="middle">設計</text><text x="170" y="66" text-anchor="start">設計の不備や理解不足</text>
+  <rect x="0" y="75" width="40" height="25" fill="#f0f4ff" stroke="#555" stroke-width="1"/><rect x="40" y="75" width="120" height="25" fill="#fff" stroke="#555" stroke-width="1"/><rect x="160" y="75" width="280" height="25" fill="#fff" stroke="#555" stroke-width="1"/>
+  <text x="20" y="91" text-anchor="middle">3</text><text x="100" y="91" text-anchor="middle">保守点検の管理</text><text x="170" y="91" text-anchor="start">作業計画や作業組織の不備</text>
+  <rect x="0" y="100" width="40" height="25" fill="#f0f4ff" stroke="#555" stroke-width="1"/><rect x="40" y="100" width="120" height="25" fill="#fff" stroke="#555" stroke-width="1"/><rect x="160" y="100" width="280" height="25" fill="#fff" stroke="#555" stroke-width="1"/>
+  <text x="20" y="116" text-anchor="middle">4</text><text x="100" y="116" text-anchor="middle">手順</text><text x="170" y="116" text-anchor="start">手順書などの内容不備</text>
+  <rect x="0" y="125" width="40" height="25" fill="#f0f4ff" stroke="#555" stroke-width="1"/><rect x="40" y="125" width="120" height="25" fill="#fff" stroke="#555" stroke-width="1"/><rect x="160" y="125" width="280" height="25" fill="#fff" stroke="#555" stroke-width="1"/>
+  <text x="20" y="141" text-anchor="middle">5</text><text x="100" y="141" text-anchor="middle">エラーを引き起こす条件</text><text x="170" y="141" text-anchor="start">働きにくい環境や風土</text>
+  <rect x="0" y="150" width="40" height="25" fill="#f0f4ff" stroke="#555" stroke-width="1"/><rect x="40" y="150" width="120" height="25" fill="#fff" stroke="#555" stroke-width="1"/><rect x="160" y="150" width="280" height="25" fill="#fff" stroke="#555" stroke-width="1"/>
+  <text x="20" y="166" text-anchor="middle">6</text><text x="100" y="166" text-anchor="middle">日常業務</text><text x="170" y="166" text-anchor="start">職場の整理整頓の未実施や人手不足</text>
+  <rect x="0" y="175" width="40" height="25" fill="#f0f4ff" stroke="#555" stroke-width="1"/><rect x="40" y="175" width="120" height="25" fill="#fff" stroke="#555" stroke-width="1"/><rect x="160" y="175" width="280" height="25" fill="#fff" stroke="#555" stroke-width="1"/>
+  <text x="20" y="191" text-anchor="middle">7</text><text x="100" y="191" text-anchor="middle">矛盾する目標</text><text x="170" y="191" text-anchor="start">安全より納期優先など、目標と規則の矛盾</text>
+  <rect x="0" y="200" width="40" height="25" fill="#f0f4ff" stroke="#555" stroke-width="1"/><rect x="40" y="200" width="120" height="25" fill="#fff" stroke="#555" stroke-width="1"/><rect x="160" y="200" width="280" height="25" fill="#fff" stroke="#555" stroke-width="1"/>
+  <text x="20" y="216" text-anchor="middle">8</text><text x="100" y="216" text-anchor="middle">コミュニケーション</text><text x="170" y="216" text-anchor="start">コミュニケーション不足や障害</text>
+  <rect x="0" y="225" width="40" height="25" fill="#f0f4ff" stroke="#555" stroke-width="1"/><rect x="40" y="225" width="120" height="25" fill="#fff" stroke="#555" stroke-width="1"/><rect x="160" y="225" width="280" height="25" fill="#fff" stroke="#555" stroke-width="1"/>
+  <text x="20" y="241" text-anchor="middle">9</text><text x="100" y="241" text-anchor="middle">組織</text><text x="170" y="241" text-anchor="start">組織内の責任の不明確さ</text>
+  <rect x="0" y="250" width="40" height="25" fill="#f0f4ff" stroke="#555" stroke-width="1"/><rect x="40" y="250" width="120" height="25" fill="#fff" stroke="#555" stroke-width="1"/><rect x="160" y="250" width="280" height="25" fill="#fff" stroke="#555" stroke-width="1"/>
+  <text x="20" y="266" text-anchor="middle">10</text><text x="100" y="266" text-anchor="middle">教育</text><text x="170" y="266" text-anchor="start">教育が不十分</text>
+  <rect x="0" y="275" width="40" height="25" fill="#f0f4ff" stroke="#555" stroke-width="1"/><rect x="40" y="275" width="120" height="25" fill="#fff" stroke="#555" stroke-width="1"/><rect x="160" y="275" width="280" height="25" fill="#fff" stroke="#555" stroke-width="1"/>
+  <text x="20" y="291" text-anchor="middle">11</text><text x="100" y="291" text-anchor="middle">防護措置</text><text x="170" y="291" text-anchor="start">障害に対する防護対策が不十分</text>
+</svg>

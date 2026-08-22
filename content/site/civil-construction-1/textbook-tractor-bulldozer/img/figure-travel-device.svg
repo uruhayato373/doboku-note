@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="トラクタの走行装置：クローラ式とホイール式の比較">
+  <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="15" font-weight="bold" fill="#222">トラクタの走行装置：2 形式の比較</text>
+
+  <!-- クローラ式 -->
+  <g transform="translate(10,40)">
+    <rect x="0" y="0" width="185" height="210" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+    <text x="92" y="22" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a3a5c">クローラ式</text>
+
+    <!-- クローラ概念図 -->
+    <g transform="translate(15,35)">
+      <rect x="10" y="15" width="130" height="20" fill="#555"/>
+      <circle cx="25" cy="50" r="16" fill="#222"/>
+      <circle cx="75" cy="50" r="16" fill="#222"/>
+      <circle cx="125" cy="50" r="16" fill="#222"/>
+      <rect x="10" y="55" width="130" height="12" fill="#222"/>
+      <path d="M 14 67 L 20 67 L 18 72 Z M 28 67 L 34 67 L 32 72 Z M 42 67 L 48 67 L 46 72 Z M 56 67 L 62 67 L 60 72 Z M 70 67 L 76 67 L 74 72 Z M 84 67 L 90 67 L 88 72 Z M 98 67 L 104 67 L 102 72 Z M 112 67 L 118 67 L 116 72 Z M 126 67 L 132 67 L 130 72 Z" fill="#222"/>
+    </g>
+
+    <!-- 特徴 -->
+    <text x="10" y="140" font-family="sans-serif" font-size="12" fill="#222">• 接地面積大 → 軟弱地 ◎</text>
+    <text x="10" y="158" font-family="sans-serif" font-size="12" fill="#222">• 粘着係数 μ</text>
+    <text x="16" y="169" font-family="sans-serif" font-size="12" fill="#222">= 0.80〜0.90</text>
+    <text x="10" y="184" font-family="sans-serif" font-size="12" fill="#222">• 登坂能力 約 30°</text>
+    <text x="10" y="198" font-family="sans-serif" font-size="12" fill="#222">• 走行速度 3〜16 km/h（遅）</text>
+  </g>
+
+  <!-- ホイール式 -->
+  <g transform="translate(205,40)">
+    <rect x="0" y="0" width="185" height="210" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+    <text x="92" y="22" text-anchor="middle" font-family="sans-serif" font-size="14" font-weight="bold" fill="#1a3a5c">ホイール式</text>
+
+    <!-- ホイール概念図 -->
+    <g transform="translate(15,35)">
+      <rect x="20" y="15" width="125" height="30" fill="#555"/>
+      <rect x="35" y="5" width="65" height="20" fill="#555"/>
+      <circle cx="40" cy="58" r="20" fill="#222"/>
+      <circle cx="40" cy="58" r="10" fill="#8a8a8a"/>
+      <circle cx="125" cy="58" r="20" fill="#222"/>
+      <circle cx="125" cy="58" r="10" fill="#8a8a8a"/>
+    </g>
+
+    <!-- 特徴 -->
+    <text x="10" y="140" font-family="sans-serif" font-size="12" fill="#222">• 接地圧大 → 舗装路 ◎</text>
+    <text x="10" y="158" font-family="sans-serif" font-size="12" fill="#222">• 粘着係数 μ = 0.50〜0.70</text>
+    <text x="10" y="176" font-family="sans-serif" font-size="12" fill="#222">• 機動性 ◎（長距離自走可）</text>
+    <text x="10" y="194" font-family="sans-serif" font-size="12" fill="#222">• 軟弱地・傾斜地は不得手</text>
+  </g>
+
+  <!-- 比較表 -->
+  <rect x="10" y="264" width="380" height="222" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="284" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">形式別 性能比較</text>
+
+  <!-- ヘッダ行 -->
+  <rect x="20" y="292" width="370" height="24" rx="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text x="105" y="308" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#222">項目</text>
+  <text x="240" y="308" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#222">クローラ式</text>
+  <text x="355" y="308" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#222">ホイール式</text>
+  <line x1="190" y1="292" x2="190" y2="476" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="305" y1="292" x2="305" y2="476" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 行 1 -->
+  <rect x="20" y="316" width="370" height="24" rx="0" fill="#e8f0fe"/>
+  <text x="105" y="332" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">接地圧</text>
+  <text x="240" y="332" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">低い（広面積）</text>
+  <text x="347" y="332" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">高い（狭面積）</text>
+
+  <!-- 行 2 -->
+  <rect x="20" y="340" width="370" height="24" rx="0" fill="#ffffff"/>
+  <text x="105" y="356" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">粘着係数 μ</text>
+  <text x="240" y="356" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">0.80〜0.90</text>
+  <text x="355" y="356" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">0.50〜0.70</text>
+
+  <!-- 行 3 -->
+  <rect x="20" y="364" width="370" height="24" rx="0" fill="#e8f0fe"/>
+  <text x="105" y="380" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">走行速度</text>
+  <text x="240" y="380" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">3〜16 km/h（遅）</text>
+  <text x="347" y="380" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">速い（機動性◎）</text>
+
+  <!-- 行 4 -->
+  <rect x="20" y="388" width="370" height="24" rx="0" fill="#ffffff"/>
+  <text x="105" y="404" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">登坂能力</text>
+  <text x="240" y="404" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">約 30°</text>
+  <text x="347" y="404" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">約 20°（劣る）</text>
+
+  <!-- 行 5 -->
+  <rect x="20" y="412" width="370" height="24" rx="0" fill="#e8f0fe"/>
+  <text x="105" y="428" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">得意地盤</text>
+  <text x="240" y="428" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">軟弱地・急傾斜</text>
+  <text x="347" y="428" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">舗装路・長距離</text>
+
+  <!-- 行 6 -->
+  <rect x="20" y="436" width="370" height="36" rx="0" fill="#ffffff"/>
+  <text x="105" y="449" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">代表機種</text>
+  <text x="240" y="447" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">ブルドーザ・</text>
+  <text x="240" y="460" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">油圧ショベル</text>
+  <text x="347" y="449" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">モータグレーダ</text>
+
+  <text x="200" y="485" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">牽引力 = 機械重量 × 粘着係数 μ で算出</text>
+</svg>

@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="補修材料を選ぶときに勘案する5つの観点と、既設コンクリートとの物性の適合性が界面剥離や再劣化を左右すること">
+  <defs>
+    <marker id="cdm2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text x="200" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">材料は「性能が足りるか」だけでは選べない</text>
+
+  <rect x="20" y="30" width="360" height="192" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="50" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">総合的に勘案する 5 つの観点</text>
+
+  <rect x="30" y="60" width="340" height="28" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="42" y="79" font-family="sans-serif" font-size="11" fill="#555">劣化機構（何が起きているか）</text>
+
+  <rect x="30" y="92" width="340" height="28" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="42" y="111" font-family="sans-serif" font-size="11" fill="#555">劣化程度（どこまで進んだか）</text>
+
+  <rect x="30" y="124" width="340" height="28" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="42" y="143" font-family="sans-serif" font-size="11" fill="#555">環境条件（供用中に何を受けるか）</text>
+
+  <rect x="30" y="156" width="340" height="28" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="42" y="175" font-family="sans-serif" font-size="11" fill="#555">施工性（現場で実際に施工できるか）</text>
+
+  <rect x="30" y="188" width="340" height="26" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="42" y="206" font-family="sans-serif" font-size="11" fill="#555">経済性</text>
+
+  <line x1="200" y1="228" x2="200" y2="248" stroke="#555" stroke-width="1.5" marker-end="url(#cdm2)"/>
+
+  <rect x="20" y="256" width="360" height="226" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <text x="200" y="278" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">既設コンクリートとの適合性</text>
+
+  <rect x="34" y="290" width="150" height="70" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="109" y="312" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">既設</text>
+  <text x="109" y="332" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">弾性係数</text>
+  <text x="109" y="350" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">熱膨張係数</text>
+
+  <rect x="216" y="290" width="150" height="70" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="291" y="312" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">補修材</text>
+  <text x="291" y="332" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">弾性係数</text>
+  <text x="291" y="350" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">熱膨張係数</text>
+
+  <text x="200" y="330" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b22234">差</text>
+
+  <text x="34" y="386" font-family="sans-serif" font-size="11" font-weight="bold" fill="#b22234">物性が大きく違うと</text>
+  <text x="34" y="408" font-family="sans-serif" font-size="11" fill="#555">温度変化や荷重で界面にずれが生じる</text>
+  <text x="34" y="430" font-family="sans-serif" font-size="11" fill="#555">→ 界面剥離・再劣化につながる</text>
+  <text x="34" y="460" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">性能が高い材料が正解とは限らない</text>
+</svg>

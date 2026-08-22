@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "description": "OGP / note カバー共通テンプレレジストリ。T06 Mono Tag に統一（旧 navy-white / dark-wood / red-line / blackboard / dark-grid は撤去）。テンプレ追加時は scripts/lib/ogp-templates.mjs に renderer を追加し、ここに定義を記載する。",
+  "templates": {
+    "mono-tag": {
+      "name": "Mono Tag（T06）",
+      "category": "汎用統一",
+      "backgroundImage": null,
+      "promptSource": "Claude Design handoff 2026-04-29",
+      "notes": "doboku-note サイト OGP（1200×630）と cover: 無し note カバー（1280×670 フォールバック）の共通テンプレ。2026-06-16 全幅リデザイン: 中央 630 セーフゾーンを撤廃し全幅化、タイトル最大76px縦中央寄せ、資格別テーマ色16px外枠（色は note-cover-tokens.json と共用）、下部メタ/タグライン撤去。warm off-white 背景 + 薄い濃紺グリッド + シアン/紺アクセントバー。2026-06-18: 資格別 AI 背景（.claude/config/ogp/backgrounds/<exam-key>.png）を任意で最背面に敷ける（可読性スクリム C_SCRIM 経由・背景なしは後方互換、npm run ogp-backgrounds で生成）。デザイン SSOT は .claude/knowledge/reference/ogp-prompts.md。"
+    },
+    "magazine-banner": {
+      "name": "Magazine Banner（note ヘッダー対応）",
+      "category": "note マガジン専用",
+      "backgroundImage": null,
+      "promptSource": "mono-tag 派生 2026-05-20",
+      "notes": "note マガジン/クリエイターページのヘッダー（中央 1280×216 帯クロップ）に対応。マガジン名を帯の縦横中央に配置し、ワードマーク・カテゴリチップ・装飾は帯の上下に置く。generate-magazine-covers.mjs 専用。記事 OGP には mono-tag を使う。"
+    },
+    "note-cover-g2": {
+      "name": "Note Cover G2（全幅バナー帯・試験色分け）",
+      "category": "note 記事カバー専用",
+      "backgroundImage": null,
+      "promptSource": "claude.ai/design handoff covers-g2-all.jsx 2026-05-29",
+      "notes": "note 記事/マガジン記事カバー（1280×670）。試験区分=ベース色 / 系列(notePricing)=濃淡 の二軸で 1級土木・2級土木・総監・共通 を色で判別。リード文→強調キーワード(HiBox)→全幅バナー帯→アイコンチップ3つ。値の真実源は .claude/knowledge/design-system/note-cover-tokens.json。generate-note-covers.mjs が article.md の cover: ブロックを読んで描画（cover が無ければ mono-tag にフォールバック）。バナー文言は中央 630×630 セーフ幅(590px)に自動フィット。"
+    }
+  }
+}

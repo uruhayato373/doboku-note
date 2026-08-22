@@ -1,0 +1,74 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="RPA の 3 つの自動化レベル。クラス 1（定型業務）が現在の主流で、クラス 2・クラス 3 へ進むほど AI 活用度と自律性が高まる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-name  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-body  { font-size: 11px; fill: #555; }
+      .t-side  { font-size: 11px; fill: #8a8a8a; }
+      .t-tag   { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-main  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="rpa-arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="9" refX="9" refY="4.5" orient="auto">
+      <polygon points="0,0 10,4.5 0,9" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <!-- 縦軸ラベル -->
+  <text class="t-side" x="16" y="188" text-anchor="middle"
+        transform="rotate(-90 16 188)">AI 活用度・自律性の向上</text>
+  <line x1="30" y1="292" x2="30" y2="44" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#rpa-arrow)"/>
+
+  <!-- クラス3 -->
+  <rect class="box-brand" x="46" y="40" width="340" height="76" rx="8"/>
+  <text class="t-name" x="62" y="66">クラス 3（CA：認知的自動化）</text>
+  <text class="t-body" x="62" y="86">ディープラーニングによる高度な自律的意思決定</text>
+  <text class="t-body" x="62" y="104">非定型・複雑判断を自律的に処理</text>
+
+  <!-- クラス2 -->
+  <rect class="box-brand" x="46" y="132" width="340" height="76" rx="8"/>
+  <text class="t-name" x="62" y="158">クラス 2（EPA：拡張自動化）</text>
+  <text class="t-body" x="62" y="178">AI・自然言語処理で一部の非定型業務にも対応</text>
+  <text class="t-body" x="62" y="196">ルール外の例外処理を学習で補完</text>
+
+  <!-- クラス1 -->
+  <rect class="box-main" x="46" y="224" width="340" height="76" rx="8"/>
+  <text class="t-name" x="62" y="250">クラス 1（RPA）　— 現在の主流</text>
+  <text class="t-body" x="62" y="270">ルールベースで定型業務（入力・転記・照合）を自動化</text>
+  <text class="t-body" x="62" y="288">GUI 操作を記録・再生するソフトウェアロボット</text>
+
+  <!-- 凡例セクション -->
+  <line x1="32" y1="320" x2="380" y2="320" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-sec" x="46" y="342">各クラスの比較</text>
+
+  <!-- 凡例テーブル -->
+  <rect class="box-surf" x="32" y="350" width="348" height="32" rx="4"/>
+  <text class="t-tag" x="46"  y="371">AI 活用</text>
+  <text class="t-body" x="130" y="371">クラス1：なし</text>
+  <text class="t-body" x="240" y="371">2：部分的</text>
+  <text class="t-body" x="318" y="371">3：主体</text>
+
+  <rect class="box-surf" x="32" y="386" width="348" height="32" rx="4"/>
+  <text class="t-tag" x="46"  y="407">対象業務</text>
+  <text class="t-body" x="130" y="407">クラス1：定型</text>
+  <text class="t-body" x="240" y="407">2：準定型</text>
+  <text class="t-body" x="318" y="407">3：非定型</text>
+
+  <rect class="box-surf" x="32" y="422" width="348" height="32" rx="4"/>
+  <text class="t-tag" x="46"  y="443">判断自律度</text>
+  <text class="t-body" x="130" y="443">クラス1：低</text>
+  <text class="t-body" x="240" y="443">2：中</text>
+  <text class="t-body" x="318" y="443">3：高</text>
+
+  <rect class="box-surf" x="32" y="458" width="348" height="32" rx="4"/>
+  <text class="t-tag" x="46"  y="479">普及状況</text>
+  <text class="t-body" x="130" y="479">クラス1：主流</text>
+  <text class="t-body" x="240" y="479">2：拡大中</text>
+  <text class="t-body" x="310" y="479">3：研究段階</text>
+</svg>

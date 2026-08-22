@@ -1,0 +1,90 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="危機広報の2目的。初動期の安全のための広報（迅速性重視）から収束期の安心のための広報（正確さ・迅速さ・安心感の工夫）へ時間軸で移行する図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-head   { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-body   { font-size: 13px; fill: #555; }
+      .t-small  { font-size: 11px; fill: #8a8a8a; }
+      .t-phase  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-axis   { font-size: 11px; fill: #8a8a8a; }
+      .box-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker markerUnits="userSpaceOnUse" id="arr" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+    <marker markerUnits="userSpaceOnUse" id="arr-danger" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#b22234"/>
+    </marker>
+    <marker markerUnits="userSpaceOnUse" id="arr-positive" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#3a7d44"/>
+    </marker>
+  </defs>
+
+  <!-- 時間軸ラベル -->
+  <text class="t-axis" x="18" y="22" text-anchor="start">初動期</text>
+  <line x1="18" y1="26" x2="382" y2="26" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text class="t-axis" x="382" y="22" text-anchor="end">収束期</text>
+  <text class="t-axis" x="200" y="42" text-anchor="middle">時間経過</text>
+
+  <!-- ── 左カラム: 安全のための広報 ── -->
+  <rect class="box-surface" x="16" y="52" width="80" height="22" rx="4"/>
+  <text class="t-phase" x="56" y="68" text-anchor="middle">初動期</text>
+
+  <rect class="box-danger" x="16" y="82" width="172" height="236" rx="8"/>
+
+  <text class="t-head" x="102" y="107" text-anchor="middle">安全のための広報</text>
+  <line x1="28" y1="114" x2="176" y2="114" stroke="#b22234" stroke-width="1"/>
+
+  <rect x="44" y="124" width="116" height="28" rx="5" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <text class="t-head" x="102" y="143" text-anchor="middle" fill="#b22234">迅速性 重視</text>
+
+  <text class="t-body" x="102" y="175" text-anchor="middle">危機発生を</text>
+  <text class="t-body" x="102" y="193" text-anchor="middle">いち早く伝達</text>
+
+  <line x1="102" y1="202" x2="102" y2="220" stroke="#b22234" stroke-width="1.2" marker-end="url(#arr-danger)"/>
+  <text class="t-small" x="102" y="234" text-anchor="middle">初動遅れ＝信頼喪失</text>
+  <text class="t-small" x="102" y="249" text-anchor="middle">情報隠蔽と誤解される</text>
+  <text class="t-small" x="102" y="264" text-anchor="middle">第一報の速度が鍵</text>
+  <text class="t-small" x="102" y="279" text-anchor="middle">不完全でも開示を優先</text>
+  <text class="t-small" x="102" y="294" text-anchor="middle">続報で正確性を補完する</text>
+
+  <!-- ── 右カラム: 安心のための広報 ── -->
+  <rect class="box-surface" x="212" y="52" width="80" height="22" rx="4"/>
+  <text class="t-phase" x="252" y="68" text-anchor="middle">収束期</text>
+
+  <rect class="box-positive" x="212" y="82" width="172" height="236" rx="8"/>
+
+  <text class="t-head" x="298" y="107" text-anchor="middle">安心のための広報</text>
+  <line x1="224" y1="114" x2="372" y2="114" stroke="#3a7d44" stroke-width="1"/>
+
+  <text class="t-body" x="232" y="140" text-anchor="start">正確さ</text>
+  <text class="t-body" x="232" y="164" text-anchor="start">迅速さ</text>
+  <text class="t-body" x="232" y="188" text-anchor="start">安心感の工夫</text>
+  <text class="t-small" x="232" y="204" text-anchor="start">（安全への配慮を表現）</text>
+
+  <line x1="298" y1="214" x2="298" y2="232" stroke="#3a7d44" stroke-width="1.2" marker-end="url(#arr-positive)"/>
+  <text class="t-small" x="298" y="246" text-anchor="middle">3要素を組み合わせ</text>
+  <text class="t-small" x="298" y="261" text-anchor="middle">社会の信頼を回復する</text>
+  <text class="t-small" x="298" y="276" text-anchor="middle">継続的な情報発信が重要</text>
+  <text class="t-small" x="298" y="291" text-anchor="middle">専門家・第三者を活用する</text>
+  <text class="t-small" x="298" y="306" text-anchor="middle">説明責任を果たし続ける</text>
+
+  <!-- 移行矢印（中央） -->
+  <line x1="191" y1="200" x2="209" y2="200" stroke="#555" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- フッター: 共通原則 -->
+  <rect class="box-surface" x="16" y="330" width="368" height="56" rx="6"/>
+  <text class="t-body" x="200" y="351" text-anchor="middle" font-weight="bold" fill="#1a3a5c">共通: 情報を持つ組織が開示しないことで</text>
+  <text class="t-body" x="200" y="370" text-anchor="middle">社会的信頼を失うリスクがある</text>
+
+  <!-- 凡例 -->
+  <rect x="16" y="400" width="368" height="84" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-small" x="200" y="420" text-anchor="middle" font-weight="bold" fill="#1a3a5c">広報切替の判断基準</text>
+  <rect x="28" y="430" width="10" height="10" rx="2" fill="#f8d7da" stroke="#b22234" stroke-width="1"/>
+  <text class="t-small" x="44" y="440" text-anchor="start">初動期: 被害範囲・危険性の周知が最優先</text>
+  <rect x="28" y="452" width="10" height="10" rx="2" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <text class="t-small" x="44" y="462" text-anchor="start">収束期: 再発防止・回復見通しの説明へ移行</text>
+  <text class="t-small" x="200" y="478" text-anchor="middle">両期を通じて「誠実な開示」が信頼の基盤</text>
+</svg>

@@ -1,0 +1,109 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  width="400" height="500"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="環境条約・会議・議定書の時系列。1971ラムサール条約から2015パリ協定・SDGsまでの主要な国際枠組みを、自然・気候・廃棄物・枠組の4分野に色分けして年代順に並べた図">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-year  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .t-leg   { font-size: 11px; fill: #555; }
+      .t-foot  { font-size: 11px; fill: #8a8a8a; }
+      .nature  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.2; }
+      .climate { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.2; }
+      .pollut  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.2; }
+      .frame   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.2; }
+      .d-nature  { fill: #ffffff; stroke: #3a7d44; stroke-width: 2; }
+      .d-climate { fill: #ffffff; stroke: #2e6da4; stroke-width: 2; }
+      .d-pollut  { fill: #ffffff; stroke: #d4a017; stroke-width: 2; }
+      .d-frame   { fill: #ffffff; stroke: #8a8a8a; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <!-- legend -->
+  <rect x="8"   y="8" width="11" height="11" rx="2" class="nature"/>
+  <text class="t-leg" x="23" y="18">生物多様性</text>
+  <rect x="100" y="8" width="11" height="11" rx="2" class="climate"/>
+  <text class="t-leg" x="115" y="18">気候</text>
+  <rect x="155" y="8" width="11" height="11" rx="2" class="pollut"/>
+  <text class="t-leg" x="170" y="18">廃棄物・化学</text>
+  <rect x="275" y="8" width="11" height="11" rx="2" class="frame"/>
+  <text class="t-leg" x="290" y="18">枠組・理念</text>
+
+  <!-- 時間軸 -->
+  <line x1="72" y1="32" x2="72" y2="476" stroke="#8a8a8a" stroke-width="2"/>
+
+  <!-- 1971 ラムサール (y=32) -->
+  <text class="t-year" x="60" y="52" text-anchor="end">1971</text>
+  <circle class="d-nature" cx="72" cy="48" r="5"/>
+  <rect class="nature" x="84" y="34" width="308" height="36" rx="6"/>
+  <text class="t-name" x="96" y="50">ラムサール条約</text>
+  <text class="t-note" x="96" y="64">水鳥の生息地となる湿地の保全・賢明な利用</text>
+
+  <!-- 1973 ワシントン (y=78) -->
+  <text class="t-year" x="60" y="98" text-anchor="end">1973</text>
+  <circle class="d-nature" cx="72" cy="94" r="5"/>
+  <rect class="nature" x="84" y="80" width="308" height="36" rx="6"/>
+  <text class="t-name" x="96" y="96">ワシントン条約（CITES）</text>
+  <text class="t-note" x="96" y="110">絶滅のおそれのある野生動植物の国際取引規制</text>
+
+  <!-- 1984 WCED (y=124) -->
+  <text class="t-year" x="60" y="144" text-anchor="end">1984</text>
+  <circle class="d-frame" cx="72" cy="140" r="5"/>
+  <rect class="frame" x="84" y="126" width="308" height="36" rx="6"/>
+  <text class="t-name" x="96" y="142">WCED（環境と開発に関する世界委員会）</text>
+  <text class="t-note" x="96" y="156">「持続可能な開発」の概念を提唱</text>
+
+  <!-- 1989 バーゼル (y=170) -->
+  <text class="t-year" x="60" y="190" text-anchor="end">1989</text>
+  <circle class="d-pollut" cx="72" cy="186" r="5"/>
+  <rect class="pollut" x="84" y="172" width="308" height="36" rx="6"/>
+  <text class="t-name" x="96" y="188">バーゼル条約</text>
+  <text class="t-note" x="96" y="202">有害廃棄物の越境移動とその処分の規制</text>
+
+  <!-- 1992 地球サミット (y=216, 3行なので高さ54) -->
+  <text class="t-year" x="60" y="244" text-anchor="end">1992</text>
+  <circle class="d-frame" cx="72" cy="240" r="6"/>
+  <rect class="frame" x="84" y="218" width="308" height="52" rx="6"/>
+  <text class="t-name" x="96" y="234">地球サミット（リオ）</text>
+  <text class="t-note" x="96" y="249">・リオ宣言（27原則）／気候変動枠組条約</text>
+  <text class="t-note" x="96" y="263">・生物多様性条約／アジェンダ21</text>
+
+  <!-- 1997 京都議定書 (y=278) -->
+  <text class="t-year" x="60" y="298" text-anchor="end">1997</text>
+  <circle class="d-climate" cx="72" cy="294" r="5"/>
+  <rect class="climate" x="84" y="280" width="308" height="36" rx="6"/>
+  <text class="t-name" x="96" y="296">京都議定書</text>
+  <text class="t-note" x="96" y="310">先進国に温室効果ガスの数値削減目標</text>
+
+  <!-- 2000 カルタヘナ (y=324) -->
+  <text class="t-year" x="60" y="344" text-anchor="end">2000</text>
+  <circle class="d-nature" cx="72" cy="340" r="5"/>
+  <rect class="nature" x="84" y="326" width="308" height="36" rx="6"/>
+  <text class="t-name" x="96" y="342">カルタヘナ議定書</text>
+  <text class="t-note" x="96" y="356">遺伝子組換え生物のバイオセーフティ確保</text>
+
+  <!-- 2001 POPs (y=370) -->
+  <text class="t-year" x="60" y="390" text-anchor="end">2001</text>
+  <circle class="d-pollut" cx="72" cy="386" r="5"/>
+  <rect class="pollut" x="84" y="372" width="308" height="36" rx="6"/>
+  <text class="t-name" x="96" y="388">ストックホルム条約（POPs）</text>
+  <text class="t-note" x="96" y="402">残留性有機汚染物質の製造・使用の廃絶</text>
+
+  <!-- 2010 名古屋議定書 (y=416) -->
+  <text class="t-year" x="60" y="436" text-anchor="end">2010</text>
+  <circle class="d-nature" cx="72" cy="432" r="5"/>
+  <rect class="nature" x="84" y="418" width="308" height="36" rx="6"/>
+  <text class="t-name" x="96" y="434">名古屋議定書（生物多様性COP10）</text>
+  <text class="t-note" x="96" y="448">遺伝資源の利益の公正・衡平な配分（ABS）</text>
+
+  <!-- 2015 SDGs・パリ協定 (y=462) -->
+  <text class="t-year" x="60" y="478" text-anchor="end">2015</text>
+  <circle class="d-frame" cx="72" cy="474" r="6"/>
+  <rect class="frame" x="84" y="462" width="308" height="30" rx="6"/>
+  <text class="t-name" x="96" y="474">SDGs ／ パリ協定</text>
+  <text class="t-note" x="96" y="487">2030アジェンダ（17目標）・1.5〜2℃目標</text>
+</svg>

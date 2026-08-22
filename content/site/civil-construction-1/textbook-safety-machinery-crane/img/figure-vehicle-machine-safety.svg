@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="車両系建設機械の接触防止。誘導者の配置、制限速度の設定、機械の作業範囲への作業員の立入禁止区域を平面で模式化した図">
+  <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">誘導者配置・制限速度・立入禁止で接触を防ぐ（平面図）</text>
+
+  <!-- 敷地枠 -->
+  <rect x="30" y="44" width="340" height="290" rx="4" fill="#ffffff" stroke="#d7d7d7" stroke-width="1.5"/>
+
+  <!-- 走行路 -->
+  <rect x="30" y="150" width="340" height="60" fill="#f5f5f5"/>
+  <text x="60" y="145" text-anchor="start" font-family="sans-serif" font-size="11" fill="#8a8a8a">走行路</text>
+
+  <!-- 建設機械（バックホウ） -->
+  <rect x="70" y="164" width="60" height="32" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="100" y="184" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">建設機械</text>
+
+  <!-- 進行方向 -->
+  <line x1="140" y1="180" x2="200" y2="180" stroke="#2e6da4" stroke-width="1.5"/>
+  <path d="M200 180 l-7 -4 v8 z" fill="#2e6da4"/>
+
+  <!-- 立入禁止区域（機械の作業範囲） -->
+  <rect x="64" y="230" width="120" height="80" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="124" y="266" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">立入禁止区域</text>
+  <text x="124" y="286" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">作業範囲へ立入禁止</text>
+
+  <!-- 誘導者 -->
+  <circle cx="250" cy="188" r="9" fill="#f5f5f5" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="250" y="145" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">誘導者</text>
+
+  <!-- 制限速度標識 -->
+  <rect x="286" y="234" width="70" height="40" rx="4" fill="#f5f5f5" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="321" y="252" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">制限速度</text>
+  <text x="321" y="268" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">設定</text>
+
+  <!-- 作業員 -->
+  <circle cx="300" cy="110" r="8" fill="#ffffff" stroke="#555" stroke-width="1.5"/>
+  <text x="300" y="94" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">作業員</text>
+
+  <!-- 注記パネル -->
+  <rect x="30" y="352" width="340" height="132" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="376" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">最高速度が毎時10kmを超える機械は</text>
+  <text x="200" y="394" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">制限速度を定める（第156条）</text>
+  <text x="200" y="418" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">接触の危険時は誘導者を配置（第159条）</text>
+  <text x="200" y="442" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">運行経路内は作業員を立入禁止（第158条）</text>
+  <text x="200" y="466" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">根拠：労働安全衛生規則</text>
+</svg>

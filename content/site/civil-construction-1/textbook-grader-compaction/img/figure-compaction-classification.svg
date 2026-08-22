@@ -1,0 +1,91 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="締固め機械の分類：静的締固め（ロード・タイヤ・タンピングローラ／砂礫・粘性土向け）と動的締固め（振動ローラ・コンパクタ・ランマ／砂・狭所向け）の 2 系統">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-page-title { font-size: 14px; font-weight: bold; fill: #222; }     /* ink-strong */
+      .t-center     { font-size: 13px; font-weight: bold; fill: #1a3a5c; } /* brand-text */
+      .t-branch     { font-size: 13px; font-weight: bold; fill: #1a3a5c; } /* brand-text */
+      .t-machine    { font-size: 12px; font-weight: bold; fill: #222; }    /* ink-strong */
+      .t-detail     { font-size: 11px; fill: #555; }                       /* ink-body */
+      .t-applies    { font-size: 11px; font-weight: bold; fill: #1a3a5c; } /* brand-text */
+      .t-note       { font-size: 11px; fill: #555; }                       /* ink-body */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand */
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn（静的＝重量転圧） */
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; } /* positive（動的＝効率） */
+      .card-warn    { fill: #ffffff; stroke: #d4a017; stroke-width: 1; }
+      .card-pos     { fill: #ffffff; stroke: #3a7d44; stroke-width: 1; }
+      .conn         { stroke: #2e6da4; stroke-width: 1.5; fill: none; }    /* brand */
+    </style>
+  </defs>
+
+  <text class="t-page-title" x="200" y="20" text-anchor="middle">締固め機械の分類と適用土質</text>
+
+  <!-- 中心：締固め機械 -->
+  <rect class="box-brand" x="130" y="32" width="140" height="36" rx="6"/>
+  <text class="t-center" x="200" y="55" text-anchor="middle">締固め機械</text>
+
+  <!-- 分岐線 -->
+  <line class="conn" x1="170" y1="68" x2="105" y2="92"/>
+  <line class="conn" x1="230" y1="68" x2="295" y2="92"/>
+
+  <!-- 左：静的締固め -->
+  <rect class="box-warn" x="10" y="92" width="180" height="30" rx="5"/>
+  <text class="t-branch" x="100" y="113" text-anchor="middle">静的締固め</text>
+
+  <rect class="card-warn" x="10" y="128" width="180" height="218" rx="5"/>
+  <text class="t-machine" x="20" y="148">ロードローラ</text>
+  <text class="t-detail"  x="20" y="164">・マカダム：砕石・初期転圧</text>
+  <text class="t-detail"  x="20" y="180">・タンデム：アスファルト</text>
+
+  <text class="t-machine" x="20" y="204">タイヤローラ</text>
+  <text class="t-detail"  x="20" y="220">・接地圧 0.1〜0.7 MPa</text>
+  <text class="t-detail"  x="20" y="236">・バラストで荷重調整</text>
+
+  <text class="t-machine" x="20" y="260">タンピングローラ</text>
+  <text class="t-detail"  x="20" y="276">・シープスフート突起</text>
+  <text class="t-detail"  x="20" y="292">・重転圧・岩塊破砕</text>
+
+  <text class="t-applies" x="20" y="324">適用：</text>
+  <text class="t-detail"  x="20" y="340">砂礫・粘性土・大規模盛土</text>
+
+  <!-- 右：動的締固め -->
+  <rect class="box-positive" x="210" y="92" width="180" height="30" rx="5"/>
+  <text class="t-branch" x="300" y="113" text-anchor="middle">動的締固め（振動・衝撃）</text>
+
+  <rect class="card-pos" x="210" y="128" width="180" height="218" rx="5"/>
+  <text class="t-machine" x="220" y="148">振動ローラ</text>
+  <text class="t-detail"  x="220" y="164">・起振力＝自重の 1〜5 倍</text>
+  <text class="t-detail"  x="220" y="180">・層厚 20〜40 cm 深層</text>
+
+  <text class="t-machine" x="220" y="204">振動コンパクタ</text>
+  <text class="t-detail"  x="220" y="220">・小型・狭あい地向け</text>
+  <text class="t-detail"  x="220" y="236">・手押し／自走</text>
+
+  <text class="t-machine" x="220" y="260">ランマ（タンパ）</text>
+  <text class="t-detail"  x="220" y="276">・衝撃打撃式</text>
+  <text class="t-detail"  x="220" y="292">・狭所の局部転圧</text>
+
+  <text class="t-applies" x="220" y="324">適用：</text>
+  <text class="t-detail"  x="220" y="340">砂・砂礫・埋戻し・狭所</text>
+
+  <!-- 注釈 -->
+  <text class="t-note" x="200" y="370" text-anchor="middle">※ モータグレーダはブレード整形用、締固めは別機械</text>
+
+  <!-- 選択基準まとめ -->
+  <rect x="10" y="382" width="380" height="106" rx="5" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text class="t-branch" x="200" y="400" text-anchor="middle">機械選択の基準</text>
+
+  <rect x="20" y="408" width="176" height="24" rx="3" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
+  <text class="t-detail" x="108" y="424" text-anchor="middle">静的：大規模・粘性土・深層</text>
+
+  <rect x="204" y="408" width="176" height="24" rx="3" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <text class="t-detail" x="292" y="424" text-anchor="middle">動的：砂質土・狭所・効率重視</text>
+
+  <text class="t-detail" x="200" y="450" text-anchor="middle">締固め度の確認：砂置換法・RI計器（コア採取不要）</text>
+  <text class="t-detail" x="200" y="468" text-anchor="middle">転圧回数・含水比・層厚を事前に試験施工で決定</text>
+  <text class="t-detail" x="200" y="486" text-anchor="middle">締固め度の基準値：路体 90%以上、路床 95%以上</text>
+</svg>

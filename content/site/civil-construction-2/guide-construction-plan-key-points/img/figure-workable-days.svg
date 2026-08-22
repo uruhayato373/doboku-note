@@ -1,0 +1,62 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="作業可能日数の求め方と工程計画への流れ。暦日から休日や悪天候日などを除いた残りが作業可能日数であり、これをもとに必要な施工速度を求め、工期内に完成する工程を組み立てる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-bar  { font-size: 12px; font-weight: bold; fill: #222; }
+      .t-seg  { font-size: 11px; fill: #222; }
+      .t-ok   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-op   { font-size: 11px; fill: #555; }
+      .t-step { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .all { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .cut { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .use { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .tie { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 4 3; }
+      .step { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .arw { stroke: #1a3a5c; stroke-width: 1.5; fill: none; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="wd-a" markerUnits="userSpaceOnUse" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#1a3a5c"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">削った残りが実際に工事を進められる日数になる</text>
+
+  <rect class="all" x="40" y="44" width="320" height="32" rx="3"/>
+  <text class="t-bar" x="200" y="65" text-anchor="middle">暦日</text>
+
+  <line class="tie" x1="40" y1="78" x2="40" y2="106"/>
+  <line class="tie" x1="360" y1="78" x2="360" y2="106"/>
+  <text class="t-op" x="200" y="98" text-anchor="middle">休日・悪天候日などを除く</text>
+
+  <rect class="cut" x="40" y="108" width="70" height="32" rx="3"/>
+  <text class="t-seg" x="75" y="129" text-anchor="middle">休日</text>
+  <rect class="cut" x="110" y="108" width="62" height="32" rx="3"/>
+  <text class="t-seg" x="141" y="129" text-anchor="middle">悪天候日</text>
+  <rect class="use" x="172" y="108" width="188" height="32" rx="3"/>
+  <text class="t-ok" x="266" y="129" text-anchor="middle">作業可能日数</text>
+
+  <line class="arw" x1="266" y1="144" x2="266" y2="164" marker-end="url(#wd-a)"/>
+  <rect class="step" x="110" y="168" width="240" height="38" rx="4"/>
+  <text class="t-step" x="230" y="192" text-anchor="middle">必要な施工速度を求める</text>
+
+  <line class="arw" x1="230" y1="210" x2="230" y2="230" marker-end="url(#wd-a)"/>
+  <rect class="step" x="110" y="234" width="240" height="38" rx="4"/>
+  <text class="t-step" x="230" y="258" text-anchor="middle">工期内に完成する工程を組む</text>
+
+  <rect class="box-surf" x="20" y="300" width="360" height="182" rx="6"/>
+  <text class="t-sec" x="200" y="322" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="331" x2="364" y2="331"/>
+  <text class="t-item" x="40" y="356">工程計画は各工種の施工速度と順序を組み立てる</text>
+  <text class="t-item" x="40" y="380">作業可能日数の見積もりが工程計画の出発点になる</text>
+  <text class="t-item" x="40" y="404">無理な突貫にならないよう原価・品質とのバランスを取る</text>
+  <text class="t-item" x="40" y="428">緑の帯だけが実際に工事を進められる日数</text>
+  <text class="t-item" x="40" y="452">工程は詳細計画の段階で仮設備・調達とともに具体化する</text>
+</svg>

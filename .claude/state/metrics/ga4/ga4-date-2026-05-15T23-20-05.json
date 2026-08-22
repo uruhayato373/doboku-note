@@ -1,0 +1,273 @@
+{
+  "meta": {
+    "startDate": "2026-04-17",
+    "endDate": "2026-05-14",
+    "dimension": "date",
+    "dimensionApiName": "date",
+    "metrics": [
+      "activeUsers",
+      "sessions",
+      "screenPageViewsPerSession",
+      "averageSessionDuration",
+      "engagementRate",
+      "bounceRate"
+    ],
+    "limit": 100,
+    "organicOnly": false,
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "date": "20260511",
+      "activeUsers": 2633,
+      "sessions": 2667,
+      "screenPageViewsPerSession": 1.0768653918260218,
+      "averageSessionDuration": 16.837040275215596,
+      "engagementRate": 0.1766029246344207,
+      "bounceRate": 0.8233970753655793
+    },
+    {
+      "date": "20260427",
+      "activeUsers": 660,
+      "sessions": 692,
+      "screenPageViewsPerSession": 1.7673410404624277,
+      "averageSessionDuration": 71.22125781213873,
+      "engagementRate": 0.16184971098265896,
+      "bounceRate": 0.838150289017341
+    },
+    {
+      "date": "20260512",
+      "activeUsers": 92,
+      "sessions": 127,
+      "screenPageViewsPerSession": 3.204724409448819,
+      "averageSessionDuration": 295.2456533070866,
+      "engagementRate": 0.4409448818897638,
+      "bounceRate": 0.5590551181102362
+    },
+    {
+      "date": "20260501",
+      "activeUsers": 81,
+      "sessions": 107,
+      "screenPageViewsPerSession": 2.3551401869158877,
+      "averageSessionDuration": 356.01123574766353,
+      "engagementRate": 0.5700934579439252,
+      "bounceRate": 0.42990654205607476
+    },
+    {
+      "date": "20260513",
+      "activeUsers": 76,
+      "sessions": 110,
+      "screenPageViewsPerSession": 3.809090909090909,
+      "averageSessionDuration": 588.3165925727272,
+      "engagementRate": 0.5818181818181818,
+      "bounceRate": 0.41818181818181815
+    },
+    {
+      "date": "20260514",
+      "activeUsers": 75,
+      "sessions": 118,
+      "screenPageViewsPerSession": 5.983050847457627,
+      "averageSessionDuration": 735.4551775,
+      "engagementRate": 0.5423728813559322,
+      "bounceRate": 0.4576271186440678
+    },
+    {
+      "date": "20260507",
+      "activeUsers": 72,
+      "sessions": 97,
+      "screenPageViewsPerSession": 6.061855670103093,
+      "averageSessionDuration": 475.2271662474227,
+      "engagementRate": 0.5979381443298969,
+      "bounceRate": 0.4020618556701031
+    },
+    {
+      "date": "20260426",
+      "activeUsers": 66,
+      "sessions": 81,
+      "screenPageViewsPerSession": 5.691358024691358,
+      "averageSessionDuration": 559.8019972716049,
+      "engagementRate": 0.43209876543209874,
+      "bounceRate": 0.5679012345679012
+    },
+    {
+      "date": "20260430",
+      "activeUsers": 65,
+      "sessions": 82,
+      "screenPageViewsPerSession": 3.4146341463414633,
+      "averageSessionDuration": 418.2179594634146,
+      "engagementRate": 0.6951219512195121,
+      "bounceRate": 0.3048780487804878
+    },
+    {
+      "date": "20260428",
+      "activeUsers": 64,
+      "sessions": 89,
+      "screenPageViewsPerSession": 4.426966292134831,
+      "averageSessionDuration": 530.2349049101123,
+      "engagementRate": 0.5730337078651685,
+      "bounceRate": 0.42696629213483145
+    },
+    {
+      "date": "20260508",
+      "activeUsers": 61,
+      "sessions": 92,
+      "screenPageViewsPerSession": 3.6847826086956523,
+      "averageSessionDuration": 535.2728887282609,
+      "engagementRate": 0.5434782608695652,
+      "bounceRate": 0.45652173913043476
+    },
+    {
+      "date": "20260509",
+      "activeUsers": 50,
+      "sessions": 81,
+      "screenPageViewsPerSession": 9.296296296296296,
+      "averageSessionDuration": 1085.3163633703703,
+      "engagementRate": 0.7283950617283951,
+      "bounceRate": 0.2716049382716049
+    },
+    {
+      "date": "20260425",
+      "activeUsers": 47,
+      "sessions": 53,
+      "screenPageViewsPerSession": 5.132075471698113,
+      "averageSessionDuration": 373.77115564150944,
+      "engagementRate": 0.4716981132075472,
+      "bounceRate": 0.5283018867924528
+    },
+    {
+      "date": "20260510",
+      "activeUsers": 45,
+      "sessions": 69,
+      "screenPageViewsPerSession": 4.695652173913044,
+      "averageSessionDuration": 639.4483365507247,
+      "engagementRate": 0.6956521739130435,
+      "bounceRate": 0.30434782608695654
+    },
+    {
+      "date": "20260504",
+      "activeUsers": 42,
+      "sessions": 72,
+      "screenPageViewsPerSession": 9.041666666666666,
+      "averageSessionDuration": 609.6354117083333,
+      "engagementRate": 0.6388888888888888,
+      "bounceRate": 0.3611111111111111
+    },
+    {
+      "date": "20260421",
+      "activeUsers": 41,
+      "sessions": 51,
+      "screenPageViewsPerSession": 4.176470588235294,
+      "averageSessionDuration": 406.56224701960787,
+      "engagementRate": 0.6078431372549019,
+      "bounceRate": 0.39215686274509803
+    },
+    {
+      "date": "20260420",
+      "activeUsers": 40,
+      "sessions": 49,
+      "screenPageViewsPerSession": 1.510204081632653,
+      "averageSessionDuration": 155.73886253061224,
+      "engagementRate": 0.5510204081632653,
+      "bounceRate": 0.4489795918367347
+    },
+    {
+      "date": "20260506",
+      "activeUsers": 40,
+      "sessions": 82,
+      "screenPageViewsPerSession": 7.2073170731707314,
+      "averageSessionDuration": 742.7081479634146,
+      "engagementRate": 0.7560975609756098,
+      "bounceRate": 0.24390243902439024
+    },
+    {
+      "date": "20260505",
+      "activeUsers": 38,
+      "sessions": 68,
+      "screenPageViewsPerSession": 9.720588235294118,
+      "averageSessionDuration": 933.3505481764706,
+      "engagementRate": 0.6617647058823529,
+      "bounceRate": 0.3382352941176471
+    },
+    {
+      "date": "20260503",
+      "activeUsers": 33,
+      "sessions": 48,
+      "screenPageViewsPerSession": 19.895833333333332,
+      "averageSessionDuration": 846.2944930833334,
+      "engagementRate": 0.5416666666666666,
+      "bounceRate": 0.4583333333333333
+    },
+    {
+      "date": "20260424",
+      "activeUsers": 32,
+      "sessions": 45,
+      "screenPageViewsPerSession": 2.3777777777777778,
+      "averageSessionDuration": 320.45210244444445,
+      "engagementRate": 0.5333333333333333,
+      "bounceRate": 0.4666666666666667
+    },
+    {
+      "date": "20260429",
+      "activeUsers": 32,
+      "sessions": 45,
+      "screenPageViewsPerSession": 15.155555555555555,
+      "averageSessionDuration": 962.4049802222223,
+      "engagementRate": 0.7555555555555555,
+      "bounceRate": 0.24444444444444444
+    },
+    {
+      "date": "20260502",
+      "activeUsers": 31,
+      "sessions": 56,
+      "screenPageViewsPerSession": 5.464285714285714,
+      "averageSessionDuration": 609.5629826785714,
+      "engagementRate": 0.625,
+      "bounceRate": 0.375
+    },
+    {
+      "date": "20260423",
+      "activeUsers": 27,
+      "sessions": 36,
+      "screenPageViewsPerSession": 2.4444444444444446,
+      "averageSessionDuration": 199.52704752777777,
+      "engagementRate": 0.5833333333333334,
+      "bounceRate": 0.4166666666666667
+    },
+    {
+      "date": "20260422",
+      "activeUsers": 26,
+      "sessions": 34,
+      "screenPageViewsPerSession": 2.735294117647059,
+      "averageSessionDuration": 200.25541135294117,
+      "engagementRate": 0.6470588235294118,
+      "bounceRate": 0.35294117647058826
+    },
+    {
+      "date": "20260417",
+      "activeUsers": 20,
+      "sessions": 27,
+      "screenPageViewsPerSession": 1.7037037037037037,
+      "averageSessionDuration": 158.63715437037038,
+      "engagementRate": 0.5925925925925926,
+      "bounceRate": 0.4074074074074074
+    },
+    {
+      "date": "20260418",
+      "activeUsers": 13,
+      "sessions": 19,
+      "screenPageViewsPerSession": 1.5789473684210527,
+      "averageSessionDuration": 113.48769810526315,
+      "engagementRate": 0.631578947368421,
+      "bounceRate": 0.3684210526315789
+    },
+    {
+      "date": "20260419",
+      "activeUsers": 12,
+      "sessions": 18,
+      "screenPageViewsPerSession": 3.1666666666666665,
+      "averageSessionDuration": 495.01756338888896,
+      "engagementRate": 0.6666666666666666,
+      "bounceRate": 0.3333333333333333
+    }
+  ]
+}

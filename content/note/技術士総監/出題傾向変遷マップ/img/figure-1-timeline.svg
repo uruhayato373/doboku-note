@@ -1,0 +1,202 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+    <rect width="1280" height="720" fill="#ffffff"/>
+
+    <!-- タイトル -->
+    <text x="34" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">総監記述式 出題傾向タイムライン H21〜R07</text>
+    <text x="34" y="94" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="500" fill="#555555">17年分を3期に区分 — 学習配分の根拠と各期の特徴</text>
+
+    <!-- 期区分ブラケット -->
+    
+        <rect x="62" y="210" width="473.6470588235294" height="70" rx="8"
+              fill="#9ca3af"/>
+        <text x="298.8235294117647" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#ffffff" text-anchor="middle">第1期 実験期</text>
+        <text x="298.8235294117647" y="264" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="600" fill="#ffffff" text-anchor="middle">
+          H21〜H27（7年）
+        </text>
+      
+        <rect x="539.6470588235294" y="210" width="337.17647058823525" height="70" rx="8"
+              fill="#d4a017"/>
+        <text x="708.2352941176471" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#ffffff" text-anchor="middle">第2期 転換期</text>
+        <text x="708.2352941176471" y="264" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="600" fill="#ffffff" text-anchor="middle">
+          H28〜R02（5年）
+        </text>
+      
+        <rect x="880.8235294117646" y="210" width="337.17647058823536" height="70" rx="8"
+              fill="#2e6da4"/>
+        <text x="1049.4117647058824" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#ffffff" text-anchor="middle">第3期 定着期</text>
+        <text x="1049.4117647058824" y="264" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="600" fill="#ffffff" text-anchor="middle">
+          R03〜R07（5年）
+        </text>
+      
+
+    <!-- 年度バー -->
+    
+        <rect x="62" y="300" width="64.23529411764706" height="72" rx="4"
+              fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+        <text x="94.11764705882354" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#374151"
+              text-anchor="middle">H21</text>
+      
+        <rect x="130.23529411764707" y="300" width="64.23529411764706" height="72" rx="4"
+              fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+        <text x="162.3529411764706" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#374151"
+              text-anchor="middle">H22</text>
+      
+        <rect x="198.47058823529412" y="300" width="64.23529411764706" height="72" rx="4"
+              fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+        <text x="230.58823529411765" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#374151"
+              text-anchor="middle">H23</text>
+      
+        <rect x="266.70588235294116" y="300" width="64.23529411764706" height="72" rx="4"
+              fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+        <text x="298.8235294117647" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#374151"
+              text-anchor="middle">H24</text>
+      
+        <rect x="334.94117647058823" y="300" width="64.23529411764706" height="72" rx="4"
+              fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+        <text x="367.05882352941177" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#374151"
+              text-anchor="middle">H25</text>
+      
+        <rect x="403.1764705882353" y="300" width="64.23529411764706" height="72" rx="4"
+              fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+        <text x="435.29411764705884" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#374151"
+              text-anchor="middle">H26</text>
+      
+        <rect x="471.4117647058823" y="300" width="64.23529411764706" height="72" rx="4"
+              fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+        <text x="503.52941176470586" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#374151"
+              text-anchor="middle">H27</text>
+      
+        <rect x="539.6470588235294" y="300" width="64.23529411764706" height="72" rx="4"
+              fill="#fef9e7" stroke="#d4a017" stroke-width="1.5"/>
+        <text x="571.7647058823529" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#92400e"
+              text-anchor="middle">H28</text>
+      
+        <rect x="607.8823529411765" y="300" width="64.23529411764706" height="72" rx="4"
+              fill="#fef9e7" stroke="#d4a017" stroke-width="1.5"/>
+        <text x="640" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#92400e"
+              text-anchor="middle">H29</text>
+      
+        <rect x="676.1176470588235" y="300" width="64.23529411764706" height="72" rx="4"
+              fill="#fef9e7" stroke="#d4a017" stroke-width="1.5"/>
+        <text x="708.2352941176471" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#92400e"
+              text-anchor="middle">H30</text>
+      
+        <rect x="744.3529411764706" y="300" width="64.23529411764706" height="72" rx="4"
+              fill="#fef9e7" stroke="#d4a017" stroke-width="1.5"/>
+        <text x="776.4705882352941" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#92400e"
+              text-anchor="middle">R01</text>
+      
+        <rect x="812.5882352941177" y="300" width="64.23529411764706" height="72" rx="4"
+              fill="#fef9e7" stroke="#d4a017" stroke-width="1.5"/>
+        <text x="844.7058823529412" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#92400e"
+              text-anchor="middle">R02</text>
+      
+        <rect x="880.8235294117646" y="300" width="64.23529411764706" height="72" rx="4"
+              fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+        <text x="912.9411764705882" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#1a3a5c"
+              text-anchor="middle">R03</text>
+      
+        <rect x="949.0588235294117" y="300" width="64.23529411764706" height="72" rx="4"
+              fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+        <text x="981.1764705882352" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#1a3a5c"
+              text-anchor="middle">R04</text>
+      
+        <rect x="1017.2941176470588" y="300" width="64.23529411764706" height="72" rx="4"
+              fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+        <text x="1049.4117647058822" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#1a3a5c"
+              text-anchor="middle">R05</text>
+      
+        <rect x="1085.5294117647059" y="300" width="64.23529411764706" height="72" rx="4"
+              fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+        <text x="1117.6470588235293" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#1a3a5c"
+              text-anchor="middle">R06</text>
+      
+        <rect x="1153.764705882353" y="300" width="64.23529411764706" height="72" rx="4"
+              fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+        <text x="1185.8823529411764" y="344" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#1a3a5c"
+              text-anchor="middle">R07</text>
+      
+
+    <!-- 吹き出し（各期の特徴） -->
+    
+        <!-- 期 1 吹き出し -->
+        <line x1="298.8235294117647" y1="372" x2="298.8235294117647" y2="402"
+              stroke="#9ca3af" stroke-width="2" stroke-dasharray="4,3"/>
+        <rect x="118.8235294117647" y="392" width="360" height="120" rx="8"
+              fill="#f3f4f6" stroke="#9ca3af" stroke-width="1.5"/>
+        <text x="132.8235294117647" y="426" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="700" fill="#374151">・毎年構造が変わる</text>
+        <text x="132.8235294117647" y="458" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="700" fill="#374151">・手探りのフェーズ</text>
+        <text x="132.8235294117647" y="490" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="700" fill="#374151">・5管理を個別に分解</text>
+      
+        <!-- 期 2 吹き出し -->
+        <line x1="708.2352941176471" y1="372" x2="708.2352941176471" y2="402"
+              stroke="#d4a017" stroke-width="2" stroke-dasharray="4,3"/>
+        <rect x="543.6470588235295" y="392" width="329.17647058823525" height="120" rx="8"
+              fill="#fef9e7" stroke="#d4a017" stroke-width="1.5"/>
+        <text x="557.6470588235295" y="426" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="700" fill="#92400e">・事業を軸にした統合形式へ</text>
+        <text x="557.6470588235295" y="458" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="700" fill="#92400e">・時間軸（過去→現在→未来）</text>
+        <text x="557.6470588235295" y="490" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="700" fill="#92400e">・5管理トレードオフ必須化</text>
+      
+        <!-- 期 3 吹き出し -->
+        <line x1="1049.4117647058824" y1="372" x2="1049.4117647058824" y2="402"
+              stroke="#2e6da4" stroke-width="2" stroke-dasharray="4,3"/>
+        <rect x="884.8235294117648" y="392" width="329.17647058823536" height="120" rx="8"
+              fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+        <text x="898.8235294117648" y="426" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="700" fill="#1a3a5c">・新形式の完成と時事テーマへ拡張</text>
+        <text x="898.8235294117648" y="458" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="700" fill="#1a3a5c">・DX・CN・少子高齢化</text>
+        <text x="898.8235294117648" y="490" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="700" fill="#1a3a5c">・論述対象が「組織」へも拡大</text>
+      
+
+    <!-- 学習配分バッジ -->
+    
+        <rect x="208.8235294117647" y="512" width="180" height="40" rx="20"
+              fill="#9ca3af"/>
+        <text x="298.8235294117647" y="540" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#ffffff" text-anchor="middle">5% 参考程度</text>
+      
+        <rect x="618.2352941176471" y="512" width="180" height="40" rx="20"
+              fill="#d4a017"/>
+        <text x="708.2352941176471" y="540" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#ffffff" text-anchor="middle">15% 次優先</text>
+      
+        <rect x="959.4117647058824" y="512" width="180" height="40" rx="20"
+              fill="#2e6da4"/>
+        <text x="1049.4117647058824" y="540" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22"
+              font-weight="800" fill="#ffffff" text-anchor="middle">80% 最優先</text>
+      
+
+    <!-- フッター -->
+    <text x="1240" y="700" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+  </svg>

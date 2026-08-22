@@ -1,0 +1,50 @@
+<svg width="580" height="240" viewBox="0 0 580 240" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:580px;width:100%" role="img" aria-label="変形労働時間制の概要">
+  <defs>
+    <marker id="arrt" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L7,3.5 z" fill="#222"/>
+    </marker>
+  </defs>
+  <!-- Title -->
+  <text x="290" y="20" text-anchor="middle" font-weight="bold" font-size="12">変形労働時間制の概要</text>
+
+  <!-- Header -->
+  <rect x="10" y="30" width="160" height="35" fill="#e8f0fe" stroke="#4466aa" stroke-width="1.5"/>
+  <text x="90" y="52" text-anchor="middle" font-weight="bold">変形期間が1カ月以内</text>
+  <rect x="180" y="30" width="100" height="35" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="230" y="52" text-anchor="middle" font-weight="bold">例</text>
+  <rect x="290" y="30" width="140" height="35" fill="#fff3cd" stroke="#aaaa44" stroke-width="1.5"/>
+  <text x="360" y="44" text-anchor="middle" font-weight="bold">変形期間の日数</text>
+  <text x="360" y="58" text-anchor="middle" font-size="10">（法定労働時間の総枠）</text>
+  <rect x="440" y="30" width="130" height="35" fill="#ffccaa" stroke="#aa6644" stroke-width="1.5"/>
+  <text x="505" y="44" text-anchor="middle" font-weight="bold">法定労働時間</text>
+  <text x="505" y="58" text-anchor="middle" font-size="10">の総枠</text>
+
+  <!-- Data rows -->
+  <rect x="10" y="65" width="160" height="40" fill="#e8f0fe" stroke="#aaaacc"/>
+  <text x="90" y="90" text-anchor="middle">変形期間が1カ月以内</text>
+  <rect x="180" y="65" width="100" height="40" fill="#d0e8d0" stroke="#aaccaa"/>
+  <text x="230" y="90" text-anchor="middle">31日</text>
+  <rect x="290" y="65" width="140" height="40" fill="#fff3cd" stroke="#ccccaa"/>
+  <text x="360" y="83" text-anchor="middle">177時間　8分</text>
+  <text x="360" y="98" text-anchor="middle" font-size="10">（40時間×31÷7）</text>
+  <rect x="440" y="65" width="130" height="40" fill="#fff3cd" stroke="#ccaaaa"/>
+  <text x="505" y="83" text-anchor="middle">171時間　25分</text>
+  <text x="505" y="98" text-anchor="middle" font-size="10">（40時間×31÷7）</text>
+
+  <rect x="10" y="105" width="160" height="40" fill="#e8f0fe" stroke="#aaaacc"/>
+  <text x="90" y="130" text-anchor="middle">変形期間が1カ月以内</text>
+  <rect x="180" y="105" width="100" height="40" fill="#d0e8d0" stroke="#aaccaa"/>
+  <text x="230" y="130" text-anchor="middle">30日</text>
+  <rect x="290" y="105" width="140" height="40" fill="#fff3cd" stroke="#ccccaa"/>
+  <text x="360" y="123" text-anchor="middle">171時間 26分</text>
+  <text x="360" y="138" text-anchor="middle" font-size="10">（40時間×30÷7）</text>
+  <rect x="440" y="105" width="130" height="40" fill="#fff3cd" stroke="#ccaaaa"/>
+  <text x="505" y="130" text-anchor="middle">171時間 26分</text>
+
+  <!-- Note -->
+  <rect x="10" y="158" width="560" height="70" fill="#f5f5f5" stroke="#8a8a8a" rx="5"/>
+  <text x="290" y="174" text-anchor="middle" font-weight="bold" font-size="11">使用者への給付金（平成24年3月31日）</text>
+  <text x="20" y="191" font-size="10">6カ月経過日から起算して、当該初日以後の1年間においては、有給休暇</text>
+  <text x="20" y="206" font-size="10">全労働者の8割以上出勤したその者に対して、10労働日の有給休暇を与えなければならない。</text>
+  <text x="20" y="220" font-size="10">（雇入れの日から、6カ月を起算して1年ごとに、前年の日数の区分に応じた継続勤務した）</text>
+</svg>

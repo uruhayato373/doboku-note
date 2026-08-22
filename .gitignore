@@ -1,0 +1,303 @@
+# Dependencies
+/node_modules
+
+# Next.js
+/.next
+/out
+tools/admin-app/.next/
+
+# Production
+/build
+
+# Generated files
+.docusaurus
+.cache-loader
+
+# Wrangler local state
+.wrangler/
+
+# Misc
+.DS_Store
+*.pem
+
+# Environment
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# 旧レイアウトの R2 管理ディレクトリ。2026-08-18 の情報アーキテクチャ移行で
+# `content/` はチャネル別制作物の**追跡下 SSOT** になったので、丸ごと無視してはいけない
+# （無視したままだと content/ に新規作成したファイルが黙って追跡外になる）。
+# 再生成できるバイナリだけを下の個別ルールで除外する。
+/public/content/
+
+# Source PDFs/images (conversion input)
+/_sources/
+/_backend/
+hikkei-*.pdf
+第３部_民法.pdf
+_minpo_*.png
+
+# Scanned source PDFs (content/sources/textbook) — archived to PRIVATE R2 bucket doboku-note-archive/textbook/.
+# Pull on demand via rclone; see .claude/knowledge/reference/textbook-pdf-archive.md. Untracked to keep working tree/.git lean.
+content/sources/textbook/**/*.pdf
+content/sources/textbook/**/*.PDF
+# PDF ビューアが吐くテキスト抽出成果物（原典 PDF と同じ著作権物の本文がそのまま入る）。
+# 追跡済みの content/sources/textbook/**/*.md（自前の文字起こし）とは別物なので Text/ だけを外す。
+content/sources/textbook/**/Text/
+
+# Service account keys & credentials
+doboku-note-*.json
+credentials/
+
+public/posts
+.aidesigner/*
+!.aidesigner/.gitkeep
+
+# Playwright MCP & temp files (screenshots, console logs, page snapshots)
+.playwright-mcp/
+
+# Playwright の storageState（Cookie 実体）は**サービスを問わず**除外する。
+# 2026-08-17: note の売上取得スクリプトが新しく playwright-note-state.json を作ったが、
+# 個別列挙しかしていなかったため untracked で git status に出た（＝コミットしうる状態）。
+# 新しいサービスを足すたびに列挙もれで同じ事故が起きるので、パターンで塞ぐ。
+.local/playwright-*-state.json
+.local/playwright-*-profile/
+.local/playwright-*-debug/
+
+# Playwright X 投稿スクリプト用（セッション・デバッグ）
+.local/playwright-x-profile/
+.local/playwright-x-debug/
+
+# Playwright IG Business Suite 投稿スクリプト用（セッション・デバッグ）
+.local/playwright-ig-bs-profile/
+.local/playwright-ig-bs-debug/
+
+# Playwright note 編集セッション用（ログイン cookie を含む・コミット禁止）
+.local/playwright-note-profile/
+
+# Playwright ココナラ市場調査用（read-only・未ログインだがプロファイル実体はコミットしない）
+.local/playwright-coconala-profile/
+
+# Playwright Brain 出品・編集用（Brain ログイン cookie を含む・コミット禁止）
+.local/playwright-brain-profile/
+
+# Playwright KDP 入稿・出版用（KDP ログイン cookie を含む・コミット禁止）
+.local/playwright-kdp-profile/
+
+# Playwright a8/ASP 用（ASP ログイン cookie を含む・コミット禁止）
+.local/playwright-a8-profile/
+.local/playwright-a8-debug/
+.local/playwright-a8-state.json
+
+# Playwright GSC/GA4 取得用（Google ログイン cookie を含む・コミット禁止・ローカル専用）
+.local/playwright-google-profile/
+.local/playwright-google-debug/
+# もしもアフィリエイト（2026-07-27 調査用に作成）。A8 と同じくログイン済みプロファイル＋
+# storageState をローカルに置く。認証情報なので絶対にコミットしない。
+.local/playwright-moshimo-profile/
+.local/playwright-moshimo-debug/
+.local/playwright-moshimo-state.json
+# afb（アフィリエイトB・2026-07-27 調査用に作成）
+.local/playwright-afb-profile/
+.local/playwright-afb-debug/
+.local/playwright-afb-state.json
+
+# GSC/GA4 UI の **生取得データ**（run 単位の raw CSV / ZIP / manifest）はコミットしない。
+# ただし raw CSV は「再取得しかできない＝再生成不可能」なので、そこから得た情報は
+# ssot/ 配下（urls/ + history.json + diff/）を **追跡 SSOT** として commit する
+# （2026-07-23 の run が worktree ごと消えて 1,952 行の URL 情報が失われた再発防止）。
+# 真実源 → scripts/lib/google-console-ssot.mjs
+.claude/state/metrics/gsc-ui/*/
+!.claude/state/metrics/gsc-ui/ssot/
+.claude/state/metrics/ga4-ui/*/
+!.claude/state/metrics/ga4-ui/ssot/
+# A8 レポート生取得データ（run 単位・raw CSV）。正規化後の a8-report-log.json / a8-results.json が
+# 追跡対象の SSOT で、raw は再取得可能。直下の last-run.json は取得マーカーとして追跡する。
+.claude/state/metrics/affiliate/a8-ui/*/
+# 突合レポートの run 単位 JSON（regenerable）。latest.md は残す。
+.claude/state/improvements/search-growth-*.json
+
+# SNS 投稿スケジュール状態（ツール生成キャッシュ）
+docs/x-posts/draft/**/status.json
+/*.png
+/*.jpeg
+/*.jpg
+/*.svg
+/*.gif
+/*.webp
+/test.md
+
+# 一時出力置き場（.tmp/ 配下はすべて untracked、.gitkeep と README.md のみ追跡）
+/.tmp/*
+!/.tmp/.gitkeep
+!/.tmp/README.md
+
+# exam-keyword-cycle 進捗サマリ drafts (ephemeral, regenerable)
+.claude/state/exam-keyword-cycles/umbrella-drafts/*.md
+
+# x-repost のランタイム生成物（候補・承認・キルスイッチは ephemeral。config と reposted-log は追跡）
+.claude/state/x-repost/candidates.json
+.claude/state/x-repost/approved.json
+.claude/state/x-repost/PAUSED
+
+# Claude Code harness runtime state（マシンごとに生成される lock ファイル）
+.claude/scheduled_tasks.lock
+
+# Obsidian - individual workspace/session state（各 PC 固有、同期不要）
+# コア設定（app.json 等）・プラグイン本体・アイコン素材は引き続き追跡する
+.obsidian/workspace.json
+.obsidian/workspace-mobile.json
+.obsidian/workspaces.json
+.obsidian/plugins/*/data.json
+
+# docs/ を専用保管庫として開くためのローカル設定コピー（リポジトリには含めない）
+docs/.obsidian/
+
+# Handoff archives（Box / docs 一括エクスポート用 zip、リポジトリには含めない）
+/*.zip
+
+# Pagefind generated index (rebuild with: npm run build)
+public/pagefind/
+
+# YouTube Shorts: content/sns/youtube/ 配下は全てビルド成果物（mp4/サムネ/meta）で再生成可能。
+# mp4 は R2（sns/youtube-shorts/）に保管、再現の SoT は exam-packs の slide-data + 事前生成ナレ。
+# 「どの動画をいつ予約したか」の記録は .claude/state/youtube-schedule.json（台帳）が唯一の真実源。
+content/sns/youtube/
+
+# IG「1問1リール」(per-problem, --ig-mode) の動画は再生成可能な派生物（YT shorts と同様）。
+# mp4 は gitignore、caption.txt / status.json（予約記録）のみ追跡。再生成は per-problem-shorts.mjs --ig-mode。
+content/sns/instagram/_exam-packs/**/reels-pp/**/*.mp4
+
+# IG リールのフル動画（reels/video.mp4・_combined.mp4）も再生成可能な派生物（JIT 生成）。
+# SoT は slide-data.json + reels/wav。投稿時に生成→Business Suite 予約→削除する運用（scripts/publish-reel-jit.mjs）。
+content/sns/instagram/_exam-packs/**/reels/video.mp4
+content/sns/instagram/_exam-packs/**/reels/_combined.mp4
+
+# reels/img（PNG・中間生成物、ig-reel-create が毎回再生成）と slide-NN.mp4（legacy --from-reels の入力。
+# 現行 YT 経路は per-problem-shorts で wav 使用＝slide-NN.mp4 不要）も JIT/ephemeral 化。
+# SoT は slide-data.json + reels/wav。--from-reels を使う場合は ig-reel-create で先に reels/img・slide-NN.mp4 を再生成。
+content/sns/instagram/_exam-packs/**/reels/img/
+content/sns/instagram/_exam-packs/**/reels/slide-*.mp4
+
+# IG「1問1リール」(reels-pp, JIT) の派生物。投稿後 publish-reel-jit が削除する運用だが
+# 安全網として ignore（video.mp4＝動画 / cover.png＝サムネ用カバー。SoT は slide-data.json）。
+content/sns/instagram/**/reels-pp/**/video.mp4
+content/sns/instagram/**/reels-pp/**/cover.png
+
+# editorial reels（再生成可能な派生物）
+content/sns/instagram/**/reels/video.mp4
+content/sns/instagram/**/reels/wav/
+content/sns/instagram/**/reels/subtitles.ass
+# figure→reel（figure-reel-create）の派生物。SoT は script.txt + caption.txt のみ。
+content/sns/instagram/**/reels/img/
+# 角度駆動リール（angle-reels・angle-reel-create）の JIT 派生物。SoT は script.json + caption.txt のみ。
+content/sns/instagram/**/angle-reels/**/reels/slide-*.png
+content/sns/instagram/**/angle-reels/**/reels/slide-*.wav
+content/sns/instagram/**/angle-reels/**/reels/cover.png
+content/sns/instagram/**/angle-reels/**/reels/_empty.ass
+content/sns/instagram/**/angle-reels/**/reels/seg-*.mp4
+content/sns/instagram/**/angle-reels/**/reels/_concat.txt
+content/sns/instagram/**/reels/cover.png
+
+# Large PDF files exceeding GitHub 100MB limit
+# textbook PDF（公式テキスト・白書・問題集）は容量大・著作権物で過去に git 履歴を 7GB+ に
+# 肥大させた主因。包括 ignore で再発防止（追跡は図クロップ済み .md/img のみ。下の個別3行も内包）。
+content/sources/textbook/**/*.pdf
+content/sources/textbook/経営学/経営学.pdf
+content/sources/textbook/コンクリート主任技師2024/コンクリート主任技士2024.pdf
+content/sources/textbook/コンクリート主任技師2022/コンクリート主任技師2022.pdf
+
+# IG Reels 中間ファイル（reels/ でコミットするのは script.txt + caption.txt のみ。
+# wav/mp4/中間物は全て再生成可能で R2 退避対象＝upload-sns-r2 / sns-archive-policy.md）
+content/sns/instagram/**/reels/wav/
+content/sns/instagram/**/reels/slide-*.mp4
+content/sns/instagram/**/reels/_combined.mp4
+content/sns/instagram/**/reels/_empty.ass
+content/sns/instagram/**/reels/concat.txt
+
+# quality:audit の生成レポート（baseline はコミットする・reportは生成物）
+.claude/state/quality/audit-latest.json
+.claude/state/quality/audit-latest.md
+.claude/state/quality/env-inventory.json
+.claude/state/quality/image-audit.json
+.claude/state/quality/image-audit.md
+
+# magazine-to-pdf の一時Chromeプロファイル/HTML作業ディレクトリ
+**/pdf/_work/
+
+# Playwright の実行成果物（失敗時のスクショ・trace）。SoT ではないので追跡しない
+/test-results/
+/playwright-report/
+
+# リポジトリ資産監査（DN-0111）の run 出力。baseline.json（固定値）と audit-latest.md（可読レポート）は
+# 追跡し、audit-latest.json は baseline と同内容の再生成物なので追跡しない。
+.claude/state/repo-assets/audit-latest.json
+
+# note カバーの SVG は satori の中間生成物。V4 は背景写真を data:image base64 で丸ごと内包するため
+# 1 枚 1.5〜2.6 MiB になり、827 件 1,288.6 MiB（HEAD の 31%）を追跡していた。読むコードは 1 行も無く
+# （note-publish / note-update-cover / note-cover-gallery / note-lint / check-note-cover-fit /
+# check-note-3set の 3点セットゲートは全て cover*.png のみを見る）、R2 にも同期されていない。
+# 描画デバッグで要るときは generate-note-covers.mjs --emit-svg で .tmp/note-covers/ へ出す。
+# 図版の figure-*.svg は本文が参照する原本なので巻き込まないこと（2026-08-21・DN-0111 Phase 2）。
+content/note/**/img/cover*.svg
+
+# アセット hydrate の cache（DN-0111 Phase 3）。R2 から取ったものの置き場で、消しても
+# R2 から取り直せる。プロキシ不調時はここだけが頼りになるので **勝手に空にしないこと**
+# （asset-hydrate は上限超過時に最終アクセスの古いものだけを落とす）。
+.local/cache/
+
+# 教材（スキャン原本）のページ画像・PDF は private R2（doboku-note-archive）だけに置く。
+# 追跡していたのは 868 件 571.2 MiB で、Git に置く理由が無い——原本は書籍、
+# 文字起こし .md と真正ベクター .svg が SSOT で、ラスタは OCR / crop の中間物。
+# 取り戻すのは書名単位で `npm run asset-hydrate -- --path content/sources/textbook/{書名}/`。
+# .md と .svg は意図的に除外していない（Git に残すのが正）。
+# 2026-08-21・DN-0111 Phase 4-C。
+content/sources/textbook/**/*.png
+content/sources/textbook/**/*.jpg
+content/sources/textbook/**/*.jpeg
+content/sources/textbook/**/*.webp
+content/sources/textbook/**/*.pdf
+
+# note カバー PNG は R2 が保管先（公開済み→doboku-note / 下書き→doboku-note-archive）。
+# 追跡していたのは 827 件 725.5 MiB。frontmatter の cover: ブロックが原本で、PNG は
+# そこからの生成物だが **byte 再現はできない**（実測で 827 件中 9 件が不一致・
+# sharp は package.json が ^0.35.0 なので他マシンでの一致も保証されない）。
+# そのため再生成任せにせず R2 に保管する。取り戻すのは
+#   npm run asset-hydrate -- --group note-cover-png
+# 新規カバーを作ったら退避すること。未退避は check-asset-storage が検出する。
+# 2026-08-21・DN-0111 Phase 4-B。
+content/note/**/img/cover*.png
+
+# note の配布 PDF は private R2（doboku-note-archive）だけに置く。購入者限定の配布物を含む。
+# 追跡していたのは 586 件 273.0 MiB。生成 spec と商品 ID が原本で、PDF はそこからの成果物。
+# note へ添付するときは note-attach-file が自動で取り寄せる（取れなければ note へ書かずに止まる）。
+# 手で取り戻すのは `npm run asset-hydrate -- --group note-delivery-pdf`。
+# 2026-08-21・DN-0111 Phase 4-D。
+content/note/**/*.pdf
+
+# Instagram のレンダー画像は R2 が保管先（投稿済み→doboku-note / それ以外→doboku-note-archive）。
+# 追跡していたのは 1,990 件 234.4 MiB。SoT は slide-data.json と同名 .svg（どちらも Git に残す）。
+# reels/ 配下は別系統（sns-archive-policy / upload-sns-r2）で既に ignore 済み。
+# publish-ig-bs は投稿前に自動で取り寄せ、取れなければ Instagram へ触れずに止まる。
+# 2026-08-21・DN-0111 Phase 4-E。
+content/sns/instagram/**/*.png
+content/sns/instagram/**/*.jpg
+content/sns/instagram/**/*.jpeg
+
+# 教材の原典 PDF は private R2（doboku-note-archive/textbook/）だけに置く。
+# 2026-07 に R2 へ出し、2026-08-22 に git 履歴からも除去した（389 件）。R2 が唯一の実体。
+# `npm run asset-hydrate -- --group textbook-source-pdf` で docs/textbook/ 配下へ取り戻すが、
+# **取り戻したものを再びコミットしないこと**（実測でここが素通りだったので明示的に塞ぐ）。
+docs/textbook/

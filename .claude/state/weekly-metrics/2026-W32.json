@@ -1,0 +1,338 @@
+{
+  "week_id": "2026-W32",
+  "year": 2026,
+  "week": 32,
+  "generated_at": "2026-08-07T01:01:49.920Z",
+  "ranges": {
+    "ga4": {
+      "this": {
+        "start": "2026-07-31",
+        "end": "2026-08-06"
+      },
+      "prev": {
+        "start": "2026-07-24",
+        "end": "2026-07-30"
+      }
+    },
+    "gsc": {
+      "this": {
+        "start": "2026-07-29",
+        "end": "2026-08-04"
+      },
+      "prev": {
+        "start": "2026-07-22",
+        "end": "2026-07-28"
+      }
+    }
+  },
+  "ga4": {
+    "channels": [
+      {
+        "channel": "Organic Search",
+        "thisUsers": 745,
+        "prevUsers": 789,
+        "userDelta": -44,
+        "userDeltaPct": -5.576679340937896,
+        "thisSessions": 1154,
+        "prevSessions": 1175,
+        "thisEngagementRate": 0.6412478336221837
+      },
+      {
+        "channel": "Direct",
+        "thisUsers": 114,
+        "prevUsers": 92,
+        "userDelta": 22,
+        "userDeltaPct": 23.91304347826087,
+        "thisSessions": 139,
+        "prevSessions": 127,
+        "thisEngagementRate": 0.4676258992805755
+      },
+      {
+        "channel": "Referral",
+        "thisUsers": 32,
+        "prevUsers": 55,
+        "userDelta": -23,
+        "userDeltaPct": -41.81818181818181,
+        "thisSessions": 146,
+        "prevSessions": 185,
+        "thisEngagementRate": 0.4452054794520548
+      },
+      {
+        "channel": "AI Assistant",
+        "thisUsers": 13,
+        "prevUsers": 12,
+        "userDelta": 1,
+        "userDeltaPct": 8.333333333333332,
+        "thisSessions": 16,
+        "prevSessions": 12,
+        "thisEngagementRate": 0.625
+      },
+      {
+        "channel": "Organic Social",
+        "thisUsers": 12,
+        "prevUsers": 25,
+        "userDelta": -13,
+        "userDeltaPct": -52,
+        "thisSessions": 18,
+        "prevSessions": 38,
+        "thisEngagementRate": 0.6111111111111112
+      },
+      {
+        "channel": "Unassigned",
+        "thisUsers": 12,
+        "prevUsers": 13,
+        "userDelta": -1,
+        "userDeltaPct": -7.6923076923076925,
+        "thisSessions": 14,
+        "prevSessions": 17,
+        "thisEngagementRate": 0.7142857142857143
+      }
+    ],
+    "total": {
+      "thisUsers": 928,
+      "prevUsers": 986,
+      "thisSessions": 1487,
+      "prevSessions": 1554,
+      "userDelta": -58,
+      "userDeltaPct": -5.88235294117647
+    },
+    "organic": {
+      "channel": "Organic Search",
+      "thisUsers": 745,
+      "prevUsers": 789,
+      "userDelta": -44,
+      "userDeltaPct": -5.576679340937896,
+      "thisSessions": 1154,
+      "prevSessions": 1175,
+      "thisEngagementRate": 0.6412478336221837
+    }
+  },
+  "ga4_jp": {
+    "channels": [
+      {
+        "channel": "Organic Search",
+        "thisUsers": 734,
+        "prevUsers": 787,
+        "userDelta": -53,
+        "userDeltaPct": -6.734434561626429,
+        "thisSessions": 1133,
+        "prevSessions": 1164,
+        "thisEngagementRate": 0.6443071491615181
+      },
+      {
+        "channel": "Direct",
+        "thisUsers": 82,
+        "prevUsers": 79,
+        "userDelta": 3,
+        "userDeltaPct": 3.79746835443038,
+        "thisSessions": 107,
+        "prevSessions": 113,
+        "thisEngagementRate": 0.4766355140186916
+      },
+      {
+        "channel": "Referral",
+        "thisUsers": 32,
+        "prevUsers": 54,
+        "userDelta": -22,
+        "userDeltaPct": -40.74074074074074,
+        "thisSessions": 146,
+        "prevSessions": 181,
+        "thisEngagementRate": 0.4452054794520548
+      },
+      {
+        "channel": "AI Assistant",
+        "thisUsers": 13,
+        "prevUsers": 12,
+        "userDelta": 1,
+        "userDeltaPct": 8.333333333333332,
+        "thisSessions": 16,
+        "prevSessions": 12,
+        "thisEngagementRate": 0.625
+      },
+      {
+        "channel": "Unassigned",
+        "thisUsers": 12,
+        "prevUsers": 12,
+        "userDelta": 0,
+        "userDeltaPct": 0,
+        "thisSessions": 14,
+        "prevSessions": 16,
+        "thisEngagementRate": 0.7142857142857143
+      },
+      {
+        "channel": "Organic Social",
+        "thisUsers": 10,
+        "prevUsers": 23,
+        "userDelta": -13,
+        "userDeltaPct": -56.52173913043478,
+        "thisSessions": 16,
+        "prevSessions": 36,
+        "thisEngagementRate": 0.5625
+      }
+    ],
+    "total": {
+      "thisUsers": 883,
+      "prevUsers": 967,
+      "thisSessions": 1432,
+      "prevSessions": 1522,
+      "userDelta": -84,
+      "userDeltaPct": -8.686659772492245
+    },
+    "organic": {
+      "channel": "Organic Search",
+      "thisUsers": 734,
+      "prevUsers": 787,
+      "userDelta": -53,
+      "userDeltaPct": -6.734434561626429,
+      "thisSessions": 1133,
+      "prevSessions": 1164,
+      "thisEngagementRate": 0.6443071491615181
+    }
+  },
+  "sns": {
+    "sources": [
+      {
+        "source": "note",
+        "thisUsers": 20,
+        "prevUsers": 39,
+        "userDelta": -19,
+        "userDeltaPct": -48.717948717948715,
+        "thisSessions": 56,
+        "prevSessions": 81
+      },
+      {
+        "source": "x",
+        "thisUsers": 5,
+        "prevUsers": 6,
+        "userDelta": -1,
+        "userDeltaPct": -16.666666666666664,
+        "thisSessions": 11,
+        "prevSessions": 16
+      }
+    ],
+    "total": {
+      "thisUsers": 25,
+      "prevUsers": 45,
+      "thisSessions": 67,
+      "userDelta": -20,
+      "userDeltaPct": -44.44444444444444
+    },
+    "snsSources": [
+      "x",
+      "instagram",
+      "youtube",
+      "note"
+    ]
+  },
+  "psi": {
+    "url": "https://doboku-note.com/",
+    "strategy": "mobile",
+    "scores": {
+      "performance": 94,
+      "accessibility": 92,
+      "best_practices": 96,
+      "seo": 100
+    },
+    "lab_data": {
+      "LCP_ms": 2866.2949287074352,
+      "TBT_ms": 11.5,
+      "CLS": 0.01059558800690095,
+      "FCP_ms": 1510.5453051320358,
+      "TTI_ms": 5785.761829740597
+    }
+  },
+  "gsc": {
+    "total": {
+      "thisClicks": 18,
+      "prevClicks": 50,
+      "clickDelta": -32,
+      "clickDeltaPct": -64,
+      "thisImpressions": 483,
+      "prevImpressions": 693,
+      "impressionDelta": -210,
+      "thisCtr": 0.037267080745341616,
+      "prevCtr": 0.07215007215007214,
+      "thisPosition": 28.250517598343684,
+      "prevPosition": 15.380952380952381
+    },
+    "topQueries": [
+      {
+        "query": "優劣分岐点とは",
+        "clicks": 3,
+        "impressions": 6,
+        "ctr": 0.5,
+        "position": 7.166666666666667
+      },
+      {
+        "query": "スクレーパとは",
+        "clicks": 1,
+        "impressions": 1,
+        "ctr": 1,
+        "position": 15
+      },
+      {
+        "query": "1級 2級土木施工管理技士",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 85
+      },
+      {
+        "query": "alarp",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 67
+      },
+      {
+        "query": "cbm とは 保全",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 83.5
+      },
+      {
+        "query": "cbm 予知保全",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 79
+      },
+      {
+        "query": "dr0 dr1 dr2 dr3 dr4",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 25
+      },
+      {
+        "query": "tbmとは",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 81.5
+      },
+      {
+        "query": "tbmとは 保全",
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 86
+      },
+      {
+        "query": "vta 分析",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 23
+      }
+    ]
+  },
+  "notes": [
+    "GSC データは 3 日遅延のため、直近期間は 2026-07-29 〜 2026-08-04 を採用",
+    "NSM = Organic Search の activeUsers (definition.md 準拠)",
+    "ga4_jp は country=Japan フィルタ版（bot 流入の影響を受けにくい母数）。incident 2026-04-26 を参照",
+    "sns は sessionSource を SNS source 集合(utm-templates.json)+Japan に絞った source 別 WoW",
+    "PSI は site root 1 URL をモバイル計測（trafficが増えたら field_data も出現）"
+  ]
+}

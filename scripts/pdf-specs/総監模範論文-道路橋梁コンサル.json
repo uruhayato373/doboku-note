@@ -1,0 +1,18 @@
+{
+  "srcDir": "content/note/技術士総監/magazines/総監模範論文-道路橋梁コンサル",
+  "deliverTo": "in-place",
+  "articles": [
+    { "src": "R03/article.md", "out": "模範論文-道路橋梁コンサル-R03", "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }] },
+    { "src": "R04/article.md", "out": "模範論文-道路橋梁コンサル-R04", "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }] },
+    { "src": "R05/article.md", "out": "模範論文-道路橋梁コンサル-R05", "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }] },
+    { "src": "R06/article.md", "out": "模範論文-道路橋梁コンサル-R06", "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }] },
+    { "src": "R07/article.md", "out": "模範論文-道路橋梁コンサル-R07", "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }] },
+    { "src": "R08-yosou-1/article.md", "out": "模範論文-道路橋梁コンサル-R08予想1-気候変動", "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }] },
+    { "src": "R08-yosou-2/article.md", "out": "模範論文-道路橋梁コンサル-R08予想2-資源循環", "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }] },
+    {
+      "src": "R08-yosou-3/article.md",
+      "out": "模範論文-道路橋梁コンサル-R08予想3-老朽化インフラ・予防保全",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    }
+  ]
+}

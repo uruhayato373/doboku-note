@@ -1,0 +1,85 @@
+---
+title: サービス品質・サービス特性
+description: "サービス品質・サービス特性の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.2'
+tags:
+  - keyword
+published: false
+publishedAt: '2026-04-09'
+reviewStatus: approved
+lastRewrittenAt: '2026-04-16'
+revisionCycle: 1
+seoTitle: サービス品質・サービス特性 ｜ 総合技術監理 キーワード集 2026
+created: 2026-04-05
+dateModified: 2026-06-09
+---
+
+## サービス品質とは
+
+サービス品質（Service Quality）とは、顧客の**期待と知覚のギャップ**により評価される品質である。
+
+有形財と異なり、サービスは無形・非貯蔵であるため、品質評価に固有の手法が必要となる。
+
+## サービス品質の5つの次元
+
+Parasuraman・Zeithaml・Berry（PZB、1988）が提唱した SERVQUAL は、サービス品質を以下 5 次元で評価する。
+
+| 次元 | 内容 |
+|---|---|
+| **信頼性** | 約束したサービスを正確に提供する能力 |
+| **応答性** | 顧客の要望に迅速に対応する姿勢 |
+| **確実性** | 知識・礼儀正しさ・信頼感を与える能力 |
+| **共感性** | 顧客への個別的な配慮・理解 |
+| **有形性** | 施設・設備・人員の外見 |
+
+## サービス特性
+
+サービスは工業製品と異なる以下の特性を持つ。
+
+- **無形性（intangibility）**：形がなく事前に品質を確認できない
+- **同時性（inseparability）**：生産と消費が同時に行われる
+- **変動性／異質性（heterogeneity）**：提供者・状況により品質にばらつきが生じる
+- **消滅性（perishability）**：在庫として保存できない
+- **共同生産性**：生産者と顧客の相互作用によって便益・満足が生み出される
+- **不可逆性**：提供されたサービスは元に戻すことができない
+
+<Callout type="warn">
+R04 Ⅰ-1-5 の正答核心：サービスには**変動性**があるため、**同一品質のサービスを安定して繰り返し提供することは困難**である（正答肢「同一のサービスを安定して繰り返し提供することが容易」は不適切）。
+
+工業製品は標準化された工程で同一品質を再現できるが、サービスは提供者・顧客・状況に依存するため、統計的品質管理（SQC）だけで変動を抑え切れない。
+</Callout>
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**2.2 品質の管理**](/docs/pe-comprehensive-management-keyword-2026#22-品質の管理)に位置づけられている。
+
+サービス品質は [要求品質](/docs/pe-comprehensive-management-required-quality) の一形態であるが、無形性ゆえに [品質特性](/docs/pe-comprehensive-management-quality-characteristics) の定量化が困難である。アフターサービス・ビフォアサービス もサービス品質の構成要素となる。過去問 [R04 Ⅰ-1-5](/docs/pe-comprehensive-management-r04-primary#1-5) ではサービスの 4 大特性（無形性・同時性・異質性・消滅性）とそれに対応する品質管理上の困難さが問われた。
+
+PZB のギャップモデル（1985）の考え方は、総合技術監理の品質管理において「要求品質と設計品質のズレ」「設計品質と実現品質のズレ」を識別する際の基本的な思考枠組みと共通している。技術サービス（コンサルティング・施工管理・維持管理等）の品質確保を検討する際にも、サービス特有の無形性・同時性・変動性を踏まえた評価設計が求められる。
+
+<ExamPoint
+  summary="サービス特性は工業製品との違いを理解することが核心"
+  items={[
+    "SERVQUAL の 5 次元（信頼性・応答性・確実性・共感性・有形性）で評価する",
+    "無形性・同時性・変動性・消滅性の 4 特性 + 共同生産性・不可逆性が工業製品との根本的違い",
+    "変動性により同一品質の繰り返し提供は困難（R04 Ⅰ-1-5 正答核心）",
+    "サービス品質＝期待 − 知覚のギャップモデル（PZB 1985）",
+    "同時性により製造と検査を分離できない点がサービス固有の課題",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "品質特性", slug: "quality-characteristics" },
+  { label: "アフターサービス", slug: "after-service" },
+  { label: "ビフォアサービス", slug: "before-service" },
+  { label: "管理限界", slug: "control-limits" },
+  { label: "設計品質", slug: "design-quality" },
+]} />
+
+## 参考資料
+
+- [ISO 9001（品質マネジメントシステム）](https://www.jisc.go.jp/mss/qms-9000.html)（日本産業標準調査会 JISC：品質マネジメントの国際規格）
+- [SERVQUAL（Zeithaml Parasuraman Berry）要約とフォーラム](https://www.12manage.com/methods_zeithaml_servqual_ja.html)（12manage：SERVQUAL 5 次元とギャップモデルの実務解説）

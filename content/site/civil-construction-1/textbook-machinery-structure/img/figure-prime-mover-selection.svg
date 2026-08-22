@@ -1,0 +1,52 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="原動機の使い分け。通常の建設機械はディーゼルエンジン、小型の機械にはガソリンエンジンが用いられることがあり、定置式の機械や排気ガスを嫌う閉所では電動機が用いられる。排出ガス規制の対象は窒素酸化物・炭化水素・一酸化炭素・粒子状物質・黒煙である">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-tag  { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .box-1 { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-2 { fill: #ffffff; stroke: #8a8a8a; stroke-width: 1.5; }
+      .box-3 { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">使用条件によって原動機を選ぶ</text>
+
+  <rect class="box-1" x="20" y="28" width="360" height="112" rx="6"/>
+  <text class="t-name" x="36" y="54">ディーゼルエンジン</text>
+  <text class="t-tag" x="364" y="54" text-anchor="end">通常の建設機械</text>
+  <text class="t-desc" x="36" y="78">高効率で燃料費が安く、二酸化炭素の排出量も少ない</text>
+  <text class="t-desc" x="36" y="98">頑丈な構造で過酷な使われ方に耐える</text>
+  <text class="t-desc" x="36" y="118">建設機械用は4サイクル方式が主</text>
+  <text class="t-desc" x="36" y="134">負荷への即応性・耐久性・メンテナンス性がよい</text>
+
+  <rect class="box-2" x="20" y="150" width="360" height="66" rx="6"/>
+  <text class="t-name" x="36" y="176">ガソリンエンジン</text>
+  <text class="t-tag" x="364" y="176" text-anchor="end">小型の機械</text>
+  <text class="t-desc" x="36" y="200">圧縮比が低く電気火花で点火。熱効率はディーゼルより低い</text>
+
+  <rect class="box-3" x="20" y="226" width="360" height="112" rx="6"/>
+  <text class="t-name" x="36" y="252">電動機（モータ）</text>
+  <text class="t-tag" x="364" y="252" text-anchor="end">定置式・閉所</text>
+  <text class="t-desc" x="36" y="276">コンクリートプラント・骨材プラント・ケーブルクレーン</text>
+  <text class="t-desc" x="36" y="296">機動性を多く必要としない大型機械</text>
+  <text class="t-desc" x="36" y="316">排気ガスを嫌うトンネル工事などの閉所</text>
+  <text class="t-desc" x="36" y="332">別途電源設備が必要で、走行機械では移動用ケーブルが要る</text>
+
+  <rect class="box-surf" x="20" y="352" width="360" height="130" rx="6"/>
+  <text class="t-sec" x="200" y="376" text-anchor="middle">排出ガス規制と対策の違い</text>
+  <line class="rule" x1="36" y1="385" x2="364" y2="385"/>
+  <text class="t-item" x="40" y="410">規制対象　NOx・HC・CO・粒子状物質（PM）・黒煙</text>
+  <text class="t-item" x="40" y="436">ガソリン　三元触媒でNOx・HC・COをほぼ100%除去</text>
+  <text class="t-item" x="40" y="460">ディーゼル　後処理が難しくエンジン自体の改良が主体</text>
+  <text class="t-desc" x="40" y="476">（噴射タイミングの工夫・多噴孔化など）</text>
+</svg>

@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+    <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+        <polygon points="0 0, 10 3.5, 0 7" fill="#2e6da4"/>
+      </marker>
+    </defs>
+    <rect width="1280" height="720" fill="#ffffff"/>
+    <!-- brand accent bar -->
+
+    <!-- title -->
+    <text x="60" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#222222">口頭試験 20 分の時間配分</text>
+    <text x="60" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">4 つの試問事項 — 各 5 分で総監の専門能力を確認する</text>
+
+    <!-- highlight callout -->
+    <rect x="60" y="128" width="1160" height="40" rx="6" fill="#e8f0fe"/>
+    <text x="80" y="154" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="600" fill="#1a3a5c">準備なしで臨むと曖昧な回答を重ねて時間切れ — 事前の棚卸しが 20 分を制する</text>
+
+    <!-- time axis -->
+    
+      <line x1="60" y1="252" x2="60" y2="260" stroke="#8a8a8a" stroke-width="1.5"/>
+      <text x="60" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" fill="#8a8a8a" text-anchor="middle">0 分</text>
+    
+      <line x1="350" y1="252" x2="350" y2="260" stroke="#8a8a8a" stroke-width="1.5"/>
+      <text x="350" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" fill="#8a8a8a" text-anchor="middle">5 分</text>
+    
+      <line x1="640" y1="252" x2="640" y2="260" stroke="#8a8a8a" stroke-width="1.5"/>
+      <text x="640" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" fill="#8a8a8a" text-anchor="middle">10 分</text>
+    
+      <line x1="930" y1="252" x2="930" y2="260" stroke="#8a8a8a" stroke-width="1.5"/>
+      <text x="930" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" fill="#8a8a8a" text-anchor="middle">15 分</text>
+    
+      <line x1="1220" y1="252" x2="1220" y2="260" stroke="#8a8a8a" stroke-width="1.5"/>
+      <text x="1220" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" fill="#8a8a8a" text-anchor="middle">20 分</text>
+    
+
+    <!-- timeline bar segments -->
+    
+      <!-- segment: 経歴説明 -->
+      <rect x="60" y="260" width="290" height="140" fill="#1a3a5c" rx="8" />
+      
+      <!-- label lines in bar -->
+      <text x="205" y="306" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">経歴説明</text>
+      <!-- minutes label -->
+      <text x="205" y="384" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle" opacity="0.85">5 分</text>
+      <!-- detail below bar -->
+      <text x="205" y="444" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">業務経歴票をもとに</text><text x="205" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">2〜3 分でプレゼン</text>
+    
+      <!-- segment: 総監的視点
+での業務管理 -->
+      <rect x="350" y="260" width="290" height="140" fill="#2e6da4" rx="0" />
+      
+      <!-- label lines in bar -->
+      <text x="495" y="306" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">総監的視点</text><text x="495" y="342" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">での業務管理</text>
+      <!-- minutes label -->
+      <text x="495" y="384" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle" opacity="0.85">5 分</text>
+      <!-- detail below bar -->
+      <text x="495" y="444" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">5 管理のフレームワーク</text><text x="495" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">と管理間トレードオフ</text>
+    
+      <!-- segment: 応用能力
+への質疑 -->
+      <rect x="640" y="260" width="290" height="140" fill="#3a7d44" rx="0" />
+      
+      <!-- label lines in bar -->
+      <text x="785" y="306" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">応用能力</text><text x="785" y="342" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">への質疑</text>
+      <!-- minutes label -->
+      <text x="785" y="384" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle" opacity="0.85">5 分</text>
+      <!-- detail below bar -->
+      <text x="785" y="444" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">総監技術士としての</text><text x="785" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">判断力・俯瞰力</text>
+    
+      <!-- segment: 技術者倫理
+・CPD -->
+      <rect x="930" y="260" width="290" height="140" fill="#d4a017" rx="0" />
+      <rect x="1212" y="260" width="8" height="140" fill="#d4a017" rx="0"/>
+           <rect x="930" y="260" width="290" height="140" rx="0" fill="#d4a017"/>
+           <rect x="1212" y="260" width="8" height="140" fill="#d4a017" rx="0"/>
+           
+      <!-- label lines in bar -->
+      <text x="1075" y="306" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">技術者倫理</text><text x="1075" y="342" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">・CPD</text>
+      <!-- minutes label -->
+      <text x="1075" y="384" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="600" fill="#ffffff" text-anchor="middle" opacity="0.85">5 分</text>
+      <!-- detail below bar -->
+      <text x="1075" y="444" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">公益確保の姿勢</text><text x="1075" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">継続研鑽の実績</text>
+    
+    <line x1="350" y1="260" x2="350" y2="400" stroke="#ffffff" stroke-width="2"/><line x1="640" y1="260" x2="640" y2="400" stroke="#ffffff" stroke-width="2"/><line x1="930" y1="260" x2="930" y2="400" stroke="#ffffff" stroke-width="2"/>
+
+    <!-- highlight arrow -->
+    
+    <!-- 強調矢印 -->
+    <line x1="495" y1="210" x2="495" y2="250" stroke="#2e6da4" stroke-width="2.5" marker-end="url(#arrowhead)"/>
+    <text x="495" y="198" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="700" fill="#2e6da4" text-anchor="middle">ここが総監の核心</text>
+  
+
+    <!-- watermark -->
+    <text x="1220" y="696" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+  </svg>

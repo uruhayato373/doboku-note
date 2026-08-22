@@ -1,0 +1,1864 @@
+{
+  "account": "dobokunotecom",
+  "at": "2026-06-29T12:05:30.487Z",
+  "counts": {
+    "published_recorded": 16,
+    "published_UNrecorded": 25,
+    "draft_misrecorded": 0,
+    "scheduled": 33,
+    "unpublished": 0,
+    "recorded_but_gone": 0,
+    "type_mismatch": 0,
+    "anomaly": 0,
+    "reel_gap": 23,
+    "reel_built_unposted": 42
+  },
+  "live": {
+    "posts": 57,
+    "scheduledByDay": {
+      "6日": [
+        "9:35"
+      ],
+      "10日": [
+        "7:30",
+        "21:00"
+      ],
+      "11日": [
+        "7:30",
+        "21:00"
+      ],
+      "13日": [
+        "7:30"
+      ],
+      "20日": [
+        "21:00"
+      ],
+      "21日": [
+        "7:30",
+        "21:01"
+      ],
+      "22日": [
+        "7:30"
+      ],
+      "23日": [
+        "14:47"
+      ],
+      "24日": [
+        "10:08",
+        "17:42"
+      ],
+      "25日": [
+        "10:20",
+        "10:59",
+        "11:29",
+        "15:12"
+      ],
+      "26日": [
+        "7:30",
+        "12:01",
+        "17:01",
+        "19:00"
+      ],
+      "27日": [
+        "12:01",
+        "17:01",
+        "19:00",
+        "20:00"
+      ],
+      "28日": [
+        "7:30",
+        "12:01",
+        "17:01",
+        "19:00"
+      ],
+      "29日": [
+        "7:30",
+        "10:55",
+        "11:07",
+        "11:40"
+      ],
+      "30日": [
+        "1:00",
+        "7:30",
+        "12:00",
+        "19:00"
+      ],
+      "1日": [
+        "12:00",
+        "19:00"
+      ],
+      "2日": [
+        "21:00",
+        "12:00",
+        "19:00"
+      ],
+      "3日": [
+        "12:00",
+        "19:00"
+      ],
+      "4日": [
+        "19:00"
+      ]
+    }
+  },
+  "cats": {
+    "published_recorded": [
+      {
+        "rel": "cem/keyword-packs/accident-statistics",
+        "head": "労働災害の3統計指標を完全整理",
+        "recordedShortcode": "DaJ_Bxnk4AF",
+        "recordedUrl": "https://www.instagram.com/p/DaJ_Bxnk4AF/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/cash-flow-statement",
+        "head": "キャッシュフロー計算書の3区分を完全整理",
+        "recordedShortcode": "DZ8xtZzk0JY",
+        "recordedUrl": "https://www.instagram.com/p/DZ8xtZzk0JY/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": "2026-06-26T12:00:00.000+09:00",
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/keyword-packs/development-process-models",
+        "head": "開発プロセスモデル4種を完全整理",
+        "recordedShortcode": "DaJvDcVE39n",
+        "recordedUrl": "https://www.instagram.com/p/DaJvDcVE39n/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/environmental-basic-plan",
+        "head": "環境政策の実施手法7類型を完全整理",
+        "recordedShortcode": "DZ_X8OLkzr5",
+        "recordedUrl": "https://www.instagram.com/p/DZ_X8OLkzr5/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/fail-safe",
+        "head": "フェールセーフとは何か高信頼化6方策を図解",
+        "recordedShortcode": "DZ_cXGTkwPM",
+        "recordedUrl": "https://www.instagram.com/p/DZ_cXGTkwPM/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/job-vs-membership",
+        "head": "ジョブ型vsメンバーシップ型を完全整理",
+        "recordedShortcode": "DaJwfusk_q5",
+        "recordedUrl": "https://www.instagram.com/p/DaJwfusk_q5/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/labor-relations-adjustment-act",
+        "head": "労働争議の調整手続きあっせん調停仲裁を完全整理",
+        "recordedShortcode": "DaAHWq_k0gl",
+        "recordedUrl": "https://www.instagram.com/p/DaAHWq_k0gl/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/maslow-hierarchy-of-needs",
+        "head": "マズローの欲求5段階説を完全整理",
+        "recordedShortcode": "DaACtxTE2NS",
+        "recordedUrl": "https://www.instagram.com/p/DaACtxTE2NS/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": "2026-06-25T12:00:00.000+09:00",
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/keyword-packs/mcgregor-xy-theory",
+        "head": "マクレガーのX理論Y理論を完全整理",
+        "recordedShortcode": "DZ6s6sEE94E",
+        "recordedUrl": "https://www.instagram.com/p/DZ6s6sEE94E/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": "2026-06-26T17:00:00.000+09:00",
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/keyword-packs/mtbf-mttr-availability",
+        "head": "MTBFMTTRと稼働率の関係を完全整理",
+        "recordedShortcode": "DaKBy0Tk27W",
+        "recordedUrl": "https://www.instagram.com/p/DaKBy0Tk27W/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/organization-types",
+        "head": "4つの組織形態を完全整理",
+        "recordedShortcode": "DaJ0M7bk4cs",
+        "recordedUrl": "https://www.instagram.com/p/DaJ0M7bk4cs/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/organizational-commitment",
+        "head": "組織コミットメントの3要素を完全整理",
+        "recordedShortcode": "DaJ2ltME67K",
+        "recordedUrl": "https://www.instagram.com/p/DaJ2ltME67K/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/osh-management-system",
+        "head": "労働安全衛生管理システムOSHMSを完全整理",
+        "recordedShortcode": "DZ_5TDSEy8X",
+        "recordedUrl": "https://www.instagram.com/p/DZ_5TDSEy8X/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/patent-vs-utility-model",
+        "head": "特許権と実用新案権の違い説明できますか",
+        "recordedShortcode": "DZ9looEE436",
+        "recordedUrl": "https://www.instagram.com/p/DZ9looEE436/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": "2026-06-28T12:00:00.000+09:00",
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/keyword-packs/pfi",
+        "head": "PFI事業の4方式を完全整理",
+        "recordedShortcode": "DZ_9zDzE-To",
+        "recordedUrl": "https://www.instagram.com/p/DZ_9zDzE-To/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/risk-perception",
+        "head": "なぜ人は大丈夫と思ってしまうのか",
+        "recordedShortcode": "DZ_fvFtky5Y",
+        "recordedUrl": "https://www.instagram.com/p/DZ_fvFtky5Y/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      }
+    ],
+    "published_UNrecorded": [
+      {
+        "rel": "cem/exam-packs/r03/pack-01",
+        "head": "令和3年度択一式過去問R03過去問1",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-26T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DaDF5_GD5TW"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r03/pack-03",
+        "head": "令和3年度択一式過去問R03過去問3",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-27T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DaFqycYjYtR"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r03/pack-04",
+        "head": "令和3年度択一式過去問R03過去問4",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-28T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DaGyyJgE21K"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r03/pack-05",
+        "head": "令和3年度択一式過去問R03過去問5",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-28T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DaIPfztl6Vm"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r03/pack-06",
+        "head": "令和3年度択一式過去問R03過去問6",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-29T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DaJXlOsDVBw"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r03/pack-07",
+        "head": "令和3年度択一式過去問R03過去問7",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-29T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DaK0SXdCBER"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r04/pack-07",
+        "head": "令和4年度択一式過去問R04過去問7",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-25T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DaAhJiDD-AZ"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r04/pack-08",
+        "head": "令和4年度択一式過去問R04過去問8",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-26T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DaBpMNYDUTP"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r05/pack-01",
+        "head": "令和5年度択一式過去問R05過去問1",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-19T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DY8S1zek1Pt"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r05/pack-04",
+        "head": "令和5年度択一式過去問R05過去問4",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-20T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DZzpIM3Aeyb"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r05/pack-05",
+        "head": "令和5年度択一式過去問R05過去問5",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-21T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DZ0xNwGD0Jx"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r05/pack-06",
+        "head": "令和5年度択一式過去問R05過去問6",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-21T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DZ2OC4uD1Fi"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r05/pack-07",
+        "head": "令和5年度択一式過去問R05過去問7",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-22T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DZ3WA-gDZ3t"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r06/pack-06",
+        "head": "令和6年度択一式過去問R06過去問6",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-17T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DY3-dO4k0jP"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r06/pack-08",
+        "head": "令和6年度択一式過去問R06過去問8",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-18T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DY3-pzQE6tV"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r06/pack-09",
+        "head": "令和6年度択一式過去問R06過去問9",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-18T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DY3-z69k9iO"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r07/pack-01",
+        "head": "令和7年度択一式過去問R07過去問1",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-10T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DZYceJElGVN"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r07/pack-02",
+        "head": "令和7年度択一式過去問R07過去問2",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-10T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DZZ5P5JDVsl"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r07/pack-03",
+        "head": "令和7年度択一式過去問R07過去問3",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-11T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DZbBRNwDQMI"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r07/pack-04",
+        "head": "令和7年度択一式過去問R07過去問4",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-11T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DZceCk2iFdL"
+        ]
+      },
+      {
+        "rel": "cem/exam-packs/r07/pack-07",
+        "head": "令和7年度択一式過去問R07過去問7",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-13T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true,
+        "matched": [
+          "DZgK3A5DFLg"
+        ]
+      },
+      {
+        "rel": "cem/keyword-packs/herzberg-two-factor-theory",
+        "head": "ハーズバーグの二要因理論を完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-26T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": "2026-06-27T12:00:00.000+09:00",
+        "reelMaterial": true,
+        "matched": [
+          "DaC4KcbGB76"
+        ]
+      },
+      {
+        "rel": "cem/keyword-packs/new-qc-seven-tools",
+        "head": "新QC七つ道具を完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-28T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": "2026-06-27T17:00:00.000+09:00",
+        "reelMaterial": true,
+        "matched": [
+          "DaIBw4Cgv1h"
+        ]
+      },
+      {
+        "rel": "cem/keyword-packs/npv-net-present-value",
+        "head": "NPV正味現在価値を完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-27T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": "2026-06-29T12:00:00.000+09:00",
+        "reelMaterial": true,
+        "matched": [
+          "DaFc-k2gHNH"
+        ]
+      },
+      {
+        "rel": "cem/keyword-packs/pull-push-production",
+        "head": "プル型vsプッシュ型生産方式の違い",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-29T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": "2026-06-28T17:00:00.000+09:00",
+        "reelMaterial": true,
+        "matched": [
+          "DaKmjSriJuJ"
+        ]
+      }
+    ],
+    "draft_misrecorded": [],
+    "scheduled": [
+      {
+        "rel": "cem/exam-packs/r03/pack-02",
+        "head": "令和3年度択一式過去問R03過去問2",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-27T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r03/pack-08",
+        "head": "令和3年度択一式過去問R03過去問8",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-30T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r03/pack-09",
+        "head": "令和3年度択一式過去問R03過去問9",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-30T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r04/pack-01",
+        "head": "令和4年度択一式過去問R04過去問1",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-22T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r04/pack-02",
+        "head": "令和4年度択一式過去問R04過去問2",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-23T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r04/pack-03",
+        "head": "令和4年度択一式過去問R04過去問3",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-23T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r04/pack-04",
+        "head": "令和4年度択一式過去問R04過去問4",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-24T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r04/pack-05",
+        "head": "令和4年度択一式過去問R04過去問5",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-24T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r04/pack-06",
+        "head": "令和4年度択一式過去問R04過去問6",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-25T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r05/pack-02",
+        "head": "令和5年度択一式過去問R05過去問2",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-19T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r05/pack-03",
+        "head": "令和5年度択一式過去問R05過去問3",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-20T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r06/pack-01",
+        "head": "令和6年度択一式過去問R06過去問1",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-14T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r06/pack-02",
+        "head": "令和6年度択一式過去問R06過去問2",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-15T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r06/pack-03",
+        "head": "令和6年度択一式過去問R06過去問3",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-15T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r06/pack-04",
+        "head": "令和6年度択一式過去問R06過去問4",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-16T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r06/pack-05",
+        "head": "令和6年度択一式過去問R06過去問5",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-16T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r06/pack-07",
+        "head": "令和6年度択一式過去問R06過去問7",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-17T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r07/pack-05",
+        "head": "令和7年度択一式過去問R07過去問5",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-12T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r07/pack-06",
+        "head": "令和7年度択一式過去問R07過去問6",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-12T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r07/pack-08",
+        "head": "令和7年度択一式過去問R07過去問8",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-13T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r07/pack-09",
+        "head": "令和7年度択一式過去問R07過去問9",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-14T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/keyword-packs/data-analysis-method-selection",
+        "head": "データ分析手法の使い分けを完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-04T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/disaster-weather-info",
+        "head": "新しい防災気象情報2026年5月29日〜を完全整",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-05T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/four-p-analysis",
+        "head": "4Pと4Cの対応関係を完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-06T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/iso-14000",
+        "head": "ISO14001環境マネジメントシステムEMSを",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-30T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/marketing-frameworks",
+        "head": "マーケティング分析フレームの見分け方を完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-07T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/ppm-analysis",
+        "head": "PPM分析BCGマトリクスを完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-08T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/renewable-energy-act",
+        "head": "FITとFIPの違い正確に言えますか",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-01T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/rio-declaration",
+        "head": "環境の国際条約を年表で総整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-03T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": "https://www.instagram.com/p/DaAFq59EuIO/",
+        "reelScheduledAt": "2026-06-25T17:00:00.000+09:00",
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/keyword-packs/sexual-harassment",
+        "head": "セクハラの2類型対価型環境型を完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-02T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/swot-analysis",
+        "head": "SWOT分析を完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-09T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/system-safety-methods",
+        "head": "システム安全工学手法を完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-10T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/three-c-analysis",
+        "head": "3C分析を完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-11T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      }
+    ],
+    "unpublished": [],
+    "recorded_but_gone": [],
+    "type_mismatch": [],
+    "anomaly": [],
+    "reel_gap": [
+      {
+        "rel": "cem/keyword-packs/accident-statistics",
+        "head": "労働災害の3統計指標を完全整理",
+        "recordedShortcode": "DaJ_Bxnk4AF",
+        "recordedUrl": "https://www.instagram.com/p/DaJ_Bxnk4AF/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/data-analysis-method-selection",
+        "head": "データ分析手法の使い分けを完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-04T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/development-process-models",
+        "head": "開発プロセスモデル4種を完全整理",
+        "recordedShortcode": "DaJvDcVE39n",
+        "recordedUrl": "https://www.instagram.com/p/DaJvDcVE39n/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/disaster-weather-info",
+        "head": "新しい防災気象情報2026年5月29日〜を完全整",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-05T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/environmental-basic-plan",
+        "head": "環境政策の実施手法7類型を完全整理",
+        "recordedShortcode": "DZ_X8OLkzr5",
+        "recordedUrl": "https://www.instagram.com/p/DZ_X8OLkzr5/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/fail-safe",
+        "head": "フェールセーフとは何か高信頼化6方策を図解",
+        "recordedShortcode": "DZ_cXGTkwPM",
+        "recordedUrl": "https://www.instagram.com/p/DZ_cXGTkwPM/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/four-p-analysis",
+        "head": "4Pと4Cの対応関係を完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-06T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/iso-14000",
+        "head": "ISO14001環境マネジメントシステムEMSを",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-30T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/job-vs-membership",
+        "head": "ジョブ型vsメンバーシップ型を完全整理",
+        "recordedShortcode": "DaJwfusk_q5",
+        "recordedUrl": "https://www.instagram.com/p/DaJwfusk_q5/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/labor-relations-adjustment-act",
+        "head": "労働争議の調整手続きあっせん調停仲裁を完全整理",
+        "recordedShortcode": "DaAHWq_k0gl",
+        "recordedUrl": "https://www.instagram.com/p/DaAHWq_k0gl/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/marketing-frameworks",
+        "head": "マーケティング分析フレームの見分け方を完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-07T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/mtbf-mttr-availability",
+        "head": "MTBFMTTRと稼働率の関係を完全整理",
+        "recordedShortcode": "DaKBy0Tk27W",
+        "recordedUrl": "https://www.instagram.com/p/DaKBy0Tk27W/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/organization-types",
+        "head": "4つの組織形態を完全整理",
+        "recordedShortcode": "DaJ0M7bk4cs",
+        "recordedUrl": "https://www.instagram.com/p/DaJ0M7bk4cs/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/organizational-commitment",
+        "head": "組織コミットメントの3要素を完全整理",
+        "recordedShortcode": "DaJ2ltME67K",
+        "recordedUrl": "https://www.instagram.com/p/DaJ2ltME67K/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/osh-management-system",
+        "head": "労働安全衛生管理システムOSHMSを完全整理",
+        "recordedShortcode": "DZ_5TDSEy8X",
+        "recordedUrl": "https://www.instagram.com/p/DZ_5TDSEy8X/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/pfi",
+        "head": "PFI事業の4方式を完全整理",
+        "recordedShortcode": "DZ_9zDzE-To",
+        "recordedUrl": "https://www.instagram.com/p/DZ_9zDzE-To/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/ppm-analysis",
+        "head": "PPM分析BCGマトリクスを完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-08T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/renewable-energy-act",
+        "head": "FITとFIPの違い正確に言えますか",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-01T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/risk-perception",
+        "head": "なぜ人は大丈夫と思ってしまうのか",
+        "recordedShortcode": "DZ_fvFtky5Y",
+        "recordedUrl": "https://www.instagram.com/p/DZ_fvFtky5Y/",
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/sexual-harassment",
+        "head": "セクハラの2類型対価型環境型を完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-02T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/swot-analysis",
+        "head": "SWOT分析を完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-09T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/system-safety-methods",
+        "head": "システム安全工学手法を完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-10T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "cem/keyword-packs/three-c-analysis",
+        "head": "3C分析を完全整理",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-07-11T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      }
+    ],
+    "reel_built_unposted": [
+      {
+        "rel": "cem/exam-packs/r03/pack-01",
+        "head": "令和3年度択一式過去問R03過去問1",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-26T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r03/pack-02",
+        "head": "令和3年度択一式過去問R03過去問2",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-27T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r03/pack-03",
+        "head": "令和3年度択一式過去問R03過去問3",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-27T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r03/pack-04",
+        "head": "令和3年度択一式過去問R03過去問4",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-28T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r03/pack-05",
+        "head": "令和3年度択一式過去問R03過去問5",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-28T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r03/pack-06",
+        "head": "令和3年度択一式過去問R03過去問6",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-29T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r03/pack-07",
+        "head": "令和3年度択一式過去問R03過去問7",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-29T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r03/pack-08",
+        "head": "令和3年度択一式過去問R03過去問8",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-30T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r03/pack-09",
+        "head": "令和3年度択一式過去問R03過去問9",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-30T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r04/pack-01",
+        "head": "令和4年度択一式過去問R04過去問1",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-22T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r04/pack-02",
+        "head": "令和4年度択一式過去問R04過去問2",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-23T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r04/pack-03",
+        "head": "令和4年度択一式過去問R04過去問3",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-23T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r04/pack-04",
+        "head": "令和4年度択一式過去問R04過去問4",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-24T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r04/pack-05",
+        "head": "令和4年度択一式過去問R04過去問5",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-24T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r04/pack-06",
+        "head": "令和4年度択一式過去問R04過去問6",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-25T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r04/pack-07",
+        "head": "令和4年度択一式過去問R04過去問7",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-25T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r04/pack-08",
+        "head": "令和4年度択一式過去問R04過去問8",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-26T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r05/pack-01",
+        "head": "令和5年度択一式過去問R05過去問1",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-19T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r05/pack-02",
+        "head": "令和5年度択一式過去問R05過去問2",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-19T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r05/pack-03",
+        "head": "令和5年度択一式過去問R05過去問3",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-20T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r05/pack-04",
+        "head": "令和5年度択一式過去問R05過去問4",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-20T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r05/pack-05",
+        "head": "令和5年度択一式過去問R05過去問5",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-21T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r05/pack-06",
+        "head": "令和5年度択一式過去問R05過去問6",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-21T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r05/pack-07",
+        "head": "令和5年度択一式過去問R05過去問7",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-22T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r06/pack-01",
+        "head": "令和6年度択一式過去問R06過去問1",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-14T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r06/pack-02",
+        "head": "令和6年度択一式過去問R06過去問2",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-15T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r06/pack-03",
+        "head": "令和6年度択一式過去問R06過去問3",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-15T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r06/pack-04",
+        "head": "令和6年度択一式過去問R06過去問4",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-16T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r06/pack-05",
+        "head": "令和6年度択一式過去問R06過去問5",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-16T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r06/pack-06",
+        "head": "令和6年度択一式過去問R06過去問6",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-17T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r06/pack-07",
+        "head": "令和6年度択一式過去問R06過去問7",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-17T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r06/pack-08",
+        "head": "令和6年度択一式過去問R06過去問8",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-18T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r06/pack-09",
+        "head": "令和6年度択一式過去問R06過去問9",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-18T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r07/pack-01",
+        "head": "令和7年度択一式過去問R07過去問1",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-10T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r07/pack-02",
+        "head": "令和7年度択一式過去問R07過去問2",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-10T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r07/pack-03",
+        "head": "令和7年度択一式過去問R07過去問3",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-11T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r07/pack-04",
+        "head": "令和7年度択一式過去問R07過去問4",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-11T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r07/pack-05",
+        "head": "令和7年度択一式過去問R07過去問5",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-12T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r07/pack-06",
+        "head": "令和7年度択一式過去問R07過去問6",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-12T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r07/pack-07",
+        "head": "令和7年度択一式過去問R07過去問7",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-13T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r07/pack-08",
+        "head": "令和7年度択一式過去問R07過去問8",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-13T21:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      },
+      {
+        "rel": "cem/exam-packs/r07/pack-09",
+        "head": "令和7年度択一式過去問R07過去問9",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-06-14T07:30:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "generated_at": "2026-04-14T13:23:04.823Z",
+  "results": [
+    {
+      "url": "https://doboku-note.com/",
+      "strategy": "mobile",
+      "error": "PSI API 429: {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"Quota exceeded for quota metric 'Queries' and limit 'Queries per day' of service 'pagespeedonline.googleapis.com' for consumer 'project_num"
+    }
+  ]
+}

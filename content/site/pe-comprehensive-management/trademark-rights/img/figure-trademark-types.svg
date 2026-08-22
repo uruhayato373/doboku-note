@@ -1,0 +1,50 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="商標の10種類。従来からの5種（文字・図形・記号・立体・結合）に加え、2015年改正で音・色彩のみ・位置・動き・ホログラムの新しいタイプ5種が追加された。存続期間は登録から10年だが更新登録で半永久に維持できる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .h  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .n  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .ex { font-size: 11px; fill: #555; }
+    </style>
+  </defs>
+
+  <text x="200" y="26" text-anchor="middle" font-size="13" fill="#1a3a5c" font-weight="bold">商標の10種類</text>
+  <text x="200" y="44" text-anchor="middle" font-size="11" fill="#555">商品・サービスを識別する「目印」を保護する</text>
+
+  <!-- 従来からの5種 -->
+  <rect x="16" y="58" width="368" height="170" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="28" y="80" class="h">従来からの商標（5種）</text>
+
+  <text x="40" y="106" class="n">文字商標</text>
+  <text x="150" y="106" class="ex">ブランド名・商品名</text>
+  <text x="40" y="130" class="n">図形商標</text>
+  <text x="150" y="130" class="ex">ロゴマーク・シンボル</text>
+  <text x="40" y="154" class="n">記号商標</text>
+  <text x="150" y="154" class="ex">のれん記号・暖簾マーク</text>
+  <text x="40" y="178" class="n">立体商標</text>
+  <text x="150" y="178" class="ex">特徴的な容器・店舗の外観</text>
+  <text x="40" y="202" class="n">結合商標</text>
+  <text x="150" y="202" class="ex">文字＋図形などの組合せ</text>
+  <line x1="130" y1="92" x2="130" y2="210" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 2015年改正の新タイプ5種 -->
+  <rect x="16" y="240" width="368" height="170" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="2"/>
+  <text x="28" y="262" class="h">2015年改正で追加（新しいタイプ 5種）</text>
+
+  <text x="40" y="288" class="n">音商標</text>
+  <text x="150" y="288" class="ex">CMの効果音・メロディ</text>
+  <text x="40" y="312" class="n">色彩のみ</text>
+  <text x="150" y="312" class="ex">特定の配色パターン</text>
+  <text x="40" y="336" class="n">位置商標</text>
+  <text x="150" y="336" class="ex">図形が付される位置（靴底の赤 等）</text>
+  <text x="40" y="360" class="n">動き商標</text>
+  <text x="150" y="360" class="ex">時間とともに変化する動くロゴ</text>
+  <text x="40" y="384" class="n">ホログラム</text>
+  <text x="150" y="384" class="ex">角度で変化するマーク</text>
+  <line x1="130" y1="274" x2="130" y2="392" stroke="#d4a017" stroke-width="1"/>
+
+  <!-- 存続期間ハイライト -->
+  <rect x="16" y="422" width="368" height="62" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="200" y="444" text-anchor="middle" font-size="13" fill="#1a3a5c" font-weight="bold">存続期間：登録から 10 年 → 更新で半永久</text>
+  <text x="200" y="464" text-anchor="middle" font-size="11" fill="#222">更新登録により何度でも延長できる（産業財産権で唯一）</text>
+</svg>

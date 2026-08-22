@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="480" viewBox="0 0 1200 480">
+  <rect width="1200" height="480" fill="#ffffff"/>
+
+  <!-- フェーズヘッダ帯 -->
+  <rect x="0" y="0" width="1200" height="76" fill="#d4a017"/>
+  <text x="60" y="40" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="30" font-weight="800" fill="#ffffff">Phase 3（6 月〜7 月中旬）— 直前期タスク</text>
+  <text x="60" y="64" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#fff3cd">目的：本番形式に身体を慣らし、得点力を最大化する　週 15〜20 時間</text>
+
+  <!-- タイムラインの縦軸 -->
+  <line x1="90" y1="100" x2="90" y2="420" stroke="#d4a017" stroke-width="3"/>
+
+  <!-- 6月ブロック -->
+  <circle cx="90" cy="120" r="16" fill="#d4a017"/>
+  <text x="90" y="126" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="800" fill="#ffffff" text-anchor="middle">6月</text>
+
+  <rect x="124" y="100" width="1040" height="100" rx="8" fill="#fff8e1" stroke="#d4a017" stroke-width="2"/>
+  <text x="144" y="128" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#7a5800">模擬試験形式の演習</text>
+  <circle cx="148" cy="152" r="5" fill="#d4a017"/>
+  <text x="162" y="158" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">択一式: 40 問を 2 時間で解く時間感覚を体得</text>
+  <circle cx="148" cy="178" r="5" fill="#d4a017"/>
+  <text x="162" y="184" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">記述式: 実際に手書き、1 枚を約 25 分で書き切る訓練</text>
+
+  <!-- 7月前半ブロック -->
+  <circle cx="90" cy="240" r="16" fill="#d4a017"/>
+  <text x="90" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="800" fill="#ffffff" text-anchor="middle">7前</text>
+
+  <rect x="124" y="220" width="1040" height="100" rx="8" fill="#fff8e1" stroke="#d4a017" stroke-width="2"/>
+  <text x="144" y="248" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#7a5800">7 月前半: 弱点の総点検</text>
+  <circle cx="148" cy="272" r="5" fill="#d4a017"/>
+  <text x="162" y="278" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">暗記カードで頻出キーワード最終確認</text>
+  <circle cx="148" cy="298" r="5" fill="#d4a017"/>
+  <text x="162" y="304" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">計算問題の解法パターン総点検 / 5 管理間トレードオフの定型整理</text>
+
+  <!-- 試験前1週間ブロック -->
+  <circle cx="90" cy="360" r="16" fill="#b22234"/>
+  <text x="90" y="364" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="800" fill="#ffffff" text-anchor="middle">前週</text>
+
+  <rect x="124" y="340" width="1040" height="80" rx="8" fill="#fce8eb" stroke="#b22234" stroke-width="2"/>
+  <text x="144" y="368" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#b22234">7 月中旬（試験前 1 週間）: 前日準備</text>
+  <circle cx="148" cy="394" r="5" fill="#b22234"/>
+  <text x="162" y="400" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#555555">持ち物・会場・当日スケジュールを確認　→　新しい論点には手を出さない</text>
+
+  <!-- 試験日表示 -->
+  <rect x="1020" y="424" width="148" height="36" rx="6" fill="#b22234"/>
+  <text x="1094" y="448" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#ffffff" text-anchor="middle">試験本番</text>
+
+  <text x="60" y="466" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a">doboku-note.com</text>
+</svg>

@@ -1,0 +1,91 @@
+---
+title: 内部収益率法
+description: "内部収益率法の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.1'
+tags:
+  - keyword
+published: true
+publishedAt: '2026-04-09'
+reviewStatus: approved
+lastRewrittenAt: '2026-04-16'
+revisionCycle: 1
+seoTitle: "内部収益率法 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-05-26
+---
+
+## 内部収益率法とは
+
+内部収益率法（IRR法: Internal Rate of Return）とは、投資のNPVがゼロとなる割引率を求め、その値と資本コストを比較して投資の可否を判断する手法である。
+
+IRRが資本コスト（ハードルレート）を上回れば投資価値があると判断する。
+
+## 基本計算式
+
+$$
+\sum_{t=0}^{n} \frac{CF_t}{(1+IRR)^t} = 0
+$$
+
+IRRは上式を満たす割引率であり、試行錯誤法や補間法で求める。
+
+## NPV法との比較
+
+| 項目 | IRR法 | NPV法 |
+|---|---|---|
+| **判断基準** | IRR＞資本コスト | NPV＞0 |
+| **結果の単位** | 利率（%） | 金額（円） |
+| **投資規模の考慮** | 考慮しない | 考慮する |
+| **複数案の比較** | 規模が異なると不適切な場合あり | 常に適切 |
+
+## IRR法の留意点
+
+- IRRとNPVの大小関係は投資規模・期間が異なる場合に**一致しないことがある**
+- 非通常型キャッシュフロー（符号が複数回変わる）では複数のIRRが存在する場合がある
+
+<ExamPoint
+  summary="IRRはNPV=0となる割引率で、資本コストとの比較で投資の可否を判断する"
+  items={[
+    "IRR＞資本コストなら投資価値ありと判断する",
+    "IRRとNPVの大小関係は投資規模が異なると一致しないことがある",
+    "IRRは利率（%）で表されるためNPVの金額と直接比較できない",
+    "複数案の比較ではNPV法の方が信頼性が高い",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**2.1 事業企画**](/docs/pe-comprehensive-management-keyword-2026#21-事業企画)に位置づけられている。
+
+内部収益率法は[NPV](/docs/pe-comprehensive-management-npv-net-present-value)・[回収期間法](/docs/pe-comprehensive-management-payback-period-method)と並ぶ投資評価手法であり、いずれも[DCF法](/docs/pe-comprehensive-management-dcf-method)に基づく。[割引率](/docs/pe-comprehensive-management-discount-rate)との関係を正確に理解することが重要である。
+
+## IRR法の発展と実務への普及
+
+内部収益率の概念は、20世紀初頭の経済学の発展から生まれた。
+
+アメリカの経済学者アーヴィング・フィッシャー（Irving Fisher）は、1907年の著書 *The Rate of Interest* において「費用に対する収益率（rate of return over cost）」という概念を定式化した。フィッシャーは投資の価値を「将来得られる収益を現在価値に換算し、投資額と比較する」という枠組みで捉え、これが後のDCF法とIRRの理論的礎となった。
+
+イギリスの経済学者ジョン・メイナード・ケインズ（John Maynard Keynes）は1936年の *雇用・利子および貨幣の一般理論* において「資本の限界効率（marginal efficiency of capital）」という概念を提唱した。これは「追加投資が生み出す期待収益を現在価値に換算したときの割引率」を指すものであり、フィッシャーのアイデアと実質的に同一の構造を持つ。ケインズ自身もフィッシャーとの概念的な一致を認めており、IRR概念の理論的な確立はこの時期に達成されたとみなされている。
+
+1950年代に入ると、アメリカのジョエル・ディーン（Joel Dean）が企業の資本予算管理にDCF手法を体系的に適用し、キャッシュフローを割引いて投資評価を行うアプローチを実務に普及させた。この時期、IRR法はNPV法とともに企業財務の標準的な意思決定ツールとなっていった。
+
+1960〜70年代には、IRR法とNPV法の優劣論争が活発になった。投資規模や期間が異なる複数案を比較する場合、IRR法が誤った選択を導くことがあると指摘されたためである。この問題は「フィッシャーの交差点（Fisher intersection）」と呼ばれ、二つの投資案のNPVが等しくなる割引率を境に優劣が逆転する現象として知られている。以降、「優劣比較にはNPV法が優る」という考え方が学術上の定説となった。
+
+1980〜90年代には、通常型でないキャッシュフロー（正負の符号が複数回変わるケース）においてIRRが複数存在しうる問題への対処として、修正内部収益率法（MIRR: Modified Internal Rate of Return） が実務で用いられるようになった。MIRRは再投資利回りの仮定を明示的に設定したうえでIRRを一意に定める手法であり、従来のIRR法の理論的欠点を部分的に解消している。
+
+日本の公共事業評価においては、国土交通省の「公共事業評価の費用便益分析に関する技術指針」が費用便益比（B/C）・純現在価値（NPV）とともに経済的内部収益率（EIRR）を主要3指標の一つとして採用しており、インフラ投資の採算性評価に広く活用されている。
+
+<RelatedKeywords items={[
+  { label: "NPV", slug: "npv-net-present-value" },
+  { label: "回収期間法", slug: "payback-period-method" },
+  { label: "割引率", slug: "discount-rate" },
+  { label: "投資回収計画", slug: "investment-recovery-plan" },
+  { label: "費用効果分析", slug: "cost-effectiveness-analysis" },
+]} />
+
+## 参考資料
+
+- [事業評価に係る指針等](https://www.mlit.go.jp/tec/hyouka/public/09_public_08.html)（国土交通省）
+- [IRR（内部収益率）とは？計算方法やNPVとの違いを解説](https://biz.moneyforward.com/ma/basic/404/)（マネーフォワード クラウド）

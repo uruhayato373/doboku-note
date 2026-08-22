@@ -1,0 +1,68 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%" role="img"
+     aria-label="ジョブ型雇用（職務主義）とメンバーシップ型雇用（属人主義）の比較。考え方・採用・職務範囲・賃金・雇用保障・変化対応の6観点で、ジョブ型は仕事に人をつけ職務給で変化対応が高い、メンバーシップ型は人に仕事をつけ職能年功で雇用安定性が高いことを示す。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-sub   { font-size: 11px; fill: #8a8a8a; }
+      .t-head  { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-hcol  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-hsub  { font-size: 11px; fill: #555; }
+      .t-lbl   { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-cell  { font-size: 11px; fill: #222; }
+    </style>
+  </defs>
+
+  <!-- ヘッダー -->
+  <text class="t-head" x="200" y="40" text-anchor="middle">「仕事に人」か「人に仕事」か</text>
+
+  <!-- 列ヘッダー -->
+  <rect x="20"  y="54" width="90"  height="36" fill="#f5f5f5"/>
+  <rect x="110" y="54" width="135" height="36" fill="#e8f0fe"/>
+  <rect x="245" y="54" width="135" height="36" fill="#d0e8d0"/>
+  <text class="t-sub"  x="65"  y="76" text-anchor="middle" font-weight="bold" fill="#555">観点</text>
+  <text class="t-hcol" x="177" y="72" text-anchor="middle">ジョブ型</text>
+  <text class="t-hsub" x="177" y="86" text-anchor="middle">（職務主義）</text>
+  <text class="t-hcol" x="312" y="72" text-anchor="middle">メンバーシップ型</text>
+  <text class="t-hsub" x="312" y="86" text-anchor="middle">（属人主義）</text>
+
+  <!-- 行（6） -->
+  <text class="t-lbl"  x="65"  y="114" text-anchor="middle">考え方</text>
+  <text class="t-cell" x="177" y="114" text-anchor="middle">仕事に人をつける</text>
+  <text class="t-cell" x="312" y="114" text-anchor="middle">人に仕事をつける</text>
+  <line x1="20" y1="135" x2="380" y2="135" stroke="#e8f0fe" stroke-width="1"/>
+
+  <text class="t-lbl"  x="65"  y="159" text-anchor="middle">採用</text>
+  <text class="t-cell" x="177" y="159" text-anchor="middle">職務を特定して採用</text>
+  <text class="t-cell" x="312" y="159" text-anchor="middle">一括採用後に配置</text>
+  <line x1="20" y1="180" x2="380" y2="180" stroke="#e8f0fe" stroke-width="1"/>
+
+  <text class="t-lbl"  x="65"  y="204" text-anchor="middle">職務範囲</text>
+  <text class="t-cell" x="177" y="204" text-anchor="middle">職務記述書で限定</text>
+  <text class="t-cell" x="312" y="204" text-anchor="middle">包括的（異動あり）</text>
+  <line x1="20" y1="225" x2="380" y2="225" stroke="#e8f0fe" stroke-width="1"/>
+
+  <text class="t-lbl"  x="65"  y="249" text-anchor="middle">賃金</text>
+  <text class="t-cell" x="177" y="249" text-anchor="middle">職務給（仕事基準）</text>
+  <text class="t-cell" x="312" y="249" text-anchor="middle">職能・年功</text>
+  <line x1="20" y1="270" x2="380" y2="270" stroke="#e8f0fe" stroke-width="1"/>
+
+  <text class="t-lbl"  x="65"  y="294" text-anchor="middle">雇用保障</text>
+  <text class="t-cell" x="177" y="294" text-anchor="middle">職務消滅で解雇も</text>
+  <text class="t-cell" x="312" y="294" text-anchor="middle">高い安定性</text>
+  <line x1="20" y1="315" x2="380" y2="315" stroke="#e8f0fe" stroke-width="1"/>
+
+  <text class="t-lbl"  x="65"  y="339" text-anchor="middle">変化対応</text>
+  <text class="t-cell" x="177" y="339" text-anchor="middle" fill="#2e6da4" font-weight="bold">高い（柔軟）</text>
+  <text class="t-cell" x="312" y="339" text-anchor="middle">低い（遅い）</text>
+
+  <!-- 縦区切り線（最後） -->
+  <rect x="20" y="54" width="360" height="304" fill="none" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="110" y1="54" x2="110" y2="358" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="245" y1="54" x2="245" y2="358" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- まとめ・出典 -->
+  <text x="200" y="392" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">欧米はジョブ型、日本はメンバーシップ型が主流</text>
+  <text class="t-sub" x="200" y="416" text-anchor="middle">同一労働同一賃金やDX人材確保がジョブ型移行を後押し</text>
+  <text class="t-sub" x="200" y="444" text-anchor="middle">出典：厚生労働省「ジョブ型雇用」解説</text>
+</svg>

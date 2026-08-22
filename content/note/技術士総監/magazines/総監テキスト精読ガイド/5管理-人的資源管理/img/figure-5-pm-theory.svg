@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">PM理論 — 4象限</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">P（目標達成）×M（集団維持）の組み合わせで4タイプ</text>
+
+  <defs>
+    <marker id="ah2" markerWidth="10" markerHeight="10" refX="5" refY="5" orient="auto">
+      <polygon points="0 10, 10 5, 0 0" fill="#222222" />
+    </marker>
+  </defs>
+  <line x1="200" y1="600" x2="200" y2="120" stroke="#222222" stroke-width="2.5" marker-end="url(#ah2)" />
+  <line x1="200" y1="600" x2="700" y2="600" stroke="#222222" stroke-width="2.5" marker-end="url(#ah2)" />
+  <text x="170" y="128" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222" text-anchor="end">高</text>
+  <text x="170" y="608" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222" text-anchor="end">低</text>
+  <text x="710" y="608" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">高</text>
+  <text x="120" y="346" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#555555" text-anchor="middle">P機能</text>
+  <text x="120" y="374" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="middle">目標達成</text>
+  <text x="440" y="656" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#555555" text-anchor="middle">M機能（集団維持）</text>
+  <rect x="200" y="120" width="240" height="240" fill="#fbf3df" stroke="#d4a017" stroke-width="3"/>
+  <text x="320" y="170" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="900" fill="#d4a017" text-anchor="middle">Pm型</text>
+  <text x="320" y="220" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222" text-anchor="middle">成果は上げるが</text>
+  <text x="320" y="252" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222" text-anchor="middle">人望なし</text>
+  <text x="320" y="284" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222" text-anchor="middle">まとめが苦手</text>
+  <rect x="440" y="120" width="240" height="240" fill="#e6f1e8" stroke="#3a7d44" stroke-width="3"/>
+  <text x="560" y="170" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="900" fill="#3a7d44" text-anchor="middle">PM型</text>
+  <text x="560" y="220" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222" text-anchor="middle">成果を上げ</text>
+  <text x="560" y="252" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222" text-anchor="middle">人望もあり</text>
+  <text x="560" y="284" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222" text-anchor="middle">まとめる力あり</text>
+  <rect x="200" y="360" width="240" height="240" fill="#fbe5e7" stroke="#b22234" stroke-width="3"/>
+  <text x="320" y="410" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="900" fill="#b22234" text-anchor="middle">pm型</text>
+  <text x="320" y="460" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222" text-anchor="middle">成果も低く</text>
+  <text x="320" y="492" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222" text-anchor="middle">まとめる力も低い</text>
+  <rect x="440" y="360" width="240" height="240" fill="#e8f0fe" stroke="#2e6da4" stroke-width="3"/>
+  <text x="560" y="410" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="900" fill="#2e6da4" text-anchor="middle">pM型</text>
+  <text x="560" y="460" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222" text-anchor="middle">成果は低いが</text>
+  <text x="560" y="492" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222" text-anchor="middle">人望があり</text>
+  <text x="560" y="524" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222" text-anchor="middle">まとめる力あり</text>
+  <rect x="730" y="160" width="380" height="280" rx="10" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="750" y="198" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">PM型 = 最も望ましい</text>
+  <text x="750" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">P：Performance（目標達成）</text>
+  <text x="750" y="264" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">M：Maintenance（集団維持）</text>
+  <text x="750" y="308" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#1a3a5c">三隅二不二（みすみじゅうじ）</text>
+  <text x="750" y="340" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">日本人心理学者が提唱</text>
+  <text x="750" y="384" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#222222">択一頻出：4タイプの組合せ</text>
+</svg>

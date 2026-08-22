@@ -1,0 +1,92 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="環境の経済価値評価5手法。顕示選好型（代替法・トラベルコスト法・ヘドニック法）と表明選好型（仮想評価法CVM・コンジョイント分析）を2カラムで対比した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-header  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-method  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-basis   { font-size: 11px; fill: #555; }
+      .t-foot    { font-size: 11px; fill: #8a8a8a; }
+      .hdr-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .hdr-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .card-brand   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      .card-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }
+      .divider { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <!-- ===== 列見出し帯 ===== -->
+  <!-- 顕示選好型 x=12 w=184 -->
+  <rect class="hdr-brand" x="12" y="12" width="184" height="40" rx="6"/>
+  <text class="t-header" x="104" y="29" text-anchor="middle">顕示選好型評価</text>
+  <text class="t-basis"  x="104" y="45" text-anchor="middle">実消費行動データを間接利用</text>
+
+  <!-- 表明選好型 x=204 w=184 -->
+  <rect class="hdr-positive" x="204" y="12" width="184" height="40" rx="6"/>
+  <text class="t-header" x="296" y="29" text-anchor="middle">表明選好型評価</text>
+  <text class="t-basis"  x="296" y="45" text-anchor="middle">アンケートで直接評価</text>
+
+  <!-- ===== 中央仕切り ===== -->
+  <line class="divider" x1="200" y1="10" x2="200" y2="462"/>
+
+  <!-- ===== 顕示選好型 3手法 ===== -->
+
+  <!-- 手法1: 代替法 -->
+  <rect class="card-brand" x="18" y="68" width="174" height="84" rx="6"/>
+  <text class="t-method" x="105" y="91" text-anchor="middle">代替法</text>
+  <line class="divider" x1="30" y1="98" x2="180" y2="98"/>
+  <text class="t-basis" x="105" y="114" text-anchor="middle">環境財を市場財に置換した</text>
+  <text class="t-basis" x="105" y="129" text-anchor="middle">費用で評価</text>
+  <text class="t-basis" x="105" y="144" text-anchor="middle">例: 干潟 → 水質浄化装置費</text>
+
+  <!-- 手法2: トラベルコスト法 -->
+  <rect class="card-brand" x="18" y="164" width="174" height="84" rx="6"/>
+  <text class="t-method" x="105" y="187" text-anchor="middle">トラベルコスト法</text>
+  <line class="divider" x1="30" y1="194" x2="180" y2="194"/>
+  <text class="t-basis" x="105" y="210" text-anchor="middle">目的地への旅行費用を</text>
+  <text class="t-basis" x="105" y="225" text-anchor="middle">もとに訪問価値を評価</text>
+  <text class="t-basis" x="105" y="240" text-anchor="middle">例: 自然公園の利用価値</text>
+
+  <!-- 手法3: ヘドニック法 -->
+  <rect class="card-brand" x="18" y="260" width="174" height="84" rx="6"/>
+  <text class="t-method" x="105" y="283" text-anchor="middle">ヘドニック法</text>
+  <line class="divider" x1="30" y1="290" x2="180" y2="290"/>
+  <text class="t-basis" x="105" y="306" text-anchor="middle">地代・賃金など市場データ</text>
+  <text class="t-basis" x="105" y="321" text-anchor="middle">（地価）をもとに評価</text>
+  <text class="t-basis" x="105" y="336" text-anchor="middle">例: 騒音が地価に与える影響</text>
+
+  <!-- ===== 表明選好型 2手法 ===== -->
+
+  <!-- 手法4: 仮想評価法(CVM) -->
+  <rect class="card-positive" x="208" y="68" width="174" height="84" rx="6"/>
+  <text class="t-method" x="295" y="87" text-anchor="middle">仮想評価法（CVM）</text>
+  <line class="divider" x1="220" y1="94" x2="370" y2="94"/>
+  <text class="t-basis" x="295" y="110" text-anchor="middle">支払意志額・受入補償額を</text>
+  <text class="t-basis" x="295" y="125" text-anchor="middle">アンケートで直接評価</text>
+  <text class="t-basis" x="295" y="140" text-anchor="middle">例: 生物多様性・干潟の価値</text>
+
+  <!-- 手法5: コンジョイント分析 -->
+  <rect class="card-positive" x="208" y="164" width="174" height="84" rx="6"/>
+  <text class="t-method" x="295" y="183" text-anchor="middle">コンジョイント分析</text>
+  <line class="divider" x1="220" y1="190" x2="370" y2="190"/>
+  <text class="t-basis" x="295" y="206" text-anchor="middle">複数の代替案の属性を</text>
+  <text class="t-basis" x="295" y="221" text-anchor="middle">アンケートで比較・評価</text>
+  <text class="t-basis" x="295" y="236" text-anchor="middle">例: 海洋汚染防止・森林整備</text>
+
+  <!-- ===== 共通特性ボックス ===== -->
+  <rect x="18" y="356" width="174" height="52" rx="5" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-basis" x="105" y="374" text-anchor="middle" font-weight="bold" fill="#1a3a5c">共通の特徴</text>
+  <text class="t-basis" x="105" y="390" text-anchor="middle">情報入手コストが小さい</text>
+  <text class="t-basis" x="105" y="404" text-anchor="middle">適用範囲が限定される</text>
+
+  <rect x="208" y="356" width="174" height="52" rx="5" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-basis" x="295" y="374" text-anchor="middle" font-weight="bold" fill="#1a3a5c">共通の特徴</text>
+  <text class="t-basis" x="295" y="390" text-anchor="middle">適用範囲が広い（非利用価値も）</text>
+  <text class="t-basis" x="295" y="404" text-anchor="middle">情報入手コストが大きい</text>
+
+  <!-- ===== フッター ===== -->
+  <rect x="12" y="420" width="376" height="64" rx="5" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-basis" x="200" y="438" text-anchor="middle" font-weight="bold" fill="#1a3a5c">手法選択の視点</text>
+  <text class="t-basis" x="200" y="454" text-anchor="middle">非利用価値（存在価値等）を評価するには</text>
+  <text class="t-basis" x="200" y="470" text-anchor="middle">表明選好型が必要（顕示選好では捕捉不可）</text>
+  <text class="t-basis" x="200" y="486" text-anchor="middle">費用便益分析の便益計測に適用される</text>
+</svg>

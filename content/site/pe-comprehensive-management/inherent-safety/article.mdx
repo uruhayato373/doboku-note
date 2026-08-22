@@ -1,0 +1,81 @@
+---
+title: 本質安全
+description: "本質安全の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（安全管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '5.4'
+tags:
+  - keyword
+published: true
+publishedAt: '2026-04-09'
+seoTitle: "本質安全 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-06-23
+---
+
+## 本質安全とは
+
+本質安全（Inherent Safety）とは、**危険源そのものを除去** することで本質的に安全な状態を実現する設計思想である。
+
+安全装置や管理的対策に頼らず、設計段階でリスクを根本から解消するため、リスク低減方策の **最優先ステップ** として位置づけられる。
+
+## リスク低減措置の優先順位
+
+[ISO 12100](https://www.iso.org/standard/51528.html) は、機械設計におけるリスク低減を **3 ステップメソッド** として標準化している。本質安全はその最上位に位置し、上位の対策で達成できなければ下位に移るという順序が原則である。
+
+{/* quiz-figures:start */}
+<ArticleImage
+  src="/posts/pe-comprehensive-management/inherent-safety/img/figure-three-step-method.svg"
+  alt="ISO 12100 の 3 ステップメソッド: 本質的安全設計 → 安全防護 → 使用上の情報"
+  caption="図 1: ISO 12100 が定める 3 ステップメソッド。上位ほど信頼性が高く、下位ほど人の行動・判断に依存する"
+/>
+{/* quiz-figures:end */}
+
+実務では、ISO 12100 の 3 ステップをさらに細分化して **4 段階の優先順位** として運用するのが一般的である。「安全防護」を「工学的対策」に、「使用上の情報」を「管理的対策」と「個人用保護具」に分解する形になる。
+
+| 優先度 | 措置 | 内容 |
+|---|---|---|
+| **1（最優先）** | 本質的安全設計 | 危険源の除去・代替 |
+| **2** | 工学的対策 | [インターロック](/docs/pe-comprehensive-management-interlock)等の安全装置 |
+| **3** | 管理的対策 | 作業手順・標識・教育訓練 |
+| **4（最終手段）** | 個人用保護具 | ヘルメット・安全帯等の使用 |
+
+## 具体例
+
+産業分野ごとに本質安全設計の典型的アプローチが存在する。いずれも「危険源を残したまま守る」のではなく、「危険源そのものをなくす・代替する」発想が共通する。
+
+- **化学プラント** ── 有害物質をより安全な物質に代替する（ベンゼン → トルエン等）
+- **機械設計** ── 作業者が危険区域に入る必然性を排除する（自動化・ロボット化）
+- **電気設備** ── 低電圧化により感電リスクを除去する（24V以下の安全電圧化）
+- **建設現場** ── 高所作業をプレキャスト化で地上作業に置き換える
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**5.4 事故・災害の未然防止活動・技術**](/docs/pe-comprehensive-management-keyword-2026#54-事故・災害の未然防止活動・技術)に位置づけられている。
+
+本質安全は[機能安全](/docs/pe-comprehensive-management-functional-safety)と対比される概念であり、[フェールセーフ](/docs/pe-comprehensive-management-fail-safe)・[フールプルーフ](/docs/pe-comprehensive-management-fool-proof)等の安全設計手法の上位に位置する設計思想である。リスク低減措置の優先順位は最頻出テーマの一つである。
+
+<ExamPoint
+  summary="リスク低減は「本質安全 → 工学的対策 → 管理的対策 → 保護具」の順で適用する"
+  items={[
+    "本質安全は危険源そのものを除去・代替する設計思想で、ISO 12100 の 3 ステップメソッドの最上位",
+    "安全装置の動作に依存しないため、信頼性と長期維持性で優れる",
+    "機能安全（安全装置による安全確保）と対をなす概念で、両者は併用が前提",
+    "踏切の立体交差化が本質安全、警報機・遮断機の設置が機能安全という対比が頻出",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "機能安全", slug: "functional-safety" },
+  { label: "フェールセーフ", slug: "fail-safe" },
+  { label: "インターロック", slug: "interlock" },
+  { label: "安全確認型システム・危険検出型システム", slug: "safety-confirmation-system" },
+  { label: "事故対応訓練", slug: "accident-response-drill" },
+]} />
+
+## 参考資料
+
+- [機械の一般的な安全](https://anzeninfo.mhlw.go.jp/yougo/yougo14_1.html)（職場のあんぜんサイト・厚生労働省）
+- [機能安全](https://ja.wikipedia.org/wiki/%E6%A9%9F%E8%83%BD%E5%AE%89%E5%85%A8)（Wikipedia）
+- [本質安全とは（安全性設計）](https://jp.misumi-ec.com/tech-info/categories/machine_design/md01/c1524.html)（ミスミ技術情報）

@@ -1,0 +1,59 @@
+<svg width="100%" viewBox="0 0 560 100" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;width:100%;font-family:sans-serif;font-size:11px;">
+  <!-- Header row -->
+  <rect x="0" y="0" width="30" height="45" fill="#d0d8e8" stroke="#555" stroke-width="1"/>
+  <rect x="30" y="0" width="40" height="45" fill="#d0d8e8" stroke="#555" stroke-width="1"/>
+  <rect x="70" y="0" width="50" height="45" fill="#d0d8e8" stroke="#555" stroke-width="1"/>
+  <rect x="120" y="0" width="50" height="45" fill="#d0d8e8" stroke="#555" stroke-width="1"/>
+  <rect x="170" y="0" width="40" height="45" fill="#d0d8e8" stroke="#555" stroke-width="1"/>
+  <rect x="210" y="0" width="40" height="45" fill="#d0d8e8" stroke="#555" stroke-width="1"/>
+  <rect x="250" y="0" width="80" height="45" fill="#d0d8e8" stroke="#555" stroke-width="1"/>
+  <rect x="330" y="0" width="50" height="45" fill="#d0d8e8" stroke="#555" stroke-width="1"/>
+  <rect x="380" y="0" width="50" height="45" fill="#d0d8e8" stroke="#555" stroke-width="1"/>
+  <rect x="430" y="0" width="60" height="45" fill="#d0d8e8" stroke="#555" stroke-width="1"/>
+  <rect x="490" y="0" width="70" height="45" fill="#d0d8e8" stroke="#555" stroke-width="1"/>
+  <text x="15" y="16" text-anchor="middle">番</text><text x="15" y="30" text-anchor="middle">号</text>
+  <text x="50" y="16" text-anchor="middle">部</text><text x="50" y="30" text-anchor="middle">品</text>
+  <text x="95" y="16" text-anchor="middle">機</text><text x="95" y="30" text-anchor="middle">能</text>
+  <text x="145" y="16" text-anchor="middle">故障</text><text x="145" y="30" text-anchor="middle">モード</text>
+  <text x="190" y="16" text-anchor="middle">原</text><text x="190" y="30" text-anchor="middle">因</text>
+  <text x="230" y="16" text-anchor="middle">検</text><text x="230" y="30" text-anchor="middle">出</text>
+  <text x="290" y="10" text-anchor="middle">故障モードの</text><text x="290" y="25" text-anchor="middle">影響の程度</text>
+  <text x="355" y="16" text-anchor="middle">危険</text><text x="355" y="30" text-anchor="middle">優先度</text>
+  <text x="405" y="16" text-anchor="middle">検出</text><text x="405" y="30" text-anchor="middle">難易度</text>
+  <text x="460" y="16" text-anchor="middle">頻</text><text x="460" y="30" text-anchor="middle">度</text>
+  <text x="525" y="16" text-anchor="middle">是正</text><text x="525" y="30" text-anchor="middle">方法</text>
+  <!-- subheader -->
+  <rect x="250" y="25" width="26" height="20" fill="#d8e4f0" stroke="#555" stroke-width="0.5"/>
+  <rect x="276" y="25" width="27" height="20" fill="#d8e4f0" stroke="#555" stroke-width="0.5"/>
+  <rect x="303" y="25" width="27" height="20" fill="#d8e4f0" stroke="#555" stroke-width="0.5"/>
+  <text x="263" y="39" text-anchor="middle">きびしさ</text>
+  <text x="289" y="39" text-anchor="middle">頻度</text>
+  <text x="316" y="39" text-anchor="middle">検出</text>
+  <!-- Data row -->
+  <rect x="0" y="45" width="30" height="40" fill="#fff" stroke="#555" stroke-width="1"/>
+  <rect x="30" y="45" width="40" height="40" fill="#fff" stroke="#555" stroke-width="1"/>
+  <rect x="70" y="45" width="50" height="40" fill="#fff" stroke="#555" stroke-width="1"/>
+  <rect x="120" y="45" width="50" height="40" fill="#fff" stroke="#555" stroke-width="1"/>
+  <rect x="170" y="45" width="40" height="40" fill="#fff" stroke="#555" stroke-width="1"/>
+  <rect x="210" y="45" width="40" height="40" fill="#fff" stroke="#555" stroke-width="1"/>
+  <rect x="250" y="45" width="26" height="40" fill="#fff" stroke="#555" stroke-width="1"/>
+  <rect x="276" y="45" width="27" height="40" fill="#fff" stroke="#555" stroke-width="1"/>
+  <rect x="303" y="45" width="27" height="40" fill="#fff" stroke="#555" stroke-width="1"/>
+  <rect x="330" y="45" width="50" height="40" fill="#fff" stroke="#555" stroke-width="1"/>
+  <rect x="380" y="45" width="50" height="40" fill="#fff" stroke="#555" stroke-width="1"/>
+  <rect x="430" y="45" width="60" height="40" fill="#fff" stroke="#555" stroke-width="1"/>
+  <rect x="490" y="45" width="70" height="40" fill="#fff" stroke="#555" stroke-width="1"/>
+  <text x="15" y="68" text-anchor="middle">1</text>
+  <text x="50" y="61" text-anchor="middle">金</text><text x="50" y="75" text-anchor="middle">具</text>
+  <text x="95" y="61" text-anchor="middle">締</text><text x="95" y="75" text-anchor="middle">付</text>
+  <text x="145" y="61" text-anchor="middle">クラッ</text><text x="145" y="75" text-anchor="middle">ク</text>
+  <text x="190" y="61" text-anchor="middle">経</text><text x="190" y="75" text-anchor="middle">年劣化</text>
+  <text x="230" y="61" text-anchor="middle">目</text><text x="230" y="75" text-anchor="middle">視</text>
+  <text x="263" y="68" text-anchor="middle">落下</text>
+  <text x="289" y="68" text-anchor="middle">5</text>
+  <text x="316" y="68" text-anchor="middle">1</text>
+  <text x="355" y="68" text-anchor="middle">2</text>
+  <text x="405" y="68" text-anchor="middle">10</text>
+  <text x="460" y="68" text-anchor="middle">定期</text>
+  <text x="525" y="61" text-anchor="middle">点</text><text x="525" y="75" text-anchor="middle">検</text>
+</svg>

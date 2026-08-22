@@ -1,0 +1,67 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     width="400" height="500"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="シグモイド関数と閾値0.5による陽性・陰性の分類境界を示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-label { font-size: 11px; fill: #555; }
+      .t-text  { font-size: 12px; fill: #222; }
+      .t-head  { font-size: 13px; font-weight: bold; }
+    </style>
+  </defs>
+
+  <!-- 背景領域 -->
+  <rect x="55" y="30" width="155" height="220" fill="#f8d7da" opacity="0.35"/>
+  <rect x="210" y="30" width="165" height="220" fill="#d0e8d0" opacity="0.35"/>
+
+  <!-- 軸 -->
+  <line x1="55" y1="250" x2="380" y2="250" stroke="#222" stroke-width="1"/>
+  <line x1="55" y1="25" x2="55" y2="250" stroke="#222" stroke-width="1"/>
+
+  <!-- y 軸ラベル -->
+  <text x="50" y="254" class="t-label" text-anchor="end">0</text>
+  <text x="50" y="142" class="t-label" text-anchor="end">0.5</text>
+  <text x="50" y="34" class="t-label" text-anchor="end">1</text>
+  <line x1="53" y1="138" x2="57" y2="138" stroke="#222" stroke-width="1"/>
+  <line x1="53" y1="30" x2="57" y2="30" stroke="#222" stroke-width="1"/>
+
+  <text x="55" y="20" class="t-label" text-anchor="middle">p</text>
+  <text x="385" y="254" class="t-label">x</text>
+
+  <!-- 閾値 0.5 の水平線 -->
+  <line x1="55" y1="138" x2="380" y2="138" stroke="#d4a017" stroke-dasharray="4,3" stroke-width="1.5"/>
+  <text x="375" y="132" class="t-label" text-anchor="end" fill="#d4a017">閾値 0.5</text>
+
+  <!-- 決定境界（垂直）-->
+  <line x1="210" y1="25" x2="210" y2="250" stroke="#b22234" stroke-dasharray="3,2" stroke-width="1"/>
+
+  <!-- シグモイド曲線 -->
+  <path d="M 58 246 C 130 246, 168 218, 210 138 C 252 58, 290 30, 375 30"
+        stroke="#2e6da4" stroke-width="2.5" fill="none"/>
+
+  <!-- 領域ラベル -->
+  <text x="130" y="272" class="t-text" text-anchor="middle" fill="#b22234">陰性（予測: 0）</text>
+  <text x="295" y="272" class="t-text" text-anchor="middle" fill="#3a7d44">陽性（予測: 1）</text>
+  <text x="210" y="292" class="t-label" text-anchor="middle" fill="#b22234">↑ 決定境界</text>
+
+  <!-- 下部：分類ルール凡例 -->
+  <rect x="10" y="310" width="380" height="175" rx="8" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="200" y="334" class="t-head" text-anchor="middle" fill="#222">分類ルールと確率の解釈</text>
+  <line x1="20" y1="340" x2="380" y2="340" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 陰性行 -->
+  <rect x="20" y="350" width="16" height="16" rx="3" fill="#f8d7da" stroke="#b22234" stroke-width="1"/>
+  <text x="44" y="363" class="t-text" fill="#b22234">陰性（p &lt; 0.5）</text>
+  <text x="44" y="380" class="t-label">→ 予測クラス = 0（不合格・異常なし 等）</text>
+
+  <!-- 陽性行 -->
+  <rect x="20" y="396" width="16" height="16" rx="3" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <text x="44" y="409" class="t-text" fill="#3a7d44">陽性（p ≥ 0.5）</text>
+  <text x="44" y="426" class="t-label">→ 予測クラス = 1（合格・異常あり 等）</text>
+
+  <!-- 閾値調整の補足 -->
+  <text x="20" y="454" class="t-label" fill="#d4a017">閾値 0.5 は調整可能</text>
+  <text x="20" y="472" class="t-label">→ 見逃し重視なら閾値を下げ、過検知重視なら上げる</text>
+</svg>

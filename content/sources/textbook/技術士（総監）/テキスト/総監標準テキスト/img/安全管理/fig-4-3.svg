@@ -1,0 +1,30 @@
+<svg width="100%" viewBox="0 0 380 360" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;width:100%;font-family:sans-serif;font-size:13px;">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#333"/>
+    </marker>
+  </defs>
+  <!-- Box 1 -->
+  <rect x="15" y="10" width="350" height="44" rx="4" fill="#d0e4f7" stroke="#3366aa" stroke-width="1.5"/>
+  <text x="190" y="37" text-anchor="middle">化学物質などによる危険性または有害性の特定</text>
+  <!-- Arrow -->
+  <line x1="190" y1="54" x2="190" y2="80" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Box 2 -->
+  <rect x="65" y="80" width="250" height="40" rx="4" fill="#d0e4f7" stroke="#3366aa" stroke-width="1.5"/>
+  <text x="190" y="105" text-anchor="middle">リスクの見積もり</text>
+  <!-- Arrow -->
+  <line x1="190" y1="120" x2="190" y2="146" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Box 3 -->
+  <rect x="35" y="146" width="310" height="40" rx="4" fill="#d0e4f7" stroke="#3366aa" stroke-width="1.5"/>
+  <text x="190" y="171" text-anchor="middle">リスク低減措置の内容の検討</text>
+  <!-- Arrow -->
+  <line x1="190" y1="186" x2="190" y2="212" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Box 4 -->
+  <rect x="65" y="212" width="250" height="40" rx="4" fill="#d0e4f7" stroke="#3366aa" stroke-width="1.5"/>
+  <text x="190" y="237" text-anchor="middle">リスク低減措置の実施</text>
+  <!-- Arrow -->
+  <line x1="190" y1="252" x2="190" y2="278" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <!-- Box 5 -->
+  <rect x="15" y="278" width="350" height="40" rx="4" fill="#d0e4f7" stroke="#3366aa" stroke-width="1.5"/>
+  <text x="190" y="303" text-anchor="middle">リスクアセスメント結果の労働者への周知</text>
+</svg>

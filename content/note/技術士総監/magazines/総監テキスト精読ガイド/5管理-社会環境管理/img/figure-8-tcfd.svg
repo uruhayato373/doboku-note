@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="920" viewBox="0 0 1200 920">
+  <rect width="1200" height="920" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">TCFD — 4要求項目と気候関連リスクの2分類</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">Task Force on Climate-related Financial Disclosures</text>
+
+  <rect x="40" y="150" width="545" height="220" rx="10" fill="#ffffff" stroke="#1a3a5c" stroke-width="3"/>
+  <rect x="40" y="150" width="545" height="80" rx="10" fill="#1a3a5c"/>
+  <rect x="40" y="210" width="545" height="20" fill="#1a3a5c"/>
+  <circle cx="90" cy="190" r="28" fill="#ffffff"/>
+  <text x="90" y="200" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#1a3a5c" text-anchor="middle">1</text>
+  <text x="132" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff">ガバナンス</text>
+  <text x="132" y="214" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff">Governance</text>
+  <text x="64" y="280" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">経営陣の関与・監督体制・経営者の役割の開示</text>
+  <rect x="615" y="150" width="545" height="220" rx="10" fill="#ffffff" stroke="#2e6da4" stroke-width="3"/>
+  <rect x="615" y="150" width="545" height="80" rx="10" fill="#2e6da4"/>
+  <rect x="615" y="210" width="545" height="20" fill="#2e6da4"/>
+  <circle cx="665" cy="190" r="28" fill="#ffffff"/>
+  <text x="665" y="200" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#2e6da4" text-anchor="middle">2</text>
+  <text x="707" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff">戦略</text>
+  <text x="707" y="214" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff">Strategy</text>
+  <text x="639" y="280" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">リスクと機会の経営戦略への反映。シナリオ分析の実施</text>
+  <rect x="40" y="400" width="545" height="220" rx="10" fill="#ffffff" stroke="#d4a017" stroke-width="3"/>
+  <rect x="40" y="400" width="545" height="80" rx="10" fill="#d4a017"/>
+  <rect x="40" y="460" width="545" height="20" fill="#d4a017"/>
+  <circle cx="90" cy="440" r="28" fill="#ffffff"/>
+  <text x="90" y="450" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#d4a017" text-anchor="middle">3</text>
+  <text x="132" y="436" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff">リスク管理</text>
+  <text x="132" y="464" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff">Risk Management</text>
+  <text x="64" y="530" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">気候関連リスクの識別・評価・管理プロセス</text>
+  <rect x="615" y="400" width="545" height="220" rx="10" fill="#ffffff" stroke="#3a7d44" stroke-width="3"/>
+  <rect x="615" y="400" width="545" height="80" rx="10" fill="#3a7d44"/>
+  <rect x="615" y="460" width="545" height="20" fill="#3a7d44"/>
+  <circle cx="665" cy="440" r="28" fill="#ffffff"/>
+  <text x="665" y="450" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#3a7d44" text-anchor="middle">4</text>
+  <text x="707" y="436" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff">指標と目標</text>
+  <text x="707" y="464" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff">Metrics &amp; Targets</text>
+  <text x="639" y="530" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">リスクと機会を評価する指標・目標の開示</text>
+  <rect x="40" y="640" width="545" height="80" rx="10" fill="#fbf3df" stroke="#d4a017" stroke-width="2"/>
+  <text x="60" y="670" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#d4a017">移行リスク</text>
+  <text x="60" y="698" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">政策・法規制・技術・市場の変化</text>
+  <rect x="615" y="640" width="545" height="80" rx="10" fill="#fbe5e7" stroke="#b22234" stroke-width="2"/>
+  <text x="635" y="670" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#b22234">物理的リスク</text>
+  <text x="635" y="698" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">急性・慢性の気候変動による物理変化</text>
+  <rect x="40" y="796" width="1120" height="44" rx="6" fill="#e8f0fe"/>
+  <text x="60" y="826" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">記述式：TCFD 4項目 + 移行/物理的リスクの2分類で気候関連の経営戦略を論じる骨格になる。</text>
+</svg>

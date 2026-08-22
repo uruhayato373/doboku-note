@@ -1,0 +1,83 @@
+{
+  "_meta": {
+    "kind": "highlight-intro",
+    "format": "stories",
+    "size": { "width": 1080, "height": 1920 },
+    "slidesCount": 5,
+    "purpose": "ハイライト系統 A 1 種目「まず読む」用の 5 枚 Stories シリーズ。新規プロフィール訪問者の 3 秒判断通過用・運営者経歴と「ここでわかること」を伝える",
+    "policy": ".claude/knowledge/reference/ig-stories-policy.md §5 系統 A",
+    "strategy": "docs/marketing/01_SNS集客戦略.md v7.1 §2 Highlight 1 種目「まず読む」"
+  },
+  "slides": [
+    {
+      "index": 1,
+      "filename": "01-cover.png",
+      "role": "cover",
+      "tagText": "まず読む",
+      "title": "ここを読めば",
+      "subtitle": "doboku-note の歩き方",
+      "chipCta": "5 枚で全体像"
+    },
+    {
+      "index": 2,
+      "filename": "02-author.png",
+      "role": "author",
+      "tagText": "まず読む",
+      "title": "これを書いた人",
+      "subtitle": "自治体土木職 退職者",
+      "body": [
+        "技術士（総合技術監理）合格済",
+        "技術士（建設部門）保有",
+        "1 級土木施工管理技士",
+        "1 級舗装施工管理技術者",
+        "コンクリート主任技士",
+        "コンクリート診断士"
+      ]
+    },
+    {
+      "index": 3,
+      "filename": "03-scope.png",
+      "role": "scope",
+      "tagText": "まず読む",
+      "title": "扱う資格",
+      "subtitle": "Phase 1 の対応範囲",
+      "body": [
+        "技術士 総合技術監理部門",
+        " — キーワード解説 650+",
+        " — 過去問 H21〜R07 全 640 問",
+        "1 級土木施工管理技士",
+        " — 一次・二次過去問",
+        " — 技術検定 textbook / guide"
+      ]
+    },
+    {
+      "index": 4,
+      "filename": "04-content.png",
+      "role": "content",
+      "tagText": "まず読む",
+      "title": "ここでわかること",
+      "subtitle": "コンテンツの 5 本柱",
+      "body": [
+        "キーワード解説 650+ ページ",
+        "過去問演習 680+ 問・全解説",
+        "5 管理トレードオフ 25 組",
+        "受験戦略・学習計画ガイド",
+        "note 受験記・解答再現（有料）"
+      ]
+    },
+    {
+      "index": 5,
+      "filename": "05-cta.png",
+      "role": "cta",
+      "tagText": "まず読む",
+      "title": "全部サイトに",
+      "subtitle": "無料公開中",
+      "body": [
+        "キーワード解説・過去問・戦略",
+        "5 管理トレードオフ図解",
+        "note 受験記・解答再現は有料"
+      ],
+      "chipCta": "doboku-note.com"
+    }
+  ]
+}

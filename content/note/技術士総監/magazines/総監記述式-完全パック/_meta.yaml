@@ -1,0 +1,144 @@
+title: "技術士 総監｜全記事パック 2026年版（択一・記述式・模範論文 全21マガジン全部入り）"
+description: |
+  技術士総合技術監理部門の合格に必要な note 教材を、これ1つに束ねた全記事パック 2026年版。
+  択一対策（精読ガイド）・記述式の型（クロス・トレードオフ）・設問(3)の弾薬（国家施策バンク）・
+  予想演習（R8予想問題集）・全17ペルソナのフル模範論文を、全21マガジン全部入りでカバーする。
+
+  令和8年から受験料は ¥20,500（32年ぶりの値上げ）。不合格でもう一度受ければ受験料だけで
+  ¥20,500。本パックは ¥9,800 ＝ 受験料1回ぶんより安く、合格に必要な全教材がそろう。
+
+  収録（単品合計¥50,080相当 → 約80%OFF）:
+  - 精読ガイド（5管理の体系学習・択一/論点）
+  - 5管理クロス・トレードオフ（記述式の型・解決フレーム・答案ひな型）
+  - 設問(3)国家施策バンク（将来課題11テーマ×国家施策68案）
+  - R8予想問題集（令和8年度版・6テーマ フル論述演習）
+  - 模範論文 全17ペルソナ（ゼネコン/河川コンサル/道路橋梁コンサル/都市計画コンサル＋
+    自治体13分野・R03〜R07 フル実演）
+
+  2026年版。R8予想は令和8年度試験向け。翌年は R9 予想へ差し替え、旧年度予想はアーカイブ
+  する（年次更新）。案内（序章）は無料で、パック全体像・使い方・既購入者フォローを解説する。
+
+# note ペイウォール内に表示する販売アピール文（マガジン管理画面に手入力）
+appealPoint: |
+  技術士 総監の合格に必要な教材を、これ1つで完結させる全部入りパックです（2026年版）。
+
+  令和8年から受験料は ¥20,500（32年ぶりの値上げ）。もし不合格なら、来年もう一度 ¥20,500 を
+  払うことになります。この全記事パックは ¥9,800 ＝ 受験料1回ぶんより安い。「また受験料を払って
+  受け直す」より、「合格に必要な全部を今年そろえる」ほうが安く済みます。
+
+  択一の精読ガイドから、記述式の型・設問(3)国家施策68案・R8予想6テーマ、そして全17ペルソナの
+  フル模範論文まで、単品なら ¥50,080相当（全21マガジン）を約80%OFFでまとめて収録。自分の専門
+  分野が何であっても、近いペルソナの模範論文が必ず入っています。
+
+  序章は無料で全体像と使う順番を確認できます。
+
+# ====================================================================
+# バンドル商品（既存マガジンの束）。articlePrice×count 型ではないため bundle 構造で表現。
+#
+# 【2026-06-09 全面改訂】旧「記述式 完全パック」（6本/¥7,980）→「全記事パック 2026年版」
+# （全21本/¥9,800）へ作り変え。価格設計の根拠:
+#   - 受験料アンカー: 令和8年から第二次試験 受験料 ¥20,500（14,000→20,500、32年ぶり値上げ）。
+#     ¥9,800 < ¥20,500 ＝「再受験1回より安く合格に必要な全教材が手に入る」を主訴求に据える。
+#   - 値引きアンカー: 単品合計 ¥50,080 → ¥9,800 ＝ 約80%OFF。
+# id は live note URL（m171222175fac）保持のため 'essay-complete-pack' を踏襲（legacy 名）。
+#
+# 【ロールアウト（重要）】¥9,800/全21本は 15マガジンの note 公開が前提（下記 status 参照）。
+#   - 設計層（本ファイル・序章・SSOT M13）= 2026年版ターゲット仕様。status: relaunch_pending。
+#   - ライブ層（src/lib/note-magazines.ts）= リローンチまで現行 ¥7,980/6本（m171222175fac）据置。
+#     15マガジン公開完了 → note でパック拡張・¥9,800へ変更 → SoT 価格を ¥9,800 へ切替。
+# ====================================================================
+type: bundle
+setPrice: 9800
+singleTotal: 50080
+status: relaunch_pending
+relaunchPlan:
+  liveNow:
+    scope: "記述式 完全パック（6本）"
+    price: 7980
+    limitedPrice: 5980
+    noteUrl: "https://note.com/dobokunote/m/m171222175fac"
+  target:
+    scope: "全記事パック 2026年版（全21本）"
+    price: 9800
+    gate: "未公開15マガジン（精読ガイド＋模範論文14ペルソナ）の note 公開完了"
+edition: "2026年版（R8予想 = 令和8年度試験向け。翌年 R9 へ差し替え）"
+includedMagazines:
+  # ----- 記述式コア（4本）-----
+  - id: text-reading-guide
+    title: 総監テキスト精読ガイド（5管理・択一/論点）
+    singlePrice: 1980
+    magazineUrl: ""        # 公開待ち（マガジン未公開）
+  - id: tradeoff-5kanri
+    title: 5管理クロス・トレードオフ
+    singlePrice: 1980
+    magazineUrl: "https://note.com/dobokunote/m/m921fbe060575"
+  - id: setsumon3-policy-bank
+    title: 設問(3)国家施策バンク
+    singlePrice: 2480
+    magazineUrl: "https://note.com/dobokunote/m/m91516dfc27ac"
+  - id: r8-essay-forecast
+    title: R8予想問題集（令和8年度版）
+    singlePrice: 2480
+    magazineUrl: "https://note.com/dobokunote/m/m6854c7437d4d"
+  # ----- 模範論文 全17ペルソナ -----
+  - id: essay-general-contractor-magazine
+    title: 模範論文 ゼネコン
+    singlePrice: 1980
+    magazineUrl: "https://note.com/dobokunote/m/m32aaa137f22e"
+  - id: essay-river-consultant-magazine
+    title: 模範論文 河川コンサル
+    singlePrice: 1980
+    magazineUrl: "https://note.com/dobokunote/m/m32132ecb3033"
+  - id: essay-road-bridge-consultant-magazine
+    title: 模範論文 道路橋梁コンサル
+    singlePrice: 2480
+    magazineUrl: ""        # 公開待ち
+  - id: essay-urban-consultant-magazine
+    title: 模範論文 都市計画コンサル
+    singlePrice: 2480
+    magazineUrl: ""        # 公開待ち
+  - id: essay-road-municipality-magazine
+    title: 模範論文 自治体道路担当
+    singlePrice: 2480
+    magazineUrl: "https://note.com/dobokunote/m/m52186ffd12ca"
+  - id: essay-river-municipality-magazine
+    title: 模範論文 自治体河川担当
+    singlePrice: 2480
+    magazineUrl: ""        # 公開待ち
+  - id: essay-urban-municipality-magazine
+    title: 模範論文 自治体都市計画担当
+    singlePrice: 2480
+    magazineUrl: ""        # 公開待ち
+  - id: essay-water-supply-municipality-magazine
+    title: 模範論文 自治体上水道担当
+    singlePrice: 2480
+    magazineUrl: ""        # 公開待ち
+  - id: essay-sewerage-municipality-magazine
+    title: 模範論文 自治体下水道担当
+    singlePrice: 2480
+    magazineUrl: ""        # 公開待ち
+  - id: essay-park-municipality-magazine
+    title: 模範論文 自治体公園緑地担当
+    singlePrice: 2480
+    magazineUrl: ""        # 公開待ち
+  - id: essay-contract-municipality-magazine
+    title: 模範論文 自治体契約調達担当
+    singlePrice: 2480
+    magazineUrl: ""        # 公開待ち
+  - id: essay-standard-municipality-magazine
+    title: 模範論文 自治体技術基準担当
+    singlePrice: 2480
+    magazineUrl: ""        # 公開待ち
+  - id: essay-port-municipality-magazine
+    title: 模範論文 自治体港湾担当
+    singlePrice: 2480
+    magazineUrl: ""        # 公開待ち
+  - id: essay-sabo-municipality-magazine
+    title: 模範論文 自治体砂防担当
+    singlePrice: 2480
+    magazineUrl: ""        # 公開待ち
+freeIntro:
+  slug: 00-はじめに
+  noteUrl: ""
+magazineUrl: "https://note.com/dobokunote/m/m171222175fac"   # 現行ライブ（6本/¥7,980）。リローンチ時に拡張
+publishTiming: "2026年版リローンチ＝未公開15マガジン公開後（試験前）"

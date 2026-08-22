@@ -1,0 +1,111 @@
+---
+title: バスタブカーブ
+description: "バスタブカーブの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.6'
+tags:
+  - 総合技術監理
+  - keyword
+published: true
+publishedAt: '2026-04-08'
+reviewStatus: approved
+lastRewrittenAt: '2026-04-15'
+revisionCycle: 1
+seoTitle: "バスタブカーブ ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-06-23
+---
+
+## バスタブカーブとは
+
+バスタブカーブ（寿命特性曲線）とは、設備や部品の故障率が使用開始からの時間経過とともにどのように変化するかを示した曲線である。
+
+横軸に時間、縦軸に故障率をとると、浴槽（バスタブ）の断面に似た形状を描くことからこの名称が付けられた。
+
+設備のライフサイクル全体における故障の傾向を理解し、各期間に適した保全方式を選択するための基本概念である。
+
+### 3つの期間の特徴
+
+バスタブカーブは、初期故障期・偶発故障期・摩耗故障期の3つの期間に区分される。各期間は故障率の傾向と適した保全方式が大きく異なる。
+
+**初期故障期**（DFR: Decreasing Failure Rate）
+
+- 故障率の傾向: 時間とともに**減少**
+- 主な故障原因: 設計不良、製造欠陥、組立ミス
+- 適した保全方式: デバッギング、バーンイン、慣らし運転
+
+**偶発故障期**（CFR: Constant Failure Rate）
+
+- 故障率の傾向: ほぼ一定（低水準）で推移
+- 主な故障原因: 偶発的・突発的要因
+- 適した保全方式: 事後保全（BM）、予知保全（CBM）
+
+**摩耗故障期**（IFR: Increasing Failure Rate）
+
+- 故障率の傾向: 時間とともに**増加**
+- 主な故障原因: 摩耗、劣化、疲労、腐食
+- 適した保全方式: 予防保全（TBM）、設備更新
+
+### 各期間と保全戦略の関係
+
+初期故障期では、故障率が高いため、初期不良の早期発見と除去が重要となる。
+
+偶発故障期では、故障の発生が予測困難であるため、時間基準の定期保全よりも状態監視に基づく予知保全や、故障発生後に対処する事後保全が合理的となる。
+
+摩耗故障期では、故障率が急速に上昇するため、計画的な部品交換や設備更新を行う予防保全（定期保全）が有効である。
+
+バスタブカーブの形状は設備の種類によって異なり、電子部品では偶発故障期が長く、機械部品では摩耗故障期への移行が比較的早い傾向がある。
+
+<ExamPoint
+  summary="バスタブカーブの3期間と各期間に適した保全方式をセットで覚える"
+  items={[
+    "初期故障期：故障率減少→デバッギング・慣らし運転で初期不良を除去",
+    "偶発故障期：故障率一定→予知保全（CBM）または事後保全（BM）が合理的",
+    "摩耗故障期：故障率増加→定期保全（TBM）による計画的な部品交換・更新",
+  ]}
+/>
+
+{/* quiz-figures:start */}
+## 図解
+
+択一過去問の解説に掲載されていた図表。同キーワードの理解を補助する。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/bathtub-curve/img/figure-bathtub-curve-phases.svg"
+  alt="バスタブカーブ"
+  caption="図: バスタブカーブ（初期故障・偶発故障・摩耗故障）"
+/>
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/bathtub-curve/img/figure-bathtub-maintenance-effect.svg"
+  alt="予防保全とバスタブカーブ"
+  caption="図: 部品交換による故障率の低減（予防保全との関係）"
+/>
+
+{/* quiz-figures:end */}
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**2.6 設備管理**](/docs/pe-comprehensive-management-keyword-2026#26-設備管理)に位置づけられる。
+
+バスタブカーブは信頼性工学の基本概念であり、[設備信頼性](/docs/pe-comprehensive-management-equipment-reliability)や[設備保全性](/docs/pe-comprehensive-management-equipment-maintainability)、[設備総合効率（OEE）](/docs/pe-comprehensive-management-overall-equipment-effectiveness)の理解と密接に関連する。
+
+保全方式の選択は設備がバスタブカーブのどの期間にあるかによって決まる。初期故障期では[事後保全](/docs/pe-comprehensive-management-corrective-maintenance)で初期不良を潰し、偶発故障期では[予知保全](/docs/pe-comprehensive-management-predictive-maintenance)や事後保全、摩耗故障期では[予防保全](/docs/pe-comprehensive-management-preventive-maintenance)による計画的な部品交換・更新が有効となる。過去問 [R04 Ⅰ-1-19](/docs/pe-comprehensive-management-r04-primary#1-19) では [MTBF の計算](/docs/pe-comprehensive-management-equipment-reliability) でバスタブカーブの偶発故障期を前提とした定常故障率が設定された。
+
+過去問 [R02 Ⅰ-1-19](/docs/pe-comprehensive-management-r02-primary#1-19) ではサーバ 2 機種の実測 MTBF とカタログ値の比較が問われた。長期運用サーバの故障率は偶発故障期（バスタブカーブの平坦部）にあるのが通常で、MTBF ≒ 1/λ（定常故障率の逆数）として算出できる。カタログ値と実測値の乖離は偶発故障期での個体差・使用条件の影響であり、摩耗故障期に入ると MTBF は低下する。
+
+<RelatedKeywords items={[
+  { label: "設備の信頼性", slug: "equipment-reliability" },
+  { label: "予防保全", slug: "preventive-maintenance" },
+  { label: "事後保全", slug: "corrective-maintenance" },
+  { label: "設備の保全性", slug: "equipment-maintainability" },
+  { label: "改良保全", slug: "improvement-maintenance" },
+]} />
+
+## 参考資料
+
+- [バスタブ曲線（信頼度曲線）](https://anzeninfo.mhlw.go.jp/yougo/yougo59_1.html)（厚生労働省「職場のあんぜんサイト」）
+- [バスタブ曲線](https://www.jsme.or.jp/jsme-medwiki/doku.php?id=19:1010172)（日本機械学会 機械工学事典）
+- [バスタブ曲線 - Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%90%E3%82%B9%E3%82%BF%E3%83%96%E6%9B%B2%E7%B7%9A)（故障率の時間推移と3期間モデル）

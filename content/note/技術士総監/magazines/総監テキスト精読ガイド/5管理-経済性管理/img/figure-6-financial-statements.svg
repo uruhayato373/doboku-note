@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">財務3表の関係 — B/S・P/L・C/F</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">ストック（B/S）とフロー（P/L・C/F）を分けて理解する</text>
+
+  <rect x="40" y="160" width="360" height="460" rx="10" fill="#ffffff" stroke="#2e6da4" stroke-width="3"/>
+  <rect x="40" y="160" width="360" height="60" rx="10" fill="#2e6da4"/>
+  <text x="220" y="190" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">B/S — 貸借対照表</text>
+  <text x="220" y="214" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle">期末時点のストック</text>
+  <rect x="60" y="240" width="158" height="360" fill="#e8f0fe"/>
+  <text x="140" y="276" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c" text-anchor="middle">資産</text>
+  <text x="140" y="320" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">流動資産</text>
+  <text x="140" y="350" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">固定資産</text>
+  <text x="140" y="380" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">繰延資産</text>
+  <rect x="222" y="240" width="158" height="198.00000000000003" fill="#fbe5e7"/>
+  <text x="300" y="276" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#b22234" text-anchor="middle">負債</text>
+  <text x="300" y="320" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">流動負債</text>
+  <text x="300" y="350" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555" text-anchor="middle">固定負債</text>
+  <rect x="222" y="438" width="158" height="162" fill="#e6f1e8"/>
+  <text x="300" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#3a7d44" text-anchor="middle">純資産</text>
+  <rect x="420" y="160" width="360" height="460" rx="10" fill="#ffffff" stroke="#3a7d44" stroke-width="3"/>
+  <rect x="420" y="160" width="360" height="60" rx="10" fill="#3a7d44"/>
+  <text x="600" y="190" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">P/L — 損益計算書</text>
+  <text x="600" y="214" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle">期間のフロー（損益）</text>
+  <text x="444" y="260" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555">売上高</text>
+  <text x="444" y="300" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555">－売上原価</text>
+  <text x="444" y="340" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#3a7d44">＝売上総利益</text>
+  <text x="444" y="380" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555">－販管費</text>
+  <text x="444" y="420" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#3a7d44">＝営業利益</text>
+  <text x="444" y="460" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555">±営業外損益</text>
+  <text x="444" y="500" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#3a7d44">＝経常利益</text>
+  <text x="444" y="540" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555">±特別損益・税</text>
+  <text x="444" y="580" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#3a7d44">＝当期純利益</text>
+  <rect x="800" y="160" width="360" height="460" rx="10" fill="#ffffff" stroke="#d4a017" stroke-width="3"/>
+  <rect x="800" y="160" width="360" height="60" rx="10" fill="#d4a017"/>
+  <text x="980" y="190" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">C/F — キャッシュフロー</text>
+  <text x="980" y="214" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle">期間の現金増減</text>
+  <rect x="820" y="260" width="320" height="80" rx="6" fill="#fbf3df"/>
+  <text x="836" y="292" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">営業活動 CF</text>
+  <text x="836" y="320" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">本業の現金創出力</text>
+  <rect x="820" y="360" width="320" height="80" rx="6" fill="#fbf3df"/>
+  <text x="836" y="392" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">投資活動 CF</text>
+  <text x="836" y="420" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">設備投資・有価証券</text>
+  <rect x="820" y="460" width="320" height="80" rx="6" fill="#fbf3df"/>
+  <text x="836" y="492" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#222222">財務活動 CF</text>
+  <text x="836" y="520" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">借入・配当・増資</text>
+  <rect x="40" y="636" width="1120" height="44" rx="6" fill="#e8f0fe"/>
+  <text x="60" y="666" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">頻出区別：B/S はストック（時点）、P/L・C/F はフロー（期間）。利益とキャッシュは一致しない。</text>
+  <text x="1160" y="740" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

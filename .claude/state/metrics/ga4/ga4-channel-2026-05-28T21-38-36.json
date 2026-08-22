@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "startDate": "2026-04-30",
+    "endDate": "2026-05-27",
+    "dimension": "channel",
+    "dimensionApiName": "sessionDefaultChannelGroup",
+    "metrics": [
+      "activeUsers",
+      "sessions",
+      "screenPageViewsPerSession",
+      "averageSessionDuration",
+      "engagementRate",
+      "bounceRate"
+    ],
+    "limit": 100,
+    "organicOnly": false,
+    "japanOnly": true,
+    "excludeSpam": true,
+    "spamSourcesExcluded": [],
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "channel": "Organic Search",
+      "activeUsers": 969,
+      "sessions": 1928,
+      "screenPageViewsPerSession": 4.8070539419087135,
+      "averageSessionDuration": 554.6411674362033,
+      "engagementRate": 0.6571576763485477,
+      "bounceRate": 0.3428423236514523
+    },
+    {
+      "channel": "Direct",
+      "activeUsers": 221,
+      "sessions": 438,
+      "screenPageViewsPerSession": 4.04337899543379,
+      "averageSessionDuration": 503.67424202739727,
+      "engagementRate": 0.5273972602739726,
+      "bounceRate": 0.4726027397260274
+    },
+    {
+      "channel": "Referral",
+      "activeUsers": 94,
+      "sessions": 377,
+      "screenPageViewsPerSession": 4.73474801061008,
+      "averageSessionDuration": 566.8700555331565,
+      "engagementRate": 0.6259946949602122,
+      "bounceRate": 0.3740053050397878
+    },
+    {
+      "channel": "Unassigned",
+      "activeUsers": 76,
+      "sessions": 104,
+      "screenPageViewsPerSession": 6.846153846153846,
+      "averageSessionDuration": 387.10269174038456,
+      "engagementRate": 0.46153846153846156,
+      "bounceRate": 0.5384615384615384
+    },
+    {
+      "channel": "Organic Social",
+      "activeUsers": 19,
+      "sessions": 35,
+      "screenPageViewsPerSession": 2.2857142857142856,
+      "averageSessionDuration": 375.6037519428571,
+      "engagementRate": 0.6857142857142857,
+      "bounceRate": 0.3142857142857143
+    },
+    {
+      "channel": "Organic Video",
+      "activeUsers": 4,
+      "sessions": 4,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 0,
+      "engagementRate": 0,
+      "bounceRate": 1
+    }
+  ]
+}

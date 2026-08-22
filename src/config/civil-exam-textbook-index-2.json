@@ -1,0 +1,13 @@
+{
+  "questionToTextbooks": {},
+  "textbookToQuestions": {},
+  "meta": {
+    "generatedAt": "2026-05-28T00:00:00.000Z",
+    "textbookCount": 0,
+    "examCount": 0,
+    "questionsWithMatches": 0,
+    "totalMatches": 0,
+    "threshold": 0.45,
+    "note": "Phase 0 で空のプレースホルダーとして作成。Phase 1 で2級 textbook/guide/primary/secondary 投入後、build-civil-exam-textbook-index.mjs が中身を埋める"
+  }
+}

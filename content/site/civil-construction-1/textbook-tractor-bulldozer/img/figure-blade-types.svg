@@ -1,0 +1,52 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="土工板の6分類。ストレートドーザは走行方向に直角で重掘削向き、アングルドーザは左右25度前後に角度を変えられ敷均しに適する、チルトドーザは左右の掘削深さを変えられる、Uドーザは容量が大きく軽い大量の土砂向き、レーキドーザは伐根作業、ツーウェイドーザは前後進の両方で作業できる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .t-use  { font-size: 11px; fill: #2e6da4; }
+      .t-note { font-size: 11px; fill: #222; }
+      .box-a { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-b { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-c { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">取付け方法と機構で6種類に分かれる</text>
+
+  <rect class="box-a" x="20" y="28" width="360" height="68" rx="6"/>
+  <text class="t-name" x="40" y="52">ストレートドーザ</text>
+  <text class="t-desc" x="40" y="72">走行方向に対して直角に取り付けた最も基本的なもの</text>
+  <text class="t-use" x="40" y="90">重掘削に適し、大型機や湿地ブルドーザに多い</text>
+
+  <rect class="box-a" x="20" y="102" width="360" height="68" rx="6"/>
+  <text class="t-name" x="40" y="126">アングルドーザ</text>
+  <text class="t-desc" x="40" y="146">左右いずれも25°前後に角度を変えられる</text>
+  <text class="t-use" x="40" y="164">幅が広く重掘削には向かないが敷均しに適する</text>
+
+  <rect class="box-a" x="20" y="176" width="360" height="68" rx="6"/>
+  <text class="t-name" x="40" y="200">チルトドーザ</text>
+  <text class="t-desc" x="40" y="220">土工板下端の高さを変え左右の掘削深さを変えられる</text>
+  <text class="t-use" x="40" y="238">硬い地盤の掘削や整地に用いる</text>
+
+  <rect class="box-b" x="20" y="250" width="360" height="68" rx="6"/>
+  <text class="t-name" x="40" y="274">Uドーザ</text>
+  <text class="t-desc" x="40" y="294">上から見た形状がU字形でかかえる容量が大きい</text>
+  <text class="t-use" x="40" y="312">比重の軽い大量の土砂や石炭などの処理に適する</text>
+
+  <rect class="box-c" x="20" y="324" width="360" height="58" rx="6"/>
+  <text class="t-name" x="40" y="348">レーキドーザ</text>
+  <text class="t-desc" x="40" y="368">土工板の代わりにレーキをつけ、伐根作業に使用する</text>
+
+  <rect class="box-c" x="20" y="388" width="360" height="58" rx="6"/>
+  <text class="t-name" x="40" y="412">ツーウェイドーザ</text>
+  <text class="t-desc" x="40" y="432">前後進の両方で作業でき、船内作業などに適する</text>
+
+  <rect class="box-surf" x="20" y="452" width="360" height="30" rx="6"/>
+  <text class="t-note" x="200" y="472" text-anchor="middle">小型機はパワーアングル・チルトドーザが広く採用される</text>
+</svg>

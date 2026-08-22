@@ -1,0 +1,105 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="ナレッジマネジメント：形式知と暗黙知の対比、活用基盤としてデータウェアハウス・BIツール・集合知の3要素を図示">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-col    { font-size: 13px; font-weight: bold; }
+      .t-label  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-body   { font-size: 12px; fill: #555; }
+      .t-foot   { font-size: 11px; fill: #8a8a8a; }
+      .t-sec    { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note   { font-size: 11px; fill: #555; }
+      /* brand: 形式知 */
+      .col-brand-bg  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .col-brand-hd  { fill: #2e6da4; }
+      /* warn: 暗黙知 */
+      .col-warn-bg   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .col-warn-hd   { fill: #d4a017; }
+      /* positive: 活用基盤 */
+      .col-pos-bg    { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .col-pos-hd    { fill: #3a7d44; }
+      .box-pos       { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.2; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="7" refX="7" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- ===== 2カラムヘッダ ===== -->
+  <!-- 形式知ヘッダ（brand 淡色背景＋濃色文字） -->
+  <rect class="col-brand-bg" x="18" y="12" width="172" height="34" rx="6"/>
+  <text font-size="13" font-weight="bold" fill="#1a3a5c" x="104" y="35" text-anchor="middle">形式知</text>
+
+  <!-- 暗黙知ヘッダ（warn 淡色背景＋濃色文字） -->
+  <rect class="col-warn-bg" x="210" y="12" width="172" height="34" rx="6"/>
+  <text font-size="13" font-weight="bold" fill="#1a3a5c" x="296" y="35" text-anchor="middle">暗黙知</text>
+
+  <!-- ===== 形式知 本体 ===== -->
+  <rect class="col-brand-bg" x="18" y="50" width="172" height="180" rx="6"/>
+
+  <!-- アイコン行 -->
+  <text font-size="22" x="104" y="88" text-anchor="middle">&#128196;</text>
+
+  <text class="t-label" x="104" y="110" text-anchor="middle">文章・図表で表現可能</text>
+
+  <!-- 特徴 -->
+  <text class="t-body" x="32" y="136">・マニュアル・報告書</text>
+  <text class="t-body" x="32" y="156">・データ・数値記録</text>
+  <text class="t-body" x="32" y="176">・設計図・仕様書等</text>
+
+  <text class="t-note" x="104" y="212" text-anchor="middle">他者と共有しやすい</text>
+
+  <!-- ===== 暗黙知 本体 ===== -->
+  <rect class="col-warn-bg" x="210" y="50" width="172" height="180" rx="6"/>
+
+  <!-- アイコン行 -->
+  <text font-size="22" x="296" y="88" text-anchor="middle">&#128161;</text>
+
+  <text class="t-label" x="296" y="110" text-anchor="middle">言語化・形式化が困難</text>
+
+  <!-- 特徴 -->
+  <text class="t-body" x="224" y="136">・個人のひらめき</text>
+  <text class="t-body" x="224" y="156">・経験・勘・技能</text>
+  <text class="t-body" x="224" y="176">・人脈・信頼関係等</text>
+
+  <text class="t-note" x="296" y="212" text-anchor="middle">個人に帰属しやすい</text>
+
+  <!-- ===== 中央の双方向矢印（相互変換） ===== -->
+  <text class="t-foot" x="200" y="248" text-anchor="middle">&#8596; 相互変換・共有</text>
+
+  <!-- ===== 区切り線 ===== -->
+  <line x1="18" y1="258" x2="382" y2="258" stroke="#d7d7d7" stroke-width="1.2"/>
+
+  <!-- ===== 活用基盤セクション ===== -->
+  <text class="t-sec" x="200" y="278" text-anchor="middle">活用基盤</text>
+
+  <!-- 活用基盤3ボックス -->
+  <!-- データウェアハウス -->
+  <rect class="box-pos" x="18" y="290" width="110" height="72" rx="6"/>
+  <text class="t-label" x="73" y="312" text-anchor="middle">データ</text>
+  <text class="t-label" x="73" y="328" text-anchor="middle">ウェアハウス</text>
+  <text class="t-note" x="73" y="348" text-anchor="middle">時系列で大量保管</text>
+
+  <!-- BIツール -->
+  <rect class="box-pos" x="145" y="290" width="110" height="72" rx="6"/>
+  <text class="t-label" x="200" y="315" text-anchor="middle">BI ツール</text>
+  <text class="t-note" x="200" y="335" text-anchor="middle">データ可視化</text>
+  <text class="t-note" x="200" y="351" text-anchor="middle">・意思決定支援</text>
+
+  <!-- 集合知 -->
+  <rect class="box-pos" x="272" y="290" width="110" height="72" rx="6"/>
+  <text class="t-label" x="327" y="315" text-anchor="middle">集合知</text>
+  <text class="t-note" x="327" y="335" text-anchor="middle">多くの人の知識を</text>
+  <text class="t-note" x="327" y="351" text-anchor="middle">体系化・蓄積</text>
+
+  <!-- ===== 有効機能要件セクション ===== -->
+  <line x1="18" y1="378" x2="382" y2="378" stroke="#d7d7d7" stroke-width="1.2"/>
+  <text class="t-sec" x="200" y="397" text-anchor="middle">有効に機能させる要件（抜粋）</text>
+
+  <text class="t-body" x="28" y="418">1. 責任者の深い関与</text>
+  <text class="t-body" x="210" y="418">2. 専任担当者・推進チーム</text>
+  <text class="t-body" x="28" y="440">3. 参加促進の人事制度連動</text>
+  <text class="t-body" x="210" y="440">4. システムの使いやすさ</text>
+  <line x1="18" y1="456" x2="382" y2="456" stroke="#d7d7d7" stroke-width="1.2"/>
+  <text class="t-foot" x="200" y="474" text-anchor="middle">SECIモデル：共同化→表出化→結合化→内面化のサイクル</text>
+
+</svg>

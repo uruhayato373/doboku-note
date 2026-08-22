@@ -1,0 +1,127 @@
+# Zenn との意図的逸脱リスト（Typography + Layout）
+#
+# このファイルに登録された項目は /zenn-audit の比較対象から除外される。
+# 新しく意図的逸脱を追加する場合は、必ず reason を明記すること。
+#
+# 書式:
+#   - key: "一意な識別子"
+#     category: "typography" または "layout"
+#     doboku: "doboku-noteの値"
+#     zenn: "Zennの値"
+#     reason: "なぜ逸脱するか（1-2行）"
+
+# ==========================================
+# Typography — 本文・見出し・コンポーネントのスタイル逸脱
+# ==========================================
+
+- key: font_size_body
+  category: typography
+  doboku: "desktop 17px / mobile (≤576px) 16px"
+  zenn: "16px 一律"
+  reason: "デスクトップのみ+1px（17px）で日本語長文の可読性を優先。モバイルは Zenn 準拠 16px に落とし、狭幅での情報密度を確保する"
+
+- key: h1_border_bottom
+  category: typography
+  doboku: "border-b-2 border-blue-600 dark:border-blue-500"
+  zenn: "border-bottom: 1px solid gray"
+  reason: "H1は青2px下線でブランドアイデンティティ。max-width 780pxは採用（Zenn準拠）、下線スタイルのみ独自"
+
+- key: h1_margin_top
+  category: typography
+  doboku: "mt-8 (2rem = 32px)"
+  zenn: "2.3em (≒37px)"
+  reason: "H1はページタイトルとしてヘッダー直下に配置されるため、Zenn比で若干狭い設計"
+
+- key: h2_margin_top
+  category: typography
+  doboku: "mt-16 (4rem = 64px)"
+  zenn: "2.3em (≒37px)"
+  reason: "左アクセントバー設計（border-l-4 blue-600）のため、Zennの下線スタイルより広い上余白が必要。セクション区切りを強調"
+
+- key: h3_margin_top
+  category: typography
+  doboku: "mt-12 (3rem = 48px)"
+  zenn: "2.25em (≒36px)"
+  reason: "H3も左アクセントバー（border-l-4 blue-400）のため広めに取る。H2とH4の中間階層として視覚的に分離"
+
+- key: h4_margin_top
+  category: typography
+  doboku: "mt-8 (2rem = 32px)"
+  zenn: "2.25em (≒36px)"
+  reason: "H4は細いグレー左ボーダー（border-l-2 gray-300）で、Zenn比でやや狭いが階層感は保つ"
+
+- key: h2_style
+  category: typography
+  doboku: "border-l-4 blue-600"
+  zenn: "border-bottom 1px gray"
+  reason: "H2以下は全て左アクセントバーで統一。Zennの下線スタイルを採用しない"
+
+- key: h3_style
+  category: typography
+  doboku: "border-l-4 blue-400"
+  zenn: "なし（text size のみ）"
+  reason: "H3にもアクセントバーを付与。長文記事でのランドマーク機能を強化"
+
+- key: h4_style
+  category: typography
+  doboku: "border-l-2 gray-300"
+  zenn: "なし（text size のみ）"
+  reason: "H4に細いグレーバー。H2→H3→H4 の視覚階段を作る"
+
+- key: blockquote_style
+  category: typography
+  doboku: "border-l-4 blue-400 + bg-blue-50/50 + rounded-r-lg + px-5 py-3"
+  zenn: "border-l-3 gray-700 + padding 2px 0 2px 0.7em + font-size 0.97em"
+  reason: "doboku-note の blockquote は callout 的に使われる。薄青背景＋角丸で注目ボックスとして機能させる設計"
+
+- key: table_style
+  category: typography
+  doboku: "border + rounded-lg + thead bg + modern design"
+  zenn: "全ボーダー + font-size 0.95em + line-height 1.5"
+  reason: "doboku-note は modern table design を採用。thead 背景色・角丸・ホバー効果で視認性を高める"
+
+- key: code_inline_color
+  category: typography
+  doboku: "text-pink-600 dark:text-pink-400 + bg-gray-100"
+  zenn: "text 通常 + background gray"
+  reason: "インラインコードをピンク系で強調し、本文中で即座に識別できるようにする。ブランディングカラー"
+
+- key: code_inline_border
+  category: typography
+  doboku: "border border-gray-200 あり"
+  zenn: "ボーダーなし"
+  reason: "背景色だけでは弱いためボーダーでコード領域を明示"
+
+- key: text_autospace
+  category: typography
+  doboku: "text-autospace: normal（.prose-blog ルート）、no-autospace（code/pre）"
+  zenn: "text-autospace: normal（.znc ルート）、no-autospace（code/pre）"
+  reason: "Zenn 実装に準拠。Chrome 120+ で和欧混在のスペーシングが自動調整される。未対応ブラウザは無視する"
+
+# ==========================================
+# Layout — ページ構造・カラム幅・ブレイクポイントの逸脱
+# ==========================================
+
+- key: html_font_size_responsive
+  category: layout
+  doboku: "prose-blog fixed 17px (html 16px default)"
+  zenn: "html 16px default, 15px at ≤400px"
+  reason: "doboku-note は本文17px固定でモバイル時の縮小を行わない。日本語可読性優先。レスポンシブは `prose-base md:prose-lg` で対応するが font-size は変えない"
+
+- key: container_double_nesting
+  category: layout
+  doboku: "単一 article の padding で解決"
+  zenn: "Container_wide → View_main → Container_default の二重入れ子"
+  reason: "Zenn は outer Container（padding 40）+ card（vertical only）+ inner Container（padding 40）の二重入れ子で content 幅を制御。doboku-note は article 単体に py-10 px-10 を設定することで同等の content 幅（約710px）を実現し、構造を単純化"
+
+- key: article_card_inner_max_width
+  category: layout
+  doboku: "カード内に max-width 制限なし（prose-blog h1 の 780px 以外）"
+  zenn: "Container_default max-width: 960px（カード内の content 上限）"
+  reason: "doboku-note のカードはmain 幅いっぱい（最大約790px at xl+）を使う。Zenn の 960px 上限は現状の main 幅を超えないため実質影響なし"
+
+- key: article_header_position
+  category: layout
+  doboku: "H1 は MDX 内にあり prose-blog h1 スタイル適用"
+  zenn: "ArticleHeader_title は page component が別途レンダリング"
+  reason: "doboku-note は MDX の `# タイトル` を prose-blog h1 として表示。Zenn のようにページコンポーネント側で別管理しない。max-width 780px は prose-blog h1 に直接適用することで同等の効果"

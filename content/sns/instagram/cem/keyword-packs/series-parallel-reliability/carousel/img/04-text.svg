@@ -1,0 +1,46 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="信頼度計算 択一でここが問われる3ポイント">
+  <defs><style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }</style></defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <!-- ヘッダー -->
+  <rect width="400" height="72" fill="#1a3a5c"/>
+  <text x="200" y="28" text-anchor="middle" font-size="11" fill="#d4956a">技術士 総監 | 安全管理</text>
+  <text x="200" y="56" text-anchor="middle" font-size="17" font-weight="bold" fill="#fff">択一でここが問われる</text>
+
+  <!-- ポイント1 -->
+  <circle cx="40" cy="116" r="16" fill="#1a3a5c"/>
+  <text x="40" y="122" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">1</text>
+  <text x="68" y="108" font-size="14" font-weight="bold" fill="#1a3a5c">上段・下段に「分解」して読む</text>
+  <text x="68" y="128" font-size="12" fill="#555">複合構成は経路ごとに直列計算してから</text>
+  <text x="68" y="146" font-size="12" fill="#555">並列で合成する。一度に解こうとしない。</text>
+
+  <line x1="24" y1="168" x2="376" y2="168" stroke="#e8e8e8" stroke-width="1"/>
+
+  <!-- ポイント2 -->
+  <circle cx="40" cy="206" r="16" fill="#1a3a5c"/>
+  <text x="40" y="212" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">2</text>
+  <text x="68" y="198" font-size="14" font-weight="bold" fill="#1a3a5c">並列は「不信頼度の積」で計算</text>
+  <text x="68" y="218" font-size="12" fill="#555">R = 1−(1−R上段)(1−R下段) の形が基本。</text>
+  <text x="68" y="236" font-size="12" fill="#555">「故障する確率の積」を1から引くと覚える。</text>
+
+  <line x1="24" y1="258" x2="376" y2="258" stroke="#e8e8e8" stroke-width="1"/>
+
+  <!-- ポイント3 -->
+  <circle cx="40" cy="296" r="16" fill="#1a3a5c"/>
+  <text x="40" y="302" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">3</text>
+  <text x="68" y="288" font-size="14" font-weight="bold" fill="#1a3a5c">「最小値」問題は計算後に選択肢へ</text>
+  <text x="68" y="308" font-size="12" fill="#555">R₄ ≥ 0.527 と出ても選択肢に0.527はない。</text>
+  <text x="68" y="326" font-size="12" fill="#555">条件を満たす最小の選択肢（0.6）を選ぶ。</text>
+
+  <!-- 注意Callout -->
+  <rect x="24" y="354" width="352" height="88" rx="8" fill="#fce8d0"/>
+  <rect x="24" y="354" width="5" height="88" rx="4" fill="#a36b2c"/>
+  <text x="44" y="378" font-size="12" font-weight="bold" fill="#5e3d18">直列と並列を混同しないために</text>
+  <text x="44" y="398" font-size="11" fill="#5e3d18">直列: 全部つながって初めて機能（AND条件）</text>
+  <text x="44" y="416" font-size="11" fill="#5e3d18">並列: 1つ生きていれば機能（OR条件）</text>
+  <text x="44" y="434" font-size="11" fill="#5e3d18">→ 並列化＝冗長設計で信頼度が大きく向上</text>
+
+  <!-- フッター -->
+  <rect x="0" y="460" width="400" height="40" fill="#0f2035"/>
+  <text x="200" y="485" text-anchor="middle" font-size="12" fill="#6a8faf">doboku-note.com</text>
+</svg>

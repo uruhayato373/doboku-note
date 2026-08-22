@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="920" viewBox="0 0 1200 920">
+  <rect width="1200" height="920" fill="#f8fafc"/>
+
+  <!-- タイトル -->
+  <text x="600" y="72" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="800" fill="#222222" text-anchor="middle">年代別 投資回収シミュレーション</text>
+  <text x="600" y="112" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="middle">コスト 76 万円（学習時間 200h × 時給 3,500 円 + 受験料 ¥20,500 + 参考書代 5 万円）の前提</text>
+
+  <!-- 前提カード -->
+  <rect x="60" y="150" width="1080" height="90" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="3"/>
+  <!-- 左アクセントバー -->
+  <rect x="60" y="150" width="6" height="90" rx="3" fill="#2e6da4"/>
+  <text x="96" y="206" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#1a3a5c" text-anchor="start">前提：月手当 ¥3 万（建コン中堅） / 合格一時金 ¥25 万 / 年間リターン ¥36 万</text>
+
+  <!-- カード 30 代 -->
+  <rect x="60" y="280" width="1080" height="170" rx="8" fill="#e6f1e8" stroke="#3a7d44" stroke-width="2"/>
+
+  <!-- 左ラベル -->
+  <text x="140" y="353" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="48" font-weight="900" fill="#1a3a5c" text-anchor="middle">30 代</text>
+  <text x="140" y="393" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="middle">残り 30 年</text>
+
+  <!-- 縦区切り線（左ラベル / 中央） -->
+  <line x1="228" y1="300" x2="228" y2="430" stroke="#3a7d44" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- 中央: メイン行 + サブ行 -->
+  <text x="252" y="357" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="700" fill="#222222" text-anchor="start">コスト ¥76 万  →  2 年目で回収</text>
+  <text x="252" y="395" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">30 年で累計 ¥1,105 万（一時金 ＋ 手当）</text>
+
+  <!-- 右: 評価バッジ -->
+  <rect x="892" y="338" width="224" height="54" rx="6" fill="#3a7d44"/>
+  <text x="1004" y="376" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">◎ ペイする</text>
+
+  <!-- カード 40 代 -->
+  <rect x="60" y="474" width="1080" height="170" rx="8" fill="#e6f1e8" stroke="#3a7d44" stroke-width="2"/>
+
+  <!-- 左ラベル -->
+  <text x="140" y="547" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="48" font-weight="900" fill="#1a3a5c" text-anchor="middle">40 代</text>
+  <text x="140" y="587" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="middle">残り 20 年</text>
+
+  <!-- 縦区切り線（左ラベル / 中央） -->
+  <line x1="228" y1="494" x2="228" y2="624" stroke="#3a7d44" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- 中央: メイン行 + サブ行 -->
+  <text x="252" y="551" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="700" fill="#222222" text-anchor="start">コスト ¥76 万  →  2 年目で回収</text>
+  <text x="252" y="589" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">20 年で累計 ¥745 万（一時金 ＋ 手当）</text>
+
+  <!-- 右: 評価バッジ -->
+  <rect x="892" y="532" width="224" height="54" rx="6" fill="#3a7d44"/>
+  <text x="1004" y="570" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">○ ペイする</text>
+
+  <!-- カード 50 代 -->
+  <rect x="60" y="668" width="1080" height="170" rx="8" fill="#fdf2e0" stroke="#c87e1e" stroke-width="2"/>
+
+  <!-- 左ラベル -->
+  <text x="140" y="741" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="48" font-weight="900" fill="#8c5a14" text-anchor="middle">50 代</text>
+  <text x="140" y="781" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="middle">残り 10 年</text>
+
+  <!-- 縦区切り線（左ラベル / 中央） -->
+  <line x1="228" y1="688" x2="228" y2="818" stroke="#c87e1e" stroke-width="1" stroke-dasharray="4 4"/>
+
+  <!-- 中央: メイン行 + サブ行 -->
+  <text x="252" y="745" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="700" fill="#222222" text-anchor="start">コスト ¥76 万  →  2 年目で回収</text>
+  <text x="252" y="783" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">10 年で累計 ¥385 万 ＋ 定年後プレミアム</text>
+
+  <!-- 右: 評価バッジ -->
+  <rect x="892" y="726" width="224" height="54" rx="6" fill="#c87e1e"/>
+  <text x="1004" y="764" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">△ 定年後で逆転</text>
+
+  <!-- 注釈 -->
+  <text x="60" y="862" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="400" fill="#8a8a8a" text-anchor="start">※ 自社に資格手当制度がない / 勤続予定 2 年未満の場合はペイしない（本文「3 つのペイしないパターン」参照）</text>
+
+  <text x="1172" y="898" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

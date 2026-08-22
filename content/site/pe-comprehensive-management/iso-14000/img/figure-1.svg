@@ -1,0 +1,107 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="ISO 14001 環境マネジメントシステムのPDCAサイクル。環境方針を起点にP計画・D実施・C点検・A見直しを循環させ継続的改善を実現。EMSは法令遵守手続きではなく自主的な枠組み。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec    { font-size: 11px; font-weight: bold; fill: #ffffff; }
+      .t-step   { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 11px; fill: #555; }
+      .t-center { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-foot   { font-size: 11px; fill: #8a8a8a; }
+      .box-p    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-d    { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-c    { fill: #f5f5f5; stroke: #8a8a8a; stroke-width: 1.5; }
+      .box-a    { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text class="t-title" x="200" y="22" text-anchor="middle">ISO 14001 ─ EMS の PDCA サイクル</text>
+  <line x1="20" y1="30" x2="380" y2="30" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- セクションバー -->
+  <rect x="8" y="34" width="384" height="18" rx="3" fill="#3a7d44"/>
+  <text class="t-sec" x="200" y="47" text-anchor="middle">環境マネジメントシステム（EMS）の仕組み</text>
+
+  <!-- ── 環境方針（上部中央）── -->
+  <rect x="110" y="56" width="180" height="44" rx="5" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="75" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">環境方針</text>
+  <text x="200" y="92" text-anchor="middle" font-size="11" fill="#555">トップが策定・表明（起点）</text>
+
+  <!-- 矢印: 方針→P -->
+  <line x1="142" y1="100" x2="90" y2="112" stroke="#2e6da4" stroke-width="1.5"/>
+  <polygon points="0,0 5,3 0,6" transform="translate(85,110) rotate(-160)" fill="#2e6da4"/>
+  <!-- 矢印: 方針→D -->
+  <line x1="258" y1="100" x2="310" y2="112" stroke="#3a7d44" stroke-width="1.5"/>
+  <polygon points="0,0 5,3 0,6" transform="translate(308,110) rotate(-20)" fill="#3a7d44"/>
+
+  <!-- ── P 計画（左上）── -->
+  <rect class="box-p" x="8" y="110" width="152" height="86" rx="6"/>
+  <rect x="8" y="110" width="152" height="26" rx="6" fill="#2e6da4"/>
+  <rect x="8" y="124" width="152" height="12" fill="#2e6da4"/>
+  <text x="84" y="128" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">P 計画</text>
+  <text x="84" y="152" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a3a5c">環境目標・実施計画の策定</text>
+  <text x="84" y="168" text-anchor="middle" font-size="11" fill="#555">環境側面・法規制の特定</text>
+  <text x="84" y="184" text-anchor="middle" font-size="11" fill="#555">リスクと機会の分析</text>
+
+  <!-- ── D 実施（右上）── -->
+  <rect class="box-d" x="240" y="110" width="152" height="86" rx="6"/>
+  <rect x="240" y="110" width="152" height="26" rx="6" fill="#3a7d44"/>
+  <rect x="240" y="124" width="152" height="12" fill="#3a7d44"/>
+  <text x="316" y="128" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">D 実施</text>
+  <text x="316" y="152" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a3a5c">体制・役割の整備</text>
+  <text x="316" y="168" text-anchor="middle" font-size="11" fill="#555">教育訓練・運用管理</text>
+  <text x="316" y="184" text-anchor="middle" font-size="11" fill="#555">緊急事態への対応</text>
+
+  <!-- 矢印: P→A（左側下向き）-->
+  <line x1="38" y1="196" x2="38" y2="244" stroke="#d4a017" stroke-width="1.5"/>
+  <polygon points="0,0 5,3 0,6" transform="translate(35,242) rotate(90)" fill="#d4a017"/>
+  <!-- 矢印: D→C（右側下向き）-->
+  <line x1="362" y1="196" x2="362" y2="244" stroke="#8a8a8a" stroke-width="1.5"/>
+  <polygon points="0,0 5,3 0,6" transform="translate(359,242) rotate(90)" fill="#8a8a8a"/>
+
+  <!-- ── 継続的改善（中央）── P box bottom=196, A box top=248 → gap y=196-248, center=222 -->
+  <!-- horizontally: P right=160, D left=240 → center x=200, rx=34 -->
+  <ellipse cx="200" cy="220" rx="34" ry="22" fill="#ffffff" stroke="#3a7d44" stroke-width="2"/>
+  <text x="200" y="215" text-anchor="middle" font-size="11" font-weight="bold" fill="#3a7d44">継続的</text>
+  <text x="200" y="229" text-anchor="middle" font-size="11" font-weight="bold" fill="#3a7d44">改善</text>
+
+  <!-- ── A 見直し（左下）── -->
+  <rect class="box-a" x="8" y="248" width="152" height="86" rx="6"/>
+  <rect x="8" y="248" width="152" height="26" rx="6" fill="#d4a017"/>
+  <rect x="8" y="262" width="152" height="12" fill="#d4a017"/>
+  <text x="84" y="266" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">A 見直し</text>
+  <text x="84" y="290" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a3a5c">是正処置・予防処置</text>
+  <text x="84" y="306" text-anchor="middle" font-size="11" fill="#555">マネジメントレビュー</text>
+  <text x="84" y="322" text-anchor="middle" font-size="11" fill="#555">（トップによる見直し）</text>
+
+  <!-- ── C 点検（右下）── -->
+  <rect class="box-c" x="240" y="248" width="152" height="86" rx="6"/>
+  <rect x="240" y="248" width="152" height="26" rx="6" fill="#8a8a8a"/>
+  <rect x="240" y="262" width="152" height="12" fill="#8a8a8a"/>
+  <text x="316" y="266" text-anchor="middle" font-size="13" font-weight="bold" fill="#ffffff">C 点検</text>
+  <text x="316" y="290" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a3a5c">監視・測定・評価</text>
+  <text x="316" y="306" text-anchor="middle" font-size="11" fill="#555">法令遵守の評価</text>
+  <text x="316" y="322" text-anchor="middle" font-size="11" fill="#555">内部監査の実施</text>
+
+  <!-- 矢印: A→P（左側）: A box top=248, P box bottom=196 → up arrow -->
+  <!-- 矢印: C→A（下辺：横）-->
+  <line x1="240" y1="318" x2="160" y2="318" stroke="#d4a017" stroke-width="1.5"/>
+  <polygon points="0,0 5,3 0,6" transform="translate(162,315) rotate(180)" fill="#d4a017"/>
+
+  <!-- ── EMS の対象（定義） ── -->
+  <rect x="8" y="346" width="384" height="48" rx="5" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="20" y="366" font-size="11" font-weight="bold" fill="#1a3a5c">「環境」の定義（ISO 14001）</text>
+  <text x="20" y="384" font-size="11" fill="#555">大気・水質・土地・天然資源・植物・動物・人の相互関係を包括</text>
+
+  <!-- ── 2015年改訂のポイント ── -->
+  <rect x="8" y="404" width="384" height="82" rx="5" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text x="20" y="424" font-size="12" font-weight="bold" fill="#1a3a5c">2015 年改訂の主な変更点</text>
+  <text x="20" y="444" font-size="11" fill="#555">・リーダーシップの強化（トップマネジメントの関与と説明責任）</text>
+  <text x="20" y="460" font-size="11" fill="#555">・リスクに基づく考え方（リスクと機会を特定し計画に反映）</text>
+  <text x="20" y="476" font-size="11" fill="#555">・ライフサイクルの視点（製品・サービス全体の環境負荷を考慮）</text>
+
+  <!-- フッター -->
+  <text class="t-foot" x="200" y="498" text-anchor="middle">ISO 14001（1996年制定・2015年改訂）</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">Safety 0.0 / 1.0 / 2.0 — 安全設計思想の進化</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">人と機械の関係性で見る3段階</text>
+
+  <rect x="20" y="150" width="360" height="480" rx="12" fill="#ffffff" stroke="#8a8a8a" stroke-width="3"/>
+  <rect x="20" y="150" width="360" height="60" rx="12" fill="#8a8a8a"/>
+  <rect x="20" y="198" width="360" height="14" fill="#8a8a8a"/>
+  <text x="200" y="190" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">Safety 0.0</text>
+  <text x="200" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222" text-anchor="middle">人の注意力に依存</text>
+  <ellipse cx="200" cy="370" rx="130" ry="90" fill="#e8f0fe" fill-opacity="0.7" stroke="#8a8a8a" stroke-width="2"/>
+  <text x="200" y="378" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#8a8a8a" text-anchor="middle">人</text>
+  <text x="200" y="606" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555" text-anchor="middle">人領域のみで安全確保</text>
+  <rect x="420" y="150" width="360" height="480" rx="12" fill="#ffffff" stroke="#2e6da4" stroke-width="3"/>
+  <rect x="420" y="150" width="360" height="60" rx="12" fill="#2e6da4"/>
+  <rect x="420" y="198" width="360" height="14" fill="#2e6da4"/>
+  <text x="600" y="190" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">Safety 1.0</text>
+  <text x="600" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222" text-anchor="middle">機械側の安全設計＋隔離</text>
+  <ellipse cx="530" cy="340" rx="90" ry="70" fill="#e8f0fe" fill-opacity="0.7" stroke="#2e6da4" stroke-width="2"/>
+  <text x="530" y="348" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#2e6da4" text-anchor="middle">人</text>
+  <ellipse cx="670" cy="440" rx="90" ry="70" fill="#fde9c8" fill-opacity="0.7" stroke="#2e6da4" stroke-width="2"/>
+  <text x="670" y="448" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#2e6da4" text-anchor="middle">機械</text>
+  <text x="600" y="606" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555" text-anchor="middle">人と機械を分離して安全性確保</text>
+  <rect x="820" y="150" width="360" height="480" rx="12" fill="#ffffff" stroke="#3a7d44" stroke-width="3"/>
+  <rect x="820" y="150" width="360" height="60" rx="12" fill="#3a7d44"/>
+  <rect x="820" y="198" width="360" height="14" fill="#3a7d44"/>
+  <text x="1000" y="190" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">Safety 2.0</text>
+  <text x="1000" y="246" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222" text-anchor="middle">IoT・AI による協調安全</text>
+  <ellipse cx="950" cy="340" rx="100" ry="80" fill="#e8f0fe" fill-opacity="0.7" stroke="#3a7d44" stroke-width="2"/>
+  <text x="950" y="348" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#3a7d44" text-anchor="middle">人</text>
+  <ellipse cx="1050" cy="340" rx="100" ry="80" fill="#fde9c8" fill-opacity="0.7" stroke="#3a7d44" stroke-width="2"/>
+  <text x="1050" y="348" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#3a7d44" text-anchor="middle">機械</text>
+  <ellipse cx="1000" cy="440" rx="100" ry="80" fill="#e6f1e8" fill-opacity="0.7" stroke="#3a7d44" stroke-width="2"/>
+  <text x="1000" y="448" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#3a7d44" text-anchor="middle">環境</text>
+  <text x="1000" y="606" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555" text-anchor="middle">人 × 機械 × 環境が情報共有</text>
+  <text x="400" y="530" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#555555">→</text>
+  <text x="800" y="530" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#555555">→</text>
+  <rect x="40" y="676" width="1120" height="44" rx="6" fill="#e6f1e8"/>
+  <text x="60" y="706" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">分類キーワード：「協調・情報共有・IoT」→ Safety 2.0／「保安制御・隔離・分離」→ Safety 1.0</text>
+
+</svg>

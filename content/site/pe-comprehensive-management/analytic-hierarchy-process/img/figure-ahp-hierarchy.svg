@@ -1,0 +1,95 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="AHP（階層分析法）の 4 階層構造：上位は総合評価、第 2 階層は重要度係数 W₁・W₂ で分かれる要因 1・要因 2、第 3 階層は W₁₁・W₁₂・W₂₁・W₂₂ で分かれるサブ要因 4 個、最下層は A 案・B 案・C 案の代替案。各階層の重要度係数の和は 1 になる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-node { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-leaf { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-w { font-size: 11px; font-style: italic; fill: #555; }
+      .t-cap { font-size: 11px; fill: #555; }
+      .node-top { fill: #2e6da4; stroke: #1a3a5c; stroke-width: 1.5; }
+      .node-mid { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .node-leaf { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .conn { stroke: #555; stroke-width: 1.2; fill: none; }
+    </style>
+  </defs>
+
+  <!-- タイトル -->
+  <text x="200" y="20" class="t-title" text-anchor="middle">AHP の階層構造</text>
+
+  <!-- レベル 1: 総合評価 -->
+  <rect x="155" y="35" width="90" height="32" rx="4" class="node-top" />
+  <text x="200" y="56" class="t-node" text-anchor="middle" fill="#ffffff">総合評価</text>
+
+  <!-- 接続線 → 要因 1, 要因 2 -->
+  <line x1="200" y1="67" x2="115" y2="100" class="conn" />
+  <line x1="200" y1="67" x2="285" y2="100" class="conn" />
+  <text x="148" y="84" class="t-w">W₁</text>
+  <text x="245" y="84" class="t-w">W₂</text>
+
+  <!-- レベル 2: 要因 1, 要因 2 -->
+  <rect x="70" y="100" width="90" height="32" rx="4" class="node-mid" />
+  <text x="115" y="121" class="t-node" text-anchor="middle">要因 1</text>
+  <rect x="240" y="100" width="90" height="32" rx="4" class="node-mid" />
+  <text x="285" y="121" class="t-node" text-anchor="middle">要因 2</text>
+
+  <!-- 接続線 → 要因 11/12 -->
+  <line x1="100" y1="132" x2="65" y2="170" class="conn" />
+  <line x1="130" y1="132" x2="155" y2="170" class="conn" />
+  <text x="76" y="155" class="t-w">W₁₁</text>
+  <text x="142" y="155" class="t-w">W₁₂</text>
+
+  <!-- 接続線 → 要因 21/22 -->
+  <line x1="270" y1="132" x2="245" y2="170" class="conn" />
+  <line x1="300" y1="132" x2="335" y2="170" class="conn" />
+  <text x="245" y="155" class="t-w">W₂₁</text>
+  <text x="312" y="155" class="t-w">W₂₂</text>
+
+  <!-- レベル 3: 要因 11, 12, 21, 22 -->
+  <rect x="20" y="170" width="80" height="30" rx="3" class="node-mid" />
+  <text x="60" y="190" class="t-node" text-anchor="middle">要因 11</text>
+  <rect x="115" y="170" width="80" height="30" rx="3" class="node-mid" />
+  <text x="155" y="190" class="t-node" text-anchor="middle">要因 12</text>
+  <rect x="205" y="170" width="80" height="30" rx="3" class="node-mid" />
+  <text x="245" y="190" class="t-node" text-anchor="middle">要因 21</text>
+  <rect x="300" y="170" width="80" height="30" rx="3" class="node-mid" />
+  <text x="340" y="190" class="t-node" text-anchor="middle">要因 22</text>
+
+  <!-- 接続線 → A/B/C 案（同じレベルから 3 案へ） -->
+  <line x1="60" y1="200" x2="80" y2="240" class="conn" />
+  <line x1="60" y1="200" x2="200" y2="240" class="conn" />
+  <line x1="60" y1="200" x2="320" y2="240" class="conn" />
+  <line x1="155" y1="200" x2="80" y2="240" class="conn" />
+  <line x1="155" y1="200" x2="200" y2="240" class="conn" />
+  <line x1="155" y1="200" x2="320" y2="240" class="conn" />
+  <line x1="245" y1="200" x2="80" y2="240" class="conn" />
+  <line x1="245" y1="200" x2="200" y2="240" class="conn" />
+  <line x1="245" y1="200" x2="320" y2="240" class="conn" />
+  <line x1="340" y1="200" x2="80" y2="240" class="conn" />
+  <line x1="340" y1="200" x2="200" y2="240" class="conn" />
+  <line x1="340" y1="200" x2="320" y2="240" class="conn" />
+
+  <!-- レベル 4: A 案 / B 案 / C 案 -->
+  <rect x="50" y="240" width="60" height="30" rx="3" class="node-leaf" />
+  <text x="80" y="260" class="t-leaf" text-anchor="middle">A 案</text>
+  <rect x="170" y="240" width="60" height="30" rx="3" class="node-leaf" />
+  <text x="200" y="260" class="t-leaf" text-anchor="middle">B 案</text>
+  <rect x="290" y="240" width="60" height="30" rx="3" class="node-leaf" />
+  <text x="320" y="260" class="t-leaf" text-anchor="middle">C 案</text>
+
+  <!-- 注釈 -->
+  <text x="200" y="290" class="t-cap" text-anchor="middle">W₁ + W₂ = 1、W₁₁ + W₁₂ = 1、W₂₁ + W₂₂ = 1</text>
+  <text x="200" y="305" class="t-cap" text-anchor="middle">（各階層の係数和 = 1）</text>
+  <text x="200" y="313" class="t-cap" text-anchor="middle">総合評価 Sₐ = W₁W₁₁A₁ + W₁W₁₂A₂ + W₂W₂₁A₃ + W₂W₂₂A₄</text>
+
+  <!-- 下部サマリー -->
+  <rect x="20" y="380" width="360" height="105" rx="4" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="200" y="407" text-anchor="middle" font-size="13" font-weight="bold" fill="#222">AHP の手順</text>
+  <text x="35" y="433" font-size="12" fill="#555">① 要因の一対比較 → 重要度係数を算出</text>
+  <text x="35" y="455" font-size="12" fill="#555">② 整合性確認（CI ≤ 0.1 が目安）</text>
+  <text x="35" y="475" font-size="12" fill="#555">③ 加重和で代替案の総合スコアを算出</text>
+</svg>

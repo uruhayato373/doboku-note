@@ -1,0 +1,140 @@
+---
+title: PERT/CPM
+description: "PERT/CPMの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.3'
+tags:
+  - keyword
+published: true
+reviewStatus: approved
+lastRewrittenAt: '2026-04-15'
+revisionCycle: 1
+publishedAt: '2026-04-09'
+seoTitle: "PERT/CPM ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-03
+dateModified: 2026-06-23
+---
+
+## PERT/CPMとは
+
+- **PERT**（Program Evaluation and Review Technique）：作業時間に確率的変動を考慮したネットワーク手法
+- **CPM**（Critical Path Method）：各作業の所要時間を確定値として扱い、クリティカルパスを特定する手法
+
+いずれも**ネットワーク工程表**（アロー・ダイアグラムまたはプレシデンス・ダイアグラム）を用いて工程を管理する。
+
+## クリティカルパス
+
+クリティカルパスとは、**ネットワーク工程表において最も所要時間が長い経路**であり、プロジェクト全体の工期を決定する。
+
+- クリティカルパス上の作業が遅延すると全体工期が延びる
+- **トータルフロート（余裕時間）がゼロ**の作業で構成される
+- 工期短縮にはクリティカルパス上の作業を優先的に改善する（[R03 Ⅰ-1-4](/docs/pe-comprehensive-management-r03-primary#1-4) で作業分割によるクリティカルパス短縮日数の計算問題が出題）
+
+## PERTとCPMの違い
+
+PERTとCPMは同じネットワーク工程表を用いるが、作業時間の扱いと主眼が異なる。
+
+| 項目 | PERT | CPM |
+|---|---|---|
+| **作業時間** | 確率的（3点見積り） | 確定的（1点見積り） |
+| **適用場面** | 不確実性の高いプロジェクト | 実績データのあるプロジェクト |
+| **重視する点** | 時間の不確実性 | コストと時間のトレードオフ |
+
+## PERTの3点見積り
+
+PERTでは、各作業の所要時間を**3点見積り**で設定し、期待時間を確率的に求める。
+
+- **楽観時間（O）**：最も楽観的な場合の所要時間
+- **最頻時間（M）**：最も可能性が高い場合の所要時間
+- **悲観時間（P）**：最も悲観的な場合の所要時間
+
+期待時間（$t_e$）の計算式：
+
+$$
+t_e = \frac{O + 4M + P}{6}
+$$
+
+## CPMの4つの管理時刻とフロート
+
+CPMでは、各作業について以下の4つの時刻を管理する。
+
+- **最早開始時刻（EST）**: 最も早く作業を開始できる時刻
+- **最早終了時刻（EFT）**: 最も早く作業を終了できる時刻
+- **最遅開始時刻（LST）**: 全体工期を遅延させずに最も遅く開始できる時刻
+- **最遅終了時刻（LFT）**: 全体工期を遅延させずに最も遅く終了できる時刻
+
+### 基本計算式
+
+- **最早完了時刻**：$EFT = EST + t$（作業時間 $t$）
+- **最遅開始時刻**：$LST = LFT - t$
+- **全余裕時間（トータルフロート TF）**：$TF = LST - EST = LFT - EFT$
+- **クリティカルパス判定**：$TF = 0$ の作業の連鎖
+
+<Callout type="warn">
+R04 Ⅰ-1-8 の引っかけ：**最遅開始時刻 $\neq$ 最早開始時刻 + 全余裕時間**に見えるが、実際は **$LST = EST + TF$** で成立する（$TF = LST - EST$ より導出）。
+
+例：最早開始 10時、作業時間 3時間、全系統時間 4時間 → $LST = 10 + 4 = 14$ 時、$EFT = 10 + 3 = 13$ 時、$LFT = 14 + 3 = 17$ 時。設問では「LST = 13 時」という誤答肢が登場するため注意。
+</Callout>
+
+フロートがゼロの作業がクリティカルパス上の作業であり、1日でも遅れるとプロジェクト全体の遅延につながる。
+
+### ネットワーク図のサンプル
+
+以下は作業A〜Fで構成されるプロジェクト例である。各作業の所要期間と先行関係からクリティカルパスを求める。
+
+| 作業 | 所要期間（日） | 先行作業 |
+|------|-------------|--------|
+| A | 2 | なし |
+| B | 5 | なし |
+| C | 7 | A, B |
+| D | 4 | A, B |
+| E | 1 | なし |
+| F | 9 | C |
+
+この場合、クリティカルパスは B → C → F（5 + 7 + 9 = 21日）となる。
+
+{/* quiz-figures:start */}
+## 図解
+
+択一過去問の解説に掲載されていた図表。同キーワードの理解を補助する。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/pert-cpm/img/figure-pert-network-diagram.svg"
+  alt="PERT ネットワーク図"
+  caption="図: PERT図の見方（ノード・アロー・最早開始／最遅開始）"
+/>
+
+{/* quiz-figures:end */}
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**2.3 工程管理**](/docs/pe-comprehensive-management-keyword-2026#23-工程管理)に位置づけられている。
+
+PERT/CPM は [ガントチャート](/docs/pe-comprehensive-management-gantt-chart) と並ぶ工程管理の代表的手法であり、[進捗管理](/docs/pe-comprehensive-management-progress-management) の基準となる。PERT では [三点見積り](/docs/pe-comprehensive-management-three-point-estimation) を用いて作業時間の不確実性を評価する。過去問 [R04 Ⅰ-1-8](/docs/pe-comprehensive-management-r04-primary#1-8) では EST/EFT/LST/LFT・全余裕時間・クリティカルパスの計算と、作業時間変更時のフロート再計算が問われた。過去問 [R02 Ⅰ-1-3](/docs/pe-comprehensive-management-r02-primary#1-3) では PMBOK の用語が問われ、「CPM はプロジェクト目標達成のために作業を階層的に分解する」という誤答を通じて CPM（スケジュール最長経路特定）と WBS（スコープ階層分解）の役割混同が論点となった。
+
+<ExamPoint
+  summary="PERT/CPMはネットワーク工程表でクリティカルパスを特定し工程を管理する手法"
+  items={[
+    "$EFT = EST + t$",
+    "$LST = LFT - t$、$TF = LST - EST = LFT - EFT$（R04 Ⅰ-1-8 核心）",
+    "クリティカルパス＝最長経路＝全余裕時間（TF）がゼロの作業の連鎖",
+    "PERTは3点見積り $t_e=(O+4M+P)/6$ で不確実性を考慮、CPMは確定値で管理",
+    "クリティカルパス上の作業遅延は全体工期に直結する",
+    "作業時間延長で TF がゼロ以下になるとその作業はクリティカルパス上へ移動",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "ガントチャート", slug: "gantt-chart" },
+  { label: "工程計画", slug: "process-planning-construction" },
+  { label: "大日程計画・中日程計画・小日程計画", slug: "master-schedule-planning" },
+  { label: "進捗管理", slug: "progress-management" },
+  { label: "三点見積り", slug: "three-point-estimation" },
+]} />
+
+## 参考資料
+
+- [ISO 9001（品質マネジメントシステム）](https://www.jisc.go.jp/mss/qms-9000.html)（日本産業標準調査会 JISC：プロジェクト品質管理の国際規格）
+- [PERT — Wikipedia](https://ja.wikipedia.org/wiki/PERT)（ウィキペディア：ネットワーク工程表・クリティカルパス・三点見積りの包括解説）

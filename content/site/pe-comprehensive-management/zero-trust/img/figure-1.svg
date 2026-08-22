@@ -1,0 +1,113 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="境界型防御とゼロトラストの考え方の比較。境界型防御は境界で 1 回だけ認証し内部を信頼領域とするのに対し、ゼロトラストは信頼領域を作らずアクセスのたびに認証する。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-head  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-strong{ font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-body  { font-size: 11px; fill: #555; }
+      .t-sec   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-tag   { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-head  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="zt-arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="9" refX="9" refY="4.5" orient="auto">
+      <polygon points="0,0 10,4.5 0,9" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <!-- 左：境界型防御 -->
+  <rect class="box-head" x="8" y="14" width="186" height="26" rx="5"/>
+  <text class="t-head" x="101" y="31" text-anchor="middle">境界型防御</text>
+
+  <rect class="box-surf" x="18" y="50" width="166" height="32" rx="6"/>
+  <text class="t-body" x="101" y="70" text-anchor="middle">社外からのアクセス</text>
+  <line x1="101" y1="82" x2="101" y2="96" stroke="#2e6da4" stroke-width="2" marker-end="url(#zt-arrow)"/>
+
+  <rect class="box-warn" x="18" y="98" width="166" height="46" rx="6"/>
+  <text class="t-strong" x="101" y="118" text-anchor="middle">境界で 1 回だけ認証</text>
+  <text class="t-body"  x="101" y="135" text-anchor="middle">（ファイアウォール・VPN）</text>
+  <line x1="101" y1="144" x2="101" y2="158" stroke="#2e6da4" stroke-width="2" marker-end="url(#zt-arrow)"/>
+
+  <rect class="box-brand" x="18" y="160" width="166" height="100" rx="6"/>
+  <text class="t-strong" x="101" y="182" text-anchor="middle">社内ネットワーク</text>
+  <text class="t-strong" x="101" y="199" text-anchor="middle">＝ 信頼領域</text>
+  <text class="t-body"  x="101" y="223" text-anchor="middle">内部はすべて信頼し</text>
+  <text class="t-body"  x="101" y="239" text-anchor="middle">再検証しない</text>
+
+  <!-- 右：ゼロトラスト -->
+  <rect class="box-head" x="206" y="14" width="186" height="26" rx="5"/>
+  <text class="t-head" x="299" y="31" text-anchor="middle">ゼロトラスト</text>
+
+  <rect class="box-surf" x="216" y="50" width="166" height="32" rx="6"/>
+  <text class="t-body" x="299" y="70" text-anchor="middle">利用者からのアクセス</text>
+  <line x1="299" y1="82" x2="299" y2="96" stroke="#2e6da4" stroke-width="2" marker-end="url(#zt-arrow)"/>
+
+  <rect class="box-brand" x="216" y="98" width="166" height="46" rx="6"/>
+  <text class="t-strong" x="299" y="118" text-anchor="middle">アクセスのたびに</text>
+  <text class="t-body"  x="299" y="135" text-anchor="middle">認証・認可・暗号化</text>
+  <line x1="299" y1="144" x2="299" y2="158" stroke="#2e6da4" stroke-width="2" marker-end="url(#zt-arrow)"/>
+
+  <rect class="box-surf" x="216" y="160" width="166" height="100" rx="6"/>
+  <text class="t-strong" x="299" y="182" text-anchor="middle">個々のリソース</text>
+  <text class="t-strong" x="299" y="199" text-anchor="middle">＝ 信頼領域を作らない</text>
+  <text class="t-body"  x="299" y="223" text-anchor="middle">社内・社外を問わず</text>
+  <text class="t-body"  x="299" y="239" text-anchor="middle">毎回検証する</text>
+
+  <!-- 比較凡例セクション -->
+  <line x1="8" y1="278" x2="392" y2="278" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-sec" x="12" y="300">2 つのアプローチの比較</text>
+
+  <!-- 比較テーブルヘッダー -->
+  <rect class="box-head" x="8"   y="308" width="120" height="28" rx="4"/>
+  <rect class="box-head" x="132" y="308" width="124" height="28" rx="4"/>
+  <rect class="box-head" x="260" y="308" width="132" height="28" rx="4"/>
+  <text class="t-tag" x="68"  y="326" text-anchor="middle">比較項目</text>
+  <text class="t-tag" x="194" y="326" text-anchor="middle">境界型防御</text>
+  <text class="t-tag" x="326" y="326" text-anchor="middle">ゼロトラスト</text>
+
+  <!-- 行1 -->
+  <rect class="box-surf" x="8"   y="340" width="120" height="28" rx="4"/>
+  <rect class="box-surf" x="132" y="340" width="124" height="28" rx="4"/>
+  <rect class="box-surf" x="260" y="340" width="132" height="28" rx="4"/>
+  <text class="t-body" x="68"  y="358" text-anchor="middle">認証タイミング</text>
+  <text class="t-body" x="194" y="358" text-anchor="middle">境界で 1 回</text>
+  <text class="t-body" x="326" y="358" text-anchor="middle">アクセスごと</text>
+
+  <!-- 行2 -->
+  <rect class="box-surf" x="8"   y="372" width="120" height="28" rx="4"/>
+  <rect class="box-surf" x="132" y="372" width="124" height="28" rx="4"/>
+  <rect class="box-surf" x="260" y="372" width="132" height="28" rx="4"/>
+  <text class="t-body" x="68"  y="390" text-anchor="middle">内部の信頼</text>
+  <text class="t-body" x="194" y="390" text-anchor="middle">信頼する</text>
+  <text class="t-body" x="326" y="390" text-anchor="middle">信頼しない</text>
+
+  <!-- 行3 -->
+  <rect class="box-surf" x="8"   y="404" width="120" height="28" rx="4"/>
+  <rect class="box-surf" x="132" y="404" width="124" height="28" rx="4"/>
+  <rect class="box-surf" x="260" y="404" width="132" height="28" rx="4"/>
+  <text class="t-body" x="68"  y="422" text-anchor="middle">内部不正への対応</text>
+  <text class="t-body" x="194" y="422" text-anchor="middle">弱い</text>
+  <text class="t-body" x="326" y="422" text-anchor="middle">強い</text>
+
+  <!-- 行4 -->
+  <rect class="box-surf" x="8"   y="436" width="120" height="28" rx="4"/>
+  <rect class="box-surf" x="132" y="436" width="124" height="28" rx="4"/>
+  <rect class="box-surf" x="260" y="436" width="132" height="28" rx="4"/>
+  <text class="t-body" x="68"  y="454" text-anchor="middle">テレワーク適合</text>
+  <text class="t-body" x="194" y="454" text-anchor="middle">VPN 依存</text>
+  <text class="t-body" x="326" y="454" text-anchor="middle">場所を問わない</text>
+
+  <!-- 行5 -->
+  <rect class="box-surf" x="8"   y="468" width="120" height="28" rx="4"/>
+  <rect class="box-surf" x="132" y="468" width="124" height="28" rx="4"/>
+  <rect class="box-surf" x="260" y="468" width="132" height="28" rx="4"/>
+  <text class="t-body" x="68"  y="486" text-anchor="middle">導入コスト</text>
+  <text class="t-body" x="194" y="486" text-anchor="middle">比較的低い</text>
+  <text class="t-body" x="326" y="486" text-anchor="middle">高い（段階移行）</text>
+</svg>

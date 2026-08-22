@@ -1,0 +1,59 @@
+<svg width="600" height="280" viewBox="0 0 600 280" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:600px;width:100%" role="img" aria-label="特性要因図（フィッシュボーン図）">
+  <!-- Spine -->
+  <line x1="60" y1="140" x2="510" y2="140" stroke="#222" stroke-width="2.5"/>
+  <!-- Head (effect) -->
+  <rect x="510" y="110" width="80" height="60" fill="#fff3cd" stroke="#cc8800" stroke-width="2" rx="5"/>
+  <text x="550" y="138" text-anchor="middle" font-weight="bold" font-size="12">結果</text>
+  <text x="550" y="155" text-anchor="middle" font-size="10">（特性）</text>
+  <!-- Arrow to head -->
+  <line x1="508" y1="140" x2="512" y2="140" stroke="#222" stroke-width="2.5" marker-end="url(#arr2)"/>
+
+  <!-- Top branches -->
+  <!-- Branch 1 (top-left) -->
+  <line x1="160" y1="140" x2="120" y2="80" stroke="#555" stroke-width="2"/>
+  <text x="95" y="72" text-anchor="middle" font-weight="bold" font-size="12">要因1</text>
+  <line x1="140" y1="107" x2="110" y2="90" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text x="98" y="88" text-anchor="end" font-size="10">小要因</text>
+  <line x1="148" y1="112" x2="120" y2="100" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text x="108" y="98" text-anchor="end" font-size="10">小要因</text>
+
+  <!-- Branch 2 (top-center) -->
+  <line x1="280" y1="140" x2="240" y2="75" stroke="#555" stroke-width="2"/>
+  <text x="218" y="67" text-anchor="middle" font-weight="bold" font-size="12">要因2</text>
+  <line x1="260" y1="107" x2="230" y2="90" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text x="218" y="88" text-anchor="end" font-size="10">小要因</text>
+  <line x1="268" y1="112" x2="240" y2="100" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text x="228" y="98" text-anchor="end" font-size="10">小要因</text>
+
+  <!-- Branch 3 (top-right) -->
+  <line x1="400" y1="140" x2="360" y2="75" stroke="#555" stroke-width="2"/>
+  <text x="338" y="67" text-anchor="middle" font-weight="bold" font-size="12">要因3</text>
+  <line x1="380" y1="107" x2="350" y2="90" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text x="338" y="88" text-anchor="end" font-size="10">小要因</text>
+
+  <!-- Bottom branches -->
+  <!-- Branch 4 (bottom-left) -->
+  <line x1="160" y1="140" x2="120" y2="200" stroke="#555" stroke-width="2"/>
+  <text x="95" y="215" text-anchor="middle" font-weight="bold" font-size="12">要因4</text>
+  <line x1="140" y1="170" x2="110" y2="188" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text x="98" y="200" text-anchor="end" font-size="10">小要因</text>
+
+  <!-- Branch 5 (bottom-center) -->
+  <line x1="280" y1="140" x2="240" y2="205" stroke="#555" stroke-width="2"/>
+  <text x="218" y="222" text-anchor="middle" font-weight="bold" font-size="12">要因5</text>
+  <line x1="260" y1="170" x2="230" y2="190" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text x="218" y="205" text-anchor="end" font-size="10">小要因</text>
+  <line x1="268" y1="175" x2="240" y2="195" stroke="#8a8a8a" stroke-width="1.5"/>
+
+  <!-- Branch 6 (bottom-right) -->
+  <line x1="400" y1="140" x2="360" y2="205" stroke="#555" stroke-width="2"/>
+  <text x="338" y="222" text-anchor="middle" font-weight="bold" font-size="12">要因6</text>
+  <line x1="380" y1="170" x2="350" y2="190" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text x="338" y="205" text-anchor="end" font-size="10">小要因</text>
+
+  <defs>
+    <marker id="arr2" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#222"/>
+    </marker>
+  </defs>
+</svg>

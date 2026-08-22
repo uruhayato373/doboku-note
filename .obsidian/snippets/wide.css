@@ -1,0 +1,21 @@
+/* cssclasses: wide-page を含む md ファイルの行幅制限を解除する */
+
+/* Obsidian の "Readable line length" / Minimal テーマ の幅制御変数を上書き
+   width: 100% を直接当てるとサイドバーと重なるので、変数だけ書き換える */
+.wide-page.markdown-source-view.mod-cm6 .cm-sizer,
+.wide-page.markdown-preview-view,
+.wide-page .markdown-source-view.mod-cm6 .cm-sizer,
+.wide-page .markdown-preview-view {
+  --file-line-width: none;
+  --line-width: none;
+  --line-width-adaptive: none;
+  --max-width: 100%;
+}
+
+/* テーブルが画面幅を超えたら横スクロール */
+.wide-page .markdown-rendered table,
+.wide-page .markdown-preview-view table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+}

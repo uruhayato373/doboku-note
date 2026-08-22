@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="SWOT 分析の 2 軸 4 象限：内部環境（強み Strengths・弱み Weaknesses）と外部環境（機会 Opportunities・脅威 Threats）をプラス/マイナスで整理する">
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <text x="120" y="46" text-anchor="middle" font-size="12" fill="#3a7d44" font-family="sans-serif" font-weight="bold">プラス要因</text>
+  <text x="280" y="46" text-anchor="middle" font-size="12" fill="#b22234" font-family="sans-serif" font-weight="bold">マイナス要因</text>
+
+  <text x="20" y="158" font-size="12" fill="#222" font-family="sans-serif" font-weight="bold" transform="rotate(-90 20 158)" text-anchor="middle">内部環境</text>
+  <text x="20" y="278" font-size="12" fill="#222" font-family="sans-serif" font-weight="bold" transform="rotate(-90 20 278)" text-anchor="middle">外部環境</text>
+
+  <g>
+    <rect x="40" y="60" width="160" height="100" fill="#d0e8d0" stroke="#3a7d44" stroke-width="2" rx="4"/>
+    <text x="120" y="84" text-anchor="middle" font-size="14" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">S</text>
+    <text x="120" y="104" text-anchor="middle" font-size="12" fill="#222" font-family="sans-serif">Strengths</text>
+    <text x="120" y="122" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">強み</text>
+    <text x="120" y="142" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">自社の優位性・経営資源</text>
+  </g>
+
+  <g>
+    <rect x="200" y="60" width="160" height="100" fill="#f8d7da" stroke="#b22234" stroke-width="2" rx="4"/>
+    <text x="280" y="84" text-anchor="middle" font-size="14" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">W</text>
+    <text x="280" y="104" text-anchor="middle" font-size="12" fill="#222" font-family="sans-serif">Weaknesses</text>
+    <text x="280" y="122" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">弱み</text>
+    <text x="280" y="142" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">改善すべき点</text>
+  </g>
+
+  <g>
+    <rect x="40" y="180" width="160" height="100" fill="#d0e8d0" stroke="#3a7d44" stroke-width="2" rx="4"/>
+    <text x="120" y="204" text-anchor="middle" font-size="14" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">O</text>
+    <text x="120" y="224" text-anchor="middle" font-size="12" fill="#222" font-family="sans-serif">Opportunities</text>
+    <text x="120" y="242" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">機会</text>
+    <text x="120" y="262" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">市場・環境の有利な変化</text>
+  </g>
+
+  <g>
+    <rect x="200" y="180" width="160" height="100" fill="#f8d7da" stroke="#b22234" stroke-width="2" rx="4"/>
+    <text x="280" y="204" text-anchor="middle" font-size="14" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">T</text>
+    <text x="280" y="224" text-anchor="middle" font-size="12" fill="#222" font-family="sans-serif">Threats</text>
+    <text x="280" y="242" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">脅威</text>
+    <text x="280" y="262" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">不利な変化・競合台頭</text>
+  </g>
+
+  <g>
+    <rect x="40" y="298" width="320" height="60" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="4"/>
+    <text x="200" y="316" text-anchor="middle" font-size="12" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">クロス SWOT で戦略を導出</text>
+    <text x="200" y="334" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">SO（積極攻勢）/ WO（弱点克服）</text>
+    <text x="200" y="350" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">ST（差別化）/ WT（防衛・撤退）</text>
+  </g>
+
+  <!-- サマリー -->
+  <line stroke="#d7d7d7" stroke-width="1" x1="20" y1="376" x2="380" y2="376"/>
+  <text font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c" x="200" y="404" text-anchor="middle">SWOT 分析の活用ポイント</text>
+  <rect fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" x="20" y="416" width="360" height="66" rx="6"/>
+  <text font-family="sans-serif" font-size="11" fill="#555" x="30" y="436">・内部環境（S/W）は自社でコントロールできる要因</text>
+  <text font-family="sans-serif" font-size="11" fill="#555" x="30" y="454">・外部環境（O/T）は市場・法規制など外部要因</text>
+  <text font-family="sans-serif" font-size="11" fill="#555" x="30" y="472">・4 象限を掛け合わせ「クロス SWOT」で戦略オプション生成</text>
+</svg>

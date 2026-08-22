@@ -1,0 +1,89 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="階層的クラスター分析（デンドログラムで近いもの同士を段階的に併合し、切る高さでクラスタ数を決める）と非階層的クラスター分析（k-meansでkを先に指定し各点を最寄りの重心へ反復割当する）の違いを対比した図。k-meansは非階層的手法。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #222; }   /* ink-strong */
+      .t-sub   { font-size: 12px; fill: #555; }                      /* ink-body */
+      .t-panel { font-size: 13px; font-weight: bold; fill: #1a3a5c; }/* ink-strong */
+      .t-cap   { font-size: 11px; fill: #555; }                      /* ink-body */
+      .t-note  { font-size: 11px; fill: #8a8a8a; }                   /* ink-muted */
+      .t-cut   { font-size: 11px; font-weight: bold; fill: #b22234; }/* danger */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .den   { stroke: #2e6da4; stroke-width: 1.3; fill: none; }     /* brand */
+      .cut   { stroke: #b22234; stroke-width: 1.3; stroke-dasharray: 4,3; fill: none; } /* danger */
+      .grp   { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3,2; fill: none; }   /* ink-muted */
+    </style>
+  </defs>
+
+  <!-- タイトル -->
+  <text class="t-title" x="200" y="28" text-anchor="middle">階層的 と 非階層的クラスター分析</text>
+  <text class="t-sub" x="200" y="48" text-anchor="middle">k-means は非階層的（階層的ではない）</text>
+
+  <!-- ===== パネルA：階層的 ===== -->
+  <rect class="box-brand" x="20" y="62" width="12" height="12" rx="2"/>
+  <text class="t-panel" x="38" y="72">階層的クラスター分析</text>
+
+  <!-- 右カラム：説明 -->
+  <text class="t-cap" x="196" y="120">近いもの同士を</text>
+  <text class="t-cap" x="196" y="138">段階的に併合する</text>
+  <text class="t-cap" x="196" y="156">デンドログラムで可視化</text>
+  <text class="t-cap" x="196" y="234">小〜中規模データ向き</text>
+  <text class="t-note" x="196" y="256">代表：ウォード法・最短距離法</text>
+
+  <!-- デンドログラム（左・x20〜178, y188〜250） -->
+  <circle cx="34"  cy="250" r="3" fill="#2e6da4"/>
+  <circle cx="58"  cy="250" r="3" fill="#2e6da4"/>
+  <circle cx="82"  cy="250" r="3" fill="#2e6da4"/>
+  <circle cx="120" cy="250" r="3" fill="#2e6da4"/>
+  <circle cx="150" cy="250" r="3" fill="#2e6da4"/>
+  <path class="den" d="M34 250 V226 H58 V250"/>
+  <path class="den" d="M46 226 V208 H82 V250"/>
+  <path class="den" d="M120 250 V228 H150 V250"/>
+  <path class="den" d="M64 208 V188 H135 V228"/>
+
+  <!-- 切る高さ（破線は樹形図を横断、ラベルは右カラムへ逃がす） -->
+  <line class="cut" x1="20" y1="200" x2="186" y2="200"/>
+  <text class="t-cut" x="196" y="204">← この高さで切る → 2クラスタ</text>
+
+  <line x1="20" y1="280" x2="380" y2="280" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- ===== パネルB：非階層的（k-means） ===== -->
+  <rect class="box-positive" x="20" y="292" width="12" height="12" rx="2"/>
+  <text class="t-panel" x="38" y="302">非階層的クラスター分析（k-means）</text>
+
+  <!-- 右カラム：説明 -->
+  <text class="t-cap" x="196" y="332">k を先に指定する</text>
+  <text class="t-cap" x="196" y="350">各点を最寄りの</text>
+  <text class="t-cap" x="196" y="368">重心へ割り当て</text>
+  <text class="t-cap" x="196" y="386">重心の再計算を反復</text>
+  <text class="t-cap" x="196" y="412">大規模データ向き</text>
+  <text class="t-note" x="196" y="434">代表：k-means 法</text>
+
+  <!-- 散布図（左）：3グループ＋重心× -->
+  <ellipse class="grp" cx="54" cy="346" rx="22" ry="17"/>
+  <circle cx="42" cy="338" r="3" fill="#2e6da4"/>
+  <circle cx="60" cy="340" r="3" fill="#2e6da4"/>
+  <circle cx="48" cy="356" r="3" fill="#2e6da4"/>
+  <circle cx="64" cy="352" r="3" fill="#2e6da4"/>
+  <path class="den" d="M49 341 L59 351 M59 341 L49 351" stroke="#1a3a5c" stroke-width="2"/>
+
+  <ellipse class="grp" cx="132" cy="340" rx="22" ry="17"/>
+  <circle cx="120" cy="332" r="3" fill="#3a7d44"/>
+  <circle cx="140" cy="336" r="3" fill="#3a7d44"/>
+  <circle cx="126" cy="350" r="3" fill="#3a7d44"/>
+  <circle cx="144" cy="346" r="3" fill="#3a7d44"/>
+  <path class="den" d="M127 335 L137 345 M137 335 L127 345" stroke="#1a3a5c" stroke-width="2"/>
+
+  <ellipse class="grp" cx="88" cy="414" rx="22" ry="17"/>
+  <circle cx="76" cy="406" r="3" fill="#b22234"/>
+  <circle cx="96" cy="410" r="3" fill="#b22234"/>
+  <circle cx="82" cy="424" r="3" fill="#b22234"/>
+  <circle cx="100" cy="420" r="3" fill="#b22234"/>
+  <path class="den" d="M83 409 L93 419 M93 409 L83 419" stroke="#1a3a5c" stroke-width="2"/>
+
+  <text class="t-note" x="20" y="460">× ＝ 重心（セントロイド）</text>
+</svg>

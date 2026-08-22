@@ -1,0 +1,3041 @@
+{
+  "version": 1,
+  "description": "過去問起点の校正サイクル進捗。/exam-keyword-cycle スキルが読み書きする。",
+  "covered": {
+    "pe-comprehensive-management-r07-primary": {
+      "1-1": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "business-continuity-plan",
+          "risk-management-plan"
+        ]
+      },
+      "1-2": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "quality-control",
+          "control-limits",
+          "inspection-methods",
+          "nonconformity-rate"
+        ]
+      },
+      "1-3": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "break-even-point",
+          "direct-costing"
+        ]
+      },
+      "1-4": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "overall-equipment-effectiveness",
+          "preventive-maintenance",
+          "corrective-maintenance"
+        ]
+      },
+      "1-5": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "ecrs-principle",
+          "five-s"
+        ]
+      },
+      "1-6": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "game-theory",
+          "monte-carlo-simulation",
+          "linear-programming"
+        ]
+      },
+      "1-7": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "depreciation",
+          "cash-flow-statement",
+          "balance-sheet"
+        ]
+      },
+      "1-8": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "pert-cpm",
+          "gantt-chart",
+          "process-planning-construction"
+        ]
+      },
+      "1-9": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "labor-standards-act",
+          "occupational-safety-act"
+        ]
+      },
+      "1-10": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "part-time-fixed-term-act",
+          "equal-pay-for-equal-work",
+          "worker-dispatch-act"
+        ]
+      },
+      "1-11": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "stress-check-system",
+          "mental-health-care",
+          "occupational-safety-act"
+        ]
+      },
+      "1-12": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "employment-insurance",
+          "childcare-nursing-leave-act"
+        ]
+      },
+      "1-13": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "specialist-system",
+          "multi-track-hr-system",
+          "career-track-system"
+        ]
+      },
+      "1-14": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "pm-theory",
+          "followership",
+          "sl-theory",
+          "servant-leadership",
+          "psychological-safety"
+        ]
+      },
+      "1-15": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "mentor",
+          "ojt-off-jt",
+          "career-path"
+        ]
+      },
+      "1-16": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "performance-evaluation",
+          "attitude-appraisal",
+          "360-degree-evaluation"
+        ]
+      },
+      "1-17": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "descriptive-statistics",
+          "estimation-testing"
+        ]
+      },
+      "1-18": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "portrait-publicity-privacy",
+          "copyright",
+          "personal-info-protection"
+        ]
+      },
+      "1-19": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "reliability-maintainability-design",
+          "bathtub-curve",
+          "preventive-maintenance"
+        ]
+      },
+      "1-20": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "zero-trust",
+          "isms-iso27001",
+          "common-criteria"
+        ]
+      },
+      "1-21": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "design-thinking",
+          "agile"
+        ]
+      },
+      "1-22": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "public-acceptance",
+          "citizen-participation"
+        ]
+      },
+      "1-23": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "antitrust-compliance",
+          "bid-rigging",
+          "unfair-trade-practices"
+        ]
+      },
+      "1-24": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "isms-iso27001",
+          "common-criteria",
+          "zero-trust",
+          "vpn"
+        ]
+      },
+      "1-25": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "four-e-countermeasures",
+          "four-m-analysis",
+          "kyt",
+          "safety-patrol"
+        ]
+      },
+      "1-26": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "occupational-safety-act",
+          "safety-health-policy",
+          "osh-management-system"
+        ]
+      },
+      "1-27": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "disaster-countermeasures-act",
+          "alert-levels",
+          "disaster-weather-info"
+        ]
+      },
+      "1-28": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "alert-levels",
+          "disaster-countermeasures-act",
+          "disaster-weather-info"
+        ]
+      },
+      "1-29": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "aging-infrastructure",
+          "preventive-maintenance",
+          "corrective-maintenance"
+        ]
+      },
+      "1-30": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "safety-2-0",
+          "functional-safety",
+          "inherent-safety"
+        ]
+      },
+      "1-31": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "accident-statistics",
+          "heinrich-law",
+          "occupational-accident-prevention-plan"
+        ]
+      },
+      "1-32": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "blind-drill",
+          "accident-response-drill",
+          "disaster-drill"
+        ]
+      },
+      "1-33": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "unced-earth-summit",
+          "un-human-environment-conf",
+          "sdgs"
+        ]
+      },
+      "1-34": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "energy",
+          "climate-change-decarbonization"
+        ]
+      },
+      "1-35": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "ramsar-convention",
+          "convention-on-biodiversity",
+          "wildlife-protection-act"
+        ]
+      },
+      "1-36": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "circular-economy",
+          "regional-circular-symbiosis",
+          "circular-society-basic-act"
+        ]
+      },
+      "1-37": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "seven-types-of-pollution",
+          "air-pollution-control-act",
+          "water-pollution-control-act"
+        ]
+      },
+      "1-38": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "alps-treated-water",
+          "radioactive-waste",
+          "nuclear-disaster-act"
+        ]
+      },
+      "1-39": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "environmental-basic-plan",
+          "sdgs",
+          "backcasting"
+        ]
+      },
+      "1-40": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "iso-14000",
+          "eco-action-21",
+          "iso-26000"
+        ]
+      }
+    },
+    "pe-comprehensive-management-r06-primary": {
+      "1-35": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "nagoya-protocol",
+          "biosafety",
+          "convention-on-biodiversity",
+          "cites",
+          "ipbes",
+          "kunming-montreal-framework"
+        ]
+      },
+      "1-1": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "cash-flow-statement",
+          "balance-sheet",
+          "income-statement",
+          "ifrs"
+        ]
+      },
+      "1-2": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "npv-net-present-value",
+          "discount-rate",
+          "investment-recovery-plan",
+          "internal-rate-of-return",
+          "present-annual-future-value"
+        ]
+      },
+      "1-3": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "indirect-manufacturing-cost",
+          "job-order-costing",
+          "cost-variance-analysis",
+          "activity-abc",
+          "direct-manufacturing-cost"
+        ]
+      },
+      "1-4": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "inspection-methods",
+          "quality-control",
+          "process-capability-index",
+          "nonconformity-rate",
+          "quality-characteristics"
+        ]
+      },
+      "1-5": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "jit-production",
+          "push-production",
+          "pull-production",
+          "lead-time",
+          "visual-management"
+        ]
+      },
+      "1-6": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "pert-cpm",
+          "progress-management",
+          "gantt-chart",
+          "process-planning-construction"
+        ]
+      },
+      "1-7": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "linear-programming",
+          "multi-objective-optimization",
+          "integer-programming",
+          "game-theory"
+        ]
+      },
+      "1-8": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "pdpc-method",
+          "cause-and-effect-diagram",
+          "quality-control",
+          "quality-improvement",
+          "quality-assurance"
+        ]
+      },
+      "1-9": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "labor-standards-act",
+          "flextime-system",
+          "variable-work-hours",
+          "discretionary-work-system",
+          "highly-professional-system"
+        ]
+      },
+      "1-10": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "elderly-employment-act",
+          "continued-employment-system",
+          "reemployment-system",
+          "labor-policy-act",
+          "indefinite-conversion-rule"
+        ]
+      },
+      "1-11": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "childcare-nursing-leave-act",
+          "work-life-balance",
+          "gender-equality-act",
+          "labor-standards-act"
+        ]
+      },
+      "1-12": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "workers-compensation-insurance",
+          "occupational-safety-act",
+          "accident-statistics",
+          "accident-cost"
+        ]
+      },
+      "1-13": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "health-management",
+          "wellbeing-org",
+          "stress-check-system",
+          "mental-health-care"
+        ]
+      },
+      "1-14": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "positive-action",
+          "equal-employment-act",
+          "work-life-balance",
+          "unconscious-bias",
+          "gender-gap"
+        ]
+      },
+      "1-15": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "career-ownership",
+          "reskilling",
+          "career-path",
+          "ojt-off-jt",
+          "self-development"
+        ]
+      },
+      "1-16": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "maslow-hierarchy-of-needs",
+          "mcgregor-xy-theory",
+          "herzberg-two-factor-theory",
+          "scientific-management",
+          "incentive",
+          "intrinsic-motivation"
+        ]
+      },
+      "1-17": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "cloud-on-premises",
+          "web-services",
+          "edge-computing",
+          "iot"
+        ]
+      },
+      "1-18": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "cluster-analysis",
+          "data-mining",
+          "data-visualization",
+          "machine-learning",
+          "linear-regression"
+        ]
+      },
+      "1-19": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "isms-iso27001",
+          "confidentiality",
+          "integrity-security",
+          "system-availability"
+        ]
+      },
+      "1-20": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "ojt-off-jt",
+          "mentor",
+          "intrinsic-motivation",
+          "dialogic-od"
+        ]
+      },
+      "1-21": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "information-disclosure-act",
+          "information-disclosure",
+          "right-to-know",
+          "disclosure-request",
+          "personal-info-protection"
+        ]
+      },
+      "1-22": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "patent-rights",
+          "utility-model-rights",
+          "design-rights",
+          "trademark-rights",
+          "industrial-property-rights",
+          "ip-protection"
+        ]
+      },
+      "1-23": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "blockchain-crypto",
+          "encryption-digital-signature",
+          "zero-trust",
+          "iot"
+        ]
+      },
+      "1-24": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "malware",
+          "targeted-attack",
+          "vulnerability",
+          "unauthorized-access",
+          "data-breach-response"
+        ]
+      },
+      "1-25": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "normalcy-bias",
+          "catastrophe-bias",
+          "veteran-bias",
+          "virgin-bias",
+          "risk-perception",
+          "optimism-bias"
+        ]
+      },
+      "1-26": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "mental-health-care",
+          "stress-check-system",
+          "mental-health",
+          "return-to-work-support",
+          "occupational-safety-act"
+        ]
+      },
+      "1-27": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "fail-safe",
+          "interlock",
+          "emergency-stop-device",
+          "fool-proof",
+          "machinery-safety-guidelines"
+        ]
+      },
+      "1-28": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "timeline-disaster",
+          "emergency",
+          "disaster-weather-info",
+          "hazard-map",
+          "alert-levels"
+        ]
+      },
+      "1-29": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "safety-management-system",
+          "public-safety",
+          "antitrust-compliance",
+          "labor-standards-act"
+        ]
+      },
+      "1-30": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "oshms",
+          "osh-management-system",
+          "safety-health-policy",
+          "safety-health-education",
+          "safety-management-system"
+        ]
+      },
+      "1-31": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "reliability-block-diagram",
+          "series-system",
+          "parallel-system",
+          "equipment-reliability",
+          "system-reliability"
+        ]
+      },
+      "1-32": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "national-resilience-act",
+          "resilience",
+          "business-continuity-plan",
+          "all-hazard-approach"
+        ]
+      },
+      "1-33": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "climate-change-international",
+          "climate-change-decarbonization",
+          "extreme-events",
+          "disaster-weather-info"
+        ]
+      },
+      "1-34": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "energy",
+          "climate-change-decarbonization",
+          "cdp-sbt-re100",
+          "carbon-pricing"
+        ]
+      },
+      "1-36": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "circular-economy",
+          "waste-management-act",
+          "ocean-plastic",
+          "extended-producer-responsibility",
+          "circular-society-basic-act"
+        ]
+      },
+      "1-37": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "green-infrastructure",
+          "eco-drr",
+          "heat-island-effect",
+          "liquefaction",
+          "disaster-prevention",
+          "hazard-map"
+        ]
+      },
+      "1-38": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "environmental-basic-plan",
+          "environmental-impact-assessment",
+          "carbon-pricing",
+          "environmental-accounting",
+          "behavioral-regulation"
+        ]
+      },
+      "1-39": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "iso-14000",
+          "tnfd",
+          "green-bond",
+          "esg-investment",
+          "iso-26000",
+          "sdgs"
+        ]
+      },
+      "1-40": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "eco-label",
+          "csr",
+          "consumer-safety",
+          "sdgs"
+        ]
+      }
+    },
+    "pe-comprehensive-management-r04-primary": {
+      "1-1": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "cash-flow-statement",
+          "balance-sheet",
+          "income-statement"
+        ]
+      },
+      "1-2": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "value-engineering"
+        ]
+      },
+      "1-3": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "demand-forecasting",
+          "linear-regression",
+          "estimation-testing"
+        ]
+      },
+      "1-4": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "predictive-maintenance",
+          "maintenance-prevention",
+          "improvement-maintenance",
+          "preventive-maintenance"
+        ]
+      },
+      "1-5": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "service-quality",
+          "quality-characteristics"
+        ]
+      },
+      "1-6": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "theory-of-constraints",
+          "supply-chain-management",
+          "jit-production"
+        ]
+      },
+      "1-7": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "agile",
+          "waterfall",
+          "pmbok"
+        ]
+      },
+      "1-8": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "pert-cpm",
+          "progress-management",
+          "gantt-chart"
+        ]
+      },
+      "1-9": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "flextime-system",
+          "variable-work-hours",
+          "labor-standards-act",
+          "labor-contract-act"
+        ]
+      },
+      "1-10": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "equal-pay-for-equal-work",
+          "part-time-fixed-term-act",
+          "worker-dispatch-act"
+        ]
+      },
+      "1-11": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "work-life-balance",
+          "discretionary-work-system",
+          "labor-standards-act"
+        ]
+      },
+      "1-12": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "stress-check-system",
+          "mental-health-care",
+          "occupational-safety-act",
+          "health-management"
+        ]
+      },
+      "1-13": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "teal-organization",
+          "network-organization",
+          "matrix-organization",
+          "pyramid-organization",
+          "functional-organization"
+        ]
+      },
+      "1-14": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "organizational-commitment",
+          "incentive"
+        ]
+      },
+      "1-15": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "job-type-employment",
+          "membership-type-employment",
+          "personnel-management"
+        ]
+      },
+      "1-16": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "performance-evaluation",
+          "competency-evaluation",
+          "attitude-appraisal",
+          "mbo"
+        ]
+      },
+      "1-17": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "cluster-analysis",
+          "logistic-regression",
+          "correlation-analysis",
+          "linear-regression"
+        ]
+      },
+      "1-18": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "copyright",
+          "industrial-property-rights",
+          "patent-rights"
+        ]
+      },
+      "1-19": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "equipment-reliability",
+          "equipment-maintainability",
+          "bathtub-curve"
+        ]
+      },
+      "1-20": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "information-disclosure",
+          "income-statement",
+          "disclosure-standards"
+        ]
+      },
+      "1-21": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "descriptive-statistics",
+          "data-collection",
+          "survey-analysis"
+        ]
+      },
+      "1-22": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "four-p-analysis",
+          "swot-analysis",
+          "three-c-analysis",
+          "ppm-analysis"
+        ]
+      },
+      "1-23": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "digital-twin-cps",
+          "iot",
+          "blockchain-crypto"
+        ]
+      },
+      "1-24": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "encryption-digital-signature",
+          "confidentiality",
+          "non-repudiation"
+        ]
+      },
+      "1-25": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "accident-statistics",
+          "osh-management-system",
+          "oshms"
+        ]
+      },
+      "1-26": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "unsafe-conditions-behavior",
+          "heinrich-law",
+          "four-e-countermeasures",
+          "four-m-analysis"
+        ]
+      },
+      "1-27": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "national-resilience-act",
+          "resilience",
+          "crisis-management-manual",
+          "disaster-countermeasures-act"
+        ]
+      },
+      "1-28": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "fmea",
+          "vta-method",
+          "hazop",
+          "therp",
+          "fta",
+          "eta"
+        ]
+      },
+      "1-29": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "generative-ai",
+          "machine-learning",
+          "iot"
+        ]
+      },
+      "1-30": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "product-liability",
+          "consumer-product-safety-act"
+        ]
+      },
+      "1-31": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "occupational-safety-act",
+          "safety-health-education",
+          "safety-health-org-structure"
+        ]
+      },
+      "1-32": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "risk-management-plan",
+          "risk-management-system",
+          "stakeholder",
+          "risk-management-policy"
+        ]
+      },
+      "1-33": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "climate-change-decarbonization",
+          "green-infrastructure",
+          "sdgs"
+        ]
+      },
+      "1-34": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "energy",
+          "climate-change-decarbonization",
+          "carbon-pricing"
+        ]
+      },
+      "1-35": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "invasive-alien-species",
+          "biodiversity-basic-act",
+          "convention-on-biodiversity"
+        ]
+      },
+      "1-36": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "basel-convention",
+          "ocean-plastic",
+          "waste-management-act"
+        ]
+      },
+      "1-37": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "alert-levels",
+          "hazard-map",
+          "disaster-countermeasures-act",
+          "timeline-disaster",
+          "disaster-prevention"
+        ]
+      },
+      "1-38": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "air-pollution-control-act",
+          "soil-contamination-act",
+          "asbestos-issue",
+          "seven-types-of-pollution"
+        ]
+      },
+      "1-39": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "environmental-impact-assessment",
+          "environmental-standards"
+        ]
+      },
+      "1-40": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "esg-investment",
+          "green-bond",
+          "csr",
+          "tcfd",
+          "sri"
+        ]
+      }
+    },
+    "pe-comprehensive-management-r03-primary": {
+      "1-1": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "npv-net-present-value",
+          "internal-rate-of-return",
+          "payback-period-method",
+          "dcf-method",
+          "cost-effectiveness-analysis"
+        ]
+      },
+      "1-2": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "pfi",
+          "construction-plan",
+          "economic-comparison-principle",
+          "investment-recovery-plan"
+        ]
+      },
+      "1-3": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "quality-control",
+          "process-capability-index",
+          "inspection-methods",
+          "descriptive-statistics",
+          "quality-assurance"
+        ]
+      },
+      "1-4": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "pert-cpm",
+          "progress-management",
+          "gantt-chart",
+          "process-planning-construction"
+        ]
+      },
+      "1-5": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "supply-chain-management",
+          "theory-of-constraints",
+          "jit-production",
+          "pull-production",
+          "demand-forecasting"
+        ]
+      },
+      "1-6": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "break-even-point",
+          "direct-costing",
+          "standard-costing",
+          "cost-variance-analysis"
+        ]
+      },
+      "1-7": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "cash-flow-statement",
+          "balance-sheet",
+          "income-statement",
+          "accounting-systems",
+          "dcf-method"
+        ]
+      },
+      "1-8": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "equipment-economics",
+          "maintenance-cost",
+          "lifecycle-costing-method",
+          "preventive-maintenance",
+          "lifecycle-management"
+        ]
+      },
+      "1-9": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "labor-union-act",
+          "labor-relations-adjustment-act",
+          "labor-standards-act",
+          "minimum-wage-act"
+        ]
+      },
+      "1-10": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "worker-dispatch-act",
+          "equal-pay-for-equal-work",
+          "part-time-fixed-term-act",
+          "labor-standards-act"
+        ]
+      },
+      "1-11": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "childcare-nursing-leave-act",
+          "work-life-balance",
+          "child-rearing-support-act",
+          "labor-standards-act"
+        ]
+      },
+      "1-12": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "sexual-harassment",
+          "power-harassment",
+          "gender-equality-act",
+          "mental-health-care"
+        ]
+      },
+      "1-13": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "organizational-commitment",
+          "psychological-safety",
+          "safety-culture",
+          "formal-informal-organization"
+        ]
+      },
+      "1-14": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "labor-productivity",
+          "labor-share-ratio",
+          "employment-statistics",
+          "performance-based-pay"
+        ]
+      },
+      "1-15": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "mentor",
+          "ojt-off-jt",
+          "positive-action",
+          "talent-management",
+          "career-path"
+        ]
+      },
+      "1-16": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "functional-organization",
+          "divisional-organization",
+          "matrix-organization",
+          "network-organization",
+          "flat-organization"
+        ]
+      },
+      "1-17": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "machine-learning",
+          "descriptive-statistics",
+          "logistic-regression",
+          "linear-regression"
+        ]
+      },
+      "1-18": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "personal-info-protection",
+          "anonymized-information",
+          "personal-information",
+          "data-breach-response"
+        ]
+      },
+      "1-19": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "machine-learning",
+          "cloud-on-premises",
+          "generative-ai",
+          "digital-twin-cps"
+        ]
+      },
+      "1-20": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "encryption-digital-signature",
+          "isms-iso27001",
+          "online-meetings",
+          "zero-trust",
+          "confidentiality"
+        ]
+      },
+      "1-21": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "correlation-analysis",
+          "linear-regression",
+          "estimation-testing",
+          "descriptive-statistics",
+          "logistic-regression"
+        ]
+      },
+      "1-22": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "verbal-nonverbal-communication",
+          "information-disclosure",
+          "crisis-communication",
+          "social-engineering"
+        ]
+      },
+      "1-23": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "cloud-on-premises",
+          "edge-computing",
+          "digital-twin-cps",
+          "iot"
+        ]
+      },
+      "1-24": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "multi-factor-authentication",
+          "access-control",
+          "isms-iso27001",
+          "zero-trust"
+        ]
+      },
+      "1-25": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "consumer-safety",
+          "product-safety",
+          "consumer-product-safety-act",
+          "product-liability-act"
+        ]
+      },
+      "1-26": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "risk-assessment",
+          "risk-analysis",
+          "inherent-safety",
+          "alarp-principle"
+        ]
+      },
+      "1-27": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "kyt",
+          "tbm-toolbox-meeting",
+          "stress-check-system",
+          "mental-health",
+          "safety-education"
+        ]
+      },
+      "1-28": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "occupational-safety-act",
+          "safety-health-org-structure",
+          "oshms",
+          "safety-health-policy"
+        ]
+      },
+      "1-29": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "oshms",
+          "safety-health-policy",
+          "pdca-cycle",
+          "safety-health-plan",
+          "risk-assessment"
+        ]
+      },
+      "1-30": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "reliability-block-diagram",
+          "series-system",
+          "parallel-system",
+          "system-reliability",
+          "redundancy-safety"
+        ]
+      },
+      "1-31": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "biosafety",
+          "convention-on-biodiversity",
+          "elsi",
+          "biodiversity-basic-act",
+          "precautionary-principle"
+        ]
+      },
+      "1-32": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "osh-management-system",
+          "safety-health-education",
+          "mental-health-care",
+          "employment-statistics"
+        ]
+      },
+      "1-33": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "sdgs",
+          "stakeholder",
+          "csr",
+          "esg-investment",
+          "iso-26000"
+        ]
+      },
+      "1-34": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "energy",
+          "climate-change-decarbonization",
+          "carbon-pricing",
+          "cdp-sbt-re100"
+        ]
+      },
+      "1-35": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "convention-on-biodiversity",
+          "nagoya-protocol",
+          "ramsar-convention",
+          "biodiversity-basic-act",
+          "kunming-montreal-framework"
+        ]
+      },
+      "1-36": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "circular-society-basic-act",
+          "circular-economy",
+          "extended-producer-responsibility",
+          "waste-management-act"
+        ]
+      },
+      "1-37": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "air-pollution-control-act",
+          "water-pollution-control-act",
+          "soil-contamination-act",
+          "dioxin-countermeasures-act",
+          "seven-types-of-pollution"
+        ]
+      },
+      "1-38": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "environmental-basic-plan",
+          "eco-label",
+          "prtr-act",
+          "carbon-pricing",
+          "environmental-impact-assessment"
+        ]
+      },
+      "1-39": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "environmental-impact-assessment",
+          "environmental-standards",
+          "environmental-basic-plan",
+          "citizen-participation"
+        ]
+      },
+      "1-40": {
+        "date": "2026-04-24",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "esd",
+          "environmental-basic-plan",
+          "citizen-participation",
+          "environmental-communication"
+        ]
+      }
+    },
+    "pe-comprehensive-management-r02-primary": {
+      "1-1": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "quality-control",
+          "process-capability-index",
+          "quality-improvement",
+          "quality-characteristics"
+        ]
+      },
+      "1-2": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "npv-net-present-value",
+          "discount-rate",
+          "dcf-method",
+          "present-annual-future-value",
+          "economic-comparison-principle"
+        ]
+      },
+      "1-3": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "pmbok",
+          "pert-cpm",
+          "gantt-chart",
+          "three-point-estimation",
+          "parametric-estimation"
+        ]
+      },
+      "1-4": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "game-theory",
+          "delphi-method",
+          "analytic-hierarchy-process",
+          "linear-programming",
+          "multi-objective-optimization"
+        ]
+      },
+      "1-5": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "supply-chain-management",
+          "business-continuity-plan",
+          "lead-time",
+          "resilience",
+          "risk-treatment"
+        ]
+      },
+      "1-6": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "standard-costing",
+          "cost-variance-analysis",
+          "direct-costing",
+          "direct-manufacturing-cost"
+        ]
+      },
+      "1-7": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "cash-flow-statement",
+          "balance-sheet",
+          "depreciation",
+          "income-statement",
+          "ifrs"
+        ]
+      },
+      "1-8": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "preventive-maintenance",
+          "improvement-maintenance",
+          "maintenance-prevention",
+          "predictive-maintenance",
+          "corrective-maintenance"
+        ]
+      },
+      "1-9": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "equal-employment-act",
+          "elderly-employment-act",
+          "continued-employment-system",
+          "employment-insurance"
+        ]
+      },
+      "1-10": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "stress-check-system",
+          "mental-health-care",
+          "occupational-safety-act",
+          "health-management"
+        ]
+      },
+      "1-11": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "disability-employment-act",
+          "disability-employment",
+          "disability-discrimination-act",
+          "positive-action"
+        ]
+      },
+      "1-12": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "work-life-balance",
+          "positive-action",
+          "lgbtq",
+          "unconscious-bias"
+        ]
+      },
+      "1-13": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "job-rotation",
+          "job-based-pay",
+          "skill-based-pay",
+          "career-path",
+          "multi-track-hr-system"
+        ]
+      },
+      "1-14": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "foreign-trainee-program",
+          "minimum-wage-act",
+          "immigration-control-act",
+          "labor-standards-act"
+        ]
+      },
+      "1-15": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "ojt-off-jt",
+          "self-development",
+          "hierarchical-training",
+          "training-techniques"
+        ]
+      },
+      "1-16": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "competency-hr",
+          "servant-leadership",
+          "halo-effect-errors",
+          "content-process",
+          "pm-theory",
+          "diagnostic-od"
+        ]
+      },
+      "1-17": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "patent-rights",
+          "utility-model-rights",
+          "international-filing-system",
+          "design-rights",
+          "trademark-rights"
+        ]
+      },
+      "1-18": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "iot",
+          "mobile-communication",
+          "safety-2-0",
+          "machinery-safety-guidelines"
+        ]
+      },
+      "1-19": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "system-reliability",
+          "system-availability",
+          "equipment-reliability",
+          "bathtub-curve",
+          "reliability-block-diagram"
+        ]
+      },
+      "1-20": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "correlation-analysis",
+          "linear-regression",
+          "descriptive-statistics",
+          "estimation-testing",
+          "cluster-analysis"
+        ]
+      },
+      "1-21": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "iot",
+          "digital-twin-cps",
+          "machine-learning",
+          "generative-ai",
+          "edge-computing"
+        ]
+      },
+      "1-22": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "opt-in-opt-out",
+          "personal-info-protection",
+          "personal-information",
+          "anonymized-information"
+        ]
+      },
+      "1-23": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "machine-learning",
+          "generative-ai",
+          "data-mining",
+          "data-cleansing"
+        ]
+      },
+      "1-24": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "encryption-digital-signature",
+          "cyber-security",
+          "authenticity",
+          "non-repudiation"
+        ]
+      },
+      "1-25": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "fta",
+          "eta",
+          "fmea",
+          "vta-method",
+          "hazop",
+          "root-cause-analysis"
+        ]
+      },
+      "1-26": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "worker-dispatch-act",
+          "occupational-safety-act",
+          "labor-contract-act",
+          "safety-health-education"
+        ]
+      },
+      "1-27": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "iot",
+          "cyber-security",
+          "machinery-safety-guidelines",
+          "functional-safety",
+          "safety-2-0"
+        ]
+      },
+      "1-28": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "series-system",
+          "parallel-system",
+          "reliability-block-diagram",
+          "redundancy-safety",
+          "probabilistic-risk-assessment"
+        ]
+      },
+      "1-29": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "public-acceptance",
+          "risk-perception",
+          "stakeholder",
+          "crisis-communication",
+          "public-relations"
+        ]
+      },
+      "1-30": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "normalcy-bias",
+          "catastrophe-bias",
+          "veteran-bias",
+          "optimism-bias",
+          "virgin-bias"
+        ]
+      },
+      "1-31": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "safety-culture",
+          "safety-management-system",
+          "tripod-theory",
+          "human-factors"
+        ]
+      },
+      "1-32": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "consumer-product-safety-act",
+          "product-safety",
+          "product-liability-act",
+          "consumer-safety"
+        ]
+      },
+      "1-33": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "climate-change-international",
+          "climate-change-decarbonization",
+          "environmental-basic-plan",
+          "regional-circular-symbiosis"
+        ]
+      },
+      "1-34": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "cites",
+          "ramsar-convention",
+          "invasive-alien-species",
+          "convention-on-biodiversity",
+          "red-list"
+        ]
+      },
+      "1-35": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "circular-society-basic-act",
+          "ocean-plastic",
+          "circular-economy",
+          "waste-management-act",
+          "extended-producer-responsibility"
+        ]
+      },
+      "1-36": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "waste-management-act",
+          "circular-economy",
+          "extended-producer-responsibility",
+          "circular-society-basic-act"
+        ]
+      },
+      "1-37": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "climate-change-international",
+          "climate-change-decarbonization",
+          "urban-flood",
+          "heat-island-effect"
+        ]
+      },
+      "1-38": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "sdgs",
+          "environmental-basic-plan",
+          "regional-circular-symbiosis",
+          "partnership",
+          "backcasting"
+        ]
+      },
+      "1-39": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "environmental-impact-assessment",
+          "environmental-standards",
+          "precautionary-principle",
+          "prevention-principle"
+        ]
+      },
+      "1-40": {
+        "date": "2026-04-23",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "csr",
+          "esg-investment",
+          "iso-26000",
+          "eco-action-21",
+          "environmental-accounting",
+          "tcfd"
+        ]
+      }
+    },
+    "pe-comprehensive-management-r01-primary": {
+      "1-1": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "pqcdsme"
+        ]
+      },
+      "1-2": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "front-loading",
+          "concurrent-engineering",
+          "design-review"
+        ]
+      },
+      "1-3": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "linear-programming"
+        ]
+      },
+      "1-4": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "demand-forecasting"
+        ]
+      },
+      "1-5": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "present-annual-future-value",
+          "dcf-method"
+        ]
+      },
+      "1-6": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "activity-abc",
+          "target-cost"
+        ]
+      },
+      "1-7": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "balance-sheet",
+          "income-statement",
+          "cash-flow-statement"
+        ]
+      },
+      "1-8": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "bathtub-curve"
+        ]
+      },
+      "1-9": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "worker-dispatch-act",
+          "indefinite-conversion-rule"
+        ]
+      },
+      "1-10": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "labor-standards-act",
+          "labor-policy-act"
+        ]
+      },
+      "1-11": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "labor-union-act",
+          "labor-relations-adjustment-act"
+        ]
+      },
+      "1-12": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "power-harassment",
+          "labor-policy-act"
+        ]
+      },
+      "1-13": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "halo-effect-errors",
+          "360-degree-evaluation"
+        ]
+      },
+      "1-14": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "mcgregor-xy-theory",
+          "maslow-hierarchy-of-needs",
+          "herzberg-two-factor-theory"
+        ]
+      },
+      "1-15": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "training-techniques"
+        ]
+      },
+      "1-16": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "diagnostic-od",
+          "dialogic-od",
+          "content-process"
+        ]
+      },
+      "1-17": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "trademark-rights"
+        ]
+      },
+      "1-18": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "descriptive-statistics"
+        ]
+      },
+      "1-19": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "de-facto-standard",
+          "forum-standard",
+          "de-jure-standard"
+        ]
+      },
+      "1-20": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "multi-factor-authentication",
+          "access-control"
+        ]
+      },
+      "1-21": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "three-c-analysis",
+          "swot-analysis",
+          "ppm-analysis"
+        ]
+      },
+      "1-22": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "groupware",
+          "online-meetings"
+        ]
+      },
+      "1-23": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "targeted-attack",
+          "malware",
+          "encryption-digital-signature"
+        ]
+      },
+      "1-24": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "iot",
+          "rpa"
+        ]
+      },
+      "1-25": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "stress-check-system",
+          "occupational-safety-act"
+        ]
+      },
+      "1-26": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "disaster-countermeasures-act",
+          "civil-protection-act",
+          "nuclear-disaster-act"
+        ]
+      },
+      "1-27": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "disaster-prevention",
+          "hazard-map"
+        ]
+      },
+      "1-28": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "occupational-safety-act",
+          "safety-education"
+        ]
+      },
+      "1-29": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "fault-tolerance",
+          "fail-safe",
+          "fool-proof"
+        ]
+      },
+      "1-30": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "risk-management-system",
+          "risk-analysis",
+          "risk-assessment"
+        ]
+      },
+      "1-31": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "four-m-analysis",
+          "four-e-countermeasures",
+          "alarp-principle"
+        ]
+      },
+      "1-32": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "fta"
+        ]
+      },
+      "1-33": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "sdgs"
+        ]
+      },
+      "1-34": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "energy",
+          "climate-change-decarbonization"
+        ]
+      },
+      "1-35": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "circular-society-basic-act",
+          "circular-economy"
+        ]
+      },
+      "1-36": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "radioactive-decontamination-act",
+          "radioactive-waste"
+        ]
+      },
+      "1-37": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "subsidiarity-principle",
+          "prevention-principle",
+          "precautionary-principle"
+        ]
+      },
+      "1-38": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "environmental-impact-assessment"
+        ]
+      },
+      "1-39": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "sri",
+          "environmental-accounting",
+          "iso-14000"
+        ]
+      },
+      "1-40": {
+        "date": "2026-04-25",
+        "pr": 132,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "air-pollution-control-act",
+          "environmental-standards"
+        ]
+      }
+    },
+    "pe-comprehensive-management-r05-primary": {
+      "1-1": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "linear-programming",
+          "pmbok",
+          "integer-programming",
+          "multi-objective-optimization"
+        ]
+      },
+      "1-2": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "break-even-point",
+          "direct-costing",
+          "cost-variance-analysis",
+          "target-cost"
+        ]
+      },
+      "1-3": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "reliability-maintainability-design",
+          "design-review",
+          "design-in",
+          "front-loading",
+          "concurrent-engineering",
+          "quality-planning"
+        ]
+      },
+      "1-4": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "quality-control",
+          "cause-and-effect-diagram",
+          "quality-improvement",
+          "quality-assurance"
+        ]
+      },
+      "1-5": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "overall-equipment-effectiveness",
+          "preventive-maintenance",
+          "improvement-maintenance",
+          "autonomous-maintenance",
+          "equipment-reliability"
+        ]
+      },
+      "1-6": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "process-planning-construction",
+          "lead-time",
+          "progress-management",
+          "master-schedule-planning"
+        ]
+      },
+      "1-7": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "ecrs-principle",
+          "five-s",
+          "visual-management",
+          "quality-improvement"
+        ]
+      },
+      "1-8": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "inventory-control",
+          "bathtub-curve",
+          "equipment-reliability",
+          "jit-production"
+        ]
+      },
+      "1-9": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "labor-standards-act",
+          "occupational-safety-act",
+          "discretionary-work-system",
+          "work-life-balance",
+          "highly-professional-system"
+        ]
+      },
+      "1-10": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "equal-employment-act",
+          "positive-action",
+          "childcare-nursing-leave-act",
+          "women-empowerment-act",
+          "gender-equality-act"
+        ]
+      },
+      "1-11": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "power-harassment",
+          "sexual-harassment",
+          "mental-health-care"
+        ]
+      },
+      "1-12": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "individual-labor-dispute-act",
+          "labor-tribunal-act",
+          "labor-relations-adjustment-act",
+          "labor-contract-act"
+        ]
+      },
+      "1-13": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "diagnostic-od",
+          "dialogic-od",
+          "content-process",
+          "psychological-safety",
+          "organizational-commitment"
+        ]
+      },
+      "1-14": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "job-grade-system",
+          "skill-qualification-system",
+          "role-grade-system",
+          "job-type-employment",
+          "performance-based-pay",
+          "seniority-wage"
+        ]
+      },
+      "1-15": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "training-techniques",
+          "idea-generation-methods",
+          "ojt-off-jt",
+          "task-based-training"
+        ]
+      },
+      "1-16": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "psychological-safety",
+          "organizational-commitment",
+          "dialogic-od"
+        ]
+      },
+      "1-17": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "unfair-competition-prevention-act",
+          "unfair-trade-practices",
+          "trademark-rights"
+        ]
+      },
+      "1-18": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "tacit-knowledge",
+          "explicit-knowledge",
+          "knowledge-sharing",
+          "collective-intelligence",
+          "data-governance"
+        ]
+      },
+      "1-19": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "isms-iso27001",
+          "privacy-mark",
+          "common-criteria",
+          "jisec",
+          "personal-info-protection"
+        ]
+      },
+      "1-20": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "communication-planning",
+          "pmbok",
+          "communication-control",
+          "stakeholder"
+        ]
+      },
+      "1-21": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "estimation-testing",
+          "descriptive-statistics",
+          "linear-regression",
+          "correlation-analysis"
+        ]
+      },
+      "1-22": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "emergency-info-systems",
+          "crisis-communication",
+          "mobile-communication",
+          "disaster-weather-info"
+        ]
+      },
+      "1-23": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "iot",
+          "rpa",
+          "blockchain-crypto",
+          "digital-twin-cps",
+          "vr-ar-metaverse"
+        ]
+      },
+      "1-24": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "edge-computing",
+          "iot",
+          "internet",
+          "mobile-communication",
+          "cloud-on-premises"
+        ]
+      },
+      "1-25": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "risk-identification",
+          "risk-analysis",
+          "risk-assessment",
+          "risk-treatment",
+          "risk-monitoring",
+          "risk-management-system"
+        ]
+      },
+      "1-26": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "consumer-product-safety-act",
+          "product-safety",
+          "product-liability-act",
+          "consumer-safety"
+        ]
+      },
+      "1-27": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "emergency",
+          "disaster-countermeasures-act",
+          "business-continuity-plan",
+          "disaster-prevention"
+        ]
+      },
+      "1-28": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "osh-management-system",
+          "risk-assessment",
+          "inherent-safety",
+          "safety-management-system"
+        ]
+      },
+      "1-29": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "risk-perception",
+          "public-acceptance",
+          "stakeholder",
+          "environmental-communication",
+          "citizen-participation"
+        ]
+      },
+      "1-30": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "osh-management-system",
+          "health-management",
+          "personal-info-protection",
+          "elderly-employment-act",
+          "safety-health-org-structure"
+        ]
+      },
+      "1-31": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "business-continuity-plan",
+          "resilience"
+        ]
+      },
+      "1-32": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "fta",
+          "parallel-system",
+          "series-system",
+          "eta",
+          "reliability-block-diagram"
+        ]
+      },
+      "1-33": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "climate-change-decarbonization",
+          "energy",
+          "climate-change-international",
+          "tcfd"
+        ]
+      },
+      "1-34": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "energy",
+          "climate-change-decarbonization",
+          "climate-change-international",
+          "carbon-pricing"
+        ]
+      },
+      "1-35": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "ramsar-convention",
+          "ecosystem-services",
+          "convention-on-biodiversity",
+          "nature-conservation-act"
+        ]
+      },
+      "1-36": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "circular-society-basic-act",
+          "ocean-plastic",
+          "extended-producer-responsibility",
+          "waste-management-act"
+        ]
+      },
+      "1-37": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "performance-regulation",
+          "carbon-pricing",
+          "prtr-act",
+          "environmental-impact-assessment",
+          "behavioral-regulation"
+        ]
+      },
+      "1-38": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "backcasting",
+          "carbon-pricing",
+          "sdgs",
+          "circular-economy"
+        ]
+      },
+      "1-39": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "environmental-impact-assessment",
+          "environmental-basic-plan",
+          "sdgs"
+        ]
+      },
+      "1-40": {
+        "date": "2026-04-25",
+        "pr": null,
+        "status": "full_cycle_complete",
+        "keywords": [
+          "tcfd",
+          "esg-investment",
+          "lifecycle-assessment",
+          "tnfd",
+          "cdp-sbt-re100"
+        ]
+      }
+    }
+  },
+  "last_cycle": {
+    "exam": "r05-primary",
+    "question": "1-40"
+  }
+}

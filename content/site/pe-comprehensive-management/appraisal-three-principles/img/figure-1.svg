@@ -1,0 +1,86 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="人事考課の3指標と3原則。情意考課・成績考課・能力考課の特性を示し、下部に公平・客観性・透明性の3原則を配置した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      /* semantic: page title */
+      .t-title { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      /* semantic: section heading */
+      .t-head  { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      /* semantic: body text */
+      .t-body  { font-size: 13px; fill: #555; }
+      /* semantic: tag badge text */
+      .t-badge { font-size: 11px; fill: #555; }
+      /* semantic: principles label */
+      .t-prin  { font-size: 13px; font-weight: bold; fill: #8a8a8a; }
+      /* semantic: group label */
+      .t-group { font-size: 11px; fill: #8a8a8a; }
+      /* semantic: section divider label */
+      .t-sec   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      /* card: brand (blue) — インプット系 */
+      .box-brand  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      /* card: positive (green) — アウトプット系 */
+      .box-pos    { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      /* badge pill: brand */
+      .pill-brand { fill: #2e6da4; }
+      /* badge pill: positive */
+      .pill-pos   { fill: #3a7d44; }
+      /* badge pill text: white */
+      .t-pill { font-size: 11px; fill: #ffffff; font-weight: bold; }
+      /* footer band: muted surface */
+      .band-muted { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <!-- ======= 凡例（タイトル除去・凡例を上端へ） ======= -->
+  <rect x="50" y="10" width="10" height="10" rx="2" fill="#2e6da4"/>
+  <text class="t-group" x="64" y="20">インプット評価</text>
+  <rect x="168" y="10" width="10" height="10" rx="2" fill="#3a7d44"/>
+  <text class="t-group" x="182" y="20">アウトプット評価</text>
+
+  <!-- ======= セクション見出し：3指標 ======= -->
+  <text class="t-sec" x="50" y="44">3指標</text>
+
+  <!-- ===== カード1: 情意考課 ===== -->
+  <rect class="box-brand" x="50" y="52" width="300" height="96" rx="8"/>
+  <rect class="pill-brand" x="68" y="64" width="54" height="18" rx="9"/>
+  <text class="t-pill" x="95" y="77" text-anchor="middle">インプット</text>
+  <rect x="130" y="64" width="34" height="18" rx="9" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text class="t-badge" x="147" y="77" text-anchor="middle" fill="#2e6da4">短期</text>
+  <text class="t-head" x="68" y="100">情意考課</text>
+  <text class="t-body" x="68" y="118">勤務態度・意欲を評価</text>
+  <text class="t-body" x="68" y="136">（変動しやすいため短期評価）</text>
+
+  <!-- ===== カード2: 成績考課 ===== -->
+  <rect class="box-pos" x="50" y="160" width="300" height="96" rx="8"/>
+  <rect class="pill-pos" x="68" y="172" width="68" height="18" rx="9"/>
+  <text class="t-pill" x="102" y="185" text-anchor="middle">アウトプット</text>
+  <rect x="138" y="172" width="34" height="18" rx="9" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <text class="t-badge" x="155" y="185" text-anchor="middle" fill="#3a7d44">短期</text>
+  <text class="t-head" x="68" y="208">成績考課</text>
+  <text class="t-body" x="68" y="226">目標達成度・活動成果を評価</text>
+  <text class="t-body" x="68" y="244">（変動しやすいため短期評価）</text>
+
+  <!-- ===== カード3: 能力考課 ===== -->
+  <rect class="box-brand" x="50" y="268" width="300" height="96" rx="8"/>
+  <rect class="pill-brand" x="68" y="280" width="54" height="18" rx="9"/>
+  <text class="t-pill" x="95" y="293" text-anchor="middle">インプット</text>
+  <rect x="130" y="280" width="34" height="18" rx="9" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text class="t-badge" x="147" y="293" text-anchor="middle" fill="#2e6da4">長期</text>
+  <text class="t-head" x="68" y="316">能力考課</text>
+  <text class="t-body" x="68" y="334">難度の高い業務の達成度を評価</text>
+  <text class="t-body" x="68" y="352">（変動が少ないため長期評価）</text>
+
+  <!-- ======= 3原則バンド ======= -->
+  <rect class="band-muted" x="50" y="380" width="300" height="96" rx="8"/>
+  <text class="t-sec" x="200" y="400" text-anchor="middle">3原則（評価対象者の納得性確保）</text>
+
+  <text class="t-prin" x="115" y="432" text-anchor="middle">公平</text>
+  <text class="t-badge" x="115" y="450" text-anchor="middle">差別のない基準</text>
+  <line x1="192" y1="416" x2="192" y2="460" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-prin" x="236" y="432" text-anchor="middle">客観性</text>
+  <text class="t-badge" x="236" y="450" text-anchor="middle">事実に基づく評価</text>
+  <line x1="285" y1="416" x2="285" y2="468" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-prin" x="316" y="432" text-anchor="middle">透明性</text>
+  <text class="t-badge" x="316" y="450" text-anchor="middle">基準・</text>
+  <text class="t-badge" x="316" y="464" text-anchor="middle">結果の公開</text>
+</svg>

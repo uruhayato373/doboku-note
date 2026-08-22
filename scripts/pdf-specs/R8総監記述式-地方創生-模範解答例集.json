@@ -1,0 +1,146 @@
+{
+  "outDir": "/Users/minamidaisuke/doboku-note/content/note/技術士総監/R8本試験模範解答例/pdf",
+  "srcDir": "content/note/技術士総監/R8本試験模範解答例",
+  "articles": [
+    {
+      "src": "pdf-src/01-道路担当.md",
+      "out": "R8地方創生模範解答例-01-道路担当",
+      "include": [
+        {
+          "from": "^\\*\\*doboku-note",
+          "to": null
+        }
+      ]
+    },
+    {
+      "src": "pdf-src/02-河川担当.md",
+      "out": "R8地方創生模範解答例-02-河川担当",
+      "include": [
+        {
+          "from": "^\\*\\*doboku-note",
+          "to": null
+        }
+      ]
+    },
+    {
+      "src": "pdf-src/03-港湾担当.md",
+      "out": "R8地方創生模範解答例-03-港湾担当",
+      "include": [
+        {
+          "from": "^\\*\\*doboku-note",
+          "to": null
+        }
+      ]
+    },
+    {
+      "src": "pdf-src/04-砂防担当.md",
+      "out": "R8地方創生模範解答例-04-砂防担当",
+      "include": [
+        {
+          "from": "^\\*\\*doboku-note",
+          "to": null
+        }
+      ]
+    },
+    {
+      "src": "pdf-src/05-下水道担当.md",
+      "out": "R8地方創生模範解答例-05-下水道担当",
+      "include": [
+        {
+          "from": "^\\*\\*doboku-note",
+          "to": null
+        }
+      ]
+    },
+    {
+      "src": "pdf-src/06-上水道担当.md",
+      "out": "R8地方創生模範解答例-06-上水道担当",
+      "include": [
+        {
+          "from": "^\\*\\*doboku-note",
+          "to": null
+        }
+      ]
+    },
+    {
+      "src": "pdf-src/07-公園緑地担当.md",
+      "out": "R8地方創生模範解答例-07-公園緑地担当",
+      "include": [
+        {
+          "from": "^\\*\\*doboku-note",
+          "to": null
+        }
+      ]
+    },
+    {
+      "src": "pdf-src/08-都市計画担当.md",
+      "out": "R8地方創生模範解答例-08-都市計画担当",
+      "include": [
+        {
+          "from": "^\\*\\*doboku-note",
+          "to": null
+        }
+      ]
+    },
+    {
+      "src": "pdf-src/09-技術基準担当.md",
+      "out": "R8地方創生模範解答例-09-技術基準担当",
+      "include": [
+        {
+          "from": "^\\*\\*doboku-note",
+          "to": null
+        }
+      ]
+    },
+    {
+      "src": "pdf-src/10-契約調達担当.md",
+      "out": "R8地方創生模範解答例-10-契約調達担当",
+      "include": [
+        {
+          "from": "^\\*\\*doboku-note",
+          "to": null
+        }
+      ]
+    },
+    {
+      "src": "pdf-src/11-ゼネコン.md",
+      "out": "R8地方創生模範解答例-11-ゼネコン",
+      "include": [
+        {
+          "from": "^\\*\\*doboku-note",
+          "to": null
+        }
+      ]
+    },
+    {
+      "src": "pdf-src/12-河川コンサル.md",
+      "out": "R8地方創生模範解答例-12-河川コンサル",
+      "include": [
+        {
+          "from": "^\\*\\*doboku-note",
+          "to": null
+        }
+      ]
+    },
+    {
+      "src": "pdf-src/13-道路橋梁コンサル.md",
+      "out": "R8地方創生模範解答例-13-道路橋梁コンサル",
+      "include": [
+        {
+          "from": "^\\*\\*doboku-note",
+          "to": null
+        }
+      ]
+    },
+    {
+      "src": "pdf-src/14-都市計画コンサル.md",
+      "out": "R8地方創生模範解答例-14-都市計画コンサル",
+      "include": [
+        {
+          "from": "^\\*\\*doboku-note",
+          "to": null
+        }
+      ]
+    }
+  ]
+}

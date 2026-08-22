@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="ショベル系掘削機の分類系統図。掘削機械（バックホゥ・ショベル・ローディングショベル・クラムシェル・ドラグライン）と派生機械（油圧圧砕機・油圧ブレーカ・フォークグラップル）のツリー構造">
+  <style>
+    text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; }
+    .node { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.2; }
+    .node-alt { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.2; }
+    .node-derivative { fill: #f8d7da; stroke: #b22234; stroke-width: 1.2; }
+    .root { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    .line { stroke: #555; stroke-width: 1; fill: none; }
+    .label { font-size: 12px; fill: #1a3a5c; text-anchor: middle; }
+    .sub { font-size: 11px; fill: #555; text-anchor: middle; }
+    .sect { font-size: 13px; font-weight: bold; fill: #222; }
+  </style>
+
+  <!-- Root -->
+  <rect x="120" y="15" width="160" height="36" rx="6" class="root"/>
+  <text x="200" y="37" class="label" font-weight="bold">ショベル系掘削機</text>
+
+  <!-- Section A: 掘削機械 -->
+  <text x="15" y="75" class="sect">① 掘削機械</text>
+
+  <!-- Level 2 split: 油圧式 / 機械式 -->
+  <line x1="200" y1="51" x2="200" y2="85" class="line"/>
+  <line x1="90" y1="85" x2="310" y2="85" class="line"/>
+  <line x1="90" y1="85" x2="90" y2="100" class="line"/>
+  <line x1="310" y1="85" x2="310" y2="100" class="line"/>
+
+  <rect x="40" y="100" width="100" height="32" rx="6" class="node"/>
+  <text x="90" y="120" class="label">油圧式</text>
+
+  <rect x="260" y="100" width="100" height="32" rx="6" class="node-alt"/>
+  <text x="310" y="120" class="label">機械式</text>
+
+  <!-- Under 油圧式: branches for 4 types -->
+  <line x1="90" y1="132" x2="90" y2="150" class="line"/>
+  <line x1="30" y1="150" x2="150" y2="150" class="line"/>
+  <line x1="30" y1="150" x2="30" y2="165" class="line"/>
+  <line x1="90" y1="150" x2="90" y2="165" class="line"/>
+  <line x1="150" y1="150" x2="150" y2="165" class="line"/>
+
+  <rect x="5" y="165" width="50" height="30" rx="4" class="node"/>
+  <text x="30" y="185" class="sub">バック</text>
+  <text x="30" y="193" font-size="9" fill="#555" text-anchor="middle">ホゥ</text>
+
+  <rect x="65" y="165" width="50" height="30" rx="4" class="node"/>
+  <text x="90" y="185" class="sub">ショベル</text>
+  <text x="90" y="193" font-size="9" fill="#555" text-anchor="middle">（油圧）</text>
+
+  <rect x="122" y="165" width="66" height="30" rx="4" class="node"/>
+  <text x="155" y="179" class="sub">ローディング</text>
+  <text x="155" y="190" class="sub">ショベル</text>
+
+  <!-- Under 油圧式 second row: クラムシェル油圧 -->
+  <line x1="90" y1="195" x2="90" y2="210" class="line"/>
+  <rect x="55" y="210" width="70" height="30" rx="4" class="node"/>
+  <text x="90" y="227" class="sub">クラムシェル</text>
+  <text x="90" y="237" font-size="9" fill="#555" text-anchor="middle">（油圧）</text>
+
+  <!-- Under 機械式: クラムシェル機械式 / ドラグライン / ショベル機械式 -->
+  <line x1="310" y1="132" x2="310" y2="150" class="line"/>
+  <line x1="245" y1="150" x2="375" y2="150" class="line"/>
+  <line x1="245" y1="150" x2="245" y2="165" class="line"/>
+  <line x1="310" y1="150" x2="310" y2="165" class="line"/>
+  <line x1="375" y1="150" x2="375" y2="165" class="line"/>
+
+  <rect x="213" y="165" width="64" height="30" rx="4" class="node-alt"/>
+  <text x="245" y="179" class="sub">クラムシェル</text>
+  <text x="245" y="190" class="sub">（機械式）</text>
+
+  <rect x="279" y="165" width="64" height="30" rx="4" class="node-alt"/>
+  <text x="311" y="179" class="sub">ドラグ</text>
+  <text x="311" y="190" class="sub">ライン</text>
+
+  <rect x="345" y="165" width="50" height="30" rx="4" class="node-alt"/>
+  <text x="370" y="182" class="sub">ショベル</text>
+  <text x="370" y="192" font-size="9" fill="#555" text-anchor="middle">（機械式）</text>
+
+  <!-- Level 3 under 油圧式: 大きさ/形態 -->
+  <text x="15" y="270" class="sect">② 大きさ・形態（油圧ショベル）</text>
+
+  <rect x="15" y="285" width="110" height="32" rx="6" class="node"/>
+  <text x="70" y="305" class="label">ミニショベル</text>
+
+  <rect x="140" y="285" width="110" height="32" rx="6" class="node"/>
+  <text x="195" y="302" font-size="11" fill="#1a3a5c" text-anchor="middle">超小旋回型</text>
+  <text x="195" y="313" font-size="9" fill="#555" text-anchor="middle">油圧ショベル</text>
+
+  <rect x="265" y="285" width="120" height="32" rx="6" class="node"/>
+  <text x="325" y="302" font-size="11" fill="#1a3a5c" text-anchor="middle">後方超小旋回型</text>
+  <text x="325" y="313" font-size="9" fill="#555" text-anchor="middle">油圧ショベル</text>
+
+  <!-- Level 3: 走行装置 -->
+  <text x="15" y="345" class="sect">③ 走行装置</text>
+
+  <rect x="15" y="360" width="110" height="32" rx="6" class="node"/>
+  <text x="70" y="380" class="label">クローラ式</text>
+
+  <rect x="140" y="360" width="110" height="32" rx="6" class="node"/>
+  <text x="195" y="380" class="label">ホイール式</text>
+
+  <rect x="265" y="360" width="120" height="32" rx="6" class="node"/>
+  <text x="325" y="380" class="label">トラック式</text>
+
+  <!-- Section B: 派生機械 -->
+  <text x="15" y="425" class="sect">④ 派生機械（解体機械）</text>
+
+  <rect x="15" y="440" width="110" height="32" rx="6" class="node-derivative"/>
+  <text x="70" y="460" class="label">油圧圧砕機</text>
+
+  <rect x="140" y="440" width="110" height="32" rx="6" class="node-derivative"/>
+  <text x="195" y="460" class="label">油圧ブレーカ</text>
+
+  <rect x="265" y="440" width="120" height="32" rx="6" class="node-derivative"/>
+  <text x="325" y="457" font-size="11" fill="#1a3a5c" text-anchor="middle">フォーク</text>
+  <text x="325" y="468" font-size="11" fill="#1a3a5c" text-anchor="middle">グラップル</text>
+
+  <!-- Legend -->
+  <g transform="translate(15,480)">
+    <rect x="0" y="0" width="14" height="10" class="node"/>
+    <text x="20" y="9" font-size="10" fill="#555">油圧式</text>
+    <rect x="60" y="0" width="14" height="10" class="node-alt"/>
+    <text x="80" y="9" font-size="10" fill="#555">機械式</text>
+    <rect x="125" y="0" width="14" height="10" class="node-derivative"/>
+    <text x="145" y="9" font-size="10" fill="#555">派生機械</text>
+    <rect x="210" y="0" width="14" height="10" class="root"/>
+    <text x="230" y="9" font-size="10" fill="#555">基本分類</text>
+  </g>
+  <text x="200" y="497" font-size="10" fill="#8a8a8a" text-anchor="middle">油圧式／機械式は作業動力の伝達方式による分類</text>
+</svg>

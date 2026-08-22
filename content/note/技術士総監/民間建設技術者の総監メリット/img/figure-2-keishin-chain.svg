@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="582" viewBox="0 0 1200 582">
+  <rect width="1200" height="582" fill="#f8fafc"/>
+
+  <text x="600" y="64" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#222222" text-anchor="middle">経審Z点が「手当の財源」になる連鎖</text>
+  <text x="600" y="106" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="middle">総監（建設）の加点が、入札ランク → 受注 → 手当へとつながる</text>
+
+  <rect x="33" y="172" width="228" height="300" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <rect x="33" y="172" width="228" height="56" rx="8" fill="#2e6da4"/>
+  <rect x="33" y="220" width="228" height="8" fill="#2e6da4"/>
+  <text x="147" y="209" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">① 総監（建設）保有</text>
+  <text x="147" y="306" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#1a3a5c" text-anchor="middle">Z点 +5点</text>
+  <line x1="53" y1="336" x2="241" y2="336" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="147" y="380" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#555555" text-anchor="middle">講習修了で6点</text>
+  <text x="147" y="420" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c" text-anchor="middle">最高評価の加点</text>
+
+  <line x1="285" y1="322" x2="299" y2="322" stroke="#222222" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="311,322 297,309 297,335" fill="#222222"/>
+  <rect x="335" y="172" width="228" height="300" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <rect x="335" y="172" width="228" height="56" rx="8" fill="#2e6da4"/>
+  <rect x="335" y="220" width="228" height="8" fill="#2e6da4"/>
+  <text x="449" y="209" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">② P点アップ</text>
+  <text x="449" y="306" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#1a3a5c" text-anchor="middle">入札ランク↑</text>
+  <line x1="355" y1="336" x2="543" y2="336" stroke="#2e6da4" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="449" y="380" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#555555" text-anchor="middle">Z点はP点の約25%</text>
+  <text x="449" y="420" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c" text-anchor="middle">参加工事が拡大</text>
+
+  <line x1="587" y1="322" x2="601" y2="322" stroke="#222222" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="613,322 599,309 599,335" fill="#222222"/>
+  <rect x="637" y="172" width="228" height="300" rx="8" fill="#e6f1e8" stroke="#3a7d44" stroke-width="2"/>
+  <rect x="637" y="172" width="228" height="56" rx="8" fill="#3a7d44"/>
+  <rect x="637" y="220" width="228" height="8" fill="#3a7d44"/>
+  <text x="751" y="209" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">③ 受注規模の拡大</text>
+  <text x="751" y="306" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#1a5c2e" text-anchor="middle">大型工事に参加</text>
+  <line x1="657" y1="336" x2="845" y2="336" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="751" y="380" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#555555" text-anchor="middle">監理技術者も配置</text>
+  <text x="751" y="420" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a5c2e" text-anchor="middle">受注機会が増える</text>
+
+  <line x1="889" y1="322" x2="903" y2="322" stroke="#222222" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="915,322 901,309 901,335" fill="#222222"/>
+  <rect x="939" y="172" width="228" height="300" rx="8" fill="#fdf2e0" stroke="#c87e1e" stroke-width="2"/>
+  <rect x="939" y="172" width="228" height="56" rx="8" fill="#c87e1e"/>
+  <rect x="939" y="220" width="228" height="8" fill="#c87e1e"/>
+  <text x="1053" y="209" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">④ 手当の財源</text>
+  <text x="1053" y="306" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#8c5a14" text-anchor="middle">手当の原資</text>
+  <line x1="959" y1="336" x2="1147" y2="336" stroke="#c87e1e" stroke-width="1.5" stroke-dasharray="4,3"/>
+  <text x="1053" y="380" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#555555" text-anchor="middle">受注増が会社利益に</text>
+  <text x="1053" y="420" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#8c5a14" text-anchor="middle">資格手当を払える</text>
+
+    <text x="1172" y="558" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

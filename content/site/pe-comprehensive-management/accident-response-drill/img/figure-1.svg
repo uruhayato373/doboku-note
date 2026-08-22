@@ -1,0 +1,110 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="事故・緊急事態対応タイムライン。発生・覚知から初動対応・応急対応・復旧・検証再発防止まで5フェーズを縦に並べ、検証が訓練へ還元される循環構造を示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-phase  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-action { font-size: 11px; fill: #555; }
+      .t-foot   { font-size: 11px; fill: #8a8a8a; }
+      .t-label  { font-size: 11px; font-weight: bold; fill: #555; }
+      .box-p0   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-p1   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-p2   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p3   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-p4   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .dot-p0   { fill: #ffffff; stroke: #8a8a8a; stroke-width: 2; }
+      .dot-p1   { fill: #ffffff; stroke: #b22234; stroke-width: 2; }
+      .dot-p2   { fill: #ffffff; stroke: #d4a017; stroke-width: 2; }
+      .dot-p3   { fill: #ffffff; stroke: #2e6da4; stroke-width: 2; }
+      .dot-p4   { fill: #ffffff; stroke: #3a7d44; stroke-width: 2; }
+      .t-p0     { font-size: 12px; font-weight: bold; fill: #555; }
+      .t-p1     { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .t-p2     { font-size: 12px; font-weight: bold; fill: #d4a017; }
+      .t-p3     { font-size: 12px; font-weight: bold; fill: #2e6da4; }
+      .t-p4     { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+    </style>
+    <marker id="arr-down" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+    <marker id="arr-up-green" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#3a7d44"/>
+    </marker>
+  </defs>
+
+  <!-- 時間軸ライン（左端） -->
+  <line x1="36" y1="24" x2="36" y2="450" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arr-down)"/>
+  <!-- 軸ラベル -->
+  <text class="t-label" x="12" y="19" text-anchor="middle">発生</text>
+  <text class="t-label" x="12" y="445" text-anchor="middle">事後</text>
+
+  <!-- ===== Phase 0: 発生・覚知 ===== -->
+  <!-- dot y=42 -->
+  <circle class="dot-p0" cx="36" cy="42" r="6"/>
+  <rect class="box-p0" x="52" y="20" width="336" height="54" rx="7"/>
+  <text class="t-p0"    x="66" y="38">発生・覚知</text>
+  <text class="t-action" x="66" y="53">事故発生 / 異常検知 · 通報 · 第一報</text>
+  <text class="t-action" x="66" y="66">上位・関係者へ速報（5W1H）</text>
+
+  <!-- connector arrow -->
+  <line x1="36" y1="74" x2="36" y2="88" stroke="#8a8a8a" stroke-width="1.5"/>
+
+  <!-- ===== Phase 1: 初動対応 ===== -->
+  <!-- dot y=104 -->
+  <circle class="dot-p1" cx="36" cy="104" r="6"/>
+  <rect class="box-p1" x="52" y="82" width="336" height="68" rx="7"/>
+  <text class="t-p1"    x="66" y="100">初動対応（人命最優先 · 分〜時間）</text>
+  <text class="t-action" x="66" y="116">初期消火 · 避難誘導 · 119/110通報</text>
+  <text class="t-action" x="66" y="131">安否確認 · 危険区域の立入禁止</text>
+  <text class="t-action" x="66" y="144">負傷者救護 · 二次災害防止</text>
+
+  <!-- connector arrow -->
+  <line x1="36" y1="150" x2="36" y2="164" stroke="#8a8a8a" stroke-width="1.5"/>
+
+  <!-- ===== Phase 2: 応急対応 ===== -->
+  <!-- dot y=180 -->
+  <circle class="dot-p2" cx="36" cy="180" r="6"/>
+  <rect class="box-p2" x="52" y="158" width="336" height="68" rx="7"/>
+  <text class="t-p2"    x="66" y="176">応急対応</text>
+  <text class="t-action" x="66" y="192">被害拡大防止 · 現場保全</text>
+  <text class="t-action" x="66" y="207">関係機関 / 行政との連携・情報共有</text>
+  <text class="t-action" x="66" y="222">危機広報（正確な情報を速やかに発信）</text>
+
+  <!-- connector arrow -->
+  <line x1="36" y1="226" x2="36" y2="240" stroke="#8a8a8a" stroke-width="1.5"/>
+
+  <!-- ===== Phase 3: 復旧 ===== -->
+  <!-- dot y=256 -->
+  <circle class="dot-p3" cx="36" cy="256" r="6"/>
+  <rect class="box-p3" x="52" y="234" width="336" height="68" rx="7"/>
+  <text class="t-p3"    x="66" y="252">復旧</text>
+  <text class="t-action" x="66" y="268">BCP発動 · 業務 / サービス再開</text>
+  <text class="t-action" x="66" y="283">原状回復 · 設備・インフラ修繕</text>
+  <text class="t-action" x="66" y="298">被災者支援 · 資源・費用の調達</text>
+
+  <!-- connector arrow -->
+  <line x1="36" y1="302" x2="36" y2="316" stroke="#8a8a8a" stroke-width="1.5"/>
+
+  <!-- ===== Phase 4: 検証・再発防止 ===== -->
+  <!-- dot y=332 -->
+  <circle class="dot-p4" cx="36" cy="332" r="6"/>
+  <rect class="box-p4" x="52" y="310" width="336" height="82" rx="7"/>
+  <text class="t-p4"    x="66" y="328">検証・再発防止</text>
+  <text class="t-action" x="66" y="344">事故調査 · 根本原因分析（なぜなぜ分析等）</text>
+  <text class="t-action" x="66" y="359">教訓の水平展開 · 関係者間での共有</text>
+  <text class="t-action" x="66" y="374">マニュアル · 計画の改訂</text>
+  <text class="t-action" x="66" y="389">防災訓練 · 演習への反映</text>
+
+  <!-- 循環矢印（検証→訓練→初動へのフィードバックループ） -->
+  <!-- 右端から上向きに戻る曲線路 -->
+  <path d="M 388 392 C 398 392 398 42 388 42"
+    stroke="#3a7d44" stroke-width="1.5" fill="none"
+    stroke-dasharray="5,3"
+    marker-end="url(#arr-up-green)"/>
+  <text font-size="11" fill="#3a7d44" x="392" y="220" text-anchor="start" transform="rotate(90,392,220)">訓練へ還元</text>
+
+  <!-- キャプション -->
+  <text class="t-foot" x="200" y="420" text-anchor="middle">平時の防災訓練が初動対応の質を決める。</text>
+  <text class="t-foot" x="200" y="434" text-anchor="middle">検証は次の訓練へ還元する。</text>
+</svg>

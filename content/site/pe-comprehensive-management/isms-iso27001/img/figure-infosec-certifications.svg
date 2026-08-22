@@ -1,0 +1,71 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="情報セキュリティ関連の認証制度と準拠規格の整理。ISMS適合性評価制度は準拠規格がISO/IEC 27001（JIS Q 27001）で組織の情報セキュリティを認証する。プライバシーマーク制度は準拠規格がJIS Q 15001で組織の個人情報保護を認証する。ITセキュリティ評価・認証制度（JISEC）は準拠規格がISO/IEC 15408（コモンクライテリア）でIT製品のセキュリティを認証する。組織を認証するのがISMSとプライバシーマーク、製品を認証するのがJISECである。ISMSは機密性・完全性・可用性のCIA3要素をPDCAサイクルで継続的に維持・改善する。">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-head { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .th     { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .cell   { font-size: 11px; fill: #222; }
+      .reg    { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .f-head { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .f-foot { font-size: 11px; fill: #555; }
+      .cia-t  { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+    </style>
+  </defs>
+
+  <text class="t-head" x="200" y="38" text-anchor="middle">制度ごとに準拠規格と認証対象が異なる</text>
+
+  <!-- ヘッダー行 -->
+  <rect x="10"  y="52" width="140" height="30" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.2"/>
+  <text class="th" x="80"  y="71" text-anchor="middle">認証制度</text>
+  <rect x="150" y="52" width="130" height="30" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.2"/>
+  <text class="th" x="215" y="71" text-anchor="middle">準拠規格</text>
+  <rect x="280" y="52" width="110" height="30" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.2"/>
+  <text class="th" x="335" y="71" text-anchor="middle">認証対象</text>
+
+  <!-- row1 ISMS（強調） -->
+  <rect x="10"  y="82" width="140" height="72" fill="#e8f0fe" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="cell" x="80" y="112" text-anchor="middle">ISMS適合性</text>
+  <text class="cell" x="80" y="129" text-anchor="middle">評価制度</text>
+  <rect x="150" y="82" width="130" height="72" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="reg"  x="215" y="112" text-anchor="middle">ISO/IEC 27001</text>
+  <text class="cell" x="215" y="129" text-anchor="middle">（JIS Q 27001）</text>
+  <rect x="280" y="82" width="110" height="72" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="cell" x="335" y="112" text-anchor="middle">組織の情報</text>
+  <text class="cell" x="335" y="129" text-anchor="middle">セキュリティ</text>
+
+  <!-- row2 プライバシーマーク -->
+  <rect x="10"  y="154" width="140" height="64" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="cell" x="80" y="182" text-anchor="middle">プライバシー</text>
+  <text class="cell" x="80" y="199" text-anchor="middle">マーク制度</text>
+  <rect x="150" y="154" width="130" height="64" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="reg"  x="215" y="190" text-anchor="middle">JIS Q 15001</text>
+  <rect x="280" y="154" width="110" height="64" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="cell" x="335" y="182" text-anchor="middle">組織の</text>
+  <text class="cell" x="335" y="199" text-anchor="middle">個人情報保護</text>
+
+  <!-- row3 JISEC -->
+  <rect x="10"  y="218" width="140" height="68" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="cell" x="80" y="246" text-anchor="middle">JISEC（IT製品</text>
+  <text class="cell" x="80" y="263" text-anchor="middle">の評価・認証）</text>
+  <rect x="150" y="218" width="130" height="68" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="reg"  x="215" y="246" text-anchor="middle">ISO/IEC 15408</text>
+  <text class="cell" x="215" y="263" text-anchor="middle">（CC）</text>
+  <rect x="280" y="218" width="110" height="68" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="cell" x="335" y="246" text-anchor="middle">IT製品の</text>
+  <text class="cell" x="335" y="263" text-anchor="middle">セキュリティ</text>
+
+  <!-- フッタ -->
+  <rect x="10" y="294" width="380" height="192" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.3"/>
+  <text class="f-head" x="24" y="316" text-anchor="start">認証対象と ISMS の基本（JIS Q 27001）</text>
+  <text class="f-foot" x="24" y="338" text-anchor="start">組織を認証 … ISMS・プライバシーマーク</text>
+  <text class="f-foot" x="24" y="358" text-anchor="start">製品を認証 … JISEC（CC＝ISO/IEC 15408）</text>
+  <rect x="24"  y="372" width="110" height="30" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.2"/>
+  <text class="cia-t" x="79"  y="391" text-anchor="middle">機密性</text>
+  <rect x="145" y="372" width="110" height="30" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.2"/>
+  <text class="cia-t" x="200" y="391" text-anchor="middle">完全性</text>
+  <rect x="266" y="372" width="110" height="30" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.2"/>
+  <text class="cia-t" x="321" y="391" text-anchor="middle">可用性</text>
+  <text class="f-foot" x="24" y="428" text-anchor="start">ISMS はこの3要素（CIA）を PDCA サイクルで</text>
+  <text class="f-foot" x="24" y="448" text-anchor="start">継続的に維持・改善する仕組みである。</text>
+</svg>

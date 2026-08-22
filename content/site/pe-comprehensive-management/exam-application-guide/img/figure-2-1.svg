@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500"
+     style="max-width:400px;width:100%"
+     role="img" aria-label="出願段階の業務経歴票が筆記試験の骨子と口頭試験の質問ベースに直結することを示す縦フロー図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub   { font-size: 12px; fill: #2e6da4; }
+      .t-text  { font-size: 13px; fill: #1a3a5c; }
+      .t-label { font-size: 11px; fill: #555; }
+      .t-danger-title { font-size: 15px; font-weight: bold; fill: #b22234; }
+      .t-danger-text  { font-size: 12px; fill: #b22234; }
+      .t-danger-emph  { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-brand-sub{ fill: #ffffff; stroke: #2e6da4; stroke-width: 1; }
+      .box-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="arr-brand" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#2e6da4"/>
+    </marker>
+    <marker id="arr-danger" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <!-- Step 1: 出願 (group) -->
+  <rect class="box-brand" x="20" y="16" width="360" height="188" rx="8"/>
+  <text class="t-title" x="200" y="42" text-anchor="middle">出願段階</text>
+  <text class="t-sub" x="200" y="60" text-anchor="middle">受験申込書・実務経験証明書</text>
+
+  <rect class="box-brand-sub" x="40" y="74" width="320" height="34" rx="6"/>
+  <text class="t-text" x="200" y="96" text-anchor="middle">業務経歴（業務内容の概要）</text>
+
+  <rect class="box-brand-sub" x="40" y="116" width="320" height="34" rx="6"/>
+  <text class="t-text" x="200" y="138" text-anchor="middle">業務内容の詳細（論文の骨子）</text>
+
+  <rect class="box-brand-sub" x="40" y="158" width="320" height="34" rx="6"/>
+  <text class="t-text" x="200" y="180" text-anchor="middle">経験のアピール（成長ストーリー）</text>
+
+  <!-- Arrow 1: 出願 → 筆記試験 -->
+  <line x1="200" y1="204" x2="200" y2="238" stroke="#2e6da4" stroke-width="2" marker-end="url(#arr-brand)"/>
+  <text class="t-label" x="210" y="225" text-anchor="start">論文の骨子として使う</text>
+
+  <!-- Step 2: 筆記試験 -->
+  <rect class="box-brand" x="20" y="248" width="360" height="76" rx="8"/>
+  <text class="t-title" x="200" y="275" text-anchor="middle">筆記試験</text>
+  <text class="t-sub" x="200" y="295" text-anchor="middle">記述式問題で業務内容の詳細を展開する</text>
+  <text class="t-label" x="200" y="313" text-anchor="middle">事前に書いた骨子が論文の土台になる</text>
+
+  <!-- Arrow 2: 筆記試験 → 口頭試験 -->
+  <line x1="200" y1="324" x2="200" y2="358" stroke="#2e6da4" stroke-width="2" marker-end="url(#arr-brand)"/>
+
+  <!-- Step 3: 口頭試験 -->
+  <rect class="box-danger" x="20" y="368" width="360" height="118" rx="8"/>
+  <text class="t-danger-title" x="200" y="396" text-anchor="middle">口頭試験</text>
+  <text class="t-danger-text" x="200" y="418" text-anchor="middle">経歴・詳細を深掘りされる</text>
+  <text class="t-danger-emph" x="200" y="442" text-anchor="middle">経歴票がそのまま質問ベースになる</text>
+  <text class="t-danger-emph" x="200" y="464" text-anchor="middle">出願段階の準備が最重要</text>
+</svg>

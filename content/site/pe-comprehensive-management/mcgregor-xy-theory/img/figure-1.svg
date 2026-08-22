@@ -1,0 +1,109 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="マグレガーのX理論とY理論の2カラム比較。X理論は仕事嫌い・強制命令・責任回避・安全志向、Y理論は自律・目標で率先・自ら責任を特徴とする">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-sub     { font-size: 11px; fill: #555; }
+      .t-label   { font-size: 13px; fill: #222; }
+      .t-note    { font-size: 11px; fill: #555; }
+      .t-foot    { font-size: 11px; fill: #555; }
+      /* warn寄り = X理論 */
+      .box-warn  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .hdr-warn  { fill: #d4a017; }
+      .hdr-warn-text { font-size: 14px; font-weight: bold; fill: #ffffff; }
+      .item-warn { fill: #ffffff; stroke: #d4a017; stroke-width: 1; }
+      .num-warn  { font-size: 13px; font-weight: bold; fill: #d4a017; }
+      /* positive寄り = Y理論 */
+      .box-pos   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .hdr-pos   { fill: #3a7d44; }
+      .hdr-pos-text { font-size: 14px; font-weight: bold; fill: #ffffff; }
+      .item-pos  { fill: #ffffff; stroke: #3a7d44; stroke-width: 1; }
+      .num-pos   { font-size: 13px; font-weight: bold; fill: #3a7d44; }
+    </style>
+  </defs>
+
+  <!-- ===== X理論ブロック（上段） ===== -->
+  <!-- カラム背景 warn -->
+  <rect class="box-warn" x="10" y="6" width="380" height="226" rx="10"/>
+
+  <!-- ヘッダー warn -->
+  <rect class="hdr-warn" x="10" y="6" width="380" height="42" rx="10"/>
+  <rect class="hdr-warn" x="10" y="30" width="380" height="18"/>
+  <text class="hdr-warn-text" x="200" y="30" text-anchor="middle">X理論</text>
+  <text style="font-size:11px;fill:#ffffff;" x="200" y="43" text-anchor="middle">強制・管理型の人間観</text>
+
+  <!-- X理論 アイテム1・2（上行） -->
+  <rect class="item-warn" x="18" y="54" width="178" height="76" rx="6"/>
+  <circle class="item-warn" cx="40" cy="74" r="13"/>
+  <text class="num-warn" x="40" y="79" text-anchor="middle">1</text>
+  <text class="t-label" x="60" y="72">仕事嫌い</text>
+  <text class="t-note" x="60" y="89">本質的に仕事を</text>
+  <text class="t-note" x="60" y="103">避けようとする</text>
+  <text class="t-note" x="60" y="117">傾向がある</text>
+
+  <rect class="item-warn" x="204" y="54" width="178" height="76" rx="6"/>
+  <circle class="item-warn" cx="226" cy="74" r="13"/>
+  <text class="num-warn" x="226" y="79" text-anchor="middle">2</text>
+  <text class="t-label" x="246" y="72">強制・命令</text>
+  <text class="t-note" x="246" y="89">強制や命令を</text>
+  <text class="t-note" x="246" y="103">常に行わなければ</text>
+  <text class="t-note" x="246" y="117">十分な力を発揮できない</text>
+
+  <!-- X理論 アイテム3・4（下行） -->
+  <rect class="item-warn" x="18" y="140" width="178" height="76" rx="6"/>
+  <circle class="item-warn" cx="40" cy="160" r="13"/>
+  <text class="num-warn" x="40" y="165" text-anchor="middle">3</text>
+  <text class="t-label" x="60" y="158">責任回避</text>
+  <text class="t-note" x="60" y="175">責任を回避しがちで</text>
+  <text class="t-note" x="60" y="189">野心は低い</text>
+
+  <rect class="item-warn" x="204" y="140" width="178" height="76" rx="6"/>
+  <circle class="item-warn" cx="226" cy="160" r="13"/>
+  <text class="num-warn" x="226" y="165" text-anchor="middle">4</text>
+  <text class="t-label" x="246" y="158">安全志向</text>
+  <text class="t-note" x="246" y="175">野心より自身の安全を</text>
+  <text class="t-note" x="246" y="189">より強く求める</text>
+
+  <!-- ===== Y理論ブロック（下段） ===== -->
+  <!-- カラム背景 positive -->
+  <rect class="box-pos" x="10" y="244" width="380" height="172" rx="10"/>
+
+  <!-- ヘッダー positive -->
+  <rect class="hdr-pos" x="10" y="244" width="380" height="42" rx="10"/>
+  <rect class="hdr-pos" x="10" y="268" width="380" height="18"/>
+  <text class="hdr-pos-text" x="200" y="268" text-anchor="middle">Y理論</text>
+  <text style="font-size:11px;fill:#ffffff;" x="200" y="281" text-anchor="middle">自律・参加型の人間観</text>
+
+  <!-- Y理論 アイテム1・2・3（横3列） -->
+  <rect class="item-pos" x="18" y="292" width="114" height="108" rx="6"/>
+  <circle class="item-pos" cx="40" cy="312" r="13"/>
+  <text class="num-pos" x="40" y="317" text-anchor="middle">1</text>
+  <text class="t-label" x="75" y="310" text-anchor="middle">本来</text>
+  <text class="t-label" x="75" y="326" text-anchor="middle">勤勉</text>
+  <text class="t-note" x="75" y="346" text-anchor="middle">本来勤勉で</text>
+  <text class="t-note" x="75" y="361" text-anchor="middle">仕事への</text>
+  <text class="t-note" x="75" y="376" text-anchor="middle">意欲を持つ</text>
+
+  <rect class="item-pos" x="143" y="292" width="114" height="108" rx="6"/>
+  <circle class="item-pos" cx="165" cy="312" r="13"/>
+  <text class="num-pos" x="165" y="317" text-anchor="middle">2</text>
+  <text class="t-label" x="200" y="310" text-anchor="middle">目標で</text>
+  <text class="t-label" x="200" y="326" text-anchor="middle">率先</text>
+  <text class="t-note" x="200" y="346" text-anchor="middle">納得できる</text>
+  <text class="t-note" x="200" y="361" text-anchor="middle">目標には</text>
+  <text class="t-note" x="200" y="376" text-anchor="middle">自ら率先</text>
+
+  <rect class="item-pos" x="268" y="292" width="114" height="108" rx="6"/>
+  <circle class="item-pos" cx="290" cy="312" r="13"/>
+  <text class="num-pos" x="290" y="317" text-anchor="middle">3</text>
+  <text class="t-label" x="325" y="310" text-anchor="middle">自ら</text>
+  <text class="t-label" x="325" y="326" text-anchor="middle">責任</text>
+  <text class="t-note" x="325" y="346" text-anchor="middle">責任を持つ</text>
+  <text class="t-note" x="325" y="361" text-anchor="middle">意欲が</text>
+  <text class="t-note" x="325" y="376" text-anchor="middle">ある</text>
+
+  <!-- 管理アプローチ比較フッター -->
+  <rect x="10" y="428" width="380" height="60" rx="4" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text font-size="11" font-weight="bold" fill="#1a3a5c" x="200" y="446" text-anchor="middle">管理アプローチの対比</text>
+  <text class="t-foot" x="200" y="462" text-anchor="middle">X理論 → 命令・統制による管理</text>
+  <text class="t-foot" x="200" y="478" text-anchor="middle">Y理論 → 参加・自律を促す管理</text>
+</svg>

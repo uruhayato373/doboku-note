@@ -1,0 +1,112 @@
+name: Audit note live state
+
+# note の公開状態を public API だけで横断照合する。認証済みブラウザやローカル端末は不要。
+# 構造・タグ・本文破損・frontmatter公開状態・マガジンSoT・CTAライブ反映を同じ週次CIに集約する。
+# ソース→ライブ再公開ドリフトは surfacer としてJSONを残し、公開操作自体はログインが必要なため行わない。
+#
+# 背景: この監査は長らくローカル専用で、かつ会社 PC では Node の fetch がプロキシに
+#   遮断され 675/675 が FETCH_ERR でも exit 0 を返していた（検査ゼロの偽 PASS）。
+#   2026-07-28 に curl 経路化＋「取得失敗率 20% 超で exit 1」を入れ、初回の実検査で
+#   FULL_LOCK 2 件（¥980・¥1,980 の有料記事が無料プレビュー 0 字）を検出している。
+#   ローカル実行は「回すのを忘れる」リスクが残るため CI へ載せる。
+#
+# Actions ランナーから note API へ到達できることは 2026-08-03 の定期実行で確認済み。
+# ただし到達性の将来ドリフトを本体の「取得失敗」と区別するため、先頭の疎通確認は残す。
+
+on:
+  schedule:
+    - cron: "30 22 * * 0" # 毎週月曜 07:30 JST（r2-audit の 30 分後にずらす）
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: note API 疎通確認（届かなければここで落とす）
+        run: |
+          set -euo pipefail
+          mkdir -p .tmp
+          code=$(curl -s -o /tmp/note-probe.json -w '%{http_code}' -m 30 \
+            -H 'User-Agent: Mozilla/5.0' -H 'Accept: application/json' \
+            https://note.com/api/v3/notes/n252fdfb14e54)
+          echo "HTTP $code"
+          head -c 300 /tmp/note-probe.json || true
+          echo
+          if [ "$code" != "200" ]; then
+            echo "::error::note API に到達できません（HTTP $code）。Actions の IP がブロックされている可能性があります。"
+            exit 1
+          fi
+
+      - name: Setup Node
+        if: always()
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Audit note live structure
+        if: always()
+        run: node scripts/check-note-structure.mjs --ci
+
+      - name: Audit note live hashtags
+        if: always()
+        run: node scripts/check-note-live-tags.mjs
+
+      - name: Audit note live body (URL headings / empty quotes / images)
+        if: always()
+        run: node scripts/check-note-live-headings.mjs
+
+      # audit-note-cards は 2026-07-28 の「article.md 固定で型別ファイルを落とす」事故の当事者で、
+      # 直したあと**どの経路にも配線されないまま**だった（2026-08-18 に実質オーファンとして検出）。
+      # ライブ本文を curl で取りに行くので quality:audit（ローカル・オフライン前提）には置けない。
+      # この workflow は冒頭で note API 疎通を確認しており、live 取得系の正しい置き場。
+      - name: Audit note live link cards (単独URL段落の未カード / OGP 到達)
+        if: always()
+        run: node scripts/audit-note-cards.mjs
+
+      - name: Reconcile noteStatus with live status
+        if: always()
+        run: |
+          set -o pipefail
+          node scripts/verify-note-status.mjs --ci --json | tee .tmp/note-status.json
+
+      - name: Reconcile magazines with source-of-truth
+        if: always()
+        run: |
+          set -o pipefail
+          node scripts/verify-note-magazines.mjs --vs-txt --json | tee .tmp/note-magazines.log
+
+      - name: Audit note funnel live reflection (D5)
+        if: always()
+        run: |
+          set -o pipefail
+          node scripts/audit-note-funnel.mjs --live --ci | tee .tmp/note-funnel-live.log
+
+      # ソース変更からライブへの再公開待ちは正常な中間状態でもあるためゲートにはしない。
+      # cloud weekly-review に依存せず、CI artifact で本文/タグ/メタ/アセットのdirty flagを供給する。
+      - name: Surface note republish drift
+        if: always()
+        continue-on-error: true
+        run: |
+          set -o pipefail
+          node scripts/check-note-republish.mjs --json | tee .tmp/note-republish.json
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: note-live-audit
+          path: |
+            .tmp/note-structure-audit.md
+            .tmp/note-status.json
+            .tmp/note-magazines.log
+            .tmp/note-funnel-live.log
+            .tmp/note-republish.json
+            .claude/state/note/magazines-snapshot.json
+          if-no-files-found: ignore

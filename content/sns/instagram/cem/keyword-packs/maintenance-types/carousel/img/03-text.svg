@@ -1,0 +1,32 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="設備保全の種類 頻出ポイント">
+  <defs><style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }</style></defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+  <rect x="0" y="0" width="400" height="52" fill="#1a3a5c"/>
+  <text x="200" y="18" text-anchor="middle" font-size="10" fill="#a36b2c">技術士 総監 | 経済性管理</text>
+  <text x="200" y="40" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">設備保全の種類 頻出ポイント</text>
+  <circle cx="34" cy="92" r="16" fill="#1a3a5c"/>
+  <text x="34" y="97" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">1</text>
+  <text x="60" y="84" font-size="13" font-weight="bold" fill="#1a3a5c">まず2系統に大別する</text>
+  <text x="60" y="102" font-size="12" fill="#555">維持活動＝予防保全・事後保全／</text>
+  <text x="60" y="118" font-size="12" fill="#555">改善活動＝改良保全・保全予防</text>
+  <line x1="20" y1="138" x2="380" y2="138" stroke="#e8f0fe" stroke-width="1"/>
+  <circle cx="34" cy="168" r="16" fill="#1a3a5c"/>
+  <text x="34" y="173" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">2</text>
+  <text x="60" y="160" font-size="13" font-weight="bold" fill="#1a3a5c">予知保全(CBM)は状態監視</text>
+  <text x="60" y="178" font-size="12" fill="#555">振動・油分析で劣化兆候を検知し</text>
+  <text x="60" y="194" font-size="12" fill="#555">最適時期に保全（TBM＝時間基準と対）</text>
+  <line x1="20" y1="214" x2="380" y2="214" stroke="#e8f0fe" stroke-width="1"/>
+  <circle cx="34" cy="244" r="16" fill="#1a3a5c"/>
+  <text x="34" y="249" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">3</text>
+  <text x="60" y="236" font-size="13" font-weight="bold" fill="#1a3a5c">保全予防(MP)は設計段階</text>
+  <text x="60" y="254" font-size="12" fill="#555">故障しにくく保全しやすい設備を作込む</text>
+  <text x="60" y="270" font-size="12" fill="#555">（改良保全CM＝稼働後の改善と対）</text>
+  <rect x="20" y="296" width="360" height="86" rx="6" fill="#fce8d0"/>
+  <rect x="20" y="296" width="5" height="86" rx="2" fill="#a36b2c"/>
+  <text x="36" y="318" font-size="12" font-weight="bold" fill="#a36b2c">引っかけ注意（R4 Ⅰ-1-4）</text>
+  <text x="36" y="338" font-size="11" fill="#555">劣化傾向の管理＝改良保全 は誤り → 予知保全</text>
+  <text x="36" y="356" font-size="11" fill="#555">設計段階の予防＝予知保全 は誤り → 保全予防</text>
+  <text x="36" y="374" font-size="11" fill="#555">故障しにくい設備へ改善＝保全予防 は誤り → 改良保全</text>
+  <rect x="0" y="460" width="400" height="40" fill="#1a3a5c"/>
+  <text x="200" y="485" text-anchor="middle" font-size="12" fill="#6a8faf">doboku-note.com</text>
+</svg>

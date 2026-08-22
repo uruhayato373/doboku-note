@@ -1,0 +1,33 @@
+{
+  "srcDir": "content/note/技術士総監/magazines/総監模範論文-ゼネコン",
+  "deliverTo": "in-place",
+  "articles": [
+    { "src": "R03/article.md", "out": "模範論文-ゼネコン-R03", "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }] },
+    { "src": "R04/article.md", "out": "模範論文-ゼネコン-R04", "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }] },
+    { "src": "R05/article.md", "out": "模範論文-ゼネコン-R05", "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }] },
+    { "src": "R06/article.md", "out": "模範論文-ゼネコン-R06", "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }] },
+    { "src": "R07/article.md", "out": "模範論文-ゼネコン-R07", "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }] },
+    { "src": "R08-yosou-1/article.md", "out": "模範論文-ゼネコン-R08予想1-気候変動", "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }] },
+    { "src": "R08-yosou-2/article.md", "out": "模範論文-ゼネコン-R08予想2-資源循環", "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }] },
+    {
+      "src": "R08-yosou-3/article.md",
+      "out": "模範論文-ゼネコン-R08予想3-老朽化インフラ・予防保全",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R08-yosou-4/article.md",
+      "out": "模範論文-ゼネコン-R08予想4-複合災害・災害復旧",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R08-yosou-5/article.md",
+      "out": "模範論文-ゼネコン-R08予想5-生成AI・情報ガバナンス",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    },
+    {
+      "src": "R08-yosou-6/article.md",
+      "out": "模範論文-ゼネコン-R08予想6-経済安保・供給網強靱化",
+      "include": [{ "from": "^## 試験問題", "to": "^## 採点者視点" }]
+    }
+  ]
+}

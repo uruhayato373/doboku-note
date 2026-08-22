@@ -1,0 +1,37 @@
+name: Pre-merge check (quality audit + build)
+
+on:
+  pull_request:
+    branches: [main, develop]
+  push:
+    branches: [develop]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install Dependencies
+        run: npm ci --legacy-peer-deps
+
+      # 機械品質チェックを横断実行（type-check / test / validate-mdx / eslint /
+      # ラチェット / frontmatter / svg / image / links / 台帳整合 等を1ステップに集約）。
+      # 個別ステップの真実源は scripts/quality-audit.mjs の CHECKS(ci:true)。
+      - name: Quality audit (ci gate)
+        run: npm run quality:audit:ci
+
+      - name: Build
+        run: npm run build
+
+      # build 依存の SEO ゲートは build 直後にのみ置く（build 前の quality:audit:ci へは混ぜない）。
+      - name: Check build-time SEO (out/)
+        run: npm run check-seo-build:ci

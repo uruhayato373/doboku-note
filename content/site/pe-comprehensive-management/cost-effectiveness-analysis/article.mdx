@@ -1,0 +1,102 @@
+---
+title: 費用効果分析
+description: "費用効果分析の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.1'
+tags:
+  - keyword
+published: true
+publishedAt: '2026-04-09'
+reviewStatus: approved
+lastRewrittenAt: '2026-04-16'
+revisionCycle: 1
+seoTitle: "費用効果分析 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-07-24
+---
+
+## 費用効果分析とは
+
+費用効果分析（CEA: Cost-Effectiveness Analysis）とは、代替案ごとの**費用と非貨幣単位の効果**を比較し、経済性を評価する手法である。効果を貨幣換算せず、**効果 1 単位あたりの費用**（または費用 1 単位あたりの効果）で優劣を判断する。
+
+一定の効果を得るための費用を最小化する方向と、一定の費用で得られる効果を最大化する方向の両方で用いられる。類似手法として費用便益分析（CBA）と費用効用分析（CUA）がある。
+
+## 事業評価の 3 手法
+
+**事業評価**とは、公共事業や投資プロジェクトの代替案を定量的に比較し、採択の合理性を示す行為である。効果の測り方によって 3 手法に分かれ、分野特性に応じて使い分ける。
+
+- **費用便益分析（CBA）**: 便益を貨幣価値に換算して費用と比較する。B/C 比や NPV で評価し、道路・河川等の公共事業で標準的に用いられる
+- **費用効果分析（CEA）**: 効果を貨幣換算せず、事業固有の非貨幣単位（事故削減件数・CO₂ 削減量・通勤時間短縮等）で評価する。貨幣換算が困難な分野で用いる
+- **費用効用分析（CUA）**: 効用（主観的な満足度）で効果を測る。医療分野の QALY（質調整生存年）が代表
+
+公共事業では国土交通省技術指針に基づく CBA が標準、医療では CUA、防災・教育では CEA というのが代表的な使い分けである。いずれも将来の費用・効果を[割引率](/docs/pe-comprehensive-management-discount-rate)で現在価値化する点は共通する。
+
+## CEA の実務プロセス
+
+1. **効果指標の選定**: 事業目的に直結する非貨幣指標を定義する（例: 避難可能人口、延伸キロあたり便益、CO₂ 削減量）
+2. **費用と効果の算定**: 各代替案についてライフサイクル全体の費用と効果を見積もる
+3. **費用効果比または ICER の計算**: 費用効果比（C/E）= 総費用 / 総効果。複数案比較では**増分費用効果比（ICER）** を用いる（Incremental Cost-Effectiveness Ratio）
+4. **不確実性分析**: 主要パラメータの感度分析・確率的分析で結果の頑健性を確認
+
+ICER は 2 つの代替案の費用差を効果差で割って求める。
+
+$$
+ICER = \frac{C_2 - C_1}{E_2 - E_1}
+$$
+
+C/E 比が小さいほど効率が高く、ICER が閾値（例: 医療では費用対効果閾値 500 万円/QALY）を下回れば追加投資が正当化される。
+
+## CBA との違いと使い分け
+
+CBA は便益を貨幣化するため、異分野の事業間で B/C を直接比較できる。CEA は効果が事業固有の単位で表されるため、**異なる効果指標を持つ事業間の直接比較は困難**だが、効果を貨幣化できない分野（医療・教育・防災）で有用である。
+
+便益の貨幣換算には WTP（支払意思額）や時間価値原単位が必要になるが、原単位が確立していない分野では CEA が現実的な選択肢となる。公共事業では CBA が標準だが、効果の貨幣化が困難な場合に CEA を補完的に用いる。
+
+<SeeAlso
+  href="/docs/pe-comprehensive-management-cost-benefit-analysis"
+  title="費用便益分析（CBA）"
+  reason="B/C 比・純便益・EIRR による判断基準と、割引率感度・貨幣換算の限界など CBA 固有の論点を掘り下げている。"
+/>
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**2.1 事業企画**](/docs/pe-comprehensive-management-keyword-2026#21-事業企画)に位置づけられている。
+
+CEA は費用便益分析および CUA と並ぶ代替案評価の中核的手法である。[割引率](/docs/pe-comprehensive-management-discount-rate)を用いて将来の費用を現在価値化する点は [NPV](/docs/pe-comprehensive-management-npv-net-present-value) や[内部収益率法](/docs/pe-comprehensive-management-internal-rate-of-return)・[回収期間法](/docs/pe-comprehensive-management-payback-period-method)と共通する一方、効果指標は分野特有の単位で表現される。
+
+**経済性管理との関連**: [ライフサイクルコスティング](/docs/pe-comprehensive-management-lifecycle-costing-method)と組み合わせて、調達・整備・維持管理の各段階における費用対効果を継続的に評価する。[PFI](/docs/pe-comprehensive-management-pfi) 事業では VFM（Value For Money）の判定根拠としても用いられる。
+
+**情報管理との関連**: 評価結果は意思決定根拠として記録・開示する必要がある（[情報開示](/docs/pe-comprehensive-management-information-disclosure)）。公共事業では国土交通省技術指針に基づく評価結果の公表が求められ、透明性確保の観点から情報管理と不可分である。
+
+<ExamPoint
+  summary="CEA は効果を貨幣換算せず、効果単位あたりの費用で代替案を比較する手法"
+  items={[
+    "CEA は効果を貨幣化できない分野（医療・教育・防災）で用いる",
+    "CBA（貨幣ベース）・CEA（効果単位ベース）・CUA（効用ベース）の3手法は効果の測り方で使い分ける",
+    "複数案比較では ICER（増分費用効果比）で追加投資の効率を評価する",
+    "CEA は異なる効果指標を持つ事業間の直接比較が困難という制約がある",
+    "公共事業では CBA が標準、効果の貨幣化が困難な場合に CEA を補完的に用いる",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "DCF法", slug: "dcf-method" },
+  { label: "需要予測", slug: "demand-forecasting" },
+  { label: "ESG・環境評価", slug: "esg-environmental-assessment" },
+  { label: "内部収益率法", slug: "internal-rate-of-return" },
+  { label: "市場調査", slug: "market-research" },
+]} />
+
+## 参考資料
+
+### 公的資料
+
+- [事業評価に係る指針等](https://www.mlit.go.jp/tec/hyouka/public/09_public_08.html)（国土交通省）
+- [中央社会保険医療協議会における費用対効果評価の分析ガイドライン第3版](https://c2h.niph.go.jp/tools/guideline/guideline_ja.pdf)（国立保健医療科学院 保健医療経済評価研究センター）
+
+### 民間解説記事
+
+- [費用便益分析](https://ja.wikipedia.org/wiki/%E8%B2%BB%E7%94%A8%E4%BE%BF%E7%9B%8A%E5%88%86%E6%9E%90)（Wikipedia）
+- [費用効果分析・費用便益分析・費用効用分析](https://certlabo.com/benefit-analysis/)（鹿夫のエンジニア資質向上計画）

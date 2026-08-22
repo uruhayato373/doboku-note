@@ -1,0 +1,103 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="著作者の権利の構造：著作者人格権 3 種（公表権・氏名表示権・同一性保持権、一身専属で譲渡不可）と著作権（財産権）11 種（複製権・上演権・演奏権・上映権・公衆送信権・口述権・展示権・頒布権・譲渡権・貸与権・翻訳権/翻案権、譲渡・相続可能）の二層構造">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-root { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-branch { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #1a3a5c; }
+      .t-note { font-size: 11px; fill: #555; font-style: italic; }
+      .t-legend { font-size: 11px; fill: #555; }
+      .box-root { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-personal { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-property { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .item-personal { fill: #ffffff; stroke: #d4a017; stroke-width: 1; }
+      .item-property { fill: #ffffff; stroke: #3a7d44; stroke-width: 1; }
+      .conn { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Root: 著作者の権利 -->
+  <rect class="box-root" x="120" y="10" width="160" height="36" rx="8"/>
+  <text class="t-root" x="200" y="34" text-anchor="middle">著作者の権利</text>
+
+  <!-- Connection root → branches -->
+  <line class="conn" x1="200" y1="46" x2="200" y2="56"/>
+  <line class="conn" x1="100" y1="56" x2="300" y2="56"/>
+  <line class="conn" x1="100" y1="56" x2="100" y2="68"/>
+  <line class="conn" x1="300" y1="56" x2="300" y2="68"/>
+
+  <!-- Branch L: 著作者人格権 -->
+  <rect class="box-personal" x="10" y="68" width="180" height="30" rx="6"/>
+  <text class="t-branch" x="100" y="88" text-anchor="middle">著作者人格権（3 種）</text>
+
+  <!-- Branch R: 著作権（財産権） -->
+  <rect class="box-property" x="210" y="68" width="180" height="30" rx="6"/>
+  <text class="t-branch" x="300" y="88" text-anchor="middle">著作権（財産権）（11 種）</text>
+
+  <!-- 人格権 items (3 stacked, full branch width) -->
+  <rect class="item-personal" x="10" y="108" width="180" height="24" rx="4"/>
+  <text class="t-item" x="100" y="124" text-anchor="middle">① 公表権</text>
+
+  <rect class="item-personal" x="10" y="136" width="180" height="24" rx="4"/>
+  <text class="t-item" x="100" y="152" text-anchor="middle">② 氏名表示権</text>
+
+  <rect class="item-personal" x="10" y="164" width="180" height="24" rx="4"/>
+  <text class="t-item" x="100" y="180" text-anchor="middle">③ 同一性保持権</text>
+
+  <!-- 人格権 note -->
+  <text class="t-note" x="100" y="206" text-anchor="middle">一身専属（譲渡・相続不可）</text>
+
+  <!-- 財産権 items (11 in 2-col grid) -->
+  <!-- Row 1 -->
+  <rect class="item-property" x="210" y="108" width="86" height="24" rx="4"/>
+  <text class="t-item" x="253" y="124" text-anchor="middle">① 複製権</text>
+  <rect class="item-property" x="304" y="108" width="86" height="24" rx="4"/>
+  <text class="t-item" x="347" y="124" text-anchor="middle">② 上演権</text>
+
+  <!-- Row 2 -->
+  <rect class="item-property" x="210" y="136" width="86" height="24" rx="4"/>
+  <text class="t-item" x="253" y="152" text-anchor="middle">③ 演奏権</text>
+  <rect class="item-property" x="304" y="136" width="86" height="24" rx="4"/>
+  <text class="t-item" x="347" y="152" text-anchor="middle">④ 上映権</text>
+
+  <!-- Row 3 -->
+  <rect class="item-property" x="210" y="164" width="86" height="24" rx="4"/>
+  <text class="t-item" x="253" y="180" text-anchor="middle">⑤ 公衆送信権</text>
+  <rect class="item-property" x="304" y="164" width="86" height="24" rx="4"/>
+  <text class="t-item" x="347" y="180" text-anchor="middle">⑥ 口述権</text>
+
+  <!-- Row 4 -->
+  <rect class="item-property" x="210" y="192" width="86" height="24" rx="4"/>
+  <text class="t-item" x="253" y="208" text-anchor="middle">⑦ 展示権</text>
+  <rect class="item-property" x="304" y="192" width="86" height="24" rx="4"/>
+  <text class="t-item" x="347" y="208" text-anchor="middle">⑧ 頒布権</text>
+
+  <!-- Row 5 -->
+  <rect class="item-property" x="210" y="220" width="86" height="24" rx="4"/>
+  <text class="t-item" x="253" y="236" text-anchor="middle">⑨ 譲渡権</text>
+  <rect class="item-property" x="304" y="220" width="86" height="24" rx="4"/>
+  <text class="t-item" x="347" y="236" text-anchor="middle">⑩ 貸与権</text>
+
+  <!-- Row 6 -->
+  <rect class="item-property" x="210" y="248" width="180" height="24" rx="4"/>
+  <text class="t-item" x="300" y="264" text-anchor="middle">⑪ 翻訳権・翻案権</text>
+
+  <!-- 財産権 note -->
+  <text class="t-note" x="300" y="290" text-anchor="middle">譲渡・相続可能</text>
+
+  <!-- Footer separator + legend -->
+  <line class="conn" x1="20" y1="310" x2="380" y2="310"/>
+  <text class="t-legend" x="20" y="328">保護期間: 著作者の死後 70 年（法人著作は公表後 70 年）</text>
+  <text class="t-legend" x="20" y="345">無方式主義: 創作と同時に権利発生（産業財産権との対比）</text>
+  <text class="t-legend" x="20" y="362">2018 年 TPP11 発効に伴い 50 年から 70 年に延長</text>
+
+  <!-- サマリーボックス -->
+  <rect x="20" y="395" width="360" height="90" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="4"/>
+  <text x="200" y="422" text-anchor="middle" font-size="13" fill="#222" font-weight="bold">著作権と産業財産権の違い</text>
+  <text x="35" y="448" font-size="12" fill="#555">著作権：登録不要・創作と同時に発生（無方式主義）</text>
+  <text x="35" y="470" font-size="12" fill="#555">特許等：出願・審査・登録が必要（方式主義）</text>
+</svg>

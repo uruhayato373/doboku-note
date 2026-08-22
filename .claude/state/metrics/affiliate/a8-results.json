@@ -1,0 +1,88 @@
+{
+  "_comment": "A8.net アフィリ成果の月次スナップショット。A8 は公開 API が無く CI 供給不能なため、ローカルで A8 管理画面から取得する（npm run a8-ui:fetch -- --month YYYY-MM → npm run a8-ui:normalize -- --latest。ログインと CAPTCHA だけ人間・以降は自動で、手入力ではない）。GA4 の by-label クリック（ga4-cta-clicks-by-label-*.json）が分母の真実源＝ここは A8 の成果（発生件数・確定報酬）のみ記録する。A8 管理画面のクリックは stats47 と同一口座に同居するため分母に使わない。当月分の確定額は承認処理が月をまたぐため revenueYen: 0 は異常ではなく、恒久判断には翌月の再取得が要る（取得期限の監視は npm run check-a8-report-due）。運用: .claude/knowledge/reference/affiliate-operations.md",
+  "schema": {
+    "month": "YYYY-MM（A8 レポート期間）",
+    "program": "buildjob | kensetsu-jobs | gks | dx-consulting",
+    "clicks": "A8 プログラム別レポート（**口座横断**）のクリック数。stats47 分を含みうるため EPC の分母に使わない（2026-07 実測: 自社4案件 75 vs サイト別 doboku-note 56）。案件別の分母は GA4 affiliate_cta_click が真実源＝ここは参考値。",
+    "conversions": "成果発生件数（未確定含む）",
+    "approved": "承認確定件数",
+    "revenueYen": "確定報酬（円）",
+    "note": "備考（キャンペーン期間・イレギュラー等）"
+  },
+  "records": [
+    {
+      "month": "2026-05",
+      "program": "gks",
+      "clicks": 1,
+      "conversions": 0,
+      "approved": 0,
+      "revenueYen": 0,
+      "note": "A8 レポート自動取込（建設業界特化！未経験から施工管理職へ。手厚いサポートで資格取得も支援【GKSキャリア】）"
+    },
+    {
+      "month": "2026-06",
+      "program": "buildjob",
+      "clicks": 20,
+      "conversions": 1,
+      "approved": 0,
+      "revenueYen": 0,
+      "note": "A8 レポート自動取込（ビルドジョブ｜建設業界特化の転職エージェントの無料キャリア面談）"
+    },
+    {
+      "month": "2026-06",
+      "program": "dx-consulting",
+      "clicks": 14,
+      "conversions": 0,
+      "approved": 0,
+      "revenueYen": 0,
+      "note": "A8 レポート自動取込（コンサル・DX・スタートアップへ。CxO直結の非公開求人で年収を最大化【Groovement Agent】）"
+    },
+    {
+      "month": "2026-06",
+      "program": "gks",
+      "clicks": 27,
+      "conversions": 0,
+      "approved": 0,
+      "revenueYen": 0,
+      "note": "A8 レポート自動取込（建設業界特化！未経験から施工管理職へ。手厚いサポートで資格取得も支援【GKSキャリア】）"
+    },
+    {
+      "month": "2026-07",
+      "program": "buildjob",
+      "clicks": 39,
+      "conversions": 0,
+      "approved": 0,
+      "revenueYen": 0,
+      "note": "A8 レポート自動取込（ビルドジョブ｜建設業界特化の転職エージェントの無料キャリア面談）"
+    },
+    {
+      "month": "2026-07",
+      "program": "dx-consulting",
+      "clicks": 21,
+      "conversions": 0,
+      "approved": 0,
+      "revenueYen": 0,
+      "note": "A8 レポート自動取込（コンサル・DX・スタートアップへ。CxO直結の非公開求人で年収を最大化【Groovement Agent】）"
+    },
+    {
+      "month": "2026-07",
+      "program": "gks",
+      "clicks": 2,
+      "conversions": 0,
+      "approved": 0,
+      "revenueYen": 0,
+      "note": "A8 レポート自動取込（建設業界特化！未経験から施工管理職へ。手厚いサポートで資格取得も支援【GKSキャリア】）"
+    },
+    {
+      "month": "2026-07",
+      "program": "kensetsu-jobs",
+      "clicks": 16,
+      "conversions": 0,
+      "approved": 0,
+      "revenueYen": 0,
+      "note": "A8 レポート自動取込（日本最大級 施工管理・建設業界の転職サイト「建設JOBs」）"
+    }
+  ],
+  "updatedAt": "2026-08-04T06:17:44.861Z",
+  "source": "fetch-a8-ui-csv.mjs → normalize-a8-csv.mjs（自動取込。手入力は不要）"
+}

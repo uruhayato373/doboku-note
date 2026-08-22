@@ -1,0 +1,40 @@
+  <svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="10" style="max-width:400px;width:100%" role="img" aria-label="予防保全とバスタブカーブ">
+    <defs>
+      <marker id="a6" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0,0 L0,7 L7,3.5 z" fill="#222"/></marker>
+    </defs>
+    <!-- 軸 scaleX=400/440≈0.909 → x座標に0.909、y座標はそのまま(180スペース内) -->
+    <line x1="44" y1="220" x2="388" y2="220" stroke="#222" stroke-width="1.5" marker-end="url(#a6)"/>
+    <line x1="44" y1="220" x2="44" y2="40" stroke="#222" stroke-width="1.5" marker-end="url(#a6)"/>
+    <text x="395" y="224" text-anchor="end" fill="#222" font-size="11">設置からの時間</text>
+    <text x="20" y="36" fill="#222" font-size="11">故障率</text>
+    <!-- バスタブ（初期）: 元のx*400/440 -->
+    <path d="M 47 60 C 62 60 73 185 100 188" stroke="#555" stroke-width="2.5" fill="none"/>
+    <line x1="100" y1="188" x2="159" y2="188" stroke="#555" stroke-width="2.5"/>
+    <path d="M 159 188 C 186 188 209 115 232 72" stroke="#555" stroke-width="2.5" fill="none"/>
+    <!-- 部品交換後の低減カーブ（点線） -->
+    <path d="M 232 72 C 245 148 259 185 282 187" stroke="#222" stroke-width="1.8" fill="none" stroke-dasharray="5,3"/>
+    <line x1="282" y1="187" x2="327" y2="187" stroke="#222" stroke-width="1.8" stroke-dasharray="5,3"/>
+    <path d="M 327 187 C 347 187 364 137 377 97" stroke="#222" stroke-width="1.8" fill="none" stroke-dasharray="5,3"/>
+    <!-- 区切り縦線 -->
+    <line x1="100" y1="188" x2="100" y2="220" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3,2"/>
+    <line x1="159" y1="188" x2="159" y2="220" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3,2"/>
+    <line x1="232" y1="220" x2="232" y2="72" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3,2"/>
+    <line x1="327" y1="187" x2="327" y2="220" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3,2"/>
+    <!-- 期間ラベル -->
+    <text x="72" y="238" text-anchor="middle" fill="#222" font-size="11">初期</text>
+    <text x="130" y="238" text-anchor="middle" fill="#222" font-size="11">偶発</text>
+    <text x="196" y="238" text-anchor="middle" fill="#222" font-size="11">摩耗</text>
+    <!-- 注釈ラベル -->
+    <text x="232" y="58" text-anchor="middle" fill="#222" font-size="11">部品交換</text>
+    <text x="327" y="238" text-anchor="middle" fill="#222" font-size="11">部分更新</text>
+    <!-- 右側注釈 -->
+    <text x="252" y="148" fill="#555" font-size="11">部品交換による</text>
+    <text x="252" y="163" fill="#555" font-size="11">故障率の低減・</text>
+    <text x="252" y="178" fill="#555" font-size="11">耐用年数の延長</text>
+    <!-- 下部サマリー -->
+    <rect x="20" y="360" width="360" height="120" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="4"/>
+    <text x="200" y="387" text-anchor="middle" font-size="13" fill="#222" font-weight="bold">予防保全の効果</text>
+    <text x="35" y="411" font-size="12" fill="#555">部品交換：摩耗故障期への早期対処</text>
+    <text x="35" y="433" font-size="12" fill="#555">部分更新：故障率を偶発期水準に戻す</text>
+    <text x="35" y="455" font-size="12" fill="#555">計画的実施で設備の耐用年数を延長</text>
+  </svg>

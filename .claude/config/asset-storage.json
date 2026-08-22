@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "description": "Git の外へ出すアセットの置き場と復元経路の機械可読 SSOT（DN-0111 Phase 3）。offload / hydrate / check-asset-storage の 3 スクリプトが共通で読む。manifest は .claude/state/assets/manifest.json。",
+  "invariants": [
+    "offload は既定 dry-run。R2 書込みは --commit、ローカル削除と untrack はさらに別の操作。1 コマンドで全部やらない。",
+    "upload 後に HeadObject で bytes を、GetObject で sha256 を再確認する。確認できないファイルはローカルにも Git にも残す。",
+    "manifest は一時ファイルへ書いて検証成功後に置換する（途中で落ちても既存 manifest を壊さない）。",
+    "manifest に秘密値・署名 URL・Cookie・ローカル絶対パスを書かない。",
+    "private バケットにカスタムドメインを付けない。private アセットの URL を画面・ログ・manifest へ出さない。",
+    "hydrate の解決順は ローカル実体 → cache → R2 → （再生成可能なら）generator。--offline は R2 を使わない。"
+  ],
+  "bucketRouting": "group.bucket は public / private / byVisibility の 3 値。byVisibility は visibilityFrom の判定結果でファイル単位に振り分ける（公開済み→public、下書き・未投稿・判定不能→private）。カードの目標構成『公開済み=公開R2、draft/未公開=private R2』の機械表現。",
+  "buckets": {
+    "public": {
+      "name": "doboku-note",
+      "publicHost": "storage.doboku-note.com",
+      "note": "カスタムドメインがバインドされた公開 CDN。誰でも URL で取得できる前提のものだけ置く。"
+    },
+    "private": {
+      "name": "doboku-note-archive",
+      "publicHost": null,
+      "note": "ドメイン未バインド＝S3 API 専用。著作権物・購入者限定・未公開ドラフトはここ。rclone remote は doboku-r2。"
+    }
+  },
+  "cache": {
+    "dir": ".local/cache/assets",
+    "maxBytes": 3221225472,
+    "note": "Git 非追跡。hydrate が R2 から取ったものを置く。プロキシ不調時は既存 cache を使い、勝手に空にしない。上限超過時は最終アクセスが古いものから落とす。"
+  },
+  "groups": [
+    {
+      "id": "note-cover-png",
+      "match": {
+        "pathRegex": "^content/note/.+/img/cover[A-Za-z0-9_-]*\\.png$"
+      },
+      "bucket": "byVisibility",
+      "keyPrefix": "note/covers/",
+      "keyFrom": "stripPrefix:content/note/",
+      "visibilityFrom": "noteFrontmatter",
+      "regenerable": false,
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-publish.mjs",
+        "scripts/note-update-cover.mjs",
+        "tools/admin-app（画像ギャラリー）"
+      ],
+      "reason": "note へアップロード済みの実体。2026-08-21 の全 827 件再生成で byte 再現できないことを実測したので（不一致 9 件・うち 8 件は 340 万サブピクセル中 18 個の不可視差）、再生成ではなく保管する。",
+      "phase": "4-B"
+    },
+    {
+      "id": "textbook-page-image",
+      "match": {
+        "pathRegex": "^content/sources/textbook/.+\\.(png|jpe?g|webp|tiff?)$"
+      },
+      "bucket": "private",
+      "keyPrefix": "textbook/",
+      "keyFrom": "stripPrefix:content/sources/textbook/",
+      "visibilityFrom": "fixed:private",
+      "regenerable": true,
+      "generator": "原典 PDF から再抽出（pdfimages → 回転 → 分割）",
+      "requiredBy": [
+        "scanned-textbook-transcriber（OCR）",
+        "scanned-figure-crop-auditor（図クロップ）"
+      ],
+      "reason": "市販テキスト・白書のページ画像。リポジトリは PRIVATE で公開露出は無い（2026-08-21 確認）が、868 件 571.2 MiB が HEAD と CI checkout を重くしている。原典 PDF は既に private R2 にあるので、同じ prefix へ揃える。",
+      "phase": "4-C"
+    },
+    {
+      "id": "textbook-source-pdf",
+      "match": {
+        "pathRegex": "^docs/textbook/.+\\.pdf$"
+      },
+      "bucket": "private",
+      "keyPrefix": "textbook/",
+      "keyFrom": "stripPrefix:docs/textbook/",
+      "visibilityFrom": "fixed:private",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "pdf-to-mdx（スキャン教材の変換）",
+        "scanned-textbook-transcriber（OCR）"
+      ],
+      "reason": "市販テキスト・白書の原典 PDF。2026-07 に rclone で R2 へ出し、2026-08-22 に git 履歴からも除去したため **R2 が唯一の実体**。台帳に載せないと check-asset-storage の監視外＝消えても誰も気づかない状態になる。logicalPath は「取り戻すならここへ置く」場所であり、リポジトリには実在しない（.gitignore 済み）。再生成は不可（原本は紙の書籍）。",
+      "phase": "catalog-backfill"
+    },
+    {
+      "id": "note-delivery-pdf",
+      "match": {
+        "pathRegex": "^content/note/.+\\.pdf$"
+      },
+      "bucket": "private",
+      "keyPrefix": "note/delivery-pdf/",
+      "keyFrom": "stripPrefix:content/note/",
+      "visibilityFrom": "fixed:private",
+      "regenerable": true,
+      "generator": "scripts/magazine-to-pdf.mjs",
+      "requiredBy": [
+        "scripts/note-attach-file.mjs"
+      ],
+      "reason": "note 添付・商品 PDF。購入者限定の配布物を含むため既定は private。公開配布可 / 有料添付 / 原典・非公開 の再分類は Phase 4-D で行う。",
+      "phase": "4-D"
+    },
+    {
+      "id": "ig-rendered-image",
+      "match": {
+        "pathRegex": "^content/sns/instagram/(?!.*/reels/).+\\.(png|jpe?g)$"
+      },
+      "bucket": "byVisibility",
+      "keyPrefix": "sns/rendered/instagram/",
+      "keyFrom": "stripPrefix:content/sns/instagram/",
+      "visibilityFrom": "igPackStatus",
+      "regenerable": true,
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ],
+      "reason": "slide-data.json が SoT のレンダー成果物。投稿済みパックは R2 archive、未投稿・制作中は再生成で足りる。reels/ は除外する——あちらは sns-archive-policy と upload-sns-r2 が管轄する別系統で、frames は既に gitignore 済み・script/slide-data から再生成する中間物。両方の regime で同じファイルを見ると、片方が「未退避」と誤検出する。",
+      "phase": "4-E"
+    }
+  ]
+}

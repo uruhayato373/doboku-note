@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="フロントローディングの本質：従来型は後工程に手戻りコストが集中するのに対し、フロントローディングは初期段階に投入リソースを集中させ後工程のコストを抑制する">
+  <text x="190" y="22" text-anchor="middle" font-size="14" fill="#222" font-family="sans-serif" font-weight="bold">フロントローディングの本質</text>
+  <text x="190" y="40" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">投入リソースを上流に前倒しする</text>
+
+  <g>
+    <rect x="20" y="60" width="14" height="14" fill="#8a8a8a"/>
+    <text x="40" y="71" font-size="11" fill="#222" font-family="sans-serif">従来型</text>
+    <rect x="100" y="60" width="14" height="14" fill="#2e6da4"/>
+    <text x="120" y="71" font-size="11" fill="#222" font-family="sans-serif">フロントローディング</text>
+  </g>
+
+  <line x1="40" y1="280" x2="360" y2="280" stroke="#222" stroke-width="1.5"/>
+  <line x1="40" y1="90" x2="40" y2="280" stroke="#222" stroke-width="1.5"/>
+  <text x="20" y="180" font-size="11" fill="#555" font-family="sans-serif" transform="rotate(-90 20 180)" text-anchor="middle">投入</text>
+
+  <g>
+    <rect x="56" y="240" width="20" height="40" fill="#8a8a8a"/>
+    <rect x="78" y="120" width="20" height="160" fill="#2e6da4"/>
+    <text x="77" y="296" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">企画</text>
+  </g>
+
+  <g>
+    <rect x="120" y="220" width="20" height="60" fill="#8a8a8a"/>
+    <rect x="142" y="140" width="20" height="140" fill="#2e6da4"/>
+    <text x="141" y="296" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">基本</text>
+  </g>
+
+  <g>
+    <rect x="184" y="180" width="20" height="100" fill="#8a8a8a"/>
+    <rect x="206" y="200" width="20" height="80" fill="#2e6da4"/>
+    <text x="205" y="296" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">詳細</text>
+  </g>
+
+  <g>
+    <rect x="248" y="120" width="20" height="160" fill="#8a8a8a"/>
+    <rect x="270" y="240" width="20" height="40" fill="#2e6da4"/>
+    <text x="269" y="296" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">試作</text>
+  </g>
+
+  <g>
+    <rect x="312" y="160" width="20" height="120" fill="#b22234"/>
+    <rect x="334" y="260" width="20" height="20" fill="#2e6da4"/>
+    <text x="333" y="296" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">量産</text>
+  </g>
+
+  <text x="200" y="312" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">← 上流（自由度・低コスト）　　下流（拘束・高コスト）→</text>
+
+  <g>
+    <rect x="40" y="328" width="320" height="56" fill="none" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+    <text x="200" y="346" text-anchor="middle" font-size="12" fill="#3a7d44" font-family="sans-serif" font-weight="bold">前倒し投入で後工程の手戻りコストを削減</text>
+    <text x="200" y="362" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">設計段階で品質・コストの 8 割が決まる</text>
+    <text x="200" y="376" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">（ものづくり白書 2020）</text>
+  </g>
+
+  <!-- 追加サマリー -->
+  <rect x="20" y="398" width="340" height="52" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text x="190" y="418" text-anchor="middle" font-size="12" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">フロントローディングの総管理効果</text>
+  <text x="190" y="434" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">経済性管理：手戻りコスト削減・品質コスト低下</text>
+  <text x="190" y="447" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">情報管理：上流での情報共有・DR（設計審査）活用</text>
+
+  <rect x="20" y="462" width="340" height="38" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="6"/>
+  <text x="190" y="480" text-anchor="middle" font-size="11" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">DRB（デザインレビューボード）で関係部門が上流から参画</text>
+  <text x="190" y="495" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">コンカレントエンジニアリングと組み合わせて効果最大化</text>
+</svg>

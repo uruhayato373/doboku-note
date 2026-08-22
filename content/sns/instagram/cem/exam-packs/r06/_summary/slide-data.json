@@ -1,0 +1,85 @@
+{
+  "slides": [
+    {
+      "type": "summary-cover",
+      "year": "r06",
+      "totalPacks": 9,
+      "pageIndex": 1,
+      "totalPages": 4
+    },
+    {
+      "type": "summary-pack-list",
+      "year": "r06",
+      "packs": [
+        {
+          "num": 1,
+          "title": "パック #1",
+          "subtitle": "CF計算書の3区分 / NPVの計算 / 個別原価計算 / 計量値と生産者危険"
+        },
+        {
+          "num": 2,
+          "title": "パック #2",
+          "subtitle": "プッシュ型とプル型 / クリティカルパス分析 / 線形計画法の最適解 / 新QC七つ道具"
+        },
+        {
+          "num": 3,
+          "title": "パック #3",
+          "subtitle": "健康経営優良法人認定 / ポジティブ・アクション / キャリアコンサルタント / NISTクラウドの定義"
+        },
+        {
+          "num": 4,
+          "title": "パック #4",
+          "subtitle": "インナーゲーム理論 / 産業財産権の存続期間 / ブロックチェーン特性 / ランサムウェア対策"
+        },
+        {
+          "num": 5,
+          "title": "パック #5",
+          "subtitle": "メンタルヘルス3段階予防 / フェールセーフの分類 / 公益通報者保護法改正 / 直列・並列の信頼度計算"
+        }
+      ],
+      "title": "R06 過去問 #1〜#5",
+      "pageIndex": 2,
+      "totalPages": 4
+    },
+    {
+      "type": "summary-pack-list",
+      "year": "r06",
+      "packs": [
+        {
+          "num": 6,
+          "title": "パック #6",
+          "subtitle": "変形労働時間制の種類 / 産後パパ育休制度 / 労災特別加入制度 / 動機付け理論の分類"
+        },
+        {
+          "num": 7,
+          "title": "パック #7",
+          "subtitle": "クラスター分析の手法 / ISMSの方針要求事項 / 情報公開法の論点 / リスク認知バイアス"
+        },
+        {
+          "num": 8,
+          "title": "パック #8",
+          "subtitle": "防災気象情報の種類 / 国土強靭化基本法 / グリーンインフラ / 環境ラベルの区別"
+        },
+        {
+          "num": 9,
+          "title": "パック #9",
+          "subtitle": "高年齢者雇用確保義務 / カルタヘナ・名古屋議定書 / 廃プラリサイクル実態 / 環境基本計画の政策手法"
+        }
+      ],
+      "title": "R06 過去問 #6〜#9",
+      "pageIndex": 3,
+      "totalPages": 4
+    },
+    {
+      "type": "summary-cta",
+      "year": "r06",
+      "pageIndex": 4,
+      "totalPages": 4
+    }
+  ],
+  "_meta": {
+    "year": "r06",
+    "type": "summary",
+    "totalPacks": 9
+  }
+}

@@ -1,0 +1,4948 @@
+{
+  "generated_at": "2026-07-10T11:29:54.212Z",
+  "tool": "tesseract jpn --psm 6",
+  "base_count": 616,
+  "file_count": 1046,
+  "summary": {
+    "leak": 0,
+    "writein": 35,
+    "maybe": 148,
+    "clean": 433
+  },
+  "quality_summary": {
+    "sharp": 599,
+    "soft": 16,
+    "blurry": 1,
+    "unknown": 0
+  },
+  "figures": {
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-02": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1077.83,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-03": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2238.97,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-04": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1889.82,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-06": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 4297.18,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-07": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2102.06,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-08": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3578.56,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-09": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3453.24,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-10": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4000.18,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-11": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1888.46,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-12": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1526.51,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-13": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1042.88,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h26-a/img/h26-a-fig-no1-consistency": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 4016.96,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h26-b/img/h26-b-fig-01": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1664.61,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h26-b/img/h26-b-fig-02": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2222.4,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h26-b/img/h26-b-fig-03": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5924.55,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h27-a/img/h27-a-fig-01": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2683.19,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h27-a/img/h27-a-fig-03": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3279.17,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h27-b/img/h27-b-fig-02": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 4903.66,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-01": {
+      "status": "maybe",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 9335.43,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-02": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1421.38,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-03": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2186.48,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-04": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1419.94,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-05": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2878.53,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-06": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2904.31,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-07": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1359.16,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-08": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 6713.74,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-09": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5167.41,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-10": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1258.02,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-11": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2447.6,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-12": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4427.69,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h28-a/img/h28-a-fig-13": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4393.78,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h28-b/img/h28-b-fig-01": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5007,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h28-b/img/h28-b-fig-02": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 2649.02,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h28-b/img/h28-b-fig-03": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4191.95,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h28-b/img/h28-b-fig-04": {
+      "status": "maybe",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 3414.38,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h29-a/img/h29-a-fig-01": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2165.15,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h29-a/img/h29-a-fig-02": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1322.13,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h29-a/img/h29-a-fig-03": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1573.72,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h29-a/img/h29-a-fig-04": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1472.3,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h29-a/img/h29-a-fig-05": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2940.44,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h29-b/img/h29-b-fig-02": {
+      "status": "maybe",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 3229.02,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h29-b/img/h29-b-fig-03": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 2766.9,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-02": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 4015.93,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-04": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 6158.68,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-05": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 10386,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-06": {
+      "status": "maybe",
+      "periods": 10,
+      "markers": [],
+      "sharpness": 4006.26,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-07": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 7355.1,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-08": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1545.79,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-09": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 5666,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-10": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2162.03,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-11": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5407.97,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-12": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2039.87,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-13": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3787.1,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h30-a/img/h30-a-fig-14": {
+      "status": "maybe",
+      "periods": 21,
+      "markers": [],
+      "sharpness": 6293.72,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h30-b/img/h30-b-fig-01": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1554.52,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h30-b/img/h30-b-fig-02": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 2686.81,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-h30-b/img/h30-b-fig-03": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4109.65,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r01-a/img/r01-a-fig-01": {
+      "status": "maybe",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 10224.5,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r01-a/img/r01-a-fig-02": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3110.18,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r01-a/img/r01-a-fig-03": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2793.58,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r01-a/img/r01-a-fig-05": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3952.94,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r01-a/img/r01-a-fig-06": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3586,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r01-a/img/r01-a-fig-07": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3482.76,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r01-a/img/r01-a-fig-08": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 504.37,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r01-a/img/r01-a-fig-09": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2293.1,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r01-a/img/r01-a-fig-10": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 6326.27,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r01-b/img/r01-b-fig-02": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 3588.7,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r01-b/img/r01-b-fig-03": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2267.51,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r01-b/img/r01-b-fig-04": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3823.56,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-01": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4580.91,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-02": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2244.08,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-03": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1660.4,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-04": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4151.71,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-05": {
+      "status": "maybe",
+      "periods": 5,
+      "markers": [],
+      "sharpness": 3308.26,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-06": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2822.66,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-07": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1284.62,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-08": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5827.34,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-09": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 6278.8,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-10": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 821.76,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-11": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2125.56,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-12": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 6490.58,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r02-a/img/r02-a-fig-13": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2097.04,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r02-b/img/r02-b-fig-02": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2359.67,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r02-b/img/r02-b-fig-03": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2513.46,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r03-b/img/r03-b-fig-01": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 3745.74,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r03-b/img/r03-b-fig-02": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1554.4,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r04-b/img/r04-b-fig-01": {
+      "status": "maybe",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 8035.36,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r04-b/img/r04-b-fig-02": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2364.93,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r05-a/img/r05-a-fig-01": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2301.76,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r05-b/img/r05-b-fig-01": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 2864.27,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r05-b/img/r05-b-fig-02": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2364.93,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r06-a/img/r06-a-fig-01": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2538.02,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r06-a/img/r06-a-fig-02": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 5448.92,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r06-a/img/r06-a-fig-03": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4143.47,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r06-a/img/r06-a-fig-04": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1594.03,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r06-a/img/r06-a-fig-05": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2208.58,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r06-b/img/r06-b-fig-01": {
+      "status": "maybe",
+      "periods": 6,
+      "markers": [],
+      "sharpness": 8062.55,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r06-b/img/r06-b-fig-02": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2248.75,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r07-a/img/r07-a-fig-01": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4313.78,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r07-a/img/r07-a-fig-02": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 3221.44,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r07-a/img/r07-a-fig-03": {
+      "status": "maybe",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 7516.49,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r07-a/img/r07-a-fig-04": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2423.74,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r07-a/img/r07-a-fig-05": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2575.56,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r07-a/img/r07-a-fig-06": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2570.26,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r07-b/img/r07-b-fig-01": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 6671.79,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/primary-r07-b/img/r07-b-fig-02": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2539.55,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-1": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 4362.37,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-10": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2195.67,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-11": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1898.63,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-12": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 3632.57,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-13": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4081.82,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-14": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2608.69,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-15": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4265.54,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-16": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2855.72,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-17": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 7555.91,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-18": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3030.34,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-19": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2378.22,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-2": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2390.49,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-20": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2778.91,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-3": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3250.2,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-4": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3158.21,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-5": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2755.27,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-6": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 4458.41,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-7": {
+      "status": "maybe",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 1950.27,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-8": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 4431.28,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-3-9": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4620.37,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-crack-alkali-silica": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2912.75,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-crack-drying-shrinkage": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3123.73,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-crack-hydration-heat": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 3871.81,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-crack-improper-joint": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2086.07,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-crack-improper-overlay": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1531.65,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-crack-rapid-placing": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1644.64,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-basics/img/fig-crack-settlement-bleeding": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1891.3,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-past-problems/img/fig-chute-past": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2978.57,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-past-problems/img/fig-slump-column": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2998.99,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-concrete-past-problems/img/fig-slump-wall": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1872.55,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1561.16,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-10": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2059.06,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-11": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2709.03,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-12": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 3276.25,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-13": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 3379.41,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-2": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3196.13,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-3": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1671.49,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-4": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1794.07,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-5": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3122.27,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-6": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2320.41,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-7": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1609.57,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-8": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1714.45,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-9": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1354.76,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-barchart": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2710.3,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-basics/img/fig-4-network": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 967.04,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-past-problems/img/fig-box-culvert-h23": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 3550.56,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-past-problems/img/fig-box-culvert-h30": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2818.11,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-past-problems/img/fig-culvert-flow-h23": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3439.74,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-past-problems/img/fig-culvert-flow-h27": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2023.01,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-past-problems/img/fig-culvert-flow-h30": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3609.44,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-past-problems/img/fig-l-retaining-wall-h26": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1684.91,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-construction-plan-past-problems/img/fig-retaining-wall-flow-h26": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 15211.4,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3485.22,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-10": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2083.98,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-11": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5873.41,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-12": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1894.84,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-13": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2772.05,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-14": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1721.69,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-15": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2294.39,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-16": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1987.32,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-17": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1916.16,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-18": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2156.11,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-19": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 5012.36,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-2": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2524.33,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-20": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 2157.85,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-21": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1601.71,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-22": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2441.95,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-23": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3464.66,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-24": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2956.56,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-25": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2469.17,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-26": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2354.93,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-27": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1968.85,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-28": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4946.8,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-29": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1851.07,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-3": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3616.28,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-30": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1694.68,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-31": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 4728.81,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-32": {
+      "status": "maybe",
+      "periods": 6,
+      "markers": [],
+      "sharpness": 6547.86,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-33": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3347.97,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-34": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2021.64,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-35": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 9366.16,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-36": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2065.14,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-37": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4209.57,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-38": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 6848.86,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-39": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 3341.41,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-4": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2634.48,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-40": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2689.47,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-41": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3055.58,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-42a": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2898.14,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-42b": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1383.3,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-43": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2898.44,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-44": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3873.55,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-45": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 3787.35,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-46": {
+      "status": "maybe",
+      "periods": 12,
+      "markers": [],
+      "sharpness": 4876.35,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-47": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 7680.83,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-48": {
+      "status": "maybe",
+      "periods": 5,
+      "markers": [],
+      "sharpness": 3943.67,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-49": {
+      "status": "maybe",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 3755.47,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-5": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3662.39,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-50": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1427.08,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-51": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1643.83,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-52": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 6354.01,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-53": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2580.54,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-54": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3575.52,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-55": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2879.97,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-56": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 7445.16,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-57": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 2434.47,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-58": {
+      "status": "maybe",
+      "periods": 5,
+      "markers": [],
+      "sharpness": 2354.08,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-59": {
+      "status": "maybe",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 3959.26,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-6": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2480.98,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-60": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3733.84,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-61": {
+      "status": "maybe",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 4428.06,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-62": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3045.34,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-63": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2743.4,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-64": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 7629.65,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-7": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1824.11,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-8": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1831.97,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-basics/img/fig-2-9": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5026.9,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-past-problems/img/fig-boiling": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2911.82,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-past-problems/img/fig-box-culvert-concept": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2053.8,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-past-problems/img/fig-box-culvert-construction": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2483.02,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-past-problems/img/fig-box-culvert-drainage": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2815.67,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-past-problems/img/fig-embankment-drainage": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1550.81,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-past-problems/img/fig-heaving": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4064.29,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-past-problems/img/fig-retaining-wall": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2525.68,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-past-problems/img/fig-slope-correction": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2136.42,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-earthwork-past-problems/img/fig-uplift": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4975.58,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-experience-writing-guide/img/fig-orderer-case": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1735.43,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-experience-writing-guide/img/fig-plan-management": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3414.06,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-quality-management-basics/img/fig-5-1": {
+      "status": "maybe",
+      "periods": 6,
+      "markers": [],
+      "sharpness": 6979.88,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-quality-management-basics/img/fig-5-2": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 7155.67,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-quality-management-basics/img/fig-5-3": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1256.17,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-quality-management-basics/img/fig-5-4": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1275.9,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-quality-management-basics/img/fig-5-5": {
+      "status": "writein",
+      "periods": 13,
+      "markers": [],
+      "sharpness": 6611.79,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-quality-management-basics/img/fig-5-6": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5157.68,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-quality-management-basics/img/fig-rebar-joint": {
+      "status": "maybe",
+      "periods": 14,
+      "markers": [],
+      "sharpness": 11218.5,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-quality-management-past-problems/img/fig-compaction-curve-1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2570.38,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-quality-management-past-problems/img/fig-compaction-curve-2": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3157.21,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-quality-management-past-problems/img/fig-crack-patterns": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2560.65,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-quality-management-past-problems/img/fig-dry-density-method": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1886.56,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-r03/img/i-10-crane-scene": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5984.84,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-r03/img/i-11-culvert-section": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2829.94,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-r04/img/i-5-compaction-curve": {
+      "status": "maybe",
+      "periods": 6,
+      "markers": [],
+      "sharpness": 5470.52,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-r04/img/i-8-shoring-section": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 8332.93,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-r04/img/i-9-crack-types": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3182.54,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-r05/img/i-11-box-culvert-section": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 10707.2,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-r06/img/i-5-compaction-curve": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 6955.17,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-r06/img/i-8-shoring-section": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3832.89,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-r07/img/i-10-machinery-scene": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2851.11,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/secondary-r07/img/i-11-l-retaining-wall": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 7361.8,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-construction-mgmt-overview/img/fig-1-1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4947.28,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-construction-mgmt-overview/img/fig-1-2": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2960.23,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-construction-mgmt-overview/img/fig-1-3": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1607.61,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-construction-mgmt-overview/img/fig-1-4": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 886.84,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-crane/img/all-terrain-crane": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2466.48,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-crane/img/boom-lift": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 8965.65,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-crane/img/cable-crane": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2184.06,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-crane/img/crawler-crane": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3759.45,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-crane/img/loader-crane": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 6051.26,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-crane/img/rough-terrain-crane": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2076.09,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-crane/img/tower-crane": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 6838.23,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-demolition/img/fig-6-1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4738.16,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-demolition/img/fig-6-2": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1809.95,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-demolition/img/fig-6-3": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2890.46,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-demolition/img/fig-6-4": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3047.54,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-demolition/img/fig-6-5": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 6649.86,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-demolition/img/fig-6-6": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 8398.31,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-demolition/img/photo-6-1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4389.59,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-distance-angle/img/edm-rangefinder": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 804.79,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-distance-angle/img/gnss-receiver": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2653.12,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-distance-angle/img/theodolite": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3158.43,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-distance-angle/img/total-station": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 3916.65,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-grader-compaction/img/macadam-roller": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 6681.84,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-grader-compaction/img/motor-grader": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4280.64,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-grader-compaction/img/tamping-roller": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 5287.46,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-grader-compaction/img/tandem-roller": {
+      "status": "maybe",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 3184.55,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-grader-compaction/img/tire-roller": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2281.41,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-leveling/img/automatic-level": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1501.45,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-loader/img/wheel-loader": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3680.34,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-scraper/img/motor-scraper": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2991.06,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-scraper/img/scraper-dozer": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 7593.67,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-tractor-bulldozer/img/bulldozer": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1963.52,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-transport-machinery/img/belt-conveyor": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 6153.04,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-transport-machinery/img/dump-truck": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 7353.32,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-1/textbook-transport-machinery/img/rough-terrain-carrier": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4064.3,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r03-kouki/img/q11-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 16264.6,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r03-kouki/img/q43-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5081.38,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r03-kouki/img/q45-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 9137,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r03-kouki/img/q57-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2659.63,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r03-kouki/img/q60-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5573.15,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r03-zenki/img/q17-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4617.1,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r03-zenki/img/q45-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1263.5,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r03-zenki/img/q57-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1149.52,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r03-zenki/img/q60-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2495.48,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r04-kouki/img/q25-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1270.75,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r04-kouki/img/q45-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1672.82,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r04-kouki/img/q57-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 729.85,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r04-zenki/img/q43-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2130.31,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r04-zenki/img/q45-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1512.04,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r04-zenki/img/q57-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1221.02,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r05-kouki/img/q31-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2107.41,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r05-kouki/img/q45-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1749.52,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r05-kouki/img/q57-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 713.25,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r05-zenki/img/q12-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 685.67,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r05-zenki/img/q31-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2135.61,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r05-zenki/img/q43-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 1974.61,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r05-zenki/img/q45-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2226.13,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r05-zenki/img/q57-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1035.21,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-kouki/img/q01-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2872.37,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-kouki/img/q02-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1834.44,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-kouki/img/q03-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1728.16,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-kouki/img/q04-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2554.72,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-kouki/img/q05-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 3334.95,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-kouki/img/q22-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 5316.9,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-kouki/img/q30-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2005.83,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-kouki/img/q50-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2272.52,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-kouki/img/q62-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 863.67,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-kouki/img/q65-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 1809.47,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-zenki/img/q01-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3700.18,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-zenki/img/q02-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3175.65,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-zenki/img/q03-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1484.83,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-zenki/img/q04-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2036.34,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-zenki/img/q05-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2767.47,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-zenki/img/q48-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2199.04,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-zenki/img/q50-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2370.66,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-zenki/img/q62-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2257.46,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r06-zenki/img/q65-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 3017.67,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r07-kouki/img/q1-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 7861.37,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r07-kouki/img/q3-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 7068.95,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r07-kouki/img/q36-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 8019.82,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r07-kouki/img/q4-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5209.69,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r07-kouki/img/q5-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5563.82,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r07-kouki/img/q50-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 7877.39,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r07-kouki/img/q62-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3614.31,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r07-zenki/img/q01-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2103.44,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r07-zenki/img/q02-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 5672.17,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r07-zenki/img/q03-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1577.1,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r07-zenki/img/q04-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1263.33,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r07-zenki/img/q05-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4165.07,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r07-zenki/img/q16-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5558.66,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r07-zenki/img/q48-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1961.97,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r07-zenki/img/q50-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1224.24,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/primary-r07-zenki/img/q62-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1478.18,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "civil-construction-2/secondary-r05/img/q09-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 841.77,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "concrete-chief-engineer/primary-construction/img/bingham-shear-r04": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 35.5,
+      "quality": "blurry",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/form-pressure-h27": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1472.59,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/form-pressure-h29": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 474.48,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/form-pressure-r02": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 763.33,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/marine-joint-r01": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 661.53,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/mass-slab-stress-h29": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 869.42,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/mass-thermal-history-h30": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 498.95,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/placing-order-coldjoint-h28": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2829.55,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/pump-longdistance-h27": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 832.32,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/pump-piping-h26": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1120.53,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/pump-pressure-h30": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2269.5,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/pump-pressure-r01": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 691.5,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/pump-pressure-r05": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 330.48,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/strength-dev-r02": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 353.66,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/temp-history-r02": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 1238.83,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-materials/img/cement-r01-composition": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 710.67,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-materials/img/materials-clinker-strength-h28": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1276.5,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-materials/img/sand-surface-test-h29": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 357.35,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 719.87,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-mix-design/img/mix-volume-rccp-h30": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 822.08,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-mix-design/img/mix-volume-slump-h26": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2054.35,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-mix-design/img/mix-volume-slump-h28": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1376.43,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-mix-design/img/volume-ratio-r03": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 719.91,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 1855.66,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-production-qc/img/normal-dist-r05": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 499.11,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-production-qc/img/xbar-control-chart-h28": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2169.06,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-properties/img/beam-thermal-stress-h28": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2353.81,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-properties/img/bingham-flow-h26": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1806.72,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-properties/img/bingham-flow-h30": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 273.68,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-properties/img/bingham-flow-r01": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 552.36,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-properties/img/creep-strain-h29": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 490.27,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-properties/img/creep-strain-r04": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 762.49,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-properties/img/strain-unload-h30": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 659.22,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/beam-design-h29": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1014.13,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/beam-flexure-h26": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1176.15,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/cantilever-rebar-h30": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 697.04,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/cantilever-section-h27": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1141.44,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/column-hoop-h29": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1633.52,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/crack-pattern-r02": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 422.13,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/crack-pattern-r03": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 417.01,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/load-displacement-h26": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 862.28,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/pc-beam-load-h26": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 882.15,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/pc-beam-load-h29": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 896.51,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/pc-section-h27": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1265.02,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/rc-frame-crack-h27": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1416.56,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/slab-joint-position-h27": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1112.83,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/wall-crack-pattern-h28": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3096.98,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-01/img/q1-fig": {
+      "status": "writein",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 697.63,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-01/img/q10-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 486.06,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-01/img/q12-fig": {
+      "status": "writein",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 406.03,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-01/img/q2-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 542.19,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-01/img/q3-fig": {
+      "status": "writein",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 1261.95,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-01/img/q4-fig": {
+      "status": "maybe",
+      "periods": 7,
+      "markers": [],
+      "sharpness": 481.11,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-01/img/q8-fig": {
+      "status": "writein",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 410.37,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-02/img/q17-fig": {
+      "status": "writein",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 176.72,
+      "quality": "soft",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-02/img/q19-fig": {
+      "status": "writein",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 383.43,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-02/img/q21-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 654.75,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-02/img/q23-fig": {
+      "status": "writein",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 263.59,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-02/img/q25-fig": {
+      "status": "writein",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 437.27,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-02/img/q27-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 460.25,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-03/img/q28-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 170.47,
+      "quality": "soft",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-03/img/q29-fig": {
+      "status": "writein",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 625.16,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-03/img/q30-fig": {
+      "status": "writein",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 1042.31,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-03/img/q32-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 337.04,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-03/img/q33-fig": {
+      "status": "writein",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 535.04,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-03/img/q34-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 480.55,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-03/img/q35-fig": {
+      "status": "writein",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 197.19,
+      "quality": "soft",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-03/img/q40-choices": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 606.92,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-03/img/q40-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 110.77,
+      "quality": "soft",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-04/img/q41-fig": {
+      "status": "maybe",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 659.56,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-04/img/q43-fig": {
+      "status": "writein",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 617.67,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-04/img/q47-fig": {
+      "status": "writein",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 886.59,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-04/img/q49-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 951.76,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-04/img/q50-fig": {
+      "status": "maybe",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 490.53,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-05/img/q55-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 792.71,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-05/img/q57-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 483.89,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-05/img/q58-fig": {
+      "status": "writein",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 323.81,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-05/img/q60-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 441.98,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-05/img/q62-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 309.44,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-05/img/q64-fig": {
+      "status": "maybe",
+      "periods": 5,
+      "markers": [],
+      "sharpness": 692.5,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-05/img/q65-fig": {
+      "status": "writein",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 416.71,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-06/img/q67-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 320.31,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-06/img/q68-fig": {
+      "status": "writein",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 164.53,
+      "quality": "soft",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-06/img/q69-fig": {
+      "status": "writein",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 89.85,
+      "quality": "soft",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-06/img/q70-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 153.63,
+      "quality": "soft",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-06/img/q71-fig": {
+      "status": "writein",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 299.52,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-06/img/q72-fig": {
+      "status": "writein",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 414.58,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-06/img/q74-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 312.49,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-06/img/q76-fig": {
+      "status": "writein",
+      "periods": 8,
+      "markers": [],
+      "sharpness": 706.55,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-06/img/q77-fig": {
+      "status": "maybe",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 476.37,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-06/img/q79-fig": {
+      "status": "writein",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 518.58,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-07/img/q80-fig": {
+      "status": "writein",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 485.44,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-07/img/q81-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 112.51,
+      "quality": "soft",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-07/img/q82-fig": {
+      "status": "writein",
+      "periods": 5,
+      "markers": [],
+      "sharpness": 529.3,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-07/img/q84-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 400.23,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-07/img/q86-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 908.86,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-07/img/q88-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1127.35,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-07/img/q89-fig": {
+      "status": "writein",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 543.35,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-07/img/q90-fig": {
+      "status": "writein",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 165.15,
+      "quality": "soft",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-08/img/q91-fig": {
+      "status": "writein",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 531.69,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-08/img/q92-fig": {
+      "status": "writein",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 280.52,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-08/img/q93-fig": {
+      "status": "writein",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 483.66,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-08/img/q94-fig": {
+      "status": "writein",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 842.58,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-08/img/q95-fig": {
+      "status": "writein",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 496.75,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-08/img/q97-fig": {
+      "status": "writein",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 365.57,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/primary-exercise-08/img/q98-fig": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 749.52,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-assessment/img/figure-01": {
+      "status": "maybe",
+      "periods": 6,
+      "markers": [],
+      "sharpness": 328.7,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-assessment/img/figure-02": {
+      "status": "maybe",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 190.72,
+      "quality": "soft",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-assessment/img/figure-03": {
+      "status": "maybe",
+      "periods": 5,
+      "markers": [],
+      "sharpness": 2029.66,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-assessment/img/figure-04": {
+      "status": "maybe",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 345.16,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-deterioration/img/figure-01": {
+      "status": "maybe",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 350.04,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-deterioration/img/figure-02": {
+      "status": "maybe",
+      "periods": 10,
+      "markers": [],
+      "sharpness": 655.01,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-deterioration/img/figure-03": {
+      "status": "maybe",
+      "periods": 6,
+      "markers": [],
+      "sharpness": 252.76,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-investigation/img/figure-01": {
+      "status": "maybe",
+      "periods": 8,
+      "markers": [],
+      "sharpness": 333.36,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-investigation/img/figure-02": {
+      "status": "maybe",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 310.91,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-investigation/img/figure-03": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 153.07,
+      "quality": "soft",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-investigation/img/figure-04": {
+      "status": "maybe",
+      "periods": 5,
+      "markers": [],
+      "sharpness": 262.72,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-investigation/img/figure-05": {
+      "status": "maybe",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 133.67,
+      "quality": "soft",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-maintenance/img/figure-01": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 113.7,
+      "quality": "soft",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-maintenance/img/figure-02": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1587.38,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-maintenance/img/figure-03": {
+      "status": "maybe",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 233.17,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-maintenance/img/figure-04": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 887.34,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-repair/img/figure-01": {
+      "status": "maybe",
+      "periods": 5,
+      "markers": [],
+      "sharpness": 338.26,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-repair/img/figure-02": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 161.27,
+      "quality": "soft",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-repair/img/figure-03": {
+      "status": "maybe",
+      "periods": 14,
+      "markers": [],
+      "sharpness": 1494.15,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-repair/img/figure-04": {
+      "status": "maybe",
+      "periods": 9,
+      "markers": [],
+      "sharpness": 1695.03,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-repair/img/figure-05": {
+      "status": "maybe",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 1103.49,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-variation/img/figure-01": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 1745.22,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-variation/img/figure-02": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 206.57,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-variation/img/figure-03": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 194.76,
+      "quality": "soft",
+      "variants": 1
+    },
+    "concrete-diagnostician/textbook-variation/img/figure-04": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 130.64,
+      "quality": "soft",
+      "variants": 1
+    },
+    "note/_magazines/img/tankan-magazine-cover": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1004.19,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/alert-levels/img/alertlevel-jma-official": {
+      "status": "maybe",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 1.33838e+27,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/carbon-neutral/img/figure-5-2-ccs-flow": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 939.24,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/circular-economy/img/figure-5-6-material-flow": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3914.07,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/climate-change-adaptation-act/img/figure-5-10-alert-levels": {
+      "status": "maybe",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 1.33838e+27,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/exam-passing-strategy/img/note-4phase-cover": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2.1227799999999996e+26,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/h21-primary/img/i-2-31-fault-tree": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3314.19,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/h21-secondary/img/i-2-1-incident-cases": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4251.73,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/h22-primary/img/i-2-27-oshms-flowchart": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 8129.59,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/h22-primary/img/i-2-33-co2-emissions-graph": {
+      "status": "maybe",
+      "periods": 5,
+      "markers": [],
+      "sharpness": 4554.42,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/h23-primary/img/i-2-30-system-diagram": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 6672.74,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/h25-primary/img/i-1-7-network-diagram": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2433.47,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/h26-primary/img/i-1-40-co2-line-graph": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 17928.4,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/h27-primary/img/i-1-4-qms-pdca": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4053.38,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/h28-primary/img/i-1-18-iot-scatter": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4179.92,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/h28-primary/img/i-1-29-fn-curve": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2780.93,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/h28-primary/img/i-1-5-pert-network": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3816.54,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/h29-primary/img/i-1-24-patent-line-graph": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 6211.42,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/h29-primary/img/i-1-32-deaths-line-graph": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5434.96,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/h30-primary/img/i-1-24-wireless-matrix": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3438.81,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/iso-14000/img/figure-1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1.38113e+27,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/osh-management-system/img/figure-1": {
+      "status": "maybe",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 1.79491e+27,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/r01-primary/img/i-1-24-ict-concept": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5915.96,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/r01-primary/img/i-1-30-risk-mgmt-flowchart": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4873.34,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/r01-primary/img/i-1-32-fault-tree": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2596.9,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/r01-primary/img/i-1-8-bathtub-curve": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2459.13,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/r02-primary/img/i-1-23-ml-flowchart": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2398.35,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/r02-primary/img/i-1-6-cost-variance-diagram": {
+      "status": "writein",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 6051,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/r03-primary/img/i-1-28-org-chart": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 8289.11,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/r03-primary/img/i-1-29-oshms-flowchart": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 10957.1,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/r03-primary/img/i-1-30-system-diagram": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 6515.01,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/r04-primary/img/i-1-8-pert-schematic": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1732.24,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/r05-primary/img/i-1-2-break-even-graph": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1900.7,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/r05-primary/img/i-1-25-risk-mgmt-process": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2812.84,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/r06-primary/img/i-1-31-system-diagram": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5559.86,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/r06-primary/img/i-1-40-logo-schematic": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 5622.06,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/sdgs/img/figure-5-1-sdgs-poster": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1510.75,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-comprehensive-management/waste-management-act/img/figure-5-5-waste-categories": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 6.28525e+26,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/bousai-genseigai-ronbun-keyword/img/fig12": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 275.93,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/bousai-genseigai-ronbun-keyword/img/fig13": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1070.26,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/bousai-genseigai-ronbun-keyword/img/fig14": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1534.86,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig23": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3704.46,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig24": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1668.05,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig25": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2082.88,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig26": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1086.48,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig27": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 1477.66,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig29": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 5003.48,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig31": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 1973.28,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/iji-kanri-ronbun-keyword/img/fig06": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2202.2,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/iji-kanri-ronbun-keyword/img/fig07": {
+      "status": "maybe",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 3513.71,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/iji-kanri-ronbun-keyword/img/fig08": {
+      "status": "maybe",
+      "periods": 5,
+      "markers": [],
+      "sharpness": 2252.01,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/iji-kanri-ronbun-keyword/img/fig09": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2501.31,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/iji-kanri-ronbun-keyword/img/fig10": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1876.37,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/iji-kanri-ronbun-keyword/img/fig11": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2507.86,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/fig15": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2862.44,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/fig16": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 1215.3,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/fig17": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 3303.84,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/fig18": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 931.42,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/fig19": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 942.5,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/fig20": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1258.71,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/fig21": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 631.1,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/ninaite-dx-ronbun-keyword/img/fig22": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2156.38,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/shakai-shihon-ronbun-keyword/img/fig01": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1102.61,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/shakai-shihon-ronbun-keyword/img/fig03": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2237.13,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/shakai-shihon-ronbun-keyword/img/fig04": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 6090.8,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-construction/shakai-shihon-ronbun-keyword/img/fig05": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 2282.31,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-first-stage/r01-basic/img/q1-4-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 747,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r01-basic/img/q2-2-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 812.55,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r01-basic/img/q3-5-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 609.47,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r01-basic/img/q3-6-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 449.37,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r01-construction/img/q01-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 681.66,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r01-construction/img/q04-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2220.78,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r01-construction/img/q05-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 617.9,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r01-construction/img/q06-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2234.7,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r01-construction/img/q17-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1222.11,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-first-stage/r02-aptitude/img/q7-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1483.7,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r02-basic/img/q16-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1837.96,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r02-basic/img/q25-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2822.56,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r02-basic/img/q34-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1423.11,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-first-stage/r02-basic/img/q35-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 1229.19,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r02-basic/img/q36-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1621.87,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r02-basic/img/q42-fig": {
+      "status": "maybe",
+      "periods": 9,
+      "markers": [],
+      "sharpness": 1401.19,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r02-construction/img/q17-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 1687.27,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r02-construction/img/q3-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2451.76,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r02-construction/img/q4-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1472.91,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r02-construction/img/q5-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1229.65,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r02-construction/img/q6-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1338.49,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r03-basic/img/q-I1-2": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1590.33,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r03-basic/img/q-I2-4": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4520.47,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r03-basic/img/q-I2-5": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 1892.1,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r03-basic/img/q-I3-3": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1076.8,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r03-basic/img/q3-4-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 883.86,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r03-basic/img/q3-5-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 1558.79,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r03-basic/img/q3-6-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 442.33,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r03-construction/img/q03-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 3324.37,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-first-stage/r03-construction/img/q06-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 602.91,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-first-stage/r03-construction/img/q07-fig": {
+      "status": "writein",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 1094.55,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-first-stage/r03-construction/img/q17-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1513.21,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-first-stage/r04-basic/img/q34-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1439.02,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r04-basic/img/q36-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 830.84,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r04-construction/img/q02-fig": {
+      "status": "maybe",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 3729.12,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r04-construction/img/q04-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1195.33,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r04-construction/img/q05-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1471.18,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r04-construction/img/q06-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1144.7,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r04-construction/img/q17-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 851.85,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r05-aptitude/img/q08-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 4166.97,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r05-basic/img/q112-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1035.7,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r05-basic/img/q114-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1190.47,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r05-basic/img/q222-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1238.73,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r05-basic/img/q3-5-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1331.54,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r05-basic/img/q336-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 799.02,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r05-construction/img/q02-fig": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 2471.32,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-first-stage/r05-construction/img/q04-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1613.5,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-first-stage/r05-construction/img/q05-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 633.79,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-first-stage/r05-construction/img/q06-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1111.41,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-first-stage/r05-construction/img/q17-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1970,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-first-stage/r06-aptitude/img/q12-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1628.69,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r06-basic/img/q3-3-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1926.14,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r06-basic/img/q3-4-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 751.59,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r06-basic/img/q3-5-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1233.74,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r06-basic/img/q3-6-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1041.2,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r06-basic/img/q5-2-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 2679.6,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r06-basic/img/q5-3-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 6289.46,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-first-stage/r06-construction/img/q05-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 763.41,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r06-construction/img/q06-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1056.71,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r06-construction/img/q17-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1600.84,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r06-construction/img/q19-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1586.95,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r07-aptitude/img/alarp-carrot-diagram": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1281.66,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-first-stage/r07-basic/img/q33-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1202.04,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r07-basic/img/q34-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1416.82,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r07-basic/img/q35-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1958.99,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-first-stage/r07-basic/img/q36-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1661.37,
+      "quality": "sharp",
+      "variants": 2
+    },
+    "pe-first-stage/r07-construction/img/q01-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 570.53,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r07-construction/img/q05-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 790.04,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r07-construction/img/q06-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 1127.76,
+      "quality": "sharp",
+      "variants": 1
+    },
+    "pe-first-stage/r07-construction/img/q17-fig": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 459.48,
+      "quality": "sharp",
+      "variants": 1
+    }
+  }
+}

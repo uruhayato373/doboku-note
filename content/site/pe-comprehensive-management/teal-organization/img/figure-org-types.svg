@@ -1,0 +1,92 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%" role="img"
+     aria-label="4つの組織形態の比較。ピラミッド組織は単一の上意下達の階層構造、マトリクス組織は職能軸と事業軸の2つの指揮命令系統、ネットワーク組織は水平で緩やかに結びついた構造、ティール組織は指揮命令系統がなく自主経営する自律チームの集合。指揮命令系統の強さはピラミッド・マトリクス・ネットワーク・ティールの順に弱まる。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-sub  { font-size: 11px; fill: #8a8a8a; }
+      .t-head { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-cell { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-feat { font-size: 11px; fill: #555; }
+      .t-axis { font-size: 11px; fill: #8a8a8a; }
+      .node-b { fill: #2e6da4; }
+      .node-g { fill: #3a7d44; }
+    </style>
+    <marker id="org-arrow" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <!-- ヘッダー -->
+  <text class="t-head" x="200" y="40" text-anchor="middle">指揮命令系統で見分ける4類型</text>
+
+  <!-- セル枠 -->
+  <rect x="10"  y="54"  width="185" height="192" rx="6" fill="#e8f0fe" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="205" y="54"  width="185" height="192" rx="6" fill="#fff3cd" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="10"  y="252" width="185" height="192" rx="6" fill="#d0e8d0" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="205" y="252" width="185" height="192" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- === ピラミッド組織（左上） === -->
+  <text class="t-cell" x="102" y="76" text-anchor="middle">ピラミッド組織</text>
+  <line x1="102" y1="98"  x2="84"  y2="132" stroke="#8a8a8a" stroke-width="1.2"/>
+  <line x1="102" y1="98"  x2="120" y2="132" stroke="#8a8a8a" stroke-width="1.2"/>
+  <line x1="84"  y1="132" x2="70"  y2="166" stroke="#8a8a8a" stroke-width="1.2"/>
+  <line x1="84"  y1="132" x2="102" y2="166" stroke="#8a8a8a" stroke-width="1.2"/>
+  <line x1="120" y1="132" x2="102" y2="166" stroke="#8a8a8a" stroke-width="1.2"/>
+  <line x1="120" y1="132" x2="134" y2="166" stroke="#8a8a8a" stroke-width="1.2"/>
+  <circle class="node-b" cx="102" cy="98"  r="7"/>
+  <circle class="node-b" cx="84"  cy="132" r="7"/>
+  <circle class="node-b" cx="120" cy="132" r="7"/>
+  <circle class="node-b" cx="70"  cy="166" r="7"/>
+  <circle class="node-b" cx="102" cy="166" r="7"/>
+  <circle class="node-b" cx="134" cy="166" r="7"/>
+  <text class="t-feat" x="102" y="228" text-anchor="middle">単一の上意下達</text>
+
+  <!-- === マトリクス組織（右上） === -->
+  <text class="t-cell" x="297" y="76" text-anchor="middle">マトリクス組織</text>
+  <text class="t-axis" x="252" y="103" text-anchor="middle">職能</text>
+  <text class="t-axis" x="356" y="150" text-anchor="middle">事業</text>
+  <line x1="297" y1="110" x2="297" y2="178" stroke="#2e6da4" stroke-width="1.6" marker-end="url(#org-arrow)"/>
+  <line x1="262" y1="146" x2="340" y2="146" stroke="#2e6da4" stroke-width="1.6" marker-end="url(#org-arrow)"/>
+  <circle class="node-b" cx="275" cy="128" r="5"/>
+  <circle class="node-b" cx="319" cy="128" r="5"/>
+  <circle class="node-b" cx="275" cy="164" r="5"/>
+  <circle cx="319" cy="164" r="7" fill="#fff" stroke="#2e6da4" stroke-width="2"/>
+  <text class="t-feat" x="297" y="228" text-anchor="middle">2つの指揮命令系統</text>
+
+  <!-- === ネットワーク組織（左下） === -->
+  <text class="t-cell" x="102" y="274" text-anchor="middle">ネットワーク組織</text>
+  <line x1="102" y1="345" x2="60"  y2="312" stroke="#8a8a8a" stroke-width="1.2"/>
+  <line x1="102" y1="345" x2="146" y2="312" stroke="#8a8a8a" stroke-width="1.2"/>
+  <line x1="102" y1="345" x2="58"  y2="384" stroke="#8a8a8a" stroke-width="1.2"/>
+  <line x1="102" y1="345" x2="146" y2="384" stroke="#8a8a8a" stroke-width="1.2"/>
+  <line x1="102" y1="345" x2="102" y2="302" stroke="#8a8a8a" stroke-width="1.2"/>
+  <line x1="60"  y1="312" x2="102" y2="302" stroke="#8a8a8a" stroke-width="1.2"/>
+  <line x1="146" y1="312" x2="102" y2="302" stroke="#8a8a8a" stroke-width="1.2"/>
+  <line x1="58"  y1="384" x2="60"  y2="312" stroke="#8a8a8a" stroke-width="1.2"/>
+  <line x1="146" y1="384" x2="146" y2="312" stroke="#8a8a8a" stroke-width="1.2"/>
+  <circle class="node-g" cx="102" cy="345" r="8"/>
+  <circle class="node-g" cx="102" cy="302" r="6"/>
+  <circle class="node-g" cx="60"  cy="312" r="6"/>
+  <circle class="node-g" cx="146" cy="312" r="6"/>
+  <circle class="node-g" cx="58"  cy="384" r="6"/>
+  <circle class="node-g" cx="146" cy="384" r="6"/>
+  <text class="t-feat" x="102" y="426" text-anchor="middle">水平・緩やかな結合</text>
+
+  <!-- === ティール組織（右下） === -->
+  <text class="t-cell" x="297" y="274" text-anchor="middle">ティール組織</text>
+  <rect x="232" y="288" width="130" height="112" rx="12" fill="none" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
+  <circle cx="266" cy="320" r="15" fill="#fff" stroke="#3a7d44" stroke-width="1.5"/>
+  <circle cx="261" cy="316" r="2" fill="#3a7d44"/><circle cx="271" cy="316" r="2" fill="#3a7d44"/><circle cx="266" cy="325" r="2" fill="#3a7d44"/>
+  <circle cx="328" cy="318" r="15" fill="#fff" stroke="#3a7d44" stroke-width="1.5"/>
+  <circle cx="323" cy="314" r="2" fill="#3a7d44"/><circle cx="333" cy="314" r="2" fill="#3a7d44"/><circle cx="328" cy="323" r="2" fill="#3a7d44"/>
+  <circle cx="263" cy="372" r="15" fill="#fff" stroke="#3a7d44" stroke-width="1.5"/>
+  <circle cx="258" cy="368" r="2" fill="#3a7d44"/><circle cx="268" cy="368" r="2" fill="#3a7d44"/><circle cx="263" cy="377" r="2" fill="#3a7d44"/>
+  <circle cx="330" cy="372" r="15" fill="#fff" stroke="#3a7d44" stroke-width="1.5"/>
+  <circle cx="325" cy="368" r="2" fill="#3a7d44"/><circle cx="335" cy="368" r="2" fill="#3a7d44"/><circle cx="330" cy="377" r="2" fill="#3a7d44"/>
+  <text class="t-feat" x="297" y="426" text-anchor="middle">指揮系統なし・自主経営</text>
+
+  <!-- まとめ -->
+  <text x="200" y="468" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a3a5c">上下の強さ：ピラミッド ＞ マトリクス ＞ ネットワーク ＞ ティール</text>
+  <text class="t-sub" x="200" y="489" text-anchor="middle">指揮命令系統の有無・本数・結びつきの強さで4類型を識別する</text>
+</svg>

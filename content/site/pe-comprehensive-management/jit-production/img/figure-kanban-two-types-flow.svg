@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="かんばん 2 種類の流れ（前工程と後工程の間）">
+  <!-- メインフロー図（400×230スペースに配置、上部に移動） -->
+  <rect x="20" y="80" width="110" height="52" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="75" y="112" text-anchor="middle" font-size="14" fill="#222" font-family="sans-serif">前工程</text>
+
+  <rect x="270" y="80" width="110" height="52" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="325" y="112" text-anchor="middle" font-size="14" fill="#222" font-family="sans-serif">後工程</text>
+
+  <line x1="130" y1="60" x2="270" y2="60" stroke="#222" stroke-width="1" stroke-dasharray="5,3"/>
+  <polygon points="133,56 123,60 133,64" fill="#222"/>
+  <text x="200" y="52" text-anchor="middle" font-size="12" fill="#222" font-family="sans-serif">引き取りかんばん</text>
+  <text x="200" y="37" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">（後工程が取りに来る指示）</text>
+
+  <line x1="130" y1="106" x2="270" y2="106" stroke="#222" stroke-width="2"/>
+  <polygon points="267,101 277,106 267,111" fill="#222"/>
+  <text x="200" y="98" text-anchor="middle" font-size="12" fill="#222" font-family="sans-serif">部品の流れ</text>
+
+  <line x1="270" y1="152" x2="130" y2="152" stroke="#222" stroke-width="1" stroke-dasharray="5,3"/>
+  <polygon points="133,148 123,152 133,156" fill="#222"/>
+  <text x="200" y="168" text-anchor="middle" font-size="12" fill="#222" font-family="sans-serif">生産指示かんばん</text>
+  <text x="200" y="182" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">（前工程に「作れ」指示）</text>
+
+  <!-- 凡例 -->
+  <rect x="20" y="196" width="16" height="10" fill="none" stroke="#222" stroke-width="2"/>
+  <text x="40" y="206" font-size="10" fill="#222" font-family="sans-serif">実線: 部品（物）</text>
+  <line x1="160" y1="201" x2="176" y2="201" stroke="#222" stroke-width="1" stroke-dasharray="5,3"/>
+  <text x="180" y="206" font-size="10" fill="#222" font-family="sans-serif">破線: かんばん（情報）</text>
+
+  <!-- タイトル -->
+  <text x="200" y="20" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c" font-family="sans-serif">かんばん 2 種類の流れ</text>
+
+  <!-- 追加：JIT・かんばんの特徴 -->
+  <rect x="10" y="220" width="380" height="56" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text x="200" y="240" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold" font-family="sans-serif">JIT（ジャスト・イン・タイム）の原則</text>
+  <text x="200" y="256" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">必要なものを、必要なときに、必要な量だけ生産</text>
+  <text x="200" y="270" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">在庫を最小化しリードタイムと無駄を削減</text>
+
+  <rect x="10" y="288" width="185" height="56" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="6"/>
+  <text x="103" y="306" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="sans-serif">引き取りかんばん</text>
+  <text x="103" y="322" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">後工程がいつ・何を</text>
+  <text x="103" y="336" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">いくつ引き取るかを指示</text>
+
+  <rect x="205" y="288" width="185" height="56" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="6"/>
+  <text x="297" y="306" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="sans-serif">生産指示かんばん</text>
+  <text x="297" y="322" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">前工程に何を</text>
+  <text x="297" y="336" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">いくつ作るかを指示</text>
+
+  <rect x="10" y="356" width="380" height="40" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5" rx="6"/>
+  <text x="200" y="373" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="sans-serif">プル方式（後工程が前工程を引っ張る）</text>
+  <text x="200" y="389" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">プッシュ方式（計画生産）との対比が試験の頻出論点</text>
+
+  <text x="200" y="416" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">かんばん枚数 = （在庫量 ÷ 1枚当たり部品数）× 安全係数</text>
+  <text x="200" y="434" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">トヨタ生産方式（TPS）の核心的管理ツール</text>
+  <text x="200" y="452" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="sans-serif">情報管理 × 経済性管理の統合事例</text>
+  <text x="200" y="470" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">多品種少量生産への対応で現代製造業に普及</text>
+  <text x="200" y="488" text-anchor="middle" font-size="11" fill="#3a7d44" font-weight="bold" font-family="sans-serif">在庫 = 経営上の浪費（ムダ）として捉える思想</text>
+</svg>

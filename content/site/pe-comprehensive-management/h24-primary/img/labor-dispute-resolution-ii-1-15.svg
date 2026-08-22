@@ -1,0 +1,118 @@
+<svg width="680" height="310" viewBox="0 0 680 310" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="10.5" style="max-width:680px;width:100%" role="img" aria-label="労働関係紛争の解決手段（あっせん・調停・仲裁の一覧）">
+  <!-- Column headers -->
+  <rect x="5"   y="5"  width="100" height="45" fill="#2e6da4" stroke="#222" stroke-width="1"/>
+  <text x="55"  y="25" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="11">手続</text>
+
+  <rect x="105" y="5"  width="90"  height="45" fill="#2e6da4" stroke="#222" stroke-width="1"/>
+  <text x="150" y="25" text-anchor="middle" fill="#ffffff" font-weight="bold">調停</text>
+
+  <rect x="195" y="5"  width="90"  height="45" fill="#2e6da4" stroke="#222" stroke-width="1"/>
+  <text x="240" y="25" text-anchor="middle" fill="#ffffff" font-weight="bold">仲裁</text>
+
+  <rect x="285" y="5"  width="120" height="45" fill="#2e6da4" stroke="#222" stroke-width="1"/>
+  <text x="345" y="20" text-anchor="middle" fill="#ffffff" font-weight="bold">調整主体</text>
+  <text x="345" y="38" text-anchor="middle" fill="#ffffff" font-size="9">（調停委員会）</text>
+
+  <rect x="405" y="5"  width="120" height="45" fill="#2e6da4" stroke="#222" stroke-width="1"/>
+  <text x="465" y="25" text-anchor="middle" fill="#ffffff" font-weight="bold">仲裁委員の効力</text>
+
+  <rect x="525" y="5"  width="150" height="45" fill="#2e6da4" stroke="#222" stroke-width="1"/>
+  <text x="600" y="20" text-anchor="middle" fill="#ffffff" font-weight="bold">*国民経済に重大な影響を</text>
+  <text x="600" y="38" text-anchor="middle" fill="#ffffff" font-size="9">及ぼす関係等での当事者</text>
+
+  <!-- Row 1: 開始申請 -->
+  <rect x="5"   y="50" width="100" height="55" fill="#e8f0fe" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="55"  y="70" text-anchor="middle" font-weight="bold">開始申請</text>
+  <text x="55"  y="85" text-anchor="middle" font-size="9">（当事者申請）</text>
+
+  <rect x="105" y="50" width="90"  height="55" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="150" y="67" text-anchor="middle">一方申請</text>
+  <text x="150" y="82" text-anchor="middle">双方申請</text>
+  <text x="150" y="97" text-anchor="middle" font-size="9">協議に基づく一方申請</text>
+
+  <rect x="195" y="50" width="90"  height="55" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="240" y="70" text-anchor="middle">双方申請</text>
+  <text x="240" y="85" text-anchor="middle" font-size="9">協議に基づく一方申請</text>
+
+  <rect x="285" y="50" width="120" height="55" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="345" y="67" text-anchor="middle">調停委員会</text>
+  <text x="345" y="82" text-anchor="middle">公益委員</text>
+  <text x="345" y="97" text-anchor="middle" font-size="9">（公益委員三者構成）</text>
+
+  <rect x="405" y="50" width="120" height="55" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="465" y="70" text-anchor="middle">原則提示</text>
+
+  <rect x="525" y="50" width="150" height="55" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="600" y="70" text-anchor="middle">労働協約と同一の効力</text>
+  <text x="600" y="85" text-anchor="middle">を持って当事者を拘束</text>
+
+  <!-- Row 2: 労働委員会 -->
+  <rect x="5"   y="105" width="100" height="55" fill="#e8f0fe" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="55"  y="128" text-anchor="middle" font-weight="bold">労働委員会</text>
+
+  <rect x="105" y="105" width="90"  height="55" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="150" y="125" text-anchor="middle">あっせん員</text>
+  <text x="150" y="140" text-anchor="middle">（公益委員）</text>
+  <text x="150" y="155" text-anchor="middle" font-size="9">で構成</text>
+
+  <rect x="195" y="105" width="90"  height="55" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="240" y="125" text-anchor="middle">仲裁委員会</text>
+  <text x="240" y="140" text-anchor="middle" font-size="9">公益委員</text>
+
+  <rect x="285" y="105" width="120" height="55" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="345" y="125" text-anchor="middle">調停委員会</text>
+  <text x="345" y="140" text-anchor="middle">三者</text>
+
+  <rect x="405" y="105" width="120" height="55" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="465" y="128" text-anchor="middle">任意</text>
+
+  <rect x="525" y="105" width="150" height="55" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="600" y="128" text-anchor="middle">可能</text>
+
+  <!-- Row 3: 申請後の別 -->
+  <rect x="5"   y="160" width="100" height="50" fill="#e8f0fe" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="55"  y="178" text-anchor="middle" font-weight="bold">申請後の別の</text>
+  <text x="55"  y="193" text-anchor="middle" font-weight="bold">調整方法選択</text>
+
+  <rect x="105" y="160" width="90"  height="50" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="150" y="183" text-anchor="middle">あり</text>
+
+  <rect x="195" y="160" width="90"  height="50" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="240" y="183" text-anchor="middle">なし</text>
+
+  <rect x="285" y="160" width="120" height="50" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="345" y="178" text-anchor="middle">労働協約と同一の</text>
+  <text x="345" y="193" text-anchor="middle">効力を持つ</text>
+
+  <rect x="405" y="160" width="120" height="50" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="465" y="183" text-anchor="middle">可能</text>
+
+  <rect x="525" y="160" width="150" height="50" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="600" y="183" text-anchor="middle">あり</text>
+
+  <!-- Row 4: 解決案 -->
+  <rect x="5"   y="210" width="100" height="50" fill="#e8f0fe" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="55"  y="230" text-anchor="middle" font-weight="bold">解決案の</text>
+  <text x="55"  y="245" text-anchor="middle" font-weight="bold">当事者への</text>
+
+  <rect x="105" y="210" width="90"  height="50" fill="#fff3cd" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="150" y="228" text-anchor="middle">双方申請</text>
+  <text x="150" y="243" text-anchor="middle" font-size="9">（双事者委員で構成）</text>
+
+  <rect x="195" y="210" width="90"  height="50" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="240" y="233" text-anchor="middle">―</text>
+
+  <rect x="285" y="210" width="120" height="50" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="345" y="233" text-anchor="middle">―</text>
+
+  <rect x="405" y="210" width="120" height="50" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="465" y="233" text-anchor="middle">―</text>
+
+  <rect x="525" y="210" width="150" height="50" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="600" y="233" text-anchor="middle">―</text>
+
+  <!-- Footer note -->
+  <rect x="5" y="263" width="670" height="40" fill="#fff3cd" stroke="#fff3cd" stroke-width="1" rx="4"/>
+  <text x="340" y="280" text-anchor="middle" font-size="10" font-weight="bold">あっせん：労働者代表と使用者の間で締結する。調停・仲裁：労働組合員に関する争議の場の解決手段</text>
+  <text x="340" y="297" text-anchor="middle" font-size="9">＊労働委員会があっせんを開始するのは申請があった場合等に、労使の申請を受けて非公式に調整する</text>
+</svg>

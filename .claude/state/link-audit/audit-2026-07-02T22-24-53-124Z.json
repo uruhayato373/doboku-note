@@ -1,0 +1,706 @@
+{
+  "meta": {
+    "generated_at": "2026-07-02T22:24:53.124Z",
+    "tool": "check-links",
+    "scope": "all",
+    "valid_slugs": 1085
+  },
+  "summary": {
+    "files_scanned": 1523,
+    "links_checked": 13216,
+    "HIGH": 74,
+    "INFO": 0,
+    "by_status": {
+      "BROKEN_SLUG": 54,
+      "BROKEN_ANCHOR": 20
+    }
+  },
+  "findings": [
+    {
+      "file": "content/site/civil-construction-1/guide-career-path/article.mdx",
+      "line": 113,
+      "text": "年収を上げる3つの王道パターン（転職モデルケース）",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-career\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-career"
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-market-value/article.mdx",
+      "line": 128,
+      "text": "資格のキャリアパス（2級→1級→技術士）",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-career\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-career"
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-salary-up/article.mdx",
+      "line": 113,
+      "text": "1級土木の市場価値（転職・年収・独立）",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-salary\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-salary"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-career/article.mdx",
+      "line": 125,
+      "text": "資格のキャリアパス（2級→1級→技術士）",
+      "href": "RelatedKeywords slug=\"civil-construction-2-secondary-experience-writing-guide\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-secondary-experience-writing-guide"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-career-change/article.mdx",
+      "line": 102,
+      "text": "2級土木施工管理技士の試験概要",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-exam-overview\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-exam-overview"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-career-change/article.mdx",
+      "line": 103,
+      "text": "2級土木施工管理技士の試験概要",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-career\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-career"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-exam-overview/article.mdx",
+      "line": 141,
+      "text": "2級土木のキャリア・メリット（できること・年収）",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-career\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-career"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-exam-overview/article.mdx",
+      "line": 142,
+      "text": "2級土木のキャリア・メリット（できること・年収）",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-salary\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-salary"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-haken-seishain/article.mdx",
+      "line": 73,
+      "text": "2級土木施工管理を辞めたいと思ったら",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-quit-or-stay\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-quit-or-stay"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-haken-seishain/article.mdx",
+      "line": 74,
+      "text": "2級土木施工管理を辞めたいと思ったら",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-young-career\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-young-career"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-haken-seishain/article.mdx",
+      "line": 75,
+      "text": "2級土木施工管理を辞めたいと思ったら",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-salary\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-salary"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-haken-seishain/article.mdx",
+      "line": 76,
+      "text": "20代・第二新卒の施工管理 転職",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-career-change\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-career-change"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-haken-seishain/article.mdx",
+      "line": 77,
+      "text": "2級土木施工管理技士の年収・手当",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-job-reality\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-job-reality"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-job-reality/article.mdx",
+      "line": 104,
+      "text": "未経験から施工管理への転職",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-career-change\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-career-change"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-job-reality/article.mdx",
+      "line": 105,
+      "text": "未経験から施工管理への転職",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-career\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-career"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-quit-or-stay/article.mdx",
+      "line": 75,
+      "text": "2級土木施工管理のキャリア",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-career\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-career"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-quit-or-stay/article.mdx",
+      "line": 76,
+      "text": "2級土木施工管理のキャリア",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-job-reality\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-job-reality"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-quit-or-stay/article.mdx",
+      "line": 77,
+      "text": "2級土木施工管理のキャリア",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-career-change\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-career-change"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-quit-or-stay/article.mdx",
+      "line": 78,
+      "text": "土木の施工管理はきつい？仕事内容・将来性",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-salary\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-salary"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-quit-or-stay/article.mdx",
+      "line": 79,
+      "text": "未経験から施工管理への転職",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-haken-seishain\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-haken-seishain"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-resume/article.mdx",
+      "line": 76,
+      "text": "20代・第二新卒の施工管理 転職",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-young-career\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-young-career"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-resume/article.mdx",
+      "line": 77,
+      "text": "20代・第二新卒の施工管理 転職",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-career-change\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-career-change"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-resume/article.mdx",
+      "line": 78,
+      "text": "20代・第二新卒の施工管理 転職",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-haken-seishain\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-haken-seishain"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-resume/article.mdx",
+      "line": 79,
+      "text": "未経験から施工管理への転職",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-quit-or-stay\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-quit-or-stay"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-resume/article.mdx",
+      "line": 80,
+      "text": "派遣・契約から正社員施工管理へ",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-salary\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-salary"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-salary/article.mdx",
+      "line": 95,
+      "text": "2級土木のキャリア・メリット（できること）",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-career\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-career"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-study-plan/article.mdx",
+      "line": 114,
+      "text": "2級土木施工管理技士の試験概要",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-exam-overview\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-exam-overview"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-study-plan/article.mdx",
+      "line": 115,
+      "text": "2級土木施工管理技士の試験概要",
+      "href": "RelatedKeywords slug=\"civil-construction-2-secondary-experience-writing-guide\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-secondary-experience-writing-guide"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-study-plan/article.mdx",
+      "line": 116,
+      "text": "2級 施工経験記述 出題傾向と対策",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-career\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-career"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-young-career/article.mdx",
+      "line": 76,
+      "text": "未経験から施工管理への転職",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-career-change\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-career-change"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-young-career/article.mdx",
+      "line": 77,
+      "text": "未経験から施工管理への転職",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-quit-or-stay\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-quit-or-stay"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-young-career/article.mdx",
+      "line": 78,
+      "text": "未経験から施工管理への転職",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-haken-seishain\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-haken-seishain"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-young-career/article.mdx",
+      "line": 79,
+      "text": "2級土木施工管理を辞めたいと思ったら",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-job-reality\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-job-reality"
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-young-career/article.mdx",
+      "line": 80,
+      "text": "派遣・契約から正社員施工管理へ",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-salary\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-salary"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r03-zenki/article.mdx",
+      "line": 1781,
+      "text": "土工の重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-earthwork-key-points\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-earthwork-key-points"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r03-zenki/article.mdx",
+      "line": 1782,
+      "text": "土工の重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-concrete-key-points\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-concrete-key-points"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r03-zenki/article.mdx",
+      "line": 1783,
+      "text": "土工の重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-law-key-points\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-law-key-points"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r03-zenki/article.mdx",
+      "line": 1784,
+      "text": "コンクリートの重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-quality-management\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-quality-management"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r03-zenki/article.mdx",
+      "line": 1785,
+      "text": "法規の重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-schedule-management\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-schedule-management"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r05-zenki/article.mdx",
+      "line": 1572,
+      "text": "土工の重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-earthwork-key-points\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-earthwork-key-points"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r05-zenki/article.mdx",
+      "line": 1573,
+      "text": "土工の重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-concrete-key-points\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-concrete-key-points"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r05-zenki/article.mdx",
+      "line": 1574,
+      "text": "土工の重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-law-key-points\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-law-key-points"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r05-zenki/article.mdx",
+      "line": 1575,
+      "text": "コンクリートの重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-quality-management\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-quality-management"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r05-zenki/article.mdx",
+      "line": 1576,
+      "text": "法規の重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-schedule-management\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-schedule-management"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r06-zenki/article.mdx",
+      "line": 1947,
+      "text": "土工の重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-earthwork-key-points\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-earthwork-key-points"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r06-zenki/article.mdx",
+      "line": 1948,
+      "text": "土工の重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-concrete-key-points\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-concrete-key-points"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r06-zenki/article.mdx",
+      "line": 1949,
+      "text": "土工の重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-law-key-points\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-law-key-points"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r06-zenki/article.mdx",
+      "line": 1950,
+      "text": "コンクリートの重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-quality-management\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-quality-management"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r06-zenki/article.mdx",
+      "line": 1951,
+      "text": "法規の重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-schedule-management\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-schedule-management"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r07-zenki/article.mdx",
+      "line": 1695,
+      "text": "土工の重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-earthwork-key-points\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-earthwork-key-points"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r07-zenki/article.mdx",
+      "line": 1696,
+      "text": "土工の重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-concrete-key-points\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-concrete-key-points"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r07-zenki/article.mdx",
+      "line": 1697,
+      "text": "土工の重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-law-key-points\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-law-key-points"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r07-zenki/article.mdx",
+      "line": 1698,
+      "text": "コンクリートの重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-quality-management\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-quality-management"
+    },
+    {
+      "file": "content/site/civil-construction-2/primary-r07-zenki/article.mdx",
+      "line": 1699,
+      "text": "法規の重要ポイント",
+      "href": "RelatedKeywords slug=\"civil-construction-2-guide-schedule-management\"",
+      "severity": "HIGH",
+      "status": "BROKEN_SLUG",
+      "slug": "pe-comprehensive-management-civil-construction-2-guide-schedule-management"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/disaster-weather-info/article.mdx",
+      "line": 45,
+      "text": "H30 Ⅰ-1-32",
+      "href": "/docs/pe-comprehensive-management-h30-primary#132",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-h30-primary",
+      "anchor": "132"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r03-essay-general-contractor/article.mdx",
+      "line": 122,
+      "text": "段階的実施",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#段階的実施",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "段階的実施"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r03-essay-general-contractor/article.mdx",
+      "line": 124,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r03-essay-river-consultant/article.mdx",
+      "line": 119,
+      "text": "段階的実施",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#段階的実施",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "段階的実施"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r03-essay-river-consultant/article.mdx",
+      "line": 121,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r04-essay-general-contractor/article.mdx",
+      "line": 147,
+      "text": "段階的実施",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#段階的実施",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "段階的実施"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r04-essay-river-consultant/article.mdx",
+      "line": 151,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r05-essay-general-contractor/article.mdx",
+      "line": 120,
+      "text": "段階的実施",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#段階的実施",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "段階的実施"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r05-essay-general-contractor/article.mdx",
+      "line": 122,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r05-essay-river-consultant/article.mdx",
+      "line": 120,
+      "text": "段階的実施",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#段階的実施",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "段階的実施"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r05-essay-river-consultant/article.mdx",
+      "line": 121,
+      "text": "段階的実施",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#段階的実施",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "段階的実施"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r05-essay-river-consultant/article.mdx",
+      "line": 122,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r06-essay-general-contractor/article.mdx",
+      "line": 110,
+      "text": "段階的実施",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#段階的実施",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "段階的実施"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r06-essay-general-contractor/article.mdx",
+      "line": 111,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r06-essay-river-consultant/article.mdx",
+      "line": 115,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r07-essay-general-contractor/article.mdx",
+      "line": 129,
+      "text": "段階的実施",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#段階的実施",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "段階的実施"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r07-essay-general-contractor/article.mdx",
+      "line": 130,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r07-essay-general-contractor/article.mdx",
+      "line": 131,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r07-essay-general-contractor/article.mdx",
+      "line": 132,
+      "text": "段階的実施",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#段階的実施",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "段階的実施"
+    },
+    {
+      "file": "content/site/pe-comprehensive-management/r07-essay-river-consultant/article.mdx",
+      "line": 124,
+      "text": "合意形成",
+      "href": "/docs/pe-comprehensive-management-management-tradeoffs#合意形成情報開示",
+      "severity": "HIGH",
+      "status": "BROKEN_ANCHOR",
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "anchor": "合意形成情報開示"
+    }
+  ]
+}

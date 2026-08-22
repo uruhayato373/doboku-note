@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="680" height="340" viewBox="0 0 680 340" style="max-width:680px;width:100%" role="img" aria-label="イベントツリー図（可燃性液体の漏洩事故）">
+  <rect width="680" height="340" fill="#ffffff"/>
+  <style>
+    text { font-family: sans-serif; }
+    .title { font-size: 13px; font-weight: bold; fill: #222; }
+    .header { font-size: 10px; font-weight: bold; fill: #222; }
+    .label { font-size: 9px; fill: #222; }
+    .prob { font-size: 9px; fill: #b22234; }
+    .result { font-size: 9px; font-weight: bold; }
+    .line { stroke: #222; stroke-width: 1.2; fill: none; }
+    .highlight { stroke: #b22234; stroke-width: 2; fill: none; }
+    .node { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+    .end { font-size: 9px; fill: #2e6da4; }
+  </style>
+
+  <text class="title" x="340" y="18" text-anchor="middle">イベントツリー図（可燃性液体の漏洩事故）</text>
+
+  <!-- Column headers -->
+  <text class="header" x="30" y="40">起因事象</text>
+  <text class="header" x="150" y="40">早期漏洩検知</text>
+  <text class="header" x="290" y="40">緊急遮断</text>
+  <text class="header" x="410" y="40">着火</text>
+  <text class="header" x="510" y="40">初期消火</text>
+  <text class="header" x="610" y="40">最終事象</text>
+
+  <!-- Initiating event -->
+  <rect class="node" x="10" y="140" width="90" height="30" rx="4"/>
+  <text class="label" x="55" y="153" text-anchor="middle">可燃性液体</text>
+  <text class="label" x="55" y="163" text-anchor="middle">漏洩 0.01/年</text>
+
+  <!-- Branch 1: 早期検知 成功 (0.9999) -->
+  <line class="line" x1="100" y1="155" x2="160" y2="90"/>
+  <text class="prob" x="115" y="110">成功 0.9999</text>
+
+  <!-- Branch 1: 早期検知 失敗 (0.0001) -->
+  <line class="line" x1="100" y1="155" x2="160" y2="230"/>
+  <text class="prob" x="115" y="200">失敗 0.0001</text>
+
+  <!-- From 検知成功 → 緊急遮断 -->
+  <line class="line" x1="210" y1="90" x2="300" y2="60"/>
+  <text class="prob" x="230" y="65">成功 0.999</text>
+  <line class="line" x1="210" y1="90" x2="300" y2="120"/>
+  <text class="prob" x="225" y="115">失敗 0.001</text>
+
+  <!-- From 遮断成功 → 小規模漏洩 -->
+  <line class="line" x1="340" y1="60" x2="600" y2="55"/>
+  <text class="end" x="605" y="58">小規模漏洩</text>
+
+  <!-- From 遮断失敗 → 着火 -->
+  <line class="line" x1="340" y1="120" x2="420" y2="100"/>
+  <text class="prob" x="355" y="100">不着火 0.9</text>
+  <line class="line" x1="340" y1="120" x2="420" y2="140"/>
+  <text class="prob" x="358" y="145">着火 0.1</text>
+
+  <line class="line" x1="450" y1="100" x2="600" y2="95"/>
+  <text class="end" x="605" y="98">大規模漏洩</text>
+
+  <!-- From 着火 → 初期消火 -->
+  <line class="line" x1="450" y1="140" x2="530" y2="125"/>
+  <text class="prob" x="465" y="125">成功 0.7</text>
+  <line class="line" x1="450" y1="140" x2="530" y2="155"/>
+  <text class="prob" x="465" y="160">失敗 0.3</text>
+
+  <line class="line" x1="560" y1="125" x2="600" y2="122"/>
+  <text class="end" x="605" y="125">小規模火災</text>
+  <line class="line" x1="560" y1="155" x2="600" y2="152"/>
+  <text class="end" x="605" y="155">中規模火災</text>
+
+  <!-- From 検知失敗 → 着火 -->
+  <line class="line" x1="210" y1="230" x2="420" y2="210"/>
+  <text class="prob" x="300" y="210">不着火 0.9</text>
+  <line class="highlight" x1="210" y1="230" x2="420" y2="260"/>
+  <text class="prob" x="300" y="258">着火 0.1</text>
+
+  <line class="line" x1="450" y1="210" x2="600" y2="207"/>
+  <text class="end" x="605" y="210">大規模漏洩</text>
+
+  <!-- From 着火(検知失敗経路) → 初期消火 -->
+  <line class="line" x1="450" y1="260" x2="530" y2="245"/>
+  <text class="prob" x="465" y="245">成功 0.7</text>
+  <line class="highlight" x1="450" y1="260" x2="530" y2="275"/>
+  <text class="prob" x="465" y="280">失敗 0.3</text>
+
+  <line class="line" x1="560" y1="245" x2="600" y2="242"/>
+  <text class="end" x="605" y="245">中規模火災</text>
+  <line class="highlight" x1="560" y1="275" x2="600" y2="272"/>
+  <text class="result" x="605" y="275" fill="#b22234">大規模火災</text>
+
+  <!-- Calculation box -->
+  <rect x="15" y="295" width="650" height="35" rx="5" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text class="label" x="25" y="310">P1 = 0.01 x (0.0001 x 0.1 x 0.3 + 0.9999 x 0.001 x 0.1 x 0.3) &#x2248; 3.3 x 10&#x207B;&#x2077;</text>
+  <text class="label" x="25" y="324">検知失敗10倍: P2 &#x2248; 6.0 x 10&#x207B;&#x2077;   &#x2192;   P2/P1 &#x2248; 1.8 &#x2248; 2</text>
+</svg>

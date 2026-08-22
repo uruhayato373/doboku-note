@@ -1,0 +1,572 @@
+{
+ "updatedAt": "2026-07-24",
+ "total": 667,
+ "chunkSize": 25,
+ "chunks": [
+  {
+   "id": "c01",
+   "list": ".tmp/v4-live-c01.txt",
+   "count": 25,
+   "prio": 0,
+   "status": "done",
+   "ok": 24,
+   "fail": 0,
+   "exit": 1,
+   "skipped": [
+    "content/note/1級・2級土木/メンバーシップ/はじめに-合格ラボ/article.md（メンバーシップ特典記事＝公開フロー特殊・設定ページ未到達。手動更新へ）"
+   ],
+   "doneAt": "2026-07-24T09:19:09.156Z"
+  },
+  {
+   "id": "c02",
+   "list": ".tmp/v4-live-c02.txt",
+   "count": 25,
+   "prio": 1,
+   "status": "done",
+   "ok": 0,
+   "fail": 0,
+   "exit": 0,
+   "doneAt": "2026-07-24T09:35:59.654Z",
+   "apiSample": [
+    {
+     "f": "経験記述-独学添削の限界-無料",
+     "ok": true,
+     "why": "eyecatch=true price=0 can_read=true"
+    },
+    {
+     "f": "経験記述-予想問題で書く練習-無料",
+     "ok": true,
+     "why": "eyecatch=true price=0 can_read=true"
+    }
+   ]
+  },
+  {
+   "id": "c03",
+   "list": ".tmp/v4-live-c03.txt",
+   "count": 25,
+   "prio": 1,
+   "status": "done",
+   "ok": 0,
+   "fail": 0,
+   "exit": 0,
+   "doneAt": "2026-07-24T09:52:46.074Z",
+   "apiSample": [
+    {
+     "f": "低炭素社会・環境保全の論点キーワード",
+     "ok": true,
+     "why": "eyecatch=true price=0 can_read=true"
+    },
+    {
+     "f": "都市計画の論文キーワード",
+     "ok": true,
+     "why": "eyecatch=true price=0 can_read=true"
+    }
+   ]
+  },
+  {
+   "id": "c04",
+   "list": ".tmp/v4-live-c04.txt",
+   "count": 25,
+   "prio": 1,
+   "status": "done",
+   "ok": 24,
+   "fail": 0,
+   "exit": 1,
+   "doneAt": "2026-07-24T10:20:10.091Z",
+   "skipped": [
+    "content/note/1級・2級土木/1級土木/magazines/1級土木-二次まるごとパック/article.md（is_public_membership_connected=true＝合格ラボ連携で設定ページ構造が特殊。ライブは旧カバー残存で無傷。手動更新へ）"
+   ]
+  },
+  {
+   "id": "c05",
+   "list": ".tmp/v4-live-c05.txt",
+   "count": 25,
+   "prio": 3,
+   "status": "done",
+   "ok": 0,
+   "fail": 0,
+   "exit": 0,
+   "doneAt": "2026-07-24T10:52:43.582Z",
+   "apiSample": [
+    {
+     "f": "安全x工程",
+     "ok": true,
+     "why": "eyecatch=true price=980 can_read=false"
+    },
+    {
+     "f": "安全x施工計画",
+     "ok": true,
+     "why": "eyecatch=true price=980 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c06",
+   "list": ".tmp/v4-live-c06.txt",
+   "count": 25,
+   "prio": 3,
+   "status": "done",
+   "ok": 0,
+   "fail": 0,
+   "exit": 0,
+   "doneAt": "2026-07-24T11:11:06.021Z",
+   "apiSample": [
+    {
+     "f": "R03",
+     "ok": true,
+     "why": "eyecatch=true price=980 can_read=false"
+    },
+    {
+     "f": "R04",
+     "ok": true,
+     "why": "eyecatch=true price=980 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c07",
+   "list": ".tmp/v4-live-c07.txt",
+   "count": 25,
+   "prio": 3,
+   "status": "done",
+   "ok": 0,
+   "fail": 0,
+   "exit": 0,
+   "doneAt": "2026-07-24T11:29:23.245Z",
+   "apiSample": [
+    {
+     "f": "気候変動適応",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    },
+    {
+     "f": "経済安全保障",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c08",
+   "list": ".tmp/v4-live-c08.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "done",
+   "ok": 0,
+   "fail": 0,
+   "exit": 0,
+   "doneAt": "2026-07-24T11:47:56.452Z",
+   "apiSample": [
+    {
+     "f": "II-2-3_道路啓開災害復旧",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    },
+    {
+     "f": "II-2-4_床版取替施工",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c09",
+   "list": ".tmp/v4-live-c09.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "done",
+   "ok": 0,
+   "fail": 0,
+   "exit": 0,
+   "doneAt": "2026-07-24T12:06:09.877Z",
+   "apiSample": [
+    {
+     "f": "R03",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    },
+    {
+     "f": "R03",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c10",
+   "list": ".tmp/v4-live-c10.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "done",
+   "ok": 0,
+   "fail": 0,
+   "exit": 0,
+   "doneAt": "2026-07-24T12:24:24.093Z",
+   "apiSample": [
+    {
+     "f": "R05",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    },
+    {
+     "f": "R06",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c11",
+   "list": ".tmp/v4-live-c11.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "done",
+   "ok": 0,
+   "fail": 0,
+   "exit": 0,
+   "doneAt": "2026-07-24T12:42:43.417Z",
+   "apiSample": [
+    {
+     "f": "R08-yosou",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    },
+    {
+     "f": "R08-yosou",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c12",
+   "list": ".tmp/v4-live-c12.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "done",
+   "ok": 0,
+   "fail": 0,
+   "exit": 0,
+   "doneAt": "2026-07-24T13:00:56.910Z",
+   "apiSample": [
+    {
+     "f": "R04",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    },
+    {
+     "f": "R04",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c13",
+   "list": ".tmp/v4-live-c13.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "done",
+   "ok": 0,
+   "fail": 0,
+   "exit": 0,
+   "doneAt": "2026-07-24T13:19:07.908Z",
+   "apiSample": [
+    {
+     "f": "R06",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    },
+    {
+     "f": "R07",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c14",
+   "list": ".tmp/v4-live-c14.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "done",
+   "ok": 0,
+   "fail": 0,
+   "exit": 0,
+   "doneAt": "2026-07-24T13:37:23.129Z",
+   "apiSample": [
+    {
+     "f": "R03",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    },
+    {
+     "f": "R03",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c15",
+   "list": ".tmp/v4-live-c15.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "done",
+   "ok": 0,
+   "fail": 0,
+   "exit": 0,
+   "doneAt": "2026-07-24T13:55:41.824Z",
+   "apiSample": [
+    {
+     "f": "R05",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    },
+    {
+     "f": "R05",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c16",
+   "list": ".tmp/v4-live-c16.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "done",
+   "ok": 0,
+   "fail": 0,
+   "exit": 0,
+   "doneAt": "2026-07-24T14:13:57.812Z",
+   "apiSample": [
+    {
+     "f": "R06",
+     "ok": true,
+     "why": "eyecatch=true price=500 can_read=false"
+    },
+    {
+     "f": "R07",
+     "ok": true,
+     "why": "eyecatch=true price=500 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c17",
+   "list": ".tmp/v4-live-c17.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "done",
+   "ok": 0,
+   "fail": 0,
+   "exit": 0,
+   "doneAt": "2026-07-24T14:32:20.225Z",
+   "apiSample": [
+    {
+     "f": "R08-yosou-2",
+     "ok": true,
+     "why": "eyecatch=true price=500 can_read=false"
+    },
+    {
+     "f": "R08-yosou-3",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c18",
+   "list": ".tmp/v4-live-c18.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "done",
+   "ok": 0,
+   "fail": 0,
+   "exit": 0,
+   "doneAt": "2026-07-24T14:50:39.596Z",
+   "apiSample": [
+    {
+     "f": "R08-yosou-5",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    },
+    {
+     "f": "R08-yosou-6",
+     "ok": true,
+     "why": "eyecatch=true price=780 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c19",
+   "list": ".tmp/v4-live-c19.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "done",
+   "ok": 0,
+   "fail": 0,
+   "exit": 0,
+   "doneAt": "2026-07-24T15:09:00.822Z",
+   "apiSample": [
+    {
+     "f": "R04",
+     "ok": true,
+     "why": "eyecatch=true price=500 can_read=false"
+    },
+    {
+     "f": "R05",
+     "ok": true,
+     "why": "eyecatch=true price=500 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c20",
+   "list": ".tmp/v4-live-c20.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "done",
+   "ok": 0,
+   "fail": 0,
+   "exit": 0,
+   "doneAt": "2026-07-24T15:27:18.370Z",
+   "apiSample": [
+    {
+     "f": "R07",
+     "ok": true,
+     "why": "eyecatch=true price=500 can_read=false"
+    },
+    {
+     "f": "R08-yosou-1",
+     "ok": true,
+     "why": "eyecatch=true price=500 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c21",
+   "list": ".tmp/v4-live-c21.txt",
+   "count": 25,
+   "prio": 4,
+   "status": "done",
+   "ok": 24,
+   "fail": 0,
+   "exit": 1,
+   "doneAt": "2026-07-24T22:23:25.124Z",
+   "skipped": [
+    "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/00-完全攻略ガイド-想定工事索引/article.md（membership連携3件目・ライブ旧カバー無傷・手動更新へ）"
+   ]
+  },
+  {
+   "id": "c22",
+   "list": ".tmp/v4-live-c22.txt",
+   "count": 25,
+   "prio": 9,
+   "status": "done",
+   "exit": 1,
+   "ok": 25,
+   "doneAt": "2026-07-24T23:30:21.376Z",
+   "note": "2件は新カバーload一過性タイムアウト→個別リトライで成功"
+  },
+  {
+   "id": "c23",
+   "list": ".tmp/v4-live-c23.txt",
+   "count": 25,
+   "prio": 9,
+   "status": "done",
+   "exit": 0,
+   "doneAt": "2026-07-24T23:48:36.460Z",
+   "apiSample": [
+    {
+     "f": "工事27-場所打ち杭オールケーシング",
+     "ok": true,
+     "why": "eyecatch=true price=1980 can_read=false"
+    },
+    {
+     "f": "工事28-場所打ち杭アースドリル",
+     "ok": true,
+     "why": "eyecatch=true price=1980 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c24",
+   "list": ".tmp/v4-live-c24.txt",
+   "count": 25,
+   "prio": 9,
+   "status": "done",
+   "exit": 1,
+   "ok": 25,
+   "doneAt": "2026-07-25T00:17:49.118Z",
+   "note": "1件がgoto ERR_ABORTED(一過性)→個別リトライ成功"
+  },
+  {
+   "id": "c25",
+   "list": ".tmp/v4-live-c25.txt",
+   "count": 25,
+   "prio": 9,
+   "status": "done",
+   "exit": 0,
+   "doneAt": "2026-07-25T00:36:14.958Z",
+   "apiSample": [
+    {
+     "f": "工事77-PC桁架設クレーン",
+     "ok": true,
+     "why": "eyecatch=true price=1980 can_read=false"
+    },
+    {
+     "f": "工事78-鋼桁架設送出し",
+     "ok": true,
+     "why": "eyecatch=true price=1980 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c26",
+   "list": ".tmp/v4-live-c26.txt",
+   "count": 25,
+   "prio": 9,
+   "status": "done",
+   "exit": 0,
+   "doneAt": "2026-07-25T00:54:30.106Z",
+   "apiSample": [
+    {
+     "f": "補充-基礎杭工",
+     "ok": true,
+     "why": "eyecatch=true price=500 can_read=false"
+    },
+    {
+     "f": "補充-共同溝",
+     "ok": true,
+     "why": "eyecatch=true price=500 can_read=false"
+    }
+   ]
+  },
+  {
+   "id": "c27",
+   "list": ".tmp/v4-live-c27.txt",
+   "count": 14,
+   "prio": 9,
+   "status": "done",
+   "exit": 0,
+   "doneAt": "2026-07-25T01:04:45.225Z",
+   "apiSample": [
+    {
+     "f": "工事48-歩道整備バリアフリー",
+     "ok": true,
+     "why": "eyecatch=true price=1680 can_read=false"
+    },
+    {
+     "f": "工事51-河川護岸ブロック張",
+     "ok": true,
+     "why": "eyecatch=true price=1680 can_read=false"
+    }
+   ]
+  }
+ ],
+ "manualFreeMembership": [
+  "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/00-想定工事索引/article.md"
+ ]
+}

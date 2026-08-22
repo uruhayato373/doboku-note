@@ -1,0 +1,156 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="新 QC 七つ道具：親和図法・連関図法・系統図法・マトリックス図法・マトリックスデータ解析法・アローダイアグラム法・PDPC 法の 7 種を 2 列 4 行で配置し、各手法の形（系統図法はツリー、連関図法は網目）と用途を示す。言語データの整理に用いる点が共通。">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-page-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }  /* brand-text */
+      .t-tool-title { font-size: 12px; font-weight: bold; fill: #1a3a5c; }  /* brand-text */
+      .t-tool-use   { font-size: 11px; fill: #555; }                        /* ink-body */
+      .t-summary    { font-size: 11px; fill: #222; }                        /* ink-strong */
+      .t-summary-em { font-size: 11px; font-weight: bold; fill: #1a3a5c; }  /* brand-text */
+      .header-bar   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* brand */
+      .panel        { fill: #ffffff; stroke: #2e6da4; stroke-width: 1; }    /* brand */
+      .summary-box  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* positive */
+      .card         { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }    /* brand */
+      .node         { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.2; }  /* brand */
+      .edge         { stroke: #2e6da4; stroke-width: 1.2; fill: none; }     /* brand */
+      .axis         { stroke: #555; stroke-width: 1; fill: none; }          /* ink-body */
+      .dash         { stroke: #8a8a8a; stroke-width: 1; stroke-dasharray: 3,2; fill: none; } /* ink-muted */
+      .dot-em       { fill: #b22234; }                                      /* danger */
+      .line-em      { stroke: #2e6da4; stroke-width: 1.5; fill: none; }     /* brand */
+    </style>
+    <marker id="arrowS" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+      <polygon points="0,0 6,3 0,6" fill="#2e6da4"/>  <!-- brand -->
+    </marker>
+  </defs>
+
+  <!-- ヘッダー -->
+  <rect class="header-bar" x="10" y="10" width="380" height="34" rx="5"/>
+  <text class="t-page-title" x="200" y="32" text-anchor="middle">新 QC 七つ道具</text>
+
+  <!-- ===== Row 1 ===== -->
+  <!-- 親和図法 -->
+  <rect class="panel" x="10" y="54" width="185" height="100" rx="4"/>
+  <text class="t-tool-title" x="103" y="72" text-anchor="middle">親和図法</text>
+  <rect class="dash" x="20" y="84" width="56" height="26" rx="4"/>
+  <rect class="card" x="25" y="89" width="13" height="8"/>
+  <rect class="card" x="42" y="89" width="13" height="8"/>
+  <rect class="card" x="34" y="99" width="13" height="8"/>
+  <rect class="dash" x="20" y="118" width="56" height="26" rx="4"/>
+  <rect class="card" x="25" y="123" width="13" height="8"/>
+  <rect class="card" x="42" y="123" width="13" height="8"/>
+  <rect class="card" x="34" y="133" width="13" height="8"/>
+  <text class="t-tool-use" x="86" y="100">言語データ</text>
+  <text class="t-tool-use" x="86" y="116">を類似性で</text>
+  <text class="t-tool-use" x="86" y="132">グループ化</text>
+
+  <!-- 連関図法（網目） -->
+  <rect class="panel" x="205" y="54" width="185" height="100" rx="4"/>
+  <text class="t-tool-title" x="298" y="72" text-anchor="middle">連関図法</text>
+  <line class="edge" x1="232" y1="92"  x2="248" y2="104" marker-end="url(#arrowS)"/>
+  <line class="edge" x1="262" y1="104" x2="282" y2="92"  marker-end="url(#arrowS)"/>
+  <line class="edge" x1="232" y1="128" x2="248" y2="112" marker-end="url(#arrowS)"/>
+  <line class="edge" x1="262" y1="112" x2="282" y2="128" marker-end="url(#arrowS)"/>
+  <line class="edge" x1="230" y1="96"  x2="230" y2="124" marker-end="url(#arrowS)"/>
+  <circle class="node" cx="255" cy="108" r="7"/>
+  <circle class="node" cx="228" cy="90"  r="6"/>
+  <circle class="node" cx="284" cy="90"  r="6"/>
+  <circle class="node" cx="228" cy="128" r="6"/>
+  <circle class="node" cx="284" cy="128" r="6"/>
+  <text class="t-tool-use" x="305" y="100">要因の</text>
+  <text class="t-tool-use" x="305" y="116">因果関係を</text>
+  <text class="t-tool-use" x="305" y="132">矢印で連結</text>
+
+  <!-- ===== Row 2 ===== -->
+  <!-- 系統図法（ツリー） -->
+  <rect class="panel" x="10" y="164" width="185" height="100" rx="4"/>
+  <text class="t-tool-title" x="103" y="182" text-anchor="middle">系統図法</text>
+  <line class="edge" x1="55" y1="202" x2="35" y2="214"/>
+  <line class="edge" x1="55" y1="202" x2="75" y2="214"/>
+  <line class="edge" x1="35" y1="224" x2="25" y2="236"/>
+  <line class="edge" x1="35" y1="224" x2="45" y2="236"/>
+  <line class="edge" x1="75" y1="224" x2="65" y2="236"/>
+  <line class="edge" x1="75" y1="224" x2="85" y2="236"/>
+  <rect class="card" x="47" y="192" width="16" height="10"/>
+  <rect class="card" x="27" y="214" width="16" height="10"/>
+  <rect class="card" x="67" y="214" width="16" height="10"/>
+  <rect class="card" x="19" y="236" width="12" height="9"/>
+  <rect class="card" x="39" y="236" width="12" height="9"/>
+  <rect class="card" x="59" y="236" width="12" height="9"/>
+  <rect class="card" x="79" y="236" width="12" height="9"/>
+  <text class="t-tool-use" x="103" y="208">目的→手段</text>
+  <text class="t-tool-use" x="103" y="224">を階層的に</text>
+  <text class="t-tool-use" x="103" y="240">展開する</text>
+
+  <!-- マトリックス図法 -->
+  <rect class="panel" x="205" y="164" width="185" height="100" rx="4"/>
+  <text class="t-tool-title" x="298" y="182" text-anchor="middle">マトリックス図法</text>
+  <rect class="panel" x="222" y="196" width="54" height="54"/>
+  <line class="axis" x1="240" y1="196" x2="240" y2="250"/>
+  <line class="axis" x1="258" y1="196" x2="258" y2="250"/>
+  <line class="axis" x1="222" y1="214" x2="276" y2="214"/>
+  <line class="axis" x1="222" y1="232" x2="276" y2="232"/>
+  <circle class="dot-em" cx="231" cy="205" r="3"/>
+  <circle class="dot-em" cx="267" cy="223" r="3"/>
+  <circle class="dot-em" cx="249" cy="241" r="3"/>
+  <text class="t-tool-use" x="305" y="208">行と列の</text>
+  <text class="t-tool-use" x="305" y="224">交点で関係</text>
+  <text class="t-tool-use" x="305" y="240">を整理</text>
+
+  <!-- ===== Row 3 ===== -->
+  <!-- マトリックスデータ解析法 -->
+  <rect class="panel" x="10" y="274" width="185" height="100" rx="4"/>
+  <text class="t-tool-title" x="103" y="292" text-anchor="middle">マトリックスデータ解析法</text>
+  <line class="axis" x1="22" y1="358" x2="92" y2="358"/>
+  <line class="axis" x1="22" y1="304" x2="22" y2="358"/>
+  <line class="line-em" x1="26" y1="352" x2="90" y2="312"/>
+  <circle class="dot-em" cx="32" cy="350" r="2"/>
+  <circle class="dot-em" cx="44" cy="340" r="2"/>
+  <circle class="dot-em" cx="52" cy="336" r="2"/>
+  <circle class="dot-em" cx="64" cy="326" r="2"/>
+  <circle class="dot-em" cx="74" cy="322" r="2"/>
+  <circle class="dot-em" cx="84" cy="314" r="2"/>
+  <text class="t-tool-use" x="103" y="320">図の結果を</text>
+  <text class="t-tool-use" x="103" y="336">主成分分析</text>
+  <text class="t-tool-use" x="103" y="352">で数値化</text>
+
+  <!-- アローダイアグラム法 -->
+  <rect class="panel" x="205" y="274" width="185" height="100" rx="4"/>
+  <text class="t-tool-title" x="298" y="292" text-anchor="middle">アローダイアグラム法</text>
+  <line class="edge" x1="230" y1="330" x2="247" y2="330" marker-end="url(#arrowS)"/>
+  <line class="edge" x1="259" y1="330" x2="276" y2="330" marker-end="url(#arrowS)"/>
+  <circle class="node" cx="224" cy="330" r="7"/>
+  <circle class="node" cx="253" cy="330" r="7"/>
+  <circle class="node" cx="282" cy="330" r="7"/>
+  <text class="t-tool-use" x="224" y="334" text-anchor="middle">1</text>
+  <text class="t-tool-use" x="253" y="334" text-anchor="middle">2</text>
+  <text class="t-tool-use" x="282" y="334" text-anchor="middle">3</text>
+  <text class="t-tool-use" x="222" y="354">作業順序の</text>
+  <text class="t-tool-use" x="222" y="368">日程を計画</text>
+
+  <!-- ===== Row 4 ===== -->
+  <!-- PDPC 法 -->
+  <rect class="panel" x="10" y="384" width="185" height="100" rx="4"/>
+  <text class="t-tool-title" x="103" y="402" text-anchor="middle">PDPC 法</text>
+  <rect class="card" x="30" y="410" width="34" height="14" rx="3"/>
+  <rect class="card" x="30" y="434" width="34" height="14" rx="3"/>
+  <rect class="card" x="30" y="458" width="34" height="14" rx="3"/>
+  <line class="edge" x1="47" y1="424" x2="47" y2="433" marker-end="url(#arrowS)"/>
+  <line class="edge" x1="47" y1="448" x2="47" y2="457" marker-end="url(#arrowS)"/>
+  <path class="dash" d="M64 417 C 84 424, 84 452, 66 463" marker-end="url(#arrowS)"/>
+  <text class="t-tool-use" x="103" y="428">不測事態の</text>
+  <text class="t-tool-use" x="103" y="444">代替ルート</text>
+  <text class="t-tool-use" x="103" y="460">を事前設計</text>
+
+  <!-- まとめ -->
+  <rect class="summary-box" x="205" y="384" width="185" height="100" rx="4"/>
+  <text class="t-summary-em" x="298" y="404" text-anchor="middle">新 QC の特徴</text>
+  <text class="t-summary"    x="298" y="424" text-anchor="middle">言語データの整理</text>
+  <text class="t-summary"    x="298" y="441" text-anchor="middle">↓</text>
+  <text class="t-summary"    x="298" y="458" text-anchor="middle">企画・計画段階の</text>
+  <text class="t-summary"    x="298" y="475" text-anchor="middle">問題構造を解明</text>
+</svg>

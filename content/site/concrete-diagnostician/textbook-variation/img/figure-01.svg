@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="ひび割れの観察4項目から原因群を絞り込む推定フローと、分布パターン別の代表原因">
+  <defs>
+    <marker id="cdv1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text x="200" y="16" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">観察した 4 項目の組合せで原因群を絞り込む</text>
+
+  <rect x="20" y="26" width="172" height="56" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="30" y="44" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">幅</text>
+  <text x="30" y="60" font-family="sans-serif" font-size="11" fill="#555">0.2〜0.3 mm 超で</text>
+  <text x="30" y="74" font-family="sans-serif" font-size="11" fill="#555">水・塩分の浸入抵抗が低下</text>
+
+  <rect x="208" y="26" width="172" height="56" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="218" y="44" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">深さ・貫通性</text>
+  <text x="218" y="60" font-family="sans-serif" font-size="11" fill="#555">表面のヘアクラックか</text>
+  <text x="218" y="74" font-family="sans-serif" font-size="11" fill="#555">断面を貫通しているか</text>
+
+  <rect x="20" y="90" width="172" height="56" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="30" y="108" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">活動性</text>
+  <text x="30" y="124" font-family="sans-serif" font-size="11" fill="#555">開閉を繰り返す＝</text>
+  <text x="30" y="138" font-family="sans-serif" font-size="11" fill="#555">内部の反応が継続中</text>
+
+  <rect x="208" y="90" width="172" height="56" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="218" y="108" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">分布パターン</text>
+  <text x="218" y="124" font-family="sans-serif" font-size="11" fill="#555">一方向・網状・亀甲状</text>
+  <text x="218" y="138" font-family="sans-serif" font-size="11" fill="#555">＋ 発生時期を併記</text>
+
+  <line x1="200" y1="150" x2="200" y2="172" stroke="#555" stroke-width="1.5" marker-end="url(#cdv1)"/>
+
+  <rect x="20" y="178" width="115" height="56" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="77" y="196" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">施工・初期</text>
+  <text x="77" y="212" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">沈下ひび割れ</text>
+  <text x="77" y="226" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">コールドジョイント</text>
+
+  <rect x="143" y="178" width="115" height="56" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="196" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">荷重・変形</text>
+  <text x="200" y="212" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">曲げ・せん断</text>
+  <text x="200" y="226" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">不同沈下・地震</text>
+
+  <rect x="266" y="178" width="114" height="56" rx="6" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <text x="323" y="196" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">材料・環境劣化</text>
+  <text x="323" y="212" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">ASR・鋼材腐食</text>
+  <text x="323" y="226" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">凍害・中性化</text>
+
+  <rect x="20" y="248" width="360" height="234" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="268" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">分布パターン と 代表的な原因</text>
+
+  <rect x="30" y="276" width="340" height="38" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="40" y="292" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">一方向・等間隔</text>
+  <text x="40" y="307" font-family="sans-serif" font-size="11" fill="#8a8a8a">拘束と直交する向き</text>
+  <text x="215" y="300" font-family="sans-serif" font-size="11" fill="#555">乾燥収縮・温度変化</text>
+
+  <rect x="30" y="318" width="340" height="38" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="40" y="334" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">鉄筋に沿う直線</text>
+  <text x="40" y="349" font-family="sans-serif" font-size="11" fill="#8a8a8a">錆汁・剥落を伴う</text>
+  <text x="215" y="342" font-family="sans-serif" font-size="11" fill="#555">鋼材腐食（塩害・中性化）</text>
+
+  <rect x="30" y="360" width="340" height="38" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="40" y="376" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">亀甲状・網状</text>
+  <text x="40" y="391" font-family="sans-serif" font-size="11" fill="#8a8a8a">ゲル状析出物を伴う</text>
+  <text x="215" y="384" font-family="sans-serif" font-size="11" fill="#555">アルカリシリカ反応</text>
+
+  <rect x="30" y="402" width="340" height="38" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="40" y="418" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">鉄筋直上・隅角部</text>
+  <text x="40" y="433" font-family="sans-serif" font-size="11" fill="#8a8a8a">打込み後 数時間以内</text>
+  <text x="215" y="426" font-family="sans-serif" font-size="11" fill="#555">沈下（沈降）ひび割れ</text>
+
+  <rect x="30" y="444" width="340" height="30" rx="3" fill="#ffffff" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="40" y="463" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">支点付近の斜め</text>
+  <text x="215" y="463" font-family="sans-serif" font-size="11" fill="#555">せん断（主引張応力方向）</text>
+</svg>

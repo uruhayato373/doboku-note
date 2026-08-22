@@ -1,0 +1,22 @@
+[
+  {
+    "concept": "JIT/プル型/プッシュ型 生産方式の比較",
+    "mdRange": "§3-(2)",
+    "slugPath": "jit-production",
+    "layout": "2カラム比較",
+    "elements": "プル型=後工程引取り・かんばん・在庫最小（JIT）／プッシュ型=前工程からの計画押出し・MRP連動。情報と物の流れの向きを矢印で対比",
+    "colorPlan": "brand=見出し、positive=プル型、warn=プッシュ型、ink-muted=情報/物の流れ矢印",
+    "outPath": "content/site/pe-comprehensive-management/jit-production/img/figure-1.svg",
+    "mdFile": "経済性管理.md"
+  },
+  {
+    "concept": "知的財産権の存続期間ラダー（法律別年数比較）",
+    "mdRange": "§3-(1) 表3.2",
+    "slugPath": "industrial-property-rights",
+    "layout": "横バー比較（ランキング）",
+    "elements": "特許20年/実用新案10年/意匠25年/半導体回路配置10年/種苗25(30)年/商標10年(更新可)/著作権=死後70年、起算点(出願日/登録日/創作時)を併記",
+    "colorPlan": "年数長=brand濃、短=brand淡、著作権(更新/死後)をwarnで別扱い",
+    "outPath": "content/site/pe-comprehensive-management/industrial-property-rights/img/figure-1.svg",
+    "mdFile": "情報管理.md"
+  }
+]

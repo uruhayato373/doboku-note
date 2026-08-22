@@ -1,0 +1,43 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="FIT・FIP制度 試験出題ポイント3点">
+  <defs><style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }</style></defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <rect x="0" y="0" width="400" height="72" fill="#1a3a5c"/>
+  <text x="200" y="24" text-anchor="middle" font-size="10" fill="#d4956a">技術士 総監 | 社会環境管理</text>
+  <text x="200" y="52" text-anchor="middle" font-size="16" font-weight="bold" fill="#fff">試験での出題ポイント</text>
+
+  <!-- ポイント1 -->
+  <circle cx="44" cy="114" r="16" fill="#1a3a5c"/>
+  <text x="44" y="120" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">1</text>
+  <text x="72" y="106" font-size="13" font-weight="bold" fill="#1a3a5c">FIT 導入年 vs FIP 導入年</text>
+  <text x="72" y="123" font-size="11" fill="#555">FIT＝2012 年（再エネ特措法施行）</text>
+  <text x="72" y="139" font-size="11" fill="#555">FIP＝2022 年（改正再エネ特措法）</text>
+
+  <line x1="24" y1="162" x2="376" y2="162" stroke="#e8e8e8" stroke-width="1"/>
+
+  <!-- ポイント2 -->
+  <circle cx="44" cy="200" r="16" fill="#1a3a5c"/>
+  <text x="44" y="206" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">2</text>
+  <text x="72" y="192" font-size="13" font-weight="bold" fill="#1a3a5c">FIT 対象 5 種の範囲</text>
+  <text x="72" y="209" font-size="11" fill="#555">太陽光・風力・水力・地熱・バイオマス</text>
+  <text x="72" y="225" font-size="11" fill="#555">波力・海洋温度差発電は対象外</text>
+
+  <line x1="24" y1="248" x2="376" y2="248" stroke="#e8e8e8" stroke-width="1"/>
+
+  <!-- ポイント3 -->
+  <circle cx="44" cy="286" r="16" fill="#1a3a5c"/>
+  <text x="44" y="292" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">3</text>
+  <text x="72" y="278" font-size="13" font-weight="bold" fill="#1a3a5c">賦課金の決定者は経済産業大臣</text>
+  <text x="72" y="295" font-size="11" fill="#555">全国一律単価で全電気利用者が負担</text>
+  <text x="72" y="311" font-size="11" fill="#555">環境大臣ではない点が引っかけの定番</text>
+
+  <!-- 注意Callout -->
+  <rect x="24" y="336" width="352" height="80" rx="8" fill="#fce8d0"/>
+  <rect x="24" y="336" width="5" height="80" rx="4" fill="#a36b2c"/>
+  <text x="44" y="360" font-size="11" font-weight="bold" fill="#5e3d18">R4 年度出題（Ⅰ-1-34 穴埋め）</text>
+  <text x="44" y="378" font-size="11" fill="#5e3d18">「一定価格・地熱・賦課金・全国・</text>
+  <text x="44" y="395" font-size="11" fill="#5e3d18"> 経済産業大臣」の 5 語が出題キーワード</text>
+
+  <rect x="0" y="460" width="400" height="40" fill="#1a3a5c"/>
+  <text x="200" y="485" text-anchor="middle" font-size="12" fill="#6a8faf">doboku-note.com</text>
+</svg>

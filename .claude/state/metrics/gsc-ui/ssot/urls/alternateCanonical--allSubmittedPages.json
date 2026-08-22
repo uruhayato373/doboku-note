@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "channel": "gsc-ui",
+  "source": "gsc-ui-page-indexing",
+  "property": "sc-domain:doboku-note.com",
+  "issue": "alternateCanonical",
+  "scope": "allSubmittedPages",
+  "runId": "2026-07-30T05-51-00Z",
+  "collectedAt": "2026-07-30T05:51:00.731Z",
+  "uiTotal": 0,
+  "exportedRows": 0,
+  "truncated": false,
+  "rejectCount": 0,
+  "rejects": [],
+  "previous": {
+    "runId": "2026-07-30T05-48-04Z",
+    "collectedAt": "2026-07-30T05:48:04.037Z",
+    "exportedRows": 0
+  },
+  "delta": {
+    "added": 0,
+    "removed": 0
+  },
+  "rows": []
+}

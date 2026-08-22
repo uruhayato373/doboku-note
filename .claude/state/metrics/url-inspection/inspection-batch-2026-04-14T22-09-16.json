@@ -1,0 +1,638 @@
+{
+  "version": 1,
+  "generated_at": "2026-04-14T22:09:16.881Z",
+  "results": [
+    {
+      "url": "https://doboku-note.com/",
+      "inspected_at": "2026-04-14T22:07:02.786Z",
+      "index": {
+        "verdict": "PASS",
+        "coverage_state": "送信して登録されました",
+        "robots_txt_state": "ALLOWED",
+        "indexing_state": "INDEXING_ALLOWED",
+        "last_crawl_time": "2026-04-14T10:55:16Z",
+        "page_fetch_state": "SUCCESSFUL",
+        "google_canonical": "https://doboku-note.com/",
+        "user_canonical": "https://doboku-note.com/",
+        "referring_urls": [
+          "https://note.com/uruhayato373/n/n4afefec64e4b",
+          "https://www.doboku-note.com/",
+          "http://doboku-note.com/"
+        ],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": null,
+        "detected_items": []
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=D5ptIj0qF5HRft7ZpkcsHg&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/about",
+      "inspected_at": "2026-04-14T22:07:09.945Z",
+      "index": {
+        "verdict": "PASS",
+        "coverage_state": "送信して登録されました",
+        "robots_txt_state": "ALLOWED",
+        "indexing_state": "INDEXING_ALLOWED",
+        "last_crawl_time": "2026-04-11T04:36:59Z",
+        "page_fetch_state": "SUCCESSFUL",
+        "google_canonical": "https://doboku-note.com/about",
+        "user_canonical": "https://doboku-note.com/",
+        "referring_urls": [
+          "https://doboku-note.com/sitemap-0.xml"
+        ],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": null,
+        "detected_items": []
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=CWEJQhn8xEAJTD3YE2WLrw&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/category/civil-construction-1",
+      "inspected_at": "2026-04-14T22:07:17.098Z",
+      "index": {
+        "verdict": "PASS",
+        "coverage_state": "送信して登録されました",
+        "robots_txt_state": "ALLOWED",
+        "indexing_state": "INDEXING_ALLOWED",
+        "last_crawl_time": "2026-04-11T04:28:58Z",
+        "page_fetch_state": "SUCCESSFUL",
+        "google_canonical": "https://doboku-note.com/category/civil-construction-1",
+        "user_canonical": "https://doboku-note.com/",
+        "referring_urls": [],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": null,
+        "detected_items": []
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=6uhcQGIo5z7BsCf0tVVMcw&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/category/pe-comprehensive-management",
+      "inspected_at": "2026-04-14T22:07:24.493Z",
+      "index": {
+        "verdict": "PASS",
+        "coverage_state": "送信して登録されました",
+        "robots_txt_state": "ALLOWED",
+        "indexing_state": "INDEXING_ALLOWED",
+        "last_crawl_time": "2026-04-14T15:17:18Z",
+        "page_fetch_state": "SUCCESSFUL",
+        "google_canonical": "https://doboku-note.com/category/pe-comprehensive-management",
+        "user_canonical": "https://doboku-note.com/",
+        "referring_urls": [],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": null,
+        "detected_items": []
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=ZEZEwgmGL0my2oo5V4lmaQ&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026",
+      "inspected_at": "2026-04-14T22:07:31.556Z",
+      "index": {
+        "verdict": "PASS",
+        "coverage_state": "送信して登録されました",
+        "robots_txt_state": "ALLOWED",
+        "indexing_state": "INDEXING_ALLOWED",
+        "last_crawl_time": "2026-04-13T15:51:41Z",
+        "page_fetch_state": "SUCCESSFUL",
+        "google_canonical": "https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026",
+        "user_canonical": "https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026",
+        "referring_urls": [],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": "PASS",
+        "detected_items": [
+          "パンくずリスト"
+        ]
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=XVUGaJ3wwZ-OlnQUGw7eWQ&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-guide-strategy",
+      "inspected_at": "2026-04-14T22:07:38.929Z",
+      "index": {
+        "verdict": "PASS",
+        "coverage_state": "送信して登録されました",
+        "robots_txt_state": "ALLOWED",
+        "indexing_state": "INDEXING_ALLOWED",
+        "last_crawl_time": "2026-04-14T10:12:19Z",
+        "page_fetch_state": "SUCCESSFUL",
+        "google_canonical": "https://doboku-note.com/docs/civil-construction-1-guide-strategy",
+        "user_canonical": "https://doboku-note.com/docs/civil-construction-1-guide-strategy",
+        "referring_urls": [],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": "PASS",
+        "detected_items": [
+          "パンくずリスト"
+        ]
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=K322DckHLQ_JDxnl7vWmzw&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-guide-concrete-key-points",
+      "inspected_at": "2026-04-14T22:07:46.404Z",
+      "index": {
+        "verdict": "PASS",
+        "coverage_state": "送信して登録されました",
+        "robots_txt_state": "ALLOWED",
+        "indexing_state": "INDEXING_ALLOWED",
+        "last_crawl_time": "2026-04-13T18:14:11Z",
+        "page_fetch_state": "SUCCESSFUL",
+        "google_canonical": "https://doboku-note.com/docs/civil-construction-1-guide-concrete-key-points",
+        "user_canonical": "https://doboku-note.com/docs/civil-construction-1-guide-concrete-key-points",
+        "referring_urls": [],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": "PASS",
+        "detected_items": [
+          "パンくずリスト"
+        ]
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=A-karpgK8nT8wr-Xoh8ZgA&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-guide-earthwork-key-points",
+      "inspected_at": "2026-04-14T22:07:53.265Z",
+      "index": {
+        "verdict": "NEUTRAL",
+        "coverage_state": "検出 - インデックス未登録",
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "last_crawl_time": null,
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": null,
+        "detected_items": []
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=Xaf0Yl8dMmqiPaG1mspihQ&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-primary-r07-a",
+      "inspected_at": "2026-04-14T22:08:00.026Z",
+      "index": {
+        "verdict": "NEUTRAL",
+        "coverage_state": "検出 - インデックス未登録",
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "last_crawl_time": null,
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": null,
+        "detected_items": []
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=PcepkHWKPKx1jLV9friX_w&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-primary-r06-a",
+      "inspected_at": "2026-04-14T22:08:06.972Z",
+      "index": {
+        "verdict": "NEUTRAL",
+        "coverage_state": "検出 - インデックス未登録",
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "last_crawl_time": null,
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": null,
+        "detected_items": []
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=zCldFUuJdE06v_vBPjUTXw&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-primary-r05-a",
+      "inspected_at": "2026-04-14T22:08:13.744Z",
+      "index": {
+        "verdict": "NEUTRAL",
+        "coverage_state": "検出 - インデックス未登録",
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "last_crawl_time": null,
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": null,
+        "detected_items": []
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=55xmvJLfFDMpStdsrG-tWg&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-secondary-r07",
+      "inspected_at": "2026-04-14T22:08:20.811Z",
+      "index": {
+        "verdict": "PASS",
+        "coverage_state": "送信して登録されました",
+        "robots_txt_state": "ALLOWED",
+        "indexing_state": "INDEXING_ALLOWED",
+        "last_crawl_time": "2026-04-13T13:38:21Z",
+        "page_fetch_state": "SUCCESSFUL",
+        "google_canonical": "https://doboku-note.com/docs/civil-construction-1-secondary-r07",
+        "user_canonical": "https://doboku-note.com/docs/civil-construction-1-secondary-r07",
+        "referring_urls": [],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": "PASS",
+        "detected_items": [
+          "パンくずリスト"
+        ]
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=lIB3zgn6dOb86QLi2nBSIQ&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-construction-mgmt-overview",
+      "inspected_at": "2026-04-14T22:08:27.876Z",
+      "index": {
+        "verdict": "NEUTRAL",
+        "coverage_state": "検出 - インデックス未登録",
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "last_crawl_time": null,
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": null,
+        "detected_items": []
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=NAUj2Zymps3GE1O0hLVBjQ&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-pdca-cycle",
+      "inspected_at": "2026-04-14T22:08:34.839Z",
+      "index": {
+        "verdict": "NEUTRAL",
+        "coverage_state": "URL が Google に認識されていません",
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "last_crawl_time": null,
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "sitemap": []
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": null,
+        "detected_items": []
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=U8jEJQ2zCCegw86ZHm_6mg&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-business-continuity-plan",
+      "inspected_at": "2026-04-14T22:08:41.995Z",
+      "index": {
+        "verdict": "NEUTRAL",
+        "coverage_state": "URL が Google に認識されていません",
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "last_crawl_time": null,
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "sitemap": []
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": null,
+        "detected_items": []
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=ABguoRsNt2rdGvtRY-pP5Q&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment",
+      "inspected_at": "2026-04-14T22:08:48.868Z",
+      "index": {
+        "verdict": "NEUTRAL",
+        "coverage_state": "検出 - インデックス未登録",
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "last_crawl_time": null,
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": null,
+        "detected_items": []
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=ooue7gUBKIDBcPf3jwrI4w&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-labor-standards-act",
+      "inspected_at": "2026-04-14T22:08:55.830Z",
+      "index": {
+        "verdict": "NEUTRAL",
+        "coverage_state": "検出 - インデックス未登録",
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "last_crawl_time": null,
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": null,
+        "detected_items": []
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=Sfb6bdjI6JjAwmJTL_nGuA&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r01-primary",
+      "inspected_at": "2026-04-14T22:09:02.698Z",
+      "index": {
+        "verdict": "NEUTRAL",
+        "coverage_state": "検出 - インデックス未登録",
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "last_crawl_time": null,
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": null,
+        "detected_items": []
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=IxRRVb7QCwxNRSRUy7wXSA&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-r07-primary",
+      "inspected_at": "2026-04-14T22:09:09.851Z",
+      "index": {
+        "verdict": "NEUTRAL",
+        "coverage_state": "検出 - インデックス未登録",
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "last_crawl_time": null,
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": null,
+        "detected_items": []
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=2WHZ4VDsYsR0Q5CKcJKpww&utm_medium=link&utm_source=api"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-exam-index",
+      "inspected_at": "2026-04-14T22:09:16.881Z",
+      "index": {
+        "verdict": "PASS",
+        "coverage_state": "送信して登録されました",
+        "robots_txt_state": "ALLOWED",
+        "indexing_state": "INDEXING_ALLOWED",
+        "last_crawl_time": "2026-04-13T18:59:11Z",
+        "page_fetch_state": "SUCCESSFUL",
+        "google_canonical": "https://doboku-note.com/docs/pe-comprehensive-management-exam-index",
+        "user_canonical": "https://doboku-note.com/docs/pe-comprehensive-management-exam-index",
+        "referring_urls": [],
+        "sitemap": [
+          "https://doboku-note.com/sitemap.xml"
+        ]
+      },
+      "mobile": {
+        "verdict": "VERDICT_UNSPECIFIED",
+        "issues": []
+      },
+      "amp": {
+        "verdict": null,
+        "indexing_state": null
+      },
+      "rich_results": {
+        "verdict": "PASS",
+        "detected_items": [
+          "パンくずリスト"
+        ]
+      },
+      "inspection_result_link": "https://search.google.com/search-console/inspect?resource_id=sc-domain:doboku-note.com&id=IkWaQaFQdFm5udFZIF1OxQ&utm_medium=link&utm_source=api"
+    }
+  ]
+}

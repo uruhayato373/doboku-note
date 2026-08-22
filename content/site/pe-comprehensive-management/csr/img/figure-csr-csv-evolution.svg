@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="CSR から CSV への発展を示す図：CSR では本業と社会貢献が分離していたが、CSV では両者が統合される" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="200" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#222">CSR から CSV への発展</text>
+
+  <!-- Left side: CSR -->
+  <text x="95" y="60" text-anchor="middle" font-size="14" font-weight="bold" fill="#555">CSR</text>
+  <text x="95" y="78" text-anchor="middle" font-size="11" fill="#8a8a8a">本業とは別のコスト</text>
+
+  <!-- CSR: 本業 box -->
+  <rect x="20" y="92" width="150" height="65" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="4"/>
+  <text x="95" y="120" text-anchor="middle" font-size="13" font-weight="bold" fill="#2e6da4">本業</text>
+  <text x="95" y="142" text-anchor="middle" font-size="11" fill="#555">利益追求</text>
+
+  <!-- CSR: 社会貢献 box (separated) -->
+  <rect x="20" y="175" width="150" height="65" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="4 3" rx="4"/>
+  <text x="95" y="203" text-anchor="middle" font-size="13" font-weight="bold" fill="#555">社会貢献</text>
+  <text x="95" y="225" text-anchor="middle" font-size="11" fill="#555">寄付・ボランティア</text>
+
+  <!-- Arrow -->
+  <g stroke="#2e6da4" stroke-width="2" fill="#2e6da4">
+    <line x1="178" y1="175" x2="218" y2="175"/>
+    <polygon points="213,168 228,175 213,182"/>
+  </g>
+  <text x="203" y="160" text-anchor="middle" font-size="11" fill="#2e6da4" font-weight="bold">統合</text>
+  <text x="203" y="192" text-anchor="middle" font-size="10" fill="#555">ポーター（2011）</text>
+
+  <!-- Right side: CSV -->
+  <text x="315" y="60" text-anchor="middle" font-size="14" font-weight="bold" fill="#3a7d44">CSV</text>
+  <text x="315" y="78" text-anchor="middle" font-size="11" fill="#8a8a8a">本業そのものに組み込む</text>
+
+  <!-- CSV: Integrated box -->
+  <rect x="235" y="92" width="148" height="148" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="4"/>
+  <text x="309" y="124" text-anchor="middle" font-size="13" font-weight="bold" fill="#3a7d44">本業 × 社会課題解決</text>
+  <line x1="255" y1="138" x2="363" y2="138" stroke="#3a7d44" stroke-width="0.8"/>
+  <text x="309" y="160" text-anchor="middle" font-size="12" fill="#555">経済的価値と</text>
+  <text x="309" y="180" text-anchor="middle" font-size="12" fill="#555">社会的価値を</text>
+  <text x="309" y="200" text-anchor="middle" font-size="12" fill="#555">同時に創出する</text>
+  <text x="309" y="224" text-anchor="middle" font-size="11" fill="#3a7d44" font-weight="bold">Win-Win</text>
+
+  <!-- 下部サマリー -->
+  <rect x="20" y="370" width="360" height="110" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="4"/>
+  <text x="200" y="397" text-anchor="middle" font-size="13" fill="#222" font-weight="bold">CSV のアプローチ 3 類型</text>
+  <text x="35" y="422" font-size="12" fill="#555">① 製品・市場の再構想（社会課題を製品で解決）</text>
+  <text x="35" y="445" font-size="12" fill="#555">② バリューチェーンの生産性再定義</text>
+  <text x="35" y="468" font-size="12" fill="#555">③ 産業クラスターの構築（地域エコシステム形成）</text>
+</svg>

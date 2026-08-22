@@ -1,0 +1,41 @@
+<svg width="400" height="500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="4フェーズ学習計画（試験前6〜7ヶ月の標準スケジュール）" style="max-width:400px;width:100%">
+  <defs>
+    <marker id="arrow2" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
+    </marker>
+  </defs>
+  <style>
+    text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; fill: #1a3a5c; }
+  </style>
+
+  <!-- Phase 1 -->
+  <rect x="18" y="12" width="364" height="96" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="42" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">フェーズ1: 全体像把握（前年12月〜2月）</text>
+  <text x="200" y="68" text-anchor="middle" font-size="13" fill="#555">キーワード集通読・過去問速読で7割理解</text>
+
+  <!-- Arrow -->
+  <line x1="200" y1="108" x2="200" y2="130" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow2)"/>
+
+  <!-- Phase 2 -->
+  <rect x="18" y="132" width="364" height="96" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="200" y="162" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">フェーズ2: 本格学習（3月〜5月）</text>
+  <text x="200" y="188" text-anchor="middle" font-size="13" fill="#555">申込書・択一演習・記述骨子練習</text>
+
+  <!-- Arrow -->
+  <line x1="200" y1="228" x2="200" y2="250" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow2)"/>
+
+  <!-- Phase 3 -->
+  <rect x="18" y="252" width="364" height="96" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="200" y="282" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">フェーズ3: 直前期（6月〜7月中旬）</text>
+  <text x="200" y="308" text-anchor="middle" font-size="13" fill="#555">模擬試験形式で本番条件に慣らす</text>
+
+  <!-- Arrow -->
+  <line x1="200" y1="348" x2="200" y2="370" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow2)"/>
+
+  <!-- Phase 4 -->
+  <rect x="18" y="372" width="364" height="116" rx="8" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <text x="200" y="402" text-anchor="middle" font-size="14" font-weight="bold" fill="#1a3a5c">フェーズ4: 試験後（7月後半〜翌1月）</text>
+  <text x="200" y="428" text-anchor="middle" font-size="13" fill="#555">解答再現＋口頭試験対策</text>
+  <text x="200" y="454" text-anchor="middle" font-size="12" fill="#8a8a8a">口頭試験は翌年1月。記述合格者のみ受験</text>
+
+</svg>

@@ -1,0 +1,14 @@
+{
+  "promptDelete": false,
+  "userIgnoreFilters": [
+    "node_modules/",
+    "public/",
+    "out/",
+    "src/",
+    "scripts/",
+    "tests/",
+    "credentials/",
+    ".next/",
+    "coverage/"
+  ]
+}

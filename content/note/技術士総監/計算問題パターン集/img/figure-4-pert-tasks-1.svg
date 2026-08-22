@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="40" y="50" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="bold" fill="#1a3a5c">PERT 演習 1 — 作業の所要時間と先行作業</text>
+  <text x="40" y="86" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#8a8a8a">平成26年度 I-1-4 6 作業（A〜F）の依存関係</text>
+
+  <!-- ヘッダ行 -->
+  <rect x="40" y="120" width="300" height="60" fill="#1a3a5c"/>
+  <rect x="340" y="120" width="360" height="60" fill="#1a3a5c"/>
+  <rect x="700" y="120" width="460" height="60" fill="#1a3a5c"/>
+  <text x="190" y="158" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">作業名</text>
+  <text x="520" y="158" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">所要時間</text>
+  <text x="930" y="158" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">先行作業</text>
+
+  <!-- 行A -->
+  <rect x="40" y="180" width="1120" height="60" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="40" y="180" width="300" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="340" y="180" width="360" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="700" y="180" width="460" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <text x="190" y="218" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">A</text>
+  <text x="520" y="218" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">2</text>
+  <text x="930" y="218" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">なし</text>
+
+  <!-- 行B -->
+  <rect x="40" y="240" width="1120" height="60" fill="#1a3a5c" fill-opacity="0.06" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="40" y="240" width="300" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="340" y="240" width="360" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="700" y="240" width="460" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <text x="190" y="278" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">B</text>
+  <text x="520" y="278" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">5</text>
+  <text x="930" y="278" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">なし</text>
+
+  <!-- 行C -->
+  <rect x="40" y="300" width="1120" height="60" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="40" y="300" width="300" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="340" y="300" width="360" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="700" y="300" width="460" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <text x="190" y="338" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">C</text>
+  <text x="520" y="338" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">7</text>
+  <text x="930" y="338" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">A, B</text>
+
+  <!-- 行D -->
+  <rect x="40" y="360" width="1120" height="60" fill="#1a3a5c" fill-opacity="0.06" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="40" y="360" width="300" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="340" y="360" width="360" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="700" y="360" width="460" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <text x="190" y="398" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">D</text>
+  <text x="520" y="398" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">4</text>
+  <text x="930" y="398" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">A, B</text>
+
+  <!-- 行E -->
+  <rect x="40" y="420" width="1120" height="60" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="40" y="420" width="300" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="340" y="420" width="360" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="700" y="420" width="460" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <text x="190" y="458" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">E</text>
+  <text x="520" y="458" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">1</text>
+  <text x="930" y="458" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">D</text>
+
+  <!-- 行F -->
+  <rect x="40" y="480" width="1120" height="60" fill="#1a3a5c" fill-opacity="0.06" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="40" y="480" width="300" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="340" y="480" width="360" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <rect x="700" y="480" width="460" height="60" fill="none" stroke="#cbd5e1" stroke-width="0.5"/>
+  <text x="190" y="518" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">F</text>
+  <text x="520" y="518" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">6</text>
+  <text x="930" y="518" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle">B</text>
+
+  <!-- 外枠 -->
+  <rect x="40" y="120" width="1120" height="420" fill="none" stroke="#cbd5e1" stroke-width="1.5"/>
+
+  <!-- 補足 -->
+  <text x="40" y="592" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#1a3a5c" font-weight="bold">解：プロジェクト完了時刻 = 12（クリティカルパス B→C）</text>
+  <text x="40" y="622" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#8a8a8a">先行作業が複数ある場合、ES は最大値を取る（C・D の ES = max(2, 5) = 5）</text>
+
+  <text x="1160" y="700" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

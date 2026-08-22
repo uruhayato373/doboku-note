@@ -1,0 +1,159 @@
+{
+  "permissions": {
+    "deny": [
+      "Bash(git reset --hard:*)",
+      "Bash(git clean:*)",
+      "Bash(rm -rf /:*)",
+      "Bash(rm -rf ~:*)"
+    ],
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(pdftoppm:*)",
+      "Bash(magick:*)",
+      "Bash(cp:*)",
+      "Bash(mkdir:*)",
+      "Bash(ls:*)",
+      "Bash(wc:*)",
+      "Bash(npm run build:*)",
+      "Bash(cat:*)",
+      "Bash(npm:*)",
+      "Bash(npx:*)",
+      "Bash(git:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(sort:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(echo:*)",
+      "Bash(which:*)",
+      "Bash(node:*)",
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(shuf:*)",
+      "Bash(for:*)",
+      "Read",
+      "Edit",
+      "Write",
+      "Glob",
+      "Grep",
+      "WebFetch",
+      "WebSearch",
+      "Agent",
+      "Skill"
+    ],
+    "ask": [
+      "Bash(npm run ogp-backgrounds:*)",
+      "Bash(node scripts/generate-ogp-backgrounds.mjs:*)",
+      "Bash(gemini:*)"
+    ],
+    "defaultMode": "bypassPermissions"
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node scripts/x-sync-status.mjs --dry 2>/dev/null || true",
+            "timeout": 60,
+            "statusMessage": "X 投稿状況を確認中...",
+            "async": true
+          },
+          {
+            "type": "command",
+            "command": "node scripts/check-plan-staleness.mjs 2>/dev/null || true",
+            "timeout": 10,
+            "async": true
+          },
+          {
+            "type": "command",
+            "command": "node scripts/check-backlog-health.mjs --due 2>/dev/null || true",
+            "timeout": 15,
+            "async": true
+          },
+          {
+            "type": "command",
+            "command": "node scripts/check-git-sync.mjs 2>/dev/null || true",
+            "timeout": 30,
+            "statusMessage": "origin との同期状況を確認中...",
+            "async": true
+          },
+          {
+            "type": "command",
+            "command": "node scripts/prune-tmp.mjs 2>/dev/null || true",
+            "timeout": 30,
+            "statusMessage": ".tmp の古いスクラッチを掃除中...",
+            "async": true
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"$CLAUDE_TOOL_INPUT\" | grep -q 'git commit' && .claude/hooks/check-doc-sync.sh || true"
+          },
+          {
+            "type": "command",
+            "command": ".claude/hooks/check-gemini-cost.sh"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/check-mojibake.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/check-mojibake.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/check-stray-files.sh"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/decision-doc-checkpoint.sh"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": ".claude/hooks/decision-doc-checkpoint.sh"
+          }
+        ]
+      }
+    ]
+  }
+}

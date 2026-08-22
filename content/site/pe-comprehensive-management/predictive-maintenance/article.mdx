@@ -1,0 +1,98 @@
+---
+title: 予知保全
+description: "予知保全の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.6'
+tags:
+  - 総合技術監理
+  - keyword
+published: true
+publishedAt: '2026-04-08'
+reviewStatus: approved
+lastRewrittenAt: '2026-04-17'
+revisionCycle: 1
+seoTitle: "予知保全 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-06-30
+---
+
+## 予知保全とは
+
+予知保全とは、設備の状態を常時または定期的に監視し、劣化の兆候を検知した時点で保全を実施する方式である。
+
+CBM（Condition Based Maintenance：状態基準保全）とも呼ばれ、設備の実際の状態に基づいて保全の要否とタイミングを判断する。
+
+予防保全の下位分類の一つであり、定期保全（TBM）とともに「壊れる前に手を打つ」保全方式を構成する。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/predictive-maintenance/img/figure-1.svg"
+  alt="設備保全の全体体系（予知保全は予防保全の下のCBM）"
+/>
+
+### 状態監視技術
+
+予知保全の実現には、設備の劣化状態を定量的に把握するための状態監視技術が不可欠である。
+
+| 監視手法 | 測定対象 | 適用例 |
+|---|---|---|
+| 振動診断 | 振動の大きさ・周波数 | 回転機械（モーター・ポンプ等） |
+| 油分析 | 潤滑油中の金属粉・粘度 | 減速機、油圧機器 |
+| 温度監視 | 赤外線サーモグラフィ | 電気設備、軸受、配管 |
+| 音響診断 | 超音波・異音 | 圧力容器、バルブ、軸受 |
+| 電流診断 | モーター電流波形 | 電動機、駆動系 |
+
+### 予知保全の特徴と課題
+
+予知保全は、設備の残存寿命を最大限に活用できるため、定期保全に比べて保全コストの最適化が可能である。
+
+一方で、状態監視のための計測装置やデータ分析の仕組みに初期投資が必要となる。
+
+近年ではIoTセンサーとAIによるデータ分析を組み合わせた予兆検知が進んでおり、従来は熟練者の経験に依存していた判断の自動化・精度向上が図られている。
+
+バスタブカーブの偶発故障期においては、時間基準の定期保全よりも状態監視に基づく予知保全が合理的な選択となる。
+
+## リスクベースメンテナンス
+
+保全対象のシステムが大規模・複雑になると、考慮すべき機能や故障モードが多数となり、重要度と保全効果の的確な評価が難しくなる。この課題に対応する手法がリスクベースメンテナンス（RBM：Risk Based Maintenance） である。
+
+RBMは、設備やシステムの保全計画・検査計画の立案にリスク評価を取り入れた手法であり、設備の**信頼性向上と保全費の最適化**を同時に図る。
+
+故障の重要度を故障事例や寿命評価理論を基にして、リスク（＝発生確率×影響の大きさ）値で一元的に評価し、リスクの高低によって作業の順位付けを行う。これにより、リスクが高い設備に保全資源を集中させ、リスクが低い設備の保全頻度を緩和することで、全体の保全費を最適化できる。
+
+リスクベース検査（RBI：Risk Based Inspection） は、RBMの一環として設備やシステムを要素レベルまで分類して不具合分析を行い、最適な検査手法や時期を検討・計画する手法である。
+
+予知保全（CBM）が個別設備の状態監視に基づく保全判断であるのに対し、RBMはシステム全体のリスク評価に基づく保全計画の最適化手法であり、両者は相互に補完する関係にある。
+
+<ExamPoint
+  summary="予知保全（CBM）は設備の状態監視に基づき最適タイミングで保全する方式"
+  items={[
+    "予知保全は「状態基準」、定期保全は「時間基準」という違いを明確に区別する",
+    "振動診断・油分析・温度監視などの状態監視技術がCBMの基盤",
+    "偶発故障期（バスタブカーブ）では予知保全が合理的な選択",
+    "RBM：リスク評価に基づく保全計画最適化",
+    "RBI：要素レベルの検査計画手法",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**2.6 設備管理**](/docs/pe-comprehensive-management-keyword-2026#26-設備管理)に位置づけられる。
+
+予知保全は [予防保全](/docs/pe-comprehensive-management-preventive-maintenance) の一形態であり、定期保全（TBM）と並んで設備の信頼性維持を担う。
+
+[保全予防](/docs/pe-comprehensive-management-maintenance-prevention)（設計段階での保全性向上）と組み合わせることで、設備のライフサイクルコスト（LCC）の最小化に寄与する。過去問 [R04 Ⅰ-1-4](/docs/pe-comprehensive-management-r04-primary#1-4) では 4 種の保全（予防・予知・[改良保全](/docs/pe-comprehensive-management-improvement-maintenance)・保全予防）の定義区別が問われた。過去問 [R02 Ⅰ-1-8](/docs/pe-comprehensive-management-r02-primary#1-8) では、予知保全（CBM）は [予防保全](/docs/pe-comprehensive-management-preventive-maintenance) の下位分類として **維持活動** に分類され、改良保全・保全予防（改善活動）とは区別される点が論点となった。
+
+<RelatedKeywords items={[
+  { label: "予防保全", slug: "preventive-maintenance" },
+  { label: "事後保全", slug: "corrective-maintenance" },
+  { label: "改良保全", slug: "improvement-maintenance" },
+  { label: "保全予防", slug: "maintenance-prevention" },
+  { label: "定期保全", slug: "periodic-maintenance" },
+]} />
+
+## 参考資料
+
+- [状態基準保全（ATOMICA 原子力用語辞書 / 国立研究開発法人 日本原子力研究開発機構）](https://atomica.jaea.go.jp/dic/detail/dic_detail_2377.html)
+- [予知保全（IoT用語辞典 / キーエンス）](https://www.keyence.co.jp/ss/general/iot-glossary/predictive-maintenance.jsp)

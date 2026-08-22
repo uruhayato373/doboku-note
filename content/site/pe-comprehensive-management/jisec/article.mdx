@@ -1,0 +1,111 @@
+---
+title: ITセキュリティ評価及び認証制度
+description: "JISECとは、IPAが運営するIT製品のセキュリティ評価・認証制度（CC/ISO IEC 15408準拠）。認証取得の4ステップ・対象製品（OS・ICカード・暗号モジュール等）・CCRAによる国際相互承認の仕組みを図解付きで解説。"
+category: pe-comprehensive-management
+group: keyword
+section: '4.5'
+tags:
+  - 総合技術監理
+  - keyword
+published: true
+reviewStatus: approved
+lastRewrittenAt: '2026-04-15'
+revisionCycle: 1
+publishedAt: '2026-04-08'
+seoTitle: "JISEC（ジセック）とは・読み方｜CC認証制度・評価プロセスと政府調達での役割"
+created: 2026-04-05
+dateModified: 2026-06-05
+faqs:
+  - q: "JISECとは何ですか？"
+    a: "JISEC（ITセキュリティ評価及び認証制度）とは、IT製品のセキュリティ機能をCC（ISO/IEC 15408）に基づいて評価・認証する日本の制度です。IPA（情報処理推進機構）が認証機関として運営し、政府機関のIT調達でセキュリティ品質の客観的な判断基準として利用されます。"
+  - q: "JISECは誰が運営し、どのプレイヤーで構成されますか？"
+    a: "IPA（情報処理推進機構）が認証機関として認証の発行・管理と制度運営を担い、IPA認定の民間評価機関がCC基準でIT製品のセキュリティを実際に評価し、IT製品の開発者・販売者が申請者として評価・認証を申請する3者で構成されます。"
+  - q: "JISECで取得した認証は海外でも有効ですか？"
+    a: "はい。JISECの認証はCCRA（コモンクライテリア承認アレンジメント）に基づき加盟国で相互に承認されます。日本は認証国として参加しており、国内で取得したCC認証は海外でも、海外で取得した認証も日本で有効です。"
+  - q: "JISECとISMS認証・ISMAP・JCMVPの違いは何ですか？"
+    a: "JISECはIT製品が対象でCC（ISO/IEC 15408）に基づき評価します。ISMS認証は組織の管理体制が対象でISO/IEC 27001、ISMAPはクラウドサービスが対象でISMAP管理基準、JCMVPは暗号モジュールが対象でISO/IEC 19790に基づき、対象と評価基準によって使い分けます。"
+---
+
+## JISECとは
+
+JISEC（Japan Information Technology Security Evaluation and Certification Scheme：ITセキュリティ評価及び認証制度）とは、IT製品のセキュリティ機能を[CC（ISO/IEC 15408）](/docs/pe-comprehensive-management-common-criteria)に基づいて評価・認証する日本の制度である。
+
+IPA（独立行政法人情報処理推進機構）が認証機関として運営し、民間の評価機関が実際の評価作業を行う。
+
+政府機関がIT製品を調達する際に、セキュリティ品質の客観的な判断基準として利用されている。
+
+### JISECの制度構成
+
+JISECは3つの役割を持つプレイヤーで構成される。
+
+- **認証機関**: 認証の発行・管理と制度運営を担う。IPA（情報処理推進機構）
+- **評価機関**: CC基準に基づきIT製品のセキュリティを実際に評価する。IPA認定の民間機関
+- **申請者**: 評価・認証を申請するIT製品の開発者・販売者
+
+### 認証取得プロセス
+
+1. **申請者がST（Security Target）を作成** — 製品のセキュリティ仕様を文書化する
+2. **評価機関による評価** — CC（ISO/IEC 15408）の基準に基づきセキュリティ機能を検証する
+3. **IPAによる認証** — 評価結果を確認し、認証書を発行する
+4. **認証製品リストへの登録** — IPAのWebサイトで公開される
+
+### 対象となる製品例
+
+JISEC の評価対象となる製品分野は幅広く、政府調達で用いられる以下のような IT 製品が典型例である。
+
+- **OS**: サーバOS、組込みOS
+- **ネットワーク機器**: [ファイアウォール](/docs/pe-comprehensive-management-firewall-ids)、ルータ
+- **データベース**: DBMS
+- **ICカード**: マイナンバーカード、交通系ICカード
+- **暗号モジュール**: HSM（Hardware Security Module）
+- **複合機**: デジタル複合機（MFP）
+
+### CCRAとの関係
+
+JISECで取得した認証は、CCRA（コモンクライテリア承認アレンジメント）に基づき、加盟国で相互に承認される。
+
+日本はCCRAの認証国（Certificate Authorizing Participant）として参加しており、国内で取得したCC認証が海外でも有効であり、海外で取得した認証も日本で有効である。
+
+### 他の認証制度との比較
+
+日本の情報セキュリティ関連の認証制度は、対象（製品・組織・サービス）と評価基準によって使い分けられる。
+
+- **JISEC**: IT製品が対象。CC（ISO/IEC 15408）に基づき評価。IPAが運営
+- [ISMS認証](/docs/pe-comprehensive-management-isms-iso27001): 組織の管理体制が対象。ISO/IEC 27001 に基づく。ISMS-AC認定機関が運営
+- [ISMAP](/docs/pe-comprehensive-management-ismap): クラウドサービスが対象。ISMAP管理基準に基づく。ISMAP運営委員会が運営
+- **JCMVP**: 暗号モジュールが対象。ISO/IEC 19790 に基づく。IPAが運営
+
+<ExamPoint
+  summary="JISECはCC（ISO/IEC 15408）に基づく日本のIT製品セキュリティ認証制度"
+  items={[
+    "JISECはIPAが認証機関として運営する日本のCC認証制度",
+    "評価対象はIT製品（OS",
+    "ICカード等）であり",
+    "組織ではない",
+    "CCRAにより加盟国間で認証の相互承認が可能",
+    "政府機関のIT製品調達におけるセキュリティ品質の判断基準として利用される",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**4.5 情報セキュリティ**](/docs/pe-comprehensive-management-keyword-2026#45-情報セキュリティ)に位置づけられる。
+
+JISECは[CC（ISO/IEC 15408）](/docs/pe-comprehensive-management-common-criteria)の国内実施制度であり、政府調達におけるIT製品のセキュリティ品質確保の仕組みとして位置づけられる。
+
+[ISMS](/docs/pe-comprehensive-management-isms-iso27001)が組織の管理体制を認証し、JISECが個々のIT製品のセキュリティ機能を認証するという相互補完の関係を理解しておくことが重要である。
+
+<RelatedKeywords items={[
+  { label: "セキュリティ評価基準CC（ISO/IEC 15408）", slug: "common-criteria" },
+  { label: "ISMS（ISO/IEC 27001）", slug: "isms-iso27001" },
+  { label: "プライバシーマーク", slug: "privacy-mark" },
+  { label: "アクセス制御・アクセス権限設定", slug: "access-control" },
+  { label: "アクセスログ分析", slug: "access-log-analysis" },
+]} />
+
+## 参考資料
+
+- [ITセキュリティ評価及び認証制度（JISEC）](https://www.ipa.go.jp/security/jisec/index.html)（IPA 情報処理推進機構）
+- [評価認証制度（JISEC）概要](https://www.ipa.go.jp/security/jisec/about/jisec.html)（IPA 情報処理推進機構）
+- [CC認証・JISECとは何か — IT製品セキュリティ評価の仕組みをわかりやすく解説](https://www.nri-secure.co.jp/blog/jisec)（NRIセキュアテクノロジーズ）

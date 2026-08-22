@@ -1,0 +1,90 @@
+<!-- source: https://aismiley.co.jp/ai_news/demand-prediction/ (構図着想のみ・独自作図) -->
+<!-- nlm: 総監標準テキスト より概念構造を抽出 -->
+<svg width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%"
+     xmlns="http://www.w3.org/2000/svg"
+     role="img"
+     aria-label="需要予測の手法分類図：定量的手法（移動平均法・指数平滑法・回帰分析）と定性的手法（デルファイ法・市場調査法）に大別される">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-main { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-cat  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub  { font-size: 12px; font-weight: bold; fill: #555; }
+      .t-item { font-size: 13px; fill: #222; }
+      .t-note { font-size: 11px; fill: #8a8a8a; }
+      .t-cmp  { font-size: 11px; fill: #222; }
+      .box-top { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-qty { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-qlt { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-cmp { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .div-h   { stroke: #d7d7d7; stroke-width: 1; }
+      .conn    { stroke: #2e6da4; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <!-- 需要予測手法（頂点） -->
+  <rect class="box-top" x="60" y="14" width="280" height="42" rx="8"/>
+  <text class="t-main" x="200" y="40" text-anchor="middle">需要予測の手法</text>
+
+  <!-- ツリーコネクタ -->
+  <line class="conn" x1="200" y1="56" x2="200" y2="74"/>
+  <line class="conn" x1="105" y1="74" x2="295" y2="74"/>
+  <line class="conn" x1="105" y1="74" x2="105" y2="86"/>
+  <line class="conn" x1="295" y1="74" x2="295" y2="86"/>
+
+  <!-- 左: 定量的手法 -->
+  <rect class="box-qty" x="12" y="86" width="183" height="166" rx="6"/>
+  <text class="t-cat" x="103" y="109" text-anchor="middle">定量的手法</text>
+  <line class="div-h" x1="22" y1="118" x2="185" y2="118"/>
+
+  <text class="t-sub"  x="22" y="135">時系列分析</text>
+  <text class="t-item" x="30" y="155">移動平均法</text>
+  <text class="t-note" x="38" y="171">直近N期の平均で平滑化</text>
+  <text class="t-item" x="30" y="191">指数平滑法</text>
+  <text class="t-note" x="38" y="207">直近ほど高い重みを付与</text>
+
+  <line class="div-h" x1="22" y1="216" x2="185" y2="216"/>
+
+  <text class="t-sub"  x="22" y="233">因果関係分析</text>
+  <text class="t-item" x="30" y="248">回帰分析</text>
+
+  <!-- 右: 定性的手法 -->
+  <rect class="box-qlt" x="205" y="86" width="183" height="166" rx="6"/>
+  <text class="t-cat" x="296" y="109" text-anchor="middle">定性的手法</text>
+  <line class="div-h" x1="215" y1="118" x2="378" y2="118"/>
+
+  <text class="t-note" x="215" y="134">データ不足・長期予測向け</text>
+
+  <text class="t-item" x="215" y="157">デルファイ法</text>
+  <text class="t-note" x="223" y="173">専門家の匿名合意</text>
+  <text class="t-note" x="223" y="189">複数回アンケートで収束</text>
+
+  <text class="t-item" x="215" y="212">市場調査法</text>
+  <text class="t-note" x="223" y="228">アンケート・ヒアリング</text>
+  <text class="t-note" x="223" y="244">需要者の意向を直接調査</text>
+
+  <!-- 比較表 -->
+  <rect x="12" y="268" width="376" height="158" rx="6" class="box-cmp"/>
+  <text x="200" y="288" font-size="12" fill="#1a3a5c" text-anchor="middle" font-weight="bold">定量的手法 vs 定性的手法</text>
+  <line x1="12" y1="295" x2="388" y2="295" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="200" y1="295" x2="200" y2="424" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="106" y="313" font-size="11" fill="#3a7d44" text-anchor="middle" font-weight="bold">定量的</text>
+  <text x="294" y="313" font-size="11" fill="#d4a017" text-anchor="middle" font-weight="bold">定性的</text>
+  <line x1="12" y1="318" x2="388" y2="318" stroke="#d7d7d7" stroke-width="0.5"/>
+  <text x="106" y="335" font-size="11" fill="#222" text-anchor="middle">過去データが必要</text>
+  <text x="294" y="335" font-size="11" fill="#222" text-anchor="middle">データ不要</text>
+  <line x1="12" y1="342" x2="388" y2="342" stroke="#d7d7d7" stroke-width="0.5"/>
+  <text x="106" y="359" font-size="11" fill="#222" text-anchor="middle">短〜中期予測に有効</text>
+  <text x="294" y="359" font-size="11" fill="#222" text-anchor="middle">長期・新市場に有効</text>
+  <line x1="12" y1="366" x2="388" y2="366" stroke="#d7d7d7" stroke-width="0.5"/>
+  <text x="106" y="383" font-size="11" fill="#222" text-anchor="middle">客観性・再現性が高い</text>
+  <text x="294" y="383" font-size="11" fill="#222" text-anchor="middle">専門知識・経験に依存</text>
+  <line x1="12" y1="390" x2="388" y2="390" stroke="#d7d7d7" stroke-width="0.5"/>
+  <text x="106" y="407" font-size="11" fill="#222" text-anchor="middle">統計的手法を使用</text>
+  <text x="294" y="407" font-size="11" fill="#222" text-anchor="middle">判断・合意形成が中心</text>
+
+  <!-- フッターサマリー -->
+  <text x="200" y="446" font-size="11" fill="#8a8a8a" text-anchor="middle">総監：需要予測は経営管理・資源計画の基礎。</text>
+  <text x="200" y="462" font-size="11" fill="#8a8a8a" text-anchor="middle">不確実性が高い場面では定性的手法と組み合わせる</text>
+  <text x="200" y="484" font-size="11" fill="#555" text-anchor="middle">精度検証：予測誤差（MAPE・RMSE）で事後評価</text>
+</svg>

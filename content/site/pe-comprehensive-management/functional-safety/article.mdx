@@ -1,0 +1,84 @@
+---
+title: 機能安全
+description: "機能安全の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（安全管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '5.4'
+tags:
+  - keyword
+published: true
+publishedAt: '2026-04-09'
+seoTitle: "機能安全 ｜ 技術士 総合技術監理部門 キーワード集"
+reviewStatus: needs-review
+lastRewrittenAt: '2026-04-17'
+revisionCycle: 1
+created: 2026-04-05
+dateModified: 2026-06-20
+---
+
+## 機能安全とは
+
+機能安全（Functional Safety）とは、**安全関連系**（安全装置・制御システム）が正しく動作することによって達成される安全である。
+
+本質安全が危険源そのものを除去するのに対し、機能安全は安全装置の機能によってリスクを許容可能なレベルまで低減する。IEC 61508（JIS C 0508）が国際規格として体系を定めている。
+
+## 安全度水準
+
+機能安全では、安全関連系の信頼性を安全度水準（SIL: Safety Integrity Level）で4段階に分類する。
+
+| SIL | 危険側故障確率（1時間あたり） | 適用例 |
+|---|---|---|
+| **SIL 4** | 10⁻⁹ 〜 10⁻⁸ | 原子力発電所の安全系 |
+| **SIL 3** | 10⁻⁸ 〜 10⁻⁷ | 鉄道の保安装置 |
+| **SIL 2** | 10⁻⁷ 〜 10⁻⁶ | プロセスプラントの安全系 |
+| **SIL 1** | 10⁻⁶ 〜 10⁻⁵ | 一般産業機械の安全系 |
+
+## 本質安全との比較
+
+機能安全と[本質安全](/docs/pe-comprehensive-management-inherent-safety)はリスク低減の優先順位と安全確保の根拠が異なる。いずれを適用するかは、危険源の性質とシステム設計の段階によって判断する。
+
+| 項目 | 機能安全 | [本質安全](/docs/pe-comprehensive-management-inherent-safety) |
+|---|---|---|
+| **アプローチ** | 安全装置の機能でリスクを低減 | 危険源そのものを除去 |
+| **安全の根拠** | 安全装置の正常動作に依存 | 設計そのもので安全を確保 |
+| **優先順位** | 本質安全が実現困難な場合に適用 | 最優先で検討すべき |
+
+<ExamPoint
+  summary="機能安全は安全装置の正しい動作によって達成される安全"
+  items={[
+    "IEC 61508（JIS C 0508）が基本規格",
+    "安全度水準（SIL）で信頼性を4段階に分類",
+    "本質安全（危険源の除去）と対比される概念",
+    "安全装置の故障確率を定量的に評価する点が特徴",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**5.4 事故・災害の未然防止活動・技術**](/docs/pe-comprehensive-management-keyword-2026#54-事故・災害の未然防止活動・技術)に位置づけられている。
+
+機能安全は[本質安全](/docs/pe-comprehensive-management-inherent-safety)と対比される安全概念であり、[フェールセーフ](/docs/pe-comprehensive-management-fail-safe)・[インターロック](/docs/pe-comprehensive-management-interlock)・[非常停止装置](/docs/pe-comprehensive-management-emergency-stop-device)等は機能安全を実現する具体的な安全機構である。[安全計装システム](/docs/pe-comprehensive-management-safety-instrumented-system)は機能安全の中核をなすシステムである。
+
+過去問 [R02 Ⅰ-1-27](/docs/pe-comprehensive-management-r02-primary#1-27) では産業用ロボット（80W 超・協働作業）・医療回復ロボットの国際標準化・遠隔操作自動運転・[IoT](/docs/pe-comprehensive-management-iot) セキュリティが問われた。機能安全は、これらロボット／AI／遠隔運転の制御システムの信頼性を定量的に保証する SIL（Safety Integrity Level）評価の枠組みとして、協働作業時の安全確保の裏付けとなる。
+
+## 規格制定の背景
+
+機能安全という概念が国際規格として体系化された背景には、1970〜1980年代に相次いだ大規模プラント事故がある。1976年のセベソ事故（イタリア、化学プラントからのダイオキシン漏洩）、1984年のボパール事故（インド、農薬工場からのイソシアン酸メチル大量漏洩）、1986年のチェルノブイリ原子力発電所事故はいずれも、制御システムの誤動作・人的操作ミスが複合した事例であった。
+
+これらの事故を契機に、「安全装置そのものの信頼性をどう評価・保証するか」という問題意識が高まった。1998年に IEC 61508 第1版が策定され、E/E/PE（電気・電子・プログラマブル電子）システムに対して安全ライフサイクル全体を通じた管理を義務づける枠組みが確立した。2010年には第2版が発行され、自動車（ISO 26262）・鉄道（EN 50128）・プロセス制御（IEC 61511）など分野別派生規格の基盤規格として機能している。
+
+建設分野においても、建設機械の遠隔制御システムや斜面監視のセンサ系に機能安全の考え方が適用されるようになっており、安全管理の定量的評価手法として今後の重要性が高まる領域である。
+
+<RelatedKeywords items={[
+  { label: "フェールセーフ", slug: "fail-safe" },
+  { label: "本質安全", slug: "inherent-safety" },
+  { label: "インターロック", slug: "interlock" },
+  { label: "安全確認型システム・危険検出型システム", slug: "safety-confirmation-system" },
+  { label: "事故対応訓練", slug: "accident-response-drill" },
+]} />
+
+## 参考資料
+
+- [機能安全による機械等の安全確保について](https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000140176.html)（厚生労働省）
+- [機能安全 - Wikipedia](https://ja.wikipedia.org/wiki/%E6%A9%9F%E8%83%BD%E5%AE%89%E5%85%A8)（Wikipedia日本語版）

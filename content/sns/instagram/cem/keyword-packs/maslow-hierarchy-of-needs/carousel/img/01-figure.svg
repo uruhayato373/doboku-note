@@ -1,0 +1,60 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="マズローの欲求5段階説のピラミッド図。下から生理的・安全・社会的・承認尊厳・自己実現の5段階を積み上げ、各段の内容（職場例）を併記する。第1〜4段を欠乏欲求、第5段を成長欲求として色で区分し、低次の充足が高次の発現条件であることを示す。ハーズバーグの動機づけ要因・衛生要因との対応も示す" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
+  <defs>
+    <marker id="m-up" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+      <polygon points="0 8, 8 4, 0 0" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff" stroke="#d7d7d7"/>
+
+  <text x="200" y="24" text-anchor="middle" font-size="14" font-weight="bold" fill="#222">マズローの欲求5段階説</text>
+  <text x="200" y="42" text-anchor="middle" font-size="11" fill="#555">低次が満たされると高次が動機づけになる</text>
+
+  <!-- 低次→高次 軸 -->
+  <line x1="8" y1="290" x2="8" y2="80" stroke="#8a8a8a" stroke-width="1.2" marker-end="url(#m-up)"/>
+  <text x="20" y="190" font-size="11" fill="#8a8a8a" transform="rotate(-90,20,190)" text-anchor="middle">低次 → 高次</text>
+
+  <!-- 連結線 -->
+  <line x1="163" y1="94" x2="242" y2="94" stroke="#d7d7d7" stroke-dasharray="3,2"/>
+  <line x1="178" y1="138" x2="242" y2="138" stroke="#d7d7d7" stroke-dasharray="3,2"/>
+  <line x1="192" y1="182" x2="242" y2="182" stroke="#d7d7d7" stroke-dasharray="3,2"/>
+  <line x1="206" y1="226" x2="242" y2="226" stroke="#d7d7d7" stroke-dasharray="3,2"/>
+  <line x1="221" y1="270" x2="242" y2="270" stroke="#d7d7d7" stroke-dasharray="3,2"/>
+
+  <!-- T5 自己実現（成長欲求＝緑） -->
+  <polygon points="84,72 156,72 170,116 70,116" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="120" y="98" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">自己実現</text>
+  <!-- T4 承認・尊厳 -->
+  <polygon points="70,116 170,116 185,160 55,160" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="120" y="142" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">承認・尊厳</text>
+  <!-- T3 社会的 -->
+  <polygon points="55,160 185,160 199,204 41,204" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="120" y="186" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">社会的</text>
+  <!-- T2 安全 -->
+  <polygon points="41,204 199,204 214,248 26,248" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="120" y="230" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">安全</text>
+  <!-- T1 生理的 -->
+  <polygon points="26,248 214,248 228,292 12,292" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="120" y="274" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">生理的</text>
+
+  <!-- 右側：各段の内容（職場例） -->
+  <text x="244" y="98"  font-size="11" fill="#222">可能性の発揮・挑戦的業務</text>
+  <text x="244" y="142" font-size="11" fill="#222">承認・昇進・表彰・資格</text>
+  <text x="244" y="186" font-size="11" fill="#222">所属・仲間・人間関係</text>
+  <text x="244" y="230" font-size="11" fill="#222">雇用の安定・労働安全</text>
+  <text x="244" y="274" font-size="11" fill="#222">賃金・休憩・睡眠・食事</text>
+
+  <!-- 欠乏/成長 凡例 -->
+  <rect x="10" y="300" width="380" height="64" fill="#f5f5f5" stroke="#d7d7d7" rx="4"/>
+  <rect x="22" y="312" width="16" height="16" fill="#d0e8d0" stroke="#3a7d44"/>
+  <text x="46" y="325" font-size="11" fill="#1a3a5c"><tspan font-weight="bold">成長欲求</tspan>（第5段）満たしてもさらに追求し続ける</text>
+  <rect x="22" y="338" width="16" height="16" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="46" y="351" font-size="11" fill="#1a3a5c"><tspan font-weight="bold">欠乏欲求</tspan>（第1〜4段）不足すると不満が生じる</text>
+
+  <!-- ハーズバーグ対応 -->
+  <rect x="10" y="372" width="380" height="62" fill="#ffffff" stroke="#d7d7d7" rx="4"/>
+  <text x="200" y="392" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">ハーズバーグ二要因理論との対応</text>
+  <text x="200" y="411" text-anchor="middle" font-size="11" fill="#555">動機づけ要因 ↔ 承認・自己実現（第4〜5段）</text>
+  <text x="200" y="427" text-anchor="middle" font-size="11" fill="#555">衛生要因 ↔ 社会・安全・生理（第1〜3段）</text>
+
+  <text x="200" y="460" text-anchor="middle" font-size="11" fill="#555">1943 年提唱・低次の充足が高次発現の条件</text>
+</svg>

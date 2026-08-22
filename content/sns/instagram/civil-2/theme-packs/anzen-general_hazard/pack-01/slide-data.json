@@ -1,0 +1,237 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "anzen",
+      "label": "安全管理"
+    },
+    "subtopic": {
+      "key": "general_hazard",
+      "label": "感電・電気設備／工事現場の危険防止・労働災害防止対策"
+    },
+    "packNum": "01",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 2,
+    "years": [
+      "r07z",
+      "r06z",
+      "r05k"
+    ],
+    "yearsLabel": "令和7・6・5年度",
+    "questionIds": [
+      "r07z-53",
+      "r06z-53",
+      "r05k-48"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "感電・電気設備／工事現場の危険防止・労働災害防止対策",
+      "themeLabel": "安全管理",
+      "subtopicLabel": "感電・電気設備／工事現場の危険防止・労働災害防止対策",
+      "stars": 2,
+      "yearsLabel": "令和7・6・5年度",
+      "firstQuestion": "労働者の危害を防止するための措置に関する次の記述のうち，労働安全衛生法上，誤っているものはどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 8
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "労働者の危害を防止するための措置に関する次の記述のう",
+        "ち，労働安全衛生法上，誤っているものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "ジャッキ式つり上げ機械を用いた荷のつり上げ，つり下げ等の作業を行うときは，保護帽を着用する。"
+        },
+        {
+          "num": 2,
+          "text": "高さ2 mの箇所で墜落の危険がある作業であって作業床を設けることが困難なときは，防網を張り，要求性能墜落制止用器具を使用する。"
+        },
+        {
+          "num": 3,
+          "text": "明り掘削の作業を行うときは，物体の飛来又は落下による危害を防止するため，保護帽を着用する。"
+        },
+        {
+          "num": 4,
+          "text": "高さ1.5 mの構造物の足場組立て，解体等の作業を行うときは，原則として要求性能墜落制止用器具を安全に取り付けるための設備等を設け，かつ，要求性能墜落制止用器具を使用する。"
+        }
+      ],
+      "topic": "令和7年度前期",
+      "qNum": 1,
+      "totalQ": 3,
+      "pageIndex": 2,
+      "totalPages": 8
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "労働者の危害を防止するための措置",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "ジャッキ式機械作業時の保護帽着用、正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "高さ2m以上で防網と墜落制止用器具、正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "明り掘削時の保護帽着用、正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "足場組立等で墜落制止用器具を必要とするのは高さ2m以上、1.5mは誤り  <ExamPoint>足場組立等で墜落制止用器具が必要になる高さは2m以上</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "足場組立等で墜落制止用器具を必要とするのは高さ2m以上、1.5mは誤り  <ExamPoint>足場組立等で墜落制止用器具が必要になる高さは2m以上</",
+      "qNum": 1,
+      "totalQ": 3,
+      "pageIndex": 3,
+      "totalPages": 8
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "労働者の危険を防止するための措置に関する次の記述のう",
+        "ち，労働安全衛生法上，誤っているものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "明り掘削の作業を行うときは，物体の飛来又は落下による危険を防止するため，保護帽を着用する。"
+        },
+        {
+          "num": 2,
+          "text": "最大積載量が 5 t の貨物自動車の荷の積み卸しの作業を行うときは，保護帽を着用する。"
+        },
+        {
+          "num": 3,
+          "text": "高さ 1 m の箇所で作業を行うときは，防網を張り，要求性能墜落制止用器具を使用する。"
+        },
+        {
+          "num": 4,
+          "text": "つり足場，張出し足場又は高さ 2 m 以上の足場の組立て，解体等の作業は，原則として要求性能墜落制止用器具を安全に取り付けるための設備等を設け，かつ，要求性能墜落制止用器具を使用する。"
+        }
+      ],
+      "topic": "令和6年度前期",
+      "qNum": 2,
+      "totalQ": 3,
+      "pageIndex": 4,
+      "totalPages": 8
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "労働者の危険を防止するための措置",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "明り掘削作業での保護帽着用は正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "貨物自動車荷役作業の保護帽着用は正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "防網・要求性能墜落制止用器具が必要となるのは高さ 2 m 以上の作業であり、1 m では該当しないため誤り",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "高さ 2 m 以上の足場組立解体時の要求性能墜落制止用器具使用は正しい",
+          "correct": true
+        }
+      ],
+      "pointText": "防網・要求性能墜落制止用器具が必要となるのは高さ 2 m 以上の作業であり、1 m では該当しないため誤り",
+      "qNum": 2,
+      "totalQ": 3,
+      "pageIndex": 5,
+      "totalPages": 8
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "労働安全衛生法上，事業者が労働者に保護帽の着用をさせ",
+        "なければならない作業に該当しないものは，次のうちどれ",
+        "か。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "物体の飛来又は落下の危険のある採石作業"
+        },
+        {
+          "num": 2,
+          "text": "最大積載量が 5t の貨物自動車の荷の積卸しの作業"
+        },
+        {
+          "num": 3,
+          "text": "ジャッキ式つり上げ機械を用いた荷のつり上げ，つり下ろしの作業"
+        },
+        {
+          "num": 4,
+          "text": "橋梁支間 20m のコンクリート橋の架設作業"
+        }
+      ],
+      "topic": "令和5年度後期",
+      "qNum": 3,
+      "totalQ": 3,
+      "pageIndex": 6,
+      "totalPages": 8
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "労働安全衛生法上，事業者が労働者に保",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "採石作業は保護帽着用義務対象",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "5t 以上の貨物自動車の積卸し作業は対象",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "ジャッキ式つり上げ機械作業は対象",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "コンクリート橋架設作業の保護帽義務は支間 30m 以上等の規定で支間 20m は本問の判定上対象外 <ExamPoint>保護帽着用義務対象作業は安衛則で限定列挙される</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "コンクリート橋架設作業の保護帽義務は支間 30m 以上等の規定で支間 20m は本問の判定上対象外 <ExamPoint>保護帽着用義務対象作業は安衛則",
+      "qNum": 3,
+      "totalQ": 3,
+      "pageIndex": 7,
+      "totalPages": 8
+    },
+    {
+      "type": "cta",
+      "pageIndex": 8,
+      "totalPages": 8
+    }
+  ]
+}

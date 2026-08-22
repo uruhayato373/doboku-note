@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">環境アセスメント — 7工程フロー</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">配慮書 → スクリーニング → スコーピング → 実施 → 準備書 → 評価書 → 事後調査</text>
+
+  <rect x="40" y="140" width="265" height="90" rx="10" fill="#ffffff" stroke="#2e6da4" stroke-width="3"/>
+  <circle cx="76" cy="185" r="22" fill="#2e6da4"/>
+  <text x="76" y="193" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">1</text>
+  <text x="110" y="172" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#2e6da4">計画段階配慮書</text>
+  <text x="110" y="196" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">位置・規模等の検討</text>
+  <text x="110" y="218" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a">第一種事業のみ義務</text>
+  <text x="315" y="193" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#555555">→</text>
+  <rect x="325" y="140" width="265" height="90" rx="10" fill="#ffffff" stroke="#d4a017" stroke-width="3"/>
+  <circle cx="361" cy="185" r="22" fill="#d4a017"/>
+  <text x="361" y="193" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">2</text>
+  <text x="395" y="172" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#d4a017">スクリーニング</text>
+  <text x="395" y="196" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">アセス要否の個別判定</text>
+  <text x="395" y="218" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a">第二種事業のみ</text>
+  <text x="600" y="193" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#555555">→</text>
+  <rect x="610" y="140" width="265" height="90" rx="10" fill="#ffffff" stroke="#1a3a5c" stroke-width="3"/>
+  <circle cx="646" cy="185" r="22" fill="#1a3a5c"/>
+  <text x="646" y="193" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">3</text>
+  <text x="680" y="172" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c">スコーピング</text>
+  <text x="680" y="196" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">アセス項目・方法の決定</text>
+  <text x="680" y="218" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a">住民意見を反映</text>
+  <text x="885" y="193" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#555555">→</text>
+  <rect x="895" y="140" width="265" height="90" rx="10" fill="#ffffff" stroke="#3a7d44" stroke-width="3"/>
+  <circle cx="931" cy="185" r="22" fill="#3a7d44"/>
+  <text x="931" y="193" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">4</text>
+  <text x="965" y="172" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#3a7d44">環境アセス実施</text>
+  <text x="965" y="196" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">調査・予測・評価</text>
+  <text x="965" y="218" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a">動植物調査手法 6種</text>
+  <text x="1140" y="290" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#555555" text-anchor="end">↓</text>
+  <rect x="895" y="320" width="265" height="90" rx="10" fill="#ffffff" stroke="#1a3a5c" stroke-width="3"/>
+  <circle cx="931" cy="365" r="22" fill="#1a3a5c"/>
+  <text x="931" y="373" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">7</text>
+  <text x="965" y="352" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c">事後調査</text>
+  <text x="965" y="376" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">対策実績の検証</text>
+  <text x="965" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a">不確実性大の場合</text>
+  <text x="883" y="373" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#555555">←</text>
+  <rect x="610" y="320" width="265" height="90" rx="10" fill="#ffffff" stroke="#1a3a5c" stroke-width="3"/>
+  <circle cx="646" cy="365" r="22" fill="#1a3a5c"/>
+  <text x="646" y="373" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">6</text>
+  <text x="680" y="352" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c">評価書</text>
+  <text x="680" y="376" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">最終結果の確定</text>
+  <text x="680" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a">免許等での審査</text>
+  <text x="598" y="373" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#555555">←</text>
+  <rect x="325" y="320" width="265" height="90" rx="10" fill="#ffffff" stroke="#2e6da4" stroke-width="3"/>
+  <circle cx="361" cy="365" r="22" fill="#2e6da4"/>
+  <text x="361" y="373" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">5</text>
+  <text x="395" y="352" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#2e6da4">準備書</text>
+  <text x="395" y="376" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">アセス結果案の縦覧</text>
+  <text x="395" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a">住民意見の収集</text>
+  <rect x="40" y="450" width="1120" height="100" rx="8" fill="#e8f0fe"/>
+  <text x="60" y="482" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c">戦略的環境アセスメント (SEA)</text>
+  <text x="60" y="510" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">事業計画が固まる前に行うアセス。事業ではなく計画・政策レベルの事前評価。</text>
+  <text x="60" y="536" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">第一種事業の「計画段階配慮書」もこの考え方を反映している。</text>
+  <rect x="40" y="676" width="1120" height="44" rx="6" fill="#fbf3df"/>
+  <text x="60" y="706" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">引っかけ：「スクリーニングは第一種事業に対し実施」は誤り（第二種事業のみ）。R6 Ⅰ-1-30 の典型。</text>
+</svg>

@@ -1,0 +1,45 @@
+# PageSpeed Insights 計測対象 URL リスト
+#
+# 運用方針: カテゴリ × タグの代表ページのみ測定する。同テンプレのページは性能がほぼ同じになる前提。
+# 追加・削除する時は以下のルールに従う:
+#   - 1 グループから 1-3 URL に絞る
+#   - # で始まる行はコメントとして無視される
+#   - 空行も無視される
+#
+# 全ページ対象にしない理由: PSI API は 1 URL あたり 20-40 秒かかり、769 ページ × mobile+desktop = 10 時間超で現実的でない
+# 詳細: .claude/config/psi-config.json
+
+# ── サイト主要ハブ ──
+https://doboku-note.com/
+https://doboku-note.com/search
+https://doboku-note.com/category
+
+# ── civil-construction-1: 1級土木施工管理技士 ──
+# guide（ガイド）
+https://doboku-note.com/docs/civil-construction-1-guide-strategy
+https://doboku-note.com/docs/civil-construction-1-guide-four-management
+# primary（第1次試験・過去問）— 最新年度・旧年度の2点で過去問テンプレ代表
+https://doboku-note.com/docs/civil-construction-1-primary-r07-a
+https://doboku-note.com/docs/civil-construction-1-primary-h26-a
+# secondary（第2次試験）
+https://doboku-note.com/docs/civil-construction-1-secondary-r07
+https://doboku-note.com/docs/civil-construction-1-secondary-concrete-basics
+https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide
+# textbook（教科書）
+https://doboku-note.com/docs/civil-construction-1-textbook-quality-overview
+https://doboku-note.com/docs/civil-construction-1-textbook-schedule-overview
+
+# ── pe-comprehensive-management: 技術士・総合技術監理 ──
+# ハブ・インデックス
+https://doboku-note.com/docs/pe-comprehensive-management-exam-index
+https://doboku-note.com/docs/pe-comprehensive-management-exam-passing-strategy
+# 過去問（第1次・第2次）
+https://doboku-note.com/docs/pe-comprehensive-management-r07-primary
+https://doboku-note.com/docs/pe-comprehensive-management-r05-primary
+https://doboku-note.com/docs/pe-comprehensive-management-r07-secondary
+# キーワード（5 管理分野から代表）
+https://doboku-note.com/docs/pe-comprehensive-management-followership
+https://doboku-note.com/docs/pe-comprehensive-management-agile
+https://doboku-note.com/docs/pe-comprehensive-management-activity-abc
+https://doboku-note.com/docs/pe-comprehensive-management-agenda-21
+https://doboku-note.com/docs/pe-comprehensive-management-alarp-principle

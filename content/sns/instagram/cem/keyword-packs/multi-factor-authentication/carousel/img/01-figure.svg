@@ -1,0 +1,60 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="多要素認証の3要素と判定。認証要素は知識情報（知っているもの：パスワード・PIN・秘密の質問）、所持情報（持っているもの：ICカード・スマートフォン・トークン）、生体情報（本人の身体的特徴：指紋・顔・声紋）の3種類に分類される。多要素認証は異なる要素を2種類以上組み合わせるもので、例えばパスワード（知識）と指紋（生体）の組合せが該当する。一方、パスワードと秘密の質問はともに知識情報のため要素は1種類で、多要素認証ではなく二段階認証にあたる。">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-head { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .c-t    { font-size: 12px; font-weight: bold; }
+      .c-sub  { font-size: 11px; fill: #8a8a8a; }
+      .ex     { font-size: 11px; fill: #222; }
+      .f-head { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .ok-t   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .ng-t   { font-size: 12px; font-weight: bold; fill: #b22234; }
+      .f-foot { font-size: 11px; fill: #555; }
+    </style>
+  </defs>
+
+  <text class="t-head" x="200" y="38" text-anchor="middle">異なる2要素以上の組合せが多要素認証</text>
+
+  <!-- 3要素カード -->
+  <rect x="10" y="52" width="120" height="150" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.3"/>
+  <text class="c-t"   x="70" y="76" text-anchor="middle" fill="#2e6da4">知識情報</text>
+  <text class="c-sub" x="70" y="92" text-anchor="middle">知っているもの</text>
+  <line x1="22" y1="102" x2="118" y2="102" stroke="#2e6da4" stroke-width="0.8" opacity="0.5"/>
+  <text class="ex" x="70" y="124" text-anchor="middle">パスワード</text>
+  <text class="ex" x="70" y="146" text-anchor="middle">PIN</text>
+  <text class="ex" x="70" y="168" text-anchor="middle">秘密の質問</text>
+
+  <rect x="140" y="52" width="120" height="150" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.3"/>
+  <text class="c-t"   x="200" y="76" text-anchor="middle" fill="#d4a017">所持情報</text>
+  <text class="c-sub" x="200" y="92" text-anchor="middle">持っているもの</text>
+  <line x1="152" y1="102" x2="248" y2="102" stroke="#d4a017" stroke-width="0.8" opacity="0.5"/>
+  <text class="ex" x="200" y="124" text-anchor="middle">ICカード</text>
+  <text class="ex" x="200" y="146" text-anchor="middle">スマートフォン</text>
+  <text class="ex" x="200" y="168" text-anchor="middle">トークン</text>
+
+  <rect x="270" y="52" width="120" height="150" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.3"/>
+  <text class="c-t"   x="330" y="76" text-anchor="middle" fill="#3a7d44">生体情報</text>
+  <text class="c-sub" x="330" y="92" text-anchor="middle">本人の身体的特徴</text>
+  <line x1="282" y1="102" x2="378" y2="102" stroke="#3a7d44" stroke-width="0.8" opacity="0.5"/>
+  <text class="ex" x="330" y="124" text-anchor="middle">指紋</text>
+  <text class="ex" x="330" y="146" text-anchor="middle">顔・虹彩</text>
+  <text class="ex" x="330" y="168" text-anchor="middle">声紋</text>
+
+  <!-- 判定 -->
+  <rect x="10" y="214" width="380" height="272" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.3"/>
+  <text class="f-head" x="24" y="238" text-anchor="start">多要素認証（MFA）の判定</text>
+
+  <rect x="24" y="250" width="352" height="78" rx="6" fill="#ffffff" stroke="#3a7d44" stroke-width="1.3"/>
+  <text class="ok-t"  x="36" y="272" text-anchor="start">○ 異なる要素を2種類以上組み合わせる</text>
+  <text class="f-foot" x="36" y="294" text-anchor="start">例：パスワード（知識）＋指紋（生体）</text>
+  <text class="f-foot" x="36" y="314" text-anchor="start">例：ICカード（所持）＋暗証番号（知識）</text>
+
+  <rect x="24" y="338" width="352" height="98" rx="6" fill="#ffffff" stroke="#b22234" stroke-width="1.3"/>
+  <text class="ng-t"  x="36" y="360" text-anchor="start">✕ 同一要素を重ねる（多要素ではない）</text>
+  <text class="f-foot" x="36" y="382" text-anchor="start">例：パスワード＋秘密の質問</text>
+  <text class="f-foot" x="36" y="402" text-anchor="start">→ ともに知識情報で要素は1種類。</text>
+  <text class="f-foot" x="36" y="422" text-anchor="start">　 これは二段階認証であり多要素認証でない。</text>
+
+  <text class="f-foot" x="24" y="458" text-anchor="start">3要素から2種類以上を選ぶのが多要素認証の原則。</text>
+</svg>

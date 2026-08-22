@@ -1,0 +1,85 @@
+{
+  "slides": [
+    {
+      "type": "summary-cover",
+      "year": "r03",
+      "totalPacks": 9,
+      "pageIndex": 1,
+      "totalPages": 4
+    },
+    {
+      "type": "summary-pack-list",
+      "year": "r03",
+      "packs": [
+        {
+          "num": 1,
+          "title": "パック #1",
+          "subtitle": "回収期間法の限界 / コンセッション方式 / 管理限界と規格値 / クリティカルパス短縮"
+        },
+        {
+          "num": 2,
+          "title": "パック #2",
+          "subtitle": "デカップリングポイント / 損益分岐点分析 / 間接法CF調整方向 / 設備管理とLCC"
+        },
+        {
+          "num": 3,
+          "title": "パック #3",
+          "subtitle": "労働委員会の三者構成 / 対価型・環境型セクハラ / シャインの組織文化3層 / メンター制度の原則"
+        },
+        {
+          "num": 4,
+          "title": "パック #4",
+          "subtitle": "職能別vs事業部制 / 画像認識クラウド / 相関vs回帰分析 / ネット炎上とマスメディア"
+        },
+        {
+          "num": 5,
+          "title": "パック #5",
+          "subtitle": "クラウド3モデル比較 / 多要素認証の3要素 / システム信頼度計算 / カルタヘナ法の規制"
+        }
+      ],
+      "title": "R03 過去問 #1〜#5",
+      "pageIndex": 2,
+      "totalPages": 4
+    },
+    {
+      "type": "summary-pack-list",
+      "year": "r03",
+      "packs": [
+        {
+          "num": 6,
+          "title": "パック #6",
+          "subtitle": "派遣元の36協定適用 / 介護休業93日3回 / 労働分配率と景気循環 / リスク低減の優先順位"
+        },
+        {
+          "num": 7,
+          "title": "パック #7",
+          "subtitle": "SDGs「新しい公共」 / 生物多様性条約の成立順 / 騒音規制法の対象外 / 環境政策7手法"
+        },
+        {
+          "num": 8,
+          "title": "パック #8",
+          "subtitle": "混同行列と各指標変化 / 個人データの定義 / Web会議セキュリティ / 国民生活センター設置"
+        },
+        {
+          "num": 9,
+          "title": "パック #9",
+          "subtitle": "TBMの正確な定義 / 安全管理者の選任基準 / OSHMSのPDCA順序 / ロコモとフレイルの違い"
+        }
+      ],
+      "title": "R03 過去問 #6〜#9",
+      "pageIndex": 3,
+      "totalPages": 4
+    },
+    {
+      "type": "summary-cta",
+      "year": "r03",
+      "pageIndex": 4,
+      "totalPages": 4
+    }
+  ],
+  "_meta": {
+    "year": "r03",
+    "type": "summary",
+    "totalPacks": 9
+  }
+}

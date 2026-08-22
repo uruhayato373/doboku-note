@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820">
+  <rect width="1200" height="820" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">システム安全工学手法 — FMEA / FTA / ETA / HAZOP 比較</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">4手法 × 4属性で違いを把握</text>
+
+  <rect x="40" y="140" width="200" height="56" rx="8" fill="#1a3a5c"/>
+  <text x="140" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">手法</text>
+  <rect x="240" y="140" width="260" height="56" rx="8" fill="#1a3a5c"/>
+  <text x="370" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">解析方向</text>
+  <rect x="500" y="140" width="280" height="56" rx="8" fill="#1a3a5c"/>
+  <text x="640" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">対象</text>
+  <rect x="780" y="140" width="200" height="56" rx="8" fill="#1a3a5c"/>
+  <text x="880" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">出力形式</text>
+  <rect x="980" y="140" width="180" height="56" rx="8" fill="#1a3a5c"/>
+  <text x="1070" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">代表用途</text>
+  <rect x="40" y="204" width="1120" height="110" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="140" y="268" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#2e6da4" text-anchor="middle">FMEA</text>
+  <text x="370" y="249" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="middle">ボトムアップ</text>
+  <text x="370" y="281" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555" text-anchor="middle">（帰納的）</text>
+  <text x="640" y="268" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555" text-anchor="middle">構成要素の故障モード</text>
+  <text x="880" y="268" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555" text-anchor="middle">影響度の表</text>
+  <text x="1070" y="268" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555" text-anchor="middle">設計レビュー</text>
+  <rect x="40" y="314" width="1120" height="110" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="140" y="378" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#2e6da4" text-anchor="middle">FTA</text>
+  <text x="370" y="359" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="middle">トップダウン</text>
+  <text x="370" y="391" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555" text-anchor="middle">（演繹的）</text>
+  <text x="640" y="378" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555" text-anchor="middle">頂上事象の原因</text>
+  <text x="880" y="378" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555" text-anchor="middle">故障の木（確率計算）</text>
+  <text x="1070" y="378" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555" text-anchor="middle">事故原因解析</text>
+  <rect x="40" y="424" width="1120" height="110" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="140" y="488" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#2e6da4" text-anchor="middle">ETA</text>
+  <text x="370" y="469" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="middle">ボトムアップ</text>
+  <text x="370" y="501" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555" text-anchor="middle">（帰納的）</text>
+  <text x="640" y="488" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555" text-anchor="middle">初期事象の結果展開</text>
+  <text x="880" y="488" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555" text-anchor="middle">事象の木（YES/NO）</text>
+  <text x="1070" y="488" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555" text-anchor="middle">シナリオ評価</text>
+  <rect x="40" y="534" width="1120" height="110" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="140" y="598" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#2e6da4" text-anchor="middle">HAZOP</text>
+  <text x="370" y="598" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="middle">ガイドワード型</text>
+  <text x="640" y="598" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555" text-anchor="middle">プロセスパラメータのずれ</text>
+  <text x="880" y="598" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555" text-anchor="middle">危険事象一覧</text>
+  <text x="1070" y="598" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555" text-anchor="middle">化学プラント設計</text>
+  <rect x="40" y="668" width="1120" height="44" rx="6" fill="#e8f0fe"/>
+  <text x="60" y="698" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">頻出対比：FTA＝トップダウン（演繹）／ETA＝ボトムアップ（帰納）。逆向きの選択肢が引っかけ。</text>
+
+</svg>

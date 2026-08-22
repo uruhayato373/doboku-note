@@ -1,0 +1,101 @@
+name: Audit R2 image sync
+
+# R2 の同期状態だけを監査する。記事品質ゲートは content-quality-audit.yml へ分離し、
+# 記事側の違反があっても R2 の認証・同期漏れ検査が必ず実行されるようにする。
+
+on:
+  schedule:
+    - cron: "0 22 * * 0" # 毎週月曜 07:00 JST（日曜 22:00 UTC）
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout main (production source)
+        uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps --ignore-scripts
+
+      - name: Check OGP coverage (published articles have ogp.png)
+        run: node scripts/check-ogp-coverage.mjs
+
+      - name: Check orphan OGP (ogp.png/webp with no article MDX)
+        run: npm run check-orphan-ogp
+
+      - name: Diff local (main) vs R2 — images only
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          # 読み取り専用の監査キーを優先。未登録の間は既存キーへ後方互換フォールバックする。
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_AUDIT_ACCESS_KEY_ID || secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_AUDIT_SECRET_ACCESS_KEY || secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: |
+          set +e
+          node .claude/skills/dev/diff-r2/scripts/diff-r2.mjs --images-only --json > r2-diff.json
+          DIFF_EXIT=$?
+          set -e
+
+          if ! node -e "JSON.parse(require('fs').readFileSync('r2-diff.json','utf8'))" 2>/dev/null; then
+            echo "::error::diff-r2 が JSON を出力しませんでした（R2 認証失敗/権限不足の可能性, exit=$DIFF_EXIT）"
+            {
+              echo "## R2 監査: 実行失敗"
+              echo ""
+              echo "diff-r2 が JSON を返しませんでした（exit=$DIFF_EXIT）。"
+              echo "R2 読み取りトークンの有効性・権限を確認してください。"
+            } >> "$GITHUB_STEP_SUMMARY"
+            exit 1
+          fi
+
+          node -e '
+            const fs = require("fs");
+            const d = JSON.parse(fs.readFileSync("r2-diff.json", "utf8"));
+            const miss = d.onlyLocal || [];
+            const mism = d.sizeMismatch || [];
+            const orphan = d.onlyRemote || [];
+            const out = [
+              "## R2 画像同期 監査",
+              "",
+              "| 指標 | 件数 |",
+              "|---|---|",
+              `| local(main) 画像 | ${d.localCount} |`,
+              `| R2 画像 | ${d.remoteCount} |`,
+              `| **未同期** | **${miss.length}** |`,
+              `| **サイズ不一致** | **${mism.length}** |`,
+              `| R2 のみ (orphan・許容) | ${orphan.length} |`,
+            ];
+            const samples = [...miss, ...mism].slice(0, 15);
+            if (samples.length) {
+              out.push("", "### 要対応の例");
+              for (const x of samples) out.push(`- ${x.key}`);
+              const total = miss.length + mism.length;
+              if (total > 15) out.push(`- ... 他 ${total - 15} 件`);
+            }
+            const fail = miss.length > 0 || mism.length > 0;
+            out.push("", fail
+              ? "> **対処**: `gh workflow run r2-sync.yml` で再同期してください。"
+              : "OK: main の画像はすべて R2 に同期されています。");
+            fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, out.join("\n") + "\n");
+            if (fail) process.exit(1);
+          '
+
+      - name: Upload audit detail
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: r2-audit-${{ github.run_id }}
+          path: r2-diff.json
+          if-no-files-found: ignore
+          retention-days: 14

@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "channel": "gsc-ui",
+  "runId": "2026-07-30T05-48-04Z",
+  "collectedAt": "2026-07-30T05:48:04.037Z",
+  "units": [
+    {
+      "unit": "crawledNotIndexed--allKnownPages",
+      "rows": 350,
+      "previousRows": 350,
+      "added": [],
+      "removed": []
+    },
+    {
+      "unit": "redirect--allKnownPages",
+      "rows": 856,
+      "previousRows": 856,
+      "added": [],
+      "removed": []
+    },
+    {
+      "unit": "notFound--allKnownPages",
+      "rows": 297,
+      "previousRows": 297,
+      "added": [],
+      "removed": []
+    },
+    {
+      "unit": "alternateCanonical--allKnownPages",
+      "rows": 157,
+      "previousRows": 157,
+      "added": [],
+      "removed": []
+    },
+    {
+      "unit": "forbidden--allKnownPages",
+      "rows": 5,
+      "previousRows": 5,
+      "added": [],
+      "removed": []
+    },
+    {
+      "unit": "crawledNotIndexed--allSubmittedPages",
+      "rows": 299,
+      "previousRows": 299,
+      "added": [],
+      "removed": []
+    },
+    {
+      "unit": "alternateCanonical--allSubmittedPages",
+      "rows": 0,
+      "previousRows": 0,
+      "added": [],
+      "removed": []
+    }
+  ]
+}

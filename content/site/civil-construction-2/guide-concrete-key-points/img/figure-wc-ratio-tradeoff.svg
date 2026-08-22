@@ -1,0 +1,54 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="水セメント比と品質・施工性の関係。水セメント比を小さくするほど強度と耐久性は高まるが、流動性が下がって施工性は低下する。逆に大きくすると施工性は上がるが強度と耐久性は下がる。2 つの傾向は逆向きであり、上限値と下限値の範囲内で適切な値を選ぶ">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-axis { font-size: 11px; fill: #555; }
+      .t-str  { font-size: 11px; font-weight: bold; fill: #2e6da4; }
+      .t-wrk  { font-size: 11px; font-weight: bold; fill: #3a7d44; }
+      .t-band { font-size: 11px; font-weight: bold; fill: #d4a017; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .axis { stroke: #222; stroke-width: 1.5; fill: none; }
+      .str { stroke: #2e6da4; stroke-width: 2.5; fill: none; }
+      .wrk { stroke: #3a7d44; stroke-width: 2.5; fill: none; }
+      .band { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+    <marker id="wc-ax" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#222"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">2 本の傾向が逆を向くから中間を選ぶことになる</text>
+
+  <rect class="band" x="186" y="62" width="62" height="180" rx="4"/>
+  <text class="t-band" x="217" y="52" text-anchor="middle">適切な範囲</text>
+
+  <line class="axis" x1="76" y1="242" x2="378" y2="242" marker-end="url(#wc-ax)"/>
+  <line class="axis" x1="76" y1="242" x2="76" y2="62" marker-end="url(#wc-ax)"/>
+
+  <path class="str" d="M 100,80 L 350,224"/>
+  <path class="wrk" d="M 100,224 L 350,80"/>
+
+  <text class="t-str" x="104" y="72">強度・耐久性</text>
+  <text class="t-wrk" x="346" y="72" text-anchor="end">施工性（流動性）</text>
+
+  <text class="t-axis" x="70" y="76" text-anchor="end">高</text>
+  <text class="t-axis" x="70" y="240" text-anchor="end">低</text>
+  <text class="t-axis" x="86" y="262">水セメント比 小</text>
+  <text class="t-axis" x="368" y="262" text-anchor="end">大</text>
+
+  <rect class="box-surf" x="20" y="300" width="360" height="182" rx="6"/>
+  <text class="t-sec" x="200" y="322" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="331" x2="364" y2="331"/>
+  <text class="t-item" x="40" y="356">水セメント比を小さくすると空隙が減り緻密になる</text>
+  <text class="t-item" x="40" y="380">流動性が下がると鉄筋が密な部材で充填しにくい</text>
+  <text class="t-item" x="40" y="404">スランプが大きすぎると骨材が沈降して材料分離</text>
+  <text class="t-item" x="40" y="428">ポンプ圧送ではスランプの確保が必要になる</text>
+  <text class="t-item" x="40" y="452">上限値・下限値の範囲内で部位に応じて決める</text>
+</svg>

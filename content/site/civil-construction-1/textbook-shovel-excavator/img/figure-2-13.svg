@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="油圧ショベル兼用屈曲ジブ式移動式クレーンの主要安全装置。過負荷警報装置・定格荷重表示銘板・落下防止バルブ・ブーム/アーム角度センサ・荷重検出圧力センサ・水準器・クレーンモード表示灯の配置">
+  <style>
+    text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; }
+    .body { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    .boom { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    .arm { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    .bucket { fill: #f8d7da; stroke: #b22234; stroke-width: 1.2; }
+    .safety { fill: #b22234; stroke: #222; stroke-width: 0.8; }
+    .sensor { fill: #d4a017; stroke: #222; stroke-width: 0.8; }
+    .hook { fill: none; stroke: #b22234; stroke-width: 1.5; }
+    .lead { stroke: #555; stroke-width: 0.8; fill: none; }
+    .label { font-size: 11px; fill: #b22234; font-weight: bold; }
+    .part { font-size: 11px; fill: #1a3a5c; }
+    .ground { stroke: #222; stroke-width: 1; }
+    .hatch { stroke: #8a8a8a; stroke-width: 0.6; }
+  </style>
+
+  <!-- Ground -->
+  <line x1="10" y1="300" x2="390" y2="300" class="ground"/>
+  <g class="hatch">
+    <line x1="30" y1="300" x2="20" y2="312"/>
+    <line x1="60" y1="300" x2="50" y2="312"/>
+    <line x1="90" y1="300" x2="80" y2="312"/>
+    <line x1="120" y1="300" x2="110" y2="312"/>
+    <line x1="150" y1="300" x2="140" y2="312"/>
+    <line x1="180" y1="300" x2="170" y2="312"/>
+    <line x1="210" y1="300" x2="200" y2="312"/>
+    <line x1="240" y1="300" x2="230" y2="312"/>
+    <line x1="270" y1="300" x2="260" y2="312"/>
+    <line x1="300" y1="300" x2="290" y2="312"/>
+    <line x1="330" y1="300" x2="320" y2="312"/>
+    <line x1="360" y1="300" x2="350" y2="312"/>
+  </g>
+
+  <!-- Body (cab + counterweight) -->
+  <rect x="215" y="210" width="100" height="55" rx="4" class="body"/>
+  <!-- Cab window -->
+  <rect x="220" y="220" width="35" height="30" fill="#ffffff" stroke="#222" stroke-width="0.6"/>
+  <!-- Crawler -->
+  <rect x="200" y="265" width="130" height="20" rx="10" class="body"/>
+  <circle cx="215" cy="275" r="6" fill="#3a7d44"/>
+  <circle cx="315" cy="275" r="6" fill="#3a7d44"/>
+
+  <!-- Boom (#2e6da4, diagonal up-left) -->
+  <polygon points="235,220 130,100 120,115 225,230" class="boom"/>
+
+  <!-- Arm (#d4a017, diagonal down from boom tip) -->
+  <polygon points="125,105 115,120 85,200 95,208" class="arm"/>
+
+  <!-- Bucket (with storable hook) -->
+  <path d="M 85 200 L 95 208 L 88 240 Q 70 245 62 232 L 75 205 Z" class="bucket"/>
+  <!-- Storable hook under bucket -->
+  <path d="M 76 228 L 70 248 L 80 248 L 80 252 L 70 252" class="hook"/>
+
+  <!-- === Safety devices === -->
+
+  <!-- 1. 定格荷重表示銘板 (フック近傍) -->
+  <rect x="55" y="240" width="12" height="8" class="safety"/>
+  <line x1="55" y1="244" x2="45" y2="255" class="lead"/>
+  <text x="5" y="255" class="label">定格荷重表示銘板</text>
+
+  <!-- 2. 落下防止バルブ (ブーム基部) -->
+  <circle cx="210" cy="195" r="4" class="safety"/>
+  <line x1="205" y1="195" x2="165" y2="160" class="lead"/>
+  <text x="5" y="158" class="label">落下防止バルブ</text>
+
+  <!-- 3. アーム角度センサ (ブーム-アーム接合部) -->
+  <circle cx="125" cy="110" r="3.5" class="sensor"/>
+  <line x1="125" y1="110" x2="95" y2="78" class="lead"/>
+  <text x="5" y="76" class="label">アーム角度センサ</text>
+
+  <!-- 4. ブーム角度センサ (本体-ブーム接合部) -->
+  <circle cx="232" cy="225" r="3.5" class="sensor"/>
+  <line x1="235" y1="225" x2="280" y2="185" class="lead"/>
+  <text x="284" y="183" class="label">ブーム角度センサ</text>
+
+  <!-- 5. 荷重検出用圧力センサ (ブームシリンダ付近) -->
+  <circle cx="185" cy="175" r="3.5" class="sensor"/>
+  <line x1="185" y1="175" x2="220" y2="128" class="lead"/>
+  <text x="224" y="126" class="label">荷重検出用圧力センサ</text>
+
+  <!-- 6. 過負荷警報装置 (本体内) -->
+  <rect x="255" y="228" width="14" height="10" class="safety"/>
+  <line x1="262" y1="238" x2="305" y2="145" class="lead"/>
+  <text x="308" y="144" class="label">過負荷警報装置</text>
+
+  <!-- 7. 水準器 -->
+  <rect x="275" y="240" width="10" height="6" fill="#ffffff" stroke="#222"/>
+  <line x1="280" y1="246" x2="335" y2="225" class="lead"/>
+  <text x="338" y="224" class="label">水準器</text>
+
+  <!-- 8. クレーンモード外部表示灯 (本体後方) -->
+  <circle cx="305" cy="220" r="4" fill="#d4a017" stroke="#222"/>
+  <line x1="308" y1="220" x2="340" y2="195" class="lead"/>
+  <text x="396" y="194" class="label" text-anchor="end">クレーンモード</text>
+  <text x="396" y="205" class="label" text-anchor="end">外部表示灯</text>
+
+  <!-- 9. 格納型フック annotated separately -->
+  <line x1="75" y1="252" x2="55" y2="280" class="lead"/>
+  <text x="5" y="282" class="label">格納型フック</text>
+
+  <!-- Legend -->
+  <line x1="20" y1="318" x2="380" y2="318" stroke="#d7d7d7" stroke-width="1"/>
+  <g transform="translate(20,332)">
+    <rect x="0" y="-8" width="10" height="8" class="safety"/>
+    <text x="15" y="0" font-size="10" fill="#555">安全装置</text>
+    <circle cx="80" cy="-4" r="3.5" class="sensor"/>
+    <text x="90" y="0" font-size="10" fill="#555">センサ</text>
+    <rect x="145" y="-8" width="10" height="8" class="boom"/>
+    <text x="160" y="0" font-size="10" fill="#555">ブーム</text>
+    <rect x="210" y="-8" width="10" height="8" class="arm"/>
+    <text x="225" y="0" font-size="10" fill="#555">アーム</text>
+    <rect x="275" y="-8" width="10" height="8" class="bucket"/>
+    <text x="290" y="0" font-size="10" fill="#555">バケット</text>
+  </g>
+
+  <!-- 安全装置説明ボックス -->
+  <rect x="15" y="352" width="370" height="134" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="200" y="371" font-size="12" fill="#1a3a5c" text-anchor="middle" font-weight="bold">主要安全装置の機能</text>
+  <line x1="15" y1="378" x2="385" y2="378" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="25" y="396" font-size="11" fill="#222">過負荷警報装置：定格荷重超過を警報・自動停止</text>
+  <text x="25" y="414" font-size="11" fill="#222">落下防止バルブ：ホース破断時の急落下を防止</text>
+  <text x="25" y="432" font-size="11" fill="#222">角度センサ：ブーム・アーム角から作業半径を演算</text>
+  <text x="25" y="450" font-size="11" fill="#555">荷重・角度・水平の3要素を連動制御し転倒を防ぐ</text>
+  <text x="25" y="468" font-size="11" fill="#555">クレーンモード時は定格荷重表・フック格納の確認が必須</text>
+  <text x="25" y="486" font-size="11" fill="#555">兼用機：クレーン構造規格＋移動式クレーン規則の両適用</text>
+</svg>

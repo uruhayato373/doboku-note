@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="612" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif">
+  
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">境界型セキュリティ vs ゼロトラストセキュリティ</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">クラウド時代のセキュリティパラダイムシフト</text>
+  <!-- rects を先に描画してからテキストをその上に重ねる -->
+  <rect x="60" y="110" width="520" height="360" rx="14" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2.5"/>
+  <rect x="620" y="110" width="520" height="360" rx="14" fill="#e6f1e8" stroke="#3a7d44" stroke-width="2.5"/>
+  <!-- タイトルテキスト -->
+  <text x="320" y="156" text-anchor="middle" font-size="24" font-weight="800" fill="#2e6da4">境界型セキュリティ</text>
+  <text x="880" y="156" text-anchor="middle" font-size="24" font-weight="800" fill="#3a7d44">ゼロトラストセキュリティ</text>
+  <!-- 各項目テキスト（rect描画後に重ねる） -->
+  <text x="80" y="186" font-size="18" fill="#555555">・内部ネットワーク = 信頼領域</text><text x="80" y="238" font-size="18" fill="#555555">・外部 = 不信頼領域</text><text x="80" y="290" font-size="18" fill="#555555">・VPNで境界を拡張</text><text x="80" y="342" font-size="18" fill="#555555">・一度認証されれば内部は自由</text><text x="80" y="394" font-size="18" fill="#555555">・境界突破で全データが危険</text>
+  <text x="640" y="186" font-size="18" fill="#555555">・内部も外部も区別なく不信頼</text><text x="640" y="238" font-size="18" fill="#555555">・全アクセスを個別に認証</text><text x="640" y="290" font-size="18" fill="#555555">・VPNに依存しない</text><text x="640" y="342" font-size="18" fill="#555555">・最小権限・継続認証が基本</text><text x="640" y="394" font-size="18" fill="#3a7d44">・両者を組み合わせた多層防御が理想</text>
+  <!-- vs -->
+  <text x="600" y="302" text-anchor="middle" font-size="32" font-weight="800" fill="#8a8a8a">vs</text>
+  <text x="40" y="510" font-size="19" font-weight="700" fill="#b22234">★ VPNは「境界型セキュリティ」の手段。ゼロトラストとは異なる概念（R07頻出引っかけ）。</text>
+  
+</svg>

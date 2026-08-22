@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">ローカル画像がありません</title>
+  <desc id="desc">画像をローカルへ同期すると、開発画面に表示されます。</desc>
+  <rect width="1200" height="630" fill="#f4f7fb"/>
+  <rect x="36" y="36" width="1128" height="558" rx="24" fill="#ffffff" stroke="#cbd5e1" stroke-width="4" stroke-dasharray="14 12"/>
+  <g fill="none" stroke="#64748b" stroke-width="12" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="498" y="150" width="204" height="160" rx="18"/>
+    <circle cx="555" cy="205" r="18"/>
+    <path d="m520 278 48-48 38 38 26-26 48 48"/>
+  </g>
+  <text x="600" y="390" text-anchor="middle" font-family="system-ui, sans-serif" font-size="38" font-weight="700" fill="#334155">ローカル画像がありません</text>
+  <text x="600" y="448" text-anchor="middle" font-family="system-ui, sans-serif" font-size="25" fill="#64748b">R2 が不調でも記事編集は続けられます</text>
+  <text x="600" y="500" text-anchor="middle" font-family="ui-monospace, monospace" font-size="22" fill="#1858b5">npm run download-images</text>
+</svg>

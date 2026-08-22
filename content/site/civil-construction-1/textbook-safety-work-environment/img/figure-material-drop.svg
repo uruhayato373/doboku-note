@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="高さ3メートル以上からの物体の投下では、投下設備を設け、監視人を置き、立入禁止区域を設定する">
+  <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">投下3m以上：投下設備＋監視人＋立入禁止（安衛則第536条）</text>
+
+  <!-- 上部床（投下する階） -->
+  <rect x="60" y="70" width="150" height="14" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="135" y="63" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">上部（投下する位置）</text>
+
+  <!-- 投下物 -->
+  <rect x="150" y="52" width="16" height="16" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+
+  <!-- 投下設備（シュート・淡塗り台形） -->
+  <path d="M180 84 L210 84 L300 380 L262 380 Z" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="248" y="230" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1a3a5c" transform="rotate(72 248 230)">投下設備（シュート）</text>
+
+  <!-- 高さ3m寸法線 -->
+  <line x1="90" y1="84" x2="90" y2="380" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M90 84 l-3 8 h6 z" fill="#2e6da4"/>
+  <path d="M90 380 l-3 -8 h6 z" fill="#2e6da4"/>
+  <text x="84" y="232" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222" transform="rotate(-90 84 232)">高さ 3m 以上</text>
+
+  <!-- 地表・立入禁止区域 -->
+  <line x1="40" y1="380" x2="360" y2="380" stroke="#8a8a8a" stroke-width="1.5"/>
+  <rect x="230" y="382" width="120" height="30" rx="4" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <text x="290" y="401" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">立入禁止区域</text>
+
+  <!-- 監視人 -->
+  <circle cx="120" cy="360" r="9" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="112" y="370" width="16" height="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="120" y="401" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">監視人</text>
+
+  <!-- 補足 -->
+  <rect x="30" y="424" width="340" height="66" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="445" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">3m以上の投下＝投下設備＋監視人＋立入禁止</text>
+  <text x="200" y="464" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">落下・飛来のおそれ＝防網・保護帽で防止</text>
+  <text x="200" y="483" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">根拠：安衛則 第536〜538条</text>
+</svg>

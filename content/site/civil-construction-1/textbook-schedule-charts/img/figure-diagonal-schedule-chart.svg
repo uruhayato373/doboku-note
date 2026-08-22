@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="斜線式工程表：横軸に区間（距離程）・縦軸に日数（工期）をとり、工種ごとの進捗を斜線で表す">
+  <defs>
+    <marker id="dscArr" markerUnits="userSpaceOnUse" viewBox="0 0 8 7" refX="8" refY="3.5" markerWidth="8" markerHeight="7" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#222"/>
+    </marker>
+    <style>
+      .f { font-family: Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif; }
+    </style>
+  </defs>
+
+  <text class="f" x="200" y="18" text-anchor="middle" font-size="11" fill="#8a8a8a">進捗が距離のみで決まる工事（トンネル等）に適する</text>
+
+  <!-- 軸 -->
+  <line x1="66" y1="300" x2="374" y2="300" stroke="#222" stroke-width="1.5" marker-end="url(#dscArr)"/>
+  <line x1="66" y1="300" x2="66" y2="42" stroke="#222" stroke-width="1.5" marker-end="url(#dscArr)"/>
+
+  <!-- 軸ラベル -->
+  <text class="f" x="366" y="294" text-anchor="end" font-size="12" font-weight="bold" fill="#222">区間（距離程）</text>
+  <text class="f" x="58" y="56" text-anchor="end" font-size="12" font-weight="bold" fill="#222">日数</text>
+  <text class="f" x="58" y="70" text-anchor="end" font-size="11" fill="#555">（工期）</text>
+
+  <!-- 目盛 -->
+  <text class="f" x="66" y="316" text-anchor="middle" font-size="11" fill="#555">起点</text>
+  <text class="f" x="352" y="316" text-anchor="middle" font-size="11" fill="#555">終点</text>
+  <line x1="62" y1="240" x2="66" y2="240" stroke="#555" stroke-width="1"/>
+  <line x1="62" y1="160" x2="66" y2="160" stroke="#555" stroke-width="1"/>
+  <line x1="62" y1="80" x2="66" y2="80" stroke="#555" stroke-width="1"/>
+  <text class="f" x="58" y="244" text-anchor="end" font-size="11" fill="#8a8a8a">1か月</text>
+  <text class="f" x="58" y="164" text-anchor="end" font-size="11" fill="#8a8a8a">2か月</text>
+  <text class="f" x="58" y="84" text-anchor="end" font-size="11" fill="#8a8a8a">3か月</text>
+
+  <!-- 補助グリッド -->
+  <line x1="66" y1="240" x2="360" y2="240" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="66" y1="160" x2="360" y2="160" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="66" y1="80" x2="360" y2="80" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 工種A：掘削（先行） -->
+  <line x1="76" y1="292" x2="350" y2="120" stroke="#2e6da4" stroke-width="3"/>
+  <circle cx="76" cy="292" r="3.5" fill="#2e6da4"/>
+  <circle cx="350" cy="120" r="3.5" fill="#2e6da4"/>
+  <text class="f" x="252" y="206" font-size="12" font-weight="bold" fill="#2e6da4">掘削</text>
+
+  <!-- 工種B：覆工（後続） -->
+  <line x1="76" y1="248" x2="350" y2="62" stroke="#b22234" stroke-width="3"/>
+  <circle cx="76" cy="248" r="3.5" fill="#b22234"/>
+  <circle cx="350" cy="62" r="3.5" fill="#b22234"/>
+  <text class="f" x="150" y="174" font-size="12" font-weight="bold" fill="#b22234">覆工</text>
+
+  <!-- 傾き＝施工速度の注記 -->
+  <text class="f" x="196" y="284" text-anchor="middle" font-size="11" fill="#555">斜線の傾きが施工速度を表す</text>
+
+  <!-- 軸のとり方まとめ -->
+  <rect x="18" y="336" width="364" height="62" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="f" x="32" y="356" font-size="12" font-weight="bold" fill="#1a3a5c">軸のとり方</text>
+  <text class="f" x="32" y="374" font-size="11" fill="#555">横軸＝区間（距離程）　縦軸＝日数（工期）</text>
+  <text class="f" x="32" y="390" font-size="11" fill="#555">他の工程図表は横軸に工期をとるため、とり方が逆になる</text>
+
+  <!-- 長所・短所 -->
+  <rect x="18" y="406" width="177" height="76" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text class="f" x="30" y="426" font-size="12" font-weight="bold" fill="#3a7d44">長所</text>
+  <text class="f" x="30" y="444" font-size="11" fill="#555">全工種を枠内に表現</text>
+  <text class="f" x="30" y="460" font-size="11" fill="#555">施工場所と施工時期の</text>
+  <text class="f" x="30" y="474" font-size="11" fill="#555">進捗が直視的にわかる</text>
+
+  <rect x="205" y="406" width="177" height="76" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text class="f" x="217" y="426" font-size="12" font-weight="bold" fill="#b22234">短所</text>
+  <text class="f" x="217" y="444" font-size="11" fill="#555">工種間の相互関係が</text>
+  <text class="f" x="217" y="460" font-size="11" fill="#555">不明確で、変更の影響が</text>
+  <text class="f" x="217" y="474" font-size="11" fill="#555">わかりにくい</text>
+</svg>

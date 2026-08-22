@@ -1,0 +1,58 @@
+{
+  "slug": "pe-first-stage-r07-construction",
+  "year": "R07",
+  "sub": "construction",
+  "audited_at": "2026-06-08",
+  "answer_check": {
+    "status": "fail",
+    "verified_count": 34,
+    "mismatches": [
+      {
+        "question": "Ⅲ-17",
+        "mdx_answer": "5",
+        "official_answer": "3",
+        "note": "MDX解説の導出（p_B = ρg(z_C - z_B)）は選択肢3に一致するが、MDXは公式正答として選択肢5（2ρg(z_C-z_B)）を正答とマークしている。原典PDF画像でも選択肢③がρg(z_C-z_B)で数学的正答。前段audit結果を引き継ぎ。"
+      }
+    ]
+  },
+  "visual_check": {
+    "status": "fail",
+    "checked_count": 35,
+    "issues": [
+      {
+        "question": "Ⅲ-5",
+        "type": "text_mismatch",
+        "detail": "問題文の荷重条件の記述が異なる。PDF「弾性変形を生じさせるのに十分に大きい正の値とする」に対し、MDX は「弾性変形を生じさせるのに十分に小さい正の値とする」となっている（大きい↔小さいの違い）。"
+      },
+      {
+        "question": "Ⅲ-10",
+        "type": "text_mismatch",
+        "detail": "選択肢①の内容が異なる。PDF「細骨材及び粗骨材は、清浄、堅硬、劣化に対する抵抗性をもち…」に対し、MDX は「練混ぜ水は清浄で、油、酸、塩類、有機不純物、濁り等を有害な量含まない…」となっており、設問の素材が骨材から練混ぜ水に書き換わっている。さらに選択肢⑤「ポルトランドセメントの6種類」で、PDF は「中庸熱, 高熱, 耐硫酸塩」と記載されているが MDX は「高炉」と記載されており、問題文本文に誤記がある。"
+      },
+      {
+        "question": "Ⅲ-14",
+        "type": "text_mismatch",
+        "detail": "選択肢①の記述が異なる。PDF「中山間地の居住者の都市部への移転を促す政策」に対し、MDX は「中心市街地の居住者の都市部への移転を促す政策」となっており、「中山間地」が「中心市街地」に書き換わっている。"
+      },
+      {
+        "question": "Ⅲ-24",
+        "type": "text_mismatch",
+        "detail": "選択肢①の記述が異なる。PDF「当該海岸保全施設の背後地の状況等を考慮して、海岸管理者により定められる」に対し、MDX は「当該海岸保全施設の資金供用の状況等を考慮して、海岸管理者により定められる」となっており、「背後地の状況」が「資金供用の状況」に書き換わっている。"
+      },
+      {
+        "question": "Ⅲ-27",
+        "type": "text_mismatch",
+        "detail": "表中のB（石炭）の2020年度の値が異なる。PDF の表では29.6%と読み取れるが、MDX では6.9%と記載されており、数値が大きく異なる。この数値の誤りがある場合でも「最も適切な組合せ」の正答（選択肢4: LNG/石炭/再エネ/原子力/水力）には影響しないが、問題文の数表として原典と一致していない。"
+      }
+    ]
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "全35問（Ⅲ-1〜Ⅲ-35）の見出しが連番で揃っている。frontmatterにtitle/category/group/published/source_pdfすべて存在。ExamPoint・detailsとも35個で一致。原典PDF全20ページを視覚照合完了。設問番号・問題文先頭・選択肢数（全問5択）・問いの極性（Ⅲ-13のみ最も適切、他は最も不適切）・図の有無（Ⅲ-1,Ⅲ-5,Ⅲ-6,Ⅲ-17に図あり）すべてMDXと一致。Ⅲ-17の正答表記のみ不一致（answer_checkに記載）。"
+  }
+}

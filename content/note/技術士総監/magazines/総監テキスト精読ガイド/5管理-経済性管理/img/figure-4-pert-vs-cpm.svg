@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">PERT vs CPM — 日程計画2手法の使い分け</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">時間見積の方法と確率/決定論の違いで見分ける</text>
+
+  <rect x="40" y="150" width="550" height="80" rx="10" fill="#2e6da4"/>
+  <text x="315" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#ffffff" text-anchor="middle">PERT</text>
+  <text x="315" y="212" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle">Program Evaluation and Review Technique</text>
+  <rect x="610" y="150" width="550" height="80" rx="10" fill="#3a7d44"/>
+  <text x="885" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#ffffff" text-anchor="middle">CPM</text>
+  <text x="885" y="212" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#ffffff" text-anchor="middle">Critical Path Method</text>
+  <rect x="40" y="250" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="56" y="276" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4">出自</text>
+  <text x="56" y="302" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">米国海軍ポラリス計画</text>
+  <rect x="610" y="250" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="626" y="276" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">出自</text>
+  <text x="626" y="302" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">化学プラント保全</text>
+  <rect x="40" y="314" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="56" y="340" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4">時間見積</text>
+  <text x="56" y="366" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">3点見積（楽観・最頻・悲観）</text>
+  <rect x="610" y="314" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="626" y="340" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">時間見積</text>
+  <text x="626" y="366" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">1点見積（決定論的）</text>
+  <rect x="40" y="378" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="56" y="404" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4">対象</text>
+  <text x="56" y="430" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">不確実性の高い研究開発</text>
+  <rect x="610" y="378" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="626" y="404" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">対象</text>
+  <text x="626" y="430" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">繰り返し型のプロジェクト</text>
+  <rect x="40" y="442" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="56" y="468" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4">コスト</text>
+  <text x="56" y="494" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">時間管理が中心</text>
+  <rect x="610" y="442" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="626" y="468" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">コスト</text>
+  <text x="626" y="494" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">時間と費用のトレードオフ分析</text>
+  <rect x="40" y="506" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="56" y="532" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#2e6da4">解析</text>
+  <text x="56" y="558" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">確率的（正規分布近似）</text>
+  <rect x="610" y="506" width="550" height="64" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="626" y="532" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">解析</text>
+  <text x="626" y="558" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">決定論的（コスト最適化）</text>
+  <rect x="40" y="602" width="1120" height="44" rx="6" fill="#fbf3df"/>
+  <text x="60" y="632" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">引っかけ：PERT は3点見積、CPM は1点見積＋コスト分析。不確実性の扱いが本質的な違い。</text>
+  <text x="1160" y="740" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

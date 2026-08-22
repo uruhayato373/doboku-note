@@ -1,0 +1,88 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="従来の防災活動とBCM（事業継続マネジメント）の比較。目的・対象・主体・時間軸の4観点で対比した2カラム表">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-head   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-label  { font-size: 12px; font-weight: bold; fill: #8a8a8a; }
+      .t-cell   { font-size: 12px; fill: #222; }
+      .t-plus   { font-size: 12px; font-weight: bold; fill: #3a7d44; }
+      .t-note   { font-size: 11px; fill: #555; }
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .box-left     { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1; }
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .head-left    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .head-brand   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <!-- 列定義: 観点列x=8 w=56, 左列x=68 w=150, 右列x=222 w=170 -->
+
+  <!-- ヘッダ行 h=40 y=12 -->
+  <rect class="box-surface" x="8" y="12" width="56" height="40" rx="4"/>
+  <text class="t-label" x="36" y="37" text-anchor="middle">観点</text>
+
+  <rect class="head-left" x="68" y="12" width="150" height="40" rx="4"/>
+  <text class="t-head" x="143" y="37" text-anchor="middle">従来の防災活動</text>
+
+  <rect class="head-brand" x="222" y="12" width="170" height="40" rx="4"/>
+  <text class="t-head" x="307" y="29" text-anchor="middle">事業継続マネジメント</text>
+  <text class="t-note" x="307" y="45" text-anchor="middle">（BCM）</text>
+
+  <!-- 行1: 目的 h=88 -->
+  <rect class="box-surface" x="8" y="56" width="56" height="88" rx="4"/>
+  <text class="t-label" x="36" y="104" text-anchor="middle">目的</text>
+
+  <rect class="box-left" x="68" y="56" width="150" height="88" rx="4"/>
+  <text class="t-cell" x="143" y="90" text-anchor="middle">人命・物的被害の</text>
+  <text class="t-cell" x="143" y="108" text-anchor="middle">軽減・最小化</text>
+
+  <rect class="box-positive" x="222" y="56" width="170" height="88" rx="4"/>
+  <text class="t-plus" x="307" y="84" text-anchor="middle">重要事業の継続・</text>
+  <text class="t-plus" x="307" y="102" text-anchor="middle">早期復旧の確保</text>
+  <text class="t-note" x="307" y="120" text-anchor="middle">（経営戦略レベル）</text>
+
+  <!-- 行2: 対象 h=88 -->
+  <rect class="box-surface" x="8" y="148" width="56" height="88" rx="4"/>
+  <text class="t-label" x="36" y="196" text-anchor="middle">対象</text>
+
+  <rect class="box-left" x="68" y="148" width="150" height="88" rx="4"/>
+  <text class="t-cell" x="143" y="182" text-anchor="middle">施設・設備・人命</text>
+  <text class="t-note" x="143" y="200" text-anchor="middle">（物理的被害への対処）</text>
+
+  <rect class="box-brand" x="222" y="148" width="170" height="88" rx="4"/>
+  <text class="t-cell" x="307" y="182" text-anchor="middle">重要業務プロセス・</text>
+  <text class="t-cell" x="307" y="200" text-anchor="middle">サプライチェーン等</text>
+
+  <!-- 行3: 主体 h=88 -->
+  <rect class="box-surface" x="8" y="240" width="56" height="88" rx="4"/>
+  <text class="t-label" x="36" y="288" text-anchor="middle">主体</text>
+
+  <rect class="box-left" x="68" y="240" width="150" height="88" rx="4"/>
+  <text class="t-cell" x="143" y="274" text-anchor="middle">防災担当部門・</text>
+  <text class="t-cell" x="143" y="292" text-anchor="middle">現場担当者</text>
+
+  <rect class="box-positive" x="222" y="240" width="170" height="88" rx="4"/>
+  <text class="t-plus" x="307" y="270" text-anchor="middle">経営トップが主導</text>
+  <text class="t-note" x="307" y="290" text-anchor="middle">全社横断・ISO 22301対応</text>
+
+  <!-- 行4: 時間軸 h=88 -->
+  <rect class="box-surface" x="8" y="332" width="56" height="88" rx="4"/>
+  <text class="t-label" x="36" y="362" text-anchor="middle">時間軸</text>
+  <text class="t-label" x="36" y="378" text-anchor="middle">・重点</text>
+
+  <rect class="box-left" x="68" y="332" width="150" height="88" rx="4"/>
+  <text class="t-cell" x="143" y="366" text-anchor="middle">発災後の応急対応・</text>
+  <text class="t-cell" x="143" y="384" text-anchor="middle">復旧に重点</text>
+
+  <rect class="box-brand" x="222" y="332" width="170" height="88" rx="4"/>
+  <text class="t-cell" x="307" y="360" text-anchor="middle">平常時の計画・訓練</text>
+  <text class="t-cell" x="307" y="378" text-anchor="middle">から復旧まで一貫</text>
+  <text class="t-note" x="307" y="396" text-anchor="middle">（PDCA サイクル）</text>
+
+  <!-- フッター -->
+  <rect x="8" y="432" width="384" height="52" rx="5" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-note" x="200" y="452" text-anchor="middle" font-weight="bold" fill="#1a3a5c">BCM の位置づけ</text>
+  <text class="t-note" x="200" y="468" text-anchor="middle">BCMはBCP策定・維持・更新・教育訓練・継続改善を含む</text>
+  <text class="t-note" x="200" y="482" text-anchor="middle">防災活動を内包し事業継続を経営戦略へ組み込む</text>
+</svg>

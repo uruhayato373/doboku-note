@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <rect x="0" y="0" width="1200" height="675" rx="0" fill="#ffffff" />
+<rect x="60" y="40" width="360" height="56" rx="28" fill="#2e6da4" />
+  <text x="240" y="68" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">Q4 経済性管理</text>
+  <text x="1160" y="64" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" font-weight="400" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+  <text x="60" y="140" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="32" font-weight="800" fill="#222222" text-anchor="start">損益分岐点</text>
+  <line x1="60" y1="160" x2="1140" y2="160" stroke="#2e6da4" stroke-width="2" />
+  <text font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="500" fill="#222222"><tspan x="60" y="200">損益分岐点売上高の計算式として正しいものはどれか。</tspan></text>
+  <g>
+    <rect x="80" y="290" width="510" height="110" rx="12" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+    <circle cx="120" cy="345" r="26" fill="#2e6da4" />
+  <text x="120" y="345" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="29" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">1</text>
+    <text x="162" y="345" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" font-weight="400" fill="#222222" text-anchor="start" dominant-baseline="central">固定費 ÷ 変動費率</text>
+    </g>
+  <g>
+    <rect x="610" y="290" width="510" height="110" rx="12" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+    <circle cx="650" cy="345" r="26" fill="#2e6da4" />
+  <text x="650" y="345" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="29" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">2</text>
+    <text x="692" y="345" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" font-weight="400" fill="#222222" text-anchor="start" dominant-baseline="central">固定費 ÷ 限界利益率</text>
+    </g>
+  <g>
+    <rect x="80" y="420" width="510" height="110" rx="12" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+    <circle cx="120" cy="475" r="26" fill="#2e6da4" />
+  <text x="120" y="475" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="29" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">3</text>
+    <text x="162" y="475" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" font-weight="400" fill="#222222" text-anchor="start" dominant-baseline="central">変動費 ÷ 限界利益率</text>
+    </g>
+  <g>
+    <rect x="610" y="420" width="510" height="110" rx="12" fill="#f8fafc" stroke="#e5e7eb" stroke-width="2" />
+    <circle cx="650" cy="475" r="26" fill="#2e6da4" />
+  <text x="650" y="475" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="29" font-weight="700" fill="#ffffff" text-anchor="middle" dominant-baseline="central">4</text>
+    <text x="692" y="475" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" font-weight="400" fill="#222222" text-anchor="start" dominant-baseline="central">売上高 ÷ 変動費率</text>
+    </g>
+  <text x="600" y="655" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" font-weight="700" fill="#2e6da4" text-anchor="middle">↓ 答えはリプライツリーに ↓</text>
+</svg>

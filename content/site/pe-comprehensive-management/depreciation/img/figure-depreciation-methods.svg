@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="定額法と定率法の違い：定額法は耐用年数にわたり毎期同額を償却、定率法は初年度が最も大きく年とともに逓減し後年は定額に切り替わる。総額（取得価額）はどちらも同じ" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
+  <rect width="400" height="500" fill="#ffffff" stroke="#d7d7d7"/>
+
+  <text x="200" y="26" text-anchor="middle" font-size="11" fill="#555">同じ資産でも費用配分のしかたが異なる</text>
+
+  <!-- Panel headers -->
+  <text x="104" y="64" text-anchor="middle" font-size="13" font-weight="bold" fill="#2e6da4">定額法</text>
+  <text x="104" y="82" text-anchor="middle" font-size="11" fill="#555">毎期 同額</text>
+  <text x="296" y="64" text-anchor="middle" font-size="13" font-weight="bold" fill="#d4a017">定率法</text>
+  <text x="296" y="82" text-anchor="middle" font-size="11" fill="#555">初期に多く → 逓減</text>
+
+  <!-- axes -->
+  <line x1="26" y1="110" x2="26" y2="266" stroke="#d7d7d7"/>
+  <line x1="26" y1="266" x2="182" y2="266" stroke="#d7d7d7"/>
+  <line x1="218" y1="110" x2="218" y2="266" stroke="#d7d7d7"/>
+  <line x1="218" y1="266" x2="374" y2="266" stroke="#d7d7d7"/>
+
+  <!-- 定額法 bars (equal h=80, baseline 266) -->
+  <rect x="34"  y="186" width="22" height="80" fill="#e8f0fe" stroke="#2e6da4"/>
+  <rect x="64"  y="186" width="22" height="80" fill="#e8f0fe" stroke="#2e6da4"/>
+  <rect x="94"  y="186" width="22" height="80" fill="#e8f0fe" stroke="#2e6da4"/>
+  <rect x="124" y="186" width="22" height="80" fill="#e8f0fe" stroke="#2e6da4"/>
+  <rect x="154" y="186" width="22" height="80" fill="#e8f0fe" stroke="#2e6da4"/>
+
+  <!-- 定率法 bars (declining, late years switch to flat) -->
+  <rect x="226" y="116" width="22" height="150" fill="#fff3cd" stroke="#d4a017"/>
+  <rect x="256" y="166" width="22" height="100" fill="#fff3cd" stroke="#d4a017"/>
+  <rect x="286" y="200" width="22" height="66"  fill="#fff3cd" stroke="#d4a017"/>
+  <rect x="316" y="224" width="22" height="42"  fill="#fff3cd" stroke="#d4a017"/>
+  <rect x="346" y="224" width="22" height="42"  fill="#fff3cd" stroke="#d4a017"/>
+
+  <!-- year labels -->
+  <text x="45"  y="280" text-anchor="middle" font-size="11" fill="#8a8a8a">1</text>
+  <text x="75"  y="280" text-anchor="middle" font-size="11" fill="#8a8a8a">2</text>
+  <text x="105" y="280" text-anchor="middle" font-size="11" fill="#8a8a8a">3</text>
+  <text x="135" y="280" text-anchor="middle" font-size="11" fill="#8a8a8a">4</text>
+  <text x="165" y="280" text-anchor="middle" font-size="11" fill="#8a8a8a">5</text>
+  <text x="237" y="280" text-anchor="middle" font-size="11" fill="#8a8a8a">1</text>
+  <text x="267" y="280" text-anchor="middle" font-size="11" fill="#8a8a8a">2</text>
+  <text x="297" y="280" text-anchor="middle" font-size="11" fill="#8a8a8a">3</text>
+  <text x="327" y="280" text-anchor="middle" font-size="11" fill="#8a8a8a">4</text>
+  <text x="357" y="280" text-anchor="middle" font-size="11" fill="#8a8a8a">5</text>
+  <text x="104" y="296" text-anchor="middle" font-size="11" fill="#8a8a8a">年度 →</text>
+  <text x="296" y="296" text-anchor="middle" font-size="11" fill="#8a8a8a">年度 →</text>
+
+  <!-- formulas -->
+  <text x="104" y="318" text-anchor="middle" font-size="11" fill="#1a3a5c">取得価額 × 償却率</text>
+  <text x="296" y="318" text-anchor="middle" font-size="11" fill="#1a3a5c">未償却残高 × 償却率</text>
+
+  <!-- 定率法の切替ルール -->
+  <rect x="12" y="330" width="376" height="68" fill="#f5f5f5" stroke="#d7d7d7" rx="2"/>
+  <text x="24" y="350" font-size="12" font-weight="bold" fill="#222">定率法の定額切替ルール</text>
+  <text x="24" y="368" font-size="11" fill="#555">「未償却残高×償却率」＜ 償却保証額 となった年度以降は</text>
+  <text x="24" y="385" font-size="11" fill="#555">定額法へ自動切替（残存簿価 1 円まで確実に償却）。</text>
+
+  <!-- summary band -->
+  <rect x="12" y="408" width="376" height="82" fill="#e8f0fe" stroke="#2e6da4" rx="2"/>
+  <text x="200" y="428" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#1a3a5c">継続性の原則：選んだ償却方法は正当な理由なく変更不可</text>
+  <text x="200" y="448" text-anchor="middle" font-size="11" fill="#1a3a5c">間接法CFでは税引前利益に減価償却費を加算（自己金融効果）</text>
+  <text x="24" y="467" font-size="11" fill="#555">取得価額・耐用年数・残存価額の 3 要素で償却計算が決まる。</text>
+  <text x="24" y="483" font-size="11" fill="#555">法定耐用年数（税法）と経済的耐用年数（会計）が異なる場合も。</text>
+</svg>

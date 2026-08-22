@@ -1,0 +1,183 @@
+{
+  "SKIP": [
+    {
+      "concept": "バスタブカーブ（初期故障期/偶発故障期/摩耗故障期）",
+      "slugPath": "bathtub-curve",
+      "existing": [
+        "bathtub-curve-phases.svg",
+        "bathtub-maintenance-effect.svg"
+      ]
+    },
+    {
+      "concept": "損益分岐点（売上高・総費用・固定費・利益/損失領域）",
+      "slugPath": "break-even-point",
+      "existing": [
+        "bep-formulas.svg",
+        "break-even-chart.svg"
+      ]
+    },
+    {
+      "concept": "PM理論（リーダーシップ4類型）",
+      "slugPath": "pm-theory",
+      "existing": [
+        "pm-quadrant.svg"
+      ]
+    },
+    {
+      "concept": "ハーズバーグ二要因理論",
+      "slugPath": "herzberg-two-factor-theory",
+      "existing": [
+        "herzberg-two-factor.svg"
+      ]
+    },
+    {
+      "concept": "ビッグデータ分析プロセス（収集→格納→クレンジング→マイニング→活用）",
+      "slugPath": "data-mining",
+      "existing": [
+        "big-data-analysis-flow.svg"
+      ]
+    },
+    {
+      "concept": "SWOT分析マトリクス（内部/外部×プラス/マイナス）",
+      "slugPath": "swot-analysis",
+      "existing": [
+        "swot-matrix.svg"
+      ]
+    },
+    {
+      "concept": "プッシュ型／プル型コミュニケーション対比",
+      "slugPath": "personal-communication",
+      "existing": [
+        "push-pull-communication.svg"
+      ]
+    },
+    {
+      "concept": "知的財産権関連法規の体系（知的創作物／営業上の標識）",
+      "slugPath": "industrial-property-rights",
+      "existing": [
+        "ip-laws-system.svg"
+      ]
+    },
+    {
+      "concept": "出願から特許取得までの流れ（拒絶経路と取得経路の分岐）",
+      "slugPath": "patent-rights",
+      "existing": [
+        "patent-application-flow.svg"
+      ]
+    },
+    {
+      "concept": "著作者の権利の構造（人格権／財産権の二分）",
+      "slugPath": "copyright",
+      "existing": [
+        "authors-rights-structure.svg"
+      ]
+    },
+    {
+      "concept": "ハインリッヒの法則（1:29:300）",
+      "slugPath": "heinrich-law",
+      "existing": [
+        "heinrich-pyramid.svg"
+      ]
+    },
+    {
+      "concept": "事故の4E対策",
+      "slugPath": "four-e-countermeasures",
+      "existing": [
+        "four-e-overview.svg"
+      ]
+    },
+    {
+      "concept": "直列システムと並列システムの信頼度",
+      "slugPath": "system-reliability",
+      "existing": [
+        "series-parallel-configuration.svg",
+        "series-parallel-formulas.svg"
+      ]
+    },
+    {
+      "concept": "循環型社会の処理優先順位5段階",
+      "slugPath": "circular-society-basic-act",
+      "existing": [
+        "figure-1.svg"
+      ]
+    }
+  ],
+  "NEW": [
+    {
+      "concept": "知的財産権の存続期間ラダー（法律別年数比較）",
+      "slugPath": "industrial-property-rights",
+      "existing": [
+        "ip-laws-system.svg"
+      ]
+    },
+    {
+      "concept": "5段階の警戒レベルと避難行動",
+      "slugPath": "climate-change-adaptation-act",
+      "existing": [
+        "heavy-rainfall-trend.svg"
+      ]
+    }
+  ],
+  "UPGRADE": [
+    {
+      "concept": "正規分布と3σ則（68.3% / 95.4% / 99.7%）",
+      "slugPath": "process-capability-index",
+      "existing": [
+        "normal-distribution-3sigma.svg"
+      ]
+    },
+    {
+      "concept": "マズローの欲求5段階説",
+      "slugPath": "maslow-hierarchy-of-needs",
+      "existing": [
+        "maslow-pyramid.svg"
+      ]
+    }
+  ],
+  "LOOK": [
+    {
+      "concept": "PFI 3方式の比較（BTO / BOT / コンセッション）",
+      "slugPath": "pfi",
+      "existing": [
+        "pfi-four-types.svg"
+      ]
+    },
+    {
+      "concept": "QC7つ道具 / 新QC7つ道具の使い分け（数値データ vs 言語データ）",
+      "slugPath": "quality-control",
+      "existing": [
+        "qc-seven-tools.svg"
+      ]
+    },
+    {
+      "concept": "保全活動の体系（JIS Z 8141 ツリー）",
+      "slugPath": "preventive-maintenance",
+      "existing": [
+        "figure-1.svg",
+        "figure-2.svg"
+      ]
+    },
+    {
+      "concept": "リスクアセスメントの3プロセス（特定→分析→評価）",
+      "slugPath": "risk-assessment",
+      "existing": [
+        "chemical-ra-flow.svg",
+        "risk-matrix.svg"
+      ]
+    },
+    {
+      "concept": "システム安全工学手法の方向性マップ（FMEA/FTA/ETA）",
+      "slugPath": "fmea",
+      "existing": [
+        "fmea-rpn-flow.svg"
+      ]
+    },
+    {
+      "concept": "環境アセスメント手続フロー（配慮書→方法書→準備書→評価書→報告書）",
+      "slugPath": "environmental-impact-assessment",
+      "existing": [
+        "eia-target-categories.svg"
+      ]
+    }
+  ]
+}

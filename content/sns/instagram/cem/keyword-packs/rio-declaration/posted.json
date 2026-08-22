@@ -1,0 +1,14 @@
+{
+  "carousel": {
+    "deleted_url": "https://www.instagram.com/p/DZ8qhf0k3ah/",
+    "deleted_at": "2026-06-25",
+    "deleted_reason": "黒背景（白背景化fix前に投稿）を削除。当時リール(DaAFq59EuIO)を白カルーセルと誤認し白の貼り直しを失念（2026-06-25 type_mismatch 検出で発覚・是正）",
+    "note": "白カルーセルを 2026-07-03 19:00 に再予約済み（status.json carousel 参照・プランナー実体確認済み）"
+  },
+  "reels": {
+    "at": "2026-06-25",
+    "url": "https://www.instagram.com/p/DaAFq59EuIO/",
+    "note": "figure-reel ナレーション付きリール（予約 go-live 17:00）"
+  },
+  "stories": null
+}

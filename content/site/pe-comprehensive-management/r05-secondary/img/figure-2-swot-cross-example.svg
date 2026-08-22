@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="図2 SWOT項目の組合せを選定した例。強み(S)はS1=知名度が高い・S2=従業員の技術力が高い、弱み(W)はW1=販売コストが高い・W2=人材確保が困難、機会(O)はO1=地域の急激な発展・O2=特定分野のニーズの増大、脅威(T)はT1=競合他社の出現・T2=特定素材の価格高騰。パターンAは例としてS2×O1、パターンBはW2×O2、パターンCはS1×T1、パターンDはW1・W2×T1の組合せをベースにした戦略。" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', sans-serif">
+  <rect width="400" height="500" fill="#ffffff" stroke="#d7d7d7"/>
+
+  <!-- column headers -->
+  <rect x="100" y="10" width="146" height="100" fill="#ffffff" stroke="#222" stroke-width="1"/>
+  <text x="173" y="30" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">強み（S）</text>
+  <text x="173" y="49" text-anchor="middle" font-size="11" fill="#555">S1：（例）</text>
+  <text x="173" y="64" text-anchor="middle" font-size="11" fill="#555">知名度が高い</text>
+  <text x="173" y="83" text-anchor="middle" font-size="11" fill="#555">S2：（例）</text>
+  <text x="173" y="98" text-anchor="middle" font-size="11" fill="#555">従業員の技術力が高い</text>
+  <rect x="246" y="10" width="146" height="100" fill="#ffffff" stroke="#222" stroke-width="1"/>
+  <text x="319" y="30" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">弱み（W）</text>
+  <text x="319" y="49" text-anchor="middle" font-size="11" fill="#555">W1：（例）</text>
+  <text x="319" y="64" text-anchor="middle" font-size="11" fill="#555">販売コストが高い</text>
+  <text x="319" y="83" text-anchor="middle" font-size="11" fill="#555">W2：（例）</text>
+  <text x="319" y="98" text-anchor="middle" font-size="11" fill="#555">人材確保が困難</text>
+
+  <!-- row header O -->
+  <rect x="8" y="110" width="92" height="164" fill="#ffffff" stroke="#222" stroke-width="1"/>
+  <text x="54" y="146" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">機会（O）</text>
+  <text x="54" y="168" text-anchor="middle" font-size="11" fill="#555">O1：（例）</text>
+  <text x="54" y="183" text-anchor="middle" font-size="11" fill="#555">地域の急激な発展</text>
+  <text x="54" y="208" text-anchor="middle" font-size="11" fill="#555">O2：（例）</text>
+  <text x="54" y="223" text-anchor="middle" font-size="11" fill="#555">特定分野の</text>
+  <text x="54" y="238" text-anchor="middle" font-size="11" fill="#555">ニーズの増大</text>
+
+  <!-- row header T -->
+  <rect x="8" y="274" width="92" height="164" fill="#ffffff" stroke="#222" stroke-width="1"/>
+  <text x="54" y="310" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">脅威（T）</text>
+  <text x="54" y="332" text-anchor="middle" font-size="11" fill="#555">T1：（例）</text>
+  <text x="54" y="347" text-anchor="middle" font-size="11" fill="#555">競合他社の出現</text>
+  <text x="54" y="372" text-anchor="middle" font-size="11" fill="#555">T2：（例）</text>
+  <text x="54" y="387" text-anchor="middle" font-size="11" fill="#555">特定素材の</text>
+  <text x="54" y="402" text-anchor="middle" font-size="11" fill="#555">価格高騰</text>
+
+  <!-- cell A: S×O -->
+  <rect x="100" y="110" width="146" height="164" fill="#e8f0fe" stroke="#222" stroke-width="1"/>
+  <text x="173" y="158" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">パターンA</text>
+  <text x="173" y="177" text-anchor="middle" font-size="11" fill="#555">（強み × 機会）</text>
+  <text x="173" y="207" text-anchor="middle" font-size="11" fill="#222">例：S2 × O1 を</text>
+  <text x="173" y="224" text-anchor="middle" font-size="11" fill="#222">ベースにした戦略</text>
+
+  <!-- cell B: W×O -->
+  <rect x="246" y="110" width="146" height="164" fill="#d0e8d0" stroke="#222" stroke-width="1"/>
+  <text x="319" y="158" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">パターンB</text>
+  <text x="319" y="177" text-anchor="middle" font-size="11" fill="#555">（弱み × 機会）</text>
+  <text x="319" y="207" text-anchor="middle" font-size="11" fill="#222">例：W2 × O2 を</text>
+  <text x="319" y="224" text-anchor="middle" font-size="11" fill="#222">ベースにした戦略</text>
+
+  <!-- cell C: S×T -->
+  <rect x="100" y="274" width="146" height="164" fill="#fff3cd" stroke="#222" stroke-width="1"/>
+  <text x="173" y="322" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">パターンC</text>
+  <text x="173" y="341" text-anchor="middle" font-size="11" fill="#555">（強み × 脅威）</text>
+  <text x="173" y="371" text-anchor="middle" font-size="11" fill="#222">例：S1 × T1 を</text>
+  <text x="173" y="388" text-anchor="middle" font-size="11" fill="#222">ベースにした戦略</text>
+
+  <!-- cell D: W×T -->
+  <rect x="246" y="274" width="146" height="164" fill="#f8d7da" stroke="#222" stroke-width="1"/>
+  <text x="319" y="322" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">パターンD</text>
+  <text x="319" y="341" text-anchor="middle" font-size="11" fill="#555">（弱み × 脅威）</text>
+  <text x="319" y="371" text-anchor="middle" font-size="11" fill="#222">例：W1・W2 × T1 を</text>
+  <text x="319" y="388" text-anchor="middle" font-size="11" fill="#222">ベースにした戦略</text>
+
+  <!-- 下部：組合せ選定の手順サマリー -->
+  <rect x="8" y="450" width="384" height="42" rx="6" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="200" y="467" text-anchor="middle" font-size="11" fill="#555">手順: S/W/O/T を列挙 → 組合せで戦略オプションを生成</text>
+  <text x="200" y="484" text-anchor="middle" font-size="11" fill="#555">→ 優先度付けして採用する戦略を選択</text>
+</svg>

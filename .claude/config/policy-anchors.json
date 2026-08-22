@@ -1,0 +1,35 @@
+{
+  "_note": "1つの決定が複数文書に散在するクラスタの台帳。1ファイルを触ったら全ファイルの意味的整合を確認する。check-policy-anchors.mjs が staged から該当クラスタを提示し（advisory）、files/anchor の実在も検証する（registry rot で exit 1）。意味照合そのものは /doc-sync の領分。背景: 2026-06-16 per-persona R8 決定の横展開が3往復かかった再発防止。",
+  "policies": {
+    "cem-per-persona-r8": {
+      "decision": "総監ペルソナ模範論文は全14ペルソナで R03-R07 ＋ R8予想2記事（R08-yosou-1/-2）を作成（2026-06-16 方針転換。旧『per-persona R8を作らない＝決定2026』を撤回）",
+      "anchor": "content/note/技術士総監/総監マガジン構成_決定2026.md",
+      "files": [
+        "content/note/技術士総監/総監マガジン構成_決定2026.md",
+        ".claude/knowledge/reference/note-essay-review-checklist.md",
+        ".claude/skills/authoring/pe-essay-cycle/SKILL.md",
+        "content/note/技術士総監/noteコンテンツ計画.md"
+      ]
+    },
+    "cem-pack-structure": {
+      "decision": "総監マガジンは2段ラダー（上段 全記事パック¥9,800／下段 コアパック¥5,480）・ペルソナロスター14・公開ゲート（収録完了まで¥9,800を広告しない）",
+      "anchor": "content/note/技術士総監/総監マガジン構成_決定2026.md",
+      "files": [
+        "content/note/技術士総監/総監マガジン構成_決定2026.md",
+        "content/note/技術士総監/noteコンテンツ計画.md",
+        "src/lib/note-magazines.ts"
+      ]
+    },
+    "guide-min-3000-chars": {
+      "decision": "ガイド記事（group: guide）は本文（frontmatter除外・空白除去後）3,000字以上が必須下限（2026-06-21）。過去問/キーワード/textbookは対象外。既存32本の加筆バーンダウン完了済、check-guide-length を pre-commit(--staged)＋CI(r2-audit.yml 全published)へ配線済（2026-06-21）",
+      "anchor": ".claude/knowledge/reference/content-principles.md",
+      "files": [
+        ".claude/knowledge/reference/content-principles.md",
+        "scripts/check-guide-length.mjs",
+        "scripts/install-pre-commit.mjs",
+        ".github/workflows/r2-audit.yml",
+        ".claude/todo/backlog.md"
+      ]
+    }
+  }
+}

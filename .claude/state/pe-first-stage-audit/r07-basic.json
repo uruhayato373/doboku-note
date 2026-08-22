@@ -1,0 +1,25 @@
+{
+  "slug": "pe-first-stage-r07-basic",
+  "year": "R07",
+  "sub": "basic",
+  "audited_at": "2026-06-09",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 30,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 30,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 30,
+    "expected_count": 30,
+    "details_count": 30,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "Re-audited 2026-06-09 against all 20 PDF pages (p020 blank). All 30 questions verified: question numbers (Ⅰ-1-1 through Ⅰ-5-6), problem text openings, 5-choice counts, polarity phrases (最も適切/最も不適切/最も近い), and ArticleImage tags for figures (Ⅰ-3-3, Ⅰ-3-4, Ⅰ-3-5, Ⅰ-3-6). Previously flagged issues all resolved: (1) Ⅰ-4-6 choice④ 細胞質→細菌細胞 (commit ecaeacb6e), (2) Ⅰ-5-1 choice③ body 破壊処理→適正処理 (commit ecaeacb6e), (3) Ⅰ-5-1 explanation 破壊処理→適正処理 x2 (commit 44f37cfa0). MDX fully consistent with PDF."
+  }
+}

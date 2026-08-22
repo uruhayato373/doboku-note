@@ -1,0 +1,300 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "sekokeikaku",
+      "label": "施工計画"
+    },
+    "subtopic": {
+      "key": "machine",
+      "label": "建設機械の選定・組合せ・経済性"
+    },
+    "packNum": "01",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 3,
+    "years": [
+      "r07z",
+      "r07k",
+      "r06z",
+      "r05z"
+    ],
+    "yearsLabel": "令和7・6・5年度",
+    "questionIds": [
+      "r07z-06",
+      "r07k-06",
+      "r06z-51",
+      "r05z-01"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "建設機械の選定・組合せ・経済性",
+      "themeLabel": "施工計画",
+      "subtopicLabel": "建設機械の選定・組合せ・経済性",
+      "stars": 3,
+      "yearsLabel": "令和7・6・5年度",
+      "firstQuestion": "土工事に使用する建設機械に関する次の記述のうち，適当なものはどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "土工事に使用する建設機械に関する次の記述のうち，適当",
+        "なものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "バックホゥは，主に機械位置よりも高い場所の掘削に用いられる。"
+        },
+        {
+          "num": 2,
+          "text": "ブルドーザは，主に掘削・押土及び溝掘りの作業に用いられる。"
+        },
+        {
+          "num": 3,
+          "text": "クラムシェルは，狭い場所での深い掘削に用いられる。"
+        },
+        {
+          "num": 4,
+          "text": "トラクタショベルは，積込み・運搬及び法面仕上げの作業に用いられる。"
+        }
+      ],
+      "topic": "令和7年度前期",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 2,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "土工事に使用する建設機械",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "バックホゥは機械位置より低い場所の掘削、高い場所は誤り ",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "ブルドーザは掘削・押土・短距離運搬が主用途、溝掘りは主作業ではない ",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "クラムシェルは狭い場所での深い掘削に適する、正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "トラクタショベルは積込み・運搬が主体、法面仕上げ用途は誤り  <ExamPoint>建設機械は機種ごとの主用途（バックホゥ＝低所掘削等）を取り違えない</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "クラムシェルは狭い場所での深い掘削に適する、正しい",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 3,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "土工の作業に使用する建設機械に関する次の記述のうち，",
+        "適当でないものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "モータグレーダは，土の敷均しや締固めの作業に用いられる。"
+        },
+        {
+          "num": 2,
+          "text": "スクレーパは，掘削，積込み，中距離運搬，敷均しの一連の作業に用いられる。"
+        },
+        {
+          "num": 3,
+          "text": "バックホウは，基礎の掘削や溝掘り，法面仕上げに用いられる。"
+        },
+        {
+          "num": 4,
+          "text": "ブルドーザは，伐開除根，土砂の短距離の運搬作業に用いられる。"
+        }
+      ],
+      "topic": "令和7年度後期",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 4,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "土工の作業に使用する建設機械",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "モータグレーダは整正・敷均しが主体で締固めは行わず誤り",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "スクレーパは掘削から敷均しまで一連作業を担う正しい記述",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "バックホウは掘削整形と仕上げに用いる正しい記述",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "ブルドーザは伐開除根と短距離運搬に適する正しい記述 <ExamPoint>モータグレーダは敷均し主体で締固めは行わない</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "モータグレーダは整正・敷均しが主体で締固めは行わず誤り",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 5,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建設機械に関する次の記述のうち，適当でないものはどれ",
+        "か。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "ローディングショベルは，掘削力が強く，機械の位置よりも低い場所の掘削に適する。"
+        },
+        {
+          "num": 2,
+          "text": "トンネルボーリングマシンは，回転カッターでトンネルの全断面を同時に切り崩すものである。"
+        },
+        {
+          "num": 3,
+          "text": "クラムシェルは，シールド工事の立坑掘削等，狭い場所での深い掘削に適する。"
+        },
+        {
+          "num": 4,
+          "text": "トラックアジテータは，レディーミクストコンクリート工場から現場までの運搬に使う。"
+        }
+      ],
+      "topic": "令和6年度前期",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 6,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "建設機械",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "ローディングショベルはバケットが前向きで、機械の位置よりも「高い」場所の掘削に適する。「低い場所」は誤り",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "TBM が回転カッターで全断面を切り崩す説明として正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "クラムシェルは立坑等の狭い場所での深い掘削に適し正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "トラックアジテータの運搬用途で正しい",
+          "correct": true
+        }
+      ],
+      "pointText": "ローディングショベルはバケットが前向きで、機械の位置よりも「高い」場所の掘削に適する。「低い場所」は誤り",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 7,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "土工の作業に使用する建設機械に関する次の記述のうち，",
+        "適当なものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "ブルドーザは，掘削・押土及び短距離の運搬作業に用いられる。"
+        },
+        {
+          "num": 2,
+          "text": "バックホゥは，主に機械位置より高い場所の掘削に用いられる。"
+        },
+        {
+          "num": 3,
+          "text": "トラクターショベルは，主に機械位置より高い場所の掘削に用いられる。"
+        },
+        {
+          "num": 4,
+          "text": "スクレーパは，掘削・押土及び短距離の運搬作業に用いられる。"
+        }
+      ],
+      "topic": "令和5年度前期",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 8,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "土工の作業に使用する建設機械",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "ブルドーザは掘削・押土・短距離運搬作業に用いる代表機械、正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "バックホゥは機械位置より低い場所の掘削に用いる、高い場所は誤り ",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "トラクターショベルは機械位置とほぼ同じ高さの掘削・積込みに用いる、高い場所の掘削は誤り ",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "スクレーパは掘削・運搬・敷均しを行うが中長距離運搬向き、短距離運搬作業は誤り ",
+          "correct": false
+        }
+      ],
+      "pointText": "ブルドーザは掘削・押土・短距離運搬作業に用いる代表機械、正しい",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 9,
+      "totalPages": 10
+    },
+    {
+      "type": "cta",
+      "pageIndex": 10,
+      "totalPages": 10
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="PDCAサイクル：Plan 計画→Do 実行→Check 検証→Act 改善の 4 段階を循環させる継続的改善手法">
+
+  <circle cx="200" cy="210" r="40" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <text x="200" y="206" text-anchor="middle" font-size="12" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">継続的</text>
+  <text x="200" y="222" text-anchor="middle" font-size="12" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">改善</text>
+
+  <g>
+    <rect x="55" y="70" width="120" height="80" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2" rx="6"/>
+    <text x="115" y="94" text-anchor="middle" font-size="14" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">P</text>
+    <text x="115" y="114" text-anchor="middle" font-size="13" fill="#222" font-family="sans-serif">Plan / 計画</text>
+    <text x="115" y="134" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">目標設定・行動計画</text>
+  </g>
+
+  <g>
+    <rect x="225" y="70" width="120" height="80" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2" rx="6"/>
+    <text x="285" y="94" text-anchor="middle" font-size="14" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">D</text>
+    <text x="285" y="114" text-anchor="middle" font-size="13" fill="#222" font-family="sans-serif">Do / 実行</text>
+    <text x="285" y="134" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">計画に基づき実施</text>
+  </g>
+
+  <g>
+    <rect x="225" y="270" width="120" height="80" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2" rx="6"/>
+    <text x="285" y="294" text-anchor="middle" font-size="14" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">C</text>
+    <text x="285" y="314" text-anchor="middle" font-size="13" fill="#222" font-family="sans-serif">Check / 検証</text>
+    <text x="285" y="334" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">実績・課題の評価</text>
+  </g>
+
+  <g>
+    <rect x="55" y="270" width="120" height="80" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2" rx="6"/>
+    <text x="115" y="294" text-anchor="middle" font-size="14" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">A</text>
+    <text x="115" y="314" text-anchor="middle" font-size="13" fill="#222" font-family="sans-serif">Act / 改善</text>
+    <text x="115" y="334" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">標準化・次計画反映</text>
+  </g>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3a7d44"/>
+    </marker>
+  </defs>
+
+  <path d="M 175 110 Q 200 88 225 110" stroke="#3a7d44" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 285 150 Q 308 210 285 270" stroke="#3a7d44" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 225 310 Q 200 330 175 310" stroke="#3a7d44" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 115 270 Q 90 210 115 150" stroke="#3a7d44" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <g>
+    <rect x="20" y="366" width="360" height="22" fill="none" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+    <text x="200" y="382" text-anchor="middle" font-size="11" fill="#3a7d44" font-family="sans-serif" font-weight="bold">回し続けるほど業務水準が螺旋階段状に向上</text>
+  </g>
+
+  <!-- サマリー -->
+  <line stroke="#d7d7d7" stroke-width="1" x1="20" y1="408" x2="380" y2="408"/>
+  <text font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c" x="200" y="432" text-anchor="middle">4段階を繰り返すことで継続的に品質改善</text>
+  <text font-family="sans-serif" font-size="11" fill="#555" x="200" y="456" text-anchor="middle">Plan→Do→Check→Act の順序が重要</text>
+  <text font-family="sans-serif" font-size="11" fill="#555" x="200" y="476" text-anchor="middle">国際規格（ISO 9001 等）の基盤となるフレームワーク</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">警戒レベル — 5段階の対応行動</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">「避難情報に関するガイドライン」（内閣府）に基づく</text>
+
+  <rect x="40" y="140" width="180" height="56" rx="8" fill="#1a3a5c"/>
+  <text x="130" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">警戒レベル</text>
+  <rect x="220" y="140" width="360" height="56" rx="8" fill="#1a3a5c"/>
+  <text x="400" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">情報の名称</text>
+  <rect x="580" y="140" width="580" height="56" rx="8" fill="#1a3a5c"/>
+  <text x="870" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">取るべき行動</text>
+  <rect x="40" y="204" width="180" height="80" fill="#2e6da4"/>
+  <text x="130" y="242" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="40" font-weight="800" fill="#ffffff" text-anchor="middle">レベル 1</text>
+  <rect x="220" y="204" width="360" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="244" y="253" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="700" fill="#222222">早期注意情報</text>
+  <rect x="580" y="204" width="580" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="604" y="253" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">心構えを高める</text>
+  <rect x="40" y="284" width="180" height="80" fill="#d4a017"/>
+  <text x="130" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="40" font-weight="800" fill="#ffffff" text-anchor="middle">レベル 2</text>
+  <rect x="220" y="284" width="360" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="244" y="333" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="700" fill="#222222">気象情報等</text>
+  <rect x="580" y="284" width="580" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="604" y="333" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">避難行動の確認</text>
+  <rect x="40" y="364" width="180" height="80" fill="#b22234"/>
+  <text x="130" y="402" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="40" font-weight="800" fill="#ffffff" text-anchor="middle">レベル 3</text>
+  <rect x="220" y="364" width="360" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="244" y="413" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="700" fill="#222222">高齢者等避難</text>
+  <rect x="580" y="364" width="580" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="604" y="413" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">高齢者・要配慮者は避難開始</text>
+  <rect x="964" y="382" width="172" height="36" rx="18" fill="#d4a017"/>
+  <text x="1050" y="406" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#ffffff" text-anchor="middle">災害発生「前」</text>
+  <rect x="40" y="444" width="180" height="80" fill="#b22234"/>
+  <text x="130" y="482" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="40" font-weight="800" fill="#ffffff" text-anchor="middle">レベル 4</text>
+  <rect x="220" y="444" width="360" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="244" y="493" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="700" fill="#222222">避難指示</text>
+  <rect x="580" y="444" width="580" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="604" y="493" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">危険な場所にいる人は全員避難</text>
+  <rect x="40" y="524" width="180" height="80" fill="#1a3a5c"/>
+  <text x="130" y="562" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="40" font-weight="800" fill="#ffffff" text-anchor="middle">レベル 5</text>
+  <rect x="220" y="524" width="360" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="244" y="573" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="700" fill="#222222">緊急安全確保</text>
+  <rect x="580" y="524" width="580" height="80" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="604" y="573" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">命を守る最善の行動</text>
+  <rect x="40" y="628" width="1120" height="44" rx="6" fill="#fbf3df"/>
+  <text x="60" y="658" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">引っかけ：「高齢者等避難＝災害発生後の緊急避難」は誤り。R7 Ⅰ-1-28 の典型誤答。</text>
+
+</svg>

@@ -1,0 +1,103 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%" role="img"
+     aria-label="スパイラル型開発モデル（Boehm 1986）。目標設定・リスク分析・開発検証・次フェーズ計画の4フェーズを1周回とし、リスク分析を繰り返しながら螺旋状に外側へ進む。中心から外側へ進むほどコストと完成度が増す。ウォーターフォールからアジャイルに至る系譜も示す。">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-sub  { font-size: 11px; fill: #8a8a8a; }
+      .t-head { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-q    { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-qs   { font-size: 11px; fill: #555; }
+      .t-num  { font-size: 12px; font-weight: bold; fill: #ffffff; }
+      .t-ctr  { font-size: 10px; font-weight: bold; fill: #1a3a5c; }
+      .t-note { font-size: 11px; fill: #555; }
+      .t-warn { font-size: 12px; font-weight: bold; fill: #d4a017; }
+      .t-chip { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-chy  { font-size: 10px; fill: #555; }
+      .badge  { fill: #1a3a5c; }
+    </style>
+    <marker id="sp-arrow" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <polygon points="0,0 10,4.5 0,9" fill="#2e6da4"/>
+    </marker>
+    <marker id="lin-arrow" markerUnits="userSpaceOnUse" markerWidth="9" markerHeight="8" refX="8" refY="4" orient="auto">
+      <polygon points="0,0 9,4 0,8" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- ヘッダー -->
+  <text class="t-sub"  x="200" y="14" text-anchor="middle">B. Boehm 提案（1986年）</text>
+  <text class="t-head" x="200" y="40" text-anchor="middle">リスク分析を繰り返す螺旋型</text>
+
+  <!-- 4象限タイル -->
+  <rect x="40"  y="56"  width="160" height="90" fill="#e8f0fe"/>
+  <rect x="200" y="56"  width="160" height="90" fill="#fff3cd"/>
+  <rect x="40"  y="146" width="160" height="90" fill="#f5f5f5"/>
+  <rect x="200" y="146" width="160" height="90" fill="#d0e8d0"/>
+  <line x1="200" y1="56" x2="200" y2="236" stroke="#d7d7d7" stroke-width="1"/>
+  <line x1="40"  y1="146" x2="360" y2="146" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 象限ラベル -->
+  <circle class="badge" cx="58" cy="74" r="10"/>
+  <text class="t-num" x="58" y="78" text-anchor="middle">1</text>
+  <text class="t-q"  x="74" y="71">目標・代替案</text>
+  <text class="t-qs" x="74" y="86">・制約の設定</text>
+
+  <circle class="badge" cx="218" cy="74" r="10"/>
+  <text class="t-num" x="218" y="78" text-anchor="middle">2</text>
+  <text class="t-q"  x="234" y="71">リスク分析</text>
+  <text class="t-qs" x="234" y="86">・評価</text>
+
+  <circle class="badge" cx="58" cy="208" r="10"/>
+  <text class="t-num" x="58" y="212" text-anchor="middle">4</text>
+  <text class="t-q"  x="74" y="205">次フェーズ</text>
+  <text class="t-qs" x="74" y="220">の計画</text>
+
+  <circle class="badge" cx="218" cy="208" r="10"/>
+  <text class="t-num" x="218" y="212" text-anchor="middle">3</text>
+  <text class="t-q"  x="234" y="205">開発・検証</text>
+  <text class="t-qs" x="234" y="220">（プロトタイプ）</text>
+
+  <!-- 螺旋（中心200,146から外側へ・時計回り） -->
+  <path d="M 206 146 A 9 9 0 0 1 188 146 A 17 17 0 0 1 222 146 A 28 28 0 0 1 166 146 A 42 42 0 0 1 250 146 A 58 58 0 0 1 134 146 A 69 69 0 0 1 272 146"
+        fill="none" stroke="#2e6da4" stroke-width="2.5" marker-end="url(#sp-arrow)"/>
+
+  <!-- 中心 開始 -->
+  <circle cx="200" cy="146" r="14" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-ctr" x="200" y="149" text-anchor="middle">開始</text>
+
+  <!-- 完成ラベル -->
+  <text class="t-sub" x="300" y="150" font-size="10" fill="#2e6da4" font-weight="bold">完成へ</text>
+
+  <!-- 螺旋の意味 -->
+  <text class="t-note" x="200" y="254" text-anchor="middle">中心から外側へ進むほどコスト・完成度が増す（周回ごとに洗練）</text>
+
+  <!-- スパイラル型の要点 -->
+  <rect x="20" y="266" width="360" height="78" rx="6" fill="#fff3cd"/>
+  <rect x="20" y="266" width="5" height="78" rx="2" fill="#d4a017"/>
+  <text class="t-warn" x="36" y="286">スパイラル型の要点</text>
+  <text class="t-note" x="36" y="306">各周回で必ずリスク分析を行うのが特徴。</text>
+  <text class="t-note" x="36" y="323">大規模・高リスクの案件に適する。</text>
+  <text class="t-note" x="36" y="340">逐次完了型のウォーターフォールとは異なる。</text>
+
+  <!-- 開発モデルの系譜 -->
+  <text class="t-q" x="20" y="370" fill="#8a8a8a">開発モデルの系譜</text>
+
+  <rect x="18"  y="378" width="104" height="36" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-chip" x="70" y="394" text-anchor="middle">ウォーター</text>
+  <text class="t-chip" x="70" y="408" text-anchor="middle">フォール</text>
+  <line x1="124" y1="396" x2="138" y2="396" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#lin-arrow)"/>
+
+  <rect x="142" y="378" width="104" height="36" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <text class="t-chip" x="194" y="394" text-anchor="middle">スパイラル型</text>
+  <text class="t-chy"  x="194" y="408" text-anchor="middle">1986年</text>
+  <line x1="248" y1="396" x2="262" y2="396" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#lin-arrow)"/>
+
+  <rect x="266" y="378" width="104" height="36" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-chip" x="318" y="394" text-anchor="middle">アジャイル</text>
+  <text class="t-chy"  x="318" y="408" text-anchor="middle">2001年</text>
+
+  <!-- まとめ・出典 -->
+  <text class="t-sub" x="200" y="438" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold">スパイラル型はリスク駆動の反復モデル</text>
+  <text class="t-sub" x="200" y="486" text-anchor="middle">出典：Boehm「A Spiral Model」(1986)</text>
+</svg>

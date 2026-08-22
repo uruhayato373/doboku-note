@@ -1,0 +1,1583 @@
+{
+  "meta": {
+    "ga4File": ".claude/state/metrics/ga4/ga4-page-2026-08-13T21-36-56.json",
+    "gscFile": ".claude/state/metrics/gsc/gsc-page-query-2026-08-13T21-36-55.json",
+    "ga4Range": [
+      "2026-07-16",
+      "2026-08-12"
+    ],
+    "gscRange": [
+      "2026-07-13",
+      "2026-08-10"
+    ],
+    "minImpr": 50,
+    "lowCtr": 0.01
+  },
+  "rows": [
+    {
+      "path": "/docs/pe-comprehensive-management-r08-primary",
+      "gsc": null,
+      "ga4": {
+        "users": 481,
+        "sessions": 802,
+        "engagementRate": 0.6034912718204489,
+        "bounceRate": 0.39650872817955113
+      }
+    },
+    {
+      "path": "/docs/civil-construction-2-secondary-r07",
+      "gsc": null,
+      "ga4": {
+        "users": 254,
+        "sessions": 377,
+        "engagementRate": 0.7427055702917772,
+        "bounceRate": 0.2572944297082228
+      }
+    },
+    {
+      "path": "/docs/civil-construction-1-secondary-experience-writing-guide",
+      "gsc": null,
+      "ga4": {
+        "users": 222,
+        "sessions": 317,
+        "engagementRate": 0.6813880126182965,
+        "bounceRate": 0.3186119873817035
+      }
+    },
+    {
+      "path": "/docs/civil-construction-2-secondary-experience-writing-guide",
+      "gsc": null,
+      "ga4": {
+        "users": 216,
+        "sessions": 386,
+        "engagementRate": 0.6217616580310881,
+        "bounceRate": 0.37823834196891193
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-keyword-2026",
+      "gsc": {
+        "impressions": 16,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 9.3125
+      },
+      "ga4": {
+        "users": 154,
+        "sessions": 554,
+        "engagementRate": 0.5577617328519856,
+        "bounceRate": 0.44223826714801445
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-r08-secondary",
+      "gsc": {
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 18
+      },
+      "ga4": {
+        "users": 149,
+        "sessions": 248,
+        "engagementRate": 0.6814516129032258,
+        "bounceRate": 0.3185483870967742
+      }
+    },
+    {
+      "path": "/docs/civil-construction-1-textbook-leveling",
+      "gsc": null,
+      "ga4": {
+        "users": 136,
+        "sessions": 169,
+        "engagementRate": 0.6627218934911243,
+        "bounceRate": 0.33727810650887574
+      }
+    },
+    {
+      "path": "/docs/pe-construction-competency-revision-r8",
+      "gsc": null,
+      "ga4": {
+        "users": 115,
+        "sessions": 156,
+        "engagementRate": 0.5576923076923077,
+        "bounceRate": 0.4423076923076923
+      }
+    },
+    {
+      "path": "/docs/civil-construction-1-secondary-getting-started",
+      "gsc": null,
+      "ga4": {
+        "users": 103,
+        "sessions": 114,
+        "engagementRate": 0.8333333333333334,
+        "bounceRate": 0.16666666666666666
+      }
+    },
+    {
+      "path": "/docs/civil-construction-1-secondary-experience-writing-examples",
+      "gsc": null,
+      "ga4": {
+        "users": 102,
+        "sessions": 126,
+        "engagementRate": 0.7222222222222222,
+        "bounceRate": 0.2777777777777778
+      }
+    },
+    {
+      "path": "/",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 100
+      },
+      "ga4": {
+        "users": 100,
+        "sessions": 184,
+        "engagementRate": 0.7445652173913043,
+        "bounceRate": 0.2554347826086957
+      }
+    },
+    {
+      "path": "/category/pe-comprehensive-management",
+      "gsc": null,
+      "ga4": {
+        "users": 98,
+        "sessions": 342,
+        "engagementRate": 0.6666666666666666,
+        "bounceRate": 0.3333333333333333
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-r8-essay-keyword-forecast",
+      "gsc": null,
+      "ga4": {
+        "users": 94,
+        "sessions": 143,
+        "engagementRate": 0.6783216783216783,
+        "bounceRate": 0.32167832167832167
+      }
+    },
+    {
+      "path": "/docs/civil-construction-1-guide-exam-overview",
+      "gsc": null,
+      "ga4": {
+        "users": 66,
+        "sessions": 72,
+        "engagementRate": 0.8194444444444444,
+        "bounceRate": 0.18055555555555555
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-management-tradeoffs",
+      "gsc": null,
+      "ga4": {
+        "users": 63,
+        "sessions": 132,
+        "engagementRate": 0.7803030303030303,
+        "bounceRate": 0.2196969696969697
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-exam-index",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 44
+      },
+      "ga4": {
+        "users": 62,
+        "sessions": 79,
+        "engagementRate": 0.7721518987341772,
+        "bounceRate": 0.22784810126582278
+      }
+    },
+    {
+      "path": "/about",
+      "gsc": null,
+      "ga4": {
+        "users": 61,
+        "sessions": 71,
+        "engagementRate": 0.49295774647887325,
+        "bounceRate": 0.5070422535211268
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-safety-health-org-structure",
+      "gsc": null,
+      "ga4": {
+        "users": 57,
+        "sessions": 57,
+        "engagementRate": 0.17543859649122806,
+        "bounceRate": 0.8245614035087719
+      }
+    },
+    {
+      "path": "/docs/pe-construction-river-coast-exam-themes",
+      "gsc": null,
+      "ga4": {
+        "users": 57,
+        "sessions": 90,
+        "engagementRate": 0.5555555555555556,
+        "bounceRate": 0.4444444444444444
+      }
+    },
+    {
+      "path": "/docs/civil-construction-1-textbook-schedule-charts",
+      "gsc": null,
+      "ga4": {
+        "users": 50,
+        "sessions": 64,
+        "engagementRate": 0.640625,
+        "bounceRate": 0.359375
+      }
+    },
+    {
+      "path": "/docs/civil-construction-2-secondary-experience-writing-examples",
+      "gsc": null,
+      "ga4": {
+        "users": 50,
+        "sessions": 71,
+        "engagementRate": 0.8169014084507042,
+        "bounceRate": 0.18309859154929578
+      }
+    },
+    {
+      "path": "/docs/civil-construction-2-secondary-r06",
+      "gsc": null,
+      "ga4": {
+        "users": 50,
+        "sessions": 85,
+        "engagementRate": 0.5882352941176471,
+        "bounceRate": 0.4117647058823529
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-essay-exam-strategy",
+      "gsc": null,
+      "ga4": {
+        "users": 45,
+        "sessions": 94,
+        "engagementRate": 0.723404255319149,
+        "bounceRate": 0.2765957446808511
+      }
+    },
+    {
+      "path": "/tools/keiken-charcount",
+      "gsc": null,
+      "ga4": {
+        "users": 44,
+        "sessions": 80,
+        "engagementRate": 0.5875,
+        "bounceRate": 0.4125
+      }
+    },
+    {
+      "path": "/docs/civil-construction-2-secondary-getting-started",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 56
+      },
+      "ga4": {
+        "users": 41,
+        "sessions": 61,
+        "engagementRate": 0.8032786885245902,
+        "bounceRate": 0.19672131147540983
+      }
+    },
+    {
+      "path": "/docs/civil-construction-1-guide-strategy",
+      "gsc": null,
+      "ga4": {
+        "users": 37,
+        "sessions": 45,
+        "engagementRate": 0.5777777777777777,
+        "bounceRate": 0.4222222222222222
+      }
+    },
+    {
+      "path": "/docs/pe-construction-r07-required",
+      "gsc": null,
+      "ga4": {
+        "users": 37,
+        "sessions": 40,
+        "engagementRate": 0.5,
+        "bounceRate": 0.5
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-r07-primary",
+      "gsc": null,
+      "ga4": {
+        "users": 36,
+        "sessions": 74,
+        "engagementRate": 0.6891891891891891,
+        "bounceRate": 0.3108108108108108
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-root-cause-analysis",
+      "gsc": {
+        "impressions": 40,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 84.6
+      },
+      "ga4": {
+        "users": 36,
+        "sessions": 42,
+        "engagementRate": 0.5952380952380952,
+        "bounceRate": 0.40476190476190477
+      }
+    },
+    {
+      "path": "/docs/pe-construction-steel-concrete-exam-themes",
+      "gsc": null,
+      "ga4": {
+        "users": 33,
+        "sessions": 42,
+        "engagementRate": 0.6904761904761905,
+        "bounceRate": 0.30952380952380953
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-frequent-topics",
+      "gsc": null,
+      "ga4": {
+        "users": 32,
+        "sessions": 73,
+        "engagementRate": 0.958904109589041,
+        "bounceRate": 0.0410958904109589
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-market-research",
+      "gsc": null,
+      "ga4": {
+        "users": 32,
+        "sessions": 41,
+        "engagementRate": 0.975609756097561,
+        "bounceRate": 0.024390243902439025
+      }
+    },
+    {
+      "path": "/docs/pe-construction-construction-planning-exam-themes",
+      "gsc": null,
+      "ga4": {
+        "users": 32,
+        "sessions": 39,
+        "engagementRate": 0.6923076923076923,
+        "bounceRate": 0.3076923076923077
+      }
+    },
+    {
+      "path": "/docs/civil-construction-1-textbook-scraper",
+      "gsc": {
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 1
+      },
+      "ga4": {
+        "users": 31,
+        "sessions": 34,
+        "engagementRate": 0.7941176470588235,
+        "bounceRate": 0.20588235294117646
+      }
+    },
+    {
+      "path": "/docs/civil-construction-2-secondary-r04",
+      "gsc": null,
+      "ga4": {
+        "users": 31,
+        "sessions": 66,
+        "engagementRate": 0.7121212121212122,
+        "bounceRate": 0.2878787878787879
+      }
+    },
+    {
+      "path": "/docs/pe-construction-urban-planning-exam-themes",
+      "gsc": null,
+      "ga4": {
+        "users": 31,
+        "sessions": 46,
+        "engagementRate": 0.5652173913043478,
+        "bounceRate": 0.43478260869565216
+      }
+    },
+    {
+      "path": "/docs/civil-construction-1-secondary-r07",
+      "gsc": null,
+      "ga4": {
+        "users": 29,
+        "sessions": 33,
+        "engagementRate": 0.7272727272727273,
+        "bounceRate": 0.2727272727272727
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-alarp-principle",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 8
+      },
+      "ga4": {
+        "users": 29,
+        "sessions": 35,
+        "engagementRate": 0.6571428571428571,
+        "bounceRate": 0.34285714285714286
+      }
+    },
+    {
+      "path": "/docs/civil-construction-1-textbook-safety-scaffolding",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 62
+      },
+      "ga4": {
+        "users": 28,
+        "sessions": 33,
+        "engagementRate": 0.7272727272727273,
+        "bounceRate": 0.2727272727272727
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-general-vs-comprehensive",
+      "gsc": null,
+      "ga4": {
+        "users": 28,
+        "sessions": 30,
+        "engagementRate": 0.7666666666666667,
+        "bounceRate": 0.23333333333333334
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-overall-equipment-effectiveness",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 75
+      },
+      "ga4": {
+        "users": 28,
+        "sessions": 37,
+        "engagementRate": 0.5945945945945946,
+        "bounceRate": 0.40540540540540543
+      }
+    },
+    {
+      "path": "/docs/pe-construction-road-exam-themes",
+      "gsc": null,
+      "ga4": {
+        "users": 28,
+        "sessions": 61,
+        "engagementRate": 0.5737704918032787,
+        "bounceRate": 0.4262295081967213
+      }
+    },
+    {
+      "path": "/category/pe-construction",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 54
+      },
+      "ga4": {
+        "users": 27,
+        "sessions": 44,
+        "engagementRate": 0.7272727272727273,
+        "bounceRate": 0.2727272727272727
+      }
+    },
+    {
+      "path": "/docs/civil-construction-1-textbook-network-schedule",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 75
+      },
+      "ga4": {
+        "users": 27,
+        "sessions": 49,
+        "engagementRate": 0.3673469387755102,
+        "bounceRate": 0.6326530612244898
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-herzberg-two-factor-theory",
+      "gsc": null,
+      "ga4": {
+        "users": 27,
+        "sessions": 36,
+        "engagementRate": 0.9166666666666666,
+        "bounceRate": 0.08333333333333333
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-pert-cpm",
+      "gsc": null,
+      "ga4": {
+        "users": 26,
+        "sessions": 35,
+        "engagementRate": 0.8571428571428571,
+        "bounceRate": 0.14285714285714285
+      }
+    },
+    {
+      "path": "/docs/pe-construction-toan-kousei-template",
+      "gsc": null,
+      "ga4": {
+        "users": 26,
+        "sessions": 37,
+        "engagementRate": 0.6216216216216216,
+        "bounceRate": 0.3783783783783784
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-business-continuity-plan",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 17
+      },
+      "ga4": {
+        "users": 25,
+        "sessions": 32,
+        "engagementRate": 1,
+        "bounceRate": 0
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-lifecycle-costing-method",
+      "gsc": null,
+      "ga4": {
+        "users": 25,
+        "sessions": 32,
+        "engagementRate": 0.71875,
+        "bounceRate": 0.28125
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-r07-secondary",
+      "gsc": null,
+      "ga4": {
+        "users": 25,
+        "sessions": 31,
+        "engagementRate": 0.7741935483870968,
+        "bounceRate": 0.22580645161290322
+      }
+    },
+    {
+      "path": "/docs/civil-construction-1-textbook-construction-plan-overview",
+      "gsc": null,
+      "ga4": {
+        "users": 24,
+        "sessions": 31,
+        "engagementRate": 0.6451612903225806,
+        "bounceRate": 0.3548387096774194
+      }
+    },
+    {
+      "path": "/docs/civil-construction-1-textbook-shovel-excavator",
+      "gsc": null,
+      "ga4": {
+        "users": 23,
+        "sessions": 27,
+        "engagementRate": 0.5555555555555556,
+        "bounceRate": 0.4444444444444444
+      }
+    },
+    {
+      "path": "/docs/pe-construction-required-exam-themes",
+      "gsc": null,
+      "ga4": {
+        "users": 23,
+        "sessions": 33,
+        "engagementRate": 0.696969696969697,
+        "bounceRate": 0.30303030303030304
+      }
+    },
+    {
+      "path": "/docs/pe-first-stage-r07-basic",
+      "gsc": null,
+      "ga4": {
+        "users": 23,
+        "sessions": 36,
+        "engagementRate": 0.6111111111111112,
+        "bounceRate": 0.3888888888888889
+      }
+    },
+    {
+      "path": "/docs/concrete-chief-engineer-textbook-mix-design",
+      "gsc": null,
+      "ga4": {
+        "users": 22,
+        "sessions": 27,
+        "engagementRate": 0.7037037037037037,
+        "bounceRate": 0.2962962962962963
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-essay-persona-guide",
+      "gsc": null,
+      "ga4": {
+        "users": 22,
+        "sessions": 31,
+        "engagementRate": 0.9354838709677419,
+        "bounceRate": 0.06451612903225806
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-unsafe-conditions-behavior",
+      "gsc": null,
+      "ga4": {
+        "users": 22,
+        "sessions": 26,
+        "engagementRate": 0.7692307692307693,
+        "bounceRate": 0.23076923076923078
+      }
+    },
+    {
+      "path": "/links",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 73
+      },
+      "ga4": {
+        "users": 22,
+        "sessions": 24,
+        "engagementRate": 0.6666666666666666,
+        "bounceRate": 0.3333333333333333
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-exam-passing-strategy",
+      "gsc": null,
+      "ga4": {
+        "users": 21,
+        "sessions": 37,
+        "engagementRate": 0.8108108108108109,
+        "bounceRate": 0.1891891891891892
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-four-m-analysis",
+      "gsc": null,
+      "ga4": {
+        "users": 21,
+        "sessions": 24,
+        "engagementRate": 0.9583333333333334,
+        "bounceRate": 0.041666666666666664
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-hazid",
+      "gsc": null,
+      "ga4": {
+        "users": 21,
+        "sessions": 27,
+        "engagementRate": 0.7037037037037037,
+        "bounceRate": 0.2962962962962963
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-demand-forecasting",
+      "gsc": null,
+      "ga4": {
+        "users": 20,
+        "sessions": 29,
+        "engagementRate": 0.896551724137931,
+        "bounceRate": 0.10344827586206896
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-inherent-safety",
+      "gsc": null,
+      "ga4": {
+        "users": 20,
+        "sessions": 29,
+        "engagementRate": 0.4482758620689655,
+        "bounceRate": 0.5517241379310345
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-quality-control",
+      "gsc": null,
+      "ga4": {
+        "users": 20,
+        "sessions": 26,
+        "engagementRate": 0.9230769230769231,
+        "bounceRate": 0.07692307692307693
+      }
+    },
+    {
+      "path": "/docs/pe-construction-pe-secondary-essay-guide",
+      "gsc": null,
+      "ga4": {
+        "users": 20,
+        "sessions": 31,
+        "engagementRate": 0.8064516129032258,
+        "bounceRate": 0.1935483870967742
+      }
+    },
+    {
+      "path": "/docs/civil-construction-1-textbook-histogram",
+      "gsc": null,
+      "ga4": {
+        "users": 19,
+        "sessions": 25,
+        "engagementRate": 0.52,
+        "bounceRate": 0.48
+      }
+    },
+    {
+      "path": "/docs/concrete-chief-engineer-primary-construction",
+      "gsc": null,
+      "ga4": {
+        "users": 19,
+        "sessions": 32,
+        "engagementRate": 0.71875,
+        "bounceRate": 0.28125
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-occupational-safety-act",
+      "gsc": null,
+      "ga4": {
+        "users": 19,
+        "sessions": 23,
+        "engagementRate": 1,
+        "bounceRate": 0
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-break-even-point",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 10
+      },
+      "ga4": {
+        "users": 18,
+        "sessions": 24,
+        "engagementRate": 0.8333333333333334,
+        "bounceRate": 0.16666666666666666
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-carbon-neutral",
+      "gsc": null,
+      "ga4": {
+        "users": 18,
+        "sessions": 23,
+        "engagementRate": 0.9565217391304348,
+        "bounceRate": 0.043478260869565216
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-environmental-impact-assessment",
+      "gsc": null,
+      "ga4": {
+        "users": 18,
+        "sessions": 26,
+        "engagementRate": 0.8846153846153846,
+        "bounceRate": 0.11538461538461539
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-labor-standards-act",
+      "gsc": null,
+      "ga4": {
+        "users": 18,
+        "sessions": 21,
+        "engagementRate": 0.9523809523809523,
+        "bounceRate": 0.047619047619047616
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-last-minute-2026",
+      "gsc": null,
+      "ga4": {
+        "users": 18,
+        "sessions": 26,
+        "engagementRate": 0.6153846153846154,
+        "bounceRate": 0.38461538461538464
+      }
+    },
+    {
+      "path": "/docs/pe-construction-hissu-kamoku-kaitourei",
+      "gsc": null,
+      "ga4": {
+        "users": 18,
+        "sessions": 20,
+        "engagementRate": 0.8,
+        "bounceRate": 0.2
+      }
+    },
+    {
+      "path": "/docs/civil-construction-1-guide-grade-comparison",
+      "gsc": null,
+      "ga4": {
+        "users": 17,
+        "sessions": 18,
+        "engagementRate": 0.8333333333333334,
+        "bounceRate": 0.16666666666666666
+      }
+    },
+    {
+      "path": "/docs/civil-construction-2-guide-study-plan",
+      "gsc": null,
+      "ga4": {
+        "users": 17,
+        "sessions": 21,
+        "engagementRate": 0.8571428571428571,
+        "bounceRate": 0.14285714285714285
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-circular-economy",
+      "gsc": null,
+      "ga4": {
+        "users": 17,
+        "sessions": 19,
+        "engagementRate": 0.8947368421052632,
+        "bounceRate": 0.10526315789473684
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-extended-producer-responsibility",
+      "gsc": null,
+      "ga4": {
+        "users": 17,
+        "sessions": 19,
+        "engagementRate": 0.8421052631578947,
+        "bounceRate": 0.15789473684210525
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-income-statement",
+      "gsc": null,
+      "ga4": {
+        "users": 17,
+        "sessions": 69,
+        "engagementRate": 0.6086956521739131,
+        "bounceRate": 0.391304347826087
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-npv-net-present-value",
+      "gsc": null,
+      "ga4": {
+        "users": 17,
+        "sessions": 21,
+        "engagementRate": 0.9523809523809523,
+        "bounceRate": 0.047619047619047616
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-r04-primary",
+      "gsc": null,
+      "ga4": {
+        "users": 17,
+        "sessions": 36,
+        "engagementRate": 0.8333333333333334,
+        "bounceRate": 0.16666666666666666
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-reliability-block-diagram",
+      "gsc": null,
+      "ga4": {
+        "users": 17,
+        "sessions": 23,
+        "engagementRate": 0.5652173913043478,
+        "bounceRate": 0.43478260869565216
+      }
+    },
+    {
+      "path": "/docs/civil-construction-2-guide-exam-overview",
+      "gsc": null,
+      "ga4": {
+        "users": 16,
+        "sessions": 22,
+        "engagementRate": 0.7272727272727273,
+        "bounceRate": 0.2727272727272727
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-concurrent-engineering",
+      "gsc": null,
+      "ga4": {
+        "users": 16,
+        "sessions": 19,
+        "engagementRate": 0.8421052631578947,
+        "bounceRate": 0.15789473684210525
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-equipment-characteristics",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 17
+      },
+      "ga4": {
+        "users": 16,
+        "sessions": 22,
+        "engagementRate": 0.7727272727272727,
+        "bounceRate": 0.22727272727272727
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-jit-production",
+      "gsc": null,
+      "ga4": {
+        "users": 16,
+        "sessions": 22,
+        "engagementRate": 0.9090909090909091,
+        "bounceRate": 0.09090909090909091
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-mcgregor-xy-theory",
+      "gsc": null,
+      "ga4": {
+        "users": 16,
+        "sessions": 19,
+        "engagementRate": 0.8421052631578947,
+        "bounceRate": 0.15789473684210525
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-r03-primary",
+      "gsc": null,
+      "ga4": {
+        "users": 16,
+        "sessions": 32,
+        "engagementRate": 0.78125,
+        "bounceRate": 0.21875
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-safety-2-0",
+      "gsc": null,
+      "ga4": {
+        "users": 16,
+        "sessions": 19,
+        "engagementRate": 0.9473684210526315,
+        "bounceRate": 0.05263157894736842
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-supply-chain-management",
+      "gsc": null,
+      "ga4": {
+        "users": 16,
+        "sessions": 21,
+        "engagementRate": 0.9523809523809523,
+        "bounceRate": 0.047619047619047616
+      }
+    },
+    {
+      "path": "/docs/pe-construction-r07-steel-concrete",
+      "gsc": null,
+      "ga4": {
+        "users": 16,
+        "sessions": 24,
+        "engagementRate": 0.625,
+        "bounceRate": 0.375
+      }
+    },
+    {
+      "path": "/docs/concrete-diagnostician-guide-overview",
+      "gsc": null,
+      "ga4": {
+        "users": 15,
+        "sessions": 15,
+        "engagementRate": 0.7333333333333333,
+        "bounceRate": 0.26666666666666666
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-balance-sheet",
+      "gsc": null,
+      "ga4": {
+        "users": 15,
+        "sessions": 19,
+        "engagementRate": 1,
+        "bounceRate": 0
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-process-capability-index",
+      "gsc": null,
+      "ga4": {
+        "users": 15,
+        "sessions": 18,
+        "engagementRate": 0.8888888888888888,
+        "bounceRate": 0.1111111111111111
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-process-planning-construction",
+      "gsc": null,
+      "ga4": {
+        "users": 15,
+        "sessions": 24,
+        "engagementRate": 0.875,
+        "bounceRate": 0.125
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-r02-primary",
+      "gsc": null,
+      "ga4": {
+        "users": 15,
+        "sessions": 29,
+        "engagementRate": 0.8275862068965517,
+        "bounceRate": 0.1724137931034483
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-reskilling",
+      "gsc": null,
+      "ga4": {
+        "users": 15,
+        "sessions": 16,
+        "engagementRate": 0.9375,
+        "bounceRate": 0.0625
+      }
+    },
+    {
+      "path": "/docs/pe-construction-bousai-genseigai-ronbun-keyword",
+      "gsc": null,
+      "ga4": {
+        "users": 15,
+        "sessions": 27,
+        "engagementRate": 0.7407407407407407,
+        "bounceRate": 0.25925925925925924
+      }
+    },
+    {
+      "path": "/docs/pe-construction-guide-required-essay",
+      "gsc": null,
+      "ga4": {
+        "users": 15,
+        "sessions": 19,
+        "engagementRate": 0.6842105263157895,
+        "bounceRate": 0.3157894736842105
+      }
+    },
+    {
+      "path": "/docs/civil-construction-1-guide-1-vs-2",
+      "gsc": {
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 79.33333333333333
+      },
+      "ga4": {
+        "users": 14,
+        "sessions": 15,
+        "engagementRate": 0.8666666666666667,
+        "bounceRate": 0.13333333333333333
+      }
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-human-error-probability",
+      "gsc": {
+        "impressions": 13,
+        "clicks": 1,
+        "ctr": 0.07692307692307693,
+        "position": 10.153846153846153
+      },
+      "ga4": null
+    },
+    {
+      "path": "/category/concrete-chief-engineer",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 36
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/civil-construction-1-guide-allowance",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 133
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/civil-construction-1-guide-buildjob-review",
+      "gsc": {
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 80
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/civil-construction-1-guide-career-agent-comparison",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 99
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/civil-construction-1-guide-career-consultation-before-quit",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 34
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/civil-construction-1-guide-safety-management",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 76
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/civil-construction-1-primary-r04-b",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 66
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/civil-construction-1-primary-r05-b",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 7
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/civil-construction-1-textbook-construction-byproduct-recycle",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 97
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/civil-construction-1-textbook-construction-mgmt-overview",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 100
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/civil-construction-1-textbook-control-chart",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 73
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/civil-construction-1-textbook-law-compliance",
+      "gsc": {
+        "impressions": 6,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 14.333333333333334
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/civil-construction-1-textbook-machinery-overview",
+      "gsc": {
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 72
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/civil-construction-1-textbook-quality-overview",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 96
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/civil-construction-2-guide-career-agent-comparison",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 22
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/civil-construction-2-guide-resume",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 86
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/civil-construction-2-guide-safety-management",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 75
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-blind-drill",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 30
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-budget-planning",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 35
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-career-path",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 95
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-design-review",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 25
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-equal-employment-act",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 77
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-ergonomic-principles",
+      "gsc": {
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 2
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-fool-proof",
+      "gsc": {
+        "impressions": 11,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 78.36363636363636
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-groupware",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 50
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-indirect-manufacturing-cost",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 87
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-inspection-methods",
+      "gsc": {
+        "impressions": 11,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 83.72727272727273
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-jisec",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 49
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-maintenance-prevention",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 46
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-mentor",
+      "gsc": {
+        "impressions": 21,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 71.85714285714286
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-multi-track-hr-system",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 85
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-predictive-maintenance",
+      "gsc": {
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 86.75
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-process-safety-mgmt",
+      "gsc": {
+        "impressions": 3,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 57.666666666666664
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-push-production",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 11
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-quality-costing",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 20
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-resilience",
+      "gsc": {
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 97
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-safety-and-security",
+      "gsc": {
+        "impressions": 31,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 44.774193548387096
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-scientific-management",
+      "gsc": {
+        "impressions": 15,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 30.2
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-tbm-toolbox-meeting",
+      "gsc": {
+        "impressions": 4,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 79
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-visual-management",
+      "gsc": {
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 130
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-comprehensive-management-vta-method",
+      "gsc": {
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 26
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-construction-r03-construction-planning",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 5
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-construction-r03-port-airport",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 67
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-construction-r07-railway",
+      "gsc": {
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 58.5
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-construction-railway-exam-themes",
+      "gsc": {
+        "impressions": 1,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 68
+      },
+      "ga4": null
+    },
+    {
+      "path": "/docs/pe-first-stage-r03-basic",
+      "gsc": {
+        "impressions": 2,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 1
+      },
+      "ga4": null
+    },
+    {
+      "path": "/tools/juken-shikaku",
+      "gsc": {
+        "impressions": 5,
+        "clicks": 0,
+        "ctr": 0,
+        "position": 63.8
+      },
+      "ga4": null
+    }
+  ]
+}

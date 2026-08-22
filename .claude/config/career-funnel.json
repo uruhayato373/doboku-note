@@ -1,0 +1,104 @@
+{
+  "$comment": "キャリア（転職アフィリエイト）ファネルの機械可読設定。真実源の人間向け解説は .claude/knowledge/reference/affiliate-operations.md「キャリア面の構造」。語彙をレポート本文へ散らさないため、ここに集約する。",
+  "highIntentQueryTerms": [
+    "転職",
+    "辞めたい",
+    "やめたい",
+    "年収",
+    "市場価値",
+    "評判",
+    "口コミ",
+    "エージェント",
+    "求人",
+    "ホワイト",
+    "公務員",
+    "発注者支援"
+  ],
+  "$pillarsComment": "5 本の柱。slugPatterns は部分一致で、配列の順に first-match-wins。どれにも当たらない career 記事は unclassified としてレビュー対象に出す（失敗にしない）。",
+  "pillarRules": [
+    {
+      "pillar": "service-choice",
+      "label": "サービス比較",
+      "slugPatterns": [
+        "agent",
+        "buildjob-review"
+      ]
+    },
+    {
+      "pillar": "application",
+      "label": "応募実務",
+      "slugPatterns": [
+        "resume",
+        "interview",
+        "-timing",
+        "white-company"
+      ]
+    },
+    {
+      "pillar": "quit",
+      "label": "辞める/残る",
+      "slugPatterns": [
+        "quit"
+      ]
+    },
+    {
+      "pillar": "market-value",
+      "label": "市場価値・年収",
+      "slugPatterns": [
+        "salary",
+        "allowance",
+        "market-value",
+        "career-cases",
+        "grade-comparison"
+      ]
+    },
+    {
+      "pillar": "career-path",
+      "label": "転職先",
+      "slugPatterns": [
+        "career-path",
+        "consultant",
+        "hatchu-shien",
+        "public-servant",
+        "dx-jobs",
+        "company-types",
+        "career-change",
+        "haken-seishain",
+        "young-career",
+        "age-career",
+        "women",
+        "future",
+        "job-reality",
+        "guide-career"
+      ]
+    }
+  ],
+  "$noteComment": "note 側のキャリア記事は utmCampaign の接頭辞で判定する（ディレクトリ名は日本語で揺れるため）。",
+  "noteUtmPrefix": "civil-career-",
+  "$dimensionComment": "GA4 カスタムディメンションの作成日。**この日より前のイベントには遡及されず (not set) になる**ため、窓の始端がこの日より前だと (not set) は配線欠落ではなく仕様。真実源は .claude/config/ga4-admin-desired-state.json の $observed（2026-07-30 実機確認）。",
+  "dimensionRegisteredAt": {
+    "event_label": "2026-07-07",
+    "cta_placement": "2026-07-25"
+  },
+  "$baselineComment": "起票時（2026-08-21）の基線。レポートがこの値から大きくずれたら理由を説明する。凍結済みの完全な基線は .claude/state/metrics/affiliate/career-funnel-baseline-2026-08-12.json、評価は experiments.json の EXP-008。",
+  "reportedBaseline": {
+    "affiliateImpressions": 7370,
+    "affiliateClicks": 19,
+    "highIntentQueryImpressions": 10,
+    "a8ConfirmedRewardYen": 0
+  },
+  "$forbiddenComment": "CTA 文言に混ぜてはいけない短絡表現。src/config/career-pathways.ts の affiliateCta / nextStep 文言をテストが機械検査する。",
+  "forbiddenCtaPhrases": [
+    "今すぐ登録",
+    "必ず年収",
+    "年収アップ保証",
+    "ホワイト企業を紹介",
+    "地方求人が必ず",
+    "市場価値が高い",
+    "発注者側なら楽",
+    "登録だけで内定",
+    "唯一",
+    "最強",
+    "全員向け"
+  ]
+}

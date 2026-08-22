@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="852" viewBox="0 0 1200 852">
+  <rect width="1200" height="852" fill="#f8fafc"/>
+
+  <!-- タイトル -->
+  <text x="600" y="68" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#222222" text-anchor="middle">記述式に向く&#x300C;良い題材&#x300D;の3条件</text>
+
+  <!-- カード 1 -->
+  <rect x="60" y="124" width="1080" height="200" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+
+  <!-- 番号バッジ -->
+  <circle cx="96" cy="184" r="36" fill="#2e6da4"/>
+  <text x="96" y="196.6" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">1</text>
+
+  <!-- 条件（太字） -->
+  <text x="164" y="181" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#1a3a5c" text-anchor="start">5管理のトレードオフが自然に含まれる</text>
+
+  <!-- 説明 -->
+  <text x="164" y="243" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">複数の管理の対立が初めから組み込まれた業務を選ぶ</text>
+
+  <!-- 道路担当の例 -->
+  <text x="164" y="293" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="400" fill="#8a8a8a" text-anchor="start">例：橋梁長寿命化（予防保全コスト × 安全 × 通行規制の住民影響）</text>
+
+  <!-- カード 2 -->
+  <rect x="60" y="348" width="1080" height="200" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+
+  <!-- 番号バッジ -->
+  <circle cx="96" cy="408" r="36" fill="#2e6da4"/>
+  <text x="96" y="420.6" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">2</text>
+
+  <!-- 条件（太字） -->
+  <text x="164" y="405" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#1a3a5c" text-anchor="start">自分が判断に関与した</text>
+
+  <!-- 説明 -->
+  <text x="164" y="467" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">「私は発注者としてこう判断した」と書ける当事者性のある業務</text>
+
+  <!-- 道路担当の例 -->
+  <text x="164" y="517" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="400" fill="#8a8a8a" text-anchor="start">例：自分が事業化を検討した道路改良</text>
+
+  <!-- カード 3 -->
+  <rect x="60" y="572" width="1080" height="200" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+
+  <!-- 番号バッジ -->
+  <circle cx="96" cy="632" r="36" fill="#2e6da4"/>
+  <text x="96" y="644.6" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="36" font-weight="900" fill="#ffffff" text-anchor="middle">3</text>
+
+  <!-- 条件（太字） -->
+  <text x="164" y="629" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#1a3a5c" text-anchor="start">将来展望につなげられる</text>
+
+  <!-- 説明 -->
+  <text x="164" y="691" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">個別事業を超えた広域・次世代の展望に接続できる題材</text>
+
+  <!-- 道路担当の例 -->
+  <text x="164" y="741" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="400" fill="#8a8a8a" text-anchor="start">例：人口減少下の道路維持管理体制</text>
+
+    <text x="1172" y="830" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

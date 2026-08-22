@@ -1,0 +1,64 @@
+<svg width="500" height="380" viewBox="0 0 500 380" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:500px;width:100%" role="img" aria-label="過程決定計画図（PDPC）">
+  <defs>
+    <marker id="arr5" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L7,3.5 z" fill="#222"/>
+    </marker>
+    <marker id="arr5r" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L7,3.5 z" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <!-- Start -->
+  <ellipse cx="250" cy="30" rx="70" ry="20" fill="#2e6da4" stroke="#2e6da4" stroke-width="2"/>
+  <text x="250" y="35" text-anchor="middle" fill="#ffffff" font-weight="bold">スタート（目標）</text>
+
+  <!-- Level 1 -->
+  <line x1="250" y1="50" x2="250" y2="75" stroke="#222" stroke-width="2" marker-end="url(#arr5)"/>
+  <rect x="150" y="75" width="200" height="40" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="5"/>
+  <text x="250" y="100" text-anchor="middle">計画ステップ1</text>
+
+  <!-- Branch from step 1 -->
+  <line x1="250" y1="115" x2="130" y2="150" stroke="#222" stroke-width="2" marker-end="url(#arr5)"/>
+  <line x1="250" y1="115" x2="370" y2="150" stroke="#222" stroke-width="2" marker-end="url(#arr5)"/>
+
+  <!-- Level 2 Left -->
+  <rect x="50" y="150" width="160" height="40" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="5"/>
+  <text x="130" y="175" text-anchor="middle">ステップ2a</text>
+
+  <!-- Level 2 Right -->
+  <rect x="290" y="150" width="160" height="40" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="5"/>
+  <text x="370" y="175" text-anchor="middle">ステップ2b</text>
+
+  <!-- Branch from 2a -->
+  <line x1="130" y1="190" x2="90" y2="225" stroke="#222" stroke-width="1.5" marker-end="url(#arr5)"/>
+  <line x1="130" y1="190" x2="200" y2="225" stroke="#222" stroke-width="1.5" marker-end="url(#arr5)"/>
+
+  <!-- Level 3 from 2a -->
+  <rect x="30" y="225" width="115" height="35" fill="#fff3cd" stroke="#d4a017" rx="4"/>
+  <text x="87" y="247" text-anchor="middle">ステップ3a</text>
+  <rect x="155" y="225" width="115" height="35" fill="#fff3cd" stroke="#d4a017" rx="4"/>
+  <text x="212" y="247" text-anchor="middle">ステップ3b</text>
+
+  <!-- Branch from 2b -->
+  <line x1="370" y1="190" x2="310" y2="225" stroke="#222" stroke-width="1.5" marker-end="url(#arr5)"/>
+  <line x1="370" y1="190" x2="420" y2="225" stroke="#222" stroke-width="1.5" marker-end="url(#arr5)"/>
+
+  <!-- Level 3 from 2b -->
+  <rect x="255" y="225" width="115" height="35" fill="#fff3cd" stroke="#d4a017" rx="4"/>
+  <text x="312" y="247" text-anchor="middle">ステップ3c</text>
+  <rect x="375" y="225" width="100" height="35" fill="#f8d7da" stroke="#b22234" rx="4"/>
+  <text x="425" y="247" text-anchor="middle">問題発生</text>
+
+  <!-- Contingency from problem -->
+  <line x1="425" y1="260" x2="425" y2="290" stroke="#b22234" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr5r)"/>
+  <rect x="370" y="290" width="115" height="35" fill="#f8d7da" stroke="#b22234" rx="4"/>
+  <text x="427" y="312" text-anchor="middle">対策ルート</text>
+
+  <!-- Goal -->
+  <line x1="87" y1="260" x2="250" y2="330" stroke="#222" stroke-width="1.5" marker-end="url(#arr5)"/>
+  <line x1="212" y1="260" x2="250" y2="330" stroke="#222" stroke-width="1.5" marker-end="url(#arr5)"/>
+  <line x1="312" y1="260" x2="260" y2="330" stroke="#222" stroke-width="1.5" marker-end="url(#arr5)"/>
+
+  <ellipse cx="250" cy="350" rx="70" ry="20" fill="#3a7d44" stroke="#228822" stroke-width="2"/>
+  <text x="250" y="355" text-anchor="middle" fill="#ffffff" font-weight="bold">ゴール（達成）</text>
+</svg>

@@ -1,0 +1,90 @@
+---
+title: セキュリティ評価基準CC
+description: "コモンクライテリア（CC）の概要。IT製品のセキュリティ評価保証レベル（EAL）、認証プロセス、ISMSとの違いを解説。技術士総合技術監理キーワード集2026（情報管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '4.5'
+tags:
+  - 総合技術監理
+  - keyword
+published: true
+reviewStatus: approved
+lastRewrittenAt: '2026-04-15'
+revisionCycle: 1
+publishedAt: '2026-04-08'
+seoTitle: "セキュリティ評価基準CC ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-05-26
+---
+
+## コモンクライテリアとは
+
+CC（Common Criteria：コモンクライテリア）は、IT製品やシステムのセキュリティ機能を評価するための国際規格（ISO/IEC 15408）である。
+
+CCは製品が備えるセキュリティ機能が設計どおりに実装され、正しく動作することを第三者が客観的に評価・認証する枠組みである。
+
+CCの前身は、米国のTCSEC（オレンジブック）と欧州のITSECであり、これらを統合して1999年に国際規格化された。
+
+### CCの評価構造
+
+CCによる評価では、セキュリティ要件・仕様・対象の3概念を厳密に区別する。
+
+- **PP（Protection Profile）**: セキュリティ要件の雛形。特定の製品分野に求められるセキュリティ機能を定義する
+- **ST（Security Target）**: 製品ごとのセキュリティ仕様。開発者が作成し、評価対象（TOE）のセキュリティ機能を記述する
+- **TOE（Target of Evaluation）**: 評価対象となるIT製品またはシステム本体
+
+### 評価保証レベル
+
+CCでは、評価の厳密さを7段階の **EAL**（Evaluation Assurance Level）で定義している。レベルが高いほど開発プロセスへの検証が厳密になる。
+
+- **EAL1 機能テスト**: 最低限の保証。独立テストによる確認
+- **EAL2 構造テスト**: 開発者のテスト結果と設計情報を確認
+- **EAL3 方法的テスト及び検査**: 体系的なテスト。開発環境の管理も確認
+- **EAL4 方法的設計、テスト及びレビュー**: 設計書のレビューを含む。**商用製品の一般的な水準**
+- **EAL5 準形式的設計及びテスト**: 準形式的手法による設計検証
+- **EAL6 準形式的検証済み設計及びテスト**: 高度な脅威環境向け
+- **EAL7 形式的検証済み設計及びテスト**: 最高レベル。形式的手法による完全な検証
+
+実務上、EAL4 が商用IT製品の一般的な認証水準であり、EAL5 以上は軍事・政府機関向けの高セキュリティ製品に限られる。
+
+### CCRA
+
+CCRAは、CC認証の国際的な相互承認協定である。
+
+CCRA加盟国（日本を含む31か国）で取得したCC認証は、他の加盟国でも有効と認められるため、グローバルに展開するIT製品の認証コストを削減できる。
+
+日本におけるCC認証は[JISEC](/docs/pe-comprehensive-management-jisec)（ITセキュリティ評価及び認証制度）が担当している。
+
+<ExamPoint
+  summary="CCはIT製品のセキュリティ機能を評価する国際規格（ISMSは組織を評価）"
+  items={[
+    "CC（ISO/IEC 15408）はIT製品・システムのセキュリティ評価規格",
+    "EAL1〜7の7段階",
+    "商用製品はEAL4が一般的水準",
+    "CCRAにより加盟国間で認証の相互承認が可能",
+    "ISMSが組織の管理体制を認証するのに対し、CCは製品の機能を評価する",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**4.5 情報セキュリティ**](/docs/pe-comprehensive-management-keyword-2026#45-情報セキュリティ)に位置づけられる。
+
+[ISMS（ISO/IEC 27001）](/docs/pe-comprehensive-management-isms-iso27001)が**組織の管理体制**を認証するのに対し、CCは**IT製品のセキュリティ機能**を評価するという違いを正確に理解することが重要である。日本でのCC認証は[JISEC](/docs/pe-comprehensive-management-jisec)が担当する。
+
+政府調達においては、CC認証を取得した製品の使用が推奨されており、[ISMAP](/docs/pe-comprehensive-management-ismap)におけるクラウドサービスの評価とも関連する。
+
+<RelatedKeywords items={[
+  { label: "ISMS（ISO/IEC 27001）", slug: "isms-iso27001" },
+  { label: "ゼロトラスト", slug: "zero-trust" },
+  { label: "ITセキュリティ評価及び認証制度（JISEC）", slug: "jisec" },
+  { label: "プライバシーマーク", slug: "privacy-mark" },
+  { label: "VPN", slug: "vpn" },
+]} />
+
+## 参考資料
+
+- [CC（ISO/IEC 15408）概説](https://www.ipa.go.jp/security/jisec/about/about.html)（IPA 情報処理推進機構）
+- [国際承認アレンジメント（CCRA）概要](https://www.ipa.go.jp/security/jisec/ccra/index.html)（IPA 情報処理推進機構）
+- [コモンクライテリア](https://ja.wikipedia.org/wiki/Common_Criteria)（Wikipedia）評価保証レベル（EAL）の概念や歴史的経緯（TCSEC・ITSECからの統合）をわかりやすく解説した百科事典記事

@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "fetchedAt": "2026-08-17T08:26:53.459Z",
+  "status": "ok",
+  "source": "coconala.com /mypage/received_orders/*（Playwright・read-only）",
+  "privacyNote": "購入者名・購入者ID・トークルーム本文・DM 本文は保存しない。保存するのは talkroomId / dmId / サービス / 金額 / 日付 / ステータス / 未返信 / 返信期限のみ。DM は subject（引用されたサービス名）だけを採る。送信者名と本文プレビューはブラウザ内で判定にのみ使い、結果のブール値（fromStaff / oneWay / violationRemoved）だけを残す。",
+  "scan": {
+    "tabs": [
+      {
+        "key": "required",
+        "label": "要対応",
+        "url": "https://coconala.com/mypage/received_orders/required",
+        "ok": true,
+        "rows": 0,
+        "rawRows": 0
+      },
+      {
+        "key": "requests",
+        "label": "見積り",
+        "url": "https://coconala.com/mypage/received_orders/requests",
+        "ok": true,
+        "rows": 0,
+        "rawRows": 0
+      },
+      {
+        "key": "open",
+        "label": "取引中",
+        "url": "https://coconala.com/mypage/received_orders/open",
+        "ok": true,
+        "rows": 0,
+        "rawRows": 0
+      },
+      {
+        "key": "closed",
+        "label": "完了",
+        "url": "https://coconala.com/mypage/received_orders/closed",
+        "ok": true,
+        "rows": 2,
+        "rawRows": 2
+      },
+      {
+        "key": "canceled",
+        "label": "キャンセル",
+        "url": "https://coconala.com/mypage/received_orders/canceled",
+        "ok": true,
+        "rows": 0,
+        "rawRows": 0
+      },
+      {
+        "key": "unreplied",
+        "label": "未返信",
+        "url": "https://coconala.com/mypage/received_orders/open?message_status=2",
+        "ok": true,
+        "rows": 0
+      },
+      {
+        "key": "inquiries",
+        "label": "問い合わせ(DM)",
+        "url": "https://coconala.com/message?fromMyPage=true",
+        "ok": true,
+        "rows": 4
+      }
+    ],
+    "tabsOk": 7,
+    "tabsTotal": 7,
+    "deadlineFailed": 0
+  },
+  "orders": [
+    {
+      "talkroomId": "18091375",
+      "talkroomUrl": "https://coconala.com/talkrooms/18091375",
+      "tab": "closed",
+      "tabLabel": "完了",
+      "serviceId": null,
+      "listingText": "1級土木 二次対策 教材16冊セット（予想模擬試験を除く）",
+      "priceYen": 7500,
+      "soldOn": "2026-08-06",
+      "deliveryDueSet": true,
+      "statusLabel": "完了",
+      "lastMessageAt": "08/07 13:12",
+      "unreplied": false,
+      "replyDueAt": null
+    },
+    {
+      "talkroomId": "18082691",
+      "talkroomUrl": "https://coconala.com/talkrooms/18082691",
+      "tab": "closed",
+      "tabLabel": "完了",
+      "serviceId": "coconala-1kyu-moshi-pdf",
+      "listingText": "1級土木二次の予想模擬試験を送ります 本番形式の予想模試1回分＋解答解説で総仕上げ",
+      "priceYen": 2500,
+      "soldOn": "2026-08-04",
+      "deliveryDueSet": true,
+      "statusLabel": "完了",
+      "lastMessageAt": "08/09 06:24",
+      "unreplied": false,
+      "replyDueAt": null
+    }
+  ],
+  "inquiries": [
+    {
+      "dmId": "10075959",
+      "dateText": "5日前",
+      "subject": "",
+      "unread": false,
+      "fromStaff": true,
+      "oneWay": true,
+      "violationRemoved": false,
+      "dmUrl": "https://coconala.com/mypage/direct_message/10075959",
+      "serviceId": null
+    },
+    {
+      "dmId": "10051134",
+      "dateText": "8月6日",
+      "subject": "",
+      "unread": false,
+      "fromStaff": false,
+      "oneWay": false,
+      "violationRemoved": false,
+      "dmUrl": "https://coconala.com/mypage/direct_message/10051134",
+      "serviceId": null
+    },
+    {
+      "dmId": "10052267",
+      "dateText": "8月5日",
+      "subject": "",
+      "unread": false,
+      "fromStaff": false,
+      "oneWay": false,
+      "violationRemoved": true,
+      "dmUrl": "https://coconala.com/mypage/direct_message/10052267",
+      "serviceId": null
+    },
+    {
+      "dmId": "10051752",
+      "dateText": "8月5日",
+      "subject": "",
+      "unread": false,
+      "fromStaff": false,
+      "oneWay": false,
+      "violationRemoved": true,
+      "dmUrl": "https://coconala.com/mypage/direct_message/10051752",
+      "serviceId": null
+    }
+  ]
+}

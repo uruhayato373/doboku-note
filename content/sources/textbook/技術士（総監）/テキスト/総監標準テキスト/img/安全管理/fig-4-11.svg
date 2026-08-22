@@ -1,0 +1,89 @@
+<svg width="100%" viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;width:100%;font-family:sans-serif;font-size:11px;">
+  <defs>
+    <marker id="arrFTA" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 z" fill="#555"/>
+    </marker>
+  </defs>
+  <!-- Top event -->
+  <rect x="160" y="5" width="100" height="30" rx="3" fill="#ffd6d6" stroke="#aa3333" stroke-width="1.5"/>
+  <text x="210" y="24" text-anchor="middle" font-weight="bold">突発故障</text>
+  <text x="380" y="24" text-anchor="start" font-size="10" fill="#555">頂上事象</text>
+  <!-- OR gate -->
+  <ellipse cx="210" cy="55" rx="18" ry="10" fill="#ffe0a0" stroke="#888" stroke-width="1"/>
+  <text x="210" y="59" text-anchor="middle" font-size="10">OR</text>
+  <line x1="210" y1="35" x2="210" y2="45" stroke="#555" stroke-width="1"/>
+  <line x1="210" y1="65" x2="210" y2="80" stroke="#555" stroke-width="1"/>
+  <!-- Branch lines to A, B, C -->
+  <line x1="210" y1="80" x2="80" y2="80" stroke="#555" stroke-width="1"/>
+  <line x1="210" y1="80" x2="210" y2="80" stroke="#555" stroke-width="1"/>
+  <line x1="210" y1="80" x2="340" y2="80" stroke="#555" stroke-width="1"/>
+  <line x1="80" y1="80" x2="80" y2="95" stroke="#555" stroke-width="1"/>
+  <line x1="210" y1="80" x2="210" y2="95" stroke="#555" stroke-width="1"/>
+  <line x1="340" y1="80" x2="340" y2="95" stroke="#555" stroke-width="1"/>
+  <!-- Events A, B, C -->
+  <rect x="50" y="95" width="60" height="28" rx="3" fill="#d0e8f8" stroke="#3366aa" stroke-width="1"/>
+  <text x="80" y="113" text-anchor="middle">A</text>
+  <text x="0" y="113" text-anchor="start" font-size="10" fill="#555">一次事象</text>
+  <rect x="180" y="95" width="60" height="28" rx="3" fill="#d0e8f8" stroke="#3366aa" stroke-width="1"/>
+  <text x="210" y="113" text-anchor="middle">B</text>
+  <rect x="310" y="95" width="60" height="28" rx="3" fill="#d0e8f8" stroke="#3366aa" stroke-width="1"/>
+  <text x="340" y="113" text-anchor="middle">C</text>
+  <!-- AND gate under A -->
+  <ellipse cx="80" cy="145" rx="18" ry="10" fill="#ffe0a0" stroke="#888" stroke-width="1"/>
+  <text x="80" y="149" text-anchor="middle" font-size="10">AND</text>
+  <line x1="80" y1="123" x2="80" y2="135" stroke="#555" stroke-width="1"/>
+  <line x1="80" y1="155" x2="80" y2="170" stroke="#555" stroke-width="1"/>
+  <!-- OR gate under B -->
+  <ellipse cx="210" cy="145" rx="18" ry="10" fill="#ffe0a0" stroke="#888" stroke-width="1"/>
+  <text x="210" y="149" text-anchor="middle" font-size="10">OR</text>
+  <line x1="210" y1="123" x2="210" y2="135" stroke="#555" stroke-width="1"/>
+  <line x1="210" y1="155" x2="210" y2="170" stroke="#555" stroke-width="1"/>
+  <!-- AND gate under C -->
+  <ellipse cx="340" cy="145" rx="18" ry="10" fill="#ffe0a0" stroke="#888" stroke-width="1"/>
+  <text x="340" y="149" text-anchor="middle" font-size="10">AND</text>
+  <line x1="340" y1="123" x2="340" y2="135" stroke="#555" stroke-width="1"/>
+  <line x1="340" y1="155" x2="340" y2="170" stroke="#555" stroke-width="1"/>
+  <!-- Second level events: Aa, Ab under A -->
+  <line x1="80" y1="170" x2="50" y2="170" stroke="#555" stroke-width="1"/>
+  <line x1="80" y1="170" x2="110" y2="170" stroke="#555" stroke-width="1"/>
+  <line x1="50" y1="170" x2="50" y2="183" stroke="#555" stroke-width="1"/>
+  <line x1="110" y1="170" x2="110" y2="183" stroke="#555" stroke-width="1"/>
+  <rect x="25" y="183" width="50" height="25" rx="2" fill="#e0f0e0" stroke="#336633" stroke-width="1"/>
+  <text x="50" y="199" text-anchor="middle">Aa</text>
+  <text x="0" y="199" text-anchor="start" font-size="10" fill="#555">二次事象</text>
+  <rect x="85" y="183" width="50" height="25" rx="2" fill="#e0f0e0" stroke="#336633" stroke-width="1"/>
+  <text x="110" y="199" text-anchor="middle">Ab</text>
+  <!-- Under B: Ba, Bb -->
+  <line x1="210" y1="170" x2="175" y2="170" stroke="#555" stroke-width="1"/>
+  <line x1="210" y1="170" x2="245" y2="170" stroke="#555" stroke-width="1"/>
+  <line x1="175" y1="170" x2="175" y2="183" stroke="#555" stroke-width="1"/>
+  <line x1="245" y1="170" x2="245" y2="183" stroke="#555" stroke-width="1"/>
+  <rect x="150" y="183" width="50" height="25" rx="2" fill="#e0f0e0" stroke="#336633" stroke-width="1"/>
+  <text x="175" y="199" text-anchor="middle">Ba</text>
+  <rect x="220" y="183" width="50" height="25" rx="2" fill="#e0f0e0" stroke="#336633" stroke-width="1"/>
+  <text x="245" y="199" text-anchor="middle">Bb</text>
+  <!-- Under C: Ca, Cb -->
+  <line x1="340" y1="170" x2="305" y2="170" stroke="#555" stroke-width="1"/>
+  <line x1="340" y1="170" x2="375" y2="170" stroke="#555" stroke-width="1"/>
+  <line x1="305" y1="170" x2="305" y2="183" stroke="#555" stroke-width="1"/>
+  <line x1="375" y1="170" x2="375" y2="183" stroke="#555" stroke-width="1"/>
+  <rect x="280" y="183" width="50" height="25" rx="2" fill="#e0f0e0" stroke="#336633" stroke-width="1"/>
+  <text x="305" y="199" text-anchor="middle">Ca</text>
+  <rect x="350" y="183" width="50" height="25" rx="2" fill="#e0f0e0" stroke="#336633" stroke-width="1"/>
+  <text x="375" y="199" text-anchor="middle">Cb</text>
+  <!-- AND gate under Ba -->
+  <ellipse cx="175" cy="230" rx="18" ry="10" fill="#ffe0a0" stroke="#888" stroke-width="1"/>
+  <text x="175" y="234" text-anchor="middle" font-size="10">AND</text>
+  <line x1="175" y1="208" x2="175" y2="220" stroke="#555" stroke-width="1"/>
+  <line x1="175" y1="240" x2="175" y2="255" stroke="#555" stroke-width="1"/>
+  <text x="0" y="265" text-anchor="start" font-size="10" fill="#555">三次事象</text>
+  <!-- Ba1, Ba2 -->
+  <line x1="175" y1="255" x2="150" y2="255" stroke="#555" stroke-width="1"/>
+  <line x1="175" y1="255" x2="200" y2="255" stroke="#555" stroke-width="1"/>
+  <line x1="150" y1="255" x2="150" y2="268" stroke="#555" stroke-width="1"/>
+  <line x1="200" y1="255" x2="200" y2="268" stroke="#555" stroke-width="1"/>
+  <rect x="125" y="268" width="50" height="25" rx="2" fill="#fff0c0" stroke="#996600" stroke-width="1"/>
+  <text x="150" y="284" text-anchor="middle">Ba1</text>
+  <rect x="175" y="268" width="50" height="25" rx="2" fill="#fff0c0" stroke="#996600" stroke-width="1"/>
+  <text x="200" y="284" text-anchor="middle">Ba2</text>
+</svg>

@@ -1,0 +1,85 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="環境保全の基本5原則とPPP/EPR。EPR・PPPの経済系2原則、予防的措置・順応的取組の予防系2原則、源流対策・協働・補完性の実施系3原則をカード縦並びで示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      /* card heading */
+      .t-label  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-en     { font-size: 11px; fill: #555; }
+      /* card body */
+      .t-def    { font-size: 12px; fill: #555; }
+      /* group label */
+      .t-group  { font-size:11px; font-weight: bold; fill: #8a8a8a; letter-spacing: 0.5px; }
+      /* oecd badge */
+      .t-badge  { font-size:11px; fill: #d4a017; font-weight: bold; }
+      /* card fills — warn = 経済系, positive = 予防・順応, brand = 実施系 */
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.2; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.2; }
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.2; }
+      /* group bar */
+      .bar-warn     { fill: #d4a017; }
+      .bar-positive { fill: #3a7d44; }
+      .bar-brand    { fill: #2e6da4; }
+      /* divider */
+      .divider { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <!-- ===== グループ1: 経済系 (warn) ===== -->
+  <text class="t-group" x="16" y="16">経済系 / OECD提唱</text>
+
+  <!-- Card 1: EPR -->
+  <rect class="box-warn" x="12" y="22" width="376" height="66" rx="6"/>
+  <rect class="bar-warn" x="12" y="22" width="4" height="66" rx="2"/>
+  <text class="t-label" x="26" y="42">拡大生産者責任</text>
+  <text class="t-en"    x="26" y="57">EPR : Extended Producer Responsibilities</text>
+  <text class="t-def"   x="26" y="74">製品の廃棄・リサイクル費用まで生産者が負担</text>
+  <text class="t-badge" x="381" y="42" text-anchor="end">OECD</text>
+
+  <!-- Card 2: PPP -->
+  <rect class="box-warn" x="12" y="96" width="376" height="66" rx="6"/>
+  <rect class="bar-warn" x="12" y="96" width="4" height="66" rx="2"/>
+  <text class="t-label" x="26" y="116">汚染者負担原則</text>
+  <text class="t-en"    x="26" y="131">PPP : Polluter Pays Principle  (1972年)</text>
+  <text class="t-def"   x="26" y="148">汚染者が環境劣化への対処費用を負担する</text>
+  <text class="t-badge" x="381" y="116" text-anchor="end">OECD</text>
+
+  <!-- ===== グループ2: 予防・順応 (positive) ===== -->
+  <line class="divider" x1="12" y1="172" x2="388" y2="172"/>
+  <text class="t-group" x="16" y="185">予防・順応</text>
+
+  <!-- Card 3: 予防的措置 -->
+  <rect class="box-positive" x="12" y="191" width="376" height="66" rx="6"/>
+  <rect class="bar-positive" x="12" y="191" width="4" height="66" rx="2"/>
+  <text class="t-label" x="26" y="211">予防的措置</text>
+  <text class="t-en"    x="26" y="226">Precautionary Approach</text>
+  <text class="t-def"   x="26" y="243">科学的不確実性があっても重大・不可逆的影響を規制</text>
+
+  <!-- Card 4: 順応的取組 -->
+  <rect class="box-positive" x="12" y="265" width="376" height="66" rx="6"/>
+  <rect class="bar-positive" x="12" y="265" width="4" height="66" rx="2"/>
+  <text class="t-label" x="26" y="285">順応的取組</text>
+  <text class="t-en"    x="26" y="300">Adaptive Management</text>
+  <text class="t-def"   x="26" y="317">想定外事態を管理システムに取込み柔軟対応</text>
+
+  <!-- ===== グループ3: 実施系 (brand) ===== -->
+  <line class="divider" x1="12" y1="341" x2="388" y2="341"/>
+  <text class="t-group" x="16" y="354">実施系</text>
+
+  <!-- Card 5: 源流対策 -->
+  <rect class="box-brand" x="12" y="360" width="376" height="42" rx="6"/>
+  <rect class="bar-brand" x="12" y="360" width="4" height="42" rx="2"/>
+  <text class="t-label" x="26" y="377">源流対策原則</text>
+  <text class="t-def"   x="26" y="393">汚染物質を排出口ではなく設計・製法で根絶する</text>
+
+  <!-- Card 6: 協働 -->
+  <rect class="box-brand" x="12" y="408" width="376" height="42" rx="6"/>
+  <rect class="bar-brand" x="12" y="408" width="4" height="42" rx="2"/>
+  <text class="t-label" x="26" y="425">協働原則</text>
+  <text class="t-def"   x="26" y="441">政策の企画・立案・実行に民間各主体が参加する</text>
+
+  <!-- Card 7: 補完性 -->
+  <rect class="box-brand" x="12" y="456" width="376" height="38" rx="6"/>
+  <rect class="bar-brand" x="12" y="456" width="4" height="38" rx="2"/>
+  <text class="t-label" x="26" y="472">補完性原則</text>
+  <text class="t-def"   x="26" y="487">基礎的行政単位が処理し、広域単位は補完のみ</text>
+</svg>

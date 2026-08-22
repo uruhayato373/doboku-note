@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "generated_at": "2026-05-16T04:41:13.500Z",
+  "results": [
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-secondary-r07",
+      "strategy": "mobile",
+      "fetched_at": "2026-05-16T04:39:28.154Z",
+      "scores": {
+        "performance": 92,
+        "accessibility": 96,
+        "best_practices": 96,
+        "seo": 92
+      },
+      "lab_data": {
+        "LCP_ms": 2926.032558364058,
+        "TBT_ms": 146.99172202643194,
+        "CLS": 0,
+        "FCP_ms": 1052.0074419117846,
+        "TTI_ms": 7073.510002720349,
+        "SI_ms": 3453.6170782446056
+      },
+      "field_data": {
+        "LCP": null,
+        "INP": null,
+        "CLS": null,
+        "FCP": null,
+        "TTFB": null
+      },
+      "analysis_utc": "2026-05-16T04:39:04.806Z",
+      "final_url": "https://doboku-note.com/docs/civil-construction-1-secondary-r07"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-primary-r07-a",
+      "strategy": "mobile",
+      "fetched_at": "2026-05-16T04:39:58.893Z",
+      "scores": {
+        "performance": 68,
+        "accessibility": 96,
+        "best_practices": 96,
+        "seo": 92
+      },
+      "lab_data": {
+        "LCP_ms": 5253.027812282811,
+        "TBT_ms": 440.5,
+        "CLS": 0.008698,
+        "FCP_ms": 1651.001961922394,
+        "TTI_ms": 9870.659152500351,
+        "SI_ms": 3261.4194965366755
+      },
+      "field_data": {
+        "LCP": null,
+        "INP": null,
+        "CLS": null,
+        "FCP": null,
+        "TTFB": null
+      },
+      "analysis_utc": "2026-05-16T04:39:32.327Z",
+      "final_url": "https://doboku-note.com/docs/civil-construction-1-primary-r07-a"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-secondary-concrete-past-problems",
+      "strategy": "mobile",
+      "fetched_at": "2026-05-16T04:40:31.003Z",
+      "scores": {
+        "performance": 83,
+        "accessibility": 96,
+        "best_practices": 96,
+        "seo": 92
+      },
+      "lab_data": {
+        "LCP_ms": 2855.046584295033,
+        "TBT_ms": 432,
+        "CLS": 0.008698,
+        "FCP_ms": 1347.016528247064,
+        "TTI_ms": 9347.282264002242,
+        "SI_ms": 3399.4818183929983
+      },
+      "field_data": {
+        "LCP": null,
+        "INP": null,
+        "CLS": null,
+        "FCP": null,
+        "TTFB": null
+      },
+      "analysis_utc": "2026-05-16T04:40:03.612Z",
+      "final_url": "https://doboku-note.com/docs/civil-construction-1-secondary-concrete-past-problems"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-river-act",
+      "strategy": "mobile",
+      "fetched_at": "2026-05-16T04:40:56.150Z",
+      "scores": {
+        "performance": 94,
+        "accessibility": 96,
+        "best_practices": 96,
+        "seo": 92
+      },
+      "lab_data": {
+        "LCP_ms": 2189.063595245857,
+        "TBT_ms": 223,
+        "CLS": 0,
+        "FCP_ms": 1052.0203504786741,
+        "TTI_ms": 6970.342273955438,
+        "SI_ms": 2893.371371801558
+      },
+      "field_data": {
+        "LCP": null,
+        "INP": null,
+        "CLS": null,
+        "FCP": null,
+        "TTFB": null
+      },
+      "analysis_utc": "2026-05-16T04:40:34.551Z",
+      "final_url": "https://doboku-note.com/docs/civil-construction-1-textbook-river-act"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-guide-strategy",
+      "strategy": "mobile",
+      "fetched_at": "2026-05-16T04:41:13.499Z",
+      "scores": {
+        "performance": 95,
+        "accessibility": 96,
+        "best_practices": 96,
+        "seo": 92
+      },
+      "lab_data": {
+        "LCP_ms": 2860.5763374314074,
+        "TBT_ms": 62,
+        "CLS": 0.008698,
+        "FCP_ms": 988.0179617485664,
+        "TTI_ms": 6815.571915368393,
+        "SI_ms": 2083.0937279572145
+      },
+      "field_data": {
+        "LCP": null,
+        "INP": null,
+        "CLS": null,
+        "FCP": null,
+        "TTFB": null
+      },
+      "analysis_utc": "2026-05-16T04:40:58.934Z",
+      "final_url": "https://doboku-note.com/docs/civil-construction-1-guide-strategy"
+    }
+  ]
+}

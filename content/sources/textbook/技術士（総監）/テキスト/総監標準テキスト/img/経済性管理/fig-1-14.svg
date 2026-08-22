@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200" width="300" height="200">
+  <!-- Axes -->
+  <line x1="40" y1="160" x2="280" y2="160" stroke="#333" stroke-width="1.5"/>
+  <line x1="40" y1="20" x2="40" y2="160" stroke="#333" stroke-width="1.5"/>
+
+  <!-- Y axis labels -->
+  <text x="35" y="30" text-anchor="end" font-size="10" fill="#333" font-family="sans-serif">100%</text>
+  <line x1="37" y1="28" x2="43" y2="28" stroke="#333" stroke-width="1"/>
+  <text x="32" y="165" text-anchor="end" font-size="10" fill="#333" font-family="sans-serif">0</text>
+
+  <!-- X axis labels -->
+  <text x="120" y="175" text-anchor="middle" font-size="10" fill="#333" font-family="sans-serif">15日</text>
+  <text x="200" y="175" text-anchor="middle" font-size="10" fill="#333" font-family="sans-serif">30日</text>
+  <text x="160" y="188" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">作業完了日数（日）</text>
+
+  <!-- Axis label -->
+  <text x="14" y="95" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif" transform="rotate(-90,14,95)">可能性</text>
+
+  <!-- S-curve -->
+  <path d="M 50 158 Q 80 155 110 140 Q 140 110 160 70 Q 175 40 200 28 Q 230 24 270 24" fill="none" stroke="#333" stroke-width="2"/>
+
+  <!-- Dashed grid lines -->
+  <line x1="120" y1="30" x2="120" y2="160" stroke="#aaa" stroke-width="1" stroke-dasharray="3,2"/>
+  <line x1="200" y1="30" x2="200" y2="160" stroke="#aaa" stroke-width="1" stroke-dasharray="3,2"/>
+</svg>

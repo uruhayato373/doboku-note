@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="建設工事の計画の届出3系統。厚生労働大臣へ30日前、労働基準監督署長へ14日前、機械等設置届は監督署長へ30日前。それぞれの届出先・期日・主な対象を対比した表">
+  <text x="200" y="24" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">計画の届出3系統：大臣30日前・署長14日前・設置30日前</text>
+
+  <!-- 列見出し -->
+  <rect x="16" y="40" width="118" height="34" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="75" y="61" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">大臣へ30日前</text>
+  <rect x="141" y="40" width="118" height="34" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="61" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">署長へ14日前</text>
+  <rect x="266" y="40" width="118" height="34" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="325" y="55" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">設置届</text>
+  <text x="325" y="69" text-anchor="middle" font-family="sans-serif" font-size="11" font-weight="bold" fill="#1a3a5c">署長へ30日前</text>
+
+  <!-- 根拠行 -->
+  <rect x="16" y="78" width="118" height="26" rx="4" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="75" y="95" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">安衛則第89条</text>
+  <rect x="141" y="78" width="118" height="26" rx="4" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="200" y="95" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">安衛則第90条</text>
+  <rect x="266" y="78" width="118" height="26" rx="4" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="325" y="95" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">安衛則第86条</text>
+
+  <!-- 対象セル -->
+  <rect x="16" y="108" width="118" height="150" rx="4" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+  <text x="75" y="128" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">塔 高さ300m以上</text>
+  <text x="75" y="152" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">堤高150m以上</text>
+  <text x="75" y="168" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">のダム</text>
+  <text x="75" y="192" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">支間500m以上</text>
+  <text x="75" y="208" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">つり橋1,000m</text>
+  <text x="75" y="232" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">ずい道</text>
+  <text x="75" y="248" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">3,000m以上</text>
+
+  <rect x="141" y="108" width="118" height="150" rx="4" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+  <text x="200" y="132" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">最大支間50m</text>
+  <text x="200" y="148" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">以上の橋梁</text>
+  <text x="200" y="184" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">掘削の高さ又は</text>
+  <text x="200" y="200" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">深さ10m以上の</text>
+  <text x="200" y="216" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">地山の掘削</text>
+
+  <rect x="266" y="108" width="118" height="150" rx="4" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+  <text x="325" y="130" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">型枠支保工</text>
+  <text x="325" y="146" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">支柱3.5m以上</text>
+  <text x="325" y="178" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">架設通路</text>
+  <text x="325" y="194" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">10m以上</text>
+  <text x="325" y="226" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">足場</text>
+  <text x="325" y="242" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">高さ10m以上</text>
+
+  <!-- 届出者 -->
+  <rect x="16" y="270" width="368" height="34" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="291" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1a3a5c">届出者＝発注者（自ら行う者）または元請負人</text>
+
+  <!-- 参画 -->
+  <rect x="16" y="316" width="368" height="60" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="338" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">計画作成への有資格者の参画</text>
+  <text x="200" y="358" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">大臣・署長へ届け出る仕事の計画は</text>
+  <text x="200" y="372" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">有資格者を参画させる（第88条第5項）</text>
+
+  <!-- 審査 -->
+  <rect x="16" y="388" width="368" height="88" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="410" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">大臣・署長は計画が法令に適合するか審査</text>
+  <text x="200" y="430" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">工事の差止め・計画の変更を命じ得る</text>
+  <text x="200" y="450" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">大臣＝特に大規模、署長＝一定規模の工事</text>
+  <text x="200" y="468" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">設置届は機械・設備の設置移転変更が対象</text>
+</svg>

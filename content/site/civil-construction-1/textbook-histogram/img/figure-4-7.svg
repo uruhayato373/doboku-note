@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="ヒストグラムの概念図。中央に分布、左右に下限規格値と上限規格値、両端に 'ゆとり' の矢印、上方に分布幅と目標値を示す">
+  <style>
+    text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; }
+  </style>
+  <defs>
+    <marker id="arrow-r" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#222"/>
+    </marker>
+    <marker id="arrow-l" markerWidth="8" markerHeight="6" refX="1" refY="3" orient="auto">
+      <polygon points="8,0 0,3 8,6" fill="#222"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="200" y="36" font-size="15" fill="#222" text-anchor="middle" font-weight="600">ヒストグラムの読み方</text>
+
+  <!-- Y-axis label (vertical "度数") -->
+  <text x="45" y="240" font-size="13" fill="#222" text-anchor="middle">度</text>
+  <text x="45" y="258" font-size="13" fill="#222" text-anchor="middle">数</text>
+
+  <!-- Y-axis with up arrow -->
+  <line x1="75" y1="400" x2="75" y2="130" stroke="#222" stroke-width="1.5"/>
+  <polygon points="72,132 75,122 78,132" fill="#222"/>
+
+  <!-- X-axis with right arrow -->
+  <line x1="75" y1="400" x2="365" y2="400" stroke="#222" stroke-width="1.5"/>
+  <polygon points="363,397 373,400 363,403" fill="#222"/>
+
+  <!-- Histogram bars (bell shape) with brand-fill -->
+  <g fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.2">
+    <rect x="140" y="340" width="38" height="60"/>
+    <rect x="178" y="280" width="38" height="120"/>
+    <rect x="216" y="220" width="38" height="180"/>
+    <rect x="254" y="280" width="38" height="120"/>
+    <rect x="292" y="340" width="38" height="60"/>
+  </g>
+
+  <!-- Lower spec limit line (dashed) -->
+  <line x1="120" y1="148" x2="120" y2="410" stroke="#555" stroke-width="1" stroke-dasharray="5,3"/>
+  <!-- Upper spec limit line (dashed) -->
+  <line x1="348" y1="148" x2="348" y2="410" stroke="#555" stroke-width="1" stroke-dasharray="5,3"/>
+  <!-- Target center line (solid) -->
+  <line x1="235" y1="158" x2="235" y2="400" stroke="#222" stroke-width="1"/>
+
+  <!-- Lower spec limit label (vertical) -->
+  <text x="112" y="318" font-size="11" fill="#222" text-anchor="end">下</text>
+  <text x="112" y="332" font-size="11" fill="#222" text-anchor="end">限</text>
+  <text x="112" y="346" font-size="11" fill="#222" text-anchor="end">規</text>
+  <text x="112" y="360" font-size="11" fill="#222" text-anchor="end">格</text>
+  <text x="112" y="374" font-size="11" fill="#222" text-anchor="end">値</text>
+
+  <!-- Upper spec limit label (vertical) -->
+  <text x="355" y="318" font-size="11" fill="#222">上</text>
+  <text x="355" y="332" font-size="11" fill="#222">限</text>
+  <text x="355" y="346" font-size="11" fill="#222">規</text>
+  <text x="355" y="360" font-size="11" fill="#222">格</text>
+  <text x="355" y="374" font-size="11" fill="#222">値</text>
+
+  <!-- ゆとり (左) -->
+  <line x1="122" y1="300" x2="138" y2="300" stroke="#222" stroke-width="1" marker-end="url(#arrow-r)" marker-start="url(#arrow-l)"/>
+  <text x="130" y="292" font-size="11" fill="#222" text-anchor="middle">ゆとり</text>
+
+  <!-- ゆとり (右) -->
+  <line x1="332" y1="300" x2="346" y2="300" stroke="#222" stroke-width="1" marker-end="url(#arrow-r)" marker-start="url(#arrow-l)"/>
+  <text x="339" y="292" font-size="11" fill="#222" text-anchor="middle">ゆとり</text>
+
+  <!-- 分布幅 double arrow at top -->
+  <line x1="142" y1="168" x2="328" y2="168" stroke="#222" stroke-width="1" marker-end="url(#arrow-r)" marker-start="url(#arrow-l)"/>
+  <text x="235" y="158" font-size="13" fill="#222" text-anchor="middle">分布幅（バラツキ）</text>
+
+  <!-- 目標値 label -->
+  <text x="235" y="188" font-size="13" fill="#222" text-anchor="middle">目標値</text>
+
+  <!-- X-axis label -->
+  <text x="310" y="430" font-size="13" fill="#222" text-anchor="middle">品質特性値</text>
+
+  <!-- Summary -->
+  <text x="200" y="468" font-size="12" fill="#555" text-anchor="middle">規格値内に分布が収まりゆとりが確保された理想形</text>
+</svg>

@@ -1,0 +1,119 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="出願から特許取得までのフロー：特許出願 → 方式審査 → 出願公開（1.5 年後）→ 出願審査請求（3 年以内）→ 実体審査の後、拒絶経路（拒絶理由通知 → 意見書・補正書 → 拒絶査定 → 不服審判）と取得経路（特許査定 → 特許料納付 → 登録）に分岐">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-step { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub { font-size: 11px; fill: #555; }
+      .t-branch { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-legend { font-size: 11px; fill: #555; }
+      .box-step { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-final { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 2; }
+      .box-aux { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 4,3; }
+      .arrow { stroke: #555; stroke-width: 1.5; fill: none; }
+      .arrow-warn { stroke: #d4a017; stroke-width: 1.5; fill: none; }
+      .arrow-positive { stroke: #3a7d44; stroke-width: 1.5; fill: none; stroke-dasharray: 5,3; }
+    </style>
+    <marker markerUnits="userSpaceOnUse" id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#555"/>
+    </marker>
+    <marker markerUnits="userSpaceOnUse" id="arrow-warn" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#d4a017"/>
+    </marker>
+    <marker markerUnits="userSpaceOnUse" id="arrow-positive" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#3a7d44"/>
+    </marker>
+  </defs>
+
+  <!-- Phase 1: Steps 1-5 (centered single column) -->
+
+  <!-- ① 特許出願 -->
+  <rect class="box-step" x="100" y="8" width="200" height="32" rx="6"/>
+  <text class="t-step" x="200" y="29" text-anchor="middle">① 特許出願</text>
+  <line class="arrow" x1="200" y1="40" x2="200" y2="50" marker-end="url(#arrow)"/>
+
+  <!-- ② 方式審査 -->
+  <rect class="box-step" x="100" y="52" width="200" height="32" rx="6"/>
+  <text class="t-step" x="200" y="73" text-anchor="middle">② 方式審査</text>
+  <line class="arrow" x1="200" y1="84" x2="200" y2="94" marker-end="url(#arrow)"/>
+
+  <!-- ③ 出願公開 -->
+  <rect class="box-step" x="100" y="96" width="200" height="38" rx="6"/>
+  <text class="t-step" x="200" y="113" text-anchor="middle">③ 出願公開</text>
+  <text class="t-sub" x="200" y="127" text-anchor="middle">出願日から 1 年 6 ヶ月後</text>
+  <line class="arrow" x1="200" y1="134" x2="200" y2="144" marker-end="url(#arrow)"/>
+
+  <!-- ④ 出願審査請求 -->
+  <rect class="box-step" x="100" y="146" width="200" height="38" rx="6"/>
+  <text class="t-step" x="200" y="163" text-anchor="middle">④ 出願審査請求</text>
+  <text class="t-sub" x="200" y="169" text-anchor="middle">
+    <tspan x="200" dy="0">出願日から 3 年以内</tspan>
+    <tspan x="200" dy="13">（無請求は取下げ）</tspan>
+  </text>
+  <line class="arrow" x1="200" y1="184" x2="200" y2="194" marker-end="url(#arrow)"/>
+
+  <!-- ⑤ 実体審査 -->
+  <rect class="box-step" x="100" y="196" width="200" height="32" rx="6"/>
+  <text class="t-step" x="200" y="217" text-anchor="middle">⑤ 実体審査</text>
+
+  <!-- Branch lines -->
+  <line class="arrow" x1="200" y1="228" x2="200" y2="240"/>
+  <line class="arrow" x1="80" y1="240" x2="320" y2="240"/>
+  <line class="arrow-warn" x1="80" y1="240" x2="80" y2="252" marker-end="url(#arrow-warn)"/>
+  <line class="arrow" x1="320" y1="240" x2="320" y2="252" marker-end="url(#arrow)"/>
+
+  <!-- Branch labels -->
+  <text class="t-branch" x="80" y="250" text-anchor="middle" fill="#d4a017">拒絶経路</text>
+  <text class="t-branch" x="320" y="250" text-anchor="middle" fill="#3a7d44">取得経路</text>
+
+  <!-- LEFT: Rejection path -->
+  <rect class="box-warn" x="10" y="254" width="150" height="28" rx="6"/>
+  <text class="t-step" x="85" y="272" text-anchor="middle">拒絶理由通知</text>
+  <line class="arrow-warn" x1="85" y1="282" x2="85" y2="292" marker-end="url(#arrow-warn)"/>
+
+  <rect class="box-warn" x="10" y="294" width="150" height="28" rx="6"/>
+  <text class="t-step" x="85" y="312" text-anchor="middle">意見書・補正書提出</text>
+  <line class="arrow-warn" x1="85" y1="322" x2="85" y2="332" marker-end="url(#arrow-warn)"/>
+
+  <rect class="box-danger" x="10" y="334" width="150" height="28" rx="6"/>
+  <text class="t-step" x="85" y="352" text-anchor="middle">拒絶査定</text>
+  <line class="arrow-warn" x1="85" y1="362" x2="85" y2="372" marker-end="url(#arrow-warn)"/>
+
+  <rect class="box-warn" x="10" y="374" width="150" height="28" rx="6"/>
+  <text class="t-step" x="85" y="392" text-anchor="middle">拒絶査定不服審判</text>
+
+  <!-- RIGHT: Grant path -->
+  <rect class="box-positive" x="240" y="254" width="150" height="28" rx="6"/>
+  <text class="t-step" x="315" y="272" text-anchor="middle">特許査定</text>
+  <line class="arrow" x1="315" y1="282" x2="315" y2="292" marker-end="url(#arrow)"/>
+
+  <rect class="box-positive" x="240" y="294" width="150" height="28" rx="6"/>
+  <text class="t-step" x="315" y="312" text-anchor="middle">⑥ 特許料納付</text>
+  <line class="arrow" x1="315" y1="322" x2="315" y2="332" marker-end="url(#arrow)"/>
+
+  <rect class="box-final" x="240" y="334" width="150" height="38" rx="6"/>
+  <text class="t-step" x="315" y="351" text-anchor="middle">⑦ 登録</text>
+  <text class="t-sub" x="315" y="365" text-anchor="middle">特許権発生</text>
+  <line class="arrow" x1="315" y1="372" x2="315" y2="382" marker-end="url(#arrow)"/>
+
+  <!-- 無効審判請求 (post-grant, dashed) -->
+  <rect class="box-aux" x="240" y="384" width="150" height="28" rx="6"/>
+  <text class="t-step" x="315" y="399" text-anchor="middle">無効審判請求</text>
+  <text class="t-sub" x="315" y="410" text-anchor="middle">登録後・何人も請求可</text>
+
+  <!-- 補正で解消 → 特許査定への curved arrow (dashed) -->
+  <path class="arrow-positive" d="M 160 308 Q 195 260 240 268" marker-end="url(#arrow-positive)"/>
+  <text class="t-sub" x="195" y="265" text-anchor="middle" fill="#3a7d44">補正で解消</text>
+
+  <!-- Footer separator -->
+  <line class="arrow" x1="20" y1="444" x2="380" y2="444"/>
+  <text class="t-legend" x="20" y="458">特許権の存続期間: 出願日から 20 年</text>
+  <text class="t-legend" x="20" y="474">（医薬品等は最大 5 年延長可）</text>
+  <text class="t-legend" x="20" y="490">登録後は何人も無効審判請求可能（特許の有効性を争える）</text>
+</svg>

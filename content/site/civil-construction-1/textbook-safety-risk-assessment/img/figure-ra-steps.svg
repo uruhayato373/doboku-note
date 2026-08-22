@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="リスクアセスメントの基本手順。危険性・有害性の特定、リスクの見積り、低減の優先度設定、低減措置の実施、記録の順に進める">
+  <text x="200" y="24" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">RA手順：特定 → 見積り → 優先度 → 低減措置 → 記録</text>
+
+  <!-- 手順1 -->
+  <rect x="40" y="42" width="320" height="52" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="64" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c">手順1　危険性・有害性の特定</text>
+  <text x="200" y="83" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">機械・作業・環境のハザードを洗い出す</text>
+
+  <line x1="200" y1="94" x2="200" y2="110" stroke="#8a8a8a" stroke-width="2"/>
+  <path d="M200 116 l-6 -8 h12 z" fill="#8a8a8a"/>
+
+  <!-- 手順2 -->
+  <rect x="40" y="116" width="320" height="52" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="138" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c">手順2　リスクの見積り</text>
+  <text x="200" y="157" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">重篤度 × 発生可能性 の組み合わせ</text>
+
+  <line x1="200" y1="168" x2="200" y2="184" stroke="#8a8a8a" stroke-width="2"/>
+  <path d="M200 190 l-6 -8 h12 z" fill="#8a8a8a"/>
+
+  <!-- 手順3 -->
+  <rect x="40" y="190" width="320" height="52" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="212" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c">手順3　低減の優先度設定</text>
+  <text x="200" y="231" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">大きいリスクから優先順位をつける</text>
+
+  <line x1="200" y1="242" x2="200" y2="258" stroke="#8a8a8a" stroke-width="2"/>
+  <path d="M200 264 l-6 -8 h12 z" fill="#8a8a8a"/>
+
+  <!-- 手順4 -->
+  <rect x="40" y="264" width="320" height="52" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="286" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c">手順4　低減措置の実施</text>
+  <text x="200" y="305" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">優先度の高い措置から除去・低減する</text>
+
+  <line x1="200" y1="316" x2="200" y2="332" stroke="#8a8a8a" stroke-width="2"/>
+  <path d="M200 338 l-6 -8 h12 z" fill="#8a8a8a"/>
+
+  <!-- 記録 -->
+  <rect x="40" y="338" width="320" height="56" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="360" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#222">記録</text>
+  <text x="200" y="380" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">作業・危険源・リスク・優先度・措置を記録</text>
+
+  <text x="200" y="418" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">実施時期＝新規採用・変更時／定期的／計画的</text>
+</svg>

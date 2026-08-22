@@ -1,0 +1,64 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="人事評価の6つの評価バイアス。ハロー効果・中心化傾向・寛大化（厳格化）傾向・対比誤差・論理的誤差・遠近効果の定義を縦に並べた図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-label  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-body   { font-size: 12px; fill: #555; }
+      .t-num    { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-foot   { font-size: 11px; fill: #8a8a8a; }
+      .box-warn   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .badge-warn { fill: #ffffff; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- カード 1: ハロー効果 -->
+  <rect class="box-warn" x="16" y="8" width="368" height="70" rx="8"/>
+  <circle class="badge-warn" cx="42" cy="43" r="14"/>
+  <text class="t-num" x="42" y="48" text-anchor="middle">1</text>
+  <text class="t-label" x="66" y="30">ハロー効果</text>
+  <text class="t-body"  x="66" y="48">優れた（劣った）点に引きずられ、</text>
+  <text class="t-body"  x="66" y="65">他の項目も同様に高く（低く）評価する</text>
+
+  <!-- カード 2: 中心化傾向 -->
+  <rect class="box-warn" x="16" y="86" width="368" height="70" rx="8"/>
+  <circle class="badge-warn" cx="42" cy="121" r="14"/>
+  <text class="t-num" x="42" y="126" text-anchor="middle">2</text>
+  <text class="t-label" x="66" y="108">中心化傾向</text>
+  <text class="t-body"  x="66" y="126">人間関係を重視して無難な評価に逃げ、</text>
+  <text class="t-body"  x="66" y="143">評価結果が中央値に集中する</text>
+
+  <!-- カード 3: 寛大化（厳格化）傾向 -->
+  <rect class="box-warn" x="16" y="164" width="368" height="70" rx="8"/>
+  <circle class="badge-warn" cx="42" cy="199" r="14"/>
+  <text class="t-num" x="42" y="204" text-anchor="middle">3</text>
+  <text class="t-label" x="66" y="186">寛大化（厳格化）傾向</text>
+  <text class="t-body"  x="66" y="204">部下との関係悪化を避けるため甘く評価する</text>
+  <text class="t-body"  x="66" y="221">（逆に厳しくなる場合は厳格化傾向）</text>
+
+  <!-- カード 4: 対比誤差 -->
+  <rect class="box-warn" x="16" y="242" width="368" height="70" rx="8"/>
+  <circle class="badge-warn" cx="42" cy="277" r="14"/>
+  <text class="t-num" x="42" y="282" text-anchor="middle">4</text>
+  <text class="t-label" x="66" y="264">対比誤差</text>
+  <text class="t-body"  x="66" y="282">評価者自身の能力と比較してしまい、</text>
+  <text class="t-body"  x="66" y="299">得意分野は厳しく・苦手分野は甘くなる</text>
+
+  <!-- カード 5: 論理的誤差 -->
+  <rect class="box-warn" x="16" y="320" width="368" height="70" rx="8"/>
+  <circle class="badge-warn" cx="42" cy="355" r="14"/>
+  <text class="t-num" x="42" y="360" text-anchor="middle">5</text>
+  <text class="t-label" x="66" y="342">論理的誤差</text>
+  <text class="t-body"  x="66" y="360">直接関係のない学歴や過去の失敗などを</text>
+  <text class="t-body"  x="66" y="377">論理的に結びつけて評価してしまう</text>
+
+  <!-- カード 6: 遠近効果 -->
+  <rect class="box-warn" x="16" y="398" width="368" height="70" rx="8"/>
+  <circle class="badge-warn" cx="42" cy="433" r="14"/>
+  <text class="t-num" x="42" y="438" text-anchor="middle">6</text>
+  <text class="t-label" x="66" y="420">遠近効果</text>
+  <text class="t-body"  x="66" y="438">評価時期に近い出来事を過大視し、</text>
+  <text class="t-body"  x="66" y="455">時間が経った成果が過小評価される</text>
+
+  <!-- フッター -->
+  <text class="t-foot" x="200" y="489" text-anchor="middle">評価者訓練（トレーニング）でバイアスを低減させることが重要</text>
+</svg>

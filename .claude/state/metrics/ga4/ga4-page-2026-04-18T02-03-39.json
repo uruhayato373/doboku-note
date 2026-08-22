@@ -1,0 +1,291 @@
+{
+  "meta": {
+    "startDate": "2026-03-21",
+    "endDate": "2026-04-17",
+    "dimension": "page",
+    "dimensionApiName": "pagePath",
+    "metrics": [
+      "activeUsers",
+      "sessions",
+      "screenPageViewsPerSession",
+      "averageSessionDuration",
+      "engagementRate",
+      "bounceRate"
+    ],
+    "limit": 30,
+    "organicOnly": false,
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "page": "/",
+      "activeUsers": 113,
+      "sessions": 129,
+      "screenPageViewsPerSession": 1.627906976744186,
+      "averageSessionDuration": 74.46119551162792,
+      "engagementRate": 0.5813953488372093,
+      "bounceRate": 0.4186046511627907
+    },
+    {
+      "page": "/docs/general/civil-general/concrete/formwork",
+      "activeUsers": 25,
+      "sessions": 34,
+      "screenPageViewsPerSession": 0.8529411764705882,
+      "averageSessionDuration": 75.70412458823529,
+      "engagementRate": 0.5294117647058824,
+      "bounceRate": 0.47058823529411764
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-exam-application-guide",
+      "activeUsers": 22,
+      "sessions": 37,
+      "screenPageViewsPerSession": 0.8378378378378378,
+      "averageSessionDuration": 291.95658845945945,
+      "engagementRate": 0.6216216216216216,
+      "bounceRate": 0.3783783783783784
+    },
+    {
+      "page": "/docs/general/design-manual",
+      "activeUsers": 20,
+      "sessions": 21,
+      "screenPageViewsPerSession": 1.2380952380952381,
+      "averageSessionDuration": 23.20007957142857,
+      "engagementRate": 0.6190476190476191,
+      "bounceRate": 0.38095238095238093
+    },
+    {
+      "page": "/docs/general/hyogo-hikkei/11-road-signs",
+      "activeUsers": 18,
+      "sessions": 18,
+      "screenPageViewsPerSession": 1.2777777777777777,
+      "averageSessionDuration": 121.7548235,
+      "engagementRate": 0.7777777777777778,
+      "bounceRate": 0.2222222222222222
+    },
+    {
+      "page": "/docs/river/river-design/01-02-levee",
+      "activeUsers": 17,
+      "sessions": 18,
+      "screenPageViewsPerSession": 1.0555555555555556,
+      "averageSessionDuration": 134.78104194444444,
+      "engagementRate": 0.5555555555555556,
+      "bounceRate": 0.4444444444444444
+    },
+    {
+      "page": "/docs/general/hyogo-hikkei/42-overload",
+      "activeUsers": 16,
+      "sessions": 16,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 55.743952625,
+      "engagementRate": 0.625,
+      "bounceRate": 0.375
+    },
+    {
+      "page": "/docs/general/design-manual/03-05-box-culvert",
+      "activeUsers": 13,
+      "sessions": 17,
+      "screenPageViewsPerSession": 1.2941176470588236,
+      "averageSessionDuration": 328.3329545294118,
+      "engagementRate": 0.6470588235294118,
+      "bounceRate": 0.35294117647058826
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-keyword-2026",
+      "activeUsers": 13,
+      "sessions": 18,
+      "screenPageViewsPerSession": 1.2222222222222223,
+      "averageSessionDuration": 81.95674077777777,
+      "engagementRate": 0.6666666666666666,
+      "bounceRate": 0.3333333333333333
+    },
+    {
+      "page": "/docs/general/hyogo-hikkei/05-forms",
+      "activeUsers": 12,
+      "sessions": 13,
+      "screenPageViewsPerSession": 1.2307692307692308,
+      "averageSessionDuration": 142.11713092307693,
+      "engagementRate": 0.6153846153846154,
+      "bounceRate": 0.38461538461538464
+    },
+    {
+      "page": "/docs/general/design-manual/01-01-design-general",
+      "activeUsers": 11,
+      "sessions": 11,
+      "screenPageViewsPerSession": 1.2727272727272727,
+      "averageSessionDuration": 73.42606136363636,
+      "engagementRate": 0.7272727272727273,
+      "bounceRate": 0.2727272727272727
+    },
+    {
+      "page": "/docs/general/hyogo-hikkei/24-cofferdam",
+      "activeUsers": 11,
+      "sessions": 16,
+      "screenPageViewsPerSession": 0.9375,
+      "averageSessionDuration": 141.2211725,
+      "engagementRate": 0.8125,
+      "bounceRate": 0.1875
+    },
+    {
+      "page": "/docs/general/design-manual/03-03-retaining-wall-01",
+      "activeUsers": 9,
+      "sessions": 11,
+      "screenPageViewsPerSession": 0.9090909090909091,
+      "averageSessionDuration": 168.6952860909091,
+      "engagementRate": 0.45454545454545453,
+      "bounceRate": 0.5454545454545454
+    },
+    {
+      "page": "/docs/general/design-manual/02-11-channel",
+      "activeUsers": 8,
+      "sessions": 8,
+      "screenPageViewsPerSession": 1.375,
+      "averageSessionDuration": 86.29903962499999,
+      "engagementRate": 0.5,
+      "bounceRate": 0.5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-exam-index",
+      "activeUsers": 8,
+      "sessions": 10,
+      "screenPageViewsPerSession": 2.6,
+      "averageSessionDuration": 183.32503400000002,
+      "engagementRate": 0.7,
+      "bounceRate": 0.3
+    },
+    {
+      "page": "/about",
+      "activeUsers": 7,
+      "sessions": 8,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 245.03243412499998,
+      "engagementRate": 0.75,
+      "bounceRate": 0.25
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-exam-passing-strategy",
+      "activeUsers": 7,
+      "sessions": 11,
+      "screenPageViewsPerSession": 0.9090909090909091,
+      "averageSessionDuration": 210.73380763636362,
+      "engagementRate": 0.7272727272727273,
+      "bounceRate": 0.2727272727272727
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-construction-plan-text-01",
+      "activeUsers": 6,
+      "sessions": 6,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 4.784761166666667,
+      "engagementRate": 0.16666666666666666,
+      "bounceRate": 0.8333333333333334
+    },
+    {
+      "page": "/docs/exam/rccm/guide",
+      "activeUsers": 6,
+      "sessions": 7,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 138.66747057142857,
+      "engagementRate": 0.7142857142857143,
+      "bounceRate": 0.2857142857142857
+    },
+    {
+      "page": "/docs/general/common-specs-hyogo",
+      "activeUsers": 6,
+      "sessions": 7,
+      "screenPageViewsPerSession": 0.8571428571428571,
+      "averageSessionDuration": 16.875018857142855,
+      "engagementRate": 0.7142857142857143,
+      "bounceRate": 0.2857142857142857
+    },
+    {
+      "page": "/docs/general/design-manual/01-02-temporary-02",
+      "activeUsers": 6,
+      "sessions": 6,
+      "screenPageViewsPerSession": 1.1666666666666667,
+      "averageSessionDuration": 165.065653,
+      "engagementRate": 0.8333333333333334,
+      "bounceRate": 0.16666666666666666
+    },
+    {
+      "page": "/docs/general/design-manual/02-10-inverted-siphon",
+      "activeUsers": 6,
+      "sessions": 6,
+      "screenPageViewsPerSession": 1.3333333333333333,
+      "averageSessionDuration": 205.99219883333333,
+      "engagementRate": 0.5,
+      "bounceRate": 0.5
+    },
+    {
+      "page": "/docs/general/hyogo-hikkei/12-road-safety",
+      "activeUsers": 6,
+      "sessions": 6,
+      "screenPageViewsPerSession": 1.8333333333333333,
+      "averageSessionDuration": 161.27141633333335,
+      "engagementRate": 0.8333333333333334,
+      "bounceRate": 0.16666666666666666
+    },
+    {
+      "page": "/docs/general/hyogo-hikkei/33-concrete-quality",
+      "activeUsers": 6,
+      "sessions": 8,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 194.7246795,
+      "engagementRate": 0.625,
+      "bounceRate": 0.375
+    },
+    {
+      "page": "/docs/port/fishery-port/20-power-generation",
+      "activeUsers": 6,
+      "sessions": 6,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 0,
+      "engagementRate": 0,
+      "bounceRate": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-concrete-key-points",
+      "activeUsers": 5,
+      "sessions": 7,
+      "screenPageViewsPerSession": 2,
+      "averageSessionDuration": 379.0280352857143,
+      "engagementRate": 0.7142857142857143,
+      "bounceRate": 0.2857142857142857
+    },
+    {
+      "page": "/docs/construction-management",
+      "activeUsers": 5,
+      "sessions": 7,
+      "screenPageViewsPerSession": 1.2857142857142858,
+      "averageSessionDuration": 152.23008671428573,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "page": "/docs/exam/pe/secondary-guide",
+      "activeUsers": 5,
+      "sessions": 5,
+      "screenPageViewsPerSession": 1.4,
+      "averageSessionDuration": 301.457701,
+      "engagementRate": 0.8,
+      "bounceRate": 0.2
+    },
+    {
+      "page": "/docs/general/common-specs-hyogo/13-02-pipeline",
+      "activeUsers": 5,
+      "sessions": 5,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 215.0533224,
+      "engagementRate": 0.8,
+      "bounceRate": 0.2
+    },
+    {
+      "page": "/docs/general/design-manual/03-04-drainage",
+      "activeUsers": 5,
+      "sessions": 6,
+      "screenPageViewsPerSession": 1.1666666666666667,
+      "averageSessionDuration": 312.78689983333334,
+      "engagementRate": 0.8333333333333334,
+      "bounceRate": 0.16666666666666666
+    }
+  ]
+}

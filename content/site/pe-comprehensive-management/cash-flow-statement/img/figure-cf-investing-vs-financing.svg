@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="投資CFと財務CFの見分け方：投資はお金の運用で資産が動き、財務はお金の調達と返済で負債・純資産が動く。株式・社債・貸借の紛らわしい3組を投資と財務に振り分けて比較" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
+  <rect width="400" height="500" fill="#ffffff" stroke="#d7d7d7"/>
+
+  <!-- Title -->
+  <text x="200" y="26" text-anchor="middle" font-size="11" fill="#555">「お金の運用」か「お金の調達」か</text>
+
+  <!-- ===== Two contrasting cards ===== -->
+  <!-- 投資CF card (green) -->
+  <rect x="8" y="50" width="186" height="120" fill="#ffffff" stroke="#3a7d44"/>
+  <rect x="8" y="50" width="186" height="26" fill="#d0e8d0" stroke="#3a7d44"/>
+  <text x="101" y="68" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">投資CF</text>
+  <text x="101" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">お金の「運用」</text>
+  <text x="101" y="118" text-anchor="middle" font-size="11" fill="#555">資産が動く（B/Sの左側）</text>
+  <text x="101" y="140" text-anchor="middle" font-size="11" fill="#3a7d44">自分が"買う・貸す"側</text>
+  <text x="101" y="160" text-anchor="middle" font-size="11" fill="#555">将来のための投資</text>
+
+  <!-- 財務CF card (amber) -->
+  <rect x="206" y="50" width="186" height="120" fill="#ffffff" stroke="#d4a017"/>
+  <rect x="206" y="50" width="186" height="26" fill="#fff3cd" stroke="#d4a017"/>
+  <text x="299" y="68" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c">財務CF</text>
+  <text x="299" y="96" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">お金の「調達・返済」</text>
+  <text x="299" y="118" text-anchor="middle" font-size="11" fill="#555">負債・純資産が動く（右側）</text>
+  <text x="299" y="140" text-anchor="middle" font-size="11" fill="#d4a017">自分が"借りる・返す"側</text>
+  <text x="299" y="160" text-anchor="middle" font-size="11" fill="#555">事業の元手の出入り</text>
+
+  <!-- ===== Confusing pairs table ===== -->
+  <text x="200" y="187" text-anchor="middle" font-size="11.5" font-weight="bold" fill="#222">同じ言葉でも区分が逆になる紛らわしい3組</text>
+
+  <!-- header -->
+  <rect x="8" y="192" width="384" height="22" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <!-- body -->
+  <rect x="8" y="214" width="384" height="162" fill="#ffffff" stroke="#d7d7d7"/>
+  <line x1="72" y1="192" x2="72" y2="376" stroke="#d7d7d7"/>
+  <line x1="232" y1="192" x2="232" y2="376" stroke="#d7d7d7"/>
+  <line x1="8" y1="268" x2="392" y2="268" stroke="#d7d7d7"/>
+  <line x1="8" y1="322" x2="392" y2="322" stroke="#d7d7d7"/>
+
+  <text x="40" y="207" text-anchor="middle" font-size="11" font-weight="bold" fill="#222">項目</text>
+  <text x="152" y="207" text-anchor="middle" font-size="11" font-weight="bold" fill="#3a7d44">投資CF</text>
+  <text x="312" y="207" text-anchor="middle" font-size="11" font-weight="bold" fill="#d4a017">財務CF</text>
+
+  <!-- Row 1: 株式 -->
+  <text x="40" y="245" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">株式</text>
+  <text x="152" y="237" text-anchor="middle" font-size="11" fill="#222">他社の株を</text>
+  <text x="152" y="255" text-anchor="middle" font-size="11" fill="#222">取得・売却</text>
+  <text x="312" y="237" text-anchor="middle" font-size="11" fill="#222">自社の株を発行（増資）</text>
+  <text x="312" y="255" text-anchor="middle" font-size="11" fill="#222">・自社株買い</text>
+
+  <!-- Row 2: 社債 -->
+  <text x="40" y="299" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">社債</text>
+  <text x="152" y="291" text-anchor="middle" font-size="11" fill="#222">他社の社債を</text>
+  <text x="152" y="309" text-anchor="middle" font-size="11" fill="#222">取得・売却</text>
+  <text x="312" y="291" text-anchor="middle" font-size="11" fill="#222">自社の社債を</text>
+  <text x="312" y="309" text-anchor="middle" font-size="11" fill="#222">発行・償還</text>
+
+  <!-- Row 3: 貸し借り -->
+  <text x="40" y="353" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">貸借</text>
+  <text x="152" y="345" text-anchor="middle" font-size="11" fill="#222">貸付金</text>
+  <text x="152" y="363" text-anchor="middle" font-size="11" fill="#3a7d44">＝お金を貸す</text>
+  <text x="312" y="345" text-anchor="middle" font-size="11" fill="#222">借入金</text>
+  <text x="312" y="363" text-anchor="middle" font-size="11" fill="#d4a017">＝お金を借りる</text>
+
+  <!-- ===== 決め手 band ===== -->
+  <rect x="8" y="382" width="384" height="110" fill="#e8f0fe" stroke="#2e6da4" rx="2"/>
+  <text x="200" y="406" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">見分けの決め手</text>
+  <text x="200" y="431" text-anchor="middle" font-size="11" fill="#1a3a5c">相手の証券を持つ＝投資／自分の証券を出す＝財務</text>
+  <text x="200" y="453" text-anchor="middle" font-size="11" fill="#1a3a5c">お金を貸す＝投資／お金を借りる＝財務</text>
+  <text x="200" y="477" text-anchor="middle" font-size="11" fill="#555">"自分がどちら側か" で投資・財務が決まる</text>
+</svg>

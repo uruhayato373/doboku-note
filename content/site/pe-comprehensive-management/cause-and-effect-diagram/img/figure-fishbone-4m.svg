@@ -1,0 +1,52 @@
+<svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" font-family="'Noto Sans JP', sans-serif" style="max-width:400px;width:100%" role="img" aria-label="特性要因図（4M）">
+
+  <!-- scaleX=400/460≈0.870 、中心を200に移動して再配置 -->
+  <!-- 背骨: x30*0.87=26→26, x365*0.87=317, y140→165 -->
+  <line x1="26" y1="165" x2="318" y2="165" stroke="#222" stroke-width="2.5"/>
+  <polygon points="318,159 318,171 328,165" fill="#222"/>
+
+  <!-- 頭（特性） -->
+  <rect x="328" y="133" width="66" height="64" rx="5" fill="#f5f5f5" stroke="#222" stroke-width="1.5"/>
+  <text x="361" y="161" text-anchor="middle" fill="#222" font-size="13" font-weight="bold">特性</text>
+  <text x="361" y="180" text-anchor="middle" fill="#555" font-size="11">（結果）</text>
+
+  <!-- Man（上左）: 大骨 (140,140)→(72,38) スケール後 (122,165)→(63,50) -->
+  <line x1="122" y1="165" x2="63" y2="50" stroke="#2e6da4" stroke-width="2"/>
+  <text x="60" y="40" fill="#2e6da4" font-size="12" font-weight="bold" text-anchor="middle">Man（人）</text>
+  <line x1="103" y1="126" x2="65" y2="126" stroke="#2e6da4" stroke-width="1"/>
+  <text x="63" y="121" text-anchor="end" fill="#555" font-size="11">技能・経験</text>
+  <line x1="84" y1="88" x2="46" y2="88" stroke="#2e6da4" stroke-width="1"/>
+  <text x="44" y="83" text-anchor="end" fill="#555" font-size="11">教育</text>
+
+  <!-- Method（上右）: (270,140)→(202,38) スケール後 (235,165)→(176,50) -->
+  <line x1="235" y1="165" x2="176" y2="50" stroke="#3a7d44" stroke-width="2"/>
+  <text x="172" y="40" fill="#3a7d44" font-size="12" font-weight="bold" text-anchor="middle">Method（方法）</text>
+  <line x1="216" y1="126" x2="178" y2="126" stroke="#3a7d44" stroke-width="1"/>
+  <text x="176" y="121" text-anchor="end" fill="#555" font-size="11">作業手順</text>
+  <line x1="197" y1="88" x2="159" y2="88" stroke="#3a7d44" stroke-width="1"/>
+  <text x="157" y="83" text-anchor="end" fill="#555" font-size="11">工程設計</text>
+
+  <!-- Machine（下左）: (140,140)→(72,242) スケール後 (122,165)→(63,280) -->
+  <line x1="122" y1="165" x2="63" y2="280" stroke="#d4a017" stroke-width="2"/>
+  <text x="60" y="300" fill="#d4a017" font-size="12" font-weight="bold" text-anchor="middle">Machine（機械）</text>
+  <line x1="103" y1="204" x2="65" y2="204" stroke="#d4a017" stroke-width="1"/>
+  <text x="63" y="199" text-anchor="end" fill="#555" font-size="11">保守状況</text>
+  <line x1="84" y1="242" x2="50" y2="242" stroke="#d4a017" stroke-width="1"/>
+  <text x="50" y="237" text-anchor="end" fill="#555" font-size="11">経年劣化</text>
+
+  <!-- Material（下右）: (270,140)→(202,242) スケール後 (235,165)→(176,280) -->
+  <line x1="235" y1="165" x2="176" y2="280" stroke="#b22234" stroke-width="2"/>
+  <text x="172" y="300" fill="#b22234" font-size="12" font-weight="bold" text-anchor="middle">Material（材料）</text>
+  <line x1="216" y1="204" x2="178" y2="204" stroke="#b22234" stroke-width="1"/>
+  <text x="176" y="199" text-anchor="end" fill="#555" font-size="11">品質</text>
+  <line x1="197" y1="242" x2="159" y2="242" stroke="#b22234" stroke-width="1"/>
+  <text x="157" y="237" text-anchor="end" fill="#555" font-size="11">規格</text>
+
+  <!-- 下部サマリー -->
+  <rect x="20" y="370" width="360" height="110" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="4"/>
+  <text x="200" y="397" text-anchor="middle" font-size="13" fill="#222" font-weight="bold">特性要因図（石川ダイアグラム）</text>
+  <text x="35" y="422" font-size="12" fill="#555">4M：Man / Method / Machine / Material</text>
+  <text x="35" y="444" font-size="12" fill="#555">特性（結果）に影響する要因を体系的に整理</text>
+  <text x="35" y="466" font-size="12" fill="#555">品質管理・原因分析・QC 活動で広く活用</text>
+
+</svg>

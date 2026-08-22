@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="400" height="500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" role="img" aria-label="5管理10ペアの出題頻度マトリクス（S=最頻出、A=頻出、B=中、C=低）" style="max-width:400px;width:100%">
+  <title>5管理10ペアの出題頻度マトリクス</title>
+  <desc>技術士総合技術監理 過去10年（H27〜R6）の記述式・択一複合問題から集計した、5管理（経済性・人的資源・情報・安全・社会環境）の組合せ別出題頻度。S=最頻出（赤）、A=頻出（黄）、B=中（青）、C=低（灰）。</desc>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-axis  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-main  { font-size: 22px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub   { font-size: 11px; fill: #1a3a5c; }
+      .t-legend { font-size: 12px; fill: #1a3a5c; }
+      .box-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }  /* S 最頻出 */
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* A 頻出 */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }  /* B 中 */
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }  /* C 低 */
+      .axis-line { stroke: #d7d7d7; stroke-width: 1; }                      /* token-border */
+    </style>
+  </defs>
+
+  <!-- 軸線 -->
+  <line class="axis-line" x1="95" y1="50" x2="395" y2="50"/>
+  <line class="axis-line" x1="95" y1="50" x2="95" y2="290"/>
+
+  <!-- ヘッダー（横軸＝後半4管理） -->
+  <text class="t-axis" x="130" y="40" text-anchor="middle">人的資源</text>
+  <text class="t-axis" x="205" y="40" text-anchor="middle">情報</text>
+  <text class="t-axis" x="280" y="40" text-anchor="middle">安全</text>
+  <text class="t-axis" x="355" y="40" text-anchor="middle">社会環境</text>
+
+  <!-- Y軸ラベル（縦軸＝前半4管理、行の中央 y） -->
+  <text class="t-axis" x="88" y="87"  text-anchor="end">経済性</text>
+  <text class="t-axis" x="88" y="147" text-anchor="end">人的資源</text>
+  <text class="t-axis" x="88" y="207" text-anchor="end">情報</text>
+  <text class="t-axis" x="88" y="267" text-anchor="end">安全</text>
+
+  <!-- 行1: 経済性 × {人的資源, 情報, 安全, 社会環境} -->
+  <rect class="box-warn" x="95" y="55" width="70" height="55" rx="6"/>
+  <text class="t-main" x="130" y="87"  text-anchor="middle">A</text>
+  <text class="t-sub"  x="130" y="102" text-anchor="middle">働き方</text>
+
+  <rect class="box-warn" x="170" y="55" width="70" height="55" rx="6"/>
+  <text class="t-main" x="205" y="87"  text-anchor="middle">A</text>
+  <text class="t-sub"  x="205" y="102" text-anchor="middle">DX投資</text>
+
+  <rect class="box-danger" x="245" y="55" width="70" height="55" rx="6"/>
+  <text class="t-main" x="280" y="87"  text-anchor="middle">S</text>
+  <text class="t-sub"  x="280" y="102" text-anchor="middle">リスク</text>
+
+  <rect class="box-danger" x="320" y="55" width="70" height="55" rx="6"/>
+  <text class="t-main" x="355" y="87"  text-anchor="middle">S</text>
+  <text class="t-sub"  x="355" y="102" text-anchor="middle">環境コスト</text>
+
+  <!-- 行2: 人的資源 × {情報, 安全, 社会環境} -->
+  <rect class="box-brand" x="170" y="115" width="70" height="55" rx="6"/>
+  <text class="t-main" x="205" y="147" text-anchor="middle">B</text>
+  <text class="t-sub"  x="205" y="162" text-anchor="middle">人事DX</text>
+
+  <rect class="box-warn" x="245" y="115" width="70" height="55" rx="6"/>
+  <text class="t-main" x="280" y="147" text-anchor="middle">A</text>
+  <text class="t-sub"  x="280" y="162" text-anchor="middle">労働安全</text>
+
+  <rect class="box-surface" x="320" y="115" width="70" height="55" rx="6"/>
+  <text class="t-main" x="355" y="147" text-anchor="middle">C</text>
+  <text class="t-sub"  x="355" y="162" text-anchor="middle">多様性</text>
+
+  <!-- 行3: 情報 × {安全, 社会環境} -->
+  <rect class="box-brand" x="245" y="175" width="70" height="55" rx="6"/>
+  <text class="t-main" x="280" y="207" text-anchor="middle">B</text>
+  <text class="t-sub"  x="280" y="222" text-anchor="middle">セキュリティ</text>
+
+  <rect class="box-brand" x="320" y="175" width="70" height="55" rx="6"/>
+  <text class="t-main" x="355" y="207" text-anchor="middle">B</text>
+  <text class="t-sub"  x="355" y="222" text-anchor="middle">倫理</text>
+
+  <!-- 行4: 安全 × {社会環境} -->
+  <rect class="box-warn" x="320" y="235" width="70" height="55" rx="6"/>
+  <text class="t-main" x="355" y="267" text-anchor="middle">A</text>
+  <text class="t-sub"  x="355" y="282" text-anchor="middle">防災×景観</text>
+
+  <!-- 凡例（4色分離） -->
+  <g transform="translate(20, 315)">
+    <rect class="box-danger"  x="0"   y="0" width="22" height="14" rx="3"/>
+    <text class="t-legend" x="28"  y="11">S 最頻出</text>
+
+    <rect class="box-warn"    x="100" y="0" width="22" height="14" rx="3"/>
+    <text class="t-legend" x="128" y="11">A 頻出</text>
+
+    <rect class="box-brand"   x="190" y="0" width="22" height="14" rx="3"/>
+    <text class="t-legend" x="218" y="11">B 中</text>
+
+    <rect class="box-surface" x="260" y="0" width="22" height="14" rx="3"/>
+    <text class="t-legend" x="288" y="11">C 低</text>
+  </g>
+
+  <!-- 追加：頻出ペアのポイント -->
+  <rect x="10" y="346" width="380" height="54" fill="#f8d7da" stroke="#b22234" stroke-width="1.5" rx="6"/>
+  <text class="t-axis" x="200" y="366" text-anchor="middle">最頻出（S）ペアの出題傾向</text>
+  <text class="t-sub" x="200" y="382" text-anchor="middle">経済性 × 安全：コスト削減と安全投資のトレードオフ</text>
+  <text class="t-sub" x="200" y="396" text-anchor="middle">経済性 × 社会環境：環境コストと収益性の両立</text>
+
+  <rect x="10" y="412" width="185" height="56" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="6"/>
+  <text class="t-axis" x="103" y="430" text-anchor="middle">論述のポイント</text>
+  <text class="t-sub" x="103" y="446" text-anchor="middle">S・A ペアを中心に</text>
+  <text class="t-sub" x="103" y="460" text-anchor="middle">解決策の方向性を論述</text>
+
+  <rect x="205" y="412" width="185" height="56" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="6"/>
+  <text class="t-axis" x="297" y="430" text-anchor="middle">対策のアプローチ</text>
+  <text class="t-sub" x="297" y="446" text-anchor="middle">Win-Win 解の提案</text>
+  <text class="t-sub" x="297" y="460" text-anchor="middle">優先管理の明示</text>
+
+  <text class="t-sub" x="200" y="484" text-anchor="middle">5 管理は相互に連関：1 管理の変化が他の 4 管理に影響</text>
+</svg>

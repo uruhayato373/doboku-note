@@ -1,0 +1,304 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "hoki",
+      "label": "法規"
+    },
+    "subtopic": {
+      "key": "noise",
+      "label": "騒音規制法（特定建設作業）"
+    },
+    "packNum": "01",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 2,
+    "years": [
+      "r07z",
+      "r06z",
+      "r05z",
+      "r03k"
+    ],
+    "yearsLabel": "令和7・6・5・3年度",
+    "questionIds": [
+      "r07z-45",
+      "r06z-45",
+      "r05z-40",
+      "r03k-40"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "騒音規制法（特定建設作業）",
+      "themeLabel": "法規",
+      "subtopicLabel": "騒音規制法（特定建設作業）",
+      "stars": 2,
+      "yearsLabel": "令和7・6・5・3年度",
+      "firstQuestion": "騒音規制法上，住民の生活環境を保全する必要があると認める地域の指定を行う者として，次の記述のうち，正しいものはどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "騒音規制法上，住民の生活環境を保全する必要があると認",
+        "める地域の指定を行う者として，次の記述のうち，正しい",
+        "ものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "都道府県知事又は市長"
+        },
+        {
+          "num": 2,
+          "text": "町村長"
+        },
+        {
+          "num": 3,
+          "text": "厚生労働大臣"
+        },
+        {
+          "num": 4,
+          "text": "環境大臣"
+        }
+      ],
+      "topic": "令和7年度前期",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 2,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 1,
+      "correctText": "騒音規制法上，住民の生活環境を保全す",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "指定権者は都道府県知事又は市長、正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "町村長単独の権限ではない ",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "厚生労働大臣は所管外 ",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "環境大臣は基本指針策定、地域指定は地方自治体  <ExamPoint>騒音規制法の地域指定権者は都道府県知事又は市長</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "指定権者は都道府県知事又は市長、正しい",
+      "qNum": 1,
+      "totalQ": 4,
+      "pageIndex": 3,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "騒音規制法上，指定地域内における特定建設作業の規制基",
+        "準に関する次の記述のうち，正しいものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "特定建設作業の敷地の境界線において騒音の大きさは，75 デシベルを超えてはならない。"
+        },
+        {
+          "num": 2,
+          "text": "夜間・深夜作業の禁止時間帯は，原則として午後 10 時から翌日午前 7 時である。"
+        },
+        {
+          "num": 3,
+          "text": "1 日の作業時間は，原則として 8 時間を超えてはならない。"
+        },
+        {
+          "num": 4,
+          "text": "特定建設作業は，原則として同一場所においては連続 6 日を超えてはならない。"
+        }
+      ],
+      "topic": "令和6年度前期",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 4,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "騒音規制法上，指定地域内における特定",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "境界線騒音の上限値は 85 デシベルが規制値で、75 デシベルでは誤り",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "夜間禁止時間帯は午後 7 時〜翌午前 7 時が標準で、午後 10 時〜は誤り",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "1 日の作業時間は原則 10 時間（第 1 号区域）または 14 時間（第 2 号区域）以内であり、「8 時間」では誤り",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "特定建設作業は同一場所において連続 6 日を超えてはならないという規制基準どおりで正しい",
+          "correct": true
+        }
+      ],
+      "pointText": "特定建設作業は同一場所において連続 6 日を超えてはならないという規制基準どおりで正しい",
+      "qNum": 2,
+      "totalQ": 4,
+      "pageIndex": 5,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "騒音規制法上，住民の生活環境を保全する必要があると認",
+        "める地域の指定を行う者として，正しいものは次のうちど",
+        "れか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "環境大臣"
+        },
+        {
+          "num": 2,
+          "text": "国土交通大臣"
+        },
+        {
+          "num": 3,
+          "text": "町村長"
+        },
+        {
+          "num": 4,
+          "text": "都道府県知事又は市長"
+        }
+      ],
+      "topic": "令和5年度前期",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 6,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "騒音規制法上，住民の生活環境を保全す",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "環境大臣は指定権者ではない ",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "国土交通大臣は指定権者ではない ",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "町村長単独の権限ではない ",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "地域の指定を行うのは都道府県知事又は市長、正しい",
+          "correct": true
+        }
+      ],
+      "pointText": "地域の指定を行うのは都道府県知事又は市長、正しい",
+      "qNum": 3,
+      "totalQ": 4,
+      "pageIndex": 7,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "騒音規制法上，指定地域内において特定建設作業を伴う建",
+        "設工事を施工する者が，作業開始前に市町村長に実施の届",
+        "出をしなければならない期限として，正しいものは次のう",
+        "ちどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "3 日前まで"
+        },
+        {
+          "num": 2,
+          "text": "5 日前まで"
+        },
+        {
+          "num": 3,
+          "text": "7 日前まで"
+        },
+        {
+          "num": 4,
+          "text": "10 日前まで"
+        }
+      ],
+      "topic": "令和3年度後期",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 8,
+      "totalPages": 10
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "騒音規制法上，指定地域内において特定",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "3 日前は期限と一致せず誤り",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "5 日前は期限と一致せず誤り",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "特定建設作業は作業開始の 7 日前までに届け出るのが正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "10 日前は期限と一致せず誤り <ExamPoint>特定建設作業の届出は作業開始の 7 日前まで</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "特定建設作業は作業開始の 7 日前までに届け出るのが正しい",
+      "qNum": 4,
+      "totalQ": 4,
+      "pageIndex": 9,
+      "totalPages": 10
+    },
+    {
+      "type": "cta",
+      "pageIndex": 10,
+      "totalPages": 10
+    }
+  ]
+}

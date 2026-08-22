@@ -1,0 +1,127 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="機械学習のワークフロー：学習プロセス（データ収集→前処理→学習→学習済みモデル）と推論プロセス（データ収集→前処理→推論→活用）の 2 段構成、学習済みモデルが推論に渡される">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-section { font-size: 13px; font-weight: bold; fill: #1a3a5c; }   /* brand-text */
+      .t-num     { font-size: 11px; font-weight: bold; fill: #1a3a5c; }   /* brand-text */
+      .t-title   { font-size: 12px; font-weight: bold; fill: #222; }      /* ink-strong */
+      .t-detail  { font-size: 11px; fill: #555; }                         /* ink-body */
+      .t-bridge  { font-size: 11px; font-weight: bold; fill: #d4a017; }   /* warn-stroke */
+      .box-train { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }   /* brand（学習） */
+      .box-model { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }   /* positive（成果物） */
+      .box-infer { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }   /* warn（推論） */
+      .arrow     { stroke: #555; stroke-width: 1.5; fill: none; }         /* ink-body */
+      .arrow-em  { stroke: #d4a017; stroke-width: 1.8; fill: none; stroke-dasharray: 4,3; }
+      .divider   { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 4,3; }
+    </style>
+    <marker markerUnits="userSpaceOnUse" id="ml-arr" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+      <polygon points="0,0 7,3 0,6" fill="#555"/>
+    </marker>
+    <marker markerUnits="userSpaceOnUse" id="ml-arr-em" markerWidth="7" markerHeight="6" refX="6" refY="3" orient="auto">
+      <polygon points="0,0 7,3 0,6" fill="#d4a017"/>
+    </marker>
+  </defs>
+
+  <!-- 学習プロセス -->
+  <text class="t-section" x="200" y="18" text-anchor="middle">学習のプロセス</text>
+
+  <rect class="box-train" x="10"  y="28" width="80" height="56" rx="5"/>
+  <text class="t-num"   x="50" y="44" text-anchor="middle">①</text>
+  <text class="t-title" x="50" y="60" text-anchor="middle">データ</text>
+  <text class="t-title" x="50" y="74" text-anchor="middle">収集</text>
+
+  <line class="arrow" x1="92" y1="56" x2="103" y2="56" marker-end="url(#ml-arr)"/>
+
+  <rect class="box-train" x="105" y="28" width="80" height="56" rx="5"/>
+  <text class="t-num"   x="145" y="44" text-anchor="middle">②</text>
+  <text class="t-title" x="145" y="60" text-anchor="middle">前処理</text>
+  <text class="t-detail" x="145" y="76" text-anchor="middle">クレンジング</text>
+
+  <line class="arrow" x1="187" y1="56" x2="198" y2="56" marker-end="url(#ml-arr)"/>
+
+  <rect class="box-train" x="200" y="28" width="80" height="56" rx="5"/>
+  <text class="t-num"   x="240" y="44" text-anchor="middle">③</text>
+  <text class="t-title" x="240" y="60" text-anchor="middle">学習実施</text>
+  <text class="t-detail" x="240" y="76" text-anchor="middle">パターン抽出</text>
+
+  <line class="arrow" x1="282" y1="56" x2="293" y2="56" marker-end="url(#ml-arr)"/>
+
+  <rect class="box-model" x="295" y="28" width="95" height="56" rx="5"/>
+  <text class="t-num"   x="343" y="44" text-anchor="middle">④</text>
+  <text class="t-title" x="343" y="60" text-anchor="middle">学習済みモデル</text>
+  <text class="t-detail" x="343" y="76" text-anchor="middle">作成完了</text>
+
+  <!-- 区切り -->
+  <line class="divider" x1="10" y1="100" x2="390" y2="100"/>
+
+  <!-- モデル受け渡し（縦の矢印） -->
+  <line class="arrow-em" x1="343" y1="84" x2="343" y2="148" marker-end="url(#ml-arr-em)"/>
+  <text class="t-bridge" x="343" y="118" text-anchor="middle">モデル</text>
+  <text class="t-bridge" x="343" y="132" text-anchor="middle">活用</text>
+
+  <!-- 推論プロセス -->
+  <text class="t-section" x="200" y="120" text-anchor="middle">推論のプロセス</text>
+
+  <rect class="box-infer" x="10"  y="148" width="80" height="56" rx="5"/>
+  <text class="t-num"   x="50" y="164" text-anchor="middle">①</text>
+  <text class="t-title" x="50" y="180" text-anchor="middle">データ</text>
+  <text class="t-title" x="50" y="194" text-anchor="middle">収集</text>
+
+  <line class="arrow" x1="92" y1="176" x2="103" y2="176" marker-end="url(#ml-arr)"/>
+
+  <rect class="box-infer" x="105" y="148" width="80" height="56" rx="5"/>
+  <text class="t-num"   x="145" y="164" text-anchor="middle">②</text>
+  <text class="t-title" x="145" y="180" text-anchor="middle">前処理</text>
+  <text class="t-detail" x="145" y="196" text-anchor="middle">クレンジング</text>
+
+  <line class="arrow" x1="187" y1="176" x2="198" y2="176" marker-end="url(#ml-arr)"/>
+
+  <rect class="box-infer" x="200" y="148" width="80" height="56" rx="5"/>
+  <text class="t-num"   x="240" y="164" text-anchor="middle">③</text>
+  <text class="t-title" x="240" y="180" text-anchor="middle">推論実施</text>
+  <text class="t-detail" x="240" y="196" text-anchor="middle">識別・予測</text>
+
+  <line class="arrow" x1="282" y1="176" x2="293" y2="176" marker-end="url(#ml-arr)"/>
+
+  <rect class="box-model" x="295" y="148" width="95" height="56" rx="5"/>
+  <text class="t-num"   x="343" y="164" text-anchor="middle">④</text>
+  <text class="t-title" x="343" y="180" text-anchor="middle">結果の活用</text>
+  <text class="t-detail" x="343" y="196" text-anchor="middle">業務適用</text>
+
+  <!-- 凡例 -->
+  <rect class="box-train" x="10"  y="226" width="20" height="14" rx="3"/>
+  <text class="t-detail"  x="36"  y="237">学習</text>
+  <rect class="box-infer" x="80"  y="226" width="20" height="14" rx="3"/>
+  <text class="t-detail"  x="106" y="237">推論</text>
+  <rect class="box-model" x="150" y="226" width="20" height="14" rx="3"/>
+  <text class="t-detail"  x="176" y="237">成果物（モデル・適用結果）</text>
+
+  <text class="t-detail" x="200" y="265" text-anchor="middle">学習で作ったモデルを推論で繰り返し利用する</text>
+
+  <!-- 追加：機械学習の分類 -->
+  <rect x="10" y="284" width="380" height="52" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text class="t-section" x="200" y="304" text-anchor="middle">機械学習の 3 分類</text>
+  <text class="t-detail" x="200" y="320" text-anchor="middle">教師あり学習（分類・回帰）/ 教師なし学習（クラスタリング）</text>
+  <text class="t-detail" x="200" y="334" text-anchor="middle">強化学習（報酬最大化・試行錯誤）</text>
+
+  <rect x="10" y="348" width="185" height="56" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="6"/>
+  <text class="t-title" x="103" y="367" text-anchor="middle">情報管理への応用</text>
+  <text class="t-detail" x="103" y="383" text-anchor="middle">異常検知・品質予測</text>
+  <text class="t-detail" x="103" y="397" text-anchor="middle">需要予測・リスク評価</text>
+
+  <rect x="205" y="348" width="185" height="56" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="6"/>
+  <text class="t-title" x="297" y="367" text-anchor="middle">社会環境管理への応用</text>
+  <text class="t-detail" x="297" y="383" text-anchor="middle">環境センシング・解析</text>
+  <text class="t-detail" x="297" y="397" text-anchor="middle">施設老朽化予測</text>
+
+  <rect x="10" y="416" width="380" height="42" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5" rx="6"/>
+  <text class="t-title" x="200" y="434" text-anchor="middle">AI・機械学習のリスク（情報管理観点）</text>
+  <text class="t-detail" x="200" y="450" text-anchor="middle">バイアス・説明責任・データ品質・プライバシー</text>
+
+  <text class="t-detail" x="200" y="472" text-anchor="middle">DX 推進と人的資源管理・安全管理の統合が課題</text>
+  <text class="t-detail" x="200" y="488" text-anchor="middle" fill="#3a7d44" font-weight="bold">総監：情報管理 × 社会環境管理の新技術対応</text>
+</svg>

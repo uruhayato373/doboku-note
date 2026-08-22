@@ -1,0 +1,86 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="Wi-Fi の暗号化強度比較：WPA2（強・推奨）→ WPA（中）→ WEP（弱・非推奨）→ 暗号化なし（危険）の 4 段階と各方式の表示・推奨度">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-head    { font-size: 12px; font-weight: bold; fill: #1a3a5c; }   /* brand-text */
+      .t-method  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }   /* brand-text */
+      .t-method-warn   { font-size: 12px; font-weight: bold; fill: #d4a017; } /* warn-stroke */
+      .t-method-danger { font-size: 12px; font-weight: bold; fill: #b22234; } /* danger-stroke */
+      .t-detail  { font-size: 11px; fill: #555; }                         /* ink-body */
+      .t-detail-danger { font-size: 11px; fill: #b22234; }                /* danger-stroke */
+      .t-icon    { font-size: 13px; fill: #222; }                         /* ink-strong */
+      .t-axis    { font-size: 11px; fill: #555; }                         /* ink-body */
+      .head-cell    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand */
+      .row-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }   /* positive */
+      .row-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1; }   /* warn */
+      .row-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1; }   /* danger */
+      .axis         { stroke: #d7d7d7; stroke-width: 1; }                  /* surface */
+    </style>
+  </defs>
+
+  <!-- ヘッダー行 -->
+  <rect class="head-cell" x="20"  y="10" width="180" height="28" rx="4"/>
+  <text class="t-head"    x="110" y="29" text-anchor="middle">暗号化方式</text>
+  <rect class="head-cell" x="204" y="10" width="80" height="28" rx="4"/>
+  <text class="t-head"    x="244" y="29" text-anchor="middle">表示</text>
+  <rect class="head-cell" x="288" y="10" width="92" height="28" rx="4"/>
+  <text class="t-head"    x="334" y="29" text-anchor="middle">推奨度</text>
+
+  <!-- WPA2（最強・positive） -->
+  <rect class="row-positive" x="20"  y="42" width="180" height="36" rx="4"/>
+  <text class="t-method" x="110" y="58" text-anchor="middle">WPA2</text>
+  <text class="t-detail" x="110" y="73" text-anchor="middle">現在の標準・最も強固</text>
+  <rect class="row-positive" x="204" y="42" width="80" height="36" rx="4"/>
+  <text class="t-icon"   x="244" y="65" text-anchor="middle">🔒（鍵）</text>
+  <rect class="row-positive" x="288" y="42" width="92" height="36" rx="4"/>
+  <text class="t-method" x="334" y="65" text-anchor="middle">推奨</text>
+
+  <!-- WPA（中・warn） -->
+  <rect class="row-warn" x="20"  y="82" width="180" height="36" rx="4"/>
+  <text class="t-method-warn" x="110" y="98"  text-anchor="middle">WPA</text>
+  <text class="t-detail"      x="110" y="113" text-anchor="middle">「WPA で保護」と表示</text>
+  <rect class="row-warn" x="204" y="82" width="80" height="36" rx="4"/>
+  <text class="t-icon"   x="244" y="105" text-anchor="middle">🔒（鍵）</text>
+  <rect class="row-warn" x="288" y="82" width="92" height="36" rx="4"/>
+  <text class="t-method-warn" x="334" y="105" text-anchor="middle">中程度</text>
+
+  <!-- WEP（弱・danger） -->
+  <rect class="row-danger" x="20"  y="122" width="180" height="36" rx="4"/>
+  <text class="t-method-danger" x="110" y="138" text-anchor="middle">WEP</text>
+  <text class="t-detail-danger" x="110" y="153" text-anchor="middle">脆弱性あり・非推奨</text>
+  <rect class="row-danger" x="204" y="122" width="80" height="36" rx="4"/>
+  <text class="t-icon"     x="244" y="145" text-anchor="middle">🔒（鍵）</text>
+  <rect class="row-danger" x="288" y="122" width="92" height="36" rx="4"/>
+  <text class="t-method-danger" x="334" y="145" text-anchor="middle">非推奨</text>
+
+  <!-- 暗号化なし（最も危険・danger） -->
+  <rect class="row-danger" x="20"  y="162" width="180" height="36" rx="4"/>
+  <text class="t-method-danger" x="110" y="178" text-anchor="middle">暗号化なし</text>
+  <text class="t-detail-danger" x="110" y="193" text-anchor="middle">使用厳禁</text>
+  <rect class="row-danger" x="204" y="162" width="80" height="36" rx="4"/>
+  <text class="t-detail-danger" x="244" y="185" text-anchor="middle">表示なし</text>
+  <rect class="row-danger" x="288" y="162" width="92" height="36" rx="4"/>
+  <text class="t-method-danger" x="334" y="185" text-anchor="middle">危険</text>
+
+  <!-- 強度ラベル（左側） -->
+  <line class="axis" x1="14" y1="44" x2="14" y2="200"/>
+  <text class="t-axis" x="14" y="56" text-anchor="middle">強</text>
+  <text class="t-axis" x="14" y="195" text-anchor="middle">弱</text>
+
+  <!-- サマリー -->
+  <line stroke="#d7d7d7" stroke-width="1" x1="20" y1="230" x2="380" y2="230"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c" x="200" y="265" text-anchor="middle">WPA2 が現在の推奨標準</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" fill="#555" x="200" y="290" text-anchor="middle">WEP・暗号化なしは脆弱性リスクが高く使用厳禁</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" fill="#555" x="200" y="314" text-anchor="middle">接続前に必ずセキュリティ方式を確認する</text>
+
+  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" x="20" y="340" width="360" height="108" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" x="200" y="362" text-anchor="middle">最新規格 WPA3（2018 年 Wi-Fi Alliance 策定）</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="40" y="382">・SAE 認証（Dragonfly）で辞書攻撃・オフライン解読に強い</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="40" y="398">・公衆 Wi-Fi の Enhanced Open でも個別暗号化を提供</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="40" y="414">・接続ごとに個別の暗号鍵を生成（前方秘匿性）</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="40" y="430">・WPA2 との後方互換性あり（移行期は混在モードが一般的）</text>
+</svg>

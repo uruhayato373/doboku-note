@@ -1,0 +1,118 @@
+{
+  "schemaVersion": 1,
+  "timezone": "Asia/Tokyo",
+  "verifiedAt": "2026-08-12",
+  "policy": "試験日を本文・投稿・計画へ記載する前に本ファイルを参照する。年度更新時は公式ページで確認し、verifiedAtとsourceを同時更新する。label は公式名称をそのまま使う（2026-08-12: 「コンクリート主任技師」という誤記が記事・戦略docへ伝播していたため、正式名称「コンクリート主任技士」を本ファイルで固定した）。",
+  "exams": {
+    "civil-construction-1": {
+      "label": "1級土木施工管理技術検定",
+      "year": 2026,
+      "source": "https://www.jctc.jp/exam/doboku-1/",
+      "events": {
+        "first": {
+          "label": "第一次検定",
+          "date": "2026-07-05"
+        },
+        "second": {
+          "label": "第二次検定",
+          "date": "2026-10-04"
+        }
+      }
+    },
+    "civil-construction-2": {
+      "label": "2級土木施工管理技術検定",
+      "year": 2026,
+      "source": "https://www.jctc.jp/exam/doboku-2/",
+      "events": {
+        "firstEarly": {
+          "label": "第一次検定（前期）",
+          "date": "2026-06-07"
+        },
+        "firstLate": {
+          "label": "第一次検定（後期）",
+          "date": "2026-10-25"
+        },
+        "second": {
+          "label": "第二次検定",
+          "date": "2026-10-25"
+        }
+      }
+    },
+    "pe-comprehensive-management": {
+      "label": "技術士第二次試験 総合技術監理部門",
+      "year": 2026,
+      "source": "https://www.engineer.or.jp/c_topics/011/011422.html",
+      "events": {
+        "applicationDeadline": {
+          "label": "受験申込 締切",
+          "date": "2026-04-15"
+        },
+        "written": {
+          "label": "筆記試験（必須科目）",
+          "date": "2026-07-19"
+        },
+        "writtenSelective": {
+          "label": "筆記試験（選択科目）",
+          "date": "2026-07-20"
+        }
+      },
+      "note": "筆記合格発表は2026年11月、口頭試験は2026年12月〜2027年1月（いずれも日付未発表のため events に入れない）。次年度サイクルの申込は2027年4月頃。"
+    },
+    "pe-construction": {
+      "label": "技術士第二次試験 建設部門",
+      "year": 2026,
+      "source": "https://www.engineer.or.jp/c_topics/011/011422.html",
+      "events": {
+        "applicationDeadline": {
+          "label": "受験申込 締切",
+          "date": "2026-04-15"
+        },
+        "written": {
+          "label": "筆記試験（総合技術監理部門を除く技術部門）",
+          "date": "2026-07-20"
+        }
+      },
+      "note": "総監以外の全技術部門は7月20日に実施。合格発表・口頭試験の扱いは pe-comprehensive-management と同じ。"
+    },
+    "concrete-chief-engineer": {
+      "label": "コンクリート主任技士",
+      "year": 2026,
+      "source": "https://www.jci-net.or.jp/j/exam/gishi/index.html",
+      "events": {
+        "applicationOpen": {
+          "label": "受験申込 受付開始（オンライン）",
+          "date": "2026-07-01"
+        },
+        "applicationDeadline": {
+          "label": "受験申込 締切",
+          "date": "2026-09-01"
+        },
+        "exam": {
+          "label": "試験",
+          "date": "2026-11-30"
+        }
+      },
+      "note": "正式名称は「コンクリート主任技士」（技師ではない）。コンクリート技士も同日実施。合否確認は2027年1月中旬。"
+    },
+    "concrete-diagnostician": {
+      "label": "コンクリート診断士",
+      "year": 2026,
+      "source": "https://www.jci-net.or.jp/j/exam/shindan/",
+      "events": {
+        "applicationOpen": {
+          "label": "受験申込 受付開始（オンライン）",
+          "date": "2026-04-15"
+        },
+        "applicationDeadline": {
+          "label": "受験申込 締切",
+          "date": "2026-05-21"
+        },
+        "exam": {
+          "label": "試験",
+          "date": "2026-07-26"
+        }
+      },
+      "note": "受験には講習（eラーニング）の修了が前提。2026年度の講習修了期間は4月6日〜5月19日。合否確認は2026年9月30日頃。"
+    }
+  }
+}

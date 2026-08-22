@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="924" viewBox="0 0 1200 924">
+  <rect width="1200" height="924" fill="#f8fafc"/>
+
+  <!-- タイトル -->
+  <text x="600" y="68" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#222222" text-anchor="middle">通読の次にやる3ステップ</text>
+
+  <!-- STEP 1 カード -->
+  <rect x="80" y="124" width="1040" height="200" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <!-- カード上部アクセント帯 -->
+  <rect x="80" y="124" width="1040" height="84" rx="8" fill="#e8f0fe"/>
+  <rect x="80" y="200" width="1040" height="8" fill="#e8f0fe"/>
+
+  <!-- STEP 番号円 -->
+  <circle cx="126" cy="182" r="34" fill="#2e6da4"/>
+  <text x="126" y="196" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="900" fill="#ffffff" text-anchor="middle">1</text>
+
+  <!-- STEP ラベル -->
+  <text x="180" y="166" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#2e6da4" text-anchor="start">STEP</text>
+
+  <!-- ステップタイトル -->
+  <text x="180" y="194" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#1a3a5c" text-anchor="start">直近5年の過去問を解く</text>
+
+  <!-- 本文 -->
+  <text x="180" y="236" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">誤答選択肢の「どの一文が決め手で誤りか」まで</text>
+  <text x="180" y="268" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">解説で確認する</text>
+
+  <!-- STEP 1 → STEP 2 矢印 -->
+  <line x1="600" y1="334" x2="600" y2="360" stroke="#2e6da4" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="600,374 586,356 614,356" fill="#2e6da4"/>
+
+  <!-- STEP 2 カード -->
+  <rect x="80" y="384" width="1040" height="200" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <!-- カード上部アクセント帯 -->
+  <rect x="80" y="384" width="1040" height="84" rx="8" fill="#e8f0fe"/>
+  <rect x="80" y="460" width="1040" height="8" fill="#e8f0fe"/>
+
+  <!-- STEP 番号円 -->
+  <circle cx="126" cy="442" r="34" fill="#2e6da4"/>
+  <text x="126" y="456" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="900" fill="#ffffff" text-anchor="middle">2</text>
+
+  <!-- STEP ラベル -->
+  <text x="180" y="426" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#2e6da4" text-anchor="start">STEP</text>
+
+  <!-- ステップタイトル -->
+  <text x="180" y="454" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#1a3a5c" text-anchor="start">間違えた論点に優先度「高」マーク</text>
+
+  <!-- 本文 -->
+  <text x="180" y="496" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">1回だけの誤りと複数年落としている論点を区別し、</text>
+  <text x="180" y="528" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">後者を最優先にする</text>
+
+  <!-- STEP 2 → STEP 3 矢印 -->
+  <line x1="600" y1="594" x2="600" y2="620" stroke="#2e6da4" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="600,634 586,616 614,616" fill="#2e6da4"/>
+
+  <!-- STEP 3 カード -->
+  <rect x="80" y="644" width="1040" height="200" rx="8" fill="#ffffff" stroke="#3a7d44" stroke-width="2"/>
+  <!-- カード上部アクセント帯 -->
+  <rect x="80" y="644" width="1040" height="84" rx="8" fill="#e6f1e8"/>
+  <rect x="80" y="720" width="1040" height="8" fill="#e6f1e8"/>
+
+  <!-- STEP 番号円 -->
+  <circle cx="126" cy="702" r="34" fill="#3a7d44"/>
+  <text x="126" y="716" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="900" fill="#ffffff" text-anchor="middle">3</text>
+
+  <!-- STEP ラベル -->
+  <text x="180" y="686" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#3a7d44" text-anchor="start">STEP</text>
+
+  <!-- ステップタイトル -->
+  <text x="180" y="714" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#1e5c2a" text-anchor="start">高優先度の論点に1行追記</text>
+
+  <!-- 本文 -->
+  <text x="180" y="756" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">引っかけパターンとトレードオフ相手を1論点1行で書き足す。</text>
+  <text x="180" y="788" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">直前期の見直しノートになる</text>
+
+    <text x="1172" y="902" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

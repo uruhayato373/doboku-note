@@ -1,0 +1,77 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="循環型社会の5段階。発生抑制・再使用・再生利用・熱回収・適正処分を優先順位の高い順に上から並べた図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .t-main  { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-en    { font-size: 11px; fill: #555; }
+      .t-note  { font-size: 12px; fill: #555; }
+      .t-num   { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-axis  { font-size: 11px; font-weight: bold; fill: #8a8a8a; }
+      .t-foot  { font-size: 11px; fill: #555; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .badge-positive { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+      .badge-brand    { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-warn     { fill: #ffffff; stroke: #d4a017; stroke-width: 1.5; }
+      .badge-danger   { fill: #ffffff; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- sub: 法令参照 -->
+  <text class="t-sub" x="200" y="16" text-anchor="middle">処理の優先順位（循環型社会形成推進基本法）</text>
+
+  <!-- priority axis (high to low) -->
+  <text class="t-axis" x="26" y="40" text-anchor="middle">高</text>
+  <line x1="26" y1="48" x2="26" y2="430" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow)"/>
+  <text class="t-axis" x="26" y="454" text-anchor="middle">低</text>
+
+  <!-- 1 発生抑制 -->
+  <rect class="box-positive" x="50" y="34" width="334" height="70" rx="8"/>
+  <circle class="badge-positive" cx="78" cy="69" r="16"/>
+  <text class="t-num" x="78" y="74" text-anchor="middle">1</text>
+  <text class="t-main" x="104" y="64">発生抑制</text>
+  <text class="t-en" x="104" y="84">リデュース / Reduce</text>
+  <text class="t-note" x="372" y="73" text-anchor="end">ごみを出さない</text>
+
+  <!-- 2 再使用 -->
+  <rect class="box-positive" x="50" y="120" width="334" height="70" rx="8"/>
+  <circle class="badge-positive" cx="78" cy="155" r="16"/>
+  <text class="t-num" x="78" y="160" text-anchor="middle">2</text>
+  <text class="t-main" x="104" y="150">再使用</text>
+  <text class="t-en" x="104" y="170">リユース / Reuse</text>
+  <text class="t-note" x="372" y="159" text-anchor="end">繰り返し使う</text>
+
+  <!-- 3 再生利用 -->
+  <rect class="box-brand" x="50" y="206" width="334" height="70" rx="8"/>
+  <circle class="badge-brand" cx="78" cy="241" r="16"/>
+  <text class="t-num" x="78" y="246" text-anchor="middle">3</text>
+  <text class="t-main" x="104" y="236">再生利用</text>
+  <text class="t-en" x="104" y="256">リサイクル / Recycle</text>
+  <text class="t-note" x="372" y="245" text-anchor="end">資源に戻す</text>
+
+  <!-- 4 熱回収 -->
+  <rect class="box-warn" x="50" y="292" width="334" height="70" rx="8"/>
+  <circle class="badge-warn" cx="78" cy="327" r="16"/>
+  <text class="t-num" x="78" y="332" text-anchor="middle">4</text>
+  <text class="t-main" x="104" y="322">熱回収</text>
+  <text class="t-en" x="104" y="342">サーマルリカバリー</text>
+  <text class="t-note" x="372" y="331" text-anchor="end">エネルギー回収</text>
+
+  <!-- 5 適正処分 -->
+  <rect class="box-danger" x="50" y="378" width="334" height="70" rx="8"/>
+  <circle class="badge-danger" cx="78" cy="413" r="16"/>
+  <text class="t-num" x="78" y="418" text-anchor="middle">5</text>
+  <text class="t-main" x="104" y="408">適正処分</text>
+  <text class="t-en" x="104" y="428">埋立・焼却</text>
+  <text class="t-note" x="372" y="417" text-anchor="end">最終手段</text>
+
+  <!-- footer -->
+  <text class="t-foot" x="200" y="484" text-anchor="middle">発生抑制・再使用＝2R（特に優先）｜再使用以降の順位は第7条</text>
+</svg>

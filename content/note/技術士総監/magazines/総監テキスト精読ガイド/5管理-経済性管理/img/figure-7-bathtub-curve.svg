@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="770" viewBox="0 0 1200 770">
+  <rect width="1200" height="770" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">バスタブカーブと保全方式の対応</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">故障率の3区分に応じて保全戦略を切り替える</text>
+
+  <line x1="80" y1="480" x2="1140" y2="480" stroke="#222222" stroke-width="2"/>
+  <line x1="80" y1="180" x2="80" y2="480" stroke="#222222" stroke-width="2"/>
+  <text x="56" y="200" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="end">高</text>
+  <text x="56" y="480" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="end">低</text>
+  <text x="30" y="330" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#555555" text-anchor="middle" transform="rotate(-90 30 330)">故障率</text>
+  <text x="610" y="520" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#555555" text-anchor="middle">時間（経年）</text>
+  <rect x="80" y="180" width="265" height="300" fill="#fbe5e7" opacity="0.4"/>
+  <rect x="345" y="180" width="477" height="300" fill="#e6f1e8" opacity="0.4"/>
+  <rect x="822" y="180" width="318" height="300" fill="#fbf3df" opacity="0.4"/>
+  <path d="
+    M 80 200
+    Q 160 440, 345 420
+    L 822 420
+    Q 1080 440, 1140 200
+  " stroke="#2e6da4" stroke-width="4" fill="none"/>
+  <text x="212.5" y="170" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#b22234" text-anchor="middle">初期故障期</text>
+  <text x="583.5" y="170" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#3a7d44" text-anchor="middle">偶発故障期</text>
+  <text x="981" y="170" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#d4a017" text-anchor="middle">摩耗故障期</text>
+  <rect x="80" y="560" width="340" height="130" rx="8" fill="#ffffff" stroke="#b22234" stroke-width="3"/>
+  <rect x="80" y="560" width="340" height="36" rx="8" fill="#b22234"/>
+  <rect x="80" y="584" width="340" height="12" fill="#b22234"/>
+  <text x="250" y="586" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">初期故障期</text>
+  <text x="96" y="620" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">製造欠陥・初期不良</text>
+  <text x="96" y="650" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">事後保全（BM）</text>
+  <text x="96" y="674" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">＋デバッグ運転</text>
+  <rect x="440" y="560" width="340" height="130" rx="8" fill="#ffffff" stroke="#3a7d44" stroke-width="3"/>
+  <rect x="440" y="560" width="340" height="36" rx="8" fill="#3a7d44"/>
+  <rect x="440" y="584" width="340" height="12" fill="#3a7d44"/>
+  <text x="610" y="586" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">偶発故障期</text>
+  <text x="456" y="620" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">故障率最低・有効寿命</text>
+  <text x="456" y="650" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">予防保全（PM）</text>
+  <text x="456" y="674" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">状態監視保全（CBM）</text>
+  <rect x="800" y="560" width="340" height="130" rx="8" fill="#ffffff" stroke="#d4a017" stroke-width="3"/>
+  <rect x="800" y="560" width="340" height="36" rx="8" fill="#d4a017"/>
+  <rect x="800" y="584" width="340" height="12" fill="#d4a017"/>
+  <text x="970" y="586" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">摩耗故障期</text>
+  <text x="816" y="620" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#555555">部品劣化・寿命末期</text>
+  <text x="816" y="650" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">時間計画保全（TBM）</text>
+  <text x="816" y="674" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">更新・部品交換</text>
+  <text x="1160" y="750" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

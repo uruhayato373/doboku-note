@@ -1,0 +1,60 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="打重ね時間とコールドジョイントの関係。先に打ち込んだ下層の凝結が始まる前に次層を打ち込めば上下は一体化する。凝結が始まった後に打ち込むと界面が一体化せずコールドジョイントが残る">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-hd   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-lay  { font-size: 11px; fill: #222; }
+      .t-ok   { font-size: 11px; font-weight: bold; fill: #3a7d44; }
+      .t-ng   { font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-cap  { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .up { fill: #e8f0fe; }
+      .lo { fill: #f5f5f5; }
+      .memb { fill: none; stroke: #555; stroke-width: 1.5; }
+      .seam-ok { stroke: #d7d7d7; stroke-width: 1; stroke-dasharray: 4 4; }
+      .seam-ng { stroke: #b22234; stroke-width: 3.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">下層が固まる前に打てるかどうかで界面が変わる</text>
+
+  <text class="t-hd" x="104" y="42" text-anchor="middle">打重ね時間内</text>
+  <text class="t-hd" x="296" y="42" text-anchor="middle">限度を超過</text>
+
+  <rect class="up" x="21" y="53" width="166" height="84"/>
+  <rect class="lo" x="21" y="137" width="166" height="84"/>
+  <line class="seam-ok" x1="21" y1="137" x2="187" y2="137"/>
+  <rect class="memb" x="20" y="52" width="168" height="170" rx="3"/>
+  <text class="t-lay" x="104" y="99" text-anchor="middle">後から打つ層</text>
+  <text class="t-lay" x="104" y="199" text-anchor="middle">先に打った層</text>
+  <text class="t-ok" x="104" y="158" text-anchor="middle">一体化する</text>
+
+  <rect class="up" x="213" y="53" width="166" height="84"/>
+  <rect class="lo" x="213" y="137" width="166" height="84"/>
+  <line class="seam-ng" x1="213" y1="137" x2="379" y2="137"/>
+  <rect class="memb" x="212" y="52" width="168" height="170" rx="3"/>
+  <text class="t-lay" x="296" y="99" text-anchor="middle">後から打つ層</text>
+  <text class="t-lay" x="296" y="199" text-anchor="middle">先に打った層</text>
+  <text class="t-ng" x="296" y="160" text-anchor="middle">コールドジョイント</text>
+
+  <text class="t-cap" x="104" y="244" text-anchor="middle">凝結が始まる前に</text>
+  <text class="t-cap" x="104" y="262" text-anchor="middle">次の層を打ち込む</text>
+  <text class="t-cap" x="296" y="244" text-anchor="middle">凝結が始まった後に</text>
+  <text class="t-cap" x="296" y="262" text-anchor="middle">次の層を打ち込む</text>
+
+  <rect class="box-surf" x="20" y="300" width="360" height="182" rx="6"/>
+  <text class="t-sec" x="200" y="322" text-anchor="middle">読み取り方</text>
+  <line class="rule" x1="36" y1="331" x2="364" y2="331"/>
+  <text class="t-item" x="40" y="356">打重ね時間の限度は外気温とセメントの種類で決まる</text>
+  <text class="t-item" x="40" y="380">限度を超えると上下が一体化せず界面が残る</text>
+  <text class="t-item" x="40" y="404">残った界面はひび割れのリスクとなる</text>
+  <text class="t-item" x="40" y="428">一区画内は連続して打ち込むのが原則</text>
+  <text class="t-item" x="40" y="452">時間に余裕がない現場ほど事前の打設計画が効く</text>
+</svg>

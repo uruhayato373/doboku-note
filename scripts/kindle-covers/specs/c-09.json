@@ -1,0 +1,20 @@
+{
+  "bookId": "c-09",
+  "background": "scripts/kindle-covers/backgrounds/a-04.png",
+  "accent": "#33356B",
+  "kicker": "技術士 建設部門 第二次試験",
+  "titleLines": [
+    {
+      "text": "電力土木",
+      "size": 300
+    },
+    {
+      "text": "模範解答集",
+      "size": 200
+    }
+  ],
+  "subLines": [
+    "過去問 R03-R07"
+  ],
+  "brand": "doboku-note"
+}

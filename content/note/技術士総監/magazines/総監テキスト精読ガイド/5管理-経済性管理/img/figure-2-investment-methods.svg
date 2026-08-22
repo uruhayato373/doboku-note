@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="700" viewBox="0 0 1200 700">
+  <rect width="1200" height="700" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">投資判断3手法の比較</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">NPV・IRR・回収期間法の長所と短所を一覧で押さえる</text>
+
+  <rect x="40" y="150" width="360" height="70" rx="10" fill="#3a7d44"/>
+  <text x="220" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#ffffff" text-anchor="middle">NPV</text>
+  <text x="220" y="210" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle">正味現在価値</text>
+  <rect x="40" y="244" width="360" height="100" rx="8" fill="#f8fafc" stroke="#3a7d44" stroke-width="2"/>
+  <text x="60" y="276" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#555555">計算式</text>
+  <text x="60" y="304" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">将来CF を割引率で</text>
+  <text x="60" y="330" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">現在価値に変換</text>
+  <rect x="40" y="368" width="360" height="60" rx="8" fill="#e8f0fe"/>
+  <text x="60" y="396" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#555555">採択基準</text>
+  <text x="60" y="420" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c">NPV &gt; 0 で採択</text>
+  <rect x="40" y="448" width="360" height="60" rx="8" fill="#e6f1e8"/>
+  <text x="60" y="476" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#3a7d44">長所</text>
+  <text x="60" y="500" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">金額で意思決定可能</text>
+  <rect x="40" y="524" width="360" height="60" rx="8" fill="#fbe5e7"/>
+  <text x="60" y="552" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#b22234">短所</text>
+  <text x="60" y="576" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">割引率の前提に依存</text>
+  <rect x="420" y="150" width="360" height="70" rx="10" fill="#2e6da4"/>
+  <text x="600" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#ffffff" text-anchor="middle">IRR</text>
+  <text x="600" y="210" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle">内部収益率</text>
+  <rect x="420" y="244" width="360" height="100" rx="8" fill="#f8fafc" stroke="#2e6da4" stroke-width="2"/>
+  <text x="440" y="276" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#555555">計算式</text>
+  <text x="440" y="304" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">NPV = 0 となる</text>
+  <text x="440" y="330" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">割引率を求める</text>
+  <rect x="420" y="368" width="360" height="60" rx="8" fill="#e8f0fe"/>
+  <text x="440" y="396" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#555555">採択基準</text>
+  <text x="440" y="420" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c">IRR &gt; 資本コスト</text>
+  <rect x="420" y="448" width="360" height="60" rx="8" fill="#e6f1e8"/>
+  <text x="440" y="476" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#3a7d44">長所</text>
+  <text x="440" y="500" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">比率で複数案比較</text>
+  <rect x="420" y="524" width="360" height="60" rx="8" fill="#fbe5e7"/>
+  <text x="440" y="552" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#b22234">短所</text>
+  <text x="440" y="576" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">複数解・規模無視</text>
+  <rect x="800" y="150" width="360" height="70" rx="10" fill="#d4a017"/>
+  <text x="980" y="186" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#ffffff" text-anchor="middle">回収期間法</text>
+  <text x="980" y="210" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#ffffff" text-anchor="middle">Payback Period</text>
+  <rect x="800" y="244" width="360" height="100" rx="8" fill="#f8fafc" stroke="#d4a017" stroke-width="2"/>
+  <text x="820" y="276" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#555555">計算式</text>
+  <text x="820" y="304" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">初期投資の回収まで</text>
+  <text x="820" y="330" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">に要する年数</text>
+  <rect x="800" y="368" width="360" height="60" rx="8" fill="#e8f0fe"/>
+  <text x="820" y="396" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#555555">採択基準</text>
+  <text x="820" y="420" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#1a3a5c">基準年数以内</text>
+  <rect x="800" y="448" width="360" height="60" rx="8" fill="#e6f1e8"/>
+  <text x="820" y="476" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#3a7d44">長所</text>
+  <text x="820" y="500" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">直感的・短期重視</text>
+  <rect x="800" y="524" width="360" height="60" rx="8" fill="#fbe5e7"/>
+  <text x="820" y="552" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#b22234">短所</text>
+  <text x="820" y="576" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">時間価値・回収後CF無視</text>
+  <rect x="40" y="576" width="1120" height="44" rx="6" fill="#fbf3df"/>
+  <text x="60" y="606" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">頻出区別：回収期間法は「時間価値を無視」「回収後 CF を無視」が短所。NPV・IRR との優劣はここに帰着。</text>
+  <text x="1160" y="680" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

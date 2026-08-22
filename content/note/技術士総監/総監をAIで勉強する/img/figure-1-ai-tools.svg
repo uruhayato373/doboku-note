@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="626" viewBox="0 0 1200 626">
+  <rect width="1200" height="626" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="600" y="62" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#222222" text-anchor="middle">総監対策に使えるAIツールの使い分け</text>
+
+  <!-- テーブルヘッダ -->
+  <rect x="40" y="118" width="220" height="64" rx="6" fill="#2e6da4"/>
+  <text x="150" y="159" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">ツール</text>
+  <rect x="272" y="118" width="540" height="64" rx="6" fill="#2e6da4"/>
+  <text x="542" y="159" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">役割</text>
+  <rect x="824" y="118" width="336" height="64" rx="6" fill="#2e6da4"/>
+  <text x="992" y="159" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">向いている人</text>
+
+  <!-- テーブルデータ行 -->
+  <!-- 行 1: NotebookLM -->
+  <rect x="40" y="222" width="1120" height="108" fill="#ffffff"/>
+  <line x1="266" y1="222" x2="266" y2="330" stroke="#dde1e7" stroke-width="1"/>
+  <line x1="818" y1="222" x2="818" y2="330" stroke="#dde1e7" stroke-width="1"/>
+  <text x="150" y="285" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#2e6da4" text-anchor="middle">NotebookLM</text>
+  <text x="296" y="270" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">キーワード集・過去問を読み込ませて質問する。</text>
+  <text x="296" y="300" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">資料の中だけで答えるので雑音が少ない</text>
+  <text x="992" y="270" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#1a3a5c" text-anchor="middle">誰でも</text>
+  <text x="992" y="300" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#8a8a8a" text-anchor="middle">（ノーセットアップ・無料枠あり）</text>
+  <!-- 行 2: 対話型AI
+(Claude / ChatGPT) -->
+  <rect x="40" y="330" width="1120" height="108" fill="#f8fafc"/>
+  <line x1="266" y1="330" x2="266" y2="438" stroke="#dde1e7" stroke-width="1"/>
+  <line x1="818" y1="330" x2="818" y2="438" stroke="#dde1e7" stroke-width="1"/>
+  <line x1="40" y1="330" x2="1160" y2="330" stroke="#dde1e7" stroke-width="1"/>
+  <text x="150" y="378" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#2e6da4" text-anchor="middle">対話型AI</text>
+  <text x="150" y="408" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#2e6da4" text-anchor="middle">(Claude / ChatGPT)</text>
+  <text x="296" y="378" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">用語をかみ砕いて説明・言い換え。</text>
+  <text x="296" y="408" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">自分の理解を試す壁打ち相手</text>
+  <text x="992" y="378" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#1a3a5c" text-anchor="middle">誰でも</text>
+  <text x="992" y="408" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#8a8a8a" text-anchor="middle">（最終確認は公式資料で）</text>
+  <!-- 行 3: Claude Code -->
+  <rect x="40" y="438" width="1120" height="108" fill="#fbf3df"/>
+  <line x1="266" y1="438" x2="266" y2="546" stroke="#dde1e7" stroke-width="1"/>
+  <line x1="818" y1="438" x2="818" y2="546" stroke="#dde1e7" stroke-width="1"/>
+  <line x1="40" y1="438" x2="1160" y2="438" stroke="#dde1e7" stroke-width="1"/>
+  <text x="150" y="501" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#d4a017" text-anchor="middle">Claude Code</text>
+  <text x="296" y="486" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">ファイルを生成・更新できる。</text>
+  <text x="296" y="516" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">「自分だけの参考書」を構築できる</text>
+  <text x="992" y="486" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="700" fill="#d4a017" text-anchor="middle">上級者</text>
+  <text x="992" y="516" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#d4a017" text-anchor="middle">（ターミナル操作・有料プランが必要）</text>
+  <!-- テーブル外枠 -->
+  <rect x="40" y="118" width="1120" height="428" rx="6" fill="none" stroke="#ccd0d8" stroke-width="1.5"/>
+  <!-- 凡例 -->
+  <rect x="40" y="574" width="18" height="18" rx="3" fill="#fbf3df" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="66" y="588" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="400" fill="#8a8a8a" text-anchor="start">= 上級者向け（ターミナル操作・有料プランが必要）</text>
+
+    <text x="1172" y="604" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

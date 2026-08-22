@@ -1,0 +1,99 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="OSHMS指針とISO 45001の比較。OSHMS：厚労省策定・国内行政指針・第三者認証なし・リスクアセスメント重視。ISO 45001：ISO策定・国際規格・第三者認証可・OHSAS 18001後継。共通：PDCA・継続的改善・トップが方針表明。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec   { font-size: 11px; font-weight: bold; fill: #ffffff; }
+      .t-hd    { font-size: 14px; font-weight: bold; }
+      .t-label { font-size: 11px; font-weight: bold; fill: #8a8a8a; }
+      .t-body  { font-size: 12px; fill: #222; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .t-foot  { font-size: 11px; fill: #8a8a8a; }
+    </style>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text class="t-title" x="200" y="22" text-anchor="middle">OSHMS 指針 と ISO 45001 の比較</text>
+  <line x1="20" y1="30" x2="380" y2="30" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- セクションバー -->
+  <rect x="8" y="34" width="384" height="18" rx="3" fill="#2e6da4"/>
+  <text class="t-sec" x="200" y="47" text-anchor="middle">労働安全衛生マネジメントシステム（2種）</text>
+
+  <!-- ── OSHMS カード（左） ── -->
+  <rect x="8" y="58" width="184" height="228" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <!-- カードヘッダー -->
+  <rect x="8" y="58" width="184" height="32" rx="6" fill="#2e6da4"/>
+  <rect x="8" y="76" width="184" height="14" fill="#2e6da4"/>
+  <text x="100" y="79" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">OSHMS 指針</text>
+
+  <!-- 策定 -->
+  <text class="t-label" x="24" y="110">策定</text>
+  <text class="t-body" x="24" y="128">厚生労働省（国内行政指針）</text>
+  <line x1="20" y1="140" x2="184" y2="140" stroke="#d7d7d7" stroke-width="0.8"/>
+
+  <!-- 認証 -->
+  <text class="t-label" x="24" y="158">認証</text>
+  <text class="t-body" x="24" y="176">第三者認証なし</text>
+  <text class="t-sub" x="24" y="192">（自己適合宣言）</text>
+  <line x1="20" y1="202" x2="184" y2="202" stroke="#d7d7d7" stroke-width="0.8"/>
+
+  <!-- 特徴 -->
+  <text class="t-label" x="24" y="220">特徴</text>
+  <text class="t-body" x="24" y="238">リスクアセスメントを</text>
+  <text class="t-body" x="24" y="256">明示的に規定</text>
+  <text class="t-sub" x="24" y="274">国内事業場に普及</text>
+
+  <!-- ── ISO 45001 カード（右） ── -->
+  <rect x="208" y="58" width="184" height="228" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="2"/>
+  <!-- カードヘッダー -->
+  <rect x="208" y="58" width="184" height="32" rx="6" fill="#d4a017"/>
+  <rect x="208" y="76" width="184" height="14" fill="#d4a017"/>
+  <text x="300" y="79" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">ISO 45001</text>
+
+  <!-- 策定 -->
+  <text class="t-label" x="224" y="110">策定</text>
+  <text class="t-body" x="224" y="128">ISO（国際規格・2018年）</text>
+  <line x1="216" y1="140" x2="384" y2="140" stroke="#d7d7d7" stroke-width="0.8"/>
+
+  <!-- 認証 -->
+  <text class="t-label" x="224" y="158">認証</text>
+  <text class="t-body" x="224" y="176">第三者認証が可能</text>
+  <text class="t-sub" x="224" y="192">（グローバル通用性あり）</text>
+  <line x1="216" y1="202" x2="384" y2="202" stroke="#d7d7d7" stroke-width="0.8"/>
+
+  <!-- 特徴 -->
+  <text class="t-label" x="224" y="220">特徴</text>
+  <text class="t-body" x="224" y="238">OHSAS 18001 の後継規格</text>
+  <text class="t-sub" x="224" y="256">（H25 で問われた論点）</text>
+  <text class="t-sub" x="224" y="274">海外拠点にも適用可</text>
+
+  <!-- ── 共通要素 ── -->
+  <rect x="8" y="296" width="384" height="18" rx="3" fill="#3a7d44"/>
+  <text class="t-sec" x="200" y="309" text-anchor="middle">両制度に共通する基本構造</text>
+
+  <!-- 共通3ピル -->
+  <rect x="10"  y="322" width="116" height="44" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="68"  y="341" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">PDCA サイクル</text>
+  <text x="68"  y="358" text-anchor="middle" font-size="11" fill="#555">P→D→C→A の循環</text>
+
+  <rect x="142" y="322" width="116" height="44" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="200" y="341" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">継続的改善</text>
+  <text x="200" y="358" text-anchor="middle" font-size="11" fill="#555">毎サイクルで向上</text>
+
+  <rect x="274" y="322" width="116" height="44" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="332" y="341" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">トップ方針表明</text>
+  <text x="332" y="358" text-anchor="middle" font-size="11" fill="#555">安全衛生方針を策定</text>
+
+  <!-- サマリー -->
+  <rect x="8" y="378" width="384" height="108" rx="5" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="200" y="400" text-anchor="middle" font-size="12" font-weight="bold" fill="#1a3a5c">導入の背景と位置づけ</text>
+  <text x="20" y="420" font-size="11" fill="#555">OSHMS 指針（1999 年）は国内の労働安全衛生水準向上を</text>
+  <text x="20" y="436" font-size="11" fill="#555">目的に厚労省が策定した行政指針。義務ではなく任意。</text>
+  <text x="20" y="456" font-size="11" fill="#555">ISO 45001（2018 年）は旧 OHSAS 18001 を引き継ぎ</text>
+  <text x="20" y="472" font-size="11" fill="#555">グローバル基準として国際標準化。JIS Q 45001 として JIS 化。</text>
+
+  <!-- フッター -->
+  <text class="t-foot" x="200" y="497" text-anchor="middle">OSHMS指針（厚労省）／ISO 45001（ISO・2018年）</text>
+</svg>

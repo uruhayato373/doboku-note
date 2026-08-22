@@ -1,0 +1,165 @@
+{
+  "meta": {
+    "startDate": "2026-05-03",
+    "endDate": "2026-05-16",
+    "dimension": "source",
+    "dimensionApiName": "sessionSource",
+    "metrics": [
+      "activeUsers",
+      "sessions",
+      "screenPageViewsPerSession",
+      "averageSessionDuration",
+      "engagementRate",
+      "bounceRate"
+    ],
+    "limit": 20,
+    "organicOnly": false,
+    "japanOnly": true,
+    "excludeSpam": true,
+    "spamSourcesExcluded": [
+      "(not set)",
+      "ntp.msn.com",
+      "statics.teams.cdn.office.net",
+      "hustler.zenhp.co.jp",
+      "mobilesecurity.trendmicro.com"
+    ],
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "source": "bing",
+      "activeUsers": 252,
+      "sessions": 485,
+      "screenPageViewsPerSession": 5.356701030927835,
+      "averageSessionDuration": 492.9834052391752,
+      "engagementRate": 0.6515463917525773,
+      "bounceRate": 0.34845360824742266
+    },
+    {
+      "source": "(direct)",
+      "activeUsers": 101,
+      "sessions": 197,
+      "screenPageViewsPerSession": 5.624365482233503,
+      "averageSessionDuration": 749.267322,
+      "engagementRate": 0.6142131979695431,
+      "bounceRate": 0.38578680203045684
+    },
+    {
+      "source": "google",
+      "activeUsers": 77,
+      "sessions": 194,
+      "screenPageViewsPerSession": 9.778350515463918,
+      "averageSessionDuration": 1022.4256431030929,
+      "engagementRate": 0.7061855670103093,
+      "bounceRate": 0.29381443298969073
+    },
+    {
+      "source": "openai",
+      "activeUsers": 45,
+      "sessions": 58,
+      "screenPageViewsPerSession": 1.8448275862068966,
+      "averageSessionDuration": 307.67062987931035,
+      "engagementRate": 0.7068965517241379,
+      "bounceRate": 0.29310344827586204
+    },
+    {
+      "source": "yahoo",
+      "activeUsers": 25,
+      "sessions": 47,
+      "screenPageViewsPerSession": 7.574468085106383,
+      "averageSessionDuration": 773.5984971489362,
+      "engagementRate": 0.6808510638297872,
+      "bounceRate": 0.3191489361702128
+    },
+    {
+      "source": "note.com",
+      "activeUsers": 23,
+      "sessions": 95,
+      "screenPageViewsPerSession": 5.568421052631579,
+      "averageSessionDuration": 721.0424269473684,
+      "engagementRate": 0.7473684210526316,
+      "bounceRate": 0.25263157894736843
+    },
+    {
+      "source": "chatgpt.com",
+      "activeUsers": 9,
+      "sessions": 11,
+      "screenPageViewsPerSession": 2.090909090909091,
+      "averageSessionDuration": 380.33273963636367,
+      "engagementRate": 0.5454545454545454,
+      "bounceRate": 0.45454545454545453
+    },
+    {
+      "source": "copilot.com",
+      "activeUsers": 7,
+      "sessions": 11,
+      "screenPageViewsPerSession": 2.4545454545454546,
+      "averageSessionDuration": 124.4585750909091,
+      "engagementRate": 0.36363636363636365,
+      "bounceRate": 0.6363636363636364
+    },
+    {
+      "source": "note",
+      "activeUsers": 6,
+      "sessions": 31,
+      "screenPageViewsPerSession": 4.709677419354839,
+      "averageSessionDuration": 272.70144912903226,
+      "engagementRate": 0.6451612903225806,
+      "bounceRate": 0.3548387096774194
+    },
+    {
+      "source": "youtube",
+      "activeUsers": 4,
+      "sessions": 4,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 0,
+      "engagementRate": 0,
+      "bounceRate": 1
+    },
+    {
+      "source": "github.com",
+      "activeUsers": 3,
+      "sessions": 7,
+      "screenPageViewsPerSession": 3.2857142857142856,
+      "averageSessionDuration": 107.8891652857143,
+      "engagementRate": 0.5714285714285714,
+      "bounceRate": 0.42857142857142855
+    },
+    {
+      "source": "duckduckgo",
+      "activeUsers": 2,
+      "sessions": 2,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 3.155542,
+      "engagementRate": 0,
+      "bounceRate": 1
+    },
+    {
+      "source": "l.facebook.com",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 6,
+      "averageSessionDuration": 636.206384,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "source": "search.google.com",
+      "activeUsers": 1,
+      "sessions": 2,
+      "screenPageViewsPerSession": 2.5,
+      "averageSessionDuration": 264.75877,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "source": "search.nifty.com",
+      "activeUsers": 1,
+      "sessions": 2,
+      "screenPageViewsPerSession": 1.5,
+      "averageSessionDuration": 41.785913,
+      "engagementRate": 0.5,
+      "bounceRate": 0.5
+    }
+  ]
+}

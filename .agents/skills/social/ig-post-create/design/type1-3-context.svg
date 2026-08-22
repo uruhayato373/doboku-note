@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1080 1350" width="1080" height="1350" role="img" aria-label="context: なぜ重要か">
+  <style>
+    text { font-family: 'Noto Sans JP','Hiragino Sans','Hiragino Kaku Gothic ProN',sans-serif; }
+  </style>
+  <rect width="1080" height="1350" fill="#ffffff"/>
+
+  
+  <text x="1000" y="64" text-anchor="end" font-size="22" font-weight="500" fill="#8a8a8a">3 / 7</text>
+  
+  <text x="80" y="120" font-size="26" font-weight="700" fill="#2e6da4" letter-spacing="2">CONTEXT</text>
+  <line x1="80" y1="144" x2="160" y2="144" stroke="#2e6da4" stroke-width="3"/>
+
+  <text x="80" y="236" font-size="64" font-weight="800" fill="#222">なぜ重要か</text>
+
+  <text x="80" y="336" font-size="50" font-weight="700" fill="#222">組織の成果はリーダー単独でなく、</text>
+  <text x="80" y="413.5" font-size="50" font-weight="700" fill="#222">フォロワーの行動と姿勢で大きく左</text>
+  <text x="80" y="491" font-size="50" font-weight="700" fill="#222">右される。</text>
+
+  <!-- 比較ビジュアル: リーダー vs フォロワー -->
+  <g transform="translate(80, 914)">
+    <rect width="440" height="280" rx="12" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+    <text x="220" y="60" text-anchor="middle" font-size="28" font-weight="700" fill="#8a8a8a">従来</text>
+    <text x="220" y="140" text-anchor="middle" font-size="44" font-weight="800" fill="#222">リーダー</text>
+    <text x="220" y="200" text-anchor="middle" font-size="28" font-weight="400" fill="#555">のみが成果を</text>
+    <text x="220" y="240" text-anchor="middle" font-size="28" font-weight="400" fill="#555">左右する</text>
+
+    <rect x="480" width="440" height="280" rx="12" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+    <text x="700" y="60" text-anchor="middle" font-size="28" font-weight="700" fill="#2e6da4">ケリーの視点</text>
+    <text x="700" y="140" text-anchor="middle" font-size="44" font-weight="800" fill="#1a3a5c">フォロワー</text>
+    <text x="700" y="200" text-anchor="middle" font-size="28" font-weight="400" fill="#1a3a5c">の行動が成果を</text>
+    <text x="700" y="240" text-anchor="middle" font-size="28" font-weight="400" fill="#1a3a5c">大きく動かす</text>
+  </g>
+</svg>

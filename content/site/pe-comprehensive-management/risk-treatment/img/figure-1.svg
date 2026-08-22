@@ -1,0 +1,97 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="リスク対応の4方針。低減・移転・回避・保有の各方針と手段、ALARP原則・絶対安全は不可を示した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 11px; fill: #555; }
+      .t-label  { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-en     { font-size: 11px; fill: #555; }
+      .t-detail { font-size: 12px; fill: #555; }
+      .t-foot   { font-size: 11px; fill: #555; }
+      .t-footb  { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-num    { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      /* positive: リスク低減 */
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .badge-positive { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+      /* brand: リスク移転 */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-brand  { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      /* warn: リスク回避 */
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .badge-warn   { fill: #ffffff; stroke: #d4a017; stroke-width: 1.5; }
+      /* surface: リスク保有 */
+      .box-muted    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .badge-muted  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      /* footer bar */
+      .foot-bar     { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <!-- 2x2 grid layout -->
+  <!-- Row 1: 低減（左）/ 移転（右） -->
+
+  <!-- A: リスク低減 (positive) -->
+  <rect class="box-positive" x="16" y="12" width="176" height="116" rx="8"/>
+  <circle class="badge-positive" cx="40" cy="34" r="14"/>
+  <text class="t-num" x="40" y="39" text-anchor="middle">A</text>
+  <text class="t-label" x="62" y="35">リスク低減</text>
+  <text class="t-en" x="62" y="50">Risk Reduction</text>
+  <text class="t-detail" x="28" y="74">発生確率を下げる</text>
+  <text class="t-detail" x="28" y="91">損害額（影響度）を下げる</text>
+  <text class="t-detail" x="28" y="108">→ または両方を同時に低減</text>
+
+  <!-- B: リスク移転 (brand) -->
+  <rect class="box-brand" x="208" y="12" width="176" height="116" rx="8"/>
+  <circle class="badge-brand" cx="232" cy="34" r="14"/>
+  <text class="t-num" x="232" y="39" text-anchor="middle">B</text>
+  <text class="t-label" x="254" y="35">リスク移転</text>
+  <text class="t-en" x="254" y="50">Risk Transfer</text>
+  <text class="t-detail" x="220" y="74">専門家・会社への委託</text>
+  <text class="t-detail" x="220" y="91">保険をかける</text>
+  <text class="t-detail" x="220" y="108">→ リスクを他者と共有</text>
+
+  <!-- Row 2: 回避（左）/ 保有（右） -->
+
+  <!-- C: リスク回避 (warn) -->
+  <rect class="box-warn" x="16" y="144" width="176" height="116" rx="8"/>
+  <circle class="badge-warn" cx="40" cy="166" r="14"/>
+  <text class="t-num" x="40" y="171" text-anchor="middle">C</text>
+  <text class="t-label" x="62" y="167">リスク回避</text>
+  <text class="t-en" x="62" y="182">Risk Avoidance</text>
+  <text class="t-detail" x="28" y="202">具体的対策が困難な</text>
+  <text class="t-detail" x="28" y="215">場合に適用</text>
+  <text class="t-detail" x="28" y="228">手法・方策を</text>
+  <text class="t-detail" x="28" y="241">別のものに変更</text>
+  <text class="t-detail" x="28" y="254">事業・投資自体を断念</text>
+
+  <!-- D: リスク保有 (muted/surface) -->
+  <rect class="box-muted" x="208" y="144" width="176" height="116" rx="8"/>
+  <circle class="badge-muted" cx="232" cy="166" r="14"/>
+  <text class="t-num" x="232" y="171" text-anchor="middle">D</text>
+  <text class="t-label" x="254" y="167">リスク保有</text>
+  <text class="t-en" x="254" y="182">Risk Retention</text>
+  <text class="t-detail" x="212" y="206">対策コストが効果を</text>
+  <text class="t-detail" x="212" y="219">上回る場合</text>
+  <text class="t-detail" x="212" y="232">リスクを受容（保有）する</text>
+  <text class="t-detail" x="212" y="245">→ 監視継続・状況変化で対策</text>
+
+  <!-- リスク値の式 -->
+  <rect x="16" y="276" width="368" height="50" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text font-size="12" font-weight="bold" fill="#1a3a5c" x="200" y="296" text-anchor="middle" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">リスク値＝被害額 × 発生確率</text>
+  <text font-size="12" font-weight="bold" fill="#1a3a5c" x="200" y="314" text-anchor="middle" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">→ 右上（高）から左下（低）へ</text>
+
+  <!-- ALARP原則フッター -->
+  <rect class="foot-bar" x="16" y="334" width="368" height="100" rx="6"/>
+  <text font-size="12" font-weight="bold" fill="#1a3a5c" x="200" y="358" text-anchor="middle" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">ALARP原則（As Low As Reasonably Practicable）</text>
+  <text class="t-foot" x="200" y="378" text-anchor="middle">合理的かつ実行可能な限り、リスクをできるだけ低くする</text>
+  <text class="t-foot" x="200" y="396" text-anchor="middle">※ リスクは低減できても「絶対安全（リスクゼロ）」にはできない</text>
+
+  <!-- 凡例 -->
+  <rect x="16" y="452" width="368" height="44" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <rect x="28" y="462" width="14" height="14" rx="2" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.2"/>
+  <text class="t-foot" x="48" y="473">低減・移転（積極対処）</text>
+  <rect x="170" y="462" width="14" height="14" rx="2" fill="#fff3cd" stroke="#d4a017" stroke-width="1.2"/>
+  <text class="t-foot" x="190" y="473">回避（断念）</text>
+  <rect x="290" y="462" width="14" height="14" rx="2" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.2"/>
+  <text class="t-foot" x="310" y="473">保有（受容）</text>
+</svg>

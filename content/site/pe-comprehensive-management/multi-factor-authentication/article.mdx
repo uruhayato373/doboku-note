@@ -1,0 +1,109 @@
+---
+title: 多要素認証
+description: "多要素認証の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（情報管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '4.5'
+tags:
+  - 総合技術監理
+  - keyword
+reviewStatus: approved
+lastRewrittenAt: '2026-04-15'
+revisionCycle: 1
+published: true
+publishedAt: '2026-04-08'
+seoTitle: "多要素認証 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-06-30
+---
+
+## 多要素認証とは
+
+多要素認証（MFA: Multi-Factor Authentication）とは、本人確認のために**異なる種類の認証要素を2つ以上組み合わせる**認証方式である。
+
+認証要素は「記憶情報（知識情報）」「所持情報」「生体情報」の3種類に分類され、これらのうち複数の種類を組み合わせることで、なりすましのリスクを大幅に低減できる。
+
+パスワードのみの認証（単要素認証）では、パスワードの漏洩・推測により容易に不正アクセスが成立するため、多要素認証の導入が情報セキュリティ対策の基本として推奨されている。
+
+### 認証の3要素
+
+認証要素は次の3種類に分類される。
+
+- **記憶情報（Something You Know）** — 本人だけが知っている情報。パスワード、PIN、秘密の質問など
+- **所持情報（Something You Have）** — 本人だけが持っている物。ICカード、スマートフォン、ハードウェアトークン、セキュリティキーなど
+- **生体情報（Something You Are）** — 本人の身体的特徴。指紋、顔、虹彩、静脈パターン、声紋など
+
+認証の3要素と、多要素認証になる組合せ・ならない組合せを整理すると次のとおりである。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/multi-factor-authentication/img/figure-mfa-three-factors.svg"
+  alt="認証の3要素（知識・所持・生体）と多要素認証の判定（異なる要素の組合せ）"
+/>
+
+### 多要素認証と二段階認証の違い
+
+2つの概念は混同されやすいが、定義が異なる。
+
+| 項目 | MFA | 二段階認証 |
+|---|---|---|
+| 定義 | **異なる種類**の要素を2つ以上使用 | 認証を**2回のステップ**で実施 |
+| 例 | PW（記憶）＋指紋（生体） | PW＋秘密の質問（同種） |
+| セキュリティ | 高い（異なる攻撃手法が必要） | 同種の場合はMFAより低い |
+
+過去問 [R03 Ⅰ-1-24](/docs/pe-comprehensive-management-r03-primary#1-24) では「パスワード（知識）＋秘密の質問（知識）」という **同一要素の組合せ** が多要素認証の例として誤って挙げられた（これは二段階認証）。MFA は知識・所持・生体の **異なる要素** を組み合わせる必要がある。
+
+パスワード＋秘密の質問は、いずれも「記憶情報」であるため、二段階認証ではあるが多要素認証ではない。
+
+### 生体認証の精度指標
+
+生体認証の性能は2つのエラー率で評価される。
+
+| 指標 | 内容 |
+|---|---|
+| FRR（本人拒否率） | 本人を誤って拒否する確率。高いと利便性が低下 |
+| FAR（他人受入率） | 他人を誤って受け入れる確率。高いとセキュリティが低下 |
+| EER（等価エラー率） | FRRとFARが等しくなる点。低いほど精度が高い |
+
+FRRとFARはトレードオフの関係にあり、セキュリティ要件に応じて閾値を調整する。
+
+### 導入の留意点
+
+多要素認証はセキュリティ強度を向上させるが、導入には以下の点を考慮する必要がある。
+
+- **利便性とのバランス** — 認証ステップが増えるほど利用者の負担が増大する
+- **コスト** — ハードウェアトークンやICカードリーダの配布・管理コスト
+- **バックアップ手段** — 認証デバイスの紛失・故障時の代替認証手段の整備
+- **フィッシング耐性** — SMS認証はSIMスワップ攻撃に脆弱。FIDO2/WebAuthnなどフィッシング耐性の高い方式が推奨される
+
+<ExamPoint
+  summary="多要素認証は「異なる種類の認証要素」を組み合わせる点が本質"
+  items={[
+    "認証の3要素は記憶情報・所持情報・生体情報",
+    "異なる種類の組み合わせがMFA",
+    "パスワード＋秘密の質問は二段階認証だが多要素認証ではない（同一要素）",
+    "生体認証のFRR（本人拒否率）とFAR（他人受入率）はトレードオフ",
+    "ゼロトラストにおける本人確認の基盤技術としてMFAは必須",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**4.5 情報セキュリティ**](/docs/pe-comprehensive-management-keyword-2026#45-情報セキュリティ)に位置づけられる。
+
+多要素認証は[アクセス制御](/docs/pe-comprehensive-management-access-control)における認証（Authentication）の強化手段であり、[ゼロトラスト](/docs/pe-comprehensive-management-zero-trust)アーキテクチャの主要な実現技術でもある。
+
+[VPN](/docs/pe-comprehensive-management-vpn)のリモートアクセスや[暗号化・電子署名](/docs/pe-comprehensive-management-encryption-digital-signature)と組み合わせた多層的な本人確認が、組織の情報セキュリティ対策として求められている。
+
+<RelatedKeywords items={[
+  { label: "アクセス制御・アクセス権限設定", slug: "access-control" },
+  { label: "パスワード強化", slug: "password-security" },
+  { label: "暗号化・電子署名", slug: "encryption-digital-signature" },
+  { label: "ISMS（ISO/IEC 27001）", slug: "isms-iso27001" },
+  { label: "情報セキュリティ教育", slug: "security-education" },
+]} />
+
+## 参考資料
+
+- [不正ログイン対策特集ページ](https://www.ipa.go.jp/security/anshin/measures/account_security.html)（IPA 独立行政法人 情報処理推進機構）
+- [多要素認証 - Wikipedia](https://ja.wikipedia.org/wiki/%E5%A4%9A%E8%A6%81%E7%B4%A0%E8%AA%8D%E8%A8%BC)（Wikipedia）

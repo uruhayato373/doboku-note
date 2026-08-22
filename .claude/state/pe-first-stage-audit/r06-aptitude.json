@@ -1,0 +1,40 @@
+{
+  "slug": "pe-first-stage-r06-aptitude",
+  "year": "R06",
+  "sub": "aptitude",
+  "audited_at": "2026-06-09",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 15,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 15,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 15,
+    "expected_count": 15,
+    "details_count": 15,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "frontmatter fields present: title, category, group, published, source_pdf. Question headings Ⅱ-1 through Ⅱ-15 are consecutive with no gaps."
+  },
+  "re_audit_2026_06_09": {
+    "status": "pass",
+    "fixes_applied": [
+      "Ⅱ-3(エ): 「複製品との和解を開発するために」→「複製に適した和紙を開発するために」、文構造「開発し美術品を」→「開発するために美術品を」（commit cf9660ca3）",
+      "Ⅱ-11: 「技術者のあるべき姿が具体的に示されている」→「なお、「技術者倫理綱領」の理解向上のために、「技術士倫理綱領への手引き」には技術士のあるべき姿が具体的に示されている」（commit cf9660ca3）",
+      "Ⅱ-14(イ): 「物的被害が生じなかった」→「人的又は物的被害が生じなかった」（commit cf9660ca3）",
+      "Ⅱ-12(オ): JISマーク審査要件「少なくとも3年ごとに定期的な審査」欠落を修正（commit abb496089）"
+    ],
+    "previously_fixed_confirmed": [
+      "Ⅱ-5(ウ): トップランナー基準「省エネ不性能」→「最も省エネ性能が優れている機器の性能以上」修正済み確認",
+      "Ⅱ-9(5): 「耳鳴りの骨」→「耳周辺の骨」修正済み確認",
+      "Ⅱ-14(イ): 「爆発が上がり」→「煙が上がり」修正済み確認",
+      "Ⅱ-15(エ): 「CPDの取組となる」→「CPDの要件をすべて満たしている」修正済み確認"
+    ]
+  }
+}

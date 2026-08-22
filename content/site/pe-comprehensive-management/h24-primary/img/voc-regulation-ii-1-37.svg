@@ -1,0 +1,73 @@
+<svg width="680" height="320" viewBox="0 0 680 320" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="10.5" style="max-width:680px;width:100%" role="img" aria-label="VOC排出規制の対象施設と排出基準">
+  <!-- Title -->
+  <rect x="5" y="5" width="670" height="26" fill="#2e6da4" rx="3"/>
+  <text x="340" y="23" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="12">使用される揮発性有機化合物（VOC）の例</text>
+
+  <!-- Headers -->
+  <rect x="5"   y="31" width="140" height="30" fill="#2e6da4" stroke="#8a8a8a"/>
+  <text x="75"  y="51" text-anchor="middle" fill="#ffffff" font-weight="bold">用途別の種別</text>
+  <rect x="145" y="31" width="260" height="30" fill="#2e6da4" stroke="#8a8a8a"/>
+  <text x="275" y="51" text-anchor="middle" fill="#ffffff" font-weight="bold">使用される揮発性有機化合物</text>
+  <rect x="405" y="31" width="270" height="30" fill="#2e6da4" stroke="#8a8a8a"/>
+  <text x="540" y="51" text-anchor="middle" fill="#ffffff" font-weight="bold">主な用途の例</text>
+
+  <!-- Row 1: 住宅用建材・塗装剤 -->
+  <rect x="5"   y="61" width="140" height="45" fill="#e8f0fe" stroke="#8a8a8a"/>
+  <text x="75"  y="79" text-anchor="middle" font-weight="bold">住宅用建材・</text>
+  <text x="75"  y="93" text-anchor="middle" font-weight="bold">塗装剤</text>
+  <rect x="145" y="61" width="260" height="45" fill="#f5f5f5" stroke="#8a8a8a"/>
+  <text x="275" y="77" text-anchor="middle">メタノール、ビネン、リモネン</text>
+  <text x="275" y="93" text-anchor="middle" font-size="9.5">酢酸エチル、酢酸ビニル、アセトアルデヒド、</text>
+  <text x="275" y="105" text-anchor="middle" font-size="9.5">エタノール、イソプロピルアルコール</text>
+  <rect x="405" y="61" width="270" height="45" fill="#f5f5f5" stroke="#8a8a8a"/>
+  <text x="540" y="79" text-anchor="middle">塗料、接着剤、建材など</text>
+  <text x="540" y="93" text-anchor="middle" font-size="9.5">住宅の内装・外壁塗料</text>
+
+  <!-- Row 2: 集成材 -->
+  <rect x="5"   y="106" width="140" height="35" fill="#e8f0fe" stroke="#8a8a8a"/>
+  <text x="75"  y="128" text-anchor="middle" font-weight="bold">集成材</text>
+  <rect x="145" y="106" width="260" height="35" fill="#f5f5f5" stroke="#8a8a8a"/>
+  <text x="275" y="128" text-anchor="middle">キシレン、スチレン、ベンゼン</text>
+  <rect x="405" y="106" width="270" height="35" fill="#f5f5f5" stroke="#8a8a8a"/>
+  <text x="540" y="128" text-anchor="middle">合板・集成材の接着剤</text>
+
+  <!-- Row 3: 合板 -->
+  <rect x="5"   y="141" width="140" height="35" fill="#e8f0fe" stroke="#8a8a8a"/>
+  <text x="75"  y="163" text-anchor="middle" font-weight="bold">合板</text>
+  <rect x="145" y="141" width="260" height="35" fill="#f5f5f5" stroke="#8a8a8a"/>
+  <text x="275" y="163" text-anchor="middle">フェノール、トルエン</text>
+  <rect x="405" y="141" width="270" height="35" fill="#f5f5f5" stroke="#8a8a8a"/>
+  <text x="540" y="163" text-anchor="middle">合板・木材加工品の接着剤</text>
+
+  <!-- Row 4: 木工用接着剤 -->
+  <rect x="5"   y="176" width="140" height="35" fill="#e8f0fe" stroke="#8a8a8a"/>
+  <text x="75"  y="193" text-anchor="middle" font-weight="bold">木工用接着剤</text>
+  <rect x="145" y="176" width="260" height="35" fill="#f5f5f5" stroke="#8a8a8a"/>
+  <text x="275" y="190" text-anchor="middle">メタノール、エタノール、</text>
+  <text x="275" y="204" text-anchor="middle">酢酸エチル、アセトアルデヒド</text>
+  <rect x="405" y="176" width="270" height="35" fill="#f5f5f5" stroke="#8a8a8a"/>
+  <text x="540" y="193" text-anchor="middle">家具・木製品の接着</text>
+
+  <!-- Row 5: 金属用接着剤 -->
+  <rect x="5"   y="211" width="140" height="35" fill="#e8f0fe" stroke="#8a8a8a"/>
+  <text x="75"  y="228" text-anchor="middle" font-weight="bold">金属用接着剤</text>
+  <rect x="145" y="211" width="260" height="35" fill="#f5f5f5" stroke="#8a8a8a"/>
+  <text x="275" y="224" text-anchor="middle">キシレン、メタノール、</text>
+  <text x="275" y="238" text-anchor="middle">イソプロピルアルコール</text>
+  <rect x="405" y="211" width="270" height="35" fill="#f5f5f5" stroke="#8a8a8a"/>
+  <text x="540" y="228" text-anchor="middle">金属部品・板金の接着</text>
+
+  <!-- Row 6: 断熱材 -->
+  <rect x="5"   y="246" width="140" height="35" fill="#e8f0fe" stroke="#8a8a8a"/>
+  <text x="75"  y="263" text-anchor="middle" font-weight="bold">断熱材</text>
+  <rect x="145" y="246" width="260" height="35" fill="#f5f5f5" stroke="#8a8a8a"/>
+  <text x="275" y="263" text-anchor="middle">フロン、塩化メチレン、</text>
+  <text x="275" y="275" text-anchor="middle">ジクロロメタンなど</text>
+  <rect x="405" y="246" width="270" height="35" fill="#f5f5f5" stroke="#8a8a8a"/>
+  <text x="540" y="263" text-anchor="middle">断熱材の発泡剤</text>
+
+  <!-- Note -->
+  <rect x="5" y="285" width="670" height="30" fill="#fff3cd" stroke="#fff3cd" rx="3"/>
+  <text x="340" y="298" text-anchor="middle" font-size="10">大気汚染防止法の排出抑制制度により、VOCの排出施設（塗装、洗浄、接着、印刷等）からの排出量を規制</text>
+  <text x="340" y="311" text-anchor="middle" font-size="9.5">排出基準は施設の種類・規模に応じて設定（大気汚染防止法第17条の3〜第17条の14）</text>
+</svg>

@@ -1,0 +1,51 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="3C分析の3つの視点。顧客（Customer）・競合（Competitor）・自社（Company）の3円が重なり、3つの重なりに重要成功要因KSFを見いだす。分析の順序は顧客（市場）→競合→自社で、外部環境を先に分析してから自社との整合を図る。">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-sub  { font-size: 11px; fill: #8a8a8a; }
+      .t-head { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-c    { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-en   { font-size: 11px; fill: #555; }
+      .t-item { font-size: 11px; fill: #555; }
+      .t-ksf  { font-size: 13px; font-weight: bold; fill: #b22234; }
+      .t-ttl  { font-size: 12px; font-weight: bold; fill: #8a8a8a; }
+      .t-note { font-size: 12px; fill: #555; }
+    </style>
+  </defs>
+
+  <text class="t-head" x="200" y="40" text-anchor="middle">3C分析の3つの視点</text>
+
+  <!-- 3円ベン図 -->
+  <circle cx="200" cy="158" r="80" fill="#e8f0fe" fill-opacity="0.55" stroke="#2e6da4" stroke-width="1.5"/>
+  <circle cx="156" cy="244" r="80" fill="#d0e8d0" fill-opacity="0.55" stroke="#3a7d44" stroke-width="1.5"/>
+  <circle cx="244" cy="244" r="80" fill="#fff3cd" fill-opacity="0.55" stroke="#d4a017" stroke-width="1.5"/>
+
+  <!-- 顧客（上ローブ） -->
+  <text class="t-c"    x="200" y="108" text-anchor="middle">顧客・市場</text>
+  <text class="t-en"   x="200" y="124" text-anchor="middle">Customer</text>
+  <text class="t-item" x="200" y="140" text-anchor="middle">ニーズ・市場規模・成長率</text>
+
+  <!-- 自社（左下ローブ） -->
+  <text class="t-c"    x="118" y="262" text-anchor="middle">自社</text>
+  <text class="t-en"   x="118" y="278" text-anchor="middle">Company</text>
+  <text class="t-item" x="118" y="294" text-anchor="middle">技術力・経営資源</text>
+
+  <!-- 競合（右下ローブ） -->
+  <text class="t-c"    x="282" y="262" text-anchor="middle">競合</text>
+  <text class="t-en"   x="282" y="278" text-anchor="middle">Competitor</text>
+  <text class="t-item" x="282" y="294" text-anchor="middle">戦略・シェア・強み弱み</text>
+
+  <!-- 中央：KSF -->
+  <text class="t-ksf"  x="200" y="210" text-anchor="middle">KSF</text>
+  <text class="t-item" x="200" y="226" text-anchor="middle">重要成功要因</text>
+
+  <!-- 分析の流れ -->
+  <rect x="16" y="348" width="368" height="122" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text class="t-ttl"  x="32" y="372">分析の流れ</text>
+  <text class="t-note" x="32" y="396">① 顧客（市場）→ ② 競合 → ③ 自社 の順に分析</text>
+  <text class="t-note" x="32" y="420">外部環境（顧客・競合）を先に把握し、自社と整合させる</text>
+  <text class="t-note" x="32" y="444">3つの重なりに KSF（重要成功要因）を見いだす</text>
+
+  <text class="t-sub" x="200" y="488" text-anchor="middle">大前研一が提唱した経営分析フレームワーク</text>
+</svg>

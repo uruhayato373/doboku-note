@@ -1,0 +1,81 @@
+---
+title: プッシュ型生産方式
+description: "見込生産（MTS）を前提とするプッシュ型生産方式の定義・仕組みを解説。MRPを用いた大日程計画・中日程計画との関係、プル型との違い、過剰在庫が発生する構造的理由を技術士総合技術監理の視点で整理。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.3'
+tags:
+  - keyword
+published: true
+reviewStatus: needs-review
+lastRewrittenAt: '2026-05-17T04:49:54Z'
+revisionCycle: 1
+publishedAt: '2026-04-09'
+seoTitle: "見込生産・プッシュ型生産方式とは｜大日程・中日程計画との関係"
+created: 2026-04-05
+dateModified: 2026-06-23
+---
+
+## プッシュ型生産方式とは
+
+プッシュ型生産方式（Push Production System）とは、需要予測に基づいて生産計画を立て、前工程から後工程へ製品を押し出す方式である。
+
+MRP（資材所要量計画）が代表的なプッシュ型システムである。
+
+## 特徴
+
+プッシュ型生産方式の構造的な特徴を整理すると、次の 4 点に集約される。
+
+- **生産の起点**: 需要予測・生産計画を前提として生産スケジュールを組む
+- **情報の流れ**: 計画指示が前工程から後工程へ流れる（プッシュ方向）
+- **在庫傾向**: 予測誤差が吸収バッファとして中間在庫に転化しやすい
+- **適用場面**: 需要が比較的安定した見込生産（MTS）・大量生産に向く
+
+## プル型との比較
+
+- **プッシュ型**：計画に基づき前工程が後工程に供給する
+- **プル型**：後工程の要求に基づき前工程が生産する
+- 実務では両者を組み合わせた**ハイブリッド方式**も多い
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/push-production/img/figure-pull-push-comparison.svg"
+  alt="プッシュ型は需要予測で前工程から押し出し中間在庫が多く、プル型はかんばんで後工程から引き取り在庫が少ない。生産指示の向きが逆でモノの流れは前工程から後工程で共通という対比図"
+/>
+
+<ExamPoint
+  summary="プッシュ型は需要予測に基づき前工程から後工程へ製品を供給する方式"
+  items={[
+    "MRP（資材所要量計画）がプッシュ型の代表的システム",
+    "需要予測の精度が在庫水準に直結する（予測誤差→過剰在庫）",
+    "プル型（JIT）との違いを正確に区別する",
+    "見込生産（MTS）との親和性が高い",
+  ]}
+/>
+
+## MRP と需要予測の歴史的背景
+
+プッシュ型生産方式の成立は、**MRP（Material Requirements Planning）** の普及と不可分である。1960 年代にジョセフ・オーリッキーが体系化した MRP は、BOM（部品表）と在庫情報を組み合わせて生産計画を自動算出する手法であり、当時の大量生産時代においてプッシュ型をシステムとして実装した代表例となった。
+
+1980 年代には MRP の進化版として MRP II（Manufacturing Resource Planning）が登場し、生産設備・人員・財務計画を統合したより広範なプランニングを可能にした。さらに 1990 年代以降は ERP（Enterprise Resource Planning）へと発展し、プッシュ型の計画指示機能は現代の基幹業務システムに内包されている。
+
+一方、同時期の日本では**トヨタ生産方式（TPS）** が後工程引き取り・かんばん方式というプル型の思想を確立し、過剰在庫・過剰生産をムダとして排除するアプローチを世界に提示した。プッシュ型とプル型の対比は、この 1960〜1980 年代の製造業における 2 つの革新が背景にある。試験では「なぜプッシュ型は在庫が増えやすいか」という本質——すなわち需要予測誤差が在庫として顕在化するという構造——が問われやすい。
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**2.3 工程管理**](/docs/pe-comprehensive-management-keyword-2026#23-工程管理)に位置づけられている。
+
+プッシュ型生産方式は[プル型生産方式](/docs/pe-comprehensive-management-pull-production)と対をなす概念であり、[JIT生産方式](/docs/pe-comprehensive-management-jit-production)とは対照的なアプローチである。[現品管理](/docs/pe-comprehensive-management-inventory-control)の負荷が大きくなる傾向がある。
+
+<RelatedKeywords items={[
+  { label: "プル型生産方式", slug: "pull-production" },
+  { label: "JIT生産方式", slug: "jit-production" },
+  { label: "制約条件の理論（TOC）", slug: "theory-of-constraints" },
+  { label: "現品管理", slug: "inventory-control" },
+  { label: "リードタイム", slug: "lead-time" },
+]} />
+
+## 参考資料
+
+- [JIS Z 8141:2001 生産管理用語 — 日本産業標準調査会（JISC）](https://www.jisc.go.jp/app/jis/general/GnrJISNumberNameSearchList?toGnrJISStandardDetailList)
+- [MRP（資材所要量計画）とは — IT 用語辞典 e-Words](https://e-words.jp/w/MRP.html)

@@ -1,0 +1,119 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="知的財産権の存続期間ラダー。特許20年・意匠25年・種苗25〜30年・実用新案10年・半導体回路10年・商標10年更新可・著作権死後70年の7法を横バーで比較した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-law    { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-years  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-note   { font-size: 11px; fill: #555; }
+      .t-badge  { font-size: 11px; fill: #555; }
+      .t-axis   { font-size: 11px; fill: #8a8a8a; }
+      .t-head   { font-size: 11px; font-weight: bold; fill: #8a8a8a; }
+    </style>
+  </defs>
+
+  <!-- 列ヘッダー -->
+  <text class="t-head" x="4"   y="18">権利の種類</text>
+  <text class="t-head" x="124" y="18">起算点</text>
+  <text class="t-head" x="222" y="18">存続期間（年）</text>
+  <line x1="0" y1="22" x2="400" y2="22" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- ===== 行1: 著作権 ===== -->
+  <rect x="121" y="28" width="84" height="22" rx="4" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
+  <text class="t-badge" x="163" y="43" text-anchor="middle">創作時</text>
+  <rect x="218" y="28" width="178" height="22" rx="3" fill="#fff3cd" stroke="#d4a017" stroke-width="1.2"/>
+  <text class="t-years" x="228" y="43" fill="#d4a017">死後70年</text>
+  <text class="t-law" x="4" y="43">著作権</text>
+  <text class="t-note" x="4" y="55" fill="#8a8a8a">著作権法</text>
+
+  <line x1="0" y1="64" x2="400" y2="64" stroke="#d7d7d7" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+  <!-- ===== 行2: 種苗 ===== -->
+  <rect x="121" y="72" width="84" height="22" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text class="t-badge" x="163" y="87" text-anchor="middle">登録日</text>
+  <rect x="218" y="72" width="166" height="22" rx="3" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.2"/>
+  <text class="t-years" x="228" y="87" fill="#1a3a5c" font-size="12">25年（木本30年）</text>
+  <text class="t-law" x="4" y="87">種苗権</text>
+  <text class="t-note" x="4" y="99" fill="#8a8a8a">種苗法</text>
+
+  <line x1="0" y1="108" x2="400" y2="108" stroke="#d7d7d7" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+  <!-- ===== 行3: 意匠 ===== -->
+  <rect x="121" y="116" width="84" height="22" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text class="t-badge" x="163" y="131" text-anchor="middle">登録日</text>
+  <rect x="218" y="116" width="166" height="22" rx="3" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.2"/>
+  <text class="t-years" x="228" y="131" fill="#1a3a5c" font-size="12">25年</text>
+  <text class="t-law" x="4" y="131">意匠権</text>
+  <text class="t-note" x="4" y="143" fill="#8a8a8a">意匠法</text>
+
+  <line x1="0" y1="152" x2="400" y2="152" stroke="#d7d7d7" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+  <!-- ===== 行4: 特許 ===== -->
+  <rect x="121" y="160" width="84" height="22" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text class="t-badge" x="163" y="175" text-anchor="middle">出願日</text>
+  <rect x="218" y="160" width="133" height="22" rx="3" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.2"/>
+  <text class="t-years" x="228" y="175" fill="#1a3a5c" font-size="12">20年</text>
+  <text class="t-law" x="4" y="175">特許権</text>
+  <text class="t-note" x="4" y="187" fill="#8a8a8a">特許法</text>
+
+  <line x1="0" y1="196" x2="400" y2="196" stroke="#d7d7d7" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+  <!-- ===== 行5: 実用新案 ===== -->
+  <rect x="121" y="204" width="84" height="22" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text class="t-badge" x="163" y="219" text-anchor="middle">出願日</text>
+  <rect x="218" y="204" width="66" height="22" rx="3" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.2"/>
+  <text class="t-years" x="228" y="219" fill="#555" font-size="12">10年</text>
+  <text class="t-law" x="4" y="219">実用新案権</text>
+  <text class="t-note" x="4" y="231" fill="#8a8a8a">実用新案法</text>
+
+  <line x1="0" y1="240" x2="400" y2="240" stroke="#d7d7d7" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+  <!-- ===== 行6: 商標 ===== -->
+  <rect x="121" y="248" width="84" height="22" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text class="t-badge" x="163" y="263" text-anchor="middle">登録日</text>
+  <rect x="218" y="248" width="66" height="22" rx="3" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.2"/>
+  <text class="t-years" x="228" y="263" fill="#555" font-size="12">10年</text>
+  <rect x="292" y="250" width="40" height="18" rx="4" fill="#fff3cd" stroke="#d4a017" stroke-width="1.2"/>
+  <text x="312" y="262" text-anchor="middle" font-size="11" fill="#d4a017" font-weight="bold">更新可</text>
+  <text class="t-law" x="4" y="263">商標権</text>
+  <text class="t-note" x="4" y="275" fill="#8a8a8a">商標法</text>
+
+  <line x1="0" y1="284" x2="400" y2="284" stroke="#d7d7d7" stroke-width="0.8" stroke-dasharray="3,3"/>
+
+  <!-- ===== 行7: 半導体回路 ===== -->
+  <rect x="121" y="292" width="84" height="22" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text class="t-badge" x="163" y="307" text-anchor="middle">登録日</text>
+  <rect x="218" y="292" width="66" height="22" rx="3" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.2"/>
+  <text class="t-years" x="228" y="307" fill="#555" font-size="12">10年</text>
+  <text class="t-law" x="4" y="307">回路配置利用権</text>
+  <text class="t-note" x="4" y="319" fill="#8a8a8a">半導体集積回路法</text>
+
+  <line x1="0" y1="328" x2="400" y2="328" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 凡例 -->
+  <rect x="4"   y="336" width="14" height="10" rx="2" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1"/>
+  <text class="t-note" x="22" y="345">25年以上（長期）</text>
+  <rect x="118" y="336" width="14" height="10" rx="2" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text class="t-note" x="136" y="345">20年</text>
+  <rect x="180" y="336" width="14" height="10" rx="2" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-note" x="198" y="345">10年（短期）</text>
+  <rect x="296" y="336" width="14" height="10" rx="2" fill="#fff3cd" stroke="#d4a017" stroke-width="1"/>
+  <text class="t-note" x="314" y="345">著作権・更新可</text>
+
+  <!-- 年数スケール目盛り -->
+  <line x1="218" y1="362" x2="396" y2="362" stroke="#d7d7d7" stroke-width="0.8"/>
+  <line x1="218" y1="359" x2="218" y2="365" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="284" y1="359" x2="284" y2="365" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="351" y1="359" x2="351" y2="365" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-axis" x="218" y="377" text-anchor="middle">0</text>
+  <text class="t-axis" x="284" y="377" text-anchor="middle">10</text>
+  <text class="t-axis" x="351" y="377" text-anchor="middle">20</text>
+  <text class="t-axis" x="200" y="392" text-anchor="start" font-size="11">単位：年（目盛り10年＝66px）</text>
+
+  <!-- サマリー -->
+  <rect x="4" y="406" width="392" height="80" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text font-size="11" font-weight="bold" fill="#1a3a5c" x="200" y="422" text-anchor="middle">存続期間の長短ポイント</text>
+  <text class="t-note" x="12" y="438">・最長：著作権（死後70年）。登録不要で自動発生</text>
+  <text class="t-note" x="12" y="454">・産業財産権中最長：種苗権・意匠権（25年〜）</text>
+  <text class="t-note" x="12" y="470">・更新により実質無期限：商標権（10年×更新可）</text>
+  <text class="t-note" x="12" y="486">・短期10年：実用新案権・商標権・回路配置利用権</text>
+</svg>

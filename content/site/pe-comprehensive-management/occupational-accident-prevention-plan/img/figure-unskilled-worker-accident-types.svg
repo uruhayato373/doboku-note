@@ -1,0 +1,55 @@
+  <svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="11" style="max-width:400px;width:100%" role="img" aria-label="未熟練労働者の事故種別">
+    <!-- タイトル -->
+    <text x="200" y="22" text-anchor="middle" fill="#1a3a5c" font-size="13" font-weight="bold">未熟練労働者の事故種別</text>
+
+    <!-- 円グラフ（概略）中心を（110,130）、半径70 -->
+    <!-- 挟まれ・巻き込まれ 約30% (108度) -->
+    <path d="M 110 130 L 110 60 A 70 70 0 0 1 171 173 Z" fill="#222" stroke="#ffffff" stroke-width="1.5"/>
+    <!-- 転倒 約15% (54度) -->
+    <path d="M 110 130 L 171 173 A 70 70 0 0 1 110 200 Z" fill="#555" stroke="#ffffff" stroke-width="1.5"/>
+    <!-- 転落・墜落 約12% (43度) -->
+    <path d="M 110 130 L 110 200 A 70 70 0 0 1 62 183 Z" fill="#555" stroke="#ffffff" stroke-width="1.5"/>
+    <!-- 切れ・擦れ 約10% (36度) -->
+    <path d="M 110 130 L 62 183 A 70 70 0 0 1 45 130 Z" fill="#8a8a8a" stroke="#ffffff" stroke-width="1.5"/>
+    <!-- 激突 約8% (29度) -->
+    <path d="M 110 130 L 45 130 A 70 70 0 0 1 56 90 Z" fill="#8a8a8a" stroke="#ffffff" stroke-width="1.5"/>
+    <!-- その他 約25% (90度) -->
+    <path d="M 110 130 L 56 90 A 70 70 0 0 1 110 60 Z" fill="#d7d7d7" stroke="#ffffff" stroke-width="1.5"/>
+
+    <!-- 凡例 -->
+    <rect x="200" y="50" width="14" height="12" fill="#222"/><text x="218" y="61" fill="#222" font-size="11">挟まれ・巻き込まれ 約30%</text>
+    <rect x="200" y="70" width="14" height="12" fill="#555"/><text x="218" y="81" fill="#222" font-size="11">転倒 約15%</text>
+    <rect x="200" y="90" width="14" height="12" fill="#555"/><text x="218" y="101" fill="#222" font-size="11">転落・墜落 約12%</text>
+    <rect x="200" y="110" width="14" height="12" fill="#8a8a8a"/><text x="218" y="121" fill="#222" font-size="11">切れ・擦れ 約10%</text>
+    <rect x="200" y="130" width="14" height="12" fill="#8a8a8a"/><text x="218" y="141" fill="#222" font-size="11">激突 約8%</text>
+    <rect x="200" y="150" width="14" height="12" fill="#d7d7d7"/><text x="218" y="161" fill="#222" font-size="11">その他 約25%</text>
+
+    <!-- 注釈 -->
+    <text x="200" y="218" text-anchor="middle" fill="#555" font-size="10">※動作の反動等 49.0% / 全未熟練 35.9% / 未熟練労働者 39.0%</text>
+    <text x="200" y="234" text-anchor="middle" fill="#555" font-size="9">出典：厚生労働省・安全衛生教育マニュアル（平成 25 年）</text>
+
+    <!-- 追加：未熟練者への対策 -->
+    <rect x="10" y="250" width="380" height="54" fill="#f8d7da" stroke="#b22234" stroke-width="1.5" rx="6"/>
+    <text x="200" y="270" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold">未熟練労働者の安全管理ポイント</text>
+    <text x="200" y="286" text-anchor="middle" font-size="11" fill="#222">雇用後おおむね 6 か月が特に危険（習熟曲線の低水準期）</text>
+    <text x="200" y="300" text-anchor="middle" font-size="11" fill="#555">挟まれ・巻き込まれが最多 → 機械安全・ガードが重要</text>
+
+    <rect x="10" y="316" width="185" height="56" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+    <text x="103" y="334" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold">教育対策</text>
+    <text x="103" y="350" text-anchor="middle" font-size="11" fill="#222">雇入れ時・作業変更時</text>
+    <text x="103" y="364" text-anchor="middle" font-size="11" fill="#555">の安全衛生教育（義務）</text>
+
+    <rect x="205" y="316" width="185" height="56" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="6"/>
+    <text x="297" y="334" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold">技術対策</text>
+    <text x="297" y="350" text-anchor="middle" font-size="11" fill="#222">インターロック・</text>
+    <text x="297" y="364" text-anchor="middle" font-size="11" fill="#555">ガード・非常停止</text>
+
+    <rect x="10" y="384" width="380" height="40" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="6"/>
+    <text x="200" y="402" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold">OJT（職場内教育訓練）の重要性</text>
+    <text x="200" y="418" text-anchor="middle" font-size="11" fill="#555">先輩作業者によるマンツーマン指導・作業手順書の遵守</text>
+
+    <text x="200" y="444" text-anchor="middle" font-size="11" fill="#222">外国人・高齢者・派遣労働者も含む多様な労働者への対応</text>
+    <text x="200" y="460" text-anchor="middle" font-size="11" fill="#555">母国語での教育資料作成・理解度確認が実効性向上の鍵</text>
+    <text x="200" y="476" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold">労働災害防止計画（第14次）重点対象：転倒・未熟練</text>
+    <text x="200" y="492" text-anchor="middle" font-size="11" fill="#3a7d44" font-weight="bold">総監：人的資源管理 × 安全管理の典型的トレードオフ場面</text>
+  </svg>

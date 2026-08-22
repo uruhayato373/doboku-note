@@ -1,0 +1,57 @@
+{
+  "slug": "pe-first-stage-r03-basic",
+  "year": "R03",
+  "sub": "basic",
+  "audited_at": "2026-06-09",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 30,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 30,
+    "issues": [],
+    "fixed_issues": [
+      {
+        "question": "Ⅰ-1-1",
+        "type": "polarity_error",
+        "detail": "修正済み。PDFの「最も不適切なものはどれか」に一致。",
+        "fixed_at": "2026-06-09"
+      },
+      {
+        "question": "Ⅰ-2-5",
+        "type": "text_mismatch",
+        "detail": "修正済み。選択肢①〜⑤の逆ポーランド記法表記をPDF原典（p009-hires目視）と突合し全問修正。①ABC÷＋DF−× ②AB＋C÷DF−× ③ABC÷＋D×F− ④×＋A÷BC−DF ⑤AB＋C÷D×F−。解説の参照表記・各選択肢の誤り説明も更新。",
+        "fixed_at": "2026-06-09"
+      },
+      {
+        "question": "Ⅰ-4-4",
+        "type": "text_mismatch",
+        "detail": "修正済み。選択肢表のア欄（前回修正）に加え、解説中の「ア鋼」→「ア銅」も修正。PDF p018で銅（copper）を確認。",
+        "fixed_at": "2026-06-09"
+      },
+      {
+        "question": "Ⅰ-4-5",
+        "type": "text_mismatch",
+        "detail": "修正済み。本文「イソロイシンやフェニルアラニンは」（前回修正）に加え、解説・ExamPoint中の「ロイシン」→「イソロイシン」も修正。PDF p019確認。",
+        "fixed_at": "2026-06-09"
+      },
+      {
+        "question": "Ⅰ-5-2",
+        "type": "text_mismatch",
+        "detail": "修正済み。選択肢⑤「一次処理から三次処理に分類できるが」に一致。PDF p022確認。",
+        "fixed_at": "2026-06-09"
+      }
+    ]
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 30,
+    "expected_count": 30,
+    "details_count": 30,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "All 30 questions present (Ⅰ-1-1 through Ⅰ-5-6), no gaps in sequence. All frontmatter fields (title, category, group, published, source_pdf) present."
+  }
+}

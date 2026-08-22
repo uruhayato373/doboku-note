@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#ffffff"/>
+  <defs>
+    <marker id="arrG" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#3a7d44"/>
+    </marker>
+  </defs>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">BCP — 結果事象アプローチ</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">多様な原因を共通の結果に集約することで汎用的な事業継続体制を構築</text>
+
+  <rect x="60" y="130" width="320" height="40" rx="8" fill="#b22234"/>
+  <text x="220" y="156" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">原因事象（多種多様）</text>
+  <rect x="60" y="180" width="320" height="60" rx="10" fill="#ffffff" stroke="#b22234" stroke-width="2"/>
+  <text x="220" y="219" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="middle">直下型地震</text>
+  <rect x="60" y="256" width="320" height="60" rx="10" fill="#ffffff" stroke="#b22234" stroke-width="2"/>
+  <text x="220" y="295" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="middle">台風・洪水</text>
+  <rect x="60" y="332" width="320" height="60" rx="10" fill="#ffffff" stroke="#b22234" stroke-width="2"/>
+  <text x="220" y="371" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="middle">サイバー攻撃</text>
+  <rect x="60" y="408" width="320" height="60" rx="10" fill="#ffffff" stroke="#b22234" stroke-width="2"/>
+  <text x="220" y="447" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="middle">感染症まん延</text>
+  <rect x="60" y="484" width="320" height="60" rx="10" fill="#ffffff" stroke="#b22234" stroke-width="2"/>
+  <text x="220" y="523" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222" text-anchor="middle">サプライチェーン断絶</text><line x1="390" y1="210" x2="520" y2="430" stroke="#555555" stroke-width="2" opacity="0.4"/><line x1="390" y1="286" x2="520" y2="430" stroke="#555555" stroke-width="2" opacity="0.4"/><line x1="390" y1="362" x2="520" y2="430" stroke="#555555" stroke-width="2" opacity="0.4"/><line x1="390" y1="438" x2="520" y2="430" stroke="#555555" stroke-width="2" opacity="0.4"/><line x1="390" y1="514" x2="520" y2="430" stroke="#555555" stroke-width="2" opacity="0.4"/>
+  <circle cx="530" cy="430" r="32" fill="#d4a017"/>
+  <text x="530" y="438" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">集約</text><line x1="560" y1="430" x2="710" y2="260" stroke="#3a7d44" stroke-width="3" marker-end="url(#arrG)"/><line x1="560" y1="430" x2="710" y2="364" stroke="#3a7d44" stroke-width="3" marker-end="url(#arrG)"/><line x1="560" y1="430" x2="710" y2="468" stroke="#3a7d44" stroke-width="3" marker-end="url(#arrG)"/>
+  <rect x="720" y="130" width="320" height="40" rx="8" fill="#3a7d44"/>
+  <text x="880" y="156" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#ffffff" text-anchor="middle">結果事象（少数に集約）</text>
+  <rect x="720" y="220" width="320" height="80" rx="10" fill="#ffffff" stroke="#3a7d44" stroke-width="3"/>
+  <text x="880" y="252" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#3a7d44" text-anchor="middle">拠点が使用不能</text>
+  <text x="880" y="280" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555" text-anchor="middle">建物・設備喪失</text>
+  <rect x="720" y="324" width="320" height="80" rx="10" fill="#ffffff" stroke="#3a7d44" stroke-width="3"/>
+  <text x="880" y="356" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#3a7d44" text-anchor="middle">IT基盤停止</text>
+  <text x="880" y="384" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555" text-anchor="middle">システム・通信断</text>
+  <rect x="720" y="428" width="320" height="80" rx="10" fill="#ffffff" stroke="#3a7d44" stroke-width="3"/>
+  <text x="880" y="460" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#3a7d44" text-anchor="middle">人的資源不足</text>
+  <text x="880" y="488" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555" text-anchor="middle">出社不可・健康影響</text>
+  <rect x="60" y="676" width="1080" height="44" rx="6" fill="#e6f1e8"/>
+  <text x="80" y="706" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">BCM の本質：原因より結果に着目すれば、原因を問わず汎用的に対応できる。R5 Ⅰ-1-31 の核心。</text>
+
+</svg>

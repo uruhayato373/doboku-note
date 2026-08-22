@@ -1,0 +1,16 @@
+{
+  "_doc": "本文更新で添付が失われ、再添付が未了の記事を負債として持つ台帳。note-attach-batch 成功時に自動で消える。ライブ実査（check-note-attachments --live --only <noteId>）で充足が確認できた場合も、根拠を resolved に残して pending から外す。",
+  "pending": [],
+  "resolved": [
+    {
+      "noteId": "nded084d4f646",
+      "at": "2026-08-12T00:23:45.259Z",
+      "resolvedAt": "2026-08-17",
+      "reason": "添付の復元に失敗（1級土木-施工経験記述-過去問-R06-安全施工計画.pdf: アップロード後にカードが現れない（embeds 6→6 / pdf件数 0））",
+      "dropped": [
+        "1級土木-施工経験記述-過去問-R06-安全施工計画.pdf"
+      ],
+      "resolution": "ライブ実査で充足を確認（check-note-attachments --live --only nded084d4f646 → 実検査 1 件・充足 1・不足 0・取得失敗 0）。8/12 の失敗記録は残っていたが、実体としては添付済みで購入者は受け取れる状態だった。記録側だけが古かったため pending から外す（再添付は不要）。"
+    }
+  ]
+}

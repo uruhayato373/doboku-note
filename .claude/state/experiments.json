@@ -1,0 +1,1039 @@
+{
+  "version": 1,
+  "updated_at": "2026-08-21T07:10:00.000Z",
+  "experiments": [
+    {
+      "id": "EXP-002",
+      "title": "Group 1 S+A評価 5件の復活 + 1級土木 textbook からの双方向内部リンク",
+      "hypothesis": "削除済みだが GSC impressions のある 5 ページ（S評価2件: common-specs-hyogo/02-03-materials-port 44 impr / river-management/04 74 impr、A評価3件: design-manual の 02-10 伏越工 17 impr / 02-07 水門 16 impr / 03-08 トンネル 11 impr）を civil-construction-1-reference-* として復活し、frontmatter を試験文脈に書き直し、1級土木 textbook-port-regulations / textbook-river-act / textbook-road-act から双方向リンクを張ることで、5ページの combined clicks を 4 → 15+ に引き上げる。",
+      "target_metric": "combined_clicks_28d",
+      "target_delta": "4 -> 15",
+      "baseline": {
+        "common-specs-hyogo/02-03-materials-port": {
+          "impr": 44,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 7.48
+        },
+        "river/river-management/04": {
+          "impr": 74,
+          "clicks": 3,
+          "position": 6.88
+        },
+        "design-manual/02-10-inverted-siphon": {
+          "impr": 17,
+          "clicks": 0,
+          "position": 6.65
+        },
+        "design-manual/02-07-floodgate": {
+          "impr": 16,
+          "clicks": 0,
+          "position": 9.13
+        },
+        "design-manual/03-08-tunnel-02": {
+          "impr": 11,
+          "clicks": 1,
+          "position": 9.55
+        },
+        "combined_impr": 162,
+        "combined_clicks": 4,
+        "source": "gsc-page-2026-04-18T02-03-37.json",
+        "strategy_doc": null
+      },
+      "status": "cancelled",
+      "created_at": "2026-04-18T00:00:00.000Z",
+      "started_at": "2026-04-18T00:00:00.000Z",
+      "paused_at": "2026-04-19T00:00:00.000Z",
+      "paused_reason": "運営者判断で 5 URL を一時非公開 + カテゴリ/内部リンクを完全分離（精度向上後に再公開予定）",
+      "result": "cancelled",
+      "learnings": [
+        "5記事を published:false のまま70日放置し計測不能だったため cancelled で close。非公開状態では GSC impr/clicks が出ず実験として判定不可能。paused にした実験は『再開条件・期限』を明示しないと無期限滞留する(EXP-002/003/004 が揃って3週ループした共通原因)。",
+        "記事は削除せず非公開保持し、精度向上→再公開タスクを backlog(1.コンテンツ品質)へ退避(試験7/13後に着手)。GSC impr資産(combined 162 impr/4 clicks)を捨てない判断。"
+      ],
+      "closed_at": "2026-06-26T22:57:03.390Z",
+      "actions": [
+        "1. git show 808aa327^ で削除直前の content/general/common-specs-hyogo/02-03-materials-port.mdx と content/river/river-management/04.mdx を復元",
+        "2. content/site/civil-construction-1-reference-hyogo-port-materials/article.mdx と content/site/civil-construction-1-reference-river-abandonment/article.mdx に配置",
+        "3. frontmatter を試験文脈 (category: civil-construction-1, tags: reference, exam_relevance) で書き直し",
+        "4. 1級土木 textbook-port-regulations から hyogo-port-materials へ、textbook-river-act から river-abandonment への参照リンクを追加",
+        "5. 各復活ページから textbook への back-link を冒頭に追加（双方向リンク完成）",
+        "6. commit + push → Cloudflare Pages デプロイ",
+        "7. GSC sitemap 再送信 + 新 2 URL の手動 indexing リクエスト（ユーザー作業）",
+        "8. 14 日後に fetch-gsc-data で 2 URL の impr / clicks / position delta 計測"
+      ],
+      "restored_urls": [
+        "https://doboku-note.com/docs/reference-materials-hyogo-port-materials",
+        "https://doboku-note.com/docs/reference-materials-river-abandonment",
+        "https://doboku-note.com/docs/reference-materials-inverted-siphon",
+        "https://doboku-note.com/docs/reference-materials-floodgate",
+        "https://doboku-note.com/docs/reference-materials-tunnel-02"
+      ],
+      "restored_urls_old": [
+        "https://doboku-note.com/docs/civil-construction-1-reference-hyogo-port-materials",
+        "https://doboku-note.com/docs/civil-construction-1-reference-river-abandonment",
+        "https://doboku-note.com/docs/civil-construction-1-reference-inverted-siphon",
+        "https://doboku-note.com/docs/civil-construction-1-reference-floodgate",
+        "https://doboku-note.com/docs/civil-construction-1-reference-tunnel-02"
+      ],
+      "inbound_link_from": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-port-regulations",
+        "https://doboku-note.com/docs/civil-construction-1-textbook-river-act",
+        "https://doboku-note.com/docs/civil-construction-1-textbook-road-act"
+      ],
+      "history": [
+        {
+          "date": "2026-04-18T00:00:00.000Z",
+          "action": "proposed"
+        },
+        {
+          "date": "2026-04-18T00:00:00.000Z",
+          "action": "running",
+          "summary": "Phase 1 の Group 1 S評価 2件復活を commit 直前まで実施。双方向リンクも同時整備済み。"
+        },
+        {
+          "date": "2026-04-18T07:00:00.000Z",
+          "action": "scope_expanded",
+          "summary": "Phase 1 拡張で Group 1 A評価 3件（inverted-siphon / floodgate / tunnel-02）を追加復活。baseline を 2→5 URL、target を 3→8 から 4→15 clicks に更新。"
+        },
+        {
+          "date": "2026-04-19T00:00:00.000Z",
+          "action": "url_migration",
+          "summary": "reference-materials カテゴリ独立に伴い URL を civil-construction-1-reference-* から reference-materials-* へ変更、301 redirect を public/_redirects に追加。GSC 側は 301 追従で新URLに集約される想定だが、再 indexing request を推奨。"
+        },
+        {
+          "date": "2026-04-19T01:00:00.000Z",
+          "action": "paused_for_quality_rework",
+          "summary": "運営者判断で 5 記事すべてを published: false に、textbook 側 <ReferenceLinks> と reference 側 <ExamContext> を削除してカテゴリ間を完全分離。精度向上後に再公開予定のため実験は paused。",
+          "decoupling": {
+            "textbook_reference_links_removed": [
+              "civil-construction-1/textbook-port-regulations",
+              "civil-construction-1/textbook-river-act",
+              "civil-construction-1/textbook-road-act"
+            ],
+            "reference_exam_context_removed_and_unpublished": [
+              "reference-materials-hyogo-port-materials",
+              "reference-materials-river-abandonment",
+              "reference-materials-inverted-siphon",
+              "reference-materials-floodgate",
+              "reference-materials-tunnel-02"
+            ]
+          }
+        },
+        {
+          "date": "2026-04-18T12:00:00.000Z",
+          "action": "manual_indexing_completed",
+          "summary": "運営者が sitemap 再送信 + 5 URL の GSC 手動 indexing を完了。Google による再クロールと順位反映を待機する段階に入る。",
+          "completed_urls": [
+            "https://doboku-note.com/docs/civil-construction-1-reference-hyogo-port-materials",
+            "https://doboku-note.com/docs/civil-construction-1-reference-river-abandonment",
+            "https://doboku-note.com/docs/civil-construction-1-reference-inverted-siphon",
+            "https://doboku-note.com/docs/civil-construction-1-reference-floodgate",
+            "https://doboku-note.com/docs/civil-construction-1-reference-tunnel-02"
+          ]
+        },
+        {
+          "date": "2026-06-26T22:57:03.390Z",
+          "action": "cancelled",
+          "summary": "非公開70日で計測不能のため中止。5記事は非公開保持、精度向上→再公開を backlog へ退避(試験後)。"
+        }
+      ],
+      "pending_user_actions": [],
+      "next_check_date": null,
+      "resume_criteria": "5 記事の精度を向上（運営者判断）してから published: true + 必要ならカテゴリ間リンク復活、その後新 baseline で再計測"
+    },
+    {
+      "id": "EXP-001",
+      "title": "統合ハウスキーピング: GSC クリーン + 現行サイト インデックス解放",
+      "hypothesis": "現行 748 ページの大半がインデックス未登録 or 未評価で、GSC impressions 62/28d に留まっている。sitemap 検証 + URL Inspection 一括監査 + 未インデックスページへの手動リクエストで indexed 率を上げ、current-site impressions を 62 → 200+ (3x) に回復する。同時に 2026-04-13 に実装済みの旧 URL 301 の効果が時間経過で Google に反映されることを確認する。",
+      "target_metric": "gsc_current_site_impressions_28d",
+      "target_delta": ">= 200",
+      "baseline": {
+        "gsc_current_impr_28d": 66,
+        "gsc_current_clicks_28d": 2,
+        "gsc_ghost_impr_28d": 190,
+        "gsc_ghost_clicks_28d": 4,
+        "current_site_pages": 748,
+        "gsc_visible_pages": 17,
+        "current_visibility_ratio": 0.023,
+        "psi_lcp_range_ms": "2866-6629",
+        "psi_performance_range": "61-95",
+        "created_at": "2026-04-15",
+        "source": "fetch-gsc-data 28d / fetch-psi-data mobile"
+      },
+      "status": "done",
+      "created_at": "2026-04-14T22:06:02.245Z",
+      "started_at": "2026-04-14T22:06:02.249Z",
+      "result": "success",
+      "learnings": [
+        "インデックス解放（sitemap 検証 + 未indexページへの手動 indexing request）は新規/低評価サイトの GSC impressions を桁違いに伸ばす最有効施策。28d impr 66→8091（123x）/ clicks 2→209（104x）。target(200)を大幅超過。",
+        "効果は週次 WoW では誤読する。W22 週次で impr -38% に見えたが、28d トレンドは激増。インデックス系施策は必ず28dトレンドで判定する。",
+        "impressions の短期減を即 noindex/失敗と判断しないのが正しい（noindex-timing の方針と整合）。NSM(オーガニックユーザー)増の裏付けが取れた。"
+      ],
+      "closed_at": "2026-05-30T00:00:00.000Z",
+      "actions": [
+        "1. sitemap.xml の内容検証（旧 URL 除外 + 現行 748 URL 網羅の確認）",
+        "2. 現行サイト全 URL を content/site/ から slug ベースで列挙",
+        "3. scripts/inspect-url.mjs で上位 30-50 ページを一括 URL Inspection",
+        "4. indexed / not-indexed / excluded の比率算出、未 indexed 上位リスト作成",
+        "5. （ユーザー作業）GSC UI で sitemap 再送信",
+        "6. （ユーザー作業）未 indexed 上位 10 ページへの手動 indexing リクエスト",
+        "7. 28 日後に再監査、指標 delta 確認"
+      ],
+      "history": [
+        {
+          "date": "2026-04-14T22:06:02.245Z",
+          "action": "proposed"
+        },
+        {
+          "date": "2026-04-14T22:06:02.249Z",
+          "action": "running"
+        },
+        {
+          "date": "2026-04-14T22:15:08.872Z",
+          "action": "interim_audit",
+          "summary": "サンプル 20 ページ監査: 45% indexed。5 件 published:false は意図的 hide と判明、indexing request から除外。10 件を手動リクエスト対象に確定。"
+        },
+        {
+          "date": "2026-04-14T22:25:22.399Z",
+          "action": "pages_republished",
+          "summary": "5 件の published:false を true に戻す修正を main に push、Cloudflare Pages デプロイ完了 (commit 642718c8)。5 URL 全て 200 OK 確認。sitemap 748 → 753。",
+          "commit": "642718c8",
+          "urls_fixed": [
+            "pe-comprehensive-management-pdca-cycle",
+            "pe-comprehensive-management-analytic-hierarchy-process",
+            "pe-comprehensive-management-cause-and-effect-diagram",
+            "pe-comprehensive-management-four-m-of-production",
+            "pe-comprehensive-management-key-performance-indicators"
+          ]
+        },
+        {
+          "date": "2026-04-14T22:44:12.679Z",
+          "action": "manual_indexing_partial",
+          "summary": "GSC 手動 indexing リクエスト 11/14 件完了 (pdca-cycle は API 結果で既 indexed と判明し除外)。1 日クォータ上限で中断、残り 3 件を翌日 (2026-04-16+) に持越し。",
+          "completed_count": 11,
+          "remaining_count": 3,
+          "completed_urls": [
+            "pe-comprehensive-management-cause-and-effect-diagram",
+            "pe-comprehensive-management-business-continuity-plan",
+            "pe-comprehensive-management-risk-assessment",
+            "pe-comprehensive-management-labor-standards-act",
+            "pe-comprehensive-management-key-performance-indicators",
+            "pe-comprehensive-management-analytic-hierarchy-process",
+            "pe-comprehensive-management-four-m-of-production",
+            "pe-comprehensive-management-r01-primary",
+            "pe-comprehensive-management-r07-primary",
+            "civil-construction-1-primary-r07-a",
+            "civil-construction-1-primary-r06-a"
+          ],
+          "remaining_urls": [
+            "civil-construction-1-primary-r05-a",
+            "civil-construction-1-textbook-construction-mgmt-overview",
+            "civil-construction-1-guide-earthwork-key-points"
+          ],
+          "gsc_daily_quota_observation": "実測 11 件で上限到達。Google 公表値はないが経験則と一致",
+          "next_action": "2026-04-16 以降に残り 3 件をリクエスト + sitemap 再送信実施",
+          "measure_scheduled": "2026-04-29 前後（14 日後に再 inspect-url + metrics-reader で delta 計測）"
+        },
+        {
+          "date": "2026-04-18T12:00:00.000Z",
+          "action": "manual_indexing_completed",
+          "summary": "運営者が残 3 URL の GSC 手動 indexing を完了（EXP-002 の 5 URL と合わせて同日実施）。measure 予定日は当初 2026-04-29 のまま。",
+          "completed_urls": [
+            "civil-construction-1-primary-r05-a",
+            "civil-construction-1-textbook-construction-mgmt-overview",
+            "civil-construction-1-guide-earthwork-key-points"
+          ]
+        },
+        {
+          "date": "2026-05-30T00:00:00.000Z",
+          "action": "measured",
+          "summary": "28d impr 66→8091 / clicks 2→209。target(200)大幅超過で success 判定。running→measuring。"
+        },
+        {
+          "date": "2026-05-30T00:00:00.000Z",
+          "action": "closed",
+          "summary": "success 判定で close。28d impr 66→8091(123x)/clicks 2→209。W22 のimpr -38%WoWは短期ノイズと確定。"
+        }
+      ],
+      "interim_findings": {
+        "date": "2026-04-15",
+        "sample_size": 20,
+        "indexed": 9,
+        "not_indexed": 11,
+        "indexed_rate": 0.45,
+        "root_causes": {
+          "published_false": 1,
+          "detected_not_indexed": 9,
+          "not_discovered": 2
+        },
+        "key_insight_1": "sitemap は旧 URL 除外 + 未公開 5 件除外 で正しく機能。748 URL を正しく網羅",
+        "key_insight_2": "5 件の published:false は AdSense 戦略 (commit 7ca3342a) による意図的 hide で、放置が正解",
+        "key_insight_3": "Google は published:false を 404 で見るが、Google 認識は自然減衰に委ねる",
+        "key_insight_4": "business-continuity-plan など 10 件は 200 OK だが GSC 上は未認識。sitemap 未登録 + indexing request 未実施が原因と推定"
+      },
+      "pending_user_actions": [],
+      "next_check_date": "2026-04-29",
+      "measurement": {
+        "date": "2026-05-30T00:00:00.000Z",
+        "window": "2026-04-28〜2026-05-26 (28d)",
+        "source": "gsc-page-2026-05-29T23-25-28.json",
+        "baseline": {
+          "impr_28d": 66,
+          "clicks_28d": 2
+        },
+        "current": {
+          "impr_28d": 8091,
+          "clicks_28d": 209
+        },
+        "delta": "impr 66→8091 (123x) / clicks 2→209 (104x)",
+        "target": "impr_28d >= 200",
+        "verdict": "success (target を大幅超過)",
+        "note": "インデックス解放の効果が決定的に確認された。W22 週次の『impressions -38% WoW』は短期ノイズで、28日トレンドは激増。NSM 増の裏付け。"
+      }
+    },
+    {
+      "id": "perf-lcp-mobile-2026-W17",
+      "title": "Mobile LCP 改善 — Wave 1 (GA4 lazyOnload)",
+      "hypothesis": "GA4 Script strategy を afterInteractive → lazyOnload に変更し、gtag.js の実行を LCP 発火後まで遅延させることで mobile main thread の占有を解消し、site root の mobile LCP を 4828ms → 4000ms 以下、Performance 76 → 80 以上に引き上げる。",
+      "target_metric": "site_root_mobile_lcp_ms",
+      "target_delta": "4828 -> 4000",
+      "status": "completed",
+      "started_at": "2026-04-25",
+      "completed_at": "2026-04-25",
+      "related_issue": 84,
+      "related_prs": [
+        133,
+        134
+      ],
+      "baseline": {
+        "lcp_ms": 4828,
+        "fcp_ms": 3168,
+        "tbt_ms": 78,
+        "cls": 0.009,
+        "tti_ms": 6504,
+        "performance": 76,
+        "measured_at": "2026-04-24T22:58:23Z",
+        "source": ".claude/state/metrics/psi/psi-single-2026-04-24T22-58-23.json"
+      },
+      "target": {
+        "lcp_ms": 4000,
+        "performance": 80
+      },
+      "history": [
+        {
+          "wave": 1,
+          "date": "2026-04-25",
+          "pr": 133,
+          "deploy_pr": 134,
+          "deploy_commit": "e9d2881f",
+          "changes": [
+            "src/components/GoogleAnalytics.tsx: Script strategy afterInteractive -> lazyOnload"
+          ],
+          "after": {
+            "lcp_ms": 5130,
+            "fcp_ms": 3168,
+            "tbt_ms": 91,
+            "cls": 0.009,
+            "tti_ms": 7069,
+            "performance": 74,
+            "measured_at": "2026-04-24T23:05:01Z",
+            "source": ".claude/state/metrics/psi/psi-single-2026-04-24T23-05-01.json",
+            "runs_consistent": "3 連続同値確認"
+          },
+          "delta_lcp_ms": 302,
+          "result": "rolled_back_critical_incident",
+          "incident_summary": "Wave 1 の lazyOnload 化は mobile で AnalyticsProvider の useEffect が gtag.js 未ロード状態で gtag() を呼ぶパスを作り、TypeError: window.gtag is not a function で React tree がクラッシュ、本番 mobile サイトが 17 分間エラー画面に置換された。",
+          "after_was_error_ui": true,
+          "verdict": "5130ms の PSI 計測値は正常レンダー下の値ではなく Next.js error UI の軽量 H1 を LCP として拾っていた。正常レンダー下の真の mobile LCP baseline は 6969ms（hotfix 後の計測）。Wave 1 は改善でも悪化でもなく、計測対象が別のページ（エラー画面）に置き換わっていたのが 3 回同値の正体。",
+          "hotfix": {
+            "pr": 136,
+            "deploy_pr": 137,
+            "deploy_commit": "f22e9433",
+            "deployed_at": "2026-04-24T23:21:02Z",
+            "changes": [
+              "src/components/GoogleAnalytics.tsx: Script strategy lazyOnload -> afterInteractive (revert)",
+              "src/lib/gtag.ts: pageview / event に typeof window.gtag !== 'function' 早期 return ガードを追加"
+            ],
+            "outage_duration_min": 17,
+            "outage_start": "2026-04-24T23:04Z",
+            "outage_end": "2026-04-24T23:21Z",
+            "affected": "mobile users only (desktop は hydration 順序の差で TypeError 回避)"
+          }
+        },
+        {
+          "wave": 2,
+          "date": "2026-04-25",
+          "pr": 143,
+          "deploy_pr": 144,
+          "changes": [
+            "src/app/layout.tsx: notoSansJP の preload: true -> false（display: swap は維持）"
+          ],
+          "hypothesis": "preload off + display:swap で system font に早期フォールバック → h1 (LCP element) を system font で先行描画させ LCP 短縮。FOUT を許容。",
+          "after": {
+            "lcp_ms": 7955,
+            "fcp_ms": 5289,
+            "tbt_ms": 113,
+            "cls": 0,
+            "tti_ms": 8035,
+            "performance": 60,
+            "measured_at": "2026-04-25T00:02:27Z",
+            "source": ".claude/state/metrics/psi/psi-single-2026-04-25T00-02-27.json",
+            "runs_consistent": "3 連続同値確認"
+          },
+          "delta_lcp_ms": 986,
+          "result": "rolled_back_regression",
+          "incident_summary": "preload off により Noto Sans JP 読込が遅延し、Tailwind font-sans に日本語 system font fallback がないため display:swap 効かず h1 の最終描画が遅れた。LCP は最終フォントでの安定描画時点で fire し悪化。",
+          "rollback": {
+            "pr": 146,
+            "deploy_pr": 147,
+            "deployed_at": "2026-04-25T00:08:47Z",
+            "after_revert": {
+              "lcp_ms": 7298,
+              "fcp_ms": 4785,
+              "tbt_ms": 94,
+              "cls": 0,
+              "performance": 64,
+              "measured_at": "2026-04-25T00:11:50Z",
+              "source": ".claude/state/metrics/psi/psi-single-2026-04-25T00-11-50.json"
+            },
+            "note": "PSI variance 範囲内で baseline 6969ms 水準に復帰。Performance 64 も復帰確認。"
+          }
+        }
+      ],
+      "real_baseline_after_hotfix": {
+        "lcp_ms": 6969,
+        "fcp_ms": 4765,
+        "tbt_ms": 66,
+        "cls": 0,
+        "tti_ms": 6969,
+        "performance": 64,
+        "measured_at": "2026-04-24T23:22:14Z",
+        "source": ".claude/state/metrics/psi/psi-single-2026-04-24T23-22-14.json",
+        "note": "gtag ガード追加後、初めて確実に正常レンダー下で計測された値。Wave 2 はここから改善を測る。"
+      },
+      "lcp_element_identified": {
+        "tag": "h1",
+        "text": "土木系資格試験対策サイト",
+        "size_px": 25632,
+        "has_gradient_clip_text": true,
+        "render_time_ms_on_fast_network": 720,
+        "tool": "mcp__playwright__browser_evaluate with PerformanceObserver buffered"
+      },
+      "learnings": [
+        "GA4 Script strategy 変更は hydration 依存コードとセットで検証必要。useEffect で呼ばれる API は Script の load タイミングと React の実行順序を必ず突合する",
+        "Deploy 後の確認は PSI スコアだけでは不十分。error UI が混入していても PSI は測ってしまう。Playwright mobile viewport での実体ビュー検証（DOM 構造 + console errors）を必須化すべき",
+        "PSI Lab data の同値連続は『真の値』ではなく『確定的な壊れ方』の可能性もある。error UI なら毎回同じ軽量要素で LCP が固定される",
+        "Noto Sans JP (preload: true, subsets: latin) は日本語サイトで preload 帯域を無駄に占有し、真の LCP bottleneck の第一候補",
+        "preload: false の単独適用は逆効果。Tailwind の font-sans に日本語 system font fallback (例: 'Hiragino Sans', 'Yu Gothic' 等) を含めない限り、display:swap でもブラウザはフォント読込まで描画を待つ可能性がある",
+        "LCP element が日本語テキストの場合、フォント読込タイミングが LCP に直結する。フォント関連の打ち手は『preload 設定』『fallback stack』『font-display』を一体で設計する必要がある",
+        "Wave 3 で初の成功 (LCP -1407ms): 副作用のない DOM 表層削除 (装飾用 blur orb 3 つ) が効いた。mobile GPU で blur filter は重く、装飾レイヤーですら paint を遅らせる",
+        "推測ベースの最適化は失敗率が高い (Wave 1/2 連続失敗)。実測ベース (Playwright PerformanceObserver) で真因特定 → 副作用ゼロの最小変更が正解"
+      ],
+      "wave3": {
+        "wave": 3,
+        "date": "2026-04-25",
+        "pr": 155,
+        "deploy_pr": 156,
+        "deploy_commit": "a6c14662",
+        "changes": [
+          "src/app/page.tsx: Hero セクションの装飾用 blur orb 3 つを削除 (blur-3xl primary-400, blur-2xl cyan-400, blur-2xl primary-300)"
+        ],
+        "before": {
+          "lcp_ms": 8524,
+          "fcp_ms": 4753,
+          "tbt_ms": 66,
+          "cls": 0,
+          "performance": 53,
+          "source": "Wave 2 ロールバック後の最新計測"
+        },
+        "after": {
+          "lcp_ms": 7117,
+          "fcp_ms": 4753,
+          "tbt_ms": 26,
+          "cls": 0.047,
+          "tti_ms": 7117,
+          "performance": 64,
+          "measured_at": "2026-04-25T03:41:48Z",
+          "source": ".claude/state/metrics/psi/psi-single-2026-04-25T03-41-48.json"
+        },
+        "delta_lcp_ms": -1407,
+        "delta_performance": 11,
+        "result": "improved",
+        "verdict": "初の Wave 成功。LCP -1407ms (-16.5%)、Performance +11。Hero の装飾 blur orb 削除という DOM 表層変更だけで mobile GPU 負荷を低減し、結果として LCP テキストの paint 時間が短縮された。CLS 0 → 0.047 はやや悪化したが閾値 0.1 以下で問題なし。"
+      },
+      "current_state_after_wave3": {
+        "lcp_ms": 7117,
+        "performance": 64,
+        "target_lcp_ms": 2500,
+        "remaining_gap_ms": 4617,
+        "remaining_gap_ratio": "2.85x"
+      },
+      "next_wave": "Wave 4 候補（実測ベースで優先順）: (1) H1 の bg-gradient + bg-clip-text を簡素化（GPU 負荷の更なる低減、~500ms 期待）、(2) KaTeX CSS の docs ページ限定読込（CSS chunk 削減、~500-1000ms 期待）、(3) CategoryHeader にも同型 blur orb があれば削除、(4) Critical CSS インライン化、(5) bundle analyzer で他のボトルネック特定。Wave 3 の方法論（実測 → 副作用ゼロの軽量化）を継続。"
+    },
+    {
+      "id": "EXP-003",
+      "title": "個別ハイインパクト SEO 修正 5件 (seoTitle 検索意図整合)",
+      "hypothesis": "GSC 2026-05-16 page 次元分析の Pattern 1 (High-Impr-Low-CTR) と Pattern 5 (Orphan-Query) で surface した 5 ページの seoTitle に、検索クエリと完全一致するキーワード（スクレープドーザ・解答解説・JISEC・conformity bias 等）を追加することで、合計 clicks を 1 → 20 以上に引き上げる。",
+      "target_metric": "combined_clicks_28d",
+      "target_delta": "1 -> 20",
+      "baseline": {
+        "civil-construction-1-textbook-scraper": {
+          "impr": 194,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 9.1,
+          "expected_delta_clicks": "+8〜10"
+        },
+        "civil-construction-1-primary-r07-a": {
+          "impr": 119,
+          "clicks": 1,
+          "ctr": 0.008,
+          "position": 7.4,
+          "expected_delta_clicks": "+5"
+        },
+        "civil-construction-1-primary-r06-a": {
+          "impr": 57,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 8.3,
+          "expected_delta_clicks": "+2〜3"
+        },
+        "pe-comprehensive-management-jisec": {
+          "impr": 41,
+          "clicks": 0,
+          "ctr": 0,
+          "position_range": "8-12",
+          "queries": [
+            "jisec",
+            "jisecとは",
+            "jisec読み方"
+          ],
+          "expected_delta_clicks": "+2〜3"
+        },
+        "pe-comprehensive-management-asch-conformity-experiment": {
+          "impr": 39,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 10.1,
+          "trigger_query": "conformity bias (13 impr / pos 8.6)",
+          "expected_delta_clicks": "+2"
+        },
+        "combined_impr": 450,
+        "combined_clicks": 1,
+        "source": "gsc-page-2026-05-16T06-22-44.json + gsc-query-2026-05-16T06-22-40.json"
+      },
+      "status": "done",
+      "created_at": "2026-05-16T10:00:00.000Z",
+      "started_at": "2026-05-16T10:00:00.000Z",
+      "result": "partial",
+      "learnings": [
+        "クリーンな変更後窓(gsc-page 2026-06-19, 28d)で combined clicks 1→10(10x) / impr 450→898(2x)。target(20)未達=partial。seoTitle へのクエリ完全一致キーワード追加は実クリックを生むが、効果は1ページ(civil-construction-1-textbook-scraper: clicks 9 / CTR 0→1.4% / pos 9.1)にほぼ集中。",
+        "残り4ページは impr はあるが CTR が動かない: primary-r07-a(impr108/clicks0/pos7.1)・pe-jisec(impr45/clicks0/pos10.8)・asch-conformity(impr84/clicks1)。pos 7-11 帯では seoTitle 単独ではクリックに繋がらず、次の打ち手は description/構造化 か順位そのものの改善。",
+        "判定は28dトレンドで実施(EXP-001 の学びを踏襲)。05-30 の中間measure(clicks5)は変更前を含む窓で過小評価だった。中間measureの再測定予定(06-13)を42日放置したのが滞留原因。"
+      ],
+      "closed_at": "2026-06-26T22:53:34.588Z",
+      "actions": [
+        "1. ea14e6dcb: textbook-scraper の seoTitle にスクレープドーザ併記 + リード文も並列明示",
+        "2. c906af4d2: primary-r07-a / r06-a の seoTitle を r07-b パターン統一 (suffix 重複解消 + 科目明示)",
+        "3. c103318c6: jisec の seoTitle 冒頭に「JISEC」明示 (description 内のみだったキーワードを title 化)",
+        "4. dd04c8e17: asch-conformity-experiment の seoTitle に英語表記 (conformity bias) 追加 + 本文初出にも併記"
+      ],
+      "next_check_date": "2026-05-30",
+      "measurement_method": "/fetch-gsc-data --dimension page --days 28 を再実行し、上記 5 URL の clicks 差分を比較。combined_clicks ≥ 20 で成功判定。",
+      "measurement": {
+        "date": "2026-05-30T00:00:00.000Z",
+        "window": "2026-04-28〜2026-05-26 (28d)",
+        "source": "gsc-page-2026-05-29T23-25-28.json",
+        "baseline": {
+          "combined_clicks": 1,
+          "combined_impr": 450
+        },
+        "current": {
+          "combined_clicks": 5,
+          "combined_impr": 1379
+        },
+        "delta": "clicks 1→5 / impr 450→1379 (3x)",
+        "target": "combined_clicks >= 20",
+        "verdict": "partial (impr 3倍だが clicks は目標未達)",
+        "caveat": "変更日 2026-05-16。28d窓(04-28〜05-26)の大半が変更前を含むため過小評価。クリーンな判定は 2026-06-13 頃に再measure 推奨。"
+      },
+      "history": [
+        {
+          "date": "2026-05-30T00:00:00.000Z",
+          "action": "measured",
+          "summary": "combined clicks 1→5 / impr 450→1379(3x)。target(20)未達=partial。窓が変更前を含むため06-13に再measure。"
+        },
+        {
+          "date": "2026-06-26T22:53:34.588Z",
+          "action": "closed",
+          "summary": "partial: combined clicks 1→10(target20未達)、impr 450→898。効果は textbook-scraper(clicks9) に集中、他4ページはCTR不動。"
+        }
+      ]
+    },
+    {
+      "id": "EXP-004",
+      "title": "primary h26-r06 系 21件の seoTitle suffix 重複バグ一括解消",
+      "hypothesis": "Next.js metadata の title template `%s | doboku-note` 自動付与と二重になっていた `| doboku-note` suffix を全件除去し、検索意図キーワード（解答解説・科目分類・1級土木施工管理技士）を追加することで、個別 impr は薄い (≤ 20) が 21 件の累積で CTR 全体改善を狙う。",
+      "target_metric": "primary_aggregate_clicks_28d",
+      "target_delta": "1 -> 8",
+      "baseline": {
+        "scope": "primary-{h26,h27,h28,h29,h30,r01,r02,r03,r04,r05}-{a,b} + primary-r06-b の 21 ファイル",
+        "previous_format": "seoTitle: 令和X年度 第1次検定 問題{A|B} | doboku-note",
+        "new_format_a": "seoTitle: {年度} 第1次検定 問題A 解答解説｜土木一般・専門土木・法規【1級土木施工管理技士】",
+        "new_format_b": "seoTitle: {年度} 第1次検定 問題B 解答解説｜施工管理・安全管理【1級土木施工管理技士】",
+        "individual_impr_range": "0-20 (薄い)",
+        "individual_clicks_total": 1,
+        "source": "gsc-page-2026-05-16T06-22-44.json (上位 200 件には r07-a/r07-b/r06-a 以外ほぼ出現せず、推定値)"
+      },
+      "status": "done",
+      "created_at": "2026-05-16T10:00:00.000Z",
+      "started_at": "2026-05-16T10:00:00.000Z",
+      "result": "partial",
+      "learnings": [
+        "クリーンな変更後窓(gsc-page 2026-06-19, 28d)で aggregate clicks 1→4 / impr 193→179(横ばい)。target(8)未達=partial(弱)。21枚の薄ページ(個別impr≤20)の seoTitle 一括修正は相対CTRは改善するが絶対クリックの伸びは小さい(+3)。",
+        "title template 二重suffix(`| doboku-note`)除去は正しい衛生施策だが流入の主因ではない。薄ページ群への一括seoTitle投資はROIが低く、今後は高impr単ページ(EXP-003のscraper型)に集中すべき。",
+        "GSC上位行に出現したのは11/21ページのみ。残りは impr 極小で測定限界以下=効果の有無を判定できない。薄ページのaggregate実験は測定可能性そのものが低い。"
+      ],
+      "closed_at": "2026-06-26T22:53:34.588Z",
+      "actions": [
+        "1. c4cc419fd: 21 件の seoTitle suffix 重複バグを perl -i -pe で一括解消",
+        "2. b941f298c: 同 24 件 (上記 + r07-a/b) に publishedAt を git 初回 commit 日から付与"
+      ],
+      "next_check_date": "2026-05-30",
+      "measurement_method": "/fetch-gsc-data --dimension page --days 28 で primary-h26-r06 全 21 件の clicks 合計を baseline (1 件) と比較。aggregate clicks ≥ 8 で成功判定。",
+      "secondary_check": "Pre-commit warning [publishedAt-missing] が 23 件 → 0 件に減少していることを確認 (b941f298c の効果検証)。",
+      "measurement": {
+        "date": "2026-05-30T00:00:00.000Z",
+        "window": "2026-04-28〜2026-05-26 (28d)",
+        "source": "gsc-page-2026-05-29T23-25-28.json",
+        "baseline": {
+          "aggregate_clicks": 1
+        },
+        "current": {
+          "aggregate_clicks": 0,
+          "aggregate_impr": 193,
+          "urls_visible": "13/21"
+        },
+        "delta": "clicks 1→0 / impr 193",
+        "target": "aggregate_clicks >= 8",
+        "verdict": "no-effect (現時点)",
+        "caveat": "変更日 2026-05-16。28d窓が変更前主体のため判定保留。元々 impr 0-20 の薄いページ群。2026-06-13 頃に再measure。secondary(publishedAt-missing 23→0)は別途要確認。"
+      },
+      "history": [
+        {
+          "date": "2026-05-30T00:00:00.000Z",
+          "action": "measured",
+          "summary": "aggregate clicks 1→0 / impr 193(13/21URL)。target(8)未達。窓が変更前主体のため06-13に再measure。"
+        },
+        {
+          "date": "2026-06-26T22:53:34.588Z",
+          "action": "closed",
+          "summary": "partial(弱): aggregate clicks 1→4(target8未達)、impr 横ばい。薄ページ一括seoTitleはROI低。今後は高impr単ページに集中。"
+        }
+      ]
+    },
+    {
+      "id": "EXP-005",
+      "title": "docs テンプレ モバイル LCP 改善（content-heavy ページ 3-6s → <2500ms）",
+      "hypothesis": "PSI 2026-06-26 で desktop は LCP<1.5s と良好だが、mobile は content-heavy な docs/* ページ（過去問 primary・長尺ガイド）に LCP 3-6s が集中（r07-a 6452ms / h26-a 6226ms / guide-four-management 5776ms）。フォント全削除(~7350ms済)・AdSense lazyOnload 化(済)で既知の大物レバーは引き切っており、残る mobile LCP は『LCP要素の特定が未了の別要因』。共有 docs テンプレ上で LCP 要素を特定し、render-blocking 削減 or above-fold 優先度付けを外科的に当て、最悪3ページの mobile LCP を <2500ms（good 境界）へ。",
+      "target_metric": "mobile_LCP_ms_worst3",
+      "target_delta": "6452/6226/5776 -> <2500 (good)",
+      "baseline": {
+        "source": "psi-batch 2026-07-22〜07-26 mobile (median of 5 daily runs)",
+        "captured_at": "2026-07-26T21:06:47.000Z",
+        "metric": "mobile lab LCP_ms (worst-of-worst3)",
+        "note": "lab LCP はノイズ極大（h26-a 2026〜7201ms・four-management 2101〜6376ms が日次で振れる）。field_data(CrUX) は全ページ p75 797〜822ms=FAST で実害なし。判定は単発でなく複数バッチ中央値のトレンドで行う。",
+        "pages": {
+          "civil-construction-1-primary-r07-a": {
+            "mobile_lcp_ms_median": 5653,
+            "perf_range": "65-71",
+            "field_lcp_p75": 822,
+            "field_cat": "FAST"
+          },
+          "civil-construction-1-guide-strategy": {
+            "mobile_lcp_ms_median": 6001,
+            "perf_range": "65-86",
+            "field_lcp_p75": 822,
+            "field_cat": "FAST"
+          },
+          "civil-construction-1-primary-h26-a": {
+            "mobile_lcp_ms_median": 4890,
+            "perf_range": "57-98",
+            "field_lcp_p75": 822,
+            "field_cat": "FAST"
+          },
+          "civil-construction-1-guide-four-management": {
+            "mobile_lcp_ms_median": 2551,
+            "perf_range": "56-99",
+            "field_lcp_p75": 822,
+            "field_cat": "FAST"
+          }
+        }
+      },
+      "status": "done",
+      "created_at": "2026-06-26T23:07:43.668Z",
+      "started_at": "2026-07-26T21:06:47.000Z",
+      "result": "no-effect",
+      "learnings": "field が FAST な領域で lab 値を target_metric にすると判定不能に陥る。EXP-005 は mobile lab LCP <2500ms を目標にしたが、field(CrUX) p75 は介入前から 822ms=FAST で実害ゼロだった。改善余地の無い指標を 5 週間追いかけた。\nlab LCP は同一ページが 2 日で 1.6 倍振れる（h26-a 5,476→7,501ms / guide-strategy 4,681→2,251ms）。単発値でも n=2 でも方向が定まらず、判定には複数バッチ中央値が要る。\n目標指標は field で設定する。lab は「何が LCP 要素か」の診断に使い、合否判定には使わない（真実源: measurement-incidents.md「2026-07-27 lab と field の判定原則」）。\n介入自体（本文1枚目の図版を eager+fetchpriority=high 化・24本）は害がなく、check-lcp-image-hints が pre-commit ゲートとして残ったので資産になった。実験は no-effect でも副産物は残る。",
+      "closed_at": "2026-08-02T21:43:50.600Z",
+      "actions": [
+        "1. 診断: PSI batch JSON の lcp_element を worst3ページで抽出し LCP要素(text/img/heading)を特定。lab_data の TBT/main-thread を併読",
+        "2. LCP要素が above-fold 画像なら next/image priority+sizes、text block なら render-blocking CSS/JS 除去を検討",
+        "3. 注意: #84 の教訓で RSC への next/dynamic ラッパーは LCP を悪化(+62%)。dynamic import を安易に当てない(memory: dynamic-server-component)",
+        "4. テンプレ共通に1施策適用→まず r07-a で PSI 再計測→改善確認後に横展開",
+        "5. lab PSI で即時判定可(field CrUX を待たない)"
+      ],
+      "history": [
+        {
+          "date": "2026-06-26T23:07:43.668Z",
+          "action": "proposed",
+          "summary": "W26 Must#3。mobile LCP 3-6s が content-heavy docs ページに集中・LCP要素未特定。font/AdSense 後の残LCP を診断起点で。"
+        },
+        {
+          "date": "2026-07-26T21:06:47.000Z",
+          "action": "started",
+          "summary": "W32 Must（4週 proposed を終結）。start-baseline を 07-22〜26 の mobile lab LCP 中央値で確定。lab ノイズ極大・field は全FAST を明記。次アクション=worst3 の LCP要素特定（診断）。"
+        },
+        {
+          "date": "2026-07-26T21:18:16.000Z",
+          "action": "diagnosed_and_intervened",
+          "summary": "LCP要素を Playwright で特定=本文1枚目図版の lazy 読込。24本を eager+fetchpriority=high 化（介入1）。deploy 後に PSI で判定。"
+        },
+        {
+          "date": "2026-08-02T21:40:23.102Z",
+          "action": "measured",
+          "summary": "deploy 後 2 バッチで前後比較。lab mobile LCP は日次で 1.6 倍振れ（h26-a 5476→7501）方向が定まらず n=2 では判定不能。field LCP p75 は 822→826ms で FAST 維持＝実害ゼロ。"
+        },
+        {
+          "date": "2026-08-02T21:43:50.604Z",
+          "action": "closed",
+          "summary": "no-effect で close。field は介入前後とも FAST(822→826ms)＝実害ゼロ、lab はノイズ支配で判定不能。学び=目標指標を field で設定する（lab は診断用）。副産物として check-lcp-image-hints が残存。"
+        }
+      ],
+      "initial_baseline_2026_06_26": {
+        "source": "psi-batch-2026-06-26T17-54-40.json (latest-report.md)",
+        "pages": {
+          "civil-construction-1-primary-r07-a": {
+            "mobile_lcp_ms": 6452,
+            "perf": 68,
+            "cls": 0.051
+          },
+          "civil-construction-1-primary-h26-a": {
+            "mobile_lcp_ms": 6226,
+            "perf": 65
+          },
+          "civil-construction-1-guide-four-management": {
+            "mobile_lcp_ms": 5776,
+            "perf": 69
+          },
+          "civil-construction-1-guide-strategy": {
+            "mobile_lcp_ms": 3265,
+            "perf": 62
+          }
+        },
+        "desktop_note": "同ページ desktop は LCP 0.9-1.5s で good=モバイル固有の問題"
+      },
+      "diagnosis": {
+        "date": "2026-07-26T21:18:16.000Z",
+        "method": "Playwright MCP + PerformanceObserver('largest-contentful-paint', buffered) を本番 doboku-note.com に対しモバイル幅 390x844 で実行",
+        "lcp_element": {
+          "page": "civil-construction-1-primary-r07-a",
+          "element": "IMG /posts/civil-construction-1/primary-r07-a/img/r07-a-fig-01.webp",
+          "position_top_px": 617,
+          "viewport_h_px": 844,
+          "in_fold": true,
+          "attrs_before": "loading=\"lazy\" / fetchpriority=none / next-image=no"
+        },
+        "root_cause": "本文1枚目の図版がモバイルのフォールド内(top 617px < 844px)にあるのに loading=\"lazy\"。低速回線スロットリング下(PSI lab)ではレイアウト確定まで取得が遅延し LCP が 5-7s に伸びる。実ユーザー(field/CrUX)は高速回線のため遅延が顕在化せず p75 822ms=FAST。lab と field の乖離はこれで説明がつく。",
+        "secondary_findings": [
+          "component-loader の img: マップ（loading lazy 強制）はデッドコード。MDX のリテラル JSX <img> は components マップを経由しない（markdown 記法 ![]() のみ経由）。そのため MDX ソース側に loading=\"lazy\" が直書きされている",
+          "guide-four-management / guide-strategy は画像を持たない=LCP はテキストブロック。ページ型で打ち手が異なる（画像系=優先度付け / テキスト系=render-blocking 削減）",
+          "記事ページで /images/hero-home.webp（トップ用hero）を preload しており無駄。A8 計測gif 3件も preload as=image",
+          "PSI API は audits['largest-contentful-paint-element'] を返すが fetch-psi-data.mjs が破棄している（lab_data は numericValue 6指標のみ）"
+        ]
+      },
+      "interventions": [
+        {
+          "date": "2026-07-26T21:18:16.000Z",
+          "n": 1,
+          "change": "フォールド内1枚目の図版 24本を loading=\"lazy\" -> loading=\"eager\" fetchpriority=\"high\"（本文先頭2000文字以内の最初の1枚のみ・2枚目以降は lazy 維持）",
+          "scope": "24 articles (civil-construction-1 primary 17 / concrete-chief-engineer 4 / reference-materials 3)",
+          "verified": "dev サーバーの実レンダリングで eager+fetchpriority=high を確認。SSR(<main>+キーワード)健全",
+          "not_yet": "本番 deploy 前のため lab LCP 改善は未計測。deploy 後の psi-batch で判定する"
+        }
+      ],
+      "pending_user_actions": [
+        {
+          "action": "deploy 後に r07-a の mobile lab LCP を再計測して効果判定",
+          "detail": "/deploy 実行 -> 翌日以降の psi-batch で civil-construction-1-primary-r07-a の lab LCP 中央値を baseline 5653ms と比較",
+          "reference": "docs/reviews/weekly/2026-W31-review.md"
+        }
+      ],
+      "measurement": {
+        "measured_at": "2026-08-02T21:40:23.096Z",
+        "window": "deploy(2026-08-01)後の mobile バッチ 2 日分（08-01/08-02）",
+        "lab_mobile_lcp_median": {
+          "primary-r07-a": {
+            "baseline": 5653,
+            "current": 6262,
+            "note": "08-01:7051 / 08-02:5473 と日次で1.6倍振れる"
+          },
+          "guide-strategy": {
+            "baseline": 6001,
+            "current": 3466,
+            "note": "08-01:4681 / 08-02:2251"
+          },
+          "primary-h26-a": {
+            "baseline": 4890,
+            "current": 6489,
+            "note": "08-01:5476 / 08-02:7501"
+          },
+          "guide-four-management": {
+            "baseline": 2551,
+            "current": 2626,
+            "note": "08-01:2701 / 08-02:2551"
+          }
+        },
+        "field_lcp_p75": {
+          "baseline": 822,
+          "current": "826-827",
+          "category": "FAST（全ページ・変化なし）"
+        },
+        "verdict_draft": "判定不能（lab はノイズ支配・n=2）。field は介入前後とも FAST で実害なし"
+      }
+    },
+    {
+      "id": "EXP-006",
+      "title": "civil-1 textbook 未登録 20 本のインデックス登録リクエスト（crawled-not-indexed への直接レバー）",
+      "hypothesis": "GSC UI CSV(2026-07-30) と URL 検査の実測で、civil-1 textbook 45 本のうち 20 本が「クロール済み - インデックス未登録」。20 本すべて robots ALLOWED・canonical 一致・カテゴリページから直リンク有で技術的阻害はゼロ＝Google の選別のみが原因。同 group の登録済み 25 本は 1 本あたり 13.2 表示/28日を出しているため、登録されれば期待 +264 表示。残る直接レバーは URL 検査からのインデックス登録リクエストなので、これを当てて効果を測る。なお Google はリクエストが登録を保証しないと明言しており、効果が出ない可能性も高い＝どちらでも学びになる設計。",
+      "target_metric": "civil1_textbook_indexed_count",
+      "target_delta": "25/45 -> 35/45（未登録 20 -> 10 以下）",
+      "baseline": {
+        "captured_at": "2026-07-30T06:52:40.494Z",
+        "source": "gsc-ui ssot crawledNotIndexed--allKnownPages (run 2026-07-30T05-51-00Z) + URL 検査 20 件実測",
+        "civil1_textbook_total": 45,
+        "civil1_textbook_not_indexed": 20,
+        "indexed_count": 25,
+        "per_page_impressions_28d_indexed": 13.2,
+        "impressions_from_target_pages_28d": 0,
+        "inspection": "20/20 が state=not-indexed / reason=クロール済み - インデックス未登録 / crawl=true / index=true",
+        "targets": [
+          "civil-construction-1-textbook-building-standards",
+          "civil-construction-1-textbook-demolition",
+          "civil-construction-1-textbook-distance-angle",
+          "civil-construction-1-textbook-explosives-act",
+          "civil-construction-1-textbook-grader-compaction",
+          "civil-construction-1-textbook-labor-standards",
+          "civil-construction-1-textbook-leveling",
+          "civil-construction-1-textbook-loader",
+          "civil-construction-1-textbook-management-subplans",
+          "civil-construction-1-textbook-port-regulations",
+          "civil-construction-1-textbook-river-act",
+          "civil-construction-1-textbook-road-act",
+          "civil-construction-1-textbook-schedule-charts",
+          "civil-construction-1-textbook-schedule-overview",
+          "civil-construction-1-textbook-shovel-excavator",
+          "civil-construction-1-textbook-site-investigation",
+          "civil-construction-1-textbook-surveying-basics",
+          "civil-construction-1-textbook-tractor-bulldozer",
+          "civil-construction-1-textbook-transport-machinery",
+          "civil-construction-1-textbook-work-scheduling"
+        ]
+      },
+      "status": "running",
+      "created_at": "2026-07-30T06:52:40.499Z",
+      "started_at": "2026-07-30T06:52:40.499Z",
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "actions": [
+        "1. npm run search-growth:audit で GSC UI SSOT を取得（1,964 行・完全性 complete=true）",
+        "2. npm run gsc-indexing:check --from-ssot --category civil-construction-1 --group textbook で 20 本を URL 検査（技術的阻害ゼロを確認）",
+        "3. gsc-request-indexing --commit --limit 10 でインデックス登録をリクエスト（日次クォータ配慮で 2 日に分割）",
+        "4. 残り 10 本を翌日リクエスト"
+      ],
+      "next_check_date": "2026-08-27",
+      "measurement_method": "npm run search-growth:audit を再実行し、crawledNotIndexed--allKnownPages の SSOT から civil-1 textbook の未登録数を数える（baseline 20）。併せて gsc-page-query から対象 20 本の 28 日表示合計を見る（baseline 0）。未登録 10 以下で成功、15 以下で partial、変化なしなら『リクエストは crawled-not-indexed に効かない』を学びとして記録し、以後この施策を候補から外す。",
+      "history": [
+        {
+          "date": "2026-07-30T06:52:40.499Z",
+          "action": "started",
+          "summary": "GSC UI 実測で対象 20 本を確定（技術的阻害ゼロ）。リクエストを 10 本ずつ 2 日に分けて送信。next_check 2026-08-27。"
+        },
+        {
+          "date": "2026-07-30T07:07:35.579Z",
+          "action": "intervened",
+          "summary": "20本中10本にインデックス登録リクエストを送信し全件 accepted を実機確認（run 2026-07-30T06-40-03Z）。残り10本は送信上限(--limit 10)で limit-reached＝翌日送信。"
+        }
+      ],
+      "interventions": [
+        {
+          "date": "2026-07-30T07:07:35.582Z",
+          "n": 1,
+          "change": "gsc-request-indexing --commit --limit 10 で 10 本のインデックス登録をリクエスト",
+          "accepted": [
+            "civil-construction-1-textbook-road-act",
+            "civil-construction-1-textbook-demolition",
+            "civil-construction-1-textbook-port-regulations",
+            "civil-construction-1-textbook-leveling",
+            "civil-construction-1-textbook-transport-machinery",
+            "civil-construction-1-textbook-explosives-act",
+            "civil-construction-1-textbook-tractor-bulldozer",
+            "civil-construction-1-textbook-loader",
+            "civil-construction-1-textbook-schedule-overview",
+            "civil-construction-1-textbook-labor-standards"
+          ],
+          "verified": "各 URL で受理文言を確認（accepted 10/10・unconfirmed 0）。記録: .claude/state/metrics/gsc-indexing/requests-latest.json",
+          "not_yet": "残り10本（shovel-excavator, work-scheduling, grader-compaction, river-act, distance-angle, building-standards, surveying-basics, schedule-charts, management-subplans, site-investigation）"
+        }
+      ],
+      "pending_user_actions": [
+        {
+          "action": "残り10本のインデックス登録リクエスト（翌日・日次クォータ回復後）",
+          "detail": "npm run gsc-indexing:request -- --from-ssot --category civil-construction-1 --group textbook --limit 10",
+          "reference": ".claude/state/metrics/gsc-indexing/history.json の limit-reached"
+        }
+      ]
+    },
+    {
+      "id": "EXP-007",
+      "title": "X を1日1本→3本へ増量（型×時間帯スロット A/B/C の設計）",
+      "hypothesis": "自投稿100件の実測でエンゲージ率は競合上位帯（約2.2%）と同水準だが、フォロワーは最下位帯。制約は反応率でなく露出量と判断し、1日1本→3本へ増やす。朝A=linkless（実測で平均が最も高い枠を売り込みで潰さない）/ 昼B=サイト送客（最弱枠は短時間で完結する型）/ 夜C=販売または解説（販売は1日1本・スロットCのみ）。これでプロフィール流入とサイト送客が増え、note/ココナラの成約機会が増える。",
+      "target_metric": "いいね中央値（型×時間帯別）とサイト送客クリック",
+      "target_delta": "時間帯別 median: 朝1 / 夜1 / 昼0.5 を基準に、2週間後に再計測して配置を見直す",
+      "baseline": {
+        "measured_at": "2026-08-13",
+        "posts_sampled": 100,
+        "followers": 91,
+        "like_median_by_slot": {
+          "A(朝)": 1,
+          "C(夜)": 1,
+          "B(昼)": 0.5
+        },
+        "like_avg_by_slot": {
+          "A(朝)": 3.03,
+          "C(夜)": 1.46,
+          "B(昼)": 1
+        },
+        "like_median_by_exam": {
+          "civil-1": 3,
+          "civil-1-2": 2,
+          "civil-2": 2,
+          "pe-comprehensive": 0,
+          "pe-construction": 0
+        },
+        "note": "インプレッション・リプライは agent-reach CLI が返さないため取得不可。いいね0を「誰にも見られていない」と読まないこと。"
+      },
+      "status": "running",
+      "created_at": "2026-08-13T03:51:43.437Z",
+      "started_at": "2026-08-13T03:51:43.454Z",
+      "paused_at": null,
+      "paused_reason": null,
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "actions": [
+        "2026-08-13: policy §11.6 を S2（1日3本）へ更新、§11.2.1 に時間帯スロットを新設",
+        "2026-08-13: 8月増強32本を執筆・投入（8/13-8/31 が1日3本・キュー実在51/51 照合済み）",
+        "2026-08-13: 9月90本を執筆（投入は各週の直前・§11.6 の週次バッチ）"
+      ],
+      "next_check_date": "2026-08-27",
+      "resume_criteria": "npm run x-own-metrics -- --report で型×時間帯の中央値を再計測し、朝/昼/夜の配置と型の割当を見直す。凍結・警告の兆候が1度でも出たら即 S0 へ後退（policy §11.6）。"
+    },
+    {
+      "id": "EXP-008",
+      "title": "キャリア（転職アフィリエイト）を悩み起点の hub→5柱→ツールへ再設計",
+      "hypothesis": "律速は広告の量ではなく転職意図の検索流入がほぼ無いこと。実測で career 記事 38 本すべて GSC クリック 0、記事末は 975 表示 0 クリック。広告を増やすのではなく、悩みから入る hub を作り、記事末の広告を内部導線へ替え、CTA を悩みに一致させ、経験を棚卸しできるツールを持つことで、まず回遊と滞在が増え、その先で affiliate クリックと A8 成果が動く。",
+      "target_metric": "career 記事の GSC クリック / affiliate クリック（GA4 by-placement）/ A8 確定成果",
+      "target_delta": "deploy から 28 日で、career の GSC クリック > 0 かつ本文中間 CTR が 0.41% を下回らない。A8 は確定 3 件未満では案件の勝敗を決めない",
+      "baseline": {
+        "measured_at": "2026-08-21",
+        "window_ga4": "2026-07-16〜2026-08-12",
+        "window_gsc": "2026-07-13〜2026-08-10",
+        "frozen_file": ".claude/state/metrics/affiliate/career-funnel-baseline-2026-08-12.json",
+        "career_articles": 38,
+        "gsc_clicks_all_career": 0,
+        "gsc_impressions_all_career": 14,
+        "high_intent_query": {
+          "impressions": 7,
+          "clicks": 0
+        },
+        "affiliate": {
+          "impressions": 7370,
+          "clicks": 19,
+          "ctr": 0.0025780189959294436
+        },
+        "affiliate_by_placement": {
+          "sidebar": {
+            "impressions": 4056,
+            "clicks": 4
+          },
+          "article-end": {
+            "impressions": 975,
+            "clicks": 0
+          },
+          "article-mid": {
+            "impressions": 967,
+            "clicks": 4
+          },
+          "article-inline": {
+            "impressions": 703,
+            "clicks": 2
+          },
+          "category-sidebar": {
+            "impressions": 589,
+            "clicks": 0
+          },
+          "category-mobile": {
+            "impressions": 61,
+            "clicks": 0
+          },
+          "article-end-mobile": {
+            "impressions": 17,
+            "clicks": 0
+          },
+          "(not set)": {
+            "impressions": 0,
+            "clicks": 9
+          },
+          "category-career-section": {
+            "impressions": 2,
+            "clicks": 0
+          }
+        },
+        "a8_all_time": {
+          "clicks": 140,
+          "conversions": 1,
+          "approved": 0,
+          "revenueYen": 0
+        },
+        "note": "GA4 と GSC は窓が一致しない（出所を跨いで割らない）。cta_placement は 2026-07-25 作成で、窓の始端 07-16 までの 9 日分は (not set)＝遡及不可であり配線欠落ではない。"
+      },
+      "status": "running",
+      "created_at": "2026-08-21T06:30:00.000Z",
+      "started_at": "2026-08-21T06:58:24.000Z",
+      "paused_at": null,
+      "paused_reason": null,
+      "result": null,
+      "learnings": null,
+      "closed_at": null,
+      "actions": [
+        "2026-08-21: Phase 01 基線レポート（npm run report-career-funnel）を新設し基線を凍結",
+        "2026-08-21: Phase 02 キャリア hub 新設・hub↔5柱 双方向・柱へ未接続 13→0・サービス比較を公表値の横並びへ",
+        "2026-08-21: Phase 03 悩み別 CTA（career-pathways.ts）・キャリア記事の記事末 affiliate を内部導線へ・career_need_select 配線",
+        "2026-08-21: Phase 05 /tools/career-check（選択式のみ・個人情報を持たない・緊急時は公的窓口）",
+        "2026-08-21: 本番 deploy 完了（main 42deb5f2a / run 32456590522）。28 日クロック開始＝再計測は 2026-09-18"
+      ],
+      "pending_user_actions": [
+        {
+          "action": "deploy から 28 日後に npm run report-career-funnel を再実行し、凍結した基線と比較する"
+        },
+        {
+          "action": "A8 の月次成果を取り込む（npm run a8-ui:fetch -- --month YYYY-MM／要ログイン）。確定 3 件未満では案件の勝敗を決めない"
+        }
+      ],
+      "next_check_date": "2026-09-18",
+      "resume_criteria": "deploy 後に started_at と next_check_date（deploy+28日）を入れて status=running へ。再計測は npm run report-career-funnel。判定は cta_placement 作成日（2026-07-25）以降の窓で行う。実装の詳細は git 履歴（2026-08-21 のキャリアファネル再設計コミット群）、恒久ルールは affiliate-operations.md。 close 時に note キャリア L2 を作るかを判断する（GSC クリックが 0 から動き hub→柱 の遷移が観測できたときだけ作る。前提は DN-0101 の完了。判断の根拠は affiliate-operations.md「note キャリア L2 は『先に作らない』」）。"
+    }
+  ]
+}

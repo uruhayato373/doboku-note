@@ -1,0 +1,115 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="4P分析（売り手視点）と4C分析（買い手視点）の4要素対応関係を2カラムで並べた図">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-col    { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 11px; fill: #8a8a8a; }
+      .t-main   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-en     { font-size: 11px; fill: #555; }
+      .t-note   { font-size: 11px; fill: #555; }
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-brand  { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive    { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .badge-positive  { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow-r" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+    <marker id="arrow-l" markerWidth="9" markerHeight="7" refX="1" refY="3.5" orient="auto">
+      <polygon points="9,0 0,3.5 9,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- 列ヘッダー -->
+  <!-- 4P列ヘッダー x=12 w=152 -->
+  <rect class="box-brand" x="12" y="12" width="152" height="36" rx="6"/>
+  <text class="t-col" x="88" y="26" text-anchor="middle">4P分析</text>
+  <text class="t-sub" x="88" y="42" text-anchor="middle">売り手視点</text>
+
+  <!-- 中央ラベル -->
+  <text class="t-sub" x="200" y="30" text-anchor="middle">⟷</text>
+
+  <!-- 4C列ヘッダー x=236 w=152 -->
+  <rect class="box-positive" x="236" y="12" width="152" height="36" rx="6"/>
+  <text class="t-col" x="312" y="26" text-anchor="middle">4C分析</text>
+  <text class="t-sub" x="312" y="42" text-anchor="middle">買い手視点</text>
+
+  <!-- 軸補足 -->
+  <text class="t-sub" x="200" y="60" text-anchor="middle">マーケティング・ミックスの売り手視点と買い手視点</text>
+
+  <!-- ======== 行1: 製品 / 顧客価値 ======== -->
+  <rect class="box-brand" x="12" y="76" width="152" height="72" rx="6"/>
+  <circle class="badge-brand" cx="36" cy="110" r="14"/>
+  <text style="font-size:12px;font-weight:bold;fill:#2e6da4" x="36" y="115" text-anchor="middle">1</text>
+  <text class="t-main" x="58" y="100">製品</text>
+  <text class="t-en"   x="58" y="116">Product</text>
+  <text class="t-note" x="58" y="132">何を提供するか</text>
+
+  <line x1="167" y1="112" x2="233" y2="112" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow-l)" marker-end="url(#arrow-r)"/>
+
+  <rect class="box-positive" x="236" y="76" width="152" height="72" rx="6"/>
+  <circle class="badge-positive" cx="260" cy="110" r="14"/>
+  <text style="font-size:12px;font-weight:bold;fill:#3a7d44" x="260" y="115" text-anchor="middle">1</text>
+  <text class="t-main" x="282" y="100">顧客価値</text>
+  <text class="t-en"   x="282" y="116">Customer Value</text>
+  <text class="t-note" x="282" y="132">顧客が得る便益</text>
+
+  <!-- ======== 行2: 価格 / コスト ======== -->
+  <rect class="box-brand" x="12" y="162" width="152" height="72" rx="6"/>
+  <circle class="badge-brand" cx="36" cy="196" r="14"/>
+  <text style="font-size:12px;font-weight:bold;fill:#2e6da4" x="36" y="201" text-anchor="middle">2</text>
+  <text class="t-main" x="58" y="186">価格</text>
+  <text class="t-en"   x="58" y="202">Price</text>
+  <text class="t-note" x="58" y="218">売り手の設定価格</text>
+
+  <line x1="167" y1="198" x2="233" y2="198" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow-l)" marker-end="url(#arrow-r)"/>
+
+  <rect class="box-positive" x="236" y="162" width="152" height="72" rx="6"/>
+  <circle class="badge-positive" cx="260" cy="196" r="14"/>
+  <text style="font-size:12px;font-weight:bold;fill:#3a7d44" x="260" y="201" text-anchor="middle">2</text>
+  <text class="t-main" x="282" y="186">コスト</text>
+  <text class="t-en"   x="282" y="202">Cost</text>
+  <text class="t-note" x="282" y="218">顧客の負担総額</text>
+
+  <!-- ======== 行3: 流通 / 利便性 ======== -->
+  <rect class="box-brand" x="12" y="248" width="152" height="72" rx="6"/>
+  <circle class="badge-brand" cx="36" cy="282" r="14"/>
+  <text style="font-size:12px;font-weight:bold;fill:#2e6da4" x="36" y="287" text-anchor="middle">3</text>
+  <text class="t-main" x="58" y="272">流通</text>
+  <text class="t-en"   x="58" y="288">Place</text>
+  <text class="t-note" x="58" y="304">販売チャネル・場所</text>
+
+  <line x1="167" y1="284" x2="233" y2="284" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow-l)" marker-end="url(#arrow-r)"/>
+
+  <rect class="box-positive" x="236" y="248" width="152" height="72" rx="6"/>
+  <circle class="badge-positive" cx="260" cy="282" r="14"/>
+  <text style="font-size:12px;font-weight:bold;fill:#3a7d44" x="260" y="287" text-anchor="middle">3</text>
+  <text class="t-main" x="282" y="272">利便性</text>
+  <text class="t-en"   x="282" y="288">Convenience</text>
+  <text class="t-note" x="282" y="304">入手のしやすさ</text>
+
+  <!-- ======== 行4: プロモーション / コミュニケーション ======== -->
+  <rect class="box-brand" x="12" y="334" width="152" height="72" rx="6"/>
+  <circle class="badge-brand" cx="36" cy="368" r="14"/>
+  <text style="font-size:12px;font-weight:bold;fill:#2e6da4" x="36" y="373" text-anchor="middle">4</text>
+  <text class="t-main" x="58" y="358">プロモーション</text>
+  <text class="t-en"   x="58" y="374">Promotion</text>
+  <text class="t-note" x="58" y="390">売り手からの発信</text>
+
+  <line x1="167" y1="370" x2="233" y2="370" stroke="#8a8a8a" stroke-width="1.5" marker-start="url(#arrow-l)" marker-end="url(#arrow-r)"/>
+
+  <rect class="box-positive" x="236" y="334" width="152" height="72" rx="6"/>
+  <circle class="badge-positive" cx="260" cy="368" r="14"/>
+  <text style="font-size:12px;font-weight:bold;fill:#3a7d44" x="260" y="373" text-anchor="middle">4</text>
+  <text class="t-main" x="312" y="358" text-anchor="middle">コミュニケーション</text>
+  <text class="t-en"   x="312" y="374" text-anchor="middle">Communication</text>
+  <text class="t-note" x="282" y="390">双方向の対話</text>
+
+  <!-- フッター -->
+  <rect x="12" y="420" width="376" height="64" rx="5" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-note" x="200" y="438" text-anchor="middle" font-weight="bold" fill="#1a3a5c">視点の転換</text>
+  <text class="t-note" x="200" y="454" text-anchor="middle">4Pは売り手のマーケティング設計視点</text>
+  <text class="t-note" x="200" y="470" text-anchor="middle">4Cは買い手の受益視点に対応する</text>
+  <text class="t-note" x="200" y="486" text-anchor="middle">顧客志向の戦略では4Cでの検証が重要</text>
+</svg>

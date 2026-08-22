@@ -1,0 +1,432 @@
+{
+  "version": 1,
+  "cycle": 0,
+  "started_at": null,
+  "pages": {
+    "guide-concrete-key-points": {
+      "status": "verified",
+      "history": [
+        {
+          "date": "2026-04-20T11:39:36.817Z",
+          "action": "rewritten",
+          "wave": "W1",
+          "applied_patterns": [
+            "G",
+            "R"
+          ],
+          "added_sections": [
+            "参考資料"
+          ],
+          "converted_tables": 11,
+          "migrated_images": 0,
+          "before_chars": 9632,
+          "after_chars": 10337,
+          "added_chars": 705,
+          "lint_high_before": 4,
+          "lint_high_after": 0,
+          "lint_medium_before": 55,
+          "lint_medium_after": 7,
+          "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 2.55,
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 2,
+            "figures": 3,
+            "reference": 2
+          }
+        }
+      ]
+    },
+    "guide-concrete-maintenance": {
+      "status": "verified",
+      "history": [
+        {
+          "date": "2026-04-20T11:39:36.817Z",
+          "action": "rewritten",
+          "wave": "W1",
+          "applied_patterns": [
+            "G",
+            "R"
+          ],
+          "added_sections": [
+            "参考資料"
+          ],
+          "converted_tables": 10,
+          "migrated_images": 0,
+          "before_chars": 9490,
+          "after_chars": 10358,
+          "added_chars": 868,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 58,
+          "lint_medium_after": 0,
+          "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 2.85,
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 2,
+            "reference": 3
+          }
+        }
+      ]
+    },
+    "guide-earthwork-key-points": {
+      "status": "verified",
+      "history": [
+        {
+          "date": "2026-04-20T11:39:36.817Z",
+          "action": "rewritten",
+          "wave": "W1",
+          "applied_patterns": [
+            "G",
+            "R"
+          ],
+          "added_sections": [
+            "参考資料"
+          ],
+          "converted_tables": 9,
+          "migrated_images": 0,
+          "before_chars": 9513,
+          "after_chars": 10895,
+          "added_chars": 1382,
+          "lint_high_before": 2,
+          "lint_high_after": 0,
+          "lint_medium_before": 47,
+          "lint_medium_after": 6,
+          "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 2.5,
+          "scores": {
+            "structure": 3,
+            "principle": 2,
+            "mobile": 2,
+            "figures": 3,
+            "reference": 3
+          }
+        }
+      ]
+    },
+    "guide-four-management": {
+      "status": "verified",
+      "history": [
+        {
+          "date": "2026-04-20T11:39:36.817Z",
+          "action": "rewritten",
+          "wave": "W1",
+          "applied_patterns": [
+            "G",
+            "R"
+          ],
+          "added_sections": [
+            "参考資料"
+          ],
+          "converted_tables": 10,
+          "migrated_images": 0,
+          "before_chars": 10430,
+          "after_chars": 12579,
+          "added_chars": 2149,
+          "lint_high_before": 8,
+          "lint_high_after": 0,
+          "lint_medium_before": 52,
+          "lint_medium_after": 0,
+          "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 3,
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          }
+        }
+      ]
+    },
+    "guide-law-key-points": {
+      "status": "verified",
+      "history": [
+        {
+          "date": "2026-04-20T11:39:36.817Z",
+          "action": "rewritten",
+          "wave": "W1",
+          "applied_patterns": [
+            "G",
+            "R"
+          ],
+          "added_sections": [
+            "参考資料"
+          ],
+          "converted_tables": 17,
+          "migrated_images": 0,
+          "before_chars": 8661,
+          "after_chars": 10622,
+          "added_chars": 1961,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 24,
+          "lint_medium_after": 0,
+          "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 3,
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          }
+        }
+      ]
+    },
+    "guide-strategy": {
+      "status": "verified",
+      "history": [
+        {
+          "date": "2026-04-20T11:39:36.817Z",
+          "action": "rewritten",
+          "wave": "W1",
+          "applied_patterns": [
+            "G",
+            "R"
+          ],
+          "added_sections": [
+            "参考資料"
+          ],
+          "converted_tables": 14,
+          "migrated_images": 0,
+          "before_chars": 6934,
+          "after_chars": 7740,
+          "added_chars": 806,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 48,
+          "lint_medium_after": 0,
+          "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 3,
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          }
+        }
+      ]
+    },
+    "textbook-explosives-act": {
+      "status": "verified",
+      "history": [
+        {
+          "date": "2026-04-20T11:39:36.817Z",
+          "action": "rewritten",
+          "wave": "W1",
+          "applied_patterns": [
+            "R"
+          ],
+          "added_sections": [
+            "参考資料"
+          ],
+          "converted_tables": 0,
+          "migrated_images": 0,
+          "before_chars": 15456,
+          "after_chars": 16475,
+          "added_chars": 1019,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 0,
+          "lint_medium_after": 0,
+          "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 3,
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          }
+        }
+      ]
+    },
+    "textbook-law-compliance": {
+      "status": "verified",
+      "history": [
+        {
+          "date": "2026-04-20T11:39:36.817Z",
+          "action": "rewritten",
+          "wave": "W1",
+          "applied_patterns": [
+            "R"
+          ],
+          "added_sections": [
+            "参考資料"
+          ],
+          "converted_tables": 0,
+          "migrated_images": 0,
+          "before_chars": 3099,
+          "after_chars": 4326,
+          "added_chars": 1227,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 0,
+          "lint_medium_after": 0,
+          "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 3,
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          }
+        }
+      ]
+    },
+    "textbook-standard-contract": {
+      "status": "verified",
+      "history": [
+        {
+          "date": "2026-04-20T11:39:36.817Z",
+          "action": "rewritten",
+          "wave": "W1",
+          "applied_patterns": [
+            "R"
+          ],
+          "added_sections": [
+            "参考資料"
+          ],
+          "converted_tables": 0,
+          "migrated_images": 0,
+          "before_chars": 0,
+          "after_chars": 0,
+          "added_chars": 0,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 0,
+          "lint_medium_after": 0,
+          "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 2.85,
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 2,
+            "reference": 3
+          }
+        }
+      ]
+    },
+    "textbook-surveying-basics": {
+      "status": "verified",
+      "history": [
+        {
+          "date": "2026-04-20T11:39:36.817Z",
+          "action": "rewritten",
+          "wave": "W1",
+          "applied_patterns": [
+            "R"
+          ],
+          "added_sections": [
+            "参考資料"
+          ],
+          "converted_tables": 0,
+          "migrated_images": 0,
+          "before_chars": 2891,
+          "after_chars": 3424,
+          "added_chars": 533,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 0,
+          "lint_medium_after": 0,
+          "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 3,
+          "scores": {
+            "structure": 3,
+            "principle": 3,
+            "mobile": 3,
+            "figures": 3,
+            "reference": 3
+          }
+        }
+      ]
+    },
+    "textbook-quality-overview": {
+      "status": "verified",
+      "history": [
+        {
+          "date": "2026-04-20T11:39:36.817Z",
+          "action": "rewritten",
+          "wave": "W1",
+          "applied_patterns": [
+            "P",
+            "R"
+          ],
+          "added_sections": [
+            "参考資料"
+          ],
+          "converted_tables": 0,
+          "migrated_images": 0,
+          "before_chars": 11344,
+          "after_chars": 11181,
+          "added_chars": -163,
+          "lint_high_before": 0,
+          "lint_high_after": 0,
+          "lint_medium_before": 0,
+          "lint_medium_after": 0,
+          "mojibake": false
+        },
+        {
+          "date": "2026-04-25T07:05:40.433Z",
+          "action": "verified",
+          "weighted": 2.5,
+          "scores": {
+            "structure": 3,
+            "principle": 2,
+            "mobile": 2,
+            "figures": 3,
+            "reference": 3
+          }
+        }
+      ]
+    }
+  }
+}

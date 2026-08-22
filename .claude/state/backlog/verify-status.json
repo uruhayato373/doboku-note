@@ -1,0 +1,22 @@
+{
+  "_doc": "check-backlog-verify が前回の status を覚えておくための状態。red → green の遷移だけが「完了の疑い」で、常時 green は [検証:] の指定が完了判定になっていない疑い（surfacer を指している）。",
+  "updatedAt": "2026-08-20",
+  "commands": {
+    "check-note-attachments": {
+      "status": "red",
+      "at": "2026-08-20"
+    },
+    "check-gsc-auto-review": {
+      "status": "green",
+      "at": "2026-08-20"
+    },
+    "knip": {
+      "status": "red",
+      "at": "2026-08-20"
+    },
+    "check-ogp-line-count:done": {
+      "status": "red",
+      "at": "2026-08-20"
+    }
+  }
+}

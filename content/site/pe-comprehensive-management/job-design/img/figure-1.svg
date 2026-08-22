@@ -1,0 +1,79 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="職務設計の5つの中核的職務特性。技能の多様性・仕事の一貫性・仕事の有意味性・自律性・フィードバックの各特性と動機付け効果を示したカード縦並び図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title   { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub     { font-size: 12px; fill: #555; }
+      .t-num     { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-name    { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-body    { font-size: 13px; fill: #555; }
+      .t-tag     { font-size: 11px; fill: #3a7d44; font-weight: bold; }
+      /* brand: card backgrounds */
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      /* positive: effect tag */
+      .tag-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }
+      /* badge circles */
+      .badge { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- サブタイトル：概念名除去・説明のみ残す -->
+  <text class="t-sub" x="200" y="18" text-anchor="middle">すべての職務はこの5特性で表現できる</text>
+
+  <!-- ========== Card 1: 技能の多様性 ========== -->
+  <rect class="box-brand" x="20" y="26" width="360" height="82" rx="8"/>
+  <!-- badge -->
+  <circle class="badge" cx="50" cy="67" r="16"/>
+  <text class="t-num" x="50" y="72" text-anchor="middle">1</text>
+  <!-- name -->
+  <text class="t-name" x="78" y="53">技能の多様性</text>
+  <!-- body -->
+  <text class="t-body" x="78" y="72">活用できる技能・知識が多様なほど</text>
+  <text class="t-body" x="78" y="88">仕事を有意義と感じる</text>
+  <!-- effect tag -->
+  <rect class="tag-positive" x="263" y="90" width="105" height="18" rx="4"/>
+  <text class="t-tag" x="315" y="103" text-anchor="middle">有意義感の向上</text>
+
+  <!-- ========== Card 2: 仕事の一貫性 ========== -->
+  <rect class="box-brand" x="20" y="116" width="360" height="82" rx="8"/>
+  <circle class="badge" cx="50" cy="157" r="16"/>
+  <text class="t-num" x="50" y="162" text-anchor="middle">2</text>
+  <text class="t-name" x="78" y="143">仕事の一貫性</text>
+  <text class="t-body" x="78" y="162">仕事全体のうち自分がどれだけ完結</text>
+  <text class="t-body" x="78" y="178">させられたかを感じる</text>
+  <rect class="tag-positive" x="263" y="180" width="105" height="18" rx="4"/>
+  <text class="t-tag" x="315" y="193" text-anchor="middle">達成感の向上</text>
+
+  <!-- ========== Card 3: 仕事の有意味性 ========== -->
+  <rect class="box-brand" x="20" y="206" width="360" height="82" rx="8"/>
+  <circle class="badge" cx="50" cy="247" r="16"/>
+  <text class="t-num" x="50" y="252" text-anchor="middle">3</text>
+  <text class="t-name" x="78" y="233">仕事の有意味性</text>
+  <text class="t-body" x="78" y="252">自分の仕事が他者の幸福にどれだけ</text>
+  <text class="t-body" x="78" y="268">役立つかを知覚する</text>
+  <rect class="tag-positive" x="263" y="270" width="105" height="18" rx="4"/>
+  <text class="t-tag" x="315" y="283" text-anchor="middle">社会的意義の実感</text>
+
+  <!-- ========== Card 4: 自律性 ========== -->
+  <rect class="box-brand" x="20" y="296" width="360" height="82" rx="8"/>
+  <circle class="badge" cx="50" cy="337" r="16"/>
+  <text class="t-num" x="50" y="342" text-anchor="middle">4</text>
+  <text class="t-name" x="78" y="323">自律性</text>
+  <text class="t-body" x="78" y="342">スケジュール・手順への自由裁量が</text>
+  <text class="t-body" x="78" y="358">大きいほど責任感が高まる</text>
+  <rect class="tag-positive" x="263" y="360" width="105" height="18" rx="4"/>
+  <text class="t-tag" x="315" y="373" text-anchor="middle">責任感の向上</text>
+
+  <!-- ========== Card 5: フィードバック ========== -->
+  <rect class="box-brand" x="20" y="386" width="360" height="82" rx="8"/>
+  <circle class="badge" cx="50" cy="427" r="16"/>
+  <text class="t-num" x="50" y="432" text-anchor="middle">5</text>
+  <text class="t-name" x="78" y="413">フィードバック</text>
+  <text class="t-body" x="78" y="432">仕事の成果について明確・直接的な</text>
+  <text class="t-body" x="78" y="448">情報を受け取れる仕組みがある</text>
+  <rect class="tag-positive" x="263" y="450" width="105" height="18" rx="4"/>
+  <text class="t-tag" x="315" y="463" text-anchor="middle">動機付けの向上</text>
+
+  <!-- footer note -->
+  <text style="font-size:11px;fill:#8a8a8a;" x="200" y="490" text-anchor="middle">特性1〜3 → 有意義感、特性4 → 責任感、特性5 → 成果認知</text>
+</svg>

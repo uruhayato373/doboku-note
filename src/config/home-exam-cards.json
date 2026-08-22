@@ -1,0 +1,100 @@
+[
+  {
+    "slug": "civil-construction-1",
+    "order": 1,
+    "label": "1級土木施工管理技士",
+    "en": "CCCE Grade 1",
+    "subtitle": "第1次・第2次検定 完全対策",
+    "description": "土木工事の施工計画・品質管理・安全管理を体系的に整理。過去問題、キーワード解説、記述式の要点を収録。",
+    "nextExam": "2026年7月 第1次 / 10月 第2次",
+    "stats": [
+      { "label": "記事", "total": true },
+      { "label": "過去問", "groups": ["primary", "secondary"], "tags": ["past-questions"] },
+      { "label": "教科書", "groups": ["textbook"], "tags": ["textbook"] }
+    ]
+  },
+  {
+    "slug": "civil-construction-2",
+    "order": 2,
+    "label": "2級土木施工管理技士",
+    "en": "CCCE Grade 2",
+    "subtitle": "第1次・第2次検定 完全対策（前期・後期2回開催）",
+    "description": "受験資格緩和後の若手技術者向け。令和3年度〜7年度 過去問解説、経験記述ガイド、分野別の基礎ポイントを収録。",
+    "nextExam": "2026年6月 前期 / 10月 後期・第2次",
+    "stats": [
+      { "label": "記事", "total": true },
+      { "label": "過去問", "groups": ["primary", "secondary"], "tags": ["past-questions"] },
+      { "label": "ガイド", "groups": ["guide"], "tags": ["guide"] }
+    ]
+  },
+  {
+    "slug": "pe-first-stage",
+    "order": 3,
+    "label": "技術士 第一次試験",
+    "en": "PE First Stage",
+    "subtitle": "適性・基礎・専門（建設部門）過去問（R元〜R7）",
+    "description": "技術士第二次試験の前提となる第一次試験対策。令和元〜7年度の適性科目・基礎科目・専門科目（建設部門）の過去問を年度別・科目別に収録し、頻出論点と出題範囲を体系的に整理。",
+    "nextExam": "2026年11月（予定）",
+    "stats": [
+      { "label": "過去問", "groups": ["primary"], "tags": ["past-questions"] },
+      { "label": "年度", "distinctYear": true },
+      { "label": "科目", "value": "3" }
+    ]
+  },
+  {
+    "slug": "pe-construction",
+    "order": 4,
+    "label": "技術士（建設部門）",
+    "en": "PE Civil Engineering",
+    "subtitle": "必須・選択11科目 記述式 過去問（R元〜R7）",
+    "description": "技術士第二次試験 建設部門の必須科目・選択科目11科目（道路・河川砂防・都市計画・土質・鋼コン・施工計画ほか）の記述式 過去問を年度別・科目別に収録。出題テーマの論点キーワードと論文の書き方も整理。",
+    "nextExam": "2026年7月 筆記",
+    "stats": [
+      { "label": "記事", "total": true },
+      { "label": "過去問", "groups": ["past-exam"], "tags": ["past-questions"] },
+      { "label": "ガイド", "groups": ["guide"], "tags": ["guide"] }
+    ]
+  },
+  {
+    "slug": "pe-comprehensive-management",
+    "order": 5,
+    "label": "技術士（総合技術監理部門）",
+    "en": "PE Comprehensive Management",
+    "subtitle": "筆記・口頭試験 論文対策",
+    "description": "5つの管理技術（経済性・人的資源・情報・安全・社会環境）のキーワード集。各概念の定義・要点・過去問リンクを収録。",
+    "nextExam": "2026年7月 筆記 / 12月 口頭",
+    "stats": [
+      { "label": "記事", "total": true },
+      { "label": "キーワード", "groups": ["keyword"], "tags": ["keyword"] },
+      { "label": "過去問", "groups": ["pastExam"], "tags": ["past-questions"] }
+    ]
+  },
+  {
+    "slug": "concrete-chief-engineer",
+    "order": 6,
+    "label": "コンクリート主任技士",
+    "en": "JCI Senior Concrete Engineer",
+    "subtitle": "四肢択一・小論文 完全対策",
+    "description": "材料・配合設計・施工・耐久性・品質管理など8分野を体系整理。分野別の過去問解説・テキスト・小論文対策を収録。",
+    "nextExam": "2026年11月（予定）",
+    "stats": [
+      { "label": "記事", "total": true },
+      { "label": "過去問", "groups": ["primary"], "tags": ["past-questions"] },
+      { "label": "テキスト", "groups": ["textbook"], "tags": [] }
+    ]
+  },
+  {
+    "slug": "concrete-diagnostician",
+    "order": 7,
+    "label": "コンクリート診断士",
+    "en": "JCI Concrete Diagnosis Engineer",
+    "subtitle": "四肢択一・記述式 完全対策",
+    "description": "変状・劣化機構・調査・評価・補修補強・維持管理の6分野を体系整理。分野別テキストと四肢択一の演習問題98問、記述式対策を収録。",
+    "nextExam": "2027年7月（予定）",
+    "stats": [
+      { "label": "記事", "total": true },
+      { "label": "演習問題", "groups": ["primary"], "tags": [] },
+      { "label": "テキスト", "groups": ["textbook"], "tags": [] }
+    ]
+  }
+]

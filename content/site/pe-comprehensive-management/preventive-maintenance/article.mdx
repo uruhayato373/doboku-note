@@ -1,0 +1,119 @@
+---
+title: 予防保全
+description: "予防保全の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.6'
+tags:
+  - 総合技術監理
+  - keyword
+published: true
+publishedAt: '2026-04-08'
+reviewStatus: approved
+lastRewrittenAt: '2026-04-15'
+revisionCycle: 1
+seoTitle: "予防保全 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-06-23
+---
+
+## 予防保全とは
+
+予防保全とは、設備の故障や性能低下を未然に防止するために、計画的に実施する保全活動の総称である。
+
+PM（Preventive Maintenance）とも呼ばれ、「壊れる前に手を打つ」という考え方に基づく。
+
+予防保全は、定期保全（TBM：時間基準保全）と予知保全（CBM：状態基準保全）の2つの下位方式から構成される。
+
+### 予防保全の体系
+
+予防保全は、保全の契機が「時間」か「設備の状態」かによって2つの方式に分かれる。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/preventive-maintenance/img/figure-2.svg"
+  alt="定期保全（TBM）と予知保全（CBM）の比較"
+/>
+
+**定期保全**（TBM: Time Based Maintenance）
+
+- 保全の契機: 時間・使用量（暦・運転時間）
+- 特徴: 周期的に部品交換・整備を実施
+- 長所: 計画が立てやすい
+- 短所: まだ使える部品を交換する無駄が生じやすい
+
+**予知保全**（CBM: Condition Based Maintenance）
+
+- 保全の契機: 設備の状態（劣化の兆候）
+- 特徴: 状態監視により最適タイミングで実施
+- 長所: 部品の残存寿命を最大限に活用できる
+- 短所: 状態監視の仕組みに初期投資が必要
+
+実際の設備管理では、設備の重要度やコスト、監視技術の可否に応じて両方式を使い分ける。
+
+### 設備保全の全体体系
+
+設備保全は、現状機能を維持する **維持活動** と、信頼性・保全性そのものを向上させる **改善活動** に大別される。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/preventive-maintenance/img/figure-1.svg"
+  alt="設備保全の全体体系"
+/>
+
+**維持活動**（現状機能の維持・回復を目的とする）
+
+- **予防保全**（PM: Preventive Maintenance）: 壊れる前に保全する。定期保全と予知保全から構成される
+- **事後保全**（BM: Breakdown Maintenance）: 壊れてから修復する
+
+**改善活動**（信頼性・保全性そのものの向上を目的とする）
+
+- **改良保全**（CM: Corrective Maintenance）: 故障しにくい設備に改善する
+- **保全予防**（MP: Maintenance Prevention）: 設計段階から保全しやすく作る
+
+### JIS Z 8115 の予防保全分類
+
+予防保全は JIS Z 8141 では定期保全（TBM）と予知保全（CBM）の 2 つに分類されるが、JIS Z 8115（ディペンダビリティ用語）ではより細かい分類が示されている。総監試験ではこれらの用語も問われる。
+
+- **日常保全**（JIS Z 8141 でも定義）: 設備の性能劣化を防止する日常的な活動。劣化進行速度を緩やかにするための諸活動の総称
+- **経時保全**: 累積動作時間が予定値に達したときに行う予防保全
+- **状態監視保全**: 状態監視に基づく予防保全（CBM と同義）
+- **時間計画保全**: 定められた時間計画に従って遂行される予防保全（TBM と同義）
+
+IoT を活用した設備では「状態監視保全」が普及しており、3 交代運転や自動化プラントでは「日常保全」「時間計画保全」が基本運用となる。
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**2.6 設備管理**](/docs/pe-comprehensive-management-keyword-2026#26-設備管理)に位置づけられる。
+
+予防保全は設備保全の体系における中核概念であり、[事後保全](/docs/pe-comprehensive-management-corrective-maintenance)・[改良保全](/docs/pe-comprehensive-management-improvement-maintenance)・[保全予防](/docs/pe-comprehensive-management-maintenance-prevention)と合わせて保全方式の全体像を構成する。下位方式である[定期保全](/docs/pe-comprehensive-management-periodic-maintenance)と[予知保全](/docs/pe-comprehensive-management-predictive-maintenance)は、それぞれ時間基準と状態基準という異なる契機で機能する。
+
+保全方式の選択には [バスタブカーブ](/docs/pe-comprehensive-management-bathtub-curve) の理解が前提となる。摩耗故障期には定期保全が、偶発故障期には予知保全や事後保全が合理的となる。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/preventive-maintenance/img/figure-3.svg"
+  alt="バスタブ曲線：初期故障期・偶発故障期・摩耗故障期と保全戦略"
+/>
+
+TPM（全員参加の生産保全）活動では、専門保全部門による計画保全（予防保全の実践）と、[自主保全](/docs/pe-comprehensive-management-autonomous-maintenance)（運転者による日常保全）の両立が求められる。過去問 [R04 Ⅰ-1-4](/docs/pe-comprehensive-management-r04-primary#1-4) では 4 種の保全（予防・[予知](/docs/pe-comprehensive-management-predictive-maintenance)・[改良](/docs/pe-comprehensive-management-improvement-maintenance)・[保全予防](/docs/pe-comprehensive-management-maintenance-prevention)）の定義区別が問われ、予防保全は **故障前に計画的に実施する維持活動** として位置づけられた。過去問 [R02 Ⅰ-1-8](/docs/pe-comprehensive-management-r02-primary#1-8) では改善活動（改良保全・保全予防）と維持活動（予防保全・事後保全）の分類が問われ、予防保全は [事後保全](/docs/pe-comprehensive-management-corrective-maintenance) とともに維持活動に分類される 点が正答論点となった。
+
+<ExamPoint
+  summary="予防保全（PM）＝定期保全（TBM）＋予知保全（CBM）の体系を正確に理解する"
+  items={[
+    "予防保全は「壊れる前」、事後保全は「壊れてから」の保全方式",
+    "維持活動（予防保全＋事後保全）と改善活動（改良保全＋保全予防）の分類を混同しない",
+    "バスタブカーブの摩耗故障期には定期保全、偶発故障期には予知保全が有効",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "事後保全", slug: "corrective-maintenance" },
+  { label: "改良保全", slug: "improvement-maintenance" },
+  { label: "保全予防", slug: "maintenance-prevention" },
+  { label: "予知保全", slug: "predictive-maintenance" },
+  { label: "設備総合効率", slug: "overall-equipment-effectiveness" },
+]} />
+
+## 参考資料
+
+- [バスタブ曲線（信頼度曲線）](https://anzeninfo.mhlw.go.jp/yougo/yougo59_1.html)（厚生労働省「職場のあんぜんサイト」）
+- [予防保全・予知保全・事後保全は何が違う？](https://tebiki.jp/genba/useful/preventive-maintenance)（tebiki 現場改善ラボ）

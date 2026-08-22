@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="騒音・振動規制の構造。都道府県知事等が指定した指定地域の中で、政令で定める特定建設作業を対象に、工事現場の敷地境界線で騒音85デシベル・振動75デシベルの規制基準がかかる、という3段の絞り込み">
+  <text x="200" y="24" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">指定地域 → 特定建設作業 → 敷地境界 騒音85dB・振動75dB</text>
+
+  <!-- 段1 指定地域 -->
+  <rect x="40" y="44" width="320" height="88" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="68" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c">1. 指定地域</text>
+  <text x="200" y="90" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">都道府県知事（市の区域は市長）が指定</text>
+  <text x="200" y="110" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">住民の生活環境を保全する必要がある地域</text>
+
+  <line x1="200" y1="132" x2="200" y2="156" stroke="#8a8a8a" stroke-width="2"/>
+  <path d="M200 162 l-6 -8 h12 z" fill="#8a8a8a"/>
+
+  <!-- 段2 特定建設作業 -->
+  <rect x="40" y="162" width="320" height="100" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="186" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c">2. 特定建設作業</text>
+  <text x="200" y="208" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">著しい騒音・振動を出す政令指定の作業</text>
+  <text x="200" y="228" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">騒音8種類・振動4種類</text>
+  <text x="200" y="248" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">2日以上にわたる作業（当日限りは除く）</text>
+
+  <line x1="200" y1="262" x2="200" y2="286" stroke="#8a8a8a" stroke-width="2"/>
+  <path d="M200 292 l-6 -8 h12 z" fill="#8a8a8a"/>
+
+  <!-- 段3 規制基準 -->
+  <rect x="40" y="292" width="320" height="112" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="316" text-anchor="middle" font-family="sans-serif" font-size="13" font-weight="bold" fill="#222">3. 規制基準（敷地の境界線で測定）</text>
+  <rect x="54" y="328" width="140" height="64" rx="5" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+  <text x="124" y="352" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">騒音</text>
+  <text x="124" y="376" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1a3a5c">85dB以下</text>
+  <rect x="206" y="328" width="140" height="64" rx="5" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+  <text x="276" y="352" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">振動</text>
+  <text x="276" y="376" text-anchor="middle" font-family="sans-serif" font-size="16" font-weight="bold" fill="#1a3a5c">75dB以下</text>
+
+  <!-- 注記 -->
+  <rect x="40" y="420" width="320" height="60" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="444" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">元請業者は作業開始の7日前までに市町村長へ届出</text>
+  <text x="200" y="466" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">出典：騒音規制法・振動規制法とその施行令別表</text>
+</svg>

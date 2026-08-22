@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="建設副産物の包含関係。建設副産物のうち有用なものが再生資源、その中で政令指定された土砂・コンクリート塊・アスファルトコンクリート塊・建設発生木材が指定副産物、さらに建設リサイクル法で土砂を除く3品目が特定建設資材廃棄物">
+  <text x="200" y="24" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">建設副産物 ⊃ 再生資源 ⊃ 指定副産物 ⊃ 特定建設資材廃棄物</text>
+
+  <!-- 建設副産物（最外） -->
+  <rect x="20" y="40" width="360" height="330" rx="8" fill="#f5f5f5" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text x="200" y="60" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">建設副産物（工事に伴い副次的に生じた物品）</text>
+  <text x="200" y="76" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">建設汚泥・紙くず・金属くず等を含む</text>
+
+  <!-- 再生資源 -->
+  <rect x="36" y="88" width="328" height="266" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="108" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">再生資源（有用で原材料に利用できるもの）</text>
+
+  <!-- 指定副産物 -->
+  <rect x="52" y="120" width="296" height="218" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="140" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">指定副産物（資源有効利用促進法・政令）</text>
+
+  <!-- 土砂（指定副産物だが特定建設資材ではない） -->
+  <rect x="66" y="152" width="268" height="40" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="200" y="170" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#1a3a5c">土砂（建設発生土）</text>
+  <text x="200" y="186" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">指定副産物だが特定建設資材ではない</text>
+
+  <!-- 特定建設資材廃棄物 -->
+  <rect x="66" y="200" width="268" height="128" rx="6" fill="#e8f0fe" stroke="#1a3a5c" stroke-width="1.5"/>
+  <text x="200" y="219" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">特定建設資材廃棄物（建設リサイクル法）</text>
+  <text x="200" y="234" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">土砂を除く3品目</text>
+
+  <text x="200" y="256" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">コンクリート塊</text>
+  <text x="200" y="278" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">アスファルト・コンクリート塊</text>
+  <text x="200" y="300" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">建設発生木材</text>
+  <text x="200" y="320" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">再資源化等が義務付けられる</text>
+
+  <!-- 注記 -->
+  <rect x="20" y="382" width="360" height="102" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="404" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c">2つの法律で品目数が異なる</text>
+  <text x="200" y="426" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">指定副産物＝4品目（土砂を含む）</text>
+  <text x="200" y="448" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">特定建設資材＝コンクリート・木材・アスコン</text>
+  <text x="200" y="470" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">「コンクリート及び鉄から成る建設資材」を含め4区分</text>
+</svg>

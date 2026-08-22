@@ -1,0 +1,54 @@
+{
+  "_meta": {
+    "purpose": "1級・2級土木 第2次検定 問題1（施工経験記述）の解答欄しきい値。scripts/keiken-charcount.mjs が参照する真実源。級別に分けて管理する（1級と2級で解答欄が異なるため）。",
+    "borderline_tolerance": 0.1,
+    "borderline_note": "maxChars の +10% 以内は『borderline（1行字数の幅で収まる可能性）』として許容、+10%超は要圧縮、×1.3超は大幅超過（物理的に収まらない）。",
+    "grade_detection": "対象 article.md のパスに『2級土木』を含めば civil-2、『1級土木』を含めば civil-1、いずれでもなければ default_grade。",
+    "default_grade": "civil-1",
+    "format_detection": "article 内に **(3) または ###…(3)… の設問(3)マーカーがあれば legacy3、なければ current2。### 記述例 段落は yosou。",
+    "char_count_rule": "答案段落から markdown 装飾(*` )とタグ(<sup>等)・空白を除いた実文字数。リスト記号は除去し中身は算入。プレースホルダ〇は受験時に数値へ置換されるため算入。"
+  },
+  "grades": {
+    "civil-1": {
+      "label": "1級土木施工管理技士",
+      "char_per_line": 25,
+      "minimum_fill_ratio": 0.8,
+      "provisional": false,
+      "basis": "罫線方式・約25字/行。現行R06〜=各区画8行=200字（全国建設研修センター公式R07問題＋対策本/受験者複数一致）。旧形式〜R05=(1)9行/(2)11行/(3)7行（官製再現用紙 s-henshu R4/R5 罫線実測）。2026-06-02 Web調査。",
+      "sources": {
+        "ruled_25_per_line": "https://eq-seko.com/analysis-civil-exp/ ／ 官製再現用紙 http://www.s-henshu.info/1dskm2310/1dskm2310jitti_kaitouyoushi.pdf",
+        "current2_8rows": "全国建設研修センター公式R07問題 https://www.jctc.jp/wjctcp/wp-content/uploads/2025/10/20251006d_mondai.pdf ＋建設データ㈱ https://kensetsu-data.co.jp/journal/post-3267/",
+        "legacy3_rows_measured": "官製再現用紙 s-henshu R4/R5 の罫線実計数（(1)9行/(2)11行/(3)7行）"
+      },
+      "limits": {
+        "current2_q1": { "maxChars": 200, "label": "現行2テーマ 設問(1) 8行×25字" },
+        "current2_q2": { "maxChars": 200, "label": "現行2テーマ 設問(2) 8行×25字" },
+        "legacy3_q1": { "maxChars": 225, "label": "旧3項目 設問(1) 技術的課題 9行×25字" },
+        "legacy3_q2": { "maxChars": 275, "label": "旧3項目 設問(2) 検討項目 11行×25字" },
+        "legacy3_q3": { "maxChars": 175, "label": "旧3項目 設問(3) 対応処置 7行×25字" },
+        "yosou": { "maxChars": 200, "label": "予想問題 記述例（公式解答欄なし・現行8行=200字を仮適用）" }
+      }
+    },
+    "civil-2": {
+      "label": "2級土木施工管理技士",
+      "char_per_line": 22,
+      "minimum_fill_ratio": 0.8,
+      "provisional": false,
+      "basis": "問題文に文字数の明示規定はない（原稿用紙のマス目指定もない）。制約は解答欄(行)サイズで、通説の目安は『1項目あたり約250字・1行20〜25字・解答欄の8割以上を埋める』（複数対策ソース一致）。よって各欄 maxChars=250 を採る。1級（各欄200字）とは別物で、2級の方が1項目あたりの目安字数は大きめ。2026-06-02、ユーザー提示の複数ソース＋Web調査に基づき確定。",
+      "sources": {
+        "no_limit_in_problem": "問題文に『○文字以上で解答せよ』等の明示規定なし（マス目でもない）。doboku-koji.com『経験記述には明確な文字数指定（マス目）はない』",
+        "guideline_250_per_item": "1項目あたり約250字・合計約500字・1行20〜25字・解答欄の8割以上を埋める（doboku-koji.com／建設データ㈱／Yahoo知恵袋で一致）。建設データ㈱『1行の文字数は20〜25字・解答欄8割以上』",
+        "r6_structure": "官報R6 2級問題（jctc許諾ミラー） https://dobokujira.com/wp-content/uploads/2024/10/R6_2doboku_02_mondai.pdf",
+        "note_box_rows": "2級添削フォーム(sekou-net)では各欄7行表示だったが、行あたり字数は20〜25字（通説）を採用。行数×字より『1項目250字』の通説目安を優先。"
+      },
+      "limits": {
+        "current2_q1": { "maxChars": 250, "label": "現行2テーマ 設問(1) 約250字/項目（2級通説目安）" },
+        "current2_q2": { "maxChars": 250, "label": "現行2テーマ 設問(2) 約250字/項目（2級通説目安）" },
+        "legacy3_q1": { "maxChars": 250, "label": "旧3項目 設問(1) 技術的課題 約250字/項目（2級通説目安）" },
+        "legacy3_q2": { "maxChars": 250, "label": "旧3項目 設問(2) 検討項目 約250字/項目（2級通説目安）" },
+        "legacy3_q3": { "maxChars": 250, "label": "旧3項目 設問(3) 対応処置 約250字/項目（2級通説目安）" },
+        "yosou": { "maxChars": 250, "label": "予想問題 記述例 約250字/項目（2級通説目安）" }
+      }
+    }
+  }
+}

@@ -1,0 +1,92 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="5つのインセンティブと3つの行動パターンの対応。物質的・評価的・人的・理念的・自己実現の5分類と、経済的・情緒的・管理的行動パターンとの関係を示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 11px; fill: #555; }
+      .t-label  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc   { font-size: 11px; fill: #555; }
+      .t-num    { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-pat    { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-patd   { font-size: 11px; fill: #555; }
+      .t-band   { font-size: 11px; font-weight: bold; fill: #8a8a8a; }
+      .t-foot   { font-size: 11px; fill: #8a8a8a; }
+      /* brand #e8f0fe / stroke #2e6da4 */
+      .box-brand  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-brand { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      /* surface #f5f5f5 / #d7d7d7 */
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.2; }
+      /* band bg for pattern rows */
+      .band-a { fill: #fff3cd; }
+      .band-b { fill: #d0e8d0; }
+      .band-c { fill: #e8f0fe; }
+      .band-stroke-a { stroke: #d4a017; stroke-width: 1.2; }
+      .band-stroke-b { stroke: #3a7d44; stroke-width: 1.2; }
+      .band-stroke-c { stroke: #2e6da4; stroke-width: 1.2; }
+    </style>
+    <marker markerUnits="userSpaceOnUse" id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- section heading: 5インセンティブ -->
+  <text class="t-band" x="14" y="20" dominant-baseline="auto">5つのインセンティブ</text>
+
+  <!-- card 1 物質的 -->
+  <rect class="box-brand" x="14" y="26" width="372" height="54" rx="7"/>
+  <circle class="badge-brand" cx="40" cy="53" r="15"/>
+  <text class="t-num" x="40" y="58" text-anchor="middle">①</text>
+  <text class="t-label" x="64" y="48">物質的インセンティブ</text>
+  <text class="t-desc" x="64" y="66">給与・賞与・報奨金など金銭的報酬で欲求を満たす</text>
+
+  <!-- card 2 評価的 -->
+  <rect class="box-brand" x="14" y="88" width="372" height="54" rx="7"/>
+  <circle class="badge-brand" cx="40" cy="115" r="15"/>
+  <text class="t-num" x="40" y="120" text-anchor="middle">②</text>
+  <text class="t-label" x="64" y="110">評価的インセンティブ</text>
+  <text class="t-desc" x="64" y="128">表彰・公の賞賛で「評価されたい」欲求を刺激する</text>
+
+  <!-- card 3 人的 -->
+  <rect class="box-brand" x="14" y="150" width="372" height="54" rx="7"/>
+  <circle class="badge-brand" cx="40" cy="177" r="15"/>
+  <text class="t-num" x="40" y="182" text-anchor="middle">③</text>
+  <text class="t-label" x="64" y="172">人的インセンティブ</text>
+  <text class="t-desc" x="64" y="190">職場の人間関係・雰囲気の良さで欲求を満たす</text>
+
+  <!-- card 4 理念的 -->
+  <rect class="box-brand" x="14" y="212" width="372" height="54" rx="7"/>
+  <circle class="badge-brand" cx="40" cy="239" r="15"/>
+  <text class="t-num" x="40" y="244" text-anchor="middle">④</text>
+  <text class="t-label" x="64" y="234">理念的インセンティブ</text>
+  <text class="t-desc" x="64" y="252">仕事への自信・達成意欲を高めるインセンティブ</text>
+
+  <!-- card 5 自己実現 -->
+  <rect class="box-brand" x="14" y="274" width="372" height="54" rx="7"/>
+  <circle class="badge-brand" cx="40" cy="301" r="15"/>
+  <text class="t-num" x="40" y="306" text-anchor="middle">⑤</text>
+  <text class="t-label" x="64" y="296">自己実現インセンティブ</text>
+  <text class="t-desc" x="64" y="314">能力を十分発揮・可能性拡大の実感を与える</text>
+
+  <!-- connector arrow -->
+  <line x1="200" y1="334" x2="200" y2="348" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text class="t-sub" x="200" y="344" text-anchor="middle">指向・特性に応じて組み合わせ</text>
+
+  <!-- section heading: 3行動パターン -->
+  <text class="t-band" x="14" y="344" dominant-baseline="auto">3つの行動パターン</text>
+
+  <!-- band A 経済的 -->
+  <rect class="band-a band-stroke-a" x="14" y="354" width="372" height="38" rx="6"/>
+  <text class="t-pat" x="14" y="354" dx="16" dy="22" fill="#1a3a5c">Ⓐ 経済的行動</text>
+  <text class="t-patd" x="155" y="354" dy="22" fill="#555"> — 利害を優先した行動</text>
+
+  <!-- band B 情緒的 -->
+  <rect class="band-b band-stroke-b" x="14" y="400" width="372" height="38" rx="6"/>
+  <text class="t-pat" x="14" y="400" dx="16" dy="22" fill="#1a3a5c">Ⓑ 情緒的行動</text>
+  <text class="t-patd" x="155" y="400" dy="22" fill="#555"> — 感情に支配された行動</text>
+
+  <!-- band C 管理的 -->
+  <rect class="band-c band-stroke-c" x="14" y="446" width="372" height="38" rx="6"/>
+  <text class="t-pat" x="14" y="446" dx="16" dy="22" fill="#1a3a5c">Ⓒ 管理的行動</text>
+  <text class="t-patd" x="155" y="446" dy="22" fill="#555"> — 合理的な思考に従った行動</text>
+
+</svg>

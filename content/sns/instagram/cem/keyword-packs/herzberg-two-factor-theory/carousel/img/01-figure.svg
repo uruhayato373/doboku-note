@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="ハーズバーグの二要因理論：動機づけ要因（仕事の内容）は満足をもたらし、衛生要因（仕事の環境）は不満足を防止する別々の軸で構成される">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <text x="190" y="26" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">満足と不満足は別々の要因で生じる</text>
+
+  <g>
+    <rect x="20" y="58" width="160" height="280" fill="#d0e8d0" stroke="#3a7d44" stroke-width="2" rx="6"/>
+    <text x="100" y="82" text-anchor="middle" font-size="13" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">動機づけ要因</text>
+    <text x="100" y="100" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">（仕事の内容）</text>
+
+    <line x1="40" y1="112" x2="160" y2="112" stroke="#3a7d44" stroke-width="1"/>
+
+    <text x="100" y="132" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">達成感</text>
+    <text x="100" y="150" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">承認</text>
+    <text x="100" y="168" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">仕事そのもの</text>
+    <text x="100" y="186" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">責任</text>
+    <text x="100" y="204" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">成長・昇進</text>
+
+    <line x1="40" y1="220" x2="160" y2="220" stroke="#3a7d44" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="100" y="240" text-anchor="middle" font-size="11" fill="#3a7d44" font-family="sans-serif" font-weight="bold">充足 → 積極的満足</text>
+    <text x="100" y="262" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">不足でも</text>
+    <text x="100" y="276" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">強い不満は出ない</text>
+
+    <line x1="40" y1="294" x2="160" y2="294" stroke="#3a7d44" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="100" y="314" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">マズロー対応:</text>
+    <text x="100" y="330" text-anchor="middle" font-size="11" fill="#1a3a5c" font-family="sans-serif">自己実現・承認</text>
+  </g>
+
+  <g>
+    <rect x="200" y="58" width="160" height="280" fill="#fff3cd" stroke="#d4a017" stroke-width="2" rx="6"/>
+    <text x="280" y="82" text-anchor="middle" font-size="13" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">衛生要因</text>
+    <text x="280" y="100" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">（仕事の環境・条件）</text>
+
+    <line x1="220" y1="112" x2="340" y2="112" stroke="#d4a017" stroke-width="1"/>
+
+    <text x="280" y="132" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">会社方針・管理</text>
+    <text x="280" y="150" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">監督</text>
+    <text x="280" y="168" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">給与</text>
+    <text x="280" y="186" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">人間関係</text>
+    <text x="280" y="204" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">作業条件</text>
+
+    <line x1="220" y1="220" x2="340" y2="220" stroke="#d4a017" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="280" y="240" text-anchor="middle" font-size="11" fill="#d4a017" font-family="sans-serif" font-weight="bold">充足 → 不満解消</text>
+    <text x="280" y="262" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">不足すると</text>
+    <text x="280" y="276" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">強い不満</text>
+
+    <line x1="220" y1="294" x2="340" y2="294" stroke="#d4a017" stroke-width="1" stroke-dasharray="3,3"/>
+
+    <text x="280" y="314" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">マズロー対応:</text>
+    <text x="280" y="330" text-anchor="middle" font-size="11" fill="#1a3a5c" font-family="sans-serif">社会・安全・生理</text>
+  </g>
+
+  <text x="190" y="358" text-anchor="middle" font-size="11" fill="#3a7d44" font-family="sans-serif" font-weight="bold">職務充実（job enrichment）で動機づけを強化</text>
+  <text x="190" y="372" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">衛生要因の改善は不満解消にとどまる</text>
+
+  <!-- 追加：マズローとの対比 -->
+  <rect x="10" y="390" width="360" height="50" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text x="190" y="409" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold" font-family="sans-serif">マズロー理論との対応</text>
+  <text x="190" y="425" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">動機づけ要因 → 自己実現・承認（高次欲求）</text>
+  <text x="190" y="438" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">衛生要因 → 社会・安全・生理（低次欲求）</text>
+
+  <rect x="10" y="452" width="360" height="38" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="6"/>
+  <text x="190" y="469" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold" font-family="sans-serif">人的資源管理への応用</text>
+  <text x="190" y="485" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">職務充実・職務拡大・職務ローテーションの組み合わせ</text>
+</svg>

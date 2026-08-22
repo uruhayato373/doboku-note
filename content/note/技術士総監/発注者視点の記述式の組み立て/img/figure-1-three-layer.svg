@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="728" viewBox="0 0 1200 728">
+  <rect width="1200" height="728" fill="#f8fafc"/>
+
+  <!-- タイトル -->
+  <text x="660" y="64" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="34" font-weight="800" fill="#222222" text-anchor="middle">発注者の立場で書く 総監記述式の三層構造</text>
+
+  <!-- 層 第3層（将来展望）帯 -->
+  <rect x="168" y="120" width="984" height="160" rx="8" fill="#2e6da4" stroke="#1a3a5c" stroke-width="2"/>
+
+  <!-- 層番号 -->
+  <text x="196" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="start">第3層</text>
+  <!-- 区切りと層名 -->
+  <text x="326" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="700" fill="#d0e4f5" text-anchor="start">将来展望</text>
+
+  <!-- 説明文1行目 -->
+  <text x="196" y="214" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#d0e4f5" text-anchor="start">個別事業を超えた持続性・次世代への継承を意識する</text>
+  <!-- 説明文2行目 -->
+  <text x="196" y="252" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#d0e4f5" text-anchor="start">広域的な視点で社会インフラの将来像を示す</text>
+
+  <!-- 層 第2層（施策）帯 -->
+  <rect x="168" y="304" width="984" height="160" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+
+  <!-- 層番号 -->
+  <text x="196" y="360" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#2e6da4" text-anchor="start">第2層</text>
+  <!-- 区切りと層名 -->
+  <text x="326" y="360" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="700" fill="#1a3a5c" text-anchor="start">施策</text>
+
+  <!-- 説明文1行目 -->
+  <text x="196" y="398" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">管理間のトレードオフを第三の管理で統合的に解く</text>
+  <!-- 説明文2行目 -->
+  <text x="196" y="436" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">発注者として実行可能な範囲に寄せて具体的に記述する</text>
+
+  <!-- 層 第1層（管理対象と前提条件）帯 -->
+  <rect x="168" y="488" width="984" height="160" rx="8" fill="#edf5ee" stroke="#7bb580" stroke-width="2"/>
+
+  <!-- 層番号 -->
+  <text x="196" y="544" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#3a7d44" text-anchor="start">第1層</text>
+  <!-- 区切りと層名 -->
+  <text x="326" y="544" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="700" fill="#3a7d44" text-anchor="start">管理対象と前提条件</text>
+
+  <!-- 説明文1行目 -->
+  <text x="196" y="582" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">自分が発注者として関わる事業を特定する</text>
+  <!-- 説明文2行目 -->
+  <text x="196" y="620" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="400" fill="#555555" text-anchor="start">予算・人員・地域事情などの前提条件を明示する</text>
+
+  <!-- 左側縦矢印（下→上） -->
+  <!-- 矢印の幹 -->
+  <line x1="140" y1="648" x2="140" y2="140" stroke="#2e6da4" stroke-width="4" stroke-linecap="round"/>
+  <!-- 矢印頭（上向き三角形: 右向き三角形を90度回転した形でorient対策不要） -->
+  <polygon points="140,120 128,144 152,144" fill="#2e6da4"/>
+
+  <!-- 矢印ラベル（縦書き: 1文字ずつ） -->
+  <text x="118" y="193" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">答</text>
+  <text x="118" y="215" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">案</text>
+  <text x="118" y="237" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">は</text>
+  <text x="118" y="259" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">第</text>
+  <text x="118" y="281" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">1</text>
+  <text x="118" y="303" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">層</text>
+  <text x="118" y="325" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">か</text>
+  <text x="118" y="347" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">ら</text>
+  <text x="118" y="369" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">書</text>
+  <text x="118" y="391" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">き</text>
+  <text x="118" y="413" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">、</text>
+  <text x="118" y="435" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">第</text>
+  <text x="118" y="457" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">3</text>
+  <text x="118" y="479" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">層</text>
+  <text x="118" y="501" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">へ</text>
+  <text x="118" y="523" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">展</text>
+  <text x="118" y="545" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">開</text>
+  <text x="118" y="567" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">す</text>
+  <text x="118" y="589" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="600" fill="#2e6da4" text-anchor="middle">る</text>
+
+    <text x="1172" y="706" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="500" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

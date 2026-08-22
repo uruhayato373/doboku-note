@@ -1,0 +1,96 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="労働委員会の比較：中央労働委員会と都道府県労働委員会の、所管・管轄・不当労働行為審査の審級（初審→再審査）・規則制定権の違い。三者構成や独立性などの共通点もあわせて整理">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .note    { font-size: 11px; fill: #555; }
+      .sec     { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .th      { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .lbl     { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .cell    { font-size: 11px; fill: #222; }
+      .bx-t    { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .bx-s    { font-size: 11px; fill: #555; }
+      .sum-t   { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .sum-s   { font-size: 11px; fill: #555; }
+      .hdr   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .lblc  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .chuo  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1; }
+      .ken   { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }
+      .plain { fill: #ffffff; stroke: #2e6da4; stroke-width: 1; }
+      .box   { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <marker id="ar" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- タイトル -->
+  <rect class="hdr" x="10" y="12" width="380" height="46" rx="6"/>
+  <text class="t-title" x="200" y="37" text-anchor="middle">労働委員会｜中央と都道府県</text>
+  <text class="t-sub"   x="200" y="53" text-anchor="middle">労使に中立な独立の行政委員会（三者構成）</text>
+
+  <!-- 共通点 -->
+  <text class="note" x="14" y="80">共通の権限：労働争議の調整／不当労働行為の審査／労組の資格審査</text>
+
+  <!-- 比較表 ヘッダー -->
+  <rect class="lblc" x="10"  y="90" width="76"  height="34"/>
+  <text class="th"   x="48"  y="112" text-anchor="middle">観点</text>
+  <rect class="chuo" x="86"  y="90" width="152" height="34"/>
+  <text class="th"   x="162" y="112" text-anchor="middle">中央労働委員会</text>
+  <rect class="ken"  x="238" y="90" width="152" height="34"/>
+  <text class="th"   x="314" y="112" text-anchor="middle">都道府県労働委員会</text>
+
+  <!-- 行: 所管 -->
+  <rect class="lblc"  x="10"  y="124" width="76"  height="38"/>
+  <text class="lbl"   x="48"  y="148" text-anchor="middle">所管</text>
+  <rect class="plain" x="86"  y="124" width="152" height="38"/>
+  <text class="cell"  x="162" y="148" text-anchor="middle">国（厚生労働大臣）</text>
+  <rect class="plain" x="238" y="124" width="152" height="38"/>
+  <text class="cell"  x="314" y="148" text-anchor="middle">各都道府県（知事）</text>
+
+  <!-- 行: 管轄 -->
+  <rect class="lblc"  x="10"  y="162" width="76"  height="38"/>
+  <text class="lbl"   x="48"  y="186" text-anchor="middle">管轄</text>
+  <rect class="plain" x="86"  y="162" width="152" height="38"/>
+  <text class="cell"  x="162" y="186" text-anchor="middle">複数県・全国的な事件</text>
+  <rect class="plain" x="238" y="162" width="152" height="38"/>
+  <text class="cell"  x="314" y="186" text-anchor="middle">区域内の事件</text>
+
+  <!-- 行: 不当労働行為 -->
+  <rect class="lblc"  x="10"  y="200" width="76"  height="38"/>
+  <text class="lbl"   x="48"  y="224" text-anchor="middle">不当労働行為</text>
+  <rect class="plain" x="86"  y="200" width="152" height="38"/>
+  <text class="cell"  x="162" y="224" text-anchor="middle">再審査（上級審）</text>
+  <rect class="plain" x="238" y="200" width="152" height="38"/>
+  <text class="cell"  x="314" y="224" text-anchor="middle">初審（最初の審査）</text>
+
+  <!-- 行: 規則制定権 -->
+  <rect class="lblc"  x="10"  y="238" width="76"  height="38"/>
+  <text class="lbl"   x="48"  y="262" text-anchor="middle">規則制定権</text>
+  <rect class="plain" x="86"  y="238" width="152" height="38"/>
+  <text class="cell"  x="162" y="262" text-anchor="middle">あり</text>
+  <rect class="plain" x="238" y="238" width="152" height="38"/>
+  <text class="cell"  x="314" y="262" text-anchor="middle">なし</text>
+
+  <!-- 審級関係 -->
+  <text class="sec" x="14" y="298">不当労働行為事件の審級</text>
+  <rect class="box" x="10"  y="308" width="162" height="46" rx="6"/>
+  <text class="bx-t" x="91"  y="332" text-anchor="middle">都道府県労働委員会</text>
+  <text class="bx-s" x="91"  y="348" text-anchor="middle">初審（最初の審査）</text>
+  <rect class="box" x="238" y="308" width="152" height="46" rx="6"/>
+  <text class="bx-t" x="314" y="332" text-anchor="middle">中央労働委員会</text>
+  <text class="bx-s" x="314" y="348" text-anchor="middle">再審査（上級審）</text>
+  <text class="note" x="205" y="325" text-anchor="middle">不服申立</text>
+  <line x1="176" y1="331" x2="234" y2="331" stroke="#555" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <!-- まとめ -->
+  <rect class="hdr" x="10" y="366" width="380" height="84" rx="6"/>
+  <text class="sum-t" x="200" y="390" text-anchor="middle">通常の事件はまず都道府県労委が初審</text>
+  <text class="sum-s" x="200" y="412" text-anchor="middle">中央は再審査・複数県／全国的な事件を担当</text>
+  <text class="sum-s" x="200" y="434" text-anchor="middle">三者構成・独立性・準司法機能は両者で共通</text>
+</svg>

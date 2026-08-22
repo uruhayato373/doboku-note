@@ -1,0 +1,78 @@
+name: R2 Sync Images
+
+# content/site/**/img/** が変更されたとき、R2 に自動同期する。
+# 既存 .claude/scripts/upload-images-to-r2.mjs（S3 API）を流用。
+# R2 専用 API Token（access key + secret）で認証。
+
+on:
+  # main へ push 時、画像パス変更のみトリガー
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/site/**/img/**'
+      # ogp.png/.webp は記事ディレクトリ直下（img/ の外）にあるため、img/** だけだと
+      # OGP 画像更新が push で自動同期されず R2 で 404 → 外部リンクカード生成失敗の原因に
+      # なる（2026-06-12 技術士建設部門の note リンクカード不具合）。明示的に拾う。
+      - 'content/site/**/ogp.png'
+      - 'content/site/**/ogp.webp'
+
+  # 手動実行（初回・緊急・一括同期用）
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run（アップロードせず対象一覧のみ出力）'
+        required: false
+        default: false
+        type: boolean
+      images_only:
+        description: 'Images only（MDX は同期しない）'
+        required: false
+        default: true
+        type: boolean
+
+concurrency:
+  group: r2-sync-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps --ignore-scripts
+
+      - name: Sync images to R2 (S3 API)
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: |
+          ARGS=""
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          if [ "${{ github.event.inputs.images_only }}" = "false" ]; then
+            echo "Full sync (MDX + images)"
+          else
+            ARGS="$ARGS --images-only"
+          fi
+          echo "Running: npm run upload-images-r2 -- $ARGS"
+          npm run upload-images-r2 -- $ARGS
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "## R2 Sync Summary" >> $GITHUB_STEP_SUMMARY
+          echo "- Trigger: ${{ github.event_name }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Dry run: ${{ github.event.inputs.dry_run || 'false' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Images only: ${{ github.event.inputs.images_only || 'true' }}" >> $GITHUB_STEP_SUMMARY
+          echo "- Head SHA: ${{ github.sha }}" >> $GITHUB_STEP_SUMMARY

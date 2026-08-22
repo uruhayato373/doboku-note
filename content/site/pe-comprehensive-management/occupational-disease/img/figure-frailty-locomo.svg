@@ -1,0 +1,51 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="高齢者の身体機能低下の整理。フレイルは加齢で心身の活力（筋力・認知・気力）が低下し要介護リスクが高まった状態で、健常と要介護の中間にあり適切な介入で可逆。ロコモティブシンドロームは運動器（骨・関節・筋肉）の障害により立つ・歩く移動機能が低下した状態。サルコペニアは加齢による筋肉量・筋力の減少で、ロコモ・フレイルの主要因。進行はサルコペニアからロコモ・フレイルを経て要介護に至り、フレイルは早期の運動・栄養介入で改善できる。">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-head { font-size: 16px; font-weight: bold; fill: #1a3a5c; }
+      .c-t    { font-size: 13px; font-weight: bold; }
+      .c-d    { font-size: 11px; fill: #222; }
+      .f-head { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .f-foot { font-size: 11px; fill: #555; }
+      .box-t  { font-size: 11px; font-weight: bold; }
+      .arrow  { font-size: 16px; font-weight: bold; fill: #555; }
+    </style>
+  </defs>
+
+  <text class="t-head" x="200" y="38" text-anchor="middle">心身全体はフレイル、運動器はロコモ</text>
+
+  <!-- フレイル -->
+  <rect x="10" y="50" width="380" height="106" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.3"/>
+  <text class="c-t" x="24" y="74" text-anchor="start" fill="#2e6da4">フレイル（Frailty／虚弱）</text>
+  <text class="c-d" x="24" y="96" text-anchor="start">加齢で心身の活力（筋力・認知・気力）が</text>
+  <text class="c-d" x="24" y="114" text-anchor="start">低下し、要介護リスクが高まった状態。</text>
+  <text class="c-d" x="24" y="132" text-anchor="start">健常と要介護の中間で、適切な介入で可逆。</text>
+
+  <!-- ロコモティブシンドローム -->
+  <rect x="10" y="164" width="380" height="86" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.3"/>
+  <text class="c-t" x="24" y="188" text-anchor="start" fill="#d4a017">ロコモティブシンドローム</text>
+  <text class="c-d" x="24" y="210" text-anchor="start">運動器（骨・関節・筋肉）の障害により</text>
+  <text class="c-d" x="24" y="228" text-anchor="start">「立つ・歩く」移動機能が低下した状態。</text>
+
+  <!-- サルコペニア -->
+  <rect x="10" y="258" width="380" height="78" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.3"/>
+  <text class="c-t" x="24" y="282" text-anchor="start" fill="#3a7d44">サルコペニア</text>
+  <text class="c-d" x="24" y="304" text-anchor="start">加齢による筋肉量・筋力の減少。</text>
+  <text class="c-d" x="24" y="322" text-anchor="start">ロコモ・フレイルの主要因。</text>
+
+  <!-- フッタ：関係と進行 -->
+  <rect x="10" y="344" width="380" height="142" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.3"/>
+  <text class="f-head" x="24" y="366" text-anchor="start">関係と進行</text>
+  <rect x="20" y="378" width="108" height="30" rx="5" fill="#ffffff" stroke="#3a7d44" stroke-width="1.2"/>
+  <text class="box-t" x="74" y="397" text-anchor="middle" fill="#3a7d44">サルコペニア</text>
+  <text class="arrow" x="139" y="398" text-anchor="middle">→</text>
+  <rect x="150" y="378" width="112" height="30" rx="5" fill="#ffffff" stroke="#2e6da4" stroke-width="1.2"/>
+  <text class="box-t" x="206" y="397" text-anchor="middle" fill="#2e6da4">ロコモ・フレイル</text>
+  <text class="arrow" x="271" y="398" text-anchor="middle">→</text>
+  <rect x="282" y="378" width="98" height="30" rx="5" fill="#ffffff" stroke="#b22234" stroke-width="1.2"/>
+  <text class="box-t" x="331" y="397" text-anchor="middle" fill="#b22234">要介護</text>
+  <text class="f-foot" x="24" y="432" text-anchor="start">筋肉の減少（サルコペニア）が両者の主要因。</text>
+  <text class="f-foot" x="24" y="454" text-anchor="start">フレイルは健常と要介護の中間にあり、早期の</text>
+  <text class="f-foot" x="24" y="472" text-anchor="start">運動・栄養介入で改善できる（可逆）。</text>
+</svg>

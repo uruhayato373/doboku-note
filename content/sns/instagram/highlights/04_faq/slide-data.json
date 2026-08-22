@@ -1,0 +1,92 @@
+{
+  "_meta": {
+    "kind": "highlight-faq",
+    "format": "stories",
+    "size": { "width": 1080, "height": 1920 },
+    "slidesCount": 6,
+    "purpose": "ハイライト系統 A 4 種目「FAQ」用の 6 枚 Stories シリーズ。受験相談の定型回答 5 件 + 案内 cover",
+    "policy": ".claude/knowledge/reference/ig-stories-policy.md §5 系統 A",
+    "strategy": "docs/marketing/01_SNS集客戦略.md v7.1 §2 Highlight 4 種目「FAQ」"
+  },
+  "slides": [
+    {
+      "index": 1,
+      "filename": "01-cover.png",
+      "role": "cover",
+      "tagText": "FAQ",
+      "title": "よくある質問",
+      "subtitle": "受験相談 5 件への回答",
+      "chipCta": "スクロールで一覧"
+    },
+    {
+      "index": 2,
+      "filename": "02-q1.png",
+      "role": "q1",
+      "tagText": "FAQ",
+      "title": "総監とは？",
+      "subtitle": "Q1 ／ 5",
+      "body": [
+        "技術士の最上位区分",
+        "5 管理（経済性 / 人的資源 /",
+        "情報 / 安全 / 社会環境）の",
+        "トレードオフを統括する立場"
+      ]
+    },
+    {
+      "index": 3,
+      "filename": "03-q2.png",
+      "role": "q2",
+      "tagText": "FAQ",
+      "title": "6 ヶ月で間に合う？",
+      "subtitle": "Q2 ／ 5",
+      "body": [
+        "択一は 3 ヶ月で 7 割可能",
+        "記述式は 6 ヶ月でも厳しい",
+        "1 日 1.5 時間 × 6 ヶ月 +",
+        "直前 1 ヶ月で論文 5 本書く"
+      ]
+    },
+    {
+      "index": 4,
+      "filename": "04-q3.png",
+      "role": "q3",
+      "tagText": "FAQ",
+      "title": "建設部門必須？",
+      "subtitle": "Q3 ／ 5",
+      "body": [
+        "総監単独受験はできない",
+        "他部門技術士の取得が前提",
+        "建設部門経由が最多",
+        "他部門でも受験可能"
+      ]
+    },
+    {
+      "index": 5,
+      "filename": "05-q4.png",
+      "role": "q4",
+      "tagText": "FAQ",
+      "title": "過去問は何年分？",
+      "subtitle": "Q4 ／ 5",
+      "body": [
+        "本サイトは H21〜R07 を網羅",
+        "16 年度分 × 40 問 = 640 問",
+        "全問解説 + 5 管理タグ付き",
+        "iOS アプリ化を計画中"
+      ]
+    },
+    {
+      "index": 6,
+      "filename": "06-q5.png",
+      "role": "q5",
+      "tagText": "FAQ",
+      "title": "口頭試験どう対策？",
+      "subtitle": "Q5 ／ 5",
+      "body": [
+        "経歴と業務詳細の整合性",
+        "5 管理の現場応用が問われる",
+        "想定問答 50 本が定番",
+        "note の合格体験記で詳細"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "_note": "note 競合クリエイターのハンドル一覧。scripts/scout-note-competitors.mjs が読む。handle = note.com/{handle} の {handle} 部分（表示名でなく urlname）。exams = sokan(総監) | pe-construction(建設部門) | pe(技術士一般) | civil(1級2級土木) | concrete-engineer(コンクリート技士) | concrete-chief(コンクリート主任技士) | concrete-diagnostician(コンクリート診断士)。1社が複数試験にまたがるのは正常（ファイル分割せず exams 配列で持つ＝重複ドリフト回避）。実行時に絞るなら scout に --exam <tag> を渡す。新規追加は note ユーザー検索 API（api/v3/searches?context=user&q=）で urlname を確認してから。真実源の分析記録は docs/strategy/09_販売チャネル競合分析.md。",
+  "competitors": [
+    { "handle": "sosou_nino",       "label": "小泉士郎",         "exams": ["sokan", "pe-construction"], "note": "最大競合。総監サブスク¥9,900/月・物量最大手（6千記事超・63マガジン）" },
+    { "handle": "gijyutsushi",      "label": "技術士（論文）",    "exams": ["pe", "sokan"],              "note": "必須6題¥5,900・A判定実績訴求" },
+    { "handle": "gijutsushisokan",  "label": "総監キーワード",    "exams": ["sokan"],                     "note": "総監キーワード¥12,000・散発更新（実売未確認）" },
+    { "handle": "chansato_st",      "label": "ちゃんさと",        "exams": ["civil"],                     "note": "1級2級土木 経験記述添削（ココナラ800名超）" },
+    { "handle": "kensetsu_dx_data", "label": "建設DXデータ",      "exams": ["pe-construction"],          "note": "AI制作（NotebookLM/Claude）・¥300×多数・154記事" },
+    { "handle": "miyabi_labo",      "label": "miyabi_labo",     "exams": ["civil"],                     "note": "まとめノート¥1,000-1,500・模擬¥200-300・中規模" },
+    { "handle": "petenconsul",      "label": "petenconsul",     "exams": ["pe"],                        "note": "¥1,500帯" },
+    { "handle": "study_room358",    "label": "study_room358",   "exams": ["civil"],                     "note": "PDF量産（185本）だが低反応の傍証" },
+    { "handle": "dobokujira",       "label": "どぼくじら",        "exams": ["civil"],                     "note": "2級暗記ノート¥500・本人公表500部超（note露出は薄い）" },
+    { "handle": "ba_ya",            "label": "土木セコカン試験対策室", "exams": ["civil"],                 "note": "1級2級土木・低価格¥200-500帯" },
+    { "handle": "vast_flax7410",    "label": "P.E.Jp",           "exams": ["pe", "pe-construction"],    "note": "技術士・建設系（一陸技等）。無料情報中心・11マガジン・R8予想物量（09時点74本）" },
+    { "handle": "chic_vole6176",    "label": "TechPro史",        "exams": ["pe-construction", "pe"],     "note": "技術士二次 建設部門・耳学習音声ファイル¥300-1000（令和6合格）" },
+    { "handle": "con_ymc",          "label": "CON（コンクリート答案倉庫）", "exams": ["concrete-chief", "concrete-diagnostician", "pe-construction"], "note": "技術士(建設コンクリート)専門・NOTEBOOKLM×コンクリート・答案倉庫81記事15マガジン・有料¥100〜" },
+    { "handle": "vast_cougar3004",  "label": "まさ@土木資格",     "exams": ["concrete-diagnostician", "concrete-engineer", "civil"], "note": "診断士合格答案¥700・診断士勉強法¥400・技士/1級土木保有" },
+    { "handle": "chaoconcrete",     "label": "超コンクリート主任技士への近道", "exams": ["concrete-chief", "concrete-diagnostician"], "note": "現役ゼネコン・主任技士＋診断士取得・解説ブログ（低活動）" },
+    { "handle": "chikushiken",      "label": "筑紫建",           "exams": ["concrete-chief", "concrete-diagnostician"], "note": "主任技士＋診断士＋一級建築士・104記事4マガジン（日記主体）" },
+    { "handle": "apt_lily9030",     "label": "yuri（1級土木経験記述）", "exams": ["civil"],               "note": "2026-07-20 検索『土木施工管理技士 経験記述』で発掘。1級土木経験記述¥980・3マガジン" },
+    { "handle": "fine_takumi296",   "label": "匠習作（技術士Lock-On）", "exams": ["pe", "sokan"],         "note": "2026-07-20 検索『技術士二次試験』で発掘。1016F・76記事。note本体は無料でロックオン講座(有料通信)へ誘導＝07 YouTube競合と同一主体" }
+  ]
+}

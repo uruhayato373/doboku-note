@@ -1,0 +1,72 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" role="img" aria-label="危機への対応4段階サイクル。平常時準備・事前作業・緊急事態対応・事後復旧の順に縦に並び、矢印でつながる危機管理サイクル図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 11px; fill: #555; }
+      .t-main   { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-note   { font-size: 13px; fill: #555; }
+      .t-num    { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-foot   { font-size: 11px; fill: #8a8a8a; }
+      /* box fills — allowlist colors */
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; } /* 平常時準備 */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* 事前作業 */
+      .box-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* 緊急事態対応 */
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* 事後復旧 */
+      /* number badges — white fill + semantic stroke */
+      .badge-positive { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+      .badge-brand    { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-danger   { fill: #ffffff; stroke: #b22234; stroke-width: 1.5; }
+      .badge-warn     { fill: #ffffff; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker markerUnits="userSpaceOnUse" id="arrow" markerWidth="9" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- title -->
+  <text class="t-title" x="200" y="26" text-anchor="middle">危機への対応4段階</text>
+
+  <!-- (a) 平常時準備段階 — positive -->
+  <rect class="box-positive" x="46" y="60" width="308" height="76" rx="8"/>
+  <circle class="badge-positive" cx="74" cy="98" r="14"/>
+  <text class="t-num" x="74" y="103" text-anchor="middle">a</text>
+  <text class="t-main" x="98" y="90">平常時準備段階</text>
+  <text class="t-note" x="98" y="113">危機管理への強い意志・体制整備</text>
+
+  <!-- arrow a→b -->
+  <line x1="200" y1="136" x2="200" y2="154" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- (b) 事前作業段階 — brand -->
+  <rect class="box-brand" x="46" y="158" width="308" height="90" rx="8"/>
+  <circle class="badge-brand" cx="74" cy="203" r="14"/>
+  <text class="t-num" x="74" y="208" text-anchor="middle">b</text>
+  <text class="t-main" x="98" y="191">事前作業段階</text>
+  <text class="t-note" x="98" y="213">危機管理計画の策定</text>
+  <text class="t-note" x="98" y="235">緊急対策本部等の危機管理体制の準備</text>
+
+  <!-- arrow b→c -->
+  <line x1="200" y1="248" x2="200" y2="266" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- (c) 緊急事態対応段階 — danger -->
+  <rect class="box-danger" x="46" y="270" width="308" height="90" rx="8"/>
+  <circle class="badge-danger" cx="74" cy="315" r="14"/>
+  <text class="t-num" x="74" y="320" text-anchor="middle">c</text>
+  <text class="t-main" x="98" y="303">緊急事態対応段階</text>
+  <text class="t-note" x="98" y="325">危機発生・予兆の早期発見</text>
+  <text class="t-note" x="98" y="347">迅速な行動</text>
+
+  <!-- arrow c→d -->
+  <line x1="200" y1="360" x2="200" y2="378" stroke="#8a8a8a" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- (d) 事後復旧段階 — warn -->
+  <rect class="box-warn" x="46" y="382" width="308" height="90" rx="8"/>
+  <circle class="badge-warn" cx="74" cy="427" r="14"/>
+  <text class="t-num" x="74" y="432" text-anchor="middle">d</text>
+  <text class="t-main" x="98" y="415">事後復旧段階</text>
+  <text class="t-note" x="98" y="437">再発防止策の検討と早期公表</text>
+  <text class="t-note" x="98" y="459">信頼回復のための対応</text>
+
+  <!-- footer -->
+  <text class="t-foot" x="200" y="488" text-anchor="middle">各段階の対応は事前に検討・準備されていることが前提</text>
+</svg>

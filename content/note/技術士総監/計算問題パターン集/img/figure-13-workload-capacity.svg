@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <rect width="1200" height="720" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="40" y="50" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="bold" fill="#1a3a5c">負荷工数 vs 能力工数 — 不足分が残業時間</text>
+  <text x="40" y="86" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#8a8a8a">H30 I-1-7：Y 軸を 1,400h で破断し、能力と負荷の差を拡大表示</text>
+
+  <!-- ============ Y 軸 ============ -->
+  <!-- 上部（1400-1700h、拡大表示） -->
+  <line x1="300" y1="120" x2="300" y2="520" stroke="#1a3a5c" stroke-width="2.5"/>
+  <!-- 下部（0-1400h、圧縮表示） -->
+  <line x1="300" y1="540" x2="300" y2="560" stroke="#1a3a5c" stroke-width="2.5"/>
+
+  <!-- 軸破断ジグザグ（Y軸） -->
+  <path d="M 290 525 L 310 530 L 290 535" fill="none" stroke="#1a3a5c" stroke-width="2"/>
+  <path d="M 290 530 L 310 535 L 290 540" fill="none" stroke="#1a3a5c" stroke-width="2"/>
+
+  <!-- Y 軸目盛＋ラベル（拡大ゾーン） -->
+  <line x1="295" y1="120" x2="305" y2="120" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="290" y="127" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#1a3a5c" text-anchor="end">1,700 h</text>
+  <line x1="295" y1="253" x2="305" y2="253" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="290" y="260" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#1a3a5c" text-anchor="end">1,600 h</text>
+  <line x1="295" y1="387" x2="305" y2="387" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="290" y="394" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#1a3a5c" text-anchor="end">1,500 h</text>
+  <line x1="295" y1="520" x2="305" y2="520" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="290" y="527" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#1a3a5c" text-anchor="end">1,400 h</text>
+  <line x1="295" y1="560" x2="305" y2="560" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="290" y="567" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#555555" text-anchor="end">0 h</text>
+
+  <!-- 1,500h 補助線（dotted） -->
+  <line x1="305" y1="387" x2="920" y2="387" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3,4"/>
+  <!-- 1,600h 補助線 -->
+  <line x1="305" y1="253" x2="920" y2="253" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="3,4"/>
+
+  <!-- X 軸 -->
+  <line x1="300" y1="560" x2="920" y2="560" stroke="#1a3a5c" stroke-width="2.5"/>
+
+  <!-- ============ 能力工数バー（緑） ============ -->
+  <!-- 下部（0-1400h、圧縮、y=540-560） -->
+  <rect x="400" y="540" width="160" height="20" fill="#3a7d44" stroke="#3a7d44" stroke-width="2"/>
+  <!-- 上部（1400-1520h、拡大、y=360-520） -->
+  <rect x="400" y="360" width="160" height="160" fill="#3a7d44" stroke="#3a7d44" stroke-width="2"/>
+  <!-- バー破断ジグザグ -->
+  <path d="M 400 525 L 420 530 L 440 525 L 460 530 L 480 525 L 500 530 L 520 525 L 540 530 L 560 525" fill="none" stroke="#ffffff" stroke-width="3"/>
+  <path d="M 400 535 L 420 540 L 440 535 L 460 540 L 480 535 L 500 540 L 520 535 L 540 540 L 560 535" fill="none" stroke="#ffffff" stroke-width="3"/>
+
+  <!-- 能力ラベル -->
+  <text x="480" y="430" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="white" text-anchor="middle" font-weight="bold">能力工数</text>
+  <text x="480" y="475" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="34" fill="white" text-anchor="middle" font-weight="bold">1,520 h</text>
+
+  <!-- ============ 負荷工数バー（緑＋赤スタック） ============ -->
+  <!-- 下部（0-1400h、圧縮） -->
+  <rect x="680" y="540" width="160" height="20" fill="#3a7d44" stroke="#3a7d44" stroke-width="2"/>
+  <!-- 上部緑（1400-1520h、拡大） -->
+  <rect x="680" y="360" width="160" height="160" fill="#3a7d44" stroke="#3a7d44" stroke-width="2"/>
+  <!-- 上部赤（1520-1650h、残業オーバーフロー、173px の大幅な視覚インパクト） -->
+  <rect x="680" y="187" width="160" height="173" fill="#b22234" stroke="#b22234" stroke-width="2"/>
+  <!-- バー破断ジグザグ -->
+  <path d="M 680 525 L 700 530 L 720 525 L 740 530 L 760 525 L 780 530 L 800 525 L 820 530 L 840 525" fill="none" stroke="#ffffff" stroke-width="3"/>
+  <path d="M 680 535 L 700 540 L 720 535 L 740 540 L 760 535 L 780 540 L 800 535 L 820 540 L 840 535" fill="none" stroke="#ffffff" stroke-width="3"/>
+
+  <!-- 緑/赤境界線（能力ライン） -->
+  <line x1="660" y1="360" x2="920" y2="360" stroke="#1a3a5c" stroke-width="2" stroke-dasharray="6,4"/>
+  <text x="935" y="367" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#1a3a5c" font-weight="bold">能力ライン</text>
+  <text x="935" y="389" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#1a3a5c">(1,520 h)</text>
+
+  <!-- 負荷ラベル（緑部分） -->
+  <text x="760" y="430" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">通常分</text>
+  <text x="760" y="475" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="white" text-anchor="middle" font-weight="bold">1,520 h</text>
+
+  <!-- 残業ラベル（赤部分、大きく強調） -->
+  <text x="760" y="255" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" fill="white" text-anchor="middle" font-weight="bold">残業</text>
+  <text x="760" y="305" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="40" fill="white" text-anchor="middle" font-weight="bold">130 h</text>
+
+  <!-- 負荷工数 合計ラベル（バー上部外） -->
+  <text x="760" y="170" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">負荷工数 = 1,650 h</text>
+
+  <!-- 能力工数 合計ラベル -->
+  <text x="480" y="345" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">能力工数 = 1,520 h</text>
+
+  <!-- ============ 計算内訳ボックス ============ -->
+  <!-- 能力工数の内訳 -->
+  <rect x="40" y="595" width="380" height="65" rx="6" fill="#e6f4ea" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="60" y="622" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#3a7d44" font-weight="bold">能力工数の計算</text>
+  <text x="60" y="648" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#1a3a5c">10名 × 8h × 20日 × 95% = 1,520 h</text>
+
+  <!-- 負荷工数の内訳 -->
+  <rect x="440" y="595" width="500" height="65" rx="6" fill="#fdecea" stroke="#b22234" stroke-width="1.5"/>
+  <text x="460" y="622" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#b22234" font-weight="bold">負荷工数の計算</text>
+  <text x="460" y="648" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#1a3a5c">必要生産 4,900÷0.99 = 4,950個 × (20/60)h = 1,650 h</text>
+
+  <!-- 結果ボックス -->
+  <rect x="960" y="595" width="200" height="65" rx="6" fill="#1a3a5c"/>
+  <text x="1060" y="620" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="white" text-anchor="middle">残業時間</text>
+  <text x="1060" y="650" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="#fdecea" text-anchor="middle" font-weight="bold">= 130 h</text>
+
+  <!-- クレジット -->
+  <text x="1160" y="708" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

@@ -1,0 +1,88 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="リスクマトリクス：縦軸が影響度（大小）、横軸が発生確率（低高）の2×2マトリクスで、右上を最優先で低減し左下へ持っていく対応方針を示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 11px; fill: #555; }
+      .t-axis   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-axis-s { font-size: 11px; fill: #8a8a8a; }
+      .t-cell   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc   { font-size: 11px; fill: #555; }
+      .t-formula{ font-size: 11px; fill: #555; }
+      .t-foot   { font-size: 11px; fill: #8a8a8a; }
+      /* color allowlist */
+      .bg-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }  /* 右上: 最優先低減 */
+      .bg-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }  /* 右下/左上: 要対応 */
+      .bg-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }  /* 左下: 保有/受容 */
+    </style>
+    <!-- brand矢印マーカー: 右上→左下 -->
+    <marker id="arr-brand" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <!-- 凡例ラベル: リスク値の計算式 -->
+  <text class="t-sub" x="200" y="18" text-anchor="middle">リスク値＝影響度（被害額）× 発生確率　（JIS Q31000）</text>
+
+  <!-- === 縦軸ラベル === -->
+  <text class="t-axis" transform="translate(18,248) rotate(-90)" text-anchor="middle">影響度</text>
+  <!-- 大/小 -->
+  <text class="t-axis-s" x="32" y="58"  text-anchor="middle">大</text>
+  <text class="t-axis-s" x="32" y="268" text-anchor="middle">小</text>
+  <!-- 縦軸矢印 -->
+  <line x1="44" y1="290" x2="44" y2="36" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arr-brand)"/>
+
+  <!-- === 横軸ラベル === -->
+  <text class="t-axis" x="218" y="352" text-anchor="middle">発生確率</text>
+  <text class="t-axis-s" x="96"  y="340" text-anchor="middle">低</text>
+  <text class="t-axis-s" x="335" y="340" text-anchor="middle">高</text>
+  <!-- 横軸矢印 -->
+  <line x1="60" y1="328" x2="385" y2="328" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arr-brand)"/>
+
+  <!-- === 4セル === -->
+  <!-- 左上: 影響度大 × 発生確率低 → warn -->
+  <rect class="bg-warn"     x="58"  y="38" width="155" height="140" rx="6"/>
+  <!-- 右上: 影響度大 × 発生確率高 → danger（最優先） -->
+  <rect class="bg-danger"   x="220" y="38" width="155" height="140" rx="6"/>
+  <!-- 左下: 影響度小 × 発生確率低 → positive（保有/受容） -->
+  <rect class="bg-positive" x="58"  y="186" width="155" height="130" rx="6"/>
+  <!-- 右下: 影響度小 × 発生確率高 → warn -->
+  <rect class="bg-warn"     x="220" y="186" width="155" height="130" rx="6"/>
+
+  <!-- 左上セル テキスト -->
+  <text class="t-cell" x="136" y="96" text-anchor="middle">リスク移転</text>
+  <text class="t-desc" x="136" y="115" text-anchor="middle">または</text>
+  <text class="t-cell" x="136" y="134" text-anchor="middle">リスク回避</text>
+  <text class="t-desc" x="136" y="154" text-anchor="middle">（B・C対応）</text>
+
+  <!-- 右上セル テキスト -->
+  <text class="t-cell" x="298" y="87" text-anchor="middle">最優先で低減</text>
+  <text class="t-desc" x="298" y="108" text-anchor="middle">リスク低減（軽減）</text>
+  <text class="t-desc" x="298" y="127" text-anchor="middle">リスク回避</text>
+  <text class="t-desc" x="298" y="146" text-anchor="middle">（A・C対応）</text>
+
+  <!-- 左下セル テキスト -->
+  <text class="t-cell" x="136" y="240" text-anchor="middle">保有・受容</text>
+  <text class="t-desc" x="136" y="260" text-anchor="middle">リスク監視継続</text>
+  <text class="t-desc" x="136" y="278" text-anchor="middle">（D対応）</text>
+  <text class="t-desc" x="136" y="298" text-anchor="middle">対策先送り可</text>
+
+  <!-- 右下セル テキスト -->
+  <text class="t-cell" x="298" y="237" text-anchor="middle">リスク移転</text>
+  <text class="t-desc" x="298" y="257" text-anchor="middle">または</text>
+  <text class="t-cell" x="298" y="277" text-anchor="middle">リスク低減</text>
+  <text class="t-desc" x="298" y="297" text-anchor="middle">（B・A対応）</text>
+
+  <!-- === 対角矢印: 右上→左下（brand色） === -->
+  <line x1="358" y1="70" x2="108" y2="290" stroke="#2e6da4" stroke-width="2.5" stroke-dasharray="6 3" marker-end="url(#arr-brand)"/>
+  <!-- 矢印ラベル -->
+  <text x="240" y="182" text-anchor="middle" font-size="11" font-weight="bold" fill="#2e6da4" transform="rotate(-37 240 182)">対応方針の方向</text>
+
+  <!-- フッター -->
+  <text class="t-foot" x="200" y="380" text-anchor="middle">A:低減（軽減）｜B:移転（転嫁）｜C:回避｜D:保有（受容）</text>
+  <text class="t-foot" x="200" y="398" text-anchor="middle">ALARP原則：合理的・実効可能な限りリスクを低く</text>
+  <line x1="22" y1="412" x2="378" y2="412" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-foot" x="200" y="432" text-anchor="middle">リスク対応の4択：A低減・B移転・C回避・D保有</text>
+  <text class="t-foot" x="200" y="450" text-anchor="middle">JIS Q 31000（ISO 31000準拠）がリスク管理の基本枠組み</text>
+  <text class="t-foot" x="200" y="468" text-anchor="middle">右上（高確率×大影響）→ 左下（低確率×小影響）が目標方向</text>
+</svg>

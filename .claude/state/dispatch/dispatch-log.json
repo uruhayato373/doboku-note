@@ -1,0 +1,82 @@
+{
+  "_doc": "backlog-sweep の実行記録。1サイクル1タスク1行。書き手は /backlog-sweep の手順6（親が直接記録・サブに委ねない）。読み手は /weekly-review Phase 2 の「backlog 消化サマリ」。読み手を決めずに増やさない（CLAUDE.md §9）。",
+  "_schema": {
+    "date": "YYYY-MM-DD（JST）",
+    "task": "backlog の ### 見出し（消化後は git 履歴でしか辿れないため全文で残す）",
+    "tier": "high | mid | low",
+    "executor": "opus | fable | sonnet | machine | user",
+    "outcome": "done（実行して完了）| swept（実査したら既に完了→台帳掃除）| blocked（前提が欠けて中断）| fail（試して失敗）",
+    "retries": "手戻り回数（0=一発）",
+    "durationMin": "概算",
+    "note": "1行。fail/blocked は理由を必ず書く"
+  },
+  "_note": "outcome=swept は成果として数える。台帳の陳腐化を消すこと自体が backlog を減らす（2026-08-17 の実測で1日6件の陳腐化）。",
+  "entries": [
+    {
+      "at": "2026-08-18",
+      "task": "機械チェックの穴 6件 — #1 generate-note-covers の無言フォールバック",
+      "outcome": "done",
+      "note": "tokens に pe-first-stage を明示列挙 / resolveExam を throw 化 / 失敗を exit code へ伝播。実害はラベル誤表示（総監と表示）で、ライブ反映は別カードへ切り出し。残る穴は #2〜#6"
+    },
+    {
+      "at": "2026-08-18",
+      "task": "機械チェックの穴 #5 GATES 不足 / #6 オーファン check",
+      "outcome": "done",
+      "note": "GATES へ SNS・画像系4本を追加(9→13)。audit-note-cards を note-live-audit.yml へ、check-kindle-format を quality-audit(ci:true) へ配線。kindle-format の「0冊で exit 0」も是正(→exit 2)。残る #2〜#4 は新規検査の設計が要るのでカードを縮小して存続"
+    },
+    {
+      "at": "2026-08-18",
+      "task": "ココナラ 見積り受注がカタログ突合で毎回警告になる",
+      "outcome": "done",
+      "note": "案2を採用。ただし全 quote を一律除外せず、orders-log に quote として記録済みの talkroom だけを例外にした（記録の無い未解決は従来どおり警告）。除外は明示ログへ。実データで警告 1→0 を確認"
+    },
+    {
+      "at": "2026-08-18",
+      "task": "広い表のモバイル横スクロール対応",
+      "outcome": "done",
+      "note": "MDX table を .table-scroll で包み、余白/幅/フルブリードをラッパーへ移譲。min-width:max-content は実測で有害（3〜4列表まで横スクロールを強制）と分かり撤去。375px で 21表中スクロール1（11列表のみ）・最終列H23まで到達・ページ横スクロールなしを実機確認"
+    },
+    {
+      "at": "2026-08-18",
+      "task": "収益カバレッジ判定をチャネル別に見る形へ変える",
+      "outcome": "done",
+      "note": "OR 判定は残しつつ hasNote/hasAffiliate へ分割し noteGap を追加。実データで「収益導線ゼロ 0」の裏に note 導線ゼロ 18 ページが隠れていたことが露出（最大は r08-primary 481users・アフィリ DXConsulting のみ）"
+    },
+    {
+      "at": "2026-08-18",
+      "task": "年次比較のためのスナップショットを今から積む",
+      "outcome": "done",
+      "note": "record-monthly-snapshot.mjs を新設し売上台帳のある 4 か月（2026-05〜08）を backfill。新規取得はせず既存成果物のみ読む。GA4 の source は sourceMedium-sns（SNS限定でorganic必ず0）を避け channel-organic を使用。GA4/GSC は月合計でなく窓なので sources に期間を必ず残す"
+    },
+    {
+      "at": "2026-08-18",
+      "task": "「外部へは成功・台帳の書き戻しは失敗」を検出する生存確認がない",
+      "outcome": "done",
+      "note": "check-external-write-orphans.mjs を新設。2署名（orphan=失敗runに外部成功マーカー / silent-stop=未処理が残るのに動いていない）を gh だけで検出。負のテストで実際の事故 run 27715272742 を orphan として検出。weekly-review の backlog 消化サマリ節へコマンドを配線（読み手を実在させた）"
+    },
+    {
+      "at": "2026-08-18",
+      "task": "note ライブ反映の CDN 確定失敗 — 効果測定",
+      "outcome": "blocked",
+      "note": "45秒/枚でも確定2/3でtimeout、180秒/枚は582秒でTarget crashed＝待ち延長は行き止まりと実測で判明。3枚中1枚だけ確定しない形なので特定画像のアップロード失敗を疑う。旧形式abort 13件はライブ実査して11件解除・is_limited 2件はゲート維持。drift 348 の内訳（画像あり159/なし189）も測定"
+    },
+    {
+      "at": "2026-08-18",
+      "task": "機械チェックの穴 #3 内部メモ除去の横展開",
+      "outcome": "done",
+      "note": "監査は「IG パックに同クラスの穴」と書いていたが実態は違った。IG の SoT は JSON で HTML コメントの慣習が無く 0 件（note フィールドは意図的な表キャプション）。真の穴は X ツールチェーンの非対称＝publish-x/gen-x-card は除去を持つのに check-x-length/check-x-utm/x-queue-lib が持っていなかった。scripts/lib/x-tweets-md.mjs へ規則を集約し 5 消費者すべてを配線。実害は 145 件水増し（偽280字超 15件）だが全て _archive 配下で現行走査範囲は 0 件＝再発予防"
+    },
+    {
+      "at": "2026-08-18",
+      "task": "総監模範論文 77本に「印刷用PDF」節を追加",
+      "outcome": "swept",
+      "note": "実査したらカードの前提が誤りだった。77本すべて案内済みで、PROMISE_RE が「印刷用 PDF」（半角スペース入り）を拾えない偽陽性。正規表現を両対応にして silent 77→0。記事は 1 本も変更していない。副産物として本物の違反 57 件（約束しているのに PDF 実体なし）が露出し、カードを差し替えた"
+    },
+    {
+      "at": "2026-08-18",
+      "task": "台帳の誤りが作業の誤りへ増幅されるのを止める（再発防止 4 点）",
+      "outcome": "done",
+      "note": "check-backlog-verify 新設（赤→緑の遷移で完了の疑いを検出・負のテストで実証）/ check-backlog-health を blame 補完して 61 枚の測定不能を解消 / sweep へバルク編集の3件サンプル確認を明文化 / backlog-curator へ一次資料確認の要求を追加。初回実走で「[検証:] 12 本が surfacer を指していて完了判定に使えない」ことも判明し起票"
+    }
+  ]
+}

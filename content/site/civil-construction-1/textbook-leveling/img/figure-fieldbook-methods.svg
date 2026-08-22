@@ -1,0 +1,61 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="水準測量の野帳記入方法の比較。昇降式は後視と前視の差から各区間の昇降を求めて順次加算し、器高式は器械高を求めて器械高から前視の読みを引いて標高を計算する。器高式は中間点が多い場合に便利である">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-head { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-axis { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-cell { font-size: 11px; fill: #222; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-form { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-item { font-size: 11px; fill: #222; }
+      .head-a { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .head-b { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .cell-a { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .cell-b { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-surf { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .rule { stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="18" text-anchor="middle">標高の計算のしかたが異なる</text>
+
+  <rect class="head-a" x="20" y="28" width="172" height="36" rx="6"/>
+  <text class="t-head" x="106" y="52" text-anchor="middle">昇降式</text>
+  <rect class="head-b" x="208" y="28" width="172" height="36" rx="6"/>
+  <text class="t-head" x="294" y="52" text-anchor="middle">器高式</text>
+
+  <text class="t-axis" x="200" y="84" text-anchor="middle">計算の考え方</text>
+  <rect class="cell-a" x="20" y="92" width="172" height="118" rx="6"/>
+  <text class="t-cell" x="106" y="118" text-anchor="middle">後視と前視の差から</text>
+  <text class="t-cell" x="106" y="138" text-anchor="middle">各区間の昇降を求め</text>
+  <text class="t-cell" x="106" y="158" text-anchor="middle">順次加算して</text>
+  <text class="t-cell" x="106" y="178" text-anchor="middle">標高を計算する</text>
+
+  <rect class="cell-b" x="208" y="92" width="172" height="118" rx="6"/>
+  <text class="t-cell" x="294" y="118" text-anchor="middle">器械高（I.H.）を求め</text>
+  <text class="t-cell" x="294" y="138" text-anchor="middle">器械高から前視の</text>
+  <text class="t-cell" x="294" y="158" text-anchor="middle">読みを引いて</text>
+  <text class="t-cell" x="294" y="178" text-anchor="middle">標高を計算する</text>
+
+  <text class="t-axis" x="200" y="230" text-anchor="middle">向いている場面</text>
+  <rect class="cell-a" x="20" y="238" width="172" height="74" rx="6"/>
+  <text class="t-cell" x="106" y="268" text-anchor="middle">移器点が中心の</text>
+  <text class="t-cell" x="106" y="290" text-anchor="middle">路線水準測量</text>
+
+  <rect class="cell-b" x="208" y="238" width="172" height="74" rx="6"/>
+  <text class="t-cell" x="294" y="268" text-anchor="middle">中間点が多い場合に</text>
+  <text class="t-cell" x="294" y="290" text-anchor="middle">便利</text>
+
+  <rect class="box-surf" x="20" y="330" width="360" height="152" rx="6"/>
+  <text class="t-sec" x="200" y="354" text-anchor="middle">検算と器械高の求め方</text>
+  <line class="rule" x1="36" y1="363" x2="364" y2="363"/>
+  <text class="t-item" x="200" y="388" text-anchor="middle">昇降式の検算</text>
+  <text class="t-form" x="200" y="412" text-anchor="middle">後視の合計 − 前視の合計</text>
+  <text class="t-form" x="200" y="434" text-anchor="middle">＝ 昇の合計 − 降の合計</text>
+  <text class="t-form" x="200" y="456" text-anchor="middle">＝ 最終標高 − 最初の標高</text>
+  <text class="t-item" x="200" y="476" text-anchor="middle">器高式では 器械高 ＝ その点の標高 ＋ 後視の読み</text>
+</svg>

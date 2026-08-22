@@ -1,0 +1,69 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="CSR の 4 要素：持続可能な企業活動を支える環境・社会・経済の 3 本柱と、それらを支える基盤としてのガバナンス">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-page-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }                /* brand-text */
+      .t-pillar-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }              /* brand-text */
+      .t-en { font-size: 11px; fill: #555; }                                              /* ink-body */
+      .t-bullet { font-size: 12px; fill: #222; }                                          /* ink-strong */
+      .t-section { font-size: 13px; font-weight: bold; fill: #1a3a5c; }                   /* brand-text */
+      .t-caption { font-size: 11px; fill: #555; }                                         /* ink-body */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }                /* brand */
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }                /* positive */
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }                /* warn */
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }                /* surface */
+      .div-positive { stroke: #3a7d44; stroke-width: 0.8; }                               /* positive */
+      .div-brand    { stroke: #2e6da4; stroke-width: 0.8; }                               /* brand */
+      .div-warn     { stroke: #d4a017; stroke-width: 0.8; }                               /* warn */
+    </style>
+  </defs>
+
+  <!-- ページタイトル -->
+  <text class="t-page-title" x="200" y="20" text-anchor="middle">CSR（企業の社会的責任）の 4 要素</text>
+
+  <!-- 上部ビーム：到達目標 -->
+  <rect class="box-brand" x="20" y="36" width="360" height="36" rx="6"/>
+  <text class="t-section" x="200" y="60" text-anchor="middle">持続可能な企業活動</text>
+
+  <!-- 環境（positive） -->
+  <rect class="box-positive" x="20" y="86" width="115" height="180" rx="6"/>
+  <text class="t-pillar-title" x="77" y="111" text-anchor="middle">環境</text>
+  <text class="t-en" x="77" y="128" text-anchor="middle">Planet</text>
+  <line class="div-positive" x1="35" y1="138" x2="120" y2="138"/>
+  <text class="t-bullet" x="77" y="160" text-anchor="middle">環境負荷の低減</text>
+  <text class="t-bullet" x="77" y="184" text-anchor="middle">資源の持続的利用</text>
+  <text class="t-bullet" x="77" y="208" text-anchor="middle">気候変動対応</text>
+
+  <!-- 社会（brand） -->
+  <rect class="box-brand" x="142" y="86" width="115" height="180" rx="6"/>
+  <text class="t-pillar-title" x="200" y="111" text-anchor="middle">社会</text>
+  <text class="t-en" x="200" y="128" text-anchor="middle">People</text>
+  <line class="div-brand" x1="157" y1="138" x2="242" y2="138"/>
+  <text class="t-bullet" x="200" y="160" text-anchor="middle">人権尊重</text>
+  <text class="t-bullet" x="200" y="184" text-anchor="middle">労働環境の改善</text>
+  <text class="t-bullet" x="200" y="208" text-anchor="middle">地域貢献</text>
+
+  <!-- 経済（warn） -->
+  <rect class="box-warn" x="265" y="86" width="115" height="180" rx="6"/>
+  <text class="t-pillar-title" x="322" y="111" text-anchor="middle">経済</text>
+  <text class="t-en" x="322" y="128" text-anchor="middle">Profit</text>
+  <line class="div-warn" x1="280" y1="138" x2="365" y2="138"/>
+  <text class="t-bullet" x="322" y="160" text-anchor="middle">適正な利益確保</text>
+  <text class="t-bullet" x="322" y="184" text-anchor="middle">公正な取引</text>
+  <text class="t-bullet" x="322" y="208" text-anchor="middle">長期的な価値創造</text>
+
+  <!-- 基盤：ガバナンス -->
+  <rect class="box-surface" x="20" y="280" width="360" height="50" rx="6"/>
+  <text class="t-section" x="200" y="302" text-anchor="middle">ガバナンス（Governance）</text>
+  <text class="t-caption" x="200" y="320" text-anchor="middle">コンプライアンス・情報開示・透明性の確保</text>
+
+  <!-- 下部サマリー -->
+  <rect x="20" y="395" width="360" height="90" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="4"/>
+  <text x="200" y="422" text-anchor="middle" font-size="13" fill="#222" font-weight="bold">CSR の国際標準</text>
+  <text x="35" y="448" font-size="12" fill="#555">ISO 26000（2010）：CSR の国際ガイドライン</text>
+  <text x="35" y="470" font-size="12" fill="#555">SDGs との整合が現代 CSR の中心課題</text>
+</svg>

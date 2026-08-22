@@ -1,0 +1,18 @@
+{
+  "version": 5,
+  "description": "OGP / note カバー共通テンプレ（T06 Mono Tag）のタイトル改行・フォントサイズ・セーフティゾーン設定。.claude/skills/conversion/ogp-create/scripts/lib/ogp-text.mjs が消費する。2026-06-16 v5: セーフゾーン(中央630)制約を撤廃し全幅レイアウトへ。タイトルを全幅で大きく描画して余白を圧縮（最大76px・1行13文字目安・safetyWidth 1010）。",
+  "safetyWidth": 1010,
+  "safetyHeightForTitle": 380,
+  "maxLines": 4,
+  "fontSizeTable": [76, 68, 60, 54, 48, 42],
+  "_fontSizeTable_note": "全幅レイアウト基準。最大 76px。pickFontSize は最長行が safetyWidth(1010px) に収まる最大サイズを選ぶ。13 文字 × 76px ≈ 988px で 76px が選ばれやすい。全滅時は最後の値で描画継続。",
+  "breakBefore": ["（", "(", "【", "：", ":", "〜", "──", "——", "—", "–"],
+  "breakAt": [" ", "　"],
+  "_breakAt_note": "breakBefore は直前で分割してマーカーを次行に残す。breakAt は位置で分割してマーカーを破棄する（スペース類）。",
+  "charCountFallback": 13,
+  "_charCountFallback_note": "13 文字 × 76px ≈ 988px で safetyWidth(1010) に収まり最大 76px を選ばせる。BudouX 有効時は『1 行 13 文字以内』を目安に semantic 改行。長いタイトルは frontmatter ogp.title で短い OGP 専用見出しを与えるとさらに大きく出る。",
+  "budouX": {
+    "enabled": true,
+    "_comment": "Layer 3 で budoux を使い semantic な日本語改行を行う。`npm i budoux` 済み（package.json で管理）。未インストール時は自動で Layer 4 (charCountFallback) にフォールバック。"
+  }
+}

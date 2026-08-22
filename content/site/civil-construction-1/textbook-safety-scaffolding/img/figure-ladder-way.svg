@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="はしご道の設置基準。上端を床から60cm以上突出させ、幅は30cm以上、踏さんは25〜35cmの等間隔とする">
+  <text x="200" y="22" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#1a3a5c">はしご道：上端60cm突出・幅30cm以上・踏さん25〜35cm</text>
+
+  <!-- 床（上階） -->
+  <rect x="230" y="176" width="150" height="14" fill="#555"/>
+  <path d="M236 190 v8 M252 190 v8 M268 190 v8 M284 190 v8 M300 190 v8 M316 190 v8 M332 190 v8" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="300" y="168" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">上階の床</text>
+
+  <!-- はしご 縦材 -->
+  <rect x="166" y="96" width="8" height="330" fill="#2e6da4"/>
+  <rect x="226" y="96" width="8" height="330" fill="#2e6da4"/>
+
+  <!-- 踏さん（等間隔） -->
+  <rect x="170" y="120" width="60" height="6" fill="#1a3a5c"/>
+  <rect x="170" y="154" width="60" height="6" fill="#1a3a5c"/>
+  <rect x="170" y="188" width="60" height="6" fill="#1a3a5c"/>
+  <rect x="170" y="222" width="60" height="6" fill="#1a3a5c"/>
+  <rect x="170" y="256" width="60" height="6" fill="#1a3a5c"/>
+  <rect x="170" y="290" width="60" height="6" fill="#1a3a5c"/>
+  <rect x="170" y="324" width="60" height="6" fill="#1a3a5c"/>
+  <rect x="170" y="358" width="60" height="6" fill="#1a3a5c"/>
+  <rect x="170" y="392" width="60" height="6" fill="#1a3a5c"/>
+
+  <!-- 上端突出 60cm 寸法 -->
+  <line x1="140" y1="99" x2="140" y2="183" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M140 99 l-3 6 h6 z" fill="#2e6da4"/>
+  <path d="M140 183 l-3 -6 h6 z" fill="#2e6da4"/>
+  <text x="135" y="141" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222" transform="rotate(-90 135 141)">上端 60cm 以上突出</text>
+
+  <!-- 踏さん間隔 -->
+  <line x1="250" y1="120" x2="250" y2="154" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M250 120 l-3 6 h6 z" fill="#2e6da4"/>
+  <path d="M250 154 l-3 -6 h6 z" fill="#2e6da4"/>
+  <text x="258" y="142" font-family="sans-serif" font-size="12" fill="#222">25〜35cm</text>
+  <text x="258" y="158" font-family="sans-serif" font-size="11" fill="#8a8a8a">等間隔</text>
+
+  <!-- 幅 30cm -->
+  <line x1="170" y1="414" x2="230" y2="414" stroke="#2e6da4" stroke-width="1"/>
+  <path d="M170 414 l6 -3 v6 z" fill="#2e6da4"/>
+  <path d="M230 414 l-6 -3 v6 z" fill="#2e6da4"/>
+  <text x="200" y="432" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">幅 30cm 以上</text>
+
+  <!-- 補足 -->
+  <rect x="30" y="446" width="340" height="40" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <text x="200" y="464" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">上端60cm突出・幅30cm以上・踏さん25〜35cm等間隔</text>
+  <text x="200" y="480" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#8a8a8a">根拠：労働安全衛生規則 第556条</text>
+</svg>

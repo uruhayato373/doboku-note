@@ -1,0 +1,140 @@
+{
+  "_meta": {
+    "kind": "highlight-materials",
+    "format": "stories",
+    "size": { "width": 1080, "height": 1920 },
+    "slidesCount": 6,
+    "purpose": "ハイライト系統 C「教材」用の 6 枚 Stories シリーズ。note プロフィール → 無料記事 → 有料マガジンへの二段ロケット動線。",
+    "policy": ".claude/knowledge/reference/ig-stories-policy.md §5 系統 C",
+    "strategy": "docs/marketing/01_SNS集客戦略.md v7.1 §2 Highlight 6 種目「教材」",
+    "_redLineNote": "直接 note 有料リンクは置かない。最終着地点は note 無料記事 or note プロフィール。note 内部リンク（無料記事 → マガジン目次 → 有料記事）で自然遷移させる。"
+  },
+  "slides": [
+    {
+      "index": 1,
+      "filename": "01-cover.png",
+      "role": "cover",
+      "title": "合格者の本棚",
+      "subtitle": "note で書いている教材",
+      "tagText": "教材紹介",
+      "chipCta": "実際の本棚をのぞく",
+      "stickers": [],
+      "_note": "売り込み感を避けるため「本棚」「のぞく」の中立表現。直接「買って」は使わない。"
+    },
+    {
+      "index": 2,
+      "filename": "02-author.png",
+      "role": "author",
+      "tagText": "教材紹介",
+      "title": "これを書いた人",
+      "subtitle": "元・自治体土木職（発注者）",
+      "body": [
+        "技術士（建設部門・総合技術監理部門）",
+        "1級・2級 土木施工管理技士",
+        "1級舗装施工管理技術者",
+        "コンクリート主任技士・コンクリート診断士",
+        "行政書士・応用情報技術者・基本情報技術者",
+        "受験記/解答再現を note に公開中"
+      ],
+      "stickers": [
+        {
+          "type": "link",
+          "url": "https://note.com/dobokunote/",
+          "label": "note プロフィールを見る"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "filename": "03-essay.png",
+      "role": "essay",
+      "tagText": "教材紹介",
+      "title": "模範論文 5年分",
+      "subtitle": "R03〜R07・3,000 字級フル論文",
+      "items": [
+        {
+          "magazineId": "essay-river-consultant-magazine",
+          "label": "河川コンサル",
+          "noteUrl": "https://note.com/dobokunote/m/m32132ecb3033"
+        },
+        {
+          "magazineId": "essay-general-contractor-magazine",
+          "label": "ゼネコン",
+          "noteUrl": "https://note.com/dobokunote/m/{TBD}"
+        },
+        {
+          "magazineId": "essay-road-municipality-magazine",
+          "label": "道路自治体",
+          "noteUrl": "https://note.com/dobokunote/m/{TBD}"
+        }
+      ],
+      "stickers": [
+        {
+          "type": "link",
+          "url": "https://note.com/dobokunote/",
+          "label": "詳細は note プロフィールから"
+        }
+      ],
+      "_note": "リンクスタンプは個別マガジンではなく note プロフィールに着地（売り込み感回避）。マガジン URL は SoT (src/lib/note-magazines.ts) から最新値を反映"
+    },
+    {
+      "index": 4,
+      "filename": "04-readguide.png",
+      "role": "readguide",
+      "tagText": "教材紹介",
+      "title": "精読ガイド",
+      "subtitle": "5管理 × 約 7 万字",
+      "body": [
+        "650+ キーワード解説と連動",
+        "5管理ごとの頻出論点と引っかけ",
+        "サイトへ直リンク付き"
+      ],
+      "stickers": [
+        {
+          "type": "link",
+          "url": "https://note.com/dobokunote/",
+          "label": "note プロフィールで詳細を見る"
+        }
+      ],
+      "_note": "magazineId: tankan-reading-guide。価格は記載しない（タイミングで変動するため）。SoT (note-magazines.ts) と redirect 設計で柔軟性を保つ"
+    },
+    {
+      "index": 5,
+      "filename": "05-sample.png",
+      "role": "sample",
+      "tagText": "教材紹介",
+      "title": "無料で読める",
+      "subtitle": "note 無料記事サンプル",
+      "body": [
+        "まずは無料記事で文体を確認",
+        "中身の質感が分かります"
+      ],
+      "chipCta": "note プロフィールへ",
+      "stickers": [
+        {
+          "type": "link",
+          "url": "https://note.com/dobokunote/",
+          "label": "note プロフィール → 無料記事タブ"
+        }
+      ],
+      "_note": "5 枚目だけは直接 note へ着地。ここが二段ロケットの第 1 段。最新の無料記事 URL は時期で変わるため、プロフィール経由に統一"
+    },
+    {
+      "index": 6,
+      "filename": "06-cta.png",
+      "role": "cta",
+      "tagText": "教材紹介",
+      "title": "無料記事から",
+      "subtitle": "迷ったらまずここへ",
+      "chipCta": "プロフィールへ移動",
+      "stickers": [
+        {
+          "type": "link",
+          "url": "https://note.com/dobokunote/",
+          "label": "note プロフィール（無料記事 + マガジン）"
+        }
+      ],
+      "_note": "二段ロケットの最終着地点。note 内部で「無料記事 → マガジン目次 → 有料記事」と自然遷移させる"
+    }
+  ]
+}

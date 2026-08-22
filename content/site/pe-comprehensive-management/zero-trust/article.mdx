@@ -1,0 +1,99 @@
+---
+title: ゼロトラスト
+description: "ゼロトラストの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（情報管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '4.5'
+tags:
+  - keyword
+published: true
+publishedAt: '2026-04-06'
+reviewStatus: approved
+lastRewrittenAt: '2026-04-15'
+revisionCycle: 1
+seoTitle: "ゼロトラスト ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-05-26
+---
+
+## ゼロトラストとは
+
+ゼロトラストとは、ネットワークの内部・外部を問わず**すべてのアクセスを信頼しない**ことを前提とし、あらゆる通信に対して認証・認可・検査を行うセキュリティモデルである。
+
+従来の**境界型防御**（ペリメタセキュリティ）は、社内ネットワークを「信頼できる領域」、社外を「信頼できない領域」として境界線で防御する考え方であった。
+
+しかし、クラウドサービスの普及やリモートワークの増加により、社内外の境界が曖昧になり、境界型防御だけではサイバー攻撃の脅威を防ぎきれない状況が顕在化してきた。
+
+ゼロトラストは、この課題に対応するため2010 年頃に提唱され、2020 年に米国国立標準技術研究所（NIST）が「NIST SP800-207 Zero Trust Architecture」を発行したことで、国際的な標準概念として定着した。
+
+## 境界型防御との比較
+
+境界型防御とゼロトラストは、防御の起点と脅威の想定範囲において本質的に異なる。以下に主要な観点を示す。
+
+- **基本思想**: 境界型防御 = 内部は信頼、外部は遮断 — ゼロトラスト = すべてを信頼しない
+- **防御の起点**: 境界型防御 = ネットワーク境界（ファイアウォール等） — ゼロトラスト = 個々のアクセスリクエスト
+- **内部からの脅威**: 境界型防御 = 想定が弱い — ゼロトラスト = 内部も検証対象
+- **クラウド対応**: 境界型防御 = 境界の外にあるため防御が困難 — ゼロトラスト = リソースの場所に依存しない
+- **代表的手段**: 境界型防御 = [ファイアウォール](/docs/pe-comprehensive-management-firewall-ids)・[VPN](/docs/pe-comprehensive-management-vpn)・[DMZ](/docs/pe-comprehensive-management-dmz) — ゼロトラスト = 多要素認証・マイクロセグメンテーション・最小権限の原則
+
+両者の決定的な違いは「どこで・何回検証するか」にある。境界型防御は境界で一度認証すれば内部を信頼領域として扱うのに対し、ゼロトラストは信頼領域そのものを設けず、アクセスのたびに検証を繰り返す。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/zero-trust/img/figure-1.svg"
+  alt="境界型防御とゼロトラストの考え方の比較。境界型は境界で1回認証し内部を信頼領域とするのに対し、ゼロトラストは信頼領域を作らずアクセスのたびに認証する"
+/>
+
+## ゼロトラストの基本原則
+
+NIST SP800-207では、ゼロトラストアーキテクチャの基本的な考え方として以下を示している。
+
+- **すべてのリソースへのアクセスを動的に検証する** — アクセスのたびに認証・認可を行う
+- **通信はすべて暗号化する** — ネットワークの場所に関係なく通信の安全性を確保する
+- **最小権限の原則** — 必要最小限のアクセス権のみを付与する
+- **リソースへのアクセスはセッションごとに判断する** — 過去の認証結果を無条件に信頼しない
+
+## 主要な実現技術
+
+ゼロトラストは単一の製品ではなく、認証・分割・監視・制御を担う複数の技術を組み合わせて実現する。
+
+| 技術 | 役割 |
+|---|---|
+| [多要素認証（MFA）](/docs/pe-comprehensive-management-multi-factor-authentication) | 記憶・所持・生体の複数要素で本人確認 |
+| マイクロセグメンテーション | ネットワークを細分化し、セグメント間の通信を制御 |
+| EDR（Endpoint Detection and Response） | 端末ごとの脅威検知と対応 |
+| SASE（Secure Access Service Edge） | ネットワーク機能とセキュリティ機能をクラウドで統合 |
+| [アクセス制御](/docs/pe-comprehensive-management-access-control) | リソースごとのきめ細かなアクセス権限管理 |
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では、ゼロトラストは[**4.5 情報セキュリティ**](/docs/pe-comprehensive-management-keyword-2026#45-情報セキュリティ)（情報管理）に位置づけられている。
+
+境界型防御の限界とゼロトラストの考え方の違いを問う出題が見られ、[VPN](/docs/pe-comprehensive-management-vpn)・[ファイアウォール](/docs/pe-comprehensive-management-firewall-ids)など境界型防御の手段との区別、[ISMS](/docs/pe-comprehensive-management-isms-iso27001)や[セキュリティ評価基準CC](/docs/pe-comprehensive-management-common-criteria)などの認証制度との関連が問われる。
+
+<ExamPoint
+  summary="ゼロトラストは内部も信頼せず都度検証する点で、VPN 等の境界型防御と本質的に異なる"
+  items={[
+    "内部ネットワークも信頼せずアクセス都度に認証・認可・暗号化を要求",
+    "VPN は境界型防御の手段でありゼロトラストの手段ではない",
+    "境界型防御に代わるものではなく組み合わせた多層防御が基本",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "ISMS（ISO/IEC 27001）", slug: "isms-iso27001" },
+  { label: "セキュリティ評価基準CC（ISO/IEC 15408）", slug: "common-criteria" },
+  { label: "暗号化・電子署名", slug: "encryption-digital-signature" },
+  { label: "アクセス制御・アクセス権限設定", slug: "access-control" },
+  { label: "機密性（Confidentiality）", slug: "confidentiality" },
+]} />
+
+## 参考資料
+
+公的機関の指針と民間ベンダーのフレームワーク文書の両方を参照することで、ゼロトラストの技術的な全体像を把握できる。
+
+- [NIST SP 800-207 Zero Trust Architecture](https://csrc.nist.gov/publications/detail/sp/800-207/final)（NIST）
+- [ゼロトラストという戦術の使い方](https://www.ipa.go.jp/jinzai/ics/core_human_resource/final_project/2021/zero-trust.html)（IPA）
+- [ゼロトラストセキュリティ実践ガイドブック](https://www.soumu.go.jp/main_content/000771515.pdf)（総務省）
+- [Zero Trust Architecture（Palo Alto Networks）](https://www.paloaltonetworks.jp/zero-trust)（Palo Alto Networks）
+- [What is Zero Trust Security?（Cloudflare）](https://www.cloudflare.com/ja-jp/learning/security/glossary/what-is-zero-trust/)（Cloudflare）

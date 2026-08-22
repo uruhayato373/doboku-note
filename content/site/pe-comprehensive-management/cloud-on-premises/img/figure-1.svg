@@ -1,0 +1,97 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="IaaS・PaaS・SaaS の責任分界。アプリケーション・データ・ミドルウェア・OS・ハードウェアの各層について、利用者と事業者のどちらが管理するかを示す。SaaS ほど事業者の管理範囲が広い。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-head  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-row   { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .t-user  { font-size: 11px; fill: #1a3a5c; }
+      .t-prov  { font-size: 11px; fill: #555; }
+      .t-leg   { font-size: 11px; fill: #555; }
+      .t-note  { font-size: 11px; fill: #222; }
+      .box-user  { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surf  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-head  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-info  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+    </style>
+  </defs>
+
+  <!-- ヘッダー行 -->
+  <rect class="box-head" x="110" y="12" width="90" height="26" rx="5"/>
+  <text class="t-head" x="155" y="29" text-anchor="middle">IaaS</text>
+  <rect class="box-head" x="204" y="12" width="90" height="26" rx="5"/>
+  <text class="t-head" x="249" y="29" text-anchor="middle">PaaS</text>
+  <rect class="box-head" x="298" y="12" width="90" height="26" rx="5"/>
+  <text class="t-head" x="343" y="29" text-anchor="middle">SaaS</text>
+
+  <!-- 行1 アプリケーション -->
+  <text class="t-row" x="12" y="65">アプリケーション</text>
+  <rect class="box-user" x="110" y="40" width="90" height="42" rx="5"/>
+  <text class="t-user" x="155" y="65" text-anchor="middle">利用者</text>
+  <rect class="box-user" x="204" y="40" width="90" height="42" rx="5"/>
+  <text class="t-user" x="249" y="65" text-anchor="middle">利用者</text>
+  <rect class="box-surf" x="298" y="40" width="90" height="42" rx="5"/>
+  <text class="t-prov" x="343" y="65" text-anchor="middle">事業者</text>
+
+  <!-- 行2 データ -->
+  <text class="t-row" x="12" y="109">データ</text>
+  <rect class="box-user" x="110" y="84" width="90" height="42" rx="5"/>
+  <text class="t-user" x="155" y="109" text-anchor="middle">利用者</text>
+  <rect class="box-user" x="204" y="84" width="90" height="42" rx="5"/>
+  <text class="t-user" x="249" y="109" text-anchor="middle">利用者</text>
+  <rect class="box-user" x="298" y="84" width="90" height="42" rx="5"/>
+  <text class="t-user" x="343" y="109" text-anchor="middle">利用者</text>
+
+  <!-- 行3 ミドルウェア・実行環境 -->
+  <text class="t-row" x="12" y="147">ミドルウェア</text>
+  <text class="t-row" x="12" y="162">・実行環境</text>
+  <rect class="box-user" x="110" y="128" width="90" height="42" rx="5"/>
+  <text class="t-user" x="155" y="153" text-anchor="middle">利用者</text>
+  <rect class="box-surf" x="204" y="128" width="90" height="42" rx="5"/>
+  <text class="t-prov" x="249" y="153" text-anchor="middle">事業者</text>
+  <rect class="box-surf" x="298" y="128" width="90" height="42" rx="5"/>
+  <text class="t-prov" x="343" y="153" text-anchor="middle">事業者</text>
+
+  <!-- 行4 OS -->
+  <text class="t-row" x="12" y="197">OS</text>
+  <rect class="box-user" x="110" y="172" width="90" height="42" rx="5"/>
+  <text class="t-user" x="155" y="197" text-anchor="middle">利用者</text>
+  <rect class="box-surf" x="204" y="172" width="90" height="42" rx="5"/>
+  <text class="t-prov" x="249" y="197" text-anchor="middle">事業者</text>
+  <rect class="box-surf" x="298" y="172" width="90" height="42" rx="5"/>
+  <text class="t-prov" x="343" y="197" text-anchor="middle">事業者</text>
+
+  <!-- 行5 ハードウェア・インフラ -->
+  <text class="t-row" x="12" y="235">ハードウェア</text>
+  <text class="t-row" x="12" y="250">・インフラ</text>
+  <rect class="box-surf" x="110" y="216" width="90" height="42" rx="5"/>
+  <text class="t-prov" x="155" y="241" text-anchor="middle">事業者</text>
+  <rect class="box-surf" x="204" y="216" width="90" height="42" rx="5"/>
+  <text class="t-prov" x="249" y="241" text-anchor="middle">事業者</text>
+  <rect class="box-surf" x="298" y="216" width="90" height="42" rx="5"/>
+  <text class="t-prov" x="343" y="241" text-anchor="middle">事業者</text>
+
+  <!-- 凡例 -->
+  <rect class="box-user" x="40" y="272" width="16" height="14" rx="3"/>
+  <text class="t-leg" x="62" y="283">利用者（自社）が管理</text>
+  <rect class="box-surf" x="222" y="272" width="16" height="14" rx="3"/>
+  <text class="t-leg" x="244" y="283">クラウド事業者が管理</text>
+
+  <!-- 選択指針ボックス -->
+  <rect x="15" y="298" width="370" height="110" rx="6" class="box-info"/>
+  <text x="200" y="318" font-size="12" fill="#1a3a5c" text-anchor="middle" font-weight="bold">サービス選択の指針</text>
+  <line x1="15" y1="325" x2="385" y2="325" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="25" y="344" class="t-note">IaaS：自由度最大・OS/MW を自社で管理したい場合</text>
+  <text x="25" y="364" class="t-note">PaaS：開発に集中・インフラ管理を省力化したい場合</text>
+  <text x="25" y="384" class="t-note">SaaS：即時利用・運用コスト最小化を優先する場合</text>
+  <text x="25" y="400" font-size="11" fill="#555">→ SaaS ほど自社管理範囲が狭くなりセキュリティ責任も変化</text>
+
+  <!-- フッターサマリー -->
+  <rect x="15" y="422" width="370" height="64" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+  <text x="200" y="442" font-size="12" fill="#1a3a5c" text-anchor="middle" font-weight="bold">総監との接続</text>
+  <text x="200" y="462" font-size="11" fill="#222" text-anchor="middle">情報管理：外部委託範囲とリスク移転の設計</text>
+  <text x="200" y="478" font-size="11" fill="#222" text-anchor="middle">社会環境管理：BCP・データ主権の観点で選択</text>
+</svg>

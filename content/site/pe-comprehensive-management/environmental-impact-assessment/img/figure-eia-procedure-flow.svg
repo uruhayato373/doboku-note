@@ -1,0 +1,48 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="環境影響評価法の手続フロー。①配慮書は計画段階の環境配慮で第一種事業のみ義務（戦略的環境アセスメントSEAに相当）。②スクリーニングは第二種事業の実施要否を判定。③方法書（スコーピング）で調査・予測・評価の手法を決定。④準備書は調査・予測・評価の結果をまとめ、都道府県知事・市町村長へ送付する。⑤評価書で最終結果を公表。⑥報告書は事後調査が必要と判断された措置の結果を示す。スクリーニングは要否判定、スコーピングは手法決定であり混同しやすい。">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-head { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .st     { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .nt     { font-size: 11px; fill: #555; }
+      .ar     { font-size: 14px; fill: #2e6da4; }
+      .f-foot { font-size: 11px; fill: #555; }
+    </style>
+  </defs>
+
+  <text class="t-head" x="200" y="36" text-anchor="middle">配慮書から報告書までの手続フロー</text>
+
+  <rect x="20" y="50" width="360" height="48" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.3"/>
+  <text class="st" x="34" y="70" text-anchor="start">① 配慮書（計画段階）</text>
+  <text class="nt" x="34" y="88" text-anchor="start">第一種事業のみ義務（SEA：戦略的環境アセスに相当）</text>
+  <text class="ar" x="200" y="110" text-anchor="middle">▼</text>
+
+  <rect x="20" y="116" width="360" height="48" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.3"/>
+  <text class="st" x="34" y="136" text-anchor="start">② スクリーニング</text>
+  <text class="nt" x="34" y="154" text-anchor="start">第二種事業の実施要否を判定する</text>
+  <text class="ar" x="200" y="176" text-anchor="middle">▼</text>
+
+  <rect x="20" y="182" width="360" height="48" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.3"/>
+  <text class="st" x="34" y="202" text-anchor="start">③ 方法書（スコーピング）</text>
+  <text class="nt" x="34" y="220" text-anchor="start">調査・予測・評価の手法を決定する</text>
+  <text class="ar" x="200" y="242" text-anchor="middle">▼</text>
+
+  <rect x="20" y="248" width="360" height="48" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.3"/>
+  <text class="st" x="34" y="268" text-anchor="start">④ 準備書</text>
+  <text class="nt" x="34" y="286" text-anchor="start">公告・縦覧＋説明会を開催。知事・市町村長へ送付</text>
+  <text class="ar" x="200" y="308" text-anchor="middle">▼</text>
+
+  <rect x="20" y="314" width="360" height="44" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.3"/>
+  <text class="st" x="34" y="334" text-anchor="start">⑤ 評価書</text>
+  <text class="nt" x="34" y="351" text-anchor="start">最終的な評価結果を公表する</text>
+  <text class="ar" x="200" y="372" text-anchor="middle">▼</text>
+
+  <rect x="20" y="378" width="360" height="44" rx="6" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.3"/>
+  <text class="st" x="34" y="398" text-anchor="start">⑥ 報告書</text>
+  <text class="nt" x="34" y="415" text-anchor="start">事後調査が必要と判断された措置の結果を示す</text>
+
+  <rect x="20" y="432" width="360" height="54" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.3"/>
+  <text class="f-foot" x="34" y="453" text-anchor="start">説明会の開催義務は準備書のみ（評価書は公告・縦覧のみ）。</text>
+  <text class="f-foot" x="34" y="471" text-anchor="start">スクリーニング＝要否判定／スコーピング＝手法決定。</text>
+</svg>

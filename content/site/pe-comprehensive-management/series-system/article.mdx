@@ -1,0 +1,82 @@
+---
+title: 直列システム
+description: "直列システムの定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（安全管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '5.6'
+tags:
+  - keyword
+published: true
+publishedAt: '2026-04-09'
+seoTitle: "直列システム ｜ 技術士 総合技術監理部門 キーワード集"
+reviewStatus: approved
+lastRewrittenAt: '2026-04-17'
+revisionCycle: 1
+created: 2026-04-05
+dateModified: 2026-05-26
+---
+
+## 直列システムとは
+
+直列システムとは、すべての構成要素が正常に機能して初めてシステム全体が機能する構成である。いずれか1つの要素が故障すると、システム全体が停止する。
+
+[FTA](/docs/pe-comprehensive-management-fta)においてORゲートで接続された事象群は、直列システムに対応する。
+
+## 信頼度の計算
+
+$n$ 個の要素が直列に接続されたシステムの信頼度 $R_s$ は、各要素の信頼度 $R_i$ の積で表される。
+
+$$
+R_s = R_1 \times R_2 \times \cdots \times R_n = \prod_{i=1}^{n} R_i
+$$
+
+### 計算例
+
+信頼度0.9の要素が3つ直列接続されている場合：
+
+$$
+R_s = 0.9 \times 0.9 \times 0.9 = 0.729
+$$
+
+要素数が増えるほどシステム全体の信頼度は**低下**する。
+
+## 並列システムとの比較
+
+直列システムと[並列システム](/docs/pe-comprehensive-management-parallel-system)は、故障条件・信頼度の計算方法・冗長設計の考え方が対照的である。
+
+- **故障条件**: 直列システムはいずれか1つの故障でシステム停止 — 並列システムはすべてが故障してシステム停止
+- **信頼度**: 直列システムは $R_s = \prod R_i$（積） — 並列システムは $R_s = 1 - \prod (1-R_i)$（余事象）
+- **要素数増加**: 直列システムは信頼度が低下 — 並列システムは信頼度が向上
+- **FTAゲート**: 直列システムはORゲートに対応 — 並列システムはANDゲートに対応
+
+<ExamPoint
+  summary="直列システムの信頼度計算と並列システムとの違いを理解する"
+  items={[
+    "直列系の信頼度 = 各要素の信頼度の積",
+    "1つでも故障すればシステム全体が停止する",
+    "要素数が増えるほどシステム信頼度は低下する",
+    "FTAのORゲートに対応する",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**5.6 システム安全工学手法**](/docs/pe-comprehensive-management-keyword-2026#56-システム安全工学手法)に位置づけられている。
+
+直列システムは[並列システム](/docs/pe-comprehensive-management-parallel-system)と対になる信頼性工学の基本概念である。[信頼性ブロック図](/docs/pe-comprehensive-management-reliability-block-diagram)で視覚的に表現され、システム設計における冗長構成の検討の基礎となる。
+
+過去問 [R02 Ⅰ-1-28](/docs/pe-comprehensive-management-r02-primary#1-28) では主要電源 3 系統（[並列](/docs/pe-comprehensive-management-parallel-system)・1 つ稼働すれば停電回避）＋予備緊急電源 2 台（2 台とも起動すれば回避）の信頼性計算が問われた。「主要電源が 3 系統すべて停止」= 直列的に全滅する確率 = p³（各主電源停止確率 p の独立・積）が、階層的な並列・直列の組合せ計算の基礎となる。
+
+<RelatedKeywords items={[
+  { label: "並列システム", slug: "parallel-system" },
+  { label: "信頼性ブロック図", slug: "reliability-block-diagram" },
+  { label: "フォールトツリー分析（FTA）", slug: "fta" },
+  { label: "イベントツリー分析（ETA）", slug: "eta" },
+  { label: "冗長性（安全設計）", slug: "redundancy-safety" },
+]} />
+
+## 参考資料
+
+- [故障の影響解析(FMEA)と、故障の木解析（FTA)の活用（一般財団法人 機械振興協会 技術研究所）](https://www.jspmi.or.jp/system/l_cont.php?ctid=130403&rid=828)
+- [システム信頼度解析 | システム安全工学（鹿夫のエンジニア資質向上計画）](https://certlabo.com/system-reliable-analysis/)

@@ -1,0 +1,73 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="本質的安全設計の 3 ステップ方策：危険源の除去・低減（最高優先）→ ガード・保護装置（中優先）→ 使用上の情報・教育（最低優先）の段階的安全方策">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-num    { font-size: 16px; font-weight: bold; fill: #1a3a5c; }    /* brand-text */
+      .t-title  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }    /* brand-text */
+      .t-desc   { font-size: 11px; fill: #222; }                          /* ink-strong */
+      .t-prio   { font-size: 11px; fill: #555; }                          /* ink-body */
+      .t-source { font-size: 11px; fill: #8a8a8a; }                       /* ink-muted */
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; } /* positive（最高優先） */
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn（中優先） */
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; } /* surface（最低優先） */
+      .arrow        { stroke: #555; stroke-width: 1.5; fill: none; }       /* ink-body */
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="6" refX="7" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- ステップ 1：本質的安全設計方策（最高優先） -->
+  <rect class="box-positive" x="30" y="20" width="360" height="74" rx="6"/>
+  <text class="t-num"   x="48" y="44">1</text>
+  <text class="t-title" x="210" y="44" text-anchor="middle">本質的安全設計方策</text>
+  <text class="t-desc"  x="210" y="62" text-anchor="middle">設計的配置・形状、動作・自動化</text>
+  <text class="t-desc"  x="210" y="76" text-anchor="middle">接近不可能・接近抑制・固定不変</text>
+  <text class="t-prio"  x="210" y="90" text-anchor="middle">優先度：最高（危険源の除去・低減）</text>
+
+  <line class="arrow" x1="210" y1="94" x2="210" y2="112" marker-end="url(#arr)"/>
+
+  <!-- ステップ 2：安全防護および付加保護方策（中優先） -->
+  <rect class="box-warn" x="30" y="116" width="360" height="84" rx="6"/>
+  <text class="t-num"   x="48" y="140">2</text>
+  <text class="t-title" x="210" y="140" text-anchor="middle">安全防護および付加保護方策</text>
+  <text class="t-desc"  x="210" y="158" text-anchor="middle">固定式ガード・可動ガード・保護装置</text>
+  <text class="t-desc"  x="210" y="172" text-anchor="middle">非常停止装置・エネルギー遮断</text>
+  <text class="t-desc"  x="210" y="186" text-anchor="middle">ロックアウト・タグアウト</text>
+  <text class="t-prio"  x="210" y="196" text-anchor="middle">優先度：中（ガード・保護装置による防護）</text>
+
+  <line class="arrow" x1="210" y1="200" x2="210" y2="218" marker-end="url(#arr)"/>
+
+  <!-- ステップ 3：使用上の情報（最低優先） -->
+  <rect class="box-surface" x="30" y="222" width="360" height="74" rx="6"/>
+  <text class="t-num"   x="48" y="246">3</text>
+  <text class="t-title" x="210" y="246" text-anchor="middle">使用上の情報</text>
+  <text class="t-desc"  x="210" y="264" text-anchor="middle">取説・警告ラベル・警告信号・保護具</text>
+  <text class="t-desc"  x="210" y="278" text-anchor="middle">管理・教育・訓練</text>
+  <text class="t-prio"  x="210" y="292" text-anchor="middle">優先度：最低（人の行動・注意に依存）</text>
+
+  <text class="t-source" x="210" y="314" text-anchor="middle">出典：ISO 12100「機械類の安全性」3 ステップメソッド</text>
+
+  <!-- 追加：4E との対応 -->
+  <rect x="30" y="332" width="360" height="52" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text class="t-title" x="210" y="352" text-anchor="middle">4E 対策との対応関係</text>
+  <text class="t-desc" x="210" y="368" text-anchor="middle">Step 1（本質的）≒ Engineering（技術的改善）</text>
+  <text class="t-desc" x="210" y="382" text-anchor="middle">Step 3（情報）≒ Education（教育・訓練）</text>
+
+  <rect x="30" y="398" width="172" height="56" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="6"/>
+  <text class="t-title" x="116" y="418" text-anchor="middle">本質安全の例</text>
+  <text class="t-desc" x="116" y="434" text-anchor="middle">低電圧化・危険物</text>
+  <text class="t-desc" x="116" y="448" text-anchor="middle">代替・形状変更</text>
+
+  <rect x="218" y="398" width="172" height="56" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="6"/>
+  <text class="t-title" x="304" y="418" text-anchor="middle">残留リスク対応</text>
+  <text class="t-desc" x="304" y="434" text-anchor="middle">Step 2→3 で低減</text>
+  <text class="t-desc" x="304" y="448" text-anchor="middle">リスクアセスメント必須</text>
+
+  <text class="t-source" x="210" y="474" text-anchor="middle">OSHMS（労働安全衛生管理システム）の中核的手法</text>
+  <text class="t-prio" x="210" y="490" text-anchor="middle">優先度順の適用が安全設計の基本原則</text>
+</svg>

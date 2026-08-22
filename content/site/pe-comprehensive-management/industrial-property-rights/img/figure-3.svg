@@ -1,0 +1,87 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="産業財産権4権の一覧比較。特許権は発明・実体審査・出願から20年、実用新案権は考案・無審査登録・出願から10年、意匠権はデザイン・実体審査・登録から25年、商標権は標識・実体審査・登録から10年で更新可。存続期間と起算点の違いを対比した表">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .axis { font-size: 11px; font-weight: bold; fill: #1a3a5c; }
+      .v    { font-size: 12px; fill: #222; }
+      .vb   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .s    { font-size: 11px; fill: #555; }
+    </style>
+  </defs>
+
+  <!-- 列ヘッダー（4権） -->
+  <rect x="72"  y="14" width="78" height="40" rx="5" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="111" y="32" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold">特許権</text>
+  <text x="111" y="48" text-anchor="middle" class="s">特許法</text>
+  <rect x="152" y="14" width="78" height="40" rx="5" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <text x="191" y="32" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold">実用新案権</text>
+  <text x="191" y="48" text-anchor="middle" class="s">実用新案法</text>
+  <rect x="232" y="14" width="78" height="40" rx="5" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="271" y="32" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold">意匠権</text>
+  <text x="271" y="48" text-anchor="middle" class="s">意匠法</text>
+  <rect x="312" y="14" width="78" height="40" rx="5" fill="#f8d7da" stroke="#b22234" stroke-width="1.5"/>
+  <text x="351" y="32" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold">商標権</text>
+  <text x="351" y="48" text-anchor="middle" class="s">商標法</text>
+
+  <!-- 行1: 保護対象 -->
+  <text class="axis" x="8" y="84">保護対象</text>
+  <text class="v" x="111" y="80" text-anchor="middle">発明</text>
+  <text class="s" x="111" y="94" text-anchor="middle">高度な創作</text>
+  <text class="v" x="191" y="80" text-anchor="middle">考案</text>
+  <text class="s" x="191" y="94" text-anchor="middle">物品の形状等</text>
+  <text class="v" x="271" y="80" text-anchor="middle">デザイン</text>
+  <text class="s" x="271" y="94" text-anchor="middle">建築物・画像</text>
+  <text class="v" x="351" y="80" text-anchor="middle">標識</text>
+  <text class="s" x="351" y="94" text-anchor="middle">商品・役務</text>
+  <line x1="8" y1="106" x2="392" y2="106" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 行2: 審査制度 -->
+  <text class="axis" x="8" y="132">審査制度</text>
+  <text class="v" x="111" y="130" text-anchor="middle">実体審査</text>
+  <text x="191" y="130" text-anchor="middle" font-size="12" fill="#d4a017" font-weight="bold">無審査登録</text>
+  <text class="v" x="271" y="130" text-anchor="middle">実体審査</text>
+  <text class="v" x="351" y="130" text-anchor="middle">実体審査</text>
+  <line x1="8" y1="148" x2="392" y2="148" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 行3: 存続期間（R06頻出・ハイライト） -->
+  <rect x="4" y="156" width="392" height="46" rx="5" fill="#fff3cd"/>
+  <text class="axis" x="8" y="176">存続期間</text>
+  <text x="8" y="192" font-size="11" fill="#d4a017">R06出題</text>
+  <text x="111" y="186" text-anchor="middle" font-size="15" fill="#1a3a5c" font-weight="bold">20年</text>
+  <text x="191" y="186" text-anchor="middle" font-size="15" fill="#1a3a5c" font-weight="bold">10年</text>
+  <text x="271" y="186" text-anchor="middle" font-size="15" fill="#1a3a5c" font-weight="bold">25年</text>
+  <text x="351" y="183" text-anchor="middle" font-size="15" fill="#1a3a5c" font-weight="bold">10年</text>
+  <text x="351" y="197" text-anchor="middle" font-size="11" fill="#b22234" font-weight="bold">更新可</text>
+
+  <!-- 行4: 起算点 -->
+  <text class="axis" x="8" y="228">起算点</text>
+  <text x="111" y="226" text-anchor="middle" font-size="12" fill="#2e6da4" font-weight="bold">出願日</text>
+  <text x="191" y="226" text-anchor="middle" font-size="12" fill="#2e6da4" font-weight="bold">出願日</text>
+  <text x="271" y="226" text-anchor="middle" font-size="12" fill="#3a7d44" font-weight="bold">登録日</text>
+  <text x="351" y="226" text-anchor="middle" font-size="12" fill="#3a7d44" font-weight="bold">登録日</text>
+  <line x1="8" y1="244" x2="392" y2="244" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 行5: ひとこと特徴 -->
+  <text class="axis" x="8" y="272">特徴</text>
+  <text class="s" x="111" y="268" text-anchor="middle">強く安定</text>
+  <text class="s" x="111" y="280" text-anchor="middle">高度な発明</text>
+  <text class="s" x="191" y="268" text-anchor="middle">速い・安い</text>
+  <text class="s" x="191" y="280" text-anchor="middle">無審査</text>
+  <text class="s" x="271" y="268" text-anchor="middle">2020改正で</text>
+  <text class="s" x="271" y="280" text-anchor="middle">対象拡大</text>
+  <text class="s" x="351" y="268" text-anchor="middle">更新で</text>
+  <text class="s" x="351" y="280" text-anchor="middle">半永久</text>
+
+  <!-- まとめ帯 -->
+  <rect x="4" y="300" width="392" height="92" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="200" y="322" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold">存続期間のまとめ（R06 Ⅰ-1-22）</text>
+  <text x="16" y="344" font-size="11" fill="#222">・出願日起算：特許20年／実用新案10年</text>
+  <text x="16" y="364" font-size="11" fill="#222">・登録日起算：意匠25年（2020改正で20→25）／商標10年</text>
+  <text x="16" y="384" font-size="11" fill="#b22234">・商標のみ更新登録で半永久に維持できる</text>
+
+  <!-- 補足 -->
+  <text x="200" y="416" text-anchor="middle" font-size="11" fill="#1a3a5c" font-weight="bold">いずれも特許庁への出願・登録による「方式主義」</text>
+  <text x="200" y="436" text-anchor="middle" class="s">（著作権の無方式主義＝創作と同時に発生 とは対照的）</text>
+  <text x="200" y="460" text-anchor="middle" font-size="11" fill="#555">実用新案権のみ無審査登録／他3権は実体審査あり</text>
+  <text x="200" y="482" text-anchor="middle" font-size="11" fill="#555">権利の効力は国内に限られる（属地主義）</text>
+</svg>

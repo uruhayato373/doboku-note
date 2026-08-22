@@ -1,0 +1,89 @@
+name: ▶️ YouTube scheduled post (daily)
+
+# .claude/state/youtube-schedule.json の pending のうち publishAt が近いものを
+# 毎日 cron で R2 から取得 → private+publishAt で YouTube にアップ（quota ≈6本/日）。
+# YouTube が publishAt 時刻に自動公開する。投稿実績は台帳と yt-posted-log.jsonl に記録。
+#
+# 前提 Secrets: YOUTUBE_CLIENT_ID / YOUTUBE_CLIENT_SECRET / YOUTUBE_REFRESH_TOKEN
+#               CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_R2_ACCESS_KEY_ID / CLOUDFLARE_R2_SECRET_ACCESS_KEY
+# 実装パターン: post-instagram-scheduled.yml を参考
+
+# 2026-08-18: cron を撤去して**手動投入**へ切り替えた（ユーザー決定）。
+# 台帳 187 本の publishAt は全件過去（2026-06-11〜08-14）で、cron を戻すと全件が即座に
+# 対象化して 1 日 6 本の自走が始まる。消化ペースを人が決める運用にする。
+# 真実源: docs/marketing/05_YouTube戦略_技術士総監.md（投稿頻度の節）
+on:
+  workflow_dispatch:
+    inputs:
+      max:
+        description: "1回のアップ上限（空なら台帳の uploadBatchPerDay=6）"
+        required: false
+      dry_run:
+        description: "true で対象表示のみ（アップしない）"
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: post-youtube-scheduled
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: 🧰 Checkout main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 1
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: 📦 Install deps
+        run: npm ci --legacy-peer-deps
+
+      - name: 🔍 Validate schedule (重複チェック)
+        run: node .claude/scripts/youtube/validate-schedule.mjs
+
+      - name: ▶️ Upload due scheduled shorts
+        id: post
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: |
+          set -o pipefail
+          ARGS=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
+          if [ -n "${{ inputs.max }}" ]; then ARGS="$ARGS --max ${{ inputs.max }}"; fi
+          node .claude/scripts/youtube/post-from-schedule.cjs $ARGS 2>&1 | tee /tmp/yt-post.log
+
+      - name: 📝 Commit ledger + log
+        if: success() && inputs.dry_run != 'true' && steps.post.outputs.uploaded != '' && steps.post.outputs.uploaded != '0'
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+          git add .claude/state/youtube-schedule.json .claude/state/yt-posted-log.jsonl
+          git diff --cached --quiet && exit 0
+          # **commit を pull より先に**。staged のまま rebase すると
+          # "cannot pull with rebase: Your index contains uncommitted changes" で必ず落ちる。
+          # 2026-06-17 の run はこれでアップ済み 6 本の台帳を失い、以後 2 か月停止した。
+          git commit -m "chore(yt): upload ${{ steps.post.outputs.uploaded }} scheduled shorts [skip ci]"
+          git pull --rebase origin main
+          git push origin main
+
+      - name: 💬 Notify on failure
+        if: failure()
+        run: |
+          echo "::error::YouTube 予約投稿失敗。/tmp/yt-post.log を確認してください"
+          tail -40 /tmp/yt-post.log || true

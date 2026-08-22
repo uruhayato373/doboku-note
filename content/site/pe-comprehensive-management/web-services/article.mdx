@@ -1,0 +1,90 @@
+---
+title: WEBサービス
+description: "WEBサービスの技術体系（SOAP・REST・API）と情報システムにおける活用形態を解説する。技術士総合技術監理キーワード集2026（情報管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '4.4'
+tags:
+  - 総合技術監理
+  - keyword
+published: true
+publishedAt: '2026-04-08'
+reviewStatus: approved
+lastRewrittenAt: '2026-04-17'
+revisionCycle: 1
+seoTitle: "WEBサービス ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-05-26
+---
+
+## WEBサービスとは
+
+WEBサービスとは、インターネット上の標準プロトコル（HTTP等）を利用して、異なるシステム間でデータや機能を相互にやり取りする仕組みの総称である。
+
+SOA（サービス指向アーキテクチャ）の考え方に基づき、個々の機能をサービスとして公開し、ネットワーク経由で呼び出すことで、システム間連携の柔軟性と再利用性を高める。
+
+WEBサービスは企業の業務システム統合、公共データの公開（オープンデータ）、モバイルアプリケーションのバックエンドなど、幅広い領域で活用されている。
+
+### SOAP と REST の比較
+
+WEBサービスの実装方式として、SOAPとRESTが代表的である。
+
+- **プロトコル**: SOAP = 独自のSOAPプロトコル（XML） ／ REST = HTTPメソッド（GET, POST, PUT, DELETE）
+- **データ形式**: SOAP = XML ／ REST = JSON（XML も可）
+- **記述の複雑さ**: SOAP = WSDLによる厳密な定義が必要 ／ REST = シンプルなURL設計で記述容易
+- **トランザクション**: SOAP = WS-Transactionで対応 ／ REST = 標準的な仕組みなし
+- **セキュリティ**: SOAP = WS-Securityで標準化 ／ REST = HTTPS + OAuthなど
+- **適用場面**: SOAP = 金融・医療など厳密性が求められる分野 ／ REST = Web・モバイルアプリケーション全般
+- **現在の主流度**: SOAP = レガシーシステムで残存 ／ REST = 新規開発の主流
+
+### API エコノミーとマイクロサービス
+
+APIを外部に公開し、他社サービスと連携することで新たな価値を創出する仕組みを **APIエコノミー** と呼ぶ。
+
+**マイクロサービスアーキテクチャ** は、大規模なシステムを独立した小さなサービスの集合体として構築する設計手法であり、各サービスはRESTful APIやメッセージキューを通じて疎結合に連携する。
+
+これにより、サービスごとの独立した開発・デプロイ・スケーリングが可能となり、システム全体の変更柔軟性が向上する。
+
+### WEBサービスの関連技術
+
+| 技術 | 概要 |
+|---|---|
+| **XML / JSON** | データ記述・交換フォーマット |
+| **WSDL** | WEBサービスのインタフェース記述言語（SOAP用） |
+| **UDDI** | WEBサービスの登録・検索ディレクトリ |
+| **OAuth 2.0** | API利用時の認可プロトコル |
+| **OpenAPI (Swagger)** | RESTful APIの仕様記述標準 |
+| **GraphQL** | Facebook が開発したクエリ言語（RESTの代替） |
+| **gRPC** | Google が開発した高速RPC フレームワーク |
+
+<ExamPoint
+  summary="WEBサービスはシステム間連携の基盤技術であり、REST APIが現在の主流である"
+  items={[
+    "SOAPはXMLベースで厳密、RESTはHTTPベースで簡潔という特徴の違いを理解する",
+    "APIエコノミーとマイクロサービスにより、サービスの再利用性と柔軟性が向上する",
+    "OAuth・OpenAPIなどの関連技術はセキュリティと相互運用性を支える基盤である",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**4.4 情報通信技術動向**](/docs/pe-comprehensive-management-keyword-2026#44-情報通信技術動向)に位置づけられる。
+
+WEBサービスはクラウドコンピューティングやインターネットの基盤技術であり、情報システムの集中化と分散化の選択にも影響を与える重要な概念である。
+
+関連キーワード: [集中化と分散化](/docs/pe-comprehensive-management-centralization-decentralization)、[インターネット](/docs/pe-comprehensive-management-internet)
+
+<RelatedKeywords items={[
+  { label: "インターネット", slug: "internet" },
+  { label: "API", slug: "api" },
+  { label: "クラウドコンピューティング／オンプレミス", slug: "cloud-on-premises" },
+  { label: "エッジコンピューティング", slug: "edge-computing" },
+  { label: "IoT（Internet of Things）", slug: "iot" },
+]} />
+
+## 参考資料
+
+- [デジタル・ガバメント推進標準ガイドライン（デジタル庁）](https://www.digital.go.jp/policies/servicedesign/designguideline)
+- [OpenAPI Specification（Swagger）](https://swagger.io/specification/)
+- [SOAとマイクロサービス（ITmedia）](https://www.itmedia.co.jp/)

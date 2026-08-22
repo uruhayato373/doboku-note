@@ -1,0 +1,6 @@
+{
+  "_note": "Brain(brain-market.com) 競合クリエイター一覧。handle = brain-market.com/u/{handle} の作者スラグ。exams タグは note-competitors.json と共通。【2026-07-20 probe 結論】Brain は物販/AI/マーケ系に偏り、土木/技術士は実質白地。WebSearch＋検索実測で確認できた exam 競合は study_base（コンクリート診断士100問集）1件のみ。データは SPA/API ロックで自動 scout の ROI が低いため**自動 scout は作らず手動記録**（四半期に WebSearch で新規販売者を確認・増えたら scout 検討）。分析真実源は 09_販売チャネル競合分析.md §E。",
+  "competitors": [
+    { "handle": "study_base", "label": "Study Base", "exams": ["concrete-diagnostician"], "note": "2026-07-20 WebSearch発掘。コンクリート診断士 試験対策問題集100問 解答解説付き(brain-market.com/u/study_base)。Brain 上で確認できた唯一の exam 競合" }
+  ]
+}

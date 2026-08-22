@@ -1,0 +1,42 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="環境影響評価法の対象事業の3区分。第一種事業は事業の規模に関わらず必ず環境影響評価を行うもので、計画段階の配慮書手続も義務。例は高速自動車国道・新幹線鉄道・原子力発電所。第二種事業は事業の規模に応じて対象となるもので、スクリーニングで実施要否を判定する。例は林道・風力発電所。対象外は環境影響評価が不要なもので、例は下水処理場・堤防・ゴルフ場。なお太陽光発電は2020年以降アセス対象に追加されており対象外ではない。スクリーニングは要否判定、スコーピングは調査手法の決定で、配慮書は第一種事業のみ義務である。">
+  <rect width="400" height="500" fill="#ffffff"/>
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-head { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .c-t    { font-size: 13px; font-weight: bold; }
+      .c-d    { font-size: 11px; fill: #222; }
+      .ex     { font-size: 11px; fill: #555; }
+      .f-head { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .f-foot { font-size: 11px; fill: #555; }
+    </style>
+  </defs>
+
+  <text class="t-head" x="200" y="38" text-anchor="middle">必ず対象／規模次第／対象外の3区分</text>
+
+  <!-- 第一種事業 -->
+  <rect x="10" y="48" width="380" height="104" rx="8" fill="#f8d7da" stroke="#b22234" stroke-width="1.3"/>
+  <text class="c-t" x="24" y="70" text-anchor="start" fill="#b22234">第一種事業 ｜ 規模に関わらず必ず対象</text>
+  <text class="c-d" x="24" y="92" text-anchor="start">配慮書（計画段階の環境配慮）の手続も義務。</text>
+  <text class="ex"  x="24" y="116" text-anchor="start">例：高速自動車国道・新幹線鉄道・</text>
+  <text class="ex"  x="24" y="134" text-anchor="start">　　原子力発電所・大規模ダム</text>
+
+  <!-- 第二種事業 -->
+  <rect x="10" y="160" width="380" height="92" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.3"/>
+  <text class="c-t" x="24" y="182" text-anchor="start" fill="#d4a017">第二種事業 ｜ 規模に応じて対象</text>
+  <text class="c-d" x="24" y="204" text-anchor="start">スクリーニングで実施要否を判定する。</text>
+  <text class="ex"  x="24" y="228" text-anchor="start">例：林道・風力発電所</text>
+
+  <!-- 対象外 -->
+  <rect x="10" y="260" width="380" height="74" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.3"/>
+  <text class="c-t" x="24" y="282" text-anchor="start" fill="#3a7d44">対象外 ｜ 環境影響評価は不要</text>
+  <text class="ex"  x="24" y="306" text-anchor="start">例：下水処理場・堤防・ゴルフ場</text>
+
+  <!-- 注意点 -->
+  <rect x="10" y="342" width="380" height="144" rx="8" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.3"/>
+  <text class="f-head" x="24" y="364" text-anchor="start">注意点</text>
+  <text class="f-foot" x="24" y="388" text-anchor="start">太陽光発電は2020年以降アセス対象（対象外ではない）。</text>
+  <text class="f-foot" x="24" y="410" text-anchor="start">スクリーニング＝要否判定／スコーピング＝手法決定。</text>
+  <text class="f-foot" x="24" y="432" text-anchor="start">配慮書は第一種のみ義務（第二種は義務なし）。</text>
+  <text class="f-foot" x="24" y="454" text-anchor="start">手続：配慮書→方法書→準備書→評価書→報告書。</text>
+</svg>

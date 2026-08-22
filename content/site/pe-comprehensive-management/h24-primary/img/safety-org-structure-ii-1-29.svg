@@ -1,0 +1,137 @@
+<svg width="760" height="380" viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="9.5" style="max-width:760px;width:100%" role="img" aria-label="総括安全衛生管理者等の選任業務（業種×事業場規模マトリクス）">
+  <!-- Title row -->
+  <rect x="5" y="5" width="750" height="28" fill="#2e6da4" rx="3"/>
+  <text x="380" y="24" text-anchor="middle" fill="#ffffff" font-weight="bold" font-size="12">総括安全衛生管理者等の選任業務（労働安全衛生法）</text>
+
+  <!-- Sub-header -->
+  <rect x="5"   y="33" width="160" height="35" fill="#2e6da4" stroke="#d7d7d7"/>
+  <text x="85"  y="50" text-anchor="middle" fill="#ffffff" font-weight="bold">業種</text>
+  <text x="85"  y="63" text-anchor="middle" fill="#ffffff" font-size="9">（安衛令2条）</text>
+
+  <rect x="165" y="33" width="180" height="35" fill="#2e6da4" stroke="#d7d7d7"/>
+  <text x="255" y="44" text-anchor="middle" fill="#ffffff" font-weight="bold">業種1</text>
+  <text x="255" y="57" text-anchor="middle" fill="#ffffff" font-size="8">林業、鉱業、建設業、</text>
+  <text x="255" y="68" text-anchor="middle" fill="#ffffff" font-size="8">運送業、清掃業</text>
+
+  <rect x="345" y="33" width="200" height="35" fill="#2e6da4" stroke="#d7d7d7"/>
+  <text x="445" y="44" text-anchor="middle" fill="#ffffff" font-weight="bold">業種2</text>
+  <text x="445" y="55" text-anchor="middle" fill="#ffffff" font-size="8">製造業、電気業、ガス業、熱供給業、水道業、</text>
+  <text x="445" y="65" text-anchor="middle" fill="#ffffff" font-size="8">通信業、各種商品卸売業、家具・建具・じゅう器等</text>
+
+  <rect x="545" y="33" width="215" height="35" fill="#2e6da4" stroke="#d7d7d7"/>
+  <text x="652" y="44" text-anchor="middle" fill="#ffffff" font-weight="bold">業種3</text>
+  <text x="652" y="55" text-anchor="middle" fill="#ffffff" font-size="8">その他の業種（業種1・2以外）</text>
+  <text x="652" y="65" text-anchor="middle" fill="#ffffff" font-size="8">（金融業、保険業など）</text>
+
+  <!-- Row: 区分 -->
+  <rect x="5"   y="68" width="160" height="20" fill="#aaccee" stroke="#d7d7d7"/>
+  <text x="85"  y="82" text-anchor="middle" font-weight="bold">区分</text>
+
+  <rect x="165" y="68" width="180" height="20" fill="#ddeeff" stroke="#d7d7d7"/>
+  <text x="255" y="82" text-anchor="middle">100人以上</text>
+
+  <rect x="345" y="68" width="100" height="20" fill="#ddeeff" stroke="#d7d7d7"/>
+  <text x="395" y="82" text-anchor="middle">50人以上</text>
+
+  <rect x="445" y="68" width="100" height="20" fill="#ddeeff" stroke="#d7d7d7"/>
+  <text x="495" y="82" text-anchor="middle">100人以上</text>
+
+  <rect x="545" y="68" width="215" height="20" fill="#ddeeff" stroke="#d7d7d7"/>
+  <text x="652" y="82" text-anchor="middle">1000人以上</text>
+
+  <!-- Row: 総括安全衛生管理者 -->
+  <rect x="5"   y="88" width="160" height="45" fill="#eef5ff" stroke="#d7d7d7"/>
+  <text x="85"  y="100" text-anchor="middle" font-weight="bold">総括安全衛生管理者</text>
+  <text x="85"  y="112" text-anchor="middle" font-size="8">（安衛法10条、</text>
+  <text x="85"  y="123" text-anchor="middle" font-size="8">安衛令2条）</text>
+
+  <rect x="165" y="88" width="180" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="255" y="114" text-anchor="middle">100人以上</text>
+
+  <rect x="345" y="88" width="100" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="395" y="114" text-anchor="middle">50人以上</text>
+
+  <rect x="445" y="88" width="100" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="495" y="114" text-anchor="middle">100人以上</text>
+
+  <rect x="545" y="88" width="215" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="652" y="114" text-anchor="middle">1000人以上</text>
+
+  <!-- Row: 安全管理者 -->
+  <rect x="5"   y="133" width="160" height="45" fill="#eef5ff" stroke="#d7d7d7"/>
+  <text x="85"  y="145" text-anchor="middle" font-weight="bold">安全管理者</text>
+  <text x="85"  y="157" text-anchor="middle" font-size="8">（安衛法11条、</text>
+  <text x="85"  y="168" text-anchor="middle" font-size="8">安衛令3条）</text>
+
+  <rect x="165" y="133" width="180" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="255" y="159" text-anchor="middle">50人以上</text>
+
+  <rect x="345" y="133" width="100" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="395" y="159" text-anchor="middle">50人以上</text>
+
+  <rect x="445" y="133" width="100" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="495" y="159" text-anchor="middle">50人以上</text>
+
+  <rect x="545" y="133" width="215" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="652" y="159" text-anchor="middle">―</text>
+
+  <!-- Row: 衛生管理者 -->
+  <rect x="5"   y="178" width="160" height="45" fill="#eef5ff" stroke="#d7d7d7"/>
+  <text x="85"  y="190" text-anchor="middle" font-weight="bold">衛生管理者</text>
+  <text x="85"  y="202" text-anchor="middle" font-size="8">（安衛法12条、</text>
+  <text x="85"  y="213" text-anchor="middle" font-size="8">安衛令4条）</text>
+
+  <rect x="165" y="178" width="180" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="255" y="204" text-anchor="middle">50人以上</text>
+
+  <rect x="345" y="178" width="100" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="395" y="204" text-anchor="middle">50人以上</text>
+
+  <rect x="445" y="178" width="100" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="495" y="204" text-anchor="middle">50人以上</text>
+
+  <rect x="545" y="178" width="215" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="652" y="204" text-anchor="middle">50人以上</text>
+
+  <!-- Row: 産業医 -->
+  <rect x="5"   y="223" width="160" height="45" fill="#eef5ff" stroke="#d7d7d7"/>
+  <text x="85"  y="235" text-anchor="middle" font-weight="bold">産業医</text>
+  <text x="85"  y="247" text-anchor="middle" font-size="8">（安衛法13条、</text>
+  <text x="85"  y="258" text-anchor="middle" font-size="8">安衛令5条）</text>
+
+  <rect x="165" y="223" width="180" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="255" y="249" text-anchor="middle">50人以上</text>
+
+  <rect x="345" y="223" width="100" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="395" y="249" text-anchor="middle">50人以上</text>
+
+  <rect x="445" y="223" width="100" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="495" y="249" text-anchor="middle">50人以上</text>
+
+  <rect x="545" y="223" width="215" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="652" y="249" text-anchor="middle">50人以上</text>
+
+  <!-- Row: 安全委員会 -->
+  <rect x="5"   y="268" width="160" height="45" fill="#eef5ff" stroke="#d7d7d7"/>
+  <text x="85"  y="280" text-anchor="middle" font-weight="bold">安全委員会</text>
+  <text x="85"  y="292" text-anchor="middle" font-size="8">（安衛法17条、</text>
+  <text x="85"  y="303" text-anchor="middle" font-size="8">安衛令8条、安衛令21条）</text>
+
+  <rect x="165" y="268" width="180" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="255" y="294" text-anchor="middle">50人以上</text>
+
+  <rect x="345" y="268" width="100" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="395" y="294" text-anchor="middle">50人以上</text>
+
+  <rect x="445" y="268" width="100" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="495" y="294" text-anchor="middle">50人以上</text>
+
+  <rect x="545" y="268" width="215" height="45" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="652" y="294" text-anchor="middle">―</text>
+
+  <!-- Note -->
+  <rect x="5" y="318" width="750" height="55" fill="#fff3cd" stroke="#fff3cd" rx="3"/>
+  <text x="380" y="333" text-anchor="middle" font-size="9" font-weight="bold">注（注1）「安全委員会」は、労働安全衛生法の規定に基づいて安全委員会を設置しなければならない場合に、それぞれの委員会に代えて設置することができる。</text>
+  <text x="380" y="348" text-anchor="middle" font-size="9">衛生委員会（安衛法18条、安衛令21条）は、衛生管理者を選任すべき事業場（安衛法19条、安衛令21条、23条）も置かなければならない（安衛法19条）。</text>
+  <text x="380" y="363" text-anchor="middle" font-size="9">安全衛生委員会（安衛法19条）は、安全委員会及び衛生委員会を設置しなければならないとき、安全委員会及び衛生委員会に代えて設置することができる。</text>
+</svg>

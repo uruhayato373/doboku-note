@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900">
+  <rect width="1200" height="900" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">QC7つ道具 vs 新QC7つ道具</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">数値データ用と言語データ用で7つずつ、合計14ツールを区別する</text>
+
+  <rect x="40" y="140" width="540" height="60" rx="8" fill="#2e6da4"/>
+  <text x="310" y="178" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">QC7つ道具（数値データ）</text>
+  <rect x="620" y="140" width="540" height="60" rx="8" fill="#1a3a5c"/>
+  <text x="890" y="178" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">新QC7つ道具（言語データ）</text>
+  <rect x="40" y="220" width="540" height="70" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <rect x="40" y="220" width="6" height="70" fill="#2e6da4"/>
+  <text x="64" y="250" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#2e6da4">パレート図</text>
+  <text x="64" y="276" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">重点項目の特定（80:20）</text>
+  <rect x="40" y="298" width="540" height="70" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <rect x="40" y="298" width="6" height="70" fill="#2e6da4"/>
+  <text x="64" y="328" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#2e6da4">特性要因図</text>
+  <text x="64" y="354" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">原因の構造化（4M）</text>
+  <rect x="40" y="376" width="540" height="70" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <rect x="40" y="376" width="6" height="70" fill="#2e6da4"/>
+  <text x="64" y="406" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#2e6da4">ヒストグラム</text>
+  <text x="64" y="432" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">データ分布の把握</text>
+  <rect x="40" y="454" width="540" height="70" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <rect x="40" y="454" width="6" height="70" fill="#2e6da4"/>
+  <text x="64" y="484" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#2e6da4">散布図</text>
+  <text x="64" y="510" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">2変数の相関</text>
+  <rect x="40" y="532" width="540" height="70" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <rect x="40" y="532" width="6" height="70" fill="#2e6da4"/>
+  <text x="64" y="562" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#2e6da4">グラフ・管理図</text>
+  <text x="64" y="588" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">異常点検出（3σ管理）</text>
+  <rect x="40" y="610" width="540" height="70" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <rect x="40" y="610" width="6" height="70" fill="#2e6da4"/>
+  <text x="64" y="640" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#2e6da4">チェックシート</text>
+  <text x="64" y="666" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">集計・確認</text>
+  <rect x="40" y="688" width="540" height="70" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <rect x="40" y="688" width="6" height="70" fill="#2e6da4"/>
+  <text x="64" y="718" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#2e6da4">層別</text>
+  <text x="64" y="744" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">グループ分け解析</text>
+  <rect x="620" y="220" width="540" height="70" rx="6" fill="#ffffff" stroke="#1a3a5c" stroke-width="2"/>
+  <rect x="620" y="220" width="6" height="70" fill="#1a3a5c"/>
+  <text x="644" y="250" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#1a3a5c">親和図</text>
+  <text x="644" y="276" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">言語データの整理</text>
+  <rect x="620" y="298" width="540" height="70" rx="6" fill="#ffffff" stroke="#1a3a5c" stroke-width="2"/>
+  <rect x="620" y="298" width="6" height="70" fill="#1a3a5c"/>
+  <text x="644" y="328" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#1a3a5c">連関図</text>
+  <text x="644" y="354" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">因果関係の解析</text>
+  <rect x="620" y="376" width="540" height="70" rx="6" fill="#ffffff" stroke="#1a3a5c" stroke-width="2"/>
+  <rect x="620" y="376" width="6" height="70" fill="#1a3a5c"/>
+  <text x="644" y="406" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#1a3a5c">系統図</text>
+  <text x="644" y="432" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">目的—手段の展開</text>
+  <rect x="620" y="454" width="540" height="70" rx="6" fill="#ffffff" stroke="#1a3a5c" stroke-width="2"/>
+  <rect x="620" y="454" width="6" height="70" fill="#1a3a5c"/>
+  <text x="644" y="484" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#1a3a5c">マトリックス図</text>
+  <text x="644" y="510" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">2軸の関連分析</text>
+  <rect x="620" y="532" width="540" height="70" rx="6" fill="#ffffff" stroke="#1a3a5c" stroke-width="2"/>
+  <rect x="620" y="532" width="6" height="70" fill="#1a3a5c"/>
+  <text x="644" y="562" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#1a3a5c">マトリックスデータ解析</text>
+  <text x="644" y="588" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">主成分分析等</text>
+  <rect x="620" y="610" width="540" height="70" rx="6" fill="#ffffff" stroke="#1a3a5c" stroke-width="2"/>
+  <rect x="620" y="610" width="6" height="70" fill="#1a3a5c"/>
+  <text x="644" y="640" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#1a3a5c">PDPC 法</text>
+  <text x="644" y="666" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">過程決定計画図</text>
+  <rect x="620" y="688" width="540" height="70" rx="6" fill="#ffffff" stroke="#1a3a5c" stroke-width="2"/>
+  <rect x="620" y="688" width="6" height="70" fill="#1a3a5c"/>
+  <text x="644" y="718" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#1a3a5c">アローダイアグラム</text>
+  <text x="644" y="744" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">日程計画（PERT）</text>
+  <rect x="40" y="776" width="1120" height="44" rx="6" fill="#e8f0fe"/>
+  <text x="60" y="806" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">引っかけ：親和図はQC7つ道具ではなく新QC7つ道具。データ種別で見分ける。</text>
+  <text x="1160" y="880" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

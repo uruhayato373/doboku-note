@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="920" viewBox="0 0 1200 920">
+  <rect width="1200" height="920" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">7組織形態 — 特徴と弱点</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">択一で問われる「組織形態 × 弱点」の対応関係</text>
+
+  <rect x="40" y="140" width="220" height="56" fill="#1a3a5c"/>
+  <text x="150" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">組織形態</text>
+  <rect x="260" y="140" width="480" height="56" fill="#1a3a5c"/>
+  <text x="500" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">特徴</text>
+  <rect x="740" y="140" width="420" height="56" fill="#1a3a5c"/>
+  <text x="950" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">弱点（試験で問われる）</text>
+  <rect x="40" y="204" width="220" height="86" fill="#e8f0fe" stroke="#e2e8f0"/>
+  <text x="150" y="256" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c" text-anchor="middle">職能別組織</text>
+  <rect x="260" y="204" width="480" height="86" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="276" y="256" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">製造・販売・購買などの職能別、専門スキル養成</text>
+  <rect x="740" y="204" width="420" height="86" fill="#fbe5e7" stroke="#e2e8f0"/>
+  <text x="756" y="256" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#b22234">部門最適に偏り、意思決定遅延</text>
+  <rect x="40" y="290" width="220" height="86" fill="#e8f0fe" stroke="#e2e8f0"/>
+  <text x="150" y="342" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c" text-anchor="middle">事業部制組織</text>
+  <rect x="260" y="290" width="480" height="86" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="276" y="342" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">製品・市場別に権限と利益責任、迅速な意思決定</text>
+  <rect x="740" y="290" width="420" height="86" fill="#fbe5e7" stroke="#e2e8f0"/>
+  <text x="756" y="342" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#b22234">セクショナリズム・投資の二重化</text>
+  <rect x="40" y="376" width="220" height="86" fill="#e8f0fe" stroke="#e2e8f0"/>
+  <text x="150" y="428" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c" text-anchor="middle">マトリクス組織</text>
+  <rect x="260" y="376" width="480" height="86" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="276" y="428" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">機能別×事業別の二重指揮命令系統</text>
+  <rect x="740" y="376" width="420" height="86" fill="#fbe5e7" stroke="#e2e8f0"/>
+  <text x="756" y="428" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#b22234">命令系統の複雑化・責任の曖昧化</text>
+  <rect x="40" y="462" width="220" height="86" fill="#e8f0fe" stroke="#e2e8f0"/>
+  <text x="150" y="514" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c" text-anchor="middle">ネットワーク組織</text>
+  <rect x="260" y="462" width="480" height="86" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="276" y="514" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">自律した個人・小組織が柔軟に結合</text>
+  <rect x="740" y="462" width="420" height="86" fill="#fbe5e7" stroke="#e2e8f0"/>
+  <text x="756" y="514" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#b22234">不安定・不確実な結果</text>
+  <rect x="40" y="548" width="220" height="86" fill="#e8f0fe" stroke="#e2e8f0"/>
+  <text x="150" y="600" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c" text-anchor="middle">ピラミッド組織</text>
+  <rect x="260" y="548" width="480" height="86" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="276" y="600" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">上意下達・専門化・分業による合理的運営</text>
+  <rect x="740" y="548" width="420" height="86" fill="#fbe5e7" stroke="#e2e8f0"/>
+  <text x="756" y="600" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#b22234">硬直化・環境変化への追従遅れ</text>
+  <rect x="40" y="634" width="220" height="86" fill="#e8f0fe" stroke="#e2e8f0"/>
+  <text x="150" y="686" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c" text-anchor="middle">ティール組織</text>
+  <rect x="260" y="634" width="480" height="86" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="276" y="686" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">指示系統なし、メンバー自律的意思決定（F.ラルー）</text>
+  <rect x="740" y="634" width="420" height="86" fill="#fbe5e7" stroke="#e2e8f0"/>
+  <text x="756" y="686" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#b22234">高度な自律性が前提、運用難度</text>
+  <rect x="40" y="720" width="220" height="86" fill="#e8f0fe" stroke="#e2e8f0"/>
+  <text x="150" y="772" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c" text-anchor="middle">達成型組織</text>
+  <rect x="260" y="720" width="480" height="86" fill="#ffffff" stroke="#e2e8f0"/>
+  <text x="276" y="772" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">メンバーが機械のパーツのように働く</text>
+  <rect x="740" y="720" width="420" height="86" fill="#fbe5e7" stroke="#e2e8f0"/>
+  <text x="756" y="772" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#b22234">メンバーの疲弊リスク</text>
+  <rect x="40" y="830" width="1120" height="44" rx="6" fill="#fbf3df"/>
+  <text x="60" y="860" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">頻出：マトリクスは「責任曖昧化」、ネットワークは「不確実性」、ティールは「F.ラルー」がキーワード。</text>
+</svg>

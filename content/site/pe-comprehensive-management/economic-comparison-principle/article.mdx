@@ -1,0 +1,83 @@
+---
+title: 経済性の比較の原則
+description: "経済性の比較の原則（有利性の判定基準・比較の3原則）の定義と適用方法を解説。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.7'
+tags:
+  - keyword
+published: true
+publishedAt: '2026-04-09'
+reviewStatus: approved
+lastRewrittenAt: '2026-04-16'
+revisionCycle: 1
+seoTitle: "経済性の比較の原則 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-06-09
+---
+
+## 経済性の比較の原則とは
+
+経済性の比較の原則とは、複数の代替案を**公正に比較・評価するために守るべき基本ルール**である。
+
+投資判断やプロジェクト選択において、異なる条件の代替案を適切に比較するための前提条件を定めるものである。
+
+## 比較の3原則
+
+代替案の経済性を比較する際には、以下の3つの統一条件を満たす必要がある。
+
+| 原則 | 内容 |
+|---|---|
+| **比較の基準を統一する** | 同一の評価尺度（現在価値、年価等）で比較する |
+| **比較の範囲を統一する** | 対象期間（分析期間）・対象範囲を統一する |
+| **比較の時点を統一する** | 貨幣の時間的価値を考慮し、同一時点の価値に換算して比較する |
+
+## 有利性の判定基準
+
+代替案のどれが経済的に有利かを判定するために、以下の基準が用いられる。
+
+- **現在価値法（NPV法）**
+  - 内容: 将来のキャッシュフローを割引率で[現価・年価・終価](/docs/pe-comprehensive-management-present-annual-future-value)に換算
+  - 判定: NPV > 0 なら投資価値あり（最も基本的な判定法）
+- **内部収益率法（IRR法）**
+  - 内容: NPV = 0 となる割引率（内部収益率）を求める
+  - 判定: IRR > 基準利率なら投資価値あり
+- **費用便益比（B/C比）**
+  - 内容: 便益の現在価値 ÷ 費用の現在価値
+  - 判定: B/C > 1 なら投資価値あり
+- **回収期間法**
+  - 内容: 投資額を回収するまでの期間を算定
+  - 判定: 基準期間以内なら投資価値あり
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**2.7 計画・管理の数理的手法**](/docs/pe-comprehensive-management-keyword-2026#27-計画・管理の数理的手法)に位置づけられている。
+
+経済性の比較の原則は、[現価（現在価値）・年価・終価](/docs/pe-comprehensive-management-present-annual-future-value)の知識を前提とし、[機会損失](/docs/pe-comprehensive-management-opportunity-cost)を含めた総合的な経済性評価の基盤となる。公共事業の費用便益分析にも直接適用される重要な概念である。
+
+5 つの管理との関連では、**経済性管理**（2 章）の中核概念として事業企画や代替案比較に直接用いられるほか、**情報管理**（4 章）の観点では比較に必要なデータの信頼性・収集範囲が評価精度を左右する。大規模プロジェクトでは[リスク管理](/docs/pe-comprehensive-management-risk)の視点と組み合わせ、不確実性を踏まえた感度分析を行う。過去問 [R02 Ⅰ-1-2](/docs/pe-comprehensive-management-r02-primary#1-2) では 5 投資先を割引率 3% で現価換算して合計を比較する計算問題が出題され、比較の 3 原則（基準・範囲・時点の統一）のうち「時点の統一（現在価値への換算）」を具体的に適用する力が問われた。
+
+<ExamPoint
+  summary="比較の 3 原則と代表的な判定基準を理解する"
+  items={[
+    "比較の基準・範囲・時点を統一することが公正な評価の前提",
+    "NPV 法：NPV > 0 なら投資価値あり（最も基本的な判定法）",
+    "IRR 法：内部収益率 > 基準利率なら投資価値あり",
+    "B/C 比：便益 ÷ 費用 > 1 なら投資価値あり",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "現価（現在価値）・年価・終価", slug: "present-annual-future-value" },
+  { label: "デルファイ法", slug: "delphi-method" },
+  { label: "ゲーム理論", slug: "game-theory" },
+  { label: "整数計画法", slug: "integer-programming" },
+  { label: "線形計画法", slug: "linear-programming" },
+]} />
+
+## 参考資料
+
+- [事業評価に係る指針等](https://www.mlit.go.jp/tec/hyouka/public/09_public_08.html)（国土交通省）
+- [費用便益分析](https://ja.wikipedia.org/wiki/%E8%B2%BB%E7%94%A8%E4%BE%BF%E7%9B%8A%E5%88%86%E6%9E%90)（Wikipedia）
+- [費用便益比](https://www.ifinance.ne.jp/glossary/japan/jap162.html)（iFinance 日本経済用語集）

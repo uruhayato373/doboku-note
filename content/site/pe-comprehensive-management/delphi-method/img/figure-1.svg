@@ -1,0 +1,97 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="デルファイ法のサイクル。予測テーマ特定から専門家への個別アンケート・集計・フィードバック・再アンケートを繰り返し回答が収束する流れを示した縦フロー図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub    { font-size: 11px; fill: #8a8a8a; }
+      .t-main   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-note   { font-size: 11px; fill: #555; }
+      .t-badge  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-loop   { font-size: 11px; fill: #3a7d44; font-weight: bold; }
+      .t-conv   { font-size: 12px; font-weight: bold; fill: #d4a017; }
+      .t-foot   { font-size: 11px; fill: #555; }
+      /* semantic: brand=スタート/テーマ特定 */
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      /* semantic: surface=通常ステップ */
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      /* semantic: positive=フィードバック(ループ帰還) */
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      /* semantic: warn=収束到達点 */
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      /* badge circles */
+      .badge-brand    { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-surface  { fill: #ffffff; stroke: #d7d7d7; stroke-width: 1.5; }
+      .badge-positive { fill: #ffffff; stroke: #3a7d44; stroke-width: 1.5; }
+      .badge-warn     { fill: #ffffff; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <!-- standard downward arrow (ink-body) -->
+    <marker markerUnits="userSpaceOnUse" id="arr-down" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#555"/>
+    </marker>
+    <!-- loop feedback arrow (positive/green) -->
+    <marker markerUnits="userSpaceOnUse" id="arr-loop" markerWidth="9" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0,0 9,3.5 0,7" fill="#3a7d44"/>
+    </marker>
+  </defs>
+
+  <!-- ===== サブタイトル（タイトル除去） ===== -->
+  <text class="t-sub" x="200" y="16" text-anchor="middle">収束アンケート法｜匿名性で特定者の影響を排除</text>
+
+  <!-- ===== STEP 1: 予測テーマの特定（brand） ===== -->
+  <rect class="box-brand" x="50" y="26" width="300" height="56" rx="8"/>
+  <circle class="badge-brand" cx="80" cy="54" r="14"/>
+  <text class="t-badge" x="80" y="59" text-anchor="middle">1</text>
+  <text class="t-main" x="106" y="49">予測テーマの特定</text>
+  <text class="t-note" x="106" y="68">調査目的・課題を明確にする</text>
+
+  <!-- arrow 1→2 -->
+  <line x1="200" y1="82" x2="200" y2="102" stroke="#555" stroke-width="2" marker-end="url(#arr-down)"/>
+
+  <!-- ===== STEP 2: 専門家へ個別アンケート（surface） ===== -->
+  <rect class="box-surface" x="50" y="106" width="300" height="56" rx="8"/>
+  <circle class="badge-surface" cx="80" cy="134" r="14"/>
+  <text class="t-badge" x="80" y="139" text-anchor="middle">2</text>
+  <text class="t-main" x="106" y="129">専門家への個別アンケート</text>
+  <text class="t-note" x="106" y="148">匿名・独立した回答（相互影響なし）</text>
+
+  <!-- arrow 2→3 -->
+  <line x1="200" y1="162" x2="200" y2="182" stroke="#555" stroke-width="2" marker-end="url(#arr-down)"/>
+
+  <!-- ===== STEP 3: 結果の集計（surface） ===== -->
+  <rect class="box-surface" x="50" y="186" width="300" height="56" rx="8"/>
+  <circle class="badge-surface" cx="80" cy="214" r="14"/>
+  <text class="t-badge" x="80" y="219" text-anchor="middle">3</text>
+  <text class="t-main" x="106" y="209">アンケート結果の集計</text>
+  <text class="t-note" x="106" y="228">回答傾向・統計値を整理する</text>
+
+  <!-- arrow 3→4 -->
+  <line x1="200" y1="242" x2="200" y2="262" stroke="#555" stroke-width="2" marker-end="url(#arr-down)"/>
+
+  <!-- ===== STEP 4: 結果のフィードバック（positive=ループ） ===== -->
+  <rect class="box-positive" x="50" y="266" width="300" height="56" rx="8"/>
+  <circle class="badge-positive" cx="80" cy="294" r="14"/>
+  <text class="t-badge" x="80" y="299" text-anchor="middle">4</text>
+  <text class="t-main" x="106" y="289">集計結果のフィードバック</text>
+  <text class="t-note" x="106" y="308">同じ専門家に全体傾向を開示する</text>
+
+  <!-- ===== ループ矢印: 4→2（右サイドをループ） ===== -->
+  <path d="M 370 294 L 380 294 L 380 134 L 360 134"
+        fill="none" stroke="#3a7d44" stroke-width="2" stroke-dasharray="5,3"
+        marker-end="url(#arr-loop)"/>
+  <text class="t-loop" x="388" y="214" text-anchor="middle" transform="rotate(-90,388,214)">②〜④を繰り返す</text>
+
+  <!-- arrow 4→5 -->
+  <line x1="200" y1="322" x2="200" y2="342" stroke="#555" stroke-width="2" marker-end="url(#arr-down)"/>
+
+  <!-- ===== STEP 5: 収束・予測確定（warn） ===== -->
+  <rect class="box-warn" x="50" y="346" width="300" height="56" rx="8"/>
+  <circle class="badge-warn" cx="80" cy="374" r="14"/>
+  <text class="t-conv" x="80" y="379" text-anchor="middle">収</text>
+  <text class="t-main" x="106" y="369">回答の収束・予測確定</text>
+  <text class="t-note" x="106" y="388">通常3回程度で収束する</text>
+
+  <!-- ===== フッター ===== -->
+  <text class="t-foot" x="200" y="428" text-anchor="middle">共同判断型技術予測｜匿名性により特定者の影響力を排除</text>
+  <text class="t-foot" x="200" y="444" text-anchor="middle">回答が特定の方向に収束したとき予測として採用する</text>
+
+</svg>

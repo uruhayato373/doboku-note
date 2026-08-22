@@ -1,0 +1,114 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text x="40" y="50" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="30" font-weight="bold" fill="#1a3a5c">NPV（正味現在価値） — 投資と DCF 合計で費用対効果を見積もる</text>
+  <text x="40" y="86" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#8a8a8a">教材例：初期投資 1,000 万円、毎年 +500 万円（3 年）、割引率 r = 10%</text>
+
+  <!-- 上部説明 -->
+  <text x="600" y="120" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#1a3a5c" text-anchor="middle">将来 FCF を現在価値に割引いて合計 → 投資との差分が NPV</text>
+
+  <defs>
+    <marker id="orange-arrow" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto">
+      <path d="M0,0 L14,7 L0,14 z" fill="#cc6600"/>
+    </marker>
+    <marker id="right-arrow-axis" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto">
+      <path d="M0,0 L0,14 L14,7 z" fill="#1a3a5c"/>
+    </marker>
+  </defs>
+
+  <!-- ============ メインチャート ============ -->
+  <!-- ベースライン y=673、スケール 1万円 = 0.30 px -->
+
+  <!-- 上部ラベル：投資合計 / DCF合計 -->
+  <text x="115" y="290" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">投資 1,000</text>
+  <text x="305" y="290" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#cc6600" text-anchor="middle" font-weight="bold">DCF 合計 1,244</text>
+
+  <!-- 左棒：投資 1,000（緑）+ NPV +244（黄/★） -->
+  <!-- 投資 1,000 (h=300, y=300-600) -->
+  <rect x="50" y="300" width="130" height="300" fill="#3a7d44" stroke="#1a3a5c" stroke-width="2"/>
+  <text x="115" y="445" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="white" text-anchor="middle" font-weight="bold">投資</text>
+  <text x="115" y="480" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="28" fill="white" text-anchor="middle" font-weight="bold">1,000</text>
+
+  <!-- NPV 244 (h=73, y=600-673) -->
+  <rect x="50" y="600" width="130" height="73" fill="#fff8e1" stroke="#d4a017" stroke-width="3"/>
+  <text x="115" y="625" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="20" fill="#d4a017" text-anchor="middle" font-weight="bold">NPV ★</text>
+  <text x="115" y="660" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="26" fill="#d4a017" text-anchor="middle" font-weight="bold">+244</text>
+
+  <!-- 中央棒：DCF合計 = PV1 + PV2 + PV3 -->
+  <!-- PV1 (上、455 = 137h, y=300-437) -->
+  <rect x="240" y="300" width="130" height="137" fill="#ff7700" stroke="#cc6600" stroke-width="2"/>
+  <text x="305" y="355" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">PV₁</text>
+  <text x="305" y="390" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" fill="white" text-anchor="middle" font-weight="bold">455</text>
+
+  <!-- PV2 (中、413 = 124h, y=437-561) -->
+  <rect x="240" y="437" width="130" height="124" fill="#ff8c1a" stroke="#cc6600" stroke-width="2"/>
+  <text x="305" y="485" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">PV₂</text>
+  <text x="305" y="520" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" fill="white" text-anchor="middle" font-weight="bold">413</text>
+
+  <!-- PV3 (下、376 = 112h, y=561-673) -->
+  <rect x="240" y="561" width="130" height="112" fill="#ffa64d" stroke="#cc6600" stroke-width="2"/>
+  <text x="305" y="605" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">PV₃</text>
+  <text x="305" y="640" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" fill="white" text-anchor="middle" font-weight="bold">376</text>
+
+  <!-- 中央棒と左棒を比較する矢印（「↑差が NPV」） -->
+  <text x="210" y="640" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#d4a017" text-anchor="middle" font-weight="bold">＝</text>
+
+  <!-- ============ 時系列：年マーカー＋FCF ============ -->
+
+  <!-- 時間軸 y=673 -->
+  <line x1="40" y1="673" x2="1110" y2="673" stroke="#1a3a5c" stroke-width="2.5" marker-end="url(#right-arrow-axis)"/>
+  <text x="1115" y="680" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#1a3a5c" font-weight="bold">時間</text>
+
+  <!-- 年マーカー -->
+  <text x="115" y="700" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">現在</text>
+  <text x="305" y="700" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#8a8a8a" text-anchor="middle">（割引後）</text>
+
+  <line x1="540" y1="668" x2="540" y2="678" stroke="#1a3a5c" stroke-width="2.5"/>
+  <text x="540" y="700" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">1 年後</text>
+
+  <line x1="740" y1="668" x2="740" y2="678" stroke="#1a3a5c" stroke-width="2.5"/>
+  <text x="740" y="700" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">2 年後</text>
+
+  <line x1="940" y1="668" x2="940" y2="678" stroke="#1a3a5c" stroke-width="2.5"/>
+  <text x="940" y="700" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">3 年後</text>
+
+  <!-- 1 年後 FCF：緑137h（=PV1分） + 灰色キャップ13h（=割引分） -->
+  <!-- 灰色キャップ y=523-536 (h=13) -->
+  <rect x="480" y="523" width="120" height="13" fill="#999999" stroke="#666666" stroke-width="1"/>
+  <!-- 緑 PV1 部分 y=536-673 (h=137) -->
+  <rect x="480" y="536" width="120" height="137" fill="#ff7700" stroke="#cc6600" stroke-width="1.5"/>
+  <text x="540" y="585" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">FCF</text>
+  <text x="540" y="618" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" fill="white" text-anchor="middle" font-weight="bold">+500</text>
+  <text x="540" y="513" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#666666" text-anchor="middle">÷ 1.1</text>
+
+  <!-- 2 年後 FCF：緑124h + 灰色26h -->
+  <rect x="680" y="523" width="120" height="26" fill="#999999" stroke="#666666" stroke-width="1"/>
+  <rect x="680" y="549" width="120" height="124" fill="#ff8c1a" stroke="#cc6600" stroke-width="1.5"/>
+  <text x="740" y="590" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">FCF</text>
+  <text x="740" y="623" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" fill="white" text-anchor="middle" font-weight="bold">+500</text>
+  <text x="740" y="513" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#666666" text-anchor="middle">÷ 1.1²</text>
+
+  <!-- 3 年後 FCF：緑112h + 灰色38h -->
+  <rect x="880" y="523" width="120" height="38" fill="#999999" stroke="#666666" stroke-width="1"/>
+  <rect x="880" y="561" width="120" height="112" fill="#ffa64d" stroke="#cc6600" stroke-width="1.5"/>
+  <text x="940" y="600" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="bold">FCF</text>
+  <text x="940" y="633" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="24" fill="white" text-anchor="middle" font-weight="bold">+500</text>
+  <text x="940" y="513" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#666666" text-anchor="middle">÷ 1.1³</text>
+
+  <!-- 凡例：灰色＝割引で減る分 -->
+  <rect x="1050" y="295" width="14" height="14" fill="#999999" stroke="#666666" stroke-width="1"/>
+  <text x="1070" y="307" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="18" fill="#1a3a5c">＝ 割引で減る分</text>
+
+  <!-- 割引矢印（FCF → 中央棒の対応 PV） -->
+  <!-- 1 年後 FCF (左端 x=480) → PV1 中央 (x=370, y=368) -->
+  <path d="M 480 604 Q 425 604 425 460 Q 425 368 370 368" fill="none" stroke="#cc6600" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#orange-arrow)"/>
+  <!-- 2 年後 FCF → PV2 中央 (x=370, y=499) -->
+  <path d="M 680 611 Q 525 611 525 555 Q 525 499 370 499" fill="none" stroke="#cc6600" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#orange-arrow)"/>
+  <!-- 3 年後 FCF → PV3 中央 (x=370, y=617) -->
+  <path d="M 880 617 Q 625 617 625 617 L 370 617" fill="none" stroke="#cc6600" stroke-width="2" stroke-dasharray="6,4" marker-end="url(#orange-arrow)"/>
+
+  <!-- ============ 結論メッセージ（下部） ============ -->
+  <rect x="40" y="725" width="1120" height="32" rx="6" fill="#fff8e1" stroke="#d4a017" stroke-width="2"/>
+  <text x="600" y="747" font-family="'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Noto Sans JP', sans-serif" font-size="22" fill="#1a3a5c" text-anchor="middle" font-weight="bold">DCF 合計 1,244 ＞ 投資 1,000　→　NPV = +244 万円 ★　→　投資適切</text>
+</svg>

@@ -1,0 +1,51 @@
+{
+  "slug": "pe-first-stage-r03-construction",
+  "year": "R03",
+  "sub": "construction",
+  "audited_at": "2026-06-08",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "fail",
+    "checked_count": 35,
+    "issues": [
+      {
+        "question": "Ⅲ-25",
+        "type": "polarity_error",
+        "detail": "MDXの問題文末尾は「最も適切なものはどれか」だが、原典PDF(p012)は「最も不適切なものはどれか」。極性が逆転している。正答番号もMDXは4（傾斜堤）と記載しているが、原典では不適切な選択肢を選ぶ問題のため、問題・解説ともに整合性が崩れている。"
+      },
+      {
+        "question": "Ⅲ-18 選択肢①",
+        "type": "text_mismatch",
+        "detail": "MDXの選択肢①は「流れ方向に管路の断面積が大きくなると、流速は減少する」だが、原典PDF(p009)は「流れ方向に管路の断面積が大きくなると，流量は減少する」。「流速」→「流量」の差異がある。MDXの解説（正答：1 の根拠）も「連続の式より断面積が大きくなると流速は減少する」と物理的に正しい内容を記しており、問題文が原典と食い違っている。"
+      },
+      {
+        "question": "Ⅲ-35 選択肢④",
+        "type": "text_mismatch",
+        "detail": "MDXの選択肢④は「木材は、加工に要するエネルギーが他の素材と比較して小さく、…公共工事での木材利用は推奨されていない」だが、原典PDF(p019)は「加工に要するエネルギーが他の素材と比較して大きく」。「小さく」→「大きく」の差異がある。原典では「大きく＋推奨されていない」の組合せが不適切な記述として提示されている。"
+      },
+      {
+        "question": "Ⅲ-8 選択肢②",
+        "type": "text_mismatch",
+        "detail": "MDXの選択肢②は「溶接継手において疲労き裂の起点となるのは主に、溶接止端、溶接ルートである」だが、原典PDF(p004)は「溶接止端，溶接ルート，溶接欠陥である」。「溶接欠陥」が欠落している。"
+      },
+      {
+        "question": "Ⅲ-33 選択肢⑤",
+        "type": "text_mismatch",
+        "detail": "MDXの選択肢⑤は「労務管理とは、労働者が第三者に危害を加えないようにするために」だが、原典PDF(p017)は「労務者や第三者に危害を加えないようにするために」。「労働者が」→「労務者や」の差異がある。"
+      }
+    ]
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "frontmatter fields present: title, category, group, published, source_pdf. All 35 question headings (Ⅲ-1 through Ⅲ-35) confirmed with no gaps. PDF has 19 pages. 4 questions have figures in PDF (Ⅲ-3, Ⅲ-6, Ⅲ-7, Ⅲ-17) and all 4 have corresponding <ArticleImage> tags in MDX. All question polarity markers (不適切/最も不適切/最も適切/適切) match between PDF and MDX. All 35 questions have exactly 5 choices, matching the PDF. Visual cross-reference confirmed across all 19 PDF pages."
+  }
+}

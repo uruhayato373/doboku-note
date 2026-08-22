@@ -1,0 +1,1502 @@
+{
+  "generatedAt": "2026-08-21T11:13:51.382Z",
+  "head": "47e4becf21aa225ef9afbbccf70e43f34b6f9f2c",
+  "branch": "develop",
+  "scales": {
+    "worktreeBytes": 17106997248,
+    "worktreeGiB": 15.93,
+    "headTrackedBytes": 3110422248,
+    "headTrackedGiB": 2.9,
+    "headTrackedFiles": 15983,
+    "gitPackHuman": "12.53 GiB",
+    "gitGarbageHuman": "172.41 KiB",
+    "inPackObjects": 322730,
+    "looseObjects": 1738,
+    "caveat": "headTracked を減らしても gitPack は減らない（過去 blob は履歴に残る）。pack の縮小は履歴書換え＝DN-0111 Phase 7 の別承認事項。"
+  },
+  "byExtension": [
+    {
+      "ext": "png",
+      "sizeMiB": 2125,
+      "files": 5507
+    },
+    {
+      "ext": "jpg",
+      "sizeMiB": 311.9,
+      "files": 375
+    },
+    {
+      "ext": "pdf",
+      "sizeMiB": 284.2,
+      "files": 621
+    },
+    {
+      "ext": "webp",
+      "sizeMiB": 58.7,
+      "files": 1690
+    },
+    {
+      "ext": "json",
+      "sizeMiB": 54.9,
+      "files": 1321
+    },
+    {
+      "ext": "epub",
+      "sizeMiB": 31.6,
+      "files": 46
+    },
+    {
+      "ext": "md",
+      "sizeMiB": 29.3,
+      "files": 1987
+    },
+    {
+      "ext": "mdx",
+      "sizeMiB": 17.8,
+      "files": 1117
+    },
+    {
+      "ext": "zip",
+      "sizeMiB": 12.6,
+      "files": 4
+    },
+    {
+      "ext": "ttf",
+      "sizeMiB": 10.8,
+      "files": 4
+    },
+    {
+      "ext": "js",
+      "sizeMiB": 8.1,
+      "files": 21
+    },
+    {
+      "ext": "css",
+      "sizeMiB": 7.3,
+      "files": 26
+    },
+    {
+      "ext": "mjs",
+      "sizeMiB": 5.6,
+      "files": 645
+    },
+    {
+      "ext": "svg",
+      "sizeMiB": 3.7,
+      "files": 858
+    },
+    {
+      "ext": "txt",
+      "sizeMiB": 2.3,
+      "files": 1313
+    },
+    {
+      "ext": "ts",
+      "sizeMiB": 0.8,
+      "files": 125
+    },
+    {
+      "ext": "toml",
+      "sizeMiB": 0.7,
+      "files": 77
+    },
+    {
+      "ext": "tsx",
+      "sizeMiB": 0.6,
+      "files": 151
+    },
+    {
+      "ext": "gif",
+      "sizeMiB": 0.2,
+      "files": 1
+    },
+    {
+      "ext": "yml",
+      "sizeMiB": 0.1,
+      "files": 24
+    }
+  ],
+  "byDirectory": [
+    {
+      "dir": "content/sources/textbook",
+      "sizeMiB": 575.2,
+      "files": 947
+    },
+    {
+      "dir": "content/site/pe-comprehensive-management",
+      "sizeMiB": 455.7,
+      "files": 2541
+    },
+    {
+      "dir": "content/note/1級・2級土木",
+      "sizeMiB": 444.5,
+      "files": 1435
+    },
+    {
+      "dir": "content/note/技術士総監",
+      "sizeMiB": 371.2,
+      "files": 1151
+    },
+    {
+      "dir": "content/note/技術士建設部門",
+      "sizeMiB": 268.5,
+      "files": 962
+    },
+    {
+      "dir": "content/sns/instagram",
+      "sizeMiB": 238,
+      "files": 2962
+    },
+    {
+      "dir": "content/site/civil-construction-1",
+      "sizeMiB": 114.8,
+      "files": 1159
+    },
+    {
+      "dir": "content/site/pe-construction",
+      "sizeMiB": 75.8,
+      "files": 445
+    },
+    {
+      "dir": "content/note/コンクリート主任技士",
+      "sizeMiB": 37.1,
+      "files": 117
+    },
+    {
+      "dir": "content/site/civil-construction-2",
+      "sizeMiB": 33.7,
+      "files": 261
+    },
+    {
+      "dir": ".claude/config/coconala",
+      "sizeMiB": 28.3,
+      "files": 60
+    },
+    {
+      "dir": ".claude/state/metrics",
+      "sizeMiB": 22.1,
+      "files": 555
+    },
+    {
+      "dir": "content/site/pe-first-stage",
+      "sizeMiB": 16.8,
+      "files": 148
+    },
+    {
+      "dir": "content/sns/_assets",
+      "sizeMiB": 15.9,
+      "files": 25
+    },
+    {
+      "dir": "scripts/kindle-published/cover-designs",
+      "sizeMiB": 14.8,
+      "files": 8
+    },
+    {
+      "dir": "content/site/concrete-chief-engineer",
+      "sizeMiB": 13,
+      "files": 114
+    },
+    {
+      "dir": "scripts/kindle-covers/backgrounds",
+      "sizeMiB": 12.9,
+      "files": 7
+    },
+    {
+      "dir": "public/images/civil-exam-prep",
+      "sizeMiB": 12.6,
+      "files": 9
+    },
+    {
+      "dir": "content/sns/x",
+      "sizeMiB": 11.6,
+      "files": 235
+    },
+    {
+      "dir": "content/site/concrete-diagnostician",
+      "sizeMiB": 10.8,
+      "files": 84
+    },
+    {
+      "dir": "content/note/技術士一次",
+      "sizeMiB": 9.6,
+      "files": 5
+    },
+    {
+      "dir": "content/note/コンクリート診断士",
+      "sizeMiB": 9,
+      "files": 27
+    },
+    {
+      "dir": ".claude/config/ogp",
+      "sizeMiB": 7.7,
+      "files": 9
+    },
+    {
+      "dir": ".claude/state/ocr-audit",
+      "sizeMiB": 7.5,
+      "files": 2
+    },
+    {
+      "dir": ".obsidian/plugins/obisidian-note-linker",
+      "sizeMiB": 7.2,
+      "files": 3
+    }
+  ],
+  "topBlobs": [
+    {
+      "path": "content/note/1級・2級土木/1級土木/一次択一-過去問PDF/1級土木一次択一-過去問PDF.pdf",
+      "sizeMiB": 11.7,
+      "bucket": "R2_PRIVATE"
+    },
+    {
+      "path": "content/note/技術士一次/一次択一-過去問PDF/技術士一次択一-過去問PDF.pdf",
+      "sizeMiB": 9.3,
+      "bucket": "R2_PRIVATE"
+    },
+    {
+      "path": ".obsidian/plugins/obisidian-note-linker/main.js",
+      "sizeMiB": 7.2,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": "content/note/1級・2級土木/2級土木/一次択一-過去問PDF/2級土木一次択一-過去問PDF.pdf",
+      "sizeMiB": 6.8,
+      "bucket": "R2_PRIVATE"
+    },
+    {
+      "path": "scripts/kindle-dist/e-02.epub",
+      "sizeMiB": 6.7,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": ".obsidian/icons/font-awesome-regular.zip",
+      "sizeMiB": 6.2,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": ".obsidian/icons/font-awesome-solid.zip",
+      "sizeMiB": 6.2,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": ".agents/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf",
+      "sizeMiB": 5.1,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": ".claude/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf",
+      "sizeMiB": 5.1,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": "content/sources/textbook/コンクリート主任技師2024/img/page090_fig1.png",
+      "sizeMiB": 5,
+      "bucket": "R2_PRIVATE"
+    },
+    {
+      "path": "content/note/技術士総監/総監択一-過去問PDF-平成/総監択一-過去問PDF-平成.pdf",
+      "sizeMiB": 4.9,
+      "bucket": "R2_PRIVATE"
+    },
+    {
+      "path": "scripts/kindle-dist/d-00.epub",
+      "sizeMiB": 4.4,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": "content/note/技術士総監/総監択一-過去問PDF-令和/総監択一-過去問PDF-令和.pdf",
+      "sizeMiB": 3.8,
+      "bucket": "R2_PRIVATE"
+    },
+    {
+      "path": ".claude/state/ocr-audit/2026-04-24.json",
+      "sizeMiB": 3.7,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": ".claude/state/ocr-audit/2026-04-26.json",
+      "sizeMiB": 3.7,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": "scripts/kindle-dist/g-02.epub",
+      "sizeMiB": 3.6,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": "src/config/civil-1-exam-questions.json",
+      "sizeMiB": 3.1,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": "scripts/kindle-dist/e-01.epub",
+      "sizeMiB": 3,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": "content/sources/textbook/コンクリート主任技師2024/img/page091_fig1.png",
+      "sizeMiB": 2.7,
+      "bucket": "R2_PRIVATE"
+    },
+    {
+      "path": "content/sources/textbook/１級土木施工管理技士/テキスト（土木一般編）/img/02-33.png",
+      "sizeMiB": 2.7,
+      "bucket": "R2_PRIVATE"
+    },
+    {
+      "path": "scripts/kindle-dist/g-01.epub",
+      "sizeMiB": 2.6,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": "content/sources/textbook/コンクリート主任技師2024/img/page080_fig1.png",
+      "sizeMiB": 2.5,
+      "bucket": "R2_PRIVATE"
+    },
+    {
+      "path": "scripts/kindle-dist/d-01.epub",
+      "sizeMiB": 2.3,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": "content/sources/textbook/コンクリート主任技師2022/img/page138_fig1.png",
+      "sizeMiB": 2.2,
+      "bucket": "R2_PRIVATE"
+    },
+    {
+      "path": ".obsidian/themes/Catppuccin/theme.css",
+      "sizeMiB": 2.2,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": "content/sources/textbook/コンクリート主任技師2024/img/page065_fig1.png",
+      "sizeMiB": 2.1,
+      "bucket": "R2_PRIVATE"
+    },
+    {
+      "path": "content/sources/textbook/コンクリート主任技師2024/img/page099_fig1.png",
+      "sizeMiB": 2.1,
+      "bucket": "R2_PRIVATE"
+    },
+    {
+      "path": "public/quiz/civil-1.json",
+      "sizeMiB": 2.1,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": "content/sources/textbook/コンクリート主任技師2024/img/page108_fig1.png",
+      "sizeMiB": 2.1,
+      "bucket": "R2_PRIVATE"
+    },
+    {
+      "path": "scripts/kindle-covers/backgrounds/a-04.png",
+      "sizeMiB": 2,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (4).png",
+      "sizeMiB": 2,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": "content/sources/textbook/コンクリート主任技師2024/img/page074_fig1.png",
+      "sizeMiB": 2,
+      "bucket": "R2_PRIVATE"
+    },
+    {
+      "path": "scripts/kindle-covers/backgrounds/a-03.png",
+      "sizeMiB": 2,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (2).png",
+      "sizeMiB": 2,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (3).png",
+      "sizeMiB": 2,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": "content/sources/textbook/コンクリート主任技師2024/img/page061_fig1.png",
+      "sizeMiB": 1.9,
+      "bucket": "R2_PRIVATE"
+    },
+    {
+      "path": "public/logo.png",
+      "sizeMiB": 1.9,
+      "bucket": "REVIEW"
+    },
+    {
+      "path": "content/sources/textbook/コンクリート主任技師2024/img/page029_fig1.png",
+      "sizeMiB": 1.9,
+      "bucket": "R2_PRIVATE"
+    },
+    {
+      "path": "content/sources/textbook/コンクリート主任技師2022/img/page102_fig1.png",
+      "sizeMiB": 1.9,
+      "bucket": "R2_PRIVATE"
+    },
+    {
+      "path": "content/sns/_assets/character/_source/grid-3.png",
+      "sizeMiB": 1.9,
+      "bucket": "REVIEW"
+    }
+  ],
+  "classification": [
+    {
+      "bucket": "R2_PRIVATE",
+      "sizeMiB": 892.8,
+      "files": 1504,
+      "groups": [
+        {
+          "ruleId": "textbook-page-image",
+          "sizeMiB": 571.2,
+          "files": 868,
+          "reason": "市販テキスト・白書のページ画像（著作権物）。公開 Git リポジトリに置くこと自体が textbook-pdf-archive.md の原則違反。原典 PDF は既に .gitignore 済みで、ページ画像だけが取り残されている",
+          "regenFrom": "原典 PDF（private R2 の doboku-note-archive/textbook/）から再抽出",
+          "usedBy": [
+            "OCR / 図クロップ worker（書名単位 hydrate 前提）"
+          ],
+          "generator": "scripts/pdf-to-mdx 系",
+          "samples": [
+            {
+              "path": "content/sources/textbook/コンクリート主任技師2024/img/page090_fig1.png",
+              "sizeMiB": 5
+            },
+            {
+              "path": "content/sources/textbook/コンクリート主任技師2024/img/page091_fig1.png",
+              "sizeMiB": 2.7
+            },
+            {
+              "path": "content/sources/textbook/１級土木施工管理技士/テキスト（土木一般編）/img/02-33.png",
+              "sizeMiB": 2.7
+            },
+            {
+              "path": "content/sources/textbook/コンクリート主任技師2024/img/page080_fig1.png",
+              "sizeMiB": 2.5
+            },
+            {
+              "path": "content/sources/textbook/コンクリート主任技師2022/img/page138_fig1.png",
+              "sizeMiB": 2.2
+            },
+            {
+              "path": "content/sources/textbook/コンクリート主任技師2024/img/page065_fig1.png",
+              "sizeMiB": 2.1
+            },
+            {
+              "path": "content/sources/textbook/コンクリート主任技師2024/img/page099_fig1.png",
+              "sizeMiB": 2.1
+            },
+            {
+              "path": "content/sources/textbook/コンクリート主任技師2024/img/page108_fig1.png",
+              "sizeMiB": 2.1
+            }
+          ]
+        },
+        {
+          "ruleId": "note-pdf",
+          "sizeMiB": 273,
+          "files": 586,
+          "reason": "note 添付・商品 PDF。「公開配布可 / 有料添付 / 原典・非公開」の再分類が要るため既定は private 側へ倒す（Phase 4-D で確定）",
+          "regenFrom": "magazine-to-pdf の spec + article.md",
+          "usedBy": [
+            "scripts/note-attach-file.mjs"
+          ],
+          "generator": "scripts/magazine-to-pdf.mjs",
+          "samples": [
+            {
+              "path": "content/note/1級・2級土木/1級土木/一次択一-過去問PDF/1級土木一次択一-過去問PDF.pdf",
+              "sizeMiB": 11.7
+            },
+            {
+              "path": "content/note/技術士一次/一次択一-過去問PDF/技術士一次択一-過去問PDF.pdf",
+              "sizeMiB": 9.3
+            },
+            {
+              "path": "content/note/1級・2級土木/2級土木/一次択一-過去問PDF/2級土木一次択一-過去問PDF.pdf",
+              "sizeMiB": 6.8
+            },
+            {
+              "path": "content/note/技術士総監/総監択一-過去問PDF-平成/総監択一-過去問PDF-平成.pdf",
+              "sizeMiB": 4.9
+            },
+            {
+              "path": "content/note/技術士総監/総監択一-過去問PDF-令和/総監択一-過去問PDF-令和.pdf",
+              "sizeMiB": 3.8
+            },
+            {
+              "path": "content/note/1級・2級土木/1級土木/magazines/1級土木-二次学科記述-直前暗記ノート/anki-redsheet.pdf",
+              "sizeMiB": 1
+            },
+            {
+              "path": "content/note/技術士総監/magazines/総監模範論文-河川コンサル/R08-yosou-1/模範論文-河川コンサル-R08予想1-気候変動.pdf",
+              "sizeMiB": 1
+            },
+            {
+              "path": "content/note/技術士総監/magazines/総監模範論文-河川コンサル/R08-yosou-4/模範論文-河川コンサル-R08予想4-複合災害・災害復旧.pdf",
+              "sizeMiB": 1
+            }
+          ]
+        },
+        {
+          "ruleId": "note-cover-png",
+          "sizeMiB": 48.7,
+          "files": 50,
+          "reason": "note へアップロード済みの成果物。frontmatter の cover 仕様が原本で再生成可能だが、ライブ差し替え時の同一性確認に実体が要るため R2 を正とする",
+          "regenFrom": "article*.md frontmatter の cover ブロック（generate-note-covers）",
+          "usedBy": [
+            "scripts/note-publish.mjs",
+            "scripts/note-update-cover.mjs"
+          ],
+          "generator": "scripts/generate-note-covers.mjs",
+          "samples": [
+            {
+              "path": "content/note/1級・2級土木/メンバーシップ/予想問題マガジン/06_安全管理-労働災害の防止/img/cover.png",
+              "sizeMiB": 1
+            },
+            {
+              "path": "content/note/1級・2級土木/メンバーシップ/予想問題マガジン/07_品質管理-土工の締固め/img/cover.png",
+              "sizeMiB": 1
+            },
+            {
+              "path": "content/note/1級・2級土木/メンバーシップ/予想問題マガジン/08_工程管理-工程管理手法/img/cover.png",
+              "sizeMiB": 1
+            },
+            {
+              "path": "content/note/1級・2級土木/メンバーシップ/予想問題マガジン/09_施工計画-施工手順と段取り/img/cover.png",
+              "sizeMiB": 1
+            },
+            {
+              "path": "content/note/1級・2級土木/メンバーシップ/予想問題マガジン/10_環境対策-水質と近隣対応/img/cover.png",
+              "sizeMiB": 1
+            },
+            {
+              "path": "content/note/1級・2級土木/メンバーシップ/予想問題マガジン/11_直前総点検-2テーマ組合せとヤマ/img/cover.png",
+              "sizeMiB": 1
+            },
+            {
+              "path": "content/note/1級・2級土木/メンバーシップ/学科記述予想/01_土工/img/cover.png",
+              "sizeMiB": 1
+            },
+            {
+              "path": "content/note/1級・2級土木/メンバーシップ/学科記述予想/02_コンクリート工/img/cover.png",
+              "sizeMiB": 1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bucket": "KEEP_GIT",
+      "sizeMiB": 809.4,
+      "files": 10460,
+      "groups": [
+        {
+          "ruleId": "site-image",
+          "sizeMiB": 701.5,
+          "files": 3217,
+          "reason": "公開記事の図版・OGP。R2 へは CI が同期するが Git 側が原本。ただし巨大 blob は個別に REVIEW へ落とす",
+          "regenFrom": null,
+          "usedBy": [
+            "MDX 本文 / og:image"
+          ],
+          "generator": null,
+          "samples": [
+            {
+              "path": "content/site/pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig29.png",
+              "sizeMiB": 1.3
+            },
+            {
+              "path": "content/site/pe-construction/shakai-shihon-ronbun-keyword/img/fig05.png",
+              "sizeMiB": 1
+            },
+            {
+              "path": "content/site/pe-construction/shakai-shihon-ronbun-keyword/img/fig04.png",
+              "sizeMiB": 0.9
+            },
+            {
+              "path": "content/site/pe-construction/bousai-genseigai-ronbun-keyword/img/fig14.png",
+              "sizeMiB": 0.8
+            },
+            {
+              "path": "content/site/pe-construction/iji-kanri-ronbun-keyword/img/fig06.png",
+              "sizeMiB": 0.8
+            },
+            {
+              "path": "content/site/civil-construction-1/guide-career-cases/ogp.png",
+              "sizeMiB": 0.6
+            },
+            {
+              "path": "content/site/civil-construction-1/guide-buildjob-review/ogp.png",
+              "sizeMiB": 0.6
+            },
+            {
+              "path": "content/site/civil-construction-1/guide-career-consultation-before-quit/ogp.png",
+              "sizeMiB": 0.6
+            }
+          ]
+        },
+        {
+          "ruleId": "text-ssot",
+          "sizeMiB": 105.3,
+          "files": 6805,
+          "reason": "原稿・設定・コードの SSOT",
+          "regenFrom": null,
+          "usedBy": null,
+          "generator": null,
+          "samples": [
+            {
+              "path": "src/config/exam-questions.json",
+              "sizeMiB": 1.8
+            },
+            {
+              "path": ".claude/state/metrics/url-inspection/inspection-batch-2026-08-01T05-03-32.json",
+              "sizeMiB": 1.3
+            },
+            {
+              "path": "src/config/doc-meta-index.json",
+              "sizeMiB": 1.3
+            },
+            {
+              "path": ".obsidian/themes/Blue Topaz/theme.css",
+              "sizeMiB": 1.2
+            },
+            {
+              "path": ".claude/state/metrics/url-inspection/inspection-batch-2026-06-19T13-26-17.json",
+              "sizeMiB": 1.2
+            },
+            {
+              "path": ".claude/state/metrics/url-inspection/inspection-batch-2026-07-01T05-04-05.json",
+              "sizeMiB": 1.2
+            },
+            {
+              "path": "src/config/civil-2-exam-questions.json",
+              "sizeMiB": 1.2
+            },
+            {
+              "path": ".claude/state/metrics/seo-meta/seo-meta-2026-08-20T12-30-25-321.json",
+              "sizeMiB": 0.9
+            }
+          ]
+        },
+        {
+          "ruleId": "site-figure-svg",
+          "sizeMiB": 1.9,
+          "files": 436,
+          "reason": "記事図版の編集可能ベクター。原本かつ通常は小さい（Base64 raster 混入は別途 FAIL 対象）",
+          "regenFrom": null,
+          "usedBy": [
+            "MDX 本文"
+          ],
+          "generator": null,
+          "samples": [
+            {
+              "path": "content/site/civil-construction-1/guide-concrete-key-points/img/figure-aggregate-moisture.svg",
+              "sizeMiB": 0
+            },
+            {
+              "path": "content/site/civil-construction-1/guide-concrete-key-points/img/figure-cover-and-spacing.svg",
+              "sizeMiB": 0
+            },
+            {
+              "path": "content/site/civil-construction-1/guide-concrete-key-points/img/figure-lap-splice-stagger.svg",
+              "sizeMiB": 0
+            },
+            {
+              "path": "content/site/civil-construction-1/guide-concrete-key-points/img/figure-vibrator-insertion.svg",
+              "sizeMiB": 0
+            },
+            {
+              "path": "content/site/civil-construction-1/guide-concrete-maintenance/img/figure-carbonation-progress.svg",
+              "sizeMiB": 0
+            },
+            {
+              "path": "content/site/civil-construction-1/guide-concrete-maintenance/img/figure-frost-damage-forms.svg",
+              "sizeMiB": 0
+            },
+            {
+              "path": "content/site/civil-construction-1/guide-earthwork-key-points/img/figure-n-value-ground.svg",
+              "sizeMiB": 0
+            },
+            {
+              "path": "content/site/civil-construction-1/guide-earthwork-key-points/img/figure-soil-volume-change.svg",
+              "sizeMiB": 0
+            }
+          ]
+        },
+        {
+          "ruleId": "font",
+          "sizeMiB": 0.6,
+          "files": 2,
+          "reason": "レンダリング必須のフォント実体（allowlist）",
+          "regenFrom": null,
+          "usedBy": [
+            "satori / OGP 生成"
+          ],
+          "generator": null,
+          "samples": [
+            {
+              "path": ".agents/skills/conversion/ogp-create/assets/fonts/Inter-Bold.ttf",
+              "sizeMiB": 0.3
+            },
+            {
+              "path": ".claude/skills/conversion/ogp-create/assets/fonts/Inter-Bold.ttf",
+              "sizeMiB": 0.3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bucket": "R2_PUBLIC",
+      "sizeMiB": 675.9,
+      "files": 777,
+      "groups": [
+        {
+          "ruleId": "note-cover-png",
+          "sizeMiB": 675.9,
+          "files": 777,
+          "reason": "note へアップロード済みの成果物。frontmatter の cover 仕様が原本で再生成可能だが、ライブ差し替え時の同一性確認に実体が要るため R2 を正とする",
+          "regenFrom": "article*.md frontmatter の cover ブロック（generate-note-covers）",
+          "usedBy": [
+            "scripts/note-publish.mjs",
+            "scripts/note-update-cover.mjs"
+          ],
+          "generator": "scripts/generate-note-covers.mjs",
+          "samples": [
+            {
+              "path": "content/note/1級・2級土木/2級土木/2級と1級どちらから受けるか/img/cover.png",
+              "sizeMiB": 1.1
+            },
+            {
+              "path": "content/note/1級・2級土木/2級土木/2級土木 二次検定の全体像/img/cover.png",
+              "sizeMiB": 1.1
+            },
+            {
+              "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事07-切土法面地すべり/img/cover.png",
+              "sizeMiB": 1.1
+            },
+            {
+              "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/R03/img/cover.png",
+              "sizeMiB": 1.1
+            },
+            {
+              "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/R04/img/cover.png",
+              "sizeMiB": 1.1
+            },
+            {
+              "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/R05/img/cover.png",
+              "sizeMiB": 1.1
+            },
+            {
+              "path": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/R06/img/cover.png",
+              "sizeMiB": 1.1
+            },
+            {
+              "path": "content/note/1級・2級土木/2級土木/工事概要の書き方/img/cover.png",
+              "sizeMiB": 1.1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bucket": "REVIEW",
+      "sizeMiB": 353.5,
+      "files": 1245,
+      "groups": [
+        {
+          "ruleId": "(unmatched)",
+          "sizeMiB": 225.4,
+          "files": 1067,
+          "reason": "どのルールにも当たらない。置き場の方針が未定義",
+          "regenFrom": null,
+          "usedBy": null,
+          "generator": null,
+          "samples": [
+            {
+              "path": ".obsidian/icons/font-awesome-regular.zip",
+              "sizeMiB": 6.2
+            },
+            {
+              "path": ".obsidian/icons/font-awesome-solid.zip",
+              "sizeMiB": 6.2
+            },
+            {
+              "path": "content/sns/_assets/character/_source/grid-3.png",
+              "sizeMiB": 1.9
+            },
+            {
+              "path": "public/logo.png",
+              "sizeMiB": 1.9
+            },
+            {
+              "path": "public/images/civil-exam-prep/civil-exam-teacher-mascot.png",
+              "sizeMiB": 1.5
+            },
+            {
+              "path": "public/images/civil-exam-prep/concrete-exam-viaduct-rebar-bg-right.png",
+              "sizeMiB": 1.5
+            },
+            {
+              "path": "public/images/civil-exam-prep/civil-exam-construction-bg-right.png",
+              "sizeMiB": 1.5
+            },
+            {
+              "path": "public/images/civil-exam-prep/civil-exam-integrated-infrastructure-bg-right.png",
+              "sizeMiB": 1.4
+            }
+          ]
+        },
+        {
+          "ruleId": "kindle-artifact",
+          "sizeMiB": 95.8,
+          "files": 170,
+          "reason": "KDP 入稿成果物。原稿 md からビルドできるはずだが、LIVE 済み書籍と同一性を保つ必要があるか未確認",
+          "regenFrom": "content/kindle/books/**（要検証）",
+          "usedBy": [
+            "scripts/kdp-publish.mjs"
+          ],
+          "generator": "kindle-build",
+          "samples": [
+            {
+              "path": "scripts/kindle-dist/e-02.epub",
+              "sizeMiB": 6.7
+            },
+            {
+              "path": "scripts/kindle-dist/d-00.epub",
+              "sizeMiB": 4.4
+            },
+            {
+              "path": "scripts/kindle-dist/g-02.epub",
+              "sizeMiB": 3.6
+            },
+            {
+              "path": "scripts/kindle-dist/e-01.epub",
+              "sizeMiB": 3
+            },
+            {
+              "path": "scripts/kindle-dist/g-01.epub",
+              "sizeMiB": 2.6
+            },
+            {
+              "path": "scripts/kindle-dist/d-01.epub",
+              "sizeMiB": 2.3
+            },
+            {
+              "path": "scripts/kindle-covers/backgrounds/a-03.png",
+              "sizeMiB": 2
+            },
+            {
+              "path": "scripts/kindle-covers/backgrounds/a-04.png",
+              "sizeMiB": 2
+            }
+          ]
+        },
+        {
+          "ruleId": "text-ssot",
+          "sizeMiB": 22.1,
+          "files": 6,
+          "reason": "原稿・設定・コードの SSOT",
+          "regenFrom": null,
+          "usedBy": null,
+          "generator": null,
+          "samples": [
+            {
+              "path": ".obsidian/plugins/obisidian-note-linker/main.js",
+              "sizeMiB": 7.2
+            },
+            {
+              "path": ".claude/state/ocr-audit/2026-04-24.json",
+              "sizeMiB": 3.7
+            },
+            {
+              "path": ".claude/state/ocr-audit/2026-04-26.json",
+              "sizeMiB": 3.7
+            },
+            {
+              "path": "src/config/civil-1-exam-questions.json",
+              "sizeMiB": 3.1
+            },
+            {
+              "path": ".obsidian/themes/Catppuccin/theme.css",
+              "sizeMiB": 2.2
+            },
+            {
+              "path": "public/quiz/civil-1.json",
+              "sizeMiB": 2.1
+            }
+          ]
+        },
+        {
+          "ruleId": "font",
+          "sizeMiB": 10.1,
+          "files": 2,
+          "reason": "レンダリング必須のフォント実体（allowlist）",
+          "regenFrom": null,
+          "usedBy": [
+            "satori / OGP 生成"
+          ],
+          "generator": null,
+          "samples": [
+            {
+              "path": ".agents/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf",
+              "sizeMiB": 5.1
+            },
+            {
+              "path": ".claude/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf",
+              "sizeMiB": 5.1
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "bucket": "REGENERATE",
+      "sizeMiB": 234.7,
+      "files": 1997,
+      "groups": [
+        {
+          "ruleId": "ig-rendered-png",
+          "sizeMiB": 234.7,
+          "files": 1997,
+          "reason": "slide-data.json から決定論的に焼けるレンダー成果物。投稿済みパックは R2 archive、未投稿は再生成で足りる",
+          "regenFrom": "slide-data.json / script.json + caption.txt",
+          "usedBy": [
+            "publish-ig-bs（投稿時に読む）"
+          ],
+          "generator": ".claude/scripts/sns/ 系レンダラ",
+          "samples": [
+            {
+              "path": "content/sns/instagram/cem/exam-packs/r04/pack-06/carousel/img/03-problem.png",
+              "sizeMiB": 0.3
+            },
+            {
+              "path": "content/sns/instagram/cem/exam-packs/r07/pack-06/carousel/img/03-problem.png",
+              "sizeMiB": 0.3
+            },
+            {
+              "path": "content/sns/instagram/cem/exam-packs/r03/pack-02/carousel/img/03-problem.png",
+              "sizeMiB": 0.2
+            },
+            {
+              "path": "content/sns/instagram/cem/exam-packs/r03/pack-02/carousel/img/07-problem.png",
+              "sizeMiB": 0.2
+            },
+            {
+              "path": "content/sns/instagram/cem/exam-packs/r03/pack-02/stories/img/02-problem.png",
+              "sizeMiB": 0.2
+            },
+            {
+              "path": "content/sns/instagram/cem/exam-packs/r03/pack-03/carousel/img/03-problem.png",
+              "sizeMiB": 0.2
+            },
+            {
+              "path": "content/sns/instagram/cem/exam-packs/r03/pack-04/carousel/img/07-problem.png",
+              "sizeMiB": 0.2
+            },
+            {
+              "path": "content/sns/instagram/cem/exam-packs/r03/pack-05/stories/img/02-problem.png",
+              "sizeMiB": 0.2
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "base64Svgs": {
+    "count": 0,
+    "sizeMiB": 0,
+    "top": []
+  },
+  "integrity": {
+    "duplicateBlobs": {
+      "distinctShas": 192,
+      "worktreeWasteMiB": 116.5,
+      "packUniqueMiB": 35.7,
+      "caveat": "worktreeWaste は「checkout 時に余分に展開される容量」。pack 上は同一 blob が 1 個しか無いので、Git 履歴の削減見込みへ足さない。",
+      "top": [
+        {
+          "sizeMiB": 0.3,
+          "copies": 197,
+          "paths": [
+            "content/note/1級・2級土木/1級土木/1級土木をAIで勉強する/img/figure-author-authority.png",
+            "content/note/1級・2級土木/1級土木/1級工事概要の書き方/img/figure-author-authority.png",
+            "content/note/1級・2級土木/1級土木/1級経験記述R6新形式と設問書き分け/img/figure-author-authority.png",
+            "content/note/1級・2級土木/1級土木/1級経験記述で落ちる答案/img/figure-author-authority.png"
+          ]
+        },
+        {
+          "sizeMiB": 6.2,
+          "copies": 2,
+          "paths": [
+            ".obsidian/icons/font-awesome-regular.zip",
+            ".obsidian/icons/font-awesome-solid.zip"
+          ]
+        },
+        {
+          "sizeMiB": 0.1,
+          "copies": 85,
+          "paths": [
+            "content/sns/instagram/civil-1/theme-packs/anzen-crane/pack-01/carousel/img/07-cta.png",
+            "content/sns/instagram/civil-1/theme-packs/anzen-excavation/pack-01/carousel/img/09-cta.png",
+            "content/sns/instagram/civil-1/theme-packs/anzen-excavation/pack-02/carousel/img/07-cta.png",
+            "content/sns/instagram/civil-1/theme-packs/anzen-formwork/pack-01/carousel/img/09-cta.png"
+          ]
+        },
+        {
+          "sizeMiB": 5.1,
+          "copies": 2,
+          "paths": [
+            ".agents/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf",
+            ".claude/skills/conversion/ogp-create/assets/fonts/NotoSansJP-Bold.ttf"
+          ]
+        },
+        {
+          "sizeMiB": 2,
+          "copies": 3,
+          "paths": [
+            "scripts/kindle-covers/backgrounds/a-03.png",
+            "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (2).png",
+            "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (3).png"
+          ]
+        },
+        {
+          "sizeMiB": 0.1,
+          "copies": 42,
+          "paths": [
+            "content/sns/instagram/cem/exam-packs/r03/pack-01/stories/img/04-cta.png",
+            "content/sns/instagram/cem/exam-packs/r03/pack-02/stories/img/04-cta.png",
+            "content/sns/instagram/cem/exam-packs/r03/pack-03/stories/img/04-cta.png",
+            "content/sns/instagram/cem/exam-packs/r03/pack-04/stories/img/04-cta.png"
+          ]
+        },
+        {
+          "sizeMiB": 0.1,
+          "copies": 42,
+          "paths": [
+            "content/sns/instagram/cem/exam-packs/r03/pack-01/carousel/img/09-cta.png",
+            "content/sns/instagram/cem/exam-packs/r03/pack-02/carousel/img/09-cta.png",
+            "content/sns/instagram/cem/exam-packs/r03/pack-03/carousel/img/09-cta.png",
+            "content/sns/instagram/cem/exam-packs/r03/pack-04/carousel/img/09-cta.png"
+          ]
+        },
+        {
+          "sizeMiB": 0.1,
+          "copies": 37,
+          "paths": [
+            "content/sns/instagram/civil-2/theme-packs/anzen-excavation/pack-01/carousel/img/09-cta.png",
+            "content/sns/instagram/civil-2/theme-packs/anzen-excavation/pack-02/carousel/img/05-cta.png",
+            "content/sns/instagram/civil-2/theme-packs/anzen-general_hazard/pack-01/carousel/img/07-cta.png",
+            "content/sns/instagram/civil-2/theme-packs/anzen-machine/pack-01/carousel/img/09-cta.png"
+          ]
+        },
+        {
+          "sizeMiB": 2,
+          "copies": 2,
+          "paths": [
+            "scripts/kindle-covers/backgrounds/a-04.png",
+            "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (4).png"
+          ]
+        },
+        {
+          "sizeMiB": 1.9,
+          "copies": 2,
+          "paths": [
+            "scripts/kindle-covers/backgrounds/a-01.png",
+            "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026.png"
+          ]
+        },
+        {
+          "sizeMiB": 1.8,
+          "copies": 2,
+          "paths": [
+            "scripts/kindle-covers/backgrounds/a-00.png",
+            "scripts/kindle-published/cover-designs/Book Cover Design Image Jul 8 2026 (1).png"
+          ]
+        },
+        {
+          "sizeMiB": 1.8,
+          "copies": 2,
+          "paths": [
+            "scripts/kindle-covers/backgrounds/a-05.png",
+            "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (5).png"
+          ]
+        },
+        {
+          "sizeMiB": 1.8,
+          "copies": 2,
+          "paths": [
+            "scripts/kindle-covers/backgrounds/a-02.png",
+            "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (1).png"
+          ]
+        },
+        {
+          "sizeMiB": 1.7,
+          "copies": 2,
+          "paths": [
+            "scripts/kindle-covers/backgrounds/a-06.png",
+            "scripts/kindle-published/cover-designs/Book Cover Design Image Jul 8 2026.png"
+          ]
+        },
+        {
+          "sizeMiB": 0.3,
+          "copies": 5,
+          "paths": [
+            "content/sns/x/draft/_archive-old-account/038-売上実績5月/img/tweet-01-sales.png",
+            "content/sns/x/draft/_archive-old-account/039-30日カウントダウン実績/img/tweet-04-sales.png",
+            "content/sns/x/draft/_archive-old-account/039-30日カウントダウン実績/img/tweet-11-sales.png",
+            "content/sns/x/draft/_archive-old-account/039-30日カウントダウン実績/img/tweet-18-sales.png"
+          ]
+        },
+        {
+          "sizeMiB": 1,
+          "copies": 2,
+          "paths": [
+            "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事16-場所打ち杭杭体コンクリート/img/cover.png",
+            "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事28-場所打ち杭アースドリル/img/cover.png"
+          ]
+        },
+        {
+          "sizeMiB": 1,
+          "copies": 2,
+          "paths": [
+            "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事07-切土法面地すべり/img/cover.png",
+            "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/工事41-道路改良切土法面/img/cover.png"
+          ]
+        },
+        {
+          "sizeMiB": 0.4,
+          "copies": 3,
+          "paths": [
+            ".claude/state/metrics/monetization/coverage-2026-06-05T22-18-20.json",
+            ".claude/state/metrics/monetization/coverage-2026-06-05T22-18-27.json",
+            ".claude/state/metrics/monetization/coverage-2026-06-05T22-18-38.json"
+          ]
+        },
+        {
+          "sizeMiB": 0.6,
+          "copies": 2,
+          "paths": [
+            "content/site/pe-comprehensive-management/alert-levels/img/alertlevel-jma-official.png",
+            "content/site/pe-comprehensive-management/climate-change-adaptation-act/img/figure-5-10-alert-levels.png"
+          ]
+        },
+        {
+          "sizeMiB": 0.1,
+          "copies": 9,
+          "paths": [
+            "content/sns/instagram/cem/exam-packs/r06/pack-01/stories/img/01-cover.png",
+            "content/sns/instagram/cem/exam-packs/r06/pack-02/stories/img/01-cover.png",
+            "content/sns/instagram/cem/exam-packs/r06/pack-03/stories/img/01-cover.png",
+            "content/sns/instagram/cem/exam-packs/r06/pack-04/stories/img/01-cover.png"
+          ]
+        }
+      ]
+    },
+    "trackedButIgnored": {
+      "count": 8,
+      "sample": [
+        ".claude/settings.local.json",
+        "content/sns/instagram/pe-construction/2026-06-10-hissu-kata/reels/img/00-cover.png",
+        "content/sns/instagram/pe-construction/2026-06-10-hissu-kata/reels/img/01-hook.png",
+        "content/sns/instagram/pe-construction/2026-06-10-hissu-kata/reels/img/02-step.png",
+        "content/sns/instagram/pe-construction/2026-06-10-hissu-kata/reels/img/03-step.png",
+        "content/sns/instagram/pe-construction/2026-06-10-hissu-kata/reels/img/04-step.png",
+        "content/sns/instagram/pe-construction/2026-06-10-hissu-kata/reels/img/05-summary.png",
+        "content/sns/instagram/pe-construction/2026-06-10-hissu-kata/reels/img/06-cta.png"
+      ]
+    },
+    "missingInWorktree": {
+      "count": 0,
+      "sample": []
+    }
+  },
+  "lastCommit": {
+    "content/note": "2026-08-21",
+    "content/sources/textbook": "2026-08-19",
+    "content/sns/instagram": "2026-08-19",
+    "content/site": "2026-08-21"
+  },
+  "history": {
+    "available": true,
+    "partialClone": {
+      "isPartial": true,
+      "filter": "blob:none",
+      "warning": "partial clone のため「ローカル pack にある blob」は履歴の全量ではない。逆に、履歴を歩く操作が欠損 blob を取りに行って pack を膨らませる。走査は必ず --missing=allow-any で行う。"
+    },
+    "reachableBlobs": 41559,
+    "reachableBlobDiskBytes": 7180577666,
+    "uniqueReachableDiskBytes": 7179207635,
+    "caveat": "topPaths/topDirs は path 帰属の参考値。同一 blob が複数 path に現れるため単純合計は pack 実体を上回る。削減見込みは uniqueReachableDisk 側で読む。",
+    "packDuplication": {
+      "inPackEntries": 322730,
+      "uniqueLocalObjects": 167023,
+      "duplicationRatio": 1.93,
+      "interpretation": "パック間で重複格納されている。**repack で掃除しても auto-gc が作り直すため戻る（2026-08-21 実証）。回収可能な余剰として計上しないこと。**",
+      "correctFix": "HEAD を軽くした後に partial clone を作り直す（DN-0111 Phase 6）。git repack -a -d は到達可能 commit を落とす実績があるので使わない。"
+    },
+    "topPaths": [
+      {
+        "path": "docs/textbook/人事マネジメントの最新常識/いまさら聞けない人事マネジメントの最新常識.pdf",
+        "diskMiB": 72.6,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/技術士論文の書き方/技術士論文の書き方.pdf",
+        "diskMiB": 71.1,
+        "versions": 1
+      },
+      {
+        "path": "_backend/pdf/道路法解説/第２部_逐条解説.pdf",
+        "diskMiB": 63,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/１級土木施工管理技士/問題集/１級土木施工管理第１次試験問題集.pdf",
+        "diskMiB": 55.1,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/人的資源管理.pdf",
+        "diskMiB": 51.4,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.pdf",
+        "diskMiB": 41.4,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/情報管理.pdf",
+        "diskMiB": 37.9,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/社会環境管理.pdf",
+        "diskMiB": 37,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理.pdf",
+        "diskMiB": 35.4,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/行政書士/行政書士問題集その２.pdf",
+        "diskMiB": 33.3,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/１級土木施工管理技士/問題集/１級土木施工管理第２次試験問題集.pdf",
+        "diskMiB": 31,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/技術士（建設部門）/論文対策キーワード/スキャンした書類 9.pdf",
+        "diskMiB": 29.2,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/行政書士/行政書士問題集その１.pdf",
+        "diskMiB": 28.9,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/コンクリート診断士/スキャンした書類 6.pdf",
+        "diskMiB": 26.9,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/コンクリート診断士/スキャンした書類 3.pdf",
+        "diskMiB": 26.9,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/技術士（建設部門）/論文対策キーワード/スキャンした書類 8.pdf",
+        "diskMiB": 26.3,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/コンクリート診断士/スキャンした書類 8.pdf",
+        "diskMiB": 25.9,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/技術士（建設部門）/論文対策キーワード/スキャンした書類 5.pdf",
+        "diskMiB": 25.6,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/技術士（建設部門）/論文対策キーワード/スキャンした書類 6.pdf",
+        "diskMiB": 24.9,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/コンクリート診断士/スキャンした書類 7.pdf",
+        "diskMiB": 24.8,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/コンクリート診断士/スキャンした書類 5.pdf",
+        "diskMiB": 23.6,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/技術士（総監）/過去問/R08/令和８年度模擬試験_択一式.pdf",
+        "diskMiB": 23.5,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/技術士（建設部門）/論文対策キーワード/スキャンした書類 4.pdf",
+        "diskMiB": 23,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/技術士（建設部門）/論文対策キーワード/スキャンした書類 3.pdf",
+        "diskMiB": 22.8,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/コンクリート診断士/スキャンした書類 4.pdf",
+        "diskMiB": 22.6,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/コンクリート診断士/スキャンした書類 2.pdf",
+        "diskMiB": 22.5,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/行政書士/第２部_行政法.pdf",
+        "diskMiB": 21.9,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/コンクリート診断士/スキャンした書類.pdf",
+        "diskMiB": 21.7,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/コンクリート診断士/スキャンした書類 9.pdf",
+        "diskMiB": 21.5,
+        "versions": 1
+      },
+      {
+        "path": "docs/textbook/コンクリート診断士/スキャンした書類 10.pdf",
+        "diskMiB": 20.9,
+        "versions": 1
+      }
+    ],
+    "topDirs": [
+      {
+        "dir": "docs/sns/instagram",
+        "diskMiB": 806,
+        "paths": 5529
+      },
+      {
+        "dir": "docs/textbook/技術士（総監）",
+        "diskMiB": 614.7,
+        "paths": 98
+      },
+      {
+        "dir": ".local/r2/posts",
+        "diskMiB": 597.6,
+        "paths": 3489
+      },
+      {
+        "dir": "content/sources/textbook",
+        "diskMiB": 560.7,
+        "paths": 947
+      },
+      {
+        "dir": "content/site/pe-comprehensive-management",
+        "diskMiB": 446.8,
+        "paths": 2532
+      },
+      {
+        "dir": "content/note/1級・2級土木",
+        "diskMiB": 359.7,
+        "paths": 1486
+      },
+      {
+        "dir": "content/note/技術士総監",
+        "diskMiB": 313,
+        "paths": 1358
+      },
+      {
+        "dir": "_backup/general/design-manual",
+        "diskMiB": 254.6,
+        "paths": 1475
+      },
+      {
+        "dir": "docs/textbook/技術士（建設部門）",
+        "diskMiB": 248.6,
+        "paths": 100
+      },
+      {
+        "dir": "docs/textbook/コンクリート診断士",
+        "diskMiB": 237.2,
+        "paths": 10
+      },
+      {
+        "dir": "content/note/技術士建設部門",
+        "diskMiB": 203,
+        "paths": 1200
+      },
+      {
+        "dir": "content/sns/instagram",
+        "diskMiB": 199,
+        "paths": 2688
+      },
+      {
+        "dir": "docs/textbook/１級土木施工管理技士",
+        "diskMiB": 185.6,
+        "paths": 37
+      },
+      {
+        "dir": "docs/textbook/コンクリート主任技師2022",
+        "diskMiB": 172.9,
+        "paths": 14
+      },
+      {
+        "dir": "docs/textbook/技術士論文の書き方",
+        "diskMiB": 142.3,
+        "paths": 6
+      },
+      {
+        "dir": "docs/textbook/行政書士",
+        "diskMiB": 108.6,
+        "paths": 6
+      },
+      {
+        "dir": "content/site/civil-construction-1",
+        "diskMiB": 103.4,
+        "paths": 1157
+      },
+      {
+        "dir": "docs/textbook/コンクリート主任技師2024",
+        "diskMiB": 97.6,
+        "paths": 6
+      },
+      {
+        "dir": "_backend/pdf/土木計画学",
+        "diskMiB": 92.4,
+        "paths": 20
+      },
+      {
+        "dir": "docs/textbook/人事マネジメントの最新常識",
+        "diskMiB": 85.3,
+        "paths": 6
+      }
+    ]
+  },
+  "delta": {
+    "baselineGeneratedAt": "2026-08-21T10:58:18.550Z",
+    "headTrackedMiB": -1288.6,
+    "headTrackedFiles": -826
+  }
+}

@@ -1,0 +1,41 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="生成 AI の技術的位置づけ。人工知能（AI）の中に機械学習、その中にディープラーニング、さらにその中に生成 AI が含まれる入れ子構造を示す。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-outer { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-gen   { font-size: 18px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc  { font-size: 12px; fill: #555; }
+      .t-muted { font-size: 11px; fill: #8a8a8a; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-surf  { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- 人工知能（AI） -->
+  <rect class="box-surf" x="18" y="18" width="364" height="462" rx="10"/>
+  <text class="t-outer" x="200" y="44" text-anchor="middle">人工知能（AI）</text>
+  <text class="t-muted" x="200" y="62" text-anchor="middle">ルールベース・探索・統計的手法を含む広義の知的処理</text>
+
+  <!-- 機械学習 -->
+  <rect class="box-surf" x="44" y="76" width="312" height="386" rx="9"/>
+  <text class="t-outer" x="200" y="102" text-anchor="middle">機械学習</text>
+  <text class="t-muted" x="200" y="120" text-anchor="middle">データから規則を自動学習する技術群</text>
+
+  <!-- ディープラーニング -->
+  <rect class="box-surf" x="70" y="134" width="260" height="310" rx="8"/>
+  <text class="t-outer" x="200" y="160" text-anchor="middle">ディープラーニング</text>
+  <text class="t-muted" x="200" y="178" text-anchor="middle">多層ニューラルネットワークによる表現学習</text>
+
+  <!-- 生成 AI -->
+  <rect class="box-brand" x="96" y="196" width="208" height="228" rx="8"/>
+  <text class="t-gen"  x="200" y="232" text-anchor="middle">生成 AI</text>
+  <text class="t-desc" x="200" y="260" text-anchor="middle">テキスト・画像・音声・</text>
+  <text class="t-desc" x="200" y="278" text-anchor="middle">コードを自動生成</text>
+  <text class="t-desc" x="200" y="310" text-anchor="middle">中核技術 ＝ 大規模</text>
+  <text class="t-desc" x="200" y="328" text-anchor="middle">言語モデル（LLM）</text>
+  <text class="t-muted" x="200" y="356" text-anchor="middle">例: GPT-4, Gemini, Claude</text>
+</svg>

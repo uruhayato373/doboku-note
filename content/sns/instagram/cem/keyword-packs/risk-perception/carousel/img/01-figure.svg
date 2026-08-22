@@ -1,0 +1,81 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="リスク認知バイアスの分類。過小評価傾向：正常性・楽観主義・ベテラン・バージンの4バイアス。過大評価傾向：カタストロフィー・バイアス。増幅バイアス：同調バイアス（どちらの方向にも増幅）。">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-sec    { font-size: 11px; font-weight: bold; fill: #ffffff; }
+      .t-name   { font-size: 12px; font-weight: bold; }
+      .t-def    { font-size: 11px; fill: #555; }
+      .t-footer { font-size: 11px; fill: #8a8a8a; }
+    </style>
+  </defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <!-- タイトル -->
+  <text class="t-title" x="200" y="22" text-anchor="middle">リスク認知バイアスの分類</text>
+  <line x1="20" y1="30" x2="380" y2="30" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- ▼ 過小評価ゾーン ───────────────────── -->
+  <rect x="12" y="36" width="376" height="22" rx="4" fill="#2e6da4"/>
+  <text class="t-sec" x="200" y="52" text-anchor="middle">過小評価傾向 ― リスクを実際より小さく見積もる</text>
+
+  <!-- 2×2 グリッド (y=64〜248) -->
+  <!-- 正常性バイアス -->
+  <rect x="12" y="64" width="183" height="86" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="12" y="64" width="5"   height="86" rx="3" fill="#2e6da4"/>
+  <text class="t-name" x="108" y="82"  text-anchor="middle" fill="#1a3a5c">正常性バイアス</text>
+  <text class="t-def"  x="24"  y="99">異常サインも「正常な範囲」と</text>
+  <text class="t-def"  x="24"  y="115">解釈しようとする偏向</text>
+  <text style="font-size:11px;fill:#2e6da4;font-weight:bold" x="189" y="143" text-anchor="end">①</text>
+
+  <!-- 楽観主義バイアス -->
+  <rect x="205" y="64" width="183" height="86" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="205" y="64" width="5"   height="86" rx="3" fill="#2e6da4"/>
+  <text class="t-name" x="301" y="82"  text-anchor="middle" fill="#1a3a5c">楽観主義バイアス</text>
+  <text class="t-def"  x="217" y="99">ストレス回避のため楽観的な</text>
+  <text class="t-def"  x="217" y="115">方向に見ようとする偏向</text>
+  <text style="font-size:11px;fill:#2e6da4;font-weight:bold" x="382" y="143" text-anchor="end">②</text>
+
+  <!-- ベテランバイアス -->
+  <rect x="12" y="158" width="183" height="86" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="12" y="158" width="5"   height="86" rx="3" fill="#2e6da4"/>
+  <text class="t-name" x="108" y="176" text-anchor="middle" fill="#1a3a5c">ベテランバイアス</text>
+  <text class="t-def"  x="24"  y="193">豊富な経験を優先し、現状を</text>
+  <text class="t-def"  x="24"  y="209">十分考慮せず判断する偏向</text>
+  <text style="font-size:11px;fill:#2e6da4;font-weight:bold" x="189" y="237" text-anchor="end">③</text>
+
+  <!-- バージンバイアス -->
+  <rect x="205" y="158" width="183" height="86" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <rect x="205" y="158" width="5"   height="86" rx="3" fill="#2e6da4"/>
+  <text class="t-name" x="301" y="176" text-anchor="middle" fill="#1a3a5c">バージンバイアス</text>
+  <text class="t-def"  x="217" y="193">未経験の事象に対して、</text>
+  <text class="t-def"  x="217" y="209">正常と判断しようとする偏向</text>
+  <text style="font-size:11px;fill:#2e6da4;font-weight:bold" x="382" y="237" text-anchor="end">④</text>
+
+  <!-- ▼ 過大評価ゾーン ───────────────────── -->
+  <rect x="12" y="256" width="376" height="22" rx="4" fill="#d4a017"/>
+  <text class="t-sec" x="200" y="272" text-anchor="middle">過大評価傾向 ― リスクを実際より大きく見積もる</text>
+
+  <!-- カタストロフィー -->
+  <rect x="12" y="284" width="376" height="76" rx="6" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+  <rect x="12" y="284" width="5"   height="76" rx="3" fill="#d4a017"/>
+  <text class="t-name" x="200" y="305" text-anchor="middle" fill="#d4a017">カタストロフィー・バイアス</text>
+  <text class="t-def"  x="24"  y="325">まれにしか起きないが壊滅的な被害をもたらすリスクを、</text>
+  <text class="t-def"  x="24"  y="342">確率以上に過大評価する偏向</text>
+  <text style="font-size:11px;fill:#d4a017;font-weight:bold" x="382" y="352" text-anchor="end">⑤</text>
+
+  <!-- ▼ 増幅バイアス ───────────────────── -->
+  <rect x="12" y="370" width="376" height="22" rx="4" fill="#8a8a8a"/>
+  <text class="t-sec" x="200" y="386" text-anchor="middle">増幅バイアス ― 集団の方向にどちらでも増幅させる</text>
+
+  <!-- 同調バイアス -->
+  <rect x="12" y="398" width="376" height="66" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5"/>
+  <rect x="12" y="398" width="5"   height="66" rx="3" fill="#d7d7d7"/>
+  <text class="t-name" x="200" y="418" text-anchor="middle" fill="#222">同調バイアス</text>
+  <text class="t-def"  x="24"  y="436">周囲の判断・行動に引きずられ、自身のリスク評価を</text>
+  <text class="t-def"  x="24"  y="452">集団に合わせて歪める偏向（過小・過大どちらにも）</text>
+  <text style="font-size:11px;fill:#8a8a8a;font-weight:bold" x="382" y="456" text-anchor="end">⑥</text>
+
+  <!-- フッター -->
+  <text class="t-footer" x="200" y="490" text-anchor="middle">①〜④は過小評価・⑤は過大評価・⑥はどちらにも増幅</text>
+</svg>

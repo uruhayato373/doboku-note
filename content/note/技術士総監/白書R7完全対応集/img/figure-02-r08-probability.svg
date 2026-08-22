@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="962" viewBox="0 0 1200 962">
+  <rect width="1200" height="962" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">R08 再出題確率スコア（10 段階）</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">スコアと直近のバッジで優先度を可視化</text>
+
+  <text x="400" y="122" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#8a8a8a" text-anchor="middle">0</text>
+  <text x="680" y="122" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#8a8a8a" text-anchor="middle">5</text>
+  <text x="960" y="122" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#8a8a8a" text-anchor="middle">10</text>
+  <rect x="40" y="130" width="1120" height="80" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="52" y="179" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">i-Construction 2.0</text>
+  <rect x="400" y="148" width="532" height="44" rx="6" fill="#b22234"/>
+  <text x="944" y="179" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#b22234">9.5</text>
+  <rect x="1030" y="152" width="140" height="36" rx="14" fill="#b22234"/>
+  <text x="1100" y="178" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">DX 推進</text>
+  <rect x="40" y="226" width="1120" height="80" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="52" y="275" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">建設業 2024 年問題</text>
+  <rect x="400" y="244" width="504" height="44" rx="6" fill="#b22234"/>
+  <text x="916" y="275" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#b22234">9</text>
+  <rect x="1030" y="248" width="140" height="36" rx="14" fill="#b22234"/>
+  <text x="1100" y="274" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">労働改革</text>
+  <rect x="40" y="322" width="1120" height="80" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="52" y="371" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">インフラ老朽化</text>
+  <rect x="400" y="340" width="476" height="44" rx="6" fill="#d4a017"/>
+  <text x="888" y="371" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#d4a017">8.5</text>
+  <rect x="1030" y="344" width="140" height="36" rx="14" fill="#d4a017"/>
+  <text x="1100" y="370" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">予防保全</text>
+  <rect x="40" y="418" width="1120" height="80" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="52" y="467" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">流域治水</text>
+  <rect x="400" y="436" width="476" height="44" rx="6" fill="#d4a017"/>
+  <text x="888" y="467" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#d4a017">8.5</text>
+  <rect x="1030" y="440" width="140" height="36" rx="14" fill="#d4a017"/>
+  <text x="1100" y="466" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">気候適応</text>
+  <rect x="40" y="514" width="1120" height="80" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="52" y="563" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">GX・カーボンニュートラル</text>
+  <rect x="400" y="532" width="448" height="44" rx="6" fill="#d4a017"/>
+  <text x="860" y="563" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#d4a017">8</text>
+  <rect x="1030" y="536" width="140" height="36" rx="14" fill="#d4a017"/>
+  <text x="1100" y="562" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">白書最重点</text>
+  <rect x="40" y="610" width="1120" height="80" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="52" y="659" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">外国人材受入</text>
+  <rect x="400" y="628" width="392" height="44" rx="6" fill="#2e6da4"/>
+  <text x="804" y="659" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#2e6da4">7</text>
+  <rect x="1030" y="632" width="140" height="36" rx="14" fill="#2e6da4"/>
+  <text x="1100" y="658" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">制度変革</text>
+  <rect x="40" y="706" width="1120" height="80" rx="6" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="52" y="755" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">地域インフラ群マネジメント</text>
+  <rect x="400" y="724" width="364" height="44" rx="6" fill="#2e6da4"/>
+  <text x="776" y="755" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#2e6da4">6.5</text>
+  <rect x="1030" y="728" width="140" height="36" rx="14" fill="#2e6da4"/>
+  <text x="1100" y="754" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="700" fill="#ffffff" text-anchor="middle">群マネ</text>
+  <rect x="40" y="818" width="28" height="28" rx="4" fill="#b22234"/>
+  <text x="80" y="840" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">9.0 以上 — 最優先テーマ</text>
+  <rect x="360" y="818" width="28" height="28" rx="4" fill="#d4a017"/>
+  <text x="400" y="840" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">8.0〜8.9 — 高確率</text>
+  <rect x="680" y="818" width="28" height="28" rx="4" fill="#2e6da4"/>
+  <text x="720" y="840" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">7.0〜7.9 — 要注意</text>
+  <rect x="40" y="870" width="1120" height="44" rx="6" fill="#fbe5e7"/>
+  <text x="60" y="900" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#b22234">i-Construction 2.0 (9.5) と建設業 2024 年問題 (9.0) が R8 第 1 候補</text>
+
+  <text x="1176" y="946" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

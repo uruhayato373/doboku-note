@@ -1,0 +1,117 @@
+---
+title: 工程能力指数
+description: "工程能力指数（Cp・Cpk）の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.2'
+tags:
+  - keyword
+published: true
+publishedAt: '2026-04-09'
+reviewStatus: approved
+lastRewrittenAt: '2026-04-16'
+revisionCycle: 1
+seoTitle: "工程能力指数 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-06-23
+---
+
+## 工程能力指数とは
+
+工程能力指数（Process Capability Index）とは、**規格内で製品を生産する工程の能力を定量化する指標**である。
+
+ばらつきと規格幅の比で表され、値が大きいほど工程能力が高い。算出には、工程が **管理状態（統計的に安定した状態）** にあることが前提となる。管理状態にない工程で算出した Cp/Cpk は実態を反映せず、まず [管理図](/docs/pe-comprehensive-management-control-limits) で工程の安定性を確認したうえで本指数を用いる。
+
+## 前提となる正規分布と 3σ 則
+
+工程能力指数は、品質特性値が**正規分布 $N(\mu, \sigma^2)$** に従うことを前提とする。正規分布は平均 $\mu$ を中心に左右対称で、平均からのずれと包含確率に次の関係がある。
+
+- $\mu \pm \sigma$ の範囲に含まれる確率: 約 **68.3%**
+- $\mu \pm 2\sigma$ の範囲に含まれる確率: 約 **95.4%**
+- $\mu \pm 3\sigma$ の範囲に含まれる確率: 約 **99.7%**
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/process-capability-index/img/figure-normal-distribution-3sigma.svg"
+  alt="正規分布 N(μ,σ²) における ±σ・±2σ・±3σ の包含確率（68.3%・95.4%・99.7%）"
+/>
+
+この **3σ 則** から、$\pm 3\sigma$（合計 $6\sigma$）の範囲が規格内に収まれば不良率は約 0.3% に抑えられるという基準が導かれ、Cp 計算式の分母 $6\sigma$ の根拠となる。シックスシグマ（$\pm 6\sigma$、すなわち $C_p = 2.0$ に相当）は規格幅を $12\sigma$ まで広げ、不良率を ppm オーダーまで下げる高水準管理の考え方である。
+
+## 計算式
+
+**Cp（両側規格）**：工程の中心が規格の中央にある場合
+
+$$
+C_p = \frac{USL - LSL}{6\sigma}
+$$
+
+**Cpk（片寄り考慮）**：工程の中心が規格中央からずれている場合、規格上限・下限のうち近い方までの距離で評価する
+
+$$
+C_{pk} = \min\left(\frac{USL - \bar{x}}{3\sigma},\ \frac{\bar{x} - LSL}{3\sigma}\right)
+$$
+
+- $USL$：規格上限、$LSL$：規格下限、$\sigma$：工程の標準偏差、$\bar{x}$：工程平均
+- 工程の中心が規格中央と一致する場合のみ $C_p = C_{pk}$ となり、片寄りがあるほど $C_p > C_{pk}$ となる
+- $C_{pk}$ は中心のずれを反映するため、実務では **Cpk が真の工程能力指標** として重視される
+
+## 判定基準
+
+Cp 値は工程能力の水準判定に用いられ、一般に Cp ≧ 1.33 が管理目標として採用される。
+
+| Cp値 | 判定 | 対応 |
+|---|---|---|
+| **1.67以上** | 十分すぎる能力 | 検査の簡略化を検討 |
+| **1.33〜1.67** | 十分な能力 | 工程管理を継続 |
+| **1.00〜1.33** | やや不足 | 工程改善を検討 |
+| **1.00未満** | 能力不足 | 即座に改善が必要 |
+
+## 過去問頻出の引っかけ：管理限界と規格値の混同
+
+<Callout type="warning" title="管理限界と規格値は別物（R03/R07 で連続出題）">
+工程能力指数は **規格上限・下限（USL・LSL）** を分母の構成要素に用いるが、これと **管理図の管理限界（UCL・LCL）** を混同してはならない。
+
+- **規格値（USL・LSL）**：顧客要求・図面で定められた製品の許容範囲（外部から与えられる）
+- **管理限界（UCL・LCL）**：工程データの $\bar{x} \pm 3\sigma$ から **統計的に算出** される工程監視用の値
+
+「管理図の管理限界は、製品の規格が定められている場合、規格値に設定すべきである」という選択肢は誤り。管理限界は工程の安定性を判定するための統計量であり、規格値とは目的・算出根拠ともに異なる。[R03 Ⅰ-1-3](/docs/pe-comprehensive-management-r03-primary#1-3) と [R07 Ⅰ-1-2](/docs/pe-comprehensive-management-r07-primary#1-2) で同じ論点が連続出題されているため要注意。
+</Callout>
+
+## 総合技術監理における位置づけ
+
+総合技術監理キーワード集では[**2.2 品質の管理**](/docs/pe-comprehensive-management-keyword-2026#22-品質の管理)に位置づけられている。
+
+工程能力指数は[品質管理](/docs/pe-comprehensive-management-quality-control)における統計的手法の中核であり、[管理限界](/docs/pe-comprehensive-management-control-limits)と組み合わせて工程の安定性と能力を評価する。[製造品質](/docs/pe-comprehensive-management-manufacturing-quality)の定量的な評価指標として広く用いられる。[R02 Ⅰ-1-1](/docs/pe-comprehensive-management-r02-primary#1-1) では [QC 七つ道具](/docs/pe-comprehensive-management-quality-control)（パレート図・管理図・散布図・ヒストグラム等）と新 QC 七つ道具の使い分けが問われ、工程能力指数はヒストグラム・管理図で観察された工程状態を定量化する位置にある。
+
+<ExamPoint
+  summary="工程能力指数は規格幅とばらつきの比で工程能力を定量評価する指標"
+  items={[
+    "Cp＝規格幅÷6σ（中心のずれを考慮しない）",
+    "Cpk＝中心のずれを考慮した実質的な工程能力指数（Cp≧Cpk、中心一致時のみ等号）",
+    "Cp≧1.33が一般的な管理目標（1.00未満は能力不足）",
+    "工程能力指数の改善＝ばらつき（σ）の低減",
+    "前提：工程が管理状態（統計的に安定）であること",
+    "算出には規格値（USL・LSL）を用いるが、管理図の管理限界（UCL・LCL）とは別概念（R03/R07 連続出題）",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "品質管理", slug: "quality-control" },
+  { label: "全数検査／抜取検査", slug: "inspection-methods" },
+  { label: "品質保証", slug: "quality-assurance" },
+  { label: "品質特性", slug: "quality-characteristics" },
+  { label: "品質改善活動", slug: "quality-improvement" },
+]} />
+
+## 参考資料
+
+工程能力指数の理論的背景と実務活用については、以下の資料が参考になる。
+
+**公的資料**
+
+- [JSQC選書18 工程能力指数－実践方法とその理論（永田靖・棟近雅彦著、日本品質管理学会監修）](https://webdesk.jsa.or.jp/books/W11M0100/index/?syohin_cd=350470)（日本規格協会）
+
+**民間解説**
+
+- [工程能力指数 - Wikipedia](https://ja.wikipedia.org/wiki/%E5%B7%A5%E7%A8%8B%E8%83%BD%E5%8A%9B%E6%8C%87%E6%95%B0)（Wikipedia）
+- [工程能力指数(CpK)とは何か？](https://sigma-eye.com/2018/10/03/cpk-1/)（シグマアイ）

@@ -1,0 +1,247 @@
+{
+  "schemaVersion": 1,
+  "_comment": "3 ASP（A8 / もしも / afb）横断の提携カタログ。**自社が配置する / 配置を検討する案件だけ**を持つ。同一案件が複数 ASP に存在するため、ASP 間の単価・確定率・EPC を比較できることがこのファイルの存在理由。`npm run affiliate:status` が実機と突合し、`check-affiliate-wiring` が src/config/affiliate-mats.json との整合を検査する。手編集は可（実機値は status が上書きする）。運用 SSOT → .claude/knowledge/reference/affiliate-operations.md",
+  "_notMergedWith": "`.claude/state/ads/a8-catalog.json` は A8 scout の状態機械（143 件・大半が stats47 の口座横断 approved）で役割が違うためマージしない。あちらは「A8 で何を見つけ何を申請したか」、こちらは「自社がどの案件をどの ASP で運用するか」。",
+  "_statusVocab": {
+    "approved": "提携済み（広告リンクを発行できる）",
+    "applying": "申請中（審査待ち）",
+    "none": "その ASP では未提携",
+    "unavailable": "その ASP に案件自体が無い",
+    "unknown": "未確認（調べていない。none と区別する）"
+  },
+  "updatedAt": "2026-08-04T00:00:00.000Z",
+  "verifiedAt": "2026-08-04",
+  "_verifiedNote": "2026-08-04 に 3 ASP を Playwright 実機で全件突合（ドリフト 0）。A8 は口座 a25050375786 の参加中一覧、もしもは shop_site_id=672381 の各プロモ詳細バッジ、afb は SID 984453（doboku-note）へ Chosen 切替＋form POST 後の提携中一覧で確認。afb は既定 stats47(959426) のため切替必須（切替前 37 件→doboku-note は 2 件）。",
+  "programs": {
+    "buildjob": {
+      "label": "ビルドジョブ（建設業界特化 転職エージェント）",
+      "vertical": "civil-career",
+      "placement": "active",
+      "decision": "A8 に寄せる（2026-07-27）。単価はもしもと完全同一（¥50,000・8/31 まで ¥13,847→¥50,000 の同一キャンペーン）だが、**もしもは承認率/EPC を非公開**、A8 は確定率 48.97% / EPC 942 円を開示する。同一案件を 2 ASP で並行運用すると成果の帰属が割れて EPC 集計が二重管理になるため、判断材料の多い A8 を正とする。",
+      "asps": {
+        "a8": {
+          "programId": "s00000024757004",
+          "status": "approved",
+          "rewardYen": 50000,
+          "epcYen": 942,
+          "confirmRatePct": 48.97
+        },
+        "moshimo": {
+          "promotionId": "6353",
+          "status": "approved",
+          "rewardYen": 50000,
+          "epcYen": null,
+          "confirmRatePct": null,
+          "note": "承認率・EPC は もしも が非公開。運用は A8 側。"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "gks": {
+      "label": "GKSキャリア（施工管理 転職エージェント）",
+      "vertical": "civil-career",
+      "placement": "active",
+      "decision": "A8 で運用。**2026-08-04 に記事面から外した**（キャンペーン終了後の自動復帰先を GKS → 建設JOBs に変更）。公開 EPC 457 < 建設JOBs 709 と逆転するうえ、分母規律（確定 3 件）に必要なクリックが約 164 と現流量では貯まらないため。撤去ではなく**カテゴリ hub の補完枠として残す**（creative・カード文言もコード温存）。A/B 再開は `POST_CAMPAIGN_AB_ENABLED = true`。根拠 → affiliate-operations.md §6.5 裁定ログ 2026-08-04。",
+      "asps": {
+        "a8": {
+          "programId": "s00000022176005",
+          "status": "approved",
+          "rewardYen": 25000,
+          "epcYen": 457,
+          "confirmRatePct": 47.36
+        },
+        "moshimo": {
+          "status": "unknown"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "kensetsu-jobs": {
+      "label": "建設JOBs（施工管理・建設業界 転職サイト）",
+      "vertical": "civil-career",
+      "placement": "active",
+      "decision": "A8 で運用。**2026-08-04 に 9/1 以降の civil 記事面の既定案件へ昇格**（slug ハッシュ 50/50 A/B は停止・建設JOBs 100%）。公開 EPC 709 > GKS 457 で、分母規律（確定 3 件）に必要なクリックが約 19 と最短で実測 EPC に到達できるため。キャンペーン中（〜2026-08-31）の記事面は buildjob 固定で、建設JOBs はカテゴリ hub のみ。判定基準・分母規律は affiliate-operations.md §6.5。2026-07 時点は確定成果 0 件で判定不能＝据え置き。",
+      "asps": {
+        "a8": {
+          "programId": "s00000023057002",
+          "status": "approved",
+          "rewardYen": 4500,
+          "epcYen": 709,
+          "confirmRatePct": 91.04
+        },
+        "moshimo": {
+          "status": "unknown"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "dx-consulting": {
+      "label": "ハイクラス DX・コンサル転職（技術士/総監 シニア層向け）",
+      "vertical": "pe-career",
+      "placement": "active",
+      "decision": "A8 で運用。pe-comprehensive-management カテゴリ hub 専用（GKS は 20 代未経験向けで総監読者にミスマッチ）。",
+      "asps": {
+        "a8": {
+          "programId": "s00000022413004",
+          "status": "approved",
+          "rewardYen": 18000,
+          "epcYen": 139,
+          "confirmRatePct": 21.73,
+          "note": "programId ↔ 自社 mat の照合は a8mat の第2トークンで行える（この案件は 4B5OO5+NTCZ6+…）。第4トークンは素材種別で複数プログラムに共通するため識別に使えない。"
+        },
+        "moshimo": {
+          "status": "unknown"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "constwork": {
+      "label": "コンストワーク（施工管理の転職サポート）",
+      "vertical": "civil-career",
+      "placement": "none",
+      "decision": "2026-07-27 に もしも で申請 → **即時提携**（審査なし）。リンク発行可能だが**未配置**。配置枠は 3 枠でカニバリ回避の手キュレーションのため、どこに置くかは人が判断する。",
+      "asps": {
+        "a8": {
+          "status": "unavailable"
+        },
+        "moshimo": {
+          "promotionId": "6154",
+          "status": "approved",
+          "rewardYen": 5384
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "kensetsu-career-plus": {
+      "label": "建設キャリアプラス（電気設備・通信工事・電気設備管理）",
+      "vertical": "civil-career",
+      "placement": "none",
+      "decision": "2026-07-27 に もしも で申請 → 審査待ち。設備系で 1級電気工事施工管理と隣接するため読者層に近い。",
+      "asps": {
+        "a8": {
+          "status": "unavailable"
+        },
+        "moshimo": {
+          "promotionId": "5665",
+          "status": "applying",
+          "rewardYen": 15000
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "bizken": {
+      "label": "ビズケン（建設業界特化 求人・転職サイト）",
+      "vertical": "civil-career",
+      "placement": "none",
+      "decision": "もしもで申請中（本セッション以前からの申請）。審査待ち・追加操作不要。",
+      "asps": {
+        "a8": {
+          "status": "unavailable"
+        },
+        "moshimo": {
+          "promotionId": "6912",
+          "status": "applying",
+          "rewardYen": 5000
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "rsg-kensetsu": {
+      "label": "RSG建設転職（建設業界専門の転職支援）",
+      "vertical": "civil-career",
+      "placement": "none",
+      "decision": "**afb で提携済み・A8 では未提携**。A8 側は ¥2,930 / EPC 0 で scout の閾値（0.35）未満だった。afb 側の単価・確定率は未取得。配置するかは afb 側の条件を確認してから。",
+      "asps": {
+        "a8": {
+          "programId": "s00000021947001",
+          "status": "none",
+          "rewardYen": 2930,
+          "epcYen": 0
+        },
+        "moshimo": {
+          "status": "unknown"
+        },
+        "afb": {
+          "pid": "14065",
+          "status": "approved",
+          "rewardYen": 3000,
+          "category": "専門転職（その他）",
+          "note": "2026-07-27 実測。A8 は ¥2,930 / EPC 0 で scout 閾値未満だった。afb も同水準なので見送り判断は変わらない。"
+        }
+      }
+    },
+    "sekokan-juken-taisaku": {
+      "label": "施工管理技士 受験対策シリーズ",
+      "vertical": null,
+      "placement": "none",
+      "redLine": true,
+      "decision": "**Red Line 該当・要判断**。受験対策講座で、2026-06-25 に廃止した講座/教材アフィリ（note 有料商品とのカニバリ回避）に当たる。Red Line 制定前の提携が afb に残っている。**未配置なので実害は出ていない**が、提携解除するかは人が判断する。",
+      "asps": {
+        "a8": {
+          "status": "unknown"
+        },
+        "moshimo": {
+          "status": "unknown"
+        },
+        "afb": {
+          "pid": "15471",
+          "status": "approved",
+          "rewardYen": 2537,
+          "category": "学習教材",
+          "note": "afb 側の分類が『学習教材』と確定（2026-07-27 実測）。Red Line 該当が推測でなく裏付けられた。"
+        }
+      }
+    },
+    "dokugaku-support": {
+      "label": "独学サポート事務局（施工管理技士 受験対策 通信教育講座）",
+      "vertical": null,
+      "placement": "none",
+      "redLine": true,
+      "decision": "**Red Line 該当・提携は維持しつつサイトには恒久的に出さない**（2026-08-04 ユーザー判断）。施工管理の受験対策講座で、2026-06-25 に廃止した講座/教材アフィリ（note 有料商品とのカニバリ回避）にど真ん中で当たる。A8 で提携済み（実機確認）だが**未配置を維持・解除はしない**。redLine:true により affiliate:apply は申請を拒否し、check-affiliate-wiring は配置されていたら赤落ちする。本文 prose 再提案は check-affiliate-prose の denylist で機械ブロック（未登録なら追加すること）。",
+      "asps": {
+        "a8": {
+          "programId": "s00000020062001",
+          "status": "approved",
+          "note": "2026-08-04 実機で参加中を確認（口座 a25050375786）。"
+        },
+        "moshimo": { "status": "unknown" },
+        "afb": { "status": "unknown" }
+      }
+    },
+    "elearning-genba": {
+      "label": "eラーニング現場系・国家資格（現場系国家資格の教材）",
+      "vertical": null,
+      "placement": "none",
+      "redLine": true,
+      "decision": "**Red Line 該当・提携は維持しつつサイトには恒久的に出さない**（2026-08-04 ユーザー判断）。現場系国家資格の教材で講座/教材アフィリの廃止方針に当たる。A8 で提携済み（実機確認）だが**未配置を維持・解除はしない**。",
+      "asps": {
+        "a8": {
+          "programId": "s00000027186001",
+          "status": "approved",
+          "note": "2026-08-04 実機で参加中を確認（口座 a25050375786）。"
+        },
+        "moshimo": { "status": "unknown" },
+        "afb": { "status": "unknown" }
+      }
+    }
+  },
+  "_openQuestions": [
+    "afb: 検索 5 語のうち「建設」「現場」が回線タイムアウトで取得できず。**『afb に建設案件が無い』ではなく『検索できた範囲には無かった』**。回線が落ち着いたら `npm run afb:scan -- --query 建設,現場` で補完する",
+    "afb: 成果レポートの実数は未取得（フォーム送信が自動化で通らない）。サイトに afb リンクが 0 本なので構造上ゼロのはずだが『ゼロと確認した』ではない",
+    "もしもの Amazon.co.jp商品購入 / 楽天市場は旧台帳で『提携済』だが doboku-note の提携中一覧に出ない。解除か『かんたんリンク』が別枠かは未確認（書籍アフィリ自体は 2026-06-25 廃止済みなので実害なし）"
+  ]
+}

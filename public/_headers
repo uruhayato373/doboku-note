@@ -1,0 +1,32 @@
+# Cloudflare Pages のキャッシュ制御
+# Issue #73 / Issue #84 の LCP 6628ms 対策。
+# 出典: performance-auditor 調査 2026-04-24
+
+# HTML は毎回検証して最新を返す
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Next.js が hash 付きで出力する静的アセットは immutable として 1 年キャッシュ
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# ビルドハッシュが付く JS / CSS は長期キャッシュ
+/*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.css
+  Cache-Control: public, max-age=31536000, immutable
+
+# 画像・フォントは中期キャッシュ（更新頻度低めだが immutable にはしない）
+/*.webp
+  Cache-Control: public, max-age=2592000
+/*.png
+  Cache-Control: public, max-age=2592000
+/*.jpg
+  Cache-Control: public, max-age=2592000
+/*.svg
+  Cache-Control: public, max-age=2592000
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable

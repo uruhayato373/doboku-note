@@ -1,0 +1,134 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="LCAの4プロセスと反復構造。目的及び調査範囲の設定・インベントリ分析・影響評価の3段を解釈が横断し、製品改善・戦略立案・政策立案・マーケ等の直接の用途へつながる図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .t-main  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-warn  { font-size: 13px; font-weight: bold; fill: #1a3a5c; } /* warn text → ink-strong (allowlist) */
+      .t-use   { font-size: 12px; fill: #555; }
+      .t-note  { font-size: 11px; fill: #8a8a8a; }
+      .box-brand   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn    { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.2; }
+      .badge-brand { fill: #fff; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+    <!-- downward arrow (brand blue) — ▶ polygon; orient="auto" rotates to match line direction -->
+    <marker markerUnits="userSpaceOnUse" id="ad" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
+    </marker>
+    <!-- upward arrow (brand blue) — same ▶ polygon; orient="auto" rotates upward for up-going lines -->
+    <marker markerUnits="userSpaceOnUse" id="au" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
+    </marker>
+    <!-- rightward arrow (warn yellow) -->
+    <marker markerUnits="userSpaceOnUse" id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#d4a017"/>
+    </marker>
+    <!-- leftward arrow (warn yellow) — ▶ polygon; orient="auto" rotates 180° for left-going lines -->
+    <marker markerUnits="userSpaceOnUse" id="al" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#d4a017"/>
+    </marker>
+    <!-- rightward arrow (gray, for 用途) -->
+    <marker markerUnits="userSpaceOnUse" id="ag" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- ============ LEFT COLUMN: 本流3段 ============ -->
+  <!-- box width=174, x=14. Badge cx=35 r=12. Text from x=52 -->
+
+  <!-- ① 目的及び調査範囲の設定 (2 lines, height=74) -->
+  <rect class="box-brand" x="14" y="12" width="174" height="74" rx="7"/>
+  <circle class="badge-brand" cx="35" cy="40" r="12"/>
+  <text class="t-main" x="35" y="45" text-anchor="middle">①</text>
+  <text class="t-main" x="54" y="35">目的及び</text>
+  <text class="t-main" x="54" y="51">調査範囲の設定</text>
+  <text class="t-note" x="54" y="65">分析対象・機能単位</text>
+  <text class="t-note" x="54" y="79">境界を定義</text>
+
+  <!-- ↕ ①⇄② -->
+  <line x1="92" y1="86" x2="92" y2="108" stroke="#2e6da4" stroke-width="2" marker-end="url(#ad)"/>
+  <line x1="104" y1="108" x2="104" y2="86" stroke="#2e6da4" stroke-width="2" marker-end="url(#au)"/>
+
+  <!-- ② インベントリ分析 (1 line + sub, height=74) -->
+  <rect class="box-brand" x="14" y="110" width="174" height="74" rx="7"/>
+  <circle class="badge-brand" cx="35" cy="126" r="12"/>
+  <text class="t-main" x="35" y="131" text-anchor="middle">②</text>
+  <text class="t-main" x="54" y="122">インベントリ分析</text>
+  <text class="t-note" x="54" y="140">資源投入量・排出量を</text>
+  <text class="t-note" x="54" y="153">定量化</text>
+  <text class="t-note" x="54" y="166">積上法 / 産業連関法</text>
+  <text class="t-note" x="54" y="179">で集計</text>
+
+  <!-- ↕ ②⇄③ -->
+  <line x1="92" y1="184" x2="92" y2="206" stroke="#2e6da4" stroke-width="2" marker-end="url(#ad)"/>
+  <line x1="104" y1="206" x2="104" y2="184" stroke="#2e6da4" stroke-width="2" marker-end="url(#au)"/>
+
+  <!-- ③ 影響評価 (1 line + sub, height=74) -->
+  <rect class="box-brand" x="14" y="208" width="174" height="74" rx="7"/>
+  <circle class="badge-brand" cx="35" cy="232" r="12"/>
+  <text class="t-main" x="35" y="237" text-anchor="middle">③</text>
+  <text class="t-main" x="54" y="227">影響評価</text>
+  <text class="t-note" x="54" y="245">分類化→特性化→重み付け</text>
+  <text class="t-note" x="54" y="260">インパクトカテゴリ</text>
+  <text class="t-note" x="54" y="274">へ分類</text>
+
+  <!-- ============ CENTER: ④ 解釈 (warn, tall) ============ -->
+  <!-- x=200, width=68, covering y=12 to y=282 → height=270 -->
+  <rect class="box-warn" x="200" y="12" width="68" height="270" rx="7"/>
+  <text class="t-warn" x="234" y="110" text-anchor="middle">④</text>
+  <text class="t-warn" x="234" y="134" text-anchor="middle">解</text>
+  <text class="t-warn" x="234" y="158" text-anchor="middle">釈</text>
+  <text class="t-note" x="234" y="190" text-anchor="middle">結果の</text>
+  <text class="t-note" x="234" y="206" text-anchor="middle">解釈</text>
+  <text class="t-note" x="234" y="230" text-anchor="middle">①②③と</text>
+  <text class="t-note" x="234" y="246" text-anchor="middle">反復する</text>
+
+  <!-- bidirectional arrows: 本流↔解釈 -->
+  <!-- ①↔解釈 at y≈40/50 (adjusted for badge cy=40) -->
+  <line x1="188" y1="40" x2="200" y2="40" stroke="#d4a017" stroke-width="1.8" marker-end="url(#ar)"/>
+  <line x1="200" y1="50" x2="188" y2="50" stroke="#d4a017" stroke-width="1.8" marker-end="url(#al)"/>
+  <!-- ②↔解釈 at y≈147/157 (adjusted for badge cy=126) -->
+  <line x1="188" y1="147" x2="200" y2="147" stroke="#d4a017" stroke-width="1.8" marker-end="url(#ar)"/>
+  <line x1="200" y1="157" x2="188" y2="157" stroke="#d4a017" stroke-width="1.8" marker-end="url(#al)"/>
+  <!-- ③↔解釈 at y≈245/255 (adjusted for badge cy=232) -->
+  <line x1="188" y1="245" x2="200" y2="245" stroke="#d4a017" stroke-width="1.8" marker-end="url(#ar)"/>
+  <line x1="200" y1="255" x2="188" y2="255" stroke="#d4a017" stroke-width="1.8" marker-end="url(#al)"/>
+
+  <!-- ============ RIGHT COLUMN: 直接の用途 ============ -->
+  <!-- arrow from 解釈 → 用途 -->
+  <line x1="268" y1="147" x2="280" y2="147" stroke="#8a8a8a" stroke-width="1.8" marker-end="url(#ag)"/>
+
+  <rect class="box-surface" x="280" y="12" width="108" height="270" rx="7"/>
+  <text class="t-note" x="334" y="38" text-anchor="middle">直接の用途</text>
+  <line x1="290" y1="46" x2="378" y2="46" stroke="#d7d7d7" stroke-width="1"/>
+
+  <text class="t-use" x="334" y="78" text-anchor="middle">製品開発・改善</text>
+  <line x1="290" y1="92" x2="378" y2="92" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-use" x="334" y="124" text-anchor="middle">戦略立案</text>
+  <line x1="290" y1="138" x2="378" y2="138" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-use" x="334" y="170" text-anchor="middle">政策立案</text>
+  <line x1="290" y1="184" x2="378" y2="184" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-use" x="334" y="216" text-anchor="middle">マーケティング</text>
+  <line x1="290" y1="230" x2="378" y2="230" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-use" x="334" y="262" text-anchor="middle">等</text>
+
+  <!-- ============ BOTTOM: legend + note ============ -->
+  <!-- legend -->
+  <rect x="14" y="298" width="14" height="12" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.2" rx="2"/>
+  <text class="t-note" x="34" y="309">本流3段（ISO 14040）</text>
+  <rect x="190" y="298" width="14" height="12" fill="#fff3cd" stroke="#d4a017" stroke-width="1.2" rx="2"/>
+  <text class="t-note" x="210" y="309">解釈（全段と双方向）</text>
+
+  <!-- note box -->
+  <rect class="box-surface" x="14" y="318" width="374" height="170" rx="7"/>
+  <text class="t-note" x="24" y="340">① 目的・調査範囲の設定：分析対象・機能単位・境界を定義</text>
+  <text class="t-note" x="24" y="362">② インベントリ分析：積上法 / 産業連関法で投入・排出を集計</text>
+  <text class="t-note" x="24" y="384">③ 影響評価：インパクトカテゴリへの分類化・特性化・重み付け</text>
+  <text class="t-note" x="24" y="406">④ 解釈：①②③すべてと反復し、直接の用途へ知見を出力する</text>
+  <text class="t-note" x="24" y="428">    クローズドループ / オープンループのリサイクル配分に留意</text>
+  <line x1="24" y1="442" x2="374" y2="442" stroke="#d7d7d7" stroke-width="0.8"/>
+  <text class="t-note" x="24" y="460">ISO 14040：LCA の原則・枠組み　ISO 14044：要求事項・指針</text>
+  <text class="t-note" x="24" y="478">目的により機能単位（FU）の設定が結果を大きく左右する</text>
+</svg>

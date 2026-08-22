@@ -1,0 +1,263 @@
+name: Fetch SEO metrics (GSC + GA4)
+
+on:
+  schedule:
+    - cron: "0 21 * * 4" # JST 06:00 Friday (UTC 21:00 Thursday)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout develop
+        # schedule はデフォルトブランチ（main）を checkout するため、ref を明示しないと
+        # npm ci が main のフックを入れる。その後 publish step で develop へ切り替えると
+        # フックの drift guard が bot commit を拒否して落ちる（2026-08 に実発生し、
+        # by-label スナップショットが 2026-08-13 で停止した）。link-audit.yml と同じ形で
+        # 最初から develop を checkout し、順序依存そのものを無くす。
+        uses: actions/checkout@v5
+        with:
+          ref: develop
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Restore service account key
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_KEY_JSON }}
+        run: |
+          mkdir -p credentials
+          printf '%s' "$GOOGLE_SERVICE_ACCOUNT_KEY_JSON" > credentials/gsc-service-account.json
+          chmod 600 credentials/gsc-service-account.json
+
+      - name: Fetch GA4 (channel)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-data
+
+      - name: Fetch GA4 (date, for data-integrity-gate)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-data -- --dimension date
+
+      # 週次レビュー(オフライン)用: クリーンな7日窓の Organic Search スナップショット。
+      # 既定の channel フェッチは28日窓のため WoW にならない。これは ga4-channel-organic-*.json として出力され、
+      # weekly-review のオフライン経路が最新2ファイルで NSM の週次比較を算出する。
+      - name: Fetch GA4 (organic, 7d for weekly NSM)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-data -- --dimension channel --days 7 --organic-only
+
+      # SNS 流入 breakdown（source×medium 別・7d）。weekly-review の SNS フェーズと
+      # metrics-analyzer の SNS-Source-Shift が最新2ファイルで WoW を算出する。
+      - name: Fetch GA4 (SNS source×medium, 7d for weekly SNS review)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-data -- --dimension sourceMedium --days 7 --sns-only --limit 50
+
+      - name: Fetch GSC
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+        run: npm run fetch-gsc-data
+
+      # 週次レビュー(オフライン)用: クリーンな7日窓の日次 GSC スナップショット（gsc-date-*.json）。
+      # 既定の query フェッチは28日窓。最新2ファイルの日次 clicks/impressions 合計で週次比較を算出する。
+      - name: Fetch GSC (date, 7d for weekly trend)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+        run: npm run fetch-gsc-data -- --dimension date --days 7
+
+      # GA4×GSC crosswalk 用: ページ別 GSC スナップショット（gsc-page-*.json）。
+      # 従来 page 次元は月次 index-coverage でしか取れず crosswalk が最大月次だった。
+      # 週次化して ga4-page（週次）と鮮度を揃える。
+      - name: Fetch GSC (page, for crosswalk)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+        run: npm run fetch-gsc-data -- --dimension page
+
+      # cannibalization / content-decay 分析用: page×query の全行スナップショット
+      # （gsc-page-query-*.json）。25,000 件単位でページングし --all で全取得。
+      # metrics-analyzer が同一 query に複数 page が競合する状況・順位/CTR の継続悪化を検出する。
+      - name: Fetch GSC (page x query, for cannibalization/decay)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+        run: npm run fetch-gsc-data -- --dimensions page,query --days 28 --all
+
+      # 収益カバレッジ ダッシュボード用: ページ別流入（report-monetization-coverage.mts が
+      # 最新 ga4-page-*.json を読む）。
+      - name: Fetch GA4 (page, for monetization coverage)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-data -- --dimension page --limit 100
+
+      # 収益カバレッジ ダッシュボード用: note/アフィリ CTA クリック（eventName × pagePath）。
+      # 本番クリックが蓄積するまで 0 件が正常（計装は AnalyticsProvider のデリゲートリスナー）。
+      - name: Fetch GA4 (CTA clicks, for monetization coverage)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-cta-clicks
+
+      # モバイル最適化の意思決定用: デバイス別の流入シェア（mobile/desktop/tablet × sessions/engagement）。
+      # 「サイトはモバイル中心か」を勘でなくデータで確定する（ga4-device-*.json）。
+      - name: Fetch GA4 (device, for mobile share)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-data -- --dimension device
+
+      # モバイル最適化の意思決定用: デバイス別の CTA クリック（eventName × deviceCategory）。
+      # 上の device 別 sessions を分母にして「モバイル vs PC の affiliate/note CTR」を出す
+      # （ga4-cta-clicks-by-device-*.json・既定の page 別とは別ファイル）。
+      - name: Fetch GA4 (CTA clicks by device, for mobile vs PC CTR)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-cta-clicks -- --by-device
+
+      # アフィリ EPC 判定用: プログラム/面別（event_label）の CTA クリック内訳
+      # （BuildJob-sidebar / KensetsuJobs-sidebar / BuildJob-midtext / ビルドジョブ 等）。
+      # 要 GA4 カスタムディメンション（イベントスコープ・event_label）。未登録なら script が
+      # 手順を出して exit 0（continue-on-error でも他 step を止めない）。ga4-cta-clicks-by-label-*.json。
+      - name: Fetch GA4 (CTA clicks by label, for affiliate program/surface EPC)
+        continue-on-error: true
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-cta-clicks -- --by-label
+
+      # アフィリ面改善用: 配置別（cta_placement）の可視 impression / click。
+      # article-mid / article-end-mobile / category-sidebar など配置単位の CTR を出す。
+      # 要 GA4 カスタムディメンション（イベントスコープ・cta_placement）。登録前データは遡及しない。
+      # 未反映期は script が手順を出して exit 0。ga4-cta-clicks-by-placement-*.json。
+      - name: Fetch GA4 (affiliate impressions/clicks by placement, for placement CTR)
+        continue-on-error: true
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-cta-clicks -- --by-placement
+
+      # 週次 NSM スナップショット（.claude/state/weekly-metrics/YYYY-Www.json）。
+      # 2026-W18 でローカル手動実行が途絶したのを CI 供給へ移行（measurement-incidents.md
+      # 「計測は CI/CD 供給が正」2026-06-05）。metrics-reader が NSM+SNS流入(source別WoW)を
+      # ライブ取得して time-series を積む。weekly-review の SNS フェーズが最新スナップショットを読む。
+      - name: Snapshot weekly NSM + SNS metrics
+        continue-on-error: true
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
+        run: node .claude/scripts/snapshot-weekly-metrics.mjs --force
+
+      # 収益カバレッジ ダッシュボード生成: ページ別流入(ga4-page) × CTA クリック(ga4-cta-clicks) ×
+      # 配置真実源を突合し monetization/coverage-*.{json,md} を生成（オフライン・上の fetch 結果を読む）。
+      # 従来 npm script のみで CI 未配線＝coverage-latest.md が 2026-06-18 で停止していたのを週次自動化。
+      - name: Generate monetization coverage report
+        continue-on-error: true
+        run: npm run report-monetization-coverage
+
+      # bot 混入監視: Japan フィルタ後も残る bot 署名（高外国比率・低engagement の参照元）を surface し
+      # bot-audit-*.json を ga4/ に出力（新規スパム候補は STDOUT）。従来 CI 未配線＝2026-05-17 以降実行ゼロ。
+      - name: Audit GA4 bot ratio
+        continue-on-error: true
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run audit-ga4-bot-ratio
+
+      # GA4×GSC crosswalk 生成: 上で取得した ga4-page × gsc-page を URL で突合し、
+      # title/meta 機会（上位表示低CTR）と ランキング機会（表示多い低順位）を surface（オフライン）。
+      - name: Generate GA4xGSC crosswalk report
+        continue-on-error: true
+        run: npm run report-ga4-gsc-crosswalk
+
+      - name: Check data integrity
+        id: integrity
+        continue-on-error: true
+        run: |
+          mkdir -p /tmp/metrics-report
+          node .claude/scripts/check-data-integrity.mjs --report /tmp/metrics-report/integrity.md
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
+
+      - name: Check daily anomaly
+        id: anomaly
+        continue-on-error: true
+        run: |
+          mkdir -p /tmp/metrics-report
+          node .claude/scripts/check-daily-anomaly.mjs --report /tmp/metrics-report/anomaly.md
+          echo "exit_code=$?" >> $GITHUB_OUTPUT
+
+      - name: Stage outputs
+        run: |
+          mkdir -p /tmp/metrics-publish
+          cp -r .claude/state/metrics/* /tmp/metrics-publish/ 2>/dev/null || true
+          # weekly-metrics は metrics/ の兄弟ディレクトリなので個別にコピーする
+          mkdir -p /tmp/weekly-metrics-publish
+          cp -r .claude/state/weekly-metrics/* /tmp/weekly-metrics-publish/ 2>/dev/null || true
+          ls -la /tmp/metrics-publish
+
+      - name: Publish to develop branch (.claude/state/metrics/{ga4,gsc}/)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin develop
+          # 実行中の in-place 書き込み（crosswalk-latest.md・weekly-metrics/index.json 等の追跡ファイル）で
+          # 作業ツリーが dirty になり `git pull --rebase` が "cannot pull with rebase" で失敗するのを防ぐ。
+          # 成果物は直前の "Stage outputs" で /tmp に退避済みなので、origin/develop 先頭へ hard reset して
+          # クリーンにしてから /tmp を復元する（-f で dirty tree でも develop へ切替）。
+          git checkout -f develop
+          git reset --hard origin/develop
+
+          # checkout で develop を指定済みなので npm ci は develop のフックを入れており、
+          # 本来ここは不要。ただし上の hard reset でフック定義が変わる可能性を潰す保険として
+          # 残す（drift guard に拒否されると bot commit が丸ごと落ちるため）。
+          npm run pre-commit:install
+
+          mkdir -p .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/weekly-metrics
+          cp -r /tmp/metrics-publish/ga4/* .claude/state/metrics/ga4/ 2>/dev/null || true
+          cp -r /tmp/metrics-publish/gsc/* .claude/state/metrics/gsc/ 2>/dev/null || true
+          cp -r /tmp/metrics-publish/monetization/* .claude/state/metrics/monetization/ 2>/dev/null || true
+          cp -r /tmp/metrics-publish/crosswalk/* .claude/state/metrics/crosswalk/ 2>/dev/null || true
+          cp -r /tmp/weekly-metrics-publish/* .claude/state/weekly-metrics/ 2>/dev/null || true
+
+          git add .claude/state/metrics/ga4 .claude/state/metrics/gsc .claude/state/metrics/monetization .claude/state/metrics/crosswalk .claude/state/weekly-metrics
+          if git diff --cached --quiet; then
+            echo "No changes to publish"
+            exit 0
+          fi
+
+          git commit -m "chore(metrics): gsc+ga4 weekly fetch $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          git push origin develop
+
+      # タスク自動化(task-queue.json/build-todo)は廃止(2026-06-11、.claude/todo/ 手動運用へ一本化)。
+      # 違反は CI 失敗として通知し、人が .claude/todo/ に手動起票する。計測データは前ステップで commit 済み。
+      - name: Fail on data-integrity violation (アラート)
+        if: steps.integrity.outputs.exit_code == '1'
+        run: |
+          echo "::error::GA4 データ整合性違反を検出（check-data-integrity.mjs）。.claude/todo/ に手動で起票してください。"
+          exit 1
+
+      - name: Fail on daily-anomaly violation (アラート)
+        if: steps.anomaly.outputs.exit_code == '1'
+        run: |
+          echo "::error::GA4 日次異常を検出（check-daily-anomaly.mjs）。.claude/todo/ に手動で起票してください。"
+          exit 1
+
+      - name: Cleanup credentials
+        if: always()
+        run: rm -f credentials/gsc-service-account.json

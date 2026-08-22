@@ -1,0 +1,115 @@
+---
+title: ISMS
+description: "ISMS（ISO/IEC 27001）の概要。PDCAサイクルによる情報セキュリティ管理体制、認証取得プロセス、他制度との比較を解説。技術士総合技術監理キーワード集2026（情報管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '4.5'
+tags:
+  - 総合技術監理
+  - keyword
+published: true
+publishedAt: '2026-04-08'
+reviewStatus: approved
+lastRewrittenAt: '2026-04-15'
+revisionCycle: 1
+seoTitle: "ISMS ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-06-30
+---
+
+## ISMSとは
+
+ISMS（Information Security Management System：情報セキュリティマネジメントシステム）とは、組織の情報資産を適切に保護するための管理体制を構築・運用・維持・改善する仕組みである。
+
+国際規格ISO/IEC 27001は、ISMSの要求事項を定めた認証規格であり、第三者機関による認証（ISMS適合性評価制度）を取得することで、組織の情報セキュリティ管理体制が国際水準にあることを証明できる。
+
+ISMSは情報セキュリティの3要素である **機密性**（Confidentiality）、**完全性**（Integrity）、**可用性**（Availability）をバランスよく確保することを目的とする。
+
+### ISO/IEC 27000シリーズの構成
+
+ISMSに関連する ISO/IEC 27000 シリーズは複数の規格で構成され、それぞれ役割が異なる。主要な規格を以下に整理する。
+
+- **ISO/IEC 27000**（概要と用語）: ISMS関連の用語定義
+- **ISO/IEC 27001**（要求事項）: ISMS構築の**認証基準**（must）
+- **ISO/IEC 27002**（実践規範）: 管理策の選択・実装のガイドライン（should）
+- **ISO/IEC 27005**（リスクマネジメント）: 情報セキュリティリスクの管理手法
+- **ISO/IEC 27017**（クラウドセキュリティ）: クラウド環境向けの追加管理策
+
+### ISMSのPDCAサイクル
+
+ISMSは[PDCAサイクル](/docs/pe-comprehensive-management-pdca-cycle)に基づく継続的改善を基本としており、一度認証を取得すれば終わりではなく、運用しながら繰り返し改善する仕組みである。
+
+- **Plan（計画）**: リスクアセスメントの実施、情報セキュリティ方針の策定、管理策の選択
+- **Do（実施）**: 管理策の導入、従業員教育、運用手順の整備
+- **Check（点検）**: 内部監査の実施、パフォーマンス評価、インシデントの分析
+- **Act（改善）**: 是正処置、マネジメントレビュー、ISMS全体の改善
+
+### ISMS認証の取得プロセス
+
+1. **適用範囲の決定** — ISMSを適用する組織・業務・情報資産の範囲を定義する
+2. **リスクアセスメント** — 情報資産に対する脅威・脆弱性を洗い出し、リスクを評価する
+3. **管理策の選択・導入** — ISO/IEC 27002の管理策（附属書A）からリスクに応じた対策を選択する
+4. **文書化と運用** — 方針・手順・記録を文書化し、運用を開始する
+5. **内部監査** — 自組織でISMSの適合性を監査する
+6. **認証審査** — 第三者認証機関（ISMS-AC認定機関）による審査を受ける
+7. **継続的改善** — 認証取得後も定期的なサーベイランス審査（年1回）と再認証審査（3年ごと）を受ける
+
+### 他の情報セキュリティ認証制度との比較
+
+情報セキュリティ関連の認証制度は、**組織を認証するもの**と**製品・サービスを認証するもの**に大別される。主要な制度を以下に整理する。
+
+- **ISMS（ISO/IEC 27001）**: 組織の情報セキュリティ管理体制を認証
+- [CC（ISO/IEC 15408）](/docs/pe-comprehensive-management-common-criteria): IT製品・システムのセキュリティ機能を認証する国際規格
+- [JISEC](/docs/pe-comprehensive-management-jisec): ISO/IEC 15408 に準拠した日本国内のIT製品認証制度
+- [ISMAP](/docs/pe-comprehensive-management-ismap): 政府調達対象のクラウドサービスの安全性を評価
+- [プライバシーマーク](/docs/pe-comprehensive-management-privacy-mark): JIS Q 15001 に基づく個人情報保護体制の認証（組織単位）
+
+主な認証制度と準拠規格・認証対象を整理すると次のとおりである。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/isms-iso27001/img/figure-infosec-certifications.svg"
+  alt="情報セキュリティ認証制度と準拠規格の対比（ISMS・プライバシーマーク・JISEC）"
+/>
+
+<ExamPoint
+  summary="ISMSは組織の情報セキュリティ管理体制を認証する国際規格"
+  items={[
+    "ISMSの目的は機密性・完全性・可用性の3要素をバランスよく確保すること",
+    "ISO/IEC 27001は認証基準（must）、ISO/IEC 27002は実践ガイド（should）",
+    "PDCAサイクルによる継続的改善が求められる（一度取得して終わりではない）",
+    "CC（ISO/IEC 15408）が製品を認証するのに対し、ISMSは組織を認証する",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**4.5 情報セキュリティ**](/docs/pe-comprehensive-management-keyword-2026#45-情報セキュリティ)に位置づけられる。
+
+ISMSは情報セキュリティの**マネジメント基盤**であり、[アクセス制御](/docs/pe-comprehensive-management-access-control)、[ファイアウォール](/docs/pe-comprehensive-management-firewall-ids)、[暗号化](/docs/pe-comprehensive-management-encryption-digital-signature)などの個別対策を組織的に統合・管理する枠組みである。
+
+総合技術監理では、ISMSの[PDCAサイクル](/docs/pe-comprehensive-management-pdca-cycle)と他の管理分野（品質管理のISO 9001、環境管理のISO 14001等）との統合的な運用が求められる。
+
+## ISMSの歴史と制度の背景
+
+情報セキュリティマネジメントの国際規格化は1990年代の英国に端を発する。英国規格 BS 7799 として1995年に策定され、2000年に ISO/IEC 17799 として国際規格に昇格した後、2005年に現在の ISO/IEC 27001 として改訂・認証規格化された。
+
+日本では2002年、JIPDEC（日本情報経済社会推進協会）がISMS適合性評価制度を試行的に開始し、2006年のISO/IEC 27001正式発効に合わせて本格運用に移行した。2024年12月時点で国内認証件数は8,000件を超え、世界的にも突出した普及率を誇る。
+
+制度の普及を後押しした背景として、2003年から2005年にかけて相次いだ大規模な個人情報漏洩事故がある。この社会的関心の高まりが2005年の個人情報保護法施行と軌を一にし、ISMSを「内部統制の柱」として位置づける企業が急増した。
+
+国際標準化の流れは継続しており、2013年にはISO/IEC 27001:2013として大幅改訂（Annex SL による他マネジメント規格との整合）、2022年にはISO/IEC 27001:2022として再度改訂され、クラウドセキュリティ・サプライチェーンリスク管理などの現代的リスクに対応した管理策が追加されている。
+
+<RelatedKeywords items={[
+  { label: "ゼロトラスト", slug: "zero-trust" },
+  { label: "セキュリティ評価基準CC（ISO/IEC 15408）", slug: "common-criteria" },
+  { label: "機密性（Confidentiality）", slug: "confidentiality" },
+  { label: "情報セキュリティ教育", slug: "security-education" },
+  { label: "暗号化・電子署名", slug: "encryption-digital-signature" },
+]} />
+
+## 参考資料
+
+- [ISMS・ITSMSの普及](https://www.jipdec.or.jp/project/smpo.html)（一般財団法人 日本情報経済社会推進協会 JIPDEC）
+- [ISMS（情報セキュリティマネジメントシステム）とは](https://isms.jp/isms/)（情報マネジメントシステム認定センター ISMS-AC）
+- [ISO/IEC 27001とは？ISMSとの違い・メリットを徹底解説](https://www.lrm.jp/security_magazine/difference_isms-iso27001/)（セキュマガ | LRM株式会社）

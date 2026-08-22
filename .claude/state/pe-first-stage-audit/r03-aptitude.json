@@ -1,0 +1,41 @@
+{
+  "slug": "pe-first-stage-r03-aptitude",
+  "year": "R03",
+  "sub": "aptitude",
+  "audited_at": "2026-06-08",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 15,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "fail",
+    "checked_count": 15,
+    "issues": [
+      {
+        "question": "Ⅱ-1（オ）",
+        "type": "text_mismatch",
+        "detail": "MDX の（オ）末尾が「技術士補の場合は資格を有するので登録を受けていない技術部門を表示してもよい。」となっているが、PDF原典は「技術士を補助する技術士補の技術部門表示は，その限りではない。」と明記されており、文言・論理構造が異なる。"
+      },
+      {
+        "question": "Ⅱ-4 選択肢2",
+        "type": "text_mismatch",
+        "detail": "MDX の選択肢2に「必要な要素にならていないことを確認した」という明らかな文字化け・誤記が存在する。PDF原典は「センサーが主要な要素になっていないことを確認した」と記載されており、「主要な」が欠落し「ならていない」という不正確な表現になっている。"
+      },
+      {
+        "question": "Ⅱ-10（イ）",
+        "type": "text_mismatch",
+        "detail": "MDX の（イ）は「建設作業用重機の本質的安全設計を採用し，…その設計案の一部を採用しないで，代わりに保護装置の追加，及び警告表示を採用して安全装置を充実させた。」と記載されているが、PDF原典は「リスクアセスメントの検討結果…ALARPの考え方を導入し，その設計案の一部を採用しないで，代わりに保護装置の追加，及び警告表示と取扱説明書を充実させた。」であり、「ALARPの考え方を導入し」「僅かに計画予算を超えたことから」「取扱説明書」といった重要な記述が欠落している。"
+      }
+    ]
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 15,
+    "expected_count": 15,
+    "details_count": 15,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "All 15 headings Ⅱ-1 through Ⅱ-15 present with no gaps. ExamPoint=15, details=15. Frontmatter fields title/category/published/source_pdf all present."
+  }
+}

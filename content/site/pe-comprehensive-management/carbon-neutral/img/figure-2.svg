@@ -1,0 +1,110 @@
+<svg viewBox="0 0 400 500" role="img"
+  aria-label="カーボンニュートラル工程表。2013年度基準年から2020年宣言・2021年法制化・2023年GX推進法・2030年度46%削減中間目標・2050年ネットゼロまでを縦タイムラインと右側排出量イメージバーで示した図"
+  style="max-width:400px;width:100%"
+  xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-year  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .t-foot  { font-size: 11px; fill: #8a8a8a; }
+      .b-brand  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.2; }
+      .b-warn   { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.2; }
+      .b-pos    { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.2; }
+      .b-surf   { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.2; }
+      .d-brand  { fill: #ffffff; stroke: #2e6da4; stroke-width: 2; }
+      .d-warn   { fill: #ffffff; stroke: #d4a017; stroke-width: 2; }
+      .d-pos    { fill: #ffffff; stroke: #3a7d44; stroke-width: 2; }
+      .d-surf   { fill: #ffffff; stroke: #8a8a8a; stroke-width: 2; }
+      .bar-base { fill: #d7d7d7; }
+      .bar-fill { fill: #2e6da4; }
+      .bar-warn { fill: #d4a017; }
+      .bar-pos  { fill: #3a7d44; }
+    </style>
+    <!-- 矢印marker: svg-tokens形 -->
+    <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L6,3 Z" fill="#8a8a8a"/>
+    </marker>
+  </defs>
+
+  <!-- 排出量バー背景(右側) -->
+  <!-- バー列: x=296〜380, y=56〜454 (高さ398) -->
+  <!-- バー列ラベル -->
+  <text font-size="11" fill="#555" x="338" y="18" text-anchor="middle">排出量イメージ</text>
+
+  <!-- 2013年(基準)バー: 100% = 高さ130 -->
+  <rect class="bar-base" x="296" y="24" width="84" height="130" rx="3"/>
+  <rect class="bar-fill" x="296" y="24" width="84" height="130" rx="3"/>
+  <text font-size="11" font-weight="bold" fill="#ffffff" x="338" y="92" text-anchor="middle">基準</text>
+
+  <!-- 2030年バー: 54%(100%-46%) = 高さ約74 -->
+  <rect class="bar-base" x="296" y="228" width="84" height="136" rx="3"/>
+  <rect class="bar-warn" x="296" y="290" width="84" height="74" rx="3"/>
+  <text font-size="11" fill="#d4a017" x="338" y="224" text-anchor="middle">▲46%</text>
+  <text font-size="11" fill="#555" x="338" y="378" text-anchor="middle">残54%</text>
+
+  <!-- 2050年バー: ≈0% -->
+  <rect class="bar-base" x="296" y="416" width="84" height="38" rx="3"/>
+  <rect class="bar-pos" x="296" y="450" width="84" height="4" rx="1"/>
+  <text font-size="11" fill="#3a7d44" x="338" y="412" text-anchor="middle">≈0</text>
+
+  <!-- バー間の下向き矢印 -->
+  <line x1="338" y1="188" x2="338" y2="222" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="338" y1="368" x2="338" y2="406" stroke="#8a8a8a" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- 時間軸 -->
+  <line x1="68" y1="46" x2="68" y2="466" stroke="#8a8a8a" stroke-width="2"/>
+
+  <!-- ─────────────────────────────────────────── -->
+  <!-- ノード1: 2013年度 基準年 (y=46) -->
+  <text class="t-year" x="56" y="68" text-anchor="end">2013</text>
+  <circle class="d-surf" cx="68" cy="64" r="5"/>
+  <rect class="b-surf" x="80" y="50" width="202" height="36" rx="6"/>
+  <text class="t-name" x="92" y="66">基準年</text>
+  <text class="t-note" x="92" y="80">温室効果ガス排出量の比較基準</text>
+
+  <!-- ノード2: 2020年10月 宣言 (y=108) -->
+  <text class="t-year" x="56" y="128" text-anchor="end">2020</text>
+  <circle class="d-brand" cx="68" cy="124" r="5"/>
+  <rect class="b-brand" x="80" y="108" width="202" height="50" rx="6"/>
+  <text class="t-name" x="92" y="120">2050年カーボン</text>
+  <text class="t-name" x="92" y="133">ニュートラル宣言</text>
+  <text class="t-note" x="92" y="144">菅首相 所信表明演説（10月）</text>
+  <text class="t-note" x="92" y="156">排出を実質ゼロにする目標を宣言</text>
+
+  <!-- ノード3: 2021年 法制化・削減目標 (y=178) -->
+  <text class="t-year" x="56" y="202" text-anchor="end">2021</text>
+  <circle class="d-brand" cx="68" cy="196" r="5"/>
+  <rect class="b-brand" x="80" y="178" width="202" height="52" rx="6"/>
+  <text class="t-name" x="92" y="194">改正 地球温暖化対策推進法</text>
+  <text class="t-note" x="92" y="208">2050年ネットゼロを法定化</text>
+  <text class="t-note" x="92" y="222">2030年度46%削減目標を表明</text>
+
+  <!-- ノード4: 2023年6月 GX推進法 (y=252) -->
+  <text class="t-year" x="56" y="270" text-anchor="end">2023</text>
+  <circle class="d-brand" cx="68" cy="266" r="5"/>
+  <rect class="b-brand" x="80" y="250" width="202" height="52" rx="6"/>
+  <text class="t-name" x="92" y="266">GX推進法 成立（6月）</text>
+  <text class="t-note" x="92" y="280">GX経済移行債（20兆円規模）</text>
+  <text class="t-note" x="92" y="294">成長志向型カーボンプライシング</text>
+
+  <!-- ノード5: 2030年度 中間目標 (y=324) -->
+  <text class="t-year" x="56" y="342" text-anchor="end">2030</text>
+  <circle cx="68" cy="338" r="7" fill="#fff3cd" stroke="#d4a017" stroke-width="2.5"/>
+  <rect class="b-warn" x="80" y="320" width="202" height="52" rx="6"/>
+  <text class="t-name" x="92" y="338">中間目標：46%削減</text>
+  <text class="t-note" x="92" y="352">2013年度比46%削減（2030年度）</text>
+  <text class="t-note" x="92" y="366">さらに50%の高みへ努力</text>
+
+  <!-- ノード6: 2050年 最終目標 (y=398) -->
+  <text class="t-year" x="56" y="418" text-anchor="end">2050</text>
+  <circle cx="68" cy="414" r="7" fill="#d0e8d0" stroke="#3a7d44" stroke-width="2.5"/>
+  <rect class="b-pos" x="80" y="396" width="202" height="50" rx="6"/>
+  <text class="t-name" x="92" y="414">カーボンニュートラル達成</text>
+  <text class="t-note" x="92" y="428">温室効果ガス排出を実質ゼロ</text>
+  <text class="t-note" x="92" y="442">吸収・除去で相殺しネットゼロ</text>
+
+  <!-- キャプション -->
+  <text class="t-foot" x="200" y="486" text-anchor="middle">2013年度比46%減(2030)を通過点に2050年ネットゼロを目指す</text>
+</svg>

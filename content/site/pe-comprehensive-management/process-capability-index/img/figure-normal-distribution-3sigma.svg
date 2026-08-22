@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="正規分布と 3σ 則">
+  <!-- scale: 400/480 = 0.8333, shift x by (400-480*0.8333)/2=0 -->
+  <g transform="scale(0.8333 0.8333) translate(0 0)">
+    <line x1="60" y1="30" x2="420" y2="30" stroke="#222" stroke-width="1"/>
+    <line x1="60" y1="24" x2="60" y2="36" stroke="#222" stroke-width="1"/>
+    <line x1="420" y1="24" x2="420" y2="36" stroke="#222" stroke-width="1"/>
+    <text x="240" y="22" text-anchor="middle" font-size="12" fill="#222" font-family="sans-serif">±3σ : 99.7%</text>
+
+    <line x1="120" y1="50" x2="360" y2="50" stroke="#222" stroke-width="1"/>
+    <line x1="120" y1="44" x2="120" y2="56" stroke="#222" stroke-width="1"/>
+    <line x1="360" y1="44" x2="360" y2="56" stroke="#222" stroke-width="1"/>
+    <text x="240" y="42" text-anchor="middle" font-size="12" fill="#222" font-family="sans-serif">±2σ : 95.4%</text>
+
+    <line x1="180" y1="70" x2="300" y2="70" stroke="#222" stroke-width="1"/>
+    <line x1="180" y1="64" x2="180" y2="76" stroke="#222" stroke-width="1"/>
+    <line x1="300" y1="64" x2="300" y2="76" stroke="#222" stroke-width="1"/>
+    <text x="240" y="62" text-anchor="middle" font-size="12" fill="#222" font-family="sans-serif">±σ : 68.3%</text>
+
+    <path d="M 60 220 Q 90 218 120 210 Q 150 200 180 175 Q 210 140 240 90 Q 270 140 300 175 Q 330 200 360 210 Q 390 218 420 220" fill="none" stroke="#222" stroke-width="2"/>
+
+    <line x1="60" y1="88" x2="60" y2="220" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+    <line x1="120" y1="88" x2="120" y2="220" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+    <line x1="180" y1="88" x2="180" y2="220" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+    <line x1="240" y1="84" x2="240" y2="220" stroke="#555" stroke-width="1.5"/>
+    <line x1="300" y1="88" x2="300" y2="220" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+    <line x1="360" y1="88" x2="360" y2="220" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+    <line x1="420" y1="88" x2="420" y2="220" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4,3"/>
+
+    <line x1="40" y1="220" x2="440" y2="220" stroke="#222" stroke-width="1.5"/>
+
+    <text x="60" y="236" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">-3σ</text>
+    <text x="120" y="236" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">-2σ</text>
+    <text x="180" y="236" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">-σ</text>
+    <text x="240" y="236" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">μ</text>
+    <text x="300" y="236" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">+σ</text>
+    <text x="360" y="236" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">+2σ</text>
+    <text x="240" y="254" text-anchor="middle" font-size="10" fill="#555" font-family="sans-serif">N(μ, σ²) における標準偏差基準の包含確率</text>
+  </g>
+  <!-- +3σ ラベルはscaleグループ外（scale後座標） -->
+  <text x="350" y="197" text-anchor="middle" font-size="11" fill="#222" font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif">+3σ</text>
+
+  <!-- サマリー (元260 * 0.8333 = 216.7, 余白は約283px) -->
+  <line x1="20" y1="230" x2="380" y2="230" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="200" y="275" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c" font-family="sans-serif">工程能力指数（Cp）との関係</text>
+  <rect x="20" y="278" width="360" height="90" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="40" y="300" font-size="11" fill="#555" font-family="sans-serif">Cp = 規格幅 / (6σ)</text>
+  <text x="40" y="320" font-size="11" fill="#555" font-family="sans-serif">・Cp ≥ 1.33: 工程能力が十分（不良率 64ppm 以下）</text>
+  <text x="40" y="340" font-size="11" fill="#555" font-family="sans-serif">・Cp ≥ 1.00: 最低限の能力（不良率 0.27%）</text>
+  <text x="40" y="360" font-size="11" fill="#555" font-family="sans-serif">・Cp ＜ 1.00: 工程能力不足（改善が必要）</text>
+
+  <rect x="20" y="384" width="360" height="60" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="40" y="406" font-size="11" fill="#555" font-family="sans-serif">±3σ = 99.73% は 1,000 個中 2.7 個が規格外</text>
+  <text x="40" y="426" font-size="11" fill="#555" font-family="sans-serif">±6σ（6シグマ）= 不良率 3.4ppm（100万個中 3.4 個）</text>
+
+  <text x="200" y="470" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">品質管理の基本指標として総監試験で頻出</text>
+</svg>

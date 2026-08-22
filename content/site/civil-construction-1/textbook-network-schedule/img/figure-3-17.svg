@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="最早開始時刻（EST）の計算例：左から右に所要時間を加算し、複数経路がある場合は最大値を採る">
+  <defs>
+    <marker markerUnits="userSpaceOnUse" id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M0,0 L10,5 L0,10 z" fill="#222"/>
+    </marker>
+  </defs>
+  <style>
+    .title { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #555; }
+    .node-num { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 14px; fill: #1a3a5c; font-weight: 600; }
+    .activity { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #222; font-weight: 600; }
+    .duration { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #555; }
+    .est { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 13px; fill: #3a7d44; font-weight: 700; }
+    .sub { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #555; }
+    .rule-title { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 12px; fill: #1a3a5c; font-weight: 700; }
+    .rule-body { font-family: "Hiragino Sans","Yu Gothic",sans-serif; font-size: 11px; fill: #222; }
+  </style>
+
+  <text x="200" y="22" text-anchor="middle" class="title">最早開始時刻（EST）：左→右に加算、合流は最大値</text>
+
+  <!-- nodes -->
+  <circle cx="40" cy="175" r="20" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="40" y="181" text-anchor="middle" class="node-num">①</text>
+  <text x="40" y="148" text-anchor="middle" class="est">0</text>
+
+  <circle cx="155" cy="175" r="20" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="155" y="181" text-anchor="middle" class="node-num">②</text>
+  <text x="155" y="148" text-anchor="middle" class="est">5</text>
+
+  <circle cx="265" cy="90" r="20" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="265" y="96" text-anchor="middle" class="node-num">③</text>
+  <text x="265" y="63" text-anchor="middle" class="est">12</text>
+
+  <circle cx="370" cy="175" r="20" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <text x="370" y="181" text-anchor="middle" class="node-num">④</text>
+  <text x="370" y="148" text-anchor="middle" class="est">22</text>
+
+  <!-- arrows -->
+  <line x1="60" y1="175" x2="135" y2="175" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="98" y="167" text-anchor="middle" class="activity">A</text>
+  <text x="98" y="191" text-anchor="middle" class="duration">5</text>
+
+  <line x1="168" y1="160" x2="252" y2="104" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="197" y="120" class="activity">B</text>
+  <text x="214" y="143" class="duration">7</text>
+
+  <line x1="175" y1="175" x2="350" y2="175" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="262" y="167" text-anchor="middle" class="activity">D</text>
+  <text x="262" y="191" text-anchor="middle" class="duration">17</text>
+
+  <line x1="278" y1="104" x2="356" y2="161" stroke="#222" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="330" y="121" class="activity">C</text>
+  <text x="312" y="145" class="duration">6</text>
+
+  <!-- calculation block -->
+  <rect x="20" y="218" width="360" height="60" rx="4" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.2"/>
+  <text x="32" y="238" class="rule-title">合流点（ノード④）のEST計算</text>
+  <text x="32" y="256" class="rule-body">経路1: A+D = 5+17 = 22日</text>
+  <text x="32" y="272" class="rule-body">経路2: A+B+C = 5+7+6 = 18日　→ 最大値 22日を採用</text>
+
+  <!-- rule table -->
+  <rect x="20" y="295" width="360" height="180" rx="4" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.2"/>
+  <text x="32" y="316" class="rule-title">EST 計算ルール</text>
+
+  <line x1="20" y1="323" x2="380" y2="323" stroke="#2e6da4" stroke-width="0.8"/>
+
+  <text x="32" y="340" class="rule-body">手順1: 開始イベントの EST = 0</text>
+  <text x="32" y="358" class="rule-body">手順2: 各アクティビティの EST に所要時間を加算</text>
+  <text x="32" y="376" class="rule-body">手順3: 複数経路が合流する場合は最大値を採用</text>
+  <text x="32" y="394" class="rule-body">手順4: すべてのアクティビティを左から右に処理</text>
+
+  <line x1="20" y1="408" x2="380" y2="408" stroke="#2e6da4" stroke-width="0.8"/>
+
+  <text x="32" y="425" class="rule-body">最大値を採る理由：すべての先行作業が完了しないと</text>
+  <text x="32" y="443" class="rule-body">後続作業を開始できないため（依存関係の保証）</text>
+
+  <!-- EST legend -->
+  <rect x="20" y="490" width="360" height="1" rx="0" fill="#d7d7d7"/>
+  <text x="200" y="484" text-anchor="middle" class="sub">EST = Earliest Start Time（最早開始時刻）</text>
+</svg>

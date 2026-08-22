@@ -1,0 +1,79 @@
+---
+title: リスク分析
+description: "リスク分析の定義・定量的手法と定性的手法・リスクレベルの算定方法を解説。技術士総合技術監理キーワード集2026（安全管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '5.2'
+tags:
+  - keyword
+published: true
+publishedAt: '2026-04-09'
+reviewStatus: needs-review
+lastRewrittenAt: '2026-05-16T05:50:21+09:00'
+revisionCycle: 1
+seoTitle: "リスク分析 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-05-26
+---
+
+## リスク分析とは
+
+リスク分析（Risk Analysis）とは、**リスクの特質を理解し、リスクレベルを決定するプロセス**である（JIS Q 31000:2019）。
+
+リスクアセスメントの第二段階であり、[リスク特定](/docs/pe-comprehensive-management-risk-identification)で洗い出されたリスクについて、[起こりやすさ](/docs/pe-comprehensive-management-likelihood)と[影響](/docs/pe-comprehensive-management-impact)の大きさを見積もり、リスクレベルを算定する。
+
+## 分析手法
+
+リスク分析では、対象や利用可能なデータの種類・量に応じて3つのアプローチを使い分ける。
+
+| 区分 | 手法 | 内容 |
+|---|---|---|
+| **定性的分析** | リスクマトリクス | 影響・頻度をランクで評価 |
+| **半定量的分析** | リスクスコア法 | ランクに数値を割り当てて計算 |
+| **定量的分析** | [FTA](/docs/pe-comprehensive-management-fta)・[ETA](/docs/pe-comprehensive-management-eta) | 確率論的手法でリスクを数値化 |
+
+## リスクレベルの算定
+
+リスクレベルは、[起こりやすさ](/docs/pe-comprehensive-management-likelihood)と[影響](/docs/pe-comprehensive-management-impact)の組合せで決定される。
+
+$$
+\text{リスクレベル} = \text{起こりやすさ} \times \text{影響の大きさ}
+$$
+
+<ExamPoint
+  summary="リスク分析はリスクの特質を理解しリスクレベルを決定するプロセス"
+  items={[
+    "リスク分析＝起こりやすさと影響の大きさからリスクレベルを算定",
+    "定性的・半定量的・定量的の3つのアプローチがある",
+    "FTA・ETA等のシステム安全工学手法も定量的分析に使用",
+    "「結果の大きさ」のみではなく「起こりやすさ」との組合せが必須",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**5.2 安全に関するリスクマネジメント**](/docs/pe-comprehensive-management-keyword-2026#52-安全に関するリスクマネジメント)に位置づけられている。
+
+リスク分析は[リスク特定](/docs/pe-comprehensive-management-risk-identification)の後、[リスク評価](/docs/pe-comprehensive-management-risk-assessment)の前に位置するプロセスであり、[リスクマップ／リスクマトリクス](/docs/pe-comprehensive-management-risk-map-matrix)はリスク分析の結果を可視化するツールとして活用される。
+
+<RelatedKeywords items={[
+  { label: "リスク評価", slug: "risk-assessment" },
+  { label: "リスクマネジメントシステム", slug: "risk-management-system" },
+  { label: "リスク", slug: "risk" },
+  { label: "リスク対応", slug: "risk-treatment" },
+  { label: "ALARPの原則", slug: "alarp-principle" },
+]} />
+
+## リスク分析手法の発展と国際標準化
+
+リスク分析という概念が体系化されたのは、20 世紀後半の原子力・航空・石油化学産業における大規模事故を契機とする。1970 年代以降、フォルトツリー解析（FTA）やイベントツリー解析（ETA）、故障モード影響解析（FMEA）などの定量的手法が確立し、産業安全の分野で広く採用された。
+
+その後、リスク概念が金融・情報セキュリティ・プロジェクトマネジメント等へ拡張するにつれて、分析手法の標準化が国際的な課題となった。2009 年に ISO 31000（リスクマネジメント指針）が発行され、定性的・半定量的・定量的のいずれのアプローチも組織の状況に応じて選択できる原則が整理された。日本では 2010 年に JIS Q 31000 として翻訳採用され、2018 年の ISO 改訂に伴い 2019 年に JIS も改正された。
+
+総合技術監理においてこの標準化の流れは重要である。技術者が組織の複数管理領域にわたるリスクを横断的に扱う際、ISO 31000 が示す「リスク特定 → リスク分析 → リスク評価」のシーケンスは共通言語として機能し、部門間・専門分野間のコミュニケーションを支える基盤となっている。
+
+## 参考資料
+
+- [ISO31000－2018年版リスクマネジメント指針の経営への活用](https://www.jipdec.or.jp/library/report/20181018.html)（一般財団法人日本情報経済社会推進協会）
+- [リスク分析](https://ja.wikipedia.org/wiki/%E3%83%AA%E3%82%B9%E3%82%AF%E5%88%86%E6%9E%90)（Wikipedia：FTA・ETA・FMEA などの手法を含む包括解説）

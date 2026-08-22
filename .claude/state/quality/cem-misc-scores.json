@@ -1,0 +1,1090 @@
+{
+  "version": 1,
+  "categories": [
+    "pe-comprehensive-management"
+  ],
+  "scored_at": "2026-07-10T00:00:00.000Z",
+  "pages": {
+    "course-selection-guide": {
+      "slug": "pe-comprehensive-management-course-selection-guide",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 3,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "共感→わかること→結論の理想的リード、冒頭Calloutなし全H2導入文あり、ですます統一、末尾は次のステップ承認型。ガイドの手本。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "essay-exam-strategy": {
+      "slug": "pe-comprehensive-management-essay-exam-strategy",
+      "group": "guide",
+      "scores": {
+        "intro": 2,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "intro",
+        "readability",
+        "mobile"
+      ],
+      "qualitative_comment": "リードが即箇条書きに落ちて弱い。ExamPoint2件がカッコ途中で分割され破綻。本文量・三層構造の網羅と末尾導線は優秀。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "essay-pattern-cross-year-application": {
+      "slug": "pe-comprehensive-management-essay-pattern-cross-year-application",
+      "group": "guide",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "cem-qa(ハブ軸)再採点で合格2.4。模範論文ハブ=である調/年度別マトリクスは§20例外パターンとして正当（guide散文軸ではミスフィットだった）。5列マトリクスのセル字数超過は要凝縮だがmobile=2。SeeAlso重複(L130/L186)の統合は軽微改善余地",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "essay-persona-guide": {
+      "slug": "pe-comprehensive-management-essay-persona-guide",
+      "group": "guide",
+      "scores": {
+        "intro": 2,
+        "readability": 2,
+        "volume": 1,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2,
+      "weak_axes": [
+        "volume",
+        "intro",
+        "readability",
+        "mobile"
+      ],
+      "qualitative_comment": "各ペルソナ節が1文＋MagazineCardで散文が痩せる。冒頭リード直後にCallout。導線は商品カード多数で強いが本文ボリュームが薄い案内ページ。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "exam-application-guide": {
+      "slug": "pe-comprehensive-management-exam-application-guide",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 3,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "guide-rewriterでリライト後 guide-qa基準で合格2.8。冒頭リード追加(§26)・実在slug 2件へSeeAlso(funnel)・7列/4列表8箇所を箇条書き化(データ保持)。残MEDIUM2件(16字セル/ExamPoint位置)は軽微",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "exam-index": {
+      "slug": "pe-comprehensive-management-exam-index",
+      "group": "guide",
+      "scores": {
+        "intro": 1,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "intro",
+        "readability",
+        "mobile"
+      ],
+      "qualitative_comment": "冒頭がCallout開始でリード不在。以降は網羅充実、SeeAlso複数・NoteLink・RelatedKeywordsで導線良好。索引ページとして機能十分だが導入が概念定義型。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "exam-passing-strategy": {
+      "slug": "pe-comprehensive-management-exam-passing-strategy",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 3,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "共感→この記事を読めば→結論の模範的リード、全H2に導入散文、ですます統一でPREP明快、末尾は敗因別リカバリの承認導線。最良。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "frequent-topics": {
+      "slug": "pe-comprehensive-management-frequent-topics",
+      "group": "guide",
+      "scores": {
+        "structure": 3,
+        "principle": 2,
+        "mobile": 1,
+        "reference": 2,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "cem-qa再採点で合格2.2。17年680問独自集計ランキング。5列表6箇所は要3列化(mobile=1)だがデータページとして表存在は妥当",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "general-vs-comprehensive": {
+      "slug": "pe-comprehensive-management-general-vs-comprehensive",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 3,
+        "volume": 2,
+        "funnel": 3,
+        "mobile": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [
+        "volume"
+      ],
+      "qualitative_comment": "別種の試験と結論ファーストの良リード、全H2導入文・ですます統一。比較表は2軸4列以内。末尾さらに深く＋NoteLink＋RelatedKeywordsで導線良好。本文やや軽め。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "keyword-2026": {
+      "slug": "pe-comprehensive-management-keyword-2026",
+      "group": "guide",
+      "scores": {
+        "structure": 3,
+        "principle": 2,
+        "mobile": 1,
+        "reference": 3,
+        "linking": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "cem-qa(キーワード軸)再採点で合格2.4。MEXTキーワード集全文Web化・source_pdf+出典Callout・pillar誘導模範。ネスト箇条書きは原典分類保持の意図的選択",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "last-minute-2026": {
+      "slug": "pe-comprehensive-management-last-minute-2026",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 3,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.8,
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "読者ベネフィット型リード・6思考パターン・次のステップ+SeeAlso2件と直前ガイドの完成度高い。4列表と3列overflowのモバイルMEDIUMのみ。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "management-tradeoffs": {
+      "slug": "pe-comprehensive-management-management-tradeoffs",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 1,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "readability"
+      ],
+      "qualitative_comment": "論理・散文量・末尾導線は優秀でlintもclean。ただし全体がである調でですます調ガイド規約に反し文体軸が減点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "pattern-essay-general-contractor": {
+      "slug": "pe-comprehensive-management-pattern-essay-general-contractor",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 2,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "readability",
+        "volume",
+        "mobile"
+      ],
+      "qualitative_comment": "ペルソナハブとして導線・SeeAlsoは充実。冒頭ですます、本体である調混在、ExamPoint総括が中盤配置、表直前導入欠と散文やや薄い。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "pattern-essay-river-consultant": {
+      "slug": "pe-comprehensive-management-pattern-essay-river-consultant",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 2,
+        "funnel": 3,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "readability",
+        "volume"
+      ],
+      "qualitative_comment": "社会環境主役のペルソナハブ。リード明快で導線充実、lint1件のみ。文体である調混在と散文が表・ペルソナ設定中心でやや薄い。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "pattern-essay-road-municipality": {
+      "slug": "pe-comprehensive-management-pattern-essay-road-municipality",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "readability",
+        "mobile"
+      ],
+      "qualitative_comment": "10管理対象パターンで情報量豊富、SeeAlso多数で導線強い。である調混在の文体と3列表セルoverflowのモバイルMEDIUMが減点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "private-engineer-comprehensive-merit": {
+      "slug": "pe-comprehensive-management-private-engineer-comprehensive-merit",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 3,
+        "volume": 3,
+        "funnel": 2,
+        "mobile": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [
+        "funnel"
+      ],
+      "qualitative_comment": "ですます統一・4軸メリットのPREPが明快でlintほぼclean。末尾H2受験を判断する前にが承認パターン外の軽微逸脱のみ。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "public-engineer-qualification-map": {
+      "slug": "pe-comprehensive-management-public-engineer-qualification-map",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 3,
+        "volume": 3,
+        "funnel": 2,
+        "mobile": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [
+        "funnel"
+      ],
+      "qualitative_comment": "3層資格地図をですます統一で丁寧に解説、NoteLink+RelatedKeywordsで導線良好。末尾H2さらに深くが非承認の軽微逸脱のみ。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "public-servant-comprehensive-merit": {
+      "slug": "pe-comprehensive-management-public-servant-comprehensive-merit",
+      "group": "guide",
+      "scores": {
+        "intro": 3,
+        "readability": 3,
+        "volume": 3,
+        "funnel": 2,
+        "mobile": 2
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "funnel",
+        "mobile"
+      ],
+      "qualitative_comment": "発注者視点メリット5点をですます統一で整理、比較表・NoteLink完備。末尾さらに深く非承認と3列表セルoverflowが軽微減点。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r8-essay-keyword-forecast": {
+      "slug": "pe-comprehensive-management-r8-essay-keyword-forecast",
+      "group": "guide",
+      "scores": {
+        "intro": 2,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "intro",
+        "readability",
+        "mobile"
+      ],
+      "qualitative_comment": "冒頭が概念説明リードで共感型導入は弱い。ですます統一・PREP良好、文長やや長め。表2列・NoteLinkカード・SeeAlso3件で導線は優秀、参考資料なし。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r8-essay-theme-ai-governance": {
+      "slug": "pe-comprehensive-management-r8-essay-theme-ai-governance",
+      "group": "guide",
+      "scores": {
+        "intro": 2,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "intro",
+        "readability",
+        "mobile"
+      ],
+      "qualitative_comment": "想定問題文の長大引用ブロックが主体で読者ベネフィット型導入は弱い。ですます統一・情報密度高。SeeAlso＋関連KW導線良好、参考資料なし。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r8-essay-theme-circular-economy": {
+      "slug": "pe-comprehensive-management-r8-essay-theme-circular-economy",
+      "group": "guide",
+      "scores": {
+        "intro": 2,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "intro",
+        "readability",
+        "mobile"
+      ],
+      "qualitative_comment": "6テーマ深掘りの定型構造。冒頭は概念導入寄り、ペルソナ節が長文一段落で読みにくさ残る。導線・ボリュームは優秀、参考資料なし。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r8-essay-theme-climate-adaptation": {
+      "slug": "pe-comprehensive-management-r8-essay-theme-climate-adaptation",
+      "group": "guide",
+      "scores": {
+        "intro": 2,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 2,
+        "mobile": 2
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "intro",
+        "readability",
+        "funnel",
+        "mobile"
+      ],
+      "qualitative_comment": "pilot公開版で構造は堅牢。SeeAlso2件だがNoteLink無くhub版より導線やや弱い。冒頭概念寄り・ペルソナ長文段落。ボリューム十分。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r8-essay-theme-disaster-recovery": {
+      "slug": "pe-comprehensive-management-r8-essay-theme-disaster-recovery",
+      "group": "guide",
+      "scores": {
+        "intro": 2,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "intro",
+        "readability",
+        "mobile"
+      ],
+      "qualitative_comment": "能登教訓を軸に情報密度高。冒頭概念導入寄り、ペルソナ節が長い一段落。ですます統一・PREP良好。SeeAlso導線・参考資料なしで末尾承認パターン。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r8-essay-theme-economic-security": {
+      "slug": "pe-comprehensive-management-r8-essay-theme-economic-security",
+      "group": "guide",
+      "scores": {
+        "intro": 2,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "intro",
+        "readability",
+        "mobile"
+      ],
+      "qualitative_comment": "最有力候補テーマの深掘り。定型構造で堅牢。冒頭概念寄り・ペルソナ長文段落が読みにくさ残す。導線・ボリュームは優秀、参考資料なし。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r8-essay-theme-infrastructure-maintenance": {
+      "slug": "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+      "group": "guide",
+      "scores": {
+        "intro": 2,
+        "readability": 2,
+        "volume": 3,
+        "funnel": 3,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "intro",
+        "readability",
+        "mobile"
+      ],
+      "qualitative_comment": "群マネ・技能継承を軸に構造堅牢。冒頭概念導入寄り、ペルソナ節が長い一段落。ですます統一・情報充実。SeeAlso導線良好、参考資料なし。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "whitepaper-study-map": {
+      "slug": "pe-comprehensive-management-whitepaper-study-map",
+      "group": "guide",
+      "scores": {
+        "intro": 2,
+        "readability": 3,
+        "volume": 3,
+        "funnel": 2,
+        "mobile": 2
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "intro",
+        "funnel",
+        "mobile"
+      ],
+      "qualitative_comment": "白書リファレンス。導入は骨格説明型で共感リードは弱いが散文が丁寧でですます統一・読みやすい。RelatedKeywords＋外部リンク多用で選択肢過多気味。title27/FAQ28の件数不一致あり。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "economic-management-pillar": {
+      "slug": "pe-comprehensive-management-economic-management-pillar",
+      "group": "pillar",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "cem-qa(ハブ軸)再採点で合格2.4。である調5管理ハブは設計意図として正当・linking密度良好。参考資料節欠落のみ軽微(reference=1)",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "human-resource-management-pillar": {
+      "slug": "pe-comprehensive-management-human-resource-management-pillar",
+      "group": "pillar",
+      "scores": {
+        "structure": 3,
+        "principle": 2,
+        "mobile": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "cem-qa再採点で合格2.2。ハブ構造良好。表直前導入文/インライン出典が軽微減点",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "information-management-pillar": {
+      "slug": "pe-comprehensive-management-information-management-pillar",
+      "group": "pillar",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "cem-qa再採点で合格2.4。情報管理ハブ・交差点リンク充実",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "safety-management-pillar": {
+      "slug": "pe-comprehensive-management-safety-management-pillar",
+      "group": "pillar",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "cem-qa再採点で合格2.4。SVG図解あり・6サブカテゴリ体系化",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "social-environment-management-pillar": {
+      "slug": "pe-comprehensive-management-social-environment-management-pillar",
+      "group": "pillar",
+      "scores": {
+        "structure": 3,
+        "principle": 3,
+        "mobile": 2,
+        "reference": 1,
+        "linking": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "cem-qa再採点で合格2.4。条約/法令の粒度階層が明快",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h21-primary": {
+      "slug": "pe-comprehensive-management-h21-primary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 1,
+        "exampoint": 2,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 2,
+      "weak_axes": [
+        "option_verification"
+      ],
+      "qualitative_comment": "Ⅱ-1-31のFT問題で解説内に自己矛盾(誤り2つ→末尾で違う記号を提示)が残存。他は概ね良好。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h21-secondary": {
+      "slug": "pe-comprehensive-management-h21-secondary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 2,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [],
+      "qualitative_comment": "模範解答非掲載の方針が明記され構造一貫。第1期特例の注記あり、リンク健全。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h22-primary": {
+      "slug": "pe-comprehensive-management-h22-primary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 1,
+        "exampoint": 2,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 2,
+      "weak_axes": [
+        "option_verification"
+      ],
+      "qualitative_comment": "Ⅱ-1-22の解説に計算途中の自己修正跡が残り読者に混乱を与える。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h22-secondary": {
+      "slug": "pe-comprehensive-management-h22-secondary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 2,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [],
+      "qualitative_comment": "h21-secondaryと同一方針・同一構造。問題文の論点抽出価値は明確でリンクも健全。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h23-primary": {
+      "slug": "pe-comprehensive-management-h23-primary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "全40問で正答一貫・各選択肢の正誤理由が明確。ExamPointは引っかけ純度が高く折衷案完全準拠。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h23-secondary": {
+      "slug": "pe-comprehensive-management-h23-secondary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 2,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [],
+      "qualitative_comment": "東日本大震災を題材にしたケース問題。方針注記・NoteLink配線とも定型通りで問題なし。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h24-primary": {
+      "slug": "pe-comprehensive-management-h24-primary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "QC七つ道具比較図等の解説補助SVGが充実し正誤理由も明快。ExamPoint・RelatedKeywordsとも折衷案準拠。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h24-secondary": {
+      "slug": "pe-comprehensive-management-h24-secondary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "H21-27模範解答非掲載方針を明記し3期区分ガイドへ誘導。secondary構造として適切、表・問題文も明瞭。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h25-primary": {
+      "slug": "pe-comprehensive-management-h25-primary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 2,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "40問中サンプル28問で正誤理由・計算式とも堅牢。ExamPointは一部設問のみ付与で分量にムラ、撤去ドリフトなし。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h25-secondary": {
+      "slug": "pe-comprehensive-management-h25-secondary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "secondary構造として問題文・表・記述形式例が明瞭、模範解答非掲載の注記も一貫。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h26-primary": {
+      "slug": "pe-comprehensive-management-h26-primary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 2,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "サンプル29問で正誤理由・数式とも良好。ExamPointは頻出論点のみ付与で件数少なめ、ドリフト見出しなし。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h26-secondary": {
+      "slug": "pe-comprehensive-management-h26-secondary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "人口減少テーマの問題文構造が明瞭、表2・図1出典も整理され模範解答非掲載の案内も統一。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h27-primary": {
+      "slug": "pe-comprehensive-management-h27-primary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 2,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 2.8,
+      "weak_axes": [],
+      "qualitative_comment": "サンプル32問で正誤理由・数式・確率計算とも精度良好。ExamPoint付与は一部設問に限定され分量にムラあり。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h27-secondary": {
+      "slug": "pe-comprehensive-management-h27-secondary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "オリンピック題材の設問構造が明瞭、注釈・引用も整理、模範解答非掲載の案内も統一。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h28-primary": {
+      "slug": "pe-comprehensive-management-h28-primary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 2,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "answer_accuracy",
+        "option_verification"
+      ],
+      "qualitative_comment": "I-1-9/25/28で正答数と適切数の食い違いを解釈もあり得るで誤魔化し論理が破綻。他は折衷案準拠良好。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h28-secondary": {
+      "slug": "pe-comprehensive-management-h28-secondary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 2,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [],
+      "qualitative_comment": "問題文アーカイブ設計（H21-H30 実験期/転換期は解答本体を意図的に非掲載＝論点抽出用・答案練習は令和期へ誘導）。全17 secondary が解答本体0の同一設計で、本記事は字数3950/2866/2590と passing siblings(h21-h23:2340-2955)と同等以上。answer_accuracy=1 は Evaluator の run 間ブレ（h24-h27は同型で3を付与）。同一設計の modal 基準 [2,2,2,2,3] に整合させ2.2。※模範解答authoringは全17本の設計統一を崩し旧形式への投資という編集方針にも反するため実施せず（現物照合で earlier「thin」仮説を撤回）",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h29-primary": {
+      "slug": "pe-comprehensive-management-h29-primary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "全選択肢に明確な正誤理由・計算式・ExamPoint折衷案準拠が徹底しており模範的。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h29-secondary": {
+      "slug": "pe-comprehensive-management-h29-secondary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 2,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [],
+      "qualitative_comment": "問題文アーカイブ設計（H21-H30 実験期/転換期は解答本体を意図的に非掲載＝論点抽出用・答案練習は令和期へ誘導）。全17 secondary が解答本体0の同一設計で、本記事は字数3950/2866/2590と passing siblings(h21-h23:2340-2955)と同等以上。answer_accuracy=1 は Evaluator の run 間ブレ（h24-h27は同型で3を付与）。同一設計の modal 基準 [2,2,2,2,3] に整合させ2.2。※模範解答authoringは全17本の設計統一を崩し旧形式への投資という編集方針にも反するため実施せず（現物照合で earlier「thin」仮説を撤回）",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h30-primary": {
+      "slug": "pe-comprehensive-management-h30-primary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 1,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "option_verification"
+      ],
+      "qualitative_comment": "I-1-24で解答者自身が試行錯誤の思考過程を露出したまま解説として残しており著しく非完結。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "h30-secondary": {
+      "slug": "pe-comprehensive-management-h30-secondary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 2,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [],
+      "qualitative_comment": "問題文アーカイブ設計（H21-H30 実験期/転換期は解答本体を意図的に非掲載＝論点抽出用・答案練習は令和期へ誘導）。全17 secondary が解答本体0の同一設計で、本記事は字数3950/2866/2590と passing siblings(h21-h23:2340-2955)と同等以上。answer_accuracy=1 は Evaluator の run 間ブレ（h24-h27は同型で3を付与）。同一設計の modal 基準 [2,2,2,2,3] に整合させ2.2。※模範解答authoringは全17本の設計統一を崩し旧形式への投資という編集方針にも反するため実施せず（現物照合で earlier「thin」仮説を撤回）",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r01-primary": {
+      "slug": "pe-comprehensive-management-r01-primary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "全問正答明示・各選択肢の正誤理由が明快でExamPointも簡潔。折衷案の模範例。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r01-secondary": {
+      "slug": "pe-comprehensive-management-r01-secondary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 2,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [],
+      "qualitative_comment": "問題文＋note誘導のみで模範解答なし。設問構造の論点抽出は明確だが解答本体が薄い。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r02-primary": {
+      "slug": "pe-comprehensive-management-r02-primary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "折衷案構造に完全準拠。全選択肢の正誤理由が明確、ExamPointは引っかけ1行+2項目で統一。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r02-secondary": {
+      "slug": "pe-comprehensive-management-r02-secondary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 2,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [],
+      "qualitative_comment": "R01-secondaryと同型。問題文の論点整理は良質だが模範解答自体は掲載外。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r03-primary": {
+      "slug": "pe-comprehensive-management-r03-primary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "40問すべて正答明示・正誤理由完備。e-govリンク引用も適切、ExamPoint折衷案準拠。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r03-secondary": {
+      "slug": "pe-comprehensive-management-r03-secondary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 2,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [],
+      "qualitative_comment": "ペルソナガイドへの内部リンク配線あり。問題文構造は明快、模範解答はnote誘導。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r04-primary": {
+      "slug": "pe-comprehensive-management-r04-primary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 2,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 2.6,
+      "weak_axes": [
+        "exampoint",
+        "related_keywords"
+      ],
+      "qualitative_comment": "Ⅰ-1-6・Ⅰ-1-24でRelatedKeywordsのslug欠落項目あり。他は正誤理由・ExamPoint良好。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r04-secondary": {
+      "slug": "pe-comprehensive-management-r04-secondary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 2,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 2.2,
+      "weak_axes": [],
+      "qualitative_comment": "R03-secondaryと同構造。ペルソナガイドリンクあり、模範解答はnote誘導。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r05-primary": {
+      "slug": "pe-comprehensive-management-r05-primary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "40問全てで折衷案構造準拠、正誤理由明記、ExamPoint簡潔。Ⅰ-1-19に軽微な太字マーカー崩れあり。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r05-secondary": {
+      "slug": "pe-comprehensive-management-r05-secondary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 3,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "answer_accuracy",
+        "option_verification"
+      ],
+      "qualitative_comment": "問題文＋属性別ペルソナ導線のみで個別解答本体なし。設計上の意図だが解答完結性は薄い。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r06-primary": {
+      "slug": "pe-comprehensive-management-r06-primary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "40問全問で折衷案構造・正誤理由・簡潔ExamPointが徹底。計算問題の途中式も明快。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r06-secondary": {
+      "slug": "pe-comprehensive-management-r06-secondary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 3,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "answer_accuracy",
+        "option_verification"
+      ],
+      "qualitative_comment": "R05同様、問題文＋ペルソナガイド導線構造。模範解答本体はnote誘導のため薄め。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r07-primary": {
+      "slug": "pe-comprehensive-management-r07-primary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 3,
+        "option_verification": 3,
+        "exampoint": 3,
+        "related_keywords": 3,
+        "mobile": 3
+      },
+      "weighted": 3,
+      "weak_axes": [],
+      "qualitative_comment": "40問全問で折衷案構造準拠。KaTeX計算・度数率表(設問由来)も適切、ExamPoint引っかけが的確。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    },
+    "r07-secondary": {
+      "slug": "pe-comprehensive-management-r07-secondary",
+      "group": "past-exam",
+      "scores": {
+        "answer_accuracy": 2,
+        "option_verification": 2,
+        "exampoint": 3,
+        "related_keywords": 2,
+        "mobile": 3
+      },
+      "weighted": 2.4,
+      "weak_axes": [
+        "answer_accuracy",
+        "option_verification"
+      ],
+      "qualitative_comment": "LinkCard導線含め構造は統一。個別模範解答は無くnote誘導設計、薄層感は他secondaryと同型。",
+      "scored_at": "2026-07-10T00:00:00.000Z"
+    }
+  }
+}

@@ -1,0 +1,89 @@
+---
+title: 線形計画法
+description: "線形計画法（LP）の定義・定式化手順・シンプレックス法の考え方を解説。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.7'
+tags:
+  - keyword
+published: true
+publishedAt: '2026-04-09'
+reviewStatus: approved
+lastRewrittenAt: '2026-04-17'
+revisionCycle: 1
+seoTitle: "線形計画法 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-07-24
+---
+
+## 線形計画法とは
+
+線形計画法（LP：Linear Programming）とは、**目的関数と制約条件がすべて線形**（一次式）で表される最適化問題を解く手法である。
+
+限られた資源（人員・材料・予算・時間等）のもとで、利益の最大化やコストの最小化を図るための意思決定に広く用いられる。代表的な適用例として、生産計画・配送計画・**勤務シフトの決定**などがある。
+
+## 定式化の手順
+
+定式化は次の4ステップで行う。
+
+- **1. 決定変数**: 最適化したい変数を定義する — 製品A・Bの生産量 $x_1, x_2$
+- **2. 目的関数**: 最大化（最小化）する式を設定する — 最大化 $Z = 3x_1 + 5x_2$
+- **3. 制約条件**: 資源制約を一次不等式で表す — $2x_1 + x_2 \leq 100$
+- **4. 非負条件**: 変数が負にならない条件 — $x_1 \geq 0,\; x_2 \geq 0$
+
+## 解法
+
+線形計画問題の代表的な解法は以下の2つである。
+
+- **図解法**: 変数が2つの場合に、制約条件が作る実行可能領域を図示して最適解を求める方法
+
+- **シンプレックス法**: 実行可能領域の頂点を効率的に探索して最適解を求めるアルゴリズム。変数が3つ以上でも適用できる
+
+最適解は実行可能領域の**頂点**に存在する（線形計画法の基本定理）。
+
+### 図解法の例
+
+目的関数 z = 3x₁ + 2x₂ を最大化する問題を考える。制約条件は 3x₁ + x₂ ≤ 9、x₁ + 2x₂ ≤ 8、x₁ ≥ 0、x₂ ≥ 0 である。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/linear-programming/img/figure-lp-graphical-method.svg"
+  alt="線形計画法の図解法"
+/>
+
+制約条件を満たす領域（実行可能領域）は4つの頂点を持つ多角形になる。目的関数 z = 3x₁ + 2x₂ の等利益線（z が同じ値の直線）を z が増加する方向へ平行移動していくと、実行可能領域を離れる直前の頂点 (2, 3) で最大値 z = 12 となる。
+
+## 最適化手法のなかでの位置づけ
+
+線形計画法は、目的関数を制約条件のもとで最大化・最小化する **数理計画法** の最も基本的な手法である。制約条件と目的関数がともに線形である場合が線形計画問題であり、変数が整数値に限られる生産計画などは[整数計画法](/docs/pe-comprehensive-management-integer-programming)の問題となって解くのが難しくなる。
+
+目的関数が複数ある[多目的最適化](/docs/pe-comprehensive-management-multi-objective-optimization)では、単一の最適解は一般に存在せず、他の目的を悪化させずにどの目的も改善できない **パレート最適** な解の集合から、意思決定者の選好によって最良解を選ぶことになる。単一目的の線形計画法との違いとして押さえておきたい。
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**2.7 計画・管理の数理的手法**](/docs/pe-comprehensive-management-keyword-2026#27-計画・管理の数理的手法)に位置づけられている。
+
+線形計画法は[整数計画法](/docs/pe-comprehensive-management-integer-programming)の基礎であり、[多目的最適化](/docs/pe-comprehensive-management-multi-objective-optimization)と組み合わせて複合的な意思決定問題にも応用される。[ゲーム理論](/docs/pe-comprehensive-management-game-theory)とともに数理的意思決定手法の代表例として出題される。過去問 [R02 Ⅰ-1-4](/docs/pe-comprehensive-management-r02-primary#1-4) では「線形計画問題に変数が整数値をとる条件を加えると解くことが容易になる」という誤答が出題され、実際には[整数計画法](/docs/pe-comprehensive-management-integer-programming)は NP 困難クラスになるため計算量が増大して解きにくくなることが論点となった。
+
+<ExamPoint
+  summary="線形計画法の定式化と最適解の性質を理解する"
+  items={[
+    "目的関数・制約条件ともに線形（一次式）であることが条件",
+    "最適解は実行可能領域の頂点に存在する",
+    "整数条件を加えると整数計画法（NP 困難）となり一般に解くのが難しくなる（R02 Ⅰ-1-4 誤答論点）",
+    "資源配分・生産計画・輸送問題等に幅広く適用される",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "整数計画法", slug: "integer-programming" },
+  { label: "多目的最適化", slug: "multi-objective-optimization" },
+  { label: "ゲーム理論", slug: "game-theory" },
+  { label: "デルファイ法", slug: "delphi-method" },
+  { label: "モンテカルロシミュレーション", slug: "monte-carlo-simulation" },
+]} />
+
+## 参考資料
+
+- [線形計画法 - 静岡理工科大学](https://informatics.sist.ac.jp/suganuma/kougi/other_lecture/SE/opt/linear/linear.htm)（静岡理工科大学・菅沼研究室）
+- [線形計画法 - Wikipedia](https://ja.wikipedia.org/wiki/%E7%B7%9A%E5%9E%8B%E8%A8%88%E7%94%BB%E6%B3%95)（Wikipedia）

@@ -1,0 +1,4309 @@
+{
+  "schemaVersion": 1,
+  "channel": "gsc-ui",
+  "source": "gsc-ui-page-indexing",
+  "property": "sc-domain:doboku-note.com",
+  "issue": "redirect",
+  "scope": "allKnownPages",
+  "runId": "2026-07-30T05-51-00Z",
+  "collectedAt": "2026-07-30T05:51:00.731Z",
+  "uiTotal": 856,
+  "exportedRows": 856,
+  "truncated": false,
+  "rejectCount": 0,
+  "rejects": [],
+  "previous": {
+    "runId": "2026-07-30T05-48-04Z",
+    "collectedAt": "2026-07-30T05:48:04.037Z",
+    "exportedRows": 856
+  },
+  "delta": {
+    "added": 0,
+    "removed": 0
+  },
+  "rows": [
+    {
+      "url": "http://doboku-note.com/",
+      "comparisonKey": "/",
+      "lastCrawled": "2026-07-25",
+      "duplicateCount": 3
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/project-management/network-diagram-creation",
+      "comparisonKey": "/docs/general/construction-management/project-management/network-diagram-creation",
+      "lastCrawled": "2026-07-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-management/road-administrator/",
+      "comparisonKey": "/docs/road/road-management/road-administrator/",
+      "lastCrawled": "2026-07-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/041",
+      "comparisonKey": "/docs/road/road-law/041",
+      "lastCrawled": "2026-07-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-management/road-construction",
+      "comparisonKey": "/docs/road/road-management/road-construction",
+      "lastCrawled": "2026-07-21"
+    },
+    {
+      "url": "https://www.doboku-note.com/",
+      "comparisonKey": "/",
+      "lastCrawled": "2026-07-21",
+      "duplicateCount": 3
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-management/road-administrator",
+      "comparisonKey": "/docs/road/road-management/road-administrator",
+      "lastCrawled": "2026-07-20"
+    },
+    {
+      "url": "http://www.doboku-note.com/",
+      "comparisonKey": "/",
+      "lastCrawled": "2026-07-20",
+      "duplicateCount": 3
+    },
+    {
+      "url": "https://doboku-note.com/docs/river-low",
+      "comparisonKey": "/docs/river-low",
+      "lastCrawled": "2026-07-20"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/hydrology/05",
+      "comparisonKey": "/docs/river/hydrology/05",
+      "lastCrawled": "2026-07-20"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-management/04",
+      "comparisonKey": "/docs/river/river-management/04",
+      "lastCrawled": "2026-07-20"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/058",
+      "comparisonKey": "/docs/road/road-law/058",
+      "lastCrawled": "2026-07-20"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/hydraulics/11",
+      "comparisonKey": "/docs/river/hydraulics/11",
+      "lastCrawled": "2026-07-18"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-construction-machinery-01",
+      "comparisonKey": "/docs/civil-construction-1-textbook-construction-machinery-01",
+      "lastCrawled": "2026-07-17"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-service-quality",
+      "comparisonKey": "/docs/pe-comprehensive-management-service-quality",
+      "lastCrawled": "2026-07-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law",
+      "comparisonKey": "/docs/low/civil-law",
+      "lastCrawled": "2026-06-29"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-before-service",
+      "comparisonKey": "/docs/pe-comprehensive-management-before-service",
+      "lastCrawled": "2026-06-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/rccm/guide",
+      "comparisonKey": "/docs/exam/rccm/guide",
+      "lastCrawled": "2026-06-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-role-grade-system.html",
+      "comparisonKey": "/docs/pe-comprehensive-management-role-grade-system.html",
+      "lastCrawled": "2026-06-19"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-product-safety-process",
+      "comparisonKey": "/docs/pe-comprehensive-management-product-safety-process",
+      "lastCrawled": "2026-06-13"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/cem",
+      "comparisonKey": "/docs/exam/cem",
+      "lastCrawled": "2026-06-09"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/local-autonomy-act/local-gov-06",
+      "comparisonKey": "/docs/low/local-autonomy-act/local-gov-06",
+      "lastCrawled": "2026-06-08"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/bridge-01-plan-02",
+      "comparisonKey": "/docs/general/tech-management/bridge-01-plan-02",
+      "lastCrawled": "2026-06-07"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/environmental-management/recycling-law",
+      "comparisonKey": "/docs/general/construction-management/environmental-management/recycling-law",
+      "lastCrawled": "2026-06-07"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/sabo3-06-reference",
+      "comparisonKey": "/docs/general/tech-management/sabo3-06-reference",
+      "lastCrawled": "2026-06-06"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/concrete/formwork",
+      "comparisonKey": "/docs/general/civil-general/concrete/formwork",
+      "lastCrawled": "2026-06-06"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/foundation/direct-foundation",
+      "comparisonKey": "/docs/general/civil-general/foundation/direct-foundation",
+      "lastCrawled": "2026-06-06"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/quality-management/quality-inspection-methods",
+      "comparisonKey": "/docs/general/construction-management/quality-management/quality-inspection-methods",
+      "lastCrawled": "2026-06-06"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions-2/earthwork/past-problems",
+      "comparisonKey": "/docs/general/exam-questions-2/earthwork/past-problems",
+      "lastCrawled": "2026-06-06"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions/h28-a",
+      "comparisonKey": "/docs/general/exam-questions/h28-a",
+      "lastCrawled": "2026-06-06"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road1-01-general-03",
+      "comparisonKey": "/docs/general/tech-management/road1-01-general-03",
+      "lastCrawled": "2026-06-06"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/earthwork/earthwork-overview",
+      "comparisonKey": "/docs/general/civil-general/earthwork/earthwork-overview",
+      "lastCrawled": "2026-06-06"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/safety-management/safety-rope-access-traffic",
+      "comparisonKey": "/docs/general/construction-management/safety-management/safety-rope-access-traffic",
+      "lastCrawled": "2026-06-06"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/pe-exam/construction-plan",
+      "comparisonKey": "/docs/general/pe-exam/construction-plan",
+      "lastCrawled": "2026-06-06"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/river-03-design",
+      "comparisonKey": "/docs/general/tech-management/river-03-design",
+      "lastCrawled": "2026-06-06"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road2-03-disaster-02",
+      "comparisonKey": "/docs/general/tech-management/road2-03-disaster-02",
+      "lastCrawled": "2026-06-06"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/concrete/ready-mixed",
+      "comparisonKey": "/docs/general/civil-general/concrete/ready-mixed",
+      "lastCrawled": "2026-06-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/earthwork/road-pavement",
+      "comparisonKey": "/docs/general/civil-general/earthwork/road-pavement",
+      "lastCrawled": "2026-06-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/foundation/pile-foundation-01",
+      "comparisonKey": "/docs/general/civil-general/foundation/pile-foundation-01",
+      "lastCrawled": "2026-06-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions/h29-a",
+      "comparisonKey": "/docs/general/exam-questions/h29-a",
+      "lastCrawled": "2026-06-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/river-04-flood-defense",
+      "comparisonKey": "/docs/general/tech-management/river-04-flood-defense",
+      "lastCrawled": "2026-06-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road1-07-reference",
+      "comparisonKey": "/docs/general/tech-management/road1-07-reference",
+      "lastCrawled": "2026-06-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/construction-machinery/tractor-scraper",
+      "comparisonKey": "/docs/general/civil-general/construction-machinery/tractor-scraper",
+      "lastCrawled": "2026-06-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions/r01-b",
+      "comparisonKey": "/docs/general/exam-questions/r01-b",
+      "lastCrawled": "2026-06-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/33-concrete-quality",
+      "comparisonKey": "/docs/general/hyogo-hikkei/33-concrete-quality",
+      "lastCrawled": "2026-06-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road2-06-traffic-01",
+      "comparisonKey": "/docs/general/tech-management/road2-06-traffic-01",
+      "lastCrawled": "2026-06-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/sabo1-03-design-01",
+      "comparisonKey": "/docs/general/tech-management/sabo1-03-design-01",
+      "lastCrawled": "2026-06-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch4-01",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch4-01",
+      "lastCrawled": "2026-06-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/related-laws/07-building-standards-act",
+      "comparisonKey": "/docs/general/construction-management/related-laws/07-building-standards-act",
+      "lastCrawled": "2026-06-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/safety-management/safety-construction-machinery",
+      "comparisonKey": "/docs/general/construction-management/safety-management/safety-construction-machinery",
+      "lastCrawled": "2026-06-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/safety-management/safety-related-provisions",
+      "comparisonKey": "/docs/general/construction-management/safety-management/safety-related-provisions",
+      "lastCrawled": "2026-06-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/pe-exam/river-erosion",
+      "comparisonKey": "/docs/general/pe-exam/river-erosion",
+      "lastCrawled": "2026-06-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/cem/study-plan",
+      "comparisonKey": "/docs/exam/cem/study-plan",
+      "lastCrawled": "2026-06-04"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/earthwork/embankment",
+      "comparisonKey": "/docs/general/civil-general/earthwork/embankment",
+      "lastCrawled": "2026-06-04"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/sabo2-02-survey",
+      "comparisonKey": "/docs/general/tech-management/sabo2-02-survey",
+      "lastCrawled": "2026-06-04"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/index",
+      "comparisonKey": "/docs/exam/index",
+      "lastCrawled": "2026-06-04"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/safety-management/safety-oxygen-deficiency",
+      "comparisonKey": "/docs/general/construction-management/safety-management/safety-oxygen-deficiency",
+      "lastCrawled": "2026-06-04"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/01-04-void-cancel",
+      "comparisonKey": "/docs/low/civil-law/01-04-void-cancel",
+      "lastCrawled": "2026-06-04"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/cem/schedule-2025",
+      "comparisonKey": "/docs/exam/cem/schedule-2025",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/earthwork/machinery-capacity",
+      "comparisonKey": "/docs/general/civil-general/earthwork/machinery-capacity",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/surveying/surveying-basics",
+      "comparisonKey": "/docs/general/civil-general/surveying/surveying-basics",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions/h27-a",
+      "comparisonKey": "/docs/general/exam-questions/h27-a",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road2-01-pavement-01",
+      "comparisonKey": "/docs/general/tech-management/road2-01-pavement-01",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road2-02-snow-03",
+      "comparisonKey": "/docs/general/tech-management/road2-02-snow-03",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road2-02-snow-04",
+      "comparisonKey": "/docs/general/tech-management/road2-02-snow-04",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/earthwork/earthwork-planning",
+      "comparisonKey": "/docs/general/civil-general/earthwork/earthwork-planning",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/surveying/leveling",
+      "comparisonKey": "/docs/general/civil-general/surveying/leveling",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/02-planning-theory",
+      "comparisonKey": "/docs/general/civil-planning/02-planning-theory",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/environmental-management/environmental-management-overview",
+      "comparisonKey": "/docs/general/construction-management/environmental-management/environmental-management-overview",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/related-laws/01-compliance-overview",
+      "comparisonKey": "/docs/general/construction-management/related-laws/01-compliance-overview",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/related-laws/05-road-act",
+      "comparisonKey": "/docs/general/construction-management/related-laws/05-road-act",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/05-06-dam-01",
+      "comparisonKey": "/docs/general/design-manual/05-06-dam-01",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions/h26-b",
+      "comparisonKey": "/docs/general/exam-questions/h26-b",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions/r02-a",
+      "comparisonKey": "/docs/general/exam-questions/r02-a",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions/r02-b",
+      "comparisonKey": "/docs/general/exam-questions/r02-b",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/29-natm",
+      "comparisonKey": "/docs/general/hyogo-hikkei/29-natm",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/bridge-03-construction",
+      "comparisonKey": "/docs/general/tech-management/bridge-03-construction",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road2-05-seismic-01",
+      "comparisonKey": "/docs/general/tech-management/road2-05-seismic-01",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/sabo3-01-overview",
+      "comparisonKey": "/docs/general/tech-management/sabo3-01-overview",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/concrete/construction",
+      "comparisonKey": "/docs/general/civil-general/concrete/construction",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/concrete/mix-design",
+      "comparisonKey": "/docs/general/civil-general/concrete/mix-design",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/construction-machinery/machinery-structure",
+      "comparisonKey": "/docs/general/civil-general/construction-machinery/machinery-structure",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/05-related-fields",
+      "comparisonKey": "/docs/general/civil-planning/05-related-fields",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/common",
+      "comparisonKey": "/docs/general/common-specs/common",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-15-mountain-tunnel",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-15-mountain-tunnel",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road1-05-box-culvert-02",
+      "comparisonKey": "/docs/general/tech-management/road1-05-box-culvert-02",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/sabo2-05-construction",
+      "comparisonKey": "/docs/general/tech-management/sabo2-05-construction",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/03-04-multiple-parties",
+      "comparisonKey": "/docs/low/civil-law/03-04-multiple-parties",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/state-edress-act/05",
+      "comparisonKey": "/docs/low/state-edress-act/05",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/02-ch13-load",
+      "comparisonKey": "/docs/port/fishery-port/02-ch13-load",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/08-transport",
+      "comparisonKey": "/docs/port/fishery-port/08-transport",
+      "lastCrawled": "2026-06-03"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/foundation/geological-survey",
+      "comparisonKey": "/docs/general/civil-general/foundation/geological-survey",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/13-road-facilities",
+      "comparisonKey": "/docs/general/civil-planning/13-road-facilities",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/construction-plan/quality-management-plan",
+      "comparisonKey": "/docs/general/construction-management/construction-plan/quality-management-plan",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/bridge-02-design-04",
+      "comparisonKey": "/docs/general/tech-management/bridge-02-design-04",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road1-02-earthwork-01",
+      "comparisonKey": "/docs/general/tech-management/road1-02-earthwork-01",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch4-04",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch4-04",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/concrete/concrete-overview",
+      "comparisonKey": "/docs/general/civil-general/concrete/concrete-overview",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/construction-machinery/grader-compaction",
+      "comparisonKey": "/docs/general/civil-general/construction-machinery/grader-compaction",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/demolition/demolition-construction",
+      "comparisonKey": "/docs/general/civil-general/demolition/demolition-construction",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/foundation/foundation-overview",
+      "comparisonKey": "/docs/general/civil-general/foundation/foundation-overview",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/surveying/distance-angle",
+      "comparisonKey": "/docs/general/civil-general/surveying/distance-angle",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/01-introduction",
+      "comparisonKey": "/docs/general/civil-planning/01-introduction",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/04-transportation",
+      "comparisonKey": "/docs/general/civil-planning/04-transportation",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/08-river-planning",
+      "comparisonKey": "/docs/general/civil-planning/08-river-planning",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/12-road-safety",
+      "comparisonKey": "/docs/general/civil-planning/12-road-safety",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/15-airport-planning",
+      "comparisonKey": "/docs/general/civil-planning/15-airport-planning",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/04-01-general",
+      "comparisonKey": "/docs/general/common-specs-hyogo/04-01-general",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/environmental-management/soil-contamination",
+      "comparisonKey": "/docs/general/construction-management/environmental-management/soil-contamination",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-guide/strategy",
+      "comparisonKey": "/docs/general/exam-guide/strategy",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions-2/construction-plan/basics",
+      "comparisonKey": "/docs/general/exam-questions-2/construction-plan/basics",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions-2/quality-management/basics",
+      "comparisonKey": "/docs/general/exam-questions-2/quality-management/basics",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions-2/quality-management/past-problems",
+      "comparisonKey": "/docs/general/exam-questions-2/quality-management/past-problems",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-19-demolition",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-19-demolition",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/31-crusher-slag",
+      "comparisonKey": "/docs/general/hyogo-hikkei/31-crusher-slag",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/bridge-04-reference-03",
+      "comparisonKey": "/docs/general/tech-management/bridge-04-reference-03",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/river-02-survey",
+      "comparisonKey": "/docs/general/tech-management/river-02-survey",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road1-02-earthwork-02",
+      "comparisonKey": "/docs/general/tech-management/road1-02-earthwork-02",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road2-04-tunnel",
+      "comparisonKey": "/docs/general/tech-management/road2-04-tunnel",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/administrative-appeal-act/admin-appeal-03",
+      "comparisonKey": "/docs/low/administrative-appeal-act/admin-appeal-03",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/25-fish-reef",
+      "comparisonKey": "/docs/port/fishery-port/25-fish-reef",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/concrete/properties",
+      "comparisonKey": "/docs/general/civil-general/concrete/properties",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/concrete/quality-inspection",
+      "comparisonKey": "/docs/general/civil-general/concrete/quality-inspection",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/construction-machinery/loading-transport",
+      "comparisonKey": "/docs/general/civil-general/construction-machinery/loading-transport",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/earthwork/slope-protection",
+      "comparisonKey": "/docs/general/civil-general/earthwork/slope-protection",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/earthwork/soft-ground",
+      "comparisonKey": "/docs/general/civil-general/earthwork/soft-ground",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/14-public-transport",
+      "comparisonKey": "/docs/general/civil-planning/14-public-transport",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/10-11-utility-tunnel",
+      "comparisonKey": "/docs/general/common-specs/10-11-utility-tunnel",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/dam",
+      "comparisonKey": "/docs/general/common-specs/dam",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/environmental-management/construction-byproducts",
+      "comparisonKey": "/docs/general/construction-management/environmental-management/construction-byproducts",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/environmental-management/waste-disposal-law",
+      "comparisonKey": "/docs/general/construction-management/environmental-management/waste-disposal-law",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/related-laws/06-river-act",
+      "comparisonKey": "/docs/general/construction-management/related-laws/06-river-act",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/safety-management/safety-bridge-compressed-air",
+      "comparisonKey": "/docs/general/construction-management/safety-management/safety-bridge-compressed-air",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/safety-management/safety-earthwork-foundation",
+      "comparisonKey": "/docs/general/construction-management/safety-management/safety-earthwork-foundation",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-05-box-culvert",
+      "comparisonKey": "/docs/general/design-manual/03-05-box-culvert",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/04-01-general",
+      "comparisonKey": "/docs/general/design-manual/04-01-general",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-guide/concrete-key-points",
+      "comparisonKey": "/docs/general/exam-guide/concrete-key-points",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions-2/experience-writing/guide",
+      "comparisonKey": "/docs/general/exam-questions-2/experience-writing/guide",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions/h30-a",
+      "comparisonKey": "/docs/general/exam-questions/h30-a",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions/r01-a",
+      "comparisonKey": "/docs/general/exam-questions/r01-a",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-06-transport",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-06-transport",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/bridge-01-plan-01",
+      "comparisonKey": "/docs/general/tech-management/bridge-01-plan-01",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/bridge-02-design-03",
+      "comparisonKey": "/docs/general/tech-management/bridge-02-design-03",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/bridge-02-design-05",
+      "comparisonKey": "/docs/general/tech-management/bridge-02-design-05",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/bridge-02-design-06",
+      "comparisonKey": "/docs/general/tech-management/bridge-02-design-06",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/bridge-02-design-07",
+      "comparisonKey": "/docs/general/tech-management/bridge-02-design-07",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/river-05-circular",
+      "comparisonKey": "/docs/general/tech-management/river-05-circular",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road1-04-drainage-02",
+      "comparisonKey": "/docs/general/tech-management/road1-04-drainage-02",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road1-06-pavement-02",
+      "comparisonKey": "/docs/general/tech-management/road1-06-pavement-02",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road2-02-snow-02",
+      "comparisonKey": "/docs/general/tech-management/road2-02-snow-02",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road2-03-disaster-01",
+      "comparisonKey": "/docs/general/tech-management/road2-03-disaster-01",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road2-06-traffic-02",
+      "comparisonKey": "/docs/general/tech-management/road2-06-traffic-02",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road2-06-traffic-03",
+      "comparisonKey": "/docs/general/tech-management/road2-06-traffic-03",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/sabo1-01-basic",
+      "comparisonKey": "/docs/general/tech-management/sabo1-01-basic",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/sabo2-01-general",
+      "comparisonKey": "/docs/general/tech-management/sabo2-01-general",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch4-02",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch4-02",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch4-06",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch4-06",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct43",
+      "comparisonKey": "/docs/low/constitution/ct43",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/02-ch02-tide",
+      "comparisonKey": "/docs/port/fishery-port/02-ch02-tide",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/20-power-generation",
+      "comparisonKey": "/docs/port/fishery-port/20-power-generation",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/related-laws/02-labor-standards-act",
+      "comparisonKey": "/docs/general/construction-management/related-laws/02-labor-standards-act",
+      "lastCrawled": "2026-05-31"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/pe-exam/secondary-guide",
+      "comparisonKey": "/docs/general/pe-exam/secondary-guide",
+      "lastCrawled": "2026-05-31"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/earthwork/cutting",
+      "comparisonKey": "/docs/general/civil-general/earthwork/cutting",
+      "lastCrawled": "2026-05-29"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/11-tourism",
+      "comparisonKey": "/docs/general/civil-planning/11-tourism",
+      "lastCrawled": "2026-05-29"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/12-port-coastal",
+      "comparisonKey": "/docs/general/common-specs-hyogo/12-port-coastal",
+      "lastCrawled": "2026-05-29"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/environmental-management/workplace-environment",
+      "comparisonKey": "/docs/general/construction-management/environmental-management/workplace-environment",
+      "lastCrawled": "2026-05-29"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/concrete/materials",
+      "comparisonKey": "/docs/general/civil-general/concrete/materials",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/safety-management/safety-tunnel",
+      "comparisonKey": "/docs/general/construction-management/safety-management/safety-tunnel",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions-2/concrete/basics",
+      "comparisonKey": "/docs/general/exam-questions-2/concrete/basics",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/37-rebar-cover",
+      "comparisonKey": "/docs/general/hyogo-hikkei/37-rebar-cover",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/local-autonomy-act/local-gov-07",
+      "comparisonKey": "/docs/low/local-autonomy-act/local-gov-07",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/004",
+      "comparisonKey": "/docs/road/road-law/004",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/construction-machinery/crane-aerial",
+      "comparisonKey": "/docs/general/civil-general/construction-machinery/crane-aerial",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/surveying/topographic-photo",
+      "comparisonKey": "/docs/general/civil-general/surveying/topographic-photo",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/09-water-resources",
+      "comparisonKey": "/docs/general/civil-planning/09-water-resources",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/04-12-telecom-tower",
+      "comparisonKey": "/docs/general/design-manual/04-12-telecom-tower",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-guide/earthwork-key-points",
+      "comparisonKey": "/docs/general/exam-guide/earthwork-key-points",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions/h26-a",
+      "comparisonKey": "/docs/general/exam-questions/h26-a",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/01-contract",
+      "comparisonKey": "/docs/general/hyogo-hikkei/01-contract",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/pe-exam/primary-guide",
+      "comparisonKey": "/docs/general/pe-exam/primary-guide",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/bridge-04-reference-02",
+      "comparisonKey": "/docs/general/tech-management/bridge-04-reference-02",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road1-05-box-culvert-01",
+      "comparisonKey": "/docs/general/tech-management/road1-05-box-culvert-01",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/sabo1-02-survey",
+      "comparisonKey": "/docs/general/tech-management/sabo1-02-survey",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/sabo1-03-design-02",
+      "comparisonKey": "/docs/general/tech-management/sabo1-03-design-02",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/sabo2-04-design-03",
+      "comparisonKey": "/docs/general/tech-management/sabo2-04-design-03",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-low/river-law-management-subject",
+      "comparisonKey": "/docs/river/river-low/river-law-management-subject",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/20-logistics",
+      "comparisonKey": "/docs/general/civil-planning/20-logistics",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-constitution/as-kenpo-01",
+      "comparisonKey": "/docs/low/admin-scrivener-constitution/as-kenpo-01",
+      "lastCrawled": "2026-05-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/safety-management/safety-dust-heatstroke",
+      "comparisonKey": "/docs/general/construction-management/safety-management/safety-dust-heatstroke",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions-2/concrete/past-problems",
+      "comparisonKey": "/docs/general/exam-questions-2/concrete/past-problems",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions-2/experience-writing/examples",
+      "comparisonKey": "/docs/general/exam-questions-2/experience-writing/examples",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/pe-exam/soil-foundation",
+      "comparisonKey": "/docs/general/pe-exam/soil-foundation",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/17-community-dev",
+      "comparisonKey": "/docs/general/civil-planning/17-community-dev",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/03-01-general",
+      "comparisonKey": "/docs/general/common-specs-hyogo/03-01-general",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/erosion",
+      "comparisonKey": "/docs/general/common-specs/erosion",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/environmental-management/byproduct-proper-disposal",
+      "comparisonKey": "/docs/general/construction-management/environmental-management/byproduct-proper-disposal",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/related-laws/03-construction-business-act",
+      "comparisonKey": "/docs/general/construction-management/related-laws/03-construction-business-act",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/related-laws/08-explosives-control-act",
+      "comparisonKey": "/docs/general/construction-management/related-laws/08-explosives-control-act",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-guide/four-management",
+      "comparisonKey": "/docs/general/exam-guide/four-management",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/bridge-02-design-01",
+      "comparisonKey": "/docs/general/tech-management/bridge-02-design-01",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/river-01-basic-01",
+      "comparisonKey": "/docs/general/tech-management/river-01-basic-01",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road1-03-retaining-wall-01",
+      "comparisonKey": "/docs/general/tech-management/road1-03-retaining-wall-01",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road2-02-snow-01",
+      "comparisonKey": "/docs/general/tech-management/road2-02-snow-01",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/sabo2-03-plan",
+      "comparisonKey": "/docs/general/tech-management/sabo2-03-plan",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/sabo2-04-design-01",
+      "comparisonKey": "/docs/general/tech-management/sabo2-04-design-01",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/sabo3-05-maintenance",
+      "comparisonKey": "/docs/general/tech-management/sabo3-05-maintenance",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch1-02",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch1-02",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch4-03",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch4-03",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/cem/exam-structure",
+      "comparisonKey": "/docs/exam/cem/exam-structure",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/18-landscape",
+      "comparisonKey": "/docs/general/civil-planning/18-landscape",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions/h29-b",
+      "comparisonKey": "/docs/general/exam-questions/h29-b",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/17-chromium",
+      "comparisonKey": "/docs/general/hyogo-hikkei/17-chromium",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/bridge-02-design-02",
+      "comparisonKey": "/docs/general/tech-management/bridge-02-design-02",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-commercial-law/as-shoho-07",
+      "comparisonKey": "/docs/low/admin-scrivener-commercial-law/as-shoho-07",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/02-04-usufruct",
+      "comparisonKey": "/docs/low/civil-law/02-04-usufruct",
+      "lastCrawled": "2026-05-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/06-land-planning",
+      "comparisonKey": "/docs/general/civil-planning/06-land-planning",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/10-disaster-prevention",
+      "comparisonKey": "/docs/general/civil-planning/10-disaster-prevention",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/10-10-parking",
+      "comparisonKey": "/docs/general/common-specs-hyogo/10-10-parking",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/environmental-management/noise-vibration",
+      "comparisonKey": "/docs/general/construction-management/environmental-management/noise-vibration",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/related-laws/04-standard-contract",
+      "comparisonKey": "/docs/general/construction-management/related-laws/04-standard-contract",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions-2/construction-plan/past-problems",
+      "comparisonKey": "/docs/general/exam-questions-2/construction-plan/past-problems",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions/h27-b",
+      "comparisonKey": "/docs/general/exam-questions/h27-b",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-commercial-law/as-shoho-03",
+      "comparisonKey": "/docs/low/admin-scrivener-commercial-law/as-shoho-03",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/concrete/special-concrete",
+      "comparisonKey": "/docs/general/civil-general/concrete/special-concrete",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/foundation/earth-retaining",
+      "comparisonKey": "/docs/general/civil-general/foundation/earth-retaining",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/safety-management/safety-weather-debris-flow",
+      "comparisonKey": "/docs/general/construction-management/safety-management/safety-weather-debris-flow",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions/h28-b",
+      "comparisonKey": "/docs/general/exam-questions/h28-b",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/kousakubutsu",
+      "comparisonKey": "/docs/river/kousakubutsu",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/19-mobility-mgmt",
+      "comparisonKey": "/docs/general/civil-planning/19-mobility-mgmt",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/related-laws/09-port-regulations-act",
+      "comparisonKey": "/docs/general/construction-management/related-laws/09-port-regulations-act",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/safety-management/safety-reinforced-concrete",
+      "comparisonKey": "/docs/general/construction-management/safety-management/safety-reinforced-concrete",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-13-environment",
+      "comparisonKey": "/docs/general/design-manual/03-13-environment",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/bridge-04-reference-01",
+      "comparisonKey": "/docs/general/tech-management/bridge-04-reference-01",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/sabo1-03-design-03",
+      "comparisonKey": "/docs/general/tech-management/sabo1-03-design-03",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-commercial-law/as-shoho-05",
+      "comparisonKey": "/docs/low/admin-scrivener-commercial-law/as-shoho-05",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/07-env-urban-planning",
+      "comparisonKey": "/docs/general/civil-planning/07-env-urban-planning",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/pe-exam/concrete-points",
+      "comparisonKey": "/docs/general/pe-exam/concrete-points",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road2-05-seismic-02",
+      "comparisonKey": "/docs/general/tech-management/road2-05-seismic-02",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/02-02-possession",
+      "comparisonKey": "/docs/low/civil-law/02-02-possession",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/01",
+      "comparisonKey": "/docs/low/constitution/01",
+      "lastCrawled": "2026-05-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-guide/law-key-points",
+      "comparisonKey": "/docs/general/exam-guide/law-key-points",
+      "lastCrawled": "2026-05-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/sabo2-04-design-02",
+      "comparisonKey": "/docs/general/tech-management/sabo2-04-design-02",
+      "lastCrawled": "2026-05-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-low/river-construction",
+      "comparisonKey": "/docs/river/river-low/river-construction",
+      "lastCrawled": "2026-05-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/construction-machinery/machinery-overview",
+      "comparisonKey": "/docs/general/civil-general/construction-machinery/machinery-overview",
+      "lastCrawled": "2026-05-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/demolition/demolition-types",
+      "comparisonKey": "/docs/general/civil-general/demolition/demolition-types",
+      "lastCrawled": "2026-05-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/foundation/pile-foundation-02",
+      "comparisonKey": "/docs/general/civil-general/foundation/pile-foundation-02",
+      "lastCrawled": "2026-05-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/environmental-management/neighborhood-environment",
+      "comparisonKey": "/docs/general/construction-management/environmental-management/neighborhood-environment",
+      "lastCrawled": "2026-05-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road1-04-drainage-01",
+      "comparisonKey": "/docs/general/tech-management/road1-04-drainage-01",
+      "lastCrawled": "2026-05-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-low/river-law-overview",
+      "comparisonKey": "/docs/river/river-low/river-law-overview",
+      "lastCrawled": "2026-05-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/02-04-drop-structure",
+      "comparisonKey": "/docs/general/design-manual/02-04-drop-structure",
+      "lastCrawled": "2026-05-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-questions-2/earthwork/basics",
+      "comparisonKey": "/docs/general/exam-questions-2/earthwork/basics",
+      "lastCrawled": "2026-05-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/pe-exam/road-points",
+      "comparisonKey": "/docs/general/pe-exam/road-points",
+      "lastCrawled": "2026-05-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/rccm-exam/guide",
+      "comparisonKey": "/docs/general/rccm-exam/guide",
+      "lastCrawled": "2026-05-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road1-06-pavement-01",
+      "comparisonKey": "/docs/general/tech-management/road1-06-pavement-01",
+      "lastCrawled": "2026-05-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-11-road-appurtenances",
+      "comparisonKey": "/docs/general/design-manual/03-11-road-appurtenances",
+      "lastCrawled": "2026-05-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/16-port-planning",
+      "comparisonKey": "/docs/general/civil-planning/16-port-planning",
+      "lastCrawled": "2026-05-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-process-scheduling",
+      "comparisonKey": "/docs/pe-comprehensive-management-process-scheduling",
+      "lastCrawled": "2026-05-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/10-03-substructure",
+      "comparisonKey": "/docs/general/common-specs-hyogo/10-03-substructure",
+      "lastCrawled": "2026-05-19"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-general/construction-machinery/excavator",
+      "comparisonKey": "/docs/general/civil-general/construction-machinery/excavator",
+      "lastCrawled": "2026-05-19"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/exam-guide/concrete-maintenance",
+      "comparisonKey": "/docs/general/exam-guide/concrete-maintenance",
+      "lastCrawled": "2026-05-19"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/sabo3-04-design-03",
+      "comparisonKey": "/docs/general/tech-management/sabo3-04-design-03",
+      "lastCrawled": "2026-05-19"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-design/01-02-levee",
+      "comparisonKey": "/docs/river/river-design/01-02-levee",
+      "lastCrawled": "2026-05-14"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-chisei/07",
+      "comparisonKey": "/docs/river/river-chisei/07",
+      "lastCrawled": "2026-05-13"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/001",
+      "comparisonKey": "/docs/road/road-law/001",
+      "lastCrawled": "2026-05-13"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/secondary/experience-writing/examples",
+      "comparisonKey": "/docs/exam/civil-construction-1/secondary/experience-writing/examples",
+      "lastCrawled": "2026-05-12"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/secondary/earthwork/basics",
+      "comparisonKey": "/docs/exam/civil-construction-1/secondary/earthwork/basics",
+      "lastCrawled": "2026-05-12"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-06-bridge-super-03",
+      "comparisonKey": "/docs/general/design-manual/03-06-bridge-super-03",
+      "lastCrawled": "2026-05-11"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct28",
+      "comparisonKey": "/docs/low/constitution/ct28",
+      "lastCrawled": "2026-05-11"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-management/road-concept",
+      "comparisonKey": "/docs/road/road-management/road-concept",
+      "lastCrawled": "2026-05-11"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1",
+      "comparisonKey": "/docs/exam/civil-construction-1",
+      "lastCrawled": "2026-05-11"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/secondary/concrete/basics",
+      "comparisonKey": "/docs/exam/civil-construction-1/secondary/concrete/basics",
+      "lastCrawled": "2026-05-11"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/38-02-suspension",
+      "comparisonKey": "/docs/general/hyogo-hikkei/38-02-suspension",
+      "lastCrawled": "2026-05-11"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/01-03-agency",
+      "comparisonKey": "/docs/low/civil-law/01-03-agency",
+      "lastCrawled": "2026-05-11"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-commercial-law/as-shoho-06",
+      "comparisonKey": "/docs/low/admin-scrivener-commercial-law/as-shoho-06",
+      "lastCrawled": "2026-05-10"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-chisei/04",
+      "comparisonKey": "/docs/river/river-chisei/04",
+      "lastCrawled": "2026-05-10"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/035",
+      "comparisonKey": "/docs/road/road-law/035",
+      "lastCrawled": "2026-05-10"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/04-02-power-04",
+      "comparisonKey": "/docs/general/design-manual/04-02-power-04",
+      "lastCrawled": "2026-05-10"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-management/01",
+      "comparisonKey": "/docs/river/river-management/01",
+      "lastCrawled": "2026-05-08"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-guideline/02-ref3-multi-protection-01",
+      "comparisonKey": "/docs/port/fishery-guideline/02-ref3-multi-protection-01",
+      "lastCrawled": "2026-05-06"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/02-ch10-earth-pressure",
+      "comparisonKey": "/docs/port/fishery-port/02-ch10-earth-pressure",
+      "lastCrawled": "2026-05-06"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-research-plan/river-planning",
+      "comparisonKey": "/docs/river/river-research-plan/river-planning",
+      "lastCrawled": "2026-05-06"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/asset-management/01",
+      "comparisonKey": "/docs/general/asset-management/01",
+      "lastCrawled": "2026-05-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/02-02-materials-civil",
+      "comparisonKey": "/docs/general/common-specs-hyogo/02-02-materials-civil",
+      "lastCrawled": "2026-05-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/10-12-cable-duct",
+      "comparisonKey": "/docs/general/common-specs/10-12-cable-duct",
+      "lastCrawled": "2026-05-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/02-ch04-wave-force",
+      "comparisonKey": "/docs/port/fishery-port/02-ch04-wave-force",
+      "lastCrawled": "2026-05-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/03-01-general",
+      "comparisonKey": "/docs/general/common-specs/03-01-general",
+      "lastCrawled": "2026-05-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/construction-plan/other-management-plans",
+      "comparisonKey": "/docs/general/construction-management/construction-plan/other-management-plans",
+      "lastCrawled": "2026-05-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/environmental-management/construction-recycling-law",
+      "comparisonKey": "/docs/general/construction-management/environmental-management/construction-recycling-law",
+      "lastCrawled": "2026-05-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/11-road-signs",
+      "comparisonKey": "/docs/general/hyogo-hikkei/11-road-signs",
+      "lastCrawled": "2026-05-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/02-ch05-tsunami",
+      "comparisonKey": "/docs/port/fishery-port/02-ch05-tsunami",
+      "lastCrawled": "2026-05-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-term",
+      "comparisonKey": "/docs/river/river-term",
+      "lastCrawled": "2026-05-01"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/labor-standards-act/labor-03",
+      "comparisonKey": "/docs/low/labor-standards-act/labor-03",
+      "lastCrawled": "2026-04-30"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-availability-security",
+      "comparisonKey": "/docs/pe-comprehensive-management-availability-security",
+      "lastCrawled": "2026-04-30"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/029",
+      "comparisonKey": "/docs/road/road-law/029",
+      "lastCrawled": "2026-04-30"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/10-01-improvement",
+      "comparisonKey": "/docs/general/common-specs/10-01-improvement",
+      "lastCrawled": "2026-04-29"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-15-pedestrian",
+      "comparisonKey": "/docs/general/design-manual/03-15-pedestrian",
+      "lastCrawled": "2026-04-29"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/primary/r01-b",
+      "comparisonKey": "/docs/exam/civil-construction-1/primary/r01-b",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-constitution/as-kenpo-02-05",
+      "comparisonKey": "/docs/low/admin-scrivener-constitution/as-kenpo-02-05",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/05-06-spouse-residence",
+      "comparisonKey": "/docs/low/civil-law/05-06-spouse-residence",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct94",
+      "comparisonKey": "/docs/low/constitution/ct94",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/11-land-aquaculture",
+      "comparisonKey": "/docs/port/fishery-port/11-land-aquaculture",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/19-direct-sales",
+      "comparisonKey": "/docs/port/fishery-port/19-direct-sales",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/24-settlement-01",
+      "comparisonKey": "/docs/port/fishery-port/24-settlement-01",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-design/01-10-river-tunnel",
+      "comparisonKey": "/docs/river/river-design/01-10-river-tunnel",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-management/closure-of-road",
+      "comparisonKey": "/docs/road/road-management/closure-of-road",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-public-acceptance-comm",
+      "comparisonKey": "/docs/pe-comprehensive-management-public-acceptance-comm",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/cem/five-fields/human-resources",
+      "comparisonKey": "/docs/exam/cem/five-fields/human-resources",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/guide/law-key-points",
+      "comparisonKey": "/docs/exam/civil-construction-1/guide/law-key-points",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/guide/strategy",
+      "comparisonKey": "/docs/exam/civil-construction-1/guide/strategy",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/primary/h27-a",
+      "comparisonKey": "/docs/exam/civil-construction-1/primary/h27-a",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/primary/h28-a",
+      "comparisonKey": "/docs/exam/civil-construction-1/primary/h28-a",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/primary/h30-b",
+      "comparisonKey": "/docs/exam/civil-construction-1/primary/h30-b",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/pe/construction-plan",
+      "comparisonKey": "/docs/exam/pe/construction-plan",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/10-14-maintenance",
+      "comparisonKey": "/docs/general/common-specs/10-14-maintenance",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/project-management/process-chart-types",
+      "comparisonKey": "/docs/general/construction-management/project-management/process-chart-types",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/quality-management/process-capability-chart",
+      "comparisonKey": "/docs/general/construction-management/quality-management/process-capability-chart",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/01-02-temporary-01",
+      "comparisonKey": "/docs/general/design-manual/01-02-temporary-01",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/02-14-erosion-control-01",
+      "comparisonKey": "/docs/general/design-manual/02-14-erosion-control-01",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-03-retaining-wall-02",
+      "comparisonKey": "/docs/general/design-manual/03-03-retaining-wall-02",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-08-tunnel-01",
+      "comparisonKey": "/docs/general/design-manual/03-08-tunnel-01",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/04-03-wiring-01",
+      "comparisonKey": "/docs/general/design-manual/04-03-wiring-01",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/04-06-road-info",
+      "comparisonKey": "/docs/general/design-manual/04-06-road-info",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/04-07-roadside-comm",
+      "comparisonKey": "/docs/general/design-manual/04-07-roadside-comm",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/05-01-gate-01",
+      "comparisonKey": "/docs/general/design-manual/05-01-gate-01",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/05-02-pump-01",
+      "comparisonKey": "/docs/general/design-manual/05-02-pump-01",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/05-04-snow-melt-01",
+      "comparisonKey": "/docs/general/design-manual/05-04-snow-melt-01",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-13-road",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-13-road",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-14-bridge",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-14-bridge",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/16-water-quality",
+      "comparisonKey": "/docs/general/hyogo-hikkei/16-water-quality",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/23-02-explosives",
+      "comparisonKey": "/docs/general/hyogo-hikkei/23-02-explosives",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/36-unit-water",
+      "comparisonKey": "/docs/general/hyogo-hikkei/36-unit-water",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/38-01-design-change",
+      "comparisonKey": "/docs/general/hyogo-hikkei/38-01-design-change",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/spatial-information/05",
+      "comparisonKey": "/docs/general/spatial-information/05",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch2-02",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch2-02",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch6-04",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch6-04",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-constitution/as-kenpo-02-01",
+      "comparisonKey": "/docs/low/admin-scrivener-constitution/as-kenpo-02-01",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-constitution/as-kenpo-02-07",
+      "comparisonKey": "/docs/low/admin-scrivener-constitution/as-kenpo-02-07",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/01-02-declaration",
+      "comparisonKey": "/docs/low/civil-law/01-02-declaration",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/02-03-ownership",
+      "comparisonKey": "/docs/low/civil-law/02-03-ownership",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct29",
+      "comparisonKey": "/docs/low/constitution/ct29",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/local-autonomy-act/local-gov-01",
+      "comparisonKey": "/docs/low/local-autonomy-act/local-gov-01",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/02-ch15-water-quality",
+      "comparisonKey": "/docs/port/fishery-port/02-ch15-water-quality",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/03-materials",
+      "comparisonKey": "/docs/port/fishery-port/03-materials",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/05-outer-facilities-02",
+      "comparisonKey": "/docs/port/fishery-port/05-outer-facilities-02",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/06-mooring-02",
+      "comparisonKey": "/docs/port/fishery-port/06-mooring-02",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/12-aquaculture-work",
+      "comparisonKey": "/docs/port/fishery-port/12-aquaculture-work",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/hydraulics/01",
+      "comparisonKey": "/docs/river/hydraulics/01",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/hydraulics/12",
+      "comparisonKey": "/docs/river/hydraulics/12",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/hydrology/07",
+      "comparisonKey": "/docs/river/hydrology/07",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-chisei/01",
+      "comparisonKey": "/docs/river/river-chisei/01",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-chisei/06",
+      "comparisonKey": "/docs/river/river-chisei/06",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-design/design",
+      "comparisonKey": "/docs/river/river-design/design",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/002",
+      "comparisonKey": "/docs/road/road-law/002",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/052",
+      "comparisonKey": "/docs/road/road-law/052",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/072",
+      "comparisonKey": "/docs/road/road-law/072",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/099",
+      "comparisonKey": "/docs/road/road-law/099",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/101",
+      "comparisonKey": "/docs/road/road-law/101",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/105",
+      "comparisonKey": "/docs/road/road-law/105",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-management/costs-related-to-roads",
+      "comparisonKey": "/docs/road/road-management/costs-related-to-roads",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-risk-evaluation",
+      "comparisonKey": "/docs/pe-comprehensive-management-risk-evaluation",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-construction-plan-text-01",
+      "comparisonKey": "/docs/civil-construction-1-textbook-construction-plan-text-01",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-labor-standards-act-osh",
+      "comparisonKey": "/docs/pe-comprehensive-management-labor-standards-act-osh",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-schedule-management",
+      "comparisonKey": "/docs/civil-construction-1-textbook-schedule-management",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/environment/noise-evaluation/road/measurement",
+      "comparisonKey": "/docs/environment/noise-evaluation/road/measurement",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/guide/concrete-key-points",
+      "comparisonKey": "/docs/exam/civil-construction-1/guide/concrete-key-points",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/guide/concrete-maintenance",
+      "comparisonKey": "/docs/exam/civil-construction-1/guide/concrete-maintenance",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/primary/h27-b",
+      "comparisonKey": "/docs/exam/civil-construction-1/primary/h27-b",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/primary/r02-b",
+      "comparisonKey": "/docs/exam/civil-construction-1/primary/r02-b",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/secondary/concrete/past-problems",
+      "comparisonKey": "/docs/exam/civil-construction-1/secondary/concrete/past-problems",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/asset-management/04",
+      "comparisonKey": "/docs/general/asset-management/04",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/02-01-materials-general",
+      "comparisonKey": "/docs/general/common-specs-hyogo/02-01-materials-general",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/10-11-utility-tunnel",
+      "comparisonKey": "/docs/general/common-specs-hyogo/10-11-utility-tunnel",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/14-02-planting",
+      "comparisonKey": "/docs/general/common-specs-hyogo/14-02-planting",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/14-05-nature-conservation",
+      "comparisonKey": "/docs/general/common-specs-hyogo/14-05-nature-conservation",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/06-river-02",
+      "comparisonKey": "/docs/general/common-specs/06-river-02",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/10-13-infobox",
+      "comparisonKey": "/docs/general/common-specs/10-13-infobox",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/construction-plan/preliminary-survey",
+      "comparisonKey": "/docs/general/construction-management/construction-plan/preliminary-survey",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/safety-management/safety-measures-civil-engineering",
+      "comparisonKey": "/docs/general/construction-management/safety-management/safety-measures-civil-engineering",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-07-bridge-sub",
+      "comparisonKey": "/docs/general/design-manual/03-07-bridge-sub",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-12-overpass",
+      "comparisonKey": "/docs/general/design-manual/03-12-overpass",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-16-seismic-retrofit",
+      "comparisonKey": "/docs/general/design-manual/03-16-seismic-retrofit",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/04-04-road-lighting-01",
+      "comparisonKey": "/docs/general/design-manual/04-04-road-lighting-01",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/05-02-pump-03",
+      "comparisonKey": "/docs/general/design-manual/05-02-pump-03",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/05-03-tunnel-mech-03",
+      "comparisonKey": "/docs/general/design-manual/05-03-tunnel-mech-03",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/05-04-snow-melt-03",
+      "comparisonKey": "/docs/general/design-manual/05-04-snow-melt-03",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/05-06-dam-02",
+      "comparisonKey": "/docs/general/design-manual/05-06-dam-02",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/02-01-clause25-overview",
+      "comparisonKey": "/docs/general/hyogo-hikkei/02-01-clause25-overview",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/04-engineers",
+      "comparisonKey": "/docs/general/hyogo-hikkei/04-engineers",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-04-machinery",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-04-machinery",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-07-earthwork",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-07-earthwork",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-16-shield-tunnel",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-16-shield-tunnel",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/10-signboard",
+      "comparisonKey": "/docs/general/hyogo-hikkei/10-signboard",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/13-byproduct",
+      "comparisonKey": "/docs/general/hyogo-hikkei/13-byproduct",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/14-recycling",
+      "comparisonKey": "/docs/general/hyogo-hikkei/14-recycling",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/18-grouting-guidelines",
+      "comparisonKey": "/docs/general/hyogo-hikkei/18-grouting-guidelines",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/20-01-construction-mgmt",
+      "comparisonKey": "/docs/general/hyogo-hikkei/20-01-construction-mgmt",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/22-ri-compaction",
+      "comparisonKey": "/docs/general/hyogo-hikkei/22-ri-compaction",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/32-anchor-bolt",
+      "comparisonKey": "/docs/general/hyogo-hikkei/32-anchor-bolt",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/34-concrete-strength",
+      "comparisonKey": "/docs/general/hyogo-hikkei/34-concrete-strength",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch3-03",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch3-03",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-constitution/as-kenpo-02-03",
+      "comparisonKey": "/docs/low/admin-scrivener-constitution/as-kenpo-02-03",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-constitution/as-kenpo-03-04",
+      "comparisonKey": "/docs/low/admin-scrivener-constitution/as-kenpo-03-04",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/03-02-default",
+      "comparisonKey": "/docs/low/civil-law/03-02-default",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/03-03-preservation",
+      "comparisonKey": "/docs/low/civil-law/03-03-preservation",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/03-11-non-contract",
+      "comparisonKey": "/docs/low/civil-law/03-11-non-contract",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/04-03-parental-authority",
+      "comparisonKey": "/docs/low/civil-law/04-03-parental-authority",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/05-01-heir",
+      "comparisonKey": "/docs/low/civil-law/05-01-heir",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/05-04-will",
+      "comparisonKey": "/docs/low/civil-law/05-04-will",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct12",
+      "comparisonKey": "/docs/low/constitution/ct12",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct34",
+      "comparisonKey": "/docs/low/constitution/ct34",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct40",
+      "comparisonKey": "/docs/low/constitution/ct40",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct81",
+      "comparisonKey": "/docs/low/constitution/ct81",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/labor-standards-act/labor-05",
+      "comparisonKey": "/docs/low/labor-standards-act/labor-05",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/local-autonomy-act/local-gov-05",
+      "comparisonKey": "/docs/low/local-autonomy-act/local-gov-05",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/state-edress-act/02",
+      "comparisonKey": "/docs/low/state-edress-act/02",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-guideline/02-ref3-multi-protection-02",
+      "comparisonKey": "/docs/port/fishery-guideline/02-ref3-multi-protection-02",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/04-foundation-02",
+      "comparisonKey": "/docs/port/fishery-port/04-foundation-02",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/06-mooring-01",
+      "comparisonKey": "/docs/port/fishery-port/06-mooring-01",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/09-port-land",
+      "comparisonKey": "/docs/port/fishery-port/09-port-land",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/14-distribution",
+      "comparisonKey": "/docs/port/fishery-port/14-distribution",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/17-processing",
+      "comparisonKey": "/docs/port/fishery-port/17-processing",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/hydraulics/05",
+      "comparisonKey": "/docs/river/hydraulics/05",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/hydrology/02",
+      "comparisonKey": "/docs/river/hydrology/02",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-chisei/13",
+      "comparisonKey": "/docs/river/river-chisei/13",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-chisei/14",
+      "comparisonKey": "/docs/river/river-chisei/14",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-design/01-09-sluice-gate",
+      "comparisonKey": "/docs/river/river-design/01-09-sluice-gate",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-management/05",
+      "comparisonKey": "/docs/river/river-management/05",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-planning",
+      "comparisonKey": "/docs/river/river-planning",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/water-resource-planning",
+      "comparisonKey": "/docs/river/water-resource-planning",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/042",
+      "comparisonKey": "/docs/road/road-law/042",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/057",
+      "comparisonKey": "/docs/road/road-law/057",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-management/road-conflict",
+      "comparisonKey": "/docs/road/road-management/road-conflict",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-traffic-management/01",
+      "comparisonKey": "/docs/road/road-traffic-management/01",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-traffic-management/02",
+      "comparisonKey": "/docs/road/road-traffic-management/02",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-traffic-management/06",
+      "comparisonKey": "/docs/road/road-traffic-management/06",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-reemployment-system-labor",
+      "comparisonKey": "/docs/pe-comprehensive-management-reemployment-system-labor",
+      "lastCrawled": "2026-04-28"
+    },
+    {
+      "url": "https://doboku-note.com/docs/environment/noise-evaluation/road/intro",
+      "comparisonKey": "/docs/environment/noise-evaluation/road/intro",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/cem/five-fields/economics",
+      "comparisonKey": "/docs/exam/cem/five-fields/economics",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/pe/primary-guide",
+      "comparisonKey": "/docs/exam/pe/primary-guide",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/asset-management/06",
+      "comparisonKey": "/docs/general/asset-management/06",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/03-02-construction-01",
+      "comparisonKey": "/docs/general/common-specs-hyogo/03-02-construction-01",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/10-08-steel-shed",
+      "comparisonKey": "/docs/general/common-specs-hyogo/10-08-steel-shed",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/10-14-maintenance",
+      "comparisonKey": "/docs/general/common-specs-hyogo/10-14-maintenance",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/03-02-construction-02a",
+      "comparisonKey": "/docs/general/common-specs/03-02-construction-02a",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/10-05-concrete-bridge",
+      "comparisonKey": "/docs/general/common-specs/10-05-concrete-bridge",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/safety-management/construction-safety-prevention",
+      "comparisonKey": "/docs/general/construction-management/safety-management/construction-safety-prevention",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/02-06-sluice",
+      "comparisonKey": "/docs/general/design-manual/02-06-sluice",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/02-14-erosion-control-02",
+      "comparisonKey": "/docs/general/design-manual/02-14-erosion-control-02",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/02-15-landslide",
+      "comparisonKey": "/docs/general/design-manual/02-15-landslide",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/04-10-cctv",
+      "comparisonKey": "/docs/general/design-manual/04-10-cctv",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/05-04-snow-melt-02",
+      "comparisonKey": "/docs/general/design-manual/05-04-snow-melt-02",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/05-08-irrigation",
+      "comparisonKey": "/docs/general/design-manual/05-08-irrigation",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-03-underground-overhead",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-03-underground-overhead",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-12-debris-flow",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-12-debris-flow",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/07-machinery-safety",
+      "comparisonKey": "/docs/general/hyogo-hikkei/07-machinery-safety",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/20-02-construction-mgmt",
+      "comparisonKey": "/docs/general/hyogo-hikkei/20-02-construction-mgmt",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/25-levee-surcharge",
+      "comparisonKey": "/docs/general/hyogo-hikkei/25-levee-surcharge",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/38-03-review",
+      "comparisonKey": "/docs/general/hyogo-hikkei/38-03-review",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch1-01",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch1-01",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch1-04",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch1-04",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch3-02",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch3-02",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch6-01",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch6-01",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-basic-law/basic-law-02",
+      "comparisonKey": "/docs/low/admin-scrivener-basic-law/basic-law-02",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/administrative-appeal-act/admin-appeal-04",
+      "comparisonKey": "/docs/low/administrative-appeal-act/admin-appeal-04",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/administrative-law/admin-general-01",
+      "comparisonKey": "/docs/low/administrative-law/admin-general-01",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/administrative-law/admin-general-04",
+      "comparisonKey": "/docs/low/administrative-law/admin-general-04",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/01-01-subject-object",
+      "comparisonKey": "/docs/low/civil-law/01-01-subject-object",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/03-06-extinction",
+      "comparisonKey": "/docs/low/civil-law/03-06-extinction",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/04-02-parent-child",
+      "comparisonKey": "/docs/low/civil-law/04-02-parent-child",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct79",
+      "comparisonKey": "/docs/low/constitution/ct79",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/information-disclosure-act/01",
+      "comparisonKey": "/docs/low/information-disclosure-act/01",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/labor-standards-act/labor-04",
+      "comparisonKey": "/docs/low/labor-standards-act/labor-04",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/local-autonomy-act/local-gov-02",
+      "comparisonKey": "/docs/low/local-autonomy-act/local-gov-02",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/state-edress-act/06",
+      "comparisonKey": "/docs/low/state-edress-act/06",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/02-ch01-basics",
+      "comparisonKey": "/docs/port/fishery-port/02-ch01-basics",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/02-ch08-sediment",
+      "comparisonKey": "/docs/port/fishery-port/02-ch08-sediment",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/disaster-prevention-plan/01",
+      "comparisonKey": "/docs/river/disaster-prevention-plan/01",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/disaster-prevention-plan/03",
+      "comparisonKey": "/docs/river/disaster-prevention-plan/03",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/hydraulics/06",
+      "comparisonKey": "/docs/river/hydraulics/06",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/006",
+      "comparisonKey": "/docs/road/road-law/006",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/008",
+      "comparisonKey": "/docs/road/road-law/008",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/033",
+      "comparisonKey": "/docs/road/road-law/033",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/034",
+      "comparisonKey": "/docs/road/road-law/034",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/054",
+      "comparisonKey": "/docs/road/road-law/054",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/055",
+      "comparisonKey": "/docs/road/road-law/055",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/065",
+      "comparisonKey": "/docs/road/road-law/065",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/069",
+      "comparisonKey": "/docs/road/road-law/069",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/070",
+      "comparisonKey": "/docs/road/road-law/070",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/097",
+      "comparisonKey": "/docs/road/road-law/097",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/106",
+      "comparisonKey": "/docs/road/road-law/106",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-management/road-manager",
+      "comparisonKey": "/docs/road/road-management/road-manager",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-traffic-management/04",
+      "comparisonKey": "/docs/road/road-traffic-management/04",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/environment/noise-evaluation/road/evaluation",
+      "comparisonKey": "/docs/environment/noise-evaluation/road/evaluation",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/primary",
+      "comparisonKey": "/docs/exam/civil-construction-1/primary",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/primary/h26-b",
+      "comparisonKey": "/docs/exam/civil-construction-1/primary/h26-b",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/asset-management/02",
+      "comparisonKey": "/docs/general/asset-management/02",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/asset-management/05",
+      "comparisonKey": "/docs/general/asset-management/05",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/03-02-construction-02",
+      "comparisonKey": "/docs/general/common-specs-hyogo/03-02-construction-02",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/10-04-steel-bridge",
+      "comparisonKey": "/docs/general/common-specs-hyogo/10-04-steel-bridge",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/14-04-ground-court",
+      "comparisonKey": "/docs/general/common-specs-hyogo/14-04-ground-court",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/07-coastal",
+      "comparisonKey": "/docs/general/common-specs/07-coastal",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/09-dam",
+      "comparisonKey": "/docs/general/common-specs/09-dam",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/construction-plan/construction-planning-overview",
+      "comparisonKey": "/docs/general/construction-management/construction-plan/construction-planning-overview",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/quality-management/quality-management-overview",
+      "comparisonKey": "/docs/general/construction-management/quality-management/quality-management-overview",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/02-07-floodgate",
+      "comparisonKey": "/docs/general/design-manual/02-07-floodgate",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/02-09-intake",
+      "comparisonKey": "/docs/general/design-manual/02-09-intake",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/05-forms",
+      "comparisonKey": "/docs/general/hyogo-hikkei/05-forms",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-02-safety-measures",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-02-safety-measures",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/21-chloride-alkali",
+      "comparisonKey": "/docs/general/hyogo-hikkei/21-chloride-alkali",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/23-03-explosives",
+      "comparisonKey": "/docs/general/hyogo-hikkei/23-03-explosives",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/41-recycling-signs",
+      "comparisonKey": "/docs/general/hyogo-hikkei/41-recycling-signs",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/spatial-information/03",
+      "comparisonKey": "/docs/general/spatial-information/03",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/spatial-information/04",
+      "comparisonKey": "/docs/general/spatial-information/04",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-commercial-law/as-shoho-01",
+      "comparisonKey": "/docs/low/admin-scrivener-commercial-law/as-shoho-01",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-constitution/as-kenpo-02-02",
+      "comparisonKey": "/docs/low/admin-scrivener-constitution/as-kenpo-02-02",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/administrative-appeal-act/admin-appeal-01",
+      "comparisonKey": "/docs/low/administrative-appeal-act/admin-appeal-01",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/administrative-law/admin-general-05",
+      "comparisonKey": "/docs/low/administrative-law/admin-general-05",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/administrative-law/admin-general-06",
+      "comparisonKey": "/docs/low/administrative-law/admin-general-06",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/02-01-property-general",
+      "comparisonKey": "/docs/low/civil-law/02-01-property-general",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/05-03-acceptance-renunciation",
+      "comparisonKey": "/docs/low/civil-law/05-03-acceptance-renunciation",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct20",
+      "comparisonKey": "/docs/low/constitution/ct20",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct24",
+      "comparisonKey": "/docs/low/constitution/ct24",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct25",
+      "comparisonKey": "/docs/low/constitution/ct25",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/local-autonomy-act/local-gov-03",
+      "comparisonKey": "/docs/low/local-autonomy-act/local-gov-03",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/07-water-area",
+      "comparisonKey": "/docs/port/fishery-port/07-water-area",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/15-warehouse",
+      "comparisonKey": "/docs/port/fishery-port/15-warehouse",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/22-environment",
+      "comparisonKey": "/docs/port/fishery-port/22-environment",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/23-windbreak",
+      "comparisonKey": "/docs/port/fishery-port/23-windbreak",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/26-propagation-reef",
+      "comparisonKey": "/docs/port/fishery-port/26-propagation-reef",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/disaster-prevention-plan/04",
+      "comparisonKey": "/docs/river/disaster-prevention-plan/04",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-design/01-08-culvert",
+      "comparisonKey": "/docs/river/river-design/01-08-culvert",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-design/planning-survey",
+      "comparisonKey": "/docs/river/river-design/planning-survey",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/009",
+      "comparisonKey": "/docs/road/road-law/009",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/013",
+      "comparisonKey": "/docs/road/road-law/013",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/018",
+      "comparisonKey": "/docs/road/road-law/018",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/027",
+      "comparisonKey": "/docs/road/road-law/027",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/032",
+      "comparisonKey": "/docs/road/road-law/032",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/053",
+      "comparisonKey": "/docs/road/road-law/053",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/059",
+      "comparisonKey": "/docs/road/road-law/059",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/063",
+      "comparisonKey": "/docs/road/road-law/063",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/071",
+      "comparisonKey": "/docs/road/road-law/071",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/076",
+      "comparisonKey": "/docs/road/road-law/076",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/080",
+      "comparisonKey": "/docs/road/road-law/080",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-management/start-of-road-service",
+      "comparisonKey": "/docs/road/road-management/start-of-road-service",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-quality-management-text",
+      "comparisonKey": "/docs/civil-construction-1-textbook-quality-management-text",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-construction-machinery-02",
+      "comparisonKey": "/docs/civil-construction-1-textbook-construction-machinery-02",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/guide/four-management",
+      "comparisonKey": "/docs/exam/civil-construction-1/guide/four-management",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/01-01-general",
+      "comparisonKey": "/docs/general/common-specs-hyogo/01-01-general",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/10-15-snow",
+      "comparisonKey": "/docs/general/common-specs-hyogo/10-15-snow",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/01-common",
+      "comparisonKey": "/docs/general/common-specs/01-common",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/03-02-construction-03",
+      "comparisonKey": "/docs/general/common-specs/03-02-construction-03",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/10-07-concrete-shed",
+      "comparisonKey": "/docs/general/common-specs/10-07-concrete-shed",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/construction-plan/cost-management-plan",
+      "comparisonKey": "/docs/general/construction-management/construction-plan/cost-management-plan",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual",
+      "comparisonKey": "/docs/general/design-manual",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/02-11-channel",
+      "comparisonKey": "/docs/general/design-manual/02-11-channel",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/02-13-coastal-01",
+      "comparisonKey": "/docs/general/design-manual/02-13-coastal-01",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-02-earthwork-01",
+      "comparisonKey": "/docs/general/design-manual/03-02-earthwork-01",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/04-08-utility-tunnel",
+      "comparisonKey": "/docs/general/design-manual/04-08-utility-tunnel",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/04-09-optical-fiber",
+      "comparisonKey": "/docs/general/design-manual/04-09-optical-fiber",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-11-railway",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-11-railway",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/26-safety-training",
+      "comparisonKey": "/docs/general/hyogo-hikkei/26-safety-training",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/40-recycling-gl",
+      "comparisonKey": "/docs/general/hyogo-hikkei/40-recycling-gl",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch1-07",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch1-07",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch6-02",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch6-02",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-constitution/as-kenpo-02-06",
+      "comparisonKey": "/docs/low/admin-scrivener-constitution/as-kenpo-02-06",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/01-05-condition-period",
+      "comparisonKey": "/docs/low/civil-law/01-05-condition-period",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct17",
+      "comparisonKey": "/docs/low/constitution/ct17",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/02-ch03-wave-01",
+      "comparisonKey": "/docs/port/fishery-port/02-ch03-wave-01",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/hydraulics/04",
+      "comparisonKey": "/docs/river/hydraulics/04",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/hydraulics/08",
+      "comparisonKey": "/docs/river/hydraulics/08",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/020",
+      "comparisonKey": "/docs/road/road-law/020",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/026",
+      "comparisonKey": "/docs/road/road-law/026",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/049",
+      "comparisonKey": "/docs/road/road-law/049",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/073",
+      "comparisonKey": "/docs/road/road-law/073",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/079",
+      "comparisonKey": "/docs/road/road-law/079",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/089",
+      "comparisonKey": "/docs/road/road-law/089",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/cem/five-fields/safety",
+      "comparisonKey": "/docs/exam/cem/five-fields/safety",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/primary/h30-a",
+      "comparisonKey": "/docs/exam/civil-construction-1/primary/h30-a",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/secondary/construction-plan/past-problems",
+      "comparisonKey": "/docs/exam/civil-construction-1/secondary/construction-plan/past-problems",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/pe",
+      "comparisonKey": "/docs/exam/pe",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/10-02-pavement",
+      "comparisonKey": "/docs/general/common-specs-hyogo/10-02-pavement",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/10-06-tunnel",
+      "comparisonKey": "/docs/general/common-specs-hyogo/10-06-tunnel",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/10-09-pedestrian",
+      "comparisonKey": "/docs/general/common-specs-hyogo/10-09-pedestrian",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/13-01-general",
+      "comparisonKey": "/docs/general/common-specs-hyogo/13-01-general",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/01-03-appendix-03",
+      "comparisonKey": "/docs/general/design-manual/01-03-appendix-03",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/04-02-power-03",
+      "comparisonKey": "/docs/general/design-manual/04-02-power-03",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/24-cofferdam",
+      "comparisonKey": "/docs/general/hyogo-hikkei/24-cofferdam",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/28-excavated-soil",
+      "comparisonKey": "/docs/general/hyogo-hikkei/28-excavated-soil",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/39-facility-records",
+      "comparisonKey": "/docs/general/hyogo-hikkei/39-facility-records",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road1-01-general-01",
+      "comparisonKey": "/docs/general/tech-management/road1-01-general-01",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-commercial-law/as-shoho-02",
+      "comparisonKey": "/docs/low/admin-scrivener-commercial-law/as-shoho-02",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-constitution/as-kenpo-02-04",
+      "comparisonKey": "/docs/low/admin-scrivener-constitution/as-kenpo-02-04",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/administrative-law/admin-general-03",
+      "comparisonKey": "/docs/low/administrative-law/admin-general-03",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/03-05-assignment",
+      "comparisonKey": "/docs/low/civil-law/03-05-assignment",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/03-10-service-contract",
+      "comparisonKey": "/docs/low/civil-law/03-10-service-contract",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct31",
+      "comparisonKey": "/docs/low/constitution/ct31",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct9",
+      "comparisonKey": "/docs/low/constitution/ct9",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/labor-standards-act/labor-06",
+      "comparisonKey": "/docs/low/labor-standards-act/labor-06",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/02-ch07-wind",
+      "comparisonKey": "/docs/port/fishery-port/02-ch07-wind",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/13-sorting",
+      "comparisonKey": "/docs/port/fishery-port/13-sorting",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/27-aquaculture-reef",
+      "comparisonKey": "/docs/port/fishery-port/27-aquaculture-reef",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-research-plan/river-research",
+      "comparisonKey": "/docs/river/river-research-plan/river-research",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/005",
+      "comparisonKey": "/docs/road/road-law/005",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/012",
+      "comparisonKey": "/docs/road/road-law/012",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/021",
+      "comparisonKey": "/docs/road/road-law/021",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/086",
+      "comparisonKey": "/docs/road/road-law/086",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/091",
+      "comparisonKey": "/docs/road/road-law/091",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/103",
+      "comparisonKey": "/docs/road/road-law/103",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/traffic-studies/01",
+      "comparisonKey": "/docs/road/traffic-studies/01",
+      "lastCrawled": "2026-04-27"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-related-laws-01",
+      "comparisonKey": "/docs/civil-construction-1-textbook-related-laws-01",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/cem/five-fields/information",
+      "comparisonKey": "/docs/exam/cem/five-fields/information",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/primary/h28-b",
+      "comparisonKey": "/docs/exam/civil-construction-1/primary/h28-b",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/primary/r02-a",
+      "comparisonKey": "/docs/exam/civil-construction-1/primary/r02-a",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/pe/concrete-points",
+      "comparisonKey": "/docs/exam/pe/concrete-points",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/10-04-steel-bridge",
+      "comparisonKey": "/docs/general/common-specs/10-04-steel-bridge",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/10-16-repair",
+      "comparisonKey": "/docs/general/common-specs/10-16-repair",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/02-03-revetment",
+      "comparisonKey": "/docs/general/design-manual/02-03-revetment",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/02-05-weir",
+      "comparisonKey": "/docs/general/design-manual/02-05-weir",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-02-earthwork-02",
+      "comparisonKey": "/docs/general/design-manual/03-02-earthwork-02",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-09-pavement",
+      "comparisonKey": "/docs/general/design-manual/03-09-pavement",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/03-mukou-fusaku",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/03-mukou-fusaku",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/06-kari-kyoji",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/06-kari-kyoji",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-commercial-law/as-shoho-04",
+      "comparisonKey": "/docs/low/admin-scrivener-commercial-law/as-shoho-04",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-constitution/as-kenpo-03-01",
+      "comparisonKey": "/docs/low/admin-scrivener-constitution/as-kenpo-03-01",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-constitution/as-kenpo-03-02",
+      "comparisonKey": "/docs/low/admin-scrivener-constitution/as-kenpo-03-02",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/03-08-transfer-contract",
+      "comparisonKey": "/docs/low/civil-law/03-08-transfer-contract",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct73",
+      "comparisonKey": "/docs/low/constitution/ct73",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/labor-standards-act/labor-02",
+      "comparisonKey": "/docs/low/labor-standards-act/labor-02",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/hydrology/01",
+      "comparisonKey": "/docs/river/hydrology/01",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/hydrology/03",
+      "comparisonKey": "/docs/river/hydrology/03",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/040",
+      "comparisonKey": "/docs/road/road-law/040",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/048",
+      "comparisonKey": "/docs/road/road-law/048",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/090",
+      "comparisonKey": "/docs/road/road-law/090",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/092",
+      "comparisonKey": "/docs/road/road-law/092",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-management/road-environmental-measures",
+      "comparisonKey": "/docs/road/road-management/road-environmental-measures",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-management/survey-on-roads",
+      "comparisonKey": "/docs/road/road-management/survey-on-roads",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/pe-comprehensive-management-occupational-safety-act-osh",
+      "comparisonKey": "/docs/pe-comprehensive-management-occupational-safety-act-osh",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/cem/five-fields/social-environment",
+      "comparisonKey": "/docs/exam/cem/five-fields/social-environment",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/secondary/earthwork/past-problems",
+      "comparisonKey": "/docs/exam/civil-construction-1/secondary/earthwork/past-problems",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/pe/road-points",
+      "comparisonKey": "/docs/exam/pe/road-points",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/06-river-02",
+      "comparisonKey": "/docs/general/common-specs-hyogo/06-river-02",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/10-01-improvement",
+      "comparisonKey": "/docs/general/common-specs-hyogo/10-01-improvement",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/08-erosion",
+      "comparisonKey": "/docs/general/common-specs/08-erosion",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/10-02-pavement",
+      "comparisonKey": "/docs/general/common-specs/10-02-pavement",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/01-01-design-general",
+      "comparisonKey": "/docs/general/design-manual/01-01-design-general",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/01-02-temporary-02",
+      "comparisonKey": "/docs/general/design-manual/01-02-temporary-02",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/01-03-appendix-02",
+      "comparisonKey": "/docs/general/design-manual/01-03-appendix-02",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/02-01-general",
+      "comparisonKey": "/docs/general/design-manual/02-01-general",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-10-foundation",
+      "comparisonKey": "/docs/general/design-manual/03-10-foundation",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-18-dam",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-18-dam",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/12-road-safety",
+      "comparisonKey": "/docs/general/hyogo-hikkei/12-road-safety",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/spatial-information/02",
+      "comparisonKey": "/docs/general/spatial-information/02",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/02-torikeshi",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/02-torikeshi",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-commercial-law/as-shoho-08",
+      "comparisonKey": "/docs/low/admin-scrivener-commercial-law/as-shoho-08",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/01-06-prescription",
+      "comparisonKey": "/docs/low/civil-law/01-06-prescription",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/03-07-contract-general",
+      "comparisonKey": "/docs/low/civil-law/03-07-contract-general",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/04-04-guardianship",
+      "comparisonKey": "/docs/low/civil-law/04-04-guardianship",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct37",
+      "comparisonKey": "/docs/low/constitution/ct37",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct82",
+      "comparisonKey": "/docs/low/constitution/ct82",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct93",
+      "comparisonKey": "/docs/low/constitution/ct93",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/18-wholesale",
+      "comparisonKey": "/docs/port/fishery-port/18-wholesale",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/28-promotion",
+      "comparisonKey": "/docs/port/fishery-port/28-promotion",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-chisei/05",
+      "comparisonKey": "/docs/river/river-chisei/05",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-facility-planning/03",
+      "comparisonKey": "/docs/road/road-facility-planning/03",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/031",
+      "comparisonKey": "/docs/road/road-law/031",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/062",
+      "comparisonKey": "/docs/road/road-law/062",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/074",
+      "comparisonKey": "/docs/road/road-law/074",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/085",
+      "comparisonKey": "/docs/road/road-law/085",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/088",
+      "comparisonKey": "/docs/road/road-law/088",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/pe/soil-foundation",
+      "comparisonKey": "/docs/exam/pe/soil-foundation",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/03-02-construction-03",
+      "comparisonKey": "/docs/general/common-specs-hyogo/03-02-construction-03",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/06-river-01",
+      "comparisonKey": "/docs/general/common-specs-hyogo/06-river-01",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/10-07-concrete-shed",
+      "comparisonKey": "/docs/general/common-specs-hyogo/10-07-concrete-shed",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/safety-management/labor-safety-law-overview",
+      "comparisonKey": "/docs/general/construction-management/safety-management/labor-safety-law-overview",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/02-02-levee-02",
+      "comparisonKey": "/docs/general/design-manual/02-02-levee-02",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/02-08-pump-station",
+      "comparisonKey": "/docs/general/design-manual/02-08-pump-station",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/05-03-tunnel-mech-02",
+      "comparisonKey": "/docs/general/design-manual/05-03-tunnel-mech-02",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/05-05-road-drainage-02",
+      "comparisonKey": "/docs/general/design-manual/05-05-road-drainage-02",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/03-bidding-guide",
+      "comparisonKey": "/docs/general/hyogo-hikkei/03-bidding-guide",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-01-safety-general",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-01-safety-general",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch1-06",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch1-06",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch3-01",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch3-01",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/02",
+      "comparisonKey": "/docs/low/constitution/02",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/03",
+      "comparisonKey": "/docs/low/constitution/03",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct26",
+      "comparisonKey": "/docs/low/constitution/ct26",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct77",
+      "comparisonKey": "/docs/low/constitution/ct77",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct84",
+      "comparisonKey": "/docs/low/constitution/ct84",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/02-ch11-earthquake",
+      "comparisonKey": "/docs/port/fishery-port/02-ch11-earthquake",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-facility-planning/02",
+      "comparisonKey": "/docs/road/road-facility-planning/02",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/023",
+      "comparisonKey": "/docs/road/road-law/023",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/028",
+      "comparisonKey": "/docs/road/road-law/028",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/087",
+      "comparisonKey": "/docs/road/road-law/087",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/094",
+      "comparisonKey": "/docs/road/road-law/094",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-engineering/04",
+      "comparisonKey": "/docs/general/civil-engineering/04",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/01-02-earthwork",
+      "comparisonKey": "/docs/general/common-specs-hyogo/01-02-earthwork",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/15-water",
+      "comparisonKey": "/docs/general/common-specs-hyogo/15-water",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/10-03-substructure",
+      "comparisonKey": "/docs/general/common-specs/10-03-substructure",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/overview/construction-management-overview",
+      "comparisonKey": "/docs/general/construction-management/overview/construction-management-overview",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch5-02",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch5-02",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/administrative-law/admin-general-02",
+      "comparisonKey": "/docs/low/administrative-law/admin-general-02",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/05-05-reserved-portion",
+      "comparisonKey": "/docs/low/civil-law/05-05-reserved-portion",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/national-compensation-law/02",
+      "comparisonKey": "/docs/low/national-compensation-law/02",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-guideline/03-ref4-5",
+      "comparisonKey": "/docs/port/fishery-guideline/03-ref4-5",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-chisei/15",
+      "comparisonKey": "/docs/river/river-chisei/15",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-research-plan/river-channel-planning",
+      "comparisonKey": "/docs/river/river-research-plan/river-channel-planning",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/011",
+      "comparisonKey": "/docs/road/road-law/011",
+      "lastCrawled": "2026-04-26"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-engineering/06",
+      "comparisonKey": "/docs/general/civil-engineering/06",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/01-03-concrete",
+      "comparisonKey": "/docs/general/common-specs-hyogo/01-03-concrete",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/04-02-construction-01",
+      "comparisonKey": "/docs/general/common-specs-hyogo/04-02-construction-01",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/03-02-construction-01",
+      "comparisonKey": "/docs/general/common-specs/03-02-construction-01",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/10-15-snow",
+      "comparisonKey": "/docs/general/common-specs/10-15-snow",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei",
+      "comparisonKey": "/docs/general/hyogo-hikkei",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/09-labor-disaster",
+      "comparisonKey": "/docs/general/hyogo-hikkei/09-labor-disaster",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct38",
+      "comparisonKey": "/docs/low/constitution/ct38",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/local-autonomy-act/local-gov-04",
+      "comparisonKey": "/docs/low/local-autonomy-act/local-gov-04",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/04-foundation-01",
+      "comparisonKey": "/docs/port/fishery-port/04-foundation-01",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/16-ice-cold",
+      "comparisonKey": "/docs/port/fishery-port/16-ice-cold",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-design/01-07-weir",
+      "comparisonKey": "/docs/river/river-design/01-07-weir",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/007",
+      "comparisonKey": "/docs/road/road-law/007",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/075",
+      "comparisonKey": "/docs/road/road-law/075",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/guide",
+      "comparisonKey": "/docs/exam/civil-construction-1/guide",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/07-coastal",
+      "comparisonKey": "/docs/general/common-specs-hyogo/07-coastal",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/11-port",
+      "comparisonKey": "/docs/general/common-specs-hyogo/11-port",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/quality-management/histogram",
+      "comparisonKey": "/docs/general/construction-management/quality-management/histogram",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/05-03-tunnel-mech-01",
+      "comparisonKey": "/docs/general/design-manual/05-03-tunnel-mech-01",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-09-concrete",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-09-concrete",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/42-overload",
+      "comparisonKey": "/docs/general/hyogo-hikkei/42-overload",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch2-01",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch2-01",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-constitution/as-kenpo-03-05",
+      "comparisonKey": "/docs/low/admin-scrivener-constitution/as-kenpo-03-05",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-guideline/04-ref6-7-8",
+      "comparisonKey": "/docs/port/fishery-guideline/04-ref6-7-8",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-management/02",
+      "comparisonKey": "/docs/river/river-management/02",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/104",
+      "comparisonKey": "/docs/road/road-law/104",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-management/occupation-of-road",
+      "comparisonKey": "/docs/road/road-management/occupation-of-road",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/pe/secondary-guide",
+      "comparisonKey": "/docs/exam/pe/secondary-guide",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/quality-management/control-charts",
+      "comparisonKey": "/docs/general/construction-management/quality-management/control-charts",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/02-12-tunnel-river",
+      "comparisonKey": "/docs/general/design-manual/02-12-tunnel-river",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/04-02-power-01",
+      "comparisonKey": "/docs/general/design-manual/04-02-power-01",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-constitution/as-kenpo-02-08",
+      "comparisonKey": "/docs/low/admin-scrivener-constitution/as-kenpo-02-08",
+      "lastCrawled": "2026-04-25"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/21-purification",
+      "comparisonKey": "/docs/port/fishery-port/21-purification",
+      "lastCrawled": "2026-04-24"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/047",
+      "comparisonKey": "/docs/road/road-law/047",
+      "lastCrawled": "2026-04-24"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/093",
+      "comparisonKey": "/docs/road/road-law/093",
+      "lastCrawled": "2026-04-24"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/05-02-inheritance-effect",
+      "comparisonKey": "/docs/low/civil-law/05-02-inheritance-effect",
+      "lastCrawled": "2026-04-24"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/hydraulics/03",
+      "comparisonKey": "/docs/river/hydraulics/03",
+      "lastCrawled": "2026-04-24"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-management/road-management",
+      "comparisonKey": "/docs/road/road-management/road-management",
+      "lastCrawled": "2026-04-24"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/10-13-infobox",
+      "comparisonKey": "/docs/general/common-specs-hyogo/10-13-infobox",
+      "lastCrawled": "2026-04-24"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/03-09-lending-contract",
+      "comparisonKey": "/docs/low/civil-law/03-09-lending-contract",
+      "lastCrawled": "2026-04-24"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-surveying",
+      "comparisonKey": "/docs/civil-construction-1-textbook-surveying",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/secondary",
+      "comparisonKey": "/docs/exam/civil-construction-1/secondary",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs",
+      "comparisonKey": "/docs/general/common-specs",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct14",
+      "comparisonKey": "/docs/low/constitution/ct14",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/state-edress-act/01",
+      "comparisonKey": "/docs/low/state-edress-act/01",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/024",
+      "comparisonKey": "/docs/road/road-law/024",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/061",
+      "comparisonKey": "/docs/road/road-law/061",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-traffic-management/03",
+      "comparisonKey": "/docs/road/road-traffic-management/03",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/03-02-construction-02b",
+      "comparisonKey": "/docs/general/common-specs/03-02-construction-02b",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/05-02-pump-02",
+      "comparisonKey": "/docs/general/design-manual/05-02-pump-02",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-constitution/ch1",
+      "comparisonKey": "/docs/low/admin-scrivener-constitution/ch1",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-chisei/11",
+      "comparisonKey": "/docs/river/river-chisei/11",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-management/related-administration",
+      "comparisonKey": "/docs/road/road-management/related-administration",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-textbook-related-laws-02",
+      "comparisonKey": "/docs/civil-construction-1-textbook-related-laws-02",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/guide/earthwork-key-points",
+      "comparisonKey": "/docs/exam/civil-construction-1/guide/earthwork-key-points",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/primary/h29-b",
+      "comparisonKey": "/docs/exam/civil-construction-1/primary/h29-b",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/02-03-materials-port",
+      "comparisonKey": "/docs/general/common-specs-hyogo/02-03-materials-port",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/025",
+      "comparisonKey": "/docs/road/road-law/025",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/045",
+      "comparisonKey": "/docs/road/road-law/045",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/051",
+      "comparisonKey": "/docs/road/road-law/051",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-traffic-management/05",
+      "comparisonKey": "/docs/road/road-traffic-management/05",
+      "lastCrawled": "2026-04-23"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-engineering/02",
+      "comparisonKey": "/docs/general/civil-engineering/02",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/project-management/process-management-overview",
+      "comparisonKey": "/docs/general/construction-management/project-management/process-management-overview",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/02-13-coastal-02",
+      "comparisonKey": "/docs/general/design-manual/02-13-coastal-02",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-03-retaining-wall-01",
+      "comparisonKey": "/docs/general/design-manual/03-03-retaining-wall-01",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-14-traffic-safety",
+      "comparisonKey": "/docs/general/design-manual/03-14-traffic-safety",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/04-04-road-lighting-02",
+      "comparisonKey": "/docs/general/design-manual/04-04-road-lighting-02",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/04-11-telecom",
+      "comparisonKey": "/docs/general/design-manual/04-11-telecom",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-10-compressed-air",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-10-compressed-air",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-17-river-coastal",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-17-river-coastal",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch5-01",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch5-01",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-basic-law/basic-law-01",
+      "comparisonKey": "/docs/low/admin-scrivener-basic-law/basic-law-01",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/03-01-obligation-purpose",
+      "comparisonKey": "/docs/low/civil-law/03-01-obligation-purpose",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct15",
+      "comparisonKey": "/docs/low/constitution/ct15",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct19",
+      "comparisonKey": "/docs/low/constitution/ct19",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/labor-standards-act/labor-07",
+      "comparisonKey": "/docs/low/labor-standards-act/labor-07",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/state-edress-act/04",
+      "comparisonKey": "/docs/low/state-edress-act/04",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/02-ch12-liquefaction",
+      "comparisonKey": "/docs/port/fishery-port/02-ch12-liquefaction",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/hydraulics/10",
+      "comparisonKey": "/docs/river/hydraulics/10",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-management/06",
+      "comparisonKey": "/docs/river/river-management/06",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/038",
+      "comparisonKey": "/docs/road/road-law/038",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-management/route-designation-certification",
+      "comparisonKey": "/docs/road/road-management/route-designation-certification",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/secondary/quality-management/basics",
+      "comparisonKey": "/docs/exam/civil-construction-1/secondary/quality-management/basics",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/09-dam",
+      "comparisonKey": "/docs/general/common-specs-hyogo/09-dam",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/10-05-concrete-bridge",
+      "comparisonKey": "/docs/general/common-specs-hyogo/10-05-concrete-bridge",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/03-02-construction-02c",
+      "comparisonKey": "/docs/general/common-specs/03-02-construction-02c",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-01-road-general",
+      "comparisonKey": "/docs/general/design-manual/03-01-road-general",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/05-05-road-drainage-01",
+      "comparisonKey": "/docs/general/design-manual/05-05-road-drainage-01",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch1-05",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch1-05",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-facility-planning/01",
+      "comparisonKey": "/docs/road/road-facility-planning/01",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/095",
+      "comparisonKey": "/docs/road/road-law/095",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/pe/river-erosion",
+      "comparisonKey": "/docs/exam/pe/river-erosion",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/10-06-tunnel",
+      "comparisonKey": "/docs/general/common-specs/10-06-tunnel",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-04-drainage",
+      "comparisonKey": "/docs/general/design-manual/03-04-drainage",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-08-foundation",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-08-foundation",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/23-01-explosives",
+      "comparisonKey": "/docs/general/hyogo-hikkei/23-01-explosives",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/35-safety-measures",
+      "comparisonKey": "/docs/general/hyogo-hikkei/35-safety-measures",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road1-01-general-02",
+      "comparisonKey": "/docs/general/tech-management/road1-01-general-02",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch1-03",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch1-03",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch6-03",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch6-03",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/00-guidance",
+      "comparisonKey": "/docs/low/civil-law/00-guidance",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct72",
+      "comparisonKey": "/docs/low/constitution/ct72",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/state-edress-act/03",
+      "comparisonKey": "/docs/low/state-edress-act/03",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/hydrology/04",
+      "comparisonKey": "/docs/river/hydrology/04",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/022",
+      "comparisonKey": "/docs/road/road-law/022",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/039",
+      "comparisonKey": "/docs/road/road-law/039",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/046",
+      "comparisonKey": "/docs/road/road-law/046",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/056",
+      "comparisonKey": "/docs/road/road-law/056",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/13-03-treatment-plant",
+      "comparisonKey": "/docs/general/common-specs-hyogo/13-03-treatment-plant",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs/10-10-parking",
+      "comparisonKey": "/docs/general/common-specs/10-10-parking",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/02-02-levee-01",
+      "comparisonKey": "/docs/general/design-manual/02-02-levee-01",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-06-bridge-super-01",
+      "comparisonKey": "/docs/general/design-manual/03-06-bridge-super-01",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/05-06-dam-03",
+      "comparisonKey": "/docs/general/design-manual/05-06-dam-03",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/06-05-temporary-works",
+      "comparisonKey": "/docs/general/hyogo-hikkei/06-05-temporary-works",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/30-hydraulic-slag",
+      "comparisonKey": "/docs/general/hyogo-hikkei/30-hydraulic-slag",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/43-slag-soft-ground",
+      "comparisonKey": "/docs/general/hyogo-hikkei/43-slag-soft-ground",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/05-tojisha-minshu",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/05-tojisha-minshu",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/administrative-appeal-act/admin-appeal-02",
+      "comparisonKey": "/docs/low/administrative-appeal-act/admin-appeal-02",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/administrative-law/admin-general-07",
+      "comparisonKey": "/docs/low/administrative-law/admin-general-07",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/civil-law/02-05-security",
+      "comparisonKey": "/docs/low/civil-law/02-05-security",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/local-autonomy-act/local-gov-08",
+      "comparisonKey": "/docs/low/local-autonomy-act/local-gov-08",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/01-overview",
+      "comparisonKey": "/docs/port/fishery-port/01-overview",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-design/01-03-super-levee",
+      "comparisonKey": "/docs/river/river-design/01-03-super-levee",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/044",
+      "comparisonKey": "/docs/road/road-law/044",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/068",
+      "comparisonKey": "/docs/road/road-law/068",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/096",
+      "comparisonKey": "/docs/road/road-law/096",
+      "lastCrawled": "2026-04-22"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/secondary/construction-plan/basics",
+      "comparisonKey": "/docs/exam/civil-construction-1/secondary/construction-plan/basics",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/08-public-disaster",
+      "comparisonKey": "/docs/general/hyogo-hikkei/08-public-disaster",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/15-noise-vibration",
+      "comparisonKey": "/docs/general/hyogo-hikkei/15-noise-vibration",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/27-concrete-byproduct",
+      "comparisonKey": "/docs/general/hyogo-hikkei/27-concrete-byproduct",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/port/fishery-port/10-seedling",
+      "comparisonKey": "/docs/port/fishery-port/10-seedling",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/hydraulics/07",
+      "comparisonKey": "/docs/river/hydraulics/07",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/037",
+      "comparisonKey": "/docs/road/road-law/037",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/077",
+      "comparisonKey": "/docs/road/road-law/077",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-engineering/03",
+      "comparisonKey": "/docs/general/civil-engineering/03",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/14-01-foundation",
+      "comparisonKey": "/docs/general/common-specs-hyogo/14-01-foundation",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/01-03-appendix-01",
+      "comparisonKey": "/docs/general/design-manual/01-03-appendix-01",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/04-03-wiring-02",
+      "comparisonKey": "/docs/general/design-manual/04-03-wiring-02",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/19-grouting-management",
+      "comparisonKey": "/docs/general/hyogo-hikkei/19-grouting-management",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/04-gimuzuke-sashitome",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/04-gimuzuke-sashitome",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/constitution/ct22",
+      "comparisonKey": "/docs/low/constitution/ct22",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/labor-standards-act/labor-01",
+      "comparisonKey": "/docs/low/labor-standards-act/labor-01",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/003",
+      "comparisonKey": "/docs/road/road-law/003",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/017",
+      "comparisonKey": "/docs/road/road-law/017",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-law/036",
+      "comparisonKey": "/docs/road/road-law/036",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/civil-construction-1/primary/r01-a",
+      "comparisonKey": "/docs/exam/civil-construction-1/primary/r01-a",
+      "lastCrawled": "2026-04-21"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/common-specs-hyogo/10-16-repair",
+      "comparisonKey": "/docs/general/common-specs-hyogo/10-16-repair",
+      "lastCrawled": "2026-04-20"
+    },
+    {
+      "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/as-gyosei-ch2-03",
+      "comparisonKey": "/docs/low/admin-scrivener-admin-law/as-gyosei-ch2-03",
+      "lastCrawled": "2026-04-20"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/design-manual/03-08-tunnel-02",
+      "comparisonKey": "/docs/general/design-manual/03-08-tunnel-02",
+      "lastCrawled": "2026-04-17"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road2-05-seismic-03",
+      "comparisonKey": "/docs/general/tech-management/road2-05-seismic-03",
+      "lastCrawled": "2026-04-16"
+    }
+  ]
+}

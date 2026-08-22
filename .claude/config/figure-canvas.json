@@ -1,0 +1,84 @@
+{
+  "$schema": "https://doboku-note.com/schema/figure-canvas.json",
+  "description": "図版SVGの固定キャンバス標準（機械可読SSOT）。人間向け真実源は .claude/knowledge/reference/figure-canvas-policy.md。レンダラー(render-figure-sns)・ガード(check-figure-canvas)・カタログ(build-svg-catalog)・Generator(svg-canvas-fitter) が参照する。",
+  "version": "1.0.0",
+  "updated": "2026-06-22",
+  "canvases": {
+    "feed": {
+      "role": "master",
+      "use": [
+        "site-article",
+        "instagram-feed"
+      ],
+      "viewBox": [
+        400,
+        500
+      ],
+      "ratio": "4:5",
+      "render": [
+        1080,
+        1350
+      ],
+      "embeddable": true,
+      "filename": {
+        "match": "figure-*.svg",
+        "excludeSuffix": "--wide"
+      },
+      "minFontViewBox": 11,
+      "style": "max-width:400px;width:100%"
+    },
+    "landscape": {
+      "role": "variant",
+      "use": [
+        "youtube-video",
+        "youtube-thumb",
+        "x-post"
+      ],
+      "viewBox": [
+        640,
+        360
+      ],
+      "ratio": "16:9",
+      "render": [
+        1920,
+        1080
+      ],
+      "embeddable": false,
+      "filename": {
+        "match": "figure-*--wide.svg",
+        "requireSuffix": "--wide"
+      },
+      "minFontViewBox": 12,
+      "note": "記事に <ArticleImage> 埋込しない。render-figure-sns の入力としてPNG化してSNSへ出す。create-svg の viewBox幅≤400 ルールの対象外。"
+    }
+  },
+  "derived": {
+    "vertical-9-16": {
+      "from": "feed",
+      "render": [
+        1080,
+        1920
+      ],
+      "method": "feed を中央配置＋上下レターボックスで生成",
+      "authored": false,
+      "use": [
+        "youtube-shorts",
+        "instagram-reels",
+        "instagram-stories"
+      ]
+    }
+  },
+  "guard": {
+    "script": "scripts/check-figure-canvas.mjs",
+    "scope": "content/site/**/img/figure-*.svg",
+    "rule": "接尾辞 --wide なら viewBox==[640,360]、それ以外は viewBox==[400,500]",
+    "migrationAllowlist": []
+  },
+  "references": {
+    "policy": ".claude/knowledge/reference/figure-canvas-policy.md",
+    "colorTokens": ".claude/knowledge/design-system/svg-tokens.json",
+    "authoring": ".claude/skills/authoring/create-svg/SKILL.md",
+    "renderer": ".claude/scripts/sns/render-figure-sns.mjs",
+    "catalog": ".claude/state/svg-catalog.json"
+  }
+}

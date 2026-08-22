@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800">
+    <rect width="1280" height="800" fill="#ffffff"/>
+
+    <!-- タイトル -->
+    <text x="60" y="54" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">不合格の3パターン分析フロー</text>
+    <text x="60" y="82" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="17" font-weight="500" fill="#555555">成績通知から自分のパターンを特定し、的外れな対策を避ける</text>
+
+    <!-- ===== 起点ボックス ===== -->
+    <rect x="490" y="100" width="300" height="64" rx="8" fill="#2e6da4" />
+    <text x="640" y="122" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#fff" text-anchor="middle">不合格通知を確認</text>
+    <text x="640" y="146" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="500" fill="#dce8f8" text-anchor="middle">成績通知 + 択一式自己採点</text>
+
+    <!-- 起点 → 各パターンへの接続線 -->
+    <!-- 左（P1）へ -->
+    
+      <line x1="640" y1="164" x2="210" y2="260" stroke="#8a8a8a" stroke-width="2"/>
+      <polygon points="210,260 219.7689555684722,253.0309608193657 221.80537959181436,262.1524434239192" fill="#8a8a8a"/>
+    
+    <!-- 中央（P2）へ -->
+    
+    <line x1="640" y1="164" x2="640" y2="260" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="none"/>
+    <polygon points="640,260 634,248 646,248" fill="#8a8a8a"/>
+  
+    <!-- 右（P3）へ -->
+    
+      <line x1="640" y1="164" x2="1070" y2="260" stroke="#8a8a8a" stroke-width="2"/>
+      <polygon points="1070,260 1058.1946204081855,262.1524434239192 1060.2310444315278,253.0309608193657" fill="#8a8a8a"/>
+    
+
+    <!-- ===== パターン1: 択一不足 ===== -->
+    <rect x="80" y="260" width="260" height="60" rx="8" fill="#fde8eb" stroke="#b22234" stroke-width="2"/>
+    <text x="92" y="284" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#b22234">パターン1</text>
+    <text x="92" y="306" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="19" font-weight="800" fill="#222222">択一式 得点不足</text>
+
+    <!-- パターン1 → 要因 -->
+    
+    <line x1="210" y1="320" x2="180" y2="420" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="none"/>
+    <polygon points="180,420 174,408 186,408" fill="#8a8a8a"/>
+  
+
+    <!-- パターン1 根本要因 -->
+    <rect x="40" y="420" width="280" height="120" rx="8" fill="#f9fafb" stroke="#8a8a8a" stroke-width="1.5"/>
+    <text x="54" y="446" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" font-weight="700" fill="#8a8a8a">根本要因</text>
+    <text x="54" y="472" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="600" fill="#222222">分野別正答率の偏り</text>
+    <text x="54" y="496" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" fill="#555555">特定管理分野の理解不足</text>
+    <text x="54" y="518" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" fill="#555555">（情報・安全管理が弱点になりやすい）</text>
+
+    <!-- ===== パターン2: 記述不足 ===== -->
+    <rect x="510" y="260" width="260" height="60" rx="8" fill="#fef9e7" stroke="#d4a017" stroke-width="2"/>
+    <text x="522" y="284" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#d4a017">パターン2</text>
+    <text x="522" y="306" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="19" font-weight="800" fill="#222222">記述式 評価不足</text>
+
+    <!-- パターン2 → B/C分岐 -->
+    
+      <line x1="640" y1="320" x2="520" y2="420" stroke="#8a8a8a" stroke-width="2"/>
+      <polygon points="520,420 525.4993492925312,409.33429995927423 531.482538437072,416.51412693272323" fill="#8a8a8a"/>
+    
+    
+      <line x1="640" y1="320" x2="700" y2="420" stroke="#8a8a8a" stroke-width="2"/>
+      <polygon points="700,420 690.3063346530794,412.9266095723542 698.3204980212164,408.11811155147205" fill="#8a8a8a"/>
+    
+
+    <!-- B判定ボックス -->
+    <rect x="440" y="420" width="160" height="52" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+    <text x="520" y="440" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="700" fill="#1a3a5c" text-anchor="middle">記述式</text>
+    <text x="520" y="462" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#2e6da4" text-anchor="middle">B 判定</text>
+
+    <!-- C判定ボックス -->
+    <rect x="620" y="420" width="160" height="52" rx="8" fill="#fde8eb" stroke="#b22234" stroke-width="2"/>
+    <text x="700" y="440" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="700" fill="#b22234" text-anchor="middle">記述式</text>
+    <text x="700" y="462" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#b22234" text-anchor="middle">C 判定</text>
+
+    <!-- B判定 → 要因 -->
+    
+    <line x1="520" y1="472" x2="500" y2="540" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="none"/>
+    <polygon points="500,540 494,528 506,528" fill="#8a8a8a"/>
+  
+
+    <!-- C判定 → 要因 -->
+    
+    <line x1="700" y1="472" x2="760" y2="540" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="none"/>
+    <polygon points="760,540 754,528 766,528" fill="#8a8a8a"/>
+  
+
+    <!-- B判定 根本要因 -->
+    <rect x="380" y="540" width="240" height="120" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+    <text x="392" y="564" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="700" fill="#1a3a5c">B判定の根本要因</text>
+    <text x="392" y="590" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="600" fill="#222222">分析の深みが不足</text>
+    <text x="392" y="614" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">視点は合っているが</text>
+    <text x="392" y="636" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">トレードオフが表面的</text>
+
+    <!-- C判定 根本要因 -->
+    <rect x="640" y="540" width="240" height="120" rx="8" fill="#fde8eb" stroke="#b22234" stroke-width="1.5"/>
+    <text x="652" y="564" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" font-weight="700" fill="#b22234">C判定の根本要因</text>
+    <text x="652" y="590" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="600" fill="#222222">方向性自体がずれ</text>
+    <text x="652" y="614" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">一般部門の視点で記述</text>
+    <text x="652" y="636" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#555555">5管理統合の発想がない</text>
+
+    <!-- ===== パターン3: 口頭不合格 ===== -->
+    <rect x="940" y="260" width="260" height="60" rx="8" fill="#f3f4f6" stroke="#6b7280" stroke-width="2"/>
+    <text x="952" y="284" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="15" font-weight="700" fill="#8a8a8a">パターン3</text>
+    <text x="952" y="306" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="19" font-weight="800" fill="#222222">口頭試験 不合格</text>
+
+    <!-- パターン3 → 要因 -->
+    
+    <line x1="1070" y1="320" x2="1050" y2="420" stroke="#8a8a8a" stroke-width="2" stroke-dasharray="none"/>
+    <polygon points="1050,420 1044,408 1056,408" fill="#8a8a8a"/>
+  
+
+    <!-- パターン3 根本要因 -->
+    <rect x="900" y="420" width="300" height="120" rx="8" fill="#f9fafb" stroke="#8a8a8a" stroke-width="1.5"/>
+    <text x="914" y="446" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" font-weight="700" fill="#8a8a8a">根本要因</text>
+    <text x="914" y="472" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="16" font-weight="600" fill="#222222">業務経歴の語り方のずれ</text>
+    <text x="914" y="496" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" fill="#555555">「専門技術の成果」を語ってしまう</text>
+    <text x="914" y="518" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" fill="#555555">（5管理の統合視点が伝わらない）</text>
+
+    <!-- 判定ラベル注記 -->
+    <text x="600" y="342" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="13" fill="#8a8a8a">記述成績通知を確認</text>
+
+    <!-- フッター -->
+    <text x="1220" y="776" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="14" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+  </svg>

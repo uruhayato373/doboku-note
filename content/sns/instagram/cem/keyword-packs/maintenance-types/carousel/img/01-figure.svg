@@ -1,0 +1,56 @@
+<svg width="400" height="500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="設備保全の全体体系：維持活動（予防保全・事後保全）と改善活動（改良保全・保全予防）の4分類">
+  <rect width="400" height="500" fill="#ffffff"/>
+<!-- source: https://smartf-nexta.com/archives/1521 (構図着想のみ・独自作図) -->
+<style>
+  text { font-family: "Hiragino Sans", "Yu Gothic", sans-serif; fill: #1a3a5c; }
+  .section-title { font-size: 15px; font-weight: bold; }
+  .section-sub { font-size: 11px; fill: #555; }
+  .group-title { font-size: 13px; font-weight: bold; }
+  .group-sub { font-size: 11px; fill: #555; }
+  .leaf-title { font-size: 12px; font-weight: bold; }
+  .leaf-sub { font-size: 11px; fill: #555; }
+</style>
+
+<!-- Section A: 維持活動 -->
+<rect x="5" y="5" width="390" height="310" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="20" y="27" class="section-title">維持活動</text>
+<text x="20" y="44" class="section-sub">現状機能の維持・回復</text>
+
+<!-- 予防保全 (PM) -->
+<rect x="15" y="52" width="370" height="195" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="25" y="73" class="group-title">予防保全（PM）</text>
+<text x="25" y="89" class="group-sub">壊れる前に保全する</text>
+
+<!-- TBM -->
+<rect x="25" y="98" width="350" height="62" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+<text x="35" y="120" class="leaf-title">定期保全（TBM）</text>
+<text x="35" y="138" class="leaf-sub">時間・使用量を契機に計画的実施</text>
+<text x="35" y="153" class="leaf-sub">例: オーバーホール周期・定期点検</text>
+
+<!-- CBM -->
+<rect x="25" y="170" width="350" height="62" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1"/>
+<text x="35" y="192" class="leaf-title">予知保全（CBM）</text>
+<text x="35" y="210" class="leaf-sub">状態監視で最適タイミングを判断</text>
+<text x="35" y="225" class="leaf-sub">例: 振動センサー・油分析</text>
+
+<!-- 事後保全 (BM) -->
+<rect x="15" y="258" width="370" height="52" rx="6" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+<text x="25" y="279" class="group-title">事後保全（BM）</text>
+<text x="25" y="296" class="group-sub">壊れてから修復する（緊急・計画的）</text>
+
+<!-- Section B: 改善活動 -->
+<rect x="5" y="325" width="390" height="170" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5"/>
+<text x="20" y="347" class="section-title">改善活動</text>
+<text x="20" y="364" class="section-sub">信頼性・保全性そのものの向上</text>
+
+<!-- 改良保全 (CM) -->
+<rect x="15" y="373" width="370" height="52" rx="6" fill="#ffffff" stroke="#d4a017" stroke-width="1.5"/>
+<text x="25" y="394" class="group-title">改良保全（CM）</text>
+<text x="25" y="411" class="group-sub">故障しにくい設備に改善する</text>
+
+<!-- 保全予防 (MP) -->
+<rect x="15" y="435" width="370" height="52" rx="6" fill="#ffffff" stroke="#d4a017" stroke-width="1.5"/>
+<text x="25" y="456" class="group-title">保全予防（MP）</text>
+<text x="25" y="473" class="group-sub">設計段階から保全しやすく作る</text>
+
+</svg>

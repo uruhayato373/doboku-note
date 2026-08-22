@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">環境保全の 7原則</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">5原則ではなく7原則。EPR・PPP・予防的措置以外も押さえる</text>
+
+  <rect x="40" y="140" width="545" height="100" rx="8" fill="#ffffff" stroke="#1a3a5c" stroke-width="3"/>
+  <rect x="40" y="140" width="8" height="100" fill="#1a3a5c"/>
+  <circle cx="90" cy="190" r="28" fill="#1a3a5c"/>
+  <text x="90" y="200" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">1</text>
+  <text x="132" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c">拡大生産者責任 (EPR)</text>
+  <text x="132" y="210" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">製造〜廃棄・リサイクルまで生産者責任に拡大</text>
+  <rect x="597" y="140" width="545" height="100" rx="8" fill="#ffffff" stroke="#b22234" stroke-width="3"/>
+  <rect x="597" y="140" width="8" height="100" fill="#b22234"/>
+  <circle cx="647" cy="190" r="28" fill="#b22234"/>
+  <text x="647" y="200" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">2</text>
+  <text x="689" y="176" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#b22234">汚染者負担の原則 (PPP)</text>
+  <text x="689" y="210" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">汚染者が環境劣化対処費を負担。OECD 1972</text>
+  <rect x="40" y="252" width="545" height="100" rx="8" fill="#ffffff" stroke="#d4a017" stroke-width="3"/>
+  <rect x="40" y="252" width="8" height="100" fill="#d4a017"/>
+  <circle cx="90" cy="302" r="28" fill="#d4a017"/>
+  <text x="90" y="312" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">3</text>
+  <text x="132" y="288" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#d4a017">予防的措置</text>
+  <text x="132" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">不確実性があっても重大不可逆影響なら措置</text>
+  <rect x="597" y="252" width="545" height="100" rx="8" fill="#ffffff" stroke="#3a7d44" stroke-width="3"/>
+  <rect x="597" y="252" width="8" height="100" fill="#3a7d44"/>
+  <circle cx="647" cy="302" r="28" fill="#3a7d44"/>
+  <text x="647" y="312" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">4</text>
+  <text x="689" y="288" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#3a7d44">順応的取組</text>
+  <text x="689" y="322" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">結果に合わせ柔軟対応。生物多様性保全には不適</text>
+  <rect x="40" y="364" width="545" height="100" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="3"/>
+  <rect x="40" y="364" width="8" height="100" fill="#2e6da4"/>
+  <circle cx="90" cy="414" r="28" fill="#2e6da4"/>
+  <text x="90" y="424" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">5</text>
+  <text x="132" y="400" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#2e6da4">源流対策原則</text>
+  <text x="132" y="434" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">排出口でなく設計・製法で発生源対策</text>
+  <rect x="597" y="364" width="545" height="100" rx="8" fill="#ffffff" stroke="#1a3a5c" stroke-width="3"/>
+  <rect x="597" y="364" width="8" height="100" fill="#1a3a5c"/>
+  <circle cx="647" cy="414" r="28" fill="#1a3a5c"/>
+  <text x="647" y="424" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">6</text>
+  <text x="689" y="400" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c">協働原則</text>
+  <text x="689" y="434" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">企画・立案・実行で民間各主体の参加を得る</text>
+  <rect x="40" y="476" width="545" height="100" rx="8" fill="#ffffff" stroke="#b22234" stroke-width="3"/>
+  <rect x="40" y="476" width="8" height="100" fill="#b22234"/>
+  <circle cx="90" cy="526" r="28" fill="#b22234"/>
+  <text x="90" y="536" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="28" font-weight="800" fill="#ffffff" text-anchor="middle">7</text>
+  <text x="132" y="512" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#b22234">補完性原則</text>
+  <text x="132" y="546" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">基礎単位で処理できないものを広域で処理</text>
+  <rect x="40" y="676" width="1120" height="44" rx="6" fill="#e8f0fe"/>
+  <text x="60" y="706" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">引っかけ：「順応的取組は生物多様性保全に望ましい」は誤り。R4 Ⅰ-1-29 等で頻出。</text>
+</svg>

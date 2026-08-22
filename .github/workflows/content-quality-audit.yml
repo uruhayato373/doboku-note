@@ -1,0 +1,79 @@
+name: Audit content quality
+
+# R2 監査から分離した週次コンテンツ品質ゲート。
+# このワークフローが失敗しても r2-audit.yml は独立して最後まで実行される。
+
+on:
+  schedule:
+    - cron: "15 22 * * 0" # 毎週月曜 07:15 JST（日曜 22:15 UTC）
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout main (production source)
+        uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps --ignore-scripts
+
+      - name: Check note funnel drift
+        run: npm run check-note-funnel
+
+      - name: Check career separation
+        run: npm run check-career-separation
+
+      - name: Check SSOT consumers
+        run: npm run check-ssot-consumers
+
+      - name: Check guide article length
+        run: npm run check-guide-length
+
+      - name: Check note hashtags
+        run: npm run check-note-hashtags
+
+      - name: Check note paid boundary
+        run: npm run check-note-boundary
+
+      - name: Check note paid CTA placement
+        run: npm run check-note-paid-cta
+
+      - name: Check note frontmatter duplicate keys
+        run: npm run check-note-frontmatter-dup
+
+      - name: Check note price consistency
+        run: npm run check-note-price-consistency
+
+      - name: Check note attachments
+        run: npm run check-note-attachments
+
+      - name: Check note intro benefit
+        run: npm run check-note-intro-benefit
+
+      - name: Check gate coverage
+        run: npm run check-gate-coverage
+
+      - name: Check affiliate-career-only prose
+        run: npm run check-affiliate-prose
+
+      - name: Check orphan figures
+        run: npm run check-orphan-figures
+
+      - name: Check figure embed dimensions
+        run: npm run check-figure-embed-dims
+
+      - name: Check content quality ratchet
+        run: npm run check-content-quality:ci

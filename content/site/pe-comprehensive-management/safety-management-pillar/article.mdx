@@ -1,0 +1,264 @@
+---
+title: 安全管理
+shortTitle: 安全管理
+subtitle: 安全の概念・リスクマネジメント・労安衛・未然防止・危機管理・システム安全工学の 6 カテゴリを横断
+description: "技術士・総合技術監理部門の安全管理（5 管理の第 4 軸）の試験対策学習ガイド。安全の概念・リスクマネジメント・労働安全衛生・事故未然防止・危機管理・システム安全工学手法の 6 カテゴリ約 150 キーワードを体系化し、頻出論点・学習導線・合格者視点のコラムをまとめた。択一・記述・口頭の試験対策の起点。"
+category: pe-comprehensive-management
+group: pillar
+section: '5'
+tags:
+  - 総合技術監理
+  - 安全管理
+  - pillar
+published: true
+publishedAt: '2026-04-26'
+seoTitle: "安全管理 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-26
+dateModified: 2026-07-25
+faqs:
+  - q: 安全管理は試験で何問出題されますか？
+    a: 1次択一（全40問）のうち、過去5年平均で8〜10問が安全管理から出題されます。経済性管理と並ぶ最大の出題比率です。
+  - q: 本質安全とフェールセーフはどう違いますか？
+    a: 本質安全は危険源そのものを除去する設計（最優先）、フェールセーフは故障時に安全側に倒れる設計（次善策）です。本質安全 → 機能安全 → フェールセーフの順に優先度が下がります。
+  - q: 災害統計の3指標とは何ですか？
+    a: 度数率（×1,000,000、災害頻度）、強度率（×1,000、災害規模）、年千人率（×1,000、1年あたり1,000人あたり死傷者数）の3つです。乗数の違いと意味の対比が頻出です。
+  - q: FMEAとFTAの使い分けは？
+    a: FMEAはボトムアップ（部品の故障モードから影響を分析）、FTAはトップダウン（事故事象から原因を遡る）です。新規システムの設計にはFMEA、既存システムの事故原因究明にはFTAが向きます。
+  - q: 記述式で安全管理がテーマのとき、どう構成すべきですか？
+    a: 6サブカテゴリのいずれかを軸に、5管理間トレードオフ（典型は経済性とのバランス＝安全投資、社会環境とのバランス＝防災インフラ）に必ず触れる三層構造が定石です。
+  - q: ALARPの原則とは何ですか？
+    a: As Low As Reasonably Practicable（合理的に実行可能な限り低く）の頭文字です。リスクをゼロにすることは現実的でないので、コストと効果のバランスで合理的な水準まで低減する考え方を表します。
+---
+
+安全管理は、技術士・総合技術監理部門の **5 管理の第 4 軸**。安全概念・リスクマネジメント・労働安全衛生・事故未然防止・危機管理・システム安全工学まで、業務の「人と社会と組織を災害から守る仕組み」を扱う領域である。本ページは、配下の約 150 キーワードへの導線と、択一・記述・口頭試験での頻出論点をまとめた学習ガイド。
+
+<NoteLink
+  url="https://note.com/dobokunote/n/nb68184641be8?utm_source=doboku-note&utm_medium=referral&utm_campaign=note-pillar&utm_content=safety-pillar"
+  title="安全管理｜総監キーワード精読ガイド｜択一・記述直結リンク付き"
+  description="安全管理の頻出論点と引っかけパターンを、サイトのキーワード解説と連動して体系的に学べる有料ガイド。"
+  imageSrc="/images/note-links/pe-comprehensive-study.webp"
+  kind="product"
+  price="¥500"
+/>
+
+## 安全管理とは
+
+安全管理は、事業活動に伴う事故・災害・健康被害を未然に防止し、発生時には被害を最小化する ための管理技術の総称である。総合技術監理キーワード集では「5. 安全管理」として定義され、6 つのサブカテゴリで構成される。
+
+近年は IoT・気候変動・パンデミック・サイバー攻撃の影響で、安全管理は 「個別細分化された安全対策」から「組織と社会のマネジメント問題」 へと拡張している。総監で安全管理が問われるのは、単なる労安法の知識ではなく **「全方位的なリスクへの統合的アプローチ」** である。
+
+### 5 管理の中での位置づけ
+
+経済性・人的資源・情報の各管理は、すべて **「安全が確保された前提」** で機能する。逆に、安全管理は他 4 管理の活動を制約する条件としても働く（コスト増、人員確保、情報セキュリティ）。
+
+総監記述式で頻出の「**安全 vs 経済性のトレードオフ**」（過剰な安全投資 vs リスク受容）と「**安全 vs 社会環境のトレードオフ**」（防災インフラ vs 環境負荷）は、典型的に安全管理単独では解決しない問題。
+
+### 安全管理の 6 サブカテゴリ
+
+| サブカテゴリ | 主題 |
+|---|---|
+| 5.1 安全の概念 | 安全マネジメント・社会安全・プロセス安全・安全法規 |
+| 5.2 安全に関するリスクマネジメント | リスクアセスメント・リスクコミュニケーション・認知バイアス |
+| 5.3 労働安全衛生管理 | 労安法・OSHMS・災害統計・産業医 |
+| 5.4 事故・災害の未然防止活動・技術 | KYT・本質安全・フェールセーフ・冗長安全 |
+| 5.5 危機管理 | 自然災害・パンデミック・原子力防災・BCP |
+| 5.6 システム安全工学手法 | FMEA・HAZOP・FTA・ETA・人的過誤分析 |
+
+## 出題傾向
+
+過去 5 年（R02〜R07）の総合技術監理 1 次択一を分析すると、安全管理は **毎年 8〜10 問** 出題される（全 40 問中の 20〜25%）。経済性管理と並ぶ最大の出題比率。
+
+頻出論点トップ 5:
+
+1. リスクマネジメント（リスクアセスメント・ALARP・残留リスク） — ほぼ毎年（[リスク評価](/docs/pe-comprehensive-management-risk-assessment) / [ALARP の原則](/docs/pe-comprehensive-management-alarp-principle) / [残留リスク](/docs/pe-comprehensive-management-residual-risk)）
+2. **労働災害統計（度数率・強度率・年千人率）** — 隔年（[災害統計](/docs/pe-comprehensive-management-accident-statistics)）
+3. **システム安全工学手法（FMEA・FTA・HAZOP）** — 隔年（[FMEA](/docs/pe-comprehensive-management-fmea) / [HAZOP](/docs/pe-comprehensive-management-hazop) / [フォールトツリー分析（FTA）](/docs/pe-comprehensive-management-fta)）
+4. **本質安全・フェールセーフ・フールプルーフ** — 隔年（[本質安全](/docs/pe-comprehensive-management-inherent-safety) / [フェールセーフ](/docs/pe-comprehensive-management-fail-safe) / [フールプルーフ](/docs/pe-comprehensive-management-fool-proof)）
+5. **BCP・災害対策基本法・国土強靱化** — 3 年に 2 回（[BCP・BCM](/docs/pe-comprehensive-management-business-continuity-plan) / [災害対策基本法](/docs/pe-comprehensive-management-disaster-countermeasures-act) / [国土強靱化基本法](/docs/pe-comprehensive-management-national-resilience-act)）
+
+記述式（II-1・II-2）では、**安全 vs 経済性のトレードオフ**（安全投資の最適水準）と **安全 vs 社会環境のトレードオフ**（防災対策の環境影響）が頻出。
+
+<SeeAlso
+  href="/docs/pe-comprehensive-management-management-tradeoffs"
+  title="5 管理間トレードオフ 頻出パターンと解決フレーム"
+  reason="安全 × 経済性で必ず使う ALARP 原則・残余リスク受容、安全 × 社会環境で使う環境影響評価のフレームを集約している。"
+/>
+
+## 主要キーワード
+
+各カテゴリの代表キーワードへのハブリンク。完全網羅は [総合技術監理 キーワード集 2026](/docs/pe-comprehensive-management-keyword-2026) を参照。
+
+### 5.1 安全の概念
+
+安全管理を **どう枠組みとして捉えるか** を定義するカテゴリで、後続の 5 サブカテゴリの基盤になる。
+
+配下のキーワードは「組織的安全マネジメントの仕組み（SMS・安全文化・安全投資）」「社会安全（防災・レジリエンス・公衆/消費者安全）」「工業安全の三領域（プロセス安全・システム安全・製品安全）」「主要安全法規（消防法・高圧ガス保安法・PL 法）」の 4 系統で構成される。
+
+**安全は単独の専門分野ではなく組織風土と経営判断の集合** という視点を持つと、記述式での解像度が一気に上がる。
+
+- [安全マネジメントシステム](/docs/pe-comprehensive-management-safety-management-system) — 組織的な安全管理の枠組み
+- [安全管理](/docs/pe-comprehensive-management-safety-control) — 用語の定義と範囲
+- [安全目標](/docs/pe-comprehensive-management-safety-objectives) ／ [安全投資](/docs/pe-comprehensive-management-safety-investment) — 経営判断としての安全
+- [防災](/docs/pe-comprehensive-management-disaster-prevention) ／ [レジリエンス](/docs/pe-comprehensive-management-resilience) — 社会の災害対応力
+- [オールハザードアプローチ](/docs/pe-comprehensive-management-all-hazard-approach) — 全方位リスクの統合的対応
+- [公衆安全](/docs/pe-comprehensive-management-public-safety) ／ [消費者安全](/docs/pe-comprehensive-management-consumer-safety) — 一般市民の安全
+- [インフラ老朽化対策](/docs/pe-comprehensive-management-aging-infrastructure) — 社会基盤の維持管理
+- [プロセスセーフティマネジメント（PSM）](/docs/pe-comprehensive-management-process-safety-mgmt) ／ [システム安全](/docs/pe-comprehensive-management-system-safety) ／ [製品安全](/docs/pe-comprehensive-management-product-safety) — 工業安全の三領域
+- [消防法](/docs/pe-comprehensive-management-fire-service-act) ／ [高圧ガス保安法](/docs/pe-comprehensive-management-high-pressure-gas-act) ／ [製造物責任法（PL 法）](/docs/pe-comprehensive-management-product-liability-act) — 主要安全法規
+- [Safety2.0](/docs/pe-comprehensive-management-safety-2-0) — IoT 時代の新世代安全
+- [安全文化](/docs/pe-comprehensive-management-safety-culture) — 組織風土としての安全
+
+### 5.2 安全に関するリスクマネジメント
+
+リスクを **見える化して扱える形** にし、組織として意思決定するカテゴリ。
+
+配下のキーワードは「リスクの基本概念（リスクとハザードの違い・発生確率と影響の 2 軸）」「マネジメントの 5 工程（特定→分析→評価→対応→モニタリング）」「許容水準の判断基準（社会的受容と認知バイアスの影響）」の 3 系統に整理できる。
+
+択一は工程の順序や用語定義、記述式は「**残余リスクをどう扱うか**」が問われ、全社レベルでの判断ロジックを書けることが要求される。
+
+- [リスク](/docs/pe-comprehensive-management-risk) ／ [ハザード（潜在的危険要因）](/docs/pe-comprehensive-management-hazard) — 用語の対比
+- [リスクマップ／リスクマトリクス](/docs/pe-comprehensive-management-risk-map-matrix) — リスクの可視化
+- [起こりやすさ（発生確率・頻度）](/docs/pe-comprehensive-management-likelihood) ／ [影響（影響の種類・影響の規模）](/docs/pe-comprehensive-management-impact) — リスクの 2 軸
+- [リスクマネジメント計画](/docs/pe-comprehensive-management-risk-management-plan) ／ [リスク基準](/docs/pe-comprehensive-management-risk-criteria) — マネジメントの設計
+- [リスク特定](/docs/pe-comprehensive-management-risk-identification) ／ [リスク分析](/docs/pe-comprehensive-management-risk-analysis) ／ [リスク評価](/docs/pe-comprehensive-management-risk-assessment) ／ [リスク対応](/docs/pe-comprehensive-management-risk-treatment) ／ [リスクモニタリング](/docs/pe-comprehensive-management-risk-monitoring) — リスクアセスメント 5 工程
+- [ALARP の原則](/docs/pe-comprehensive-management-alarp-principle) — As Low As Reasonably Practicable
+- [残留リスク](/docs/pe-comprehensive-management-residual-risk) — 対応後に残るリスク
+- [正常性バイアス](/docs/pe-comprehensive-management-normalcy-bias) ／ [楽観主義バイアス](/docs/pe-comprehensive-management-optimism-bias) ／ [カタストロフィーバイアス](/docs/pe-comprehensive-management-catastrophe-bias) ／ [同調バイアス](/docs/pe-comprehensive-management-conformity-bias) — リスク認知の誤謬
+- [社会的受容（PA）](/docs/pe-comprehensive-management-public-acceptance) ／ [リスク認知](/docs/pe-comprehensive-management-risk-perception) — リスクコミュニケーション
+
+### 5.3 労働安全衛生管理
+
+労働者の **生命と健康** を、法律・体制・統計指標の三層で守るカテゴリ。
+
+配下のキーワードは「事故と健康被害の現実（職業病・メンタルヘルス・災害コスト）」「二大基幹法（労基法・労安法）と OSHMS」「組織体制（産業医・安全管理者・衛生管理者）」「安全衛生方針と教育」で構成される。
+
+択一は災害統計の式（度数率・強度率・年千人率）と OSHMS の体制が定番。記述式では人的資源管理（3.2）との重なりを意識しつつ、安全側の視点で論じるのがコツ。
+
+- [災害統計](/docs/pe-comprehensive-management-accident-statistics) — 度数率・強度率・年千人率（出題頻度高）
+- [災害コスト](/docs/pe-comprehensive-management-accident-cost) — ハインリッヒの 1:5 比率
+- [職業病](/docs/pe-comprehensive-management-occupational-disease) ／ [メンタルヘルス](/docs/pe-comprehensive-management-mental-health) — 健康被害
+- [労働基準法](/docs/pe-comprehensive-management-labor-standards-act) ／ [労働安全衛生法](/docs/pe-comprehensive-management-occupational-safety-act) — 二大基幹法
+- [労働安全衛生マネジメントシステム（OSHMS）](/docs/pe-comprehensive-management-oshms) — 自主的安全衛生管理
+- [安全衛生方針](/docs/pe-comprehensive-management-safety-health-policy) ／ [安全衛生教育](/docs/pe-comprehensive-management-safety-health-education) — 体制の柱
+- [安全衛生管理体制](/docs/pe-comprehensive-management-safety-health-org-structure) — 産業医・安全管理者・衛生管理者
+
+### 5.4 事故・災害の未然防止活動・技術
+
+事故が起きる前に **人とシステムの両面** から芽を摘むカテゴリ。
+
+配下のキーワードは「現場の予防活動（KYT・事故対応訓練・TBM・SOP）」「事故要因の分析フレーム（ヒューマンファクタ・ハインリッヒの法則・4M/4E）」「設計レベルの安全（人間工学・安全設計の階層）」「高信頼化技法（フォールトアボイダンス系・トレランス系・フェールセーフ系）」「物理的安全機構（インターロック・冗長化）」の 5 系統で構成される。
+
+**設計段階で除去 → 残った危険を訓練でカバー** という階層関係を理解すると整理しやすい。
+
+- [安全教育](/docs/pe-comprehensive-management-safety-education) ／ [危険予知訓練（KYT）](/docs/pe-comprehensive-management-kyt) — 現場の予防活動（出題頻度高）
+- [事故対応訓練](/docs/pe-comprehensive-management-accident-response-drill) ／ [防災訓練](/docs/pe-comprehensive-management-disaster-drill) ／ [ブラインド型訓練](/docs/pe-comprehensive-management-blind-drill) — 訓練の種類
+- [不安全状態／不安全行動](/docs/pe-comprehensive-management-unsafe-conditions-behavior) ／ [ヒューマンファクタ](/docs/pe-comprehensive-management-human-factors) — 事故要因
+- [ハインリッヒの法則](/docs/pe-comprehensive-management-heinrich-law) — 1:29:300 のヒヤリハット
+- [本質安全](/docs/pe-comprehensive-management-inherent-safety) ／ [機能安全](/docs/pe-comprehensive-management-functional-safety) — 安全設計の二段階
+- [人間工学原則の遵守](/docs/pe-comprehensive-management-ergonomic-principles) — 設計レベルの安全
+- [フォールトアボイダンス](/docs/pe-comprehensive-management-fault-avoidance) ／ [フォールトトレランス](/docs/pe-comprehensive-management-fault-tolerance) ／ [フェールソフト](/docs/pe-comprehensive-management-fail-soft) ／ [フェールセーフ](/docs/pe-comprehensive-management-fail-safe) ／ [フールプルーフ](/docs/pe-comprehensive-management-fool-proof) — 高信頼化技法
+- [インターロック（安全装置・安全機構）](/docs/pe-comprehensive-management-interlock) ／ [冗長安全](/docs/pe-comprehensive-management-redundancy-safety) — 物理的安全機構
+- [事故の 4M 要因分析](/docs/pe-comprehensive-management-four-m-analysis) ／ [事故の 4E 対策](/docs/pe-comprehensive-management-four-e-countermeasures) — 要因分析・対策のフレーム
+- [TBM（ツールボックスミーティング）](/docs/pe-comprehensive-management-tbm-toolbox-meeting) ／ [標準作業手順書（SOP）](/docs/pe-comprehensive-management-sop) — 日常の予防活動
+
+### 5.5 危機管理
+
+**想定外** が現実化したときの組織的対応を扱うカテゴリで、未然防止（5.4）の延長線上にあって平時の枠を越える。
+
+配下のキーワードは「危機の定義と災害の類型（緊急/不測事態・極端現象・Natech・パンデミック）」「情報伝達と行動計画（防災気象情報・警戒レベル・タイムライン）」「原子力防災の枠組み（確率論的リスク評価・深層防護）」「危機時の組織と広報（ICS・危機広報・危機管理マニュアル）」「災害関係法と事業継続」の 5 系統で構成される。
+
+**平時のリスクマネジメント（5.2）と異なるロジック** で意思決定することが問われる。
+
+- [緊急事態](/docs/pe-comprehensive-management-emergency) ／ [不測事態](/docs/pe-comprehensive-management-contingency) — 危機の定義
+- [極端現象](/docs/pe-comprehensive-management-extreme-events) — 線状降水帯等の異常気象
+- [防災気象情報](/docs/pe-comprehensive-management-disaster-weather-info) ／ [警戒レベル](/docs/pe-comprehensive-management-alert-levels) — 情報伝達の体系
+- [液状化現象](/docs/pe-comprehensive-management-liquefaction) — 砂質地盤の地震被害
+- [タイムライン](/docs/pe-comprehensive-management-timeline-disaster) — 防災行動計画
+- [自然災害に起因する産業事故（Natech）](/docs/pe-comprehensive-management-natech) — 複合災害
+- [確率論的リスク評価](/docs/pe-comprehensive-management-probabilistic-risk-assessment) ／ [深層防護](/docs/pe-comprehensive-management-defense-in-depth) — 原子力防災の柱
+- [感染症・パンデミック](/docs/pe-comprehensive-management-infectious-disease-pandemic) — COVID-19 後の必出論点
+- [危機広報](/docs/pe-comprehensive-management-crisis-communication) ／ [危機管理マニュアル](/docs/pe-comprehensive-management-crisis-management-manual) — 危機時の対応
+- [災害対策基本法](/docs/pe-comprehensive-management-disaster-countermeasures-act) ／ [国土強靱化基本法](/docs/pe-comprehensive-management-national-resilience-act) ／ [国民保護法](/docs/pe-comprehensive-management-civil-protection-act) — 災害関係法
+- [BCP・BCM](/docs/pe-comprehensive-management-business-continuity-plan) — 事業継続計画（経済性 5.1 と共通）
+- [ICS](/docs/pe-comprehensive-management-ics) — 米国式緊急時組織体系
+
+### 5.6 システム安全工学手法
+
+リスクを **工学的に分析** するための定量・定性手法群。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/safety-management-pillar/img/figure-safety-methods.svg"
+  alt="システム安全工学手法の体系：FTA=トップダウン演繹、FMEA・HAZOP=ボトムアップ帰納、ETA=フォワード帰納、ボウタイ=FTA+ETA統合"
+/>
+
+配下のキーワードは「故障から影響を辿る手法（FMEA・HAZOP・HAZID・PHA）」「事象の因果ツリー解析（FTA トップダウン・ETA ボトムアップ・ボウタイ）」「ヒューマンエラーの定量化（HEP・THERP・PSF）」「システム信頼度（信頼性ブロック図・直列/並列）」「事故後の真因究明（RCA）」の 5 系統に分かれる。
+
+**どの手法が事前評価でどの手法が事後分析か** という時系列軸で整理すると、適用場面の取り違えが減る。
+
+- [FMEA](/docs/pe-comprehensive-management-fmea) — 故障モード影響解析
+- [HAZOP](/docs/pe-comprehensive-management-hazop) — プロセスのハザード分析
+- [HAZID](/docs/pe-comprehensive-management-hazid) — Hazard Identification
+- [フォールトツリー分析（FTA）](/docs/pe-comprehensive-management-fta) — トップダウン解析
+- [イベントツリー分析（ETA）](/docs/pe-comprehensive-management-eta) — ボトムアップ解析
+- [ボウタイ分析](/docs/pe-comprehensive-management-bowtie-analysis) — FTA + ETA の統合
+- [PHA](/docs/pe-comprehensive-management-pha) — 予備危険分析
+- [人的過誤確率（HEP）](/docs/pe-comprehensive-management-human-error-probability) ／ [THERP](/docs/pe-comprehensive-management-therp) ／ [行動形成要因（PSF）](/docs/pe-comprehensive-management-performance-shaping-factors) — ヒューマンエラー定量化
+- [信頼性ブロック図](/docs/pe-comprehensive-management-reliability-block-diagram) ／ [直列システム](/docs/pe-comprehensive-management-series-system) ／ [並列システム](/docs/pe-comprehensive-management-parallel-system) — システム信頼度
+- [根本原因分析（RCA）](/docs/pe-comprehensive-management-root-cause-analysis) — 事故の真因究明
+
+## 学習導線
+
+安全管理は範囲が極めて広く、用語密度も高いため、フェーズ別の優先順位が必須。
+
+### フェーズ 1: 初学者
+
+6 サブカテゴリの **概念把握** が最優先。1 カテゴリ 1 日で読み通す:
+
+1. [安全マネジメントシステム](/docs/pe-comprehensive-management-safety-management-system) → [防災](/docs/pe-comprehensive-management-disaster-prevention) → [レジリエンス](/docs/pe-comprehensive-management-resilience)（安全の概念）
+2. [リスク](/docs/pe-comprehensive-management-risk) → [リスクアセスメント 5 工程](/docs/pe-comprehensive-management-risk-assessment) → [ALARP の原則](/docs/pe-comprehensive-management-alarp-principle)（リスクマネジメント）
+3. [労働安全衛生法](/docs/pe-comprehensive-management-occupational-safety-act) → [災害統計](/docs/pe-comprehensive-management-accident-statistics) → [OSHMS](/docs/pe-comprehensive-management-oshms)（労働安全衛生）
+4. [本質安全](/docs/pe-comprehensive-management-inherent-safety) → [フェールセーフ](/docs/pe-comprehensive-management-fail-safe) → [KYT](/docs/pe-comprehensive-management-kyt)（未然防止）
+5. [BCP・BCM](/docs/pe-comprehensive-management-business-continuity-plan) → [災害対策基本法](/docs/pe-comprehensive-management-disaster-countermeasures-act) → [国土強靱化基本法](/docs/pe-comprehensive-management-national-resilience-act)（危機管理）
+6. [FMEA](/docs/pe-comprehensive-management-fmea) → [HAZOP](/docs/pe-comprehensive-management-hazop) → [FTA](/docs/pe-comprehensive-management-fta)（システム安全工学）
+
+### フェーズ 2: 中級
+
+**計算問題と類似概念の区別** を強化。択一頻出の以下を手で計算 / 区別できるレベルまで:
+
+- 災害統計の **度数率・強度率・年千人率** の計算式
+- 信頼性ブロック図（直列・並列）の信頼度計算
+- 本質安全 vs 機能安全 vs フェールセーフ vs フールプルーフ vs インターロック の **区別**
+- FMEA / HAZOP / FTA / ETA / PHA の **使い分け**（対象システム・解析方向）
+- 4M（Man/Machine/Media/Management）と 4E（Education/Engineering/Enforcement/Example）の対応関係
+- リスクマトリクス（発生確率 × 影響度）の評価
+
+### フェーズ 3: 直前期
+
+過去問演習。[R07](/docs/pe-comprehensive-management-r07-primary) → [R06](/docs/pe-comprehensive-management-r06-primary) → [R03](/docs/pe-comprehensive-management-r03-primary) の順に回す。記述式は [5 管理間トレードオフ](/docs/pe-comprehensive-management-management-tradeoffs) と [記述式試験の解答戦略](/docs/pe-comprehensive-management-essay-exam-strategy) で型を作る。
+
+## 合格者視点のコラム
+
+記述式で「安全管理の課題を述べよ」と問われたら、6 サブカテゴリのどれか 1 つに絞り、**過去の重大事故事例**（福島第一・JR 福知山線・笹子トンネル・ボパール等）に紐付ける構成が定石。本質安全・機能安全・フェールセーフ等の似た用語は「**何を防ぐためにどの段階で機能するか**」の対応で押さえると、選択問題で迷わない。
+
+最も減点されやすいのは **安全工学手法を羅列するだけの答案**。FMEA・FTA・HAZOP が「業務のどの局面で・誰が使い・どの種のリスクを発見するための手法か」まで踏み込むと、合格答案に近づく。**他管理の答案で安全への配慮が抜けるとほぼ確実に減点される** ため、経済性・人的資源・情報・社会環境のどの記述でも安全の枠を意識する習慣をつけたい。
+
+## 関連分野とのつながり
+
+5 管理は独立せず、相互に影響する。安全管理から見た他 4 管理との交差点:
+
+- 安全 × [経済性管理](/docs/pe-comprehensive-management-economic-management-pillar) — 安全投資の最適水準・BCP のコスト評価（[BCP・BCM](/docs/pe-comprehensive-management-business-continuity-plan) / [災害コスト](/docs/pe-comprehensive-management-accident-cost)）
+- 安全 × [人的資源管理](/docs/pe-comprehensive-management-human-resource-management-pillar) — 労働災害・ヒューマンファクタ・安全文化（[労働安全衛生法](/docs/pe-comprehensive-management-occupational-safety-act) / [安全文化](/docs/pe-comprehensive-management-safety-culture) / [KYT](/docs/pe-comprehensive-management-kyt)）
+- 安全 × [情報管理](/docs/pe-comprehensive-management-information-management-pillar) — IoT による予兆検知・サイバー安全保障（[サイバーセキュリティ](/docs/pe-comprehensive-management-cybersecurity-safety) / [スマート保安](/docs/pe-comprehensive-management-smart-safety)）
+- 安全 × [社会環境管理](/docs/pe-comprehensive-management-keyword-2026#6-社会環境管理) — Eco-DRR・グリーンインフラ・気候変動適応（[極端現象](/docs/pe-comprehensive-management-extreme-events) / [Natech](/docs/pe-comprehensive-management-natech)）
+
+<SeeAlso
+  href="/docs/pe-comprehensive-management-management-tradeoffs"
+  title="5 管理間トレードオフ 頻出パターンと解決フレーム"
+  reason="ここで触れた 5 管理間の調整パターンを、出題頻度・解答テンプレ込みで一箇所に集約している。"
+/>
+
+<SeeAlso
+  href="/docs/pe-comprehensive-management-exam-index"
+  title="総合技術監理 試験ガイド｜出題範囲・配点・対策の全体像"
+  reason="安全管理は経済性管理と並ぶ最大の出題比率で、範囲も極めて広い。試験ガイドで択一・記述・口頭それぞれの配点と合格基準を把握すると、本ページの 6 サブカテゴリと学習導線をどう割り振るかの判断が早くなる。"
+/>

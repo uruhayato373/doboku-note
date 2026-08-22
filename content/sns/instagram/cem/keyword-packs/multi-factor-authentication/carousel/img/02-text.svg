@@ -1,0 +1,32 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="多要素認証 頻出ポイント">
+  <defs><style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }</style></defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+  <rect x="0" y="0" width="400" height="52" fill="#1a3a5c"/>
+  <text x="200" y="18" text-anchor="middle" font-size="10" fill="#a36b2c">技術士 総監 | 情報管理</text>
+  <text x="200" y="40" text-anchor="middle" font-size="16" font-weight="bold" fill="#ffffff">多要素認証 頻出ポイント</text>
+  <circle cx="34" cy="92" r="16" fill="#1a3a5c"/>
+  <text x="34" y="97" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">1</text>
+  <text x="60" y="84" font-size="13" font-weight="bold" fill="#1a3a5c">認証は3要素に分類</text>
+  <text x="60" y="102" font-size="12" fill="#555">知識（PW・PIN）／所持（ICカード・スマホ）／</text>
+  <text x="60" y="118" font-size="12" fill="#555">生体（指紋・顔・声紋）</text>
+  <line x1="20" y1="138" x2="380" y2="138" stroke="#e8f0fe" stroke-width="1"/>
+  <circle cx="34" cy="168" r="16" fill="#1a3a5c"/>
+  <text x="34" y="173" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">2</text>
+  <text x="60" y="160" font-size="13" font-weight="bold" fill="#1a3a5c">多要素＝異なる要素の組合せ</text>
+  <text x="60" y="178" font-size="12" fill="#555">パスワード（知識）＋指紋（生体）など。</text>
+  <text x="60" y="194" font-size="12" fill="#555">異なる攻撃手法が必要で安全性が高い</text>
+  <line x1="20" y1="214" x2="380" y2="214" stroke="#e8f0fe" stroke-width="1"/>
+  <circle cx="34" cy="244" r="16" fill="#1a3a5c"/>
+  <text x="34" y="249" text-anchor="middle" font-size="14" font-weight="bold" fill="#ffffff">3</text>
+  <text x="60" y="236" font-size="13" font-weight="bold" fill="#1a3a5c">同一要素の重ねは多要素でない</text>
+  <text x="60" y="254" font-size="12" fill="#555">パスワード＋秘密の質問はともに知識。</text>
+  <text x="60" y="270" font-size="12" fill="#555">要素は1種類で二段階認証にあたる</text>
+  <rect x="20" y="296" width="360" height="86" rx="6" fill="#fce8d0"/>
+  <rect x="20" y="296" width="5" height="86" rx="2" fill="#a36b2c"/>
+  <text x="36" y="318" font-size="12" font-weight="bold" fill="#a36b2c">引っかけ注意（R3 Ⅰ-1-24）</text>
+  <text x="36" y="338" font-size="11" fill="#555">「パスワード＋秘密の質問」は両方とも知識要素。</text>
+  <text x="36" y="356" font-size="11" fill="#555">要素が1種類なので多要素認証ではない（＝二段階）。</text>
+  <text x="36" y="374" font-size="11" fill="#555">要素の「種類」が異なるかで判定する。</text>
+  <rect x="0" y="460" width="400" height="40" fill="#1a3a5c"/>
+  <text x="200" y="485" text-anchor="middle" font-size="12" fill="#6a8faf">doboku-note.com</text>
+</svg>

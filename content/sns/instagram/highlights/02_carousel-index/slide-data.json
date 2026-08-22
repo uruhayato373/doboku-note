@@ -1,0 +1,107 @@
+{
+  "_meta": {
+    "kind": "highlight-carousel-index",
+    "format": "stories",
+    "size": { "width": 1080, "height": 1920 },
+    "slidesCount": 7,
+    "purpose": "ハイライト系統 A 2 種目「カルーセル目次」用の 7 枚 Stories シリーズ。5 管理別代表 Carousel への入口",
+    "policy": ".claude/knowledge/reference/ig-stories-policy.md §5 系統 A",
+    "strategy": "docs/marketing/01_SNS集客戦略.md v7.1 §2 Highlight 2 種目「カルーセル目次」",
+    "_note": "実投稿後、各スライドのリンクスタンプを対応カルーセル投稿 URL に貼り替える (運用フェーズで運営者が手動)"
+  },
+  "slides": [
+    {
+      "index": 1,
+      "filename": "01-cover.png",
+      "role": "cover",
+      "tagText": "目次",
+      "title": "カルーセル目次",
+      "subtitle": "5 管理別の代表投稿",
+      "chipCta": "スクロールで一覧"
+    },
+    {
+      "index": 2,
+      "filename": "02-eco.png",
+      "role": "category",
+      "tagText": "目次",
+      "title": "経済性管理",
+      "subtitle": "01 ／ 5 管理",
+      "body": [
+        "費用便益分析・PFI",
+        "投資評価 (NPV / IRR)",
+        "ライフサイクルコスト",
+        "Earned Value Management"
+      ],
+      "chipCta": "代表カルーセルへ"
+    },
+    {
+      "index": 3,
+      "filename": "03-hr.png",
+      "role": "category",
+      "tagText": "目次",
+      "title": "人的資源管理",
+      "subtitle": "02 ／ 5 管理",
+      "body": [
+        "労働関係法令",
+        "メンタルヘルス対策",
+        "リーダーシップ",
+        "技術者倫理"
+      ],
+      "chipCta": "代表カルーセルへ"
+    },
+    {
+      "index": 4,
+      "filename": "04-info.png",
+      "role": "category",
+      "tagText": "目次",
+      "title": "情報管理",
+      "subtitle": "03 ／ 5 管理",
+      "body": [
+        "情報セキュリティ",
+        "個人情報保護",
+        "知的財産権",
+        "BCP / DX"
+      ],
+      "chipCta": "代表カルーセルへ"
+    },
+    {
+      "index": 5,
+      "filename": "05-safe.png",
+      "role": "category",
+      "tagText": "目次",
+      "title": "安全管理",
+      "subtitle": "04 ／ 5 管理",
+      "body": [
+        "労働安全衛生",
+        "リスクマネジメント",
+        "BCP / 防災",
+        "ヒューマンエラー"
+      ],
+      "chipCta": "代表カルーセルへ"
+    },
+    {
+      "index": 6,
+      "filename": "06-env.png",
+      "role": "category",
+      "tagText": "目次",
+      "title": "社会環境管理",
+      "subtitle": "05 ／ 5 管理",
+      "body": [
+        "環境影響評価",
+        "ライフサイクルアセスメント",
+        "カーボンニュートラル",
+        "SDGs / 循環経済"
+      ],
+      "chipCta": "代表カルーセルへ"
+    },
+    {
+      "index": 7,
+      "filename": "07-cta.png",
+      "role": "cta",
+      "tagText": "目次",
+      "title": "全カルーセル一覧",
+      "subtitle": "フィードへ",
+      "chipCta": "プロフィールへ移動"
+    }
+  ]
+}

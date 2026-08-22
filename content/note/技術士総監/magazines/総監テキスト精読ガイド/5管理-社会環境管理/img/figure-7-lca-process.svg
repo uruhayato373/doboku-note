@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="920" viewBox="0 0 1200 920">
+  <rect width="1200" height="920" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">LCA — 4プロセス + 影響評価 3ステップ</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">ISO 14040 規格に基づくライフサイクルアセスメント</text>
+
+  <rect x="40" y="150" width="545" height="60" rx="10" fill="#2e6da4"/>
+  <text x="312.5" y="188" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">LCA 4プロセス（ISO 14040）</text>
+  <rect x="40" y="226" width="545" height="80" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <circle cx="76" cy="266" r="22" fill="#2e6da4"/>
+  <text x="76" y="274" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">1</text>
+  <text x="110" y="258" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c">目的及び調査範囲の設定</text>
+  <text x="110" y="286" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">評価対象・システム境界の定義</text>
+  <rect x="40" y="322" width="545" height="80" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <circle cx="76" cy="362" r="22" fill="#2e6da4"/>
+  <text x="76" y="370" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">2</text>
+  <text x="110" y="354" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c">インベントリ分析</text>
+  <text x="110" y="382" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">積み上げ法 / 産業連関法</text>
+  <rect x="40" y="418" width="545" height="80" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <circle cx="76" cy="458" r="22" fill="#2e6da4"/>
+  <text x="76" y="466" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">3</text>
+  <text x="110" y="450" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c">影響評価</text>
+  <text x="110" y="478" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">環境問題への影響を評価</text>
+  <rect x="40" y="514" width="545" height="80" rx="8" fill="#ffffff" stroke="#2e6da4" stroke-width="2"/>
+  <circle cx="76" cy="554" r="22" fill="#2e6da4"/>
+  <text x="76" y="562" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#ffffff" text-anchor="middle">4</text>
+  <text x="110" y="546" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="800" fill="#1a3a5c">結果の解釈</text>
+  <text x="110" y="574" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">製品改善・戦略・政策へ反映</text>
+  <rect x="615" y="150" width="545" height="60" rx="10" fill="#3a7d44"/>
+  <text x="887.5" y="188" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">影響評価 3ステップ</text>
+  <rect x="615" y="226" width="545" height="100" rx="8" fill="#ffffff" stroke="#3a7d44" stroke-width="2"/>
+  <rect x="615" y="226" width="60" height="100" fill="#3a7d44"/>
+  <text x="645" y="286" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="38" font-weight="800" fill="#ffffff" text-anchor="middle">a</text>
+  <text x="695" y="262" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#3a7d44">分類化</text>
+  <text x="695" y="296" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">インベントリ項目を環境問題に関係づけ</text>
+  <rect x="615" y="342" width="545" height="100" rx="8" fill="#ffffff" stroke="#3a7d44" stroke-width="2"/>
+  <rect x="615" y="342" width="60" height="100" fill="#3a7d44"/>
+  <text x="645" y="402" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="38" font-weight="800" fill="#ffffff" text-anchor="middle">b</text>
+  <text x="695" y="378" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#3a7d44">特性化</text>
+  <text x="695" y="412" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">影響度を定量的に算出</text>
+  <rect x="615" y="458" width="545" height="100" rx="8" fill="#ffffff" stroke="#3a7d44" stroke-width="2"/>
+  <rect x="615" y="458" width="60" height="100" fill="#3a7d44"/>
+  <text x="645" y="518" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="38" font-weight="800" fill="#ffffff" text-anchor="middle">c</text>
+  <text x="695" y="494" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="24" font-weight="800" fill="#3a7d44">重み付け</text>
+  <text x="695" y="528" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#555555">統合化指標を計算</text>
+  <rect x="40" y="630" width="545" height="80" rx="8" fill="#e8f0fe"/>
+  <text x="60" y="660" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#1a3a5c">インベントリ分析手法</text>
+  <text x="60" y="686" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">積み上げ法（詳細計算）／産業連関法（マクロ分析）</text>
+  <rect x="615" y="630" width="545" height="80" rx="8" fill="#e6f1e8"/>
+  <text x="635" y="660" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" font-weight="800" fill="#3a7d44">リサイクルの扱い</text>
+  <text x="635" y="686" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="20" fill="#222222">クローズドループ／オープンループ</text>
+  <rect x="40" y="796" width="1120" height="44" rx="6" fill="#fbf3df"/>
+  <text x="60" y="826" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#222222">引っかけ：「産業連関法は新技術分析にも適している」は誤り（連関表に含まれない物は分析不能）。</text>
+</svg>

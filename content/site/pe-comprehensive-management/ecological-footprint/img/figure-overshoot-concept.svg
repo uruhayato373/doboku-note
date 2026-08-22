@@ -1,0 +1,52 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="世界平均エコロジカル・フットプリント 2.8 gha/人 は地球のバイオキャパシティ 1.6 gha/人 を超え、地球 1.7 個分の資源を消費しているオーバーシュート状態を示す横棒比較図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-axis  { font-size: 11px; fill: #555; }
+      .t-label { font-size: 12px; font-weight: bold; fill: #222; }
+      .t-value { font-size: 12px; font-weight: bold; fill: #222; }
+      .t-anno  { font-size: 11px; font-weight: bold; }
+      .bar-ef  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .bar-bc  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .axis    { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+      .bc-line { stroke: #3a7d44; stroke-width: 1.2; fill: none; stroke-dasharray: 4,2; }
+    </style>
+  </defs>
+
+  <text class="t-title" x="200" y="22" text-anchor="middle">世界平均 EF と地球のバイオキャパシティ</text>
+
+  <text class="t-anno" x="221" y="48" text-anchor="middle" fill="#3a7d44">持続可能ライン（1.6）</text>
+  <line class="bc-line" x1="221" y1="55" x2="221" y2="170"/>
+
+  <text class="t-label" x="85" y="70">世界平均 EF</text>
+  <rect class="bar-ef" x="85" y="78" width="238" height="26" rx="2"/>
+  <rect x="221" y="78" width="102" height="26" fill="#b22234" opacity="0.22"/>
+  <text class="t-value" x="318" y="96" text-anchor="end">2.8 gha</text>
+
+  <text class="t-label" x="85" y="120">バイオキャパシティ</text>
+  <rect class="bar-bc" x="85" y="128" width="136" height="26" rx="2"/>
+  <text class="t-value" x="216" y="146" text-anchor="end">1.6 gha</text>
+
+  <line class="axis" x1="85" y1="170" x2="340" y2="170"/>
+  <text class="t-axis" x="85" y="185" text-anchor="middle">0</text>
+  <text class="t-axis" x="170" y="185" text-anchor="middle">1</text>
+  <text class="t-axis" x="255" y="185" text-anchor="middle">2</text>
+  <text class="t-axis" x="340" y="185" text-anchor="middle">3</text>
+  <text class="t-axis" x="212" y="205" text-anchor="middle">gha/人</text>
+
+  <text class="t-anno" x="200" y="232" text-anchor="middle" fill="#b22234">超過分 = 地球 1.7 個分の消費</text>
+
+  <!-- 下部サマリー -->
+  <rect x="20" y="310" width="360" height="170" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="4"/>
+  <text x="200" y="338" text-anchor="middle" font-size="13" fill="#222" font-weight="bold">エコロジカル・フットプリントとは</text>
+  <text x="35" y="366" font-size="12" fill="#555">人類の資源消費を地球面積（gha）に換算した指標</text>
+  <text x="35" y="391" font-size="12" fill="#555">EF &gt; バイオキャパシティ → オーバーシュート状態</text>
+  <text x="35" y="416" font-size="12" fill="#555">世界平均 2.8 gha に対し地球 BC は 1.6 gha</text>
+  <text x="35" y="441" font-size="12" fill="#555">アース・オーバーシュート・デーは毎年早まっている</text>
+  <text x="35" y="462" font-size="11" fill="#8a8a8a">（出典: Global Footprint Network 2022 年版データ）</text>
+</svg>

@@ -1,0 +1,237 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "hoki",
+      "label": "法規"
+    },
+    "subtopic": {
+      "key": "construction_business",
+      "label": "建設業法（技術者制度・元請下請・契約約款）"
+    },
+    "packNum": "02",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 3,
+    "years": [
+      "r06z",
+      "r06k",
+      "r04z"
+    ],
+    "yearsLabel": "令和6・4年度",
+    "questionIds": [
+      "r06z-49",
+      "r06k-41",
+      "r04z-35"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "建設業法（技術者制度・元請下請・契約約款）",
+      "themeLabel": "法規",
+      "subtopicLabel": "建設業法（技術者制度・元請下請・契約約款）",
+      "stars": 3,
+      "yearsLabel": "令和6・4年度",
+      "firstQuestion": "公共工事標準請負契約約款に関する次の記述のうち，正しいものはどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 8
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "公共工事標準請負契約約款に関する次の記述のうち，正し",
+        "いものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "発注者は，工事の完成を確認するため，工事目的物を最小限度破壊して検査を行う場合，検査又は復旧に直接要する費用は，発注者が負担する。"
+        },
+        {
+          "num": 2,
+          "text": "発注者は，現場代理人の工事現場における運営等に支障がなく，かつ，発注者との連絡体制が確保される場合には，現場代理人について工事現場における常駐を要しないこととすることができる。"
+        },
+        {
+          "num": 3,
+          "text": "受注者は，工事の完成，設計図書の変更等によって不用となった支給材料は，発注者に返還を要しない。"
+        },
+        {
+          "num": 4,
+          "text": "受注者は，工事の全部もしくはその主たる部分を一括して第三者に請け負わせることができる。"
+        }
+      ],
+      "topic": "令和6年度前期",
+      "qNum": 1,
+      "totalQ": 3,
+      "pageIndex": 2,
+      "totalPages": 8
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "公共工事標準請負契約約款",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "検査のための一部破壊と復旧費用は原則「受注者」負担で誤り",
+          "correct": false
+        },
+        {
+          "num": 2,
+          "text": "現場代理人の常駐を要しないこととできる旨は約款で認められており正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "不用となった支給材料は発注者に返還しなければならず、「返還を要しない」は誤り",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "一括下請負は禁止されており誤り",
+          "correct": false
+        }
+      ],
+      "pointText": "現場代理人の常駐を要しないこととできる旨は約款で認められており正しい",
+      "qNum": 1,
+      "totalQ": 3,
+      "pageIndex": 3,
+      "totalPages": 8
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建設業法に定められている，工事現場における主任技術者",
+        "及び監理技術者の職務に関する次の記述のうち，誤ってい",
+        "るものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "施工計画の作成を行わなければならない。"
+        },
+        {
+          "num": 2,
+          "text": "工程管理や品質管理を行わなければならない。"
+        },
+        {
+          "num": 3,
+          "text": "下請契約の作成を行わなければならない。"
+        },
+        {
+          "num": 4,
+          "text": "施工に従事する者の技術上の指導監督を行わなければならない。"
+        }
+      ],
+      "topic": "令和6年度後期",
+      "qNum": 2,
+      "totalQ": 3,
+      "pageIndex": 4,
+      "totalPages": 8
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "建設業法に定められている，工事現場に",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "施工計画作成は主任・監理技術者の職務で正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "工程管理・品質管理は職務で正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "下請契約の作成は事業者（経営側）の業務で技術者の職務ではない",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "従事者への技術指導監督は職務で正しい <ExamPoint>主任・監理技術者は施工計画と品質工程管理が職務</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "下請契約の作成は事業者（経営側）の業務で技術者の職務ではない",
+      "qNum": 2,
+      "totalQ": 3,
+      "pageIndex": 5,
+      "totalPages": 8
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建設業法に定められている主任技術者及び監理技術者の職",
+        "務に関する次の記述のうち、誤っているものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "当該建設工事の施工計画の作成を行わなければならない。"
+        },
+        {
+          "num": 2,
+          "text": "当該建設工事の品質に関する事項の指導監督を行わなければならない。"
+        },
+        {
+          "num": 3,
+          "text": "当該建設工事の工程管理を行わなければならない。"
+        },
+        {
+          "num": 4,
+          "text": "当該建設工事の下請代金の見積書の作成を行わなければならない。"
+        }
+      ],
+      "topic": "令和4年度前期",
+      "qNum": 3,
+      "totalQ": 3,
+      "pageIndex": 6,
+      "totalPages": 8
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "建設業法に定められている主任技術者及",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "施工計画の作成は主任技術者・監理技術者の職務である",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "施工に従事する者の技術上の指導監督は職務である",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "工程管理は職務である",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "下請代金の見積書の作成は技術者の職務ではなく、建設業者（営業）の業務 ",
+          "correct": false
+        }
+      ],
+      "pointText": "下請代金の見積書の作成は技術者の職務ではなく、建設業者（営業）の業務 ",
+      "qNum": 3,
+      "totalQ": 3,
+      "pageIndex": 7,
+      "totalPages": 8
+    },
+    {
+      "type": "cta",
+      "pageIndex": 8,
+      "totalPages": 8
+    }
+  ]
+}

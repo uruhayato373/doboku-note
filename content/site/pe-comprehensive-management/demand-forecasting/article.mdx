@@ -1,0 +1,118 @@
+---
+title: 需要予測
+description: "需要予測の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '2.1'
+tags:
+  - keyword
+published: true
+publishedAt: '2026-04-09'
+reviewStatus: needs-review
+lastRewrittenAt: '2026-05-09'
+revisionCycle: 2
+seoTitle: "需要予測 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-05-26
+---
+
+## 需要予測とは
+
+需要予測とは、過去のデータや市場情報に基づき、**将来の需要量を推定する活動**である。
+
+生産計画・在庫管理・設備投資計画等の意思決定の基盤となる。
+
+## 主な予測手法
+
+需要予測の手法は、定量的手法と定性的手法に大別される。
+
+<ArticleImage
+  src="/posts/pe-comprehensive-management/demand-forecasting/img/figure-1.svg"
+  alt="需要予測の手法分類：定量的手法（時系列分析・因果関係分析）と定性的手法（デルファイ法・市場調査法）に大別される"
+/>
+
+- **時系列分析**
+  - 移動平均法 — 直近N期の平均値で予測。平滑化効果
+  - 指数平滑法 — 直近データに大きな重みを付ける
+  - 傾向変動分析 — トレンドを回帰分析で把握する
+- **因果関係分析**
+  - 回帰分析法 — 説明変数から需要を線形モデルで推定する（単回帰: $Y=a+bX$）
+- **定性的手法**
+  - デルファイ法 — 専門家の意見を収斂させる
+  - 市場調査法 — アンケート・ヒアリングで把握する
+
+## 移動平均法と指数平滑法の比較
+
+**移動平均法**は直近 $k$ 期の実績値を等しい重みで平均化する。
+
+$$
+FI_{t+1} = \dfrac{1}{k}(Y_t + Y_{t-1} + \cdots + Y_{t-k+1})
+$$
+
+$k$ が大きいほど平滑化効果が高く、急激な変動に追従しにくくなる。$k$ を季節周期に合わせる（例: 月次データで $k=12$）ことで、季節変動を除去した基調トレンドの抽出にも用いられる。
+
+**指数平滑法**は平滑化定数 $\alpha$（$0<\alpha<1$）を用いて直近データに大きい重みを付ける。各期のデータに指数関数的に減衰する重みを与えるため、加重移動平均法の一種とみなせる。
+
+$$
+FS_{t+1} = \alpha Y_t + (1-\alpha) FS_t
+$$
+
+<Callout type="warn" title="R04 Ⅰ-1-3 ひっかけ：平滑化定数 α の方向">
+平滑化定数 $\alpha$ の方向は**試験頻出の誤答誘導点**。
+- $\alpha$ **が大きい**（1 に近い）→ 直近実績値に強く反応、変動に敏感
+- $\alpha$ **が小さい**（0 に近い）→ 過去の予測値に引きずられ、変動を追いにくい
+
+$\alpha$ を小さくすると予測は安定するが、需要のトレンド変化への追従が遅れる。
+</Callout>
+
+## 回帰分析法
+
+回帰分析法は、需要量 $Y$ と説明変数 $X$（価格・気温・GDP 等）の因果関係をモデル化し、将来の需要を推定する手法である。
+
+**単回帰分析**（説明変数 1 つ）では最小二乗法によりパラメータ $a$（切片）・$b$（回帰係数）を推定する。
+
+$$
+Y = a + bX
+$$
+
+説明変数が複数ある場合は**重回帰分析**を用いる。
+
+$$
+Y = a + b_1X_1 + b_2X_2 + \cdots + b_nX_n
+$$
+
+時系列分析（移動平均法・指数平滑法）が**過去の需要パターンそのもの**から予測するのに対し、回帰分析法は**需要の背後にある因果メカニズム**を仮定する点が異なる。価格弾力性や季節要因を説明変数として組み込むことで、市場環境の変化や政策変更による需要の構造変化を反映しやすい。
+
+変数選択には説明変数と需要量の相関係数・偏相関係数が用いられる。
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**2.1 事業企画**](/docs/pe-comprehensive-management-keyword-2026#21-事業企画)に位置づけられている。
+
+需要予測は [市場調査](/docs/pe-comprehensive-management-market-research) と合わせて事業企画の出発点であり、[サプライチェーンマネジメント](/docs/pe-comprehensive-management-supply-chain-management) における生産計画・在庫管理の基盤となる。[予算計画](/docs/pe-comprehensive-management-budget-planning) の策定にも不可欠な情報を提供する。過去問 [R04 Ⅰ-1-3](/docs/pe-comprehensive-management-r04-primary#1-3) では移動平均法・指数平滑法・回帰分析（[線形回帰](/docs/pe-comprehensive-management-linear-regression)・[推定検定](/docs/pe-comprehensive-management-estimation-testing)）等の時系列予測手法の選択が問われた。
+
+<ExamPoint
+  summary="需要予測は時系列分析・因果関係分析・定性的手法に大別される"
+  items={[
+    "移動平均法：$FI_{t+1}=(Y_t+Y_{t-1}+\\cdots+Y_{t-k+1})/k$、$k$ が大きいほど平滑化効果が高い",
+    "指数平滑法：$FS_{t+1}=\\alpha Y_t+(1-\\alpha) FS_t$、$\\alpha$ が大きいほど直近変動に敏感",
+    "$\\alpha$ が小さいほど過去の予測値に引きずられ安定する（R04 Ⅰ-1-3 の正答核心）",
+    "回帰分析法：$Y=a+bX$（単回帰）、説明変数から需要を推定する因果モデル",
+    "重回帰は説明変数複数",
+    "定性的手法にはデルファイ法・市場調査法がある",
+  ]}
+/>
+
+<RelatedKeywords items={[
+  { label: "費用効果分析", slug: "cost-effectiveness-analysis" },
+  { label: "DCF法", slug: "dcf-method" },
+  { label: "市場調査", slug: "market-research" },
+  { label: "NPV", slug: "npv-net-present-value" },
+  { label: "サプライチェーンマネジメント（SCM）", slug: "supply-chain-management" },
+]} />
+
+## 参考資料
+
+- [オペレーションズリサーチ（JSME機械工学事典）](https://www.jsme.or.jp/jsme-medwiki/doku.php?id=17:1001623)（日本機械学会）
+- [需要予測の手法｜移動平均法と指数平滑法の活用法](https://book.st-hakky.com/data-science/demand-forecasting-methods)（Hakky Handbook）

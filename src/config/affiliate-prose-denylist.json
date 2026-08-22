@@ -1,0 +1,18 @@
+{
+  "description": "affiliate-career-only(2026-06-25) 違反の prose を検知する SSOT 許可リスト。講座/教材/添削アフィリは完全廃止・学習導線に再提案しない。本文(content/site/**)に廃止アフィリの推奨 prose が混入していないかを check-affiliate-prose.mjs が突合する。真実源: .claude/knowledge/reference/affiliate-operations.md / memory affiliate-career-only。通信講座/講座/添削 の語は試験コンテンツ(自己啓発分類等)でも正当に登場するため denyTerms には入れず、高精度な廃止サービス名・ブランド名・代行語に絞る。",
+  "denyTerms": [
+    "添削サービス",
+    "スタディング",
+    "アガルート",
+    "独学サポート",
+    "作文代行",
+    "受験対策スクール"
+  ],
+  "allow": [
+    {
+      "file": "content/site/pe-comprehensive-management/vta-method/article.mdx",
+      "term": "スタディング",
+      "reason": "VTA法の出典引用（studying.jp 技術士応援ブログへの参考リンク）。講座の推奨ではない"
+    }
+  ]
+}

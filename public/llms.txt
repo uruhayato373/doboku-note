@@ -1,0 +1,99 @@
+# doboku-note
+
+> 土木・建設系の実務資格受験者向け試験対策ハブ。1級土木施工管理技士と技術士（総合技術監理部門）の体系的な学習コンテンツを公開しています。運営者は地方自治体の土木職（発注者）として勤務後に退職、1級土木施工管理技士・1級舗装施工管理技術者・コンクリート主任技士・コンクリート診断士・技術士（建設部門）・技術士（総合技術監理部門）を取得しています。令和8年度の技術士総監 本試験では、記述式テーマ「地方創生」を試験7週間前公開の教材（設問(3)国家施策バンク・2026年6月1日公開）で事前収録した、国土交通白書と連動した出題分析の実績があります。
+
+サイトの設計思想は「ユーザーが、ここだけで合格できる体験を軸資格ごとに提供する」ことです。教科書的な網羅と過去問演習を一体化させ、各キーワードページから過去問・解説・関連項目へ双方向にリンクする構造で運用しています。
+
+## 試験別ハブ
+
+- [技術士総合技術監理部門 試験ガイド](https://doboku-note.com/category/pe-comprehensive-management): 5管理（経済性・人的資源・情報・安全・社会環境）×600+ キーワード、択一・記述式の体系的対策
+- [1級土木施工管理技士 試験ガイド](https://doboku-note.com/category/civil-construction-1): 第1次・第2次検定対策、過去問解説、教科書範囲の網羅
+
+## 技術士総合技術監理部門 — 主要ピラーページ
+
+- [総合技術監理 キーワード集 2026](https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026): 5管理 650+ キーワードの全文検索可能版（文部科学省の最新キーワード集の Web 版）
+- [記述式試験の解答戦略](https://doboku-note.com/docs/pe-comprehensive-management-essay-exam-strategy): 三層構造（Ⅰ管理対象 → Ⅱ施策 → Ⅲ将来展望）と試験時間 210 分の配分戦略
+- [経済性管理 学習ガイド](https://doboku-note.com/docs/pe-comprehensive-management-economic-management-pillar)
+- [人的資源管理 学習ガイド](https://doboku-note.com/docs/pe-comprehensive-management-human-resource-management-pillar)
+- [情報管理 学習ガイド](https://doboku-note.com/docs/pe-comprehensive-management-information-management-pillar)
+- [安全管理 学習ガイド](https://doboku-note.com/docs/pe-comprehensive-management-safety-management-pillar)
+- [社会環境管理 学習ガイド](https://doboku-note.com/docs/pe-comprehensive-management-social-environment-management-pillar)
+
+## 技術士総合技術監理部門 — 過去問 (R01〜R07)
+
+- 必須科目（記述式）: `r0X-secondary` の slug 形式（例: `r07-secondary` = 令和7年度 記述式）
+- 択一式: `r0X-primary` の slug 形式（例: `r07-primary` = 令和7年度 択一式）
+- ペルソナ別模範論文ハブ: `pattern-essay-{persona}` 形式
+  - [建設コンサル 河川・砂防](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-river-consultant)
+  - [ゼネコン](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-general-contractor)
+  - [道路発注者（地方自治体）](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality)
+
+## 1級土木施工管理技士 — 主要ハブ
+
+- [1級土木 試験対策ガイド](https://doboku-note.com/docs/civil-construction-1-guide-strategy): 試験全体の戦略・出題傾向・学習計画
+- [コンクリート 重要ポイント](https://doboku-note.com/docs/civil-construction-1-guide-concrete-key-points): 骨材・打込み・養生・ひび割れ対策の頻出論点
+- [土工 重要ポイント](https://doboku-note.com/docs/civil-construction-1-guide-earthwork-key-points): 土の分類・締固め・盛土・切土の頻出論点
+- [法規 重要ポイント](https://doboku-note.com/docs/civil-construction-1-guide-law-key-points): 建設業法・労働基準法・道路法・河川法 等の頻出論点
+
+### 1級土木 — 教科書範囲（slug 形式: `civil-construction-1-textbook-{トピック}`）
+
+法規分野では以下が頻出（直近の seoTitle 最適化対象）:
+- [河川法とは｜河川区域3分類・保全区域50m・占用許可](https://doboku-note.com/docs/civil-construction-1-textbook-river-act)
+- [道路法とは｜道路占用・車両制限令・特殊車両通行許可](https://doboku-note.com/docs/civil-construction-1-textbook-road-act)
+- [建築基準法とは｜仮設建築物の規制緩和と建築確認](https://doboku-note.com/docs/civil-construction-1-textbook-building-standards)
+- [労働基準法とは｜労働時間・休憩・解雇予告・災害補償](https://doboku-note.com/docs/civil-construction-1-textbook-labor-standards)
+- [火薬類取締法とは｜貯蔵・運搬・消費と保安責任者](https://doboku-note.com/docs/civil-construction-1-textbook-explosives-act)
+- [公共工事標準請負契約約款｜契約不適合責任2年・不可抗力1%超](https://doboku-note.com/docs/civil-construction-1-textbook-standard-contract)
+
+品質管理・工程管理の代表ページ:
+- [管理図とは｜シューハート管理図と管理限界線UCL/LCL](https://doboku-note.com/docs/civil-construction-1-textbook-control-chart)
+- [ヒストグラム・工程能力図｜Cp Cpk の計算と判定基準](https://doboku-note.com/docs/civil-construction-1-textbook-histogram)
+- [ネットワーク式工程表とは｜EST・LFT・クリティカルパス・フロート](https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule)
+- [スクレーパ・スクレープドーザとは｜種類と運搬距離](https://doboku-note.com/docs/civil-construction-1-textbook-scraper)
+- [クレーン・高所作業車｜種類と定格総荷重・定格荷重の違い](https://doboku-note.com/docs/civil-construction-1-textbook-crane)
+
+### 1級土木 — 過去問解説
+
+- 第1次検定: `civil-construction-1-primary-{年度}-{セット}` 形式（R03〜R07）
+- 第2次検定: `civil-construction-1-secondary-{年度}` 形式（R03〜R07）
+
+## 記述式模範論文 R03〜R07（ペルソナ別クロス参照）
+
+ペルソナハブ（3 種類、各 3〜5 年度分）:
+- [建設コンサル 河川・砂防 模範論文集](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-river-consultant)
+- [ゼネコン 模範論文集](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-general-contractor)
+- [道路発注者（地方自治体）模範論文集](https://doboku-note.com/docs/pe-comprehensive-management-pattern-essay-road-municipality)
+
+年度別の必須科目解答（個別 slug 例）:
+- 令和7年度: `r07-secondary` / 3 ペルソナ別: `r07-essay-{persona}`
+- 令和6年度: `r06-secondary` / `r06-essay-{persona}`
+- 令和5年度: `r05-secondary` / `r05-essay-{persona}`
+- 令和4年度: `r04-secondary` / `r04-essay-{persona}`
+- 令和3年度: `r03-secondary` / `r03-essay-{persona}`
+
+## 国土交通白書 R7 × 5管理トレードオフ
+
+最新の社会課題を 5管理（経済性・人的資源・情報・安全・社会環境）の視点で構造化した記事群:
+- [インフラ老朽化（経×安）](https://doboku-note.com/docs/pe-comprehensive-management-essay-mlit-aging-infrastructure)
+- [建設業 2024年問題（人×経）](https://doboku-note.com/docs/pe-comprehensive-management-essay-mlit-construction-2024)
+- [外国人材受入（安×人）](https://doboku-note.com/docs/pe-comprehensive-management-essay-mlit-foreign-workers)
+- [GX・カーボンニュートラル（経×社）](https://doboku-note.com/docs/pe-comprehensive-management-essay-mlit-green-transformation)
+- [i-Construction 2.0（経×情）](https://doboku-note.com/docs/pe-comprehensive-management-essay-mlit-i-construction-2)
+- [地域インフラ群マネジメント（経×人）](https://doboku-note.com/docs/pe-comprehensive-management-essay-mlit-infrastructure-group-mgmt)
+
+## doboku-note 独自データ（外部引用歓迎）
+
+機械分析による独自の試験対策データ。受験者コミュニティでの引用・参照を歓迎します。
+
+- [択一式 R01-R07 正答番号分布の統計](https://doboku-note.com/docs/pe-comprehensive-management-primary-statistics-2026): 全 280 問 × χ² 検定で偏りを検証（結論: 偏りなし）
+
+## 全ページ詳細リスト
+
+全 795 ページの完全リスト（URL・タイトル・概要）:
+- [llms-full.txt](https://doboku-note.com/llms-full.txt)（Markdown リンク形式、約 800 行）
+
+## 引用について
+
+AI による要約・引用を歓迎します。コンテンツを引用する際は、出典として **doboku-note (https://doboku-note.com)** を明記してください。各記事には著者情報・公開日・最終更新日が構造化データ（JSON-LD）で含まれています。
+
+特に技術士総合技術監理部門の解説は、文部科学省『総合技術監理 キーワード集 2026』の Web 版（出典明記済み）を含みます。一次資料との対応関係を保つよう努めています。

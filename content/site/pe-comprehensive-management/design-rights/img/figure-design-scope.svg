@@ -1,0 +1,53 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="意匠権が保護するデザインの範囲。従来から保護される物品・部分・組物の意匠に加え、2020年改正で建築物の意匠と画像の意匠（GUI等）が新たに保護対象に追加された。存続期間も出願から25年に延長（旧登録から20年）">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .h   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .n   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .ex  { font-size: 11px; fill: #555; }
+      .new { font-size: 11px; font-weight: bold; fill: #b22234; }
+    </style>
+  </defs>
+
+  <text x="200" y="28" text-anchor="middle" font-size="13" fill="#1a3a5c" font-weight="bold">意匠権が守る「デザイン」の範囲</text>
+  <text x="200" y="46" text-anchor="middle" font-size="11" fill="#555">視覚を通じて美感を起こさせるもの</text>
+
+  <!-- 従来から保護 -->
+  <rect x="16" y="62" width="368" height="158" rx="8" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text x="28" y="84" class="h">従来から保護される意匠</text>
+
+  <rect x="28" y="96" width="344" height="34" rx="5" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+  <text x="40" y="112" class="n">物品の意匠</text>
+  <text x="40" y="125" class="ex">自動車・家具・容器など、量産される工業製品の形</text>
+
+  <rect x="28" y="136" width="344" height="34" rx="5" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+  <text x="40" y="152" class="n">部分意匠 <tspan font-size="11" fill="#555">（1998年導入）</tspan></text>
+  <text x="40" y="165" class="ex">物品の一部分のデザイン（スマホの背面カメラ部 等）</text>
+
+  <rect x="28" y="176" width="344" height="34" rx="5" fill="#ffffff" stroke="#2e6da4" stroke-width="1"/>
+  <text x="40" y="192" class="n">組物の意匠</text>
+  <text x="40" y="205" class="ex">一組の物品全体のデザイン（食器セット 等）</text>
+
+  <!-- 2020年改正で追加 -->
+  <rect x="16" y="232" width="368" height="124" rx="8" fill="#fff3cd" stroke="#d4a017" stroke-width="2"/>
+  <text x="28" y="254" class="h">2020年改正で保護対象に追加・拡充</text>
+
+  <rect x="28" y="266" width="344" height="36" rx="5" fill="#ffffff" stroke="#d4a017" stroke-width="1"/>
+  <text x="40" y="283" class="n">建築物の意匠</text>
+  <text x="320" y="280" class="new" text-anchor="middle">NEW</text>
+  <text x="40" y="296" class="ex">商業施設・駅舎・住宅などの外観デザイン</text>
+
+  <rect x="28" y="308" width="344" height="36" rx="5" fill="#ffffff" stroke="#d4a017" stroke-width="1"/>
+  <text x="40" y="325" class="n">画像の意匠</text>
+  <text x="320" y="322" class="new" text-anchor="middle">NEW</text>
+  <text x="40" y="338" class="ex">機器に表示される GUI・アイコン等の操作画像</text>
+
+  <!-- 存続期間ハイライト -->
+  <rect x="16" y="368" width="368" height="62" rx="8" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="200" y="390" text-anchor="middle" font-size="13" fill="#1a3a5c" font-weight="bold">存続期間：出願から 25 年</text>
+  <text x="200" y="410" text-anchor="middle" font-size="11" fill="#222">2020年改正で「登録から20年」→「出願から25年」に延長</text>
+
+  <!-- 補足 -->
+  <text x="200" y="454" text-anchor="middle" font-size="11" fill="#555">関連意匠（本意匠の出願日から10年以内）・</text>
+  <text x="200" y="470" text-anchor="middle" font-size="11" fill="#555">秘密意匠（登録後最長3年の非公開）の制度もある</text>
+</svg>

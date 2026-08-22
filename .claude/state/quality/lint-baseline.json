@@ -1,0 +1,2133 @@
+{
+  "_doc": "コンテンツ品質ラチェットの baseline。file × ruleID × 件数。新規違反(baseline 超過)のみ CI で赤落ちさせ、リライトで件数を漸減させる。更新: node .claude/scripts/lint-mdx-mobile.mjs --all --update-baseline",
+  "counts": {
+    "content/site/civil-construction-1/guide-age-career/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/civil-construction-1/guide-allowance/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/civil-construction-1/guide-career-agent-comparison/article.mdx": {
+      "15-1": 3,
+      "1-4": 1
+    },
+    "content/site/civil-construction-1/guide-career-cases/article.mdx": {
+      "1-4": 2
+    },
+    "content/site/civil-construction-1/guide-company-types/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/civil-construction-1/guide-concrete-key-points/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/civil-construction-1/guide-concrete-maintenance/article.mdx": {
+      "3-1": 7,
+      "2-4": 7
+    },
+    "content/site/civil-construction-1/guide-construction-plan/article.mdx": {
+      "15-3": 4
+    },
+    "content/site/civil-construction-1/guide-demolition/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/civil-construction-1/guide-environment-management/article.mdx": {
+      "15-3": 6
+    },
+    "content/site/civil-construction-1/guide-exam-overview/article.mdx": {
+      "1-4": 2
+    },
+    "content/site/civil-construction-1/guide-foundation/article.mdx": {
+      "15-3": 11
+    },
+    "content/site/civil-construction-1/guide-four-management/article.mdx": {
+      "3-1": 34
+    },
+    "content/site/civil-construction-1/guide-grade-comparison/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/civil-construction-1/guide-law-key-points/article.mdx": {
+      "3-1": 5
+    },
+    "content/site/civil-construction-1/guide-machinery/article.mdx": {
+      "15-3": 7
+    },
+    "content/site/civil-construction-1/guide-quality-management/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/civil-construction-1/guide-quit-or-stay/article.mdx": {
+      "15-1": 1
+    },
+    "content/site/civil-construction-1/guide-schedule-management/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/civil-construction-1/guide-strategy/article.mdx": {
+      "3-1": 29
+    },
+    "content/site/civil-construction-1/guide-surveying/article.mdx": {
+      "15-3": 4
+    },
+    "content/site/civil-construction-1/guide-timing/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/civil-construction-1/guide-white-company/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/civil-construction-1/primary-h27-b/article.mdx": {
+      "1-3": 1
+    },
+    "content/site/civil-construction-1/primary-h28-b/article.mdx": {
+      "1-3": 2
+    },
+    "content/site/civil-construction-1/primary-h29-a/article.mdx": {
+      "1-3": 1,
+      "1-4": 2
+    },
+    "content/site/civil-construction-1/primary-h29-b/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/civil-construction-1/primary-h30-a/article.mdx": {
+      "1-3": 1
+    },
+    "content/site/civil-construction-1/primary-h30-b/article.mdx": {
+      "1-3": 2
+    },
+    "content/site/civil-construction-1/primary-r01-b/article.mdx": {
+      "1-3": 1
+    },
+    "content/site/civil-construction-1/primary-r02-a/article.mdx": {
+      "1-3": 1,
+      "1-4": 1
+    },
+    "content/site/civil-construction-1/primary-r02-b/article.mdx": {
+      "1-3": 1
+    },
+    "content/site/civil-construction-1/primary-r03-b/article.mdx": {
+      "1-3": 16
+    },
+    "content/site/civil-construction-1/primary-r04-a/article.mdx": {
+      "1-3": 1
+    },
+    "content/site/civil-construction-1/primary-r04-b/article.mdx": {
+      "1-3": 15
+    },
+    "content/site/civil-construction-1/primary-r05-b/article.mdx": {
+      "1-3": 5
+    },
+    "content/site/civil-construction-1/primary-r06-a/article.mdx": {
+      "1-3": 1
+    },
+    "content/site/civil-construction-1/primary-r06-b/article.mdx": {
+      "1-3": 5
+    },
+    "content/site/civil-construction-1/primary-r07-a/article.mdx": {
+      "1-3": 1
+    },
+    "content/site/civil-construction-1/primary-r07-b/article.mdx": {
+      "1-3": 6,
+      "1-4": 4
+    },
+    "content/site/civil-construction-1/secondary-concrete-basics/article.mdx": {
+      "2-4": 12,
+      "15-2": 4
+    },
+    "content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx": {
+      "6-1": 1,
+      "15-2": 2
+    },
+    "content/site/civil-construction-1/secondary-construction-plan-basics/article.mdx": {
+      "3-1": 11,
+      "0-4": 1,
+      "15-2": 2
+    },
+    "content/site/civil-construction-1/secondary-construction-plan-past-problems/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/civil-construction-1/secondary-earthwork-basics/article.mdx": {
+      "3-1": 1,
+      "15-3": 1,
+      "2-4": 1
+    },
+    "content/site/civil-construction-1/secondary-earthwork-past-problems/article.mdx": {
+      "6-1": 1,
+      "2-4": 6
+    },
+    "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx": {
+      "9-16": 1,
+      "6-1": 3,
+      "3-1": 1,
+      "2-4": 41
+    },
+    "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx": {
+      "9-16": 1
+    },
+    "content/site/civil-construction-1/secondary-getting-started/article.mdx": {
+      "15-1": 1
+    },
+    "content/site/civil-construction-1/secondary-quality-management-basics/article.mdx": {
+      "3-1": 7
+    },
+    "content/site/civil-construction-1/secondary-quality-management-past-problems/article.mdx": {
+      "6-1": 1,
+      "2-4": 6,
+      "3-1": 1
+    },
+    "content/site/civil-construction-1/secondary-r03/article.mdx": {
+      "2-4": 19,
+      "6-1": 10,
+      "15-2": 3
+    },
+    "content/site/civil-construction-1/secondary-r04/article.mdx": {
+      "3-1": 2,
+      "2-4": 19,
+      "6-1": 10
+    },
+    "content/site/civil-construction-1/secondary-r05/article.mdx": {
+      "2-4": 20,
+      "6-1": 10
+    },
+    "content/site/civil-construction-1/secondary-r06/article.mdx": {
+      "3-1": 1,
+      "2-4": 15,
+      "6-1": 5
+    },
+    "content/site/civil-construction-1/secondary-r07/article.mdx": {
+      "3-1": 1,
+      "2-4": 15,
+      "6-1": 5
+    },
+    "content/site/civil-construction-1/textbook-building-standards/article.mdx": {
+      "3-1": 2
+    },
+    "content/site/civil-construction-1/textbook-construction-business/article.mdx": {
+      "3-1": 1,
+      "15-2": 1
+    },
+    "content/site/civil-construction-1/textbook-control-chart/article.mdx": {
+      "3-1": 3
+    },
+    "content/site/civil-construction-1/textbook-crane/article.mdx": {
+      "3-1": 2
+    },
+    "content/site/civil-construction-1/textbook-demolition/article.mdx": {
+      "2-4": 2
+    },
+    "content/site/civil-construction-1/textbook-distance-angle/article.mdx": {
+      "2-4": 3
+    },
+    "content/site/civil-construction-1/textbook-explosives-act/article.mdx": {
+      "3-1": 2
+    },
+    "content/site/civil-construction-1/textbook-labor-standards/article.mdx": {
+      "3-1": 3,
+      "15-3": 1,
+      "15-2": 2
+    },
+    "content/site/civil-construction-1/textbook-law-compliance/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/civil-construction-1/textbook-machinery-overview/article.mdx": {
+      "3-1": 19,
+      "15-3": 1,
+      "15-2": 1
+    },
+    "content/site/civil-construction-1/textbook-machinery-structure/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/civil-construction-1/textbook-management-subplans/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/civil-construction-1/textbook-quality-overview/article.mdx": {
+      "3-1": 4
+    },
+    "content/site/civil-construction-1/textbook-river-act/article.mdx": {
+      "3-1": 3,
+      "15-2": 1
+    },
+    "content/site/civil-construction-1/textbook-road-act/article.mdx": {
+      "3-1": 5,
+      "15-2": 1
+    },
+    "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/civil-construction-1/textbook-standard-contract/article.mdx": {
+      "3-1": 2
+    },
+    "content/site/civil-construction-1/textbook-tractor-bulldozer/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/civil-construction-1/textbook-work-scheduling/article.mdx": {
+      "3-1": 1
+    },
+    "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx": {
+      "15-1": 3
+    },
+    "content/site/civil-construction-2/guide-exam-overview/article.mdx": {
+      "3-1": 2
+    },
+    "content/site/civil-construction-2/guide-foundation-key-points/article.mdx": {
+      "15-1": 2
+    },
+    "content/site/civil-construction-2/guide-haken-seishain/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/civil-construction-2/guide-job-reality/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/civil-construction-2/guide-quit-or-stay/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/civil-construction-2/guide-resume/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/civil-construction-2/guide-safety-management/article.mdx": {
+      "15-1": 5
+    },
+    "content/site/civil-construction-2/guide-study-method/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/civil-construction-2/guide-young-career/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/civil-construction-2/primary-r03-kouki/article.mdx": {
+      "11-2": 3,
+      "1-3": 9
+    },
+    "content/site/civil-construction-2/primary-r03-zenki/article.mdx": {
+      "1-3": 8
+    },
+    "content/site/civil-construction-2/primary-r04-kouki/article.mdx": {
+      "1-3": 1
+    },
+    "content/site/civil-construction-2/primary-r04-zenki/article.mdx": {
+      "1-3": 8,
+      "1-4": 2
+    },
+    "content/site/civil-construction-2/primary-r05-kouki/article.mdx": {
+      "1-3": 7
+    },
+    "content/site/civil-construction-2/primary-r05-zenki/article.mdx": {
+      "1-4": 2,
+      "1-3": 3
+    },
+    "content/site/civil-construction-2/primary-r06-kouki/article.mdx": {
+      "1-3": 9,
+      "1-4": 3
+    },
+    "content/site/civil-construction-2/primary-r06-zenki/article.mdx": {
+      "1-3": 5
+    },
+    "content/site/civil-construction-2/primary-r07-kouki/article.mdx": {
+      "1-3": 6
+    },
+    "content/site/civil-construction-2/primary-r07-zenki/article.mdx": {
+      "1-3": 7
+    },
+    "content/site/civil-construction-2/secondary-experience-writing-examples/article.mdx": {
+      "9-16": 1,
+      "1-4": 3
+    },
+    "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx": {
+      "9-16": 1,
+      "1-3": 1,
+      "3-1": 2,
+      "6-1": 4
+    },
+    "content/site/civil-construction-2/secondary-getting-started/article.mdx": {
+      "15-1": 3
+    },
+    "content/site/civil-construction-2/secondary-r03/article.mdx": {
+      "3-1": 1,
+      "1-3": 4,
+      "2-4": 12,
+      "1-4": 20,
+      "6-1": 4,
+      "0-4": 1
+    },
+    "content/site/civil-construction-2/secondary-r04/article.mdx": {
+      "3-1": 1,
+      "1-3": 4,
+      "2-4": 14,
+      "1-4": 33,
+      "6-1": 4
+    },
+    "content/site/civil-construction-2/secondary-r05/article.mdx": {
+      "3-1": 1,
+      "1-3": 5,
+      "2-4": 13,
+      "1-4": 42,
+      "6-1": 2,
+      "15-2": 1
+    },
+    "content/site/civil-construction-2/secondary-r06/article.mdx": {
+      "3-1": 1,
+      "1-3": 4,
+      "2-4": 14,
+      "1-4": 36,
+      "6-1": 4,
+      "0-4": 1
+    },
+    "content/site/civil-construction-2/secondary-r07/article.mdx": {
+      "3-1": 1,
+      "1-3": 5,
+      "2-4": 14,
+      "1-4": 36,
+      "6-1": 3
+    },
+    "content/site/concrete-chief-engineer/guide-overview/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/concrete-chief-engineer/primary-construction/article.mdx": {
+      "11-1": 3
+    },
+    "content/site/concrete-chief-engineer/primary-durability/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/concrete-chief-engineer/primary-products/article.mdx": {
+      "15-1": 1
+    },
+    "content/site/concrete-chief-engineer/primary-structural-design/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/concrete-chief-engineer/textbook-construction/article.mdx": {
+      "9-16": 1,
+      "6-1": 1,
+      "15-2": 1
+    },
+    "content/site/concrete-chief-engineer/textbook-durability/article.mdx": {
+      "15-3": 1,
+      "1-4": 7
+    },
+    "content/site/concrete-chief-engineer/textbook-materials/article.mdx": {
+      "9-16": 1,
+      "15-3": 1
+    },
+    "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx": {
+      "11-1": 1
+    },
+    "content/site/concrete-chief-engineer/textbook-products/article.mdx": {
+      "2-3": 1,
+      "1-4": 4
+    },
+    "content/site/concrete-chief-engineer/textbook-properties/article.mdx": {
+      "9-16": 1,
+      "15-3": 1,
+      "2-3": 1
+    },
+    "content/site/concrete-diagnostician/guide-overview/article.mdx": {
+      "15-1": 2
+    },
+    "content/site/pe-comprehensive-management/accounting-systems/article.mdx": {
+      "1-4": 1
+    },
+    "content/site/pe-comprehensive-management/achievement-organization/article.mdx": {
+      "1-3": 1,
+      "1-4": 1
+    },
+    "content/site/pe-comprehensive-management/agenda-21/article.mdx": {
+      "2-3": 1,
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/aging-infrastructure/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/all-hazard-approach/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/analogous-estimation/article.mdx": {
+      "15-3": 5,
+      "15-2": 2
+    },
+    "content/site/pe-comprehensive-management/analytic-hierarchy-process/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/antitrust-compliance/article.mdx": {
+      "3-1": 1,
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/api/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/appraisal-three-principles/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/backcasting/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/basel-convention/article.mdx": {
+      "6-1": 1,
+      "1-4": 3
+    },
+    "content/site/pe-comprehensive-management/behavioral-regulation/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/biodiversity-basic-act/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/bioeconomy/article.mdx": {
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/biosafety/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/blockchain-crypto/article.mdx": {
+      "2-3": 3
+    },
+    "content/site/pe-comprehensive-management/break-even-point/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/business-continuity-plan/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/business-intelligence/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/cash-flow-statement/article.mdx": {
+      "2-3": 2
+    },
+    "content/site/pe-comprehensive-management/chemical-substances-review-act/article.mdx": {
+      "3-1": 5
+    },
+    "content/site/pe-comprehensive-management/child-rearing-support-act/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/child-support-act/article.mdx": {
+      "2-3": 1,
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/childcare-nursing-leave-act/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/circular-society-basic-act/article.mdx": {
+      "1-4": 10
+    },
+    "content/site/pe-comprehensive-management/cites/article.mdx": {
+      "3-1": 3,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/clearance-level/article.mdx": {
+      "2-3": 2
+    },
+    "content/site/pe-comprehensive-management/climate-change-adaptation-act/article.mdx": {
+      "2-3": 2
+    },
+    "content/site/pe-comprehensive-management/cloud-on-premises/article.mdx": {
+      "2-3": 1,
+      "1-4": 2
+    },
+    "content/site/pe-comprehensive-management/cluster-analysis/article.mdx": {
+      "2-3": 1,
+      "1-4": 2
+    },
+    "content/site/pe-comprehensive-management/collective-intelligence/article.mdx": {
+      "3-1": 4
+    },
+    "content/site/pe-comprehensive-management/communication-control/article.mdx": {
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/communication-planning/article.mdx": {
+      "2-3": 2
+    },
+    "content/site/pe-comprehensive-management/concurrent-engineering/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/consumer-product-safety-act/article.mdx": {
+      "1-3": 1
+    },
+    "content/site/pe-comprehensive-management/content-process/article.mdx": {
+      "2-3": 2,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/contingency/article.mdx": {
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/continued-employment-system/article.mdx": {
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/convention-on-biodiversity/article.mdx": {
+      "1-4": 2
+    },
+    "content/site/pe-comprehensive-management/copyright/article.mdx": {
+      "1-4": 5
+    },
+    "content/site/pe-comprehensive-management/corrective-maintenance/article.mdx": {
+      "1-4": 1
+    },
+    "content/site/pe-comprehensive-management/cost-driver/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/cost-variance-analysis/article.mdx": {
+      "15-3": 1,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/course-selection-guide/article.mdx": {
+      "15-1": 1
+    },
+    "content/site/pe-comprehensive-management/cpd/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/crisis-communication/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/crm-system/article.mdx": {
+      "6-1": 2,
+      "1-4": 4
+    },
+    "content/site/pe-comprehensive-management/csr/article.mdx": {
+      "1-4": 2
+    },
+    "content/site/pe-comprehensive-management/csv/article.mdx": {
+      "3-1": 2
+    },
+    "content/site/pe-comprehensive-management/customer-satisfaction/article.mdx": {
+      "2-4": 1
+    },
+    "content/site/pe-comprehensive-management/cyber-security/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/data-breach-response/article.mdx": {
+      "1-4": 4
+    },
+    "content/site/pe-comprehensive-management/data-collection/article.mdx": {
+      "3-1": 2
+    },
+    "content/site/pe-comprehensive-management/data-governance/article.mdx": {
+      "6-1": 3,
+      "1-4": 10
+    },
+    "content/site/pe-comprehensive-management/data-leak-tampering-loss/article.mdx": {
+      "1-4": 3,
+      "6-1": 2,
+      "2-4": 2
+    },
+    "content/site/pe-comprehensive-management/data-mining/article.mdx": {
+      "1-4": 3
+    },
+    "content/site/pe-comprehensive-management/data-warehouse/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/de-facto-standard/article.mdx": {
+      "6-1": 5,
+      "1-4": 5,
+      "1-3": 1
+    },
+    "content/site/pe-comprehensive-management/de-jure-standard/article.mdx": {
+      "1-3": 2,
+      "6-1": 3,
+      "1-4": 25
+    },
+    "content/site/pe-comprehensive-management/demand-forecasting/article.mdx": {
+      "3-1": 3
+    },
+    "content/site/pe-comprehensive-management/deposit-system/article.mdx": {
+      "3-1": 2
+    },
+    "content/site/pe-comprehensive-management/depreciation-residual-value/article.mdx": {
+      "3-1": 3
+    },
+    "content/site/pe-comprehensive-management/design-review/article.mdx": {
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/diagnostic-od/article.mdx": {
+      "1-4": 12,
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/dialogic-od/article.mdx": {
+      "6-1": 4,
+      "1-4": 12
+    },
+    "content/site/pe-comprehensive-management/digital-rights/article.mdx": {
+      "6-1": 3,
+      "1-4": 3,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/digital-twin-cps/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/direct-costing/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/disability-employment-act/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/discretionary-work-system/article.mdx": {
+      "6-1": 4,
+      "1-4": 5
+    },
+    "content/site/pe-comprehensive-management/dos-ddos/article.mdx": {
+      "6-1": 2,
+      "1-4": 5
+    },
+    "content/site/pe-comprehensive-management/doughnut-economics/article.mdx": {
+      "15-3": 1,
+      "15-2": 2
+    },
+    "content/site/pe-comprehensive-management/e-waste/article.mdx": {
+      "6-1": 2,
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/eco-drr/article.mdx": {
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/economic-comparison-principle/article.mdx": {
+      "3-1": 4
+    },
+    "content/site/pe-comprehensive-management/economic-management-pillar/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/ecrs-principle/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/edge-computing/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/elderly-employment-act/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/elsi/article.mdx": {
+      "15-3": 1,
+      "6-1": 3,
+      "1-4": 5
+    },
+    "content/site/pe-comprehensive-management/emergency-info-processing/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/emergency-info-systems/article.mdx": {
+      "2-3": 1,
+      "6-1": 3
+    },
+    "content/site/pe-comprehensive-management/employee-benefits/article.mdx": {
+      "3-1": 2
+    },
+    "content/site/pe-comprehensive-management/employment-security-act/article.mdx": {
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/employment-statistics/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/encryption-digital-signature/article.mdx": {
+      "3-1": 3
+    },
+    "content/site/pe-comprehensive-management/energy-conservation-act/article.mdx": {
+      "9-16": 1
+    },
+    "content/site/pe-comprehensive-management/environmental-communication/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/environmental-standards/article.mdx": {
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/equal-pay-for-equal-work/article.mdx": {
+      "6-1": 3
+    },
+    "content/site/pe-comprehensive-management/equipment-characteristics/article.mdx": {
+      "15-3": 3,
+      "15-2": 2
+    },
+    "content/site/pe-comprehensive-management/equipment-economics/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/equipment-maintainability/article.mdx": {
+      "3-1": 1
+    },
+    "content/site/pe-comprehensive-management/esd/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/esg-environmental-assessment/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx": {
+      "1-5": 1,
+      "6-1": 2,
+      "15-3": 1,
+      "1-4": 3
+    },
+    "content/site/pe-comprehensive-management/essay-pattern-cross-year-application/article.mdx": {
+      "1-3": 2,
+      "6-1": 2,
+      "1-4": 27,
+      "2-4": 3
+    },
+    "content/site/pe-comprehensive-management/essay-persona-guide/article.mdx": {
+      "1-4": 10
+    },
+    "content/site/pe-comprehensive-management/eta/article.mdx": {
+      "3-1": 5
+    },
+    "content/site/pe-comprehensive-management/exam-application-guide/article.mdx": {
+      "1-4": 1
+    },
+    "content/site/pe-comprehensive-management/exam-index/article.mdx": {
+      "1-3": 1,
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx": {
+      "1-4": 3
+    },
+    "content/site/pe-comprehensive-management/explicit-knowledge/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/extended-producer-responsibility/article.mdx": {
+      "9-16": 1
+    },
+    "content/site/pe-comprehensive-management/fail-soft/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/fault-tolerance/article.mdx": {
+      "3-1": 3
+    },
+    "content/site/pe-comprehensive-management/fire-service-act/article.mdx": {
+      "15-3": 4,
+      "15-2": 2
+    },
+    "content/site/pe-comprehensive-management/firewall-ids/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/five-s/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/flat-organization/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/flextime-system/article.mdx": {
+      "1-3": 1
+    },
+    "content/site/pe-comprehensive-management/followership/article.mdx": {
+      "3-1": 2
+    },
+    "content/site/pe-comprehensive-management/fool-proof/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/formal-informal-organization/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/four-m-of-production/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/four-major-pollution-diseases/article.mdx": {
+      "3-1": 4
+    },
+    "content/site/pe-comprehensive-management/frequent-topics/article.mdx": {
+      "1-3": 6,
+      "1-4": 8,
+      "6-1": 5,
+      "6-2": 1
+    },
+    "content/site/pe-comprehensive-management/fta/article.mdx": {
+      "3-1": 2,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/gender-equality-act/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/gender-gap/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/general-overview/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/general-vs-comprehensive/article.mdx": {
+      "1-4": 2,
+      "1-3": 1
+    },
+    "content/site/pe-comprehensive-management/generative-ai/article.mdx": {
+      "3-1": 6
+    },
+    "content/site/pe-comprehensive-management/gfc-chemicals-framework/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/global-compact/article.mdx": {
+      "3-1": 4
+    },
+    "content/site/pe-comprehensive-management/green-bond/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/green-infrastructure/article.mdx": {
+      "2-3": 1,
+      "1-3": 1
+    },
+    "content/site/pe-comprehensive-management/h21-primary/article.mdx": {
+      "1-3": 1
+    },
+    "content/site/pe-comprehensive-management/h21-secondary/article.mdx": {
+      "15-2": 2
+    },
+    "content/site/pe-comprehensive-management/h22-primary/article.mdx": {
+      "1-3": 5,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/h22-secondary/article.mdx": {
+      "15-2": 2
+    },
+    "content/site/pe-comprehensive-management/h23-primary/article.mdx": {
+      "1-3": 6,
+      "15-2": 4
+    },
+    "content/site/pe-comprehensive-management/h23-secondary/article.mdx": {
+      "1-3": 1,
+      "6-1": 1,
+      "1-4": 5,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/h24-primary/article.mdx": {
+      "1-3": 5,
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/h24-secondary/article.mdx": {
+      "6-1": 5
+    },
+    "content/site/pe-comprehensive-management/h25-primary/article.mdx": {
+      "1-3": 4
+    },
+    "content/site/pe-comprehensive-management/h26-primary/article.mdx": {
+      "1-3": 7,
+      "3-1": 1,
+      "1-4": 12
+    },
+    "content/site/pe-comprehensive-management/h26-secondary/article.mdx": {
+      "15-2": 2
+    },
+    "content/site/pe-comprehensive-management/h27-primary/article.mdx": {
+      "1-3": 2
+    },
+    "content/site/pe-comprehensive-management/h27-secondary/article.mdx": {
+      "15-3": 1,
+      "15-2": 3
+    },
+    "content/site/pe-comprehensive-management/h28-primary/article.mdx": {
+      "1-3": 6,
+      "15-2": 2
+    },
+    "content/site/pe-comprehensive-management/h28-secondary/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/h29-primary/article.mdx": {
+      "1-3": 9
+    },
+    "content/site/pe-comprehensive-management/h29-secondary/article.mdx": {
+      "15-3": 1,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/h30-primary/article.mdx": {
+      "1-3": 4,
+      "1-4": 6
+    },
+    "content/site/pe-comprehensive-management/haccp/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/halo-effect-errors/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/hawthorne-experiment/article.mdx": {
+      "3-1": 8,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/hazard-map/article.mdx": {
+      "15-3": 2,
+      "15-2": 2
+    },
+    "content/site/pe-comprehensive-management/health-management/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/heat-island-effect/article.mdx": {
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/heinrich-law/article.mdx": {
+      "1-4": 1
+    },
+    "content/site/pe-comprehensive-management/herzberg-two-factor-theory/article.mdx": {
+      "3-1": 2
+    },
+    "content/site/pe-comprehensive-management/hr-systems/article.mdx": {
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/human-development-index/article.mdx": {
+      "3-1": 3
+    },
+    "content/site/pe-comprehensive-management/human-factors/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/human-resource-assessment/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/human-resource-management-pillar/article.mdx": {
+      "6-1": 1,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/incentive/article.mdx": {
+      "3-1": 3
+    },
+    "content/site/pe-comprehensive-management/income-statement/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/indefinite-conversion-rule/article.mdx": {
+      "3-1": 2
+    },
+    "content/site/pe-comprehensive-management/indirect-manufacturing-cost/article.mdx": {
+      "1-4": 1
+    },
+    "content/site/pe-comprehensive-management/industrial-property-rights/article.mdx": {
+      "3-1": 4
+    },
+    "content/site/pe-comprehensive-management/information-disclosure/article.mdx": {
+      "15-3": 6,
+      "15-2": 4
+    },
+    "content/site/pe-comprehensive-management/information-disclosure-act/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/information-management-pillar/article.mdx": {
+      "6-1": 1,
+      "15-2": 3
+    },
+    "content/site/pe-comprehensive-management/information-retrieval/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/interim-storage-facility/article.mdx": {
+      "15-3": 4,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/internal-job-posting/article.mdx": {
+      "15-3": 4,
+      "3-1": 5,
+      "6-1": 2,
+      "15-2": 2
+    },
+    "content/site/pe-comprehensive-management/internal-rate-of-return/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/international-filing-system/article.mdx": {
+      "2-3": 2,
+      "6-1": 2,
+      "1-4": 6
+    },
+    "content/site/pe-comprehensive-management/internet/article.mdx": {
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/interpersonal-skills/article.mdx": {
+      "3-1": 4,
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/intrinsic-motivation/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/invasive-alien-species/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/iot/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/ip-creation/article.mdx": {
+      "15-3": 5
+    },
+    "content/site/pe-comprehensive-management/ip-protection/article.mdx": {
+      "15-3": 6,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/ipbes/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/isms-iso27001/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/jisec/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/job-based-pay/article.mdx": {
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/job-grade-system/article.mdx": {
+      "3-1": 6
+    },
+    "content/site/pe-comprehensive-management/job-order-costing/article.mdx": {
+      "3-1": 4
+    },
+    "content/site/pe-comprehensive-management/job-rotation/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/job-type-employment/article.mdx": {
+      "1-4": 5,
+      "6-1": 2,
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/keyword-2026/article.mdx": {
+      "15-3": 5,
+      "3-1": 48,
+      "15-2": 2
+    },
+    "content/site/pe-comprehensive-management/kunming-montreal-framework/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/labor-mobility/article.mdx": {
+      "6-1": 1,
+      "3-1": 3
+    },
+    "content/site/pe-comprehensive-management/labor-productivity/article.mdx": {
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/labor-relations-adjustment-act/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/labor-tribunal-act/article.mdx": {
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/last-minute-2026/article.mdx": {
+      "1-4": 3,
+      "1-3": 1,
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/lead-time/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/lgbt-understanding-act/article.mdx": {
+      "6-1": 3
+    },
+    "content/site/pe-comprehensive-management/lifecycle-costing-method/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/lifecycle-management/article.mdx": {
+      "2-3": 3
+    },
+    "content/site/pe-comprehensive-management/liquefaction/article.mdx": {
+      "15-3": 4
+    },
+    "content/site/pe-comprehensive-management/load-capacity/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/load-leveling/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/location-limited-employee/article.mdx": {
+      "3-1": 3
+    },
+    "content/site/pe-comprehensive-management/long-term-strategy-2050/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/machine-learning/article.mdx": {
+      "1-4": 1,
+      "1-3": 1
+    },
+    "content/site/pe-comprehensive-management/mandatory-management-retirement/article.mdx": {
+      "3-1": 2
+    },
+    "content/site/pe-comprehensive-management/mass-communication/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/meeting-design/article.mdx": {
+      "6-1": 4,
+      "1-4": 4
+    },
+    "content/site/pe-comprehensive-management/mental-health/article.mdx": {
+      "3-1": 4
+    },
+    "content/site/pe-comprehensive-management/mental-health-care/article.mdx": {
+      "6-1": 1,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/mentor/article.mdx": {
+      "6-1": 1,
+      "1-4": 1
+    },
+    "content/site/pe-comprehensive-management/method-planning/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/minamata-convention/article.mdx": {
+      "6-1": 2,
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/minimum-wage-act/article.mdx": {
+      "1-5": 1,
+      "6-1": 3
+    },
+    "content/site/pe-comprehensive-management/multi-track-hr-system/article.mdx": {
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/my-number-act/article.mdx": {
+      "1-5": 1,
+      "6-1": 2,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/national-resilience-act/article.mdx": {
+      "1-3": 1,
+      "1-4": 4,
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/nature-conservation-act/article.mdx": {
+      "2-3": 2
+    },
+    "content/site/pe-comprehensive-management/nature-positive/article.mdx": {
+      "15-3": 5,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/non-repudiation/article.mdx": {
+      "1-5": 1,
+      "6-1": 2,
+      "1-4": 2
+    },
+    "content/site/pe-comprehensive-management/nonconformity-rate/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/normalcy-bias/article.mdx": {
+      "3-1": 3
+    },
+    "content/site/pe-comprehensive-management/nuclear-disaster-act/article.mdx": {
+      "6-1": 1,
+      "15-3": 4
+    },
+    "content/site/pe-comprehensive-management/occupational-accident-prevention-plan/article.mdx": {
+      "1-5": 1,
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/ocean-plastic/article.mdx": {
+      "2-3": 2
+    },
+    "content/site/pe-comprehensive-management/ojt-off-jt/article.mdx": {
+      "3-1": 5,
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/operation-errors/article.mdx": {
+      "2-3": 1,
+      "6-1": 3
+    },
+    "content/site/pe-comprehensive-management/opportunity-cost/article.mdx": {
+      "1-4": 1
+    },
+    "content/site/pe-comprehensive-management/opt-in-opt-out/article.mdx": {
+      "2-3": 1,
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/organizational-commitment/article.mdx": {
+      "1-4": 3,
+      "6-1": 3
+    },
+    "content/site/pe-comprehensive-management/password-security/article.mdx": {
+      "6-1": 3
+    },
+    "content/site/pe-comprehensive-management/patent-rights/article.mdx": {
+      "6-1": 2,
+      "1-4": 2,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/pattern-essay-general-contractor/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/pattern-essay-road-municipality/article.mdx": {
+      "1-4": 3
+    },
+    "content/site/pe-comprehensive-management/pdca-cycle/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/pension-system/article.mdx": {
+      "6-1": 1,
+      "1-4": 1
+    },
+    "content/site/pe-comprehensive-management/performance-based-pay/article.mdx": {
+      "1-5": 1,
+      "6-1": 4
+    },
+    "content/site/pe-comprehensive-management/performance-linked-bonus/article.mdx": {
+      "1-5": 1,
+      "6-1": 5
+    },
+    "content/site/pe-comprehensive-management/performance-shaping-factors/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/personal-communication/article.mdx": {
+      "2-3": 2
+    },
+    "content/site/pe-comprehensive-management/personal-info-protection/article.mdx": {
+      "6-1": 4,
+      "1-4": 4
+    },
+    "content/site/pe-comprehensive-management/personal-info-utilization/article.mdx": {
+      "6-1": 3,
+      "15-3": 2,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/personal-information/article.mdx": {
+      "3-1": 8
+    },
+    "content/site/pe-comprehensive-management/personnel-management/article.mdx": {
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/pert-cpm/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/pha/article.mdx": {
+      "15-3": 2,
+      "3-1": 4
+    },
+    "content/site/pe-comprehensive-management/phishing-pharming/article.mdx": {
+      "15-3": 2,
+      "2-3": 3,
+      "6-1": 3,
+      "3-1": 4
+    },
+    "content/site/pe-comprehensive-management/planetary-boundaries/article.mdx": {
+      "15-3": 1,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/planned-usage-period/article.mdx": {
+      "3-1": 4
+    },
+    "content/site/pe-comprehensive-management/pm-theory/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/pmbok/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/pollution-control-manager/article.mdx": {
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/pops-convention/article.mdx": {
+      "1-4": 1
+    },
+    "content/site/pe-comprehensive-management/portrait-publicity-privacy/article.mdx": {
+      "3-1": 3
+    },
+    "content/site/pe-comprehensive-management/positive-action/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/power-harassment/article.mdx": {
+      "6-1": 4
+    },
+    "content/site/pe-comprehensive-management/ppm-analysis/article.mdx": {
+      "3-1": 4
+    },
+    "content/site/pe-comprehensive-management/pqcdsme/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/precautionary-principle/article.mdx": {
+      "15-3": 4
+    },
+    "content/site/pe-comprehensive-management/prevention-principle/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/prior-use-rights/article.mdx": {
+      "6-1": 1,
+      "3-1": 3
+    },
+    "content/site/pe-comprehensive-management/privacy-mark/article.mdx": {
+      "1-5": 1,
+      "6-1": 2,
+      "1-4": 5
+    },
+    "content/site/pe-comprehensive-management/private-monopoly/article.mdx": {
+      "1-5": 1,
+      "6-1": 3,
+      "3-1": 4
+    },
+    "content/site/pe-comprehensive-management/probabilistic-risk-assessment/article.mdx": {
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/problem-setting-ability/article.mdx": {
+      "15-3": 4
+    },
+    "content/site/pe-comprehensive-management/process-costing/article.mdx": {
+      "15-3": 2,
+      "1-4": 1
+    },
+    "content/site/pe-comprehensive-management/process-planning-construction/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/process-safety-mgmt/article.mdx": {
+      "3-1": 4
+    },
+    "content/site/pe-comprehensive-management/product-liability-act/article.mdx": {
+      "6-1": 3,
+      "1-4": 1
+    },
+    "content/site/pe-comprehensive-management/production-management-system/article.mdx": {
+      "2-3": 1,
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/prtr-act/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/psychological-safety/article.mdx": {
+      "6-1": 1,
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/public-private-data-act/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/public-relations/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/public-safety/article.mdx": {
+      "6-1": 4
+    },
+    "content/site/pe-comprehensive-management/public-servant-comprehensive-merit/article.mdx": {
+      "1-4": 3
+    },
+    "content/site/pe-comprehensive-management/quality-assurance/article.mdx": {
+      "3-1": 4
+    },
+    "content/site/pe-comprehensive-management/quality-control/article.mdx": {
+      "1-4": 2
+    },
+    "content/site/pe-comprehensive-management/quality-costing/article.mdx": {
+      "3-1": 4
+    },
+    "content/site/pe-comprehensive-management/r01-primary/article.mdx": {
+      "3-1": 1,
+      "1-3": 3,
+      "15-3": 1,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/r02-primary/article.mdx": {
+      "1-3": 8
+    },
+    "content/site/pe-comprehensive-management/r02-secondary/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/r03-primary/article.mdx": {
+      "1-3": 4,
+      "1-4": 4
+    },
+    "content/site/pe-comprehensive-management/r03-secondary/article.mdx": {
+      "15-3": 1,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/r04-primary/article.mdx": {
+      "1-3": 13,
+      "1-4": 1,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/r05-primary/article.mdx": {
+      "1-3": 9,
+      "1-4": 9
+    },
+    "content/site/pe-comprehensive-management/r05-secondary/article.mdx": {
+      "15-3": 1,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/r06-primary/article.mdx": {
+      "1-3": 9
+    },
+    "content/site/pe-comprehensive-management/r06-secondary/article.mdx": {
+      "15-3": 4,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/r07-primary/article.mdx": {
+      "1-3": 5,
+      "1-4": 6
+    },
+    "content/site/pe-comprehensive-management/r08-primary/article.mdx": {
+      "1-3": 10
+    },
+    "content/site/pe-comprehensive-management/r08-secondary/article.mdx": {
+      "15-3": 2,
+      "3-1": 5
+    },
+    "content/site/pe-comprehensive-management/r8-essay-theme-ai-governance/article.mdx": {
+      "15-3": 3,
+      "15-2": 4
+    },
+    "content/site/pe-comprehensive-management/r8-essay-theme-circular-economy/article.mdx": {
+      "15-3": 1,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/r8-essay-theme-disaster-recovery/article.mdx": {
+      "15-3": 1,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/r8-essay-theme-economic-security/article.mdx": {
+      "15-3": 3,
+      "15-2": 3
+    },
+    "content/site/pe-comprehensive-management/r8-essay-theme-infrastructure-maintenance/article.mdx": {
+      "15-3": 2,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/radioactive-decontamination-act/article.mdx": {
+      "1-5": 1,
+      "6-1": 2,
+      "1-4": 2
+    },
+    "content/site/pe-comprehensive-management/radioactive-waste/article.mdx": {
+      "1-5": 1,
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/reach-regulation/article.mdx": {
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/redundancy-safety/article.mdx": {
+      "1-4": 4,
+      "15-3": 1,
+      "15-2": 2
+    },
+    "content/site/pe-comprehensive-management/regional-circular-symbiosis/article.mdx": {
+      "1-5": 1,
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/relative-absolute-evaluation/article.mdx": {
+      "3-1": 2
+    },
+    "content/site/pe-comprehensive-management/reliability-block-diagram/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/replacement-cost/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/resilience/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/reskilling/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/return-to-work-support/article.mdx": {
+      "1-5": 1,
+      "6-1": 3
+    },
+    "content/site/pe-comprehensive-management/rio-declaration/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/risk/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/risk-management-plan/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/risk-management-policy/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/risk-management-system/article.mdx": {
+      "2-3": 2,
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/risk-monitoring/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/risk-treatment/article.mdx": {
+      "1-4": 1,
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/rohs-weee/article.mdx": {
+      "2-3": 1,
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/role-grade-system/article.mdx": {
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/safety-and-security/article.mdx": {
+      "1-4": 1,
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/safety-control/article.mdx": {
+      "15-3": 2,
+      "15-2": 3
+    },
+    "content/site/pe-comprehensive-management/safety-culture/article.mdx": {
+      "15-3": 6
+    },
+    "content/site/pe-comprehensive-management/safety-education/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/safety-health-plan/article.mdx": {
+      "1-5": 1,
+      "6-1": 3
+    },
+    "content/site/pe-comprehensive-management/safety-health-policy/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/safety-instrumented-system/article.mdx": {
+      "3-1": 3
+    },
+    "content/site/pe-comprehensive-management/safety-investment/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/safety-management-pillar/article.mdx": {
+      "6-1": 1,
+      "15-2": 3
+    },
+    "content/site/pe-comprehensive-management/safety-management-system/article.mdx": {
+      "2-3": 1,
+      "6-1": 2,
+      "1-4": 1
+    },
+    "content/site/pe-comprehensive-management/safety-objectives/article.mdx": {
+      "6-1": 3
+    },
+    "content/site/pe-comprehensive-management/sales-management-system/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/satoyama-initiative/article.mdx": {
+      "15-3": 5,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/scm-system/article.mdx": {
+      "1-5": 1,
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/sdgs/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/security-education/article.mdx": {
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/security-software/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/self-declaration-system/article.mdx": {
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/self-development/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/seniority-wage/article.mdx": {
+      "1-5": 1,
+      "6-1": 3
+    },
+    "content/site/pe-comprehensive-management/series-system/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/servant-leadership/article.mdx": {
+      "2-3": 1,
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/sexual-harassment/article.mdx": {
+      "6-1": 4
+    },
+    "content/site/pe-comprehensive-management/sfa-system/article.mdx": {
+      "1-4": 3,
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/skill-based-pay/article.mdx": {
+      "6-1": 1,
+      "1-4": 3
+    },
+    "content/site/pe-comprehensive-management/skill-qualification-system/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/smart-safety/article.mdx": {
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/social-environment-management-pillar/article.mdx": {
+      "6-1": 1,
+      "15-2": 4
+    },
+    "content/site/pe-comprehensive-management/soil-contamination-act/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/sound-water-cycle/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/source-control-principle/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/specialist-system/article.mdx": {
+      "3-1": 2
+    },
+    "content/site/pe-comprehensive-management/sri/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/stakeholder/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/standard-costing/article.mdx": {
+      "3-1": 1
+    },
+    "content/site/pe-comprehensive-management/standardization-strategy/article.mdx": {
+      "6-1": 1,
+      "1-4": 5
+    },
+    "content/site/pe-comprehensive-management/state-secrets-act/article.mdx": {
+      "15-3": 5
+    },
+    "content/site/pe-comprehensive-management/stress-check-system/article.mdx": {
+      "1-4": 3
+    },
+    "content/site/pe-comprehensive-management/subcontracting-act/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/subsidiarity-principle/article.mdx": {
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/supply-chain-management/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/sustainable-fashion/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/swot-analysis/article.mdx": {
+      "3-1": 6
+    },
+    "content/site/pe-comprehensive-management/system-integrity/article.mdx": {
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/system-outage-degradation/article.mdx": {
+      "6-1": 3
+    },
+    "content/site/pe-comprehensive-management/system-safety/article.mdx": {
+      "15-3": 6,
+      "15-2": 2
+    },
+    "content/site/pe-comprehensive-management/system-security/article.mdx": {
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/tacit-knowledge/article.mdx": {
+      "3-1": 2
+    },
+    "content/site/pe-comprehensive-management/talent-management/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/targeted-attack/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/tcfd/article.mdx": {
+      "1-5": 1,
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/technical-nontechnical-skills/article.mdx": {
+      "2-3": 3
+    },
+    "content/site/pe-comprehensive-management/technology-licensing/article.mdx": {
+      "3-1": 8,
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/telework/article.mdx": {
+      "15-3": 6,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/temporary-works-plan/article.mdx": {
+      "15-3": 7,
+      "6-1": 3
+    },
+    "content/site/pe-comprehensive-management/therp/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/threat-awareness-training/article.mdx": {
+      "3-1": 11
+    },
+    "content/site/pe-comprehensive-management/timeline-disaster/article.mdx": {
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/total-wage-management/article.mdx": {
+      "15-3": 5
+    },
+    "content/site/pe-comprehensive-management/trademark-rights/article.mdx": {
+      "6-1": 5
+    },
+    "content/site/pe-comprehensive-management/tripod-theory/article.mdx": {
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/unauthorized-access/article.mdx": {
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/unced-earth-summit/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/unconscious-bias/article.mdx": {
+      "3-1": 6
+    },
+    "content/site/pe-comprehensive-management/unfair-competition-prevention-act/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/unfair-trade-practices/article.mdx": {
+      "3-1": 5
+    },
+    "content/site/pe-comprehensive-management/unreasonable-trade-restraint/article.mdx": {
+      "1-5": 1,
+      "6-1": 3
+    },
+    "content/site/pe-comprehensive-management/urban-flood/article.mdx": {
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/utility-model-rights/article.mdx": {
+      "1-5": 1,
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/value-chain-analysis/article.mdx": {
+      "2-3": 1
+    },
+    "content/site/pe-comprehensive-management/variable-work-hours/article.mdx": {
+      "2-3": 2,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/verbal-nonverbal-communication/article.mdx": {
+      "2-3": 2,
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/virgin-bias/article.mdx": {
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/vocational-training-act/article.mdx": {
+      "1-5": 1,
+      "6-1": 3
+    },
+    "content/site/pe-comprehensive-management/vr-ar-metaverse/article.mdx": {
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/vulnerability/article.mdx": {
+      "15-3": 3
+    },
+    "content/site/pe-comprehensive-management/wacc-roic/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-comprehensive-management/waste-management-act/article.mdx": {
+      "1-5": 1,
+      "6-1": 2
+    },
+    "content/site/pe-comprehensive-management/water-pollution-control-act/article.mdx": {
+      "15-3": 4
+    },
+    "content/site/pe-comprehensive-management/web-services/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/wellbeing-org/article.mdx": {
+      "15-3": 7,
+      "2-3": 2
+    },
+    "content/site/pe-comprehensive-management/wildlife-protection-act/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-comprehensive-management/women-empowerment-act/article.mdx": {
+      "6-1": 1
+    },
+    "content/site/pe-comprehensive-management/work-planning/article.mdx": {
+      "3-1": 2
+    },
+    "content/site/pe-comprehensive-management/workers-compensation-insurance/article.mdx": {
+      "6-1": 4,
+      "15-3": 2,
+      "15-2": 1
+    },
+    "content/site/pe-comprehensive-management/youth-employment-act/article.mdx": {
+      "1-5": 1,
+      "6-1": 2
+    },
+    "content/site/pe-construction/bosai-kokudo-kyoujinka/article.mdx": {
+      "15-1": 2
+    },
+    "content/site/pe-construction/bousai-genseigai-ronbun-keyword/article.mdx": {
+      "9-16": 1,
+      "15-1": 8,
+      "15-3": 17,
+      "3-1": 5,
+      "1-4": 78,
+      "15-2": 53
+    },
+    "content/site/pe-construction/carbon-neutral-kensetsu/article.mdx": {
+      "15-1": 1
+    },
+    "content/site/pe-construction/chiiki-dukuri-ronbun-keyword/article.mdx": {
+      "15-1": 18,
+      "15-3": 12,
+      "1-4": 100,
+      "15-2": 36
+    },
+    "content/site/pe-construction/construction-planning-exam-themes/article.mdx": {
+      "9-16": 1,
+      "1-3": 2,
+      "1-4": 17,
+      "15-1": 1,
+      "6-1": 2
+    },
+    "content/site/pe-construction/datsutanso-kankyo-ronbun-keyword/article.mdx": {
+      "9-16": 1,
+      "15-1": 4,
+      "15-3": 26,
+      "1-4": 97,
+      "15-2": 74
+    },
+    "content/site/pe-construction/environment-exam-themes/article.mdx": {
+      "9-16": 1,
+      "1-3": 2,
+      "1-4": 14,
+      "6-1": 2
+    },
+    "content/site/pe-construction/geotechnical-exam-themes/article.mdx": {
+      "9-16": 1,
+      "1-3": 2,
+      "1-4": 26,
+      "6-1": 2
+    },
+    "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-construction/iji-kanri-ronbun-keyword/article.mdx": {
+      "15-1": 5,
+      "1-4": 4,
+      "15-3": 4,
+      "3-1": 6,
+      "15-2": 33
+    },
+    "content/site/pe-construction/infra-roukyuuka-iji/article.mdx": {
+      "15-1": 3
+    },
+    "content/site/pe-construction/kensetsu-dx/article.mdx": {
+      "15-1": 2
+    },
+    "content/site/pe-construction/kokudo-keisei-chiiki/article.mdx": {
+      "15-1": 2
+    },
+    "content/site/pe-construction/ninaite-dx-ronbun-keyword/article.mdx": {
+      "15-1": 5,
+      "15-3": 5,
+      "1-4": 13,
+      "15-2": 29
+    },
+    "content/site/pe-construction/ninaite-kakuho-seisansei/article.mdx": {
+      "15-1": 2
+    },
+    "content/site/pe-construction/port-airport-exam-themes/article.mdx": {
+      "9-16": 1,
+      "1-3": 2,
+      "1-4": 13,
+      "6-1": 2
+    },
+    "content/site/pe-construction/power-civil-exam-themes/article.mdx": {
+      "9-16": 1,
+      "1-3": 2,
+      "1-4": 13,
+      "6-1": 2
+    },
+    "content/site/pe-construction/r01-construction-planning/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-construction/r01-urban-planning/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-construction/r02-construction-planning/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-construction/r02-environment/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-construction/r02-geotechnical/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-construction/r03-environment/article.mdx": {
+      "15-3": 2,
+      "15-2": 2
+    },
+    "content/site/pe-construction/r03-geotechnical/article.mdx": {
+      "15-3": 1,
+      "15-2": 1
+    },
+    "content/site/pe-construction/r03-urban-planning/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-construction/r04-construction-planning/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-construction/r04-required/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-construction/r05-environment/article.mdx": {
+      "15-3": 1,
+      "15-2": 1
+    },
+    "content/site/pe-construction/r05-geotechnical/article.mdx": {
+      "15-3": 2
+    },
+    "content/site/pe-construction/r05-railway/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-construction/r05-required/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-construction/r05-urban-planning/article.mdx": {
+      "15-2": 4
+    },
+    "content/site/pe-construction/r06-geotechnical/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-construction/r06-required/article.mdx": {
+      "15-2": 2
+    },
+    "content/site/pe-construction/r06-urban-planning/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-construction/r07-construction-planning/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-construction/r07-geotechnical/article.mdx": {
+      "15-3": 1
+    },
+    "content/site/pe-construction/r07-port-airport/article.mdx": {
+      "15-3": 1,
+      "15-2": 2
+    },
+    "content/site/pe-construction/r07-required/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-construction/r07-river-coast/article.mdx": {
+      "15-3": 1,
+      "15-2": 1
+    },
+    "content/site/pe-construction/r07-steel-concrete/article.mdx": {
+      "15-2": 1
+    },
+    "content/site/pe-construction/r07-urban-planning/article.mdx": {
+      "15-2": 2
+    },
+    "content/site/pe-construction/railway-exam-themes/article.mdx": {
+      "9-16": 1,
+      "1-3": 2,
+      "1-4": 23,
+      "6-1": 2
+    },
+    "content/site/pe-construction/required-exam-themes/article.mdx": {
+      "1-3": 1,
+      "1-4": 9,
+      "15-1": 1,
+      "6-1": 1
+    },
+    "content/site/pe-construction/river-coast-exam-themes/article.mdx": {
+      "9-16": 1,
+      "15-1": 3,
+      "6-1": 2
+    },
+    "content/site/pe-construction/river-coast-ronbun-keyword/article.mdx": {
+      "2-3": 1,
+      "15-1": 1
+    },
+    "content/site/pe-construction/road-exam-themes/article.mdx": {
+      "9-16": 1,
+      "1-3": 2,
+      "1-4": 26,
+      "15-1": 2,
+      "6-1": 2
+    },
+    "content/site/pe-construction/road-ronbun-keyword/article.mdx": {
+      "15-1": 2
+    },
+    "content/site/pe-construction/secondary-study-method/article.mdx": {
+      "15-1": 1
+    },
+    "content/site/pe-construction/shakai-shihon-ronbun-keyword/article.mdx": {
+      "15-1": 2,
+      "15-3": 15,
+      "3-1": 5,
+      "15-2": 36
+    },
+    "content/site/pe-construction/steel-concrete-exam-themes/article.mdx": {
+      "9-16": 1,
+      "1-3": 2,
+      "1-4": 14,
+      "15-1": 1,
+      "6-1": 2
+    },
+    "content/site/pe-construction/tunnel-exam-themes/article.mdx": {
+      "9-16": 1,
+      "1-3": 2,
+      "1-4": 15,
+      "15-1": 1,
+      "6-1": 2
+    },
+    "content/site/pe-construction/urban-planning-exam-themes/article.mdx": {
+      "9-16": 1,
+      "1-3": 2,
+      "1-4": 25,
+      "6-1": 2
+    },
+    "content/site/pe-construction/urban-planning-ronbun-keyword/article.mdx": {
+      "15-1": 2
+    },
+    "content/site/pe-construction-guide-required-essay/article.mdx": {
+      "1-5": 1,
+      "6-1": 1,
+      "1-4": 10
+    },
+    "content/site/pe-first-stage/r01-aptitude/article.mdx": {
+      "15-2": 3
+    },
+    "content/site/pe-first-stage/r01-basic/article.mdx": {
+      "11-2": 38,
+      "1-3": 2,
+      "15-3": 2,
+      "15-1": 1,
+      "15-2": 1
+    },
+    "content/site/pe-first-stage/r01-construction/article.mdx": {
+      "11-2": 7,
+      "15-2": 1
+    },
+    "content/site/pe-first-stage/r02-aptitude/article.mdx": {
+      "1-3": 8,
+      "15-3": 3,
+      "15-2": 3
+    },
+    "content/site/pe-first-stage/r02-basic/article.mdx": {
+      "15-3": 1,
+      "15-1": 1,
+      "1-3": 3,
+      "15-2": 1
+    },
+    "content/site/pe-first-stage/r02-construction/article.mdx": {
+      "11-2": 9,
+      "1-3": 3
+    },
+    "content/site/pe-first-stage/r03-aptitude/article.mdx": {
+      "15-3": 4,
+      "15-2": 2
+    },
+    "content/site/pe-first-stage/r03-basic/article.mdx": {
+      "11-1": 2,
+      "11-2": 13,
+      "1-3": 5
+    },
+    "content/site/pe-first-stage/r03-construction/article.mdx": {
+      "11-2": 11,
+      "11-1": 2
+    },
+    "content/site/pe-first-stage/r04-aptitude/article.mdx": {
+      "15-3": 3,
+      "15-2": 3
+    },
+    "content/site/pe-first-stage/r04-basic/article.mdx": {
+      "1-3": 11,
+      "11-2": 23,
+      "15-3": 3,
+      "11-1": 1
+    },
+    "content/site/pe-first-stage/r04-construction/article.mdx": {
+      "11-2": 6
+    },
+    "content/site/pe-first-stage/r05-aptitude/article.mdx": {
+      "15-3": 2,
+      "15-2": 5
+    },
+    "content/site/pe-first-stage/r05-basic/article.mdx": {
+      "11-2": 21,
+      "11-1": 3
+    },
+    "content/site/pe-first-stage/r05-construction/article.mdx": {
+      "11-2": 7,
+      "1-3": 3,
+      "1-4": 4,
+      "15-2": 2
+    },
+    "content/site/pe-first-stage/r06-aptitude/article.mdx": {
+      "15-2": 11
+    },
+    "content/site/pe-first-stage/r06-basic/article.mdx": {
+      "1-3": 7,
+      "11-1": 1,
+      "15-3": 1,
+      "1-4": 7,
+      "15-2": 1
+    },
+    "content/site/pe-first-stage/r06-construction/article.mdx": {
+      "11-2": 8,
+      "1-4": 1,
+      "1-3": 1
+    },
+    "content/site/pe-first-stage/r07-aptitude/article.mdx": {
+      "15-3": 2,
+      "15-2": 3
+    },
+    "content/site/pe-first-stage/r07-basic/article.mdx": {
+      "11-2": 24,
+      "11-1": 2,
+      "15-3": 2,
+      "1-3": 1
+    },
+    "content/site/pe-first-stage/r07-construction/article.mdx": {
+      "11-2": 12,
+      "1-3": 1
+    }
+  }
+}

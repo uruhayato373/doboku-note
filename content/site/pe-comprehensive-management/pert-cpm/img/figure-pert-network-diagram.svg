@@ -1,0 +1,42 @@
+  <svg width="400" height="500" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" style="max-width:400px;width:100%" role="img" aria-label="PERT ネットワーク図">
+    <defs>
+      <marker id="a3" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L0,8 L8,4 z" fill="#222"/></marker>
+    </defs>
+    <!-- 左ノード i -->
+    <circle cx="95" cy="100" r="34" fill="#222" stroke="#222" stroke-width="2"/>
+    <text x="95" y="92" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">i</text>
+    <line x1="72" y1="101" x2="118" y2="101" stroke="#8a8a8a" stroke-width="1"/>
+    <!-- 左ノード ラベル -->
+    <text x="95" y="155" text-anchor="middle" fill="#222" font-size="11">最早開始 10時</text>
+    <text x="95" y="172" text-anchor="middle" fill="#222" font-size="11">最遅開始 14時</text>
+    <!-- 矢印 -->
+    <line x1="129" y1="100" x2="261" y2="100" stroke="#222" stroke-width="2.5" marker-end="url(#a3)"/>
+    <!-- ラベル -->
+    <text x="195" y="78" text-anchor="middle" fill="#222" font-size="13" font-weight="bold">E</text>
+    <text x="195" y="91" text-anchor="middle" fill="#555" font-size="11">（作業時間：3時間）</text>
+    <!-- E=3時間 ブラケット -->
+    <text x="195" y="122" text-anchor="middle" fill="#555" font-size="11">E＝3時間</text>
+    <!-- 右ノード j -->
+    <circle cx="295" cy="100" r="34" fill="#222" stroke="#222" stroke-width="2"/>
+    <text x="295" y="92" text-anchor="middle" fill="#ffffff" font-size="16" font-weight="bold">j</text>
+    <line x1="272" y1="101" x2="318" y2="101" stroke="#8a8a8a" stroke-width="1"/>
+    <!-- 右ノード ラベル -->
+    <text x="295" y="155" text-anchor="middle" fill="#222" font-size="11">最早完了 17時</text>
+    <text x="295" y="172" text-anchor="middle" fill="#222" font-size="11">最遅完了 17時</text>
+
+    <!-- サマリー -->
+    <line x1="20" y1="200" x2="380" y2="200" stroke="#d7d7d7" stroke-width="1"/>
+    <text x="200" y="232" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a3a5c" font-family="sans-serif">PERT ネットワーク図の読み方</text>
+
+    <rect x="20" y="248" width="360" height="80" rx="6" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+    <text x="40" y="272" font-size="11" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">ノード（円）の構成</text>
+    <text x="40" y="292" font-size="11" fill="#555" font-family="sans-serif">・上段（円の上半分）: 結合点番号</text>
+    <text x="40" y="310" font-size="11" fill="#555" font-family="sans-serif">・下段左: 最早結合点時刻 ／ 下段右: 最遅結合点時刻</text>
+
+    <rect x="20" y="344" width="360" height="80" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+    <text x="40" y="368" font-size="11" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">余裕時間（フロート）</text>
+    <text x="40" y="388" font-size="11" fill="#555" font-family="sans-serif">・トータルフロート = 最遅開始 - 最早開始</text>
+    <text x="40" y="408" font-size="11" fill="#555" font-family="sans-serif">・フロートが 0 の作業の連続 = クリティカルパス</text>
+
+    <text x="200" y="460" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">この例: TF = 14 - 10 = 4 時間（余裕あり）</text>
+  </svg>

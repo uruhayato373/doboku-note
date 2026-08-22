@@ -1,0 +1,236 @@
+{
+  "_meta": {
+    "exam": "civil-2",
+    "examDir": "2級土木",
+    "theme": {
+      "key": "sekokeikaku",
+      "label": "施工計画"
+    },
+    "subtopic": {
+      "key": "planning",
+      "label": "施工計画の作成・立案"
+    },
+    "packNum": "01",
+    "fmtLabel": "第一次検定 過去問",
+    "management": "safety",
+    "freqStars": 3,
+    "years": [
+      "r07z",
+      "r07k",
+      "r06k"
+    ],
+    "yearsLabel": "令和7・6年度",
+    "questionIds": [
+      "r07z-52",
+      "r07k-52",
+      "r06k-52"
+    ]
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "施工計画の作成・立案",
+      "themeLabel": "施工計画",
+      "subtopicLabel": "施工計画の作成・立案",
+      "stars": 3,
+      "yearsLabel": "令和7・6年度",
+      "firstQuestion": "施工計画作成のための事前調査に関する次の記述のうち，適当でないものはどれか。",
+      "examDir": "2級土木",
+      "exam": "civil-2",
+      "sectionTag": "頻出",
+      "pageIndex": 1,
+      "totalPages": 8
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "施工計画作成のための事前調査に関する次の記述のうち，",
+        "適当でないものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "資機材の輸送・搬入の確認のため，道路状況，工事用地，事務所用地等の調査を行う。"
+        },
+        {
+          "num": 2,
+          "text": "現場の自然条件の把握のため，地質，地下水，気象等の調査を行う。"
+        },
+        {
+          "num": 3,
+          "text": "工事数量の確認のため，設計図面及び仕様書の内容と現場との整合に関する調査を行う。"
+        },
+        {
+          "num": 4,
+          "text": "近隣環境の把握のため，現場周辺の状況，近隣施設，労務の供給元等の調査を行う。"
+        }
+      ],
+      "topic": "令和7年度前期",
+      "qNum": 1,
+      "totalQ": 3,
+      "pageIndex": 2,
+      "totalPages": 8
+    },
+    {
+      "type": "answer",
+      "correctNum": 4,
+      "correctText": "施工計画作成のための事前調査",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "輸送・搬入確認のための道路等調査、正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "自然条件把握のための地質・気象調査、正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "工事数量確認のための設計図面・仕様書と現場の整合調査、正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "労務の供給元は労務・調達計画のための調査であり、近隣環境の把握を目的とする調査ではない  <ExamPoint>労務供給元の調査は近隣環境調査ではなく労務・調達計画の調査</ExamPoint>",
+          "correct": false
+        }
+      ],
+      "pointText": "労務の供給元は労務・調達計画のための調査であり、近隣環境の把握を目的とする調査ではない  <ExamPoint>労務供給元の調査は近隣環境調査ではなく労",
+      "qNum": 1,
+      "totalQ": 3,
+      "pageIndex": 3,
+      "totalPages": 8
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "建設工事のための施工計画作成に関する次の記述のうち，",
+        "適当でないものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "仮設備計画は，使用目的や期間に応じて，構造計算を行い，仮設備の設置，維持管理，撤去を含めた計画を立てることが内容である。"
+        },
+        {
+          "num": 2,
+          "text": "環境保全計画は，公害問題，交通問題への影響等に対策を立てることが内容である。"
+        },
+        {
+          "num": 3,
+          "text": "調達計画は，労務計画，安全衛生計画，機械計画を立てることが主な内容である。"
+        },
+        {
+          "num": 4,
+          "text": "品質管理計画は，要求する品質を満足させるために設計図書に基づく規格値内に収まるよう計画することが主な内容である。"
+        }
+      ],
+      "topic": "令和7年度後期",
+      "qNum": 2,
+      "totalQ": 3,
+      "pageIndex": 4,
+      "totalPages": 8
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "建設工事のための施工計画作成",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "仮設備計画の内容として正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "環境保全計画の内容として正しい",
+          "correct": true
+        },
+        {
+          "num": 3,
+          "text": "調達計画は材料・機械・労務の調達であり安全衛生計画は別計画で誤り",
+          "correct": false
+        },
+        {
+          "num": 4,
+          "text": "品質管理計画の内容として正しい <ExamPoint>調達計画は材料機械労務の供給を扱う</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "調達計画は材料・機械・労務の調達であり安全衛生計画は別計画で誤り",
+      "qNum": 2,
+      "totalQ": 3,
+      "pageIndex": 5,
+      "totalPages": 8
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "施工計画作成に関する次の記述のうち，適当でないものは",
+        "どれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "環境保全計画は，公害問題，交通問題への影響等に対し，十分な対策を立てることが主な内容である。"
+        },
+        {
+          "num": 2,
+          "text": "調達計画は，労務計画，資材計画，機械計画を行い，それらに基づき実行予算を立てることが主な内容である。"
+        },
+        {
+          "num": 3,
+          "text": "品質管理計画は，要求する品質を満足させるために設計図書に基づき，規格値内に収まるように計画することが主な内容である。"
+        },
+        {
+          "num": 4,
+          "text": "仮設備計画は，使用目的や期間に応じて構造計算を行い，仮設備の設置，維持管理，撤去，片付けまで計画することが主な内容である。"
+        }
+      ],
+      "topic": "令和6年度後期",
+      "qNum": 3,
+      "totalQ": 3,
+      "pageIndex": 6,
+      "totalPages": 8
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "施工計画作成",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "text": "環境保全計画の説明は正しい",
+          "correct": true
+        },
+        {
+          "num": 2,
+          "text": "調達計画は労務・資材・機械の調達を計画するが「実行予算を立てる」のは原価管理の領域で混在しており不適",
+          "correct": false
+        },
+        {
+          "num": 3,
+          "text": "品質管理計画の説明は正しい",
+          "correct": true
+        },
+        {
+          "num": 4,
+          "text": "仮設備計画の説明は正しい <ExamPoint>調達計画は労務・資材・機械の手配を主目的とする</ExamPoint>",
+          "correct": true
+        }
+      ],
+      "pointText": "調達計画は労務・資材・機械の調達を計画するが「実行予算を立てる」のは原価管理の領域で混在しており不適",
+      "qNum": 3,
+      "totalQ": 3,
+      "pageIndex": 7,
+      "totalPages": 8
+    },
+    {
+      "type": "cta",
+      "pageIndex": 8,
+      "totalPages": 8
+    }
+  ]
+}

@@ -1,0 +1,2021 @@
+@config "../../tailwind.config.cjs";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* admin-app グローバルスタイル。
+   Tailwind + shadcn/ui 互換トークンを土台に、既存の集計ビュー用クラスを重ねる。 */
+
+/* ── テーマトークン ──
+   既定はライト。ダークは `:root[data-theme="dark"]` の 1 経路だけで表現する。
+   layout.tsx の head inline script が「保存値 or OS 設定」を解決して data-theme を必ず入れるため、
+   prefers-color-scheme のメディアクエリは持たない（同じパレットを 2 箇所に書くとドリフトするため）。
+   色を足すときは両ブロックに同じキーを足すこと（片方だけだと切替時に色が欠ける）。 */
+:root {
+  color-scheme: light;
+  --background: 220 33% 98%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --primary: 221 83% 53%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 214 32% 94%;
+  --secondary-foreground: 222 47% 18%;
+  --muted-token: 214 32% 95%;
+  --muted-foreground: 215 16% 47%;
+  --accent-token: 214 95% 93%;
+  --accent-foreground: 221 83% 42%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 210 40% 98%;
+  --border-token: 214 28% 89%;
+  --input: 214 28% 89%;
+  --ring: 221 83% 53%;
+
+  --bg: hsl(var(--background));
+  --panel: hsl(var(--card));
+  --panel-2: hsl(var(--muted-token));
+  --border: hsl(var(--border-token));
+  --border-soft: hsl(214 30% 93%);
+  --ink: hsl(var(--foreground));
+  --ink-body: hsl(215 25% 27%);
+  --ink-muted: hsl(var(--muted-foreground));
+  --accent: hsl(var(--primary));
+  --accent-fill: hsl(var(--accent-token));
+  --on-accent: hsl(var(--primary-foreground));
+  --good: hsl(160 84% 32%);
+  --good-fill: hsl(152 76% 92%);
+  --warn: hsl(36 92% 35%);
+  --warn-fill: hsl(48 96% 89%);
+  --bad: hsl(var(--destructive));
+  --bad-fill: hsl(0 86% 95%);
+  --hold: hsl(268 62% 52%);
+  --code-bg: hsl(220 30% 96%);
+  --checker-a: hsl(220 25% 97%);
+  --checker-b: hsl(218 24% 91%);
+  --sidebar: hsl(222 47% 10%);
+  --sidebar-2: hsl(222 40% 14%);
+  --sidebar-border: hsl(217 33% 20%);
+  --sidebar-ink: hsl(210 40% 96%);
+  --sidebar-muted: hsl(215 20% 65%);
+  --radius: 12px;
+  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --background: 222 47% 7%;
+  --foreground: 210 40% 96%;
+  --card: 222 38% 10%;
+  --card-foreground: 210 40% 96%;
+  --popover: 222 38% 10%;
+  --popover-foreground: 210 40% 96%;
+  --primary: 217 91% 60%;
+  --primary-foreground: 222 47% 8%;
+  --secondary: 217 30% 16%;
+  --secondary-foreground: 210 40% 96%;
+  --muted-token: 217 30% 14%;
+  --muted-foreground: 215 20% 65%;
+  --accent-token: 217 48% 18%;
+  --accent-foreground: 213 94% 72%;
+  --destructive: 0 72% 62%;
+  --destructive-foreground: 210 40% 98%;
+  --border-token: 217 28% 19%;
+  --input: 217 28% 19%;
+  --ring: 217 91% 60%;
+
+  --bg: hsl(var(--background));
+  --panel: hsl(var(--card));
+  --panel-2: hsl(var(--muted-token));
+  --border: hsl(var(--border-token));
+  --border-soft: hsl(217 27% 15%);
+  --ink: hsl(var(--foreground));
+  --ink-body: hsl(215 25% 78%);
+  --ink-muted: hsl(var(--muted-foreground));
+  --accent: hsl(var(--primary));
+  --accent-fill: hsl(var(--accent-token));
+  --on-accent: hsl(var(--primary-foreground));
+  --good: hsl(158 64% 52%);
+  --good-fill: hsl(158 46% 14%);
+  --warn: hsl(43 96% 60%);
+  --warn-fill: hsl(36 50% 14%);
+  --bad: hsl(var(--destructive));
+  --bad-fill: hsl(0 45% 15%);
+  --hold: hsl(268 72% 70%);
+  --code-bg: hsl(222 48% 6%);
+  --checker-a: hsl(222 48% 6%);
+  --checker-b: hsl(222 34% 10%);
+  --sidebar: hsl(222 50% 6%);
+  --sidebar-2: hsl(222 42% 10%);
+  --sidebar-border: hsl(217 28% 17%);
+  --sidebar-ink: hsl(210 40% 96%);
+  --sidebar-muted: hsl(215 20% 62%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background:
+    radial-gradient(
+      circle at 78% -10%,
+      hsl(var(--primary) / 0.08),
+      transparent 28rem
+    ),
+    var(--bg);
+  color: var(--ink-body);
+  font-family:
+    Inter, ui-sans-serif, system-ui, 'Hiragino Kaku Gothic ProN',
+    'Hiragino Sans', 'Yu Gothic UI', Meiryo, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+::selection {
+  background: hsl(var(--primary) / 0.2);
+}
+
+/* ── レイアウト（左サイドバー + 本文） ──
+   18 タブを 1 列に並べるため sticky な縦カラムにする。height:100vh + overflow-y で
+   ビューポートが低いときはサイドバー内だけがスクロールする（本文の位置は動かさない）。 */
+.app-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  flex: 0 0 252px;
+  width: 252px;
+  height: 100vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 18px 14px 14px;
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      hsl(217 91% 60% / 0.15),
+      transparent 18rem
+    ),
+    var(--sidebar);
+  border-right: 1px solid var(--sidebar-border);
+  color: var(--sidebar-ink);
+  box-shadow: 12px 0 40px rgb(15 23 42 / 0.08);
+}
+.app-nav .brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  min-height: 44px;
+  padding: 0 8px 12px;
+  color: var(--sidebar-ink);
+}
+.app-nav .brand-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+.app-nav .brand-copy small {
+  display: block;
+  margin-top: 1px;
+  color: var(--sidebar-muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.brand-mark {
+  position: relative;
+  display: grid;
+  flex: none;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px solid hsl(217 91% 70% / 0.35);
+  border-radius: 10px;
+  background: linear-gradient(145deg, hsl(217 91% 60%), hsl(234 89% 60%));
+  box-shadow: 0 8px 24px hsl(221 83% 34% / 0.35);
+}
+.brand-mark span {
+  position: absolute;
+  width: 14px;
+  height: 3px;
+  border-radius: 999px;
+  background: white;
+}
+.brand-mark span:nth-child(1) {
+  transform: translateY(-6px);
+}
+.brand-mark span:nth-child(2) {
+  width: 19px;
+}
+.brand-mark span:nth-child(3) {
+  transform: translateY(6px);
+}
+.app-nav .group {
+  margin-top: 10px;
+  padding: 11px 10px 5px;
+  border-top: 1px solid hsl(215 30% 30% / 0.4);
+  color: var(--sidebar-muted);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+/* 最初のグループはブランド直下なので区切り線を引かない（線が二重に見える） */
+.app-nav .brand + .group {
+  margin-top: 0;
+  border-top: 0;
+  padding-top: 2px;
+}
+.app-nav .tab {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 34px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  color: hsl(215 22% 76%);
+  font-size: 12.5px;
+  line-height: 1.4;
+  transition:
+    background-color 150ms ease,
+    color 150ms ease,
+    transform 150ms ease;
+}
+.app-nav .tab:hover {
+  background: hsl(217 33% 22% / 0.72);
+  color: white;
+  text-decoration: none;
+}
+.app-nav .tab.active {
+  background: linear-gradient(
+    90deg,
+    hsl(217 91% 60% / 0.24),
+    hsl(217 91% 60% / 0.08)
+  );
+  color: white;
+  font-weight: 600;
+  box-shadow: inset 0 0 0 1px hsl(217 91% 70% / 0.1);
+}
+.app-nav .tab.active::before {
+  position: absolute;
+  left: 0;
+  width: 2px;
+  height: 18px;
+  border-radius: 999px;
+  background: hsl(213 94% 68%);
+  box-shadow: 0 0 12px hsl(217 91% 60% / 0.7);
+  content: '';
+}
+.app-nav .tab-icon {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  color: hsl(215 20% 65%);
+  stroke-width: 1.8;
+}
+.app-nav .tab.active .tab-icon,
+.app-nav .tab:hover .tab-icon {
+  color: hsl(213 94% 76%);
+}
+.app-nav .tab-label {
+  min-width: 0;
+  flex: 1;
+}
+/* ── サイドバーの入れ子（TODO の 4 層）──
+   層は「行き先」なのでここに置く。絞り込み（優先度・種類）は本文側の責務。 */
+.app-nav .nav-tree > summary {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  list-style: none;
+  cursor: pointer;
+}
+.app-nav .nav-tree > summary::-webkit-details-marker {
+  display: none;
+}
+/* TODO の開閉アイコン。lucide の ChevronRight を details の open 状態で回転する。 */
+.app-nav .nav-tree > summary .chev {
+  width: 14px;
+  height: 14px;
+  flex: none;
+  opacity: 0.55;
+  transition: transform 150ms ease;
+}
+.app-nav .nav-tree[open] > summary .chev {
+  transform: rotate(90deg);
+}
+.app-nav .nav-sub {
+  margin: 2px 0 4px 18px;
+  padding-left: 10px;
+  border-left: 1px solid hsl(215 30% 30% / 0.55);
+}
+.app-nav .nav-sub a.tab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-height: 30px;
+  padding: 5px 9px;
+  font-size: 12px;
+}
+.app-nav .nav-sub a.tab .n {
+  flex: none;
+  color: var(--sidebar-muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.app-nav .nav-sub a.tab.active .n {
+  color: hsl(213 94% 72%);
+}
+
+.app-nav .spacer {
+  flex: 1;
+  min-height: 14px;
+}
+
+/* ── テーマ切替ボタン ──
+   表示するのは「押した後に切り替わる先」。data-theme は head の inline script が必ず入れるので、
+   ラベルの出し分けは CSS だけで完結する（React state を持たない = hydration ずれが起きない）。 */
+.nav-footer {
+  position: sticky;
+  bottom: -1px;
+  z-index: 2;
+  display: grid;
+  gap: 8px;
+  margin: 0 -4px -2px;
+  padding: 14px 4px 2px;
+  background: linear-gradient(transparent, var(--sidebar) 18%);
+}
+.local-indicator {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 8px 10px;
+  border: 1px solid hsl(215 30% 30% / 0.55);
+  border-radius: 9px;
+  background: hsl(217 33% 15% / 0.72);
+}
+.local-indicator > span {
+  width: 7px;
+  height: 7px;
+  flex: none;
+  border-radius: 999px;
+  background: hsl(160 84% 48%);
+  box-shadow: 0 0 10px hsl(160 84% 48% / 0.8);
+}
+.local-indicator div {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+.local-indicator strong {
+  color: var(--sidebar-ink);
+  font-size: 10.5px;
+  font-weight: 600;
+}
+.local-indicator small {
+  color: var(--sidebar-muted);
+  font-family: var(--mono);
+  font-size: 9px;
+}
+
+.theme-toggle {
+  /* 背の低いウィンドウではサイドバー自体がスクロールするので、切替は常に見える位置に貼り付ける。 */
+  position: sticky;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  padding: 7px 10px;
+  border: 1px solid hsl(215 30% 30% / 0.55);
+  border-radius: 9px;
+  background: hsl(217 33% 15% / 0.72);
+  color: hsl(215 22% 76%);
+  font: inherit;
+  font-size: 12.5px;
+  text-align: left;
+  cursor: pointer;
+}
+/* スクロールしたタブがボタンの隙間から透けないよう、下地をサイドバー色で敷く。 */
+.theme-toggle:hover {
+  border-color: hsl(217 91% 70% / 0.45);
+  color: white;
+  background: hsl(217 33% 20% / 0.85);
+}
+.theme-toggle .face {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.theme-toggle svg {
+  width: 15px;
+  height: 15px;
+  flex: none;
+}
+.theme-toggle .to-light,
+:root[data-theme='dark'] .theme-toggle .to-dark {
+  display: none;
+}
+:root[data-theme='dark'] .theme-toggle .to-light {
+  display: flex;
+}
+
+.container {
+  flex: 1;
+  min-width: 0;
+  max-width: 1540px;
+  margin: 0 auto;
+  padding: 30px clamp(22px, 3vw, 46px) 72px;
+}
+
+/* 760px 以下で横スクロール可能な上部バーへ畳む（グループ見出しは落とす）。 */
+@media (max-width: 760px) {
+  body {
+    display: block;
+  }
+  .app-nav {
+    position: sticky;
+    top: 0;
+    flex: none;
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 4px;
+    padding: 9px 12px;
+    overflow-x: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--sidebar-border);
+  }
+  .app-nav .brand {
+    min-height: 34px;
+    padding: 0 10px 0 0;
+  }
+  .brand-mark {
+    width: 30px;
+    height: 30px;
+  }
+  .app-nav .brand-copy,
+  .app-nav .nav-tree .nav-sub {
+    display: none;
+  }
+  .app-nav .group {
+    display: none;
+  }
+  .app-nav .tab {
+    min-height: 32px;
+    padding: 6px 9px;
+    white-space: nowrap;
+  }
+  .app-nav .tab.active::before {
+    inset: auto 10px 0;
+    width: auto;
+    height: 2px;
+  }
+  .app-nav .spacer {
+    min-height: 0;
+  }
+  .nav-footer {
+    position: static;
+    display: block;
+    margin: 0;
+    padding: 0;
+    background: none;
+  }
+  .local-indicator {
+    display: none;
+  }
+  .theme-toggle {
+    width: 34px;
+    padding: 7px 8px;
+  }
+  .theme-toggle .face span {
+    display: none;
+  }
+  .container {
+    padding: 22px 16px 56px;
+  }
+}
+
+/* 761〜960px: サイドバーは残したまま幅だけ詰める。 */
+@media (min-width: 761px) and (max-width: 960px) {
+  .app-nav {
+    flex: 0 0 210px;
+    width: 210px;
+    padding: 12px 8px 14px;
+  }
+  .app-nav a.tab {
+    font-size: 12.5px;
+    padding: 5px 9px;
+  }
+  .container {
+    padding: 20px 16px 56px;
+  }
+}
+
+.page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 0 0 24px;
+  padding: 2px 0 20px;
+  border-bottom: 1px solid var(--border-soft);
+}
+.page-head-copy {
+  min-width: 0;
+}
+.page-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 6px;
+  color: var(--accent);
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.page-eyebrow > span {
+  width: 18px;
+  height: 1px;
+  background: var(--accent);
+}
+.page-head h1 {
+  font-size: clamp(24px, 2vw, 30px);
+  color: var(--ink);
+  margin: 0 0 5px;
+  font-weight: 750;
+  letter-spacing: -0.035em;
+  line-height: 1.25;
+}
+.page-head p {
+  margin: 0;
+  color: var(--ink-muted);
+  font-size: 12.5px;
+}
+.page-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  flex: none;
+  padding: 7px 10px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: hsl(var(--card) / 0.75);
+  color: var(--ink-muted);
+  box-shadow: 0 1px 2px rgb(15 23 42 / 0.04);
+  font-family: var(--mono);
+  font-size: 9.5px;
+  backdrop-filter: blur(8px);
+}
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--good);
+  box-shadow: 0 0 8px color-mix(in srgb, var(--good) 60%, transparent);
+}
+@media (max-width: 620px) {
+  .page-head {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+/* ── カード ── */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+  box-shadow:
+    0 1px 2px rgb(15 23 42 / 0.03),
+    0 12px 30px rgb(15 23 42 / 0.035);
+}
+.card + .card {
+  margin-top: 16px;
+}
+.card.warn-border {
+  border-color: var(--warn);
+}
+.card h2 {
+  font-size: 14px;
+  color: var(--ink);
+  margin: 0 0 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.card h2 .sub {
+  color: var(--ink-muted);
+  font-weight: 400;
+  font-size: 12px;
+  margin-left: 8px;
+}
+
+.grid {
+  display: grid;
+  gap: 14px;
+}
+.grid.cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid.cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid.cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+@media (max-width: 860px) {
+  .grid.cols-3,
+  .grid.cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .grid.cols-2,
+  .grid.cols-3,
+  .grid.cols-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── KPI ── */
+.kpi {
+  position: relative;
+  overflow: hidden;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 15px 16px 16px;
+  box-shadow:
+    0 1px 2px rgb(15 23 42 / 0.03),
+    0 10px 24px rgb(15 23 42 / 0.04);
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease,
+    transform 160ms ease;
+}
+.kpi:hover {
+  border-color: hsl(var(--primary) / 0.35);
+  box-shadow: 0 14px 34px hsl(var(--primary) / 0.08);
+  transform: translateY(-1px);
+}
+.kpi-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.kpi .label {
+  color: var(--ink-muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+.kpi-icon {
+  display: grid;
+  width: 30px;
+  height: 30px;
+  flex: none;
+  place-items: center;
+  border: 1px solid hsl(var(--primary) / 0.12);
+  border-radius: 8px;
+  background: hsl(var(--primary) / 0.08);
+  color: var(--accent);
+}
+.kpi .value {
+  color: var(--ink);
+  margin-top: 7px;
+  font-size: clamp(24px, 2vw, 30px);
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.045em;
+  line-height: 1.1;
+}
+.kpi .unit {
+  font-size: 13px;
+  color: var(--ink-muted);
+  font-weight: 400;
+  margin-left: 4px;
+  letter-spacing: 0;
+}
+.kpi-rule {
+  position: absolute;
+  right: 16px;
+  bottom: 0;
+  left: 16px;
+  height: 2px;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(90deg, var(--accent), transparent 65%);
+  opacity: 0.55;
+}
+
+/* ── テーブル ── */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+}
+table.data {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+table.data th,
+table.data td {
+  text-align: left;
+  padding: 9px 11px;
+  border-bottom: 1px solid var(--border-soft);
+  white-space: nowrap;
+}
+table.data th {
+  color: var(--ink-muted);
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  background: var(--panel-2);
+  font-size: 10.5px;
+  letter-spacing: 0.025em;
+}
+table.data td.num,
+table.data th.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  font-family: var(--mono);
+}
+table.data td.wrap {
+  white-space: normal;
+  max-width: 460px;
+}
+table.data tr:hover td {
+  background: hsl(var(--primary) / 0.035);
+}
+.mono {
+  font-family: var(--mono);
+}
+
+/* ── バッジ ── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.6;
+}
+.badge.good {
+  background: var(--good-fill);
+  color: var(--good);
+}
+.badge.warn {
+  background: var(--warn-fill);
+  color: var(--warn);
+}
+.badge.bad {
+  background: var(--bad-fill);
+  color: var(--bad);
+}
+.badge.neutral {
+  background: var(--panel-2);
+  color: var(--ink-muted);
+}
+.badge.soft {
+  background: transparent;
+  box-shadow: inset 0 0 0 1px var(--border);
+  color: var(--ink-muted);
+}
+.badge.accent {
+  background: var(--accent-fill);
+  color: var(--accent);
+}
+
+/* ── フィルタバー ── */
+.filterbar {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+.filterbar a.chip {
+  padding: 5px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--ink-body);
+  background: hsl(var(--card) / 0.72);
+  font-size: 11.5px;
+  font-weight: 550;
+  transition:
+    border-color 150ms ease,
+    background-color 150ms ease,
+    color 150ms ease;
+}
+.filterbar a.chip:hover {
+  border-color: hsl(var(--primary) / 0.38);
+  background: hsl(var(--primary) / 0.06);
+  text-decoration: none;
+}
+.filterbar a.chip.active {
+  background: hsl(var(--primary) / 0.1);
+  border-color: hsl(var(--primary) / 0.28);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── ギャラリー ── */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+.gallery.small {
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+}
+.thumb {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.thumb .frame {
+  background: var(--checker-a)
+    repeating-conic-gradient(var(--checker-b) 0% 25%, var(--checker-a) 0% 50%)
+    50% / 18px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+.thumb .frame.tall {
+  aspect-ratio: 4 / 5;
+}
+.thumb .frame img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+.thumb .meta {
+  padding: 8px 10px;
+  font-size: 11px;
+  color: var(--ink-muted);
+  border-top: 1px solid var(--border-soft);
+}
+.thumb .meta .name {
+  color: var(--ink-body);
+  word-break: break-all;
+  display: block;
+  margin-bottom: 4px;
+}
+.thumb .meta .tags {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+/* ── TODO ── */
+/* 本文（カード）＋ 右ペイン（絞り込み）の 2 カラム。
+   絞り込みを横並びチップで置くと折り返して本文を押し下げ、そのぶんカードが細くなる。
+   縦に並べても場所を食わない右ペインへ逃がし、本文はカード幅の確保に使う。
+   層（バックログ/週間/月間/年間）は「行き先」なのでサイドバーの入れ子（.nav-tree）が持つ。 */
+.todo-shell {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+.todo-main {
+  flex: 1;
+  min-width: 0;
+}
+.todo-rail {
+  position: sticky;
+  top: 20px;
+  flex: 0 0 176px;
+  width: 176px;
+}
+@media (max-width: 900px) {
+  .todo-shell {
+    flex-direction: column;
+  }
+  /* 縦積みでは絞り込みが本文の下に落ちると見つからないので、先頭へ引き上げて横並びに畳む */
+  .todo-rail {
+    position: static;
+    order: -1;
+    flex: none;
+    width: 100%;
+  }
+  .todo-rail .facet {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+  }
+  .todo-rail .facet h4 {
+    margin: 0 4px 0 0;
+  }
+  .todo-rail .facet a {
+    width: auto;
+    border-radius: 999px;
+    border: 1px solid var(--border-soft);
+  }
+}
+
+/* 右ペイン: ファセット検索の縦リスト。1 行 = ラベル + 右寄せ件数。 */
+.todo-rail .rail-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  color: var(--ink-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+}
+.todo-rail .rail-head a {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.todo-rail .facet + .facet {
+  margin-top: 16px;
+}
+.todo-rail .facet h4 {
+  margin: 0 0 5px;
+  color: var(--ink-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+.todo-rail .facet a {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
+  padding: 4px 8px;
+  border-radius: 6px;
+  color: var(--ink-body);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.todo-rail .facet a:hover {
+  background: var(--panel-2);
+  text-decoration: none;
+}
+.todo-rail .facet a.active {
+  background: var(--accent-fill);
+  color: var(--accent);
+  font-weight: 700;
+}
+.todo-rail .facet a .fl {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 件数バッジ（右ペイン・グループ見出しで共通。層タブはサイドバー側が持つ） */
+.todo-rail .n,
+.todo-group .n {
+  flex: none;
+  color: var(--ink-muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+.todo-group .n {
+  padding: 1px 7px;
+  border-radius: 999px;
+  background: var(--panel-2);
+  font-weight: 600;
+}
+.todo-rail .facet a.active .n {
+  color: var(--accent);
+}
+
+/* tier の色見本。カードの左罫と同じ色を使い、右ペイン↔カードを目で結べるようにする。 */
+.tier-dot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--ink-muted);
+}
+.tier-dot.high {
+  background: var(--bad);
+}
+.tier-dot.mid {
+  background: var(--warn);
+}
+.tier-dot.low {
+  background: var(--good);
+}
+.tier-dot.hold {
+  background: var(--hold);
+}
+
+.todo-group + .todo-group {
+  margin-top: 22px;
+}
+.todo-group h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-size: 13px;
+}
+/* 最大 2 列。右ペインを引いた本文幅（1280 窓で ≈824px）で 320px 下限なら 2 列 ≈400px。
+   420px 下限にすると 1 列に落ちるので、レール併用時はここを上げない。 */
+.todo-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 10px;
+  align-items: start;
+}
+
+.todo-card {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-left-width: 3px;
+  border-radius: 8px;
+  background: var(--panel);
+}
+.todo-card.tier-high {
+  border-left-color: var(--bad);
+}
+.todo-card.tier-mid {
+  border-left-color: var(--warn);
+}
+.todo-card.tier-low {
+  border-left-color: var(--good);
+}
+.todo-card.tier-hold {
+  border-left-color: var(--hold);
+}
+.todo-card.tier-none {
+  border-left-color: var(--border);
+}
+/* タイトル自体が VS Code リンク。行番号リンクを別に置かない分、1 枚が縦に短くなる。 */
+.todo-card a.title {
+  display: block;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.todo-card a.title:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+.todo-card .row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 7px;
+}
+.todo-card .row .line {
+  margin-left: auto;
+  color: var(--ink-muted);
+  font-family: var(--mono);
+  font-size: 10.5px;
+}
+.todo-card details.body {
+  margin-top: 7px;
+}
+.todo-card details.body > summary {
+  color: var(--ink-muted);
+  font-size: 11px;
+  list-style: none;
+  cursor: pointer;
+}
+.todo-card details.body > summary::-webkit-details-marker {
+  display: none;
+}
+.todo-card details.body > summary::before {
+  content: '▸ ';
+}
+.todo-card details.body[open] > summary::before {
+  content: '▾ ';
+}
+.todo-card details.body > summary:hover {
+  color: var(--ink);
+}
+
+/* ── カード内 Markdown 本文（.md-prose）──
+   ナレッジ詳細（.knowledge-document）と同じレンダラの出力を、カード幅 ≈400px に収まる
+   コンパクトな装丁で出す。以前は素のテキストを white-space:pre-wrap で出していたため
+   `**太字**` や ```bash が生のまま並んで読めなかった。 */
+.todo-card .md-prose {
+  max-height: 260px;
+  margin-top: 6px;
+  padding: 9px 11px;
+  border-radius: 6px;
+  background: var(--panel-2);
+  color: var(--ink-body);
+  font-size: 11.5px;
+  line-height: 1.7;
+  overflow-y: auto;
+  overflow-wrap: anywhere;
+}
+.todo-card .md-prose > :first-child {
+  margin-top: 0;
+}
+.todo-card .md-prose > :last-child {
+  margin-bottom: 0;
+}
+.todo-card .md-prose p {
+  margin: 0.6em 0;
+}
+.todo-card .md-prose strong {
+  color: var(--ink);
+}
+.todo-card .md-prose a {
+  color: var(--accent);
+}
+.todo-card .md-prose h1,
+.todo-card .md-prose h2,
+.todo-card .md-prose h3,
+.todo-card .md-prose h4 {
+  margin: 1em 0 0.4em;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.4;
+}
+.todo-card .md-prose ul,
+.todo-card .md-prose ol {
+  margin: 0.5em 0;
+  padding-left: 1.3em;
+}
+.todo-card .md-prose li {
+  margin: 0.2em 0;
+}
+/* ライトでは --panel-2(#eef2f8) と --code-bg(#f1f4f9) がほぼ同色で、背景だけだと
+   コードが prose に溶ける（2026-08-18 実測）。境界線で両テーマとも区別を保証する。 */
+.todo-card .md-prose code {
+  padding: 1px 4px;
+  border: 1px solid var(--border-soft);
+  border-radius: 4px;
+  background: var(--code-bg);
+  font-family: var(--mono);
+  font-size: 10.5px;
+}
+.todo-card .md-prose pre {
+  margin: 0.6em 0;
+  padding: 9px 11px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--code-bg);
+  overflow-x: auto;
+}
+/* pre の中の code は枠を二重にしない（インライン code とは別装丁） */
+.todo-card .md-prose pre code {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  white-space: pre;
+}
+.todo-card .md-prose blockquote {
+  margin: 0.6em 0 0.6em 0;
+  padding-left: 10px;
+  border-left: 3px solid var(--border);
+  color: var(--ink-muted);
+}
+.todo-card .md-prose table {
+  display: block;
+  width: 100%;
+  margin: 0.6em 0;
+  border-collapse: collapse;
+  overflow-x: auto;
+}
+.todo-card .md-prose th,
+.todo-card .md-prose td {
+  padding: 4px 7px;
+  border: 1px solid var(--border);
+  font-size: 10.5px;
+  text-align: left;
+  white-space: nowrap;
+}
+.todo-card .md-prose th {
+  background: var(--panel);
+  color: var(--ink);
+}
+.todo-card .md-prose hr {
+  margin: 0.8em 0;
+  border: 0;
+  border-top: 1px solid var(--border-soft);
+}
+.todo-card .md-prose img {
+  max-width: 100%;
+}
+
+/* TODO v2: タスクカードではなく、層の意味に合わせた密度の高い一覧を正面に置く。
+   旧カード規則は過去の差分を読みやすくするため上に残すが、現行 page は以下だけを使う。 */
+.todo-shell.plan-only {
+  display: block;
+}
+.todo-plan-focus {
+  display: flex;
+  gap: 10px;
+  max-width: 100%;
+  margin: -8px 0 16px;
+  padding: 10px 12px;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-fill);
+  color: var(--ink-body);
+  font-size: 12px;
+  line-height: 1.65;
+}
+.todo-plan-focus strong {
+  flex: none;
+  color: var(--accent);
+}
+.todo-table-wrap {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+}
+table.data.todo-table {
+  min-width: 680px;
+  table-layout: fixed;
+}
+table.data.todo-table th,
+table.data.todo-table td {
+  padding: 8px 10px;
+  vertical-align: top;
+}
+table.data.todo-table th {
+  color: var(--ink-muted);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+}
+table.data.todo-table .todo-priority-col {
+  width: 74px;
+}
+table.data.todo-table .todo-kind-col {
+  width: 86px;
+}
+table.data.todo-table .todo-owner-col {
+  width: 92px;
+}
+table.data.todo-table .todo-due-col {
+  width: 112px;
+}
+table.data.todo-table .todo-section-col {
+  width: 190px;
+}
+table.data.todo-table .todo-status-col {
+  width: 116px;
+}
+.todo-priority {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: var(--ink-body);
+  font-size: 11.5px;
+  white-space: nowrap;
+}
+table.data.todo-table td.todo-task-cell {
+  min-width: 0;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.todo-title {
+  display: block;
+  max-width: 100%;
+  color: var(--ink);
+  font-size: 12.5px;
+  font-weight: 600;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+.todo-title:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+.todo-task-meta {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 5px;
+}
+.todo-task-meta:empty {
+  display: none;
+}
+.todo-id {
+  color: var(--ink-muted);
+  font-family: var(--mono);
+  font-size: 10px;
+}
+table.data.todo-table td.todo-section-cell {
+  color: var(--ink-muted);
+  font-size: 11px;
+  line-height: 1.55;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.todo-table tr.is-wip td {
+  background: var(--accent-fill);
+}
+.todo-table tr.is-complete td {
+  background: var(--panel-2);
+  color: var(--ink-muted);
+}
+.todo-table tr.is-complete .todo-title {
+  color: var(--ink-muted);
+  text-decoration: line-through;
+}
+.todo-task-detail {
+  margin-top: 4px;
+}
+.todo-task-detail > summary {
+  color: var(--ink-muted);
+  font-size: 10.5px;
+  list-style: none;
+  cursor: pointer;
+}
+.todo-task-detail > summary::-webkit-details-marker {
+  display: none;
+}
+.todo-task-detail > summary::before {
+  content: '▸ ';
+}
+.todo-task-detail[open] > summary::before {
+  content: '▾ ';
+}
+.todo-task-detail .md-prose {
+  max-height: 260px;
+  margin-top: 6px;
+  padding: 8px 10px;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  background: var(--panel-2);
+  color: var(--ink-body);
+  font-size: 11px;
+  line-height: 1.65;
+  overflow: auto;
+  overflow-wrap: anywhere;
+}
+.todo-task-detail .md-prose > :first-child {
+  margin-top: 0;
+}
+.todo-task-detail .md-prose > :last-child {
+  margin-bottom: 0;
+}
+.todo-task-detail .md-prose p,
+.todo-task-detail .md-prose ul,
+.todo-task-detail .md-prose ol,
+.todo-task-detail .md-prose pre,
+.todo-task-detail .md-prose table {
+  margin: 0.55em 0;
+}
+.todo-task-detail .md-prose code {
+  font-family: var(--mono);
+  font-size: 10px;
+}
+@media (max-width: 900px) {
+  .todo-main {
+    width: 100%;
+  }
+  .todo-table-wrap {
+    width: 100%;
+    max-width: 100%;
+  }
+  .todo-plan-focus {
+    display: block;
+  }
+  .todo-plan-focus strong {
+    display: block;
+    margin-bottom: 3px;
+  }
+  table.data.todo-table {
+    min-width: 480px;
+  }
+  table.data.todo-table .todo-section-col {
+    width: 150px;
+  }
+  table.data.todo-table .todo-kind-col,
+  table.data.todo-table .todo-kind-cell,
+  table.data.todo-table .todo-due-col,
+  table.data.todo-table .todo-due-cell {
+    display: none;
+  }
+  /* 狭い管理画面でも一覧をファーストビューへ残す。チップを横一列に増殖させず、
+     3軸を短い縦リストとして並べる。 */
+  .todo-rail {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px 12px;
+  }
+  .todo-rail .rail-head {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+  }
+  .todo-rail .facet {
+    display: block;
+    min-width: 0;
+  }
+  .todo-rail .facet + .facet {
+    margin-top: 0;
+  }
+  .todo-rail .facet h4 {
+    margin: 0 0 4px;
+  }
+  .todo-rail .facet a {
+    width: 100%;
+    padding: 2px 5px;
+    border: 0;
+    border-radius: 5px;
+    font-size: 11px;
+  }
+}
+
+/* ── ユーティリティ ── */
+.muted {
+  color: var(--ink-muted);
+}
+.small {
+  font-size: 12px;
+}
+.empty {
+  color: var(--ink-muted);
+  padding: 24px;
+  text-align: center;
+  font-size: 13px;
+}
+.stack-sm > * + * {
+  margin-top: 8px;
+}
+.desc-clamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+details.expand > summary {
+  cursor: pointer;
+  color: var(--ink-muted);
+  font-size: 12px;
+  list-style: none;
+}
+details.expand > summary::-webkit-details-marker {
+  display: none;
+}
+code {
+  font-family: var(--mono);
+  background: var(--panel-2);
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 0.92em;
+}
+
+/* ── ナレッジ（.claude/knowledge の人向けビュー） ── */
+.knowledge-toolbar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.knowledge-toolbar input,
+.knowledge-toolbar select {
+  color: var(--ink);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 11px;
+  font: inherit;
+}
+.knowledge-toolbar input {
+  flex: 1;
+  min-width: 220px;
+}
+.knowledge-toolbar button {
+  color: var(--ink);
+  background: var(--accent-fill);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 9px 14px;
+  cursor: pointer;
+}
+.knowledge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+}
+.knowledge-card {
+  display: block;
+  color: inherit;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-decoration: none;
+}
+.knowledge-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-1px);
+}
+.knowledge-card h2 {
+  margin: 10px 0 8px;
+  font-size: 16px;
+}
+.knowledge-card p {
+  min-height: 54px;
+  color: var(--ink-muted);
+  font-size: 12px;
+  line-height: 1.5;
+}
+.knowledge-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--ink-muted);
+  font-size: 11px;
+}
+.knowledge-detail-head {
+  margin: 8px 0 18px;
+}
+.knowledge-detail-head h1 {
+  margin: 10px 0;
+  font-size: 26px;
+}
+.knowledge-document {
+  max-width: 960px;
+  color: var(--ink-body);
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: clamp(20px, 4vw, 46px);
+  line-height: 1.8;
+}
+.knowledge-document h1,
+.knowledge-document h2,
+.knowledge-document h3 {
+  color: var(--ink);
+  line-height: 1.35;
+  margin: 1.7em 0 0.6em;
+}
+.knowledge-document h1:first-child {
+  margin-top: 0;
+}
+.knowledge-document a {
+  color: var(--accent);
+}
+.knowledge-document table {
+  width: 100%;
+  border-collapse: collapse;
+  display: block;
+  overflow-x: auto;
+}
+.knowledge-document th,
+.knowledge-document td {
+  border: 1px solid var(--border);
+  padding: 7px 10px;
+  text-align: left;
+}
+.knowledge-document blockquote {
+  margin-left: 0;
+  padding-left: 14px;
+  border-left: 3px solid var(--accent);
+  color: var(--ink-muted);
+}
+.knowledge-document pre {
+  overflow-x: auto;
+  padding: 16px;
+  background: var(--code-bg);
+  border-radius: 8px;
+}
+.knowledge-document pre code {
+  padding: 0;
+  background: transparent;
+}
+@media (max-width: 680px) {
+  .knowledge-toolbar {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+/* ===== 文書（docs/ の read-only ビュー）=====
+   一覧は .knowledge-* を再利用し、ここは Project 固有の差分だけを持つ。
+   Project だけ別テーマ・別レイアウトにしない（指示書 §9.1）。 */
+.toolbar-check {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: var(--ink-muted);
+  white-space: nowrap;
+}
+.project-warning {
+  border-color: var(--bad);
+  color: var(--bad);
+  font-size: 13px;
+}
+.project-crumbs {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+.project-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 6px;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+.project-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: 20px;
+  align-items: start;
+}
+.project-rail {
+  position: sticky;
+  top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-height: calc(100vh - 32px);
+  overflow-y: auto;
+}
+.project-rail .facet h4 {
+  margin: 0 0 6px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--ink-muted);
+}
+.project-rail .facet a {
+  display: block;
+  padding: 3px 0;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-body);
+  text-decoration: none;
+}
+.project-rail .facet a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.project-rail .facet a.toc-h3 {
+  padding-left: 12px;
+  font-size: 12px;
+  color: var(--ink-muted);
+}
+.project-rail-meta,
+.project-warning-text {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+}
+.project-warning-text {
+  color: var(--bad);
+}
+.project-ids {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 6px;
+}
+
+/* 961px 以上＝本文＋右レール / 761〜960px＝レール幅を縮める / 760px 以下＝レールを本文上へ */
+@media (max-width: 960px) {
+  .project-detail {
+    grid-template-columns: minmax(0, 1fr) 200px;
+  }
+}
+@media (max-width: 760px) {
+  .project-detail {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .project-rail {
+    position: static;
+    order: -1;
+    max-height: none;
+  }
+  .knowledge-document table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+/* `?id=DN-####` で指された 1 枚（/docs の文書からの遷移先）を目立たせる */
+.todo-card-hit {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+.todo-id {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+/* monthly/weekly の ID 参照（backlog と join した行） */
+.todo-refs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 6px 0;
+}
+.todo-ref {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  text-decoration: none;
+  color: inherit;
+}
+.todo-ref:hover .todo-ref-title {
+  text-decoration: underline;
+}
+.todo-ref-title {
+  font-size: 12.5px;
+  color: var(--ink-body);
+}
+
+/* Project 詳細の関連タスク（backlog と join した行） */
+.project-ref {
+  display: block;
+  padding: 4px 0;
+  text-decoration: none;
+  color: inherit;
+}
+.project-ref:hover .project-ref-title {
+  text-decoration: underline;
+}
+.project-ref-title {
+  display: block;
+  margin-top: 2px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: var(--ink-body);
+}
+.project-ref-meta {
+  display: block;
+  font-size: 11.5px;
+  color: var(--ink-muted);
+}
+
+/* ── /content のディレクトリ列挙 ──
+   巨大チャネルを段階的に降りるための素の一覧。本文は開かないので、
+   文書（リンク）とバイナリ（テキストのみ）を見た目で区別する。 */
+.content-listing {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 2px;
+}
+.content-listing li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.content-listing li:hover {
+  background: var(--panel-2);
+}
+.content-listing a {
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 500;
+}
+.content-listing a:hover {
+  text-decoration: underline;
+}
+.content-listing .muted {
+  color: var(--ink-muted);
+}
+
+/* ── 高密度の管理画面 ──
+   画面上部の装飾より一覧性を優先し、すべての一覧ページで同じ密度に揃える。 */
+.app-nav {
+  flex-basis: 212px;
+  width: 212px;
+  gap: 1px;
+  padding: 14px 10px 16px;
+}
+.app-nav .brand {
+  min-height: 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  padding: 2px 10px 10px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.app-nav .brand small {
+  margin-top: 2px;
+  color: var(--sidebar-muted);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+}
+.app-nav .group {
+  margin-top: 6px;
+  padding: 8px 10px 3px;
+}
+.app-nav .tab {
+  min-height: 30px;
+  padding: 5px 10px;
+}
+.app-nav .nav-tree > summary .chev {
+  width: 0;
+  height: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
+  border-left: 5px solid currentColor;
+}
+.app-nav .nav-sub a.tab {
+  min-height: 27px;
+  padding: 4px 8px;
+}
+.container {
+  max-width: none;
+  margin: 0;
+  padding: 20px 24px 48px;
+}
+.page-head {
+  margin-bottom: 14px;
+  padding-bottom: 12px;
+}
+.page-head h1 {
+  font-size: 22px;
+  line-height: 1.35;
+}
+.card {
+  padding: 12px;
+}
+.card + .card {
+  margin-top: 12px;
+}
+.card h2 {
+  margin-bottom: 8px;
+}
+.grid {
+  gap: 12px;
+}
+.kpi {
+  padding: 12px 14px;
+}
+table.data {
+  font-size: 12px;
+}
+table.data th,
+table.data td {
+  padding: 5px 8px;
+}
+table.data td.wrap,
+table.data td.title-cell,
+table.data td.path-cell {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+table.data td.wrap {
+  max-width: 460px;
+}
+table.data td.title-cell {
+  width: 100%;
+  min-width: 280px;
+  color: var(--ink);
+  font-weight: 500;
+}
+table.data td.path-cell {
+  max-width: 320px;
+}
+table.data.content-table {
+  table-layout: fixed;
+}
+table.data.content-table td {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+table.data.content-table .title-cell {
+  min-width: 0;
+}
+table.data.content-table .category-col { width: 92px; }
+table.data.content-table .id-col { width: 320px; }
+table.data.content-table .status-col,
+table.data.content-table .price-col,
+table.data.content-table .publish-col { width: 72px; }
+table.data.content-table .date-col { width: 112px; }
+table.data.content-table .badge-col { width: 96px; }
+table.data.content-table .quality-col { width: 176px; }
+.quality-badges {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.quality-badges .badge {
+  flex: 0 0 auto;
+}
+.badge {
+  padding: 1px 6px;
+}
+.filterbar {
+  margin-bottom: 12px;
+}
+.filterbar a.chip {
+  padding: 3px 9px;
+}
+@media (max-width: 1100px) {
+  table.data .optional-col { display: none; }
+}
+@media (max-width: 760px) {
+  .app-nav { width: 100%; }
+  .app-nav .brand { min-height: 32px; flex-direction: row; align-items: center; gap: 6px; padding: 0 10px 0 0; }
+  .app-nav .brand small { margin: 0; }
+  .app-nav .nav-tree { position: relative; }
+  .app-nav .nav-tree[open] .nav-sub {
+    position: absolute;
+    top: calc(100% + 4px);
+    left: 0;
+    z-index: 30;
+    display: block;
+    min-width: 150px;
+    margin: 0;
+    padding: 5px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background: var(--sidebar);
+    box-shadow: 0 8px 22px rgb(0 0 0 / 18%);
+  }
+  table.data.content-table .date-col { display: none; }
+  table.data.content-table .quality-col { width: 148px; }
+}
+@media (max-width: 520px) {
+  table.data.content-table .category-col { display: none; }
+  table.data.content-table .quality-col { width: 136px; }
+}
+
+/* タスク行から、それを参照している恒久文書（/docs）へ戻るリンク。
+   docs → TODO の逆方向で、往復できることが要件（e2e が固定）。 */
+.todo-doc-ref {
+  display: inline-flex;
+  align-items: center;
+  max-width: 22ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  padding: 1px 6px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font-size: 11px;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+.todo-doc-ref::before {
+  content: '←';
+  margin-right: 4px;
+  color: var(--accent);
+}
+.todo-doc-ref:hover {
+  color: var(--ink);
+  border-color: var(--accent);
+}

@@ -1,0 +1,177 @@
+{
+  "meta": {
+    "generated_at": "2026-05-17T04:03:21.449Z",
+    "years": [
+      "R01",
+      "R02",
+      "R03",
+      "R04",
+      "R05",
+      "R06",
+      "R07"
+    ],
+    "total_questions": 280
+  },
+  "overall": {
+    "distribution": [
+      50,
+      56,
+      61,
+      57,
+      56
+    ],
+    "expected_per_choice": 56,
+    "chi_squared": 1.1071428571428572,
+    "chi_critical_5pct": 9.488,
+    "uniform_p_value_judgment": "均等と矛盾しない (p > 0.05)",
+    "most_frequent": 3,
+    "least_frequent": 1
+  },
+  "by_year": {
+    "R01": {
+      "count": 40,
+      "distribution": [
+        7,
+        9,
+        9,
+        7,
+        8
+      ],
+      "chi_squared": 0.5,
+      "expected_per_choice": 8,
+      "most_frequent": 2,
+      "least_frequent": 1
+    },
+    "R02": {
+      "count": 40,
+      "distribution": [
+        8,
+        7,
+        10,
+        7,
+        8
+      ],
+      "chi_squared": 0.75,
+      "expected_per_choice": 8,
+      "most_frequent": 3,
+      "least_frequent": 2
+    },
+    "R03": {
+      "count": 40,
+      "distribution": [
+        7,
+        9,
+        10,
+        8,
+        6
+      ],
+      "chi_squared": 1.25,
+      "expected_per_choice": 8,
+      "most_frequent": 3,
+      "least_frequent": 5
+    },
+    "R04": {
+      "count": 40,
+      "distribution": [
+        7,
+        8,
+        9,
+        9,
+        7
+      ],
+      "chi_squared": 0.5,
+      "expected_per_choice": 8,
+      "most_frequent": 3,
+      "least_frequent": 1
+    },
+    "R05": {
+      "count": 40,
+      "distribution": [
+        7,
+        10,
+        6,
+        7,
+        10
+      ],
+      "chi_squared": 1.75,
+      "expected_per_choice": 8,
+      "most_frequent": 2,
+      "least_frequent": 3
+    },
+    "R06": {
+      "count": 40,
+      "distribution": [
+        6,
+        6,
+        11,
+        10,
+        7
+      ],
+      "chi_squared": 2.75,
+      "expected_per_choice": 8,
+      "most_frequent": 3,
+      "least_frequent": 1
+    },
+    "R07": {
+      "count": 40,
+      "distribution": [
+        8,
+        7,
+        6,
+        9,
+        10
+      ],
+      "chi_squared": 1.25,
+      "expected_per_choice": 8,
+      "most_frequent": 5,
+      "least_frequent": 3
+    }
+  },
+  "matrix_by_choice_year": {
+    "1": {
+      "R01": 7,
+      "R02": 8,
+      "R03": 7,
+      "R04": 7,
+      "R05": 7,
+      "R06": 6,
+      "R07": 8
+    },
+    "2": {
+      "R01": 9,
+      "R02": 7,
+      "R03": 9,
+      "R04": 8,
+      "R05": 10,
+      "R06": 6,
+      "R07": 7
+    },
+    "3": {
+      "R01": 9,
+      "R02": 10,
+      "R03": 10,
+      "R04": 9,
+      "R05": 6,
+      "R06": 11,
+      "R07": 6
+    },
+    "4": {
+      "R01": 7,
+      "R02": 7,
+      "R03": 8,
+      "R04": 9,
+      "R05": 7,
+      "R06": 10,
+      "R07": 9
+    },
+    "5": {
+      "R01": 8,
+      "R02": 8,
+      "R03": 6,
+      "R04": 7,
+      "R05": 10,
+      "R06": 7,
+      "R07": 10
+    }
+  }
+}

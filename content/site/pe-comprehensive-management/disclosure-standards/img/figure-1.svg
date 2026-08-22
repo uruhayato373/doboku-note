@@ -1,0 +1,67 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" style="max-width:400px;width:100%" width="400" height="500" role="img" aria-label="情報公開法の不開示情報6類型。個人情報・法人情報・国家安全情報・公共安全情報・審議検討等情報・事務事業情報を縦に並べた図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .t-main  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-def   { font-size: 12px; fill: #555; }
+      .t-num   { font-size: 12px; font-weight: bold; fill: #2e6da4; }
+      .t-foot  { font-size: 11px; fill: #8a8a8a; }
+      .box-base    { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .badge-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <!-- サブ見出し -->
+  <text class="t-sub" x="200" y="14" text-anchor="middle">行政機関情報公開法 第5条（各号）</text>
+
+  <!-- 1 個人情報 -->
+  <rect class="box-base" x="44" y="20" width="338" height="62" rx="8"/>
+  <circle class="badge-brand" cx="68" cy="51" r="14"/>
+  <text class="t-num" x="68" y="56" text-anchor="middle">1</text>
+  <text class="t-main" x="92" y="43">個人情報</text>
+  <text class="t-def"  x="92" y="61">特定の個人を識別できる情報</text>
+
+  <!-- 2 法人情報 -->
+  <rect class="box-base" x="44" y="88" width="338" height="62" rx="8"/>
+  <circle class="badge-brand" cx="68" cy="119" r="14"/>
+  <text class="t-num" x="68" y="124" text-anchor="middle">2</text>
+  <text class="t-main" x="92" y="111">法人情報</text>
+  <text class="t-def"  x="92" y="129">法人の正当な利益を害する情報</text>
+
+  <!-- 3 国家安全情報 -->
+  <rect class="box-base" x="44" y="156" width="338" height="62" rx="8"/>
+  <circle class="badge-brand" cx="68" cy="187" r="14"/>
+  <text class="t-num" x="68" y="192" text-anchor="middle">3</text>
+  <text class="t-main" x="92" y="179">国家安全情報</text>
+  <text class="t-def"  x="92" y="197">国の安全・諸外国との信頼関係を害する情報</text>
+
+  <!-- 4 公共安全情報 -->
+  <rect class="box-base" x="44" y="224" width="338" height="62" rx="8"/>
+  <circle class="badge-brand" cx="68" cy="255" r="14"/>
+  <text class="t-num" x="68" y="260" text-anchor="middle">4</text>
+  <text class="t-main" x="92" y="247">公共安全情報</text>
+  <text class="t-def"  x="92" y="265">公共の安全・秩序維持に支障を及ぼす情報</text>
+
+  <!-- 5 審議検討等情報 -->
+  <rect class="box-base" x="44" y="292" width="338" height="76" rx="8"/>
+  <circle class="badge-brand" cx="68" cy="330" r="14"/>
+  <text class="t-num" x="68" y="335" text-anchor="middle">5</text>
+  <text class="t-main" x="92" y="315">審議検討等情報</text>
+  <text class="t-def"  x="92" y="333">意思決定の中立性等を不当に害し、</text>
+  <text class="t-def"  x="92" y="351">国民に混乱を生じさせるおそれのある情報</text>
+
+  <!-- 6 事務事業情報 -->
+  <rect class="box-base" x="44" y="374" width="338" height="62" rx="8"/>
+  <circle class="badge-brand" cx="68" cy="405" r="14"/>
+  <text class="t-num" x="68" y="410" text-anchor="middle">6</text>
+  <text class="t-main" x="92" y="397">事務事業情報</text>
+  <text class="t-def"  x="92" y="415">事務・事業の適正な遂行に支障を及ぼす情報</text>
+
+  <!-- footer -->
+  <text class="t-foot" x="200" y="454" text-anchor="middle">開示請求権は第3条に規定</text>
+
+  <!-- 凡例：不開示→開示への救済 -->
+  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" x="44" y="464" width="338" height="28" rx="6"/>
+  <text style="font-size:11px;font-weight:bold;fill:#1a3a5c;font-family:Inter,'Noto Sans JP','Hiragino Kaku Gothic ProN',sans-serif" x="200" y="483" text-anchor="middle">不開示でも公益上の理由があれば裁量的開示が可能（第7条）</text>
+</svg>

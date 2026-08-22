@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500" style="max-width:400px;width:100%" role="img" aria-label="管理限界と管理図：中心線 CL から ±3σ の上方管理限界線 UCL と下方管理限界線 LCL を引き、サンプルが管理限界を超えると工程異常と判定する">
+  <text x="190" y="22" text-anchor="middle" font-size="14" fill="#222" font-family="sans-serif" font-weight="bold">管理図と管理限界（±3σ）</text>
+  <text x="190" y="40" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">UCL / CL / LCL の 3 本で工程の統計的安定性を判定</text>
+
+  <line x1="50" y1="60" x2="50" y2="270" stroke="#222" stroke-width="1.5"/>
+  <line x1="50" y1="270" x2="360" y2="270" stroke="#222" stroke-width="1.5"/>
+
+  <line x1="80" y1="80" x2="360" y2="80" stroke="#b22234" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="76" y="84" text-anchor="end" font-size="11" fill="#b22234" font-family="sans-serif" font-weight="bold">UCL</text>
+  <text x="350" y="74" text-anchor="end" font-size="11" fill="#b22234" font-family="sans-serif">+3σ</text>
+
+  <line x1="80" y1="170" x2="360" y2="170" stroke="#3a7d44" stroke-width="1.5"/>
+  <text x="76" y="174" text-anchor="end" font-size="11" fill="#3a7d44" font-family="sans-serif" font-weight="bold">CL</text>
+  <text x="350" y="164" text-anchor="end" font-size="11" fill="#3a7d44" font-family="sans-serif">平均</text>
+
+  <line x1="80" y1="260" x2="360" y2="260" stroke="#b22234" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="76" y="264" text-anchor="end" font-size="11" fill="#b22234" font-family="sans-serif" font-weight="bold">LCL</text>
+  <text x="350" y="254" text-anchor="end" font-size="11" fill="#b22234" font-family="sans-serif">-3σ</text>
+
+  <polyline points="70,180 95,160 120,175 145,150 170,165 195,140 220,170 245,155 270,75 295,165 320,170 345,160" stroke="#2e6da4" stroke-width="1.5" fill="none"/>
+
+  <circle cx="70" cy="180" r="3" fill="#2e6da4"/>
+  <circle cx="95" cy="160" r="3" fill="#2e6da4"/>
+  <circle cx="120" cy="175" r="3" fill="#2e6da4"/>
+  <circle cx="145" cy="150" r="3" fill="#2e6da4"/>
+  <circle cx="170" cy="165" r="3" fill="#2e6da4"/>
+  <circle cx="195" cy="140" r="3" fill="#2e6da4"/>
+  <circle cx="220" cy="170" r="3" fill="#2e6da4"/>
+  <circle cx="245" cy="155" r="3" fill="#2e6da4"/>
+  <circle cx="270" cy="75" r="5" fill="#b22234" stroke="#222" stroke-width="1"/>
+  <circle cx="295" cy="165" r="3" fill="#2e6da4"/>
+  <circle cx="320" cy="170" r="3" fill="#2e6da4"/>
+  <circle cx="345" cy="160" r="3" fill="#2e6da4"/>
+
+  <text x="270" y="62" text-anchor="middle" font-size="11" fill="#b22234" font-family="sans-serif" font-weight="bold">異常</text>
+  <line x1="270" y1="65" x2="270" y2="73" stroke="#b22234" stroke-width="1"/>
+
+  <text x="205" y="285" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">サンプル番号</text>
+
+  <g>
+    <rect x="20" y="295" width="360" height="22" fill="none" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="6,3" rx="4"/>
+    <text x="200" y="311" text-anchor="middle" font-size="11" fill="#3a7d44" font-family="sans-serif" font-weight="bold">管理限界 ≠ 規格限界（規格限界はより広く設定）</text>
+  </g>
+
+  <!-- 下部サマリー -->
+  <rect x="20" y="370" width="360" height="110" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" rx="4"/>
+  <text x="200" y="397" text-anchor="middle" font-size="13" fill="#222" font-family="sans-serif" font-weight="bold">管理図の判定ルール</text>
+  <text x="35" y="422" font-size="12" fill="#555" font-family="sans-serif">1点でも管理限界外 → 工程異常と判定</text>
+  <text x="35" y="444" font-size="12" fill="#555" font-family="sans-serif">連続 7 点が同側 → 工程の偏りを示唆</text>
+  <text x="35" y="466" font-size="12" fill="#555" font-family="sans-serif">UCL・CL・LCL は過去データから統計的に設定</text>
+</svg>

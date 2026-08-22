@@ -1,0 +1,121 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  width="400" height="500"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="組織構造7形態の比較。職能別・事業部制・マトリクス・ネットワーク・ピラミッド・ティール・達成型それぞれのメリットとリスクを一覧できるカード図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-label  { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-body   { font-size: 11px; fill: #555; }
+      .t-tag    { font-size: 11px; font-weight: bold; }
+      /* brand: card border */
+      .card-border { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      /* positive tag */
+      .tag-pos  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1; }
+      .tag-pos-t { fill: #3a7d44; }
+      /* danger tag */
+      .tag-dan  { fill: #f8d7da; stroke: #b22234; stroke-width: 1; }
+      .tag-dan-t { fill: #b22234; }
+    </style>
+  </defs>
+
+  <!-- ====== 2列3段+1段レイアウト（各カード width=182/190, height=123, gutter=4）
+       col1: x=8  col2: x=202
+       row1: y=4   row2: y=131  row3: y=258
+       card-g（横全幅）: y=386 height=108
+  ====== -->
+
+  <!-- ── Card a: 職能別組織 (col1 row1) ── -->
+  <rect class="card-border" x="8" y="4" width="182" height="123" rx="6"/>
+  <circle cx="26" cy="22" r="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-label" x="26" y="26" text-anchor="middle" font-size="11">a</text>
+  <text class="t-label" x="44" y="24">職能別組織</text>
+  <text class="t-body" x="14" y="40" font-size="11">職能ごとに部門化</text>
+  <text class="t-body" x="14" y="53" font-size="11">専門スキル育成</text>
+  <rect class="tag-pos" x="12" y="63" width="174" height="22" rx="4"/>
+  <text class="t-tag tag-pos-t" x="18" y="78">メリット: 専門家育成が容易</text>
+  <rect class="tag-dan" x="12" y="89" width="174" height="22" rx="4"/>
+  <text class="t-tag tag-dan-t" x="18" y="104">リスク: 縦割り・意思決定遅延</text>
+
+  <!-- ── Card b: 事業部制組織 (col2 row1) ── -->
+  <rect class="card-border" x="202" y="4" width="190" height="123" rx="6"/>
+  <circle cx="220" cy="22" r="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-label" x="220" y="26" text-anchor="middle" font-size="11">b</text>
+  <text class="t-label" x="238" y="24">事業部制組織</text>
+  <text class="t-body" x="208" y="40" font-size="11">製品・市場別に権限と</text>
+  <text class="t-body" x="208" y="53" font-size="11">利益責任を分担</text>
+  <rect class="tag-pos" x="206" y="63" width="180" height="28" rx="4"/>
+  <text class="t-tag tag-pos-t" x="212" y="77">メリット:</text>
+  <text class="t-tag tag-pos-t" x="212" y="89">意思決定迅速・成果明確</text>
+  <rect class="tag-dan" x="206" y="95" width="180" height="28" rx="4"/>
+  <text class="t-tag tag-dan-t" x="212" y="109">リスク:</text>
+  <text class="t-tag tag-dan-t" x="212" y="121">投資二重化・縄張り主義</text>
+
+  <!-- ── Card c: マトリクス組織 (col1 row2) ── -->
+  <rect class="card-border" x="8" y="131" width="182" height="123" rx="6"/>
+  <circle cx="26" cy="149" r="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-label" x="26" y="153" text-anchor="middle" font-size="11">c</text>
+  <text class="t-label" x="44" y="151">マトリクス組織</text>
+  <text class="t-body" x="14" y="167" font-size="11">職能・事業部門に</text>
+  <text class="t-body" x="14" y="180" font-size="11">同時所属の二重構造</text>
+  <rect class="tag-pos" x="12" y="190" width="174" height="28" rx="4"/>
+  <text class="t-tag tag-pos-t" x="18" y="204">メリット:</text>
+  <text class="t-tag tag-pos-t" x="18" y="216">柔軟な交流・知識共有</text>
+  <rect class="tag-dan" x="12" y="222" width="174" height="28" rx="4"/>
+  <text class="t-tag tag-dan-t" x="18" y="236">リスク:</text>
+  <text class="t-tag tag-dan-t" x="18" y="248">命令系統複雑・責任曖昧</text>
+
+  <!-- ── Card d: ネットワーク組織 (col2 row2) ── -->
+  <rect class="card-border" x="202" y="131" width="190" height="123" rx="6"/>
+  <circle cx="220" cy="149" r="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-label" x="220" y="153" text-anchor="middle" font-size="11">d</text>
+  <text class="t-label" x="238" y="151">ネットワーク組織</text>
+  <text class="t-body" x="206" y="167" font-size="11">自律した個人・小組織が</text>
+  <text class="t-body" x="206" y="180" font-size="11">柔軟に連携</text>
+  <rect class="tag-pos" x="206" y="190" width="180" height="28" rx="4"/>
+  <text class="t-tag tag-pos-t" x="212" y="204">メリット:</text>
+  <text class="t-tag tag-pos-t" x="212" y="216">異分野融合・自律柔軟</text>
+  <rect class="tag-dan" x="206" y="222" width="180" height="28" rx="4"/>
+  <text class="t-tag tag-dan-t" x="212" y="236">リスク:</text>
+  <text class="t-tag tag-dan-t" x="212" y="248">事業活動が不安定・不確実</text>
+
+  <!-- ── Card e: ピラミッド組織 (col1 row3) ── -->
+  <rect class="card-border" x="8" y="258" width="182" height="123" rx="6"/>
+  <circle cx="26" cy="276" r="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-label" x="26" y="280" text-anchor="middle" font-size="11">e</text>
+  <text class="t-label" x="44" y="278">ピラミッド組織</text>
+  <text class="t-body" x="14" y="294" font-size="11">上意下達・専門化と</text>
+  <text class="t-body" x="14" y="307" font-size="11">分業で効率化</text>
+  <rect class="tag-pos" x="12" y="317" width="174" height="28" rx="4"/>
+  <text class="t-tag tag-pos-t" x="18" y="331">メリット:</text>
+  <text class="t-tag tag-pos-t" x="18" y="343">命令系統明確・効率高</text>
+  <rect class="tag-dan" x="12" y="349" width="174" height="28" rx="4"/>
+  <text class="t-tag tag-dan-t" x="18" y="363">リスク:</text>
+  <text class="t-tag tag-dan-t" x="18" y="375">硬直化・変化対応に遅れ</text>
+
+  <!-- ── Card f: ティール組織 (col2 row3) ── -->
+  <rect class="card-border" x="202" y="258" width="190" height="123" rx="6"/>
+  <circle cx="220" cy="276" r="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-label" x="220" y="280" text-anchor="middle" font-size="11">f</text>
+  <text class="t-label" x="238" y="278">ティール組織</text>
+  <text class="t-body" x="208" y="294" font-size="11">指示系統なし・自律的に意思決定</text>
+  <rect class="tag-pos" x="206" y="308" width="180" height="28" rx="4"/>
+  <text class="t-tag tag-pos-t" x="212" y="322">メリット:</text>
+  <text class="t-tag tag-pos-t" x="212" y="334">自律・進化・高い主体性</text>
+  <rect class="tag-dan" x="206" y="340" width="180" height="22" rx="4"/>
+  <text class="t-tag tag-dan-t" x="212" y="355">リスク: 組織統制が弱まる恐れ</text>
+
+  <!-- ── Card g: 達成型組織 (横全幅 row4) ── -->
+  <rect class="card-border" x="8" y="386" width="384" height="108" rx="6"/>
+  <circle cx="30" cy="404" r="10" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-label" x="30" y="408" text-anchor="middle" font-size="11">g</text>
+  <text class="t-label" x="50" y="406">達成型組織</text>
+  <text class="t-body" x="18" y="422" font-size="11">目的達成のため機械部品のように機能分担</text>
+  <rect class="tag-pos" x="12" y="432" width="186" height="28" rx="4"/>
+  <text class="t-tag tag-pos-t" x="18" y="446">メリット:</text>
+  <text class="t-tag tag-pos-t" x="18" y="458">革新的アイデアが出やすい</text>
+  <rect class="tag-dan" x="206" y="432" width="180" height="28" rx="4"/>
+  <text class="t-tag tag-dan-t" x="212" y="446">リスク:</text>
+  <text class="t-tag tag-dan-t" x="212" y="458">メンバーが疲弊しやすい</text>
+</svg>

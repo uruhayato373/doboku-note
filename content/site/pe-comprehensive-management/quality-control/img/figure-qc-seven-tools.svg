@@ -1,0 +1,145 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="QC 七つ道具：パレート図・特性要因図・ヒストグラム・管理図・散布図・チェックシート・層別の 7 種を 2 列 4 行で配置し、各図の用途と簡易ビジュアルを示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-page-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }  /* brand-text */
+      .t-tool-title { font-size: 12px; font-weight: bold; fill: #1a3a5c; }  /* brand-text */
+      .t-tool-use   { font-size: 11px; fill: #555; }                        /* ink-body */
+      .t-summary    { font-size: 11px; fill: #222; }                        /* ink-strong */
+      .t-summary-em { font-size: 11px; font-weight: bold; fill: #1a3a5c; }  /* brand-text */
+      .header-bar   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand */
+      .panel        { fill: #ffffff; stroke: #2e6da4; stroke-width: 1; }   /* brand */
+      .summary-box  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; } /* positive */
+      .axis         { stroke: #555; stroke-width: 1; fill: none; }         /* ink-body */
+      .bar          { fill: #2e6da4; }                                     /* brand-stroke */
+      .line-em      { stroke: #b22234; stroke-width: 1.5; fill: none; }    /* danger */
+      .dot-em       { fill: #b22234; }                                     /* danger */
+    </style>
+  </defs>
+
+  <!-- ヘッダー -->
+  <rect class="header-bar" x="10" y="10" width="380" height="34" rx="5"/>
+  <text class="t-page-title" x="200" y="32" text-anchor="middle">QC 七つ道具</text>
+
+  <!-- ===== Row 1 ===== -->
+  <!-- パレート図 -->
+  <rect class="panel" x="10" y="54" width="185" height="100" rx="4"/>
+  <text class="t-tool-title" x="103" y="72" text-anchor="middle">パレート図</text>
+  <line class="axis" x1="20" y1="138" x2="100" y2="138"/>
+  <line class="axis" x1="20" y1="82"  x2="20"  y2="138"/>
+  <rect class="bar" x="24" y="92"  width="10" height="46"/>
+  <rect class="bar" x="38" y="103" width="10" height="35"/>
+  <rect class="bar" x="52" y="113" width="10" height="25"/>
+  <rect class="bar" x="66" y="121" width="10" height="17"/>
+  <rect class="bar" x="80" y="128" width="10" height="10"/>
+  <polyline class="line-em" points="29,118 43,103 57,93 71,87 85,84"/>
+  <text class="t-tool-use" x="105" y="100">大きい順</text>
+  <text class="t-tool-use" x="105" y="115">の度数で</text>
+  <text class="t-tool-use" x="105" y="130">優先度判定</text>
+
+  <!-- 特性要因図 -->
+  <rect class="panel" x="205" y="54" width="185" height="100" rx="4"/>
+  <text class="t-tool-title" x="298" y="72" text-anchor="middle">特性要因図</text>
+  <line class="axis" x1="218" y1="115" x2="288" y2="115"/>
+  <rect class="panel" x="288" y="105" width="22" height="20" stroke="#b22234"/>
+  <text class="t-tool-use" x="299" y="120" text-anchor="middle" fill="#b22234">特性</text>
+  <line class="axis" x1="234" y1="95"  x2="244" y2="113"/>
+  <line class="axis" x1="262" y1="95"  x2="272" y2="113"/>
+  <line class="axis" x1="234" y1="135" x2="244" y2="117"/>
+  <line class="axis" x1="262" y1="135" x2="272" y2="117"/>
+  <text class="t-tool-use" x="313" y="100">原因 ↔ 結果の</text>
+  <text class="t-tool-use" x="320" y="115">関係を魚骨で</text>
+  <text class="t-tool-use" x="320" y="130">構造化（4M）</text>
+
+  <!-- ===== Row 2 ===== -->
+  <!-- ヒストグラム -->
+  <rect class="panel" x="10" y="164" width="185" height="100" rx="4"/>
+  <text class="t-tool-title" x="103" y="182" text-anchor="middle">ヒストグラム</text>
+  <line class="axis" x1="20" y1="248" x2="100" y2="248"/>
+  <line class="axis" x1="20" y1="192" x2="20"  y2="248"/>
+  <rect class="bar" x="24" y="232" width="10" height="16"/>
+  <rect class="bar" x="38" y="220" width="10" height="28"/>
+  <rect class="bar" x="52" y="205" width="10" height="43"/>
+  <rect class="bar" x="66" y="195" width="10" height="53"/>
+  <rect class="bar" x="80" y="215" width="10" height="33"/>
+  <rect class="bar" x="94" y="230" width="10" height="18"/>
+  <text class="t-tool-use" x="115" y="210">分布形状で</text>
+  <text class="t-tool-use" x="115" y="225">ばらつき・</text>
+  <text class="t-tool-use" x="115" y="240">中心値把握</text>
+
+  <!-- 管理図 -->
+  <rect class="panel" x="205" y="164" width="185" height="100" rx="4"/>
+  <text class="t-tool-title" x="298" y="182" text-anchor="middle">管理図</text>
+  <line class="axis" x1="215" y1="248" x2="295" y2="248"/>
+  <line class="axis" x1="215" y1="192" x2="215" y2="248"/>
+  <line class="axis" x1="215" y1="200" x2="295" y2="200" stroke-dasharray="3,2" stroke="#8a8a8a"/>
+  <line class="axis" x1="215" y1="240" x2="295" y2="240" stroke-dasharray="3,2" stroke="#8a8a8a"/>
+  <line class="axis" x1="215" y1="220" x2="295" y2="220"/>
+  <polyline class="line-em" points="220,225 232,213 244,222 256,208 268,228 280,218"/>
+  <text class="t-tool-use" x="305" y="200">UCL/LCL の</text>
+  <text class="t-tool-use" x="305" y="215">外れ値を</text>
+  <text class="t-tool-use" x="305" y="230">検知</text>
+
+  <!-- ===== Row 3 ===== -->
+  <!-- 散布図 -->
+  <rect class="panel" x="10" y="274" width="185" height="100" rx="4"/>
+  <text class="t-tool-title" x="103" y="292" text-anchor="middle">散布図</text>
+  <line class="axis" x1="20" y1="358" x2="100" y2="358"/>
+  <line class="axis" x1="20" y1="302" x2="20"  y2="358"/>
+  <line class="axis" x1="24" y1="350" x2="98"  y2="308"/>
+  <circle class="dot-em" cx="28" cy="348" r="2"/>
+  <circle class="dot-em" cx="40" cy="338" r="2"/>
+  <circle class="dot-em" cx="52" cy="328" r="2"/>
+  <circle class="dot-em" cx="64" cy="324" r="2"/>
+  <circle class="dot-em" cx="76" cy="318" r="2"/>
+  <circle class="dot-em" cx="88" cy="312" r="2"/>
+  <text class="t-tool-use" x="115" y="320">2 変量の</text>
+  <text class="t-tool-use" x="115" y="335">相関関係</text>
+  <text class="t-tool-use" x="115" y="350">を可視化</text>
+
+  <!-- チェックシート -->
+  <rect class="panel" x="205" y="274" width="185" height="100" rx="4"/>
+  <text class="t-tool-title" x="298" y="292" text-anchor="middle">チェックシート</text>
+  <rect class="panel" x="218" y="302" width="80" height="60"/>
+  <line class="axis" x1="238" y1="302" x2="238" y2="362"/>
+  <line class="axis" x1="258" y1="302" x2="258" y2="362"/>
+  <line class="axis" x1="278" y1="302" x2="278" y2="362"/>
+  <line class="axis" x1="218" y1="322" x2="298" y2="322"/>
+  <line class="axis" x1="218" y1="342" x2="298" y2="342"/>
+  <text class="t-tool-use" x="247" y="318" text-anchor="middle" fill="#b22234">✓</text>
+  <text class="t-tool-use" x="267" y="318" text-anchor="middle" fill="#b22234">✓</text>
+  <text class="t-tool-use" x="287" y="318" text-anchor="middle" fill="#b22234">✓</text>
+  <text class="t-tool-use" x="247" y="338" text-anchor="middle" fill="#b22234">✓</text>
+  <text class="t-tool-use" x="287" y="338" text-anchor="middle" fill="#b22234">✓</text>
+  <text class="t-tool-use" x="267" y="358" text-anchor="middle" fill="#b22234">✓</text>
+  <text class="t-tool-use" x="305" y="320">出現回数を</text>
+  <text class="t-tool-use" x="305" y="335">記録・集計</text>
+
+  <!-- ===== Row 4 ===== -->
+  <!-- 層別 -->
+  <rect class="panel" x="10" y="384" width="185" height="100" rx="4"/>
+  <text class="t-tool-title" x="103" y="402" text-anchor="middle">層別</text>
+  <line class="axis" x1="20" y1="468" x2="100" y2="468"/>
+  <line class="axis" x1="20" y1="412" x2="20"  y2="468"/>
+  <rect class="bar" x="24" y="430" width="9" height="38"/>
+  <rect fill="#b22234" x="34" y="425" width="9" height="43"/>
+  <rect class="bar" x="48" y="438" width="9" height="30"/>
+  <rect fill="#b22234" x="58" y="420" width="9" height="48"/>
+  <rect class="bar" x="72" y="445" width="9" height="23"/>
+  <rect fill="#b22234" x="82" y="435" width="9" height="33"/>
+  <text class="t-tool-use" x="115" y="430">グループ別</text>
+  <text class="t-tool-use" x="115" y="445">に分けて</text>
+  <text class="t-tool-use" x="115" y="460">差を比較</text>
+
+  <!-- まとめ -->
+  <rect class="summary-box" x="205" y="384" width="185" height="100" rx="4"/>
+  <text class="t-summary-em" x="298" y="404" text-anchor="middle">使い分けの基本</text>
+  <text class="t-summary"    x="298" y="424" text-anchor="middle">数値データの整理</text>
+  <text class="t-summary"    x="298" y="441" text-anchor="middle">↓</text>
+  <text class="t-summary"    x="298" y="458" text-anchor="middle">原因・相関の把握</text>
+  <text class="t-summary"    x="298" y="475" text-anchor="middle">↓ 改善施策へ</text>
+</svg>

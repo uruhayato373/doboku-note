@@ -1,0 +1,113 @@
+<svg width="560" height="600" viewBox="0 0 560 600" xmlns="http://www.w3.org/2000/svg" font-family="sans-serif" font-size="10.5" style="max-width:560px;width:100%" role="img" aria-label="環境影響評価の手続きフロー">
+  <defs>
+    <marker id="arEia" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto">
+      <path d="M0,0 L0,7 L7,3.5 z" fill="#222"/>
+    </marker>
+  </defs>
+
+  <!-- Left side: 事業者 -->
+  <text x="115" y="18" text-anchor="middle" font-weight="bold" font-size="12">事業者（＊スクリーニング）</text>
+
+  <!-- Box 1: 方法書 -->
+  <rect x="25" y="24" width="180" height="36" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="4"/>
+  <text x="115" y="42" text-anchor="middle" font-weight="bold">方法書</text>
+  <text x="115" y="56" text-anchor="middle" font-size="9">（スクリーニング）</text>
+
+  <!-- Right side labels -->
+  <text x="430" y="18" text-anchor="middle" font-weight="bold" font-size="11">県民、市町村、県からの</text>
+  <text x="430" y="32" text-anchor="middle" font-weight="bold" font-size="11">環境保全上の意見</text>
+
+  <!-- Arrow down -->
+  <line x1="115" y1="60" x2="115" y2="82" stroke="#222" stroke-width="1.5" marker-end="url(#arEia)"/>
+
+  <!-- Box 2: 環境影響評価項目及び手法の選定 -->
+  <rect x="25" y="82" width="180" height="36" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="4"/>
+  <text x="115" y="96" text-anchor="middle">環境影響評価項目</text>
+  <text x="115" y="110" text-anchor="middle">及び手法の選定</text>
+
+  <!-- Arrow down -->
+  <line x1="115" y1="118" x2="115" y2="140" stroke="#222" stroke-width="1.5" marker-end="url(#arEia)"/>
+
+  <!-- Box 3: 調査・予測・評価 -->
+  <rect x="25" y="140" width="180" height="36" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="4"/>
+  <text x="115" y="154" text-anchor="middle">調査</text>
+  <text x="115" y="167" text-anchor="middle">予測</text>
+
+  <!-- Arrow down -->
+  <line x1="115" y1="176" x2="115" y2="198" stroke="#222" stroke-width="1.5" marker-end="url(#arEia)"/>
+
+  <!-- Box 4: 環境影響評価 -->
+  <rect x="25" y="198" width="180" height="36" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="4"/>
+  <text x="115" y="218" text-anchor="middle">環境影響評価</text>
+
+  <!-- Arrow down -->
+  <line x1="115" y1="234" x2="115" y2="256" stroke="#222" stroke-width="1.5" marker-end="url(#arEia)"/>
+
+  <!-- Box 5: 準備書 -->
+  <rect x="25" y="256" width="180" height="36" fill="#aad4ff" stroke="#2266aa" stroke-width="2" rx="4"/>
+  <text x="115" y="276" text-anchor="middle" font-weight="bold">準備書</text>
+
+  <!-- Arrow down from 準備書 -->
+  <line x1="115" y1="292" x2="115" y2="314" stroke="#222" stroke-width="1.5" marker-end="url(#arEia)"/>
+
+  <!-- Box 6: 環境保全措置の検討 -->
+  <rect x="25" y="314" width="180" height="36" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="4"/>
+  <text x="115" y="328" text-anchor="middle">環境保全措置の検討</text>
+  <text x="115" y="342" text-anchor="middle" font-size="9">（環境保全計画の策定）</text>
+
+  <!-- Arrow down -->
+  <line x1="115" y1="350" x2="115" y2="372" stroke="#222" stroke-width="1.5" marker-end="url(#arEia)"/>
+
+  <!-- Box 7: アセスメント結果の案 -->
+  <rect x="25" y="372" width="180" height="36" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="4"/>
+  <text x="115" y="386" text-anchor="middle">アセスメント結果の案</text>
+  <text x="115" y="400" text-anchor="middle" font-size="9">準備書</text>
+
+  <!-- Arrow down -->
+  <line x1="115" y1="408" x2="115" y2="430" stroke="#222" stroke-width="1.5" marker-end="url(#arEia)"/>
+
+  <!-- Box 8: アセスメント結果の方法書 -->
+  <rect x="25" y="430" width="180" height="36" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="4"/>
+  <text x="115" y="444" text-anchor="middle">アセスメント結果の</text>
+  <text x="115" y="458" text-anchor="middle">方法書</text>
+
+  <!-- Arrow down -->
+  <line x1="115" y1="466" x2="115" y2="488" stroke="#222" stroke-width="1.5" marker-end="url(#arEia)"/>
+
+  <!-- Box 9: 事後調査等の実施 -->
+  <rect x="25" y="488" width="180" height="36" fill="#fff3cd" stroke="#ccaa44" stroke-width="1.5" rx="4"/>
+  <text x="115" y="508" text-anchor="middle">事後調査等の実施</text>
+
+  <!-- Right side flow -->
+  <!-- 環境影響評価 right boxes -->
+  <rect x="310" y="82" width="220" height="36" fill="#fff3cd" stroke="#cc8844" stroke-width="1.5" rx="4"/>
+  <text x="420" y="100" text-anchor="middle" font-weight="bold">環境影響評価</text>
+  <text x="420" y="113" text-anchor="middle" font-size="9">（環境影響評価の実施）</text>
+
+  <!-- Arrow connecting -->
+  <line x1="205" y1="198" x2="310" y2="100" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#arEia)"/>
+
+  <!-- 評価書 box -->
+  <rect x="310" y="198" width="220" height="36" fill="#f8d7da" stroke="#b22234" stroke-width="2" rx="4"/>
+  <text x="420" y="218" text-anchor="middle" font-weight="bold">評価書</text>
+
+  <!-- Arrow from 準備書 to 評価書 -->
+  <line x1="205" y1="274" x2="310" y2="216" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="5,3" marker-end="url(#arEia)"/>
+
+  <!-- Arrow from 評価書 down -->
+  <line x1="420" y1="234" x2="420" y2="280" stroke="#222" stroke-width="1.5" marker-end="url(#arEia)"/>
+
+  <!-- 確認 box -->
+  <rect x="310" y="280" width="220" height="36" fill="#f8d7da" stroke="#b22234" stroke-width="1.5" rx="4"/>
+  <text x="420" y="300" text-anchor="middle">確認</text>
+
+  <!-- 環境保全計画への反映 box -->
+  <rect x="310" y="372" width="220" height="36" fill="#d0e8d0" stroke="#3a7d44" stroke-width="1.5" rx="4"/>
+  <text x="420" y="392" text-anchor="middle">環境保全計画への反映</text>
+
+  <!-- Note at bottom -->
+  <rect x="25" y="535" width="510" height="55" fill="#f5f5f5" stroke="#8a8a8a" rx="4"/>
+  <text x="280" y="552" text-anchor="middle" font-size="10" font-weight="bold">環境影響評価法のフロー（概略）</text>
+  <text x="280" y="567" text-anchor="middle" font-size="9">第一種事業：必ず環境影響評価を実施　第二種事業：スクリーニングにより要否を判定</text>
+  <text x="280" y="580" text-anchor="middle" font-size="9">方法書→準備書→評価書の順で手続きを進め、各段階で知事・市町村長・住民の意見を聴取</text>
+</svg>

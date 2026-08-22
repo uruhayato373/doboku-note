@@ -1,0 +1,89 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="高信頼化6方策 フォールトアボイダンスと5つの許容系手法の2列比較図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-col   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-en    { font-size: 11px; fill: #8a8a8a; }
+      .t-main  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-note  { font-size: 11px; fill: #555; }
+      .col-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .col-pos   { fill: #fce8d0; stroke: #a36b2c; stroke-width: 1.5; }
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-pos   { fill: #fce8d0; stroke: #a36b2c; stroke-width: 1.5; }
+      .badge-brand { fill: #ffffff; stroke: #2e6da4; stroke-width: 1.5; }
+      .badge-pos   { fill: #ffffff; stroke: #a36b2c; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <!-- ヘッダー -->
+  <rect width="400" height="42" fill="#1a3a5c"/>
+  <text x="200" y="16" text-anchor="middle" font-size="10" fill="#d4956a">技術士 総監 | 安全管理</text>
+  <text x="200" y="34" text-anchor="middle" font-size="14" font-weight="bold" fill="#fff">高信頼化 6方策</text>
+
+  <!-- 列見出し -->
+  <rect class="col-brand" x="12" y="50" width="182" height="40" rx="7"/>
+  <text class="t-col" x="103" y="68" text-anchor="middle">故障回避系</text>
+  <text class="t-en"  x="103" y="83" text-anchor="middle">Fault Avoidance</text>
+
+  <rect class="col-pos" x="206" y="50" width="182" height="40" rx="7"/>
+  <text x="297" y="68" text-anchor="middle" font-size="13" font-weight="bold" fill="#5e3d18">故障・誤操作許容系</text>
+  <text class="t-en"  x="297" y="83" text-anchor="middle">Fault Tolerance / Fail-Safe</text>
+
+  <line x1="200" y1="50" x2="200" y2="424" stroke="#d7d7d7" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+  <!-- 左列 -->
+  <rect class="box-brand" x="12" y="98" width="182" height="136" rx="8"/>
+  <circle class="badge-brand" cx="34" cy="122" r="12"/>
+  <text style="font-size:10px;font-weight:bold;fill:#2e6da4" x="34" y="127" text-anchor="middle">FA</text>
+  <text class="t-main" x="50" y="117" textLength="130" lengthAdjust="spacingAndGlyphs">フォールトアボイダンス</text>
+  <text class="t-en"   x="50" y="132">Fault Avoidance</text>
+  <text class="t-note" x="20" y="155">部品品質・予防措置を徹底し</text>
+  <text class="t-note" x="20" y="171">故障確率そのものを低減する</text>
+  <text class="t-note" x="20" y="189">= 「故障させない」アプローチ</text>
+  <text class="t-note" x="20" y="207">冗長設計との組合せで効果大</text>
+
+  <!-- 右列 5項目 各52px -->
+  <rect class="box-pos" x="206" y="98" width="182" height="52" rx="7"/>
+  <circle class="badge-pos" cx="224" cy="117" r="10"/>
+  <text style="font-size:10px;font-weight:bold;fill:#a36b2c" x="224" y="121" text-anchor="middle">FT</text>
+  <text class="t-main" x="240" y="113">フォルトトレランス</text>
+  <text class="t-en"   x="240" y="128">Fault Tolerance</text>
+  <text class="t-note" x="212" y="143">故障時も全体機能を維持</text>
+
+  <rect class="box-pos" x="206" y="158" width="182" height="52" rx="7"/>
+  <circle class="badge-pos" cx="224" cy="177" r="10"/>
+  <text style="font-size:10px;font-weight:bold;fill:#a36b2c" x="224" y="181" text-anchor="middle">FSo</text>
+  <text class="t-main" x="240" y="173">フェールソフト</text>
+  <text class="t-en"   x="240" y="188">Fail Soft</text>
+  <text class="t-note" x="212" y="203">故障時は機能を縮退して継続</text>
+
+  <!-- フェールセーフ（強調） -->
+  <rect x="206" y="218" width="182" height="52" rx="7" fill="#a36b2c"/>
+  <circle cx="224" cy="237" r="10" fill="#fff" stroke="#fff" stroke-width="1.5"/>
+  <text style="font-size:10px;font-weight:bold;fill:#a36b2c" x="224" y="241" text-anchor="middle">FS</text>
+  <text x="240" y="233" font-size="12" font-weight="bold" fill="#fff">フェールセーフ ★</text>
+  <text x="240" y="248" font-size="11" fill="#fce8d0">Fail Safe</text>
+  <text x="212" y="263" font-size="11" fill="#ffd0a0">故障時は必ず安全方向へ制御</text>
+
+  <rect class="box-pos" x="206" y="278" width="182" height="52" rx="7"/>
+  <circle class="badge-pos" cx="224" cy="297" r="10"/>
+  <text style="font-size:10px;font-weight:bold;fill:#a36b2c" x="224" y="301" text-anchor="middle">FP</text>
+  <text class="t-main" x="240" y="293">フールプルーフ</text>
+  <text class="t-en"   x="240" y="308">Foolproof</text>
+  <text class="t-note" x="212" y="323">誤操作しても危険が生じない</text>
+
+  <rect class="box-pos" x="206" y="338" width="182" height="52" rx="7"/>
+  <circle class="badge-pos" cx="224" cy="357" r="10"/>
+  <text style="font-size:10px;font-weight:bold;fill:#a36b2c" x="224" y="361" text-anchor="middle">IL</text>
+  <text class="t-main" x="240" y="353">インターロック</text>
+  <text class="t-en"   x="240" y="368">Interlock</text>
+  <text class="t-note" x="212" y="383">条件不成立で動作させない</text>
+
+  <!-- フッター -->
+  <rect x="0" y="432" width="400" height="68" fill="#f5f5f5"/>
+  <line x1="0" y1="432" x2="400" y2="432" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="200" y="454" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a3a5c">★ フェールセーフは「許容系の核心」</text>
+  <text x="200" y="472" text-anchor="middle" font-size="11" fill="#555">FT/FSo は「継続」、FS/FP/IL は「安全誘導」</text>
+</svg>

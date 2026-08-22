@@ -1,0 +1,8 @@
+[shell_environment_policy]
+inherit = "core"
+
+[shell_environment_policy.set]
+CLOUDFLARE_ACCOUNT_ID = "cc10e4d021f2b259238dc98dfeebe907"
+
+[mcp_servers.aidesigner]
+url = "https://api.aidesigner.ai/api/v1/mcp"

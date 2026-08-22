@@ -1,0 +1,128 @@
+---
+title: ファイアウォール・侵入検知
+description: "ファイアウォール・侵入検知の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（情報管理）。"
+category: pe-comprehensive-management
+group: keyword
+section: '4.5'
+tags:
+  - 総合技術監理
+  - keyword
+published: true
+reviewStatus: approved
+lastRewrittenAt: '2026-04-15'
+revisionCycle: 1
+publishedAt: '2026-04-08'
+seoTitle: "ファイアウォール・侵入検知 ｜ 技術士 総合技術監理部門 キーワード集"
+created: 2026-04-05
+dateModified: 2026-05-26
+---
+
+## ファイアウォール・侵入検知とは
+
+ファイアウォール（FW）は、ネットワーク間の境界に設置し、あらかじめ定めたルール（ポリシー）に基づいて通信の許可・遮断を行うセキュリティ装置である。
+
+侵入検知システム（IDS: Intrusion Detection System）は、ネットワークやシステムへの不正アクセスを検知し、管理者に警告を発する仕組みである。
+
+これらは**境界型防御**の代表的な技術であり、組織のネットワークを外部の脅威から保護するための基盤となる。
+
+### ファイアウォールの種類
+
+ファイアウォールは、どのOSI参照モデルのレイヤーで通信を制御するかによって4種類に分類される。
+
+**パケットフィルタリング型**（ネットワーク層 L3/L4）
+
+- IPアドレスとポート番号で通信を制御する
+- 高速だが通信内容は検査しない
+
+**ステートフルインスペクション型**（トランスポート層 L4）
+
+- 通信の状態（セッション）を追跡し、正当な応答のみ許可する
+- パケット単体でなくセッション単位で判断するため、より安全
+
+**アプリケーションゲートウェイ型**（アプリケーション層 L7）
+
+- プロキシとして動作し、通信内容を詳細に検査する
+- 処理負荷が高い反面、きめ細かい制御が可能
+
+**次世代ファイアウォール（NGFW）**（L3〜L7）
+
+- アプリケーション識別・ユーザー識別・脅威防御を統合した総合型
+- 近年の企業ネットワークで主流
+
+### IDS・IPS・WAFの比較
+
+侵入検知・防御の仕組みは、検知の範囲と遮断の可否によって3種類に分けられる。
+
+IDS（Intrusion Detection System）
+
+- 役割: 不正アクセスの **検知・通知**（遮断しない）
+- 動作方式: パッシブ（通信のコピーを監視）
+- 検知方式: シグネチャ型・アノマリ型
+- 対象: ネットワーク全般の不正通信
+- 誤検知時: 通知のみで業務影響なし
+
+IPS（Intrusion Prevention System）
+
+- 役割: 不正アクセスの **検知＋遮断**
+- 動作方式: インライン（通信経路上で遮断）
+- 検知方式: シグネチャ型・アノマリ型
+- 対象: ネットワーク全般の不正通信
+- 誤検知時: 正常通信を遮断するリスクあり（可用性とのトレードオフ）
+
+**WAF（Web Application Firewall）**
+
+- 役割: Webアプリケーションへの攻撃を防御
+- 動作方式: HTTP/HTTPS の内容を解析・遮断
+- 検知方式: シグネチャ型・ルールベース
+- 対象: SQLインジェクション、XSS 等のWeb特有の攻撃
+- 誤検知時: 正常リクエストを遮断するリスクあり
+
+### 検知方式の分類
+
+IDS/IPS/WAF が不正アクセスを検知する方式は、大きく2種類に分かれる。
+
+**シグネチャ型（不正検知）**
+
+- 仕組み: 既知の攻撃パターンと照合する
+- 長所: 既知攻撃の検知精度が高い
+- 短所: 未知の攻撃を検知できない
+
+**アノマリ型（異常検知）**
+
+- 仕組み: 正常な通信パターンからの逸脱を検知する
+- 長所: 未知の攻撃にも対応可能
+- 短所: 誤検知（フォールスポジティブ）が多い
+
+<ExamPoint
+  summary="FW・IDS・IPS・WAFは防御範囲と動作方式の違いを正確に区別する"
+  items={[
+    "ファイアウォールはルールベースの通信制御",
+    "IDSは検知のみ、IPSは検知＋遮断",
+    "WAFはWebアプリケーション層（L7）に特化した防御装置",
+    "シグネチャ型は既知攻撃に強く、アノマリ型は未知攻撃にも対応可能",
+    "IPSは誤検知時に正常通信を遮断するリスクがある（可用性とのトレードオフ）",
+  ]}
+/>
+
+## 総合技術監理における位置づけ
+
+
+総合技術監理キーワード集では[**4.5 情報セキュリティ**](/docs/pe-comprehensive-management-keyword-2026#45-情報セキュリティ)に位置づけられる。
+
+ファイアウォールやIDS/IPSは**境界型防御**の中心技術であり、[DMZ](/docs/pe-comprehensive-management-dmz)や[VPN](/docs/pe-comprehensive-management-vpn)と組み合わせたネットワーク設計が問われる。政府調達のIT製品としては[JISEC](/docs/pe-comprehensive-management-jisec)でCC認証を取得した製品の利用が推奨される。
+
+一方、[ゼロトラスト](/docs/pe-comprehensive-management-zero-trust)の考え方では境界型防御だけに依存しない多層的な対策が求められるため、従来型のファイアウォールとの違いを理解しておくことが重要である。
+
+<RelatedKeywords items={[
+  { label: "アクセス制御・アクセス権限設定", slug: "access-control" },
+  { label: "アクセスログ分析", slug: "access-log-analysis" },
+  { label: "責任追跡性（Accountability）", slug: "accountability-traceability" },
+  { label: "真正性（Authenticity）", slug: "authenticity" },
+  { label: "セキュリティ評価基準CC（ISO/IEC 15408）", slug: "common-criteria" },
+]} />
+
+## 参考資料
+
+- [Web Application Firewall（WAF）読本](https://www.ipa.go.jp/security/vuln/waf.html)（IPA 情報処理推進機構）
+- [セキュアな製品調達のために](https://www.ipa.go.jp/security/jisec/about/knowledge/index.html)（IPA 情報処理推進機構 — FW・IDS/IPS 等11分野の認証製品情報）
+- [ファイアウォールとは何か](https://www.cisco.com/c/ja_jp/products/security/firewalls/what-is-a-firewall.html)（Cisco — パケットフィルタリング・NGFW・次世代ファイアウォールの技術解説。エンタープライズ実装の観点から各世代の違いをわかりやすく説明している）

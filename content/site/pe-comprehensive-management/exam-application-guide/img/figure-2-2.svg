@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500"
+     style="max-width:400px;width:100%"
+     role="img" aria-label="業務経歴作成の5ステップ（書き出し→5管理整理→最重点特定→トレードオフ描出→絞り込み）の縦フロー図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-step  { font-size: 11px; font-weight: bold; fill: #2e6da4; letter-spacing: 0.05em; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc  { font-size: 12px; fill: #555; }
+      .t-leg   { font-size: 11px; fill: #555; }
+      .box-step  { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-final { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .t-title-final { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+    </style>
+    <marker id="arr2" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto">
+      <polygon points="0,0 10,4 0,8" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <!-- Step 1 -->
+  <rect class="box-step" x="15" y="10" width="370" height="62" rx="8"/>
+  <text class="t-step" x="30" y="28">STEP 1</text>
+  <text class="t-title" x="200" y="45" text-anchor="middle">経験業務の書き出し</text>
+  <text class="t-desc" x="200" y="63" text-anchor="middle">網羅的に書き出す（絞り込まない）</text>
+
+  <line x1="200" y1="72" x2="200" y2="92" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+  <!-- Step 2 -->
+  <rect class="box-step" x="15" y="94" width="370" height="62" rx="8"/>
+  <text class="t-step" x="30" y="112">STEP 2</text>
+  <text class="t-title" x="200" y="129" text-anchor="middle">5管理の視点で整理</text>
+  <text class="t-desc" x="200" y="147" text-anchor="middle">各業務を5つの管理に分類する</text>
+
+  <line x1="200" y1="156" x2="200" y2="176" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+  <!-- Step 3 -->
+  <rect class="box-step" x="15" y="178" width="370" height="62" rx="8"/>
+  <text class="t-step" x="30" y="196">STEP 3</text>
+  <text class="t-title" x="200" y="213" text-anchor="middle">最重点管理項目の特定</text>
+  <text class="t-desc" x="200" y="231" text-anchor="middle">各業務で最も重視した管理分野を選ぶ</text>
+
+  <line x1="200" y1="240" x2="200" y2="260" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+  <!-- Step 4 -->
+  <rect class="box-step" x="15" y="262" width="370" height="62" rx="8"/>
+  <text class="t-step" x="30" y="280">STEP 4</text>
+  <text class="t-title" x="200" y="297" text-anchor="middle">トレードオフの描出</text>
+  <text class="t-desc" x="200" y="315" text-anchor="middle">異なる管理間の対立を整理する</text>
+
+  <line x1="200" y1="324" x2="200" y2="344" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+  <!-- Step 5 (final - positive) -->
+  <rect class="box-final" x="15" y="346" width="370" height="62" rx="8"/>
+  <text class="t-step" x="30" y="364" style="fill:#3a7d44">STEP 5</text>
+  <text class="t-title-final" x="200" y="381" text-anchor="middle">5つの業務に絞り込み</text>
+  <text class="t-desc" x="200" y="399" text-anchor="middle">バランスと成長ストーリーを意識</text>
+
+  <!-- 補足メモ -->
+  <rect class="box-surface" x="15" y="426" width="370" height="62" rx="6"/>
+  <text class="t-leg" x="30" y="446" font-weight="bold" fill="#1a3a5c">選定の観点</text>
+  <text class="t-leg" x="30" y="463">・5管理をバランスよくカバーする業務を選ぶ</text>
+  <text class="t-leg" x="30" y="479">・トレードオフが最大の業務を必ず 1 件含める</text>
+</svg>

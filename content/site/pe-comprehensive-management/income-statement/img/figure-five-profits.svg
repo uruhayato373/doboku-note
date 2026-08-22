@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="損益計算書の5つの利益の段階を、幅が段階的に狭まる階段で示す。売上高から売上原価を引くと売上総利益、販管費を引くと営業利益、営業外損益を加減すると経常利益、特別損益を加減すると税引前当期純利益、法人税等を引くと当期純利益となり、費用を引くほど利益は小さくなる" font-family='Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif'>
+  <rect width="400" height="500" fill="#ffffff" stroke="#d7d7d7"/>
+
+  <text x="200" y="26" text-anchor="middle" font-size="11" fill="#555">売上高から費用を引くほど利益は小さくなる</text>
+
+  <!-- 売上高（出発点・最も広い） -->
+  <rect x="12" y="44" width="336" height="50" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="24" y="75" font-size="13" font-weight="bold" fill="#222">売上高</text>
+
+  <!-- 売上総利益 -->
+  <rect x="12" y="106" width="290" height="50" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="24" y="137" font-size="13" font-weight="bold" fill="#1a3a5c">売上総利益（粗利）</text>
+  <text x="310" y="137" font-size="11" fill="#222"><tspan fill="#b22234">−</tspan> 売上原価</text>
+
+  <!-- 営業利益 -->
+  <rect x="12" y="168" width="246" height="50" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="24" y="199" font-size="13" font-weight="bold" fill="#1a3a5c">営業利益</text>
+  <text x="266" y="199" font-size="11" fill="#222"><tspan fill="#b22234">−</tspan> 販管費</text>
+
+  <!-- 経常利益 -->
+  <rect x="12" y="230" width="210" height="50" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="24" y="261" font-size="13" font-weight="bold" fill="#1a3a5c">経常利益</text>
+  <text x="230" y="261" font-size="11" fill="#555">± 営業外損益</text>
+
+  <!-- 税引前当期純利益 -->
+  <rect x="12" y="292" width="184" height="50" fill="#e8f0fe" stroke="#2e6da4"/>
+  <text x="24" y="323" font-size="12" font-weight="bold" fill="#1a3a5c">税引前当期純利益</text>
+  <text x="204" y="323" font-size="11" fill="#555">± 特別損益</text>
+
+  <!-- 当期純利益（最終・最も狭い・緑） -->
+  <rect x="12" y="354" width="156" height="50" fill="#d0e8d0" stroke="#3a7d44"/>
+  <text x="24" y="385" font-size="13" font-weight="bold" fill="#1a3a5c">当期純利益</text>
+  <text x="176" y="385" font-size="11" fill="#222"><tspan fill="#b22234">−</tspan> 法人税等</text>
+
+  <!-- summary -->
+  <rect x="12" y="412" width="376" height="74" fill="#f5f5f5" stroke="#d7d7d7" rx="2"/>
+  <text x="200" y="436" text-anchor="middle" font-size="12" font-weight="bold" fill="#222">段階ごとに「何の利益か」が変わる</text>
+  <text x="200" y="457" text-anchor="middle" font-size="11" fill="#555">営業＝本業の力／経常＝財務含む通常</text>
+  <text x="200" y="475" text-anchor="middle" font-size="11" fill="#555">当期純＝株主に残る最終利益</text>
+</svg>

@@ -1,0 +1,38 @@
+{
+  "slug": "pe-first-stage-r05-construction",
+  "year": "R05",
+  "sub": "construction",
+  "audited_at": "2026-06-08",
+  "answer_check": {
+    "status": "fail",
+    "verified_count": 35,
+    "mismatches": [
+      {
+        "question": "Ⅲ-31",
+        "mdx_answer": "2",
+        "official_answer": "4",
+        "note": "MDXの正答が2、前段の公式正答は4として記録。ただし原典PDF視覚突合では選択肢②「吹付けコンクリートは、トンネル掘削完了後、ただちに地山に…」に時期の誤り（掘削完了後→正しくは掘削直後）があり、PDF内容から最も不適切なのは②と判断できる。前段のofficial_answer=4の出典確認が必要。"
+      }
+    ]
+  },
+  "visual_check": {
+    "status": "partial",
+    "checked_count": 35,
+    "issues": [
+      {
+        "question": "Ⅲ-17",
+        "type": "text_mismatch",
+        "detail": "原典PDF（p011）の選択肢は①〜④の4択（① √(2g(zA-zB))、② √(2g(zA-zC))、③ √(2g・zB)、④ √(2g・zC)）のみ。MDXには存在しない選択肢⑤「√(2g・zA)」が追加されており、5択になっている。正答②は両者で一致しているが、選択肢数が相違する。"
+      }
+    ]
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "設問見出し Ⅲ-1〜Ⅲ-35 の連番に欠落なし。frontmatter に title / category / group / published / source_pdf すべて存在。ExamPoint 35個、details 35個、いずれも期待値と一致。図を含む設問（Ⅲ-2, Ⅲ-4, Ⅲ-5, Ⅲ-6, Ⅲ-17）はすべてMDXに<ArticleImage>タグが存在し原典PDFと対応。問いの極性（最も適切/最も不適切/適切なものはどれか）はすべてPDF原典と一致。選択肢数（5択）はすべて一致。"
+  }
+}

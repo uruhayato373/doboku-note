@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" style="max-width:400px;width:100%" role="img" aria-label="FMEA の手順とリスク優先数 RPN：構成要素から故障モード・影響・原因を分析し、影響度 S・発生頻度 O・検出難易度 D の積で RPN を算出して対策優先度を決定する">
+  <text x="190" y="22" text-anchor="middle" font-size="14" fill="#222" font-family="sans-serif" font-weight="bold">FMEA の手順と RPN 算出</text>
+  <text x="190" y="40" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">ボトムアップ型・帰納的分析</text>
+
+  <g>
+    <rect x="20" y="60" width="100" height="36" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2" rx="4"/>
+    <text x="70" y="83" text-anchor="middle" font-size="12" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">構成要素</text>
+  </g>
+
+  <g>
+    <rect x="140" y="60" width="100" height="36" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2" rx="4"/>
+    <text x="190" y="83" text-anchor="middle" font-size="12" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">故障モード</text>
+  </g>
+
+  <g>
+    <rect x="260" y="60" width="100" height="36" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2" rx="4"/>
+    <text x="310" y="83" text-anchor="middle" font-size="12" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">影響・原因</text>
+  </g>
+
+  <g stroke="#8a8a8a" stroke-width="1.5" fill="none">
+    <line x1="120" y1="78" x2="140" y2="78"/>
+    <line x1="240" y1="78" x2="260" y2="78"/>
+  </g>
+  <polygon points="140,78 134,74 134,82" fill="#8a8a8a"/>
+  <polygon points="260,78 254,74 254,82" fill="#8a8a8a"/>
+
+  <line x1="190" y1="110" x2="190" y2="130" stroke="#8a8a8a" stroke-width="1.5"/>
+  <polygon points="190,130 186,124 194,124" fill="#8a8a8a"/>
+
+  <g>
+    <rect x="40" y="138" width="300" height="80" fill="#fff3cd" stroke="#d4a017" stroke-width="2" rx="6"/>
+    <text x="190" y="160" text-anchor="middle" font-size="13" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">リスク優先数 RPN</text>
+    <text x="190" y="184" text-anchor="middle" font-size="13" fill="#222" font-family="sans-serif" font-weight="bold">RPN = S × O × D</text>
+    <text x="190" y="204" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">影響度 S・発生頻度 O・検出難易度 D（各 1〜10）</text>
+  </g>
+
+  <line x1="190" y1="226" x2="190" y2="246" stroke="#8a8a8a" stroke-width="1.5"/>
+  <polygon points="190,246 186,240 194,240" fill="#8a8a8a"/>
+
+  <g>
+    <rect x="40" y="254" width="140" height="60" fill="#f8d7da" stroke="#b22234" stroke-width="2" rx="6"/>
+    <text x="110" y="278" text-anchor="middle" font-size="12" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">RPN 大</text>
+    <text x="110" y="298" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">優先対策</text>
+  </g>
+
+  <g>
+    <rect x="200" y="254" width="140" height="60" fill="#d0e8d0" stroke="#3a7d44" stroke-width="2" rx="6"/>
+    <text x="270" y="278" text-anchor="middle" font-size="12" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">RPN 小</text>
+    <text x="270" y="298" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">許容 / 監視</text>
+  </g>
+
+  <text x="200" y="338" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">対策後は再評価し許容水準まで低下を確認</text>
+  <text x="200" y="354" text-anchor="middle" font-size="11" fill="#3a7d44" font-family="sans-serif" font-weight="bold">設計段階で潜在故障を摘出</text>
+
+  <!-- 下部：RPN評価基準 -->
+  <rect x="20" y="374" width="360" height="60" fill="#e8f0fe" stroke="#2e6da4" stroke-width="1.5" rx="6"/>
+  <text x="200" y="394" text-anchor="middle" font-size="13" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">RPN 評価基準の目安</text>
+  <text x="200" y="413" text-anchor="middle" font-size="11" fill="#222" font-family="sans-serif">RPN ≥ 100：即時対策 ／ 50〜99：計画対策 ／ &lt; 50：監視</text>
+  <text x="200" y="429" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">閾値は組織・製品リスク許容度により設定</text>
+
+  <!-- 下部：FMEA活用場面 -->
+  <rect x="20" y="446" width="360" height="42" fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" rx="6"/>
+  <text x="200" y="464" text-anchor="middle" font-size="11" fill="#1a3a5c" font-family="sans-serif" font-weight="bold">適用場面：設計 FMEA（DFMEA） / 工程 FMEA（PFMEA）</text>
+  <text x="200" y="481" text-anchor="middle" font-size="11" fill="#555" font-family="sans-serif">FTA との違い：FTA は演繹的（トップダウン）</text>
+</svg>

@@ -1,0 +1,78 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="プラネタリー・バウンダリー 9 領域の現状一覧（2025年評価）。7 領域が超過（気候変動・生物多様性・土地利用変化・淡水利用・窒素リン循環・新規化学物質・海洋酸性化）。大気エアロゾルは評価中。成層圏オゾン層のみ境界内">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-sub   { font-size: 11px; fill: #555; }
+      .t-row   { font-size: 12px; fill: #222; }
+      .t-stat-r{ font-size: 11px; font-weight: bold; fill: #b22234; }
+      .t-stat-y{ font-size: 11px; font-weight: bold; fill: #d4a017; }
+      .t-stat-g{ font-size: 11px; font-weight: bold; fill: #3a7d44; }
+      .t-note  { font-size: 11px; fill: #555; }
+    </style>
+  </defs>
+
+  <text class="t-title" x="200" y="22" text-anchor="middle">プラネタリー・バウンダリー 9 領域の現状</text>
+  <text class="t-sub" x="200" y="42" text-anchor="middle">2025 年評価 — 7 領域が超過、1 領域が評価中、1 領域のみ境界内</text>
+
+  <rect x="20" y="55" width="6" height="22" fill="#b22234"/>
+  <text class="t-row" x="32" y="71">① 気候変動</text>
+  <text class="t-stat-r" x="375" y="71" text-anchor="end">超過</text>
+
+  <rect x="20" y="80" width="6" height="22" fill="#b22234"/>
+  <text class="t-row" x="32" y="96">② 生物圏の一体性（生物多様性）</text>
+  <text class="t-stat-r" x="375" y="96" text-anchor="end">超過</text>
+
+  <rect x="20" y="105" width="6" height="22" fill="#b22234"/>
+  <text class="t-row" x="32" y="121">③ 土地利用変化</text>
+  <text class="t-stat-r" x="375" y="121" text-anchor="end">超過</text>
+
+  <rect x="20" y="130" width="6" height="22" fill="#b22234"/>
+  <text class="t-row" x="32" y="146">④ 淡水利用</text>
+  <text class="t-stat-r" x="375" y="146" text-anchor="end">超過</text>
+
+  <rect x="20" y="155" width="6" height="22" fill="#b22234"/>
+  <text class="t-row" x="32" y="171">⑤ 生物地球化学的循環（窒素・リン）</text>
+  <text class="t-stat-r" x="375" y="171" text-anchor="end">超過</text>
+
+  <rect x="20" y="180" width="6" height="22" fill="#b22234"/>
+  <text class="t-row" x="32" y="196">⑥ 新規化学物質</text>
+  <text class="t-stat-r" x="375" y="196" text-anchor="end">超過</text>
+
+  <rect x="20" y="205" width="6" height="22" fill="#b22234"/>
+  <text class="t-row" x="32" y="221">⑦ 海洋酸性化　★2025</text>
+  <text class="t-stat-r" x="375" y="221" text-anchor="end">超過</text>
+
+  <rect x="20" y="230" width="6" height="22" fill="#d4a017"/>
+  <text class="t-row" x="32" y="246">⑧ 大気エアロゾル</text>
+  <text class="t-stat-y" x="375" y="246" text-anchor="end">評価中</text>
+
+  <rect x="20" y="255" width="6" height="22" fill="#3a7d44"/>
+  <text class="t-row" x="32" y="271">⑨ 成層圏オゾン層</text>
+  <text class="t-stat-g" x="375" y="271" text-anchor="end">境界内</text>
+
+  <text class="t-note" x="20" y="297">★ 2025 年に海洋酸性化が新たに超過領域へ追加</text>
+  <text class="t-note" x="20" y="311">○ オゾン層はモントリオール議定書の効果で唯一改善中</text>
+
+  <!-- サマリー -->
+  <line stroke="#d7d7d7" stroke-width="1" x1="20" y1="332" x2="380" y2="332"/>
+
+  <!-- 凡例 -->
+  <rect x="20" y="350" width="14" height="14" fill="#b22234"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#222" x="40" y="362">超過（7 領域）</text>
+  <rect x="140" y="350" width="14" height="14" fill="#d4a017"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#222" x="160" y="362">評価中（1 領域）</text>
+  <rect x="280" y="350" width="14" height="14" fill="#3a7d44"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#222" x="300" y="362">境界内（1 領域）</text>
+
+  <rect fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1" x="20" y="378" width="360" height="100" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" x="200" y="398" text-anchor="middle">概念の背景</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="416">・提唱: ロックストローム（スウェーデン）2009 年 Science 誌</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="434">・地球が安全に機能できる「人類の安全な活動空間」を定量化</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="452">・複数領域の同時超過が相互作用リスクを高める（連鎖的変化）</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="30" y="470">・日本: 第 5 次環境基本計画（2018）で初めて政府文書に明記</text>
+</svg>

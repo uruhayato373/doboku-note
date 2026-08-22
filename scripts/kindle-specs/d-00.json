@@ -1,0 +1,31 @@
+{
+  "bookId": "d-00",
+  "title": "技術士第一次試験 基礎・適性・専門（建設部門）過去問7年分完全解説【合本】",
+  "subtitle": "令和元〜7年度 基礎210問＋適性105問＋専門245問 計560問",
+  "price": 990,
+  "description": "技術士第一次試験の3科目（基礎・適性・専門〈建設部門〉）を1冊にまとめた合本です。令和元〜7年度の過去問560問（基礎210問・適性105問・専門245問）すべてに、正答と選択肢ごとの正誤理由を完全収録しています。基礎科目は設計・計画（最適化・信頼性工学）、情報・論理（基数変換・情報セキュリティ）、解析（ベクトル解析・数値解析）、材料・化学・バイオ（生化学・結晶構造）、環境・エネルギー・技術（白書統計）の5群、適性科目は技術士法第4章・技術者倫理・PL法・知的財産権などの定番論点、専門科目（建設部門）は土質及び基礎から構造力学・コンクリート・水理学・道路・トンネル・建設環境まで35問構成の全分野を、それぞれ7年分横断で演習できます。基礎科目・専門科目の計算問題の数式はKindle対応のMathML表示で正確に再現し、専門科目の図表付き問題は図版もあわせて完全収録しています。3冊分割版より割安な合本価格で、一次試験の全科目を1冊で対策できます。",
+  "sources": [
+    "content/site/pe-first-stage/r01-basic/article.mdx",
+    "content/site/pe-first-stage/r02-basic/article.mdx",
+    "content/site/pe-first-stage/r03-basic/article.mdx",
+    "content/site/pe-first-stage/r04-basic/article.mdx",
+    "content/site/pe-first-stage/r05-basic/article.mdx",
+    "content/site/pe-first-stage/r06-basic/article.mdx",
+    "content/site/pe-first-stage/r07-basic/article.mdx",
+    "content/site/pe-first-stage/r01-aptitude/article.mdx",
+    "content/site/pe-first-stage/r02-aptitude/article.mdx",
+    "content/site/pe-first-stage/r03-aptitude/article.mdx",
+    "content/site/pe-first-stage/r04-aptitude/article.mdx",
+    "content/site/pe-first-stage/r05-aptitude/article.mdx",
+    "content/site/pe-first-stage/r06-aptitude/article.mdx",
+    "content/site/pe-first-stage/r07-aptitude/article.mdx",
+    "content/site/pe-first-stage/r01-construction/article.mdx",
+    "content/site/pe-first-stage/r02-construction/article.mdx",
+    "content/site/pe-first-stage/r03-construction/article.mdx",
+    "content/site/pe-first-stage/r04-construction/article.mdx",
+    "content/site/pe-first-stage/r05-construction/article.mdx",
+    "content/site/pe-first-stage/r06-construction/article.mdx",
+    "content/site/pe-first-stage/r07-construction/article.mdx"
+  ],
+  "frontMatter": "content/kindle/books/d-00/front-matter.md"
+}

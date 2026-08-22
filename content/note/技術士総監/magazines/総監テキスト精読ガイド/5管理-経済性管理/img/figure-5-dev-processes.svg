@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800">
+  <rect width="1200" height="800" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">開発プロセス5種の比較</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">反復型・順次型・リスク重視型を要件の確定度で使い分ける</text>
+
+  <rect x="40" y="140" width="368" height="220" rx="10" fill="#ffffff" stroke="#2e6da4" stroke-width="3"/>
+  <rect x="40" y="140" width="368" height="60" rx="10" fill="#2e6da4"/>
+  <rect x="40" y="180" width="368" height="20" fill="#2e6da4"/>
+  <text x="224" y="172" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">ウォーターフォール</text>
+  <text x="224" y="194" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle">上流→下流の一方向</text>
+  <text x="60" y="232" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">適用</text>
+  <text x="60" y="256" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">要件が確定した大規模案件</text>
+  <text x="60" y="296" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#b22234">注意点</text>
+  <text x="60" y="320" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">後戻りコストが大</text>
+  <rect x="424" y="140" width="368" height="220" rx="10" fill="#ffffff" stroke="#1a3a5c" stroke-width="3"/>
+  <rect x="424" y="140" width="368" height="60" rx="10" fill="#1a3a5c"/>
+  <rect x="424" y="180" width="368" height="20" fill="#1a3a5c"/>
+  <text x="608" y="172" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">V字モデル</text>
+  <text x="608" y="194" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle">開発と検証を対応</text>
+  <text x="444" y="232" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">適用</text>
+  <text x="444" y="256" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">品質保証が重要な系（医療・航空）</text>
+  <text x="444" y="296" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#b22234">注意点</text>
+  <text x="444" y="320" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">上流変更に弱い</text>
+  <rect x="808" y="140" width="368" height="220" rx="10" fill="#ffffff" stroke="#3a7d44" stroke-width="3"/>
+  <rect x="808" y="140" width="368" height="60" rx="10" fill="#3a7d44"/>
+  <rect x="808" y="180" width="368" height="20" fill="#3a7d44"/>
+  <text x="992" y="172" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">スパイラルモデル</text>
+  <text x="992" y="194" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle">リスク重視の反復</text>
+  <text x="828" y="232" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">適用</text>
+  <text x="828" y="256" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">不確実性の高い大規模開発</text>
+  <text x="828" y="296" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#b22234">注意点</text>
+  <text x="828" y="320" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">管理コストが大</text>
+  <rect x="40" y="376" width="368" height="220" rx="10" fill="#ffffff" stroke="#d4a017" stroke-width="3"/>
+  <rect x="40" y="376" width="368" height="60" rx="10" fill="#d4a017"/>
+  <rect x="40" y="416" width="368" height="20" fill="#d4a017"/>
+  <text x="224" y="408" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">アジャイル</text>
+  <text x="224" y="430" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle">短いイテレーション</text>
+  <text x="60" y="468" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">適用</text>
+  <text x="60" y="492" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">要件が変動する Web/SaaS</text>
+  <text x="60" y="532" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#b22234">注意点</text>
+  <text x="60" y="556" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">ドキュメント不足化</text>
+  <rect x="424" y="376" width="368" height="220" rx="10" fill="#ffffff" stroke="#b22234" stroke-width="3"/>
+  <rect x="424" y="376" width="368" height="60" rx="10" fill="#b22234"/>
+  <rect x="424" y="416" width="368" height="20" fill="#b22234"/>
+  <text x="608" y="408" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">イテレーティブ</text>
+  <text x="608" y="430" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#ffffff" text-anchor="middle">段階的拡張</text>
+  <text x="444" y="468" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#3a7d44">適用</text>
+  <text x="444" y="492" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">プロトタイプ重視の研究開発</text>
+  <text x="444" y="532" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" font-weight="700" fill="#b22234">注意点</text>
+  <text x="444" y="556" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#222222">全体設計が後手化</text>
+  <rect x="40" y="676" width="1120" height="44" rx="6" fill="#e8f0fe"/>
+  <text x="60" y="706" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c">引っかけ：アジャイル＝「文書不要」は誤り。動くソフト優先であってドキュメント否定ではない。</text>
+  <text x="1160" y="780" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

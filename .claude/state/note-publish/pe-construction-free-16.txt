@@ -1,0 +1,31 @@
+# 技術士建設部門 無料記事 公開セット 16本（予約投稿用マニフェスト）
+# note-publish-magazine.mjs --list で使用。順序＝公開順＝予約slot順（もくじの目的別並び）。
+# B系統「〜の論点キーワード」6本(社会資本整備/持続可能な地域づくり/インフラ維持管理・更新/
+# 防災・減災/担い手・DX/低炭素・環境保全)はhold=未収録（意図的に除外）。
+# 使い方例（1日1本 07:00 JST から予約投稿）:
+#   node scripts/note-publish-magazine.mjs --list .claude/state/note-publish/pe-construction-free-16.txt \
+#     --schedule-start 2026-06-20T07:00 --interval-hours 24 --commit
+
+# 勉強の進め方
+content/note/技術士建設部門/建設部門二次の勉強法/article.md
+content/note/技術士建設部門/勉強時間とスケジュール/article.md
+content/note/技術士建設部門/建設部門二次の難易度と合格率/article.md
+
+# 答案の書き方
+content/note/技術士建設部門/業務経歴票の書き方/article.md
+content/note/技術士建設部門/選択科目II-1・II-2・IIIの書き分け/article.md
+content/note/技術士建設部門/答案構成のテンプレート/article.md
+content/note/技術士建設部門/必須科目I解答例の使い方/article.md
+
+# 選択科目の論文キーワード
+content/note/技術士建設部門/道路の論文キーワード/article.md
+content/note/技術士建設部門/河川海岸の論文キーワード/article.md
+content/note/技術士建設部門/都市計画の論文キーワード/article.md
+
+# 必須科目Iの論点（A系統6テーマ）
+content/note/技術士建設部門/防災・国土強靱化の論点/article.md
+content/note/技術士建設部門/担い手確保と生産性向上の論点/article.md
+content/note/技術士建設部門/カーボンニュートラルとGXの論点/article.md
+content/note/技術士建設部門/インフラ老朽化と維持管理の論点/article.md
+content/note/技術士建設部門/国土形成と地域づくりの論点/article.md
+content/note/技術士建設部門/建設DXとi-Constructionの論点/article.md

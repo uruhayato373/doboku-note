@@ -1,0 +1,75 @@
+name: 🔎 Verify YouTube publish status (weekly)
+
+# .claude/state/youtube-schedule.json の videoId を持つ item を YouTube API(videos.list) と照合し、
+# 「台帳は uploaded だが実際は削除/非公開」「publishAt を過ぎたのに未公開」を検知する read-only reconciler。
+# 是正はしない（検知・報告のみ）。実装パターン: fetch-metrics.yml（Publish ステップの git 書式を流用）。
+#
+# 前提 Secrets: YOUTUBE_CLIENT_ID / YOUTUBE_CLIENT_SECRET / YOUTUBE_REFRESH_TOKEN
+
+on:
+  schedule:
+    - cron: "0 20 * * 4" # JST 05:00 Friday（UTC 20:00 Thursday）
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout develop
+        uses: actions/checkout@v5
+        with:
+          ref: develop
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Verify YouTube publish status
+        id: verify
+        continue-on-error: true
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: |
+          set -o pipefail
+          node .claude/scripts/youtube/verify-yt-status.mjs 2>&1 | tee /tmp/yt-verify.log
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Publish report to develop (.claude/state/yt-verify/)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add .claude/state/yt-verify
+          if git diff --cached --quiet; then
+            echo "No changes to publish"
+            exit 0
+          fi
+
+          git commit -m "chore(youtube): verify-yt-status weekly audit $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          git pull --rebase origin develop
+          git push origin develop
+
+      - name: Fail on drift (アラート)
+        if: steps.verify.outputs.exit_code == '2'
+        run: |
+          echo "::error::YouTube 公開状態ドリフトを検出（verify-yt-status.mjs）。.claude/state/yt-verify/latest.json を確認してください。"
+          exit 1
+
+      - name: Fail on auth/network error
+        if: steps.verify.outputs.exit_code == '1'
+        run: |
+          echo "::error::verify-yt-status.mjs が認証/ネットワークエラーで失敗しました。/tmp/yt-verify.log を確認してください"
+          tail -40 /tmp/yt-verify.log || true
+          exit 1

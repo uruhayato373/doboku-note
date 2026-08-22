@@ -1,0 +1,137 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="知的財産権関連法規の体系：知的創作物（発明・考案・意匠・著作物等）と営業上の標識（商標・商号等）の二大区分。産業財産権法 4 法（特許・実用新案・意匠・商標）を ★ で示す">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-root { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .t-branch { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-target { font-size: 12px; fill: #1a3a5c; }
+      .t-law { font-size: 12px; fill: #1a3a5c; }
+      .t-law-star { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-legend { font-size: 11px; fill: #555; }
+      .box-root { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-branch-c { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-branch-m { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-target { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .box-law-ipr { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-law-other { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; }
+      .conn { stroke: #8a8a8a; stroke-width: 1; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Root: 知的財産権 -->
+  <rect class="box-root" x="120" y="10" width="160" height="36" rx="8"/>
+  <text class="t-root" x="200" y="34" text-anchor="middle">知的財産権</text>
+
+  <!-- Connection root → 知的創作物 header -->
+  <line class="conn" x1="200" y1="46" x2="200" y2="58"/>
+
+  <!-- Branch 1 header: 知的創作物 -->
+  <rect class="box-branch-c" x="120" y="58" width="160" height="28" rx="6"/>
+  <text class="t-branch" x="200" y="77" text-anchor="middle">知的創作物</text>
+
+  <!-- 8 rows under 知的創作物 (row height 22, gap 26px) -->
+  <!-- Row 1: 発明 → 特許法★ -->
+  <rect class="box-target" x="20" y="96" width="120" height="22" rx="4"/>
+  <text class="t-target" x="80" y="111" text-anchor="middle">発明</text>
+  <line class="conn" x1="140" y1="107" x2="170" y2="107"/>
+  <rect class="box-law-ipr" x="170" y="96" width="210" height="22" rx="4"/>
+  <text class="t-law-star" x="178" y="111">★ 特許法</text>
+  <text class="t-law" x="245" y="111">（産業財産権法）</text>
+
+  <!-- Row 2: 考案 → 実用新案法★ -->
+  <rect class="box-target" x="20" y="122" width="120" height="22" rx="4"/>
+  <text class="t-target" x="80" y="137" text-anchor="middle">考案</text>
+  <line class="conn" x1="140" y1="133" x2="170" y2="133"/>
+  <rect class="box-law-ipr" x="170" y="122" width="210" height="22" rx="4"/>
+  <text class="t-law-star" x="178" y="137">★ 実用新案法</text>
+  <text class="t-law" x="263" y="137">（産業財産権法）</text>
+
+  <!-- Row 3: 意匠 → 意匠法★ -->
+  <rect class="box-target" x="20" y="148" width="120" height="22" rx="4"/>
+  <text class="t-target" x="80" y="163" text-anchor="middle">意匠</text>
+  <line class="conn" x1="140" y1="159" x2="170" y2="159"/>
+  <rect class="box-law-ipr" x="170" y="148" width="210" height="22" rx="4"/>
+  <text class="t-law-star" x="178" y="163">★ 意匠法</text>
+  <text class="t-law" x="245" y="163">（産業財産権法）</text>
+
+  <!-- Row 4: 著作物 → 著作権法 -->
+  <rect class="box-target" x="20" y="174" width="120" height="22" rx="4"/>
+  <text class="t-target" x="80" y="189" text-anchor="middle">著作物</text>
+  <line class="conn" x1="140" y1="185" x2="170" y2="185"/>
+  <rect class="box-law-other" x="170" y="174" width="210" height="22" rx="4"/>
+  <text class="t-law" x="178" y="189">著作権法</text>
+
+  <!-- Row 5: 営業秘密 → 不正競争防止法 -->
+  <rect class="box-target" x="20" y="200" width="120" height="22" rx="4"/>
+  <text class="t-target" x="80" y="215" text-anchor="middle">営業秘密</text>
+  <line class="conn" x1="140" y1="211" x2="170" y2="211"/>
+  <rect class="box-law-other" x="170" y="200" width="210" height="22" rx="4"/>
+  <text class="t-law" x="178" y="215">不正競争防止法</text>
+
+  <!-- Row 6: 商品の形態 → 不正競争防止法 -->
+  <rect class="box-target" x="20" y="226" width="120" height="22" rx="4"/>
+  <text class="t-target" x="80" y="241" text-anchor="middle">商品の形態</text>
+  <line class="conn" x1="140" y1="237" x2="170" y2="237"/>
+  <rect class="box-law-other" x="170" y="226" width="210" height="22" rx="4"/>
+  <text class="t-law" x="178" y="241">不正競争防止法</text>
+
+  <!-- Row 7: 半導体集積回路 → 半導体集積回路法 -->
+  <rect class="box-target" x="20" y="252" width="120" height="22" rx="4"/>
+  <text class="t-target" x="80" y="267" text-anchor="middle">半導体集積回路</text>
+  <line class="conn" x1="140" y1="263" x2="170" y2="263"/>
+  <rect class="box-law-other" x="170" y="252" width="210" height="22" rx="4"/>
+  <text class="t-law" x="178" y="267">半導体集積回路法</text>
+
+  <!-- Row 8: 植物新品種 → 種苗法 -->
+  <rect class="box-target" x="20" y="278" width="120" height="22" rx="4"/>
+  <text class="t-target" x="80" y="293" text-anchor="middle">植物新品種</text>
+  <line class="conn" x1="140" y1="289" x2="170" y2="289"/>
+  <rect class="box-law-other" x="170" y="278" width="210" height="22" rx="4"/>
+  <text class="t-law" x="178" y="293">種苗法</text>
+
+  <!-- Connection 知的創作物 → 営業上の標識 -->
+  <line class="conn" x1="200" y1="308" x2="200" y2="318"/>
+
+  <!-- Branch 2 header: 営業上の標識 -->
+  <rect class="box-branch-m" x="120" y="318" width="160" height="28" rx="6"/>
+  <text class="t-branch" x="200" y="337" text-anchor="middle">営業上の標識</text>
+
+  <!-- 4 rows under 営業上の標識 (row height 22, gap 26px) -->
+  <!-- Row 1: 商標 → 商標法★ -->
+  <rect class="box-target" x="20" y="356" width="120" height="22" rx="4"/>
+  <text class="t-target" x="80" y="371" text-anchor="middle">商標</text>
+  <line class="conn" x1="140" y1="367" x2="170" y2="367"/>
+  <rect class="box-law-ipr" x="170" y="356" width="210" height="22" rx="4"/>
+  <text class="t-law-star" x="178" y="371">★ 商標法</text>
+  <text class="t-law" x="245" y="371">（産業財産権法）</text>
+
+  <!-- Row 2: 商号 → 商法・会社法 -->
+  <rect class="box-target" x="20" y="382" width="120" height="22" rx="4"/>
+  <text class="t-target" x="80" y="397" text-anchor="middle">商号</text>
+  <line class="conn" x1="140" y1="393" x2="170" y2="393"/>
+  <rect class="box-law-other" x="170" y="382" width="210" height="22" rx="4"/>
+  <text class="t-law" x="178" y="397">商法・会社法</text>
+
+  <!-- Row 3: 著名商標・原産地表示 → 不正競争防止法 -->
+  <rect class="box-target" x="20" y="408" width="120" height="22" rx="4"/>
+  <text class="t-target" x="80" y="423" text-anchor="middle">著名商標・原産地</text>
+  <line class="conn" x1="140" y1="419" x2="170" y2="419"/>
+  <rect class="box-law-other" x="170" y="408" width="210" height="22" rx="4"/>
+  <text class="t-law" x="178" y="423">不正競争防止法</text>
+
+  <!-- Row 4: その他の標識 → 不正競争防止法 -->
+  <rect class="box-target" x="20" y="434" width="120" height="22" rx="4"/>
+  <text class="t-target" x="80" y="449" text-anchor="middle">その他の標識</text>
+  <line class="conn" x1="140" y1="445" x2="170" y2="445"/>
+  <rect class="box-law-other" x="170" y="434" width="210" height="22" rx="4"/>
+  <text class="t-law" x="178" y="449">不正競争防止法</text>
+
+  <!-- Legend -->
+  <line class="conn" x1="20" y1="466" x2="380" y2="466"/>
+  <text class="t-legend" x="20" y="480">★ = 産業財産権法 4 法（特許・実用新案・意匠・商標）</text>
+  <text class="t-legend" x="20" y="494">特許庁所管。出願・審査・登録の方式主義による独占権</text>
+</svg>

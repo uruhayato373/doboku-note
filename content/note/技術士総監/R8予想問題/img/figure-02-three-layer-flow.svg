@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="960" viewBox="0 0 1200 960">
+  <rect width="1200" height="960" fill="#ffffff"/>
+
+  <text x="40" y="60" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="32" font-weight="800" fill="#222222">三層構造テンプレ（管理対象 → 施策 → 将来展望）</text>
+  <text x="40" y="96" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">解答骨子の組立手順</text>
+
+  <defs>
+    <marker id="arrDown" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="10" markerHeight="10" orient="auto">
+      <path d="M 0 0 L 0 10 L 10 5 z" fill="#555555"/>
+    </marker>
+  </defs>
+  <rect x="50" y="140" width="1100" height="180" rx="12" fill="#ffffff" stroke="#2e6da4" stroke-width="3"/>
+  <rect x="50" y="140" width="280" height="180" rx="12" fill="#2e6da4"/>
+  <rect x="318" y="140" width="12" height="180" fill="#2e6da4"/>
+  <text x="190" y="208" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">第 1 層</text>
+  <text x="190" y="250" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">管理対象</text>
+  <text x="354" y="192" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">管理対象と前提条件を具体的に設定</text>
+  <text x="354" y="238" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">例: 自分の事業/組織を具体名で挙げ、顕在課題と既施策の問題点を仕込む</text>
+  <line x1="600" y1="320" x2="600" y2="372" stroke="#555555" stroke-width="4" marker-end="url(#arrDown)"/>
+  <rect x="50" y="376" width="1100" height="180" rx="12" fill="#ffffff" stroke="#d4a017" stroke-width="3"/>
+  <rect x="50" y="376" width="280" height="180" rx="12" fill="#d4a017"/>
+  <rect x="318" y="376" width="12" height="180" fill="#d4a017"/>
+  <text x="190" y="444" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">第 2 層</text>
+  <text x="190" y="486" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">施策とトレードオフ</text>
+  <text x="354" y="428" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">5 年以内の施策 2 つ + 5 管理間トレードオフを明示</text>
+  <text x="354" y="474" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">例: 施策ごとに 2 つ以上の管理分野にまたがらせ、衝突と克服策を 1 文で示す</text>
+  <line x1="600" y1="556" x2="600" y2="608" stroke="#555555" stroke-width="4" marker-end="url(#arrDown)"/>
+  <rect x="50" y="612" width="1100" height="180" rx="12" fill="#ffffff" stroke="#3a7d44" stroke-width="3"/>
+  <rect x="50" y="612" width="280" height="180" rx="12" fill="#3a7d44"/>
+  <rect x="318" y="612" width="12" height="180" fill="#3a7d44"/>
+  <text x="190" y="680" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#ffffff" text-anchor="middle">第 3 層</text>
+  <text x="190" y="722" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="26" font-weight="800" fill="#ffffff" text-anchor="middle">将来展望と最大リスク</text>
+  <text x="354" y="664" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="700" fill="#222222">10-25 年後の国家施策 + 最大リスクへの対応</text>
+  <text x="354" y="710" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" fill="#555555">例: 2050 年想定の国家施策 + 最大障害 → 管理行為（法制化・体制再設計）で克服</text>
+  <rect x="40" y="808" width="1120" height="52" rx="6" fill="#e8f0fe"/>
+  <text x="600" y="842" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="22" font-weight="600" fill="#1a3a5c" text-anchor="middle">30 分で全テーマに適用できる骨子テンプレ</text>
+<text x="1180" y="944" font-family="Hiragino Sans, Hiragino Kaku Gothic ProN, Yu Gothic, Noto Sans JP, sans-serif" font-size="18" fill="#8a8a8a" text-anchor="end">doboku-note.com</text>
+</svg>

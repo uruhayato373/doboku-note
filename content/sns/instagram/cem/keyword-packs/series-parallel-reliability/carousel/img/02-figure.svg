@@ -1,0 +1,82 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" width="400" height="500" role="img" aria-label="R03 Ⅰ-1-30 ユニット信頼度計算 問題とシステム構成図">
+  <defs><style>text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }</style></defs>
+  <rect width="400" height="500" fill="#ffffff"/>
+
+  <!-- ヘッダー -->
+  <rect width="400" height="72" fill="#1a3a5c"/>
+  <text x="200" y="28" text-anchor="middle" font-size="11" fill="#d4956a">技術士 総監 | R03 Ⅰ−1−30</text>
+  <text x="200" y="56" text-anchor="middle" font-size="17" font-weight="bold" fill="#fff">過去問 — 問題文</text>
+
+  <!-- 問題文 -->
+  <text x="200" y="96" text-anchor="middle" font-size="12" fill="#1a3a5c" font-weight="bold">R₁=R₂=R₃=0.9　各ユニット故障は独立</text>
+  <text x="200" y="114" text-anchor="middle" font-size="12" fill="#555">システム全体の信頼度 ≥ 0.9 とする最小のR₄は？</text>
+
+  <!-- システム構成図ラベル -->
+  <text x="20" y="136" font-size="11" fill="#888">▼ システム構成</text>
+
+  <!-- 図の背景 -->
+  <rect x="16" y="142" width="368" height="148" rx="6" fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 入出力ラベル -->
+  <text x="22" y="213" font-size="10" fill="#888">入力</text>
+  <text x="368" y="213" font-size="10" fill="#888">出力</text>
+
+  <!-- 入力線・ノード -->
+  <line x1="38" y1="216" x2="56" y2="216" stroke="#555" stroke-width="2"/>
+  <circle cx="56" cy="216" r="4" fill="#1a3a5c"/>
+
+  <!-- 上段ライン（y=178） -->
+  <line x1="56" y1="216" x2="56" y2="178" stroke="#555" stroke-width="1.5"/>
+  <line x1="56" y1="178" x2="82" y2="178" stroke="#555" stroke-width="1.5"/>
+  <rect x="82" y="163" width="80" height="30" rx="4" fill="#1a3a5c"/>
+  <text x="122" y="176" text-anchor="middle" font-size="10" fill="#fff">ユニット1</text>
+  <text x="122" y="188" text-anchor="middle" font-size="9" fill="#b8d0e8">（信頼度R₁）</text>
+  <line x1="162" y1="178" x2="196" y2="178" stroke="#555" stroke-width="1.5"/>
+  <rect x="196" y="163" width="80" height="30" rx="4" fill="#1a3a5c"/>
+  <text x="236" y="176" text-anchor="middle" font-size="10" fill="#fff">ユニット2</text>
+  <text x="236" y="188" text-anchor="middle" font-size="9" fill="#b8d0e8">（信頼度R₂）</text>
+  <line x1="276" y1="178" x2="344" y2="178" stroke="#555" stroke-width="1.5"/>
+  <line x1="344" y1="178" x2="344" y2="216" stroke="#555" stroke-width="1.5"/>
+
+  <!-- 下段ライン（y=254） -->
+  <line x1="56" y1="216" x2="56" y2="254" stroke="#555" stroke-width="1.5"/>
+  <line x1="56" y1="254" x2="82" y2="254" stroke="#555" stroke-width="1.5"/>
+  <rect x="82" y="239" width="80" height="30" rx="4" fill="#1a3a5c"/>
+  <text x="122" y="252" text-anchor="middle" font-size="10" fill="#fff">ユニット3</text>
+  <text x="122" y="264" text-anchor="middle" font-size="9" fill="#b8d0e8">（信頼度R₃）</text>
+  <line x1="162" y1="254" x2="196" y2="254" stroke="#555" stroke-width="1.5"/>
+  <!-- ユニット4: 枠線のみでR₄未知を示す -->
+  <rect x="196" y="239" width="80" height="30" rx="4" fill="none" stroke="#1a3a5c" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="236" y="252" text-anchor="middle" font-size="10" fill="#1a3a5c">ユニット4</text>
+  <text x="236" y="264" text-anchor="middle" font-size="9" fill="#a36b2c">（R₄=?）</text>
+  <line x1="276" y1="254" x2="344" y2="254" stroke="#555" stroke-width="1.5"/>
+  <line x1="344" y1="254" x2="344" y2="216" stroke="#555" stroke-width="1.5"/>
+
+  <!-- 右ノード・出力線 -->
+  <circle cx="344" cy="216" r="4" fill="#1a3a5c"/>
+  <line x1="344" y1="216" x2="362" y2="216" stroke="#555" stroke-width="2"/>
+
+  <!-- 構成の説明 -->
+  <text x="20" y="308" font-size="11" fill="#555">上段: U1→U2（直列）　下段: U3→U4（直列）</text>
+  <text x="20" y="324" font-size="11" fill="#555">上段と下段が並列接続 → 複合システム</text>
+
+  <!-- 選択肢 -->
+  <text x="20" y="352" font-size="11" fill="#888">▼ 選択肢（最小のR₄は？）</text>
+
+  <rect x="20" y="360" width="64" height="32" rx="4" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="52" y="381" text-anchor="middle" font-size="13" fill="#555">① 0.5</text>
+  <rect x="92" y="360" width="64" height="32" rx="4" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="124" y="381" text-anchor="middle" font-size="13" fill="#555">② 0.6</text>
+  <rect x="164" y="360" width="64" height="32" rx="4" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="196" y="381" text-anchor="middle" font-size="13" fill="#555">③ 0.7</text>
+  <rect x="236" y="360" width="64" height="32" rx="4" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="268" y="381" text-anchor="middle" font-size="13" fill="#555">④ 0.8</text>
+  <rect x="308" y="360" width="64" height="32" rx="4" fill="#f5f5f5" stroke="#d7d7d7"/>
+  <text x="340" y="381" text-anchor="middle" font-size="13" fill="#555">⑤ 0.9</text>
+
+  <text x="200" y="420" text-anchor="middle" font-size="11" fill="#a36b2c" font-weight="bold">→ 次のスライドで計算手順を確認</text>
+
+  <!-- フッター -->
+  <rect x="0" y="460" width="400" height="40" fill="#0f2035"/>
+  <text x="200" y="485" text-anchor="middle" font-size="12" fill="#6a8faf">doboku-note.com</text>
+</svg>

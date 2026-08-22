@@ -1,0 +1,81 @@
+<svg width="400" height="500" viewBox="0 0 400 500"
+     xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="機能系統図（FAST ダイアグラム）：目的機能から手段機能への階層分解（Why/How の階層）">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-root { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .t-mid  { font-size: 12px; fill: #1a3a5c; }
+      .t-leaf { font-size: 11px; fill: #1a3a5c; }
+      .t-axis { font-size: 11px; fill: #555; }
+      .box-root { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-mid  { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-leaf { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
+    </marker>
+  </defs>
+
+  <!-- Axis labels: Why ← | → How -->
+  <text class="t-axis" x="60"  y="18" text-anchor="middle">目的（Why）</text>
+  <text class="t-axis" x="340" y="18" text-anchor="middle">手段（How）</text>
+  <line x1="20" y1="28" x2="380" y2="28" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- Root -->
+  <rect class="box-root" x="12" y="110" width="80" height="40" rx="6"/>
+  <text class="t-root" x="52" y="135" text-anchor="middle">目的機能</text>
+
+  <!-- arrows to mid -->
+  <line x1="92" y1="130" x2="128" y2="80"  stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="92" y1="130" x2="128" y2="130" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="92" y1="130" x2="128" y2="180" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Mid 1-3 -->
+  <rect class="box-mid" x="134" y="60"  width="90" height="40" rx="6"/>
+  <text class="t-mid" x="179" y="85" text-anchor="middle">手段機能 A</text>
+  <rect class="box-mid" x="134" y="110" width="90" height="40" rx="6"/>
+  <text class="t-mid" x="179" y="135" text-anchor="middle">手段機能 B</text>
+  <rect class="box-mid" x="134" y="160" width="90" height="40" rx="6"/>
+  <text class="t-mid" x="179" y="185" text-anchor="middle">手段機能 C</text>
+
+  <!-- arrows to leaves -->
+  <line x1="224" y1="80"  x2="258" y2="55"  stroke="#3a7d44" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="224" y1="80"  x2="258" y2="95"  stroke="#3a7d44" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="224" y1="130" x2="258" y2="130" stroke="#3a7d44" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="224" y1="180" x2="258" y2="165" stroke="#3a7d44" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="224" y1="180" x2="258" y2="205" stroke="#3a7d44" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Leaves -->
+  <rect class="box-leaf" x="264" y="38"  width="84" height="34" rx="6"/>
+  <text class="t-leaf" x="306" y="60" text-anchor="middle">下位機能 A-1</text>
+  <rect class="box-leaf" x="264" y="78"  width="84" height="34" rx="6"/>
+  <text class="t-leaf" x="306" y="100" text-anchor="middle">下位機能 A-2</text>
+  <rect class="box-leaf" x="264" y="118" width="84" height="34" rx="6"/>
+  <text class="t-leaf" x="306" y="140" text-anchor="middle">下位機能 B-1</text>
+  <rect class="box-leaf" x="264" y="158" width="84" height="34" rx="6"/>
+  <text class="t-leaf" x="306" y="180" text-anchor="middle">下位機能 C-1</text>
+  <rect class="box-leaf" x="264" y="198" width="84" height="34" rx="6"/>
+  <text class="t-leaf" x="306" y="220" text-anchor="middle">下位機能 C-2</text>
+
+  <!-- サマリー -->
+  <line stroke="#d7d7d7" stroke-width="1" x1="12" y1="252" x2="388" y2="252"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="13" font-weight="bold" fill="#1a3a5c" x="200" y="280" text-anchor="middle">FAST ダイアグラムの活用</text>
+
+  <rect fill="#e8f0fe" stroke="#2e6da4" stroke-width="1" x="12" y="292" width="176" height="80" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" x="100" y="312" text-anchor="middle">← Why（なぜ）</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="22" y="332">左に進むほど目的・上位</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="22" y="350">概念的・抽象的な機能</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="22" y="366">例：「安全を確保する」</text>
+
+  <rect fill="#fff3cd" stroke="#d4a017" stroke-width="1" x="212" y="292" width="176" height="80" rx="6"/>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="12" font-weight="bold" fill="#1a3a5c" x="300" y="312" text-anchor="middle">→ How（どうやって）</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="222" y="332">右に進むほど手段・下位</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="222" y="350">具体的・実装的な機能</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="222" y="366">例：「警報を発報する」</text>
+
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="200" y="408" text-anchor="middle">機能を「動詞＋名詞」で表現するのが VE の原則</text>
+  <text font-family="Inter, 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif" font-size="11" fill="#555" x="200" y="428" text-anchor="middle">不要機能の削除・手段機能の代替案探索に活用</text>
+</svg>

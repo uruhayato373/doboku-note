@@ -1,0 +1,114 @@
+{
+  "meta": {
+    "startDate": "2026-07-02",
+    "endDate": "2026-07-15",
+    "minUsers": 5,
+    "threshold": 0.8
+  },
+  "totals": {
+    "allUsers": 3091,
+    "jpUsers": 2944,
+    "foreignUsers": 149
+  },
+  "rows": [
+    {
+      "source": "bing",
+      "totalUsers": 2187,
+      "jpUsers": 2181,
+      "foreignUsers": 6,
+      "foreignRatio": 0.0027434842249657062,
+      "engagementRate": 0.66073546856465,
+      "flagged": false
+    },
+    {
+      "source": "(direct)",
+      "totalUsers": 415,
+      "jpUsers": 302,
+      "foreignUsers": 114,
+      "foreignRatio": 0.2746987951807229,
+      "engagementRate": 0.5436746987951807,
+      "flagged": false
+    },
+    {
+      "source": "google",
+      "totalUsers": 109,
+      "jpUsers": 108,
+      "foreignUsers": 1,
+      "foreignRatio": 0.009174311926605505,
+      "engagementRate": 0.656441717791411,
+      "flagged": false
+    },
+    {
+      "source": "note.com",
+      "totalUsers": 84,
+      "jpUsers": 84,
+      "foreignUsers": 1,
+      "foreignRatio": 0.011904761904761904,
+      "engagementRate": 0.5540540540540541,
+      "flagged": false
+    },
+    {
+      "source": "copilot.com",
+      "totalUsers": 68,
+      "jpUsers": 68,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.5454545454545454,
+      "flagged": false
+    },
+    {
+      "source": "m.facebook.com",
+      "totalUsers": 56,
+      "jpUsers": 43,
+      "foreignUsers": 13,
+      "foreignRatio": 0.23214285714285715,
+      "engagementRate": 0.21052631578947367,
+      "flagged": false
+    },
+    {
+      "source": "yahoo",
+      "totalUsers": 42,
+      "jpUsers": 42,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.7383177570093458,
+      "flagged": false
+    },
+    {
+      "source": "facebook.com",
+      "totalUsers": 33,
+      "jpUsers": 31,
+      "foreignUsers": 2,
+      "foreignRatio": 0.06060606060606061,
+      "engagementRate": 0.45454545454545453,
+      "flagged": false
+    },
+    {
+      "source": "note",
+      "totalUsers": 33,
+      "jpUsers": 26,
+      "foreignUsers": 7,
+      "foreignRatio": 0.21212121212121213,
+      "engagementRate": 0.6635514018691588,
+      "flagged": false
+    },
+    {
+      "source": "lm.facebook.com",
+      "totalUsers": 24,
+      "jpUsers": 24,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.5185185185185185,
+      "flagged": false
+    },
+    {
+      "source": "duckduckgo",
+      "totalUsers": 6,
+      "jpUsers": 5,
+      "foreignUsers": 1,
+      "foreignRatio": 0.16666666666666666,
+      "engagementRate": 0.2,
+      "flagged": false
+    }
+  ]
+}
