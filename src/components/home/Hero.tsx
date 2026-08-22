@@ -3,12 +3,12 @@ import { ArrowRight } from "lucide-react";
 export default function Hero() {
   return (
     // 背景写真は全幅ブリード・ヘッダー直下に密着。テキストは HTML でオーバーレイ（リフロー/SEO/レスポンシブ最適）。
-    <section className="relative w-full min-h-[460px] sm:min-h-[520px] lg:min-h-[600px] overflow-hidden bg-[var(--paper)]">
+    <section className="relative w-full min-h-[420px] sm:min-h-[500px] lg:min-h-[540px] overflow-hidden bg-[var(--paper)]">
       <img
-        src="/images/hero-home.webp"
-        width={1945}
+        src="/images/hero-home-v2.webp"
+        width={1942}
         height={809}
-        alt="斜張橋と河川堤防の風景 — doboku-note"
+        alt="河川を渡る斜張橋と都市インフラの風景 — doboku-note"
         loading="eager"
         fetchPriority="high"
         decoding="async"
@@ -21,7 +21,7 @@ export default function Hero() {
       />
       {/* テキストは元バナーの文言を踏襲。背景写真は常に明色（テーマ非依存）のため、反転する
           --ink/--accent を避け固定 slate＋白テキストシャドウで両テーマの可読性を担保。 */}
-      <div className="relative z-10 mx-auto flex min-h-[460px] sm:min-h-[520px] lg:min-h-[600px] max-w-[1280px] flex-col items-center justify-center px-4 sm:px-6 lg:px-10 text-center">
+      <div className="relative z-10 mx-auto flex min-h-[420px] sm:min-h-[500px] lg:min-h-[540px] max-w-[1280px] flex-col items-center justify-center px-4 sm:px-6 lg:px-10 text-center">
         <h1 className="flex flex-col items-center gap-2.5 sm:gap-3.5">
           <span className="hero-ink-soft hero-shadow-soft font-sans text-[12px] tracking-[0.15em] sm:text-[15px]">
             合格に必要な知識を、わかりやすく。

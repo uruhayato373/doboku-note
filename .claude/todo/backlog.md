@@ -119,6 +119,7 @@ main へ入る前の run で説明がつく。
 2. 直近の Pre-merge / GSC auto review / fetch-metrics / PSI の失敗を「検査FAIL・checkout・外部取得・bot publish・閾値超過」に分類し、原因一覧と再現コマンドを作る
 3. `quality:audit:ci` の失敗レポートを Job Summary と artifact に残し、単一の `Quality audit` ステップだけを開かないと原因が分からない状態を解消する
 4. 現在の既知FAILを0にし、少なくともdevelopのPre-merge checkを3回連続greenにする
+5. `Audit Cloudflare via MCP`をworkflow_dispatchし、対象workflow成功・Job Summary・artifactのread-only監査結果を確認する
 
 **Phase 1 — 自動書込みの直列化**:
 
@@ -144,7 +145,7 @@ main へ入る前の run で説明がつく。
 
 **Phase 4 — Secrets・破壊操作**:
 
-1. R2 auditは読取専用credentialを必須にし、書込みcredentialへのfallbackを廃止する
+1. R2 auditは読取専用credentialを必須にし、書込みcredentialへのfallbackを廃止する。Actions実行成功と、監査credentialで書込み操作できないことを確認する
 2. R2 deleteはproduction-destructive承認、削除リストの許可パス、件数上限、前後artifact、inputのenv経由受渡しを追加する
 3. workflowごとにCloudflare/Google/YouTube/Anthropicの最小権限を記録し、値やtokenをログ・artifact・Job Summaryへ出さないテストを追加する
 
@@ -186,19 +187,6 @@ Playwrightのprofile/Cookie/storageState/login/statusをCIへ持ち込まず、D
 各Phase終了時に、変更ファイル、失敗原因、実行した検証、未解決FAIL、GitHub上のrun URLを報告し、
 greenを確認してから次Phaseへ進んでください。外部状態を変えるPhaseの直前で必ず停止してください。
 ```
-
-### [DN-0001] 技術士一次カバーの資格ラベル誤りを note ライブへ反映
-タグ: [収益化] [種類:不具合] [実行:ユーザー] [起票:2026-08-18]
-
-`一次択一-過去問PDF`（`n466132e6fd74`・¥1,480・2026-07-11 公開）のカバーが、資格ラベルを**「技術士（総合技術監理部門）」**と表示したまま 1 か月以上出荷されていた（`generate-note-covers` の無言フォールバック。原因は 2026-08-18 に解消済み）。
-
-ローカルの `content/note/技術士一次/一次択一-過去問PDF/img/cover.{svg,png}` は正しいラベル（技術士（第一次試験））で再生成済み。**残るのは note ライブへの反映だけ**:
-
-```bash
-node scripts/note-update-cover.mjs --note n466132e6fd74 --commit
-```
-
-外向き操作なので実行はユーザー判断。反映後は note の記事ページでカバーを目視確認する。
 
 ### [DN-0002] 会員フロー 週次配信（W1-W5 配信済・W6 以降は週1）
 タグ: [収益化] [種類:制作] [実行:sweep] [起票:2026-08-06]
@@ -420,19 +408,8 @@ Crop-safe V4 全量移行の残り。2026-08-20 に `note-update-cover` を現�
 主因＝非インデックス265本(25%)・本丸=薄いCEMキーワード（2026-07-04 診断・[[project_adsense_low_value_2026_07]]）。薄層CEMキーワード112本の全リライト＋deploy は完了済み。
 
 **残（外部承認依存・ユーザー作業）**:
-1. GSC で sitemap 再送信＋強化した主要URL 10〜20本を手動インデックス登録リクエスト
-   → **civil-1 textbook は自動化で 2 回実施済み**（7/30 に 10 件・8/04 に 10 件受理）。
-   **次の大量バッチは保留**。`EXP-006` の台帳は「残り10本が未送信」のままだが、
-   `.claude/state/metrics/gsc-indexing/history.json` には 8/04 の `accepted: 10 / alreadyIndexed: 7` があり、
-   実体と台帳がずれている。まず `DN-0107` で台帳を是正し、8/27 の効果測定を終える。
-   効果が確認できた場合だけ、① `button-not-found` の 3 件
-   （labor-standards / work-scheduling / management-subplans）②civil-2 の需要がある未登録 URL の順に限定して送る。
-   **総監の未登録 205 件へ日次10件を機械的に送らない**（Google は登録を保証せず、統合・権威性が本丸）。
-   コマンド: `npm run gsc-indexing:request -- --from-ssot --group <group> --category <cat> --limit 10`
-   （要 Google ログイン・Playwright・1 本あたり 1〜2 分＝10 件で 25〜35 分）
-2. 非インデックス率の観察 1〜2週間（`url-inspection` 再取得）
-   → **URL 検査の単発読みは信用しない**。同じ 20 本を 30 分あけて読むと 4 本で判定が食い違った
-   （不一致率 20%・2026-08-04 実測）。登録本数の権威は月次 CI のカバレッジレポートに置く
+1. **2026-09-01 の月次 URL Inspection を待つ**。EXP-006 は20本→未登録13本でpartial終了し、同一URLへの登録リクエスト反復は打ち切った。総監209本へ日次10件を機械的に送らない
+2. `DN-0107` の次回分類で、現行sitemapの技術エラー0と価値改善方針を再確認する
 3. **前回却下から2〜4週間空けて再申請**。チェックリスト `docs/operations/13_AdSense再申請SOP.md`「再申請 SOP」節
 
 ### [DN-0016] ココナラ S3 2テーマ版の是正文面をライブへ反映
@@ -511,6 +488,8 @@ TODOをAdminで管理し、Codexが設計、Claude Codeが実装する運用を�
 ### [DN-0106] GSC 検索流入停滞の原因分離と performance データ全件化
 タグ: [インフラ・計測] [種類:改善] [Codex候補] [実行:sweep] [起票:2026-08-20]
 
+**2026-08-22 Phase 1 実装済み**: query/pageの週次取得へ`--all`を追加し、ページング純関数・0行/truncatedゲート・テストを追加した。旧8/21スナップショットは意図どおり`INCOMPLETE`。次回CIで`truncated:false`を確認してからPhase 2へ進む。
+
 **目的**: 「アクセスが増えない」を、検索流入・SNS/リファラル・試験日程による季節性・index coverage の4要因に分け、検索施策で動かせる部分だけを実験化する。推測で title/description を一括変更しない。
 
 **実行順**: 本カード Phase 1 → 完全スナップショット取得 → Phase 2/3 → `DN-0107` Phase 0/1 → ユーザー承認 → 統合pilot。データが不完全なまま統合対象を選ばない。
@@ -572,51 +551,23 @@ Phase 2ではコミット済みスナップショットだけを読み、GSC検�
 Phase 3は最大5 URLの実験候補または見送り条件まで。外部workflow_dispatch、GSC操作、deployはユーザー承認なしに実行しないでください。最後に変更ファイル、根拠数値、検証結果、次回測定日を報告してください。
 ```
 
-### [DN-0107] index coverage 回復プログラム（総監205本の統合パイロット＋権威性）
+### [DN-0107] index coverage 回復プログラム（総監209本の再分類＋権威性）
 タグ: [インフラ・計測] [種類:改善] [実行:対話] [起票:2026-08-20]
 
-**目的**: 技術的に取得可能なのに Google が選んでいないページを、登録リクエスト連打ではなく「低価値・重複の統合」と「独自データによる権威性」で減らす。削除・301・noindex・大量リクエストはユーザー承認ゲートを通す。
+**2026-08-22 完了済み**:
 
-**前提**: `DN-0106` Phase 1 の全件スナップショットが取得済みであること。未完なら本カードは Phase 0 の台帳同期までで止める。
+- GSC UIを完全取得・正規化（allKnown: crawled 353 / redirect 857 / 404 297 / canonical 160。現行sitemap側のcrawledは302）
+- EXP-006を実体同期し、20本→未登録13本の`partial`で終了。登録リクエスト反復を中止
+- `npm run search-growth:cem-plan`を実装。総監209本を`KEEP 31 / IMPROVE 19 / CONSOLIDATE 0 / NOINDEX_REVIEW 0 / MONITOR 159`へ分類し、`.claude/state/improvements/cem-index-consolidation-2026-08-22.{json,md}`へ保存
+- 技術修正候補は0。現在は承認対象の統合クラスタも0なので、301・削除・noindex・pilot deployは行わない
 
-**2026-08-20 baseline**:
+**次にやること**:
 
-- index率は `81.6%（6/19）→74.6%（7/1）→71.7%（8/1）`
-- sitemap 1,109 / indexed 795 / crawled-not-indexed 292 / discovered-not-indexed 4 / hygiene 0
-- 総監は未登録205本・母数比28.2%。8月に回帰が継続・拡大したため、`DN-0048` の「薄ページ統合を検討」条件は成立済み
-- 292本は全件 `page_fetch=SUCCESSFUL`。robots / 5xx / canonical / sitemap / 内部リンク切れを主因とする証拠はない
-- `/google-search-growth` の最新計画は UNKNOWN 1,778 / NOINDEX候補313。2,091件を1件ずつ判断せず、canonical URLで重複排除してバケット裁定する（`DN-0088` を入力にする）
+1. `DN-0106` の次回CIでquery/page全件スナップショットが`truncated:false`になった後、`npm run search-growth:report && npm run search-growth:cem-plan`を再実行
+2. 2026-09-01の月次URL Inspectionで全体・総監・各カテゴリの遷移を更新。`MONITOR`のうち2回連続未登録になったURLだけ再分類
+3. `CONSOLIDATE`が出た場合のみ、source/target/残す固有情報/需要を最大10件で提示し、明示承認後にpilotする
 
-**Phase 0 — 実験台帳の是正と再測定**:
-
-1. `EXP-006` は `experiments.json` 上で「残り10本未送信」だが、`gsc-indexing/history.json` には 8/04 `accepted:10 / alreadyIndexed:7` がある。run itemまで突合し、history / interventions / pending_user_actions を実体へ同期する
-2. 2026-08-27 に `/google-search-growth` を実行し、civil-1 textbook 20本の未登録数と28日 impressionsを baseline と同じ方法で測る。GSC UI/Playwright は要ログインなのでユーザーと実行する
-3. 成功（未登録10以下）/ partial（15以下）/ 不発（変化なし）を記録する。不発なら総監205本への登録リクエスト展開を中止する。成功でも、需要・内部リンク・品質が確認できるURLだけに限定する
-4. 2026-09-01 の月次 URL Inspection で全体 / 総監 / 各カテゴリの遷移を再確認する。単発URL検査の20%揺れを全体の登録本数に使わない
-
-**Phase 1 — 総監未登録ページのバケット化（変更せずレポートまで）**:
-
-1. 最新 URL Inspection で `published:true` かつ総監かつ crawled-not-indexed の canonical URLを母集合にする。GSC UIの allKnown/allSubmitted 重複を除く
-2. 各URLへ、90日 clicks / impressions / query、直近2回のindex遷移、内部被リンク数、親hub、本文量、類似slug/内容、過去問backlink、既存301候補を付与する
-3. 次の5分類を機械候補＋意味評価で付ける
-   - `KEEP`: 固有の試験価値・過去問紐付け・表示実績がある
-   - `IMPROVE`: 固有価値はあるが検索意図/根拠/内部リンクが弱い
-   - `CONSOLIDATE`: 同一概念の強い統合先があり、90日需要がほぼ無い
-   - `NOINDEX_REVIEW`: 固有価値も統合先も無いが、削除はまだ承認されていない
-   - `MONITOR`: 新規・季節性・データ不足
-4. `.claude/state/improvements/cem-index-consolidation-YYYY-MM-DD.{json,md}` に、件数・代表URL・統合先・根拠・confidence・想定リスクを保存する
-5. `DN-0088` の2,091件はこの分類へ束ね、代表10件の現物確認でバケット方針を決める。313件を一括noindexしない
-
-**Phase 2 — ユーザー承認後の小規模パイロット**:
-
-1. `CONSOLIDATE` から、統合先が明確・双方の検索需要が小さい5〜10クラスタだけを選ぶ
-2. sourceの固有情報をdestinationへ統合し、内部リンク・RelatedKeywords・過去問mapをdestinationへ付け替える
-3. source→destinationの恒久301を `public/_redirects` に追加し、sourceをsitemapから除外する。削除/published変更前に対象一覧をユーザーへ提示する
-4. 1回のdeployは最大10 source URL。大規模title/本文変更と同時に出さず、deploy後14日と次回月次coverageで観測する
-5. `npm run refresh-indexes` → `npm run build` → `npm run check-seo-build:ci` → `npm run check-internal-links-vs-gsc` → `npm run check-links -- --scope site` を通す
-6. 判定は、対象クラスタの impressions/clicksを失わず、総監crawled-not-indexedが減るかで行う。悪化した場合は次バッチを止める
-
-**Phase 3 — 権威性の外向きレバー**:
+**権威性の外向きレバー**:
 
 1. 既存資産を再利用し、被リンク理由になる独自データを1本だけ作る。第一候補は既存 `frequent-topics` の根拠データ・算出方法・CSV/表の公開強化。重複ページは新設しない
 2. civil版ランキングは past-exam backlink / 論点タグのcoverageを先に監査し、根拠が作れる場合だけ1級または2級の1本を制作する
@@ -624,20 +575,18 @@ Phase 3は最大5 URLの実験候補または見送り条件まで。外部workf
 4. 外部サイトへの掲載依頼・プロフィール更新・実送信はユーザー担当。Claude Codeは候補先、依頼文、UTM、記録テンプレまで作る
 5. 28日で impressions / indexed、56日で参照ドメインまたは外部リンク獲得を判定し、量産は成果確認後に決める
 
-**Phase 4 — 技術warnの低優先監査**:
+**技術warnの低優先監査**:
 
 - `check-seo-meta` の HIGH 0は維持する。`jsonld_headline_mismatch` 59件は10件をサンプルし、schemaがseoTitleを使う共通実装の問題か、意図的なH1差かを判定する。共通原因なら1箇所で直し、59 MDXを個別編集しない
 - `description_long` 24件は順位・表示が実験条件を満たすURLだけ直す
 - `ssr_thin_body` は `/search` がnoindexの意図的状態かを確認し、`/category/reference-materials` だけユーザー価値のある説明が不足する場合に限って改善する
 - このwarn監査をcoverage回復の主因として扱わない
 
-**完了条件**:
+**残る完了条件**:
 
-- `EXP-006` の実体・台帳・判定が一致し、登録リクエストの継続/中止が決まる
-- 総監未登録のcanonical母集合が5分類され、ユーザー承認済み5〜10クラスタだけがpilot対象になる
-- pilot前後のURL・redirect・内部リンク・index coverage・検索実績を同じレポートで比較できる
-- 28日/次回月次の判定を `gsc-management.md` と実験台帳に記録し、成功でも失敗でも次バッチの判断が閉じる
-- 独自データ1本に算出根拠・canonical・内部配線・外向け配布計画が揃う
+- 次回全件データと月次Inspectionで再分類し、pilotを見送るか承認済み5〜10クラスタに限定する
+- 独自データ1本に算出根拠・canonical・内部配線・外向け配布計画を揃える
+- 28日/次回月次の判定を`gsc-management.md`へ記録する
 
 **Claude Code 実行プロンプト**:
 
@@ -647,7 +596,7 @@ DN-0107をPhase 0から順番に実行してください。最初にAGENTS.md、
 .claude/knowledge/reference/measurement-incidents.md、
 docs/operations/06_seo-note-synergy-strategy.md、
 docs/strategy/13_土木公務員SEO戦略2026-08.md、
-backlogのDN-0015/DN-0048/DN-0088/DN-0106を読んでください。
+backlogのDN-0015/DN-0088/DN-0106を読んでください。
 
 まずEXP-006とgsc-indexing historyのドリフトを、run item単位の証拠で是正してください。次に総監のcrawled-not-indexed母集合をcanonical URLで重複排除し、検索実績・index遷移・内部リンク・類似性・過去問価値を付けた5分類レポートを作ってください。
 
@@ -797,6 +746,350 @@ cache、citation gateを実装してください。raw回答は.tmpへ隔離し�
 QA差分、失敗ケースを報告して停止してください。既存20件で60%以上削減かつ品質同等が確認できるまで
 既存skill全体へ展開しないでください。source追加・削除・共有変更、MCP／Enterprise契約、外部設定変更は
 影響と費用を提示してユーザー承認を得るまで実行しないでください。
+```
+
+### [DN-0113] Claude/Codexのモデル分業・コンテキスト予算でトークン消費を削減
+タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [実行:対話] [起票:2026-08-21]
+
+親モデルへ全作業を集中させず、**高判断作業は Opus / GPT-5.6 Sol、定型実装・意味監査は Sonnet / GPT-5.6 Terra、機械寄りの大量処理は GPT-5.6 Luna または決定的スクリプト**へ分ける。同時に、サブエージェントへ会話履歴・巨大ログ・無関係な参照を重複投入しないコンテキスト契約を作り、品質を落とさず高性能モデル使用量と総トークンを削減する。
+
+**DN-0112との境界**: `DN-0112` はNotebookLMの長い資料を短い evidence pack に圧縮する「外部知識入力」の改善。本カードは、コード・記事・監査を含む全作業の**モデル選択、spawn条件、親子間コンテキスト、返却量、効果計測**を扱う。NotebookLM、MCP、資料検索機能は本カードで新設しない。
+
+**起票時の実査結果（再調査不要）**:
+
+- `.claude/agents/*.md` は80体中77体が `model: sonnet`、`inherit` は `strategy-advisor`、`guide-qa`、`civil-construction-review` の3体。Claude Code側の「Opusで考え、Sonnetで実行」はすでに大半へ配線済み
+- `CLAUDE.md` / `AGENTS.md` §5 はサブエージェントSonnet既定、同時3体まで、小作業を委任しない、検証目的だけのspawnを禁止している。この原則は維持する
+- `.Codex/agents/*.toml` の本文にある ``model: sonnet`` は説明文で、Codex実行時のモデル指定ではない。Codexのspawnでoverrideしなければ親モデルを継承し、期待した節約が成立しない
+- 並列化は待ち時間を短くするが、親と複数workerが同じ会話履歴・AGENTS・ログ・対象ファイルを読むと**総トークンは増える**。評価対象は「親モデル使用量」だけでなく、親子合計、retry、品質、所要時間とする
+- OpenAI公式の現行モデル区分は `gpt-5.6-sol`＝最高性能、`gpt-5.6-terra`＝性能とコストの均衡、`gpt-5.6-luna`＝高頻度・大量処理向け。モデル名は直接各skillへ散在させず、provider別routing SSOTから解決する
+
+**目標ルーティング**:
+
+| 作業 | Claude Code | Codex | 例 |
+|---|---|---|---|
+| 親の計画・競合解決・最終統合・高リスク判断 | Opus / `inherit` | GPT-5.6 Sol | 設計変更、複数案の採否、外部write前判断 |
+| 境界の明確な実装・定型Generator・意味Evaluator | Sonnet | GPT-5.6 Terra | MDX校正、UI実装、ルーブリック採点、URL分類 |
+| 低判断の大量処理・抽出・分類 | pilot合格時のみ軽量モデル候補 | GPT-5.6 Luna | ファイル棚卸し、ログ要約、schema分類、候補列挙 |
+| 終了条件がコードで決まる処理 | LLMを使わない | LLMを使わない | grep、件数、hash、schema、lint、status code |
+
+Sonnet/Terra/Lunaへの変更は、名前だけで一括置換しない。専門事実、曖昧な要件、広い設計判断、不可逆操作の対象選択は親へ残す。軽量モデルが失敗して親が全文を読み直す経路は二重消費なので、pilotでretry率まで比較する。
+
+**Phase 0 — 使用量baselineと代表fixture**:
+
+1. 代表作業を最低12件固定する。内訳は、CI失敗診断、単一バグ修正、複数ファイル実装、MDX校正、定型QA、GSC分類、doc-sync、TODO整理を含める。同じ入力・同じ合格条件を再利用可能にする
+2. 取得可能なusage metadataから、親/worker別のinput・cached input・output・reasoning tokens、tool call数、spawn数、retry数、所要時間、gate PASS/FAILを記録する。製品が正確なtoken数を返さない場合は、入力文字数・読んだファイル数・出力文字数をproxyとして明記し、推測値を正確なtokenとして扱わない
+3. 現行の「親単独」「既定spawn」をbaselineにする。実装後は「provider別routing」「最小context」の2段階を別々に比較し、何が効いたかを混ぜない
+4. 計測ログに会話本文、顧客情報、認証情報、長いモデル出力を保存しない。task class、model tier、数値、結果、fixture IDだけを保持する
+
+**Phase 1 — provider非依存のrouting SSOT**:
+
+1. 既存config配置規則を確認し、`flagship / balanced / fast / deterministic` の論理tier、Claude/Codexの実モデル、許可するtask class、既定reasoning、fallback、親へのescalation条件を1つのJSONへ定義する
+2. Claude側は既存77体のSonnet指定を基線として保持し、3つの`inherit`を「親判断が本当に必要か」fixtureで再確認する。Opus固定の新規agentは原則作らない
+3. Codex側はAgent TOML本文のSonnet表記を実行指定と誤認しないようprovider別説明へ直す。spawnするskill/orchestratorはrouting SSOTを参照し、境界の明確なtaskで `gpt-5.6-terra` / `gpt-5.6-luna` を明示する。対応モデルが利用不能なら黙って別provider名を使わず、`balanced`から親継承へfail-safeする
+4. 全agentに固定モデルを埋め込まず、role既定＋例外allowlistにする。例外には理由、fixture、再評価日を必須とする
+5. `check-agent-model-routing`を追加し、未登録agent、不明tier、provider不一致、理由のないflagship/inherit、退役model、skill内へのモデル名散在を検出する。対象0件・config parse失敗をPASSにしない
+
+**Phase 2 — spawnとコンテキストの予算契約**:
+
+1. spawn条件を「独立している」「親が並行して別作業を進められる」「数回のtool callでは終わらない」「明確な成果物または判定がある」の4条件へ固定する。満たさない小作業と、親の作業を再確認するだけのworkerは禁止する
+2. workerへ渡す入力を `objective / owned files / evidence / constraints / acceptance / output schema` に固定する。会話全文、未整理ログ、repo全体の説明を貼らない。必要な参照はパスと読む理由を指定する
+3. Codexの境界明確なworkerは原則 `fork_turns: none` または必要な直近turnだけを使う。full-history forkは、過去の判断そのものが成果物要件である場合だけ理由付きで許可する
+4. Claudeの`context: fork`は明確な実行タスクだけに使い、ガイドを読むだけ・確認だけのforkを禁止する。子が再度同じ大規模referenceを読む場合は、親が要約を複製せず必要節へ直接routeする
+5. 初期contextのファイル数・文字数、worker返却文字数、同じファイルを読んだagent数を計測する。上限値はPhase 0の分布から決め、超過時は警告＋理由を記録する。根拠なしの一律文字数制限は作らない
+6. 返却は原則 `outcome / changed filesまたはfile:line / validation / unresolved` のみ。全文転載、長い実況、親が再度要約する前提の重複説明を禁止する
+
+**Phase 3 — skillとagentのコンテキスト縮小**:
+
+1. `AGENTS.md` / `CLAUDE.md`、agent definition、`SKILL.md`、reference間の同一指示重複を機械抽出し、真実源への参照で済む箇所を特定する。安全弁・受入条件・製品固有のルールは削らない
+2. skillは選択した`SKILL.md`を完全に読む前提を維持しつつ、無関係なreferenceを列挙して一括読込させない。用途別routingを明示し、1タスクで読むreferenceを必要最小限にする
+3. 長いログは親が保存して、workerへは失敗step、error、前後行、再現コマンドだけを渡す。画像・PDF・CSVも対象ページ/行/列へ絞る
+4. ルーティング、retry、status code、件数、hash、重複、schemaなど決定論で処理できる部分をscriptへ移す。LLMはscriptがsurfaceした候補の意味判断だけを担当する
+5. Generator/Evaluator分離は商品品質の自己評価バイアス対策として維持する。ただし両者に同じ巨大入力を渡さず、Evaluatorには成果物、rubric、決定的gate結果、検証対象の根拠だけを渡す
+
+**Phase 4 — A/B pilotと段階展開**:
+
+1. 12件以上の固定fixtureで `現行` / `routingのみ` / `routing＋最小context` を比較する。最低指標は親高性能モデルtokens、親子総tokens、cached比率、spawn数、retry、gate成功率、重大指摘、所要時間
+2. pilot目標は、高性能モデル使用量40%以上削減、親子総トークン20%以上削減、決定的gate成功率非劣化、重大な品質欠落0件とする。実測で達成不能なら値を都合よく変えず、task class別に採用/見送りを分ける
+3. 軽量modelでretryが増え、親が全文再読するtask classはbalancedまたはflagshipへ戻す。速さだけ改善して総tokensや品質が悪化した経路は採用しない
+4. pilot合格後だけ、利用頻度の高いskillから5件ずつ段階配線する。一括変更しない。各batchでrouting gateと既存quality gateを通す
+5. 結果をagent設計SSOTへ抽出し、モデル更新時の再評価条件、期限、担当を残す。恒久化後は本カードを削除する
+
+**停止条件・禁止事項**:
+
+- model変更だけを目的に全80agentを一括編集しない。provider間で存在しないモデル名をコピーしない
+- サブエージェント数や並列数の増加を削減成果として扱わない。wall-clock短縮と総tokens削減を分ける
+- 品質評価を同じGeneratorの自己申告だけで合格にしない。決定的gateまたは独立Evaluatorの既存契約を維持する
+- usage metadataに認証情報、会話本文、顧客原稿、外部サービスの生データを保存しない
+- API課金、新しい外部サービス、Claude/Codexプラン変更、CIでの有料model呼出しは、費用・上限・停止方法を提示してユーザー承認を得るまで行わない
+- 他セッションのdirty file、未追跡成果物、進行中cardをrevert・commitしない
+
+**完了条件**:
+
+- provider別routing SSOTと`check-agent-model-routing`が存在し、全agentの論理tier、例外理由、fallbackを機械検証できる
+- Claudeの77 Sonnet / 3 inheritを維持または根拠付きで改善し、CodexはSonnetという説明文ではなくSol/Terra/Lunaの実行可能なroutingへ分離される
+- spawn入力と返却schema、full-history例外、コンテキスト超過の記録、決定論優先がskill作成規約とagent registryへ反映される
+- 固定fixtureのbaselineとA/B結果が再現でき、高性能モデル40%以上・総tokens20%以上削減、gate非劣化、重大欠落0を満たすtask classだけ本運用へ展開される
+- `check-agent-model-routing`、既存のagent/skill coupling検査、対象skillの決定的gate、`quality:audit:ci`がPASSする。恒久ルールと結果をSSOTへ抽出後、本カードを削除する
+
+**Claude Code実行プロンプト**:
+
+```text
+DN-0113をPhase 0から1 Phaseずつ実行してください。最初にCLAUDE.md §5-6、AGENTS.md §5-6、
+.claude/todo/backlog.mdのDN-0113、.claude/skills/dev/create-skill/SKILL.mdのmodel指定ルール、
+.claude/knowledge/reference/agents-registry.md、skills-design-guide.mdを読んでください。
+
+開始前にbranch、originとの差、dirty/untracked files、他セッションの進行中作業を確認し、
+他人の変更をrevert・commitしないでください。DN-0112のNotebookLM入力圧縮とは分離し、
+本タスクではmodel routing、spawn条件、親子context、返却量、usage計測だけを扱ってください。
+
+Phase 0ではコードやagent定義を変更せず、最低12件の固定fixtureと現行baselineを作ってください。
+正確なtoken metadataが取得できない項目は文字数等のproxyであることを明記し、推測tokenを記録しないでください。
+親高性能modelだけでなく親子合計、cached input、spawn、retry、gate結果、所要時間を比較してください。
+
+Phase 1ではprovider非依存のflagship/balanced/fast/deterministicをSSOT化し、ClaudeはOpus/Sonnet、
+CodexはSol/Terra/Lunaへ実モデルを解決してください。.Codex agent本文のmodel: sonnetを実行指定として扱わず、
+spawn側でroutingを実装してください。対応modelが無ければ親継承へfail-safeし、別provider名へ置換しないでください。
+
+Phase 2以降はfull-history forkを既定にせず、objective、owned files、evidence、constraints、acceptance、
+output schemaだけをworkerへ渡してください。小作業・検証だけのspawn・同一巨大入力の複製を増やさないでください。
+モデル名の全80件一括置換や外部有料サービス追加は行わないでください。
+
+各Phase終了時に変更ファイル、fixture別の親tokens、親子総tokens、retry、gate結果、品質差分、
+未解決点を短く報告して停止してください。高性能model40%以上、総tokens20%以上削減、gate非劣化、
+重大欠落0を同時に満たすtask classだけ次Phaseへ進めてください。API課金、CI有料model利用、
+プラン変更、外部設定変更は費用と影響を提示し、ユーザー承認を得るまで実行しないでください。
+```
+
+### [DN-0114] 法人・組織向け資格支援パックとライセンス収益のpilot
+タグ: [収益化] [種類:改善] [Codex候補] [実行:対話] [起票:2026-08-21]
+
+個人向け販売チャネルをさらに増やすのではなく、既存のサイト・note・PDF・Claude Codeキットを、**建設会社・建設コンサルタント・自治体等の法人が複数人で利用できる商品**へ再包装する。最初からLMS、法人アカウント、Stripe連携を作らず、案内ページ＋問い合わせ＋利用範囲を定めたpilotで支払い意思を確認する。成立後にだけグループ講座、スポンサー、データライセンスへ段階展開する。
+
+**既存施策との境界**:
+
+- noteは個人受験者向けの高粗利な学習商品、ココナラは個別診断・添削・単発PDF、Brainは個人向けClaude Codeキットの販売を継続する。本カードは**法人が支払う複数人利用・組織内利用**に限定し、同じ個人商品を別市場へ安売りしない
+- 学習・受験意図への教材／講座アフィリエイトは再開しない。既存Red Lineどおり、学習の財布は自社商品、キャリア意図は転職アフィリエイトに分ける
+- PWAの買い切り／会員認証は既存PWA計画の担当。本カードではPWA本体、独自会員基盤、LMS、決済Webhookを実装しない
+- `DN-0112`はNotebookLM入力圧縮、`DN-0113`はモデル分業。本カードはそれらの開発者向け仕組みを商品化せず、販売オファーと検証を扱う
+
+**起票時の実査結果（2026-08-21・再調査不要）**:
+
+- `content/site`は1,117 MDX、`content/note/**/article.md`は632本。既存資産の再包装余地は十分で、新しい教材を大量制作する必要はない
+- `sales-log.json`の台帳合計は2026-06 ¥217,760、07 ¥275,140、08は17日時点¥39,520。note個人販売は実証済みだが試験季節とnoteプラットフォームへの依存が大きい
+- ココナラは初回の1級模試¥2,500から同一購入者が教材16冊¥7,500を追加購入し、2件計¥10,000。入口商品→上位パックの価格ラダーは実売で成立した。一方、経験記述診断は29 view・受注0なので診断SaaSを先に作らない
+- Kindleは2026-07に34冊でロイヤリティ¥1,712。追加KDP量産より、既存資産の高単価利用権を検証する方を優先する
+- Brainの個人向けAI設計キットは2商品がlisted（¥7,980／¥9,800）。組織内利用ライセンスは未定義
+- 国土交通省はi-Construction 2.0で人材確保・生産性向上を掲げ、厚生労働省の人材開発支援助成金には職務関連訓練の支援枠がある。ただし**本商品が助成対象と断定しない**。訓練要件・申請・価格根拠は購入企業と所管窓口が確認する
+
+**商品仮説と順序**:
+
+| 順位 | 商品 | pilot価格仮説 | 作る前の成功条件 |
+|---|---|---:|---|
+| 1 | 1級土木 法人資格支援パック | 5人¥49,800／20人¥99,800／60分説明会つき¥149,800 | 30日で適格問い合わせ3件または有料pilot1社 |
+| 2 | Claude Codeキット 組織内利用ライセンス | 5人¥39,800／20人¥79,800 | 個人版ページから法人問い合わせ1件 |
+| 3 | 季節限定グループ講座 | 8〜15人・1人¥6,000〜9,800 | 制作前に8席を先行販売 |
+| 4 | キャリアページ直接スポンサー | 1社¥30,000〜100,000/月の仮説 | career面で月100 qualified click等の営業根拠 |
+| 5 | 問題・解説データB2Bライセンス | 年¥300,000〜1,000,000の仮説 | 権利確認済みsampleへの具体商談1件 |
+
+価格は市場実績ではなく検証用仮説。問い合わせが無いのに値下げせず、まず対象・提供価値・到達面を見直す。法人個別カスタマイズ、無制限サポート、受講者ごとの添削は標準価格に含めない。
+
+**Phase 0 — オファー契約とpilot対象の固定**:
+
+1. 既存のnote、ココナラ、Brain、Kindle、メンバーシップ、転職アフィリを一覧化し、個人向け商品と法人向け利用権の重複・価格逆転を確認する。現行価格とstatusは各catalog SSOTから取得し、本文の古い価格を使わない
+2. 最初の対象は**1級土木施工管理技士 第2次検定・5人利用**の1商品に固定する。建設部門、総監、2級、コンクリートへ同時展開しない
+3. 提供物を既存PDF、利用開始ガイド、管理者用配布案内、学習順チェックリストに限定する。新規動画、LMS、個別添削、合格保証、助成金申請代行を含めない
+4. 利用範囲を「契約法人内・契約人数まで・複製可／社外再配布、転売、公開アップロード、別法人共有は禁止」と仮定し、法的文言は公開前にユーザーが確認する
+5. 仮説価格、納品物、対応時間、更新期間、返金条件、問い合わせから納品までの手順を1枚のoffer specにする。税・適格請求書・特商法・助成対象をエージェント判断で断定しない
+
+**Phase 1 — 売れる前に作り込まない案内ページ**:
+
+1. サイト内に法人購入案内を1ページだけ作る。資格別商品カタログを増やさず、対象、含むもの／含まないもの、人数、価格仮説、利用範囲、導入手順、FAQ、`/contact`への導線を載せる
+2. `/contact`に既存設計を壊さない範囲で「法人・団体購入」の問い合わせ例を追加する。会社名、利用人数、対象資格、希望時期、質問だけを受け、不要な個人情報を求めない
+3. CTAは1級土木の学習ページ全体へ一括注入せず、法人利用と関連する資格トップ、経験記述ガイド、about/contactから少数面でpilotする。一般受験者のnote CTAを押し下げない
+4. `corporate_inquiry_click`等の計測イベントを新設する場合は既存GA4 event namingとUTM規約を再利用する。計測未取得・0件を成功扱いしない
+5. 公開・deploy前にページ、価格、連絡先、プライバシー記述、利用範囲、計測イベントを提示し、ユーザー承認を得る
+
+**Phase 2 — 30日間の法人pilot**:
+
+1. 案内ページ公開日をday 0とし、30日間は1級5人版だけを検証する。外部企業への営業メール、電話、SNS DM、既存購入者への連絡はユーザー承認なしに行わない
+2. 問い合わせを`date / source / companyType / seats / exam / stage / result`で集計する。会社名、担当者名、メール本文はGitへ保存しない
+3. 有料pilotが成立した場合、実作業時間、問い合わせ回数、納品ファイル数、決済／請求の摩擦、利用者からの質問、継続・追加人数意向を記録する
+4. 成功は「適格問い合わせ3件」または「有料pilot1社」。問い合わせ1〜2件は価格・説明改善して15日延長、0件は停止してページ到達と対象設定を見直す。需要未確認のままLMSや5資格展開へ進まない
+5. 1社目の値引きは最大20%までのpilot価格とし、定価として恒久表示しない。無償提供を販売実績として数えない
+
+**Phase 3 — 組織ライセンスとグループ講座**:
+
+1. 法人pilotまたはBrain個人版から法人問い合わせが得られた場合だけ、AI設計キットに組織内5人／20人ライセンスを追加する。成果物の社外販売、答案作成代行、顧客情報の投入を禁止する
+2. グループ講座は「発注者目線で経験記述を分解」「模試の解説と自己採点」等の90分単発に限定し、8席の先行販売成立後に資料を作る。常設スクールや毎週ライブへ広げない
+3. 録画・スライドを再販売または会員特典へ転用する場合、参加者の氏名・音声・質問を除去し、収録同意を事前に得る
+4. 1回当たり売上、準備・実施・フォロー時間、返金、満足度、既存note／会員へのカニバリを記録し、実質時給が既存note制作を下回る場合は停止する
+
+**Phase 4 — 条件成立後だけ検討する収益源**:
+
+1. **直接スポンサー**: 転職・給与・キャリアページだけを対象とし、「広告／スポンサー」を明記する。記事評価・比較順位への介入を認めず、学習ページには出さない。営業開始はcareer CTAの月次実績を説明できる場合だけ
+2. **B2Bデータライセンス**: 自作問題、独自解説、タグ、難易度、分類、検索インデックスを候補とし、試験問題本文・図・第三者資料は権利確認前に提供しない。最初はJSON/CSV sampleのみで商談し、API、SCORM、管理画面は契約後に作る
+3. **CPD／CPDS等の認定研修**: 認定主体の最新要件、講師、時間、受講確認、修了証、費用を人が確認し、既存pilotが成立した後の別タスクとする。未認定の段階で単位取得可能と表示しない
+
+**決済・契約方針**:
+
+- 問い合わせが無いPhase 0-1では決済を実装しない。有料pilotが決まった時点で、銀行振込、既存プラットフォーム、Stripe Payment Links等を比較する
+- Stripeは単発／継続の決済リンクをノーコードで作れるが、導入は新しい外部決済・顧客情報取扱い・税務対応を伴う。アカウント作成、本人確認、商品登録、公開リンク作成はユーザー承認後
+- 法人の請求書、適格請求書、消費税、源泉・会計処理、助成金対象性を自動回答しない。必要に応じて税理士・所管窓口へ確認する
+- 決済情報、請求書、会社担当者情報をGit、CI artifact、分析snapshotへ保存しない
+
+**今は採らない案**:
+
+- 追加Kindle量産: 34冊で月¥1,712の実績に対して優先度が低い
+- 経験記述の診断SaaS: ココナラ診断29 view・受注0。まず既存S1の実売を待つ
+- Udemy／常設動画講座: 動画制作・更新負荷が高く、既存YouTube／noteと役割が重なる
+- 教材・講座アフィリエイト再開: note商品とカニバるためRed Line違反
+- 有料検索＋AI Chat SaaS: 既存戦略どおり、現PVと運用負荷ではROI不足
+
+**完了条件**:
+
+- 1級5人版のoffer spec、法人購入案内ページ、問い合わせ導線、利用範囲、計測、30日判断日が一意に結線される
+- 公開前に価格、法的表現、連絡先、プライバシー、外部write範囲をユーザーが承認し、公開後のURLとイベントを実体確認する
+- 30日で適格問い合わせ3件または有料pilot1社を達成し、売上、原価、対応時間、問い合わせ、継続意向を記録する。未達ならLMS・資格横展開・Stripe実装をせず停止する
+- 成立時は組織ライセンス／グループ講座のどちらか1つだけを次に検証し、スポンサー／データライセンスは各開始条件を満たすまで着手しない
+- 検証結果と恒久ルールを収益化戦略SSOTへ反映し、採用／修正／撤退を決めて本カードを削除する
+
+**Claude Code実行プロンプト**:
+
+```text
+DN-0114をPhase 0から1 Phaseずつ実行してください。最初にCLAUDE.md、
+.claude/todo/backlog.mdのDN-0114、docs/strategy/03_事業戦略.md、04_収益化戦略.md、
+src/lib/note-magazines.ts、coconala-services.ts、brain-products.ts、
+.claude/state/sales/sales-log.json、coconala/orders-log.json、analytics-snapshot.json、
+kdp-royalties.json、src/app/contact/page.tsxを確認してください。
+
+開始前にbranch、originとの差、dirty/untracked files、他セッションの進行中作業を確認し、
+他人の変更をrevert・commitしないでください。価格とstatusはcatalog SSOT、売上は追跡台帳から取得し、
+docs本文の古いスナップショットを現行値として使わないでください。
+
+Phase 0ではコードを変更せず、個人商品と法人利用権の境界、1級5人版の納品物、含まないもの、
+利用範囲、価格仮説、対応工数、30日成功基準を1枚のoffer specとして提示してください。
+LMS、PWA、法人アカウント、Stripe、動画、個別添削、助成金申請代行は追加しないでください。
+
+Phase 1では法人案内1ページと既存/contactへの導線だけを最小実装してください。
+一般受験者向けnote CTAを置換せず、資格横断・全ページ一括注入をしないでください。
+助成対象、合格保証、CPD/CPDS単位、税務・適格請求書を未確認で断定しないでください。
+
+公開、deploy、営業メール、DM、外部決済作成、外部サービス登録は、対象URL、価格、文面、
+送信先、費用、個人情報の扱いを提示してユーザー承認を得るまで行わないでください。
+各Phase終了時に変更ファイル、残した仮説、捨てた案、計測方法、法務・税務の未確認事項、
+次の承認点を報告して停止してください。有料pilot1社または適格問い合わせ3件が得られるまで、
+組織ライセンス、講座、スポンサー、データAPIへ展開しないでください。
+```
+
+### [DN-0115] PWA買い切り・メール主／LINE補助の収益導線pilot
+タグ: [収益化] [インフラ・計測] [種類:改善] [Codex候補] [実行:対話] [起票:2026-08-22]
+
+1級土木の無料過去問演習を、検索流入の入口から **Premium買い切り・note送客・自社リスト**へつなぐ。サイト全体はログイン必須にせず、PWAの購入権限・端末間同期・購入復元だけをメールのマジックリンクで認証する。メールを会員ID兼メインリスト、LINE公式を試験直前・合格発表・一次→二次の任意補助に分ける。
+
+**設計SSOT**: [PWA過去問アプリ設計方針 v2](../../docs/products/06_PWA過去問アプリ設計方針.md) ／ [リスト化・自社オーディエンス戦略](../../docs/strategy/10_リスト化・自社オーディエンス戦略.md) ／ [収益化戦略](../../docs/strategy/04_収益化戦略.md)
+
+**既存タスクとの境界**:
+
+- `DN-0013` のLINEは、2026-10-04の1級二次に向けた「一次おつかれ→二次の始め方」の季節キャンペーン。本カードはPWA会員ID、購入権限、継続利用、全資格へ再利用するリスト基盤を扱う。`DN-0013`の期限付き配信を待たせず、友だち・配信台本・CTAを勝手に移管しない
+- noteは模範解答・経験記述・論文等の文書商品を販売し続ける。PWAは弱点分析・復習計画・端末間同期等のツール価値だけを販売し、既存note商品の本文をPremiumへ複製しない
+- `DN-0114`は法人ライセンスpilot。本カードは個人受験者のPWA買い切りで、法人アカウント、席数管理、請求書払い、LMSを実装しない
+
+**起票時の実査結果（2026-08-22・再調査不要）**:
+
+- `src/app/tools/kakomon-quiz/`に1級土木の無料演習が稼働し、平成26〜令和7年度の全1,098問、年度別、ランダム20問、間違い復習、`localStorage`進捗、結果画面のAdSense・note CTAまで存在する
+- 公開ページとメタデータが「全1,098問を無料」と約束しているため、後から全問アクセスを有料化しない。Premiumは分野別弱点分析、復習スケジュール、端末間同期、広告非表示、オフライン、模試履歴等に限定する
+- 現在はmanifest / Service Worker、会員認証、決済、entitlement、メール配信、LINE結線が無く、`package.json`にもStripe／Supabase／Clerk等のPWA認証・決済依存はない
+- 旧設計の「note購入コード＋localStorage解放」は、決済Webhook、購入復元、端末間同期、失効、コード共有を解決できない。文書商品=note、PWA機能権限=Stripeに分離する
+- LINE公式のコミュニケーションプランは月額0円・月200通で、通数は友だち数×配信回数。旧戦略の「月1,000通」は陳腐化していた。LINEを大規模CRMやPWAログインにしない
+- 広告宣伝メールは事前同意、送信者表示、配信停止、送信拒否後の再送禁止が必要。ログイン／購入同意と販促メール同意を同じチェックにしない
+
+**確定ファネル**:
+
+```text
+SEO記事・note・SNS
+  → 1級土木PWA無料演習（ログイン不要）
+  → 2回目完了／間違い蓄積／結果画面
+  → Premium案内 + メール学習レポート任意登録 + LINE期限通知任意追加
+  → Stripe買い切り
+  → Webhookでentitlement付与
+  → メールのマジックリンクでログイン
+  → 弱点分析・復習計画・端末間同期・広告非表示
+  → 記述式／模範答案はnoteへ送客
+```
+
+**Phase 0 — 計測契約とfake-door検証（認証・決済を作らない）**:
+
+1. `quiz_start / quiz_complete / review_start / premium_view / premium_intent / email_interest / line_interest / note_cta_click`のイベント名、発火条件、`exam / placement / mode`パラメータを既存GA4規約に合わせて定義する。メール、LINE ID、購入者IDをイベントへ送らない。実リスト開始後の`email_opt_in / line_add_click`は別イベントにする
+2. 結果画面とメニューにPremium案内を1面ずつ置く。価値は弱点分析、復習計画、同期、広告非表示。価格は仮説¥980〜¥1,480と明記し、「準備中／先行案内」であることを隠さない。未実装機能の決済を受けない
+3. メール候補は「学習レポート・先行案内」、LINE候補は「試験日・合格発表の通知」と用途を分ける。Phase 0は匿名の希望クリックだけを測り、メールアドレスやLINE友だちをまだ取得しない。両方を同時に必須化せず、初回問題の前には置かない
+4. メール収集フォームを作る前に、候補サービスの料金、export、削除、unsubscribe、double opt-in、custom domain、SPF/DKIM/DMARC、Webhook、障害時のexportを比較する。認証のtransactionalメールとmarketing配信を同じ同意で送らない
+5. success gateは、1級PWA利用者100人以上、`premium_intent / premium_view` 5%以上、重複除外した購入希望10人以上。LINEは`line_interest`だけで採否を決めず、Phase 1開始後の`line_add_click`と試験期の再訪を別に記録する
+
+**Phase 1 — メールリストpilotとLINE補助（外部サービス承認後）**:
+
+1. ユーザー承認後にメール基盤を1つだけ作る。最小フィールドは`subscriber_id / email / exam / source / consent_at / consent_text_version / status / unsubscribed_at`。氏名、勤務先、生年月日、住所は取得しない
+2. 販促同意は未選択を既定とし、フォーム付近に配信内容・頻度・プライバシーポリシー・配信停止を表示する。確認メール、送信者名称、問い合わせ先、ワンクリック解除、suppression listを実査する
+3. 配信は月2回以下を基線に、学習レポート、試験日、直近の無料演習、PWA／note自社商品だけを扱う。A8アフィリは配信しない。A8登録メルマガへ将来載せる場合も別タスク・個別媒体条件確認を必須にする
+4. LINE公式は無料200通の範囲で、1資格・1イベントのpilotに限定する。友だち数×予定配信回数が200を超える場合、有料プランへ自動変更せず、費用と停止方法を提示する
+5. 30日で`登録率 / 確認完了率 / 開封 / クリック / unsubscribe / PWA再訪 / premium_intent`を集計する。生メール、LINE識別子、本文、個別行動履歴をGit、GA4、CI artifactへ保存しない
+
+**Phase 2 — Stripe買い切り・マジックリンク・権限（Phase 0成功後）**:
+
+1. ADRで少なくとも「Supabase Auth＋DB」「既存Cloudflare Pages Functions／Workers＋D1」「他のmanaged auth」を、実装量、月額、SMTP、データexport、Webhook、障害復旧、削除請求、vendor lock-inで比較する。自前パスワード認証を作らない
+2. Stripe test modeで1級Premiumの商品・価格・success/cancel URLを作る。`checkout.session.completed`等を署名検証し、同じeventを再送してもentitlementが重複しない冪等処理にする。価格登録・本番Payment Link・本人確認はユーザーが承認するまで作らない
+3. `users / entitlements / progress / marketing_consents`を分離し、購入者は販促未同意でもPremiumを使えるようにする。購入メールとアカウントメールが異なる場合の安全な紐付け、購入復元、返金・取消、アカウント削除を設計する
+4. マジックリンクは購入後または「端末間同期を使う」時だけ要求し、無料演習と1端末内`localStorage`を壊さない。既存データをログイン後へ明示的にmergeし、別人の進捗を上書きしない
+5. 最初の有料機能は弱点分析、端末間同期、広告非表示の3つに絞る。オフライン、PDF出力、AI学習計画、複数資格bundle、サブスクはpilot後へ送る
+
+**Phase 3 — 有料pilotと拡張判断**:
+
+1. 1級だけで30日または購入20件までpilotし、`checkout_start / purchase / refund / entitlement_error / magic_link_success / sync_success / premium_active`を匿名集計する
+2. 価格別の売上、購入率、Stripe手数料、サポート件数、購入復元、返金、週次継続利用を記録する。購入数だけでなく、1購入あたりの対応時間と権限事故0件を合格条件にする
+3. successは購入10件以上、`purchase / premium_view` 2%以上、重大な権限漏れ0、購入復元成功100%、サポート30分/件以下。未達なら総監・2級・月額へ展開せず、価値・価格・到達面を見直す
+4. 成立後だけ共通エンジン化、総監または2級のどちらか1資格、manifest / SW / オフラインへ進む。両資格同時追加やメンバーシップ統合をしない
+5. 継続課金は、月次予想・添削・更新モートを8週以上安定供給できる場合だけ別カードで評価する。静的な過去問だけを月額化しない
+
+**法務・データ・安全弁**:
+
+- 直接販売前に特商法表記、利用規約、プライバシーポリシー、返金方針、問い合わせ、データ削除・export、未成年購入の扱いをユーザーが確認する。エージェントが法的適合を断定しない
+- 認証メールと販促メールを分離し、販促はオプトイン、送信者表示、解除、suppressionを必須にする。解除済みへの再送をテストで防ぐ
+- Secret、Webhook署名、メールアドレス、Stripe customer、LINE user ID、session、magic-link tokenをGit、ログ、GA4、Sentry、CI artifactへ出さない
+- 外部サービス登録、DNS、Stripe本番設定、価格公開、実決済、メール／LINE送信、deployは、対象、費用、送信内容、保存データ、停止・削除方法を提示し、ユーザー承認まで実行しない
+- 現在のdirty `.claude/todo/backlog.md` には他セッションのDN-0113/0114がある。revert、代理commit、カードの並べ替えをしない
+
+**完了条件**:
+
+- PWA v2、リスト戦略、収益化戦略、実装コードの無料／有料境界、メール／LINE役割、note／Stripe境界が一致する
+- Phase 0イベントと案内面が実装され、100利用者・CTA 5%・希望10人の判定を再現できる。未達なら課金基盤を作らず停止できる
+- Phase 1以降へ進む場合、販促同意・解除・suppression・個人情報非混入をテストでき、メールとLINEの費用・配信数を管理できる
+- Phase 2以降へ進む場合、Webhook署名・冪等性・entitlement・購入復元・返金・削除・端末mergeのE2EがPASSし、Premium権限漏れ0件
+- 有料pilotが購入10件、購入率2%以上、復元100%、対応30分/件以下を満たした場合だけ資格拡張を起票する。結果を戦略SSOTへ反映後、本カードを削除する
+
+**Claude Code実行プロンプト**:
+
+```text
+DN-0115をPhase 0から1 Phaseずつ実行してください。最初にCLAUDE.md、AGENTS.md、
+.claude/todo/backlog.mdのDN-0115、docs/products/06_PWA過去問アプリ設計方針.md、
+docs/strategy/10_リスト化・自社オーディエンス戦略.md、04_収益化戦略.md、
+src/app/tools/kakomon-quiz/{page.tsx,KakomonQuizClient.tsx}、src/lib/quiz/types.ts、
+src/app/privacy/page.tsx、既存GA4イベント実装と計測規約を読んでください。
+
+開始前にbranch、originとの差、dirty/untracked filesを確認し、他人の変更をrevert・commitしないでください。
+Phase 0では認証、DB、Stripe、メール配信SaaS、LINE Messaging APIを導入せず、現行PWAの利用イベント、
+Premium案内面、メール／LINEの用途別CTA、匿名の判定レポートだけを実装してください。
+
+全1,098問の無料アクセス、ログイン不要の演習、localStorage進捗、AdSense、note CTAを維持してください。
+未実装Premiumを販売中と表示せず、価格は検証仮説、CTAは先行案内であることを明記してください。
+メールとLINEを同時必須にせず、個人情報をGA4、Git、ログ、CI artifactへ保存しないでください。
+
+Phase 0のローカル実装とbuild、イベントテスト、light/dark/mobile目視が終わったら変更ファイル、
+イベント契約、案内文、未収集の外部データ、100利用者・CTA 5%・希望10人の測定方法を報告して停止してください。
+外部サービス登録、DNS、Stripe設定、実決済、メール／LINE送信、deployは行わないでください。
+
+成功基準を満たしてPhase 1以降を指示された場合も、まずサービス比較とADRを提示してください。
+外部サービスのアカウント作成、料金発生、Secret登録、顧客データ保存、本番価格公開は、費用、
+保存項目、export／削除、解除、障害時復旧を示しユーザー承認を得るまで実行しないでください。
+Phase 2はStripe test modeとfixtureまで、Phase 3は別承認として扱い、資格横展開や月額化を同時に行わないでください。
 ```
 
 ### [DN-0103] 管理画面をコンテンツ中心IAへ再編しBrainをpilot統合
@@ -1077,15 +1370,6 @@ SNS競合実地調査（2026-07-04・`07_競合調査.md` SNS節）でsurfaceし
 タグ: [SNS・マーケ] [種類:改善] [実行:sweep]
 
 **取得（fetch）はメインループが agent-reach スキルで実施**（サブエージェントは Bash 不可＝[[agent-bash-permission]]）。分析は新規 Evaluator `sns-research-analyst`（corpus を読んで頻出論点・刺さる切り口・gap を構造化抽出）。cadence 週次。X は**投稿アカウント @doboku373 を read に使わない**（[[x-suspension-guardrail]]）＝当初「未ログイン公開読取」は X の 404 遮断で実行不能のため、**運営者個人アカ `uruhayato373` の agent-reach twitter CLI 経由 read** がその代替（投稿アカ温存の目的は同じ・真実源 x-post-policy §11.7・2026-07-20 稼働 `scout-x-competitors.mjs`）。競合SoT = 価格/品揃え `09_販売チャネル競合分析.md` §B・エンゲージ/型 `07_競合調査.md` SNS競合節。エージェント追加時は agents-registry 更新＋check-doc-coupling。
-
-### [DN-0048] SEO 権威性トラック（GSC 流入の唯一残るレバー）
-タグ: [SNS・マーケ] [種類:改善] [実行:対話]
-
-on-page は全数検証済みで健全＝追加微修正はしない（真実源 `gsc-management.md`）。実行可能タスク:
-1. **独自データ資産化**: 1級・2級土木版 頻出論点ランキング（civil は past-exam-backlinks 未収録＝論点タグ付けが先）・被リンク獲得の外部発信（note/SNS で総監ランキング紹介）
-2. **8月の再浮上条件は成立済み**: 8/1 は 71.7%・クロール済み未登録292件、総監は205件（28.2%）。
-   「継続なら統合を検討」は `DN-0107` の総監キーワード統合パイロットへ移行する
-3. 受験期の高インテント head クエリの GSC 監視・月次 `/gsc-review` 継続
 
 ### [DN-0049] SEO 品質ゲート後続（PR #390 マージ後の残タスク）
 タグ: [インフラ・計測] [種類:改善] [実行:対話]
@@ -1417,20 +1701,23 @@ surfacer の日付パーサを直した（2026-08-17）ことで、これまで�
 
 選択肢: (a) weekly-review の Phase 1 へ「audit-latest.md の生成日と fail 一覧」を読む手順を足す (b) report を全部ラチェット化して ci:true へ寄せる (c) 現状維持（人が叩く前提と割り切る）。
 
-### [DN-0088] search-growth 修正計画の裁定セッション（判断待ち 2,091 URL の消化）
-タグ: [インフラ・計測] [種類:意思決定] [実行:対話]
+### [DN-0088] search-growth 残存 UNKNOWN 1,280 URL の発生源裁定
+タグ: [インフラ・計測] [種類:意思決定] [実行:対話] [起票:2026-08-22]
 
-`/google-search-growth` の最新 run（2026-07-30・`.claude/state/improvements/search-growth-latest.md`）が
-**UNKNOWN_REVIEW 1,778 件・NOINDEX_CANDIDATE 313 件**を承認ゲート前で滞留させている
-（FIX_TECHNICAL / REDIRECT_LEGACY は 0 件＝機械適用できる技術修正は出尽くし）。
-**実行順は `DN-0107` Phase 1 が先**。総監のcrawled-not-indexedをcanonical URLで重複排除・5分類した後、
-本カードは残る非総監バケットの一括方針判断を持つ。同じ2,091件を別セッションで再分類しない。
-**全件裁定は非現実的なので、上位バケットの代表を見て一括方針を決める**のがスコープ:
-①UNKNOWN_REVIEW を発生源別（GSC 未登録 / 内部リンク孤立 / パラメータ違い等）に束ね、
-バケットごとに「一括 noindex / 一括据え置き / 個別精査」を決める
-②NOINDEX 候補 313 件は代表 10 件を実 URL で確認してから一括判断
-③決めた方針を `gsc-management.md` の観測・判断ログへ記録（次 run で同じ 1,778 件を再検討しないため）。
-seo-fix-planner は audit-only なので適用は人の承認後。
+2026-08-22 に分類ロジックを修正し、ワイルドカード redirect と query variant の誤判定、
+親ページの計測値継承、短期ゼロだけを根拠にした noindex 候補化を解消した。
+最新 run（`.claude/state/improvements/search-growth-latest.md`）は
+**EXPECTED_EXCLUSION 1,084 / UNKNOWN_REVIEW 1,280 / NOINDEX_CANDIDATE 0 / FIX_TECHNICAL 0 / REDIRECT_LEGACY 0**。
+総監209本は `DN-0107` Phase 1 で5分類済みで、現時点の破壊的変更候補は0件。
+
+残作業は、`DN-0106` で全件取得化した GSC query/page の次回 CI スナップショット（`truncated:false`）を待ってから行う:
+
+1. `npm run search-growth:report` を再実行し、残る UNKNOWN を発生源別に束ねる。
+2. 上位バケットの代表 URL を確認し、EXPECTED_EXCLUSION / KEEP_MONITOR / 個別精査へ一括裁定する。
+3. noindex は「固有価値が低い」かつ「長期ゼロ流入」の双方が確認できた場合だけ提案し、自動適用しない。
+4. 決定を `gsc-management.md` の観測・判断ログへ記録し、同じバケットの再検討を防ぐ。
+
+seo-fix-planner は audit-only。変更候補が再発生した場合も適用は人の承認後。
 
 ### [DN-0089] `civil-1-takuitsu-pdf` が KDP Select 独占に抵触するかの判定
 タグ: [収益化] [種類:意思決定] [実行:ユーザー] [起票:2026-08-17]
@@ -1455,4 +1742,3 @@ seo-fix-planner は audit-only なので適用は人の承認後。
 タグ: [エージェント・SSOT] [種類:意思決定] [実行:対話]
 
 ①`publish-note` SKILL.md の幻 noteId 節にエンジン明示を追記（`note-publish-magazine` の一次ガードは Playwright 系の話・実在ゲート `verify-note-status` は全エンジン共通）②名前の紛らわしさ＝リネーム/統合か相互参照強化かの設計判断（🟣寄り・台帳同期が要る大工事なので費用対効果を要検討）。
-

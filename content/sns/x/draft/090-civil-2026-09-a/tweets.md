@@ -119,18 +119,6 @@ https://note.com/dobokunote/m/m8554e87ca6ec
 https://doboku-note.com/docs/civil-construction-1-secondary-construction-plan-basics?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep06-plan-basics
 #1級土木施工管理技士 #施工管理技士 #施工計画
 
-## Tweet 18: 9/6 19:50 civil-2 / 現場つぶやき / linkless
-
-生コン車の到着を待つ間、スランプコーンと空気量測定器を並べているのを見た。荷卸し前のこの数分間が、経験記述の品質管理で書くべき場面そのものだと思う。
-
-#2級土木施工管理技士 #施工管理技士
-
-## Tweet 19: 9/7 07:20 civil-1 / 暗記フレーズ / linkless
-
-【暗記フレーズ】コンクリートの数字は30・50・10をセットで覚える。シュートの傾斜角度は水平に対して30度以上、バイブレータの挿入間隔は50cm以下、下層への挿入は10cm程度。
-
-#1級土木施工管理技士 #施工管理技士 #コンクリート工
-
 ## Tweet 20: 9/7 12:20 civil-1 / 引っかけ集 / site
 
 【引っかけ集】モルタル吹付工は万能じゃない。湧水のある箇所、湿潤なのり面、凍上するのり面では短期間で崩落することがあり、避けるべき対象になる。多用途に見えて、実は適用条件が狭い工法。

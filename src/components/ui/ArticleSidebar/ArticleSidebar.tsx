@@ -68,7 +68,7 @@ export default function ArticleSidebar({
           非 HUB 資格（一次・concrete・reference）と career タグ記事は sidebarMokuji=null で非表示。 */}
       {sidebarMokuji && (
         <div className="mb-3">
-          <HubCtaBanner cta={sidebarMokuji} />
+          <HubCtaBanner cta={sidebarMokuji} placement="article-sidebar" />
         </div>
       )}
       {/* 運営者プロフィール（合格体験者＝発注者）。E-E-A-T を提示。 */}

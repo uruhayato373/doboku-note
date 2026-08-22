@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "account": "doboku373",
+  "updated_at": "2026-08-22T13:58:00.000+09:00",
+  "articles": {
+    "1": {
+      "title": "施工管理を辞めたい夜に、最初に分けるべき2つ",
+      "source_file": "articles/01-quit-or-stay.md",
+      "draft_id": "2091027838497615872",
+      "edit_url": "https://x.com/compose/articles/edit/2091027838497615872",
+      "scheduled_at": "2026-09-06T19:50:00.000+09:00",
+      "teaser_tweet": 2,
+      "teaser_scheduled_at": "2026-09-07T07:20:00.000+09:00",
+      "status": "drafted",
+      "article_url": null,
+      "published_at": null,
+      "teaser_prepared_at": null
+    },
+    "2": {
+      "title": "1級土木の市場価値は、資格名だけでは決まらない",
+      "source_file": "articles/02-market-value.md",
+      "draft_id": "2091028532533329920",
+      "edit_url": "https://x.com/compose/articles/edit/2091028532533329920",
+      "scheduled_at": "2026-09-13T20:30:00.000+09:00",
+      "teaser_tweet": 4,
+      "teaser_scheduled_at": "2026-09-14T08:00:00.000+09:00",
+      "status": "drafted",
+      "article_url": null,
+      "published_at": null,
+      "teaser_prepared_at": null
+    },
+    "3": {
+      "title": "施工管理の次は、別の建設会社だけではない",
+      "source_file": "articles/03-career-path.md",
+      "draft_id": "2091028658643505153",
+      "edit_url": "https://x.com/compose/articles/edit/2091028658643505153",
+      "scheduled_at": "2026-09-20T19:35:00.000+09:00",
+      "teaser_tweet": 6,
+      "teaser_scheduled_at": "2026-09-21T07:15:00.000+09:00",
+      "status": "drafted",
+      "article_url": null,
+      "published_at": null,
+      "teaser_prepared_at": null
+    },
+    "4": {
+      "title": "2級土木はゴールではなく、現場を任される入口",
+      "source_file": "articles/04-civil2-young-career.md",
+      "draft_id": "2091028775366774784",
+      "edit_url": "https://x.com/compose/articles/edit/2091028775366774784",
+      "scheduled_at": "2026-09-27T20:15:00.000+09:00",
+      "teaser_tweet": 8,
+      "teaser_scheduled_at": "2026-09-28T07:50:00.000+09:00",
+      "status": "drafted",
+      "article_url": null,
+      "published_at": null,
+      "teaser_prepared_at": null
+    }
+  }
+}

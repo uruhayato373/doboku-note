@@ -36,7 +36,7 @@ type MidArticleCtaProps =
 
 export default function MidArticleCta(props: MidArticleCtaProps) {
   if (props.mode === 'note') {
-    return <MagazineHeroCta id={props.id} utmContent={props.utmContent} />;
+    return <MagazineHeroCta id={props.id} utmContent={props.utmContent} placement="article-mid" />;
   }
   if (props.mode === 'career') {
     // CareerAffiliate 自身が not-prose / my-6 / PR バッジ / rel="nofollow sponsored" を持つ。

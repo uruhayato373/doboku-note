@@ -146,14 +146,14 @@ export default function ArticleFooter({
       {footerMokuji && endBanner ? (
         <div className="mt-8 grid items-start gap-4 sm:grid-cols-[300px_300px] sm:justify-center">
           <div className="w-full max-w-[300px]">
-            <HubCtaBanner cta={footerMokuji} />
+            <HubCtaBanner cta={footerMokuji} placement="article-footer" />
           </div>
           <div className="w-full max-w-[300px]">{endBanner}</div>
         </div>
       ) : footerMokuji ? (
         <div className="mt-8 flex justify-center">
           <div className="w-full max-w-[300px]">
-            <HubCtaBanner cta={footerMokuji} />
+            <HubCtaBanner cta={footerMokuji} placement="article-footer" />
           </div>
         </div>
       ) : endBanner ? (

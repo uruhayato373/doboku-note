@@ -18,6 +18,8 @@ interface MagazineCardProps {
    *   ヒーローが連続して読み流れを壊すのを避けたいときだけ明示する。
    */
   readonly variant?: "hero" | "inline";
+  /** GA4 配置別集計（MDX 終盤なら article-end）。 */
+  readonly placement?: string;
 }
 
 /**
@@ -36,9 +38,10 @@ export default function MagazineCard({
   id,
   utmContent,
   variant = "hero",
+  placement = "article-body",
 }: MagazineCardProps) {
   if (variant === "hero") {
-    return <MagazineHeroCta id={id} utmContent={utmContent} />;
+    return <MagazineHeroCta id={id} utmContent={utmContent} placement={placement} />;
   }
   const magazine = getMagazine(id);
   if (!magazine) return null;
@@ -50,6 +53,7 @@ export default function MagazineCard({
       magazineId={magazine.id}
       badge={magazine.badge}
       trackLabel={utmContent}
+      placement={placement}
     />
   );
 }

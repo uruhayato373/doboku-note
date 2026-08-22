@@ -29,6 +29,7 @@ import { execFileSync } from "node:child_process";
 import { join } from "node:path";
 import { classifyUrl } from "./lib/search-growth-classifier.mjs";
 import { toJoinKey, toComparisonKey, slugFromKey, toAbsoluteUrl } from "./lib/url-normalization.mjs";
+import { matchWildcardRedirect } from "./lib/redirect-matcher.mjs";
 
 const M = ".claude/state/metrics";
 const OUT_DIR = ".claude/state/improvements";
@@ -412,26 +413,31 @@ async function main() {
   const draftSlugs = loadDraftSlugs();
 
   // URL universe = GSC UI 行 ∪ Inspection 結果（問題 URL に集中）。
-  const universe = new Map(); // joinKey → { url, comparisonKey, issues:Set }
+  const universe = new Map(); // query無しはjoinKey、query付きはcomparisonKeyで別URLとして保持
   for (const r of gscUi.rows) {
     const jk = toJoinKey(r.url);
-    const e = universe.get(jk) || { url: r.url, comparisonKey: r.comparisonKey || toComparisonKey(r.url), issues: new Set() };
+    const comparisonKey = r.comparisonKey || toComparisonKey(r.url);
+    const isQueryVariant = !!comparisonKey?.includes("?");
+    const universeKey = isQueryVariant ? `exact:${comparisonKey}` : jk;
+    const e = universe.get(universeKey) || { url: r.url, comparisonKey, joinKey: jk, isQueryVariant, issues: new Set() };
     if (r.issue) e.issues.add(r.issue);
-    universe.set(jk, e);
+    universe.set(universeKey, e);
   }
   for (const [jk, insp] of inspection.map) {
     // 既に indexed(PASS) なだけの URL は普段は不要だが、canonical 不一致等は拾えるよう全件入れる。
-    const e = universe.get(jk) || { url: insp.url, comparisonKey: toComparisonKey(insp.url), issues: new Set() };
+    const e = universe.get(jk) || { url: insp.url, comparisonKey: toComparisonKey(insp.url), joinKey: jk, isQueryVariant: false, issues: new Set() };
     universe.set(jk, e);
   }
 
   const rows = [];
-  for (const [jk, e] of universe) {
-    const insp = inspection.map.get(jk) || null;
-    const g = gscPage.map.get(jk) || null;
-    const a = ga4Page.map.get(jk) || null;
-    const html = localHtmlInfo(jk);
-    const redir = redirects.get(jk) || null;
+  for (const [, e] of universe) {
+    const jk = e.joinKey;
+    // query variantへ親URLのInspection/GSC/GA4を継承しない。
+    const insp = e.isQueryVariant ? null : inspection.map.get(jk) || null;
+    const g = e.isQueryVariant ? null : gscPage.map.get(jk) || null;
+    const a = e.isQueryVariant ? null : ga4Page.map.get(jk) || null;
+    const html = e.isQueryVariant ? { exists: false } : localHtmlInfo(jk);
+    const redir = redirects.get(jk) || matchWildcardRedirect(e.comparisonKey, wildcards);
     const slug = slugFromKey(jk);
     const meta = slug ? docMeta[slug] : null;
     const absUrl = toAbsoluteUrl(e.comparisonKey || jk, SITE_ORIGIN) || e.url;
@@ -475,8 +481,8 @@ async function main() {
 
     const issuesArr = [...e.issues];
     const primaryIssue = issuesArr[0] || null;
-    const inLive = liveSitemap.has(jk);
-    const inLocal = localSitemap.has(jk);
+    const inLive = !e.isQueryVariant && liveSitemap.has(jk);
+    const inLocal = !e.isQueryVariant && localSitemap.has(jk);
     const impressions = g?.impressions ?? 0;
     const activeUsers = a?.activeUsers ?? 0;
 
@@ -502,7 +508,13 @@ async function main() {
       activeUsers,
       sessions: a?.sessions ?? 0,
       engagementRate: a?.engagementRate ?? null,
-      internalInbound: internalInbound && slug ? internalInbound.get(slug) ?? 0 : null,
+      internalInbound: internalInbound && slug
+        ? internalInbound.get(
+            meta?.category === "pe-comprehensive-management" && slug.startsWith("pe-comprehensive-management-")
+              ? slug.slice("pe-comprehensive-management-".length)
+              : slug,
+          ) ?? 0
+        : null,
       lastCrawled: insp?.lastCrawl || null,
       // 派生シグナル
       isIntentionalRedirect: !!redir,
@@ -510,6 +522,8 @@ async function main() {
       // published:false の下書き（source 在・未公開）＝404 は設計通り。redirect 候補にしない。
       isDraft: slug ? draftSlugs.has(slug) : false,
       lowValue: primaryIssue === "crawledNotIndexed" && impressions === 0 && activeUsers === 0,
+      // 汎用レポートは長期ゼロ・固有価値を証明しない。専用分類前にNOINDEXへ送らない。
+      longTermZero: false,
       // 以下は意味判断が要るため保守的に false（seo-fix-planner が semantic に上書き）
       isIntentionalNoindex: robots ? /noindex/i.test(robots) : false,
       similarCluster: false,

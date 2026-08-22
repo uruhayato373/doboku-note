@@ -82,12 +82,17 @@ export default function AnalyticsProvider() {
     return () => document.removeEventListener("click", onClick, { capture: true });
   }, []);
 
-  // アフィリエイト枠が「DOM に存在した」だけでなく、50%以上が画面内に入った時点を
-  // visible impression として送る。A8 の 1px ピクセル（ページ読込ベース）とは役割を分け、
-  // GA4 で placement 別 CTR = affiliate_cta_click / affiliate_cta_impression を算出する。
-  // 同じ要素はページ滞在中 1 回だけ。クライアント遷移で新しく描画された要素は別途観測する。
+  // note / アフィリエイト CTA が「DOM に存在した」だけでなく、50%以上が画面内に入った時点を
+  // visible impression として送る。配置ごとのクリック数をページ訪問数で割るのではなく、
+  // 実際に見えた回数を分母にして CTR を比較する。同じ要素はページ滞在中 1 回だけ。
+  // A8 の 1px ピクセル（ページ読込ベース）とは役割を分ける。
   useEffect(() => {
     if (typeof IntersectionObserver === "undefined") return;
+
+    const IMPRESSION: Record<string, { action: string; category: string }> = {
+      note: { action: "note_cta_impression", category: "note-magazine" },
+      affiliate: { action: "affiliate_cta_impression", category: "affiliate" },
+    };
 
     const observed = new WeakSet<Element>();
     const sent = new WeakSet<Element>();
@@ -97,11 +102,14 @@ export default function AnalyticsProvider() {
           if (!entry.isIntersecting || entry.intersectionRatio < 0.5) continue;
           const el = entry.target as HTMLElement;
           if (sent.has(el)) continue;
+          const kind = el.dataset.cta;
+          const event = kind ? IMPRESSION[kind] : undefined;
+          if (!event) continue;
           sent.add(el);
           observer.unobserve(el);
           gtag.event({
-            action: "affiliate_cta_impression",
-            category: "affiliate",
+            action: event.action,
+            category: event.category,
             label: el.dataset.ctaLabel || "(unknown)",
             params: {
               cta_placement: el.dataset.ctaPlacement || "(unknown)",
@@ -112,16 +120,16 @@ export default function AnalyticsProvider() {
       { threshold: 0.5 },
     );
 
-    const observeAffiliateCtas = () => {
-      document.querySelectorAll('[data-cta="affiliate"]').forEach((el) => {
+    const observeRevenueCtas = () => {
+      document.querySelectorAll('[data-cta="note"], [data-cta="affiliate"]').forEach((el) => {
         if (observed.has(el)) return;
         observed.add(el);
         observer.observe(el);
       });
     };
 
-    observeAffiliateCtas();
-    const mutationObserver = new MutationObserver(observeAffiliateCtas);
+    observeRevenueCtas();
+    const mutationObserver = new MutationObserver(observeRevenueCtas);
     mutationObserver.observe(document.body, { childList: true, subtree: true });
 
     return () => {

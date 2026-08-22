@@ -73,19 +73,18 @@ test('はじめに-合格ラボ: 本文に自己参照 URL が残っていない
   );
 });
 
-// ── サイト配置: 土木二次で top=買い切り・inline[0]=メンバーシップ ────────────
-test('resolvePlacement: 土木二次は top=買い切り・inline[0]=メンバーシップ', async () => {
+// ── サイト配置: 土木二次は原則 top=買い切り・inline[0]=メンバーシップ ────────
+test('resolvePlacement: 土木二次の原則と書き方ガイド固有CTAを維持する', async () => {
   const ts = read('src/lib/magazine-placement.ts');
   const js = transformSync(ts, { loader: 'ts', format: 'esm' }).code;
   const mod = await import('data:text/javascript,' + encodeURIComponent(js));
   const { resolvePlacement } = mod;
   assert.equal(typeof resolvePlacement, 'function', 'resolvePlacement を import できない');
 
-  // [slug, docGroup] の代表面。すべて top=買い切り（≠メンバーシップ）・inline[0]=メンバーシップ が契約。
+  // [slug, docGroup] の代表面。top=買い切り（≠メンバーシップ）・inline[0]=メンバーシップ が原則。
   const cases = [
     ['civil-construction-1-secondary-r07', 'secondary'],
     ['civil-construction-2-secondary-r07', 'secondary'],
-    ['civil-construction-1-secondary-experience-writing-guide', 'secondary'],
     ['civil-construction-2-secondary-experience-writing-examples', 'secondary'],
     ['civil-construction-2-secondary-getting-started', 'secondary'],
     ['civil-construction-1-secondary-past-problems', 'secondary'], // 1級 catch-all
@@ -107,4 +106,17 @@ test('resolvePlacement: 土木二次は top=買い切り・inline[0]=メンバ�
       `${slug}: inline[0]（本文中間 CTA 供給源）がメンバーシップでない`,
     );
   }
+
+  // 1級の書き方ガイドは、検索意図に直結する完成答案集を中間の主 CTA にする固有設計。
+  // メンバーシップは土木もくじへ集約し、ページ内の強い商品CTAを3段階に絞る。
+  const guide = resolvePlacement(
+    'civil-construction-1-secondary-experience-writing-guide',
+    'secondary',
+  );
+  assert.equal(guide.top?.magazineId, 'civil-1-keiken-complete-pack');
+  assert.deepEqual(
+    guide.inline.map((slot) => slot.magazineId),
+    ['civil-1-experience-essay'],
+    '書き方ガイドの中間 CTA は完成答案集 1 件だけであるべき',
+  );
 });

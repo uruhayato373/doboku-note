@@ -101,7 +101,7 @@ try {
 }
 
 const entries = loadAllStatuses();
-let promoted = 0, alreadyPosted = 0, stillScheduled = 0, future = 0, queued = 0, notQueued = 0, missingFromQueue = 0;
+let promoted = 0, alreadyPosted = 0, stillScheduled = 0, future = 0, queued = 0, notQueued = 0, manualOnly = 0, missingFromQueue = 0;
 const missingList = [];
 const promotedList = [];
 const queuedList = [];
@@ -114,6 +114,10 @@ for (const entry of entries) {
   const process_tweet = (tweet, key) => {
     if (tweet.status === "posted") { alreadyPosted++; return; }
     if (tweet.status !== "scheduled" && tweet.status !== "queued") return;
+    // X Article など、Xネイティブ予約を使わない枠も日別上限には含めるが、
+    // ネイティブ予約キューとの同期対象にはしない。ここで除外しないと、
+    // 予約時刻を過ぎただけで未公開の Article を posted へ偽昇格させてしまう。
+    if (tweet.manual_only === true) { manualOnly++; return; }
     const scheduledAt = tweet.scheduled_at ? new Date(tweet.scheduled_at) : null;
     if (!scheduledAt) return;
     const inQueue = isInQueue(tweet, snippets);
@@ -178,6 +182,7 @@ console.log(`  既存 posted     : ${alreadyPosted} 件`);
 console.log(`  X キュー残存    : ${stillScheduled} 件`);
 console.log(`  既 queued        : ${future} 件（キュー実在を実照合）`);
 console.log(`  未投入(計画)     : ${notQueued} 件（status=scheduled・キュー未投入。次バッチで publish 予定）`);
+console.log(`  手動公開枠       : ${manualOnly} 件（X Article等。予約キュー同期の対象外）`);
 if (queuedList.length) {
   console.log(`\nqueued 昇格（キュー実在を確認・§9 偽成功検証）:`);
   queuedList.forEach(p => console.log(`  📥 ${p.at?.slice(0, 16)}  ${p.title}`));

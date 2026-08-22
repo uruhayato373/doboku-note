@@ -121,8 +121,13 @@ for (const file of files) {
     if (post.funnel === "linkless" && post.target !== null) {
       errors.push(`${label}: linklessのtargetはnull`);
     }
-    if (post.funnel !== "linkless" && !post.target) {
+    const awaitingXArticleUrl = post.funnel === "x-article" && post.awaitingTarget === true;
+    if (post.funnel !== "linkless" && !post.target && !awaitingXArticleUrl) {
       errors.push(`${label}: ${post.funnel}にtargetがない`);
+    }
+    if (post.funnel === "x-article" && post.target) {
+      const url = new URL(post.target);
+      if (!['x.com', 'twitter.com'].includes(url.hostname)) errors.push(`${label}: X Article URLではない`);
     }
 
     if (post.funnel === "site" && post.target) {

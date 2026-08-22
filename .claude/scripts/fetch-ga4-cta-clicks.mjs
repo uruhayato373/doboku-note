@@ -1,9 +1,11 @@
 /**
  * GA4 から収益 CTA クリック（note 有料マガジン / アフィリエイト）をページ別に取得する。
  *
- * AnalyticsProvider のデリゲートリスナーが発火する 2 イベントを集計する:
+ * AnalyticsProvider のデリゲートリスナー／visible impression observer が発火するイベントを集計する:
  *   - note_cta_click       (event_category: note-magazine)
+ *   - note_cta_impression  (event_category: note-magazine)
  *   - affiliate_cta_click  (event_category: affiliate)
+ *   - affiliate_cta_impression (event_category: affiliate)
  *
  * GA4 はイベントに pagePath を自動付与するため、カスタムディメンション登録なしで
  * 「eventName × pagePath」の 2 ディメンションレポートが取れる。これが
@@ -35,6 +37,7 @@ const OUTPUT_DIR = ".claude/state/metrics/ga4";
 const DEFAULT_DAYS = 28;
 const EVENT_NAMES = [
   "note_cta_click",
+  "note_cta_impression",
   "affiliate_cta_click",
   "affiliate_cta_impression",
   "note_article_click",
@@ -217,10 +220,15 @@ async function main() {
     const note = data.rows
       .filter((r) => r.eventName === "note_cta_click")
       .reduce((s, r) => s + r.eventCount, 0);
-    const impressions = data.rows
+    const noteImpressions = data.rows
+      .filter((r) => r.eventName === "note_cta_impression")
+      .reduce((s, r) => s + r.eventCount, 0);
+    const affiliateImpressions = data.rows
       .filter((r) => r.eventName === "affiliate_cta_impression")
       .reduce((s, r) => s + r.eventCount, 0);
-    console.log(`合計イベント: ${total}（note click ${note} / affiliate impression ${impressions}）`);
+    console.log(
+      `合計イベント: ${total}（note click ${note} / note impression ${noteImpressions} / affiliate impression ${affiliateImpressions}）`,
+    );
   }
   console.log(`出力: ${outPath}`);
 }

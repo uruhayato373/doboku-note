@@ -42,7 +42,7 @@ editorial 基調：`--accent #2a5f96` / `--ink #181a1f` / CTA=`--color-warn #d4a
 
 | 面 | 比率 | 原版 | 配置先（Claude が変換・配線）|
 |---|---|---|---|
-| トップ hero | 2.4:1 | wide | `public/images/hero-home.webp` |
+| トップ hero | 2.4:1 | wide | `public/images/hero-home-v2.webp`（現行。`hero-home.webp` はロールバック用に保持） |
 | ホームカード | 16:9 | wide | `public/images/card-<category>.webp` |
 | OGP 背景 | 1.9:1 | wide | `.claude/config/ogp/backgrounds/<exam-key>.png` |
 | note カバー背景 | 1.91:1 | wide | **実装済み（2026-07-24・Crop-safe V4）**: `generate-note-covers.mjs` / `generate-magazine-covers.mjs` の `brandPoolVisual()` が `.claude/config/ogp/backgrounds/<exam-key>.png` を 1280×670 center-crop して V4 の既定背景に使う（visualAsset 未指定時の自動フォールバック。civil-1-2 は civil-1 を流用）。記事は中央 paper スクリム・マガジンは fillBg 濃色スクリムで文字可読性を担保。個別 visualAsset は上書き opt-in |

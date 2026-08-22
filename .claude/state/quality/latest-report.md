@@ -1,8 +1,8 @@
 # コンテンツ品質 全量スキャンレポート
 
 - 対象: published MDX（content/site）
-- 違反合計: HIGH 23 / MEDIUM 3260 / LOW 454
-- 違反のある記事数: 593
+- 違反合計: HIGH 23 / MEDIUM 3255 / LOW 454
+- 違反のある記事数: 591
 - baseline 比の新規違反: 0 件
 
 優先度 = 違反数 × GA4 人気度（activeUsers）。人気ページの違反を上位に。
@@ -70,4 +70,4 @@
 | 59 | pe-construction-geotechnical-exam-themes | — | 31 | 1-4:26 1-3:2 6-1:2 9-16:1 |
 | 60 | civil-construction-1-secondary-r05 | — | 30 | 2-4:20 6-1:10 |
 
-※ 上位 60 件のみ表示（違反記事 593 件中 533 件を省略）。全量は --update-baseline 後の baseline JSON を参照。
+※ 上位 60 件のみ表示（違反記事 591 件中 531 件を省略）。全量は --update-baseline 後の baseline JSON を参照。

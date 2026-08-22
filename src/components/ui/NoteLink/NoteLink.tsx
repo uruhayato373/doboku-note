@@ -19,6 +19,8 @@ interface NoteLinkProps {
    * 有料マガジン CTA（note_cta_click）とは別イベント note_article_click で計測する。
    */
   readonly trackLabel?: string;
+  /** GA4 の配置別集計。 */
+  readonly placement?: string;
 }
 
 /** note URL から計測ラベルを導く。例: .../n/nc360aaa381b0 → note-nc360aaa381b0 */
@@ -45,6 +47,7 @@ export default function NoteLink({
   kind = "article",
   price,
   trackLabel,
+  placement = "article-body",
 }: NoteLinkProps) {
   const isProduct = kind === "product";
 
@@ -55,6 +58,7 @@ export default function NoteLink({
       rel="noopener noreferrer"
       data-cta={isProduct ? "note" : "note-article"}
       data-cta-label={trackLabel ?? trackLabelFromUrl(url)}
+      data-cta-placement={placement}
       className="card-surface-content focus-ring not-prose group my-6 block max-w-2xl overflow-hidden hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
     >
       <div className="flex flex-col sm:flex-row">

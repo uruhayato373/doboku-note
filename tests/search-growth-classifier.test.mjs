@@ -110,6 +110,7 @@ test("NOINDEX_CANDIDATE は自動適用されない（requiresApproval=true）",
     sig({
       httpStatus: 200,
       lowValue: true,
+      longTermZero: true,
       impressions: 0,
       activeUsers: 0,
       hasSuccessor: false,
@@ -118,6 +119,21 @@ test("NOINDEX_CANDIDATE は自動適用されない（requiresApproval=true）",
   );
   assert.equal(r.action, "NOINDEX_CANDIDATE");
   assert.equal(r.requiresApproval, true);
+});
+
+test("最新期間ゼロだけではNOINDEX_CANDIDATEにしない", () => {
+  const r = classifyUrl(
+    sig({
+      httpStatus: 200,
+      lowValue: true,
+      longTermZero: false,
+      impressions: 0,
+      activeUsers: 0,
+      hasSuccessor: false,
+      hasParent: false,
+    }),
+  );
+  assert.equal(r.action, "UNKNOWN_REVIEW");
 });
 
 test("canonicalOk=true なら canonical 差があっても FIX_TECHNICAL にしない（陳腐 user_canonical 誤検知抑止）", () => {

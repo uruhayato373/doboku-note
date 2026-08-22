@@ -11,6 +11,8 @@ interface MagazineHeroCtaProps {
   readonly id: MagazineId;
   /** UTM tracking 識別子（= GA4 の data-cta-label） */
   readonly utmContent: string;
+  /** GA4 の配置別集計。 */
+  readonly placement?: string;
 }
 
 /**
@@ -29,7 +31,11 @@ interface MagazineHeroCtaProps {
  *
  * 未公開 (`published: false`) または `noteUrl` 空の場合は null を返し描画しない（防御）。
  */
-export default function MagazineHeroCta({ id, utmContent }: MagazineHeroCtaProps) {
+export default function MagazineHeroCta({
+  id,
+  utmContent,
+  placement = "article-body",
+}: MagazineHeroCtaProps) {
   const magazine = getMagazine(id);
   if (!magazine) return null;
 
@@ -45,7 +51,8 @@ export default function MagazineHeroCta({ id, utmContent }: MagazineHeroCtaProps
       target="_blank"
       rel="noopener noreferrer"
       data-cta="note"
-      data-cta-label={utmContent}
+      data-cta-label={`${id}:${utmContent}`}
+      data-cta-placement={placement}
       className="focus-ring not-prose group relative my-6 block max-w-2xl overflow-hidden rounded-card-content shadow-card-content transition-shadow hover:shadow-card-hover"
     >
       {/* 背景: 資格別ブランドイラスト（未整備の資格はテーマ色ベタ塗りにフォールバック） */}

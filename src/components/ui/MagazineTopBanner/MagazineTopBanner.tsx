@@ -38,7 +38,8 @@ export default function MagazineTopBanner({
       target="_blank"
       rel="noopener noreferrer"
       data-cta="note"
-      data-cta-label={trackLabel}
+      data-cta-label={`${magazineId}:${trackLabel ?? "unknown"}`}
+      data-cta-placement="article-top"
       className="card-surface-content focus-ring not-prose group mb-8 flex min-h-[92px] items-stretch overflow-hidden hover:border-brand dark:hover:border-brand hover:shadow-card-hover transition-shadow"
     >
       <div className="relative w-[88px] shrink-0 overflow-hidden sm:w-[132px]">

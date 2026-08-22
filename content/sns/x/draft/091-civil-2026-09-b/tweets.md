@@ -66,20 +66,6 @@ https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-e
 
 #1級土木施工管理技士 #施工管理技士 #経験記述
 
-## Tweet 09: 9/13 20:30 civil-1 / 経験記述完成答案 / note
-
-自分の現場に近い「想定工事」を選ぶ索引を背骨に、完成答案集・過去問模範答案集（R03-R07）・2テーマ組合せ大全を1つに統合した。9工種を網羅し、令和6年度以降の2テーマ必答に対応する。
-
-https://note.com/dobokunote/m/m8290970a7f05
-
-#1級土木施工管理技士 #施工管理技士 #経験記述
-
-## Tweet 10: 9/14 08:00 civil-2 / リフレーム / linkless（リンクなし）
-
-経験記述は「文章力の勝負」だと思っていないか。実際に評価されるのは、現場で何を課題だと判断し、何を検討して、どう対応したかという筋道の方だ。文章が多少粗くても、判断の筋が通っていれば伝わる。
-
-#2級土木施工管理技士 #施工管理技士
-
 ## Tweet 11: 9/14 12:15 civil-2 / 要点圧縮 / site
 
 建設特化の転職エージェント、2級で使えるかは実務経験の年数で決まる。数年あれば工種・規模・役割を語れて候補になる、未経験に近いなら他サービスとの併用が安全。使える人・使わない方がいい人を正直に整理した。
@@ -221,11 +207,3 @@ A. コンクリート用材料・性質・耐久性・配合設計・製造品�
 https://doboku-note.com/docs/concrete-chief-engineer-guide-essay?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep20-cce-essay
 
 #コンクリート主任技士 #コンクリート技士
-
-## Tweet 30: 9/20 19:35 civil-1 / 論点解説 / site
-
-盛土の締固め、品質規定方式には3通りある。乾燥密度で規定する方法は砂質土向き、空気間げき率や飽和度で規定する方法は自然含水比の高い粘性土向き、強度特性で規定する方法は岩塊・玉石向き。土質で使い分ける。
-
-https://doboku-note.com/docs/civil-construction-1-secondary-quality-management-basics?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep20n-management-basics
-
-#1級土木施工管理技士 #施工管理技士

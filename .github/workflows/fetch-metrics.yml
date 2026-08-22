@@ -71,7 +71,7 @@ jobs:
       - name: Fetch GSC
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
-        run: npm run fetch-gsc-data
+        run: npm run fetch-gsc-data -- --all
 
       # 週次レビュー(オフライン)用: クリーンな7日窓の日次 GSC スナップショット（gsc-date-*.json）。
       # 既定の query フェッチは28日窓。最新2ファイルの日次 clicks/impressions 合計で週次比較を算出する。
@@ -86,7 +86,7 @@ jobs:
       - name: Fetch GSC (page, for crosswalk)
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
-        run: npm run fetch-gsc-data -- --dimension page
+        run: npm run fetch-gsc-data -- --dimension page --all
 
       # cannibalization / content-decay 分析用: page×query の全行スナップショット
       # （gsc-page-query-*.json）。25,000 件単位でページングし --all で全取得。

@@ -5,23 +5,28 @@
   "property": "sc-domain:doboku-note.com",
   "issue": "notFound",
   "scope": "allKnownPages",
-  "runId": "2026-07-30T05-51-00Z",
-  "collectedAt": "2026-07-30T05:51:00.731Z",
+  "runId": "2026-08-22T07-46-59Z",
+  "collectedAt": "2026-08-22T07:46:59.533Z",
   "uiTotal": 297,
   "exportedRows": 297,
   "truncated": false,
   "rejectCount": 0,
   "rejects": [],
   "previous": {
-    "runId": "2026-07-30T05-48-04Z",
-    "collectedAt": "2026-07-30T05:48:04.037Z",
+    "runId": "2026-07-30T05-51-00Z",
+    "collectedAt": "2026-07-30T05:51:00.731Z",
     "exportedRows": 297
   },
   "delta": {
-    "added": 0,
-    "removed": 0
+    "added": 5,
+    "removed": 5
   },
   "rows": [
+    {
+      "url": "https://doboku-note.com/docs/civil-construction-1-guide-four-management-5",
+      "comparisonKey": "/docs/civil-construction-1-guide-four-management-5",
+      "lastCrawled": "2026-07-31"
+    },
     {
       "url": "https://doboku-note.com/8",
       "comparisonKey": "/8",
@@ -113,8 +118,8 @@
       "lastCrawled": "2026-06-19"
     },
     {
-      "url": "https://doboku-note.com/content/sources/textbook-control-chart",
-      "comparisonKey": "/content/sources/textbook-control-chart",
+      "url": "https://doboku-note.com/docs/textbook-control-chart",
+      "comparisonKey": "/docs/textbook-control-chart",
       "lastCrawled": "2026-06-13"
     },
     {
@@ -273,8 +278,8 @@
       "lastCrawled": "2026-06-07"
     },
     {
-      "url": "https://doboku-note.com/content/sources/textbook-shovel-excavator",
-      "comparisonKey": "/content/sources/textbook-shovel-excavator",
+      "url": "https://doboku-note.com/docs/textbook-shovel-excavator",
+      "comparisonKey": "/docs/textbook-shovel-excavator",
       "lastCrawled": "2026-06-06"
     },
     {
@@ -663,8 +668,8 @@
       "lastCrawled": "2026-06-04"
     },
     {
-      "url": "https://doboku-note.com/content/sources/textbook-histogram",
-      "comparisonKey": "/content/sources/textbook-histogram",
+      "url": "https://doboku-note.com/docs/textbook-histogram",
+      "comparisonKey": "/docs/textbook-histogram",
       "lastCrawled": "2026-06-04"
     },
     {
@@ -688,8 +693,8 @@
       "lastCrawled": "2026-06-04"
     },
     {
-      "url": "https://doboku-note.com/content/sources/textbook-transport-machinery",
-      "comparisonKey": "/content/sources/textbook-transport-machinery",
+      "url": "https://doboku-note.com/docs/textbook-transport-machinery",
+      "comparisonKey": "/docs/textbook-transport-machinery",
       "lastCrawled": "2026-06-04"
     },
     {
@@ -1451,11 +1456,6 @@
       "url": "https://doboku-note.com/docs/exam/civil-construction-1/secondary/experience-writing/guide",
       "comparisonKey": "/docs/exam/civil-construction-1/secondary/experience-writing/guide",
       "lastCrawled": "2026-04-16"
-    },
-    {
-      "url": "https://doboku-note.com/docs/general/construction-management/quality-management/quality-management-methods",
-      "comparisonKey": "/docs/general/construction-management/quality-management/quality-management-methods",
-      "lastCrawled": "2026-04-10"
     },
     {
       "url": "https://doboku-note.com/docs/low/admin-scrivener-admin-law/01-types",

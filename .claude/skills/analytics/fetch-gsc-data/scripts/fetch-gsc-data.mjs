@@ -19,6 +19,7 @@ import { google } from "googleapis";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";
 import dotenv from "dotenv";
+import { fetchGscPages } from "../../../../../scripts/lib/gsc-pagination.mjs";
 
 dotenv.config({ path: ".env.local" });
 
@@ -151,27 +152,16 @@ async function fetchSearchAnalytics(auth, opts) {
   const filterGroups =
     dimensionFilters.length > 0 ? [{ filters: dimensionFilters }] : undefined;
 
-  // ページング: 25,000 行/リクエスト単位で startRow を進めながら rowCap まで取得。
-  const allRows = [];
-  let startRow = 0;
-  let pagesFetched = 0;
-  let lastPageFull = false;
-  while (allRows.length < rowCap) {
-    const pageSize = Math.min(API_PAGE_SIZE, rowCap - allRows.length);
-    const requestBody = { startDate, endDate, dimensions, rowLimit: pageSize, startRow };
-    if (filterGroups) requestBody.dimensionFilterGroups = filterGroups;
-
-    const res = await searchconsole.searchanalytics.query({ siteUrl: SITE_URL, requestBody });
-    const rows = res.data.rows || [];
-    pagesFetched++;
-    allRows.push(...rows);
-    lastPageFull = rows.length === pageSize;
-    if (rows.length < pageSize) break; // 最終ページ（返却行がリクエスト未満）
-    startRow += rows.length;
-  }
-
-  // rowCap で打ち切った可能性（さらに行が残っているか不明）。
-  const truncated = allRows.length >= rowCap && lastPageFull;
+  const paged = await fetchGscPages({
+    rowCap,
+    pageSize: API_PAGE_SIZE,
+    fetchPage: async ({ startRow, rowLimit }) => {
+      const requestBody = { startDate, endDate, dimensions, rowLimit, startRow };
+      if (filterGroups) requestBody.dimensionFilterGroups = filterGroups;
+      const res = await searchconsole.searchanalytics.query({ siteUrl: SITE_URL, requestBody });
+      return res.data.rows || [];
+    },
+  });
 
   return {
     meta: {
@@ -181,14 +171,14 @@ async function fetchSearchAnalytics(auth, opts) {
       // 後方互換: 単一ディメンション時は従来どおり dimension も残す。
       ...(dimensions.length === 1 ? { dimension: dimensions[0] } : {}),
       limit: opts.all ? null : opts.limit,
-      pages_fetched: pagesFetched,
-      row_count: allRows.length,
-      truncated,
+      pages_fetched: paged.pagesFetched,
+      row_count: paged.rows.length,
+      truncated: paged.truncated,
       api_note:
         "Search Analytics API は全行の返却を保証しない（sampling / privacy filtering で低ボリューム行が欠落し得る）。" +
         "row_count は startRow ページングの合算実測値であり、母集合全体とは限らない。",
     },
-    rows: allRows,
+    rows: paged.rows,
   };
 }
 

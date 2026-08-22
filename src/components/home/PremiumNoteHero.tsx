@@ -17,6 +17,7 @@ export default function PremiumNoteHero() {
         href="/links"
         data-cta="note"
         data-cta-label="home-note-hero"
+        data-cta-placement="home-hero"
         className="group relative block aspect-[3/2] w-full overflow-hidden rounded-card-section border border-[var(--rule-soft)] shadow-card-content transition-shadow hover:shadow-card-hover sm:aspect-[24/9]"
       >
         <Image

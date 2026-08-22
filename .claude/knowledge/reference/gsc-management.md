@@ -383,3 +383,11 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
   - civil-2 経験記述 Hidden-Winner → **保留継続**（386 / 377 sessions は再浮上条件「次回計測で 300 超」を数値上満たすが、同一データの再掲であり新規計測と見なさない）
   - scraper CTR 実験化候補 → 裁定維持（上記 2）
 - 注記: 自動生成（metrics-analyzer・人間の上書き歓迎）。GSC page/query 単体は limit=100 truncated、GA4 page も丁度 100 件で上位カットの疑い（meta にフラグなし）。GA4 Traffic-Drop は 4 週ローリング窓の代理指標であり厳密な週次 WoW ではない
+
+### 2026-08-22（GSC UI完全取得・EXP-006終了・総監5分類）
+
+- 観測: GSC UI run `2026-08-22T07-46-59Z` は16ユニット・失敗0・truncated 0・reject 0。allKnownはcrawled-not-indexed 353 / redirect 857 / 404 297 / canonical 160 / 403 5 / noindex 2 / discovered 3、allSubmittedのcrawled-not-indexedは302
+- 8/1 URL Inspectionとの比較: 現行sitemap相当のCNIは292→302（+10）、総監は205→209（+4）。総監は追加21・離脱17で、固定障害ではなくindex selectionの入れ替わりが継続
+- EXP-006: civil-1 textbook 20本のうちCNI残存13・離脱7（indexed一覧では未確認）。事前基準により`partial`で終了し、同一URLへの登録リクエスト反復を中止。2026-09-01の月次Inspectionで事後確認する
+- 総監209本: `KEEP 31 / IMPROVE 19 / CONSOLIDATE 0 / NOINDEX_REVIEW 0 / MONITOR 159`。159本は更新60日未満または直近2回連続未登録を未確認であり、統合不要ではなく判定保留
+- 判断: 技術修正候補0。2026-09-01までは総監MDX・title・301・noindexを変更しない。次回全件performanceデータと月次Inspection後に再分類し、統合候補が出ても本文差分を確認した最大5〜10クラスタだけを承認対象にする

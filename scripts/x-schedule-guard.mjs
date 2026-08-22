@@ -211,7 +211,7 @@ if (WITH_QUEUE) {
     } finally { await ctx.close(); }
     console.log(`   キュー取得: ${snippets.size} 行`);
     // 未投入(scheduled)のみ照合。queued は既にキュー投入済＝在って当然なので除外（後日 run の二重誤検出回避）。
-    for (const t of future.filter(t => t.status === "scheduled")) {
+    for (const t of future.filter(t => t.status === "scheduled" && t.manual_only !== true)) {
       const needle = (t.text || t.title || "").slice(0, 15).replace(/\s+/g, " ").trim();
       if (!needle) continue;
       for (const s of snippets) {

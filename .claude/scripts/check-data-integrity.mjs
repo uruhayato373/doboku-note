@@ -20,8 +20,10 @@
 
 import { readFileSync, readdirSync, writeFileSync, writeSync } from 'node:fs';
 import { join } from "node:path";
+import { assessGscPerformanceSnapshot } from "../../scripts/lib/gsc-data-integrity.mjs";
 
 const METRICS_DIR = ".claude/state/metrics/ga4";
+const GSC_METRICS_DIR = ".claude/state/metrics/gsc";
 const THRESHOLDS = {
   shortWindow: { days: 7, maxMissing: 2 },
   longWindow: { days: 14, maxMissing: 3 },
@@ -53,6 +55,20 @@ function findLatestDateFile() {
     .sort()
     .reverse();
   return dateFiles[0] ? join(METRICS_DIR, dateFiles[0]) : null;
+}
+
+function findLatestGscFile(prefix, excludedPrefix = null) {
+  let files;
+  try {
+    files = readdirSync(GSC_METRICS_DIR);
+  } catch {
+    return null;
+  }
+  const matches = files
+    .filter((file) => file.startsWith(prefix) && file.endsWith(".json") && (!excludedPrefix || !file.startsWith(excludedPrefix)))
+    .sort()
+    .reverse();
+  return matches[0] ? join(GSC_METRICS_DIR, matches[0]) : null;
 }
 
 function parseYmd(ymd) {
@@ -221,18 +237,33 @@ if (!filePath) {
 }
 
 const result = checkIntegrity(filePath);
+const gscFiles = {
+  query: findLatestGscFile("gsc-query-"),
+  page: findLatestGscFile("gsc-page-", "gsc-page-query-"),
+};
+const gscChecks = Object.entries(gscFiles).map(([label, path]) => ({
+  label,
+  path,
+  ...assessGscPerformanceSnapshot(path ? JSON.parse(readFileSync(path, "utf-8")) : null, `GSC ${label}`),
+}));
+const gscHealthy = gscChecks.every((check) => check.healthy);
 
 if (opts.json) {
   writeSync(1, JSON.stringify(result, null, 2) + '\n');
 } else {
   const report = renderReport(result);
   console.log(report);
+  console.log("\n## GSC performance データ完全性");
+  for (const check of gscChecks) {
+    console.log(`- ${check.label}: ${check.healthy ? "OK" : "INCOMPLETE"} (${check.path || "missing"})`);
+    for (const reason of check.reasons) console.log(`  - ${reason}`);
+  }
 }
 
 if (opts.reportPath) {
   writeFileSync(opts.reportPath, renderReport(result), "utf-8");
 }
 
-if (!result.healthy) {
+if (!result.healthy || !gscHealthy) {
   process.exit(1);
 }

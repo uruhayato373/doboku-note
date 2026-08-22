@@ -131,7 +131,7 @@ export default async function CategoryPage({
         />
       ))}
       <AuthorSidebarCard />
-      {hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} />}
+      {hubCtaSidebar && <HubCtaBanner cta={hubCtaSidebar} placement="category-sidebar" />}
       <PopularRanking items={popularDocs} />
     </div>
   );
@@ -208,7 +208,7 @@ export default async function CategoryPage({
             {/* note もくじ CTA（モバイル＜993px のみ）。PC は右サイドバーへ集約。 */}
             {hubCtaMobile && (
               <div className="zenn-desktop:hidden pb-10 mx-auto max-w-[360px]">
-                <HubCtaBanner cta={hubCtaMobile} />
+                <HubCtaBanner cta={hubCtaMobile} placement="category-mobile" />
               </div>
             )}
         </TwoColumnShell>

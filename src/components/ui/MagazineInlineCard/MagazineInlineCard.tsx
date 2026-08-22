@@ -11,6 +11,8 @@ interface MagazineInlineCardProps {
   readonly badge: string;
   /** GA4 クリック計測ラベル（通常は utm_content）。AnalyticsProvider のデリゲートリスナーが拾う。 */
   readonly trackLabel?: string;
+  /** GA4 の配置別集計。 */
+  readonly placement?: string;
 }
 
 /**
@@ -31,6 +33,7 @@ export default function MagazineInlineCard({
   magazineId,
   badge,
   trackLabel,
+  placement = "article-body",
 }: MagazineInlineCardProps) {
   const brand = brandOf(magazineId);
   return (
@@ -39,25 +42,26 @@ export default function MagazineInlineCard({
       target="_blank"
       rel="noopener noreferrer"
       data-cta="note"
-      data-cta-label={trackLabel}
+      data-cta-label={`${magazineId}:${trackLabel ?? "unknown"}`}
+      data-cta-placement={placement}
       className="card-surface-content focus-ring not-prose group my-6 block max-w-2xl overflow-hidden hover:shadow-card-hover hover:border-brand dark:hover:border-brand transition-shadow"
     >
-      <div className="flex flex-col sm:flex-row">
-        <div className="relative w-full sm:w-[240px] shrink-0 aspect-square overflow-hidden bg-[var(--bg)]">
+      <div className="flex min-h-[112px] flex-row">
+        <div className="relative aspect-[6/5] w-24 shrink-0 self-center overflow-hidden bg-[var(--bg)] sm:w-[180px]">
           {brand.ctaBg ? (
             <Image
               src={brand.ctaBg}
               alt=""
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-300"
-              sizes="(max-width: 640px) 100vw, 240px"
+              sizes="(max-width: 640px) 96px, 180px"
             />
           ) : (
             <div className="absolute inset-0" style={{ background: `var(${brand.themeVar})` }} />
           )}
           <MagazineBadge>{badge}</MagazineBadge>
         </div>
-        <div className="min-w-0 flex-1 p-3 sm:p-4">
+        <div className="flex min-w-0 flex-1 flex-col justify-center p-3 sm:p-4">
           <div className="text-[14px] sm:text-[15px] font-bold text-ink-strong leading-tight group-hover:text-brand-deep dark:group-hover:text-brand transition-colors line-clamp-2">
             {title}
           </div>

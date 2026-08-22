@@ -146,9 +146,10 @@ export function classifyUrl(sig = {}) {
     !hasGa4Usage(sig) &&
     !sig.hasSuccessor &&
     !sig.hasParent &&
-    sig.lowValue === true
+    sig.lowValue === true &&
+    sig.longTermZero === true
   ) {
-    reasons.push("固有価値低・impressions/GA4 長期ゼロ・統合先なし（自動適用しない）");
+    reasons.push("固有価値低・長期impressions/GA4ゼロを確認・統合先なし（自動適用しない）");
     return finalize("NOINDEX_CANDIDATE", 0.5, reasons, sig);
   }
 

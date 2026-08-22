@@ -39,11 +39,11 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
             <Link
               key={a.slug}
               href={`/docs/${a.slug}`}
-              className="focus-ring card-surface-section group flex flex-col overflow-hidden transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
+              className="focus-ring card-surface-section group flex overflow-hidden transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
             >
               {/* サムネ（記事別 OGP＝1200:630・資格別テーマ色＋タグ焼き込み。RelatedArticleCard と同系統）。
                   資格別写真プール（guide-covers）は猫/場違い画像の混入により 2026-07-07 に廃止し OGP へ一本化。 */}
-              <div className="relative aspect-[1200/630] overflow-hidden bg-[var(--accent-fill)]">
+              <div className="relative aspect-[1200/630] w-[128px] shrink-0 overflow-hidden bg-[var(--accent-fill)] sm:w-[188px] md:w-[204px]">
                 {a.image && (
                   <img
                     src={a.image}
@@ -57,7 +57,7 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
                   />
                 )}
               </div>
-              <div className="p-5 sm:p-6">
+              <div className="min-w-0 p-4 sm:p-5">
                 <div className="flex items-center gap-2 mb-2 flex-wrap">
                   {a.categoryLabel && (
                     <span className="rounded-card-inline bg-[var(--accent-fill)] px-2 py-0.5 font-mono text-[10px] uppercase tracking-widest text-[var(--accent)]">
@@ -66,7 +66,7 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
                   )}
                   {date && <span className="font-mono text-[10px] text-[var(--ink-muted)] tabular-nums">{date}</span>}
                 </div>
-                <h3 className="font-serif font-bold text-base sm:text-lg text-[var(--ink)] leading-snug group-hover:text-[var(--accent)] transition-colors">
+                <h3 className="font-serif font-bold text-base text-[var(--ink)] leading-snug group-hover:text-[var(--accent)] transition-colors sm:line-clamp-2">
                   {a.title}
                 </h3>
                 {a.tags && a.tags.length > 0 && (

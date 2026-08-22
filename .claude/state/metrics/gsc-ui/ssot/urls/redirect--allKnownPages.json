@@ -5,38 +5,90 @@
   "property": "sc-domain:doboku-note.com",
   "issue": "redirect",
   "scope": "allKnownPages",
-  "runId": "2026-07-30T05-51-00Z",
-  "collectedAt": "2026-07-30T05:51:00.731Z",
-  "uiTotal": 856,
-  "exportedRows": 856,
+  "runId": "2026-08-22T07-46-59Z",
+  "collectedAt": "2026-08-22T07:46:59.533Z",
+  "uiTotal": 857,
+  "exportedRows": 857,
   "truncated": false,
   "rejectCount": 0,
   "rejects": [],
   "previous": {
-    "runId": "2026-07-30T05-48-04Z",
-    "collectedAt": "2026-07-30T05:48:04.037Z",
+    "runId": "2026-07-30T05-51-00Z",
+    "collectedAt": "2026-07-30T05:51:00.731Z",
     "exportedRows": 856
   },
   "delta": {
-    "added": 0,
+    "added": 1,
     "removed": 0
   },
   "rows": [
     {
+      "url": "https://doboku-note.com/docs/river-low",
+      "comparisonKey": "/docs/river-low",
+      "lastCrawled": "2026-08-17"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-management/road-administrator/",
+      "comparisonKey": "/docs/road/road-management/road-administrator/",
+      "lastCrawled": "2026-08-16"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/pe",
+      "comparisonKey": "/docs/exam/pe",
+      "lastCrawled": "2026-08-16"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/construction-management/quality-management/quality-management-methods",
+      "comparisonKey": "/docs/general/construction-management/quality-management/quality-management-methods",
+      "lastCrawled": "2026-08-15"
+    },
+    {
+      "url": "http://www.doboku-note.com/",
+      "comparisonKey": "/",
+      "lastCrawled": "2026-08-14",
+      "duplicateCount": 3
+    },
+    {
       "url": "http://doboku-note.com/",
       "comparisonKey": "/",
-      "lastCrawled": "2026-07-25",
+      "lastCrawled": "2026-08-12",
+      "duplicateCount": 3
+    },
+    {
+      "url": "https://doboku-note.com/docs/river/river-management/04",
+      "comparisonKey": "/docs/river/river-management/04",
+      "lastCrawled": "2026-08-12"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-management/road-administrator",
+      "comparisonKey": "/docs/road/road-management/road-administrator",
+      "lastCrawled": "2026-08-12"
+    },
+    {
+      "url": "https://doboku-note.com/docs/road/road-management/road-construction",
+      "comparisonKey": "/docs/road/road-management/road-construction",
+      "lastCrawled": "2026-08-12"
+    },
+    {
+      "url": "https://www.doboku-note.com/",
+      "comparisonKey": "/",
+      "lastCrawled": "2026-08-10",
       "duplicateCount": 3
     },
     {
       "url": "https://doboku-note.com/docs/general/construction-management/project-management/network-diagram-creation",
       "comparisonKey": "/docs/general/construction-management/project-management/network-diagram-creation",
-      "lastCrawled": "2026-07-23"
+      "lastCrawled": "2026-08-06"
     },
     {
-      "url": "https://doboku-note.com/docs/road/road-management/road-administrator/",
-      "comparisonKey": "/docs/road/road-management/road-administrator/",
-      "lastCrawled": "2026-07-22"
+      "url": "https://doboku-note.com/docs/exam/index",
+      "comparisonKey": "/docs/exam/index",
+      "lastCrawled": "2026-08-05"
+    },
+    {
+      "url": "https://doboku-note.com/docs/exam/cem",
+      "comparisonKey": "/docs/exam/cem",
+      "lastCrawled": "2026-08-04"
     },
     {
       "url": "https://doboku-note.com/docs/road/road-law/041",
@@ -44,40 +96,8 @@
       "lastCrawled": "2026-07-22"
     },
     {
-      "url": "https://doboku-note.com/docs/road/road-management/road-construction",
-      "comparisonKey": "/docs/road/road-management/road-construction",
-      "lastCrawled": "2026-07-21"
-    },
-    {
-      "url": "https://www.doboku-note.com/",
-      "comparisonKey": "/",
-      "lastCrawled": "2026-07-21",
-      "duplicateCount": 3
-    },
-    {
-      "url": "https://doboku-note.com/docs/road/road-management/road-administrator",
-      "comparisonKey": "/docs/road/road-management/road-administrator",
-      "lastCrawled": "2026-07-20"
-    },
-    {
-      "url": "http://www.doboku-note.com/",
-      "comparisonKey": "/",
-      "lastCrawled": "2026-07-20",
-      "duplicateCount": 3
-    },
-    {
-      "url": "https://doboku-note.com/docs/river-low",
-      "comparisonKey": "/docs/river-low",
-      "lastCrawled": "2026-07-20"
-    },
-    {
       "url": "https://doboku-note.com/docs/river/hydrology/05",
       "comparisonKey": "/docs/river/hydrology/05",
-      "lastCrawled": "2026-07-20"
-    },
-    {
-      "url": "https://doboku-note.com/docs/river/river-management/04",
-      "comparisonKey": "/docs/river/river-management/04",
       "lastCrawled": "2026-07-20"
     },
     {
@@ -124,11 +144,6 @@
       "url": "https://doboku-note.com/docs/pe-comprehensive-management-product-safety-process",
       "comparisonKey": "/docs/pe-comprehensive-management-product-safety-process",
       "lastCrawled": "2026-06-13"
-    },
-    {
-      "url": "https://doboku-note.com/docs/exam/cem",
-      "comparisonKey": "/docs/exam/cem",
-      "lastCrawled": "2026-06-09"
     },
     {
       "url": "https://doboku-note.com/docs/low/local-autonomy-act/local-gov-06",
@@ -296,18 +311,33 @@
       "lastCrawled": "2026-06-04"
     },
     {
+      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/29-natm",
+      "comparisonKey": "/docs/general/hyogo-hikkei/29-natm",
+      "lastCrawled": "2026-06-04"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road2-05-seismic-01",
+      "comparisonKey": "/docs/general/tech-management/road2-05-seismic-01",
+      "lastCrawled": "2026-06-04"
+    },
+    {
       "url": "https://doboku-note.com/docs/general/tech-management/sabo2-02-survey",
       "comparisonKey": "/docs/general/tech-management/sabo2-02-survey",
       "lastCrawled": "2026-06-04"
     },
     {
-      "url": "https://doboku-note.com/docs/exam/index",
-      "comparisonKey": "/docs/exam/index",
+      "url": "https://doboku-note.com/docs/general/construction-management/safety-management/safety-oxygen-deficiency",
+      "comparisonKey": "/docs/general/construction-management/safety-management/safety-oxygen-deficiency",
       "lastCrawled": "2026-06-04"
     },
     {
-      "url": "https://doboku-note.com/docs/general/construction-management/safety-management/safety-oxygen-deficiency",
-      "comparisonKey": "/docs/general/construction-management/safety-management/safety-oxygen-deficiency",
+      "url": "https://doboku-note.com/docs/general/exam-questions/h26-b",
+      "comparisonKey": "/docs/general/exam-questions/h26-b",
+      "lastCrawled": "2026-06-04"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/bridge-03-construction",
+      "comparisonKey": "/docs/general/tech-management/bridge-03-construction",
       "lastCrawled": "2026-06-04"
     },
     {
@@ -386,11 +416,6 @@
       "lastCrawled": "2026-06-03"
     },
     {
-      "url": "https://doboku-note.com/docs/general/exam-questions/h26-b",
-      "comparisonKey": "/docs/general/exam-questions/h26-b",
-      "lastCrawled": "2026-06-03"
-    },
-    {
       "url": "https://doboku-note.com/docs/general/exam-questions/r02-a",
       "comparisonKey": "/docs/general/exam-questions/r02-a",
       "lastCrawled": "2026-06-03"
@@ -398,21 +423,6 @@
     {
       "url": "https://doboku-note.com/docs/general/exam-questions/r02-b",
       "comparisonKey": "/docs/general/exam-questions/r02-b",
-      "lastCrawled": "2026-06-03"
-    },
-    {
-      "url": "https://doboku-note.com/docs/general/hyogo-hikkei/29-natm",
-      "comparisonKey": "/docs/general/hyogo-hikkei/29-natm",
-      "lastCrawled": "2026-06-03"
-    },
-    {
-      "url": "https://doboku-note.com/docs/general/tech-management/bridge-03-construction",
-      "comparisonKey": "/docs/general/tech-management/bridge-03-construction",
-      "lastCrawled": "2026-06-03"
-    },
-    {
-      "url": "https://doboku-note.com/docs/general/tech-management/road2-05-seismic-01",
-      "comparisonKey": "/docs/general/tech-management/road2-05-seismic-01",
       "lastCrawled": "2026-06-03"
     },
     {
@@ -481,6 +491,11 @@
       "lastCrawled": "2026-06-03"
     },
     {
+      "url": "https://doboku-note.com/docs/general/civil-general/construction-machinery/loading-transport",
+      "comparisonKey": "/docs/general/civil-general/construction-machinery/loading-transport",
+      "lastCrawled": "2026-06-02"
+    },
+    {
       "url": "https://doboku-note.com/docs/general/civil-general/foundation/geological-survey",
       "comparisonKey": "/docs/general/civil-general/foundation/geological-survey",
       "lastCrawled": "2026-06-02"
@@ -488,6 +503,11 @@
     {
       "url": "https://doboku-note.com/docs/general/civil-planning/13-road-facilities",
       "comparisonKey": "/docs/general/civil-planning/13-road-facilities",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/civil-planning/14-public-transport",
+      "comparisonKey": "/docs/general/civil-planning/14-public-transport",
       "lastCrawled": "2026-06-02"
     },
     {
@@ -503,6 +523,11 @@
     {
       "url": "https://doboku-note.com/docs/general/tech-management/road1-02-earthwork-01",
       "comparisonKey": "/docs/general/tech-management/road1-02-earthwork-01",
+      "lastCrawled": "2026-06-02"
+    },
+    {
+      "url": "https://doboku-note.com/docs/general/tech-management/road2-06-traffic-02",
+      "comparisonKey": "/docs/general/tech-management/road2-06-traffic-02",
       "lastCrawled": "2026-06-02"
     },
     {
@@ -641,11 +666,6 @@
       "lastCrawled": "2026-06-02"
     },
     {
-      "url": "https://doboku-note.com/docs/general/civil-general/construction-machinery/loading-transport",
-      "comparisonKey": "/docs/general/civil-general/construction-machinery/loading-transport",
-      "lastCrawled": "2026-06-02"
-    },
-    {
       "url": "https://doboku-note.com/docs/general/civil-general/earthwork/slope-protection",
       "comparisonKey": "/docs/general/civil-general/earthwork/slope-protection",
       "lastCrawled": "2026-06-02"
@@ -653,11 +673,6 @@
     {
       "url": "https://doboku-note.com/docs/general/civil-general/earthwork/soft-ground",
       "comparisonKey": "/docs/general/civil-general/earthwork/soft-ground",
-      "lastCrawled": "2026-06-02"
-    },
-    {
-      "url": "https://doboku-note.com/docs/general/civil-planning/14-public-transport",
-      "comparisonKey": "/docs/general/civil-planning/14-public-transport",
       "lastCrawled": "2026-06-02"
     },
     {
@@ -778,11 +793,6 @@
     {
       "url": "https://doboku-note.com/docs/general/tech-management/road2-03-disaster-01",
       "comparisonKey": "/docs/general/tech-management/road2-03-disaster-01",
-      "lastCrawled": "2026-06-02"
-    },
-    {
-      "url": "https://doboku-note.com/docs/general/tech-management/road2-06-traffic-02",
-      "comparisonKey": "/docs/general/tech-management/road2-06-traffic-02",
       "lastCrawled": "2026-06-02"
     },
     {
@@ -2918,11 +2928,6 @@
     {
       "url": "https://doboku-note.com/docs/exam/civil-construction-1/secondary/construction-plan/past-problems",
       "comparisonKey": "/docs/exam/civil-construction-1/secondary/construction-plan/past-problems",
-      "lastCrawled": "2026-04-27"
-    },
-    {
-      "url": "https://doboku-note.com/docs/exam/pe",
-      "comparisonKey": "/docs/exam/pe",
       "lastCrawled": "2026-04-27"
     },
     {

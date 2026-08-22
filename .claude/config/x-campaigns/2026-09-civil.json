@@ -19,10 +19,11 @@
       "concrete-chief": 16
     },
     "funnelMix": {
-      "linkless": 38,
-      "site": 37,
-      "note": 7,
-      "coconala": 7,
+      "linkless": 33,
+      "site": 40,
+      "x-article": 4,
+      "note": 6,
+      "coconala": 6,
       "brain": 1
     },
     "rules": [
@@ -208,10 +209,10 @@
       "date": "2026-09-06",
       "time": "19:50",
       "slot": "C",
-      "exam": "civil-2",
-      "type": "現場つぶやき",
-      "funnel": "linkless",
-      "target": null,
+      "exam": "civil-1",
+      "type": "X Article（手動公開）・辞めるか残るか",
+      "funnel": "site",
+      "target": "https://doboku-note.com/docs/civil-construction-1-guide-quit-or-stay?utm_source=x&utm_medium=social&utm_campaign=x-longform-career-2026&utm_content=article-01",
       "image": null
     },
     {
@@ -219,9 +220,10 @@
       "time": "07:20",
       "slot": "A",
       "exam": "civil-1",
-      "type": "暗記フレーズ",
-      "funnel": "linkless",
+      "type": "X Article告知・辞めるか残るか",
+      "funnel": "x-article",
       "target": null,
+      "awaitingTarget": true,
       "image": null
     },
     {
@@ -419,19 +421,20 @@
       "time": "20:30",
       "slot": "C",
       "exam": "civil-1",
-      "type": "経験記述完成答案",
-      "funnel": "note",
-      "target": "https://note.com/dobokunote/m/m8290970a7f05",
+      "type": "X Article（手動公開）・市場価値",
+      "funnel": "site",
+      "target": "https://doboku-note.com/docs/civil-construction-1-guide-market-value?utm_source=x&utm_medium=social&utm_campaign=x-longform-career-2026&utm_content=article-02",
       "image": null
     },
     {
       "date": "2026-09-14",
       "time": "08:00",
       "slot": "A",
-      "exam": "civil-2",
-      "type": "リフレーム",
-      "funnel": "linkless",
+      "exam": "civil-1",
+      "type": "X Article告知・市場価値",
+      "funnel": "x-article",
       "target": null,
+      "awaitingTarget": true,
       "image": null
     },
     {
@@ -629,9 +632,9 @@
       "time": "19:35",
       "slot": "C",
       "exam": "civil-1",
-      "type": "論点解説",
+      "type": "X Article（手動公開）・キャリアパス",
       "funnel": "site",
-      "target": "https://doboku-note.com/docs/civil-construction-1-secondary-quality-management-basics?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep20n-management-basics",
+      "target": "https://doboku-note.com/docs/civil-construction-1-guide-career-path?utm_source=x&utm_medium=social&utm_campaign=x-longform-career-2026&utm_content=article-03",
       "image": null
     },
     {
@@ -639,9 +642,10 @@
       "time": "07:15",
       "slot": "A",
       "exam": "civil-1",
-      "type": "共感フック",
-      "funnel": "linkless",
+      "type": "X Article告知・キャリアパス",
+      "funnel": "x-article",
       "target": null,
+      "awaitingTarget": true,
       "image": null
     },
     {
@@ -838,20 +842,21 @@
       "date": "2026-09-27",
       "time": "20:15",
       "slot": "C",
-      "exam": "civil-1",
-      "type": "合格診断",
-      "funnel": "coconala",
-      "target": "https://coconala.com/services/4317349",
+      "exam": "civil-2",
+      "type": "X Article（手動公開）・2級若手",
+      "funnel": "site",
+      "target": "https://doboku-note.com/docs/civil-construction-2-guide-career?utm_source=x&utm_medium=social&utm_campaign=x-longform-career-2026&utm_content=article-04",
       "image": null
     },
     {
       "date": "2026-09-28",
       "time": "07:50",
       "slot": "A",
-      "exam": "civil-1",
-      "type": "現場つぶやき",
-      "funnel": "linkless",
+      "exam": "civil-2",
+      "type": "X Article告知・2級若手",
+      "funnel": "x-article",
       "target": null,
+      "awaitingTarget": true,
       "image": null
     },
     {

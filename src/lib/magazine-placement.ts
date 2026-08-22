@@ -469,7 +469,17 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       sidebar: [slot('civil-1-pastexam-essay', slug, 'sidebar-1')],
     };
   }
-  if (/^civil-construction-1-secondary-experience-writing-(guide|examples)$/.test(slug)) {
+  // 検索意図が「書き方」の guide は、最も地続きの完成答案集を本文中間の主 CTA にする。
+  // メンバーシップは L2 もくじへ集約し、冒頭パック＋中間完成答案＋終盤の組合せ大全という
+  // 3 段階に絞る（大型 CTA の連打と選択肢過多を避ける）。
+  if (slug === 'civil-construction-1-secondary-experience-writing-guide') {
+    return {
+      top: slot('civil-1-keiken-complete-pack', slug, 'top'),
+      inline: [slot('civil-1-experience-essay', slug, 'inline-1')],
+      sidebar: [],
+    };
+  }
+  if (slug === 'civil-construction-1-secondary-experience-writing-examples') {
     return {
       top: slot('civil-1-keiken-complete-pack', slug, 'top'),
       inline: [

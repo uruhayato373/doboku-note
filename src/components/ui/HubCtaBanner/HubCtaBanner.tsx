@@ -9,7 +9,13 @@ import { type ResolvedHubCta } from '@/lib/hub-cta';
 
 const HALO = { textShadow: '0 1px 2px rgba(255,255,255,0.95), 0 0 12px rgba(255,255,255,0.85)' };
 
-export default function HubCtaBanner({ cta }: { cta: ResolvedHubCta }) {
+export default function HubCtaBanner({
+  cta,
+  placement,
+}: {
+  cta: ResolvedHubCta;
+  placement: string;
+}) {
   return (
     <a
       href={cta.url}
@@ -17,6 +23,7 @@ export default function HubCtaBanner({ cta }: { cta: ResolvedHubCta }) {
       rel="noopener noreferrer"
       data-cta="note"
       data-cta-label={cta.trackLabel}
+      data-cta-placement={placement}
       className="card-surface-content focus-ring group block w-full max-w-[360px] overflow-hidden p-2 transition-shadow hover:shadow-card-hover"
     >
       {/* 白カード枠（bg-paper + p-2）で囲む＝転職アフィリ SidebarAdBanner とカード意匠を統一。画像は内側に inset。 */}

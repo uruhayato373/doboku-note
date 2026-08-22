@@ -8,12 +8,6 @@
 
 ---
 
-## Tweet 01: 9/21 07:15 civil-1 / 共感フック / linkless
-
-残り2週間を切ると、経験記述の下書きをまた書き直したくなる。実はここで新しい工事に手を出すのが一番危ない。今の自分の中にある2テーマの骨格を、これ以上動かさない勇気の方が得点に効く。
-
-#1級土木施工管理技士 #施工管理技士 #経験記述
-
 ## Tweet 02: 9/21 12:10 civil-1 / 過去問1問1答 / site
 
 Q. 出来形管理の記述、NGな終わり方は。
@@ -144,19 +138,6 @@ https://doboku-note.com/docs/civil-construction-2-guide-career-agent-comparison?
 
 https://doboku-note.com/docs/civil-construction-1-secondary-quality-management-past-problems?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep27-past-problems
 #1級土木施工管理技士 #施工管理技士 #品質管理
-
-## Tweet 21: 9/27 20:15 civil-1 / 合格診断 / coconala
-
-残り1週間、答案を新しく書き直す時間は無くても、今の下書きのどこが弱いかを知る時間はまだある。1テーマ分をA/B/C判定と減点ワースト3で返す診断のみのサービス。書き直しは自分でできる状態にしておきたい人向け。
-
-https://coconala.com/services/4317349
-#1級土木施工管理技士 #施工管理技士 #経験記述
-
-## Tweet 22: 9/28 07:50 civil-1 / 現場つぶやき / linkless
-
-朝の現場で、型枠工が打継目の位置を指差しながら若手に説明していた。「せん断力が小さいところに逃がす」と一言。経験記述の技術用語は、現場ではこうやって口頭で先に共有されているんだと思う。
-
-#1級土木施工管理技士 #施工管理技士
 
 ## Tweet 23: 9/28 12:35 civil-1 / 出題実績分析 / site
 
