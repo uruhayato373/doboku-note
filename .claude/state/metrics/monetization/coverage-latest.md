@@ -27,7 +27,7 @@
 | # | ページ | users | note CTA | アフィリ | noteCTR | affCTR |
 |--:|---|--:|---|---|--:|--:|
 | 1 | `civil-construction-2-secondary-r07` | 254 | civil-membership-lab+civil-2-koji-bank+civil-2-gakka-kijutsu+civil-2-anki-note+civil-2-pastexam-essay+civil-2-experience-essay | BuildJob | 12.6% | 0.8% |
-| 2 | `civil-construction-1-secondary-experience-writing-guide` | 240 | civil-membership-lab+civil-1-keiken-complete-pack+civil-1-niji-marugoto-pack+civil-1-experience-essay+civil-1-pastexam-essay+civil-1-combo-essay | BuildJob | 6.3% | 0.0% |
+| 2 | `civil-construction-1-secondary-experience-writing-guide` | 240 | civil-1-experience-essay | BuildJob | 6.3% | 0.0% |
 | 3 | `civil-construction-2-secondary-experience-writing-guide` | 224 | civil-membership-lab+civil-2-koji-bank+civil-2-experience-essay+civil-2-pastexam-essay | BuildJob | 9.4% | 0.4% |
 | 4 | `civil-construction-1-textbook-leveling` | 136 | civil-membership-lab+civil-1-experience-essay | BuildJob | 0.0% | 0.0% |
 | 5 | `civil-construction-1-secondary-getting-started` | 124 | civil-membership-lab+civil-1-keiken-complete-pack+civil-1-gakka-kijutsu+civil-1-anki-note | BuildJob | 5.6% | 0.0% |
