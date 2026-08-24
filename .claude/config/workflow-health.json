@@ -1,0 +1,56 @@
+{
+  "_doc": "check-workflow-health.mjs が見る重要 workflow と閾値。maxAgeDays = 最後に success してから何日までを健全とするか。maxConsecutiveFailures = 何連続failureで不健全とするか（その数に達したら違反）。閾値は各 workflow の実際の実行間隔＋バッファで決める——間隔より短い上限を置くと、正常な待ち時間で赤くなる偽赤になり、watchdog ごと無視されるようになる。",
+  "_why": "2026-08-19 から develop の Pre-merge check が 24 連続で赤だったが、赤を読む機械が 1 つも無く 2 日間気づかれなかった。ci.yml 自身の失敗通知（if: failure）は即時の一撃だが、workflow が起動すらしなくなった沈黙は拾えない。「最後に成功したのはいつか」を定期に見るのがこの watchdog の役目。",
+
+  "defaults": {
+    "maxAgeDays": 10,
+    "maxConsecutiveFailures": 3
+  },
+
+  "workflows": [
+    {
+      "workflow": "ci.yml",
+      "branch": "develop",
+      "maxAgeDays": 7,
+      "maxConsecutiveFailures": 3,
+      "_note": "Pre-merge check。push 起動なので開発が止まれば発火しない。7 日は「1 週間まったく緑が出ていない」を異常とみなす線"
+    },
+    {
+      "workflow": "cloudflare-deploy.yml",
+      "branch": "main",
+      "maxAgeDays": 21,
+      "maxConsecutiveFailures": 2,
+      "_note": "本番デプロイ。main 昇格はユーザー判断で間隔が空くため age は緩め。ただし失敗は本番に届かないことを意味するので連続失敗には厳しく"
+    },
+    {
+      "workflow": "fetch-metrics.yml",
+      "maxAgeDays": 10,
+      "maxConsecutiveFailures": 2,
+      "_note": "週次（木 21:00 UTC）。2026-08 に ref 欠落で 8 日間停止し GA4 by-label が止まった実績があるので連続失敗に厳しく"
+    },
+    {
+      "workflow": "note-live-audit.yml",
+      "maxAgeDays": 10,
+      "maxConsecutiveFailures": 2,
+      "_note": "週次（日 22:30 UTC）。check-magazine-membership の軸 C（ライブ snapshot）の供給元。ここが止まると snapshot が腐り、鮮度ゲートが検査不成立になる"
+    },
+    {
+      "workflow": "psi-audit.yml",
+      "maxAgeDays": 4,
+      "maxConsecutiveFailures": 3,
+      "_note": "日次（17:00 UTC）。毎日走るので age は短く"
+    },
+    {
+      "workflow": "uptime-ping.yml",
+      "maxAgeDays": 2,
+      "maxConsecutiveFailures": 3,
+      "_note": "1 日 3 回。サイトが落ちていることを最初に掴む経路なので age は最も短く"
+    },
+    {
+      "workflow": "index-coverage.yml",
+      "maxAgeDays": 40,
+      "maxConsecutiveFailures": 2,
+      "_note": "月次（毎月 1 日）。週次の基準で判定すると正常な待ち時間で必ず赤くなる"
+    }
+  ]
+}

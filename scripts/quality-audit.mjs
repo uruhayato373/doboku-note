@@ -34,6 +34,20 @@ const CENSUS = join(OUT_DIR, 'census.json');
 
 const argv = process.argv.slice(2);
 const CI = argv.includes('--ci');
+/**
+ * --report-only: ci:false の検査**だけ**を実行し、FAIL があれば exit 1 にする。
+ *
+ * ci:false（report 区分）は Pre-merge check を赤くしない。レポート（audit-latest.md）は
+ * --ci では書かれず gitignore 済みなので、FAIL は「人がローカルでフル監査を叩いた端末」に
+ * しか存在せず、読む自動経路がゼロだった（DN-0087）。weekly-review-guard がこのモードで
+ * 週次に実行し、FAIL を Issue へ集約する＝report 区分の既定の読み手を機械にする。
+ * CLAUDE.md §9「赤いのに誰も見ていない検査は、無いのと同じ」への回答。
+ */
+const REPORT_ONLY = argv.includes('--report-only');
+if (CI && REPORT_ONLY) {
+  process.stderr.write('[quality-audit] --ci と --report-only は併用できません（対象が排他）\n');
+  process.exit(2);
+}
 const EMIT_JSON = argv.includes('--json');
 
 function readJson(p, fallback) {
@@ -110,7 +124,7 @@ const CHECKS = [
   { id: 'figure-crop-integrity', npm: 'check-figure-crop:ci', timeout: 180_000, ci: true, note: '図クロップの写り込み（STRAY_SLIVER）を baseline 比の新規のみ gate。figure-crop-report.json を上書き' },
   { id: 'guide-length', npm: 'check-guide-length', timeout: 90_000, ci: true },
   { id: 'lcp-image-hints', npm: 'check-lcp-image-hints', timeout: 60_000, ci: true, note: '本文フォールド内1枚目の図版は eager+fetchpriority=high（lazy だと低速回線で LCP が数秒伸びる・EXP-005）' },
-  { id: 'scheduled-exec-branch', npm: 'check-scheduled-exec-branch', timeout: 60_000, ci: false, note: '定期ジョブの実行ブランチ対応表（棚卸し）。WARN 判定は現ブランチ依存のため CI では意味が薄く report-only' },
+  { id: 'scheduled-exec-branch', npm: 'check-scheduled-exec-branch', timeout: 60_000, ci: false, note: '定期ジョブの実行ブランチ対応表（棚卸し）。WARN 判定は現ブランチ依存のため CI では意味が薄く report-only。読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）' },
   { id: 'home-exam-coverage', npm: 'check-home-exam-coverage', timeout: 60_000, ci: true },
   { id: 'character-avatars', npm: 'check-character-avatars', timeout: 60_000, ci: true, note: 'note CTA のキャラアバター: manifest siteCta ⇔ 配信 webp ⇔ ctaPose union の三者整合（union だけ広げると本番 404）' },
   { id: 'category-curriculum', npm: 'check-category-curriculum', timeout: 60_000, ci: true },
@@ -145,13 +159,16 @@ const CHECKS = [
 
   // ── report-only（棚卸し・情報提供。--ci では実行しない） ──
   { id: 'coconala-blog', npm: 'check-coconala-blog', timeout: 60_000, ci: true, note: 'ココナラブログ記事のハードゲート（外部リンク1本でアカウント制限になりうる）＋公開済み記事の送客先が listed から外れていないかのドリフト' },
-  { id: 'doc-lifecycle', npm: 'check-doc-lifecycle', timeout: 90_000, ci: false },
-  { id: 'policy-anchors', npm: 'check-policy-anchors', timeout: 90_000, ci: false },
-  { id: 'ogp-coverage', npm: 'check-ogp-coverage', timeout: 90_000, ci: false },
-  { id: 'ogp-design', npm: 'check-ogp-design', timeout: 120_000, ci: false },
-  { id: 'quality-census', npm: 'quality-census', timeout: 180_000, ci: false, note: 'census.json 再生成（薄層可視化）' },
+  { id: 'doc-lifecycle', npm: 'check-doc-lifecycle', timeout: 90_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。加えて /weekly-review の Agent H と /doc-declutter が読む' },
+  { id: 'policy-anchors', npm: 'check-policy-anchors', timeout: 90_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）' },
+  { id: 'ogp-coverage', npm: 'check-ogp-coverage', timeout: 90_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。r2-audit.yml が週次で同スクリプトを赤落ちゲートとして実行しており、こちらは横断監査での再掲' },
+  { id: 'ogp-design', npm: 'check-ogp-design', timeout: 120_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）' },
+  { id: 'quality-census', npm: 'quality-census', timeout: 180_000, ci: false, note: 'census.json 再生成（薄層可視化）。読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。生成物は /quality-cycle と admin の /quality が読む' },
   { id: 'env-inventory', cmd: ['node', 'scripts/report-env-inventory.mjs'], timeout: 60_000, ci: false },
-  { id: 'knip', npm: 'knip', timeout: 300_000, ci: false, note: 'デッドコード候補の全量（要 grep 裏取り・返済は週次レビューの棚卸しで）' },
+  // digest: false — knip 全量は **常に非ゼロ**（デッドコードは baseline で管理する前提）。
+  // digest に入れると毎週 Issue が飛んで、その Issue ごと読み飛ばされるようになる。
+  // 増加の検知は check-knip-ratchet（ci:true）が担当し、こちらは人が中身を見るための出力。
+  { id: 'knip', npm: 'knip', timeout: 300_000, ci: false, digest: false, note: 'デッドコード候補の全量（要 grep 裏取り・返済は週次レビューの棚卸しで）。読み手＝/weekly-review の棚卸し節。増加検知は check-knip-ratchet(ci:true)' },
   // デッドコードの「増加」だけを機械で止めるラチェット（ci ゲート）。
   // knip 本体は false positive を出すので消す判断は人間に残す（＝上の report は維持）が、
   // report のままだと誰も読まずに溜まる。実際 knip は batch-approve.mjs の壊れ import を
@@ -167,10 +184,12 @@ const CHECKS = [
   { id: 'knip-ratchet', npm: 'check-knip-ratchet', timeout: 300_000, ci: true, note: 'デッドコードが baseline から増えていないか' },
   {
     id: 'cta-density', npm: 'check-cta-density', timeout: 90_000, ci: false,
+    note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）（out/docs 未ビルドなら skip 理由付きで報告される）',
     skip: () => existsSync(join(ROOT, 'out', 'docs')) ? null : 'ビルド成果物 out/docs が無い（npm run build 後に実行）',
   },
   {
     id: 'seo-meta', npm: 'check-seo-meta', timeout: 300_000, ci: false,
+    note: '読み手＝/seo-growth-review と technical-seo-auditor。weekly-review-guard の report digest でも拾うが、CI には dev server が無いため常に skip 理由付きで報告される',
     skip: async () => (await portOpen(3020)) ? null : 'dev server (localhost:3020) 不在（npm run dev 起動時のみ実行）',
   },
   // 週次レビューが読む収益カバレッジ集計が「実行できる」ことを毎回確かめる（ci ゲート）。
@@ -240,6 +259,9 @@ function failureExcerpt(stdout, stderr, maxLines = 40) {
 async function runCheck(check) {
   const started = Date.now();
   if (CI && !check.ci) return null; // --ci では report-only を実行しない
+  // --report-only は report 区分だけを走らせる。digest:false は「常に非ゼロで判定に使えない
+  // 情報出力」なので、週次 Issue の対象からも外す（毎週飛ぶ通知は読まれなくなる）。
+  if (REPORT_ONLY && (check.ci || check.digest === false)) return null;
   if (check.skip) {
     const reason = await check.skip();
     if (reason) return { id: check.id, ci: check.ci, status: 'skip', skipReason: reason, durationMs: 0, note: check.note };
@@ -343,6 +365,20 @@ async function main() {
 
   const summary = results.reduce((a, r) => { a[r.status] = (a[r.status] || 0) + 1; return a; }, {});
   process.stderr.write(`[quality-audit] pass ${summary.pass || 0} / fail ${summary.fail || 0} / timeout ${summary.timeout || 0} / skip ${summary.skip || 0}\n`);
+
+  // 検査ゼロを PASS と呼ばない: --report-only で 1 件も実行できていないのは
+  // 「FAIL なし」ではなく、CHECKS の ci フラグ構成が壊れたということ。
+  if (REPORT_ONLY && results.length === 0) {
+    process.stderr.write('[quality-audit] ✗ 検査不成立: ci:false の検査が 1 件も実行されなかった\n');
+    process.exitCode = 2;
+  } else if (REPORT_ONLY && failed.length) {
+    for (const r of failed) {
+      process.stderr.write(`\n--- ${r.id} — ${r.status} (exit ${r.exitCode}) ---\n`);
+      process.stderr.write((r.excerpt || '(出力なし)') + '\n');
+    }
+    process.stderr.write(`[quality-audit] report 区分の失敗: ${failed.map((f) => f.id).join(', ')}\n`);
+    process.exitCode = 1;
+  }
 
   if (CI && failed.length) {
     // --ci はレポートファイルを書かないので、ここで出さないとログに理由が残らない。

@@ -6,6 +6,11 @@ on:
   push:
     branches: [develop]
 
+permissions:
+  contents: read
+  # 失敗時に automation-failure Issue を起票する（限定例外チャネル）。
+  issues: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -35,3 +40,32 @@ jobs:
       # build 依存の SEO ゲートは build 直後にのみ置く（build 前の quality:audit:ci へは混ぜない）。
       - name: Check build-time SEO (out/)
         run: npm run check-seo-build:ci
+
+      # 「CI が赤い」ことを人へ届ける唯一の経路（2026-08-24 新設）。
+      #
+      # これが無かった間、develop の Pre-merge check は 2026-08-19 から **24 連続で赤**だったのに
+      # 2 日間誰も気づかなかった。赤は GitHub の Status バッジにしか現れず、それを読む機械・
+      # スキル・ダッシュボード・週次レビューがリポジトリ内に 1 つも無かった（実査）。
+      # branch protection は採用しない——CI bot が develop へ直 push する設計（fetch-metrics /
+      # note-live-audit 等）と main への ff 昇格を壊すため。通知で代替する。
+      #
+      # report-automation-failure.mjs が重複防止を担う（同 channel の open Issue があれば
+      # コメント追記）。クローズは復旧を確認した人間が行う（自動クローズしない）。
+      - name: Report failure (automation-failure Issue)
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          {
+            echo "- run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo "- branch: \`${{ github.ref_name }}\` / sha: \`${{ github.sha }}\`"
+            echo "- trigger: ${{ github.event_name }}"
+            echo
+            echo "どのゲートが落ちたかは run のログ（Quality audit / Build / SEO）を見る。"
+            echo "ローカル再現: \`npm run quality:audit:ci\`"
+          } > /tmp/ci-body.md
+          node scripts/report-automation-failure.mjs \
+            --channel pre-merge \
+            --title "Pre-merge check が赤（${{ github.ref_name }}）" \
+            --body-file /tmp/ci-body.md

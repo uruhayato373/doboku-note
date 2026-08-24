@@ -448,6 +448,27 @@ node -e "const d=require('./.claude/state/dispatch/dispatch-log.json');const w=d
 
 blocked / fail があれば「課題・ブロッカー」へ、繰り返し blocked になるタスクは前提条件を backlog 本文へ書き足す。
 
+#### automation-failure Issue の消化（1 行・親が直接確認）
+
+open な `automation-failure` Issue を毎週読む。**Issue は起票されても閉じられなければ意味が無い**——
+#457 は 2026-08-07 から 17 日 open のまま誰も見ておらず、しかも dedup 仕様で以後の同 channel の
+失敗はすべてこの Issue へのコメント追記に埋没していた（2026-08-24 実査）。**通知チャネル自体が
+消化されていなければ、CI の赤を Issue にしても同じことが起きる**。
+
+```bash
+gh issue list --label automation-failure --state open --json number,title,createdAt \n  --template '{{range .}}#{{.number}} {{slice .createdAt 0 10}} {{.title}}{{"
+"}}{{end}}'
+```
+
+レビューには次の 1 行で書く:
+
+- **自動化の失敗**: open N 件（最古 M 日前）。channel 別に「復旧済みなら閉じる / 未復旧なら原因を 1 行」。
+  **7 日以上 open のものは必ず言及する**（放置＝チャネルが死ぬ）。クローズは復旧の実体を確認した人間が行う
+  （`report-automation-failure.mjs` は自動クローズしない）。起票元は `ci.yml`（Pre-merge が赤）・
+  `uptime-ping.yml`・`weekly-review-guard.yml`（記録層の沈黙／workflow health／report 区分 FAIL）・
+  `index-coverage.yml`・GSC auto review ルーティン
+
+
 ### Phase 3: 出力（md ファイル保存）
 
 下の「出力フォーマット」に従い、すべてのセクションを 1 本の markdown としてまとめ、**`docs/reviews/weekly/YYYY-Www-review.md`** に保存する（`writeMdxFile` 経由は不要、通常の md なので Write でよい）。
