@@ -1567,7 +1567,7 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 
 ## 🟢 低 — 時期未定
 
-### [DN-0125] `noteSeries` が 89 本で孤立している — 統合か削除か
+### [DN-0125] `noteSeries` と `noteMagazine` の 2 語彙が 200 本で食い違っている — 境界を決める
 タグ: [インフラ・計測] [種類:改善] [実行:sweep] [検証:check-doc-refs] [起票:2026-08-24]
 
 **事実**（2026-08-24 実査・827 本の frontmatter 全走査）:
@@ -1580,15 +1580,20 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 | `noteMagazine` のみ | 215 |
 | どちらも無し | 40 |
 
-**`noteMagazine` は機能している**: `check-magazine-membership.mjs:83`（quality-audit の ci ゲート）・`check-note-price-consistency.mjs:86`・`note-publish.mjs:497` が読む。
+**どちらも生きている。役割が違う**（2026-08-24 の初回調査で「`noteSeries` は読み手ゼロ」と書いたのは誤り。`.claude/scripts/` を検索範囲に入れていなかった）:
 
-**`noteSeries` は読み手がゼロ**: 書き手が `build-takuitsu-reconstruct.mjs:464` に 1 箇所あるだけ。管理画面が `noteSeries || noteMagazine` で畳んで表示していたが、それは 2026-08-24 に `noteMagazine` 単独へ直した（表示と検査の集計単位がズレていたため）。
+| フィールド | 意味 | 読み手 |
+|---|---|---|
+| `noteMagazine` | 商品（マガジン）への所属ラベル | `check-magazine-membership.mjs:83`（quality-audit ci ゲート）/ `check-note-price-consistency.mjs:86` / `note-publish.mjs:497` |
+| `noteSeries` | 編集上の系列マーカー | `.claude/scripts/check-note-magazine-cta.mjs:69`（`noteSeries: 総合案内` でもくじ index 例外 → `note-lint.mjs:39` 経由で **pre-commit BLOCK**）/ `build-note-published-index.mjs:62` / `note-cover-writer.md:35`（エージェントが読む）/ `civil-keiken-essay-writer.md:57`（エージェントが書く） |
+
+管理画面は `noteSeries || noteMagazine` で畳んで表示していたが、2026-08-24 に `noteMagazine` 単独へ直した（マガジンを絞る面なので商品ラベルが正しい）。
 
 値が違う 200 本の実例は `総監模範論文-河川コンサルペルソナ`（series）と `総監模範論文-河川コンサル`（magazine）。`コンクリート主任技士-実務立場別小論文` と `…小論文集` のような語尾違いも含む。
 
-**決めること**: `noteSeries` を (a) 廃止して全削除するか、(b) 「マガジンより細かい系列」として意味を定義し直して読み手を作るか。`noteSeries` のみの 89 本は、どちらにするかで扱いが変わる（(a) なら `noteMagazine` へ移すか捨てる判断が要る）。
+**決めること**: 2 語彙の境界を明文化する。`noteSeries` は「もくじ index の判定マーカー ＋ カバー生成の系列名」に用途が絞れそうだが、実データでは `施工経験記述` `学習戦略` のように**マガジン名と紛らわしい値**が入っており、200 本で `noteMagazine` と語尾違い（`…小論文` と `…小論文集`、`…ペルソナ` の有無）を起こしている。決めたら `content-authoring.md` の frontmatter テンプレへ書き、逸脱を機械検知する（`check-note-frontmatter-dup` の隣が自然）。
 
-**急がない理由**: 誰も読んでいないので実害が出ていない。ただし放置すると「マガジンっぽい何か」が 2 系統ある状態が固定化し、次に frontmatter を触る人が同じ畳み込みを再発明する。
+**急がない理由**: どちらのゲートも自分の語彙だけ見ているので、現時点で誤判定は起きていない。ただし放置すると「マガジンっぽい何か」が 2 系統ある状態が固定化し、次に frontmatter を触る人が同じ畳み込みを再発明する（実際に管理画面で 1 回起きた）。
 
 ### [DN-0122] 発注者クラスタ（会計検査・臨時協議・設計変更）の新設可否
 タグ: [コンテンツ品質] [種類:制作] [実行:対話] [起票:2026-08-24]

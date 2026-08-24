@@ -20,11 +20,18 @@ export const dynamic = 'force-dynamic';
  *
  * 表はタイトル 1 行（＝note で公開しているタイトル）だけを出し、所属マガジンはレールへ寄せる。
  * 2026-08-24 まではタイトルの下に `<br>` でシリーズ名を足していたため 787/827 行が 2 行になり、
- * 一覧の一望性が落ちていた。さらにその値は `noteSeries || noteMagazine` の畳み込みで、
- * **200 本で両者の値が食い違っていた**（例: `総監模範論文-河川コンサルペルソナ` と
- * `総監模範論文-河川コンサル`）。repo 側のゲート（check-magazine-membership /
- * check-note-price-consistency）が集計するのは `noteMagazine` の方なので、画面の表示と
- * 検査の集計単位がズレていた。ここでは `noteMagazine` だけを使う（`noteSeries` は読み手が無い）。
+ * 一覧の一望性が落ちていた。さらにその値は `noteSeries || noteMagazine` の畳み込みだったが、
+ * **この 2 つは別の語彙**で、200 本で値が食い違っていた（例: `総監模範論文-河川コンサルペルソナ` と
+ * `総監模範論文-河川コンサル`）。
+ *
+ *   - `noteMagazine` = 商品（マガジン）への所属ラベル。check-magazine-membership（quality-audit の
+ *     ci ゲート）と check-note-price-consistency が**この単位で集計する**
+ *   - `noteSeries`   = 編集上の系列マーカー。`noteSeries: 総合案内` は もくじ index の例外判定に使われ、
+ *     .claude/scripts/check-note-magazine-cta.mjs → note-lint（pre-commit）が読む
+ *
+ * どちらも生きているが集計単位が違うので、畳み込むと画面の表示と検査の単位がズレる。
+ * この表はマガジン（商品）を絞る面なので `noteMagazine` だけを使う。2 語彙の境界をどう引くかは
+ * backlog DN-0125。
  */
 
 type Query = { e?: string; p?: string; s?: string; m?: string };
