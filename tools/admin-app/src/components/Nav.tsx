@@ -60,6 +60,11 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
             label: 'マガジン',
             match: '/content/magazines',
           },
+          {
+            href: '/content/note-status',
+            label: '公開状態',
+            match: '/content/note-status',
+          },
           { href: '/gallery/note', label: '画像', match: '/gallery/note' },
         ],
       },
