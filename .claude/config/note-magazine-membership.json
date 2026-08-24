@@ -1,6 +1,7 @@
 {
-  "_doc": "マガジン収録の期待値 SSOT。期待収録数(id) = Σ(labels でその id に紐づくラベルの repo 記事実数) + extras[id].count。ラベル = 記事 frontmatter の noteMagazine。id = src/lib/note-magazines.ts の id（note の m… キーは noteUrl から導出するのでここには書かない＝二重管理しない）。labels に無いラベルはゲートせず surfacer が列挙する（段階導入）。extras は reason 必須。検査は scripts/check-magazine-membership.mjs。",
+  "_doc": "マガジン収録の期待値 SSOT。期待収録数(id) = Σ(その id に紐づくラベルの repo 公開記事数) + extras[id].count。ラベル = 記事 frontmatter の noteMagazine。id = src/lib/note-magazines.ts の id（note の m… キーは noteUrl から導出するのでここには書かない＝二重管理しない）。draft は note 未公開でマガジンに入りようがないため期待値から除外する。検査は scripts/check-magazine-membership.mjs。",
   "_why": "2026-08-24、総監模範論文の R8 予想テーマ 4→6 拡張でゼネコン/河川コンサルの記事 2 本ずつがライブマガジン未収録のまま残った。verify-note-magazines は SoT↔ライブの 2 者突合で、SoT の件数表記も 9 のまま古びていたため一致して緑が出ていた。repo の記事実数という第三軸を持ち込まないと検出できない。",
+  "_sections": "labels = 1 ラベル→1 マガジン。packs = 複数ラベルを合算する束ね商品。excluded = マガジンに対応しないことが正しいラベル（理由必須）。**全ラベルがどれかに属すること（未分類 0）がゲート条件**。未分類を許すと、新しいラベルを作るたび検査の射程が黙って痩せる。",
   "labels": {
     "総監模範論文-ゼネコン": "essay-general-contractor-magazine",
     "総監模範論文-河川コンサル": "essay-river-consultant-magazine",
@@ -27,12 +28,62 @@
     "BK-08": "pe-construction-port-airport-magazine",
     "BK-09": "pe-construction-power-civil-magazine",
     "BK-10": "pe-construction-railway-magazine",
-    "BK-11": "pe-construction-tunnel-magazine"
+    "BK-11": "pe-construction-tunnel-magazine",
+    "総監記述式-5管理クロストレードオフ": "tradeoff-5kanri",
+    "総監記述式-R8予想問題集": "r8-essay-forecast",
+    "総監テキスト精読ガイド": "tankan-reading-guide",
+    "コンクリート主任技士-実務立場別小論文集": "cce-essay-persona-pack",
+    "コンクリート主任技士-小論文-模範答案集": "cce-essay-magazine",
+    "コンクリート診断士-記述式-模範答案集": "cd-essay-magazine",
+    "経験記述-週次お題ラボ": "civil-membership-odai-lab",
+    "2級土木-想定工事バンク": "civil-2-koji-bank",
+    "1級土木-施工経験記述-2テーマ組合せ大全": "civil-1-combo-essay",
+    "1級土木-施工経験記述-完成答案集": "civil-1-experience-essay",
+    "1級土木-施工経験記述-過去問模範答案集": "civil-1-pastexam-essay",
+    "2級土木-施工経験記述-完成答案集": "civil-2-experience-essay",
+    "2級土木-施工経験記述-過去問模範答案集": "civil-2-pastexam-essay",
+    "1級土木-二次学科記述-テーマ別出る順": "civil-1-gakka-kijutsu",
+    "2級土木-二次学科記述-テーマ別出る順": "civil-2-gakka-kijutsu"
+  },
+  "packs": {
+    "_doc": "複数ラベルを 1 マガジンへ束ねる商品。期待 = Σ(labels の repo 公開記事数) + extras。",
+    "civil-1-keiken-complete-pack": {
+      "labels": [
+        "1級土木-経験記述-完全攻略パック"
+      ],
+      "reason": "1級土木 施工経験記述 完全攻略パック（¥9,800）。想定工事×5管理を統合した束ね商品",
+      "_issue": "2026-08-24 調査: repo ラベル 155 本のうち 18 本（想定工事01〜14＋補充4本）がライブ未収録。ただし単純な未収録ではなく、同一タイトルの記事が ¥1,980（repo の noteId が指す・マガジン未収録）と ¥1,280（ライブ収録・repo に対応なし）で**二重公開**されている。どちらを正とするかは商品設計の判断が要るためユーザー判断待ち。extras で暫定的に差を吸収している"
+    },
+    "civil-1-niji-marugoto-pack": {
+      "labels": [
+        "1級土木-二次まるごとパック"
+      ],
+      "fromMagazines": {
+        "civil-1-keiken-complete-pack": 101,
+        "civil-1-gakka-kijutsu": 5
+      },
+      "reason": "1級土木 二次検定まるごとパック。実測（2026-08-24）のライブ 108 本＝完全攻略パックから 101 本＋テーマ別出る順 5 本＋固有 2 本（パック案内 ¥0 がラベル付き 1 本、直前暗記ノート ¥980 が extras 1 本）。**一部同梱**なので構成元をまるごと足さない"
+    }
+  },
+  "excluded": {
+    "_doc": "マガジンに対応しないことが正しいラベル。理由必須。"
   },
   "extras": {
     "essay-road-municipality-magazine": {
       "count": 1,
       "reason": "R8予想問題集デモ1本（content/note/技術士総監/R8予想問題/・note key n05314b15b375）を販促として収録。note-magazines.ts の description『R8予想問題集デモ1本の合計12記事』表記と対応。ペルソナ dir の外に在るので noteMagazine 集計では数えられない"
+    },
+    "tankan-reading-guide": {
+      "count": 1,
+      "reason": "総監択一式 頻出計算問題 6パターン（¥780・note key ne190c3ef2fca）を販促として同梱。精読ガイド本体 5 本とは別シリーズ"
+    },
+    "civil-1-niji-marugoto-pack": {
+      "count": 1,
+      "reason": "直前暗記ノート（¥980・note key na84b001e827e）を同梱。noteMagazine ラベルは『1級土木-二次まるごとパック』のパック案内記事のみなので、この 1 本は集計に乗らない"
+    },
+    "civil-1-keiken-complete-pack": {
+      "count": -4,
+      "reason": "【判断待ち・暫定】repo ラベル 155 本に対しライブ収録 151 本。差の 18 本は単純な未収録ではなく、同一タイトルが ¥1,980（repo の noteId が指す・マガジン未収録）と ¥1,280（ライブ収録・repo に対応なし）で二重公開されている（実測 2026-08-24）。どちらを正とするかは商品設計の判断が要る。ゲートを構造的に赤いまま放置しないための暫定値で、**判断が出たら消す**"
     }
   }
 }

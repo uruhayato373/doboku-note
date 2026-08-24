@@ -91,7 +91,9 @@ export default function NoteStatusPage() {
                     <td>{r.expected}</td>
                     <td>
                       {r.repoCount}
-                      {r.extra ? <span className="muted"> +{r.extra}</span> : null}
+                      {r.extra ? (
+                        <span className="muted"> {r.extra > 0 ? `+${r.extra}` : r.extra}</span>
+                      ) : null}
                     </td>
                     <td>{r.declared ?? <span className="muted">—</span>}</td>
                     <td>{r.liveCount ?? <span className="muted">—</span>}</td>
@@ -115,14 +117,22 @@ export default function NoteStatusPage() {
           </div>
         )}
 
-        {m.ok && m.unmapped.length > 0 && (
-          <p className="muted">
-            未対応ラベル <strong>{m.unmapped.length}</strong> 種（ゲート対象外・段階導入の残り）:{' '}
-            {m.unmapped.map((u) => `${u.label}(${u.count})`).join('、')}
-            <br />
-            対応表は <code>.claude/config/note-magazine-membership.json</code> の{' '}
-            <code>labels</code>。
-          </p>
+        {m.ok && (
+          m.unclassified.length > 0 ? (
+            <p className="muted">
+              <span className="badge bad">未分類 {m.unclassified.length} 種</span>{' '}
+              {m.unclassified.map((u) => `${u.label}(${u.count})`).join('、')}
+              <br />
+              <code>.claude/config/note-magazine-membership.json</code> の{' '}
+              <code>labels</code> / <code>packs</code> / <code>excluded</code>{' '}
+              のどれかへ登録する（未分類のまま放置すると、そのラベルは検査の射程外になる）。
+            </p>
+          ) : (
+            <p className="muted">
+              <span className="badge good">未分類 0</span>{' '}
+              すべての <code>noteMagazine</code> ラベルが分類済み＝検査の射程に漏れが無い。
+            </p>
+          )
         )}
         {m.ok && m.unreferenced.length > 0 && (
           <p className="muted">

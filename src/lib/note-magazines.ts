@@ -331,7 +331,7 @@ const MAGAZINES_RAW = {
     shortTitle: '5管理クロストレードオフ',
     shortDescription:
       '20セル全網羅・総監フレーム辞書・答案ひな型付き。序章無料＋有料5記事。',
-    price: '¥1,980（5本セット、49%OFF）',
+    price: '¥1,980（6本セット、49%OFF）',
     badge: 'note 限定',
   },
 

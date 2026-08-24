@@ -68,14 +68,23 @@ export function listNoteArticles(dir = NOTE_DIR) {
   return out;
 }
 
-/** frontmatter から noteMagazine ラベルを取り出す（純関数・テストから使う）。 */
-export function readMagazineLabel(source) {
+/**
+ * frontmatter から noteMagazine ラベルと公開状態を取り出す（純関数・テストから使う）。
+ *
+ * `published` は「note 上に出ているか」。**draft は期待収録数に数えない** —— 未公開の記事は
+ * マガジンに入りようがないので、数えるとライブ側が必ず不足して偽赤になる
+ * （実例: 経験記述-週次お題ラボは repo 11 本のうち 6 本が membership のドリップ在庫で draft）。
+ * 判定は 2 系統ある運用に合わせる: noteStatus 明示か、noteStatus 無しで noteUrl を持つか。
+ */
+export function readArticleMeta(source) {
   const m = /^---\r?\n([\s\S]*?)\r?\n---/.exec(source);
-  if (!m) return null;
-  const g = /^noteMagazine:\s*(.+)$/m.exec(m[1]);
-  if (!g) return null;
-  const v = g[1].trim().replace(/^["']|["']$/g, '').trim();
-  return v || null;
+  if (!m) return { label: null, published: false };
+  const fm = m[1];
+  const g = /^noteMagazine:\s*(.+)$/m.exec(fm);
+  const label = g ? (g[1].trim().replace(/^["']|["']$/g, '').trim() || null) : null;
+  const st = /^noteStatus:\s*(\S+)/m.exec(fm)?.[1].replace(/^["']|["']$/g, '') ?? null;
+  const hasUrl = /^noteUrl:\s*\S/m.test(fm);
+  return { label, published: st ? st === 'published' : hasUrl };
 }
 
 /**
@@ -132,9 +141,15 @@ export function auditMagazine({ id, labels, repoCount, extra, entry, liveCount }
   const sotBad = declared != null && declared !== expected;
   const liveBad = liveCount != null && liveCount !== expected;
 
-  // 検査ゼロを PASS と呼ばない: 軸 B も軸 C も見られないなら「合格」ではなく検査不成立。
+  // 軸 B も軸 C も無い＝このマガジンは何とも照合できていない。
+  //
+  // ただし **これを常に fail にはしない**。price の件数表記は「¥9,800（完全攻略パック）」
+  // 「¥5,480（60工事フル）」のように件数を持たない書き方が正当に存在し、そういうマガジンは
+  // 軸 C（ライブ）でしか照合できない。pre-commit（--staged）は軸 C を見ないので、
+  // 常に fail にすると commit が構造的に通らなくなり、ゲートごと無視されるようになる。
+  // 「照合できていない」ことは unverified として集計し、**軸 C が使える文脈でだけ**厳格に扱う。
   if (declared == null && liveCount == null) {
-    return { ...base, declared, liveCount, ok: false, kind: 'no-count',
+    return { ...base, declared, liveCount, ok: true, kind: 'unverified',
       detail: 'price に件数表記が無く、ライブ収録数も取れない（照合できる軸がゼロ）' };
   }
 
@@ -183,15 +198,22 @@ function main() {
   try { config = JSON.parse(readFileSync(CONFIG_PATH, 'utf8')); } catch (e) { fail(`config を読めない: ${e.message}`); }
   const labelMap = config.labels ?? {};
   const extras = config.extras ?? {};
+  // `_` 始まりのキーは説明用メモ（JSON にコメントが書けないため）。データとして扱わない。
+  const dropDocKeys = (o) => Object.fromEntries(Object.entries(o ?? {}).filter(([k]) => !k.startsWith('_')));
+  const packs = dropDocKeys(config.packs);
+  const excluded = dropDocKeys(config.excluded);
   if (Object.keys(labelMap).length === 0) fail('config の labels が空');
 
   // --- 軸 A: repo 実数 ---
   const files = listNoteArticles();
   if (files.length === 0) fail('article ファイルが 1 件も取れない（走査の破損を疑う）');
   const byLabel = new Map();
+  const draftByLabel = new Map();
   for (const f of files) {
-    const label = readMagazineLabel(readFileSync(f, 'utf8'));
-    if (label) byLabel.set(label, (byLabel.get(label) ?? 0) + 1);
+    const { label, published } = readArticleMeta(readFileSync(f, 'utf8'));
+    if (!label) continue;
+    if (published) byLabel.set(label, (byLabel.get(label) ?? 0) + 1);
+    else draftByLabel.set(label, (draftByLabel.get(label) ?? 0) + 1);
   }
 
   // --- 軸 B: SoT ---
@@ -232,30 +254,58 @@ function main() {
   if (ci && !freshness.ok) fail(`ライブ軸を検査できない — ${freshness.reason}。note-live-audit.yml の snapshot 供給を確認する`);
 
   // --- 判定 ---
+  // labels（1 ラベル→1 マガジン）と packs（複数ラベルの合算＝パック商品）を同じ表に畳む。
   const idToLabels = new Map();
-  for (const [label, id] of Object.entries(labelMap)) {
+  const add = (id, label) => {
     if (!idToLabels.has(id)) idToLabels.set(id, []);
     idToLabels.get(id).push(label);
-  }
+  };
+  for (const [label, id] of Object.entries(labelMap)) add(id, label);
+  for (const [id, pack] of Object.entries(packs)) for (const l of pack.labels ?? []) add(id, l);
+
   const gatedIds = [...new Set([...idToLabels.keys(), ...Object.keys(extras)])];
   if (gatedIds.length === 0) fail('ゲート対象のマガジンが 0 件');
 
   const rows = gatedIds.map((id) => {
     const labels = idToLabels.get(id) ?? [];
-    const repoCount = labels.reduce((a, l) => a + (byLabel.get(l) ?? 0), 0);
+    let repoCount = labels.reduce((a, l) => a + (byLabel.get(l) ?? 0), 0);
+    // パック商品は他マガジンから**一部だけ**同梱することがある（実測: 二次検定まるごとパックは
+    // 完全攻略パック 151 本のうち 101 本＋テーマ別出る順 5 本）。「まるごと合算」にすると
+    // 期待が過大になって構造的に赤いままになるので、同梱数は fromMagazines に実測値で書く。
+    // 構成が変わればライブ側とズレて赤くなる＝それがこのゲートの役目。
+    for (const [srcId, n] of Object.entries(packs[id]?.fromMagazines ?? {})) {
+      if (!sot[srcId]) fail(`packs["${id}"].fromMagazines の "${srcId}" が note-magazines.ts に無い`);
+      repoCount += n;
+    }
     const entry = sot[id];
     const liveCount = live && entry?.key ? (live.get(entry.key) ?? null) : null;
     return auditMagazine({ id, labels, repoCount, extra: extras[id], entry, liveCount });
   }).sort((a, b) => a.id.localeCompare(b.id));
   const bad = rows.filter((r) => !r.ok);
+  // 「照合できていない」を緑と混同しない（CLAUDE.md §9）。件数を必ず出し、
+  // 軸 C が使える文脈（--ci = snapshot 鮮度が保証されている）では失格として扱う。
+  const unverified = rows.filter((r) => r.kind === 'unverified');
 
-  // surfacer（非ゲート）: 段階導入の残数が見え続けるようにする
-  const unmapped = [...byLabel.entries()].filter(([l]) => !labelMap[l]).sort((a, b) => b[1] - a[1]);
+  // 未分類 = labels にも packs にも excluded にも属さないラベル。
+  // これを「未対応（非ゲート）」として黙って許すと、新しいラベルを作るたび射程が痩せていく。
+  // ゴールは未分類 0（どこに属すかを必ず宣言させる）。
+  const classified = new Set([
+    ...Object.keys(labelMap),
+    ...Object.values(packs).flatMap((p) => p.labels ?? []),
+    ...Object.keys(excluded),
+  ]);
+  const allLabels = new Set([...byLabel.keys(), ...draftByLabel.keys()]);
+  const unclassified = [...allLabels].filter((l) => !classified.has(l))
+    .map((l) => [l, (byLabel.get(l) ?? 0) + (draftByLabel.get(l) ?? 0)])
+    .sort((a, b) => b[1] - a[1]);
   const unreferenced = Object.keys(sot).filter((id) => !gatedIds.includes(id));
 
   // 検査ゼロを PASS と呼ばない（CLAUDE.md §9）: 実検査数を必ず出す
-  say(`[check-magazine-membership] ラベル ${Object.keys(labelMap).length} 種 / 記事 ${files.length} 本（noteMagazine 付き ${[...byLabel.values()].reduce((a, b) => a + b, 0)} 本）`
-    + ` / マガジン ${rows.length} 件を実検査 / ズレ ${bad.length} 件`);
+  const draftTotal = [...draftByLabel.values()].reduce((a, b) => a + b, 0);
+  say(`[check-magazine-membership] ラベル ${classified.size} 種を分類済（labels ${Object.keys(labelMap).length} / packs ${Object.keys(packs).length} / excluded ${Object.keys(excluded).length}）`
+    + ` / 記事 ${files.length} 本（公開 ${[...byLabel.values()].reduce((a, b) => a + b, 0)} 本・draft ${draftTotal} 本は期待値から除外）`
+    + ` / マガジン ${rows.length} 件を実検査 / ズレ ${bad.length} 件 / 未分類 ${unclassified.length} 種`
+    + (unverified.length ? ` / **未照合 ${unverified.length} 件**` : ''));
   say(`  軸C(ライブ): ${freshness.ok ? `snapshot ${freshness.ageDays} 日前（fetchedAt ${fetchedAt}）` : `**未検査** — ${freshness.reason}`}`);
   for (const r of rows) {
     say(`  ${r.ok ? '✓' : '✗'} ${r.id.padEnd(46)} 期待 ${String(r.expected).padStart(3)}`
@@ -263,17 +313,27 @@ function main() {
   }
   const descWarns = rows.filter((r) => r.descWarn);
   for (const r of descWarns) say(`  ! ${r.id}: ${r.descWarn}（非ゲート）`);
-  if (unmapped.length) {
-    say(`  — 未対応ラベル ${unmapped.length} 種（非ゲート）: ${unmapped.slice(0, 8).map(([l, n]) => `${l}(${n})`).join(' ')}${unmapped.length > 8 ? ' …' : ''}`);
-  }
-  if (unreferenced.length) say(`  — labels から参照されないマガジン ${unreferenced.length} 件（パック型など・非ゲート）`);
+  if (unreferenced.length) say(`  — どの分類からも参照されないマガジン ${unreferenced.length} 件（単発記事系など）`);
 
   if (jsonOut) {
     process.stdout.write(`${JSON.stringify({
       articles: files.length, labels: Object.keys(labelMap).length, magazines: rows.length,
       freshness: { ...freshness, fetchedAt }, rows, violations: bad,
-      unmapped: unmapped.map(([label, count]) => ({ label, count })), unreferenced,
+      unclassified: unclassified.map(([label, count]) => ({ label, count })), unreferenced,
     }, null, 2)}\n`);
+  }
+
+  if (unverified.length) {
+    say(`  — 未照合 ${unverified.length} 件（price に件数表記が無く、軸Cも無い）: ${unverified.map((r) => r.id).join(', ')}`);
+  }
+
+  // --ci は軸 C が使えることを保証している（使えなければ上で exit 2 済み）。
+  // その文脈で未照合が残るのは、snapshot にそのマガジンが無いということ＝見逃しになる。
+  if (ci && unverified.length) {
+    console.error(`\n[check-magazine-membership] ✗ 未照合 ${unverified.length} 件（--ci ではライブ軸で全件照合できるはず）`);
+    for (const r of unverified) console.error(`  ${r.id}  ${r.detail}`);
+    console.error('\n  snapshot にそのマガジンが無いか、noteUrl が SoT と食い違っている。');
+    process.exit(1);
   }
 
   if (bad.length === 0) {

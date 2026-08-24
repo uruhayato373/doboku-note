@@ -43,7 +43,7 @@ export interface MembershipState {
   error: string | null;
   rows: MembershipRow[];
   violations: MembershipRow[];
-  unmapped: { label: string; count: number }[];
+  unclassified: { label: string; count: number }[];
   unreferenced: string[];
   freshness: { ok: boolean; reason: string; ageDays: number | null; fetchedAt: string | null };
   articles: number;
@@ -52,7 +52,7 @@ export interface MembershipState {
 const EMPTY = {
   rows: [] as MembershipRow[],
   violations: [] as MembershipRow[],
-  unmapped: [] as { label: string; count: number }[],
+  unclassified: [] as { label: string; count: number }[],
   unreferenced: [] as string[],
   freshness: { ok: false, reason: '未取得', ageDays: null, fetchedAt: null },
   articles: 0,
@@ -78,7 +78,7 @@ export function membershipState(): MembershipState {
       error: null,
       rows: d.rows ?? [],
       violations: d.violations ?? [],
-      unmapped: d.unmapped ?? [],
+      unclassified: d.unclassified ?? [],
       unreferenced: d.unreferenced ?? [],
       freshness: d.freshness ?? EMPTY.freshness,
       articles: d.articles ?? 0,
@@ -94,7 +94,7 @@ export function membershipState(): MembershipState {
           error: null,
           rows: d.rows ?? [],
           violations: d.violations ?? [],
-          unmapped: d.unmapped ?? [],
+          unclassified: d.unclassified ?? [],
           unreferenced: d.unreferenced ?? [],
           freshness: d.freshness ?? EMPTY.freshness,
           articles: d.articles ?? 0,
