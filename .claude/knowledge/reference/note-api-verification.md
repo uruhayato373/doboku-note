@@ -50,6 +50,24 @@ npm run verify-note-magazines -- --json       # スナップショットを JSON
 
 終了コード: ズレ無し=0 / 取得失敗=1 / ズレあり=2。
 
+> [!warning]
+> **検出できないズレ: 値上げ時の二重公開（2026-08-24 発覚）**
+>
+> 既存記事を値上げするのではなく **¥1,280 の旧記事を残したまま ¥1,980 の新記事を別に公開**すると、
+> 同一タイトル・同一冒頭の記事が 2 本とも購入可能な状態になる。1級土木 完全攻略パックの工事01〜14 で
+> 実発生（旧 2026-06-30 / 新 2026-07-23）。
+>
+> `verify-note-magazines` はこれを検出しない。SoT が持つのは 1 記事 1 URL で、旧記事は SoT のどこからも
+> 参照されないため「ズレ」として現れない。frontmatter も新記事の noteId に更新されるので、
+> **旧記事は repo から辿れない platform-only artifact になる**（`[[feedback_platform_only_artifacts_destroyed_by_bulk_ops]]` と同型）。
+>
+> 検出できるのは `check-magazine-membership` の軸 A↔C（repo 記事実数 ↔ ライブ収録数）だけ。
+> 差が出たら**まず「未収録」と決めつけない**——ライブ側のタイトルと価格を見て、
+> 二重公開か単純な未収録かを切り分ける。今回は 18 本の差のうち 14 本が二重公開、4 本が単純な未収録だった。
+>
+> **正しい値上げ手順**: 既存記事の価格を変更する（`note-edit-session`）。新記事を作ると購入者が
+> 分散し、旧記事を非公開にするとパック購入者のアクセスを壊すため後戻りできなくなる。
+
 ## Playwright フォールバック
 
 `@playwright/test` 1.59.1 が導入済み。public API が壊れた場合や、ログインが要る情報（販売ダッシュボード等）を見る場合は Playwright を使う。ただし公開マガジン照合は API の方が安定・高速なので、通常は API を使う。Playwright を使う場合も `ignoreHTTPSErrors: true` ＋ プロキシ設定（`proxy: { server: process.env.HTTPS_PROXY }`）が必要。
