@@ -19,15 +19,24 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  # snapshot（.claude/state/note/）を develop へ commit back するため write が要る。
+  # read のままだと artifact にしか残らず、2026-06-12 の snapshot が 73 日腐り続けた。
+  contents: write
 
 jobs:
   audit:
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
-      - name: Checkout
+      - name: Checkout develop
+        # schedule はデフォルトブランチ（main）の定義で走り、ref を書かないと main を checkout する。
+        # この workflow は snapshot を develop へ push するので、最初から develop を見て
+        # 「main で検査し develop へ書く」ねじれを無くす（fetch-metrics.yml が 2026-08 に
+        # このねじれで drift guard に弾かれ、GA4 スナップショットが 8 日間停止した）。
+        # fetch-depth は既定（1）。full clone はランナーを枯渇させる。
         uses: actions/checkout@v5
+        with:
+          ref: develop
 
       - name: note API 疎通確認（届かなければここで落とす）
         run: |
@@ -74,13 +83,21 @@ jobs:
         if: always()
         run: |
           set -o pipefail
-          node scripts/verify-note-status.mjs --ci --json | tee .tmp/note-status.json
+          node scripts/verify-note-status.mjs --ci --json --snapshot | tee .tmp/note-status.json
 
       - name: Reconcile magazines with source-of-truth
         if: always()
         run: |
           set -o pipefail
-          node scripts/verify-note-magazines.mjs --vs-txt --json | tee .tmp/note-magazines.log
+          # --contents を渡さないと magazines[].notes[] が入らない＝収録リストが取れず、
+          # check-magazine-membership の軸 C が永久に「検査不成立」になる（2026-08-24 まで実際そうだった）。
+          node scripts/verify-note-magazines.mjs --vs-txt --contents --json | tee .tmp/note-magazines.log
+
+      # snapshot 再生成の直後に回す。ライブ実体に対して三軸（repo 実数 ↔ SoT の price 件数 ↔
+      # ライブ収録数）を突合できるのは週次のここだけ（pre-commit は軸 A↔B のみ）。
+      - name: Verify magazine membership (repo x SoT x live)
+        if: always()
+        run: node scripts/check-magazine-membership.mjs --ci
 
       - name: Audit note funnel live reflection (D5)
         if: always()
@@ -97,6 +114,40 @@ jobs:
           set -o pipefail
           node scripts/check-note-republish.mjs --json | tee .tmp/note-republish.json
 
+      - name: Stage outputs
+        if: always()
+        run: |
+          mkdir -p /tmp/note-publish
+          cp .claude/state/note/magazines-snapshot.json /tmp/note-publish/ 2>/dev/null || true
+          cp .claude/state/note/status-snapshot.json /tmp/note-publish/ 2>/dev/null || true
+
+      # if: always() — **監査が赤でも snapshot は commit する**。鮮度の腐敗こそが止めたい対象で、
+      # 「監査が落ちたので snapshot も更新しない」は問題を二重にする。
+      - name: Publish snapshots to develop (.claude/state/note/)
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin develop
+          # 監査中の in-place 書き込みで作業ツリーが dirty になっている可能性があるため、
+          # 成果物を /tmp に退避済みの状態で origin/develop 先頭へ hard reset してから復元する。
+          git checkout -f develop
+          git reset --hard origin/develop
+          # hard reset でフック定義が変わりうるので入れ直す（drift guard に拒否されると commit が丸ごと落ちる）。
+          npm run pre-commit:install
+
+          mkdir -p .claude/state/note
+          cp /tmp/note-publish/*.json .claude/state/note/ 2>/dev/null || true
+
+          git add .claude/state/note/magazines-snapshot.json .claude/state/note/status-snapshot.json
+          if git diff --cached --quiet; then
+            echo "No changes to publish"
+            exit 0
+          fi
+          git commit -m "chore(note): live snapshot weekly fetch $(date -u +%Y-%m-%dT%H:%MZ) [skip ci]"
+          git push origin develop
+
       - name: Upload reports
         if: always()
         uses: actions/upload-artifact@v4
@@ -109,4 +160,5 @@ jobs:
             .tmp/note-funnel-live.log
             .tmp/note-republish.json
             .claude/state/note/magazines-snapshot.json
+            .claude/state/note/status-snapshot.json
           if-no-files-found: ignore

@@ -1,0 +1,21 @@
+{
+  "fetchedAt": "2026-08-24T02:14:19.410Z",
+  "tracked": 499,
+  "untracked": 328,
+  "noId": 17,
+  "fetchTargets": 482,
+  "inspected": 481,
+  "fetchFail": 1,
+  "fetchFailRate": 0.002074688796680498,
+  "notConclusive": false,
+  "drift": [],
+  "warn": [],
+  "noLive": [
+    {
+      "rel": "content\\note\\技術士総監\\magazines\\総監模範論文-自治体港湾担当\\R08-yosou-3\\article.md",
+      "noteId": "n65e591fba3d3",
+      "status": "published"
+    }
+  ],
+  "fixed": 0
+}
