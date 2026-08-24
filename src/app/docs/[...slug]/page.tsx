@@ -49,6 +49,28 @@ import type React from 'react';
 
 
 /**
+ * 本文中間 CTA を出す下限の h2 本数（2026-08-24 に 4 → 3）。
+ *
+ * なぜ緩めたか: GA4 実測（2026-07-24〜08-20・日本）で **本文中間は サイドバーより
+ * インプレッション当たりのクリックが高い**——sidebar 5,900imp/5click（0.085%）に対し
+ * article-mid 1,546imp/5click（0.323%）、article-inline 1,111imp/2click（0.180%）。
+ * 全体でも 11,106imp → 13click しかなく、**クリックが取れている面を広げるのが唯一のレバー**。
+ * にもかかわらず h2>=4 の下限で、4,000 字以上あるのに 0 枠の published 記事が 47 本あった
+ * （うち h2=3 が 15 本）。
+ *
+ * なぜ 3 までで、2 にしないか: 位置は `min(max(1, …), h2 - 2)` で決まる。h2=3 なら 1
+ * （第1セクション後・最終セクション前）で設計どおりだが、**h2=2 では 0 に潰れ**、
+ * 「先頭セクション直後は避ける」という配置ルールを破る。h2<=2 の長文（24 本）は
+ * 見出し構造そのものが薄い（14,450 字で h2=2、83,284 字で h2=2 など）ので、
+ * ゲートではなく記事側の構造で直す（backlog DN-0123）。
+ *
+ * 注: 13 クリックは標本として小さく、CTR 差は誤差を含む。ただし「中間を広げても
+ * 失うものが無い」ため方向としては安全（1 記事 1 枚・href のみでピクセル増なし＝
+ * 1 ページ 1 ピクセルと note スロット上限 3 のいずれにも触れない）。
+ */
+const MID_MIN_H2 = 3;
+
+/**
  * MDX コンパイルオプションを組み立てる。midCtaPositions が空でないときのみ
  * rehypeMidCta を rehypePlugins 末尾に追加し、本文中間に <midslot> を挿入する（1〜3 個）。
  */
@@ -368,7 +390,7 @@ export default async function DocPage({
     category === 'concrete-diagnostician' ||
     category === 'pe-first-stage';
   const careerMidCard =
-    !hasInlineCareerCard && midH2Count >= 4 && midBodyLen >= 2500
+    !hasInlineCareerCard && midH2Count >= MID_MIN_H2 && midBodyLen >= 2500
       ? careerCategory
         ? resolveCareerArticleEndCard(slugStr)
         : category === 'pe-comprehensive-management'
@@ -377,9 +399,9 @@ export default async function DocPage({
       : null;
 
   // 枠数: 記事が長いほど増やす（h2 3 本ごと / 4,000 字ごとの少ない方・上限 3）。
-  // 下限ゲート（h2>=4 かつ >=2,500 字）を満たさない記事は 0 枠＝従来と同じ「出さない」。
+  // 下限ゲート（h2>=MID_MIN_H2 かつ >=2,500 字）を満たさない記事は 0 枠＝「出さない」。
   const midSlotCapacity =
-    midH2Count >= 4 && midBodyLen >= 2500
+    midH2Count >= MID_MIN_H2 && midBodyLen >= 2500
       ? Math.max(1, Math.min(3, Math.floor(midH2Count / 3), Math.floor(midBodyLen / 4000)))
       : 0;
 

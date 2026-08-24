@@ -646,6 +646,30 @@ backlogのDN-0015/DN-0088/DN-0106を読んでください。
 
 ## 🟡 中 — 2〜3ヶ月以内
 
+### [DN-0123] 長文なのに h2 が 2 本以下の記事 24 本 — 収益面ゼロかつ読みにくい
+タグ: [コンテンツ品質] [種類:改善] [実行:sweep] [起票:2026-08-24]
+
+2026-08-24 のアフィリ面最適化（DN-0120 (b)）で計測して判明。**本文中間 CTA の下限ゲートは h2≥3 まで緩めたが、h2≤2 の長文は構造側でしか直せない。**
+
+位置は `min(max(1, …), h2 - 2)` で決まるため h2=2 だと 0 に潰れ、「先頭セクション直後は避ける」という配置ルールを破る。ゲートをこれ以上下げるのは誤り。
+
+**対象（published・4,000字以上・h2≤2・inline CareerAffiliate も無い＝本文の収益面ゼロ）: 24 本**
+
+| セッション(28日) | 字数 | h2 | slug |
+|---|---|---|---|
+| 135 | 14,450 | 2 | `civil-construction-1-secondary-experience-writing-examples` |
+| 27 | 83,284 | 2 | `concrete-chief-engineer-primary-construction` |
+| 14 | 25,565 | 2 | `concrete-chief-engineer-primary-mix-design` |
+| 0 | 50,480 | 2 | `concrete-chief-engineer-primary-production-qc` |
+| 0 | 23,002 | 2 | `concrete-chief-engineer-primary-structural-design` |
+| 0 | 19,909 | 2 | `concrete-chief-engineer-primary-durability` |
+
+ほか h2=0〜1 が 8 本（コンクリート診断士 `primary-exercise-01〜08`・各 7,000〜10,000 字）。
+
+**やること**: 見出し構造を足す。**83,284 字で h2 が 2 本というのは広告以前に読み物として壊れている**（TOC も 2 項目しか出ない）。既存の H3 を H2 へ繰り上げるだけで済むものが多い見込み。収益面はその副次効果として自動で復活する（ゲートを満たす）。
+
+**注意**: 広告を出すために見出しを切らない。読みやすさ・TOC・SEO で正当化できる切り方だけにする。`civil-construction-1-secondary-experience-writing-examples`（最大流入）は H2 が「ヒント文章案」「改善例」の 2 本で、後者にテーマ別の H3 が 9 本ぶら下がっている構造。
+
 ### [DN-0121] キャリア記事の一人称改稿＋新設（13の企画リスト実行）
 タグ: [SNS・マーケ] [種類:制作] [実行:sweep] [起票:2026-08-24]
 
