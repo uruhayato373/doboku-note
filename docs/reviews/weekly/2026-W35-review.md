@@ -207,14 +207,17 @@ civil 二次系は `civil-construction-2-secondary-r07` 12.6% / `civil-construct
 
 ## 来週への申し送り
 
-- **[Must] Issue #473 の方針決定**（71 本の境界を下げる / 下限を見直す / allowlist）。決めないと `note-live-audit` は赤のまま、購入者は薄いプレビューのまま。
-- **[Must] R8択一・PE施工能力ページへの note 導線配線**（4 週目）。civil 二次系の noteCTR 12〜14% を根拠に配置を移植する。
-- **[Must] PSI field 供給停止の切り分け** — CrUX 側かスクリプト側か。field が戻らないなら判定原則（`psi-config.json`）自体を lab 中央値ベースへ書き換える必要がある。
-- [Should] note drift のライブ反映着手（本文 422 / タグ 137 / メタ 13 / アセット 174・1 日 100 件上限＝分割前提・ローカル実機）
-- [Should] `/backlog-sweep` の再開と、`[検証:]` 無し 55 枚への検証コマンド付与。常時緑 4 本は差し替えか撤去
+> 各項目は `.claude/todo/backlog.md` に起票済み（DN-#### を併記）。今週分の実行は `.claude/todo/weekly.md`。
+> 定期タスク（ココナラ実体採り直し・A8 月次・brain 競合スキャン・校正学習の蒸留）は種類の決定規則 1 に従い backlog へ置かず weekly.md 側にある。
+
+- **[Must] Issue #473 の方針決定（DN-0126）**（71 本の境界を下げる / 下限を見直す / allowlist）。決めないと `note-live-audit` は赤のまま、購入者は薄いプレビューのまま。
+- **[Must] R8択一・PE施工能力ページへの note 導線配線（DN-0128）**（4 週目）。civil 二次系の noteCTR 12〜14% を根拠に配置を移植する。
+- **[Must] PSI field 供給停止の切り分け（DN-0127）** — CrUX 側かスクリプト側か。field が戻らないなら判定原則（`psi-config.json`）自体を lab 中央値ベースへ書き換える必要がある。
+- [Should] note drift のライブ反映着手（DN-0003）（本文 422 / タグ 137 / メタ 13 / アセット 174・1 日 100 件上限＝分割前提・ローカル実機）
+- [Should] `/backlog-sweep` の再開と、`[検証:]` 無し 55 枚への検証コマンド付与。常時緑 4 本は差し替えか撤去（DN-0129）
 - [Should] ココナラ実体の採り直し（`npm run coconala-orders`・snapshot 7.5 日前で検査不成立）と **DM 残 2 件の返信**（W34 で申し送りから落ちた分）
 - [Should] **A8 単月取得の実機観察**（W34 で落ちた分・期限まで 10 日）
-- [Could] X OVERDUE 3 件の投入 or 退役判断
-- [Could] Issue #457（gsc-auto-review・18 日 open）の復旧か、復旧不能なら channel ごと畳む
-- [Could] brain 競合スキャン（一度も未実施・手動 WebSearch）／ ga4-ui 取得の復旧
+- [Could] X OVERDUE 3 件の投入 or 退役判断（DN-0130）
+- [Could] Issue #457（gsc-auto-review・18 日 open）の復旧か、復旧不能なら channel ごと畳む（DN-0109 に追記）
+- [Could] brain 競合スキャン（一度も未実施・手動 WebSearch）／ ga4-ui 取得の復旧（DN-0051 に追記）
 - [Could] `/distill-proofread-learnings` の再開（3 か月目）
