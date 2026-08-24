@@ -183,7 +183,6 @@ main へ入る前の run で説明がつく。
 1. Windows runnerはフル品質監査でなく、path resolver・Node script起動・改行/文字化け・Playwright auth配線の軽量smokeに限定する
 2. `tools/admin-app/**` 変更時に既存 `test:e2e:admin` をCI配線し、`/metrics`・`/todo`・`/docs`・`/content/*`・サイドメニュー・主要tableを検査する
 3. DN-0108のPlaywright認証はstatic wiringだけをCIへ入れ、profile/Cookie/storageState/login/status/CAPTCHA/2FAはPCローカルに固定する
-4. `weekly-review-guard` を拡張し、重要workflowの最終成功日時・データ鮮度・publish成否を1件の重複防止Issueへsurfaceする
 
 **停止条件**: branch protection・GitHub Environment・Secrets・外部push・R2削除・Pages deployは、dry-run結果と変更対象を提示してユーザー承認を得るまで変更しない。`git reset --hard`、force push、認証profileのCI投入、secret値の取得/表示、外部投稿は行わない。既存workflowを一括置換せず、1 Phaseごとにgreenを確認する。
 
@@ -1134,22 +1133,6 @@ Phase 2はStripe test modeとfixtureまで、Phase 3は別承認として扱い�
 
 **完了条件**: adminからSite/note/X/Instagram/YouTube/Coconala/Kindle/Brainへ到達でき、`/docs`は多軸分類、Brainは`content/brain`だけが販売素材SSOTとなる。`check-information-architecture`・`check-doc-refs`・`check-brain-wiring`・admin型検査・E2E・light/dark/mobile目視がPASSし、恒久SSOT抽出後に本カードとplan bundleを削除する。
 
-### [DN-0104] 品質ゲートの Windows 実行が構造的に偽赤（ローカル検証が成立しない）
-タグ: [インフラ・計測] [種類:不具合] [実行:対話] [検証:quality:audit:ci] [起票:2026-08-21]
-
-**発覚**: 2026-08-21、Actions 復旧 handoff の再開手順（ローカルで全量検証してから通常コミット）を Windows PC で実行しようとして判明。`quality-audit.mjs` の `spawnSync` が `shell` 無しで `npm`/`npx`（実体は `.cmd`）を起動できず ENOENT。**orchestrator 新設（`d30bf11a7`）以来ずっと Windows では 54 件中 53 件が 0.0 秒 FAIL** で、`node` 直起動の `frontmatter` だけが走っていた。同 commit で `shell: process.platform === 'win32'` を入れて起動は通した（47 PASS / 6 FAIL / 1 timeout）。
-
-**同 commit で追加修正済み**: `check-relative-links` は `resolve('/'+dir, target).slice(1)` が Windows でカレントドライブを足して `C:/...` を返し、`.slice(1)` が `C` を削って `:/docs/...` にしていた。`posix.resolve` へ変更し、**偽の壊れリンク 807 件 → 0 件**、`tests/relative-links.test.mjs` も 7/7 に回復。ドキュメントを触る commit が Windows で毎回 pre-commit に弾かれる状態だったため先に潰した。
-
-**残っている本体**: 以下は Windows 固有の理由で落ちる。**CI は全 22 workflow が `ubuntu-latest` なので本番影響はなく、被害はローカル検証が成立しないことに限られる**。
-- `tests/repository-paths.test.mjs`（2 件）: `import()` に `C:\` を直渡しして `ERR_UNSUPPORTED_ESM_URL_SCHEME`（Windows は `file://` URL が必要）
-- `check-jst-date`: 全量実行時のみ、glob が絶対パスを返すのに `join(ROOT, f)` して二重連結し ENOENT。**`--staged`（pre-commit 経路）は正常**なのでコミットは阻害しない
-- `check-dead-handles`: 走査 0 ファイル（自ら「検査不成立」と申告＝設計は正しい）
-- `check-knip-ratchet`: 同じ `npx` ENOENT（こちらも「増加なし」でなく「検査不成立」と申告）
-- `check-content-layout`: timeout
-
-**判断が要る**: 54 件を全部クロスプラットフォーム化する価値があるか。**ローカルは pre-commit（staged・高速・現に Windows で動く）、全量は CI（Linux）**という分担にして、Windows での全量実行は「やらない」と明記する案が対抗馬。§9 の「偽赤も偽緑と同じ害」に照らすと、直す気のない検査を赤いまま放置するのが最悪。
-
 ### [DN-0108] Windows・Mac共通のPlaywright認証永続化基盤
 タグ: [インフラ・計測] [種類:改善] [Codex候補] [実行:対話] [起票:2026-08-21]
 
@@ -1710,13 +1693,6 @@ surfacer の日付パーサを直した（2026-08-17）ことで、これまで�
 | `082-concrete-pe-competitor-format-repurpose` | 7/25-7/29 | 6 | 競合フォーマットのリパーパス。日付依存が弱いので振り直しやすい |
 
 退役は `content/sns/x/draft/_archive-*/` へ移すこと（surfacer は `_` 始まりを走査対象から外す）。振り直す場合は見出しの日付を書き換える。
-
-### [DN-0087] 検査レポートの読み手を決める（quality-audit の report 11 本）
-タグ: [インフラ・計測] [種類:意思決定] [実行:対話] [起票:2026-08-17]
-
-**判断が要る**: `.claude/state/quality/audit-latest.md` を読む自動経路がゼロ。フル `quality:audit` は人が手で叩いたときだけ走り、結果を読む主体も人だけ。report 区分 11 本の FAIL が溜まっても surface されない。
-
-選択肢: (a) weekly-review の Phase 1 へ「audit-latest.md の生成日と fail 一覧」を読む手順を足す (b) report を全部ラチェット化して ci:true へ寄せる (c) 現状維持（人が叩く前提と割り切る）。
 
 ### [DN-0088] search-growth 残存 UNKNOWN 1,280 URL の発生源裁定
 タグ: [インフラ・計測] [種類:意思決定] [実行:対話] [起票:2026-08-22]
