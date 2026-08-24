@@ -21,7 +21,7 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, existsSync, readdirSync, statSync } from 'node:fs';
-import { join } from 'node:path';
+import { join, relative, sep } from 'node:path';
 import { execSync } from 'node:child_process';
 
 const STAGED = process.argv.includes('--staged');
@@ -54,7 +54,10 @@ if (STAGED) {
   const out = execSync('git diff --cached --name-only --diff-filter=ACM', { encoding: 'utf8' });
   files = out.split('\n').filter((f) => f.startsWith('scripts/') && /\.(mjs|js|ts)$/.test(f) && existsSync(f));
 } else {
-  files = walk(join(ROOT, 'scripts')).map((f) => f.replace(ROOT + '/', ''));
+  // ROOT + '/' の除去は Windows で当たらない（walk は join 由来で `\` 区切りを返す）。
+  // 剥がれないと :69 の join(ROOT, f) が絶対パスを二重連結して ENOENT で落ちる
+  // ＝「不合格」ではなく検査が実行不能になる（CLAUDE.md §9）。relative + sep で正規化する。
+  files = walk(join(ROOT, 'scripts')).map((f) => relative(ROOT, f).split(sep).join('/'));
 }
 
 // 検査ゼロを PASS と呼ばない: staged 実行で対象 0 は正常（何も触っていない）だが、

@@ -23,7 +23,7 @@
  */
 
 import { readdirSync, readFileSync, statSync, writeSync } from 'node:fs';
-import { join, basename, extname } from 'node:path';
+import { join, basename, extname, relative, sep } from 'node:path';
 
 const ROOT = process.cwd();
 const argv = process.argv.slice(2);
@@ -64,7 +64,11 @@ try {
 } catch {}
 
 // ファイルごとの全文をキャッシュ（参照元の特定に使う）。
-const corpus = corpusFiles.map((f) => ({ path: f.replace(ROOT + '/', ''), text: readFileSync(f, 'utf8') }));
+// ROOT + '/' の除去は Windows で当たらない（join 由来の `\` 区切り）。剥がれないと c.path が
+// 絶対パスのまま残り、referencedBy の自己除外（c.path !== selfPath）と .claude/todo/ 判定が
+// **常に不一致**になる。赤くならず orphan / tracked-by-todo が永久に立たない偽緑なので、
+// 棚卸し候補を黙って取りこぼす（2026-08-24 に実測: .claude/todo/ 判定が 0/4 → 4/4）。
+const corpus = corpusFiles.map((f) => ({ path: relative(ROOT, f).split(sep).join('/'), text: readFileSync(f, 'utf8') }));
 
 function referencedBy(slug, selfPath) {
   // slug（拡張子なし basename）を含む active doc を列挙（自分自身は除く）。

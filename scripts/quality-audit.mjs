@@ -51,6 +51,23 @@ function portOpen(port) {
   });
 }
 
+/**
+ * `unzip` が実行できるか。EPUB を展開する検査（kindle 系）が依存する。
+ *
+ * Windows の PATH には unzip が無い（Git Bash 内の /usr/bin/unzip は cmd.exe から見えない）ため、
+ * 放置すると Windows で必ず赤くなる＝**偽赤**になり、ローカルの赤を無視する癖がつく。
+ * 「検査していない」ことは skip 理由として必ず表示されるので、緑と混同しない（CLAUDE.md §9）。
+ * Linux CI では unzip が在るので skip されず、検査の厳格性は落ちない。
+ */
+let unzipCache;
+function unzipMissing() {
+  if (unzipCache === undefined) {
+    const r = spawnSync('unzip', ['-v'], { stdio: 'ignore', shell: process.platform === 'win32' });
+    unzipCache = r.error != null || r.status !== 0;
+  }
+  return unzipCache ? 'unzip が PATH に無い（EPUB を展開できない。Linux CI では実行される）' : null;
+}
+
 // ---- チェック定義 ---------------------------------------------------------
 // npm: package.json の script 名 / cmd: 直接コマンド配列。どちらか一方。
 const CHECKS = [
@@ -88,8 +105,8 @@ const CHECKS = [
   { id: 'bold-rendering', npm: 'check-bold-rendering', timeout: 120_000, ci: true, note: '閉じ/開き ** が flanking を満たさず太字にならずアスタリスクが本文に出る事故。remark で実パースして text ノードに ** が残るかで判定する（規則の再実装ではない）' },
   { id: 'orphan-ogp', npm: 'check-orphan-ogp', timeout: 90_000, ci: true },
   // 2026-08-18: 実質オーファンだった（package.json にはあるがどの経路にも配線なし）。EPUB の書式インバリアントは epubcheck が見ない領域で、ビルダー 2 本に CSS/構造がコピー実装されている。
-  { id: 'kindle-format', npm: 'check-kindle-format', timeout: 300_000, ci: true, note: '配布 EPUB の書式インバリアント（本文可読性・章の改ページ・解答のネタバレ改ページ）。ローカルは EDR のファイル走査律速で数分かかるが CI では速い。0 冊なら exit 2（検査不成立）' },
-  { id: 'kindle-epub-leak', npm: 'check-kindle-epub-leak', timeout: 180_000, ci: true, note: '配布 EPUB に章タイトル article.mdx / YAML frontmatter が印字される事故（2026-08-12・e-02 は審査中だった）。真因はソース MDX の BOM で frontmatter の ^--- が外れること。EPUB 実展開＋ソース BOM の二段で検査する' },
+  { id: 'kindle-format', npm: 'check-kindle-format', timeout: 300_000, ci: true, skip: unzipMissing, note: '配布 EPUB の書式インバリアント（本文可読性・章の改ページ・解答のネタバレ改ページ）。ローカルは EDR のファイル走査律速で数分かかるが CI では速い。0 冊なら exit 2（検査不成立）' },
+  { id: 'kindle-epub-leak', npm: 'check-kindle-epub-leak', timeout: 180_000, ci: true, skip: unzipMissing, note: '配布 EPUB に章タイトル article.mdx / YAML frontmatter が印字される事故（2026-08-12・e-02 は審査中だった）。真因はソース MDX の BOM で frontmatter の ^--- が外れること。EPUB 実展開＋ソース BOM の二段で検査する' },
   { id: 'figure-crop-integrity', npm: 'check-figure-crop:ci', timeout: 180_000, ci: true, note: '図クロップの写り込み（STRAY_SLIVER）を baseline 比の新規のみ gate。figure-crop-report.json を上書き' },
   { id: 'guide-length', npm: 'check-guide-length', timeout: 90_000, ci: true },
   { id: 'lcp-image-hints', npm: 'check-lcp-image-hints', timeout: 60_000, ci: true, note: '本文フォールド内1枚目の図版は eager+fetchpriority=high（lazy だと低速回線で LCP が数秒伸びる・EXP-005）' },
