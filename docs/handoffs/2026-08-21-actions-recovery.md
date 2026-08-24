@@ -3,9 +3,14 @@
 > [!done]
 > **2026-08-21 再開・push 済み**：Windows PC で再開手順を実行し、実行可能な検証を通したうえで通常コミットを追加して `develop` へ push した。CI（Linux）の Pre-merge が権威。**main 反映と workflow 再実行はユーザー判断のため未実施**。
 
-> [!warning]
-> **再開手順の「ローカル全量検証」は Windows では成立しない**（2026-08-21 実測）。`quality:audit:ci` は orchestrator 新設以来 Windows で 53/54 が 0.0 秒 FAIL していた（`spawnSync` が `.cmd` を起動できず ENOENT）。同 commit で起動は直したが、その先も `:/` ドライブレター分断・`file://` 未対応・glob 0 件など Windows 固有の失敗が 6 件残る。**CI は全 22 workflow が `ubuntu-latest` なので本番影響はない**。詳細と方針判断は backlog `DN-0104`。
-> Windows では **pre-commit（staged・現に動く）＋ push して CI に全量を任せる**のが現実的な分担。
+> [!note]
+> **解消済み（2026-08-24）**: 当初この handoff は「ローカル全量検証は Windows では成立しない」と書いていた。
+> `quality:audit:ci` が orchestrator 新設以来 Windows で 53/54 が 0.0 秒 FAIL していた（`spawnSync` が `.cmd` を
+> 起動できず ENOENT）ためで、起動を直した後も 6 件の Windows 固有失敗が残っていた。
+> 2026-08-24 にその 6 件（パス区切り・cmd.exe のクォート・unzip 不在・timeout）を実測で潰し、
+> **Windows でも `quality:audit:ci` が pass 62 / fail 0 / timeout 0 になった**。
+> 構造的に必ず赤いゲートはローカルの赤を無視する癖をつけるため、偽緑と同じ害があるという判断で
+> 「分担で逃げる」案は採らなかった。ローカル全量検証は現在成立する（権威は依然 CI）。
 
 ## 背景
 
@@ -73,9 +78,9 @@ PDF個別検査：対象95本の `pdfinfo` / `pdftotext` が成功し、5〜8ペ
 | `npm run check-note-paid-cta` | PASS（674 件検査・変更対象 0） |
 | `npm run check-note-intro-benefit` | PASS（公開 756 件すべて benefit 節あり） |
 | `git diff --check` | PASS |
-| `npm run quality:audit:ci` | 47 PASS / 6 FAIL / 1 timeout — **失敗 7 件のうち 6 件は Windows 固有**（`DN-0104`）、実指摘は `image-assets` の SVG 1 件のみ（今朝の作業とは無関係。2026-08-21 に解消しカードは削除済み） |
+| `npm run quality:audit:ci` | 当時 47 PASS / 6 FAIL / 1 timeout（失敗 7 件のうち 6 件は Windows 固有・2026-08-24 に全て解消して pass 62 / fail 0 に。実指摘は `image-assets` の SVG 1 件のみで 2026-08-21 に解消済み） |
 
-`npm run build` と `check-seo-build:ci` は Windows 全量検証が成立しない以上ローカルで通しても意味が薄いため、CI（Linux）へ委ねた。
+`npm run build` と `check-seo-build:ci` は当時 Windows 全量検証が成立しなかったため CI（Linux）へ委ねた（2026-08-24 以降は Windows でも全量が通る）。
 
 > [!note]
 > 監査実行で `.claude/state/{svg-audit.json,quality/*}` が書き換わるが、Windows ではパス区切りが `content\\site\\...` に化けるため **コミットしない**（他環境の記録を壊す）。実行後は `git restore` すること。
