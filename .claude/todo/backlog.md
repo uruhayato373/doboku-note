@@ -52,6 +52,77 @@
 
 ## 🔴 高 — 来月中に着手
 
+### [DN-0126] 無料プレビュー下限が書き込み経路と監査経路で食い違う（Issue #473）
+タグ: [コンテンツ品質] [種類:不具合] [実行:対話] [検証:check-note-structure] [起票:2026-08-25] [期日:2026-09-05]
+
+`note-live-audit.yml` が 2026-08-02 を最後に 3 連続失敗、21 日赤のまま放置されていた（`check-workflow-health` の初回実行で発覚 → Issue #473）。原因は `check-note-structure --ci` の CRITICAL 71 件で、全て `FREE_PREVIEW_COLLAPSE`・全て **1級土木 経験記述 完全攻略パック（¥9,800）** 配下。
+
+**ただし 71 件をそのまま「壊れている本数」として扱ってはいけない。**判定に使う下限が経路によって違う（2026-08-25 実査）:
+
+| 経路 | 使う下限 | 実装 |
+|---|---|---|
+| 書き込み（公開・本文更新） | **記事別** `min(600, max(120, 無料部分×0.5))` | `scripts/note-publish.mjs:124` / `scripts/note-update-body.mjs:207` |
+| 監査 | **固定 600 字** | `scripts/check-note-structure.mjs:178` |
+
+記事別下限を導入した関数のコメント自身が理由を書いている——「固定600字だけでは、工事別テンプレートのように『工事概要の直後から有料』にする正常な短いプレビューを破損扱いする」（`scripts/lib/note-live-check.mjs:117`）。**71 件はまさにその工事別テンプレート**。
+
+パック 154 本を offline 実測すると、**140 本の記事別下限が 600 未満**（min 202 / 中央 511 / max 600）。一方 Issue の実測プレビュー長は 302〜582 字（中央 442）。つまり記事別下限で測り直せば一部は正常判定に変わり、一部は本当に不足として残る。**どちらが何本かは未測定。**
+
+**実行順**:
+
+1. `check-note-structure.mjs:178` を `expectedFreePreviewMin(markdown, boundaryPattern)` へ寄せ、書き込み経路と同じ基準で測り直す（固定 600 のままにするなら、なぜ書き込み側と違ってよいかを コメントに書く）
+2. 測り直した「本当に下限割れ」の本数と記事名を出す。ここで初めて商品としての判断材料が揃う
+3. 残った本数に対して方針を決める（境界を下げて再公開 / 記事別下限も割るなら本文を足す / 理由付きで allowlist）
+4. ライブ反映が要るなら対象・変更内容・添付有無を提示してユーザー承認を得る
+
+**停止条件**: note ライブ変更はユーザー承認前に行わない。有料境界を動かすときは `--boundary-h2` を使い `--keep-boundary` は使わない（本文ブロック増で境界が冒頭へ動く既知事故・2026-07-31）。価格・既存 PDF 添付を保持する。
+
+**完了条件**: `npm run check-note-structure` の CRITICAL が 0（または残余が理由付き allowlist）、`note-live-audit.yml` が green、Issue #473 がクローズ。判定基準の食い違いを解消した根拠を `note-api-verification.md` か `note-selling-structures.md` へ 1 行抽出する。
+
+### [DN-0127] PSI の実害判定が空振りしている — field(CrUX) が 8/18 以降ゼロ
+タグ: [インフラ・計測] [種類:不具合] [実行:sweep] [検証:psi-audit:check] [起票:2026-08-25]
+
+`psi-config.json` は `primary_source: "field"` / `critical_requires_field_slow: true`、CI ゲート（`scripts/../psi-threshold-check.mjs` の `isGateViolation`）は `field` / `field-category` / `coverage` の 3 型しか赤にしない。その **field が空になっている**（2026-08-25 実査・全 247 バッチ走査）:
+
+| 期間 | field を持つバッチ |
+|---|---|
+| 〜2026-07-20 | 0（CrUX 未供給） |
+| 2026-07-21 〜 08-17 | 48 バッチ / 983 result（最終 08-17 は LCP 21/21 FAST） |
+| **2026-08-18 〜 08-24** | **0（12 バッチ連続で全 null）** |
+
+つまり現在の「CI ゲート違反 0 件」は実害が無いことではなく、**判定材料が無く coverage も落ちていないこと**しか意味しない。CLAUDE.md §9「検査ゼロを PASS と呼ばない」の入力欠落版で、`check-workflow-health` は「最後の success がいつか」しか見ないためこの形はすり抜ける。
+
+**実行順**:
+
+1. field が消えた原因を切り分ける（CrUX 側のサンプル数不足か、`fetch-psi-data.mjs` のリクエスト/パース変更か）。7/21 に供給が始まり 8/17 に止まっている境目を手掛かりにする
+2. 供給が戻らないなら判定原則を書き換える（`primary_source` を lab 中央値ベースへ・`.claude/config/psi-config.json` に理由を書く）。**field 不在のまま緑を出し続ける状態を残さない**
+3. どちらの結論でも「field が N 件中 0 件だった」ことを surface する行を `psi-threshold-check.mjs` の出力に足す（入力欠落が緑に化けるのを止める）
+
+**完了条件**: レポートに field の取得件数が出る。field 不在時にゲートが「判定不能」を表明する（緑にしない）。判定原則を変えたなら `measurement-incidents.md` の 2026-07-27 エントリを更新する。
+
+### [DN-0128] 高流入ページ 9 本に note 導線が無い（3 週連続で未着手）
+タグ: [収益化] [種類:改善] [実行:対話] [起票:2026-08-25]
+
+週次レビューで W33・W34・W35 と 3 週続けて Must に挙がりながら、**backlog に起票されていなかったため毎週レビューの中だけで流れていた**。台帳へ載せて追跡する。
+
+`report-monetization-coverage`（2026-08-25 実行・流入窓 07-24〜08-20）で、高流入なのに note 導線がゼロ（アフィリ枠のみ）のページが **9 本**:
+
+| ページ | users | group |
+|---|--:|---|
+| `pe-comprehensive-management-r08-primary` | 104 | pastExam |
+| `pe-construction-competency-revision-r8` | 39 | guide |
+| `pe-first-stage-r07-basic` | 29 | primary |
+| `pe-comprehensive-management-general-vs-comprehensive` | 24 | guide |
+| `concrete-chief-engineer-textbook-mix-design` | 21 | textbook |
+
+他 4 件: `concrete-diagnostician-guide-overview`(19) / `concrete-chief-engineer-primary-construction`(18) / `civil-construction-1-guide-grade-comparison`(17) / `concrete-chief-engineer-textbook-production-qc`(15)。全量は `.claude/state/metrics/monetization/coverage-latest.md`。
+
+**やる根拠は推測ではない**: 同型配置の civil 二次系で noteCTR が出ている（`civil-construction-2-secondary-r07` 12.6% / `civil-construction-1-secondary-r07` 13.7% / `civil-construction-2-secondary-experience-writing-examples` 12.5%）。
+
+**実行順**: ①各ページの資格セグメントに合う live マガジンを `src/lib/magazine-placement.ts` で配線する（資格をまたがせない）②`npm run check-magazine-cta` と `report-monetization-coverage` で「note 導線ゼロ」が減ったことを実数で確認する ③概念的に合う商品が無いページはその旨を書いて対象から外す（無理に張らない）
+
+**完了条件**: 「note 導線ゼロ」9 → 0、または残余それぞれに「張らない理由」がある。次回レビューで noteCTR の初期値を記録する。
+
 ### [DN-0119] 転職アフィリの取りこぼし — career タグなのにアフィリ面が無いページ
 タグ: [収益化] [種類:不具合] [実行:sweep] [検証:check-career-separation] [起票:2026-08-24]
 
@@ -152,6 +223,8 @@ main へ入る前の run で説明がつく。
 ランナーごと落ちていた。全ステップが `conclusion=null` になり**ランナーが自分のログも書けない**ため
 `--log-failed` は「log not found」しか返さず、annotations API でだけ理由が読めた。
 数週間にわたり成功と失敗が交互に出ていたのは容量の縁で動いていたため。
+**2026-08-25 時点で未復旧**: `automation-failure` Issue #457 が 2026-08-07 起票のまま **18 日 open**。dedup 仕様により以後の同 channel の失敗はこの Issue へのコメント追記に埋没するため、閉じるか channel ごと畳むかを決めるまで通知路として機能しない。
+
 `gsc-auto-review.yml` と `competitor-scan.yml`（同じく履歴不使用）から `fetch-depth: 0` を削除し、
 `check-workflow-clone-depth` で禁止した。詳細と追跡手順は measurement-incidents.md。
 
@@ -647,6 +720,32 @@ backlogのDN-0015/DN-0088/DN-0106を読んでください。
 ```
 
 ## 🟡 中 — 2〜3ヶ月以内
+
+### [DN-0129] backlog の 55 枚に `[検証:]` が無く、陳腐化が永久に検出されない
+タグ: [エージェント・SSOT] [種類:不具合] [実行:sweep] [検証:check-backlog-schema] [起票:2026-08-25]
+
+2026-08-25 実測: カード 102 枚のうち **sweep 到達不能 59 枚**、そのうち **55 枚は `[検証:]` を持たない**。`check-backlog-verify` が実走できるのは 11 枚（ユニーク 10 コマンド）だけで、残りは「もう解決しているのに載り続けている」状態を機械で検出できない。
+
+さらに、`[検証:]` を持つ 11 枚のうち **4 枚は常時緑**＝検証先が報告するだけの surfacer で、完了判定に使えない:
+
+- `check-note-paid-cta`（L97 付近）/ `test:e2e:admin` / `audit-note-funnel` / `quality-census`
+
+`/backlog-sweep` 自体も 2 週間止まっている（`dispatch-log` が 08-18 以降 0 エントリ）。台帳は増えるのに消化と陳腐化検出の両方が効いていない。
+
+**実行順**: ①常時緑 4 枚の `[検証:]` を「赤→緑で完了が判る」コマンドへ差し替える。適当なものが無ければ token ごと外す（嘘の完了判定を残さない）②`[検証:]` 無し 55 枚のうち `[実行:sweep]`/`[機械]` の分から優先して検証コマンドを付ける ③重複候補 2 ペア（L529↔L595・L961↔L1082）を統合するか、別物なら違いを本文に 1 行書く
+
+**完了条件**: `check-backlog-verify` の「常時緑」が 0。sweep 到達可能なカードすべてが `[検証:]` を持つ。`check-backlog-health` の S8 重複候補が 0。
+
+### [DN-0131] YouTube 予約投入が 68 日止まり、未処理 187 件が滞留している
+タグ: [SNS・マーケ] [種類:不具合] [実行:対話] [起票:2026-08-25]
+
+`check-external-write-orphans` が `silent-stop` を出している（2026-08-25 実測）: `youtube-scheduled-post` の最後の run が **68 日前**（2026-06-17）で、台帳に未処理 **187 件**。`.claude/state/yt-verify/latest.json` も pending_overdue 187・**recorded_but_gone 6**。W33 の 171 件から 3 週かけて増え続けている。
+
+orphan（外部には出たのに台帳に記録が無い）ではないので二重投稿の危険は無いが、**「投入する運用」自体が止まっている**のに台帳だけが積み上がっている。数字を減らす前に、この 187 件を今も出す気があるのかを決める必要がある。
+
+**実行順**: ①`recorded_but_gone` 6 件を先に確認する（台帳にあるのにライブから消えている＝削除されたのか非公開なのか）②187 件が現在も出す価値のある内容か棚卸しする（過去問派生 Shorts が中心で、鮮度より論点で持つ想定だったか）③出すなら投入 cadence を決めて weekly へ載せる。出さないなら台帳から退役させて surfacer のノイズを止める
+
+**完了条件**: pending_overdue が意図した水準まで下がる（0 でなくてよいが、残っている理由が書かれている）。`recorded_but_gone` 6 件の実体が判明している。
 
 ### [DN-0124] 記事 → 商品 → 売上 の突合が無く、収益分析がクリックで止まっている
 タグ: [インフラ・計測] [種類:改善] [実行:sweep] [起票:2026-08-24]
@@ -1479,6 +1578,7 @@ Tier 1（NoteLink 計測・cadence 化・bot 監査 CI 等）は実装完了。�
 - **Tier 2/3**: カスタムパラメータ・検索/scroll イベント・アフィリA/B の label 取得・GA4↔GSC 突合／AdSense RPM 取込・sales×流入 attribution・送客リダイレクタ・A8 EPC
 - **GA4 サーバ側（ユーザー手作業）**: 残るのは**未解決の bing bot 疑いの確定**のみ（内部トラフィック/参照除外・既知ボット除外・カスタムディメンション登録はすべて完了済み。`ga4-admin:check` / `check-ga4-dimensions` とも「不足 0」を実測）。真実源 → [計測基盤強化ロードマップ.md](../../docs/operations/計測基盤強化ロードマップ.md)
 - **Playwright UI CSV**: `fetch-ga4-ui-csv.mjs` は未ログイン検証のみ。ログイン済み実UIでレポート名・ディメンション・指標・ダウンロードメニューの正式ラベルを確定し、fixtureと回帰テストへ反映（API優先方針は維持）
+  - **2026-08-25 実測: ga4-ui は一度も完全成功していない**。`check-gsc-ui-due --json` の `ga4-ui` が `due:true`（直近実行 2026-07-30 は 取得 0/3・失敗 3＝`csv-menu-ambiguous` / `report-not-found`×2、完全取得の記録なし）。gsc-ui は 11/16 取得で期限内なので、欠測しているのは GA4 UI 由来の指標だけ
   - **故障記録（2026-07-30 実測・`check-gsc-ui-due` が DUE を出し続ける原因）**: 3 ユニットとも失敗。
     `trafficAcquisition` は `csv-menu-ambiguous`（ダウンロードメニューの候補が一意に決まらない）、
     `landingPage` は `report-not-found`（候補 0）、`events` は `report-not-found`（候補 11＝絞り込めていない）。
@@ -1759,6 +1859,29 @@ GitHub Secrets: `CLOUDFLARE_API_TOKEN`/R2 キー=90日・`PSI_API_KEY`/`YOUTUBE_
 account ゲート/ClipboardEvent paste/リンクカード化/ブラウザ起動が3〜5スクリプトにコピペ分岐（note-update-body paste 無音失敗事故の震源）。`scripts/lib/note-browser.mjs` へ一元化。**有料境界（paywall boundary）ロジックは収益直結のため統合せず各スクリプトにインライン保持**。独立 worktree で実施・dry-run/probe で挙動同一確認。
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
+
+### [DN-0130] X 下書き 3 件が go-live を 1 か月超過 — 投入するか退役させるか
+タグ: [SNS・マーケ] [種類:意思決定] [実行:対話] [検証:x-queue-surfacer] [起票:2026-08-25]
+
+`x-queue-surfacer`（2026-08-25 実行）が OVERDUE 3 件を出している。予約キュー自体は 9/30 まで埋まっているので**穴は空いていない**が、この 3 束は go-live を過ぎたまま投入も退役もされず滞留している:
+
+| draft | 想定期間 | 未投入 |
+|---|---|--:|
+| `068-civil1-secondary-keiken-w1` | 7/6-7/12 | 28/28 |
+| `080-pe-comprehensive-r08-hit` | 7/21 | 1/1 |
+| `082-concrete-pe-competitor-format-repurpose` | 7/25-7/29 | 6/6 |
+
+決めるべきは「今も出す内容か」。068 は 1級土木二次（10/4）の経験記述で**時期的にはむしろこれから効く**、080 は R8 的中の訴求で本試験直後を狙った文面、082 は競合フォーマットのリパーパス。W34 で X 064-067 を退役させたときと同じ判断を、内容を読んだうえで行う。
+
+投入する場合の手順（ローカル＝`.local/playwright-x-profile` のある Mac 限定）:
+
+1. `npm run x-schedule-guard -- --queue --max-per-day 2` で緑を確認
+2. `npx tsx .claude/skills/social/publish-x/publish-x.ts <NNN> --tweets 1-<本数> <日時×本数>`（時刻は±ジッタ・両試験で同時刻を避ける）
+3. `npm run x-sync-status` で queued 昇格数 = 投入本数 を実査（偽成功検証）
+
+**停止条件**: 一括投入しない（§11 凍結回避）。1 日 2 本上限を超えない。
+
+**完了条件**: 3 件それぞれが「投入済み」か「`_archive-*` へ退役」のどちらかになり、`x-queue-surfacer` の OVERDUE が 0。
 
 ### [DN-0120] 転職アフィリの成果が 3 ヶ月ゼロ — 継続するか、面を畳んで別収益に寄せるか
 タグ: [収益化] [種類:意思決定] [実行:対話] [起票:2026-08-24]
