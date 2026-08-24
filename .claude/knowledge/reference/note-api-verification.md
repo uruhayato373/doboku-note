@@ -36,7 +36,9 @@ npm run verify-note-magazines -- --json       # スナップショットを JSON
 
 - スクリプト: `scripts/verify-note-magazines.mjs`。内部で `curl --ssl-no-revoke` を spawn（プロキシ env を自動利用）。
 - **`--vs-txt`**: 各 `note掲載文.txt`（マガジン設定 SoT）を note 公開状態と突合。**説明文の先頭一致でマガジンを同定**（タイトルがドリフトしても照合可）し、タイトル差/価格差/説明差/文字数超過を検出。`note掲載文.txt` を編集したら本モードでドリフトを確認 → `note-edit-magazine` で push、の運用。
-- `--json` 出力先: `.claude/state/note/magazines-snapshot.json`（machine データ。コミット任意、毎回再生成可）。
+- `--json` 出力先: `.claude/state/note/magazines-snapshot.json`（machine データ）。**供給は CI（`note-live-audit.yml` 週次）が正**。
+  ローカル再生成は可（デバッグ・事故是正の即時反映）だが、**再生成したら commit する**——`check-magazine-membership` が `fetchedAt` の鮮度を見ており、腐った snapshot は「合格」ではなく検査不成立として扱う。収録リスト `notes[]` は `--contents` を渡したときだけ入るので、**この 2 つを常にセットで**（`--contents --json`）。
+  （2026-06-12 に生成された snapshot が 73 日間そのまま残り、ゼネコン=5 件という古い値を保持していた。「コミット任意」がその腐敗の許可証になっていたため 2026-08-24 に改めた。）
 
 ### 検出するズレ
 

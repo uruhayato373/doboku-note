@@ -99,6 +99,7 @@
     "check-links": "node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs",
     "check-links-audit": "node .claude/skills/quality/check-mdx/scripts/rules/links/check-links.mjs --scope all --report .claude/state/link-audit/",
     "check-magazine-cta": "tsx scripts/check-magazine-cta-reachability.ts",
+    "check-magazine-membership": "node scripts/check-magazine-membership.mjs",
     "check-magazine-cta:ci": "tsx scripts/check-magazine-cta-reachability.ts --ci",
     "check-mdx-dates": "node scripts/check-mdx-dates.mjs",
     "check-note-attachments": "node scripts/check-note-attachments.mjs",

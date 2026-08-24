@@ -8,6 +8,7 @@ note 記事・有料マガジンへの**回遊と購入の動線設計**の真�
 > - [note-selling-structures.md](note-selling-structures.md) = **記事内部**の構成（読者の悩みをつかみ購入理由を作る本文の9型）の SSOT。本書は記事から記事へ送り、向こうは 1 本の記事の中身を組む（直交）
 > - `.claude/config/note-funnel.json` = 機械可読 SSOT（L1/L2 レジストリ・資格別 CTA 文面・マーカー）。スクリプト/CI/エージェントが参照
 > - `src/lib/note-magazines.ts` = マガジンの URL・価格・公開状態の真実源
+> - **マガジンの収録記事（期待値）** = 各記事 frontmatter の `noteMagazine` ラベル ＋ `.claude/config/note-magazine-membership.json`（ラベル→マガジン id の対応・dir 外収録の extras）。検査は `npm run check-magazine-membership`（repo 実数 ↔ SoT の price 件数 ↔ ライブ snapshot の**三軸**）。SoT の件数表記は真実源ではなく**検証される側**。収録リストを別に手書きしないのは、それ自体が新たなドリフト源になるため（2026-08-24 制定）
 > - 各 `content/note/{試験}/noteコンテンツ計画.md` = 試験別の戦略・価格企画・リリース計画
 > - `docs/marketing/02_チャネル動線設計.md` = **note → サイト送客リンク**の UTM 規約の SSOT。本書（記事間回遊＝note 内部の L1/L2/パック）は note→サイトの deep link / UTM は扱わない。サイト送客リンクは UTM 付きインライン（生 URL 単独行はカード化で UTM 消失）
 > - `.claude/state/note-published.json` = 公開済み単発記事の記録

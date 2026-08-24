@@ -1,0 +1,38 @@
+{
+  "_doc": "マガジン収録の期待値 SSOT。期待収録数(id) = Σ(labels でその id に紐づくラベルの repo 記事実数) + extras[id].count。ラベル = 記事 frontmatter の noteMagazine。id = src/lib/note-magazines.ts の id（note の m… キーは noteUrl から導出するのでここには書かない＝二重管理しない）。labels に無いラベルはゲートせず surfacer が列挙する（段階導入）。extras は reason 必須。検査は scripts/check-magazine-membership.mjs。",
+  "_why": "2026-08-24、総監模範論文の R8 予想テーマ 4→6 拡張でゼネコン/河川コンサルの記事 2 本ずつがライブマガジン未収録のまま残った。verify-note-magazines は SoT↔ライブの 2 者突合で、SoT の件数表記も 9 のまま古びていたため一致して緑が出ていた。repo の記事実数という第三軸を持ち込まないと検出できない。",
+  "labels": {
+    "総監模範論文-ゼネコン": "essay-general-contractor-magazine",
+    "総監模範論文-河川コンサル": "essay-river-consultant-magazine",
+    "総監模範論文-道路橋梁コンサル": "essay-road-consultant-magazine",
+    "総監模範論文-都市計画コンサル": "essay-urban-consultant-magazine",
+    "総監模範論文-自治体道路担当": "essay-road-municipality-magazine",
+    "総監模範論文-自治体河川担当": "essay-river-municipality-magazine",
+    "総監模範論文-自治体都市計画担当": "essay-urban-municipality-magazine",
+    "総監模範論文-自治体契約調達担当": "essay-procurement-municipality-magazine",
+    "総監模範論文-自治体技術基準担当": "essay-standards-municipality-magazine",
+    "総監模範論文-自治体下水道担当": "essay-sewage-municipality-magazine",
+    "総監模範論文-自治体上水道担当": "essay-water-municipality-magazine",
+    "総監模範論文-自治体砂防担当": "essay-sabo-municipality-magazine",
+    "総監模範論文-自治体港湾担当": "essay-port-municipality-magazine",
+    "総監模範論文-自治体公園緑地担当": "essay-park-municipality-magazine",
+    "BK-I": "pe-construction-required-magazine",
+    "BK-01": "pe-construction-road-magazine",
+    "BK-02": "pe-construction-river-coast-magazine",
+    "BK-03": "pe-construction-urban-planning-magazine",
+    "BK-04": "pe-construction-geotechnical-magazine",
+    "BK-05": "pe-construction-steel-concrete-magazine",
+    "BK-06": "pe-construction-construction-planning-magazine",
+    "BK-07": "pe-construction-environment-magazine",
+    "BK-08": "pe-construction-port-airport-magazine",
+    "BK-09": "pe-construction-power-civil-magazine",
+    "BK-10": "pe-construction-railway-magazine",
+    "BK-11": "pe-construction-tunnel-magazine"
+  },
+  "extras": {
+    "essay-road-municipality-magazine": {
+      "count": 1,
+      "reason": "R8予想問題集デモ1本（content/note/技術士総監/R8予想問題/・note key n05314b15b375）を販促として収録。note-magazines.ts の description『R8予想問題集デモ1本の合計12記事』表記と対応。ペルソナ dir の外に在るので noteMagazine 集計では数えられない"
+    }
+  }
+}

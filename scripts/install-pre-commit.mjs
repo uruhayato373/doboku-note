@@ -100,6 +100,10 @@ fi
 
 # note 単品価格がマガジン内・宣言済みシリーズ内で一貫しているか（値上げの当て漏れ・値崩れの再発防止・2026-07-28）
 node scripts/check-note-price-consistency.mjs --staged
+
+# マガジン収録の期待値（repo 実数 ↔ SoT 件数表記）。記事を足したのにライブ未収録＋表記も古い
+# という事故（2026-08-24 ゼネコン/河川コンサル各2本）の再発防止。ライブ軸は CI 側で見る。
+node scripts/check-magazine-membership.mjs --staged
 if [ $? -ne 0 ]; then
   exit 1
 fi

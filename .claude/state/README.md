@@ -31,6 +31,7 @@
 | `civil-quality-cycle-state.json` | 1級土木版の状態遷移 | `/civil-textbook-cycle` |
 | `experiments.json` | NSM 実験の状態（running / measuring / done） | `/nsm-experiment` |
 | `metrics/` | PSI / GA4 / GSC の生 JSON（CI が develop に直接 commit） | `.github/workflows/psi-audit.yml` / `fetch-metrics.yml` |
+| `note/magazines-snapshot.json` | note ライブのマガジン一覧＋**収録記事リスト**（`check-magazine-membership` の軸 C。鮮度 9 日超は検査不成立扱い） | `.github/workflows/note-live-audit.yml`（週次・CI が develop に直接 commit） |
 | `exam-keyword-cycles/` | 過去問起点校正サイクルの進捗 JSON | `/exam-keyword-cycle` |
 | `proofread-learnings/` | 校正学習の蒸留ログ | `/distill-proofread-learnings` |
 | `resurrection-candidates/` | 復活候補ページのメタ | `/resurrect-content` |
