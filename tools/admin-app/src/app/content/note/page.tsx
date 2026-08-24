@@ -1,19 +1,39 @@
 import Link from 'next/link';
 import { PageHead } from '@/components/ui';
-import { noteArticles, noteRepoRelPath, noteRepublishState, type NoteArticle } from '@/lib/content';
+import {
+  magazineLabelIndex,
+  noteArticles,
+  noteRepoRelPath,
+  noteRepublishState,
+  type NoteArticle,
+} from '@/lib/content';
 
 export const dynamic = 'force-dynamic';
 
 /**
  * note 記事一覧（読み取り専用）。
  *
- * 827 本を素で 1 表に流すと目で追えないため、右レールで資格・価格・状態を絞り込む。
+ * 827 本を素で 1 表に流すと目で追えないため、右レールで資格・価格・状態・マガジンを絞り込む。
  * レール実装は /todo と同じ `todo-shell` / `todo-main` / `todo-rail` + `.facet` を再利用する
  * （globals.css:915-1011 に 900px 以下で縦積み＋先頭へ引き上げるレスポンシブが既にある）。
  * JS 不要のリンク遷移だけで動く＝RSC ファーストの方針どおり。
+ *
+ * 表はタイトル 1 行（＝note で公開しているタイトル）だけを出し、所属マガジンはレールへ寄せる。
+ * 2026-08-24 まではタイトルの下に `<br>` でシリーズ名を足していたため 787/827 行が 2 行になり、
+ * 一覧の一望性が落ちていた。さらにその値は `noteSeries || noteMagazine` の畳み込みで、
+ * **200 本で両者の値が食い違っていた**（例: `総監模範論文-河川コンサルペルソナ` と
+ * `総監模範論文-河川コンサル`）。repo 側のゲート（check-magazine-membership /
+ * check-note-price-consistency）が集計するのは `noteMagazine` の方なので、画面の表示と
+ * 検査の集計単位がズレていた。ここでは `noteMagazine` だけを使う（`noteSeries` は読み手が無い）。
  */
 
-type Query = { e?: string; p?: string; s?: string };
+type Query = { e?: string; p?: string; s?: string; m?: string };
+
+/**
+ * 「マガジン未設定」を表す facet キー。ラベルは frontmatter の生値なので衝突しない接頭辞を使う。
+ * どの商品にも属さない記事を洗い出すのが用途（827 本中 129 本ある）。
+ */
+const NO_MAGAZINE = '__none';
 
 /** 状態の絞り込み。「要再公開」は check-note-republish の判定が取れたときだけ意味を持つ。 */
 const STATES: { key: string; label: string }[] = [
@@ -57,7 +77,7 @@ function Facet({
   now: Query;
   active: string | null;
   total: number;
-  items: { key: string; label: string; count: number }[];
+  items: { key: string; label: string; count: number; hint?: string }[];
 }) {
   return (
     <section className="facet">
@@ -71,6 +91,7 @@ function Facet({
           key={item.key}
           href={href(now, { [param]: item.key })}
           className={active === item.key ? 'active' : ''}
+          title={item.hint}
         >
           <span className="fl">{item.label}</span>
           <span className="n">{item.count}</span>
@@ -90,7 +111,13 @@ export default async function ContentNotePage({
   const exam = one(sp.e);
   const pricing = one(sp.p);
   const state = one(sp.s);
-  const now: Query = { e: exam ?? undefined, p: pricing ?? undefined, s: state ?? undefined };
+  const magazine = one(sp.m);
+  const now: Query = {
+    e: exam ?? undefined,
+    p: pricing ?? undefined,
+    s: state ?? undefined,
+    m: magazine ?? undefined,
+  };
 
   const all = noteArticles();
   const republish = noteRepublishState();
@@ -101,25 +128,47 @@ export default async function ContentNotePage({
       : state === 'unpublished' ? !i.published
         : state === 'drift' ? isDrift(i)
           : true;
+  const matchExam = (i: NoteArticle) => !exam || i.exam === exam;
+  const matchPricing = (i: NoteArticle) => !pricing || i.pricing === pricing;
+  const matchMagazine = (i: NoteArticle) =>
+    !magazine ? true : magazine === NO_MAGAZINE ? !i.magazine : i.magazine === magazine;
 
-  const items = all.filter((i) =>
-    (!exam || i.exam === exam) && (!pricing || i.pricing === pricing) && matchState(i));
+  const items = all.filter(
+    (i) => matchExam(i) && matchPricing(i) && matchState(i) && matchMagazine(i));
 
-  // 各facetの件数は「他のfacetを適用した後」で数える。全体数を出すと、絞った状態で
+  // 各facetの件数は「自分以外のfacetを適用した後」で数える。全体数を出すと、絞った状態で
   // 0 件のはずの選択肢が大きい数字で並び、押しても何も出ないという読み違いになる。
-  const examCounts = countBy(
-    all.filter((i) => (!pricing || i.pricing === pricing) && matchState(i)), (i) => i.exam);
-  const pricingCounts = countBy(
-    all.filter((i) => (!exam || i.exam === exam) && matchState(i)), (i) => i.pricing);
-  const stateScope = all.filter((i) => (!exam || i.exam === exam) && (!pricing || i.pricing === pricing));
+  const examScope = all.filter((i) => matchPricing(i) && matchState(i) && matchMagazine(i));
+  const pricingScope = all.filter((i) => matchExam(i) && matchState(i) && matchMagazine(i));
+  const stateScope = all.filter((i) => matchExam(i) && matchPricing(i) && matchMagazine(i));
+  const magazineScope = all.filter((i) => matchExam(i) && matchPricing(i) && matchState(i));
+
+  const examCounts = countBy(examScope, (i) => i.exam);
+  const pricingCounts = countBy(pricingScope, (i) => i.pricing);
   const stateCounts = new Map<string, number>([
     ['published', stateScope.filter((i) => i.published).length],
     ['unpublished', stateScope.filter((i) => !i.published).length],
     ['drift', stateScope.filter(isDrift).length],
   ]);
+  const magazineCounts = countBy(magazineScope, (i) => i.magazine ?? NO_MAGAZINE);
+
+  // ラベルは `BK-01` のような社内コードもあるので、note-magazines.ts の shortTitle へ解決して出す。
+  // 絞り込みキーは常に生ラベル（frontmatter の値）なので、写像が古びても絞り込みは壊れない。
+  // 他 facet 適用後に 0 本になる選択肢は隠す — 44 行の死んだ選択肢がレールを埋めると、
+  // 上の短い facet 3 つが画面外へ押し出される。
+  const magIndex = magazineLabelIndex();
+  const magazineItems = [...magazineCounts.entries()]
+    .filter(([, n]) => n > 0)
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([key, count]) => ({
+      key,
+      count,
+      label: key === NO_MAGAZINE ? '（マガジン未設定）' : magIndex.get(key)?.title ?? key,
+      hint: key === NO_MAGAZINE ? 'noteMagazine を持たない記事' : key,
+    }));
 
   const examKeys = [...examCounts.entries()].sort((a, b) => b[1] - a[1]).map(([k]) => k);
-  const filtered = Boolean(exam || pricing || state);
+  const filtered = Boolean(exam || pricing || state || magazine);
 
   return (
     <>
@@ -149,8 +198,9 @@ export default async function ContentNotePage({
                   <strong>{items.length}</strong> 本を表示中（全 {all.length} 本）
                 </>
               ) : (
-                <>全 {all.length} 本を表示中。右の絞り込みで資格・価格・状態を選べる。</>
+                <>全 {all.length} 本を表示中。右の絞り込みで資格・価格・状態・マガジンを選べる。</>
               )}
+              {' '}タイトルをクリックすると note の公開記事を別タブで開く。
             </p>
 
             {items.length === 0 ? (
@@ -175,13 +225,13 @@ export default async function ContentNotePage({
                       return (
                         <tr key={i.rel}>
                           <td className="title-cell" title={i.rel}>
-                            {i.title}
-                            {i.series ? (
-                              <>
-                                <br />
-                                <span className="muted">{i.series}</span>
-                              </>
-                            ) : null}
+                            {i.noteUrl ? (
+                              <a href={i.noteUrl} target="_blank" rel="noopener noreferrer">
+                                {i.title}
+                              </a>
+                            ) : (
+                              i.title
+                            )}
                           </td>
                           <td className="category-col optional-col">
                             <span className="muted">{i.exam}</span>
@@ -196,10 +246,8 @@ export default async function ContentNotePage({
                             </span>
                           </td>
                           <td className="publish-col">
-                            {i.published && i.noteUrl ? (
-                              <a href={i.noteUrl} target="_blank" rel="noopener noreferrer">
-                                公開
-                              </a>
+                            {i.published ? (
+                              <span className="badge good">公開</span>
                             ) : (
                               <span className="badge warn">未</span>
                             )}
@@ -237,7 +285,7 @@ export default async function ContentNotePage({
             param="e"
             now={now}
             active={exam}
-            total={all.filter((i) => (!pricing || i.pricing === pricing) && matchState(i)).length}
+            total={examScope.length}
             items={examKeys.map((key) => ({ key, label: key, count: examCounts.get(key) ?? 0 }))}
           />
           <Facet
@@ -245,7 +293,7 @@ export default async function ContentNotePage({
             param="p"
             now={now}
             active={pricing}
-            total={all.filter((i) => (!exam || i.exam === exam) && matchState(i)).length}
+            total={pricingScope.length}
             items={PRICING.map((p) => ({ ...p, count: pricingCounts.get(p.key) ?? 0 }))}
           />
           <Facet
@@ -255,6 +303,14 @@ export default async function ContentNotePage({
             active={state}
             total={stateScope.length}
             items={STATES.map((s) => ({ ...s, count: stateCounts.get(s.key) ?? 0 }))}
+          />
+          <Facet
+            title="マガジン"
+            param="m"
+            now={now}
+            active={magazine}
+            total={magazineScope.length}
+            items={magazineItems}
           />
           {!republish.ok ? (
             <p className="muted">

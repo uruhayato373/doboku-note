@@ -70,6 +70,7 @@ export interface Magazine {
   noteUrl: string;
   key: string | null;
   title: string | null;
+  shortTitle: string | null;
   badge: string | null;
   priceStr: string | null;
   priceNum: number | null;
@@ -99,6 +100,7 @@ export function magazines(): Magazine[] {
       noteUrl: cur.noteUrl,
       key: (cur.noteUrl.match(/\/m\/(m[0-9a-f]+)/) || [])[1] ?? null,
       title: pick(/title:\s*'([^']*)'/) ?? pick(/title:\s*"([^"]*)"/),
+      shortTitle: pick(/shortTitle:\s*'([^']*)'/),
       badge: pick(/badge:\s*'([^']*)'/),
       priceStr,
       priceNum: priceStr
@@ -108,6 +110,35 @@ export function magazines(): Magazine[] {
   });
 }
 
+/**
+ * `noteMagazine` ラベル → 所属マガジン（id / 表示名）の索引。
+ *
+ * ラベルは frontmatter の日本語生値（`BK-01` / `総監模範論文-河川コンサル`）、id は kebab-case なので
+ * **キーでは結合できない**。唇となるのは `.claude/config/note-magazine-membership.json` だけで、
+ * check-magazine-membership.mjs （quality-audit の ci ゲート）も同じ config を読む。
+ * 複数ラベルを 1 マガジンへ束ねる `packs` 側のラベルも拾う。
+ *
+ * **件数はここで数えない**。三軸突合（repo 実数 ↔ SoT 件数 ↔ ライブ）はゲートが持つもので、
+ * 管理画面で数え直すとそれ自体が第 4 のドリフト源になる（config の `_doc` と同じ理由）。
+ * ここは**表示名の解決だけ**をする。config に無いラベルは素通しでラベルをそのまま返すので、
+ * 写像が古びても絞り込み自体は壊れない（絞り込みキーは常に生のラベル）。
+ */
+export function magazineLabelIndex(): Map<string, { id: string; title: string }> {
+  const cfg = readJson<{
+    labels?: Record<string, string>;
+    packs?: Record<string, { labels?: string[] } | string>;
+  }>(repoPath('.claude', 'config', 'note-magazine-membership.json'));
+  const titleOf = new Map(magazines().map((m) => [m.id, m.shortTitle ?? m.title]));
+  const out = new Map<string, { id: string; title: string }>();
+  const put = (label: string, id: string) => out.set(label, { id, title: titleOf.get(id) ?? label });
+  for (const [label, id] of Object.entries(cfg?.labels ?? {})) put(label, id);
+  for (const [id, pack] of Object.entries(cfg?.packs ?? {})) {
+    if (typeof pack === 'string') continue; // `_doc`
+    for (const label of pack?.labels ?? []) put(label, id);
+  }
+  return out;
+}
+
 // ─── note 記事一覧（content/note の article*.md frontmatter）────
 export interface NoteArticle {
   rel: string;
@@ -115,7 +146,7 @@ export interface NoteArticle {
   file: string;
   title: string;
   pricing: string;
-  series: string | null;
+  magazine: string | null;
   noteUrl: string | null;
   published: boolean;
   exam: string;
@@ -148,7 +179,7 @@ export function noteArticles(): NoteArticle[] {
           file: e.name,
           title: (fm.title as string) || rel.split('/').pop() || rel,
           pricing: (fm.notePricing as string) || 'unknown',
-          series: (fm.noteSeries as string) || (fm.noteMagazine as string) || null,
+          magazine: (fm.noteMagazine as string) || null,
           noteUrl: (fm.noteUrl as string) || null,
           published: !!fm.noteUrl, // noteUrl があれば公開済みと見なす
           exam: rel.split('/')[0] ?? '',
