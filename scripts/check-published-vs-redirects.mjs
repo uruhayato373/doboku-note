@@ -69,8 +69,10 @@ function walk(dir, segments = [], out = []) {
 
 function stagedMdx() {
   try {
+    // maxBuffer 既定の 1MB では大規模コミット（数千ファイルの移動）で ENOBUFS 例外になり、
+    // 「不合格」ではなく **検査が実行不能** のまま pre-commit ごと止まる（CLAUDE.md §9）。
     const out = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACMR'],
-      { cwd: ROOT, encoding: 'utf8' });
+      { cwd: ROOT, encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 });
     return out.split('\n').map((s) => s.trim()).filter((s) => s.startsWith('content/site/') && s.endsWith('.mdx'));
   } catch { return []; }
 }
