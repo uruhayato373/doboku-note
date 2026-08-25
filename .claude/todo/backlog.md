@@ -429,15 +429,11 @@ TODOをAdminで管理し、Codexが設計、Claude Codeが実装する運用を�
 - **禁止**: 既存の情報アーキテクチャ移行セッションと同じファイルを並行編集しない。task-plan結線とclaimが成立する前に、UIからAgentや任意shellを直接起動する機能を作らない
 - **完了条件**: 同一IDの二重claimを拒否し、実行中カードを自動選定から除外する。planの孤児・リンク切れ・重複を検査し、完了処理でbacklog・monthly・weekly・plan・実行証拠を一貫して閉じる。恒久ルールを`.claude/knowledge/`へ抽出後、このレビューを削除する
 
-**完了（最小実装順1・2）**: ①WIP排他は済み（`backlog-lib.mjs` の `pickTasks()` が `[進行中]` を hold と同じバケットへ除外・`tests/backlog-lib.test.mjs` でテスト済み）。
-②task-plan結線は 2026-08-25 に実装。`scripts/check-task-plan-links.mjs`（`quality:audit` 登録・pre-commit配線）が
-plan master frontmatter を正準化（`taskId`/`type: implementation-plan`/`createdAt`/`deleteOnComplete`。
-state を表す`status`/`owner`は書かない）し、既存7 plan unit を全て KEEP へ分類（すべて対応する backlog カードが
-生きている＝統合・削除の対象なし）。この過程で `pe-construction-subject-packs/` が taskId 命名規則から
-外れていた食い違い（実体は DN-0092）を発見・`DN-0092-pe-construction-subject-packs/` へ改名して是正した。
+最小実装順1〜3（WIP排他・task-plan結線・claim/release/complete共通CLI）は完了。
+`scripts/todo-claim.mjs`/`todo-release.mjs`/`todo-complete.mjs`（`npm run todo:claim`等）。
 
-**残（最小実装順3〜5）**: `todo:claim`/`todo:release`/`todo:complete --dry-run` 共通CLI → dispatch log の
-ID必須化＋完了処理の一括更新 → Admin UI への状態列・planリンク・claim表示・Claude Code prompt生成の追加。
+**残（最小実装順4・5）**: dispatch log のID必須化＋完了処理の一括更新 → Admin UI への状態列・
+planリンク・claim表示・Claude Code prompt生成の追加。
 
 ### [DN-0106] GSC 検索流入停滞の原因分離と performance データ全件化
 タグ: [インフラ・計測] [種類:改善] [Codex候補] [実行:sweep] [起票:2026-08-20]
