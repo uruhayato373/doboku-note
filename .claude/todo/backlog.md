@@ -117,9 +117,8 @@ RESULT 行で見ていたため `[13] FAIL` の 2 本を成功と数えた＝**�
 
 | 対象 | 点数 | 実体 | やること |
 |---|---|---|---|
-| `concrete-chief-engineer` 6記事 | **55/55 完了（2026-08-25）**（production-qc 2・materials 3・mix-design 6・properties 9・structural-design 16・construction 19） | 完了 | 自作 SVG へ描き直す（診断士が 22 点で実施済みの方式） |
-| `concrete-chief-engineer` primary-materials 内 2点 | 2 | `h24-q5.webp`は**書籍/過去問冊子のスキャン**（2026-08-25調査で綴じ部の写り込みを確認・上記分類は誤りだった）・`sand-surface-test-h29.webp`は実験器具の実写真 | 入手元とライセンスを特定し、`image-policy` の出典表記を入れる |
-| `concrete-diagnostician` 4記事 | 8 | **実写真**（スキャンではない。台帳の `textbook-scan` は `source_dir` からの推定で誤り） | 入手元とライセンスを特定し、`image-policy` の出典表記を入れる |
+| `concrete-chief-engineer` 6記事 | **57/57 完了（2026-08-26）**（production-qc 2・materials 5・mix-design 6・properties 9・structural-design 16・construction 19） | 完了 | 自作 SVG へ描き直す（診断士が 22 点で実施済みの方式） |
+| `concrete-diagnostician` 4記事 | 8 | **解消済み（2026-08-26）**。MDXソースの `{/* source: AI 生成画像（ChatGPT／Codex） */}` コメントで8点全てAI生成と確認（実写真ではない）。著作権上の問題なし | 完了 |
 
 **2026-08-25 実施（production-qc 2/2 完了）**: 正規分布の概念図とX̄管理図（A〜D群56点）を目視トレースで
 自作SVG化。X̄管理図は原図の異常判定パターン（A/C/D群に異常、B群は安定）を保ったまま視覚的に一致することを
@@ -149,6 +148,15 @@ construction 19。`figure-provenance.json` の追跡数は 549→496（差分53�
 (FHWA-HIF-12-022)。**次の一手はユーザー判断**: (a) 原本書籍の使用許諾を確認する（自炊元の書籍を
 把握しているのはユーザーのみ）、(b) 上記代替候補から個別にライセンス確認して差し替える、
 (c) Kindle版だけ写真を自作SVG図解に置き換える（サイトは現状維持）、のいずれか。
+
+**2026-08-26 訂正・全10点解消**: 前日のWebSearch逆引き調査はMDXソースの出典コメントを未確認のまま
+実施した誤りだった。ユーザーの指摘（「AI生成ではないの？」）を受けて記事本文を確認したところ、
+`concrete-diagnostician` の8点は全て `{/* source: AI 生成画像（ChatGPT／Codex）／実写ではない */}` の
+コメントが実在し、**元から著作権問題のないAI生成画像**だった（"実写真"という分類自体が誤り）。
+残る `concrete-chief-engineer` の2点（`h24-q5.webp`・`sand-surface-test-h29.webp`）は真のスキャン由来
+だったため、他55図と同じ手法で自作SVGへ描き直して解消（materials 3→5に更新）。
+**これで10点すべて解消し、Kindle提出ゲートの残作業は無い**。次は `scripts/build-pe1-kindle.mjs` で
+`g-01`（コンクリート診断士）・`g-02`（コンクリート主任技士）のEPUBを再ビルドし、KDP提出はユーザー承認を得てから行う。
 
 
 ### [DN-0109] CI/CD 信頼性回復 — Phase 0・2 完了。残るは構造フェーズ（要ユーザー承認）

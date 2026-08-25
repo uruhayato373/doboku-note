@@ -258,6 +258,11 @@ content/note/**/img/cover*.svg
 # （asset-hydrate は上限超過時に最終アクセスの古いものだけを落とす）。
 .local/cache/
 
+# build-pe1-kindle.mjs 用のR2公開画像ミラー（content/site/**/imgをGitの内容と一致させて
+# ローカルに複製したもの＝配信コピーの再配信コピー。Kindleビルド時のみ使う使い捨てキャッシュで、
+# 台帳不要（Gitの実体から再生成できる）。
+.local/r2/
+
 # 教材（スキャン原本）のページ画像・PDF は private R2（doboku-note-archive）だけに置く。
 # 追跡していたのは 868 件 571.2 MiB で、Git に置く理由が無い——原本は書籍、
 # 文字起こし .md と真正ベクター .svg が SSOT で、ラスタは OCR / crop の中間物。
