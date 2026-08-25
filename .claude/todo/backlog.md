@@ -82,11 +82,28 @@ CRITICAL になっていた（BOUNDARY_SHIFT へ移っただけで総数 270 は
 したがって **71 本の本文修正は不要**。実行順 3・4（境界を下げる / 本文を足す / ライブ反映）は
 対象ゼロで消滅した。
 
+**実測でわかった 2 層目（2026-08-25）**: workflow_dispatch で回したところ、**監査 4 本は全て
+通ったのに job は赤**だった。原因は最後の publish 段:
+
+```
+ERR_MODULE_NOT_FOUND: Cannot find package 'gray-matter'
+imported from scripts/pre-commit-mdx.mjs
+```
+
+`note-live-audit.yml` には `npm ci` が無い。監査スクリプトは node 組込み + curl だけで動くので
+依存が要らず、そのまま来ていた。ところが publish 段は hard reset 後に `pre-commit:install` で
+フックを入れ直してから commit するため、フックの依存が無いと **commit が丸ごと落ちて job が赤**になる。
+
+**つまり 21 日赤の原因は 71 件だけではなかった**。Issue #473 の診断は 1 層目（CRITICAL 71）しか
+見ておらず、それを直しても緑にならない構造だった。`psi-audit.yml` と同じく `cache: npm` ＋
+`npm ci --legacy-peer-deps` を追加して再 dispatch 済み。フック無効化（`--no-verify`）は取らない
+——bot commit だけ検査を素通りさせると、そこが次の抜け道になる。
+
 **残作業**:
 
-1. `note-live-audit.yml` を workflow_dispatch で回して green を実測する（修正は develop へ push 済み）
-2. Issue #473 に測り直し結果をコメントし、**クローズはユーザーが行う**（automation-failure の
-   クローズは復旧の実体を確認した人間の担当・CLAUDE.md §8）
+1. 再 dispatch の green を実測（実行中）
+2. Issue #473 に測り直し結果と**この 2 層目**をコメントし、**クローズはユーザーが行う**
+   （automation-failure のクローズは復旧の実体を確認した人間の担当・CLAUDE.md §8）
 3. BOUNDARY_SHIFT 270 本（有料 706 本の 38%）は別問題として DN-0132 へ切り出し済み
 
 **停止条件**: note ライブ変更はユーザー承認前に行わない。有料境界を動かすときは `--boundary-h2` を使い `--keep-boundary` は使わない（本文ブロック増で境界が冒頭へ動く既知事故・2026-07-31）。価格・既存 PDF 添付を保持する。
