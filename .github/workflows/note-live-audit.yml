@@ -34,7 +34,7 @@ jobs:
         # 「main で検査し develop へ書く」ねじれを無くす（fetch-metrics.yml が 2026-08 に
         # このねじれで drift guard に弾かれ、GA4 スナップショットが 8 日間停止した）。
         # fetch-depth は既定（1）。full clone はランナーを枯渇させる。
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           ref: develop
 
@@ -55,7 +55,7 @@ jobs:
 
       - name: Setup Node
         if: always()
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 20
           cache: npm
@@ -161,7 +161,7 @@ jobs:
 
       - name: Upload reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: note-live-audit
           path: |

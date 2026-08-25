@@ -107,6 +107,7 @@ const CHECKS = [
   { id: 'ogp-line-count', npm: 'check-ogp-line-count', timeout: 180_000, ci: false, note: 'OGP タイトルの折返し行数を実測する surfacer（判定はしない）。読み手＝DN-0057 の着手時。check-ogp-title-fit はフォントサイズしか見ていないので、行数はここでしか分からない' },
   { id: 'relative-links', npm: 'check-relative-links', timeout: 60_000, ci: true, note: 'Markdown の相対リンク `](../x)` の実在。check-doc-refs はリンクテキストしか見ないので、置き場を変えると href だけが黙って壊る' },
   { id: 'workflow-clone-depth', npm: 'check-workflow-clone-depth', timeout: 30_000, ci: true, note: 'workflow の full clone 禁止。remote 11 GB でランナーの空きを超え、fetch-depth: 0 は No space left on device でランナーごと落ちる（2026-08-21 実発生）' },
+  { id: 'workflow-hygiene', npm: 'check-workflow-hygiene', timeout: 30_000, ci: true, note: 'workflow の静的ハードニング（actionlint・permissions・timeout-minutes・3rd party action の SHA固定）。DN-0109 Phase 2' },
   { id: 'workflow-publish-ref', npm: 'check-workflow-publish-ref', timeout: 30_000, ci: true, note: 'schedule workflow の checkout ref。ref を書かないと main を checkout し、npm ci が main のフックを入れたまま develop へ commit して drift guard に弾かれる（2026-08 に 3 回発生）' },
   { id: 'information-architecture', npm: 'check-information-architecture', timeout: 60_000, ci: true, note: '4 領域モデル（docs/content/.claude/実装）への逆戻り検知。廃止した置き場への新規ファイル・docs への制作物混入・content への台帳混入・二重 SSOT' },
   { id: 'content-layout', npm: 'check-content-layout', timeout: 60_000, ci: true, note: 'content/ の移行インベントリ（件数・容量・二重 SSOT）を read-only で観測' },

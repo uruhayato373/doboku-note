@@ -27,12 +27,12 @@ jobs:
         # フックの drift guard が bot commit を拒否して落ちる（2026-08-20 に psi-audit が
         # `[pre-commit] 導入済みフックが古い` で実際に失敗した）。fetch-metrics.yml と同じ形で
         # 最初から develop を checkout し、順序依存そのものを無くす。
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           ref: develop
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: "20"
           cache: "npm"
