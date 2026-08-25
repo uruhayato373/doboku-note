@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 550" style="max-width:460px;width:100%" role="img" aria-label="コンクリート岩盤上の部材における点A(下面)・点B(上面)の応力と日数の関係を示す候補a〜d（引張・圧縮の推移パターンが異なる4種）">
+  <line x1="60" y1="20" x2="60" y2="60" stroke="#222" stroke-width="1.5"/>
+  <line x1="60" y1="60" x2="290" y2="60" stroke="#222" stroke-width="1.5"/>
+  <line x1="290" y1="20" x2="290" y2="60" stroke="#222" stroke-width="1.5"/>
+  <line x1="60" y1="20" x2="290" y2="20" stroke="#8a8a8a" stroke-width="1.4"/>
+  <text x="175.0" y="14.0" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">12 m</text>
+  <text x="45.0" y="45.0" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">2 m</text>
+  <text x="50.0" y="45.0" text-anchor="start" font-family="sans-serif" font-size="1" fill="#222"></text>
+  <circle cx="175" cy="40" r="3" fill="#222"/>
+  <text x="185.0" y="44.0" text-anchor="start" font-family="sans-serif" font-size="11" fill="#222">B</text>
+  <circle cx="175" cy="50" r="3" fill="#222"/>
+  <text x="185.0" y="54.0" text-anchor="start" font-family="sans-serif" font-size="11" fill="#222">A</text>
+  <text x="175.0" y="80.0" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">コンクリート</text>
+  <text x="175.0" y="96.0" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">岩盤</text>
+  <line x1="60.0" y1="160.0" x2="60.0" y2="300.0" stroke="#222" stroke-width="1.5"/>
+  <line x1="60.0" y1="230.0" x2="240.0" y2="230.0" stroke="#222" stroke-width="1.5"/>
+  <text x="52.0" y="170.0" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">引張</text>
+  <text x="52.0" y="296.0" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">圧縮</text>
+  <text x="52.0" y="234.0" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">応力</text>
+  <text x="230.0" y="246.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">日数（日）</text>
+  <text x="220.0" y="232.0" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#222">30</text>
+  <path d="M 60.0 230.0 C 64.5 220.7 78.0 185.7 87.0 174.0 C 96.0 162.3 102.0 157.1 114.0 160.0 C 126.0 162.9 138.0 181.6 159.0 191.5 C 180.0 201.4 226.5 214.8 240.0 219.5 " fill="none" stroke="#222" stroke-width="1.6"/>
+  <path d="M 60.0 230.0 C 66.0 233.5 85.5 244.0 96.0 251.0 C 106.5 258.0 112.5 273.2 123.0 272.0 C 133.5 270.8 139.5 258.0 159.0 244.0 C 178.5 230.0 226.5 197.3 240.0 188.0 " fill="none" stroke="#222" stroke-width="1.3" stroke-dasharray="5 3"/>
+  <text x="159.0" y="213.5" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">A</text>
+  <text x="213.0" y="238.0" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">B</text>
+  <text x="150.0" y="326.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">a</text>
+  <line x1="280.0" y1="160.0" x2="280.0" y2="300.0" stroke="#222" stroke-width="1.5"/>
+  <line x1="280.0" y1="230.0" x2="460.0" y2="230.0" stroke="#222" stroke-width="1.5"/>
+  <text x="272.0" y="170.0" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">引張</text>
+  <text x="272.0" y="296.0" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">圧縮</text>
+  <text x="272.0" y="234.0" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">応力</text>
+  <text x="450.0" y="246.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">日数（日）</text>
+  <text x="440.0" y="232.0" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#222">30</text>
+  <path d="M 280.0 230.0 C 286.0 231.8 304.0 241.1 316.0 240.5 C 328.0 239.9 337.0 232.3 352.0 226.5 C 367.0 220.7 388.0 211.3 406.0 205.5 C 424.0 199.7 451.0 193.8 460.0 191.5 " fill="none" stroke="#222" stroke-width="1.6"/>
+  <path d="M 280.0 230.0 C 289.0 228.2 316.0 224.2 334.0 219.5 C 352.0 214.8 367.0 209.0 388.0 202.0 C 409.0 195.0 448.0 181.6 460.0 177.5 " fill="none" stroke="#222" stroke-width="1.3" stroke-dasharray="5 3"/>
+  <text x="379.0" y="185.5" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">A</text>
+  <text x="433.0" y="196.0" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">B</text>
+  <text x="370.0" y="326.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">b</text>
+  <line x1="60.0" y1="360.0" x2="60.0" y2="500.0" stroke="#222" stroke-width="1.5"/>
+  <line x1="60.0" y1="430.0" x2="240.0" y2="430.0" stroke="#222" stroke-width="1.5"/>
+  <text x="52.0" y="370.0" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">引張</text>
+  <text x="52.0" y="496.0" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">圧縮</text>
+  <text x="52.0" y="434.0" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">応力</text>
+  <text x="230.0" y="446.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">日数（日）</text>
+  <text x="220.0" y="432.0" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#222">30</text>
+  <path d="M 60.0 430.0 C 66.0 435.8 85.5 456.8 96.0 465.0 C 106.5 473.2 112.5 481.9 123.0 479.0 C 133.5 476.1 139.5 461.5 159.0 447.5 C 178.5 433.5 226.5 403.8 240.0 395.0 " fill="none" stroke="#222" stroke-width="1.6"/>
+  <path d="M 60.0 430.0 C 66.0 426.5 84.0 417.8 96.0 409.0 C 108.0 400.2 117.0 380.4 132.0 377.5 C 147.0 374.6 168.0 385.7 186.0 391.5 C 204.0 397.3 231.0 409.0 240.0 412.5 " fill="none" stroke="#222" stroke-width="1.3" stroke-dasharray="5 3"/>
+  <text x="159.0" y="389.0" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">A</text>
+  <text x="213.0" y="385.5" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">B</text>
+  <text x="150.0" y="526.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">c</text>
+  <line x1="280.0" y1="360.0" x2="280.0" y2="500.0" stroke="#222" stroke-width="1.5"/>
+  <line x1="280.0" y1="430.0" x2="460.0" y2="430.0" stroke="#222" stroke-width="1.5"/>
+  <text x="272.0" y="370.0" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">引張</text>
+  <text x="272.0" y="496.0" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">圧縮</text>
+  <text x="272.0" y="434.0" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">応力</text>
+  <text x="450.0" y="446.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">日数（日）</text>
+  <text x="440.0" y="432.0" text-anchor="middle" font-family="sans-serif" font-size="9" fill="#222">30</text>
+  <path d="M 280.0 430.0 C 284.5 421.8 298.0 392.1 307.0 381.0 C 316.0 369.9 322.0 362.3 334.0 363.5 C 346.0 364.7 365.5 378.7 379.0 388.0 C 392.5 397.3 401.5 408.4 415.0 419.5 C 428.5 430.6 452.5 448.7 460.0 454.5 " fill="none" stroke="#222" stroke-width="1.6"/>
+  <path d="M 280.0 430.0 C 284.5 425.9 298.0 411.9 307.0 405.5 C 316.0 399.1 322.0 391.5 334.0 391.5 C 346.0 391.5 365.5 400.2 379.0 405.5 C 392.5 410.8 401.5 417.2 415.0 423.0 C 428.5 428.8 452.5 437.6 460.0 440.5 " fill="none" stroke="#222" stroke-width="1.3" stroke-dasharray="5 3"/>
+  <text x="379.0" y="448.5" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">A</text>
+  <text x="433.0" y="417.0" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">B</text>
+  <text x="370.0" y="526.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">d</text>
+</svg>

@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 320" style="max-width:460px;width:100%" role="img" aria-label="型枠の打込み高さと最下部の側圧の関係を示す4本の折れ線グラフA・B・C・D。すべて打込み高さ約1.6mまでは同じ直線で立ち上がり、以降傾きが分岐する">
+  <line x1="70" y1="270" x2="420" y2="270" stroke="#222" stroke-width="1.5"/>
+  <line x1="70" y1="270" x2="70" y2="20" stroke="#222" stroke-width="1.5"/>
+  <text x="245" y="298" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">打ち込み高さ (m)</text>
+  <text x="30" y="140" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222" transform="rotate(-90 30 140)">最下部の側圧（kN/m²）</text>
+  <line x1="70" y1="270" x2="70" y2="20" stroke="#8a8a8a" stroke-width="1"/>
+  <line x1="70" y1="235" x2="420" y2="235" stroke="#eee" stroke-width="1"/>
+  <line x1="70" y1="200" x2="420" y2="200" stroke="#eee" stroke-width="1"/>
+  <line x1="70" y1="165" x2="420" y2="165" stroke="#eee" stroke-width="1"/>
+  <line x1="70" y1="130" x2="420" y2="130" stroke="#eee" stroke-width="1"/>
+  <line x1="70" y1="95" x2="420" y2="95" stroke="#eee" stroke-width="1"/>
+  <line x1="70" y1="60" x2="420" y2="60" stroke="#eee" stroke-width="1"/>
+  <text x="62" y="274" text-anchor="end" font-family="sans-serif" font-size="10">0</text>
+  <text x="62" y="239" text-anchor="end" font-family="sans-serif" font-size="10">10</text>
+  <text x="62" y="204" text-anchor="end" font-family="sans-serif" font-size="10">20</text>
+  <text x="62" y="169" text-anchor="end" font-family="sans-serif" font-size="10">30</text>
+  <text x="62" y="134" text-anchor="end" font-family="sans-serif" font-size="10">40</text>
+  <text x="62" y="99" text-anchor="end" font-family="sans-serif" font-size="10">50</text>
+  <text x="62" y="64" text-anchor="end" font-family="sans-serif" font-size="10">60</text>
+  <text x="62" y="29" text-anchor="end" font-family="sans-serif" font-size="10">70</text>
+  <text x="105" y="290" text-anchor="middle" font-family="sans-serif" font-size="10">1</text>
+  <text x="245" y="290" text-anchor="middle" font-family="sans-serif" font-size="10">2</text>
+  <text x="385" y="290" text-anchor="middle" font-family="sans-serif" font-size="10">3</text>
+  <line x1="70" y1="270" x2="182" y2="200" stroke="#222" stroke-width="1.6"/>
+  <line x1="182" y1="200" x2="385" y2="55" stroke="#222" stroke-width="1.6" stroke-dasharray="2 2"/>
+  <line x1="182" y1="200" x2="385" y2="80" stroke="#222" stroke-width="1.6" stroke-dasharray="6 3"/>
+  <line x1="182" y1="200" x2="385" y2="115" stroke="#222" stroke-width="1.6"/>
+  <line x1="182" y1="200" x2="385" y2="150" stroke="#222" stroke-width="1.6" stroke-dasharray="2 2 8 2"/>
+  <text x="392" y="58" font-family="sans-serif" font-size="13">A</text>
+  <text x="392" y="83" font-family="sans-serif" font-size="13">B</text>
+  <text x="392" y="118" font-family="sans-serif" font-size="13">C</text>
+  <text x="392" y="153" font-family="sans-serif" font-size="13">D</text>
+</svg>

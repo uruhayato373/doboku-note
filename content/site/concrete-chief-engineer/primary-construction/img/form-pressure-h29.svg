@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 340" style="max-width:400px;width:100%" role="img" aria-label="型枠最下部からの高さHと側圧Pの関係を示すL字型の折れ線グラフ。高さ0からH1まで側圧が急勾配で立ち上がり、H1から4.0mまでは緩やかな勾配で最大側圧Pmaxまで直線的に増加する。破線は原点からPmaxへの参考直線">
+  <line x1="60" y1="280" x2="60" y2="30" stroke="#222" stroke-width="1.5"/>
+  <line x1="60" y1="280" x2="330" y2="280" stroke="#222" stroke-width="1.5"/>
+  <line x1="60" y1="280" x2="220" y2="200" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="5 3"/>
+  <line x1="60" y1="280" x2="60" y2="80" stroke="#222" stroke-width="1.8"/>
+  <line x1="60" y1="80" x2="220" y2="200" stroke="#222" stroke-width="1.8"/>
+  <line x1="220" y1="200" x2="220" y2="280" stroke="#222" stroke-width="1.8"/>
+  <text x="30" y="70" text-anchor="end" font-family="sans-serif" font-size="13" fill="#222">4.0</text>
+  <text x="30" y="204" text-anchor="end" font-family="sans-serif" font-size="13" fill="#222">H</text>
+  <text x="36" y="216" font-family="sans-serif" font-size="9" fill="#222">1</text>
+  <text x="60" y="298" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">0</text>
+  <text x="220" y="298" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222" font-style="italic">P</text>
+  <text x="232" y="298" font-family="sans-serif" font-size="9" fill="#222">max</text>
+  <text x="30" y="150" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222" transform="rotate(-90 30 150)">枠型最下部からの高さH(m)</text>
+  <text x="330" y="300" text-anchor="end" font-family="sans-serif" font-size="13" fill="#222">側圧 P(kN/m²)</text>
+</svg>

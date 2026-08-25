@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 380" style="max-width:520px;width:100%" role="img" aria-label="セメント種類・部材厚さの違いによる温度と材齢の関係を示す4本の曲線A〜Dと、2種類の部材断面（部材厚さ1m・3m）、セメント種類×部材厚さと選択肢(1)〜(4)の対応表">
+  <defs><pattern id="thhatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#8a8a8a" stroke-width="1"/></pattern></defs>
+  <line x1="60.0" y1="220.0" x2="320.0" y2="220.0" stroke="#222" stroke-width="1.5"/>
+  <line x1="60.0" y1="15.0" x2="60.0" y2="220.0" stroke="#222" stroke-width="1.5"/>
+  <line x1="60.0" y1="220.0" x2="320.0" y2="220.0" stroke="#eee" stroke-width="1"/>
+  <text x="52.0" y="224.0" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">20</text>
+  <line x1="60.0" y1="162.9" x2="320.0" y2="162.9" stroke="#eee" stroke-width="1"/>
+  <text x="52.0" y="166.9" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">40</text>
+  <line x1="60.0" y1="105.7" x2="320.0" y2="105.7" stroke="#eee" stroke-width="1"/>
+  <text x="52.0" y="109.7" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">60</text>
+  <line x1="60.0" y1="48.6" x2="320.0" y2="48.6" stroke="#eee" stroke-width="1"/>
+  <text x="52.0" y="52.6" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">80</text>
+  <text x="60.0" y="236.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">0</text>
+  <text x="146.7" y="236.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">5</text>
+  <text x="233.3" y="236.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">10</text>
+  <text x="320.0" y="236.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">15</text>
+  <path d="M 60.0 214.3 C 62.9 198.6 71.6 141.9 77.3 120.0 C 83.1 98.1 88.9 91.0 94.7 82.9 C 100.4 74.8 103.3 71.4 112.0 71.4 C 120.7 71.4 132.2 76.2 146.7 82.9 C 161.1 89.5 181.3 102.9 198.7 111.4 C 216.0 120.0 230.4 126.7 250.7 134.3 C 270.9 141.9 308.4 153.3 320.0 157.1 " fill="none" stroke="#222" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <text x="328.0" y="161.1" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">A</text>
+  <path d="M 60.0 214.3 C 62.9 206.7 71.6 181.0 77.3 168.6 C 83.1 156.2 86.0 147.6 94.7 140.0 C 103.3 132.4 114.9 126.7 129.3 122.9 C 143.8 119.0 164.0 116.7 181.3 117.1 C 198.7 117.6 216.0 121.9 233.3 125.7 C 250.7 129.5 270.9 136.2 285.3 140.0 C 299.8 143.8 314.2 147.1 320.0 148.6 " fill="none" stroke="#222" stroke-width="1.5" stroke-dasharray="6 3 2 3"/>
+  <text x="328.0" y="152.6" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">B</text>
+  <path d="M 60.0 214.3 C 62.9 209.5 71.6 194.3 77.3 185.7 C 83.1 177.1 86.0 169.0 94.7 162.9 C 103.3 156.7 114.9 151.4 129.3 148.6 C 143.8 145.7 164.0 145.2 181.3 145.7 C 198.7 146.2 216.0 148.6 233.3 151.4 C 250.7 154.3 270.9 160.0 285.3 162.9 C 299.8 165.7 314.2 167.6 320.0 168.6 " fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="328.0" y="172.6" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">C</text>
+  <path d="M 60.0 214.3 C 62.9 211.4 71.6 202.9 77.3 197.1 C 83.1 191.4 86.0 184.8 94.7 180.0 C 103.3 175.2 117.8 171.4 129.3 168.6 C 140.9 165.7 149.6 162.9 164.0 162.9 C 178.4 162.9 198.7 166.2 216.0 168.6 C 233.3 171.0 250.7 173.3 268.0 177.1 C 285.3 181.0 311.3 189.0 320.0 191.4 " fill="none" stroke="#222" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <text x="328.0" y="195.4" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">D</text>
+  <text x="190.0" y="252.0" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">材齢（日）</text>
+  <text x="22.0" y="120.0" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222" transform="rotate(-90 22 120.0)">温度（℃）</text>
+  <rect x="370" y="30" width="170" height="40" fill="none" stroke="#222" stroke-width="1.3"/>
+  <rect x="370" y="70" width="170" height="10" fill="url(#thhatch)" stroke="#222" stroke-width="1"/>
+  <line x1="370" y1="20" x2="540" y2="20" stroke="#222" stroke-width="1"/>
+  <text x="455.0" y="14.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">10 m</text>
+  <text x="362.0" y="44.0" text-anchor="end" font-family="sans-serif" font-size="9" fill="#222">部材中心部</text>
+  <circle cx="455.0" cy="50.0" r="3" fill="#222"/>
+  <line x1="455.0" y1="50.0" x2="340" y2="42.0" stroke="#222" stroke-width="1"/>
+  <text x="548.0" y="50.0" text-anchor="start" font-family="sans-serif" font-size="9" fill="#222">部材の厚さ</text>
+  <text x="548.0" y="64.0" text-anchor="start" font-family="sans-serif" font-size="9" fill="#222">1 m</text>
+  <rect x="370" y="140" width="170" height="110" fill="none" stroke="#222" stroke-width="1.3"/>
+  <rect x="370" y="250" width="170" height="10" fill="url(#thhatch)" stroke="#222" stroke-width="1"/>
+  <line x1="370" y1="130" x2="540" y2="130" stroke="#222" stroke-width="1"/>
+  <text x="455.0" y="124.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">10 m</text>
+  <text x="362.0" y="178.5" text-anchor="end" font-family="sans-serif" font-size="9" fill="#222">部材中心部</text>
+  <circle cx="455.0" cy="195.0" r="3" fill="#222"/>
+  <line x1="455.0" y1="195.0" x2="340" y2="173.0" stroke="#222" stroke-width="1"/>
+  <text x="548.0" y="195.0" text-anchor="start" font-family="sans-serif" font-size="9" fill="#222">部材の厚さ</text>
+  <text x="548.0" y="209.0" text-anchor="start" font-family="sans-serif" font-size="9" fill="#222">3 m</text>
+  <text x="90.0" y="300.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">セメントの種類</text>
+  <text x="240.0" y="300.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">部材の厚さ</text>
+  <text x="350.0" y="300.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">(1)</text>
+  <text x="400.0" y="300.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">(2)</text>
+  <text x="450.0" y="300.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">(3)</text>
+  <text x="500.0" y="300.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">(4)</text>
+  <line x1="20" y1="308" x2="500" y2="308" stroke="#222" stroke-width="1"/>
+  <text x="90.0" y="328.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">普通ポルトランドセメント</text>
+  <text x="240.0" y="328.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">1 m</text>
+  <text x="350.0" y="328.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">C</text>
+  <text x="400.0" y="328.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">C</text>
+  <text x="450.0" y="328.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">D</text>
+  <text x="500.0" y="328.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">B</text>
+  <text x="90.0" y="350.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">低熱ポルトランドセメント</text>
+  <text x="240.0" y="350.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">3 m</text>
+  <text x="350.0" y="350.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">A</text>
+  <text x="400.0" y="350.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">B</text>
+  <text x="450.0" y="350.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">C</text>
+  <text x="500.0" y="350.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">D</text>
+</svg>
