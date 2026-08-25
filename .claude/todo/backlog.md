@@ -117,8 +117,15 @@ RESULT 行で見ていたため `[13] FAIL` の 2 本を成功と数えた＝**�
 
 | 対象 | 点数 | 実体 | やること |
 |---|---|---|---|
-| `concrete-chief-engineer` 6記事 | 57 | **印刷ページのスキャン**（裏写り・網点を実見。primary-construction 19 / structural-design 16 / properties 9 / mix-design 6 / materials 5 / production-qc 2） | 自作 SVG へ描き直す（診断士が 22 点で実施済みの方式） |
+| `concrete-chief-engineer` 6記事 | 残55（**production-qc 2点は2026-08-25完了**） | **印刷ページのスキャン**（裏写り・網点を実見。primary-construction 19 / structural-design 16 / properties 9 / mix-design 6 / materials 5） | 自作 SVG へ描き直す（診断士が 22 点で実施済みの方式） |
 | `concrete-diagnostician` 4記事 | 8 | **実写真**（スキャンではない。台帳の `textbook-scan` は `source_dir` からの推定で誤り） | 入手元とライセンスを特定し、`image-policy` の出典表記を入れる |
+
+**2026-08-25 実施（production-qc 2/2 完了）**: 正規分布の概念図とX̄管理図（A〜D群56点）を目視トレースで
+自作SVG化。X̄管理図は原図の異常判定パターン（A/C/D群に異常、B群は安定）を保ったまま視覚的に一致することを
+ブラウザ実機で確認（light/dark両モード。dark modeでの視認性低下は site全体のSVG図版共通の既知挙動で今回の
+劣化ではない）。副次修正: `check-figure-canvas.mjs` が `concrete-chief-engineer/primary-{subject}` 命名の
+過去問ディレクトリを免除できておらず（civil-construction-1の年度サフィックス命名にしか対応していなかった）
+誤検知していたのを一般化して解消。残り55点は同じ手法（目視トレース→SVG化→light/dark実機確認）で続行できる。
 
 いずれもサイトでは公開中（`published: true`）。有料の Amazon 配布は露出の性格が違うので、Kindle 提出はこのゲート通過後。EPUB 実体は `kindle-dist/` に無く退避台帳にも無いので、提出時は `scripts/build-pe1-kindle.mjs` で再ビルドする。
 
