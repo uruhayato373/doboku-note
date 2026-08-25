@@ -159,6 +159,7 @@
     "check-weekly-routine-fired": "node scripts/check-weekly-routine-fired.mjs",
     "check-x-campaign-plan": "node scripts/check-x-campaign-plan.mjs",
     "check-x-card-render": "node scripts/check-x-card-render.mjs",
+    "check-outbound-links": "node scripts/check-outbound-links.mjs",
     "check-x-utm": "node scripts/check-x-utm.mjs",
     "coconala-analytics": "node scripts/coconala-analytics.mjs",
     "coconala-blog-delete-draft": "node scripts/coconala-blog-delete-draft.mjs",
