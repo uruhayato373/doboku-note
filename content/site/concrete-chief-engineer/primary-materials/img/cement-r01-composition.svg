@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 380" style="max-width:700px;width:100%" role="img" aria-label="普通・A・B・C・Dの5種類のポルトランドセメントについて、クリンカー組成化合物(C3S・C2S・C3A・C4AF・その他)の割合を示した積み上げ棒グラフ">
+  <defs><pattern id="mhatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="5" stroke="#8a8a8a" stroke-width="1"/></pattern></defs>
+  <rect x="70.0" y="30.0" width="380.0" height="300.0" fill="none" stroke="#222" stroke-width="1.5"/>
+  <line x1="70.0" y1="330.0" x2="450.0" y2="330.0" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="62.0" y="334.0" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">0</text>
+  <line x1="70.0" y1="300.0" x2="450.0" y2="300.0" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="62.0" y="304.0" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">10</text>
+  <line x1="70.0" y1="270.0" x2="450.0" y2="270.0" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="62.0" y="274.0" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">20</text>
+  <line x1="70.0" y1="240.0" x2="450.0" y2="240.0" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="62.0" y="244.0" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">30</text>
+  <line x1="70.0" y1="210.0" x2="450.0" y2="210.0" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="62.0" y="214.0" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">40</text>
+  <line x1="70.0" y1="180.0" x2="450.0" y2="180.0" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="62.0" y="184.0" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">50</text>
+  <line x1="70.0" y1="150.0" x2="450.0" y2="150.0" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="62.0" y="154.0" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">60</text>
+  <line x1="70.0" y1="120.0" x2="450.0" y2="120.0" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="62.0" y="124.0" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">70</text>
+  <line x1="70.0" y1="90.0" x2="450.0" y2="90.0" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="62.0" y="94.0" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">80</text>
+  <line x1="70.0" y1="60.0" x2="450.0" y2="60.0" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="62.0" y="64.0" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">90</text>
+  <line x1="70.0" y1="30.0" x2="450.0" y2="30.0" stroke="#d7d7d7" stroke-width="1"/>
+  <text x="62.0" y="34.0" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">100</text>
+  <rect x="86.7" y="180.0" width="56.0" height="150.0" fill="#8a8a8a" stroke="#222" stroke-width="1"/>
+  <rect x="86.7" y="105.0" width="56.0" height="75.0" fill="#ffffff" stroke="#222" stroke-width="1"/>
+  <rect x="86.7" y="75.0" width="56.0" height="30.0" fill="#555" stroke="#222" stroke-width="1"/>
+  <rect x="86.7" y="45.0" width="56.0" height="30.0" fill="url(#mhatch)" stroke="#222" stroke-width="1"/>
+  <rect x="86.7" y="30.0" width="56.0" height="15.0" fill="#ffffff" stroke="#222" stroke-width="1"/>
+  <text x="114.7" y="348.0" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">普通</text>
+  <rect x="159.3" y="150.0" width="56.0" height="180.0" fill="#8a8a8a" stroke="#222" stroke-width="1"/>
+  <rect x="159.3" y="93.0" width="56.0" height="57.0" fill="#ffffff" stroke="#222" stroke-width="1"/>
+  <rect x="159.3" y="75.0" width="56.0" height="18.0" fill="#555" stroke="#222" stroke-width="1"/>
+  <rect x="159.3" y="45.0" width="56.0" height="30.0" fill="url(#mhatch)" stroke="#222" stroke-width="1"/>
+  <rect x="159.3" y="30.0" width="56.0" height="15.0" fill="#ffffff" stroke="#222" stroke-width="1"/>
+  <text x="187.3" y="348.0" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">A</text>
+  <rect x="232.0" y="135.0" width="56.0" height="195.0" fill="#8a8a8a" stroke="#222" stroke-width="1"/>
+  <rect x="232.0" y="78.0" width="56.0" height="57.0" fill="#ffffff" stroke="#222" stroke-width="1"/>
+  <rect x="232.0" y="60.0" width="56.0" height="18.0" fill="#555" stroke="#222" stroke-width="1"/>
+  <rect x="232.0" y="45.0" width="56.0" height="15.0" fill="url(#mhatch)" stroke="#222" stroke-width="1"/>
+  <rect x="232.0" y="30.0" width="56.0" height="15.0" fill="#ffffff" stroke="#222" stroke-width="1"/>
+  <text x="260.0" y="348.0" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">B</text>
+  <rect x="304.7" y="204.0" width="56.0" height="126.0" fill="#8a8a8a" stroke="#222" stroke-width="1"/>
+  <rect x="304.7" y="96.0" width="56.0" height="108.0" fill="#ffffff" stroke="#222" stroke-width="1"/>
+  <rect x="304.7" y="81.0" width="56.0" height="15.0" fill="#555" stroke="#222" stroke-width="1"/>
+  <rect x="304.7" y="45.0" width="56.0" height="36.0" fill="url(#mhatch)" stroke="#222" stroke-width="1"/>
+  <rect x="304.7" y="30.0" width="56.0" height="15.0" fill="#ffffff" stroke="#222" stroke-width="1"/>
+  <text x="332.7" y="348.0" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">C</text>
+  <rect x="377.3" y="240.0" width="56.0" height="90.0" fill="#8a8a8a" stroke="#222" stroke-width="1"/>
+  <rect x="377.3" y="72.0" width="56.0" height="168.0" fill="#ffffff" stroke="#222" stroke-width="1"/>
+  <rect x="377.3" y="57.0" width="56.0" height="15.0" fill="#555" stroke="#222" stroke-width="1"/>
+  <rect x="377.3" y="45.0" width="56.0" height="12.0" fill="url(#mhatch)" stroke="#222" stroke-width="1"/>
+  <rect x="377.3" y="30.0" width="56.0" height="15.0" fill="#ffffff" stroke="#222" stroke-width="1"/>
+  <text x="405.3" y="348.0" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">D</text>
+  <text x="18" y="180.0" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222" transform="rotate(-90 18 180)">組成化合物の割合(%)</text>
+  <rect x="470.0" y="40.0" width="16.0" height="16.0" fill="#ffffff" stroke="#222" stroke-width="1"/>
+  <text x="492.0" y="53.0" text-anchor="start" font-family="sans-serif" font-size="10.5" fill="#222">その他</text>
+  <rect x="470.0" y="62.0" width="16.0" height="16.0" fill="url(#mhatch)" stroke="#222" stroke-width="1"/>
+  <text x="492.0" y="75.0" text-anchor="start" font-family="sans-serif" font-size="10.5" fill="#222">鉄アルミン酸四カルシウム(C4AF)</text>
+  <rect x="470.0" y="84.0" width="16.0" height="16.0" fill="#555" stroke="#222" stroke-width="1"/>
+  <text x="492.0" y="97.0" text-anchor="start" font-family="sans-serif" font-size="10.5" fill="#222">アルミン酸三カルシウム(C3A)</text>
+  <rect x="470.0" y="106.0" width="16.0" height="16.0" fill="#ffffff" stroke="#222" stroke-width="1"/>
+  <text x="492.0" y="119.0" text-anchor="start" font-family="sans-serif" font-size="10.5" fill="#222">けい酸二カルシウム(C2S)</text>
+  <rect x="470.0" y="128.0" width="16.0" height="16.0" fill="#8a8a8a" stroke="#222" stroke-width="1"/>
+  <text x="492.0" y="141.0" text-anchor="start" font-family="sans-serif" font-size="10.5" fill="#222">けい酸三カルシウム(C3S)</text>
+</svg>

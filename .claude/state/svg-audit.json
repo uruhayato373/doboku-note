@@ -1,28 +1,29 @@
 {
   "meta": {
-    "generated_at": "2026-08-25T11:42:53.447Z",
+    "generated_at": "2026-08-25T12:10:31.025Z",
     "path": "content/site/**/img/*.svg",
     "file": null,
     "note": "exam crop dirs (h*-primary, primary-h*) are audited for HIGH only — design/canvas patterns are left to civil-exam-figure-auditor"
   },
   "summary": {
-    "scanned_files": 438,
-    "matched_files": 438,
+    "scanned_files": 447,
+    "matched_files": 447,
     "parse_errors": 0,
     "exam_crops_high_only": 20,
-    "files_with_issues": 59,
-    "total_findings": 209,
+    "files_with_issues": 65,
+    "total_findings": 334,
     "by_severity": {
       "HIGH": 0,
-      "MEDIUM": 37,
-      "LOW": 172
+      "MEDIUM": 53,
+      "LOW": 281
     },
     "by_pattern": {
-      "P4-tiny-font": 147,
+      "P4-tiny-font": 256,
       "P9-text-rect-overflow": 27,
       "P11-concept-title": 31,
-      "P5-wide-viewbox": 1,
-      "P2-text-overlap": 3
+      "P5-wide-viewbox": 7,
+      "P2-text-overlap": 10,
+      "P6-color-drift": 3
     }
   },
   "findings": [
@@ -1212,6 +1213,865 @@
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
       "detail": "viewBox 幅 500px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 760px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "11",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "12",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "13",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "14",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "15",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "16",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "17",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "18",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "19",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "150",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "155",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "160",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "165",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "170",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "175",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "180",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "185",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "159",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "163",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "167",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "170",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "173",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "176",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "179",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "162",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "165",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "168",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "170",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "171",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "173",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "175",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "157",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "160",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "163",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "165",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "166",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "168",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "169",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "(kg/m³)",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "W/C=40%",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "W/C=50%",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "W/C=60%",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "11",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "12",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "13",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "14",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "15",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "16",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "17",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "18",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "19",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.59",
+      "detail": "font-size 9.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.60",
+      "detail": "font-size 9.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.61",
+      "detail": "font-size 9.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.62",
+      "detail": "font-size 9.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.63",
+      "detail": "font-size 9.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.64",
+      "detail": "font-size 9.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.635",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.628",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.621",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.614",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.607",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.600",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.593",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "単位粗骨材",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "かさ容積",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "(m³/m³)",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "W/C=40〜60%",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「165」と「(kg/m³)」の bbox が重複"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「167」と「168」の bbox が重複"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「170」と「170」の bbox が重複"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「0.61」と「(m³/m³)」の bbox が重複"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「0.62」と「単位粗骨材」の bbox が重複"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "pattern": "P6-color-drift",
+      "severity": "MEDIUM",
+      "detail": "allowlist 外の色: #eee（svg-tokens.json の colorsAllowList 参照）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/volume-ratio-r03.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 430px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/mix-volume-rccp-h30.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 700px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/mix-volume-rccp-h30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "水",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/mix-volume-rccp-h30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "セメントもしくは結合材",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/mix-volume-rccp-h30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "細骨材",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/mix-volume-rccp-h30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "粗骨材",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/mix-volume-rccp-h30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "空気",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/mix-volume-rccp-h30.svg",
+      "pattern": "P6-color-drift",
+      "severity": "MEDIUM",
+      "detail": "allowlist 外の色: #c9c9c9（svg-tokens.json の colorsAllowList 参照）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 560px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "100",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "200",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "300",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "400",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "500",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "600",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "700",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "800",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "900",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "引張強さ・降伏点(N/mm²)",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "20",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "40",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "60",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "80",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "100",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "伸び(%)",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.0",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.2",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.4",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.6",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "0.8",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "1.0",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "1.2",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "1.4",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "pattern": "P6-color-drift",
+      "severity": "MEDIUM",
+      "detail": "allowlist 外の色: #eee（svg-tokens.json の colorsAllowList 参照）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/materials-clinker-strength-h28.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 500px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/materials-clinker-strength-h28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "7",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/materials-clinker-strength-h28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "28",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/materials-clinker-strength-h28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "90",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/materials-clinker-strength-h28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "180",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/materials-clinker-strength-h28.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "360",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/materials-clinker-strength-h28.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「A」と「B」の bbox が重複"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/cement-r01-composition.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 760px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/cement-r01-composition.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "その他",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/cement-r01-composition.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "鉄アルミン酸四カルシウム(C4AF)",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/cement-r01-composition.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "アルミン酸三カルシウム(C3A)",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/cement-r01-composition.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "けい酸二カルシウム(C2S)",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/cement-r01-composition.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "けい酸三カルシウム(C3S)",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/cement-r01-composition.svg",
+      "pattern": "P2-text-overlap",
+      "severity": "MEDIUM",
+      "detail": "「50」と「組成化合物の割合(%)」の bbox が重複"
     },
     {
       "file": "content/site/civil-construction-1/textbook-tractor-bulldozer/img/figure-travel-device.svg",
