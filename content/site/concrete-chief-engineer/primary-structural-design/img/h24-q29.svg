@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 740 360" style="max-width:560px;width:100%" role="img" aria-label="同一荷重を受ける柱ア・イ・ウの破壊形式（曲げひび割れ・せん断ひび割れ）を比較する図。イは主筋を太径に変更、ウは柱高さを低くした条件違い">
+  <text x="45" y="35" text-anchor="end" font-family="sans-serif" font-size="12" fill="#222">正荷重→</text>
+  <text x="135" y="35" font-family="sans-serif" font-size="12" fill="#222">←…負荷重</text>
+  <line x1="60" y1="40" x2="60" y2="220" stroke="#222" stroke-width="1.6"/>
+  <line x1="120" y1="40" x2="120" y2="220" stroke="#222" stroke-width="1.6"/>
+  <text x="130.0" y="130.0" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">柱</text>
+  <text x="54.0" y="24.0" text-anchor="end" font-family="sans-serif" font-size="14" fill="#222">⌐</text>
+  <text x="126.0" y="24.0" text-anchor="start" font-family="sans-serif" font-size="14" fill="#222">¬</text>
+  <text x="54.0" y="250.0" text-anchor="end" font-family="sans-serif" font-size="14" fill="#222">⌐</text>
+  <text x="126.0" y="250.0" text-anchor="start" font-family="sans-serif" font-size="14" fill="#222">¬</text>
+  <text x="90.0" y="270.0" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">はり</text>
+  <text x="54.0" y="235.0" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">はり</text>
+  <line x1="68" y1="67.0" x2="112" y2="67.0" stroke="#222" stroke-width="1"/>
+  <line x1="68" y1="94.0" x2="112" y2="94.0" stroke="#222" stroke-width="1"/>
+  <line x1="68" y1="121.0" x2="112" y2="121.0" stroke="#222" stroke-width="1"/>
+  <line x1="68" y1="148.0" x2="112" y2="148.0" stroke="#222" stroke-width="1"/>
+  <line x1="68" y1="175.0" x2="112" y2="175.0" stroke="#222" stroke-width="1"/>
+  <text x="90.0" y="290.0" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#222">ア</text>
+  <text x="90.0" y="310.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222"></text>
+  <text x="285" y="35" text-anchor="end" font-family="sans-serif" font-size="12" fill="#222">正荷重→</text>
+  <text x="375" y="35" font-family="sans-serif" font-size="12" fill="#222">←…負荷重</text>
+  <line x1="300" y1="40" x2="300" y2="220" stroke="#222" stroke-width="1.6"/>
+  <line x1="360" y1="40" x2="360" y2="220" stroke="#222" stroke-width="1.6"/>
+  <text x="370.0" y="130.0" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">柱</text>
+  <text x="294.0" y="24.0" text-anchor="end" font-family="sans-serif" font-size="14" fill="#222">⌐</text>
+  <text x="366.0" y="24.0" text-anchor="start" font-family="sans-serif" font-size="14" fill="#222">¬</text>
+  <text x="294.0" y="250.0" text-anchor="end" font-family="sans-serif" font-size="14" fill="#222">⌐</text>
+  <text x="366.0" y="250.0" text-anchor="start" font-family="sans-serif" font-size="14" fill="#222">¬</text>
+  <text x="330.0" y="270.0" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">はり</text>
+  <text x="294.0" y="235.0" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">はり</text>
+  <path d="M310 50.0 L350 70.0" stroke="#222" stroke-width="1"/>
+  <path d="M310 70.0 L350 50.0" stroke="#222" stroke-width="1"/>
+  <path d="M310 78.0 L350 98.0" stroke="#222" stroke-width="1"/>
+  <path d="M310 98.0 L350 78.0" stroke="#222" stroke-width="1"/>
+  <path d="M310 106.0 L350 126.0" stroke="#222" stroke-width="1"/>
+  <path d="M310 126.0 L350 106.0" stroke="#222" stroke-width="1"/>
+  <path d="M310 134.0 L350 154.0" stroke="#222" stroke-width="1"/>
+  <path d="M310 154.0 L350 134.0" stroke="#222" stroke-width="1"/>
+  <path d="M310 162.0 L350 182.0" stroke="#222" stroke-width="1"/>
+  <path d="M310 182.0 L350 162.0" stroke="#222" stroke-width="1"/>
+  <path d="M310 190.0 L350 210.0" stroke="#222" stroke-width="1"/>
+  <path d="M310 210.0 L350 190.0" stroke="#222" stroke-width="1"/>
+  <text x="330.0" y="290.0" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#222">イ</text>
+  <text x="330.0" y="310.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">（イの柱の主(鉄)筋には、</text>
+  <text x="400.0" y="340.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">アより太径を使用）</text>
+  <text x="545" y="35" text-anchor="end" font-family="sans-serif" font-size="12" fill="#222">正荷重→</text>
+  <text x="635" y="35" font-family="sans-serif" font-size="12" fill="#222">←…負荷重</text>
+  <line x1="560" y1="40" x2="560" y2="220" stroke="#222" stroke-width="1.6"/>
+  <line x1="620" y1="40" x2="620" y2="220" stroke="#222" stroke-width="1.6"/>
+  <text x="630.0" y="130.0" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222">柱</text>
+  <text x="554.0" y="24.0" text-anchor="end" font-family="sans-serif" font-size="14" fill="#222">⌐</text>
+  <text x="626.0" y="24.0" text-anchor="start" font-family="sans-serif" font-size="14" fill="#222">¬</text>
+  <text x="554.0" y="250.0" text-anchor="end" font-family="sans-serif" font-size="14" fill="#222">⌐</text>
+  <text x="626.0" y="250.0" text-anchor="start" font-family="sans-serif" font-size="14" fill="#222">¬</text>
+  <text x="590.0" y="270.0" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">はり</text>
+  <text x="554.0" y="235.0" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">はり</text>
+  <path d="M575 72 L605 88" stroke="#222" stroke-width="1"/>
+  <path d="M575 102 L605 118" stroke="#222" stroke-width="1"/>
+  <path d="M575 132 L605 148" stroke="#222" stroke-width="1"/>
+  <text x="590.0" y="290.0" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#222">ウ</text>
+  <text x="590.0" y="310.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">（ウの柱の高さは、</text>
+  <text x="630.0" y="340.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">アより低い）</text>
+</svg>

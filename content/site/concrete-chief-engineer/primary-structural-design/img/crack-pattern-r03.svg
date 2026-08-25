@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 420" style="max-width:480px;width:100%" role="img" aria-label="剛接骨組に鉛直荷重P（上から）・水平荷重P（横から）が作用した場合のひび割れ発生位置候補(a)〜(d)">
+  <defs><marker id="cr3a" viewBox="0 0 10 10" refX="8" refY="8" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+  <line x1="60" y1="170" x2="60" y2="60" stroke="#222" stroke-width="1.5"/>
+  <line x1="220" y1="170" x2="220" y2="60" stroke="#222" stroke-width="1.5"/>
+  <line x1="60" y1="60" x2="220" y2="60" stroke="#222" stroke-width="1.5"/>
+  <pattern id="crha" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#8a8a8a" stroke-width="1"/></pattern>
+  <rect x="46" y="170" width="14" height="8" fill="url(#crha)" stroke="#222" stroke-width="1"/>
+  <rect x="220" y="170" width="14" height="8" fill="url(#crha)" stroke="#222" stroke-width="1"/>
+  <line x1="140.0" y1="35" x2="140.0" y2="58" stroke="#222" stroke-width="1.6" marker-end="url(#cr3a)"/>
+  <text x="140.0" y="32.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">P</text>
+  <line x1="119.33333333333333" y1="62" x2="127.33333333333333" y2="56" stroke="#222" stroke-width="1"/>
+  <line x1="136.0" y1="62" x2="144.0" y2="56" stroke="#222" stroke-width="1"/>
+  <line x1="152.66666666666669" y1="62" x2="160.66666666666669" y2="56" stroke="#222" stroke-width="1"/>
+  <line x1="58" y1="138.5" x2="64" y2="146.5" stroke="#222" stroke-width="1"/>
+  <line x1="58" y1="153.5" x2="64" y2="161.5" stroke="#222" stroke-width="1"/>
+  <line x1="222" y1="138.5" x2="216" y2="146.5" stroke="#222" stroke-width="1"/>
+  <line x1="222" y1="153.5" x2="216" y2="161.5" stroke="#222" stroke-width="1"/>
+  <text x="140.0" y="200.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">(a)</text>
+  <line x1="300" y1="170" x2="300" y2="60" stroke="#222" stroke-width="1.5"/>
+  <line x1="460" y1="170" x2="460" y2="60" stroke="#222" stroke-width="1.5"/>
+  <line x1="300" y1="60" x2="460" y2="60" stroke="#222" stroke-width="1.5"/>
+  <pattern id="crhb" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#8a8a8a" stroke-width="1"/></pattern>
+  <rect x="286" y="170" width="14" height="8" fill="url(#crhb)" stroke="#222" stroke-width="1"/>
+  <rect x="460" y="170" width="14" height="8" fill="url(#crhb)" stroke="#222" stroke-width="1"/>
+  <line x1="275" y1="65" x2="297" y2="65" stroke="#222" stroke-width="1.6" marker-end="url(#cr3a)"/>
+  <text x="270.0" y="69.0" text-anchor="end" font-family="sans-serif" font-size="13" fill="#222">P</text>
+  <line x1="298" y1="68.5" x2="304" y2="76.5" stroke="#222" stroke-width="1"/>
+  <line x1="298" y1="83.5" x2="304" y2="91.5" stroke="#222" stroke-width="1"/>
+  <text x="380.0" y="200.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">(b)</text>
+  <line x1="60" y1="370" x2="60" y2="260" stroke="#222" stroke-width="1.5"/>
+  <line x1="220" y1="370" x2="220" y2="260" stroke="#222" stroke-width="1.5"/>
+  <line x1="60" y1="260" x2="220" y2="260" stroke="#222" stroke-width="1.5"/>
+  <pattern id="crhc" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#8a8a8a" stroke-width="1"/></pattern>
+  <rect x="46" y="370" width="14" height="8" fill="url(#crhc)" stroke="#222" stroke-width="1"/>
+  <rect x="220" y="370" width="14" height="8" fill="url(#crhc)" stroke="#222" stroke-width="1"/>
+  <line x1="140.0" y1="235" x2="140.0" y2="258" stroke="#222" stroke-width="1.6" marker-end="url(#cr3a)"/>
+  <text x="140.0" y="232.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">P</text>
+  <text x="140.0" y="400.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">(c)</text>
+  <line x1="300" y1="370" x2="300" y2="260" stroke="#222" stroke-width="1.5"/>
+  <line x1="460" y1="370" x2="460" y2="260" stroke="#222" stroke-width="1.5"/>
+  <line x1="300" y1="260" x2="460" y2="260" stroke="#222" stroke-width="1.5"/>
+  <pattern id="crhd" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#8a8a8a" stroke-width="1"/></pattern>
+  <rect x="286" y="370" width="14" height="8" fill="url(#crhd)" stroke="#222" stroke-width="1"/>
+  <rect x="460" y="370" width="14" height="8" fill="url(#crhd)" stroke="#222" stroke-width="1"/>
+  <line x1="275" y1="265" x2="297" y2="265" stroke="#222" stroke-width="1.6" marker-end="url(#cr3a)"/>
+  <text x="270.0" y="269.0" text-anchor="end" font-family="sans-serif" font-size="13" fill="#222">P</text>
+  <line x1="298" y1="268.5" x2="304" y2="276.5" stroke="#222" stroke-width="1"/>
+  <line x1="298" y1="283.5" x2="304" y2="291.5" stroke="#222" stroke-width="1"/>
+  <line x1="462" y1="268.5" x2="456" y2="276.5" stroke="#222" stroke-width="1"/>
+  <line x1="462" y1="283.5" x2="456" y2="291.5" stroke="#222" stroke-width="1"/>
+  <text x="380.0" y="400.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">(d)</text>
+</svg>

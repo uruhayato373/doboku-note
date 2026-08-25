@@ -1,27 +1,27 @@
 {
   "meta": {
-    "generated_at": "2026-08-25T12:16:28.123Z",
+    "generated_at": "2026-08-25T12:52:19.521Z",
     "path": "content/site/**/img/*.svg",
     "file": null,
     "note": "exam crop dirs (h*-primary, primary-h*) are audited for HIGH only — design/canvas patterns are left to civil-exam-figure-auditor"
   },
   "summary": {
-    "scanned_files": 456,
-    "matched_files": 456,
+    "scanned_files": 472,
+    "matched_files": 472,
     "parse_errors": 0,
     "exam_crops_high_only": 20,
-    "files_with_issues": 70,
-    "total_findings": 366,
+    "files_with_issues": 84,
+    "total_findings": 384,
     "by_severity": {
       "HIGH": 0,
-      "MEDIUM": 57,
-      "LOW": 309
+      "MEDIUM": 71,
+      "LOW": 313
     },
     "by_pattern": {
-      "P4-tiny-font": 284,
+      "P4-tiny-font": 288,
       "P9-text-rect-overflow": 27,
       "P11-concept-title": 31,
-      "P5-wide-viewbox": 11,
+      "P5-wide-viewbox": 25,
       "P2-text-overlap": 10,
       "P6-color-drift": 3
     }
@@ -1207,6 +1207,118 @@
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「完成へ」が rect(y=56,h=90) 下端 y=146 を超過（text 下端 y=151.5）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/wall-crack-pattern-h28.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 620px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/slab-joint-position-h27.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 500px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/rc-frame-crack-h27.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 520px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/pc-section-h27.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 480px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/pc-beam-load-h29.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 480px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/pc-beam-load-h26.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 490px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/h25-q30-fig1.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 650px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/h24-q29.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 740px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/h24-q29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（イの柱の主(鉄)筋には、",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/h24-q29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "アより太径を使用）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/h24-q29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "（ウの柱の高さは、",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/h24-q29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "アより低い）",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/crack-pattern-r03.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 520px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/crack-pattern-r02.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 440px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/column-hoop-h29.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 630px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/cantilever-rebar-h30.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 660px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/beam-flexure-h26.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 650px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/beam-design-h29.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 650px > 400px（モバイル視認性）"
     },
     {
       "file": "content/site/concrete-chief-engineer/primary-properties/img/strain-unload-h30.svg",
