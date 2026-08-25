@@ -617,11 +617,17 @@ Phase 3は最大5 URLの実験候補または見送り条件まで。外部workf
 - `npm run search-growth:cem-plan`を実装。総監209本を`KEEP 31 / IMPROVE 19 / CONSOLIDATE 0 / NOINDEX_REVIEW 0 / MONITOR 159`へ分類し、`.claude/state/improvements/cem-index-consolidation-2026-08-22.{json,md}`へ保存
 - 技術修正候補は0。現在は承認対象の統合クラスタも0なので、301・削除・noindex・pilot deployは行わない
 
-**次にやること**:
+**2026-08-26 再分類完了**: `DN-0106` Phase 1の完全スナップショット（`truncated:false`）取得後に
+`search-growth:report`（universe 2477 URL・FIX_TECHNICAL 0・REDIRECT_LEGACY 0）と`search-growth:cem-plan`
+（総監209本 `KEEP 31 / IMPROVE 20 / CONSOLIDATE 0 / NOINDEX_REVIEW 0 / MONITOR 158`）を再実行。
+8/22比の差分は`pe-comprehensive-management-copyright`が MONITOR→IMPROVE の1件のみ（2回連続未登録の
+再分類ルールどおり）。**CONSOLIDATE は今回も0でpilot対象なし**。保存先: `.claude/state/improvements/
+cem-index-consolidation-2026-08-26.{json,md}`。
 
-1. `DN-0106` の次回CIでquery/page全件スナップショットが`truncated:false`になった後、`npm run search-growth:report && npm run search-growth:cem-plan`を再実行
-2. 2026-09-01の月次URL Inspectionで全体・総監・各カテゴリの遷移を更新。`MONITOR`のうち2回連続未登録になったURLだけ再分類
-3. `CONSOLIDATE`が出た場合のみ、source/target/残す固有情報/需要を最大10件で提示し、明示承認後にpilotする
+**残作業**:
+
+1. 2026-09-01の月次URL Inspectionで全体・総監・各カテゴリの遷移を更新。`MONITOR`のうち2回連続未登録になったURLだけ再分類
+2. `CONSOLIDATE`が出た場合のみ、source/target/残す固有情報/需要を最大10件で提示し、明示承認後にpilotする
 
 **権威性の外向きレバー**:
 
