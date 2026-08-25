@@ -53,8 +53,11 @@ test('removeWipToken: [進行中] を除去する', () => {
   const added = addWipToken(sampleBacklog(), 'DN-0001');
   const removed = removeWipToken(added.text, 'DN-0001');
   assert.equal(removed.ok, true);
-  const line = removed.text.split('\n').find((l) => l.startsWith('タグ:') && l.includes('DN-0001とは無関係のはず') === false);
   assert.doesNotMatch(removed.text, /\[進行中\]/);
+  // DN-0002（別カード）のタグ行は無関係に無傷であること
+  const dn2Line = removed.text.split('\n').find((l) => l.startsWith('タグ:') && removed.text.indexOf(l) > removed.text.indexOf('[DN-0002]'));
+  assert.ok(dn2Line, 'DN-0002のタグ行が見つかること');
+  assert.doesNotMatch(dn2Line, /\[進行中\]/);
 });
 
 test('removeWipToken: [進行中]でないIDはエラー', () => {

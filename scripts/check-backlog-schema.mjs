@@ -235,7 +235,7 @@ function main() {
     const addedTodoFiles = names
       .split('\n')
       .map((s) => s.trim())
-      .filter((s) => /^docs\/todo\/[^/]+\.md$/.test(s) && !TODO_LAYERS.includes(s.split('/').pop()));
+      .filter((s) => /^\.claude\/todo\/[^/]+\.md$/.test(s) && !TODO_LAYERS.includes(s.split('/').pop()));
     let knownTitles = null;
     const headRaw = gitStaged(['show', `HEAD:${BACKLOG}`]);
     if (headRaw) knownTitles = new Set(parseBacklog(headRaw).map((c) => c.title));
