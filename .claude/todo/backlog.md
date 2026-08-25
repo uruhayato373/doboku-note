@@ -1439,15 +1439,6 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 3. `civil-guide-writer` エージェント新設（article-structure-guide を真実源に）
 4. `todo-planner` に todo-writing-guide と backlog の参照を追加
 
-### [DN-0055] `frequent-topics` を r08 込み（18年度720問）へ更新する
-タグ: [コンテンツ品質] [種類:不具合] [実行:sweep] [起票:2026-07-17]
-
-`content/site/pe-comprehensive-management/frequent-topics/article.mdx` は「17年度・680問」（h21〜r07）のまま。title / seoTitle / description / JSON-LD の 4 箇所に数字が入る**公開 SEO ページ**で、生成元は `build-frequent-topics.mjs`（入力＝`past-exam-backlinks.json`）。単純再生成では r08 は入らない。
-
-1. 先に r08 の紐づけ配線（`exam-keyword-map.json` へ 40 問追記＋`YEAR_ORDER`。真実源 → memory `新過去問backlink配線`）
-2. `npm run build-frequent-topics` で再生成
-3. **note 記事のタイトルにも「17年分680問」が入っている**（`note-published.json:173`）。サイトだけ更新すると食い違うので note republish まで同時に行う
-
 ### [DN-0057] OGP タイトルが 3 行以上に折れる 121 件のチューニング
 タグ: [UI・UX] [種類:改善] [実行:sweep] [検証:check-ogp-line-count:done] [起票:2026-08-18]
 
