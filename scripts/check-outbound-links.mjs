@@ -8,15 +8,12 @@
  *   note 記事を下書きへ戻す・削除する・マガジンを組み替える、はいずれも普通に起きる操作なので、
  *   ファネルの途中が黙って切れる。
  *
- * 対象: content/{site,note,sns,coconala} の
- *   - `note.com/{user}/n/{key}`      → `/api/v3/notes/{key}`
- *   - `note.com/{user}/m/{magazine}` → `/api/v2/magazines/{id}`
+ * 対象: content/{site,note,sns,coconala} の `note.com/{user}/n/{key}` と `/m/{magazine}`。
+ * 取得は scripts/lib/note-api.mjs（唯一の入口。URL・エンドポイントの罠はそちらに集約）。
  *
  * **計測不能を FAIL と呼ばない**（note-live-check.mjs の isUnmeasurable と同じ姿勢）:
  *   取得失敗（プロキシ・レート制限・タイムアウト）は dead ではない。取得失敗が支配的なら
  *   「検査不成立」で exit 1 にし、緑を返さない。実検査数は常に出す。
- *
- * 取得は curl（`fetch` はプロキシ env を見ず会社 PC で全滅する）。
  *
  * Usage:
  *   node scripts/check-outbound-links.mjs                 # 全件
@@ -28,7 +25,7 @@
 import { readFileSync, readdirSync, existsSync, writeSync } from 'node:fs';
 import { join, dirname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { spawnSync } from 'node:child_process';
+import { fetchNote, fetchMagazine } from './lib/note-api.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NAME = 'check-outbound-links';
@@ -76,38 +73,14 @@ let targets = [...refs.keys()].sort();
 const declared = targets.length;
 if (LIMIT) targets = targets.slice(0, LIMIT);
 
-/** note public API を curl で叩く。{ state: 'alive'|'dead'|'unknown', detail } */
-function probe(kind, id) {
-  // マガジンは v3。v2 は HTML の 404 ページを返すので、使うと**全件が「取得失敗」に化ける**
-  // （2026-08-25 実測。JSON でない応答を dead と誤判定しない作りにしていたので、
-  // 検査不成立として止まり、緑にはならなかった）。
-  const url = kind === 'n'
-    ? `https://note.com/api/v3/notes/${id}`
-    : `https://note.com/api/v3/magazines/${id}`;
-  const r = spawnSync('curl', [
-    '-sS', '-m', '25', '--ssl-no-revoke',
-    '-H', 'User-Agent: Mozilla/5.0', '-H', 'Accept: application/json', url,
-  ], { encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
-  const out = (r.stdout || '').trim();
-  if (!out.startsWith('{')) return { state: 'unknown', detail: (r.stderr || 'non-json').split('\n')[0].slice(0, 60) };
-  let d;
-  try { d = JSON.parse(out); } catch { return { state: 'unknown', detail: 'parse' }; }
-  const body = d.data ?? d;
-  // note は「無い / 下書き / 非公開」をまとめて 404 相当で返す。区別できないので dead とだけ言う。
-  if (d.error || body?.error || (!body?.status && !body?.id && !body?.key)) {
-    return { state: 'dead', detail: String(d.error?.code || d.error || 'not-found').slice(0, 40) };
-  }
-  return { state: 'alive', detail: body.status || 'ok' };
-}
-
 const dead = [];
 let alive = 0; let unknown = 0;
 for (const key of targets) {
   const [kind, id] = key.split(':');
-  const r = probe(kind, id);
-  if (r.state === 'alive') alive += 1;
+  const r = kind === 'n' ? await fetchNote(id) : await fetchMagazine(id);
+  if (r.state === 'alive' || r.state === 'unmeasurable') alive += 1;
   else if (r.state === 'unknown') unknown += 1;
-  else dead.push({ url: `note.com/…/${kind}/${id}`, detail: r.detail, refs: [...refs.get(key)].slice(0, 3), refCount: refs.get(key).size });
+  else dead.push({ url: `note.com/…/${kind}/${id}`, detail: (r.error || '').slice(0, 40), refs: [...refs.get(key)].slice(0, 3), refCount: refs.get(key).size });
   await sleep(THROTTLE_MS);
 }
 
