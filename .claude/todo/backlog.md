@@ -537,6 +537,15 @@ ID必須化＋完了処理の一括更新 → Admin UI への状態列・planリ
 
 **2026-08-22 Phase 1 実装済み**: query/pageの週次取得へ`--all`を追加し、ページング純関数・0行/truncatedゲート・テストを追加した。旧8/21スナップショットは意図どおり`INCOMPLETE`。次回CIで`truncated:false`を確認してからPhase 2へ進む。
 
+**2026-08-26 Phase 1完全スナップショット取得・Phase 2完了**: `fetch-metrics.yml`をworkflow_dispatchで手動実行し
+`truncated:false`を実確認（query 159行・page 355行）。RCAの結論は**季節性が支配的**——GSC clicks減少-201の82%は
+総監(-115)・建設部門(-51)に集中し両資格ともimpressions比例減（技術士総監筆記07-19〜20直後と一致）。GA4の
+Organic Search(-37%)・Organic Social(-83%)・Referral(-56%)が全チャネル同時急減で検索順位固有の問題ではない。
+技術エラーは0件。Phase 3実験候補は1件（`civil-1-textbook-network-schedule`の「インターフェアリングフロート
+とは」クエリ・278impr/position9.17/clicks0）に絞り込み、8/4見送り済みの主クエリとは別物と確認済み。
+詳細: `.claude/state/improvements/2026-08-26-gsc-access-rca.md`・判断ログ: `gsc-management.md`末尾。
+**適用（seoTitle変更）は/nsm-experiment起票を経てユーザー承認後に行う。次の一手はDN-0107との合流**。
+
 **目的**: 「アクセスが増えない」を、検索流入・SNS/リファラル・試験日程による季節性・index coverage の4要因に分け、検索施策で動かせる部分だけを実験化する。推測で title/description を一括変更しない。
 
 **実行順**: 本カード Phase 1 → 完全スナップショット取得 → Phase 2/3 → `DN-0107` Phase 0/1 → ユーザー承認 → 統合pilot。データが不完全なまま統合対象を選ばない。
