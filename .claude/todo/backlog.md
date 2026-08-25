@@ -118,7 +118,7 @@ RESULT 行で見ていたため `[13] FAIL` の 2 本を成功と数えた＝**�
 | 対象 | 点数 | 実体 | やること |
 |---|---|---|---|
 | `concrete-chief-engineer` 6記事 | **55/55 完了（2026-08-25）**（production-qc 2・materials 3・mix-design 6・properties 9・structural-design 16・construction 19） | 完了 | 自作 SVG へ描き直す（診断士が 22 点で実施済みの方式） |
-| `concrete-chief-engineer` primary-materials 内 2点 | 2 | **実写真**（電子顕微鏡画像 `h24-q5.webp`・骨材表面試験の実験器具写真 `sand-surface-test-h29.webp`。スキャンではなく本物の写真なのでSVG化しない） | 入手元とライセンスを特定し、`image-policy` の出典表記を入れる |
+| `concrete-chief-engineer` primary-materials 内 2点 | 2 | `h24-q5.webp`は**書籍/過去問冊子のスキャン**（2026-08-25調査で綴じ部の写り込みを確認・上記分類は誤りだった）・`sand-surface-test-h29.webp`は実験器具の実写真 | 入手元とライセンスを特定し、`image-policy` の出典表記を入れる |
 | `concrete-diagnostician` 4記事 | 8 | **実写真**（スキャンではない。台帳の `textbook-scan` は `source_dir` からの推定で誤り） | 入手元とライセンスを特定し、`image-policy` の出典表記を入れる |
 
 **2026-08-25 実施（production-qc 2/2 完了）**: 正規分布の概念図とX̄管理図（A〜D群56点）を目視トレースで
@@ -136,6 +136,19 @@ construction 19。`figure-provenance.json` の追跡数は 549→496（差分53�
 `primary-materials` の実写真2点と `concrete-diagnostician` の実写真8点、計10点の出典・ライセンス特定のみ。
 
 いずれもサイトでは公開中（`published: true`）。有料の Amazon 配布は露出の性格が違うので、Kindle 提出はこのゲート通過後。EPUB 実体は `kindle-dist/` に無く退避台帳にも無いので、提出時は `scripts/build-pe1-kindle.mjs` で再ビルドする。
+
+**2026-08-25 出典調査（read-only・10枚とも未特定）**: WebSearchで逆引き調査した結果、
+10枚とも撮影者・原著作物・ライセンスを特定できなかった。`h24-q5.webp`（電子顕微鏡SEM比較図）は
+左端に本の綴じ部の写り込みが確認でき、**上表の「実写真」という分類自体が誤りで実際は書籍/過去問
+冊子のスキャンだった**（要修正）。`sand-surface-test-h29.webp` は実験器具写真で出典特定できず。
+`concrete-diagnostician` の8枚（橋梁・床の劣化写真群）も固有の場所情報が乏しく、Wikimedia Commons の
+類似カテゴリ（Spalling / Alkali silica reactions / Efflorescence）を確認したが同一写真とは一致しなかった。
+**リスク評価: 高**——出典未確認のままKindleへ収録するのは少なくとも現時点の調査結果では推奨できない。
+代替候補（同一現象のCC/PD写真、要ライセンス個別確認）: Wikimedia Commons "Category:Spalling"・
+"Category:Efflorescence"、FHWA (米国連邦道路庁) "Alkali-Silica Reactivity Field Identification Handbook"
+(FHWA-HIF-12-022)。**次の一手はユーザー判断**: (a) 原本書籍の使用許諾を確認する（自炊元の書籍を
+把握しているのはユーザーのみ）、(b) 上記代替候補から個別にライセンス確認して差し替える、
+(c) Kindle版だけ写真を自作SVG図解に置き換える（サイトは現状維持）、のいずれか。
 
 ### [DN-0100] note回遊導線の緊急修復（試験後CTA・有料74本L3・ライブ4本）
 タグ: [収益化] [種類:不具合] [実行:対話] [起票:2026-08-20] [期日:2026-08-23]
