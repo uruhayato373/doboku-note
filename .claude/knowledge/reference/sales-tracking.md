@@ -61,11 +61,18 @@ note 有料記事・マガジンの販売履歴を一元管理する運用手順
 2026-08 は 0 件だった。転記は「やった月」と「やらなかった月」が外から区別できず、
 月次集計が静かに過少になる（`sales-summary` は入っている分を正しく足すので**緑のまま**）。
 
-取得は Playwright の read-only で行う。ただし note の「売上管理」`/sitesettings/salesmanage` と
+取得は Playwright の read-only で行う（`npm run note-sales-fetch -- --month YYYY-MM [--commit]`・
+2026-08-25 実装・DN-0018）。ただし note の「売上管理」`/sitesettings/salesmanage` と
 「販売履歴」`/sitesettings/purchasers` は `note.com/dashboard/*` へ遷移して**パスワード再確認**を要求するため、
-**認証は人が通す**（パスワード入力はエージェントの禁止行為）。認証後の Cookie は永続プロファイル
-`.local/playwright-note-profile` に残り、**別プロセスで起動し直しても再確認は出なかった**（2026-08-17 実測）。
-有効期間は note 側のポリシーなので延ばせない。
+**認証は人が通す**（パスワード入力はエージェントの禁止行為。パスワード再確認画面を検出したら ABORT する）。
+認証後の Cookie は永続プロファイル `.local/playwright-note-profile` に残り、**別プロセスで起動し直しても
+再確認は出なかった**（2026-08-17 実測）。有効期間は note 側のポリシーなので延ばせない。
+
+> [!note] `note-sales-fetch.mjs` は初回ライブ実行が未検証（2026-08-25 時点）
+> 月フィルタ `<select>` のインデックス・「もっとみる」ボタンの role/name・売上管理ページの総額
+> セレクタは、いずれも実 DOM で一度も通していない。セレクタが見つからなければ fail-closed で
+> ABORT する（誤ったセレクタで静かに 0 件を「完了」と報告しない設計）。初回実行はユーザー同席で
+> 行い、ABORT が出たら該当セレクタをライブの DOM に合わせて更新する。
 
 - 月フィルタは `<select>`（0=年 / 1=月 / 2=並び順 / 3=種別）、明細は**「もっとみる」を尽きるまでクリック**する。
   7月は 14 回で 145 件だった。クリックを打ち切ると静かに欠ける
@@ -238,6 +245,8 @@ npm run kdp-report -- --dry-run    # 保存せず表示のみ
 | `.claude/agents/sales-recorder.md` | 販売履歴正規化エージェント |
 | `.claude/skills/metrics/record-sales/SKILL.md` | 記録スキル |
 | `scripts/sales-summary.mjs` | 集計スクリプト（月フィルタは位置引数。`-- 2026-06`） |
+| `scripts/note-sales-fetch.mjs` | note ダッシュボードからの read-only 自動取得＋検算＋差し替え（`npm run note-sales-fetch`） |
+| `scripts/lib/sales-normalize.mjs` | productId 解決・表記ゆれ正規化・検算の純関数（`tests/sales-normalize.test.mjs`） |
 | `scripts/check-sales-mapping.mjs` | productId が mapping に文書化されているか検証する pre-commit ガード |
 | `scripts/kdp-report.mjs` | KDP 月次ロイヤリティ取得（`npm run kdp-report`・読み取り専用） |
 | `.claude/state/sales/kdp-royalties.json` | Kindle 月次ロイヤリティ（note とは別スキーマ） |

@@ -231,6 +231,7 @@
     "note-price-sweep": "node scripts/note-price-sweep.mjs",
     "note-publish-magazine": "node scripts/note-publish-magazine.mjs",
     "note-reflow": "node scripts/reflow-note-paragraphs.mjs",
+    "note-sales-fetch": "node scripts/note-sales-fetch.mjs",
     "note-sync-tags": "node scripts/note-sync-tags.mjs",
     "note-update-body": "node scripts/note-update-body.mjs",
     "note-update-cover": "node scripts/note-update-cover.mjs",
