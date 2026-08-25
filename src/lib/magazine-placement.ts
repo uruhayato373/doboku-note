@@ -382,17 +382,24 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   if (docGroup === 'keyword' || slug === 'pe-comprehensive-management-keyword-2026') {
     const isHub = slug === 'pe-comprehensive-management-keyword-2026';
     if (isHub) {
-      // 受験期最大の入口（GA4 トップ）。精読ガイド（文脈一致）を軸に据えつつ、完全パック +
-      // R8 予想を加えて予想・直前需要も拾う。sidebar は R8 予想 + 精読ガイド。
+      // 受験期最大の入口（GA4 トップ）。**試験後は精読ガイドを先頭**に置く（2026-08-25・DN-0100）。
+      //
+      // 2026-08 の本試験まではここが「完全パック → R8 予想 → 精読ガイド」で、直前・予想需要を
+      // 先に拾う並びだった。試験が終わると R8 予想は「今年の本番用」を訴求する商品ではなくなり、
+      // 先頭に置くと年号の古い訴求を最大流入面で出し続けることになる。文脈一致（キーワード索引
+      // ＝5管理の用語を引く面）で年号に依存しない精読ガイドを軸へ戻す。
+      //
+      // 完全パックは次点に残す（記述式を仕上げたい層の受け皿）。R8 予想は inline 末尾へ下げ、
+      // **sidebar からは外す**（sidebar は現状 page.tsx から参照されていない＝DN-0133 だが、
+      // report-monetization-coverage は数えるので実態と揃えておく）。
       return {
         inline: [
-          slot(NEW_MAGAZINES.completePack, slug, 'inline-1'),
-          slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-2'),
-          slot('tankan-reading-guide', slug, 'inline-3'),
+          slot('tankan-reading-guide', slug, 'inline-1'),
+          slot(NEW_MAGAZINES.completePack, slug, 'inline-2'),
+          slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-3'),
         ],
         sidebar: [
-          slot(NEW_MAGAZINES.r8Forecast, slug, 'sidebar-1'),
-          slot('tankan-reading-guide', slug, 'sidebar-2'),
+          slot('tankan-reading-guide', slug, 'sidebar-1'),
         ],
       };
     }
