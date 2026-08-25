@@ -1728,7 +1728,28 @@ GitHub Secrets: `CLOUDFLARE_API_TOKEN`/R2 キー=90日・`PSI_API_KEY`/`YOUTUBE_
 ### [DN-0083] note 編集スクリプトの共有 lib 化（Tier 2 保守性）
 タグ: [エージェント・SSOT] [種類:改善] [実行:sweep]
 
-account ゲート/ClipboardEvent paste/リンクカード化/ブラウザ起動が3〜5スクリプトにコピペ分岐（note-update-body paste 無音失敗事故の震源）。`scripts/lib/note-browser.mjs` へ一元化。**有料境界（paywall boundary）ロジックは収益直結のため統合せず各スクリプトにインライン保持**。独立 worktree で実施・dry-run/probe で挙動同一確認。
+**見積りを実測へ訂正（2026-08-25）**: 起票時「3〜5スクリプト」と書いたが、棚卸しの実測は
+それより大きい——account ゲートのコピペだけで **15 本以上**、`launchPersistentContext` を持つ
+ファイルは **36 本**。account ゲートはリトライ回数がファイルごとに微妙にズレており
+（12回×2500ms / 10回×2000ms / 10回×1500ms）、コピペ後の個別ドリフトが実際に進行している。
+
+account ゲート/ClipboardEvent paste/リンクカード化/ブラウザ起動が多数スクリプトにコピペ分岐
+（note-update-body paste 無音失敗事故の震源）。`scripts/lib/note-browser.mjs` へ一元化。
+**有料境界（paywall boundary）ロジックは収益直結のため統合せず各スクリプトにインライン保持**。
+独立 worktree で実施・dry-run/probe で挙動同一確認。
+
+**このカードへ統合するもう 1 系統（2026-08-25 追加）**: I/O の入口全般が共有化されておらず、
+事故は常にここで起きる。棚卸しの実測:
+
+| 種別 | ローカル実装の本数 | 共有 lib |
+|---|--:|---|
+| note API（`note.com/api/v3/notes` 直叩き） | 14 本中 13 本 | `scripts/lib/note-api.mjs`（2026-08-25 新設・新規消費者のみ） |
+| frontmatter の自作正規表現リーダー | 21 本（gray-matter 派 34 本と二系統並存） | `scripts/lib/note-frontmatter.mjs`（2026-08-25 新設・新規消費者のみ） |
+| Playwright account ゲート/ブラウザ起動 | 15 本以上 | 無し（本カードの本題） |
+
+note-api.mjs / note-frontmatter.mjs は**新規に書くコードだけ**が使っており、既存 13 本・21 本の
+移行はまだ。動いている検査を一度に触るリスクを避けるため、着手時は 1 本ずつ移行して
+その都度実測で挙動同一を確認する（バルクでの一斉置換はしない）。
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 

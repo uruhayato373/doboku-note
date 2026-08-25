@@ -15,15 +15,35 @@ note.com の公開マガジン一覧・各マガジンの収録記事を **publi
 
 ## note 公開 API（認証不要）
 
-| 用途 | エンドポイント |
-|---|---|
-| creator のマガジン一覧 | `https://note.com/api/v2/creators/{name}/contents?kind=magazine&page=N` |
-| マガジンの収録記事 | `https://note.com/api/v1/magazines/{key}/notes?page=N` |
+**取得は `scripts/lib/note-api.mjs` の関数を通す**（新規に書くコードはここを呼ぶ）。
+エンドポイントの URL・バージョン番号はこのファイルにしか書かない——note.com 側の
+API バージョニングはこちらが操作できない外部都合で、こちら側の概念にしないため。
+呼び出し側が知るのは用途名だけでよい:
 
-- `{name}` = `dobokunote`、`{key}` = `m...`（マガジン URL の末尾）。
-- 一覧は `data.contents[]`（`key`/`id`/`name`/`price`）、`data.isLastPage` でページ送り終了。
-- 収録記事は `data.notes[]`（`key`/`name`/`price`）。
-- note は Nuxt 製のため HTML に `__NEXT_DATA__` は無い。HTML スクレイプより上記 JSON API が堅牢。
+| 用途 | 関数 |
+|---|---|
+| 記事 1 本の状態 | `fetchNote(key)` |
+| マガジン 1 本の状態 | `fetchMagazine(key)` |
+| マガジンの収録記事一覧 | `fetchMagazineArticles(key)` |
+
+- `isUnmeasurable` は `note-live-check.mjs` から re-export。alive/unmeasurable/dead/unknown の
+  4 値は下記「404 の意味」参照。
+- **creator の全マガジン一覧**（`verify-note-magazines.mjs` が使う）はまだ note-api.mjs に
+  無い——既存 13 本の note API 直叩きは DN-0083 で段階移行の対象。該当スクリプトの実装を
+  直接読むこと（この文書に URL を重複させない）。
+- note は Nuxt 製のため HTML に `__NEXT_DATA__` は無い。HTML スクレイプより JSON API が堅牢。
+
+### 404 の意味（削除・下書き・非公開を区別しない）
+
+note の public API は「存在しない」「下書きのまま」「非公開にした」をすべて同じ 404 相当で
+返す。`fetchNote`/`fetchMagazine` の `state: 'dead'` は「もう見えない」という以上の意味を
+持たせないこと——「削除された」と読み替えて話を進めると、実際には非公開化しただけの
+記事を「消えた」と誤報告する。実体（削除か非公開か）を確かめたいときは著者ログインの
+Playwright 経路に委ねる。
+
+同じ形の問題は他プラットフォームにもある。YouTube の `oembed?url=…` も「動画が無い」
+「非公開」「限定公開」を区別せず 404 を返す（限定公開なら oEmbed は本文を返すので、
+それとの違いだけは分かる）。DN-0131 の調査で使った手筋。
 
 ## 使い方
 
