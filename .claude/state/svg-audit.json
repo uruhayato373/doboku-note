@@ -1,27 +1,27 @@
 {
   "meta": {
-    "generated_at": "2026-08-25T12:10:31.025Z",
+    "generated_at": "2026-08-25T12:16:28.123Z",
     "path": "content/site/**/img/*.svg",
     "file": null,
     "note": "exam crop dirs (h*-primary, primary-h*) are audited for HIGH only — design/canvas patterns are left to civil-exam-figure-auditor"
   },
   "summary": {
-    "scanned_files": 447,
-    "matched_files": 447,
+    "scanned_files": 456,
+    "matched_files": 456,
     "parse_errors": 0,
     "exam_crops_high_only": 20,
-    "files_with_issues": 65,
-    "total_findings": 334,
+    "files_with_issues": 70,
+    "total_findings": 366,
     "by_severity": {
       "HIGH": 0,
-      "MEDIUM": 53,
-      "LOW": 281
+      "MEDIUM": 57,
+      "LOW": 309
     },
     "by_pattern": {
-      "P4-tiny-font": 256,
+      "P4-tiny-font": 284,
       "P9-text-rect-overflow": 27,
       "P11-concept-title": 31,
-      "P5-wide-viewbox": 7,
+      "P5-wide-viewbox": 11,
       "P2-text-overlap": 10,
       "P6-color-drift": 3
     }
@@ -1207,6 +1207,226 @@
       "pattern": "P9-text-rect-overflow",
       "severity": "LOW",
       "detail": "「完成へ」が rect(y=56,h=90) 下端 y=146 を超過（text 下端 y=151.5）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/strain-unload-h30.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 680px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/strain-unload-h30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "ひずみ",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/strain-unload-h30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "ひずみ",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/strain-unload-h30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "ひずみ",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/strain-unload-h30.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "ひずみ",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 800px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "4",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "8",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "12",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "16",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "20",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "24",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "練混ぜからの時間(h)",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "4",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "8",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "12",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "16",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "20",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "24",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "練混ぜからの時間(h)",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "4",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "8",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "12",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "16",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "20",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "24",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "練混ぜからの時間(h)",
+      "detail": "font-size 10.5px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q10.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 500px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/creep-strain-r04.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 440px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/creep-strain-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "a",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/creep-strain-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "s",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/creep-strain-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "e",
+      "detail": "font-size 9px < 11px（モバイル視認性下限）"
     },
     {
       "file": "content/site/concrete-chief-engineer/primary-production-qc/img/xbar-control-chart-h28.svg",

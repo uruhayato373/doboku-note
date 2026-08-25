@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 440 240" style="max-width:440px;width:100%" role="img" aria-label="載荷から除荷までのひずみ変化。載荷直後500×10-6から1500×10-6へ漸増し、除荷で急減してから緩やかに戻る曲線">
+  <g transform="translate(40,0)">
+  <line x1="60" y1="200" x2="370" y2="200" stroke="#222" stroke-width="1.5"/>
+  <line x1="60" y1="200" x2="60" y2="20" stroke="#222" stroke-width="1.5"/>
+  <path d="M110 200 L110 130 C 160 90 220 70 280 66" fill="none" stroke="#222" stroke-width="1.8"/>
+  <path d="M280 66 L280 130" fill="none" stroke="#222" stroke-width="1.8"/>
+  <path d="M280 130 C 310 150 330 165 345 178" fill="none" stroke="#222" stroke-width="1.8"/>
+  <line x1="60" y1="130" x2="110" y2="130" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="60" y1="66" x2="280" y2="66" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="110" y1="20" x2="110" y2="200" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 3"/>
+  <line x1="280" y1="20" x2="280" y2="200" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="52" y="134" text-anchor="end" font-family="sans-serif" font-size="12" fill="#222">500×10⁻⁶</text>
+  <text x="52" y="70" text-anchor="end" font-family="sans-serif" font-size="12" fill="#222">1 500×10⁻⁶</text>
+  <text x="18" y="110" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222" transform="rotate(-90 18 110)">ひずみ</text>
+  <text x="110" y="218" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">載荷</text>
+  <text x="280" y="218" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">除荷</text>
+  <text x="360" y="218" text-anchor="end" font-family="sans-serif" font-size="12" fill="#222">時間</text>
+  </g>
+</svg>

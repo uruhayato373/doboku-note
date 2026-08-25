@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" style="max-width:400px;width:100%" role="img" aria-label="コンクリートのクリープひずみ概念図。載荷直後の弾性ひずみεeから1年後の合計ひずみεaへ漸増する曲線と、収縮ひずみεsの小さな曲線">
+  <line x1="50" y1="220" x2="370" y2="220" stroke="#222" stroke-width="1.5"/>
+  <line x1="50" y1="220" x2="50" y2="20" stroke="#222" stroke-width="1.5"/>
+  <path d="M50 150 C 100 60 200 35 320 30" fill="none" stroke="#222" stroke-width="1.8"/>
+  <path d="M50 210 C 120 195 220 190 320 188" fill="none" stroke="#222" stroke-width="1.5" stroke-dasharray="5 3"/>
+  <line x1="320" y1="30" x2="320" y2="220" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="30" y1="30" x2="50" y2="30" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="30" y1="188" x2="50" y2="188" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
+  <circle cx="320" cy="30" r="4" fill="#222"/>
+  <circle cx="50" cy="150" r="4" fill="#222"/>
+  <circle cx="320" cy="188" r="4" fill="#222"/>
+  <text x="30" y="34" text-anchor="end" font-family="sans-serif" font-size="13" fill="#222">ε</text>
+  <text x="36" y="38" font-family="sans-serif" font-size="9" fill="#222">a</text>
+  <text x="30" y="192" text-anchor="end" font-family="sans-serif" font-size="13" fill="#222">ε</text>
+  <text x="36" y="196" font-family="sans-serif" font-size="9" fill="#222">s</text>
+  <text x="30" y="154" text-anchor="end" font-family="sans-serif" font-size="13" fill="#222">ε</text>
+  <text x="36" y="158" font-family="sans-serif" font-size="9" fill="#222">e</text>
+  <text x="18" y="120" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222" transform="rotate(-90 18 120)">ひずみ（ε）</text>
+  <text x="320" y="236" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">1年</text>
+  <text x="368" y="216" text-anchor="end" font-family="sans-serif" font-size="12" fill="#222">載荷期間</text>
+</svg>
