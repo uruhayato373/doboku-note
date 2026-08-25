@@ -199,6 +199,12 @@ export const HIGH_INTENT_CAREER_SLUGS: ReadonlySet<string> = new Set([
   // BuildJob 適合＝指名/比較検索の高意図面ゆえ campaign 中は BuildJob 固定（本文は経験段階で正直に出し分け）。
   "civil-construction-2-guide-buildjob-review",
   "civil-construction-2-guide-career-agent-comparison",
+  // 土木公務員 SEO 第1期（2026-08-17 新設）。`guide-public-servant`（転職の是非）とは別記事で、
+  // こちらは「発注者側で 1 級を取る意味」＝資格取得の判断面。career タグを持つので
+  // check-career-separation が未収録を WARN していた（2026-08-25 収録）。
+  // **これは台帳登録であって配置ではない**: アフィリ面は resolveDocsCareerSidebarAd が
+  // category で決めており、このセットは 2026-07-28 以降 arm 判定に使っていない（上のコメント）。
+  "civil-construction-1-public-servant-merit",
 ]);
 
 /**

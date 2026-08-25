@@ -24,7 +24,7 @@
 | 2 | DN-0005 | **期限 8/25（今日）**。X 9月 week1（9/1-9/7・21本・ドラフト090）を投入。guard 緑 → publish-x → `x-sync-status` で投入数=queued 昇格数を実照合。手順書が zsh 前提なのでこの PC で動かなければ手動キューへ降格して明記 | ⬜ 未着手 |
 | 3 | DN-0002 | **W6 配信 8/31 期限**。メンバーシップ W6（安全管理・下書き `n81850411ecb7`）を会員限定公開 + マガジン収録。公開範囲を選べなければ公開しない・公開後 `is_limited=true` と未ログイン0字を API 実査。学科記述予想の火金トラック（8/26・8/29）も | ⬜ 未着手 |
 | 4 | DN-0109 | **期日 8/31**。今週の修正（CI green 復帰・note-live-audit npm ci・dangling-id 解消）でカードの実査がどれだけ古びたか**実態照合**→ `playwright` devDependencies 明示（knip 返済 60→19）→ 未修正の同型欠陥を消化。完了= `quality:audit:ci` green + カード縮約 | ⬜ 未着手 |
-| 5 | DN-0119 | career WARN 衛生（毎 commit で出続け）。`HIGH_INTENT_CAREER_SLUGS` へ収録 + `<CareerAffiliate>` 配置。DN-0120（撤退判断）とは独立 — 面を揃えるだけで、撤退なら面ごと畳まれる | ⬜ 未着手 |
+| 5 | DN-0119 | career WARN 衛生 | ✅ **完了・カード削除**。`HIGH_INTENT_CAREER_SLUGS` へ収録し WARN 1 → **0**。`<CareerAffiliate>` は**足していない** — 配置は `resolveDocsCareerSidebarAd` が category で決めており、このセットは 2026-07-28 以降 arm 判定に使われない純粋な台帳。既に登録済みで未配置の記事も 4 本ある |
 
 ## 手動キュー（ユーザー・別PC／時間差で可）
 
