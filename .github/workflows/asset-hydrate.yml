@@ -1,0 +1,118 @@
+name: Asset Hydrate (R2 -> artifact)
+
+# 退避済みアセット（.claude/state/assets/manifest.json）を R2 から取り出し、
+# **workflow artifact として配布する**。R2 credential をローカルへ置かずに
+# 画像・PDF を手元へ持ってくるための橋。
+#
+# なぜ要るか:
+#   会社 PC はプロキシで外部 API が遮断され、`.env.local` の CLOUDFLARE_* も
+#   コメントアウトされている（2026-08-25 実測）。この状態だと
+#   `npm run asset-hydrate` は `--offline` しか通らず、cache に無いものは
+#   「解決不能」で止まる。実際 note の納品 PDF を取り寄せられず、
+#   note-update-body の --reattach-pdf が 3 本ぶん中断した。
+#   credential を持つのは CI だけなので、取り出しを CI に代行させる。
+#
+# 使い方:
+#   1. Actions からこの workflow を dispatch し、group か path を指定する
+#   2. 完了後 artifact `hydrated-assets` をダウンロードして repo 直下へ展開する
+#      （退避対象は .gitignore 済みなので、置いても git status は汚れない）
+#
+# **この workflow は取り出し専用（read-only）**。R2 への書き戻しはしない。
+# 退避（offload）は「実体を持っている端末」が行う操作で、CI は gitignore 済みの
+# ファイルを checkout で得られないため代行できない。詳細は
+# .claude/knowledge/reference/asset-storage-policy.md。
+
+on:
+  workflow_dispatch:
+    inputs:
+      selector_kind:
+        description: '対象の指定方法'
+        required: true
+        default: 'path'
+        type: choice
+        options: [path, group]
+      selector:
+        description: 'group 名（例 note-delivery-pdf）または path 前方一致（例 content/note/技術士建設部門/magazines/BK-01_道路/R03/）'
+        required: true
+        type: string
+      dry_run:
+        description: 'Dry run（取り出さず対象一覧のみ）'
+        required: false
+        default: false
+        type: boolean
+
+jobs:
+  hydrate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps --ignore-scripts
+
+      # 入力は env 経由で渡す（run 内へ ${{ }} を展開するとシェル注入になる）。
+      - name: Hydrate from R2
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+          SELECTOR_KIND: ${{ inputs.selector_kind }}
+          SELECTOR: ${{ inputs.selector }}
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          set -eu
+          if [ "$DRY_RUN" = "true" ]; then
+            node scripts/asset-hydrate.mjs "--$SELECTOR_KIND" "$SELECTOR" --dry-run
+          else
+            node scripts/asset-hydrate.mjs "--$SELECTOR_KIND" "$SELECTOR"
+          fi
+
+      # 収集対象は **manifest から導く**。`git ls-files -o -i` だと node_modules まで拾う。
+      # 取り出せた実体だけを数え、**0 件なら artifact を作らない**
+      # （空を掴んで「取れた」と誤読する事故を防ぐ。CLAUDE.md §9）。
+      - name: Collect hydrated files
+        id: collect
+        env:
+          SELECTOR_KIND: ${{ inputs.selector_kind }}
+          SELECTOR: ${{ inputs.selector }}
+        run: |
+          set -eu
+          node --input-type=module -e '
+            import { readFileSync, existsSync, mkdirSync, copyFileSync, appendFileSync } from "node:fs";
+            import { dirname, join } from "node:path";
+            const kind = process.env.SELECTOR_KIND, sel = process.env.SELECTOR;
+            const m = JSON.parse(readFileSync(".claude/state/assets/manifest.json", "utf8"));
+            const all = Array.isArray(m.entries) ? m.entries : Object.values(m.entries);
+            const want = all.filter((e) =>
+              kind === "group" ? e.group === sel : String(e.logicalPath || "").startsWith(sel));
+            let copied = 0;
+            for (const e of want) {
+              const p = e.logicalPath;
+              if (!p || !existsSync(p)) continue;
+              const dest = join("/tmp/hydrated", p);
+              mkdirSync(dirname(dest), { recursive: true });
+              copyFileSync(p, dest);
+              copied++;
+            }
+            console.log(`対象 ${want.length} 件 / ローカルに実体あり ${copied} 件`);
+            appendFileSync(process.env.GITHUB_OUTPUT, `count=${copied}\n`);
+            appendFileSync(process.env.GITHUB_OUTPUT, `targets=${want.length}\n`);
+          '
+          if [ "$(grep '^count=' "$GITHUB_OUTPUT" | tail -1 | cut -d= -f2)" = "0" ]; then
+            echo "::warning::取り出せたファイルが 0 件。dry-run か、対象が manifest/R2 に無い可能性がある。上の件数を読むこと（0 件は「異常なし」ではない）。"
+          fi
+
+      - name: Upload artifact
+        if: steps.collect.outputs.count != '0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: hydrated-assets
+          path: /tmp/hydrated
+          retention-days: 3
+          if-no-files-found: error

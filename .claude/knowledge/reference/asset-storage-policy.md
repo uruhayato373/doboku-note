@@ -43,6 +43,18 @@ npm run asset-hydrate -- --group note-cover-png --offline             # cache �
 credential が無い端末（会社 PC はプロキシで外部 API が遮断される）は `--offline` を付ける。
 何が足りないかが一覧で出るので、「取れたつもり」にならない。
 
+**cache にも無いものは CI に代行させる**（2026-08-25 新設）。`.github/workflows/asset-hydrate.yml` を
+Actions から dispatch すると、CI 側の credential で R2 から取り出し、artifact `hydrated-assets` として
+出す。ダウンロードして repo 直下へ展開すればよい（退避対象は `.gitignore` 済みなので `git status` は汚れない）。
+
+```
+group か path を指定 → dry_run で対象確認 → 本実行 → artifact を展開
+```
+
+**取り出し専用**であることに注意。**退避（offload）は CI に代行させられない** ——
+CI は checkout で gitignore 済みのファイルを得られないので、そもそも上げるべき実体を持てない。
+退避は「実体を持っている端末」が `.env.local` に credential を置いて行う操作のまま。
+
 ## 3. 新しいアセットを作ったとき
 
 退避対象は `.gitignore` してあるので **`git status` に出ない**。作ったまま放置すると
@@ -98,6 +110,28 @@ cover PNG 827 件を全件再生成して追跡中の PNG と突き合わせた�
 
 note へ上げた実体との同一性が要る用途では、再生成ではなく R2 から取ること。
 `asset-hydrate` が generator を提示するだけで自動実行しないのはこのため。
+
+### 納品 PDF は sha256 が**必ず**変わる（2026-08-25 実測）
+
+cover PNG の「揺らぎで 1.1% が不一致」とは別の、もっと強い性質が PDF にはある。
+`magazine-to-pdf.mjs` は Chrome ヘッドレスの `--print-to-pdf` で描くため、生成物に
+`creationDate` / `modDate` が埋まる（`Producer: Skia/PDF m151`）。**内容が 1 バイトも
+変わっていなくても、再生成すれば sha256 は変わる。**
+
+BK-01_道路/R03 の 3 本を再生成して R2 の記録と突き合わせた実測:
+
+| | サイズ | sha256 |
+|---|---|---|
+| II-1 / II-2 | R2 と**一致** | 不一致 |
+| III | 2,158 bytes 差 | 不一致 |
+
+サイズが一致した 2 本は、タイムスタンプ以外が同一とみなせる（日時フィールドは固定長なので
+サイズが保たれる）。つまり **spec 駆動のレンダリング自体は決定的**で、揺らいでいるのは
+メタデータだけ。III のサイズ差は実際に原稿が変わったことを意味する。
+
+**運用上の含意**: `asset-offload --verify` はローカル・manifest・R2 の sha256 を突き合わせるので、
+**再生成した PDF では必ず落ちる**。再生成物で R2 を更新する場合は、`--verify` を
+「同一性の証明」として使えない。サイズとページ数・本文の実検証で代替する。
 
 ## 7. 取得に失敗したとき
 

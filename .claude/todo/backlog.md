@@ -405,9 +405,19 @@ node scripts/note-update-body.mjs --list <list.txt> --commit
 
 - **PDF 実体不足 3 件**（BK-01_道路/R03）— 納品 PDF が R2 の **private** バケットへ退避済みで、
   この PC に R2 creds が無く取り寄せられなかった。**`scripts/pdf-specs/BK-01_道路.json` から再生成**して復旧。
-  **3 本中 2 本は byte 完全一致**で再現し、残り 1 本のみ 2,158 bytes 差。3p/3p/5p・必須 2 節あり・U+FFFD 0 を
-  検証してから貼り直した（`asset-storage-policy` の「再生成は byte が変わりうる」は cover PNG の実測で、
-  **PDF は spec 駆動なのでほぼ決定的**という新しい実測データ）
+  3p/3p/5p・「試験問題」「フル模範解答」の両節あり・U+FFFD 0 を検証してから貼り直した。
+  再現性の実測（**当初「byte 完全一致」と書いたのは誤り。sha256 で再照合して訂正**）:
+
+  | | サイズ | sha256 |
+  |---|---|---|
+  | II-1 / II-2 | R2 と**一致** | 不一致 |
+  | III | 2,158 bytes 差 | 不一致 |
+
+  原因は PDF に `creationDate` / `modDate` が埋め込まれること（Skia/PDF m151）。**再生成のたび
+  sha256 は必ず変わる**ので、`asset-storage-policy` の「再生成は byte が変わりうる」は cover PNG
+  だけでなく PDF にも当てはまる。ただしサイズが一致した 2 本は**タイムスタンプ以外は同一**とみなせ、
+  spec 駆動のレンダリング自体は決定的。**運用上の含意**: `asset-offload --verify` は sha256 を
+  突き合わせるので、再生成した PDF では必ず落ちる
 - **有料境界の H2 を特定できず 1 件**（`工事119-小規模マンホール内面更生`）— 「試験問題/予想問題」H2 が無い。
   `--keep-boundary` は既知事故（2026-07-31）があるので使わず個別対応にする。**未処置**
 
