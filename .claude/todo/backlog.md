@@ -99,12 +99,11 @@ imported from scripts/pre-commit-mdx.mjs
 `npm ci --legacy-peer-deps` を追加して再 dispatch 済み。フック無効化（`--no-verify`）は取らない
 ——bot commit だけ検査を素通りさせると、そこが次の抜け道になる。
 
-**残作業**:
+**結果**: `npm ci` 追加後の再 dispatch で **workflow green を実測**（run 32797779154 / conclusion=success）。
+21 日赤は解消。Issue #473 には測り直し結果と 2 層目をコメント済み。
 
-1. 再 dispatch の green を実測（実行中）
-2. Issue #473 に測り直し結果と**この 2 層目**をコメントし、**クローズはユーザーが行う**
-   （automation-failure のクローズは復旧の実体を確認した人間の担当・CLAUDE.md §8）
-3. BOUNDARY_SHIFT 270 本（有料 706 本の 38%）は別問題として DN-0132 へ切り出し済み
+**残作業**: Issue #473 のクローズ（**ユーザーが行う**。automation-failure のクローズは復旧の実体を
+確認した人間の担当・CLAUDE.md §8）。BOUNDARY_SHIFT 270 本は DN-0132 へ切り出し済み。
 
 **停止条件**: note ライブ変更はユーザー承認前に行わない。有料境界を動かすときは `--boundary-h2` を使い `--keep-boundary` は使わない（本文ブロック増で境界が冒頭へ動く既知事故・2026-07-31）。価格・既存 PDF 添付を保持する。
 
@@ -396,6 +395,27 @@ node scripts/note-update-body.mjs --list <list.txt> --commit
 - 旧記載の `.tmp/republish-batch2.txt` は**消滅している**。対象リストは毎回 `--json` から再生成する
 
 **反映後**: `npm run check-note-structure` で FULL_LOCK / PAYWALL_LEAK ゼロを確認し、`.claude/state/note-republish-hashes.json` をコミットする。
+
+**2026-08-25 バッチ実績（ok=76 / fail=1 / 投入 100）**
+
+対象は `--json` の `driftFiles` から再生成（旧 `.txt` の陳腐化を避ける）。drift は 422 本に増えており
+**画像あり 158 / 画像なし 264**。画像なしの有料 261 本から 100 件を `--reattach-pdf` 付きで投入した。
+
+初回 73/100 で 3 連続失敗の安全弁が働き残 23 本は未実行。失敗 4 件は**どちらも本文を触らず中断**（破損なし）:
+
+- **PDF 実体不足 3 件**（BK-01_道路/R03）— 納品 PDF が R2 の **private** バケットへ退避済みで、
+  この PC に R2 creds が無く取り寄せられなかった。**`scripts/pdf-specs/BK-01_道路.json` から再生成**して復旧。
+  **3 本中 2 本は byte 完全一致**で再現し、残り 1 本のみ 2,158 bytes 差。3p/3p/5p・必須 2 節あり・U+FFFD 0 を
+  検証してから貼り直した（`asset-storage-policy` の「再生成は byte が変わりうる」は cover PNG の実測で、
+  **PDF は spec 駆動なのでほぼ決定的**という新しい実測データ）
+- **有料境界の H2 を特定できず 1 件**（`工事119-小規模マンホール内面更生`）— 「試験問題/予想問題」H2 が無い。
+  `--keep-boundary` は既知事故（2026-07-31）があるので使わず個別対応にする。**未処置**
+
+**副次の是正**: PDF 実体不足の中断が汎用理由で記録され、次回 `--force-retry` ゲートに掛かって
+PDF を用意しても自動再開できない状態だった。`abortReason = 'pdf-missing'` を付け、img-settle と同じ
+「保存前に止まる中断＝安全」として `SAFE_ABORTS` に加えた（`note-update-body.mjs`）。
+
+**残**: 未実行 23 本 ＋ 失敗 1 本を翌日へ。本文 drift は 422 → 約 346 本。
 
 ### [DN-0004] 生成物・送客先を見る検査が存在しない（機械チェックの穴 残 2 件）
 タグ: [コンテンツ品質] [種類:不具合] [インフラ・計測] [実行:対話] [起票:2026-08-18]
