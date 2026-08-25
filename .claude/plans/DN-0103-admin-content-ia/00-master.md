@@ -1,9 +1,8 @@
 ---
 taskId: DN-0103
-title: 管理画面のコンテンツ中心IAとBrainチャネル統合
-status: ready
-owner: Claude Code (Sonnet)
+type: implementation-plan
 createdAt: 2026-08-21
+deleteOnComplete: true
 ---
 
 # DN-0103 管理画面のコンテンツ中心IAとBrainチャネル統合

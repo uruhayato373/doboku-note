@@ -1,9 +1,8 @@
 ---
 taskId: DN-0095
-status: ready
-owner: claude-code
-created: 2026-08-18
-deleteAfterCompletion: true
+type: implementation-plan
+createdAt: 2026-08-18
+deleteOnComplete: true
 ---
 
 # 施工経験記述の想定工事拡張＋コンクリート資格の商品展開

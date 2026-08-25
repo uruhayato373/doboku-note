@@ -1,3 +1,10 @@
+---
+taskId: DN-0092
+type: implementation-plan
+createdAt: 2026-08-18
+deleteOnComplete: true
+---
+
 # 技術士 建設部門「選択科目まるごと合格パック」全科目展開計画
 
 > [!important] 決定

@@ -65,17 +65,17 @@ live更新を行った記事について、`verify-note-status`とlive funnel監
 すべての条件を満たした場合だけ、次の5ファイルをファイル編集ツールで1件ずつ削除する。ワイルドカード、再帰削除、`rm -rf`は禁止する。
 
 ```text
-.claude/plans/pe-construction-subject-packs/00-product-plan.md
-.claude/plans/pe-construction-subject-packs/01-local-preparation.md
-.claude/plans/pe-construction-subject-packs/02-live-publication.md
-.claude/plans/pe-construction-subject-packs/03-wiring-and-measurement.md
-.claude/plans/pe-construction-subject-packs/99-finalize-and-delete.md
+.claude/plans/DN-0092-pe-construction-subject-packs/00-product-plan.md
+.claude/plans/DN-0092-pe-construction-subject-packs/01-local-preparation.md
+.claude/plans/DN-0092-pe-construction-subject-packs/02-live-publication.md
+.claude/plans/DN-0092-pe-construction-subject-packs/03-wiring-and-measurement.md
+.claude/plans/DN-0092-pe-construction-subject-packs/99-finalize-and-delete.md
 ```
 
 ## 7. 削除後確認
 
 ```bash
-find .claude/plans/pe-construction-subject-packs -type f -print 2>/dev/null
+find .claude/plans/DN-0092-pe-construction-subject-packs -type f -print 2>/dev/null
 rg -n "pe-construction-subject-packs" . \
   --glob '!node_modules/**' --glob '!.git/**' \
   --glob '!out/**' --glob '!.next/**'

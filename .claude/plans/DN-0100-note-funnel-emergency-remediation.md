@@ -1,3 +1,10 @@
+---
+taskId: DN-0100
+type: implementation-plan
+createdAt: 2026-08-22
+deleteOnComplete: true
+---
+
 # DN-0100 note回遊導線の緊急修復
 
 ## 目的

@@ -1,9 +1,8 @@
 ---
 taskId: DN-0094
-status: ready
-owner: claude-code
-created: 2026-08-18
-deleteAfterCompletion: true
+type: implementation-plan
+createdAt: 2026-08-18
+deleteOnComplete: true
 ---
 
 # 技術士総監 記述式「自分に近い立場」全ペルソナ展開計画

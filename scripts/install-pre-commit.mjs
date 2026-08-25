@@ -180,6 +180,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# .claude/plans/ の実装計画とbacklogカードの結線（存在・相互参照・1task=1plan・ID重複・孤児plan）
+node scripts/check-task-plan-links.mjs
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # backlog タグ行の語彙・[検証:] の実在・完了 prose の混入を検証（台帳が機械読取不能になるのを止める）
 node scripts/check-backlog-schema.mjs --staged
 if [ $? -ne 0 ]; then

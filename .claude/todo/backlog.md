@@ -518,12 +518,22 @@ C12 プレミアム（教材18冊＋添削2テーマ・¥15,000）は `weeklyCap
 ### [DN-0093] TODO UIとAgent実装の実行ライフサイクルを統合する
 タグ: [エージェント・SSOT] [種類:改善] [実行:対話] [起票:2026-08-18]
 
-TODOをAdminで管理し、Codexが設計、Claude Codeが実装する運用を、task → plan → claim → verify → completeの一貫した機械契約にする。現状は`[進行中]`を選定器が除外しない、planの相互参照を検査しない、完了時のbacklog・monthly・weekly・plan・dispatch log更新が別操作という欠落がある。
+TODOをAdminで管理し、Codexが設計、Claude Codeが実装する運用を、task → plan → claim → verify → completeの一貫した機械契約にする。
 
 - **設計根拠**: [TODO UI × Agent実装 運用設計の批判的レビュー](../../docs/reviews/critical/todo-ui-agent-implementation-operations_批判的レビュー.md)
 - **実行順**: 情報アーキテクチャ移行（2026-08-18 完了・`docs`/`content`/`.claude` の 4 領域）の差分を実査してから、WIP排他 → task-plan結線 → claim/release/complete共通CLI → ID付き実行ログ → Admin状態表示・Claude Code用prompt生成の順で実装する
 - **禁止**: 既存の情報アーキテクチャ移行セッションと同じファイルを並行編集しない。task-plan結線とclaimが成立する前に、UIからAgentや任意shellを直接起動する機能を作らない
 - **完了条件**: 同一IDの二重claimを拒否し、実行中カードを自動選定から除外する。planの孤児・リンク切れ・重複を検査し、完了処理でbacklog・monthly・weekly・plan・実行証拠を一貫して閉じる。恒久ルールを`.claude/knowledge/`へ抽出後、このレビューを削除する
+
+**完了（最小実装順1・2）**: ①WIP排他は済み（`backlog-lib.mjs` の `pickTasks()` が `[進行中]` を hold と同じバケットへ除外・`tests/backlog-lib.test.mjs` でテスト済み）。
+②task-plan結線は 2026-08-25 に実装。`scripts/check-task-plan-links.mjs`（`quality:audit` 登録・pre-commit配線）が
+plan master frontmatter を正準化（`taskId`/`type: implementation-plan`/`createdAt`/`deleteOnComplete`。
+state を表す`status`/`owner`は書かない）し、既存7 plan unit を全て KEEP へ分類（すべて対応する backlog カードが
+生きている＝統合・削除の対象なし）。この過程で `pe-construction-subject-packs/` が taskId 命名規則から
+外れていた食い違い（実体は DN-0092）を発見・`DN-0092-pe-construction-subject-packs/` へ改名して是正した。
+
+**残（最小実装順3〜5）**: `todo:claim`/`todo:release`/`todo:complete --dry-run` 共通CLI → dispatch log の
+ID必須化＋完了処理の一括更新 → Admin UI への状態列・planリンク・claim表示・Claude Code prompt生成の追加。
 
 ### [DN-0106] GSC 検索流入停滞の原因分離と performance データ全件化
 タグ: [インフラ・計測] [種類:改善] [Codex候補] [実行:sweep] [起票:2026-08-20]
@@ -1523,10 +1533,10 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 
 道路パックの実売 7 件を再現可能な商品モデルとみなし、公開済みの道路は維持したうえで、残る 10 選択科目（トンネル、都市及び地方計画、河川・砂防、鋼構造及びコンクリート、土質及び基礎、鉄道、建設環境、港湾及び空港、施工計画、電力土木）を各 4,980 円の「まるごと合格パック」として展開する。
 
-- **実装契約**: [商品計画・詳細実装手順書](../plans/pe-construction-subject-packs/00-product-plan.md) と同ディレクトリの Phase 01〜03、99 を真実源とする
+- **実装契約**: [商品計画・詳細実装手順書](../plans/DN-0092-pe-construction-subject-packs/00-product-plan.md) と同ディレクトリの Phase 01〜03、99 を真実源とする
 - **着手順**: 情報アーキテクチャ移行は 2026-08-18 に完了済み。ローカル準備 → A（トンネル・都市計画・河川）→ B（鋼コン・土質・鉄道）→ C（環境・港湾・施工計画・電力土木）→ 導線・計測の順で進める。同一時点の note ライブ操作は 1 商品だけに限定する
 - **停止条件**: note アカウント不一致、CAPTCHA、既存商品の価格・収録数ドリフト、公開 API 検証不能、別セッションとのライブ操作競合があれば、書き込み前に停止してユーザー確認へ戻す
-- **完了条件**: 全 11 パックについて公開状態、4,980 円、カバー、収録記事数、SoT、サイト CTA、売上記録配線を検証し、4 週・8 週レビューを起票する。全条件を満たした後だけ、手順書の削除マニフェストに従って `pe-construction-subject-packs/` の計画書 5 ファイルを削除する
+- **完了条件**: 全 11 パックについて公開状態、4,980 円、カバー、収録記事数、SoT、サイト CTA、売上記録配線を検証し、4 週・8 週レビューを起票する。全条件を満たした後だけ、手順書の削除マニフェストに従って `DN-0092-pe-construction-subject-packs/` の計画書 5 ファイルを削除する
 
 ### [DN-0094] 総監記述式の民間ペルソナを全50類型へ展開
 タグ: [収益化] [種類:制作] [実行:対話] [起票:2026-08-18]
