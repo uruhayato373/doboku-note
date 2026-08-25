@@ -65,7 +65,7 @@ const r = pickTasks(cards, { limit, classifyLimit });
 if (!r.partitionOk) {
   console.error(
     `✗ 検査不成立: バケットが総数を分割していない` +
-      `（実行可能 ${r.runnableTotal} + 分類待ち ${r.unclassifiedTotal} + 除外 ${r.excludedTotal} + 判断待ち ${r.holdTotal} ≠ ${cards.length}）`,
+      `（実行可能 ${r.runnableTotal} + 分類待ち ${r.unclassifiedTotal} + 除外 ${r.excludedTotal} + 判断待ち ${r.holdTotal} + 進行中 ${r.wipTotal} ≠ ${cards.length}）`,
   );
   process.exit(2);
 }
@@ -78,6 +78,8 @@ const payload = {
   excludedTotal: r.excludedTotal,
   excludedBy: r.excludedBy,
   holdTotal: r.holdTotal,
+  wipTotal: r.wipTotal,
+  wip: r.wip.map((c) => ({ line: c.line, tier: c.tier, kind: c.kind, title: c.title, executor: c.executor })),
   order: r.order,
   kindCount: r.kindCount,
   kindMissingTotal: r.kindMissingTotal,
@@ -96,8 +98,12 @@ if (JSON_OUT) {
 
 const t = payload.scanned.tier;
 console.log(`[backlog-sweep-pick] カード ${cards.length} 件を走査（🔴${t.high ?? 0} 🟡${t.mid ?? 0} 🟢${t.low ?? 0} 🟣${t.hold ?? 0}）`);
-console.log(`  実行可能 ${r.runnableTotal} / 分類待ち ${r.unclassifiedTotal} / 除外 ${r.excludedTotal}${r.excludedTotal ? '（' + Object.entries(r.excludedBy).map(([k, v]) => `${k}:${v}`).join(' ') + '）' : ''} / 判断待ち ${r.holdTotal}`);
-console.log(`  内訳の恒等式: ${r.runnableTotal} + ${r.unclassifiedTotal} + ${r.excludedTotal} + ${r.holdTotal} = ${cards.length} ✓`);
+console.log(`  実行可能 ${r.runnableTotal} / 分類待ち ${r.unclassifiedTotal} / 除外 ${r.excludedTotal}${r.excludedTotal ? '（' + Object.entries(r.excludedBy).map(([k, v]) => `${k}:${v}`).join(' ') + '）' : ''} / 判断待ち ${r.holdTotal} / 進行中(除外) ${r.wipTotal}`);
+console.log(`  内訳の恒等式: ${r.runnableTotal} + ${r.unclassifiedTotal} + ${r.excludedTotal} + ${r.holdTotal} + ${r.wipTotal} = ${cards.length} ✓`);
+if (r.wipTotal) {
+  console.log(`  進行中（自動選定から除外・要確認）:`);
+  for (const c of r.wip) console.log(`    - L${c.line} [${c.tier}] ${c.title}`);
+}
 
 if (r.kindMissingTotal) {
   console.log(`  種類 未付与 ${r.kindMissingTotal} 件（内訳: ${Object.entries(r.kindCount).map(([k, v]) => `${k}:${v}`).join(' ')}）`);

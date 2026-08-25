@@ -234,23 +234,44 @@ const holdSample = [
   '### 判断-無印', 'タグ: [収益化]', '',
 ].join('\n');
 
-test('4 バケットは総数の真の分割（hold の二重計上・取りこぼしを禁じる）', () => {
+test('5 バケットは総数の真の分割（hold の二重計上・取りこぼしを禁じる）', () => {
   const r = pickTasks(parseBacklog(holdSample), { limit: 5, classifyLimit: 5 });
   assert.equal(r.holdTotal, 3);
   assert.equal(r.excludedTotal, 0, 'hold の非self が excluded に二重計上されている');
   assert.equal(r.runnableTotal, 1);
   assert.equal(r.unclassifiedTotal, 0);
-  assert.equal(r.runnableTotal + r.unclassifiedTotal + r.excludedTotal + r.holdTotal, r.total);
+  assert.equal(r.wipTotal, 0);
+  assert.equal(r.runnableTotal + r.unclassifiedTotal + r.excludedTotal + r.holdTotal + r.wipTotal, r.total);
   assert.equal(r.partitionOk, true);
 });
 
-test('実 backlog でも 4 バケットが総数を分割する', () => {
+// DN-0093 批判的レビュー課題3: [進行中] を選定器が除外せず、複数セッション・Codex との
+// 同時実行防止が機能していなかった。wip は hold と同じく自動選定バケットから外す。
+const wipSample = [
+  '## 🔴 高',
+  '### 高-sweep', 'タグ: [収益化] [実行:sweep]', '',
+  '### 高-sweep-進行中', 'タグ: [収益化] [実行:sweep] [進行中]', '',
+  '### 高-対話-進行中', 'タグ: [収益化] [実行:対話] [進行中]', '',
+].join('\n');
+
+test('[進行中] は executor があっても自動選定しない（他 executor でも wip 優先で除外）', () => {
+  const r = pickTasks(parseBacklog(wipSample), { limit: 5 });
+  assert.equal(r.wipTotal, 2);
+  assert.ok(!r.run.some((c) => c.wip));
+  assert.ok(!r.wip.some((c) => c.title === '高-sweep'));
+  assert.equal(r.runnableTotal, 1);
+  assert.equal(r.excludedTotal, 0, 'wip の非self executor が excluded に二重計上されている');
+  assert.equal(r.runnableTotal + r.unclassifiedTotal + r.excludedTotal + r.holdTotal + r.wipTotal, r.total);
+  assert.equal(r.partitionOk, true);
+});
+
+test('実 backlog でも 5 バケットが総数を分割する', () => {
   const text = readFileSync(join(ROOT, '.claude/todo/backlog.md'), 'utf8');
   const r = pickTasks(parseBacklog(text), { limit: 2, classifyLimit: 2 });
   assert.equal(
-    r.runnableTotal + r.unclassifiedTotal + r.excludedTotal + r.holdTotal,
+    r.runnableTotal + r.unclassifiedTotal + r.excludedTotal + r.holdTotal + r.wipTotal,
     r.total,
-    `内訳が総数と合わない: ${r.runnableTotal}+${r.unclassifiedTotal}+${r.excludedTotal}+${r.holdTotal} ≠ ${r.total}`,
+    `内訳が総数と合わない: ${r.runnableTotal}+${r.unclassifiedTotal}+${r.excludedTotal}+${r.holdTotal}+${r.wipTotal} ≠ ${r.total}`,
   );
   assert.equal(r.partitionOk, true);
 });

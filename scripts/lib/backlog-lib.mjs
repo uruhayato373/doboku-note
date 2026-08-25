@@ -278,35 +278,42 @@ export function pickTasks(cards, opts = {}) {
   const byKindThenTier = (a, b) =>
     (a.kind === DEFECT_KIND ? 0 : 1) - (b.kind === DEFECT_KIND ? 0 : 1) || byTier(a, b);
 
-  // 実行候補: executor が自分で回せるもの。hold は自動選定しない（ユーザー判断待ちのため）
+  // wip（[進行中]）は hold と同じ扱い＝自動選定バケットから外し、専用カウンタで数える
+  // （DN-0093 批判的レビュー課題3: 選定器が wip を除外せず、複数セッション・Codex との
+  //  同時実行防止が機能していなかった。note・移行・一括編集での競合事故を防ぐ）。
+  const isAuto = (c) => c.tier !== 'hold' && !c.wip;
+
+  // 実行候補: executor が自分で回せるもの。hold・wip は自動選定しない（判断待ち／作業中のため）
   const runnable = cards
-    .filter((c) => c.tier !== 'hold' && c.executor && SELF_EXECUTABLE.has(c.executor))
+    .filter((c) => isAuto(c) && c.executor && SELF_EXECUTABLE.has(c.executor))
     .sort(byKindThenTier);
 
   // 分類待ち: executor 未付与（次周から選定対象にするためタグ付けする）。
   // **バケット（partition）の一員なので条件は executor だけ**。kind の欠落は別カウンタで測る
-  // （kind も条件に入れると runnable と重なり、4 バケットの分割が壊れる）。
+  // （kind も条件に入れると runnable と重なり、バケットの分割が壊れる）。
   const unclassified = cards
-    .filter((c) => c.tier !== 'hold' && !c.executor)
+    .filter((c) => isAuto(c) && !c.executor)
     .sort(byTier);
 
-  // 除外: 自分で回せない executor。hold は holdTotal が数えるのでここから外す
+  // 除外: 自分で回せない executor。hold・wip は各専用カウンタが数えるのでここから外す
   // （2026-08-18 まで hold フィルタが無く、hold+非self が excludedTotal と holdTotal に
   //  二重計上され、hold+executor無しはどのバケットにも入らず 41+0+57=98≠99 だった）
   const excluded = cards.filter(
-    (c) => c.tier !== 'hold' && c.executor && !SELF_EXECUTABLE.has(c.executor),
+    (c) => isAuto(c) && c.executor && !SELF_EXECUTABLE.has(c.executor),
   );
   const excludedBy = {};
   for (const c of excluded) excludedBy[c.executor] = (excludedBy[c.executor] ?? 0) + 1;
 
   const holdTotal = cards.filter((c) => c.tier === 'hold').length;
-  // 4 バケットは総数の真の分割であること。破れたら分類漏れ＝検査不成立として呼び出し側が落とす。
+  const wip = cards.filter((c) => c.tier !== 'hold' && c.wip).sort(byTier);
+  const wipTotal = wip.length;
+  // 5 バケットは総数の真の分割であること。破れたら分類漏れ＝検査不成立として呼び出し側が落とす。
   const partitionOk =
-    runnable.length + unclassified.length + excluded.length + holdTotal === cards.length;
+    runnable.length + unclassified.length + excluded.length + holdTotal + wipTotal === cards.length;
 
   // 分類キュー: executor か kind のどちらかが欠けているもの（partition ではなく作業キュー）
   const needsTag = cards
-    .filter((c) => c.tier !== 'hold' && (!c.executor || !c.kind))
+    .filter((c) => isAuto(c) && (!c.executor || !c.kind))
     .sort(byTier)
     .map((c) => ({
       ...c,
@@ -332,6 +339,8 @@ export function pickTasks(cards, opts = {}) {
     excludedTotal: excluded.length,
     excludedBy,
     holdTotal,
+    wip,
+    wipTotal,
     partitionOk,
   };
 }
