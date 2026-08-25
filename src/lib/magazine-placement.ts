@@ -4,9 +4,16 @@
  * 設計方針:
  * - 完全一致 / Prefix 一致 / 動的パターン (regex) を組み合わせる
  * - 1 ページに複数マガジンを並べることが可能 (例: r07-secondary に 3 ペルソナ全部)
- * - inline (本文末尾) と sidebar (PC 右ペイン) を別指定し、モバイル/PC で出し分け
+ * - 出し先は `top`（記事冒頭の 1 行 CTA）と `inline`（本文中の中間 CTA）の 2 つだけ
  * - 表示の最終可否は note-magazines.ts の published フラグ + noteUrl 空チェックで決まる
  *   ここでは「どのページに何を出すか」だけを定義する
+ *
+ * 2026-08-25（DN-0133）: `sidebar`（PC 右ペイン）を廃止した。2026-07 の CTA 統一で
+ *   右ペインは もくじタイル＋転職枠へ一本化され、page.tsx が読むのは `.top` と `.inline[0]` だけに
+ *   なっていたのに、定義と report-monetization-coverage の集計だけが残っていた
+ *   ＝**描画されないものを導線として数える**状態。実測では sidebar に置かれたマガジンは
+ *   1 ページを除きすべて inline/top にも入っており、外しても実際の露出は変わらない。
+ *   唯一の単独配線だった management-tradeoffs は本文に <MagazineCard> を 3 枚持つ（4.6 参照）。
  */
 import type { DocGroupKey } from './doc-classifier';
 import type { MagazineId } from './note-magazines';
@@ -18,13 +25,12 @@ export interface PlacementSlot {
 
 export interface ResolvedPlacement {
   readonly inline: ReadonlyArray<PlacementSlot>;
-  readonly sidebar: ReadonlyArray<PlacementSlot>;
   // 記事冒頭（本文 prose の前）に出す 1 行テキスト CTA。二次系の高 intent ページのみ設定する。
   // 末尾の画像カード（inline）と重複してよい（形が違い・記事が長いため）。未設定＝冒頭 CTA なし。
   readonly top?: PlacementSlot;
 }
 
-const EMPTY: ResolvedPlacement = { inline: [], sidebar: [] };
+const EMPTY: ResolvedPlacement = { inline: [] };
 
 /**
  * slug → utm_content 用の短縮識別子。
@@ -190,7 +196,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   if (slug === 'pe-comprehensive-management-essay-exam-strategy') {
     // パイプライン順 (完全パック → コアパック → 型 → 設問3 → 予想 → 模範論文 → 精読基礎)。
     // 上段=完全パック¥9,800 を筆頭の強 CTA、下段=コアパック¥5,480 を次点（2段ラダー）。
-    // sidebar は精読ガイドを据える（記事末尾の footer 集約時に inline と dedup 統合される）。
     return {
       inline: [
         slot(NEW_MAGAZINES.completePack, slug, 'inline-1'),
@@ -200,9 +205,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-5'),
         ...ALL_PERSONA_MAGAZINES.map((m, i) => slot(m, slug, `inline-${i + 6}`)),
         slot('tankan-reading-guide', slug, 'inline-tankan'),
-      ],
-      sidebar: [
-        slot('tankan-reading-guide', slug, 'sidebar-1'),
       ],
     };
   }
@@ -224,7 +226,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot(NEW_MAGAZINES.completePack, slug, 'inline-1'),
         slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-2'),
       ],
-      sidebar: [slot(NEW_MAGAZINES.r8Forecast, slug, 'sidebar-1')],
     };
   }
 
@@ -236,7 +237,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       top: slot('pe-construction-required-magazine', slug, 'top'),
       inline: [],
-      sidebar: [],
     };
   }
 
@@ -245,7 +245,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   if (peEssayMag) {
     return {
       inline: [slot(peEssayMag, slug, 'inline-1')],
-      sidebar: [slot(peEssayMag, slug, 'sidebar-1')],
     };
   }
 
@@ -263,7 +262,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       top: slot(isReiwa ? 'tankan-takuitsu-reiwa-pdf' : 'tankan-takuitsu-heisei-pdf', slug, 'top'),
       inline: [],
-      sidebar: [],
     };
   }
 
@@ -274,7 +272,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       inline: [
         slot(patternMag, slug, 'inline-1'),
       ],
-      sidebar: [slot(patternMag, slug, 'sidebar')],
     };
   }
 
@@ -287,7 +284,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       inline: [
         slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-1'),
       ],
-      sidebar: [slot(NEW_MAGAZINES.r8Forecast, slug, 'sidebar-1')],
     };
   }
 
@@ -301,16 +297,14 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       inline: [
         slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-1'),
       ],
-      sidebar: [slot(NEW_MAGAZINES.r8Forecast, slug, 'sidebar-1')],
     };
   }
 
-  // 3. r0X-essay-{persona} 個別年度ペルソナ記事 → 該当ペルソナマガジン (個別記事、sidebar 主体)
+  // 3. r0X-essay-{persona} 個別年度ペルソナ記事 → 該当ペルソナマガジン (個別記事)
   const personaMag = matchPersonaEssay(slug);
   if (personaMag) {
     return {
       inline: [slot(personaMag, slug, 'inline')],
-      sidebar: [slot(personaMag, slug, 'sidebar')],
     };
   }
 
@@ -331,9 +325,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     }
     return {
       inline,
-      sidebar: [
-        slot('tankan-reading-guide', slug, 'sidebar-1'),
-      ],
     };
   }
 
@@ -341,13 +332,13 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //       M2「白書 R7 完全対応集」は 2026-05-25 に完全無料リード磁石へ転換、note 単独記事化。
 
   // 4.6. management-tradeoffs (5管理間トレードオフ 横断ガイド) → 自治体 道路担当 magazine
-  //     2026-05-28: 当初は記事末尾 inline + sidebar の両方を出していたが、
-  //     ユーザ要望により inline を撤回し、本文中の <MagazineCard> 直接配置に切替。
-  //     sidebar 側のみ placement 経由で維持（PC 右ペインの固定可視性を確保）。
+  //     2026-05-28: ユーザ要望により inline を撤回し、本文中の <MagazineCard> 直接配置へ切替。
+  //     以後は sidebar だけを placement 経由で維持していたが、その sidebar が描画されなく
+  //     なったため 2026-08-25 に空へ。**導線が消えたわけではない** — 本文に
+  //     <MagazineCard id="essay-road-municipality-magazine"> が 3 枚あり、そちらが現役。
   if (slug === 'pe-comprehensive-management-management-tradeoffs') {
     return {
       inline: [],
-      sidebar: [slot('essay-road-municipality-magazine', slug, 'sidebar-1')],
     };
   }
 
@@ -359,10 +350,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot(NEW_MAGAZINES.completePack, slug, 'inline-1'),
         slot('tankan-reading-guide', slug, 'inline-2'),
       ],
-      sidebar: [
-        slot(NEW_MAGAZINES.completePack, slug, 'sidebar-1'),
-        slot('tankan-reading-guide', slug, 'sidebar-2'),
-      ],
     };
   }
 
@@ -370,7 +357,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   if (docGroup === 'pillar') {
     return {
       inline: [slot('tankan-reading-guide', slug, 'inline-1')],
-      sidebar: [slot('tankan-reading-guide', slug, 'sidebar')],
     };
   }
 
@@ -390,22 +376,16 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
       // ＝5管理の用語を引く面）で年号に依存しない精読ガイドを軸へ戻す。
       //
       // 完全パックは次点に残す（記述式を仕上げたい層の受け皿）。R8 予想は inline 末尾へ下げ、
-      // **sidebar からは外す**（sidebar は現状 page.tsx から参照されていない＝DN-0133 だが、
-      // report-monetization-coverage は数えるので実態と揃えておく）。
       return {
         inline: [
           slot('tankan-reading-guide', slug, 'inline-1'),
           slot(NEW_MAGAZINES.completePack, slug, 'inline-2'),
           slot(NEW_MAGAZINES.r8Forecast, slug, 'inline-3'),
         ],
-        sidebar: [
-          slot('tankan-reading-guide', slug, 'sidebar-1'),
-        ],
       };
     }
     return {
       inline: [slot('tankan-reading-guide', slug, 'inline-mobile')],
-      sidebar: [],
     };
   }
 
@@ -424,7 +404,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-2-pastexam-essay', slug, 'inline-5'),
         slot('civil-2-experience-essay', slug, 'inline-6'),
       ],
-      sidebar: [slot('civil-2-koji-bank', slug, 'sidebar-1')],
     };
   }
   if (/^civil-construction-2-secondary-experience-writing-(guide|examples)$/.test(slug)) {
@@ -436,7 +415,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-2-experience-essay', slug, 'inline-3'),
         slot('civil-2-pastexam-essay', slug, 'inline-4'),
       ],
-      sidebar: [slot('civil-2-koji-bank', slug, 'sidebar-1')],
     };
   }
   // 7.5. 2級 二次ブリッジ磁石（二次の始め方）→ 二次ラインの面を提示（経験記述の柱＋完成答案集＋学科＋暗記＋会員）。
@@ -451,7 +429,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-2-gakka-kijutsu', slug, 'inline-4'),
         slot('civil-2-anki-note', slug, 'inline-5'),
       ],
-      sidebar: [slot('civil-2-koji-bank', slug, 'sidebar-1')],
     };
   }
 
@@ -473,7 +450,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-1-experience-essay', slug, 'inline-7'),
         slot('civil-1-combo-essay', slug, 'inline-8'),
       ],
-      sidebar: [slot('civil-1-pastexam-essay', slug, 'sidebar-1')],
     };
   }
   // 検索意図が「書き方」の guide は、最も地続きの完成答案集を本文中間の主 CTA にする。
@@ -483,7 +459,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       top: slot('civil-1-keiken-complete-pack', slug, 'top'),
       inline: [slot('civil-1-experience-essay', slug, 'inline-1')],
-      sidebar: [],
     };
   }
   if (slug === 'civil-construction-1-secondary-experience-writing-examples') {
@@ -497,7 +472,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-1-pastexam-essay', slug, 'inline-5'),
         slot('civil-1-combo-essay', slug, 'inline-6'),
       ],
-      sidebar: [slot('civil-1-experience-essay', slug, 'sidebar-1')],
     };
   }
 
@@ -516,7 +490,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-1-gakka-kijutsu', slug, 'inline-3'),
         slot('civil-1-anki-note', slug, 'inline-4'),
       ],
-      sidebar: [],
     };
   }
 
@@ -535,7 +508,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-1-keiken-complete-pack', slug, 'inline-6'),
         slot('civil-1-pastexam-essay', slug, 'inline-7'),
       ],
-      sidebar: [slot('civil-1-gakka-kijutsu', slug, 'sidebar-1')],
     };
   }
 
@@ -543,7 +515,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //   注（2026-07 統一）: 記事末尾の個別マガジンタイルは廃止し、末尾＋サイドバーは資格別「もくじタイル」
   //   （resolveHubCta）に一本化した。placement.inline は記事内 中間 CTA（MidCta）の note 供給源＝
   //   先頭 1 誌としてのみ生きる。top（二次系の冒頭 CTA）はそのまま。ここでは「どの商品を・どの順で」
-  //   中間 CTA に出すかを journey stage で決める（sidebar 別出しはしない）。
+  //   中間 CTA に出すかを journey stage で決める。
   //   - 一次/学習系（EXAM_PREP）: 早期読者。低コミットの会員「土木セコカン合格ラボ」（伴走・月¥1,480〜）を
   //     lead に据え、¥9,800 完全攻略パック等のハード二次商品は demote。会員は published:false の間
   //     getMagazine が null → 防御スキップし launch で自動発火（wire-ahead）。launch 前の live は
@@ -567,7 +539,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
           slot(soft, slug, 'inline-2'),
           slot(flagship, slug, 'inline-3'),
         ],
-        sidebar: [],
       };
     }
     if (isCivil1 && CIVIL_SECONDARY_ADJACENT_GUIDES.has(bare)) {
@@ -581,7 +552,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
           slot('civil-1-gakka-kijutsu', slug, 'inline-4'), // 学科記述 テーマ別出る順
           slot('civil-1-keiken-complete-pack', slug, 'inline-5'),
         ],
-        sidebar: [],
       };
     }
     // career/年収/転職・比較系 residual → note 二次 CTA なし（転職導線が担う）
@@ -597,7 +567,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-membership-lab', slug, 'inline-1'),
         slot('civil-1-experience-essay', slug, 'inline-2'),
       ],
-      sidebar: [],
     };
   }
 
@@ -616,7 +585,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-membership-lab', slug, 'inline-2'),
         slot('civil-1-experience-essay', slug, 'inline-3'),
       ],
-      sidebar: [],
     };
   }
 
@@ -629,7 +597,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
         slot('civil-membership-lab', slug, 'inline-1'),
         slot('civil-2-experience-essay', slug, 'inline-2'),
       ],
-      sidebar: [],
     };
   }
 
@@ -638,7 +605,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //    getMagazine が null を返し CTA 非表示（防御的）。
   //    2026-08-13: マガジン公開後にライブ実査したところ **CTA が 1 つも出ていなかった**。
   //    診断士で 2026-07-31 に判明したのと同じ構造（下の 10 番のコメント参照）＝
-  //    sidebar は CTA 統一以降どこからも参照されない死に配線、concrete 系は非 HUB で
+  //    sidebar（当時まだ定義だけ残っていた）は描画されず、concrete 系は非 HUB で
   //    もくじタイルも出ない。本記事は 15,533 字 / h2 6 で inline の条件自体は満たすが、
   //    それでも出なかったため確実に出る **top（冒頭 CTA）** を追加した（診断士と同じ形）。
   //    2026-08-22: 上位版「実務立場別 模範答案集」(cce-essay-persona-pack) を公開。
@@ -649,7 +616,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       top: slot('cce-essay-magazine', slug, 'top'),
       inline: [slot('cce-essay-magazine', slug, 'inline-1')],
-      sidebar: [],
     };
   }
 
@@ -660,14 +626,13 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //       「評価・予測」と「対策の選定」の解説。読者が答案の書き方を求める地点
   //     2026-07-31: マガジン公開時に「配線はあるのに CTA が 1 つも出ない」ことが判明した。
   //     inline は中間 CTA 経由（h2>=5 かつ本文 8,000 字が条件）だが診断士は最長 7,364 字で
-  //     届かず、sidebar は 2026-07 の CTA 統一以降どこからも参照されていない（死に配線）。
+  //     届かず、sidebar（当時まだ定義だけ残っていた）は描画されなかった。
   //     concrete 系は非 HUB 資格でもくじタイルも出ない。よって **top（冒頭 CTA）で出す**。
   //     textbook 2 本は本文の文脈に紐付けたいので MDX 内 <MagazineCard> が担う（top は置かない）。
   if (slug === 'concrete-diagnostician-guide-essay') {
     return {
       top: slot('cd-essay-magazine', slug, 'top'),
       inline: [slot('cd-essay-magazine', slug, 'inline-1')],
-      sidebar: [],
     };
   }
 
@@ -680,7 +645,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //     いずれも **top（冒頭 CTA）** を主に使う。理由は 9・10 と同じ:
   //       - inline（中間 CTA）は midEligibleGroup=guide/pillar/textbook/civil-secondary かつ
   //         h2>=5 かつ本文 8,000 字が条件（page.tsx）。primary は対象外
-  //       - sidebar は 2026-07 の CTA 統一以降どこからも参照されない（死に配線）
   //       - concrete 2 資格と技術士一次は非 HUB でもくじタイルも出ない＝top が唯一の置き場
   //     条件を満たす 2 面だけ inline も併記して中間 CTA を発火させる。
 
@@ -688,7 +652,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   // 同一試験・令和元〜7年度 全560問・全選択肢解説で、読んでいる年度をそのまま含む完全一致。
   // 総監 r0X-primary → 択一 過去問PDF（4.2）と同型。group=primary なので inline は描画されない。
   if (/^pe-first-stage-r0[1-9]-(basic|aptitude|specialty)$/.test(slug)) {
-    return { top: slot('pe1-takuitsu-pdf', slug, 'top'), inline: [], sidebar: [] };
+    return { top: slot('pe1-takuitsu-pdf', slug, 'top'), inline: [] };
   }
 
   // コンクリート主任技士 テキスト/過去問 → 小論文 入口マガジン（¥2,480 5本セット）。
@@ -708,7 +672,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       top: slot('cce-essay-magazine', slug, 'top'),
       inline: midOk ? [slot('cce-essay-magazine', slug, 'inline-1')] : [],
-      sidebar: [],
     };
   }
 
@@ -719,7 +682,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     return {
       top: slot('cd-essay-magazine', slug, 'top'),
       inline: [slot('cd-essay-magazine', slug, 'inline-1')],
-      sidebar: [],
     };
   }
 

@@ -12,7 +12,13 @@
  *
  * 配置の真実源:
  *   - note CTA: src/lib/magazine-placement.ts（resolvePlacement）+ note-magazines.ts（公開判定）
+ *     ＋ src/lib/hub-cta.ts（もくじタイル）＋ MDX 本文の <MagazineCard>
  *   - アフィリ: src/app/docs/[...slug]/page.tsx のサイドバー条件をミラー（下記 deriveAffiliate）
+ *
+ * **数える経路は「実際に描画されるもの」に揃える**（2026-08-25・DN-0133）。
+ * 描画と集計がずれると、偽陰性は「配線済みの面を毎週 Must に出し続ける」（top・もくじタイル・
+ * 本文カード）、偽陽性は「導線ゼロを隠す」（sidebar・/links フォールバック）形で効く。
+ * どちらもレビューの意思決定を静かに歪めるので、page.tsx が読まない経路をここで数えない。
  *
  * 使い方:
  *   npx tsx .claude/scripts/report-monetization-coverage.mts
@@ -29,7 +35,7 @@ import {
 // basename を使う: Windows では join() が円記号区切りを返すため split("/") ではファイル名を
 // 切り出せず、生成物に絶対パスがそのまま焼き込まれて commit される（2026-08-18 修正）。
 // check-note-site-utm が Windows で常に 0 件になった事故（2026-07-28）と同型。
-import { basename, join } from "path";
+import { basename, join, sep } from "path";
 import { classifyDoc, isCareerDoc } from "../../src/lib/doc-classifier.ts";
 import { resolvePlacement } from "../../src/lib/magazine-placement.ts";
 import { resolveHubCta } from "../../src/lib/hub-cta.ts";
@@ -68,13 +74,48 @@ function normPath(p: string): string {
 // 全 docs サイドバー上部に転職枠を無条件常設。creative はカテゴリ別出し分け
 // （resolveDocsCareerSidebarAd: 総監=PE_CONSULTING〔DXConsulting〕/ 他=〜2026-08-31 BuildJob・
 // 9-01 以降 GKS）。2026-06-25: 講座（SAT）併置は廃止＝現行アフィリは転職のみ。docs は全て転職枠が出る。
-function deriveAffiliate(
-  category: string,
-  _docGroup: string,
-  _sidebarHasPaidMagazine: boolean,
-): string | null {
+function deriveAffiliate(category: string): string | null {
   // サイドバー転職枠のプログラム名（"BuildJob" / "GKS" / "DXConsulting"）。trackLabel = "{program}-sidebar"。
   return resolveDocsCareerSidebarAd(category).trackLabel.replace(/-sidebar$/, "");
+}
+
+// ── 本文に直接置かれた <MagazineCard>（MDX 内・placement を経由しない note 導線） ──
+// placement（top/inline）と もくじタイルに加えて、**MDX 本文へ直に書かれたカード**が第 3 の
+// 経路として存在する。2026-08-25 まで数えておらず、12 本を「note 導線ゼロ」と誤って扱っていた
+// （例: pe-construction の学習法系 7 本は本文カードだけで送客している）。
+// 実測の起点は management-tradeoffs — sidebar 廃止（DN-0133）で placement が空になるが、
+// 本文には <MagazineCard> が 3 枚あって導線は生きている。
+function indexBodyMagazineCards(): Map<string, string[]> {
+  const out = new Map<string, string[]>();
+  const walk = (dir: string, acc: string[] = []): string[] => {
+    for (const e of readdirSync(dir, { withFileTypes: true })) {
+      const p = join(dir, e.name);
+      if (e.isDirectory()) walk(p, acc);
+      else if (e.name.endsWith(".mdx")) acc.push(p);
+    }
+    return acc;
+  };
+  const siteDir = join(ROOT, "content/site");
+  if (!existsSync(siteDir)) return out;
+  for (const abs of walk(siteDir)) {
+    const src = readFileSync(abs, "utf-8");
+    const ids = [
+      ...new Set(
+        [...src.matchAll(/<MagazineCard\s+[^>]*id="([^"]+)"/g)].map((m) => m[1]!),
+      ),
+    ];
+    if (!ids.length) continue;
+    // slug は「カテゴリ-ディレクトリ名」のフラット形。Convention A（個別ファイル名）と
+    // Convention B（article.mdx）が共存するので両方から復元する。
+    // basename を使う（Windows の join は円記号区切り＝split("/") では切り出せない・L29 と同じ轍）。
+    const rel = abs.slice(siteDir.length + 1).split(sep).join("/");
+    const parts = rel.split("/");
+    const category = parts[0]!;
+    const leaf = basename(rel);
+    const name = leaf === "article.mdx" ? parts[parts.length - 2]! : leaf.replace(/\.mdx$/, "");
+    out.set(`${category}-${name}`, ids);
+  }
+  return out;
 }
 
 // ── load ──
@@ -82,6 +123,7 @@ const metaIndex = JSON.parse(readFileSync(META_INDEX, "utf-8")).docs as Record<
   string,
   any
 >;
+const bodyCards = indexBodyMagazineCards();
 
 const pageFile = latest("ga4-page-");
 if (!pageFile) {
@@ -122,7 +164,6 @@ interface Row {
   sessions: number;
   noteCta: string[];
   affiliate: string | null;
-  linksFallback: boolean;
   noteClicks: number | null;
   affClicks: number | null;
   monetized: boolean;
@@ -143,7 +184,6 @@ for (const [slug, meta] of Object.entries(metaIndex)) {
   const docGroup = classifyDoc({ slug, ...meta } as any);
   const placement = resolvePlacement(slug, docGroup as any);
   const liveInline = placement.inline.filter((s) => getMagazine(s.magazineId));
-  const liveSidebar = placement.sidebar.filter((s) => getMagazine(s.magazineId));
   // **top（冒頭 1 行 CTA）も導線に数える**。2026-08-25 まで inline+sidebar しか見ておらず、
   // top だけで配線したページが「note 導線ゼロ」に出続けていた。pastExam は MidCta の
   // midEligibleGroup に入らないため inline を足しても描画されず、`top` が唯一の置き場になる
@@ -157,24 +197,24 @@ for (const [slug, meta] of Object.entries(metaIndex)) {
   // （general-vs-comprehensive 24users / civil-1 guide-grade-comparison 17users）。
   // 非 HUB 資格（技術士一次・concrete・reference）には null が返るので自然に対象外になる。
   const hubTile = !isCareerDoc(meta as any) ? resolveHubCta(meta.category) : null;
+  // **MDX 本文の <MagazineCard> も導線に数える**（第 3 の経路・上の indexBodyMagazineCards 参照）。
+  const liveBody = (bodyCards.get(slug) ?? []).filter((id) => getMagazine(id as any));
   const noteCta = [
-    ...new Set([...liveTop, ...liveInline, ...liveSidebar].map((s) => s.magazineId)),
+    ...new Set([...liveTop, ...liveInline].map((s) => s.magazineId)),
+    ...liveBody,
     ...(hubTile ? [hubTile.trackLabel] : []),
   ];
-  const sidebarHasPaidMagazine = liveSidebar.some(
-    (s) => Boolean(getMagazine(s.magazineId)?.price),
-  );
-  const affiliate = deriveAffiliate(meta.category, docGroup, sidebarHasPaidMagazine);
-  // /links フォールバック（PE keyword かつ sidebar に live マガジン無し）
-  const linksFallback =
-    meta.category === "pe-comprehensive-management" &&
-    docGroup === "keyword" &&
-    liveSidebar.length === 0;
+  const affiliate = deriveAffiliate(meta.category);
 
   // **OR 判定は「どれか 1 つでもあれば合格」なので、アフィリ枠さえあれば note ゼロが隠れる**。
   // 総合判定（monetized）は従来どおり残しつつ、チャネル別の穴を独立して持つ。
   // note は自社商品への唯一の導線で、アフィリ（他社送客）とは代替関係にない。
-  const hasNote = noteCta.length > 0 || linksFallback;
+  //
+  // 2026-08-25: 旧 `linksFallback`（PE keyword かつ sidebar に live マガジン無し → /links 送り）を
+  // 削除した。page.tsx に /links へのフォールバックは無く（`LinksHubTile` はどこからも import
+  // されていない）、**描画されない導線を「あり」と数える偽陽性**だった。sidebar 廃止と同型の
+  // ズレで、こちらは note 導線ゼロを隠す向きに効いていた。
+  const hasNote = noteCta.length > 0;
   const hasAffiliate = affiliate !== null;
   const monetized = hasNote || hasAffiliate;
   const gap = users >= MIN_USERS && !monetized;
@@ -189,7 +229,6 @@ for (const [slug, meta] of Object.entries(metaIndex)) {
     sessions,
     noteCta,
     affiliate,
-    linksFallback,
     noteClicks: clickFile ? noteClicks.get(page) ?? 0 : null,
     affClicks: clickFile ? affClicks.get(page) ?? 0 : null,
     monetized,
@@ -233,7 +272,6 @@ for (const [page, t] of traffic) {
     sessions: t.sessions,
     noteCta,
     affiliate,
-    linksFallback: false,
     noteClicks: clickFile ? noteClicks.get(page) ?? 0 : null,
     affClicks: clickFile ? affClicks.get(page) ?? 0 : null,
     monetized,
@@ -251,8 +289,7 @@ const gaps = trafficked.filter((r) => r.gap);
 const noteOnlyGaps = trafficked.filter((r) => r.noteGap && !r.gap);
 const ctr = (clicks: number | null, users: number) =>
   clicks === null ? "n.d." : users > 0 ? `${((clicks / users) * 100).toFixed(1)}%` : "—";
-const noteLabel = (r: Row) =>
-  r.noteCta.length ? r.noteCta.join("+") : r.linksFallback ? "(/links)" : "—";
+const noteLabel = (r: Row) => (r.noteCta.length ? r.noteCta.join("+") : "—");
 
 const lines: string[] = [];
 lines.push("## 収益カバレッジ ダッシュボード");

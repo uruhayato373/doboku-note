@@ -629,19 +629,6 @@ gh workflow run asset-inbox.yml -f tag=asset-inbox-2026-08-25T02-58-58-838Z
 
 **完了条件**: `check-asset-storage` の `[WARN] local-newer` 3 件が消える（照合件数も出るので「0 件照合で緑」と区別できる）。取り込みに成功すると release は自動削除される — **残っていれば取り込めていない**。
 
-### [DN-0133] `placement.sidebar` は描画されないのに導線として数えられている
-タグ: [インフラ・計測] [種類:不具合] [実行:sweep] [検証:check-magazine-cta] [起票:2026-08-25]
-
-DN-0128 の調査で見つかった。`src/app/docs/[...slug]/page.tsx` が `magazinePlacement` から読むのは **`.top`（L342）と `.inline[0]`（L413）だけ**で、`.sidebar` はどこからも参照されていない。2026-07 の CTA 統一（もくじタイルへ一本化）で参照が外れたまま、`magazine-placement.ts` 側の定義だけが残っている。
-
-**実害**: `report-monetization-coverage` が `liveSidebar` を note 導線として数えているため、**sidebar だけ配線されたページを「導線あり」と過大評価する**。DN-0128 で `top` と もくじタイルの偽陰性は直したが、この偽陽性は残っている。既存の記述も複数箇所で「死に配線」と認識している（`magazine-placement.ts` の §9・§10 コメント）。
-
-**単純に外せない理由**: レポートの `sidebarHasPaidMagazine` が `deriveAffiliate()` の引数になっており、アフィリ枠の導出結果が変わりうる。先に「sidebar だけを持つページが何本あるか」を数えてから決める。
-
-**実行順**: ①`resolvePlacement` 全 slug を走査し sidebar 単独配線のページ数を出す ②0 件なら定義ごと削除、ある程度あるなら `top` か `inline` へ移す ③`deriveAffiliate` の判定を sidebar 非依存に置き換える ④レポートから `liveSidebar` を外す
-
-**完了条件**: `ResolvedPlacement.sidebar` が消えるか、消さないなら描画に戻る。レポートの note 導線が描画実体と一致する。
-
 ### [DN-0129] backlog の 55 枚に `[検証:]` が無く、陳腐化が永久に検出されない
 タグ: [エージェント・SSOT] [種類:不具合] [実行:sweep] [検証:check-backlog-schema] [起票:2026-08-25]
 
