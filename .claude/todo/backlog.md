@@ -117,7 +117,8 @@ RESULT 行で見ていたため `[13] FAIL` の 2 本を成功と数えた＝**�
 
 | 対象 | 点数 | 実体 | やること |
 |---|---|---|---|
-| `concrete-chief-engineer` 6記事 | 残55（**production-qc 2点は2026-08-25完了**） | **印刷ページのスキャン**（裏写り・網点を実見。primary-construction 19 / structural-design 16 / properties 9 / mix-design 6 / materials 5） | 自作 SVG へ描き直す（診断士が 22 点で実施済みの方式） |
+| `concrete-chief-engineer` 6記事 | **55/55 完了（2026-08-25）**（production-qc 2・materials 3・mix-design 6・properties 9・structural-design 16・construction 19） | 完了 | 自作 SVG へ描き直す（診断士が 22 点で実施済みの方式） |
+| `concrete-chief-engineer` primary-materials 内 2点 | 2 | **実写真**（電子顕微鏡画像 `h24-q5.webp`・骨材表面試験の実験器具写真 `sand-surface-test-h29.webp`。スキャンではなく本物の写真なのでSVG化しない） | 入手元とライセンスを特定し、`image-policy` の出典表記を入れる |
 | `concrete-diagnostician` 4記事 | 8 | **実写真**（スキャンではない。台帳の `textbook-scan` は `source_dir` からの推定で誤り） | 入手元とライセンスを特定し、`image-policy` の出典表記を入れる |
 
 **2026-08-25 実施（production-qc 2/2 完了）**: 正規分布の概念図とX̄管理図（A〜D群56点）を目視トレースで
@@ -125,7 +126,14 @@ RESULT 行で見ていたため `[13] FAIL` の 2 本を成功と数えた＝**�
 ブラウザ実機で確認（light/dark両モード。dark modeでの視認性低下は site全体のSVG図版共通の既知挙動で今回の
 劣化ではない）。副次修正: `check-figure-canvas.mjs` が `concrete-chief-engineer/primary-{subject}` 命名の
 過去問ディレクトリを免除できておらず（civil-construction-1の年度サフィックス命名にしか対応していなかった）
-誤検知していたのを一般化して解消。残り55点は同じ手法（目視トレース→SVG化→light/dark実機確認）で続行できる。
+誤検知していたのを一般化して解消。
+
+**2026-08-25 追加実施（materials/mix-design/properties/structural-design/construction 完了・6記事すべて完了）**:
+同じ手法（目視トレース→SVG化→`svg-audit.mjs --fail-on=HIGH`→light/dark実機確認）で残り53点を完了。
+内訳は materials 3（他2点は実写真として上表に温存）・mix-design 6・properties 9・structural-design 16・
+construction 19。`figure-provenance.json` の追跡数は 549→496（差分53、production-qc分と合わせ計55の
+コンバートと整合）。concrete-chief-engineer 側の残作業は無く、Kindle提出ゲートの残りは
+`primary-materials` の実写真2点と `concrete-diagnostician` の実写真8点、計10点の出典・ライセンス特定のみ。
 
 いずれもサイトでは公開中（`published: true`）。有料の Amazon 配布は露出の性格が違うので、Kindle 提出はこのゲート通過後。EPUB 実体は `kindle-dist/` に無く退避台帳にも無いので、提出時は `scripts/build-pe1-kindle.mjs` で再ビルドする。
 
@@ -375,7 +383,9 @@ npm run x-sync-status                  # キュー実在を実照合（投入数
 **このとき見つけた障害**: `publish-x.ts` の見出し除去 `/^## Tweet \d+:.+
 /` が **CRLF で機能せず**、
 見出し行が本文に混入して 40〜50 字を水増しし、19 本中 17 本が 280 字ガードで止まっていた。
-JS の `.` は `` も行終端として除外するため。`.*?
+JS の `.` は `
+` も行終端として除外するため。`.*
+?
 ` へ修正済み。8 月分は LF だったので表面化していなかった。
 **表示される原因が「本文が長い」なので、ドラフトを削る方向に直すと真因に辿り着かない**。
 
