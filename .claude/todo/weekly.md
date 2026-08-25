@@ -20,10 +20,10 @@
 
 | 優先 | ID | 今週の出口 | 状態 |
 |---|---|---|---|
-| 1 | DN-0100 | **期日 8/23 超過**。実装指示書の Phase A〜C（総監 evergreen CTA・review候補10本確定・`wire-note-paid-cta` で 1級50+2級24 の L2 帰路配線）→ ライブ対象78本の**承認パッケージ提示**まで。承認後のライブ反映は DN-0003 バッチ枠に合流 | ⬜ 未着手 |
+| 1 | DN-0100 | **期日 8/23 超過**。実装指示書の Phase A〜C（総監 evergreen CTA・review候補10本確定・`wire-note-paid-cta` で 1級50+2級24 の L2 帰路配線）→ ライブ対象78本の**承認パッケージ提示**まで。承認後のライブ反映は DN-0003 バッチ枠に合流 | 🔶 **ソース完了**。evergreen CTA・1級50+2級24 のL2帰路配線は実は既に完了済みだった（`check-note-paid-cta` 変更0件で確認）。今日 review候補10本の分類（KEEP4/LIGHT2/EXCLUDE4）を適用、`check-note-funnel` review候補 10→4（残4はKEEP・非ゲート）。残＝この10記事のライブ反映（本日枠消費のため翌日） |
 | 2 | DN-0005 | X 9月 week1 投入 | ✅ **19/19 完了**（カード記載の 21 本は誤りで実体 19 本）。実キューで照合済み。**真の障害は CRLF による見出し混入**で、見出し行が本文に残り全ツイートが 280 字ガードに掛かっていた（別 commit で修正）。欠番は `replaced`＝意図的差し替えで欠落ではなかった |
 | 3 | DN-0002 | メンバーシップ週次配信 | ✅ **今週分は完了**。学科記述予想 01_土工 を会員限定配信（`n018e626cf66f`・`is_limited=true`／未ログイン0字を実査）。**W6 は出さない** — README の SSOT が「次回は W6（8/31）」と定め、8/31 は W35（08/24〜08/30）の範囲外。6 日早く出すとドリップを崩す。火金トラックは 8/21 開始予定なのに 1 本も出ておらず、今日（火）で立ち上げた。次は 8/28（金） |
-| 4 | DN-0109 | CI/CD 信頼性回復 | ✅ **Phase 0 完了・カード縮約**。起票時の確定エラー 4 つは全て解消済みだった。自分が入れた knip +3 を宣言で返済（Unlisted binaries 17→**13**）。`quality:audit:ci` **pass 62 / fail 0**。Phase 1〜5 は承認が要る規模で期日を 9/30 へ |
+| 4 | DN-0109 | CI/CD 信頼性回復 | ✅ **Phase 0・Phase 2 完了**。起票時の確定エラー 4 つは全て解消済みだった。自分が入れた knip +3 を宣言で返済（Unlisted binaries 17→**13**）。`quality:audit:ci` **pass 62 / fail 0**。**Phase 2 新規完了**（2026-08-25）: `check-workflow-hygiene` 新設（actionlint/permissions/timeout-minutes/SHA固定）→ 実違反 permissions 6件・timeout-minutes 7件・SHA固定 5種を是正、24本とも actionlint 0件。Phase 3〜5 は承認が要る規模で期日 9/30 |
 | 5 | DN-0119 | career WARN 衛生 | ✅ **完了・カード削除**。`HIGH_INTENT_CAREER_SLUGS` へ収録し WARN 1 → **0**。`<CareerAffiliate>` は**足していない** — 配置は `resolveDocsCareerSidebarAd` が category で決めており、このセットは 2026-07-28 以降 arm 判定に使われない純粋な台帳。既に登録済みで未配置の記事も 4 本ある |
 
 ## 手動キュー（ユーザー・別PC／時間差で可）

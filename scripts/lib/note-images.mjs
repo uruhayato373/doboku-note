@@ -120,12 +120,15 @@ async function uploadAtCaret(page, abs, { uploadMs = 40000 } = {}) {
  * 判定そのもの（blob: でない img が target 個）は変えない＝緩めない。
  */
 const SETTLE_MIN_MS = Number(process.env.NOTE_IMG_SETTLE_MIN_MS || 90_000);
-// 20s/枚 → 45s/枚（2026-08-18）。2026-08-17 の一括反映で **画像持ち記事の 40% が CDN 確定待ちの
-// タイムアウトで落ちた**（着手 15 件中 ABORT 6 件）。実測では 14 枚中 9〜11 枚まで確定してから
-// 上限に達しており、実効 25〜31s/枚。会社 PC はプロキシ越しで note の CDN 確定が遅く、
-// 既定の 20s/枚 では構造的に足りない。上限は「打ち切り」であって固定待ちではない
-// （settleUploads は target に達した時点で即 return する）ので、速い記事は従来どおり速い。
-const SETTLE_PER_IMG_MS = Number(process.env.NOTE_IMG_SETTLE_PER_IMG_MS || 45_000);
+// 20s/枚 → 45s/枚（2026-08-18）→ 90s/枚（2026-08-25・DN-0009）。
+// 2026-08-17 の一括反映で画像持ち記事の 40% が CDN 確定待ちタイムアウトで落ちた（着手 15 件中 ABORT 6 件）。
+// 45s/枚でも会社 PC 以外（自宅回線・別ネットワーク経路）で再現した（同一記事が dry-run で 3/3 確定 →
+// 数分後の commit 再実行で 1/3 のみ確定・ABORT。ネットワーク経路一定でも結果が割れた＝プロキシだけが
+// 原因ではなく、note 側 CDN 確定そのものに揺らぎがある）。90s/枚に伸ばしたところ同日 13/13 記事が確定
+// （canary 2 本 + 強制再試行 1 本 + バッチ 10 本、いずれも 45s では未確定だった記事を含む）。
+// 上限は「打ち切り」であって固定待ちではない（settleUploads は target に達した時点で即 return する）
+// ので、速い記事は従来どおり速い＝既定を伸ばしても高速ケースの所要時間は増えない。
+const SETTLE_PER_IMG_MS = Number(process.env.NOTE_IMG_SETTLE_PER_IMG_MS || 90_000);
 
 async function settleUploads(page, target, timeoutMs, tag = '[img]') {
   const t0 = Date.now();
