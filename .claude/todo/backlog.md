@@ -66,6 +66,24 @@
 ## 🔴 高 — 来月中に着手
 
 
+### [DN-0138] noteカバーPNG20件がR2 publicバケットに未同期（無料公開記事分）
+タグ: [インフラ・計測] [種類:不具合] [実行:sweep] [検証:check-asset-storage] [起票:2026-08-26]
+
+`quality:audit:ci`のasset-storageゲートで発見（DN-0109完了確認中に副次発見・DN-0109/DN-0117とは無関係の
+既存問題・manifest記録は2026-08-21時点）。1級・2級土木「学科記述予想」1本＋コンクリート主任技士
+「実務立場別小論文集」19本、計20件のnoteカバーPNGが、記事本体は`notePricing: free`（無料公開済み）
+なのにmanifest上は`bucket: private`のまま。実際にpublicバケットのURLへcurlすると**404**
+（`https://storage.doboku-note.com/note/covers/.../cover.png`）。ローカルには実体があり
+（`.gitignore`対象・Git非追跡）、note本体の表示自体への影響は無いと見られるが、他端末での
+`asset-hydrate`復元や管理画面の画像ギャラリーがこの20件だけ欠落する状態。
+
+**対処**: `node scripts/asset-offload.mjs --group note-cover-png --include-untracked --skip-existing --commit`
+で解消できる見込み（`--skip-existing`はmanifestのsha256+r2Keyが一致する分をスキップするため、実際に
+アップロードされるのは20件前後になるはずだが、判定は`--commit`実行時にしか動かないため事前確定はできない）。
+group全体829件・727.5MiBが対象母集合になり、R2への書き込みを伴うため**実行前にログの実アップロード件数・
+所要時間を確認してから進める**。実行後は`check-asset-storage`でFAIL 0件を確認し、該当URLをcurlで
+200になることを実照合する。
+
 ### [DN-0118] note の下書き残骸3件を消す＋連続投稿スロットルを手順化する
 タグ: [収益化] [種類:不具合] [実行:ユーザー] [起票:2026-08-22]
 
