@@ -11,6 +11,8 @@
     "primary_source": "field",
     "note": "実害＝対応要否は field(CrUX 実ユーザー p75)で判定する。lab は合成スロットリング値で日次の振れが大きく、単発値・単発差分での CRITICAL 判定は誤警報を生む（2026-07-27 W30 の誤報）。lab は改善余地の診断と施策の前後比較に使う。",
     "critical_requires_field_slow": true,
+    "min_field_coverage": 1,
+    "_min_field_coverage_note": "field(CrUX) を持つ result がこの件数未満なら psi-threshold-check が field-coverage 違反を立ててゲートを赤にする。primary_source=field のとき、field が全 null だと違反が 1 件も立たず緑になり『実害なし』と『判定材料なし』が区別できなくなるため（DN-0127・CLAUDE.md §9 の入力欠落版）。観測: 2026-07-21 に供給開始 → 08-17 まで 22/22 → **08-18 から一斉に 0/22**（12 バッチ連続）。final_url もスキーマも変わっておらず取得・パースは正常なので、CrUX 側の供給停止と読んでいる。供給が恒久的に戻らないと判断した時点で primary_source を lab 中央値ベースへ書き換える（そのとき measurement-incidents.md の 2026-07-27 エントリも更新する）。",
     "lab_regression_uses_median_of": 5,
     "lab_max_severity_when_field_fast": "medium"
   },

@@ -94,26 +94,31 @@ CRITICAL になっていた（BOUNDARY_SHIFT へ移っただけで総数 270 は
 **完了条件**: `npm run check-note-structure` の CRITICAL が 0 ✅（2026-08-25 実測）、判定基準の根拠を
 `note-api-verification.md` へ抽出 ✅、`note-live-audit.yml` が green（未実測）、Issue #473 がクローズ（ユーザー）。
 
-### [DN-0127] PSI の実害判定が空振りしている — field(CrUX) が 8/18 以降ゼロ
+### [DN-0127] PSI の field(CrUX) が 8/18 以降ゼロ — 判定不能を表明させた（供給復帰は観測中）
 タグ: [インフラ・計測] [種類:不具合] [実行:sweep] [検証:psi-audit:check] [起票:2026-08-25]
 
-`psi-config.json` は `primary_source: "field"` / `critical_requires_field_slow: true`、CI ゲート（`scripts/../psi-threshold-check.mjs` の `isGateViolation`）は `field` / `field-category` / `coverage` の 3 型しか赤にしない。その **field が空になっている**（2026-08-25 実査・全 247 バッチ走査）:
+**切り分け結果（2026-08-25・全 247 バッチ走査）**: スクリプトは壊れていない。
 
-| 期間 | field を持つバッチ |
+| 期間 | field を持つ result |
 |---|---|
 | 〜2026-07-20 | 0（CrUX 未供給） |
-| 2026-07-21 〜 08-17 | 48 バッチ / 983 result（最終 08-17 は LCP 21/21 FAST） |
-| **2026-08-18 〜 08-24** | **0（12 バッチ連続で全 null）** |
+| 2026-07-21 〜 08-17 | 供給あり（最終 08-17 は 22/22） |
+| **2026-08-18 〜 08-24** | **0/22 が 12 バッチ連続** |
 
-つまり現在の「CI ゲート違反 0 件」は実害が無いことではなく、**判定材料が無く coverage も落ちていないこと**しか意味しない。CLAUDE.md §9「検査ゼロを PASS と呼ばない」の入力欠落版で、`check-workflow-health` は「最後の success がいつか」しか見ないためこの形はすり抜ける。
+`final_url` は出続けスキーマ（keys 9）も同一＝取得とパースは動作している。8/17 の 22/22 から翌日 0/22 へ**全 URL 一斉に**落ちており、個別ページのサンプル数不足では説明しにくい。CrUX 側の供給停止として扱う。会社 PC はプロキシで PSI API を直接叩けないため、ライブ再現での確定は CI に委ねる。
 
-**実行順**:
+**やったこと（完了）**:
 
-1. field が消えた原因を切り分ける（CrUX 側のサンプル数不足か、`fetch-psi-data.mjs` のリクエスト/パース変更か）。7/21 に供給が始まり 8/17 に止まっている境目を手掛かりにする
-2. 供給が戻らないなら判定原則を書き換える（`primary_source` を lab 中央値ベースへ・`.claude/config/psi-config.json` に理由を書く）。**field 不在のまま緑を出し続ける状態を残さない**
-3. どちらの結論でも「field が N 件中 0 件だった」ことを surface する行を `psi-threshold-check.mjs` の出力に足す（入力欠落が緑に化けるのを止める）
+- `psi-config.json` に `min_field_coverage`（既定 1）と観測記録を追加
+- `psi-threshold-check.mjs` に `field-coverage` 違反型を新設。`primary_source=field` かつ field 取得件数が下限未満なら**ゲートを赤にする**。レポート冒頭と stderr に `field(CrUX) 取得: N/M件` を**常に**出す
+- `psi-audit.yml` のアラート文を「field 実害 / 取得失敗率20%超 / **field 判定不能**」の 3 種へ更新
+- `measurement-incidents.md` の 2026-07-27 エントリへ追記（field-primary の裏面＝供給が止まると原則がそのまま常時緑に化ける）
 
-**完了条件**: レポートに field の取得件数が出る。field 不在時にゲートが「判定不能」を表明する（緑にしない）。判定原則を変えたなら `measurement-incidents.md` の 2026-07-27 エントリを更新する。
+実走確認: `npm run psi-audit:check` → `field(CrUX) coverage: 0/44`・Gate violations 1・exit 1。
+
+**残（観測）**: 供給が恒久的に戻らないなら `primary_source` を lab 中央値ベースへ書き換える。**7 日の欠測では判断しない**。CI が赤を出し続けるので気づける状態にはなった。判断したら `measurement-incidents.md` の判定原則そのものを改訂する。
+
+**注意**: この赤は「サイトが遅い」ではなく「速いか遅いか判定できない」を意味する。lab の LCP 超過 51 件はレポートに残るが赤にしない（2026-07-27 の誤報対策のまま）。
 
 ### [DN-0128] 高流入ページの note 導線ゼロ — 5 面を配線し、計測の 2 つの偽陰性を直した
 タグ: [収益化] [種類:改善] [実行:対話] [検証:check-magazine-cta] [起票:2026-08-25]

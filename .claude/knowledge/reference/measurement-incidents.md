@@ -386,6 +386,35 @@ W30 週次レビューで homepage の PSI を見て「Performance 59 / LCP 10,1
 - `scripts/check-lcp-image-hints.mjs` を新設し pre-commit ゲート化（下記の実害側の再発防止）
 - `weekly-review` の Agent C2 を本原則に整合
 
+### 追記 2026-08-25: field が消えると、この原則がそのまま「常時緑」に化ける（DN-0127）
+
+field-primary にしたことで、**field が供給されなくなった瞬間にゲートが判定材料を失う**という
+裏面ができていた。`psi-threshold-check.mjs` が赤にするのは `field` / `field-category` /
+`coverage` の 3 型だけなので、field が全 null なら違反は 1 件も立たず**緑になる**。
+「実害が無い」と「判定材料が無い」の出力が同じになる ＝ §9「検査ゼロを PASS と呼ばない」の入力欠落版。
+
+観測（全 247 バッチ走査）:
+
+| 期間 | field を持つ result |
+|---|---|
+| 〜2026-07-20 | 0（CrUX 未供給） |
+| 2026-07-21 〜 08-17 | 供給あり（最終 08-17 は 22/22） |
+| **2026-08-18 〜** | **0/22 が 12 バッチ連続** |
+
+`final_url` は出続けスキーマ（keys 9）も変わっていないので、取得とパースは動いている。
+8/17 の 22/22 から翌日 0/22 へ**全 URL 一斉に**落ちており、個別ページのサンプル数不足では
+説明しにくい。CrUX 側の供給停止として扱う。会社 PC はプロキシで PSI API を直接叩けないため
+（本ファイル冒頭の恒久ルール）、ライブ再現での確定は CI 側に委ねる。
+
+**対策**: `min_field_coverage`（既定 1）を `psi-config.json` に追加し、`primary_source=field` の
+ときに field 取得件数がこれを下回ると `field-coverage` 違反を立ててゲートを赤にする。
+レポートと stderr の両方に `field(CrUX) 取得: N/M件` を**常に**出す。
+これで「緑 ＝ 実害なし」と「赤 ＝ 判定不能」が区別できる。
+
+**まだ決めていないこと**: 供給が恒久的に戻らないなら `primary_source` を lab 中央値ベースへ
+書き換える必要がある。7 日の欠測では判断せず、赤を出したまま観測を続ける。書き換えるときは
+本節の判定原則そのものを改訂する。
+
 ### 併せて判明した実害（EXP-005 の本体）
 
 lab が恒常的に悪い理由自体は本物だった。Playwright + `PerformanceObserver('largest-contentful-paint')` で本番を実測した結果、`civil-construction-1-primary-r07-a` の LCP 要素は**本文1枚目の図版**（top 617px、モバイル viewport 844px の**フォールド内**）でありながら `loading="lazy"` が付いていた。低速回線では取得がレイアウト確定まで遅延し LCP が数秒伸びる。高速回線の実ユーザーでは顕在化しないため、**lab と field の乖離はこれで完全に説明がつく**。
