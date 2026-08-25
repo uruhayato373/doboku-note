@@ -156,7 +156,7 @@ construction 19。`figure-provenance.json` の追跡数は 549→496（差分53�
 
 **完了条件**: 指示書のPhase A〜Dを満たし、`check-note-funnel`・`check-note-paid-cta`・`check-magazine-cta:ci`・`check-note-site-utm` がPASS。承認後のライブ反映では `audit-note-funnel -- --live --ci` のD5=0、有料74本の公開無料域に `n4fde0f62dc20` が存在する。恒久ルールをSSOTへ抽出し、指示書と本カードを削除する。
 
-### [DN-0109] CI/CD 信頼性回復 — Phase 0 完了。残るは構造フェーズ（要ユーザー承認）
+### [DN-0109] CI/CD 信頼性回復 — Phase 0・2 完了。残るは構造フェーズ（要ユーザー承認）
 タグ: [インフラ・計測] [種類:改善] [Codex候補] [実行:対話] [検証:quality:audit:ci] [起票:2026-08-21] [期日:2026-09-30]
 
 **Phase 0（信号回復）は完了した**（2026-08-25 実態照合）。起票時（8/21）に挙げた確定エラーは**すべて解消済み**で、カードのまま着手すると解決済みのものを追いかける状態だった。
@@ -172,9 +172,14 @@ construction 19。`figure-provenance.json` の追跡数は 549→496（差分53�
 
 **Pre-merge は緑に戻った**。起票時「17 回中 16 回失敗」だったが、直近は連続 success を確認。
 
-**残（未着手・大きい）**: Phase 1 自動書込みの直列化 / Phase 2 Actions 自体の機械検査（actionlint・permissions・timeout-minutes・SHA 固定）/ Phase 3 本番配信の一本化 / Phase 4 Secrets・破壊操作 / Phase 5 Windows・管理画面。
+**Phase 2（Actions 自体の機械検査）は 2026-08-25 に完了**: `scripts/check-workflow-hygiene.mjs`
+（actionlint・permissions・timeout-minutes・3rd party action の SHA固定）を新設し `quality:audit` に登録（commit
+`98053f9eb`）。24 workflow 全本を実検査し違反 0。6 本に `permissions: contents: read`・7 本に
+`timeout-minutes`・5 種の action を commit SHA へ固定済み。
 
-**Phase 3・4 はユーザー承認が要る**（branch protection・GitHub Environment・Secrets・R2 削除の権限設計）。週次で消化できる規模ではないので**期日を 9/30 へ延ばした**。着手するなら Phase 2（機械検査の追加）が独立していて効果が読みやすい。
+**残（未着手・大きい）**: Phase 1 自動書込みの直列化 / Phase 3 本番配信の一本化 / Phase 4 Secrets・破壊操作 / Phase 5 Windows・管理画面。
+
+**Phase 3・4 はユーザー承認が要る**（branch protection・GitHub Environment・Secrets・R2 削除の権限設計）。週次で消化できる規模ではないので**期日を 9/30 へ延ばした**。
 
 **停止条件**: branch protection・GitHub Environment・Secrets・外部 push・R2 削除・Pages deploy は、dry-run 結果と変更対象を提示してユーザー承認を得るまで変更しない。
 
