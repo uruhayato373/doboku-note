@@ -163,34 +163,20 @@ construction 19。`figure-provenance.json` の追跡数は 549→496（差分53�
 U+FFFD文字化けも0件を実検査。**残作業はKDPへのアップロード＋提出のみ**（ユーザー承認・ログイン操作が必要）。
 
 
-### [DN-0109] CI/CD 信頼性回復 — Phase 0・2 完了。残るは構造フェーズ（要ユーザー承認）
-タグ: [インフラ・計測] [種類:改善] [Codex候補] [実行:対話] [検証:quality:audit:ci] [起票:2026-08-21] [期日:2026-09-30]
+### [DN-0137] CI/CD Secrets・破壊操作の権限設計（旧DN-0109 Phase 4）
+タグ: [インフラ・計測] [種類:改善] [実行:対話] [起票:2026-08-26] [期日:2026-09-30]
 
-**Phase 0（信号回復）は完了した**（2026-08-25 実態照合）。起票時（8/21）に挙げた確定エラーは**すべて解消済み**で、カードのまま着手すると解決済みのものを追いかける状態だった。
+DN-0109（CI/CD信頼性回復）のPhase 0(信号回復)・1(develop自動書込みの直列化)・2(Actions機械検査)・
+3(本番デプロイ一本化)は2026-08-25〜26に完了。Phase 5(Windows実機検証)はDN-0108が実質担当。
+残るPhase 4（branch protection・GitHub Environment・Secrets・R2削除の権限設計）だけを本カードへ
+分離し、DN-0109本体は削除する。
 
-| 起票時の原因 | 2026-08-25 の実態 |
-|---|---|
-| `relative-links`: DN-0108 の plan が git 未追跡 | ✅ 追跡下（`.claude/plans/DN-0108-cross-device-playwright-auth/`） |
-| `knip-ratchet`: playwright が package.json に無い | ✅ 宣言済み（`package.json:347`）。Unlisted dependencies は 17 |
-| `index-coverage.yml` / `psi-audit.yml` が main を checkout して develop へ書く | ✅ 両方 `ref: develop` 済み |
-| `gsc-auto-review.yml` の disk full | ✅ 8/14・8/21 とも success。`check-workflow-clone-depth` が 24 本を検査し full clone 0 本 |
+**スコープ**: branch protection・GitHub Environment・Secrets・外部push・R2削除・Pages deployの
+設計・変更はいずれもdry-run結果と変更対象を提示してユーザー承認を得るまで実施しない。
 
-**この週に追加で直したもの**: `note-live-audit.yml` の `npm ci` 欠落（監査は通るのに publish 段の commit が落ちて 21 日赤・DN-0126）／W35 レビューの dangling-id（develop の CI を `d1990af2f` 以降ずっと赤にしていた）／自分が入れた knip 増加 3 件の返済（Unlisted binaries 17 → **13**）。
-
-**Pre-merge は緑に戻った**。起票時「17 回中 16 回失敗」だったが、直近は連続 success を確認。
-
-**Phase 2（Actions 自体の機械検査）は 2026-08-25 に完了**: `scripts/check-workflow-hygiene.mjs`
-（actionlint・permissions・timeout-minutes・3rd party action の SHA固定）を新設し `quality:audit` に登録（commit
-`98053f9eb`）。24 workflow 全本を実検査し違反 0。6 本に `permissions: contents: read`・7 本に
-`timeout-minutes`・5 種の action を commit SHA へ固定済み。
-
-**残（未着手・大きい）**: Phase 1 自動書込みの直列化 / Phase 3 本番配信の一本化 / Phase 4 Secrets・破壊操作 / Phase 5 Windows・管理画面。
-
-**Phase 3・4 はユーザー承認が要る**（branch protection・GitHub Environment・Secrets・R2 削除の権限設計）。週次で消化できる規模ではないので**期日を 9/30 へ延ばした**。
-
-**停止条件**: branch protection・GitHub Environment・Secrets・外部 push・R2 削除・Pages deploy は、dry-run 結果と変更対象を提示してユーザー承認を得るまで変更しない。
-
-**関連の未処理**: `automation-failure` Issue #457 は対象 workflow が回復済みなのに 18 日 open。**dedup 仕様で以後の失敗がこの Issue へのコメントに埋没する**ため通知路が死んでいる。回復の実体を 2026-08-25 にコメント済み（クローズは人間の担当）。
+**関連の未処理**: `automation-failure` Issue #457は対象workflowが回復済みなのに18日open。
+**dedup仕様で以後の失敗がこのIssueへのコメントに埋没する**ため通知路が死んでいる。回復の実体は
+2026-08-25にコメント済み（クローズは人間の担当。DN-0135のIssue #473と同種のためそちらへ統合しても良い）。
 
 ### [DN-0002] 会員フロー 週次配信（W1-W5 配信済・W6 以降は週1）
 タグ: [収益化] [種類:制作] [実行:sweep] [起票:2026-08-06]
