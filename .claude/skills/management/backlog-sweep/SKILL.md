@@ -39,6 +39,13 @@ npm run check-backlog-due   # 期限なら理由を表示・でなければ無�
 - **ID の再利用 ≥ 1（S10）** — 完了カードは削除するので `DN-####` は歯抜けになる。そこへ
   新しいカードが空き番を拾うと、**過去のコミットメッセージ・plan・レビューが指す ID が別物**に
   なる（2026-08-20 に DN-0096 / DN-0097 で実発生・同日 2 件）。1 件でも起きたら監査対象
+- **実績コミット後にカード本文が未更新 ≥ 2（S11）** — commit 件名に `DN-####` が登場している
+  のに、そのカード全体の最終編集（blame）が commit より古い＝作業は commit 済みなのに
+  「残」欄が旧内容のまま。DN-0093 で claim/release/complete CLI が実装・push された同日に
+  実発生（2026-08-26）
+- **完了 prose 蓄積 ≥ 3（S12）** — 本文の「済み」「完了し」等の完了報告表現が 1 枚に 5 件以上
+  溜まっている＝タイトルと残作業が乖離した TRIM 候補（DN-0013 が「死守コア2つ」の完了経緯で
+  肥大した型）
 - 月初（7 日まで）で、その月にまだ棚卸しを記録していない
 
 > [!note] S5 は現状ほぼ機能しない（2026-08-18）
@@ -50,8 +57,11 @@ npm run check-backlog-due   # 期限なら理由を表示・でなければ無�
 1. `node scripts/check-backlog-health.mjs --json` で候補シグナルを取る
 2. **親が実体を検証する**: 対象カードの `[検証:cmd]` を実走し、`git log --oneline -30` と関連 SSOT の現物値を集める（エージェントには推測でコマンドを叩かせない）
 3. tier セクションをシャードにして `backlog-curator` を**同時 3 体まで**起動（🔴 / 🟡 / 🟢+🟣）。1 体あたり 25〜35 枚
-4. 返ってきた verdict（KEEP / RETAG / TRIM / MERGE / DELETE）を**親が裁定して適用**する。エージェントは backlog.md を編集しない
-5. 適用後に `check-backlog-schema` と `check-backlog-health` を回して S2/S3/S4/S6/S9 が 0 に戻ったか確認
+4. 返ってきた verdict（KEEP / RETAG / TRIM / MERGE / DELETE / RESEED / SPLIT）を**親が裁定して適用**する。エージェントは backlog.md を編集しない
+   - **RESEED**（残作業の性質が変わった＝緊急枠組みの消滅・実行者の変化・スコープ縮小）: `node scripts/backlog-edit.mjs --delete <旧ID> --commit` で旧カードを削除 → `node scripts/backlog-edit.mjs --next-id` で採番 → 新タイトル・新 tier・新本文でカードを挿入 → `check-backlog-schema` を再走。旧 ID は欠番のまま（再利用しない＝S10 と整合）。他カードから旧 ID への相互参照があれば新 ID へ張り替える
+   - **SPLIT**（1 カード内に独立した残作業が複数）: 各残作業を `--next-id` で新規カードへ分割し、元カードは削除
+   - **RESEED は残作業を明文化できる場合のみ適用する**（できなければ KEEP に留める。「たぶん要らない」で消さない）
+5. 適用後に `check-backlog-schema` と `check-backlog-health` を回して S2/S3/S4/S6/S9/S11/S12 が 0 に戻ったか確認
 6. **実施を記録する**: `node scripts/check-backlog-health.mjs --record-audit`
    （`.claude/state/backlog/audit-log.json`。月初条件はこの記録を見るので、書かないと翌セッションから催促が続く。**回していないのに記録しない**）
 
@@ -151,6 +161,10 @@ CLAUDE.md §8「提案・推奨の前に現物を確認する（憶測で gap �
 ### 6. 記録
 
 - 完了/掃除したタスクは**セクションごと削除**して即 commit（backlog.md:5 の規約）
+- **部分完了なら完了 prose を足さず TRIM**（残作業だけへ本文を削る）。**タイトルが残作業と乖離したら RESEED**
+  （`backlog-edit.mjs --delete` → `--next-id` で新カードへ）。通常サイクルで触ったカードもその場で
+  再スコープしてよい（確認不要・DELETE/RESEED は外部実体で裏取りできた場合のみ。基準は
+  `.claude/knowledge/reference/todo-standards.md`「カード品質基準と再スコープ」）
 - `.claude/state/dispatch/dispatch-log.json` の `entries` へ1行追記（スキーマは同ファイルの `_schema`）。`outcome` は `done` / `swept` / `blocked` / `fail`
 
 ### 7. 出口ゲート（再発防止の3問）
@@ -160,6 +174,7 @@ CLAUDE.md §8「提案・推奨の前に現物を確認する（憶測で gap �
 1. 同種の欠陥を機械で検出できるか
 2. その検出器は**誰がいつ読むか**（読み手がいないなら `ci:true` にするか、作らない）
 3. 台帳・SSOT の更新は同一 commit に入っているか
+4. 触ったカードのタイトルは残作業をそのまま言い表しているか（乖離していれば RESEED）
 
 ### 8. 報告
 
