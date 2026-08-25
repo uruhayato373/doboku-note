@@ -54,14 +54,34 @@ const DAYS = (() => {
 })();
 
 /**
+ * リポジトリのどこにでも出てくる置き場の入口。**2 セグメントで終わるならカードの固有性を
+ * 何も語らない**ので署名から外す（`src/lib` は 100 枚近いカードが書く）。
+ * 3 セグメント以上・拡張子つきは残す＝そこまで具体なら偶然一致しない。
+ */
+const GENERIC_ROOTS = new Set([
+  'claude', 'docs', 'src', 'content', 'scripts', 'tools', 'public', 'tests',
+  'state', 'config', 'skills', 'agents', 'knowledge', 'todo', 'plans', 'lib',
+  'app', 'components', 'note', 'site', 'sns', 'query', 'page',
+]);
+
+/**
  * 本文から「固有トークン」を抜く。スクリプト名・パス・noteId・npm script 名だけを採り、
  * 裸の数値は採らない（年・価格・件数は別作業でも普通に一致するのでペアがノイズになる。
  * 2026-08-18 の初回実行で「2026 / 980 / 800」の一致だけで無関係な 2 枚が候補に出た）。
+ *
+ * 2026-08-25: 同じ理由で**一般的な置き場の入口**（`src/lib` `claude/state` `docs/strategy`
+ * `query/page` …）も外した。これだけで DN-0106↔DN-0107（GSC の取得課題 ↔ index coverage の
+ * 回復プログラム）と DN-0114↔DN-0115（法人向け再包装 ↔ PWA 買い切り導線）という
+ * **中身が全く違う 2 ペア**が候補に居座り、S8 が 0 にならない状態が続いていた。
  */
 export function signatureTokens(body) {
   const out = new Set();
   for (const m of body.matchAll(/[a-z0-9-]+\.(?:mjs|ts|json)|[a-z][a-z0-9-]*\/[a-z0-9-]+|\bn[0-9a-f]{12}\b|\bmbe?[0-9a-f]{10,}\b/gi)) {
-    out.add(m[0]);
+    const t = m[0];
+    // `a/b` の形で a が一般ルート、かつ拡張子を持たない＝置き場の入口だけ。署名にしない。
+    const seg = t.split('/');
+    if (seg.length === 2 && GENERIC_ROOTS.has(seg[0].toLowerCase()) && !/\.[a-z]+$/i.test(t)) continue;
+    out.add(t);
   }
   return out;
 }
@@ -266,6 +286,13 @@ const aliasCats = cards.flatMap((c) =>
 );
 const unreachable = cards.filter((c) => c.tier !== 'hold' && (!c.executor || !SELF_EXECUTABLE.has(c.executor)));
 const unreachableNoVerify = unreachable.filter((c) => !c.verify);
+// `[検証:]` を**期待してよいのは 不具合 / 改善 だけ**。制作は「成果物が在ること」、意思決定は
+// 「決まったこと」で完了するので、赤→緑になる npm script を指しようがない（無理に付けると
+// 常時緑の token が増えて、DN-0129 ① で 5 枚から外したのと同じ状態へ戻る）。
+// 混ぜて 1 つの数で出していたため S7 は構造的に 0 にならず、surfacer がただのノイズになっていた。
+const GATEABLE_KINDS = new Set(['不具合', '改善']);
+const unreachableGateable = unreachableNoVerify.filter((c) => GATEABLE_KINDS.has(c.kind));
+const unreachableInherent = unreachableNoVerify.filter((c) => !GATEABLE_KINDS.has(c.kind));
 const dups = duplicateCandidates(cards);
 const strayTodo = existsSync(join(ROOT, '.claude/todo'))
   ? readdirSync(join(ROOT, '.claude/todo')).filter((f) => f.endsWith('.md') && !TODO_LAYERS.has(f))
@@ -289,6 +316,8 @@ const report = {
   aliasCategories: aliasCats.length,
   unreachableTotal: unreachable.length,
   unreachableNoVerify: unreachableNoVerify.length,
+  unreachableGateable: unreachableGateable.map((c) => ({ line: c.line, kind: c.kind, title: c.title })),
+  unreachableInherent: unreachableInherent.length,
   duplicateTotal: dups.length,
   duplicateCandidates: dups.slice(0, 10).map((p) => ({
     a: { line: p.a.line, title: p.a.title },
@@ -345,7 +374,15 @@ if (blameAge.degraded) console.log(HISTORY_TRUNCATED
   : `      ※ git blame が 30 秒で完了せず鮮度を補完できていない（[起票:] のある ${cards.length - noFiled.length} 枚だけで判定）`);
 for (const c of stale.slice(0, 8)) console.log(`      L${c.line} ${c.age}日 ${c.title}`);
 line('S6 語彙外カテゴリの残', aliasCats.length);
-line('S7 sweep 到達不能', `${unreachable.length} / ${cards.length}（うち [検証:] 無し ${unreachableNoVerify.length}＝陳腐化が永久に検出されない）`);
+// **0 にする対象ではない**（backlog.md「[検証:] を付けない判断」）。付けられる script が
+// 実在するカードだけを名指しして、探す手間を省くための数として出す。
+line('S7 sweep 到達不能', `${unreachable.length} / ${cards.length}（[検証:] 無し ${unreachableNoVerify.length}`
+  + ` ＝ 不具合/改善 ${unreachableGateable.length}〔gate が実在するなら付ける〕`
+  + ` ＋ 制作/意思決定 ${unreachableInherent.length}〔原則付かない〕）`);
+for (const c of unreachableGateable.slice(0, 8)) {
+  console.log(`      候補: L${c.line} ${c.kind} ${c.title.slice(0, 52)}`);
+}
+if (unreachableGateable.length > 8) console.log(`      …ほか ${unreachableGateable.length - 8} 件`);
 line('S8 重複候補ペア', dups.length);
 for (const p of dups.slice(0, 5)) console.log(`      L${p.a.line} ↔ L${p.b.line}  共有: ${p.shared.slice(0, 4).join(' ')}`);
 line('S9 .claude/todo の 4 層以外', strayTodo.length ? strayTodo.join(' ') : '0');
