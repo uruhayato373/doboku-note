@@ -1,6 +1,10 @@
 ---
 notePricing: free
 utmCampaign: civil-keiken-bridge-line-magnet
+noteStatus: published
+notePublishedAt: "2026-08-26"
+noteId: "na31c6abae8f6"
+noteUrl: "https://note.com/dobokunote/n/na31c6abae8f6"
 coverTitle: ["一次おつかれ様でした", "次は経験記述から"]
 cover:
   variant: crop-safe-v4
