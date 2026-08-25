@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 300" style="max-width:700px;width:100%;font-family:sans-serif" role="img" aria-label="コンクリート混和材3種の電子顕微鏡写真を模式的に示した図。左は角張った不定形の粒子(倍率5マイクロメートル)、中央は微細な粒子が凝集した組織(倍率0.3マイクロメートル)、右は明瞭な球形粒子(倍率5マイクロメートル)。原図は電子顕微鏡写真で、本図はその粒子形状の特徴を再現した模式図。">
+  <text x="20" y="26" font-size="13" fill="#222">電子顕微鏡写真（模式図）</text>
+
+  <!-- panel 1: angular fragments (blast furnace slag-like) -->
+  <rect x="20" y="40" width="220" height="180" fill="#555" stroke="#222" stroke-width="1.5"/>
+  <g fill="#d7d7d7" stroke="#8a8a8a" stroke-width="0.8">
+    <polygon points="55,70 95,60 120,90 105,130 70,140 45,110"/>
+    <polygon points="130,75 175,65 200,100 180,135 140,140 115,105"/>
+    <polygon points="60,150 100,145 115,180 85,200 50,190"/>
+    <polygon points="150,155 195,150 210,185 170,205 140,190"/>
+    <polygon points="190,60 215,55 225,80 205,95 185,85"/>
+  </g>
+  <line x1="35" y1="205" x2="105" y2="205" stroke="#f5f5f5" stroke-width="3"/>
+  <text x="240" y="230" font-size="12" fill="#222" text-anchor="end">5μm</text>
+
+  <!-- panel 2: fine agglomerated particles (silica fume-like, smaller scale) -->
+  <rect x="270" y="40" width="220" height="180" fill="#555" stroke="#222" stroke-width="1.5"/>
+  <g fill="#f5f5f5">
+    <circle cx="320" cy="80" r="7"/>
+    <circle cx="335" cy="90" r="6"/>
+    <circle cx="345" cy="75" r="5"/>
+    <circle cx="360" cy="95" r="8"/>
+    <circle cx="375" cy="80" r="6"/>
+    <circle cx="390" cy="100" r="7"/>
+    <circle cx="405" cy="85" r="5"/>
+    <circle cx="330" cy="130" r="6"/>
+    <circle cx="350" cy="140" r="8"/>
+    <circle cx="370" cy="125" r="6"/>
+    <circle cx="390" cy="145" r="7"/>
+    <circle cx="410" cy="130" r="5"/>
+    <circle cx="425" cy="150" r="6"/>
+    <circle cx="440" cy="120" r="7"/>
+    <circle cx="330" cy="175" r="5"/>
+    <circle cx="350" cy="185" r="6"/>
+    <circle cx="370" cy="170" r="7"/>
+    <circle cx="395" cy="180" r="5"/>
+  </g>
+  <line x1="285" y1="205" x2="355" y2="205" stroke="#f5f5f5" stroke-width="3"/>
+  <text x="490" y="230" font-size="12" fill="#222" text-anchor="end">0.3μm</text>
+
+  <!-- panel 3: distinct spherical particles (fly ash-like) -->
+  <rect x="520" y="40" width="220" height="180" fill="#555" stroke="#222" stroke-width="1.5"/>
+  <g fill="#e8e8e8" stroke="#8a8a8a" stroke-width="0.8">
+    <circle cx="560" cy="75" r="18"/>
+    <circle cx="600" cy="65" r="14"/>
+    <circle cx="635" cy="85" r="20"/>
+    <circle cx="670" cy="70" r="12"/>
+    <circle cx="700" cy="95" r="16"/>
+    <circle cx="555" cy="120" r="12"/>
+    <circle cx="590" cy="130" r="10"/>
+    <circle cx="620" cy="140" r="15"/>
+    <circle cx="655" cy="125" r="11"/>
+    <circle cx="690" cy="145" r="14"/>
+    <circle cx="565" cy="175" r="13"/>
+    <circle cx="605" cy="180" r="10"/>
+    <circle cx="640" cy="170" r="17"/>
+    <circle cx="680" cy="185" r="11"/>
+  </g>
+  <line x1="535" y1="205" x2="605" y2="205" stroke="#f5f5f5" stroke-width="3"/>
+  <text x="740" y="230" font-size="12" fill="#222" text-anchor="end">5μm</text>
+
+  <text x="20" y="262" font-size="11" fill="#555">※原図は電子顕微鏡写真。本図は粒子形状の特徴（角張った破砕状／微細な凝集組織／</text>
+  <text x="20" y="278" font-size="11" fill="#555">明瞭な球形）を再現した模式図です。密度は本文の表を参照してください。</text>
+</svg>

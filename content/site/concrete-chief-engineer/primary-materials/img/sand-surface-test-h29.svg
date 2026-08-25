@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 480" style="max-width:480px;width:100%;font-family:sans-serif" role="img" aria-label="表面水率試験の手順を示す4コマの模式図。(ア)目盛りのあるガラス容器、(イ)水200ミリリットルをはかり取った容器、(ウ)電子天秤に載せた湿潤状態の砂、(エ)砂を加えた後に水面の目盛りを読み取る容器。原図は実験手順の写真で、本図はその模式図。">
+  <!-- (ア) empty graduated cylinder -->
+  <g>
+    <rect x="20" y="20" width="200" height="180" fill="#f5f5f5" stroke="#222" stroke-width="1.5"/>
+    <rect x="100" y="45" width="30" height="130" fill="#ffffff" stroke="#555" stroke-width="1.2"/>
+    <g stroke="#8a8a8a" stroke-width="0.7">
+      <line x1="100" y1="55" x2="112" y2="55"/>
+      <line x1="100" y1="65" x2="112" y2="65"/>
+      <line x1="100" y1="75" x2="112" y2="75"/>
+      <line x1="100" y1="85" x2="112" y2="85"/>
+      <line x1="100" y1="95" x2="112" y2="95"/>
+      <line x1="100" y1="105" x2="112" y2="105"/>
+      <line x1="100" y1="115" x2="112" y2="115"/>
+      <line x1="100" y1="125" x2="112" y2="125"/>
+    </g>
+    <text x="120" y="195" text-anchor="middle" font-size="13" fill="#222">（ア）</text>
+  </g>
+
+  <!-- (イ) flask with water, marks near 200/300 -->
+  <g>
+    <rect x="280" y="20" width="200" height="180" fill="#f5f5f5" stroke="#222" stroke-width="1.5"/>
+    <path d="M370 50 L370 90 L340 170 Q360 180 380 170 L350 90 L350 50 Z" fill="#e8e8e8" stroke="#555" stroke-width="1.2"/>
+    <rect x="365" y="40" width="10" height="12" fill="#ffffff" stroke="#555" stroke-width="1"/>
+    <g stroke="#8a8a8a" stroke-width="0.7" font-size="10" fill="#555">
+      <line x1="370" y1="100" x2="390" y2="100"/>
+      <text x="394" y="104">300</text>
+      <line x1="365" y1="115" x2="390" y2="115"/>
+      <text x="394" y="119">200</text>
+      <line x1="358" y1="130" x2="390" y2="130"/>
+      <text x="394" y="134">135</text>
+    </g>
+    <text x="380" y="195" text-anchor="middle" font-size="13" fill="#222">（イ）</text>
+  </g>
+
+  <!-- (ウ) electronic scale with bowl of sand -->
+  <g>
+    <rect x="20" y="240" width="200" height="180" fill="#f5f5f5" stroke="#222" stroke-width="1.5"/>
+    <rect x="70" y="370" width="100" height="40" rx="4" fill="#8a8a8a" stroke="#222" stroke-width="1.2"/>
+    <rect x="90" y="380" width="30" height="16" fill="#ffffff" stroke="#555" stroke-width="0.8"/>
+    <ellipse cx="120" cy="345" rx="55" ry="16" fill="none" stroke="#555" stroke-width="2"/>
+    <path d="M65 345 Q120 375 175 345 L175 355 Q120 385 65 355 Z" fill="#d7d7d7" stroke="#555" stroke-width="1.2"/>
+    <ellipse cx="120" cy="352" rx="35" ry="9" fill="#8a8a8a"/>
+    <text x="120" y="415" text-anchor="middle" font-size="13" fill="#222">（ウ）</text>
+  </g>
+
+  <!-- (エ) graduated cylinder close-up near 400-420 -->
+  <g>
+    <rect x="280" y="240" width="200" height="180" fill="#f5f5f5" stroke="#222" stroke-width="1.5"/>
+    <rect x="355" y="255" width="40" height="150" fill="#e8e8e8" stroke="#555" stroke-width="1.2"/>
+    <rect x="358" y="255" width="34" height="60" fill="#d7d7d7"/>
+    <g stroke="#8a8a8a" stroke-width="0.8" font-size="10" fill="#555">
+      <line x1="355" y1="275" x2="368" y2="275"/>
+      <text x="398" y="278">420</text>
+      <line x1="355" y1="295" x2="368" y2="295"/>
+      <text x="398" y="298">410</text>
+      <line x1="355" y1="315" x2="368" y2="315"/>
+      <text x="398" y="318">400</text>
+    </g>
+    <text x="380" y="415" text-anchor="middle" font-size="13" fill="#222">（エ）</text>
+  </g>
+
+  <text x="20" y="445" font-size="11" fill="#555">※原図は実験手順の写真。本図はガラス器具・電子天秤の配置と目盛りの</text>
+  <text x="20" y="461" font-size="11" fill="#555">読み取り位置を再現した模式図です。</text>
+</svg>
