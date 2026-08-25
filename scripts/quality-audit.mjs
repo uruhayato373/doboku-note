@@ -204,6 +204,17 @@ const CHECKS = [
     timeout: 120_000, ci: true,
     note: '収益カバレッジ集計が実行可能か（import 破損・入力欠落を検知）',
   },
+  // 公開 SEO ページ（frequent-topics）を生成するスクリプトが実行できることを毎回確かめる。
+  // Windows で `new URL("..", import.meta.url).pathname` が `/C:/Users/…` を返し
+  // `C:\C:\Users\…` になって ENOENT で落ちる状態のまま、何週間も気づかれなかった
+  // （2026-08-25 発覚。frequent-topics が「17年度・680問」で固定表示され続けていた）。
+  // 入力はコミット済み past-exam-backlinks.json なので creds 不要で常に走る。
+  {
+    id: 'frequent-topics',
+    cmd: ['node', 'scripts/build-frequent-topics.mjs', '--check'],
+    timeout: 60_000, ci: true,
+    note: 'frequent-topics 生成が実行可能か（Windows パス連結崩れ・入力欠落を検知）',
+  },
   // スクリプト層の壊れた相対 import を落とす（ci ゲート）。tsc は `**/*.ts` しか見ず
   // `.mjs` と `.claude/**` は型検査の死角。実行されなくなった経路の破損は実行時エラーでも
   // 気づけないため機械で止める。knip の Unresolved imports は同種を報告していたが

@@ -180,6 +180,17 @@ ${kanriBlocks}
 </Callout>
 `;
 
+// --check: 入力の読み込み・集計・MDX 本文の組み立てまでを完走したことだけ確認し、書かない。
+// quality-audit のゲートから毎回呼ぶ。動機は monetization-coverage --check と同じ
+// （.claude/scripts/report-monetization-coverage.mts 参照）——このスクリプトは
+// Windows で `new URL("..", import.meta.url).pathname` が `/C:/Users/…` を返すバグにより
+// **一度も実行できていない**期間があった（2026-08-25 発覚）。実行可能性を確かめる検出器が
+// 無かったので、frequent-topics は「17年度・680問」のまま何週間も公開され続けた。
+if (process.argv.includes('--check')) {
+  console.log(`[build-frequent-topics] OK: topics=${totalTopics} questions=${totalQuestions} links=${totalLinks}（--check・未書き込み）`);
+  process.exit(0);
+}
+
 mkdirSync(dirname(OUT), { recursive: true });
 writeMdxFile(OUT, `${frontmatter}\n\n${body}`);
 console.log(`[build-frequent-topics] wrote ${OUT}`);
