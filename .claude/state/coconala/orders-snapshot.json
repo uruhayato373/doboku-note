@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fetchedAt": "2026-08-17T08:26:53.459Z",
+  "fetchedAt": "2026-08-25T01:15:00.738Z",
   "status": "ok",
   "source": "coconala.com /mypage/received_orders/*（Playwright・read-only）",
   "privacyNote": "購入者名・購入者ID・トークルーム本文・DM 本文は保存しない。保存するのは talkroomId / dmId / サービス / 金額 / 日付 / ステータス / 未返信 / 返信期限のみ。DM は subject（引用されたサービス名）だけを採る。送信者名と本文プレビューはブラウザ内で判定にのみ使い、結果のブール値（fromStaff / oneWay / violationRemoved）だけを残す。",
@@ -100,7 +100,7 @@
   "inquiries": [
     {
       "dmId": "10075959",
-      "dateText": "5日前",
+      "dateText": "8月12日",
       "subject": "",
       "unread": false,
       "fromStaff": true,
