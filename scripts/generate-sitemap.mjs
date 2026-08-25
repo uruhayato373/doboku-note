@@ -195,8 +195,10 @@ const urls = [];
 for (const { path, mtime } of collectStaticHtmlFiles(OUT_DIR)) {
   // relative() は OS 区切り文字を返す。Windows でそのまま URL にすると
   // <loc>https://doboku-note.com/category\civil-construction-1</loc> のように
-  // バックスラッシュが混入する（2026-08-06 実測）。CI は Linux なので本番は無傷だが、
-  // `npm run pages:deploy` を Windows から実行すると壊れた sitemap が本番に出る。
+  // バックスラッシュが混入する（2026-08-06 実測）。本番デプロイは main への push
+  // 経由の cloudflare-deploy.yml（Linux ランナー）に一本化済み（DN-0109 Phase 3・
+  // 2026-08-26）だが、ローカルでのビルド確認・他スクリプトからの流用に備えて
+  // OS 非依存の変換は維持する。
   const relUrl = relative(OUT_DIR, path).split(sep).join('/');
   let urlPath = '/' + relUrl.replace(/\.html$/, '').replace(/\/index$/, '');
   if (urlPath === '/index') urlPath = '/';

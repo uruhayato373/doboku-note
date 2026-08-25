@@ -56,7 +56,6 @@ npm run upload-images-r2  # 画像を R2 にアップロード
 npm run upload-sns-r2     # SNS バイナリ(reels wav/mp4)を R2 へ退避（--purge-local でローカル削除）
 npm run lint              # ESLint チェック（no-console: warn/error のみ許容）
 npm run quality:audit     # コード・記事・画像/SVGの機械チェックを横断実行→.claude/state/quality/audit-latest.md（:ci でCI gate厳格版）
-npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→.claude/state/sales/kdp-royalties.json（ローカル専用・読み取り専用・当月/前月のみ）
 npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKで.claude/state/sales/sales-log.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）
 npm run check-magazine-cta # 公開マガジンがサイトで1面以上CTAとして出るか（top/中間CTA/MagazineCard・quality:audit に同梱）

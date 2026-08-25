@@ -243,7 +243,6 @@
     "ogp": "node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs",
     "ogp-backgrounds": "node scripts/generate-ogp-backgrounds.mjs",
     "ogp-gallery": "node scripts/ogp-gallery.mjs",
-    "pages:deploy": "npx wrangler pages deploy out --project-name=doboku-note",
     "place-civil-keiken-pdfs": "node scripts/place-civil-keiken-pdfs.mjs",
     "pre-commit:install": "node scripts/install-pre-commit.mjs",
     "pre-push:install": "node scripts/install-pre-push.mjs",
