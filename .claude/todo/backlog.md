@@ -214,123 +214,29 @@ W33・W34・W35 と 3 週続けて Must に挙がりながら消えなかった�
 
 **完了条件**: 指示書のPhase A〜Dを満たし、`check-note-funnel`・`check-note-paid-cta`・`check-magazine-cta:ci`・`check-note-site-utm` がPASS。承認後のライブ反映では `audit-note-funnel -- --live --ci` のD5=0、有料74本の公開無料域に `n4fde0f62dc20` が存在する。恒久ルールをSSOTへ抽出し、指示書と本カードを削除する。
 
-### [DN-0109] CI/CD信頼性回復と機械チェック・安全な自動化の再編
-タグ: [インフラ・計測] [種類:不具合] [Codex候補] [実行:対話] [検証:quality:audit:ci] [起票:2026-08-21] [期日:2026-08-31]
+### [DN-0109] CI/CD 信頼性回復 — Phase 0 完了。残るは構造フェーズ（要ユーザー承認）
+タグ: [インフラ・計測] [種類:改善] [Codex候補] [実行:対話] [検証:quality:audit:ci] [起票:2026-08-21] [期日:2026-09-30]
 
-2026-08-21 実査では GitHub Actions 22 workflow、`quality-audit.mjs` 63検査（CI gate 52）が存在し、自動化の量は十分。一方、直近30 runは成功11・失敗19、Pre-merge checkは17回中16回失敗し、赤が異常信号として機能していない。起票時の確定エラーだった `docs/handoffs/2026-08-21-actions-recovery.md` の `DN-0105` 参照は 2026-08-21 に解消済み（カードは削除され、handoff 側の記述を実績へ書き換えた）。GSC/GA4 と PSI は取得・判定に成功しても、最後の develop への bot push で失敗している。追加機能より先に、既存CIを常時greenへ戻し、同時書込み・権限・本番配信の境界を閉じる。
+**Phase 0（信号回復）は完了した**（2026-08-25 実態照合）。起票時（8/21）に挙げた確定エラーは**すべて解消済み**で、カードのまま着手すると解決済みのものを追いかける状態だった。
 
-**Phase 0-2 の分類結果（2026-08-21 実査済み・以下は調査済みなので再調査不要）**
+| 起票時の原因 | 2026-08-25 の実態 |
+|---|---|
+| `relative-links`: DN-0108 の plan が git 未追跡 | ✅ 追跡下（`.claude/plans/DN-0108-cross-device-playwright-auth/`） |
+| `knip-ratchet`: playwright が package.json に無い | ✅ 宣言済み（`package.json:347`）。Unlisted dependencies は 17 |
+| `index-coverage.yml` / `psi-audit.yml` が main を checkout して develop へ書く | ✅ 両方 `ref: develop` 済み |
+| `gsc-auto-review.yml` の disk full | ✅ 8/14・8/21 とも success。`check-workflow-clone-depth` が 24 本を検査し full clone 0 本 |
 
-Pre-merge の最後の緑は **2026-08-19 12:04Z**。以後 24 連続で赤く、原因は 2 つだけ。
+**この週に追加で直したもの**: `note-live-audit.yml` の `npm ci` 欠落（監査は通るのに publish 段の commit が落ちて 21 日赤・DN-0126）／W35 レビューの dangling-id（develop の CI を `d1990af2f` 以降ずっと赤にしていた）／自分が入れた knip 増加 3 件の返済（Unlisted binaries 17 → **13**）。
 
-| 検査 | 根本原因 | 直し方 |
-|---|---|---|
-| `relative-links` | `DN-0108` カードが `../plans/DN-0108-cross-device-playwright-auth/00-master.md` へリンクしているが、**その plan が git 未追跡**。カードだけ commit された状態 | 別セッションが plan を commit する（他人の未コミット成果物なので代理 commit しない） |
-| `knip-ratchet` | `scripts/magazine-to-pdf.mjs` が `import('playwright')` を追加。入ったのが `03731a1ca`（`[skip ci]`）で**ラチェットが回らないまま baseline を 1 超えた** | `playwright` を devDependencies へ明示（後述） |
+**Pre-merge は緑に戻った**。起票時「17 回中 16 回失敗」だったが、直近は連続 success を確認。
 
-`relative-links` はクリーンチェックアウト相当で全 846 リンクを走査し、壊れは**この 1 件のみ**と確定済み。
-`knip` の内訳は baseline 時点との import 数の差分で特定した（playwright 40→41、他 6 パッケージは増減なし）。
+**残（未着手・大きい）**: Phase 1 自動書込みの直列化 / Phase 2 Actions 自体の機械検査（actionlint・permissions・timeout-minutes・SHA 固定）/ Phase 3 本番配信の一本化 / Phase 4 Secrets・破壊操作 / Phase 5 Windows・管理画面。
 
-**`playwright` は baseline を上げるより宣言するのが正しい**。41 箇所が直接 import しているのに
-package.json に無く、`@playwright/test@1.59.1` の推移依存で**たまたま解決している**だけ。
-devDependencies へ足せば Unlisted dependencies は 60 → 19 に落ちる（ラチェットのリセットではなく返済）。
+**Phase 3・4 はユーザー承認が要る**（branch protection・GitHub Environment・Secrets・R2 削除の権限設計）。週次で消化できる規模ではないので**期日を 9/30 へ延ばした**。着手するなら Phase 2（機械検査の追加）が独立していて効果が読みやすい。
 
-**Phase 1-4 に該当する未修正の同型欠陥（新規発見）**
+**停止条件**: branch protection・GitHub Environment・Secrets・外部 push・R2 削除・Pages deploy は、dry-run 結果と変更対象を提示してユーザー承認を得るまで変更しない。
 
-`fetch-metrics.yml` で直した「schedule が main を checkout するのに develop へ書く」が **2 本残っている**。
-
-| workflow | checkout ref | develop へ書込 | 状態 |
-|---|---|---|---|
-| `index-coverage.yml` | **なし（＝main）** | あり | 未修正・同型 |
-| `psi-audit.yml` | **なし（＝main）** | あり | 未修正・同型（2026-08-20 に実際 failure） |
-| `fetch-metrics.yml` | `develop` | あり | 修正済（462b206d2） |
-
-計測系 3 workflow（GSC / fetch-metrics / PSI）の 2026-08-20 の失敗は、いずれも `ref: develop` が
-main へ入る前の run で説明がつく。
-
-**`gsc-auto-review.yml` の別原因も解明済み（2026-08-21）**: `System.IO.IOException: No space left on device`。
-`fetch-depth: 0` で **remote 11 GB** を丸ごと clone し、ubuntu-latest の空き（約 14 GB）を超えて
-ランナーごと落ちていた。全ステップが `conclusion=null` になり**ランナーが自分のログも書けない**ため
-`--log-failed` は「log not found」しか返さず、annotations API でだけ理由が読めた。
-数週間にわたり成功と失敗が交互に出ていたのは容量の縁で動いていたため。
-**2026-08-25 時点で未復旧**: `automation-failure` Issue #457 が 2026-08-07 起票のまま **18 日 open**。dedup 仕様により以後の同 channel の失敗はこの Issue へのコメント追記に埋没するため、閉じるか channel ごと畳むかを決めるまで通知路として機能しない。
-
-`gsc-auto-review.yml` と `competitor-scan.yml`（同じく履歴不使用）から `fetch-depth: 0` を削除し、
-`check-workflow-clone-depth` で禁止した。詳細と追跡手順は measurement-incidents.md。
-
-**Phase 0 — 信号回復**:
-
-1. main/developの台帳実体を照合し、`DN-0105` を安易に作り直さず、参照先修正・統合・削除のどれが正しいかをgit履歴で確定する
-2. 直近の Pre-merge / GSC auto review / fetch-metrics / PSI の失敗を「検査FAIL・checkout・外部取得・bot publish・閾値超過」に分類し、原因一覧と再現コマンドを作る
-3. `quality:audit:ci` の失敗レポートを Job Summary と artifact に残し、単一の `Quality audit` ステップだけを開かないと原因が分からない状態を解消する
-4. 現在の既知FAILを0にし、少なくともdevelopのPre-merge checkを3回連続greenにする
-5. `Audit Cloudflare via MCP`をworkflow_dispatchし、対象workflow成功・Job Summary・artifactのread-only監査結果を確認する
-
-**Phase 1 — 自動書込みの直列化**:
-
-1. developへcommit/pushする全workflowを列挙し、repository-wide共通 `concurrency` group（例 `state-writer-develop`、`cancel-in-progress:false`）へ統一する
-2. `fetch → /tmp退避 → origin/develop最新取得 → 成果物復元 → commit → push` を共通publish helperへ集約する
-3. non-fast-forward時だけ有限回再取得・再試行し、データ取得成功／台帳保存失敗を別statusでJob Summaryへ出す
-4. schedule workflowの制御ファイルはdefault branchのmainから評価される前提を検査し、developだけに修正が残って定期実行へ反映されない状態を検出する
-
-**Phase 2 — GitHub Actions自体の機械検査**:
-
-1. `actionlint` と `check-github-actions-policy` を追加する
-2. 全workflowの明示 `permissions`、全jobの `timeout-minutes`、外部書込みの `concurrency`、Actionsのcommit SHA固定、Node version SSOT、workflow inputのshell直展開禁止、scheduleのcheckout refを検査する
-3. npm と GitHub Actions のDependabot週次更新を追加し、本番依存のHigh/Criticalだけをblocking、その他をreport-onlyにする
-4. `continue-on-error` 全件に理由と後続surfacerを要求し、取得0件・検査不成立・保存失敗をPASSにしない
-
-**Phase 3 — 本番配信の一本化**:
-
-1. main保護ルールの実体を確認し、PR経由・required check・force push/delete禁止を設定する。botのdevelop書込み例外と人のmain保護を分離する
-2. CIで生成した同一 `out/` artifactを本番へ渡し、R2画像同期完了後にCloudflare Pagesへdeployする順序へ統一する
-3. production `environment` と `concurrency: production-deploy` を追加し、古いPages deployだけをcancel可能にする
-4. deploy直後にトップ・代表記事・転職hub・sitemap・robots・RSS・代表R2画像・canonical/OGP・主要CTAをsmoke testする
-5. `npx wrangler@3` の浮動majorをlockfile管理へ移し、deploy jobで使っていないR2認証情報を除く
-
-**Phase 4 — Secrets・破壊操作**:
-
-1. R2 auditは読取専用credentialを必須にし、書込みcredentialへのfallbackを廃止する。Actions実行成功と、監査credentialで書込み操作できないことを確認する
-2. R2 deleteはproduction-destructive承認、削除リストの許可パス、件数上限、前後artifact、inputのenv経由受渡しを追加する
-3. workflowごとにCloudflare/Google/YouTube/Anthropicの最小権限を記録し、値やtokenをログ・artifact・Job Summaryへ出さないテストを追加する
-
-**Phase 5 — Windows・管理画面・認証境界**:
-
-1. Windows runnerはフル品質監査でなく、path resolver・Node script起動・改行/文字化け・Playwright auth配線の軽量smokeに限定する
-2. `tools/admin-app/**` 変更時に既存 `test:e2e:admin` をCI配線し、`/metrics`・`/todo`・`/docs`・`/content/*`・サイドメニュー・主要tableを検査する
-3. DN-0108のPlaywright認証はstatic wiringだけをCIへ入れ、profile/Cookie/storageState/login/status/CAPTCHA/2FAはPCローカルに固定する
-
-**停止条件**: branch protection・GitHub Environment・Secrets・外部push・R2削除・Pages deployは、dry-run結果と変更対象を提示してユーザー承認を得るまで変更しない。`git reset --hard`、force push、認証profileのCI投入、secret値の取得/表示、外部投稿は行わない。既存workflowを一括置換せず、1 Phaseごとにgreenを確認する。
-
-**完了条件**:
-
-- developのPre-merge checkが3回連続green、主要定期workflow（fetch-metrics / PSI / GSC auto review）が次回実行またはmanual dry-runで取得・保存とも成功
-- mainのrequired checkと保護設定、本番deployのartifact同一性、R2→Pages順序、post-deploy smokeが実査できる
-- state writer全件が共通concurrency/helperを利用し、push競合を再現するテストまたはfixtureがPASS
-- `check-github-actions-policy`・actionlint・Windows smoke・admin E2E・`quality:audit:ci`・build・SEO build checkがPASS
-- R2 auditのwrite credential fallbackが0、全workflowが明示permissions、未固定Action、未説明`continue-on-error`、shell直展開inputが0
-- profile/Cookie/storageState/password/token/2FAのGit差分とCI artifactが0。恒久判断をoperations/referenceへ抽出し、本カードを削除する
-
-**Claude Code 実行プロンプト**:
-
-```text
-DN-0109をPhase 0から1 Phaseずつ実行してください。最初にAGENTS.md、
-.claude/todo/backlog.mdのDN-0109、scripts/quality-audit.mjs、
-.github/workflows/*.yml、.claude/knowledge/reference/measurement-incidents.md、
-.claude/knowledge/reference/workflows.md、DN-0108の認証計画を全文読んでください。
-
-作業前にbranch、origin/develop・origin/mainとの差、dirty files、直近30件のActions runを確認し、
-他作業の変更を上書き・revertしないでください。Phase 0では既知FAILを証拠付きで分類し、
-DN-0105参照はgit履歴とmain/developの実体を照合してから修正してください。
-
-以後は、bot state writerの共通concurrency/helper、Actions policy gate、CI artifact→R2→Pages→smokeの順に進めます。
-branch protection、Environment、Secrets、外部push、R2削除、deployはread-only確認とdry-runまでとし、
-変更内容・影響・復旧方法を提示してユーザー承認を得るまで実適用しないでください。
-
-Playwrightのprofile/Cookie/storageState/login/statusをCIへ持ち込まず、DN-0108のstatic wiringだけを対象にしてください。
-各Phase終了時に、変更ファイル、失敗原因、実行した検証、未解決FAIL、GitHub上のrun URLを報告し、
-greenを確認してから次Phaseへ進んでください。外部状態を変えるPhaseの直前で必ず停止してください。
-```
+**関連の未処理**: `automation-failure` Issue #457 は対象 workflow が回復済みなのに 18 日 open。**dedup 仕様で以後の失敗がこの Issue へのコメントに埋没する**ため通知路が死んでいる。回復の実体を 2026-08-25 にコメント済み（クローズは人間の担当）。
 
 ### [DN-0002] 会員フロー 週次配信（W1-W5 配信済・W6 以降は週1）
 タグ: [収益化] [種類:制作] [実行:sweep] [起票:2026-08-06]
