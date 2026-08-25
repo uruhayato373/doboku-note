@@ -1,29 +1,29 @@
 {
   "meta": {
-    "generated_at": "2026-08-25T13:06:33.435Z",
+    "generated_at": "2026-08-25T20:46:07.164Z",
     "path": "content/site/**/img/*.svg",
     "file": null,
     "note": "exam crop dirs (h*-primary, primary-h*) are audited for HIGH only — design/canvas patterns are left to civil-exam-figure-auditor"
   },
   "summary": {
-    "scanned_files": 491,
-    "matched_files": 491,
+    "scanned_files": 493,
+    "matched_files": 493,
     "parse_errors": 0,
     "exam_crops_high_only": 20,
-    "files_with_issues": 100,
-    "total_findings": 644,
+    "files_with_issues": 102,
+    "total_findings": 660,
     "by_severity": {
       "HIGH": 0,
-      "MEDIUM": 112,
-      "LOW": 532
+      "MEDIUM": 117,
+      "LOW": 543
     },
     "by_pattern": {
-      "P4-tiny-font": 507,
-      "P9-text-rect-overflow": 28,
+      "P4-tiny-font": 513,
+      "P9-text-rect-overflow": 34,
       "P11-concept-title": 31,
-      "P5-wide-viewbox": 37,
+      "P5-wide-viewbox": 39,
       "P2-text-overlap": 31,
-      "P6-color-drift": 10
+      "P6-color-drift": 12
     }
   },
   "findings": [
@@ -2312,6 +2312,78 @@
       "detail": "allowlist 外の色: #eee（svg-tokens.json の colorsAllowList 参照）"
     },
     {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/sand-surface-test-h29.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 500px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/sand-surface-test-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "300",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/sand-surface-test-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "200",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/sand-surface-test-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "135",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/sand-surface-test-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "420",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/sand-surface-test-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "410",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/sand-surface-test-h29.svg",
+      "pattern": "P4-tiny-font",
+      "severity": "LOW",
+      "text": "400",
+      "detail": "font-size 10px < 11px（モバイル視認性下限）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/sand-surface-test-h29.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「（ウ）」が rect(y=370,h=40) 下端 y=410 を超過（text 下端 y=416.9）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/sand-surface-test-h29.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "MEDIUM",
+      "detail": "「（エ）」が rect(x=355,w=40) 右端 x=395 を超過（bbox 右端 x=401）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/sand-surface-test-h29.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「（エ）」が rect(y=255,h=150) 下端 y=405 を超過（text 下端 y=416.9）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/sand-surface-test-h29.svg",
+      "pattern": "P6-color-drift",
+      "severity": "MEDIUM",
+      "detail": "allowlist 外の色: #e8e8e8（svg-tokens.json の colorsAllowList 参照）"
+    },
+    {
       "file": "content/site/concrete-chief-engineer/primary-materials/img/materials-clinker-strength-h28.svg",
       "pattern": "P5-wide-viewbox",
       "severity": "MEDIUM",
@@ -2357,6 +2429,36 @@
       "pattern": "P2-text-overlap",
       "severity": "MEDIUM",
       "detail": "「A」と「B」の bbox が重複"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/h24-q5.svg",
+      "pattern": "P5-wide-viewbox",
+      "severity": "MEDIUM",
+      "detail": "viewBox 幅 760px > 400px（モバイル視認性）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/h24-q5.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「5μm」が rect(y=40,h=180) 下端 y=220 を超過（text 下端 y=231.8）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/h24-q5.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「0.3μm」が rect(y=40,h=180) 下端 y=220 を超過（text 下端 y=231.8）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/h24-q5.svg",
+      "pattern": "P9-text-rect-overflow",
+      "severity": "LOW",
+      "detail": "「5μm」が rect(y=40,h=180) 下端 y=220 を超過（text 下端 y=231.8）"
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/h24-q5.svg",
+      "pattern": "P6-color-drift",
+      "severity": "MEDIUM",
+      "detail": "allowlist 外の色: #e8e8e8（svg-tokens.json の colorsAllowList 参照）"
     },
     {
       "file": "content/site/concrete-chief-engineer/primary-materials/img/cement-r01-composition.svg",
