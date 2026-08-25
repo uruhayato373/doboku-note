@@ -26,6 +26,12 @@
  *     --schedule-start 2026-06-20T07:00 --interval-hours 24 --commit
  *   # --pattern 既定=article-*.md（BKマガジン）。--schedule-start で予約投稿（slot i は start+i*interval）。
  *
+ * 自動クールダウン（DN-0118・2026-08-22 実測）: 即時公開を連続投入すると **31本目以降で
+ *   note の「投稿する」が完了しなくなる**（画面は公開設定のまま・記事は404）現象を確認。
+ *   20分のクールダウン後は同じ原稿がそのまま公開できたため、連続投稿のスロットルと判断。
+ *   本スクリプトは既定で **25本(--batch-size)連続公開ごとに20分(--cooldown-minutes)自動待機**
+ *   する（予約投稿=SCHED_START時は note API 負荷が異なるため対象外）。
+ *
  * 注意: note の画像(eyecatch)アップロードを伴うが、これは PDF 添付の1日100件上限とは
  *   別枠。PDF 添付の上限管理は note-attach-magazine-pdfs / note-attach-pdf を参照。
  * ---------------------------------------------------------------------------
@@ -47,6 +53,9 @@ const PATTERN = getArg('--pattern') || 'article-*.md'; // 無料記事(article.m
 // 公開対象（未公開）を昇順に start, start+N, start+2N... へ割り当てる。
 const SCHED_START = getArg('--schedule-start');
 const INTERVAL_H = parseInt(getArg('--interval-hours') || '24', 10);
+// 即時公開の連続投稿スロットル対策（DN-0118）。予約投稿（SCHED_START）は対象外。
+const BATCH_SIZE = parseInt(getArg('--batch-size') || '25', 10);
+const COOLDOWN_MIN = parseInt(getArg('--cooldown-minutes') || '20', 10);
 if (!DIR && !LIST) { console.error('--dir <magazineDir> または --list <file> が必要'); process.exit(1); }
 
 // wall-clock に hours を足す（マシンTZ非依存・日付繰り上げ対応）
@@ -132,6 +141,11 @@ for (let i = 0; i < files.length; i++) {
   }
   if (done) { console.log('    OK'); appendFileSync(LOG, `OK\t${f}\n`); ok++; }
   else { console.error(`    FAIL :: ${lastErr}`); appendFileSync(LOG, `FAIL\t${f}\t${lastErr.slice(0, 120)}\n`); fail++; console.error(`[停止] ${rel(f)} で失敗。原因確認後に再実行で再開（published skip）`); break; }
+  if (!SCHED_START && done && ok > 0 && ok % BATCH_SIZE === 0 && i < files.length - 1) {
+    console.log(`[cooldown] 即時公開が連続 ${ok} 本に到達 → ${COOLDOWN_MIN} 分待機（DN-0118: 31本目以降で投稿が完了しなくなる現象への対策）`);
+    appendFileSync(LOG, `COOLDOWN\t${COOLDOWN_MIN}min after ${ok} published\n`);
+    await new Promise((r) => setTimeout(r, COOLDOWN_MIN * 60 * 1000));
+  }
   await new Promise((r) => setTimeout(r, 12000)); // pacing
 }
 console.log(`\n[done] ok=${ok} skip=${skip} fail=${fail} / ${files.length}`);
