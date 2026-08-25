@@ -222,7 +222,7 @@ node scripts/note-magazine-add-articles.mjs --target mbe07bd5cecda --notes <note
 `check-note-cover-fit` 通過を確認してから publish。note に実体が無いので
 asset-storage-policy §6 の「同一性が要る用途」に当たらない。公開済み記事では使えない。
 
-### [DN-0003] note ライブ反映の一括消化（本文 drift 実測 348 本）
+### [DN-0003] note ライブ反映の一括消化（本文 drift 残221本）
 タグ: [インフラ・計測] [種類:不具合] [Codex候補] [実行:sweep] [起票:2026-08-17]
 
 **実測（2026-08-18 再測）**: 公開 702 本中 synced 347・**本文 drift 348 本**・未初期化 7。ほかタグ drift 137 / メタ 13 / アセット 77。**drift 348 のうち画像を持つのは 159 本**。
@@ -361,6 +361,19 @@ HIGH=194 は全て BOUNDARY_SHIFT（DN-0132で想定済み・専用対応不要�
 
 **本日累計**: canary 2 + force-retry 1 + batch1(10) + batch2(14) + title-fix(4) + batch3(18) = **49 本 ok**、
 fail 2（上記・fail-closed）。画像あり区分はほぼ消化（158→約121）。**残**: 画像なし区分190本弱＋失敗2本の個別対応。
+
+**2026-08-26: `note-republish-plan.mjs` を導入し画像なし区分100本を投入・ok=90/fail=3**
+
+`--json` から作り直した分類（`note-republish-plan.mjs`・6分類: ready/pdfReady/pdfMissing/hasImage/
+membership/aborted）で ready 135・pdfReady 54・**pdfMissing は前回53本→0本に解消**（別途R2 hydrate等で
+解消済みと判明）。ready から100本（既定上限）を `--reattach-pdf` 付きで投入。
+
+失敗3本は本日の**添付アップロード日次上限（90件）到達**によるfail-closed ABORT（保存前に中断・3本連続で
+自動停止）。`check-note-attachments --live --only`で3本ともPDFがライブに実在することを確認し実害なし
+（`note-attachment-loss.json`のpendingからresolvedへ移動）。drift は **311 → 221**（90本減）。
+
+**残**: 221本（ready残35・pdfReady54・hasImage117・membership1・aborted4の再分類が必要）。
+翌日以降に`note-republish-plan.mjs --out`で続きを投入する。
 
 ### [DN-0005] X 9月分90本の週次投入（8/25頃から毎週・意図的に未投入）
 タグ: [SNS・マーケ] [種類:制作] [実行:sweep]
