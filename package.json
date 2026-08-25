@@ -92,6 +92,7 @@
     "check-kindle-format": "node scripts/check-kindle-format.mjs",
     "asset-offload": "node scripts/asset-offload.mjs",
     "asset-hydrate": "node scripts/asset-hydrate.mjs",
+    "asset-inbox-push": "node scripts/asset-inbox-push.mjs",
     "check-asset-storage": "node scripts/check-asset-storage.mjs",
     "check-git-binary-policy": "node scripts/check-git-binary-policy.mjs",
     "check-knip-ratchet": "node scripts/check-knip-ratchet.mjs",

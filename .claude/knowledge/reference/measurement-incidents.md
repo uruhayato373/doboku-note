@@ -324,6 +324,31 @@ EXP-005 の作業報告で、**未検証の理由を 2 つとも誤って述べ�
 - **エラーコードを原因として引用しない。** サーバの応答は症状。自環境（creds / proxy / ブランチ / 権限）を先に疑う。
 - **ローカルで計測 API が 429 / 403 / 503 を返したら、まず自環境を疑う**（→ 2026-06-05 の恒久ルール「計測は CI/CD 供給が正」。ローカル live fetch はそもそも正規手順ではない）。CI 側は健全な可能性が高いので、「計測基盤の障害」と報告しない。
 
+### 2026-08-25: 「会社 PC は外部 API 遮断」の一部は SDK 側の問題だった（R2 実測）
+
+「会社 PC はプロキシで外部 API が遮断される」を根拠に R2 もローカル不可と扱っていたが、**R2 は通る**。
+
+```
+curl https://<account>.r2.cloudflarestorage.com/
+  HTTP/1.0 200 Connection established     ← プロキシが CONNECT トンネルを張っている
+  HTTP/1.1 400 Bad Request
+  Server: cloudflare
+  <Error><Code>InvalidArgument</Code><Message>Authorization</Message></Error>
+```
+
+400 は「署名の無いリクエストを R2 が拒否した」＝**本物の R2 に届いている**。接続 4.6ms。
+
+それでも SDK 経由だけ失敗していたのは、**AWS SDK v3 が `HTTPS_PROXY` を自動では見ない**ため。
+直接 egress が塞がれた環境では SDK のリクエストだけが落ちる。`makeS3()`
+（`scripts/lib/asset-storage.mjs`）に `NodeHttpHandler` + `HttpsProxyAgent` を渡すよう修正した。
+
+**教訓**: 「プロキシで遮断」と記録するときは、**遮断されているのがネットワークなのか、
+クライアント実装がプロキシを使えていないだけなのかを分ける**。前者は端末を変えるしかないが、
+後者はコードで直る。`curl` が通って SDK が通らないなら後者を疑う。
+
+なお R2 への書き込み経路は、credential をローカルへ置かない方針のまま
+`asset-inbox-push.mjs` → `asset-inbox.yml`（CI）で行う（asset-storage-policy §2）。
+
 ### 実務上の要注意事実: 定期ジョブの実行ブランチは workflow ごとに違う
 
 > **この節は 2026-07-27 に訂正済み。** 初版では「計測 5 ジョブは全て `main` で走る」と書いたが、**2 件が誤り**だった（`link-audit` / `verify-yt-status` は `ref: develop` 指定で develop のコードが走る）。「結果を `develop` に push している」ことから実行ブランチを推論し、各 yml の `with: ref:` を確認しなかったため。**再発防止を書いたこの記事自体が、同じ「未確認の断定」で汚染されていた**。以下は全 yml を実読して作成した表。

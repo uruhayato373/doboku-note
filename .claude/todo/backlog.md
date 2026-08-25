@@ -802,6 +802,23 @@ backlogのDN-0015/DN-0088/DN-0106を読んでください。
 
 ## 🟡 中 — 2〜3ヶ月以内
 
+### [DN-0134] 昇格後に asset-inbox を実走して R3 の納品 PDF 3 本を R2 へ反映する
+タグ: [インフラ・計測] [種類:改善] [実行:sweep] [検証:check-asset-storage] [起票:2026-08-25]
+
+BK-01_道路/R03 の納品 PDF 3 本を再生成して note ライブへ貼り直した（DN-0003）が、**R2 は 1 世代前のまま**。買い手に届くのは note ライブなので実害は無いが、アーカイブが配布実体と食い違っている。
+
+**経路は用意済み**（2026-08-25）: `scripts/asset-inbox-push.mjs` で GitHub Release へ送る → `.github/workflows/asset-inbox.yml` が展開して `asset-offload --commit` で R2 へ上げ、manifest を develop へ返す。R2 credential は CI にしかない。
+
+release は既に立っている: `asset-inbox-2026-08-25T02-58-58-838Z`（3 件 / 0.76 MiB）。
+
+**着手条件**: `develop` → `main` の昇格。**新規 workflow は default branch に無いと発火しない**ため、昇格するまで release は取り込まれず残り続ける。昇格後に:
+
+```bash
+gh workflow run asset-inbox.yml -f tag=asset-inbox-2026-08-25T02-58-58-838Z
+```
+
+**完了条件**: `check-asset-storage` の `[WARN] local-newer` 3 件が消える（照合件数も出るので「0 件照合で緑」と区別できる）。取り込みに成功すると release は自動削除される — **残っていれば取り込めていない**。
+
 ### [DN-0133] `placement.sidebar` は描画されないのに導線として数えられている
 タグ: [インフラ・計測] [種類:不具合] [実行:sweep] [検証:check-magazine-cta] [起票:2026-08-25]
 

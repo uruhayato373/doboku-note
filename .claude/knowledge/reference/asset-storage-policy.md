@@ -51,9 +51,24 @@ Actions から dispatch すると、CI 側の credential で R2 から取り出�
 group か path を指定 → dry_run で対象確認 → 本実行 → artifact を展開
 ```
 
-**取り出し専用**であることに注意。**退避（offload）は CI に代行させられない** ——
-CI は checkout で gitignore 済みのファイルを得られないので、そもそも上げるべき実体を持てない。
-退避は「実体を持っている端末」が `.env.local` に credential を置いて行う操作のまま。
+**退避（offload）も CI に代行させられる**（2026-08-25 新設）。CI は checkout で gitignore 済みの
+実体を得られないので、`scripts/asset-inbox-push.mjs` が GitHub Release を橋にしてファイルを CI まで運ぶ。
+
+```
+npm run asset-inbox-push -- --path '<前方一致>' --commit   # ローカル: R2 credential 不要
+  → release asset-inbox-<ts>（prerelease・inbox.tar.gz + inbox.json）
+  → .github/workflows/asset-inbox.yml が展開 → asset-offload --commit で R2 へ
+  → manifest 更新が develop へ返る → release は削除される
+```
+
+既定は **manifest と sha256 が違うものだけ**を送る（同一を上げ直しても転送量が増えるだけ）。
+`--all` で全件。R2 キーはパス基準なので**同キー上書き**＝古い世代は自動的に置き換わる。
+
+CI 側は tarball を tar 任せに展開しない。リポジトリ外で作られた入力なので、
+`.github/workflows/*.yml` を差し替えられると R2 credential ごと持っていかれる。
+`scripts/asset-inbox-ingest.mjs` が 1 エントリずつ (a) 絶対パス・`..` の拒否
+(b) 退避 group に該当しないパスの拒否 (c) `inbox.json` の sha256 照合 (d) 過不足の検出
+を行い、**1 件でも落ちたら配置しない**。
 
 ## 3. 新しいアセットを作ったとき
 
@@ -140,6 +155,7 @@ BK-01_道路/R03 の 3 本を再生成して R2 の記録と突き合わせた�
 | `R2 credential が無い` | `.env.local` 未設定、または会社 PC のプロキシ | `--offline` で cache のみ使う。足りないものは一覧で出る |
 | `sha256 が manifest と違う` | R2 側の破損 or 差し替え | 一時ファイルのまま捨てられる（壊れたものを正しい名前で置かない）。別端末の実体から `--commit` で上げ直す |
 | `解決不能` | cache に無く再生成もできない | 台帳と R2 を `check-asset-storage` と `--verify` で確認する。台帳に無いなら退避されていない |
+| `[WARN] local-newer` | ローカルで作り直した実体が R2 へ反映されていない | `node scripts/asset-inbox-push.mjs --path <該当> --commit` で CI へ送る。§2 の inbox 経路 |
 | 取得が遅い | 直列実行 | `--concurrency`（既定 8）。868 件の直列は約 12 分かかった |
 
 cache は `.local/cache/assets/`（Git 非追跡）。最終アクセス時刻の古い順に上限まで落とすだけで、

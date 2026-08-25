@@ -1,0 +1,142 @@
+name: Asset Inbox (local -> R2)
+
+# ローカルで作ったアセットを R2 へ取り込む。**R2 credential は CI にしか置かない**。
+#
+# なぜ要るか:
+#   退避対象（note カバー / 納品 PDF / 教材画像 …）は .gitignore 済みなので、
+#   CI は checkout でその実体を得られない。そこで scripts/asset-inbox-push.mjs が
+#   GitHub Release（tag: asset-inbox-*）を橋にしてファイルを CI まで運ぶ。
+#   この workflow がそれを受け取り、既存の asset-offload.mjs で R2 へ上げる。
+#
+#   [ローカル] node scripts/asset-inbox-push.mjs --path … --commit
+#     → release asset-inbox-<ts>（prerelease・inbox.tar.gz + inbox.json）
+#     → [CI] この workflow が展開 → asset-offload --commit → manifest を develop へ push
+#     → 成功したら release を削除（失敗時は残す＝再取り込みできる）
+#
+# **前提: この workflow は main に載るまで起動できない**（2026-08-25 実測）。
+#   workflow_dispatch も release トリガも、workflow 定義が default branch に無いと発火しない。
+#   → .claude/knowledge/reference/measurement-incidents.md「定期ジョブの実行ブランチ」節
+#
+# 安全側の設計:
+#   - 展開は tar 任せにせず node で 1 エントリずつ検証する（絶対パス・.. を拒否、
+#     asset-storage の group に該当しないパスを拒否＝.github/ や scripts/ を上書きさせない）
+#   - inbox.json の sha256 と一致しないファイルは配置しない
+#   - upload は既存 asset-offload.mjs に委譲（bytes + sha256 の読み直し検証と manifest 更新は
+#     そちらの実装に乗る。新しい upload コードを書かない）
+#   - 1 件でも配置に失敗したら upload へ進まない
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: '取り込む release tag（例 asset-inbox-2026-08-25T02-00-00-000Z）'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  ingest:
+    # release トリガのときは asset-inbox-* だけを処理する（通常のリリースで発火させない）
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      startsWith(github.event.release.tag_name, 'asset-inbox-')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: develop
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      - name: Resolve tag
+        id: tag
+        env:
+          EVENT: ${{ github.event_name }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+          INPUT_TAG: ${{ inputs.tag }}
+        run: |
+          set -eu
+          if [ "$EVENT" = "workflow_dispatch" ]; then TAG="$INPUT_TAG"; else TAG="$RELEASE_TAG"; fi
+          case "$TAG" in
+            asset-inbox-*) ;;
+            *) echo "::error::tag が asset-inbox-* ではない: $TAG"; exit 1 ;;
+          esac
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "取り込む tag: $TAG"
+
+      - name: Download inbox
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.tag.outputs.tag }}
+        run: |
+          set -eu
+          mkdir -p /tmp/inbox
+          gh release download "$TAG" --dir /tmp/inbox --clobber
+          ls -la /tmp/inbox
+          test -f /tmp/inbox/inbox.json
+          test -f /tmp/inbox/inbox.tar.gz
+
+      # tar へ直接展開しない。1 エントリずつ検証してから配置する。
+      - name: Extract and verify
+        id: extract
+        run: |
+          set -eu
+          mkdir -p /tmp/inbox/unpacked
+          tar -xzf /tmp/inbox/inbox.tar.gz -C /tmp/inbox/unpacked
+          node scripts/asset-inbox-ingest.mjs --unpacked /tmp/inbox/unpacked --meta /tmp/inbox/inbox.json
+
+      - name: Upload to R2
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+          GROUPS: ${{ steps.extract.outputs.groups }}
+        run: |
+          set -eu
+          for g in $GROUPS; do
+            echo "::group::offload $g"
+            node scripts/asset-offload.mjs --group "$g" --include-untracked --commit
+            echo "::endgroup::"
+          done
+
+      - name: Publish manifest to develop
+        run: |
+          set -eu
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add .claude/state/assets/manifest.json
+          if git diff --cached --quiet; then
+            echo "::warning::manifest に差分が無い。R2 へ上げたのに台帳が動いていないなら異常（上の offload ログの件数を読むこと）。"
+            exit 0
+          fi
+          git fetch origin develop
+          git rebase origin/develop
+          git commit -m "chore(assets): inbox ${{ steps.tag.outputs.tag }} を R2 へ取り込む [skip ci]"
+          git push origin HEAD:develop
+
+      # 取り込めたときだけ release を消す。失敗時は残して再実行できるようにする。
+      - name: Remove consumed inbox release
+        if: success()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.tag.outputs.tag }}
+        run: gh release delete "$TAG" --cleanup-tag --yes
+
+      - name: Report failure
+        if: failure()
+        env:
+          TAG: ${{ steps.tag.outputs.tag }}
+        run: |
+          echo "::error::inbox $TAG の取り込みに失敗した。release は残してあるので、原因を直して gh workflow run asset-inbox.yml -f tag=$TAG で再実行する。"
