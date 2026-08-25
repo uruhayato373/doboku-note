@@ -663,6 +663,17 @@ weekly.md の手動キューはこの ID だけを参照する（weekly は ID �
 
 ## 🟡 中 — 2〜3ヶ月以内
 
+### [DN-0136] IG 全体リコンサイル（ドリフト110件・リールギャップ97件）の実体調査
+タグ: [SNS・マーケ] [種類:不具合] [実行:対話] [起票:2026-08-25]
+
+DN-0011（civil-1/2 論点パック予約）の検証で `npm run verify-ig-status` を実行したところ、civil の論点パックとは別に、IG 全体（総監 `cem/exam-packs` 等含む）で **SoT整合ドリフト合計110件・リールギャップ97件・素材未投稿42件** が surface した。DN-0011 の検証中に偶然見つけた副産物で、内容の精査・優先度付けはまだしていない。
+
+- snapshot: `.claude/state/ig-reconcile/snapshot.json`
+- SoT是正の入口: `/ig-reconcile`（operator確認のうえ posted.json backfill / 未公開を予約）
+- リールギャップの入口: `figure-reel-create.mjs` でナレーション付きリール生成 → `publish-ig-bs --reel` で予約
+
+**次の一手**: snapshot を読み、ドリフト110件の内訳（誤検知/実ズレ/経年劣化のどれが多いか）とリールギャップ97件の規模感（1本あたりの制作コスト×97本は現実的な工数か）を先に把握してから、着手するかどうかをユーザーと判断する。
+
 ### [DN-0134] 昇格後に asset-inbox を実走して R3 の納品 PDF 3 本を R2 へ反映する
 タグ: [インフラ・計測] [種類:改善] [実行:sweep] [検証:check-asset-storage] [起票:2026-08-25]
 
