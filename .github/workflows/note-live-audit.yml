@@ -58,6 +58,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
+
+      # 監査スクリプト自体は node 組込み + curl だけで動くので依存は要らない。
+      # だが最後の publish 段が pre-commit フックを入れて commit するため、
+      # フックが import する gray-matter 等が無いと **commit が丸ごと落ちて job が赤になる**。
+      # 2026-08-25: DN-0126 で CRITICAL 71 を解消したあと workflow_dispatch したところ、
+      # 監査は全て通ったのに publish 段の ERR_MODULE_NOT_FOUND: gray-matter で失敗した
+      # （21 日赤の原因は 71 件だけではなかった）。psi-audit.yml と同じく npm ci を置く。
+      - name: Install dependencies
+        if: always()
+        run: npm ci --legacy-peer-deps
 
       - name: Audit note live structure
         if: always()
