@@ -36,6 +36,12 @@ on:
     - cron: "0 3 * * 5"
   workflow_dispatch:
 
+# DN-0109 Phase 1: develop への自動書込み系ワークフロー間の push 衝突を防ぐ共通グループ。
+# 同時実行を待たせるだけで落とさない（cancel-in-progress: false）。
+concurrency:
+  group: develop-git-write
+  cancel-in-progress: false
+
 permissions:
   contents: write # 観測ログ・improvements を develop へ push
   issues: write # 失敗時に automation-failure Issue を起票（限定例外）

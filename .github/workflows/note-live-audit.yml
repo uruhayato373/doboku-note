@@ -18,6 +18,12 @@ on:
     - cron: "30 22 * * 0" # 毎週月曜 07:30 JST（r2-audit の 30 分後にずらす）
   workflow_dispatch:
 
+# DN-0109 Phase 1: develop への自動書込み系ワークフロー間の push 衝突を防ぐ共通グループ。
+# 同時実行を待たせるだけで落とさない（cancel-in-progress: false）。
+concurrency:
+  group: develop-git-write
+  cancel-in-progress: false
+
 permissions:
   # snapshot（.claude/state/note/）を develop へ commit back するため write が要る。
   # read のままだと artifact にしか残らず、2026-06-12 の snapshot が 73 日腐り続けた。

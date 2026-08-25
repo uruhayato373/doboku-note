@@ -11,6 +11,12 @@ on:
     - cron: "0 20 * * 4" # JST 05:00 Friday（UTC 20:00 Thursday）
   workflow_dispatch:
 
+# DN-0109 Phase 1: develop への自動書込み系ワークフロー間の push 衝突を防ぐ共通グループ。
+# 同時実行を待たせるだけで落とさない（cancel-in-progress: false）。
+concurrency:
+  group: develop-git-write
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
