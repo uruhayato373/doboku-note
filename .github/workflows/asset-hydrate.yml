@@ -12,6 +12,13 @@ name: Asset Hydrate (R2 -> artifact)
 #   note-update-body の --reattach-pdf が 3 本ぶん中断した。
 #   credential を持つのは CI だけなので、取り出しを CI に代行させる。
 #
+# **前提: この workflow は main に載るまで起動できない**（2026-08-25 実測）。
+#   workflow_dispatch は「その名前の workflow が default branch に在るか」で起動可否が決まり、
+#   --ref develop を付けても `HTTP 404: not found on the default branch` になる。
+#   ref は実行するコードの選択にしか効かない。既存 workflow の中身の変更は develop で
+#   dispatch できるが、**新規追加は昇格後まで死んでいる**。
+#   → .claude/knowledge/reference/measurement-incidents.md「定期ジョブの実行ブランチ」節
+#
 # 使い方:
 #   1. Actions からこの workflow を dispatch し、group か path を指定する
 #   2. 完了後 artifact `hydrated-assets` をダウンロードして repo 直下へ展開する

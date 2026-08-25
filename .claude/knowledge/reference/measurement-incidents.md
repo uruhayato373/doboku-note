@@ -330,6 +330,21 @@ EXP-005 の作業報告で、**未検証の理由を 2 つとも誤って述べ�
 
 **`push 先` と `実行ブランチ` は別物**。checkout に `ref:` があればそのブランチ、無ければデフォルトブランチ（`main`）のコードが走る。
 
+> [!important] `workflow_dispatch` は **default branch に無いと起動すらできない**（2026-08-25 実測）
+> cron の「main のコードが走る」より一段強い制約がある。新しく `workflow_dispatch` の workflow を
+> 足して develop へ push しても、**API/UI からトリガーできない**:
+>
+> ```
+> HTTP 404: workflow asset-hydrate.yml not found on the default branch
+> ```
+>
+> `--ref develop` を付けても同じ。GitHub は「その名前の workflow が default branch に存在するか」で
+> 起動可否を決め、`ref` は**実行するコードの選択**にしか使わない。既存 workflow の中身を直した場合は
+> develop で dispatch できる（名前は main に在るため）が、**新規追加は main へ載るまで死んでいる**。
+>
+> つまり「develop に置いたから使える」は成り立たない。新規の dispatch workflow を作ったら、
+> 使えるようになるのは `/deploy` で main へ昇格した後。
+
 | workflow | cron | **実行ブランチ** | push 先 | 対象 |
 |---|---|---|---|---|
 | `psi-audit.yml` | `0 17 * * *` | **main**（ref 無し） | develop | PSI / Core Web Vitals |
