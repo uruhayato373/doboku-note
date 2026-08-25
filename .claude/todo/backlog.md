@@ -115,31 +115,38 @@ CRITICAL になっていた（BOUNDARY_SHIFT へ移っただけで総数 270 は
 
 **完了条件**: レポートに field の取得件数が出る。field 不在時にゲートが「判定不能」を表明する（緑にしない）。判定原則を変えたなら `measurement-incidents.md` の 2026-07-27 エントリを更新する。
 
-### [DN-0128] 高流入ページ 9 本に note 導線が無い（3 週連続で未着手）
-タグ: [収益化] [種類:改善] [実行:対話] [起票:2026-08-25]
+### [DN-0128] 高流入ページの note 導線ゼロ — 5 面を配線し、計測の 2 つの偽陰性を直した
+タグ: [収益化] [種類:改善] [実行:対話] [検証:check-magazine-cta] [起票:2026-08-25]
 
-週次レビューで W33・W34・W35 と 3 週続けて Must に挙がりながら、**backlog に起票されていなかったため毎週レビューの中だけで流れていた**。台帳へ載せて追跡する。
+W33・W34・W35 と 3 週続けて Must に挙がりながら消えなかった。**原因の半分は計測側だった**（2026-08-25 実査）。
 
-`report-monetization-coverage`（2026-08-25 実行・流入窓 07-24〜08-20）で、高流入なのに note 導線がゼロ（アフィリ枠のみ）のページが **9 本**:
+`report-monetization-coverage` は `placement.inline` と `placement.sidebar` しか数えておらず、次の 2 経路を見ていなかった:
 
-| ページ | users | group |
-|---|--:|---|
-| `pe-comprehensive-management-r08-primary` | 104 | pastExam |
-| `pe-construction-competency-revision-r8` | 39 | guide |
-| `pe-first-stage-r07-basic` | 29 | primary |
-| `pe-comprehensive-management-general-vs-comprehensive` | 24 | guide |
-| `concrete-chief-engineer-textbook-mix-design` | 21 | textbook |
+| 見ていなかった経路 | 実害 |
+|---|---|
+| `placement.top`（冒頭 1 行 CTA） | `pe-comprehensive-management-r08-primary`(104users) と `pe-construction-competency-revision-r8`(39users) は **W33 時点で配線済み**なのに 3 週続けて「未配線」として再掲されていた |
+| `resolveHubCta`（もくじタイル・記事末尾＋サイドバー） | HUB 資格の guide が混ざる。`general-vs-comprehensive`(24users) / `civil-construction-1-guide-grade-comparison`(17users) |
 
-他 4 件: `concrete-diagnostician-guide-overview`(19) / `concrete-chief-engineer-primary-construction`(18) / `civil-construction-1-guide-grade-comparison`(17) / `concrete-chief-engineer-textbook-production-qc`(15)。全量は `.claude/state/metrics/monetization/coverage-latest.md`。
+両方を数えるよう修正 → **9 → 1**。
 
-**やる根拠は推測ではない**: 同型配置の civil 二次系で noteCTR が出ている（`civil-construction-2-secondary-r07` 12.6% / `civil-construction-1-secondary-r07` 13.7% / `civil-construction-2-secondary-experience-writing-examples` 12.5%）。
+**真に未配線だった 5 面を配線した**（`src/lib/magazine-placement.ts` §11）:
 
-**実行順**: ①各ページの資格セグメントに合う live マガジンを `src/lib/magazine-placement.ts` で配線する（資格をまたがせない）②`npm run check-magazine-cta` と `report-monetization-coverage` で「note 導線ゼロ」が減ったことを実数で確認する ③概念的に合う商品が無いページはその旨を書いて対象から外す（無理に張らない）
+| ページ | users | 配線 | 根拠 |
+|---|--:|---|---|
+| `pe-first-stage-r0X-{basic,aptitude,specialty}` | 29 | top: pe1-takuitsu-pdf | 同一試験・令和元〜7年度 全560問で読んでいる年度を含む完全一致。regex 化で 15 面に波及 |
+| `concrete-chief-engineer-textbook-production-qc` | 15 | top + inline: cce-essay-magazine | 小論文 4 テーマの「品質管理」に直結。h2=6/15,341字 で中間 CTA も発火 |
+| `concrete-chief-engineer-primary-construction` | 18 | top: cce-essay-magazine | 「施工トラブル」テーマに接続。group=primary で mid 非対象 |
+| `concrete-chief-engineer-textbook-mix-design` | 21 | top: cce-essay-magazine | 「耐久性」（W/C比・かぶり）経由。上 2 つより接続は弱い。h2=4 で mid 不発 |
+| `concrete-diagnostician-guide-overview` | 19 | top + inline: cd-essay-magazine | 本文が「四肢択一40問と記述式」で合否の分かれ目に触れる。h2=6/10,280字 |
 
-**完了条件**: 「note 導線ゼロ」9 → 0、または残余それぞれに「張らない理由」がある。次回レビューで noteCTR の初期値を記録する。
+**残 1 面は張らない**: `civil-construction-1-guide-grade-comparison` は `tags: [career]` を持ち、`showMokuji` が career 記事を除外する（転職一本方針＝転職テキスト CTA と二重化させない・`page.tsx:328`）。**設計どおりの 0 であって取りこぼしではない**。
+
+**別途見つかった計測の穴（未修正）**: `placement.sidebar` は 2026-07 の CTA 統一以降 `page.tsx` から一度も参照されていない（`.top` と `.inline[0]` のみ）。レポートはこれを導線として数え続けているので、sidebar だけ配線されたページを**過大評価**している。`sidebarHasPaidMagazine` がアフィリ枠の導出に使われているため、外すなら影響範囲の確認が要る → DN-0133 へ切り出し。
+
+**完了条件**: 「note 導線ゼロ」9 → 1（残 1 は設計どおり）✅ / `check-magazine-cta` PASS ✅ / `type-check` PASS ✅。次回レビューで 5 面の noteCTR 初期値を記録する。
 
 ### [DN-0119] 転職アフィリの取りこぼし — career タグなのにアフィリ面が無いページ
-タグ: [収益化] [種類:不具合] [実行:sweep] [検証:check-career-separation] [起票:2026-08-24]
+タグ: [収益化] [種類:不具合] [実行:sweep] [起票:2026-08-24]
 
 `check-career-separation` が **WARN で名指ししているのに放置されている**（WARN はコミットを止めないため誰も消化していない）。スクリプト自身のコメントが「アフィリ面の取りこぼし」と書いている状態。
 
@@ -181,7 +188,7 @@ CRITICAL になっていた（BOUNDARY_SHIFT へ移っただけで総数 270 は
 いずれもサイトでは公開中（`published: true`）。有料の Amazon 配布は露出の性格が違うので、Kindle 提出はこのゲート通過後。EPUB 実体は `kindle-dist/` に無く退避台帳にも無いので、提出時は `scripts/build-pe1-kindle.mjs` で再ビルドする。
 
 ### [DN-0100] note回遊導線の緊急修復（試験後CTA・有料74本L3・ライブ4本）
-タグ: [収益化] [種類:不具合] [実行:対話] [検証:check-note-paid-cta] [起票:2026-08-20] [期日:2026-08-23]
+タグ: [収益化] [種類:不具合] [実行:対話] [起票:2026-08-20] [期日:2026-08-23]
 
 2026-08-20 の `/audit-note-funnel --semantic` 再監査は **FAIL（7/12）**。サイト側の商品到達性は保たれているが、総監の共通冒頭CTAが本試験後も「本番直前・R8最終予想」のまま、有料記事74本は無料プレビュー内に同資格L2への帰路がなく、公開4本はソースとnoteライブが不一致。
 
@@ -736,6 +743,19 @@ backlogのDN-0015/DN-0088/DN-0106を読んでください。
 
 ## 🟡 中 — 2〜3ヶ月以内
 
+### [DN-0133] `placement.sidebar` は描画されないのに導線として数えられている
+タグ: [インフラ・計測] [種類:不具合] [実行:sweep] [検証:check-magazine-cta] [起票:2026-08-25]
+
+DN-0128 の調査で見つかった。`src/app/docs/[...slug]/page.tsx` が `magazinePlacement` から読むのは **`.top`（L342）と `.inline[0]`（L413）だけ**で、`.sidebar` はどこからも参照されていない。2026-07 の CTA 統一（もくじタイルへ一本化）で参照が外れたまま、`magazine-placement.ts` 側の定義だけが残っている。
+
+**実害**: `report-monetization-coverage` が `liveSidebar` を note 導線として数えているため、**sidebar だけ配線されたページを「導線あり」と過大評価する**。DN-0128 で `top` と もくじタイルの偽陰性は直したが、この偽陽性は残っている。既存の記述も複数箇所で「死に配線」と認識している（`magazine-placement.ts` の §9・§10 コメント）。
+
+**単純に外せない理由**: レポートの `sidebarHasPaidMagazine` が `deriveAffiliate()` の引数になっており、アフィリ枠の導出結果が変わりうる。先に「sidebar だけを持つページが何本あるか」を数えてから決める。
+
+**実行順**: ①`resolvePlacement` 全 slug を走査し sidebar 単独配線のページ数を出す ②0 件なら定義ごと削除、ある程度あるなら `top` か `inline` へ移す ③`deriveAffiliate` の判定を sidebar 非依存に置き換える ④レポートから `liveSidebar` を外す
+
+**完了条件**: `ResolvedPlacement.sidebar` が消えるか、消さないなら描画に戻る。レポートの note 導線が描画実体と一致する。
+
 ### [DN-0132] 有料 706 本のうち 270 本で有料境界がソースの想定と違う
 タグ: [コンテンツ品質] [種類:不具合] [実行:対話] [検証:check-note-structure] [起票:2026-08-25]
 
@@ -760,7 +780,19 @@ DN-0126 で判定基準を揃えた結果、`FREE_PREVIEW_COLLAPSE` 71 件は消
 
 `/backlog-sweep` 自体も 2 週間止まっている（`dispatch-log` が 08-18 以降 0 エントリ）。台帳は増えるのに消化と陳腐化検出の両方が効いていない。
 
-**実行順**: ①常時緑 4 枚の `[検証:]` を「赤→緑で完了が判る」コマンドへ差し替える。適当なものが無ければ token ごと外す（嘘の完了判定を残さない）②`[検証:]` 無し 55 枚のうち `[実行:sweep]`/`[機械]` の分から優先して検証コマンドを付ける ③重複候補 2 ペア（L529↔L595・L961↔L1082）を統合するか、別物なら違いを本文に 1 行書く
+**①は完了（2026-08-25）**。カード起票時の「常時緑 4 枚」は実走で **5 枚**だった（`check-backlog-verify` 実行値。`test:e2e:admin` は解消済み、`check-career-separation` と `check-doc-refs` が新たに該当）。5 枚とも「赤→緑で完了が判る」既存 npm script が無かったので token を外した:
+
+| カード | 外した `[検証:]` | 外した理由 |
+|---|---|---|
+| DN-0119 | check-career-separation | WARN は exit 0 で、strict モードが無い |
+| DN-0100 | check-note-paid-cta | 実体は `wire-note-paid-cta --check`＝dry-run レポートで常に 0 件 |
+| DN-0101 | audit-note-funnel | `--ci` 版（check-note-funnel）も緑。カード自身が「機械監査では判定できない」と書いている |
+| DN-0125 | check-doc-refs | パス参照の検査で、語彙の境界とは無関係（付与時の誤り） |
+| DN-0072 | quality-census | census.json を再生成するだけ。thin 件数を赤にするゲートが無い |
+
+`[検証:]` は package.json の script 名しか書けない（`check-backlog-schema.mjs:95`）ため、`--strict` を持たない surfacer は指しようがない。**新しくゲートを作って埋めるのは避けた** — 別作業が終わるまで構造的に赤いゲートは偽赤で、緑と同じくらい信号を殺す。
+
+**残りの実行順**: ②`[検証:]` 無し 55 枚のうち `[実行:sweep]`/`[機械]` の分から優先して検証コマンドを付ける ③重複候補 2 ペア（L529↔L595・L961↔L1082）を統合するか、別物なら違いを本文に 1 行書く
 
 **完了条件**: `check-backlog-verify` の「常時緑」が 0。sweep 到達可能なカードすべてが `[検証:]` を持つ。`check-backlog-health` の S8 重複候補が 0。
 
@@ -1350,7 +1382,7 @@ Playwrightのログインprofileはサービス別に永続化されているが
 **完了条件**: runtimeのMac絶対パスとrepo相対profile直書きが0、全対象が共通resolver利用、Windows/Mac双方でnoteのlogin→close→別プロセスstatusとworktree非依存がPASSする。専用スキルが薄いCLIオーケストレーターとして登録され、専用agentが増えていない。A8 profile-plus-state、afb same-process、Gmail非対応を維持し、`check-playwright-auth-wiring:strict`・auth CLIテスト・affiliate/Google配線・lint/type-check/doc refsがPASS。profile/state/Cookie/password/token/2FAのGit差分は0。
 
 ### [DN-0101] note L1/L2・サイト→note意味導線の再編
-タグ: [UI・UX] [種類:改善] [実行:対話] [検証:audit-note-funnel] [起票:2026-08-20] [期日:2026-10-04]
+タグ: [UI・UX] [種類:改善] [実行:対話] [起票:2026-08-20] [期日:2026-10-04]
 
 DN-0100で行き止まりと季節ドリフトを止めた後、機械監査では判定できない「読者の現在地に合う次の一歩」を再編する。L1総合案内は公開済みコンクリート2資格を「準備中」と表示し、技術士第一次試験の入口がない。3つのL2は有料商品が無料記事より先で、サイトの1級一次→二次CTAは10月以降の戻しが手動コメントに依存している。
 
@@ -1696,7 +1728,7 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 ## 🟢 低 — 時期未定
 
 ### [DN-0125] `noteSeries` と `noteMagazine` の 2 語彙が 200 本で食い違っている — 境界を決める
-タグ: [インフラ・計測] [種類:改善] [実行:sweep] [検証:check-doc-refs] [起票:2026-08-24]
+タグ: [インフラ・計測] [種類:改善] [実行:sweep] [起票:2026-08-24]
 
 **事実**（2026-08-24 実査・827 本の frontmatter 全走査）:
 
@@ -1819,7 +1851,7 @@ Anthropic の Opus 5 プロンプトガイドが「旧モデル向けに仕込�
 合格マージン大（2.2:2/2.3:27/2.4:7/2.5:4）で緊急度低。先頭 = inventory-control / personal-info-protection / risk-analysis / ojt-off-jt。1バッチ4本。
 
 ### [DN-0072] 薄層 345本の散文増補（3,000字下限）
-タグ: [コンテンツ品質] [種類:制作] [Codex候補] [実行:sweep] [検証:quality-census]
+タグ: [コンテンツ品質] [種類:制作] [Codex候補] [実行:sweep]
 
 総監 keyword 328（5/29 demote 源流コホート・[[project_adsense_low_value_2026_07]] の続き）・pe-construction keyword 16・concrete textbook 1。3,000字下限へ散文増補（7月112本バッチの継続）。census の thin 指標で残数管理（`npm run quality-census`）。
 

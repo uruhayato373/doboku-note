@@ -664,6 +664,58 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
+  // 11. 高流入なのに note 導線が無かった 5 面（DN-0128・2026-08-25）。
+  //     W33/W34/W35 と 3 週続けて Must に挙がり続けた面のうち、実際に未配線だったもの。
+  //     （r08-primary と competency-revision-r8 は W33 時点で top 配線済みだったが、
+  //      report-monetization-coverage が placement.top を数えていなかったため未配線に見えていた。
+  //      レポート側を同日修正済み。）
+  //
+  //     いずれも **top（冒頭 CTA）** を主に使う。理由は 9・10 と同じ:
+  //       - inline（中間 CTA）は midEligibleGroup=guide/pillar/textbook/civil-secondary かつ
+  //         h2>=5 かつ本文 8,000 字が条件（page.tsx）。primary は対象外
+  //       - sidebar は 2026-07 の CTA 統一以降どこからも参照されない（死に配線）
+  //       - concrete 2 資格と技術士一次は非 HUB でもくじタイルも出ない＝top が唯一の置き場
+  //     条件を満たす 2 面だけ inline も併記して中間 CTA を発火させる。
+
+  // 技術士 第一次試験 令和7年度 基礎科目（29users・全30問 69,753字）→ 一次 過去問PDF 合本。
+  // 同一試験・令和元〜7年度 全560問・全選択肢解説で、読んでいる年度をそのまま含む完全一致。
+  // 総監 r0X-primary → 択一 過去問PDF（4.2）と同型。group=primary なので inline は描画されない。
+  if (/^pe-first-stage-r0[1-9]-(basic|aptitude|specialty)$/.test(slug)) {
+    return { top: slot('pe1-takuitsu-pdf', slug, 'top'), inline: [], sidebar: [] };
+  }
+
+  // コンクリート主任技士 テキスト/過去問 → 小論文 入口マガジン（¥2,480 5本セット）。
+  // 上位版 persona-pack ではなく入口を置くのは 9 と同じラダー方針（DN-0095 §5）。
+  // テーマ接続: 小論文の 4 テーマは 品質管理／耐久性／環境配慮／施工トラブル。
+  //   - textbook-production-qc（製造・品質管理／検査）→「品質管理」に直結
+  //   - primary-construction（過去問 施工）→「施工トラブル」に接続
+  //   - textbook-mix-design（配合設計）→「耐久性」（W/C 比・かぶり）経由の接続で、上 2 つより弱い
+  if (
+    slug === 'concrete-chief-engineer-textbook-production-qc' ||
+    slug === 'concrete-chief-engineer-textbook-mix-design' ||
+    slug === 'concrete-chief-engineer-primary-construction'
+  ) {
+    // inline は h2>=5 かつ 8,000 字を満たす textbook のみ意味を持つ。
+    // mix-design は h2=4 で発火せず、primary-construction は group が mid 対象外。
+    const midOk = slug === 'concrete-chief-engineer-textbook-production-qc';
+    return {
+      top: slot('cce-essay-magazine', slug, 'top'),
+      inline: midOk ? [slot('cce-essay-magazine', slug, 'inline-1')] : [],
+      sidebar: [],
+    };
+  }
+
+  // コンクリート診断士 試験概要（19users・非HUB で商品到達性ゼロだった）→ 記述式 模範答案集。
+  // 本文が「四肢択一40問と記述式」で合否の分かれ目に触れる面。guide / h2=6 / 10,280字 で
+  // 中間 CTA の条件（h2>=5・8,000字）を満たすため inline も置く。
+  if (slug === 'concrete-diagnostician-guide-overview') {
+    return {
+      top: slot('cd-essay-magazine', slug, 'top'),
+      inline: [slot('cd-essay-magazine', slug, 'inline-1')],
+      sidebar: [],
+    };
+  }
+
   return EMPTY;
 }
 

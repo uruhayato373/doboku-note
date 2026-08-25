@@ -30,7 +30,7 @@ import {
 // 切り出せず、生成物に絶対パスがそのまま焼き込まれて commit される（2026-08-18 修正）。
 // check-note-site-utm が Windows で常に 0 件になった事故（2026-07-28）と同型。
 import { basename, join } from "path";
-import { classifyDoc } from "../../src/lib/doc-classifier.ts";
+import { classifyDoc, isCareerDoc } from "../../src/lib/doc-classifier.ts";
 import { resolvePlacement } from "../../src/lib/magazine-placement.ts";
 import { resolveHubCta } from "../../src/lib/hub-cta.ts";
 import { getMagazine } from "../../src/lib/note-magazines.ts";
@@ -144,8 +144,22 @@ for (const [slug, meta] of Object.entries(metaIndex)) {
   const placement = resolvePlacement(slug, docGroup as any);
   const liveInline = placement.inline.filter((s) => getMagazine(s.magazineId));
   const liveSidebar = placement.sidebar.filter((s) => getMagazine(s.magazineId));
+  // **top（冒頭 1 行 CTA）も導線に数える**。2026-08-25 まで inline+sidebar しか見ておらず、
+  // top だけで配線したページが「note 導線ゼロ」に出続けていた。pastExam は MidCta の
+  // midEligibleGroup に入らないため inline を足しても描画されず、`top` が唯一の置き場になる
+  // （magazine-placement.ts 4.2 の説明どおり）。そこを数えないと、正しく配線した面ほど
+  // 未配線に見える。実害: r08-primary(104users) と competency-revision-r8(39users) は
+  // W33 に配線済みなのに W33・W34・W35 と 3 週続けて「未配線」として Must に挙がっていた。
+  const liveTop = placement.top && getMagazine(placement.top.magazineId) ? [placement.top] : [];
+  // **もくじタイル（resolveHubCta）も導線に数える**。page.tsx は HUB 資格の記事すべてに
+  // 記事末尾＋サイドバーの 2 面で出しており（showMokuji）、placement とは別系統の note 導線。
+  // ここを見ていなかったため、HUB 資格の guide が「note 導線ゼロ」に混ざっていた
+  // （general-vs-comprehensive 24users / civil-1 guide-grade-comparison 17users）。
+  // 非 HUB 資格（技術士一次・concrete・reference）には null が返るので自然に対象外になる。
+  const hubTile = !isCareerDoc(meta as any) ? resolveHubCta(meta.category) : null;
   const noteCta = [
-    ...new Set([...liveInline, ...liveSidebar].map((s) => s.magazineId)),
+    ...new Set([...liveTop, ...liveInline, ...liveSidebar].map((s) => s.magazineId)),
+    ...(hubTile ? [hubTile.trackLabel] : []),
   ];
   const sidebarHasPaidMagazine = liveSidebar.some(
     (s) => Boolean(getMagazine(s.magazineId)?.price),
