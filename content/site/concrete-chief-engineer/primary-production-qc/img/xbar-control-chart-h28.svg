@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" style="max-width:500px;width:100%" role="img" aria-label="X̄管理図。UCL・+2σ・+1σ・CL・-1σ・-2σ・LCLの水平線上に、A群からD群までの圧縮強度試験値の点が折れ線で示されている">
+  <rect x="50" y="40" width="442" height="220" fill="none" stroke="#222" stroke-width="1.5"/>
+  <line x1="50" y1="40.0" x2="492" y2="40.0" stroke="#222" stroke-width="1"/>
+  <text x="44" y="44.0" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">UCL</text>
+  <line x1="50" y1="76.7" x2="492" y2="76.7" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="44" y="80.7" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">+2σ</text>
+  <line x1="50" y1="113.3" x2="492" y2="113.3" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="44" y="117.3" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">+1σ</text>
+  <line x1="50" y1="150.0" x2="492" y2="150.0" stroke="#222" stroke-width="1"/>
+  <text x="44" y="154.0" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">CL</text>
+  <line x1="50" y1="186.7" x2="492" y2="186.7" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="44" y="190.7" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">-1σ</text>
+  <line x1="50" y1="223.3" x2="492" y2="223.3" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="44" y="227.3" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">-2σ</text>
+  <line x1="50" y1="260.0" x2="492" y2="260.0" stroke="#222" stroke-width="1"/>
+  <text x="44" y="264.0" text-anchor="end" font-family="sans-serif" font-size="11" fill="#222">LCL</text>
+  <rect x="51.5" y="62.0" width="108.3" height="176.0" rx="10" fill="none" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="5 3"/>
+  <text x="105.6" y="56.0" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">A群</text>
+  <rect x="159.0" y="62.0" width="108.3" height="176.0" rx="10" fill="none" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="5 3"/>
+  <text x="213.1" y="56.0" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">B群</text>
+  <rect x="266.5" y="62.0" width="108.3" height="176.0" rx="10" fill="none" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="5 3"/>
+  <text x="320.6" y="56.0" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">C群</text>
+  <rect x="374.0" y="62.0" width="116.6" height="176.0" rx="10" fill="none" stroke="#8a8a8a" stroke-width="1.2" stroke-dasharray="5 3"/>
+  <text x="432.3" y="56.0" text-anchor="middle" font-family="sans-serif" font-size="12" font-weight="bold" fill="#222">D群</text>
+  <polyline points="56.0,139.0 64.3,161.0 72.5,117.0 80.8,164.7 89.1,161.0 97.3,128.0 105.6,117.0 113.9,131.7 122.2,164.7 130.4,161.0 138.7,109.7 147.0,128.0 155.2,164.7 163.5,102.3 171.8,113.3 180.0,212.3 188.3,120.7 196.6,168.3 204.8,172.0 213.1,150.0 221.4,150.0 229.7,139.0 237.9,161.0 246.2,150.0 254.5,106.0 262.7,172.0 271.0,135.3 279.3,76.7 287.5,80.3 295.8,95.0 304.1,106.0 312.3,124.3 320.6,131.7 328.9,139.0 337.2,157.3 345.4,164.7 353.7,142.7 362.0,153.7 370.2,139.0 378.5,164.7 386.8,153.7 395.0,131.7 403.3,146.3 411.6,153.7 419.8,142.7 428.1,146.3 436.4,157.3 444.7,186.7 452.9,157.3 461.2,146.3 469.5,153.7 477.7,131.7 486.0,153.7" fill="none" stroke="#555" stroke-width="1.5"/>
+  <rect x="52.0" y="135.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="60.3" y="157.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="68.5" y="113.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="76.8" y="160.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="85.1" y="157.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="93.3" y="124.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="101.6" y="113.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="109.9" y="127.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="118.2" y="160.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="126.4" y="157.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="134.7" y="105.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="143.0" y="124.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="151.2" y="160.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="159.5" y="98.3" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="167.8" y="109.3" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="176.0" y="208.3" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="184.3" y="116.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="192.6" y="164.3" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="200.8" y="168.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="209.1" y="146.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="217.4" y="146.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="225.7" y="135.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="233.9" y="157.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="242.2" y="146.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="250.5" y="102.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="258.7" y="168.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="267.0" y="131.3" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="275.3" y="72.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="283.5" y="76.3" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="291.8" y="91.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="300.1" y="102.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="308.3" y="120.3" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="316.6" y="127.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="324.9" y="135.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="333.2" y="153.3" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="341.4" y="160.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="349.7" y="138.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="358.0" y="149.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="366.2" y="135.0" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="374.5" y="160.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="382.8" y="149.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="391.0" y="127.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="399.3" y="142.3" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="407.6" y="149.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="415.8" y="138.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="424.1" y="142.3" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="432.4" y="153.3" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="440.7" y="182.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="448.9" y="153.3" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="457.2" y="142.3" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="465.5" y="149.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="473.7" y="127.7" width="8" height="8" fill="#222" stroke="#222"/>
+  <rect x="482.0" y="149.7" width="8" height="8" fill="#222" stroke="#222"/>
+</svg>
