@@ -248,7 +248,11 @@ async function main() {
   async function processOne(r) {
     const localSha = await sha256Stream(r.abs);
     const prev = manifest.entries[toPosix(r.path)];
-    if (SKIP_EXISTING && prev && prev.sha256 === localSha && prev.r2Key === r.key) { skipped++; return; }
+    // r2Key（パス文字列）だけの比較だと、byVisibility ルーティングで
+    // 「同じ相対パス・違うバケット」（public⇄private の切替）を見逃す
+    // （2026-08-26 DN-0138 実測: 20 件のドリフトのうち 18 件を誤ってスキップした）。
+    // bucket 名（実際に PUT した先）も一致条件に加える。
+    if (SKIP_EXISTING && prev && prev.sha256 === localSha && prev.r2Key === r.key && prev.bucket === r.bucket) { skipped++; return; }
 
     try {
       const { readFileSync } = await import('node:fs');
