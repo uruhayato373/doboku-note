@@ -2,7 +2,7 @@
 
 <!-- audit:2026-08-18 -->
 > [!note] 未チェック記法の位置づけ（2026-08-18 実査）
-> 出品前に満たすべき**受入条件**であって実行タスクではない（文書名のとおりチェックリスト）。backlog へ起票しない。なお `brain-civil-essay-kit` は `src/lib/brain-products.ts` で `status: listed`＝出品済みで、残る配布物検証は backlog `DN-0030` が持つ。
+> 出品前に満たすべき**受入条件**であって実行タスクではない（文書名のとおりチェックリスト）。backlog へ起票しない。なお `brain-civil-essay-kit` は `src/lib/brain-products.ts` で `status: listed`＝出品済みで、残る配布物検証は backlog `DN-0135`（外部依存の統合カード）の 7 行目が持つ。
 
 ## 1. 商品本体
 

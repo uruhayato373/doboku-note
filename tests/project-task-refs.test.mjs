@@ -46,6 +46,26 @@ test('backlog に無い DN-#### は error、実在する ID は通す', () => {
   assert.deepEqual(ok.errors, []);
 });
 
+// 2026-08-25: この台帳は「完了＝カードごと削除」で完了を表すので、週次レビューが実績を
+// 「DN-XXXX 完了」と ID で書くと翌週には必ず参照切れになる＝**片付けるほど赤くなる**。
+// 偽赤は偽緑と同じくらい信号を殺すので、日付つきスナップショットに限って warning へ降格する。
+// live 文書（作業指示書として今も読まれるレビューを含む）は error のまま——ここを緩めると
+// 「読者を存在しないタスクへ案内する」本来の実害が拾えなくなる。
+test('週次スナップショットの参照切れは warning、live 文書は error のまま', () => {
+  const md = '- R2 台帳外の一掃（`DN-9999` 完了）';
+  const snap = auditProjectDoc('docs/reviews/weekly/2026-W35-review.md', md, IDS);
+  assert.deepEqual(snap.errors, [], '週次スナップショットで error にしない');
+  assert.deepEqual(snap.warnings.map((w) => w.rule), ['dangling-id']);
+
+  // 同じ reviews/ でも weekly/ の外は live 扱い（例: 作業指示書として参照され続ける静的監査）
+  const live = auditProjectDoc('docs/reviews/2026-07-11-static-ui-codebase-audit.md', md, IDS);
+  assert.deepEqual(live.errors.map((e) => e.rule), ['dangling-id']);
+
+  // 廃止参照は週次でも error（降格するのは dangling-id だけ）
+  const retired = auditProjectDoc('docs/reviews/weekly/2026-W35-review.md', '`task-queue.json` 参照', IDS);
+  assert.deepEqual(retired.errors.map((e) => e.rule), ['retired-ref']);
+});
+
 test('「次のアクション」配下の ID 無し未チェックは warning、ID か criterion があれば出さない', () => {
   const base = ['## 次のアクション', '', '- [ ] 何かをする'].join('\n');
   assert.deepEqual(auditProjectDoc('docs/strategy/a.md', base, IDS).warnings.map((w) => w.rule), [
