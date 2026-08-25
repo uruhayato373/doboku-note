@@ -1448,14 +1448,6 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 2. `npm run build-frequent-topics` で再生成
 3. **note 記事のタイトルにも「17年分680問」が入っている**（`note-published.json:173`）。サイトだけ更新すると食い違うので note republish まで同時に行う
 
-### [DN-0056] 図クロップ写り込み・切断の是正
-タグ: [コンテンツ品質] [種類:不具合] [実行:sweep] [起票:2026-08-18]
-
-`check-figure-crop`（2026-07-16 新設・機械ゲート）が検出した既存債務。baseline 登録済みで CI は通るが、実体は要修復。**ImageMagick 7.1.2 はこのマシンに導入済み**で `figure-recrop.mjs` は実行可能（2026-08-18 確認）。
-
-- **STRAY_SLIVER 15図（隣接図の切れ端＝写り込み・要 recrop）**: 一覧は `.claude/state/quality/figure-crop-report.json` の `rule=STRAY_SLIVER`。ユーザー報告の `r07-a-fig-04`（下端ルビ）を含む。各図 `node scripts/figure-recrop.mjs <img> --top/--bottom F` で除去→ `check-figure-crop --file` で clean 確認。precision ≈ 8/10 なので着手前に1枚ずつ現物 Read（alarp-carrot 等の FP は触らない）。
-- **`r07-a-fig-02`（「収縮限界」欠け・切断済み＋白枠で機械検出不能）**: 再クロップでは修復不可（画素欠損）。provenance `rescannable:needs-source` → 元スキャン（`content/sources/textbook/１級土木施工管理技士`）から再抽出が必要。
-- 是正後は該当図を除いて `check-figure-crop --update-baseline` で baseline を刈り込む。
 ### [DN-0057] OGP タイトルが 3 行以上に折れる 121 件のチューニング
 タグ: [UI・UX] [種類:改善] [実行:sweep] [検証:check-ogp-line-count:done] [起票:2026-08-18]
 

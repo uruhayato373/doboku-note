@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-08-25T00:59:35.242Z",
+  "generated_at": "2026-08-25T05:21:28.369Z",
   "scanned": 577,
   "skipped_photo": 36,
   "framed": 0,
   "errors": 0,
   "counts": {
-    "HIGH": 349,
+    "HIGH": 326,
     "MEDIUM": 0,
-    "LOW": 181
+    "LOW": 178
   },
   "violations": [
     {
@@ -242,20 +242,6 @@
       "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 123%≥50%・縁幅 13%）"
     },
     {
-      "path": "content/site/civil-construction-1/primary-h29-b/img/h29-b-fig-02.png",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 200%≥50%・縁幅 3%）"
-    },
-    {
-      "path": "content/site/civil-construction-1/primary-h29-b/img/h29-b-fig-02.png",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁の極薄インク島（高さ2px・全インクの0.1%・白ギャップ8px）＝隣接図の切れ端＝写り込み"
-    },
-    {
       "path": "content/site/civil-construction-1/primary-h30-a/img/h30-a-fig-06.png",
       "rule": "EDGE_CUT",
       "severity": "HIGH",
@@ -282,27 +268,6 @@
       "severity": "LOW",
       "side": "bottom",
       "detail": "bottom縁の分離島（高さ24px・全インクの3.8%・白ギャップ49px）＝小見出し/軸/写り込みのいずれか（要目視）"
-    },
-    {
-      "path": "content/site/civil-construction-1/primary-r01-a/img/r01-a-fig-08.png",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 13400%≥50%・縁幅 7%）"
-    },
-    {
-      "path": "content/site/civil-construction-1/primary-r01-a/img/r01-a-fig-08.png",
-      "rule": "THIN_MARGIN",
-      "severity": "LOW",
-      "side": "bottom",
-      "detail": "白マージン 1px < 4px"
-    },
-    {
-      "path": "content/site/civil-construction-1/primary-r01-a/img/r01-a-fig-08.png",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁の極薄インク島（高さ2px・全インクの1.1%・白ギャップ97px）＝隣接図の切れ端＝写り込み"
     },
     {
       "path": "content/site/civil-construction-1/primary-r01-b/img/r01-b-fig-02.png",
@@ -527,20 +492,6 @@
       "severity": "LOW",
       "side": "bottom",
       "detail": "bottom縁の分離島（高さ14px・全インクの1.5%・白ギャップ53px）＝小見出し/軸/写り込みのいずれか（要目視）"
-    },
-    {
-      "path": "content/site/civil-construction-1/primary-r07-a/img/r07-a-fig-04.png",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
-      "side": "bottom",
-      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 247%≥50%・縁幅 3%）"
-    },
-    {
-      "path": "content/site/civil-construction-1/primary-r07-a/img/r07-a-fig-04.png",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "bottom",
-      "detail": "bottom縁の極薄インク島（高さ5px・全インクの0.5%・白ギャップ44px）＝隣接図の切れ端＝写り込み"
     },
     {
       "path": "content/site/civil-construction-1/primary-r07-a/img/r07-a-fig-05.png",
@@ -844,20 +795,6 @@
       "detail": "top縁の分離島（高さ15px・全インクの2.5%・白ギャップ36px）＝小見出し/軸/写り込みのいずれか（要目視）"
     },
     {
-      "path": "content/site/civil-construction-1/secondary-construction-plan-basics/img/fig-4-7.png",
-      "rule": "THIN_MARGIN",
-      "severity": "LOW",
-      "side": "right",
-      "detail": "白マージン 1px < 4px"
-    },
-    {
-      "path": "content/site/civil-construction-1/secondary-construction-plan-basics/img/fig-4-7.png",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁の極薄インク島（高さ1px・全インクの0.7%・白ギャップ8px）＝隣接図の切れ端＝写り込み"
-    },
-    {
       "path": "content/site/civil-construction-1/secondary-construction-plan-basics/img/fig-4-8.png",
       "rule": "EDGE_CUT",
       "severity": "HIGH",
@@ -912,13 +849,6 @@
       "severity": "HIGH",
       "side": "bottom",
       "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 125%≥50%・縁幅 5%）"
-    },
-    {
-      "path": "content/site/civil-construction-1/secondary-construction-plan-past-problems/img/fig-retaining-wall-flow-h26.png",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "bottom",
-      "detail": "bottom縁の極薄インク島（高さ1px・全インクの1.5%・白ギャップ8px）＝隣接図の切れ端＝写り込み"
     },
     {
       "path": "content/site/civil-construction-1/secondary-earthwork-basics/img/fig-2-1.png",
@@ -1572,13 +1502,6 @@
       "detail": "bottom縁の分離島（高さ13px・全インクの2.2%・白ギャップ34px）＝小見出し/軸/写り込みのいずれか（要目視）"
     },
     {
-      "path": "content/site/civil-construction-1/secondary-r07/img/i-10-machinery-scene.png",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁の極薄インク島（高さ5px・全インクの0.1%・白ギャップ10px）＝隣接図の切れ端＝写り込み"
-    },
-    {
       "path": "content/site/civil-construction-1/textbook-construction-mgmt-overview/img/fig-1-1.png",
       "rule": "THIN_MARGIN",
       "severity": "LOW",
@@ -1985,34 +1908,6 @@
       "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 102%≥50%・縁幅 41%）"
     },
     {
-      "path": "content/site/civil-construction-2/primary-r03-kouki/img/q11-fig.png",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 97%≥50%・縁幅 1%）"
-    },
-    {
-      "path": "content/site/civil-construction-2/primary-r03-kouki/img/q11-fig.png",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
-      "side": "bottom",
-      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 200%≥50%・縁幅 2%）"
-    },
-    {
-      "path": "content/site/civil-construction-2/primary-r03-kouki/img/q11-fig.png",
-      "rule": "THIN_MARGIN",
-      "severity": "LOW",
-      "side": "left",
-      "detail": "白マージン 2px < 4px"
-    },
-    {
-      "path": "content/site/civil-construction-2/primary-r03-kouki/img/q11-fig.png",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "bottom",
-      "detail": "bottom縁の極薄インク島（高さ2px・全インクの0.1%・白ギャップ9px）＝隣接図の切れ端＝写り込み"
-    },
-    {
       "path": "content/site/civil-construction-2/primary-r03-kouki/img/q43-fig.png",
       "rule": "EDGE_CUT",
       "severity": "HIGH",
@@ -2412,20 +2307,6 @@
       "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 100%≥50%・縁幅 0%）"
     },
     {
-      "path": "content/site/civil-construction-2/primary-r07-zenki/img/q16-fig.png",
-      "rule": "THIN_MARGIN",
-      "severity": "LOW",
-      "side": "bottom",
-      "detail": "白マージン 1px < 4px"
-    },
-    {
-      "path": "content/site/civil-construction-2/primary-r07-zenki/img/q16-fig.png",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "bottom",
-      "detail": "bottom縁の極薄インク島（高さ4px・全インクの0.1%・白ギャップ9px）＝隣接図の切れ端＝写り込み"
-    },
-    {
       "path": "content/site/civil-construction-2/primary-r07-zenki/img/q50-fig.png",
       "rule": "EDGE_CUT",
       "severity": "HIGH",
@@ -2560,17 +2441,10 @@
     },
     {
       "path": "content/site/concrete-chief-engineer/primary-construction/img/strength-dev-r02.webp",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
+      "rule": "STRAY_LABEL",
+      "severity": "LOW",
       "side": "top",
-      "detail": "top縁の極薄インク島（高さ2px・全インクの0.5%・白ギャップ40px）＝隣接図の切れ端＝写り込み"
-    },
-    {
-      "path": "content/site/concrete-chief-engineer/primary-construction/img/strength-dev-r02.webp",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "bottom",
-      "detail": "bottom縁の極薄インク島（高さ4px・全インクの0.9%・白ギャップ8px）＝隣接図の切れ端＝写り込み"
+      "detail": "top縁の分離島（高さ9px・全インクの0.4%・白ギャップ61px）＝小見出し/軸/写り込みのいずれか（要目視）"
     },
     {
       "path": "content/site/concrete-chief-engineer/primary-materials/img/h24-q5.webp",
@@ -2620,13 +2494,6 @@
       "severity": "HIGH",
       "side": "left",
       "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 93%≥50%・縁幅 25%）"
-    },
-    {
-      "path": "content/site/concrete-chief-engineer/primary-properties/img/bingham-flow-h30.webp",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁の極薄インク島（高さ3px・全インクの0.3%・白ギャップ14px）＝隣接図の切れ端＝写り込み"
     },
     {
       "path": "content/site/concrete-chief-engineer/primary-properties/img/creep-strain-h29.webp",
@@ -2984,34 +2851,6 @@
       "severity": "HIGH",
       "side": "right",
       "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 78%≥50%・縁幅 9%）"
-    },
-    {
-      "path": "content/site/pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig24.png",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 2400%≥50%・縁幅 1%）"
-    },
-    {
-      "path": "content/site/pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig24.png",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
-      "side": "bottom",
-      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 110%≥50%・縁幅 14%）"
-    },
-    {
-      "path": "content/site/pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig24.png",
-      "rule": "EDGE_CUT",
-      "severity": "HIGH",
-      "side": "right",
-      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 103%≥50%・縁幅 11%）"
-    },
-    {
-      "path": "content/site/pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig24.png",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁の極薄インク島（高さ2px・全インクの0.0%・白ギャップ17px）＝隣接図の切れ端＝写り込み"
     },
     {
       "path": "content/site/pe-construction/datsutanso-kankyo-ronbun-keyword/img/fig25.png",
@@ -3490,13 +3329,6 @@
       "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 92%≥50%・縁幅 7%）"
     },
     {
-      "path": "content/site/pe-first-stage/r04-construction/img/q17-fig.webp",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "top",
-      "detail": "top縁の極薄インク島（高さ2px・全インクの0.1%・白ギャップ66px）＝隣接図の切れ端＝写り込み"
-    },
-    {
       "path": "content/site/pe-first-stage/r05-aptitude/img/q08-fig.webp",
       "rule": "EDGE_LINE",
       "severity": "LOW",
@@ -3609,13 +3441,6 @@
       "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 54%≥50%・縁幅 1%）"
     },
     {
-      "path": "content/site/pe-first-stage/r06-basic/img/q5-2-fig.webp",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "bottom",
-      "detail": "bottom縁の極薄インク島（高さ3px・全インクの0.3%・白ギャップ36px）＝隣接図の切れ端＝写り込み"
-    },
-    {
       "path": "content/site/pe-first-stage/r06-basic/img/q5-3-fig.png",
       "rule": "STRAY_LABEL",
       "severity": "LOW",
@@ -3649,13 +3474,6 @@
       "severity": "LOW",
       "side": "bottom",
       "detail": "bottom縁の分離島（高さ25px・全インクの0.8%・白ギャップ62px）＝小見出し/軸/写り込みのいずれか（要目視）"
-    },
-    {
-      "path": "content/site/pe-first-stage/r07-aptitude/img/alarp-carrot-diagram.png",
-      "rule": "STRAY_SLIVER",
-      "severity": "HIGH",
-      "side": "bottom",
-      "detail": "bottom縁の極薄インク島（高さ1px・全インクの0.0%・白ギャップ15px）＝隣接図の切れ端＝写り込み"
     },
     {
       "path": "content/site/pe-first-stage/r07-basic/img/q33-fig.webp",
