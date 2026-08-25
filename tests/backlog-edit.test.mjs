@@ -1,6 +1,6 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { deleteCard, findCard, detectEol } from '../scripts/backlog-edit.mjs';
+import { deleteCard, findCard, detectEol, nextId } from '../scripts/backlog-edit.mjs';
 
 // 実カードの最小形（タグ行込み・parseBacklog が要求する構造）を CRLF で組む。
 const CRLF = '\r\n';
@@ -65,4 +65,35 @@ test('タグ行の直後の空行は本文として残る（余計な行を巻�
   const result = deleteCard(md, 'DN-0001');
   assert.doesNotMatch(result.text, /固有の本文マーカー/);
   assert.match(result.text, /別の固有マーカー/);
+});
+
+// --- nextId ------------------------------------------------------------
+// RESEED/新規起票のための採番。ID 再利用禁止（S10）を機械側でも守る。
+
+test('nextId: 現存カードの最大値+1を返す', () => {
+  const md = fixture([{ id: 'DN-0003', title: 'A' }, { id: 'DN-0007', title: 'B' }]);
+  const r = nextId(md, null);
+  assert.equal(r.next, 'DN-0008');
+  assert.equal(r.max, 7);
+  assert.equal(r.degraded, true);
+});
+
+test('nextId: git履歴にしか残っていない削除済みIDも欠番として避ける', () => {
+  const md = fixture([{ id: 'DN-0003', title: 'A' }]); // 現存最大は3
+  const gitLog = 'commit abc\n+### [DN-0009] 昔あって消えたタスク\ncommit def\n-### [DN-0009] 昔あって消えたタスク\n';
+  const r = nextId(md, gitLog);
+  assert.equal(r.next, 'DN-0010'); // 3ではなく9+1
+  assert.equal(r.degraded, false);
+});
+
+test('nextId: カードが1件も無ければDN-0001から始める', () => {
+  const r = nextId('## 🔴 高\r\n', null);
+  assert.equal(r.next, 'DN-0001');
+  assert.equal(r.max, 0);
+});
+
+test('nextId: gitLogTextがnullならdegraded:trueを立てる', () => {
+  const md = fixture([{ id: 'DN-0001', title: 'A' }]);
+  assert.equal(nextId(md, null).degraded, true);
+  assert.equal(nextId(md, '').degraded, false); // 空文字は「取得できた（0件）」であってnullではない
 });
