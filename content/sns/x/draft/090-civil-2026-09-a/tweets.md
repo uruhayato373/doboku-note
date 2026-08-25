@@ -74,7 +74,7 @@ https://coconala.com/services/4317349
 
 ## Tweet 11: 9/4 12:15 civil-1 / 出題実績分析 / site
 
-経験記述の指定テーマ、R6は安全管理×施工計画、R7は品質管理×環境対策。5管理のうち工程管理だけが2年連続で外れている。次にどれが来ても不思議ではない以上、工程管理を含む組み合わせもノーマークにしないほうがいい。
+経験記述の指定テーマ、R6は安全管理×施工計画、R7は品質管理×環境対策。5管理のうち工程管理だけが2年連続で外れている。どれが来ても不思議ではない以上、工程管理を含む組み合わせもノーマークにしないほうがいい。
 
 https://doboku-note.com/docs/civil-construction-1-secondary-experience-writing-guide?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep04-exp-guide
 #1級土木施工管理技士 #施工管理技士 #経験記述
