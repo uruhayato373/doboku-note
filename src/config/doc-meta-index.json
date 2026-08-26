@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T22:58:52.313Z",
+  "generated_at": "2026-08-26T23:01:31.661Z",
   "summary": {
-    "total": 1136,
-    "published": 1117,
+    "total": 1137,
+    "published": 1118,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 15,
+      "civil-practice": 16,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6055,6 +6055,23 @@
         "title": "第2次検定",
         "subtitle": "令和7年度 過去問"
       }
+    },
+    "civil-practice-cast-in-place-pile-methods": {
+      "title": "場所打ち杭の4工法をどう選ぶか — 孔壁保護の方式で判断する",
+      "description": "場所打ち杭のオールケーシング・アースドリル・リバース・深礎の4工法を、孔壁保護の方式という軸で整理。地盤条件・杭径杭長・近接条件からどの工法を選ぶかの判断手順を解説します。",
+      "shortTitle": "場所打ち杭4工法の選び方",
+      "subtitle": "孔壁を何で保たせるかで決まる",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "earthwork"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "場所打ち杭4工法の選び方｜オールケーシング・アースドリル・リバース・深礎の使い分け【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
     },
     "civil-practice-concrete-compaction-numbers": {
       "title": "打込みと締固めを支配する4つの数値 — 50cm・1.5m・10cmの根拠",

@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T22:58:52.727Z",
+  "generated_at": "2026-08-26T23:01:32.073Z",
   "summary": {
-    "total_mdx_files": 1136,
+    "total_mdx_files": 1137,
     "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "guide",
-      "count": 151,
+      "count": 152,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1326,6 +1326,7 @@
         "civil-construction-2-guide-study-plan",
         "civil-construction-2-guide-textbooks",
         "civil-construction-2-guide-young-career",
+        "civil-practice-cast-in-place-pile-methods",
         "civil-practice-concrete-compaction-numbers",
         "civil-practice-concrete-crack-causes",
         "civil-practice-concrete-finishing-curing",
@@ -2469,6 +2470,23 @@
       ]
     },
     {
+      "name": "earthwork",
+      "count": 10,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-earthwork-basics",
+        "civil-construction-1-secondary-earthwork-past-problems",
+        "civil-construction-1-textbook-cut-slope-protection",
+        "civil-construction-1-textbook-embankment",
+        "civil-construction-1-textbook-soft-ground-drainage",
+        "civil-construction-1-textbook-soil-investigation-methods",
+        "civil-practice-cast-in-place-pile-methods",
+        "civil-practice-earth-retaining-displacement",
+        "civil-practice-excavation-bottom-failure",
+        "civil-practice-excavation-pre-survey"
+      ]
+    },
+    {
       "name": "選択科目",
       "count": 10,
       "inAllowlist": false,
@@ -2515,22 +2533,6 @@
         "civil-construction-1-textbook-shovel-excavator",
         "civil-construction-1-textbook-tractor-bulldozer",
         "civil-construction-1-textbook-transport-machinery"
-      ]
-    },
-    {
-      "name": "earthwork",
-      "count": 9,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-earthwork-basics",
-        "civil-construction-1-secondary-earthwork-past-problems",
-        "civil-construction-1-textbook-cut-slope-protection",
-        "civil-construction-1-textbook-embankment",
-        "civil-construction-1-textbook-soft-ground-drainage",
-        "civil-construction-1-textbook-soil-investigation-methods",
-        "civil-practice-earth-retaining-displacement",
-        "civil-practice-excavation-bottom-failure",
-        "civil-practice-excavation-pre-survey"
       ]
     },
     {
