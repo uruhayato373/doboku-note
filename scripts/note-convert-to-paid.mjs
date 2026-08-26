@@ -14,7 +14,7 @@
 
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
-import { chromium } from 'playwright';
+import { launchNoteContext, assertAccountGate, sleep } from './lib/note-browser.mjs';
 
 const ROOT = process.cwd();
 const argv = process.argv.slice(2);
@@ -22,8 +22,6 @@ const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] :
 const COMMIT = argv.includes('--commit');
 const LIST = getArg('--list');
 const ARTICLE = getArg('--article');
-const PROFILE = join(ROOT, '.local/playwright-note-profile');
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const fmField = (raw, k) => { const m = raw.match(new RegExp('^' + k + ':\\s*(.*)$', 'm')); return m ? m[1].trim().replace(/^["']|["']$/g, '') : ''; };
 
 if (!LIST && !ARTICLE) { console.error('--list <file> or --article <path> required'); process.exit(1); }
@@ -50,14 +48,13 @@ const liveePrice = async (id) => {
   try { const r = await fetch(`https://note.com/api/v3/notes/${id}`, { signal: AbortSignal.timeout(20000) }); const j = await r.json(); return j?.data?.price; } catch { return null; }
 };
 
-const ctx = await chromium.launchPersistentContext(PROFILE, { headless: false, channel: 'chrome', viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'] });
+const ctx = await launchNoteContext({ viewport: { width: 1366, height: 1000 } });
 let ok = 0, fail = 0;
 try {
   const page = ctx.pages()[0] || (await ctx.newPage());
   await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded', timeout: 60000 });
-  let acct = false;
-  for (let i = 0; i < 10; i++) { await sleep(2000); if (/dobokunote/.test(await page.evaluate(() => document.body.innerText || ''))) { acct = true; break; } }
-  if (!acct) { console.error('ABORT: account != dobokunote'); await ctx.close(); process.exit(2); }
+  const gate = await assertAccountGate(page, { url: null, attempts: 10, intervalMs: 2000 });
+  if (!gate.ok) { console.error('ABORT: account != dobokunote'); await ctx.close(); process.exit(2); }
   console.log('[1] account gate OK');
 
   for (const j of jobs) {
