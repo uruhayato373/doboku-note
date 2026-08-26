@@ -1,14 +1,16 @@
 {
-  "_doc": "backlog-sweep の実行記録。1サイクル1タスク1行。書き手は /backlog-sweep の手順6（親が直接記録・サブに委ねない）。読み手は /weekly-review Phase 2 の「backlog 消化サマリ」。読み手を決めずに増やさない（CLAUDE.md §9）。",
+  "_doc": "backlog カード完了・処分の実行証跡。書き手＝todo-complete CLI（正）／/backlog-sweep 手順6の手動追記（id 必須）。読み手＝/weekly-review Phase 2。日付キーは at（date ではない）。2026-08-18 以前の11件は id 無しの legacy（check-dispatch-log が grandfather）。",
   "_schema": {
-    "date": "YYYY-MM-DD（JST）",
-    "task": "backlog の ### 見出し（消化後は git 履歴でしか辿れないため全文で残す）",
-    "tier": "high | mid | low",
-    "executor": "opus | fable | sonnet | machine | user",
-    "outcome": "done（実行して完了）| swept（実査したら既に完了→台帳掃除）| blocked（前提が欠けて中断）| fail（試して失敗）",
-    "retries": "手戻り回数（0=一発）",
-    "durationMin": "概算",
-    "note": "1行。fail/blocked は理由を必ず書く"
+    "id": "DN-####（必須。台帳外の作業はカードを起票してから記録する）",
+    "at": "YYYY-MM-DD (JST)",
+    "task": "string",
+    "tier": "high|mid|low|hold|null",
+    "executor": "string|null",
+    "outcome": "done|swept|blocked|fail",
+    "plan": ".claude/plans/ の unit パス|null",
+    "commit": "完了時 HEAD sha 先頭12桁|null",
+    "verification": "実行した検証コマンドと結果|null",
+    "note": "string"
   },
   "_note": "outcome=swept は成果として数える。台帳の陳腐化を消すこと自体が backlog を減らす（2026-08-17 の実測で1日6件の陳腐化）。",
   "entries": [

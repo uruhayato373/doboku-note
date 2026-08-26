@@ -55,6 +55,7 @@
     "check-coconala-orders": "node scripts/check-coconala-orders.mjs",
     "check-coconala-wiring": "node scripts/check-coconala-wiring.mjs",
     "check-competitor-scan-due": "node scripts/check-competitor-scan-due.mjs",
+    "check-dispatch-log": "node scripts/check-dispatch-log.mjs",
     "check-content-quality": "node .claude/scripts/lint-mdx-mobile.mjs --all --baseline --report",
     "check-content-quality:ci": "node .claude/scripts/lint-mdx-mobile.mjs --all --baseline --report --ci",
     "check-coverage-thresholds": "node .claude/scripts/check-coverage-thresholds.mjs",

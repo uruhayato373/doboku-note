@@ -165,7 +165,7 @@ CLAUDE.md §8「提案・推奨の前に現物を確認する（憶測で gap �
   （`backlog-edit.mjs --delete` → `--next-id` で新カードへ）。通常サイクルで触ったカードもその場で
   再スコープしてよい（確認不要・DELETE/RESEED は外部実体で裏取りできた場合のみ。基準は
   `.claude/knowledge/reference/todo-standards.md`「カード品質基準と再スコープ」）
-- `.claude/state/dispatch/dispatch-log.json` の `entries` へ1行追記（スキーマは同ファイルの `_schema`）。`outcome` は `done` / `swept` / `blocked` / `fail`
+- `.claude/state/dispatch/dispatch-log.json` の `entries` へ1行追記（スキーマは同ファイルの `_schema`）。`outcome` は `done` / `swept` / `blocked` / `fail`。**`id`（DN-####）と`at`（JST日付）は必須**（`_schema`準拠・idの無い追記はcheck-dispatch-logがFAILにする）
 
 ### 7. 出口ゲート（再発防止の3問）
 
