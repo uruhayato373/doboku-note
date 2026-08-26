@@ -1,0 +1,46 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="法面保護工の選定。安定した土質は植生工、侵食されやすい場合は構造物工を併用、湧水がある場所は法枠工・ブロック張り工、軟弱で崩れやすい場合はブロック張り工・石張り工、風化しやすい土砂・軟岩はモルタル・コンクリート吹付工を用いる">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">法面保護工の選定の目安</text>
+
+  <rect class="box-p" x="20" y="24" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="44">法面が安定した土質</text>
+  <text class="t-desc" x="40" y="62">植生工を用いる</text>
+
+  <rect class="box-b" x="20" y="84" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="104">侵食されやすく崩れやすい</text>
+  <text class="t-desc" x="40" y="122">植生工に構造物工を併用する</text>
+
+  <rect class="box-b" x="20" y="144" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="164">湧水のある場所</text>
+  <text class="t-desc" x="40" y="182">法枠工、ブロック張り工、石張り工が効果的</text>
+
+  <rect class="box-w" x="20" y="204" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="224">軟弱で崩れやすい法面</text>
+  <text class="t-desc" x="40" y="242">ブロック張り工、石張り工を用いる</text>
+
+  <rect class="box-w" x="20" y="264" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="284">風化しやすい土砂・軟岩</text>
+  <text class="t-desc" x="40" y="302">モルタル・コンクリート吹付工。湧水箇所は剥落に注意</text>
+
+  <text class="t-sec" x="20" y="342">植生工と構造物工の違い</text>
+  <rect class="box-b" x="20" y="348" width="360" height="90" rx="6"/>
+  <text class="t-desc" x="40" y="370">植生工＝植物を繁茂させ侵食・崩壊を防止</text>
+  <text class="t-desc" x="40" y="388">構造物工＝石・コンクリート・鋼材等で法面を保護</text>
+  <text class="t-desc" x="40" y="406">単独のほか組み合わせて用いることも多い</text>
+  <text class="t-desc" x="40" y="424">法面の安定に加え環境保全・景観維持も考慮する</text>
+</svg>
