@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T21:36:15.889Z",
+  "generated_at": "2026-08-26T22:20:50.759Z",
   "summary": {
-    "total": 1122,
-    "published": 1103,
+    "total": 1124,
+    "published": 1105,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 1,
+      "civil-practice": 3,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6055,6 +6055,40 @@
         "title": "第2次検定",
         "subtitle": "令和7年度 過去問"
       }
+    },
+    "civil-practice-concrete-compaction-numbers": {
+      "title": "打込みと締固めを支配する4つの数値 — 50cm・1.5m・10cmの根拠",
+      "description": "コンクリートの打込み・締固めで守るべき4つの管理値（1層の打上がり高さ50cm以下、自由落下高さ1.5m以下、バイブレーターの挿入深さ10cm程度、挿入間隔50cm以下・振動時間5〜15秒）を、材料分離という共通の理屈で解説。コンクリート標準示方書の根拠と、現場でどう守らせるかまで整理します。",
+      "shortTitle": "打込み・締固めの4数値",
+      "subtitle": "材料分離を防ぐ管理値の理屈と現場運用",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "concrete"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "打込み・締固めの4つの数値｜50cm・1.5m・10cmの根拠と現場管理【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-concrete-placement-timing": {
+      "title": "打込み当日の時間管理 — 何時までに何を終えるか",
+      "description": "コンクリート打込み当日、外気温と天候から何時までに作業を終える必要があるかを判断する基準を整理します。練混ぜ〜打込み終了・荷卸し・許容打重ね時間間隔の3つの限度時刻と、暑中・寒中の区分が別の温度で決まる理由を解説します。",
+      "shortTitle": "打込み当日の時間管理",
+      "subtitle": "限度は外気温、区分は日平均気温で決まる",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "concrete"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "コンクリート打込み当日の時間管理｜外気温で決まる限度時刻と暑中・寒中の区分【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
     },
     "civil-practice-formwork-removal-timing": {
       "title": "型枠・支保工はいつ外せるか — 存置期間の判断基準",

@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T21:36:16.402Z",
+  "generated_at": "2026-08-26T22:20:51.235Z",
   "summary": {
-    "total_mdx_files": 1122,
+    "total_mdx_files": 1124,
     "total_unique_tags": 174,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "guide",
-      "count": 137,
+      "count": 139,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1326,6 +1326,8 @@
         "civil-construction-2-guide-study-plan",
         "civil-construction-2-guide-textbooks",
         "civil-construction-2-guide-young-career",
+        "civil-practice-concrete-compaction-numbers",
+        "civil-practice-concrete-placement-timing",
         "civil-practice-formwork-removal-timing",
         "concrete-chief-engineer-guide-essay",
         "concrete-chief-engineer-guide-overview",
@@ -2924,6 +2926,18 @@
       ]
     },
     {
+      "name": "concrete",
+      "count": 5,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-practice-concrete-compaction-numbers",
+        "civil-practice-concrete-placement-timing",
+        "civil-practice-formwork-removal-timing"
+      ]
+    },
+    {
       "name": "reference",
       "count": 5,
       "inAllowlist": true,
@@ -2956,16 +2970,6 @@
         "civil-construction-1-textbook-noise-vibration-regulation",
         "civil-construction-1-textbook-waste-disposal-manifest",
         "civil-construction-1-textbook-water-air-soil-pollution"
-      ]
-    },
-    {
-      "name": "concrete",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems",
-        "civil-practice-formwork-removal-timing"
       ]
     },
     {
