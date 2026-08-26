@@ -4,7 +4,7 @@
 
 ## プロジェクトコンテキスト
 
-**設計思想** — ユーザーが「ここだけで合格できる」体験を軸資格ごとに提供する試験対策ハブ。Obsidian（ステージング）→ doboku-note（プロダクション）→ PWA 過去問演習アプリ（資格別 PWA × 共通エンジン、過去問演習は iOS から移管）の流れでコンテンツを管理。収益モデルは AdSense + note 有料記事 + YouTube + PWA 過去問アプリ。詳細: `docs/project/01_戦略/02_設計思想.md`、`docs/project/01_戦略/03_事業戦略.md`、`docs/project/05_プロダクト/06_PWA過去問アプリ設計方針.md`
+**設計思想** — ユーザーが「ここだけで合格できる」体験を軸資格ごとに提供する試験対策ハブ。Obsidian（ステージング）→ doboku-note（プロダクション）→ PWA 過去問演習アプリ（資格別 PWA × 共通エンジン、過去問演習は iOS から移管）の流れでコンテンツを管理。収益モデルは note 有料記事 + YouTube + PWA 過去問アプリ。詳細: `docs/project/01_戦略/02_設計思想.md`、`docs/project/01_戦略/03_事業戦略.md`、`docs/project/05_プロダクト/06_PWA過去問アプリ設計方針.md`
 
 **技術スタック**
 
@@ -16,7 +16,6 @@
 | 図表 | SVG / PNG（R2 配信） |
 | 検索 | Pagefind (ビルド時 `out/pagefind` 生成・クライアントサイド全文検索) |
 | 分析 | Google Analytics (gtag: G-8VXJ1RL1HG) |
-| 広告 | Google AdSense (ca-pub-7995274743017484) |
 | 画像配信 | Cloudflare R2 (`storage.doboku-note.com`) |
 | ホスティング | Cloudflare Pages |
 | CI/CD | GitHub Actions → Cloudflare Pages |
