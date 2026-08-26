@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T22:42:50.120Z",
+  "generated_at": "2026-08-26T22:49:55.004Z",
   "summary": {
-    "total_mdx_files": 1131,
+    "total_mdx_files": 1133,
     "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "guide",
-      "count": 146,
+      "count": 148,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1332,6 +1332,8 @@
         "civil-practice-concrete-mix-acceptance",
         "civil-practice-concrete-placement-order",
         "civil-practice-concrete-placement-timing",
+        "civil-practice-concrete-pump-capacity",
+        "civil-practice-excavation-pre-survey",
         "civil-practice-formwork-removal-timing",
         "civil-practice-rebar-corrosion-handling",
         "civil-practice-rebar-cover-placement",
@@ -2430,6 +2432,23 @@
       ]
     },
     {
+      "name": "concrete",
+      "count": 10,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-practice-concrete-compaction-numbers",
+        "civil-practice-concrete-crack-causes",
+        "civil-practice-concrete-finishing-curing",
+        "civil-practice-concrete-mix-acceptance",
+        "civil-practice-concrete-placement-order",
+        "civil-practice-concrete-placement-timing",
+        "civil-practice-concrete-pump-capacity",
+        "civil-practice-formwork-removal-timing"
+      ]
+    },
+    {
       "name": "concrete-chief-engineer",
       "count": 10,
       "inAllowlist": true,
@@ -2477,22 +2496,6 @@
         "pe-comprehensive-management-r8-essay-theme-economic-security",
         "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
         "pe-comprehensive-management-whitepaper-study-map"
-      ]
-    },
-    {
-      "name": "concrete",
-      "count": 9,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems",
-        "civil-practice-concrete-compaction-numbers",
-        "civil-practice-concrete-crack-causes",
-        "civil-practice-concrete-finishing-curing",
-        "civil-practice-concrete-mix-acceptance",
-        "civil-practice-concrete-placement-order",
-        "civil-practice-concrete-placement-timing",
-        "civil-practice-formwork-removal-timing"
       ]
     },
     {
@@ -2745,6 +2748,20 @@
       ]
     },
     {
+      "name": "earthwork",
+      "count": 7,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-earthwork-basics",
+        "civil-construction-1-secondary-earthwork-past-problems",
+        "civil-construction-1-textbook-cut-slope-protection",
+        "civil-construction-1-textbook-embankment",
+        "civil-construction-1-textbook-soft-ground-drainage",
+        "civil-construction-1-textbook-soil-investigation-methods",
+        "civil-practice-excavation-pre-survey"
+      ]
+    },
+    {
       "name": "safety-management",
       "count": 7,
       "inAllowlist": true,
@@ -2868,19 +2885,6 @@
         "pe-first-stage-r05-aptitude",
         "pe-first-stage-r06-aptitude",
         "pe-first-stage-r07-aptitude"
-      ]
-    },
-    {
-      "name": "earthwork",
-      "count": 6,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-earthwork-basics",
-        "civil-construction-1-secondary-earthwork-past-problems",
-        "civil-construction-1-textbook-cut-slope-protection",
-        "civil-construction-1-textbook-embankment",
-        "civil-construction-1-textbook-soft-ground-drainage",
-        "civil-construction-1-textbook-soil-investigation-methods"
       ]
     },
     {

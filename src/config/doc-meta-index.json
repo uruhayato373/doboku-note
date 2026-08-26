@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T22:42:49.703Z",
+  "generated_at": "2026-08-26T22:49:54.588Z",
   "summary": {
-    "total": 1131,
-    "published": 1112,
+    "total": 1133,
+    "published": 1114,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 10,
+      "civil-practice": 12,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6155,6 +6155,40 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "コンクリート打込み当日の時間管理｜外気温で決まる限度時刻と暑中・寒中の区分【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-concrete-pump-capacity": {
+      "title": "ポンプ車とミキサ車は何台必要か — 打設計画で決める配車の考え方",
+      "description": "打設計画でポンプ車とアジテータ車を何台手配するかを、1時間当たりの打込み量・圧送距離の水平換算長・配管径の考え方から解説。台数は総打込み量だけでなく、練混ぜから打込み終了までに許された時間から逆算するという実務の考え方を整理します。",
+      "shortTitle": "ポンプ車・ミキサ車の必要台数",
+      "subtitle": "台数は打込み量ではなく時間から逆算する",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "concrete"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "ポンプ車・ミキサ車の必要台数｜圧送距離の換算長と配車計算【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-excavation-pre-survey": {
+      "title": "掘る前に何を調べておくか — 架空線・埋設物・地盤条件の事前調査",
+      "description": "土留めを設計する前、掘削に着手する前に何を確認しておくべきかを整理。架空線の離隔距離、地下埋設物は台帳でなく試掘で確定させる原則、近接構造物の基礎形式の確認、土留め設計の前提になる地盤定数（N値・土質・地下水位）の調べ方まで、着工前に押さえる判断軸をまとめます。",
+      "shortTitle": "掘削前の事前調査",
+      "subtitle": "台帳は起点、現地で確定させる",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "earthwork"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "掘削前の事前調査｜架空線・埋設物・地盤条件の確認手順【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
