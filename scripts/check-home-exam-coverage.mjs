@@ -5,12 +5,16 @@
  * 背景（2026-06-15 制定）:
  *   ナビは categories.json から自動生成されるが、トップの資格カードは別管理だったため、
  *   公開済みの新資格（pe-first-stage 21本）がトップに出ていない事故が起きた。
- *   再発防止として「visible≠false かつ variant≠reference のカテゴリは必ず
+ *   再発防止として「visible≠false かつ資格カテゴリ（variant=civil|pe）は必ず
  *   home-exam-cards.json にカードを持つ」ことを機械的に強制する。
  *
+ *   variant=reference（公的資料の抜粋）と variant=general（資格に紐づかない実務コンテンツ）は
+ *   資格カードの対象外。カードの必須フィールド nextExam を持ちようがないため、
+ *   トップに出す場合も資格カードとは別の入口を用意する。
+ *
  * 不整合（赤落ち）条件:
- *   - visible≠false・variant≠reference のカテゴリに対応する home カードが無い
- *   - home カードの slug が categories.json に存在しない / visible:false / variant=reference
+ *   - visible≠false・資格カテゴリ（civil|pe）に対応する home カードが無い
+ *   - home カードの slug が categories.json に存在しない / visible:false / 非資格カテゴリ
  *   - home カードに必須フィールドが欠落
  *
  * Usage: node scripts/check-home-exam-coverage.mjs
@@ -38,10 +42,13 @@ const catBySlug = new Map(categories.map((c) => [c.slug, c]));
 const homeSlugs = new Set(homeCards.map((c) => c.slug));
 const errors = [];
 
-// 1) トップに出すべきカテゴリ（visible≠false・variant≠reference）に home カードがあるか
+// 資格カードに載せる対象は資格カテゴリのみ（reference / general は別入口）
+const NON_EXAM_VARIANTS = new Set(["reference", "general"]);
+
+// 1) トップに出すべきカテゴリ（visible≠false・資格カテゴリ）に home カードがあるか
 for (const c of categories) {
   if (c.visible === false) continue;
-  if (c.variant === "reference") continue;
+  if (NON_EXAM_VARIANTS.has(c.variant)) continue;
   if (!homeSlugs.has(c.slug)) {
     errors.push(
       `カテゴリ "${c.slug}"（visible・variant=${c.variant}）が ${HOME_CARDS} に未掲載 ` +
@@ -59,8 +66,8 @@ for (const card of homeCards) {
     if (cat.visible === false) {
       errors.push(`${HOME_CARDS} の "${card.slug}" は categories.json で visible:false（トップに出すべきでない）。`);
     }
-    if (cat.variant === "reference") {
-      errors.push(`${HOME_CARDS} の "${card.slug}" は variant=reference（資格カードに不適）。`);
+    if (NON_EXAM_VARIANTS.has(cat.variant)) {
+      errors.push(`${HOME_CARDS} の "${card.slug}" は variant=${cat.variant}（資格カードに不適）。`);
     }
   }
   for (const f of REQUIRED_FIELDS) {

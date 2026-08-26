@@ -57,6 +57,15 @@
     "order": 2.6
   },
   {
+    "slug": "civil-practice",
+    "label": "土木施工の実務",
+    "subtitle": "現場の判断基準と管理値",
+    "description": "土木施工の現場で判断に使う管理値と基準を、工種横断でまとめた実務ノート。コンクリート・型枠・鉄筋・土工・安全管理の「いつ・いくつまで」を、公的基準の根拠つきで整理。",
+    "variant": "general",
+    "order": 2.8,
+    "visible": false
+  },
+  {
     "slug": "reference-materials",
     "label": "実務参照資料",
     "subtitle": "近畿地整 設計便覧・兵庫県 共通仕様書",

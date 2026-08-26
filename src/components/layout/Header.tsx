@@ -100,7 +100,7 @@ const Layers = ({ className }: IconProps) => (
 
 function CategoryIcon({ variant, className }: { variant: string; className?: string }) {
   const cn = className || "w-5 h-5";
-  if (variant === "civil") return <HardHat className={cn} />;
+  if (variant === "civil" || variant === "general") return <HardHat className={cn} />;
   if (variant === "reference") return <BookOpen className={cn} />;
   return <GraduationCap className={cn} />;
 }

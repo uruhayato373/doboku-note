@@ -7,7 +7,10 @@ export type CategoryDef = {
   // SEO description（50〜160 文字）。未指定時は subtitle にフォールバック。
   // UI の <p> は subtitle、HTML <meta name="description"> は description を使う。
   description?: string;
-  variant: 'civil' | 'pe' | 'reference';
+  // civil / pe = 資格カテゴリ（トップの資格カードに出る）
+  // reference = 公的資料の要点抜粋、general = 資格に紐づかない実務コンテンツ。
+  // どちらも資格カードの対象外（check-home-exam-coverage が除外する）
+  variant: 'civil' | 'pe' | 'reference' | 'general';
   order: number;
   // false のカテゴリはナビ・一覧から非表示（カテゴリページ自体は生きている）
   visible?: boolean;
