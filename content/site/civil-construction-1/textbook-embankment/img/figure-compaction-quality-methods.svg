@@ -1,0 +1,45 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="締固め品質の規定方式。品質規定方式は乾燥密度・空気間隙率または飽和度・強度変形特性の3方法に分かれ、工法規定方式は締固め機械・まき出し厚さ・締固め回数を仕様で定める">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">品質規定方式と工法規定方式の2つに大別される</text>
+
+  <text class="t-sec" x="20" y="38">品質規定方式（品質を仕様書に明示）</text>
+
+  <rect class="box-b" x="20" y="44" width="360" height="56" rx="6"/>
+  <text class="t-name" x="40" y="66">乾燥密度で規定</text>
+  <text class="t-desc" x="40" y="84">締固め度＝現場乾燥密度÷最大乾燥密度。砂質土等に適用</text>
+
+  <rect class="box-b" x="20" y="108" width="360" height="56" rx="6"/>
+  <text class="t-name" x="40" y="130">空気間隙率・飽和度で規定</text>
+  <text class="t-desc" x="40" y="148">最大乾燥密度が求めにくい高含水比の粘性土等に適用</text>
+
+  <rect class="box-b" x="20" y="172" width="360" height="56" rx="6"/>
+  <text class="t-name" x="40" y="194">強度・変形特性で規定</text>
+  <text class="t-desc" x="40" y="212">CBR・地盤反力係数等。礫質・砂質土や岩塊・玉石に適用</text>
+
+  <text class="t-sec" x="20" y="252">工法規定方式（施工方法を仕様書に明示）</text>
+
+  <rect class="box-w" x="20" y="258" width="360" height="72" rx="6"/>
+  <text class="t-name" x="40" y="280">締固め機械・まき出し厚さ・締固め回数</text>
+  <text class="t-desc" x="40" y="298">試験施工で4要素の関係を求め、施工仕様として規定</text>
+  <text class="t-desc" x="40" y="316">TS・GNSSを用いた情報化施工にも活用される</text>
+
+  <text class="t-sec" x="20" y="356">締固めの目的</text>
+  <rect class="box-b" x="20" y="362" width="360" height="90" rx="6"/>
+  <text class="t-desc" x="40" y="384">透水性を低下させ、水の浸入・軟化・膨張を抑える</text>
+  <text class="t-desc" x="40" y="402">法面の安定・支持力など必要な強度特性を持たせる</text>
+  <text class="t-desc" x="40" y="420">盛土完成後の圧縮沈下など変形を少なくする</text>
+</svg>
