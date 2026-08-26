@@ -124,19 +124,16 @@ U+FFFD文字化けも0件を実検査。**残作業はKDPへのアップロー�
 
 
 ### [DN-0137] CI/CD Secrets・破壊操作の権限設計（旧DN-0109 Phase 4）
-タグ: [インフラ・計測] [種類:改善] [実行:対話] [起票:2026-08-26] [期日:2026-09-30]
+タグ: [インフラ・計測] [種類:改善] [実行:ユーザー] [起票:2026-08-26] [期日:2026-09-30]
 
-DN-0109（CI/CD信頼性回復）のPhase 0(信号回復)・1(develop自動書込みの直列化)・2(Actions機械検査)・
-3(本番デプロイ一本化)は2026-08-25〜26に完了。Phase 5(Windows実機検証)はDN-0108が実質担当。
-残るPhase 4（branch protection・GitHub Environment・Secrets・R2削除の権限設計）だけを本カードへ
-分離し、DN-0109本体は削除する。
+**設計・実査は完了**（2026-08-26）。実測結果と実行チェックリストは
+[ci-cd-security-hardening.md](../knowledge/reference/ci-cd-security-hardening.md)。
+残るのはGitHub/Cloudflare管理画面での実行のみ（branch protectionのforce-push/削除禁止・
+未使用Secrets4件の削除・未使用Environment2件の扱い決定・R2監査キーの最小権限化）——
+いずれもセキュリティ設定の変更なのでエージェントは実行しない。
 
-**スコープ**: branch protection・GitHub Environment・Secrets・外部push・R2削除・Pages deployの
-設計・変更はいずれもdry-run結果と変更対象を提示してユーザー承認を得るまで実施しない。
-
-**関連の未処理**: `automation-failure` Issue #457は対象workflowが回復済みなのに18日open。
-**dedup仕様で以後の失敗がこのIssueへのコメントに埋没する**ため通知路が死んでいる。回復の実体は
-2026-08-25にコメント済み（クローズは人間の担当。DN-0135のIssue #473と同種のためそちらへ統合しても良い）。
+**関連の未処理**: `automation-failure` Issue #457は対象workflowが回復済みなのに18日open
+（DN-0135のIssue #473と同種のため統合しても良い・クローズは人間）。
 
 ### [DN-0002] 会員フロー 週次配信（W1-W5 配信済・W6 以降は週1）
 タグ: [収益化] [種類:制作] [実行:sweep] [起票:2026-08-06]
