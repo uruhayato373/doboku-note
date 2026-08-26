@@ -439,6 +439,14 @@ weekly.md の手動キューはこの ID だけを参照する（weekly は ID �
 
 ## 🟡 中 — 2〜3ヶ月以内
 
+### [DN-0142] reference-materials 再公開5記事のGSC効果を計測する
+タグ: [インフラ・計測] [種類:改善] [実行:機械] [起票:2026-08-26] [期日:2026-09-09]
+
+旧DN-0074の残作業③。2026-08-26に精度向上のうえ再公開した5記事
+（reference-materials-hyogo-port-materials / river-abandonment / inverted-siphon / floodgate / tunnel-02）
+について、再公開14日後（2026-09-09以降）にGSCでインデックス状況とimpressions/clicksのdeltaを計測し、
+再実験化（EXP系起票）するかを判断する。EXP-002はcancelled（2026-06-27）なので新規起票になる。
+
 ### [DN-0141] GSC実験候補1件を/nsm-experimentへ起票するか判断する（旧DN-0106の残作業）
 タグ: [インフラ・計測] [種類:意思決定] [実行:対話] [起票:2026-08-26]
 
@@ -1357,10 +1365,6 @@ Anthropic の Opus 5 プロンプトガイドが「旧モデル向けに仕込�
 総監 keyword 328（5/29 demote 源流コホート・[[project_adsense_low_value_2026_07]] の続き）・pe-construction keyword 16・concrete textbook 1。3,000字下限へ散文増補（7月112本バッチの継続）。census の thin 指標で残数管理（`npm run quality-census`）。
 
 
-### [DN-0074] reference-materials 5記事 精度向上 → 再公開
-タグ: [コンテンツ品質] [種類:制作] [実行:sweep]
-
-hyogo-port-materials / river-abandonment / inverted-siphon / floodgate / tunnel-02（`published:false`・GSC impr 資産保持）。試験ピーク 7/13 後: ①精度向上リライト ②published:true→refresh-indexes→commit ③再公開14日後に GSC delta 計測し再実験化を判断。EXP-002 は cancelled（2026-06-27）。
 
 ### [DN-0075] 土木一般編（スキャン教材）図タイト化・素材活用
 タグ: [コンテンツ品質] [種類:改善] [実行:対話]
@@ -1372,10 +1376,6 @@ hyogo-port-materials / river-abandonment / inverted-siphon / floodgate / tunnel-
 
 PDF クロップ済み白黒図 約65枚（construction-machinery-01=13/-02=7/schedule-management=24/surveying=11/demolition=6/construction-mgmt-overview=4 ほか）。著作権問題なし・見栄え向上のみ。**Gemini 有料→着手前に必ずユーザー確認（[[gemini-cost-confirm]]）**。パイロット5枚→品質・コスト確認→全体。
 
-### [DN-0077] pe-construction 選択科目 within-specialty インラインリンク
-タグ: [コンテンツ品質] [種類:改善] [実行:sweep]
-
-選択科目3記事（road/river-coast/urban-planning）＋新規8記事の本文からの個別キーワードページへのインラインリンク拡充（本文精読を伴う別スコープ）。
 
 ### [DN-0078] 1級 textbook 10本の品質監査
 タグ: [コンテンツ品質] [種類:制作] [実行:sweep]

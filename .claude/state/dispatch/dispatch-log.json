@@ -223,6 +223,30 @@
       "commit": "5dc74b1f6934",
       "verification": "4論点の節がtextbook-assessment/maintenance/investigationに実在(commits 70beddacc/a8f90b201/c62d68aa6)・pre-commitゲート通過・基準名称WebSearch実在確認済み",
       "note": "全て既存記事への節追加で対応(新規記事なし・図鑑は文章記述)"
+    },
+    {
+      "id": "DN-0077",
+      "at": "2026-08-26",
+      "task": "pe-construction 選択科目 within-specialty インラインリンク",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e183c34203c7",
+      "verification": "check-relative-links 871リンク壊れ0・追加45リンクのslug全件ls実在確認(commit 3412a7911)",
+      "note": "選択11記事へwithin-specialtyリンク45本"
+    },
+    {
+      "id": "DN-0074",
+      "at": "2026-08-26",
+      "task": "reference-materials 5記事 精度向上 → 再公開",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "e183c34203c7",
+      "verification": "5記事published:true・404画像参照55個解消・表8-15-4転記ミス修正・check-ogp-coverage 1098件PASS(commit e183c3420)",
+      "note": "①②完了。残③(再公開14日後のGSC delta計測)はDN-0142へRESEED"
     }
   ]
 }
