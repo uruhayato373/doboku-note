@@ -401,7 +401,7 @@ status.json 30 件を commit 済み。残 32 件を次セッションで継続�
 
 TODOをAdminで管理し、Codexが設計、Claude Codeが実装する運用を、task → plan → claim → verify → completeの一貫した機械契約にする。
 
-- **設計根拠**: [TODO UI × Agent実装 運用設計の批判的レビュー](../../docs/reviews/critical/todo-ui-agent-implementation-operations_批判的レビュー.md)
+- **設計根拠**: 批判的レビュー（2026-08-18策定）の恒久ルールを抽出済み → [todo-lifecycle.md](../knowledge/reference/todo-lifecycle.md)（レビュー本体は抽出後に削除・記録はgit履歴）
 - **実行順**: 情報アーキテクチャ移行（2026-08-18 完了・`docs`/`content`/`.claude` の 4 領域）の差分を実査してから、WIP排他 → task-plan結線 → claim/release/complete共通CLI → ID付き実行ログ → Admin状態表示・Claude Code用prompt生成の順で実装する
 - **禁止**: 既存の情報アーキテクチャ移行セッションと同じファイルを並行編集しない。task-plan結線とclaimが成立する前に、UIからAgentや任意shellを直接起動する機能を作らない
 - **完了条件**: 同一IDの二重claimを拒否し、実行中カードを自動選定から除外する。planの孤児・リンク切れ・重複を検査し、完了処理でbacklog・monthly・weekly・plan・実行証拠を一貫して閉じる。恒久ルールを`.claude/knowledge/`へ抽出後、このレビューを削除する
@@ -1692,6 +1692,15 @@ account ゲート/ClipboardEvent paste/リンクカード化/ブラウザ起動�
 note-api.mjs / note-frontmatter.mjs は**新規に書くコードだけ**が使っており、既存 13 本・21 本の
 移行はまだ。動いている検査を一度に触るリスクを避けるため、着手時は 1 本ずつ移行して
 その都度実測で挙動同一を確認する（バルクでの一斉置換はしない）。
+
+### [DN-0140] admin TODO の `Codex` バッジがバルク適性フラグだと伝わらない
+タグ: [UI・UX] [種類:改善] [実行:sweep] [起票:2026-08-26]
+
+`[Codex候補]` は「バルク処理向き」という適性フラグであり、Claude Code への自動 dispatch 契約ではない
+（`.claude/knowledge/reference/todo-standards.md` §3）。admin `/todo` は `card.codex` を bare な
+`badge accent` の `Codex` テキストだけで表示しており（`tools/admin-app/src/app/todo/page.tsx`）、
+意味の説明が無いため「Codex が自動で拾う」と誤解されやすい（2026-08-18 批判的レビュー「他に検出した課題」）。
+`title` 属性か凡例リンクで「バルク処理向き（自動dispatchではない）」を一言添える。
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 

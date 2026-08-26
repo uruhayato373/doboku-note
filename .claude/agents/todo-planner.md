@@ -95,6 +95,7 @@ monthly.md も同じ流儀。`## 今月の成果目標`（3 つまで）＋ `## 
    - `.claude/todo/monthly.md` — 今月ゴール・タスク状態
    - `.claude/todo/weekly.md` — 前週の完了・未完了・メモ
    - `.claude/knowledge/reference/codex-division-of-labor.md` — Codex 振り分け基準
+   - `.claude/knowledge/reference/todo-standards.md` — タスク記述フォーマット・タグ語彙・残す条件と削除条件の SSOT（backlog カードの書き方に迷ったらここを見る。専用の「todo-writing-guide」は新設しない方針＝本ドキュメントが唯一の真実源）
 
 2. **直近実績の確認**
    ```bash
