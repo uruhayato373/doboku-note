@@ -264,6 +264,7 @@
     "report-ga4-gsc-crosswalk": "node .claude/scripts/report-ga4-gsc-crosswalk.mjs",
     "report-monetization-coverage": "tsx .claude/scripts/report-monetization-coverage.mts",
     "sales-summary": "node scripts/sales-summary.mjs",
+    "schedule-view": "node scripts/schedule-view.mjs",
     "scout-coconala-blogs": "node scripts/scout-coconala-blogs.mjs",
     "scout-coconala-competitors": "node scripts/scout-coconala-competitors.mjs",
     "scout-ig-competitors": "node scripts/scout-ig-competitors.mjs",

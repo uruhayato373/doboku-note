@@ -11,7 +11,7 @@
  *   日付の真実源を新たに増やさない（各ソースの原本がそのまま真実源であり続ける）。
  *   書き込み・カレンダー操作・予約変更はここに一切実装しない。
  *
- * 読むソース（6 系統・sourceId。I/O 集約は collectScheduleEvents に別途追加）:
+ * 読むソース（6 系統・sourceId。実際の読み取りは collectScheduleEvents が行う）:
  *   - exam-calendar   … .claude/config/exam-calendar.json（試験日）
  *   - x-campaign      … .claude/config/x-campaigns/*.json（X 計画枠）
  *   - x-status        … content/sns/x/draft/*\/status.json（X 実予約・実投稿）
@@ -31,12 +31,14 @@
  * 検査ゼロを PASS と呼ばない（§9）: 各ソースは独立の try/catch で読み、失敗したソースは
  * `SourceReport.ok = false` + errors で報告する（0 件と「読めていない」を混同しない）。
  *
- * 本ファイルの mapper 群・表示補助は fs I/O を一切行わない純関数（テスト容易性・§1 準拠）。
- * fs を伴う読み取りは collectScheduleEvents（Step 2 で追加）に閉じ込める。
+ * 本ファイルの mapper 群・表示補助は fs I/O を一切行わない純関数（テスト容易性）。
+ * fs を伴う読み取りは末尾の collectScheduleEvents 系（read*）に閉じ込める。
  * ---------------------------------------------------------------------------
  */
-import { basename } from 'node:path';
-import { jstDayTime } from './jst-date.mjs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { basename, join } from 'node:path';
+import { jstDayTime, todayJst } from './jst-date.mjs';
+import { parseBacklog } from './backlog-lib.mjs';
 
 /**
  * @typedef {Object} ScheduleEvent
@@ -385,6 +387,17 @@ export function groupByDay(events) {
   return map;
 }
 
+const WEEKDAY_JA = ['日', '月', '火', '水', '木', '金', '土'];
+
+/**
+ * 'YYYY-MM-DD' の曜日（日本語1文字）。ホストのローカルタイムゾーンに依存しないよう
+ * Date.UTC 経由で計算する（buildMonthMatrix と同じ手法）。CLI・admin 双方の日付見出しで使う。
+ */
+export function weekdayLabel(dateKey) {
+  const [y, m, d] = dateKey.split('-').map(Number);
+  return WEEKDAY_JA[new Date(Date.UTC(y, m - 1, d)).getUTCDay()];
+}
+
 /** channel × status の件数集計。 */
 export function summarize(events) {
   const out = {};
@@ -393,4 +406,207 @@ export function summarize(events) {
     out[ev.channel][ev.status] = (out[ev.channel][ev.status] ?? 0) + 1;
   }
   return out;
+}
+
+// ─── I/O 集約 ──────────────────────────────────────────────────────────────
+
+function readJsonFile(abs) {
+  return JSON.parse(readFileSync(abs, 'utf8'));
+}
+
+function readExamCalendar(rootDir) {
+  const relPath = '.claude/config/exam-calendar.json';
+  try {
+    const json = readJsonFile(join(rootDir, relPath));
+    const { events, skipped } = mapExamCalendar(json, relPath);
+    const errors = skipped > 0
+      ? [{ path: relPath, message: `${skipped} 件の event が不正な日付形式でスキップ` }]
+      : [];
+    return {
+      events,
+      report: { id: 'exam-calendar', label: 'exam', path: relPath, ok: true, count: events.length, dateless: 0, legacy: 0, errors },
+    };
+  } catch (err) {
+    return {
+      events: [],
+      report: { id: 'exam-calendar', label: 'exam', path: relPath, ok: false, count: 0, dateless: 0, legacy: 0, errors: [{ path: relPath, message: String(err?.message ?? err) }] },
+    };
+  }
+}
+
+function readXCampaigns(rootDir) {
+  const dirRel = '.claude/config/x-campaigns';
+  const dirAbs = join(rootDir, dirRel);
+  const events = [];
+  const errors = [];
+  let ok = true;
+  try {
+    const files = readdirSync(dirAbs).filter((f) => f.endsWith('.json')).sort();
+    for (const f of files) {
+      const relPath = `${dirRel}/${f}`;
+      try {
+        const json = readJsonFile(join(dirAbs, f));
+        events.push(...mapXCampaign(json, relPath));
+      } catch (err) {
+        errors.push({ path: relPath, message: String(err?.message ?? err) });
+      }
+    }
+  } catch (err) {
+    ok = false;
+    errors.push({ path: dirRel, message: String(err?.message ?? err) });
+  }
+  return {
+    events,
+    report: { id: 'x-campaign', label: 'x-campaign', path: dirRel, ok, count: events.length, dateless: 0, legacy: 0, errors: capErrors(errors) },
+  };
+}
+
+function readXStatus(rootDir, nowMs) {
+  const dirRel = 'content/sns/x/draft';
+  const dirAbs = join(rootDir, dirRel);
+  const events = [];
+  const errors = [];
+  let dateless = 0;
+  let ok = true;
+  try {
+    // draft 直下1階層のみ（*/status.json）。_archive-old-account/ は旧凍結アカウントの
+    // アーカイブで、status.json がさらに1階層下にあるため自然に対象外になる（意図的）。
+    const entries = readdirSync(dirAbs, { withFileTypes: true });
+    for (const entry of entries) {
+      if (!entry.isDirectory()) continue;
+      const statusAbs = join(dirAbs, entry.name, 'status.json');
+      if (!existsSync(statusAbs)) continue;
+      const relPath = `${dirRel}/${entry.name}/status.json`;
+      try {
+        const json = readJsonFile(statusAbs);
+        const mapped = mapXDraftStatus(entry.name, json, relPath, nowMs);
+        events.push(...mapped.events);
+        dateless += mapped.dateless;
+      } catch (err) {
+        errors.push({ path: relPath, message: String(err?.message ?? err) });
+      }
+    }
+  } catch (err) {
+    ok = false;
+    errors.push({ path: dirRel, message: String(err?.message ?? err) });
+  }
+  return {
+    events,
+    report: { id: 'x-status', label: 'x-status', path: dirRel, ok, count: events.length, dateless, legacy: 0, errors: capErrors(errors) },
+  };
+}
+
+function readIgStatus(rootDir, nowMs) {
+  const dirRel = 'content/sns/instagram';
+  const dirAbs = join(rootDir, dirRel);
+  const events = [];
+  const errors = [];
+  let dateless = 0;
+  let legacy = 0;
+  let ok = true;
+  try {
+    // globSync は Node 22+ のため使わない（本リポジトリは Node 20）。readdirSync recursive で自前 walk。
+    const entries = readdirSync(dirAbs, { recursive: true });
+    const statusEntries = entries.filter((e) => basename(e) === 'status.json');
+    for (const entry of statusEntries) {
+      // Windows は '\' 区切りを返す。表示・パス構築は '/' に正規化する。
+      const entryPosix = entry.split('\\').join('/');
+      const packRel = entryPosix.replace(/\/status\.json$/, '');
+      const relPath = `${dirRel}/${entryPosix}`;
+      try {
+        const json = readJsonFile(join(dirAbs, entry));
+        const mapped = mapIgStatus(packRel, json, nowMs);
+        events.push(...mapped.events);
+        dateless += mapped.dateless;
+        legacy += mapped.legacy;
+      } catch (err) {
+        errors.push({ path: relPath, message: String(err?.message ?? err) });
+      }
+    }
+  } catch (err) {
+    ok = false;
+    errors.push({ path: dirRel, message: String(err?.message ?? err) });
+  }
+  return {
+    events,
+    report: { id: 'ig-status', label: 'ig-status', path: dirRel, ok, count: events.length, dateless, legacy, errors: capErrors(errors) },
+  };
+}
+
+function readYoutubeSchedule(rootDir, nowMs) {
+  const relPath = '.claude/state/youtube-schedule.json';
+  try {
+    const json = readJsonFile(join(rootDir, relPath));
+    const { events, skipped } = mapYoutubeSchedule(json, relPath, nowMs);
+    const errors = skipped > 0
+      ? [{ path: relPath, message: `${skipped} 件の item が不正な publishAt でスキップ` }]
+      : [];
+    return {
+      events,
+      report: { id: 'youtube-schedule', label: 'youtube', path: relPath, ok: true, count: events.length, dateless: 0, legacy: 0, errors },
+    };
+  } catch (err) {
+    return {
+      events: [],
+      report: { id: 'youtube-schedule', label: 'youtube', path: relPath, ok: false, count: 0, dateless: 0, legacy: 0, errors: [{ path: relPath, message: String(err?.message ?? err) }] },
+    };
+  }
+}
+
+function readBacklogDue(rootDir, todayKey) {
+  const relPath = '.claude/todo/backlog.md';
+  try {
+    const text = readFileSync(join(rootDir, relPath), 'utf8');
+    const cards = parseBacklog(text);
+    const events = mapBacklogDue(cards, todayKey);
+    return {
+      events,
+      report: { id: 'backlog', label: 'todo', path: relPath, ok: true, count: events.length, dateless: 0, legacy: 0, errors: [] },
+    };
+  } catch (err) {
+    return {
+      events: [],
+      report: { id: 'backlog', label: 'todo', path: relPath, ok: false, count: 0, dateless: 0, legacy: 0, errors: [{ path: relPath, message: String(err?.message ?? err) }] },
+    };
+  }
+}
+
+/**
+ * 6 ソースを独立に読み、共通 ScheduleEvent[] へ集約する（読み取り専用）。
+ * 1 ソースの失敗は他ソースを道連れにしない（各々 try/catch 済みの read*関数を呼ぶだけ）。
+ * @param {string} rootDir リポジトリルート（絶対パス）
+ * @param {{nowMs?: number}} [opts]
+ * @returns {Promise<{events: ScheduleEvent[], sources: SourceReport[], generatedAt: string}>}
+ */
+export async function collectScheduleEvents(rootDir, { nowMs = Date.now() } = {}) {
+  const todayKey = todayJst(nowMs);
+
+  const exam = readExamCalendar(rootDir);
+  const campaign = readXCampaigns(rootDir);
+  const xStatus = readXStatus(rootDir, nowMs);
+  const igStatus = readIgStatus(rootDir, nowMs);
+  const youtube = readYoutubeSchedule(rootDir, nowMs);
+  const backlog = readBacklogDue(rootDir, todayKey);
+
+  const xActual = xStatus.events;
+  const xPlanRemaining = reconcileXPlan(campaign.events, xActual, todayKey);
+
+  const events = [
+    ...exam.events,
+    ...xPlanRemaining,
+    ...xActual,
+    ...igStatus.events,
+    ...youtube.events,
+    ...backlog.events,
+  ].sort((a, b) => keyOf(a.date, a.time).localeCompare(keyOf(b.date, b.time)));
+
+  // x-campaign の SourceReport は「消し込み後に残った件数」を count にする
+  // （events に実際に入るのはこの残数だけなので、ここが 0 件と読めていないの区別を保つ対象）。
+  const campaignReport = { ...campaign.report, count: xPlanRemaining.length };
+
+  return {
+    events,
+    sources: [exam.report, campaignReport, xStatus.report, igStatus.report, youtube.report, backlog.report],
+    generatedAt: new Date(nowMs).toISOString(),
+  };
 }
