@@ -123,17 +123,6 @@ construction 19。`figure-provenance.json` の追跡数は 549→496（差分53�
 U+FFFD文字化けも0件を実検査。**残作業はKDPへのアップロード＋提出のみ**（ユーザー承認・ログイン操作が必要）。
 
 
-### [DN-0137] CI/CD Secrets・破壊操作の権限設計（旧DN-0109 Phase 4）
-タグ: [インフラ・計測] [種類:改善] [実行:ユーザー] [起票:2026-08-26] [期日:2026-09-30]
-
-**設計・実査は完了**（2026-08-26）。実測結果と実行チェックリストは
-[ci-cd-security-hardening.md](../knowledge/reference/ci-cd-security-hardening.md)。
-残るのはGitHub/Cloudflare管理画面での実行のみ（branch protectionのforce-push/削除禁止・
-未使用Secrets4件の削除・未使用Environment2件の扱い決定・R2監査キーの最小権限化）——
-いずれもセキュリティ設定の変更なのでエージェントは実行しない。
-
-**関連の未処理**: `automation-failure` Issue #457は対象workflowが回復済みなのに18日open
-（DN-0135のIssue #473と同種のため統合しても良い・クローズは人間）。
 
 ### [DN-0002] 会員フロー 週次配信（W1-W5 配信済・W6 以降は週1）
 タグ: [収益化] [種類:制作] [実行:sweep] [起票:2026-08-06]
