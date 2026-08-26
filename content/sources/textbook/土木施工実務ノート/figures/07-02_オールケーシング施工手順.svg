@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 210" font-family="sans-serif">
+<style>.t{font-size:12px;fill:#333}.s{font-size:10px;fill:#666}.h{font-size:14px;fill:#333;font-weight:bold}.n{font-size:11px;fill:#fff}</style>
+<text x="8" y="18" class="h">オールケーシング工法の施工段階と管理の勘所</text>
+<g id="row">
+<rect x="10" y="34" width="740" height="60" fill="none" stroke="#333"/>
+</g>
+<g>
+<circle cx="52" cy="64" r="13" fill="#e8632a"/><text x="52" y="68" class="n" text-anchor="middle">1</text>
+<text x="52" y="90" class="t" text-anchor="middle">機械据付</text>
+<circle cx="145" cy="64" r="13" fill="#e8632a"/><text x="145" y="68" class="n" text-anchor="middle">2</text>
+<text x="145" y="90" class="t" text-anchor="middle">掘削</text>
+<circle cx="238" cy="64" r="13" fill="#e8632a"/><text x="238" y="68" class="n" text-anchor="middle">3</text>
+<text x="238" y="90" class="t" text-anchor="middle">支持層確認</text>
+<circle cx="331" cy="64" r="13" fill="#e8632a"/><text x="331" y="68" class="n" text-anchor="middle">4</text>
+<text x="331" y="90" class="t" text-anchor="middle">スライム処理</text>
+<circle cx="424" cy="64" r="13" fill="#e8632a"/><text x="424" y="68" class="n" text-anchor="middle">5</text>
+<text x="424" y="90" class="t" text-anchor="middle">鉄筋建込み</text>
+<circle cx="517" cy="64" r="13" fill="#e8632a"/><text x="517" y="68" class="n" text-anchor="middle">6</text>
+<text x="517" y="90" class="t" text-anchor="middle">トレミー建込み</text>
+<circle cx="610" cy="64" r="13" fill="#e8632a"/><text x="610" y="68" class="n" text-anchor="middle">7</text>
+<text x="610" y="90" class="t" text-anchor="middle">生コン打設</text>
+<circle cx="703" cy="64" r="13" fill="#e8632a"/><text x="703" y="68" class="n" text-anchor="middle">8</text>
+<text x="703" y="90" class="t" text-anchor="middle">ケーシング引抜き</text>
+</g>
+<g stroke="#333" fill="none">
+<path d="M68 64 L128 64" marker-end="url(#b)"/><path d="M161 64 L221 64" marker-end="url(#b)"/>
+<path d="M254 64 L314 64" marker-end="url(#b)"/><path d="M347 64 L407 64" marker-end="url(#b)"/>
+<path d="M440 64 L500 64" marker-end="url(#b)"/><path d="M533 64 L593 64" marker-end="url(#b)"/>
+<path d="M626 64 L686 64" marker-end="url(#b)"/>
+</g>
+<g>
+<path d="M238 100 L238 118" stroke="#666" stroke-dasharray="3 3"/>
+<rect x="150" y="118" width="180" height="42" fill="none" stroke="#e8632a"/>
+<text x="240" y="136" class="t" text-anchor="middle">排出土をボーリング</text>
+<text x="240" y="152" class="t" text-anchor="middle">データと照合（→§7-12）</text>
+<path d="M610 100 L610 118" stroke="#666" stroke-dasharray="3 3"/>
+<rect x="470" y="118" width="270" height="42" fill="none" stroke="#e8632a"/>
+<text x="605" y="136" class="t" text-anchor="middle">トレミー先端をコンクリート中に2m以上挿入</text>
+<text x="605" y="152" class="t" text-anchor="middle">余盛りは計画天端＋1m程度（→§7-9）</text>
+</g>
+<text x="10" y="184" class="s">※ 引抜き時の鉄筋共上がりは復旧不能。垂直挿入・スペーサー・番線固定を打設前に確認しておく。</text>
+<text x="10" y="200" class="s">※ 引抜き困難が予想される砂礫・転石地盤では、揺動型ではなく全周回転型を選定する。</text>
+<defs><marker id="b" markerWidth="7" markerHeight="7" refX="6" refY="3.5" orient="auto"><path d="M0 0 L7 3.5 L0 7 z" fill="#333"/></marker></defs>
+</svg>
