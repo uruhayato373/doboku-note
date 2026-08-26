@@ -309,11 +309,10 @@ CLAUDE.md §7 と一致:
 | note もくじタイル（`HubCtaBanner`／L2 索引） | 全 HUB 資格（civil-1/2・総監・建設）の docs 記事末尾＋サイドバーに各 1 枚（`-docs-sb`／`-footer`）＋カテゴリ hub に sidebar/mobile 各 1 枚。個別マガジンタイル（旧・最大 3 誌）は 2026-07 廃止し個別導線は冒頭/中間 CTA・MDX 内 MagazineCard に一本化。非 HUB 資格・career タグ記事は非表示 | コード（page.tsx 導出・`resolveHubCta`） |
 | 本文中間 CTA（`MidArticleCta`） | **記事長に応じて 1〜3 枠**（2026-07-28 に 1 枠固定から変更＝長文で note と転職カードが枠を奪い合っていたため）。枠数 = `max(1, min(3, ⌊h2/3⌋, ⌊本文字数/4000⌋))`、下限ゲート h2≥3 かつ 2,500字（未満は 0 枠。**2026-08-24 に h2≥4 から緩和**＝GA4 実測で本文中間の imp 当たりクリックがサイドバーの約4倍〔sidebar 5,900imp/5click・article-mid 1,546imp/5click〕なのに、4,000字以上あるのに 0 枠の published 記事が 47 本あったため。h2=2 に下げないのは位置式 min(max(1,…), h2-2) が 0 に潰れて「先頭セクション直後は避ける」を破るから）。位置は h2 境界に均等配分し最終 h2（まとめ）直前は避ける。**埋める順**＝①note（guide/pillar/textbook・h2≥5・8,000字以上・冒頭 CTA と別マガジンのとき）→②転職ネイティブカード→③related。**各種別 1 記事 1 回まで**（同じ広告を 2 度出さない）。転職カードは affiliate 対象カテゴリ（civil-1/2・pe-construction・concrete-*・pe-first-stage）＋総監（DXコンサル）で、手書き inline `<CareerAffiliate>` 保有記事は自動抑制（二重表示回避） | コード（挿入条件） |
 | 記事末尾 footer カード | ≤ 7 目安（旗艦セールスハブは例外的に超過可） | 手動 |
-| AdSense 自動広告 | コードで除外指定不可 → 管理画面「広告掲載率」＋`google-auto-placed` 出現数を週次監査 | 手動 |
 
 > **アフィリ ピクセル計数の注意**: 素朴な substring カウント（`px.a8.net`・`0.gif` の出現数）は Next.js の RSC ペイロード（props の JSON 直列化）で ~2 倍に膨らむため使わない。check-cta-density は**レンダリング済み `<img>` タグだけ**をパースして a8mat を数える（href の `px.a8.net/svt/ejp`・banner の `bgt`・RSC payload は無視）。docs 記事は サイドバー枠の 1 ピクセルのみ発火（モバイル記事末カードは href のみ＝ピクセルなし）で 1 ページ 1 ピクセルを維持済み。
 
-> 中間 CTA 導入後 1〜2 週は RPM／スクロール完了率を GA4・AdSense で監視し、悪化時は中間 CTA 閾値を h2≥7 / 12,000 字へ引き上げる（ロールバックレバー）。
+> 中間 CTA 導入後 1〜2 週はスクロール完了率を GA4 で監視し、悪化時は中間 CTA 閾値を h2≥7 / 12,000 字へ引き上げる（ロールバックレバー）。
 
 ---
 

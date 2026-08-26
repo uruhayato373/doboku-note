@@ -147,4 +147,4 @@ npm run lint 2>&1 | head -100
 - `content/site/` 配下のMDXコンテンツはこのスキルの対象外（`/check-mdx` を使う）
 - Cloudflare Pagesデプロイのため、Node.js固有APIの使用は要注意
 - KaTeX はクライアントサイドレンダリング。SSR不可は既知
-- AdSense/Analytics のスクリプト挿入パターンは現行を尊重する
+- Analytics のスクリプト挿入パターンは現行を尊重する
