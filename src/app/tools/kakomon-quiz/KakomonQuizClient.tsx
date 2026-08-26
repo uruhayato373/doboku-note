@@ -2,7 +2,6 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import Link from "next/link";
-import AdSlot from "@/components/ads/AdSlot";
 import type { QuizDataset, QuizQuestion } from "@/lib/quiz/types";
 
 /**
@@ -12,7 +11,7 @@ import type { QuizDataset, QuizQuestion } from "@/lib/quiz/types";
  * 実行時 fetch で読み込む（クライアント JS バンドルを軽く保つため）。
  *
  * モード: 年度別 / ランダム20問 / 間違い復習（localStorage）。
- * 収益導線: 結果画面に AdSlot（env-gated）＋ note「一次 出る順」への UTM 付き CTA。
+ * 収益導線: 結果画面に note「一次 出る順」への UTM 付き CTA。
  * PWA 共通エンジン化の Phase 0 = 本ファイル。総監・2級は同じ型で後から追加する。
  */
 
@@ -20,7 +19,6 @@ const DATA_URL = "/quiz/civil-1.json";
 const WRONG_KEY = "dnq:civil-1:wrong";
 const TALLY_KEY = "dnq:civil-1:tally";
 const RANDOM_COUNT = 20;
-const AD_SLOT = process.env.NEXT_PUBLIC_ADSENSE_SLOT_QUIZ;
 
 const NOTE_ICHIJI =
   "https://note.com/dobokunote/n/nec34238ca6d6?utm_source=doboku-note&utm_medium=quiz&utm_campaign=civil-1-kakomon";
@@ -337,8 +335,6 @@ function QuizRunner({
             </button>
           </div>
         </div>
-
-        {AD_SLOT && <AdSlot slot={AD_SLOT} className="mt-6" />}
 
         <FunnelLinks />
       </div>

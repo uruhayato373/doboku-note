@@ -33,11 +33,9 @@ export const ctaPages = [
 ] as const;
 
 const allowedConsoleErrors = [
-  // 外部計測・広告はE2Eの検査対象外。URLを限定し、製品コードの例外を広げない。
+  // 外部計測はE2Eの検査対象外。URLを限定し、製品コードの例外を広げない。
   /googletagmanager\.com/,
   /google-analytics\.com/,
-  /doubleclick\.net/,
-  /adsbygoogle/,
 ];
 
 export function observeRuntimeErrors(page: Page) {
