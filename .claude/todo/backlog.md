@@ -1002,18 +1002,6 @@ Phase 0のローカル実装とbuild、イベントテスト、light/dark/mobile
 Phase 2はStripe test modeとfixtureまで、Phase 3は別承認として扱い、資格横展開や月額化を同時に行わないでください。
 ```
 
-### [DN-0103] 管理画面をコンテンツ中心IAへ再編しBrainをpilot統合
-タグ: [UI・UX] [種類:改善] [Codex候補] [実行:sweep] [検証:test:e2e:admin] [起票:2026-08-21]
-
-管理画面の第一分類が「発信」4媒体と「管理 > 制作物」に分裂し、実体として存在するYouTube・ココナラ・Kindleや、販売中のBrain商品へ日常導線がない。`docs/products` 21本中14本がBrain関係で、商品設計・販売原稿・無料note原稿・ココナラPDF source・手動playbookが同じ分類に混在する一方、販売本文・画像・配布ZIPは `.claude/config/brain*` に置かれ、Publishable ContentとAgent Configの境界も崩れている。
-
-**実装指示書**: [DN-0103-admin-content-ia/00-master.md](../plans/DN-0103-admin-content-ia/00-master.md)
-
-**実行順**: ①左ナビを「コンテンツ」へ変更しpureなchannel registryへ集約、②MarkdownをSSOTのまま文書を目的・チャネル・保持区分で絞り込み、Callout/表/関連タスクを改善、③Brainの販売本文・画像・ZIPだけを`content/brain`へmoveして全script/workflow/skill/agent参照を同期、④Brain専用read-only画面で商品・販売文・画像・配布物・関連設計を横断表示、⑤恒久SSOTへ抽出して本カードとplanを削除する。
-
-**禁止**: `docs/products/brain-*`の一括移動、旧新コピーの併存、HTML文書SSOT化、sanitize無効化、価格/status/URL/ZIP名/R2 keyの変更、adminへの公開・R2 upload・任意shell実行UI追加、push/deploy/外部サービス変更。Phase単位で実装・検証・停止する。
-
-**完了条件**: adminからSite/note/X/Instagram/YouTube/Coconala/Kindle/Brainへ到達でき、`/docs`は多軸分類、Brainは`content/brain`だけが販売素材SSOTとなる。`check-information-architecture`・`check-doc-refs`・`check-brain-wiring`・admin型検査・E2E・light/dark/mobile目視がPASSし、恒久SSOT抽出後に本カードとplan bundleを削除する。
 
 ### [DN-0108] Windows・Mac共通のPlaywright認証永続化基盤
 タグ: [インフラ・計測] [種類:改善] [Codex候補] [実行:対話] [起票:2026-08-21]
@@ -1082,7 +1070,7 @@ BK-09 電力土木 / BK-10 鉄道 の **R08 予想問題集（各 3 記事）は
 - **カテゴリ変更**: 両記事とも「ビジネス」で申請。Brain には「資格」カテゴリあり→審査通過後に変更検討
 - **納品オペ**: ココナラ注文時はトークルームで送付（①=`C:\tmp\claude-code-civil-essay-kit-coconala.zip` 外部URL除去版／②=`.claude/config/coconala/assets/pdf/coconala-sokan-bunseki.pdf`）。Brain は有料エリアの R2 リンクで自動（`storage.doboku-note.com/brain/dist/`）
 - **売上記録**: 発生したら `/record-sales`（productId 規約は sales-recorder 台帳済）
-- **経緯・検証記録**: 企画〜バックテスト＝[brain-r8-policy-prediction-skill/](../../docs/products/brain-r8-policy-prediction-skill)（00〜07・統制run結果=04§6）／①仕様=[brain-claude-code-essay-skill/](../../docs/products/brain-claude-code-essay-skill)／出品手順=[brain-publish-playbook.md](../../docs/products/brain-publish-playbook.md)
+- **経緯・検証記録**: 企画〜バックテスト＝[brain-r8-policy-prediction-skill/](../../docs/products/brain-r8-policy-prediction-skill)（00〜07・統制run結果=04§6）／①仕様=[brain-claude-code-essay-skill/](../../docs/products/brain-claude-code-essay-skill)／出品手順=`scripts/brain-publish.mjs`＋[brain-operations.md](../knowledge/reference/brain-operations.md)（旧playbook.mdは2026-08-26にscripts実体へ置き換え済み・削除）
 
 ### [DN-0032] note施策C フォローアップ: 一次「出る順 合格ノート」の露出調整（任意・売れ行き次第）
 タグ: [収益化] [種類:改善] [実行:対話]
@@ -1096,7 +1084,7 @@ C（`civil-1-ichiji-ronten` ¥1,480・[nec34238ca6d6](https://note.com/dobokunot
 
 **残（Phase 2-4）= OCR 済み md → textbook site 記事（MDX）の忠実変換**。変換元は `content/sources/textbook/１級土木施工管理技士/テキスト（土木一般編）/` の第1/3/4章。order レンジは確保済みなので、記事 frontmatter に `textbook_order` を割り当てれば自動的に該当章へ収まる。
 
-- **Phase 2: 第１章_土工.md（4,209行・最大）→ 約8記事（order 1-49・5刻み）**: 土質調査(概説+原位置/室内試験+土/岩分類, 行22-591) / 盛土(592-1456) / 切土・法面保護(1457-1897) / 軟弱地盤対策・排水工法(1898-2353) / 土工計画・建設機械の作業能力(2354-2863) / 道路土工・路盤(2864-3324) / アスファルト舗装(3325-3888) / 舗装補修・品質管理(3889-end)
+- **Phase 2: 第１章_土工.md（4,209行・最大）→ 約8記事（order 1-49・5刻み）**: ~~土質調査(行22-591)~~・~~盛土(592-1456)~~ **←2026-08-26 バッチ1で変換済み**（`textbook-soil-investigation-methods` order1 自己採点3.0／`textbook-embankment` order6 2.7・OCR破損数値は掲載見送りor公的PDF裏取りで対応）。残: 切土・法面保護(1457-1897) / 軟弱地盤対策・排水工法(1898-2353) / 土工計画・建設機械の作業能力(2354-2863) / 道路土工・路盤(2864-3324) / アスファルト舗装(3325-3888) / 舗装補修・品質管理(3889-end)
 - **Phase 3: 第３章_コンクリート工.md（2,646行）→ 約6記事（order 50-79）**: 材料 / コンクリートの性質 / 配合設計・レディーミクスト / 施工(運搬・打込み・締固め・打継目・養生) / 鉄筋工・型枠支保工 / 特別なコンクリート・品質管理検査
 - **Phase 4: 第４章_基礎工.md（1,561行）→ 約5記事（order 80-99）**: 概説・地質調査 / 土留め・仮締切り / 直接基礎 / 杭基礎(既製杭) / 場所打ち杭
 
