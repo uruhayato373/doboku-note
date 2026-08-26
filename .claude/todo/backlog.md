@@ -124,35 +124,19 @@ U+FFFD文字化けも0件を実検査。**残作業はKDPへのアップロー�
 
 
 
-### [DN-0002] 会員フロー 週次配信（W1-W5 配信済・W6 以降は週1）
-タグ: [収益化] [種類:制作] [実行:sweep] [起票:2026-08-06]
+### [DN-0002] 会員フロー 週次配信（次回 8/28 金: 学科記述 02_コンクリート工）
+タグ: [収益化] [種類:制作] [実行:sweep] [起票:2026-08-06] [期日:2026-08-28]
 
-**2026-08-05 に初の入会**（通年プラン ¥1,480）。プラン説明が約束する「月例の予想問題配信」を会員限定で配信する。全 11 週分の在庫は `content/note/1級・2級土木/メンバーシップ/予想問題マガジン/01〜11` に揃っている。
+会員限定の予想問題配信。**日程・順序の正典は [メンバーシップ/README.md](../../content/note/1級・2級土木/メンバーシップ/README.md) の配信表**（経験記述 W6=8/31〜W11=9/28 週1・学科記述予想10本=火金週2・添削練習=9/25）。在庫は `予想問題マガジン/01〜11` に揃い、残17本は公開検査済み `noteStatus: draft`（W6 は下書き `n81850411ecb7` まで投入済み）。
 
-
-**残り17本の状態**: W6〜W11・学科記述予想10本・添削練習1本は公開検査済みで `noteStatus: draft`。W6 は note 下書き `n81850411ecb7` まで投入済み（未公開）。
-
-**経験記述の配信残り**: 週1で W6 8/31・W7 9/7・W8 9/14・W9 9/21・W10 9/24頃・W11 9/28（10/4 に間に合う）。次回は:
+**配信手順**:
 
 ```bash
-node scripts/note-publish.mjs --article "content/note/1級・2級土木/メンバーシップ/予想問題マガジン/06_安全管理-労働災害の防止/article.md" --commit
+node scripts/note-publish.mjs --article "<対象article.md>" --commit
 node scripts/note-magazine-add-articles.mjs --target mbe07bd5cecda --notes <noteId> --commit
 ```
 
-**公開範囲を選べなければ公開しない**（無料公開事故の防止）。公開後は public API で `is_limited=true`・未ログイン本文 0 字を確認する。
-
-**並行トラック**: 学科記述予想10本は 8/21〜9/22 の火・金を基本に週2本、添削練習1本は9/25に配信する。対応するnoteマガジンは実在しないため、虚偽の `noteMagazine` を削除し、会員限定の単独記事として公開する。正確な日付・順序は `content/note/1級・2級土木/メンバーシップ/README.md` を真実源とする。
-
-**2026-08-25 実施**: 並行トラックが **8/21 開始予定なのに 10 本すべて draft** で 1 本も出ていなかった。
-火曜スロットで **01_土工** を会員限定配信（`n018e626cf66f`）。`is_limited=true`／未ログイン本文 0 字を実査。
-次は 8/28（金）に 02_コンクリート工。
-
-**W6 は 8/31 で W35 の範囲外**（weekly は 08/24〜08/30）。早出しはドリップを崩すのでしない。
-
-**cover が R2 退避で publish が止まる**（`asset-hydrate` が「R2 から取得 1 件」で FAIL）。
-**未公開記事なら再生成で解ける** — `node scripts/generate-note-covers.mjs <slug部分一致>` →
-`check-note-cover-fit` 通過を確認してから publish。note に実体が無いので
-asset-storage-policy §6 の「同一性が要る用途」に当たらない。公開済み記事では使えない。
+**安全弁**: 公開範囲を選べなければ公開しない（無料公開事故防止）。公開後は public API で `is_limited=true`・未ログイン本文 0 字を実査。**期日前の早出しはドリップを崩すのでしない**。学科記述側は対応する note マガジンが実在しないため会員限定の単独記事として公開（虚偽の `noteMagazine` を書かない）。cover が R2 退避で publish が止まる場合、**未公開記事に限り** `generate-note-covers.mjs <slug>` → `check-note-cover-fit` で再生成して解決できる。
 
 ### [DN-0003] note ライブ反映の一括消化（本文 drift 残221本）
 タグ: [インフラ・計測] [種類:不具合] [Codex候補] [実行:sweep] [起票:2026-08-17]
@@ -307,47 +291,20 @@ membership/aborted）で ready 135・pdfReady 54・**pdfMissing は前回53本�
 **残**: 221本（ready残35・pdfReady54・hasImage117・membership1・aborted4の再分類が必要）。
 翌日以降に`note-republish-plan.mjs --out`で続きを投入する。
 
-### [DN-0005] X 9月分90本の週次投入（8/25頃から毎週・意図的に未投入）
-タグ: [SNS・マーケ] [種類:制作] [実行:sweep]
+### [DN-0005] X 9月分の週次投入（week2 以降・計画正典は 2026-09-civil.json）
+タグ: [SNS・マーケ] [種類:制作] [実行:sweep] [起票:2026-08-06] [期日:2026-09-08]
 
-9月分90本（1日3本・9/1-9/30）は**執筆・全検査済みだが、あえてキューへ積んでいない**。
-`x-post-policy.md` §11.6 が「1週間分ずつ」を定めており、141本を一度に積むのは
-2026-06-12 凍結の実因そのものだから。8月分51本は投入済み。
+9月分90本は執筆・全検査済み。`x-post-policy.md` §11.6（1週間分ずつ・一括投入は凍結の実因）に従い週次で積む。**計画の正典は `.claude/config/x-campaigns/2026-09-civil.json`**。week1（9/1-9/7・19本）は 2026-08-25 投入・キュー実在で実照合済み。残 = week2（9/8〜・ドラフト090/091）→ week3（091/092）→ week4（092）。
 
-| 週 | 対象 | 本数 | ドラフト |
-|---|---|---|---|
-| 1 | 9/1-9/7 | 21 | 090 |
-| 2 | 9/8-9/14 | 21 | 090 / 091 |
-| 3 | 9/15-9/21 | 21 | 091 / 092 |
-| 4 | 9/22-9/30 | 27 | 092 |
-
-**手順**（1週ごとに繰り返す）
+**手順**（1週ごと）:
 
 ```bash
 npm run x-schedule-guard -- --queue    # 緑を確認
 npx tsx .claude/skills/social/publish-x/publish-x.ts <NNN> --tweets <a>-<b> ${=DATES}
-npm run x-sync-status                  # キュー実在を実照合（投入数と queued 昇格数が一致するか）
+npm run x-sync-status                  # 投入数と queued 昇格数の一致を実照合
 ```
 
-- **zsh は変数を単語分割しない**。`$DATES` だと日時が引数1個扱いになり、静かに即時投稿モードへ落ちる。`${=DATES}` 必須（`publish-x/SKILL.md` に事故記録）
-- **`--dry-run` の緑は証拠にならない**。ログで「📅 予約モード確認OK」を目で読む
-- 凍結・警告の兆候が1度でも出たら即 S0 へ後退し、投入を止める（§11.6）
-
-**week1 完了（2026-08-25）**: 9/1-9/7 を **19/19** 投入。表の「21本」は誤りで実体 19 本
-（090 の 18・19 は `replaced`＝意図的差し替え）。実キューで照合済み（queued 昇格 1 件・
-既 queued 39 件をキュー実在で実照合・残存 0）。Tweet 11 のみ 281/280 で停止したので 2 文字詰めて再投入。
-
-**このとき見つけた障害**: `publish-x.ts` の見出し除去 `/^## Tweet \d+:.+
-/` が **CRLF で機能せず**、
-見出し行が本文に混入して 40〜50 字を水増しし、19 本中 17 本が 280 字ガードで止まっていた。
-JS の `.` は `` も行終端として除外するため。`.*?
-` へ修正済み。8 月分は LF だったので表面化していなかった。
-**表示される原因が「本文が長い」なので、ドラフトを削る方向に直すと真因に辿り着かない**。
-
-**残**: week2（9/8-9/14・ドラフト 090/091）以降。次の投入は 9/1 頃。
-
-
-
+**事故防止**: zsh は変数を単語分割しない——`$DATES` は静かに即時投稿へ落ちる。**`${=DATES}` 必須**。`--dry-run` の緑は証拠にならない（ログの「📅 予約モード確認OK」を目で読む）。凍結・警告の兆候が1度でも出たら即 S0 へ後退。
 
 ### [DN-0011] IG 論点パック 残32件の波状予約（1セッション30件）
 タグ: [SNS・マーケ] [種類:制作] [実行:ユーザー] [起票:2026-08-18]
@@ -396,81 +353,6 @@ status.json 30 件を commit 済み。残 32 件を次セッションで継続�
 
 
 
-
-### [DN-0106] GSC 検索流入停滞の原因分離と performance データ全件化
-タグ: [インフラ・計測] [種類:改善] [Codex候補] [実行:sweep] [起票:2026-08-20]
-
-**2026-08-22 Phase 1 実装済み**: query/pageの週次取得へ`--all`を追加し、ページング純関数・0行/truncatedゲート・テストを追加した。旧8/21スナップショットは意図どおり`INCOMPLETE`。次回CIで`truncated:false`を確認してからPhase 2へ進む。
-
-**2026-08-26 Phase 1完全スナップショット取得・Phase 2完了**: `fetch-metrics.yml`をworkflow_dispatchで手動実行し
-`truncated:false`を実確認（query 159行・page 355行）。RCAの結論は**季節性が支配的**——GSC clicks減少-201の82%は
-総監(-115)・建設部門(-51)に集中し両資格ともimpressions比例減（技術士総監筆記07-19〜20直後と一致）。GA4の
-Organic Search(-37%)・Organic Social(-83%)・Referral(-56%)が全チャネル同時急減で検索順位固有の問題ではない。
-技術エラーは0件。Phase 3実験候補は1件（`civil-1-textbook-network-schedule`の「インターフェアリングフロート
-とは」クエリ・278impr/position9.17/clicks0）に絞り込み、8/4見送り済みの主クエリとは別物と確認済み。
-詳細: `.claude/state/improvements/2026-08-26-gsc-access-rca.md`・判断ログ: `gsc-management.md`末尾。
-**適用（seoTitle変更）は/nsm-experiment起票を経てユーザー承認後に行う。次の一手はDN-0107との合流**。
-
-**目的**: 「アクセスが増えない」を、検索流入・SNS/リファラル・試験日程による季節性・index coverage の4要因に分け、検索施策で動かせる部分だけを実験化する。推測で title/description を一括変更しない。
-
-**実行順**: 本カード Phase 1 → 完全スナップショット取得 → Phase 2/3 → `DN-0107` Phase 0/1 → ユーザー承認 → 統合pilot。データが不完全なまま統合対象を選ばない。
-
-**2026-08-20 baseline**:
-
-- GSC 7日窓は clicks `110 → 77 → 24 → 32`、impressions `1,506 → 1,079 → 590 → 535`（7/13〜8/10）。7月の技術士二次・1級土木一次の直後なので、季節性を分離せず「SEO悪化」と断定できない
-- 最新週次レビューでは GA4 sessions が4週で `3,335 → 1,577 → 1,458 → 1,053`。GSC clicks の減少より大きく、SNS/リファラル減が混在している
-- `civil-construction-1-guide-strategy` は sessions `641 → 421 → 64 → 45` で再浮上条件成立。engagement は不変なので、本文品質より流入元を先に調べる
-- 週次 CI の GSC `query` / `page` は既定100行で `truncated:true`。件数比較や候補数の増減をそのまま判断に使えない。`page×query` は `--all` で完全取得済み
-- 技術面は `check-seo-build` error 0、sitemap欠落0、壊れた内部リンク0。先に直す technical error は無い
-
-**Phase 1 — 取得の全件化（最初に実装）**:
-
-1. `.github/workflows/fetch-metrics.yml` の週次 `query` と `page` を `--all` で取得する。`page×query` の既存 `--all` は維持する
-2. `.claude/scripts/check-data-integrity.mjs` か同等の既存ゲートへ、最新 `gsc-query-*` / `gsc-page-*` が `truncated:true` なら WARN ではなく「performance診断に不完全」と明示する検査を追加する。0行も PASS にしない
-3. `.claude/agents/metrics-analyzer.md` に、入力が truncated のとき候補件数の前週比較・全体断定をしない規則を追加する。完全な `date` 合計と `page×query` は別に使ってよい
-4. 取得関数をテスト可能な純関数へ最小限切り出し、`--all` 時の pagination / `meta.truncated=false` / 0行をテストする。新しい取得基盤は作らない
-5. develop 反映後、次の定期 CI またはユーザー承認済み `workflow_dispatch` で完全スナップショットを1回取得する
-
-**Phase 2 — 検索流入の RCA**:
-
-1. GSC `date` の直近8週を clicks / impressions / CTR / position で時系列化し、`.claude/config/exam-calendar.json` の試験日を重ねる
-2. 完全取得した `page` / `page×query` を content family（総監 / 技術士建設 / 1級 / 2級 / concrete / category）と `group` に分け、クリック減の寄与を算出する。top100だけの合計をサイト全体と呼ばない
-3. GA4 は Data API の Organic Search / Referral / Organic Social を分け、GSCと同方向かを確認する。取得不能な GA4 UI CSV は任意チャネルなので、このRCAのブロッカーにしない
-4. `guide-strategy` は主要 query の impressions / position / CTR と、note・X・内部リンク・UTM の流入元を突合する。GSC側が維持なら外部流入の問題、GSC側も低下なら query/順位の問題として分ける
-5. `pe-comprehensive-management-keyword-2026` など絶対減上位、`civil-construction-2-secondary-experience-writing-guide` など Hidden Winner を同じ表に置き、季節性・index脱落・順位低下・外部流入減のいずれかに分類する
-6. 結果を `.claude/state/improvements/YYYY-MM-DD-gsc-access-rca.md` に保存し、確定判断だけを `gsc-management.md` の観測・判断ログへ追記する
-
-**Phase 3 — 実験化のゲート**:
-
-- 一度に変更するのは最大5 URL、14〜28日、必ず `/nsm-experiment` に baseline / target / next_check を持たせる
-- `textbook-scraper` のメタ変更は、既存の人間裁定どおり「順位10位以内・表示300以上/28日・CTR 2%未満」を2期間連続で満たすまで行わない。8/14の自動候補はこの裁定を上書きしない
-- `guide-strategy` はRCA完了前に本文やメタを変えない。原因が外部流入ならリンク/UTM、検索順位なら検索意図・競合・内部リンクを1要素だけ実験する
-- civil-2 Hidden Winner は次回も sessions 300超なら、既存ページからの導線強化を1実験として起票する。類似記事は増やさない
-- description 24件の一括短縮はしない。実験対象URLに入ったときだけ扱う
-
-**完了条件**:
-
-- 最新 `gsc-query` / `gsc-page` が `truncated:false` で、0行検査・paginationテストが通る
-- GSC検索減とSNS/リファラル減、季節性、index脱落の寄与が同じレポートで分離されている
-- 修正候補は「最大5 URLの実験」または「見送り＋再浮上条件」に必ず落ち、全ページ一括メタ変更が無い
-- `npm run check-gsc-auto-review` / `node .claude/scripts/check-data-integrity.mjs` / 関連 unit test が通る
-
-**Claude Code 実行プロンプト**:
-
-```text
-DN-0106を実行してください。最初にAGENTS.mdと
-.claude/skills/management/seo-growth-review/SKILL.md、
-.claude/knowledge/reference/gsc-management.md、
-.claude/knowledge/reference/measurement-incidents.md、
-docs/operations/11_SEO品質ゲートとClaude分業実装計画.md、
-docs/operations/gsc-ga4-playwright-automation-spec.mdを読み、branch・origin差分・dirty filesを確認してください。
-
-Phase 1ではfetch-metrics.ymlのGSC query/pageを--all化し、truncated/0行を偽PASSにしない最小の整合ゲートとテストを追加してください。既存のpage×query取得・CI供給モデルを再設計しないでください。
-
-Phase 2ではコミット済みスナップショットだけを読み、GSC検索、GA4 Organic/Referral/Social、試験日程、index coverageを分離したRCAレポートを作成してください。top100データを全体値として扱わず、title/descriptionの一括変更はしないでください。
-
-Phase 3は最大5 URLの実験候補または見送り条件まで。外部workflow_dispatch、GSC操作、deployはユーザー承認なしに実行しないでください。最後に変更ファイル、根拠数値、検証結果、次回測定日を報告してください。
-```
 
 ### [DN-0107] index coverage 回復プログラム（総監209本の再分類＋権威性）
 タグ: [インフラ・計測] [種類:改善] [実行:対話] [起票:2026-08-20]
@@ -557,6 +439,19 @@ weekly.md の手動キューはこの ID だけを参照する（weekly は ID �
 
 ## 🟡 中 — 2〜3ヶ月以内
 
+### [DN-0141] GSC実験候補1件を/nsm-experimentへ起票するか判断する（旧DN-0106の残作業）
+タグ: [インフラ・計測] [種類:意思決定] [実行:対話] [起票:2026-08-26]
+
+旧DN-0106（GSC検索流入停滞の原因分離）のPhase 1（データ全件化）・Phase 2（RCA）は2026-08-26完了。
+結論は**季節性が支配的**（clicks減-201の82%が総監・建設部門の試験後需要減。技術エラー0件）。
+詳細: `.claude/state/improvements/2026-08-26-gsc-access-rca.md`・判断ログ: `gsc-management.md`末尾。
+
+**残る判断**: Phase 3実験候補は1件のみ——`civil-1-textbook-network-schedule` の
+「インターフェアリングフロートとは」クエリ（278impr / position 9.17 / clicks 0。
+8/4見送り済みの主クエリとは別物と確認済み）。これを `/nsm-experiment` で起票して
+seoTitle変更を実験化するかをユーザーと決める。**推測でtitle/descriptionを一括変更しない**。
+DN-0107（index coverage・対話）と合流して判断するのが自然。
+
 ### [DN-0139] LINE公式アカウントを開設し一次二次ブリッジ磁石の配信を始める
 タグ: [収益化] [種類:制作] [実行:ユーザー] [起票:2026-08-26]
 
@@ -582,21 +477,20 @@ DN-0011（civil-1/2 論点パック予約）の検証で `npm run verify-ig-stat
 **次の一手**: snapshot を読み、ドリフト110件の内訳（誤検知/実ズレ/経年劣化のどれが多いか）とリールギャップ97件の規模感（1本あたりの制作コスト×97本は現実的な工数か）を先に把握してから、着手するかどうかをユーザーと判断する。
 
 ### [DN-0134] 昇格後に asset-inbox を実走して R3 の納品 PDF 3 本を R2 へ反映する
-タグ: [インフラ・計測] [種類:改善] [実行:sweep] [検証:check-asset-storage] [起票:2026-08-25]
+タグ: [インフラ・計測] [種類:改善] [実行:sweep] [起票:2026-08-25]
 
-BK-01_道路/R03 の納品 PDF 3 本を再生成して note ライブへ貼り直した（DN-0003）が、**R2 は 1 世代前のまま**。買い手に届くのは note ライブなので実害は無いが、アーカイブが配布実体と食い違っている。
+BK-01_道路/R03 の納品 PDF 3 本の R2 アーカイブが note ライブより 1 世代古い（実害なし・食い違いのみ）。
+release は立っている: `asset-inbox-2026-08-25T02-58-58-838Z`（3 件 / 0.76 MiB）。
 
-**経路は用意済み**（2026-08-25）: `scripts/asset-inbox-push.mjs` で GitHub Release へ送る → `.github/workflows/asset-inbox.yml` が展開して `asset-offload --commit` で R2 へ上げ、manifest を develop へ返す。R2 credential は CI にしかない。
-
-release は既に立っている: `asset-inbox-2026-08-25T02-58-58-838Z`（3 件 / 0.76 MiB）。
-
-**着手条件**: `develop` → `main` の昇格。**新規 workflow は default branch に無いと発火しない**ため、昇格するまで release は取り込まれず残り続ける。昇格後に:
+**着手条件**: `develop` → `main` の昇格（新規 workflow は default branch に無いと発火しない）。昇格後に:
 
 ```bash
 gh workflow run asset-inbox.yml -f tag=asset-inbox-2026-08-25T02-58-58-838Z
 ```
 
-**完了条件**: `check-asset-storage` の `[WARN] local-newer` 3 件が消える（照合件数も出るので「0 件照合で緑」と区別できる）。取り込みに成功すると release は自動削除される — **残っていれば取り込めていない**。
+**完了条件**: `gh release list` から上記 release が消えること（取り込み成功で自動削除。残っていれば未取込）。
+※旧 `[検証:check-asset-storage]` は 2026-08-26 に撤去——local-newer 3件は既に解消済みで、
+現在この検査が赤になるのは別件（他カードの新規アセット未 offload）であり本カードの判定に使えない。
 
 ### [DN-0131] YouTube 予約投入が 68 日止まり、未処理 187 件が滞留している
 タグ: [SNS・マーケ] [種類:不具合] [実行:対話] [起票:2026-08-25]
@@ -1190,7 +1084,7 @@ BK-09 電力土木 / BK-10 鉄道 の **R08 予想問題集（各 3 記事）は
 
 
 ### [DN-0026] 土木公務員 SEO 第1期の効果測定（handoff 2026-08-17 抽出）
-タグ: [SNS・マーケ] [種類:改善] [実行:機械]
+タグ: [SNS・マーケ] [種類:改善] [実行:機械] [期日:2026-09-14]
 
 2026-08-17 に資格ハブ改稿＋1級土木の新設ページを公開・デプロイ済み。測定が残っている:
 
@@ -1260,10 +1154,6 @@ C（`civil-1-ichiji-ronten` ¥1,480・[nec34238ca6d6](https://note.com/dobokunot
 
 8本全合格済みだが scores.json の qualitative_comment に記録した改善余地: earthwork 表2.9 の散文詰込13セル解体（最優先）・入れ子リスト群のフラット化・factual table のインライン出典・qm-basics/past-problems の民間ソース不在。
 
-### [DN-0040] 性能: CI PSI 再計測（mobile 追加）
-タグ: [UI・UX] [種類:改善] [実行:sweep]
-
-①`pe-comprehensive-management-exam-index` desktop Perf 56・TBT 2521ms の再現確認（Mermaid 出現0の軽構成＝計測スパイク疑い。再現なら client JS を profiling）②**モバイル PSI が未計測**→CI 供給で計測開始（外部Google API＝ローカル不可）。実装: `.claude/config/psi-urls.txt`・`psi-config.json`。CLS 超過2ページの原因（AdSense 枠は撤退済みのため既に解消・残る要因があれば再診断）は未確認。
 
 ### [DN-0041] 回遊・note 動線 P4-P7
 タグ: [UI・UX] [種類:改善] [実行:対話]
@@ -1341,7 +1231,7 @@ SEO 品質ゲート実装（PR #390・handoff `2026-07-13-seo-quality-gates.md` 
 静的監査 `docs/reviews/2026-07-11-static-ui-codebase-audit.md`（作業指示書・SSOT）のうち、Phase 1〜3（UI-002/003/004/005/006）は develop 済み。残:
 1. **UI-007 P2**: Header メニュー/drawer の dialog・focus 管理（開閉トラップ・閉状態の dialog semantics 除去）
 2. **UI-008 P2**: `Callout` type を閉じた union へ変更＋未知 type を content lint で検出
-3. **UI-009 P2**: Knip 報告のデッド UI/依存整理（`LinksHubTile`・`next-themes`・`date-fns`・fontsource は要個別確認、一括削除しない）
+3. **UI-009 P2**: Knip 報告のデッド UI/依存整理（`LinksHubTile`・`next-themes`・`date-fns`・fontsource は要個別確認、一括削除しない）。旧DN-0059から移記: `Underline` は MDX 実使用 0 件だが component-loader 登録済み——撤去時は loader 登録も外さないと `type-check` が割れる
 4. **UI-010〜012 P3** ＋ **UI-001 完了確認**（仕様書と現行実装の残ズレ同期）
 - 実装順・完了条件は監査文書の各節参照。
 
@@ -1438,8 +1328,7 @@ genba-career 調査（2026-08-24）で見つかった**相手固有の空白の�
 タグ: [UI・UX] [種類:改善] [実行:sweep] [起票:2026-08-17]
 
 増分3（ArticleFooter config駆動化）・増分4残（`sortDocs` の strategy factory 化）は **新資格追加が実際に発生したら**着手する（indirection 増に対し効果が限界的）。`category-groups.ts` の分岐は実測 26 件。
-
-別件: `Underline` は **MDX 実使用 0 件**（component-loader には登録済み）。撤去の可否は要判断（loader 登録を見落として削除すると `type-check` が割れる）。
+※Underline 撤去の別件は DN-0050（UI-009 と同じデッドコード領域）へ移記した（2026-08-26）。
 
 ### [DN-0060] note 会員プラン設定の保存が即時ライブ反映か未検証（handoff 2026-07-30 抽出）
 タグ: [収益化] [種類:改善] [実行:ユーザー]
