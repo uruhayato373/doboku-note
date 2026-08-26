@@ -199,6 +199,18 @@
       "commit": "ec4e1ac735b5",
       "verification": "表2.9解体・入れ子フラット化・出典追記(WebSearch実在確認済)・ZENNAMA民間ソース追加の4点をcommit実在で確認",
       "note": "w5c実施(commits ab5d55df5/62f1cf689/eca5426bb/757850806)"
+    },
+    {
+      "id": "DN-0057",
+      "at": "2026-08-26",
+      "task": "OGP タイトルが 3 行以上に折れる 121 件のチューニング",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d8443e3e0fc5",
+      "verification": "check-ogp-line-count 1081件実測で3行以上0件・check-ogp-line-count:done(--max=2)PASS・check-ogp-coverage PASS",
+      "note": "全123件へogp.title付与+--max判定配線(commits 7203b6f10/402bb8447/23c0270ca/d8443e3e0)"
     }
   ]
 }

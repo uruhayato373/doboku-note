@@ -1226,24 +1226,6 @@ Tier 1（NoteLink 計測・cadence 化・bot 監査 CI 等）は実装完了。�
 PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事への `<ArticleImage>` 埋込（orphan 6点・**ユーザー保留中**）・SNSパイプライン残（IG管理別カルーセルのオーケストレーション/コピーGenerator/Evaluator配線）・doc-sync 宿題（`build-svg-catalog`/`render-figure-sns` を reference 索引へ追記）。
 
 
-### [DN-0057] OGP タイトルが 3 行以上に折れる 121 件のチューニング
-タグ: [UI・UX] [種類:改善] [実行:sweep] [検証:check-ogp-line-count:done] [起票:2026-08-18]
-
-**2026-08-18 に再測定して件数を訂正した（旧「残り 5 件」→ 実測 121 件）。**
-`check-ogp-title-fit` はフォントサイズ（56px 以上）しか見ておらず、**何行に折れるかを
-誰も測っていなかった**ため、台帳の数字が 24 倍ずれたまま放置されていた。
-実測手段を `npm run check-ogp-line-count` として用意した（描画と同じ wrap 実装を使う）。
-
-- 全 1,092 件のうち **3 行以上かつ `ogp.title` 未設定が 121 件**
-- 行数分布: 9行:1 / 7行:2 / 6行:14 / 5行:37 / 4行:40 / 3行:27
-- 最悪例: `pe-comprehensive-management-r8-essay-keyword-forecast`（**9 行**）、
-  `pe-construction-{construction-planning,river-coast}-exam-themes`（7 行）
-- 偏り: pe-construction の `*-exam-themes` 系が 6 行に集中＝**タイトル命名の型そのものが長い**。
-  1 件ずつ手当てする前に、この系列の命名を見直すほうが安い
-
-**対処**: frontmatter に `ogp.title` を入れて明示的に折る → `npm run ogp -- <slug> --force`。
-コード変更は不要。**何行までを許容するかはデザイン判断**なので surfacer は判定しない
-（`ci: false`・読み手はこのカードの着手時）。まず 6 行以上の 17 件から。
 
 ### [DN-0092] 技術士建設部門 選択科目まるごと合格パックを全11科目へ展開
 タグ: [収益化] [種類:制作] [実行:対話] [起票:2026-08-18]
