@@ -1393,14 +1393,6 @@ note-api.mjs / note-frontmatter.mjs は**新規に書くコードだけ**が使�
 移行はまだ。動いている検査を一度に触るリスクを避けるため、着手時は 1 本ずつ移行して
 その都度実測で挙動同一を確認する（バルクでの一斉置換はしない）。
 
-### [DN-0140] admin TODO の `Codex` バッジがバルク適性フラグだと伝わらない
-タグ: [UI・UX] [種類:改善] [実行:sweep] [起票:2026-08-26]
-
-`[Codex候補]` は「バルク処理向き」という適性フラグであり、Claude Code への自動 dispatch 契約ではない
-（`.claude/knowledge/reference/todo-standards.md` §3）。admin `/todo` は `card.codex` を bare な
-`badge accent` の `Codex` テキストだけで表示しており（`tools/admin-app/src/app/todo/page.tsx`）、
-意味の説明が無いため「Codex が自動で拾う」と誤解されやすい（2026-08-18 批判的レビュー「他に検出した課題」）。
-`title` 属性か凡例リンクで「バルク処理向き（自動dispatchではない）」を一言添える。
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
 
