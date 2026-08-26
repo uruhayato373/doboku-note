@@ -22,7 +22,7 @@ export default function ContentPage() {
     <>
       <PageHead
         title="コンテンツ"
-        sub={`${channels.length} チャネル · ${totalFiles} ファイル · ${totalMb.toFixed(0)}MB（メタデータのみ）`}
+        sub={`チャネル別の制作物を横断する入口（本文は開かず件数のみ表示）· ${channels.length} チャネル · ${totalFiles} ファイル · ${totalMb.toFixed(0)}MB`}
       />
 
       <div className="knowledge-grid">
@@ -32,12 +32,11 @@ export default function ContentPage() {
             href={`/content/${encodeURIComponent(`${c.filePrefix}~${c.relDir}`)}`}
             key={`${c.filePrefix}/${c.segment}`}
           >
+            <h2>{contentChannelLabel(c.segment)}</h2>
             <div className="knowledge-card-meta">
-              <span className="chip">{contentChannelLabel(c.segment)}</span>
               <span>{c.files} ファイル</span>
               <span>{(c.bytes / 1048576).toFixed(1)}MB</span>
             </div>
-            <h2>{c.segment}</h2>
             <p>{c.files} ファイルのチャネル。</p>
             <code>{c.filePrefix}{c.relDir ? `/${c.relDir}` : ''}</code>
           </Link>

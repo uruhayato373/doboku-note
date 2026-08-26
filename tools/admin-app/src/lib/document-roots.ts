@@ -2,6 +2,7 @@ import {
   CONTENT_ROOT, DOCS_ROOT, KNOWLEDGE_ROOT, PLANS_ROOT,
 } from '../../../../scripts/lib/repository-paths.mjs';
 import type { DocumentSource } from './document-store';
+import { contentSegmentLabel } from './channel-registry';
 
 /**
  * document-roots.ts — 管理画面が読んでよいルートの **allowlist**。
@@ -71,12 +72,11 @@ export const ROOTS: RootDescriptor[] = [
 
 export const rootById = (id: string) => ROOTS.find((r) => r.id === id);
 
-export const contentChannelLabel = (segment: string): string =>
-  ({
-    site: 'サイト', note: 'note', coconala: 'ココナラ', sns: 'SNS',
-    kindle: 'Kindle', sources: '原典・入力資料',
-    textbook: '原典・入力資料',
-  } as Record<string, string>)[segment] ?? segment;
+/**
+ * `/content` チャネルカードのラベル。物理セグメント→論理 channel の解決は
+ * channel-registry.ts の唯一の mapping を通す（DN-0103 Phase 01・ラベルの二重定義を避ける）。
+ */
+export const contentChannelLabel = contentSegmentLabel;
 
 /** filePrefix から DocumentSource を引く。/content の URL 解決用。 */
 export function sourceByPrefix(d: RootDescriptor, prefix: string): DocumentSource | null {
