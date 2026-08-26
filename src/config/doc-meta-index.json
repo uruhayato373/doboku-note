@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T23:17:24.683Z",
+  "generated_at": "2026-08-26T23:22:34.833Z",
   "summary": {
-    "total": 1141,
-    "published": 1122,
+    "total": 1143,
+    "published": 1124,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 20,
+      "civil-practice": 22,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6209,6 +6209,23 @@
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
+    "civil-practice-embankment-quality-control": {
+      "title": "盛土の品質をどう確かめるか — 品質規定方式・工法規定方式・試験施工の判断軸",
+      "description": "盛土の品質をどう確かめるかを、品質規定方式と工法規定方式のどちらで管理するかの判断、試験施工で決めておくべき項目、まき出し厚の考え方、高盛土になったときの管理強化、含水比の適否をコーン指数で見極める考え方から整理。管理方式の選定に迷う現場担当者向けの実務ガイドです。",
+      "shortTitle": "盛土品質管理の判断軸",
+      "subtitle": "品質規定か工法規定か、試験施工で何を固めるか",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "earthwork"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "盛土の品質管理｜品質規定方式・工法規定方式・試験施工の判断【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
     "civil-practice-excavation-bottom-failure": {
       "title": "掘削底面が壊れる3つの形 — 土質と地下水で見分ける",
       "description": "掘削工事で床付け付近が崩れる3つの現象——ヒービング・ボイリング・盤ぶくれ（パイピングを含む）を、土質と地下水の条件から見分け、それぞれに合った対策を選ぶための実務ガイド。発生メカニズムと判断の軸を整理します。",
@@ -6292,6 +6309,23 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "止水板・Pコン跡・箱抜きの納まり｜漏水を防ぐ型枠まわりの判断基準【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-pile-concrete-head-treatment": {
+      "title": "場所打ち杭のコンクリートと杭頭処理をどう仕上げるか — 水中コンクリートという前提で判断する",
+      "description": "場所打ち杭のコンクリートは水中コンクリートとして扱う前提から、トレミー管の挿入長さ・余盛りの高さと斫り方、ケーシングの摩耗が杭径を通じて支持力に与える影響までを、現場の判断基準として整理します。",
+      "shortTitle": "杭頭処理の実務判断",
+      "subtitle": "水中コンクリートという前提で管理する",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "earthwork"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "場所打ち杭のコンクリートと杭頭処理｜水中コンクリート・トレミー管・余盛り・杭径管理の実務ポイント【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },

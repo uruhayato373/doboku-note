@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T23:17:25.094Z",
+  "generated_at": "2026-08-26T23:22:35.245Z",
   "summary": {
-    "total_mdx_files": 1141,
+    "total_mdx_files": 1143,
     "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "guide",
-      "count": 156,
+      "count": 158,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1335,11 +1335,13 @@
         "civil-practice-concrete-placement-timing",
         "civil-practice-concrete-pump-capacity",
         "civil-practice-earth-retaining-displacement",
+        "civil-practice-embankment-quality-control",
         "civil-practice-excavation-bottom-failure",
         "civil-practice-excavation-pre-survey",
         "civil-practice-formwork-material-inspection",
         "civil-practice-formwork-removal-timing",
         "civil-practice-formwork-waterstop-details",
+        "civil-practice-pile-concrete-head-treatment",
         "civil-practice-precast-pile-methods",
         "civil-practice-rebar-corrosion-handling",
         "civil-practice-rebar-cover-placement",
@@ -2359,6 +2361,27 @@
       ]
     },
     {
+      "name": "earthwork",
+      "count": 14,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-earthwork-basics",
+        "civil-construction-1-secondary-earthwork-past-problems",
+        "civil-construction-1-textbook-cut-slope-protection",
+        "civil-construction-1-textbook-embankment",
+        "civil-construction-1-textbook-soft-ground-drainage",
+        "civil-construction-1-textbook-soil-investigation-methods",
+        "civil-practice-cast-in-place-pile-methods",
+        "civil-practice-earth-retaining-displacement",
+        "civil-practice-embankment-quality-control",
+        "civil-practice-excavation-bottom-failure",
+        "civil-practice-excavation-pre-survey",
+        "civil-practice-pile-concrete-head-treatment",
+        "civil-practice-precast-pile-methods",
+        "civil-practice-slope-protection-selection"
+      ]
+    },
+    {
       "name": "pillar",
       "count": 14,
       "inAllowlist": true,
@@ -2418,25 +2441,6 @@
         "pe-construction-steel-concrete-exam-themes",
         "pe-construction-tunnel-exam-themes",
         "pe-construction-urban-planning-exam-themes"
-      ]
-    },
-    {
-      "name": "earthwork",
-      "count": 12,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-earthwork-basics",
-        "civil-construction-1-secondary-earthwork-past-problems",
-        "civil-construction-1-textbook-cut-slope-protection",
-        "civil-construction-1-textbook-embankment",
-        "civil-construction-1-textbook-soft-ground-drainage",
-        "civil-construction-1-textbook-soil-investigation-methods",
-        "civil-practice-cast-in-place-pile-methods",
-        "civil-practice-earth-retaining-displacement",
-        "civil-practice-excavation-bottom-failure",
-        "civil-practice-excavation-pre-survey",
-        "civil-practice-precast-pile-methods",
-        "civil-practice-slope-protection-selection"
       ]
     },
     {
