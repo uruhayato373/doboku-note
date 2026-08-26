@@ -628,38 +628,6 @@ orphan（外部には出たのに台帳に記録が無い）ではないので�
 
 **完了条件**: pending_overdue が意図した水準まで下がる（0 でなくてよいが、残っている理由が書かれている）。`recorded_but_gone` 6 件の実体が判明している ✅。
 
-### [DN-0124] 記事 → 商品 → 売上 の突合が無く、収益分析がクリックで止まっている
-タグ: [インフラ・計測] [種類:改善] [実行:sweep] [起票:2026-08-24]
-
-**現状の到達点**（2026-08-24 実査）: 週次の枠組みは既にある。`fetch-metrics.yml` が GA4 を取り、`report-monetization-coverage` が記事別の「流入 × note CTA 配置 × アフィリ枠 × CTR」を出し、weekly-review Agent C3 が読む。`quality-audit` にも `--check` で登録済み。
-
-**足りないのは最後の 1 本**: レポートが**クリックで止まり、売上（`.claude/state/sales/sales-log.json`）と結合していない**。「どの記事がどの商品を売ったか」が誰にも見えない。
-
-**前提はすでに整った**: 商品ID付きラベル（`data-cta-label="civil-1-keiken-complete-pack:secondary-experience-writing-guide-top"`）は `5b3e29f9d`（2026-08-22）で本番投入済み。`curl` で実HTMLに出ていることを確認済み。ただし**現行 GA4 スナップショットは 08-20 までで、203 クリック中 0 件しか ID を持たない**。次回以降の `fetch-metrics` から蓄積が始まる。
-
-**やること**
-
-1. `report-monetization-coverage` に結合を足す（別スクリプトにしない。同じ表に列を足すのが読み手にとって自然）
-   - GA4 の `note_cta_click` ラベルを `magazineId:utmContent` で分解 → 記事ページ × 商品ID のクリック表
-   - `sales-log.json` を商品ID（`productId` の `article:` 接頭辞と `magazineId` の対応）で突合し、直近 N 日の売上件数・金額を商品ごとに付ける
-   - 出力に「**ID 付きクリック / 全クリック**」を必ず書く。ID 無しが支配的なうちは結合不成立として明示する（CLAUDE.md §9・「検査ゼロを PASS と呼ばない」）
-2. 見たいギャップは 2 方向
-   - **売れている商品の CTA が高流入記事に載っていない**（機会損失）
-   - **CTA を大量に置いているのに売れない商品**（枠の浪費）
-
-**着手条件**: GA4 に ID 付きクリックが貯まってから（目安 2026-09 の週次取得以降）。それまでに作ると 0 件で緑になるだけで、意味のある検証ができない。
-
-**先に分かっている問題（結合前でも見える）**: 流入と売上がほぼ逆比例している。
-
-| セグメント | 流入(28日) | 流入% | 売上(90日) | 売上% |
-|---|--:|--:|--:|--:|
-| 技術士 建設部門 | 231 | 5.1% | ¥290,060 | **52.5%** |
-| 技術士 総監 | 1,495 | 32.8% | ¥211,580 | 38.3% |
-| 土木(1級/2級) | 2,629 | **57.7%** | ¥39,300 | **7.1%** |
-| コンクリート系 | 102 | 2.2% | ¥0 | 0% |
-| 技術士 一次 | 89 | 2.0% | ¥0 | 0% |
-
-**この表だけで結論を出さないこと。** note の売上はサイト流入だけでなく note 内の回遊・フォロワー・マガジン経由でも発生する。「土木は流入があるのに売れない」のか「建設部門は note 内で売れている」のかは、上記の結合ができるまで**区別できない**。区別することがこのカードの目的。
 
 ### [DN-0123] 長文なのに h2 が 2 本以下の記事 24 本 — 収益面ゼロかつ読みにくい
 タグ: [コンテンツ品質] [種類:改善] [実行:sweep] [起票:2026-08-24]
@@ -1220,12 +1188,6 @@ BK-09 電力土木 / BK-10 鉄道 の **R08 予想問題集（各 3 記事）は
 
 着手時期は技術士二次の試験後。受験者規模が小さい科目なので、BK-09/10 の R08 予想の売れ行きを見てから量を決める。
 
-### [DN-0025] GA4 の配置別 CTA データを誰も読んでいない（handoff 2026-07-25 抽出）
-タグ: [収益化] [種類:改善] [インフラ・計測] [実行:sweep]
-
-`fetch-metrics.yml` が `ga4-cta-clicks-by-placement-*.json` を週次で積んでいる（現在 4 本・最新 2026-08-13）が、**配置別 CTR を比較する読み手がいない**。参照しているのは GA4 側の設定検査スクリプト 2 本だけで、週次レビューにも改善サイクルにも入っていない。
-
-可視インプレッションを実装した目的は「どの配置が効いているか」を判断することなので、`affiliate_cta_impression` と `affiliate_cta_click` を配置別に突き合わせ、低 CTR 配置の是正まで一度通す。通した結果として読む場所（週次レビューか管理画面か）も決める。
 
 ### [DN-0026] 土木公務員 SEO 第1期の効果測定（handoff 2026-08-17 抽出）
 タグ: [SNS・マーケ] [種類:改善] [実行:機械]
@@ -1363,10 +1325,6 @@ key では引けない——`note-delete-note.mjs` に `--list-drafts` と `--dr
 
 SNS競合実地調査（2026-07-04・`07_競合調査.md` SNS節）でsurfaceした残り2型: ①合格後キャリア/現場リアル リール＝**運営者の一次情報素材待ち** ②**お悩み相談回答＝素材不要で先行policy化可**（既存FAQ/キーワードから素材化）。聞き流し一問一答と16:9動画基盤は`DN-0110`へ統合した。着手時に該当writerエージェントの参照を更新。真実源`content-angle-policy`／`00_SNS整理マップ §型カタログ`。
 
-### [DN-0047] SNS 競合モニタリングの反復化
-タグ: [SNS・マーケ] [種類:改善] [実行:sweep]
-
-**取得（fetch）はメインループが agent-reach スキルで実施**（サブエージェントは Bash 不可＝[[agent-bash-permission]]）。分析は新規 Evaluator `sns-research-analyst`（corpus を読んで頻出論点・刺さる切り口・gap を構造化抽出）。cadence 週次。X は**投稿アカウント @doboku373 を read に使わない**（[[x-suspension-guardrail]]）＝当初「未ログイン公開読取」は X の 404 遮断で実行不能のため、**運営者個人アカ `uruhayato373` の agent-reach twitter CLI 経由 read** がその代替（投稿アカ温存の目的は同じ・真実源 x-post-policy §11.7・2026-07-20 稼働 `scout-x-competitors.mjs`）。競合SoT = 価格/品揃え `09_販売チャネル競合分析.md` §B・エンゲージ/型 `07_競合調査.md` SNS競合節。エージェント追加時は agents-registry 更新＋check-doc-coupling。
 
 ### [DN-0049] SEO 品質ゲート後続（PR #390 マージ後の残タスク）
 タグ: [インフラ・計測] [種類:改善] [実行:対話]
@@ -1404,13 +1362,6 @@ Tier 1（NoteLink 計測・cadence 化・bot 監査 CI 等）は実装完了。�
 
 PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事への `<ArticleImage>` 埋込（orphan 6点・**ユーザー保留中**）・SNSパイプライン残（IG管理別カルーセルのオーケストレーション/コピーGenerator/Evaluator配線）・doc-sync 宿題（`build-svg-catalog`/`render-figure-sns` を reference 索引へ追記）。
 
-### [DN-0053] 記事構成ルールの SSOT 化 + サブエージェント管理
-タグ: [エージェント・SSOT] [種類:改善] [実行:sweep]
-
-1. `.claude/knowledge/reference/article-structure-guide.md`（新設予定）<!-- doc-ref:ignore --> を起草 — 基本構成・文字数目標・Callout 使い方・見出し構成・CTA の型（たけブログの知見反映 → .claude/knowledge/reference/reference-sites.md）
-2. `.claude/knowledge/reference/todo-writing-guide.md`（新設予定）<!-- doc-ref:ignore --> を起草 — todo 記述フォーマット・優先度表記
-3. `civil-guide-writer` エージェント新設（article-structure-guide を真実源に）
-4. `todo-planner` に todo-writing-guide と backlog の参照を追加
 
 ### [DN-0057] OGP タイトルが 3 行以上に折れる 121 件のチューニング
 タグ: [UI・UX] [種類:改善] [実行:sweep] [検証:check-ogp-line-count:done] [起票:2026-08-18]
@@ -1466,33 +1417,6 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 
 ## 🟢 低 — 時期未定
 
-### [DN-0125] `noteSeries` と `noteMagazine` の 2 語彙が 200 本で食い違っている — 境界を決める
-タグ: [インフラ・計測] [種類:改善] [実行:sweep] [起票:2026-08-24]
-
-**事実**（2026-08-24 実査・827 本の frontmatter 全走査）:
-
-| 状態 | 本数 |
-|---|--:|
-| `noteSeries` と `noteMagazine` が同値 | 283 |
-| 両方あって**値が違う** | 200 |
-| `noteSeries` のみ | 89 |
-| `noteMagazine` のみ | 215 |
-| どちらも無し | 40 |
-
-**どちらも生きている。役割が違う**（2026-08-24 の初回調査で「`noteSeries` は読み手ゼロ」と書いたのは誤り。`.claude/scripts/` を検索範囲に入れていなかった）:
-
-| フィールド | 意味 | 読み手 |
-|---|---|---|
-| `noteMagazine` | 商品（マガジン）への所属ラベル | `check-magazine-membership.mjs:83`（quality-audit ci ゲート）/ `check-note-price-consistency.mjs:86` / `note-publish.mjs:497` |
-| `noteSeries` | 編集上の系列マーカー | `.claude/scripts/check-note-magazine-cta.mjs:69`（`noteSeries: 総合案内` でもくじ index 例外 → `note-lint.mjs:39` 経由で **pre-commit BLOCK**）/ `build-note-published-index.mjs:62` / `note-cover-writer.md:35`（エージェントが読む）/ `civil-keiken-essay-writer.md:57`（エージェントが書く） |
-
-管理画面は `noteSeries || noteMagazine` で畳んで表示していたが、2026-08-24 に `noteMagazine` 単独へ直した（マガジンを絞る面なので商品ラベルが正しい）。
-
-値が違う 200 本の実例は `総監模範論文-河川コンサルペルソナ`（series）と `総監模範論文-河川コンサル`（magazine）。`コンクリート主任技士-実務立場別小論文` と `…小論文集` のような語尾違いも含む。
-
-**決めること**: 2 語彙の境界を明文化する。`noteSeries` は「もくじ index の判定マーカー ＋ カバー生成の系列名」に用途が絞れそうだが、実データでは `施工経験記述` `学習戦略` のように**マガジン名と紛らわしい値**が入っており、200 本で `noteMagazine` と語尾違い（`…小論文` と `…小論文集`、`…ペルソナ` の有無）を起こしている。決めたら `content-authoring.md` の frontmatter テンプレへ書き、逸脱を機械検知する（`check-note-frontmatter-dup` の隣が自然）。
-
-**急がない理由**: どちらのゲートも自分の語彙だけ見ているので、現時点で誤判定は起きていない。ただし放置すると「マガジンっぽい何か」が 2 系統ある状態が固定化し、次に frontmatter を触る人が同じ畳み込みを再発明する（実際に管理画面で 1 回起きた）。
 
 ### [DN-0122] 発注者クラスタ（会計検査・臨時協議・設計変更）の新設可否
 タグ: [コンテンツ品質] [種類:制作] [実行:対話] [起票:2026-08-24]
@@ -1594,15 +1518,6 @@ Anthropic の Opus 5 プロンプトガイドが「旧モデル向けに仕込�
 
 総監 keyword 328（5/29 demote 源流コホート・[[project_adsense_low_value_2026_07]] の続き）・pe-construction keyword 16・concrete textbook 1。3,000字下限へ散文増補（7月112本バッチの継続）。census の thin 指標で残数管理（`npm run quality-census`）。
 
-### [DN-0073] 品質 census に前回比 delta と読み口を足す
-タグ: [コンテンツ品質] [種類:改善] [実行:sweep] [起票:2026-08-17]
-
-**月次再生成は既に達成済み**（`quality-audit.mjs` に `quality-census` が配線され完走。`census.json` は 2026-08-17 再生成で total 1092 / scored 1064 / unscored 28 / thin 345）。
-
-残る宿題は 3 点:
-1. **前回比 delta が無い** — `build-quality-census.mjs` に history/差分の実装がなく、「新規公開の未採点」「薄層への逆戻り」「スコア低下」を surface できない
-2. **読み手がいない** — `ci: false` かつ `/gsc-review` にも `/weekly-review` にも census への言及ゼロ。読む場所を決めないと、また誰も見ない検査になる（§9）
-3. group 別の正しい Evaluator ルーティングへの拡張
 
 ### [DN-0074] reference-materials 5記事 精度向上 → 再公開
 タグ: [コンテンツ品質] [種類:制作] [実行:sweep]

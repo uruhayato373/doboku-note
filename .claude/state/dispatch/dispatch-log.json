@@ -91,6 +91,78 @@
       "commit": "9f482f77e42a",
       "verification": "node --test tests/todo-lifecycle.test.mjs tests/check-dispatch-log.test.mjs tests/todo-status.test.mjs + tsc + admin目視",
       "note": "順4・5完遂。恒久ルールはtodo-lifecycle.mdへ抽出しレビュー削除"
+    },
+    {
+      "id": "DN-0073",
+      "at": "2026-08-26",
+      "task": "品質 census に前回比 delta と読み口を足す",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6d759ef83699",
+      "verification": "npm run quality-census 2回実行でdelta冪等・census-history.jsonl追記・quality:audit PASS",
+      "note": "delta+履歴+weekly-review読み手配線(commit f07a7cd5b)"
+    },
+    {
+      "id": "DN-0025",
+      "at": "2026-08-26",
+      "task": "GA4 の配置別 CTA データを誰も読んでいない（handoff 2026-07-25 抽出）",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6d759ef83699",
+      "verification": "report-monetization-coverage出力に配置別CTR 13placement実在・quality:audit PASS",
+      "note": "配置別CTA CTR実装+読み手配線(commit cf37fccca・DN-0124と同時実装)"
+    },
+    {
+      "id": "DN-0124",
+      "at": "2026-08-26",
+      "task": "記事 → 商品 → 売上 の突合が無く、収益分析がクリックで止まっている",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6d759ef83699",
+      "verification": "ID付き比率20/201=10%を分母付き出力・売上突合列実在・quality:audit PASS",
+      "note": "monetization-coverageへ売上突合列追加(commit cf37fccca・DN-0025と同時実装)"
+    },
+    {
+      "id": "DN-0125",
+      "at": "2026-08-26",
+      "task": "`noteSeries` と `noteMagazine` の 2 語彙が 200 本で食い違っている — 境界を決める",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6d759ef83699",
+      "verification": "check-note-vocabulary-boundary 789本走査で違反0・負のテスト12件PASS・既存読み手挙動不変",
+      "note": "境界明文化+逸脱検知3ルール(commit 07e596630)"
+    },
+    {
+      "id": "DN-0053",
+      "at": "2026-08-26",
+      "task": "記事構成ルールの SSOT 化 + サブエージェント管理",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6d759ef83699",
+      "verification": "article-structure-guide.md実在・civil-guide-writer新設・check-doc-refs/doc-coupling PASS",
+      "note": "SSOT化+執筆体制(commit 30e0e832d・todo-writing-guideは正典一本化のため作らず)"
+    },
+    {
+      "id": "DN-0047",
+      "at": "2026-08-26",
+      "task": "SNS 競合モニタリングの反復化",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "6d759ef83699",
+      "verification": "competitor-analystへSNS定点観測節を拡張・check-doc-coupling PASS",
+      "note": "新設せず既存拡張(commit 9f482f77e・凍結ガードレール明記)"
     }
   ]
 }
