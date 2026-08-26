@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T23:24:06.547Z",
+  "generated_at": "2026-08-26T23:32:28.641Z",
   "summary": {
-    "total_mdx_files": 1143,
+    "total_mdx_files": 1144,
     "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "guide",
-      "count": 158,
+      "count": 159,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1341,6 +1341,7 @@
         "civil-practice-formwork-material-inspection",
         "civil-practice-formwork-removal-timing",
         "civil-practice-formwork-waterstop-details",
+        "civil-practice-pile-bearing-verification",
         "civil-practice-pile-concrete-head-treatment",
         "civil-practice-precast-pile-methods",
         "civil-practice-rebar-corrosion-handling",
@@ -2339,6 +2340,28 @@
       ]
     },
     {
+      "name": "earthwork",
+      "count": 15,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-earthwork-basics",
+        "civil-construction-1-secondary-earthwork-past-problems",
+        "civil-construction-1-textbook-cut-slope-protection",
+        "civil-construction-1-textbook-embankment",
+        "civil-construction-1-textbook-soft-ground-drainage",
+        "civil-construction-1-textbook-soil-investigation-methods",
+        "civil-practice-cast-in-place-pile-methods",
+        "civil-practice-earth-retaining-displacement",
+        "civil-practice-embankment-quality-control",
+        "civil-practice-excavation-bottom-failure",
+        "civil-practice-excavation-pre-survey",
+        "civil-practice-pile-bearing-verification",
+        "civil-practice-pile-concrete-head-treatment",
+        "civil-practice-precast-pile-methods",
+        "civil-practice-slope-protection-selection"
+      ]
+    },
+    {
       "name": "令和元年度",
       "count": 15,
       "inAllowlist": true,
@@ -2358,27 +2381,6 @@
         "pe-first-stage-r01-aptitude",
         "pe-first-stage-r01-basic",
         "pe-first-stage-r01-construction"
-      ]
-    },
-    {
-      "name": "earthwork",
-      "count": 14,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-earthwork-basics",
-        "civil-construction-1-secondary-earthwork-past-problems",
-        "civil-construction-1-textbook-cut-slope-protection",
-        "civil-construction-1-textbook-embankment",
-        "civil-construction-1-textbook-soft-ground-drainage",
-        "civil-construction-1-textbook-soil-investigation-methods",
-        "civil-practice-cast-in-place-pile-methods",
-        "civil-practice-earth-retaining-displacement",
-        "civil-practice-embankment-quality-control",
-        "civil-practice-excavation-bottom-failure",
-        "civil-practice-excavation-pre-survey",
-        "civil-practice-pile-concrete-head-treatment",
-        "civil-practice-precast-pile-methods",
-        "civil-practice-slope-protection-selection"
       ]
     },
     {

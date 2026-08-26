@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T23:24:06.123Z",
+  "generated_at": "2026-08-26T23:32:28.227Z",
   "summary": {
-    "total": 1143,
-    "published": 1124,
+    "total": 1144,
+    "published": 1125,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 22,
+      "civil-practice": 23,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6309,6 +6309,23 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "止水板・Pコン跡・箱抜きの納まり｜漏水を防ぐ型枠まわりの判断基準【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-pile-bearing-verification": {
+      "title": "支持力をどう現物で確かめるか — 施工中の確認と載荷試験の使い分け",
+      "description": "杭の支持力は設計計算だけでは確定しません。施工中に支持層への到達をどう見極めるか、打設後の載荷試験をどう使い分けるかを、既製杭・場所打ち杭・打込み杭それぞれの確認手段に沿って現場の判断手順として整理します。",
+      "shortTitle": "支持力確認の実務判断",
+      "subtitle": "施工中の確認と載荷試験の二段構え",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "earthwork"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "支持力の確認方法｜載荷試験・支持層到達判定の実務ポイント【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
