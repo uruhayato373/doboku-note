@@ -265,7 +265,11 @@ function BacklogTable({
                 {card.wip ? <ClaimInfo claim={card.claim} /> : null}
                 <div className="todo-task-meta">
                   {card.id ? <span className="todo-id">{card.id}</span> : null}
-                  {card.codex ? <span className="badge accent">Codex</span> : null}
+                  {card.codex ? (
+                    <span className="badge accent" title="バルク処理向き（自動dispatchではない）">
+                      Codex
+                    </span>
+                  ) : null}
                   {card.wip ? <span className="badge warn">進行中</span> : null}
                   {card.planPath ? <Link className="todo-doc-ref" href={planHref(card.planPath)}>実装計画</Link> : null}
                   {card.id ? <DocRefs refs={docRefs.get(card.id)} /> : null}
