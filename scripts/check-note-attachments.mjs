@@ -190,15 +190,15 @@ if (!LIVE) {
 const need = targets.filter((t) => t.expected.length > 0);
 if (need.length === 0) { console.error('✗ 検査対象0件＝走査が壊れている疑い（検査不成立）'); process.exit(1); }
 
-const { chromium } = await import('playwright');
-const PROFILE = join(ROOT, '.local/playwright-note-profile');
-const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+// note-browser.mjs は playwright を静的 import するため、--source（CI）経路を
+// 依存なしに保つ元設計（動的 import）をそのまま踏襲する（playwright は devDependency）。
+const { launchNoteContext, assertAccountGate, sleep } = await import('./lib/note-browser.mjs');
 
-const ctx = await chromium.launchPersistentContext(PROFILE, { headless: false, channel: 'chrome', viewport: { width: 1280, height: 900 } });
+const ctx = await launchNoteContext({ viewport: { width: 1280, height: 900 } });
 const page = ctx.pages()[0] || (await ctx.newPage());
 await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded' });
-await sleep(1500);
-if (!(await page.evaluate(() => document.body.innerText.includes('dobokunote')))) {
+const gate = await assertAccountGate(page, { url: null, attempts: 1, intervalMs: 1500 });
+if (!gate.ok) {
   console.error('✗ ABORT: note にログインしていない（npm run note-edit-session で1回ログインする）');
   await ctx.close(); process.exit(2);
 }
