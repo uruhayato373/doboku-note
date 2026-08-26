@@ -1,8 +1,8 @@
 {
   "_doc": "デッドコード ラチェットの baseline。knip のカテゴリ別件数。増加のみ CI で赤落ちさせ、既存分は週次レビューの棚卸しで漸減させる。更新: node scripts/check-knip-ratchet.mjs --update-baseline",
   "counts": {
-    "Unused files": 48,
-    "Unused dependencies": 4,
+    "Unused files": 44,
+    "Unused dependencies": 2,
     "Unlisted dependencies": 17,
     "Unlisted binaries": 13,
     "Unresolved imports": 1,
