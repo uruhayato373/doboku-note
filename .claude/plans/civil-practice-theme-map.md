@@ -21,8 +21,24 @@
 | 執筆中 | 2 | B5 rebar-cover-placement / B6 rebar-splice-selection |
 | 未着手 | 28 | 下表の残り |
 
-**進め方**: 3本ずつ並行で執筆 → 1本ずつ lint・常体スキャン・SeeAlso 実在確認 →
-OGP 生成 → `refresh-indexes` → 逐次コミット。全量が揃ってから deploy する。
+**進め方**: 3〜4本ずつ並行で執筆 → 1本ずつ lint・常体スキャン・SeeAlso 実在確認 →
+OGP 生成 → `refresh-indexes` → 逐次コミット。
+
+> [!important] 34本すべて完了したら push → deploy まで実行する（2026-08-27 ユーザー指示）
+> 完了の判定は「下表34本すべてに `content/site/civil-practice/{slug}/article.mdx` が実在し、
+> `npm run build` が通ること」。確認できたら追加の確認を挟まずに次を実行する。
+>
+> 1. `npm run build`（SSG・sitemap・RSS が通ること）
+> 2. `git push origin develop`
+> 3. `develop` → `main` マージ。**ローカルの `git checkout main` は使わない**
+>    （他セッションの未コミット変更でブロックされ、`stash` は共有 `.git` で事故になる）。
+>    サーバ側マージを使う:
+>    `gh api repos/uruhayato373/doboku-note/merges -f base=main -f head=develop -f commit_message="..."`
+> 4. `gh run watch <deploy run id> --exit-status` で Deploy to production の完走を確認
+> 5. 本番検証: `doboku-note.pages.dev` と `doboku-note.com` で HTTP 200 ＋ `<main` の存在、
+>    R2 の OGP（`storage.doboku-note.com/posts/civil-practice/{slug}/ogp.png`）が 200
+>
+> カテゴリを `visible:true` にするか（ナビ表示）は**別の判断**で、この指示には含まれない → DN-0143
 
 **一次資料照合で原本の誤りを検出した実績**（この工程を省かない理由）:
 
