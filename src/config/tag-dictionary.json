@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T05:45:18.716Z",
+  "generated_at": "2026-08-26T08:02:18.750Z",
   "summary": {
-    "total_mdx_files": 1119,
+    "total_mdx_files": 1121,
     "total_unique_tags": 173,
     "allowlist_size": 151,
     "known_count": 84,
@@ -1662,7 +1662,7 @@
     },
     {
       "name": "textbook",
-      "count": 61,
+      "count": 63,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-building-standards",
@@ -1672,6 +1672,7 @@
         "civil-construction-1-textbook-construction-plan-overview",
         "civil-construction-1-textbook-control-chart",
         "civil-construction-1-textbook-crane",
+        "civil-construction-1-textbook-cut-slope-protection",
         "civil-construction-1-textbook-demolition",
         "civil-construction-1-textbook-distance-angle",
         "civil-construction-1-textbook-embankment",
@@ -1704,6 +1705,7 @@
         "civil-construction-1-textbook-scraper",
         "civil-construction-1-textbook-shovel-excavator",
         "civil-construction-1-textbook-site-investigation",
+        "civil-construction-1-textbook-soft-ground-drainage",
         "civil-construction-1-textbook-soil-investigation-methods",
         "civil-construction-1-textbook-standard-contract",
         "civil-construction-1-textbook-surveying-basics",
@@ -2843,6 +2845,19 @@
       ]
     },
     {
+      "name": "earthwork",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-earthwork-basics",
+        "civil-construction-1-secondary-earthwork-past-problems",
+        "civil-construction-1-textbook-cut-slope-protection",
+        "civil-construction-1-textbook-embankment",
+        "civil-construction-1-textbook-soft-ground-drainage",
+        "civil-construction-1-textbook-soil-investigation-methods"
+      ]
+    },
+    {
       "name": "experience-writing",
       "count": 6,
       "inAllowlist": true,
@@ -2929,17 +2944,6 @@
         "pe-comprehensive-management-r06-essay-road-municipality",
         "pe-construction-carbon-neutral-kensetsu",
         "pe-construction-datsutanso-kankyo-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "earthwork",
-      "count": 4,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-earthwork-basics",
-        "civil-construction-1-secondary-earthwork-past-problems",
-        "civil-construction-1-textbook-embankment",
-        "civil-construction-1-textbook-soil-investigation-methods"
       ]
     },
     {

@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T05:45:18.266Z",
+  "generated_at": "2026-08-26T08:02:18.298Z",
   "summary": {
-    "total": 1119,
-    "published": 1100,
+    "total": 1121,
+    "published": 1102,
     "unpublished": 19,
     "by_category": {
-      "civil-construction-1": 138,
+      "civil-construction-1": 140,
       "civil-construction-2": 41,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
@@ -3118,6 +3118,46 @@
         }
       ]
     },
+    "civil-construction-1-textbook-cut-slope-protection": {
+      "title": "切土・法面保護",
+      "description": "1級土木施工管理技士テキスト — 切土と法面保護工の解説。切土法面の標準勾配、法面崩壊が懸念される地山条件と対策、植生工・構造物工の選定、法面排水工を整理。",
+      "shortTitle": "切土・法面保護",
+      "subtitle": "標準勾配・小段・法面保護工・排水",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "tags": [
+        "textbook",
+        "earthwork"
+      ],
+      "textbook_order": 11,
+      "published": true,
+      "publishedAt": "2026-08-26",
+      "seoTitle": "切土・法面保護｜標準勾配・小段・法面保護工の選定【1級土木施工管理技士】",
+      "created": "2026-08-26",
+      "dateModified": "2026-08-26",
+      "faqs": [
+        {
+          "q": "切土法面の標準勾配は硬岩・軟岩でどれくらい違いますか？",
+          "a": "標準値では硬岩が1:0.3〜1:0.8、軟岩が1:0.5〜1:1.2です。数値が小さいほど急勾配を意味し、硬岩ほど急な勾配でも安定します。"
+        },
+        {
+          "q": "切土法面の小段はどのような基準で設けますか？",
+          "a": "切土高さが5〜10m以上になると小段を設けるのが一般的です。幅は1.0〜2.0m程度とし、法面下方に向けて5〜10%程度の横断勾配をつけて排水を促します。"
+        },
+        {
+          "q": "法面保護工で植生工と構造物工はどう使い分けますか？",
+          "a": "法面が安定した土質であれば植生工を用い、侵食されやすい・湧水がある・軟弱で崩れやすいなど条件が厳しくなるほど、法枠工やブロック張り工などの構造物による法面保護工を植生工と併用します。"
+        },
+        {
+          "q": "法面排水工の表面排水と地下排水の違いは何ですか？",
+          "a": "表面排水工は法肩排水溝・小段排水溝・縦排水溝などで法面表面の雨水を排除する工法、地下排水工は暗渠排水や水平排水孔などで法面の安定に悪影響を及ぼす浸透水を地中で排除する工法です。"
+        },
+        {
+          "q": "ラウンディングとは何ですか？",
+          "a": "法肩付近は侵食を受けやすく植生も定着しにくいため、法肩に丸みをつけて仕上げる施工方法です。最上段の法肩などで行われ、植生の活着を助けます。"
+        }
+      ]
+    },
     "civil-construction-1-textbook-demolition": {
       "title": "解体工事",
       "description": "1級土木施工管理技士テキスト — 解体工事の解説。解体工法の種類・施工要領・安全確認事項、建設リサイクル法との関係を整理。",
@@ -4470,6 +4510,46 @@
         {
           "q": "施工方法と施工手順を決定する際に重点的に検討すべき工種はどれですか？",
           "a": "数量・工費の大きい工種、高度の技術が要求される工種、安全面での危険度の高い工種、環境に影響を及ぼすことが予想される工種の4種類について重点的に検討します。"
+        }
+      ]
+    },
+    "civil-construction-1-textbook-soft-ground-drainage": {
+      "title": "軟弱地盤対策・排水工法",
+      "description": "1級土木施工管理技士テキスト — 軟弱地盤対策工法と排水工法の解説。液状化対策の考え方、圧密・排水／締固め／固結／荷重軽減の各工法、掘削時の排水工法の選定を整理。",
+      "shortTitle": "軟弱地盤・排水",
+      "subtitle": "液状化対策・圧密排水・締固め・固結・掘削排水",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "tags": [
+        "textbook",
+        "earthwork"
+      ],
+      "textbook_order": 16,
+      "published": true,
+      "publishedAt": "2026-08-26",
+      "seoTitle": "軟弱地盤対策・排水工法｜液状化対策・工法選定【1級土木施工管理技士】",
+      "created": "2026-08-26",
+      "dateModified": "2026-08-26",
+      "faqs": [
+        {
+          "q": "軟弱地盤とはどのような地盤ですか？",
+          "a": "泥炭や有機質土など含水量が極めて大きい軟弱な地盤と、粒子の緩い状態にある砂質土の軟弱な地盤の2種類に大別されます。盛土等の構造物を築造すると、安定性不足や過大な沈下が問題になりやすい地盤です。"
+        },
+        {
+          "q": "液状化はどのようなメカニズムで発生しますか？",
+          "a": "地震動等により地盤中の間隙水圧が上昇し有効応力が減少することで、緩い砂質地盤がせん断強さを失う現象です。対策は、過剰間隙水圧の発生防止、発生した水圧の速やかな消散、地盤のずれ変位の防止、変形の抑制、杭で構造物を支持する、の5方向に整理できます。"
+        },
+        {
+          "q": "サンドドレーン工法とペーパードレーン工法の違いは何ですか？",
+          "a": "どちらも軟弱地盤中に鉛直の排水路を設けて圧密を促進するバーチカルドレーン工法の一種です。サンドドレーン工法は透水性の高い砂を用いた砂柱を打設し、ペーパードレーン工法（PVD工法）はペーパーやプラスチック製の人工ドレーン材を用いるため施工速度が速く経済的です。"
+        },
+        {
+          "q": "ウェルポイント工法の揚水高さには限界がありますか？",
+          "a": "大気圧を利用して揚水するため理論上の限界は約10mですが、機械の損失等により実用上は6〜7m程度が限度とされます。それ以上の深さが必要な場合は、多段のウェルポイントや深井戸真空工法を検討します。"
+        },
+        {
+          "q": "プレロード工法とサーチャージ工法の違いは何ですか？",
+          "a": "どちらも盛土載荷重工法の一種です。プレロード工法は将来の構造物荷重と同等以上の荷重を盛土で事前に載荷して沈下を促進します。サーチャージ工法は計画荷重を超える荷重を一時的に載荷し、放置期間後に余分な分を取り除きます。"
         }
       ]
     },
@@ -7538,12 +7618,12 @@
       ],
       "published": true,
       "publishedAt": "2026-04-09",
-      "revisionCycle": 1,
+      "revisionCycle": 2,
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-15",
+      "lastRewrittenAt": "2026-08-26T03:40:00Z",
       "seoTitle": "ブラインド型訓練 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-06-02",
+      "dateModified": "2026-08-26",
       "faqs": [
         {
           "q": "ブラインド型訓練とは何ですか？",
@@ -7911,12 +7991,12 @@
       ],
       "published": true,
       "publishedAt": "2026-04-08",
-      "revisionCycle": 1,
+      "revisionCycle": 2,
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-15",
+      "lastRewrittenAt": "2026-08-26T02:30:00Z",
       "seoTitle": "集中化と分散化 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-29"
+      "dateModified": "2026-08-26"
     },
     "pe-comprehensive-management-chemical-substances-review-act": {
       "title": "化審法",
@@ -9311,10 +9391,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "環境適合設計 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-26",
+      "dateModified": "2026-08-26",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-05-17T06:00:00+09:00",
-      "revisionCycle": 1
+      "lastRewrittenAt": "2026-08-26T02:40:00Z",
+      "revisionCycle": 2
     },
     "pe-comprehensive-management-design-in": {
       "title": "デザインイン",
@@ -11198,10 +11278,10 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "固定通信 ｜ 技術士 総合技術監理部門 キーワード集",
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-17",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-08-26T03:10:00Z",
+      "revisionCycle": 2,
       "created": "2026-04-05",
-      "dateModified": "2026-05-26"
+      "dateModified": "2026-08-26"
     },
     "pe-comprehensive-management-flat-organization": {
       "title": "フラット組織",
@@ -13153,12 +13233,12 @@
       ],
       "published": true,
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-06-20T00:00:00Z",
-      "revisionCycle": 2,
+      "lastRewrittenAt": "2026-08-26T03:30:00Z",
+      "revisionCycle": 3,
       "publishedAt": "2026-04-09",
       "seoTitle": "全数検査／抜取検査 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-06-20"
+      "dateModified": "2026-08-26"
     },
     "pe-comprehensive-management-integer-programming": {
       "title": "整数計画法",
@@ -13946,7 +14026,10 @@
       "publishedAt": "2026-04-28",
       "seoTitle": "労務費率 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-28",
-      "dateModified": "2026-05-26"
+      "dateModified": "2026-08-26",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-08-26T03:20:00Z",
+      "revisionCycle": 2
     },
     "pe-comprehensive-management-labor-mobility": {
       "title": "人材流動化",
@@ -13997,12 +14080,12 @@
       ],
       "published": true,
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-17",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-08-26T02:50:00Z",
+      "revisionCycle": 2,
       "publishedAt": "2026-04-08",
       "seoTitle": "労働生産性 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-26"
+      "dateModified": "2026-08-26"
     },
     "pe-comprehensive-management-labor-relations-adjustment-act": {
       "title": "労働関係調整法",
@@ -14751,7 +14834,10 @@
       "publishedAt": "2026-04-08",
       "seoTitle": "会議設計 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-26"
+      "dateModified": "2026-08-26",
+      "reviewStatus": "needs-review",
+      "lastRewrittenAt": "2026-08-26T04:10:00Z",
+      "revisionCycle": 2
     },
     "pe-comprehensive-management-membership-type-employment": {
       "title": "メンバーシップ型",
@@ -15451,11 +15537,11 @@
       "published": true,
       "publishedAt": "2026-04-09",
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-16",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-08-26T03:50:00Z",
+      "revisionCycle": 2,
       "seoTitle": "楽観主義バイアス ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-26"
+      "dateModified": "2026-08-26"
     },
     "pe-comprehensive-management-organizational-commitment": {
       "title": "組織コミットメント",
@@ -18126,10 +18212,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "相対評価・絶対評価 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-26",
+      "dateModified": "2026-08-26",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-05-17T04:59:30Z",
-      "revisionCycle": 1
+      "lastRewrittenAt": "2026-08-26T02:10:00Z",
+      "revisionCycle": 2
     },
     "pe-comprehensive-management-reliability-block-diagram": {
       "title": "信頼性ブロック図",
@@ -18988,11 +19074,11 @@
       "published": true,
       "publishedAt": "2026-04-08",
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-17",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-08-26T02:00:00Z",
+      "revisionCycle": 2,
       "seoTitle": "安全目標 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-26"
+      "dateModified": "2026-08-26"
     },
     "pe-comprehensive-management-safety-patrol": {
       "title": "安全衛生パトロール",
@@ -19232,10 +19318,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "直列システム ｜ 技術士 総合技術監理部門 キーワード集",
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-17",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-08-26T02:20:00Z",
+      "revisionCycle": 2,
       "created": "2026-04-05",
-      "dateModified": "2026-05-26"
+      "dateModified": "2026-08-26"
     },
     "pe-comprehensive-management-servant-leadership": {
       "title": "サーバントリーダーシップ",
@@ -20097,10 +20183,10 @@
       "publishedAt": "2026-04-09",
       "seoTitle": "課題別研修 ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-06-20",
+      "dateModified": "2026-08-26",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-06-20T10:00:00Z",
-      "revisionCycle": 3
+      "lastRewrittenAt": "2026-08-26T04:20:00Z",
+      "revisionCycle": 4
     },
     "pe-comprehensive-management-tbm-toolbox-meeting": {
       "title": "TBM",
@@ -20392,10 +20478,10 @@
       "published": true,
       "publishedAt": "2026-05-27",
       "reviewStatus": "needs-review",
-      "lastRewrittenAt": "2026-05-27",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-08-26T03:00:00Z",
+      "revisionCycle": 2,
       "created": "2026-05-27",
-      "dateModified": "2026-06-08"
+      "dateModified": "2026-08-26"
     },
     "pe-comprehensive-management-total-wage-management": {
       "title": "総額賃金管理",
@@ -20745,12 +20831,12 @@
       ],
       "published": true,
       "reviewStatus": "approved",
-      "lastRewrittenAt": "2026-04-17",
-      "revisionCycle": 1,
+      "lastRewrittenAt": "2026-08-26T04:00:00Z",
+      "revisionCycle": 2,
       "publishedAt": "2026-04-08",
       "seoTitle": "言語／非言語コミュニケーション ｜ 技術士 総合技術監理部門 キーワード集",
       "created": "2026-04-05",
-      "dateModified": "2026-05-26"
+      "dateModified": "2026-08-26"
     },
     "pe-comprehensive-management-veteran-bias": {
       "title": "ベテランバイアス",
