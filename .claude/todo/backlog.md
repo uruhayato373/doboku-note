@@ -1370,10 +1370,6 @@ Anthropic の Opus 5 プロンプトガイドが「旧モデル向けに仕込�
 PDF クロップ済み白黒図 約65枚（construction-machinery-01=13/-02=7/schedule-management=24/surveying=11/demolition=6/construction-mgmt-overview=4 ほか）。著作権問題なし・見栄え向上のみ。**Gemini 有料→着手前に必ずユーザー確認（[[gemini-cost-confirm]]）**。パイロット5枚→品質・コスト確認→全体。
 
 
-### [DN-0078] 1級 textbook 10本の品質監査
-タグ: [コンテンツ品質] [種類:制作] [実行:sweep]
-
-`civil-construction-qa` で監査（合格マージン大・低優先）。H28-A fig-02/07/08/09 は元 PDF に図が無く修正不能で確定。
 
 ### [DN-0079] カテゴリカードの残改善
 タグ: [UI・UX] [種類:改善] [実行:対話]

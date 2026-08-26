@@ -259,6 +259,18 @@
       "commit": "7e319f2b4985",
       "verification": "type-check/lint/build(1121頁)/npm test 766pass全緑・knip baseline実減(files48→44/deps4→2)",
       "note": "P2全完了(commits d4cbb8480/a931eb62c/132c5d16b/7e319f2b4)。P3(UI-010/011)は該当画面の機能追加時に同時実施の判断で単独カード化しない(SSOT監査文書に残置)。content側Callout11件はチップ起票済み"
+    },
+    {
+      "id": "DN-0078",
+      "at": "2026-08-26",
+      "task": "1級 textbook 10本の品質監査",
+      "tier": "low",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "a87da9cda756",
+      "verification": "civil-quality-scores.jsonへ10本のfile:line指摘付き再採点を記録(commit a87da9cda)・audit-only厳守・2.0未満0本",
+      "note": "census最下位10本を再監査。リライト候補3本(labor-standards 2.00等)は台帳が保持し品質サイクルが読む"
     }
   ]
 }
