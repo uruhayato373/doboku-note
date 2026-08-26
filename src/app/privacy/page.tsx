@@ -169,25 +169,6 @@ export default function PrivacyPage() {
                 </div>
               ))}
             </div>
-
-            <div className="rounded-card-content border border-[var(--rule-soft)] bg-[var(--accent-fill)] p-4">
-              <h3 className="font-semibold text-[var(--ink)] text-sm mb-2">広告配信におけるクッキーの使用</h3>
-              <p className="text-sm mb-2">
-                当サイトでは、第三者配信の広告サービス「Google AdSense」を利用しています。
-                Google などの第三者広告配信事業者は、ユーザーの興味に応じた広告を表示するために Cookie を使用することがあります。
-              </p>
-              <div className="flex flex-wrap gap-2 mt-3">
-                <a href="https://adssettings.google.com/authenticated" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs bg-[var(--paper)] border border-[var(--rule-soft)] rounded-full px-3 py-1 text-[var(--accent)] hover:border-[var(--accent)] transition-colors">
-                  広告設定
-                </a>
-                <a href="http://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs bg-[var(--paper)] border border-[var(--rule-soft)] rounded-full px-3 py-1 text-[var(--accent)] hover:border-[var(--accent)] transition-colors">
-                  広告Cookie無効化
-                </a>
-                <a href="https://policies.google.com/technologies/ads" target="_blank" rel="noopener noreferrer" className="inline-flex items-center text-xs bg-[var(--paper)] border border-[var(--rule-soft)] rounded-full px-3 py-1 text-[var(--accent)] hover:border-[var(--accent)] transition-colors">
-                  Google AdSense 詳細
-                </a>
-              </div>
-            </div>
           </PolicyCard>
 
           {/* 5b. アフィリエイトプログラム */}
