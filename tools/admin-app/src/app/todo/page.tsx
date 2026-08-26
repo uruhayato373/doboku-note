@@ -2,12 +2,16 @@ import Link from 'next/link';
 import { PageHead } from '@/components/ui';
 import { renderMarkdown } from '@/lib/markdown';
 import { projectRefsByBacklogId } from '@/lib/project';
+import CopyButton from '@/components/CopyButton';
 import {
   todoBoard,
+  backlogIndex,
   EXECUTOR_ORDER,
   KIND_ORDER,
   type TodoCard,
   type Tier,
+  type TodoStatus,
+  type BacklogRef,
 } from '@/lib/todo';
 
 export const dynamic = 'force-dynamic';
@@ -116,6 +120,88 @@ function DueBadge({ due }: { due: string | null }) {
 }
 
 /**
+ * 実行状態（deriveStatus の出力）の表示。UI は導出結果を出すだけで、状態を新台帳に持たない。
+ * BLOCKED は release 理由の SSOT が無いため未実装（todo-lifecycle.md 参照）。
+ */
+const STATUS_LABEL: Record<TodoStatus, string> = {
+  IN_PROGRESS: '進行中',
+  THIS_WEEK: '今週',
+  THIS_MONTH: '今月',
+  PLANNED: '計画あり',
+  BACKLOG: '未着手',
+};
+const STATUS_CLASS: Record<TodoStatus, string> = {
+  IN_PROGRESS: 'warn',
+  THIS_WEEK: 'good',
+  THIS_MONTH: 'good',
+  PLANNED: 'neutral',
+  BACKLOG: 'neutral',
+};
+function LifecycleStatusBadge({ status }: { status: TodoStatus | null }) {
+  if (!status) return <span className="muted">—</span>;
+  return <span className={'badge ' + STATUS_CLASS[status]}>{STATUS_LABEL[status]}</span>;
+}
+
+/** claim中の owner・経過時間。経過はサーバレンダ時点のスナップショット（表示専用・記録には使わない）。 */
+function ClaimInfo({ claim }: { claim: TodoCard['claim'] }) {
+  if (!claim) return null;
+  const startedMs = Date.parse(claim.startedAt);
+  const minutes = Number.isFinite(startedMs) ? Math.round((Date.now() - startedMs) / 60000) : null;
+  const elapsed = minutes == null ? null : minutes >= 60 ? `${Math.round(minutes / 60)}時間` : `${minutes}分`;
+  return (
+    <div className="muted todo-claim-info">
+      claim: {claim.owner}{elapsed ? `・${elapsed}経過` : ''}
+    </div>
+  );
+}
+
+/** .claude/plans/ の実装契約パスを /plans/[...path] ビューアの URL へ変換する（.md 拡張子は落とす）。 */
+function planHref(planPath: string): string {
+  const rel = planPath.replace(/^\.claude\/plans\//, '').replace(/\.md$/, '');
+  return '/plans/' + rel.split('/').map(encodeURIComponent).join('/');
+}
+
+/** 台帳結線（backlogIndex ジョイン）。id はあるが台帳に無ければ drift（カード削除後の消し忘れ等）。 */
+function BacklogJoinInfo({ id, index }: { id: string | null; index: Map<string, BacklogRef> }) {
+  if (!id) return null;
+  const ref = index.get(id);
+  if (!ref) return <span className="badge bad">台帳なし</span>;
+  return (
+    <span className="muted todo-plan-join">
+      <span className={'tier-dot ' + ref.tier} /> {ref.title}
+      {ref.due ? <> ・期日 {ref.due}</> : null}
+    </span>
+  );
+}
+
+/** Claude Code 実行者向け prompt テンプレ（コピーまで。実行はしない）。 */
+function buildPrompt(card: TodoCard): string {
+  const cardId = card.id ?? '<DN-####>';
+  return [
+    `カードID: ${cardId}（${card.path}:${card.line}）`,
+    `タスク: ${card.title}`,
+    `実装契約: ${card.planPath ?? 'plan無し（単純タスク）'}`,
+    `ブランチ: ${card.claim?.branch ?? 'develop'}`,
+    '実行者: claude-code',
+    `着手前: npm run todo:claim -- ${cardId} --owner claude-code`,
+    `検証: ${card.verify ?? 'カード本文の完了条件に従う'}`,
+    `完了: npm run todo:complete -- ${cardId} --confirm-conditions --commit`,
+    '停止条件: 外部公開・課金・削除・deploy・破壊的操作はユーザー承認を得るまで実行しない',
+  ].join('\n');
+}
+
+function PromptDetails({ card }: { card: TodoCard }) {
+  const prompt = buildPrompt(card);
+  return (
+    <details className="todo-task-detail todo-prompt-detail">
+      <summary>prompt</summary>
+      <pre className="mono todo-prompt-pre">{prompt}</pre>
+      <CopyButton text={prompt} />
+    </details>
+  );
+}
+
+/**
  * このタスクを参照している恒久文書（`docs/**` の `DN-####`）。
  *
  * docs → TODO の片方向だけだと「この戦略はどのタスクで動くのか」は追えても、
@@ -155,6 +241,7 @@ function BacklogTable({
             <th className="todo-kind-col">種類</th>
             <th className="todo-owner-col">実行</th>
             <th className="todo-due-col">期日</th>
+            <th className="todo-status-col">状態</th>
           </tr>
         </thead>
         <tbody>
@@ -175,16 +262,20 @@ function BacklogTable({
               </td>
               <td className="todo-task-cell">
                 <TaskLink card={card} />
+                {card.wip ? <ClaimInfo claim={card.claim} /> : null}
                 <div className="todo-task-meta">
                   {card.id ? <span className="todo-id">{card.id}</span> : null}
                   {card.codex ? <span className="badge accent">Codex</span> : null}
                   {card.wip ? <span className="badge warn">進行中</span> : null}
+                  {card.planPath ? <Link className="todo-doc-ref" href={planHref(card.planPath)}>実装計画</Link> : null}
                   {card.id ? <DocRefs refs={docRefs.get(card.id)} /> : null}
                 </div>
+                <PromptDetails card={card} />
               </td>
               <td className="todo-kind-cell">{card.kind ? <span className="badge soft">{card.kind}</span> : <span className="muted">—</span>}</td>
               <td>{card.executor ?? <span className="muted">未設定</span>}</td>
               <td className="todo-due-cell"><DueBadge due={card.due} /></td>
+              <td className="todo-status-cell"><LifecycleStatusBadge status={card.lifecycleStatus} /></td>
             </tr>
           ))}
         </tbody>
@@ -210,7 +301,16 @@ function StatusBadge({ card }: { card: TodoCard }) {
   return <span className={'badge ' + cls}>{status}</span>;
 }
 
-function PlanTable({ cards, annual = false }: { cards: TodoCard[]; annual?: boolean }) {
+function PlanTable({
+  cards,
+  annual = false,
+  backlogRefs,
+}: {
+  cards: TodoCard[];
+  annual?: boolean;
+  /** weekly/monthly のみ: backlogIndex() の join 結果（台帳の title/tier/due・drift 検出）。 */
+  backlogRefs?: Map<string, BacklogRef>;
+}) {
   if (!cards.length) return <div className="empty">計画項目がありません</div>;
   const ordered = annual ? cards : [...cards].sort((a, b) => Number(a.complete) - Number(b.complete));
   const hasOwner = !annual && cards.some((card) => card.owner || card.executor);
@@ -232,6 +332,7 @@ function PlanTable({ cards, annual = false }: { cards: TodoCard[]; annual?: bool
               <td className="todo-task-cell">
                 <TaskLink card={card} />
                 {card.id ? <span className="todo-id">{card.id}</span> : null}
+                {backlogRefs ? <BacklogJoinInfo id={card.id} index={backlogRefs} /> : null}
               </td>
               {!annual ? <td><StatusBadge card={card} /></td> : null}
               {hasOwner ? <td>{card.owner ?? card.executor ?? <span className="muted">—</span>}</td> : null}
@@ -266,6 +367,10 @@ export default async function TodoPage({ searchParams }: { searchParams: Promise
   // 逆方向の結線: このタスクを参照している docs 文書（backlog 層でだけ引く）
   const docRefs = isBacklog ? projectRefsByBacklogId() : new Map<string, { slug: string; title: string }[]>();
 
+  // weekly/monthly は本文を複製せず ID で backlog を参照するので、表示側で join する
+  // （todo.ts の docstring どおり。annual は ID 参照を持たないため対象外）。
+  const backlogRefs = layer === 'weekly' || layer === 'monthly' ? backlogIndex() : undefined;
+
   const tierCounts = countBy(tierScope, tierKey);
   const kindCounts = countBy(kindScope, (card) => card.kind);
   const executorCounts = countBy(executorScope, (card) => card.executor);
@@ -298,7 +403,7 @@ export default async function TodoPage({ searchParams }: { searchParams: Promise
           {isBacklog ? (
             <BacklogTable cards={visible} focusId={query.id} docRefs={docRefs} />
           ) : (
-            <PlanTable cards={layerCards} annual={layer === 'annual'} />
+            <PlanTable cards={layerCards} annual={layer === 'annual'} backlogRefs={backlogRefs} />
           )}
         </div>
 

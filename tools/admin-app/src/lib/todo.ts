@@ -9,6 +9,7 @@ import {
   KINDS,
   EXECUTORS,
 } from '../../../../scripts/lib/backlog-lib.mjs';
+import { listPlanUnits } from '../../../../scripts/lib/plan-units.mjs';
 
 /**
  * todo.ts — .claude/todo/*.md の read-only 統合ビュー。
@@ -27,6 +28,29 @@ import {
  */
 
 export type Tier = 'high' | 'mid' | 'low' | 'hold';
+
+/** todo-claims.json の1件（scripts/lib/todo-lifecycle.mjs emptyClaimsStore() のスキーマに準拠）。 */
+export interface TodoClaim {
+  owner: string;
+  startedAt: string;
+  branch: string | null;
+}
+
+/**
+ * カードの実行状態（導出のみ・新台帳を持たない）。優先順は IN_PROGRESS > THIS_WEEK >
+ * THIS_MONTH > PLANNED > BACKLOG（todo-lifecycle.md「原則」参照）。
+ * BLOCKED は release 理由の SSOT が無いため未実装。
+ */
+export type TodoStatus = 'IN_PROGRESS' | 'THIS_WEEK' | 'THIS_MONTH' | 'PLANNED' | 'BACKLOG';
+
+/** 状態導出の純関数。UI・CLI・Agent が同じルールを再実装しないための唯一の実装。 */
+export function deriveStatus(opts: { wip: boolean; inWeekly: boolean; inMonthly: boolean; hasPlan: boolean }): TodoStatus {
+  if (opts.wip) return 'IN_PROGRESS';
+  if (opts.inWeekly) return 'THIS_WEEK';
+  if (opts.inMonthly) return 'THIS_MONTH';
+  if (opts.hasPlan) return 'PLANNED';
+  return 'BACKLOG';
+}
 
 /**
  * 種類チップの並び順。件数順にすると押すたびにボタンが動いて押し間違えるので、
@@ -87,11 +111,22 @@ export interface TodoCard {
   body: string;
   /** 週次・月次の表を束ねる見出し。backlog は null。 */
   section: string | null;
-  /** 計画表に書かれた状態。backlog は null。 */
+  /** 計画表に書かれた状態（自由文字列。plan 層のみ）。backlog は null。 */
   status: string | null;
   owner: string | null;
   complete: boolean;
   source: 'backlog' | 'plan';
+  /** `[検証:cmd]` タグの値。backlog カードのみ。plan 層は null。 */
+  verify: string | null;
+  /** todo-claims.json から引いた claim。backlog カードのみ（id が無い/未claimなら null）。 */
+  claim: TodoClaim | null;
+  /** .claude/plans/ の実装契約パス。backlog カードのみ（無ければ null）。 */
+  planPath: string | null;
+  /**
+   * 導出済みの実行状態（backlog カードのみ。plan 層の行は null＝この軸を持たない）。
+   * SSOT は backlog.md の [進行中]・weekly.md/monthly.md の DN-#### 掲載・plan unit の有無。
+   */
+  lifecycleStatus: TodoStatus | null;
 }
 
 function tierOf(text: string): Tier | null {
@@ -112,6 +147,7 @@ function parseBacklog(lines: string[], f: FileSpec, todoDir: string): TodoCard[]
     due: string | null;
     wip: boolean;
     body: string;
+    verify: string | null;
   }>;
   return cards.map((c) => ({
     file: f.id,
@@ -134,6 +170,10 @@ function parseBacklog(lines: string[], f: FileSpec, todoDir: string): TodoCard[]
     owner: null,
     complete: false,
     source: 'backlog' as const,
+    verify: c.verify ?? null,
+    claim: null,
+    planPath: null,
+    lifecycleStatus: null,
   }));
 }
 
@@ -272,6 +312,10 @@ function parsePlanTables(lines: string[], f: FileSpec, todoDir: string): TodoCar
         owner,
         complete,
         source: 'plan',
+        verify: null,
+        claim: null,
+        planPath: null,
+        lifecycleStatus: null,
       });
     }
     i -= 1;
@@ -314,6 +358,10 @@ function parsePlanTables(lines: string[], f: FileSpec, todoDir: string): TodoCar
         owner: 'ユーザー',
         complete: false,
         source: 'plan',
+        verify: null,
+        claim: null,
+        planPath: null,
+        lifecycleStatus: null,
       });
     });
   }
@@ -362,6 +410,10 @@ function parseSections(lines: string[], f: FileSpec, todoDir: string): TodoCard[
         owner: null,
         complete: false,
         source: 'plan',
+        verify: null,
+        claim: null,
+        planPath: null,
+        lifecycleStatus: null,
       };
       return;
     }
@@ -381,15 +433,31 @@ export interface TodoBoard {
   items: TodoCard[];
 }
 
+/** todo-claims.json を id → claim の Map で返す。壊れていても空 Map にフォールバックする（他画面を落とさない）。 */
+function readClaims(): Map<string, TodoClaim> {
+  try {
+    const raw = readFileSync(repoPath('.claude', 'state', 'todo-claims.json'), 'utf8');
+    const parsed = JSON.parse(raw) as { claims?: Array<{ id: string; owner: string; startedAt: string; branch: string | null }> };
+    const list = Array.isArray(parsed?.claims) ? parsed.claims : [];
+    return new Map(list.map((c) => [c.id, { owner: c.owner, startedAt: c.startedAt, branch: c.branch ?? null }]));
+  } catch {
+    return new Map();
+  }
+}
+
 export function todoBoard(): TodoBoard {
   // パスを分割して書かない（'docs','todo' の分割記法が一括置換から漏れ、移設時に
   // ボードが黙って 0 件になりかけた）。置き場は backlog-lib の TODO_DIR が唯一の宣言。
   const todoDir = repoPath(...(TODO_DIR as string).split('/'));
   const items: TodoCard[] = [];
+  let weeklyText = '';
+  let monthlyText = '';
   for (const f of FILES) {
     const p = join(todoDir, f.file);
     if (!existsSync(p)) continue;
     const lines = readFileSync(p, 'utf8').split(/\r?\n/);
+    if (f.id === 'weekly') weeklyText = lines.join('\n');
+    if (f.id === 'monthly') monthlyText = lines.join('\n');
     items.push(...(
       f.mode === 'backlog'
         ? parseBacklog(lines, f, todoDir)
@@ -398,8 +466,38 @@ export function todoBoard(): TodoBoard {
           : parseSections(lines, f, todoDir)
     ));
   }
+
+  // 状態導出（backlog カードのみ）。今週/今月に載っているかは表パーサの結果に依存せず、
+  // 本文全体から DN-#### を素朴に拾う（厳密さより「載っているか」の可視化が目的。手動キュー節も拾ってよい）。
+  const weeklyIds = new Set(weeklyText.match(/DN-\d{4}/g) ?? []);
+  const monthlyIds = new Set(monthlyText.match(/DN-\d{4}/g) ?? []);
+  const claims = readClaims();
+  // masterPath（実ドキュメント）を使う。u.path（unit のディレクトリ/ファイル自体）だと
+  // dir 型で /plans/[...path] が解決できないリンクになる（2026-08-26 admin 目視で発見）。
+  const planPathByTaskId = new Map(
+    listPlanUnits(repoPath())
+      .filter((u) => u.masterPath)
+      .map((u) => [u.taskId, u.masterPath as string]),
+  );
+  const decorated = items.map((it) => {
+    if (it.source !== 'backlog') return it;
+    const claim = it.id ? claims.get(it.id) ?? null : null;
+    const planPath = it.id ? planPathByTaskId.get(it.id) ?? null : null;
+    return {
+      ...it,
+      claim,
+      planPath,
+      lifecycleStatus: deriveStatus({
+        wip: it.wip,
+        inWeekly: it.id ? weeklyIds.has(it.id) : false,
+        inMonthly: it.id ? monthlyIds.has(it.id) : false,
+        hasPlan: Boolean(planPath),
+      }),
+    };
+  });
+
   const counts: Record<string, number> = { high: 0, mid: 0, low: 0, hold: 0, none: 0 };
-  for (const it of items) counts[it.tier ?? 'none']!++;
+  for (const it of decorated) counts[it.tier ?? 'none']!++;
   return {
     files: FILES.filter((f) => existsSync(join(todoDir, f.file))).map((f) => {
       const lines = readFileSync(join(todoDir, f.file), 'utf8').split(/\r?\n/);
@@ -410,13 +508,13 @@ export function todoBoard(): TodoBoard {
         id: f.id,
         label: f.label,
         path: `${TODO_DIR}/${f.file}`,
-        count: items.filter((i) => i.file === f.id).length,
+        count: decorated.filter((i) => i.file === f.id).length,
         title,
         summary,
       };
     }),
     counts,
-    items,
+    items: decorated,
   };
 }
 

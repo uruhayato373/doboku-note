@@ -1415,6 +1415,31 @@ table.data.todo-table td.todo-section-cell {
   font-family: var(--mono);
   font-size: 10px;
 }
+.todo-claim-info {
+  font-size: 10.5px;
+  margin-top: 3px;
+}
+.todo-prompt-pre {
+  max-height: 220px;
+  margin: 6px 0;
+  padding: 8px 10px;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  background: var(--panel-2);
+  color: var(--ink-body);
+  font-size: 10.5px;
+  line-height: 1.6;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.todo-plan-join {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 8px;
+  font-size: 10.5px;
+}
 @media (max-width: 900px) {
   .todo-main {
     width: 100%;
@@ -1439,7 +1464,9 @@ table.data.todo-table td.todo-section-cell {
   table.data.todo-table .todo-kind-col,
   table.data.todo-table .todo-kind-cell,
   table.data.todo-table .todo-due-col,
-  table.data.todo-table .todo-due-cell {
+  table.data.todo-table .todo-due-cell,
+  table.data.todo-table .todo-status-col,
+  table.data.todo-table .todo-status-cell {
     display: none;
   }
   /* 狭い管理画面でも一覧をファーストビューへ残す。チップを横一列に増殖させず、
