@@ -46,3 +46,45 @@
 
 > note CTA: 配置済み live マガジン id（`(/links)`=教材ハブ送り）。アフィリ: サイドバー枠の導出（SoT=page.tsx）。CTR は users 比、`n.d.`=クリック未取得。
 
+### 配置別 CTA CTR
+
+> 期間: `2026-07-28〜2026-08-24`（ga4-cta-clicks-by-placement-2026-08-25T20-47-06.json）。impression/click は note・アフィリ両 CTA の合算。
+
+| placement | impressions | clicks | CTR% |
+|---|--:|--:|--:|
+| sidebar | 6237 | 5 | 0.08% |
+| article-end | 1940 | 3 | 0.15% |
+| article-mid | 1848 | 6 | 0.32% |
+| article-inline | 1276 | 2 | 0.16% |
+| category-sidebar | 866 | 2 | 0.23% |
+| article-sidebar | 418 | 1 | 0.24% |
+| article-top | 233 | 6 | 2.58% |
+| article-body | 182 | 11 | 6.04% |
+| article-footer | 156 | 0 | 0% |
+| category-mobile | 91 | 0 | 0% |
+| article-end-mobile | 6 | 0 | 0% |
+| category-career-section | 5 | 0 | 0% |
+| home-hero | 4 | 0 | 0% |
+
+### note CTA label × 売上 突合（ID付きのみ）
+
+> ID付きクリック / 全クリック: **20 / 201**（10%）。残りは utmContent 単体で magazineId 未解決のため売上突合の対象外。
+
+| magazineId | utmContent | clicks | 売上件数 | 売上額(円) |
+|---|---|--:|--:|--:|
+| civil-1-combo-essay | secondary-experience-guide-combo | 2 | 0 | 0 |
+| civil-2-experience-essay | secondary-experience-examples | 2 | 1 | 1,980 |
+| civil-2-koji-bank | secondary-experience-writing-guide-top | 2 | 0 | 0 |
+| civil-2-koji-bank | secondary-r04-top | 2 | 0 | 0 |
+| civil-2-pastexam-essay | secondary-r05-q1 | 2 | 0 | 0 |
+| cce-essay-persona-pack | guide-essay-themes | 1 | 0 | 0 |
+| civil-1-experience-essay | secondary-experience-examples | 1 | 1 | 2,480 |
+| civil-1-experience-essay | secondary-experience-writing-guide-inline-1-mid | 1 | 1 | 2,480 |
+| civil-1-ichiji-ronten | c1-exam-overview | 1 | 0 | 0 |
+| civil-1-pastexam-essay | secondary-r07-q1 | 1 | 0 | 0 |
+| civil-2-koji-bank | secondary-r07-top | 1 | 0 | 0 |
+| civil-2-pastexam-essay | secondary-r04-q1 | 1 | 0 | 0 |
+| pe-construction-road-magazine | road-exam-themes | 1 | 0 | 0 |
+| pe-construction-steel-concrete-magazine | steel-concrete-exam-themes | 1 | 0 | 0 |
+| tankan-takuitsu-reiwa-pdf | r06-primary-top | 1 | 0 | 0 |
+

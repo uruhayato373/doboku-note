@@ -49,6 +49,7 @@ const ROOT = process.cwd();
 const GA4_DIR = join(ROOT, ".claude/state/metrics/ga4");
 const OUT_DIR = join(ROOT, ".claude/state/metrics/monetization");
 const META_INDEX = join(ROOT, "src/config/doc-meta-index.json");
+const SALES_LOG = join(ROOT, ".claude/state/sales/sales-log.json");
 
 function arg(name: string, fallback: number): number {
   const i = process.argv.indexOf(name);
@@ -152,6 +153,104 @@ if (clickFile) {
     else if (r.eventName === "affiliate_cta_click")
       affClicks.set(p, (affClicks.get(p) ?? 0) + r.eventCount);
   }
+}
+
+// ── 配置別 CTA CTR（DN-0025）──
+// impression/click ともに note・アフィリ両方の CTA イベントを合算する（配置は共有される
+// 面があるため=article-mid/article-end 等）。(unknown) は internal_nav_click 等 CTA 以外の
+// イベントが混ざる placement 値なので対象外にする。
+const IMPRESSION_EVENTS = new Set(["note_cta_impression", "affiliate_cta_impression"]);
+const CLICK_EVENTS = new Set(["note_cta_click", "affiliate_cta_click"]);
+const placementFile = latest("ga4-cta-clicks-by-placement-");
+interface PlacementCtr {
+  placement: string;
+  impressions: number;
+  clicks: number;
+  ctrPct: number | null;
+}
+let placementCtr: PlacementCtr[] = [];
+let placementMeta: { startDate: string; endDate: string } | null = null;
+if (placementFile) {
+  const placementData = JSON.parse(readFileSync(placementFile, "utf-8"));
+  placementMeta = { startDate: placementData.meta.startDate, endDate: placementData.meta.endDate };
+  const agg = new Map<string, { impressions: number; clicks: number }>();
+  for (const r of placementData.rows as { placement: string; eventName: string; eventCount: number }[]) {
+    if (r.placement === "(unknown)") continue;
+    if (!IMPRESSION_EVENTS.has(r.eventName) && !CLICK_EVENTS.has(r.eventName)) continue;
+    const cur = agg.get(r.placement) ?? { impressions: 0, clicks: 0 };
+    if (IMPRESSION_EVENTS.has(r.eventName)) cur.impressions += r.eventCount;
+    else cur.clicks += r.eventCount;
+    agg.set(r.placement, cur);
+  }
+  placementCtr = [...agg.entries()]
+    .map(([placement, v]) => ({
+      placement,
+      impressions: v.impressions,
+      clicks: v.clicks,
+      ctrPct: v.impressions > 0 ? +((v.clicks / v.impressions) * 100).toFixed(2) : null,
+    }))
+    .sort((a, b) => b.impressions - a.impressions);
+}
+
+// ── GA4 label × sales-log 突合（DN-0124）──
+// note_cta_click の label は `{magazineId}:{utmContent}` 形式のものと、utmContent 単体
+// （magazineId が埋め込まれていない＝旧配線やもくじ系）が混在する。前者だけが productId へ
+// 解決できる＝「ID付き」。**分母（全クリック）を隠さない**（§9）ため、ID付き/全体の比率を必ず出す。
+const labelFile = latest("ga4-cta-clicks-by-label-");
+interface NoteLabelSalesRow {
+  magazineId: string;
+  utmContent: string;
+  clicks: number;
+  salesCount: number;
+  revenue: number;
+}
+let noteLabelSales: NoteLabelSalesRow[] = [];
+let idClickCoverage: { idClicks: number; totalClicks: number; pct: number | null } = {
+  idClicks: 0,
+  totalClicks: 0,
+  pct: null,
+};
+if (labelFile) {
+  const labelData = JSON.parse(readFileSync(labelFile, "utf-8"));
+  const salesLog = existsSync(SALES_LOG)
+    ? (JSON.parse(readFileSync(SALES_LOG, "utf-8")).sales as { productId: string; price: number }[])
+    : [];
+  const salesByProduct = new Map<string, { count: number; revenue: number }>();
+  for (const s of salesLog) {
+    const cur = salesByProduct.get(s.productId) ?? { count: 0, revenue: 0 };
+    cur.count += 1;
+    cur.revenue += s.price ?? 0;
+    salesByProduct.set(s.productId, cur);
+  }
+  const byMagazineUtm = new Map<string, { clicks: number; magazineId: string; utmContent: string }>();
+  for (const r of labelData.rows as { label: string; eventName: string; eventCount: number }[]) {
+    if (r.eventName !== "note_cta_click") continue;
+    idClickCoverage.totalClicks += r.eventCount;
+    const idx = r.label.indexOf(":");
+    if (idx < 0) continue; // ID なし（utmContent 単体）
+    idClickCoverage.idClicks += r.eventCount;
+    const magazineId = r.label.slice(0, idx);
+    const utmContent = r.label.slice(idx + 1);
+    const key = `${magazineId}:${utmContent}`;
+    const cur = byMagazineUtm.get(key) ?? { clicks: 0, magazineId, utmContent };
+    cur.clicks += r.eventCount;
+    byMagazineUtm.set(key, cur);
+  }
+  idClickCoverage.pct = idClickCoverage.totalClicks
+    ? +((idClickCoverage.idClicks / idClickCoverage.totalClicks) * 100).toFixed(1)
+    : null;
+  noteLabelSales = [...byMagazineUtm.values()]
+    .map((v) => {
+      const s = salesByProduct.get(v.magazineId) ?? { count: 0, revenue: 0 };
+      return {
+        magazineId: v.magazineId,
+        utmContent: v.utmContent,
+        clicks: v.clicks,
+        salesCount: s.count,
+        revenue: s.revenue,
+      };
+    })
+    .sort((a, b) => b.clicks - a.clicks);
 }
 
 // ── join: doc ごとに配置を解決し traffic/clicks と突合 ──
@@ -350,6 +449,45 @@ lines.push(
 );
 lines.push("");
 
+// ── 配置別 CTA CTR（DN-0025）──
+lines.push("### 配置別 CTA CTR");
+lines.push("");
+if (placementCtr.length) {
+  lines.push(
+    `> 期間: \`${placementMeta!.startDate}〜${placementMeta!.endDate}\`（${basename(placementFile!)}）。impression/click は note・アフィリ両 CTA の合算。`,
+  );
+  lines.push("");
+  lines.push("| placement | impressions | clicks | CTR% |");
+  lines.push("|---|--:|--:|--:|");
+  for (const p of placementCtr) {
+    lines.push(`| ${p.placement} | ${p.impressions} | ${p.clicks} | ${p.ctrPct === null ? "—" : `${p.ctrPct}%`} |`);
+  }
+  lines.push("");
+} else {
+  lines.push("- 未取得（`ga4-cta-clicks-by-placement-*.json` が無い）");
+  lines.push("");
+}
+
+// ── GA4 label × sales-log 突合（DN-0124）──
+lines.push("### note CTA label × 売上 突合（ID付きのみ）");
+lines.push("");
+lines.push(
+  `> ID付きクリック / 全クリック: **${idClickCoverage.idClicks} / ${idClickCoverage.totalClicks}**` +
+    `（${idClickCoverage.pct === null ? "n.d." : `${idClickCoverage.pct}%`}）。残りは utmContent 単体で magazineId 未解決のため売上突合の対象外。`,
+);
+lines.push("");
+if (noteLabelSales.length) {
+  lines.push("| magazineId | utmContent | clicks | 売上件数 | 売上額(円) |");
+  lines.push("|---|---|--:|--:|--:|");
+  for (const r of noteLabelSales) {
+    lines.push(`| ${r.magazineId} | ${r.utmContent} | ${r.clicks} | ${r.salesCount} | ${r.revenue.toLocaleString("ja-JP")} |`);
+  }
+  lines.push("");
+} else {
+  lines.push("- 未取得（`ga4-cta-clicks-by-label-*.json` が無い、または ID付きラベルが0件）");
+  lines.push("");
+}
+
 const md = lines.join("\n");
 console.log(md);
 
@@ -383,6 +521,9 @@ writeFileSync(
       },
       summary: { trafficked: trafficked.length, gaps: gaps.length },
       rows,
+      placementCtr,
+      noteLabelSales,
+      idClickCoverage,
     },
     null,
     2,
