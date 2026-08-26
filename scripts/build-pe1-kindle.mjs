@@ -129,8 +129,11 @@ async function preprocess(body, articleDir, images, imageSrc) {
     const alt = (props.match(/alt="([^"]*)"/) || [])[1] || ''
     // サイト絶対パス（/posts/...）以外は外部画像なので同梱しない（丸ごと落とす）
     if (!/^\/posts\//.test(src)) return ''
-    // src は /posts/... のサイト絶対パス → .local/r2 配下の実ファイルへ解決
-    const local = resolve(REPO, '.local/r2', src.replace(/^\//, ''))
+    // src は /posts/{category}/{slug}/img/{file} のサイト絶対パス。
+    // 画像の SoT は content/site/{category}/{slug}/img/{file}（R2 はこれをミラーする
+    // CDN に過ぎず、asset-storage の offload 対象にも含まれない）なので直接そこへ解決する。
+    // 旧 R2 ローカルミラー（.local 配下）は廃止済み（tests/repository-paths.test.mjs が復活を禁止）。
+    const local = resolve(REPO, 'content/site', src.replace(/^\/posts\//, ''))
     // 年度スコープ付き href。合本/科目別合本は年度をまたいで同名の別図（q3-5-fig.jpg 等）を
     // 持つため、basename のみだと後年度の図が先年度の図に黙って差し替わる（実害を QA で検出）。
     // 記事ディレクトリ名（r01-basic 等）を前置して一意化する。
