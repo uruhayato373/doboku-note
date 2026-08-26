@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T05:06:19.268Z",
+  "generated_at": "2026-08-26T05:45:18.716Z",
   "summary": {
-    "total_mdx_files": 1117,
+    "total_mdx_files": 1119,
     "total_unique_tags": 173,
     "allowlist_size": 151,
     "known_count": 84,
@@ -1662,7 +1662,7 @@
     },
     {
       "name": "textbook",
-      "count": 59,
+      "count": 61,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-building-standards",
@@ -1674,6 +1674,7 @@
         "civil-construction-1-textbook-crane",
         "civil-construction-1-textbook-demolition",
         "civil-construction-1-textbook-distance-angle",
+        "civil-construction-1-textbook-embankment",
         "civil-construction-1-textbook-explosives-act",
         "civil-construction-1-textbook-grader-compaction",
         "civil-construction-1-textbook-histogram",
@@ -1703,6 +1704,7 @@
         "civil-construction-1-textbook-scraper",
         "civil-construction-1-textbook-shovel-excavator",
         "civil-construction-1-textbook-site-investigation",
+        "civil-construction-1-textbook-soil-investigation-methods",
         "civil-construction-1-textbook-standard-contract",
         "civil-construction-1-textbook-surveying-basics",
         "civil-construction-1-textbook-tractor-bulldozer",
@@ -2930,6 +2932,17 @@
       ]
     },
     {
+      "name": "earthwork",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-earthwork-basics",
+        "civil-construction-1-secondary-earthwork-past-problems",
+        "civil-construction-1-textbook-embankment",
+        "civil-construction-1-textbook-soil-investigation-methods"
+      ]
+    },
+    {
       "name": "environmental-management",
       "count": 4,
       "inAllowlist": true,
@@ -3056,15 +3069,6 @@
       "usedIn": [
         "pe-comprehensive-management-r04-essay-general-contractor",
         "pe-comprehensive-management-r04-essay-river-consultant"
-      ]
-    },
-    {
-      "name": "earthwork",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-earthwork-basics",
-        "civil-construction-1-secondary-earthwork-past-problems"
       ]
     },
     {
