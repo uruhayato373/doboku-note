@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T22:21:36.520Z",
+  "generated_at": "2026-08-26T22:26:30.313Z",
   "summary": {
-    "total": 1124,
-    "published": 1105,
+    "total": 1125,
+    "published": 1106,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 3,
+      "civil-practice": 4,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6070,6 +6070,23 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "打込み・締固めの4つの数値｜50cm・1.5m・10cmの根拠と現場管理【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-concrete-crack-causes": {
+      "title": "ひび割れの原因を切り分ける — 発生時期とパターンで見分ける実務の視点",
+      "description": "コンクリートに入ったひび割れが、沈下・温度応力・乾燥収縮・劣化のどれに由来するかを、発生時期とパターンから切り分ける実務の視点を解説。原因ごとの対処の分かれ目と、現場での確認手順まで整理します。",
+      "shortTitle": "ひび割れ原因の切り分け",
+      "subtitle": "沈下・温度・乾燥収縮・劣化を見分ける",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "concrete"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "ひび割れの原因を切り分ける｜沈下・温度・乾燥収縮・劣化の見分け方【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },

@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T22:21:36.953Z",
+  "generated_at": "2026-08-26T22:26:30.761Z",
   "summary": {
-    "total_mdx_files": 1124,
+    "total_mdx_files": 1125,
     "total_unique_tags": 174,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "guide",
-      "count": 139,
+      "count": 140,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1327,6 +1327,7 @@
         "civil-construction-2-guide-textbooks",
         "civil-construction-2-guide-young-career",
         "civil-practice-concrete-compaction-numbers",
+        "civil-practice-concrete-crack-causes",
         "civil-practice-concrete-placement-timing",
         "civil-practice-formwork-removal-timing",
         "concrete-chief-engineer-guide-essay",
@@ -2848,6 +2849,19 @@
       ]
     },
     {
+      "name": "concrete",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-practice-concrete-compaction-numbers",
+        "civil-practice-concrete-crack-causes",
+        "civil-practice-concrete-placement-timing",
+        "civil-practice-formwork-removal-timing"
+      ]
+    },
+    {
       "name": "earthwork",
       "count": 6,
       "inAllowlist": true,
@@ -2923,18 +2937,6 @@
         "pe-comprehensive-management-r05-essay-general-contractor",
         "pe-comprehensive-management-r06-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-general-contractor"
-      ]
-    },
-    {
-      "name": "concrete",
-      "count": 5,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems",
-        "civil-practice-concrete-compaction-numbers",
-        "civil-practice-concrete-placement-timing",
-        "civil-practice-formwork-removal-timing"
       ]
     },
     {

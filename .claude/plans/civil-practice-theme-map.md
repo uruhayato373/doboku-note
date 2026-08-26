@@ -17,8 +17,8 @@
 
 | 状態 | 本数 | 記事 |
 |---|--:|---|
-| 完了 | 3 | B1 formwork-removal-timing / A1 concrete-placement-timing / A3 concrete-compaction-numbers |
-| 執筆中 | 3 | A7 concrete-crack-causes / B5 rebar-cover-placement / B6 rebar-splice-selection |
+| 完了 | 4 | B1 formwork-removal-timing / A1 concrete-placement-timing / A3 concrete-compaction-numbers / A7 concrete-crack-causes |
+| 執筆中 | 2 | B5 rebar-cover-placement / B6 rebar-splice-selection |
 | 未着手 | 28 | 下表の残り |
 
 **進め方**: 3本ずつ並行で執筆 → 1本ずつ lint・常体スキャン・SeeAlso 実在確認 →
