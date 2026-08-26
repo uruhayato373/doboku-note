@@ -1,4 +1,4 @@
-# civil-practice テーマ再編マップ（160項目 → 34記事）
+# civil-practice テーマ再編マップ（160項目 → 61記事）
 
 内部ソース `content/sources/textbook/土木施工実務ノート/`（全15章160項目）を、
 サイト公開用の記事へ再編する対応表。**全160項目を1つも落とさずカバーする**。
@@ -15,17 +15,22 @@
 
 ## 進捗（2026-08-27）
 
-| 状態 | 本数 | 記事 |
-|---|--:|---|
-| 完了 | 4 | B1 formwork-removal-timing / A1 concrete-placement-timing / A3 concrete-compaction-numbers / A7 concrete-crack-causes |
-| 執筆中 | 2 | B5 rebar-cover-placement / B6 rebar-splice-selection |
-| 未着手 | 28 | 下表の残り |
+| 状態 | 本数 |
+|---|--:|
+| 完了 | 28 |
+| 未着手 | 33 |
+| **合計** | **61** |
+
+> [!warning] 総数の誤り（2026-08-27 訂正）
+> このマップを作った時点で総数を「34記事」と書いていたが、各ブロックの本数を足し合わせて
+> いない誤りだった。**正しくは61記事**。以降の進捗報告で分母を誤り続けたため訂正した。
+> 現在の完了本数を数えるコマンド: `ls content/site/civil-practice/ | wc -l`
 
 **進め方**: 3〜4本ずつ並行で執筆 → 1本ずつ lint・常体スキャン・SeeAlso 実在確認 →
 OGP 生成 → `refresh-indexes` → 逐次コミット。
 
-> [!important] 34本すべて完了したら push → deploy まで実行する（2026-08-27 ユーザー指示）
-> 完了の判定は「下表34本すべてに `content/site/civil-practice/{slug}/article.mdx` が実在し、
+> [!important] 61本すべて完了したら push → deploy まで実行する（2026-08-27 ユーザー指示）
+> 完了の判定は「下表61本すべてに `content/site/civil-practice/{slug}/article.mdx` が実在し、
 > `npm run build` が通ること」。確認できたら追加の確認を挟まずに次を実行する。
 >
 > 1. `npm run build`（SSG・sitemap・RSS が通ること）
@@ -183,4 +188,4 @@ OGP 生成 → `refresh-indexes` → 逐次コミット。
 | §13 施工計画書 | 4 | J3 |
 | §14 原価管理 | 5 | J4 |
 | §15 設計変更 | 4 | J5 |
-| **合計** | **160** | **34記事** |
+| **合計** | **160** | **61記事** |

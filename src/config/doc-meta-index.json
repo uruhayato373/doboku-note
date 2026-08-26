@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T23:51:20.345Z",
+  "generated_at": "2026-08-26T23:56:17.091Z",
   "summary": {
-    "total": 1149,
-    "published": 1130,
+    "total": 1150,
+    "published": 1131,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 28,
+      "civil-practice": 29,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6222,6 +6222,22 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "補修と補強の違い・漏水対策の工法選び｜コンクリート構造物の維持管理【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-construction-plan-document": {
+      "title": "施工計画書に何を書くか — 着工前に工事の段取りを固める書類",
+      "description": "施工計画書に何を書くべきかを、土木工事共通仕様書が定める記載事項から整理します。仕様書の丸写しが危険な理由、変更施工計画書が必要になる場面、工種が多い工事での構成の分け方、工事完了後のフィードバックの活かし方まで、着工前の実務判断として解説します。",
+      "shortTitle": "施工計画書の書き方",
+      "subtitle": "承認をもらう書類ではなく、現場を動かす道具",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "施工計画書に何を書くか｜記載事項と書いてはいけないこと【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
