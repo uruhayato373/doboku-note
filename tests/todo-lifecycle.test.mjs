@@ -1,5 +1,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { mkdtempSync, mkdirSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import {
   addWipToken,
   removeWipToken,
@@ -9,6 +12,7 @@ import {
   readClaimsStore,
   emptyClaimsStore,
 } from '../scripts/lib/todo-lifecycle.mjs';
+import { listPlanUnits } from '../scripts/lib/plan-units.mjs';
 
 function sampleBacklog() {
   return [
@@ -127,4 +131,57 @@ test('readClaimsStore: null/不正JSONは空ストアへフォールバック', 
   assert.deepEqual(readClaimsStore(null), emptyClaimsStore());
   assert.deepEqual(readClaimsStore('{not json'), emptyClaimsStore());
   assert.deepEqual(readClaimsStore('{"claims":"not-array"}'), emptyClaimsStore());
+});
+
+// --- listPlanUnits -----------------------------------------------------------
+
+test('listPlanUnits: DN-####接頭辞のdir/file両型を拾い、無関係な名前を無視する', () => {
+  const root = mkdtempSync(join(tmpdir(), 'plan-units-test-'));
+  const plansDir = join(root, '.claude/plans');
+  mkdirSync(plansDir, { recursive: true });
+
+  // dir型（00-master.md あり）
+  mkdirSync(join(plansDir, 'DN-0001-foo'));
+  writeFileSync(join(plansDir, 'DN-0001-foo/00-master.md'), '---\ntaskId: DN-0001\n---\n');
+
+  // file型
+  writeFileSync(join(plansDir, 'DN-0002-bar.md'), '---\ntaskId: DN-0002\n---\n');
+
+  // 無関係な名前（DN-####で始まらない）は無視される
+  mkdirSync(join(plansDir, 'some-scratch-dir'));
+  writeFileSync(join(plansDir, 'README.md'), '# not a plan unit\n');
+
+  const units = listPlanUnits(root);
+  assert.equal(units.length, 2);
+
+  const dirUnit = units.find((u) => u.taskId === 'DN-0001');
+  assert.ok(dirUnit, 'DN-0001（dir型）が見つかること');
+  assert.equal(dirUnit.type, 'dir');
+  assert.equal(dirUnit.path, '.claude/plans/DN-0001-foo');
+  assert.equal(dirUnit.masterPath, '.claude/plans/DN-0001-foo/00-master.md');
+
+  const fileUnit = units.find((u) => u.taskId === 'DN-0002');
+  assert.ok(fileUnit, 'DN-0002（file型）が見つかること');
+  assert.equal(fileUnit.type, 'file');
+  assert.equal(fileUnit.path, '.claude/plans/DN-0002-bar.md');
+  assert.equal(fileUnit.masterPath, '.claude/plans/DN-0002-bar.md');
+
+  assert.ok(!units.some((u) => u.name === 'some-scratch-dir' || u.name === 'README.md'));
+});
+
+test('listPlanUnits: dir型で00-master.mdが無ければ00-*.mdへフォールバックする（DN-0092実例）', () => {
+  const root = mkdtempSync(join(tmpdir(), 'plan-units-test-'));
+  const plansDir = join(root, '.claude/plans');
+  mkdirSync(join(plansDir, 'DN-0003-baz'), { recursive: true });
+  writeFileSync(join(plansDir, 'DN-0003-baz/00-product-plan.md'), '---\ntaskId: DN-0003\n---\n');
+
+  const units = listPlanUnits(root);
+  const unit = units.find((u) => u.taskId === 'DN-0003');
+  assert.ok(unit);
+  assert.equal(unit.masterPath, '.claude/plans/DN-0003-baz/00-product-plan.md');
+});
+
+test('listPlanUnits: .claude/plans/ が無ければ空配列', () => {
+  const root = mkdtempSync(join(tmpdir(), 'plan-units-test-'));
+  assert.deepEqual(listPlanUnits(root), []);
 });

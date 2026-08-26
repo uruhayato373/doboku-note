@@ -36,10 +36,11 @@
  *   node scripts/check-task-plan-links.mjs         全量検査
  *   node scripts/check-task-plan-links.mjs --json  機械可読
  */
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseBacklog } from './lib/backlog-lib.mjs';
+import { listPlanUnits } from './lib/plan-units.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PLANS_DIR = join(ROOT, '.claude/plans');
@@ -60,38 +61,14 @@ function readFrontmatter(absPath) {
   return fm;
 }
 
-/** .claude/plans/ 直下を走査し、plan unit の一覧を返す。 */
-function discoverPlanUnits() {
-  const entries = readdirSync(PLANS_DIR, { withFileTypes: true });
-  const units = [];
-  for (const e of entries) {
-    const abs = join(PLANS_DIR, e.name);
-    if (e.isDirectory()) {
-      const files = readdirSync(abs).filter((f) => f.endsWith('.md'));
-      const masterName = files.includes('00-master.md')
-        ? '00-master.md'
-        : files.find((f) => /^00-/.test(f));
-      units.push({
-        kind: 'dir',
-        name: e.name,
-        dirAbs: abs,
-        masterAbs: masterName ? join(abs, masterName) : null,
-        masterName,
-        files,
-      });
-    } else if (e.isFile() && e.name.endsWith('.md')) {
-      units.push({ kind: 'file', name: e.name.replace(/\.md$/, ''), dirAbs: abs, masterAbs: abs, masterName: e.name, files: [e.name] });
-    }
-  }
-  return units;
-}
-
 function main() {
   if (!existsSync(PLANS_DIR)) {
     console.log('[check-task-plan-links] .claude/plans/ が無い（plan 未使用）— skip');
     return;
   }
-  const units = discoverPlanUnits();
+  // unit 発見は scripts/lib/plan-units.mjs へ集約（todo-complete.mjs / admin todo.ts と共用。
+  // 命名規則の二重実装を作らない。DN-0093 順4）。
+  const units = listPlanUnits(ROOT);
   const backlogText = readFileSync(BACKLOG_PATH, 'utf8');
   const cards = parseBacklog(backlogText);
   const cardIds = new Set(cards.map((c) => c.id).filter(Boolean));
@@ -105,11 +82,12 @@ function main() {
       violations.push({ type: 'naming', unit: u.name, detail: `plan unit 名が DN-#### で始まらない（命名規則違反）` });
       continue;
     }
-    if (!u.masterAbs || !existsSync(u.masterAbs)) {
-      violations.push({ type: 'missing-master', unit: u.name, detail: `master ファイルが見つからない（${u.kind === 'dir' ? '00-master.md 相当が無い' : 'ファイル不在'}）` });
+    const masterAbs = u.masterPath ? join(ROOT, u.masterPath) : null;
+    if (!masterAbs || !existsSync(masterAbs)) {
+      violations.push({ type: 'missing-master', unit: u.name, detail: `master ファイルが見つからない（${u.type === 'dir' ? '00-master.md 相当が無い' : 'ファイル不在'}）` });
       continue;
     }
-    const fm = readFrontmatter(u.masterAbs);
+    const fm = readFrontmatter(masterAbs);
     if (!fm) {
       violations.push({ type: 'no-frontmatter', unit: u.name, detail: `master に frontmatter が無い（taskId/type/createdAt/deleteOnComplete が必要）` });
       continue;
