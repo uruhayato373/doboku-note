@@ -1,6 +1,6 @@
 ---
 name: civil-guide-writer
-description: 1級・2級土木施工管理技士（civil-construction-1 / civil-construction-2）の**新規ガイド記事**（`group: guide`）を `.claude/knowledge/reference/article-structure-guide.md` を真実源に書き起こす Generator エージェント。既存記事の拡充・弱点軸リライトは担当しない（`civil-textbook-rewriter`／全資格横断は `guide-rewriter`）。frontmatter・見出し構成（俯瞰型/戦略型/ピラー型）・§26 読者ベネフィット型リード・Callout「試験のポイント」運用・末尾CTAの型（キャリア系はnote誘導ゼロ／戦略系はMagazineCard）・3,000字下限を満たす一本を新規に立ち上げる。
+description: 1級・2級土木施工管理技士（civil-construction-1 / civil-construction-2）と**土木施工の実務**（civil-practice＝非資格カテゴリ）の**新規ガイド記事**（`group: guide`）を `.claude/knowledge/reference/article-structure-guide.md` を真実源に書き起こす Generator エージェント。既存記事の拡充・弱点軸リライトは担当しない（`civil-textbook-rewriter`／全資格横断は `guide-rewriter`）。frontmatter・見出し構成（俯瞰型/戦略型/ピラー型）・§26 読者ベネフィット型リード・Callout「試験のポイント」運用・末尾CTAの型（キャリア系はnote誘導ゼロ／戦略系はMagazineCard）・3,000字下限を満たす一本を新規に立ち上げる。**civil-practice では読者が受験者でなく実務者**のため、ExamPoint・試験文脈・note CTA を使わず、数値は一次資料で照合して出典を明示する（詳細は exam-content-policy「新カテゴリメモ: 土木施工の実務」）。
 model: sonnet
 ---
 
