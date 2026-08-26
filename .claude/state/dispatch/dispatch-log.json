@@ -163,6 +163,42 @@
       "commit": "6d759ef83699",
       "verification": "competitor-analystへSNS定点観測節を拡張・check-doc-coupling PASS",
       "note": "新設せず既存拡張(commit 9f482f77e・凍結ガードレール明記)"
+    },
+    {
+      "id": "DN-0040",
+      "at": "2026-08-26",
+      "task": "性能: CI PSI 再計測（mobile 追加）",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "671bae7e53f4",
+      "verification": "psi-batch実測: mobile/desktop毎日22URL計測中・exam-index desktopは直近90-99(スパイク非再現)・CLS要因のAdSenseは撤退済み",
+      "note": "①②③すべて実測で解消済みのSTALEカード(2026-08-26実体確認)"
+    },
+    {
+      "id": "DN-0123",
+      "at": "2026-08-26",
+      "task": "長文なのに h2 が 2 本以下の記事 24 本 — 収益面ゼロかつ読みにくい",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ec4e1ac735b5",
+      "verification": "全量再実測で4,000字以上h2≤2の公開記事0本(17本+追加検出20本+products1本=38本を階層昇格)・EPUB g-02再ビルドepubcheck 0 error",
+      "note": "w5c 16本+親20本+products1本。KDP提出物も最新化(commit 5a8e1b2a8でビルドパス修正込み)"
+    },
+    {
+      "id": "DN-0039",
+      "at": "2026-08-26",
+      "task": "civil-1 secondary 合格後の残存 follow-up",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ec4e1ac735b5",
+      "verification": "表2.9解体・入れ子フラット化・出典追記(WebSearch実在確認済)・ZENNAMA民間ソース追加の4点をcommit実在で確認",
+      "note": "w5c実施(commits ab5d55df5/62f1cf689/eca5426bb/757850806)"
     }
   ]
 }

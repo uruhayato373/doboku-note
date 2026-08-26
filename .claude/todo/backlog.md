@@ -523,29 +523,6 @@ orphan（外部には出たのに台帳に記録が無い）ではないので�
 **完了条件**: pending_overdue が意図した水準まで下がる（0 でなくてよいが、残っている理由が書かれている）。`recorded_but_gone` 6 件の実体が判明している ✅。
 
 
-### [DN-0123] 長文なのに h2 が 2 本以下の記事 24 本 — 収益面ゼロかつ読みにくい
-タグ: [コンテンツ品質] [種類:改善] [実行:sweep] [起票:2026-08-24]
-
-2026-08-24 のアフィリ面最適化（DN-0120 (b)）で計測して判明。**本文中間 CTA の下限ゲートは h2≥3 まで緩めたが、h2≤2 の長文は構造側でしか直せない。**
-
-位置は `min(max(1, …), h2 - 2)` で決まるため h2=2 だと 0 に潰れ、「先頭セクション直後は避ける」という配置ルールを破る。ゲートをこれ以上下げるのは誤り。
-
-**対象（published・4,000字以上・h2≤2・inline CareerAffiliate も無い＝本文の収益面ゼロ）: 24 本**
-
-| セッション(28日) | 字数 | h2 | slug |
-|---|---|---|---|
-| 135 | 14,450 | 2 | `civil-construction-1-secondary-experience-writing-examples` |
-| 27 | 83,284 | 2 | `concrete-chief-engineer-primary-construction` |
-| 14 | 25,565 | 2 | `concrete-chief-engineer-primary-mix-design` |
-| 0 | 50,480 | 2 | `concrete-chief-engineer-primary-production-qc` |
-| 0 | 23,002 | 2 | `concrete-chief-engineer-primary-structural-design` |
-| 0 | 19,909 | 2 | `concrete-chief-engineer-primary-durability` |
-
-ほか h2=0〜1 が 8 本（コンクリート診断士 `primary-exercise-01〜08`・各 7,000〜10,000 字）。
-
-**やること**: 見出し構造を足す。**83,284 字で h2 が 2 本というのは広告以前に読み物として壊れている**（TOC も 2 項目しか出ない）。既存の H3 を H2 へ繰り上げるだけで済むものが多い見込み。収益面はその副次効果として自動で復活する（ゲートを満たす）。
-
-**注意**: 広告を出すために見出しを切らない。読みやすさ・TOC・SEO で正当化できる切り方だけにする。`civil-construction-1-secondary-experience-writing-examples`（最大流入）は H2 が「ヒント文章案」「改善例」の 2 本で、後者にテーマ別の H3 が 9 本ぶら下がっている構造。
 
 ### [DN-0110] 動画パック基盤・通常動画pilot・read-only管理画面
 タグ: [SNS・マーケ] [種類:改善] [Codex候補] [実行:対話] [検証:quality:audit:ci] [起票:2026-08-21]
@@ -1149,10 +1126,6 @@ C（`civil-1-ichiji-ronten` ¥1,480・[nec34238ca6d6](https://note.com/dobokunot
 - **手順**: レポート上位を group 対応の `/quality-cycle` へ。表→非表・入れ子→フラット・長段落→改段。1バッチ 10-20 記事、完了ごとに `npm run update-content-quality-baseline`
 - **注意**: civil textbook の規格表・配合表は override 除外済み。過去問の年度×選択肢表は無理に崩さない
 
-### [DN-0039] civil-1 secondary 合格後の残存 follow-up
-タグ: [コンテンツ品質] [種類:制作] [実行:sweep]
-
-8本全合格済みだが scores.json の qualitative_comment に記録した改善余地: earthwork 表2.9 の散文詰込13セル解体（最優先）・入れ子リスト群のフラット化・factual table のインライン出典・qm-basics/past-problems の民間ソース不在。
 
 
 ### [DN-0041] 回遊・note 動線 P4-P7
