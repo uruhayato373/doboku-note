@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T22:38:44.880Z",
+  "generated_at": "2026-08-26T22:42:50.120Z",
   "summary": {
-    "total_mdx_files": 1129,
+    "total_mdx_files": 1131,
     "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "guide",
-      "count": 144,
+      "count": 146,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1330,8 +1330,10 @@
         "civil-practice-concrete-crack-causes",
         "civil-practice-concrete-finishing-curing",
         "civil-practice-concrete-mix-acceptance",
+        "civil-practice-concrete-placement-order",
         "civil-practice-concrete-placement-timing",
         "civil-practice-formwork-removal-timing",
+        "civil-practice-rebar-corrosion-handling",
         "civil-practice-rebar-cover-placement",
         "civil-practice-rebar-splice-selection",
         "concrete-chief-engineer-guide-essay",
@@ -2478,6 +2480,22 @@
       ]
     },
     {
+      "name": "concrete",
+      "count": 9,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-practice-concrete-compaction-numbers",
+        "civil-practice-concrete-crack-causes",
+        "civil-practice-concrete-finishing-curing",
+        "civil-practice-concrete-mix-acceptance",
+        "civil-practice-concrete-placement-order",
+        "civil-practice-concrete-placement-timing",
+        "civil-practice-formwork-removal-timing"
+      ]
+    },
+    {
       "name": "construction-machinery",
       "count": 9,
       "inAllowlist": true,
@@ -2635,21 +2653,6 @@
         "pe-construction-soil-foundation-ronbun-keyword",
         "pe-construction-steel-concrete-ronbun-keyword",
         "pe-construction-tunnel-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "concrete",
-      "count": 8,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems",
-        "civil-practice-concrete-compaction-numbers",
-        "civil-practice-concrete-crack-causes",
-        "civil-practice-concrete-finishing-curing",
-        "civil-practice-concrete-mix-acceptance",
-        "civil-practice-concrete-placement-timing",
-        "civil-practice-formwork-removal-timing"
       ]
     },
     {
@@ -2991,6 +2994,16 @@
       ]
     },
     {
+      "name": "rebar",
+      "count": 3,
+      "inAllowlist": false,
+      "usedIn": [
+        "civil-practice-rebar-corrosion-handling",
+        "civil-practice-rebar-cover-placement",
+        "civil-practice-rebar-splice-selection"
+      ]
+    },
+    {
       "name": "schedule-management",
       "count": 3,
       "inAllowlist": true,
@@ -3114,15 +3127,6 @@
       "usedIn": [
         "pe-construction-kensetsu-dx",
         "pe-construction-ninaite-dx-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "rebar",
-      "count": 2,
-      "inAllowlist": false,
-      "usedIn": [
-        "civil-practice-rebar-cover-placement",
-        "civil-practice-rebar-splice-selection"
       ]
     },
     {
@@ -3901,13 +3905,13 @@
     "ゼネコン",
     "建設コンサル",
     "施工",
+    "rebar",
     "SWOT分析",
     "コンパクトシティ",
     "データ利活用",
     "二次試験",
     "少子高齢化",
     "生産性向上",
-    "rebar",
     "アセットマネジメント",
     "グリーンインフラ",
     "予防保全",
