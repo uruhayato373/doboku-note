@@ -1443,6 +1443,14 @@ WebSearch 3〜5回かかる ②資格カテゴリと違い note マガジン CTA
 
 広げない場合は pilot 2点を `published:false` にするか、資格カテゴリ配下へ移す。
 
+**判断前に知っておくこと**: `visible:false` が隠すのは `/category/civil-practice` だけで、
+記事 `/docs/civil-practice-formwork-removal-timing` は **sitemap に載る**
+（`generate-sitemap.mjs` の `HIDDEN_CATEGORY_PATHS` はカテゴリ URL のみ除外）。
+つまり次回 deploy でナビ非表示の孤立ページとして公開される。reference-materials と同じ状態で、
+意図的ならそのままでよいが、公開を保留したいなら記事側を `published:false` にする。
+ツール `/tools/concrete-time-check` はカテゴリ判断とは独立に `/tools` 一覧へ結線済みで、
+deploy すれば通常のページとして公開される。
+
 ### [DN-0130] X 下書き 3 件が go-live を 1 か月超過 — 投入するか退役させるか
 タグ: [SNS・マーケ] [種類:意思決定] [検証:x-queue-surfacer] [起票:2026-08-25]
 

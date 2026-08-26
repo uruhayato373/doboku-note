@@ -1,13 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T08:02:18.298Z",
+  "generated_at": "2026-08-26T21:25:39.491Z",
   "summary": {
-    "total": 1121,
-    "published": 1102,
+    "total": 1122,
+    "published": 1103,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
+      "civil-practice": 1,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6054,6 +6055,24 @@
         "title": "第2次検定",
         "subtitle": "令和7年度 過去問"
       }
+    },
+    "civil-practice-formwork-removal-timing": {
+      "title": "型枠・支保工はいつ外せるか — 存置期間の判断基準",
+      "description": "土木構造物の型枠・支保工をいつ取り外してよいかを、コンクリート標準示方書の圧縮強度（3.5 / 5.0 / 14.0 N/mm²）で判断する手順を解説。標準養生の供試体で判定してはいけない理由、積算温度による推定、取外し順序、建築基準法施行令との違いまで整理します。",
+      "shortTitle": "型枠・支保工の存置期間",
+      "subtitle": "土木は強度、建築は日数で決まる",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "concrete",
+        "formwork"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "型枠・支保工の存置期間｜取り外してよい圧縮強度と判断手順【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
     },
     "concrete-chief-engineer-guide-essay": {
       "title": "コンクリート主任技士 小論文の書き方 — 評価される観点・答案構成・テーマ傾向",

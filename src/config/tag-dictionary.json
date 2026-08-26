@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T08:02:18.750Z",
+  "generated_at": "2026-08-26T21:25:40.005Z",
   "summary": {
-    "total_mdx_files": 1121,
-    "total_unique_tags": 173,
+    "total_mdx_files": 1122,
+    "total_unique_tags": 174,
     "allowlist_size": 151,
     "known_count": 84,
-    "unknown_count": 89,
+    "unknown_count": 90,
     "typo_candidates_count": 4
   },
   "tags": [
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "guide",
-      "count": 136,
+      "count": 137,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1326,6 +1326,7 @@
         "civil-construction-2-guide-study-plan",
         "civil-construction-2-guide-textbooks",
         "civil-construction-2-guide-young-career",
+        "civil-practice-formwork-removal-timing",
         "concrete-chief-engineer-guide-essay",
         "concrete-chief-engineer-guide-overview",
         "concrete-chief-engineer-guide-trends",
@@ -2958,6 +2959,16 @@
       ]
     },
     {
+      "name": "concrete",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-practice-formwork-removal-timing"
+      ]
+    },
+    {
       "name": "kinki-design-manual",
       "count": 3,
       "inAllowlist": true,
@@ -3055,15 +3066,6 @@
         "pe-construction-kensetsu-dx",
         "pe-construction-ninaite-dx-ronbun-keyword",
         "pe-construction-ninaite-kakuho-seisansei"
-      ]
-    },
-    {
-      "name": "concrete",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems"
       ]
     },
     {
@@ -3316,6 +3318,14 @@
       "inAllowlist": true,
       "usedIn": [
         "reference-materials-floodgate"
+      ]
+    },
+    {
+      "name": "formwork",
+      "count": 1,
+      "inAllowlist": false,
+      "usedIn": [
+        "civil-practice-formwork-removal-timing"
       ]
     },
     {
@@ -3895,6 +3905,7 @@
     "BIM/CIM",
     "DX推進",
     "exam-statistics",
+    "formwork",
     "II-1",
     "II-2",
     "III",
