@@ -47,6 +47,7 @@
     "check-affiliate-wiring": "node scripts/check-affiliate-wiring.mjs",
     "check-bold-rendering": "node scripts/check-bold-rendering.mjs",
     "check-brain-wiring": "node scripts/check-brain-wiring.mjs",
+    "check-callout-types": "node scripts/check-callout-types.mjs",
     "check-career-separation": "node scripts/check-career-separation.mjs",
     "check-category-curriculum": "node scripts/check-category-curriculum.mjs",
     "check-character-avatars": "node scripts/check-character-avatars.mjs",

@@ -101,6 +101,7 @@ const CHECKS = [
   { id: 'frontmatter', cmd: ['node', '.claude/scripts/lint-frontmatter.mjs', '--all'], timeout: 180_000, ci: true },
   { id: 'svg-audit', npm: 'audit-svg:ci', timeout: 180_000, ci: true, note: 'svg-audit.json を上書き' },
   { id: 'image-assets', npm: 'check-image-assets:ci', timeout: 120_000, ci: true },
+  { id: 'callout-types', npm: 'check-callout-types', timeout: 60_000, ci: false, note: '<Callout type="..."> の未知 type 検出（UI-008・ランタイムは黙って note へフォールバックし typo を隠す）。2026-08-26 導入時点で content/site 配下に type="important" が 11 件既存（concrete-diagnostician 5・pe-construction 6）。report-only の理由＝この既存分の是正は content 側の担当（DN-0050 は src/ 領域）。読み手＝週次レビューの棚卸し、または content 側で type="important" を是正するタスク' },
   { id: 'orphan-figures', npm: 'check-orphan-figures', timeout: 90_000, ci: true },
   { id: 'backlog-schema', npm: 'check-backlog-schema', timeout: 30_000, ci: true, note: 'backlog タグ行の語彙・[検証:]の実在・パーサ契約（admin と sweep が同じカードを見ているか）' },
   { id: 'external-write-orphans', npm: 'check-external-write-orphans', timeout: 300_000, ci: false, note: '「外部へは成功・台帳の書き戻しは失敗」の検出（2026-06-17 の YouTube 事故＝6本アップ済みなのに台帳 pending が実例）。gh 経由で run ログを読むためネットワークが要る＝ci:false。**読み手は /weekly-review の backlog 消化サマリ節**（同節へコマンドを配線済み）' },
