@@ -5,12 +5,19 @@ on:
     - cron: "0 17 * * *" # JST 02:00 daily (UTC 17:00)
   workflow_dispatch:
 
+# DN-0109 Phase 1: develop への自動書込み系ワークフロー間の push 衝突を防ぐ共通グループ。
+# 同時実行を待たせるだけで落とさない（cancel-in-progress: false）。
+concurrency:
+  group: develop-git-write
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
 jobs:
   audit:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout develop
         # schedule はデフォルトブランチ（main）を checkout するため、ref を明示しないと
@@ -18,12 +25,12 @@ jobs:
         # フックの drift guard が bot commit を拒否して落ちる（2026-08-20 に psi-audit が
         # `[pre-commit] 導入済みフックが古い` で実際に失敗した）。fetch-metrics.yml と同じ形で
         # 最初から develop を checkout し、順序依存そのものを無くす。
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           ref: develop
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: "20"
           cache: "npm"
@@ -79,9 +86,11 @@ jobs:
           git push origin develop
 
       # タスク自動化(task-queue.json/build-todo)は廃止(2026-06-11、.claude/todo/ 手動運用へ一本化)。
-      # field 実害または取得失敗率20%超だけを CI 失敗として通知する。単発 lab 超過はレポート上の改善候補。
+      # CI 失敗にするのは3種類だけ: field 実害 / 取得失敗率20%超 / **field 判定不能**。
+      # 単発 lab 超過はレポート上の改善候補で赤にしない（2026-07-27 の誤報対策）。
+      # field 判定不能 = CrUX が 1 件も返らない状態。判定材料が無いことを緑で隠さない（DN-0127）。
       - name: Fail on field violations or invalid input (アラート)
         if: steps.check.outputs.exit_code != '0'
         run: |
-          echo "::error::PSI の field 実害または取得失敗率20%超を検出。詳細は .claude/state/metrics/psi/latest-report.md。.claude/todo/ に手動で起票してください。"
+          echo "::error::PSI の field 実害 / 取得失敗率20%超 / field 判定不能（CrUX ゼロ）を検出。詳細は .claude/state/metrics/psi/latest-report.md の冒頭『field(CrUX) 取得』行。.claude/todo/ に手動で起票してください。"
           exit 1

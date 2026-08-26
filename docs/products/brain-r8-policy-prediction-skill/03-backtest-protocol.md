@@ -1,3 +1,9 @@
+---
+documentType: research
+channel: brain
+retention: durable
+---
+
 # 時点再現バックテスト protocol（R6〜R8）
 
 <!-- audit:2026-08-18 -->

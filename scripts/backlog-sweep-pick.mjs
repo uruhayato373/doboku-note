@@ -15,10 +15,10 @@
  *     tier がもはや不具合の緊急度を表していない（不具合 26 件中 5 件が 🟢＝時期未定に沈む）
  *     ため、壊れているものを先に出す。種類未付与は不具合として扱わない
  *   - **🟣 判断待ちは自動選定しない**（ユーザー判断が要る）
- *   - `[実行:sweep]` / `[実行:機械]` だけを実行候補にする。
- *     `[実行:ユーザー|windows|別環境|対話]` は除外して理由別に数える
- *   - `[実行:]` 未付与は「分類待ち」として別枠で返す（sweep がタグ付け→次周から対象）。
- *     `[種類:]` 欠けも同じキューに載る（`missing` で何が欠けているかを返す）
+ *   - `[進行中]` は自動選定しない（別セッション・Codex との競合防止）
+ *   - それ以外は全カードが候補。**単独で回せるか（ユーザーの手・対話が要るか）は選定側の
+ *     モデルが本文を読んで判断する**（旧 [実行:] 軸は 2026-08-26 廃止＝タグに凍結すると陳腐化）
+ *   - `[種類:]` 欠けは「分類待ち」キューに載る（`missing` で何が欠けているかを返す）
  *
  * 検査ゼロを PASS と呼ばない（§9）: カード総数・選定可能数・除外内訳を必ず出す。
  * 「選べるタスクが 0 件」と「backlog が空」は別物として表示する。
@@ -60,12 +60,12 @@ if (!cards.length) {
 
 const r = pickTasks(cards, { limit, classifyLimit });
 
-// 4 バケットが総数を分割していないなら、どこかのカードが数え漏れ／二重計上されている。
+// 3 バケットが総数を分割していないなら、どこかのカードが数え漏れ／二重計上されている。
 // 「実行可能 N 件」を信じて回す運用なので、合計が合わない状態を緑にしない（§9）。
 if (!r.partitionOk) {
   console.error(
     `✗ 検査不成立: バケットが総数を分割していない` +
-      `（実行可能 ${r.runnableTotal} + 分類待ち ${r.unclassifiedTotal} + 除外 ${r.excludedTotal} + 判断待ち ${r.holdTotal} ≠ ${cards.length}）`,
+      `（実行可能 ${r.runnableTotal} + 判断待ち ${r.holdTotal} + 進行中 ${r.wipTotal} ≠ ${cards.length}）`,
   );
   process.exit(2);
 }
@@ -74,17 +74,16 @@ const tierCount = cards.reduce((a, c) => ((a[c.tier] = (a[c.tier] ?? 0) + 1), a)
 const payload = {
   scanned: { cards: cards.length, tier: tierCount, orphanHeadings: orphans.length },
   runnableTotal: r.runnableTotal,
-  unclassifiedTotal: r.unclassifiedTotal,
-  excludedTotal: r.excludedTotal,
-  excludedBy: r.excludedBy,
   holdTotal: r.holdTotal,
+  wipTotal: r.wipTotal,
+  wip: r.wip.map((c) => ({ line: c.line, tier: c.tier, kind: c.kind, title: c.title })),
   order: r.order,
   kindCount: r.kindCount,
   kindMissingTotal: r.kindMissingTotal,
   needsTagTotal: r.needsTagTotal,
-  run: r.run.map((c) => ({ line: c.line, tier: c.tier, kind: c.kind, title: c.title, category: c.category, executor: c.executor, verify: c.verify, codex: c.codex })),
+  run: r.run.map((c) => ({ line: c.line, tier: c.tier, kind: c.kind, title: c.title, category: c.category, verify: c.verify, codex: c.codex })),
   classify: r.classify.map((c) => ({ line: c.line, tier: c.tier, kind: c.kind, title: c.title, category: c.category, missing: c.missing })),
-  defects: r.defects.map((c) => ({ line: c.line, tier: c.tier, title: c.title, executor: c.executor })),
+  defects: r.defects.map((c) => ({ line: c.line, tier: c.tier, title: c.title })),
   sunkDefects: r.sunkDefects.map((c) => ({ line: c.line, tier: c.tier, title: c.title })),
   orphans,
 };
@@ -96,8 +95,12 @@ if (JSON_OUT) {
 
 const t = payload.scanned.tier;
 console.log(`[backlog-sweep-pick] カード ${cards.length} 件を走査（🔴${t.high ?? 0} 🟡${t.mid ?? 0} 🟢${t.low ?? 0} 🟣${t.hold ?? 0}）`);
-console.log(`  実行可能 ${r.runnableTotal} / 分類待ち ${r.unclassifiedTotal} / 除外 ${r.excludedTotal}${r.excludedTotal ? '（' + Object.entries(r.excludedBy).map(([k, v]) => `${k}:${v}`).join(' ') + '）' : ''} / 判断待ち ${r.holdTotal}`);
-console.log(`  内訳の恒等式: ${r.runnableTotal} + ${r.unclassifiedTotal} + ${r.excludedTotal} + ${r.holdTotal} = ${cards.length} ✓`);
+console.log(`  実行候補 ${r.runnableTotal} / 判断待ち ${r.holdTotal} / 進行中(除外) ${r.wipTotal}`);
+console.log(`  内訳の恒等式: ${r.runnableTotal} + ${r.holdTotal} + ${r.wipTotal} = ${cards.length} ✓`);
+if (r.wipTotal) {
+  console.log(`  進行中（自動選定から除外・要確認）:`);
+  for (const c of r.wip) console.log(`    - L${c.line} [${c.tier}] ${c.title}`);
+}
 
 if (r.kindMissingTotal) {
   console.log(`  種類 未付与 ${r.kindMissingTotal} 件（内訳: ${Object.entries(r.kindCount).map(([k, v]) => `${k}:${v}`).join(' ')}）`);
@@ -110,9 +113,8 @@ if (r.sunkDefects.length) {
 if (r.run.length) {
   console.log(`\n▼ 実行候補 ${r.run.length} 件（順序: 不具合 → tier）`);
   for (const c of r.run) console.log(`  L${c.line} [${c.tier}]${c.kind ? `[${c.kind}]` : ''} ${c.title}${c.verify ? `  → 検証: ${c.verify}` : ''}`);
-} else if (r.runnableTotal === 0 && r.unclassifiedTotal > 0) {
-  console.log(`\n▼ 実行候補なし — ただし backlog は空ではない。`);
-  console.log(`  ${r.unclassifiedTotal} 件が [実行:] 未付与＝**分類していないから選べない**（タスクが無いのではない）`);
+} else if (r.runnableTotal === 0 && (r.holdTotal > 0 || r.wipTotal > 0)) {
+  console.log(`\n▼ 実行候補なし — ただし backlog は空ではない（判断待ち ${r.holdTotal} / 進行中 ${r.wipTotal}）。`);
 }
 
 if (r.classify.length) {

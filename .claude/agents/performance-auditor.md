@@ -120,17 +120,16 @@ PSI 計測結果（`.claude/state/metrics/psi/` 配下 JSON）を読み込み、
 **候補**:
 - 画像・iframe の width/height 明示
 - `<ArticleImage>` コンポーネントの aspect-ratio 設定
-- 遅延ロード広告枠の最小高確保（AdSense スロット）
 - フォント切り替え時のレイアウトシフト（size-adjust 等）
 
-**参照**: `src/components/mdx/ArticleImage.tsx`, `src/components/ads/**`
+**参照**: `src/components/mdx/ArticleImage.tsx`
 
 ### INP / TBT 悪化（INP > 200ms / TBT > 300ms）
 
 **候補**:
 - Mermaid・KaTeX の初期実行量チェック
 - MiniSearch のインデックス読み込みタイミング
-- Google Analytics / AdSense スクリプトの `async` / `defer`
+- Google Analytics スクリプトの `async` / `defer`
 - React 19 の useEffect 同期処理削減
 
 **参照**: `src/components/search/**`, `src/app/layout.tsx` のスクリプトタグ

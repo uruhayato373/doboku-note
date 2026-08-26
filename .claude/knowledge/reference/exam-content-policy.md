@@ -200,6 +200,37 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 - **RelatedKeywords は当面省略**（建設一次の論点に対応するキーワードページが未整備。リンク先のない RelatedKeywords は置かない）。
 - Generator = `/exam-questions-import --exam pe-first-stage`。Evaluator = `content-qa`。ソース PDF = `content/sources/textbook/技術士第一次試験/`。
 
+### 新カテゴリメモ: 土木施工の実務（`civil-practice`、2026-08-27 新設・**非資格カテゴリ**）
+
+**位置づけ**: 資格に紐づかない実務コンテンツの初のカテゴリ。`variant: "general"`（`reference` と同じく
+非資格扱い＝`check-home-exam-coverage` の資格カード必須ゲート対象外）・order 2.8・**`visible: false`**。
+公開ラインにするかは未決で、判断は backlog DN-0143。
+
+**素材と著作権の原則（最重要）**: 素材は `content/sources/textbook/土木施工実務ノート/`
+＝市販の土木施工実務書のスキャンを再構成した内部ノート（全15章160項目）。再構成済みではあるが、
+**章立て・160項目の選択と配列・項目名は原本の編集著作**であり、そのまま公開物にはできない。
+
+- 原本の章立て・項目名・見出し順を写さず、**テーマ単位で独自に再構成**する
+- 数値・基準はノートを出典にせず、**一次資料**（コンクリート標準示方書・土木工事共通仕様書・
+  労働安全衛生規則・JIS・建築基準法施行令）で取り直して出典を明記する
+- ノート内の `<!-- 要確認 -->` 箇所（20超）は公開物に一切使わない
+- 原本由来の逸話・経験則・現場エピソードは使わない
+- ノートの図版 SVG（17点）も流用しない。公開用は figure-canvas 標準で別途作図する
+
+判断の根拠はコンクリート診断士択一の前例（逐語でなくても原典構成のままでは公開不可と判断し
+全98問を自作へ書き換えた）と同型。
+
+**pilot（2026-08-27）**: 記事1本 `civil-practice-formwork-removal-timing`（型枠・支保工の存置期間）と
+計算ツール1本 `/tools/concrete-time-check`。記事は `group: guide` として §20 Type-2「次のステップ」・
+§26 読者ベネフィット型リード・3,000字下限に準拠。読者は受験者でなく実務者だが、論点が1級土木
+第2次検定と重なるため末尾で資格記事へ送客している。
+
+**公開時に必要な残配線**（visible:false のため現在は未着手）: `home-exam-cards.json` は非資格 variant を
+弾くので**資格カードとは別の入口**が要る。`src/app/links/page.tsx` の `EXAM_CARDS`／
+`SearchFilters.tsx` の `CATEGORIES`／`CategoryViews.tsx` の専用 View／`category-curriculum.json` も未配線
+（未設定でもフラットグリッドで動く）。OGP は `ogp-create.mjs` の `CATEGORY_TO_EXAM_KEY` で
+`common`（bronze `#9A6B1E`）へ明示マップ済み。`--exam-*` CSS トークンは凍結のため追加しない。
+
 ---
 
 **真実源参照**: このファイル内の情報が他のドキュメント（CLAUDE.md・SKILL.md・エージェント定義）と矛盾した場合、`.claude/knowledge/reference/content-principles.md` > このファイル > 他 の優先順位で判断する。

@@ -21,7 +21,6 @@ const commonLoaders = {
   SourceBadges: () => import("@/components/ui/SourceBadges").then((m) => m.default),
   DataTable: () => import("@/components/ui/DataTable/DataTable").then((m) => m.default),
   Nowrap: () => import("@/components/ui/Nowrap/Nowrap").then((m) => m.default),
-  Underline: () => import("@/components/ui/Underline/Underline").then((m) => m.default),
   Timeline: () => import("@/components/ui/Timeline/Timeline").then((m) => m.default),
   ExamFields: () => import("@/components/ui/ExamFields/ExamFields").then((m) => m.default),
   PdcaCycle: () => import("@/components/ui/PdcaCycle/PdcaCycle").then((m) => m.default),

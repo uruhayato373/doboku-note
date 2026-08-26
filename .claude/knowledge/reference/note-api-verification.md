@@ -15,15 +15,35 @@ note.com の公開マガジン一覧・各マガジンの収録記事を **publi
 
 ## note 公開 API（認証不要）
 
-| 用途 | エンドポイント |
-|---|---|
-| creator のマガジン一覧 | `https://note.com/api/v2/creators/{name}/contents?kind=magazine&page=N` |
-| マガジンの収録記事 | `https://note.com/api/v1/magazines/{key}/notes?page=N` |
+**取得は `scripts/lib/note-api.mjs` の関数を通す**（新規に書くコードはここを呼ぶ）。
+エンドポイントの URL・バージョン番号はこのファイルにしか書かない——note.com 側の
+API バージョニングはこちらが操作できない外部都合で、こちら側の概念にしないため。
+呼び出し側が知るのは用途名だけでよい:
 
-- `{name}` = `dobokunote`、`{key}` = `m...`（マガジン URL の末尾）。
-- 一覧は `data.contents[]`（`key`/`id`/`name`/`price`）、`data.isLastPage` でページ送り終了。
-- 収録記事は `data.notes[]`（`key`/`name`/`price`）。
-- note は Nuxt 製のため HTML に `__NEXT_DATA__` は無い。HTML スクレイプより上記 JSON API が堅牢。
+| 用途 | 関数 |
+|---|---|
+| 記事 1 本の状態 | `fetchNote(key)` |
+| マガジン 1 本の状態 | `fetchMagazine(key)` |
+| マガジンの収録記事一覧 | `fetchMagazineArticles(key)` |
+
+- `isUnmeasurable` は `note-live-check.mjs` から re-export。alive/unmeasurable/dead/unknown の
+  4 値は下記「404 の意味」参照。
+- **creator の全マガジン一覧**（`verify-note-magazines.mjs` が使う）はまだ note-api.mjs に
+  無い——既存 13 本の note API 直叩きは DN-0083 で段階移行の対象。該当スクリプトの実装を
+  直接読むこと（この文書に URL を重複させない）。
+- note は Nuxt 製のため HTML に `__NEXT_DATA__` は無い。HTML スクレイプより JSON API が堅牢。
+
+### 404 の意味（削除・下書き・非公開を区別しない）
+
+note の public API は「存在しない」「下書きのまま」「非公開にした」をすべて同じ 404 相当で
+返す。`fetchNote`/`fetchMagazine` の `state: 'dead'` は「もう見えない」という以上の意味を
+持たせないこと——「削除された」と読み替えて話を進めると、実際には非公開化しただけの
+記事を「消えた」と誤報告する。実体（削除か非公開か）を確かめたいときは著者ログインの
+Playwright 経路に委ねる。
+
+同じ形の問題は他プラットフォームにもある。YouTube の `oembed?url=…` も「動画が無い」
+「非公開」「限定公開」を区別せず 404 を返す（限定公開なら oEmbed は本文を返すので、
+それとの違いだけは分かる）。DN-0131 の調査で使った手筋。
 
 ## 使い方
 
@@ -36,7 +56,9 @@ npm run verify-note-magazines -- --json       # スナップショットを JSON
 
 - スクリプト: `scripts/verify-note-magazines.mjs`。内部で `curl --ssl-no-revoke` を spawn（プロキシ env を自動利用）。
 - **`--vs-txt`**: 各 `note掲載文.txt`（マガジン設定 SoT）を note 公開状態と突合。**説明文の先頭一致でマガジンを同定**（タイトルがドリフトしても照合可）し、タイトル差/価格差/説明差/文字数超過を検出。`note掲載文.txt` を編集したら本モードでドリフトを確認 → `note-edit-magazine` で push、の運用。
-- `--json` 出力先: `.claude/state/note/magazines-snapshot.json`（machine データ。コミット任意、毎回再生成可）。
+- `--json` 出力先: `.claude/state/note/magazines-snapshot.json`（machine データ）。**供給は CI（`note-live-audit.yml` 週次）が正**。
+  ローカル再生成は可（デバッグ・事故是正の即時反映）だが、**再生成したら commit する**——`check-magazine-membership` が `fetchedAt` の鮮度を見ており、腐った snapshot は「合格」ではなく検査不成立として扱う。収録リスト `notes[]` は `--contents` を渡したときだけ入るので、**この 2 つを常にセットで**（`--contents --json`）。
+  （2026-06-12 に生成された snapshot が 73 日間そのまま残り、ゼネコン=5 件という古い値を保持していた。「コミット任意」がその腐敗の許可証になっていたため 2026-08-24 に改めた。）
 
 ### 検出するズレ
 
@@ -47,6 +69,24 @@ npm run verify-note-magazines -- --json       # スナップショットを JSON
 - **空マガジン**: `--contents` で収録 0 件のマガジンが見える（公開したが記事未登録）
 
 終了コード: ズレ無し=0 / 取得失敗=1 / ズレあり=2。
+
+> [!warning]
+> **検出できないズレ: 値上げ時の二重公開（2026-08-24 発覚）**
+>
+> 既存記事を値上げするのではなく **¥1,280 の旧記事を残したまま ¥1,980 の新記事を別に公開**すると、
+> 同一タイトル・同一冒頭の記事が 2 本とも購入可能な状態になる。1級土木 完全攻略パックの工事01〜14 で
+> 実発生（旧 2026-06-30 / 新 2026-07-23）。
+>
+> `verify-note-magazines` はこれを検出しない。SoT が持つのは 1 記事 1 URL で、旧記事は SoT のどこからも
+> 参照されないため「ズレ」として現れない。frontmatter も新記事の noteId に更新されるので、
+> **旧記事は repo から辿れない platform-only artifact になる**（`[[feedback_platform_only_artifacts_destroyed_by_bulk_ops]]` と同型）。
+>
+> 検出できるのは `check-magazine-membership` の軸 A↔C（repo 記事実数 ↔ ライブ収録数）だけ。
+> 差が出たら**まず「未収録」と決めつけない**——ライブ側のタイトルと価格を見て、
+> 二重公開か単純な未収録かを切り分ける。今回は 18 本の差のうち 14 本が二重公開、4 本が単純な未収録だった。
+>
+> **正しい値上げ手順**: 既存記事の価格を変更する（`note-edit-session`）。新記事を作ると購入者が
+> 分散し、旧記事を非公開にするとパック購入者のアクセスを壊すため後戻りできなくなる。
 
 ## Playwright フォールバック
 
@@ -293,6 +333,27 @@ live 層を CI に載せないのは、**有料エリア内の添付カードが
 > 現在は `note-update-body` が置換前に本文の `*.pdf` を検出し、**既定で中断**する（`--allow-attachment-loss` で明示解除・解除したら反映後に必ず `note-attach-file` で再添付）。画像だけ直すなら `--images-only`。
 
 **きっかけの事故**: 1級土木 一次過去問PDF（¥1,980）が本文で「この記事の末尾に添付」と書きながら、ライブに添付が無いまま公開されていた。PDF 実体（12.2 MB）はビルド済みでローカルにあり、アップロードだけが漏れていた。同型が他2本（1級・2級の直前暗記ノート）。
+
+### 無料プレビューの下限は「記事別」— 書き込みと監査で同じ物差しを使う（2026-08-25 確定）
+
+有料記事の無料プレビューが十分あるかを判定する下限は **記事別** `min(600, max(120, 無料部分の文字数 × 0.5))`。
+定義は `scripts/lib/note-live-check.mjs` の `expectedFreePreviewMin()`、長さは同ファイルの `textLen()`（タグのみ除去）で測る。
+
+固定 600 字だけで測ってはいけない。工事概要の直後から有料にする工事別テンプレートのように、
+**正常に短いプレビュー**が存在する。実測（1級土木 完全攻略パック 154 本）では 140 本の記事別下限が 600 未満（min 202 / 中央 511）。
+
+> [!warning] 二重基準は「読まれない赤」を作る（実例）
+> 2026-08-02〜08-23、`check-note-structure` だけが固定 600 のまま（`note-publish` / `note-update-body` は
+> 記事別）で、完全攻略パックの **71 本を CRITICAL に誤判定**。`note-live-audit.yml` が 3 週間赤くなり、
+> その赤を読む経路が無かったため放置された。基準を揃えて測り直すと **CRITICAL 71 → 0**
+> （BOUNDARY_SHIFT 199 → 270 へ移動しただけで、実体は 1 本も下限割れしていなかった）。
+>
+> 物差しは 2 つある。**下限**（`expectedFreePreviewMin`）と**長さの測り方**（`textLen` か、空白も落とす `norm()` か）。
+> 監査側で新しく長さを測るときは両方を書き込み経路と一致させる。
+
+この基準でも本物の崩壊は捕まる。下限が「ソースが無料と宣言している量の 50%」なので、
+`--keep-boundary` で境界が冒頭へ動く事故（2026-07-31）のように比率が大きく崩れれば発火する。
+全ロック（40 字未満）は `FULL_LOCK` が別に見る。
 
 ### メタゲート: 検査ゼロで PASS を検知する `check-gate-coverage`（2026-07-28 新設）
 

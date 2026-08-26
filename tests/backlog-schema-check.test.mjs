@@ -3,14 +3,14 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { parseBacklog, findOrphanHeadings, KINDS, EXECUTORS, CANONICAL_CATEGORIES } from '../scripts/lib/backlog-lib.mjs';
+import { parseBacklog, findOrphanHeadings, KINDS, CANONICAL_CATEGORIES } from '../scripts/lib/backlog-lib.mjs';
 import { validateCards, validateStagedLines } from '../scripts/check-backlog-schema.mjs';
 import { signatureTokens, duplicateCandidates } from '../scripts/check-backlog-health.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 /**
- * 語彙定数（KINDS / EXECUTORS / CANONICAL_CATEGORIES）が load-bearing であることを**挙動で**固定する。
+ * 語彙定数（KINDS / CANONICAL_CATEGORIES）が load-bearing であることを**挙動で**固定する。
  *
  * 守りたい事故: CANONICAL_CATEGORIES は 2026-08-18 まで「どこからも import されないデッド export」で、
  *   語彙検証が 1 つも存在しないまま実体が 6 種 → 14 種に散った。knip は scripts/** を entry 扱いする
@@ -32,9 +32,8 @@ test('KINDS: 語彙外の [種類:] は違反になる（KINDS が効いてい�
   for (const k of KINDS) assert.deepEqual(rules(`[収益化] [種類:${k}]`), [], `${k} が弾かれた`);
 });
 
-test('EXECUTORS: 語彙外の [実行:] は違反になる', () => {
-  assert.deepEqual(rules('[収益化] [実行:AI]'), ['executor']);
-  for (const e of EXECUTORS) assert.deepEqual(rules(`[収益化] [実行:${e}]`), [], `${e} が弾かれた`);
+test('廃止済み [実行:] は unknown-key 違反になる（2026-08-26 軸廃止の再導入ラチェット）', () => {
+  assert.deepEqual(rules('[収益化] [実行:sweep]'), ['unknown-key']);
 });
 
 test('CANONICAL_CATEGORIES: 語彙外カテゴリは違反、baseline 掲載なら通す', () => {
@@ -124,8 +123,8 @@ test('実 backlog がスキーマゲートを通る（違反 0）', () => {
 // 2026-08-18: docstring に rule 9 と書かれていたのに未実装だった。[起票:] は手入力ゆえ
 // 91 枚中 61 枚で欠落し、鮮度検査 S5 が構造的に発火しなくなっていた（git blame での補完は
 // partial clone がコールドだと打ち切られる）。入口で埋めるラチェットを挙動で固定する。
-test('新規カードは タグ:/[実行:]/[種類:]/[起票:] が揃っていないと違反', () => {
-  const cards = parseBacklog(['## 🔴 高', '### 新規', 'タグ: [収益化] [実行:sweep]'].join('\n'));
+test('新規カードは タグ:/[種類:]/[起票:] が揃っていないと違反', () => {
+  const cards = parseBacklog(['## 🔴 高', '### 新規', 'タグ: [収益化]'].join('\n'));
   const v = validateStagedLines([{ file: 'x', line: 2, text: '### 新規' }], [], cards);
   assert.deepEqual(v.map((x) => x.rule), ['new-card-tokens']);
   assert.match(v[0].msg, /\[種類:\] \/ \[起票:\]/);
@@ -133,27 +132,27 @@ test('新規カードは タグ:/[実行:]/[種類:]/[起票:] が揃ってい�
 
 test('揃っている新規カードは違反にしない', () => {
   const cards = parseBacklog(
-    ['## 🔴 高', '### 新規', 'タグ: [収益化] [種類:改善] [実行:sweep] [起票:2026-08-18]'].join('\n'),
+    ['## 🔴 高', '### 新規', 'タグ: [収益化] [種類:改善] [起票:2026-08-18]'].join('\n'),
   );
   const v = validateStagedLines([{ file: 'x', line: 2, text: '### 新規' }], [], cards);
   assert.deepEqual(v, []);
 });
 
 test('既存カード（追加行に見出しが無い）は token 欠落を免除する（ラチェット）', () => {
-  const cards = parseBacklog(['## 🔴 高', '### 既存', 'タグ: [収益化] [実行:sweep]'].join('\n'));
-  const v = validateStagedLines([{ file: 'x', line: 3, text: 'タグ: [収益化] [実行:sweep]' }], [], cards);
+  const cards = parseBacklog(['## 🔴 高', '### 既存', 'タグ: [収益化]'].join('\n'));
+  const v = validateStagedLines([{ file: 'x', line: 3, text: 'タグ: [収益化]' }], [], cards);
   assert.deepEqual(v, []);
 });
 
 // 2026-08-18: monthly/weekly が本文を複製せず ID で backlog を参照し、docs/ の恒久文書が
 // 実行タスクを ID で指すため、doboku-note でも ID を必須化した。欠落・形式違反・重複を挙動で固定する。
 test('ID が無いカードは違反（DN-#### 必須）', () => {
-  const cards = parseBacklog(['## 🔴 高', '### ID なし', 'タグ: [収益化] [種類:改善] [実行:sweep]'].join('\n'));
+  const cards = parseBacklog(['## 🔴 高', '### ID なし', 'タグ: [収益化] [種類:改善]'].join('\n'));
   assert.deepEqual(validateCards(cards, [], OPTS).map((v) => v.rule), ['id-missing']);
 });
 
 test('DN-#### 形式でない ID は違反', () => {
-  const cards = parseBacklog(['## 🔴 高', '### [FOO-1] 変な ID', 'タグ: [収益化] [種類:改善] [実行:sweep]'].join('\n'));
+  const cards = parseBacklog(['## 🔴 高', '### [FOO-1] 変な ID', 'タグ: [収益化] [種類:改善]'].join('\n'));
   assert.deepEqual(validateCards(cards, [], OPTS).map((v) => v.rule), ['id-format']);
 });
 
@@ -161,8 +160,8 @@ test('重複 ID は違反（採番の再利用を止める）', () => {
   const cards = parseBacklog(
     [
       '## 🔴 高',
-      '### [DN-0001] A', 'タグ: [収益化] [種類:改善] [実行:sweep]', '',
-      '### [DN-0001] B', 'タグ: [収益化] [種類:改善] [実行:sweep]',
+      '### [DN-0001] A', 'タグ: [収益化] [種類:改善]', '',
+      '### [DN-0001] B', 'タグ: [収益化] [種類:改善]',
     ].join('\n'),
   );
   const v = validateCards(cards, [], { ...OPTS, rawHeadingCount: 2 });

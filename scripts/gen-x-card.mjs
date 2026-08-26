@@ -12,8 +12,8 @@
  *   node scripts/gen-x-card.mjs --draft 019 --force   # 既存上書き
  */
 
-import { readFileSync, existsSync, mkdirSync, readdirSync } from "fs";
-import { join, dirname } from "path";
+import { readFileSync, existsSync, mkdirSync, readdirSync, writeFileSync } from "fs";
+import { join, dirname, sep } from "path";
 import { fileURLToPath } from "url";
 import sharp from "sharp";
 // 試験色の真実源は note-cover-tokens.json（exam-palette 経由）。ここで hex を直書きすると
@@ -181,16 +181,32 @@ function parseTweetsFile(content, folderExam = "pe-comprehensive") {
           : sectionTitle.replace(/\s*[（(][^）)]*[）)]\s*$/, "");
 
       // 本文コンテンツ（先頭ヘッダ行・URL・ハッシュタグ・区切り線を除外）
-      const contentLines = lines.slice(1).filter((l) => {
-        const t = l.trim();
-        if (!t) return false;
-        if (t === "---") return false;
-        if (/^【/.test(t)) return false; // 試験ラベル行（【…】）を除外
-        if (/^#/.test(t)) return false;
-        if (/^https?:\/\//.test(t)) return false;
-        if (/^(解説|詳しい解説|全解説) →/.test(t)) return false;
-        return true;
-      });
+      const contentLines = lines.slice(1)
+        .filter((l) => {
+          const t = l.trim();
+          if (!t) return false;
+          if (t === "---") return false;
+          if (/^【/.test(t)) return false; // 試験ラベル行（【…】）を除外
+          if (/^#/.test(t)) return false;
+          if (/^https?:\/\//.test(t)) return false;
+          if (/^(解説|詳しい解説|全解説) →/.test(t)) return false;
+          return true;
+        })
+        // **行頭以外の URL も落とす**。行頭だけ弾いていたため「5管理の交差整理→ https://…?utm_…」の
+        // ような行が丸ごと残り、UTM 付きの生 URL がカード本文に 5 行ぶん描かれていた
+        // （2026-08-25 に check-x-card-render を入れて初めて見えた。総監カウントダウン全 43 枚）。
+        .map((l) => l.replace(/https?:\/\/\S+/g, "").replace(/\s*[→↓]\s*$/, "").trim())
+        .filter(Boolean);
+      // 総監も見出しを埋める。従来は 【総監キーワード解説】 パターンに当たったときだけで、
+      // カウントダウン系（「結論・無料(トレードオフ) — 6/22 残り27日」）は主題が空のまま
+      // 大見出し帯が白く空いていた。区切り（— / ・）の前を主題として使う。
+      if (exam === "pe-comprehensive" && !keywordName) {
+        keywordName = sectionTitle
+          .split(/\s*[—–-]\s*/)[0]
+          .split("・")[0]
+          .replace(/[（(][^）)]*[）)]\s*$/, "")
+          .trim();
+      }
       if (exam !== "pe-comprehensive" && contentLines[0]) {
         const firstSentence = contentLines[0].split("。")[0];
         const focusMatch =
@@ -214,6 +230,39 @@ function parseTweetsFile(content, folderExam = "pe-comprehensive") {
 }
 
 // ─── SVG 生成 ────────────────────────────────────────────────────────────────
+
+/** buildSvg が直前に描画した内容（色・文字）。台帳へ書くために使う。 */
+let lastRenderMeta = null;
+
+// ─── 描画台帳（DN-0004 #2） ──────────────────────────────────────────────────
+// 生成した PNG について「何色で何を描いたか」を 1 ファイルへ集める。
+// check-x-card-render がこれを読んで、画像を開かずに配色と文字を検査する。
+const RENDER_LEDGER = join(PROJECT_ROOT, ".claude/state/sns/x-card-render.json");
+let ledger = null;
+
+function recordRender(pngPath, meta) {
+  if (!meta) return;
+  if (!ledger) {
+    ledger = existsSync(RENDER_LEDGER)
+      ? JSON.parse(readFileSync(RENDER_LEDGER, "utf8"))
+      : { version: 1, entries: {} };
+  }
+  const rel = pngPath.slice(PROJECT_ROOT.length + 1).split(sep).join("/");
+  ledger.entries[rel] = meta;
+}
+
+function flushRenderLedger() {
+  if (!ledger) return;
+  mkdirSync(dirname(RENDER_LEDGER), { recursive: true });
+  // generatedAt は入れない（生成のたび差分が出て、中身が変わっていない再生成でも commit が要る）。
+  // 実体の無い entry は落とす。画像を消したときに台帳だけ残ると、検査側が
+  // 「台帳にあるのに PNG が無い」を延々と出す（自己修復させる）。
+  const alive = Object.keys(ledger.entries).filter((k) => existsSync(join(PROJECT_ROOT, k)));
+  const sorted = Object.fromEntries(alive.sort().map((k) => [k, ledger.entries[k]]));
+  writeFileSync(RENDER_LEDGER, `${JSON.stringify({ version: 1, entries: sorted }, null, 2)}\n`, "utf8");
+  console.log(`  [台帳] ${Object.keys(sorted).length} 件 → ${RENDER_LEDGER.slice(PROJECT_ROOT.length + 1)}`);
+  ledger = null;
+}
 
 function buildSvg({ num, sectionTitle, keywordName, category, contentLines, exam = "pe-comprehensive", headerLabel: parsedHeaderLabel }) {
   const cfg = EXAM_CONFIG[exam] || EXAM_CONFIG["pe-comprehensive"];
@@ -246,6 +295,25 @@ function buildSvg({ num, sectionTitle, keywordName, category, contentLines, exam
       ? `<tspan x="${isCivil ? 82 : 60}" y="${contentStartY}">${escapeXml(line)}</tspan>`
       : `<tspan x="${isCivil ? 82 : 60}" dy="${lineHeight}">${escapeXml(line)}</tspan>`
   );
+
+  // 描画に**実際に使った**色と文字を構造化して残す（DN-0004 #2）。
+  // 生成済み PNG の中身を機械で見る手段が無く、X カード 104 枚はどの check も開いていなかった。
+  // OCR も基準画像差分も高くつくので、「画像でなくログを検査する」を採る（カードが到達した結論）。
+  // ここは描画のすぐ横なので、SVG と食い違いようがないのが利点。
+  lastRenderMeta = {
+    exam,
+    headerLabel,
+    catLabel,
+    keywordName,
+    sectionTitle,
+    colors: { bg, fill },
+    // 元の行が maxLines / maxChars でどれだけ落ちたか。0 でなければ本文が欠けている。
+    droppedLines: Math.max(0, contentLines.flatMap((l) => wrapJa(l, maxChars)).length - wrappedLines.length),
+    lines: wrappedLines.length,
+    // 実際に描いた本文。検査側が「生 URL が焼き込まれていないか」を画像を開かずに見る。
+    body: wrappedLines.join(' '),
+    bodySize,
+  };
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
@@ -334,8 +402,10 @@ async function generateForDraft(draftId, force = false) {
     }
     const svg = buildSvg(tweet);
     await sharp(Buffer.from(svg)).png().toFile(pngPath);
+    recordRender(pngPath, lastRenderMeta);
     console.log(`  ✅ ${nn} → ${outputName}`);
   }
+  flushRenderLedger();
 }
 
 // ─── CLI ─────────────────────────────────────────────────────────────────────
@@ -364,12 +434,21 @@ async function main() {
       }
     }
   } else if (allFlag) {
-    const dirs = readdirSync(DRAFTS_DIR).filter((e) =>
-      /^\d{3}-キーワード-/.test(e)
-    );
+    // 旧命名 `/^\d{3}-キーワード-/` で絞っていたため、命名が変わった 2026 年のドラフトには
+    // **1 件も当たらず無言で 0 件**だった（2026-08-25 実測: 34 ドラフト中 0 件）。
+    // 「対象 0 件で何もしなかった」を成功と読ませない（CLAUDE.md §9・実行系も同じ）。
+    const all = readdirSync(DRAFTS_DIR, { withFileTypes: true })
+      .filter((e) => e.isDirectory() && /^\d{3}-/.test(e.name));
+    const dirs = all.filter((e) => existsSync(join(DRAFTS_DIR, e.name, "tweets.md")));
+    console.log(`ドラフト ${all.length} 件のうち tweets.md を持つ ${dirs.length} 件を処理`);
+    if (dirs.length === 0) {
+      console.error("対象が 0 件。ドラフト命名か tweets.md の有無を確認すること（0 件は「異常なし」ではない）。");
+      process.exitCode = 1;
+      return;
+    }
     for (const d of dirs) {
-      await generateForDraft(d.slice(0, 3), force).catch((err) =>
-        console.warn(`  ⚠️  ${d}: ${err.message}`)
+      await generateForDraft(d.name.slice(0, 3), force).catch((err) =>
+        console.warn(`  ⚠️  ${d.name}: ${err.message}`)
       );
     }
   } else {

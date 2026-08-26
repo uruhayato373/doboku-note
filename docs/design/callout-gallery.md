@@ -215,7 +215,7 @@ doboku-note の `<Callout>` コンポーネントは、2026-04-22 の Claude Des
 - **タイトルは任意**（省略すると、アイコン + 色のみでミニマル表示）
 - **タイトルの色はトーン色に自動適用**（左アクセントバー・アイコン・タイトルの 3 要素が同色で一体化）
 - **絵文字は使わない**（❌✅💡🔑 等は禁止、Callout で表現する）
-- **旧 type は削除済み**: `info` / `warning` / `caution` / `error` / `question` はランタイムで `note` にフォールバック。新規執筆では使わない
+- **旧 type は個別の新 type へ自動変換**（`LEGACY_ALIASES`）: `info`→`note` / `warning`→`warn` / `caution`→`warn` / `point`→`tip` / `error`→`danger`。この対応表にない未知 type（`question` など完全に削除済みの旧 type を含む）だけが `note` へフォールバックする。新規執筆では旧 type を使わない
 
 詳細な使用ガイド（どの論点にどの type を使うか）は [`.claude/knowledge/reference/content-principles.md`](../../.claude/knowledge/reference/content-principles.md) を参照してください。
 

@@ -1,3 +1,9 @@
+---
+documentType: product-spec
+channel: brain
+retention: durable
+---
+
 # Brain商品企画：Claude Code 出題テーマ分析・国家施策バンク生成スキル
 
 <!-- audit:2026-08-18 -->

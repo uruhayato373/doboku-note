@@ -4,7 +4,7 @@
  * ---------------------------------------------------------------------------
  * coconala-publish.mjs と同思想（永続プロファイル + 安全弁 + draft-first + --commit gate）。
  * カタログ（src/lib/brain-products.ts＝価格/状態/URL）と listings
- * （.claude/config/brain-listings.json＝本文/画像/有料ライン）を serviceId で引き、
+ * （content/brain/listings.json＝本文/画像/有料ライン）を serviceId で引き、
  * Tiptap エディタへ流し込む。2026-07-22 の実出品2件で確立したフローの恒久実装。
  *
  * 工程: ログイン待ち → account assert → 記事作成（or --edit-url で既存ドラフト再開）
@@ -76,7 +76,7 @@ if (!listing?.bodyText) { console.error('ABORT: listings に bodyText が無い'
 const IMAGE = join(ROOT, listing.imagePath || '');
 if (!existsSync(IMAGE)) { console.error(`ABORT: imagePath 不在: ${listing.imagePath}`); process.exit(1); }
 if (!svc.distFile || !existsSync(join(DIST_DIR, svc.distFile))) {
-  console.error(`ABORT: 配布 ZIP 不在: ${svc.distFile}（.claude/config/brain/dist/）`); process.exit(1);
+  console.error(`ABORT: 配布 ZIP 不在: ${svc.distFile}（content/brain/dist/）`); process.exit(1);
 }
 const distUrl = DIST_BASE_URL + svc.distFile;
 if (!listing.bodyText.includes(distUrl)) {

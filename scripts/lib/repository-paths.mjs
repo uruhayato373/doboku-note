@@ -45,6 +45,16 @@ export const KINDLE_CONTENT_ROOT = at('content', 'kindle');
 export const CONTENT_SOURCES_ROOT = at('content', 'sources');
 export const TEXTBOOK_SOURCES_ROOT = at('content', 'sources', 'textbook');
 
+/**
+ * Brain（brain-market.com）の販売投入本文・販売画像・配布 ZIP の唯一の root（DN-0103 Phase 03）。
+ * 価格・status・URL は `src/lib/brain-products.ts` が真実源（ここには置かない）。
+ * distFile の R2 object key はローカル移動後も `brain/dist/{filename}` のまま不変。
+ */
+export const BRAIN_CONTENT_ROOT = at('content', 'brain');
+export const BRAIN_LISTINGS_PATH = at('content', 'brain', 'listings.json');
+export const BRAIN_ASSETS_ROOT = at('content', 'brain', 'assets');
+export const BRAIN_DIST_ROOT = at('content', 'brain', 'dist');
+
 // --- .claude/ の内訳 ------------------------------------------------------
 export const KNOWLEDGE_ROOT = at('.claude', 'knowledge');
 export const TODO_ROOT = at('.claude', 'todo');

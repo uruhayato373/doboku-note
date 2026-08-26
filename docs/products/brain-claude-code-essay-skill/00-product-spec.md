@@ -1,3 +1,9 @@
+---
+documentType: product-spec
+channel: brain
+retention: durable
+---
+
 # Brain商品企画：Claude Code 記述答案設計スキル
 
 > [!todo]

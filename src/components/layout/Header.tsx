@@ -100,15 +100,20 @@ const Layers = ({ className }: IconProps) => (
 
 function CategoryIcon({ variant, className }: { variant: string; className?: string }) {
   const cn = className || "w-5 h-5";
-  if (variant === "civil") return <HardHat className={cn} />;
+  if (variant === "civil" || variant === "general") return <HardHat className={cn} />;
   if (variant === "reference") return <BookOpen className={cn} />;
   return <GraduationCap className={cn} />;
 }
+
+const DRAWER_FOCUSABLE_SELECTOR =
+  'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const categoryDropdownRef = useRef<HTMLDivElement>(null);
+  const drawerRef = useRef<HTMLDivElement>(null);
+  const menuTriggerRef = useRef<HTMLButtonElement>(null);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
@@ -136,6 +141,42 @@ export default function Header() {
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, [isCategoryOpen]);
+
+  // ドロワー開閉時のフォーカス管理（開: ドロワー内の最初のリンクへ移動 / 閉: トリガーへ復帰）。
+  useEffect(() => {
+    if (isMenuOpen) {
+      const firstFocusable = drawerRef.current?.querySelector<HTMLElement>(DRAWER_FOCUSABLE_SELECTOR);
+      firstFocusable?.focus();
+    } else {
+      menuTriggerRef.current?.focus();
+    }
+  }, [isMenuOpen]);
+
+  // 開いている間だけ Tab をドロワー内に閉じ込める（フォーカストラップ）。
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const handleTab = (e: KeyboardEvent) => {
+      if (e.key !== 'Tab' || !drawerRef.current) return;
+      const focusables = Array.from(
+        drawerRef.current.querySelectorAll<HTMLElement>(DRAWER_FOCUSABLE_SELECTOR),
+      );
+      if (focusables.length === 0) return;
+      const first = focusables[0]!;
+      const last = focusables[focusables.length - 1]!;
+      const active = document.activeElement;
+      if (e.shiftKey) {
+        if (active === first || !drawerRef.current.contains(active)) {
+          e.preventDefault();
+          last.focus();
+        }
+      } else if (active === last || !drawerRef.current.contains(active)) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', handleTab);
+    return () => document.removeEventListener('keydown', handleTab);
+  }, [isMenuOpen]);
 
   return (
     <>
@@ -168,11 +209,13 @@ export default function Header() {
                 <Search className="w-6 h-6 text-[var(--ink-body)]" />
               </Link>
               <button
+                ref={menuTriggerRef}
                 onClick={toggleMenu}
                 className="focus-ring flex min-h-11 min-w-11 items-center justify-center rounded-card-inline hover:bg-[var(--accent-fill)] transition-colors"
                 aria-label="メニューを開く"
                 aria-expanded={isMenuOpen}
                 aria-haspopup="true"
+                aria-controls="mobile-drawer-menu"
               >
                 <Menu className="w-6 h-6 text-[var(--ink-body)]" />
               </button>
@@ -242,22 +285,27 @@ export default function Header() {
         </div>
       </header>
 
-      {/* オーバーレイ */}
+      {/* オーバーレイ（意味的な button にして backdrop タップ/クリックを1系統に統一） */}
       {isMenuOpen && (
-        <div
-          className="fixed inset-0 bg-black/50 z-40 md:hidden"
+        <button
+          type="button"
           onClick={closeMenu}
-          onTouchEnd={closeMenu}
+          className="fixed inset-0 z-40 m-0 appearance-none border-0 bg-black/50 p-0 md:hidden"
+          aria-label="メニューを閉じる"
         />
       )}
 
-      {/* ドロワーメニュー */}
+      {/* ドロワーメニュー: 閉状態は dialog semantics を外し inert でツリー/タブ順から除外する */}
       <div
+        id="mobile-drawer-menu"
+        ref={drawerRef}
         className={`fixed top-0 right-0 h-full w-64 bg-[var(--paper)] shadow-lift z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
-        role="dialog"
-        aria-modal="true"
+        role={isMenuOpen ? 'dialog' : undefined}
+        aria-modal={isMenuOpen ? true : undefined}
+        aria-label="メニュー"
+        inert={!isMenuOpen}
       >
         <div className="p-4">
           {/* 閉じるボタン */}

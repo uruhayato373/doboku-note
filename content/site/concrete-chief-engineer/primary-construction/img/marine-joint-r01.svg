@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 380" style="max-width:480px;width:100%" role="img" aria-label="海中橋脚の側面図。橋脚幅6.0m×奥行き4.0m、干満位H.W.L/L.W.Lと海中に対する境界線a〜dの位置、フーチングと地盤を示す寸法図">
+  <rect x="130" y="30" width="180" height="230" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="220" y="20" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">6.0 m</text>
+  <line x1="130" y1="26" x2="310" y2="26" stroke="#222" stroke-width="1"/>
+  <text x="330" y="16" font-family="sans-serif" font-size="11" fill="#222">（奥行き：4.0 m）</text>
+  <text x="170" y="70" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">橋脚</text>
+  <rect x="70" y="280" width="300" height="55" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="220" y="312" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">フーチング</text>
+  <rect x="0" y="200" width="460" height="180" fill="#e8e8e8" stroke="none"/>
+  <rect x="70" y="280" width="300" height="55" fill="#fff" stroke="#222" stroke-width="1.5"/>
+  <text x="220" y="312" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">フーチング</text>
+  <rect x="0" y="200" width="120" height="80" fill="#e8e8e8" stroke="none"/>
+  <text x="30" y="240" font-family="sans-serif" font-size="12" fill="#222">海中</text>
+  <text x="380" y="270" font-family="sans-serif" font-size="12" fill="#222">地盤</text>
+  <line x1="10" y1="200" x2="30" y2="200" stroke="#222" stroke-width="1"/>
+  <text x="15" y="196" font-family="sans-serif" font-size="10" fill="#222">▽</text>
+  <text x="400" y="204" font-family="sans-serif" font-size="11" fill="#222">H.W.L</text>
+  <line x1="10" y1="235" x2="30" y2="235" stroke="#222" stroke-width="1"/>
+  <text x="400" y="239" font-family="sans-serif" font-size="11" fill="#222">L.W.L</text>
+  <text x="330" y="55" font-family="sans-serif" font-size="11" fill="#222">H.W.L：満潮位</text>
+  <text x="330" y="72" font-family="sans-serif" font-size="11" fill="#222">L.W.L：干潮位</text>
+  <line x1="310" y1="90" x2="330" y2="90" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="120" y="94" text-anchor="end" font-family="sans-serif" font-size="12" fill="#222">a</text>
+  <line x1="310" y1="120" x2="330" y2="120" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="120" y="124" text-anchor="end" font-family="sans-serif" font-size="12" fill="#222">b</text>
+  <line x1="310" y1="150" x2="330" y2="150" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="120" y="154" text-anchor="end" font-family="sans-serif" font-size="12" fill="#222">c</text>
+  <line x1="310" y1="235" x2="330" y2="235" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="120" y="239" text-anchor="end" font-family="sans-serif" font-size="12" fill="#222">d</text>
+  <text x="90" y="185" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#222">10.0 m</text>
+</svg>

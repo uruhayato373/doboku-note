@@ -159,7 +159,30 @@ function checkViolations(results, thresholds, fieldThresholds) {
 }
 
 function isGateViolation(v) {
-  return v.type === "field" || v.type === "field-category" || v.type === "coverage";
+  return (
+    v.type === "field" ||
+    v.type === "field-category" ||
+    v.type === "coverage" ||
+    v.type === "field-coverage"
+  );
+}
+
+/**
+ * field(CrUX) を 1 つでも持つ result の数を数える。
+ *
+ * なぜ要るか（2026-08-25・DN-0127）: このゲートは field / field-category / coverage の 3 型しか
+ * 赤にしない。その **field が全 null になると違反が 1 件も立たず緑になる**。「実害が無い」と
+ * 「判定材料が無い」が同じ緑に見える状態で、CLAUDE.md §9「検査ゼロを PASS と呼ばない」の入力欠落版。
+ * 実際 2026-08-18 以降、22 URL 全件が field null のまま 12 バッチ連続で緑を出し続けていた
+ * （8/17 までは 22/22 取得できていて翌日から一斉にゼロ。final_url もスキーマも変わっていない
+ *  ＝取得・パースは動いており、CrUX 側の供給が止まったと読むのが整合的）。
+ */
+function countFieldCoverage(results) {
+  const usable = results.filter((r) => {
+    const f = r.field_data;
+    return f && Object.values(f).some((v) => v != null);
+  });
+  return { withField: usable.length, total: results.length };
 }
 
 function formatMarkdown(results, violations, gateViolations, thresholds) {
@@ -168,6 +191,11 @@ function formatMarkdown(results, violations, gateViolations, thresholds) {
   lines.push(`# PSI 計測レポート — ${date}`);
   lines.push("");
   lines.push(`- 計測対象: ${new Set(results.map((r) => r.url)).size} URL × ${new Set(results.map((r) => r.strategy)).size} strategy`);
+  const cov = countFieldCoverage(results);
+  lines.push(
+    `- field(CrUX) 取得: **${cov.withField}/${cov.total}件**` +
+      (cov.withField === 0 ? "　← **判定不能**（実害の有無を判定する材料が無い）" : ""),
+  );
   lines.push(`- 診断上のしきい値超過: **${violations.length}件**`);
   lines.push(`- CI ゲート違反（field 実害・取得失敗率20%超）: **${gateViolations.length}件**`);
   lines.push("");
@@ -203,6 +231,8 @@ function formatMarkdown(results, violations, gateViolations, thresholds) {
         lines.push(`- ❌ \`${v.url}\` (${v.strategy}): ${v.detail}`);
       } else if (v.type === "coverage") {
         lines.push(`- **PSI 取得失敗率** = ${v.actual}% (上限: ${v.threshold}%)`);
+      } else if (v.type === "field-coverage") {
+        lines.push(`- **field(CrUX) 判定不能** — ${v.detail}`);
       } else if (v.type === "field-category") {
         lines.push(
           `- \`${v.url}\` (${v.strategy}): **${v.metric}** = ${v.actual} (期待: ${v.threshold})`,
@@ -245,6 +275,21 @@ function main() {
       detail: `${fetchErrors}/${results.length} results failed`,
     });
   }
+  // field 取得件数（判定材料の有無）。実害の有無より先に「測れているか」を見る。
+  const fieldCov = countFieldCoverage(results);
+  const minCov = config.judgment?.min_field_coverage ?? 1;
+  if (config.judgment?.primary_source === "field" && fieldCov.withField < minCov) {
+    violations.push({
+      type: "field-coverage",
+      actual: fieldCov.withField,
+      threshold: minCov,
+      detail:
+        `field(CrUX) を持つ result が ${fieldCov.withField}/${fieldCov.total} 件。` +
+        "primary_source=field なので実害を判定できない（違反ゼロ＝安全 ではない）。" +
+        "CrUX の供給が戻るのを待つか、judgment.primary_source を lab 中央値ベースへ変更して原則を書き換える。",
+    });
+  }
+
   const gateViolations = violations.filter(isGateViolation);
 
   if (opts.json) {
@@ -260,6 +305,10 @@ function main() {
   }
 
   console.error(`\nDiagnostic violations: ${violations.length} / Gate violations: ${gateViolations.length}`);
+  console.error(
+    `field(CrUX) coverage: ${fieldCov.withField}/${fieldCov.total}` +
+      (fieldCov.withField === 0 ? '  <- 判定不能（緑でも安全の意味ではない）' : ''),
+  );
   process.exit(gateViolations.length > 0 ? 1 : 0);
 }
 

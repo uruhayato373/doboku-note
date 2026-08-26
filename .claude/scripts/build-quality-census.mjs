@@ -20,7 +20,7 @@
  *   node .claude/scripts/build-quality-census.mjs
  *   npm run quality-census
  */
-import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
+import { readdirSync, readFileSync, writeFileSync, appendFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, relative, extname, dirname } from 'node:path';
 
 const ROOT = process.cwd();
@@ -28,6 +28,8 @@ const POSTS_ROOT = join(ROOT, 'content/site');
 const DOC_META = join(ROOT, 'src/config/doc-meta-index.json');
 const QUALITY_DIR = join(ROOT, '.claude/state/quality');
 const OUT_PATH = join(QUALITY_DIR, 'census.json');
+// census 専用の履歴（lint-mdx-mobile の .claude/state/quality/history.jsonl とは別物・触らない）
+const HISTORY_PATH = join(QUALITY_DIR, 'census-history.jsonl');
 
 // 薄層判定の対象 group と字数下限（check-guide-length と同じ SoT: 3,000 字）
 const THIN_GROUPS = new Set(['keyword', 'guide', 'textbook']);
@@ -116,6 +118,63 @@ function loadScoreSources(docs) {
   return scoreIndex;
 }
 
+// ── 前回 census.json の読み込み（delta 用・DN-0073）──────────────────
+function loadPrevious() {
+  if (!existsSync(OUT_PATH)) return null;
+  try {
+    return JSON.parse(readFileSync(OUT_PATH, 'utf8'));
+  } catch (e) {
+    console.error(`[census] 前回 census.json 読み込み失敗（delta スキップ）: ${e.message}`);
+    return null;
+  }
+}
+
+// 前回 articles ⇄ 今回 articles を突合し、前回比 delta（薄層逆戻り・スコア低下・新規未採点）を出す。
+function buildDelta(previous, articles, totals) {
+  if (!previous || !Array.isArray(previous.articles)) {
+    return { first_run: true };
+  }
+  const prevBySlug = new Map(previous.articles.map((a) => [a.slug, a]));
+  const newly_unscored = [];
+  const thin_regression = [];
+  const score_dropped = [];
+  for (const a of articles) {
+    const prev = prevBySlug.get(a.slug);
+    if (!prev) {
+      // 新規公開（前回 census に存在しなかった）で、かつ今回まだ未採点
+      if (!a.scored) newly_unscored.push({ slug: a.slug, category: a.category, group: a.group });
+      continue;
+    }
+    if (!prev.thin && a.thin) {
+      thin_regression.push({
+        slug: a.slug, category: a.category, group: a.group,
+        prev_body_chars: prev.body_chars, body_chars: a.body_chars,
+      });
+    }
+    if (typeof prev.weighted === 'number' && typeof a.weighted === 'number' && a.weighted < prev.weighted) {
+      score_dropped.push({
+        slug: a.slug, category: a.category, group: a.group,
+        prev_weighted: prev.weighted, weighted: a.weighted,
+      });
+    }
+  }
+  const pt = previous.totals || {};
+  return {
+    first_run: false,
+    previous_generated_at: previous.generated_at || null,
+    totals_diff: {
+      total: totals.total - (pt.total ?? 0),
+      scored: totals.scored - (pt.scored ?? 0),
+      unscored: totals.unscored - (pt.unscored ?? 0),
+      failed: totals.failed - (pt.failed ?? 0),
+      thin: totals.thin - (pt.thin ?? 0),
+    },
+    newly_unscored,
+    thin_regression,
+    score_dropped,
+  };
+}
+
 // ── メイン ───────────────────────────────────────────────────────
 function main() {
   const docMeta = JSON.parse(readFileSync(DOC_META, 'utf8'));
@@ -136,6 +195,7 @@ function main() {
   }
 
   const scoreIndex = loadScoreSources(docs);
+  const previous = loadPrevious();
 
   const articles = [];
   const agg = {}; // category → group → counts
@@ -192,6 +252,8 @@ function main() {
     .filter((x) => x.failed || x.thin)
     .map((x) => ({ slug: x.slug, category: x.category, group: x.group, reason: x.failed ? (x.thin ? 'failed+thin' : 'failed') : 'thin', weighted: x.weighted, body_chars: x.body_chars }));
 
+  const delta = buildDelta(previous, articles, totals);
+
   const output = {
     version: 1,
     generated_at: new Date().toISOString(),
@@ -202,11 +264,20 @@ function main() {
     },
     by_category: byCategory,
     rewrite_queue,
+    delta,
     articles,
   };
 
   mkdirSync(dirname(OUT_PATH), { recursive: true });
   writeFileSync(OUT_PATH, JSON.stringify(output, null, 2) + '\n', 'utf8');
+
+  // census 専用の履歴に1行 append（date + totals のみ・全 articles は census.json 側に残る）
+  const jstDate = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
+  appendFileSync(
+    HISTORY_PATH,
+    JSON.stringify({ date: jstDate, generated_at: output.generated_at, totals: output.totals }) + '\n',
+    'utf8',
+  );
 
   // ── コンソール要約 ─────────────────────────────────────────────
   console.log(`[census] published ${totals.total} 件 / doc-meta published ${docMeta.summary.published} 件`);
@@ -226,7 +297,19 @@ function main() {
     }
   }
   console.log(`[census] rewrite queue: ${rewrite_queue.length} 件`);
+  if (delta.first_run) {
+    console.log('[census] delta: 前回 census.json 無し（初回実行のためスキップ）');
+  } else {
+    const td = delta.totals_diff;
+    console.log(
+      `[census] delta（前回 ${delta.previous_generated_at} 比）: total ${td.total >= 0 ? '+' : ''}${td.total} / scored ${td.scored >= 0 ? '+' : ''}${td.scored} / thin ${td.thin >= 0 ? '+' : ''}${td.thin} / failed ${td.failed >= 0 ? '+' : ''}${td.failed}`,
+    );
+    console.log(
+      `[census] delta 詳細: 新規未採点 ${delta.newly_unscored.length} 件 / 薄層逆戻り ${delta.thin_regression.length} 件 / スコア低下 ${delta.score_dropped.length} 件`,
+    );
+  }
   console.log(`[census] ✓ ${relative(ROOT, OUT_PATH)} に出力`);
+  console.log(`[census] ✓ ${relative(ROOT, HISTORY_PATH)} に1行 append`);
 }
 
 main();

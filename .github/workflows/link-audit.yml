@@ -5,20 +5,27 @@ on:
     - cron: "0 22 * * 4" # 毎週金曜 07:00 JST（木曜 22:00 UTC）
   workflow_dispatch:
 
+# DN-0109 Phase 1: develop への自動書込み系ワークフロー間の push 衝突を防ぐ共通グループ。
+# 同時実行を待たせるだけで落とさない（cancel-in-progress: false）。
+concurrency:
+  group: develop-git-write
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
 jobs:
   audit:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout develop
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           ref: develop
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: "20"
 

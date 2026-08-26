@@ -1,0 +1,45 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="盛土の安定性検討が必要な代表的な条件。基礎地盤が軟弱、盛土高が15m程度以上、含水比の高い材料、地山からの浸潤の影響を受けやすい形状、破壊時の被害が大きい箇所の5条件">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">安定性の検討が必要となる代表的な条件</text>
+
+  <rect class="box-w" x="20" y="24" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="44">基礎地盤が軟弱</text>
+  <text class="t-desc" x="40" y="62">N値4未満・コーン指数250kN/m²以下等（表1.9）</text>
+
+  <rect class="box-w" x="20" y="84" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="104">盛土高が特に高い</text>
+  <text class="t-desc" x="40" y="122">一般に15m程度以上。均質な地盤でも検討が必要</text>
+
+  <rect class="box-w" x="20" y="144" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="164">盛土材料の含水比が高い</text>
+  <text class="t-desc" x="40" y="182">せん断強度が低い高含水比の火山灰質粘性土等</text>
+
+  <rect class="box-w" x="20" y="204" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="224">浸潤の影響を受けやすい形状</text>
+  <text class="t-desc" x="40" y="242">片切り片盛、腹付け盛土、谷部を埋める盛土 等</text>
+
+  <rect class="box-w" x="20" y="264" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="284">破壊時の被害が大きい箇所</text>
+  <text class="t-desc" x="40" y="302">隣接施設への重大な損害・復旧に長時間を要する</text>
+
+  <text class="t-sec" x="20" y="342">水田・湿地等の薄い軟弱層への対策</text>
+  <rect class="box-b" x="20" y="348" width="360" height="90" rx="6"/>
+  <text class="t-desc" x="40" y="370">表層排水溝を掘って含水比を低下させる</text>
+  <text class="t-desc" x="40" y="388">サンドマットで初期の盛土作業のトラフィカビリティを確保</text>
+  <text class="t-desc" x="40" y="406">締め固めた砂地盤ではN値10以下だと液状化のおそれ</text>
+  <text class="t-desc" x="40" y="424">河川堤防等の止水目的の盛土では浸透流の観測が必要</text>
+</svg>

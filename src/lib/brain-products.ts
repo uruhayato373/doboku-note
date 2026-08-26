@@ -6,8 +6,8 @@
  * coconala-services.ts と同じ流儀（文章側 doc に価格を書かない・status で導線を制御）。
  *
  * 出品フロー:
- * 1. 本エントリ（title/price/status:'draft'）＋ .claude/config/brain-listings.json（本文/画像/有料ライン）を用意
- * 2. 配布物 ZIP を .claude/config/brain/dist/ に置き（トークン付ファイル名）、
+ * 1. 本エントリ（title/price/status:'draft'）＋ content/brain/listings.json（本文/画像/有料ライン）を用意
+ * 2. 配布物 ZIP を content/brain/dist/ に置き（トークン付ファイル名）、
  *    `gh workflow run r2-brain-dist.yml` で R2 へ（main に載っている必要あり）
  * 3. `node scripts/brain-publish.mjs --service <id>` で下書き作成（既定）
  *    → `--commit` で 価格・有料ライン設定＋公開申請（審査は原則24h・結果はメール）
@@ -36,7 +36,7 @@ export interface BrainProduct {
   /** 機械照合用の価格（Brain 販売設定と一致させる。100円〜100,000円） */
   readonly priceYen: number;
   readonly examScope: readonly string[];
-  /** 配布 ZIP のファイル名（.claude/config/brain/dist/ 直下・トークン付）。
+  /** 配布 ZIP のファイル名（content/brain/dist/ 直下・トークン付）。
    *  配布 URL = https://storage.doboku-note.com/brain/dist/{distFile}（有料エリアに記載） */
   readonly distFile: string;
   readonly submittedAt?: string;

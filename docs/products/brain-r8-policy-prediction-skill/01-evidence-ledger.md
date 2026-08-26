@@ -1,3 +1,9 @@
+---
+documentType: research
+channel: brain
+retention: durable
+---
+
 # R8「地方創生」事前収録 証拠台帳
 
 > [!note]

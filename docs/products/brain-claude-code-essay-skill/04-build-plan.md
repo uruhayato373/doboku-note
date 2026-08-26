@@ -1,3 +1,9 @@
+---
+documentType: product-spec
+channel: brain
+retention: durable
+---
+
 # 商品制作ロードマップ
 
 ## Phase 0：権利・スコープ確定

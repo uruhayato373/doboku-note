@@ -1,0 +1,47 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="軟弱地盤対策工法の分類。圧密・排水工法（サンドマット・バーチカルドレーン等）、締固め工法（サンドコンパクションパイル等）、固結工法（深層混合処理等）、荷重軽減工法（軽量盛土等）、構造物・補強による対策（押え盛土・杭等）の5分類と、液状化対策の4つの視点">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-p { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-s { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">軟弱地盤対策工法の分類（原理別）</text>
+
+  <rect class="box-b" x="20" y="24" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="44">圧密・排水工法</text>
+  <text class="t-desc" x="40" y="62">サンドマット、バーチカルドレーン、盛土載荷重 等</text>
+
+  <rect class="box-b" x="20" y="84" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="104">締固め工法</text>
+  <text class="t-desc" x="40" y="122">サンドコンパクションパイル、バイブロフローテーション 等</text>
+
+  <rect class="box-w" x="20" y="144" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="164">固結工法</text>
+  <text class="t-desc" x="40" y="182">深層混合処理、石灰パイル、薬液注入 等</text>
+
+  <rect class="box-p" x="20" y="204" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="224">荷重軽減工法</text>
+  <text class="t-desc" x="40" y="242">軽量盛土（EPS等）、カルバート工法</text>
+
+  <rect class="box-s" x="20" y="264" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="284">構造物・補強による対策</text>
+  <text class="t-desc" x="40" y="302">押え盛土、地中連続壁、矢板、杭、盛土補強 等</text>
+
+  <text class="t-sec" x="20" y="342">液状化対策の視点</text>
+  <rect class="box-b" x="20" y="348" width="360" height="90" rx="6"/>
+  <text class="t-desc" x="40" y="370">過剰間隙水圧の発生を防ぐ（締固め・置換・水位低下）</text>
+  <text class="t-desc" x="40" y="388">発生した水圧を速やかに消散させる（ドレーン）</text>
+  <text class="t-desc" x="40" y="406">地盤のずれ変位・変形を抑制する（固化・遮水）</text>
+  <text class="t-desc" x="40" y="424">液状化層に頼らず杭で構造物を支持する</text>
+</svg>

@@ -1,18 +1,18 @@
 {
-  "generated_at": "2026-07-10T11:29:54.212Z",
+  "generated_at": "2026-08-25T11:42:41.215Z",
   "tool": "tesseract jpn --psm 6",
-  "base_count": 616,
-  "file_count": 1046,
+  "base_count": 549,
+  "file_count": 980,
   "summary": {
     "leak": 0,
-    "writein": 35,
-    "maybe": 148,
-    "clean": 433
+    "writein": 3,
+    "maybe": 125,
+    "clean": 421
   },
   "quality_summary": {
-    "sharp": 599,
-    "soft": 16,
-    "blurry": 1,
+    "sharp": 537,
+    "soft": 6,
+    "blurry": 6,
     "unknown": 0
   },
   "figures": {
@@ -144,6 +144,14 @@
       "quality": "sharp",
       "variants": 2
     },
+    "civil-construction-1/primary-h27-a/img/h27-a-fig-02": {
+      "status": "maybe",
+      "periods": 1,
+      "markers": [],
+      "sharpness": 1398.01,
+      "quality": "sharp",
+      "variants": 2
+    },
     "civil-construction-1/primary-h27-a/img/h27-a-fig-03": {
       "status": "clean",
       "periods": 0,
@@ -154,9 +162,9 @@
     },
     "civil-construction-1/primary-h27-b/img/h27-b-fig-02": {
       "status": "maybe",
-      "periods": 2,
+      "periods": 3,
       "markers": [],
-      "sharpness": 4903.66,
+      "sharpness": 3847.83,
       "quality": "sharp",
       "variants": 2
     },
@@ -340,7 +348,7 @@
       "status": "maybe",
       "periods": 3,
       "markers": [],
-      "sharpness": 3229.02,
+      "sharpness": 3860.75,
       "quality": "sharp",
       "variants": 2
     },
@@ -524,7 +532,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 504.37,
+      "sharpness": 1169.66,
       "quality": "sharp",
       "variants": 2
     },
@@ -532,7 +540,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 2293.1,
+      "sharpness": 2298.13,
       "quality": "sharp",
       "variants": 2
     },
@@ -828,7 +836,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 2423.74,
+      "sharpness": 3587.96,
       "quality": "sharp",
       "variants": 2
     },
@@ -1028,7 +1036,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 2912.75,
+      "sharpness": 2895.02,
       "quality": "sharp",
       "variants": 2
     },
@@ -1185,10 +1193,10 @@
       "variants": 2
     },
     "civil-construction-1/secondary-construction-plan-basics/img/fig-4-7": {
-      "status": "clean",
-      "periods": 0,
+      "status": "maybe",
+      "periods": 1,
       "markers": [],
-      "sharpness": 1609.57,
+      "sharpness": 1831.68,
       "quality": "sharp",
       "variants": 2
     },
@@ -1276,7 +1284,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 15211.4,
+      "sharpness": 15186.8,
       "quality": "sharp",
       "variants": 2
     },
@@ -2044,7 +2052,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 2851.11,
+      "sharpness": 2873.58,
       "quality": "sharp",
       "variants": 2
     },
@@ -2068,7 +2076,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 2960.23,
+      "sharpness": 2961.52,
       "quality": "sharp",
       "variants": 2
     },
@@ -2340,7 +2348,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 16264.6,
+      "sharpness": 15355.1,
       "quality": "sharp",
       "variants": 2
     },
@@ -2772,7 +2780,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 5558.66,
+      "sharpness": 7754.22,
       "quality": "sharp",
       "variants": 2
     },
@@ -2838,6 +2846,38 @@
       "markers": [],
       "sharpness": 763.33,
       "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/h24-q11": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 21.9,
+      "quality": "blurry",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/h24-q22": {
+      "status": "maybe",
+      "periods": 4,
+      "markers": [],
+      "sharpness": 33.83,
+      "quality": "blurry",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/h25-q28-fig1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 31.11,
+      "quality": "blurry",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-construction/img/h25-q28-fig2": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 43.03,
+      "quality": "blurry",
       "variants": 1
     },
     "concrete-chief-engineer/primary-construction/img/marine-joint-r01": {
@@ -2913,10 +2953,10 @@
       "variants": 1
     },
     "concrete-chief-engineer/primary-construction/img/strength-dev-r02": {
-      "status": "clean",
-      "periods": 0,
+      "status": "maybe",
+      "periods": 1,
       "markers": [],
-      "sharpness": 353.66,
+      "sharpness": 359.34,
       "quality": "sharp",
       "variants": 1
     },
@@ -2934,6 +2974,14 @@
       "markers": [],
       "sharpness": 710.67,
       "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-materials/img/h24-q5": {
+      "status": "maybe",
+      "periods": 3,
+      "markers": [],
+      "sharpness": 59.05,
+      "quality": "soft",
       "variants": 1
     },
     "concrete-chief-engineer/primary-materials/img/materials-clinker-strength-h28": {
@@ -2958,6 +3006,14 @@
       "markers": [],
       "sharpness": 719.87,
       "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-mix-design/img/h24-q8": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 52.99,
+      "quality": "soft",
       "variants": 1
     },
     "concrete-chief-engineer/primary-mix-design/img/mix-volume-rccp-h30": {
@@ -3000,22 +3056,6 @@
       "quality": "sharp",
       "variants": 1
     },
-    "concrete-chief-engineer/primary-production-qc/img/normal-dist-r05": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 499.11,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-chief-engineer/primary-production-qc/img/xbar-control-chart-h28": {
-      "status": "maybe",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 2169.06,
-      "quality": "sharp",
-      "variants": 1
-    },
     "concrete-chief-engineer/primary-properties/img/beam-thermal-stress-h28": {
       "status": "clean",
       "periods": 0,
@@ -3036,7 +3076,7 @@
       "status": "maybe",
       "periods": 1,
       "markers": [],
-      "sharpness": 273.68,
+      "sharpness": 277.43,
       "quality": "sharp",
       "variants": 1
     },
@@ -3062,6 +3102,22 @@
       "markers": [],
       "sharpness": 762.49,
       "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-properties/img/h24-q10": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 77.11,
+      "quality": "soft",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-properties/img/h24-q12": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 53.39,
+      "quality": "soft",
       "variants": 1
     },
     "concrete-chief-engineer/primary-properties/img/strain-unload-h30": {
@@ -3116,7 +3172,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 422.13,
+      "sharpness": 423.07,
       "quality": "sharp",
       "variants": 1
     },
@@ -3126,6 +3182,22 @@
       "markers": [],
       "sharpness": 417.01,
       "quality": "sharp",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/h24-q29": {
+      "status": "maybe",
+      "periods": 2,
+      "markers": [],
+      "sharpness": 23.02,
+      "quality": "blurry",
+      "variants": 1
+    },
+    "concrete-chief-engineer/primary-structural-design/img/h25-q30-fig1": {
+      "status": "clean",
+      "periods": 0,
+      "markers": [],
+      "sharpness": 79.72,
+      "quality": "soft",
       "variants": 1
     },
     "concrete-chief-engineer/primary-structural-design/img/load-displacement-h26": {
@@ -3184,676 +3256,68 @@
       "quality": "sharp",
       "variants": 1
     },
-    "concrete-diagnostician/primary-exercise-01/img/q1-fig": {
-      "status": "writein",
-      "periods": 3,
-      "markers": [],
-      "sharpness": 697.63,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-01/img/q10-fig": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 486.06,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-01/img/q12-fig": {
-      "status": "writein",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 406.03,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-01/img/q2-fig": {
-      "status": "maybe",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 542.19,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-01/img/q3-fig": {
-      "status": "writein",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 1261.95,
-      "quality": "sharp",
-      "variants": 1
-    },
     "concrete-diagnostician/primary-exercise-01/img/q4-fig": {
-      "status": "maybe",
-      "periods": 7,
-      "markers": [],
-      "sharpness": 481.11,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-01/img/q8-fig": {
-      "status": "writein",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 410.37,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-02/img/q17-fig": {
-      "status": "writein",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 176.72,
-      "quality": "soft",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-02/img/q19-fig": {
-      "status": "writein",
-      "periods": 4,
-      "markers": [],
-      "sharpness": 383.43,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-02/img/q21-fig": {
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 654.75,
+      "sharpness": 1514.75,
       "quality": "sharp",
       "variants": 1
     },
-    "concrete-diagnostician/primary-exercise-02/img/q23-fig": {
-      "status": "writein",
-      "periods": 4,
-      "markers": [],
-      "sharpness": 263.59,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-02/img/q25-fig": {
-      "status": "writein",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 437.27,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-02/img/q27-fig": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 460.25,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-03/img/q28-fig": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 170.47,
-      "quality": "soft",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-03/img/q29-fig": {
-      "status": "writein",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 625.16,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-03/img/q30-fig": {
-      "status": "writein",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 1042.31,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-03/img/q32-fig": {
+    "concrete-diagnostician/primary-exercise-01/img/q9a-fig": {
       "status": "maybe",
       "periods": 1,
       "markers": [],
-      "sharpness": 337.04,
+      "sharpness": 982.83,
       "quality": "sharp",
       "variants": 1
     },
-    "concrete-diagnostician/primary-exercise-03/img/q33-fig": {
-      "status": "writein",
-      "periods": 4,
-      "markers": [],
-      "sharpness": 535.04,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-03/img/q34-fig": {
+    "concrete-diagnostician/primary-exercise-01/img/q9b-fig": {
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 480.55,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-03/img/q35-fig": {
-      "status": "writein",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 197.19,
+      "sharpness": 167.08,
       "quality": "soft",
       "variants": 1
     },
-    "concrete-diagnostician/primary-exercise-03/img/q40-choices": {
+    "concrete-diagnostician/primary-exercise-01/img/q9c-fig": {
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 606.92,
+      "sharpness": 331.87,
       "quality": "sharp",
       "variants": 1
     },
-    "concrete-diagnostician/primary-exercise-03/img/q40-fig": {
+    "concrete-diagnostician/primary-exercise-01/img/q9d-fig": {
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 110.77,
-      "quality": "soft",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-04/img/q41-fig": {
-      "status": "maybe",
-      "periods": 4,
-      "markers": [],
-      "sharpness": 659.56,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-04/img/q43-fig": {
-      "status": "writein",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 617.67,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-04/img/q47-fig": {
-      "status": "writein",
-      "periods": 4,
-      "markers": [],
-      "sharpness": 886.59,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-04/img/q49-fig": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 951.76,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-04/img/q50-fig": {
-      "status": "maybe",
-      "periods": 3,
-      "markers": [],
-      "sharpness": 490.53,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-05/img/q55-fig": {
-      "status": "maybe",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 792.71,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-05/img/q57-fig": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 483.89,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-05/img/q58-fig": {
-      "status": "writein",
-      "periods": 4,
-      "markers": [],
-      "sharpness": 323.81,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-05/img/q60-fig": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 441.98,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-05/img/q62-fig": {
-      "status": "maybe",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 309.44,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-05/img/q64-fig": {
-      "status": "maybe",
-      "periods": 5,
-      "markers": [],
-      "sharpness": 692.5,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-05/img/q65-fig": {
-      "status": "writein",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 416.71,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-06/img/q67-fig": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 320.31,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-06/img/q68-fig": {
-      "status": "writein",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 164.53,
-      "quality": "soft",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-06/img/q69-fig": {
-      "status": "writein",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 89.85,
-      "quality": "soft",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-06/img/q70-fig": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 153.63,
-      "quality": "soft",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-06/img/q71-fig": {
-      "status": "writein",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 299.52,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-06/img/q72-fig": {
-      "status": "writein",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 414.58,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-06/img/q74-fig": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 312.49,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-06/img/q76-fig": {
-      "status": "writein",
-      "periods": 8,
-      "markers": [],
-      "sharpness": 706.55,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-06/img/q77-fig": {
-      "status": "maybe",
-      "periods": 4,
-      "markers": [],
-      "sharpness": 476.37,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-06/img/q79-fig": {
-      "status": "writein",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 518.58,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-07/img/q80-fig": {
-      "status": "writein",
-      "periods": 3,
-      "markers": [],
-      "sharpness": 485.44,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-07/img/q81-fig": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 112.51,
-      "quality": "soft",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-07/img/q82-fig": {
-      "status": "writein",
-      "periods": 5,
-      "markers": [],
-      "sharpness": 529.3,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-07/img/q84-fig": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 400.23,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-07/img/q86-fig": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 908.86,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-07/img/q88-fig": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 1127.35,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-07/img/q89-fig": {
-      "status": "writein",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 543.35,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-07/img/q90-fig": {
-      "status": "writein",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 165.15,
-      "quality": "soft",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-08/img/q91-fig": {
-      "status": "writein",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 531.69,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-08/img/q92-fig": {
-      "status": "writein",
-      "periods": 4,
-      "markers": [],
-      "sharpness": 280.52,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-08/img/q93-fig": {
-      "status": "writein",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 483.66,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-08/img/q94-fig": {
-      "status": "writein",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 842.58,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-08/img/q95-fig": {
-      "status": "writein",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 496.75,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-08/img/q97-fig": {
-      "status": "writein",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 365.57,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/primary-exercise-08/img/q98-fig": {
-      "status": "maybe",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 749.52,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-assessment/img/figure-01": {
-      "status": "maybe",
-      "periods": 6,
-      "markers": [],
-      "sharpness": 328.7,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-assessment/img/figure-02": {
-      "status": "maybe",
-      "periods": 3,
-      "markers": [],
-      "sharpness": 190.72,
-      "quality": "soft",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-assessment/img/figure-03": {
-      "status": "maybe",
-      "periods": 5,
-      "markers": [],
-      "sharpness": 2029.66,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-assessment/img/figure-04": {
-      "status": "maybe",
-      "periods": 4,
-      "markers": [],
-      "sharpness": 345.16,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-deterioration/img/figure-01": {
-      "status": "maybe",
-      "periods": 3,
-      "markers": [],
-      "sharpness": 350.04,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-deterioration/img/figure-02": {
-      "status": "maybe",
-      "periods": 10,
-      "markers": [],
-      "sharpness": 655.01,
+      "sharpness": 1141.74,
       "quality": "sharp",
       "variants": 1
     },
     "concrete-diagnostician/textbook-deterioration/img/figure-03": {
       "status": "maybe",
-      "periods": 6,
-      "markers": [],
-      "sharpness": 252.76,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-investigation/img/figure-01": {
-      "status": "maybe",
-      "periods": 8,
-      "markers": [],
-      "sharpness": 333.36,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-investigation/img/figure-02": {
-      "status": "maybe",
-      "periods": 4,
-      "markers": [],
-      "sharpness": 310.91,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-investigation/img/figure-03": {
-      "status": "maybe",
       "periods": 1,
       "markers": [],
-      "sharpness": 153.07,
-      "quality": "soft",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-investigation/img/figure-04": {
-      "status": "maybe",
-      "periods": 5,
-      "markers": [],
-      "sharpness": 262.72,
+      "sharpness": 1049.87,
       "quality": "sharp",
       "variants": 1
     },
     "concrete-diagnostician/textbook-investigation/img/figure-05": {
-      "status": "maybe",
-      "periods": 3,
-      "markers": [],
-      "sharpness": 133.67,
-      "quality": "soft",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-maintenance/img/figure-01": {
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 113.7,
-      "quality": "soft",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-maintenance/img/figure-02": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 1587.38,
+      "sharpness": 3159.39,
       "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-maintenance/img/figure-03": {
-      "status": "maybe",
-      "periods": 4,
-      "markers": [],
-      "sharpness": 233.17,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-maintenance/img/figure-04": {
-      "status": "maybe",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 887.34,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-repair/img/figure-01": {
-      "status": "maybe",
-      "periods": 5,
-      "markers": [],
-      "sharpness": 338.26,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-repair/img/figure-02": {
-      "status": "maybe",
-      "periods": 1,
-      "markers": [],
-      "sharpness": 161.27,
-      "quality": "soft",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-repair/img/figure-03": {
-      "status": "maybe",
-      "periods": 14,
-      "markers": [],
-      "sharpness": 1494.15,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-repair/img/figure-04": {
-      "status": "maybe",
-      "periods": 9,
-      "markers": [],
-      "sharpness": 1695.03,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-repair/img/figure-05": {
-      "status": "maybe",
-      "periods": 4,
-      "markers": [],
-      "sharpness": 1103.49,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-variation/img/figure-01": {
-      "status": "maybe",
-      "periods": 2,
-      "markers": [],
-      "sharpness": 1745.22,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-variation/img/figure-02": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 206.57,
-      "quality": "sharp",
-      "variants": 1
-    },
-    "concrete-diagnostician/textbook-variation/img/figure-03": {
-      "status": "clean",
-      "periods": 0,
-      "markers": [],
-      "sharpness": 194.76,
-      "quality": "soft",
       "variants": 1
     },
     "concrete-diagnostician/textbook-variation/img/figure-04": {
       "status": "maybe",
-      "periods": 2,
+      "periods": 1,
       "markers": [],
-      "sharpness": 130.64,
-      "quality": "soft",
+      "sharpness": 675.95,
+      "quality": "sharp",
       "variants": 1
     },
     "note/_magazines/img/tankan-magazine-cover": {
@@ -4172,7 +3636,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 1070.26,
+      "sharpness": 1089.78,
       "quality": "sharp",
       "variants": 2
     },
@@ -4196,7 +3660,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 1668.05,
+      "sharpness": 1632.71,
       "quality": "sharp",
       "variants": 2
     },
@@ -4500,7 +3964,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 1621.87,
+      "sharpness": 1841.85,
       "quality": "sharp",
       "variants": 1
     },
@@ -4524,7 +3988,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 2451.76,
+      "sharpness": 2476.74,
       "quality": "sharp",
       "variants": 1
     },
@@ -4676,7 +4140,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 1471.18,
+      "sharpness": 1471.82,
       "quality": "sharp",
       "variants": 1
     },
@@ -4692,7 +4156,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 851.85,
+      "sharpness": 1376.23,
       "quality": "sharp",
       "variants": 1
     },
@@ -4700,7 +4164,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 4166.97,
+      "sharpness": 4148.91,
       "quality": "sharp",
       "variants": 1
     },
@@ -4828,7 +4292,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 2679.6,
+      "sharpness": 2874.56,
       "quality": "sharp",
       "variants": 1
     },
@@ -4876,7 +4340,7 @@
       "status": "clean",
       "periods": 0,
       "markers": [],
-      "sharpness": 1281.66,
+      "sharpness": 1378.82,
       "quality": "sharp",
       "variants": 2
     },

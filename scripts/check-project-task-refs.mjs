@@ -17,6 +17,15 @@
  * （履歴のために死んだパスを持てる層を残すと、そこが検査の穴になる）。
  * `content/` へ出ていくチャネル素材（note/sns/textbook/coconala-blog）は恒久文書ではないので除外する。
  *
+ * **日付つき週次レビュー（`docs/reviews/weekly/**`）だけは dangling-id を warning にする**（2026-08-25）。
+ *   この台帳は「完了＝カードごと削除」で完了を表すので、レビューが「DN-XXXX 完了」と実績を ID で
+ *   書くたび、その ID は翌週には必ず消える。つまり**仕事を片付けるほどゲートが赤くなる**構造で、
+ *   実際 319d266d6（DN-0116）と本日（DN-0126 / DN-0127）の 2 度、完了を記録しただけで CI が赤くなった。
+ *   偽赤は偽緑と同じくらい信号を殺すので降格する。ただし**件数は必ず出す**（黙って消さない）。
+ *   降格するのは日付つきスナップショットに限る——`docs/reviews/2026-07-11-static-ui-codebase-audit.md`
+ *   のような「作業指示書として今も参照される文書」は日付を持っていても live なので error のまま。
+ *   区別はディレクトリ（`reviews/weekly/`）で行い、ファイル名の日付では判定しない。
+ *
  * Usage:
  *   node scripts/check-project-task-refs.mjs          全量
  *   node scripts/check-project-task-refs.mjs --json   機械可読
@@ -49,6 +58,13 @@ const ID_RE = /DN-\d{4}/g;
 
 const toPosix = (v) => v.split(sep).join('/');
 
+/**
+ * その週の状態を記録するスナップショット文書か。
+ * 週次レビューは「DN-XXXX 完了」を実績として書くが、この台帳は完了＝カード削除なので
+ * ID は必ず消える。live 文書の参照切れ（読者を存在しないタスクへ案内する実害）とは別物。
+ */
+export const isDatedSnapshot = (rel) => rel.startsWith('docs/reviews/weekly/');
+
 function walk(dir, out = []) {
   if (!existsSync(dir)) return out;
   for (const e of readdirSync(dir, { withFileTypes: true })) {
@@ -71,10 +87,13 @@ export function auditProjectDoc(rel, content, knownIds) {
       errors.push({ rule: 'retired-ref', at: `${rel}:${line}`, msg: `廃止済み参照: ${name}` });
     }
   }
+  const snapshot = isDatedSnapshot(rel);
   for (const id of new Set(content.match(ID_RE) ?? [])) {
-    if (!knownIds.has(id)) {
-      errors.push({ rule: 'dangling-id', at: rel, msg: `${id} は backlog に存在しない` });
-    }
+    if (knownIds.has(id)) continue;
+    const f = { rule: 'dangling-id', at: rel, msg: `${id} は backlog に存在しない` };
+    // 日付つきスナップショットでは「完了してカードが消えた」が正常な経路なので warning。
+    if (snapshot) warnings.push({ ...f, msg: f.msg + '（完了して削除された可能性・週次スナップショットなので warning）' });
+    else errors.push(f);
   }
 
   // 「次のアクション」配下の未チェック項目に ID も criterion 注記も無い＝台帳へ出ていない疑い
@@ -135,9 +154,12 @@ function main() {
 
   // 検査ゼロを PASS と呼ばない（§9）: 対象数と実検査数を必ず出す
   // --json のときは stdout を JSON だけにする（人間向けサマリは stderr へ）
+  // 降格した dangling-id は黙って消さない。件数を必ず出す（降格が事故を隠す経路にならないように）。
+  const snapshotDangling = warnings.filter((w) => w.rule === 'dangling-id').length;
   (JSON_OUT ? console.error : console.log)(
     `[check-project-task-refs] 文書 ${files.length} 件 / backlog ID ${knownIds.size} 件を実検査` +
-      ` / error ${errors.length} / warning ${warnings.length}（未チェック記法 ${uncheckedTotal} 件は件数だけでは失敗にしない）`,
+      ` / error ${errors.length} / warning ${warnings.length}（未チェック記法 ${uncheckedTotal} 件は件数だけでは失敗にしない）` +
+      (snapshotDangling ? `\n  うち週次スナップショットの参照切れ ${snapshotDangling} 件は warning へ降格（完了＝カード削除の正常経路）` : ''),
   );
 
   if (JSON_OUT) {
@@ -149,7 +171,8 @@ function main() {
   if (warnings.length > 20) console.log(`  … 他 ${warnings.length - 20} 件の warning`);
 
   if (errors.length === 0) {
-    console.log('[check-project-task-refs] ✓ active 文書の廃止参照 0・ID 参照切れ 0');
+    console.log('[check-project-task-refs] ✓ live 文書の廃止参照 0・ID 参照切れ 0'
+      + (snapshotDangling ? `（週次スナップショットの ${snapshotDangling} 件は上記のとおり warning）` : ''));
     process.exit(0);
   }
   for (const e of errors) console.error(`  [${e.rule}] ${e.at}  ${e.msg}`);

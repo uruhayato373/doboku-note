@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 300" font-family="sans-serif">
+<style>.t{font-size:12px;fill:#333}.s{font-size:11px;fill:#666}.b{font-size:14px;font-weight:bold;fill:#222}.h{font-size:13px;font-weight:bold;fill:#e8632a}</style>
+<text x="20" y="24" class="b">§5-2 ヒューム管の浮力とその対策</text>
+
+<g>
+<text x="170" y="52" text-anchor="middle" class="h">対策なし：浮き上がる</text>
+<rect x="70" y="150" width="200" height="90" fill="#c9c9c9"/>
+<text x="170" y="230" text-anchor="middle" class="s">巻立てコンクリート</text>
+<circle cx="170" cy="150" r="42" fill="#fff" stroke="#555" stroke-width="6"/>
+<text x="170" y="155" text-anchor="middle" class="s">HP（内部は空洞）</text>
+<line x1="170" y1="100" x2="170" y2="76" stroke="#e8632a" stroke-width="3"/>
+<polygon points="170,70 162,84 178,84" fill="#e8632a"/>
+<text x="170" y="64" text-anchor="middle" class="t" fill="#e8632a" font-weight="bold">浮力</text>
+<text x="170" y="266" text-anchor="middle" class="s" fill="#e8632a">一度浮くと元に戻せない → 撤去・再布設</text>
+</g>
+
+<g>
+<text x="500" y="52" text-anchor="middle" class="h">対策：アンカー緊結＋2回打ち</text>
+<rect x="400" y="150" width="200" height="90" fill="#c9c9c9"/>
+<rect x="400" y="192" width="200" height="48" fill="#a8a8a8"/>
+<line x1="400" y1="192" x2="600" y2="192" stroke="#e8632a" stroke-dasharray="5 3"/>
+<text x="612" y="196" class="s" fill="#e8632a">1回目</text>
+<text x="612" y="176" class="s" fill="#e8632a">2回目</text>
+<circle cx="500" cy="150" r="42" fill="#fff" stroke="#555" stroke-width="6"/>
+<path d="M470,120 Q500,104 530,120" stroke="#0a72b0" stroke-width="2.5" fill="none"/>
+<line x1="470" y1="120" x2="466" y2="200" stroke="#0a72b0" stroke-width="2.5"/>
+<line x1="530" y1="120" x2="534" y2="200" stroke="#0a72b0" stroke-width="2.5"/>
+<circle cx="466" cy="200" r="4" fill="#0a72b0"/><circle cx="534" cy="200" r="4" fill="#0a72b0"/>
+<text x="500" y="114" text-anchor="middle" class="s" fill="#0a72b0">番線で緊結（1本につき2カ所程度）</text>
+<text x="500" y="266" text-anchor="middle" class="s">埋込みアンカーとHPを緊結し、全巻きは</text>
+<text x="500" y="282" text-anchor="middle" class="s">半分ずつ2回に分けて打ち込む</text>
+</g>
+</svg>

@@ -33,26 +33,28 @@ doboku-note の記事本文中に表示される、色 + アイコン + 任意�
 
 ## デザイン仕様
 
-- 左アクセントバー: `border-l-[3px]` + トーン色
+- 左アクセントバー: `border-l-[3px]` + トーン色（`--ct-{tone}-bd`）
 - 円形アイコン: 22px、左上絶対配置、トーン色背景 + 白アイコン
-- タイトル: `text-[15px] font-bold` + トーン色（`config.tag`）
-- 本文: `text-sm leading-7 text-gray-700 dark:text-gray-300`（タイトルより 1px 小さい、周囲 prose 18/16px より明確に小さく「傍論」として読ませる）
-- パネル背景: `bg-{tone}-50/70 dark:bg-{tone}-950/40`
-- 角丸: `rounded-md`（6px）
+- タイトル: `text-[15px] font-bold` + トーン色（`--ct-{tone}-fg`）
+- 本文: `text-[1em] leading-relaxed text-[var(--ink-body)]`（周囲の prose と同じ文字サイズを継承。タイトル無しの場合はアイコン分のインデント `pl-9` を付与）
+- パネル背景・アクセント色は Tailwind の `bg-{tone}-*` ではなく CSS 変数 `--ct-{tone}-{bg|bd|fg}`（`globals.css` に定義・light/dark で自動切替）を inline style で適用
+- 角丸: `rounded-card-inline`（デザイントークン）
 
 型の識別は「アイコン + 色」で行う（zip 原設計準拠）。ラベルテキスト（"NOTE" や "ポイント"）は描画せず、スクリーンリーダー向けには `aria-label="{LABEL}: {jp}"` で補完。
 
 ## 旧 type からの移行（2026-04-22 PR #96 で実施済み）
+
+`LEGACY_ALIASES`（`Callout.tsx`）が真実源。この表と実装がずれたら実装を優先し、この表を直す。
 
 | 旧 type | 新 type |
 |---|---|
 | `info` | `note` |
 | `warning` | `warn` |
 | `caution` | `warn` |
-| `error` | 削除（未使用だったため） |
-| `question` | 削除（未使用だったため） |
+| `point` | `tip` |
+| `error` | `danger` |
 
-既存 MDX 98 箇所はすべて移行済み。新規執筆では旧 type を使用しない。
+上記にない type（`question` など完全に削除済みの旧 type を含む）は未知 type として `note` へフォールバックする（`scripts/check-callout-types.mjs` が検出）。既存 MDX はすべて移行済み。新規執筆では旧 type を使用しない。
 
 ## 使用ルール
 

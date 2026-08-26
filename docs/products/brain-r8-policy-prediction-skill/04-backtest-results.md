@@ -1,3 +1,9 @@
+---
+documentType: research
+channel: brain
+retention: durable
+---
+
 # バックテスト結果（第1版・git実証ベース）
 
 > [!note]

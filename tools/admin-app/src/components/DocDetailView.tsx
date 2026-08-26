@@ -11,12 +11,15 @@ import { type RootDescriptor } from '@/lib/document-roots';
 export function DocDetailView({
   descriptor,
   path,
+  headMeta,
   railTop,
 }: {
   descriptor: RootDescriptor;
   path: string[];
+  /** タイトル直下に差し込む小さなメタ表示（docs の目的・チャネル・保持区分など） */
+  headMeta?: (document: { file: string; content: string; frontmatter: Readonly<Record<string, unknown>> }) => ReactNode;
   /** 目次の手前に差し込むルート固有のレール（docs の警告・関連タスクなど） */
-  railTop?: (document: { file: string; content: string }) => ReactNode;
+  railTop?: (document: { file: string; content: string; frontmatter: Readonly<Record<string, unknown>> }) => ReactNode;
 }) {
   const document = loadDocument(descriptor, path);
   if (!document) notFound();
@@ -32,6 +35,7 @@ export function DocDetailView({
           </nav>
           <h1>{document.title}</h1>
           <code>{document.file}</code>
+          {headMeta?.(document)}
           <div className="project-meta">
             <span>最終更新 {document.modifiedAt.slice(0, 10)}</span>
             <a href={vscode} title="この文書を VS Code で開いて編集する">

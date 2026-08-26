@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 260" style="max-width:400px;width:100%" role="img" aria-label="軟弱地盤上に構築されたコンクリート床版の側面図。支間15m、断面X-X'上に点aを設定">
+  <line x1="60" y1="60" x2="340" y2="60" stroke="#222" stroke-width="1.5"/>
+  <line x1="60" y1="60" x2="60" y2="140" stroke="#222" stroke-width="1.5"/>
+  <line x1="340" y1="60" x2="340" y2="140" stroke="#222" stroke-width="1.5"/>
+  <line x1="60" y1="140" x2="340" y2="140" stroke="#222" stroke-width="1.5"/>
+  <line x1="20" y1="140" x2="380" y2="140" stroke="#8a8a8a" stroke-width="1.4"/>
+  <path d="M30 140 L20 150 M70 140 L60 150 M110 140 L100 150 M150 140 L140 150 M190 140 L180 150 M230 140 L220 150 M270 140 L260 150 M310 140 L300 150 M350 140 L340 150" stroke="#8a8a8a" stroke-width="1"/>
+  <text x="30" y="160" font-family="sans-serif" font-size="12" fill="#222">軟弱地盤</text>
+  <line x1="200" y1="30" x2="200" y2="145" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="200" y="24" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">x</text>
+  <text x="200" y="162" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222" font-style="italic">x'</text>
+  <circle cx="200" cy="90" r="3.5" fill="#222"/>
+  <text x="210" y="94" font-family="sans-serif" font-size="13" fill="#222">a</text>
+  <text x="200" y="52" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">15 m</text>
+  <line x1="60" y1="45" x2="340" y2="45" stroke="#222" stroke-width="1"/>
+  <text x="200" y="105" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">コンクリート</text>
+  <text x="200" y="195" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">図1</text>
+</svg>

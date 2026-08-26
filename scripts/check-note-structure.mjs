@@ -26,7 +26,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync, writeSync } from 'node:fs';
 import { join } from 'node:path';
 import { spawnSync } from 'node:child_process';
-import { MIN_FREE_PREVIEW_CHARS } from './lib/note-live-check.mjs';
+import { MIN_FREE_PREVIEW_CHARS, expectedFreePreviewMin, textLen } from './lib/note-live-check.mjs';
 
 const ROOT = 'content/note';
 const JSON_OUT = process.argv.includes('--json');
@@ -127,7 +127,13 @@ function analyzeSource(raw) {
       if (t.length >= 12 && !/^!\[|^#|note\.com/.test(lines[i].trim())) { paidProbe = t.slice(0, 30); break; }
     }
   }
-  return { pricing, price, boundary, hasBoundary: bIdx >= 0, freeProbe, paidProbe, expectedFreeImgs };
+  // 無料プレビューの下限は**書き込み経路と同じ記事別値**を使う（note-publish.mjs / note-update-body.mjs）。
+  // 固定 600 だけで測ると、工事概要の直後から有料にする工事別テンプレートのような
+  // 「正常に短いプレビュー」を破損扱いする（expectedFreePreviewMin の doc コメント参照）。
+  // 2026-08-25: 監査だけが固定 600 のままで、1級土木 完全攻略パックの 71 本を CRITICAL に
+  // していた。書き込み側が通した記事を監査側が落とす二重基準だったので、基準を揃える。
+  const minFreeChars = pricing === 'paid' && bIdx >= 0 ? expectedFreePreviewMin(body, boundary) : MIN_FREE_PREVIEW_CHARS;
+  return { pricing, price, boundary, hasBoundary: bIdx >= 0, freeProbe, paidProbe, expectedFreeImgs, minFreeChars };
 }
 
 const files = walk(ROOT).slice(0, LIMIT === Infinity ? undefined : LIMIT * 3);
@@ -175,7 +181,10 @@ function runAll() {
     // 有料2本の無料プレビューが数百字まで縮んだ。bodyLen<40 の FULL_LOCK では拾えず、
     // BOUNDARY_SHIFT(HIGH) 止まりで CRITICAL に上がらないため、購入判断の材料が消えた事故を
     // 見逃す。無料プレビューの下限（MIN_FREE_PREVIEW_CHARS）を切ったら CRITICAL に上げる。
-    else if (freeMissing && liveBody.length < MIN_FREE_PREVIEW_CHARS) push('CRITICAL', 'FREE_PREVIEW_COLLAPSE', `無料プレビューが${liveBody.length}字（下限${MIN_FREE_PREVIEW_CHARS}）＝有料境界が冒頭へ動いた疑い`);
+    // 長さは norm()（空白も落とす・プローブ照合用）ではなく textLen()（タグだけ落とす）で測る。
+    // 書き込み経路の assertLiveBody が textLen で判定しているため、同じ物差しを使わないと
+    // 「公開時は通ったのに監査だけ落ちる」がここでも起きる。
+    else if (freeMissing && textLen(data.body || '') < t.minFreeChars) push('CRITICAL', 'FREE_PREVIEW_COLLAPSE', `無料プレビューが${textLen(data.body || '')}字（記事別下限${t.minFreeChars}・固定上限${MIN_FREE_PREVIEW_CHARS}）＝有料境界が冒頭へ動いた疑い`);
     else if (freeMissing) push('HIGH', 'BOUNDARY_SHIFT', `無料プローブがlive無料本文に無い（境界が想定より上/本文改稿）`);
     // 画像（境界前の期待枚数）
     if (!paidLeak && liveImgs < t.expectedFreeImgs) push('HIGH', 'IMG_MISSING', `live無料img=${liveImgs}<期待${t.expectedFreeImgs}（バナー等の欠落）`);
@@ -220,6 +229,11 @@ const critGate = critAll.filter((x) => !x.waived); // WAIVED を除いた実ゲ�
 const high = findings.filter((x) => x.sev === 'HIGH').length;
 const waived = critAll.length - critGate.length;
 console.log(`\n[check-note-structure] CRITICAL=${critAll.length}（うちWAIVED ${waived}・要対応 ${critGate.length}） HIGH=${high} / 実検査 ${inspected}本（対象${targets.length}・取得失敗${fetchFail}）`);
+// 何件を検査したかだけでなく「どの基準で測ったか」も出す。固定 600 と記事別下限のどちらが
+// 効いたかが見えないと、件数の増減を実体の変化と読み違える（2026-08-25 の二重基準の再発防止）。
+const paidTargets = targets.filter((t) => t.pricing === 'paid' && t.hasBoundary);
+const reduced = paidTargets.filter((t) => t.minFreeChars < MIN_FREE_PREVIEW_CHARS);
+console.log(`[check-note-structure] 無料プレビュー下限: 有料${paidTargets.length}本中 ${reduced.length}本が記事別下限（<${MIN_FREE_PREVIEW_CHARS}字）で判定・残り${paidTargets.length - reduced.length}本は固定${MIN_FREE_PREVIEW_CHARS}字`);
 
 // 偽 PASS の封じ: 取得できていないなら「異常なし」ではなく「検査できていない」。--ci の有無を問わず落とす。
 if (notConclusive) {

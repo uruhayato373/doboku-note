@@ -25,7 +25,8 @@
 // exit 0 = 整合 / exit 1 = 不整合 or 検査不成立
 
 import { execFileSync } from 'node:child_process';
-import { existsSync, readdirSync } from 'node:fs';
+import { existsSync, readdirSync, readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { join } from 'node:path';
 import {
   loadConfig, loadManifest, r2KeyFor, visibilityFor, bucketForFile,
@@ -34,6 +35,9 @@ import {
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const JSON_OUT = process.argv.includes('--json');
+
+/** ローカル実体 ↔ manifest の sha256 照合を打ち切る件数。超えた分は件数で報告する。 */
+const HASH_LIMIT = 500;
 
 const git = (args) =>
   execFileSync('git', ['-c', 'core.quotepath=false', ...args], {
@@ -130,7 +134,7 @@ function main() {
   // ローカルにしか実体が無い状態が無言で続き、次に気づくのはそのマシンを失ったときになる。
   // ここは**ワークツリーを走査する**唯一の検査で、CI（追跡ファイルしか無い）では
   // 走査 0 件になる。0 件を「異常なし」と読ませないため件数を必ず出す。
-  const scan = { walked: 0, matched: 0, tracked: 0, offloaded: 0, orphan: 0 };
+  const scan = { walked: 0, matched: 0, tracked: 0, offloaded: 0, orphan: 0, hashed: 0, hashSkipped: 0, stale: 0 };
   const groups = (cfg.groups || []).map((g) => ({ g, re: new RegExp(g.match.pathRegex) }));
   if (groups.length) {
     const stack = [join(REPO_ROOT, 'content')];
@@ -147,7 +151,29 @@ function main() {
         if (!hit) continue;
         scan.matched++;
         if (tracked.has(rel)) { scan.tracked++; continue; }
-        if (manifest.entries?.[rel]) { scan.offloaded++; continue; }
+        if (manifest.entries?.[rel]) {
+          scan.offloaded++;
+          // **ローカルが R2 より新しい状態を検出する**（2026-08-25 追加）。
+          // それまでは manifest に載っているだけで緑にしていたので、
+          // 「ローカルで作り直したのに R2 は旧版のまま」が見えなかった。
+          // 実例: BK-01_道路/R03 の納品 PDF を再生成して note へ貼り直したが R2 は 1 世代前だった。
+          //
+          // 手元に実体がある退避対象は普通ごく少数（hydrate したものだけ）なので全件 hash する。
+          // 多い端末で走ったときのために上限を置き、**打ち切ったら件数を必ず出す**
+          // （黙って一部だけ見て緑にしない）。
+          if (scan.hashed < HASH_LIMIT) {
+            scan.hashed++;
+            const local = createHash('sha256').update(readFileSync(abs)).digest('hex');
+            if (local !== manifest.entries[rel].sha256) {
+              scan.stale++;
+              warn('local-newer', 'ローカルの実体が manifest（＝R2）と違う。作り直したものが R2 へ反映されていない: '
+                + 'node scripts/asset-inbox-push.mjs --path "' + rel + '" --commit', rel);
+            }
+          } else {
+            scan.hashSkipped++;
+          }
+          continue;
+        }
         scan.orphan++;
         fail('not-offloaded', 'ワークツリーにしか無い（Git 非追跡・manifest 未登録）。'
           + 'offload しないとこのマシンを失った時点で復元不能: '
@@ -174,6 +200,10 @@ function main() {
     console.log('  ワークツリー走査 ' + scan.walked + ' ファイル / 退避対象に該当 ' + scan.matched
       + '（Git 追跡 ' + scan.tracked + ' / 退避済み ' + scan.offloaded + ' / どちらでもない ' + scan.orphan + '）');
     if (scan.matched === 0) console.log('  ※ 該当 0 件。追跡ファイルしか無いツリー（CI・新規 clone）では正常。');
+    // 「何件 hash を照合したか」を必ず出す。0 件照合の緑と、実際に一致している緑を区別する。
+    console.log('  ローカル実体 ↔ R2 の sha256 照合 ' + scan.hashed + ' 件'
+      + '（不一致 ' + scan.stale + '）'
+      + (scan.hashSkipped ? ' ※ 上限 ' + HASH_LIMIT + ' 件を超えたため ' + scan.hashSkipped + ' 件は未照合' : ''));
     console.log('  manifest: ' + toPosix(MANIFEST_PATH.slice(REPO_ROOT.length + 1)));
     if (entries.length === 0) {
       // 退避がまだ 1 件も無いのは正常な初期状態。ただし「検査した結果 0 件」と明示する。

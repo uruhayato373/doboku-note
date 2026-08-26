@@ -104,9 +104,23 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# マガジン収録の期待値（repo 実数 ↔ SoT 件数表記）。記事を足したのにライブ未収録＋表記も古い
+# という事故（2026-08-24 ゼネコン/河川コンサル各2本）の再発防止。ライブ軸は CI 側で見る。
+node scripts/check-magazine-membership.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # Markdown の相対リンク ](../x) の実在（check-doc-refs はリンクテキストしか見ない）。
 # SKIP_RELATIVE_LINKS=1 で回避
 node scripts/check-relative-links.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
+# 統合済み（_redirects で 301 の転送元）の記事を published: true にして「再公開」してしまう事故を止める。
+# 統合の記録は frontmatter ではなく _redirects にしか無いことがあり、目視では気づけない（2026-08-22 実事故）
+node scripts/check-published-vs-redirects.mjs --staged
 if [ $? -ne 0 ]; then
   exit 1
 fi
@@ -162,6 +176,12 @@ fi
 
 # スキル/エージェント/docs の .md 参照がリポジトリ内に実在するか検証（SSOT ポインタ破損の再発防止）
 node scripts/check-doc-refs.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
+# .claude/plans/ の実装計画とbacklogカードの結線（存在・相互参照・1task=1plan・ID重複・孤児plan）
+node scripts/check-task-plan-links.mjs
 if [ $? -ne 0 ]; then
   exit 1
 fi

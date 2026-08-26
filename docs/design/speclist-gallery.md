@@ -107,7 +107,7 @@ doboku-note の `<SpecSheetList>` コンポーネントは、2026-04-22 の Clau
 ![ordered no title](images/speclist-no-title.png)
 
 - **用途**: タイトルが不要・文脈で自明な場合
-- **挙動**: ヘッダー（タイトル + カウント）が省略され、罫線とリストのみ表示
+- **挙動**: ヘッダー（タイトル）が省略され、罫線とリストのみ表示（件数は描画しない）
 
 ```mdx
 <SpecSheetList
@@ -122,10 +122,12 @@ doboku-note の `<SpecSheetList>` コンポーネントは、2026-04-22 の Clau
 
 | Prop | Type | Default | 説明 |
 |---|---|---|---|
-| `title` | `string` | - | リストのタイトル（省略可） |
+| `title` | `string` | - | リストのタイトル（省略可）。ヘッダーごと省略され件数も表示されない |
+| `subtitle` | `string` | - | `title` 直下にマーカー風ハイライトで表示する補足文。`title` 省略時は描画されない |
 | `items` | `ListItem[]` | 必須 | `string` / `ReactNode` / `{ content: ReactNode }` |
 | `ordered` | `boolean` | `true` | `true` = `<ol>` 連番、`false` = `<ul>` マーカー |
-| `marker` | `"dot" \| "dash" \| "square"` | `"dot"` | unordered 時のマーカー形状 |
+| `marker` | `"dot" \| "dash" \| "square"` | `"dot"` | unordered 時のマーカー形状（ordered 時は無視） |
+| `accent` | `"default" \| "brand"` | `"default"` | 上罫線の色。`"brand"` で `--accent`（`ExamPoint` 等が使用） |
 | `className` | `string` | `""` | 追加クラス名 |
 
 ## 旧コンポーネントからの移行（2026-04-22 実施済み）

@@ -4,7 +4,7 @@ import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
-  splitHeadingId, parseTagLine, parseBacklog, findOrphanHeadings, pickTasks, SELF_EXECUTABLE } from '../scripts/lib/backlog-lib.mjs';
+  splitHeadingId, parseTagLine, parseBacklog, findOrphanHeadings, pickTasks } from '../scripts/lib/backlog-lib.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -42,13 +42,19 @@ test('Codex候補フラグと category を分離する', () => {
 
 // --- スキーマ v2 の token（後方互換） ------------------------------------------
 
-test('実行/検証/起票 token を解釈し、category は残りの先頭を採る', () => {
-  const md = ['## 🔴 高', '### T', 'タグ: [収益化] [実行:sweep] [検証:check-note-republish] [起票:2026-08-17]'].join('\n');
+test('検証/起票 token を解釈し、category は残りの先頭を採る', () => {
+  const md = ['## 🔴 高', '### T', 'タグ: [収益化] [検証:check-note-republish] [起票:2026-08-17]'].join('\n');
   const [c] = parseBacklog(md);
   assert.equal(c.category, '収益化');
-  assert.equal(c.executor, 'sweep');
   assert.equal(c.verify, 'check-note-republish');
   assert.equal(c.filed, '2026-08-17');
+});
+
+test('廃止済み [実行:] は unknownKeys に落ちる（再導入ラチェット・2026-08-26 軸廃止）', () => {
+  const md = ['## 🔴 高', '### T', 'タグ: [収益化] [実行:sweep]'].join('\n');
+  const [c] = parseBacklog(md);
+  assert.equal(c.category, '収益化');
+  assert.deepEqual(c.unknownKeys.map((k) => k.key), ['実行']);
 });
 
 test('複数カテゴリは先頭を category・残りを extraCategories に退避する', () => {
@@ -58,20 +64,13 @@ test('複数カテゴリは先頭を category・残りを extraCategories に退
   assert.deepEqual(c.extraCategories, ['機械チェック']);
 });
 
-test('token の順序が違っても executor を拾う（category より前に来る場合）', () => {
-  const md = ['## 🔴 高', '### T', 'タグ: [実行:機械] [収益化]'].join('\n');
-  const [c] = parseBacklog(md);
-  assert.equal(c.executor, '機械');
-  assert.equal(c.category, '収益化');
-});
-
 // --- スキーマ v3 の [種類:] と未知トークンの扱い（2026-08-18） ------------------
 
 test('[種類:] は位置に関係なく kind として読み、category を汚さない', () => {
   for (const tag of [
-    'タグ: [種類:不具合] [収益化] [実行:sweep]',
-    'タグ: [収益化] [種類:不具合] [実行:sweep]',
-    'タグ: [収益化] [実行:sweep] [種類:不具合]',
+    'タグ: [種類:不具合] [収益化] [検証:npm test]',
+    'タグ: [収益化] [種類:不具合] [検証:npm test]',
+    'タグ: [収益化] [検証:npm test] [種類:不具合]',
   ]) {
     const [c] = parseBacklog(['## 🔴 高', '### T', tag].join('\n'));
     assert.equal(c.kind, '不具合', `位置依存になっている: ${tag}`);
@@ -90,7 +89,6 @@ test('未知キーは unknownKeys に記録し、category に化けさせない'
   const md = ['## 🔴 高', '### T', 'タグ: [実行者:sweep] [収益化]'].join('\n');
   const [c] = parseBacklog(md);
   assert.equal(c.category, '収益化');
-  assert.equal(c.executor, null);
   assert.deepEqual(c.unknownKeys.map((k) => k.key), ['実行者']);
 });
 
@@ -114,7 +112,7 @@ test('コードフェンス内の ### / ## は構造として扱わない', () =
   for (const f of ['```', '~~~']) {
     const md = [
       '## 🔴 高',
-      '### 本物', 'タグ: [収益化] [実行:sweep]',
+      '### 本物', 'タグ: [収益化]',
       f + 'bash',
       '## 🟢 低',
       '### 偽物',
@@ -143,114 +141,112 @@ test('実 backlog で 生 ### 行数 == カード数 + orphan 数（パーサ退
 // 並べ替えを「不具合優先」に変えても全テストが緑のまま通ってしまう状態だった。
 const sample = [
   '## 🔴 高',
-  '### 高-改善-sweep', 'タグ: [収益化] [種類:改善] [実行:sweep]', '',
-  '### 高-改善-ユーザー', 'タグ: [収益化] [種類:改善] [実行:ユーザー]', '',
+  '### 高-改善A', 'タグ: [収益化] [種類:改善]', '',
   '### 高-未分類', 'タグ: [収益化]', '',
   '## 🟡 中',
-  '### 中-機械', 'タグ: [インフラ・計測] [種類:改善] [実行:機械]', '',
+  '### 中-改善', 'タグ: [インフラ・計測] [種類:改善]', '',
   '## 🟢 低',
-  '### 低-不具合-sweep', 'タグ: [UI・UX] [種類:不具合] [実行:sweep]', '',
-  '### 低-種類なし-sweep', 'タグ: [UI・UX] [実行:sweep]', '',
+  '### 低-不具合', 'タグ: [UI・UX] [種類:不具合]', '',
   '## 🟣 判断待ち',
-  '### 判断-sweep', 'タグ: [収益化] [種類:意思決定] [実行:sweep]', '',
+  '### 判断', 'タグ: [収益化] [種類:意思決定]', '',
 ].join('\n');
 
-test('自分で回せる executor だけを実行候補にする', () => {
-  const r = pickTasks(parseBacklog(sample), { limit: 5 });
+// [実行:] 軸は 2026-08-26 廃止。hold（🟣）と [進行中] 以外の全カードが実行候補になり、
+// 「単独で回せるか」は選定側のモデルが本文を読んで判断する。
+test('hold・wip 以外の全カードが実行候補になる', () => {
+  const r = pickTasks(parseBacklog(sample), { limit: 9 });
   assert.deepEqual(
     [...r.run.map((c) => c.title)].sort(),
-    ['低-不具合-sweep', '中-機械', '低-種類なし-sweep', '高-改善-sweep'].sort(),
+    ['高-改善A', '高-未分類', '中-改善', '低-不具合'].sort(),
   );
 });
 
-test('hold（🟣 判断待ち）は executor があっても自動選定しない', () => {
-  const r = pickTasks(parseBacklog(sample), { limit: 5 });
+test('hold（🟣 判断待ち）は自動選定しない', () => {
+  const r = pickTasks(parseBacklog(sample), { limit: 9 });
   assert.ok(!r.run.some((c) => c.tier === 'hold'));
   assert.equal(r.holdTotal, 1);
 });
 
 test('🟢 の不具合が 🔴 の改善より先に選ばれる（不具合が第1キー）', () => {
   const r = pickTasks(parseBacklog(sample), { limit: 1 });
-  assert.equal(r.run[0].title, '低-不具合-sweep');
+  assert.equal(r.run[0].title, '低-不具合');
   assert.equal(r.order, 'kind-then-tier');
 });
 
-test('種類未付与は不具合として扱わない（🟢種類なし は 🔴改善 より後）', () => {
-  const r = pickTasks(parseBacklog(sample), { limit: 5 });
+test('種類未付与は不具合として扱わない（🔴改善 と同格＝tier 順）', () => {
+  const r = pickTasks(parseBacklog(sample), { limit: 9 });
   const titles = r.run.map((c) => c.title);
+  assert.equal(titles[0], '低-不具合');
   assert.ok(
-    titles.indexOf('高-改善-sweep') < titles.indexOf('低-種類なし-sweep'),
-    `種類未付与が繰り上がっている: ${titles.join(' > ')}`,
+    titles.indexOf('高-未分類') < titles.indexOf('中-改善'),
+    `tier 順が壊れている: ${titles.join(' > ')}`,
   );
 });
 
-test('不具合を除けば tier 順（高→中→低）を保つ', () => {
-  const r = pickTasks(parseBacklog(sample), { limit: 5 });
+test('不具合を除けば tier 順（高→中）を保つ', () => {
+  const r = pickTasks(parseBacklog(sample), { limit: 9 });
   const nonDefect = r.run.filter((c) => c.kind !== '不具合').map((c) => c.tier);
-  assert.deepEqual(nonDefect, ['high', 'mid', 'low']);
+  assert.deepEqual(nonDefect, ['high', 'high', 'mid']);
 });
 
 test('defects は limit に影響されず全件返る', () => {
   const r = pickTasks(parseBacklog(sample), { limit: 1 });
   assert.equal(r.defects.length, 1);
-  assert.deepEqual(r.sunkDefects.map((c) => c.title), ['低-不具合-sweep']);
+  assert.deepEqual(r.sunkDefects.map((c) => c.title), ['低-不具合']);
 });
 
-test('分類待ちは欠けている token を missing で返す', () => {
-  const r = pickTasks(parseBacklog(sample), { limit: 5, classifyLimit: 9 });
+test('分類待ちは [種類:] 欠けを missing で返す', () => {
+  const r = pickTasks(parseBacklog(sample), { limit: 9, classifyLimit: 9 });
   const byTitle = Object.fromEntries(r.classify.map((c) => [c.title, c.missing]));
-  assert.deepEqual(byTitle['高-未分類'], ['実行', '種類']);
-  assert.deepEqual(byTitle['低-種類なし-sweep'], ['種類']);
-  assert.equal(byTitle['高-改善-sweep'], undefined, '揃っているカードが分類キューに載っている');
+  assert.deepEqual(byTitle['高-未分類'], ['種類']);
+  assert.equal(byTitle['高-改善A'], undefined, '揃っているカードが分類キューに載っている');
+  assert.equal(r.needsTagTotal, 1);
 });
 
-test('unclassified バケットは executor だけで決まる（種類で動かない＝分割を保つ）', () => {
-  const r = pickTasks(parseBacklog(sample), { limit: 5, classifyLimit: 9 });
-  assert.equal(r.unclassifiedTotal, 1, 'kind 欠けが unclassified に混ざっている');
-  assert.equal(r.needsTagTotal, 2);
-  assert.equal(r.partitionOk, true);
-});
-
-test('executor 未付与は分類待ちへ回し、除外は理由別に数える', () => {
-  const r = pickTasks(parseBacklog(sample), { limit: 5, classifyLimit: 9 });
-  assert.ok(r.classify.some((c) => c.title === '高-未分類'));
-  assert.equal(r.excludedTotal, 1);
-  assert.deepEqual(r.excludedBy, { 'ユーザー': 1 });
-});
-
-test('SELF_EXECUTABLE は sweep と 機械 のみ（外向き権限を勝手に広げない）', () => {
-  assert.deepEqual([...SELF_EXECUTABLE].sort(), ['sweep', '機械'].sort());
-});
-
-// 2026-08-18: excluded に hold フィルタが無く、hold+非self が excludedTotal と holdTotal に
-// 二重計上され、hold+executor無しはどのバケットにも入らなかった（実 backlog で 41+0+57=98≠99）。
-// 「実行可能 N 件」を信じて回す運用なので、合計が合わない状態を作らせない。
 const holdSample = [
   '## 🔴 高',
-  '### 高-sweep', 'タグ: [収益化] [実行:sweep]', '',
+  '### 高-A', 'タグ: [収益化]', '',
   '## 🟣 判断待ち',
-  '### 判断-self', 'タグ: [収益化] [実行:sweep]', '',
-  '### 判断-非self', 'タグ: [収益化] [実行:対話]', '',
+  '### 判断-A', 'タグ: [収益化] [種類:意思決定]', '',
+  '### 判断-B', 'タグ: [収益化]', '',
   '### 判断-無印', 'タグ: [収益化]', '',
 ].join('\n');
 
-test('4 バケットは総数の真の分割（hold の二重計上・取りこぼしを禁じる）', () => {
+test('3 バケット（実行候補/判断待ち/進行中）は総数の真の分割', () => {
   const r = pickTasks(parseBacklog(holdSample), { limit: 5, classifyLimit: 5 });
   assert.equal(r.holdTotal, 3);
-  assert.equal(r.excludedTotal, 0, 'hold の非self が excluded に二重計上されている');
   assert.equal(r.runnableTotal, 1);
-  assert.equal(r.unclassifiedTotal, 0);
-  assert.equal(r.runnableTotal + r.unclassifiedTotal + r.excludedTotal + r.holdTotal, r.total);
+  assert.equal(r.wipTotal, 0);
+  assert.equal(r.runnableTotal + r.holdTotal + r.wipTotal, r.total);
   assert.equal(r.partitionOk, true);
 });
 
-test('実 backlog でも 4 バケットが総数を分割する', () => {
+// DN-0093 批判的レビュー課題3: [進行中] を選定器が除外せず、複数セッション・Codex との
+// 同時実行防止が機能していなかった。wip は hold と同じく自動選定バケットから外す。
+const wipSample = [
+  '## 🔴 高',
+  '### 高-A', 'タグ: [収益化]', '',
+  '### 高-進行中A', 'タグ: [収益化] [進行中]', '',
+  '### 高-進行中B', 'タグ: [収益化] [種類:改善] [進行中]', '',
+].join('\n');
+
+test('[進行中] は自動選定しない（wip 優先で除外）', () => {
+  const r = pickTasks(parseBacklog(wipSample), { limit: 5 });
+  assert.equal(r.wipTotal, 2);
+  assert.ok(!r.run.some((c) => c.wip));
+  assert.ok(!r.wip.some((c) => c.title === '高-A'));
+  assert.equal(r.runnableTotal, 1);
+  assert.equal(r.runnableTotal + r.holdTotal + r.wipTotal, r.total);
+  assert.equal(r.partitionOk, true);
+});
+
+test('実 backlog でも 3 バケットが総数を分割する', () => {
   const text = readFileSync(join(ROOT, '.claude/todo/backlog.md'), 'utf8');
   const r = pickTasks(parseBacklog(text), { limit: 2, classifyLimit: 2 });
   assert.equal(
-    r.runnableTotal + r.unclassifiedTotal + r.excludedTotal + r.holdTotal,
+    r.runnableTotal + r.holdTotal + r.wipTotal,
     r.total,
-    `内訳が総数と合わない: ${r.runnableTotal}+${r.unclassifiedTotal}+${r.excludedTotal}+${r.holdTotal} ≠ ${r.total}`,
+    `内訳が総数と合わない: ${r.runnableTotal}+${r.holdTotal}+${r.wipTotal} ≠ ${r.total}`,
   );
   assert.equal(r.partitionOk, true);
 });
@@ -286,10 +282,10 @@ test('実 backlog に 4 つの tier セクションがすべて存在する', ()
 // ── v3-unified 拡張（stats47 と共通スキーマ。正典 .claude/knowledge/reference/todo-standards.md）──
 
 test('[進行中] は wip フラグになり category に化けない', () => {
-  const t = parseTagLine('[収益化] [進行中] [実行:sweep]');
+  const t = parseTagLine('[収益化] [進行中] [種類:改善]');
   assert.equal(t.wip, true);
   assert.equal(t.category, '収益化');
-  assert.equal(t.executor, 'sweep');
+  assert.equal(t.kind, '改善');
 });
 
 test('[期日:] は due として読む（未知キーに落ちない）', () => {

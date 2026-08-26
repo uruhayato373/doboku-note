@@ -1,3 +1,10 @@
+---
+taskId: DN-0101
+type: implementation-plan
+createdAt: 2026-08-22
+deleteOnComplete: true
+---
+
 # DN-0101 note L1/L2・サイト→note意味導線の再編
 
 ## 目的

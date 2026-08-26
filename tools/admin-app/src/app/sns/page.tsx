@@ -35,7 +35,7 @@ export default async function SnsBoardPage() {
         sub="読み取り専用 · content/sns/{schedule.json, instagram/**/posted.json, x/draft/**/status.json}"
       />
 
-      <div className="card">
+      <div className="card" id="instagram">
         <h2>
           Instagram 進捗
           <span className="sub">いずれか投稿済み {ig.totalDone} / {ig.total}</span>
@@ -68,7 +68,7 @@ export default async function SnsBoardPage() {
         </div>
       </div>
 
-      <div className="card">
+      <div className="card" id="x">
         <h2>
           X ドラフト
           <span className="sub">

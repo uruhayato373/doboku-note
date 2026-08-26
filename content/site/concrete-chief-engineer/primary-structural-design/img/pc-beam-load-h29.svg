@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 350" style="max-width:480px;width:100%" role="img" aria-label="図1: PC鋼棒を内蔵した梁の側面図と断面図。中央上部からの荷重、A点(梁上縁)・B点(PC鋼棒位置)を明示。図2: 荷重と載荷点変位の関係を示すグラフ。ひび割れ発生点まで直線的に上昇し、その後傾きが変わって上昇する折れ線"
+     >
+  <rect x="40" y="55" width="280" height="90" fill="none" stroke="#222" stroke-width="1.5"/>
+  <line x1="60" y1="100" x2="300" y2="100" stroke="#8a8a8a" stroke-width="4"/>
+  <text x="330" y="75" font-family="sans-serif" font-size="12" fill="#222">PC鋼棒</text>
+  <line x1="180" y1="20" x2="180" y2="53" stroke="#222" stroke-width="2" marker-end="url(#pcba)"/>
+  <defs><marker id="pcba" viewBox="0 0 10 10" refX="8" refY="8" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+  <text x="190" y="18" font-family="sans-serif" font-size="12" fill="#222">荷重</text>
+  <line x1="180" y1="55" x2="180" y2="145" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="150" y="70" font-family="sans-serif" font-size="12" fill="#222">A点</text>
+  <text x="150" y="118" font-family="sans-serif" font-size="12" fill="#222">B点</text>
+  <path d="M60 155 L50 170 L70 170 Z" fill="none" stroke="#222" stroke-width="1.5"/>
+  <path d="M300 155 L290 170 L310 170 Z" fill="none" stroke="#222" stroke-width="1.5"/>
+  <text x="180" y="200" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">図1</text>
+  <rect x="380" y="55" width="70" height="90" fill="none" stroke="#222" stroke-width="1.5"/>
+  <circle cx="415" cy="120" r="5" fill="#222"/>
+  <text x="415" y="30" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">PC鋼棒</text>
+  <text x="415" y="45" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">(断面)</text>
+  <line x1="60" y1="330" x2="380" y2="330" stroke="#222" stroke-width="1.5"/>
+  <line x1="60" y1="330" x2="60" y2="240" stroke="#222" stroke-width="1.5"/>
+  <text x="220" y="345" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">載荷点変位</text>
+  <text x="30" y="245" font-family="sans-serif" font-size="12" fill="#222">荷重</text>
+  <path d="M60 330 L90 310 L110 295 L130 285" fill="none" stroke="#222" stroke-width="1.6"/>
+  <path d="M110 295 L95 320" fill="none" stroke="#222" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <path d="M130 285 L280 250" fill="none" stroke="#222" stroke-width="1.6"/>
+  <circle cx="60" cy="330" r="3.5" fill="#222"/>
+  <circle cx="90" cy="310" r="3.5" fill="#222"/>
+  <circle cx="110" cy="295" r="3.5" fill="#222"/>
+  <circle cx="130" cy="285" r="3.5" fill="#222"/>
+  <circle cx="95" cy="320" r="3.5" fill="#222"/>
+  <text x="65" y="325" font-family="sans-serif" font-size="11" fill="#222">①</text>
+  <text x="88" y="305" font-family="sans-serif" font-size="11" fill="#222">②</text>
+  <text x="115" y="291" font-family="sans-serif" font-size="11" fill="#222">③</text>
+  <text x="135" y="280" font-family="sans-serif" font-size="11" fill="#222">④</text>
+  <text x="80" y="335" font-family="sans-serif" font-size="11" fill="#222">⑤</text>
+  <text x="115" y="270" font-family="sans-serif" font-size="12" fill="#222">ひび割れ発生</text>
+  <text x="230" y="240" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">(注)</text>
+  <text x="230" y="255" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#555">線分①③と④⑤は平行</text>
+  <text x="220" y="360" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">図2</text>
+</svg>

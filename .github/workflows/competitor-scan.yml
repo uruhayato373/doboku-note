@@ -22,7 +22,7 @@ jobs:
     timeout-minutes: 45
     steps:
       - name: Checkout develop
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           ref: develop
         # fetch-depth は既定（1）。**full clone にしない**。
@@ -33,7 +33,7 @@ jobs:
         # 本 workflow は git 履歴を一切使わない（commit / pull --rebase / push のみ）。
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: "20"
           cache: "npm"
@@ -139,7 +139,7 @@ jobs:
 
       - name: Upload scan logs
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: competitor-scan-logs
           path: /tmp/competitor-*.log

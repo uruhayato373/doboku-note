@@ -244,17 +244,6 @@
     transform: translateY(-2px);
   }
 
-  /* ===== marker-underline: 文字下半分のマーカー風アンダーライン =====
-     旧実装は Underline.tsx が生の rgba(6,182,212,.3)（cyan）をインライン style で
-     持っており、テーマ切替に追従せず design-system の禁止パターンにも当たっていた。
-     accent トークン由来にしてライト/ダークとも自動追従させる。 */
-  .marker-underline {
-    background: linear-gradient(
-      transparent 60%,
-      color-mix(in srgb, var(--accent) 30%, transparent) 60%
-    );
-  }
-
   /* キーボード操作の現在位置を全UIで揃える共通フォーカス表現。
      `focus-visible` のみで発火させ、マウスクリック時の不要なリングを避ける。 */
   .focus-ring {

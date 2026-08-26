@@ -1,9 +1,8 @@
 ---
 taskId: DN-0108
-title: Windows・Mac共通のPlaywright認証永続化基盤
-status: ready
-owner: Claude Code (Sonnet)
+type: implementation-plan
 createdAt: 2026-08-21
+deleteOnComplete: true
 ---
 
 # DN-0108 Windows・Mac共通のPlaywright認証永続化基盤

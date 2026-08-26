@@ -2,7 +2,7 @@
 name: brain-publish
 description: >
   Brain（brain-market.com）へ Claude Code キット商品を Playwright で出品するスキル。カタログ
-  （src/lib/brain-products.ts＝価格/状態/URL）と listings（.claude/config/brain-listings.json＝
+  （src/lib/brain-products.ts＝価格/状態/URL）と listings（content/brain/listings.json＝
   本文/画像/有料ライン）を真実源に、ログイン済みプロファイルで Tiptap エディタへ流し込む。
   安全弁＝既定は下書きまで・公開申請は --commit 必須／販売設定はセッション状態のため価格〜申請を
   1セッションで実行／有料ラインは可視テキスト assert・確認モーダルの価格 assert 不一致なら確定しない／
@@ -22,7 +22,7 @@ Brain 商品の出品（下書き作成〜公開申請）。運用・スキー�
 
 1. **整合ゲート**: `npm run check-brain-wiring` が green であること（catalog↔listings↔dist ZIP↔配布URL位置）。
    赤ならエラー行の指示どおり SoT を直してから進む。
-2. **配布物の確認**: `.claude/config/brain/dist/<distFile>` が main に載り、
+2. **配布物の確認**: `content/brain/dist/<distFile>` が main に載り、
    `https://storage.doboku-note.com/brain/dist/<distFile>` が HTTP 200 であること
    （未アップロードなら `gh workflow run r2-brain-dist.yml` → 200 確認）。
 3. **下書き**: `node scripts/brain-publish.mjs --service <id>`
@@ -60,7 +60,7 @@ node scripts/brain-publish.mjs --service <id> --edit-url <editUrl> --commit --fo
 node scripts/brain-publish.mjs --service <id> --edit-url <editUrl> --commit --force-resubmit --replace-body [--set-category <label>]
 ```
 
-本文に**図版を挿入**するなら `--insert-figures <json>`（`[{after,image}]`）を併用。**重複防止のため必ず `--replace-body` と併用**（Brain は保存前でも画像を保持し、やり直すと重複する）。挿入ロジックは `scripts/lib/brain-figures.mjs`、図版は `.claude/config/brain/assets/figures/`。
+本文に**図版を挿入**するなら `--insert-figures <json>`（`[{after,image}]`）を併用。**重複防止のため必ず `--replace-body` と併用**（Brain は保存前でも画像を保持し、やり直すと重複する）。挿入ロジックは `scripts/lib/brain-figures.mjs`、図版は `content/brain/assets/figures/`。
 
 ```
 node scripts/brain-publish.mjs --service <id> --edit-url <editUrl> --commit --force-resubmit --replace-body --insert-figures figs.json --set-category 資格

@@ -569,8 +569,15 @@ async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, i
     const dir = dirname(abs);
     const { resolved, missing, poolSize } = resolveLocalFiles(attachedPdfs, dir, { existsSync, readdirSync, join });
     if (missing.length) {
+      // **エディタを一切触っていない段階で止まる**（[3a] emptied / [3b] pasted の前）。
+      // 汎用の中断理由にすると次回 --force-retry ゲートに掛かり、PDF を用意しても
+      // 自動では再開できなくなる（2026-08-25 に実際に詰まった）。img-settle と同じく
+      // 「保存前に止まる中断」として区別する。
+      abortReason = 'pdf-missing';
       console.error(`[FAIL] --reattach-pdf: live の添付 ${attachedPdfs.length} 件のうち ${missing.length} 件がローカルに無い → 本文を触らず中断: ${noteId}`);
       for (const m of missing) console.error(`         見つからない: ${m}（探索: ${dir} と ${dir}/pdf・候補${poolSize}件）`);
+      console.error('  復旧: R2 から取り寄せる（npm run asset-hydrate）か、spec から再生成する');
+      console.error(`         node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/<magazine>.json`);
       return false;
     }
     toReattach = resolved;
@@ -816,9 +823,13 @@ try {
       // 2026-08-17 の一括反映では画像持ち記事の 40% がこれで落ち、--force-retry を人が
       // 付けて回す以外に前へ進めなかった（2026-08-18 是正）。
       const prevAbort = abortedEntry(parsed.noteId);
-      const prevWasSafe = prevAbort?.reason === 'img-settle';
+      // 保存前に止まる中断＝エディタに汚れを残さないので自動再試行してよい。
+      //   img-settle  … insertImages で CDN 確定待ちに失敗（本文差替後・保存前）
+      //   pdf-missing … --reattach-pdf の実体確認で失敗（**本文差替の前**・editor loaded 直後）
+      const SAFE_ABORTS = new Set(['img-settle', 'pdf-missing']);
+      const prevWasSafe = SAFE_ABORTS.has(prevAbort?.reason);
       if (prevWasSafe) {
-        console.log(`[retry] ${parsed.noteId} は前回 img-settle で中断（${prevAbort.at}）。保存前に止まっているので自動再試行する`);
+        console.log(`[retry] ${parsed.noteId} は前回 ${prevAbort.reason} で中断（${prevAbort.at}）。保存前に止まっているので自動再試行する`);
       }
       if (prevAbort && !prevWasSafe && !FORCE_RETRY) {
         console.error(`[SKIP] ${parsed.noteId} は前回中断している（${prevAbort.at}: ${prevAbort.reason}）`);

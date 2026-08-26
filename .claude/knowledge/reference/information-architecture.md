@@ -60,6 +60,7 @@ content/
   coconala/blog/ ココナラブログ
   sns/          instagram / x / youtube の制作物
   kindle/       Kindle 非公開原稿（Web 配信対象ではない）
+  brain/        Brain 販売投入本文・販売画像・配布 ZIP（価格・status・URL は src/lib/brain-products.ts）
   sources/      制作の根拠となる入力資料（原典 PDF・OCR 入力）
 ```
 
@@ -95,6 +96,20 @@ content/
 5. **未完了タスクか** → `.claude/todo/backlog.md`（ID は `DN-####`）
 6. **機械が読む状態・設定か** → `.claude/state/` / `.claude/config/`
 7. 上記いずれでもない一時メモは作らない（`.tmp/` 配下のみ）
+
+### 具体例: Brain（1 商品が 4 領域にまたがる場合）
+
+同じ Brain 商品でも、情報の性質ごとに正規配置は分かれる（DN-0103 Phase 03）。
+
+| 情報 | 領域 | 場所 |
+|---|---|---|
+| 販売投入本文・販売画像・配布 ZIP | Publishable Content | `content/brain/` |
+| 価格・status・URL（機械可読 SoT） | Application / Tooling | `src/lib/brain-products.ts` |
+| 商品企画・検証・バックテスト記録 | Human Documentation | `docs/products/brain-*/` |
+| 出品運用フロー・安全弁・Brain UI のクセ | Agent Operations（Knowledge） | `.claude/knowledge/reference/brain-operations.md` |
+| アカウント・認証設定 | Agent Operations（Runtime） | `.claude/config/brain-account.json` |
+
+「1 商品だから 1 か所にまとめる」と早合点しない。**画面（admin `/content/brain`）は複数 SoT を横断表示してよいが、ファイルは画面都合で複製しない**。
 
 ## docs/ と .claude/todo の関係（2026-08-18 制定）
 
@@ -159,8 +174,17 @@ content/
 >
 > 起票は `scripts/report-automation-failure.mjs` に集約（重複防止＝同 channel の open Issue が
 > あれば新規作成せずコメント追記／**クローズは人間**＝復旧の実体検証を挟む）。
-> 現在の起票元: `weekly-review-guard.yml`（記録層の沈黙）・`index-coverage.yml`（閾値の無条件異常）・
-> クラウドルーティン `doboku-note GSC auto review`（実行時の【要確認】）。
+> 現在の起票元: `ci.yml`（**Pre-merge check が赤**・2026-08-24 追加）・`uptime-ping.yml`（SSR 健全性の失敗・同）・
+> `weekly-review-guard.yml`（記録層の沈黙／**重要 workflow が赤いまま・動いていない**／**quality-audit の report 区分 FAIL**・同）・
+> `index-coverage.yml`（閾値の無条件異常）・クラウドルーティン `doboku-note GSC auto review`（実行時の【要確認】）。
+>
+> **2026-08-24 の実査**: それまで `ci.yml` は起票元に含まれておらず、「CI が赤い」ことを読む機械・スキル・
+> ダッシュボード・週次レビューがリポジトリ内に 1 つも無かった。develop の Pre-merge check が
+> 24 連続赤でも 2 日気づかれず、発見は毎回偶然だった。`uptime-ping.yml` は doc だけが
+> automation-failure と書いており、実体は廃止済み `task-queue.json` への append で**どこにも届いていなかった**。
+> branch protection は採用しない（CI bot が develop へ直 push する設計と main の ff 昇格を壊すため）。
+> 代わりに ①失敗時の即時起票 ②週次 watchdog（`check-workflow-health`＝最後の success からの経過日数と
+> 連続失敗数）の 2 段で担保する。
 
 ディレクトリ: `.claude/todo/`（2026-08-18 に `docs/todo/` から移設）<!-- doc-ref:ignore -->
 

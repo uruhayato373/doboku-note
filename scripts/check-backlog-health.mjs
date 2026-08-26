@@ -15,10 +15,14 @@
  *   S4 [種類:定期] の存在＝backlog の役割違反（monthly/weekly か check-*-due へ）
  *   S5 [起票:] から N 日超（既定 90）／[起票:] 欠落
  *   S6 カテゴリ別名の残数（baseline の返済メーター）
- *   S7 sweep 到達不能率（executor 別 × [検証:] の有無＝陳腐化が永久に検出されない枚数）
+ *   S7 検証ゲート欠落（不具合/改善なのに [検証:] が無い＝完了を機械で判定できない枚数。
+ *      旧「sweep 到達不能率」は [実行:] 軸の廃止〔2026-08-26〕で概念ごと消滅し再定義）
  *   S8 重複候補ペア（本文が共有する固有トークンが k 個以上一致）
  *   S9 .claude/todo/ の 4 層以外のファイル（影のバックログ）
  *   S10 ID の再利用（一度消した DN-#### が別のタスクとして復活している）
+ *   S11 実績コミット後にカード本文が未更新（DN-#### を件名に含む直近コミットより
+ *       カード全体の最終編集の方が古い＝作業はコミット済みなのに「残」が追随していない）
+ *   S12 完了 prose の蓄積（本文に「済み」「完了し」等の完了報告表現が閾値以上＝TRIM 候補）
  *
  * Usage:
  *   node scripts/check-backlog-health.mjs           人間向け
@@ -34,7 +38,6 @@ import { fileURLToPath } from 'node:url';
 import {
   parseBacklog,
   KINDS,
-  SELF_EXECUTABLE,
   CANONICAL_CATEGORIES,
   TODO_LAYER_FILES,
 } from './lib/backlog-lib.mjs';
@@ -54,14 +57,34 @@ const DAYS = (() => {
 })();
 
 /**
+ * リポジトリのどこにでも出てくる置き場の入口。**2 セグメントで終わるならカードの固有性を
+ * 何も語らない**ので署名から外す（`src/lib` は 100 枚近いカードが書く）。
+ * 3 セグメント以上・拡張子つきは残す＝そこまで具体なら偶然一致しない。
+ */
+const GENERIC_ROOTS = new Set([
+  'claude', 'docs', 'src', 'content', 'scripts', 'tools', 'public', 'tests',
+  'state', 'config', 'skills', 'agents', 'knowledge', 'todo', 'plans', 'lib',
+  'app', 'components', 'note', 'site', 'sns', 'query', 'page',
+]);
+
+/**
  * 本文から「固有トークン」を抜く。スクリプト名・パス・noteId・npm script 名だけを採り、
  * 裸の数値は採らない（年・価格・件数は別作業でも普通に一致するのでペアがノイズになる。
  * 2026-08-18 の初回実行で「2026 / 980 / 800」の一致だけで無関係な 2 枚が候補に出た）。
+ *
+ * 2026-08-25: 同じ理由で**一般的な置き場の入口**（`src/lib` `claude/state` `docs/strategy`
+ * `query/page` …）も外した。これだけで DN-0106↔DN-0107（GSC の取得課題 ↔ index coverage の
+ * 回復プログラム）と DN-0114↔DN-0115（法人向け再包装 ↔ PWA 買い切り導線）という
+ * **中身が全く違う 2 ペア**が候補に居座り、S8 が 0 にならない状態が続いていた。
  */
 export function signatureTokens(body) {
   const out = new Set();
   for (const m of body.matchAll(/[a-z0-9-]+\.(?:mjs|ts|json)|[a-z][a-z0-9-]*\/[a-z0-9-]+|\bn[0-9a-f]{12}\b|\bmbe?[0-9a-f]{10,}\b/gi)) {
-    out.add(m[0]);
+    const t = m[0];
+    // `a/b` の形で a が一般ルート、かつ拡張子を持たない＝置き場の入口だけ。署名にしない。
+    const seg = t.split('/');
+    if (seg.length === 2 && GENERIC_ROOTS.has(seg[0].toLowerCase()) && !/\.[a-z]+$/i.test(t)) continue;
+    out.add(t);
   }
   return out;
 }
@@ -103,6 +126,8 @@ const DUE_RULES = [
   { id: 'S8', why: '重複候補 3 ペア以上', hit: (r) => r.duplicateTotal >= 3 },
   { id: 'S9', why: '.claude/todo に 4 層以外のファイル', hit: (r) => r.strayTodoFiles.length >= 1 },
   { id: 'S10', why: 'ID の再利用（過去の参照が別タスクを指す）', hit: (r) => (r.reusedIds ?? []).length >= 1 },
+  { id: 'S11', why: '実績コミット後にカード本文が未更新', hit: (r) => (r.staleAfterCommitTotal ?? 0) >= 2 },
+  { id: 'S12', why: '完了 prose 蓄積（TRIM 候補）3 件以上', hit: (r) => (r.completionProseHeavy?.length ?? 0) >= 3 },
 ];
 
 /** JST の YYYY-MM-DD（UTC 実行で前日付になる事故を避ける・check-jst-date と同じ規律）。 */
@@ -170,6 +195,69 @@ export function detectReuse(raw) {
   return out;
 }
 
+/**
+ * `git log --format=%ct\t%s` の生テキスト → DN-#### ごとの最新コミット unix 秒。
+ * commit 件名の DN-#### は必ずしも backlog.md に触れるとは限らない（scripts/*.mjs の
+ * 実装 commit がそう）ので、対象は全 commit（backlog.md への差分に限らない）。
+ */
+export function parseCommitTimesByCardId(raw) {
+  const out = new Map();
+  for (const l of raw.split('\n')) {
+    const tab = l.indexOf('\t');
+    if (tab < 0) continue;
+    const ct = Number(l.slice(0, tab));
+    const ids = l.slice(tab + 1).match(/DN-\d{4}/g);
+    if (!ids || !Number.isFinite(ct)) continue;
+    for (const id of new Set(ids)) {
+      if (!out.has(id) || out.get(id) < ct) out.set(id, ct);
+    }
+  }
+  return out;
+}
+
+/** カード全体（見出し行〜本文末）で最も新しい blame の unix 秒（=最大値）。1 行も拾えなければ null。 */
+function cardLastTouchedSec(c, blameSec) {
+  let max = null;
+  for (let ln = c.startLine; ln <= c.endLine; ln += 1) {
+    const s = blameSec.get(ln);
+    if (s != null && (max == null || s > max)) max = s;
+  }
+  return max;
+}
+
+/**
+ * DN-#### を件名に含む直近コミットと、そのカード本文の突き合わせ（2026-08-26）。
+ * DN-0093 で「claim/release/complete の共通 CLI を実装する」commit が push されたのに、
+ * カードの「残」欄は旧内容（未実装）のまま残り続けていた実例の再発防止。
+ *
+ * 秒単位で比較する（日単位だと同日内の「実装commit→カード未更新」が判定できない。
+ * 2026-08-26 実測: DN-0093 は同日午前中に実装commitがあったが日単位比較では検出できなかった）。
+ * bufferSec は同一commit内での blame/commit-time の秒単位の順序ゆれ（ほぼ同時編集）を
+ * ノイズとして除くための猶予（既定 1 時間）。
+ */
+export function computeStaleAfterCommit(cards, commitTimeById, blameSec, bufferSec = 3600) {
+  return cards
+    .filter((c) => c.id && commitTimeById.has(c.id))
+    .map((c) => ({ card: c, commitSec: commitTimeById.get(c.id), cardSec: cardLastTouchedSec(c, blameSec) }))
+    // カード最終編集がコミットより buffer 以上前＝実績はコミット済みなのに本文が追随していない
+    .filter((x) => x.cardSec != null && x.commitSec - x.cardSec > bufferSec)
+    .map((x) => ({ line: x.card.line, id: x.card.id, title: x.card.title, hoursBehind: Math.round((x.commitSec - x.cardSec) / 3600) }))
+    .sort((a, b) => b.hoursBehind - a.hoursBehind);
+}
+
+/**
+ * 完了 prose の蓄積（2026-08-26）。check-backlog-schema.mjs の DONE_PATTERNS は staged 新規行の
+ * ハードブロックだが、既存カードが少しずつ「〜済み」を積み増して膨らむ形は staged 検査を
+ * すり抜ける（1 行ずつは違反にならない）。閾値以上ならタイトルと実態が乖離した TRIM 候補として拾う。
+ */
+const COMPLETION_PROSE_RE = /済み|完了し/g;
+export function computeCompletionProseHeavy(cards, threshold = 5) {
+  return cards
+    .map((c) => ({ line: c.line, title: c.title, count: (c.body.match(COMPLETION_PROSE_RE) || []).length }))
+    .filter((c) => c.count >= threshold)
+    .sort((a, b) => b.count - a.count);
+}
+
 function main() {
 const backlogPath = join(ROOT, '.claude/todo/backlog.md');
 if (!existsSync(backlogPath)) {
@@ -210,8 +298,12 @@ function historyTruncated() {
 }
 const HISTORY_TRUNCATED = historyTruncated();
 
-function blameDays() {
-  const out = new Map(); // line(1-based) -> 経過日数
+/**
+ * line(1-based) -> author-time の unix 秒。git blame は 1 回しか呼ばない
+ * （S5 の日単位 blameAge と S11 の秒単位比較の両方をこの 1 回の結果から作る）。
+ */
+function blameSeconds() {
+  const out = new Map();
   if (HISTORY_TRUNCATED) { out.degraded = true; return out; }
   // **必ず時間で打ち切る**。このリポジトリは partial clone（blob:none）なので、
   // 大量の同期直後などキャッシュがコールドだと blame が各リビジョンの blob をリモートへ
@@ -227,13 +319,21 @@ function blameDays() {
     for (const l of raw.split(/\r?\n/)) {
       if (l.startsWith("author-time ")) {
         ln += 1;
-        out.set(ln, Math.floor((Date.now() / 1000 - Number(l.slice(12))) / 86400));
+        out.set(ln, Number(l.slice(12)));
       }
     }
   } catch {
     // git が無い／遅すぎる環境では補完しない（タグのある分だけで判定する）
     out.degraded = true;
   }
+  return out;
+}
+/** S5 用：line -> 経過日数（日単位）。blameSeconds() から導出する。 */
+function daysFromSeconds(secMap) {
+  const out = new Map();
+  if (secMap.degraded) { out.degraded = true; return out; }
+  const nowSec = Date.now() / 1000;
+  for (const [ln, sec] of secMap) out.set(ln, Math.floor((nowSec - sec) / 86400));
   return out;
 }
 function reusedIds() {
@@ -252,7 +352,8 @@ function reusedIds() {
   }
 }
 
-const blameAge = blameDays();
+const blameSec = blameSeconds();
+const blameAge = daysFromSeconds(blameSec);
 /** カードの経過日数。[起票:] があればそれ、無ければ blame（最終更新）で代替する。 */
 const ageOf = (c) => (c.filed ? daysSince(c.filed) : blameAge.get(c.line)) ?? null;
 
@@ -264,8 +365,15 @@ const noFiled = cards.filter((c) => !c.filed);
 const aliasCats = cards.flatMap((c) =>
   [c.category, ...(c.extraCategories ?? [])].filter((x) => x && x !== '未分類' && !CANONICAL_CATEGORIES.includes(x)),
 );
-const unreachable = cards.filter((c) => c.tier !== 'hold' && (!c.executor || !SELF_EXECUTABLE.has(c.executor)));
-const unreachableNoVerify = unreachable.filter((c) => !c.verify);
+// S7: [検証:] 欠落。旧 S7「sweep 到達不能」は [実行:] 軸廃止（2026-08-26）で概念ごと消滅した
+// （全カードが選定対象になったため）。残る有用シグナル＝「完了を機械で判定できないカード」だけを出す。
+// `[検証:]` を**期待してよいのは 不具合 / 改善 だけ**。制作は「成果物が在ること」、意思決定は
+// 「決まったこと」で完了するので、赤→緑になる npm script を指しようがない（無理に付けると
+// 常時緑の token が増えて、DN-0129 ① で 5 枚から外したのと同じ状態へ戻る）。
+const noVerify = cards.filter((c) => c.tier !== 'hold' && !c.verify);
+const GATEABLE_KINDS = new Set(['不具合', '改善']);
+const noVerifyGateable = noVerify.filter((c) => GATEABLE_KINDS.has(c.kind));
+const noVerifyInherent = noVerify.filter((c) => !GATEABLE_KINDS.has(c.kind));
 const dups = duplicateCandidates(cards);
 const strayTodo = existsSync(join(ROOT, '.claude/todo'))
   ? readdirSync(join(ROOT, '.claude/todo')).filter((f) => f.endsWith('.md') && !TODO_LAYERS.has(f))
@@ -274,6 +382,22 @@ const strayTodo = existsSync(join(ROOT, '.claude/todo'))
 const reuse = reusedIds();
 const liveIds = new Set(cards.map((c) => c.id).filter(Boolean));
 const reusedLive = reuse.filter((r) => liveIds.has(r.id));
+
+function commitTimeByCardId() {
+  if (HISTORY_TRUNCATED) { const o = new Map(); o.degraded = true; return o; }
+  try {
+    const raw = execFileSync('git', ['log', '--format=%ct\t%s', '-n', '200'], {
+      cwd: ROOT, encoding: 'utf8', timeout: 15_000, maxBuffer: 16 * 1024 * 1024,
+    });
+    return parseCommitTimesByCardId(raw);
+  } catch {
+    const o = new Map(); o.degraded = true; return o;
+  }
+}
+const commitTimeById = commitTimeByCardId();
+const s11Degraded = Boolean(blameSec.degraded) || Boolean(commitTimeById.degraded);
+const staleAfterCommit = s11Degraded ? [] : computeStaleAfterCommit(cards, commitTimeById, blameSec);
+const proseHeavy = computeCompletionProseHeavy(cards);
 
 const report = {
   cards: cards.length,
@@ -287,8 +411,9 @@ const report = {
   stale: stale.map((c) => ({ line: c.line, age: c.age, title: c.title })),
   noFiled: noFiled.length,
   aliasCategories: aliasCats.length,
-  unreachableTotal: unreachable.length,
-  unreachableNoVerify: unreachableNoVerify.length,
+  noVerifyTotal: noVerify.length,
+  noVerifyGateable: noVerifyGateable.map((c) => ({ line: c.line, kind: c.kind, title: c.title })),
+  noVerifyInherent: noVerifyInherent.length,
   duplicateTotal: dups.length,
   duplicateCandidates: dups.slice(0, 10).map((p) => ({
     a: { line: p.a.line, title: p.a.title },
@@ -297,6 +422,9 @@ const report = {
   })),
   strayTodoFiles: strayTodo,
   reusedIds: reuse.degraded ? null : reusedLive.map((r) => ({ id: r.id, removedAt: r.removedAt, readdedAt: r.readdedAt })),
+  staleAfterCommitTotal: s11Degraded ? null : staleAfterCommit.length,
+  staleAfterCommit,
+  completionProseHeavy: proseHeavy,
 };
 
 if (RECORD) {
@@ -345,7 +473,15 @@ if (blameAge.degraded) console.log(HISTORY_TRUNCATED
   : `      ※ git blame が 30 秒で完了せず鮮度を補完できていない（[起票:] のある ${cards.length - noFiled.length} 枚だけで判定）`);
 for (const c of stale.slice(0, 8)) console.log(`      L${c.line} ${c.age}日 ${c.title}`);
 line('S6 語彙外カテゴリの残', aliasCats.length);
-line('S7 sweep 到達不能', `${unreachable.length} / ${cards.length}（うち [検証:] 無し ${unreachableNoVerify.length}＝陳腐化が永久に検出されない）`);
+// **0 にする対象ではない**（backlog.md「[検証:] を付けない判断」）。付けられる script が
+// 実在するカードだけを名指しして、探す手間を省くための数として出す。
+line('S7 検証ゲート欠落', `${noVerify.length} / ${cards.length}`
+  + `（不具合/改善 ${noVerifyGateable.length}〔gate が実在するなら付ける〕`
+  + ` ＋ 制作/意思決定 ${noVerifyInherent.length}〔原則付かない〕）`);
+for (const c of noVerifyGateable.slice(0, 8)) {
+  console.log(`      候補: L${c.line} ${c.kind} ${c.title.slice(0, 52)}`);
+}
+if (noVerifyGateable.length > 8) console.log(`      …ほか ${noVerifyGateable.length - 8} 件`);
 line('S8 重複候補ペア', dups.length);
 for (const p of dups.slice(0, 5)) console.log(`      L${p.a.line} ↔ L${p.b.line}  共有: ${p.shared.slice(0, 4).join(' ')}`);
 line('S9 .claude/todo の 4 層以外', strayTodo.length ? strayTodo.join(' ') : '0');
@@ -353,6 +489,10 @@ line('S10 ID の再利用（現役カード）', reuse.degraded ? (HISTORY_TRUNC
 for (const r of reusedLive.slice(0, 8)) {
   console.log(`      ${r.id}  削除 ${r.removedAt.slice(0, 9)} → 別タスクとして再登場 ${r.readdedAt.slice(0, 9)}`);
 }
+line('S11 実績コミット後に本文未更新', s11Degraded ? (HISTORY_TRUNCATED ? '判定不能（git 履歴が切り詰められている）' : '判定不能（blame/log を読めない）') : staleAfterCommit.length);
+for (const c of staleAfterCommit.slice(0, 8)) console.log(`      L${c.line} ${c.id} ${Math.round(c.hoursBehind / 24 * 10) / 10}日遅れ ${c.title}`);
+line('S12 完了 prose 蓄積（TRIM 候補・本文 5 件以上）', proseHeavy.length);
+for (const c of proseHeavy.slice(0, 8)) console.log(`      L${c.line} ${c.count}件 ${c.title}`);
 console.log('\n判定と適用は /backlog-sweep --audit（backlog-curator）が行う。ここは候補の列挙のみ。');
 process.exit(0);
 }

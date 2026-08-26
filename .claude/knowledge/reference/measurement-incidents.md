@@ -324,11 +324,51 @@ EXP-005 の作業報告で、**未検証の理由を 2 つとも誤って述べ�
 - **エラーコードを原因として引用しない。** サーバの応答は症状。自環境（creds / proxy / ブランチ / 権限）を先に疑う。
 - **ローカルで計測 API が 429 / 403 / 503 を返したら、まず自環境を疑う**（→ 2026-06-05 の恒久ルール「計測は CI/CD 供給が正」。ローカル live fetch はそもそも正規手順ではない）。CI 側は健全な可能性が高いので、「計測基盤の障害」と報告しない。
 
+### 2026-08-25: 「会社 PC は外部 API 遮断」の一部は SDK 側の問題だった（R2 実測）
+
+「会社 PC はプロキシで外部 API が遮断される」を根拠に R2 もローカル不可と扱っていたが、**R2 は通る**。
+
+```
+curl https://<account>.r2.cloudflarestorage.com/
+  HTTP/1.0 200 Connection established     ← プロキシが CONNECT トンネルを張っている
+  HTTP/1.1 400 Bad Request
+  Server: cloudflare
+  <Error><Code>InvalidArgument</Code><Message>Authorization</Message></Error>
+```
+
+400 は「署名の無いリクエストを R2 が拒否した」＝**本物の R2 に届いている**。接続 4.6ms。
+
+それでも SDK 経由だけ失敗していたのは、**AWS SDK v3 が `HTTPS_PROXY` を自動では見ない**ため。
+直接 egress が塞がれた環境では SDK のリクエストだけが落ちる。`makeS3()`
+（`scripts/lib/asset-storage.mjs`）に `NodeHttpHandler` + `HttpsProxyAgent` を渡すよう修正した。
+
+**教訓**: 「プロキシで遮断」と記録するときは、**遮断されているのがネットワークなのか、
+クライアント実装がプロキシを使えていないだけなのかを分ける**。前者は端末を変えるしかないが、
+後者はコードで直る。`curl` が通って SDK が通らないなら後者を疑う。
+
+なお R2 への書き込み経路は、credential をローカルへ置かない方針のまま
+`asset-inbox-push.mjs` → `asset-inbox.yml`（CI）で行う（asset-storage-policy §2）。
+
 ### 実務上の要注意事実: 定期ジョブの実行ブランチは workflow ごとに違う
 
 > **この節は 2026-07-27 に訂正済み。** 初版では「計測 5 ジョブは全て `main` で走る」と書いたが、**2 件が誤り**だった（`link-audit` / `verify-yt-status` は `ref: develop` 指定で develop のコードが走る）。「結果を `develop` に push している」ことから実行ブランチを推論し、各 yml の `with: ref:` を確認しなかったため。**再発防止を書いたこの記事自体が、同じ「未確認の断定」で汚染されていた**。以下は全 yml を実読して作成した表。
 
 **`push 先` と `実行ブランチ` は別物**。checkout に `ref:` があればそのブランチ、無ければデフォルトブランチ（`main`）のコードが走る。
+
+> [!important] `workflow_dispatch` は **default branch に無いと起動すらできない**（2026-08-25 実測）
+> cron の「main のコードが走る」より一段強い制約がある。新しく `workflow_dispatch` の workflow を
+> 足して develop へ push しても、**API/UI からトリガーできない**:
+>
+> ```
+> HTTP 404: workflow asset-hydrate.yml not found on the default branch
+> ```
+>
+> `--ref develop` を付けても同じ。GitHub は「その名前の workflow が default branch に存在するか」で
+> 起動可否を決め、`ref` は**実行するコードの選択**にしか使わない。既存 workflow の中身を直した場合は
+> develop で dispatch できる（名前は main に在るため）が、**新規追加は main へ載るまで死んでいる**。
+>
+> つまり「develop に置いたから使える」は成り立たない。新規の dispatch workflow を作ったら、
+> 使えるようになるのは `/deploy` で main へ昇格した後。
 
 | workflow | cron | **実行ブランチ** | push 先 | 対象 |
 |---|---|---|---|---|
@@ -385,6 +425,35 @@ W30 週次レビューで homepage の PSI を見て「Performance 59 / LCP 10,1
 - `fetch-psi-data.mjs` が PSI の `audits['largest-contentful-paint-element']` を保存するよう修正（従来は破棄していたため、原因特定に Playwright での別計測が必要だった）
 - `scripts/check-lcp-image-hints.mjs` を新設し pre-commit ゲート化（下記の実害側の再発防止）
 - `weekly-review` の Agent C2 を本原則に整合
+
+### 追記 2026-08-25: field が消えると、この原則がそのまま「常時緑」に化ける（DN-0127）
+
+field-primary にしたことで、**field が供給されなくなった瞬間にゲートが判定材料を失う**という
+裏面ができていた。`psi-threshold-check.mjs` が赤にするのは `field` / `field-category` /
+`coverage` の 3 型だけなので、field が全 null なら違反は 1 件も立たず**緑になる**。
+「実害が無い」と「判定材料が無い」の出力が同じになる ＝ §9「検査ゼロを PASS と呼ばない」の入力欠落版。
+
+観測（全 247 バッチ走査）:
+
+| 期間 | field を持つ result |
+|---|---|
+| 〜2026-07-20 | 0（CrUX 未供給） |
+| 2026-07-21 〜 08-17 | 供給あり（最終 08-17 は 22/22） |
+| **2026-08-18 〜** | **0/22 が 12 バッチ連続** |
+
+`final_url` は出続けスキーマ（keys 9）も変わっていないので、取得とパースは動いている。
+8/17 の 22/22 から翌日 0/22 へ**全 URL 一斉に**落ちており、個別ページのサンプル数不足では
+説明しにくい。CrUX 側の供給停止として扱う。会社 PC はプロキシで PSI API を直接叩けないため
+（本ファイル冒頭の恒久ルール）、ライブ再現での確定は CI 側に委ねる。
+
+**対策**: `min_field_coverage`（既定 1）を `psi-config.json` に追加し、`primary_source=field` の
+ときに field 取得件数がこれを下回ると `field-coverage` 違反を立ててゲートを赤にする。
+レポートと stderr の両方に `field(CrUX) 取得: N/M件` を**常に**出す。
+これで「緑 ＝ 実害なし」と「赤 ＝ 判定不能」が区別できる。
+
+**まだ決めていないこと**: 供給が恒久的に戻らないなら `primary_source` を lab 中央値ベースへ
+書き換える必要がある。7 日の欠測では判断せず、赤を出したまま観測を続ける。書き換えるときは
+本節の判定原則そのものを改訂する。
 
 ### 併せて判明した実害（EXP-005 の本体）
 

@@ -4,6 +4,7 @@ import { DocDetailView } from '@/components/DocDetailView';
 import { rootById } from '@/lib/document-roots';
 import { projectAnalysis } from '@/lib/project';
 import { backlogIndex } from '@/lib/todo';
+import { DOCUMENT_TYPE_LABELS, DOC_RETENTION_LABELS } from '@/lib/doc-taxonomy';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,8 +20,32 @@ export default async function DocsDetailPage({ params }: { params: Promise<{ pat
     <DocDetailView
       descriptor={rootById('docs')!}
       path={path}
-      railTop={({ file, content }) => {
-        const a = projectAnalysis(file, content);
+      headMeta={({ file, content, frontmatter }) => {
+        const a = projectAnalysis(file, content, frontmatter);
+        if (!a) return null;
+        return (
+          <div className="doc-taxonomy-row">
+            <span className="chip">{DOCUMENT_TYPE_LABELS[a.documentType]}</span>
+            {a.retention === 'temporary' && <span className="chip doc-badge-temporary">一時記録</span>}
+            {a.channelLinks.map((c) =>
+              c.href ? (
+                <Link className="chip chip-outline" href={c.href} key={c.id} title={`${c.label} のコンテンツへ`}>
+                  {c.label}
+                </Link>
+              ) : (
+                <span className="chip chip-outline" key={c.id}>{c.label}</span>
+              ),
+            )}
+            {a.taxonomyInvalidFields.length > 0 && (
+              <span className="chip" title={a.taxonomyInvalidFields.join(', ')}>
+                frontmatter 要修正: {a.taxonomyInvalidFields.join(', ')}
+              </span>
+            )}
+          </div>
+        );
+      }}
+      railTop={({ file, content, frontmatter }) => {
+        const a = projectAnalysis(file, content, frontmatter);
         if (!a) return null;
         return (
           <>
@@ -58,7 +83,7 @@ export default async function DocsDetailPage({ params }: { params: Promise<{ pat
                       <Badge variant="outline">{id}</Badge>
                       <span className="project-ref-title">{ref.title}</span>
                       <span className="project-ref-meta">
-                        {[ref.kind, ref.executor, ref.due].filter(Boolean).join(' · ')}
+                        {[ref.kind, ref.due].filter(Boolean).join(' · ')}
                       </span>
                     </Link>
                   );

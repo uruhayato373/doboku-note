@@ -44,6 +44,12 @@ const TOOLS = [
     desc: "第2次検定 問題1（施工経験記述）の答案が、本番の解答欄の字数に収まるかを判定（1級・2級）。",
     tag: "判定",
   },
+  {
+    href: "/tools/concrete-time-check",
+    title: "コンクリート打込み 時間管理チェッカー",
+    desc: "外気温と練混ぜ時刻から、許容打重ね時間間隔・運搬時間の限度を時刻で表示。暑中／寒中の区分も判定。",
+    tag: "計算",
+  },
 ];
 
 export default function ToolsIndexPage() {

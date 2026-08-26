@@ -4,7 +4,7 @@
 
 ## プロジェクトコンテキスト
 
-**設計思想** — ユーザーが「ここだけで合格できる」体験を軸資格ごとに提供する試験対策ハブ。Obsidian（ステージング）→ doboku-note（プロダクション）→ PWA 過去問演習アプリ（資格別 PWA × 共通エンジン、過去問演習は iOS から移管）の流れでコンテンツを管理。収益モデルは AdSense + note 有料記事 + YouTube + PWA 過去問アプリ。詳細: `docs/project/01_戦略/02_設計思想.md`、`docs/project/01_戦略/03_事業戦略.md`、`docs/project/05_プロダクト/06_PWA過去問アプリ設計方針.md`
+**設計思想** — ユーザーが「ここだけで合格できる」体験を軸資格ごとに提供する試験対策ハブ。Obsidian（ステージング）→ doboku-note（プロダクション）→ PWA 過去問演習アプリ（資格別 PWA × 共通エンジン、過去問演習は iOS から移管）の流れでコンテンツを管理。収益モデルは note 有料記事 + YouTube + PWA 過去問アプリ。詳細: `docs/project/01_戦略/02_設計思想.md`、`docs/project/01_戦略/03_事業戦略.md`、`docs/project/05_プロダクト/06_PWA過去問アプリ設計方針.md`
 
 **技術スタック**
 
@@ -16,7 +16,6 @@
 | 図表 | SVG / PNG（R2 配信） |
 | 検索 | Pagefind (ビルド時 `out/pagefind` 生成・クライアントサイド全文検索) |
 | 分析 | Google Analytics (gtag: G-8VXJ1RL1HG) |
-| 広告 | Google AdSense (ca-pub-7995274743017484) |
 | 画像配信 | Cloudflare R2 (`storage.doboku-note.com`) |
 | ホスティング | Cloudflare Pages |
 | CI/CD | GitHub Actions → Cloudflare Pages |
@@ -56,7 +55,6 @@ npm run upload-images-r2  # 画像を R2 にアップロード
 npm run upload-sns-r2     # SNS バイナリ(reels wav/mp4)を R2 へ退避（--purge-local でローカル削除）
 npm run lint              # ESLint チェック（no-console: warn/error のみ許容）
 npm run quality:audit     # コード・記事・画像/SVGの機械チェックを横断実行→.Codex/state/quality/audit-latest.md（:ci でCI gate厳格版）
-npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→.Codex/state/sales/kdp-royalties.json（ローカル専用・読み取り専用・当月/前月のみ）
 npm run check-magazine-cta # 公開マガジンがサイトで1面以上CTAとして出るか（top/中間CTA/MagazineCard・quality:audit に同梱）
 npm run check-bold-rendering # 太字が実際に描画されるか（remark で実パースし text に ** が残る＝崩壊を検出・quality:audit に同梱）

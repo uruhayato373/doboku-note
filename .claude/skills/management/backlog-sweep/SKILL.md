@@ -1,7 +1,7 @@
 ---
 name: backlog-sweep
 description: >
-  .claude/todo/backlog.md からタスクを1〜2件選んで実査・実行・検証し、完了したらセクションごと削除して台帳を減らす1サイクル。実査で「既に完了していた」と分かった場合も台帳掃除として削除する。/loop で回して自走させる想定。`--audit` モードでは台帳そのものの構造（種類の混在・重複クラスタ・陳腐化）を backlog-curator に監査させ、sweep が到達できないカードを棚卸しする。今週の計画を立てる /plan-weekly（weekly.md を書く）とは別物で、こちらは backlog の実行と削除を担う。Use when user asks to [バックログを消化して, backlog を減らして, sweep を回して, バックログを棚卸しして, /backlog-sweep, /backlog-sweep --audit].
+  .claude/todo/backlog.md からタスクを1〜2件選んで実査・実行・検証し、完了したらセクションごと削除して台帳を減らす1サイクル。実査で「既に完了していた」と分かった場合も台帳掃除として削除する。/loop で回して自走させる想定。`--audit` モードでは台帳そのものの構造（種類の混在・重複クラスタ・陳腐化）を backlog-curator に監査させ、1枚単位の sweep では見えない台帳全体を棚卸しする。今週の計画を立てる /plan-weekly（weekly.md を書く）とは別物で、こちらは backlog の実行と削除を担う。Use when user asks to [バックログを消化して, backlog を減らして, sweep を回して, バックログを棚卸しして, /backlog-sweep, /backlog-sweep --audit].
 ---
 
 backlog の「実行」と「削除」を回す。タスクの選定は**スクリプトが決める**（CLAUDE.md §5・モデルに委ねない）。
@@ -39,6 +39,13 @@ npm run check-backlog-due   # 期限なら理由を表示・でなければ無�
 - **ID の再利用 ≥ 1（S10）** — 完了カードは削除するので `DN-####` は歯抜けになる。そこへ
   新しいカードが空き番を拾うと、**過去のコミットメッセージ・plan・レビューが指す ID が別物**に
   なる（2026-08-20 に DN-0096 / DN-0097 で実発生・同日 2 件）。1 件でも起きたら監査対象
+- **実績コミット後にカード本文が未更新 ≥ 2（S11）** — commit 件名に `DN-####` が登場している
+  のに、そのカード全体の最終編集（blame）が commit より古い＝作業は commit 済みなのに
+  「残」欄が旧内容のまま。DN-0093 で claim/release/complete CLI が実装・push された同日に
+  実発生（2026-08-26）
+- **完了 prose 蓄積 ≥ 3（S12）** — 本文の「済み」「完了し」等の完了報告表現が 1 枚に 5 件以上
+  溜まっている＝タイトルと残作業が乖離した TRIM 候補（DN-0013 が「死守コア2つ」の完了経緯で
+  肥大した型）
 - 月初（7 日まで）で、その月にまだ棚卸しを記録していない
 
 > [!note] S5 は現状ほぼ機能しない（2026-08-18）
@@ -50,8 +57,11 @@ npm run check-backlog-due   # 期限なら理由を表示・でなければ無�
 1. `node scripts/check-backlog-health.mjs --json` で候補シグナルを取る
 2. **親が実体を検証する**: 対象カードの `[検証:cmd]` を実走し、`git log --oneline -30` と関連 SSOT の現物値を集める（エージェントには推測でコマンドを叩かせない）
 3. tier セクションをシャードにして `backlog-curator` を**同時 3 体まで**起動（🔴 / 🟡 / 🟢+🟣）。1 体あたり 25〜35 枚
-4. 返ってきた verdict（KEEP / RETAG / TRIM / MERGE / DELETE）を**親が裁定して適用**する。エージェントは backlog.md を編集しない
-5. 適用後に `check-backlog-schema` と `check-backlog-health` を回して S2/S3/S4/S6/S9 が 0 に戻ったか確認
+4. 返ってきた verdict（KEEP / RETAG / TRIM / MERGE / DELETE / RESEED / SPLIT）を**親が裁定して適用**する。エージェントは backlog.md を編集しない
+   - **RESEED**（残作業の性質が変わった＝緊急枠組みの消滅・実行者の変化・スコープ縮小）: `node scripts/backlog-edit.mjs --delete <旧ID> --commit` で旧カードを削除 → `node scripts/backlog-edit.mjs --next-id` で採番 → 新タイトル・新 tier・新本文でカードを挿入 → `check-backlog-schema` を再走。旧 ID は欠番のまま（再利用しない＝S10 と整合）。他カードから旧 ID への相互参照があれば新 ID へ張り替える
+   - **SPLIT**（1 カード内に独立した残作業が複数）: 各残作業を `--next-id` で新規カードへ分割し、元カードは削除
+   - **RESEED は残作業を明文化できる場合のみ適用する**（できなければ KEEP に留める。「たぶん要らない」で消さない）
+5. 適用後に `check-backlog-schema` と `check-backlog-health` を回して S2/S3/S4/S6/S9/S11/S12 が 0 に戻ったか確認
 6. **実施を記録する**: `node scripts/check-backlog-health.mjs --record-audit`
    （`.claude/state/backlog/audit-log.json`。月初条件はこの記録を見るので、書かないと翌セッションから催促が続く。**回していないのに記録しない**）
 
@@ -67,7 +77,7 @@ npm run check-backlog-due   # 期限なら理由を表示・でなければ無�
 node scripts/backlog-sweep-pick.mjs --json
 ```
 
-`run[]`（実行候補）と `classify[]`（token が欠けている＝分類待ち）が返る。**`run` が空でも `unclassifiedTotal > 0` なら「タスクが無い」ではなく「分類していないから選べない」**。その場合は手順5の分類だけ行う。
+`run[]`（実行候補）と `classify[]`（`[種類:]` が欠けている＝分類待ち）が返る。🟣 と `[進行中]` 以外の全カードが候補に載る——**単独で回せるか（ユーザーの手・対話が要るか）は本文を読んで自分で判断し、回せないカードは選ばず次の候補へ進む**（旧 `[実行:]` 軸は 2026-08-26 廃止。タグに凍結した判断は陳腐化するため、選定時に再導出する）。
 
 **`run[]` の順序は「`[種類:不具合]` が第1キー・tier が第2キー」**（2026-08-18〜）。tier がもはや不具合の緊急度を表しておらず、不具合が 🟢（時期未定）に沈んでいたため、壊れているものを先に出す。`sunkDefects[]` に 🟢/🟣 の不具合が入るので、選定時に目に入る。
 
@@ -82,6 +92,11 @@ node scripts/backlog-sweep-pick.mjs --json
 - 記述と実態が食い違うが未完なら、記述を実態に合わせてから実行する
 
 CLAUDE.md §8「提案・推奨の前に現物を確認する（憶測で gap を断定しない）」がここに効く。
+
+**note の実査は都度プローブを書かず `node scripts/note-probe.mjs <noteId|記事パス>` を使う**
+（read-only）。DN-0003 の対象分類は `node scripts/note-republish-plan.mjs` が毎回作り直す。
+実査の結果カードを削除するときは `node scripts/backlog-edit.mjs --delete <ID> --commit`
+（CRLF 保持・check-backlog-schema 自動実行）。
 
 #### バルク編集の前に 3 件サンプル確認（2026-08-18 新設）
 
@@ -116,7 +131,7 @@ CLAUDE.md §8「提案・推奨の前に現物を確認する（憶測で gap �
 
 ### 5. 分類（`classify[]` の消化）
 
-`classify[]` の `missing` が欠けている token を示す（`実行` / `種類`）。実査ベースで付ける。**推測で付けない** — 判断できなければ飛ばす。
+`classify[]` の `missing` が欠けている token を示す（`種類`）。実査ベースで付ける。**推測で付けない** — 判断できなければ飛ばす。
 
 **`[種類:X]`** — 上から順に、最初に当たったものを採る（真実源は backlog.md の凡例）:
 
@@ -129,24 +144,18 @@ CLAUDE.md §8「提案・推奨の前に現物を確認する（憶測で gap �
 | `[種類:改善]` | 上のどれでもない（動いているものをより良くする） |
 
 **新規カードを起票するとき**は見出しを `### [DN-####] タイトル` にする（ID は必須・欠番は再利用しない）。
-`[種類:]` `[実行:]` `[起票:]` も同時に付ける（`check-backlog-schema --staged` が欠落を止める）。
-
-**`[実行:X]`**:
-
-| token | 意味 |
-|---|---|
-| `[実行:sweep]` | AI が単独で完了まで持っていける |
-| `[実行:機械]` | スクリプト実行だけで終わる |
-| `[実行:対話]` | ユーザーと詰める判断が要る |
-| `[実行:ユーザー]` | ユーザーの手作業（パスワード・KDP・実測など） |
-| `[実行:windows]` / `[実行:別環境]` | この Mac では実行できない |
-
-余力があれば `[検証:cmd]`・`[起票:YYYY-MM-DD]` も併せて付ける。
+`[種類:]` `[起票:]` も同時に付ける（`check-backlog-schema --staged` が欠落を止める）。ユーザーの手・
+対話・別環境が要るタスクはタグでなく**本文に書く**（例: 「KDP 画面での提出はユーザー」）。
+余力があれば `[検証:cmd]` も併せて付ける。
 
 ### 6. 記録
 
 - 完了/掃除したタスクは**セクションごと削除**して即 commit（backlog.md:5 の規約）
-- `.claude/state/dispatch/dispatch-log.json` の `entries` へ1行追記（スキーマは同ファイルの `_schema`）。`outcome` は `done` / `swept` / `blocked` / `fail`
+- **部分完了なら完了 prose を足さず TRIM**（残作業だけへ本文を削る）。**タイトルが残作業と乖離したら RESEED**
+  （`backlog-edit.mjs --delete` → `--next-id` で新カードへ）。通常サイクルで触ったカードもその場で
+  再スコープしてよい（確認不要・DELETE/RESEED は外部実体で裏取りできた場合のみ。基準は
+  `.claude/knowledge/reference/todo-standards.md`「カード品質基準と再スコープ」）
+- `.claude/state/dispatch/dispatch-log.json` の `entries` へ1行追記（スキーマは同ファイルの `_schema`）。`outcome` は `done` / `swept` / `blocked` / `fail`。**`id`（DN-####）と`at`（JST日付）は必須**（`_schema`準拠・idの無い追記はcheck-dispatch-logがFAILにする）
 
 ### 7. 出口ゲート（再発防止の3問）
 
@@ -155,6 +164,7 @@ CLAUDE.md §8「提案・推奨の前に現物を確認する（憶測で gap �
 1. 同種の欠陥を機械で検出できるか
 2. その検出器は**誰がいつ読むか**（読み手がいないなら `ci:true` にするか、作らない）
 3. 台帳・SSOT の更新は同一 commit に入っているか
+4. 触ったカードのタイトルは残作業をそのまま言い表しているか（乖離していれば RESEED）
 
 ### 8. 報告
 

@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 660 460" style="max-width:600px;width:100%" role="img" aria-label="壁に固定された片持ち梁への荷重Pと鉄筋配置の4パターンa〜d（主筋を梁上側に配置・上下振り分け配置など）">
+  <defs><marker id="cba" viewBox="0 0 10 10" refX="8" refY="8" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+  <pattern id="cwa" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#8a8a8a" stroke-width="1.2"/></pattern>
+  <rect x="46" y="25" width="14" height="120" fill="url(#cwa)" stroke="#222" stroke-width="1"/>
+  <rect x="60" y="40" width="220" height="90" fill="none" stroke="#222" stroke-width="1.5"/>
+  <line x1="270" y1="15" x2="270" y2="38" stroke="#222" stroke-width="1.6" marker-end="url(#cba)"/>
+  <text x="270.0" y="10.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">P</text>
+  <line x1="270" y1="155" x2="270" y2="132" stroke="#222" stroke-width="1.6" marker-end="url(#cba)"/>
+  <text x="270.0" y="168.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">P</text>
+  <path d="M60 65.2 L260 65.2 Q 275 65.2 275 80.2" fill="none" stroke="#222" stroke-width="2"/>
+  <text x="170.0" y="185.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">a</text>
+  <pattern id="cwb" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#8a8a8a" stroke-width="1.2"/></pattern>
+  <rect x="366" y="25" width="14" height="120" fill="url(#cwb)" stroke="#222" stroke-width="1"/>
+  <rect x="380" y="40" width="220" height="90" fill="none" stroke="#222" stroke-width="1.5"/>
+  <line x1="590" y1="15" x2="590" y2="38" stroke="#222" stroke-width="1.6" marker-end="url(#cba)"/>
+  <text x="590.0" y="10.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">P</text>
+  <line x1="590" y1="155" x2="590" y2="132" stroke="#222" stroke-width="1.6" marker-end="url(#cba)"/>
+  <text x="590.0" y="168.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">P</text>
+  <path d="M380 65.2 L501.0 65.2 Q 534.0 65.2 534.0 83.2 L 534.0 96.8 Q 534.0 104.8 567.0 104.8 L 595 104.8" fill="none" stroke="#222" stroke-width="2"/>
+  <path d="M380 104.8 L457.0 104.8 Q 490.0 104.8 490.0 86.8 L 490.0 73.2 Q 490.0 65.2 523.0 65.2 L 570 65.2" fill="none" stroke="#222" stroke-width="2"/>
+  <text x="490.0" y="185.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">b</text>
+  <pattern id="cwc" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#8a8a8a" stroke-width="1.2"/></pattern>
+  <rect x="46" y="245" width="14" height="120" fill="url(#cwc)" stroke="#222" stroke-width="1"/>
+  <rect x="60" y="260" width="220" height="90" fill="none" stroke="#222" stroke-width="1.5"/>
+  <line x1="270" y1="235" x2="270" y2="258" stroke="#222" stroke-width="1.6" marker-end="url(#cba)"/>
+  <text x="270.0" y="230.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">P</text>
+  <line x1="270" y1="375" x2="270" y2="352" stroke="#222" stroke-width="1.6" marker-end="url(#cba)"/>
+  <text x="270.0" y="388.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">P</text>
+  <path d="M60 324.8 L260 324.8 Q 275 324.8 275 309.8" fill="none" stroke="#222" stroke-width="2"/>
+  <text x="170.0" y="405.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">c</text>
+  <pattern id="cwd" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#8a8a8a" stroke-width="1.2"/></pattern>
+  <rect x="366" y="245" width="14" height="120" fill="url(#cwd)" stroke="#222" stroke-width="1"/>
+  <rect x="380" y="260" width="220" height="90" fill="none" stroke="#222" stroke-width="1.5"/>
+  <line x1="590" y1="235" x2="590" y2="258" stroke="#222" stroke-width="1.6" marker-end="url(#cba)"/>
+  <text x="590.0" y="230.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">P</text>
+  <line x1="590" y1="375" x2="590" y2="352" stroke="#222" stroke-width="1.6" marker-end="url(#cba)"/>
+  <text x="590.0" y="388.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">P</text>
+  <path d="M380 285.2 L534.0 285.2 Q 567.0 285.2 567.0 300.2 L 567.0 300.2" fill="none" stroke="#222" stroke-width="2"/>
+  <path d="M380 324.8 L490.0 324.8 Q 523.0 324.8 523.0 309.8" fill="none" stroke="#222" stroke-width="2"/>
+  <text x="490.0" y="405.0" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">d</text>
+</svg>

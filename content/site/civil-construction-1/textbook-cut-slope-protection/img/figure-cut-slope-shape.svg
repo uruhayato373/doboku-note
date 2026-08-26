@@ -1,0 +1,45 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="切土法面の形状。地質が一様な場合の単一勾配、土質・岩質が変わる場合の勾配変化と小段（切土高5〜10m以上で幅1.0〜2.0m・横断勾配5〜10%）、法肩を丸めるラウンディングの3パターンと、小段が果たす4つの役割">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">切土法面の形状パターン</text>
+
+  <rect class="box-b" x="20" y="24" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="44">単一勾配の法面</text>
+  <text class="t-desc" x="40" y="62">地質・土質が深さ・縦断方向にほぼ一様な場合に採用</text>
+
+  <rect class="box-b" x="20" y="84" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="104">勾配を変化させた法面</text>
+  <text class="t-desc" x="40" y="122">土質・岩質が層で異なる場合、境界に応じ層ごとに勾配を選ぶ</text>
+
+  <rect class="box-w" x="20" y="144" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="164">小段の設置基準</text>
+  <text class="t-desc" x="40" y="182">切土高5〜10m以上で設置。幅1.0〜2.0m程度</text>
+
+  <rect class="box-w" x="20" y="204" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="224">小段の横断勾配</text>
+  <text class="t-desc" x="40" y="242">法面下方に向け5〜10%程度の勾配をつけ排水を促す</text>
+
+  <rect class="box-b" x="20" y="264" width="360" height="54" rx="6"/>
+  <text class="t-name" x="40" y="284">法肩のラウンディング</text>
+  <text class="t-desc" x="40" y="302">侵食・植生の定着不良を防ぐため法肩に丸みをつける</text>
+
+  <text class="t-sec" x="20" y="342">小段が果たす役割</text>
+  <rect class="box-b" x="20" y="348" width="360" height="90" rx="6"/>
+  <text class="t-desc" x="40" y="370">法面を流れる雨水の勢いをそぐ</text>
+  <text class="t-desc" x="40" y="388">排水溝を設けて水を法面外へ導く</text>
+  <text class="t-desc" x="40" y="406">法面の点検・補修・補強の足場として利用する</text>
+  <text class="t-desc" x="40" y="424">土質・岩質が変わる境界に位置を合わせると合理的</text>
+</svg>

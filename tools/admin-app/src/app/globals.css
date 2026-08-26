@@ -52,6 +52,10 @@
   --bad: hsl(var(--destructive));
   --bad-fill: hsl(0 86% 95%);
   --hold: hsl(268 62% 52%);
+  --ch-x: hsl(215 15% 35%);
+  --ch-ig: hsl(330 65% 50%);
+  --ch-yt: hsl(4 78% 48%);
+  --ch-todo: hsl(174 60% 34%);
   --code-bg: hsl(220 30% 96%);
   --checker-a: hsl(220 25% 97%);
   --checker-b: hsl(218 24% 91%);
@@ -104,6 +108,10 @@
   --bad: hsl(var(--destructive));
   --bad-fill: hsl(0 45% 15%);
   --hold: hsl(268 72% 70%);
+  --ch-x: hsl(215 20% 65%);
+  --ch-ig: hsl(330 75% 65%);
+  --ch-yt: hsl(4 85% 65%);
+  --ch-todo: hsl(174 55% 55%);
   --code-bg: hsl(222 48% 6%);
   --checker-a: hsl(222 48% 6%);
   --checker-b: hsl(222 34% 10%);
@@ -739,8 +747,12 @@ a:hover {
   opacity: 0.55;
 }
 
-/* ── テーブル ── */
+/* ── テーブル ──
+   管理画面共通の横スクロールラッパー。集計表（table.data）と、markdown.ts の
+   tableWrapPlugin が出す GFM 表ラップ div（.knowledge-document / .md-prose 配下）の
+   両方がこの1クラスを共有する（DN-0103 Phase 02 で二重定義していたものを統合）。 */
 .table-wrap {
+  max-width: 100%;
   overflow-x: auto;
   border: 1px solid var(--border-soft);
   border-radius: 10px;
@@ -1407,6 +1419,31 @@ table.data.todo-table td.todo-section-cell {
   font-family: var(--mono);
   font-size: 10px;
 }
+.todo-claim-info {
+  font-size: 10.5px;
+  margin-top: 3px;
+}
+.todo-prompt-pre {
+  max-height: 220px;
+  margin: 6px 0;
+  padding: 8px 10px;
+  border: 1px solid var(--border-soft);
+  border-radius: 6px;
+  background: var(--panel-2);
+  color: var(--ink-body);
+  font-size: 10.5px;
+  line-height: 1.6;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.todo-plan-join {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 8px;
+  font-size: 10.5px;
+}
 @media (max-width: 900px) {
   .todo-main {
     width: 100%;
@@ -1431,7 +1468,9 @@ table.data.todo-table td.todo-section-cell {
   table.data.todo-table .todo-kind-col,
   table.data.todo-table .todo-kind-cell,
   table.data.todo-table .todo-due-col,
-  table.data.todo-table .todo-due-cell {
+  table.data.todo-table .todo-due-cell,
+  table.data.todo-table .todo-status-col,
+  table.data.todo-table .todo-status-cell {
     display: none;
   }
   /* 狭い管理画面でも一覧をファーストビューへ残す。チップを横一列に増殖させず、
@@ -1566,6 +1605,28 @@ code {
   color: var(--ink-muted);
   font-size: 11px;
 }
+/* docs の一時記録 badge。警告色にしない（一時記録＝抽出後に削除する記録であって異常ではない）。 */
+.doc-badge-temporary {
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--panel-2);
+  color: var(--ink-muted);
+  font-size: 10px;
+  font-weight: 600;
+}
+.doc-channel-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0;
+}
+.doc-channel-chips .chip-outline {
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--ink-muted);
+  font-size: 10px;
+}
 .knowledge-detail-head {
   margin: 8px 0 18px;
 }
@@ -1613,6 +1674,76 @@ code {
   border-left: 3px solid var(--accent);
   color: var(--ink-muted);
 }
+.knowledge-document thead th {
+  background: var(--panel-2);
+  color: var(--ink);
+}
+.knowledge-document input[type='checkbox'] {
+  margin-right: 5px;
+  cursor: not-allowed;
+  vertical-align: -2px;
+}
+
+/* ── Obsidian callout（`> [!note] ...`）── markdown.ts の calloutPlugin が出す
+   `<div class="callout callout-{type}"><div class="callout-title">…</div>…</div>`。
+   .knowledge-document（docs/knowledge 詳細）と .md-prose（TODO カード本文）は同じ
+   renderDocument/renderMarkdown を通るため、両方に同じクラスが出る（表示密度だけ変える）。 */
+.knowledge-document .callout,
+.md-prose .callout {
+  margin: 1em 0;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, var(--panel));
+}
+.md-prose .callout {
+  margin: 0.6em 0;
+  padding: 8px 11px;
+  border-radius: 6px;
+}
+.knowledge-document .callout > :first-child,
+.md-prose .callout > :first-child {
+  margin-top: 0;
+}
+.knowledge-document .callout > :last-child,
+.md-prose .callout > :last-child {
+  margin-bottom: 0;
+}
+.knowledge-document .callout-title,
+.md-prose .callout-title {
+  margin-bottom: 0.35em;
+  color: var(--ink);
+  font-weight: 700;
+}
+.knowledge-document .callout-tip,
+.md-prose .callout-tip {
+  border-left-color: var(--good);
+  background: color-mix(in srgb, var(--good) 10%, var(--panel));
+}
+.knowledge-document .callout-important,
+.md-prose .callout-important {
+  border-left-color: var(--hold);
+  background: color-mix(in srgb, var(--hold) 10%, var(--panel));
+}
+.knowledge-document .callout-warning,
+.md-prose .callout-warning {
+  border-left-color: var(--warn);
+  background: var(--warn-fill);
+}
+.knowledge-document .callout-caution,
+.md-prose .callout-caution {
+  border-left-color: var(--bad);
+  background: var(--bad-fill);
+}
+.knowledge-document .callout-todo,
+.md-prose .callout-todo {
+  border-left-color: var(--ch-todo);
+  background: color-mix(in srgb, var(--ch-todo) 10%, var(--panel));
+}
+
+/* GFM 表（markdown.ts の tableWrapPlugin が出す div.table-wrap）は上の管理画面共通
+   .table-wrap をそのまま使う。表単体が横スクロールし、ページ全体は横スクロールしない
+   （mobile でのはみ出し防止）。 */
 .knowledge-document pre {
   overflow-x: auto;
   padding: 16px;
@@ -1661,6 +1792,30 @@ code {
   margin-top: 6px;
   font-size: 12px;
   color: var(--ink-muted);
+}
+/* docs 詳細のタイトル直下: 目的・チャネル・保持区分（DN-0103 Phase 02）。 */
+.doc-taxonomy-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-top: 8px;
+}
+.doc-taxonomy-row .chip {
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--panel-2);
+  color: var(--ink-muted);
+  font-size: 11px;
+}
+.doc-taxonomy-row a.chip-outline {
+  border: 1px solid var(--border);
+  background: transparent;
+  text-decoration: none;
+  color: var(--accent);
+}
+.doc-taxonomy-row a.chip-outline:hover {
+  border-color: var(--accent);
 }
 .project-detail {
   display: grid;
@@ -2018,4 +2173,196 @@ table.data.content-table .quality-col { width: 176px; }
 .todo-doc-ref:hover {
   color: var(--ink);
   border-color: var(--accent);
+}
+
+/* ── schedule（/schedule 月グリッド） ── */
+.schedule-health {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin-bottom: 14px;
+  font-size: 12.5px;
+}
+.schedule-health-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--ink-body);
+}
+.schedule-health-item .n {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--ink);
+}
+.schedule-health-item.bad {
+  color: var(--bad);
+}
+.schedule-health-note {
+  color: var(--ink-muted);
+  font-size: 11.5px;
+}
+.schedule-source-errors {
+  margin: 0 0 14px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--bad-fill);
+  color: var(--bad);
+  font-size: 12px;
+}
+.schedule-source-errors div + div {
+  margin-top: 2px;
+}
+
+.ch-dot {
+  display: inline-block;
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--ink-muted);
+}
+.ch-dot.x { background: var(--ch-x); }
+.ch-dot.instagram { background: var(--ch-ig); }
+.ch-dot.youtube { background: var(--ch-yt); }
+.ch-dot.todo { background: var(--ch-todo); }
+
+.schedule-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+.schedule-nav a {
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--ink-body);
+  background: hsl(var(--card) / 0.72);
+}
+.schedule-nav a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.schedule-nav .schedule-nav-current {
+  font-weight: 650;
+  color: var(--ink);
+}
+
+table.data.schedule-grid {
+  table-layout: fixed;
+}
+table.data.schedule-grid th {
+  text-align: center;
+  white-space: nowrap;
+}
+table.data.schedule-grid td {
+  padding: 0;
+  white-space: normal;
+  vertical-align: top;
+  border: 1px solid var(--border-soft);
+}
+.schedule-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 74px;
+  padding: 6px 7px;
+  color: inherit;
+  text-decoration: none;
+}
+.schedule-cell:hover {
+  background: hsl(var(--primary) / 0.05);
+}
+.schedule-cell-empty {
+  min-height: 74px;
+  background: var(--panel-2);
+  opacity: 0.45;
+}
+.schedule-day-num {
+  align-self: flex-start;
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-muted);
+}
+.schedule-day-num.is-today {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 700;
+}
+.schedule-exam-pill {
+  display: block;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: var(--accent-fill);
+  color: var(--accent);
+  font-size: 10.5px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.schedule-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 7px;
+  align-items: center;
+}
+.schedule-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-muted);
+}
+.schedule-overdue-flag {
+  margin-left: auto;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--bad-fill);
+  color: var(--bad);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.schedule-day-card,
+.schedule-overdue-card {
+  margin-top: 16px;
+}
+.schedule-yt-aggregate {
+  color: var(--ink-muted);
+}
+.schedule-yt-aggregate strong {
+  color: var(--bad);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 900px) {
+  .schedule-cell,
+  .schedule-cell-empty {
+    min-height: 52px;
+    padding: 4px 5px;
+  }
+  .schedule-exam-pill {
+    font-size: 9.5px;
+  }
+  /* 数字（件数）は残し、ドット＋数字の組をそのまま縮小するだけにする
+     （数字を消すと「その日に何件あるか」が分からなくなり本末転倒なため）。 */
+  .schedule-badges {
+    gap: 3px 5px;
+  }
+  .schedule-badge {
+    font-size: 9.5px;
+  }
+  table.data.schedule-grid {
+    min-width: 560px;
+  }
 }

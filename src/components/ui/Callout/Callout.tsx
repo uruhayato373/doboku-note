@@ -34,16 +34,23 @@ export type CalloutKind =
   | "faq"
   | "quote";
 
-const LEGACY_ALIASES: Record<string, CalloutKind> = {
+/**
+ * 旧 type からの移行マップ（2026-04-22 PR #96）。新規執筆では使わない。
+ * この定数がランタイム変換と型（LegacyCalloutKind）の両方の真実源。
+ */
+const LEGACY_ALIASES = {
   info: "note",
   warning: "warn",
   caution: "warn",
   point: "tip",
   error: "danger",
-};
+} as const satisfies Record<string, CalloutKind>;
+
+export type LegacyCalloutKind = keyof typeof LEGACY_ALIASES;
 
 interface CalloutProps {
-  type?: CalloutKind | string;
+  /** 未知の文字列は許容しない閉じた union。MDX 側の型 typo は content lint（scripts/check-callout-types.mjs）が検出する。 */
+  type?: CalloutKind | LegacyCalloutKind;
   title?: string;
   children: ReactNode;
 }
@@ -69,9 +76,22 @@ const CALLOUT_CONFIG: Record<CalloutKind, ToneConfig> = {
   quote: { label: "QUOTE", jp: "引用", icon: Quote },
 };
 
+/**
+ * 型・legacy alias・不明値のフォールバックを1関数に集約する。
+ * MDX から渡る `type` は TypeScript の閉じた union で検査できない（.mdx はコンパイル時に
+ * この props 型と突き合わされない）ため、静的な typo 検出は content lint
+ * （scripts/check-callout-types.mjs）が担う。ここでのフォールバックはキャッシュ済み
+ * MDX やレガシー呼び出し向けの実行時安全網。
+ */
+export function resolveCalloutKind(type: unknown): CalloutKind {
+  const t = String(type ?? "note");
+  if (t in LEGACY_ALIASES) return LEGACY_ALIASES[t as LegacyCalloutKind];
+  if (t in CALLOUT_CONFIG) return t as CalloutKind;
+  return "note";
+}
+
 export default function Callout({ type = "note", title, children }: CalloutProps) {
-  const t = String(type);
-  const resolved = LEGACY_ALIASES[t] ?? (t in CALLOUT_CONFIG ? (t as CalloutKind) : "note");
+  const resolved = resolveCalloutKind(type);
   const config = CALLOUT_CONFIG[resolved];
   const IconComponent = config.icon;
 

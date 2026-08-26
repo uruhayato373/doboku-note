@@ -43,6 +43,33 @@ npm run asset-hydrate -- --group note-cover-png --offline             # cache �
 credential が無い端末（会社 PC はプロキシで外部 API が遮断される）は `--offline` を付ける。
 何が足りないかが一覧で出るので、「取れたつもり」にならない。
 
+**cache にも無いものは CI に代行させる**（2026-08-25 新設）。`.github/workflows/asset-hydrate.yml` を
+Actions から dispatch すると、CI 側の credential で R2 から取り出し、artifact `hydrated-assets` として
+出す。ダウンロードして repo 直下へ展開すればよい（退避対象は `.gitignore` 済みなので `git status` は汚れない）。
+
+```
+group か path を指定 → dry_run で対象確認 → 本実行 → artifact を展開
+```
+
+**退避（offload）も CI に代行させられる**（2026-08-25 新設）。CI は checkout で gitignore 済みの
+実体を得られないので、`scripts/asset-inbox-push.mjs` が GitHub Release を橋にしてファイルを CI まで運ぶ。
+
+```
+npm run asset-inbox-push -- --path '<前方一致>' --commit   # ローカル: R2 credential 不要
+  → release asset-inbox-<ts>（prerelease・inbox.tar.gz + inbox.json）
+  → .github/workflows/asset-inbox.yml が展開 → asset-offload --commit で R2 へ
+  → manifest 更新が develop へ返る → release は削除される
+```
+
+既定は **manifest と sha256 が違うものだけ**を送る（同一を上げ直しても転送量が増えるだけ）。
+`--all` で全件。R2 キーはパス基準なので**同キー上書き**＝古い世代は自動的に置き換わる。
+
+CI 側は tarball を tar 任せに展開しない。リポジトリ外で作られた入力なので、
+`.github/workflows/*.yml` を差し替えられると R2 credential ごと持っていかれる。
+`scripts/asset-inbox-ingest.mjs` が 1 エントリずつ (a) 絶対パス・`..` の拒否
+(b) 退避 group に該当しないパスの拒否 (c) `inbox.json` の sha256 照合 (d) 過不足の検出
+を行い、**1 件でも落ちたら配置しない**。
+
 ## 3. 新しいアセットを作ったとき
 
 退避対象は `.gitignore` してあるので **`git status` に出ない**。作ったまま放置すると
@@ -99,6 +126,28 @@ cover PNG 827 件を全件再生成して追跡中の PNG と突き合わせた�
 note へ上げた実体との同一性が要る用途では、再生成ではなく R2 から取ること。
 `asset-hydrate` が generator を提示するだけで自動実行しないのはこのため。
 
+### 納品 PDF は sha256 が**必ず**変わる（2026-08-25 実測）
+
+cover PNG の「揺らぎで 1.1% が不一致」とは別の、もっと強い性質が PDF にはある。
+`magazine-to-pdf.mjs` は Chrome ヘッドレスの `--print-to-pdf` で描くため、生成物に
+`creationDate` / `modDate` が埋まる（`Producer: Skia/PDF m151`）。**内容が 1 バイトも
+変わっていなくても、再生成すれば sha256 は変わる。**
+
+BK-01_道路/R03 の 3 本を再生成して R2 の記録と突き合わせた実測:
+
+| | サイズ | sha256 |
+|---|---|---|
+| II-1 / II-2 | R2 と**一致** | 不一致 |
+| III | 2,158 bytes 差 | 不一致 |
+
+サイズが一致した 2 本は、タイムスタンプ以外が同一とみなせる（日時フィールドは固定長なので
+サイズが保たれる）。つまり **spec 駆動のレンダリング自体は決定的**で、揺らいでいるのは
+メタデータだけ。III のサイズ差は実際に原稿が変わったことを意味する。
+
+**運用上の含意**: `asset-offload --verify` はローカル・manifest・R2 の sha256 を突き合わせるので、
+**再生成した PDF では必ず落ちる**。再生成物で R2 を更新する場合は、`--verify` を
+「同一性の証明」として使えない。サイズとページ数・本文の実検証で代替する。
+
 ## 7. 取得に失敗したとき
 
 | 症状 | 原因 | 対処 |
@@ -106,6 +155,7 @@ note へ上げた実体との同一性が要る用途では、再生成ではな
 | `R2 credential が無い` | `.env.local` 未設定、または会社 PC のプロキシ | `--offline` で cache のみ使う。足りないものは一覧で出る |
 | `sha256 が manifest と違う` | R2 側の破損 or 差し替え | 一時ファイルのまま捨てられる（壊れたものを正しい名前で置かない）。別端末の実体から `--commit` で上げ直す |
 | `解決不能` | cache に無く再生成もできない | 台帳と R2 を `check-asset-storage` と `--verify` で確認する。台帳に無いなら退避されていない |
+| `[WARN] local-newer` | ローカルで作り直した実体が R2 へ反映されていない | `node scripts/asset-inbox-push.mjs --path <該当> --commit` で CI へ送る。§2 の inbox 経路 |
 | 取得が遅い | 直列実行 | `--concurrency`（既定 8）。868 件の直列は約 12 分かかった |
 
 cache は `.local/cache/assets/`（Git 非追跡）。最終アクセス時刻の古い順に上限まで落とすだけで、

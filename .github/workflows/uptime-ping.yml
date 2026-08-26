@@ -2,7 +2,9 @@ name: Uptime ping
 
 # サイト健全性監視（旧 Issue #130-C）。
 # BAILOUT_TO_CLIENT_SIDE_RENDERING（2026-W16 事件）のような「200 だが body 空」
-# パターンも検出する。失敗時は task-queue.json に append する（GitHub Issue は廃止）。
+# パターンも検出する。失敗時は automation-failure Issue へ起票する（限定例外チャネル）。
+# 2026-08-24 まで doc は「task-queue.json に append」と書いていたが、その台帳は
+# 2026-06-11 に廃止済みで実体も無く、**失敗がどこにも届かない**状態だった。
 
 on:
   schedule:
@@ -12,18 +14,21 @@ on:
 
 permissions:
   contents: write
+  # 失敗時に automation-failure Issue を起票する。
+  issues: write
 
 jobs:
   ping:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - name: Checkout develop
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           ref: develop
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: "20"
 
@@ -135,8 +140,24 @@ jobs:
 
       # タスク自動化(task-queue.json/build-todo)は廃止(2026-06-11、.claude/todo/ 手動運用へ一本化)。
       # SSR 壊れ等は CI 失敗として即通知（2026-W16 BAILOUT 再発監視）。人が .claude/todo/ に手動起票する。
+      # ::error:: は run のログに出るだけで、人が見に行かないと届かない。
+      # open Issue にして初めて通知が飛ぶ（information-architecture.md の限定例外）。
+      - name: Report failure (automation-failure Issue)
+        if: steps.check.outputs.failed == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          {
+            echo "- run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            echo
+            echo "SSR 壊れ / body 空 / HTTP エラーのいずれか。2026-W16 BAILOUT の再発監視。"
+            echo "run のログで、どの URL がどう落ちたかを確認する。"
+          } > /tmp/uptime-body.md
+          node scripts/report-automation-failure.mjs \n            --channel uptime \n            --title "サイト健全性チェック失敗（uptime-ping）" \n            --body-file /tmp/uptime-body.md
+
       - name: Fail on uptime failure (アラート)
         if: steps.check.outputs.failed == 'true'
         run: |
-          echo "::error::サイト健全性チェック失敗（SSR 壊れ / body 空 / HTTP エラー）。2026-W16 BAILOUT 再発監視。.claude/todo/ に手動で起票してください。"
+          echo "::error::サイト健全性チェック失敗（SSR 壊れ / body 空 / HTTP エラー）。2026-W16 BAILOUT 再発監視。automation-failure Issue を起票済み。"
           exit 1

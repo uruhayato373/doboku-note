@@ -5,7 +5,18 @@ export const dynamic = 'force-dynamic';
 
 export default async function DocsPage({
   searchParams,
-}: { searchParams: Promise<{ q?: string; category?: string }> }) {
+}: {
+  searchParams: Promise<{ q?: string; category?: string; documentType?: string; channel?: string; retention?: string }>;
+}) {
   const p = await searchParams;
-  return <DocRootView descriptor={rootById('docs')!} query={p.q ?? ''} category={p.category ?? ''} />;
+  return (
+    <DocRootView
+      descriptor={rootById('docs')!}
+      query={p.q ?? ''}
+      category={p.category ?? ''}
+      documentType={p.documentType ?? ''}
+      channel={p.channel ?? ''}
+      retention={p.retention ?? ''}
+    />
+  );
 }

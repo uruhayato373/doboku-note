@@ -113,17 +113,11 @@ export default function TermsPage() {
           title="4. 広告について"
         >
           <div className={bodyClass}>
-            <p className="mb-3">
-              当サイトでは、Google AdSense等の第三者配信事業者による広告を掲載する場合があります。
-            </p>
-            <p className="mb-3">
-              これらの広告配信事業者は、ユーザーの興味に応じた広告を表示するために Cookie を使用することがあります。
+            <p>
+              当サイトにはアフィリエイトプログラムに基づく広告リンクが含まれる場合があります。
               Cookie の使用については
               <a href="/privacy" className="text-[var(--accent)] hover:underline">プライバシーポリシー</a>
               をご確認ください。
-            </p>
-            <p>
-              当サイトにはアフィリエイトプログラムに基づく広告リンクが含まれる場合があります。
             </p>
           </div>
         </SectionCard>

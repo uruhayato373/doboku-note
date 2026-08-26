@@ -23,7 +23,7 @@
  */
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
+import { dirname, join, relative, sep } from 'node:path';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const CI = process.argv.includes('--ci');
@@ -128,7 +128,7 @@ if (newOrphans.length) {
   console.error(`\n✗ どこからも呼ばれない検査 ${newOrphans.length} 件:`);
   for (const s of newOrphans) console.error(`    ${s}`);
   console.error('  対処: quality-audit の CHECKS へ追加する / pre-commit へ足す /');
-  console.error(`        意図的に配線しないなら ${BASELINE_PATH.replace(ROOT + '/', '')} に理由付きで登録する`);
+  console.error(`        意図的に配線しないなら ${relative(ROOT, BASELINE_PATH).split(sep).join('/')} に理由付きで登録する`);
   if (CI) process.exit(1);
 } else {
   console.log(`\n✓ 新規のオーファン検査なし（${orphans.length} 件はすべて baseline 記載）`);

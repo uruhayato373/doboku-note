@@ -66,12 +66,15 @@ function resolveCover(articleRelPath) {
   const candidates = [];
   if (m) candidates.push(join(dir, 'img', `cover-${m[1]}.png`));
   candidates.push(join(dir, 'img', 'cover.png'));
+  // path は **posix で返す**。join() は Windows で `\` を返すため、そのまま返すと
+  // 呼び出し側の `/cover-XXX.png$/` が当たらず「型別が 1 件も解決しない」という
+  // Windows 限定の偽赤になる（manifest のキーも posix なので、ここで揃えるのが筋）。
   for (const c of candidates) {
-    if (existsSync(join(ROOT, c))) return { path: c, source: 'local' };
+    if (existsSync(join(ROOT, c))) return { path: toPosix(c), source: 'local' };
   }
   for (const c of candidates) {
     const e = MANIFEST.entries?.[toPosix(c)];
-    if (e) return { path: c, source: 'manifest', entry: e };
+    if (e) return { path: toPosix(c), source: 'manifest', entry: e };
   }
   return null;
 }

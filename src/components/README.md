@@ -1,185 +1,41 @@
-# コンポーネント管理・分類ベストプラクティス
+# コンポーネント配置ガイド
 
-## 現在の構造分析
+`src/components/` の現行ディレクトリ構造と配置判断。理想の設計論ではなく、実際にこのリポジトリで採用されている配置ルールを記す。
+
+## 現在の構造
 
 ```
 src/components/
-├── 共通コンポーネント (ルートレベル)
-│   ├── Footer.tsx
-│   ├── Header.tsx
-│   ├── ThemeProvider.tsx
-│   └── ThemeToggle.tsx
-├── blog/ (ブログ機能)
-├── layout/ (レイアウト系)
-├── mdx/ (MDXコンポーネント)
-├── search/ (検索機能)
-├── seo/ (SEO関連)
-└── ui/ (再利用可能UIコンポーネント)
+├── GoogleAnalytics.tsx      # ルート直下（layout に組み込む計測タグ・単体で完結）
+├── category/                # /category ページ専用（CategorySections, CategoryViews 等）
+├── home/                    # トップページ専用セクション
+├── icons/                   # 汎用アイコン（CategoryIcons 等。above-fold の Header は
+│                             # 独自 inline SVG を使い lucide-react を読み込まない — LCP 対策）
+├── layout/                  # サイト全体のチェック（Header.tsx, Footer.tsx）
+├── providers/                # Context プロバイダー（ThemeProvider.tsx）
+├── search/                   # 検索 UI（Pagefind クライアント）
+├── seo/                       # SEO 専用コンポーネント（構造化データ等）
+└── ui/                        # 資格・ページ横断で再利用する UI コンポーネント（52 サブディレクトリ + 数個の単体 .tsx）
 ```
 
-## 推奨される分類方法
+`blog/`・`mdx/` は存在しない（過去の設計案の残骸を記載していた旧版 README を削除）。MDX 用コンポーネントは `ui/` に置き、`src/lib/component-loader/index.ts` の `commonLoaders` から動的 import で読み込む。
 
-### 1. 階層構造の原則
+## 配置判断
 
-#### Tier 1: 機能別フォルダ (Feature-based)
-- `blog/` - ブログ関連の全コンポーネント
-- `search/` - 検索機能関連
-- `auth/` - 認証関連
-- `dashboard/` - ダッシュボード機能
+- **`ui/` に置く条件**: 複数の記事種別・複数資格で再利用される、または MDX から呼ばれる。1 コンポーネント = 1 フォルダ（`ComponentName/ComponentName.tsx`）が基本。関連 CSS Modules・README・型もフォルダ内に置く
+- **機能フォルダ（`category/` `home/` `search/`）に置く条件**: 特定ページ・特定機能でのみ使う。他ページから import されない
+- **単体 `.tsx`（フォルダを作らない）で良い条件**: 単一ファイルで完結し、専用 CSS・テスト・サブコンポーネントを持たない小さいコンポーネント（`ui/BackToTopButton.tsx`・`ui/TableOfContents.tsx` 等）
 
-#### Tier 2: 技術的分類
-- `ui/` - 再利用可能なUIコンポーネント (Button, Modal, Form等)
-- `layout/` - レイアウト構造コンポーネント
-- `providers/` - Contextプロバイダー類
+## import の実際
 
-#### Tier 3: 特殊用途
-- `mdx/` - MDXカスタムコンポーネント
-- `seo/` - SEO専用コンポーネント
-- `icons/` - アイコンコンポーネント
+**barrel（`index.ts`）は前提にしない。** `ui/` 配下の各フォルダの `index.ts` は re-export だけの薄いファイルだが、実際の呼び出し元（ページ・他コンポーネント・`component-loader`）はほぼ全て `@/components/ui/ComponentName/ComponentName` のように実体ファイルを直接 import している。`src/components/ui/index.ts`（全コンポーネントの集約 barrel）も含め、多くの `index.ts` は Knip の Unused files 検出に出る。新規コンポーネントを追加するときも、barrel を経由させることを前提に設計しない（既存の直接 import 方針に合わせる）。
 
-### 2. ファイル命名規則
+## 命名規則
 
-```
-# 良い例
-Button.tsx
-UserProfile.tsx
-ArticleCard.tsx
-
-# 避けるべき例  
-button.tsx
-userprofile.tsx
-article-card.tsx
-```
-
-### 3. フォルダ構造のベストプラクティス
-
-#### 単一責任の原則
-```
-components/
-├── ui/
-│   ├── Button/
-│   │   ├── Button.tsx
-│   │   ├── Button.test.tsx
-│   │   ├── Button.stories.tsx
-│   │   └── index.ts
-│   └── Modal/
-│       ├── Modal.tsx
-│       ├── ModalHeader.tsx
-│       ├── ModalBody.tsx
-│       └── index.ts
-```
-
-#### 機能別グループ化
-```
-components/
-├── blog/
-│   ├── components/ (blog内部でのみ使用)
-│   │   ├── BlogCard.tsx
-│   │   └── CommentForm.tsx
-│   ├── containers/ (ページレベルコンポーネント)
-│   │   ├── BlogPost.tsx
-│   │   └── BlogList.tsx
-│   └── hooks/ (blog機能専用hooks)
-│       └── useBlogData.ts
-```
-
-### 4. 改善提案
-
-#### 現在の構造を改善する手順
-
-1. **プロバイダー類の整理**
-   ```
-   providers/
-   └── ThemeProvider.tsx
-   ```
-
-2. **共通レイアウトの統合**
-   ```
-   layout/
-   ├── Header.tsx
-   ├── Footer.tsx
-   └── MainLayout.tsx
-   ```
-
-3. **UI コンポーネントの拡充**
-   ```
-   ui/
-   ├── DataTable/
-   ├── Button/
-   ├── Input/
-   └── ThemeToggle.tsx
-   ```
-
-### 5. インデックスファイルの活用
-
-各フォルダにindex.tsを配置して、インポートを簡潔に：
-
-```typescript
-// components/ui/index.ts
-export { default as Button } from './Button/Button';
-export { default as DataTable } from './DataTable';
-export { default as ThemeToggle } from './ThemeToggle';
-
-// 使用時
-import { Button, DataTable, ThemeToggle } from '@/components/ui';
-```
-
-### 6. 判断基準
-
-#### UI フォルダに入れる条件
-- 複数の機能で再利用される
-- プロジェクト固有のデザインシステム
-- 汎用的なインターフェース要素
-
-#### 機能別フォルダに入れる条件
-- 特定の機能でのみ使用される
-- ビジネスロジックと密結合
-- その機能の文脈でのみ意味を持つ
-
-### 7. 禁止事項
-
-- ❌ ルートレベルに機能特化コンポーネントを配置
-- ❌ 深すぎる階層 (3階層以下に制限)
-- ❌ 単一ファイルのためだけのフォルダ作成
-- ❌ 曖昧なフォルダ名 (utils/, common/, shared/等)
-
-### 8. 命名コンベンション
-
-#### フォルダ名
-- kebab-case: `blog-post/`
-- または camelCase: `blogPost/`
-- 一貫性を保持する
-
-#### コンポーネント名
-- PascalCase: `BlogPost.tsx`
+- コンポーネント: PascalCase（`ArticleImage.tsx`）
+- フォルダ: コンポーネント名と同じ PascalCase（`ArticleImage/`）
 - ファイル名とコンポーネント名を一致させる
 
-### 9. 今後の拡張指針
+## 各コンポーネント固有の詳細
 
-1. **Atomic Design の部分採用**
-   ```
-   ui/
-   ├── atoms/ (Button, Input, Icon)
-   ├── molecules/ (SearchBox, NavItem)
-   └── organisms/ (Header, Sidebar)
-   ```
-
-2. **TypeScript 型定義の整理**
-   ```
-   types/
-   ├── components.ts
-   ├── api.ts
-   └── common.ts
-   ```
-
-3. **テストファイルの配置**
-   - コンポーネントと同じディレクトリに配置
-   - または `__tests__/` フォルダを作成
-
-## まとめ
-
-良いコンポーネント構造は以下を実現します：
-- 開発者が迷わずにコンポーネントを見つけられる
-- 新しい機能追加時の配置が明確
-- リファクタリングや削除が安全
-- チーム開発での一貫性
+個々のコンポーネントの props・デザイン仕様・使用ルールは、そのコンポーネント自身の `README.md`（存在するもの）または実装コメントを参照する。全コンポーネント横断のデザイントークン・レイアウトプリミティブは [`.claude/knowledge/design-system/design-system.md`](../../.claude/knowledge/design-system/design-system.md) が単一の真実源。

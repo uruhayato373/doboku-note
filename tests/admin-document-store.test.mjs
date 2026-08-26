@@ -206,5 +206,5 @@ test('content は段階的列挙で、空のときの説明を持つ', () => {
   const r = JSON.parse(out);
   assert.ok(r.empty.length > 0, 'content の emptyState が空');
   assert.equal(r.staged, true, 'content は段階的列挙（staged）でなければならない');
-  assert.deepEqual(r.channels.slice().sort(), ['coconala', 'kindle', 'note', 'site', 'sns', 'sources'].sort(), 'チャネル構成が変わっている');
+  assert.deepEqual(r.channels.slice().sort(), ['brain', 'coconala', 'kindle', 'note', 'site', 'sns', 'sources'].sort(), 'チャネル構成が変わっている');
 });

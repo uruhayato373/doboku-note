@@ -5,56 +5,11 @@ import { useSyncExternalStore } from 'react';
 import { Sun, Moon } from 'lucide-react';
 
 /**
- * @description
- * テーマ切り替えボタンコンポーネント。
- * ライトモードとダークモードを切り替えるためのUIを提供します。
- * 
- * @component
- * 
- * @features
- * - ライト/ダークモードの切り替え機能
- * - アイコンとテキストによる視覚的フィードバック
- * - アニメーション付きのローディング状態
- * - アクセシビリティ対応（aria-label, title属性）
- * - ダークモード時の適切なスタイリング
- * 
- * @dependencies
- * - next-themes: テーマ管理用フック（useTheme）
- * - lucide-react: アイコンコンポーネント（Sun, Moon）
- * - React hooks: useState, useEffect
- * 
- * @styling
- * - Tailwind CSSによるスタイリング
- * - ホバーエフェクト
- * - フォーカスリング
- * - トランジションアニメーション
- * - レスポンシブデザイン
- * 
- * @accessibility
- * - 適切なaria-label（現在のモードに基づく切り替え説明）
- * - キーボード操作対応
- * - 高コントラストカラー
- * - ツールチップ（title属性）
- * 
- * @states
- * - mounted: クライアントサイドでのハイドレーション完了状態
- * - theme: 現在のテーマ設定（'light' | 'dark'）
- * 
- * @example
- * ```tsx
- * // ヘッダーなどで使用する例
- * import ThemeToggle from '@/components/ui/ThemeToggle/ThemeToggle';
- * 
- * export default function Header() {
- *   return (
- *     <header>
- *       <ThemeToggle />
- *     </header>
- *   );
- * }
- * ```
- * 
- * @returns {JSX.Element} テーマ切り替えボタンコンポーネント
+ * テーマ切り替えボタン。テーマ管理は next-themes ではなく独自の
+ * `@/components/providers/ThemeProvider`（`useTheme`）を使う。
+ * `useSyncExternalStore` の第3引数（サーバースナップショット）は常に `false` を返し、
+ * ハイドレーション完了までは disabled のプレースホルダを描画する
+ * （SSR とクライアントの初期テーマ判定がずれて hydration mismatch になるのを防ぐため）。
  */
 export default function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();

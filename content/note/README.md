@@ -105,9 +105,29 @@ content/note/
 title: "..."
 notePricing: free | paid
 noteSeries: "..."
+noteMagazine: "..."       # マガジン収録記事のみ（単発記事には不要）
 utmCampaign: "..."
 published: true | false   # 単発記事。マガジン記事は noteUrl の有無で判定
 ```
+
+### `noteSeries` と `noteMagazine` の境界（DN-0125・2026-08-26 決定）
+
+2 語彙は**役割が違う**。827 本の frontmatter 全走査で両方あって値が違うケースが 200 本見つかり
+（例: `コンクリート主任技士-実務立場別小論文`（series）と `…小論文集`（magazine）語尾違い）、
+調査の結果どちらも生きている読み手を持つと判明した。混同して書かないよう境界を明文化する。
+
+| フィールド | 意味 | 値の性質 |
+|---|---|---|
+| `noteMagazine` | **商品（マガジン）への所属ラベル**。`note-magazines.ts` の `id` と対応する | `.claude/config/note-magazine-membership.json` の `labels`/`packs`/`excluded` のどれかに必ず属する商品名（未分類 0 を `check-magazine-membership.mjs` が強制） |
+| `noteSeries` | **表示用の編集ラベル**（カバー生成の系列名・もくじ index の判定マーカー） | `noteMagazine` と語尾が異なってよい自由記述（例: 「…小論文」と「…小論文集」）。特殊値 `総合案内` はもくじ index ページを示し、`note-lint` 経由で markdown リンク列挙を許容する |
+
+**noteMagazine が正**（商品を特定する必要がある処理）: マガジン収録数の突合（`check-magazine-membership`）・note 公開時の価格/CTA 解決（`note-publish.mjs`）。
+**noteSeries が正**（表示・編集グルーピングが必要な処理）: カバー画像生成（`note-cover-writer`）・もくじ index 判定（`check-note-magazine-cta.mjs`）・公開記事インデックスの系列表示（`build-note-published-index.mjs`）。
+
+**書いてはいけない逸脱**（`npm run check-note-vocabulary-boundary` が検知・pre-commit 非搭載のため commit 前に手動実行を推奨）:
+- `noteSeries` に `note-magazines.ts` の `id`（内部slug）をそのまま書く
+- `noteSeries` に**他記事の** `noteMagazine` 値（商品ラベル）をコピペする
+- `noteSeries: 総合案内`（もくじ index）の記事に `noteMagazine` も設定する
 
 ## ルール
 

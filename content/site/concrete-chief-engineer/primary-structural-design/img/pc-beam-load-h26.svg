@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 490 160" style="max-width:490px;width:100%" role="img" aria-label="PC梁の側面図。中央上部から下向きの荷重、左右両端から水平方向にプレストレスを導入する矢印、両端は支点で支持される">
+  <g transform="translate(30,0)">
+  <rect x="60" y="40" width="280" height="50" fill="none" stroke="#222" stroke-width="1.5"/>
+  <line x1="200" y1="10" x2="200" y2="38" stroke="#222" stroke-width="2" marker-end="url(#pca)"/>
+  <defs><marker id="pca" viewBox="0 0 10 10" refX="8" refY="8" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#222"/></marker></defs>
+  <text x="200" y="8" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">荷重</text>
+  <line x1="15" y1="65" x2="38" y2="65" stroke="#222" stroke-width="2" marker-end="url(#pca)"/>
+  <text x="-30" y="60" font-family="sans-serif" font-size="12" fill="#222">プレストレス</text>
+  <text x="-30" y="74" font-family="sans-serif" font-size="12" fill="#222">の導入</text>
+  <line x1="355" y1="65" x2="338" y2="65" stroke="#222" stroke-width="2" marker-end="url(#pca)"/>
+  <text x="360" y="60" font-family="sans-serif" font-size="12" fill="#222">プレストレス</text>
+  <text x="360" y="74" font-family="sans-serif" font-size="12" fill="#222">の導入</text>
+  <path d="M70 90 L60 105 L80 105 Z" fill="none" stroke="#222" stroke-width="1.5"/>
+  <path d="M330 90 L320 105 L340 105 Z" fill="none" stroke="#222" stroke-width="1.5"/>
+  </g>
+</svg>

@@ -12,6 +12,12 @@ on:
     - cron: "0 2 1 * *" # UTC 02:00 毎月1日 = JST 11:00 毎月1日
   workflow_dispatch:
 
+# DN-0109 Phase 1: develop への自動書込み系ワークフロー間の push 衝突を防ぐ共通グループ。
+# 同時実行を待たせるだけで落とさない（cancel-in-progress: false）。
+concurrency:
+  group: develop-git-write
+  cancel-in-progress: false
+
 permissions:
   contents: write
   issues: write # 閾値の無条件異常を automation-failure Issue に記録する（限定例外）
@@ -27,12 +33,12 @@ jobs:
         # フックの drift guard が bot commit を拒否して落ちる（2026-08-20 に psi-audit が
         # `[pre-commit] 導入済みフックが古い` で実際に失敗した）。fetch-metrics.yml と同じ形で
         # 最初から develop を checkout し、順序依存そのものを無くす。
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           ref: develop
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: "20"
           cache: "npm"

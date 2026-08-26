@@ -23,7 +23,7 @@
  * ---------------------------------------------------------------------------
  */
 import { readFileSync, existsSync } from 'node:fs';
-import { execSync } from 'node:child_process';
+import { execSync, execFileSync } from 'node:child_process';
 
 const STAGED = process.argv.includes('--staged');
 
@@ -56,8 +56,11 @@ if (STAGED) {
 } else {
   // このリポジトリは追跡ファイルが 6 万超あり、既定バッファでは ENOBUFS で落ちる
   // （2026-08-13 実発生）。拡張子で絞ってから取得し、上限も明示的に上げる。
-  files = execSync(
-    "git ls-files -- '*.md' '*.mdx' '*.json' '*.mjs' '*.js' '*.ts' '*.tsx' '*.txt' '*.yml' '*.yaml' '*.sh'",
+  // shell を通さない。cmd.exe はシングルクォートを剥がさないので、execSync だと git が
+  // `'*.md'` というリテラルを受け取り Windows で走査 0 件＝検査不成立になる（2026-08-24 実測）。
+  files = execFileSync(
+    'git',
+    ['ls-files', '--', '*.md', '*.mdx', '*.json', '*.mjs', '*.js', '*.ts', '*.tsx', '*.txt', '*.yml', '*.yaml', '*.sh'],
     { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 },
   ).split('\n').filter(Boolean);
 }

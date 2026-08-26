@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+  style="max-width:400px;width:100%"
+  role="img"
+  aria-label="土質調査の流れ。予備調査（資料収集・現地踏査）の後に本調査を実施し、本調査は原位置試験と室内試験（土質試験）に分かれる。調査結果は施工管理・維持管理の各段階で利用される">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif; }
+      .t-lead { font-size: 11px; fill: #555; }
+      .t-sec  { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-name { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .t-desc { font-size: 11px; fill: #555; }
+      .box-b { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-w { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .arrow { stroke: #555; stroke-width: 1.5; fill: none; marker-end: url(#arr); }
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0,0 8,3.5 0,7" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="t-lead" x="200" y="16" text-anchor="middle">予備調査 → 本調査 → 施工管理・維持管理の3段階</text>
+
+  <rect class="box-b" x="20" y="26" width="360" height="60" rx="6"/>
+  <text class="t-name" x="40" y="46">1. 予備調査</text>
+  <text class="t-desc" x="40" y="64">資料の収集（地形図・地質図・既往ボーリング記録等）</text>
+  <text class="t-desc" x="40" y="78">現地踏査（土の露頭・軟弱地盤の初期評価）</text>
+
+  <line class="arrow" x1="200" y1="86" x2="200" y2="100"/>
+
+  <rect class="box-w" x="20" y="100" width="165" height="86" rx="6"/>
+  <text class="t-name" x="35" y="120">2a. 原位置試験</text>
+  <text class="t-desc" x="35" y="138">サンプリングせず</text>
+  <text class="t-desc" x="35" y="152">直接地盤中で調べる</text>
+  <text class="t-desc" x="35" y="166">（標準貫入試験・</text>
+  <text class="t-desc" x="35" y="180">平板載荷試験 等）</text>
+
+  <rect class="box-w" x="215" y="100" width="165" height="86" rx="6"/>
+  <text class="t-name" x="230" y="120">2b. 室内試験</text>
+  <text class="t-desc" x="230" y="138">採取した試料を</text>
+  <text class="t-desc" x="230" y="152">試験室で調べる</text>
+  <text class="t-desc" x="230" y="166">（含水比試験・</text>
+  <text class="t-desc" x="230" y="180">せん断試験 等）</text>
+
+  <line class="arrow" x1="200" y1="186" x2="200" y2="200"/>
+
+  <rect class="box-b" x="20" y="200" width="360" height="60" rx="6"/>
+  <text class="t-name" x="40" y="220">3. 施工管理・維持管理</text>
+  <text class="t-desc" x="40" y="238">品質管理試験（現場密度試験・支持力値の測定 等）</text>
+  <text class="t-desc" x="40" y="252">沈下観測（軟弱地盤上の盛土で代表断面ごとに実施）</text>
+
+  <text class="t-sec" x="20" y="292">土質調査の意義</text>
+  <rect class="box-b" x="20" y="298" width="360" height="90" rx="6"/>
+  <text class="t-desc" x="40" y="320">適切な調査により合理的な設計・安全な施工ができる</text>
+  <text class="t-desc" x="40" y="338">不完全な調査は安全率を高める必要が生じ不経済</text>
+  <text class="t-desc" x="40" y="356">調査費用は破壊後の修繕費に比べ非常に経済的</text>
+  <text class="t-desc" x="40" y="374">最初は広範囲、問題箇所を絞って重点調査へ</text>
+</svg>

@@ -4,7 +4,7 @@
 
 ## プロジェクトコンテキスト
 
-**設計思想** — ユーザーが「ここだけで合格できる」体験を軸資格ごとに提供する試験対策ハブ。Obsidian（ステージング）→ doboku-note（プロダクション）→ PWA 過去問演習アプリ（資格別 PWA × 共通エンジン、過去問演習は iOS から移管）の流れでコンテンツを管理。収益モデルは AdSense + note 有料記事 + YouTube + PWA 過去問アプリ。詳細: `docs/strategy/02_設計思想.md`、`docs/strategy/03_事業戦略.md`、`docs/products/06_PWA過去問アプリ設計方針.md`
+**設計思想** — ユーザーが「ここだけで合格できる」体験を軸資格ごとに提供する試験対策ハブ。Obsidian（ステージング）→ doboku-note（プロダクション）→ PWA 過去問演習アプリ（資格別 PWA × 共通エンジン、過去問演習は iOS から移管）の流れでコンテンツを管理。収益モデルは note 有料記事 + YouTube + PWA 過去問アプリ。詳細: `docs/strategy/02_設計思想.md`、`docs/strategy/03_事業戦略.md`、`docs/products/06_PWA過去問アプリ設計方針.md`
 
 **技術スタック**
 
@@ -16,7 +16,6 @@
 | 図表 | SVG / PNG（R2 配信） |
 | 検索 | Pagefind (ビルド時 `out/pagefind` 生成・クライアントサイド全文検索) |
 | 分析 | Google Analytics (gtag: G-8VXJ1RL1HG) |
-| 広告 | Google AdSense (ca-pub-7995274743017484) |
 | 画像配信 | Cloudflare R2 (`storage.doboku-note.com`) |
 | ホスティング | Cloudflare Pages |
 | CI/CD | GitHub Actions → Cloudflare Pages |
@@ -56,11 +55,11 @@ npm run upload-images-r2  # 画像を R2 にアップロード
 npm run upload-sns-r2     # SNS バイナリ(reels wav/mp4)を R2 へ退避（--purge-local でローカル削除）
 npm run lint              # ESLint チェック（no-console: warn/error のみ許容）
 npm run quality:audit     # コード・記事・画像/SVGの機械チェックを横断実行→.claude/state/quality/audit-latest.md（:ci でCI gate厳格版）
-npm run pages:deploy      # Cloudflare Pages に手動デプロイ
 npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→.claude/state/sales/kdp-royalties.json（ローカル専用・読み取り専用・当月/前月のみ）
+npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKで.claude/state/sales/sales-log.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）
 npm run check-magazine-cta # 公開マガジンがサイトで1面以上CTAとして出るか（top/中間CTA/MagazineCard・quality:audit に同梱）
 npm run check-backlog-schema # backlog タグ行の語彙・[検証:]の実在・ID(DN-####)必須/重複・完了 prose の混入（pre-commit --staged ＋ quality:audit）
-npm run check-backlog-health # 台帳の候補 surfacer（🟢に沈んだ不具合・種類の矛盾・重複候補・sweep 到達不能率。判定はせず常に exit 0）
+npm run check-backlog-health # 台帳の候補 surfacer（🟢に沈んだ不具合・種類の矛盾・重複候補・検証ゲート欠落。判定はせず常に exit 0）
 npm run check-project-task-refs # docs/ の恒久文書の廃止参照(task-queue.json)と backlog ID 参照切れ（quality:audit に同梱）
 npm run check-table-references # 本文が指す「表N.M」のキャプションが実在するか（転記由来の宙に浮いた参照）
 npm run check-information-architecture # 4 領域（docs/content/.claude/実装）への逆戻り検知（廃止した置き場への新規ファイル・docs への制作物混入・content への台帳混入・二重 SSOT。pre-commit --staged ＋ quality:audit）
@@ -71,6 +70,7 @@ npm run asset-hydrate         # 退避したアセットを取り戻す（ロー
 npm run check-asset-storage   # 退避台帳の整合（公開バケット誤配置・r2Key 衝突・復元不能・秘密混入）。R2 非アクセスでオフライン完結・quality:audit に同梱
 npm run check-content-layout   # content/ の 6 チャネルに実体があるかを観測（件数・容量。空チャネル＝移行の取りこぼしで fail）
 npm run check-relative-links   # Markdown の相対リンク `](../x)` の実在（check-doc-refs はリンク**テキスト**しか見ないので、置き場を変えると href だけ黙って壊れる。pre-commit --staged ＋ quality:audit）
+npm run check-published-vs-redirects # 統合済み記事の再公開を止める（published:true なのに `_redirects` で 301 の転送元＝ページは在るのに別ページへ飛ぶ。統合の記録は frontmatter に無く _redirects にしかないので目視では気づけない。pre-commit --staged ＋ quality:audit）
 npm run check-ogp-line-count   # OGP タイトルが何行に折れるかを実測（既定は surfacer で判定しない。`--max=N` / `check-ogp-line-count:done` で完了判定になる。check-ogp-title-fit はフォントサイズしか見ない）
 npm run check-command-guidance # 検査やスクリプトが案内するコマンド（npm run / node パス）が実在するか。移設後に旧パスを案内し続ける置き去りを止める
 npm run check-mdx-dates      # 記事の created/dateModified が frontmatter に揃っているか（sitemap lastmod と JSON-LD datePublished の真実源。欠けるとビルドが git 履歴へフォールバックし、公開 SEO 信号がリネームや履歴書換えで動く状態へ逆戻りする。書き込みは pre-commit の backfill-mdx-dates --staged）
@@ -84,6 +84,7 @@ npm run check-coconala-analytics # 上記の鮮度・欠測・マスク値（000
 npm run coconala-pause    # ココナラ出品の受付休止/再開/アーカイブ（--resume --absence で不在明け一括復帰・既定 dry-run）
 npm run admin             # 運営管理画面 Next.js 版（ローカル専用・http://127.0.0.1:3021・計測/エージェント/スキル/ギャラリー/SNS状態/記事/売上/品質/ジョブ/TODO/**プロジェクト**・tools/admin-app）
 npm run test:e2e:admin    # 管理画面の E2E（Project↔TODO の相互リンク・日本語パス・トラバーサル404・レスポンシブ。admin は dev 専用なので CI の e2e には載せない）
+npm run schedule-view     # 予約・計画・期日の横断ビュー（読み取り専用・JST。exam-calendar/x-campaigns/x-status/ig-status/youtube-schedule/backlogを集約。DN-0131のような超過を横断で surface する）
 npm run google-console:login   # GSC/GA4 用 Chrome プロファイルを headed で開き人間ログイン（ローカル専用・/google-search-growth の前提）
 npm run search-growth:report   # GSC UI 正規化 ∪ API データを URL 突合して修正計画を再生成（オフライン・approval gate）
 npm run check-gsc-ui-due       # GSC/GA4 UI 取得の月次期限＋前回の完全性を判定（surfacer・weekly-review が読む）
@@ -230,7 +231,7 @@ npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run
 ### 8. 書く前に読む
 
 - **提案・推奨の前に現物を確認する（憶測で gap を断定しない）**: コンテンツ・導線（ファネル/CTA）・商品構成・戦略について「〜が無い／されていない／気づかれていない」と断定する前に、必ず実物（該当 `article.md`・frontmatter・既存 CTA・`note-magazines.ts`・公開状態）を Read し **file:line で裏取り**してから話す。**売上・計測データは「何が」起きたかは示すが「なぜ（原因）」は示さない**——原因・欠落は実体で確認する。裏取りできないなら結論を出さず「未確認」と明示。データ解釈→提案の間に必ず「現物照合」を 1 ステップ挟む（2026-06-18、道路の上げ導線で既存の無料プレビュー CTA を読まずに『導線が無い』と誤提案・同一セッションで 2 回反復した再発防止）
-- **情報の置き場（4 領域モデル・2026-08-18）**: 情報を**寿命と利用者**で分ける。**`docs/`**＝人が読む恒久的な戦略・設計・判断（担当や進捗は書かない）/ **`content/`**＝顧客へ届ける制作物とその入力（site / note / coconala / sns / kindle / sources）/ **`.claude/`**＝エージェントの運用（`knowledge/` 規約・`plans/` 一案件の実装契約〔完了後に削除〕・`todo/` タスク 4 層・`state/`・`config/` 機械データ〔`.claude/state/*.md` 新規作成禁止〕・`skills/`・`agents/`）/ **`src/`・`tools/`・`scripts/`**＝実装コードと管理ツール。**タスク管理は `.claude/todo/`**（backlog がマスタ・ID は `DN-####`・月初に monthly、週初に weekly へ pull）。**GitHub Issue は使わない**（唯一の例外＝`automation-failure` ラベル＝自動化の失敗・沈黙の記録。起票は `scripts/report-automation-failure.mjs` に集約・クローズは人間）。**設計と実装の分業**（Codex が設計、Claude Code が実装・抽出・plan 削除）→ [implementation-handoff.md](.claude/knowledge/reference/implementation-handoff.md)。真実源・判断フローは [information-architecture.md](.claude/knowledge/reference/information-architecture.md)
+- **情報の置き場（4 領域モデル・2026-08-18）**: 情報を**寿命と利用者**で分ける。**`docs/`**＝人が読む恒久的な戦略・設計・判断（担当や進捗は書かない）/ **`content/`**＝顧客へ届ける制作物とその入力（site / note / coconala / sns / kindle / sources）/ **`.claude/`**＝エージェントの運用（`knowledge/` 規約・`plans/` 一案件の実装契約〔完了後に削除〕・`todo/` タスク 4 層・`state/`・`config/` 機械データ〔`.claude/state/*.md` 新規作成禁止〕・`skills/`・`agents/`）/ **`src/`・`tools/`・`scripts/`**＝実装コードと管理ツール。**タスク管理は `.claude/todo/`**（backlog がマスタ・ID は `DN-####`・月初に monthly、週初に weekly へ pull）。**カードに触れたら完了 prose を足さず残作業へ再スコープ**（部分完了は TRIM、タイトルが残作業と乖離したら旧削除＋新IDで RESEED。確認不要・基準は [todo-standards.md](.claude/knowledge/reference/todo-standards.md)「5. 残す条件と削除条件」）してから commit する。**GitHub Issue は使わない**（唯一の例外＝`automation-failure` ラベル＝自動化の失敗・沈黙の記録。起票は `scripts/report-automation-failure.mjs` に集約・クローズは人間）。**設計と実装の分業**（Codex が設計、Claude Code が実装・抽出・plan 削除）→ [implementation-handoff.md](.claude/knowledge/reference/implementation-handoff.md)。真実源・判断フローは [information-architecture.md](.claude/knowledge/reference/information-architecture.md)
 - **スキル/エージェント更新ルール**: `.claude/skills/` または `.claude/agents/` を追加・修正・削除した場合は、同一 commit で `.claude/knowledge/reference/skills-guide.md`（一覧）と `.claude/knowledge/reference/skills-registry.md`（退役ログ）または `.claude/knowledge/reference/agents-registry.md` を必ず更新する。**追加・削除・description 変更は `npm run check-doc-coupling` が pre-commit で機械検知してコミットを止める**（台帳更新もれ＝capability ドリフトの再発防止。正当に不要なら `SKIP_DOC_COUPLING=1` で回避）
 - **SSOT 参照規律**: doc を移動・リネーム・統廃合したら、参照していたスキル・エージェント・他 docs の `.md` 参照を同一 commit で全更新する。検出は `npm run check-doc-refs`（pre-commit でも staged を自動検査）。例示パスはプレースホルダ、廃止台帳行は `<!-- doc-ref:ignore -->`。真実源は [information-architecture.md](.claude/knowledge/reference/information-architecture.md)「SSOT と参照規律」（2026-06-11 制定、旧体系の壊れ参照 47 件の再発防止）
 - **ドキュメント同期プロトコル（意味的ズレ）**: `src/**` `scripts/**` `.claude/skills/**` `.claude/agents/**` `package.json` `src/config/**` `src/styles/**` 等「**ドキュメント化された面**」を変更したタスクは、**コミット前に `/doc-sync` を1回回す**（変更 diff × 候補 doc を `doc-sync-auditor` で突合し、prose・表・コマンド・件数・閾値の旧仕様化を検出→適用）。`check-doc-refs`/`check-doc-coupling`（機械）が拾えない陳腐化を埋める。純コンテンツ編集（`content/site/**` MDX 記事・`content/note,sns/**` 素材）では回さない（2026-06-12 新設）

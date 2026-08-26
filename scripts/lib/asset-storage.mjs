@@ -75,7 +75,8 @@ export async function makeS3() {
     throw new Error(
       'asset-storage: R2 credential が無い。.env.local に CLOUDFLARE_ACCOUNT_ID / '
       + 'CLOUDFLARE_R2_ACCESS_KEY_ID / CLOUDFLARE_R2_SECRET_ACCESS_KEY を置くか、CI の env で供給すること。'
-      + '（会社 PC はプロキシで外部 API が遮断される。--dry-run / --offline なら credential 不要）',
+      + '（credential をローカルへ置かない運用なら scripts/asset-inbox-push.mjs で CI へ渡す。'
+      + '--dry-run / --offline なら credential 不要）',
     );
   }
   const { S3Client } = await import('@aws-sdk/client-s3');
@@ -86,7 +87,46 @@ export async function makeS3() {
       accessKeyId: process.env.CLOUDFLARE_R2_ACCESS_KEY_ID,
       secretAccessKey: process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY,
     },
+    requestHandler: await proxyRequestHandler(),
   });
+}
+
+/**
+ * `HTTPS_PROXY` があればそれを通す requestHandler を返す（無ければ undefined = SDK 既定）。
+ *
+ * なぜ要るか（2026-08-25 実測）: 会社 PC のプロキシは R2 を**通す**。
+ * `curl` で S3 エンドポイントを叩くと CONNECT トンネルが張られ、本物の R2 が
+ * `Server: cloudflare` と S3 形式の `InvalidArgument: Authorization` を返す。
+ * にもかかわらず SDK 経由だけ失敗するのは、**AWS SDK v3 が HTTPS_PROXY を自動で見ない**ため。
+ * 直接 egress が塞がれた環境では SDK のリクエストだけが落ちる。
+ * 「会社 PC は外部 API が遮断される」と記録されていたものの中には、この形が混ざっていた可能性が高い。
+ *
+ * `https-proxy-agent` は直接依存ではなく GA 系からの推移依存なので、**消えても壊れないように**
+ * 動的 import を try/catch で包む。取れなければプロキシ無しで続行し、理由を一度だけ出す
+ * （黙って素の接続に落ちると「なぜか繋がらない」に戻る）。
+ */
+let proxyHandlerCache;
+async function proxyRequestHandler() {
+  if (proxyHandlerCache !== undefined) return proxyHandlerCache;
+  const proxyUrl = process.env.HTTPS_PROXY || process.env.https_proxy;
+  if (!proxyUrl) {
+    proxyHandlerCache = undefined;
+    return undefined;
+  }
+  try {
+    const [{ NodeHttpHandler }, { HttpsProxyAgent }] = await Promise.all([
+      import('@smithy/node-http-handler'),
+      import('https-proxy-agent'),
+    ]);
+    proxyHandlerCache = new NodeHttpHandler({ httpsAgent: new HttpsProxyAgent(proxyUrl) });
+  } catch (e) {
+    console.warn(
+      '[asset-storage] HTTPS_PROXY があるがプロキシ agent を読み込めなかった（' + e.message + '）。'
+      + 'プロキシ無しで続行する。直接 egress が塞がれている環境では接続に失敗する。',
+    );
+    proxyHandlerCache = undefined;
+  }
+  return proxyHandlerCache;
 }
 
 // ------------------------------------------------------------------ 分類

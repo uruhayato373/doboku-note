@@ -47,4 +47,22 @@ npm run scout-coconala-blogs                                     # 競合偵察�
 | `anzen-kanri-kakikata` | 第5回 | ハウツー | 1級 模範答案セット |
 | `sokan-shutsudai-theme-bunseki` | 単発 | 数字 | 総監 出題テーマ分析 |
 
+## 下書き（2026-08-24 作成・未公開）
+
+公開は **1日1本**（policy §6）。型と送客先を散らして、既存6本で未使用だった「結論」「反論」の切り口と、2級系3商品・S3作成・AI設計キットへの導線を埋めた。
+
+| slug | 型 | angle | funnel |
+|---|---|---|---|
+| `koji-gaiyou-de-otosu` | 悩み直撃 | 結論 | S1 診断 |
+| `gijutsuteki-kadai-gokai` | 勘違い破壊 | 反論 | S1 診断 |
+| `tensaku-akaire-3` | ケーススタディ | 体験 | S2 添削セット |
+| `jibun-de-kaku-ka-tsukuru-ka` | 比較 | 反論 | S3 作成 |
+| `suuchi-no-irekata` | チェックリスト | 数字 | AI設計キット |
+| `koutei-kanri-kakikata` | ハウツー | ハウツー | 1級 模範答案セット |
+| `chokuzen-2shukan-roadmap` | ロードマップ | ハウツー | 1級 教材フルパック |
+| `2kyu-doko-made-kaku` | 比較 | 反論 | 2級 模範答案セット |
+| `2kyu-moshi-tsukaikata` | ハウツー | ハウツー | 2級 予想模試 |
+
+新規は連載ではなく**単発**（`【第N回】` を付けない）。連載は第5回で完結している。
+
 連載は「次回予告 → 次記事の内容」が一致していること（QA が横断で見る）。

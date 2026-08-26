@@ -30,9 +30,9 @@
 2. **技術文書の可読性が最重要** — 専門文書を正確に・読みやすく提示する。
 3. **モバイル前提** — 現場（屋外）でスマホ参照が多い。375px で破綻しないこと。
 4. **印刷も想定** — 技術文書として印刷される。
-5. **ダークモード必須** — next-themes（`html.dark` class）。すべての配色・罫線が light/dark 両対応。
+5. **ダークモード必須** — 独自 `ThemeProvider`（`src/components/providers/ThemeProvider.tsx`・`html.dark` class をトグル）。すべての配色・罫線が light/dark 両対応。
 
-技術スタック: Next.js 16 + next-mdx-remote / カスタム CSS（`globals.css`）+ Tailwind / MDX / KaTeX / SVG・PNG / フォント = Inter + Noto Sans JP（sans 既定）。
+技術スタック: Next.js 16 + next-mdx-remote / カスタム CSS（`globals.css`）+ Tailwind / MDX / KaTeX / SVG・PNG / フォント = system font（游ゴシック優先のゴシック1種、sans 既定。2026-04-29 に next/font の Inter/Noto Sans JP を全削除しレンダーブロッキング CSS を排除）。
 
 ---
 
@@ -163,7 +163,6 @@
 | `HubCtaBanner`（`ui/HubCtaBanner/HubCtaBanner.tsx`） | **資格別リッチ背景 note CTA / もくじタイル**。カテゴリ hub の本文＋PC サイドバー＋モバイル、および docs 記事の末尾＋サイドバーの**もくじタイル**に共用（NextStepNav が指す「季節 note CTA」の実体）。背景は資格ごと 1 枚 `public/images/cta-bg/*.webp` を使い回し、文言・価格は**画像に焼かず HTML 文字を左に重ねる**（文字色は `--on-image-*` の固定濃色＝背景イラストが常に明色のため dark でも可読）。**季節モード**: 直前期（試験日の 6 週間前〜試験日）は売れ筋の特定商品へ直リンク（`mode=product`・価格ピル）、それ以外は資格別 **L2「もくじ」へ集約**（`mode=mokuji`・マガジンが増えても config 追加不要でスケール）。解決は `src/lib/hub-cta.ts`（`resolveHubCta(category, {utmSuffix?})`・ビルド時 `Date.now()` で switch。カテゴリ hub・docs 記事末尾・docs サイドバーで共用し `utmSuffix`（`-sb`/`-mob`/`-docs-sb`/`-footer`）で面分離）。もくじ URL は **`.claude/config/note-funnel.json` の L2 レジストリと同一 note 永続 ID**（変更時は両方更新）。GA4 は `data-cta="note"`＋`data-cta-label`、色は `--exam-*` トークン | `cta`（`ResolvedHubCta`） |
 | `MagazineHeroCta`（`ui/MagazineHeroCta/`） | **note マガジン単体の画像中心ヒーロー CTA バナー**（高さ ~380px）。資格別背景イラスト（`brandOf(id)` の `cta-bg/*.webp`）を**ブランド紺 `--hero-cta-tint` で覆い**、白キーライン枠の中にバッジ帯→キャッチコピー→短縮説明→マスコット「doboku-note 先生」円形アバター→note 緑の大ボタンを積む。文字は白＋`--hero-cta-*`（テーマ非追従の画像上固定色・`--on-image-*` と同型）。**文言・URL・キャラは全て `note-magazines.ts` から `id` で解決**（`ctaCatch`/`ctaButton`/`ctaPose`・省略時フォールバックあり）＝焼き込みバナーを作らずマガジン追加・価格改定で画像生成が不要。描画元は `MidArticleCta`（note モード＝記事中間 CTA の既定）と MDX `<MagazineCard>`（既定 `variant="hero"`）。強い hero は 1 記事 1 枚を基本とし、複数商品の比較・副次商品は `variant="inline"`＝`MagazineInlineCard` に落とす。inline はモバイルでも縦積みにせず 6:5 の 96px 画像＋テキストを横並びにしてスクロール量を抑える。アバターは `public/images/character/avatar-{pose}.webp`（`npm run character-avatars`）。`getMagazine()` ゲートで未公開は自動非表示。GA4 は商品ID入り `data-cta-label`＋`data-cta-placement`、50%以上表示で `note_cta_impression` を送る | `id`（`MagazineId`）/ `utmContent` / `placement` |
 | `MagazineTopBanner`（`ui/MagazineTopBanner/`） | docs 記事**冒頭**（ArticleHeader と本文 prose の間）に置く 1 行テキスト note CTA（バッジ＋短縮タイトル＋価格＋矢印）。二次系の高 intent ページのみ `resolvePlacement().top`（`src/lib/magazine-placement.ts`）で設定され、記事が長いため冒頭にも到達導線を 1 本置く。**末尾のもくじタイル（`HubCtaBanner`）と別物・重複可**（冒頭=個別商品テキスト／末尾=もくじタイルで役割が違う）。表示可否は `getMagazine()`（published＋noteUrl）ゲート通過で決まり未公開は自動非表示。GA4 は `data-cta="note"`＋`data-cta-label`（utm_content） | `url`/`title`/`price?`/`badge`/`trackLabel` |
-| `LinksHubTile`（`ui/LinksHubTile/`） | 「note 有料教材まとめ（`/links`）」への**内部リンクタイル**（画像レス・accent テキスト）。ホームの note 教材セクションで使う（記事側の note CTA は 2026-07 に `HubCtaBanner` もくじタイルへ統一し ArticleFooter フォールバックは廃止）。全資格横断ハブのため単一資格イラストは使わない。`data-cta="note"` で計測（内部遷移・同タブ） | `trackLabel` |
 
 `not-found` は Header/Footer を持たない設計のため PageShell を使わない（意図的な例外）。
 
@@ -307,13 +306,12 @@ CLAUDE.md §7 と一致:
 | note 要素の総数（footer 含む・暴走検知の緩い上限） | ≤ 30 | **機械**（旗艦ハブは意図的に多数収録＝22 程度まで） |
 | 同一 a8mat のインプレッションピクセル（`<img …0.gif?a8mat=MAT>`） | ≤ 1 /ページ | **機械**（同一 MAT 二重発火を検知。別 MAT の併置＝カテゴリ hub の補完 2 案件 は正当で許可） |
 | note もくじタイル（`HubCtaBanner`／L2 索引） | 全 HUB 資格（civil-1/2・総監・建設）の docs 記事末尾＋サイドバーに各 1 枚（`-docs-sb`／`-footer`）＋カテゴリ hub に sidebar/mobile 各 1 枚。個別マガジンタイル（旧・最大 3 誌）は 2026-07 廃止し個別導線は冒頭/中間 CTA・MDX 内 MagazineCard に一本化。非 HUB 資格・career タグ記事は非表示 | コード（page.tsx 導出・`resolveHubCta`） |
-| 本文中間 CTA（`MidArticleCta`） | **記事長に応じて 1〜3 枠**（2026-07-28 に 1 枠固定から変更＝長文で note と転職カードが枠を奪い合っていたため）。枠数 = `max(1, min(3, ⌊h2/3⌋, ⌊本文字数/4000⌋))`、下限ゲート h2≥4 かつ 2,500字（未満は 0 枠）。位置は h2 境界に均等配分し最終 h2（まとめ）直前は避ける。**埋める順**＝①note（guide/pillar/textbook・h2≥5・8,000字以上・冒頭 CTA と別マガジンのとき）→②転職ネイティブカード→③related。**各種別 1 記事 1 回まで**（同じ広告を 2 度出さない）。転職カードは affiliate 対象カテゴリ（civil-1/2・pe-construction・concrete-*・pe-first-stage）＋総監（DXコンサル）で、手書き inline `<CareerAffiliate>` 保有記事は自動抑制（二重表示回避） | コード（挿入条件） |
+| 本文中間 CTA（`MidArticleCta`） | **記事長に応じて 1〜3 枠**（2026-07-28 に 1 枠固定から変更＝長文で note と転職カードが枠を奪い合っていたため）。枠数 = `max(1, min(3, ⌊h2/3⌋, ⌊本文字数/4000⌋))`、下限ゲート h2≥3 かつ 2,500字（未満は 0 枠。**2026-08-24 に h2≥4 から緩和**＝GA4 実測で本文中間の imp 当たりクリックがサイドバーの約4倍〔sidebar 5,900imp/5click・article-mid 1,546imp/5click〕なのに、4,000字以上あるのに 0 枠の published 記事が 47 本あったため。h2=2 に下げないのは位置式 min(max(1,…), h2-2) が 0 に潰れて「先頭セクション直後は避ける」を破るから）。位置は h2 境界に均等配分し最終 h2（まとめ）直前は避ける。**埋める順**＝①note（guide/pillar/textbook・h2≥5・8,000字以上・冒頭 CTA と別マガジンのとき）→②転職ネイティブカード→③related。**各種別 1 記事 1 回まで**（同じ広告を 2 度出さない）。転職カードは affiliate 対象カテゴリ（civil-1/2・pe-construction・concrete-*・pe-first-stage）＋総監（DXコンサル）で、手書き inline `<CareerAffiliate>` 保有記事は自動抑制（二重表示回避） | コード（挿入条件） |
 | 記事末尾 footer カード | ≤ 7 目安（旗艦セールスハブは例外的に超過可） | 手動 |
-| AdSense 自動広告 | コードで除外指定不可 → 管理画面「広告掲載率」＋`google-auto-placed` 出現数を週次監査 | 手動 |
 
 > **アフィリ ピクセル計数の注意**: 素朴な substring カウント（`px.a8.net`・`0.gif` の出現数）は Next.js の RSC ペイロード（props の JSON 直列化）で ~2 倍に膨らむため使わない。check-cta-density は**レンダリング済み `<img>` タグだけ**をパースして a8mat を数える（href の `px.a8.net/svt/ejp`・banner の `bgt`・RSC payload は無視）。docs 記事は サイドバー枠の 1 ピクセルのみ発火（モバイル記事末カードは href のみ＝ピクセルなし）で 1 ページ 1 ピクセルを維持済み。
 
-> 中間 CTA 導入後 1〜2 週は RPM／スクロール完了率を GA4・AdSense で監視し、悪化時は中間 CTA 閾値を h2≥7 / 12,000 字へ引き上げる（ロールバックレバー）。
+> 中間 CTA 導入後 1〜2 週はスクロール完了率を GA4 で監視し、悪化時は中間 CTA 閾値を h2≥7 / 12,000 字へ引き上げる（ロールバックレバー）。
 
 ---
 

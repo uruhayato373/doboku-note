@@ -142,15 +142,15 @@
       "group": "textbook",
       "scores": {
         "structure": 3,
-        "principle": 2,
+        "principle": 3,
         "mobile": 3,
-        "figures": 2,
-        "reference": 2
+        "figures": 3,
+        "reference": 3
       },
-      "weighted": 2.5,
+      "weighted": 3,
       "weak_axes": [],
-      "qualitative_comment": "lint全PASS・表なし。L109に語中で切れる太字など軽微違反。図2.1-2.7/表2.1-2.10参照多数だが実画像・実表未実装。法令e-Govリンク・過去問バックリンクなし。",
-      "scored_at": "2026-04-20T05:46:29.772Z"
+      "qualitative_comment": "DN-0078再監査（旧2026-04-20採点は「図2.1-2.7/表2.1-2.10参照多数だが実画像・実表未実装」の時点のもの、2026-05-17リライトで刷新済み）。frontmatter完備、lint 0件（false-positive除く）。ArticleImage 3/3実在（figure-contract-documents/plan-creation-steps/plan-objectives.svg）、alt適切長。参考資料は公的(mlit×2)+民間(nikkenren/obayashi/kajima)完備。施工計画書(1)〜(15)の全項目を本文で網羅（緊急時体制・交通管理・環境対策・再生資源利用まで完備）。減点なし。",
+      "scored_at": "2026-08-26T05:21:33.077Z"
     },
     "textbook-control-chart": {
       "slug": "textbook-control-chart",
@@ -158,14 +158,16 @@
       "scores": {
         "structure": 3,
         "principle": 3,
-        "mobile": 3,
-        "figures": 2,
-        "reference": 2
+        "mobile": 2,
+        "figures": 3,
+        "reference": 3
       },
       "weighted": 2.7,
-      "weak_axes": [],
-      "qualitative_comment": "構造・原則・モバイル満点。図4.10参照あるが画像未挿入。JIS Z 9020-1/9021がjisc.go.jp頂点止まりで規格本体に到達しない、法令e-Gov内部リンクと過去問バックリンク未設置で2点止まり。",
-      "scored_at": "2026-04-20T05:46:29.772Z"
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "DN-0078再監査。旧採点（2026-04-20、weighted 2.7、weak_axes無し、comment「図4.10参照あるが画像未挿入」）から画像は2→4/4に完全実装（figure-cause-classification/control-chart-types/xbar-r-chart/xbar-r-procedure.svg）。一方L75-83（計量値/計数値の管理図7種列挙）・L210-211（作成手順の入れ子）に2階層ネストリスト3件（3-1 MEDIUM）が新規発生しmobile軸を押し下げ（figures改善分と相殺し総合スコアは旧同水準）。JIS Z9020-1/9021のjisc.go.jp参照は規格本体非公開のため実務上の限界（減点対象外）。次回はL75-83を<SpecSheetList>化すれば3点回復見込み。",
+      "scored_at": "2026-08-26T05:21:33.077Z"
     },
     "textbook-crane": {
       "slug": "textbook-crane",
@@ -262,17 +264,19 @@
       "group": "textbook",
       "scores": {
         "structure": 3,
-        "principle": 3,
-        "mobile": 3,
-        "figures": 1,
-        "reference": 3
+        "principle": 1,
+        "mobile": 2,
+        "figures": 2,
+        "reference": 2
       },
-      "weighted": 2.7,
+      "weighted": 2,
       "weak_axes": [
-        "figures"
+        "principle",
+        "figures",
+        "reference"
       ],
-      "qualitative_comment": "frontmatter完備・lint全パス。Callout冒頭集約・参考資料e-Gov+厚労省+日建連+民間で公的民間両立・法令e-Gov内部リンク設置済。ただし表7.1/7.2(年少則・女性則)が参照されるのに実体表が存在せず図表軸1点。",
-      "scored_at": "2026-04-20T05:46:29.772Z"
+      "qualitative_comment": "DN-0078再監査・要改善（合格ライン2.0ちょうど、最優先リライト対象）。旧採点（2026-04-20、weighted 2.7、weak_axes:[\"figures\"]=\"表7.1/7.2が参照されるのに実体表が存在せず\"）から表は実装済み（重量物取扱制限表L229-236、妊産婦制限表L251-259）だが、代わりにL263-269（9-11 HIGH）で<ExamPoint items>内の1項目「妊婦は規定の危険業務が一律禁止、産婦は申し出た場合に禁止、その他の女性は就業可」に読点を含む機械分割バグ典型パターン（§5禁止・civil-exampoint-restorer案件）が新規混入し最重要減点。加えてL249（7-1 MEDIUM）太字37字（30字超）、L136（15-3 MEDIUM/15-2 LOW）315字段落＋166字長文、L73-107（3-1 MEDIUM×3）年少者/妊産婦制限の入れ子リスト、L150 alt 81字（10-3、80字上限を1字超過）、L251-259（14-1 MEDIUM）重量物表への直下出典欠落が重なる。参考資料自体はe-Gov 7件+厚労省+日建連+労務安全情報センターと充実（reference軽微減点は14-1のみ）。次回リライトの最優先は L263-269 のExamPoint修復（civil-exampoint-restorer相当の手直しで済む単発修正）。",
+      "scored_at": "2026-08-26T05:21:33.077Z"
     },
     "textbook-law-compliance": {
       "slug": "textbook-law-compliance",
@@ -324,17 +328,18 @@
       "group": "textbook",
       "scores": {
         "structure": 3,
-        "principle": 3,
-        "mobile": 3,
-        "figures": 1,
-        "reference": 2
+        "principle": 2,
+        "mobile": 1,
+        "figures": 3,
+        "reference": 3
       },
-      "weighted": 2.55,
+      "weighted": 2.2,
       "weak_axes": [
-        "figures"
+        "mobile",
+        "principle"
       ],
-      "qualitative_comment": "frontmatter完備・lint全パス。表2.1/2.2参照あるが画像/SVG 1枚も存在せず図表軸1点。参考資料はe-Gov・国交省・業界団体・メーカー複数で公的+民間満たすが過去問バックリンクや関連textbook誘導が内部リンク化されていない。",
-      "scored_at": "2026-04-20T05:46:29.772Z"
+      "qualitative_comment": "DN-0078再監査・要改善（weighted<2.5のリライト候補）。旧採点（2026-04-20、weighted 2.55、weak_axes:[\"figures\"]=\"画像/SVG1枚も存在せず\"）から画像は1→3/3に改善（figure-machinery-classification/machinery-spec-notation/operator-protection.svg実在、e-Gov建設機械抵当法リンクも追加）。ただしL44-104「建設機械の分類」の19機種区分＋建設業法対応を列挙する箇条書きが2階層ネストのまま（3-1 MEDIUM×20件、lint件数は全てこの1セクションに集中）でmobile軸を大きく押し下げ（旧3→新1）、加えてL213に330字の長段落＋195字の長文（15-2/15-3）がprinciple軸を軽微減点。次回リライトの最優先: L44-104を<SpecSheetList>（19区分×該当建設業法区分）へ再構成すればmobile軸はほぼ解消見込み。figures/referenceは良好で維持。",
+      "scored_at": "2026-08-26T05:21:33.077Z"
     },
     "textbook-machinery-structure": {
       "slug": "textbook-machinery-structure",
@@ -395,8 +400,8 @@
       "weak_axes": [
         "reference"
       ],
-      "qualitative_comment": "frontmatter完備・lint0件・2列表のみ・航法要点SVGは適切なArticleImage。しかし『## 参考資料』節完全欠落、港則法e-Govリンク・海上保安庁等の公的/民間リンク・関連テキスト誘導が未設置で1点。",
-      "scored_at": "2026-04-20T05:46:29.772Z"
+      "qualitative_comment": "DN-0078再監査。旧採点（2026-04-20、weighted 2.7、weak_axes:[\"reference\"]、comment「『## 参考資料』節完全欠落」）から参考資料節は新設済み（e-Gov港則法＋海上保安庁交通部）で大きく前進したが、いずれも公的資料のみで民間解説記事が0件（§12「公的最低1件＋民間最低1件」未達、lint 9-4 MEDIUM）。旧採点と同じreference=1点だが理由は「節が無い」から「民間ソースが無い」へ質的に変化＝改善途上。加えてL43-53の用語定義表（きっ水・びょう泊等）に直下インライン出典なし（14-1 MEDIUM）。次回は港湾工学・海事系の民間解説記事1件を参考資料に追加すれば即2点以上へ改善見込み。structure/principle/mobile/figuresは全て3点で良好（過去問バックリンク12件・Callout3個は§7上限内）。",
+      "scored_at": "2026-08-26T05:21:33.077Z"
     },
     "textbook-quality-inspection": {
       "slug": "textbook-quality-inspection",
@@ -418,15 +423,17 @@
       "group": "textbook",
       "scores": {
         "structure": 3,
-        "principle": 2,
-        "mobile": 2,
+        "principle": 3,
+        "mobile": 1,
         "figures": 3,
         "reference": 3
       },
-      "weak_axes": [],
-      "qualitative_comment": "frontmatter完備・lint合格・参考資料節公的民間両方完備。図版なしのため figures 軸満点。表4.4は2列構成で工種列が空セル多く視認性は許容範囲だが、太字が多用される箇所（ISO節）が原則軸の軽微減点要因。",
-      "weighted": 2.5,
-      "scored_at": "2026-04-25T07:05:40.433Z"
+      "weak_axes": [
+        "mobile"
+      ],
+      "qualitative_comment": "DN-0078再監査。旧採点（2026-04-25、weighted 2.5）から画像は0→3/3に改善（figure-iso-9001-vs-14001/quality-goals-methods/quality-control-steps.svg実在）したが、L186-203（3-1 MEDIUM×4件）にISO9000ファミリーの品質マネジメント7原則の列挙が2階層ネストリストのまま残り、モバイル視認性がむしろ悪化（旧mobile2→新mobile1、weighted純減）。次回リライトの最優先: L174-203の「①〜⑦」原則を<SpecSheetList>または太字リード+フラット1階層へ再構成。参考資料は公的資料/民間資料を明示分割済みで良好、e-Gov・過去問バックリンクは対象外（textbookモード）。",
+      "weighted": 2.4,
+      "scored_at": "2026-08-26T05:21:33.077Z"
     },
     "textbook-river-act": {
       "slug": "textbook-river-act",
@@ -463,30 +470,30 @@
       "group": "textbook",
       "scores": {
         "structure": 3,
-        "principle": 2,
+        "principle": 3,
         "mobile": 3,
-        "figures": 2,
-        "reference": 2
+        "figures": 3,
+        "reference": 3
       },
-      "weighted": 2.5,
+      "weighted": 3,
       "weak_axes": [],
-      "qualitative_comment": "frontmatter完備・lint0件。画像不使用・図3.4/3.5等PDF参照残存で図表2点。Callout冒頭サマリが太字長文化・『図〜に示す』残存で原則軽微違反。参考資料公的+民間揃うがe-Gov法令リンク・過去問バックリンクが皆無。",
-      "scored_at": "2026-04-20T05:46:29.772Z"
+      "qualitative_comment": "DN-0078再監査（旧2026-04-20採点は画像未実装・図表比較「表3.2」参照残存の時点のもの、2026-05-17リライトで刷新済み）。frontmatter完備、lint実質0件（false-positive除く）。ArticleImage 3/3実在（figure-chart-shapes/diagonal-schedule-chart/banana-curve.svg）、alt詳細・出典不要（自作SVG）。参考資料は公的(mlit×2)+民間(nikkenren/pmi/kajima/obayashi)完備。軽微メモ: L245-257の比較表は「表3.2のようになる」と本文で予告しつつ実装は箇条書き（factual誤りではないが表記と実装が不一致、次回リライトで文言調整可）。",
+      "scored_at": "2026-08-26T05:21:33.077Z"
     },
     "textbook-schedule-overview": {
       "slug": "textbook-schedule-overview",
       "group": "textbook",
       "scores": {
         "structure": 3,
-        "principle": 2,
+        "principle": 3,
         "mobile": 3,
         "figures": 3,
-        "reference": 2
+        "reference": 3
       },
-      "weighted": 2.65,
+      "weighted": 3,
       "weak_axes": [],
-      "qualitative_comment": "frontmatter完備・lint pass。冒頭Calloutに太字多用で§2スコープ超過気味。ArticleImage使用・SVG自作・出典コメント完備。参考資料公的(mlit/jisc)+民間(nikkenren/obayashi/kajima)両立だがe-Gov法令内部リンク・過去問バックリンクなし。",
-      "scored_at": "2026-04-20T05:46:29.772Z"
+      "qualitative_comment": "DN-0078再監査（旧2026-04-20採点「冒頭Calloutに太字多用で§2スコープ超過気味」「e-Gov・過去問バックリンクなし」は2026-05-17リライトで解消）。frontmatter完備、lint 0件。ArticleImage 3/3実在（figure-unit-cost-speed/break-even-point/cost-duration-curve.svg）、うち2点は{/* source: doboku-note 自作SVG */}コメント＋caption帰属明記で§8準拠。参考資料は公的(mlit/jisc)+民間(nikkenren/obayashi/kajima)完備。冒頭Calloutの太字は「工事費曲線」等4-6字の短句のみで過剰なし。減点なし。",
+      "scored_at": "2026-08-26T05:21:33.077Z"
     },
     "textbook-scraper": {
       "slug": "textbook-scraper",
@@ -525,13 +532,15 @@
         "structure": 3,
         "principle": 3,
         "mobile": 3,
-        "figures": 2,
+        "figures": 3,
         "reference": 2
       },
-      "weighted": 2.7,
-      "weak_axes": [],
-      "qualitative_comment": "frontmatter完備・lint0件。表ゼロでモバイル視認性問題なし。図2.8/2.9/表2.11への文字参照のみで図版未掲載。参考資料公的(MLIT/地盤工学会/JIS)+民間(応用地質/ジオテック)両立だがe-Gov内部リンク・過去問バックリンク未設置。",
-      "scored_at": "2026-04-20T05:46:29.772Z"
+      "weighted": 2.85,
+      "weak_axes": [
+        "reference"
+      ],
+      "qualitative_comment": "DN-0078再監査。旧採点（2026-04-20、weighted 2.7、weak_axes無し、comment「図2.8/2.9/表2.11への文字参照のみで図版未掲載」）から画像は2→3/3に改善（figure-pre-investigation/spt-test/method-decision.svg実在）。参考資料は公的(MLIT/地盤工学会/JIS)+民間(応用地質/ジオテック)を維持。ただしL153-157（14-1 MEDIUM）のコーン指数早見表（超湿地200・湿地300・普通500 kN/m²）に直下インライン出典（§22）が無く、ページ末尾の参考資料節はあるが数値表への近接引用が未設置。次回は該当表直下に<Callout type=\"reference\">で地盤工学会等を再掲すれば解消。",
+      "scored_at": "2026-08-26T05:21:33.077Z"
     },
     "textbook-standard-contract": {
       "slug": "textbook-standard-contract",
@@ -599,14 +608,17 @@
       "scores": {
         "structure": 3,
         "principle": 2,
-        "mobile": 3,
-        "figures": 2,
-        "reference": 2
+        "mobile": 2,
+        "figures": 3,
+        "reference": 3
       },
       "weighted": 2.5,
-      "weak_axes": [],
-      "qualitative_comment": "frontmatter完備・lint全PASS。式2.1-2.13はscroll-equation対応。L33/L50段落が連続4行超で§3違反気味。画像不使用。参考資料公的(mlit×2)+民間(nikkenren/pmi)両立だがe-Gov法令内部リンク・過去問バックリンク・関連textbook誘導なし。",
-      "scored_at": "2026-04-20T05:46:29.772Z"
+      "weak_axes": [
+        "principle",
+        "mobile"
+      ],
+      "qualitative_comment": "DN-0078再監査。旧採点（2026-04-20）から実質変化なし。frontmatter完備・画像3/3実在（figure-machine-combination/workable-days/construction-speeds.svg）・参考資料公的(mlit×2)+民間(nikkenren/pmi)良好。L94-96（3-1 MEDIUM）に「主機械の能力に合わせ従機械は…」の2階層ネストリストが残存＝モバイル視認性の軽微減点。ページ末尾に総括ExamPointが無く、代わりにL303付近のCallout(warn)が中間アクセントとして機能する構成のみ＝textbook標準（末尾ExamPoint1個）からの軽微逸脱。いずれも次回リライトで<SpecSheetList>化・末尾ExamPoint追加により解消可能。",
+      "scored_at": "2026-08-26T05:21:33.077Z"
     },
     "guide-1-vs-2": {
       "slug": "guide-1-vs-2",

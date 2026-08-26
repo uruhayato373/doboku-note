@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 380" style="max-width:500px;width:100%" role="img" aria-label="鋼材の含有炭素量と引張強さ・降伏点(A)、伸び(B)、絞り(C)の関係を示す3本の曲線グラフ">
+  <line x1="70.0" y1="330.0" x2="470.0" y2="330.0" stroke="#222" stroke-width="1.5"/>
+  <line x1="70.0" y1="30.0" x2="70.0" y2="330.0" stroke="#222" stroke-width="1.5"/>
+  <line x1="470.0" y1="30.0" x2="470.0" y2="330.0" stroke="#222" stroke-width="1.5"/>
+  <text x="270.0" y="364.0" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">含有炭素量（%）</text>
+  <line x1="70.0" y1="330.0" x2="470.0" y2="330.0" stroke="#eee" stroke-width="1"/>
+  <text x="62.0" y="334.0" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">0</text>
+  <line x1="70.0" y1="296.7" x2="470.0" y2="296.7" stroke="#eee" stroke-width="1"/>
+  <text x="62.0" y="300.7" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">100</text>
+  <line x1="70.0" y1="263.3" x2="470.0" y2="263.3" stroke="#eee" stroke-width="1"/>
+  <text x="62.0" y="267.3" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">200</text>
+  <line x1="70.0" y1="230.0" x2="470.0" y2="230.0" stroke="#eee" stroke-width="1"/>
+  <text x="62.0" y="234.0" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">300</text>
+  <line x1="70.0" y1="196.7" x2="470.0" y2="196.7" stroke="#eee" stroke-width="1"/>
+  <text x="62.0" y="200.7" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">400</text>
+  <line x1="70.0" y1="163.3" x2="470.0" y2="163.3" stroke="#eee" stroke-width="1"/>
+  <text x="62.0" y="167.3" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">500</text>
+  <line x1="70.0" y1="130.0" x2="470.0" y2="130.0" stroke="#eee" stroke-width="1"/>
+  <text x="62.0" y="134.0" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">600</text>
+  <line x1="70.0" y1="96.7" x2="470.0" y2="96.7" stroke="#eee" stroke-width="1"/>
+  <text x="62.0" y="100.7" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">700</text>
+  <line x1="70.0" y1="63.3" x2="470.0" y2="63.3" stroke="#eee" stroke-width="1"/>
+  <text x="62.0" y="67.3" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">800</text>
+  <line x1="70.0" y1="30.0" x2="470.0" y2="30.0" stroke="#eee" stroke-width="1"/>
+  <text x="62.0" y="34.0" text-anchor="end" font-family="sans-serif" font-size="10" fill="#222">900</text>
+  <text x="18" y="180.0" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#222" transform="rotate(-90 18 180)">引張強さ・降伏点(N/mm²)</text>
+  <text x="478.0" y="334.0" text-anchor="start" font-family="sans-serif" font-size="10" fill="#222">0</text>
+  <text x="478.0" y="274.0" text-anchor="start" font-family="sans-serif" font-size="10" fill="#222">20</text>
+  <text x="478.0" y="214.0" text-anchor="start" font-family="sans-serif" font-size="10" fill="#222">40</text>
+  <text x="478.0" y="154.0" text-anchor="start" font-family="sans-serif" font-size="10" fill="#222">60</text>
+  <text x="478.0" y="94.0" text-anchor="start" font-family="sans-serif" font-size="10" fill="#222">80</text>
+  <text x="478.0" y="34.0" text-anchor="start" font-family="sans-serif" font-size="10" fill="#222">100</text>
+  <text x="516.0" y="180.0" text-anchor="middle" font-family="sans-serif" font-size="10.5" fill="#222">伸び(%)</text>
+  <text x="70.0" y="348.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">0.0</text>
+  <text x="127.1" y="348.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">0.2</text>
+  <text x="184.3" y="348.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">0.4</text>
+  <text x="241.4" y="348.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">0.6</text>
+  <text x="298.6" y="348.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">0.8</text>
+  <text x="355.7" y="348.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">1.0</text>
+  <text x="412.9" y="348.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">1.2</text>
+  <text x="470.0" y="348.0" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#222">1.4</text>
+  <path d="M 70.0 240.0 C 79.5 231.7 108.1 206.1 127.1 190.0 C 146.2 173.9 165.2 158.9 184.3 143.3 C 203.3 127.8 222.4 111.1 241.4 96.7 C 260.5 82.2 284.3 63.6 298.6 56.7 C 312.9 49.7 317.6 54.4 327.1 55.0 C 336.7 55.6 341.4 56.4 355.7 60.0 C 370.0 63.6 393.8 69.4 412.9 76.7 C 431.9 83.9 460.5 98.9 470.0 103.3 " fill="none" stroke="#222" stroke-width="2"/>
+  <path d="M 70.0 204.0 C 79.5 207.0 108.1 217.5 127.1 222.0 C 146.2 226.5 165.2 230.0 184.3 231.0 C 203.3 232.0 222.4 229.5 241.4 228.0 C 260.5 226.5 279.5 224.0 298.6 222.0 C 317.6 220.0 336.7 217.0 355.7 216.0 C 374.8 215.0 393.8 215.0 412.9 216.0 C 431.9 217.0 460.5 221.0 470.0 222.0 " fill="none" stroke="#555" stroke-width="2" stroke-dasharray="6 3"/>
+  <path d="M 70.0 210.0 C 79.5 215.0 108.1 231.0 127.1 240.0 C 146.2 249.0 165.2 257.5 184.3 264.0 C 203.3 270.5 222.4 275.0 241.4 279.0 C 260.5 283.0 279.5 285.5 298.6 288.0 C 317.6 290.5 336.7 292.0 355.7 294.0 C 374.8 296.0 393.8 298.5 412.9 300.0 C 431.9 301.5 460.5 302.5 470.0 303.0 " fill="none" stroke="#8a8a8a" stroke-width="1.5" stroke-dasharray="2 2"/>
+  <text x="284.3" y="47.3" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222" font-weight="bold">A</text>
+  <text x="398.6" y="207.0" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222" font-weight="bold">B</text>
+  <text x="441.4" y="292.0" text-anchor="start" font-family="sans-serif" font-size="12" fill="#222" font-weight="bold">C</text>
+</svg>

@@ -91,7 +91,9 @@ for (const file of articles) {
   refTotal += refs.size;
   for (const n of [...refs].sort()) {
     if (!capRe(n).test(body)) {
-      dangling.push({ file: file.replace(ROOT + "/", "").replace(/\\/g, "/"), ref: n });
+      // 先に区切りを正規化してから ROOT を剥がす。逆順だと Windows で ROOT+'/' が
+      // 当たらず、出力が絶対パスのままになる（判定には影響しないが読みにくい）。
+      dangling.push({ file: file.replace(/\\/g, "/").replace(ROOT.replace(/\\/g, "/") + "/", ""), ref: n });
     }
   }
 }

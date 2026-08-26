@@ -36,7 +36,7 @@ node scripts/note-publish.mjs --article <path> --commit --schedule 2026-06-20T07
 
 ### マガジン一括（バッチ）
 
-1マガジン分（`article-*.md` 全部）の公開は **`note-publish-magazine`** を使う（1記事ずつ `note-publish --commit` を直列実行・**冪等**〔frontmatter に noteUrl あればskip〕・1記事最大2回試行・失敗で停止→再実行で再開・公開順 R03→R08-yosou × II1→II2→III）。**偽成功ガード（2026-07-01）**: 即時公開分は「noteUrl が書けた」だけで OK とせず、書き戻した noteId が note API で実在するか照合し、確定 404（幻 id）なら fail 停止する（工事82-87 が fail=0 のまま未公開だった再発防止）。**バッチ完了後は必ず `npm run verify-note-status`**（fm=published↔ライブ404 を検出）で全件確証してから完了報告する。公開前の単品価格揃えは **`note-price-sweep`**（frontmatter `price` を一括スイープ・既定 1980→500・CRLF保持）。
+1マガジン分（`article-*.md` 全部）の公開は **`note-publish-magazine`** を使う（1記事ずつ `note-publish --commit` を直列実行・**冪等**〔frontmatter に noteUrl あればskip〕・1記事最大2回試行・失敗で停止→再実行で再開・公開順 R03→R08-yosou × II1→II2→III）。**偽成功ガード（2026-07-01）**: 即時公開分は「noteUrl が書けた」だけで OK とせず、書き戻した noteId が note API で実在するか照合し、確定 404（幻 id）なら fail 停止する（工事82-87 が fail=0 のまま未公開だった再発防止）。**連続投稿スロットル対策（DN-0118・2026-08-22 実測）**: 即時公開31本目以降で「投稿する」が完了しなくなる現象を確認（20分待機で解消）。既定で**25本(`--batch-size`)ごとに20分(`--cooldown-minutes`)自動クールダウン**する（予約投稿時は対象外）。**バッチ完了後は必ず `npm run verify-note-status`**（fm=published↔ライブ404 を検出）で全件確証してから完了報告する。公開前の単品価格揃えは **`note-price-sweep`**（frontmatter `price` を一括スイープ・既定 1980→500・CRLF保持）。
 
 ```
 node scripts/note-price-sweep.mjs --dir <magazineDir> --commit          # Step1: 価格スイープ（→ pathspec commit）

@@ -432,21 +432,44 @@ node scripts/backlog-sweep-pick.mjs --json   # 現在の残量と分類率
 node scripts/check-backlog-health.mjs         # 台帳の健全性（沈んだ不具合・定期の混入・重複候補）
 node scripts/check-external-write-orphans.mjs # 外部へは成功・台帳の書き戻しは失敗（重複投稿の芽）
 node scripts/check-backlog-verify.mjs        # [検証:cmd] を実走し、赤→緑になったカード（完了の疑い）を出す
-node -e "const d=require('./.claude/state/dispatch/dispatch-log.json');const w=d.entries.filter(e=>e.date>='<今週月曜>');const by=k=>w.filter(e=>e.outcome===k).length;console.log(JSON.stringify({total:w.length,done:by('done'),swept:by('swept'),blocked:by('blocked'),fail:by('fail'),byExecutor:w.reduce((a,e)=>((a[e.executor]=(a[e.executor]||0)+1),a),{})}))"
+node -e "const d=require('./.claude/state/dispatch/dispatch-log.json');const w=d.entries.filter(e=>e.at>='<今週月曜>');const by=k=>w.filter(e=>e.outcome===k).length;console.log(JSON.stringify({total:w.length,done:by('done'),swept:by('swept'),blocked:by('blocked'),fail:by('fail'),byExecutor:w.reduce((a,e)=>((a[e.executor]=(a[e.executor]||0)+1),a),{})}))"
 ```
 
 レビューには次の 4 行で書く:
 
 - **消化**: done N 件 / 掃除（swept＝実査したら既に完了）M 件
 - **残量**: カード総数 X 件（🔴/🟡/🟢）・前週比 ±Y
-- **分類率**: `[実行:]` 付与済み A / 全体 B（未分類が多いほど sweep が選べない）
+- **分類率**: `[種類:]` 付与済み A / 全体 B（旧 `[実行:]` 軸は 2026-08-26 廃止。未分類は選定順序〔不具合優先〕に乗らない）
 - **モデル別**: executor 別の件数と失敗/手戻り（Phase C のモデル分業を見直す材料）
 - **台帳の健全性**: `check-backlog-health` の S2（🟢/🟣 に沈んだ不具合）・S4（`種類:定期`＝backlog の役割違反）・S9（`.claude/todo` の 4 層以外）。**この 3 つが 0 でない週は放置しない**（S2 は選定順で先頭に出るのに tier が嘘をついている状態、S4/S9 は置き場違い）。しきい値を超えたら次セッションで `/backlog-sweep --audit`
 
 - **完了の疑い**: `check-backlog-verify` が `赤→緑` を出した週は、そのカードを次の `/backlog-sweep` で**実査**する（緑は完了の証明ではない——2026-08-18 に check-note-attachments の正規表現が案内済み 77 本を誤検出した実例がある）。`常時緑` が出たら、そのカードの `[検証:]` が surfacer を指していて**完了判定に使えない**ということなので、検証コマンドを差し替えるか外す。
 - **外部書き込みの孤児**: `check-external-write-orphans` が `orphan` を出した週は**最優先**。「外部には出たのに台帳に記録が無い」状態で、台帳を信じて再開すると同じものを二重に外部へ出す。run ログから外部側の実体（videoId 等）を回収して台帳へ反映してから再開する。`silent-stop` は「未処理が残っているのに誰も回していない」通知（手動投入ジョブでは異常ではない）。2026-06-17 の YouTube run が実例＝6 本アップ済みなのに台帳 pending のまま 2 か月放置された。
+- **品質censusのdelta**: `npm run quality-census` の `delta` 節（薄層への逆戻り・スコア低下記事）を1行確認する。前回比で悪化が出た週は該当記事を backlog へ。
+- **収益カバレッジ**: `npm run report-monetization-coverage` の配置別 CTA CTR・note label × 売上突合（ID付き比率）を1行確認する。
 
 blocked / fail があれば「課題・ブロッカー」へ、繰り返し blocked になるタスクは前提条件を backlog 本文へ書き足す。
+
+#### automation-failure Issue の消化（1 行・親が直接確認）
+
+open な `automation-failure` Issue を毎週読む。**Issue は起票されても閉じられなければ意味が無い**——
+#457 は 2026-08-07 から 17 日 open のまま誰も見ておらず、しかも dedup 仕様で以後の同 channel の
+失敗はすべてこの Issue へのコメント追記に埋没していた（2026-08-24 実査）。**通知チャネル自体が
+消化されていなければ、CI の赤を Issue にしても同じことが起きる**。
+
+```bash
+gh issue list --label automation-failure --state open --json number,title,createdAt \n  --template '{{range .}}#{{.number}} {{slice .createdAt 0 10}} {{.title}}{{"
+"}}{{end}}'
+```
+
+レビューには次の 1 行で書く:
+
+- **自動化の失敗**: open N 件（最古 M 日前）。channel 別に「復旧済みなら閉じる / 未復旧なら原因を 1 行」。
+  **7 日以上 open のものは必ず言及する**（放置＝チャネルが死ぬ）。クローズは復旧の実体を確認した人間が行う
+  （`report-automation-failure.mjs` は自動クローズしない）。起票元は `ci.yml`（Pre-merge が赤）・
+  `uptime-ping.yml`・`weekly-review-guard.yml`（記録層の沈黙／workflow health／report 区分 FAIL）・
+  `index-coverage.yml`・GSC auto review ルーティン
+
 
 ### Phase 3: 出力（md ファイル保存）
 

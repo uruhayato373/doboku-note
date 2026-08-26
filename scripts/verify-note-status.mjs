@@ -23,7 +23,7 @@
 //   node scripts/verify-note-status.mjs --json     # 結果を JSON で stdout 出力
 //   node scripts/verify-note-status.mjs --ci       # ドリフト/検査不成立で exit 1（GitHub Actions 用）
 
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, readdirSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
@@ -33,6 +33,10 @@ const NOTE_DIR = join(ROOT, 'content/note');
 const FIX = process.argv.includes('--fix');
 const JSON_OUT = process.argv.includes('--json');
 const CI = process.argv.includes('--ci');
+// --snapshot: 結果を .claude/state/note/status-snapshot.json へ永続化する。
+// これが無かったため、記事別のライブ公開状態は CI artifact にしか残らず、
+// 管理画面からも週次レビューからも見えなかった（2026-08-24）。stdout の出力は変えない。
+const SNAPSHOT = process.argv.includes('--snapshot');
 const MAX_FETCH_FAIL_RATE = 0.2;
 
 if (CI && FIX) {
@@ -156,6 +160,14 @@ const result = {
   noLive,
   fixed: fixedCount,
 };
+
+if (SNAPSHOT) {
+  const out = join(ROOT, '.claude/state/note/status-snapshot.json');
+  mkdirSync(dirname(out), { recursive: true });
+  writeFileSync(out, `${JSON.stringify({ fetchedAt: new Date().toISOString(), ...result }, null, 2)}
+`);
+  console.error(`[verify-note-status] snapshot を書きました: ${out}`);
+}
 
 if (JSON_OUT) {
   console.log(JSON.stringify(result, null, 2));

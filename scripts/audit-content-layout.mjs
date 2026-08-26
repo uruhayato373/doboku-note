@@ -43,8 +43,15 @@ function walk(dir, out = []) {
   return out;
 }
 
-/** 1 ルートの決定的インベントリ。存在しないルートは exists:false で明示する（空と混同しない）。 */
-export function inventory(root) {
+/**
+ * 1 ルートの決定的インベントリ。存在しないルートは exists:false で明示する（空と混同しない）。
+ *
+ * `hash: false` のとき sha256 の**値**は空文字にする（キーは残す）。ハッシュ値を実際に使うのは
+ * --json 出力だけで、二重 SSOT 判定（findDualSsot）はキー集合しか見ない。content 配下は
+ * 8,400 ファイル・1.1GB あり、全ファイル読み込み＋sha256 は Windows で 52 秒（上限 60 秒）を
+ * 使い切って timeout する。CI でも同じ時間を無駄にしている。
+ */
+export function inventory(root, { hash = true } = {}) {
   if (!existsSync(root)) return { exists: false, files: 0, bytes: 0, byExt: {}, sha256: {} };
   const files = walk(root).sort();
   const byExt = {};
@@ -55,7 +62,7 @@ export function inventory(root) {
     const ext = extname(abs).toLowerCase() || '(none)';
     byExt[ext] = (byExt[ext] ?? 0) + 1;
     bytes += statSync(abs).size;
-    sha256[rel] = createHash('sha256').update(readFileSync(abs)).digest('hex');
+    sha256[rel] = hash ? createHash('sha256').update(readFileSync(abs)).digest('hex') : '';
   }
   return { exists: true, files: files.length, bytes, byExt, sha256 };
 }
@@ -91,7 +98,8 @@ function currentInventory() {
     site: SITE_CONTENT_ROOT, note: NOTE_CONTENT_ROOT, sns: SNS_CONTENT_ROOT,
     coconala: COCONALA_CONTENT_ROOT, kindle: KINDLE_CONTENT_ROOT, sources: CONTENT_SOURCES_ROOT,
   };
-  const rows = Object.entries(roots).map(([id, root]) => ({ id, ...inventory(root) }));
+  // 一覧表示は件数・容量しか使わないのでハッシュは取らない。
+  const rows = Object.entries(roots).map(([id, root]) => ({ id, ...inventory(root, { hash: false }) }));
   const empty = rows.filter((r) => !r.exists || r.files === 0).length;
 
   // MIGRATION_MAP が空（移行完了）になると main() は必ずここへ来る。--json を無視して
@@ -128,8 +136,9 @@ function main() {
   const report = [];
   let dualTotal = 0;
   for (const m of targets) {
-    const legacy = inventory(m.legacy);
-    const target = inventory(m.target);
+    // findDualSsot はキー集合だけを見る。ハッシュ値が要るのは --json 出力のときだけ。
+    const legacy = inventory(m.legacy, { hash: JSON_OUT });
+    const target = inventory(m.target, { hash: JSON_OUT });
     const dual = findDualSsot(legacy, target);
     dualTotal += dual.length;
     report.push({

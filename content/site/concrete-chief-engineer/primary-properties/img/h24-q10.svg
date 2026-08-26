@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 400" style="max-width:500px;width:100%" role="img" aria-label="ビンガム流体モデルの流動速度とせん断応力の関係を示す2本の直線①②。直線①の傾きAと切片Bが示され、表で①②とA・Bが降伏値・塑性粘度のどちらに対応するかを問う">
+  <line x1="80" y1="360" x2="440" y2="360" stroke="#222" stroke-width="1.5"/>
+  <line x1="80" y1="360" x2="80" y2="20" stroke="#222" stroke-width="1.5"/>
+  <line x1="140" y1="360" x2="330" y2="60" fill="none" stroke="#222" stroke-width="1.8"/>
+  <line x1="170" y1="360" x2="290" y2="70" fill="none" stroke="#222" stroke-width="1.8"/>
+  <text x="335" y="55" font-family="sans-serif" font-size="14" fill="#222">①</text>
+  <text x="295" y="65" font-family="sans-serif" font-size="14" fill="#222">②</text>
+  <line x1="300" y1="140" x2="380" y2="140" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="380" y1="140" x2="380" y2="185" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="4 3"/>
+  <line x1="388" y1="140" x2="388" y2="185" stroke="#222" stroke-width="1"/>
+  <text x="398" y="167" font-family="sans-serif" font-size="13" fill="#222">1</text>
+  <line x1="300" y1="185" x2="380" y2="185" stroke="#222" stroke-width="1"/>
+  <text x="340" y="205" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">A</text>
+  <line x1="80" y1="370" x2="140" y2="370" stroke="#222" stroke-width="1"/>
+  <text x="110" y="390" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">B</text>
+  <text x="20" y="190" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222" transform="rotate(-90 20 190)">流動速度（せん断ひずみ速度）</text>
+  <text x="440" y="382" text-anchor="end" font-family="sans-serif" font-size="13" fill="#222">せん断応力</text>
+</svg>

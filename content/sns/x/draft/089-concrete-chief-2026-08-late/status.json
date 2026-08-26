@@ -6,10 +6,10 @@
   "tweets": {
     "1": {
       "title": "8/23 12:35 concrete-chief / 出題実績分析 / site",
-      "status": "queued",
+      "status": "posted",
       "scheduled_at": "2026-08-23T12:35:00.000+09:00",
       "text": "コンクリート主任技士の試験は四肢択一25問+小論文1問、解答時間3時間の2部構成。択一と小論文は別々に採点され、小論文が基準に届かなければ択一が満点でも不合格になる仕組み。\n試験の全体像と学習の進め方を整理した:\nhttps://doboku-note.com/docs/concrete-chief-engineer-guide-overview?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=aug23-guide-overview\n\n#コンクリート主任技士 #コンクリート技士",
-      "posted_at": null
+      "posted_at": "2026-08-23T03:35:00.000Z"
     },
     "2": {
       "title": "8/27 07:30 concrete-chief / リフレーム / linkless",
@@ -40,5 +40,5 @@
       "posted_at": null
     }
   },
-  "updatedAt": "2026-08-13T03:34:55.333Z"
+  "updatedAt": "2026-08-25T03:55:16.560Z"
 }

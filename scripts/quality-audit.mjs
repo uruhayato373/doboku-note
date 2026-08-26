@@ -34,6 +34,20 @@ const CENSUS = join(OUT_DIR, 'census.json');
 
 const argv = process.argv.slice(2);
 const CI = argv.includes('--ci');
+/**
+ * --report-only: ci:false の検査**だけ**を実行し、FAIL があれば exit 1 にする。
+ *
+ * ci:false（report 区分）は Pre-merge check を赤くしない。レポート（audit-latest.md）は
+ * --ci では書かれず gitignore 済みなので、FAIL は「人がローカルでフル監査を叩いた端末」に
+ * しか存在せず、読む自動経路がゼロだった（DN-0087）。weekly-review-guard がこのモードで
+ * 週次に実行し、FAIL を Issue へ集約する＝report 区分の既定の読み手を機械にする。
+ * CLAUDE.md §9「赤いのに誰も見ていない検査は、無いのと同じ」への回答。
+ */
+const REPORT_ONLY = argv.includes('--report-only');
+if (CI && REPORT_ONLY) {
+  process.stderr.write('[quality-audit] --ci と --report-only は併用できません（対象が排他）\n');
+  process.exit(2);
+}
 const EMIT_JSON = argv.includes('--json');
 
 function readJson(p, fallback) {
@@ -51,6 +65,23 @@ function portOpen(port) {
   });
 }
 
+/**
+ * `unzip` が実行できるか。EPUB を展開する検査（kindle 系）が依存する。
+ *
+ * Windows の PATH には unzip が無い（Git Bash 内の /usr/bin/unzip は cmd.exe から見えない）ため、
+ * 放置すると Windows で必ず赤くなる＝**偽赤**になり、ローカルの赤を無視する癖がつく。
+ * 「検査していない」ことは skip 理由として必ず表示されるので、緑と混同しない（CLAUDE.md §9）。
+ * Linux CI では unzip が在るので skip されず、検査の厳格性は落ちない。
+ */
+let unzipCache;
+function unzipMissing() {
+  if (unzipCache === undefined) {
+    const r = spawnSync('unzip', ['-v'], { stdio: 'ignore', shell: process.platform === 'win32' });
+    unzipCache = r.error != null || r.status !== 0;
+  }
+  return unzipCache ? 'unzip が PATH に無い（EPUB を展開できない。Linux CI では実行される）' : null;
+}
+
 // ---- チェック定義 ---------------------------------------------------------
 // npm: package.json の script 名 / cmd: 直接コマンド配列。どちらか一方。
 const CHECKS = [
@@ -65,16 +96,19 @@ const CHECKS = [
   { id: 'gate-parity', npm: 'check-gate-parity:ci', timeout: 60_000, ci: true, note: 'pre-commit / quality-audit / workflow のどこからも呼ばれていない検査を検出（オーファン化の防止）' },
   { id: 'eslint', npm: 'lint', timeout: 180_000, ci: true },
   { id: 'validate-mdx', npm: 'validate-mdx', timeout: 180_000, ci: true },
+  { id: 'published-vs-redirects', npm: 'check-published-vs-redirects', timeout: 60_000, ci: true, note: '統合済み記事の再公開（published:true なのに 301 の転送元）を検出' },
   { id: 'content-quality-ratchet', npm: 'check-content-quality:ci', timeout: 240_000, ci: true, note: 'latest-report.md を上書き' },
   { id: 'frontmatter', cmd: ['node', '.claude/scripts/lint-frontmatter.mjs', '--all'], timeout: 180_000, ci: true },
   { id: 'svg-audit', npm: 'audit-svg:ci', timeout: 180_000, ci: true, note: 'svg-audit.json を上書き' },
   { id: 'image-assets', npm: 'check-image-assets:ci', timeout: 120_000, ci: true },
+  { id: 'callout-types', npm: 'check-callout-types', timeout: 60_000, ci: false, note: '<Callout type="..."> の未知 type 検出（UI-008・ランタイムは黙って note へフォールバックし typo を隠す）。2026-08-26 導入時点で content/site 配下に type="important" が 11 件既存（concrete-diagnostician 5・pe-construction 6）。report-only の理由＝この既存分の是正は content 側の担当（DN-0050 は src/ 領域）。読み手＝週次レビューの棚卸し、または content 側で type="important" を是正するタスク' },
   { id: 'orphan-figures', npm: 'check-orphan-figures', timeout: 90_000, ci: true },
   { id: 'backlog-schema', npm: 'check-backlog-schema', timeout: 30_000, ci: true, note: 'backlog タグ行の語彙・[検証:]の実在・パーサ契約（admin と sweep が同じカードを見ているか）' },
   { id: 'external-write-orphans', npm: 'check-external-write-orphans', timeout: 300_000, ci: false, note: '「外部へは成功・台帳の書き戻しは失敗」の検出（2026-06-17 の YouTube 事故＝6本アップ済みなのに台帳 pending が実例）。gh 経由で run ログを読むためネットワークが要る＝ci:false。**読み手は /weekly-review の backlog 消化サマリ節**（同節へコマンドを配線済み）' },
   { id: 'ogp-line-count', npm: 'check-ogp-line-count', timeout: 180_000, ci: false, note: 'OGP タイトルの折返し行数を実測する surfacer（判定はしない）。読み手＝DN-0057 の着手時。check-ogp-title-fit はフォントサイズしか見ていないので、行数はここでしか分からない' },
   { id: 'relative-links', npm: 'check-relative-links', timeout: 60_000, ci: true, note: 'Markdown の相対リンク `](../x)` の実在。check-doc-refs はリンクテキストしか見ないので、置き場を変えると href だけが黙って壊る' },
   { id: 'workflow-clone-depth', npm: 'check-workflow-clone-depth', timeout: 30_000, ci: true, note: 'workflow の full clone 禁止。remote 11 GB でランナーの空きを超え、fetch-depth: 0 は No space left on device でランナーごと落ちる（2026-08-21 実発生）' },
+  { id: 'workflow-hygiene', npm: 'check-workflow-hygiene', timeout: 30_000, ci: true, note: 'workflow の静的ハードニング（actionlint・permissions・timeout-minutes・3rd party action の SHA固定）。DN-0109 Phase 2' },
   { id: 'workflow-publish-ref', npm: 'check-workflow-publish-ref', timeout: 30_000, ci: true, note: 'schedule workflow の checkout ref。ref を書かないと main を checkout し、npm ci が main のフックを入れたまま develop へ commit して drift guard に弾かれる（2026-08 に 3 回発生）' },
   { id: 'information-architecture', npm: 'check-information-architecture', timeout: 60_000, ci: true, note: '4 領域モデル（docs/content/.claude/実装）への逆戻り検知。廃止した置き場への新規ファイル・docs への制作物混入・content への台帳混入・二重 SSOT' },
   { id: 'content-layout', npm: 'check-content-layout', timeout: 60_000, ci: true, note: 'content/ の移行インベントリ（件数・容量・二重 SSOT）を read-only で観測' },
@@ -87,12 +121,12 @@ const CHECKS = [
   { id: 'bold-rendering', npm: 'check-bold-rendering', timeout: 120_000, ci: true, note: '閉じ/開き ** が flanking を満たさず太字にならずアスタリスクが本文に出る事故。remark で実パースして text ノードに ** が残るかで判定する（規則の再実装ではない）' },
   { id: 'orphan-ogp', npm: 'check-orphan-ogp', timeout: 90_000, ci: true },
   // 2026-08-18: 実質オーファンだった（package.json にはあるがどの経路にも配線なし）。EPUB の書式インバリアントは epubcheck が見ない領域で、ビルダー 2 本に CSS/構造がコピー実装されている。
-  { id: 'kindle-format', npm: 'check-kindle-format', timeout: 300_000, ci: true, note: '配布 EPUB の書式インバリアント（本文可読性・章の改ページ・解答のネタバレ改ページ）。ローカルは EDR のファイル走査律速で数分かかるが CI では速い。0 冊なら exit 2（検査不成立）' },
-  { id: 'kindle-epub-leak', npm: 'check-kindle-epub-leak', timeout: 180_000, ci: true, note: '配布 EPUB に章タイトル article.mdx / YAML frontmatter が印字される事故（2026-08-12・e-02 は審査中だった）。真因はソース MDX の BOM で frontmatter の ^--- が外れること。EPUB 実展開＋ソース BOM の二段で検査する' },
+  { id: 'kindle-format', npm: 'check-kindle-format', timeout: 300_000, ci: true, skip: unzipMissing, note: '配布 EPUB の書式インバリアント（本文可読性・章の改ページ・解答のネタバレ改ページ）。ローカルは EDR のファイル走査律速で数分かかるが CI では速い。0 冊なら exit 2（検査不成立）' },
+  { id: 'kindle-epub-leak', npm: 'check-kindle-epub-leak', timeout: 180_000, ci: true, skip: unzipMissing, note: '配布 EPUB に章タイトル article.mdx / YAML frontmatter が印字される事故（2026-08-12・e-02 は審査中だった）。真因はソース MDX の BOM で frontmatter の ^--- が外れること。EPUB 実展開＋ソース BOM の二段で検査する' },
   { id: 'figure-crop-integrity', npm: 'check-figure-crop:ci', timeout: 180_000, ci: true, note: '図クロップの写り込み（STRAY_SLIVER）を baseline 比の新規のみ gate。figure-crop-report.json を上書き' },
   { id: 'guide-length', npm: 'check-guide-length', timeout: 90_000, ci: true },
   { id: 'lcp-image-hints', npm: 'check-lcp-image-hints', timeout: 60_000, ci: true, note: '本文フォールド内1枚目の図版は eager+fetchpriority=high（lazy だと低速回線で LCP が数秒伸びる・EXP-005）' },
-  { id: 'scheduled-exec-branch', npm: 'check-scheduled-exec-branch', timeout: 60_000, ci: false, note: '定期ジョブの実行ブランチ対応表（棚卸し）。WARN 判定は現ブランチ依存のため CI では意味が薄く report-only' },
+  { id: 'scheduled-exec-branch', npm: 'check-scheduled-exec-branch', timeout: 60_000, ci: false, note: '定期ジョブの実行ブランチ対応表（棚卸し）。WARN 判定は現ブランチ依存のため CI では意味が薄く report-only。読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）' },
   { id: 'home-exam-coverage', npm: 'check-home-exam-coverage', timeout: 60_000, ci: true },
   { id: 'character-avatars', npm: 'check-character-avatars', timeout: 60_000, ci: true, note: 'note CTA のキャラアバター: manifest siteCta ⇔ 配信 webp ⇔ ctaPose union の三者整合（union だけ広げると本番 404）' },
   { id: 'category-curriculum', npm: 'check-category-curriculum', timeout: 60_000, ci: true },
@@ -104,16 +138,22 @@ const CHECKS = [
   { id: 'magazine-cta-reachability', npm: 'check-magazine-cta:ci', timeout: 120_000, ci: true, note: '公開マガジンがサイト内で 1 面以上 CTA として出るか（top / 中間CTA / MagazineCard）。baseline 外の新規 0 面で落ちる' },
   { id: 'note-hashtags', npm: 'check-note-hashtags', timeout: 90_000, ci: true, note: 'note 記事ハッシュタグ 90 個以上（全量 backstop・pre-commit は staged のみ）' },
   { id: 'note-boundary', npm: 'check-note-boundary', timeout: 90_000, ci: true, note: 'paid published 記事の有料境界(paidBoundary)解決可能性（全ロック/漏洩の RULE_GAP 再発防止・全量）' },
+  { id: 'magazine-membership', npm: 'check-magazine-membership', timeout: 90_000, ci: true, note: 'マガジン収録の三軸（repo実数=frontmatter noteMagazine 集計 ↔ SoT price 件数 ↔ ライブ snapshot）。SoTとライブが同値で古びる事故(2026-08-24 ゼネコン/河川コンサル各2本未収録)は第三軸=repoでしか割れない。ネットワーク非依存(snapshot 読取のみ)' },
   { id: 'note-paid-cta', npm: 'check-note-paid-cta', timeout: 90_000, ci: true, note: '有料記事の L2 もくじ CTA が有料境界より前（無料プレビュー内）にあるか。末尾配置は非購入者に不可視' },
   { id: 'note-frontmatter-dup', npm: 'check-note-frontmatter-dup', timeout: 60_000, ci: true, note: 'frontmatter トップレベルキーの重複。YAML 重複キーで gray-matter が停止し PDF 生成が落ちる' },
+  { id: 'note-vocabulary-boundary', npm: 'check-note-vocabulary-boundary', timeout: 60_000, ci: true, note: 'noteSeries(編集ラベル)とnoteMagazine(商品ラベル)の取り違え検知（内部id混入/他マガジンラベル混入/index×商品の共存）。DN-0125' },
   { id: 'note-link-cards', npm: 'check-note-link-cards', timeout: 60_000, ci: true, note: '自社note記事はサイト管理画像付き NoteLink に限定。生リンク・旧noteカバー・画像欠落を禁止' },
   { id: 'note-membership', npm: 'check-note-membership', timeout: 60_000, ci: true, note: 'メンバーシップの会費/定員/planId が SSOT config と一致するか。note は会費を変更できずプラン作り直しが唯一の手段なので、ドリフト放置は修復不能に近づく（--live は実機突合・ローカル専用）' },
   { id: 'command-guidance', npm: 'check-command-guidance', timeout: 60_000, ci: true, note: '検査やスクリプトが案内するコマンド（npm run / node パス）が実在するか。移設後に旧パスを案内し続ける置き去りを止める（2026-08-22 に 26 箇所見つかった）' },
   { id: 'doc-refs', npm: 'check-doc-refs', timeout: 90_000, ci: true },
+  { id: 'task-plan-links', npm: 'check-task-plan-links', timeout: 30_000, ci: true, note: '.claude/plans/ の実装計画とbacklogカードの結線（存在・相互参照・1task=1plan・ID重複・孤児plan）。DN-0093 処方箋2' },
+  { id: 'dispatch-log', npm: 'check-dispatch-log', timeout: 30_000, ci: true, note: 'dispatch-log.json の id 必須化・at キー・outcome 語彙整合（_schema=date/実データ=at/読み手=e.date の三つ巴不一致で weekly-review 集計が常に0件だった再発防止）。DN-0093 順4' },
   { id: 'dead-handles', npm: 'check-dead-handles', timeout: 60_000, ci: true, note: '退役ハンドル（404 note旧名・凍結X旧アカ）への参照' },
   { id: 'jst-date', npm: 'check-jst-date', timeout: 30_000, ci: true, note: '運用記録の日付がUTCで前日付になっていないか' },
   { id: 'exam-calendar', npm: 'check-exam-calendar', timeout: 30_000, ci: true, note: '1級・2級土木の公式試験日SSOTと既知誤記を検査' },
   { id: 'x-campaign-plan', npm: 'check-x-campaign-plan', timeout: 30_000, ci: true, note: 'X月間計画の日付・導線・URL・販売投稿間隔を検査' },
+  { id: 'x-card-render', npm: 'check-x-card-render', timeout: 30_000, ci: true, note: 'Xカード画像の配色・主題・生URL焼込みを描画台帳で検査（画像は開かない）' },
+  { id: 'outbound-links', npm: 'check-outbound-links', timeout: 420_000, ci: true, note: '送客先 note.com URL の生死を public API で実査（取得失敗が2割超なら検査不成立で赤）' },
   // BROKEN_SLUG 166→0（RelatedKeywords 解決を categories.json 由来へ統一・2026-07-13）を受け、
   // site scope の内部リンク切れを ci gate へ昇格（--scope site。build 前 source link 契約）。
   { id: 'internal-links', cmd: ['npm', 'run', '--silent', 'check-links', '--', '--scope', 'site'], timeout: 180_000, ci: true, note: 'site scope の /docs・/category・anchor リンク切れ（RelatedKeywords 共通 resolver）' },
@@ -126,13 +166,16 @@ const CHECKS = [
 
   // ── report-only（棚卸し・情報提供。--ci では実行しない） ──
   { id: 'coconala-blog', npm: 'check-coconala-blog', timeout: 60_000, ci: true, note: 'ココナラブログ記事のハードゲート（外部リンク1本でアカウント制限になりうる）＋公開済み記事の送客先が listed から外れていないかのドリフト' },
-  { id: 'doc-lifecycle', npm: 'check-doc-lifecycle', timeout: 90_000, ci: false },
-  { id: 'policy-anchors', npm: 'check-policy-anchors', timeout: 90_000, ci: false },
-  { id: 'ogp-coverage', npm: 'check-ogp-coverage', timeout: 90_000, ci: false },
-  { id: 'ogp-design', npm: 'check-ogp-design', timeout: 120_000, ci: false },
-  { id: 'quality-census', npm: 'quality-census', timeout: 180_000, ci: false, note: 'census.json 再生成（薄層可視化）' },
+  { id: 'doc-lifecycle', npm: 'check-doc-lifecycle', timeout: 90_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。加えて /weekly-review の Agent H と /doc-declutter が読む' },
+  { id: 'policy-anchors', npm: 'check-policy-anchors', timeout: 90_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）' },
+  { id: 'ogp-coverage', npm: 'check-ogp-coverage', timeout: 90_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。r2-audit.yml が週次で同スクリプトを赤落ちゲートとして実行しており、こちらは横断監査での再掲' },
+  { id: 'ogp-design', npm: 'check-ogp-design', timeout: 120_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）' },
+  { id: 'quality-census', npm: 'quality-census', timeout: 180_000, ci: false, note: 'census.json 再生成（薄層可視化）。読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。生成物は /quality-cycle と admin の /quality が読む' },
   { id: 'env-inventory', cmd: ['node', 'scripts/report-env-inventory.mjs'], timeout: 60_000, ci: false },
-  { id: 'knip', npm: 'knip', timeout: 300_000, ci: false, note: 'デッドコード候補の全量（要 grep 裏取り・返済は週次レビューの棚卸しで）' },
+  // digest: false — knip 全量は **常に非ゼロ**（デッドコードは baseline で管理する前提）。
+  // digest に入れると毎週 Issue が飛んで、その Issue ごと読み飛ばされるようになる。
+  // 増加の検知は check-knip-ratchet（ci:true）が担当し、こちらは人が中身を見るための出力。
+  { id: 'knip', npm: 'knip', timeout: 300_000, ci: false, digest: false, note: 'デッドコード候補の全量（要 grep 裏取り・返済は週次レビューの棚卸しで）。読み手＝/weekly-review の棚卸し節。増加検知は check-knip-ratchet(ci:true)' },
   // デッドコードの「増加」だけを機械で止めるラチェット（ci ゲート）。
   // knip 本体は false positive を出すので消す判断は人間に残す（＝上の report は維持）が、
   // report のままだと誰も読まずに溜まる。実際 knip は batch-approve.mjs の壊れ import を
@@ -148,10 +191,12 @@ const CHECKS = [
   { id: 'knip-ratchet', npm: 'check-knip-ratchet', timeout: 300_000, ci: true, note: 'デッドコードが baseline から増えていないか' },
   {
     id: 'cta-density', npm: 'check-cta-density', timeout: 90_000, ci: false,
+    note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）（out/docs 未ビルドなら skip 理由付きで報告される）',
     skip: () => existsSync(join(ROOT, 'out', 'docs')) ? null : 'ビルド成果物 out/docs が無い（npm run build 後に実行）',
   },
   {
     id: 'seo-meta', npm: 'check-seo-meta', timeout: 300_000, ci: false,
+    note: '読み手＝/seo-growth-review と technical-seo-auditor。weekly-review-guard の report digest でも拾うが、CI には dev server が無いため常に skip 理由付きで報告される',
     skip: async () => (await portOpen(3020)) ? null : 'dev server (localhost:3020) 不在（npm run dev 起動時のみ実行）',
   },
   // 週次レビューが読む収益カバレッジ集計が「実行できる」ことを毎回確かめる（ci ゲート）。
@@ -163,6 +208,17 @@ const CHECKS = [
     cmd: ['npx', 'tsx', '.claude/scripts/report-monetization-coverage.mts', '--check'],
     timeout: 120_000, ci: true,
     note: '収益カバレッジ集計が実行可能か（import 破損・入力欠落を検知）',
+  },
+  // 公開 SEO ページ（frequent-topics）を生成するスクリプトが実行できることを毎回確かめる。
+  // Windows で `new URL("..", import.meta.url).pathname` が `/C:/Users/…` を返し
+  // `C:\C:\Users\…` になって ENOENT で落ちる状態のまま、何週間も気づかれなかった
+  // （2026-08-25 発覚。frequent-topics が「17年度・680問」で固定表示され続けていた）。
+  // 入力はコミット済み past-exam-backlinks.json なので creds 不要で常に走る。
+  {
+    id: 'frequent-topics',
+    cmd: ['node', 'scripts/build-frequent-topics.mjs', '--check'],
+    timeout: 60_000, ci: true,
+    note: 'frequent-topics 生成が実行可能か（Windows パス連結崩れ・入力欠落を検知）',
   },
   // スクリプト層の壊れた相対 import を落とす（ci ゲート）。tsc は `**/*.ts` しか見ず
   // `.mjs` と `.claude/**` は型検査の死角。実行されなくなった経路の破損は実行時エラーでも
@@ -221,6 +277,9 @@ function failureExcerpt(stdout, stderr, maxLines = 40) {
 async function runCheck(check) {
   const started = Date.now();
   if (CI && !check.ci) return null; // --ci では report-only を実行しない
+  // --report-only は report 区分だけを走らせる。digest:false は「常に非ゼロで判定に使えない
+  // 情報出力」なので、週次 Issue の対象からも外す（毎週飛ぶ通知は読まれなくなる）。
+  if (REPORT_ONLY && (check.ci || check.digest === false)) return null;
   if (check.skip) {
     const reason = await check.skip();
     if (reason) return { id: check.id, ci: check.ci, status: 'skip', skipReason: reason, durationMs: 0, note: check.note };
@@ -324,6 +383,20 @@ async function main() {
 
   const summary = results.reduce((a, r) => { a[r.status] = (a[r.status] || 0) + 1; return a; }, {});
   process.stderr.write(`[quality-audit] pass ${summary.pass || 0} / fail ${summary.fail || 0} / timeout ${summary.timeout || 0} / skip ${summary.skip || 0}\n`);
+
+  // 検査ゼロを PASS と呼ばない: --report-only で 1 件も実行できていないのは
+  // 「FAIL なし」ではなく、CHECKS の ci フラグ構成が壊れたということ。
+  if (REPORT_ONLY && results.length === 0) {
+    process.stderr.write('[quality-audit] ✗ 検査不成立: ci:false の検査が 1 件も実行されなかった\n');
+    process.exitCode = 2;
+  } else if (REPORT_ONLY && failed.length) {
+    for (const r of failed) {
+      process.stderr.write(`\n--- ${r.id} — ${r.status} (exit ${r.exitCode}) ---\n`);
+      process.stderr.write((r.excerpt || '(出力なし)') + '\n');
+    }
+    process.stderr.write(`[quality-audit] report 区分の失敗: ${failed.map((f) => f.id).join(', ')}\n`);
+    process.exitCode = 1;
+  }
 
   if (CI && failed.length) {
     // --ci はレポートファイルを書かないので、ここで出さないとログに理由が残らない。

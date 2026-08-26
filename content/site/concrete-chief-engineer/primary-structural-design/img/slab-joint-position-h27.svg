@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" style="max-width:500px;width:100%" role="img" aria-label="床版の側面図。鉄筋の継手を設ける範囲（A-B間）とスパン中央からの距離l/4・l/2、及び支間全体lの寸法線、下段に想定する曲げモーメント図（両端が負・中央が正の曲線）">
+  <defs><pattern id="sjhatch" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="6" stroke="#8a8a8a" stroke-width="1"/></pattern></defs>
+  <line x1="20" y1="80" x2="480" y2="80" stroke="#222" stroke-width="1.5"/>
+  <line x1="20" y1="120" x2="480" y2="120" stroke="#222" stroke-width="1.5"/>
+  <path d="M60 120 L60 150 L100 150 L100 120" fill="none" stroke="#222" stroke-width="1.4"/>
+  <path d="M400 120 L400 150 L440 150 L440 120" fill="none" stroke="#222" stroke-width="1.4"/>
+  <rect x="100" y="80" width="60" height="40" fill="url(#sjhatch)" stroke="#222" stroke-width="1"/>
+  <text x="10" y="60" font-family="sans-serif" font-size="12" fill="#222">鉄筋の継手</text>
+  <text x="10" y="76" font-family="sans-serif" font-size="12" fill="#222">を設ける範囲</text>
+  <path d="M50 55 L95 82" fill="none" stroke="#222" stroke-width="1"/>
+  <text x="115" y="98" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">A</text>
+  <text x="163" y="98" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">B</text>
+  <text x="270" y="98" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">C</text>
+  <line x1="100" y1="40" x2="160" y2="40" stroke="#222" stroke-width="1"/>
+  <text x="130" y="34" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">l/4</text>
+  <line x1="100" y1="20" x2="270" y2="20" stroke="#222" stroke-width="1"/>
+  <text x="185" y="14" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">l/2</text>
+  <line x1="60" y1="160" x2="440" y2="160" stroke="#222" stroke-width="1"/>
+  <text x="250" y="178" text-anchor="middle" font-family="sans-serif" font-size="13" fill="#222">l</text>
+  <path d="M60 220 C 130 195 170 195 250 220 C 330 245 370 245 440 220" fill="url(#sjhatch)" stroke="#222" stroke-width="1.6"/>
+  <line x1="60" y1="220" x2="440" y2="220" stroke="#222" stroke-width="1.2"/>
+  <text x="250" y="270" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#222">想定する曲げモーメント図</text>
+</svg>

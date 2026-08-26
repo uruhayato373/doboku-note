@@ -55,6 +55,10 @@ const CATEGORY_TO_EXAM_KEY = {
   'concrete-diagnostician': 'concrete-diagnosis',
   'pe-construction': 'pe-construction',
   'pe-first-stage': 'pe-comprehensive',
+  // 資格に紐づかない実務カテゴリ。`common`（土木・建設 共通・bronze）を明示的に指す。
+  // 省くと resolveAccentColor が null を返して枠色なしで出荷される。背景画像は
+  // backgrounds/common.* が無いためオフホワイトへフォールバックする（意図どおり）。
+  'civil-practice': 'common',
 };
 function resolveAccentColor(category) {
   const key = CATEGORY_TO_EXAM_KEY[category];

@@ -10,6 +10,11 @@ doboku-note = `scripts/lib/backlog-lib.mjs` (admin・CI・検査はすべてこ�
 > tier 見出し + タグ行と、カード構文が完全に別物だった。同じ人間が両方を運用するのに
 > 「種類」「実行」の軸が片方にしか無く、管理画面も別設計だった。doboku の v3 スキーマ
 > (tier×種類×実行の直交軸・タグ行の機械契約) を共通形とし、stats47 拡張 3 点を両 lib に入れた。
+>
+> **[実行:] 軸の廃止 (2026-08-26・両リポ)**: 「誰が完了まで持てるか」を起票時にタグへ凍結すると
+> 実態とずれて陳腐化する一方、選定側のモデルが本文を読めば同じ判断を再導出できるため軸ごと削除した。
+> 以後 `[実行:]` を書くと unknown-key として検査が error にする。ユーザーの手・対話・別環境が
+> 要ることは**本文に書く**。
 
 ---
 
@@ -33,7 +38,7 @@ doboku-note = `scripts/lib/backlog-lib.mjs` (admin・CI・検査はすべてこ�
 ## 🔴 高 — 今月中に着手したい
 
 ### [FEAT-EXAMPLE-01] タスク名
-タグ: [収益化] [種類:不具合] [実行:sweep] [検証:npm test] [起票:2026-08-01] [期日:2026-08-31]
+タグ: [収益化] [種類:不具合] [検証:npm test] [起票:2026-08-01] [期日:2026-08-31]
 
 本文 (次・完了条件・禁止など自由記述)。
 ```
@@ -74,18 +79,18 @@ doboku-note = `scripts/lib/backlog-lib.mjs` (admin・CI・検査はすべてこ�
 
 | 軸 | 語彙 | 意味 |
 |---|---|---|
-| **tier** (見出し) | 🔴 高 / 🟡 中 / 🟢 低 / 🟣 判断待ち | 緊急度のみ。**🟣 は「やるかどうかの意思決定が未了」であって、ユーザー作業待ちの置き場ではない** (待ち先は `[実行:]` が表す) |
+| **tier** (見出し) | 🔴 高 / 🟡 中 / 🟢 低 / 🟣 判断待ち | 緊急度のみ。**🟣 は「やるかどうかの意思決定が未了」であって、ユーザー作業待ちの置き場ではない** (待ち先が人であることは本文に書く) |
 | **カテゴリ** (先頭の裸 token) | コンテンツ品質 / UI・UX / 収益化 / エージェント・SSOT / SNS・マーケ / インフラ・計測 | ドメイン |
 | **`[種類:X]`** | 不具合 / 改善 / 意思決定 / 制作 / 定期 | tier・カテゴリと直交する軸。決定規則は §4 |
-| **`[実行:X]`** | sweep / 機械 / 対話 / ユーザー / windows / 別環境 | 誰が完了まで持てるか。自動処理が単独で回せるのは `sweep`・`機械` のみ |
 | `[検証:cmd]` | 任意 | 完了を判定できる決定的コマンド (自動処理の gate 第一候補) |
 | `[起票:YYYY-MM-DD]` | 任意 | 鮮度測定 |
 | `[期日:YYYY-MM-DD]` | 任意 | 期限。超過は admin がバッジで出す |
 | `[Codex候補]` | flag | バルク処理向き |
-| `[進行中]` | flag | 作業中 (人または別 run)。**自動処理はこのカードに触らない** |
+| `[進行中]` | flag | 作業中 (人または別 run)。**自動処理はこのカードに触らない**（付け外しは doboku-note では `todo:claim`/`todo:release`。契約→[todo-lifecycle.md](todo-lifecycle.md)） |
 
-- 未知のタグキー・語彙外の値は検査が error にする (パースは寛容・リントは厳格)。
-- タグ無し / `[実行:]` 無しのカード = **分類待ち**。検査がファイル単位の集計 warning で
+- 未知のタグキー・語彙外の値は検査が error にする (パースは寛容・リントは厳格)。廃止済み
+  `[実行:]` も unknown-key として error になる (再導入ラチェット)。
+- タグ無し / `[種類:]` 無しのカード = **分類待ち**。検査がファイル単位の集計 warning で
   surface し、curator (stats47 = `todo-curator` / doboku = `backlog-curator`) が漸次付与する。
   起票時に迷ったら tier は 🟡 に置き、タグは後から足してよい (起票の摩擦を上げない)。
 
@@ -108,6 +113,13 @@ doboku-note = `scripts/lib/backlog-lib.mjs` (admin・CI・検査はすべてこ�
 - 期日を 14 日超過し、次アクション・担当・再開条件のいずれかが無いカードは削除する。
 - 🟢 の trigger 待ちは trigger を本文に明記する。単なる「いつかやる」は残さない。
 - 同じ成果を指す親子タスクは、受入条件を持つ親へ統合する。
+- タイトルが残作業と乖離したら（緊急枠組みの消滅・実行者の変化・スコープ縮小で当初の粒度が
+  実態に合わなくなったら）、本文を削るだけ（TRIM）では直らない。旧カードを削除し、
+  残作業をそのまま言い表す新タイトル・新 tier で**新しい ID として再起票する**（RESEED）。
+  旧 ID は欠番のまま再利用しない（ID 再利用禁止と同じ規律・§2）。適用は完了・達成の確認と
+  同様に外部実体（コミット・ライブ状態・ファイル実在）で裏取りできた場合のみ行う
+  (doboku-note の具体手順: `backlog-edit.mjs --delete` → `--next-id` → agent `backlog-curator`
+  の RESEED verdict → skill `/backlog-sweep --audit`)。
 - (stats47) 改善施策は `effect/pending` の期限まで improvements.md に保持し、判定後は詳細ログへ
   結果を残して行削除する。指標候補は一次統計・都道府県粒度・非重複を確認できたものだけ残す。
 
@@ -121,7 +133,7 @@ doboku-note = `scripts/lib/backlog-lib.mjs` (admin・CI・検査はすべてこ�
 | `monthly.md` | `/monthly-plan` skill (Write 上書き) |
 | `weekly.md` | `/weekly-plan` skill (Write 上書き) |
 
-閲覧は管理画面 `npm run admin` → http://127.0.0.1:4747/todo (読み取り専用・層タブ + 優先度/種類/実行の
+閲覧は管理画面 `npm run admin` → http://127.0.0.1:4747/todo (読み取り専用・層タブ + 優先度/種類の
 ファセット)。検査は `npm run docs:check` (`check-docs-governance.cjs` が backlog-lib で card を検査)。
 
 ## 7. 書き込み先の判断 (stats47)
@@ -147,3 +159,6 @@ vault の `.claude/scripts/todo/setup-todo-links.mjs` で張る。SSOT は常に
 - 管理画面: `apps/admin/app/todo/page.tsx` (アダプタ `apps/admin/lib/server/todo.ts`)
 - doboku-note 側: `scripts/lib/backlog-lib.mjs` / `tools/admin-app/src/lib/todo.ts` /
   agent `todo-planner`・`backlog-curator` / skill `/backlog-sweep`
+- doboku-note のライフサイクル契約 (task→plan→claim→verify→complete): [todo-lifecycle.md](todo-lifecycle.md)。
+  CLI は `scripts/todo-{claim,release,complete}.mjs` (`npm run todo:claim`等)、検査は
+  `npm run check-task-plan-links` / `npm run check-dispatch-log`

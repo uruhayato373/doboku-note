@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-08-22T04:19:42.233Z",
+  "generated_at": "2026-08-26T21:36:16.402Z",
   "summary": {
-    "total_mdx_files": 1117,
-    "total_unique_tags": 173,
-    "allowlist_size": 151,
-    "known_count": 84,
+    "total_mdx_files": 1122,
+    "total_unique_tags": 174,
+    "allowlist_size": 153,
+    "known_count": 85,
     "unknown_count": 89,
     "typo_candidates_count": 4
   },
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "guide",
-      "count": 136,
+      "count": 137,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1326,6 +1326,7 @@
         "civil-construction-2-guide-study-plan",
         "civil-construction-2-guide-textbooks",
         "civil-construction-2-guide-young-career",
+        "civil-practice-formwork-removal-timing",
         "concrete-chief-engineer-guide-essay",
         "concrete-chief-engineer-guide-overview",
         "concrete-chief-engineer-guide-trends",
@@ -1662,7 +1663,7 @@
     },
     {
       "name": "textbook",
-      "count": 59,
+      "count": 63,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-textbook-building-standards",
@@ -1672,8 +1673,10 @@
         "civil-construction-1-textbook-construction-plan-overview",
         "civil-construction-1-textbook-control-chart",
         "civil-construction-1-textbook-crane",
+        "civil-construction-1-textbook-cut-slope-protection",
         "civil-construction-1-textbook-demolition",
         "civil-construction-1-textbook-distance-angle",
+        "civil-construction-1-textbook-embankment",
         "civil-construction-1-textbook-explosives-act",
         "civil-construction-1-textbook-grader-compaction",
         "civil-construction-1-textbook-histogram",
@@ -1703,6 +1706,8 @@
         "civil-construction-1-textbook-scraper",
         "civil-construction-1-textbook-shovel-excavator",
         "civil-construction-1-textbook-site-investigation",
+        "civil-construction-1-textbook-soft-ground-drainage",
+        "civil-construction-1-textbook-soil-investigation-methods",
         "civil-construction-1-textbook-standard-contract",
         "civil-construction-1-textbook-surveying-basics",
         "civil-construction-1-textbook-tractor-bulldozer",
@@ -2841,6 +2846,19 @@
       ]
     },
     {
+      "name": "earthwork",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-earthwork-basics",
+        "civil-construction-1-secondary-earthwork-past-problems",
+        "civil-construction-1-textbook-cut-slope-protection",
+        "civil-construction-1-textbook-embankment",
+        "civil-construction-1-textbook-soft-ground-drainage",
+        "civil-construction-1-textbook-soil-investigation-methods"
+      ]
+    },
+    {
       "name": "experience-writing",
       "count": 6,
       "inAllowlist": true,
@@ -2938,6 +2956,16 @@
         "civil-construction-1-textbook-noise-vibration-regulation",
         "civil-construction-1-textbook-waste-disposal-manifest",
         "civil-construction-1-textbook-water-air-soil-pollution"
+      ]
+    },
+    {
+      "name": "concrete",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-practice-formwork-removal-timing"
       ]
     },
     {
@@ -3041,30 +3069,12 @@
       ]
     },
     {
-      "name": "concrete",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems"
-      ]
-    },
-    {
       "name": "DX",
       "count": 2,
       "inAllowlist": true,
       "usedIn": [
         "pe-comprehensive-management-r04-essay-general-contractor",
         "pe-comprehensive-management-r04-essay-river-consultant"
-      ]
-    },
-    {
-      "name": "earthwork",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-earthwork-basics",
-        "civil-construction-1-secondary-earthwork-past-problems"
       ]
     },
     {
@@ -3308,6 +3318,14 @@
       "inAllowlist": true,
       "usedIn": [
         "reference-materials-floodgate"
+      ]
+    },
+    {
+      "name": "formwork",
+      "count": 1,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-formwork-removal-timing"
       ]
     },
     {

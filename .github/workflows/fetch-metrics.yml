@@ -5,12 +5,19 @@ on:
     - cron: "0 21 * * 4" # JST 06:00 Friday (UTC 21:00 Thursday)
   workflow_dispatch:
 
+# DN-0109 Phase 1: develop への自動書込み系ワークフロー間の push 衝突を防ぐ共通グループ。
+# 同時実行を待たせるだけで落とさない（cancel-in-progress: false）。
+concurrency:
+  group: develop-git-write
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
 jobs:
   fetch:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - name: Checkout develop
         # schedule はデフォルトブランチ（main）を checkout するため、ref を明示しないと
@@ -18,12 +25,12 @@ jobs:
         # フックの drift guard が bot commit を拒否して落ちる（2026-08 に実発生し、
         # by-label スナップショットが 2026-08-13 で停止した）。link-audit.yml と同じ形で
         # 最初から develop を checkout し、順序依存そのものを無くす。
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           ref: develop
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: "20"
           cache: "npm"

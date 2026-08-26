@@ -391,3 +391,19 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 - EXP-006: civil-1 textbook 20本のうちCNI残存13・離脱7（indexed一覧では未確認）。事前基準により`partial`で終了し、同一URLへの登録リクエスト反復を中止。2026-09-01の月次Inspectionで事後確認する
 - 総監209本: `KEEP 31 / IMPROVE 19 / CONSOLIDATE 0 / NOINDEX_REVIEW 0 / MONITOR 159`。159本は更新60日未満または直近2回連続未登録を未確認であり、統合不要ではなく判定保留
 - 判断: 技術修正候補0。2026-09-01までは総監MDX・title・301・noindexを変更しない。次回全件performanceデータと月次Inspection後に再分類し、統合候補が出ても本文差分を確認した最大5〜10クラスタだけを承認対象にする
+
+### 2026-08-26（DN-0106 Phase 2・アクセス停滞RCA）
+
+- 観測: GSC `date`（10回分・137日・重複排除）とGA4 `channel`（28日移動窓×8時点）を時系列化し、
+  `page`完全取得（`truncated:false`）2時点（06-29〜07-27 / 07-25〜08-22）をfamily別に比較
+- 結論: **直近1ヶ月の減少は季節性が支配的**。GSC clicks減少-201の82%は総監(-115)・建設部門(-51)の
+  2資格に集中し、両資格ともimpressionsも比例減（技術士総監筆記07-19〜20直後に一致）。GA4の
+  Organic Search(-37%)・Organic Social(-83%)・Referral(-56%)が全チャネル同時に急減しており、
+  検索順位固有の問題ではなくサイト全体への関心の季節的な細り。技術エラーは0件で維持
+- 対照: civil-construction-1（次の試験10/4）はimpressions +57%と伸びており季節性の裏付けが取れた
+- 実験化: `civil-1-textbook-network-schedule`のクエリ「インターフェアリングフロートとは」
+  （278 impr・position 9.17・clicks 0＝期待5〜8本に対し統計的に低い）を`seoTitle`実験の対象に
+  1件追加。同URLの主クエリ（ネットワーク工程表・position 64-75）は2026-08-04ログの見送り判定を維持
+  （別クエリでの独立した新規候補であり、見送り済み候補の再提案ではない）
+- 詳細: `.claude/state/improvements/2026-08-26-gsc-access-rca.md`
+- 次回: 2026-09-01月次Inspectionで再分類（DN-0107）。28日後の2026-09-23に実験効果を判定

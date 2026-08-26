@@ -4,12 +4,13 @@ import { Fragment } from 'react';
 import Link from 'next/link';
 import { usePathname, useSearchParams } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
+import { enabledChannels, type AdminChannelTab } from '../lib/channel-registry';
 
 type Tab = {
   href: string;
   label: string;
   match: string;
-  query?: Record<string, string>;
+  query?: Readonly<Record<string, string>>;
 };
 
 type NavTree = {
@@ -22,10 +23,14 @@ type NavEntry = Tab | NavTree;
 /** TODO の 4 層（layout が server 側で数えて渡す）。件数の真実源は backlog-lib の TODO_LAYER_FILES。 */
 export type TodoLayer = { id: string; label: string; count: number };
 
+/** channel-registry.ts の tabs をそのまま NavTree.tabs へ写す（label/route の再複製をしない）。 */
+const toNavTabs = (tabs: readonly AdminChannelTab[]): Tab[] => tabs.map((t) => ({ ...t }));
+
 /**
  * サイドバーの情報設計。
  *
- * - 発信: 媒体を選んでから、記事や画像へ進む
+ * - コンテンツ: チャネル（サイト/note/X/Instagram/YouTube/ココナラ/Kindle/Brain）を
+ *   選んでから、記事・画像・配布物へ進む。チャネル定義は channel-registry.ts が唯一の SSOT。
  * - 計画: バックログから年間まで、時間軸で作業を選ぶ
  * - 運用 / 分析 / 収益 / 管理: 媒体をまたぐ共通作業としてまとめる
  *
@@ -33,58 +38,13 @@ export type TodoLayer = { id: string; label: string; count: number };
  */
 const GROUPS: { title: string; entries: NavEntry[] }[] = [
   {
-    title: '発信',
+    title: 'コンテンツ',
     entries: [
-      {
-        label: 'サイト',
-        tabs: [
-          {
-            href: '/content/articles',
-            label: '記事',
-            match: '/content/articles',
-          },
-          { href: '/gallery/ogp', label: 'OGP', match: '/gallery/ogp' },
-          {
-            href: '/gallery/figures',
-            label: '記事図版',
-            match: '/gallery/figures',
-          },
-        ],
-      },
-      {
-        label: 'note',
-        tabs: [
-          { href: '/content/note', label: '記事', match: '/content/note' },
-          {
-            href: '/content/magazines',
-            label: 'マガジン',
-            match: '/content/magazines',
-          },
-          { href: '/gallery/note', label: '画像', match: '/gallery/note' },
-        ],
-      },
-      {
-        label: 'X',
-        tabs: [
-          {
-            href: '/gallery/sns?ch=x',
-            label: '画像',
-            match: '/gallery/sns',
-            query: { ch: 'x' },
-          },
-        ],
-      },
-      {
-        label: 'Instagram',
-        tabs: [
-          {
-            href: '/gallery/sns?ch=instagram',
-            label: '画像・動画',
-            match: '/gallery/sns',
-            query: { ch: 'instagram' },
-          },
-        ],
-      },
+      { href: '/content', label: 'すべて', match: '/content' },
+      ...enabledChannels().map((c) => ({
+        label: c.label,
+        tabs: toNavTabs(c.tabs),
+      })),
     ],
   },
   {
@@ -93,7 +53,10 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
   },
   {
     title: '運用',
-    entries: [{ href: '/sns', label: '投稿状況', match: '/sns' }],
+    entries: [
+      { href: '/sns', label: '投稿状況', match: '/sns' },
+      { href: '/schedule', label: 'スケジュール', match: '/schedule' },
+    ],
   },
   {
     title: '分析',
@@ -114,8 +77,7 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
   {
     title: '管理',
     entries: [
-      { href: '/docs', label: 'ドキュメント', match: '/docs' },
-      { href: '/content', label: '制作物', match: '/content' },
+      { href: '/docs', label: '方針・設計', match: '/docs' },
       { href: '/plans', label: '実装計画', match: '/plans' },
       { href: '/quality', label: '品質概観', match: '/quality' },
       { href: '/knowledge', label: 'ナレッジ', match: '/knowledge' },

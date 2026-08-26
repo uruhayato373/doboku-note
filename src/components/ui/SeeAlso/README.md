@@ -16,12 +16,13 @@
 
 ## デザイン仕様
 
+実体は共通 `NavLinkCard`（`src/components/ui/NavLinkCard/`）。SeeAlso は用途固有の文言・アイコンだけを渡すラッパーで、独自スタイルは持たない。
+
 - 左に円形 BookOpenCheck アイコン（28px、`brand` 色背景 + 白アイコン）
-- 中央: 「あわせて読みたい」ラベル（11px・brand-deep）+ 太字タイトル（15px・ink-strong）+ reason（14px・ink-body）
+- 中央: 「あわせて読みたい」ラベル（11px・`text-brand`）+ 太字タイトル（15px・`text-ink-strong`）+ reason（`text-sm`・`text-ink-body`）
 - 右に矢印（`ArrowRight`、hover で brand 色）
-- カード全体クリッカブル（`hover:shadow-card-hover` + `hover:border-brand`）
-- 角丸 `rounded-card-content` / shadow `shadow-card-content`（CLAUDE.md のデザイントークン準拠）
-- ダークモード対応（`dark:bg-gray-900` / `dark:border-gray-700` / `dark:text-gray-100`）
+- カード全体クリッカブル。外観は `card-surface-content card-interactive`（Editorial tokens・デザイントークンの直書き禁止に準拠）+ `hover:border-brand`
+- ダークモードは Editorial tokens 側で自動切替（`dark:bg-gray-*` 等の直書きはしていない）
 
 ## 使い分け（類似コンポーネント比較）
 

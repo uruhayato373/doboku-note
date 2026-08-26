@@ -31,10 +31,10 @@ jobs:
     timeout-minutes: 5
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
 
       - name: Setup Node.js
-        uses: actions/setup-node@v5
+        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: "22"
 
@@ -156,6 +156,70 @@ jobs:
             --channel weekly-pdca \
             --title "週次ルーティンが2週連続で成果物を出していません" \
             --body-file /tmp/routine-silence.md
+
+      # 重要 workflow が「赤いまま」「動いていないまま」を検知する watchdog（2026-08-24 新設）。
+      #
+      # ci.yml 自身の失敗通知（if: failure）は即時の一撃だが、**workflow が起動すらしなくなった
+      # 沈黙**は拾えない（cron 破損・schedule 無効化・token 切れ）。「最後に成功したのはいつか」を
+      # 定期に見る経路が無く、develop の Pre-merge check が 24 連続赤でも 2 日気づかれなかった。
+      # 実際この watchdog の初回実行で note-live-audit の 21 日沈黙が出た（Issue #473）。
+      #
+      # 赤落ちさせず Issue で能動通知する（上の 2 つと同じ方針＝常に赤いゲートは読み飛ばされる）。
+      - name: Report - workflow health (赤が続いている/動いていない)
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if node scripts/check-workflow-health.mjs > /tmp/wf-health.txt 2>&1; then
+            echo 'workflow health: 全て健全'
+            cat /tmp/wf-health.txt
+            exit 0
+          fi
+          {
+            echo "重要 workflow のうち、最後の success が古いか連続失敗しているものがあります。"
+            echo ""
+            echo '```'
+            cat /tmp/wf-health.txt
+            echo '```'
+            echo ""
+            echo "- 閾値の真実源: \`.claude/config/workflow-health.json\`（実行間隔＋バッファで決める）"
+            echo "- 判定ロジック: \`scripts/check-workflow-health.mjs\`"
+            echo "- 閾値そのものを変えるときは config に理由を書く（間隔より短い上限は偽赤になる）"
+          } > /tmp/wf-health-body.md
+          node scripts/report-automation-failure.mjs \n            --channel workflow-health \n            --title "重要 workflow が赤いまま/動いていません" \n            --body-file /tmp/wf-health-body.md
+
+      # report 区分（quality-audit の ci:false）の読み手を機械化する（2026-08-24 新設）。
+      #
+      # ci:false は落ちても CI が緑のまま通り、レポート（audit-latest.md）は --ci では書かれず
+      # gitignore 済み。つまり FAIL は「人がローカルでフル監査を叩いた端末」にしか存在せず、
+      # 読む自動経路がゼロだった（DN-0087）。ここで週次に実行して Issue に集約する。
+      # CLAUDE.md §9「赤いのに誰も見ていない検査は、無いのと同じ」への機械的な回答。
+      - name: Report - quality audit report区分 (ci:false) の FAIL
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm ci --legacy-peer-deps
+          if node scripts/quality-audit.mjs --report-only > /tmp/report-digest.txt 2>&1; then
+            echo 'report 区分: FAIL なし'
+            tail -20 /tmp/report-digest.txt
+            exit 0
+          fi
+          {
+            echo "quality-audit の report 区分（ci:false）で FAIL があります。"
+            echo "これは Pre-merge check を**赤くしない**検査群なので、ここで拾わないと誰も気づきません。"
+            echo ""
+            echo '```'
+            tail -60 /tmp/report-digest.txt
+            echo '```'
+            echo ""
+            echo "- 定義: \`scripts/quality-audit.mjs\` の CHECKS（ci:false）"
+            echo "- 再現: \`node scripts/quality-audit.mjs --report-only\`"
+            echo "- 直すか、読む人がいないなら検査ごと消す（CLAUDE.md §9）"
+          } > /tmp/report-digest-body.md
+          node scripts/report-automation-failure.mjs \n            --channel report-checks \n            --title "quality-audit の report 区分に FAIL があります" \n            --body-file /tmp/report-digest-body.md
 
       # 先週分の docs/reviews/weekly/YYYY-Www-review.md が無ければ exit 1（赤落ち）。
       # 依存パッケージ不要（fs のみ）なので npm ci はスキップ。
