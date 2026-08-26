@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T21:25:40.005Z",
+  "generated_at": "2026-08-26T21:36:16.402Z",
   "summary": {
     "total_mdx_files": 1122,
     "total_unique_tags": 174,
-    "allowlist_size": 151,
-    "known_count": 84,
-    "unknown_count": 90,
+    "allowlist_size": 153,
+    "known_count": 85,
+    "unknown_count": 89,
     "typo_candidates_count": 4
   },
   "tags": [
@@ -3323,7 +3323,7 @@
     {
       "name": "formwork",
       "count": 1,
-      "inAllowlist": false,
+      "inAllowlist": true,
       "usedIn": [
         "civil-practice-formwork-removal-timing"
       ]
@@ -3905,7 +3905,6 @@
     "BIM/CIM",
     "DX推進",
     "exam-statistics",
-    "formwork",
     "II-1",
     "II-2",
     "III",
