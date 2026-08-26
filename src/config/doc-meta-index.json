@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T22:54:33.504Z",
+  "generated_at": "2026-08-26T22:58:52.313Z",
   "summary": {
-    "total": 1135,
-    "published": 1116,
+    "total": 1136,
+    "published": 1117,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 14,
+      "civil-practice": 15,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6172,6 +6172,23 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "ポンプ車・ミキサ車の必要台数｜圧送距離の換算長と配車計算【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-earth-retaining-displacement": {
+      "title": "土留めの変位が管理値を超えたら — 計測計画と現場での判断",
+      "description": "土留め壁の変位が管理値に近づいた・超えたときに現場で何を判断すべきかを整理。着工前に立てる計測計画（計測項目・機器・頻度）、管理値の考え方、掘削中断や切梁増設などの対策の選び方、鋼矢板頭部が動いたときの対応、切梁を盛り替えるときの注意点まで扱います。",
+      "shortTitle": "土留め変位への対応",
+      "subtitle": "測る計画があるから、超えても慌てず動ける",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "earthwork"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "土留めの変位が管理値を超えたら｜計測計画と現場対応の判断【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },

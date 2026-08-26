@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T22:54:33.970Z",
+  "generated_at": "2026-08-26T22:58:52.727Z",
   "summary": {
-    "total_mdx_files": 1135,
+    "total_mdx_files": 1136,
     "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "guide",
-      "count": 150,
+      "count": 151,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1333,6 +1333,7 @@
         "civil-practice-concrete-placement-order",
         "civil-practice-concrete-placement-timing",
         "civil-practice-concrete-pump-capacity",
+        "civil-practice-earth-retaining-displacement",
         "civil-practice-excavation-bottom-failure",
         "civil-practice-excavation-pre-survey",
         "civil-practice-formwork-material-inspection",
@@ -2517,6 +2518,22 @@
       ]
     },
     {
+      "name": "earthwork",
+      "count": 9,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-earthwork-basics",
+        "civil-construction-1-secondary-earthwork-past-problems",
+        "civil-construction-1-textbook-cut-slope-protection",
+        "civil-construction-1-textbook-embankment",
+        "civil-construction-1-textbook-soft-ground-drainage",
+        "civil-construction-1-textbook-soil-investigation-methods",
+        "civil-practice-earth-retaining-displacement",
+        "civil-practice-excavation-bottom-failure",
+        "civil-practice-excavation-pre-survey"
+      ]
+    },
+    {
       "name": "related-laws",
       "count": 9,
       "inAllowlist": true,
@@ -2658,21 +2675,6 @@
         "pe-construction-soil-foundation-ronbun-keyword",
         "pe-construction-steel-concrete-ronbun-keyword",
         "pe-construction-tunnel-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "earthwork",
-      "count": 8,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-earthwork-basics",
-        "civil-construction-1-secondary-earthwork-past-problems",
-        "civil-construction-1-textbook-cut-slope-protection",
-        "civil-construction-1-textbook-embankment",
-        "civil-construction-1-textbook-soft-ground-drainage",
-        "civil-construction-1-textbook-soil-investigation-methods",
-        "civil-practice-excavation-bottom-failure",
-        "civil-practice-excavation-pre-survey"
       ]
     },
     {
