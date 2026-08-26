@@ -211,6 +211,18 @@
       "commit": "d8443e3e0fc5",
       "verification": "check-ogp-line-count 1081件実測で3行以上0件・check-ogp-line-count:done(--max=2)PASS・check-ogp-coverage PASS",
       "note": "全123件へogp.title付与+--max判定配線(commits 7203b6f10/402bb8447/23c0270ca/d8443e3e0)"
+    },
+    {
+      "id": "DN-0029",
+      "at": "2026-08-26",
+      "task": "診断士 記事の増補（競合が持ち自社に無い論点）",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "5dc74b1f6934",
+      "verification": "4論点の節がtextbook-assessment/maintenance/investigationに実在(commits 70beddacc/a8f90b201/c62d68aa6)・pre-commitゲート通過・基準名称WebSearch実在確認済み",
+      "note": "全て既存記事への節追加で対応(新規記事なし・図鑑は文章記述)"
     }
   ]
 }
