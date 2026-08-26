@@ -52,6 +52,10 @@
   --bad: hsl(var(--destructive));
   --bad-fill: hsl(0 86% 95%);
   --hold: hsl(268 62% 52%);
+  --ch-x: hsl(215 15% 35%);
+  --ch-ig: hsl(330 65% 50%);
+  --ch-yt: hsl(4 78% 48%);
+  --ch-todo: hsl(174 60% 34%);
   --code-bg: hsl(220 30% 96%);
   --checker-a: hsl(220 25% 97%);
   --checker-b: hsl(218 24% 91%);
@@ -104,6 +108,10 @@
   --bad: hsl(var(--destructive));
   --bad-fill: hsl(0 45% 15%);
   --hold: hsl(268 72% 70%);
+  --ch-x: hsl(215 20% 65%);
+  --ch-ig: hsl(330 75% 65%);
+  --ch-yt: hsl(4 85% 65%);
+  --ch-todo: hsl(174 55% 55%);
   --code-bg: hsl(222 48% 6%);
   --checker-a: hsl(222 48% 6%);
   --checker-b: hsl(222 34% 10%);
@@ -2018,4 +2026,196 @@ table.data.content-table .quality-col { width: 176px; }
 .todo-doc-ref:hover {
   color: var(--ink);
   border-color: var(--accent);
+}
+
+/* ── schedule（/schedule 月グリッド） ── */
+.schedule-health {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 14px;
+  margin-bottom: 14px;
+  font-size: 12.5px;
+}
+.schedule-health-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--ink-body);
+}
+.schedule-health-item .n {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--ink);
+}
+.schedule-health-item.bad {
+  color: var(--bad);
+}
+.schedule-health-note {
+  color: var(--ink-muted);
+  font-size: 11.5px;
+}
+.schedule-source-errors {
+  margin: 0 0 14px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--bad-fill);
+  color: var(--bad);
+  font-size: 12px;
+}
+.schedule-source-errors div + div {
+  margin-top: 2px;
+}
+
+.ch-dot {
+  display: inline-block;
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--ink-muted);
+}
+.ch-dot.x { background: var(--ch-x); }
+.ch-dot.instagram { background: var(--ch-ig); }
+.ch-dot.youtube { background: var(--ch-yt); }
+.ch-dot.todo { background: var(--ch-todo); }
+
+.schedule-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+.schedule-nav a {
+  padding: 4px 11px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  color: var(--ink-body);
+  background: hsl(var(--card) / 0.72);
+}
+.schedule-nav a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.schedule-nav .schedule-nav-current {
+  font-weight: 650;
+  color: var(--ink);
+}
+
+table.data.schedule-grid {
+  table-layout: fixed;
+}
+table.data.schedule-grid th {
+  text-align: center;
+  white-space: nowrap;
+}
+table.data.schedule-grid td {
+  padding: 0;
+  white-space: normal;
+  vertical-align: top;
+  border: 1px solid var(--border-soft);
+}
+.schedule-cell {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 74px;
+  padding: 6px 7px;
+  color: inherit;
+  text-decoration: none;
+}
+.schedule-cell:hover {
+  background: hsl(var(--primary) / 0.05);
+}
+.schedule-cell-empty {
+  min-height: 74px;
+  background: var(--panel-2);
+  opacity: 0.45;
+}
+.schedule-day-num {
+  align-self: flex-start;
+  font-size: 11.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-muted);
+}
+.schedule-day-num.is-today {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-weight: 700;
+}
+.schedule-exam-pill {
+  display: block;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background: var(--accent-fill);
+  color: var(--accent);
+  font-size: 10.5px;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
+}
+.schedule-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 7px;
+  align-items: center;
+}
+.schedule-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  font-size: 10.5px;
+  font-variant-numeric: tabular-nums;
+  color: var(--ink-muted);
+}
+.schedule-overdue-flag {
+  margin-left: auto;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--bad-fill);
+  color: var(--bad);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.schedule-day-card,
+.schedule-overdue-card {
+  margin-top: 16px;
+}
+.schedule-yt-aggregate {
+  color: var(--ink-muted);
+}
+.schedule-yt-aggregate strong {
+  color: var(--bad);
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 900px) {
+  .schedule-cell,
+  .schedule-cell-empty {
+    min-height: 52px;
+    padding: 4px 5px;
+  }
+  .schedule-exam-pill {
+    font-size: 9.5px;
+  }
+  /* 数字（件数）は残し、ドット＋数字の組をそのまま縮小するだけにする
+     （数字を消すと「その日に何件あるか」が分からなくなり本末転倒なため）。 */
+  .schedule-badges {
+    gap: 3px 5px;
+  }
+  .schedule-badge {
+    font-size: 9.5px;
+  }
+  table.data.schedule-grid {
+    min-width: 560px;
+  }
 }

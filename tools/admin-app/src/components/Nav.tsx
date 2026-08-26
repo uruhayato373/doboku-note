@@ -98,7 +98,10 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
   },
   {
     title: '運用',
-    entries: [{ href: '/sns', label: '投稿状況', match: '/sns' }],
+    entries: [
+      { href: '/sns', label: '投稿状況', match: '/sns' },
+      { href: '/schedule', label: 'スケジュール', match: '/schedule' },
+    ],
   },
   {
     title: '分析',
