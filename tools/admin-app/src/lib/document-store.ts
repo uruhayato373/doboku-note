@@ -39,6 +39,8 @@ export interface DocumentEntry {
   modifiedAt: string;
   size: number;
   searchText: string;
+  /** gray-matter が読んだ frontmatter の生データ（.md のみ。.json は空オブジェクト）。 */
+  frontmatter: Readonly<Record<string, unknown>>;
 }
 
 export interface LoadedDocument {
@@ -51,6 +53,8 @@ export interface LoadedDocument {
   content: string;
   modifiedAt: string;
   absolute: string;
+  /** gray-matter が読んだ frontmatter の生データ（.md のみ。.json は空オブジェクト）。 */
+  frontmatter: Readonly<Record<string, unknown>>;
 }
 
 export type { DocumentHeading };
@@ -109,6 +113,7 @@ export function listDocuments(source: DocumentSource): DocumentEntry[] {
         modifiedAt: stats.mtime.toISOString(),
         size: stats.size,
         searchText: `${title} ${rel} ${text}`.toLocaleLowerCase('ja'),
+        frontmatter: parsed.data,
       };
     })
     .sort((a, b) => a.title.localeCompare(b.title, 'ja'));
@@ -167,7 +172,7 @@ export function loadDocument(source: DocumentSource, slugParts: string[]): Loade
     } catch {
       // 壊れた JSON も Admin で確認できるよう原文を表示する。
     }
-    return { title: rel, file, html: '', headings: [], json: formatted, content: raw, modifiedAt, absolute };
+    return { title: rel, file, html: '', headings: [], json: formatted, content: raw, modifiedAt, absolute, frontmatter: {} };
   }
 
   const parsed = matter(raw);
@@ -185,6 +190,7 @@ export function loadDocument(source: DocumentSource, slugParts: string[]): Loade
     content: parsed.content,  // 解析用は元のまま（ID 抽出・未チェック件数は本文全体で数える）
     modifiedAt,
     absolute,
+    frontmatter: parsed.data,
   };
 }
 

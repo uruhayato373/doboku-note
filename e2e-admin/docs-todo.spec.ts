@@ -91,6 +91,43 @@ test('存在しない文書とトラバーサル候補は 404', async ({ page })
   }
 });
 
+test('/docs の目的・チャネル・保持区分フィルタが URL query として保存・復元される（DN-0103 Phase 02）', async ({ page }) => {
+  await page.goto('/docs');
+  const before = await page.locator('a.knowledge-card').count();
+
+  await page.getByLabel('チャネル').selectOption('brain');
+  await page.getByRole('button', { name: '絞り込む' }).click();
+
+  await expect(page).toHaveURL(/channel=brain/);
+  const filtered = page.locator('a.knowledge-card');
+  await expect(filtered).not.toHaveCount(before);
+  await expect(filtered.first()).toBeVisible();
+  for (const chip of await filtered.locator('.doc-channel-chips .chip-outline').allInnerTexts()) {
+    expect(chip).toContain('Brain');
+  }
+
+  // reload しても select の選択状態が URL query から復元される
+  await page.reload();
+  await expect(page.getByLabel('チャネル')).toHaveValue('brain');
+});
+
+test('docs 詳細のタイトル直下に目的・チャネル・保持区分のバッジが出る（Brain override 文書）', async ({ page }) => {
+  await page.goto('/docs/products/brain-r8-policy-prediction-skill/00-product-concept');
+  const row = page.locator('.doc-taxonomy-row');
+  await expect(row).toBeVisible();
+  await expect(row).toContainText('商品仕様');
+  await expect(row).toContainText('Brain');
+});
+
+test('Obsidian callout は div.callout へ、GFM table は div.table-wrap へ変換される', async ({ page }) => {
+  await page.goto('/docs/operations/06_seo-note-synergy-strategy');
+  await expect(page.locator('.knowledge-document .callout').first()).toBeVisible();
+  await expect(page.locator('.knowledge-document .callout-title').first()).toBeVisible();
+
+  await page.goto('/docs/reviews/2026-07-19-civil-note-content-funnel-audit');
+  await expect(page.locator('.knowledge-document .table-wrap table').first()).toBeVisible();
+});
+
 test('760px 以下では右レールが本文の上へ回る', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
   await page.goto(SEO_DOC);

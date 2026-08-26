@@ -1,3 +1,9 @@
+---
+documentType: research
+channel: brain
+retention: durable
+---
+
 # 一致・部分一致・不一致 判定基準
 
 > [!note]

@@ -1601,6 +1601,28 @@ code {
   color: var(--ink-muted);
   font-size: 11px;
 }
+/* docs の一時記録 badge。警告色にしない（一時記録＝抽出後に削除する記録であって異常ではない）。 */
+.doc-badge-temporary {
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: var(--panel-2);
+  color: var(--ink-muted);
+  font-size: 10px;
+  font-weight: 600;
+}
+.doc-channel-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 6px 0;
+}
+.doc-channel-chips .chip-outline {
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--ink-muted);
+  font-size: 10px;
+}
 .knowledge-detail-head {
   margin: 8px 0 18px;
 }
@@ -1647,6 +1669,78 @@ code {
   padding-left: 14px;
   border-left: 3px solid var(--accent);
   color: var(--ink-muted);
+}
+.knowledge-document thead th {
+  background: var(--panel-2);
+  color: var(--ink);
+}
+.knowledge-document input[type='checkbox'] {
+  margin-right: 5px;
+  cursor: not-allowed;
+  vertical-align: -2px;
+}
+
+/* ── Obsidian callout（`> [!note] ...`）── markdown.ts の calloutPlugin が出す
+   `<div class="callout callout-{type}"><div class="callout-title">…</div>…</div>`。
+   .knowledge-document（docs/knowledge 詳細）と .md-prose（TODO カード本文）は同じ
+   renderDocument/renderMarkdown を通るため、両方に同じクラスが出る（表示密度だけ変える）。 */
+.knowledge-document .callout,
+.md-prose .callout {
+  margin: 1em 0;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border-left: 3px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 10%, var(--panel));
+}
+.md-prose .callout {
+  margin: 0.6em 0;
+  padding: 8px 11px;
+  border-radius: 6px;
+}
+.knowledge-document .callout > :first-child,
+.md-prose .callout > :first-child {
+  margin-top: 0;
+}
+.knowledge-document .callout > :last-child,
+.md-prose .callout > :last-child {
+  margin-bottom: 0;
+}
+.knowledge-document .callout-title,
+.md-prose .callout-title {
+  margin-bottom: 0.35em;
+  color: var(--ink);
+  font-weight: 700;
+}
+.knowledge-document .callout-tip,
+.md-prose .callout-tip {
+  border-left-color: var(--good);
+  background: color-mix(in srgb, var(--good) 10%, var(--panel));
+}
+.knowledge-document .callout-important,
+.md-prose .callout-important {
+  border-left-color: var(--hold);
+  background: color-mix(in srgb, var(--hold) 10%, var(--panel));
+}
+.knowledge-document .callout-warning,
+.md-prose .callout-warning {
+  border-left-color: var(--warn);
+  background: var(--warn-fill);
+}
+.knowledge-document .callout-caution,
+.md-prose .callout-caution {
+  border-left-color: var(--bad);
+  background: var(--bad-fill);
+}
+.knowledge-document .callout-todo,
+.md-prose .callout-todo {
+  border-left-color: var(--ch-todo);
+  background: color-mix(in srgb, var(--ch-todo) 10%, var(--panel));
+}
+
+/* GFM 表のラッパー。ページ全体でなく表単体が横スクロールする（mobile でのはみ出し防止）。 */
+.table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
 }
 .knowledge-document pre {
   overflow-x: auto;
@@ -1696,6 +1790,30 @@ code {
   margin-top: 6px;
   font-size: 12px;
   color: var(--ink-muted);
+}
+/* docs 詳細のタイトル直下: 目的・チャネル・保持区分（DN-0103 Phase 02）。 */
+.doc-taxonomy-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  margin-top: 8px;
+}
+.doc-taxonomy-row .chip {
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--panel-2);
+  color: var(--ink-muted);
+  font-size: 11px;
+}
+.doc-taxonomy-row a.chip-outline {
+  border: 1px solid var(--border);
+  background: transparent;
+  text-decoration: none;
+  color: var(--accent);
+}
+.doc-taxonomy-row a.chip-outline:hover {
+  border-color: var(--accent);
 }
 .project-detail {
   display: grid;

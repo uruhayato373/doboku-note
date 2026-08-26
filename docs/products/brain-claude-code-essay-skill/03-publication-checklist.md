@@ -1,3 +1,9 @@
+---
+documentType: product-spec
+channel: brain
+retention: durable
+---
+
 # Brain公開準備チェックリスト
 
 <!-- audit:2026-08-18 -->

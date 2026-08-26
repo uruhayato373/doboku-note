@@ -2,6 +2,8 @@ import { readFileSync } from 'node:fs';
 import { listDocuments, loadDocument, type DocumentEntry, type LoadedDocument } from './document-store';
 import { rootById } from './document-roots';
 import { repoPath } from './repo-root';
+import { classifyDocument, type DocChannel, type DocumentType, type DocRetention } from './doc-taxonomy';
+import { channelById } from './channel-registry';
 
 /**
  * project.ts — 恒久文書（`docs/`）固有の領域ラベル・警告・backlog ID 参照の抽出。
@@ -54,7 +56,45 @@ const RETIRED_PATTERNS: RegExp[] = [
   new RegExp(['docs/project', 'TODO\\.md'].join('/'), 'g'),
 ];
 
-export interface ProjectEntry extends DocumentEntry {
+/** channel（'cross' 以外）→ コンテンツチャネルへの read-only リンク。channel-registry.ts が唯一の SSOT。 */
+export interface DocChannelLink {
+  id: Exclude<DocChannel, 'cross'>;
+  label: string;
+  /** 対応チャネルが未実装（Brain 等）なら null（死んだリンクを出さない）。 */
+  href: string | null;
+}
+
+function resolveChannelLinks(channels: readonly DocChannel[]): DocChannelLink[] {
+  return channels
+    .filter((c): c is Exclude<DocChannel, 'cross'> => c !== 'cross')
+    .map((id) => {
+      const ch = channelById(id);
+      const href = ch && ch.enabled && ch.tabs.length > 0 ? ch.tabs[0]!.href : null;
+      return { id, label: ch?.label ?? id, href };
+    });
+}
+
+export interface DocTaxonomyView {
+  documentType: DocumentType;
+  channel: DocChannel[];
+  channelLinks: DocChannelLink[];
+  retention: DocRetention;
+  /** frontmatter に許可値外の値があったフィールド名（開発時に検出できるよう握りつぶさない）。 */
+  taxonomyInvalidFields: readonly string[];
+}
+
+function taxonomyOf(section: string, frontmatter: Readonly<Record<string, unknown>>): DocTaxonomyView {
+  const t = classifyDocument(section, frontmatter);
+  return {
+    documentType: t.documentType,
+    channel: t.channel,
+    channelLinks: resolveChannelLinks(t.channel),
+    retention: t.retention,
+    taxonomyInvalidFields: t.invalidFields,
+  };
+}
+
+export interface ProjectEntry extends DocumentEntry, DocTaxonomyView {
   section: string;
   sectionLabel: string;
   uncheckedCount: number;
@@ -75,11 +115,17 @@ export function loadProjectEntries(): ProjectEntry[] {
   return listDocuments(PROJECT_SOURCE).map((entry) => {
     const section = sectionOf(entry.slug);
     const content = readFileSync(repoPath(...entry.file.split('/')), 'utf8');
-    return { ...entry, section, sectionLabel: sectionLabel(section), ...analyze(content) };
+    return {
+      ...entry,
+      section,
+      sectionLabel: sectionLabel(section),
+      ...analyze(content),
+      ...taxonomyOf(section, entry.frontmatter),
+    };
   });
 }
 
-export interface LoadedProjectDocument extends LoadedDocument {
+export interface LoadedProjectDocument extends LoadedDocument, DocTaxonomyView {
   section: string;
   sectionLabel: string;
   uncheckedCount: number;
@@ -91,11 +137,20 @@ export interface LoadedProjectDocument extends LoadedDocument {
  * 解決済みの `file`（例 `docs/operations/13_...md`）と本文から領域固有の意味付けを採る。
  * `/docs` の詳細画面がレールを組み立てるのに使う。実装は 1 つにして両経路が同じ結果を出す。
  */
-export function projectAnalysis(file: string, content: string) {
+export function projectAnalysis(
+  file: string,
+  content: string,
+  frontmatter: Readonly<Record<string, unknown>> = {},
+) {
   const prefix = `${PROJECT_SOURCE.filePrefix}/`;
   if (!file.startsWith(prefix)) return null;
   const section = sectionOf(file.slice(prefix.length));
-  return { section, sectionLabel: sectionLabel(section), ...analyze(content) };
+  return {
+    section,
+    sectionLabel: sectionLabel(section),
+    ...analyze(content),
+    ...taxonomyOf(section, frontmatter),
+  };
 }
 
 export function loadProjectDocument(slugParts: string[]): LoadedProjectDocument | null {
@@ -104,7 +159,13 @@ export function loadProjectDocument(slugParts: string[]): LoadedProjectDocument 
   // section は **解決済みの file パス**から採る。slugParts は URL エンコードのまま届くことが
   // あり、生のまま使うとパンくずが `04_%E9%81%8B%E5%96%B6` と出る（2026-08-18 実測）。
   const section = sectionOf(document.file.slice(`${PROJECT_SOURCE.filePrefix}/`.length));
-  return { ...document, section, sectionLabel: sectionLabel(section), ...analyze(document.content) };
+  return {
+    ...document,
+    section,
+    sectionLabel: sectionLabel(section),
+    ...analyze(document.content),
+    ...taxonomyOf(section, document.frontmatter),
+  };
 }
 
 /**
