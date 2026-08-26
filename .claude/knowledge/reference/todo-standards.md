@@ -82,7 +82,7 @@ doboku-note = `scripts/lib/backlog-lib.mjs` (admin・CI・検査はすべてこ�
 | `[起票:YYYY-MM-DD]` | 任意 | 鮮度測定 |
 | `[期日:YYYY-MM-DD]` | 任意 | 期限。超過は admin がバッジで出す |
 | `[Codex候補]` | flag | バルク処理向き |
-| `[進行中]` | flag | 作業中 (人または別 run)。**自動処理はこのカードに触らない** |
+| `[進行中]` | flag | 作業中 (人または別 run)。**自動処理はこのカードに触らない**（付け外しは doboku-note では `todo:claim`/`todo:release`。契約→[todo-lifecycle.md](todo-lifecycle.md)） |
 
 - 未知のタグキー・語彙外の値は検査が error にする (パースは寛容・リントは厳格)。
 - タグ無し / `[実行:]` 無しのカード = **分類待ち**。検査がファイル単位の集計 warning で
@@ -154,3 +154,6 @@ vault の `.claude/scripts/todo/setup-todo-links.mjs` で張る。SSOT は常に
 - 管理画面: `apps/admin/app/todo/page.tsx` (アダプタ `apps/admin/lib/server/todo.ts`)
 - doboku-note 側: `scripts/lib/backlog-lib.mjs` / `tools/admin-app/src/lib/todo.ts` /
   agent `todo-planner`・`backlog-curator` / skill `/backlog-sweep`
+- doboku-note のライフサイクル契約 (task→plan→claim→verify→complete): [todo-lifecycle.md](todo-lifecycle.md)。
+  CLI は `scripts/todo-{claim,release,complete}.mjs` (`npm run todo:claim`等)、検査は
+  `npm run check-task-plan-links` / `npm run check-dispatch-log`
