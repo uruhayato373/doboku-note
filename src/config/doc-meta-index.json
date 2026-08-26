@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T23:44:33.418Z",
+  "generated_at": "2026-08-26T23:49:00.567Z",
   "summary": {
-    "total": 1147,
-    "published": 1128,
+    "total": 1149,
+    "published": 1130,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 26,
+      "civil-practice": 28,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6208,6 +6208,23 @@
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
+    "civil-practice-concrete-repair-leakage": {
+      "title": "コンクリートの補修と補強はどう選ぶか — 漏水対策までの工法選定",
+      "description": "コンクリート構造物の「補修」と「補強」の目的の違いを起点に、ひび割れ・断面欠損・耐荷性能それぞれの工法選びと、現場で難航しやすい漏水補修・ボックスカルバートの目地対策までを、実務の判断基準として整理します。",
+      "shortTitle": "補修・補強と漏水対策",
+      "subtitle": "耐久性の回復か、耐荷性能の向上か",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "concrete"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "補修と補強の違い・漏水対策の工法選び｜コンクリート構造物の維持管理【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
     "civil-practice-earth-retaining-displacement": {
       "title": "土留めの変位が管理値を超えたら — 計測計画と現場での判断",
       "description": "土留め壁の変位が管理値に近づいた・超えたときに現場で何を判断すべきかを整理。着工前に立てる計測計画（計測項目・機器・頻度）、管理値の考え方、掘削中断や切梁増設などの対策の選び方、鋼矢板頭部が動いたときの対応、切梁を盛り替えるときの注意点まで扱います。",
@@ -6359,6 +6376,23 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "場所打ち杭のコンクリートと杭頭処理｜水中コンクリート・トレミー管・余盛り・杭径管理の実務ポイント【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-pipe-jacking-methods": {
+      "title": "推進工法をどう選ぶか — 口径・地盤・切羽管理の判断軸",
+      "description": "推進工法を選ぶときに何を判断すべきかを整理。開削との使い分け、口径と地盤による大中口径・小口径工法の絞り込み、切羽の圧力管理、周辺地盤の変状監視、発進立坑計画で外せない確認事項まで、現場での判断軸をまとめます。",
+      "shortTitle": "推進工法の選び方",
+      "subtitle": "決め手は口径でなく土質",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "earthwork"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "推進工法の選び方｜口径区分・切羽管理・立坑計画の判断基準【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },

@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T23:44:33.855Z",
+  "generated_at": "2026-08-26T23:49:00.996Z",
   "summary": {
-    "total_mdx_files": 1147,
+    "total_mdx_files": 1149,
     "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "guide",
-      "count": 162,
+      "count": 164,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1335,6 +1335,7 @@
         "civil-practice-concrete-placement-order",
         "civil-practice-concrete-placement-timing",
         "civil-practice-concrete-pump-capacity",
+        "civil-practice-concrete-repair-leakage",
         "civil-practice-earth-retaining-displacement",
         "civil-practice-embankment-quality-control",
         "civil-practice-excavation-bottom-failure",
@@ -1344,6 +1345,7 @@
         "civil-practice-formwork-waterstop-details",
         "civil-practice-pile-bearing-verification",
         "civil-practice-pile-concrete-head-treatment",
+        "civil-practice-pipe-jacking-methods",
         "civil-practice-precast-pile-methods",
         "civil-practice-rebar-corrosion-handling",
         "civil-practice-rebar-cover-placement",
@@ -2160,7 +2162,7 @@
     },
     {
       "name": "earthwork",
-      "count": 17,
+      "count": 18,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-secondary-earthwork-basics",
@@ -2176,6 +2178,7 @@
         "civil-practice-excavation-pre-survey",
         "civil-practice-pile-bearing-verification",
         "civil-practice-pile-concrete-head-treatment",
+        "civil-practice-pipe-jacking-methods",
         "civil-practice-precast-pile-methods",
         "civil-practice-slope-protection-selection",
         "civil-practice-subbase-subgrade-control",
@@ -2471,7 +2474,7 @@
     },
     {
       "name": "concrete",
-      "count": 10,
+      "count": 11,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-secondary-concrete-basics",
@@ -2483,6 +2486,7 @@
         "civil-practice-concrete-placement-order",
         "civil-practice-concrete-placement-timing",
         "civil-practice-concrete-pump-capacity",
+        "civil-practice-concrete-repair-leakage",
         "civil-practice-formwork-removal-timing"
       ]
     },
