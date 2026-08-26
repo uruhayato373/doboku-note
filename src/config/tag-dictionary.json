@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T23:11:08.991Z",
+  "generated_at": "2026-08-26T23:17:25.094Z",
   "summary": {
-    "total_mdx_files": 1140,
+    "total_mdx_files": 1141,
     "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "guide",
-      "count": 155,
+      "count": 156,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1344,6 +1344,7 @@
         "civil-practice-rebar-corrosion-handling",
         "civil-practice-rebar-cover-placement",
         "civil-practice-rebar-splice-selection",
+        "civil-practice-sling-work-wire-rope",
         "civil-practice-slope-protection-selection",
         "concrete-chief-engineer-guide-essay",
         "concrete-chief-engineer-guide-overview",

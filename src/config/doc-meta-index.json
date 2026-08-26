@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T23:11:08.579Z",
+  "generated_at": "2026-08-26T23:17:24.683Z",
   "summary": {
-    "total": 1140,
-    "published": 1121,
+    "total": 1141,
+    "published": 1122,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 19,
+      "civil-practice": 20,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6360,6 +6360,22 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "鉄筋継手の選び方｜重ね・ガス圧接・機械式の判断基準【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-sling-work-wire-rope": {
+      "title": "玉掛けとワイヤーロープの選定 — 吊り角度で変わる張力と、1本吊りを避ける理由",
+      "description": "玉掛け作業で現場の実務者が使う判断基準を整理しました。玉掛け技能講習と特別教育の境界、ワイヤーロープの安全係数と使用禁止基準、吊り角度で変わる張力の計算、1本吊りが避けられる法令上・実務上の理由、介錯ロープを使った誘導までを、法令と現場慣行を区別しながら解説します。",
+      "shortTitle": "玉掛けとワイヤー選定",
+      "subtitle": "吊り角度・安全係数・介錯ロープの判断基準",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "玉掛けとワイヤーロープの選定｜吊り角度の張力計算・安全係数・1本吊りが避けられる理由【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
