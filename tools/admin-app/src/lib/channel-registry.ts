@@ -134,11 +134,12 @@ export const ADMIN_CHANNELS: readonly AdminChannel[] = [
   {
     id: 'brain',
     label: 'Brain',
-    // content/brain へ移行済み（DN-0103 Phase 03）。
     sourcePath: 'content/brain',
-    // Phase 04 で専用画面ができるまではリンクを作らない。
-    enabled: false,
-    tabs: [],
+    // 専用 read-only 画面が /content/brain にできた（DN-0103 Phase 04）。
+    enabled: true,
+    tabs: [
+      { href: '/content/brain', label: '商品', match: '/content/brain' },
+    ],
   },
 ] as const;
 

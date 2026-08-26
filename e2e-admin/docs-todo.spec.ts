@@ -70,7 +70,11 @@ test('/content は本文を読まずにチャネルを数え、ドリルダウ�
   const cards = page.locator('a.knowledge-card');
   expect(await cards.count()).toBeGreaterThan(0);
 
-  await cards.first().click();
+  // Brain だけは専用画面（/content/brain）へ誘導するため、汎用ドリルダウンの検証からは除く
+  // （DN-0103 Phase 04）。
+  const genericCards = page.locator('a.knowledge-card:not([href="/content/brain"])');
+  expect(await genericCards.count()).toBeGreaterThan(0);
+  await genericCards.first().click();
   await expect(page).toHaveURL(/\/content\/.+~/);
   await expect(page.locator('.content-listing')).toBeVisible();
 });

@@ -49,13 +49,21 @@ test('enabled channel の href は空欄でなく、href(+query) の複合key �
   assert.deepEqual(keys, [...new Set(keys)], `href+query の複合key が重複: ${JSON.stringify(keys)}`);
 });
 
-test('brain channel は Phase 01 時点で disabled かつ tabs が空', () => {
+test('brain channel は Phase 04 で有効化され、/content/brain タブを持つ', () => {
   const out = tsx(`
     import { channelById } from './tools/admin-app/src/lib/channel-registry.ts';
     const brain = channelById('brain');
-    process.stdout.write(JSON.stringify({ enabled: brain?.enabled, tabsLength: brain?.tabs.length }));
+    process.stdout.write(JSON.stringify({
+      enabled: brain?.enabled,
+      sourcePath: brain?.sourcePath,
+      tabs: brain?.tabs.map((t) => ({ href: t.href, match: t.match })),
+    }));
   `);
-  assert.deepEqual(JSON.parse(out), { enabled: false, tabsLength: 0 });
+  assert.deepEqual(JSON.parse(out), {
+    enabled: true,
+    sourcePath: 'content/brain',
+    tabs: [{ href: '/content/brain', match: '/content/brain' }],
+  });
 });
 
 test('X / Instagram の gallery/sns タブは query だけが異なり、pathname だけでは排他評価できる', () => {

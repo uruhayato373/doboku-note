@@ -747,8 +747,12 @@ a:hover {
   opacity: 0.55;
 }
 
-/* ── テーブル ── */
+/* ── テーブル ──
+   管理画面共通の横スクロールラッパー。集計表（table.data）と、markdown.ts の
+   tableWrapPlugin が出す GFM 表ラップ div（.knowledge-document / .md-prose 配下）の
+   両方がこの1クラスを共有する（DN-0103 Phase 02 で二重定義していたものを統合）。 */
 .table-wrap {
+  max-width: 100%;
   overflow-x: auto;
   border: 1px solid var(--border-soft);
   border-radius: 10px;
@@ -1737,11 +1741,9 @@ code {
   background: color-mix(in srgb, var(--ch-todo) 10%, var(--panel));
 }
 
-/* GFM 表のラッパー。ページ全体でなく表単体が横スクロールする（mobile でのはみ出し防止）。 */
-.table-wrap {
-  max-width: 100%;
-  overflow-x: auto;
-}
+/* GFM 表（markdown.ts の tableWrapPlugin が出す div.table-wrap）は上の管理画面共通
+   .table-wrap をそのまま使う。表単体が横スクロールし、ページ全体は横スクロールしない
+   （mobile でのはみ出し防止）。 */
 .knowledge-document pre {
   overflow-x: auto;
   padding: 16px;
