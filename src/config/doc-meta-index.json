@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T22:31:37.541Z",
+  "generated_at": "2026-08-26T22:34:03.418Z",
   "summary": {
-    "total": 1127,
-    "published": 1108,
+    "total": 1128,
+    "published": 1109,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 6,
+      "civil-practice": 7,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6087,6 +6087,23 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "ひび割れの原因を切り分ける｜沈下・温度・乾燥収縮・劣化の見分け方【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-concrete-finishing-curing": {
+      "title": "表面仕上げと養生はいつ行うか — 木ゴテ・金ゴテ・散水養生の判断基準",
+      "description": "打込み後、木ゴテと金ゴテをいつ入れるか、散水養生をいつ始めて何日続けるか、冬場に凍害を避けるにはどうするかを整理します。仕上げのタイミングをブリーディング水の状態で見極める考え方、湿潤養生の標準期間表、養生方法の選び方、初期凍害を防ぐ圧縮強度の基準まで、現場で判断に使える形でまとめました。",
+      "shortTitle": "仕上げと養生の時期",
+      "subtitle": "コンクリートの状態で決める、時計では決めない",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "concrete"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "表面仕上げと養生の時期｜木ゴテ・金ゴテ・湿潤養生の判断基準と凍害対策【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },

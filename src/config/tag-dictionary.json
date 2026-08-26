@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T22:31:37.959Z",
+  "generated_at": "2026-08-26T22:34:03.908Z",
   "summary": {
-    "total_mdx_files": 1127,
+    "total_mdx_files": 1128,
     "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "guide",
-      "count": 142,
+      "count": 143,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1328,6 +1328,7 @@
         "civil-construction-2-guide-young-career",
         "civil-practice-concrete-compaction-numbers",
         "civil-practice-concrete-crack-causes",
+        "civil-practice-concrete-finishing-curing",
         "civil-practice-concrete-placement-timing",
         "civil-practice-formwork-removal-timing",
         "civil-practice-rebar-cover-placement",
@@ -2711,6 +2712,20 @@
       ]
     },
     {
+      "name": "concrete",
+      "count": 7,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-practice-concrete-compaction-numbers",
+        "civil-practice-concrete-crack-causes",
+        "civil-practice-concrete-finishing-curing",
+        "civil-practice-concrete-placement-timing",
+        "civil-practice-formwork-removal-timing"
+      ]
+    },
+    {
       "name": "construction-plan",
       "count": 7,
       "inAllowlist": true,
@@ -2848,19 +2863,6 @@
         "pe-first-stage-r05-aptitude",
         "pe-first-stage-r06-aptitude",
         "pe-first-stage-r07-aptitude"
-      ]
-    },
-    {
-      "name": "concrete",
-      "count": 6,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems",
-        "civil-practice-concrete-compaction-numbers",
-        "civil-practice-concrete-crack-causes",
-        "civil-practice-concrete-placement-timing",
-        "civil-practice-formwork-removal-timing"
       ]
     },
     {
