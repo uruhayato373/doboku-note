@@ -79,6 +79,18 @@
       "task": "台帳の誤りが作業の誤りへ増幅されるのを止める（再発防止 4 点）",
       "outcome": "done",
       "note": "check-backlog-verify 新設（赤→緑の遷移で完了の疑いを検出・負のテストで実証）/ check-backlog-health を blame 補完して 61 枚の測定不能を解消 / sweep へバルク編集の3件サンプル確認を明文化 / backlog-curator へ一次資料確認の要求を追加。初回実走で「[検証:] 12 本が surfacer を指していて完了判定に使えない」ことも判明し起票"
+    },
+    {
+      "id": "DN-0093",
+      "at": "2026-08-26",
+      "task": "TODO UIとAgent実装の実行ライフサイクルを統合する",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "9f482f77e42a",
+      "verification": "node --test tests/todo-lifecycle.test.mjs tests/check-dispatch-log.test.mjs tests/todo-status.test.mjs + tsc + admin目視",
+      "note": "順4・5完遂。恒久ルールはtodo-lifecycle.mdへ抽出しレビュー削除"
     }
   ]
 }

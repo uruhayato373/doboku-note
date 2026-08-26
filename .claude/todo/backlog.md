@@ -396,21 +396,6 @@ status.json 30 件を commit 済み。残 32 件を次セッションで継続�
 
 
 
-### [DN-0093] TODO UIとAgent実装の実行ライフサイクルを統合する
-タグ: [エージェント・SSOT] [種類:改善] [実行:対話] [起票:2026-08-18]
-
-TODOをAdminで管理し、Codexが設計、Claude Codeが実装する運用を、task → plan → claim → verify → completeの一貫した機械契約にする。
-
-- **設計根拠**: 批判的レビュー（2026-08-18策定）の恒久ルールを抽出済み → [todo-lifecycle.md](../knowledge/reference/todo-lifecycle.md)（レビュー本体は抽出後に削除・記録はgit履歴）
-- **実行順**: 情報アーキテクチャ移行（2026-08-18 完了・`docs`/`content`/`.claude` の 4 領域）の差分を実査してから、WIP排他 → task-plan結線 → claim/release/complete共通CLI → ID付き実行ログ → Admin状態表示・Claude Code用prompt生成の順で実装する
-- **禁止**: 既存の情報アーキテクチャ移行セッションと同じファイルを並行編集しない。task-plan結線とclaimが成立する前に、UIからAgentや任意shellを直接起動する機能を作らない
-- **完了条件**: 同一IDの二重claimを拒否し、実行中カードを自動選定から除外する。planの孤児・リンク切れ・重複を検査し、完了処理でbacklog・monthly・weekly・plan・実行証拠を一貫して閉じる。恒久ルールを`.claude/knowledge/`へ抽出後、このレビューを削除する
-
-最小実装順1〜3（WIP排他・task-plan結線・claim/release/complete共通CLI）は完了。
-`scripts/todo-claim.mjs`/`todo-release.mjs`/`todo-complete.mjs`（`npm run todo:claim`等）。
-
-**残（最小実装順4・5）**: dispatch log のID必須化＋完了処理の一括更新 → Admin UI への状態列・
-planリンク・claim表示・Claude Code prompt生成の追加。
 
 ### [DN-0106] GSC 検索流入停滞の原因分離と performance データ全件化
 タグ: [インフラ・計測] [種類:改善] [Codex候補] [実行:sweep] [起票:2026-08-20]
