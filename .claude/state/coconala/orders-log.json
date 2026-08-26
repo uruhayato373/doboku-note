@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-08-06",
+  "updatedAt": "2026-08-26T12:00+09:00",
   "currency": "JPY",
   "source": "ココナラの受注を /coconala-order（coconala-operator）で1件ずつ追記する。実体は `npm run coconala-orders` が採る orders-snapshot.json（read-only Playwright）で、`npm run check-coconala-orders` が talkroomId で突合する。",
   "privacyNote": "購入者名・購入者ID・提出原稿・トークルーム本文は記録しない（個人情報をリポジトリに残さない）。記録するのは日付・serviceId・金額・級・進捗・所要時間・talkroomId・納品成果物のみ。事例化する場合は匿名化して content/note/1級・2級土木/メンバーシップ/添削事例アーカイブ/ へ。",
@@ -174,6 +174,17 @@
         "dueAt": "2026-08-18",
         "verified": "送信後にトークルームで『評価未入力』『評価を入力する』が消え『評価完了』へ変化したことを実査"
       }
+    },
+    {
+      "date": "2026-08-25",
+      "serviceId": "coconala-1kyu-moshi-pdf",
+      "talkroomId": "18194267",
+      "priceYen": 2500,
+      "grade": 1,
+      "status": "received",
+      "replyDueAt": "2026-08-27T21:00",
+      "deliveredAt": null,
+      "artifacts": []
     }
   ]
 }
