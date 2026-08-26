@@ -1390,11 +1390,17 @@ account ゲート/ClipboardEvent paste/リンクカード化/ブラウザ起動�
 |---|--:|---|
 | note API（`note.com/api/v3/notes` 直叩き） | 14 本中 13 本 | `scripts/lib/note-api.mjs`（2026-08-25 新設・新規消費者のみ） |
 | frontmatter の自作正規表現リーダー | 21 本（gray-matter 派 34 本と二系統並存） | `scripts/lib/note-frontmatter.mjs`（2026-08-25 新設・新規消費者のみ） |
-| Playwright account ゲート/ブラウザ起動 | 15 本以上 | 無し（本カードの本題） |
+| Playwright account ゲート/ブラウザ起動 | 15 本以上 | `scripts/lib/note-browser.mjs`（2026-08-26 新設・2本移行済み） |
 
 note-api.mjs / note-frontmatter.mjs は**新規に書くコードだけ**が使っており、既存 13 本・21 本の
 移行はまだ。動いている検査を一度に触るリスクを避けるため、着手時は 1 本ずつ移行して
 その都度実測で挙動同一を確認する（バルクでの一斉置換はしない）。
+
+**2026-08-26 実績**: `note-browser.mjs`（`launchNoteContext`/`assertAccountGate`）を新設し、
+独立worktreeで`check-note-attachments.mjs`・`note-convert-to-paid.mjs`の2本を移行（dry-run/probe
+で移行前後の挙動一致を確認・developへマージ・push済み）。**残: launchPersistentContext保有36本中34本**
+（note-api.mjs/note-frontmatter.mjs未消費の既存34本も含め、1本ずつ継続）。account ゲート自体が
+無いスクリプト（note-sync-tags.mjs等）は「抽出」でなく「ゲート新規追加」になるため別判断。
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
