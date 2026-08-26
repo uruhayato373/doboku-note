@@ -1,6 +1,6 @@
 # RelatedArticles 設計リファレンス
 
-関連記事セクションの設計方針・アルゴリズム・スタイリングルール。`src/lib/related-articles.ts` や `src/components/ui/RelatedArticles/` を触るときに参照する。
+関連記事セクションの設計方針・アルゴリズム・スタイリングルール。`src/lib/related-score.ts` や `src/components/ui/RelatedArticles/` を触るときに参照する。
 
 ## 設計思想
 
@@ -9,62 +9,54 @@
 - **MDXコンポーネントではない**: `component-loader` に登録しない。`page.tsx` から直接 import
 - **RelatedKeywords との棲み分け**:
   - `RelatedKeywords` = MDX 本文内のインライン用語リンク（手動指定）
-  - `RelatedArticles` = 記事下部の「次に読む」カード導線（自動生成）
+  - `RelatedArticles` = 記事下部の「次に読む」OGP サムネイルカード導線（自動生成）
 
 ## ファイル構成
 
 | ファイル | 役割 |
 |---|---|
-| `src/lib/related-articles.ts` | 選択アルゴリズム（純粋関数、副作用なし） |
-| `src/components/ui/RelatedArticles/RelatedArticles.tsx` | 表示コンポーネント（サーバーコンポーネント） |
-| `src/app/docs/[...slug]/page.tsx` | データ取得・レンダリング統合 |
+| `src/lib/related-score.ts` | ランクアルゴリズム（純粋関数、副作用なし）。`RelatedArticles` と `MidArticleCta` の関連記事モードで共有 |
+| `src/components/ui/RelatedArticles/RelatedArticles.tsx` | セクション本体（サーバーコンポーネント） |
+| `src/components/ui/RelatedArticles/RelatedArticleCard.tsx` | OGP サムネイルカード1枚分 |
 
-## アルゴリズム: 3段階フォールバック
+## アルゴリズム: トピックタグの共通数でランク
 
 ```
-selectRelatedArticles(current, categoryArticles, maxCount=4)
+rankRelated(currentMeta, categoryArticles, limit = 6)
 ```
 
-| 優先度 | 条件 | 用途 |
-|---|---|---|
-| Tier 1 | 同 `section` フィールド | PE 記事のセクション内関連（5.1 安全管理 等） |
-| Tier 2 | 同ドキュメントグループ（`classifyDoc()` 結果） | keyword↔keyword, guide↔guide 等 |
-| Tier 3 | 同カテゴリ（グループ問わず） | 候補不足時の補完 |
+- `meta.tags` から**構造タグ**（`guide`/`primary`/`secondary`/`textbook`/`keyword`/`pillar`/`essay`/`past-questions`/`pastExam`。`STRUCTURAL_TAGS`）を除いた**トピックタグ**だけで比較する
+- 同カテゴリ内の各記事について、現在記事とのトピックタグ共通数を score とする
+- 自分自身・非公開（`published === false`）・共通タグ 0 件（score 0）は除外
+- 同スコアは `date` 降順（新しい記事優先）でソート
+- 上位 `limit` 件（既定 6）を返す
+- 現在記事にトピックタグが 1 つもない場合は空配列を返す（Tier 段階のフォールバックはない）
 
-- 各 Tier 内は**決定的シャッフル**（スラグのハッシュがシード）→ SSG キャッシュと両立
-- 自分自身は除外
-- `section` フィールドがない記事は Tier 1 をスキップ
-- 候補が 0 件ならセクション非表示（`null` 返却）
+## 表示条件
 
-## スタイリングルール
+`RelatedArticles` は `rankRelated()` の結果が **2 件未満なら何も描画しない**（`null` を返す）。タグが薄い過去問ページ等で薄いセクションになったり、`RelatedTextbooks`/`RelatedKeywords` と重複したりするのを避けるため。
 
-カテゴリページの `DocCard`（`src/app/category/[slug]/page.tsx`）を踏襲:
+## スタイリング
 
-- **外枠**: `bg-white dark:bg-gray-800 rounded-2xl shadow-sm border border-gray-200/60`
-- **グリッド**: `grid gap-4 grid-cols-1 md:grid-cols-2`
-- **カード**: `rounded-lg border p-4 hover:border-blue-400 hover:shadow-md transition-all`
-- **タイトル**: `text-sm font-semibold line-clamp-2 group-hover:text-blue-600`
-- **説明文**: `text-xs text-gray-600 line-clamp-2`
-- **タグ**: 最大2つ表示、`text-xs px-2 py-0.5 bg-gray-100 rounded`
+- **セクション外枠**: `MetaCard`（共通カードシェル）
+- **グリッド**: `grid grid-cols-1 gap-4 sm:grid-cols-2 zenn-desktop:grid-cols-3`
+- **カード**: `card-interactive card-surface-content`（デザイントークン。個別に border/shadow を直書きしない）
+- **サムネイル**: 各記事の `ogp.png`（R2 配信・全 published 記事で CI 実在保証）を `aspect-[1200/630]` で表示。`loading="lazy"` で LCP 非干渉
+- **タイトル**: `line-clamp-2 text-sm font-semibold text-brand`
+- **説明文**: `line-clamp-2 text-xs text-[var(--ink-body)]`（`doc.description` がある場合のみ）
+- タグのバッジ表示はしない
 
 ## 配置
 
-```
-</article>
-↓ 関連記事セクション（max-w-[780px] mx-auto mt-8）
-↓ フッター
-```
-
-カテゴリナビ（折りたたみ全記事リスト）は廃止済み。記事下部の導線は関連記事カードに一本化。
+記事末（`AuthorCard` の前）に固定配置。カテゴリナビ（折りたたみ全記事リスト）は廃止済み。記事下部の導線は関連記事カードに一本化。
 
 ## パフォーマンス
 
-- `getDocsMetaByCategory()` でメタデータのみ取得（コンテンツは読み込まない）
-- `getDocMeta()` は React `cache()` でメモ化済み → サイドバー生成とキャッシュ共有
-- `selectRelatedArticles()` は純粋関数（I/O なし）
+- `categoryArticles` は呼び出し元（`page.tsx`）がメタデータのみで用意する（本文コンテンツは読み込まない）
+- `rankRelated()` は純粋関数（I/O なし）
 
 ## 拡張ポイント
 
-- **maxCount 変更**: `selectRelatedArticles()` の第3引数で調整可能（デフォルト 4）
-- **新カテゴリ追加**: `section` フィールドがあれば Tier 1 が自動で有効化。なければ Tier 2 から動作
-- **カスタムスコアリング**: 将来的にタグ重複数やアクセス数を加味する場合、`selectRelatedArticles()` のみ変更
+- **limit 変更**: `rankRelated()` の第3引数で調整可能（デフォルト 6）
+- **新カテゴリ追加**: `tags` があれば追加設定なしで動作。構造タグの語彙を増やす場合は `STRUCTURAL_TAGS` を更新する
+- **カスタムスコアリング**: アクセス数等を加味する場合、`rankRelated()` のみ変更すれば `RelatedArticles` と `MidArticleCta` の両方に反映される

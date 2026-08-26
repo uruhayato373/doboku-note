@@ -30,9 +30,9 @@
 2. **技術文書の可読性が最重要** — 専門文書を正確に・読みやすく提示する。
 3. **モバイル前提** — 現場（屋外）でスマホ参照が多い。375px で破綻しないこと。
 4. **印刷も想定** — 技術文書として印刷される。
-5. **ダークモード必須** — next-themes（`html.dark` class）。すべての配色・罫線が light/dark 両対応。
+5. **ダークモード必須** — 独自 `ThemeProvider`（`src/components/providers/ThemeProvider.tsx`・`html.dark` class をトグル）。すべての配色・罫線が light/dark 両対応。
 
-技術スタック: Next.js 16 + next-mdx-remote / カスタム CSS（`globals.css`）+ Tailwind / MDX / KaTeX / SVG・PNG / フォント = Inter + Noto Sans JP（sans 既定）。
+技術スタック: Next.js 16 + next-mdx-remote / カスタム CSS（`globals.css`）+ Tailwind / MDX / KaTeX / SVG・PNG / フォント = system font（游ゴシック優先のゴシック1種、sans 既定。2026-04-29 に next/font の Inter/Noto Sans JP を全削除しレンダーブロッキング CSS を排除）。
 
 ---
 
