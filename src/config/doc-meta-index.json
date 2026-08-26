@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T23:32:28.227Z",
+  "generated_at": "2026-08-26T23:39:44.815Z",
   "summary": {
-    "total": 1144,
-    "published": 1125,
+    "total": 1145,
+    "published": 1126,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 23,
+      "civil-practice": 24,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6055,6 +6055,22 @@
         "title": "第2次検定",
         "subtitle": "令和7年度 過去問"
       }
+    },
+    "civil-practice-asphalt-pavement-control": {
+      "title": "アスファルト舗装の温度管理と転圧 — 合材が冷める前にすべきこと",
+      "description": "アスファルト舗装（表層・基層）の施工管理を、合材の到着温度・敷均し温度・転圧温度をどこで管理するか、ローラの種類と転圧順序、継目の処理、交通開放の判断、雨天時と仮排水の段取りまで整理します。路盤・路床の締固めは対象外です。",
+      "shortTitle": "舗装の温度管理と転圧",
+      "subtitle": "冷めた合材は締まらない",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "アスファルト舗装の温度管理と転圧｜到着温度・転圧順序・交通開放の判断基準【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
     },
     "civil-practice-cast-in-place-pile-methods": {
       "title": "場所打ち杭の4工法をどう選ぶか — 孔壁保護の方式で判断する",
