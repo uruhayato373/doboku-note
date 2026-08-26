@@ -120,7 +120,7 @@ if (isMain) {
     if (found.error) { console.error(`FAIL: ${found.error}`); process.exit(1); }
     const c = found.card;
     console.log(`L${c.startLine}-${c.endLine}  ${c.title}`);
-    console.log(`tier=${c.tier} kind=${c.kind ?? '—'} executor=${c.executor ?? '—'}`);
+    console.log(`tier=${c.tier} kind=${c.kind ?? '—'}`);
     console.log('---');
     console.log(c.body);
     process.exit(0);

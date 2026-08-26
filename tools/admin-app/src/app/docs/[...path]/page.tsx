@@ -83,7 +83,7 @@ export default async function DocsDetailPage({ params }: { params: Promise<{ pat
                       <Badge variant="outline">{id}</Badge>
                       <span className="project-ref-title">{ref.title}</span>
                       <span className="project-ref-meta">
-                        {[ref.kind, ref.executor, ref.due].filter(Boolean).join(' · ')}
+                        {[ref.kind, ref.due].filter(Boolean).join(' · ')}
                       </span>
                     </Link>
                   );

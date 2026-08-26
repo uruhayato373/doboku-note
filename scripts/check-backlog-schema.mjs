@@ -10,9 +10,8 @@
  * カード本文の prose に `[検証:cmd]` 等が現れ、偽陽性が出る。
  *
  * 全量モード（既定）:
- *   1. 未知キーの token（[実行者:x] のような打ち間違い）が無い
+ *   1. 未知キーの token（[実行者:x] のような打ち間違い。廃止済み [実行:] もここで error）が無い
  *   2. [種類:] が KINDS の語彙内（null は移行中のみ許容）
- *   3. [実行:] が EXECUTORS の語彙内
  *   4. カテゴリが CANONICAL_CATEGORIES ∪ baseline の語彙内
  *   5. [検証:cmd] が package.json の scripts に実在する
  *   6. 生 `### ` 行数 == カード数 + orphan 数（パーサ退行・フェンス事故の検知）
@@ -20,7 +19,7 @@
  *
  * --staged モード（追加行のみ・ラチェット。既存分の返済は強制しない）:
  *   8. 完了 prose の混入（backlog.md:5「完了したタスクはセクションごと削除する」の違反）
- *   9. 新規カードの token 必須（タグ: 行 / [実行:] / [種類:] / [起票:]）— ラチェット
+ *   9. 新規カードの token 必須（タグ: 行 / [種類:] / [起票:]）— ラチェット
  *  10. .claude/todo/ に 4 層以外の .md が追加された（影のバックログの新規発生）
  *
  * Usage:
@@ -41,7 +40,6 @@ import {
   parseBacklog,
   findOrphanHeadings,
   KINDS,
-  EXECUTORS,
   CANONICAL_CATEGORIES,
   TODO_LAYER_FILES,
   DOBOKU_ID_PATTERN,
@@ -78,13 +76,12 @@ export function validateCards(cards, orphans, opts) {
     }
     if (c.id) seenIds.set(c.id, c.line);
     for (const u of c.unknownKeys ?? []) {
-      v.push({ rule: 'unknown-key', at: at(c), msg: `未知の token キー [${u.raw}]（語彙: ${Object.keys({ 種類: 1, 実行: 1, 検証: 1, 起票: 1, 期日: 1 }).join('/')}）` });
+      // [実行:] は 2026-08-26 に軸ごと廃止（単独で回せるかは選定側モデルが本文で判断）。
+      // TAG_KEYS から外れたので unknownKeys に落ち、ここで再導入を止める。
+      v.push({ rule: 'unknown-key', at: at(c), msg: `未知の token キー [${u.raw}]（語彙: ${Object.keys({ 種類: 1, 検証: 1, 起票: 1, 期日: 1 }).join('/')}${u.key === '実行' ? '。[実行:] 軸は 2026-08-26 廃止' : ''}）` });
     }
     if (c.kind && !KINDS.includes(c.kind)) {
       v.push({ rule: 'kind', at: at(c), msg: `[種類:${c.kind}] は語彙外（${KINDS.join(' / ')}）` });
-    }
-    if (c.executor && !EXECUTORS.includes(c.executor)) {
-      v.push({ rule: 'executor', at: at(c), msg: `[実行:${c.executor}] は語彙外（${EXECUTORS.join(' / ')}）` });
     }
     for (const cat of [c.category, ...(c.extraCategories ?? [])]) {
       if (cat && cat !== '未分類' && !allowedCategories.has(cat)) {
@@ -130,7 +127,6 @@ export function validateStagedLines(addedLines, addedTodoFiles, cards = [], know
     const missing = [];
     if (!c.hasTagLine) missing.push('タグ: 行');
     else {
-      if (!c.executor) missing.push('[実行:]');
       if (!c.kind) missing.push('[種類:]');
       if (!c.filed) missing.push('[起票:]');
     }

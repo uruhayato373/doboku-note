@@ -18,7 +18,6 @@
  *   [Codex候補]        → codex フラグ
  *   [進行中]           → wip フラグ（作業中。自動処理が触らない目印）
  *   [種類:不具合] 等   → kind（省略時 null）
- *   [実行:sweep] 等    → executor（省略時 null＝分類待ち）
  *   [検証:cmd]         → verify（完了の決定的ゲート）
  *   [起票:YYYY-MM-DD]  → filed（鮮度測定）
  *   [期日:YYYY-MM-DD]  → due（期限）
@@ -32,6 +31,12 @@
  *   に消えた**（実例: `[試験前 7/20]`）。全角コロンの `[種類：不具合]` も同じ経路で化ける。
  *   いまは「コロンを含む token はすべて kv として捕まえ、キーが語彙外なら unknownKeys へ記録」
  *   する。パースは寛容・リントは厳格（検査は check-backlog-schema が行う）。
+ *
+ * [実行:] 軸の廃止（2026-08-26・doboku / stats47 両方）:
+ *   旧 v3 スキーマは [実行:sweep|機械|対話|ユーザー|windows|別環境] で「誰が完了まで持てるか」を
+ *   タグに凍結していたが、起票時の判断が陳腐化する（sweep 実測で実態とずれたカード多数）一方、
+ *   選定時にモデルが本文を読めば同じ判断を再導出できるため軸ごと削除した。
+ *   [実行:] は語彙から外れたので、以後書くと unknownKeys → check-backlog-schema が error にする。
  * ---------------------------------------------------------------------------
  */
 
@@ -62,9 +67,6 @@ export const CANONICAL_CATEGORIES = [
   'インフラ・計測',
 ];
 
-/** executor の語彙。sweep が単独で回せるのは 'sweep' と '機械' のみ。 */
-export const EXECUTORS = ['sweep', '機械', '対話', 'ユーザー', 'windows', '別環境'];
-
 /**
  * タスクの種類（backlog.md 凡例が定める語彙）。tier=緊急度・category=ドメインとは直交する軸。
  * 決定規則は上から順に最初に当たったものを採る（凡例に同じ表がある）。
@@ -74,8 +76,8 @@ export const KINDS = ['不具合', '改善', '意思決定', '制作', '定期']
 /** 選定で最優先にする種類。「今も損失が出ている」ものを tier より先に出す。 */
 export const DEFECT_KIND = '不具合';
 
-/** タグ行の kv キー → カード側のフィールド名 */
-const TAG_KEYS = { 種類: 'kind', 実行: 'executor', 検証: 'verify', 起票: 'filed', 期日: 'due' };
+/** タグ行の kv キー → カード側のフィールド名（[実行:] は 2026-08-26 廃止＝unknownKeys 行き） */
+const TAG_KEYS = { 種類: 'kind', 検証: 'verify', 起票: 'filed', 期日: 'due' };
 
 /**
  * カード ID の形（stats47 docs-governance の idPattern と同一）。ハイフンを最低 1 つ要求するので、
@@ -97,9 +99,6 @@ export function splitHeadingId(headingText) {
   if (m && ID_PATTERN.test(m[1])) return { id: m[1], title: m[2].trim() };
   return { id: null, title: headingText.trim() };
 }
-
-/** この環境（AI セッション）が単独で消化できる executor */
-export const SELF_EXECUTABLE = new Set(['sweep', '機械']);
 
 function tierOf(text) {
   for (const [emoji, tier] of Object.entries(TIER)) if (text.includes(emoji)) return tier;
@@ -137,7 +136,6 @@ export function parseTagLine(raw) {
     wip: false,
     category: '未分類',
     kind: null,
-    executor: null,
     verify: null,
     filed: null,
     due: null,
@@ -168,7 +166,7 @@ export function parseTagLine(raw) {
  * backlog.md 本文をカード配列へ。
  * @param {string} text backlog.md の中身
  * @returns {Array<{id:string|null,line:number,tier:string,title:string,category:string,kind:string|null,
- *                  codex:boolean,wip:boolean,executor:string|null,verify:string|null,filed:string|null,due:string|null,
+ *                  codex:boolean,wip:boolean,verify:string|null,filed:string|null,due:string|null,
  *                  hasTagLine:boolean,tokens:string[],extraCategories:string[],
  *                  unknownKeys:Array<{key:string,value:string,raw:string}>,
  *                  unknownCategories:string[],body:string}>}
@@ -211,7 +209,6 @@ export function parseBacklog(text) {
           kind: null,
           codex: false,
           wip: false,
-          executor: null,
           verify: null,
           filed: null,
           due: null,
@@ -283,42 +280,22 @@ export function pickTasks(cards, opts = {}) {
   //  同時実行防止が機能していなかった。note・移行・一括編集での競合事故を防ぐ）。
   const isAuto = (c) => c.tier !== 'hold' && !c.wip;
 
-  // 実行候補: executor が自分で回せるもの。hold・wip は自動選定しない（判断待ち／作業中のため）
-  const runnable = cards
-    .filter((c) => isAuto(c) && c.executor && SELF_EXECUTABLE.has(c.executor))
-    .sort(byKindThenTier);
-
-  // 分類待ち: executor 未付与（次周から選定対象にするためタグ付けする）。
-  // **バケット（partition）の一員なので条件は executor だけ**。kind の欠落は別カウンタで測る
-  // （kind も条件に入れると runnable と重なり、バケットの分割が壊れる）。
-  const unclassified = cards
-    .filter((c) => isAuto(c) && !c.executor)
-    .sort(byTier);
-
-  // 除外: 自分で回せない executor。hold・wip は各専用カウンタが数えるのでここから外す
-  // （2026-08-18 まで hold フィルタが無く、hold+非self が excludedTotal と holdTotal に
-  //  二重計上され、hold+executor無しはどのバケットにも入らず 41+0+57=98≠99 だった）
-  const excluded = cards.filter(
-    (c) => isAuto(c) && c.executor && !SELF_EXECUTABLE.has(c.executor),
-  );
-  const excludedBy = {};
-  for (const c of excluded) excludedBy[c.executor] = (excludedBy[c.executor] ?? 0) + 1;
+  // 実行候補: hold・wip 以外の全カード（判断待ち／作業中は自動選定しない）。
+  // 旧 [実行:] 軸（誰が完了まで持てるか）は 2026-08-26 に廃止。単独で回せるかの判断は
+  // 選定側のモデルが本文を読んで行う（タグに凍結すると陳腐化するため）。
+  const runnable = cards.filter(isAuto).sort(byKindThenTier);
 
   const holdTotal = cards.filter((c) => c.tier === 'hold').length;
   const wip = cards.filter((c) => c.tier !== 'hold' && c.wip).sort(byTier);
   const wipTotal = wip.length;
-  // 5 バケットは総数の真の分割であること。破れたら分類漏れ＝検査不成立として呼び出し側が落とす。
-  const partitionOk =
-    runnable.length + unclassified.length + excluded.length + holdTotal + wipTotal === cards.length;
+  // 3 バケットは総数の真の分割であること。破れたら分類漏れ＝検査不成立として呼び出し側が落とす。
+  const partitionOk = runnable.length + holdTotal + wipTotal === cards.length;
 
-  // 分類キュー: executor か kind のどちらかが欠けているもの（partition ではなく作業キュー）
+  // 分類キュー: kind が欠けているもの（partition ではなく作業キュー）
   const needsTag = cards
-    .filter((c) => isAuto(c) && (!c.executor || !c.kind))
+    .filter((c) => isAuto(c) && !c.kind)
     .sort(byTier)
-    .map((c) => ({
-      ...c,
-      missing: [!c.executor ? '実行' : null, !c.kind ? '種類' : null].filter(Boolean),
-    }));
+    .map((c) => ({ ...c, missing: ['種類'] }));
 
   // 不具合の全件（limit を掛けない。沈没の可視化が目的なので上限を掛けると意味が消える）
   const defects = cards.filter((c) => c.kind === DEFECT_KIND).sort(byTier);
@@ -330,14 +307,11 @@ export function pickTasks(cards, opts = {}) {
     run: runnable.slice(0, limit),
     runnableTotal: runnable.length,
     classify: needsTag.slice(0, classifyLimit),
-    unclassifiedTotal: unclassified.length,
     needsTagTotal: needsTag.length,
     kindMissingTotal: cards.filter((c) => !c.kind).length,
     kindCount,
     defects,
     sunkDefects: defects.filter((c) => c.tier === 'low' || c.tier === 'hold'),
-    excludedTotal: excluded.length,
-    excludedBy,
     holdTotal,
     wip,
     wipTotal,

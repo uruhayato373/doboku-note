@@ -7,7 +7,6 @@
 - UI（admin /todo）は SSOT を持たない。表示は backlog.md・todo-claims.json・.claude/plans・dispatch-log からの導出のみ
 - 状態は新台帳へ複製せず導出する。優先順 IN_PROGRESS > THIS_WEEK > THIS_MONTH > PLANNED > BACKLOG
   （BLOCKED は release 理由の SSOT が無いため未実装。理由の置き場を定義したら追加する）
-- `[実行:]` は状態ではなく route（誰がやるか）
 - 外部公開・課金・削除・deploy は TODO UI から実行しない。UI のアクションは副作用のないコピーに限定
 
 ## plan が必要な条件（どれか1つ）

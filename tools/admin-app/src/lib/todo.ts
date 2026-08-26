@@ -7,7 +7,6 @@ import {
   TODO_LAYER_FILES,
   TODO_DIR,
   KINDS,
-  EXECUTORS,
 } from '../../../../scripts/lib/backlog-lib.mjs';
 import { listPlanUnits } from '../../../../scripts/lib/plan-units.mjs';
 
@@ -62,7 +61,6 @@ export function deriveStatus(opts: { wip: boolean; inWeekly: boolean; inMonthly:
  * 検査は check-backlog-schema が backlog-lib から直接読むので、ここでの再 export は不要。
  */
 export const KIND_ORDER = KINDS as string[];
-export const EXECUTOR_ORDER = EXECUTORS as string[];
 
 const TIER = TIER_VOCAB as Record<string, Tier>;
 
@@ -103,7 +101,6 @@ export interface TodoCard {
   category: string;
   /** タスクの種類（不具合 / 改善 / 意思決定 / 制作 / 定期）。backlog 以外は null */
   kind: string | null;
-  executor: string | null;
   due: string | null;
   wip: boolean;
   title: string;
@@ -143,7 +140,6 @@ function parseBacklog(lines: string[], f: FileSpec, todoDir: string): TodoCard[]
     category: string;
     kind: string | null;
     codex: boolean;
-    executor: string | null;
     due: string | null;
     wip: boolean;
     body: string;
@@ -159,7 +155,6 @@ function parseBacklog(lines: string[], f: FileSpec, todoDir: string): TodoCard[]
     id: c.id ?? null,
     category: c.category,
     kind: c.kind,
-    executor: c.executor,
     due: c.due,
     wip: c.wip,
     title: c.title,
@@ -301,7 +296,6 @@ function parsePlanTables(lines: string[], f: FileSpec, todoDir: string): TodoCar
         tier: planTier(priority),
         category: planSection(h3 || h2 || f.label),
         kind: null,
-        executor: null,
         due: null,
         wip: /進行中|着手中/.test(status),
         title,
@@ -347,7 +341,6 @@ function parsePlanTables(lines: string[], f: FileSpec, todoDir: string): TodoCar
         tier: null,
         category: planSection(section),
         kind: null,
-        executor: 'ユーザー',
         due: null,
         wip: false,
         title: plainInline(item[1]!),
@@ -398,7 +391,6 @@ function parseSections(lines: string[], f: FileSpec, todoDir: string): TodoCard[
         id: null,
         category: f.label,
         kind: null,
-        executor: null,
         due: null,
         wip: false,
         title,
@@ -528,7 +520,6 @@ export interface BacklogRef {
   title: string;
   tier: Tier;
   kind: string | null;
-  executor: string | null;
   due: string | null;
   line: number;
   path: string;
@@ -544,7 +535,6 @@ export function backlogIndex(): Map<string, BacklogRef> {
     title: string;
     tier: Tier;
     kind: string | null;
-    executor: string | null;
     due?: string | null;
     line: number;
   }>;
@@ -555,7 +545,6 @@ export function backlogIndex(): Map<string, BacklogRef> {
       title: c.title,
       tier: c.tier,
       kind: c.kind,
-      executor: c.executor ?? null,
       due: c.due ?? null,
       line: c.line,
       path: `${TODO_DIR}/backlog.md`,

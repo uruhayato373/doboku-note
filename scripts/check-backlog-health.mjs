@@ -15,7 +15,8 @@
  *   S4 [種類:定期] の存在＝backlog の役割違反（monthly/weekly か check-*-due へ）
  *   S5 [起票:] から N 日超（既定 90）／[起票:] 欠落
  *   S6 カテゴリ別名の残数（baseline の返済メーター）
- *   S7 sweep 到達不能率（executor 別 × [検証:] の有無＝陳腐化が永久に検出されない枚数）
+ *   S7 検証ゲート欠落（不具合/改善なのに [検証:] が無い＝完了を機械で判定できない枚数。
+ *      旧「sweep 到達不能率」は [実行:] 軸の廃止〔2026-08-26〕で概念ごと消滅し再定義）
  *   S8 重複候補ペア（本文が共有する固有トークンが k 個以上一致）
  *   S9 .claude/todo/ の 4 層以外のファイル（影のバックログ）
  *   S10 ID の再利用（一度消した DN-#### が別のタスクとして復活している）
@@ -37,7 +38,6 @@ import { fileURLToPath } from 'node:url';
 import {
   parseBacklog,
   KINDS,
-  SELF_EXECUTABLE,
   CANONICAL_CATEGORIES,
   TODO_LAYER_FILES,
 } from './lib/backlog-lib.mjs';
@@ -365,15 +365,15 @@ const noFiled = cards.filter((c) => !c.filed);
 const aliasCats = cards.flatMap((c) =>
   [c.category, ...(c.extraCategories ?? [])].filter((x) => x && x !== '未分類' && !CANONICAL_CATEGORIES.includes(x)),
 );
-const unreachable = cards.filter((c) => c.tier !== 'hold' && (!c.executor || !SELF_EXECUTABLE.has(c.executor)));
-const unreachableNoVerify = unreachable.filter((c) => !c.verify);
+// S7: [検証:] 欠落。旧 S7「sweep 到達不能」は [実行:] 軸廃止（2026-08-26）で概念ごと消滅した
+// （全カードが選定対象になったため）。残る有用シグナル＝「完了を機械で判定できないカード」だけを出す。
 // `[検証:]` を**期待してよいのは 不具合 / 改善 だけ**。制作は「成果物が在ること」、意思決定は
 // 「決まったこと」で完了するので、赤→緑になる npm script を指しようがない（無理に付けると
 // 常時緑の token が増えて、DN-0129 ① で 5 枚から外したのと同じ状態へ戻る）。
-// 混ぜて 1 つの数で出していたため S7 は構造的に 0 にならず、surfacer がただのノイズになっていた。
+const noVerify = cards.filter((c) => c.tier !== 'hold' && !c.verify);
 const GATEABLE_KINDS = new Set(['不具合', '改善']);
-const unreachableGateable = unreachableNoVerify.filter((c) => GATEABLE_KINDS.has(c.kind));
-const unreachableInherent = unreachableNoVerify.filter((c) => !GATEABLE_KINDS.has(c.kind));
+const noVerifyGateable = noVerify.filter((c) => GATEABLE_KINDS.has(c.kind));
+const noVerifyInherent = noVerify.filter((c) => !GATEABLE_KINDS.has(c.kind));
 const dups = duplicateCandidates(cards);
 const strayTodo = existsSync(join(ROOT, '.claude/todo'))
   ? readdirSync(join(ROOT, '.claude/todo')).filter((f) => f.endsWith('.md') && !TODO_LAYERS.has(f))
@@ -411,10 +411,9 @@ const report = {
   stale: stale.map((c) => ({ line: c.line, age: c.age, title: c.title })),
   noFiled: noFiled.length,
   aliasCategories: aliasCats.length,
-  unreachableTotal: unreachable.length,
-  unreachableNoVerify: unreachableNoVerify.length,
-  unreachableGateable: unreachableGateable.map((c) => ({ line: c.line, kind: c.kind, title: c.title })),
-  unreachableInherent: unreachableInherent.length,
+  noVerifyTotal: noVerify.length,
+  noVerifyGateable: noVerifyGateable.map((c) => ({ line: c.line, kind: c.kind, title: c.title })),
+  noVerifyInherent: noVerifyInherent.length,
   duplicateTotal: dups.length,
   duplicateCandidates: dups.slice(0, 10).map((p) => ({
     a: { line: p.a.line, title: p.a.title },
@@ -476,13 +475,13 @@ for (const c of stale.slice(0, 8)) console.log(`      L${c.line} ${c.age}日 ${c
 line('S6 語彙外カテゴリの残', aliasCats.length);
 // **0 にする対象ではない**（backlog.md「[検証:] を付けない判断」）。付けられる script が
 // 実在するカードだけを名指しして、探す手間を省くための数として出す。
-line('S7 sweep 到達不能', `${unreachable.length} / ${cards.length}（[検証:] 無し ${unreachableNoVerify.length}`
-  + ` ＝ 不具合/改善 ${unreachableGateable.length}〔gate が実在するなら付ける〕`
-  + ` ＋ 制作/意思決定 ${unreachableInherent.length}〔原則付かない〕）`);
-for (const c of unreachableGateable.slice(0, 8)) {
+line('S7 検証ゲート欠落', `${noVerify.length} / ${cards.length}`
+  + `（不具合/改善 ${noVerifyGateable.length}〔gate が実在するなら付ける〕`
+  + ` ＋ 制作/意思決定 ${noVerifyInherent.length}〔原則付かない〕）`);
+for (const c of noVerifyGateable.slice(0, 8)) {
   console.log(`      候補: L${c.line} ${c.kind} ${c.title.slice(0, 52)}`);
 }
-if (unreachableGateable.length > 8) console.log(`      …ほか ${unreachableGateable.length - 8} 件`);
+if (noVerifyGateable.length > 8) console.log(`      …ほか ${noVerifyGateable.length - 8} 件`);
 line('S8 重複候補ペア', dups.length);
 for (const p of dups.slice(0, 5)) console.log(`      L${p.a.line} ↔ L${p.b.line}  共有: ${p.shared.slice(0, 4).join(' ')}`);
 line('S9 .claude/todo の 4 層以外', strayTodo.length ? strayTodo.join(' ') : '0');

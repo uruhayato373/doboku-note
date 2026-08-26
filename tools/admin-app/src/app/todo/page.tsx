@@ -6,7 +6,6 @@ import CopyButton from '@/components/CopyButton';
 import {
   todoBoard,
   backlogIndex,
-  EXECUTOR_ORDER,
   KIND_ORDER,
   type TodoCard,
   type Tier,
@@ -21,7 +20,7 @@ export const dynamic = 'force-dynamic';
  * 季節マイルストーンとして表示する。層によって意味が違うため、同じカードUIへ押し込まない。
  */
 
-type Query = { f?: string; t?: string; k?: string; e?: string; id?: string };
+type Query = { f?: string; t?: string; k?: string; id?: string };
 type TierKey = Tier | 'none';
 
 const TIERS: { key: TierKey; label: string }[] = [
@@ -239,7 +238,6 @@ function BacklogTable({
             <th className="todo-priority-col">優先</th>
             <th>タスク</th>
             <th className="todo-kind-col">種類</th>
-            <th className="todo-owner-col">実行</th>
             <th className="todo-due-col">期日</th>
             <th className="todo-status-col">状態</th>
           </tr>
@@ -277,7 +275,6 @@ function BacklogTable({
                 <PromptDetails card={card} />
               </td>
               <td className="todo-kind-cell">{card.kind ? <span className="badge soft">{card.kind}</span> : <span className="muted">—</span>}</td>
-              <td>{card.executor ?? <span className="muted">未設定</span>}</td>
               <td className="todo-due-cell"><DueBadge due={card.due} /></td>
               <td className="todo-status-cell"><LifecycleStatusBadge status={card.lifecycleStatus} /></td>
             </tr>
@@ -317,7 +314,7 @@ function PlanTable({
 }) {
   if (!cards.length) return <div className="empty">計画項目がありません</div>;
   const ordered = annual ? cards : [...cards].sort((a, b) => Number(a.complete) - Number(b.complete));
-  const hasOwner = !annual && cards.some((card) => card.owner || card.executor);
+  const hasOwner = !annual && cards.some((card) => card.owner);
   return (
     <div className="table-wrap todo-table-wrap">
       <table className="data todo-table todo-plan-table">
@@ -339,7 +336,7 @@ function PlanTable({
                 {backlogRefs ? <BacklogJoinInfo id={card.id} index={backlogRefs} /> : null}
               </td>
               {!annual ? <td><StatusBadge card={card} /></td> : null}
-              {hasOwner ? <td>{card.owner ?? card.executor ?? <span className="muted">—</span>}</td> : null}
+              {hasOwner ? <td>{card.owner ?? <span className="muted">—</span>}</td> : null}
             </tr>
           ))}
         </tbody>
@@ -358,14 +355,11 @@ export default async function TodoPage({ searchParams }: { searchParams: Promise
 
   const tier = isBacklog && TIERS.some((item) => item.key === query.t) ? query.t as TierKey : null;
   const kind = isBacklog && query.k && layerCards.some((card) => card.kind === query.k) ? query.k : null;
-  const executor = isBacklog && query.e && layerCards.some((card) => card.executor === query.e) ? query.e : null;
 
   const byTier = (cards: TodoCard[]) => tier ? cards.filter((card) => tierKey(card) === tier) : cards;
   const byKind = (cards: TodoCard[]) => kind ? cards.filter((card) => card.kind === kind) : cards;
-  const byExecutor = (cards: TodoCard[]) => executor ? cards.filter((card) => card.executor === executor) : cards;
-  const tierScope = byExecutor(byKind(layerCards));
-  const kindScope = byExecutor(byTier(layerCards));
-  const executorScope = byKind(byTier(layerCards));
+  const tierScope = byKind(layerCards);
+  const kindScope = byTier(layerCards);
   const visible = byTier(tierScope);
 
   // 逆方向の結線: このタスクを参照している docs 文書（backlog 層でだけ引く）
@@ -377,16 +371,11 @@ export default async function TodoPage({ searchParams }: { searchParams: Promise
 
   const tierCounts = countBy(tierScope, tierKey);
   const kindCounts = countBy(kindScope, (card) => card.kind);
-  const executorCounts = countBy(executorScope, (card) => card.executor);
   const kindKeys = [
     ...KIND_ORDER.filter((key) => kindCounts.has(key)),
     ...[...kindCounts.keys()].filter((key) => !KIND_ORDER.includes(key)).sort(),
   ];
-  const executorKeys = [
-    ...EXECUTOR_ORDER.filter((key) => executorCounts.has(key)),
-    ...[...executorCounts.keys()].filter((key) => !EXECUTOR_ORDER.includes(key)).sort(),
-  ];
-  const now: Query = { t: tier ?? undefined, k: kind ?? undefined, e: executor ?? undefined };
+  const now: Query = { t: tier ?? undefined, k: kind ?? undefined };
 
   const activeCount = layerCards.filter((card) => !card.complete).length;
   const completeCount = layerCards.length - activeCount;
@@ -415,7 +404,7 @@ export default async function TodoPage({ searchParams }: { searchParams: Promise
           <aside className="todo-rail">
             <div className="rail-head">
               <span>絞り込み</span>
-              {tier || kind || executor ? <Link href="/todo">すべて解除</Link> : null}
+              {tier || kind ? <Link href="/todo">すべて解除</Link> : null}
             </div>
             <Facet
               title="優先度"
@@ -437,14 +426,6 @@ export default async function TodoPage({ searchParams }: { searchParams: Promise
               active={kind}
               total={kindScope.length}
               items={kindKeys.map((key) => ({ key, label: key, count: kindCounts.get(key) ?? 0 }))}
-            />
-            <Facet
-              title="実行"
-              param="e"
-              now={now}
-              active={executor}
-              total={executorScope.length}
-              items={executorKeys.map((key) => ({ key, label: key, count: executorCounts.get(key) ?? 0 }))}
             />
           </aside>
         ) : null}
