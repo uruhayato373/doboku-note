@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T22:26:30.761Z",
+  "generated_at": "2026-08-26T22:31:37.959Z",
   "summary": {
-    "total_mdx_files": 1125,
-    "total_unique_tags": 174,
+    "total_mdx_files": 1127,
+    "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
-    "unknown_count": 89,
+    "unknown_count": 90,
     "typo_candidates_count": 4
   },
   "tags": [
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "guide",
-      "count": 140,
+      "count": 142,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1330,6 +1330,8 @@
         "civil-practice-concrete-crack-causes",
         "civil-practice-concrete-placement-timing",
         "civil-practice-formwork-removal-timing",
+        "civil-practice-rebar-cover-placement",
+        "civil-practice-rebar-splice-selection",
         "concrete-chief-engineer-guide-essay",
         "concrete-chief-engineer-guide-overview",
         "concrete-chief-engineer-guide-trends",
@@ -3111,6 +3113,15 @@
       ]
     },
     {
+      "name": "rebar",
+      "count": 2,
+      "inAllowlist": false,
+      "usedIn": [
+        "civil-practice-rebar-cover-placement",
+        "civil-practice-rebar-splice-selection"
+      ]
+    },
+    {
       "name": "river-structure",
       "count": 2,
       "inAllowlist": true,
@@ -3892,6 +3903,7 @@
     "二次試験",
     "少子高齢化",
     "生産性向上",
+    "rebar",
     "アセットマネジメント",
     "グリーンインフラ",
     "予防保全",
