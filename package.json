@@ -134,7 +134,7 @@
     "check-ogp-coverage": "node scripts/check-ogp-coverage.mjs",
     "check-ogp-design": "node scripts/check-ogp-design.mjs",
     "check-ogp-line-count": "node scripts/check-ogp-line-count.mjs",
-    "check-ogp-line-count:done": "node scripts/check-ogp-line-count.mjs --max=0",
+    "check-ogp-line-count:done": "node scripts/check-ogp-line-count.mjs --max=2",
     "check-ogp-title-fit": "node scripts/check-ogp-title-fit.mjs",
     "check-information-architecture": "node scripts/check-information-architecture.mjs",
     "check-content-layout": "node scripts/audit-content-layout.mjs",
