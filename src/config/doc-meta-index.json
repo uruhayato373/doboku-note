@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T22:50:36.262Z",
+  "generated_at": "2026-08-26T22:54:33.504Z",
   "summary": {
-    "total": 1133,
-    "published": 1114,
+    "total": 1135,
+    "published": 1116,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 12,
+      "civil-practice": 14,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6175,6 +6175,23 @@
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
+    "civil-practice-excavation-bottom-failure": {
+      "title": "掘削底面が壊れる3つの形 — 土質と地下水で見分ける",
+      "description": "掘削工事で床付け付近が崩れる3つの現象——ヒービング・ボイリング・盤ぶくれ（パイピングを含む）を、土質と地下水の条件から見分け、それぞれに合った対策を選ぶための実務ガイド。発生メカニズムと判断の軸を整理します。",
+      "shortTitle": "掘削底面の破壊",
+      "subtitle": "ヒービング・ボイリング・盤ぶくれの見分け方",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "earthwork"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "掘削底面が壊れる3つの形｜ヒービング・ボイリング・盤ぶくれの見分け方【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
     "civil-practice-excavation-pre-survey": {
       "title": "掘る前に何を調べておくか — 架空線・埋設物・地盤条件の事前調査",
       "description": "土留めを設計する前、掘削に着手する前に何を確認しておくべきかを整理。架空線の離隔距離、地下埋設物は台帳でなく試掘で確定させる原則、近接構造物の基礎形式の確認、土留め設計の前提になる地盤定数（N値・土質・地下水位）の調べ方まで、着工前に押さえる判断軸をまとめます。",
@@ -6189,6 +6206,23 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "掘削前の事前調査｜架空線・埋設物・地盤条件の確認手順【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-formwork-material-inspection": {
+      "title": "型枠材の選び方と精度を出す点検 — 組む前・打つ前に見るところ",
+      "description": "型枠材（合板・鋼製・FRP）をどう使い分け、打設前後の点検で出来形の精度をどう確保するか。ハンチ部のような動きやすい箇所の固定方法まで、現場で判断する実務者向けに、組む前・打つ前の視点で整理します。",
+      "shortTitle": "型枠材の選び方と点検",
+      "subtitle": "組む前・打つ前が勝負",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "formwork"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "型枠材の選び方と精度を出す点検｜合板・鋼製・FRPの使い分けと固定【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },

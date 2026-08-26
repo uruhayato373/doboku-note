@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T22:50:36.678Z",
+  "generated_at": "2026-08-26T22:54:33.970Z",
   "summary": {
-    "total_mdx_files": 1133,
+    "total_mdx_files": 1135,
     "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "guide",
-      "count": 148,
+      "count": 150,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1333,7 +1333,9 @@
         "civil-practice-concrete-placement-order",
         "civil-practice-concrete-placement-timing",
         "civil-practice-concrete-pump-capacity",
+        "civil-practice-excavation-bottom-failure",
         "civil-practice-excavation-pre-survey",
+        "civil-practice-formwork-material-inspection",
         "civil-practice-formwork-removal-timing",
         "civil-practice-rebar-corrosion-handling",
         "civil-practice-rebar-cover-placement",
@@ -2659,6 +2661,21 @@
       ]
     },
     {
+      "name": "earthwork",
+      "count": 8,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-earthwork-basics",
+        "civil-construction-1-secondary-earthwork-past-problems",
+        "civil-construction-1-textbook-cut-slope-protection",
+        "civil-construction-1-textbook-embankment",
+        "civil-construction-1-textbook-soft-ground-drainage",
+        "civil-construction-1-textbook-soil-investigation-methods",
+        "civil-practice-excavation-bottom-failure",
+        "civil-practice-excavation-pre-survey"
+      ]
+    },
+    {
       "name": "施工計画、施工設備及び積算",
       "count": 8,
       "inAllowlist": false,
@@ -2745,20 +2762,6 @@
         "civil-construction-1-textbook-management-subplans",
         "civil-construction-1-textbook-site-investigation",
         "civil-construction-1-textbook-work-scheduling"
-      ]
-    },
-    {
-      "name": "earthwork",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-earthwork-basics",
-        "civil-construction-1-secondary-earthwork-past-problems",
-        "civil-construction-1-textbook-cut-slope-protection",
-        "civil-construction-1-textbook-embankment",
-        "civil-construction-1-textbook-soft-ground-drainage",
-        "civil-construction-1-textbook-soil-investigation-methods",
-        "civil-practice-excavation-pre-survey"
       ]
     },
     {
@@ -3125,6 +3128,15 @@
       ]
     },
     {
+      "name": "formwork",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-formwork-material-inspection",
+        "civil-practice-formwork-removal-timing"
+      ]
+    },
+    {
       "name": "i-Construction",
       "count": 2,
       "inAllowlist": true,
@@ -3347,14 +3359,6 @@
       "inAllowlist": true,
       "usedIn": [
         "reference-materials-floodgate"
-      ]
-    },
-    {
-      "name": "formwork",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-practice-formwork-removal-timing"
       ]
     },
     {
