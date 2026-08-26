@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T22:35:28.241Z",
+  "generated_at": "2026-08-26T22:38:44.462Z",
   "summary": {
-    "total": 1128,
-    "published": 1109,
+    "total": 1129,
+    "published": 1110,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 7,
+      "civil-practice": 8,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6104,6 +6104,23 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "表面仕上げと養生の時期｜木ゴテ・金ゴテ・湿潤養生の判断基準と凍害対策【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-concrete-mix-acceptance": {
+      "title": "配合と受入れ検査で何を見るか — スランプ・空気量・塩化物・強度の合否基準",
+      "description": "生コンクリートが現場に届いたとき、スランプ・空気量・塩化物イオン量・圧縮強度をどの基準で合否判定するかを解説。JIS A 5308の許容差・配合の仕組みから、現場で加水してはいけない理由まで整理します。",
+      "shortTitle": "配合と受入れ検査",
+      "subtitle": "数字の意味は配合を知って初めて分かる",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "concrete"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "生コン受入れ検査の合否基準｜スランプ・空気量・塩化物量・強度と配合の関係【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },

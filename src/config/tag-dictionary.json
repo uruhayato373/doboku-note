@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T22:35:28.660Z",
+  "generated_at": "2026-08-26T22:38:44.880Z",
   "summary": {
-    "total_mdx_files": 1128,
+    "total_mdx_files": 1129,
     "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "guide",
-      "count": 143,
+      "count": 144,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1329,6 +1329,7 @@
         "civil-practice-concrete-compaction-numbers",
         "civil-practice-concrete-crack-causes",
         "civil-practice-concrete-finishing-curing",
+        "civil-practice-concrete-mix-acceptance",
         "civil-practice-concrete-placement-timing",
         "civil-practice-formwork-removal-timing",
         "civil-practice-rebar-cover-placement",
@@ -2637,6 +2638,21 @@
       ]
     },
     {
+      "name": "concrete",
+      "count": 8,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-practice-concrete-compaction-numbers",
+        "civil-practice-concrete-crack-causes",
+        "civil-practice-concrete-finishing-curing",
+        "civil-practice-concrete-mix-acceptance",
+        "civil-practice-concrete-placement-timing",
+        "civil-practice-formwork-removal-timing"
+      ]
+    },
+    {
       "name": "施工計画、施工設備及び積算",
       "count": 8,
       "inAllowlist": false,
@@ -2709,20 +2725,6 @@
         "pe-construction-r06-urban-planning",
         "pe-construction-r07-urban-planning",
         "pe-construction-urban-planning-exam-themes"
-      ]
-    },
-    {
-      "name": "concrete",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems",
-        "civil-practice-concrete-compaction-numbers",
-        "civil-practice-concrete-crack-causes",
-        "civil-practice-concrete-finishing-curing",
-        "civil-practice-concrete-placement-timing",
-        "civil-practice-formwork-removal-timing"
       ]
     },
     {
