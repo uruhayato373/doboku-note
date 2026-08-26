@@ -120,4 +120,8 @@ check-brain-wiring green → dist R2 200 確認
 
 ## 7. 整合ゲート
 
-`npm run check-brain-wiring`（pre-commit にも staged 限定で組込み）: catalog↔listings↔dist 実在↔配布URL位置↔価格直書き禁止↔submitted/listed の URL 必須。新商品追加時はこのゲートが配線漏れを止める。
+`npm run check-brain-wiring`（pre-commit にも staged 限定で組込み）: catalog↔listings↔dist 実在↔配布URL位置↔価格直書き禁止↔submitted/listed の URL 必須。新商品追加時はこのゲートが配線漏れを止める。判定ロジックは `scripts/lib/brain-inventory.mjs`（pure module）が唯一の実装で、CLI とAdmin画面の両方がこれを共有する。
+
+## 8. Admin 画面（`/content/brain`）
+
+商品の状態・価格・販売文・画像・配布物・関連設計・配線結果を横断確認できる**read-only** 画面（DN-0103 Phase 04）。表示は `scripts/lib/brain-inventory.mjs` の判定結果をそのまま使い、admin 独自の配線判定は持たない。公開・本文更新・status/price 変更・R2 upload・任意 CLI 実行のボタンは無く、それらは本書の `/brain-publish` フロー・スクリプトが担当する（画面は商品URL/VS Code/関連docsを開く・id/path/hashをコピーするだけ）。`.claude/config/brain-account.json` 等のアカウント設定・秘密値は読まない。

@@ -97,6 +97,20 @@ content/
 6. **機械が読む状態・設定か** → `.claude/state/` / `.claude/config/`
 7. 上記いずれでもない一時メモは作らない（`.tmp/` 配下のみ）
 
+### 具体例: Brain（1 商品が 4 領域にまたがる場合）
+
+同じ Brain 商品でも、情報の性質ごとに正規配置は分かれる（DN-0103 Phase 03）。
+
+| 情報 | 領域 | 場所 |
+|---|---|---|
+| 販売投入本文・販売画像・配布 ZIP | Publishable Content | `content/brain/` |
+| 価格・status・URL（機械可読 SoT） | Application / Tooling | `src/lib/brain-products.ts` |
+| 商品企画・検証・バックテスト記録 | Human Documentation | `docs/products/brain-*/` |
+| 出品運用フロー・安全弁・Brain UI のクセ | Agent Operations（Knowledge） | `.claude/knowledge/reference/brain-operations.md` |
+| アカウント・認証設定 | Agent Operations（Runtime） | `.claude/config/brain-account.json` |
+
+「1 商品だから 1 か所にまとめる」と早合点しない。**画面（admin `/content/brain`）は複数 SoT を横断表示してよいが、ファイルは画面都合で複製しない**。
+
 ## docs/ と .claude/todo の関係（2026-08-18 制定）
 
 `docs/` は**戦略・設計・判断条件・受入条件・ロードマップ**を持ち、`.claude/todo/backlog.md` は
