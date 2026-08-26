@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T23:56:17.684Z",
+  "generated_at": "2026-08-26T23:59:18.726Z",
   "summary": {
-    "total_mdx_files": 1150,
+    "total_mdx_files": 1151,
     "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1077,7 +1077,7 @@
     },
     {
       "name": "guide",
-      "count": 165,
+      "count": 166,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1180,6 +1180,7 @@
         "civil-practice-rebar-cover-placement",
         "civil-practice-rebar-splice-selection",
         "civil-practice-sling-work-wire-rope",
+        "civil-practice-slope-drainage-monitoring",
         "civil-practice-slope-protection-selection",
         "civil-practice-subbase-subgrade-control",
         "civil-practice-trench-excavation-safety",
@@ -2111,6 +2112,32 @@
       ]
     },
     {
+      "name": "earthwork",
+      "count": 19,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-earthwork-basics",
+        "civil-construction-1-secondary-earthwork-past-problems",
+        "civil-construction-1-textbook-cut-slope-protection",
+        "civil-construction-1-textbook-embankment",
+        "civil-construction-1-textbook-soft-ground-drainage",
+        "civil-construction-1-textbook-soil-investigation-methods",
+        "civil-practice-cast-in-place-pile-methods",
+        "civil-practice-earth-retaining-displacement",
+        "civil-practice-embankment-quality-control",
+        "civil-practice-excavation-bottom-failure",
+        "civil-practice-excavation-pre-survey",
+        "civil-practice-pile-bearing-verification",
+        "civil-practice-pile-concrete-head-treatment",
+        "civil-practice-pipe-jacking-methods",
+        "civil-practice-precast-pile-methods",
+        "civil-practice-slope-drainage-monitoring",
+        "civil-practice-slope-protection-selection",
+        "civil-practice-subbase-subgrade-control",
+        "civil-practice-trench-excavation-safety"
+      ]
+    },
+    {
       "name": "受験者属性別",
       "count": 19,
       "inAllowlist": false,
@@ -2159,31 +2186,6 @@
         "concrete-diagnostician-textbook-maintenance",
         "concrete-diagnostician-textbook-repair",
         "concrete-diagnostician-textbook-variation"
-      ]
-    },
-    {
-      "name": "earthwork",
-      "count": 18,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-earthwork-basics",
-        "civil-construction-1-secondary-earthwork-past-problems",
-        "civil-construction-1-textbook-cut-slope-protection",
-        "civil-construction-1-textbook-embankment",
-        "civil-construction-1-textbook-soft-ground-drainage",
-        "civil-construction-1-textbook-soil-investigation-methods",
-        "civil-practice-cast-in-place-pile-methods",
-        "civil-practice-earth-retaining-displacement",
-        "civil-practice-embankment-quality-control",
-        "civil-practice-excavation-bottom-failure",
-        "civil-practice-excavation-pre-survey",
-        "civil-practice-pile-bearing-verification",
-        "civil-practice-pile-concrete-head-treatment",
-        "civil-practice-pipe-jacking-methods",
-        "civil-practice-precast-pile-methods",
-        "civil-practice-slope-protection-selection",
-        "civil-practice-subbase-subgrade-control",
-        "civil-practice-trench-excavation-safety"
       ]
     },
     {
