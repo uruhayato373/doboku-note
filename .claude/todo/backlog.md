@@ -1100,7 +1100,8 @@ C（`civil-1-ichiji-ronten` ¥1,480・[nec34238ca6d6](https://note.com/dobokunot
 
 - **優先上位**: `civil-construction-1-guide-strategy`（3-1×29・#1人気）／`pe-comprehensive-management-keyword-2026`（3-1×48）／`civil-construction-2-secondary-r0X`／`pe-construction/*-exam-themes` 残11本
 - **手順**: レポート上位を group 対応の `/quality-cycle` へ。表→非表・入れ子→フラット・長段落→改段。1バッチ 10-20 記事、完了ごとに `npm run update-content-quality-baseline`
-- **バッチ1実績（2026-08-26）**: cem keyword 15本で可読性改修込みリライト実施・baseline更新済み（違反記事592件）。残バッチは優先上位（guide-strategy等）から
+- **バッチ1実績（2026-08-26）**: cem keyword 15本で可読性改修込みリライト実施・baseline更新済み（違反記事592件）。
+- **バッチ2実績（2026-08-26）**: cem keyword 追加15本（計30本）。残バッチは優先上位（guide-strategy等）から
 - **注意**: civil textbook の規格表・配合表は override 除外済み。過去問の年度×選択肢表は無理に崩さない
 
 
@@ -1324,12 +1325,12 @@ Anthropic の Opus 5 プロンプトガイドが「旧モデル向けに仕込�
 ### [DN-0071] 総監キーワード cem-qa 2.2–2.5帯 40本リライト
 タグ: [コンテンツ品質] [種類:制作] [Codex候補] [実行:sweep]
 
-合格マージン大で緊急度低。**2026-08-26に40本中15本前後をthin重複分としてリライト済み**（inventory-control / risk-analysis / ojt-off-jt 等・DN-0072バッチ1と共通）。残＝cem-qa再採点で残対象を確定してから（personal-info-protection 等の未リライト分＋リライト済み分の再採点）。1バッチ4本。
+合格マージン大で緊急度低。**2026-08-26に40本中30本前後をthin重複分としてリライト済み**（バッチ1+2・DN-0072と共通）。残＝cem-qa再採点で残対象を確定してから（personal-info-protection 等の未リライト分＋リライト済み分の再採点）。1バッチ4本。
 
 ### [DN-0072] 薄層 345本の散文増補（3,000字下限）
 タグ: [コンテンツ品質] [種類:制作] [Codex候補] [実行:sweep]
 
-**残330本（2026-08-26実測）**: 総監 keyword 313（5/29 demote 源流コホート・[[project_adsense_low_value_2026_07]] の続き）・pe-construction keyword 16・concrete textbook 1。3,000字下限へ散文増補（7月112本＋8/26の15本バッチの継続）。census の thin 指標で残数管理（`npm run quality-census`・delta出力対応済み）。
+**残315本（2026-08-26実測・バッチ2後）**: 総監 keyword 298・pe-construction keyword 16・concrete textbook 1。3,000字下限へ散文増補（7月112本＋8/26の30本〔バッチ1+2〕の継続）。census の thin 指標で残数管理（`npm run quality-census`・delta出力対応済み）。
 
 
 
