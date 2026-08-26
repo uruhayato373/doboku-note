@@ -117,6 +117,7 @@
     "check-note-cover-tokens": "node scripts/check-note-cover-tokens.mjs",
     "check-note-delivery-due": "node scripts/check-note-delivery-due.mjs",
     "check-note-frontmatter-dup": "node scripts/check-note-frontmatter-dup.mjs",
+    "check-note-vocabulary-boundary": "node scripts/check-note-vocabulary-boundary.mjs",
     "check-note-funnel": "node scripts/audit-note-funnel.mjs --ci",
     "check-note-hashtags": "node scripts/check-note-hashtags.mjs",
     "check-note-intro-benefit": "node scripts/check-note-intro-benefit.mjs",
