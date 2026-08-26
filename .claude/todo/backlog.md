@@ -282,14 +282,15 @@ fail 2（上記・fail-closed）。画像あり区分はほぼ消化（158→約
 
 `--json` から作り直した分類（`note-republish-plan.mjs`・6分類: ready/pdfReady/pdfMissing/hasImage/
 membership/aborted）で ready 135・pdfReady 54・**pdfMissing は前回53本→0本に解消**（別途R2 hydrate等で
-解消済みと判明）。ready から100本（既定上限）を `--reattach-pdf` 付きで投入。
+解消済みと判明）。ready から100本（既定上限）を `--reattach-pdf` 付きで投入。drift は **311 → 221**（90本減）。
 
-失敗3本は本日の**添付アップロード日次上限（90件）到達**によるfail-closed ABORT（保存前に中断・3本連続で
-自動停止）。`check-note-attachments --live --only`で3本ともPDFがライブに実在することを確認し実害なし
-（`note-attachment-loss.json`のpendingからresolvedへ移動）。drift は **311 → 221**（90本減）。
+**同日中に2回追加投入を試行したが、日次添付上限は既にこの90本で消費済みだったため両方すぐにfail-closed
+ABORT**（1回目 ok=0/fail=3・2回目 ok=1/fail=3）。**同一日内の上限は追加投入では回復しない**——次の投入は
+日付が変わってから。計6件のpendingは`check-note-attachments --live --only`で全件PDFライブ実在を確認し
+resolvedへ移動（実害なし）。drift は **221→220**（91本目1件減）。
 
-**残**: 221本（ready残35・pdfReady54・hasImage117・membership1・aborted4の再分類が必要）。
-翌日以降に`note-republish-plan.mjs --out`で続きを投入する。
+**残**: 220本（ready残36・pdfReady54・hasImage117・membership1・aborted13の再分類が必要）。
+**次の投入は翌日（日付が変わってから）**、`note-republish-plan.mjs --out`で続きを投入する。
 
 ### [DN-0005] X 9月分の週次投入（week2 以降・計画正典は 2026-09-civil.json）
 タグ: [SNS・マーケ] [種類:制作] [実行:sweep] [起票:2026-08-06] [期日:2026-09-08]

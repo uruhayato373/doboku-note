@@ -1,61 +1,6 @@
 {
   "_doc": "本文更新で添付が失われ、再添付が未了の記事を負債として持つ台帳。note-attach-batch 成功時に自動で消える。ライブ実査（check-note-attachments --live --only <noteId>）で充足が確認できた場合も、根拠を resolved に残して pending から外す。",
-  "pending": [
-    {
-      "noteId": "n8d72cf82ca72",
-      "at": "2026-08-26T03:08:11.390Z",
-      "reason": "復元前に日次上限へ到達（エディタ側は添付削除済み）",
-      "dropped": [
-        "建設部門-必須科目I-R04-模範解答.pdf"
-      ],
-      "note": "再添付するまで負債。note-attach-batch 成功時に自動で消える"
-    },
-    {
-      "noteId": "n7c4de5d27342",
-      "at": "2026-08-26T03:08:37.980Z",
-      "reason": "復元前に日次上限へ到達（エディタ側は添付削除済み）",
-      "dropped": [
-        "建設部門-必須科目I-R05-模範解答.pdf"
-      ],
-      "note": "再添付するまで負債。note-attach-batch 成功時に自動で消える"
-    },
-    {
-      "noteId": "n149dd5284f51",
-      "at": "2026-08-26T03:09:07.876Z",
-      "reason": "復元前に日次上限へ到達（エディタ側は添付削除済み）",
-      "dropped": [
-        "建設部門-必須科目I-R06-模範解答.pdf"
-      ],
-      "note": "再添付するまで負債。note-attach-batch 成功時に自動で消える"
-    },
-    {
-      "noteId": "n6cbd95df5aad",
-      "at": "2026-08-26T07:01:27.821Z",
-      "reason": "復元前に日次上限へ到達（エディタ側は添付削除済み）",
-      "dropped": [
-        "建設部門-必須科目I-R07-模範解答.pdf"
-      ],
-      "note": "再添付するまで負債。note-attach-batch 成功時に自動で消える"
-    },
-    {
-      "noteId": "n6b2feea921ee",
-      "at": "2026-08-26T07:01:53.890Z",
-      "reason": "復元前に日次上限へ到達（エディタ側は添付削除済み）",
-      "dropped": [
-        "建設部門-必須科目I-R08予想1-担い手×建設DX-予想問題と模範解答.pdf"
-      ],
-      "note": "再添付するまで負債。note-attach-batch 成功時に自動で消える"
-    },
-    {
-      "noteId": "n0174f5234557",
-      "at": "2026-08-26T07:02:19.874Z",
-      "reason": "復元前に日次上限へ到達（エディタ側は添付削除済み）",
-      "dropped": [
-        "建設部門-必須科目I-R08予想2-気候変動適応・防災-予想問題と模範解答.pdf"
-      ],
-      "note": "再添付するまで負債。note-attach-batch 成功時に自動で消える"
-    }
-  ],
+  "pending": [],
   "resolved": [
     {
       "noteId": "nded084d4f646",
@@ -96,6 +41,72 @@
         "建設部門-必須科目I-R03-模範解答.pdf"
       ],
       "resolution": "ライブ実査で充足を確認（check-note-attachments --live --only）。日次アップロード上限でABORTし保存されなかったため、元の添付がそのまま維持されていた。実害なし。"
+    },
+    {
+      "noteId": "n8d72cf82ca72",
+      "at": "2026-08-26T03:08:11.390Z",
+      "reason": "復元前に日次上限へ到達（エディタ側は添付削除済み）",
+      "dropped": [
+        "建設部門-必須科目I-R04-模範解答.pdf"
+      ],
+      "note": "再添付するまで負債。note-attach-batch 成功時に自動で消える",
+      "resolvedAt": "2026-08-26",
+      "resolution": "check-note-attachments --live で充足確認済み（fail-closed中断のみ・実害なし）"
+    },
+    {
+      "noteId": "n7c4de5d27342",
+      "at": "2026-08-26T03:08:37.980Z",
+      "reason": "復元前に日次上限へ到達（エディタ側は添付削除済み）",
+      "dropped": [
+        "建設部門-必須科目I-R05-模範解答.pdf"
+      ],
+      "note": "再添付するまで負債。note-attach-batch 成功時に自動で消える",
+      "resolvedAt": "2026-08-26",
+      "resolution": "check-note-attachments --live で充足確認済み（fail-closed中断のみ・実害なし）"
+    },
+    {
+      "noteId": "n149dd5284f51",
+      "at": "2026-08-26T03:09:07.876Z",
+      "reason": "復元前に日次上限へ到達（エディタ側は添付削除済み）",
+      "dropped": [
+        "建設部門-必須科目I-R06-模範解答.pdf"
+      ],
+      "note": "再添付するまで負債。note-attach-batch 成功時に自動で消える",
+      "resolvedAt": "2026-08-26",
+      "resolution": "check-note-attachments --live で充足確認済み（fail-closed中断のみ・実害なし）"
+    },
+    {
+      "noteId": "n6cbd95df5aad",
+      "at": "2026-08-26T07:01:27.821Z",
+      "reason": "復元前に日次上限へ到達（エディタ側は添付削除済み）",
+      "dropped": [
+        "建設部門-必須科目I-R07-模範解答.pdf"
+      ],
+      "note": "再添付するまで負債。note-attach-batch 成功時に自動で消える",
+      "resolvedAt": "2026-08-26",
+      "resolution": "check-note-attachments --live で充足確認済み（fail-closed中断のみ・実害なし）"
+    },
+    {
+      "noteId": "n6b2feea921ee",
+      "at": "2026-08-26T07:01:53.890Z",
+      "reason": "復元前に日次上限へ到達（エディタ側は添付削除済み）",
+      "dropped": [
+        "建設部門-必須科目I-R08予想1-担い手×建設DX-予想問題と模範解答.pdf"
+      ],
+      "note": "再添付するまで負債。note-attach-batch 成功時に自動で消える",
+      "resolvedAt": "2026-08-26",
+      "resolution": "check-note-attachments --live で充足確認済み（fail-closed中断のみ・実害なし）"
+    },
+    {
+      "noteId": "n0174f5234557",
+      "at": "2026-08-26T07:02:19.874Z",
+      "reason": "復元前に日次上限へ到達（エディタ側は添付削除済み）",
+      "dropped": [
+        "建設部門-必須科目I-R08予想2-気候変動適応・防災-予想問題と模範解答.pdf"
+      ],
+      "note": "再添付するまで負債。note-attach-batch 成功時に自動で消える",
+      "resolvedAt": "2026-08-26",
+      "resolution": "check-note-attachments --live で充足確認済み（fail-closed中断のみ・実害なし）"
     }
   ]
 }
