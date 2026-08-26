@@ -29,3 +29,20 @@ export function todayJst(now = Date.now()) {
 export function nowJstIso(now = Date.now()) {
   return new Date(now + JST_OFFSET_MS).toISOString().replace('Z', '+09:00');
 }
+
+/**
+ * 日時文字列を JST の日付キーと時刻へ正規化する（スケジュール集約アダプタ用）。
+ * 受ける形式: 'YYYY-MM-DD'（日粒度・そのまま返す）／ISO 8601（+09:00 も Z も可）。
+ * Z(UTC) を slice(0,10) すると JST では前日にずれるため、必ず epoch 経由で +9h する
+ * （x/draft の status.json は posted_at が Z 混在で実害が出た箇所）。
+ * @param {string} value
+ * @returns {{date: string, time: string|null}|null} パース不能は null
+ */
+export function jstDayTime(value) {
+  if (typeof value !== 'string' || !value) return null;
+  if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return { date: value, time: null };
+  const ms = Date.parse(value);
+  if (!Number.isFinite(ms)) return null;
+  const jst = new Date(ms + JST_OFFSET_MS).toISOString();
+  return { date: jst.slice(0, 10), time: jst.slice(11, 16) };
+}
