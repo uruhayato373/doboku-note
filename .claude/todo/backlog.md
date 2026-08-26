@@ -1089,8 +1089,8 @@ Phase 1では法人案内1ページと既存/contactへの導線だけを最小�
 
 **起票時の実査結果（2026-08-22・再調査不要）**:
 
-- `src/app/tools/kakomon-quiz/`に1級土木の無料演習が稼働し、平成26〜令和7年度の全1,098問、年度別、ランダム20問、間違い復習、`localStorage`進捗、結果画面のAdSense・note CTAまで存在する
-- 公開ページとメタデータが「全1,098問を無料」と約束しているため、後から全問アクセスを有料化しない。Premiumは分野別弱点分析、復習スケジュール、端末間同期、広告非表示、オフライン、模試履歴等に限定する
+- `src/app/tools/kakomon-quiz/`に1級土木の無料演習が稼働し、平成26〜令和7年度の全1,098問、年度別、ランダム20問、間違い復習、`localStorage`進捗、結果画面のnote CTAまで存在する
+- 公開ページとメタデータが「全1,098問を無料」と約束しているため、後から全問アクセスを有料化しない。Premiumは分野別弱点分析、復習スケジュール、端末間同期、オフライン、模試履歴等に限定する
 - 現在はmanifest / Service Worker、会員認証、決済、entitlement、メール配信、LINE結線が無く、`package.json`にもStripe／Supabase／Clerk等のPWA認証・決済依存はない
 - 旧設計の「note購入コード＋localStorage解放」は、決済Webhook、購入復元、端末間同期、失効、コード共有を解決できない。文書商品=note、PWA機能権限=Stripeに分離する
 - LINE公式のコミュニケーションプランは月額0円・月200通で、通数は友だち数×配信回数。旧戦略の「月1,000通」は陳腐化していた。LINEを大規模CRMやPWAログインにしない
@@ -1106,14 +1106,14 @@ SEO記事・note・SNS
   → Stripe買い切り
   → Webhookでentitlement付与
   → メールのマジックリンクでログイン
-  → 弱点分析・復習計画・端末間同期・広告非表示
+  → 弱点分析・復習計画・端末間同期
   → 記述式／模範答案はnoteへ送客
 ```
 
 **Phase 0 — 計測契約とfake-door検証（認証・決済を作らない）**:
 
 1. `quiz_start / quiz_complete / review_start / premium_view / premium_intent / email_interest / line_interest / note_cta_click`のイベント名、発火条件、`exam / placement / mode`パラメータを既存GA4規約に合わせて定義する。メール、LINE ID、購入者IDをイベントへ送らない。実リスト開始後の`email_opt_in / line_add_click`は別イベントにする
-2. 結果画面とメニューにPremium案内を1面ずつ置く。価値は弱点分析、復習計画、同期、広告非表示。価格は仮説¥980〜¥1,480と明記し、「準備中／先行案内」であることを隠さない。未実装機能の決済を受けない
+2. 結果画面とメニューにPremium案内を1面ずつ置く。価値は弱点分析、復習計画、同期。価格は仮説¥980〜¥1,480と明記し、「準備中／先行案内」であることを隠さない。未実装機能の決済を受けない
 3. メール候補は「学習レポート・先行案内」、LINE候補は「試験日・合格発表の通知」と用途を分ける。Phase 0は匿名の希望クリックだけを測り、メールアドレスやLINE友だちをまだ取得しない。両方を同時に必須化せず、初回問題の前には置かない
 4. メール収集フォームを作る前に、候補サービスの料金、export、削除、unsubscribe、double opt-in、custom domain、SPF/DKIM/DMARC、Webhook、障害時のexportを比較する。認証のtransactionalメールとmarketing配信を同じ同意で送らない
 5. success gateは、1級PWA利用者100人以上、`premium_intent / premium_view` 5%以上、重複除外した購入希望10人以上。LINEは`line_interest`だけで採否を決めず、Phase 1開始後の`line_add_click`と試験期の再訪を別に記録する
@@ -1132,7 +1132,7 @@ SEO記事・note・SNS
 2. Stripe test modeで1級Premiumの商品・価格・success/cancel URLを作る。`checkout.session.completed`等を署名検証し、同じeventを再送してもentitlementが重複しない冪等処理にする。価格登録・本番Payment Link・本人確認はユーザーが承認するまで作らない
 3. `users / entitlements / progress / marketing_consents`を分離し、購入者は販促未同意でもPremiumを使えるようにする。購入メールとアカウントメールが異なる場合の安全な紐付け、購入復元、返金・取消、アカウント削除を設計する
 4. マジックリンクは購入後または「端末間同期を使う」時だけ要求し、無料演習と1端末内`localStorage`を壊さない。既存データをログイン後へ明示的にmergeし、別人の進捗を上書きしない
-5. 最初の有料機能は弱点分析、端末間同期、広告非表示の3つに絞る。オフライン、PDF出力、AI学習計画、複数資格bundle、サブスクはpilot後へ送る
+5. 最初の有料機能は弱点分析、端末間同期の2つに絞る。オフライン、PDF出力、AI学習計画、複数資格bundle、サブスクはpilot後へ送る
 
 **Phase 3 — 有料pilotと拡張判断**:
 
@@ -1171,7 +1171,7 @@ src/app/privacy/page.tsx、既存GA4イベント実装と計測規約を読ん�
 Phase 0では認証、DB、Stripe、メール配信SaaS、LINE Messaging APIを導入せず、現行PWAの利用イベント、
 Premium案内面、メール／LINEの用途別CTA、匿名の判定レポートだけを実装してください。
 
-全1,098問の無料アクセス、ログイン不要の演習、localStorage進捗、AdSense、note CTAを維持してください。
+全1,098問の無料アクセス、ログイン不要の演習、localStorage進捗、note CTAを維持してください。
 未実装Premiumを販売中と表示せず、価格は検証仮説、CTAは先行案内であることを明記してください。
 メールとLINEを同時必須にせず、個人情報をGA4、Git、ログ、CI artifactへ保存しないでください。
 
@@ -1316,7 +1316,7 @@ C（`civil-1-ichiji-ronten` ¥1,480・[nec34238ca6d6](https://note.com/dobokunot
 ### [DN-0040] 性能: CI PSI 再計測（mobile 追加）
 タグ: [UI・UX] [種類:改善] [実行:sweep]
 
-①`pe-comprehensive-management-exam-index` desktop Perf 56・TBT 2521ms の再現確認（Mermaid 出現0の軽構成＝計測スパイク疑い。再現なら client JS を profiling）②**モバイル PSI が未計測**→CI 供給で計測開始（外部Google API＝ローカル不可）③CLS 超過2ページ＝AdSense 枠の width/height 明示。実装: `.claude/config/psi-urls.txt`・`psi-config.json`。
+①`pe-comprehensive-management-exam-index` desktop Perf 56・TBT 2521ms の再現確認（Mermaid 出現0の軽構成＝計測スパイク疑い。再現なら client JS を profiling）②**モバイル PSI が未計測**→CI 供給で計測開始（外部Google API＝ローカル不可）。実装: `.claude/config/psi-urls.txt`・`psi-config.json`。CLS 超過2ページの原因（AdSense 枠は撤退済みのため既に解消・残る要因があれば再診断）は未確認。
 
 ### [DN-0041] 回遊・note 動線 P4-P7
 タグ: [UI・UX] [種類:改善] [実行:対話]
@@ -1406,7 +1406,7 @@ SEO 品質ゲート実装（PR #390・handoff `2026-07-13-seo-quality-gates.md` 
 タグ: [インフラ・計測] [種類:改善] [実行:対話]
 
 Tier 1（NoteLink 計測・cadence 化・bot 監査 CI 等）は実装完了。残:
-- **Tier 2/3**: カスタムパラメータ・検索/scroll イベント・アフィリA/B の label 取得・GA4↔GSC 突合／AdSense RPM 取込・sales×流入 attribution・送客リダイレクタ・A8 EPC
+- **Tier 2/3**: カスタムパラメータ・検索/scroll イベント・アフィリA/B の label 取得・GA4↔GSC 突合・sales×流入 attribution・送客リダイレクタ・A8 EPC
 - **GA4 サーバ側（ユーザー手作業）**: 残るのは**未解決の bing bot 疑いの確定**のみ（内部トラフィック/参照除外・既知ボット除外・カスタムディメンション登録はすべて完了済み。`ga4-admin:check` / `check-ga4-dimensions` とも「不足 0」を実測）。真実源 → [計測基盤強化ロードマップ.md](../../docs/operations/計測基盤強化ロードマップ.md)
 - **Playwright UI CSV**: `fetch-ga4-ui-csv.mjs` は未ログイン検証のみ。ログイン済み実UIでレポート名・ディメンション・指標・ダウンロードメニューの正式ラベルを確定し、fixtureと回帰テストへ反映（API優先方針は維持）
   - **2026-08-25 実測: ga4-ui は一度も完全成功していない**。`check-gsc-ui-due --json` の `ga4-ui` が `due:true`（直近実行 2026-07-30 は 取得 0/3・失敗 3＝`csv-menu-ambiguous` / `report-not-found`×2、完全取得の記録なし）。gsc-ui は 11/16 取得で期限内なので、欠測しているのは GA4 UI 由来の指標だけ
@@ -1753,7 +1753,7 @@ A8 公開 EPC（ビルドジョブ 942 円）は**プログラム全体の平均
 **決めること**
 
 - **(1) 現状維持で観測を続ける**: 面はこのまま、月次で a8-results を取り込み、成果が出るまで判断を保留する
-- **(2) 露出を絞る**: 記事末バナー等を畳んで広告密度を下げ、読み心地と AdSense 側に振る（転職アフィリの期待値は元々小さいと割り切る）
+- **(2) 露出を絞る**: 記事末バナー等を畳んで広告密度を下げ、読み心地に振る（転職アフィリの期待値は元々小さいと割り切る）
 - **(3) 撤退して別収益に寄せる**: 転職アフィリ面を縮小し、実売のある自社商品（note・ココナラ・Brain）の導線に枠を明け渡す
 
 **判断材料として先に要るもの**: 2026-08 の A8 実績（承認の遅れを考慮すると 9 月中旬以降に確定）。それまでは (1) が既定。
