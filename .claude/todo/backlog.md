@@ -1200,15 +1200,6 @@ SEO 品質ゲート実装（PR #390・handoff `2026-07-13-seo-quality-gates.md` 
 3. **orphan/unreachable 6本の gate 昇格**: `pe-comprehensive-management-r8-essay-theme-*` 6本は現状 warn（意図的未リンク）。導線設計を決めたら check-seo-build の gate へ昇格。
 4. **robots / OAI-SearchBot の ADR**（v2監査 §8.3）: ChatGPT Search 露出を取りに行くか。training bot は block 維持、search/user bot の許可可否を ADR で決定。robots.txt/Cloudflare はユーザー承認事項。
 
-### [DN-0050] UIコードベース静的監査 残フェーズ（Phase4 A11y ＋ P3 整理）
-タグ: [UI・UX] [種類:改善] [Codex候補] [実行:sweep] [検証:knip]
-
-静的監査 `docs/reviews/2026-07-11-static-ui-codebase-audit.md`（作業指示書・SSOT）のうち、Phase 1〜3（UI-002/003/004/005/006）は develop 済み。残:
-1. **UI-007 P2**: Header メニュー/drawer の dialog・focus 管理（開閉トラップ・閉状態の dialog semantics 除去）
-2. **UI-008 P2**: `Callout` type を閉じた union へ変更＋未知 type を content lint で検出
-3. **UI-009 P2**: Knip 報告のデッド UI/依存整理（`LinksHubTile`・`next-themes`・`date-fns`・fontsource は要個別確認、一括削除しない）。旧DN-0059から移記: `Underline` は MDX 実使用 0 件だが component-loader 登録済み——撤去時は loader 登録も外さないと `type-check` が割れる
-4. **UI-010〜012 P3** ＋ **UI-001 完了確認**（仕様書と現行実装の残ズレ同期）
-- 実装順・完了条件は監査文書の各節参照。
 
 ### [DN-0051] 計測基盤 Tier 2/3 ＋ GA4 UI 設定
 タグ: [インフラ・計測] [種類:改善] [実行:対話]
