@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T23:39:45.233Z",
+  "generated_at": "2026-08-26T23:44:33.855Z",
   "summary": {
-    "total_mdx_files": 1145,
+    "total_mdx_files": 1147,
     "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1249,7 +1249,7 @@
     },
     {
       "name": "guide",
-      "count": 160,
+      "count": 162,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1350,6 +1350,8 @@
         "civil-practice-rebar-splice-selection",
         "civil-practice-sling-work-wire-rope",
         "civil-practice-slope-protection-selection",
+        "civil-practice-subbase-subgrade-control",
+        "civil-practice-trench-excavation-safety",
         "concrete-chief-engineer-guide-essay",
         "concrete-chief-engineer-guide-overview",
         "concrete-chief-engineer-guide-trends",
@@ -2157,6 +2159,30 @@
       ]
     },
     {
+      "name": "earthwork",
+      "count": 17,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-earthwork-basics",
+        "civil-construction-1-secondary-earthwork-past-problems",
+        "civil-construction-1-textbook-cut-slope-protection",
+        "civil-construction-1-textbook-embankment",
+        "civil-construction-1-textbook-soft-ground-drainage",
+        "civil-construction-1-textbook-soil-investigation-methods",
+        "civil-practice-cast-in-place-pile-methods",
+        "civil-practice-earth-retaining-displacement",
+        "civil-practice-embankment-quality-control",
+        "civil-practice-excavation-bottom-failure",
+        "civil-practice-excavation-pre-survey",
+        "civil-practice-pile-bearing-verification",
+        "civil-practice-pile-concrete-head-treatment",
+        "civil-practice-precast-pile-methods",
+        "civil-practice-slope-protection-selection",
+        "civil-practice-subbase-subgrade-control",
+        "civil-practice-trench-excavation-safety"
+      ]
+    },
+    {
       "name": "令和2年度",
       "count": 16,
       "inAllowlist": true,
@@ -2338,28 +2364,6 @@
         "pe-construction-r07-road",
         "pe-construction-road-exam-themes",
         "pe-construction-road-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "earthwork",
-      "count": 15,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-earthwork-basics",
-        "civil-construction-1-secondary-earthwork-past-problems",
-        "civil-construction-1-textbook-cut-slope-protection",
-        "civil-construction-1-textbook-embankment",
-        "civil-construction-1-textbook-soft-ground-drainage",
-        "civil-construction-1-textbook-soil-investigation-methods",
-        "civil-practice-cast-in-place-pile-methods",
-        "civil-practice-earth-retaining-displacement",
-        "civil-practice-embankment-quality-control",
-        "civil-practice-excavation-bottom-failure",
-        "civil-practice-excavation-pre-survey",
-        "civil-practice-pile-bearing-verification",
-        "civil-practice-pile-concrete-head-treatment",
-        "civil-practice-precast-pile-methods",
-        "civil-practice-slope-protection-selection"
       ]
     },
     {

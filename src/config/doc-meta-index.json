@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T23:39:44.815Z",
+  "generated_at": "2026-08-26T23:44:33.418Z",
   "summary": {
-    "total": 1145,
-    "published": 1126,
+    "total": 1147,
+    "published": 1128,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 24,
+      "civil-practice": 26,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6460,6 +6460,40 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "のり面保護工の選び方｜植生工・吹付工・アンカー工の判断基準【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-subbase-subgrade-control": {
+      "title": "路盤・路床をどう仕上げるか — CBRの見極めと層厚・締固め度の判断軸",
+      "description": "路盤・路床の管理を、路床CBRの読み方と構築路床が必要になる判断、下層・上層路盤の材料と厚さ、締固め機械の選び方、締固め度の管理基準から整理。舗装の下地が崩れれば表層は持ちません。現場でこの判断をする実務者向けの実務ガイドです。",
+      "shortTitle": "路盤・路床の管理判断",
+      "subtitle": "CBRの見方、層厚、締固め度をどう決めるか",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "earthwork"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "路盤・路床の締固めと層厚｜CBRの見方・構築路床・締固め度の管理【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-trench-excavation-safety": {
+      "title": "溝掘削の土留め、いつ入れるか — 深さでなく危険性で判断する",
+      "description": "溝掘削で土留めをいつ入れるかを、深さの数値ではなく法令上の危険性の判断基準から整理しました。土止め支保工の設置義務、深さ2mを境に生じる作業主任者の選任義務、土止め先行工法という考え方、簡易土留めの適用範囲、設置後の点検、推進工事の立坑での事故防止までを扱う実務ガイドです。",
+      "shortTitle": "溝掘削の土留め判断",
+      "subtitle": "深さの数値を安全の根拠にしない",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "earthwork"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "溝掘削の土留めをいつ入れるか｜設置義務・作業主任者・簡易土留めの適用範囲【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
