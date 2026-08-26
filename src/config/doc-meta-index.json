@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T23:01:31.661Z",
+  "generated_at": "2026-08-26T23:01:57.214Z",
   "summary": {
-    "total": 1137,
-    "published": 1118,
+    "total": 1138,
+    "published": 1119,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 16,
+      "civil-practice": 17,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6326,6 +6326,23 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "鉄筋継手の選び方｜重ね・ガス圧接・機械式の判断基準【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-slope-protection-selection": {
+      "title": "のり面保護工をどう選ぶか — 勾配・土質・湧水・崩壊規模で判断する",
+      "description": "のり面保護工を植生工・吹付工・のり枠工・ロックボルト・グランドアンカーのどれで選ぶかを、勾配・土質・湧水・想定する崩壊規模の4条件から判断する手順を整理。抑制工と抑止工という一次資料の区分を軸に、現場で迷わず選ぶための考え方をまとめます。",
+      "shortTitle": "のり面保護工の選び方",
+      "subtitle": "抑制工で足りるか、抑止工まで踏み込むか",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "earthwork"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "のり面保護工の選び方｜植生工・吹付工・アンカー工の判断基準【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
