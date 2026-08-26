@@ -17,13 +17,15 @@ import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { todayJst } from './jst-date.mjs';
+import { BRAIN_LISTINGS_PATH, BRAIN_DIST_ROOT } from './repository-paths.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 export const PROFILE = join(ROOT, '.local/playwright-brain-profile');
+/** アカウント・認証設定は content/brain へ移行しない（config に残す・DN-0103 対象外）。 */
 export const ACCOUNT_PATH = join(ROOT, '.claude/config/brain-account.json');
 export const CATALOG_PATH = join(ROOT, 'src/lib/brain-products.ts');
-export const LISTINGS_PATH = join(ROOT, '.claude/config/brain-listings.json');
-export const DIST_DIR = join(ROOT, '.claude/config/brain/dist');
+export const LISTINGS_PATH = BRAIN_LISTINGS_PATH;
+export const DIST_DIR = BRAIN_DIST_ROOT;
 export const DIST_BASE_URL = 'https://storage.doboku-note.com/brain/dist/';
 
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';

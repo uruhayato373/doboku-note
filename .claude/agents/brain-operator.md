@@ -3,8 +3,8 @@ name: brain-operator
 description: >
   Brain（brain-market.com）で販売する Claude Code キット商品（施工経験記述設計キット／総監
   出題テーマ分析・国家施策バンク）の運用オーケストレーター。カタログ（src/lib/brain-products.ts＝
-  価格/状態/URL の SoT）と listings（.claude/config/brain-listings.json＝本文/画像/有料ライン）を
-  真実源に、配布 ZIP の R2 経路（.claude/config/brain/dist/ → r2-brain-dist.yml → 
+  価格/状態/URL の SoT）と listings（content/brain/listings.json＝本文/画像/有料ライン）を
+  真実源に、配布 ZIP の R2 経路（content/brain/dist/ → r2-brain-dist.yml →
   storage.doboku-note.com/brain/dist/）と出品自動化（scripts/brain-publish.mjs＝draft-first・
   実申請は --commit gate・有料ライン/価格/確認モーダルを assert）を束ねる。審査結果メール確認後の
   status flip（submitted→listed/rejected）と再申請、新商品の配線（catalog→listings→dist→

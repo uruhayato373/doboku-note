@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 660" font-family="'Hiragino Sans','Noto Sans JP',sans-serif">
+  <defs>
+    <marker id="ar2" markerWidth="12" markerHeight="12" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" fill="#2a5f96"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="1200" height="660" fill="#ffffff"/>
+  <rect x="1" y="1" width="1198" height="658" fill="none" stroke="#d8dde3" stroke-width="2" rx="14"/>
+
+  <text x="48" y="64" font-size="30" font-weight="700" fill="#181a1f">一発予想ではなく、「幅広く備蓄」する</text>
+  <text x="48" y="100" font-size="20" fill="#5a5f6a">設問3のテーマは年度で動く（R6 カーボンニュートラル / R7 少子高齢化 / R8 地方創生）。</text>
+
+  <!-- left: 一発予想 -->
+  <rect x="48" y="150" width="300" height="200" rx="12" fill="#fdf2ee" stroke="#b4472e" stroke-width="2"/>
+  <text x="72" y="192" font-size="22" font-weight="700" fill="#b4472e">一発予想（外れやすい）</text>
+  <text x="72" y="234" font-size="19" fill="#5a3a30">本命を1つに絞る</text>
+  <text x="72" y="264" font-size="19" fill="#5a3a30">→ 当日その1つが</text>
+  <text x="72" y="294" font-size="19" fill="#5a3a30">　 外れると詰む</text>
+  <text x="72" y="330" font-size="17" fill="#8a5a4a">※R8は本命(気候変動適応)を外した</text>
+
+  <line x1="360" y1="250" x2="404" y2="250" stroke="#2a5f96" stroke-width="3" marker-end="url(#ar2)"/>
+
+  <!-- right: 幅広く備蓄 -->
+  <rect x="420" y="150" width="732" height="200" rx="12" fill="#edf3fa" stroke="#2a5f96" stroke-width="2"/>
+  <text x="446" y="192" font-size="22" font-weight="700" fill="#181a1f">8軸で採点し、候補を広く洗い出す（上位候補数 K を開示）</text>
+  <!-- candidate chips -->
+  <g font-size="17" fill="#1f3a52">
+    <rect x="446" y="216" width="150" height="40" rx="20" fill="#ffffff" stroke="#2a5f96"/><text x="521" y="242" text-anchor="middle">地方創生</text>
+    <rect x="608" y="216" width="200" height="40" rx="20" fill="#ffffff" stroke="#c9d3df"/><text x="708" y="242" text-anchor="middle">カーボンニュートラル</text>
+    <rect x="820" y="216" width="160" height="40" rx="20" fill="#ffffff" stroke="#c9d3df"/><text x="900" y="242" text-anchor="middle">少子高齢化</text>
+    <rect x="992" y="216" width="130" height="40" rx="20" fill="#ffffff" stroke="#c9d3df"/><text x="1057" y="242" text-anchor="middle">防災・国土</text>
+    <rect x="446" y="266" width="120" height="40" rx="20" fill="#ffffff" stroke="#c9d3df"/><text x="506" y="292" text-anchor="middle">DX</text>
+    <rect x="578" y="266" width="150" height="40" rx="20" fill="#ffffff" stroke="#c9d3df"/><text x="653" y="292" text-anchor="middle">エネルギー</text>
+    <rect x="740" y="266" width="140" height="40" rx="20" fill="#ffffff" stroke="#c9d3df"/><text x="810" y="292" text-anchor="middle">インフラ老朽</text>
+    <rect x="892" y="266" width="110" height="40" rx="20" fill="#ffffff" stroke="#c9d3df"/><text x="947" y="292" text-anchor="middle">…ほか</text>
+  </g>
+  <text x="446" y="332" font-size="17" fill="#5a5f6a">K=10 前後を毎年更新。「当てる」ではなく「当日に組める状態」をつくる。</text>
+
+  <!-- down to policy parts -->
+  <line x1="786" y1="356" x2="786" y2="392" stroke="#2a5f96" stroke-width="3" marker-end="url(#ar2)"/>
+  <rect x="420" y="404" width="732" height="96" rx="12" fill="#fbfcfe" stroke="#c9d3df" stroke-width="2"/>
+  <text x="446" y="444" font-size="22" font-weight="700" fill="#181a1f">各テーマを「施策部品」に落とす（約600字・5管理トレードオフ込み）</text>
+  <text x="446" y="478" font-size="19" fill="#33363d">出典のない数値・制度は「要出典」で停止。設問3の字数に収まるか機械検査。</text>
+
+  <!-- cutoff note -->
+  <rect x="48" y="404" width="340" height="96" rx="12" fill="#fbfcfe" stroke="#c9d3df" stroke-width="2"/>
+  <text x="72" y="440" font-size="20" font-weight="700" fill="#2a5f96">後知恵カットオフ</text>
+  <text x="72" y="472" font-size="18" fill="#33363d">試験日以降の資料は機械検出</text>
+  <text x="72" y="496" font-size="18" fill="#33363d">し、事前分析への混入を防ぐ</text>
+
+  <text x="48" y="576" font-size="19" fill="#5a5f6a">正直な実績：R8「地方創生」を2026-06-01 公開で事前収録（公開日で検証可）。本命は外し、当てたのは K=11 の候補群の1つ。</text>
+  <text x="48" y="606" font-size="19" fill="#5a5f6a">予言・的中保証はしません。過年度の統制テストの限界も同梱の検証記録に明記しています。</text>
+  <text x="1152" y="640" font-size="17" fill="#98a0ac" text-anchor="end">doboku-note</text>
+</svg>

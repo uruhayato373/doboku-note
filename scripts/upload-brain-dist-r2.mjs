@@ -1,10 +1,11 @@
 #!/usr/bin/env node
 /**
- * upload-brain-dist-r2.mjs — Brain 商品配布物（.claude/config/brain/dist/ 配下）を
+ * upload-brain-dist-r2.mjs — Brain 商品配布物（content/brain/dist/ 配下）を
  * Cloudflare R2 の `brain/dist/` prefix へアップロードする。
  *
  * 配布URL: https://storage.doboku-note.com/brain/dist/<filename>
  * ファイル名に推測不能トークンを含める運用（リンクを知る人のみアクセス＝Driveリンク共有と同等）。
+ * ローカル移動後も R2 object key は `brain/dist/{filename}` のまま不変（DN-0103 Phase 03）。
  * 実行は CI（r2-brain-dist.yml・workflow_dispatch）。ローカルは creds 無しの前提
  * （計測/アップロード系は CI/CD 供給が正: .claude/knowledge/reference/measurement-incidents.md）。
  *
@@ -12,11 +13,10 @@
  */
 import { S3Client, PutObjectCommand, HeadObjectCommand } from '@aws-sdk/client-s3';
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
-import { join, dirname, extname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { join, extname } from 'node:path';
+import { BRAIN_DIST_ROOT } from './lib/repository-paths.mjs';
 
-const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const DIST = join(ROOT, '.claude/config/brain/dist');
+const DIST = BRAIN_DIST_ROOT;
 const BUCKET = 'doboku-note';
 const dryRun = process.argv.includes('--dry-run');
 

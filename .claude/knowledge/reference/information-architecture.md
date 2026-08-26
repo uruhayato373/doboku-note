@@ -60,6 +60,7 @@ content/
   coconala/blog/ ココナラブログ
   sns/          instagram / x / youtube の制作物
   kindle/       Kindle 非公開原稿（Web 配信対象ではない）
+  brain/        Brain 販売投入本文・販売画像・配布 ZIP（価格・status・URL は src/lib/brain-products.ts）
   sources/      制作の根拠となる入力資料（原典 PDF・OCR 入力）
 ```
 

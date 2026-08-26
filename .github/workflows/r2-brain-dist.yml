@@ -1,6 +1,6 @@
 name: R2 Brain Dist Upload
 
-# Brain 商品配布物（.claude/config/brain/dist/）を R2 brain/dist/ へアップロードする。
+# Brain 商品配布物（content/brain/dist/）を R2 brain/dist/ へアップロードする。
 # 手動トリガー専用（workflow_dispatch）。配布URLは storage.doboku-note.com/brain/dist/<file>。
 
 on:

@@ -134,8 +134,8 @@ export const ADMIN_CHANNELS: readonly AdminChannel[] = [
   {
     id: 'brain',
     label: 'Brain',
-    // Phase 03 で content/brain へ移行するまでは実体が無いため null のまま。
-    sourcePath: null,
+    // content/brain へ移行済み（DN-0103 Phase 03）。
+    sourcePath: 'content/brain',
     // Phase 04 で専用画面ができるまではリンクを作らない。
     enabled: false,
     tabs: [],
