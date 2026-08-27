@@ -16,6 +16,7 @@
 import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs'
 import { resolve, basename, dirname, join } from 'node:path'
 import { chromium } from 'playwright'
+import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs'
 
 const REPO = resolve(import.meta.dirname, '..')
 const AUTHOR = 'doboku-note'
@@ -91,7 +92,9 @@ async function preprocess(body, images, imageSrc) {
   out = out.replace(/<ArticleImage\s+([\s\S]*?)\/>/g, (whole, props) => {
     const src = (props.match(/src="([^"]+)"/) || [])[1] || ''
     const alt = (props.match(/alt="([^"]*)"/) || [])[1] || ''
-    const local = resolve(REPO, '.local/r2', src.replace(/^\//, ''))
+    // src は /posts/... のサイト絶対パス → R2 の object key は SITE_CONTENT_ROOT からの
+    // 相対パスに posts/ を前置しただけなので、画像の実体（git 追跡下）を直接解決する。
+    const local = resolve(SITE_CONTENT_ROOT, src.replace(/^\/posts\//, ''))
     // 年度スコープ付き href（合本で同名別図が黙って差し替わる事故を防止＝pe1 と同じ）
     const artId = basename(dirname(dirname(local)))
     const jpgName = basename(local).replace(/\.(webp|png|jpg|jpeg)$/i, '.jpg')
@@ -106,7 +109,7 @@ async function preprocess(body, images, imageSrc) {
     const src = (props.match(/src="([^"]+)"/) || [])[1] || ''
     if (!src.startsWith('/posts/')) return whole // 外部/相対 URL はそのまま（埋め込み対象外）
     const alt = (props.match(/alt="([^"]*)"/) || [])[1] || ''
-    const local = resolve(REPO, '.local/r2', src.replace(/^\//, ''))
+    const local = resolve(SITE_CONTENT_ROOT, src.replace(/^\/posts\//, ''))
     const artId = basename(dirname(dirname(local)))
     const jpgName = basename(local).replace(/\.(webp|png|jpg|jpeg)$/i, '.jpg')
     const href = `img/${artId}-${jpgName}`
