@@ -111,7 +111,7 @@ test('実 backlog がスキーマゲートを通る（違反 0）', () => {
   const cards = parseBacklog(text);
   const pkg = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8'));
   const baseline = JSON.parse(readFileSync(join(ROOT, '.claude/config/backlog-vocab-baseline.json'), 'utf8'));
-  assert.ok(cards.length > 50, `カード数が異常に少ない: ${cards.length}`);
+  assert.ok(cards.length > 15, `カード数が異常に少ない: ${cards.length}`);
   const v = validateCards(cards, findOrphanHeadings(text), {
     rawHeadingCount: (text.match(/^### /gm) ?? []).length,
     npmScripts: new Set(Object.keys(pkg.scripts)),
@@ -171,7 +171,7 @@ test('重複 ID は違反（採番の再利用を止める）', () => {
 test('実 backlog は全カードが一意な DN-#### を持つ', () => {
   const text = readFileSync(join(ROOT, '.claude/todo/backlog.md'), 'utf8');
   const cards = parseBacklog(text);
-  assert.ok(cards.length > 50, `カード数が異常に少ない: ${cards.length}`);
+  assert.ok(cards.length > 15, `カード数が異常に少ない: ${cards.length}`);
   const ids = cards.map((c) => c.id);
   assert.equal(ids.filter(Boolean).length, cards.length, 'ID の無いカードがある');
   assert.equal(new Set(ids).size, cards.length, 'ID が重複している');

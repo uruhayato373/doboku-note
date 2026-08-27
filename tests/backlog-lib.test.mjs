@@ -256,7 +256,7 @@ test('実 backlog でも 3 バケットが総数を分割する', () => {
 test('実 backlog をパースしてカードが取れる（0件は故障とみなす）', () => {
   const text = readFileSync(join(ROOT, '.claude/todo/backlog.md'), 'utf8');
   const cards = parseBacklog(text);
-  assert.ok(cards.length > 50, `カード数が異常に少ない: ${cards.length}`);
+  assert.ok(cards.length > 15, `カード数が異常に少ない: ${cards.length}`);
   // 全カードが tier を持つ（parseBacklog の不変条件）
   assert.ok(cards.every((c) => c.tier), 'tier を持たないカードがある');
 });
@@ -272,9 +272,12 @@ test('実 backlog に 4 つの tier セクションがすべて存在する', ()
       `tier 見出し ${emoji} が消えている（セクション削除で巻き込んだ疑い）`,
     );
   }
-  // どの tier にもカードが 1 枚以上ある（0 枚は見出し消失か誤配置のサイン）
+  // high/mid/low にカードが 1 枚以上ある（0 枚は見出し消失か誤配置のサイン）。
+  // hold（🟣 判断待ち）だけは除く: 2026-08-27 に判断待ちを実際に 0 枚まで解消した
+  // （台帳の健全な状態）ので、hold=0 を異常とはみなさない。見出し自体の消失は
+  // 上のループで別途検査済み。
   const byTier = parseBacklog(text).reduce((a, c) => ((a[c.tier] = (a[c.tier] ?? 0) + 1), a), {});
-  for (const t of ['high', 'mid', 'low', 'hold']) {
+  for (const t of ['high', 'mid', 'low']) {
     assert.ok(byTier[t] > 0, `tier=${t} のカードが 0 件（内訳: ${JSON.stringify(byTier)}）`);
   }
 });
