@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-27T00:48:09.110Z",
+  "generated_at": "2026-08-27T00:56:21.585Z",
   "summary": {
-    "total_mdx_files": 1164,
+    "total_mdx_files": 1165,
     "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1077,7 +1077,7 @@
     },
     {
       "name": "guide",
-      "count": 179,
+      "count": 180,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1157,6 +1157,7 @@
         "civil-practice-asphalt-pavement-control",
         "civil-practice-backfill-river-excavation",
         "civil-practice-cast-in-place-pile-methods",
+        "civil-practice-checklist-shoring-buoyancy",
         "civil-practice-concrete-compaction-numbers",
         "civil-practice-concrete-crack-causes",
         "civil-practice-concrete-finishing-curing",

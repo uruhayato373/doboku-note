@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-27T00:48:08.684Z",
+  "generated_at": "2026-08-27T00:56:21.155Z",
   "summary": {
-    "total": 1164,
-    "published": 1145,
+    "total": 1165,
+    "published": 1146,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 43,
+      "civil-practice": 44,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6103,6 +6103,22 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "場所打ち杭4工法の選び方｜オールケーシング・アースドリル・リバース・深礎の使い分け【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-checklist-shoring-buoyancy": {
+      "title": "チェックリスト・支保工の足元・管の浮き上がり — 見落としを仕組みで防ぐ",
+      "description": "チェックリストは作り方次第で機能を失い、支保工は足元の地盤が沈めば上の精度が無駄になり、埋設管は埋め戻したあとに浮き上がって初めて発覚します。3つに共通する「分かっているのに現場で抜ける」失敗を仕組みで防ぐ視点から整理し、浮力の計算例も示します。",
+      "shortTitle": "見落としを防ぐ仕組み",
+      "subtitle": "分かっているのに現場で抜ける失敗",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "チェックリスト・支保工の足元・埋設管の浮力｜見落としを仕組みで防ぐ【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
