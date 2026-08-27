@@ -1,0 +1,54 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="地盤改良の固化工法を改良深度で分ける浅層混合処理（3m以内）・中層混合処理（10m以内）・深層混合処理（10m超）の区分を示す断面図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-label { font-size: 12px; fill: #555; }
+      .t-num   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-label" x="200" y="26" text-anchor="middle">改良深度で3段階に区分（固化工法）</text>
+
+  <!-- 地表 -->
+  <line x1="20" y1="45" x2="380" y2="45" stroke="#222" stroke-width="2"/>
+  <text class="t-label" x="30" y="40">地表</text>
+
+  <!-- 浅層 (0-3m) -->
+  <rect class="box-brand" x="20" y="45" width="360" height="85" />
+  <text class="t-title" x="35" y="70">浅層混合処理</text>
+  <text class="t-label" x="35" y="90">改良深度 3m以内</text>
+  <text class="t-label" x="35" y="108">バックホウで直接撹拌</text>
+  <text class="t-label" x="35" y="123">超軟弱地盤の表面固化に多用</text>
+
+  <!-- 中層 (3-10m) -->
+  <rect class="box-warn" x="20" y="130" width="360" height="140" />
+  <text class="t-title" x="35" y="155">中層混合処理</text>
+  <text class="t-label" x="35" y="175">改良深度 10m以内</text>
+  <text class="t-label" x="35" y="193">専用撹拌機でソイルセメント柱を造成</text>
+
+  <!-- 深層 (10m超) -->
+  <rect class="box-danger" x="20" y="270" width="360" height="130" />
+  <text class="t-title" x="35" y="295">深層混合処理</text>
+  <text class="t-label" x="35" y="315">改良深度 10m超</text>
+  <text class="t-label" x="35" y="333">大掛かりな機械と広い作業スペースが必要</text>
+  <text class="t-label" x="35" y="351">狭い現場では選びにくい</text>
+
+  <!-- 深さの目盛り -->
+  <line x1="14" y1="45" x2="14" y2="400" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="t-label" x="14" y="42" text-anchor="middle" font-size="11">0</text>
+  <line x1="10" y1="130" x2="18" y2="130" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-label" x="14" y="127" text-anchor="middle" font-size="11">3m</text>
+  <line x1="10" y1="270" x2="18" y2="270" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-label" x="14" y="267" text-anchor="middle" font-size="11">10m</text>
+
+  <line x1="15" y1="420" x2="385" y2="420" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-label" x="200" y="442" text-anchor="middle">高圧噴射撹拌は深度区分と別軸（狭小部・既設近接に強い）</text>
+  <text class="t-label" x="200" y="460" text-anchor="middle">目的（支持力・沈下・液状化対策）は工法選定の別の軸</text>
+</svg>

@@ -2,23 +2,458 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 309,
-    "embedded": 303,
+    "total": 517,
+    "embedded": 511,
     "orphan": 6,
     "missingConcept": 0,
     "withHighAudit": 0,
     "figures": {
-      "total": 288,
-      "conforming": 288,
+      "total": 439,
+      "conforming": 439,
       "needsRework": 0
     },
     "byCategory": {
-      "civil-construction-1": 62,
+      "civil-construction-1": 177,
+      "civil-construction-2": 20,
+      "civil-practice": 16,
+      "concrete-chief-engineer": 57,
       "concrete-diagnostician": 22,
       "pe-comprehensive-management": 225
     }
   },
   "entries": [
+    {
+      "file": "content/site/civil-construction-1/guide-concrete-key-points/img/figure-aggregate-moisture.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-concrete-key-points",
+      "name": "figure-aggregate-moisture.svg",
+      "concept": "骨材の含水状態の4区分。絶対乾燥状態は内部の空隙にも水がない状態、空気中乾燥状態は空隙の一部に水がある状態、表面乾燥飽水状態は空隙が水で満たされ表面は乾いた状態、湿潤状態は表面にも水がある状態。配合計算の基準は表面乾燥飽水状態である",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-concrete-key-points/img/figure-cover-and-spacing.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-concrete-key-points",
+      "name": "figure-cover-and-spacing.svg",
+      "concept": "かぶりとあきの違い。かぶりは鉄筋の表面とコンクリート表面との最短距離で測った厚さ、あきは隣り合う鉄筋の表面どうしの間隔である。あきの基準ははりが 20mm 以上、柱が 40mm 以上",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-concrete-key-points/img/figure-lap-splice-stagger.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-concrete-key-points",
+      "name": "figure-lap-splice-stagger.svg",
+      "concept": "重ね継手のずらし方。隣り合う鉄筋の継手は同一断面に集めず、軸方向にずらして配置する。ずらす距離は継手の長さに鉄筋直径の 25 倍を加えた長さ以上とする",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-concrete-key-points/img/figure-vibrator-insertion.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-concrete-key-points",
+      "name": "figure-vibrator-insertion.svg",
+      "concept": "棒状バイブレータの挿入方法。バイブレータはなるべく鉛直に挿入し、挿入間隔は 50cm 以下、先端は下層へ 10cm 程度差し込んで上層と下層を一体化させる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-concrete-maintenance/img/figure-carbonation-progress.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-concrete-maintenance",
+      "name": "figure-carbonation-progress.svg",
+      "concept": "中性化深さは経過年数の平方根に比例して進む。中性化深さがかぶり厚さに達すると鋼材の不動態被膜が破壊されて腐食が始まるため、かぶりを大きくすると腐食が始まるまでの年数は大きく延びる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-concrete-maintenance/img/figure-frost-damage-forms.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-concrete-maintenance",
+      "name": "figure-frost-damage-forms.svg",
+      "concept": "凍害の主な劣化形態3種。スケーリングはコンクリート表面がフレーク状にはがれる現象、微細ひび割れは凍結融解の繰返しにより内部に生じるひび割れ、ポップアウトは骨材の凍結膨張により表面が円錐状に剥離する現象",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-earthwork-key-points/img/figure-n-value-ground.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-earthwork-key-points",
+      "name": "figure-n-value-ground.svg",
+      "concept": "N値と地盤の関係。粘性土では N値 0から4 が軟弱地盤で精密な土質調査が必要、5から14 は安定は問題ないが沈下の可能性があり、15 以上は安定・沈下とも対象としない。砂質土では N値 0から10 は液状化対策が必要、10から30 は中位で基礎には不十分、30 以上は密で大構造物には 50 以上が望ましい",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-earthwork-key-points/img/figure-soil-volume-change.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-earthwork-key-points",
+      "name": "figure-soil-volume-change.svg",
+      "concept": "土量変化率 L と C の関係。地山の土量を基準として、ほぐした土量は地山の L 倍で L は 1 より大きく、締固め土量は地山の C 倍で C は一般に 1 より小さい。締固め土量に L 割る C を掛けるとほぐした土量が得られる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-earthwork-key-points/img/figure-vertical-drain.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-earthwork-key-points",
+      "name": "figure-vertical-drain.svg",
+      "concept": "バーチカルドレーン工法の原理。対策前は軟弱層の水が層厚に相当する長い距離を移動しなければ排水されないが、鉛直の砂柱を打設すると水は砂柱までの短い距離を移動すればよくなる。圧密に要する時間は排水距離の 2 乗に比例するため、排水距離を短縮すると圧密が促進される",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-environment-management/img/figure-manifest-flow.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-environment-management",
+      "name": "figure-manifest-flow.svg",
+      "concept": "産業廃棄物の委託契約とマニフェスト。排出事業者である元請業者は、収集運搬業者と処分業者のそれぞれに個別かつ直接に委託契約を結ぶ。産業廃棄物管理票（マニフェスト）を交付し、処理が終了した段階で受託者から返送を受けることで適正処理を確認する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-environment-management/img/figure-recycle-law-thresholds.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-environment-management",
+      "name": "figure-recycle-law-thresholds.svg",
+      "concept": "建設リサイクル法の対象工事の規模基準。床面積で判定するのは解体工事が 80 平方メートル以上、新築・増築工事が 500 平方メートル以上。請負代金で判定するのは修繕・模様替え工事が 1 億円以上、その他の工作物に関する工事が 500 万円以上",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-foundation/img/figure-bearing-vs-friction-pile.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-foundation",
+      "name": "figure-bearing-vs-friction-pile.svg",
+      "concept": "支持杭と摩擦杭の違い。支持杭は先端が支持層に達し、杭先端の支持力と杭周面の摩擦力の両方で荷重に抵抗する。摩擦杭は先端が支持層に達せず、杭周面の摩擦力だけで抵抗し、先端支持力は積極的に考慮しない",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-foundation/img/figure-bored-pile-wall-protection.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-foundation",
+      "name": "figure-bored-pile-wall-protection.svg",
+      "concept": "場所打ち杭4工法の孔壁保護方法。オールケーシング工法はケーシングチューブで孔壁全体を保護し、アースドリル工法は表層のみケーシングでそれより深い部分は安定液の水圧で保持する。リバース工法はスタンドパイプを設け孔内水位を地下水位より 2m 以上高く保ち、深礎工法はライナープレートで土留めしながら掘削する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-foundation/img/figure-excavation-bottom-failure.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-foundation",
+      "name": "figure-excavation-bottom-failure.svg",
+      "concept": "掘削底面の破壊現象4種。ヒービングは軟弱粘性土で背面の土が土留め壁の下を回り込み掘削底面が隆起する。ボイリングは砂質地盤で上向きの浸透流により砂が噴き上がる。盤ぶくれは難透水層の下の被圧水により掘削底面が広範囲に押し上げられる。パイピングは局所的な水みちに沿って浸透破壊が進む",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-four-management/img/figure-formwork-shoring.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-four-management",
+      "name": "figure-formwork-shoring.svg",
+      "concept": "型枠支保工の規定。パイプサポートの支柱は敷板・敷角で沈下を防止し、継手はボルト 4 以上または専用金具で接続する。高さが 3.5m を超える場合は 2m 以内ごとに水平つなぎを設ける",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-four-management/img/figure-scaffold-dimensions.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-four-management",
+      "name": "figure-scaffold-dimensions.svg",
+      "concept": "足場の寸法規定。作業床の幅は 40cm 以上、手すりの高さは作業床から 85cm 以上、中さんは 35cm 以上 50cm 以下の高さに設ける。床材の隙間は 3cm 以下、長手方向に重ねる部分の長さは 20cm 以上",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-four-management/img/figure-temporary-works-axes.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-four-management",
+      "name": "figure-temporary-works-axes.svg",
+      "concept": "仮設の分類は 2 つの独立した軸から成る。誰が決めるかの軸では、発注者が設計・数量・施工方法を指定する指定仮設と、経費を一式計上し構造は施工業者の裁量による任意仮設に分かれる。何に必要かの軸では、本工事に直接必要な直接仮設と、間接的に必要な共通仮設に分かれる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-law-key-points/img/figure-noise-work-hours.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-law-key-points",
+      "name": "figure-noise-work-hours.svg",
+      "concept": "特定建設作業の夜間作業禁止時間帯。1号区域は 19 時から翌 7 時までが作業禁止で 1 日の作業時間は 10 時間まで、2号区域は 22 時から翌 6 時までが作業禁止で 1 日の作業時間は 14 時間まで。いずれも騒音規制法と振動規制法で共通である",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-law-key-points/img/figure-safety-org-structure.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-law-key-points",
+      "name": "figure-safety-org-structure.svg",
+      "concept": "安全衛生管理組織の2系統。事業場ごとに自社の労働者数で選任するのが総括安全衛生管理者・安全管理者・衛生管理者。元請と下請が混在する現場では合計人数で統括安全衛生責任者を選任し、元請側に元方安全衛生管理者、下請側に安全衛生責任者を置く",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-quality-management/img/figure-control-chart-anomalies.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-quality-management",
+      "name": "figure-control-chart-anomalies.svg",
+      "concept": "管理図で工程の異常と判定する点の並び方4種。管理限界外は UCL の上または LCL の下に点が出ること、連は中心線の片側に連続 7 点以上並ぶこと、傾向は連続 6 点以上が上昇または下降すること、周期は一定の周期で点が変動することである",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-quality-management/img/figure-cp-vs-cpk.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-quality-management",
+      "name": "figure-cp-vs-cpk.svg",
+      "concept": "工程能力指数 Cp と Cpk の違い。Cp は規格幅を 6 シグマで割った値で、ばらつきの大きさだけで決まる。Cpk は平均値から規格上限までと規格下限までのうち近い側で決まるため、平均値が規格中心からずれると小さくなる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-safety-management/img/figure-accident-causation.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-safety-management",
+      "name": "figure-accident-causation.svg",
+      "concept": "労働災害の原因の構造。背景にある間接原因が、物的要因である不安全状態と人的要因である不安全行動という直接原因を生み、それが労働災害に至る。不注意は災害の結果であって原因ではない",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-schedule-management/img/figure-planned-vs-actual-scurve.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-schedule-management",
+      "name": "figure-planned-vs-actual-scurve.svg",
+      "concept": "計画 S 字曲線と実施 S 字曲線の対比。累計出来高を同一グラフに重ねて描き、実施線が計画線より下にあれば遅れ、上にあれば進みすぎと判定する。両線の縦の開きがその時点までの遅れの累積を表す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-surveying/img/figure-new-survey-tech.svg",
+      "category": "civil-construction-1",
+      "slug": "guide-surveying",
+      "name": "figure-new-survey-tech.svg",
+      "concept": "新しい測量技術の位置づけ。地上から面的に取得するのが地上レーザ測量、地上から線状に取得するのが車載写真レーザ測量、空中から面的に取得するのが UAV 写真測量である",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
     {
       "file": "content/site/civil-construction-1/primary-h26-b/img/h26-b-fig-02-cp.svg",
       "category": "civil-construction-1",
@@ -110,6 +545,114 @@
       }
     },
     {
+      "file": "content/site/civil-construction-1/textbook-building-standards/img/figure-numeric-standards.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-building-standards",
+      "name": "figure-numeric-standards.svg",
+      "concept": "建築基準法の主な数値基準。単体規定では住宅の居室の採光が床面積の7分の1以上、換気が20分の1以上、避雷設備は高さ20メートル超、最下階の木造床は地面から45センチメートル以上、床下換気孔は壁の長さ5メートル以下ごとに300平方センチメートル以上。集団規定では道路の幅員4メートル以上、敷地は道路に2メートル以上接する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-building-standards/img/figure-single-vs-group-rules.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-building-standards",
+      "name": "figure-single-vs-group-rules.svg",
+      "concept": "建築基準法の単体規定と集団規定の対比。単体規定は全国の建築物に適用され、敷地の衛生・安全、構造耐力、採光と換気などを定める。集団規定は都市計画区域および準都市計画区域内に限り適用され、接道義務、用途地域、容積率、建ぺい率などを定める",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-building-standards/img/figure-terms-definition.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-building-standards",
+      "name": "figure-terms-definition.svg",
+      "concept": "建築基準法の主な用語の定義。建築物は土地に定着し屋根と柱または壁を有する工作物、特殊建築物は多数の者が利用する用途の建築物、主要構造部は壁・柱・床・はり・屋根・階段で間仕切壁や最下階の床などは除かれる、特定行政庁は建築主事を置く市町村では市町村長、その他の区域では都道府県知事",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-construction-business/img/figure-license-classification.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-construction-business",
+      "name": "figure-license-classification.svg",
+      "concept": "建設業の許可の区分。軽微な建設工事のみを請け負う場合は許可不要。営業所の置き方により大臣許可と知事許可に分かれ、元請として下請に出す金額により一般建設業と特定建設業に分かれる。29の建設工事の種類ごとに業種別の許可を受け、うち7業種が指定建設業。有効期限は5年",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-construction-business/img/figure-prime-contractor-deadlines.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-construction-business",
+      "name": "figure-prime-contractor-deadlines.svg",
+      "concept": "元請負人の義務の期限。完成検査の完了は下請からの完成通知から20日以内、目的物の引渡しは検査後に下請の申出があれば直ちに、下請代金の支払は注文者から支払を受けた日から1か月以内、特定建設業者の支払は下請の引渡し申出日から50日以内。義務ごとに起算日が異なる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-construction-business/img/figure-system-ledger-diagram.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-construction-business",
+      "name": "figure-system-ledger-diagram.svg",
+      "concept": "施工体制台帳と施工体系図。公共工事は下請契約をすれば金額を問わず作成し、民間工事は下請総額5000万円以上で作成する。台帳は現場ごとに備えて発注者の請求で閲覧させ保存は5年、体系図は工事関係者の見やすい場所に掲示し公共工事では公衆の見やすい場所にも掲げ保存は10年",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-construction-1/textbook-construction-byproduct-recycle/img/figure-byproduct-hierarchy.svg",
       "category": "civil-construction-1",
       "slug": "textbook-construction-byproduct-recycle",
@@ -146,6 +689,24 @@
       }
     },
     {
+      "file": "content/site/civil-construction-1/textbook-construction-mgmt-overview/img/figure-management-structure.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-construction-mgmt-overview",
+      "name": "figure-management-structure.svg",
+      "concept": "施工管理の体系。目的は品質をより良く、価格をより安く、工期をより早くの3要素であり、これに対応するのが品質管理・原価管理・工程管理の三大管理。さらに社会的制約に基づく管理として安全管理・労務管理・環境保全管理があり、内部検査が継続的改善を支える",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-construction-1/textbook-construction-mgmt-overview/img/figure-pdca-cycle.svg",
       "category": "civil-construction-1",
       "slug": "textbook-construction-mgmt-overview",
@@ -159,7 +720,115 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-construction-mgmt-overview/img/figure-pdca-key-points.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-construction-mgmt-overview",
+      "name": "figure-pdca-key-points.svg",
+      "concept": "PDCA各段階の要点。計画では安全を前提に基準値を適切に設定し、実施では調査記録を正確に取り、検討では記録データを工学的に判断して問題の所在を明確にし、処置では最小の費用で最大の効果を得られる方法を見つける",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-construction-plan-overview/img/figure-contract-documents.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-construction-plan-overview",
+      "name": "figure-contract-documents.svg",
+      "concept": "契約図書の構成。契約図書は契約書と設計図書からなり、設計図書は仕様書・契約図面・現場説明書・現場説明に対する質問回答書・工事数量総括表で構成される。仕様書はさらに共通仕様書と特記仕様書に分かれる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-construction-plan-overview/img/figure-plan-creation-steps.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-construction-plan-overview",
+      "name": "figure-plan-creation-steps.svg",
+      "concept": "施工計画作成の一般的な手順。事前調査の実施、基本計画の作成、詳細計画の作成、管理計画の作成の4段階を順に進める。詳細計画では機械や人員の決定・仮設備・工種別詳細工程・調達使用計画・工事費の積算を行う",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-construction-plan-overview/img/figure-plan-objectives.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-construction-plan-overview",
+      "name": "figure-plan-objectives.svg",
+      "concept": "施工計画の目的と検討課題。安全性を前提として品質・経済性・工期の3条件の調和を保つ。作成にあたり特に念入りに確認・調査する事項は契約条件、現場の工事条件、全体工程表、施工法と施工順序、施工用機械設備の選定、仮設備の設計と配置計画の6つ",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-control-chart/img/figure-cause-classification.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-control-chart",
+      "name": "figure-cause-classification.svg",
+      "concept": "偶然原因と異常原因の区別。偶然原因は技術的におさえられないか不経済となる原因で作業標準どおりでもバラツキを与えるため許容する。異常原因は技術的に除去できる見逃せない原因で検出して除去する。管理限界線の内側でクセがなければ安定と判定する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-control-chart/img/figure-control-chart-types.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-control-chart",
+      "name": "figure-control-chart-types.svg",
+      "concept": "管理図の種類。計量値には平均値と範囲を扱うX̄-R管理図、個々の測定値を扱うX-Rs-Rm管理図、メディアンを扱うX̃管理図がある。計数値には不適合品率のP管理図、不適合品数のnP管理図、不適合数のc管理図、単位あたり不適合数のu管理図がある",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
         "low": 0
       }
     },
@@ -169,6 +838,168 @@
       "slug": "textbook-control-chart",
       "name": "figure-xbar-r-chart.svg",
       "concept": "X̄-R管理図。上段の平均値X̄管理図と下段の範囲R管理図をUCL・CL・LCLの3本の管理線で管理し、点が限界内でクセがなければ工程は安定と判断する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-control-chart/img/figure-xbar-r-procedure.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-control-chart",
+      "name": "figure-xbar-r-procedure.svg",
+      "concept": "X̄-R管理図の作成手順。予備データの準備、平均値と範囲の計算、管理線の計算、記入と安定状態の判定、規格値との比較の順に進む。予備データを多数とれない建設現場では5-5-10-20-20方式を用いる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-crane/img/figure-aerial-work-platform.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-crane",
+      "name": "figure-aerial-work-platform.svg",
+      "concept": "高所作業車の2軸分類。走行装置ではトラック式・ホイール式・クローラ式に分かれ、作業装置では伸縮ブーム型・屈折ブーム型・混合ブーム型・垂直昇降型に分かれる。作業床を目的位置にどう到達させるかで作業装置を選ぶ",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-crane/img/figure-crane-classification.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-crane",
+      "name": "figure-crane-classification.svg",
+      "concept": "クレーンの分類。走行方式により移動式と固定式に大別される。移動式にはクローラ・トラック・オールテレーン・ホイール・ラフテレーン・積載型トラッククレーンがあり、固定式には天井・ジブ・門型・ケーブルクレーンとテルハがある",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-crane/img/figure-mobile-crane-comparison.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-crane",
+      "name": "figure-mobile-crane-comparison.svg",
+      "concept": "移動式クレーンの使い分け。クローラクレーンは走破性に優れるが走行が遅い。トラック・オールテレーンクレーンは機動性が高くオールテレーンは不整地作業も両立する。ラフテレーンクレーンは1人で走行とクレーン作業ができ小回りが利く。積載型トラッククレーンは貨物運搬と兼用だが転倒事故が多い",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-cut-slope-protection/img/figure-cut-slope-shape.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-cut-slope-protection",
+      "name": "figure-cut-slope-shape.svg",
+      "concept": "切土法面の形状。地質が一様な場合の単一勾配、土質・岩質が変わる場合の勾配変化と小段（切土高5〜10m以上で幅1.0〜2.0m・横断勾配5〜10%）、法肩を丸めるラウンディングの3パターンと、小段が果たす4つの役割",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-cut-slope-protection/img/figure-slope-protection-selection.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-cut-slope-protection",
+      "name": "figure-slope-protection-selection.svg",
+      "concept": "法面保護工の選定。安定した土質は植生工、侵食されやすい場合は構造物工を併用、湧水がある場所は法枠工・ブロック張り工、軟弱で崩れやすい場合はブロック張り工・石張り工、風化しやすい土砂・軟岩はモルタル・コンクリート吹付工を用いる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-demolition/img/figure-demolition-flow.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-demolition",
+      "name": "figure-demolition-flow.svg",
+      "concept": "解体工事の一般的な流れ。事前調査、施工計画、事前措置、解体作業の順に進む。解体作業は仮設・養生、構造物の解体、基礎・基礎杭の解体、整地の順で行い、構造種別によって解体方法が異なる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-demolition/img/figure-demolition-measures.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-demolition",
+      "name": "figure-demolition-measures.svg",
+      "concept": "解体工法ごとに必要な措置。すべての工法で危険範囲への立入りを禁止する。圧砕・大型ブレーカでは自立する部分の高さを厚さの5倍以下とし、転倒工法は転倒方向の空間と地盤の耐力を確認し、カッタは鉄筋配置の事前確認、ワイヤソーイングは張力管理、ウォータージェットは誤噴射防止、静的破砕剤は噴出と火傷に注意する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-demolition/img/figure-demolition-methods.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-demolition",
+      "name": "figure-demolition-methods.svg",
+      "concept": "解体工法の分類。解体原理では打撃・圧砕・切断・静的破砕剤・転倒の5工法に分かれ、切断工法はさらにカッタ・ワイヤソーイング・コアドリル・ウォータージェットに分かれる。施工要領では地上解体工法と階上解体工法に分かれる",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -195,8 +1026,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -213,7 +1044,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -231,7 +1062,97 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-embankment/img/figure-compaction-quality-methods.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-embankment",
+      "name": "figure-compaction-quality-methods.svg",
+      "concept": "締固め品質の規定方式。品質規定方式は乾燥密度・空気間隙率または飽和度・強度変形特性の3方法に分かれ、工法規定方式は締固め機械・まき出し厚さ・締固め回数を仕様で定める",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-embankment/img/figure-embankment-stability-checks.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-embankment",
+      "name": "figure-embankment-stability-checks.svg",
+      "concept": "盛土の安定性検討が必要な代表的な条件。基礎地盤が軟弱、盛土高が15m程度以上、含水比の高い材料、地山からの浸潤の影響を受けやすい形状、破壊時の被害が大きい箇所の5条件",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-explosives-act/img/figure-consumption-site-flow.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-explosives-act",
+      "name": "figure-consumption-site-flow.svg",
+      "concept": "消費場所における火薬類の流れ。火薬庫から火薬類取扱所を経て火工所へ、そして発破場所へ運ぶ。火薬類取扱所は消費場所ごとに1箇所、火工所は1箇所以上設ける。残った火薬類は元の取扱所や火工所へ直ちに返送する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-explosives-act/img/figure-handling-rules.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-explosives-act",
+      "name": "figure-handling-rules.svg",
+      "concept": "火薬類の取扱いにおける禁止事項と遵守事項。火薬庫に入るときは鉄類や指定外の灯火を持ち込まず土足で出入りしない。貯蔵では火薬類以外を置かず温度変化に注意する。取扱いは18歳未満が禁止され、混包や偽装をせず、容器は電気不良導体で内面に鉄類を表さない",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-explosives-act/img/figure-permits-notifications.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-explosives-act",
+      "name": "figure-permits-notifications.svg",
+      "concept": "火薬類取締法における許可と届出の相手先。火薬庫の設置・消費・輸入・廃棄は都道府県知事の許可、保安責任者の選任と輸入後の報告は都道府県知事への届出、陸上運搬は都道府県公安委員会への届出、喪失または盗取は警察官または海上保安官への届出",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
         "low": 0
       }
     },
@@ -249,7 +1170,61 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-grader-compaction/img/figure-compaction-specs.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-grader-compaction",
+      "name": "figure-compaction-specs.svg",
+      "concept": "締固め機械の諸元5項目。線圧はロードローラや振動ローラの目安、輪荷重はタイヤローラの目安で増すと深さ方向の力が増す、接地圧はほぼタイヤ空気圧に等しく増すと表面付近の密度が高まる、起振力は振動系機械の目安、締固め幅は1回の通過で締め固められる全幅",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-grader-compaction/img/figure-motor-grader-structure.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-grader-compaction",
+      "name": "figure-motor-grader-structure.svg",
+      "concept": "モータグレーダの構造。長い前後輪の軸距のほぼ中央にブレードを装備し、前輪車軸の揺動機構とリーニング、後4輪のタンデム装置をもつ。車体が傾斜してもブレードの変動は車輪の変動量の8分の1に抑えられる。大きさはブレードの長さで区分する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-grader-compaction/img/figure-tire-roller-control.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-grader-compaction",
+      "name": "figure-tire-roller-control.svg",
+      "concept": "タイヤローラの締固め力は2つの手段で調整する。タイヤ空気圧を変えると接地圧が変わり表面付近の締固め効果に効き、バラストの積込み量を変えると輪荷重が変わり深さ方向の締固め力に効く。砕石は接地圧を高く、粘性土は低くする",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
         "low": 0
       }
     },
@@ -313,6 +1288,384 @@
       "slug": "textbook-histogram",
       "name": "figure-4-9.svg",
       "concept": "ヒストグラムの 10 分布パターン (a〜j)。左右対称・ゆとり不足・下限規格値割れ・バラツキ大・左偏り・右偏り・二山・端切れ・端異常高・飛び離れ山。各セルの 2 本の破線は下限規格値・上限規格値",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-labor-standards/img/figure-accident-compensation.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-labor-standards",
+      "name": "figure-accident-compensation.svg",
+      "concept": "労働基準法の災害補償5種類。療養補償は業務上の負傷疾病に対する療養、休業補償は平均賃金の60パーセント、障害補償は障害の程度に応じた日数分、遺族補償は平均賃金の1000日分、打切補償は療養開始後3年で治らない場合の平均賃金1200日分。補償義務が生じない場合と元請負人を使用者とみなす特則もあわせて示す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-labor-standards/img/figure-work-rules-items.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-labor-standards",
+      "name": "figure-work-rules-items.svg",
+      "concept": "就業規則の記載事項。必ず記載する絶対的必要記載事項は労働時間関係・賃金関係・退職関係の3つ、定めをする場合に記載する相対的必要記載事項は退職手当・臨時の賃金等・費用負担・安全衛生の4つ。過半数労働組合または過半数代表者の意見を聴き意見書を添えて労働基準監督署へ届け出る",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-labor-standards/img/figure-working-hours-standards.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-labor-standards",
+      "name": "figure-working-hours-standards.svg",
+      "concept": "労働時間・休憩・休日・年次有給休暇の基準と割増賃金率。労働時間は1週40時間1日8時間、休憩は6時間超で45分以上8時間超で1時間以上、休日は週1日以上または4週で4日以上、年次有給休暇は6か月継続勤務かつ8割以上出勤で10労働日。割増賃金は時間外休日が2割5分以上5割以下、深夜が2割5分以上、月60時間超が5割増以上",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-law-compliance/img/figure-law-hierarchy.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-law-compliance",
+      "name": "figure-law-hierarchy.svg",
+      "concept": "法令の階層構造。法律・政令・省令・告示の順に構成され、政令や省令や告示は法律の具体的な内容を規定する。条例は憲法に基づき法律の範囲内で制定され広義の法令に含まれる。通達には法令に準ずる役割のものもある",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-law-compliance/img/figure-obligation-source.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-law-compliance",
+      "name": "figure-obligation-source.svg",
+      "concept": "遵守義務の発生源の違い。法令上の義務は契約図書に指定がなくとも誰の指示がなくとも当然に発生し、違反すると刑事罰を伴うものが多い。契約上の義務はJISや民間団体の基準などが契約図書に明記されて初めて発生する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-law-compliance/img/figure-what-to-study.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-law-compliance",
+      "name": "figure-what-to-study.svg",
+      "concept": "施工管理のために学ぶべき内容。工事現場で必要な措置・資格制度・技術的な基準や規格・許可届出検査の手続き・各法令固有の用語を優先して押さえる。試験では細則より許可権者・期間・金額と法令間の関係の大枠が問われる。法律の目的から正解を類推できる場合もある",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-leveling/img/figure-fieldbook-methods.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-leveling",
+      "name": "figure-fieldbook-methods.svg",
+      "concept": "水準測量の野帳記入方法の比較。昇降式は後視と前視の差から各区間の昇降を求めて順次加算し、器高式は器械高を求めて器械高から前視の読みを引いて標高を計算する。器高式は中間点が多い場合に便利である",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-leveling/img/figure-leveling-grades.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-leveling",
+      "name": "figure-leveling-grades.svg",
+      "concept": "公共測量における水準測量の等級別基準。視準距離は1級2級が最大50メートル、3級4級が最大70メートル、簡易が最大100メートル。読定単位は1級0.01ミリメートル、2級0.1ミリメートル、3級以下1ミリメートル。往復較差の許容範囲は1級2.5、2級5、3級10、4級20ミリメートルにルートSを乗じた値",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-leveling/img/figure-leveling-principle.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-leveling",
+      "name": "figure-leveling-principle.svg",
+      "concept": "水準測量の観測の仕組み。レベルを後視標尺と前視標尺の中間に据え、水平な視準線で両方の標尺を読む。高低差は後視の読みaから前視の読みbを引いて求め、到達点の標高は出発点の標高に高低差を加えて求める",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-loader/img/figure-loader-cycle-time.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-loader",
+      "name": "figure-loader-cycle-time.svg",
+      "concept": "ローダのサイクルタイムは足廻り係数と片道運搬距離の積に、すくい上げ時間と積込みギヤ入換え段取り時間を加えて求める。足廻り係数はクローラ式2.0、ホイール式1.8秒毎メートル。片道運搬距離は通常8メートル。積込み等の時間は12から20秒で計画では15秒程度を用いる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-loader/img/figure-loader-types.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-loader",
+      "name": "figure-loader-types.svg",
+      "concept": "ローダの走行装置による分類。クローラ式は不整地走行に優れ掘削力が大きく、普通土の掘削積込みやルーズな破砕岩の積込みに使う。ホイール式は掘削力は小さいが機動性に優れ大形バケットでルーズな材料の積込み能力が大きい。バケット容量は山積容量で表す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-loader/img/figure-v-loading-pattern.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-loader",
+      "name": "figure-v-loading-pattern.svg",
+      "concept": "ローダのV形積込み方式。ダンプトラックを掘削対象物に対して60度程度斜めに停止させ、ローダが対象物をすくい込んだ後、後退と前進によりダンプトラックの荷台へ積み込む。ローダの動線がV字を描く",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-machinery-overview/img/figure-machinery-classification.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-machinery-overview",
+      "name": "figure-machinery-classification.svg",
+      "concept": "建設機械の分類。対象工事別・工種別・作業種別・機械種別の4つの分類軸を目的に応じて使い分ける。建設業法上はトラクタ系・ショベル系・基礎工事用・モータグレーダ・締固め用・舗装用の建設機械に区分される",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-machinery-overview/img/figure-machinery-spec-notation.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-machinery-overview",
+      "name": "figure-machinery-spec-notation.svg",
+      "concept": "建設機械の規格表示4種と機種例。作業装置の大きさはローダのバケット容量、作業能力はクローラクレーンのつり上げ荷重、質量はブルドーザの運転質量、原動機出力はバイブロハンマの出力で代表される。さらに走行装置・移動方式・動力伝達方式による形式区分がある",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-machinery-overview/img/figure-operator-protection.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-machinery-overview",
+      "name": "figure-operator-protection.svg",
+      "concept": "オペレータ保護装置を守る対象別に整理した図。落下物に対してはヘッドガード・FOPS・OPG、転倒に対しては ROPS、横転に対しては TOPS が用いられ、ROPS は FOPS を兼ねる場合が多い。シートベルトは保護構造の装着有無にかかわらず併用する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-machinery-structure/img/figure-machine-structure.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-machinery-structure",
+      "name": "figure-machine-structure.svg",
+      "concept": "建設機械の構造は原動機・動力伝達装置・走行装置・操向装置・作業装置・付属装置の6要素からなる。建設機械用エンジンには重負荷での運転、高い耐久性、前後左右40度の傾斜運転への耐性、低騒音、排出ガス規制への適合などが要求される",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-machinery-structure/img/figure-power-transmission.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-machinery-structure",
+      "name": "figure-power-transmission.svg",
+      "concept": "動力伝達装置は機械式と油圧式に大別される。機械式の変速装置にはダイレクトドライブ方式、パワーシフトドライブ、トルコンパワーシフト方式の3方式があり、トルコンパワーシフト方式が大型機の主流である。油圧式は油圧ポンプ・油圧モータ・油圧シリンダなどで構成される",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-machinery-structure/img/figure-prime-mover-selection.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-machinery-structure",
+      "name": "figure-prime-mover-selection.svg",
+      "concept": "原動機の使い分け。通常の建設機械はディーゼルエンジン、小型の機械にはガソリンエンジンが用いられることがあり、定置式の機械や排気ガスを嫌う閉所では電動機が用いられる。排出ガス規制の対象は窒素酸化物・炭化水素・一酸化炭素・粒子状物質・黒煙である",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-management-subplans/img/figure-byproduct-measures.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-management-subplans",
+      "name": "figure-byproduct-measures.svg",
+      "concept": "建設副産物対策の3本柱と施工計画での検討事項。発生の抑制、再利用の促進、適正処分の徹底を基本方針とし、種類と量の推定、契約指示事項の確認、再生資源利用促進計画の作成、分別・保管・運搬方法、処理場の確保と処理の委託の5項目を検討する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-management-subplans/img/figure-cost-control-cycle.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-management-subplans",
+      "name": "figure-cost-control-cycle.svg",
+      "concept": "原価管理の手順。実行予算の作成（P）、原価発生の統制（D）、実施原価と実行予算の対比（C）、施工計画の再検討と修正措置（A）、修正措置の結果の評価（A）の5段階を縦に並べ、結果が良好でなければ最初へ戻る反復構造を示した図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-management-subplans/img/figure-temporary-works-classification.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-management-subplans",
+      "name": "figure-temporary-works-classification.svg",
+      "concept": "仮設備の2つの区分。契約上の区分では指定仮設が発注者の指定により設計変更の対象となり、任意仮設は施工者の自主性にゆだねられ契約変更の対象とならない。機能上の区分では本工事に直接必要な直接仮設と、遂行に間接的に必要な共通仮設に分かれる",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -412,7 +1765,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -574,7 +1927,61 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 6
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-port-regulations/img/figure-berthing-rules.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-port-regulations",
+      "name": "figure-berthing-rules.svg",
+      "concept": "入出港および停泊に関する規制。特定港への入出港と修繕けい船は港長への届出、停泊区域はトン数または積荷の種類で定まり、修繕中の船舶は港長の指定する場所に停泊する。港内では埠頭や狭い水路の入口付近にみだりにびょう泊してはならない",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-port-regulations/img/figure-port-scope.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-port-regulations",
+      "name": "figure-port-scope.svg",
+      "concept": "港則法の規制が及ぶ範囲の違い。入出港の届出・航路の航行・工事の許可・危険物の規制などは特定港だけに適用され、汽艇等やいかだのけい留制限・びょう泊の制限・速力の制限・汽笛や喫煙の制限は特定港に限らず港内一般に適用される",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-quality-inspection/img/figure-inspection-methods.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-quality-inspection",
+      "name": "figure-inspection-methods.svg",
+      "concept": "全数検査と抜取検査の適用場面。全数検査はわずかの不良品混入も許せない場合や検査が容易な場合、ロットが小さい場合に適用する。抜取検査は破壊検査や連続体、検査個数や項目が多い場合に適用し、建設工事では一般に1回抜取検査による",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -583,6 +1990,186 @@
       "slug": "textbook-quality-inspection",
       "name": "figure-oc-curve.svg",
       "concept": "OC曲線（検査特性曲線）。横軸のロットの不良率が小さい良いロットは高い確率で合格し、不良率が大きい悪いロットは高い確率で不合格となる右下がりの曲線。生産者危険αと消費者危険βを示す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-quality-inspection/img/figure-population-sampling.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-quality-inspection",
+      "name": "figure-population-sampling.svg",
+      "concept": "母集団とサンプリングの関係。調べようとする集団全体が母集団で、その中で検査のためひとまとまりにしたグループがロット。ロットから抜き取った一部がサンプルで、サンプルから得られた品質特性の測定値がデータである。母集団を正しく代表するよう無作為抽出する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-quality-overview/img/figure-iso-9001-vs-14001.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-quality-overview",
+      "name": "figure-iso-9001-vs-14001.svg",
+      "concept": "ISO 9001 と ISO 14001 の比較。目的は顧客満足を高めることと環境負荷の低減、対象は顧客のみと社会のすべての人々、要求要素の力点は Do と Check および Plan で異なる。いずれもマネジメントシステムを扱いPDCAを運用の基本とする点は共通",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-quality-overview/img/figure-quality-control-steps.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-quality-overview",
+      "name": "figure-quality-control-steps.svg",
+      "concept": "品質管理の7手順。品質特性の選定、品質標準の設定、作業標準の決定という準備の3手順のあと、データ採取、分析確認、作業方法の見直し、作業の継続と進み、手順7から手順5へ戻って繰り返す構造を示した図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-quality-overview/img/figure-quality-goals-methods.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-quality-overview",
+      "name": "figure-quality-goals-methods.svg",
+      "concept": "品質管理の2つの目標と対応する手法。目標1の規格を満足しているかは規格値で管理する工程能力図とヒストグラムで確認し、目標2の工程が安定しているかは管理限界線で管理する管理図で確認する。各手法の欠点も併記",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-river-act/img/figure-river-administrators.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-river-act",
+      "name": "figure-river-administrators.svg",
+      "concept": "河川の区分と河川管理者。一級河川は国土交通大臣が管理し指定区間は都道府県知事が管理する。二級河川は都道府県知事、準用河川と普通河川は市町村長が管理する。河川法上の河川は一級河川と二級河川を指す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-river-act/img/figure-river-area.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-river-act",
+      "name": "figure-river-area.svg",
+      "concept": "河川区域と河川保全区域の断面模式図。堤防を境に流水のある側が堤外地、守られる側が堤内地となる。河川区域は河状を呈している土地の一号地、河川管理施設の敷地の二号地、堤外の土地の三号地からなり、河川保全区域は河川管理施設から50メートル以内に指定される",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-river-act/img/figure-river-permits.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-river-act",
+      "name": "figure-river-permits.svg",
+      "concept": "河川区域における許可の対象地の違い。土地の占用と土石等の採取は官有地のみが対象で民有地には許可が不要。工作物の新築等と土地の掘削等は官有地・民有地を問わず対象となる。河川工事と一体とみなす仮設物などは許可を要しない",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-road-act/img/figure-occupancy-work-rules.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-road-act",
+      "name": "figure-occupancy-work-rules.svg",
+      "concept": "道路占用工事の遵守事項を目的別に整理した図。掘削の方法、交通の確保、安全措置、埋戻しと復旧の4つに分けて、えぐり掘の禁止、一方の側の通行確保、夜間の赤色灯・黄色灯、埋設物の試掘確認と協議、各層ごとの締固めなどを示す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-road-act/img/figure-road-permits.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-road-act",
+      "name": "figure-road-permits.svg",
+      "concept": "道路に関する許可と承認の使い分け。道路の占用は道路管理者の占用許可と警察署長の道路使用許可の両方が必要。道路管理者以外の者が行う工事は道路管理者の承認、特殊車両の通行は道路管理者の通行許可を受ける",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-road-act/img/figure-vehicle-limits.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-road-act",
+      "name": "figure-vehicle-limits.svg",
+      "concept": "車両制限令による車両の最高限度。幅2.5メートル、総重量20トン（高速自動車国道・指定道路は25トン以下）、軸重10トン、輪荷重5トン、高さ3.8メートル（指定道路は4.1メートル）、長さ12メートル、最小回転半径12メートル。トレーラ連結車は総重量が高速36トン・その他27トン、長さはセミトレーラ16.5メートル・フルトレーラ18メートル",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -938,6 +2525,42 @@
       }
     },
     {
+      "file": "content/site/civil-construction-1/textbook-schedule-charts/img/figure-diagonal-schedule-chart.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-schedule-charts",
+      "name": "figure-diagonal-schedule-chart.svg",
+      "concept": "斜線式工程表：横軸に区間（距離程）・縦軸に日数（工期）をとり、工種ごとの進捗を斜線で表す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-schedule-overview/img/figure-break-even-point.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-schedule-overview",
+      "name": "figure-break-even-point.svg",
+      "concept": "施工出来高と工事総原価：固定原価と変動原価からなる原価線と収入線の交点が損益分岐点となり、それ以上の施工出来高が採算速度の領域となる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-construction-1/textbook-schedule-overview/img/figure-cost-duration-curve.svg",
       "category": "civil-construction-1",
       "slug": "textbook-schedule-overview",
@@ -951,7 +2574,61 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 4,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-schedule-overview/img/figure-unit-cost-speed.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-schedule-overview",
+      "name": "figure-unit-cost-speed.svg",
+      "concept": "工程（施工速度）と単位原価の関係。施工速度が遅いと施工効率が悪く単位原価は高く、速めると出来高が増えて単位原価は低減するが、ある限度を超えると機械の大型化や高価な資材の使用により再び上昇する。単位原価が採算限度の原価以下となる工程が採算速度である",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-scraper/img/figure-haul-distance-range.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-scraper",
+      "name": "figure-haul-distance-range.svg",
+      "concept": "スクレーパ3機種の適用運搬距離の比較。スクレープドーザは40から250メートル、被けん引式スクレーパは60から400メートル、モータスクレーパは200から1200メートルで、モータスクレーパが最も長距離に適する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-scraper/img/figure-scraper-structure.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-scraper",
+      "name": "figure-scraper-structure.svg",
+      "concept": "スクレーパの構造と動作。ボウルの前端に昇降するエプロン、後端に土を押し出すエジェクタ、底板前部にカッティングエッジを備える。積込み時はエプロンを開きボウルを下げて前進し、敷均し時はボウルを盛土厚さに下げエプロンを開けて走行する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
         "low": 0
       }
     },
@@ -970,7 +2647,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -988,7 +2665,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 6
+        "low": 0
       }
     },
     {
@@ -1006,7 +2683,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 11
+        "low": 0
       }
     },
     {
@@ -1015,6 +2692,294 @@
       "slug": "textbook-shovel-excavator",
       "name": "figure-2-9.svg",
       "concept": "バケット容量の概念図。バックホゥ・ショベル（安息角 1:1）とローディングショベル（安息角 1:2）における山積容量と平積容量の比較",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-site-investigation/img/figure-method-decision.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-site-investigation",
+      "name": "figure-method-decision.svg",
+      "concept": "施工方法と施工手順の決定。重点的に検討する工種は数量・工費の大きいもの、高度な技術を要するもの、危険度の高いもの、環境に影響するもの。基本方針は影響の大きい工種を優先し、作業の平準化と繰返しによる習熟を図ること。決定内容は施工図面等にまとめる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-site-investigation/img/figure-pre-investigation.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-site-investigation",
+      "name": "figure-pre-investigation.svg",
+      "concept": "事前調査は契約条件の確認と現場条件の調査の2本立てで行う。契約条件では契約内容・設計図書・その他を確認し、現場条件では自然気象・仮設計画・資機材・輸送・近隣環境・建設副産物を調査する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-site-investigation/img/figure-spt-test.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-site-investigation",
+      "name": "figure-spt-test.svg",
+      "concept": "標準貫入試験の模式図。63.5キログラムのハンマーを75センチメートルの高さから落下させ、サンプラーを30センチメートル貫入させるのに要する打撃回数がN値である。N値は大きいほど堅硬な地盤を示す",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-soft-ground-drainage/img/figure-drainage-method-selection.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-soft-ground-drainage",
+      "name": "figure-drainage-method-selection.svg",
+      "concept": "掘削時の排水工法の選定。重力排水工法（釜場排水工法・深井戸排水工法）、強制排水工法（ウェルポイント工法・深井戸真空工法）、電気浸透工法を透水係数の大小に応じて使い分ける",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-soft-ground-drainage/img/figure-soft-ground-methods-map.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-soft-ground-drainage",
+      "name": "figure-soft-ground-methods-map.svg",
+      "concept": "軟弱地盤対策工法の分類。圧密・排水工法（サンドマット・バーチカルドレーン等）、締固め工法（サンドコンパクションパイル等）、固結工法（深層混合処理等）、荷重軽減工法（軽量盛土等）、構造物・補強による対策（押え盛土・杭等）の5分類と、液状化対策の4つの視点",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-soil-investigation-methods/img/figure-investigation-flow.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-soil-investigation-methods",
+      "name": "figure-investigation-flow.svg",
+      "concept": "土質調査の流れ。予備調査（資料収集・現地踏査）の後に本調査を実施し、本調査は原位置試験と室内試験（土質試験）に分かれる。調査結果は施工管理・維持管理の各段階で利用される",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-soil-investigation-methods/img/figure-soil-structure-classification.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-soil-investigation-methods",
+      "name": "figure-soil-structure-classification.svg",
+      "concept": "土構造物の分類。本体構造物は切土と盛土（陸上盛土・海上盛土）に分かれ、付帯構造物は法面工事（法面保護・擁壁・アンカー・補強土）に分かれる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-standard-contract/img/figure-damage-liability.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-standard-contract",
+      "name": "figure-damage-liability.svg",
+      "concept": "公共工事標準請負契約約款における損害の負担区分。一般的損害と一般の第三者損害は受注者が負担し、通常避けることのできない騒音・振動・地盤沈下等による第三者損害は発注者が負担する。不可抗力による損害は請負代金の1パーセントを超える額を発注者が負担する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-standard-contract/img/figure-nonconformity-liability.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-standard-contract",
+      "name": "figure-nonconformity-liability.svg",
+      "concept": "契約不適合責任。請求できるのは工事目的物の引渡しを受けた日から2年以内で、履行の追完・代金の減額・損害賠償・契約の解除の4つを請求できる。過分な費用を要するとき、検査で発見できた不適合を直ちに請求しないとき、知りながら通知しないとき、支給材料や指図により生じたときは請求できない",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-standard-contract/img/figure-suspension-and-term-change.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-standard-contract",
+      "name": "figure-suspension-and-term-change.svg",
+      "concept": "工事の一時中止と工期の変更。中止は発注者が行い、受注者の責めによらない理由のときは中止させなければならず、必要と認めるときは中止させることができる。工期の延長は受注者が請求し、短縮は発注者が請求する。変更内容は協議し、整わないときは発注者が定めて通知する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-surveying-basics/img/figure-plane-coordinate.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-surveying-basics",
+      "name": "figure-plane-coordinate.svg",
+      "concept": "平面直角座標系の軸の向き。X軸は座標原点を通る子午線の方向で南北にとり真北が正、Y軸はX軸に直交する東西方向で東が正となる。日本全国を19の区域に分け各区域ごとに座標原点を定める",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-surveying-basics/img/figure-survey-classification.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-surveying-basics",
+      "name": "figure-survey-classification.svg",
+      "concept": "測量の分類。測量法では基本測量・公共測量・それ以外の測量・測量法の適用を受けない測量の4つに区分される。方法による区分には三角測量・多角測量・距離測量・水準測量・トータルステーションによる測量・GNSS測量がある",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-surveying-basics/img/figure-survey-errors.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-surveying-basics",
+      "name": "figure-survey-errors.svg",
+      "concept": "測量の誤差の3分類。過失は統計的に扱えず注意深い観測と検測で排除するしかない。定誤差は常に同じ方向大きさで累積するが正反観測や補正計算で消去できる。不定誤差は原因不明で完全には消去できないが反復測定の平均値で統計的に削減できる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-tractor-bulldozer/img/figure-blade-types.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-tractor-bulldozer",
+      "name": "figure-blade-types.svg",
+      "concept": "土工板の6分類。ストレートドーザは走行方向に直角で重掘削向き、アングルドーザは左右25度前後に角度を変えられ敷均しに適する、チルトドーザは左右の掘削深さを変えられる、Uドーザは容量が大きく軽い大量の土砂向き、レーキドーザは伐根作業、ツーウェイドーザは前後進の両方で作業できる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-tractor-bulldozer/img/figure-bulldozer-size-class.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-tractor-bulldozer",
+      "name": "figure-bulldozer-size-class.svg",
+      "concept": "ブルドーザの質量による分類。3トン以下が超小型、10トン以下が小型、15トン前後が中型、20トン以上が大型、60トン以上が超大型。普及度が高いのは中型と小型。小型以下はパワーシフトドライブやHST、中型はパワーシフトドライブ、大型はトルコンパワーシフト方式が多い",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-tractor-bulldozer/img/figure-tractor-performance.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-tractor-bulldozer",
+      "name": "figure-tractor-performance.svg",
+      "concept": "トラクタの4つの性能。けん引力は質量と粘着係数で決まりエンジン出力は含まれない。けん引出力はダイレクトドライブでエンジン出力の80パーセント、トルコンパワーシフトで60から70パーセント。接地圧は軟弱地の走破性の目安。登坂能力はクローラ式で30度",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -1041,7 +3006,61 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-transport-machinery/img/figure-cycle-time-breakdown.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-transport-machinery",
+      "name": "figure-cycle-time-breakdown.svg",
+      "concept": "ダンプトラックのサイクルタイムの構成。積込み時間、行きの走行時間、帰りの走行時間、待ち時間の4つの合計で求める。平均速度は公道2車線以上で積荷20から35、空荷20から40キロメートル毎時、待ち時間は5から12分、作業効率は0.9程度を用いる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-transport-machinery/img/figure-load-capacity-decision.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-transport-machinery",
+      "name": "figure-load-capacity-decision.svg",
+      "concept": "ダンプトラックの1回の積載土量の決め方。重量による制約から求めた値と荷台の平積容量を比較し、小さい方を1回の積載土量とする。計算例では8トン級で重量制約5.05立方メートルが平積容量5.26立方メートルより小さいため5.05を採用する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-transport-machinery/img/figure-transport-machines.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-transport-machinery",
+      "name": "figure-transport-machines.svg",
+      "concept": "運搬機械の使い分け。普通ダンプトラックは公道を走行でき最も普及、重ダンプトラックは作業現場専用で固定フレーム式と車体屈折式がある、不整地運搬車はゴムクローラ式で不整地や軟弱地に使い、ベルトコンベヤはバラものの連続大量運搬に用いる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
         "low": 0
       }
     },
@@ -1127,6 +3146,1734 @@
       "aspect": 0.8,
       "canvas": "feed",
       "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-work-scheduling/img/figure-construction-speeds.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-work-scheduling",
+      "name": "figure-construction-speeds.svg",
+      "concept": "3つの施工速度の関係。最大施工速度は標準施工速度と現場作業能力係数の積で損失を考慮しない公称能力、そこから正常損失時間を控除したものが正常施工速度、さらに偶発損失時間を控除したものが平均施工速度。工程計画と工事費見積りには平均施工速度、機械の組合せ計画には最大・正常施工速度を用いる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-work-scheduling/img/figure-machine-combination.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-work-scheduling",
+      "name": "figure-machine-combination.svg",
+      "concept": "建設機械の選定の3観点と組合せ計画の原則。工事現場への適合性・経済性・建設機械の組合せの3つから検討し、組合せでは主機械を明確にして従機械の能力を主機械と同等か若干上回らせ、最大施工速度は各分割工程のうち最小の施工速度で決まる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-1/textbook-work-scheduling/img/figure-workable-days.svg",
+      "category": "civil-construction-1",
+      "slug": "textbook-work-scheduling",
+      "name": "figure-workable-days.svg",
+      "concept": "作業可能日数の算定。暦日数から定休日と天候等による作業不能日数を差し引き、両者が重なった重複日数を戻して作業可能日数を求める。日程計画は作業可能日数が所要作業日数以上となるように1日平均施工量を定める",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-concrete-key-points/img/figure-cold-joint.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-concrete-key-points",
+      "name": "figure-cold-joint.svg",
+      "concept": "打重ね時間とコールドジョイントの関係。先に打ち込んだ下層の凝結が始まる前に次層を打ち込めば上下は一体化する。凝結が始まった後に打ち込むと界面が一体化せずコールドジョイントが残る",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-concrete-key-points/img/figure-wc-ratio-tradeoff.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-concrete-key-points",
+      "name": "figure-wc-ratio-tradeoff.svg",
+      "concept": "水セメント比と品質・施工性の関係。水セメント比を小さくするほど強度と耐久性は高まるが、流動性が下がって施工性は低下する。逆に大きくすると施工性は上がるが強度と耐久性は下がる。2 つの傾向は逆向きであり、上限値と下限値の範囲内で適切な値を選ぶ",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-construction-plan-key-points/img/figure-preliminary-survey.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-construction-plan-key-points",
+      "name": "figure-preliminary-survey.svg",
+      "concept": "事前調査の区分。事前調査は契約条件の確認、設計図書の確認、現場条件の調査に分かれ、現場条件はさらに自然条件と立地条件の二つに分かれる。契約条件では工期や請負代金など、設計図書では図面や仕様書など、自然条件では地形や地質など、立地条件では搬入路や近接構造物などを確認する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-construction-plan-key-points/img/figure-workable-days.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-construction-plan-key-points",
+      "name": "figure-workable-days.svg",
+      "concept": "作業可能日数の求め方と工程計画への流れ。暦日から休日や悪天候日などを除いた残りが作業可能日数であり、これをもとに必要な施工速度を求め、工期内に完成する工程を組み立てる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-earthwork-key-points/img/figure-compaction-curve.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-earthwork-key-points",
+      "name": "figure-compaction-curve.svg",
+      "concept": "締固め曲線の模式図。横軸に含水比、縦軸に乾燥密度をとると曲線は上に凸となり、頂点で乾燥密度が最大になる。この頂点の乾燥密度が最大乾燥密度、そのときの含水比が最適含水比である。含水比が最適値より少なすぎても多すぎても乾燥密度は低下する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-earthwork-key-points/img/figure-soft-ground-methods.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-earthwork-key-points",
+      "name": "figure-soft-ground-methods.svg",
+      "concept": "軟弱地盤対策工法を目的から逆引きする図。沈下を促進して強度を増したい場合は圧密排水工法でサンドドレーンやペーパードレーン、液状化を防いで支持力を高めたい場合は締固め工法でサンドコンパクションパイルやバイブロフローテーション、軟弱層そのものを無くしたい場合は置換工法を用いる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-earthwork-key-points/img/figure-soil-volume-change.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-earthwork-key-points",
+      "name": "figure-soil-volume-change.svg",
+      "concept": "土量変化率 L と C の関係を具体的な数値で示した図。地山の土量 100 立方メートルを基準とすると、ほぐした土量は L イコール 1.20 を掛けて 120 立方メートル、締め固めた土量は C イコール 0.90 を掛けて 90 立方メートルとなる。締固め土量に L 割る C を掛けるとほぐした土量が得られる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-foundation-key-points/img/figure-bored-pile-wall-protection.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-foundation-key-points",
+      "name": "figure-bored-pile-wall-protection.svg",
+      "concept": "場所打ち杭の代表4工法を孔壁の保護方法で区別する図。オールケーシングはケーシングチューブで孔壁全体を保護し、アースドリルは表層のみケーシングで以深は安定液、リバースは孔内水位を地下水位より高く保ち、深礎は土留めをしながら立坑を掘り下げる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-foundation-key-points/img/figure-excavation-bottom-failure.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-foundation-key-points",
+      "name": "figure-excavation-bottom-failure.svg",
+      "concept": "掘削底面の破壊現象4種。ヒービングは軟弱粘性土で背面の土が土留め壁の下を回り込み掘削底面が隆起する。ボイリングは砂質地盤で上向きの浸透流により砂が噴き上がる。盤ぶくれは難透水層の下の被圧水により掘削底面が広範囲に押し上げられる。パイピングは局所的な水みちに沿って浸透破壊が進む",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-foundation-key-points/img/figure-foundation-type-by-depth.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-foundation-key-points",
+      "name": "figure-foundation-type-by-depth.svg",
+      "concept": "良質な支持層の深さによる基礎形式の分類。支持層が浅い位置に出る場合は直接基礎が底面から荷重を伝える。支持層が深い場合は杭基礎が杭を通じて、またはケーソン基礎が箱を沈設して荷重を深部の支持層へ伝える",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-law-key-points/img/figure-construction-system.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-law-key-points",
+      "name": "figure-construction-system.svg",
+      "concept": "建設業法で問われる技術者配置と施工体制台帳の範囲。工事現場には主任技術者を配置し、一定規模以上の工事では監理技術者の配置が求められる。施工体制台帳は元請が発注者から直接受注した工事について下請を含む施工体制を書面化するもの",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-law-key-points/img/figure-permit-vs-notification.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-law-key-points",
+      "name": "figure-permit-vs-notification.svg",
+      "concept": "道路・河川・騒音振動の各法令で必要な手続きの区別。道路の占用や通行制限は許可、河川区域内で工作物を設けたり土地を掘削する場合も許可、騒音規制法と振動規制法の特定建設作業は事前の届出が必要となる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-quality-management/img/figure-acceptance-criteria.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-quality-management",
+      "name": "figure-acceptance-criteria.svg",
+      "concept": "レディーミクストコンクリート受入検査4項目の判定のしかた。スランプは指定値を中心とした許容差の範囲内、空気量は普通コンクリートで 4.5 プラスマイナス 1.5 パーセントの範囲内、塩化物含有量は 0.30 キログラム毎立方メートル以下という上限、圧縮強度は材齢 28 日で所定の強度を確認する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-quality-management/img/figure-qc-tools-purpose.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-quality-management",
+      "name": "figure-qc-tools-purpose.svg",
+      "concept": "代表的な QC 手法4種の見た目と役割。ヒストグラムは柱状グラフでばらつきと中心を把握し、管理図は時系列の折れ線で工程の安定を監視し、パレート図は件数の多い順に並べた棒グラフで重点項目を見つけ、特性要因図は魚の骨の形で原因を整理する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-safety-management/img/figure-excavation-slope.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-safety-management",
+      "name": "figure-excavation-slope.svg",
+      "concept": "手掘り掘削における地山の種類ごとの勾配と高さの基準。砂からなる地山は勾配 35 度以下または高さ 5 メートル未満、発破などで崩れやすい地山は勾配 45 度以下または高さ 2 メートル未満とされる。急な勾配が許される地山ほど、許される高さは低く抑えられる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-safety-management/img/figure-scaffold-standards.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-safety-management",
+      "name": "figure-scaffold-standards.svg",
+      "concept": "足場の数値基準がどこを測った寸法かを示す図。高さ 2 メートル以上の作業場所には作業床を設け、墜落防止の手すりは作業床から 85 センチメートル以上の高さに設ける。作業床の幅は 40 センチメートル以上、床材間のすき間は 3 センチメートル以下とする",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-safety-management/img/figure-work-chief-thresholds.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-safety-management",
+      "name": "figure-work-chief-thresholds.svg",
+      "concept": "作業主任者の選任が必要な代表的な作業。高さで決まるものは地山の掘削が掘削面の高さ 2 メートル以上、足場の組立て等とコンクリート造の工作物の解体等が高さ 5 メートル以上。作業の種類で決まるものは土止め支保工の切りばり・腹起しの取付け・取外しと、型枠支保工の組立て・解体",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-schedule-management/img/figure-banana-curve.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-schedule-management",
+      "name": "figure-banana-curve.svg",
+      "concept": "出来高累計曲線とバナナ曲線。予定の累計曲線は S 字状になり、その上方と下方に許容限界線を引くとバナナに似た帯ができる。実績がこの帯の下を下回れば工程の遅れ、上を超えれば進みすぎと判断する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-schedule-management/img/figure-critical-path.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-schedule-management",
+      "name": "figure-critical-path.svg",
+      "concept": "クリティカルパスとフロートの関係。同じ始点と終点を結ぶ2つの経路のうち、所要日数の合計が長い方がクリティカルパスとなり全体の工期を決める。短い方の経路には差の分だけフロート（余裕）が生じる",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-schedule-management/img/figure-schedule-chart-types.svg",
+      "category": "civil-construction-2",
+      "slug": "guide-schedule-management",
+      "name": "figure-schedule-chart-types.svg",
+      "concept": "3種類の工程表の形と長所短所。バーチャートは作業を横棒で表し作成が容易だが作業間の関連が不明。ガントチャートは各作業の達成率を横棒で表し進捗率は明確だが所要日数や日程が不明。ネットワーク式は矢印と結合点で順序関係を表し関連と重要度が明確だが作成に習熟を要する",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/asphalt-pavement-control/img/figure-temperature-stages.svg",
+      "category": "civil-practice",
+      "slug": "asphalt-pavement-control",
+      "name": "figure-temperature-stages.svg",
+      "concept": "アスファルト舗装の敷均しから初転圧・二次転圧・仕上げ転圧・交通開放までの温度帯とローラ種類の対応を示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/cast-in-place-pile-methods/img/figure-method-comparison.svg",
+      "category": "civil-practice",
+      "slug": "cast-in-place-pile-methods",
+      "name": "figure-method-comparison.svg",
+      "concept": "場所打ち杭4工法（オールケーシング・アースドリル・リバース・深礎）を孔壁保護の方式で比較する図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/checklist-shoring-buoyancy/img/figure-buoyancy-balance.svg",
+      "category": "civil-practice",
+      "slug": "checklist-shoring-buoyancy",
+      "name": "figure-buoyancy-balance.svg",
+      "concept": "埋設管の浮力（F_b=γw×V）と、これを押さえ込む管の自重・埋戻し土の重さ・摩擦抵抗の釣合いを示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-compaction-numbers/img/figure-cross-section.svg",
+      "category": "civil-practice",
+      "slug": "concrete-compaction-numbers",
+      "name": "figure-cross-section.svg",
+      "concept": "打込み・締固めの4つの管理値（打上がり高さ・自由落下高さ・バイブレーター挿入深さ・挿入間隔）の位置関係を示す断面図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-mix-acceptance/img/figure-acceptance-cards.svg",
+      "category": "civil-practice",
+      "slug": "concrete-mix-acceptance",
+      "name": "figure-acceptance-cards.svg",
+      "concept": "生コン受入れ検査4項目（スランプ・空気量・塩化物イオン量・圧縮強度）の確認タイミングと合否基準",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/concrete-placement-timing/img/figure-timeline.svg",
+      "category": "civil-practice",
+      "slug": "concrete-placement-timing",
+      "name": "figure-timeline.svg",
+      "concept": "外気温25℃を境に変わる練混ぜから荷卸し・打込み終了・許容打重ね時間間隔までの限度時間と、凝結の始発・終結の目安",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/earth-retaining-displacement/img/figure-management-levels.svg",
+      "category": "civil-practice",
+      "slug": "earth-retaining-displacement",
+      "name": "figure-management-levels.svg",
+      "concept": "土留め壁の変位を一次管理値（設計値のおおむね8割）と二次管理値（設計値相当）の二段階で運用する考え方を示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/excavation-bottom-failure/img/figure-failure-modes.svg",
+      "category": "civil-practice",
+      "slug": "excavation-bottom-failure",
+      "name": "figure-failure-modes.svg",
+      "concept": "掘削底面が壊れる3つの形（ヒービング・ボイリング・盤ぶくれ）を土質と地下水の条件で見分けるための対応表",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/formwork-removal-timing/img/figure-strength-classes.svg",
+      "category": "civil-practice",
+      "slug": "formwork-removal-timing",
+      "name": "figure-strength-classes.svg",
+      "concept": "型枠取外しに必要な圧縮強度を部材面の性格で3段階に分ける区分（厚い部材の鉛直面3.5N/mm²・薄い部材の鉛直面5.0N/mm²・スラブはりの底面14.0N/mm²）",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/pile-concrete-head-treatment/img/figure-tremie-overpour.svg",
+      "category": "civil-practice",
+      "slug": "pile-concrete-head-treatment",
+      "name": "figure-tremie-overpour.svg",
+      "concept": "トレミー管の先端を打設済みコンクリート中に2m以上保つ管理と、余盛りの高さ（無水掘り500mm以上・泥水が多い場合800mm以上）を示す断面図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/rebar-cover-placement/img/figure-cover-types.svg",
+      "category": "civil-practice",
+      "slug": "rebar-cover-placement",
+      "name": "figure-cover-types.svg",
+      "concept": "純かぶり（鉄筋表面からコンクリート表面まで）と芯かぶり（鉄筋中心からコンクリート表面まで）の測り方の違いを示す断面図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/rebar-splice-selection/img/figure-stagger-layout.svg",
+      "category": "civil-practice",
+      "slug": "rebar-splice-selection",
+      "name": "figure-stagger-layout.svg",
+      "concept": "鉄筋継手を千鳥配置にするときの隣り合う継手間の必要距離（継手の長さ＋鉄筋直径の25倍）を示す配置図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/river-park-erosion-control/img/figure-river-terms.svg",
+      "category": "civil-practice",
+      "slug": "river-park-erosion-control",
+      "name": "figure-river-terms.svg",
+      "concept": "河川の断面を構成する堤防・天端・法線・低水路・高水敷の位置関係を示す断面図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/road-fixtures-precast/img/figure-cross-terms.svg",
+      "category": "civil-practice",
+      "slug": "road-fixtures-precast",
+      "name": "figure-cross-terms.svg",
+      "concept": "道路の横断面を構成する車道・路肩・路側帯・中央帯（分離帯・側帯）の位置関係を示す断面図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/sling-work-wire-rope/img/figure-tension-curve.svg",
+      "category": "civil-practice",
+      "slug": "sling-work-wire-rope",
+      "name": "figure-tension-curve.svg",
+      "concept": "吊り角度θが開くほど張力割増し係数k=1/cos(θ/2)が増える関係を示す折れ線グラフ（0度で1.00、120度で2.00）",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/soil-improvement-sandbag/img/figure-depth-zones.svg",
+      "category": "civil-practice",
+      "slug": "soil-improvement-sandbag",
+      "name": "figure-depth-zones.svg",
+      "concept": "地盤改良の固化工法を改良深度で分ける浅層混合処理（3m以内）・中層混合処理（10m以内）・深層混合処理（10m超）の区分を示す断面図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/bingham-shear-r04.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "bingham-shear-r04.svg",
+      "concept": "ビンガム流体モデルのせん断応力とせん断ひずみ速度の関係を示す3本の直線A(実線)・B(破線)・C(一点鎖線)",
+      "viewBox": "0 0 400 280",
+      "aspect": 1.429,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/form-pressure-h27.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "form-pressure-h27.svg",
+      "concept": "型枠の打込み高さと最下部の側圧の関係を示す4本の折れ線グラフA・B・C・D。すべて打込み高さ約1.6mまでは同じ直線で立ち上がり、以降傾きが分岐する",
+      "viewBox": "0 0 460 320",
+      "aspect": 1.438,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/form-pressure-h29.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "form-pressure-h29.svg",
+      "concept": "型枠最下部からの高さHと側圧Pの関係を示すL字型の折れ線グラフ。高さ0からH1まで側圧が急勾配で立ち上がり、H1から4.0mまでは緩やかな勾配で最大側圧Pmaxまで直線的に増加する。破線は原点からPmaxへの参考直線",
+      "viewBox": "0 0 400 340",
+      "aspect": 1.176,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/form-pressure-r02.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "form-pressure-r02.svg",
+      "concept": "超遅延剤を用いないスランプ18cmコンクリート(柱部材・壁部材)の側圧と経過時間の関係(基準)と、その他の条件での関係を示す選択肢(1)〜(4)",
+      "viewBox": "0 0 650 400",
+      "aspect": 1.625,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/h24-q11.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "h24-q11.svg",
+      "concept": "スラブと壁が一体となったL字形コンクリート部材の等角投影図",
+      "viewBox": "0 0 400 260",
+      "aspect": 1.538,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/h24-q22.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "h24-q22.svg",
+      "concept": "柱状部材・壁状部材の側圧と経過時間の関係を示す選択肢(1)〜(4)",
+      "viewBox": "0 0 500 400",
+      "aspect": 1.25,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/h25-q28-fig1.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "h25-q28-fig1.svg",
+      "concept": "軟弱地盤上に構築されたコンクリート床版の側面図。支間15m、断面X-X'上に点aを設定",
+      "viewBox": "0 0 400 260",
+      "aspect": 1.538,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/h25-q28-fig2.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "h25-q28-fig2.svg",
+      "concept": "梁せい3mの断面における応力分布の候補4パターン(1)〜(4)。左が引張応力、右が圧縮応力を示す軸に対し、直線・曲線状の分布形状が描かれている",
+      "viewBox": "0 0 400 260",
+      "aspect": 1.538,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/marine-joint-r01.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "marine-joint-r01.svg",
+      "concept": "海中橋脚の側面図。橋脚幅6.0m×奥行き4.0m、干満位H.W.L/L.W.Lと海中に対する境界線a〜dの位置、フーチングと地盤を示す寸法図",
+      "viewBox": "0 0 480 380",
+      "aspect": 1.263,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/mass-slab-stress-h29.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "mass-slab-stress-h29.svg",
+      "concept": "軟弱地盤上のスラブ断面X-X'における応力分布の候補a〜d（引張応力・圧縮応力の分布形状が異なる4パターン）",
+      "viewBox": "0 0 440 580",
+      "aspect": 0.759,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/mass-thermal-history-h30.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "mass-thermal-history-h30.svg",
+      "concept": "コンクリート岩盤上の部材における点A(下面)・点B(上面)の応力と日数の関係を示す候補a〜d（引張・圧縮の推移パターンが異なる4種）",
+      "viewBox": "0 0 500 550",
+      "aspect": 0.909,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/placing-order-coldjoint-h28.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "placing-order-coldjoint-h28.svg",
+      "concept": "コンクリート打込み順序A〜D。3層×6列の升目に打込み順の番号が入り、層内の進行方向・層間の対応が異なる4パターン",
+      "viewBox": "0 0 700 460",
+      "aspect": 1.522,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/pump-longdistance-h27.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "pump-longdistance-h27.svg",
+      "concept": "コンクリートポンプ車から150m・5B配管を経て筒先に至る圧送経路の模式図",
+      "viewBox": "0 0 520 130",
+      "aspect": 4,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/pump-piping-h26.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "pump-piping-h26.svg",
+      "concept": "コンクリートポンプの配管状況（水平管・垂直管・ベント管・テーパ管・フレキシブルホースの寸法）と、吐出量と管内圧力損失の関係を示す2系列(100A/125A)の折れ線グラフ",
+      "viewBox": "0 0 560 500",
+      "aspect": 1.12,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/pump-pressure-h30.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "pump-pressure-h30.svg",
+      "concept": "コンクリートポンプの配管状況（水平配管・垂直配管・ベント管・テーパ管・フレキシブルホース）と、スランプ12〜21cmの4系列における吐出量と管内圧力損失の関係を示す折れ線グラフ",
+      "viewBox": "0 0 600 320",
+      "aspect": 1.875,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/pump-pressure-r01.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "pump-pressure-r01.svg",
+      "concept": "吐出量と管内圧力損失の関係を示す直線グラフ",
+      "viewBox": "0 0 400 320",
+      "aspect": 1.25,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/pump-pressure-r05.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "pump-pressure-r05.svg",
+      "concept": "吐出量と管内圧力損失の関係を示す直線グラフ",
+      "viewBox": "0 0 400 320",
+      "aspect": 1.25,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/strength-dev-r02.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "strength-dev-r02.svg",
+      "concept": "セメント種類・養生条件による圧縮強度の材齢変化を示す4本の曲線A(標準養生供試体)・B・C・D",
+      "viewBox": "0 0 580 340",
+      "aspect": 1.706,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-construction/img/temp-history-r02.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-construction",
+      "name": "temp-history-r02.svg",
+      "concept": "セメント種類・部材厚さの違いによる温度と材齢の関係を示す4本の曲線A〜Dと、2種類の部材断面（部材厚さ1m・3m）、セメント種類×部材厚さと選択肢(1)〜(4)の対応表",
+      "viewBox": "0 0 620 380",
+      "aspect": 1.632,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/cement-r01-composition.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-materials",
+      "name": "cement-r01-composition.svg",
+      "concept": "普通・A・B・C・Dの5種類のポルトランドセメントについて、クリンカー組成化合物(C3S・C2S・C3A・C4AF・その他)の割合を示した積み上げ棒グラフ",
+      "viewBox": "0 0 760 380",
+      "aspect": 2,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/h24-q5.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-materials",
+      "name": "h24-q5.svg",
+      "concept": "コンクリート混和材3種の電子顕微鏡写真を模式的に示した図。左は角張った不定形の粒子(倍率5マイクロメートル)、中央は微細な粒子が凝集した組織(倍率0.3マイクロメートル)、右は明瞭な球形粒子(倍率5マイクロメートル)。原図は電子顕微鏡写真で、本図はその粒子形状の特徴を再現した模式図。",
+      "viewBox": "0 0 760 300",
+      "aspect": 2.533,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/materials-clinker-strength-h28.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-materials",
+      "name": "materials-clinker-strength-h28.svg",
+      "concept": "セメントの種類による圧縮強度の材齢変化。A・Bは速い立ち上がりで高強度に達し、C・Dは緩やかに低い強度で推移する4本の曲線",
+      "viewBox": "0 0 500 350",
+      "aspect": 1.429,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/sand-surface-test-h29.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-materials",
+      "name": "sand-surface-test-h29.svg",
+      "concept": "表面水率試験の手順を示す4コマの模式図。(ア)目盛りのあるガラス容器、(イ)水200ミリリットルをはかり取った容器、(ウ)電子天秤に載せた湿潤状態の砂、(エ)砂を加えた後に水面の目盛りを読み取る容器。原図は実験手順の写真で、本図はその模式図。",
+      "viewBox": "0 0 500 480",
+      "aspect": 1.042,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-materials/img/steel-carbon-strength-h29.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-materials",
+      "name": "steel-carbon-strength-h29.svg",
+      "concept": "鋼材の含有炭素量と引張強さ・降伏点(A)、伸び(B)、絞り(C)の関係を示す3本の曲線グラフ",
+      "viewBox": "0 0 560 380",
+      "aspect": 1.474,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/h24-q8.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-mix-design",
+      "name": "h24-q8.svg",
+      "concept": "コンクリートの絶対容積構成を示す模式図。境界線①〜④の移動とスランプの関係を問う図",
+      "viewBox": "0 0 400 460",
+      "aspect": 0.87,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/mix-volume-rccp-h30.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-mix-design",
+      "name": "mix-volume-rccp-h30.svg",
+      "concept": "一般のコンクリートとa〜dの配合について、水・セメント・細骨材・粗骨材・空気の容積百分率を示した積み上げ横棒グラフ",
+      "viewBox": "0 0 700 320",
+      "aspect": 2.188,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/mix-volume-slump-h26.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-mix-design",
+      "name": "mix-volume-slump-h26.svg",
+      "concept": "コンクリートの絶対容積構成の模式図。境界線①〜④の移動とスランプの関係を問う図",
+      "viewBox": "0 0 320 340",
+      "aspect": 0.941,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/mix-volume-slump-h28.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-mix-design",
+      "name": "mix-volume-slump-h28.svg",
+      "concept": "コンクリートの絶対容積構成の模式図。境界線①〜④の移動とスランプの関係を問う図（上下双方向の矢印つき）",
+      "viewBox": "0 0 320 340",
+      "aspect": 0.941,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/volume-ratio-r03.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-mix-design",
+      "name": "volume-ratio-r03.svg",
+      "concept": "コンクリートの絶対容積構成図1。空気・水・セメント・細骨材・粗骨材の絶対容積を区画で示し、境界①〜④の移動を問う",
+      "viewBox": "0 0 430 300",
+      "aspect": 1.433,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-mix-design/img/waterunit-slump-r05.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-mix-design",
+      "name": "waterunit-slump-r05.svg",
+      "concept": "単位水量とスランプの関係（図1）、単位粗骨材かさ容積とスランプの関係（図2）を示す2つの折れ線グラフ。W/C=40〜60%の系列で全データ点に数値を明記",
+      "viewBox": "0 0 760 320",
+      "aspect": 2.375,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-production-qc/img/normal-dist-r05.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-production-qc",
+      "name": "normal-dist-r05.svg",
+      "concept": "正規分布の概念図。平均値μを頂点とする釣鐘型の曲線で、μ−kσより左の裾の面積を確率εとして網掛けで示す",
+      "viewBox": "0 0 400 300",
+      "aspect": 1.333,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-production-qc/img/xbar-control-chart-h28.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-production-qc",
+      "name": "xbar-control-chart-h28.svg",
+      "concept": "X̄管理図。UCL・+2σ・+1σ・CL・-1σ・-2σ・LCLの水平線上に、A群からD群までの圧縮強度試験値の点が折れ線で示されている",
+      "viewBox": "0 0 500 300",
+      "aspect": 1.667,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/beam-thermal-stress-h28.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-properties",
+      "name": "beam-thermal-stress-h28.svg",
+      "concept": "コンクリート梁の断面図。上下2段に配置された鉄筋と梁幅2mの寸法線、左右の支持壁を示す模式図",
+      "viewBox": "0 0 400 220",
+      "aspect": 1.818,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/bingham-flow-h26.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-properties",
+      "name": "bingham-flow-h26.svg",
+      "concept": "ビンガム流体モデルのせん断応力とせん断ひずみ速度の関係を示す3本の直線A・B・C（原点からずれた位置から立ち上がる）",
+      "viewBox": "0 0 400 280",
+      "aspect": 1.429,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/bingham-flow-h30.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-properties",
+      "name": "bingham-flow-h30.svg",
+      "concept": "ビンガム流体モデルのせん断応力とせん断ひずみ速度の関係を示す4本の直線A・B・C・D",
+      "viewBox": "0 0 400 280",
+      "aspect": 1.429,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/bingham-flow-r01.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-properties",
+      "name": "bingham-flow-r01.svg",
+      "concept": "ビンガム流体モデルの流動速度とせん断応力の関係を示す3本の直線ア・イ・ウ（傾きの異なる3種）",
+      "viewBox": "0 0 400 280",
+      "aspect": 1.429,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/creep-strain-h29.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-properties",
+      "name": "creep-strain-h29.svg",
+      "concept": "コンクリートのクリープひずみ概念図。載荷直後の弾性ひずみεeから1年後の合計ひずみεaへ漸増する曲線と、収縮ひずみεsの小さな曲線",
+      "viewBox": "0 0 400 260",
+      "aspect": 1.538,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/creep-strain-r04.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-properties",
+      "name": "creep-strain-r04.svg",
+      "concept": "載荷から除荷までのひずみ変化。載荷直後500×10-6から1500×10-6へ漸増し、除荷で急減してから緩やかに戻る曲線",
+      "viewBox": "0 0 440 240",
+      "aspect": 1.833,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q10.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-properties",
+      "name": "h24-q10.svg",
+      "concept": "ビンガム流体モデルの流動速度とせん断応力の関係を示す2本の直線①②。直線①の傾きAと切片Bが示され、表で①②とA・Bが降伏値・塑性粘度のどちらに対応するかを問う",
+      "viewBox": "0 0 500 400",
+      "aspect": 1.25,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/h24-q12.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-properties",
+      "name": "h24-q12.svg",
+      "concept": "練混ぜからの経過時間(h)に対する(a)断熱温度上昇量・(b)凝結試験の貫入抵抗値・(c)ブリーディング水の累計、のいずれかを示す3種の曲線(a)(b)(c)",
+      "viewBox": "0 0 800 200",
+      "aspect": 4,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-properties/img/strain-unload-h30.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-properties",
+      "name": "strain-unload-h30.svg",
+      "concept": "載荷から除荷までのひずみと時間の関係を示す4パターンa〜d（除荷後の弾性回復・クリープ回復の有無で分かれる）",
+      "viewBox": "0 0 680 460",
+      "aspect": 1.478,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/beam-design-h29.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-structural-design",
+      "name": "beam-design-h29.svg",
+      "concept": "梁断面（主鉄筋①②）と側面図。等間隔に配置されたスターラップ（あばら筋）、中央上部からの荷重、両端支点を示す",
+      "viewBox": "0 0 650 165",
+      "aspect": 3.939,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/beam-flexure-h26.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-structural-design",
+      "name": "beam-flexure-h26.svg",
+      "concept": "梁断面(有効高さd)と側面図。等間隔スターラップ配置、中央上部からの荷重、両端支点を示す",
+      "viewBox": "0 0 650 165",
+      "aspect": 3.939,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/cantilever-rebar-h30.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-structural-design",
+      "name": "cantilever-rebar-h30.svg",
+      "concept": "壁に固定された片持ち梁への荷重Pと鉄筋配置の4パターンa〜d（主筋を梁上側に配置・上下振り分け配置など）",
+      "viewBox": "0 0 660 460",
+      "aspect": 1.435,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/cantilever-section-h27.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-structural-design",
+      "name": "cantilever-section-h27.svg",
+      "concept": "壁に固定された片持ち梁に荷重Pが作用する側面図と、梁断面(a)幅B・(b)幅B'=1.5Bの2種類の断面（主筋4本を四隅に配置）",
+      "viewBox": "0 0 400 260",
+      "aspect": 1.538,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/column-hoop-h29.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-structural-design",
+      "name": "column-hoop-h29.svg",
+      "concept": "水平力を受ける柱の帯鉄筋(フープ)配置の4パターンa〜d（柱の高さ・帯筋間隔が異なる）と断面図",
+      "viewBox": "0 0 630 420",
+      "aspect": 1.5,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/crack-pattern-r02.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-structural-design",
+      "name": "crack-pattern-r02.svg",
+      "concept": "右向き分布水平力を受ける剛接骨組の模式図と、梁・柱のひび割れ発生位置（引張側）の候補4パターン(1)〜(4)",
+      "viewBox": "0 0 440 680",
+      "aspect": 0.647,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/crack-pattern-r03.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-structural-design",
+      "name": "crack-pattern-r03.svg",
+      "concept": "剛接骨組に鉛直荷重P（上から）・水平荷重P（横から）が作用した場合のひび割れ発生位置候補(a)〜(d)",
+      "viewBox": "0 0 520 420",
+      "aspect": 1.238,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/h24-q29.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-structural-design",
+      "name": "h24-q29.svg",
+      "concept": "同一荷重を受ける柱ア・イ・ウの破壊形式（曲げひび割れ・せん断ひび割れ）を比較する図。イは主筋を太径に変更、ウは柱高さを低くした条件違い",
+      "viewBox": "0 0 740 360",
+      "aspect": 2.056,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/h25-q30-fig1.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-structural-design",
+      "name": "h25-q30-fig1.svg",
+      "concept": "梁断面(有効高さd・幅b・鉄筋①②)と側面図。等間隔スターラップ間隔S、中央上部からの荷重、両端支点を示す",
+      "viewBox": "0 0 650 165",
+      "aspect": 3.939,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/load-displacement-h26.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-structural-design",
+      "name": "load-displacement-h26.svg",
+      "concept": "鉄筋コンクリート梁の荷重と変位の関係を示す曲線。A曲げひび割れ発生、B鉄筋降伏、C最大荷重、D終局の4点が順に示される",
+      "viewBox": "0 0 400 300",
+      "aspect": 1.333,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/pc-beam-load-h26.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-structural-design",
+      "name": "pc-beam-load-h26.svg",
+      "concept": "PC梁の側面図。中央上部から下向きの荷重、左右両端から水平方向にプレストレスを導入する矢印、両端は支点で支持される",
+      "viewBox": "0 0 490 160",
+      "aspect": 3.063,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/pc-beam-load-h29.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-structural-design",
+      "name": "pc-beam-load-h29.svg",
+      "concept": "図1: PC鋼棒を内蔵した梁の側面図と断面図。中央上部からの荷重、A点(梁上縁)・B点(PC鋼棒位置)を明示。図2: 荷重と載荷点変位の関係を示すグラフ。ひび割れ発生点まで直線的に上昇し、その後傾きが変わって上昇する折れ線",
+      "viewBox": "0 0 480 350",
+      "aspect": 1.371,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/pc-section-h27.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-structural-design",
+      "name": "pc-section-h27.svg",
+      "concept": "PC梁断面2種(a)(b)（黒丸はPC鋼材、それぞれ図心位置が異なる）と、単純支持された梁に荷重Pが作用する側面図",
+      "viewBox": "0 0 480 260",
+      "aspect": 1.846,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/rc-frame-crack-h27.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-structural-design",
+      "name": "rc-frame-crack-h27.svg",
+      "concept": "剛接骨組に鉛直荷重Pと水平荷重Pが作用したときの梁・柱のひび割れ発生位置の候補(1)〜(4)。径間はL/2ずつ・柱高さL",
+      "viewBox": "0 0 520 660",
+      "aspect": 0.788,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/slab-joint-position-h27.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-structural-design",
+      "name": "slab-joint-position-h27.svg",
+      "concept": "床版の側面図。鉄筋の継手を設ける範囲（A-B間）とスパン中央からの距離l/4・l/2、及び支間全体lの寸法線、下段に想定する曲げモーメント図（両端が負・中央が正の曲線）",
+      "viewBox": "0 0 500 320",
+      "aspect": 1.563,
+      "canvas": null,
+      "fitStatus": "n/a",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/concrete-chief-engineer/primary-structural-design/img/wall-crack-pattern-h28.svg",
+      "category": "concrete-chief-engineer",
+      "slug": "primary-structural-design",
+      "name": "wall-crack-pattern-h28.svg",
+      "concept": "建物の外壁立面図（開口部15個）に生じるひび割れパターンの候補A〜D（中央柱際・最上階・全体分散など発生範囲が異なる）",
+      "viewBox": "0 0 620 440",
+      "aspect": 1.409,
+      "canvas": null,
+      "fitStatus": "n/a",
       "hasWideVariant": false,
       "embedded": true,
       "audit": {
@@ -1617,8 +5364,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 6
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1653,7 +5400,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -1798,7 +5545,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 7
+        "low": 0
       }
     },
     {
@@ -1959,8 +5706,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 2
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -1978,7 +5725,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 3
+        "low": 0
       }
     },
     {
@@ -2031,7 +5778,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -2049,7 +5796,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -2086,7 +5833,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 3
+        "low": 0
       }
     },
     {
@@ -2139,7 +5886,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -2157,7 +5904,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -2176,7 +5923,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -2211,8 +5958,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 2
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2229,7 +5976,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -2337,7 +6084,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -2481,7 +6228,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -2572,7 +6319,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -2644,7 +6391,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 4
+        "low": 0
       }
     },
     {
@@ -2661,8 +6408,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 6
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -2805,8 +6552,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 21
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -3039,7 +6786,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -3057,8 +6804,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -3094,7 +6841,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -3129,7 +6876,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -3148,7 +6895,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 3
+        "low": 0
       }
     },
     {
@@ -3165,8 +6912,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -3219,7 +6966,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -3579,7 +7326,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -3688,7 +7435,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 4
+        "low": 0
       }
     },
     {
@@ -3706,7 +7453,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 6
+        "low": 0
       }
     },
     {
@@ -3742,7 +7489,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -3831,7 +7578,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -3885,8 +7632,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 8
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -3903,8 +7650,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 4
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -4120,7 +7867,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 18
+        "low": 0
       }
     },
     {
@@ -4281,7 +8028,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4354,7 +8101,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 2
+        "low": 0
       }
     },
     {
@@ -4623,7 +8370,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -4768,7 +8515,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -4786,7 +8533,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 10
+        "low": 0
       }
     },
     {
@@ -4804,7 +8551,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 15
+        "low": 0
       }
     },
     {
@@ -5019,8 +8766,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
-        "low": 1
+        "medium": 0,
+        "low": 0
       }
     },
     {
@@ -5037,7 +8784,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 1,
+        "medium": 0,
         "low": 0
       }
     },
@@ -5092,7 +8839,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 1
+        "low": 0
       }
     },
     {
@@ -5326,7 +9073,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 6
+        "low": 0
       }
     },
     {
@@ -5344,7 +9091,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 2
+        "low": 0
       }
     },
     {
@@ -5434,7 +9181,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 5
+        "low": 0
       }
     },
     {
