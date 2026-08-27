@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-08-27T11:15:46.289Z",
+  "generated_at": "2026-08-27T11:51:17.752Z",
   "summary": {
     "total": 1166,
     "published": 1147,
@@ -6070,7 +6070,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "アスファルト舗装の温度管理と転圧｜到着温度・転圧順序・交通開放の判断基準【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "舗装施工便覧"
+      ]
     },
     "civil-practice-backfill-river-excavation": {
       "title": "埋戻しと河道掘削 — 掘ったあとをどう戻すか",
@@ -6087,7 +6090,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "埋戻しと河道掘削｜土留め撤去・引抜き跡の空隙・掘削順序の判断【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "国土交通省中部地方整備局 河道掘削資料"
+      ]
     },
     "civil-practice-cast-in-place-pile-methods": {
       "title": "場所打ち杭の4工法をどう選ぶか — 孔壁保護の方式で判断する",
@@ -6104,7 +6110,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "場所打ち杭4工法の選び方｜オールケーシング・アースドリル・リバース・深礎の使い分け【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "日本建設業連合会 地盤基礎専門部会 場所打ちコンクリート杭の品質管理のポイント"
+      ]
     },
     "civil-practice-checklist-shoring-buoyancy": {
       "title": "チェックリスト・支保工の足元・管の浮き上がり — 見落としを仕組みで防ぐ",
@@ -6120,7 +6129,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "チェックリスト・支保工の足元・埋設管の浮力｜見落としを仕組みで防ぐ【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "労働安全衛生規則第242条"
+      ]
     },
     "civil-practice-concrete-compaction-numbers": {
       "title": "打込みと締固めを支配する4つの数値 — 50cm・1.5m・10cmの根拠",
@@ -6137,7 +6149,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "打込み・締固めの4つの数値｜50cm・1.5m・10cmの根拠と現場管理【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "コンクリート標準示方書 施工編"
+      ]
     },
     "civil-practice-concrete-crack-causes": {
       "title": "ひび割れの原因を切り分ける — 発生時期とパターンで見分ける実務の視点",
@@ -6154,7 +6169,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "ひび割れの原因を切り分ける｜沈下・温度・乾燥収縮・劣化の見分け方【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "国土交通省四国地方整備局 初期ひび割れ対策事例集"
+      ]
     },
     "civil-practice-concrete-finishing-curing": {
       "title": "表面仕上げと養生はいつ行うか — 木ゴテ・金ゴテ・散水養生の判断基準",
@@ -6171,7 +6189,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "表面仕上げと養生の時期｜木ゴテ・金ゴテ・湿潤養生の判断基準と凍害対策【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "コンクリート標準示方書 施工編"
+      ]
     },
     "civil-practice-concrete-mix-acceptance": {
       "title": "配合と受入れ検査で何を見るか — スランプ・空気量・塩化物・強度の合否基準",
@@ -6188,7 +6209,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "生コン受入れ検査の合否基準｜スランプ・空気量・塩化物量・強度と配合の関係【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "JIS A 5308"
+      ]
     },
     "civil-practice-concrete-placement-order": {
       "title": "打込み順序と打継ぎ目の作り方 — どこから打ち、どこで継ぐか",
@@ -6205,7 +6229,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "打込み順序と打継ぎ目の作り方｜打ち回しの原則とレイタンス処理【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "コンクリート標準示方書 施工編"
+      ]
     },
     "civil-practice-concrete-placement-timing": {
       "title": "打込み当日の時間管理 — 何時までに何を終えるか",
@@ -6222,7 +6249,12 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "コンクリート打込み当日の時間管理｜外気温で決まる限度時刻と暑中・寒中の区分【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "コンクリート標準示方書 施工編",
+        "JIS A 1147",
+        "JIS A 5308"
+      ]
     },
     "civil-practice-concrete-pump-capacity": {
       "title": "ポンプ車とミキサ車は何台必要か — 打設計画で決める配車の考え方",
@@ -6239,7 +6271,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "ポンプ車・ミキサ車の必要台数｜圧送距離の換算長と配車計算【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "コンクリートのポンプ施工指針"
+      ]
     },
     "civil-practice-concrete-repair-leakage": {
       "title": "コンクリートの補修と補強はどう選ぶか — 漏水対策までの工法選定",
@@ -6256,7 +6291,11 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "補修と補強の違い・漏水対策の工法選び｜コンクリート構造物の維持管理【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "コンクリート標準示方書 維持管理編",
+        "土木研究所 補修対策施工マニュアル"
+      ]
     },
     "civil-practice-construction-plan-document": {
       "title": "施工計画書に何を書くか — 着工前に工事の段取りを固める書類",
@@ -6272,7 +6311,11 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "施工計画書に何を書くか｜記載事項と書いてはいけないこと【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "建設業法第26条の4第1項",
+        "土木工事共通仕様書"
+      ]
     },
     "civil-practice-cost-and-design-change": {
       "title": "原価と設計変更 — 利益はどこで決まるか",
@@ -6288,7 +6331,12 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "原価と設計変更｜工事原価の構成と協議記録の作り方【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "公共工事標準請負契約約款",
+        "建設業法",
+        "国土交通省 土木工事費積算要領"
+      ]
     },
     "civil-practice-earth-retaining-displacement": {
       "title": "土留めの変位が管理値を超えたら — 計測計画と現場での判断",
@@ -6305,7 +6353,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "土留めの変位が管理値を超えたら｜計測計画と現場対応の判断【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "道路土工 仮設構造物工指針"
+      ]
     },
     "civil-practice-embankment-quality-control": {
       "title": "盛土の品質をどう確かめるか — 品質規定方式・工法規定方式・試験施工の判断軸",
@@ -6322,7 +6373,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "盛土の品質管理｜品質規定方式・工法規定方式・試験施工の判断【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "土木工事施工管理基準及び規格値"
+      ]
     },
     "civil-practice-environment-neighborhood": {
       "title": "近隣とどう付き合うか — 苦情を起こさない段取りと環境配慮",
@@ -6338,7 +6392,13 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "近隣対応と環境配慮｜苦情を起こさない段取り【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "騒音規制法",
+        "振動規制法",
+        "水質汚濁防止法",
+        "河川法"
+      ]
     },
     "civil-practice-excavation-bottom-failure": {
       "title": "掘削底面が壊れる3つの形 — 土質と地下水で見分ける",
@@ -6372,7 +6432,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "掘削前の事前調査｜架空線・埋設物・地盤条件の確認手順【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "労働安全衛生規則第349条"
+      ]
     },
     "civil-practice-formwork-material-inspection": {
       "title": "型枠材の選び方と精度を出す点検 — 組む前・打つ前に見るところ",
@@ -6389,7 +6452,12 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "型枠材の選び方と精度を出す点検｜合板・鋼製・FRPの使い分けと固定【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "労働安全衛生規則第237条",
+        "労働安全衛生規則第240条",
+        "労働安全衛生規則第244条"
+      ]
     },
     "civil-practice-formwork-removal-timing": {
       "title": "型枠・支保工はいつ外せるか — 存置期間の判断基準",
@@ -6407,7 +6475,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "型枠・支保工の存置期間｜取り外してよい圧縮強度と判断手順【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "コンクリート標準示方書 施工編"
+      ]
     },
     "civil-practice-formwork-waterstop-details": {
       "title": "止水板・Pコン跡・箱抜きの納まり — 型枠まわりで漏水を防ぐ判断基準",
@@ -6440,7 +6511,11 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "揚重機の選定と仮設梁のたわみ確認｜定格荷重・定格総荷重の違い・作業半径ごとの吊り能力・H形鋼の許容たわみ計算【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "クレーン等安全規則第67条",
+        "クレーン等安全規則第68条"
+      ]
     },
     "civil-practice-pile-bearing-verification": {
       "title": "支持力をどう現物で確かめるか — 施工中の確認と載荷試験の使い分け",
@@ -6457,7 +6532,11 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "支持力の確認方法｜載荷試験・支持層到達判定の実務ポイント【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "地盤工学会基準（JGS）",
+        "道路橋示方書"
+      ]
     },
     "civil-practice-pile-concrete-head-treatment": {
       "title": "場所打ち杭のコンクリートと杭頭処理をどう仕上げるか — 水中コンクリートという前提で判断する",
@@ -6474,7 +6553,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "場所打ち杭のコンクリートと杭頭処理｜水中コンクリート・トレミー管・余盛り・杭径管理の実務ポイント【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "コンクリート標準示方書 施工編"
+      ]
     },
     "civil-practice-pipe-jacking-methods": {
       "title": "推進工法をどう選ぶか — 口径・地盤・切羽管理の判断軸",
@@ -6491,7 +6573,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "推進工法の選び方｜口径区分・切羽管理・立坑計画の判断基準【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "日本下水道協会基準"
+      ]
     },
     "civil-practice-precast-pile-methods": {
       "title": "既製杭の3工法をどう選ぶか — 何が支持力をつくるかで判断する",
@@ -6508,7 +6593,11 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "既製杭3工法の選び方｜打込み・埋込み・回転の使い分け【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "騒音規制法",
+        "振動規制法"
+      ]
     },
     "civil-practice-preventive-maintenance-diagnosis": {
       "title": "壊れる前に直す — 予防保全への転換と劣化診断",
@@ -6525,7 +6614,11 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "予防保全への転換と劣化診断｜法定点検・健全性区分・診断の考え方【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "道路橋定期点検要領",
+        "道路法施行規則"
+      ]
     },
     "civil-practice-quality-record-site-bcp": {
       "title": "記録で現場を回す — 管理図・写真管理・現場のBCPで何を残すか",
@@ -6541,7 +6634,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "記録で現場を回す｜管理図・写真管理・現場のBCPで何を残すか【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "JIS Z 9020-2"
+      ]
     },
     "civil-practice-rebar-corrosion-handling": {
       "title": "鉄筋の錆と結束・切断の扱い — 現場で何を判断するか",
@@ -6558,7 +6654,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "鉄筋の錆と結束・切断の扱い｜使える錆と原則禁止の熱入れ判断【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "コンクリート標準示方書 施工編"
+      ]
     },
     "civil-practice-rebar-cover-placement": {
       "title": "かぶりが足りないとき、現場で何を判断するか — 修正か、設計変更協議か",
@@ -6575,7 +6674,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "かぶり不足の対応｜現場判断と設計変更協議の境界【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "土木工事施工管理基準及び規格値"
+      ]
     },
     "civil-practice-rebar-splice-selection": {
       "title": "鉄筋継手を3方式から選ぶ — 重ね・ガス圧接・機械式の判断基準",
@@ -6592,7 +6694,11 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "鉄筋継手の選び方｜重ね・ガス圧接・機械式の判断基準【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "JIS Z 3120",
+        "JIS Z 3881"
+      ]
     },
     "civil-practice-reference-values": {
       "title": "現場管理値の早見表 — コンクリート・型枠鉄筋・掘削杭・舗装・安全",
@@ -6624,7 +6730,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "河川・砂防・都市公園の施工管理｜出水期・河川保全区域・防災拠点の留意点【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "河川法"
+      ]
     },
     "civil-practice-road-fixtures-precast": {
       "title": "道路の断面を読み、附属物と二次製品を納める — 用語・防護柵・割付の判断軸",
@@ -6640,7 +6749,12 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "道路附属物・二次製品の納め方｜防護柵の選定・二次製品の割付の判断【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "防護柵の設置基準",
+        "JIS A 5372",
+        "道路構造令"
+      ]
     },
     "civil-practice-safety-culture-discipline": {
       "title": "ヒヤリハットを集めても事故が減らない理由",
@@ -6656,7 +6770,11 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "ヒヤリハットを集めても事故が減らない理由｜ハインリッヒの法則とリスクアセスメントの手順【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "労働安全衛生法第28条の2",
+        "労働安全衛生マネジメントシステムに関する指針"
+      ]
     },
     "civil-practice-schedule-and-road-permit": {
       "title": "工期を守るための段取り — 進捗の見方・準備期間・道路使用許可",
@@ -6672,7 +6790,11 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "工期を守る段取り｜進捗管理・準備期間・道路使用許可の違い【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "道路交通法第77条",
+        "道路法第32条"
+      ]
     },
     "civil-practice-sheet-pile-snow-coating": {
       "title": "地盤・季節・見えなくなる品質 — 矢板の打込み、除排雪、塗装の層管理",
@@ -6688,7 +6810,11 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "鋼矢板の打込み工法・除雪の出動基準・塗装の層管理｜条件で選ぶ現場判断【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "騒音規制法",
+        "振動規制法"
+      ]
     },
     "civil-practice-sling-work-wire-rope": {
       "title": "玉掛けとワイヤーロープの選定 — 吊り角度で変わる張力と、1本吊りを避ける理由",
@@ -6704,7 +6830,13 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "玉掛けとワイヤーロープの選定｜吊り角度の張力計算・安全係数・1本吊りが避けられる理由【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "クレーン等安全規則第213条",
+        "クレーン等安全規則第215条",
+        "労働安全衛生法施行令第20条第16号",
+        "労働安全衛生規則第36条第19号"
+      ]
     },
     "civil-practice-slope-drainage-monitoring": {
       "title": "のり面の水を抜き、盛土の動きを測る — 排水計画と動態観測の判断",
@@ -6721,7 +6853,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "のり面排水計画と盛土の動態観測｜施工速度を決める判断【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "日本地すべり学会 横ボーリング工資料"
+      ]
     },
     "civil-practice-slope-protection-selection": {
       "title": "のり面保護工をどう選ぶか — 勾配・土質・湧水・崩壊規模で判断する",
@@ -6738,7 +6873,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "のり面保護工の選び方｜植生工・吹付工・アンカー工の判断基準【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "道路土工 のり面工・斜面安定工指針"
+      ]
     },
     "civil-practice-soil-improvement-sandbag": {
       "title": "土質を見立てて地盤改良と仮締切りを選ぶ — 深さと目的、水の有無で工法を決める",
@@ -6755,7 +6893,11 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "土質の見立てと地盤改良・仮締切り｜工法選定と大型土のうの安定照査【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "土木学会 地盤改良工法技術資料",
+        "土木研究センター 土木技術資料"
+      ]
     },
     "civil-practice-stacking-heat-machine-safety": {
       "title": "はい作業・熱中症・バックホウの吊り作業 — 法令が線を引く3つの現場判断",
@@ -6771,7 +6913,14 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "はい作業・熱中症・バックホウ吊り作業の法令ライン｜高さ2m・WBGT基準・用途外使用禁止【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "労働安全衛生法施行令第6条第12号",
+        "労働安全衛生規則第428条",
+        "労働安全衛生規則第429条",
+        "労働安全衛生規則第612条の2",
+        "労働安全衛生規則第164条"
+      ]
     },
     "civil-practice-subbase-subgrade-control": {
       "title": "路盤・路床をどう仕上げるか — CBRの見極めと層厚・締固め度の判断軸",
@@ -6788,7 +6937,10 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "路盤・路床の締固めと層厚｜CBRの見方・構築路床・締固め度の管理【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "舗装施工便覧"
+      ]
     },
     "civil-practice-trench-excavation-safety": {
       "title": "溝掘削の土留め、いつ入れるか — 深さでなく危険性で判断する",
@@ -6805,7 +6957,14 @@
       "publishedAt": "2026-08-27",
       "seoTitle": "溝掘削の土留めをいつ入れるか｜設置義務・作業主任者・簡易土留めの適用範囲【土木施工の実務】",
       "created": "2026-08-27",
-      "dateModified": "2026-08-27"
+      "dateModified": "2026-08-27",
+      "sources": [
+        "労働安全衛生規則第361条",
+        "労働安全衛生法施行令第6条第9号",
+        "労働安全衛生規則第359条",
+        "労働安全衛生規則第373条",
+        "土止め先行工法に関するガイドライン"
+      ]
     },
     "concrete-chief-engineer-guide-essay": {
       "title": "コンクリート主任技士 小論文の書き方 — 評価される観点・答案構成・テーマ傾向",
