@@ -1,4 +1,0 @@
-interface:
-  display_name: "Handoff Logger"
-  short_description: "Record concise project handoff logs after meaningful work."
-  default_prompt: "After completing meaningful project work, create or update a handoff log in docs/handoffs with the background, changes, validation, and follow-up notes."

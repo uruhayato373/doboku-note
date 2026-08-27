@@ -142,6 +142,8 @@
     "check-information-architecture": "node scripts/check-information-architecture.mjs",
     "check-content-layout": "node scripts/audit-content-layout.mjs",
     "check-backlog-schema": "node scripts/check-backlog-schema.mjs",
+    "check-codex-compat": "node scripts/sync-codex-compat.mjs --check",
+    "sync-codex-compat": "node scripts/sync-codex-compat.mjs --write",
     "check-project-task-refs": "node scripts/check-project-task-refs.mjs",
     "check-backlog-verify": "node scripts/check-backlog-verify.mjs",
     "check-backlog-health": "node scripts/check-backlog-health.mjs",

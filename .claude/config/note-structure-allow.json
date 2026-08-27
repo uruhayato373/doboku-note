@@ -1,26 +1,13 @@
 {
-  "_doc": "check-note-structure --ci の WAIVED リスト。ここに載る記事の CRITICAL(PAYWALL_LEAK/FULL_LOCK) は既知の偽陽性/判断待ちとしてゲートを素通しする（レポートには WAIVED として列挙）。真の漏洩ではなく『ソース paidBoundary が実ライブ境界と食い違う境界定義ズレ』で実ライブの paywall は正常。backlog『建設部門BK・総監の有料境界を実ライブに整合』の解消時に空にする。キーはマガジン相対パス（content/note/ 以降・/article.md 除く）。",
-  "_backlog": ".claude/todo/backlog.md 🟣判断待ち『建設部門BK・総監の有料境界を実ライブに整合』",
+  "_doc": "check-note-structure --ci の WAIVED リスト。ここに載る記事の CRITICAL は既知の偽陽性/待ち状態としてゲートを素通しする（レポートには WAIVED として列挙）。現残 7 件は BK-I 必須科目I＝ソースに CTA 追記済みだがライブ未再公開（DN-0003 の note-update-body バッチが添付上限で中断中）による FREE_MISSING で、バッチ再開・完了後に check-note-structure を再走して空にする。旧 DN-0084 の 13 件（BK-01道路8・総監テキスト精読5）は 2026-08-27 実測で現行境界のまま PASS を確認し解除済み。キーはマガジン相対パス（content/note/ 以降・/article.md 除く）。",
+  "_backlog": ".claude/todo/backlog.md 『[DN-0147] note-republish-plan の ready 分類…』（修正→バッチ fail 0 の後に check-note-structure を再走しこのリストを空へ）",
   "waived": [
-    "技術士建設部門/magazines/BK-01_道路/R08-yosou/II-1",
-    "技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-2_インフラDX維持管理",
-    "技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-3_道路啓開災害復旧",
-    "技術士建設部門/magazines/BK-01_道路/R08-yosou/II-2-4_床版取替施工",
-    "技術士建設部門/magazines/BK-01_道路/R08-yosou/III-1_脱炭素",
-    "技術士建設部門/magazines/BK-01_道路/R08-yosou/III-2_4車線化",
-    "技術士建設部門/magazines/BK-01_道路/R08-yosou/III-3_事前防災",
-    "技術士建設部門/magazines/BK-01_道路/R08-yosou/III-4_xROAD",
     "技術士建設部門/magazines/BK-I_必須科目I/R05",
     "技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-1",
     "技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-2",
     "技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-3",
     "技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-4",
     "技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-5",
-    "技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-6",
-    "技術士総監/magazines/総監テキスト精読ガイド/5管理-人的資源管理",
-    "技術士総監/magazines/総監テキスト精読ガイド/5管理-安全管理",
-    "技術士総監/magazines/総監テキスト精読ガイド/5管理-情報管理",
-    "技術士総監/magazines/総監テキスト精読ガイド/5管理-社会環境管理",
-    "技術士総監/magazines/総監テキスト精読ガイド/5管理-経済性管理"
+    "技術士建設部門/magazines/BK-I_必須科目I/R08-yosou-6"
   ]
 }

@@ -1,0 +1,50 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="場所打ち杭4工法（オールケーシング・アースドリル・リバース・深礎）を孔壁保護の方式で比較する図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-label { font-size: 12px; fill: #555; }
+      .t-num   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-label" x="200" y="26" text-anchor="middle">孔がなぜ自立しているか、で4工法が分かれる</text>
+
+  <!-- オールケーシング -->
+  <rect class="box-brand" x="15" y="42" width="370" height="90" rx="8"/>
+  <text class="t-title" x="35" y="65">オールケーシング（ベノト）</text>
+  <text class="t-num" x="35" y="86">孔壁保護: ケーシングチューブ（鋼管）</text>
+  <text class="t-label" x="35" y="106">玉石・岩盤が混じる地盤にも対応</text>
+  <text class="t-label" x="35" y="122">全回転式はより硬質な地盤に対応</text>
+
+  <!-- アースドリル -->
+  <rect class="box-positive" x="15" y="140" width="370" height="90" rx="8"/>
+  <text class="t-title" x="35" y="163">アースドリル</text>
+  <text class="t-num" x="35" y="184">孔壁保護: 安定液の比重・液圧</text>
+  <text class="t-label" x="35" y="204">安定液の水位差を地下水位より</text>
+  <text class="t-label" x="35" y="220">1.5m以上に維持</text>
+
+  <!-- リバース -->
+  <rect class="box-warn" x="15" y="238" width="370" height="90" rx="8"/>
+  <text class="t-title" x="35" y="261">リバース</text>
+  <text class="t-num" x="35" y="282">孔壁保護: 清水の水頭差</text>
+  <text class="t-label" x="35" y="302">水頭差を地下水位より2m以上</text>
+  <text class="t-label" x="35" y="318">に維持</text>
+
+  <!-- 深礎 -->
+  <rect class="box-surface" x="15" y="336" width="370" height="90" rx="8"/>
+  <text class="t-title" x="35" y="359">深礎</text>
+  <text class="t-num" x="35" y="380">孔壁保護: ライナープレート（構造物）</text>
+  <text class="t-label" x="35" y="400">人が孔内に入り目視で地質を</text>
+  <text class="t-label" x="35" y="416">確認しながら掘進</text>
+
+  <line x1="15" y1="445" x2="385" y2="445" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-label" x="200" y="467" text-anchor="middle">選定は地盤条件・杭径杭長・近接条件の組合せで決まる</text>
+</svg>

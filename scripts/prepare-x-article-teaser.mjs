@@ -139,4 +139,4 @@ const scheduledAt = status.tweets[selected.teaserKey].scheduled_at.slice(0, 16);
 console.log(`[x-article:prepare] OK${DRY_RUN ? " [DRY RUN]" : ""}: Article ${articleNo} のURLを記録し、Tweet ${selected.teaserKey} を解放`);
 if (DRY_RUN) process.exit(0);
 console.log(`次: npm run x-schedule-guard`);
-console.log(`次: npx tsx .agents/skills/social/publish-x/publish-x.ts 094 --tweet ${selected.teaserKey} ${scheduledAt} --dry-run`);
+console.log(`次: npx tsx .claude/skills/social/publish-x/publish-x.ts 094 --tweet ${selected.teaserKey} ${scheduledAt} --dry-run`);

@@ -1,0 +1,72 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="吊り角度θが開くほど張力割増し係数k=1/cos(θ/2)が増える関係を示す折れ線グラフ（0度で1.00、120度で2.00）">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-label { font-size: 12px; fill: #555; }
+      .t-num   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+    </style>
+    <marker id="arrow8" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="t-label" x="200" y="24" text-anchor="middle">k = 1/cos(θ/2)　開き角が増えるほど張力が増える</text>
+
+  <!-- 軸 -->
+  <line x1="55" y1="260" x2="370" y2="260" stroke="#555" stroke-width="1.5" marker-end="url(#arrow8)"/>
+  <line x1="55" y1="260" x2="55" y2="60" stroke="#555" stroke-width="1.5" marker-end="url(#arrow8)"/>
+  <text class="t-label" x="380" y="264" text-anchor="end" font-size="11">θ（度）</text>
+  <text class="t-label" x="30" y="65" font-size="11">k</text>
+
+  <!-- 目盛り (x: 0,30,60,90,120 / y: 1.0=260, 2.0=80 のスケール) -->
+  <!-- y = 260 - (k-1.0)*180 -->
+  <line x1="55" y1="80" x2="370" y2="80" stroke="#d7d7d7" stroke-width="1" stroke-dasharray="2,2"/>
+  <text class="t-label" x="45" y="84" text-anchor="end" font-size="11">2.00</text>
+  <line x1="55" y1="260" x2="370" y2="260" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-label" x="45" y="264" text-anchor="end" font-size="11">1.00</text>
+
+  <!-- x軸目盛り: 0=90,30=155,60=220,90=285,120=350 -->
+  <line x1="90" y1="255" x2="90" y2="265" stroke="#555" stroke-width="1"/>
+  <text class="t-label" x="90" y="278" text-anchor="middle" font-size="11">0</text>
+  <line x1="155" y1="255" x2="155" y2="265" stroke="#555" stroke-width="1"/>
+  <text class="t-label" x="155" y="278" text-anchor="middle" font-size="11">30</text>
+  <line x1="220" y1="255" x2="220" y2="265" stroke="#555" stroke-width="1"/>
+  <text class="t-label" x="220" y="278" text-anchor="middle" font-size="11">60</text>
+  <line x1="285" y1="255" x2="285" y2="265" stroke="#555" stroke-width="1"/>
+  <text class="t-label" x="285" y="278" text-anchor="middle" font-size="11">90</text>
+  <line x1="350" y1="255" x2="350" y2="265" stroke="#555" stroke-width="1"/>
+  <text class="t-label" x="350" y="278" text-anchor="middle" font-size="11">120</text>
+
+  <!-- 折れ線: 0→1.00(260) 30→1.04(252.8) 60→1.15(233) 90→1.41(186) 120→2.00(80) -->
+  <polyline points="90,260 155,252.8 220,233 285,186 350,80"
+            fill="none" stroke="#2e6da4" stroke-width="2.5"/>
+  <circle cx="90" cy="260" r="4" fill="#2e6da4"/>
+  <circle cx="155" cy="252.8" r="4" fill="#2e6da4"/>
+  <circle cx="220" cy="233" r="4" fill="#2e6da4"/>
+  <circle cx="285" cy="186" r="4" fill="#2e6da4"/>
+  <circle cx="350" cy="80" r="4" fill="#b22234"/>
+
+  <text class="t-num" x="90" y="248" text-anchor="middle" font-size="11">1.00</text>
+  <text class="t-num" x="155" y="240" text-anchor="middle" font-size="11">1.04</text>
+  <text class="t-num" x="220" y="221" text-anchor="middle" font-size="11">1.15</text>
+  <text class="t-num" x="285" y="174" text-anchor="middle" font-size="11">1.41</text>
+  <text class="t-num" x="350" y="68" text-anchor="middle" fill="#b22234" font-size="11">2.00</text>
+
+  <!-- 推奨帯 -->
+  <line x1="220" y1="60" x2="220" y2="260" stroke="#3a7d44" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text class="t-label" x="220" y="52" text-anchor="middle" fill="#3a7d44" font-size="11">60度＝推奨上限</text>
+
+  <line x1="15" y1="300" x2="385" y2="300" stroke="#d7d7d7" stroke-width="1"/>
+
+  <text class="t-label" x="200" y="325" text-anchor="middle">90度を超えたあたりから増え方が急になり、</text>
+  <text class="t-label" x="200" y="343" text-anchor="middle">120度では垂直吊りのちょうど2倍まで跳ね上がる</text>
+
+  <rect fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" x="20" y="370" width="360" height="70" rx="8"/>
+  <text class="t-title" x="40" y="395">現場での目安</text>
+  <text class="t-label" x="40" y="418">60度以内にとどめ、大きくても90度を超えない</text>
+  <text class="t-label" x="40" y="433" font-size="11">（玉掛け技能講習テキストの推奨値・法令の数値基準ではない）</text>
+</svg>

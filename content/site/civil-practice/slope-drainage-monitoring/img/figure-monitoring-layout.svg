@@ -1,0 +1,69 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="高盛土の動態観測で使う沈下板・地表面変位杭・間隙水圧計の配置と、沈下量と側方変位量を重ねて読む安定管理図の考え方を示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 13px; font-weight: bold; fill: #222; }
+      .t-label { font-size: 11px; fill: #555; }
+      .t-num   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-label" x="200" y="18" text-anchor="middle" font-size="12">盛土の断面と計測機器の配置</text>
+
+  <!-- 地盤・盛土断面 -->
+  <rect class="box-surface" x="20" y="35" width="360" height="40"/>
+  <polygon points="120,35 280,35 240,110 160,110" class="box-brand"/>
+  <text class="t-label" x="200" y="70" text-anchor="middle">盛土</text>
+
+  <!-- 沈下板（盛土中央下） -->
+  <line x1="200" y1="110" x2="200" y2="70" stroke="#b22234" stroke-width="2"/>
+  <circle cx="200" cy="70" r="4" fill="#b22234"/>
+  <text class="t-label" x="200" y="128" text-anchor="middle">沈下板</text>
+
+  <!-- 地表面変位杭（盛土のり尻付近） -->
+  <line x1="100" y1="75" x2="100" y2="55" stroke="#3a7d44" stroke-width="2"/>
+  <circle cx="100" cy="55" r="4" fill="#3a7d44"/>
+  <text class="t-label" x="100" y="93" text-anchor="middle">変位杭</text>
+
+  <line x1="300" y1="75" x2="300" y2="55" stroke="#3a7d44" stroke-width="2"/>
+  <circle cx="300" cy="55" r="4" fill="#3a7d44"/>
+  <text class="t-label" x="300" y="93" text-anchor="middle">変位杭</text>
+
+  <!-- 間隙水圧計（地盤内） -->
+  <rect x="150" y="82" width="10" height="10" fill="#2e6da4"/>
+  <text class="t-label" x="155" y="107" text-anchor="middle" font-size="11">水圧計</text>
+
+  <line x1="15" y1="150" x2="385" y2="150" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 安定管理図 -->
+  <text class="t-label" x="200" y="172" text-anchor="middle" font-size="12">安定管理図（沈下量×側方変位量を重ねて見る）</text>
+
+  <line x1="55" y1="330" x2="370" y2="330" stroke="#555" stroke-width="1.5"/>
+  <line x1="55" y1="330" x2="55" y2="190" stroke="#555" stroke-width="1.5"/>
+  <text class="t-label" x="200" y="350" text-anchor="middle">経過日数</text>
+  <text class="t-label" x="35" y="195" text-anchor="middle" font-size="11">量</text>
+
+  <!-- 沈下量（安定的に推移） -->
+  <polyline points="55,320 130,300 210,275 290,255 365,240" fill="none" stroke="#b22234" stroke-width="2"/>
+  <text class="t-label" x="330" y="232" fill="#b22234" font-size="11">沈下量</text>
+
+  <!-- 側方変位量（途中から加速＝要注意） -->
+  <polyline points="55,325 130,315 210,300 290,255 365,205" fill="none" stroke="#3a7d44" stroke-width="2"/>
+  <text class="t-label" x="330" y="198" fill="#3a7d44" font-size="11">側方変位量</text>
+
+  <line x1="290" y1="190" x2="290" y2="330" stroke="#d4a017" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <text class="t-label" x="250" y="184" text-anchor="middle" fill="#d4a017" font-size="11">変位が加速</text>
+
+  <line x1="15" y1="375" x2="385" y2="375" stroke="#d7d7d7" stroke-width="1"/>
+
+  <rect fill="#fff3cd" stroke="#d4a017" stroke-width="1.5" x="20" y="390" width="360" height="90" rx="8"/>
+  <text class="t-title" x="40" y="413">読み取り方</text>
+  <text class="t-label" x="40" y="433">沈下に対して側方変位の伸びが目立ち始めたら</text>
+  <text class="t-label" x="40" y="451">盛土速度を落とす、または一時中断して経過を見る</text>
+  <text class="t-label" x="40" y="469">数値の大小より、日々の変化の関係性を追う</text>
+</svg>

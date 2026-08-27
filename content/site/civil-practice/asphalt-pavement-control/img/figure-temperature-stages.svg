@@ -1,0 +1,58 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="アスファルト舗装の敷均しから初転圧・二次転圧・仕上げ転圧・交通開放までの温度帯とローラ種類の対応を示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-label { font-size: 12px; fill: #555; }
+      .t-num   { font-size: 14px; font-weight: bold; fill: #1a3a5c; }
+      .box-danger  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-warn    { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-brand   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive{ fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow7" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#555"/>
+    </marker>
+  </defs>
+
+  <text class="t-label" x="200" y="26" text-anchor="middle">温度は時間とともに下がる一方＝逆戻りはできない</text>
+
+  <!-- 敷均し -->
+  <rect class="box-danger" x="15" y="42" width="370" height="70" rx="8"/>
+  <text class="t-title" x="35" y="65">敷均し</text>
+  <text class="t-num" x="35" y="86">110℃を下回らない</text>
+  <text class="t-label" x="35" y="103">下回ると密度不足のおそれ</text>
+
+  <line x1="200" y1="112" x2="200" y2="132" stroke="#555" stroke-width="1.5" marker-end="url(#arrow7)"/>
+
+  <!-- 初転圧 -->
+  <rect class="box-warn" x="15" y="137" width="370" height="70" rx="8"/>
+  <text class="t-title" x="35" y="160">初転圧</text>
+  <text class="t-num" x="35" y="181">110〜140℃</text>
+  <text class="t-label" x="35" y="198">ロードローラ 10〜12t</text>
+
+  <line x1="200" y1="207" x2="200" y2="227" stroke="#555" stroke-width="1.5" marker-end="url(#arrow7)"/>
+
+  <!-- 二次転圧 -->
+  <rect class="box-brand" x="15" y="232" width="370" height="70" rx="8"/>
+  <text class="t-title" x="35" y="255">二次転圧</text>
+  <text class="t-num" x="35" y="276">終了 70〜90℃</text>
+  <text class="t-label" x="35" y="293">タイヤローラ 8〜20t／振動ローラ 6〜10t</text>
+
+  <line x1="200" y1="302" x2="200" y2="322" stroke="#555" stroke-width="1.5" marker-end="url(#arrow7)"/>
+
+  <!-- 仕上げ転圧 -->
+  <rect class="box-brand" x="15" y="327" width="370" height="60" rx="8"/>
+  <text class="t-title" x="35" y="350">仕上げ転圧</text>
+  <text class="t-label" x="35" y="371">温度の目安なし／タイヤローラ等2回</text>
+
+  <line x1="200" y1="387" x2="200" y2="407" stroke="#555" stroke-width="1.5" marker-end="url(#arrow7)"/>
+
+  <!-- 交通開放 -->
+  <rect class="box-positive" x="15" y="412" width="370" height="60" rx="8"/>
+  <text class="t-title" x="35" y="435">交通開放</text>
+  <text class="t-num" x="35" y="456">表面がおおむね50℃以下</text>
+</svg>

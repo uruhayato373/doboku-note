@@ -1,0 +1,52 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="埋設管の浮力（F_b=γw×V）と、これを押さえ込む管の自重・埋戻し土の重さ・摩擦抵抗の釣合いを示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-label { font-size: 12px; fill: #555; }
+      .t-num   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .box-brand   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow-up" markerWidth="8" markerHeight="6.4" refX="8" refY="3.2" orient="auto">
+      <polygon points="0,0 8,3.2 0,6.4" fill="#2e6da4"/>
+    </marker>
+    <marker id="arrow-down" markerWidth="8" markerHeight="6.4" refX="8" refY="3.2" orient="auto">
+      <polygon points="0,0 8,3.2 0,6.4" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- 地盤断面 -->
+  <rect class="box-surface" x="20" y="40" width="360" height="220" rx="4"/>
+  <text class="t-label" x="35" y="60">地下水位以下の地盤（埋戻し直後）</text>
+
+  <!-- 管（円） -->
+  <circle cx="200" cy="160" r="55" fill="#e8f0fe" stroke="#2e6da4" stroke-width="2"/>
+  <circle cx="200" cy="160" r="35" fill="#ffffff" stroke="#2e6da4" stroke-width="1.5"/>
+  <text class="t-label" x="200" y="165" text-anchor="middle">管</text>
+
+  <!-- 浮力（上向き矢印） -->
+  <line x1="200" y1="240" x2="200" y2="170" stroke="#2e6da4" stroke-width="2.5" marker-end="url(#arrow-up)"/>
+  <text class="t-num" x="200" y="255" text-anchor="middle" fill="#2e6da4">浮力 F_b = γw × V</text>
+
+  <!-- 押さえる力（下向き矢印） -->
+  <line x1="130" y1="90" x2="130" y2="145" stroke="#555" stroke-width="2" marker-end="url(#arrow-down)"/>
+  <line x1="270" y1="90" x2="270" y2="145" stroke="#555" stroke-width="2" marker-end="url(#arrow-down)"/>
+  <text class="t-label" x="200" y="80" text-anchor="middle">自重 ＋ 埋戻し土の重さ ＋ 摩擦抵抗</text>
+
+  <line x1="15" y1="280" x2="385" y2="280" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 計算例 -->
+  <rect class="box-brand" x="20" y="300" width="360" height="140" rx="8"/>
+  <text class="t-title" x="40" y="325">計算例（1mあたり）</text>
+  <text class="t-label" x="40" y="348">外径0.70m・内径0.60mのコンクリート管</text>
+  <text class="t-label" x="40" y="368">γw = 9.8 kN/m³　外形体積 V ≈ 0.385 m³/m</text>
+  <text class="t-num" x="40" y="392">浮力 F_b ≈ 9.8 × 0.385 ≈ 3.77 kN/m</text>
+  <text class="t-label" x="40" y="415">埋戻しが済み土被りが確保されるまでは</text>
+  <text class="t-label" x="40" y="430">抵抗力が育っておらず浮力が先に働きやすい</text>
+
+  <text class="t-label" x="200" y="465" text-anchor="middle">押さえる力が浮力を上回るまでが弱点区間</text>
+</svg>

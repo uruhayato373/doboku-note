@@ -1,0 +1,54 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="生コン受入れ検査4項目（スランプ・空気量・塩化物イオン量・圧縮強度）の確認タイミングと合否基準">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-label { font-size: 12px; fill: #555; }
+      .t-num   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .head-brand   { fill: #2e6da4; }
+      .head-warn    { fill: #d4a017; }
+    </style>
+  </defs>
+
+  <!-- カード1: スランプ（その場で判定） -->
+  <rect class="box-brand" x="15" y="15" width="370" height="80" rx="8"/>
+  <rect class="head-brand" x="15" y="15" width="8" height="80" rx="4"/>
+  <text class="t-title" x="35" y="37">① スランプ（またはスランプフロー）</text>
+  <text class="t-label" x="35" y="58">荷卸し地点で試験・その場で合否</text>
+  <text class="t-num" x="35" y="80">指定値ごとに許容差あり（例: 8〜18cmは±2.5cm）</text>
+
+  <!-- カード2: 空気量（その場で判定） -->
+  <rect class="box-brand" x="15" y="105" width="370" height="80" rx="8"/>
+  <rect class="head-brand" x="15" y="105" width="8" height="80" rx="4"/>
+  <text class="t-title" x="35" y="127">② 空気量</text>
+  <text class="t-label" x="35" y="148">荷卸し地点で試験・その場で合否</text>
+  <text class="t-num" x="35" y="170">普通4.5%±1.5% ／ 軽量5.0%±1.5%</text>
+
+  <!-- カード3: 塩化物イオン量（その場で判定） -->
+  <rect class="box-brand" x="15" y="195" width="370" height="80" rx="8"/>
+  <rect class="head-brand" x="15" y="195" width="8" height="80" rx="4"/>
+  <text class="t-title" x="35" y="217">③ 塩化物イオン量</text>
+  <text class="t-label" x="35" y="238">荷卸し地点で試験・その場で合否</text>
+  <text class="t-num" x="35" y="260">原則0.30kg/m³以下（承認時0.60kg/m³以下）</text>
+
+  <!-- カード4: 圧縮強度（後日判定） -->
+  <rect class="box-warn" x="15" y="285" width="370" height="95" rx="8"/>
+  <rect class="head-warn" x="15" y="285" width="8" height="95" rx="4"/>
+  <text class="t-title" x="35" y="307">④ 圧縮強度</text>
+  <text class="t-label" x="35" y="328">供試体を採取し、後日の試験結果を待つ</text>
+  <text class="t-num" x="35" y="349">1回の結果（3個平均）が呼び強度の85%以上</text>
+  <text class="t-num" x="35" y="367">3回の平均が呼び強度以上</text>
+
+  <line x1="15" y1="395" x2="385" y2="395" stroke="#d7d7d7" stroke-width="1"/>
+
+  <text class="t-label" x="200" y="418" text-anchor="middle">①〜③はその場で異常の兆候を捉える役割</text>
+  <text class="t-label" x="200" y="438" text-anchor="middle">④だけは打込み後にしか結果が出ない</text>
+
+  <rect class="box-warn" x="30" y="455" width="340" height="35" rx="6"/>
+  <text class="t-label" x="200" y="477" text-anchor="middle">打ち込んでからの強度不足は取り返せない</text>
+</svg>
