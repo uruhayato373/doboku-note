@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-27T11:11:22.813Z",
+  "generated_at": "2026-08-27T11:15:46.289Z",
   "summary": {
-    "total": 1165,
-    "published": 1146,
+    "total": 1166,
+    "published": 1147,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 44,
+      "civil-practice": 45,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6591,6 +6591,22 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "鉄筋継手の選び方｜重ね・ガス圧接・機械式の判断基準【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-reference-values": {
+      "title": "現場管理値の早見表 — コンクリート・型枠鉄筋・掘削杭・舗装・安全",
+      "description": "「土木施工の実務」カテゴリの全記事で一次資料照合済みの管理値を、工種横断で1ページにまとめた早見表です。数値の背景・出典・現場での判断はそれぞれの記事本文で解説しています。",
+      "shortTitle": "現場管理値の早見表",
+      "subtitle": "このカテゴリ全記事の管理値を1ページで引く",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "現場管理値の早見表｜コンクリート・型枠鉄筋・掘削杭・舗装・安全【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
