@@ -295,6 +295,28 @@ resolvedへ移動（実害なし）。drift は **221→220**（91本目1件減�
 **残**: 220本（ready残36・pdfReady54・hasImage117・membership1・aborted13の再分類が必要）。
 **次の投入は翌日（日付が変わってから）**、`note-republish-plan.mjs --out`で続きを投入する。
 
+**2026-08-27: `ready` 分類に live 添付の非対称ケースが漏れていると判明（投入は 0 本で中断）**
+
+`note-republish-plan.mjs` で再分類: ready 42 / pdfMissing 54 / hasImage 117（DN-0009待ち）/
+membership 1 / aborted 7。ready 42 本を `--reattach-pdf` 付きで投入したところ、
+**BK-I_必須科目I の R04/R05/R06 で3本連続失敗**し安全弁が発動（fail-closed・本文無傷）。
+理由はいずれも同型: 「live の添付 1 件のうち 1 件がローカルに無い」。
+
+`ready` 判定（`buckets.ready.push`）は `a.pdfPromise`（**本文ソースに PDF 配布の記述があるか**）
+だけを見ており、**live 側に実際に添付が付いているか**は見ていない。BK-I_必須科目I は本文に
+PDF 配布の記述が無い（だから `ready` に分類された）が、運営が過去に手動で PDF を live へ添付
+していたため、`note-update-body.mjs` の保護機構（全文置換で添付が消えるのを防ぐ）が中断させた
+——これ自体は正しい安全弁（2026-07-31 の購入者 PDF 消失事故の再発防止）。
+
+除外して残り32本（総監模範論文シリーズ中心）で1本だけ単体再試行したが、**同じ理由で失敗**
+（`総監模範論文-自治体上水道担当/R03`）。つまり `ready` 42 本の相当数が同型の分類漏れを抱えて
+いる疑いが強く、今回は追加投入を見送った（本文無傷・drift 220 のまま変化なし）。
+
+**次の一手**: `note-republish-plan.mjs` の `ready` 判定へ live 添付の有無チェックを足す
+（`check-note-attachments --live` のデータ突合、または `--reattach-pdf` の FAIL 理由を
+`pdfMissing` へ自動で振り替えるフィードバック機構）。それまでは `ready` を鵜呑みにせず、
+投入前に数本を単体 `--article` で試してから `--list` バッチへ進むこと。
+
 ### [DN-0005] X 9月分の週次投入（week2 以降・計画正典は 2026-09-civil.json）
 タグ: [SNS・マーケ] [種類:制作] [起票:2026-08-06] [期日:2026-09-08]
 
