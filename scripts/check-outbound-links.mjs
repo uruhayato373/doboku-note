@@ -26,6 +26,7 @@ import { readFileSync, readdirSync, existsSync, writeSync } from 'node:fs';
 import { join, dirname, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { fetchNote, fetchMagazine } from './lib/note-api.mjs';
+import { extractNoteRefs } from './lib/note-refs.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const NAME = 'check-outbound-links';
@@ -55,14 +56,13 @@ function walk(dir, out = []) {
 
 // url -> Set(参照元ファイル)
 const refs = new Map();
-const NOTE_URL = /https?:\/\/(?:www\.)?note\.com\/([A-Za-z0-9_-]+)\/(n|m)\/([A-Za-z0-9]+)/g;
 for (const s of SCOPES) {
   if (SCOPE && s !== SCOPE) continue;
   for (const abs of walk(join(ROOT, 'content', s))) {
     const rel = toPosix(abs.slice(ROOT.length + 1));
     const src = readFileSync(abs, 'utf8');
-    for (const m of src.matchAll(NOTE_URL)) {
-      const key = `${m[2]}:${m[3]}`;
+    for (const { kind, id } of extractNoteRefs(src)) {
+      const key = `${kind}:${id}`;
       if (!refs.has(key)) refs.set(key, new Set());
       refs.get(key).add(rel);
     }
