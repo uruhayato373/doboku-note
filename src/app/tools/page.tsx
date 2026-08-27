@@ -56,6 +56,12 @@ const TOOLS = [
     desc: "打込み量からポンプ車・アジテータ車の必要台数を計算し、圧送ルートが届くかを水平換算長で確認。",
     tag: "計算",
   },
+  {
+    href: "/tools/sling-tension",
+    title: "玉掛け 吊り角度・張力計算ツール",
+    desc: "吊り荷重・本数・吊り角度から、ワイヤー1本当たりの張力と安全係数6を満たす必要破断荷重を計算。",
+    tag: "計算",
+  },
 ];
 
 export default function ToolsIndexPage() {
