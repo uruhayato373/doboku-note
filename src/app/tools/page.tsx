@@ -86,6 +86,12 @@ const TOOLS = [
     desc: "直接工事費・共通仮設費・現場管理費・一般管理費等の金額から構成比を計算。赤字の判定は行いません。",
     tag: "計算",
   },
+  {
+    href: "/tools/water-content",
+    title: "コンクリート 単位水量・水和水 計算ツール",
+    desc: "水セメント比と単位セメント量から単位水量を計算し、水和反応に必要な水と余剰水の内訳を確認。",
+    tag: "計算",
+  },
 ];
 
 export default function ToolsIndexPage() {
