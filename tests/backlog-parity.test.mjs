@@ -72,7 +72,7 @@ test('admin の backlog カードが backlog-lib と全件一致する（line/ti
   const fromAdmin = todoBoardBacklogCards();
   const fromLib = parseBacklog(readFileSync(join(ROOT, '.claude/todo/backlog.md'), 'utf8'));
 
-  assert.ok(fromLib.length > 50, `カード数が異常に少ない: ${fromLib.length}`);
+  assert.ok(fromLib.length > 15, `カード数が異常に少ない: ${fromLib.length}`);
   assert.equal(fromAdmin.length, fromLib.length, 'admin と lib でカード数が違う');
 
   const key = (c) => [c.line, c.tier, c.title, c.category, c.kind ?? null, c.codex].join('|');

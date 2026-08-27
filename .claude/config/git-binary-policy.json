@@ -151,6 +151,13 @@
   },
   "allowlist": [
     {
+      "path": "content/brain/dist/",
+      "reason": "Brain(brain-market.com)で販売する配布キットのZIPそのもの＝製品の実体（生成キャッシュや原本の重複ではない）。展開して原本だけ追跡すると購入者が受け取るバイト列と一致しなくなる。R2はCDN配信用の複製先で、Gitのこちらが編集・レビューの正典（brain-products.ts:distFile）",
+      "appliesTo": [
+        "archive-bundle"
+      ]
+    },
+    {
       "path": ".claude/skills/conversion/ogp-create/assets/fonts/",
       "reason": "satori/OGP 生成に必須のフォント実体。CDN 取得にすると CI とローカルで描画が割れる",
       "appliesTo": [

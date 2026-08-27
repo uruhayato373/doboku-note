@@ -57,6 +57,14 @@ content/sources/textbook/**/*.PDF
 # 追跡済みの content/sources/textbook/**/*.md（自前の文字起こし）とは別物なので Text/ だけを外す。
 content/sources/textbook/**/Text/
 
+# 書籍由来の文字起こし本文（.md/.html/figures 等）は書籍の著作権物であり public repo に置かない。
+# private Google Drive vault（マイドライブ/doboku-note-private-sources/textbook/）へ移設した。
+# 各サブディレクトリの README.md だけは案内として追跡を残す。
+# 詳細: .claude/knowledge/reference/asset-storage-policy.md
+content/sources/textbook/**
+!content/sources/textbook/**/
+!content/sources/textbook/**/README.md
+
 # Service account keys & credentials
 doboku-note-*.json
 credentials/
