@@ -33,11 +33,22 @@ Instagram カルーセルの「実際に公開されているか（現状確認�
 | `type_mismatch` ★ | **posted.json の carousel が実はリールを指す＝カルーセル実質なし** | カルーセルを貼り直し＋posted.json 是正（reels へ移す） |
 | `scheduled` | status.json で予約済み | 不要（go-live 後に posted へ） |
 | `unpublished` | 素材はあるが未公開 | 予約候補（§5） |
-| `anomaly` ★ | 同テーマが**複数のカルーセル**に一致（重複の疑い・型考慮済み） | **自動処理しない**・人判断 |
+| `anomaly` ★ | 同テーマが**複数のカルーセル**に一致、または**複数パックが同一投稿を主張**（下記 `ambiguous`） | **自動処理しない**・人判断 |
+| `ambiguous`（フラグ） | カテゴリではなく `published_UNrecorded`/`draft_misrecorded` の各エントリに付く真偽値。**立っていたら backfill 不可** | 人判断（`ambiguousWith` に衝突相手の rel） |
 
 ★ がドリフト（exit 2）。`.claude/state/ig-reconcile/snapshot.json` に保存。
 
 > **型不整合（type_mismatch）は rio 事故の再発防止**: 2026-06-25、rio（環境条約の流れ）の白カルーセルが無いのに**リール（DaAFq59EuIO）を白カルーセルと誤認**し、黒カルーセル（DZ8qhf0k3ah）を削除してカルーセルを消失させた。reconciler はカルーセル/リールを `/reel/` リダイレクト＋「オリジナル音源」「リール動画を宣伝」マーカーで判別し、carousel 記録がリールを指していたら赤フラグする。`anomaly` も同型（カルーセル同士）の重複のみ＝カルーセル＋リールの併存は正常運用として除外する。
+
+> **`matched=1` は「一意対応」ではない（2026-08-27 の事故未遂）**: `matched` は**パック→ライブの片方向**しか見ないため、
+> 1 本のライブ投稿に複数パックがマッチしても各パックは `matched=1` のまま `published_UNrecorded` に入る。これを
+> 一意対応と読んで backfill しようとして事故りかけた——実測で civil の 10 パックがわずか 3 本を共有し
+> （`Dbe0u3tDDnw` が 5 パック）、うち 4 件は `status.json` の `scheduled_at` が未来日＝**そもそも未投稿**だった。
+> 年度違いの別内容（令和7-4 / 令和3-平成30 / 平成29-26）なのにテーマ名が同一でテキスト誤ヒットしていた。
+> 未投稿のパックに「投稿済み」の記録が付くと、後で「投稿済みだから作らない」という判断ミスを誘発する。
+> 機械ガードは `scripts/lib/ig-ambiguity.mjs`（`markAmbiguousClaims`）＝逆引きで同一 shortcode を 2 パック以上が
+> 主張していたら `ambiguous` を立てて `anomaly` へ載せる。回帰テスト `tests/ig-ambiguity.test.mjs`。
+> **既存 snapshot（08-25）での実測: 72 件中 48 件が `ambiguous`（civil-1 31 / civil-2 17）、backfill 安全は cem 24 件のみ。**
 
 ### リール軸（carousel カテゴリと直交）
 

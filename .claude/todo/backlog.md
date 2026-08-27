@@ -500,12 +500,15 @@ snapshot: `.claude/state/ig-reconcile/snapshot.json`（2026-08-25 採取）。
 | cem 24 件 | shortcode は一意・予約日は全て過去（6/29〜7/11）で公開済みと整合するが、civil で前提が崩れたためライブ再照合まで適用しない |
 
 **次の一手（Mac で）**: ① `npm run verify-ig-status` を再実行して最新 snapshot を取る
-② 逆方向重複（同一 shortcode を複数パックが持つ）を除いてから目視で正を選び `node scripts/ig-status.mjs mark <rel> carousel --url=... --date=... --note=...` で記録
+② `ambiguous` が付いていないものだけを対象に、目視で正を選び `node scripts/ig-status.mjs mark <rel> carousel --url=... --date=... --note=...` で記録
 （自動処理禁止は [ig-publish-reconcile.md](../knowledge/reference/ig-publish-reconcile.md) の規約）。
 
-**改善候補（未実装）**: `verify-ig-status.mjs` の分類に逆方向重複チェックを足し、matched=1 でも shortcode が
-他パックと衝突するなら `anomaly` へ落とす。既存 snapshot.json を入力にした回帰テストで検証できる
-（今回の 10 件が anomaly に落ちることが合格条件）。これがあれば今回の誤 backfill を機械で止められた。
+**機械ガード実装済み（2026-08-27）**: `scripts/lib/ig-ambiguity.mjs` の `markAmbiguousClaims` を
+`verify-ig-status.mjs` の `reconcile` へ結線した。逆引きで同一 shortcode を 2 パック以上が主張していたら
+`ambiguous: true` ＋ `ambiguousWith`（衝突相手の rel）を立てて `anomaly` へ載せる。`published_UNrecorded` からは
+取り除かないので既存の集計・exit code は不変。回帰テスト `tests/ig-ambiguity.test.mjs`（8 件・実データ形状の
+`Dbe0u3tDDnw`×5 パックを含む）。**既存 snapshot（08-25）での実測: 72 件中 48 件が ambiguous
+（civil-1 31 / civil-2 17）、backfill 安全なのは cem 24 件のみ**。手作業で見つけた 10 件より広く捕捉している。
 
 **Windows からは 1 手も進められない**（実測 2026-08-27）: `publish-ig-bs.ts:54` の `PROFILE_ROOT` が
 Mac 絶対パス `/Users/minamidaisuke/doboku-note` でハードコードされ、`.local/playwright-ig-bs-profile` も
