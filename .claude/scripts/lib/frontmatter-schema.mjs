@@ -48,6 +48,10 @@ export const FrontmatterSchema = z
     // gray-matter が YAML の ISO 日付を Date として自動パースするため union で許容
     publishedAt: z.union([z.string(), z.date()]).optional(),
     reviewStatus: ReviewStatus.optional(),
+    // 本文で引用した一次資料（法令・規格・示方書等）の機械可読リスト。
+    // 改訂を追跡したい記事にのみ任意で付与する（例: civil-practice）。
+    // grep 用途: `grep -l "JIS A 5308" content/site/**/article.mdx` で影響記事を洗い出す
+    sources: z.array(z.string()).optional(),
   })
   .passthrough();
 

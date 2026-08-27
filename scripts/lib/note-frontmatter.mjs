@@ -12,6 +12,15 @@ import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import matter from 'gray-matter';
 
+// 本文が「PDF を配る」と約束している signature（単一真実源）。
+// 元は scripts/check-note-attachments.mjs のローカル定義（PROMISE_RE）。DN-0147 で
+// scripts/lib/note-frontmatter.mjs の pdfPromise 判定がこれより狭い `/PDF/ && /(ダウンロード|添付|配布)/`
+// を独自実装しており、「印刷用PDF」のような言い回しを拾えず note-republish-plan.mjs の
+// pdfReady/pdfMissing 判定を ready 側に誤らせていた（2026-08-27 実測4件）。
+// 「印刷用PDF」は**半角スペース入りの表記も実在する**（2026-08-18 実測: なし 413 / あり 136）。
+// 日本語と欧文の間に空白を入れる組版慣習によるもので、総監模範論文 77 本はすべてこの形。
+export const PDF_PROMISE_RE = /(印刷用[ 　]?PDF|末尾に添付|記事末尾に添付|添付しています|PDF[^\n]{0,24}(ダウンロード|添付)|ダウンロードできます)/;
+
 /**
  * note 記事 1 本を読み、判断によく要る形へ正規化する。
  * @returns {{
@@ -27,9 +36,8 @@ export function parseNoteArticle(path) {
   const isMembership = notePricing === 'membership';
   const isPaid = notePricing === 'paid' || (Boolean(data.price) && data.price !== 0 && !isMembership);
   const imageCount = (content.match(/!\[[^\]]*\]\(img\//g) || []).length;
-  // 本文が PDF 配布を約束しているか（ダウンロード/添付/配布のいずれかと共起する「PDF」の言及）。
-  // --reattach-pdf が要るかどうかの判定に使う。
-  const pdfPromise = /PDF/.test(content) && /(ダウンロード|添付|配布)/.test(content);
+  // 本文が PDF 配布を約束しているか。--reattach-pdf が要るかどうかの判定に使う。
+  const pdfPromise = PDF_PROMISE_RE.test(content);
   const dir = dirname(path);
   const localPdfs = [];
   for (const d of [dir, join(dir, 'pdf')]) {

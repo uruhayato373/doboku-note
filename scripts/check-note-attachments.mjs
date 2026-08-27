@@ -31,6 +31,7 @@
 import { readdirSync, readFileSync, existsSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { PDF_PROMISE_RE } from './lib/note-frontmatter.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BASE = join(ROOT, 'content/note');
@@ -69,12 +70,8 @@ const ONLY = (() => { const i = argv.indexOf('--only'); return i >= 0 ? new Set(
 const ARTICLE_RE = /^article(-[^/\\]+)?\.md$/;      // 型別 article-II1.md 等を落とさない
 const TYPE_PDF = { II1: /-II-1-/, II2: /-II-2-/, III: /-III-/ };
 // 本文が「PDF を配る」と約束している signature。prose 側の網。
-// 「印刷用PDF」は**半角スペース入りの表記も実在する**（2026-08-18 実測: なし 413 / あり 136）。
-// 日本語と欧文の間に空白を入れる組版慣習によるもので、総監模範論文 77 本はすべてこの形。
-// スペースを許さないと、案内済みの記事が「一言も触れていない」と誤検出される
-// （実際 backlog 🔴 が「総監 77 本に節を追加」というカードになっていた＝偽赤。
-//  指示どおり足していたら案内が重複した記事を 77 本作っていた）。
-const PROMISE_RE = /(印刷用[ 　]?PDF|末尾に添付|記事末尾に添付|添付しています|PDF[^\n]{0,24}(ダウンロード|添付)|ダウンロードできます)/;
+// 単一真実源は scripts/lib/note-frontmatter.mjs の PDF_PROMISE_RE（DN-0147 で移設・
+// note-republish-plan.mjs の pdfPromise 判定と同じ正規表現を共有する）。
 
 const allow = existsSync(ALLOW_PATH) ? JSON.parse(readFileSync(ALLOW_PATH, 'utf8')) : { entries: [] };
 const allowMap = new Map((allow.entries || []).map((e) => [e.noteId, e]));
@@ -133,7 +130,7 @@ for (const file of walk(BASE)) {
     file: relative(ROOT, file).replace(/\\/g, '/'),
     noteId,
     title: (body.split(/\r?\n/).find((l) => l.startsWith('# ')) || '').slice(2, 54),
-    promises: PROMISE_RE.test(body),
+    promises: PDF_PROMISE_RE.test(body),
     expected: expectedPdfs(file).map((p) => relative(ROOT, p).replace(/\\/g, '/')),
     allow: allowMap.get(noteId) || null,
   });

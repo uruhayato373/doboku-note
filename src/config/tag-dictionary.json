@@ -1,13 +1,13 @@
 {
   "version": 1,
-  "generated_at": "2026-08-27T00:56:21.585Z",
+  "generated_at": "2026-08-27T11:51:18.360Z",
   "summary": {
-    "total_mdx_files": 1165,
+    "total_mdx_files": 1166,
     "total_unique_tags": 175,
-    "allowlist_size": 153,
-    "known_count": 85,
-    "unknown_count": 90,
-    "typo_candidates_count": 4
+    "allowlist_size": 155,
+    "known_count": 86,
+    "unknown_count": 89,
+    "typo_candidates_count": 5
   },
   "tags": [
     {
@@ -1077,7 +1077,7 @@
     },
     {
       "name": "guide",
-      "count": 180,
+      "count": 181,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1186,6 +1186,7 @@
         "civil-practice-rebar-corrosion-handling",
         "civil-practice-rebar-cover-placement",
         "civil-practice-rebar-splice-selection",
+        "civil-practice-reference-values",
         "civil-practice-river-park-erosion-control",
         "civil-practice-road-fixtures-precast",
         "civil-practice-safety-culture-discipline",
@@ -3058,7 +3059,7 @@
     {
       "name": "rebar",
       "count": 3,
-      "inAllowlist": false,
+      "inAllowlist": true,
       "usedIn": [
         "civil-practice-rebar-corrosion-handling",
         "civil-practice-rebar-cover-placement",
@@ -3959,7 +3960,6 @@
     "ゼネコン",
     "建設コンサル",
     "施工",
-    "rebar",
     "SWOT分析",
     "コンパクトシティ",
     "データ利活用",
@@ -4032,6 +4032,11 @@
     {
       "tag": "技術士（第二次試験）",
       "suggestion": "技術士（第一次試験）",
+      "distance": 1
+    },
+    {
+      "tag": "鉄道",
+      "suggestion": "鉄筋",
       "distance": 1
     },
     {

@@ -3,7 +3,10 @@
     "deleted_url": "https://www.instagram.com/p/DZ69RQDkzHA/",
     "deleted_at": "2026-06-25",
     "deleted_reason": "黒背景（白背景化fix 7719d38fb 前に投稿）を削除し白版を再予約",
-    "note": "白版カルーセルは status.json の carousel に予約済み（2026-06-29T19:00）"
+    "note": "白版カルーセルは status.json の carousel に予約済み（2026-06-29T19:00）",
+    "at": "2026-06-29",
+    "url": "https://www.instagram.com/p/DaKmjSriJuJ/",
+    "backfill_note": "backfill DN-0146 status.json scheduled_at一致（非ambiguous・type=carousel確認済み）"
   },
   "reels": null,
   "stories": null
