@@ -66,6 +66,12 @@ model: sonnet
 |---|---|---|
 | DN-0001 | {今週どこまで持っていくか} | 当方 |
 
+## 定常運用（surfacer から pull・backlog ID なし）
+
+| surfacer | 今週の出口 |
+|---|---|
+| check-membership-drip | {次回配信の実行} |
+
 ## 手動キュー（ユーザー・別PC／時間差で可）
 
 | ID | 出口 | 備考 |
@@ -96,6 +102,10 @@ monthly.md も同じ流儀。`## 今月の成果目標`（3 つまで）＋ `## 
    - `.claude/todo/weekly.md` — 前週の完了・未完了・メモ
    - `.claude/knowledge/reference/codex-division-of-labor.md` — Codex 振り分け基準
    - `.claude/knowledge/reference/todo-standards.md` — タスク記述フォーマット・タグ語彙・残す条件と削除条件の SSOT（backlog カードの書き方に迷ったらここを見る。専用の「todo-writing-guide」は新設しない方針＝本ドキュメントが唯一の真実源）
+   - **定常運用の surfacer 群を実走**: `npm run --silent check-membership-drip` / `check-note-republish` /
+     `node scripts/x-queue-surfacer.mjs` / `.claude/state/ig-reconcile/snapshot.json`（鮮度を見る）/
+     `check-*-due` 系。出力から今週の運用作業を選び weekly の「定常運用」節に書く
+     （backlog ID を介さない。真実源 → todo-standards.md §1-2「backlog の守備範囲」）
 
 2. **直近実績の確認**
    ```bash

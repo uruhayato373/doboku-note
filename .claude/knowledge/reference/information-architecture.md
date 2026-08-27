@@ -93,7 +93,11 @@ content/
 2. **人が読む恒久的な判断・仕様か**（戦略・設計・方針）→ `docs/{領域}/`
 3. **エージェントが繰り返し読む規約・手順か** → `.claude/knowledge/`
 4. **一案件だけの実装契約か** → `.claude/plans/`（完了後に削除・`completed/` や `archive/` を作らない）
-5. **未完了タスクか** → `.claude/todo/backlog.md`（ID は `DN-####`）
+5. **未完了タスクか** → まず性質で分岐（真実源 → [todo-standards.md](./todo-standards.md) §1-2）:
+   チャネル状態→各 SSOT（frontmatter / catalog / posted.json / services.ts）へ・カードにしない ／
+   反復する運用サイクル→weekly の定常運用節（surfacer から pull）・カードにしない ／
+   コンテンツ制作企画→企画SSOT（`noteコンテンツ計画.md` / `content/kindle/strategy.md` 等）／
+   それ以外の単発（不具合・改善・意思決定・計測）→ `.claude/todo/backlog.md`（ID は `DN-####`）
 6. **機械が読む状態・設定か** → `.claude/state/` / `.claude/config/`
 7. 上記いずれでもない一時メモは作らない（`.tmp/` 配下のみ）
 
