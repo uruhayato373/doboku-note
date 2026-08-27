@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-27T00:36:14.709Z",
+  "generated_at": "2026-08-27T00:40:52.571Z",
   "summary": {
-    "total": 1161,
-    "published": 1142,
+    "total": 1163,
+    "published": 1144,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 40,
+      "civil-practice": 42,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6591,6 +6591,38 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "河川・砂防・都市公園の施工管理｜出水期・河川保全区域・防災拠点の留意点【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-road-fixtures-precast": {
+      "title": "道路の断面を読み、附属物と二次製品を納める — 用語・防護柵・割付の判断軸",
+      "description": "道路の横断面用語を図面と現場で一致させる考え方、車両用防護柵をどの種別・高さで選ぶか、コンクリート二次製品をJIS規格からどう選び、目地と端数をどう割り付けるか、自由勾配側溝の仕上げの勘所までを整理します。現場でこの判断をする実務者向けの実務ガイドです。",
+      "shortTitle": "附属物・二次製品の納め方",
+      "subtitle": "断面用語の一致、防護柵の選定、二次製品の割付をどう判断するか",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "道路附属物・二次製品の納め方｜防護柵の選定・二次製品の割付の判断【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-safety-culture-discipline": {
+      "title": "ヒヤリハットを集めても事故が減らない理由",
+      "description": "ヒヤリハット報告を集めても事故が減らない理由を、ハインリッヒの法則の正確な内容とその限界、リスクアセスメントの手順、不安全行動をその場で正す効果、現場の規律と災害発生率の関係から整理しました。安全管理の仕組みを扱う実務ガイドです。",
+      "shortTitle": "ヒヤリハットの限界",
+      "subtitle": "集めたあとに何をするかで差がつく",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "ヒヤリハットを集めても事故が減らない理由｜ハインリッヒの法則とリスクアセスメントの手順【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },

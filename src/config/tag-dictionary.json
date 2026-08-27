@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-27T00:36:15.142Z",
+  "generated_at": "2026-08-27T00:40:53.041Z",
   "summary": {
-    "total_mdx_files": 1161,
+    "total_mdx_files": 1163,
     "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1077,7 +1077,7 @@
     },
     {
       "name": "guide",
-      "count": 176,
+      "count": 178,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1186,6 +1186,8 @@
         "civil-practice-rebar-cover-placement",
         "civil-practice-rebar-splice-selection",
         "civil-practice-river-park-erosion-control",
+        "civil-practice-road-fixtures-precast",
+        "civil-practice-safety-culture-discipline",
         "civil-practice-schedule-and-road-permit",
         "civil-practice-sling-work-wire-rope",
         "civil-practice-slope-drainage-monitoring",
