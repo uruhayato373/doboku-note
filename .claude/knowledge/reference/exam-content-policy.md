@@ -203,8 +203,9 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 ### 新カテゴリメモ: 土木施工の実務（`civil-practice`、2026-08-27 新設・**非資格カテゴリ**）
 
 **位置づけ**: 資格に紐づかない実務コンテンツの初のカテゴリ。`variant: "general"`（`reference` と同じく
-非資格扱い＝`check-home-exam-coverage` の資格カード必須ゲート対象外）・order 2.8・**`visible: false`**。
-公開ラインにするかは未決で、判断は backlog DN-0143。
+非資格扱い＝`check-home-exam-coverage` の資格カード必須ゲート対象外）・order 2.8・**`visible: true`**
+（2026-08-27 にナビ公開。ヘッダー/フッターのカテゴリドロップダウンには非資格カテゴリの区切り
+「資格を問わない実務」を追加済み）。
 
 **素材と著作権の原則（最重要）**: 素材は `content/sources/textbook/土木施工実務ノート/`
 ＝市販の土木施工実務書のスキャンを再構成した内部ノート（全15章160項目）。再構成済みではあるが、
@@ -220,16 +221,22 @@ doboku-note は複数の資格試験を扱うが、試験ごとに「**何を / 
 判断の根拠はコンクリート診断士択一の前例（逐語でなくても原典構成のままでは公開不可と判断し
 全98問を自作へ書き換えた）と同型。
 
-**pilot（2026-08-27）**: 記事1本 `civil-practice-formwork-removal-timing`（型枠・支保工の存置期間）と
-計算ツール1本 `/tools/concrete-time-check`。記事は `group: guide` として §20 Type-2「次のステップ」・
+**完遂（2026-08-27）**: 原本160項目を44記事（統合により計画61スロットを44本に集約）で全カバー、
+図版17点（固定キャンバス400×500・自前作図）、計算ツール7ページ・9計算機（原本HTML 10本を全移植・
+残り8本の設計は WebSearch で一次資料照合し直し・出典不明の定数は不採用）、現場管理値の早見表
+`civil-practice-reference-values` まで完了。記事は `group: guide` として §20 Type-2「次のステップ」・
 §26 読者ベネフィット型リード・3,000字下限に準拠。読者は受験者でなく実務者だが、論点が1級土木
-第2次検定と重なるため末尾で資格記事へ送客している。
+第2次検定と重なるため末尾で資格記事へ送客している記事もある。検証コマンド:
+`node scripts/check-civil-practice-coverage.mjs`（未着手スロット・未カバー項目を列挙）。
 
-**公開時に必要な残配線**（visible:false のため現在は未着手）: `home-exam-cards.json` は非資格 variant を
-弾くので**資格カードとは別の入口**が要る。`src/app/links/page.tsx` の `EXAM_CARDS`／
-`SearchFilters.tsx` の `CATEGORIES`／`CategoryViews.tsx` の専用 View／`category-curriculum.json` も未配線
-（未設定でもフラットグリッドで動く）。OGP は `ogp-create.mjs` の `CATEGORY_TO_EXAM_KEY` で
-`common`（bronze `#9A6B1E`）へ明示マップ済み。`--exam-*` CSS トークンは凍結のため追加しない。
+**公開配線（2026-08-27 完了分）**: `visible:true` 化に伴い `SearchFilters.tsx` の `CATEGORIES` に追加、
+`StructuredData.tsx` の `getExamName` に `civil-practice` の case を追加。ヘッダー/フッターの
+カテゴリ列挙は `categories.json` の `visible` 連動で自動追随（区切り「資格を問わない実務」を
+`variant: general` 用に追加）。**未配線のまま**: `src/app/links/page.tsx` の `EXAM_CARDS`（SNS bio 導線）・
+`category-curriculum.json`（未設定でもフラットグリッドで動くため必須ではない）・note CTA
+（`magazine-placement.ts` に配線なし・残課題は backlog DN-0148）。OGP は `ogp-create.mjs` の
+`CATEGORY_TO_EXAM_KEY` で `common`（bronze `#9A6B1E`）へ明示マップ済み。`--exam-*` CSS トークンは
+凍結のため追加しない。
 
 ---
 
