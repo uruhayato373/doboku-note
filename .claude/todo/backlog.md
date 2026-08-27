@@ -70,289 +70,27 @@
 ### [DN-0117] コンクリート系2冊の Kindle 提出待ち（図の出所は解消済み・KDP提出のみ残）
 タグ: [収益化] [種類:制作] [起票:2026-08-22]
 
-`g-01` コンクリート診断士（¥990）と `g-02` コンクリート主任技士（¥1,250）は EPUB・表紙・KDPメモまで完成して `status: ready`（2026-08-03）だが、**図の出所が解消できていないため提出を保留**（2026-08-22 判断）。LIVE 33冊は全て試験実施団体の公式配布物（`answer-booklet` / `question-pdf`）由来で、市販書籍スキャン由来はこの2冊だけ。
+g-01（コンクリート診断士 ¥990）・g-02（コンクリート主任技士 ¥1,250）を KDP へ提出する。
+図の出所問題は全 10 点解消済み（concrete-diagnostician 8 点＝AI 生成画像と本文コメントで確認済み・
+concrete-chief-engineer 2 点＝自作 SVG へ描き直し済み、2026-08-26）。EPUB は再ビルド済み
+（`build-pe1-kindle.mjs`・epubcheck エラー 0・U+FFFD 0 件、2026-08-26）。
+状態の真実源は `scripts/kindle-published/catalog.json`（現在 `status: "ready"`）。
+手順は `/kdp-publish`。**完了条件**: catalog.json の status が `in_review` 以降へ進む
+（提出はユーザー承認・KDP ログイン操作が要る）。
 
-| 対象 | 点数 | 実体 | やること |
-|---|---|---|---|
-| `concrete-chief-engineer` 6記事 | **57/57 完了（2026-08-26）**（production-qc 2・materials 5・mix-design 6・properties 9・structural-design 16・construction 19） | 完了 | 自作 SVG へ描き直す（診断士が 22 点で実施済みの方式） |
-| `concrete-diagnostician` 4記事 | 8 | **解消済み（2026-08-26）**。MDXソースの `{/* source: AI 生成画像（ChatGPT／Codex） */}` コメントで8点全てAI生成と確認（実写真ではない）。著作権上の問題なし | 完了 |
 
-**2026-08-25 実施（production-qc 2/2 完了）**: 正規分布の概念図とX̄管理図（A〜D群56点）を目視トレースで
-自作SVG化。X̄管理図は原図の異常判定パターン（A/C/D群に異常、B群は安定）を保ったまま視覚的に一致することを
-ブラウザ実機で確認（light/dark両モード。dark modeでの視認性低下は site全体のSVG図版共通の既知挙動で今回の
-劣化ではない）。副次修正: `check-figure-canvas.mjs` が `concrete-chief-engineer/primary-{subject}` 命名の
-過去問ディレクトリを免除できておらず（civil-construction-1の年度サフィックス命名にしか対応していなかった）
-誤検知していたのを一般化して解消。
+### [DN-0147] note-republish-plan の ready 分類が platform-only PDF 添付を検知できない
+タグ: [インフラ・計測] [種類:不具合] [起票:2026-08-27]
 
-**2026-08-25 追加実施（materials/mix-design/properties/structural-design/construction 完了・6記事すべて完了）**:
-同じ手法（目視トレース→SVG化→`svg-audit.mjs --fail-on=HIGH`→light/dark実機確認）で残り53点を完了。
-内訳は materials 3（他2点は実写真として上表に温存）・mix-design 6・properties 9・structural-design 16・
-construction 19。`figure-provenance.json` の追跡数は 549→496（差分53、production-qc分と合わせ計55の
-コンバートと整合）。concrete-chief-engineer 側の残作業は無く、Kindle提出ゲートの残りは
-`primary-materials` の実写真2点と `concrete-diagnostician` の実写真8点、計10点の出典・ライセンス特定のみ。
+本文に PDF 配布の記述が無くても、過去に運営が手動でライブ添付した PDF がある記事を
+`ready` に分類してしまい、投入すると `--reattach-pdf` 保護で毎回 fail-closed する
+（2026-08-27 実測: BK-I_必須科目I R04/R05/R06・総監模範論文-自治体上水道担当R03）。
+本文は無傷（fail-closed が正しく効いている）が、バッチ投入のたびに同じ 4 件が失敗する。
+修正方針: ready 判定に「ライブ添付の実在」を加味する（check-note-attachments --live の
+判定ロジック流用）。完了条件: 上記 4 件が ready から除外され、次回バッチが fail 0 で通る。
 
-いずれもサイトでは公開中（`published: true`）。有料の Amazon 配布は露出の性格が違うので、Kindle 提出はこのゲート通過後。EPUB 実体は `kindle-dist/` に無く退避台帳にも無いので、提出時は `scripts/build-pe1-kindle.mjs` で再ビルドする。
 
-**2026-08-25 出典調査（read-only・10枚とも未特定）**: WebSearchで逆引き調査した結果、
-10枚とも撮影者・原著作物・ライセンスを特定できなかった。`h24-q5.webp`（電子顕微鏡SEM比較図）は
-左端に本の綴じ部の写り込みが確認でき、**上表の「実写真」という分類自体が誤りで実際は書籍/過去問
-冊子のスキャンだった**（要修正）。`sand-surface-test-h29.webp` は実験器具写真で出典特定できず。
-`concrete-diagnostician` の8枚（橋梁・床の劣化写真群）も固有の場所情報が乏しく、Wikimedia Commons の
-類似カテゴリ（Spalling / Alkali silica reactions / Efflorescence）を確認したが同一写真とは一致しなかった。
-**リスク評価: 高**——出典未確認のままKindleへ収録するのは少なくとも現時点の調査結果では推奨できない。
-代替候補（同一現象のCC/PD写真、要ライセンス個別確認）: Wikimedia Commons "Category:Spalling"・
-"Category:Efflorescence"、FHWA (米国連邦道路庁) "Alkali-Silica Reactivity Field Identification Handbook"
-(FHWA-HIF-12-022)。**次の一手はユーザー判断**: (a) 原本書籍の使用許諾を確認する（自炊元の書籍を
-把握しているのはユーザーのみ）、(b) 上記代替候補から個別にライセンス確認して差し替える、
-(c) Kindle版だけ写真を自作SVG図解に置き換える（サイトは現状維持）、のいずれか。
 
-**2026-08-26 訂正・全10点解消**: 前日のWebSearch逆引き調査はMDXソースの出典コメントを未確認のまま
-実施した誤りだった。ユーザーの指摘（「AI生成ではないの？」）を受けて記事本文を確認したところ、
-`concrete-diagnostician` の8点は全て `{/* source: AI 生成画像（ChatGPT／Codex）／実写ではない */}` の
-コメントが実在し、**元から著作権問題のないAI生成画像**だった（"実写真"という分類自体が誤り）。
-残る `concrete-chief-engineer` の2点（`h24-q5.webp`・`sand-surface-test-h29.webp`）は真のスキャン由来
-だったため、他55図と同じ手法で自作SVGへ描き直して解消（materials 3→5に更新）。
-**これで10点すべて解消し、Kindle提出ゲートの残作業は無い**。次は `scripts/build-pe1-kindle.mjs` で
-`g-01`（コンクリート診断士）・`g-02`（コンクリート主任技士）のEPUBを再ビルドし、KDP提出はユーザー承認を得てから行う。
-
-**2026-08-26 EPUB再ビルド完了**: `build-pe1-kindle.mjs` で g-01（画像30点）・g-02（画像57点）を再ビルドし、
-`epubcheck`（EPUB 3.3）で両方とも致命的エラー0・エラー0・警告0を確認。ZIP展開して`article.mdx`漏洩・
-U+FFFD文字化けも0件を実検査。**残作業はKDPへのアップロード＋提出のみ**（ユーザー承認・ログイン操作が必要）。
-
-
-
-### [DN-0002] 会員フロー 週次配信（次回: 学科記述 03_品質管理）
-タグ: [収益化] [種類:制作] [起票:2026-08-06] [期日:2026-08-28]
-
-会員限定の予想問題配信。**日程・順序の正典は [メンバーシップ/README.md](../../content/note/1級・2級土木/メンバーシップ/README.md) の配信表**（経験記述 W6=8/31〜W11=9/28 週1・学科記述予想10本=火金週2・添削練習=9/25）。在庫は `予想問題マガジン/01〜11` に揃い、残17本は公開検査済み `noteStatus: draft`（W6 は下書き `n81850411ecb7` まで投入済み）。
-
-**配信手順**:
-
-```bash
-node scripts/note-publish.mjs --article "<対象article.md>" --commit
-node scripts/note-magazine-add-articles.mjs --target mbe07bd5cecda --notes <noteId> --commit
-```
-
-**安全弁**: 公開範囲を選べなければ公開しない（無料公開事故防止）。公開後は public API で `is_limited=true`・未ログイン本文 0 字を実査。**期日前の早出しはドリップを崩すのでしない**。学科記述側は対応する note マガジンが実在しないため会員限定の単独記事として公開（虚偽の `noteMagazine` を書かない）。cover が R2 退避で publish が止まる場合、**未公開記事に限り** `generate-note-covers.mjs <slug>` → `check-note-cover-fit` で再生成して解決できる。
-
-**2026-08-27 配信実績（学科02 コンクリート工）**: https://note.com/dobokunote/n/n5714b90dade7 を会員限定で公開（`is_limited=true` / 未ログイン本文 0 字 / 公開範囲「メンバー全員に公開」ok=true を実査）。配信表の予定日は 08-25 で **2 日遅れの取り戻し**だった。
-
-- **カードのタイトル日付が正典とずれていた**: 旧タイトルは「次回 8/28 金: 学科記述 02」だったが、正典の配信表では学科02＝08-25・学科03＝08-28。**日付はカードに書かず配信表を見る**（このカードのタイトルは次に配信する記事名だけを持つ）
-- **cover.png が無く publish が止まる件が実際に起きた**: `node scripts/generate-note-covers.mjs 02_コンクリート工` で再生成 →`check-note-cover-fit`（811 件実検査）で緑。cover は git 追跡外（R2 退避）なので、未公開記事では毎回この再生成が要ると考えてよい
-- **公開で cover の配置先が変わる**: draft は private バケット・published は public バケットへ、という routing なので、公開直後は `check-asset-storage` が `[FAIL] manifest-bucket ... （manifest private / 期待 public）` を出す。**CI は赤くならない**（cover*.png は `.gitignore:286` で除外＝CI のツリーに存在しない）。この PC には R2 書込み認証が無いため反映は CI 側の仕事で、次に asset-inbox を回すときに一緒に解消する
-
-### [DN-0003] note ライブ反映の一括消化（本文 drift 残221本）
-タグ: [インフラ・計測] [種類:不具合] [Codex候補] [起票:2026-08-17]
-
-**実測（2026-08-18 再測）**: 公開 702 本中 synced 347・**本文 drift 348 本**・未初期化 7。ほかタグ drift 137 / メタ 13 / アセット 77。**drift 348 のうち画像を持つのは 159 本**。
-
-> [!warning] 画像持ち 159 本は CDN 確定失敗でブロックされている（2026-08-18）
-> 待ち時間の延長では解けないと実測で判明した（45 秒/枚で確定 2/3・180 秒/枚でブラウザが crash）。
-> 🔴「note ライブ反映の CDN 確定失敗」の決着が先。**画像なしの 189 本は先に流せる**。
-
-内訳（重複あり・同じ記事が複数理由で drift する）:
-- 著者オーソリティバナーのソース配置 196 記事に対し live 反映は約 12 記事
-- 建設部門の UTM 欠落 残 99 件（対象リストは `.claude/state/note-utm-live-remaining.txt` に生成済み）
-- CTA・blockquote・cover 文言・UTM のソース修正分
-
-```bash
-node scripts/note-update-body.mjs --list <list.txt> --commit
-```
-
-**運用上の制約（2026-08-17 に 100 件バッチで実測）**:
-- **1 日 100 件上限**（note 側）。全消化には 4 日規模
-- **画像持ち記事は約 4 割が CDN 確定タイムアウトで ABORT**（90 秒上限・`NOTE_IMG_SETTLE_MIN_MS` / `NOTE_IMG_SETTLE_PER_IMG_MS` で延長可）。fail-closed で保存されないので実害はないが、drift が減りきらない
-- **3 本連続失敗で残りを止める安全弁**が効く（`--max-consecutive-fail`）。100 件投入して 29 件で停止した実績あり
-- **PDF 添付カードを持つ記事は `--reattach-pdf` が要る**（全文置換で添付が消えるため中断される）
-- 有料記事の境界は動かない（有料 70 件の無料プレビュー長を before/after 比較して事故ゼロを実証済み）
-
-**内訳（2026-08-17 実測）**: 1級・2級土木 157 ／ 技術士建設部門 110 ／ 技術士総監 81。
-- 1級・2級土木の 157 は「著者オーソリティバナーのソース配置 196 件のうち未反映分」と**同一集合**（公開済み 178 中 反映済み 21 / 未反映 157・未公開 18）
-- 建設部門 110 のうち 58 が UTM 欠落分。**`.claude/state/note-utm-live-remaining.txt`（99 行）は 41 件ぶん陳腐化している**（8/5〜8/17 の一括反映で既に synced）。そのまま流すと 41 件を無駄に再送信するので、着手前に `--json` の `driftFiles` から作り直す
-- 旧記載の `.tmp/republish-batch2.txt` は**消滅している**。対象リストは毎回 `--json` から再生成する
-
-**反映後**: `npm run check-note-structure` で FULL_LOCK / PAYWALL_LEAK ゼロを確認し、`.claude/state/note-republish-hashes.json` をコミットする。
-
-**2026-08-25 バッチ実績（ok=76 / fail=1 / 投入 100）**
-
-対象は `--json` の `driftFiles` から再生成（旧 `.txt` の陳腐化を避ける）。drift は 422 本に増えており
-**画像あり 158 / 画像なし 264**。画像なしの有料 261 本から 100 件を `--reattach-pdf` 付きで投入した。
-
-初回 73/100 で 3 連続失敗の安全弁が働き残 23 本は未実行。失敗 4 件は**どちらも本文を触らず中断**（破損なし）:
-
-- **PDF 実体不足 3 件**（BK-01_道路/R03）— 納品 PDF が R2 の **private** バケットへ退避済みで、
-  この PC に R2 creds が無く取り寄せられなかった。**`scripts/pdf-specs/BK-01_道路.json` から再生成**して復旧。
-  3p/3p/5p・「試験問題」「フル模範解答」の両節あり・U+FFFD 0 を検証してから貼り直した。
-  再現性の実測（**当初「byte 完全一致」と書いたのは誤り。sha256 で再照合して訂正**）:
-
-  | | サイズ | sha256 |
-  |---|---|---|
-  | II-1 / II-2 | R2 と**一致** | 不一致 |
-  | III | 2,158 bytes 差 | 不一致 |
-
-  原因は PDF に `creationDate` / `modDate` が埋め込まれること（Skia/PDF m151）。**再生成のたび
-  sha256 は必ず変わる**ので、`asset-storage-policy` の「再生成は byte が変わりうる」は cover PNG
-  だけでなく PDF にも当てはまる。ただしサイズが一致した 2 本は**タイムスタンプ以外は同一**とみなせ、
-  spec 駆動のレンダリング自体は決定的。**運用上の含意**: `asset-offload --verify` は sha256 を
-  突き合わせるので、再生成した PDF では必ず落ちる
-- **有料境界の H2 を特定できず 1 件**（`工事119-小規模マンホール内面更生`）— 「試験問題/予想問題」H2 が無い。
-  `--keep-boundary` は既知事故（2026-07-31）があるので使わず個別対応にする。**未処置**
-
-**副次の是正**: PDF 実体不足の中断が汎用理由で記録され、次回 `--force-retry` ゲートに掛かって
-PDF を用意しても自動再開できない状態だった。`abortReason = 'pdf-missing'` を付け、img-settle と同じ
-「保存前に止まる中断＝安全」として `SAFE_ABORTS` に加えた（`note-update-body.mjs`）。
-
-**2026-08-25（2 回目）: 対象を確定したがユーザー判断で投入は見送り。ライブには触れていない。**
-
-drift は **346 本**（422 − 反映 76 で整合）。`check-note-republish --json` の `driftFiles` から作り直した分類:
-
-| 区分 | 本数 | 扱い |
-|---|--:|---|
-| 画像あり | 158 | CDN 確定失敗（DN-0009）で 4 割 ABORT する。**決着まで投入しない** |
-| 画像なし・本文が PDF 配布を約束 | **53** | **53 本とも納品 PDF がローカルに無い**（R2 private・この PC に creds 無し）。前回 3 本で踏んだ `pdf-missing` と同型が 53 本ぶん待っている |
-| 画像なし・PDF 無し | **99** | 投入可能。技術士建設部門 BK 系の有料記事（¥780 前後）。CTA 99 / UTM 95 / 著者オーソリティ文言 10 |
-| 前回失敗の 1 本 | 1 | 下記 |
-
-**53 本の PDF 不足が次の律速**。前回は 1 マガジン分を spec から再生成して凌いだが、53 本は
-`asset-hydrate`（R2 creds が要る＝CI 代行 or 別端末）か spec 再生成のどちらかを先に決める必要がある。
-
-**`工事119-小規模マンホール内面更生` は境界の問題ではなかった**（前回の記述は誤り）。
-frontmatter に `paidBoundary: 品質管理` があり、対応する H2 も L48 に実在する。止めていたのは
-中断ゲートのほうで、記録された理由も「更新フローが false を返した」という汎用文言だった。
-指示どおりライブを実査したところ **published・¥1,680・無料 466 字・タグ 95 で無傷**（fail-closed が
-効いていた）。`--force-retry` を付けて単独再実行すれば通せる。
-
-**投入時の条件（次回そのまま使える）**:
-
-- `--reattach-pdf` を必ず付ける。本文に PDF の記載が無くてもライブに添付があれば、
-  黙って消さずに中断する（全文置換は添付を落とす）
-- 有料境界は frontmatter `paidBoundary` → `試験問題|予想問題`。`--keep-boundary` は使わない
-- 中断記録は 3 件だけ（`n66570efb6d23` / `na1f84193571a` / `n3f5b4f4dfd04`）。`--force-retry` は
-  バッチ全体に効くので、**該当 1 本は単独で回す**
-- 所要は 1 本 40〜60 秒＝99 本で 1〜1.5 時間
-
-**反映後の検証（2026-08-25）**: `check-note-structure` で **CRITICAL=0**（要対応 0）を実測。
-実検査 809 本 / 対象 810・**取得失敗 1**（810 全件は取れていない）。
-
-副産物として **DN-0132 の 2 択が決着**した。`BOUNDARY_SHIFT` は 270 → 194 へ減り、
-減少数 76 が反映本数と一致し、かつ**反映した 76 本の残留はゼロ**。誤検出ではなく実ズレで、
-再公開すれば消えることが実証された。
-
-**残**: 未実行 23 本 ＋ 失敗 1 本を翌日へ。本文 drift は 422 → 約 346 本。
-
-**DN-0132 を吸収した（2026-08-25）**: `BOUNDARY_SHIFT` 194 本は専用作業が不要——反映本数と減少数が
-一致し、反映済みの残留がゼロだったので、このバッチを流し切れば消える。完了判定は
-`check-note-structure` の CRITICAL 0 **かつ** BOUNDARY_SHIFT 0 で、**実検査数を必ず読む**
-（2026-08-25 は 809/810 で取得失敗 1）。
-
-**2026-08-25（3回目）: DN-0009 の待ち上限を 90 秒/枚へ伸ばして画像持ち記事を再開・27 本 ok=27/fail=0**
-
-`NOTE_IMG_SETTLE_PER_IMG_MS` を 45s→90s にした状態（コード側デフォルトも変更・DN-0009 は解決済みとして削除）で、
-これまで「画像あり 158 本は決着まで投入しない」としていた区分の記事を実際に流した:
-canary 2 本 + 8/18 に一度クラッシュで詰まっていた `na1f84193571a`（`--force-retry`）+ バッチ 10 本 + バッチ 14 本 =
-**27 本すべて成功**（ABORT・fail 0）。副次発見として、本文更新は成功するがライブの記事タイトルが
-古いまま残る記事が 4 本見つかった（`frontmatter` に `title:` が無いため note-update-body の
-title 同期が発火しない設計）。H1 と一致する `title:` を4本に追加し再実行して解消。
-
-drift は **329 本**（346 − 27 反映 + 10 = DN-0100 の CTA 編集で今日新規に生じた drift。DN-0100 側の
-残作業＝この10本のライブ反映で自然に消える）。画像あり区分は 158→**131** へ減り、以後の投入も
-90 秒設定で継続してよい（決着済みなので区分の除外を解く）。
-
-残る内訳の再分類は次回セッションで `--json` から作り直す。
-
-**2026-08-25（4回目）: 画像あり区分を20本追加投入・ok=18/fail=2**
-
-90秒設定のまま画像あり区分から20本を投入。fail-closedで止まった2本（本文は無傷）:
-
-- `nded084d4f646`（`1級土木-施工経験記述-過去問模範答案集/R06`）: `--reattach-pdf` の最重要ゲート
-  （2026-07-31 に実際に購入者PDF3本を失った事故の再発防止）が「ソースにPDF 1件あるのにlive本文の
-  添付が0件」で更新を拒否。**`--force-retry` でも同じ理由で再度拒否**（2回とも同じ結果・一過性ではない）。
-  一方 `check-note-attachments --live --only nded084d4f646` は**充足**と判定——別スクリプトは公開ページの
-  ダウンロードリンクを見ており、こちらは editor.note.com 読み込み時点のDOMを見ているため、判定対象が違う。
-  **購入者は現状PDFを受け取れている可能性が高いが、断定しない**。次回は note エディタを人が目視で
-  開いて添付カードの有無を確認してから判断する（このゲートは実際の事故を防いだ実績があるので、
-  信号が割れている状態で強行しない）
-- `n8d98d7fc24cc`: 有料境界設定の `data-np-target` ボタンをDOM上で特定できずABORT。
-  note-delete-note.mjsで踏んだのと同系統のUIセレクタドリフトの疑い（未解決・DN-0118参照）
-
-drift は **311 本**（329 − 18）。反映後 `check-note-structure`: **CRITICAL=0**（実検査811/811・取得失敗0）、
-HIGH=194 は全て BOUNDARY_SHIFT（DN-0132で想定済み・専用対応不要）。
-
-**本日累計**: canary 2 + force-retry 1 + batch1(10) + batch2(14) + title-fix(4) + batch3(18) = **49 本 ok**、
-fail 2（上記・fail-closed）。画像あり区分はほぼ消化（158→約121）。**残**: 画像なし区分190本弱＋失敗2本の個別対応。
-
-**2026-08-26: `note-republish-plan.mjs` を導入し画像なし区分100本を投入・ok=90/fail=3**
-
-`--json` から作り直した分類（`note-republish-plan.mjs`・6分類: ready/pdfReady/pdfMissing/hasImage/
-membership/aborted）で ready 135・pdfReady 54・**pdfMissing は前回53本→0本に解消**（別途R2 hydrate等で
-解消済みと判明）。ready から100本（既定上限）を `--reattach-pdf` 付きで投入。drift は **311 → 221**（90本減）。
-
-**同日中に2回追加投入を試行したが、日次添付上限は既にこの90本で消費済みだったため両方すぐにfail-closed
-ABORT**（1回目 ok=0/fail=3・2回目 ok=1/fail=3）。**同一日内の上限は追加投入では回復しない**——次の投入は
-日付が変わってから。計6件のpendingは`check-note-attachments --live --only`で全件PDFライブ実在を確認し
-resolvedへ移動（実害なし）。drift は **221→220**（91本目1件減）。
-
-**残**: 220本（ready残36・pdfReady54・hasImage117・membership1・aborted13の再分類が必要）。
-**次の投入は翌日（日付が変わってから）**、`note-republish-plan.mjs --out`で続きを投入する。
-
-**2026-08-27: `ready` 分類に live 添付の非対称ケースが漏れていると判明（投入は 0 本で中断）**
-
-`note-republish-plan.mjs` で再分類: ready 42 / pdfMissing 54 / hasImage 117（DN-0009待ち）/
-membership 1 / aborted 7。ready 42 本を `--reattach-pdf` 付きで投入したところ、
-**BK-I_必須科目I の R04/R05/R06 で3本連続失敗**し安全弁が発動（fail-closed・本文無傷）。
-理由はいずれも同型: 「live の添付 1 件のうち 1 件がローカルに無い」。
-
-`ready` 判定（`buckets.ready.push`）は `a.pdfPromise`（**本文ソースに PDF 配布の記述があるか**）
-だけを見ており、**live 側に実際に添付が付いているか**は見ていない。BK-I_必須科目I は本文に
-PDF 配布の記述が無い（だから `ready` に分類された）が、運営が過去に手動で PDF を live へ添付
-していたため、`note-update-body.mjs` の保護機構（全文置換で添付が消えるのを防ぐ）が中断させた
-——これ自体は正しい安全弁（2026-07-31 の購入者 PDF 消失事故の再発防止）。
-
-除外して残り32本（総監模範論文シリーズ中心）で1本だけ単体再試行したが、**同じ理由で失敗**
-（`総監模範論文-自治体上水道担当/R03`）。つまり `ready` 42 本の相当数が同型の分類漏れを抱えて
-いる疑いが強く、今回は追加投入を見送った（本文無傷・drift 220 のまま変化なし）。
-
-**次の一手**: `note-republish-plan.mjs` の `ready` 判定へ live 添付の有無チェックを足す
-（`check-note-attachments --live` のデータ突合、または `--reattach-pdf` の FAIL 理由を
-`pdfMissing` へ自動で振り替えるフィードバック機構）。それまでは `ready` を鵜呑みにせず、
-投入前に数本を単体 `--article` で試してから `--list` バッチへ進むこと。
-
-### [DN-0005] X 9月分の週次投入（week2 以降・計画正典は 2026-09-civil.json）
-タグ: [SNS・マーケ] [種類:制作] [起票:2026-08-06] [期日:2026-09-08]
-
-9月分90本は執筆・全検査済み。`x-post-policy.md` §11.6（1週間分ずつ・一括投入は凍結の実因）に従い週次で積む。**計画の正典は `.claude/config/x-campaigns/2026-09-civil.json`**。week1（9/1-9/7・19本）は 2026-08-25 投入・キュー実在で実照合済み。残 = week2（9/8〜・ドラフト090/091）→ week3（091/092）→ week4（092）。
-
-**手順**（1週ごと）:
-
-```bash
-npm run x-schedule-guard -- --queue    # 緑を確認
-npx tsx .claude/skills/social/publish-x/publish-x.ts <NNN> --tweets <a>-<b> ${=DATES}
-npm run x-sync-status                  # 投入数と queued 昇格数の一致を実照合
-```
-
-**事故防止**: zsh は変数を単語分割しない——`$DATES` は静かに即時投稿へ落ちる。**`${=DATES}` 必須**。`--dry-run` の緑は証拠にならない（ログの「📅 予約モード確認OK」を目で読む）。凍結・警告の兆候が1度でも出たら即 S0 へ後退。
-
-### [DN-0011] IG 論点パック 残32件の波状予約（1セッション30件）
-タグ: [SNS・マーケ] [種類:制作] [起票:2026-08-18]
-
-1級/2級土木の論点パック 122 件のうち 30 件を予約済（2026-07-17・7/18〜8/1）。残 92 件を波状で継続予約する。
-
-**過去日の張り付きは 2026-08-18 に解消済み**。`ANCHOR` 固定＋過去日ガード無しで未予約分が過去日へ落ち続け（8/17 に 32 件 → 8/18 に 41 件と 1 日 2 件ずつ悪化）、Business Suite が過去日時を拒否して失敗 2 連続で自動中止する状態だった。
-`rebaseToFuture` を入れて**未予約分を明日以降へ 1 日 2 件で詰め直す**ようにしたので、消化が何日空いても再発しない。
-
-- **コマンド**: `node .claude/scripts/sns/schedule-civil-theme-packs.mjs --count 30`（予約済は status.json で自動 skip＝冪等・再開安全）。1 週間以上空いたら先に `--dry-run` を 1 本。全体は `--plan`
-- **現在のプラン**（2026-08-18 実測）: 92 件 / 46 日 / 2.00 件per日・**8/19〜10/03**。過去日 0・Meta +75 日枠（11/01）超過 0・**1級パックが二次（10/4）後にはみ出す件数 0**
-- **安全弁**: ブラウザ自動操作＝Meta 規約グレー・X 凍結歴あり。**1 セッション 30 件上限**（スクリプトが強制）。実行後 status.json を commit → 次セッションで同コマンド再実行
-- 実行後はプランナー月ビューで実体確認（`npm run verify-ig-status`）。真実源 → memory [[project_ig_theme_packs_civil]]・ig-carousel-skill.md シリーズC
-
-**残作業**: 3 セッションに分けて 30 / 30 / 32 件を予約する（ブラウザ操作なのでユーザー実行）。
-`--plan` の日付は実行日を基準に再計算されるため、セッションを空けても常に「明日以降」から積まれる。
-
-**2026-08-25 実施（1/3セッション）**: 30 件を予約（OK 30 / FAIL 0）。2026-08-26〜09-09、
-1日2件（civil-1・civil-2 交互）で埋まった。status.json 30 件を commit 済み。
-
-**2026-08-26 実施（2/3セッション）**: 30 件を予約（OK 30 / FAIL 0）。2026-08-27〜09-10へ延伸。
-status.json 30 件を commit 済み。残 32 件を次セッションで継続。
 
 ### [DN-0014] 読み方ガイド 横展開（建設部門＋土木）
 タグ: [収益化] [種類:制作]
@@ -1068,14 +806,13 @@ BK-09 電力土木 / BK-10 鉄道 の **R08 予想問題集（各 3 記事）は
 ### [DN-0031] Brain 2商品の審査後フォローと販売運用（2026-07-22 申請済み）
 タグ: [収益化] [種類:改善] [コンテンツ品質]
 
-両商品とも制作〜Brain公開申請まで完了（Playwright全自動・審査は原則24h・結果はメール）。旧「β商品化」「スキル商品化」タスクは完了につき本エントリへ置換（2026-07-22）。
-
-- **申請済み**: ①施工経験記述キット ¥7,980（`brain-market.com/a/b5EDO3UjMgoTZsNWa0JXY`）／②総監施策バンク ¥9,800（`.../a/b1IDO3UjMgoTZsNWa0JXY`）。ココナラは両商品 listed 済（¥3,000／¥2,500PDF・/links 反映済）
-- **審査結果メールを確認**: 通過→販売開始の告知（note入口記事2本の手動公開＝`content/note/技術士総監/出題テーマ分析-R8地方創生検証/`・`content/note/1級・2級土木/経験記述-AI設計-無料/`、published:false のまま待機中）。却下→指摘に沿って修正・再申請（編集は `.tmp/brain-post*.mjs` のノウハウ＝memory 参照）
-- **カテゴリ変更**: 両記事とも「ビジネス」で申請。Brain には「資格」カテゴリあり→審査通過後に変更検討
-- **納品オペ**: ココナラ注文時はトークルームで送付（①=`C:\tmp\claude-code-civil-essay-kit-coconala.zip` 外部URL除去版／②=`.claude/config/coconala/assets/pdf/coconala-sokan-bunseki.pdf`）。Brain は有料エリアの R2 リンクで自動（`storage.doboku-note.com/brain/dist/`）
-- **売上記録**: 発生したら `/record-sales`（productId 規約は sales-recorder 台帳済）
-- **経緯・検証記録**: 企画〜バックテスト＝[brain-r8-policy-prediction-skill/](../../docs/products/brain-r8-policy-prediction-skill)（00〜07・統制run結果=04§6）／①仕様=[brain-claude-code-essay-skill/](../../docs/products/brain-claude-code-essay-skill)／出品手順=`scripts/brain-publish.mjs`＋[brain-operations.md](../knowledge/reference/brain-operations.md)（旧playbook.mdは2026-08-26にscripts実体へ置き換え済み・削除）
+残るのは note 入口記事 2 本の公開（`published: false` のまま待機中）:
+①`content/note/技術士総監/出題テーマ分析-R8地方創生検証/`
+②`content/note/1級・2級土木/経験記述-AI設計-無料/`。
+**完了条件**: `src/lib/note-magazines.ts` で両記事が `published: true` かつライブ URL 実在。
+Brain 商品自体（施工経験記述キット・総監施策バンク）は `src/lib/brain-products.ts` が
+両方 `status: 'listed'` と持つ（審査結果はメールで確認済み・状態はそちら参照）。
+運用の詳細は [brain-operations.md](../knowledge/reference/brain-operations.md)。
 
 ### [DN-0032] note施策C フォローアップ: 一次「出る順 合格ノート」の露出調整（任意・売れ行き次第）
 タグ: [収益化] [種類:改善]
@@ -1260,17 +997,6 @@ Anthropic の Opus 5 プロンプトガイドが「旧モデル向けに仕込�
 - 簡素化できるならスキル側の前処理ステップを削る。できないなら**なぜ必要か**を各エージェント定義に1行残す（次に同じ検討を繰り返さないため）
 - 根拠: <https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5>
 
-### [DN-0064] 既存画像 grandfather 135件の圧縮バーンダウン
-タグ: [UI・UX] [種類:改善] [Codex候補]
-
-画像品質ゲート導入前から残る大容量PNG/JPG/WebPを、アクセス数と削減可能容量の高い順に段階処理する。新規画像は既存ゲートで防止済み。
-
-- `quality:audit` の画像レポートを起点に対象を再計測
-- noteマガジンカバー、販売画像、外部参照画像など誤検知を除外
-- `generate-webp`または既存の用途別変換経路を使用し、寸法・透過・OGP参照を維持
-- 1バッチごとにbuild・画像参照・差分容量を検証し、baselineを漸減
-- **バッチ1実績（2026-08-26・commit 15421828c）**: 20枚圧縮・-6.37MiB(-44%)・baseline 136→133。品質目視/寸法突合済み。**注意: 各フォーマットは自分自身のバイト列からのみ再エンコードする**（同stemのjpg/webpが別写真のペアが実在し、クロスフォーマット変換は写真すり替え事故になる。該当4組の不一致自体は別チップで追跡中）
-- **バッチ2実績（2026-08-26・commit 09a6246b4）**: 20件圧縮・-3.85MiB・baseline 133→128。目視5組確認済み。残128件は僅差の閾値超過（例r01-a-fig-10.pngは約1.3KB超過）が多く、以降のバッチは費用対効果が逓減している
 
 ### [DN-0067] ココナラ コンテンツマーケット（やりとり不要のPDF販売）への展開
 タグ: [収益化] [種類:改善]
@@ -1312,15 +1038,7 @@ Anthropic の Opus 5 プロンプトガイドが「旧モデル向けに仕込�
 
 真実源 = [exam-content-policy.md](../knowledge/reference/exam-content-policy.md) §コンクリート主任技士。
 
-### [DN-0071] 総監キーワード cem-qa 2.2–2.5帯 40本リライト
-タグ: [コンテンツ品質] [種類:制作] [Codex候補]
 
-合格マージン大で緊急度低。**2026-08-26に40本中30本前後をthin重複分としてリライト済み**（バッチ1+2・DN-0072と共通）。残＝cem-qa再採点で残対象を確定してから（personal-info-protection 等の未リライト分＋リライト済み分の再採点）。1バッチ4本。
-
-### [DN-0072] 薄層 345本の散文増補（3,000字下限）
-タグ: [コンテンツ品質] [種類:制作] [Codex候補]
-
-**残315本（2026-08-26実測・バッチ2後）**: 総監 keyword 298・pe-construction keyword 16・concrete textbook 1。3,000字下限へ散文増補（7月112本＋8/26の30本〔バッチ1+2〕の継続）。census の thin 指標で残数管理（`npm run quality-census`・delta出力対応済み）。
 
 
 
@@ -1453,7 +1171,7 @@ deploy すれば通常のページとして公開される。
 | `080-pe-comprehensive-r08-hit` | 7/21 | 1/1 |
 | `082-concrete-pe-competitor-format-repurpose` | 7/25-7/29 | 6/6 |
 
-決めるべきは「今も出す内容か」。068 は 1級土木二次（10/4）の経験記述で**時期的にはむしろこれから効く**、080 は R8 的中の訴求で本試験直後を狙った文面、082 は競合フォーマットのリパーパス。W34 で X 064-067 を退役させたときと同じ判断を、内容を読んだうえで行う。
+決めるべきは「今も出す内容か」。068 は 1級土木二次（10/4）の経験記述で**時期的にはむしろこれから効く**、080 は R8 的中の訴求で本試験直後を狙った文面、082 は競合フォーマットのリパーパス。W34 で X 064-067 を退役させたときと同じ判断を、内容を読んだうえで行う。**068 は 1級土木二次（10/4）なので日付が実態と合っていない疑いが濃く、振り直しの候補**（旧 DN-0086 から統合・2026-08-27。退役する場合は `content/sns/x/draft/_archive-*/` へ移す＝surfacer は `_` 始まりを走査対象から外す）。
 
 投入する場合の手順（ローカル＝`.local/playwright-x-profile` のある Mac 限定）:
 
@@ -1541,18 +1259,6 @@ A8 公開 EPC（ビルドジョブ 942 円）は**プログラム全体の平均
 literal 写真はメタ記事と不一致で撤回済（PR #277）。旧資産は commit `aed647a7f`（2026-07-07）で**削除済み**（`src/config/guide-cover-photos.json`・`src/lib/guide-cover.ts`・Imagen 生成35枚）。生存しているのは生成器 `scripts/generate-guide-covers.mjs` のみで、**再利用には Imagen 再生成＝再課金が要る**。
 
 **有望な未検証案**: 記事別の**概念イメージ**生成（キャリア=上昇/階段、勉強法=学習机 等）。**まず5本パイロット（~$0.10・[[gemini-cost-confirm]]）→ :3020 で判断 → 良ければ123本**。ダメなら dormant 維持。
-### [DN-0086] X 下書き3パック（未投入 35 件）の処遇を決める
-タグ: [SNS・マーケ] [種類:意思決定]
-
-surfacer の日付パーサを直した（2026-08-17）ことで、これまで一度も surface されていなかった未投入が出てきた。いずれも **go-live 日が過ぎている**ので、退役するか日付を振り直すかの判断が要る。
-
-| draft | 期間 | 未投入 | 素性 |
-|---|---|--:|---|
-| `068-civil1-secondary-keiken-w1` | 7/6-7/12 | 28 | 1級土木 二次(経験記述) Week1。**二次は 10/4** なので日付が実態と合っていない疑いが濃い＝振り直しの候補 |
-| `080-pe-comprehensive-r08-hit` | 7/21 | 1 | 総監 R8 的中報告。試験直後の一発ネタで、いま出す意味は薄い |
-| `082-concrete-pe-competitor-format-repurpose` | 7/25-7/29 | 6 | 競合フォーマットのリパーパス。日付依存が弱いので振り直しやすい |
-
-退役は `content/sns/x/draft/_archive-*/` へ移すこと（surfacer は `_` 始まりを走査対象から外す）。振り直す場合は見出しの日付を書き換える。
 
 ### [DN-0088] search-growth 残存 UNKNOWN 1,280 URL の発生源裁定
 タグ: [インフラ・計測] [種類:意思決定] [起票:2026-08-22]
