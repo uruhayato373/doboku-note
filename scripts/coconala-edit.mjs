@@ -111,7 +111,7 @@ try {
   await page.screenshot({ path: shot(`edit-filled-${SERVICE}.png`) }).catch(() => {});
 
   const r = await submitForm(page, { commit: COMMIT, tag: '[edit]' });
-  console.log(`[edit] ${r.action}:`, JSON.stringify({ ok: r.ok, url: r.url, errors: r.errors }));
+  console.log(`[edit] ${r.action}:`, JSON.stringify({ ok: r.ok, url: r.url, errors: r.errors, reason: r.reason }));
   await page.screenshot({ path: shot(`edit-result-${SERVICE}.png`) }).catch(() => {});
   // 公開成功 & カタログがまだ draft → listed へ書き戻し（下書きを公開した場合）
   if (COMMIT && r.ok && svc.status === 'draft') {
