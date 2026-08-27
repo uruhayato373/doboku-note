@@ -67,6 +67,38 @@
 ## 🔴 高 — 来月中に着手
 
 
+### [DN-0149] IG ambiguous衝突59件の人間判定セッション（旧DN-0146の残）
+タグ: [SNS・マーケ] [種類:不具合] [起票:2026-08-27]
+
+DN-0146で published_UNrecorded 72件中、非ambiguous 20件をbackfill完了
+（published_recorded 16→36）。**残る59件は全件 ambiguous**（1本のライブ投稿を
+複数パックが同時に主張・機械的に解決不可能）。wontfix/skipを表す仕組みが
+現存しないため（`ig-status.mjs` は mark/unmark/migrate/summary のみ）、
+`npm run verify-ig-status` を回すたびに毎回同じ59件が再浮上する。
+
+**衝突の実測（2026-08-27・最新snapshot）**: 最大9パックが同一投稿を主張する
+グループが複数存在（例: shortcode `DbNjPXzDHJ9`/`DbK-c5JnV0L`/`DbIZo2KjaAA`他を
+`civil-1/theme-packs/hoki-labor/pack-02,pack-05`・`civil-2/theme-packs/hoki-labor/pack-01`
+ほか計9パックが主張）。civil-1/civil-2 のhoki-labor系テーマパックに集中。
+
+**判定手順**（1グループずつ）:
+1. `.claude/state/ig-reconcile/snapshot.json` の `cats.published_UNrecorded` から
+   `ambiguous:true` のエントリを `matched` shortcode でグルーピング
+2. 各shortcodeについて `https://www.instagram.com/p/<shortcode>/` をライブで開き、
+   投稿内容（1枚目の見出し・年度・論点）を確認
+3. `ambiguousWith` に列挙された候補パックのslide-data.json/status.jsonと突合し、
+   本当に一致する1パックだけを正とする
+4. 正のパックだけ `node scripts/ig-status.mjs mark <rel> carousel --url=... --date=...`
+   （他の候補は「誤ヒット」として何もしない＝記録しない）
+
+**最大リスク**: 未投稿のパックに「投稿済み」と誤記録すること（2026-08-27に
+一度未遂あり・[[ig-publish-reconcile.md]]の鉄則参照）。1つでも自信が持てない
+グループはskipして次回に回す。
+
+**完了条件**: 全59件のshortcode衝突グループに判定がつき、`published_UNrecorded`
+が判定保留分（誤ヒットとして記録しない分）まで減る。wontfixマーカーが実装
+されれば、それ以降は再浮上しなくなる（別途 `ig-status.mjs` への機能追加を検討）。
+
 ### [DN-0117] コンクリート系2冊の Kindle 提出待ち（図の出所は解消済み・KDP提出のみ残）
 タグ: [収益化] [種類:制作] [起票:2026-08-22]
 
@@ -165,9 +197,7 @@ weekly.md の手動キューはこの ID だけを参照する（weekly は ID �
 |---|---|---|---|
 | 1 | Issue #473 のクローズ | 無料プレビュー下限の食い違いは解消し `note-live-audit.yml` は green 実測済み（run 32797779154）。診断コメントも投稿済み | automation-failure のクローズは**復旧実体を確認した人間**の担当（CLAUDE.md §8） |
 | 3 | Kindle `e-02` の差し替え | **2026-08-27 実測で前提が変わった**: `in_review` ではなく既に**LIVE（ASIN B0H3GX3HNW・販売中）**。ローカルEPUB（2026-08-12修復・章名article.mdx漏れ解消）はepubcheck 0件・check-kindle-epub-leak PASS済みだが、KDPへの差し替えは未実施＝**ライブで販売中の内容が欠陥版のままの可能性**。`kdp-publish.mjs` に「LIVE本のマニュスクリプト更新」モードが無く、`--dump --page content` の `title-setup/kindle/<asin>/content` は既刊では404（下書き専用パス）。正しいKDP編集導線（本棚→編集→コンテンツ更新）の特定から必要 | KDP 実機。顧客影響がある可能性が高いため優先度を上げて確認すべき |
-| 4 | ココナラ S3 2テーマ版のライブ反映 | **2026-08-27 再診断で原因確定（fail-closed・ライブ無傷）**。前回の「エラー詳細なし」はログ出力が reason フィールドを採取していなかったための誤読（coconala-edit.mjs/coconala-form.mjs に reason 出力＋button 一覧ダンプを追加済み）。実際の失敗理由は selector ドリフトではなく**構造的制約**: このサービスは `status: listed`（公開中）で、編集画面に「下書きで保存」ボタンがそもそも存在しない（画面上のボタンは QAを追加/取得/**更新する**/OK の4つのみ、実測2026-08-27）。SoT（catalog.ts の description、2026-08-18 更新済み）をライブへ反映するには `--commit` 付きで「更新する」を押すしかなく、これは即ライブ反映＝運営者の担当範囲 | `node scripts/coconala-edit.mjs --service coconala-sakusei --commit` を運営者が目視同席で実行（更新後スクショで反映確認）。この環境からは1手も進められない（確定） |
 | 6 | コンクリート系 `cta-bg` 2 枚 | **実測: `public/images/cta-bg/` は 5 枚（civil-1 / civil-2 / note-hero / pe-comprehensive / pe-construction）で、主任技士・診断士が欠落**。生成スクリプトは無く手描きイラスト | 画像制作。無いあいだはテーマ色のベタ塗りへフォールバックする（実害は見栄えのみ） |
-| 7 | Brain 施工経験記述キットの配布物検証 | **2026-08-27 実走検証 → 不具合3件をソース側で修正・push 済み**（`claude-code-civil-essay-kit` の main `b40e2d4` / coconala-dist `828fae4`）。修正＝①検査3本を「1つでも読めなければ exit 2＝検査不成立」に統一し「実検査 N/M ファイル」を常時表示（旧: 存在しないファイルで exit 0・0件表示＝タイポが緑）②`--strict` を SKILL.md・START-HERE の呼び出しへ結線し終了コード 0/1/2 の読み分けを明記（旧: 実装はあるが手順に無くゲートが一度も効かない）③β版・暫定表記を実態に合わせ、PDF 同梱済みなのに「正式版では PDF で同梱」と書く自己矛盾を解消。検証済み＝サンプル3本 `--strict` で exit 0／欠落は3本とも exit 2／node --check OK。**配布物は2本立て**（Brain=`-beta` 系 ZIP・ココナラ=`-coconala` 系。検査スクリプトは改行コード以外バイト同一なので1回の修正で両方に効く） | **残り3手**: ①macOS 実走確認（このPCでは不可・チェックリスト §1 の最後の未達）②ZIP 再ビルド（`git archive`・`brain-products.ts:18` の運用。現行 coconala 版は CRLF で手詰めされており git archive なら LF に揃う）③Brain／ココナラの配布物差し替え（**ライブ更新のためユーザー判断**）。Claude Code 実起動でのスキル通し確認も未実施 |
 | 8 | civil-1 一次過去問 公式キー 24 件 | 残＝`h28-a`(19)・`h29-a`(1=No.38)・`h29-b`(4=No.3/12/17/21)。h28-a は 19 件と突出＝official 配列自体の OCR 誤りを疑い、mass-fix 前に第2ソースで再検証 | pre-H30 原典 PDF の入手（touhokugiken.com / dobokujira.com に h29 学科A/B は無し）。**LLM 推測厳禁**・キー番号だけの書き換え禁止 |
 | 9 | 過去問 解説・図の要照合クラスタ | 解説＝civil-1 `secondary-construction-plan-past-problems` No.9(1) 記述省略／civil-2 `secondary-r06` 問8 画像未挿入／総監 h21・h22・h28・h30 の 7 問／pe-first-stage 3 問。図＝`rescan-need-source` 9 図 ＋ `r07-a-fig-02`（画素欠損で再クロップ不可・DN-0056 から合流） | 原典照合・外部原典の入手。台帳に理由記録済（真実源 `figure-provenance.md`・進捗ビューは admin 記事図版タブ） |
 | 10 | ココナラ C12 プレミアム週枠の再判断（旧DN-0007） | C12（教材18冊＋添削2テーマ・¥15,000）は`weeklyCapacity: 1`で開始。添削は本番顧客への納品実績が無く（S2レビュー0）、初回工数が読めないための暫定値 | 初受注時に`orders-log`の`tensakuMinutes`を実測記録。2〜3件出たら週枠を再判断（判断基準→[ココナラ展開キット.md §5](../../content/note/1級・2級土木/ココナラ展開キット.md)）。実受注が無いと1手も進まない |
@@ -224,42 +254,6 @@ DN-0107（index coverage・対話）と合流して判断するのが自然。
 
 詳細: [content/note/1級・2級土木/一次二次ブリッジ磁石-LINE/README.md](../../content/note/1級・2級土木/一次二次ブリッジ磁石-LINE/README.md)
 
-### [DN-0146] IG SoT ドリフト 72 件の是正（matched=1 も含め全件が人間判断）
-タグ: [SNS・マーケ] [種類:不具合] [起票:2026-08-27]
-
-旧 DN-0136（実体調査）の RESEED。調査は完了し、**是正の実行だけが残った**。
-対象は `published_UNrecorded` 72 件（内訳: matched=1 が 34 件・matched≥2 の anomaly が 38 件）。
-snapshot: `.claude/state/ig-reconcile/snapshot.json`（2026-08-25 採取）。
-
-**2026-08-27 の発見: `matched=1` は「ライブ投稿と一意対応」を意味しない**（34 件を backfill しようとして
-実体検査で判明・ユーザー決定で全件見送り）。`verify-ig-status` の matched はパック→ライブの片方向しか見ておらず、
-**1 本のライブ投稿が複数パックにマッチする逆方向の衝突を検査していない**。実測:
-
-| 実測した事実 | 内容 |
-|---|---|
-| shortcode の共有 | civil 10 件がわずか 3 本のライブ投稿を共有（`Dbe0u3tDDnw`→5 パック / `DbcP7OOkcNk`→3 パック / `DbUhifcGoKH`→2 パック） |
-| 未投稿への誤マッチ | civil-1 の 4 件は `status.json` の `scheduled_at` が 8/28〜9/2 の**未来日＝未投稿**。年度違いの別内容（令和7-4 / 令和3-平成30 / 平成29-26）なのにテーマ名が同一でテキスト誤ヒット |
-| cem 24 件 | shortcode は一意・予約日は全て過去（6/29〜7/11）で公開済みと整合するが、civil で前提が崩れたためライブ再照合まで適用しない |
-
-**次の一手（Mac で）**: ① `npm run verify-ig-status` を再実行して最新 snapshot を取る
-② `ambiguous` が付いていないものだけを対象に、目視で正を選び `node scripts/ig-status.mjs mark <rel> carousel --url=... --date=... --note=...` で記録
-（自動処理禁止は [ig-publish-reconcile.md](../knowledge/reference/ig-publish-reconcile.md) の規約）。
-
-**機械ガード実装済み（2026-08-27）**: `scripts/lib/ig-ambiguity.mjs` の `markAmbiguousClaims` を
-`verify-ig-status.mjs` の `reconcile` へ結線した。逆引きで同一 shortcode を 2 パック以上が主張していたら
-`ambiguous: true` ＋ `ambiguousWith`（衝突相手の rel）を立てて `anomaly` へ載せる。`published_UNrecorded` からは
-取り除かないので既存の集計・exit code は不変。回帰テスト `tests/ig-ambiguity.test.mjs`（8 件・実データ形状の
-`Dbe0u3tDDnw`×5 パックを含む）。**既存 snapshot（08-25）での実測: 72 件中 48 件が ambiguous
-（civil-1 31 / civil-2 17）、backfill 安全なのは cem 24 件のみ**。手作業で見つけた 10 件より広く捕捉している。
-
-**Windows からは 1 手も進められない**（実測 2026-08-27）: `publish-ig-bs.ts:54` の `PROFILE_ROOT` が
-Mac 絶対パス `/Users/minamidaisuke/doboku-note` でハードコードされ、`.local/playwright-ig-bs-profile` も
-FB セッション Cookie が空＝未ログイン。`verify-ig-status` も `publish-ig-bs` も Playwright + ログイン済み
-プロファイルが前提なので Mac 専用。
-
-**完了条件**: Mac で `verify-ig-status` 再実行 → `published_UNrecorded` が 72 から減ることを実測で確認する。
-
-**リール系は本カードの対象外**（DN-0110 へ従属済み）。
 
 
 ### [DN-0110] 動画パック基盤・通常動画pilot・read-only管理画面
