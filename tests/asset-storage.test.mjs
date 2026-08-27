@@ -123,6 +123,34 @@ test('visibility: IG は status.json の入れ子スキーマを読む（トッ�
   }
 });
 
+test('visibility: note カバーは noteStatus: reserved（予約投稿）を noteId 単独で public 判定しない', () => {
+  // 2026-08-27 実発生: 学科記述予想/03_品質管理 が noteStatus: reserved（notePublishedAt 翌日）
+  // なのに noteId が投稿作成時点で既に払い出されていたため、旧ロジックが public と誤判定した。
+  const base = join(ROOT, '.tmp', 'test-note-visibility');
+  rmSync(base, { recursive: true, force: true });
+  try {
+    const cases = [
+      ['reserved-with-noteid', 'noteStatus: reserved\nnoteId: "n123"\nnoteUrl: "https://note.com/x/n/n123"', 'private'],
+      ['published-with-noteid', 'noteStatus: published\nnoteId: "n456"\nnoteUrl: "https://note.com/x/n/n456"', 'public'],
+      ['draft-no-noteid', 'noteStatus: draft', 'private'],
+    ];
+    let checked = 0;
+    for (const [name, fmBody, want] of cases) {
+      const articleDir = join(base, name);
+      const imgDir = join(articleDir, 'img');
+      mkdirSync(imgDir, { recursive: true });
+      writeFileSync(join(articleDir, 'article.md'), `---\n${fmBody}\n---\n# 本文\n`);
+      writeFileSync(join(imgDir, 'cover.png'), '');
+      const rel = toPosix(join(imgDir, 'cover.png').slice(ROOT.length + 1));
+      assert.equal(visibilityFor(rel, groupById('note-cover-png')), want, name);
+      checked++;
+    }
+    assert.equal(checked, cases.length, '全ケースを実検査していること');
+  } finally {
+    rmSync(base, { recursive: true, force: true });
+  }
+});
+
 test('mime: 拡張子から Content-Type を引く（未知は octet-stream）', () => {
   assert.equal(mimeFor('a/b.png'), 'image/png');
   assert.equal(mimeFor('a/b.PDF'), 'application/pdf');
