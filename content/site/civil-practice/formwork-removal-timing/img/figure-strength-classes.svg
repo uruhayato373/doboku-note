@@ -1,0 +1,45 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="型枠取外しに必要な圧縮強度を部材面の性格で3段階に分ける区分（厚い部材の鉛直面3.5N/mm²・薄い部材の鉛直面5.0N/mm²・スラブはりの底面14.0N/mm²）">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-label { font-size: 12px; fill: #555; }
+      .t-num   { font-size: 18px; font-weight: bold; fill: #1a3a5c; }
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-label" x="200" y="28" text-anchor="middle">区分の軸＝型枠を外したあと、その面が自重をどれだけ受け持つか</text>
+
+  <!-- 区分1: 厚い部材の鉛直面 -->
+  <rect class="box-brand" x="15" y="45" width="370" height="120" rx="8"/>
+  <text class="t-title" x="35" y="70">厚い部材の鉛直面</text>
+  <text class="t-label" x="35" y="90">例: フーチング側面</text>
+  <text class="t-label" x="35" y="108">構造的な負担はほぼなく、角欠け・表面損傷の</text>
+  <text class="t-label" x="35" y="124">回避が目的</text>
+  <text class="t-num" x="35" y="150">3.5 N/mm²</text>
+
+  <!-- 区分2: 薄い部材の鉛直面 -->
+  <rect class="box-warn" x="15" y="175" width="370" height="120" rx="8"/>
+  <text class="t-title" x="35" y="200">薄い部材の鉛直面</text>
+  <text class="t-label" x="35" y="220">例: 柱・壁・はり側面</text>
+  <text class="t-label" x="35" y="238">薄いぶん、脱型時の衝撃や仕上げ作業で</text>
+  <text class="t-label" x="35" y="254">欠けやすい</text>
+  <text class="t-num" x="35" y="280">5.0 N/mm²</text>
+
+  <!-- 区分3: スラブ・はりの底面 -->
+  <rect class="box-danger" x="15" y="305" width="370" height="130" rx="8"/>
+  <text class="t-title" x="35" y="330">スラブ・はりの底面</text>
+  <text class="t-label" x="35" y="350">例: 橋梁スラブ、アーチ内面</text>
+  <text class="t-label" x="35" y="368">自重を型枠なしで支える面。45度より緩い傾きの</text>
+  <text class="t-label" x="35" y="384">下面もこの区分</text>
+  <text class="t-num" x="35" y="410">14.0 N/mm²</text>
+
+  <line x1="15" y1="450" x2="385" y2="450" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-label" x="200" y="472" text-anchor="middle">判定に使う供試体は現場封かん養生（標準養生ではない）</text>
+</svg>
