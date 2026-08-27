@@ -80,6 +80,12 @@ const TOOLS = [
     desc: "千鳥配置のずらし量（継手長さ+25d）を計算し、ガス圧接部のふくらみ検査（JIS Z 3120）への適合を項目別に判定。",
     tag: "判定",
   },
+  {
+    href: "/tools/cost-structure",
+    title: "工事原価 構成比計算ツール",
+    desc: "直接工事費・共通仮設費・現場管理費・一般管理費等の金額から構成比を計算。赤字の判定は行いません。",
+    tag: "計算",
+  },
 ];
 
 export default function ToolsIndexPage() {
