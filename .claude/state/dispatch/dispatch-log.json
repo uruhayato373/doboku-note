@@ -307,6 +307,18 @@
       "commit": "d8d89535180b",
       "verification": "quality:audit:ci (CI run 33029768396: PASS outbound-links 248.0s / pass 69 fail 0 timeout 0 skip 0)",
       "note": "逐次+THROTTLEを8並列化し420s張り付きを解消(ローカル235s/877件・CI 248s)。timeoutは420->600s。16並列は逆に悪化する実測をコードに記録。埋もれた実失敗は無し"
+    },
+    {
+      "id": "DN-0134",
+      "at": "2026-08-27",
+      "task": "昇格後に asset-inbox を実走して R3 の納品 PDF 3 本を R2 へ反映する",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ce469cc3fa9f",
+      "verification": "gh run 33035289328 success / asset-inbox release 0 件 / check-asset-storage の sha256 照合 5 件で不一致 3→0",
+      "note": "publish step が git add 後に rebase する順序バグで常に失敗していた（R2 upload は成功・manifest だけ未commit）。commit→fetch→rebase へ修正し、同型を check-workflow-publish-ref の auditGitPublishOrder で静的に禁止。bot commit ce469cc3 が着地"
     }
   ]
 }
