@@ -806,11 +806,10 @@ const MAGAZINES_RAW = {
     badge: 'note 限定 教材',
   },
 
-  // DN-0095（2026-08-20 制作・QA完了、未公開）。既存 cce-essay-magazine の上位版。
-  // 8実務ペルソナ×4テーマ=32本 ＋ 無料のペルソナ選択ガイド1本＝全33記事が原稿・QA完了。
-  // 2026-08-22: 32本完成につき セット¥5,980 / 単品¥980 で価格確定（DN-0095 の仮説どおり）。
-  // 単品¥980 は既存 cce-essay-magazine と同一の単価ライン。noteUrl は公開時に書き戻す。
-  // 実装契約: .claude/plans/DN-0095-civil-concrete-answer-expansion/02-concrete-chief-essay-personas.md
+  // 既存 cce-essay-magazine の上位版。8実務ペルソナ×4テーマ=32本 ＋ 無料のペルソナ選択ガイド1本＝全33記事。
+  // 2026-08-22: セット¥5,980 / 単品¥980 で価格確定。単品¥980 は既存 cce-essay-magazine と同一の単価ライン。
+  // 企画・経緯: content/note/1級・2級土木/noteコンテンツ計画.md §8.2
+  // （旧実装契約 .claude/plans/DN-0095-civil-concrete-answer-expansion/ は撤収済み・2026-08-27・経緯は git 履歴）
   'cce-essay-persona-pack': {
     id: 'cce-essay-persona-pack',
     published: true,

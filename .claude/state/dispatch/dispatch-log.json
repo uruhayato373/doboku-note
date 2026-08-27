@@ -319,6 +319,42 @@
       "commit": "ce469cc3fa9f",
       "verification": "gh run 33035289328 success / asset-inbox release 0 件 / check-asset-storage の sha256 照合 5 件で不一致 3→0",
       "note": "publish step が git add 後に rebase する順序バグで常に失敗していた（R2 upload は成功・manifest だけ未commit）。commit→fetch→rebase へ修正し、同型を check-workflow-publish-ref の auditGitPublishOrder で静的に禁止。bot commit ce469cc3 が着地"
+    },
+    {
+      "id": "DN-0131",
+      "at": "2026-08-27",
+      "task": "YouTube 予約投入が 68 日止まり、未処理 187 件が滞留している",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ea93e9fa6855",
+      "verification": "check-external-write-orphans: 検出0件・exit0（改修前は187件pendingでsilent-stop）",
+      "note": "ユーザー決定で187件を台帳退役(status:pending→retired・retiredAt/retiredReasonを付与)。再開判断はDN-0110の動画基盤設計で仕切り直す。①recorded_but_gone 6件は08-25実査済み"
+    },
+    {
+      "id": "DN-0044",
+      "at": "2026-08-27",
+      "task": "`note-publish --schedule` の予約投稿 selector 修復",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ef2fc41fc1b6",
+      "verification": "実機検証成功: 学科03を2026-08-28T07:00で予約→frontmatter noteStatus=reserved/noteId/notePublishedAt反映を確認。API not_foundは公開前記事の正常応答（対照確認済み）",
+      "note": "根本原因は11m（試し読みエリア）遷移後に日時ラベルを再探索していたこと（既に画面遷移済みで見つからず毎回fail-closed）。修正: 日時設定は10.5パネル内で完結させ、11m遷移後は自動的に「投稿する」→「予約投稿」に変わるボタンをexact matchでクリックするだけに簡素化。副次修正: 11mクリックのtry-catch保護（旧実装は未捕捉例外でプロセスクラッシュしうる構造だった）"
+    },
+    {
+      "id": "DN-0042",
+      "at": "2026-08-27",
+      "task": "note 孤児下書き 5 件の手動削除",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ef2fc41fc1b6",
+      "verification": "--list-drafts 再走査で 41→27 件を実確認（削除対象14件が正確に消滅、他13件は無傷）",
+      "note": "ユーザー承認済み14件を削除: カード確定2件(総監マガジンの歩き方/ビルドジョブ)+同題重複7件(横断歩道橋設置2/空港用地造成2/道路改良高盛土3・いずれも公開済み記事と同題で公開に使われなかった中間版)+今日の予約投稿実機検証(DN-0044)で生じた実験残骸5件。副次修正: note-delete-note.mjsの座標クリックがloadAllDrafts最終スクロール位置基準のままで対象行が画面外だと外れるバグを発見・修正(クリック直前にscrollIntoView+座標再取得)。再走査ステップは別の未解決の例外(公開ステータスフィルタのタイムアウト)があるが削除自体は[3]確認ボタンまで到達し都度--list-draftsで件数を実測して確認した"
     }
   ]
 }

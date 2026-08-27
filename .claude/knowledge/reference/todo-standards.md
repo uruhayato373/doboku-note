@@ -32,6 +32,17 @@ doboku-note = `scripts/lib/backlog-lib.mjs` (admin・CI・検査はすべてこ�
 本文・status を複製しない。**完了 = カード (行) の削除** — 記録は git 履歴が持つ。
 完了サマリ・経緯 prose をバックログに書かない。
 
+## 1-2. backlog の守備範囲 (doboku-note・2026-08-27)
+
+backlog が持つのは**単発で完了がある未着手タスク**だけ = 不具合 / 改善 / 意思決定 / 計測（期日つき判断）。
+次の 3 つは backlog に**置かない**（stats47 への同文コピーは次回 stats47 作業時に当てる）:
+
+| 置かないもの | 行き先（真実源） | backlog カードに書いてよいこと |
+|---|---|---|
+| **チャネル状態の複製**（公開/下書き/予約/残数） | note=frontmatter `noteStatus`・`src/lib/note-magazines.ts` / IG=`posted.json`・`status.json` / Kindle=`scripts/kindle-published/catalog.json` / ココナラ=`src/lib/coconala-services.ts` / Brain=`src/lib/brain-products.ts` / X=`content/sns/x/draft/*/status.json` | SSOT への参照と完了条件だけ。件数・日付・状態値を本文へ写さない（写した瞬間から腐る。実例: 2026-08-27 の DN-0031＝SSOT は listed なのにカードは審査待ちを配り続けた） |
+| **反復する運用サイクル**（配信・投入・予約・drift 消化・残数を機械が数えられるバーンダウン） | weekly の「定常運用」節が surfacer（`check-membership-drip` / `check-note-republish` / `x-queue-surfacer` / `verify-ig-status` / `check-*-due` / `quality-census` 等）から直接 pull する。backlog を介さない | （カード化しない。§4 ルール1「反復＝backlog に置かない合図」の適用拡大） |
+| **コンテンツ制作企画**（いつか作る商品・記事群） | 企画SSOT: note=各試験 `content/note/{試験}/noteコンテンツ計画.md` / Kindle=`content/kindle/strategy.md` / ココナラ=`content/note/1級・2級土木/ココナラ展開キット.md` | 企画SSOTが無いチャネル（site 記事等）の制作は backlog に置いてよい。新しい企画SSOTを発明しない |
+
 ## 2. カード構文
 
 ```markdown
@@ -68,7 +79,11 @@ doboku-note = `scripts/lib/backlog-lib.mjs` (admin・CI・検査はすべてこ�
 
 - monthly: 成果目標は 3 つまで、選択タスクは 8〜12 件を目安
 - weekly: 実行タスク 3〜5 件、手動キューを含めても 8 件を超えない
-- 状態・詳細手順・検証コマンドは backlog 本文を参照する
+- 状態・詳細手順・検証コマンドは backlog 本文を参照する（**チャネル状態は例外** — backlog 本文にも
+  複製せず、§1-2 の表のチャネル SSOT を直接見る）
+- weekly は「実行タスク表（backlog ID 参照）」＋「**定常運用**節」の 2 部構成。定常運用節は
+  surfacer 出力から今週分を選び、書くのは surfacer 名と今週の出口だけ（backlog ID を持たない。
+  実績ログ・経緯 prose を書かない — 完了の記録は週次レビューと git 履歴）
 - 完了項目は weekly に残さず、週次レビューと git 履歴へ任せる
 - 「今週やらないこと」は戦略上重要な除外だけ最大 3 件
 - 管理画面は ID を backlog 索引と join し、タイトル・tier・種類・担当・期日を表示する。参照切れ ID は赤く出す

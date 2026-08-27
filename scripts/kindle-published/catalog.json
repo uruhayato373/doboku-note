@@ -956,7 +956,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-08.json",
       "epub": "kindle-dist/f-08.epub",
@@ -973,9 +973,15 @@
           "version": "1.0",
           "date": "2026-08-03",
           "change": "KDP出版申請（審査中）・draft A2NF277QIFSS1A"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-27",
+          "change": "KDP本棚実査でLIVE化(販売中)を確認・catalogへ反映（正確な公開日は本棚に記録が無く不明）"
         }
       ],
-      "draftAsin": "A2NF277QIFSS1A"
+      "draftAsin": "A2NF277QIFSS1A",
+      "publishedDate": "2026-08-27"
     },
     {
       "id": "f-09",
@@ -985,7 +991,7 @@
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-09.json",
       "epub": "kindle-dist/f-09.epub",
@@ -1002,19 +1008,25 @@
           "version": "1.0",
           "date": "2026-08-03",
           "change": "KDP出版申請（審査中）・draft A30Q37A4AVVCC6"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-27",
+          "change": "KDP本棚実査でLIVE化(販売中)を確認・catalogへ反映（正確な公開日は本棚に記録が無く不明）"
         }
       ],
-      "draftAsin": "A30Q37A4AVVCC6"
+      "draftAsin": "A30Q37A4AVVCC6",
+      "publishedDate": "2026-08-27"
     },
     {
       "id": "f-10",
-      "asin": null,
+      "asin": "B0HCMY82PX",
       "title": "技術士 総合技術監理部門 記述式 模範論文 自治体砂防担当編（令和3〜7年度）",
       "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-10.json",
       "epub": "kindle-dist/f-10.epub",
@@ -1031,19 +1043,25 @@
           "version": "1.0",
           "date": "2026-08-03",
           "change": "KDP出版申請（審査中）・draft A38R83UMIERQLB"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-27",
+          "change": "KDP本棚実査でLIVE化(販売中)を確認・catalogへ反映（正確な公開日は本棚に記録が無く不明）"
         }
       ],
-      "draftAsin": "A38R83UMIERQLB"
+      "draftAsin": "A38R83UMIERQLB",
+      "publishedDate": "2026-08-27"
     },
     {
       "id": "f-11",
-      "asin": null,
+      "asin": "B0HCMLKJZT",
       "title": "技術士 総合技術監理部門 記述式 模範論文 自治体道路担当編（令和3〜7年度）",
       "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-11.json",
       "epub": "kindle-dist/f-11.epub",
@@ -1060,19 +1078,25 @@
           "version": "1.0",
           "date": "2026-08-03",
           "change": "KDP出版申請（審査中）・draft A6R4WDFOK345G"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-27",
+          "change": "KDP本棚実査でLIVE化(販売中)を確認・catalogへ反映（正確な公開日は本棚に記録が無く不明）"
         }
       ],
-      "draftAsin": "A6R4WDFOK345G"
+      "draftAsin": "A6R4WDFOK345G",
+      "publishedDate": "2026-08-27"
     },
     {
       "id": "f-12",
-      "asin": null,
+      "asin": "B0HCMVSZSW",
       "title": "技術士 総合技術監理部門 記述式 模範論文 自治体都市計画担当編（令和3〜7年度）",
       "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-12.json",
       "epub": "kindle-dist/f-12.epub",
@@ -1089,19 +1113,25 @@
           "version": "1.0",
           "date": "2026-08-03",
           "change": "KDP出版申請（審査中）・draft APMEFPLY0KJ0J"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-27",
+          "change": "KDP本棚実査でLIVE化(販売中)を確認・catalogへ反映（正確な公開日は本棚に記録が無く不明）"
         }
       ],
-      "draftAsin": "APMEFPLY0KJ0J"
+      "draftAsin": "APMEFPLY0KJ0J",
+      "publishedDate": "2026-08-27"
     },
     {
       "id": "f-13",
-      "asin": null,
+      "asin": "B0HCMLZSCN",
       "title": "技術士 総合技術監理部門 記述式 模範論文 道路橋梁コンサル編（令和3〜7年度）",
       "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-13.json",
       "epub": "kindle-dist/f-13.epub",
@@ -1118,19 +1148,25 @@
           "version": "1.0",
           "date": "2026-08-03",
           "change": "KDP出版申請（審査中）・draft A2POURQ85XVC03"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-27",
+          "change": "KDP本棚実査でLIVE化(販売中)を確認・catalogへ反映（正確な公開日は本棚に記録が無く不明）"
         }
       ],
-      "draftAsin": "A2POURQ85XVC03"
+      "draftAsin": "A2POURQ85XVC03",
+      "publishedDate": "2026-08-27"
     },
     {
       "id": "f-14",
-      "asin": null,
+      "asin": "B0HCMRYPC8",
       "title": "技術士 総合技術監理部門 記述式 模範論文 都市計画コンサル編（令和3〜7年度）",
       "subtitle": "令和3〜7年度 必須科目 模範論文 全5本",
       "series": "F 技術士総監 記述式",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-14.json",
       "epub": "kindle-dist/f-14.epub",
@@ -1147,19 +1183,25 @@
           "version": "1.0",
           "date": "2026-08-03",
           "change": "KDP出版申請（審査中）・draft A38LL41WKHPDFG"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-27",
+          "change": "KDP本棚実査でLIVE化(販売中)を確認・catalogへ反映（正確な公開日は本棚に記録が無く不明）"
         }
       ],
-      "draftAsin": "A38LL41WKHPDFG"
+      "draftAsin": "A38LL41WKHPDFG",
+      "publishedDate": "2026-08-27"
     },
     {
       "id": "f-15",
-      "asin": null,
+      "asin": "B0HCMR444R",
       "title": "技術士 総合技術監理部門 記述式 5管理クロストレードオフ論文集",
       "subtitle": "5管理のトレードオフ設計 全5本",
       "series": "F 技術士総監 記述式",
       "priceJpy": 1250,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-15.json",
       "epub": "kindle-dist/f-15.epub",
@@ -1176,19 +1218,25 @@
           "version": "1.0",
           "date": "2026-08-03",
           "change": "KDP出版申請（審査中）・draft ASHZ8Y2SHTUH5"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-27",
+          "change": "KDP本棚実査でLIVE化(販売中)を確認・catalogへ反映（正確な公開日は本棚に記録が無く不明）"
         }
       ],
-      "draftAsin": "ASHZ8Y2SHTUH5"
+      "draftAsin": "ASHZ8Y2SHTUH5",
+      "publishedDate": "2026-08-27"
     },
     {
       "id": "f-16",
-      "asin": null,
+      "asin": "B0HCMNDNX8",
       "title": "技術士 総合技術監理部門 記述式 設問3 国家施策バンク（11テーマ）",
       "subtitle": "設問(3)の国家施策 全11テーマ",
       "series": "F 技術士総監 記述式",
       "priceJpy": 1250,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-essay-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/f-16.json",
       "epub": "kindle-dist/f-16.epub",
@@ -1205,9 +1253,15 @@
           "version": "1.0",
           "date": "2026-08-03",
           "change": "KDP出版申請（審査中）・draft AD5VQJZEDD2TM"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-27",
+          "change": "KDP本棚実査でLIVE化(販売中)を確認・catalogへ反映（正確な公開日は本棚に記録が無く不明）"
         }
       ],
-      "draftAsin": "AD5VQJZEDD2TM"
+      "draftAsin": "AD5VQJZEDD2TM",
+      "publishedDate": "2026-08-27"
     },
     {
       "id": "g-01",

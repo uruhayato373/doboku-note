@@ -92,20 +92,28 @@ git checkout {作業ブランチ}
 **注意**: 検証は `.pages.dev`（デプロイ直後のビルド成果物）で行う。`doboku-note.com`（Cloudflare 経由の本番ドメイン）でも可だが、Cloudflare のキャッシュ反映ラグや（設定変更時の）Bot 保護の影響を避けるため `.pages.dev` を一次確認に使う。なお 2026-06-12 時点では `doboku-note.com` は `curl` 既定 UA・`facebookexternalhit` 等の bot UA でも 200 を返す（旧記載「bot で必ず 403」は実測と不一致＝Bot Fight Mode は現状緩和。外部 Validator の IP ベース挑戦は別問題で残りうる→ [measurement-incidents.md](../../../../.claude/knowledge/reference/measurement-incidents.md) 2026-04-25）。
 
 ```bash
-# HTTP ステータス確認
-HTTP_STATUS=$(curl -s -o /dev/null -w "%{http_code}" https://doboku-note.pages.dev)
-echo "HTTP Status: $HTTP_STATUS"
-
-# <main> タグ + 主要キーワード確認
-# ★ `<main>` で grep しない。実際の出力は常に class 付き（`<main class="flex-grow">` 等）で
-#   **構造的に必ず 0 になる＝偽赤**。開きタグの前方一致で数える（2026-08-05 是正）。
-curl -s https://doboku-note.pages.dev | grep -c "<main"
-curl -s https://doboku-note.pages.dev | grep -o "<main[^>]*>" | head -1   # 実体を目視
+npm run check-production-ssr
 ```
 
-- HTTP 200 かつ `<main` が 1 以上 → 正常
+判定はスクリプトが持つ。**手打ちの curl で代用しない**（下の 2 つの誤読を機械で潰してある）:
+
+- exit 0 … 200 かつ `<main` あり かつ主要キーワードあり
+- exit 1 … 実際に壊れている（200 でない / `<main` 0 / キーワード 0）
+- exit 2 … **検査不成立＝接続できていない**。合格でも不合格でもない
+
+> [!warning] `--noproxy` を付けない（2026-08-27 の踏み間違い）
+> 会社 PC で `curl --noproxy '*'` を付けるとプロキシを自分で外すことになり、外部へ出られず
+> `HTTP 000 / <main 0 件` が返る。これを「デプロイ失敗・SSR 破壊」と報告しかけた。
+> **接続できていないことは、サイトが壊れている証拠ではない。**
+> スクリプトは `--ssl-no-revoke` 付き curl を使い、000 を exit 2（検査不成立）として区別する。
+
+> [!note] `<main>` で完全一致 grep しない（2026-08-05 是正・スクリプトに内蔵済み）
+> 実際の出力は常に class 付き（`<main class="flex-grow">` 等）なので、完全一致は
+> **構造的に必ず 0 になる＝偽赤**。開きタグの前方一致で数える。
+
 - 500 の場合 → Cloudflare API token 期限切れを仮説1番に確認（GitHub Secrets で再発行）
-- `<main` が 0 → SSR 壊れ。ユーザーに即報告し .claude/todo/ に起票
+- `<main` が 0 → SSR 壊れ。ユーザーに即報告し .claude/todo/backlog.md に起票
+- exit 2 の場合 → **デプロイの成否を報告しない**。まず自分の接続経路を疑う
 
 ### Step 8: 完了報告
 

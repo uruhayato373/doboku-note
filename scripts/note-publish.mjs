@@ -421,7 +421,49 @@ try {
         membershipOk = /^(追加済み?|削除)$/.test(after.state);
         console.log(`[10.5] 公開範囲「${MEMBERSHIP_TARGET}」: ${pick.before} → ${after.state} / ok=${membershipOk}`);
         console.log(`[10.5] 押下後のセクション: ${after.section}`);
+        // DEBUG(temp・first-run 検証用): 220 文字に切り詰める前の全文を保存し、
+        // 予約投稿の入口（日時設定ボタン等）がこのパネル内にあるか確認する。
+        try {
+          const dump2 = await page.evaluate(() => document.body.innerText);
+          writeFileSync(join(ROOT, '.tmp/np-105-dom-dump.txt'), dump2, 'utf-8');
+          console.log(`[10.5-debug] DOM dump ${dump2.length} 文字 → .tmp/np-105-dom-dump.txt`);
+        } catch (e) { console.log('[10.5-debug] dump失敗:', e.message); }
       }
+    }
+    // DEBUG(temp・first-run 検証用): 「予約投稿」「日時の設定」は 10.5 の公開設定パネル内に
+    // 実在する（np-105-dom-dump.txt で確認済み）。既存コードは 11m（試し読みエリア）へ画面遷移
+    // した後で探すため見つからない。ここで 10.5 の画面のまま予約UIを試す（安全のため日時設定
+    // までで留め、最終確定は押さない＝この後 saveDraftExit で終了する）。
+    if (sched) {
+      const pad2 = (n) => String(n).padStart(2, '0');
+      const shot2 = async (t) => { try { await page.screenshot({ path: join(ROOT, `.tmp/np-105-${t}.png`), fullPage: true }); } catch {} };
+      let toggled = false;
+      const toggle = page.getByText('予約投稿', { exact: true });
+      if (await toggle.count()) { try { await toggle.first().click(); toggled = true; await sleep(1200); } catch {} }
+      await shot2('after-toggle');
+      let opened2 = false;
+      const dtBtn = page.getByText('日時の設定', { exact: true });
+      if (await dtBtn.count()) { try { await dtBtn.first().click(); opened2 = true; await sleep(1500); } catch {} }
+      await shot2('after-datetime-open');
+      let dateSet2 = false;
+      for (let nav = 0; nav < 4 && opened2 && !dateSet2; nav++) {
+        const day2 = page.locator(`[aria-label*="${sched.y}年"][aria-label*="${sched.mo}月"][aria-label*="${sched.d}日"]`);
+        if (await day2.count()) { try { await day2.first().click(); dateSet2 = true; await sleep(800); } catch {} }
+        if (!dateSet2) { const nx2 = page.getByRole('button', { name: /次の月|次月|Next/ }); if (await nx2.count()) { await nx2.first().click(); await sleep(600); } else break; }
+      }
+      const timeStr2 = `${pad2(sched.h)}:${pad2(sched.mi)}`;
+      let timeSet2 = false;
+      const timeItem2 = page.getByText(timeStr2, { exact: true });
+      if (await timeItem2.count()) { try { await timeItem2.first().click(); timeSet2 = true; await sleep(600); } catch {} }
+      await shot2('after-time');
+      // モーダル（Underlay）を開いたまま次へ進むと、後続の「試し読みエリアを設定」クリックが
+      // pointer-events を遮られてタイムアウトする（2026-08-27 実測）。Esc で閉じる。
+      // 下部に確定済み日時（例: 2026年8月28日 07:00）が独立表示されるため、閉じても設定は残る。
+      try { await page.keyboard.press('Escape'); await sleep(500); } catch {}
+      await shot2('after-escape');
+      const dump3 = await page.evaluate(() => document.body.innerText).catch(() => '');
+      writeFileSync(join(ROOT, '.tmp/np-105-after-dom-dump.txt'), dump3, 'utf-8');
+      console.log(`[10.5S-debug] toggled=${toggled} opened=${opened2} dateSet=${dateSet2} timeSet=${timeSet2} dump=${dump3.length}文字`);
     }
     if (!membershipOk) await page.screenshot({ path: join(ROOT, '.tmp/np-membership.png'), fullPage: true });
   }
@@ -438,8 +480,15 @@ try {
   if (isMembership) {
     const prev = page.getByRole('button', { name: /試し読みエリア/ });
     if (await prev.count()) {
-      await prev.first().click(); await sleep(3500);
-      console.log(`[11m] 試し読みエリア画面へ（ライン設定=${hasExplicitBoundary ? BOUNDARY : 'なし＝全文を会員限定'}）`);
+      try {
+        await prev.first().click({ timeout: 10000 }); await sleep(3500);
+        console.log(`[11m] 試し読みエリア画面へ（ライン設定=${hasExplicitBoundary ? BOUNDARY : 'なし＝全文を会員限定'}）`);
+      } catch (e) {
+        // クリックがブロックされて（モーダル残留等）進めない場合はプロセスを落とさず
+        // 安全側（下書き保存）へ倒す。原因調査用にスクショを残す（2026-08-27 実測の再発防止）。
+        console.log('[11m] ERROR: 「試し読みエリアを設定」クリック失敗:', e.message.split(String.fromCharCode(10))[0]);
+        try { await page.screenshot({ path: join(ROOT, '.tmp/np-11m-click-fail.png'), fullPage: true }); } catch {}
+      }
     } else console.log('[11m] WARN: 「試し読みエリアを設定」ボタン未検出');
   }
   let boundaryOk = !isPaid; // 無料は境界不要
@@ -539,39 +588,26 @@ try {
     await saveDraftExit(`★中断: 本文画像が未完（leftover=${imgLeftover.length} failed=${imgFailed.length}）→ 公開しない★`);
     process.exitCode = 3;
   } else if (COMMIT && boundaryOk && membershipOk && sched) {
-    // --- 予約投稿フロー（--schedule 指定時。selector は scheduling.md 由来・first-run 要検証）---
-    // 安全弁: 日時が UI に反映できないときは即時公開せず下書きへ退避（誤即時公開を防止）
-    const pad = (n) => String(n).padStart(2, '0');
-    const shot = async (t) => { try { await page.screenshot({ path: join(ROOT, `.tmp/np-sched-${t}.png`) }); } catch {} };
-    let opened = false;
-    for (const label of ['日時を指定して公開', '日時の設定', '公開日時', '投稿日時', '日時指定']) {
-      const el = page.getByText(label, { exact: false });
-      if (await el.count()) { try { await el.first().click(); opened = true; await sleep(1500); break; } catch {} }
-    }
-    await shot('open');
-    let dateSet = false;
-    for (let nav = 0; nav < 4 && opened && !dateSet; nav++) {
-      const day = page.locator(`[aria-label*="${sched.y}年"][aria-label*="${sched.mo}月"][aria-label*="${sched.d}日"]`);
-      if (await day.count()) { try { await day.first().click(); dateSet = true; await sleep(800); } catch {} }
-      if (!dateSet) { const nx = page.getByRole('button', { name: /次の月|次月|Next/ }); if (await nx.count()) { await nx.first().click(); await sleep(600); } else break; }
-    }
-    const timeStr = `${pad(sched.h)}:${pad(sched.mi)}`;
-    let timeSet = false;
-    const timeItem = page.getByText(timeStr, { exact: true });
-    if (await timeItem.count()) { try { await timeItem.first().click(); timeSet = true; await sleep(600); } catch {} }
-    await shot('datetime');
-    const reserveBtn = page.getByRole('button', { name: /予約投稿|予約する|予約設定/ });
+    // --- 予約投稿フロー（--schedule 指定時）---
+    // 実機検証済み（2026-08-27）: 日時設定は 10.5 の公開設定パネル内で行う（10.5S ブロック・
+    // 「予約投稿」トグル→「日時の設定」→カレンダー→時刻→Esc で閉じる）。ここ（11m 後）では
+    // それを済ませた状態を前提にする。11m（試し読みエリア）へ遷移すると、画面右上のボタン
+    // ラベルが「投稿する」から「予約投稿」へ自動的に変わる（有料記事で「投稿する」→
+    // 「有料エリア設定」に変わるのと同じ機構）。日時ラベルをここで再探索する必要はない
+    // （旧実装は 11m 遷移後に日時ラベルを探しており、既に別画面のため見つからず毎回
+    // fail-closed していた＝ DN-0044 が「一度も実機検証されていない」とした原因そのもの）。
+    const reserveBtn = page.getByRole('button', { name: '予約投稿', exact: true });
     const hasReserve = await reserveBtn.count();
-    console.log(`[12S] schedule=${sched.raw} opened=${opened} dateSet=${dateSet} timeSet=${timeSet} reserveBtn=${hasReserve}`);
-    if (opened && dateSet && timeSet && hasReserve) {
+    console.log(`[12S] schedule=${sched.raw} reserveBtn=${hasReserve}`);
+    if (hasReserve) {
       await reserveBtn.first().click(); await sleep(5000);
       const close = page.getByRole('button', { name: '閉じる' }); if (await close.count()) { await close.first().click(); await sleep(1500); }
       publishedUrl = page.url();
       console.log('[12S] 予約投稿 clicked →', publishedUrl, '@', sched.raw);
       writeBack(publishedUrl, sched.date, 'reserved');
     } else {
-      await shot('abort');
-      await saveDraftExit('★中断: 予約投稿UIを確定できず（即時公開はしない・selector要first-run検証）★');
+      await page.screenshot({ path: join(ROOT, '.tmp/np-sched-abort.png'), fullPage: true }).catch(() => {});
+      await saveDraftExit('★中断: 「予約投稿」ボタンを確定できず（10.5 での日時設定が未反映の可能性）★');
     }
   } else if (COMMIT && boundaryOk && membershipOk) {
     // --- 即時公開（既存）---

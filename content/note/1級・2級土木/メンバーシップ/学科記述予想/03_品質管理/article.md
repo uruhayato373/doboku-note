@@ -1,9 +1,12 @@
 ---
 notePricing: membership
-noteStatus: draft
+noteStatus: reserved
 noteSeries: 学科記述予想
 membershipOnly: true
 utmCampaign: civil-membership-gakka-quality
+notePublishedAt: "2026-08-28"
+noteId: "n4543d343d7a0"
+noteUrl: "https://note.com/dobokunote/n/n4543d343d7a0"
 coverTitle: ["学科記述予想｜品質管理", "管理図・試験・品質特性"]
 cover:
   variant: crop-safe-v4

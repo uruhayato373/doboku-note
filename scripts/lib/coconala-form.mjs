@@ -258,7 +258,8 @@ export async function submitForm(page, { commit = false, tag = '[form]' } = {}) 
     if (await b.count()) { name = c; btn = b; break; }
   }
   if (!btn) {
-    return { ok: false, action: candidates[0], url: page.url(), reason: `送信ボタン未検出（候補: ${candidates.join('/')}）` };
+    const allButtons = await page.evaluate(() => Array.from(document.querySelectorAll('button')).map((b) => (b.textContent || '').replace(/\s+/g, ' ').trim()).filter(Boolean));
+    return { ok: false, action: candidates[0], url: page.url(), reason: `送信ボタン未検出（候補: ${candidates.join('/')}）。画面上のbutton: ${JSON.stringify(allButtons.slice(0, 30))}` };
   }
   await btn.first().click();
   await sleep(4000);

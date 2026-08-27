@@ -38,9 +38,10 @@ npm run verify-ig-status -- --json  # 機械処理用
 ### 2. ドリフト是正（非破壊・operator 確認のうえ）
 
 - `published_UNrecorded` → 該当パックの `posted.json` をライブ URL/日付で **backfill**（`ig-status mark <pack> carousel --url=... --note=...` か直接編集）。
+  **`ambiguous: true` が付いたエントリは backfill しない**（`matched=1` でも複数パックが同じ投稿を主張＝一意対応ではない。未投稿のパックへ「投稿済み」を書き込む事故になる。2026-08-27 実測で 72 件中 48 件が該当）。`ambiguousWith` に衝突相手が入る。
 - `draft_misrecorded` → `status.json` の `carousel:"draft"`/`posted:false` を実態へ是正。
 - `recorded_but_gone` → 記録 URL が削除済み。白版へ貼り直し済みなら新 URL へ更新、孤児なら note 付きで記録。
-- `anomaly`（重複投稿）→ **自動処理しない**。`ig-publish-auditor` のフラグを人へ提示し判断を仰ぐ。
+- `anomaly`（重複投稿・逆方向の衝突）→ **自動処理しない**。`ig-publish-auditor` のフラグを人へ提示し判断を仰ぐ。
 
 ### 3. 未公開の予約投稿
 

@@ -791,3 +791,29 @@ Apr 5 の 144 ファイル H1 構造修正（commit [`3f97641b`](https://github.
 - commit [`c6ef1148`](https://github.com/uruhayato373/doboku-note/commit/c6ef1148) - BAILOUT 修正
 - `.claude/scripts/check-data-integrity.mjs` - データ整合性検証 lib
 - `.github/workflows/uptime-ping.yml` - uptime 監視
+
+---
+
+## 2026-08-27 — CLI の空応答を「無い」と読んだ（gh release list / curl --noproxy）
+
+同一セッションで**同じ形の誤読を 2 回**した。どちらも「取得できなかった」を「異常が無い」と読んだもので、
+このリポジトリが検査スクリプトに対して繰り返し禁じてきた形（CLAUDE.md §9）を、**人間側の確認作業でやった**。
+
+| 何を叩いたか | 返ってきたもの | どう読み違えたか | 実際 |
+|---|---|---|---|
+| `gh release list \| grep asset-inbox` | 空 | 「release が消えた＝取込成功」 | release は残っていて workflow は failure |
+| `curl --noproxy '*' https://doboku-note.pages.dev` | `HTTP 000` / `<main` 0 件 | 「デプロイ失敗・SSR 破壊」 | 200 で正常。`--noproxy` で自分がプロキシを外していた |
+
+**教訓**:
+
+- 外部コマンドの**空応答は「無い」の証拠にならない**。件数を出す形で叩き、0 件なら「0 件だった」と
+  「取得できなかった」を必ず分ける。`grep -c` を通す、対照実験（存在が分かっているものを同じ経路で引く）を挟む。
+- 会社 PC で外部 URL を叩くときに **`--noproxy` を付けない**。プロキシを自分で外すことになり必ず 000 になる。
+  正しくは `curl --ssl-no-revoke <URL>`（localhost だけは `--noproxy` が要る）。
+- 接続不能（000）は**合格でも不合格でもない第三の状態**。deploy 検証はこれをコードで分けた
+  → `npm run check-production-ssr`（exit 0/1/2 を分離・[deploy skill](../../skills/dev/deploy/SKILL.md) が呼ぶ）。
+
+R2 でも同型が起きた。`rclone lsd obsidian-r2:` が空を返したので「bundle が無い」と判断しかけたが、
+対照実験（中身があると分かっている公開バケットを同じ remote で引く）でも空だったため、
+**その remote から見えていないだけ**と分かった（`CLOUDFLARE_ACCOUNT_ID` と rclone の endpoint が別アカウント）。
+見えない環境から「無い」と結論しない。

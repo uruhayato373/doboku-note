@@ -28,6 +28,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 import { IG_DIR, walkPacks, packInfo, readPostedRaw } from "./ig-status.mjs";
+import { markAmbiguousClaims } from "./lib/ig-ambiguity.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const argv = process.argv.slice(2);
@@ -233,6 +234,11 @@ function reconcile(packs, liveData) {
     if (p.reelMaterial) cats.reel_built_unposted.push(p);       // 素材はあるが未投稿/未予約
     else cats.reel_gap.push(p);                                 // カルーセル済みだがリール未作成（素材も無し）
   }
+
+  // 逆方向の衝突検査: matched はパック→ライブの片方向しか見ないので、1 本のライブ投稿に複数パックが
+  // マッチしても各パックは matched=1 のまま published_UNrecorded に入る。これを「一意対応」と読んで
+  // backfill すると未投稿のパックに投稿済みの記録が付く（2026-08-27 の事故未遂・[[ig-ambiguity]]）。
+  markAmbiguousClaims(cats);
   return cats;
 }
 
@@ -258,16 +264,19 @@ writeFileSync(join(snapDir, "snapshot.json"), JSON.stringify(snapshot, null, 2) 
 
 if (JSON_OUT) { console.log(JSON.stringify(snapshot, null, 2)); }
 else {
+  const nlIndent = "\n      ";
   const show = (label, arr, fn = (p) => p.rel) => { if (arr.length) { console.log(`\n■ ${label}: ${arr.length}`); for (const p of arr) console.log("  " + fn(p)); } };
   console.log(`\nライブ公開 ${liveData.shortcodes.length} 投稿を取得。`);
   show("公開済み・記録あり（整合）", cats.published_recorded);
-  show("★公開済み・記録なし（posted.json backfill 必要）", cats.published_UNrecorded, (p) => `${p.rel}  ← live ${p.matched.join(",")}`);
-  show("★draft 誤記録（status.json は draft だが実投稿済）", cats.draft_misrecorded, (p) => `${p.rel}  ← live ${p.matched.join(",")}`);
+  // ⚠ 付きは逆方向の衝突（同じライブ投稿を複数パックが主張）＝matched=1 でも backfill してはいけない
+  const amb = (p) => (p.ambiguous ? `  ⚠衝突: 他 ${p.ambiguousWith.length} パックが同じ投稿を主張＝backfill 不可` : "");
+  show("★公開済み・記録なし（posted.json backfill 必要／⚠は衝突＝人手判断）", cats.published_UNrecorded, (p) => `${p.rel}  ← live ${p.matched.join(",")}${amb(p)}`);
+  show("★draft 誤記録（status.json は draft だが実投稿済）", cats.draft_misrecorded, (p) => `${p.rel}  ← live ${p.matched.join(",")}${amb(p)}`);
   show("★記録 URL が削除済み（recorded_but_gone）", cats.recorded_but_gone, (p) => `${p.rel}  (${p.recordedUrl})`);
   show("★型不整合（posted.json carousel が実はリール＝カルーセル実質なし）", cats.type_mismatch, (p) => `${p.rel}  (${p.recordedUrl} はリール)`);
   show("予約済み（status.json scheduled）", cats.scheduled, (p) => `${p.rel}  @ ${p.scheduledAt}`);
   show("未公開（予約に乗せる候補）", cats.unpublished);
-  show("★異常（重複投稿の疑い・要人手判断）", cats.anomaly, (p) => `${p.rel}  → ${p.matched.join(",")}`);
+  show("★異常（重複投稿の疑い・要人手判断）", cats.anomaly, (p) => `${p.rel}  → ${p.matched.join(",")}${p.reason ? nlIndent + p.reason : ""}`);
   show("◆リールギャップ（カルーセル済みだがリール未作成・素材も無し）", cats.reel_gap);
   show("◆リール素材あり・未投稿（figure-reel 生成済みだが予約していない）", cats.reel_built_unposted);
   if (liveData.scheduled && !liveData.scheduled.error) {

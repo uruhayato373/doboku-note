@@ -14,6 +14,7 @@ const CATEGORIES = [
   { value: "pe-comprehensive-management", label: "技術士（総合技術監理部門）" },
   { value: "concrete-chief-engineer", label: "コンクリート主任技士" },
   { value: "concrete-diagnostician", label: "コンクリート診断士" },
+  { value: "civil-practice", label: "土木施工の実務" },
 ];
 
 export function SearchFilters({

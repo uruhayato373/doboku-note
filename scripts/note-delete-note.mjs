@@ -220,6 +220,33 @@ try {
       await ctx.close(); process.exit(0);
     }
 
+    // 座標 (t.x, t.y) は loadAllDrafts が宣言件数まで読み切るために一番下までスクロールした
+    // 「最終スクロール位置」でのビューポート座標。対象行が一覧の上の方（新しい下書き）だと
+    // その時点で画面外（負の y）になっており、そのままクリックすると何もヒットしない
+    // （2026-08-27 実測：削除メニューが一度も開かず「削除」未検出で毎回 ABORT していた）。
+    // クリック直前に対象行を再特定して scrollIntoView → 座標を取り直す。
+    await page.evaluate(({ title, date }) => {
+      const stamps = Array.from(document.querySelectorAll('div,li,article,span,p')).filter((e) => {
+        const t2 = e.innerText || '';
+        if (!/下書き/.test(t2) || !/\d{4}年\d{1,2}月\d{1,2}日/.test(t2)) return false;
+        return !Array.from(e.children).some((c) => /下書き/.test(c.innerText || '') && /\d{4}年/.test(c.innerText || ''));
+      });
+      for (const s of stamps) {
+        let row = s;
+        for (let i = 0; i < 5 && row.parentElement; i++) {
+          const lines = (row.innerText || '').split('\n').map((x) => x.trim()).filter(Boolean);
+          if (lines.length >= 2 && lines[0] && !/^下書き/.test(lines[0])) break;
+          row = row.parentElement;
+        }
+        const lines = (row.innerText || '').split('\n').map((x) => x.trim()).filter(Boolean);
+        const rTitle = lines.find((l) => l && !/^下書き/.test(l) && !/^\d{4}年/.test(l)) || '';
+        const rDate = ((row.innerText || '').match(/\d{4}年\d{1,2}月\d{1,2}日\s*\d{1,2}:\d{2}/) || [])[0] || '';
+        if (rTitle.slice(0, 80) === title && rDate === date) { row.scrollIntoView({ block: 'center' }); return; }
+      }
+    }, { title: t.title, date: t.date });
+    await sleep(800);
+    const fresh = (await draftRows(page)).find((r) => r.title === t.title && r.date === t.date);
+    if (fresh && fresh.x != null && fresh.y != null) { t.x = fresh.x; t.y = fresh.y; }
     await page.mouse.click(t.x, t.y); await sleep(2000);
     const del = page.getByRole('button', { name: /削除/ }).or(page.getByRole('menuitem', { name: /削除/ })).or(page.getByText('削除', { exact: true }));
     if (!(await del.count())) {
