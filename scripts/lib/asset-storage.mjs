@@ -195,7 +195,12 @@ export function visibilityFor(repoRelPath, group) {
   return 'private';
 }
 
-/** note 記事 dir の frontmatter に noteUrl / noteId があれば公開済み。 */
+/**
+ * note 記事 dir の frontmatter に noteUrl / noteId があれば公開済み。
+ * ただし noteStatus: reserved（予約投稿・まだ note 上で非公開）は noteId が
+ * 投稿作成時点で先に払い出されるため、noteId 単独では判定しない
+ * （2026-08-27、学科記述予想/03_品質管理で reserved なのに public 誤判定を確認）。
+ */
 function noteVisibility(imgRelPath) {
   const articleDir = join(REPO_ROOT, dirname(dirname(toPosix(imgRelPath))));
   try {
@@ -204,6 +209,7 @@ function noteVisibility(imgRelPath) {
       if (!/^article(-[A-Za-z0-9][A-Za-z0-9-]*)?\.md$/.test(n)) continue;
       const head = readFileSync(join(articleDir, n), 'utf-8').slice(0, 4000);
       const fm = head.split('\n---')[0];
+      if (/^noteStatus:\s*reserved\s*$/m.test(fm)) return 'private';
       if (/^note(Url|Id):\s*\S/m.test(fm)) return 'public';
     }
   } catch { /* 判定不能 */ }
