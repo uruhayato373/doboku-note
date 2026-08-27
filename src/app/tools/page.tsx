@@ -50,6 +50,12 @@ const TOOLS = [
     desc: "外気温と練混ぜ時刻から、許容打重ね時間間隔・運搬時間の限度を時刻で表示。暑中／寒中の区分も判定。",
     tag: "計算",
   },
+  {
+    href: "/tools/concrete-pump-plan",
+    title: "ポンプ車・アジテータ車 配車計算ツール",
+    desc: "打込み量からポンプ車・アジテータ車の必要台数を計算し、圧送ルートが届くかを水平換算長で確認。",
+    tag: "計算",
+  },
 ];
 
 export default function ToolsIndexPage() {
