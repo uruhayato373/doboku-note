@@ -62,6 +62,22 @@ test('denyRule: 教材ページ画像は著作権物として検出する（拡�
   assert.match(hits[0].path, /textbook/);
 });
 
+test('denyRule: 書籍文字起こし本文の新規追跡を検出するが README.md は除外する', () => {
+  const { violations } = evaluateBlobs({
+    policy: POLICY,
+    blobs: [
+      { path: 'content/sources/textbook/技術士（総監）/テキスト/安全管理.md', size: 10 * 1024 },
+      { path: 'content/sources/textbook/技術士（総監）/README.md', size: 2 * 1024 },
+      { path: 'content/site/civil-construction-1/guide-x/article.mdx', size: 10 * 1024 },
+    ],
+    readHead: NO_FILES,
+    countBudgets: false,
+  });
+  const hits = violations.filter((v) => v.rule === 'textbook-transcription-text');
+  assert.equal(hits.length, 1, 'textbook 配下の本文 .md だけが対象で、README.md とサイト記事は巻き込まない');
+  assert.match(hits[0].path, /安全管理\.md$/);
+});
+
 test('base64-raster-svg: raster 埋込 SVG だけを落とし、真正ベクターは通す', () => {
   const embedded = Buffer.from('<svg><image href="data:image/png;base64,AAAA"/></svg>'.padEnd(200000, ' '));
   const genuine = Buffer.from('<svg><path d="M0 0 L10 10"/></svg>'.padEnd(200000, ' '));

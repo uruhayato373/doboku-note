@@ -63,6 +63,7 @@ function matchesRule(rule, blob, readHead) {
   const m = rule.match || {};
   if (m.ext && !m.ext.includes(extOf(blob.path))) return false;
   if (m.pathPrefix && !m.pathPrefix.some((p) => blob.path.startsWith(p))) return false;
+  if (m.excludeBasename && m.excludeBasename.includes(basename(blob.path))) return false;
   if (rule.contentPattern) {
     if (blob.size < (rule.minBytesToScan || 0)) return false;
     // 埋め込み data URL は先頭に出るとは限らないので、上限つきで広めに読む。
