@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-27T00:12:22.153Z",
+  "generated_at": "2026-08-27T00:19:04.267Z",
   "summary": {
-    "total": 1155,
-    "published": 1136,
+    "total": 1157,
+    "published": 1138,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 34,
+      "civil-practice": 36,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6462,6 +6462,22 @@
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
+    "civil-practice-quality-record-site-bcp": {
+      "title": "記録で現場を回す — 管理図・写真管理・現場のBCPで何を残すか",
+      "description": "現場で残す記録には、それぞれ別の目的があります。管理図は合否判定ではなく工程の安定を見る道具であること、写真は撮った後に使えて初めて意味を持つこと、災害への備えは発生前に決めておくべきことを、実務判断として整理します。",
+      "shortTitle": "記録と現場のBCP",
+      "subtitle": "記録は後から自分を守るためにある",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "記録で現場を回す｜管理図・写真管理・現場のBCPで何を残すか【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
     "civil-practice-rebar-corrosion-handling": {
       "title": "鉄筋の錆と結束・切断の扱い — 現場で何を判断するか",
       "description": "雨ざらしで赤く錆びた鉄筋はそのまま使えるか、結束線の端末はどちらに向けるか、ガス切断・溶接で鉄筋の材質がどう変わるか、長期間露出するときの防錆処置まで、現場で毎回迷う判断を整理して解説します。",
@@ -6510,6 +6526,22 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "鉄筋継手の選び方｜重ね・ガス圧接・機械式の判断基準【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-river-park-erosion-control": {
+      "title": "河川・砂防・都市公園 — 場所が工程と留意点を決める",
+      "description": "河川・砂防・都市公園という3つの現場で、なぜ工程の組み方や留意点がまるで違うのかを整理します。出水期という制約が河川工事の外枠を決める理由、河川区域・河川保全区域で何に許可が必要か、砂防が備える土石流というリスクの性質、都市公園が防災拠点として使われる前提まで、場所の性格から工程を逆算する視点をまとめます。",
+      "shortTitle": "河川・砂防・都市公園の判断軸",
+      "subtitle": "出水期・土石流・防災拠点、現場の性格を先に読む",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "河川・砂防・都市公園の施工管理｜出水期・河川保全区域・防災拠点の留意点【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
