@@ -74,6 +74,12 @@ const TOOLS = [
     desc: "養生期間中の平均気温と日数から積算温度を計算し、標準養生28日相当（840℃・D）と比較。寒中コンクリートの区分も判定。",
     tag: "計算",
   },
+  {
+    href: "/tools/rebar-splice-check",
+    title: "鉄筋継手 判定ツール",
+    desc: "千鳥配置のずらし量（継手長さ+25d）を計算し、ガス圧接部のふくらみ検査（JIS Z 3120）への適合を項目別に判定。",
+    tag: "判定",
+  },
 ];
 
 export default function ToolsIndexPage() {
