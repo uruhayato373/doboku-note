@@ -192,6 +192,12 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# AGENTS.md / .agents/skills が正典（CLAUDE.md / .claude/skills）の生成物と一致するか（第2SSOT再発防止・DN-0098）
+node scripts/sync-codex-compat.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # スキル/エージェントの追加・削除・description 変更に台帳更新が伴うか検証（capability ドリフトの再発防止）
 node scripts/check-doc-coupling.mjs --staged
 if [ $? -ne 0 ]; then

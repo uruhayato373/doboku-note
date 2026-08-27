@@ -42,14 +42,14 @@ npm run x-schedule-guard
 5. 告知短文だけを dry-run する。Article 1〜4に対応する Tweet 番号は 2、4、6、8。
 
 ```bash
-npx tsx .agents/skills/social/publish-x/publish-x.ts 094 --tweet 2 2026-09-07T07:20 --dry-run
+npx tsx .claude/skills/social/publish-x/publish-x.ts 094 --tweet 2 2026-09-07T07:20 --dry-run
 ```
 
 6. dry-run のログで予約モードを確認後、X実キューとの二重検査を通して本番予約する。
 
 ```bash
 npm run x-schedule-guard -- --queue
-npx tsx .agents/skills/social/publish-x/publish-x.ts 094 --tweet 2 2026-09-07T07:20
+npx tsx .claude/skills/social/publish-x/publish-x.ts 094 --tweet 2 2026-09-07T07:20
 npm run x-sync-status
 ```
 
