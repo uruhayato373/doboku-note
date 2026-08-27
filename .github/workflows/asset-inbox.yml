@@ -127,9 +127,14 @@ jobs:
             echo "::warning::manifest に差分が無い。R2 へ上げたのに台帳が動いていないなら異常（上の offload ログの件数を読むこと）。"
             exit 0
           fi
+          # commit を rebase より先に行う。逆順だと staged な manifest が index に
+          # 残ったままで `cannot rebase: Your index contains uncommitted changes` に
+          # なり、**R2 への upload は成功しているのに台帳だけ published されない**
+          # 状態で毎回落ちる（2026-08-27 に run 33034670182 で実際に発生。
+          # upload 3 件は sha256 検証まで通っていた）。
+          git commit -m "chore(assets): inbox ${{ steps.tag.outputs.tag }} を R2 へ取り込む [skip ci]"
           git fetch origin develop
           git rebase origin/develop
-          git commit -m "chore(assets): inbox ${{ steps.tag.outputs.tag }} を R2 へ取り込む [skip ci]"
           git push origin HEAD:develop
 
       # 取り込めたときだけ release を消す。失敗時は残して再実行できるようにする。

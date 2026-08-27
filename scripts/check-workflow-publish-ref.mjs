@@ -65,6 +65,60 @@ export function auditWorkflow(name, source) {
   };
 }
 
+/**
+ * bot commit の git 手順の順序を見る（純関数・テストから使う）。
+ *
+ * 止めたい事故（2026-08-27・asset-inbox.yml run 33034670182）:
+ *   `git add <file>` → `git rebase origin/develop` → `git commit` の順に書くと、
+ *   rebase 時点で index に staged が残っているため
+ *   `error: cannot rebase: Your index contains uncommitted changes` で必ず落ちる。
+ *   しかも落ちるのは publish step だけなので、**R2 への upload は成功しているのに
+ *   台帳（manifest）だけ commit されない**という中途半端な状態で毎回失敗し続けた。
+ *   正しい順序は commit → fetch → rebase → push。
+ */
+export function auditGitPublishOrder(name, source) {
+  const publishes = new RegExp(`git push\\s+(?:origin\\s+)?(?:HEAD:)?${PUBLISH_BRANCH}\\b`).test(source);
+  if (!publishes) return { name, applicable: false, ok: true, blocks: [] };
+
+  // `run: |` ブロック単位で見る。ブロックを跨いだ順序は index を共有しないので対象外。
+  const blocks = [];
+  const lines = source.split(/\r?\n/);
+  let cur = null;
+  let indent = 0;
+  for (const line of lines) {
+    if (/^\s*(?:-\s*)?run:\s*[|>]/.test(line)) {
+      indent = (line.match(/^\s*/) ?? [''])[0].length;
+      cur = [];
+      blocks.push(cur);
+      continue;
+    }
+    if (cur === null) continue;
+    if (line.trim() !== '' && (line.match(/^\s*/) ?? [''])[0].length <= indent) { cur = null; continue; }
+    cur.push(line);
+  }
+
+  const bad = [];
+  for (const block of blocks) {
+    const steps = [];
+    block.forEach((l, i) => {
+      if (/\bgit\s+add\b/.test(l)) steps.push({ i, verb: 'add' });
+      else if (/\bgit\s+commit\b/.test(l)) steps.push({ i, verb: 'commit' });
+      else if (/\bgit\s+(?:rebase\b|pull\s+--rebase\b)/.test(l)) steps.push({ i, verb: 'rebase' });
+      else if (/\bgit\s+stash\b/.test(l)) steps.push({ i, verb: 'stash' });
+    });
+    const firstAdd = steps.find((s) => s.verb === 'add');
+    if (!firstAdd) continue;
+    const rebase = steps.find((s) => s.verb === 'rebase' && s.i > firstAdd.i);
+    if (!rebase) continue;
+    const commitBefore = steps.some((s) => s.verb === 'commit' && s.i > firstAdd.i && s.i < rebase.i);
+    const stashBefore = steps.some((s) => s.verb === 'stash' && s.i > firstAdd.i && s.i < rebase.i);
+    if (!commitBefore && !stashBefore) {
+      bad.push(block[rebase.i].trim());
+    }
+  }
+  return { name, applicable: true, ok: bad.length === 0, blocks: bad };
+}
+
 function main() {
   const jsonOut = process.argv.includes('--json');
   const say = jsonOut ? console.error : console.log;
@@ -104,10 +158,29 @@ function main() {
     process.stdout.write(`${JSON.stringify({ files: files.length, scheduled: scheduled.length, applicable: applicable.length, violations: bad }, null, 2)}\n`);
   }
 
-  if (bad.length === 0) {
-    say(`[check-workflow-publish-ref] ✓ 書込 workflow は全て ${PUBLISH_BRANCH} を checkout している`);
+  // 追加ルール: bot commit の git 手順（add → rebase → commit の順序事故）
+  const orders = files.map((f) => auditGitPublishOrder(f, readFileSync(join(WORKFLOW_DIR, f), 'utf8')));
+  const orderApplicable = orders.filter((r) => r.applicable);
+  const orderBad = orderApplicable.filter((r) => !r.ok);
+  say(`[check-workflow-publish-ref] git 手順の順序: ${PUBLISH_BRANCH} へ書込 ${orderApplicable.length} 本を実検査`);
+  for (const r of orderBad) {
+    console.error(`  ✗ ${r.name}: staged のまま rebase している → ${r.blocks.join(' / ')}`);
+  }
+
+  if (bad.length === 0 && orderBad.length === 0) {
+    say(`[check-workflow-publish-ref] ✓ 書込 workflow は全て ${PUBLISH_BRANCH} を checkout し、commit → rebase の順序も守っている`);
     process.exit(0);
   }
+
+  if (orderBad.length > 0) {
+    console.error(
+      `\n[check-workflow-publish-ref] ✗ ${orderBad.length} 本が staged のまま rebase している` +
+        '\n`git add` の後に commit せず rebase すると `cannot rebase: Your index contains uncommitted changes` で必ず落ちる。' +
+        '\n落ちるのが publish step だけなので、外部への副作用（R2 upload 等）は成功したまま台帳だけ残らない。' +
+        '\n修正: commit → fetch → rebase → push の順にする（asset-inbox.yml が見本）。',
+    );
+  }
+  if (bad.length === 0) process.exit(1);
 
   console.error(`\n[check-workflow-publish-ref] ✗ ${bad.length} 本が ${PUBLISH_BRANCH} を checkout していない`);
   for (const r of bad) console.error(`  ${r.name}  ref=${r.ref ?? '（なし）'}`);
