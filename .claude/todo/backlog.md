@@ -1545,6 +1545,12 @@ A8 公開 EPC（ビルドジョブ 942 円）は**プログラム全体の平均
 - 参考: 分界の真実源は `.claude/knowledge/reference/codex-division-of-labor.md`。
   Codex CLI 自体の設定（`.codex/config.toml`・hooks・agents/*.toml）は別物で、これは正当
 
+**2026-08-27: (c) の実装だけを develop へ回収した（判断は未決のまま）**。クラウドエージェントのブランチ `claude/xenodochial-bhabha-2d05e0` が (c) を実装していたが、ブランチ整理で消えると復元できないため `scripts/sync-codex-compat.mjs`（525 行）と `tests/sync-codex-compat.test.mjs` を develop へ移した。**意図的に未結線**（`package.json` の npm script・`quality-audit` への登録・pre-commit フックのいずれにも入れていない）＝(a)/(b)/(c) の選択はユーザーの判断のままにするため。ブランチ側にあった `.agents/skills/**` の一括置換（253 ファイル・37,802 行削除）は持ち込んでいない。
+
+- 現状の実測（`node scripts/sync-codex-compat.mjs --check`・report-only で exit 0）: `.agents/skills` の大半が missing 扱い・`AGENTS.md` が mismatch・runtime consumer 2 件（`scripts/prepare-x-article-teaser.mjs`・`content/sns/x/draft/094-career-longform-pilot/README.md`）
+- テストは現状の develop で 11/11 pass
+- (c) を採る場合の残作業: `npm run sync-codex-compat -- --write` で生成 → runtime consumer 2 件の参照を `.claude/` 側へ付け替え → npm script・pre-commit・quality-audit へ結線
+
 
 ### [DN-0084] 建設部門BK・総監の有料境界を実ライブに整合（構成監査の偽陽性16本）
 タグ: [エージェント・SSOT] [種類:意思決定]
