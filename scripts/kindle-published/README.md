@@ -56,6 +56,15 @@ A（問題/解答を別 XHTML に分割＝構造的改ページ）と D（`.ans`
 | F-05 自治体公園緑地 | B0GYJ94CWB | 1.0 | `kindle-dist/f-05.epub` | `kindle-dist/f-05.jpg` | kdp-memo.json |
 | F-06 自治体契約調達 | B0GZKYXZP7 | 1.0 | `kindle-dist/f-06.epub` | `kindle-dist/f-06.jpg` | kdp-memo.json |
 | F-07 自治体技術基準 | B0HBR87S59 | 1.0 | `kindle-dist/f-07.epub` | `kindle-dist/f-07.jpg` | kdp-memo.json |
+| F-08 自治体河川 | B0HCMGB517 | 1.0 | `kindle-dist/f-08.epub` | `kindle-dist/f-08.jpg` | kdp-memo.json |
+| F-09 自治体港湾 | B0HCMC5JHG | 1.0 | `kindle-dist/f-09.epub` | `kindle-dist/f-09.jpg` | kdp-memo.json |
+| F-10 自治体砂防 | B0HCMY82PX | 1.0 | `kindle-dist/f-10.epub` | `kindle-dist/f-10.jpg` | kdp-memo.json |
+| F-11 自治体道路 | B0HCMLKJZT | 1.0 | `kindle-dist/f-11.epub` | `kindle-dist/f-11.jpg` | kdp-memo.json |
+| F-12 自治体都市計画 | B0HCMVSZSW | 1.0 | `kindle-dist/f-12.epub` | `kindle-dist/f-12.jpg` | kdp-memo.json |
+| F-13 道路橋梁コンサル | B0HCMLZSCN | 1.0 | `kindle-dist/f-13.epub` | `kindle-dist/f-13.jpg` | kdp-memo.json |
+| F-14 都市計画コンサル | B0HCMRYPC8 | 1.0 | `kindle-dist/f-14.epub` | `kindle-dist/f-14.jpg` | kdp-memo.json |
+| F-15 5管理クロストレードオフ論文集 | B0HCMR444R | 1.0 | `kindle-dist/f-15.epub` | `kindle-dist/f-15.jpg` | kdp-memo.json |
+| F-16 設問3国家施策バンク | B0HCMNDNX8 | 1.0 | `kindle-dist/f-16.epub` | `kindle-dist/f-16.jpg` | kdp-memo.json |
 
 > ASIN の真実源は `scripts/kindle-published/catalog.json`（`asin` フィールド）。この表と
 > `content/kindle/strategy.md` は人が読む索引で、**3 箇所とも同時に更新する**
