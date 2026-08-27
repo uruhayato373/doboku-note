@@ -247,16 +247,25 @@ export default function Header() {
                 </button>
                 {isCategoryOpen && (
                   <div className="absolute top-full right-0 mt-1 w-64 bg-[var(--paper)] border border-[var(--rule-soft)] rounded-card-content shadow-lift z-50 overflow-hidden">
-                    {categories.map(cat => (
-                      <Link
-                        key={cat.slug}
-                        href={`/category/${cat.slug}`}
-                        onClick={closeCategoryDropdown}
-                        className="focus-ring flex items-center gap-3 px-4 py-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] transition-colors"
-                      >
-                        <CategoryIcon variant={cat.variant} className="w-4 h-4 shrink-0" />
-                        <span className="text-sm">{cat.label}</span>
-                      </Link>
+                    {categories.map((cat, i) => (
+                      <div key={cat.slug}>
+                        {/* 資格でないカテゴリ（variant: general）の手前に区切りを置く */}
+                        {cat.variant === "general" && categories[i - 1]?.variant !== "general" && (
+                          <div className="border-t border-[var(--rule-soft)] px-4 pt-2 pb-1">
+                            <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--ink-muted)]">
+                              資格を問わない実務
+                            </span>
+                          </div>
+                        )}
+                        <Link
+                          href={`/category/${cat.slug}`}
+                          onClick={closeCategoryDropdown}
+                          className="focus-ring flex items-center gap-3 px-4 py-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] transition-colors"
+                        >
+                          <CategoryIcon variant={cat.variant} className="w-4 h-4 shrink-0" />
+                          <span className="text-sm">{cat.label}</span>
+                        </Link>
+                      </div>
                     ))}
                   </div>
                 )}
@@ -329,16 +338,25 @@ export default function Header() {
               <span className="font-medium">検索</span>
             </Link>
             {/* カテゴリリンク */}
-            {categories.map(cat => (
-              <Link
-                key={cat.slug}
-                href={`/category/${cat.slug}`}
-                onClick={closeMenu}
-                className="focus-ring flex min-h-11 items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
-              >
-                <CategoryIcon variant={cat.variant} />
-                <span className="font-medium">{cat.label}</span>
-              </Link>
+            {categories.map((cat, i) => (
+              <div key={cat.slug}>
+                {/* 資格でないカテゴリ（variant: general）の手前に区切りを置く */}
+                {cat.variant === "general" && categories[i - 1]?.variant !== "general" && (
+                  <div className="border-t border-[var(--rule-soft)] mt-2 pt-3 px-3 pb-1">
+                    <span className="font-mono text-[10px] uppercase tracking-widest text-[var(--ink-muted)]">
+                      資格を問わない実務
+                    </span>
+                  </div>
+                )}
+                <Link
+                  href={`/category/${cat.slug}`}
+                  onClick={closeMenu}
+                  className="focus-ring flex min-h-11 items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+                >
+                  <CategoryIcon variant={cat.variant} />
+                  <span className="font-medium">{cat.label}</span>
+                </Link>
+              </div>
             ))}
 
             {/* 教材（/links）リンク */}
