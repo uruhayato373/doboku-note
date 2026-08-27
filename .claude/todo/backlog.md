@@ -1072,28 +1072,6 @@ note-api.mjs / note-frontmatter.mjs は**新規に書くコードだけ**が使�
 
 
 
-### [DN-0130] X 下書き 3 件が go-live を 1 か月超過 — 投入するか退役させるか
-タグ: [SNS・マーケ] [種類:意思決定] [検証:x-queue-surfacer] [起票:2026-08-25]
-
-`x-queue-surfacer`（2026-08-25 実行）が OVERDUE 3 件を出している。予約キュー自体は 9/30 まで埋まっているので**穴は空いていない**が、この 3 束は go-live を過ぎたまま投入も退役もされず滞留している:
-
-| draft | 想定期間 | 未投入 |
-|---|---|--:|
-| `068-civil1-secondary-keiken-w1` | 7/6-7/12 | 28/28 |
-| `080-pe-comprehensive-r08-hit` | 7/21 | 1/1 |
-| `082-concrete-pe-competitor-format-repurpose` | 7/25-7/29 | 6/6 |
-
-決めるべきは「今も出す内容か」。068 は 1級土木二次（10/4）の経験記述で**時期的にはむしろこれから効く**、080 は R8 的中の訴求で本試験直後を狙った文面、082 は競合フォーマットのリパーパス。W34 で X 064-067 を退役させたときと同じ判断を、内容を読んだうえで行う。**068 は 1級土木二次（10/4）なので日付が実態と合っていない疑いが濃く、振り直しの候補**（旧 DN-0086 から統合・2026-08-27。退役する場合は `content/sns/x/draft/_archive-*/` へ移す＝surfacer は `_` 始まりを走査対象から外す）。
-
-投入する場合の手順（ローカル＝`.local/playwright-x-profile` のある Mac 限定）:
-
-1. `npm run x-schedule-guard -- --queue --max-per-day 2` で緑を確認
-2. `npx tsx .claude/skills/social/publish-x/publish-x.ts <NNN> --tweets 1-<本数> <日時×本数>`（時刻は±ジッタ・両試験で同時刻を避ける）
-3. `npm run x-sync-status` で queued 昇格数 = 投入本数 を実査（偽成功検証）
-
-**停止条件**: 一括投入しない（§11 凍結回避）。1 日 2 本上限を超えない。
-
-**完了条件**: 3 件それぞれが「投入済み」か「`_archive-*` へ退役」のどちらかになり、`x-queue-surfacer` の OVERDUE が 0。
 
 
 
