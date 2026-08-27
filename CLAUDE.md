@@ -270,6 +270,7 @@ npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run
 - 未検証の部分やスキップした処理がある場合は「完了」と言わずに明示する
 - **deploy 後**: 500 の場合は Cloudflare API token 期限切れを仮説1番に確認（GitHub Secrets で再発行）
 - 計測データに異常がある場合は [measurement-incidents.md](.claude/knowledge/reference/measurement-incidents.md) を先に確認してから結論を出す
+- **自分の失敗の後処理（2026-08-27 制定）**: 自分の誤り（誤読・誤操作・偽の完了報告）が報告内容や実行した操作を変えていたと気づいたら、(1) **同一セッション内で自分で修正する**（ユーザーへ差し戻さない）、(2) 原因を正典へ記録する（外部検証・CLI の罠→ [measurement-incidents.md](.claude/knowledge/reference/measurement-incidents.md)／作業規律→ memory の feedback）、(3) **実行するコマンドと合格条件が特定できるときだけ**機械ゲート化する（§9 の決定的ゲート基準・回帰テスト付き。実例: `--noproxy` の HTTP 000 を「SSR 破壊」と誤読 → `check-production-ssr` が接続不能を exit 2＝検査不成立に分離）。特定できないものはゲートを作らず記録まで（汎用の「必ず検証」を §9 に反して足さない）
 
 ---
 
