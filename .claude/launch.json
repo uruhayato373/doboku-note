@@ -4,14 +4,21 @@
     {
       "name": "dev",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "port": 3020
     },
     {
       "name": "admin",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "admin"],
-      "port": 3021
+      "runtimeArgs": [
+        "run",
+        "admin"
+      ],
+      "port": 3021,
+      "url": "http://127.0.0.1:3021"
     }
   ]
 }
