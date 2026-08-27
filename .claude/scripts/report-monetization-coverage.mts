@@ -298,10 +298,16 @@ for (const [slug, meta] of Object.entries(metaIndex)) {
   const hubTile = !isCareerDoc(meta as any) ? resolveHubCta(meta.category) : null;
   // **MDX 本文の <MagazineCard> も導線に数える**（第 3 の経路・上の indexBodyMagazineCards 参照）。
   const liveBody = (bodyCards.get(slug) ?? []).filter((id) => getMagazine(id as any));
+  // Set は結合した**後**に取る。top/inline だけを先に dedup し liveBody を生のまま足していたため、
+  // 同じ magazineId が top/inline と本文カードの両方にあるページで表示が二重化していた
+  // （2026-08-25 発覚: civil-2-experience-essay 等が「+」区切りの表示に 2 回出る）。
   const noteCta = [
-    ...new Set([...liveTop, ...liveInline].map((s) => s.magazineId)),
-    ...liveBody,
-    ...(hubTile ? [hubTile.trackLabel] : []),
+    ...new Set([
+      ...liveTop.map((s) => s.magazineId),
+      ...liveInline.map((s) => s.magazineId),
+      ...liveBody,
+      ...(hubTile ? [hubTile.trackLabel] : []),
+    ]),
   ];
   const affiliate = deriveAffiliate(meta.category);
 
