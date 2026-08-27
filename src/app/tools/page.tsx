@@ -62,6 +62,12 @@ const TOOLS = [
     desc: "吊り荷重・本数・吊り角度から、ワイヤー1本当たりの張力と安全係数6を満たす必要破断荷重を計算。",
     tag: "計算",
   },
+  {
+    href: "/tools/trench-legal-check",
+    title: "溝掘削 法令チェッカー",
+    desc: "掘削面の高さと地山の種類から、作業主任者の選任義務・法面勾配の基準・土止め先行工法の適用範囲を確認。",
+    tag: "判定",
+  },
 ];
 
 export default function ToolsIndexPage() {
