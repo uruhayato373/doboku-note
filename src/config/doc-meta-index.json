@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T23:59:18.302Z",
+  "generated_at": "2026-08-27T00:03:17.233Z",
   "summary": {
-    "total": 1151,
-    "published": 1132,
+    "total": 1152,
+    "published": 1133,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 30,
+      "civil-practice": 31,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6527,6 +6527,23 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "のり面保護工の選び方｜植生工・吹付工・アンカー工の判断基準【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-soil-improvement-sandbag": {
+      "title": "土質を見立てて地盤改良と仮締切りを選ぶ — 深さと目的、水の有無で工法を決める",
+      "description": "目の前の土の性質を見立て、必要なら地盤改良を選び、水を扱う現場では大型土のうで仮締切りを組む、という一連の判断を整理。含水比・粒度の読み方、支持力増加や液状化対策など目的別の工法選定、浅層・中層・深層混合処理と高圧噴射撹拌の深度別使い分け、耐候性大型土のうの仕様と安定照査をまとめた実務ガイドです。",
+      "shortTitle": "土質の見立てと地盤改良",
+      "subtitle": "深さ・目的・水の有無で工法を決める",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "earthwork"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "土質の見立てと地盤改良・仮締切り｜工法選定と大型土のうの安定照査【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
