@@ -220,6 +220,13 @@ browser-use --headed --profile "$NOTE_PROFILE" state 2>&1 > /tmp/note-acct.txt
 
 ### 幻 noteId（fail=0 なのに未公開）— バッチ公開後の必須ゲート
 
+> **エンジンの分界（DN-0091・2026-08-27 明示）**: 下記「バッチ側の一次ガード」は Playwright 系エンジン
+> （`note-publish.mjs` / `note-publish-magazine.mjs`＝本スキルと `note-publish` スキルが共用する実装）の話。
+> 一方「バッチ後の確証ゲート」`verify-note-status` は**どのエンジンで公開しても共通**の実在照合で、
+> 公開経路を問わず必須。スキル名が似ている `note-publish`（`.claude/skills/social/note-publish/`）と本スキル
+> （`.claude/skills/social/publish-note/`）は**同じエンジン群を呼ぶ別入口**であり、ガードは実装側に置かれているため
+> どちらから使っても効く。
+
 `note-publish.mjs` の writeback は**ページから拾った URL の id を書くだけ**で、公開が実際は未完了でも幻 id を frontmatter に書きうる。`note-publish-magazine.mjs` は従来 `noteUrl` の有無だけで OK 判定していたため、**`fail=0` と報告しつつ一部が未公開＋幻 id（API で 404）** という偽成功が起きた（2026-06-30 完全攻略パック 工事82-87 の6本・[[project_civil1_flagship_pack]]）。
 
 - **バッチ側の一次ガード（2026-07-01 実装済）**: `note-publish-magazine.mjs` は即時公開分について、書き戻した noteId が note API v3 で実在するか照合する。確定 404（幻 id）なら `fail` で停止する（予約投稿は go-live 後刻ゆえ検証しない）。

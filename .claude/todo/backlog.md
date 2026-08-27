@@ -1123,7 +1123,3 @@ note-api.mjs / note-frontmatter.mjs は**新規に書くコードだけ**が使�
 - 判断: ①BK-I はソース境界を`フル模範解答`へ是正（安全）②総監8本は新ルール適用（再公開・より無料化）するか現状維持か。civil 対象外につき今回は保留。
 
 
-### [DN-0091] note 公開2スキル（note-publish / publish-note）の整理
-タグ: [エージェント・SSOT] [種類:意思決定]
-
-①`publish-note` SKILL.md の幻 noteId 節にエンジン明示を追記（`note-publish-magazine` の一次ガードは Playwright 系の話・実在ゲート `verify-note-status` は全エンジン共通）②名前の紛らわしさ＝リネーム/統合か相互参照強化かの設計判断（🟣寄り・台帳同期が要る大工事なので費用対効果を要検討）。
