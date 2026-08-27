@@ -68,6 +68,12 @@ const TOOLS = [
     desc: "掘削面の高さと地山の種類から、作業主任者の選任義務・法面勾配の基準・土止め先行工法の適用範囲を確認。",
     tag: "判定",
   },
+  {
+    href: "/tools/concrete-maturity",
+    title: "コンクリート 積算温度（マチュリティ）計算ツール",
+    desc: "養生期間中の平均気温と日数から積算温度を計算し、標準養生28日相当（840℃・D）と比較。寒中コンクリートの区分も判定。",
+    tag: "計算",
+  },
 ];
 
 export default function ToolsIndexPage() {
