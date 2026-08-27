@@ -121,7 +121,7 @@ U+FFFD文字化けも0件を実検査。**残作業はKDPへのアップロー�
 
 
 
-### [DN-0002] 会員フロー 週次配信（次回 8/28 金: 学科記述 02_コンクリート工）
+### [DN-0002] 会員フロー 週次配信（次回: 学科記述 03_品質管理）
 タグ: [収益化] [種類:制作] [起票:2026-08-06] [期日:2026-08-28]
 
 会員限定の予想問題配信。**日程・順序の正典は [メンバーシップ/README.md](../../content/note/1級・2級土木/メンバーシップ/README.md) の配信表**（経験記述 W6=8/31〜W11=9/28 週1・学科記述予想10本=火金週2・添削練習=9/25）。在庫は `予想問題マガジン/01〜11` に揃い、残17本は公開検査済み `noteStatus: draft`（W6 は下書き `n81850411ecb7` まで投入済み）。
@@ -134,6 +134,12 @@ node scripts/note-magazine-add-articles.mjs --target mbe07bd5cecda --notes <note
 ```
 
 **安全弁**: 公開範囲を選べなければ公開しない（無料公開事故防止）。公開後は public API で `is_limited=true`・未ログイン本文 0 字を実査。**期日前の早出しはドリップを崩すのでしない**。学科記述側は対応する note マガジンが実在しないため会員限定の単独記事として公開（虚偽の `noteMagazine` を書かない）。cover が R2 退避で publish が止まる場合、**未公開記事に限り** `generate-note-covers.mjs <slug>` → `check-note-cover-fit` で再生成して解決できる。
+
+**2026-08-27 配信実績（学科02 コンクリート工）**: https://note.com/dobokunote/n/n5714b90dade7 を会員限定で公開（`is_limited=true` / 未ログイン本文 0 字 / 公開範囲「メンバー全員に公開」ok=true を実査）。配信表の予定日は 08-25 で **2 日遅れの取り戻し**だった。
+
+- **カードのタイトル日付が正典とずれていた**: 旧タイトルは「次回 8/28 金: 学科記述 02」だったが、正典の配信表では学科02＝08-25・学科03＝08-28。**日付はカードに書かず配信表を見る**（このカードのタイトルは次に配信する記事名だけを持つ）
+- **cover.png が無く publish が止まる件が実際に起きた**: `node scripts/generate-note-covers.mjs 02_コンクリート工` で再生成 →`check-note-cover-fit`（811 件実検査）で緑。cover は git 追跡外（R2 退避）なので、未公開記事では毎回この再生成が要ると考えてよい
+- **公開で cover の配置先が変わる**: draft は private バケット・published は public バケットへ、という routing なので、公開直後は `check-asset-storage` が `[FAIL] manifest-bucket ... （manifest private / 期待 public）` を出す。**CI は赤くならない**（cover*.png は `.gitignore:286` で除外＝CI のツリーに存在しない）。この PC には R2 書込み認証が無いため反映は CI 側の仕事で、次に asset-inbox を回すときに一緒に解消する
 
 ### [DN-0003] note ライブ反映の一括消化（本文 drift 残221本）
 タグ: [インフラ・計測] [種類:不具合] [Codex候補] [起票:2026-08-17]
