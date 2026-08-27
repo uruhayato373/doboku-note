@@ -23,6 +23,8 @@
  *   S11 実績コミット後にカード本文が未更新（DN-#### を件名に含む直近コミットより
  *       カード全体の最終編集の方が古い＝作業はコミット済みなのに「残」が追随していない）
  *   S12 完了 prose の蓄積（本文に「済み」「完了し」等の完了報告表現が閾値以上＝TRIM 候補）
+ *   S13 チャネル状態複製の疑い（noteStatus/status/published の値や「残N本」がカードに写されている＝
+ *       SSOT が真実源のはずが本文へ複製され、後で陳腐化する候補。todo-standards.md §1-2 の対象）
  *
  * Usage:
  *   node scripts/check-backlog-health.mjs           人間向け
@@ -128,6 +130,7 @@ const DUE_RULES = [
   { id: 'S10', why: 'ID の再利用（過去の参照が別タスクを指す）', hit: (r) => (r.reusedIds ?? []).length >= 1 },
   { id: 'S11', why: '実績コミット後にカード本文が未更新', hit: (r) => (r.staleAfterCommitTotal ?? 0) >= 2 },
   { id: 'S12', why: '完了 prose 蓄積（TRIM 候補）3 件以上', hit: (r) => (r.completionProseHeavy?.length ?? 0) >= 3 },
+  { id: 'S13', why: 'チャネル状態複製の疑い 3 件以上', hit: (r) => (r.ssotDuplicationSuspects?.length ?? 0) >= 3 },
 ];
 
 /** JST の YYYY-MM-DD（UTC 実行で前日付になる事故を避ける・check-jst-date と同じ規律）。 */
@@ -254,6 +257,39 @@ const COMPLETION_PROSE_RE = /済み|完了し/g;
 export function computeCompletionProseHeavy(cards, threshold = 5) {
   return cards
     .map((c) => ({ line: c.line, title: c.title, count: (c.body.match(COMPLETION_PROSE_RE) || []).length }))
+    .filter((c) => c.count >= threshold)
+    .sort((a, b) => b.count - a.count);
+}
+
+/**
+ * チャネル状態複製の疑い（2026-08-27・todo-standards.md §1-2）。
+ * backlog カードへ noteStatus / status / published の値や「残N本」を書くと、SSOT（frontmatter /
+ * catalog.json / posted.json / *-services.ts 等）の実際の値が変わってもカードは追随せず陳腐化する
+ * （実例: DN-0031 は brain-products.ts が listed に変わった後もカードは「審査待ち」を配り続けた）。
+ * コードフェンス内は実装スニペットの引用でありカードの主張ではないため対象外にする。
+ */
+const SSOT_DUP_PATTERNS = [
+  /noteStatus:\s*(published|draft|reserved)/g,
+  /status:\s*['"]?(listed|paused|draft|in_review|live|ready|submitted|rejected|full)['"]?/g,
+  /published:\s*(true|false)/g,
+  /残\s*\d+\s*(本|件|冊|枚)/g,
+];
+function stripCodeFences(body) {
+  return body.replace(/```[\s\S]*?```/g, '');
+}
+export function computeSsotDuplicationSuspects(cards, threshold = 2) {
+  return cards
+    .map((c) => {
+      const text = stripCodeFences(c.body);
+      const samples = [];
+      let count = 0;
+      for (const re of SSOT_DUP_PATTERNS) {
+        const m = text.match(re) || [];
+        count += m.length;
+        for (const s of m) if (samples.length < 2) samples.push(s);
+      }
+      return { line: c.line, title: c.title, count, samples };
+    })
     .filter((c) => c.count >= threshold)
     .sort((a, b) => b.count - a.count);
 }
@@ -398,6 +434,7 @@ const commitTimeById = commitTimeByCardId();
 const s11Degraded = Boolean(blameSec.degraded) || Boolean(commitTimeById.degraded);
 const staleAfterCommit = s11Degraded ? [] : computeStaleAfterCommit(cards, commitTimeById, blameSec);
 const proseHeavy = computeCompletionProseHeavy(cards);
+const ssotSuspects = computeSsotDuplicationSuspects(cards);
 
 const report = {
   cards: cards.length,
@@ -425,6 +462,7 @@ const report = {
   staleAfterCommitTotal: s11Degraded ? null : staleAfterCommit.length,
   staleAfterCommit,
   completionProseHeavy: proseHeavy,
+  ssotDuplicationSuspects: ssotSuspects,
 };
 
 if (RECORD) {
@@ -493,6 +531,8 @@ line('S11 実績コミット後に本文未更新', s11Degraded ? (HISTORY_TRUNC
 for (const c of staleAfterCommit.slice(0, 8)) console.log(`      L${c.line} ${c.id} ${Math.round(c.hoursBehind / 24 * 10) / 10}日遅れ ${c.title}`);
 line('S12 完了 prose 蓄積（TRIM 候補・本文 5 件以上）', proseHeavy.length);
 for (const c of proseHeavy.slice(0, 8)) console.log(`      L${c.line} ${c.count}件 ${c.title}`);
+line('S13 チャネル状態複製の疑い（SSOT が真実源・カードから剥がす候補）', ssotSuspects.length);
+for (const c of ssotSuspects.slice(0, 8)) console.log(`      L${c.line} ${c.count}件 ${c.title}`);
 console.log('\n判定と適用は /backlog-sweep --audit（backlog-curator）が行う。ここは候補の列挙のみ。');
 process.exit(0);
 }

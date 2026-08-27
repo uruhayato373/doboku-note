@@ -5,6 +5,7 @@ import {
   parseCommitTimesByCardId,
   computeStaleAfterCommit,
   computeCompletionProseHeavy,
+  computeSsotDuplicationSuspects,
 } from '../scripts/check-backlog-health.mjs';
 
 /**
@@ -193,4 +194,61 @@ test('computeCompletionProseHeavy: 件数降順で返す', () => {
   const r = computeCompletionProseHeavy(cards, 5);
   assert.equal(r[0].title, '多い方');
   assert.equal(r[1].title, '少ない方');
+});
+
+/**
+ * S13「チャネル状態複製の疑い」の契約（2026-08-27・todo-standards.md §1-2）。
+ * backlog カードへ noteStatus/status/published の値や「残N本」を書くと、SSOT が変わっても
+ * カードは追随せず陳腐化する（実例: DN-0031 は brain-products.ts が listed になった後も
+ * カードは審査待ちを配り続けた）。
+ */
+
+test('computeSsotDuplicationSuspects: noteStatusとpublishedが併記されたカードを検出する', () => {
+  const cards = [{
+    line: 1,
+    title: '状態を複製したカード',
+    body: 'この記事は noteStatus: draft のままで published: false になっている。',
+  }];
+  const r = computeSsotDuplicationSuspects(cards);
+  assert.equal(r.length, 1);
+  assert.equal(r[0].count, 2);
+});
+
+test('computeSsotDuplicationSuspects: パターン1回だけのカードは既定閾値では検出しない', () => {
+  const cards = [{ line: 1, title: '軽い言及', body: 'この記事は published: false のまま待機中。' }];
+  const r = computeSsotDuplicationSuspects(cards);
+  assert.deepEqual(r, []);
+});
+
+test('computeSsotDuplicationSuspects: 「残N本」パターンも数える', () => {
+  const cards = [{
+    line: 1,
+    title: '残数を書いたカード',
+    body: '残 221 本の本文 drift がある。残 40 件は未処理。',
+  }];
+  const r = computeSsotDuplicationSuspects(cards);
+  assert.equal(r.length, 1);
+  assert.equal(r[0].count, 2);
+});
+
+test('computeSsotDuplicationSuspects: コードフェンス内のパターンは数えない', () => {
+  const fence = '```';
+  const cards = [{
+    line: 1,
+    title: 'コード例だけのカード',
+    body: `手順:\n${fence}bash\ngrep "status: listed" src/lib/brain-products.ts\ngrep "published: false" content\n${fence}\n上記コマンドで確認する。`,
+  }];
+  const r = computeSsotDuplicationSuspects(cards);
+  assert.deepEqual(r, []);
+});
+
+test('computeSsotDuplicationSuspects: samplesは先頭2件までしか持たない', () => {
+  const cards = [{
+    line: 1,
+    title: '複数状態',
+    body: 'status: "listed" と status: "draft" と status: "paused" が混在。',
+  }];
+  const r = computeSsotDuplicationSuspects(cards);
+  assert.equal(r[0].count, 3);
+  assert.equal(r[0].samples.length, 2);
 });
