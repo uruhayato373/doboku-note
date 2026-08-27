@@ -611,7 +611,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //    2026-08-22: 上位版「実務立場別 模範答案集」(cce-essay-persona-pack) を公開。
   //    ただし inline は本文 8,000 字が条件で本ページでは発火しないため、上位版は
   //    **本文の該当節（4テーマを挙げる「テーマの傾向と準備」）に <MagazineCard> を直接置いた**。
-  //    top は入口の 5 本セットのままにして、入口→上位のラダーにする（DN-0095 §5）。
+  //    top は入口の 5 本セットのままにして、入口→上位のラダーにする（入口→上位ラダー方針）。
   if (slug === 'concrete-chief-engineer-guide-essay') {
     return {
       top: slot('cce-essay-magazine', slug, 'top'),
@@ -656,7 +656,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   }
 
   // コンクリート主任技士 テキスト/過去問 → 小論文 入口マガジン（¥2,480 5本セット）。
-  // 上位版 persona-pack ではなく入口を置くのは 9 と同じラダー方針（DN-0095 §5）。
+  // 上位版 persona-pack ではなく入口を置くのは 9 と同じラダー方針。
   // テーマ接続: 小論文の 4 テーマは 品質管理／耐久性／環境配慮／施工トラブル。
   //   - textbook-production-qc（製造・品質管理／検査）→「品質管理」に直結
   //   - primary-construction（過去問 施工）→「施工トラブル」に接続
