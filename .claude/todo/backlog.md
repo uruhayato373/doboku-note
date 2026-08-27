@@ -482,36 +482,39 @@ DN-0107（index coverage・対話）と合流して判断するのが自然。
 
 詳細: [content/note/1級・2級土木/一次二次ブリッジ磁石-LINE/README.md](../../content/note/1級・2級土木/一次二次ブリッジ磁石-LINE/README.md)
 
-### [DN-0136] IG 全体リコンサイル（ドリフト110件・リールギャップ97件）の実体調査
-タグ: [SNS・マーケ] [種類:不具合] [起票:2026-08-25]
+### [DN-0146] IG SoT ドリフト 72 件の是正（matched=1 も含め全件が人間判断）
+タグ: [SNS・マーケ] [種類:不具合] [起票:2026-08-27]
 
-DN-0011（civil-1/2 論点パック予約）の検証で `npm run verify-ig-status` を実行したところ、civil の論点パックとは別に、IG 全体（総監 `cem/exam-packs` 等含む）で **SoT整合ドリフト合計110件・リールギャップ97件・素材未投稿42件** が surface した。DN-0011 の検証中に偶然見つけた副産物で、内容の精査・優先度付けはまだしていない。
+旧 DN-0136（実体調査）の RESEED。調査は完了し、**是正の実行だけが残った**。
+対象は `published_UNrecorded` 72 件（内訳: matched=1 が 34 件・matched≥2 の anomaly が 38 件）。
+snapshot: `.claude/state/ig-reconcile/snapshot.json`（2026-08-25 採取）。
 
-- snapshot: `.claude/state/ig-reconcile/snapshot.json`
-- SoT是正の入口: `/ig-reconcile`（operator確認のうえ posted.json backfill / 未公開を予約）
-- リールギャップの入口: `figure-reel-create.mjs` でナレーション付きリール生成 → `publish-ig-bs --reel` で予約
+**2026-08-27 の発見: `matched=1` は「ライブ投稿と一意対応」を意味しない**（34 件を backfill しようとして
+実体検査で判明・ユーザー決定で全件見送り）。`verify-ig-status` の matched はパック→ライブの片方向しか見ておらず、
+**1 本のライブ投稿が複数パックにマッチする逆方向の衝突を検査していない**。実測:
 
+| 実測した事実 | 内容 |
+|---|---|
+| shortcode の共有 | civil 10 件がわずか 3 本のライブ投稿を共有（`Dbe0u3tDDnw`→5 パック / `DbcP7OOkcNk`→3 パック / `DbUhifcGoKH`→2 パック） |
+| 未投稿への誤マッチ | civil-1 の 4 件は `status.json` の `scheduled_at` が 8/28〜9/2 の**未来日＝未投稿**。年度違いの別内容（令和7-4 / 令和3-平成30 / 平成29-26）なのにテーマ名が同一でテキスト誤ヒット |
+| cem 24 件 | shortcode は一意・予約日は全て過去（6/29〜7/11）で公開済みと整合するが、civil で前提が崩れたためライブ再照合まで適用しない |
 
-**2026-08-27 実体分類完了（snapshot 08-25 採取・`.claude/state/ig-reconcile/snapshot.json` 実測）**:
+**次の一手（Mac で）**: ① `npm run verify-ig-status` を再実行して最新 snapshot を取る
+② 逆方向重複（同一 shortcode を複数パックが持つ）を除いてから目視で正を選び `node scripts/ig-status.mjs mark <rel> carousel --url=... --date=... --note=...` で記録
+（自動処理禁止は [ig-publish-reconcile.md](../knowledge/reference/ig-publish-reconcile.md) の規約）。
 
-**「ドリフト110件」は重複カウントだった**。`published_UNrecorded`(72) と `anomaly`(38) は counts 上は別項目だが、cats 配列を突合すると **anomaly の 38 件は published_UNrecorded 72 件の部分集合**（同一 rel が両方に入っている）。真の対象は **72 件**（110 ではない）。
+**改善候補（未実装）**: `verify-ig-status.mjs` の分類に逆方向重複チェックを足し、matched=1 でも shortcode が
+他パックと衝突するなら `anomaly` へ落とす。既存 snapshot.json を入力にした回帰テストで検証できる
+（今回の 10 件が anomaly に落ちることが合格条件）。これがあれば今回の誤 backfill を機械で止められた。
 
-| 分類 | 件数 | 内訳 | 確信度・対応 |
-|---|--:|---|---|
-| 実ズレ（backfill候補） | 34 | matched=1（ライブ投稿に一意対応・記録漏れ） | 高。`/ig-reconcile` で即 backfill 可能 |
-| 誤検知寄り（要人間判断） | 38 | matched≥2（同一テーマの複数投稿と多対応・一意に決まらない。cem 0 / civil-1 25 / civil-2 13） | 低。マッチングロジックの構造的限界（同一テーマで複数回パックを作った）で機械では選べない |
+**Windows からは 1 手も進められない**（実測 2026-08-27）: `publish-ig-bs.ts:54` の `PROFILE_ROOT` が
+Mac 絶対パス `/Users/minamidaisuke/doboku-note` でハードコードされ、`.local/playwright-ig-bs-profile` も
+FB セッション Cookie が空＝未ログイン。`verify-ig-status` も `publish-ig-bs` も Playwright + ログイン済み
+プロファイルが前提なので Mac 専用。
 
-リールギャップは重複なし（reel_gap ∩ reel_built_unposted = 0）:
+**完了条件**: Mac で `verify-ig-status` 再実行 → `published_UNrecorded` が 72 から減ることを実測で確認する。
 
-| 分類 | 件数 | シリーズ | 内容・律速 |
-|---|--:|---|---|
-| reel_gap | 97 | cem 31 / civil-1 35 / civil-2 31 | カルーセル投稿済み・reel素材なし。**制作コストが律速**（`figure-reel-create.mjs` はナレーション原稿 `script.txt` の事前執筆が前提＝97本ぶんの執筆が要る。PNG→動画変換自体は ffmpeg/VOICEVOX で自動） |
-| reel_built_unposted | 42 | cem のみ | **素材は完成済み・投稿するだけ**。3分類の中で最も着手コストが低い |
-
-**次の一手（判断材料が揃った）**: 着手するなら reel_built_unposted 42 件（cem・素材完成済み）→ 実ズレ34件のbackfill、の順が低コスト。anomaly 38件とreel_gap 97件は工数が要るため後回しが妥当。着手可否はユーザー判断。
-
-
-
+**リール系は本カードの対象外**（DN-0110 へ従属済み）。
 
 
 ### [DN-0110] 動画パック基盤・通常動画pilot・read-only管理画面
@@ -526,6 +529,8 @@ DN-0011（civil-1/2 論点パック予約）の検証で `npm run verify-ig-stat
 **批判的レビュー**: [動画コンテンツ運用設計_批判的レビュー.md](../../docs/reviews/critical/動画コンテンツ運用設計_批判的レビュー.md)
 
 **依存関係**: 左ナビのコンテンツ中心IAとYouTube入口は`DN-0103`を再利用し、本カードで別のナビregistryを作らない。`DN-0046`の聞き流し一問一答は本カードへ統合済み。
+
+**IG リール残（旧 DN-0136 から合流・2026-08-27）**: cem 42 パックは `reels/script.txt`（ナレーション原稿）のみで **mp4/wav は未生成**（`verify-ig-status.mjs:88` が script.txt の存在だけで「素材あり」判定するため、旧カードの「素材完成済み・投稿するだけ」は誤り）。別途 97 パックは原稿から。生成には VOICEVOX + ffmpeg が要る。カルーセル既投稿パックのリール派生は、本カードの動画基盤が成立してから判断する。
 
 **確定方針**:
 - 資格別・媒体別agentは増やさず、`video-script-writer`（Generator）と`video-content-qa`（Evaluator）の1組だけを新設する
