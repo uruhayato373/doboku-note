@@ -1,0 +1,45 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="掘削底面が壊れる3つの形（ヒービング・ボイリング・盤ぶくれ）を土質と地下水の条件で見分けるための対応表">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-label { font-size: 12px; fill: #555; }
+      .t-num   { font-size: 12px; font-weight: bold; fill: #1a3a5c; }
+      .box-brand   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn    { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-danger  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-label" x="200" y="26" text-anchor="middle">見分ける軸＝土質 × 地下水</text>
+
+  <!-- ヒービング -->
+  <rect class="box-brand" x="15" y="42" width="370" height="115" rx="8"/>
+  <text class="t-title" x="35" y="65">ヒービング</text>
+  <text class="t-label" x="35" y="85">軟弱な粘性土（N値3程度以下）が掘削底面を</text>
+  <text class="t-label" x="35" y="101">押し上げる</text>
+  <text class="t-num" x="35" y="122">土質: 軟弱粘性土　地下水: 直接関与しない</text>
+  <text class="t-label" x="35" y="142">対策の軸: 根入れの延長・地盤改良</text>
+
+  <!-- ボイリング -->
+  <rect class="box-warn" x="15" y="167" width="370" height="115" rx="8"/>
+  <text class="t-title" x="35" y="190">ボイリング</text>
+  <text class="t-label" x="35" y="210">緩い砂質土で、水位差により地下水が噴き上げる</text>
+  <text class="t-num" x="35" y="232">土質: 緩い砂質土　地下水: 掘削内外の水位差が主因</text>
+  <text class="t-label" x="35" y="252">対策の軸: 地下水位低下工法・止水（薬液注入等）</text>
+
+  <!-- 盤ぶくれ -->
+  <rect class="box-danger" x="15" y="292" width="370" height="115" rx="8"/>
+  <text class="t-title" x="35" y="315">盤ぶくれ</text>
+  <text class="t-label" x="35" y="335">不透水層の下に被圧地下水があり、掘削で押さえが</text>
+  <text class="t-label" x="35" y="351">薄くなり底面が持ち上がる</text>
+  <text class="t-num" x="35" y="372">土質: 不透水層下の被圧帯水層　地下水: 被圧水頭が主因</text>
+  <text class="t-label" x="35" y="392">対策の軸: リチャージ・被圧水位の低下</text>
+
+  <line x1="15" y1="425" x2="385" y2="425" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-label" x="200" y="447" text-anchor="middle">3つは原因も進行速度も別物</text>
+  <text class="t-label" x="200" y="465" text-anchor="middle">現象を取り違えると対策が効かない</text>
+</svg>

@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="土留め壁の変位を一次管理値（設計値のおおむね8割）と二次管理値（設計値相当）の二段階で運用する考え方を示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-label { font-size: 12px; fill: #555; }
+      .t-num   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .box-brand   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn    { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+      .box-danger  { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow5" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- 縦軸ゲージ -->
+  <line x1="60" y1="50" x2="60" y2="330" stroke="#8a8a8a" stroke-width="2"/>
+
+  <!-- 0% -->
+  <line x1="55" y1="330" x2="65" y2="330" stroke="#8a8a8a" stroke-width="1.5"/>
+  <text class="t-label" x="45" y="334" text-anchor="end">0%</text>
+  <text class="t-label" x="75" y="325">変位なし</text>
+
+  <!-- 一次管理値 80% -->
+  <rect class="box-warn" x="75" y="150" width="300" height="55" rx="8"/>
+  <line x1="55" y1="177" x2="65" y2="177" stroke="#d4a017" stroke-width="2"/>
+  <text class="t-num" x="45" y="181" text-anchor="end" fill="#d4a017">80%</text>
+  <text class="t-title" x="90" y="172">一次管理値</text>
+  <text class="t-label" x="90" y="190">許容変位量のおおむね8割</text>
+  <text class="t-label" x="90" y="200" font-size="11">→計測頻度を上げ、原因を確認する段階</text>
+
+  <!-- 二次管理値 100% -->
+  <rect class="box-danger" x="75" y="60" width="300" height="55" rx="8"/>
+  <line x1="55" y1="87" x2="65" y2="87" stroke="#b22234" stroke-width="2"/>
+  <text class="t-num" x="45" y="91" text-anchor="end" fill="#b22234">100%</text>
+  <text class="t-title" x="90" y="82">二次管理値</text>
+  <text class="t-label" x="90" y="100">設計値（許容変位量）相当</text>
+  <text class="t-label" x="90" y="110" font-size="11">→掘削中断・対策工の実施を検討する段階</text>
+
+  <!-- 矢印: 進行方向 -->
+  <line x1="60" y1="330" x2="60" y2="60" stroke="#555" stroke-width="1" marker-end="url(#arrow5)"/>
+  <text class="t-label" x="20" y="200" text-anchor="middle" transform="rotate(-90 20 200)">変位の進行</text>
+
+  <line x1="15" y1="355" x2="385" y2="355" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 自立式の目安 -->
+  <rect class="box-brand" x="20" y="375" width="360" height="55" rx="8"/>
+  <text class="t-title" x="40" y="398">自立式土留め（支保工なし）の目安</text>
+  <text class="t-label" x="40" y="418">許容変位量 ＝ 掘削深さのおおむね3%程度</text>
+
+  <text class="t-label" x="200" y="460" text-anchor="middle">対応できるかは超えてから考えるのでなく</text>
+  <text class="t-label" x="200" y="478" text-anchor="middle">超える前の計測計画の作り込みで決まる</text>
+</svg>
