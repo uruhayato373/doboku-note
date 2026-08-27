@@ -22,9 +22,9 @@ retention: durable
 - [x] 必須項目検査を実行できる（2026-08-27 実走 check-required-fields.mjs・15/15）
 - [ ] Windows／macOSの少なくとも各1環境で導入確認した（2026-08-27 Windows のみ完了・macOS 未実施）
 - [x] 配布 ZIP を展開して検査3本（`check-answer-length` / `check-required-fields` / `check-placeholders`）が実走する（2026-08-27 Windows/Node v22.14.0 で確認）
-- [ ] 3本とも**存在しないファイルで非ゼロ終了**する（現状 `check-answer-length` と `check-placeholders` は `--strict` でも exit 0＝タイポが緑になる）
-- [ ] SKILL.md・START-HERE に `--strict` 付きの呼び出しを載せる（現状ゲートが手順で一度も効かない）
-- [ ] START-HERE.md・LICENSE.txt の「β版・暫定」表記を販売中の実態に合わせる
+- [x] 3本とも**存在しないファイルで非ゼロ終了**する（2026-08-27 修正・3本とも exit 2＋「実検査 N/M ファイル」を常時表示）
+- [x] SKILL.md・START-HERE に `--strict` 付きの呼び出しを載せる（2026-08-27 修正・終了コード 0/1/2 の読み分けも明記）
+- [x] START-HERE.md・LICENSE.txt の「β版・暫定」表記を販売中の実態に合わせる（2026-08-27 修正・両ブランチ）
 
 ## 2. サンプル
 
