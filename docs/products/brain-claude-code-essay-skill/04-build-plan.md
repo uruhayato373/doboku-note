@@ -24,7 +24,7 @@ retention: durable
 4. `civil-1.md`／`civil-2.md`／`evidence-policy.md`／`rubric.md`を書く
 5. 入力・答案・レビューのテンプレートを作る
 6. 字数・必須項目・プレースホルダ検査を実装する
-7. `quick_validate.py`を通す
+7. 配布 ZIP を展開し検査3本（`check-answer-length` / `check-required-fields` / `check-placeholders`）を実走させる（`quick_validate.py` は skill-creator の開発時バリデータで配布物ではない・2026-08-27 是正）
 
 成果物：ローカルで動く最小スキル。
 
