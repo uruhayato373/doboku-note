@@ -79,18 +79,6 @@ concrete-chief-engineer 2 点＝自作 SVG へ描き直し済み、2026-08-26）
 （提出はユーザー承認・KDP ログイン操作が要る）。
 
 
-### [DN-0147] note-republish-plan の ready 分類が platform-only PDF 添付を検知できない
-タグ: [インフラ・計測] [種類:不具合] [起票:2026-08-27]
-
-本文に PDF 配布の記述が無くても、過去に運営が手動でライブ添付した PDF がある記事を
-`ready` に分類してしまい、投入すると `--reattach-pdf` 保護で毎回 fail-closed する
-（2026-08-27 実測: BK-I_必須科目I R04/R05/R06・総監模範論文-自治体上水道担当R03）。
-本文は無傷（fail-closed が正しく効いている）が、バッチ投入のたびに同じ 4 件が失敗する。
-修正方針: ready 判定に「ライブ添付の実在」を加味する（check-note-attachments --live の
-判定ロジック流用）。完了条件: 上記 4 件が ready から除外され、次回バッチが fail 0 で通る。
-後続（旧DN-0084から引継ぎ・2026-08-27）: バッチ完了後に `check-note-structure` を再走し、
-`.claude/config/note-structure-allow.json` の BK-I 7 件（FREE_MISSING＝ライブ未再公開由来）を空にする。
-他の 13 件（BK-01道路8・総監テキスト精読5）は現行境界のまま PASS を実測済みで解除済み。
 
 
 

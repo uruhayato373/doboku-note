@@ -34,26 +34,6 @@
       "noteId": "nb1ddc4eb7622",
       "reason": "更新フローが false を返した（保存せず中断）",
       "at": "2026-08-25T21:58:15"
-    },
-    {
-      "noteId": "n8d72cf82ca72",
-      "reason": "pdf-missing",
-      "at": "2026-08-27T05:42:06"
-    },
-    {
-      "noteId": "n7c4de5d27342",
-      "reason": "pdf-missing",
-      "at": "2026-08-27T05:42:16"
-    },
-    {
-      "noteId": "n149dd5284f51",
-      "reason": "pdf-missing",
-      "at": "2026-08-27T05:42:23"
-    },
-    {
-      "noteId": "n091c74c3fb2d",
-      "reason": "pdf-missing",
-      "at": "2026-08-27T05:44:13"
     }
   ],
   "_note": "2026-08-18: 旧形式（理由が汎用文字列）の 13 件のうち 11 件を public API でライブ実査し、published・本文 5,517〜112,841 字・画像ありで破損なしを確認したため解除した。残る 2 件は is_limited=true で未ログイン API では本文が返らず計測不能なので、--force-retry のゲートを維持する（計測不能を「無事」と読み替えない）。"
