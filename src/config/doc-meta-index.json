@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-27T00:21:00.078Z",
+  "generated_at": "2026-08-27T00:27:45.226Z",
   "summary": {
-    "total": 1157,
-    "published": 1138,
+    "total": 1159,
+    "published": 1140,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 36,
+      "civil-practice": 38,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6258,6 +6258,22 @@
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
+    "civil-practice-cost-and-design-change": {
+      "title": "原価と設計変更 — 利益はどこで決まるか",
+      "description": "工事原価がどんな費目で構成されているか、実行予算と実績のズレをどこで捉えるか、現場条件が設計と違ったときにどう発注者と協議して変更契約につなげるかを整理します。焦点は「協議を成立させるために何を記録しておくか」です。",
+      "shortTitle": "原価と設計変更",
+      "subtitle": "赤字の兆候は費目のどこかに必ず出ている",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "原価と設計変更｜工事原価の構成と協議記録の作り方【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
     "civil-practice-earth-retaining-displacement": {
       "title": "土留めの変位が管理値を超えたら — 計測計画と現場での判断",
       "description": "土留め壁の変位が管理値に近づいた・超えたときに現場で何を判断すべきかを整理。着工前に立てる計測計画（計測項目・機器・頻度）、管理値の考え方、掘削中断や切梁増設などの対策の選び方、鋼矢板頭部が動いたときの対応、切梁を盛り替えるときの注意点まで扱います。",
@@ -6542,6 +6558,22 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "河川・砂防・都市公園の施工管理｜出水期・河川保全区域・防災拠点の留意点【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-schedule-and-road-permit": {
+      "title": "工期を守るための段取り — 進捗の見方・準備期間・道路使用許可",
+      "description": "工期を守るための段取りを、進捗の見方・クリティカルパスの詰め方・準備期間や後片付け期間の考え方、道路を使う工事に必要な道路使用許可・道路占用許可の違いまで、現場でこの判断をする実務者の視点から整理します。",
+      "shortTitle": "工程と道路許可の段取り",
+      "subtitle": "進捗管理から道路使用許可・道路占用許可まで",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "工期を守る段取り｜進捗管理・準備期間・道路使用許可の違い【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },

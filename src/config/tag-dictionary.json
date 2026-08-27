@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-27T00:21:00.508Z",
+  "generated_at": "2026-08-27T00:27:45.667Z",
   "summary": {
-    "total_mdx_files": 1157,
+    "total_mdx_files": 1159,
     "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1077,7 +1077,7 @@
     },
     {
       "name": "guide",
-      "count": 172,
+      "count": 174,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1166,6 +1166,7 @@
         "civil-practice-concrete-pump-capacity",
         "civil-practice-concrete-repair-leakage",
         "civil-practice-construction-plan-document",
+        "civil-practice-cost-and-design-change",
         "civil-practice-earth-retaining-displacement",
         "civil-practice-embankment-quality-control",
         "civil-practice-excavation-bottom-failure",
@@ -1183,6 +1184,7 @@
         "civil-practice-rebar-cover-placement",
         "civil-practice-rebar-splice-selection",
         "civil-practice-river-park-erosion-control",
+        "civil-practice-schedule-and-road-permit",
         "civil-practice-sling-work-wire-rope",
         "civil-practice-slope-drainage-monitoring",
         "civil-practice-slope-protection-selection",
