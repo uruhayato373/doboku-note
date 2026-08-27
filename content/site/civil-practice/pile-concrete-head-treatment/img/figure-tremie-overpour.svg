@@ -1,0 +1,57 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="トレミー管の先端を打設済みコンクリート中に2m以上保つ管理と、余盛りの高さ（無水掘り500mm以上・泥水が多い場合800mm以上）を示す断面図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-label { font-size: 12px; fill: #555; }
+      .t-num   { font-size: 13px; font-weight: bold; fill: #1a3a5c; }
+      .box-brand   { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-warn    { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow6" markerWidth="8" markerHeight="6" refX="4" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#555"/>
+    </marker>
+  </defs>
+
+  <!-- 孔（断面） -->
+  <rect fill="#f5f5f5" stroke="#d7d7d7" stroke-width="1.5" x="60" y="40" width="150" height="340" rx="4"/>
+
+  <!-- 余盛り層 -->
+  <rect class="box-warn" x="60" y="40" width="150" height="55"/>
+  <text class="t-label" x="220" y="60">余盛り</text>
+  <text class="t-num" x="220" y="78">（不純物が集まる）</text>
+
+  <!-- 計画天端ライン -->
+  <line x1="50" y1="95" x2="220" y2="95" stroke="#b22234" stroke-width="2" stroke-dasharray="4,2"/>
+  <text class="t-label" x="225" y="100">計画天端</text>
+
+  <!-- 健全なコンクリート層 -->
+  <rect class="box-brand" x="60" y="95" width="150" height="285"/>
+  <text class="t-label" x="70" y="130">健全な</text>
+  <text class="t-label" x="70" y="146">コンクリート</text>
+
+  <!-- トレミー管 -->
+  <rect x="125" y="30" width="16" height="260" fill="#8a8a8a"/>
+  <text class="t-label" x="255" y="150">トレミー管</text>
+
+  <!-- 2m以上の寸法線 -->
+  <line x1="230" y1="200" x2="230" y2="290" stroke="#555" stroke-width="1"/>
+  <line x1="225" y1="200" x2="235" y2="200" stroke="#555" stroke-width="1"/>
+  <line x1="225" y1="290" x2="235" y2="290" stroke="#555" stroke-width="1"/>
+  <text class="t-num" x="255" y="250" text-anchor="middle">2m以上</text>
+  <text class="t-label" x="255" y="268" text-anchor="middle" font-size="11">（管先端を打設済み</text>
+  <text class="t-label" x="255" y="282" text-anchor="middle" font-size="11">コンクリート中に保つ）</text>
+
+  <line x1="141" y1="290" x2="225" y2="290" stroke="#8a8a8a" stroke-width="1" stroke-dasharray="2,2"/>
+
+  <text class="t-label" x="135" y="400" text-anchor="middle">孔底</text>
+
+  <line x1="15" y1="415" x2="385" y2="415" stroke="#d7d7d7" stroke-width="1"/>
+
+  <rect class="box-warn" x="20" y="430" width="360" height="55" rx="8"/>
+  <text class="t-title" x="40" y="452">余盛り高さの目安</text>
+  <text class="t-label" x="40" y="472">無水掘り: 500mm以上／泥水が多い場合: 800mm以上</text>
+</svg>

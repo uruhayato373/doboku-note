@@ -1,0 +1,62 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="道路の横断面を構成する車道・路肩・路側帯・中央帯（分離帯・側帯）の位置関係を示す断面図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 13px; font-weight: bold; fill: #222; }
+      .t-label { font-size: 11px; fill: #555; }
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; }
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+      .box-warn     { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; }
+    </style>
+  </defs>
+
+  <text class="t-label" x="200" y="18" text-anchor="middle" font-size="12">道路の横断面（片側のみ・左右対称）</text>
+
+  <!-- 帯状の断面（横並び・絶対座標） -->
+  <rect class="box-surface" x="20" y="35" width="40" height="90"/>
+  <rect class="box-warn" x="60" y="35" width="45" height="90"/>
+  <rect class="box-brand" x="105" y="35" width="150" height="90"/>
+  <text class="t-title" x="180" y="82" text-anchor="middle">車道</text>
+  <rect class="box-positive" x="255" y="35" width="20" height="90"/>
+  <rect class="box-positive" x="275" y="35" width="45" height="90" opacity="0.65"/>
+  <line x1="20" y1="35" x2="320" y2="35" stroke="#222" stroke-width="1.5"/>
+  <line x1="20" y1="125" x2="320" y2="125" stroke="#222" stroke-width="1.5"/>
+
+  <!-- 引き出し線とラベル -->
+  <line x1="40" y1="125" x2="40" y2="145" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-label" x="40" y="158" text-anchor="middle">路側帯</text>
+
+  <line x1="82" y1="125" x2="82" y2="145" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-label" x="82" y="158" text-anchor="middle">路肩</text>
+
+  <line x1="285" y1="125" x2="285" y2="145" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-label" x="285" y="158" text-anchor="middle">側帯</text>
+
+  <line x1="320" y1="125" x2="335" y2="145" stroke="#8a8a8a" stroke-width="1"/>
+  <text class="t-label" x="350" y="158" text-anchor="middle">分離帯</text>
+
+  <text class="t-label" x="200" y="183" text-anchor="middle">中央帯 ＝ 分離帯 ＋ 側帯（往復の車線を分離）</text>
+
+  <line x1="15" y1="200" x2="385" y2="200" stroke="#d7d7d7" stroke-width="1"/>
+
+  <!-- 定義カード -->
+  <rect class="box-brand" x="20" y="215" width="360" height="60" rx="8"/>
+  <text class="t-title" x="40" y="238">車道</text>
+  <text class="t-label" x="40" y="258">自動車等の通行に使われる部分そのもの</text>
+
+  <rect class="box-warn" x="20" y="285" width="360" height="60" rx="8"/>
+  <text class="t-title" x="40" y="308">路肩</text>
+  <text class="t-label" x="40" y="328">主要構造部の保護・車道の効用を保つ帯状部分</text>
+
+  <rect class="box-surface" x="20" y="355" width="360" height="60" rx="8"/>
+  <text class="t-title" x="40" y="378">路側帯</text>
+  <text class="t-label" x="40" y="398">歩道のない道路の端に設ける歩行者用の帯</text>
+
+  <rect class="box-positive" x="20" y="425" width="360" height="60" rx="8"/>
+  <text class="t-title" x="40" y="448">中央帯（分離帯＋側帯）</text>
+  <text class="t-label" x="40" y="468">往復の車線を分離し側方の余裕を確保</text>
+</svg>
