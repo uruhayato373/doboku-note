@@ -7,9 +7,9 @@
  *
  * master 候補のフォールバック（00-master.md 優先・無ければ 00-*.md）は既存の
  * check-task-plan-links.mjs discoverPlanUnits() の挙動をそのまま踏襲する。
- * 実例: DN-0092-pe-construction-subject-packs/ は 00-master.md ではなく
- * 00-product-plan.md を持つ（2026-08-26 確認）。ここを落とすと同 unit が
- * missing-master 誤検知になる。
+ * 歴史的実例（2026-08-27 企画SSOTへ撤収済み）: DN-0092-pe-construction-subject-packs/ は
+ * 00-master.md ではなく 00-product-plan.md を持っていた（2026-08-26 確認）。フォールバック仕様
+ * 自体は将来 unit のために維持する（落とすと missing-master 誤検知になる）。
  */
 import { readdirSync, existsSync, statSync } from 'node:fs';
 import { join } from 'node:path';
