@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-27T00:03:17.233Z",
+  "generated_at": "2026-08-27T00:10:14.627Z",
   "summary": {
-    "total": 1152,
-    "published": 1133,
+    "total": 1155,
+    "published": 1136,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 31,
+      "civil-practice": 34,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6072,6 +6072,23 @@
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
+    "civil-practice-backfill-river-excavation": {
+      "title": "埋戻しと河道掘削 — 掘ったあとをどう戻すか",
+      "description": "構造物完成後の埋め戻しと土留め壁の撤去、そして河道掘削という、掘削の終わり方に関わる判断を整理します。狭い箇所の締固め方法、土留め壁を引き抜いた跡の空隙対策、引き抜くか残すかの判断基準、河道掘削で掘る順序が下流からと決まっている理由、筋掘り・スライス掘削・壺掘りの使い分けまでを扱います。",
+      "shortTitle": "埋戻しと河道掘削",
+      "subtitle": "掘り終えた後にも判断は続く",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "earthwork"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "埋戻しと河道掘削｜土留め撤去・引抜き跡の空隙・掘削順序の判断【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
     "civil-practice-cast-in-place-pile-methods": {
       "title": "場所打ち杭の4工法をどう選ぶか — 孔壁保護の方式で判断する",
       "description": "場所打ち杭のオールケーシング・アースドリル・リバース・深礎の4工法を、孔壁保護の方式という軸で整理。地盤条件・杭径杭長・近接条件からどの工法を選ぶかの判断手順を解説します。",
@@ -6361,6 +6378,22 @@
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
+    "civil-practice-lifting-equipment-selection": {
+      "title": "揚重機の選び方と仮設梁のたわみ確認 — 定格荷重・作業半径・受け梁の強度判断",
+      "description": "揚重機を選ぶときに現場で判断すべき事項を整理しました。定格荷重と定格総荷重の違い、作業半径が伸びると吊れる重さがどう落ちるか、機種ごとの向き不向き、オペレーターの資格区分、そして荷を受ける仮設梁がたわみすぎないかを確かめる計算方法までを解説します。",
+      "shortTitle": "揚重機選定とたわみ確認",
+      "subtitle": "定格荷重・作業半径・受け梁の強度判断",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "揚重機の選定と仮設梁のたわみ確認｜定格荷重・定格総荷重の違い・作業半径ごとの吊り能力・H形鋼の許容たわみ計算【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
     "civil-practice-pile-bearing-verification": {
       "title": "支持力をどう現物で確かめるか — 施工中の確認と載荷試験の使い分け",
       "description": "杭の支持力は設計計算だけでは確定しません。施工中に支持層への到達をどう見極めるか、打設後の載荷試験をどう使い分けるかを、既製杭・場所打ち杭・打込み杭それぞれの確認手段に沿って現場の判断手順として整理します。",
@@ -6544,6 +6577,22 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "土質の見立てと地盤改良・仮締切り｜工法選定と大型土のうの安定照査【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-stacking-heat-machine-safety": {
+      "title": "はい作業・熱中症・バックホウの吊り作業 — 法令が線を引く3つの現場判断",
+      "description": "「これは資格がいる作業か」「この暑さで作業を続けてよいか」「バックホウで吊ってよいのか」——現場でよく迷う3つの場面を、法令が実際にどこで線を引いているかという共通の視点から整理しました。はい作業主任者の選任義務、2025年6月施行の熱中症対策の義務化、バックホウの用途外使用の制限とクレーン資格の区分を扱う実務ガイドです。",
+      "shortTitle": "はい作業・熱中症・バックホウ吊り",
+      "subtitle": "資格・作業中止・用途外使用の境界はどこにあるか",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "はい作業・熱中症・バックホウ吊り作業の法令ライン｜高さ2m・WBGT基準・用途外使用禁止【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
