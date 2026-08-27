@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-27T00:30:00.067Z",
+  "generated_at": "2026-08-27T00:34:06.871Z",
   "summary": {
-    "total_mdx_files": 1160,
+    "total_mdx_files": 1161,
     "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1077,7 +1077,7 @@
     },
     {
       "name": "guide",
-      "count": 175,
+      "count": 176,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1169,6 +1169,7 @@
         "civil-practice-cost-and-design-change",
         "civil-practice-earth-retaining-displacement",
         "civil-practice-embankment-quality-control",
+        "civil-practice-environment-neighborhood",
         "civil-practice-excavation-bottom-failure",
         "civil-practice-excavation-pre-survey",
         "civil-practice-formwork-material-inspection",

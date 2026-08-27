@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-27T00:29:59.630Z",
+  "generated_at": "2026-08-27T00:34:06.426Z",
   "summary": {
-    "total": 1160,
-    "published": 1141,
+    "total": 1161,
+    "published": 1142,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 39,
+      "civil-practice": 40,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6305,6 +6305,22 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "盛土の品質管理｜品質規定方式・工法規定方式・試験施工の判断【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-environment-neighborhood": {
+      "title": "近隣とどう付き合うか — 苦情を起こさない段取りと環境配慮",
+      "description": "騒音・振動・濁水・夜間照明といった近隣トラブルの発生源を、法令が定める規制値と、現場で実際にできる段取りの両面から整理します。苦情は起きてから対応するより起こさない段取りの方が安いという視点で、説明のタイミングまで扱います。",
+      "shortTitle": "近隣対応と環境配慮",
+      "subtitle": "騒音・振動・濁水・夜間照明への実務対応",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "近隣対応と環境配慮｜苦情を起こさない段取り【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
