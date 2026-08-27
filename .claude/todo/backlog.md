@@ -469,7 +469,24 @@ DN-0011（civil-1/2 論点パック予約）の検証で `npm run verify-ig-stat
 - SoT是正の入口: `/ig-reconcile`（operator確認のうえ posted.json backfill / 未公開を予約）
 - リールギャップの入口: `figure-reel-create.mjs` でナレーション付きリール生成 → `publish-ig-bs --reel` で予約
 
-**次の一手**: snapshot を読み、ドリフト110件の内訳（誤検知/実ズレ/経年劣化のどれが多いか）とリールギャップ97件の規模感（1本あたりの制作コスト×97本は現実的な工数か）を先に把握してから、着手するかどうかをユーザーと判断する。
+
+**2026-08-27 実体分類完了（snapshot 08-25 採取・`.claude/state/ig-reconcile/snapshot.json` 実測）**:
+
+**「ドリフト110件」は重複カウントだった**。`published_UNrecorded`(72) と `anomaly`(38) は counts 上は別項目だが、cats 配列を突合すると **anomaly の 38 件は published_UNrecorded 72 件の部分集合**（同一 rel が両方に入っている）。真の対象は **72 件**（110 ではない）。
+
+| 分類 | 件数 | 内訳 | 確信度・対応 |
+|---|--:|---|---|
+| 実ズレ（backfill候補） | 34 | matched=1（ライブ投稿に一意対応・記録漏れ） | 高。`/ig-reconcile` で即 backfill 可能 |
+| 誤検知寄り（要人間判断） | 38 | matched≥2（同一テーマの複数投稿と多対応・一意に決まらない。cem 0 / civil-1 25 / civil-2 13） | 低。マッチングロジックの構造的限界（同一テーマで複数回パックを作った）で機械では選べない |
+
+リールギャップは重複なし（reel_gap ∩ reel_built_unposted = 0）:
+
+| 分類 | 件数 | シリーズ | 内容・律速 |
+|---|--:|---|---|
+| reel_gap | 97 | cem 31 / civil-1 35 / civil-2 31 | カルーセル投稿済み・reel素材なし。**制作コストが律速**（`figure-reel-create.mjs` はナレーション原稿 `script.txt` の事前執筆が前提＝97本ぶんの執筆が要る。PNG→動画変換自体は ffmpeg/VOICEVOX で自動） |
+| reel_built_unposted | 42 | cem のみ | **素材は完成済み・投稿するだけ**。3分類の中で最も着手コストが低い |
+
+**次の一手（判断材料が揃った）**: 着手するなら reel_built_unposted 42 件（cem・素材完成済み）→ 実ズレ34件のbackfill、の順が低コスト。anomaly 38件とreel_gap 97件は工数が要るため後回しが妥当。着手可否はユーザー判断。
 
 
 
