@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-27T00:27:45.667Z",
+  "generated_at": "2026-08-27T00:30:00.067Z",
   "summary": {
-    "total_mdx_files": 1159,
+    "total_mdx_files": 1160,
     "total_unique_tags": 175,
     "allowlist_size": 153,
     "known_count": 85,
@@ -1077,7 +1077,7 @@
     },
     {
       "name": "guide",
-      "count": 174,
+      "count": 175,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1179,6 +1179,7 @@
         "civil-practice-pile-concrete-head-treatment",
         "civil-practice-pipe-jacking-methods",
         "civil-practice-precast-pile-methods",
+        "civil-practice-preventive-maintenance-diagnosis",
         "civil-practice-quality-record-site-bcp",
         "civil-practice-rebar-corrosion-handling",
         "civil-practice-rebar-cover-placement",
@@ -2467,6 +2468,25 @@
       ]
     },
     {
+      "name": "concrete",
+      "count": 12,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-practice-concrete-compaction-numbers",
+        "civil-practice-concrete-crack-causes",
+        "civil-practice-concrete-finishing-curing",
+        "civil-practice-concrete-mix-acceptance",
+        "civil-practice-concrete-placement-order",
+        "civil-practice-concrete-placement-timing",
+        "civil-practice-concrete-pump-capacity",
+        "civil-practice-concrete-repair-leakage",
+        "civil-practice-formwork-removal-timing",
+        "civil-practice-preventive-maintenance-diagnosis"
+      ]
+    },
+    {
       "name": "過去問分析",
       "count": 12,
       "inAllowlist": false,
@@ -2483,24 +2503,6 @@
         "pe-construction-steel-concrete-exam-themes",
         "pe-construction-tunnel-exam-themes",
         "pe-construction-urban-planning-exam-themes"
-      ]
-    },
-    {
-      "name": "concrete",
-      "count": 11,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems",
-        "civil-practice-concrete-compaction-numbers",
-        "civil-practice-concrete-crack-causes",
-        "civil-practice-concrete-finishing-curing",
-        "civil-practice-concrete-mix-acceptance",
-        "civil-practice-concrete-placement-order",
-        "civil-practice-concrete-placement-timing",
-        "civil-practice-concrete-pump-capacity",
-        "civil-practice-concrete-repair-leakage",
-        "civil-practice-formwork-removal-timing"
       ]
     },
     {

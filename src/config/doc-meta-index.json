@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generated_at": "2026-08-27T00:27:45.226Z",
+  "generated_at": "2026-08-27T00:29:59.630Z",
   "summary": {
-    "total": 1159,
-    "published": 1140,
+    "total": 1160,
+    "published": 1141,
     "unpublished": 19,
     "by_category": {
       "civil-construction-1": 140,
       "civil-construction-2": 41,
-      "civil-practice": 38,
+      "civil-practice": 39,
       "concrete-chief-engineer": 19,
       "concrete-diagnostician": 18,
       "pe-comprehensive-management": 728,
@@ -6475,6 +6475,23 @@
       "published": true,
       "publishedAt": "2026-08-27",
       "seoTitle": "既製杭3工法の選び方｜打込み・埋込み・回転の使い分け【土木施工の実務】",
+      "created": "2026-08-27",
+      "dateModified": "2026-08-27"
+    },
+    "civil-practice-preventive-maintenance-diagnosis": {
+      "title": "壊れる前に直す — 予防保全への転換と劣化診断",
+      "description": "事後保全から予防保全へ制度が転換してきた背景と、その前提になる法定点検の仕組み、健全性区分、アセットマネジメント、コンクリートの劣化診断の考え方を、現場で判断する実務者向けに整理します。",
+      "shortTitle": "予防保全と劣化診断",
+      "subtitle": "法定点検と診断の考え方",
+      "category": "civil-practice",
+      "group": "guide",
+      "tags": [
+        "guide",
+        "concrete"
+      ],
+      "published": true,
+      "publishedAt": "2026-08-27",
+      "seoTitle": "予防保全への転換と劣化診断｜法定点検・健全性区分・診断の考え方【土木施工の実務】",
       "created": "2026-08-27",
       "dateModified": "2026-08-27"
     },
