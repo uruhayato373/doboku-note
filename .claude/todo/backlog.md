@@ -66,33 +66,6 @@
 
 ## 🔴 高 — 来月中に着手
 
-### [DN-0145] CI 品質ゲートが outbound-links のタイムアウトで恒常的に赤い
-タグ: [インフラ・計測] [種類:不具合] [検証:quality:audit:ci] [起票:2026-08-27]
-
-`Pre-merge check (quality audit + build)` が **2026-08-25 以降ずっと failure**。
-2026-08-27 のデプロイ時に確認したところ、原因は検査の失敗ではなく `outbound-links` が
-**制限時間 420 秒に張り付いて完走しない**ことだった。
-
-```
-[TIMEOUT] outbound-links 420.1s
-[quality-audit] pass 68 / fail 0 / timeout 1 / skip 0
-```
-
-`scripts/quality-audit.mjs:156` の `{ id: 'outbound-links', timeout: 420_000, ci: true }`。
-中身は送客先 note.com URL の生死を public API で実査するもので、対象 URL が増えて
-制限時間内に終わらなくなったとみられる。本日の全実行で 420.0〜420.1s と同じ壁に当たっている。
-
-**なぜ高いか**: ci ゲートが常時赤だと、本物の regression が出ても区別がつかない
-（CLAUDE.md §9「赤いのに誰も見ていない検査は、無いのと同じ」の逆パターン＝
-赤が常態化して情報量がゼロになっている）。実際 2026-08-26 08:13 の run は
-`fail 1` を出していたが、恒常的な赤に埋もれていた。
-
-**打ち手の候補**（どれも「検査ゼロを PASS と呼ばない」を守ること）:
-
-- 並列度を上げる／API 呼び出しに ETag・キャッシュを効かせて実行時間を短縮する
-- 全件実査をやめ、前回から変わった URL だけの差分実査にする（全件は週次へ）
-- 実行時間の実測値を出力させ、timeout を実態に合わせて引き上げる
-  （ただし**引き上げだけで済ませない**。「なぜ 7 分で終わらないか」を先に測る）
 
 ### [DN-0117] コンクリート系2冊の Kindle 提出待ち（図の出所は解消済み・KDP提出のみ残）
 タグ: [収益化] [種類:制作] [起票:2026-08-22]
@@ -439,7 +412,7 @@ weekly.md の手動キューはこの ID だけを参照する（weekly は ID �
 | 4 | ココナラ S3 2テーマ版のライブ反映 | **2026-08-25 試行→下書き保存失敗（fail-closed・ライブ無傷）**。`node scripts/coconala-edit.mjs --service coconala-sakusei` はフォーム全項目を正しく充填（本文572字・価格¥8,000・カテゴリ等）したが最終「下書きで保存」がok:falseで失敗（エラー詳細なし・スクリーンショット上は正常に見える＝UIセレクタドリフトの疑い、note-delete-note.mjsで踏んだ系統と同型） | 目視同席での再試行、またはセレクタ更新。`/coconala-publish` でサービス 4317796 の説明文を更新（ブラウザ実機）。title は変更しない |
 | 5 | KDP F系 f-08〜f-16 の審査結果反映 | **実測: 9 冊とも `status: in_review`・ASIN は f-08 (B0HCMGB517) / f-09 (B0HCMC5JHG) の 2 冊のみ** | 審査完了メールの確認。LIVE 化した本の ASIN を `catalog.json` / `content/kindle/strategy.md` / `kindle-published/README.md` の 3 箇所へ記録し status を flip |
 | 6 | コンクリート系 `cta-bg` 2 枚 | **実測: `public/images/cta-bg/` は 5 枚（civil-1 / civil-2 / note-hero / pe-comprehensive / pe-construction）で、主任技士・診断士が欠落**。生成スクリプトは無く手描きイラスト | 画像制作。無いあいだはテーマ色のベタ塗りへフォールバックする（実害は見栄えのみ） |
-| 7 | Brain 施工経験記述キットの配布物検証 | `quick_validate.py` はリポジトリに無く**配布 ZIP 内**（`C:\tmp\claude-code-civil-essay-kit-coconala.zip`）。①実スキル動作 ②字数検査 ③Windows/macOS 両環境 | 実機実行。出品は済んでいるので**売れた後に発覚すると痛い**種類の残務 |
+| 7 | Brain 施工経験記述キットの配布物検証 | **2026-08-27 実走検証 → 不具合3件をソース側で修正・push 済み**（`claude-code-civil-essay-kit` の main `b40e2d4` / coconala-dist `828fae4`）。修正＝①検査3本を「1つでも読めなければ exit 2＝検査不成立」に統一し「実検査 N/M ファイル」を常時表示（旧: 存在しないファイルで exit 0・0件表示＝タイポが緑）②`--strict` を SKILL.md・START-HERE の呼び出しへ結線し終了コード 0/1/2 の読み分けを明記（旧: 実装はあるが手順に無くゲートが一度も効かない）③β版・暫定表記を実態に合わせ、PDF 同梱済みなのに「正式版では PDF で同梱」と書く自己矛盾を解消。検証済み＝サンプル3本 `--strict` で exit 0／欠落は3本とも exit 2／node --check OK。**配布物は2本立て**（Brain=`-beta` 系 ZIP・ココナラ=`-coconala` 系。検査スクリプトは改行コード以外バイト同一なので1回の修正で両方に効く） | **残り3手**: ①macOS 実走確認（このPCでは不可・チェックリスト §1 の最後の未達）②ZIP 再ビルド（`git archive`・`brain-products.ts:18` の運用。現行 coconala 版は CRLF で手詰めされており git archive なら LF に揃う）③Brain／ココナラの配布物差し替え（**ライブ更新のためユーザー判断**）。Claude Code 実起動でのスキル通し確認も未実施 |
 | 8 | civil-1 一次過去問 公式キー 24 件 | 残＝`h28-a`(19)・`h29-a`(1=No.38)・`h29-b`(4=No.3/12/17/21)。h28-a は 19 件と突出＝official 配列自体の OCR 誤りを疑い、mass-fix 前に第2ソースで再検証 | pre-H30 原典 PDF の入手（touhokugiken.com / dobokujira.com に h29 学科A/B は無し）。**LLM 推測厳禁**・キー番号だけの書き換え禁止 |
 | 9 | 過去問 解説・図の要照合クラスタ | 解説＝civil-1 `secondary-construction-plan-past-problems` No.9(1) 記述省略／civil-2 `secondary-r06` 問8 画像未挿入／総監 h21・h22・h28・h30 の 7 問／pe-first-stage 3 問。図＝`rescan-need-source` 9 図 ＋ `r07-a-fig-02`（画素欠損で再クロップ不可・DN-0056 から合流） | 原典照合・外部原典の入手。台帳に理由記録済（真実源 `figure-provenance.md`・進捗ビューは admin 記事図版タブ） |
 | 10 | ココナラ C12 プレミアム週枠の再判断（旧DN-0007） | C12（教材18冊＋添削2テーマ・¥15,000）は`weeklyCapacity: 1`で開始。添削は本番顧客への納品実績が無く（S2レビュー0）、初回工数が読めないための暫定値 | 初受注時に`orders-log`の`tensakuMinutes`を実測記録。2〜3件出たら週枠を再判断（判断基準→[ココナラ展開キット.md §5](../../content/note/1級・2級土木/ココナラ展開キット.md)）。実受注が無いと1手も進まない |
@@ -1571,6 +1544,12 @@ A8 公開 EPC（ビルドジョブ 942 円）は**プログラム全体の平均
   (c) `.agents/` を `.claude/` からの生成物にして生成スクリプトと検査を足す
 - 参考: 分界の真実源は `.claude/knowledge/reference/codex-division-of-labor.md`。
   Codex CLI 自体の設定（`.codex/config.toml`・hooks・agents/*.toml）は別物で、これは正当
+
+**2026-08-27: (c) の実装だけを develop へ回収した（判断は未決のまま）**。クラウドエージェントのブランチ `claude/xenodochial-bhabha-2d05e0` が (c) を実装していたが、ブランチ整理で消えると復元できないため `scripts/sync-codex-compat.mjs`（525 行）と `tests/sync-codex-compat.test.mjs` を develop へ移した。**意図的に未結線**（`package.json` の npm script・`quality-audit` への登録・pre-commit フックのいずれにも入れていない）＝(a)/(b)/(c) の選択はユーザーの判断のままにするため。ブランチ側にあった `.agents/skills/**` の一括置換（253 ファイル・37,802 行削除）は持ち込んでいない。
+
+- 現状の実測（`node scripts/sync-codex-compat.mjs --check`・report-only で exit 0）: `.agents/skills` の大半が missing 扱い・`AGENTS.md` が mismatch・runtime consumer 2 件（`scripts/prepare-x-article-teaser.mjs`・`content/sns/x/draft/094-career-longform-pilot/README.md`）
+- テストは現状の develop で 11/11 pass
+- (c) を採る場合の残作業: `node scripts/sync-codex-compat.mjs --write` で生成 → runtime consumer 2 件の参照を `.claude/` 側へ付け替え → npm script・pre-commit・quality-audit へ結線
 
 
 ### [DN-0084] 建設部門BK・総監の有料境界を実ライブに整合（構成監査の偽陽性16本）

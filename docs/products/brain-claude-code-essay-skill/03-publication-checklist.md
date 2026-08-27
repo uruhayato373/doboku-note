@@ -13,15 +13,18 @@ retention: durable
 ## 1. 商品本体
 
 - [ ] 配布用スキルを `init_skill.py` で生成した
-- [ ] SKILL.mdが500行未満で、詳細をreferencesへ分離した
-- [ ] 1級と2級のルーティングが明確
-- [ ] GeneratorとEvaluatorが分離されている
-- [ ] `approved`は人間だけが設定できる
-- [ ] 空欄・`UNKNOWN`時に生成を止める
-- [ ] 字数検査スクリプトを実行できる
-- [ ] 必須項目検査を実行できる
-- [ ] Windows／macOSの少なくとも各1環境で導入確認した
-- [ ] `quick_validate.py`が成功した
+- [x] SKILL.mdが500行未満で、詳細をreferencesへ分離した（2026-08-27 実測 138行・references 4本へ分離）
+- [x] 1級と2級のルーティングが明確（2026-08-27 実測 SKILL.md:60-62・食い違い時は停止）
+- [x] GeneratorとEvaluatorが分離されている（2026-08-27 実測 civil-essay-writer / civil-essay-reviewer）
+- [x] `approved`は人間だけが設定できる（2026-08-27 実測 SKILL.md:114・writer:33）
+- [x] 空欄・`UNKNOWN`時に生成を止める（2026-08-27 実測 SKILL.md:50・推測で埋めず停止）
+- [x] 字数検査スクリプトを実行できる（2026-08-27 実走 check-answer-length.mjs）
+- [x] 必須項目検査を実行できる（2026-08-27 実走 check-required-fields.mjs・15/15）
+- [ ] Windows／macOSの少なくとも各1環境で導入確認した（2026-08-27 Windows のみ完了・macOS 未実施）
+- [x] 配布 ZIP を展開して検査3本（`check-answer-length` / `check-required-fields` / `check-placeholders`）が実走する（2026-08-27 Windows/Node v22.14.0 で確認）
+- [x] 3本とも**存在しないファイルで非ゼロ終了**する（2026-08-27 修正・3本とも exit 2＋「実検査 N/M ファイル」を常時表示）
+- [x] SKILL.md・START-HERE に `--strict` 付きの呼び出しを載せる（2026-08-27 修正・終了コード 0/1/2 の読み分けも明記）
+- [x] START-HERE.md・LICENSE.txt の「β版・暫定」表記を販売中の実態に合わせる（2026-08-27 修正・両ブランチ）
 
 ## 2. サンプル
 

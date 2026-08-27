@@ -295,6 +295,18 @@
       "commit": "f8ef96b1c9cd",
       "verification": "title属性をブラウザ実機で確認済み(commit反映)・tsc PASS",
       "note": "Codexバッジにtitle追加(commit反映済み)"
+    },
+    {
+      "id": "DN-0145",
+      "at": "2026-08-27",
+      "task": "CI 品質ゲートが outbound-links のタイムアウトで恒常的に赤い",
+      "tier": "high",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "d8d89535180b",
+      "verification": "quality:audit:ci (CI run 33029768396: PASS outbound-links 248.0s / pass 69 fail 0 timeout 0 skip 0)",
+      "note": "逐次+THROTTLEを8並列化し420s張り付きを解消(ローカル235s/877件・CI 248s)。timeoutは420->600s。16並列は逆に悪化する実測をコードに記録。埋もれた実失敗は無し"
     }
   ]
 }

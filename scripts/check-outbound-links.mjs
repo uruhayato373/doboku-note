@@ -73,16 +73,28 @@ let targets = [...refs.keys()].sort();
 const declared = targets.length;
 if (LIMIT) targets = targets.slice(0, LIMIT);
 
+// 逐次 + THROTTLE_MS で回すと 876 件で 7分20秒かかり、quality-audit の ci ゲート予算
+// （420秒）を僅かに超えてフラップする（2026-08-25 実測）。8 並列で 4分23秒まで縮む。
+// **16 並列は試したら逆に悪化した**（5分でも1件も終わらず timeout・会社 PC のプロキシが
+// 同時接続を絞っているとみられる）。数を増やせば速くなるとは限らないので、上げるときは
+// 実測してから変えること。
+// 2026-08-27 再実測: 877 件 / 235 秒 / 取得失敗 0（timeout 600 秒に対し 2.5 倍の余裕）。
+const CONCURRENCY = 8;
 const dead = [];
 let alive = 0; let unknown = 0;
-for (const key of targets) {
-  const [kind, id] = key.split(':');
-  const r = kind === 'n' ? await fetchNote(id) : await fetchMagazine(id);
-  if (r.state === 'alive' || r.state === 'unmeasurable') alive += 1;
-  else if (r.state === 'unknown') unknown += 1;
-  else dead.push({ url: `note.com/…/${kind}/${id}`, detail: (r.error || '').slice(0, 40), refs: [...refs.get(key)].slice(0, 3), refCount: refs.get(key).size });
-  await sleep(THROTTLE_MS);
+let cursor = 0;
+async function worker() {
+  while (cursor < targets.length) {
+    const key = targets[cursor]; cursor += 1;
+    const [kind, id] = key.split(':');
+    const r = kind === 'n' ? await fetchNote(id) : await fetchMagazine(id);
+    if (r.state === 'alive' || r.state === 'unmeasurable') alive += 1;
+    else if (r.state === 'unknown') unknown += 1;
+    else dead.push({ url: `note.com/…/${kind}/${id}`, detail: (r.error || '').slice(0, 40), refs: [...refs.get(key)].slice(0, 3), refCount: refs.get(key).size });
+    await sleep(THROTTLE_MS);
+  }
 }
+await Promise.all(Array.from({ length: Math.min(CONCURRENCY, targets.length) }, worker));
 
 const inspected = targets.length - unknown;
 const summary = `[${NAME}] 送客先 ${declared} 件（うち走査 ${targets.length}）→ 実検査 ${inspected}`
