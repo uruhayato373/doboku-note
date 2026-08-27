@@ -1549,7 +1549,7 @@ A8 公開 EPC（ビルドジョブ 942 円）は**プログラム全体の平均
 
 - 現状の実測（`node scripts/sync-codex-compat.mjs --check`・report-only で exit 0）: `.agents/skills` の大半が missing 扱い・`AGENTS.md` が mismatch・runtime consumer 2 件（`scripts/prepare-x-article-teaser.mjs`・`content/sns/x/draft/094-career-longform-pilot/README.md`）
 - テストは現状の develop で 11/11 pass
-- (c) を採る場合の残作業: `npm run sync-codex-compat -- --write` で生成 → runtime consumer 2 件の参照を `.claude/` 側へ付け替え → npm script・pre-commit・quality-audit へ結線
+- (c) を採る場合の残作業: `node scripts/sync-codex-compat.mjs --write` で生成 → runtime consumer 2 件の参照を `.claude/` 側へ付け替え → npm script・pre-commit・quality-audit へ結線
 
 
 ### [DN-0084] 建設部門BK・総監の有料境界を実ライブに整合（構成監査の偽陽性16本）

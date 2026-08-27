@@ -392,7 +392,7 @@ function runCheck(source) {
 
   if (fail) {
     console.error(`[check-codex-compat] ✗ FAIL\n${problems.join('\n')}`);
-    console.error('\n対処: npm run sync-codex-compat で再生成する（frontmatter不成立/skill名重複/symlink は先に手で直す）。');
+    console.error('\n対処: node scripts/sync-codex-compat.mjs --write で再生成する（frontmatter不成立/skill名重複/symlink は先に手で直す）。');
     return 1;
   }
   console.log('[check-codex-compat] ✓ PASS — AGENTS.md と .agents/skills は CLAUDE.md / .claude/skills と同期している');
