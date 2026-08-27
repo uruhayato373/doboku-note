@@ -17,12 +17,30 @@
 | note カバー PNG | — | 公開済み→`doboku-note` / 下書き→`doboku-note-archive` | frontmatter の `cover:` が原本だが **byte 再現はできない**（§6） |
 | note 配布 PDF | — | `doboku-note-archive` | 購入者限定の配布物を含む。公開バケットへは置かない |
 | IG レンダー画像 | — | 投稿済み→`doboku-note` / それ以外→`doboku-note-archive` | slide-data / SVG が SoT のレンダー成果物 |
-| 教材ページ画像・教材 PDF | — | `doboku-note-archive` | 書籍が原本。文字起こし .md と .svg が SSOT |
+| 教材ページ画像・教材 PDF | — | `doboku-note-archive` | 書籍が原本 |
+| 教材の文字起こし本文（.md/.html/派生 .svg 等） | — | private Google Drive vault（§1-1） | 書籍由来の著作権物。public repo には置かない |
 | note カバー SVG | — | — | satori の中間生成物。読むコードが無いので保存しない（`.tmp/` へ出す） |
 | IG reels の frames | — | 別系統 | `sns-archive-policy.md` と `upload-sns-r2` が管轄。この仕組みの対象外 |
 
 **公開バケットへ置かないもの**: 教材、購入者限定 PDF、未公開商品、draft 画像。
 `doboku-note-archive` にはカスタムドメインを付けない（S3 API だけで扱う）。
+
+### 1-1. 教材の文字起こし本文は private Google Drive vault
+
+`content/sources/textbook/**` の文字起こし本文（.md/.html）と派生図版は、書籍の著作権物をほぼそのまま
+含むため 2026-08-27 に public repo（`doboku-note`）の追跡から外し、`~/Google Drive/マイドライブ/
+doboku-note-private-sources/textbook/` へ移設した（stats47 の `stats47-private-sources/` と同じ命名規約）。
+`.gitignore` の `content/sources/textbook/**`（README.md だけ `!` で例外）が実体。
+
+- **新しい端末での復元**: Google Drive デスクトップアプリで同アカウントにログインし vault を同期 →
+  `content/sources/textbook/{各ディレクトリ}/` へコピー（詳細手順は
+  `content/sources/textbook/README.md`）
+- **ローカルの読者（`scripts/check-civil-practice-coverage.mjs` 等）**: untrack しても実体はローカルに
+  残るため、この Mac 上では従来どおり動く。CI・fresh clone では実体が無い前提でコードを書く
+  （現状これらのスクリプトはローカル専用運用で CI には配線されていない）
+- PDF・ページ画像（§1 表）は従来どおり private R2。今回動いたのは文字起こしテキスト側だけ
+- git 履歴には旧コミットの内容が残る。履歴書換え（force-push）は複数セッション並行環境で危険なため
+  未実施 — 必要なら別途、全 worktree 停止の単独作業として計画する
 
 ## 2. 端末の初期設定
 
