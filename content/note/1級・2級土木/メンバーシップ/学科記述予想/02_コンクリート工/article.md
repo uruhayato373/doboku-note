@@ -1,9 +1,12 @@
 ---
 notePricing: membership
-noteStatus: draft
+noteStatus: published
 noteSeries: 学科記述予想
 membershipOnly: true
 utmCampaign: civil-membership-gakka-concrete
+notePublishedAt: "2026-08-27"
+noteId: "n5714b90dade7"
+noteUrl: "https://note.com/dobokunote/n/n5714b90dade7"
 coverTitle: ["学科記述予想｜コンクリート工", "打込み・養生・暑中寒中"]
 cover:
   variant: crop-safe-v4
