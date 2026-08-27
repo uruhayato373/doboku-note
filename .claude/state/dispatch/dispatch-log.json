@@ -319,6 +319,18 @@
       "commit": "ce469cc3fa9f",
       "verification": "gh run 33035289328 success / asset-inbox release 0 件 / check-asset-storage の sha256 照合 5 件で不一致 3→0",
       "note": "publish step が git add 後に rebase する順序バグで常に失敗していた（R2 upload は成功・manifest だけ未commit）。commit→fetch→rebase へ修正し、同型を check-workflow-publish-ref の auditGitPublishOrder で静的に禁止。bot commit ce469cc3 が着地"
+    },
+    {
+      "id": "DN-0131",
+      "at": "2026-08-27",
+      "task": "YouTube 予約投入が 68 日止まり、未処理 187 件が滞留している",
+      "tier": "mid",
+      "executor": "claude-code",
+      "outcome": "done",
+      "plan": null,
+      "commit": "ea93e9fa6855",
+      "verification": "check-external-write-orphans: 検出0件・exit0（改修前は187件pendingでsilent-stop）",
+      "note": "ユーザー決定で187件を台帳退役(status:pending→retired・retiredAt/retiredReasonを付与)。再開判断はDN-0110の動画基盤設計で仕切り直す。①recorded_but_gone 6件は08-25実査済み"
     }
   ]
 }
