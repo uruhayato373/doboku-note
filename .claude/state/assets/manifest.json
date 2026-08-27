@@ -22276,12 +22276,12 @@
     },
     "content/note/1級・2級土木/メンバーシップ/学科記述予想/02_コンクリート工/img/cover.png": {
       "logicalPath": "content/note/1級・2級土木/メンバーシップ/学科記述予想/02_コンクリート工/img/cover.png",
-      "bucket": "private",
+      "bucket": "public",
       "r2Key": "note/covers/1級・2級土木/メンバーシップ/学科記述予想/02_コンクリート工/img/cover.png",
       "sha256": "0e7bd8c0755049b5f91c4ef44c681b18ce58757ad393e18f08e88277b9a801a2",
       "bytes": 1047224,
       "mime": "image/png",
-      "visibility": "private",
+      "visibility": "public",
       "regenerable": false,
       "generator": "scripts/generate-note-covers.mjs",
       "requiredBy": [
@@ -22290,7 +22290,7 @@
         "tools/admin-app（画像ギャラリー）"
       ],
       "group": "note-cover-png",
-      "verifiedAt": "2026-08-26T06:45:11.335Z",
+      "verifiedAt": "2026-08-27T03:10:27.020Z",
       "width": 1280,
       "height": 670
     },
