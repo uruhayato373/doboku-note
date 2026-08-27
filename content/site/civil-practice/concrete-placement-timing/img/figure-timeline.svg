@@ -1,0 +1,86 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="外気温25℃を境に変わる練混ぜから荷卸し・打込み終了・許容打重ね時間間隔までの限度時間と、凝結の始発・終結の目安">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-title { font-size: 14px; font-weight: bold; fill: #222; }
+      .t-label { font-size: 12px; fill: #555; }
+      .t-text  { font-size: 13px; fill: #222; }
+      .t-num   { font-size: 15px; font-weight: bold; fill: #1a3a5c; }
+      .box-brand    { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; }
+      .box-danger   { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; }
+      .box-surface  { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; }
+    </style>
+    <marker id="arrow-b" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#2e6da4"/>
+    </marker>
+    <marker id="arrow-d" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#b22234"/>
+    </marker>
+  </defs>
+
+  <!-- 列見出し -->
+  <rect class="box-brand" x="15" y="15" width="175" height="34" rx="6"/>
+  <text class="t-title" x="102" y="37" text-anchor="middle">外気温 25℃以下</text>
+
+  <rect class="box-danger" x="210" y="15" width="175" height="34" rx="6"/>
+  <text class="t-title" x="297" y="37" text-anchor="middle">外気温 25℃超</text>
+
+  <!-- 練混ぜ〜荷卸し 1.5h（共通） -->
+  <rect class="box-surface" x="15" y="65" width="175" height="52" rx="6"/>
+  <text class="t-label" x="27" y="86">練混ぜ〜荷卸し</text>
+  <text class="t-num" x="27" y="107">1.5 h</text>
+
+  <rect class="box-surface" x="210" y="65" width="175" height="52" rx="6"/>
+  <text class="t-label" x="222" y="86">練混ぜ〜荷卸し</text>
+  <text class="t-num" x="222" y="107">1.5 h</text>
+
+  <line x1="102" y1="117" x2="102" y2="140" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow-b)"/>
+  <line x1="297" y1="117" x2="297" y2="140" stroke="#b22234" stroke-width="1.5" marker-end="url(#arrow-d)"/>
+
+  <!-- 練混ぜ〜打込み終了 -->
+  <rect class="box-brand" x="15" y="145" width="175" height="52" rx="6"/>
+  <text class="t-label" x="27" y="166">練混ぜ〜打込み終了</text>
+  <text class="t-num" x="27" y="187">2.0 h</text>
+
+  <rect class="box-danger" x="210" y="145" width="175" height="52" rx="6"/>
+  <text class="t-label" x="222" y="166">練混ぜ〜打込み終了</text>
+  <text class="t-num" x="222" y="187">1.5 h</text>
+
+  <line x1="102" y1="197" x2="102" y2="220" stroke="#2e6da4" stroke-width="1.5" marker-end="url(#arrow-b)"/>
+  <line x1="297" y1="197" x2="297" y2="220" stroke="#b22234" stroke-width="1.5" marker-end="url(#arrow-d)"/>
+
+  <!-- 許容打重ね時間間隔 -->
+  <rect class="box-brand" x="15" y="225" width="175" height="52" rx="6"/>
+  <text class="t-label" x="27" y="246">許容打重ね時間間隔</text>
+  <text class="t-num" x="27" y="267">2.5 h</text>
+
+  <rect class="box-danger" x="210" y="225" width="175" height="52" rx="6"/>
+  <text class="t-label" x="222" y="246">許容打重ね時間間隔</text>
+  <text class="t-num" x="222" y="267">2.0 h</text>
+
+  <!-- 区切り線 -->
+  <line x1="15" y1="300" x2="385" y2="300" stroke="#d7d7d7" stroke-width="1"/>
+  <text class="t-label" x="200" y="322" text-anchor="middle">凝結の進み方（普通ポルトランドセメントの目安）</text>
+
+  <!-- 凝結タイムライン -->
+  <line x1="30" y1="380" x2="370" y2="380" stroke="#8a8a8a" stroke-width="1.5"/>
+  <circle cx="60" cy="380" r="5" fill="#2e6da4"/>
+  <circle cx="220" cy="380" r="5" fill="#3a7d44"/>
+  <circle cx="360" cy="380" r="5" fill="#555"/>
+
+  <text class="t-label" x="60" y="360" text-anchor="middle">練混ぜ</text>
+
+  <rect class="box-brand" x="120" y="395" width="150" height="60" rx="6"/>
+  <text class="t-label" x="195" y="415" text-anchor="middle">始発（2〜4h）</text>
+  <text class="t-num" x="195" y="436" text-anchor="middle" font-size="13">貫入抵抗 3.5 N/mm²</text>
+
+  <rect class="box-surface" x="285" y="395" width="95" height="60" rx="6"/>
+  <text class="t-label" x="332" y="415" text-anchor="middle">終結</text>
+  <text class="t-label" x="332" y="431" text-anchor="middle">（4〜6h）</text>
+  <text class="t-label" x="332" y="447" text-anchor="middle">28 N/mm²</text>
+
+  <text class="t-label" x="200" y="480" text-anchor="middle">練混ぜから終結までの時間の目安。外気温が高いほど早まる</text>
+</svg>
