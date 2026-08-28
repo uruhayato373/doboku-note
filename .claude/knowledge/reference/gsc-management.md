@@ -40,6 +40,7 @@ Google Search Console の継続管理（インデックス被覆・検索パフ�
 | `check-internal-links-vs-gsc` | Script（ゲート・オフライン） | **公開ページ**が GSC の 404/リダイレクト URL を指していないか（SSOT と全 MDX/src を突合）。旧 URL 件数を能動的に減らせる唯一のレバー | `gsc-ui/ssot` + MDX → exit 0/1 |
 | `gsc-request-indexing` | Script（ローカル手動・Playwright） | 未登録 URL を URL 検査で診断し、**インデックス登録をリクエスト**（既定 dry-run・`--commit` gate・上限 10 件/回）。crawled-not-indexed への直接レバー | SSOT → `gsc-indexing/{requests-latest,history}.json` |
 | `check-experiment-due` | Script（surfacer） | 実験台帳の再計測/close 期限（サイクルの最後の輪）。weekly-review が列挙 | `experiments.json` → DUE 一覧 |
+| `search-growth:cem-plan` | Script（月次・ローカル手動） | 総監 crawled-not-indexed の 5 分類再分類（下記「総監 CNI 5分類の運用ルール」） | URL Inspection 履歴 → `improvements/cem-index-consolidation-*.{json,md}` |
 | 機械履歴 | `index-coverage-history.json` | indexed_ratio の時系列 | CI が append |
 | 人間判断履歴 | 本 doc「観測・判断ログ」 | 何を打ち手にしたかの意思決定記録 | `/gsc-review` がユーザーと追記 |
 
@@ -119,6 +120,19 @@ URL Inspection の `coverage_state` と `page_fetch_state` から真因を切り
 | `代替ページ(canonical)` | 重複判定 | canonical 統合の意図と一致するか確認 |
 | index 済みなのに 90 日 imp=0 | 戦略資産集中の根拠 | 低価値ロングテールは強化対象外 |
 
+### 総監 CNI 5分類の運用ルール（search-growth:cem-plan）
+
+月次 URL Inspection（上記 CI cadence）後に `npm run search-growth:cem-plan` を実行し、総監
+crawled-not-indexed 母集合を `KEEP / IMPROVE / CONSOLIDATE / NOINDEX_REVIEW / MONITOR` へ再分類する。
+出力は `.claude/state/improvements/cem-index-consolidation-YYYY-MM-DD.{json,md}`。
+
+- **再分類**: `MONITOR` のうち **2 回連続で未登録**になった URL だけを再分類する（1 回では動かさない）
+- **CONSOLIDATE の承認ゲート**: CONSOLIDATE > 0 のときのみ、source / target / 残す固有情報 / 需要を
+  **最大 10 件**で提示し、**明示承認後に** pilot する。1 deploy 最大 10 source URL。メタ一括変更・
+  類似記事の新規量産・一括 noindex は禁止
+- **権威性レバー（独自データ）の効果判定**: 公開から 28 日で impressions / indexed、56 日で参照
+  ドメインまたは外部リンク獲得を判定する。量産は成果確認後に決める
+
 ### 補助ツール（深掘り時）
 
 - 母集合生成: `node .claude/scripts/list-sitemap-urls.mjs`（公開 sitemap → 全 URL・creds 不要）
@@ -143,6 +157,7 @@ URL Inspection の `coverage_state` と `page_fetch_state` から真因を切り
 | インデックス登録リクエストの記録（committed・**SSOT**） | `.claude/state/metrics/gsc-indexing/requests-latest.json` ＋ `history.json`（診断 state / reason / crawl・index 許可 / 送信結果）|
 | 実験台帳（committed） | `.claude/state/experiments.json`（`/nsm-experiment` が管理・`check-experiment-due` が期限判定）|
 | 検索流入 修正計画 | `.claude/state/improvements/search-growth-latest.md`（run JSON は gitignore） |
+| 総監 CNI 5分類の実行結果（committed） | `.claude/state/improvements/cem-index-consolidation-YYYY-MM-DD.{json,md}` |
 
 ## 観測・判断ログ（append-only・人間の意思決定記録）
 
