@@ -14,10 +14,10 @@
  *       追加して refresh-indexes を回せば、本スクリプト再実行で自動更新される。
  *       「正確な出題回数」ではなく「論点タグ付けベースの出題傾向指標」として提示する。
  */
-import { readFileSync, mkdirSync } from "node:fs";
+import { readFileSync, mkdirSync, existsSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
-import { writeMdxFile } from "../.claude/scripts/lib/mdx-io.mjs";
+import { readMdxFile, writeMdxFile } from "../.claude/scripts/lib/mdx-io.mjs";
 
 // fileURLToPath を使う: Windows では `new URL("..", import.meta.url).pathname` が
 // `/C:/Users/…` を返し、文字列連結すると `C:\C:\Users\…` になって ENOENT で落ちる。
@@ -27,8 +27,46 @@ const ROOT = fileURLToPath(new URL("..", import.meta.url));
 const BACKLINKS = join(ROOT, "src/config/past-exam-backlinks.json");
 const KEYWORD_2026 = join(ROOT, "content/site/pe-comprehensive-management/keyword-2026/article.mdx");
 const OUT = join(ROOT, "content/site/pe-comprehensive-management/frequent-topics/article.mdx");
+const CSV_OUT = join(ROOT, "public/data/pe-cem-frequent-topics.csv");
+const SITE_DIR = join(ROOT, "content/site/pe-comprehensive-management");
 
 const PREFIX = "pe-comprehensive-management-";
+
+// JST（会社PCのローカルTZ非依存で日付を出す。CI/ローカルどちらでも同じ結果にするため）
+// Date#getTime() は常に UTC epoch ミリ秒なので、getTimezoneOffset() で補正すると
+// ローカルTZ が既に JST のとき二重加算になる（9h 分ずれて翌日になるバグを実測で確認）。
+// 単純に UTC epoch へ 9 時間を足して UTC メソッドで読めば TZ 非依存で JST の日付になる。
+function todayJST() {
+  const jst = new Date(Date.now() + 9 * 60 * 60000);
+  const y = jst.getUTCFullYear();
+  const m = String(jst.getUTCMonth() + 1).padStart(2, "0");
+  const d = String(jst.getUTCDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+
+function csvEscape(v) {
+  const s = String(v ?? "");
+  return /[",\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s;
+}
+
+// 既存記事の frontmatter から created / dateModified / ogp を保全する。
+// このスクリプトはテンプレートで frontmatter を毎回組み立てるため、保全しないと
+// 再生成のたびに手作業で足した created/dateModified/ogp が消える。
+let preservedCreated = null;
+let preservedOgpBlock = null;
+let existingEol = "\n";
+if (existsSync(OUT)) {
+  const { raw, eol } = readMdxFile(OUT);
+  existingEol = eol;
+  const fmMatch = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/);
+  if (fmMatch) {
+    const fm = fmMatch[1];
+    const createdMatch = fm.match(/^created:\s*(.+)$/m);
+    if (createdMatch) preservedCreated = createdMatch[1].trim();
+    const ogpMatch = fm.match(/^ogp:\r?\n((?:  .+\r?\n?)+)/m);
+    if (ogpMatch) preservedOgpBlock = `ogp:\n${ogpMatch[1].trimEnd().split(/\r?\n/).map((l) => l).join("\n")}`;
+  }
+}
 
 // --- 1. keyword-2026 を解析: slug → {kanri, title} ---
 const kanriSections = [
@@ -147,6 +185,8 @@ tags:
 published: true
 publishedAt: '2026-06-23'
 seoTitle: "総合技術監理 出題傾向・頻出論点ランキング｜${yearSpan}年度${totalQuestions}問を5管理で集計【技術士総監】"
+created: ${preservedCreated || todayJST()}
+dateModified: ${todayJST()}${preservedOgpBlock ? `\n${preservedOgpBlock}` : ""}
 ---`;
 
 const body = `本ページは、技術士総合技術監理部門の**第一次・択一式（必須科目Ⅰ）過去問を${yearRange}の${yearSpan}年度分**にわたり収集し、各設問を論点キーワードに分類して**出現頻度を集計した独自の出題傾向データ**である。対象は ${totalQuestions} 問、分類した論点は ${totalTopics}、延べ ${totalLinks} 件の論点–設問リンクを基礎データとする。
@@ -174,6 +214,8 @@ ${kanriBlocks}
 - **基礎データ**: 当サイトが文字起こしした技術士総合技術監理部門 択一過去問（${yearRange}）。各設問は[総合技術監理 キーワード集 2026](/docs/pe-comprehensive-management-keyword-2026)の論点体系に沿って分類した。
 - **集計**: 論点ごとの設問紐づけ件数・出題年度を機械集計（\`scripts/build-frequent-topics.mjs\`）。新年度の過去問を追加すると自動で更新される。
 - 各論点名のリンク先は、その論点の定義・過去問・試験対策ポイントをまとめた個別解説ページである。
+- **カバー率**: キーワード集掲載 ${slugMeta.size} 論点のうち出題実績（本データの出現）を持つのは ${totalTopics}（${((totalTopics / slugMeta.size) * 100).toFixed(1)}%）。5 管理への分類率は ${((topics.filter((t) => t.kanri !== "その他").length / totalTopics) * 100).toFixed(1)}%（未分類は「その他」に計上）。
+- **全 ${totalTopics} 論点の集計データ**は [CSV でダウンロード](/data/pe-cem-frequent-topics.csv) できる（出典リンクの明記を条件に引用・転載可）。
 
 <Callout type="note" title="関連ページ">
 - [総合技術監理 キーワード集 2026](/docs/pe-comprehensive-management-keyword-2026) — 5管理600+論点の全文解説
@@ -192,7 +234,22 @@ if (process.argv.includes('--check')) {
 }
 
 mkdirSync(dirname(OUT), { recursive: true });
-writeMdxFile(OUT, `${frontmatter}\n\n${body}`);
+writeMdxFile(OUT, `${frontmatter}\n\n${body}`, existingEol);
 console.log(`[build-frequent-topics] wrote ${OUT}`);
 console.log(`  topics=${totalTopics} questions=${totalQuestions} links=${totalLinks}`);
 console.log(`  TOP5: ${ranked.slice(0, 5).map((t) => `${t.title}(${t.count})`).join(", ")}`);
+
+// --- 4. CSV 全量出力（562 論点。ページURL は記事ディレクトリが実在する slug のみ埋める） ---
+const csvHeader = ["slug", "論点名", "5管理分類", "出現回数", "出題年度数", "直近出題年度", "出題年度リスト", "ページURL"];
+const csvRows = ranked.map((t) => {
+  const dirExists = existsSync(join(SITE_DIR, t.slug));
+  const url = dirExists ? `https://doboku-note.com/docs/${PREFIX}${t.slug}` : "";
+  return [t.slug, t.title, t.kanri, t.count, t.yearsCount, t.latestYear, t.years.join(";"), url];
+});
+const csvContent =
+  "﻿" +
+  [csvHeader, ...csvRows].map((row) => row.map(csvEscape).join(",")).join("\r\n") +
+  "\r\n";
+mkdirSync(dirname(CSV_OUT), { recursive: true });
+writeFileSync(CSV_OUT, csvContent, "utf-8");
+console.log(`[build-frequent-topics] wrote ${CSV_OUT}（${csvRows.length} 行）`);

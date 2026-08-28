@@ -266,7 +266,7 @@
     "quality:audit:ci": "node scripts/quality-audit.mjs --ci",
     "check-external-write-orphans": "node scripts/check-external-write-orphans.mjs",
     "record-monthly-snapshot": "node scripts/record-monthly-snapshot.mjs",
-    "refresh-indexes": "npm run build-backlinks && npm run build-indexes && npm run build-keyword-relations && npm run build-pillar-exam-questions && npm run build-popular-pages",
+    "refresh-indexes": "npm run build-backlinks && npm run build-indexes && npm run build-keyword-relations && npm run build-pillar-exam-questions && npm run build-popular-pages && npm run build-frequent-topics",
     "render-figure-sns": "node .claude/scripts/sns/render-figure-sns.mjs",
     "report-buildjob-affiliate": "node .claude/scripts/report-buildjob-affiliate.mjs",
     "report-career-funnel": "node .claude/scripts/report-career-funnel.mjs",
