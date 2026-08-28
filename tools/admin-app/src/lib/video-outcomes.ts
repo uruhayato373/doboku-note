@@ -63,6 +63,14 @@ export interface VideoOutcomes {
   };
   /** パックに紐づかない campaign（note/X 等の既存 UTM。参考表示用） */
   otherCampaigns: { campaign: string; sessions: number; activeUsers: number }[];
+  /** 公開実体の照合（verify-video-publication が CI で書く記録）。未実行と異常0件を区別する */
+  verification: {
+    exists: boolean;
+    verifiedAt: string | null;
+    ageDays: number | null;
+    checked: number;
+    findings: { id: string; code: string; message: string }[];
+  };
 }
 
 interface StateDerivative {
@@ -100,6 +108,33 @@ function readState(): Record<string, { derivatives?: Record<string, StateDerivat
     return j.packs ?? {};
   } catch {
     return {};
+  }
+}
+
+interface VerifyRecord {
+  verifiedAt?: string;
+  checked?: number;
+  findings?: { id: string; code: string; message: string }[];
+}
+
+/** CI が書く公開実体の照合記録。無い＝まだ一度も実査していない（0 件と混同しない）。 */
+function readVerification(): VideoOutcomes['verification'] {
+  const p = repoPath('.claude', 'state', 'video-publication-verify.json');
+  if (!existsSync(p)) {
+    return { exists: false, verifiedAt: null, ageDays: null, checked: 0, findings: [] };
+  }
+  try {
+    const j = JSON.parse(readFileSync(p, 'utf8')) as VerifyRecord;
+    const at = j.verifiedAt ?? null;
+    return {
+      exists: true,
+      verifiedAt: at,
+      ageDays: at ? Math.floor((Date.now() - new Date(at).getTime()) / 86_400_000) : null,
+      checked: j.checked ?? 0,
+      findings: j.findings ?? [],
+    };
+  } catch {
+    return { exists: false, verifiedAt: null, ageDays: null, checked: 0, findings: [] };
   }
 }
 
@@ -195,7 +230,7 @@ export function videoOutcomes(): VideoOutcomes {
       a.packId.localeCompare(b.packId),
   );
 
-  return { rows, metrics, otherCampaigns };
+  return { rows, metrics, otherCampaigns, verification: readVerification() };
 }
 
 export { STAGE_LABELS };

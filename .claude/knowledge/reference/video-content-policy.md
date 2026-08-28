@@ -206,7 +206,7 @@ manifest parse失敗、sourceRefs未解決、status parse失敗はFAIL（PASSに
 
 **Shorts 台帳（`.claude/state/youtube-schedule.json`）は動画パックと別系統**。IG 過去問パック由来のレガシー 200 本で、item に packId も relatedVideoId も持たない。DN-0110 以降の派生 Shorts は `video-content-status.json` の `derivatives.shorts[]` に入る。画面では 2 つを同じ表に混ぜない（混ぜると「動画パックの Shorts が 200 本ある」と誤読する）。
 
-未実装: 派生物ごとの公開実体の自動照合（現状は `verify-yt-status` 等の CLI 実行後に state へ手で反映）。
+**公開実体の照合**は 2 本立て。実査 `verify-video-publication`（CI 週次＝`verify-yt-status.yml` に同居・creds 必須）が videos.list で削除/非公開・概要欄の `utm_campaign={packId}`/`utm_source=youtube` 欠落・公開済み Short の `relatedVideoId` 未設定を検出し `.claude/state/video-publication-verify.json` へ記録する。**creds 不足・API 失敗は 記録を書かずに exit 2（検査不成立）**——「creds が無い」を「異常なし」と記録すると以後ずっと緑が出て事故が埋もれるため。ゲート `check-video-publication`（オフライン・quality:audit ci:true）はその記録の有無・網羅・鮮度（既定 14 日）・孤児・報告済みドリフトを見る。**published なのに一度も照合していない**状態が最も危険なので V01 で赤にする。対象 0 件（公開前）は件数を明示して PASS（異常 0 件と混同しない）。是正は人が判断し、スクリプトは台帳を書き戻さない。
 
 - ソース未取得と0件を区別
 - 企画・派生・公開・計測を同じ行で追える

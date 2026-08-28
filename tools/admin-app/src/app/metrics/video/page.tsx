@@ -13,7 +13,7 @@ export const dynamic = 'force-dynamic';
  * **未取得と 0 件を区別**して表示し、未取得のときに全件 0 の緑を出さない。
  */
 export default async function VideoOutcomesPage() {
-  const { rows, metrics, otherCampaigns } = videoOutcomes();
+  const { rows, metrics, otherCampaigns, verification } = videoOutcomes();
   const published = rows.filter((r) => r.anyPublished);
   const measurable = metrics.ok ? published.filter((r) => (r.sessions ?? 0) > 0).length : null;
 
@@ -55,6 +55,48 @@ export default async function VideoOutcomesPage() {
             <p className="muted small">
               このため送客列は「0」ではなく「—」で表示している（未取得と流入ゼロを混同しない）。
             </p>
+          </>
+        )}
+      </div>
+
+      <div className="card">
+        <h2>
+          公開実体の照合
+          <span className="sub">verify-video-publication（CI 週次）· .claude/state/video-publication-verify.json</span>
+        </h2>
+        {!verification.exists ? (
+          <>
+            <p className="badge neutral">未実行</p>
+            <p className="muted small">
+              まだ一度も実査していない。公開済みの派生物が出たら CI（🔎 Verify YouTube publish status）が
+              毎週照合し、削除・非公開・概要欄の UTM 欠落・Short の関連動画未設定を検出する。
+            </p>
+          </>
+        ) : (
+          <>
+            <div className="filterbar">
+              <span className={'badge ' + (verification.findings.length ? 'bad' : 'good')}>
+                {verification.findings.length ? `ドリフト ${verification.findings.length} 件` : 'ドリフトなし'}
+              </span>
+              <span className="badge neutral">照合 {verification.checked} 件</span>
+              <span className={'badge ' + ((verification.ageDays ?? 0) > 14 ? 'warn' : 'neutral')}>
+                {verification.ageDays === null ? '日時不明' : `${verification.ageDays} 日前`}
+              </span>
+            </div>
+            {verification.checked === 0 && (
+              <p className="muted small">
+                照合対象 0 件（公開済みの派生物がまだ無い）。異常 0 件とは異なる。
+              </p>
+            )}
+            {verification.findings.length > 0 && (
+              <ul className="small">
+                {verification.findings.map((f, i) => (
+                  <li key={i}>
+                    <span className="mono">{f.id}</span> [{f.code}] {f.message}
+                  </li>
+                ))}
+              </ul>
+            )}
           </>
         )}
       </div>
