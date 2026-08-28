@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-koji-ga-nai",
+  "exam": "civil-construction-2",
+  "title": "「書ける工事が無い」と感じたら",
+  "audience": "経験が浅く題材に自信が持てない2級土木受検者",
+  "pain": "小規模工事しか経験がなく題材にできるか不安",
+  "promise": "小規模でも成立する題材の見つけ方と組み立てが分かる",
+  "intent": "diagnosis",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-koji-bank",
+    "campaign": "keiken-koji-ga-nai"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

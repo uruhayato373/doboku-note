@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-network-koteihyo",
+  "exam": "civil-construction-1",
+  "title": "ネットワーク式工程表の解き方",
+  "audience": "1級土木の工程管理でネットワーク計算に詰まる受験者",
+  "pain": "クリティカルパスや余裕日数の計算手順が定着しない",
+  "promise": "設問を解く手順を固定化して確実に得点できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-network-schedule/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "gakka-network-koteihyo"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

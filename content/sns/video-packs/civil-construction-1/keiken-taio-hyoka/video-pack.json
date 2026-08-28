@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-taio-hyoka",
+  "exam": "civil-construction-1",
+  "title": "対応処置と評価は数値で締める",
+  "audience": "1級土木の施工経験記述で結果の書き方に迷う受検者",
+  "pain": "対応処置が結果の羅列になり評価の書き方も分からない",
+  "promise": "管理基準と数値を入れた処置と評価3〜4行の締め方が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-experience-essay",
+    "campaign": "keiken-taio-hyoka"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

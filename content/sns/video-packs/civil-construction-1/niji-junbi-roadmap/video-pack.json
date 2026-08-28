@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "niji-junbi-roadmap",
+  "exam": "civil-construction-1",
+  "title": "一次のあとに始める二次検定ロードマップ",
+  "audience": "一次検定を終えて二次対策を始める1級土木受検者",
+  "pain": "二次まで何をどの順で準備すればよいか分からない",
+  "promise": "経験記述と学科記述の準備順序と配分が分かる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-niji-marugoto-pack",
+    "campaign": "niji-junbi-roadmap"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

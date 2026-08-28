@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-histogram",
+  "exam": "civil-construction-1",
+  "title": "ヒストグラムと工程能力図の読み方",
+  "audience": "1級土木の品質管理で図表問題を落とす受験者",
+  "pain": "ヒストグラムの形状や規格値との関係の読み取りが不安",
+  "promise": "形状パターン別の判断と設問の着眼点が分かる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-histogram/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "gakka-histogram"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

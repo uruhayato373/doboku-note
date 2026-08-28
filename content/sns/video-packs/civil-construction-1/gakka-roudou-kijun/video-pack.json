@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-roudou-kijun",
+  "exam": "civil-construction-1",
+  "title": "労働基準法の頻出 — 就業制限と労働時間",
+  "audience": "1級土木の法規で労働基準法を後回しにしている受験者",
+  "pain": "年少者・女性の就業制限や労働時間の規定が整理できない",
+  "promise": "表で問われる就業制限の頻出パターンが分かる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-anki-note",
+    "campaign": "gakka-roudou-kijun"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

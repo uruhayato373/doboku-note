@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-kento-kakikata",
+  "exam": "civil-construction-1",
+  "title": "検討項目の書き方 — 「解決方法」と書かない",
+  "audience": "1級土木の施工経験記述で検討欄が薄くなる受検者",
+  "pain": "検討した項目と理由をどう分けて書けばよいか分からない",
+  "promise": "課題は短く・検討理由と内容は長く書く配分が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "coconala-service",
+    "targetId": "coconala-tensaku-set",
+    "campaign": "keiken-kento-kakikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

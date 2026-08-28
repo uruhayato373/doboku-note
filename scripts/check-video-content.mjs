@@ -31,6 +31,8 @@ const result = checkAll(ROOT, { config });
 
 const fails = result.issues.filter((i) => i.severity === 'FAIL');
 const warns = result.issues.filter((i) => i.severity === 'WARN');
+const infos = result.issues.filter((i) => i.severity === 'INFO');
+const verbose = args.has('--verbose');
 
 let exitCode = 0;
 let verdict;
@@ -52,9 +54,10 @@ if (asJson) {
 } else {
   console.log(`check-video-content: パック ${result.packCount} 件中 ${result.checkedCount} 件を検査（state: ${result.stateExists ? 'あり' : 'なし'}）`);
   for (const i of result.issues) {
+    if (i.severity === 'INFO' && !verbose) continue; // 企画のみ(draft)の未着手通知は --verbose でだけ列挙
     console.log(`  [${i.severity}] ${i.code} ${i.packId ?? '-'}: ${i.message}`);
   }
-  console.log(`結果: ${verdict}（FAIL ${fails.length} / WARN ${warns.length}）`);
+  console.log(`結果: ${verdict}（FAIL ${fails.length} / WARN ${warns.length} / INFO ${infos.length}${verbose ? '' : '・INFO の内訳は --verbose'}）`);
 }
 
 process.exit(exitCode);

@@ -81,6 +81,7 @@ test('invalid fixture: 各違反コードが検出される', () => {
     'T07', // approved 以降なのに approvedBy 無し
     'T08', // pack 一括 status
     'T09', // measured なのに measuredAt 無し
+    'R01', // README index が無い
   ];
   for (const c of expected) {
     assert.ok(codes.has(c), `期待コード ${c} が検出されていない。検出済み: ${[...codes].join(',')}`);
@@ -142,10 +143,30 @@ test('パック内の mp4 混入 → F04（fixture には binary を置かず te
       outputs: { longform: true },
     }));
     writeFileSync(join(packDir, 'render.mp4'), '');
+    writeFileSync(
+      join(root, 'content', 'sns', 'video-packs', 'README.md'),
+      '| packId |\n|---|\n| `temp-pack` |\n',
+    );
     const r = checkAll(root, { config });
     const codes = codesOf(r);
     assert.ok(codes.has('F04'));
     assert.deepEqual([...codes], ['F04'], '想定外の FAIL が混ざっている');
+  } finally {
+    rmSync(root, { recursive: true, force: true });
+  }
+});
+
+test('README index の鮮度: 未掲載パック→R02・孤児行→R03', () => {
+  const root = mkdtempSync(join(tmpdir(), 'vc-index-'));
+  try {
+    cpSync(join(FIXTURES, 'valid'), root, { recursive: true });
+    const readmePath = join(root, 'content', 'sns', 'video-packs', 'README.md');
+    // 孤児行を足し、実在パックの行を消す
+    writeFileSync(readmePath, '| packId |\n|---|\n| `ghost-listed-pack` |\n');
+    const r = checkAll(root, { config });
+    const codes = codesOf(r);
+    assert.ok(codes.has('R02'), 'R02（未掲載）が出ていない');
+    assert.ok(codes.has('R03'), 'R03（孤児行）が出ていない');
   } finally {
     rmSync(root, { recursive: true, force: true });
   }

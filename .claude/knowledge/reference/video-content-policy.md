@@ -20,6 +20,8 @@ title: 動画コンテンツ運用ポリシー
 
 制作意図と可変状態を同じJSONに保存しない。既存 `.claude/state/youtube-schedule.json` はShorts投稿台帳として残し、reconcileで共通statusへjoinする。
 
+企画バンクの一覧は `content/sns/video-packs/README.md`（**生成物**・`npm run build-video-pack-index` で再生成・手編集しない）。運営管理画面の汎用コンテンツブラウザ `/content/content~sns/video-packs` がこれを描画する（Phase 3 の専用ビュー `/content/video` までの暫定管理面）。鮮度は `check-video-content` の R 系検査（R01 欠落／R02 未掲載／R03 孤児行）が守る。manifest だけの「企画のみ」パックは正常な draft であり、script/storyboard の欠落は INFO 扱い（qa_passed 以降で欠けたら FAIL）。
+
 ## 2. `video-pack.json` 最小契約
 
 ```json

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "packId": "gyoumu-keirekihyo",
+  "exam": "pe-comprehensive-management",
+  "title": "業務経歴票の書き方 — 出願でつまずかない",
+  "audience": "総監の受験申込を準備する受験者",
+  "pain": "経歴票に何をどう書けば監理経験として認められるか不安",
+  "promise": "経歴票の書き方の留意点が出願前に分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "gyoumu-keirekihyo"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

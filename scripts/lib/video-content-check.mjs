@@ -260,7 +260,8 @@ function checkCta(m, id, root, config, issues) {
 function checkStoryboard(pack, id, root, config, required, issues) {
   const sbPath = join(pack.dir, 'storyboard.json');
   if (!existsSync(sbPath)) {
-    issues.push(issue(required ? 'FAIL' : 'WARN', 'B00', id, `storyboard.json が無い${required ? '（qa_passed 以降の状態なのに）' : '（draft 段階なら許容）'}`));
+    // draft（企画のみ）の欠落は INFO＝正常な未着手。qa_passed 以降で無いのは契約違反。
+    issues.push(issue(required ? 'FAIL' : 'INFO', 'B00', id, `storyboard.json が無い${required ? '（qa_passed 以降の状態なのに）' : '（企画のみ・draft 段階なら正常）'}`));
     return;
   }
   const { data: sb, error } = readJsonSafe(sbPath);
@@ -319,7 +320,7 @@ function checkStoryboard(pack, id, root, config, required, issues) {
 function checkScript(pack, id, root, config, required, resolvedRefs, issues) {
   const scriptPath = join(pack.dir, 'script.md');
   if (!existsSync(scriptPath)) {
-    issues.push(issue(required ? 'FAIL' : 'WARN', 'P00', id, `script.md が無い${required ? '（qa_passed 以降の状態なのに）' : '（draft 段階なら許容）'}`));
+    issues.push(issue(required ? 'FAIL' : 'INFO', 'P00', id, `script.md が無い${required ? '（qa_passed 以降の状態なのに）' : '（企画のみ・draft 段階なら正常）'}`));
     return;
   }
   const text = readFileSync(scriptPath, 'utf8');
@@ -427,6 +428,25 @@ export function checkAll(root, { config } = {}) {
 
   const knownPackIds = new Set(seenPackIds.keys());
   const { exists: stateExists, progress } = checkState(root, cfg, knownPackIds, issues);
+
+  // README index（build-video-pack-index の生成物）の鮮度。回し忘れ＝管理画面と実体のずれを止める
+  if (packs.length > 0) {
+    const readmePath = join(root, cfg.paths.packsRoot, 'README.md');
+    if (!existsSync(readmePath)) {
+      issues.push(issue('FAIL', 'R01', null, `${cfg.paths.packsRoot}/README.md が無い（npm run build-video-pack-index で生成）`));
+    } else {
+      const readme = readFileSync(readmePath, 'utf8');
+      const listed = new Set(
+        [...readme.matchAll(/^\| `([a-z0-9][a-z0-9-]+)`/gm)].map((m) => m[1]),
+      );
+      for (const id of knownPackIds) {
+        if (!listed.has(id)) issues.push(issue('FAIL', 'R02', id, 'README index に載っていない（npm run build-video-pack-index を回し忘れ）'));
+      }
+      for (const id of listed) {
+        if (!knownPackIds.has(id)) issues.push(issue('FAIL', 'R03', id, 'README index の孤児（パック削除後に index 未再生成）'));
+      }
+    }
+  }
 
   const qaPassedIdx = cfg.state.statusEnum.indexOf('qa_passed');
   for (const { pack, m } of manifests) {

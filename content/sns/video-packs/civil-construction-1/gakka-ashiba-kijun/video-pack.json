@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-ashiba-kijun",
+  "exam": "civil-construction-1",
+  "title": "足場の安全基準は数字で問われる",
+  "audience": "1級土木の安全管理で法規の数値を落とす受験者",
+  "pain": "作業床の幅・隙間・手すり高さなどの数値が覚えきれない",
+  "promise": "出題される数値だけに絞った覚え方が分かる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-anki-note",
+    "campaign": "gakka-ashiba-kijun"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

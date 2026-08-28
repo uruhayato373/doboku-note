@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "kata-oudan-ryuyo",
+  "exam": "pe-comprehensive-management",
+  "title": "1つの論文パターンを複数年度へ流用する",
+  "audience": "年度ごとにゼロから論文を作っている総監受験者",
+  "pain": "過去問ごとに別の答案を用意する準備量に耐えられない",
+  "promise": "1パターンを設問の差分だけ調整して流用する手順が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/essay-pattern-cross-year-application/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "essay-core-pack",
+    "campaign": "kata-oudan-ryuyo"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}
