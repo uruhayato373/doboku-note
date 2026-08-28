@@ -98,6 +98,9 @@ export const ADMIN_CHANNELS: readonly AdminChannel[] = [
     sourcePath: 'content/sns/youtube',
     enabled: true,
     tabs: [
+      // 企画（通常動画の video-pack）は content/sns/video-packs が SSOT。youtube/ は
+      // Shorts 派生物の置き場で実体は R2 のため、企画一覧はボードで見る（DN-0110）。
+      { href: '/content/video', label: '動画パック', match: '/content/video' },
       {
         href: '/content/content~sns/youtube',
         label: 'ファイル',
@@ -122,8 +125,14 @@ export const ADMIN_CHANNELS: readonly AdminChannel[] = [
     id: 'kindle',
     label: 'Kindle',
     sourcePath: 'content/kindle',
+    // 専用 read-only 画面が /content/kindle にできた（brain と同型）。
     enabled: true,
     tabs: [
+      {
+        href: '/content/kindle',
+        label: '書籍',
+        match: '/content/kindle',
+      },
       {
         href: '/content/content~kindle',
         label: 'ファイル',

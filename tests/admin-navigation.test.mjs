@@ -66,6 +66,26 @@ test('brain channel は Phase 04 で有効化され、/content/brain タブを�
   });
 });
 
+test('kindle channel は専用画面タブ + ファイルタブを持つ', () => {
+  const out = tsx(`
+    import { channelById } from './tools/admin-app/src/lib/channel-registry.ts';
+    const kindle = channelById('kindle');
+    process.stdout.write(JSON.stringify({
+      enabled: kindle?.enabled,
+      sourcePath: kindle?.sourcePath,
+      tabs: kindle?.tabs.map((t) => ({ href: t.href, match: t.match })),
+    }));
+  `);
+  assert.deepEqual(JSON.parse(out), {
+    enabled: true,
+    sourcePath: 'content/kindle',
+    tabs: [
+      { href: '/content/kindle', match: '/content/kindle' },
+      { href: '/content/content~kindle', match: '/content/content~kindle' },
+    ],
+  });
+});
+
 test('X / Instagram の gallery/sns タブは query だけが異なり、pathname だけでは排他評価できる', () => {
   const out = tsx(`
     import { channelById } from './tools/admin-app/src/lib/channel-registry.ts';
