@@ -32,7 +32,7 @@
 
 ## 主CTA
 
-三層の型と設問3の国家施策、R8予想問題をまとめた記述式コアパックを用意しています。概要欄のリンクからどうぞ。
+5管理対立の型（クロストレードオフ）と設問3の国家施策、R8予想問題をまとめた記述式コアパックを用意しています。概要欄のリンクからどうぞ。
 
 - CTA: catalog `essay-core-pack`（utm_campaign=monbun-yomikata / utm_content=longform で公開時に解決）
 

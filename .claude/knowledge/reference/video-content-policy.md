@@ -92,6 +92,8 @@ title: 動画コンテンツ運用ポリシー
 
 Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺を混同しない。推奨尺はフォーマット別policyに置く。
 
+16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points', heading, items[] }` で持ち、試験色は exam-palette（note-cover-tokens.json）を解決する。出力は `.tmp/video-render/{packId}/`（PNG・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は Mac または GitHub Actions で同コマンドを完走させる。
+
 ## 5. 状態モデル
 
 共通statusは次の順序を基本とする。

@@ -36,7 +36,7 @@
 
 ## 主CTA
 
-頻出6ペアの解決フレームを論文の型として使える形にした有料マガジンを用意しています。概要欄のリンクからどうぞ。
+頻出6ペアを含む、5管理の組み合わせ20セルを全網羅したクロストレードオフのマガジンを用意しています。概要欄のリンクからどうぞ。
 
 - CTA: catalog `tradeoff-5kanri`（utm_campaign=gokanri-tradeoff / utm_content=longform で公開時に解決）
 

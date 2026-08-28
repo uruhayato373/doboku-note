@@ -8,8 +8,7 @@
   "promise": "自分の現場の言葉に置き換える3つの直し方が分かる",
   "intent": "diagnosis",
   "sourceRefs": [
-    { "type": "site", "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx" },
-    { "type": "site", "path": "content/site/civil-construction-2/guide-safety-management/article.mdx" }
+    { "type": "site", "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx" }
   ],
   "primaryCta": {
     "kind": "coconala-service",

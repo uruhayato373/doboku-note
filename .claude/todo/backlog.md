@@ -189,7 +189,7 @@ seoTitle変更を実験化するかをユーザーと決める。**推測でtitl
 - Shortsは関連通常動画へ送り、通常動画のクリック可能な概要欄からサイト/note/ココナラへ送客する。1動画1主CTA
 - 契約の機械可読SSOT＝`.claude/config/video-content.json`、ゲート＝`npm run check-video-content`（quality:audit ci登録済み・fixture＝`tests/fixtures/video-content/`）。schema/状態/UTM を変えるときは config・policy・fixture・checker を同一 commit で同期
 
-**Phase 1 — 手動pilot 4本**: 16:9 renderer・字幕・音声の最小経路を実装。1級/2級土木施工経験記述2本＋技術士総監2本を制作し、各通常動画からShorts 2本・IG 1組・X 1スレッドを派生。公開前に機械ゲート、独立QA、ユーザー承認を通し、公開後に実URL・videoId・関連動画・CTAを再照合する。
+**Phase 1 残 — pilot 4本の音声/mp4と派生**: pilot 4パック（koji-gaiyo-7items／anzen-ippanron-3riyu／gokanri-tradeoff／monbun-yomikata）は制作・機械ゲート・独立QA（6軸 avg2.67-2.83・BLOCK 0）まで完了し state=qa_passed。残り＝(1) VOICEVOX+ffmpeg のある環境（Mac/Actions）で `npm run render-longform` を完走させ mp4/wav を生成→R2退避、(2) QA横断指摘の反映＝出典記事の既存SVG図版（figure-tradeoff-frequency-matrix 等）を scene visual に埋め込める renderer 拡張（現状 text-list のみで軸4が全パック2点）、(3) 各通常動画から Shorts 2本・IG 1組・X 1スレッドを派生、(4) ユーザー承認（approved は user のみ）→公開→実URL・videoId・関連動画・CTA 再照合。
 
 **Phase 2 — skill/agents**: 薄い`/video-content` skillと上記2agentを新設。生成→機械ゲート→独立QA→承認待ちで停止し、レンダリング・R2・投稿は既存CLI/workflowへ委譲する。skills/agents registry、coupling gate、責務境界テストを同時更新。
 

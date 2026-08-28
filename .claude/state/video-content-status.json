@@ -3,22 +3,34 @@
   "packs": {
     "koji-gaiyo-7items": {
       "derivatives": {
-        "longform": { "status": "draft" }
+        "longform": {
+          "status": "qa_passed",
+          "qa": { "avg": 2.67, "blocks": 0, "at": "2026-08-28", "by": "general-purpose (video-content-qa 代行・6軸)" }
+        }
       }
     },
     "anzen-ippanron-3riyu": {
       "derivatives": {
-        "longform": { "status": "draft" }
+        "longform": {
+          "status": "qa_passed",
+          "qa": { "avg": 2.83, "blocks": 0, "at": "2026-08-28", "by": "general-purpose (video-content-qa 代行・6軸)" }
+        }
       }
     },
     "gokanri-tradeoff": {
       "derivatives": {
-        "longform": { "status": "draft" }
+        "longform": {
+          "status": "qa_passed",
+          "qa": { "avg": 2.67, "blocks": 0, "at": "2026-08-28", "by": "general-purpose (video-content-qa 代行・6軸)" }
+        }
       }
     },
     "monbun-yomikata": {
       "derivatives": {
-        "longform": { "status": "draft" }
+        "longform": {
+          "status": "qa_passed",
+          "qa": { "avg": 2.67, "blocks": 0, "at": "2026-08-28", "by": "general-purpose (video-content-qa 代行・6軸)" }
+        }
       }
     }
   }

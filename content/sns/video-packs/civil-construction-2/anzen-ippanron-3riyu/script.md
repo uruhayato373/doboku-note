@@ -35,4 +35,3 @@
 ## 出典一覧
 
 - content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx
-- content/site/civil-construction-2/guide-safety-management/article.mdx
