@@ -301,17 +301,49 @@ try {
     if (asin) await page.goto(`https://kdp.amazon.co.jp/ja_JP/title-setup/kindle/${asin}/details`, { waitUntil: 'domcontentloaded', timeout: 60000 });
     await page.waitForSelector('#data-title', { timeout: 30000 }).catch(() => {});
     await sleep(1500);
-    for (const sel of ['button:has-text("カテゴリーを選択")', 'text=カテゴリーを選択']) { try { const l = page.locator(sel); if (await l.count()) { await l.first().click({ timeout: 8000 }); break; } } catch {} }
+    // 既存ドラフト（カテゴリー設定済みの再オープン）は「カテゴリーを編集」、未設定の新規は
+    // 「カテゴリーを選択」。両方試す（2026-08-28・保存済みドラフトで前者のみ出ることを実測）。
+    for (const sel of ['button:has-text("カテゴリーを編集")', 'button:has-text("カテゴリーを選択")', 'text=カテゴリーを選択']) {
+      try { const l = page.locator(sel); if (await l.count()) { await l.first().click({ timeout: 8000 }); break; } } catch {}
+    }
     await sleep(3000);
-    const dump = async (tag) => {
-      const info = await page.evaluate(() => Array.from(document.querySelectorAll('select[name^="react-aui-"]')).map((s, i) => ({ i, value: (s.selectedOptions[0] || {}).text || '', opts: Array.from(s.options).map((o) => o.text).slice(0, 20) })));
-      console.log(`[diag] (${tag})`); info.forEach((s) => console.log(`   [${s.i}] "${s.value}" :: ${s.opts.join(' / ')}`));
+    const dumpSelects = async (tag) => {
+      const info = await page.evaluate(() => Array.from(document.querySelectorAll('select[name^="react-aui-"]')).map((s, i) => ({ i, value: (s.selectedOptions[0] || {}).text || '', opts: Array.from(s.options).map((o) => o.text).slice(0, 30) })));
+      console.log(`[diag] selects (${tag})`); info.forEach((s) => console.log(`   [${s.i}] "${s.value}" :: ${s.opts.join(' / ')}`));
     };
-    await dump('open');
-    const pick = async (lvl, label) => { try { await page.locator('select[name^="react-aui-"]').nth(lvl).selectOption({ label }); console.log(`[diag] L${lvl} <- ${label}`); } catch (e) { console.log(`[diag] L${lvl} 失敗`); } await sleep(2500); };
+    const dumpLeafBoxes = async (tag) => {
+      const boxes = await page.evaluate(() => Array.from(document.querySelectorAll('input[type="checkbox"]')).map((c) => {
+        const lab = c.closest('label') || document.querySelector(`label[for="${c.id}"]`) || c.parentElement;
+        return { label: (lab ? lab.innerText : '').trim().slice(0, 60), checked: c.checked };
+      }).filter((b) => b.label));
+      console.log(`[diag] 「場所」候補 (${tag}): ${boxes.length} 件`); boxes.forEach((b) => console.log(`   [${b.checked ? 'x' : ' '}] ${b.label}`));
+    };
+    // Playwright の selectOption() は native の change イベントしか発火せず、この KDP の
+    // カスケード select（React 制御コンポーネント）では選択が反映されないことがある
+    // （保存済みドラフト再オープン時に実測・2026-08-28 g-01 の較正で発覚）。native value
+    // setter + change/input dispatch で確実に切り替える（保存ボタンは押さない＝読み取り専用）。
+    const pickNative = async (lvl, label) => {
+      const r = await page.evaluate(([i, l]) => {
+        const sel = document.querySelectorAll('select[name^="react-aui-"]')[i];
+        if (!sel) return 'select なし';
+        const opt = Array.from(sel.options).find((o) => o.text === l);
+        if (!opt) return `option なし (候補: ${Array.from(sel.options).map((o) => o.text).join('/')})`;
+        const setter = Object.getOwnPropertyDescriptor(Object.getPrototypeOf(sel), 'value').set;
+        setter.call(sel, opt.value);
+        sel.dispatchEvent(new Event('change', { bubbles: true }));
+        sel.dispatchEvent(new Event('input', { bubbles: true }));
+        return 'ok';
+      }, [lvl, label]);
+      console.log(`[diag] L${lvl} <- ${label}: ${r}`);
+      await sleep(2500);
+    };
+    await dumpSelects('open');
+    await dumpLeafBoxes('open');
     const dd = (book?.catDropdowns) || ['Kindle本', '資格・検定・就職', '建築・土木'];
-    for (let i = 0; i < dd.length; i++) { await pick(i, dd[i]); await dump(`afterL${i}`); }
-    console.log('[diag] ↑ 最深 select の候補が「場所」チェックボックスの選択肢。leaf を config に設定せよ');
+    for (let i = 0; i < dd.length; i++) await pickNative(i, dd[i]);
+    await dumpSelects('after-cascade');
+    await dumpLeafBoxes('after-cascade');
+    console.log('[diag] ↑ 「場所」候補一覧の leaf 名を config の categoryPaths[track].leaf に設定せよ（保存はしていない）');
     await shot(page, 'diag-category');
     await ctx.close();
     process.exit(0);

@@ -50,6 +50,14 @@ export function categoryPathFor(id, defaults = getDefaults()) {
   return { track, ...(defaults.categoryPaths[track] || defaults.categoryPaths.gijutsushi) }
 }
 
+// categoryAssign に明示登録されていない id を返す（categoryPathFor は既定 track=gijutsushi へ
+// 黙ってフォールバックするため、新シリーズの接頭辞を登録し忘れると誤カテゴリーで入稿される
+// 事故が再発する。2026-08-28 g-01 実測: g- を登録し忘れ「技術士」で誤ドラフト作成）。
+export function uncoveredCategoryBooks(bookIds, defaults = getDefaults()) {
+  const prefixes = Object.values(defaults.categoryAssign || {}).flat()
+  return bookIds.filter((id) => !prefixes.some((p) => id.startsWith(p)))
+}
+
 // spec + books[id] + defaults を統合した正規化 book オブジェクトを返す。
 // options.requireMemo=false のとき kdp-memo 未登録でも spec だけで最小構築（--calibrate/--dump 用）。
 export function resolveBook(id, { requireMemo = true } = {}) {
