@@ -806,10 +806,6 @@ Brain 商品自体（施工経験記述キット・総監施策バンク）は `
 両方 `status: 'listed'` と持つ（審査結果はメールで確認済み・状態はそちら参照）。
 運用の詳細は [brain-operations.md](../knowledge/reference/brain-operations.md)。
 
-### [DN-0032] note施策C フォローアップ: 一次「出る順 合格ノート」の露出調整（任意・売れ行き次第）
-タグ: [収益化] [種類:改善]
-
-C（`civil-1-ichiji-ronten` ¥1,480・[nec34238ca6d6](https://note.com/dobokunote/n/nec34238ca6d6)）は 2026-07-16 公開済。civil primary/secondary の中間CTAは**転職アフィリ優先の既存設計**のため、C は主に L2 土木もくじ経由で露出（もくじには収録済）。**hero-cta の全体ロジックは触らない**方針（2026-07-16 ユーザー確定＝A案）。数週間の売れ行きを見て露出不足なら、相性の良い一次ガイド記事の**本文に `<MagazineCard id="civil-1-ichiji-ronten">` を個別挿入**（記事単位・転職導線と非競合の外科的調整）。B（`civil-1-r8-bunseki`）も同様の位置づけ。
 
 ### [DN-0033] civil-1 土木一般編 テキスト章 本文変換（土工/コンクリート工/基礎工 ~19記事）
 タグ: [コンテンツ品質] [種類:制作]
@@ -893,7 +889,7 @@ Tier 1（NoteLink 計測・cadence 化・bot 監査 CI 等）は実装完了。�
 ### [DN-0052] SVG図版 dual-use パイプライン残
 タグ: [コンテンツ品質] [種類:改善]
 
-PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事への `<ArticleImage>` 埋込（orphan 6点・**ユーザー保留中**）・SNSパイプライン残（IG管理別カルーセルのオーケストレーション/コピーGenerator/Evaluator配線）・doc-sync 宿題（`build-svg-catalog`/`render-figure-sns` を reference 索引へ追記）。
+PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事への `<ArticleImage>` 埋込（orphan 6点・**ユーザー保留中**）・SNSパイプライン残（IG管理別カルーセルのオーケストレーション/コピーGenerator/Evaluator配線）。
 
 
 
@@ -997,7 +993,7 @@ PDF クロップ済み白黒図 約65枚（construction-machinery-01=13/-02=7/sc
 ### [DN-0082] API トークン更新サイクル ＋ MCP 棚卸し
 タグ: [インフラ・計測] [種類:改善]
 
-GitHub Secrets: `CLOUDFLARE_API_TOKEN`/R2 キー=90日・`PSI_API_KEY`/`YOUTUBE_CLIENT_SECRET`=180日。①期限確認・更新 ②Cloudflare token の権限スコープ最小化 ③`.mcp.json` の MCP サーバー棚卸し ④更新サイクルを Calendar/schedule hook に登録。
+GitHub Secrets: `CLOUDFLARE_API_TOKEN`/R2 キー=90日・`PSI_API_KEY`/`YOUTUBE_CLIENT_SECRET`=180日。①期限確認・更新 ②Cloudflare token の権限スコープ最小化 ④更新サイクルを Calendar/schedule hook に登録。
 
 ### [DN-0083] note 編集スクリプトの共有 lib 化（Tier 2 保守性）
 タグ: [エージェント・SSOT] [種類:改善]
