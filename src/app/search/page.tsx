@@ -6,6 +6,7 @@ import { getAllCategories } from "@/lib/categories";
 import { getAllDocsMeta } from "@/lib/docs";
 import { getPopularDocs } from "@/lib/popular";
 import { buildPageMetadata } from "@/lib/metadata";
+import { buildExamCards } from "@/lib/home-exam-cards";
 import SearchPageClient from "./SearchPageClient";
 
 // 検索結果ページはクエリ依存で無数の URL を生む（薄い/重複ページ）ため noindex,follow。
@@ -21,8 +22,14 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function SearchPage() {
   // ゼロステート（検索語未入力時）の回遊導線用データを server で用意。
-  // 試験別入口 = 全カテゴリ、よく読まれている記事 = GA4 上位（データ無しは graceful 非表示）。
-  const categories = getAllCategories();
+  // 試験別入口 = トップページと同じ資格カード（写真背景・DN-0079③で横展開）＋
+  // 資格に紐づかない残りカテゴリ（civil-practice 等）はシンプルカードで併記。
+  // よく読まれている記事 = GA4 上位（データ無しは graceful 非表示）。
+  const examCards = buildExamCards();
+  const examSlugs = new Set(examCards.map((e) => e.slug));
+  const otherCategories = getAllCategories().filter(
+    (c) => c.visible !== false && !examSlugs.has(c.slug),
+  );
   const popular = getPopularDocs(getAllDocsMeta(), 6);
 
   return (
@@ -40,7 +47,7 @@ export default function SearchPage() {
           <p className="font-mono text-[12px] text-[var(--ink-muted)]">Loading…</p>
         }
       >
-        <SearchPageClient categories={categories} popular={popular} />
+        <SearchPageClient examCards={examCards} otherCategories={otherCategories} popular={popular} />
       </Suspense>
     </PageShell>
   );

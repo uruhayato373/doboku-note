@@ -156,13 +156,6 @@ cem-index-consolidation-2026-08-26.{json,md}`。
 4. 外部サイトへの掲載依頼・プロフィール更新・実送信はユーザー担当。Claude Codeは候補先、依頼文、UTM、記録テンプレまで作る
 5. 28日で impressions / indexed、56日で参照ドメインまたは外部リンク獲得を判定し、量産は成果確認後に決める
 
-**技術warnの低優先監査**:
-
-- `check-seo-meta` の HIGH 0は維持する。`jsonld_headline_mismatch` 59件は10件をサンプルし、schemaがseoTitleを使う共通実装の問題か、意図的なH1差かを判定する。共通原因なら1箇所で直し、59 MDXを個別編集しない
-- `description_long` 24件は順位・表示が実験条件を満たすURLだけ直す
-- `ssr_thin_body` は `/search` がnoindexの意図的状態かを確認し、`/category/reference-materials` だけユーザー価値のある説明が不足する場合に限って改善する
-- このwarn監査をcoverage回復の主因として扱わない
-
 **残る完了条件**:
 
 - 次回全件データと月次Inspectionで再分類し、pilotを見送るか承認済み5〜10クラスタに限定する
@@ -871,7 +864,7 @@ SEO 品質ゲート実装（PR #390・handoff `2026-07-13-seo-quality-gates.md` 
 1. **deploy 後の GSC 監視**: `develop→main` deploy で canonical/OGP 修正が本番反映＝サイト全ページ canonical 一斉更新の再クロールが走る。**コアアップデート期を避け、直後2週間は GSC 日次を監視**（gsc-management.md 2026-07-10 の教訓）。
 2. **GSC page×query 実データ確認**: 初回検証 2026-07-15 完了（workflow_dispatch で `gsc-page-query-2026-07-15` 取得・窓 6/14–7/12）。Pattern 7 site-wide 検出 3 件は**すべて同一ページの #fragment 誤検出＝カニバリ実証 0 件**。残: (a) メタ改善は少数 URL の 14〜28 日実験に限る、(b) **8/31 BuildJob キャンペーン終了後に civil-construction-1 career 26 本を page×query で再測定**。先行シグナルは `guide-1-vs-2` ↔ `guide-grade-comparison` が同一クエリ「1級 2級 土木」で共に表示（impr 1/3・pos 73/80、閾値 impr≥5×pos≤30 に未達）のみ。年収系4本（salary-up/salary-by-role/allowance/career-salary）・辞める系3本（quit-or-stay/quit-honne/career-consultation-before-quit）はクエリ競合の観測なし。実証されたペアのみ統合（301 or canonical）、感覚では削らない。
 3. **orphan/unreachable 6本の gate 昇格**: `pe-comprehensive-management-r8-essay-theme-*` 6本は現状 warn（意図的未リンク）。導線設計を決めたら check-seo-build の gate へ昇格。
-4. **robots / OAI-SearchBot の ADR**（v2監査 §8.3）: ChatGPT Search 露出を取りに行くか。training bot は block 維持、search/user bot の許可可否を ADR で決定。robots.txt/Cloudflare はユーザー承認事項。
+4. **robots / OAI-SearchBot の ADR**（v2監査 §8.3）: ADR ドラフト起案済み → [robots-ai-crawler-decision.md](../../docs/operations/robots-ai-crawler-decision.md)。実測: robots.txt はリポジトリ管理下になく Cloudflare Managed（全 AI bot 既に Disallow）。案B（search/user bot のみ選択的許可）を推奨として提示、適用はユーザー承認（Cloudflare ダッシュボード側の設定変更が必要でこの環境からは不可）。
 
 
 ### [DN-0051] 計測基盤 Tier 2/3 ＋ GA4 UI 設定
@@ -988,7 +981,7 @@ PDF クロップ済み白黒図 約65枚（construction-machinery-01=13/-02=7/sc
 ### [DN-0079] カテゴリカードの残改善
 タグ: [UI・UX] [種類:改善]
 
-①サムネイル画像の本格採用（OGP はタイトル焼込みで二重になるため写真素材を別途持つ設計が要る）②人気データの鮮度（CI の ga4-page 取得依存・週次見込み）③トップページ／検索結果ページへの横展開。
+人気データの鮮度（CI の ga4-page 取得依存・週次見込み）。
 
 
 

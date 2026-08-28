@@ -10,13 +10,15 @@ import { SearchPagination } from "@/components/search/SearchPagination";
 import { SearchZeroState } from "@/components/search/SearchZeroState";
 import { type CategoryDef } from "@/lib/categories";
 import { type PopularDoc } from "@/lib/popular";
+import { type ExamData } from "@/components/home";
 
 interface SearchPageClientProps {
-  categories: CategoryDef[];
+  examCards: ExamData[];
+  otherCategories: CategoryDef[];
   popular: PopularDoc[];
 }
 
-export default function SearchPageClient({ categories, popular }: SearchPageClientProps) {
+export default function SearchPageClient({ examCards, otherCategories, popular }: SearchPageClientProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -104,7 +106,7 @@ export default function SearchPageClient({ categories, popular }: SearchPageClie
           )}
         </>
       ) : (
-        <SearchZeroState categories={categories} popular={popular} />
+        <SearchZeroState examCards={examCards} otherCategories={otherCategories} popular={popular} />
       )}
     </>
   );
