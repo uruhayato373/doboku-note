@@ -289,7 +289,7 @@ invalid.forEach(s => console.log('  -', s));
 ### 4. 文字化け
 
 ```bash
-grep -c '��' content/site/pe-comprehensive-management/*/article.mdx | grep -v ':0$'
+grep -c '�' content/site/pe-comprehensive-management/*/article.mdx | grep -v ':0$'
 ```
 
 ## 関連ファイル

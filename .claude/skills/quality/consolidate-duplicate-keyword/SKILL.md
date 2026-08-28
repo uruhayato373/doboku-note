@@ -179,7 +179,7 @@ npm run refresh-indexes
 node .claude/scripts/validate-mdx.mjs content/site/pe-comprehensive-management/A/article.mdx
 
 # 文字化け
-grep -r "��" content/site/pe-comprehensive-management/A/
+grep -r "�" content/site/pe-comprehensive-management/A/
 
 # B スラグの残留参照がゼロであること
 grep -rn "B" src/ content/site/ --include="*.mdx" --include="*.json"
