@@ -1,0 +1,116 @@
+{
+  "_comment": "DN-0108 Phase 01: Playwright 認証プロファイルの service registry。password/Cookie/token/2FA/recovery code は書かない。アカウント名・media ID の真実源は各 accountConfigPath（既存 config）で、ここへ複製しない。既存 config が無いサービスは accountConfigPath: null（後続 Phase で adapter を決めるまでプレースホルダ）。真実源: .claude/plans/DN-0108-cross-device-playwright-auth/00-master.md, .claude/knowledge/reference/playwright-auth-profiles.md",
+  "version": 1,
+  "services": {
+    "note": {
+      "profileDirName": "playwright-note-profile",
+      "stateFileName": null,
+      "loginUrl": "https://note.com/login",
+      "checkUrl": "https://note.com/settings",
+      "accountConfigPath": null,
+      "sessionMode": "profile",
+      "interactiveLoginRequired": true,
+      "ciAllowed": false,
+      "notes": "専用 account config JSON は無し。各スクリプトがマイページ本文の名前一致で assert する。"
+    },
+    "brain": {
+      "profileDirName": "playwright-brain-profile",
+      "stateFileName": null,
+      "loginUrl": "https://brain-market.com/login",
+      "checkUrl": "https://brain-market.com/mypage",
+      "accountConfigPath": ".claude/config/brain-account.json",
+      "sessionMode": "profile",
+      "interactiveLoginRequired": true,
+      "ciAllowed": false,
+      "notes": null
+    },
+    "coconala": {
+      "profileDirName": "playwright-coconala-profile",
+      "stateFileName": null,
+      "loginUrl": "https://coconala.com/login",
+      "checkUrl": "https://coconala.com/mypage",
+      "accountConfigPath": ".claude/config/coconala-account.json",
+      "sessionMode": "profile",
+      "interactiveLoginRequired": true,
+      "ciAllowed": false,
+      "notes": "sellerName: dobokunote の本文一致 assert あり。"
+    },
+    "kdp": {
+      "profileDirName": "playwright-kdp-profile",
+      "stateFileName": null,
+      "loginUrl": "https://kdp.amazon.com",
+      "checkUrl": "https://kdp.amazon.com/bookshelf",
+      "accountConfigPath": null,
+      "sessionMode": "profile",
+      "interactiveLoginRequired": true,
+      "ciAllowed": false,
+      "notes": "専用 account config JSON は無し。"
+    },
+    "x": {
+      "profileDirName": "playwright-x-profile",
+      "stateFileName": null,
+      "loginUrl": "https://x.com/login",
+      "checkUrl": "https://x.com/home",
+      "accountConfigPath": ".claude/config/x-account.json",
+      "sessionMode": "profile",
+      "interactiveLoginRequired": true,
+      "ciAllowed": false,
+      "notes": null
+    },
+    "instagram": {
+      "profileDirName": "playwright-ig-bs-profile",
+      "stateFileName": null,
+      "loginUrl": "https://business.facebook.com/latest/home",
+      "checkUrl": "https://business.facebook.com/latest/content_calendar",
+      "accountConfigPath": ".claude/config/ig-account.json",
+      "sessionMode": "profile",
+      "interactiveLoginRequired": true,
+      "ciAllowed": false,
+      "notes": "Facebook Business Suite 経由。playwrightProfile は ig-account.json 側にも repo 相対パスで記載（Phase 02/03 で共通 resolver 参照へ移行）。"
+    },
+    "google": {
+      "profileDirName": "playwright-google-profile",
+      "stateFileName": null,
+      "loginUrl": "https://accounts.google.com",
+      "checkUrl": "https://search.google.com/search-console",
+      "accountConfigPath": ".claude/config/google-console-automation.json",
+      "sessionMode": "profile",
+      "interactiveLoginRequired": true,
+      "ciAllowed": false,
+      "notes": "旧 DOBOKU_PROFILE_ROOT（リポジトリ root の意味）を使う例外実装。asp-browser.mjs（a8/moshimo/afb）が同じ profileDir 解決を再利用している。"
+    },
+    "a8": {
+      "profileDirName": "playwright-a8-profile",
+      "stateFileName": "playwright-a8-state.json",
+      "loginUrl": "https://management.af8.jp/",
+      "checkUrl": "https://management.af8.jp/",
+      "accountConfigPath": ".claude/config/a8-report-automation.json",
+      "sessionMode": "profile-plus-state",
+      "interactiveLoginRequired": true,
+      "ciAllowed": false,
+      "notes": "A8 は揮発性セッション Cookie のため永続プロファイルだけでは認証が残らず、storageState の Cookie 再注入を併用する。アカウント assert は「サイト」ではなく口座（メディアID）。"
+    },
+    "moshimo": {
+      "profileDirName": "playwright-moshimo-profile",
+      "stateFileName": "playwright-moshimo-state.json",
+      "loginUrl": "https://af.moshimo.com/af/login",
+      "checkUrl": "https://af.moshimo.com/af/",
+      "accountConfigPath": ".claude/config/affiliate-asp.json",
+      "sessionMode": "profile-plus-state",
+      "interactiveLoginRequired": true,
+      "ciAllowed": false,
+      "notes": null
+    },
+    "afb": {
+      "profileDirName": "playwright-afb-profile",
+      "stateFileName": "playwright-afb-state.json",
+      "loginUrl": "https://www.afi-b.com/member/login",
+      "checkUrl": "https://www.afi-b.com/member/",
+      "accountConfigPath": ".claude/config/affiliate-asp.json",
+      "sessionMode": "same-process",
+      "interactiveLoginRequired": true,
+      "ciAllowed": false,
+      "notes": "sessionPersistsAcrossProcesses: false。保存した storageState を別プロセスで復元できないことがあり、ログインから操作まで同一プロセスで完結させる制約がある。afb 既定は stats47（asp-site-guard が例外で停止）。"
+    }
+  }
+}
