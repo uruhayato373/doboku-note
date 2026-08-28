@@ -6,6 +6,8 @@ title: 動画コンテンツ運用ポリシー
 
 動画パックを生成・検査・派生・照合するときに、エージェント、スキル、スクリプト、管理画面が共有する作業契約。事業判断と優先順位は [動画コンテンツ運用設計](../../../docs/marketing/06_動画コンテンツ運用設計.md) を参照する。
 
+機械可読の契約（enum・状態遷移・UTM・尺・逐語 window）は `.claude/config/video-content.json` が SSOT。checker（`npm run check-video-content`）・fixture（`tests/fixtures/video-content/`）・将来の admin parser はこの config を読む。本書と config がずれたら config 側の `updated` を進めて両方を同一 commit で直す。
+
 ## 1. SSOT境界
 
 | 領域 | 置き場 | 内容 |
@@ -51,10 +53,16 @@ title: 動画コンテンツ運用ポリシー
 
 必須要件:
 
-- `packId` はリポジトリ全体で一意かつ公開後変更しない
+- `packId` はリポジトリ全体で一意かつ公開後変更しない。ディレクトリ名 `{slug}` と一致させる
 - `pain` と `promise` は1つずつ
 - `sourceRefs` は実在し、公開可否を機械判定できる
-- `primaryCta` は1つ。生URLよりcatalog IDを優先
+  - `type: site|note|figure` は `path` 必須＋実在必須
+  - `type: site` で `published:false` の記事参照は既定で漏洩扱い（意図的なら `allowUnpublished: true` を明示）
+  - `type: note` は `access: free|paid` の明示必須（paid は逐語転用ゲートの重点対象）
+  - `type: external` は `https` の `url` と `title` 必須（WebFetch で実在確認済みの URL だけ書く）
+- `primaryCta` は1つ。生URLよりcatalog IDを優先。`campaign` は `packId` と一致（utm_campaign に使う）
+  - catalog 系 kind（note-magazine / coconala-service / brain-product）は `targetId` がカタログ id に解決できること
+  - `site-article` は `targetPath` 実在、`links-hub` は `/links` 固定
 - `outputs` は希望する派生物であり、公開済み状態を持たない
 - 実績、合格、売上、統計を扱うときは根拠referenceを追加する
 
@@ -141,7 +149,13 @@ published → measured → refresh_due | stopped
 
 ## 8. `check-video-content` 契約
 
-厳格モードは、検査対象0件、manifest parse失敗、sourceRefs未解決、status取得失敗をPASSにしない。
+実装は `scripts/check-video-content.mjs`（ライブラリ `scripts/lib/video-content-check.mjs`）。exit 契約:
+
+- `0` 合格（packs root 不在＝Phase 1 未着手は「未着手」と明示して exit 0。緑と 0 件検査を混同しないよう、常に検査対象数と実検査数を出力する）
+- `1` 違反あり
+- `2` 検査不成立（root はあるのにパック 0 件、または `--strict` で root 不在）
+
+manifest parse失敗、sourceRefs未解決、status parse失敗はFAIL（PASSにしない）。checker 自体の健全性は `tests/video-content-check.test.mjs` が fixture（`tests/fixtures/video-content/`）で担保し、`npm test`（quality-audit ci:true）で回る。quality-audit にも `video-content` として登録済み。
 
 最低検査:
 

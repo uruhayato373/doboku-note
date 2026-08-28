@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "packId": "missing-bits",
+  "exam": "pe-construction",
+  "title": "enum とフィールド違反の詰め合わせ",
+  "pain": ["配列は不可"],
+  "promise": "促音を除き正しい",
+  "intent": "viral",
+  "sourceRefs": [
+    { "type": "site", "path": "content/site/pe-construction/no-such/article.mdx" },
+    { "type": "note", "path": "content/note/demo/article.md" },
+    { "type": "external", "url": "http://example.com/insecure", "title": "http は不可" }
+  ],
+  "primaryCta": [
+    { "kind": "note-magazine", "targetId": "other-magazine", "campaign": "missing-bits" }
+  ],
+  "outputs": {
+    "longform": true,
+    "tiktokDance": true
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "packs": {
+    "demo-keiken-overview": {
+      "derivatives": {
+        "longform": { "status": "draft" }
+      }
+    }
+  }
+}

@@ -187,8 +187,7 @@ seoTitle変更を実験化するかをユーザーと決める。**推測でtitl
 - `content/sns/video-packs/{exam}/{slug}/`を制作SSOT、`.claude/state/video-content-status.json`を可変状態、mp4/wav等をR2とする
 - adminは`/content/video`で企画・QA・派生・公開・計測をjoinするread-onlyビュー。編集・投稿・shell・secret・ライブAPIを持たせない
 - Shortsは関連通常動画へ送り、通常動画のクリック可能な概要欄からサイト/note/ココナラへ送客する。1動画1主CTA
-
-**Phase 0 — 契約と偽PASS防止**: manifest schema、state machine、CTA/UTM、sourceRef、relatedVideoIdを確定。`check-video-content`とfixtureを作り、対象0件・parse失敗・source未解決・status未取得をPASSにしない。既存Shortsの尺・リンク・cron記述を現行仕様へ同期。
+- 契約の機械可読SSOT＝`.claude/config/video-content.json`、ゲート＝`npm run check-video-content`（quality:audit ci登録済み・fixture＝`tests/fixtures/video-content/`）。schema/状態/UTM を変えるときは config・policy・fixture・checker を同一 commit で同期
 
 **Phase 1 — 手動pilot 4本**: 16:9 renderer・字幕・音声の最小経路を実装。1級/2級土木施工経験記述2本＋技術士総監2本を制作し、各通常動画からShorts 2本・IG 1組・X 1スレッドを派生。公開前に機械ゲート、独立QA、ユーザー承認を通し、公開後に実URL・videoId・関連動画・CTAを再照合する。
 

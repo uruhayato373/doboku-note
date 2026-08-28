@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "packId": "demo-keiken-overview",
+  "exam": "civil-construction-1",
+  "title": "工事概要7項目で失点しない",
+  "audience": "施工経験記述の準備を始めた受検者",
+  "pain": "工事概要に何を書けばよいか分からない",
+  "promise": "7項目を実工事へ置換する順序が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    { "type": "site", "path": "content/site/civil-construction-1/demo-article/article.mdx" }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "demo-magazine",
+    "campaign": "demo-keiken-overview"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}
