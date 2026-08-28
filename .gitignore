@@ -182,7 +182,9 @@ public/pagefind/
 # YouTube Shorts: content/sns/youtube/ 配下は全てビルド成果物（mp4/サムネ/meta）で再生成可能。
 # mp4 は R2（sns/youtube-shorts/）に保管、再現の SoT は exam-packs の slide-data + 事前生成ナレ。
 # 「どの動画をいつ予約したか」の記録は .claude/state/youtube-schedule.json（台帳）が唯一の真実源。
-content/sns/youtube/
+# チャネル案内 README だけは追跡する（admin /content/content~sns/youtube の行き止まり防止・2026-08-28）。
+content/sns/youtube/*
+!content/sns/youtube/README.md
 
 # IG「1問1リール」(per-problem, --ig-mode) の動画は再生成可能な派生物（YT shorts と同様）。
 # mp4 は gitignore、caption.txt / status.json（予約記録）のみ追跡。再生成は per-problem-shorts.mjs --ig-mode。
