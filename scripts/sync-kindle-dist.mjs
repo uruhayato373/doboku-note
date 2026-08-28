@@ -3,9 +3,10 @@
 // これにより「EPUB/表紙を git 管理しつつ、いつでも spec から再現できる」状態を担保する。
 //
 // 使い方:
-//   node scripts/sync-kindle-dist.mjs             # ready 状態の全新刊(B-F)を再ビルド→kindle-dist へ
+//   node scripts/sync-kindle-dist.mjs             # ready 状態の全新刊(B-F)のみ再ビルド→kindle-dist へ
+//                                                  # （live/in_review は保護のため skip。id 明示時は status を問わない）
 //   node scripts/sync-kindle-dist.mjs --downloads # 併せて ~/Downloads/kindle-<id>.(epub|cover.jpg) も更新
-//   node scripts/sync-kindle-dist.mjs e-01 d-01   # 指定 id のみ
+//   node scripts/sync-kindle-dist.mjs e-01 d-01   # 指定 id のみ（status を問わず再ビルド）
 
 import { execFileSync } from 'node:child_process'
 import { readFileSync, copyFileSync, mkdirSync, existsSync } from 'node:fs'
@@ -24,7 +25,17 @@ const ids = args.filter((a) => !a.startsWith('--'))
 const cat = JSON.parse(readFileSync(resolve(REPO, 'scripts/kindle-published/catalog.json'), 'utf8'))
 // buildSpec を持つ＝新刊(B-F)。id 指定があれば絞る。
 let books = cat.books.filter((b) => b.buildSpec)
-if (ids.length) books = books.filter((b) => ids.includes(b.id))
+if (ids.length) {
+  books = books.filter((b) => ids.includes(b.id))
+} else {
+  // id 無指定の全冊モードは live/in_review を上書きしない（審査中の再提出誘発・
+  // LIVE と Git の実体乖離を防ぐ安全弁）。id を明示すれば status を問わず再ビルドできる。
+  const skipped = books.filter((b) => b.status !== 'ready')
+  if (skipped.length) {
+    console.log(`保護のため skip（live/in_review 等 ${skipped.length} 冊。id 明示で再ビルド可）: ${skipped.map((b) => b.id).join(' ')}`)
+  }
+  books = books.filter((b) => b.status === 'ready')
+}
 
 const node = process.execPath
 let done = 0
