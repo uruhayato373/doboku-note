@@ -833,7 +833,6 @@ Brain 商品自体（施工経験記述キット・総監施策バンク）は `
 
 P1-P3（GA4 計測基盤・NextStepNav・季節モード note CTA）は実装済み。
 
-- **P4**: `keyword-relations.json`（598KB・未活用）から RelatedKeywords 未記述の keyword 記事へ build 時 top-N 自動挿入 fallback。要: 挿入品質の監査＋PE keyword 面 A/B
 - **P5-b**: 面別 CTR の実値化 — **計測窓は揃った**（2026-07-16〜08-12 の GA4 で `BuildJob-endbanner` 623 imp / `article-mid` 967 imp / `article-end` 975 imp を実測。7/30 以降を完全に含む）。`report-buildjob-affiliate` を実値で回して面別 CTR を出す
 - **P5**: アフィリ EPC 判定（~2026-09）。基準は `affiliate-operations.md` §6.5 に新設済。**着手前に 2 点確認**: ①現状は確定成果 0 件（累計 137click）で**分母規律未達＝判定不能**、分母供給には A8 単月取得（`a8-ui:fetch -- --month`）が前提 ②9/1 以降は 50/50 A/B を停止して**建設JOBs 単一 arm**にしたため、判定は arm 間比較ではなく**時系列比較**（8 月の BuildJob ↔ 9 月以降の建設JOBs）になる。期限で無理に決めず、判定不能なら §6.5 の裁定ログに据え置きを記録する
 - **P6**: 高購買意欲ページへ MDX 本文内 `<MagazineCard>` の個別商品導線補強。要: `sales-log.json` で対象ページ特定が先
