@@ -126,58 +126,6 @@ concrete-chief-engineer 2 点＝自作 SVG へ描き直し済み、2026-08-26）
 （`pe-secondary-exam-factcheck` エージェント相当の裏取りをしてから着手する）。
 論文対策キーワード6テーマ＋論文の書き方の組成。成果物は content＋published:false まで。
 
-### [DN-0107] index coverage 回復プログラム（総監209本の再分類＋権威性）
-タグ: [インフラ・計測] [種類:改善] [起票:2026-08-20]
-
-**2026-08-22 完了済み**:
-
-- GSC UIを完全取得・正規化（allKnown: crawled 353 / redirect 857 / 404 297 / canonical 160。現行sitemap側のcrawledは302）
-- EXP-006を実体同期し、20本→未登録13本の`partial`で終了。登録リクエスト反復を中止
-- `npm run search-growth:cem-plan`を実装。総監209本を`KEEP 31 / IMPROVE 19 / CONSOLIDATE 0 / NOINDEX_REVIEW 0 / MONITOR 159`へ分類し、`.claude/state/improvements/cem-index-consolidation-2026-08-22.{json,md}`へ保存
-- 技術修正候補は0。現在は承認対象の統合クラスタも0なので、301・削除・noindex・pilot deployは行わない
-
-**2026-08-26 再分類完了**: `DN-0106` Phase 1の完全スナップショット（`truncated:false`）取得後に
-`search-growth:report`（universe 2477 URL・FIX_TECHNICAL 0・REDIRECT_LEGACY 0）と`search-growth:cem-plan`
-（総監209本 `KEEP 31 / IMPROVE 20 / CONSOLIDATE 0 / NOINDEX_REVIEW 0 / MONITOR 158`）を再実行。
-8/22比の差分は`pe-comprehensive-management-copyright`が MONITOR→IMPROVE の1件のみ（2回連続未登録の
-再分類ルールどおり）。**CONSOLIDATE は今回も0でpilot対象なし**。保存先: `.claude/state/improvements/
-cem-index-consolidation-2026-08-26.{json,md}`。
-
-**残作業**:
-
-1. 2026-09-01の月次URL Inspectionで全体・総監・各カテゴリの遷移を更新。`MONITOR`のうち2回連続未登録になったURLだけ再分類
-2. `CONSOLIDATE`が出た場合のみ、source/target/残す固有情報/需要を最大10件で提示し、明示承認後にpilotする
-
-**権威性の外向きレバー**:
-
-1. 既存資産を再利用し、被リンク理由になる独自データを1本だけ作る。第一候補は既存 `frequent-topics` の根拠データ・算出方法・CSV/表の公開強化。重複ページは新設しない
-2. civil版ランキングは past-exam backlink / 論点タグのcoverageを先に監査し、根拠が作れる場合だけ1級または2級の1本を制作する
-3. hub・該当過去問・カテゴリから文脈リンクを集め、note無料記事とSNSではデータの要点を紹介してcanonicalへdeep linkする
-4. 外部サイトへの掲載依頼・プロフィール更新・実送信はユーザー担当。Claude Codeは候補先、依頼文、UTM、記録テンプレまで作る
-5. 28日で impressions / indexed、56日で参照ドメインまたは外部リンク獲得を判定し、量産は成果確認後に決める
-
-**残る完了条件**:
-
-- 次回全件データと月次Inspectionで再分類し、pilotを見送るか承認済み5〜10クラスタに限定する
-- 独自データ1本に算出根拠・canonical・内部配線・外向け配布計画を揃える
-- 28日/次回月次の判定を`gsc-management.md`へ記録する
-
-**Claude Code 実行プロンプト**:
-
-```text
-DN-0107をPhase 0から順番に実行してください。最初にAGENTS.md、
-.claude/knowledge/reference/gsc-management.md、
-.claude/knowledge/reference/measurement-incidents.md、
-docs/operations/06_seo-note-synergy-strategy.md、
-docs/strategy/13_土木公務員SEO戦略2026-08.md、
-backlogのDN-0015/DN-0088/DN-0106を読んでください。
-
-まずEXP-006とgsc-indexing historyのドリフトを、run item単位の証拠で是正してください。次に総監のcrawled-not-indexed母集合をcanonical URLで重複排除し、検索実績・index遷移・内部リンク・類似性・過去問価値を付けた5分類レポートを作ってください。
-
-このターンで自動実施してよいのはread-only分析、台帳の事実同期、候補レポート、テストまでです。301、削除、published変更、noindex、GSC登録リクエスト、外部投稿、deployは、対象URL一覧と影響を提示してユーザー承認を得るまで実行しないでください。
-
-承認後もpilotは5〜10クラスタ、1deploy最大10 source URLです。メタ一括変更・類似記事の新規量産・313件一括noindexは禁止です。最後にbaseline、分類件数、pilot候補、検証結果、28日後と次回月次の測定日を報告してください。
-```
 
 ### [DN-0135] ユーザー手作業でしか閉じない残務（外部依存 11 件を統合）
 タグ: [収益化] [種類:不具合] [起票:2026-08-25]
@@ -232,7 +180,7 @@ weekly.md の手動キューはこの ID だけを参照する（weekly は ID �
 「インターフェアリングフロートとは」クエリ（278impr / position 9.17 / clicks 0。
 8/4見送り済みの主クエリとは別物と確認済み）。これを `/nsm-experiment` で起票して
 seoTitle変更を実験化するかをユーザーと決める。**推測でtitle/descriptionを一括変更しない**。
-DN-0107（index coverage・対話）と合流して判断するのが自然。
+次回の月次 URL Inspection（`search-growth:cem-plan`・[gsc-management.md](../knowledge/reference/gsc-management.md)「総監 CNI 5分類の運用ルール」）と合流して判断するのが自然。
 
 ### [DN-0139] LINE公式アカウントを開設し一次二次ブリッジ磁石の配信を始める
 タグ: [収益化] [種類:制作] [起票:2026-08-26]

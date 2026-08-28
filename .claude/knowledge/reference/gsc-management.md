@@ -422,3 +422,18 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
   （別クエリでの独立した新規候補であり、見送り済み候補の再提案ではない）
 - 詳細: `.claude/state/improvements/2026-08-26-gsc-access-rca.md`
 - 次回: 2026-09-01月次Inspectionで再分類（DN-0107）。28日後の2026-09-23に実験効果を判定
+
+### 2026-08-28（DN-0107 撤収・civil 版ランキングは見送り）
+
+- 総監 5 分類の再分類ルール・CONSOLIDATE 承認ゲート・28/56 日判定を本 doc の判断マトリクス節へ
+  SSOT 化し、backlog DN-0107 を削除した。月次実行は cadence 節の月次 CI が既定どおり駆動する
+- **civil 版頻出論点ランキング（権威性レバー2）は見送り**: `exam-keyword-map.json` に civil エントリ
+  0 件・`civil-1-exam-questions.json` 1,162 問すべて論点タグなし・`build-exam-backlinks.mjs` の
+  civil パス（`primary/` 固定）が実体（`primary-h26-a` 形式）と不一致で常時スキップ。機械集計の
+  根拠が作れない。再浮上の条件＝civil 過去問の per-question 論点タグ付けとビルダーのパス修正が
+  揃ったとき
+- 権威性レバー1/3 実施: frequent-topics の CSV 全量公開（562 論点。`public/data/pe-cem-frequent-topics.csv`）
+  ＋方法論強化（カバー率85.4%・分類率99.6%を明記）、内部配線（hub=exam-index・過去問18本・
+  カテゴリ配置修正=examGuideへ移動・R8行の補完）。アウトリーチキットを
+  `docs/marketing/04_被リンク獲得アウトリーチ.md` に起案（送信はユーザー担当）
+- 効果判定は 28 日後 2026-09-25、56 日後 2026-10-23
