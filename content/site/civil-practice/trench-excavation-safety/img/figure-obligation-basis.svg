@@ -1,0 +1,72 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="溝掘削における土止め支保工の設置義務と二種類の作業主任者の選任義務が、別々の法令根拠と判断基準から生じることを対比した図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-summary { font-size: 11px; fill: #555; } /* ink-body */
+      .t-heading { font-size: 14px; font-weight: bold; fill: #1a3a5c; } /* brand-text */
+      .t-label { font-size: 11px; font-weight: bold; fill: #555; } /* ink-body */
+      .t-text { font-size: 11px; fill: #222; } /* ink-strong */
+      .t-strong { font-size: 12px; font-weight: bold; fill: #222; } /* ink-strong */
+      .t-number { font-size: 16px; font-weight: bold; fill: #1a3a5c; } /* brand-text */
+      .t-none { font-size: 18px; font-weight: bold; fill: #b22234; } /* danger */
+      .panel-left { fill: #f5f5f5; stroke: #2e6da4; stroke-width: 1.5; } /* surface / brand */
+      .panel-right { fill: #f5f5f5; stroke: #3a7d44; stroke-width: 1.5; } /* surface / positive */
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand-fill / brand */
+      .box-positive { fill: #d0e8d0; stroke: #3a7d44; stroke-width: 1.5; } /* positive-fill / positive */
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn-fill / warn */
+      .box-danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger-fill / danger */
+      .divider { stroke: #d7d7d7; stroke-width: 1; } /* token-border */
+    </style>
+  </defs>
+
+  <text class="t-summary" x="20" y="18">義務ごとに、法令根拠と判断基準を分けて確認する</text>
+
+  <rect class="panel-left" x="14" y="32" width="180" height="370" rx="8"/>
+  <rect class="panel-right" x="206" y="32" width="180" height="370" rx="8"/>
+
+  <rect class="box-brand" x="26" y="44" width="156" height="58" rx="6"/>
+  <text class="t-heading" x="104" y="68" text-anchor="middle">土止め支保工</text>
+  <text class="t-heading" x="104" y="89" text-anchor="middle">設置義務</text>
+
+  <text class="t-label" x="28" y="124">根拠</text>
+  <text class="t-strong" x="28" y="145">労働安全衛生規則第361条</text>
+  <line class="divider" x1="28" y1="158" x2="180" y2="158"/>
+  <text class="t-label" x="28" y="181">判断基準</text>
+  <text class="t-text" x="28" y="204">地山の崩壊・土石の落下により</text>
+  <text class="t-text" x="28" y="222">労働者に危険を及ぼす</text>
+  <text class="t-strong" x="28" y="241">おそれがあるか</text>
+
+  <rect class="box-danger" x="28" y="262" width="152" height="74" rx="6"/>
+  <text class="t-strong" x="104" y="286" text-anchor="middle">深さの数値基準</text>
+  <text class="t-none" x="104" y="317" text-anchor="middle">なし</text>
+  <text class="t-label" x="104" y="368" text-anchor="middle">危険のおそれの有無で判断</text>
+
+  <rect class="box-positive" x="218" y="44" width="156" height="58" rx="6"/>
+  <text class="t-heading" x="296" y="68" text-anchor="middle">作業主任者</text>
+  <text class="t-heading" x="296" y="89" text-anchor="middle">選任義務</text>
+
+  <text class="t-label" x="220" y="124">根拠</text>
+  <text class="t-strong" x="220" y="145">労働安全衛生法施行令第6条</text>
+
+  <rect class="box-brand" x="218" y="157" width="156" height="96" rx="6"/>
+  <text class="t-label" x="228" y="177">第9号</text>
+  <text class="t-text" x="228" y="199">掘削面の高さ</text>
+  <text class="t-number" x="316" y="199">2m以上</text>
+  <text class="t-strong" x="228" y="222">地山の掘削作業主任者</text>
+  <text class="t-text" x="228" y="240">を選任</text>
+
+  <rect class="box-warn" x="218" y="264" width="156" height="108" rx="6"/>
+  <text class="t-label" x="228" y="284">第10号</text>
+  <text class="t-text" x="228" y="303">切りばり・腹起こしの</text>
+  <text class="t-text" x="228" y="320">取付け／取り外し</text>
+  <text class="t-strong" x="228" y="343">土止め支保工作業主任者</text>
+  <text class="t-text" x="228" y="361">を選任</text>
+  <text class="t-label" x="296" y="391" text-anchor="middle">2つは別資格</text>
+
+  <rect class="box-warn" x="14" y="414" width="372" height="70" rx="8"/>
+  <text class="t-strong" x="28" y="439">規則第356条の勾配基準＝法面形状の規制</text>
+  <text class="t-strong" x="28" y="463">第361条の危険性判断を免除しない</text>
+</svg>
