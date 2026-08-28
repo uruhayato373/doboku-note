@@ -172,15 +172,25 @@ export function joinRoyalties(books, royaltiesJson) {
   const month = monthKeys[monthKeys.length - 1]
   const m = royaltiesJson.months[month]
   const byId = new Map(books.map((b) => [b.id, b]))
-  const perBook = (m.books || []).map((b) => ({
-    bookId: b.bookId,
-    title: b.title,
-    ebook: b.ebook,
-    print: b.print,
-    kenp: b.kenp,
-    royalty: b.royalty,
-    inCatalog: byId.has(b.bookId),
-  }))
+  // KDP レポート由来の books[] は同一 bookId が複数行に分かれることがある
+  // （マーケットプレイス別内訳等・未マージのまま供給される。2026-08-28 実測: e-01 が2行）。
+  // bookId で合算する（合計値は変えず、表示上の重複行と React key 衝突を防ぐ）。
+  const merged = new Map()
+  for (const b of m.books || []) {
+    const prev = merged.get(b.bookId)
+    if (prev) {
+      prev.ebook += b.ebook || 0
+      prev.print += b.print || 0
+      prev.kenp += b.kenp || 0
+      prev.royalty += b.royalty || 0
+    } else {
+      merged.set(b.bookId, {
+        bookId: b.bookId, title: b.title,
+        ebook: b.ebook || 0, print: b.print || 0, kenp: b.kenp || 0, royalty: b.royalty || 0,
+      })
+    }
+  }
+  const perBook = [...merged.values()].map((b) => ({ ...b, inCatalog: byId.has(b.bookId) }))
   return {
     ok: true,
     month,
@@ -191,6 +201,24 @@ export function joinRoyalties(books, royaltiesJson) {
     kenpPagesRead: m.kenpPagesRead ?? null,
     perBook,
   }
+}
+
+/**
+ * 純粋: sync-kindle-dist.mjs の対象選定ロジック（buildSpec 持ちの新刊のみ・id 無指定時は
+ * live/in_review を上書きしない保護ガード）。id を明示すれば status を問わず対象にする。
+ *
+ * @param {Array} books catalog.books
+ * @param {string[]} ids 明示指定された id（空配列なら全冊モード）
+ * @returns {{targets: Array, skipped: Array}} targets=再ビルド対象、skipped=保護のため除外した冊
+ */
+export function selectSyncTargets(books, ids) {
+  const candidates = books.filter((b) => b.buildSpec)
+  if (ids.length) {
+    return { targets: candidates.filter((b) => ids.includes(b.id)), skipped: [] }
+  }
+  const skipped = candidates.filter((b) => b.status !== 'ready')
+  const targets = candidates.filter((b) => b.status === 'ready')
+  return { targets, skipped }
 }
 
 /** 表紙の配信 URL（media route 経由）。実在しないものは null にする（推測で埋めない）。 */

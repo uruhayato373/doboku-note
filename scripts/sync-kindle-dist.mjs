@@ -12,6 +12,7 @@ import { execFileSync } from 'node:child_process'
 import { readFileSync, copyFileSync, mkdirSync, existsSync } from 'node:fs'
 import { resolve } from 'node:path'
 import { homedir } from 'node:os'
+import { selectSyncTargets } from './lib/kindle-catalog.mjs'
 
 const REPO = resolve(import.meta.dirname, '..')
 const DIST = resolve(REPO, 'scripts/kindle-dist')
@@ -23,19 +24,13 @@ const toDownloads = args.includes('--downloads')
 const ids = args.filter((a) => !a.startsWith('--'))
 
 const cat = JSON.parse(readFileSync(resolve(REPO, 'scripts/kindle-published/catalog.json'), 'utf8'))
-// buildSpec を持つ＝新刊(B-F)。id 指定があれば絞る。
-let books = cat.books.filter((b) => b.buildSpec)
-if (ids.length) {
-  books = books.filter((b) => ids.includes(b.id))
-} else {
-  // id 無指定の全冊モードは live/in_review を上書きしない（審査中の再提出誘発・
-  // LIVE と Git の実体乖離を防ぐ安全弁）。id を明示すれば status を問わず再ビルドできる。
-  const skipped = books.filter((b) => b.status !== 'ready')
-  if (skipped.length) {
-    console.log(`保護のため skip（live/in_review 等 ${skipped.length} 冊。id 明示で再ビルド可）: ${skipped.map((b) => b.id).join(' ')}`)
-  }
-  books = books.filter((b) => b.status === 'ready')
+// 対象選定ロジック（id 無指定時は live/in_review を保護）は scripts/lib/kindle-catalog.mjs に
+// 一本化し、tests/kindle-sync-targets.test.mjs で回帰を固定する（実行系はここに置かない）。
+const { targets, skipped } = selectSyncTargets(cat.books, ids)
+if (skipped.length) {
+  console.log(`保護のため skip（live/in_review 等 ${skipped.length} 冊。id 明示で再ビルド可）: ${skipped.map((b) => b.id).join(' ')}`)
 }
+const books = targets
 
 const node = process.execPath
 let done = 0

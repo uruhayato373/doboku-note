@@ -1,4 +1,5 @@
-import { execFileSync } from 'node:child_process';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 import { existsSync, readFileSync } from 'node:fs';
 import { findRepoRoot, repoPath } from './repo-root';
 import { loadProjectEntries } from './project';
@@ -99,17 +100,37 @@ export function loadKindleSummary(): { total: number; live: number; inReview: nu
   };
 }
 
-function runGitLog(): { ok: boolean; text: string } {
+const execFileAsync = promisify(execFile);
+
+// execFileSync は Node の単一イベントループを同期ブロックする。next dev は 1 プロセスなので、
+// 複数リクエストが同時にこのページを開くと git 呼び出しが直列に詰まり、無関係な並行リクエスト
+// まで巻き込んで極端に遅くなる（2026-08-28・e2e 並列実行で実測）。async 版で待つ。
+// 複数セッションが同一リポジトリを並行操作する運用（CLAUDE.md §10）では、他セッションの
+// commit/gc 中に git コマンドがロック待ちで数十秒詰まることがある（2026-08-28 実測: 単発
+// 実行で 36 秒かかるケースを観測）。git 呼び出し自体のタイムアウトを短く切り、かつ短命
+// キャッシュで「毎リクエスト git を叩く」頻度を下げる（このページの鮮度情報は秒単位の
+// 精度を要さない）。キャッシュはプロセス内メモリのみ（dev サーバー再起動で消える）。
+const GIT_LOG_TIMEOUT_MS = 8_000;
+const GIT_LOG_CACHE_TTL_MS = 60_000;
+let gitLogCache: { result: { ok: boolean; text: string }; expiresAt: number } | null = null;
+
+async function runGitLog(): Promise<{ ok: boolean; text: string }> {
+  const now = Date.now();
+  if (gitLogCache && gitLogCache.expiresAt > now) return gitLogCache.result;
+  let result: { ok: boolean; text: string };
   try {
-    const text = execFileSync(
+    const { stdout } = await execFileAsync(
       'git',
       ['log', '--name-only', '--pretty=format:%cI', '--', ...GIT_LOG_PATHS],
-      { cwd: findRepoRoot(), encoding: 'utf8', timeout: 60_000, maxBuffer: 64 * 1024 * 1024 },
+      { cwd: findRepoRoot(), encoding: 'utf8', timeout: GIT_LOG_TIMEOUT_MS, maxBuffer: 64 * 1024 * 1024 },
     );
-    return { ok: true, text };
+    result = { ok: true, text: stdout };
   } catch {
-    return { ok: false, text: '' };
+    result = { ok: false, text: '' };
   }
+  // 失敗（ロック競合等）は次回すぐ再試行できるよう TTL を短く、成功はフルTTLでキャッシュする。
+  gitLogCache = { result, expiresAt: now + (result.ok ? GIT_LOG_CACHE_TTL_MS : 5_000) };
+  return result;
 }
 
 function readSpecFile(relPath: string): object | null {
@@ -129,12 +150,12 @@ function loadRoyaltiesJson(): unknown | null {
   }
 }
 
-export function loadKindleView(): KindleView {
+export async function loadKindleView(): Promise<KindleView> {
   const books = loadKindleCatalog();
   const inventory = inspectKindleInventory(books);
   const invById = new Map(inventory.map((i: { id: string }) => [i.id, i]));
 
-  const gitLog = runGitLog();
+  const gitLog = await runGitLog();
   const pathDateMap = buildPathDateMap(gitLog.text);
   const freshnessOk = gitLog.ok && pathDateMap.size > 0;
   const freshness = freshnessOk

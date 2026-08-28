@@ -216,11 +216,13 @@ function brainLifecycle(): ChannelLifecycle {
   }
 }
 
-function kindleLifecycle(): ChannelLifecycle {
+async function kindleLifecycle(): Promise<ChannelLifecycle> {
   const href = '/content/kindle';
   const source = 'scripts/kindle-published/catalog.json（status）';
   try {
-    const view = loadKindleView();
+    // loadKindleView は git log を非同期実行する（同期版は next dev の単一プロセスを
+    // ブロックし並行リクエストを詰まらせるため 2026-08-28 に async化）。
+    const view = await loadKindleView();
     const counts = emptyCounts();
     for (const b of view.books) tally(counts, kindleStatusToStage(b.status));
     return done('kindle', 'Kindle', href, source, counts);
@@ -298,12 +300,11 @@ export async function allChannelLifecycles(): Promise<ChannelLifecycle[]> {
     noteLifecycle(),
     coconalaLifecycle(),
     brainLifecycle(),
-    kindleLifecycle(),
     xLifecycle(),
     youtubeShortsLifecycle(),
   ];
-  const ig = await instagramLifecycle();
-  return [...sync.slice(0, 3), ig, ...sync.slice(3)];
+  const [ig, kindle] = await Promise.all([instagramLifecycle(), kindleLifecycle()]);
+  return [...sync.slice(0, 3), ig, ...sync.slice(3, 6), kindle, ...sync.slice(6)];
 }
 
 /** 全チャネル合算（未取得チャネルは合算に含めず件数だけ返す） */

@@ -151,3 +151,24 @@ test('joinRoyalties: royalties が null/months 欠如なら ok:false を返す�
   assert.deepEqual(joinRoyalties([], {}), { ok: false })
   assert.deepEqual(joinRoyalties([], { months: {} }), { ok: false })
 })
+
+test('joinRoyalties: 同一 bookId が複数行に分かれていても合算し1行にする（React key 重複の再発防止）', () => {
+  // 2026-08-28 実測: kdp-royalties.json の books[] に e-01 が2行（マーケットプレイス別内訳が
+  // 未マージ）存在し、admin /content/kindle の一覧で React key 重複警告を引き起こした。
+  const royalties = {
+    months: {
+      '2026-07': {
+        total: { royalty: 67 },
+        books: [
+          { bookId: 'e-01', title: 'X', ebook: 0, print: 0, kenp: 67, royalty: 67 },
+          { bookId: 'e-01', title: 'X', ebook: 0, print: 0, kenp: 0, royalty: 0 },
+        ],
+      },
+    },
+  }
+  const r = joinRoyalties([{ id: 'e-01' }], royalties)
+  assert.equal(r.perBook.length, 1)
+  assert.equal(r.perBook[0].bookId, 'e-01')
+  assert.equal(r.perBook[0].kenp, 67)
+  assert.equal(r.perBook[0].royalty, 67)
+})
