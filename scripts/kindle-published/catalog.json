@@ -1,7 +1,7 @@
 {
   "_comment": "Kindle 全書籍のマスター登録簿。status=ready(制作完了・提出待ち)/in_review(KDP審査中)/live(公開). epub/cover は git 追跡(A系=kindle-published/・B-F=kindle-dist/). 提出後 ASIN と status=live を更新。再生成は npm run sync-kindle-dist。",
   "schemaVersion": 1,
-  "updatedAt": "2026-07-30",
+  "updatedAt": "2026-08-28",
   "books": [
     {
       "id": "A-00",
@@ -1271,7 +1271,7 @@
       "series": "G コンクリート系資格",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-pe1-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/g-01.json",
       "epub": "kindle-dist/g-01.epub",
@@ -1283,8 +1283,14 @@
           "version": "1.0",
           "date": "2026-08-03",
           "change": "制作完了(EPUB＋前付け＋表紙＋kdp-memo)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-28",
+          "change": "KDP出版申請（審査中）・draft A2OMU1X8YED1C1"
         }
-      ]
+      ],
+      "draftAsin": "A2OMU1X8YED1C1"
     },
     {
       "id": "g-02",
@@ -1294,7 +1300,7 @@
       "series": "G コンクリート系資格",
       "priceJpy": 1250,
       "royalty": 0.7,
-      "status": "ready",
+      "status": "in_review",
       "builder": "scripts/build-pe1-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/g-02.json",
       "epub": "kindle-dist/g-02.epub",
@@ -1306,8 +1312,14 @@
           "version": "1.0",
           "date": "2026-08-03",
           "change": "制作完了(EPUB＋前付け＋表紙＋kdp-memo)・KDP提出待ち"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-08-28",
+          "change": "KDP出版申請（審査中）・draft A1SOBDV0E25MSK"
         }
-      ]
+      ],
+      "draftAsin": "A1SOBDV0E25MSK"
     }
   ]
 }

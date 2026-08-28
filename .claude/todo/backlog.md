@@ -68,16 +68,17 @@
 
 
 
-### [DN-0117] コンクリート系2冊の Kindle 提出待ち（図の出所は解消済み・KDP提出のみ残）
-タグ: [収益化] [種類:制作] [起票:2026-08-22]
+### [DN-0150] Kindle g-01/g-02 の LIVE 化確認と ASIN 記録（審査中2冊の後追い）
+タグ: [収益化] [種類:改善] [起票:2026-08-28]
 
-g-01（コンクリート診断士 ¥990）・g-02（コンクリート主任技士 ¥1,250）を KDP へ提出する。
-図の出所問題は全 10 点解消済み（concrete-diagnostician 8 点＝AI 生成画像と本文コメントで確認済み・
-concrete-chief-engineer 2 点＝自作 SVG へ描き直し済み、2026-08-26）。EPUB は再ビルド済み
-（`build-pe1-kindle.mjs`・epubcheck エラー 0・U+FFFD 0 件、2026-08-26）。
-状態の真実源は `scripts/kindle-published/catalog.json`（現在 `status: "ready"`）。
-手順は `/kdp-publish`。**完了条件**: catalog.json の status が `in_review` 以降へ進む
-（提出はユーザー承認・KDP ログイン操作が要る）。
+g-01（コンクリート診断士 ¥990・draft A2OMU1X8YED1C1）・g-02（コンクリート主任技士 ¥1,250・
+draft A1SOBDV0E25MSK）を 2026-08-28 に KDP へ出版申請した（審査は通常72h・catalog は in_review）。
+審査通過後に `--sync-status` で「販売中」と正式 ASIN を確認し、**3箇所へ記録**する:
+(1) `scripts/kindle-published/catalog.json`（status→live・asin・publishedDate）
+(2) `content/kindle/strategy.md` Gシリーズ表の状態欄 (3) `scripts/kindle-published/README.md` に G 行を追加。
+F系9冊は LIVE 記録が約1ヶ月漏れた前例あり（ed3d61ce）。却下(rejected)ならその旨を catalog に記録し原因を確認する。
+**完了条件**: catalog の g-01/g-02 が live（または rejected 処理済み）で、3箇所の記録が揃っている。
+
 
 
 
