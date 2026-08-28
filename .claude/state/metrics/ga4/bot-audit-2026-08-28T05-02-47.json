@@ -1,0 +1,105 @@
+{
+  "meta": {
+    "startDate": "2026-08-14",
+    "endDate": "2026-08-27",
+    "minUsers": 5,
+    "threshold": 0.8
+  },
+  "totals": {
+    "allUsers": 2225,
+    "jpUsers": 2336,
+    "foreignUsers": 80
+  },
+  "rows": [
+    {
+      "source": "bing",
+      "totalUsers": 1759,
+      "jpUsers": 1913,
+      "foreignUsers": 14,
+      "foreignRatio": 0.007959067652075043,
+      "engagementRate": 0.709098164405427,
+      "flagged": false
+    },
+    {
+      "source": "(direct)",
+      "totalUsers": 251,
+      "jpUsers": 207,
+      "foreignUsers": 55,
+      "foreignRatio": 0.21912350597609562,
+      "engagementRate": 0.45806451612903226,
+      "flagged": false
+    },
+    {
+      "source": "google",
+      "totalUsers": 53,
+      "jpUsers": 55,
+      "foreignUsers": 1,
+      "foreignRatio": 0.018867924528301886,
+      "engagementRate": 0.6582278481012658,
+      "flagged": false
+    },
+    {
+      "source": "note",
+      "totalUsers": 37,
+      "jpUsers": 37,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.5894736842105263,
+      "flagged": false
+    },
+    {
+      "source": "copilot.com",
+      "totalUsers": 27,
+      "jpUsers": 30,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.6,
+      "flagged": false
+    },
+    {
+      "source": "x",
+      "totalUsers": 27,
+      "jpUsers": 28,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.5,
+      "flagged": false
+    },
+    {
+      "source": "yahoo",
+      "totalUsers": 24,
+      "jpUsers": 27,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.7777777777777778,
+      "flagged": false
+    },
+    {
+      "source": "note.com",
+      "totalUsers": 15,
+      "jpUsers": 17,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.3945578231292517,
+      "flagged": false
+    },
+    {
+      "source": "(not set)",
+      "totalUsers": 10,
+      "jpUsers": 7,
+      "foreignUsers": 3,
+      "foreignRatio": 0.3,
+      "engagementRate": 0,
+      "flagged": false
+    },
+    {
+      "source": "chatgpt.com",
+      "totalUsers": 5,
+      "jpUsers": 5,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.6666666666666666,
+      "flagged": false
+    }
+  ]
+}

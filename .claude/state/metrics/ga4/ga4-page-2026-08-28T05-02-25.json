@@ -1,0 +1,926 @@
+{
+  "meta": {
+    "startDate": "2026-07-31",
+    "endDate": "2026-08-27",
+    "dimension": "page",
+    "dimensionApiName": "pagePath",
+    "metrics": [
+      "activeUsers",
+      "sessions",
+      "screenPageViewsPerSession",
+      "averageSessionDuration",
+      "engagementRate",
+      "bounceRate"
+    ],
+    "limit": 100,
+    "organicOnly": false,
+    "snsOnly": false,
+    "snsSources": [],
+    "japanOnly": true,
+    "excludeSpam": true,
+    "spamSourcesExcluded": [],
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "page": "/docs/civil-construction-2-secondary-experience-writing-guide",
+      "activeUsers": 288,
+      "sessions": 472,
+      "screenPageViewsPerSession": 1.1546610169491525,
+      "averageSessionDuration": 371.91533492161017,
+      "engagementRate": 0.7288135593220338,
+      "bounceRate": 0.2711864406779661
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-experience-writing-guide",
+      "activeUsers": 280,
+      "sessions": 387,
+      "screenPageViewsPerSession": 1.0568475452196382,
+      "averageSessionDuration": 233.90160494315248,
+      "engagementRate": 0.7002583979328165,
+      "bounceRate": 0.2997416020671835
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r07",
+      "activeUsers": 279,
+      "sessions": 420,
+      "screenPageViewsPerSession": 1.4261904761904762,
+      "averageSessionDuration": 394.18837238571433,
+      "engagementRate": 0.7880952380952381,
+      "bounceRate": 0.2119047619047619
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-exam-overview",
+      "activeUsers": 199,
+      "sessions": 207,
+      "screenPageViewsPerSession": 1.0289855072463767,
+      "averageSessionDuration": 134.0281042995169,
+      "engagementRate": 0.782608695652174,
+      "bounceRate": 0.21739130434782608
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-experience-writing-examples",
+      "activeUsers": 144,
+      "sessions": 176,
+      "screenPageViewsPerSession": 1.0738636363636365,
+      "averageSessionDuration": 226.80607890909093,
+      "engagementRate": 0.7386363636363636,
+      "bounceRate": 0.26136363636363635
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-getting-started",
+      "activeUsers": 142,
+      "sessions": 158,
+      "screenPageViewsPerSession": 1.3227848101265822,
+      "averageSessionDuration": 251.08105905696206,
+      "engagementRate": 0.8607594936708861,
+      "bounceRate": 0.13924050632911392
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-leveling",
+      "activeUsers": 132,
+      "sessions": 160,
+      "screenPageViewsPerSession": 1.0375,
+      "averageSessionDuration": 215.57037003749997,
+      "engagementRate": 0.75625,
+      "bounceRate": 0.24375
+    },
+    {
+      "page": "/",
+      "activeUsers": 93,
+      "sessions": 156,
+      "screenPageViewsPerSession": 3.801282051282051,
+      "averageSessionDuration": 252.2941642628205,
+      "engagementRate": 0.7243589743589743,
+      "bounceRate": 0.27564102564102566
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-r07",
+      "activeUsers": 85,
+      "sessions": 101,
+      "screenPageViewsPerSession": 1.2475247524752475,
+      "averageSessionDuration": 419.9683951485149,
+      "engagementRate": 0.7623762376237624,
+      "bounceRate": 0.2376237623762376
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r08-primary",
+      "activeUsers": 74,
+      "sessions": 223,
+      "screenPageViewsPerSession": 1.789237668161435,
+      "averageSessionDuration": 640.2627579327354,
+      "engagementRate": 0.5336322869955157,
+      "bounceRate": 0.4663677130044843
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-schedule-charts",
+      "activeUsers": 68,
+      "sessions": 87,
+      "screenPageViewsPerSession": 1.0919540229885059,
+      "averageSessionDuration": 212.59161856321836,
+      "engagementRate": 0.6551724137931034,
+      "bounceRate": 0.3448275862068966
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r06",
+      "activeUsers": 67,
+      "sessions": 121,
+      "screenPageViewsPerSession": 1.2148760330578512,
+      "averageSessionDuration": 364.1702038595041,
+      "engagementRate": 0.6446280991735537,
+      "bounceRate": 0.35537190082644626
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-strategy",
+      "activeUsers": 65,
+      "sessions": 69,
+      "screenPageViewsPerSession": 1.0724637681159421,
+      "averageSessionDuration": 221.54906628985506,
+      "engagementRate": 0.855072463768116,
+      "bounceRate": 0.14492753623188406
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-experience-writing-examples",
+      "activeUsers": 64,
+      "sessions": 79,
+      "screenPageViewsPerSession": 1.0379746835443038,
+      "averageSessionDuration": 263.01419246835445,
+      "engagementRate": 0.9113924050632911,
+      "bounceRate": 0.08860759493670886
+    },
+    {
+      "page": "/tools/keiken-charcount",
+      "activeUsers": 64,
+      "sessions": 125,
+      "screenPageViewsPerSession": 0.976,
+      "averageSessionDuration": 122.10576712000001,
+      "engagementRate": 0.536,
+      "bounceRate": 0.464
+    },
+    {
+      "page": "/category/pe-comprehensive-management",
+      "activeUsers": 61,
+      "sessions": 193,
+      "screenPageViewsPerSession": 4.383419689119171,
+      "averageSessionDuration": 367.86495925388596,
+      "engagementRate": 0.5906735751295337,
+      "bounceRate": 0.40932642487046633
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r04",
+      "activeUsers": 50,
+      "sessions": 103,
+      "screenPageViewsPerSession": 1.1844660194174756,
+      "averageSessionDuration": 639.2427534271845,
+      "engagementRate": 0.7184466019417476,
+      "bounceRate": 0.2815533980582524
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-keyword-2026",
+      "activeUsers": 50,
+      "sessions": 327,
+      "screenPageViewsPerSession": 1.892966360856269,
+      "averageSessionDuration": 305.12908880733943,
+      "engagementRate": 0.4801223241590214,
+      "bounceRate": 0.5198776758409785
+    },
+    {
+      "page": "/docs/pe-construction-steel-concrete-exam-themes",
+      "activeUsers": 43,
+      "sessions": 47,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 57.046705042553185,
+      "engagementRate": 0.723404255319149,
+      "bounceRate": 0.2765957446808511
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-safety-scaffolding",
+      "activeUsers": 39,
+      "sessions": 47,
+      "screenPageViewsPerSession": 0.9361702127659575,
+      "averageSessionDuration": 78.71793663829787,
+      "engagementRate": 0.7021276595744681,
+      "bounceRate": 0.2978723404255319
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-health-org-structure",
+      "activeUsers": 39,
+      "sessions": 40,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 41.0206522,
+      "engagementRate": 0.175,
+      "bounceRate": 0.825
+    },
+    {
+      "page": "/docs/pe-first-stage-r07-basic",
+      "activeUsers": 39,
+      "sessions": 68,
+      "screenPageViewsPerSession": 1.588235294117647,
+      "averageSessionDuration": 308.1383662205883,
+      "engagementRate": 0.4852941176470588,
+      "bounceRate": 0.5147058823529411
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-root-cause-analysis",
+      "activeUsers": 38,
+      "sessions": 46,
+      "screenPageViewsPerSession": 0.9347826086956522,
+      "averageSessionDuration": 154.96481145652174,
+      "engagementRate": 0.5652173913043478,
+      "bounceRate": 0.43478260869565216
+    },
+    {
+      "page": "/about",
+      "activeUsers": 37,
+      "sessions": 59,
+      "screenPageViewsPerSession": 2.7457627118644066,
+      "averageSessionDuration": 394.6605780508475,
+      "engagementRate": 0.6271186440677966,
+      "bounceRate": 0.3728813559322034
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-textbook-mix-design",
+      "activeUsers": 35,
+      "sessions": 37,
+      "screenPageViewsPerSession": 1.162162162162162,
+      "averageSessionDuration": 226.05390167567566,
+      "engagementRate": 0.8378378378378378,
+      "bounceRate": 0.16216216216216217
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-getting-started",
+      "activeUsers": 34,
+      "sessions": 52,
+      "screenPageViewsPerSession": 1.3846153846153846,
+      "averageSessionDuration": 359.19692609615385,
+      "engagementRate": 0.9038461538461539,
+      "bounceRate": 0.09615384615384616
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-unsafe-conditions-behavior",
+      "activeUsers": 34,
+      "sessions": 40,
+      "screenPageViewsPerSession": 1.175,
+      "averageSessionDuration": 127.32010729999999,
+      "engagementRate": 0.8,
+      "bounceRate": 0.2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r08-secondary",
+      "activeUsers": 32,
+      "sessions": 102,
+      "screenPageViewsPerSession": 1.5294117647058822,
+      "averageSessionDuration": 266.64851007843134,
+      "engagementRate": 0.6470588235294118,
+      "bounceRate": 0.35294117647058826
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-exam-index",
+      "activeUsers": 31,
+      "sessions": 42,
+      "screenPageViewsPerSession": 1.4285714285714286,
+      "averageSessionDuration": 283.7137024285714,
+      "engagementRate": 0.7857142857142857,
+      "bounceRate": 0.21428571428571427
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-alarp-principle",
+      "activeUsers": 30,
+      "sessions": 41,
+      "screenPageViewsPerSession": 1.170731707317073,
+      "averageSessionDuration": 185.81508651219514,
+      "engagementRate": 0.4878048780487805,
+      "bounceRate": 0.5121951219512195
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-network-schedule",
+      "activeUsers": 29,
+      "sessions": 39,
+      "screenPageViewsPerSession": 0.8717948717948718,
+      "averageSessionDuration": 191.2380386410256,
+      "engagementRate": 0.5897435897435898,
+      "bounceRate": 0.41025641025641024
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-shovel-excavator",
+      "activeUsers": 28,
+      "sessions": 29,
+      "screenPageViewsPerSession": 0.9655172413793104,
+      "averageSessionDuration": 96.8869695172414,
+      "engagementRate": 0.6896551724137931,
+      "bounceRate": 0.3103448275862069
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-construction-plan-overview",
+      "activeUsers": 27,
+      "sessions": 40,
+      "screenPageViewsPerSession": 0.975,
+      "averageSessionDuration": 181.06255775000002,
+      "engagementRate": 0.675,
+      "bounceRate": 0.325
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-exam-overview",
+      "activeUsers": 27,
+      "sessions": 34,
+      "screenPageViewsPerSession": 4.0588235294117645,
+      "averageSessionDuration": 443.80564035294117,
+      "engagementRate": 0.9117647058823529,
+      "bounceRate": 0.08823529411764706
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-primary-construction",
+      "activeUsers": 27,
+      "sessions": 38,
+      "screenPageViewsPerSession": 1.7105263157894737,
+      "averageSessionDuration": 334.69152286842103,
+      "engagementRate": 0.7105263157894737,
+      "bounceRate": 0.2894736842105263
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-safety-excavation-shoring",
+      "activeUsers": 26,
+      "sessions": 30,
+      "screenPageViewsPerSession": 1.1333333333333333,
+      "averageSessionDuration": 125.63426503333334,
+      "engagementRate": 0.8,
+      "bounceRate": 0.2
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-scraper",
+      "activeUsers": 26,
+      "sessions": 28,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 296.7117338928571,
+      "engagementRate": 0.8214285714285714,
+      "bounceRate": 0.17857142857142858
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-grade-comparison",
+      "activeUsers": 24,
+      "sessions": 25,
+      "screenPageViewsPerSession": 1.12,
+      "averageSessionDuration": 175.4768006,
+      "engagementRate": 0.92,
+      "bounceRate": 0.08
+    },
+    {
+      "page": "/docs/concrete-diagnostician-guide-overview",
+      "activeUsers": 24,
+      "sessions": 24,
+      "screenPageViewsPerSession": 1.5,
+      "averageSessionDuration": 82.44675579166667,
+      "engagementRate": 0.75,
+      "bounceRate": 0.25
+    },
+    {
+      "page": "/docs/pe-construction-competency-revision-r8",
+      "activeUsers": 24,
+      "sessions": 25,
+      "screenPageViewsPerSession": 1.16,
+      "averageSessionDuration": 174.0008454,
+      "engagementRate": 0.72,
+      "bounceRate": 0.28
+    },
+    {
+      "page": "/tools/juken-shikaku",
+      "activeUsers": 24,
+      "sessions": 24,
+      "screenPageViewsPerSession": 1.25,
+      "averageSessionDuration": 222.23619941666666,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "page": "/docs/pe-construction-river-coast-exam-themes",
+      "activeUsers": 23,
+      "sessions": 29,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 110.90793617241378,
+      "engagementRate": 0.5172413793103449,
+      "bounceRate": 0.4827586206896552
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r05",
+      "activeUsers": 21,
+      "sessions": 41,
+      "screenPageViewsPerSession": 1.4878048780487805,
+      "averageSessionDuration": 446.5977238780487,
+      "engagementRate": 0.6829268292682927,
+      "bounceRate": 0.3170731707317073
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-management-pillar",
+      "activeUsers": 20,
+      "sessions": 29,
+      "screenPageViewsPerSession": 1.103448275862069,
+      "averageSessionDuration": 53.666461862068964,
+      "engagementRate": 0.10344827586206896,
+      "bounceRate": 0.896551724137931
+    },
+    {
+      "page": "/docs/pe-first-stage-r07-aptitude",
+      "activeUsers": 19,
+      "sessions": 27,
+      "screenPageViewsPerSession": 1.0740740740740742,
+      "averageSessionDuration": 138.8593405925926,
+      "engagementRate": 0.6296296296296297,
+      "bounceRate": 0.37037037037037035
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-histogram",
+      "activeUsers": 18,
+      "sessions": 22,
+      "screenPageViewsPerSession": 0.8636363636363636,
+      "averageSessionDuration": 102.44853531818181,
+      "engagementRate": 0.6363636363636364,
+      "bounceRate": 0.36363636363636365
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-textbook-production-qc",
+      "activeUsers": 18,
+      "sessions": 21,
+      "screenPageViewsPerSession": 1.3333333333333333,
+      "averageSessionDuration": 180.82995557142857,
+      "engagementRate": 0.9047619047619048,
+      "bounceRate": 0.09523809523809523
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-general-vs-comprehensive",
+      "activeUsers": 18,
+      "sessions": 21,
+      "screenPageViewsPerSession": 0.9523809523809523,
+      "averageSessionDuration": 80.04626785714285,
+      "engagementRate": 0.8095238095238095,
+      "bounceRate": 0.19047619047619047
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-technical-nontechnical-skills",
+      "activeUsers": 18,
+      "sessions": 21,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 271.31025885714286,
+      "engagementRate": 0.8571428571428571,
+      "bounceRate": 0.14285714285714285
+    },
+    {
+      "page": "/docs/pe-construction-construction-planning-exam-themes",
+      "activeUsers": 18,
+      "sessions": 22,
+      "screenPageViewsPerSession": 1.2272727272727273,
+      "averageSessionDuration": 161.44514036363637,
+      "engagementRate": 0.6818181818181818,
+      "bounceRate": 0.3181818181818182
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-work-scheduling",
+      "activeUsers": 17,
+      "sessions": 20,
+      "screenPageViewsPerSession": 0.95,
+      "averageSessionDuration": 105.8939196,
+      "engagementRate": 0.55,
+      "bounceRate": 0.45
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-overall-equipment-effectiveness",
+      "activeUsers": 17,
+      "sessions": 24,
+      "screenPageViewsPerSession": 0.8333333333333334,
+      "averageSessionDuration": 195.54640808333332,
+      "engagementRate": 0.5,
+      "bounceRate": 0.5
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-guide-overview",
+      "activeUsers": 16,
+      "sessions": 21,
+      "screenPageViewsPerSession": 2,
+      "averageSessionDuration": 308.06931699999996,
+      "engagementRate": 0.8095238095238095,
+      "bounceRate": 0.19047619047619047
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-market-research",
+      "activeUsers": 16,
+      "sessions": 17,
+      "screenPageViewsPerSession": 1.2941176470588236,
+      "averageSessionDuration": 130.10852805882354,
+      "engagementRate": 0.9411764705882353,
+      "bounceRate": 0.058823529411764705
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-distance-angle",
+      "activeUsers": 15,
+      "sessions": 18,
+      "screenPageViewsPerSession": 1.0555555555555556,
+      "averageSessionDuration": 134.37121349999998,
+      "engagementRate": 0.6111111111111112,
+      "bounceRate": 0.3888888888888889
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-study-plan",
+      "activeUsers": 15,
+      "sessions": 18,
+      "screenPageViewsPerSession": 1.0555555555555556,
+      "averageSessionDuration": 154.5988062222222,
+      "engagementRate": 0.7222222222222222,
+      "bounceRate": 0.2777777777777778
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-inherent-safety",
+      "activeUsers": 15,
+      "sessions": 18,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 93.67450472222222,
+      "engagementRate": 0.6666666666666666,
+      "bounceRate": 0.3333333333333333
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-management-tradeoffs",
+      "activeUsers": 15,
+      "sessions": 27,
+      "screenPageViewsPerSession": 2.259259259259259,
+      "averageSessionDuration": 1696.1014933703702,
+      "engagementRate": 0.8888888888888888,
+      "bounceRate": 0.1111111111111111
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-crane",
+      "activeUsers": 14,
+      "sessions": 14,
+      "screenPageViewsPerSession": 1.0714285714285714,
+      "averageSessionDuration": 152.19311764285712,
+      "engagementRate": 0.7857142857142857,
+      "bounceRate": 0.21428571428571427
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-safety-industrial-safety-law",
+      "activeUsers": 14,
+      "sessions": 14,
+      "screenPageViewsPerSession": 1.2857142857142858,
+      "averageSessionDuration": 260.64313192857145,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-green-infrastructure",
+      "activeUsers": 14,
+      "sessions": 17,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 145.86364829411764,
+      "engagementRate": 0.5294117647058824,
+      "bounceRate": 0.47058823529411764
+    },
+    {
+      "page": "/docs/pe-first-stage-r07-construction",
+      "activeUsers": 14,
+      "sessions": 23,
+      "screenPageViewsPerSession": 1.5217391304347827,
+      "averageSessionDuration": 186.37035608695655,
+      "engagementRate": 0.6521739130434783,
+      "bounceRate": 0.34782608695652173
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-1-vs-2",
+      "activeUsers": 13,
+      "sessions": 13,
+      "screenPageViewsPerSession": 1.1538461538461537,
+      "averageSessionDuration": 132.07104953846152,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "page": "/docs/civil-construction-2-primary-r07-kouki",
+      "activeUsers": 13,
+      "sessions": 17,
+      "screenPageViewsPerSession": 1.1176470588235294,
+      "averageSessionDuration": 206.2453081764706,
+      "engagementRate": 0.5294117647058824,
+      "bounceRate": 0.47058823529411764
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-target-cost",
+      "activeUsers": 13,
+      "sessions": 17,
+      "screenPageViewsPerSession": 1.411764705882353,
+      "averageSessionDuration": 1242.899967764706,
+      "engagementRate": 0.6470588235294118,
+      "bounceRate": 0.35294117647058826
+    },
+    {
+      "page": "/docs/pe-first-stage-r06-aptitude",
+      "activeUsers": 13,
+      "sessions": 22,
+      "screenPageViewsPerSession": 1.3181818181818181,
+      "averageSessionDuration": 807.5096420000001,
+      "engagementRate": 0.6818181818181818,
+      "bounceRate": 0.3181818181818182
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-vs-pe",
+      "activeUsers": 12,
+      "sessions": 14,
+      "screenPageViewsPerSession": 0.8571428571428571,
+      "averageSessionDuration": 109.55734807142858,
+      "engagementRate": 0.6428571428571429,
+      "bounceRate": 0.35714285714285715
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-overview",
+      "activeUsers": 12,
+      "sessions": 14,
+      "screenPageViewsPerSession": 1.6428571428571428,
+      "averageSessionDuration": 103.42708092857143,
+      "engagementRate": 0.8571428571428571,
+      "bounceRate": 0.14285714285714285
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-four-m-analysis",
+      "activeUsers": 12,
+      "sessions": 13,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 234.57269992307693,
+      "engagementRate": 0.7692307692307693,
+      "bounceRate": 0.23076923076923078
+    },
+    {
+      "page": "/docs/civil-construction-1-primary-r07-b",
+      "activeUsers": 11,
+      "sessions": 14,
+      "screenPageViewsPerSession": 1.0714285714285714,
+      "averageSessionDuration": 297.2649885,
+      "engagementRate": 0.7142857142857143,
+      "bounceRate": 0.2857142857142857
+    },
+    {
+      "page": "/docs/civil-practice-formwork-removal-timing",
+      "activeUsers": 11,
+      "sessions": 12,
+      "screenPageViewsPerSession": 0.9166666666666666,
+      "averageSessionDuration": 117.74067341666667,
+      "engagementRate": 0.8333333333333334,
+      "bounceRate": 0.16666666666666666
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-cost-driver",
+      "activeUsers": 11,
+      "sessions": 12,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 219.13337083333332,
+      "engagementRate": 0.75,
+      "bounceRate": 0.25
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-essay-exam-strategy",
+      "activeUsers": 11,
+      "sessions": 18,
+      "screenPageViewsPerSession": 2.4444444444444446,
+      "averageSessionDuration": 160.83424038888887,
+      "engagementRate": 0.8333333333333334,
+      "bounceRate": 0.16666666666666666
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-hazid",
+      "activeUsers": 11,
+      "sessions": 12,
+      "screenPageViewsPerSession": 0.9166666666666666,
+      "averageSessionDuration": 165.13419083333332,
+      "engagementRate": 0.6666666666666666,
+      "bounceRate": 0.3333333333333333
+    },
+    {
+      "page": "/docs/pe-construction-secondary-study-method",
+      "activeUsers": 11,
+      "sessions": 17,
+      "screenPageViewsPerSession": 1.1176470588235294,
+      "averageSessionDuration": 89.57195752941176,
+      "engagementRate": 0.5882352941176471,
+      "bounceRate": 0.4117647058823529
+    },
+    {
+      "page": "/docs/pe-construction-toan-kousei-template",
+      "activeUsers": 11,
+      "sessions": 17,
+      "screenPageViewsPerSession": 1.411764705882353,
+      "averageSessionDuration": 232.7340237647059,
+      "engagementRate": 0.8823529411764706,
+      "bounceRate": 0.11764705882352941
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-construction-plan",
+      "activeUsers": 10,
+      "sessions": 11,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 80.53047327272728,
+      "engagementRate": 0.7272727272727273,
+      "bounceRate": 0.2727272727272727
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-explosives-act",
+      "activeUsers": 10,
+      "sessions": 10,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 278.0370127,
+      "engagementRate": 0.8,
+      "bounceRate": 0.2
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-primary-mix-design",
+      "activeUsers": 10,
+      "sessions": 16,
+      "screenPageViewsPerSession": 1.0625,
+      "averageSessionDuration": 264.568529875,
+      "engagementRate": 0.625,
+      "bounceRate": 0.375
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-primary-structural-design",
+      "activeUsers": 10,
+      "sessions": 16,
+      "screenPageViewsPerSession": 1.1875,
+      "averageSessionDuration": 238.1538431875,
+      "engagementRate": 0.75,
+      "bounceRate": 0.25
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-essay-persona-guide",
+      "activeUsers": 10,
+      "sessions": 18,
+      "screenPageViewsPerSession": 2.0555555555555554,
+      "averageSessionDuration": 188.6567278888889,
+      "engagementRate": 0.8888888888888888,
+      "bounceRate": 0.1111111111111111
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-performance-shaping-factors",
+      "activeUsers": 10,
+      "sessions": 15,
+      "screenPageViewsPerSession": 0.9333333333333333,
+      "averageSessionDuration": 208.49898219999997,
+      "engagementRate": 0.7333333333333333,
+      "bounceRate": 0.26666666666666666
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-process-planning-construction",
+      "activeUsers": 10,
+      "sessions": 16,
+      "screenPageViewsPerSession": 1.4375,
+      "averageSessionDuration": 136.120583,
+      "engagementRate": 0.8125,
+      "bounceRate": 0.1875
+    },
+    {
+      "page": "/docs/pe-construction-r07-steel-concrete",
+      "activeUsers": 10,
+      "sessions": 13,
+      "screenPageViewsPerSession": 1.6923076923076923,
+      "averageSessionDuration": 137.91444053846155,
+      "engagementRate": 0.8461538461538461,
+      "bounceRate": 0.15384615384615385
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-loader",
+      "activeUsers": 9,
+      "sessions": 9,
+      "screenPageViewsPerSession": 1.1111111111111112,
+      "averageSessionDuration": 226.60611955555555,
+      "engagementRate": 0.4444444444444444,
+      "bounceRate": 0.5555555555555556
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-river-act",
+      "activeUsers": 9,
+      "sessions": 9,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 207.57006133333334,
+      "engagementRate": 0.8888888888888888,
+      "bounceRate": 0.1111111111111111
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-construction-plan-key-points",
+      "activeUsers": 9,
+      "sessions": 10,
+      "screenPageViewsPerSession": 1.4,
+      "averageSessionDuration": 483.47911989999994,
+      "engagementRate": 0.9,
+      "bounceRate": 0.1
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-exam-passing-strategy",
+      "activeUsers": 9,
+      "sessions": 16,
+      "screenPageViewsPerSession": 0.875,
+      "averageSessionDuration": 316.180642,
+      "engagementRate": 0.6875,
+      "bounceRate": 0.3125
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-extended-producer-responsibility",
+      "activeUsers": 9,
+      "sessions": 13,
+      "screenPageViewsPerSession": 3.769230769230769,
+      "averageSessionDuration": 495.4125009230769,
+      "engagementRate": 0.5384615384615384,
+      "bounceRate": 0.46153846153846156
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-lifecycle-costing-method",
+      "activeUsers": 9,
+      "sessions": 10,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 292.38247409999997,
+      "engagementRate": 0.7,
+      "bounceRate": 0.3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r8-essay-keyword-forecast",
+      "activeUsers": 9,
+      "sessions": 19,
+      "screenPageViewsPerSession": 4.631578947368421,
+      "averageSessionDuration": 248.07850726315792,
+      "engagementRate": 0.6842105263157895,
+      "bounceRate": 0.3157894736842105
+    },
+    {
+      "page": "/category/civil-construction-1",
+      "activeUsers": 8,
+      "sessions": 16,
+      "screenPageViewsPerSession": 1.5625,
+      "averageSessionDuration": 542.1884496875,
+      "engagementRate": 0.6875,
+      "bounceRate": 0.3125
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-quality-management",
+      "activeUsers": 8,
+      "sessions": 9,
+      "screenPageViewsPerSession": 1.1111111111111112,
+      "averageSessionDuration": 145.82801133333336,
+      "engagementRate": 0.5555555555555556,
+      "bounceRate": 0.4444444444444444
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-construction-plan-past-problems",
+      "activeUsers": 8,
+      "sessions": 9,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 378.96574566666663,
+      "engagementRate": 0.7777777777777778,
+      "bounceRate": 0.2222222222222222
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-law-compliance",
+      "activeUsers": 8,
+      "sessions": 8,
+      "screenPageViewsPerSession": 1.75,
+      "averageSessionDuration": 393.36254675,
+      "engagementRate": 0.875,
+      "bounceRate": 0.125
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-machinery-structure",
+      "activeUsers": 8,
+      "sessions": 10,
+      "screenPageViewsPerSession": 0.9,
+      "averageSessionDuration": 162.5676076,
+      "engagementRate": 0.4,
+      "bounceRate": 0.6
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-port-regulations",
+      "activeUsers": 8,
+      "sessions": 14,
+      "screenPageViewsPerSession": 1.0714285714285714,
+      "averageSessionDuration": 178.9348375,
+      "engagementRate": 0.5714285714285714,
+      "bounceRate": 0.42857142857142855
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-surveying-basics",
+      "activeUsers": 8,
+      "sessions": 8,
+      "screenPageViewsPerSession": 1.125,
+      "averageSessionDuration": 86.922012,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-guide-essay",
+      "activeUsers": 8,
+      "sessions": 8,
+      "screenPageViewsPerSession": 1.125,
+      "averageSessionDuration": 106.660051125,
+      "engagementRate": 1,
+      "bounceRate": 0
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-break-even-point",
+      "activeUsers": 8,
+      "sessions": 11,
+      "screenPageViewsPerSession": 1.3636363636363635,
+      "averageSessionDuration": 174.06238118181818,
+      "engagementRate": 0.7272727272727273,
+      "bounceRate": 0.2727272727272727
+    }
+  ]
+}
