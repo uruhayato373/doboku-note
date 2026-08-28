@@ -16,6 +16,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import remarkMath from "remark-math";
 import remarkGfm from "remark-gfm";
 import rehypeKatex from "rehype-katex";
+import { checkLineEndings as detectLineEndingIssue } from "../../scripts/lib/line-endings.mjs";
 
 const CONTENT_DIR = "content/site";
 
@@ -37,20 +38,10 @@ function scanMdxFiles(dir, files = []) {
 
 // ── Line ending check ──
 
+// 検査ロジックは scripts/lib/line-endings.mjs（単一 SSOT・tests/line-endings.test.mjs で固定）
 function checkLineEndings(content, filePath) {
-  const hasCRLF = content.includes("\r\n");
-  const afterCRLFRemoval = content.split("\r\n").join("");
-  const hasMixed = hasCRLF && afterCRLFRemoval.includes("\n");
-  if (hasMixed) {
-    return `Mixed line endings (CRLF + LF) — causes MDX parser errors`;
-  }
-  // 連続する \r（\r\r\n 等）は CRLF の部分文字列を含むため上のチェックをすり抜ける。
-  // micromark が行末トークンを1つ多く解釈し GFM テーブル検出等が壊れる（2026-08-28、
-  // 過去問18本がこの破損で表がレンダリングされなくなった事故の再発防止）。
-  if (/\r{2,}/.test(content)) {
-    return `Consecutive CR detected (\\r\\r\\n 等) — breaks GFM table/paragraph parsing`;
-  }
-  return null;
+  const issue = detectLineEndingIssue(content);
+  return issue ? issue.message : null;
 }
 
 // ── MDX compile check (uses next-mdx-remote for parity with actual rendering) ──

@@ -46,6 +46,7 @@
     "check-affiliate-prose": "node scripts/check-affiliate-prose.mjs",
     "check-affiliate-wiring": "node scripts/check-affiliate-wiring.mjs",
     "check-bold-rendering": "node scripts/check-bold-rendering.mjs",
+    "check-table-rendering": "node scripts/check-table-rendering.mjs",
     "check-brain-wiring": "node scripts/check-brain-wiring.mjs",
     "check-callout-types": "node scripts/check-callout-types.mjs",
     "check-career-separation": "node scripts/check-career-separation.mjs",

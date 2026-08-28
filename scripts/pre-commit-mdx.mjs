@@ -19,6 +19,7 @@ import { lintFrontmatter, loadTagAllowlist } from "#shared/lint-frontmatter.mjs"
 import { detectBrokenExplanations } from "../.claude/skills/quality/check-mdx/scripts/rules/explanations/detect.mjs";
 import { auditSvgFile } from "../.claude/skills/quality/check-mdx/scripts/rules/svg/detect.mjs";
 import { detectEmptyContainers } from "../.claude/skills/quality/check-mdx/scripts/rules/empty-container/detect.mjs";
+import { checkLineEndings } from "./lib/line-endings.mjs";
 
 // Get staged MDX files
 function getStagedMdxFiles() {
@@ -52,17 +53,7 @@ function getStagedSvgFiles() {
   }
 }
 
-function checkLineEndings(content) {
-  const hasCRLF = content.includes("\r\n");
-  const afterCRLFRemoval = content.split("\r\n").join("");
-  const mixedLineEndings = hasCRLF && afterCRLFRemoval.includes("\n");
-  // 連続する \r（\r\r\n 等）は CRLF の部分文字列を含むため上のチェックをすり抜ける。
-  // micromark が \r\r\n を「\r（行末）+ \r\n（もう1つの行末）」の2トークンとして解釈し、
-  // 全行間に空行が挿入された扱いになって GFM テーブル検出等が壊れる（2026-08-28、
-  // 過去問18本がこの破損で表がレンダリングされなくなった事故の再発防止）。
-  const hasConsecutiveCR = /\r{2,}/.test(content);
-  return mixedLineEndings || hasConsecutiveCR;
-}
+// checkLineEndings は scripts/lib/line-endings.mjs（単一 SSOT・tests/line-endings.test.mjs で固定）
 
 /**
  * MDX 内の <img> / <ArticleImage> の src を走査し、ファイル実在と mime 整合性を検証。
@@ -269,11 +260,9 @@ async function main() {
     const raw = readFileSync(file, "utf-8");
 
     // Line ending check
-    if (checkLineEndings(raw)) {
-      const reason = /\r{2,}/.test(raw)
-        ? "Consecutive CR detected (\\r\\r\\n 等・GFMテーブル等のパースを壊す)"
-        : "Mixed line endings (CRLF + LF)";
-      errors.push({ file, error: reason });
+    const lineEndingIssue = checkLineEndings(raw);
+    if (lineEndingIssue) {
+      errors.push({ file, error: lineEndingIssue.message });
       continue;
     }
 

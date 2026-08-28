@@ -389,6 +389,14 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+# GFM テーブルが table になるか（ならないとパイプ区切りが生テキストで表示される）。
+# 2026-08-28: 改行の \\r\\r\\n 破損で過去問18本、セル数不一致で r02-primary が該当した。
+# 原因ごとにルールを足さず、デリミタ行が text ノードに残る症状そのものを見る。
+node scripts/check-table-rendering.mjs --staged
+if [ $? -ne 0 ]; then
+  exit 1
+fi
+
 # MDX の BOM（U+FEFF）。先頭に付くと frontmatter の ^--- が外れ、Kindle ビルダが title を
 # 拾えず章名が article.mdx になり YAML が本文に印字される（2026-08-12・審査中の e-02 で発生）。
 # 目視できない事故なので機械で止める。EPUB 展開は重いので commit 時は --bom-only。
