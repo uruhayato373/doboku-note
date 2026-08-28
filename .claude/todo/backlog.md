@@ -67,43 +67,6 @@
 ## 🔴 高 — 来月中に着手
 
 
-### [DN-0149] IG ambiguous衝突の人間判定セッション（旧DN-0146の残）
-タグ: [SNS・マーケ] [種類:不具合] [起票:2026-08-27]
-
-**2026-08-28 22件解決（59→35件）**: この会社PCはinstagram.comへのブラウザ直接アクセスが
-ポリシーでブロックされ、claude-in-chromeも未接続だったため、Anthropicサーバー側で
-フェッチするWebFetchツールで各投稿のキャプション（出題年度・Q1設問文）を取得する方式に
-切り替えた。各パックのslide-data.jsonが持つ`yearsLabel`（出題年度）と`firstQuestion`
-（1枚目の設問文冒頭）は投稿ごとに一意なため、キャプションと完全一致するもの**だけ**を
-正としてmark（部分一致・推測は一切していない）。36ユニークshortcode中22件は取得・
-完全一致確認ができmark済み、残り14shortcode（35パック候補）はWebFetchを複数回
-リトライしても一貫して空ページが返り取得不能（Instagram側のbot detectionか
-SSR不安定性が原因と推定）。特にhoki-construction_business系（候補7パック）は
-2shortcodeとも取得失敗で丸ごと手つかず。
-
-**残る35件の内訳**（`.claude/state/ig-reconcile/snapshot.json` 2026-08-28T02:55Z時点）:
-anzen-general_hazard(3) / anzen-org(3) / hinshitsu-basic(2) / hinshitsu-ndt(4) /
-hinshitsu-concrete(2) / hoki-building(3) / hoki-construction_business(7) /
-hoki-labor(4) / hoki-vibration(4) / sekokeikaku-machine(3)。
-
-**判定手順**（次回セッション・1グループずつ）:
-1. `.claude/state/ig-reconcile/snapshot.json` の `cats.published_UNrecorded` から
-   `ambiguous:true` のエントリを `matched` shortcode でグルーピング
-2. 各shortcodeを `WebFetch` で `https://www.instagram.com/p/<shortcode>/` から
-   キャプション取得（出題年度＋Q1設問文冒頭）。失敗する場合は数分〜数十分空けて
-   リトライするか、claude-in-chrome（実ブラウザ・要接続）を試す
-3. 候補パックの `slide-data.json` の `slides[0].yearsLabel` / `firstQuestion` と
-   完全一致するものだけを正とする（部分一致・推測は禁止）
-4. 正のパックだけ `node scripts/ig-status.mjs mark <rel> carousel --url=... --date=...`
-   （他の候補は「誤ヒット」として何もしない＝記録しない）
-
-**最大リスク**: 未投稿のパックに「投稿済み」と誤記録すること（2026-08-27に
-一度未遂あり・[[ig-publish-reconcile.md]]の鉄則参照）。1つでも自信が持てない
-グループはskipして次回に回す。
-
-**完了条件**: 残り35件のshortcode衝突グループに判定がつき、`published_UNrecorded`
-が判定保留分（誤ヒットとして記録しない分）まで減る。wontfixマーカーが実装
-されれば、それ以降は再浮上しなくなる（別途 `ig-status.mjs` への機能追加を検討）。
 
 ### [DN-0117] コンクリート系2冊の Kindle 提出待ち（図の出所は解消済み・KDP提出のみ残）
 タグ: [収益化] [種類:制作] [起票:2026-08-22]
