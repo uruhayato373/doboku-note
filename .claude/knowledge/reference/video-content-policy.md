@@ -191,7 +191,22 @@ manifest parse失敗、sourceRefs未解決、status parse失敗はFAIL（PASSに
 
 管理画面はmanifest、runtime state、CI snapshotをjoinして表示するだけとする。
 
-実装状況（2026-08-28）: `/content/video`（企画ボード＝資格・段階フィルタ付き一覧）と `/content/lifecycle`（全チャネル共通ステージ横断）が稼働。行の組み立ては `scripts/lib/video-content-check.mjs` の `loadPackSummaries`、状態の共通ステージ写像は `scripts/lib/content-lifecycle.mjs`（[content-lifecycle.md](./content-lifecycle.md)）が唯一の実装で、CLI・admin が同じものを使う。未実装は SNS 状態板との join・動画成果ビュー・派生物ごとの公開照合。
+実装状況（2026-08-28）: Phase 3 の画面は稼働。
+
+| 画面 | 見るもの |
+|---|---|
+| `/content/video` | 企画ボード（資格・段階フィルタ・QA 点・台本/構成の有無・主 CTA） |
+| `/content/lifecycle` | 全チャネル共通ステージ横断（企画→下書き→公開） |
+| `/metrics/video` | 動画成果（派生物ごとの公開状態 × GA4 送客・`utm_campaign = packId` で join） |
+| `/sns` の「動画パック 派生物」節 | SNS 投稿状況との join |
+
+行の組み立ては `scripts/lib/video-content-check.mjs` の `loadPackSummaries`、状態の共通ステージ写像は `scripts/lib/content-lifecycle.mjs`（[content-lifecycle.md](./content-lifecycle.md)）が唯一の実装で、CLI・admin が同じものを使う。
+
+**計測は CI 供給が正**（会社 PC からライブ API を叩かない）。`fetch-metrics.yml` の「Fetch GA4 (campaign, 28d…)」が `.claude/state/metrics/ga4/ga4-campaign-*.json` を週次で供給し、`/metrics/video` はそれを読むだけ。**スナップショット未取得は 0 件として扱わず「未取得」と表示する**（送客ゼロと区別）。配線（fetcher の dimension・workflow のステップ・出力名と読み取り prefix の一致）は `tests/video-outcomes-wiring.test.mjs` が固定する。
+
+**Shorts 台帳（`.claude/state/youtube-schedule.json`）は動画パックと別系統**。IG 過去問パック由来のレガシー 200 本で、item に packId も relatedVideoId も持たない。DN-0110 以降の派生 Shorts は `video-content-status.json` の `derivatives.shorts[]` に入る。画面では 2 つを同じ表に混ぜない（混ぜると「動画パックの Shorts が 200 本ある」と誤読する）。
+
+未実装: 派生物ごとの公開実体の自動照合（現状は `verify-yt-status` 等の CLI 実行後に state へ手で反映）。
 
 - ソース未取得と0件を区別
 - 企画・派生・公開・計測を同じ行で追える

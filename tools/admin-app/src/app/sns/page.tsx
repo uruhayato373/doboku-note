@@ -1,5 +1,8 @@
+import Link from 'next/link';
 import { PageHead } from '@/components/ui';
 import { snsBoard } from '@/lib/sns-board';
+import { videoSnsJoin } from '@/lib/video-sns-join';
+import { derivativeLabel } from '@/lib/video-outcomes';
 
 export const dynamic = 'force-dynamic';
 
@@ -17,6 +20,7 @@ const SCHED_KEYS: [string, string][] = [
 
 export default async function SnsBoardPage() {
   const { ig, x, schedule } = await snsBoard();
+  const join = videoSnsJoin();
 
   const today = new Date().toISOString().slice(0, 10);
   const upcoming: { date: string; label: string; slug: string }[] = [];
@@ -99,6 +103,65 @@ export default async function SnsBoardPage() {
             </tbody>
           </table>
         </div>
+      </div>
+
+      {/* 動画パック（DN-0110）× SNS。レガシー Shorts 台帳と混ぜないため節を分ける。 */}
+      <div className="card" id="video">
+        <h2>
+          動画パック 派生物
+          <span className="sub">
+            video-content-status.json · 企画 {join.packTotal} 件中 制作が動いたもの {join.packDerivatives.length} 件
+          </span>
+        </h2>
+        {join.packDerivatives.length === 0 ? (
+          <p className="muted">
+            まだ公開・予約された派生物はない（企画と台本のみ）。企画一覧は{' '}
+            <Link href="/content/video">動画パック</Link>、成果は <Link href="/metrics/video">動画成果</Link>。
+          </p>
+        ) : (
+          <div className="table-wrap">
+            <table className="data">
+              <thead>
+                <tr>
+                  <th>packId</th>
+                  <th>派生物</th>
+                  <th>状態</th>
+                  <th>videoId</th>
+                </tr>
+              </thead>
+              <tbody>
+                {join.packDerivatives.flatMap((p) =>
+                  p.derivatives.map((d) => (
+                    <tr key={`${p.packId}-${d.key}`}>
+                      <td className="mono">
+                        <Link href={`/content/content~sns/video-packs/${p.exam}/${p.slug}`}>{p.packId}</Link>
+                      </td>
+                      <td className="small">{derivativeLabel(d.key)}</td>
+                      <td className="mono small">{d.status}</td>
+                      <td className="mono small">
+                        {d.videoId ?? <span className="muted">—</span>}
+                        {d.key.startsWith('shorts') && d.videoId && !d.relatedVideoId && (
+                          <span className="badge bad" style={{ marginLeft: 4 }}>
+                            関連動画なし
+                          </span>
+                        )}
+                      </td>
+                    </tr>
+                  )),
+                )}
+              </tbody>
+            </table>
+          </div>
+        )}
+        <p className="small muted" style={{ marginBottom: 0 }}>
+          Shorts 台帳（<code>.claude/state/youtube-schedule.json</code>）は IG 過去問パック由来の
+          <strong>レガシー{join.legacyShorts.ok ? ` ${join.legacyShorts.total} 本` : ''}</strong>
+          で、動画パックとは別系統（台帳側に packId は
+          {join.legacyShorts.packLinked === 0 ? '無い' : ` ${join.legacyShorts.packLinked} 件`}）。
+          {join.legacyShorts.ok
+            ? ` 内訳: 公開 ${join.legacyShorts.byStage.published ?? 0} / 予約 ${join.legacyShorts.byStage.scheduled ?? 0} / 停止 ${join.legacyShorts.byStage.retired ?? 0}。`
+            : ` 台帳を読めていない: ${join.legacyShorts.reason}。`}
+        </p>
       </div>
 
       <div className="card">

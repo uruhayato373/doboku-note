@@ -32,8 +32,10 @@ npm run admin   # http://127.0.0.1:3021
 | コンテンツ ＞ ライフサイクル（`/content/lifecycle`） | 各チャネルの既存 SoT（`src/config/doc-meta-index.json`＋`git grep`／`content/note`／`note-magazines.ts`／`content/sns/instagram`・`x`／`youtube-schedule.json`／`coconala-services.ts`／`brain-products.ts`／`kindle-published/catalog.json`／`video-content-status.json`） | 全チャネルを**企画 → 下書き → レビュー → 予約 → 公開 → 停止**の共通ステージへ写像して横断集計する**読み取り専用**画面。ステージ語彙と写像は `scripts/lib/content-lifecycle.mjs`（唯一の実装・`tests/content-lifecycle.test.mjs` が実在するネイティブ値を全て写像できることを固定）で、admin 側 `lib/lifecycle.ts` は読んで数えるだけ。**各チャネルのネイティブ状態は書き換えず、第2の状態台帳を作らない**。取得できなかったチャネルは 0 件でなく「未取得」＋理由を出す（0 と検査不成立を同じ緑にしない）。写像できない値は `unknown` として赤で可視化する。真実源は `.claude/knowledge/reference/content-lifecycle.md` |
 | コンテンツ ＞ YouTube ＞ 動画パック（`/content/video`） | `content/sns/video-packs/**/video-pack.json`＋`.claude/state/video-content-status.json` | 動画パック（DN-0110）の企画ボード。企画のみ（manifest だけ）から公開までを段階バッジ付きで一覧し、資格・段階で絞り込む**読み取り専用**画面。行の組み立ては `scripts/lib/video-content-check.mjs` の `loadPackSummaries` が唯一の実装で、CLI の `build-video-pack-index`（`content/sns/video-packs/README.md` 生成）と共有する。台本・構成の有無、独立 QA の平均点と BLOCK 数、主 CTA のカタログ id を表示し、行からパックのファイルビューと `script.md` へドリルダウンする。生成・レンダリング・投稿の UI は持たない（`npm run render-longform` と `/video-content` の担当） |
 
-> [!note] 動画コンテンツ管理は Phase 3 の一部が実装済み
-> `/content/video`（企画ボード）と `/content/lifecycle`（横断ステージ）は実装済み。未実装は SNS 状態板との join・動画成果（YouTube Analytics / GA4 UTM の CI snapshot）・派生物ごとの公開照合。目標仕様は `docs/marketing/06_動画コンテンツ運用設計.md`、作業契約は `.claude/knowledge/reference/video-content-policy.md` を真実源とする。編集・投稿・任意shell実行UIは追加しない。
+| 分析 ＞ 動画成果（`/metrics/video`） | `content/sns/video-packs/**`＋`.claude/state/video-content-status.json`＋`.claude/state/metrics/ga4/ga4-campaign-*.json`（CI 供給） | 動画パックの**公開状態 × 送客**を `utm_campaign = packId` で join する**読み取り専用**画面。派生物（通常動画/Shorts/IG/X）ごとの status・videoId、公開済み Short の関連動画欠落、パック別のセッション/ユーザーを表示する。計測は CI 供給が正（会社 PC からライブ API を叩かない）で、**スナップショット未取得は 0 でなく「未取得」＋理由**を出し送客ゼロと区別する。パックに紐づかない campaign（note・X 等の既存 UTM）は取り違え防止のため別表に併記。配線（fetcher の dimension・workflow ステップ・出力名と読み取り prefix の一致）は `tests/video-outcomes-wiring.test.mjs` が固定 |
+
+> [!note] Shorts 台帳と動画パックは別系統
+> `/sns` の「動画パック 派生物」節は `video-content-status.json` の派生物だけを出し、`.claude/state/youtube-schedule.json`（IG 過去問パック由来のレガシー 200 本・item に packId を持たない）とは表を分ける。混ぜると「動画パックの Shorts が 200 本ある」と誤読する。残る未実装は派生物ごとの公開実体の自動照合。目標仕様は `docs/marketing/06_動画コンテンツ運用設計.md`、作業契約は `.claude/knowledge/reference/video-content-policy.md` を真実源とする。編集・投稿・任意shell実行UIは追加しない。
 
 ## ルート allowlist
 
