@@ -44,6 +44,12 @@ function checkLineEndings(content, filePath) {
   if (hasMixed) {
     return `Mixed line endings (CRLF + LF) — causes MDX parser errors`;
   }
+  // 連続する \r（\r\r\n 等）は CRLF の部分文字列を含むため上のチェックをすり抜ける。
+  // micromark が行末トークンを1つ多く解釈し GFM テーブル検出等が壊れる（2026-08-28、
+  // 過去問18本がこの破損で表がレンダリングされなくなった事故の再発防止）。
+  if (/\r{2,}/.test(content)) {
+    return `Consecutive CR detected (\\r\\r\\n 等) — breaks GFM table/paragraph parsing`;
+  }
   return null;
 }
 

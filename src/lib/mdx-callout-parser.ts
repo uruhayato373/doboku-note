@@ -20,8 +20,11 @@ const SUPPORTED_TYPES = ['info', 'warning', 'error', 'success', 'note', 'tip', '
  */
 export function parseCallouts(content: string): string {
   // CRLF/CR を LF に正規化（Windows改行のMDXで :::directive の終端 /^:::$/ が
-  // 末尾 \r のためマッチせず、Calloutブロック全体が生テキストで残る不具合への対策）
-  const normalized = content.replace(/\r\n?/g, '\n');
+  // 末尾 \r のためマッチせず、Calloutブロック全体が生テキストで残る不具合への対策）。
+  // \r+ で連続する CR をまとめて1回でマッチさせる（/\r\n?/g だと異常な \r\r\n が
+  // \r → \n と \r\n → \n の2回に分割マッチし \n\n＝余分な空行を生む。2026-08-28、
+  // 過去問18本の \r\r\n 破損で GFM テーブル検出が壊れた事故の再発防止）。
+  const normalized = content.replace(/\r+\n?/g, '\n');
   const lines = normalized.split('\n');
   const result: string[] = [];
   let inCallout = false;
