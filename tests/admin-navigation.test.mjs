@@ -109,7 +109,8 @@ test('Nav.tsx に旧グループ名「発信」が残っていない', () => {
 });
 
 test('管理グループに /content が無く、コンテンツグループに /content が 1 つだけある', () => {
-  const src = readFileSync(join(ROOT, 'tools/admin-app/src/components/Nav.tsx'), 'utf8');
+  // autocrlf の作業ツリーでは CRLF になるため、`\n` 固定の regex の前に正規化する
+  const src = readFileSync(join(ROOT, 'tools/admin-app/src/components/Nav.tsx'), 'utf8').replace(/\r\n/g, '\n');
   const adminGroupMatch = src.match(/title: '管理'[\s\S]*?entries: \[([\s\S]*?)\],\n {2}\},\n\];/);
   assert.ok(adminGroupMatch, '管理グループが見つからない');
   assert.ok(!adminGroupMatch[1].includes("href: '/content'"), '管理グループに /content が残っている');
