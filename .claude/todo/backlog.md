@@ -119,6 +119,19 @@ weekly.md の手動キューはこの ID だけを参照する（weekly は ID �
 
 ## 🟡 中 — 2〜3ヶ月以内
 
+### [DN-0151] Kindle 保管の残課題（A系経路外・死蔵14.8MB・R2方針の宙吊り）
+タグ: [収益化] [種類:改善] [起票:2026-08-28]
+
+2026-08-28 の調査で判明した Kindle 保管の残課題を 1 枚に集約（admin `/content/kindle` が drift を常時表示する）。
+
+(1) A系 7 冊が自動再ビルド経路の外: buildSpec 無し・kdp-memo.json 未登録＝sync-kindle-dist も /kdp-publish も通らない。THEMES は build-takuitsu-reconstruct.mjs 内にあり spec 化は可能。
+(2) `scripts/kindle-published/cover-designs/` 14.8MB は品番マッピング無しの死蔵（再入稿に不使用）。孤児 約1.2MB（`A-01_安全管理_論点別過去問.epub`・`kindle-cover-A-01-確認用.jpg` は catalog 非参照）。
+(3) EPUB の R2 退避方針が宙吊り: binary-policy は「R2 private へ」と言うが repo-assets 監査は REVIEW（LIVE 同一性の要否未確認）で停止、asset-storage.json に kindle グループ未定義・退避経路未実装。決着させるまで EPUB 更新 commit は毎回 SKIP_GIT_BINARY_POLICY=1 が要る。
+(4) `scripts/kindle-covers/README.md`「出力 JPEG は git 追跡不要」と実態（kindle-dist/*.jpg 39枚追跡）の矛盾。
+(5) catalog の kdpMemo 死ポインタ 30 件（c/f/e 系の `KDP入力メモ_*.txt` 不在。gen-kdp-memo で生成するか kdp-memo.json 参照へ改める）。
+
+**完了条件**: 各項の方針が決まり適用済み（部分完了は行ごと消して残数を書き直す）。live EPUB 差し替え経路は DN-0135 行3 が別途追跡（重複起票しない）。
+
 ### [DN-0120] 転職アフィリの成果が 3 ヶ月ゼロ — 継続するか、面を畳んで別収益に寄せるか
 タグ: [収益化] [種類:意思決定] [起票:2026-08-24] [期日:2026-09-16]
 
