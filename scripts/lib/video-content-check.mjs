@@ -14,6 +14,7 @@
  */
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
+import { videoStatusToStage } from './content-lifecycle.mjs';
 
 const CONFIG_PATH = '.claude/config/video-content.json';
 
@@ -111,6 +112,58 @@ export function discoverPacks(root, config) {
     }
   }
   return { rootExists: true, packs };
+}
+
+/**
+ * 各パックの「企画ボード 1 行分」を組み立てて返す（読み取り専用）。
+ *
+ * CLI（build-video-pack-index）と admin（/content/video）が同じ行を見るための単一実装。
+ * status 判定を React 側へ再実装しないための入口（video-content-policy §10）。
+ *
+ * @returns {Array<{ exam, packId, slug, dir, title, pain, promise, intent, audience,
+ *                   status, stage, qa, hasScript, hasStoryboard, cta, ctaKind,
+ *                   outputs, sourceRefs }>}
+ */
+export function loadPackSummaries(root, config, state) {
+  const cfg = config ?? loadConfig(root);
+  const { packs } = discoverPacks(root, cfg);
+  let st = state;
+  if (!st) {
+    const p = join(root, cfg.paths.stateFile);
+    st = existsSync(p) ? (readJsonSafe(p).data ?? { packs: {} }) : { packs: {} };
+  }
+
+  const rows = [];
+  for (const pack of packs) {
+    const { data: m } = readJsonSafe(pack.manifestPath);
+    if (!m) continue; // parse 不能は checkAll が FAIL させる。ボードは読めた分だけ出す
+    const hasScript = existsSync(join(pack.dir, 'script.md'));
+    const hasStoryboard = existsSync(join(pack.dir, 'storyboard.json'));
+    const longform = st.packs?.[m.packId]?.derivatives?.longform;
+    const status = longform?.status ?? null;
+    rows.push({
+      exam: m.exam ?? pack.exam,
+      packId: m.packId ?? pack.slug,
+      slug: pack.slug,
+      dir: `${cfg.paths.packsRoot}/${pack.exam}/${pack.slug}`,
+      title: m.title ?? '',
+      pain: m.pain ?? '',
+      promise: m.promise ?? '',
+      intent: m.intent ?? '',
+      audience: m.audience ?? '',
+      status,
+      stage: videoStatusToStage(status, hasScript || hasStoryboard),
+      qa: longform?.qa ?? null,
+      hasScript,
+      hasStoryboard,
+      cta: m.primaryCta?.targetId ?? m.primaryCta?.kind ?? null,
+      ctaKind: m.primaryCta?.kind ?? null,
+      outputs: m.outputs ?? {},
+      sourceRefs: Array.isArray(m.sourceRefs) ? m.sourceRefs : [],
+    });
+  }
+  rows.sort((a, b) => a.exam.localeCompare(b.exam) || a.packId.localeCompare(b.packId));
+  return rows;
 }
 
 function walkFiles(dir, out = []) {

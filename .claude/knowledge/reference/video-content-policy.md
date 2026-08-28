@@ -191,6 +191,8 @@ manifest parse失敗、sourceRefs未解決、status parse失敗はFAIL（PASSに
 
 管理画面はmanifest、runtime state、CI snapshotをjoinして表示するだけとする。
 
+実装状況（2026-08-28）: `/content/video`（企画ボード＝資格・段階フィルタ付き一覧）と `/content/lifecycle`（全チャネル共通ステージ横断）が稼働。行の組み立ては `scripts/lib/video-content-check.mjs` の `loadPackSummaries`、状態の共通ステージ写像は `scripts/lib/content-lifecycle.mjs`（[content-lifecycle.md](./content-lifecycle.md)）が唯一の実装で、CLI・admin が同じものを使う。未実装は SNS 状態板との join・動画成果ビュー・派生物ごとの公開照合。
+
 - ソース未取得と0件を区別
 - 企画・派生・公開・計測を同じ行で追える
 - sourceRefs、QA、CTA、公開URLへドリルダウンできる

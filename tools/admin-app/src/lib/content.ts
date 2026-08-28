@@ -192,6 +192,46 @@ export function noteArticles(): NoteArticle[] {
   return items;
 }
 
+/**
+ * noteArticles() と**同じ判定**（ファイル名 `article*.md` ／ `noteUrl` があれば公開）を、
+ * 本文を読まずに git のインデックスだけで数える高速版。件数しか要らない画面のためのもの。
+ *
+ * なぜ必要か: この端末では EDR のスキャンで 1 ファイル 20〜45ms かかり、831 本の
+ * frontmatter を読む noteArticles() は 70 秒を超える（memory: reference_local_build_io_bound）。
+ * git ls-files + git grep なら 1 秒で終わる。**判定ルールを別ファイルへ散らさないために
+ * noteArticles の隣に置く**（ルールを変えるときは両方を一緒に直す）。
+ *
+ * 取得に失敗したら null を返す（0 件と区別する。CLAUDE.md §9）。
+ */
+export function noteArticleCounts(): { total: number; published: number } | null {
+  const PATTERN = 'content/note/*article*.md';
+  const NAME = /^article[A-Za-z0-9-]*\.md$/;
+  const countLines = (args: string[]): string[] | null => {
+    try {
+      const out = execFileSync('git', args, {
+        cwd: findRepoRoot(),
+        encoding: 'utf8',
+        maxBuffer: 32 * 1024 * 1024,
+      });
+      return out.split('\n').filter(Boolean);
+    } catch (e) {
+      // git grep はマッチ 0 件で exit 1。実行失敗（git 無し等）と区別する。
+      const err = e as { status?: number; stdout?: string };
+      if (err.status === 1 && (err.stdout ?? '') === '') return [];
+      return null;
+    }
+  };
+  const isArticle = (p: string) => NAME.test(p.slice(p.lastIndexOf('/') + 1));
+  const all = countLines(['ls-files', PATTERN]);
+  if (!all) return null;
+  const published = countLines(['grep', '-l', '^noteUrl:', '--', PATTERN]);
+  if (!published) return null;
+  return {
+    total: all.filter(isArticle).length,
+    published: published.filter(isArticle).length,
+  };
+}
+
 // ─── note 要再公開ドリフト（check-note-republish --json）─────────
 /**
  * `check-note-republish` は「公開時の本文 hash」と現在の本文を突合して

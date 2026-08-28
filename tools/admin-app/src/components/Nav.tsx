@@ -41,6 +41,7 @@ const GROUPS: { title: string; entries: NavEntry[] }[] = [
     title: 'コンテンツ',
     entries: [
       { href: '/content', label: 'すべて', match: '/content' },
+      { href: '/content/lifecycle', label: 'ライフサイクル', match: '/content/lifecycle' },
       ...enabledChannels().map((c) => ({
         label: c.label,
         tabs: toNavTabs(c.tabs),

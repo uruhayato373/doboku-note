@@ -207,7 +207,7 @@ seoTitle変更を実験化するかをユーザーと決める。**推測でtitl
 
 **Phase 2 — skill/agents**: 薄い`/video-content` skillと上記2agentを新設。生成→機械ゲート→独立QA→承認待ちで停止し、レンダリング・R2・投稿は既存CLI/workflowへ委譲する。skills/agents registry、coupling gate、責務境界テストを同時更新。
 
-**Phase 3 — admin/CI**: `/content/video`、SNS状態、動画成果ビューを追加。manifest＋runtime state＋CI供給snapshotをjoinし、未取得/期限切れ/ドリフトを明示。YouTube AnalyticsとGA4 UTMはCIで取得し、会社PCからライブAPIを叩かない。
+**Phase 3 残 — admin/CI**: `/content/video`（企画ボード）と `/content/lifecycle`（全チャネル共通ステージ横断・真実源 `.claude/knowledge/reference/content-lifecycle.md`）は実装済み。残り＝(1) SNS状態板と動画パック単位の join、(2) 動画成果ビュー（YouTube Analytics・GA4 UTM を**CIで**snapshot 化し会社PCからライブAPIを叩かない）、(3) 派生物ごとの公開照合（未取得/期限切れ/ドリフトの明示）。
 
 **Phase 4 — 段階拡張**: 6週間のpilotでShorts→関連動画、視聴維持、YouTube UTM、note/ココナラ遷移を評価。送客シグナルが無ければ自動化拡張を停止。成立後だけ他資格とThreads会話briefへ広げる。ThreadsのX単純クロスポスト、全記事一括動画化、全資格同時展開は禁止。
 

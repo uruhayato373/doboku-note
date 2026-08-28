@@ -26,6 +26,11 @@ export default async function ContentDetailPage({ params }: { params: Promise<{ 
   if (listing) {
     const hrefFor = (name: string) =>
       `/content/${encodeURIComponent(head)}/${[...path.slice(1), encodeURIComponent(name)].join('/')}`;
+    // README.md があれば本文も出す（GitHub 方式）。空チャネルや自動生成インデックスの
+    // ディレクトリで、ファイル名の列挙だけ見せて行き止まりにしないため。
+    const readme = listing.files.some((f) => f.name === 'README.md')
+      ? loadDocument(src, [...rel.split('/').filter(Boolean), 'README'])
+      : null;
     return (
       <>
         <PageHead title={rel || prefix} sub={`${prefix}/${rel}（read-only・メタデータ表示）`} />
@@ -50,6 +55,11 @@ export default async function ContentDetailPage({ params }: { params: Promise<{ 
           </ul>
           {listing.dirs.length === 0 && listing.files.length === 0 && <p className="muted">空のディレクトリです。</p>}
         </div>
+        {readme && (
+          <article className="knowledge-document">
+            <div dangerouslySetInnerHTML={{ __html: readme.html }} />
+          </article>
+        )}
       </>
     );
   }
