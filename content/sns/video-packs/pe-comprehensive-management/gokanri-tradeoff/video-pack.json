@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "packId": "gokanri-tradeoff",
+  "exam": "pe-comprehensive-management",
+  "title": "5管理を列挙で終わらせずトレードオフにする方法",
+  "audience": "技術士総監の記述式で5管理を並べるだけになっている受験者",
+  "pain": "5管理を列挙しただけの答案から抜け出せない",
+  "promise": "頻出ペアの衝突と判断根拠で書けるようになる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    { "type": "site", "path": "content/site/pe-comprehensive-management/management-tradeoffs/article.mdx" }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "tradeoff-5kanri",
+    "campaign": "gokanri-tradeoff"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

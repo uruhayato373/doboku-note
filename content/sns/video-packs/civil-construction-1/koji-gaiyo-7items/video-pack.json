@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "packId": "koji-gaiyo-7items",
+  "exam": "civil-construction-1",
+  "title": "工事概要7項目で失点しない",
+  "audience": "1級土木の施工経験記述の準備を始めた受検者",
+  "pain": "工事概要の7項目に何をどこまで書けばよいか分からない",
+  "promise": "7項目を自分の工事へ置き換える順序と整合チェックが分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    { "type": "site", "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx" }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-keiken-complete-pack",
+    "campaign": "koji-gaiyo-7items"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

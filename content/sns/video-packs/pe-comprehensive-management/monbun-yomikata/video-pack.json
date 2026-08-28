@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "packId": "monbun-yomikata",
+  "exam": "pe-comprehensive-management",
+  "title": "総監記述式で設問の役割を取り違えない読み方",
+  "audience": "技術士総監の記述式で長文の問題文に時間を取られる受験者",
+  "pain": "長い問題文のどこを読み、各設問で何を書けばよいか分からない",
+  "promise": "定型文を捨てヒント3種と三層構造で骨子を作れるようになる",
+  "intent": "howto",
+  "sourceRefs": [
+    { "type": "site", "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx" }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "essay-core-pack",
+    "campaign": "monbun-yomikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

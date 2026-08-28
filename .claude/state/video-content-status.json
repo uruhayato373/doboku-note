@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "packs": {
+    "koji-gaiyo-7items": {
+      "derivatives": {
+        "longform": { "status": "draft" }
+      }
+    },
+    "anzen-ippanron-3riyu": {
+      "derivatives": {
+        "longform": { "status": "draft" }
+      }
+    },
+    "gokanri-tradeoff": {
+      "derivatives": {
+        "longform": { "status": "draft" }
+      }
+    },
+    "monbun-yomikata": {
+      "derivatives": {
+        "longform": { "status": "draft" }
+      }
+    }
+  }
+}

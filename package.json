@@ -161,6 +161,7 @@
     "check-policy-anchors": "node scripts/check-policy-anchors.mjs",
     "check-published-vs-redirects": "node scripts/check-published-vs-redirects.mjs",
     "check-video-content": "node scripts/check-video-content.mjs",
+    "render-longform": "node scripts/render-longform.mjs",
     "check-public-bloat": "node scripts/check-public-bloat.mjs",
     "check-sales-freshness": "node scripts/check-sales-freshness.mjs",
     "check-sales-mapping": "node scripts/check-sales-mapping.mjs",

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "packId": "anzen-ippanron-3riyu",
+  "exam": "civil-construction-2",
+  "title": "安全管理の答案が一般論になる3つの原因",
+  "audience": "2級土木の施工経験記述で安全管理を書く受検者",
+  "pain": "安全管理の答案がどの現場でも通じる一般論になってしまう",
+  "promise": "自分の現場の言葉に置き換える3つの直し方が分かる",
+  "intent": "diagnosis",
+  "sourceRefs": [
+    { "type": "site", "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx" },
+    { "type": "site", "path": "content/site/civil-construction-2/guide-safety-management/article.mdx" }
+  ],
+  "primaryCta": {
+    "kind": "coconala-service",
+    "targetId": "coconala-shindan",
+    "campaign": "anzen-ippanron-3riyu"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}
