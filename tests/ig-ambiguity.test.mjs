@@ -9,7 +9,7 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { markAmbiguousClaims } from '../scripts/lib/ig-ambiguity.mjs';
+import { markAmbiguousClaims, dropResolvedFalseMatches } from '../scripts/lib/ig-ambiguity.mjs';
 
 /** cats の最小形。published_UNrecorded に [rel, [shortcode...]] を並べる。 */
 function cats({ pub = [], draft = [], anomaly = [] } = {}) {
@@ -111,4 +111,58 @@ test('同一パックが同じ shortcode を 2 回持っていても自己衝突
   const r = markAmbiguousClaims(c);
   assert.equal(c.published_UNrecorded[0].ambiguous, undefined, '自分だけなら ambiguous にしない');
   assert.equal(r.collisions, 0);
+});
+
+// ─── dropResolvedFalseMatches（DN-0149）────────────────────────
+//
+// 守りたい問題: 衝突した shortcode を人間が判定して正のパックへ backfill しても、
+// 残りの候補パックは matched を持ったまま published_UNrecorded に残り、verify-ig-status を
+// 回すたび同じ顔ぶれが再浮上していた（2026-08-28 実測で16パック）。判定の証拠は posted.json
+// という形で既にリポジトリにあるので、手で維持する除外リストを作らずこれを根拠に外す。
+
+test('matched が全て他パックへ記録済みなら誤ヒットとして unpublished へ移す', () => {
+  const c = cats({ pub: [['civil-1/x', ['SC1']]] });
+  c.unpublished = [];
+  const r = dropResolvedFalseMatches(c, new Map([['SC1', 'civil-2/y']]));
+  assert.equal(r.resolved, 1);
+  assert.equal(c.published_UNrecorded.length, 0, 'published_UNrecorded から外れる');
+  assert.equal(c.unpublished.length, 1);
+  assert.equal(c.unpublished[0].falseMatchResolved, true);
+});
+
+test('matched の一部でも未割当なら残す（判定が必要なので隠さない）', () => {
+  const c = cats({ pub: [['civil-1/x', ['SC1', 'SC2']]] });
+  c.unpublished = [];
+  const r = dropResolvedFalseMatches(c, new Map([['SC1', 'civil-2/y']]));
+  assert.equal(r.resolved, 0);
+  assert.equal(c.published_UNrecorded.length, 1, '未割当が残るうちは surface し続ける');
+});
+
+test('自分自身が記録している shortcode は「他パックへ割当済み」に数えない', () => {
+  const c = cats({ pub: [['civil-1/x', ['SC1']]] });
+  c.unpublished = [];
+  const r = dropResolvedFalseMatches(c, new Map([['SC1', 'civil-1/x']]));
+  assert.equal(r.resolved, 0, '自分の記録なら誤ヒットではない');
+});
+
+test('誤ヒットのパックは anomaly からも取り除く（再浮上の見た目を残さない）', () => {
+  const c = cats({ pub: [['civil-1/x', ['SC1']]], anomaly: [['civil-1/x', ['SC1']]] });
+  c.unpublished = [];
+  dropResolvedFalseMatches(c, new Map([['SC1', 'civil-2/y']]));
+  assert.equal(c.anomaly.length, 0);
+});
+
+test('matched が空のパックは対象外（誤ヒット判定の根拠が無い）', () => {
+  const c = cats({ pub: [['civil-1/x', []]] });
+  c.unpublished = [];
+  const r = dropResolvedFalseMatches(c, new Map([['SC1', 'civil-2/y']]));
+  assert.equal(r.resolved, 0);
+  assert.equal(c.published_UNrecorded.length, 1);
+});
+
+test('claimedBy はプレーンオブジェクトでも受け付ける', () => {
+  const c = cats({ pub: [['civil-1/x', ['SC1']]] });
+  c.unpublished = [];
+  const r = dropResolvedFalseMatches(c, { SC1: 'civil-2/y' });
+  assert.equal(r.resolved, 1);
 });
