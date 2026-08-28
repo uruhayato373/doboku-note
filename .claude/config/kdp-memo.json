@@ -37,6 +37,15 @@
         ],
         "leaf": "土木施工管理技士",
         "verified": false
+      },
+      "concrete": {
+        "dropdowns": [
+          "Kindle本",
+          "資格・検定・就職",
+          "建築・土木"
+        ],
+        "leaf": "コンクリート診断士・コンクリート技士",
+        "verified": true
       }
     },
     "categoryAssign": {
@@ -49,6 +58,9 @@
         "c-",
         "d-",
         "f-"
+      ],
+      "concrete": [
+        "g-"
       ]
     }
   },
