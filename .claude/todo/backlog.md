@@ -67,27 +67,33 @@
 ## 🔴 高 — 来月中に着手
 
 
-### [DN-0149] IG ambiguous衝突59件の人間判定セッション（旧DN-0146の残）
+### [DN-0149] IG ambiguous衝突の人間判定セッション（旧DN-0146の残）
 タグ: [SNS・マーケ] [種類:不具合] [起票:2026-08-27]
 
-DN-0146で published_UNrecorded 72件中、非ambiguous 20件をbackfill完了
-（published_recorded 16→36）。**残る59件は全件 ambiguous**（1本のライブ投稿を
-複数パックが同時に主張・機械的に解決不可能）。wontfix/skipを表す仕組みが
-現存しないため（`ig-status.mjs` は mark/unmark/migrate/summary のみ）、
-`npm run verify-ig-status` を回すたびに毎回同じ59件が再浮上する。
+**2026-08-28 22件解決（59→35件）**: この会社PCはinstagram.comへのブラウザ直接アクセスが
+ポリシーでブロックされ、claude-in-chromeも未接続だったため、Anthropicサーバー側で
+フェッチするWebFetchツールで各投稿のキャプション（出題年度・Q1設問文）を取得する方式に
+切り替えた。各パックのslide-data.jsonが持つ`yearsLabel`（出題年度）と`firstQuestion`
+（1枚目の設問文冒頭）は投稿ごとに一意なため、キャプションと完全一致するもの**だけ**を
+正としてmark（部分一致・推測は一切していない）。36ユニークshortcode中22件は取得・
+完全一致確認ができmark済み、残り14shortcode（35パック候補）はWebFetchを複数回
+リトライしても一貫して空ページが返り取得不能（Instagram側のbot detectionか
+SSR不安定性が原因と推定）。特にhoki-construction_business系（候補7パック）は
+2shortcodeとも取得失敗で丸ごと手つかず。
 
-**衝突の実測（2026-08-27・最新snapshot）**: 最大9パックが同一投稿を主張する
-グループが複数存在（例: shortcode `DbNjPXzDHJ9`/`DbK-c5JnV0L`/`DbIZo2KjaAA`他を
-`civil-1/theme-packs/hoki-labor/pack-02,pack-05`・`civil-2/theme-packs/hoki-labor/pack-01`
-ほか計9パックが主張）。civil-1/civil-2 のhoki-labor系テーマパックに集中。
+**残る35件の内訳**（`.claude/state/ig-reconcile/snapshot.json` 2026-08-28T02:55Z時点）:
+anzen-general_hazard(3) / anzen-org(3) / hinshitsu-basic(2) / hinshitsu-ndt(4) /
+hinshitsu-concrete(2) / hoki-building(3) / hoki-construction_business(7) /
+hoki-labor(4) / hoki-vibration(4) / sekokeikaku-machine(3)。
 
-**判定手順**（1グループずつ）:
+**判定手順**（次回セッション・1グループずつ）:
 1. `.claude/state/ig-reconcile/snapshot.json` の `cats.published_UNrecorded` から
    `ambiguous:true` のエントリを `matched` shortcode でグルーピング
-2. 各shortcodeについて `https://www.instagram.com/p/<shortcode>/` をライブで開き、
-   投稿内容（1枚目の見出し・年度・論点）を確認
-3. `ambiguousWith` に列挙された候補パックのslide-data.json/status.jsonと突合し、
-   本当に一致する1パックだけを正とする
+2. 各shortcodeを `WebFetch` で `https://www.instagram.com/p/<shortcode>/` から
+   キャプション取得（出題年度＋Q1設問文冒頭）。失敗する場合は数分〜数十分空けて
+   リトライするか、claude-in-chrome（実ブラウザ・要接続）を試す
+3. 候補パックの `slide-data.json` の `slides[0].yearsLabel` / `firstQuestion` と
+   完全一致するものだけを正とする（部分一致・推測は禁止）
 4. 正のパックだけ `node scripts/ig-status.mjs mark <rel> carousel --url=... --date=...`
    （他の候補は「誤ヒット」として何もしない＝記録しない）
 
@@ -95,7 +101,7 @@ DN-0146で published_UNrecorded 72件中、非ambiguous 20件をbackfill完了
 一度未遂あり・[[ig-publish-reconcile.md]]の鉄則参照）。1つでも自信が持てない
 グループはskipして次回に回す。
 
-**完了条件**: 全59件のshortcode衝突グループに判定がつき、`published_UNrecorded`
+**完了条件**: 残り35件のshortcode衝突グループに判定がつき、`published_UNrecorded`
 が判定保留分（誤ヒットとして記録しない分）まで減る。wontfixマーカーが実装
 されれば、それ以降は再浮上しなくなる（別途 `ig-status.mjs` への機能追加を検討）。
 
