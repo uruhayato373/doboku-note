@@ -1,6 +1,5 @@
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import Nav from '@/components/Nav';
 import { todoBoard } from '@/lib/todo';
 import './globals.css';
@@ -31,11 +30,13 @@ export default function RootLayout({
   return (
     <html lang="ja" suppressHydrationWarning>
       <head>
-        {/* 素の <script> を JSX に置くと React が「client render では実行されない」と警告を出すため、
-            next/script の beforeInteractive で head へ注入する（実行タイミングは同じ＝hydration 前）。 */}
-        <Script id="admin-theme-init" strategy="beforeInteractive">
-          {THEME_INIT}
-        </Script>
+        {/* Next 16 App Router では beforeInteractive の inline <Script>（children 渡し）は
+            client 側で script 要素を描画する経路になり、React が「client render では実行されない」と
+            警告する（docs の beforeInteractive 例は src のみ）。RSC layout に素の <script> を
+            dangerouslySetInnerHTML で置けば SSR HTML に入り、head の inline はパース時=hydration 前に
+            実行される（next-themes と同じ FOUC 防止パターン）。children 渡しと違い hydration の
+            生成対象にならないため警告も出ない。 */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
       </head>
       <body className="admin-shell bg-background text-foreground antialiased">
         {/* Nav は useSearchParams で層の active を出すため Suspense 境界が要る */}
