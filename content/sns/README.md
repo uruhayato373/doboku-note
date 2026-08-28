@@ -8,7 +8,7 @@
 |---|---|---|---|
 | Instagram | `content/sns/instagram/` | `slide-data.json` + `img/` | 半自動（スクリプト生成） |
 | X（Twitter） | `content/sns/x/` | `tweets.md` + `status.json` | 手動 |
-| 動画パック | `content/sns/video-packs/{exam}/{slug}/` | `video-pack.json` + `script.md` + `storyboard.json` | 通常動画を核に各チャネルへ派生（DN-0110で実装予定） |
+| 動画パック | `content/sns/video-packs/{exam}/{slug}/` | `video-pack.json` + `script.md` + `storyboard.json` | 通常動画を核に各チャネルへ派生（DN-0110・レンダラー=`npm run render-longform`・一覧=`README.md` を `build-video-pack-index` で生成） |
 | YouTube Shorts | `content/sns/youtube/` | `meta.json`（mp4はR2） | 生成・投稿経路は資格ごとに異なる |
 
 動画パックは企画・出典・台本・CTAのSSOTであり、Instagram・X・YouTubeの既存SSOTを置き換えない。公開URL・videoId・計測鮮度は `.claude/state/` に置き、制作意図と可変状態を混ぜない。詳細は `.claude/knowledge/reference/video-content-policy.md`。

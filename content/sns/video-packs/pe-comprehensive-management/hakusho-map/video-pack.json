@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "hakusho-map",
+  "exam": "pe-comprehensive-management",
+  "title": "白書はどれを読む？5管理×27白書の使い分け",
+  "audience": "白書を読み始めて挫折した総監受験者",
+  "pain": "白書が多すぎてどれをどこまで読むべきか分からない",
+  "promise": "5管理との対応で読む白書と読む深さを絞れる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "tankan-reading-guide",
+    "campaign": "hakusho-map"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

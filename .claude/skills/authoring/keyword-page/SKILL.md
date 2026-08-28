@@ -218,7 +218,7 @@ publishedAt: "{YYYY-MM-DD}"
 
 #### Step 5a: 機械リンター（必須）
 
-1. **文字化け検出**: Grep で `U+FFFD`（`��`）を検索し、文字化けがないことを確認
+1. **文字化け検出**: Grep で `U+FFFD`（`�`）を検索し、文字化けがないことを確認
 2. **リンク確認**: 過去問リンクのアンカー形式が正しいか確認（`#ⅰ-1-1` 等、小文字ローマ数字）
 3. **section 整合性**: frontmatter の `section` と「総合技術監理における位置づけ」の記述が一致しているか
 4. **lint-mdx-mobile 実行**: `node .claude/scripts/lint-mdx-mobile.mjs <file>` を実行

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "r8-yosou-theme",
+  "exam": "pe-comprehensive-management",
+  "title": "R8予想テーマの読み方 — 白書から出題を絞る",
+  "audience": "令和8年度の総監記述式を受ける受験者",
+  "pain": "出題テーマの山張りを根拠なくやってしまう",
+  "promise": "白書由来の6大テーマと予想の根拠・限界が分かる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/r8-essay-keyword-forecast/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "r8-essay-forecast",
+    "campaign": "r8-yosou-theme"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

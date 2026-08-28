@@ -19,6 +19,7 @@ import { lintFrontmatter, loadTagAllowlist } from "#shared/lint-frontmatter.mjs"
 import { detectBrokenExplanations } from "../.claude/skills/quality/check-mdx/scripts/rules/explanations/detect.mjs";
 import { auditSvgFile } from "../.claude/skills/quality/check-mdx/scripts/rules/svg/detect.mjs";
 import { detectEmptyContainers } from "../.claude/skills/quality/check-mdx/scripts/rules/empty-container/detect.mjs";
+import { checkLineEndings } from "./lib/line-endings.mjs";
 
 // Get staged MDX files
 function getStagedMdxFiles() {
@@ -52,11 +53,7 @@ function getStagedSvgFiles() {
   }
 }
 
-function checkLineEndings(content) {
-  const hasCRLF = content.includes("\r\n");
-  const afterCRLFRemoval = content.split("\r\n").join("");
-  return hasCRLF && afterCRLFRemoval.includes("\n");
-}
+// checkLineEndings は scripts/lib/line-endings.mjs（単一 SSOT・tests/line-endings.test.mjs で固定）
 
 /**
  * MDX 内の <img> / <ArticleImage> の src を走査し、ファイル実在と mime 整合性を検証。
@@ -263,8 +260,9 @@ async function main() {
     const raw = readFileSync(file, "utf-8");
 
     // Line ending check
-    if (checkLineEndings(raw)) {
-      errors.push({ file, error: "Mixed line endings (CRLF + LF)" });
+    const lineEndingIssue = checkLineEndings(raw);
+    if (lineEndingIssue) {
+      errors.push({ file, error: lineEndingIssue.message });
       continue;
     }
 

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-kaizen-example",
+  "exam": "civil-construction-1",
+  "title": "添削ビフォーアフターで学ぶ経験記述",
+  "audience": "自分の答案の直し方が分からない1級土木受検者",
+  "pain": "何を直せば合格答案になるのかが具体例で見えない",
+  "promise": "改善前後の対比から自分の答案の直しどころが分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "coconala-service",
+    "targetId": "coconala-tensaku-set",
+    "campaign": "keiken-kaizen-example"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

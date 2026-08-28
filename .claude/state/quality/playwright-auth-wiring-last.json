@@ -1,0 +1,10 @@
+{
+  "measuredAt": "2026-08-28T01:11:20.903Z",
+  "counts": {
+    "registry": 0,
+    "macAbsolutePath": 8,
+    "localProfileDirect": 57,
+    "missingResolverImport": 43,
+    "stdoutLeak": 3
+  }
+}

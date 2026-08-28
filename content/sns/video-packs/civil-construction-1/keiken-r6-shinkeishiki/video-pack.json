@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-r6-shinkeishiki",
+  "exam": "civil-construction-1",
+  "title": "令和6年度からの新形式 — 2テーマ指定への備え",
+  "audience": "旧形式の対策本で準備している1級土木受検者",
+  "pain": "設問1と設問2で別テーマが指定される新形式に対応できない",
+  "promise": "新形式の構造と2テーマ組合せ準備の考え方が分かる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-combo-essay",
+    "campaign": "keiken-r6-shinkeishiki"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

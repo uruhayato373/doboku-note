@@ -1,13 +1,13 @@
 ---
 notePricing: paid
 noteMagazine: BK-01
-noteStatus: published
+noteStatus: published
 year: R07
 subject: road
 exam_type: II-1
-noteUrl: "https://note.com/dobokunote/n/n9c791def70f4"
-noteId: "n9c791def70f4"
-notePublishedAt: "2026-08-12"
+noteUrl: "https://note.com/dobokunote/n/n9c791def70f4"
+noteId: "n9c791def70f4"
+notePublishedAt: "2026-08-12"
 price: 780
 coverTitle: "技術士 建設部門｜道路 R07 選択科目II-1 模範解答"
 utmCampaign: pe-construction-secondary

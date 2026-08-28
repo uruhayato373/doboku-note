@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-morido-shimekatame",
+  "exam": "civil-construction-1",
+  "title": "盛土の施工と締固め管理の頻出点",
+  "audience": "1級土木の土工分野を固めたい受験者",
+  "pain": "盛土の施工規定と締固めの管理方式が混ざって覚えられない",
+  "promise": "品質規定と工法規定の区別と頻出の数値が整理できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "gakka-morido-shimekatame"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

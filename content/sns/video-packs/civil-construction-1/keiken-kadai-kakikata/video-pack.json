@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-kadai-kakikata",
+  "exam": "civil-construction-1",
+  "title": "技術的課題は「現場条件→原因→課題」で書く",
+  "audience": "1級土木の施工経験記述で課題設定に悩む受検者",
+  "pain": "技術的課題が何を書けばよいか分からず一般論になる",
+  "promise": "現場条件から課題を導く型と範囲の絞り方が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-experience-essay",
+    "campaign": "keiken-kadai-kakikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

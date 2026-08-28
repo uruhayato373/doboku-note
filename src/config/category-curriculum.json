@@ -138,7 +138,7 @@
     "examGuide": {
       "title": "受験ガイド",
       "description": "試験ガイド・合格戦略・出願の留意点",
-      "slugs": ["exam-index", "exam-passing-strategy", "course-selection-guide", "exam-application-guide", "general-vs-comprehensive", "keyword-2026"]
+      "slugs": ["exam-index", "exam-passing-strategy", "course-selection-guide", "exam-application-guide", "general-vs-comprehensive", "keyword-2026", "frequent-topics"]
     },
     "fields": {
       "title": "記述式論文の対策",
@@ -147,7 +147,7 @@
         {
           "id": "essay-strategy",
           "label": "記述式の学習法・戦略",
-          "slugs": ["essay-exam-strategy", "essay-persona-guide", "essay-pattern-cross-year-application", "whitepaper-study-map", "management-tradeoffs", "frequent-topics", "last-minute-2026"]
+          "slugs": ["essay-exam-strategy", "essay-persona-guide", "essay-pattern-cross-year-application", "whitepaper-study-map", "management-tradeoffs", "last-minute-2026"]
         },
         {
           "id": "r8-forecast",

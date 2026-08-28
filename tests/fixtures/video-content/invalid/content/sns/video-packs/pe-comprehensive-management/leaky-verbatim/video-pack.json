@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "packId": "leaky-verbatim",
+  "exam": "pe-comprehensive-management",
+  "title": "非公開参照と逐語転用",
+  "audience": "総監受験者",
+  "pain": "5管理が列挙で終わる",
+  "promise": "トレードオフで書けるようになる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    { "type": "site", "path": "content/site/pe-comprehensive-management/leak-article/article.mdx" }
+  ],
+  "primaryCta": {
+    "kind": "site-article",
+    "targetPath": "content/site/pe-comprehensive-management/no-such-target/article.mdx",
+    "campaign": "wrong-campaign"
+  },
+  "outputs": {
+    "longform": true
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-genten-kyotsuten",
+  "exam": "civil-construction-2",
+  "title": "減点される答案の共通点",
+  "audience": "2級土木の施工経験記述を書き上げた受検者",
+  "pain": "内容以前の理由で減点される答案の特徴を知らない",
+  "promise": "空欄・行稼ぎ・テーマ外など減点パターンを提出前に潰せる",
+  "intent": "diagnosis",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "coconala-service",
+    "targetId": "coconala-shindan",
+    "campaign": "keiken-genten-kyotsuten"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

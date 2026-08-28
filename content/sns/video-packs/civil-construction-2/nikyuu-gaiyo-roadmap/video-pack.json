@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "packId": "nikyuu-gaiyo-roadmap",
+  "exam": "civil-construction-2",
+  "title": "2級土木の全体像と学習順序",
+  "audience": "これから2級土木を受ける受検者",
+  "pain": "受検資格・科目・日程と何から始めるかが分からない",
+  "promise": "試験の全体像と着手順序が1本で分かる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-exam-overview/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "nikyuu-gaiyo-roadmap"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "setsumon3-shisaku",
+  "exam": "pe-comprehensive-management",
+  "title": "設問3で国家施策が出てこない人へ",
+  "audience": "総監記述式の最終設問で手が止まる受験者",
+  "pain": "将来展望で書ける国家スケールの施策の持ち駒が無い",
+  "promise": "最大リスクの特定と施策の備え方が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "setsumon3-policy-bank",
+    "campaign": "setsumon3-shisaku"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

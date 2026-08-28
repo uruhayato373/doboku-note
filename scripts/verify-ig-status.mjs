@@ -28,7 +28,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 import { IG_DIR, walkPacks, packInfo, readPostedRaw } from "./ig-status.mjs";
-import { markAmbiguousClaims } from "./lib/ig-ambiguity.mjs";
+import { markAmbiguousClaims, dropResolvedFalseMatches } from "./lib/ig-ambiguity.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const argv = process.argv.slice(2);
@@ -239,6 +239,14 @@ function reconcile(packs, liveData) {
   // マッチしても各パックは matched=1 のまま published_UNrecorded に入る。これを「一意対応」と読んで
   // backfill すると未投稿のパックに投稿済みの記録が付く（2026-08-27 の事故未遂・[[ig-ambiguity]]）。
   markAmbiguousClaims(cats);
+
+  // 誤ヒットの解消: matched が全て他パックの posted.json へ割当済みなら、そのパックは
+  // 「投稿済みなのに未記録」ではなく「テーマ名が同じせいで誤ヒットしただけの未投稿」。
+  // 判定の証拠は posted.json という形で既にリポジトリにあるので、手で維持する除外リストは要らない
+  // （DN-0149・人間判定で正のパックへ backfill したあと、残りの候補が毎回再浮上していた）。
+  const claimedBy = new Map();
+  for (const p of packs) if (p.recordedShortcode) claimedBy.set(p.recordedShortcode, p.rel);
+  dropResolvedFalseMatches(cats, claimedBy);
   return cats;
 }
 

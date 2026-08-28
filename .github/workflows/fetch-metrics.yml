@@ -75,6 +75,15 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-data -- --dimension sourceMedium --days 7 --sns-only --limit 50
 
+      # 動画パック単位の送客（DN-0110 Phase 3）。utm_campaign = packId なので campaign 別に見ると
+      # 「どの企画が実際に送客したか」が分かる。管理画面 /metrics/video が最新ファイルを読む。
+      # 28d なのは公開直後の 7d では母数が小さすぎて判断できないため（KPI は 06_動画コンテンツ運用設計 §9）。
+      - name: Fetch GA4 (campaign, 28d for video pack outcomes)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: npm run fetch-ga4-data -- --dimension campaign --days 28 --limit 200
+
       - name: Fetch GSC
         env:
           GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json

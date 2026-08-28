@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-kotei-kakikata",
+  "exam": "civil-construction-2",
+  "title": "工程管理テーマの組み立て方",
+  "audience": "2級土木の施工経験記述で工程管理を選ぶ受検者",
+  "pain": "工程管理は遅延の話しか思いつかず内容が薄くなる",
+  "promise": "遅延原因別の検討・対応の型と数値の入れ方が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-experience-essay",
+    "campaign": "keiken-kotei-kakikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

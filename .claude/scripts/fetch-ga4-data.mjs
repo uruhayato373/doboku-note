@@ -50,6 +50,11 @@ const DIMENSION_MAP = {
   sourceMedium: "sessionSourceMedium",
   country: "country",
   device: "deviceCategory",
+  // 動画パック単位の送客計測（DN-0110 Phase 3）。utm_campaign に packId を入れているので
+  // campaign 別に見ると「どの企画が実際に人を連れてきたか」が分かる。
+  // campaignContent は utm_content（longform / shorts）＝配信形式の切り分け。
+  campaign: "sessionCampaignName",
+  campaignContent: "sessionManualAdContent",
 };
 
 // spam 除外を適用してよい（sessionSource を fieldName に取れる）dimension

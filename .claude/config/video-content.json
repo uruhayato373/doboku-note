@@ -1,0 +1,131 @@
+{
+  "$schema": "https://doboku-note.com/schema/video-content.json",
+  "description": "動画パック（DN-0110）の機械可読契約。人間向け真実源は .claude/knowledge/reference/video-content-policy.md、戦略は docs/marketing/06_動画コンテンツ運用設計.md。checker(check-video-content)・fixture(tests/fixtures/video-content)・将来の admin parser が参照する。",
+  "version": "1.0.0",
+  "updated": "2026-08-28",
+  "paths": {
+    "packsRoot": "content/sns/video-packs",
+    "stateFile": ".claude/state/video-content-status.json"
+  },
+  "manifest": {
+    "schemaVersion": 1,
+    "requiredFields": [
+      "schemaVersion",
+      "packId",
+      "exam",
+      "title",
+      "audience",
+      "pain",
+      "promise",
+      "intent",
+      "sourceRefs",
+      "primaryCta",
+      "outputs"
+    ],
+    "packIdPattern": "^[a-z0-9][a-z0-9-]{2,80}$",
+    "painPromiseMaxChars": 120,
+    "examEnum": [
+      "civil-construction-1",
+      "civil-construction-2",
+      "pe-comprehensive-management",
+      "pe-construction",
+      "pe-first-stage",
+      "concrete-chief-engineer",
+      "concrete-diagnostician"
+    ],
+    "intentEnum": ["exam-point", "howto", "diagnosis", "roadmap"],
+    "outputsKeys": [
+      "longform",
+      "shorts",
+      "instagramCarousel",
+      "instagramReel",
+      "xThread",
+      "threadsBrief"
+    ]
+  },
+  "sourceRef": {
+    "typeEnum": ["site", "note", "figure", "external"],
+    "note_": "site/note/figure は path 必須＋実在必須。note は access(free|paid) の明示必須（paid は逐語転用ゲートの対象を強める）。external は https url ＋ title 必須（URL 捏造防止のため WebFetch 実在確認済みのものだけ書く）。site で published:false を参照するときは allowUnpublished:true を明示（既定は漏洩として FAIL）。"
+  },
+  "cta": {
+    "kindEnum": [
+      "note-magazine",
+      "coconala-service",
+      "brain-product",
+      "site-article",
+      "links-hub"
+    ],
+    "catalogs": {
+      "note-magazine": "src/lib/note-magazines.ts",
+      "coconala-service": "src/lib/coconala-services.ts",
+      "brain-product": "src/lib/brain-products.ts"
+    },
+    "note_": "catalog 系 kind は targetId がカタログ id に解決できること。site-article は targetPath 実在。links-hub は /links 固定で targetId 不要。primaryCta は 1 つだけ（配列不可）。campaign は packId と一致。"
+  },
+  "utm": {
+    "source": "youtube",
+    "medium": "video",
+    "campaign": "{packId}",
+    "contentEnum": ["longform", "shorts"],
+    "note_": "utm_medium=video は GA4 標準 Video チャネル分類のため固定（真実源 docs/marketing/02_チャネル動線設計.md §4）。utm_source=instagram の混入は禁忌。"
+  },
+  "canvas": {
+    "longform": { "ratio": "16:9", "render": [1920, 1080] },
+    "vertical": { "ratio": "9:16", "render": [1080, 1920] }
+  },
+  "storyboard": {
+    "formatEnum": ["longform-16x9", "vertical-9x16"],
+    "captionMaxChars": 60,
+    "durationSeconds": {
+      "longform": { "min": 60, "max": 1200 },
+      "shorts": { "min": 15, "max": 180, "recommendedMin": 30, "recommendedMax": 60 }
+    },
+    "note_": "shorts の 180 秒はプラットフォーム成立条件・30-60 秒はプロジェクト推奨尺（真実源 yt-shorts-publisher-policy.md §3）。longform の min/max は sanity bound であり品質基準ではない。"
+  },
+  "verbatim": {
+    "windowChars": 80,
+    "note_": "正規化（空白除去）した script 本文が sourceRef 本文と windowChars 連続一致したら逐語転用として FAIL（docs/marketing/06 §10「サイトや有料 note 本文の逐語転用」禁止の機械化）。"
+  },
+  "forbiddenBinaryExtensions": [".mp4", ".mov", ".wav", ".m4a", ".mp3", ".ass", ".srt", ".mkv"],
+  "state": {
+    "schemaVersion": 1,
+    "statusEnum": [
+      "draft",
+      "qa_blocked",
+      "qa_passed",
+      "approved",
+      "rendered",
+      "scheduled",
+      "published",
+      "failed",
+      "measured",
+      "refresh_due",
+      "stopped"
+    ],
+    "transitions": {
+      "draft": ["qa_blocked", "qa_passed"],
+      "qa_blocked": ["draft", "qa_passed"],
+      "qa_passed": ["approved", "qa_blocked"],
+      "approved": ["rendered", "failed", "qa_blocked"],
+      "rendered": ["scheduled", "published", "failed"],
+      "scheduled": ["published", "failed"],
+      "published": ["measured"],
+      "failed": ["approved", "rendered", "stopped"],
+      "measured": ["refresh_due", "stopped", "measured"],
+      "refresh_due": ["draft", "stopped"],
+      "stopped": []
+    },
+    "approvalRequiredFrom": "approved",
+    "publishedRequires": ["url|videoId"],
+    "shortsPublishedRequires": ["relatedVideoId"],
+    "derivativeKeys": [
+      "longform",
+      "shorts",
+      "instagramCarousel",
+      "instagramReel",
+      "xThread",
+      "threadsBrief"
+    ],
+    "note_": "approved 以降の状態には approvedBy（ユーザーまたは明示された承認者）が必須。published は URL または videoId の実体照合が必須。shorts の published は relatedVideoId 必須（説明欄 URL は非クリックのため関連動画が主導線）。pack 全体を一括 published にしない（派生物ごとに状態を持つ）。"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "packId": "bad-storyboard",
+  "exam": "civil-construction-2",
+  "title": "ストーリーボード違反の詰め合わせ",
+  "audience": "2級受検者",
+  "pain": "安全管理の答案が一般論になる",
+  "promise": "自分の現場の言葉に置換できる",
+  "intent": "howto",
+  "sourceRefs": [
+    { "type": "note", "path": "content/note/demo/article.md", "access": "free" }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "nonexistent-id",
+    "campaign": "bad-storyboard"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 1
+  }
+}

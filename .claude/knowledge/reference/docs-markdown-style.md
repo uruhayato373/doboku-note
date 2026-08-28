@@ -165,6 +165,24 @@ grep -rE "U\+FFFD|﹖|�" docs/
 
 該当 0 件であれば OK（CLAUDE.md §11 準拠）。
 
+> [!warning] 検出器そのものが持つ U+FFFD を「破損」と誤認して消さない
+> `.claude/` 配下には U+FFFD の実文字を含むファイルが 7 件ある（本ファイル・
+> `agents/kindle-book-qa.md`・`skills/{authoring/keyword-page, quality/consolidate-duplicate-keyword,
+> quality/exam-backlinks, quality/figure-recrop, social/social-post}`）。
+> これらは**文字化けを検出する grep の検索パターンそのもの**で、消すと検出器が
+> 「空パターン＝全件マッチ」になって壊れる。リポジトリ全体を U+FFFD 走査すると
+> 破損に見えるが、`content/` を走査する既存ゲート（note-lint / lint-mdx-mobile）は
+> `.claude/` を対象にしないので偽陽性も発生していない。
+>
+> **エスケープ化での回避は不可**: Git Bash では bash の Unicode エスケープ
+> （`$'` + `\u` + コードポイント + `'`）が文字へ展開されず、バックスラッシュ込みの
+> 6 文字の文字列になる（2026-08-28 実測）。実文字で書くか、バイト列
+> `$'\xef\xbf\xbd'` で書くかの二択で、実文字の方が読み手に意図が伝わる。
+>
+> **U+FFFD を 2 つ並べて書かない**（2026-08-28 に 3 件を 1 文字へ是正）。2 つ並べた
+> パターンは 1 文字だけ壊れたケースを取りこぼして緑になる（実測: 1 文字破損ファイルに
+> 対し 1 文字パターンは 1 件ヒット・2 文字パターンは 0 件）。必ず 1 文字で書く。
+
 ---
 
 ## 既存ドキュメントへの漸進導入

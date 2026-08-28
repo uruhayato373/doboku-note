@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-08-26T07:38:28.151Z",
+  "generated_at": "2026-08-27T12:51:12.548Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -11,12 +11,12 @@
     ]
   },
   "totals": {
-    "total": 1100,
+    "total": 1147,
     "scored": 1064,
-    "unscored": 36,
+    "unscored": 83,
     "failed": 0,
     "thin": 315,
-    "coverage_pct": 96.7
+    "coverage_pct": 92.8
   },
   "by_category": {
     "civil-construction-1": {
@@ -46,18 +46,18 @@
           "avg_weighted": 2.54
         },
         "textbook": {
-          "total": 47,
+          "total": 49,
           "scored": 45,
-          "unscored": 2,
+          "unscored": 4,
           "failed": 0,
           "thin": 0,
           "avg_weighted": 2.87
         }
       },
       "totals": {
-        "total": 138,
+        "total": 140,
         "scored": 131,
-        "unscored": 7,
+        "unscored": 9,
         "failed": 0,
         "thin": 0
       }
@@ -93,6 +93,25 @@
         "total": 41,
         "scored": 39,
         "unscored": 2,
+        "failed": 0,
+        "thin": 0
+      }
+    },
+    "civil-practice": {
+      "groups": {
+        "guide": {
+          "total": 45,
+          "scored": 0,
+          "unscored": 45,
+          "failed": 0,
+          "thin": 0,
+          "avg_weighted": null
+        }
+      },
+      "totals": {
+        "total": 45,
+        "scored": 0,
+        "unscored": 45,
         "failed": 0,
         "thin": 0
       }
@@ -2808,13 +2827,13 @@
   ],
   "delta": {
     "first_run": false,
-    "previous_generated_at": "2026-08-26T06:54:32.883Z",
+    "previous_generated_at": "2026-08-27T12:23:31.342Z",
     "totals_diff": {
       "total": 0,
       "scored": 0,
       "unscored": 0,
       "failed": 0,
-      "thin": -15
+      "thin": 0
     },
     "newly_unscored": [],
     "thin_regression": [],
@@ -3900,6 +3919,17 @@
       "thin": false
     },
     {
+      "slug": "civil-construction-1-textbook-cut-slope-protection",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 6661,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-construction-1-textbook-demolition",
       "category": "civil-construction-1",
       "group": "textbook",
@@ -4248,6 +4278,17 @@
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-08-26T05:21:33.077Z",
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-construction-1-textbook-soft-ground-drainage",
+      "category": "civil-construction-1",
+      "group": "textbook",
+      "body_chars": 5867,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
       "failed": false,
       "thin": false
     },
@@ -4787,6 +4828,501 @@
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-asphalt-pavement-control",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4811,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-backfill-river-excavation",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4001,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-cast-in-place-pile-methods",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4561,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-checklist-shoring-buoyancy",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4860,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-concrete-compaction-numbers",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4010,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-concrete-crack-causes",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4169,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-concrete-finishing-curing",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4542,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-concrete-mix-acceptance",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4108,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-concrete-placement-order",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4525,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-concrete-placement-timing",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3923,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-concrete-pump-capacity",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 5328,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-concrete-repair-leakage",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4398,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-construction-plan-document",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4039,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-cost-and-design-change",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3720,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-earth-retaining-displacement",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4277,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-embankment-quality-control",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4915,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-environment-neighborhood",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3946,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-excavation-bottom-failure",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4674,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-excavation-pre-survey",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3479,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-formwork-material-inspection",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3816,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-formwork-removal-timing",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 5131,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-formwork-waterstop-details",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3934,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-lifting-equipment-selection",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4534,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-pile-bearing-verification",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4151,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-pile-concrete-head-treatment",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3489,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-pipe-jacking-methods",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3746,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-precast-pile-methods",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3543,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-preventive-maintenance-diagnosis",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4162,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-quality-record-site-bcp",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3126,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-rebar-corrosion-handling",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3997,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-rebar-cover-placement",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4131,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-rebar-splice-selection",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4780,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-reference-values",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4950,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-river-park-erosion-control",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4426,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-road-fixtures-precast",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4022,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-safety-culture-discipline",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4627,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-schedule-and-road-permit",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3717,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-sheet-pile-snow-coating",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4534,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-sling-work-wire-rope",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 5193,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-slope-drainage-monitoring",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4321,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-slope-protection-selection",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4306,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-soil-improvement-sandbag",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 4970,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-stacking-heat-machine-safety",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 5037,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-subbase-subgrade-control",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3917,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-trench-excavation-safety",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 5696,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
       "failed": false,
       "thin": false
     },

@@ -1,0 +1,5023 @@
+{
+  "meta": {
+    "startDate": "2026-07-31",
+    "endDate": "2026-08-27",
+    "windowKind": "days",
+    "eventNames": [
+      "note_cta_click",
+      "note_cta_impression",
+      "affiliate_cta_click",
+      "affiliate_cta_impression",
+      "note_article_click",
+      "internal_nav_click",
+      "career_need_select"
+    ],
+    "japanOnly": true,
+    "byDevice": false,
+    "byLabel": false,
+    "byPlacement": false,
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "page": "/docs/civil-construction-2-secondary-r07",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1125
+    },
+    {
+      "page": "/category/pe-comprehensive-management",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 751
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-experience-writing-guide",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 700
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-experience-writing-guide",
+      "eventName": "note_cta_impression",
+      "eventCount": 601
+    },
+    {
+      "page": "/",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 490
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-getting-started",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 462
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-experience-writing-guide",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 461
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r07",
+      "eventName": "note_cta_impression",
+      "eventCount": 442
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-exam-overview",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 404
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-leveling",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 296
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r06",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 280
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-experience-writing-guide",
+      "eventName": "note_cta_impression",
+      "eventCount": 272
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r08-primary",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 267
+    },
+    {
+      "page": "/category/pe-comprehensive-management",
+      "eventName": "internal_nav_click",
+      "eventCount": 238
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-r07",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 229
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r04",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 229
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-exam-overview",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 214
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-experience-writing-examples",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 196
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-experience-writing-examples",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 185
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r08-secondary",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 160
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-getting-started",
+      "eventName": "note_cta_impression",
+      "eventCount": 159
+    },
+    {
+      "page": "/",
+      "eventName": "internal_nav_click",
+      "eventCount": 156
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-exam-overview",
+      "eventName": "note_cta_impression",
+      "eventCount": 156
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-getting-started",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 151
+    },
+    {
+      "page": "/docs/pe-first-stage-r07-basic",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 144
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-schedule-charts",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 142
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-r07",
+      "eventName": "note_cta_impression",
+      "eventCount": 138
+    },
+    {
+      "page": "/about",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 132
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-experience-writing-examples",
+      "eventName": "note_cta_impression",
+      "eventCount": 129
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r05",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 122
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-strategy",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 114
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-experience-writing-examples",
+      "eventName": "note_cta_impression",
+      "eventCount": 99
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r07",
+      "eventName": "internal_nav_click",
+      "eventCount": 97
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-guide-overview",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 91
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r06",
+      "eventName": "note_cta_impression",
+      "eventCount": 84
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-exam-index",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 84
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r04",
+      "eventName": "note_cta_impression",
+      "eventCount": 83
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-exam-overview",
+      "eventName": "note_cta_impression",
+      "eventCount": 80
+    },
+    {
+      "page": "/docs/concrete-diagnostician-guide-overview",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 78
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-safety-scaffolding",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 74
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-root-cause-analysis",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 74
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-textbook-mix-design",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 70
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-primary-construction",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 68
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-management-tradeoffs",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 67
+    },
+    {
+      "page": "/docs/pe-construction-steel-concrete-exam-themes",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 66
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-textbook-construction",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 64
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r03",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 62
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-grade-comparison",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 60
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r8-essay-keyword-forecast",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 59
+    },
+    {
+      "page": "/docs/pe-first-stage-r07-construction",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 59
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r05",
+      "eventName": "note_cta_impression",
+      "eventCount": 57
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-frequent-topics",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 57
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-unsafe-conditions-behavior",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 57
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-leveling",
+      "eventName": "note_cta_impression",
+      "eventCount": 56
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-scraper",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 55
+    },
+    {
+      "page": "/category/civil-construction-2",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 54
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-textbook-production-qc",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 54
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-essay-exam-strategy",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 53
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-keyword-2026",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 52
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-safety-excavation-shoring",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 51
+    },
+    {
+      "page": "/about",
+      "eventName": "internal_nav_click",
+      "eventCount": 48
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-construction-plan-overview",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 48
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-network-schedule",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 48
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-overview",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 48
+    },
+    {
+      "page": "/docs/pe-construction-competency-revision-r8",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 47
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r8-essay-theme-economic-security",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 46
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-general-vs-comprehensive",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 45
+    },
+    {
+      "page": "/docs/pe-first-stage-r07-aptitude",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 45
+    },
+    {
+      "page": "/docs/pe-construction-toan-kousei-template",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 44
+    },
+    {
+      "page": "/docs/pe-construction-r07-steel-concrete",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 42
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-essay-persona-guide",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 41
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r08-primary",
+      "eventName": "note_cta_impression",
+      "eventCount": 41
+    },
+    {
+      "page": "/category/civil-construction-1",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 40
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-exam-overview",
+      "eventName": "internal_nav_click",
+      "eventCount": 39
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-alarp-principle",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 39
+    },
+    {
+      "page": "/docs/pe-construction-construction-planning-exam-themes",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 39
+    },
+    {
+      "page": "/docs/pe-construction-river-coast-exam-themes",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 39
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-shovel-excavator",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 37
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-study-plan",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 37
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r07-primary",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 37
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r08-primary",
+      "eventName": "internal_nav_click",
+      "eventCount": 37
+    },
+    {
+      "page": "/docs/pe-first-stage-r06-aptitude",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 37
+    },
+    {
+      "page": "/",
+      "eventName": "note_cta_impression",
+      "eventCount": 36
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-target-cost",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 36
+    },
+    {
+      "page": "/category/concrete-chief-engineer",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 35
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-getting-started",
+      "eventName": "note_cta_impression",
+      "eventCount": 34
+    },
+    {
+      "page": "/category/pe-first-stage",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 33
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-1-vs-2",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 33
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r07",
+      "eventName": "note_cta_click",
+      "eventCount": 33
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r06",
+      "eventName": "internal_nav_click",
+      "eventCount": 32
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-safety-industrial-safety-law",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 31
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-histogram",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 30
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-process-planning-construction",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 30
+    },
+    {
+      "page": "/docs/civil-construction-2-primary-r05-kouki",
+      "eventName": "note_cta_impression",
+      "eventCount": 29
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-occupational-safety-act",
+      "eventName": "internal_nav_click",
+      "eventCount": 29
+    },
+    {
+      "page": "/docs/pe-construction-geotechnical-exam-themes",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 29
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-crane",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 28
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-market-research",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 28
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-overall-equipment-effectiveness",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 28
+    },
+    {
+      "page": "/docs/pe-construction-secondary-study-method",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 28
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-business-continuity-plan",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 27
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-exam-passing-strategy",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 27
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-technical-nontechnical-skills",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 27
+    },
+    {
+      "page": "/docs/pe-construction-ninaite-dx-ronbun-keyword",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 27
+    },
+    {
+      "page": "/category/pe-comprehensive-management",
+      "eventName": "note_cta_impression",
+      "eventCount": 26
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-getting-started",
+      "eventName": "internal_nav_click",
+      "eventCount": 26
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-law-compliance",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 26
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-work-scheduling",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 26
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-experience-writing-guide",
+      "eventName": "internal_nav_click",
+      "eventCount": 26
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-textbook-construction",
+      "eventName": "internal_nav_click",
+      "eventCount": 26
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-labor-standards-act",
+      "eventName": "internal_nav_click",
+      "eventCount": 26
+    },
+    {
+      "page": "/docs/pe-construction-pe-secondary-essay-guide",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 26
+    },
+    {
+      "page": "/docs/civil-construction-1-primary-r07-b",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 25
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-environmental-impact-assessment",
+      "eventName": "internal_nav_click",
+      "eventCount": 25
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r08-secondary",
+      "eventName": "internal_nav_click",
+      "eventCount": 25
+    },
+    {
+      "page": "/docs/pe-construction-road-exam-themes",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 25
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-vs-pe",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 24
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-distance-angle",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 24
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-construction-plan-key-points",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 24
+    },
+    {
+      "page": "/docs/civil-construction-2-primary-r05-kouki",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 24
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-environmental-basic-plan",
+      "eventName": "internal_nav_click",
+      "eventCount": 24
+    },
+    {
+      "page": "/docs/pe-construction-toan-kousei-template",
+      "eventName": "note_cta_impression",
+      "eventCount": 24
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-frequent-topics",
+      "eventName": "internal_nav_click",
+      "eventCount": 23
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-performance-shaping-factors",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 23
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-schedule-management",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 22
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-guide-trends",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 22
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-digital-twin-cps",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 22
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-worker-dispatch-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 22
+    },
+    {
+      "page": "/docs/pe-construction-gakushuu-jikan-schedule",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 22
+    },
+    {
+      "page": "/docs/pe-construction-required-exam-themes",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 22
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-job-reality",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 21
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-carbon-neutral",
+      "eventName": "internal_nav_click",
+      "eventCount": 21
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-essay-persona-guide",
+      "eventName": "note_cta_impression",
+      "eventCount": 21
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-iot",
+      "eventName": "internal_nav_click",
+      "eventCount": 21
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-keyword-2026",
+      "eventName": "note_cta_impression",
+      "eventCount": 21
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-personal-info-protection",
+      "eventName": "internal_nav_click",
+      "eventCount": 21
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-risk-assessment",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 21
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-loader",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 20
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-guide-essay",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 20
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-primary-products",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 20
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-human-error-probability",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 20
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-inherent-safety",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 20
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-pert-cpm",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 20
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-quality-costing",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 20
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r8-essay-keyword-forecast",
+      "eventName": "internal_nav_click",
+      "eventCount": 20
+    },
+    {
+      "page": "/",
+      "eventName": "note_cta_click",
+      "eventCount": 19
+    },
+    {
+      "page": "/category/concrete-chief-engineer",
+      "eventName": "internal_nav_click",
+      "eventCount": 19
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-construction-plan-past-problems",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 19
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-safety-machinery-crane",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 19
+    },
+    {
+      "page": "/docs/civil-construction-2-primary-r07-kouki",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 19
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-experience-writing-guide",
+      "eventName": "note_cta_click",
+      "eventCount": 19
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-business-continuity-plan",
+      "eventName": "internal_nav_click",
+      "eventCount": 19
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-extended-producer-responsibility",
+      "eventName": "internal_nav_click",
+      "eventCount": 19
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-pert-cpm",
+      "eventName": "internal_nav_click",
+      "eventCount": 19
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-quality-control",
+      "eventName": "internal_nav_click",
+      "eventCount": 19
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-construction-plan-overview",
+      "eventName": "note_cta_impression",
+      "eventCount": 18
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-machinery-structure",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 18
+    },
+    {
+      "page": "/docs/civil-construction-2-primary-r07-zenki",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 18
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-carbon-pricing",
+      "eventName": "internal_nav_click",
+      "eventCount": 18
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-oshms",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 18
+    },
+    {
+      "page": "/docs/pe-first-stage-r07-basic",
+      "eventName": "note_cta_impression",
+      "eventCount": 18
+    },
+    {
+      "page": "/links",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 18
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-river-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 17
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-safety-scaffolding",
+      "eventName": "note_cta_impression",
+      "eventCount": 17
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-resume",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 17
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r04",
+      "eventName": "internal_nav_click",
+      "eventCount": 17
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-guide-overview",
+      "eventName": "internal_nav_click",
+      "eventCount": 17
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-circular-society-basic-act",
+      "eventName": "internal_nav_click",
+      "eventCount": 17
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-cost-driver",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 17
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-equipment-characteristics",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 17
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-extended-producer-responsibility",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 17
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-master-schedule-planning",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 17
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-personal-info-protection",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 17
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-preventive-maintenance",
+      "eventName": "internal_nav_click",
+      "eventCount": 17
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-product-safety",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 17
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-risk-assessment",
+      "eventName": "internal_nav_click",
+      "eventCount": 17
+    },
+    {
+      "page": "/docs/pe-construction-port-airport-exam-themes",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 17
+    },
+    {
+      "page": "/docs/pe-construction-urban-planning-exam-themes",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 17
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-port-regulations",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 16
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-surveying-basics",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 16
+    },
+    {
+      "page": "/docs/concrete-diagnostician-textbook-variation",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 16
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-balance-sheet",
+      "eventName": "internal_nav_click",
+      "eventCount": 16
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-environmental-accounting",
+      "eventName": "internal_nav_click",
+      "eventCount": 16
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-green-infrastructure",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 16
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-hazid",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 16
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-oshms",
+      "eventName": "note_cta_impression",
+      "eventCount": 16
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-process-costing",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 16
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-stress-check-system",
+      "eventName": "internal_nav_click",
+      "eventCount": 16
+    },
+    {
+      "page": "/docs/pe-construction-gakushuu-jikan-schedule",
+      "eventName": "note_cta_impression",
+      "eventCount": 16
+    },
+    {
+      "page": "/docs/pe-construction-geotechnical-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 16
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-experience-writing-guide",
+      "eventName": "internal_nav_click",
+      "eventCount": 15
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-r06",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 15
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-schedule-charts",
+      "eventName": "note_cta_impression",
+      "eventCount": 15
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-standard-contract",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 15
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r05",
+      "eventName": "internal_nav_click",
+      "eventCount": 15
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-primary-mix-design",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 15
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-primary-structural-design",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 15
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-crisis-communication",
+      "eventName": "internal_nav_click",
+      "eventCount": 15
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-descriptive-statistics",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 15
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-energy",
+      "eventName": "internal_nav_click",
+      "eventCount": 15
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-environmental-impact-assessment",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 15
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-environmental-standards",
+      "eventName": "internal_nav_click",
+      "eventCount": 15
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-four-m-analysis",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 15
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-ojt-off-jt",
+      "eventName": "internal_nav_click",
+      "eventCount": 15
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-value-engineering",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 15
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-waste-management-act",
+      "eventName": "internal_nav_click",
+      "eventCount": 15
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-worker-dispatch-act",
+      "eventName": "internal_nav_click",
+      "eventCount": 15
+    },
+    {
+      "page": "/docs/pe-construction-hissu-kamoku-kaitourei",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 15
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-concrete-basics",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 14
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-earthwork-past-problems",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 14
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-r07",
+      "eventName": "internal_nav_click",
+      "eventCount": 14
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-explosives-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 14
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-tractor-bulldozer",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 14
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-digital-twin-cps",
+      "eventName": "note_cta_impression",
+      "eventCount": 14
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-encryption-digital-signature",
+      "eventName": "internal_nav_click",
+      "eventCount": 14
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-lifecycle-costing-method",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 14
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-occupational-safety-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 14
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r07-secondary",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 14
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-variable-work-hours",
+      "eventName": "internal_nav_click",
+      "eventCount": 14
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-construction-plan",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 13
+    },
+    {
+      "page": "/docs/civil-construction-1-primary-r03-a",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 13
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-scraper",
+      "eventName": "note_cta_impression",
+      "eventCount": 13
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-site-investigation",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 13
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-demand-forecasting",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 13
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-descriptive-statistics",
+      "eventName": "note_cta_impression",
+      "eventCount": 13
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-essay-pattern-cross-year-application",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 13
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-isms-iso27001",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 13
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-oshms",
+      "eventName": "internal_nav_click",
+      "eventCount": 13
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-pqcdsme",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 13
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-work-life-balance",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 13
+    },
+    {
+      "page": "/tools/keiken-charcount",
+      "eventName": "note_cta_impression",
+      "eventCount": 13
+    },
+    {
+      "page": "/category/pe-construction",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 12
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-career-salary",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 12
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-concrete-maintenance",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 12
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-difficulty",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 12
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-strategy",
+      "eventName": "note_cta_impression",
+      "eventCount": 12
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-heinrich-law",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 12
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-isms-iso27001",
+      "eventName": "internal_nav_click",
+      "eventCount": 12
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-patent-rights",
+      "eventName": "internal_nav_click",
+      "eventCount": 12
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-reliability-block-diagram",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 12
+    },
+    {
+      "page": "/tools/keiken-charcount",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 12
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-experience-writing-guide",
+      "eventName": "note_cta_click",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-safety-excavation-shoring",
+      "eventName": "note_cta_impression",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-getting-started",
+      "eventName": "internal_nav_click",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r03",
+      "eventName": "internal_nav_click",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/civil-practice-formwork-removal-timing",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-communication-planning",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-cost-maintenance",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-design-review",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-essay-persona-guide",
+      "eventName": "note_cta_click",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-hazop",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-labor-contract-act",
+      "eventName": "internal_nav_click",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-malware",
+      "eventName": "internal_nav_click",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-pmbok",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-product-safety",
+      "eventName": "internal_nav_click",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r07-primary",
+      "eventName": "internal_nav_click",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-seven-types-of-pollution",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-supply-chain-management",
+      "eventName": "internal_nav_click",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-therp",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/pe-construction-river-coast-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/pe-construction-secondary-study-method",
+      "eventName": "note_cta_impression",
+      "eventCount": 11
+    },
+    {
+      "page": "/docs/pe-construction-steel-concrete-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 11
+    },
+    {
+      "page": "/category/pe-comprehensive-management",
+      "eventName": "note_cta_click",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-1-vs-2",
+      "eventName": "note_cta_impression",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-study-plan",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/civil-construction-1-public-servant-merit",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-noise-vibration-regulation",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-career",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-primary-construction",
+      "eventName": "internal_nav_click",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-textbook-structural-design",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-balance-sheet",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-cloud-on-premises",
+      "eventName": "internal_nav_click",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-digital-twin-cps",
+      "eventName": "internal_nav_click",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-herzberg-two-factor-theory",
+      "eventName": "internal_nav_click",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-malware",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r08-secondary",
+      "eventName": "note_cta_impression",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-residual-risk",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-instrumented-system",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-trademark-rights",
+      "eventName": "internal_nav_click",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-work-life-balance",
+      "eventName": "internal_nav_click",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/pe-construction-tunnel-exam-themes",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/pe-first-stage-r02-construction",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/pe-first-stage-r03-aptitude",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 10
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-quality-management",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-concrete-past-problems",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-construction-plan-basics",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-experience-writing-examples",
+      "eventName": "internal_nav_click",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-construction-byproduct-recycle",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-network-schedule",
+      "eventName": "note_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-safety-management-system",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-shovel-excavator",
+      "eventName": "note_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-primary-products",
+      "eventName": "internal_nav_click",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-carbon-neutral",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-centralization-decentralization",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-descriptive-statistics",
+      "eventName": "internal_nav_click",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-disaster-countermeasures-act",
+      "eventName": "internal_nav_click",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-ecosystem-services",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-four-e-countermeasures",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-investment-recovery-plan",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-machinery-safety-guidelines",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-management-tradeoffs",
+      "eventName": "internal_nav_click",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-nonconformity-rate",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-opt-in-opt-out",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-pattern-essay-general-contractor",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-pha",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-confirmation-system",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/pe-construction-gyoumu-keireki-hyou",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/pe-first-stage-r01-construction",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "page": "/links",
+      "eventName": "internal_nav_click",
+      "eventCount": 9
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-public-servant",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/civil-construction-1-primary-r03-a",
+      "eventName": "internal_nav_click",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-r07",
+      "eventName": "note_cta_click",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-control-chart",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-crane",
+      "eventName": "note_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-grader-compaction",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-river-act",
+      "eventName": "note_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-law-key-points",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/concrete-diagnostician-guide-overview",
+      "eventName": "internal_nav_click",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/concrete-diagnostician-textbook-repair",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-break-even-point",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-carbon-pricing",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-concurrent-engineering",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-environmental-accounting",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-income-statement",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-labor-standards-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-public-servant-comprehensive-merit",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-health-org-structure",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/pe-construction-ninaite-dx-ronbun-keyword",
+      "eventName": "internal_nav_click",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/pe-construction-r06-urban-planning",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/pe-construction-r07-required",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/pe-construction-road-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-earthwork-basics",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-r03",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-cut-slope-protection",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-histogram",
+      "eventName": "note_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-safety-risk-assessment",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-schedule-overview",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-surveying-basics",
+      "eventName": "note_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-work-scheduling",
+      "eventName": "note_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-quality-management",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/civil-construction-2-primary-r05-kouki",
+      "eventName": "internal_nav_click",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/civil-construction-2-primary-r06-zenki",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/civil-construction-2-primary-r07-kouki",
+      "eventName": "note_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-experience-writing-examples",
+      "eventName": "note_cta_click",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-primary-materials",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-textbook-durability",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-textbook-mix-design",
+      "eventName": "note_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-textbook-products",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-business-intelligence",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-cost-variance-analysis",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-ecrs-principle",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-environmental-basic-plan",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-essay-exam-strategy",
+      "eventName": "note_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-followership",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-gantt-chart",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-improvement-maintenance",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-labor-contract-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-malware",
+      "eventName": "note_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-nature-positive",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-private-engineer-comprehensive-merit",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-process-safety-mgmt",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-quality-control",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-root-cause-analysis",
+      "eventName": "note_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-smart-safety",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-supply-chain-management",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-unsafe-conditions-behavior",
+      "eventName": "note_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-construction-steel-concrete-ronbun-keyword",
+      "eventName": "note_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/docs/pe-first-stage-r05-construction",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/tools/kakomon-quiz",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "page": "/category/civil-construction-2",
+      "eventName": "internal_nav_click",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-allowance",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-career-cases",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-dx-jobs",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-earthwork-key-points",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-foundation",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-concrete-past-problems",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-construction-plan-basics",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-earthwork-basics",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-getting-started",
+      "eventName": "note_cta_click",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-quality-management-past-problems",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-embankment",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-safety-industrial-safety-law",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-safety-work-environment",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-waste-disposal-manifest",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-construction-plan-key-points",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-2-primary-r05-zenki",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r04",
+      "eventName": "note_cta_click",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r06",
+      "eventName": "note_cta_click",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-activity-abc",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-bowtie-analysis",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-conformity-bias",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-data-leak-tampering-loss",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-encryption-digital-signature",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-equipment-reliability",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-eta",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-fail-safe",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-ipbes",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-ipbes",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-load-capacity",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-multi-track-hr-system",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-ojt-off-jt",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-periodic-maintenance",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-ppm-analysis",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-preventive-maintenance",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-public-engineer-qualification-map",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r07-primary",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-reliability-maintainability-design",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-management-system",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-system-safety",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-work-planning",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-construction-bosai-kokudo-kyoujinka",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-construction-bousai-genseigai-ronbun-keyword",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/pe-construction-competency-revision-r8",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/tools/juken-shikaku",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-company-types",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-concrete-maintenance",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-surveying",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-earthwork-past-problems",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-experience-writing-examples",
+      "eventName": "note_cta_click",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-construction-mgmt-overview",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-cut-slope-protection",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-machinery-structure",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-earthwork-key-points",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-study-plan",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-textbook-production-qc",
+      "eventName": "internal_nav_click",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/concrete-diagnostician-textbook-deterioration",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-aging-infrastructure",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-centralization-decentralization",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-circular-society-basic-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-crisis-communication",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-decision-tree-analysis",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-disaster-prevention",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-emergency-stop-device",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-energy",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-fail-soft",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-fault-tolerance",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-four-m-analysis",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-idea-generation-methods",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-jisec",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-keyword-2026",
+      "eventName": "internal_nav_click",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-last-minute-2026",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-linear-programming",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-maintenance-prevention",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-natech",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-npv-net-present-value",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-overall-equipment-effectiveness",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-pattern-essay-road-municipality",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-present-annual-future-value",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r8-essay-theme-circular-economy",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-resilience",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-rio-declaration",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-rpa",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-rpa",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-2-0",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-skill-qualification-system",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-subsidiarity-principle",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-system-availability",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-system-reliability",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-technical-nontechnical-skills",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-urban-flood",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-construction-environment-exam-themes",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-construction-r07-power-civil",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-construction-r07-steel-concrete",
+      "eventName": "internal_nav_click",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-construction-required-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-construction-steel-concrete-ronbun-keyword",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/pe-first-stage-r03-basic",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/search",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-concrete-key-points",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-exam-overview",
+      "eventName": "note_cta_click",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-law-key-points",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-safety-management",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-salary-up",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/civil-construction-1-primary-r05-a",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/civil-construction-1-primary-r07-b",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-r06",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-distance-angle",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-embankment",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-management-subplans",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-port-regulations",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-safety-machinery-crane",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-soil-investigation-methods",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-soil-investigation-methods",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-job-reality",
+      "eventName": "internal_nav_click",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-study-method",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/civil-construction-2-primary-r05-zenki",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-getting-started",
+      "eventName": "note_cta_click",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-guide-essay",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/concrete-diagnostician-guide-essay",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-alarp-principle",
+      "eventName": "internal_nav_click",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-all-hazard-approach",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-blind-drill",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-contingency",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-depreciation-residual-value",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-design-in",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-digital-rights",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-discount-rate",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-eco-drr",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-economic-management-pillar",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-economic-management-pillar",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-equipment-characteristics",
+      "eventName": "internal_nav_click",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-esg-environmental-assessment",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-essay-exam-strategy",
+      "eventName": "internal_nav_click",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-exam-application-guide",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-exam-index",
+      "eventName": "internal_nav_click",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-exam-index",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-fire-service-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-four-e-countermeasures",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-hazardous-facility-disaster-prevention",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-herzberg-two-factor-theory",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-inherent-safety",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-interlock",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-iot",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-jit-production",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-lead-time",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-management-tradeoffs",
+      "eventName": "note_cta_click",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-patent-rights",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-portrait-publicity-privacy",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-process-planning-construction",
+      "eventName": "internal_nav_click",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-process-safety-mgmt",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r08-primary",
+      "eventName": "note_cta_click",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r8-essay-theme-economic-security",
+      "eventName": "internal_nav_click",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-reliability-maintainability-design",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-risk-management-plan",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-risk-treatment",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-rohs-weee",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-confirmation-system",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-objectives",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-temporary-works-plan",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-theory-of-constraints",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-tripod-theory",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-vta-method",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-construction-carbon-neutral-kensetsu",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-construction-construction-planning-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-construction-guide-career",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-construction-guide-required-essay",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-construction-gyoumu-keireki-hyou",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-construction-pe-secondary-essay-guide",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/docs/pe-first-stage-r03-construction",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "page": "/category/pe-comprehensive-management",
+      "eventName": "note_article_click",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-buildjob-review",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-foundation",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-market-value",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-study-method",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-study-plan",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-1-primary-r05-a",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-1-primary-r07-b",
+      "eventName": "internal_nav_click",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-concrete-basics",
+      "eventName": "internal_nav_click",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-construction-plan-past-problems",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-quality-management-basics",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-r03",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-r04",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-building-standards",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-construction-business",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-quality-overview",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-site-investigation",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-tractor-bulldozer",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-concrete-key-points",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-overview",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-textbooks",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-young-career",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r05",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/concrete-diagnostician-textbook-investigation",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/concrete-diagnostician-textbook-maintenance",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-accident-statistics",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-analogous-estimation",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-analytic-hierarchy-process",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-bathtub-curve",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-bottom-up-estimation",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-budget-planning",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-cash-flow-statement",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-common-criteria",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-consumer-safety",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-cost-driver",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-crisis-communication",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-data-leak-tampering-loss",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-de-jure-standard",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-defense-in-depth",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-delphi-method",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-disaster-countermeasures-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-disaster-prevention",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-emergency-stop-device",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-erp",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-erp",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-essay-persona-guide",
+      "eventName": "internal_nav_click",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-fault-avoidance",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-five-s",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-fixed-communication",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-flat-organization",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-flat-organization",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-four-m-of-production",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-front-loading",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-green-infrastructure",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-green-transformation",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-haccp",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-hazard",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-heat-island-effect",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-human-capital-disclosure",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-human-factors",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-ifrs",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-information-retrieval",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-initial-investment",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-job-design",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-job-design",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-job-order-costing",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-liquefaction",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-lopa",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-maslow-hierarchy-of-needs",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-mcgregor-xy-theory",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-method-planning",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-monte-carlo-simulation",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-osh-management-system",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-parametric-estimation",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-patent-rights",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-payback-period-method",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-pdca-cycle",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-performance-shaping-factors",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-personal-info-utilization",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-planned-usage-period",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-process-capability-index",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-process-costing",
+      "eventName": "internal_nav_click",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-production-management-system",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-production-management-system",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-push-production",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-pyramid-organization",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-quality-planning",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r03-secondary",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r04-secondary",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r06-secondary",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-recommendation-systems",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-reliability-block-diagram",
+      "eventName": "internal_nav_click",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-resilience",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-risk-assessment",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-risk-management-policy",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-risk-monitoring",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-case",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-control",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-education",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-instrumented-system",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-sales-management-system",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-standard-costing",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-stress-check-system",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-survey-analysis",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-system-availability",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-system-integrity",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-system-reliability",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-system-safety",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-target-cost",
+      "eventName": "internal_nav_click",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-target-cost",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-terrorism",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-therp",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-timeline-disaster",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-unreasonable-trade-restraint",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-utilization-rate",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-construction-bosai-kokudo-kyoujinka",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-construction-environment-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-construction-iji-kanri-ronbun-keyword",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-construction-infra-roukyuuka-iji",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-construction-ninaite-kakuho-seisansei",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-construction-port-airport-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-construction-power-civil-exam-themes",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-construction-power-civil-ronbun-keyword",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-construction-r04-river-coast",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-construction-r07-geotechnical",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-construction-r07-port-airport",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-construction-r07-river-coast",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-construction-r07-steel-concrete",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-construction-secondary-study-method",
+      "eventName": "internal_nav_click",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-construction-sentaku-kamoku-kakiwake",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-construction-toan-kousei-template",
+      "eventName": "internal_nav_click",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-construction-tunnel-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-first-stage-r04-basic",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-first-stage-r06-aptitude",
+      "eventName": "internal_nav_click",
+      "eventCount": 3
+    },
+    {
+      "page": "/docs/pe-first-stage-r06-construction",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "page": "/",
+      "eventName": "note_article_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/about",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/category/civil-construction-1",
+      "eventName": "internal_nav_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/category/concrete-diagnostician",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-career-path",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-construction-plan",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-demolition",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-difficulty",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-environment-management",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-exam-overview",
+      "eventName": "internal_nav_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-quality-management",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-safety-management",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-schedule-management",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-study-method",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-vs-pe",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-primary-h29-a",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-primary-r06-a",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-primary-r07-a",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-r03",
+      "eventName": "internal_nav_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-r04",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-law-compliance",
+      "eventName": "internal_nav_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-loader",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-safety-management-system",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-safety-risk-assessment",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-schedule-charts",
+      "eventName": "internal_nav_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-soft-ground-drainage",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-soft-ground-drainage",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-standard-contract",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-waste-disposal-manifest",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-overview",
+      "eventName": "internal_nav_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-quality-management",
+      "eventName": "internal_nav_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-quit-or-stay",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-resume",
+      "eventName": "internal_nav_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-schedule-management",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-experience-writing-examples",
+      "eventName": "internal_nav_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r07",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-practice-asphalt-pavement-control",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-practice-concrete-crack-causes",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-practice-concrete-mix-acceptance",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/civil-practice-subbase-subgrade-control",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-guide-trends",
+      "eventName": "internal_nav_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-primary-properties",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-access-control",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-access-log-analysis",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-accident-response-drill",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-accident-response-drill",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-accounting-systems",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-aging-infrastructure",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-alarp-principle",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-alert-levels",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-anonymized-information",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-antitrust-compliance",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-autonomous-maintenance",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-bid-rigging",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-blockchain-crypto",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-bowtie-analysis",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-capacity-management",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-common-criteria",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-confidentiality",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-conformity-bias",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-consumer-safety",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-contingency",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-control-limits",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-control-limits",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-corrective-maintenance",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-correlation-analysis",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-crisis-priority",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-customer-satisfaction",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-cybersecurity-safety",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-data-breach-response",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-data-governance",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-de-jure-standard",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-decision-tree-analysis",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-defense-in-depth",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-depreciation",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-design-rights",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-diagnostic-od",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-dialogic-od",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-dialogic-od",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-dioxin-countermeasures-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-direct-costing",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-direct-manufacturing-cost",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-disaster-weather-info",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-dos-ddos",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-economic-comparison-principle",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-elsi",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-enterprise-portal-intranet",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-enterprise-portal-intranet",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-environmental-accounting",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-environmental-standards",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-equipment-maintainability",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-ergonomic-principles",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-ergonomic-principles",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-essay-exam-strategy",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-estimation-testing",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-estimation-testing",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-eta",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-exam-application-guide",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-exam-index",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-exam-passing-strategy",
+      "eventName": "note_article_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-exam-passing-strategy",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-extreme-events",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-extreme-events",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-extrinsic-motivation",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-extrinsic-motivation",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-fault-tolerance",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-fire-service-act",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-fmea",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-four-m-of-production",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-frequent-topics",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-game-theory",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-global-hr-development",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-global-hr-development",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-hawthorne-experiment",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-hawthorne-experiment",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-hazard",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-hazard-map",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-hazardous-facility-disaster-prevention",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-hazid",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-hazop",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-heinrich-law",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-high-pressure-gas-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-high-pressure-gas-act",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-human-error-probability",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-human-factors",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-human-relations-management",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-impact",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-improvement-maintenance",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-income-statement",
+      "eventName": "internal_nav_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-indirect-manufacturing-cost",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-information-retrieval",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-input-indicators",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-integer-programming",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-international-filing-system",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-ip-creation",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-ip-utilization",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-ipbes",
+      "eventName": "internal_nav_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-ismap",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-ismap",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-job-rotation",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-keyword-2026",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-labor-policy-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-labor-relations-adjustment-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-labor-standards-act",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-labor-union-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-lifecycle-management",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-likelihood",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-liquefaction",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-load-leveling",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-lopa",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-maintenance-cost",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-maintenance-prevention",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-market-research",
+      "eventName": "internal_nav_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-mcgregor-xy-theory",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-mental-health",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-mental-health",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-multi-objective-optimization",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-my-number-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-national-resilience-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-network-organization",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-network-organization",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-non-repudiation",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-non-repudiation",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-occupational-safety-act",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-operation-errors",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-opt-in-opt-out",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-optimism-bias",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-osh-management-system",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-output-indicators",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-parallel-system",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-password-security",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-periodic-maintenance",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-personal-info-utilization",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-personal-information",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-pfi",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-pha",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-phishing-pharming",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-pm-theory",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-pollution-control-manager",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-pollution-control-manager",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-ppm-analysis",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-prior-use-rights",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-prior-use-rights",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-probabilistic-risk-assessment",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-problem-setting-ability",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-progress-management",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-public-acceptance",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-public-safety",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-pyramid-organization",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-quality-planning",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-r03-secondary",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-radioactive-decontamination-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-reliability-block-diagram",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-replacement-cost",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-required-quality",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-residual-risk",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-risk",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-risk-analysis",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-risk-criteria",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-risk-criteria",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-risk-identification",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-risk-management-policy",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-risk-management-system",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-risk-map-matrix",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-risk-treatment",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-case",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-control",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-culture",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-education",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-health-org-structure",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-health-plan",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-health-policy",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-investment",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-safety-objectives",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-sales-management-system",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-scientific-management",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-scientific-management",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-security-software",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-series-system",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-series-system",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-seven-types-of-pollution",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-small-group-activities",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-small-group-activities",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-smart-safety",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-social-engineering",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-social-engineering",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-sop",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-state-secrets-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-state-secrets-act",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-survey-analysis",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-system-integrity",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-system-outage-degradation",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-system-outage-degradation",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-system-security",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-targeted-attack",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-teal-organization",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-teal-organization",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-terrorism",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-three-point-estimation",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-timeline-disaster",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-training-techniques",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-tripod-theory",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-unauthorized-access",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-unced-earth-summit",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-unfair-competition-prevention-act",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-unfair-competition-prevention-act",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-unfair-trade-practices",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-unreasonable-trade-restraint",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-urban-flood",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-variable-work-hours",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-visual-management",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-vta-method",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-vulnerability",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-wacc-roic",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-web-services",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-web-services",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-wellbeing-org",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-whitepaper-study-map",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-work-planning",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-zero-trust",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-construction-construction-planning-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-construction-construction-planning-ronbun-keyword",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-construction-geotechnical-exam-themes",
+      "eventName": "internal_nav_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-construction-pe-secondary-essay-guide",
+      "eventName": "internal_nav_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-construction-port-airport-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-construction-r04-tunnel",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-construction-r04-tunnel",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-construction-r05-railway",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-construction-r06-port-airport",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-construction-r06-river-coast",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-construction-r07-railway",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-construction-r07-road",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-construction-r07-urban-planning",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-construction-steel-concrete-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-construction-urban-planning-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "page": "/docs/pe-first-stage-r07-construction",
+      "eventName": "internal_nav_click",
+      "eventCount": 2
+    },
+    {
+      "page": "/",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 1
+    },
+    {
+      "page": "/category/civil-construction-2",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 1
+    },
+    {
+      "page": "/category/civil-construction-2",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "page": "/category/pe-first-stage",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-concrete-key-points",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-demolition",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-four-management",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-interview",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-last-minute-2026",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-resume",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-guide-strategy",
+      "eventName": "internal_nav_click",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-keyword-2026",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-primary-h29-a",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-primary-r06-a",
+      "eventName": "internal_nav_click",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-primary-r07-b",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-earthwork-basics",
+      "eventName": "internal_nav_click",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-earthwork-past-problems",
+      "eventName": "internal_nav_click",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-secondary-r03",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-construction-byproduct-recycle",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-construction-mgmt-overview",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-explosives-act",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-grader-compaction",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-management-subplans",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-noise-vibration-regulation",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-safety-industrial-safety-law",
+      "eventName": "internal_nav_click",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-1-textbook-safety-industrial-safety-law",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-exam-overview",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-haken-seishain",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-overview",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-2-guide-safety-management",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-2-primary-r05-zenki",
+      "eventName": "internal_nav_click",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-experience-writing-guide",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-construction-2-secondary-r04",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-practice-concrete-finishing-curing",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-practice-excavation-bottom-failure",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-practice-excavation-pre-survey",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-practice-sling-work-wire-rope",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/civil-practice-slope-protection-selection",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-guide-essay",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-primary-construction",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-textbook-construction",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-textbook-production-qc",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/concrete-chief-engineer-textbook-properties",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/concrete-diagnostician-textbook-repair",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-access-control",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-access-log-analysis",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-accident-cost",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-accident-cost",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-accident-statistics",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "page": "/docs/pe-comprehensive-management-accountability-traceability",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1
+    }
+  ]
+}

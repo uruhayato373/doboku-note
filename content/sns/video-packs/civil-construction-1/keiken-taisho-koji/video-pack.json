@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-taisho-koji",
+  "exam": "civil-construction-1",
+  "title": "施工経験記述に書ける工事・書けない工事",
+  "audience": "1級土木の施工経験記述で工事選びに迷う受検者",
+  "pain": "どの工事を題材にすれば認められるのか判断できない",
+  "promise": "対象になる工事とならない工事の線引きと選び方が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "coconala-service",
+    "targetId": "coconala-sakusei",
+    "campaign": "keiken-taisho-koji"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

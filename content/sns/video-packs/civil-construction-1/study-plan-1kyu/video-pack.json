@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "packId": "study-plan-1kyu",
+  "exam": "civil-construction-1",
+  "title": "1級土木の勉強計画 — 何をいつまでに",
+  "audience": "これから1級土木の学習を始める受験者",
+  "pain": "仕事と両立しながら何をどの順で進めるか計画できない",
+  "promise": "試験日から逆算した学習スケジュールの組み方が分かる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-study-plan/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "study-plan-1kyu"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-nanjaku-jiban",
+  "exam": "civil-construction-1",
+  "title": "軟弱地盤対策工法の整理法",
+  "audience": "1級土木で軟弱地盤の工法名に混乱する受験者",
+  "pain": "似た名前の対策工法が多く原理と対応が覚えられない",
+  "promise": "目的別（沈下・安定・液状化）に工法を束ねて覚えられる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-anki-note",
+    "campaign": "gakka-nanjaku-jiban"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

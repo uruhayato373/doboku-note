@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "fetchedAt": "2026-08-25T01:15:00.738Z",
+  "fetchedAt": "2026-08-27T13:52:22.362Z",
   "status": "ok",
   "source": "coconala.com /mypage/received_orders/*（Playwright・read-only）",
   "privacyNote": "購入者名・購入者ID・トークルーム本文・DM 本文は保存しない。保存するのは talkroomId / dmId / サービス / 金額 / 日付 / ステータス / 未返信 / 返信期限のみ。DM は subject（引用されたサービス名）だけを採る。送信者名と本文プレビューはブラウザ内で判定にのみ使い、結果のブール値（fromStaff / oneWay / violationRemoved）だけを残す。",
@@ -27,8 +27,8 @@
         "label": "取引中",
         "url": "https://coconala.com/mypage/received_orders/open",
         "ok": true,
-        "rows": 0,
-        "rawRows": 0
+        "rows": 1,
+        "rawRows": 1
       },
       {
         "key": "closed",
@@ -63,9 +63,24 @@
     ],
     "tabsOk": 7,
     "tabsTotal": 7,
-    "deadlineFailed": 0
+    "deadlineFailed": 1
   },
   "orders": [
+    {
+      "talkroomId": "18194267",
+      "talkroomUrl": "https://coconala.com/talkrooms/18194267",
+      "tab": "open",
+      "tabLabel": "取引中",
+      "serviceId": "coconala-1kyu-moshi-pdf",
+      "listingText": "1級土木二次の予想模擬試験を送ります 本番形式の予想模試1回分＋解答解説で総仕上げ",
+      "priceYen": 2500,
+      "soldOn": "2026-08-25",
+      "deliveryDueSet": false,
+      "statusLabel": "取引中",
+      "lastMessageAt": "08/26 12:02",
+      "unreplied": false,
+      "replyDueAt": null
+    },
     {
       "talkroomId": "18091375",
       "talkroomUrl": "https://coconala.com/talkrooms/18091375",

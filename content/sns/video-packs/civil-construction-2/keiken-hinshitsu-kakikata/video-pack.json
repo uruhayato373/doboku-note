@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-hinshitsu-kakikata",
+  "exam": "civil-construction-2",
+  "title": "品質管理テーマの組み立て方",
+  "audience": "2級土木の施工経験記述で品質管理を選ぶ受検者",
+  "pain": "品質管理の課題と対応処置の組み立て方が分からない",
+  "promise": "締固め・コンクリート養生など典型課題の組み立てが分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-experience-essay",
+    "campaign": "keiken-hinshitsu-kakikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

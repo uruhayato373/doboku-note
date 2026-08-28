@@ -66,6 +66,26 @@ test('brain channel は Phase 04 で有効化され、/content/brain タブを�
   });
 });
 
+test('kindle channel は専用画面タブ + ファイルタブを持つ', () => {
+  const out = tsx(`
+    import { channelById } from './tools/admin-app/src/lib/channel-registry.ts';
+    const kindle = channelById('kindle');
+    process.stdout.write(JSON.stringify({
+      enabled: kindle?.enabled,
+      sourcePath: kindle?.sourcePath,
+      tabs: kindle?.tabs.map((t) => ({ href: t.href, match: t.match })),
+    }));
+  `);
+  assert.deepEqual(JSON.parse(out), {
+    enabled: true,
+    sourcePath: 'content/kindle',
+    tabs: [
+      { href: '/content/kindle', match: '/content/kindle' },
+      { href: '/content/content~kindle', match: '/content/content~kindle' },
+    ],
+  });
+});
+
 test('X / Instagram の gallery/sns タブは query だけが異なり、pathname だけでは排他評価できる', () => {
   const out = tsx(`
     import { channelById } from './tools/admin-app/src/lib/channel-registry.ts';
@@ -109,7 +129,8 @@ test('Nav.tsx に旧グループ名「発信」が残っていない', () => {
 });
 
 test('管理グループに /content が無く、コンテンツグループに /content が 1 つだけある', () => {
-  const src = readFileSync(join(ROOT, 'tools/admin-app/src/components/Nav.tsx'), 'utf8');
+  // autocrlf の作業ツリーでは CRLF になるため、`\n` 固定の regex の前に正規化する
+  const src = readFileSync(join(ROOT, 'tools/admin-app/src/components/Nav.tsx'), 'utf8').replace(/\r\n/g, '\n');
   const adminGroupMatch = src.match(/title: '管理'[\s\S]*?entries: \[([\s\S]*?)\],\n {2}\},\n\];/);
   assert.ok(adminGroupMatch, '管理グループが見つからない');
   assert.ok(!adminGroupMatch[1].includes("href: '/content'"), '管理グループに /content が残っている');

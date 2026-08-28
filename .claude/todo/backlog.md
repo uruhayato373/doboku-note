@@ -67,48 +67,18 @@
 ## 🔴 高 — 来月中に着手
 
 
-### [DN-0149] IG ambiguous衝突59件の人間判定セッション（旧DN-0146の残）
-タグ: [SNS・マーケ] [種類:不具合] [起票:2026-08-27]
 
-DN-0146で published_UNrecorded 72件中、非ambiguous 20件をbackfill完了
-（published_recorded 16→36）。**残る59件は全件 ambiguous**（1本のライブ投稿を
-複数パックが同時に主張・機械的に解決不可能）。wontfix/skipを表す仕組みが
-現存しないため（`ig-status.mjs` は mark/unmark/migrate/summary のみ）、
-`npm run verify-ig-status` を回すたびに毎回同じ59件が再浮上する。
+### [DN-0150] Kindle g-01/g-02 の LIVE 化確認と ASIN 記録（審査中2冊の後追い）
+タグ: [収益化] [種類:改善] [起票:2026-08-28]
 
-**衝突の実測（2026-08-27・最新snapshot）**: 最大9パックが同一投稿を主張する
-グループが複数存在（例: shortcode `DbNjPXzDHJ9`/`DbK-c5JnV0L`/`DbIZo2KjaAA`他を
-`civil-1/theme-packs/hoki-labor/pack-02,pack-05`・`civil-2/theme-packs/hoki-labor/pack-01`
-ほか計9パックが主張）。civil-1/civil-2 のhoki-labor系テーマパックに集中。
+g-01（コンクリート診断士 ¥990・draft A2OMU1X8YED1C1）・g-02（コンクリート主任技士 ¥1,250・
+draft A1SOBDV0E25MSK）を 2026-08-28 に KDP へ出版申請した（審査は通常72h・catalog は in_review）。
+審査通過後に `--sync-status` で「販売中」と正式 ASIN を確認し、**3箇所へ記録**する:
+(1) `scripts/kindle-published/catalog.json`（status→live・asin・publishedDate）
+(2) `content/kindle/strategy.md` Gシリーズ表の状態欄 (3) `scripts/kindle-published/README.md` に G 行を追加。
+F系9冊は LIVE 記録が約1ヶ月漏れた前例あり（ed3d61ce）。却下(rejected)ならその旨を catalog に記録し原因を確認する。
+**完了条件**: catalog の g-01/g-02 が live（または rejected 処理済み）で、3箇所の記録が揃っている。
 
-**判定手順**（1グループずつ）:
-1. `.claude/state/ig-reconcile/snapshot.json` の `cats.published_UNrecorded` から
-   `ambiguous:true` のエントリを `matched` shortcode でグルーピング
-2. 各shortcodeについて `https://www.instagram.com/p/<shortcode>/` をライブで開き、
-   投稿内容（1枚目の見出し・年度・論点）を確認
-3. `ambiguousWith` に列挙された候補パックのslide-data.json/status.jsonと突合し、
-   本当に一致する1パックだけを正とする
-4. 正のパックだけ `node scripts/ig-status.mjs mark <rel> carousel --url=... --date=...`
-   （他の候補は「誤ヒット」として何もしない＝記録しない）
-
-**最大リスク**: 未投稿のパックに「投稿済み」と誤記録すること（2026-08-27に
-一度未遂あり・[[ig-publish-reconcile.md]]の鉄則参照）。1つでも自信が持てない
-グループはskipして次回に回す。
-
-**完了条件**: 全59件のshortcode衝突グループに判定がつき、`published_UNrecorded`
-が判定保留分（誤ヒットとして記録しない分）まで減る。wontfixマーカーが実装
-されれば、それ以降は再浮上しなくなる（別途 `ig-status.mjs` への機能追加を検討）。
-
-### [DN-0117] コンクリート系2冊の Kindle 提出待ち（図の出所は解消済み・KDP提出のみ残）
-タグ: [収益化] [種類:制作] [起票:2026-08-22]
-
-g-01（コンクリート診断士 ¥990）・g-02（コンクリート主任技士 ¥1,250）を KDP へ提出する。
-図の出所問題は全 10 点解消済み（concrete-diagnostician 8 点＝AI 生成画像と本文コメントで確認済み・
-concrete-chief-engineer 2 点＝自作 SVG へ描き直し済み、2026-08-26）。EPUB は再ビルド済み
-（`build-pe1-kindle.mjs`・epubcheck エラー 0・U+FFFD 0 件、2026-08-26）。
-状態の真実源は `scripts/kindle-published/catalog.json`（現在 `status: "ready"`）。
-手順は `/kdp-publish`。**完了条件**: catalog.json の status が `in_review` 以降へ進む
-（提出はユーザー承認・KDP ログイン操作が要る）。
 
 
 
@@ -126,65 +96,6 @@ concrete-chief-engineer 2 点＝自作 SVG へ描き直し済み、2026-08-26）
 （`pe-secondary-exam-factcheck` エージェント相当の裏取りをしてから着手する）。
 論文対策キーワード6テーマ＋論文の書き方の組成。成果物は content＋published:false まで。
 
-### [DN-0107] index coverage 回復プログラム（総監209本の再分類＋権威性）
-タグ: [インフラ・計測] [種類:改善] [起票:2026-08-20]
-
-**2026-08-22 完了済み**:
-
-- GSC UIを完全取得・正規化（allKnown: crawled 353 / redirect 857 / 404 297 / canonical 160。現行sitemap側のcrawledは302）
-- EXP-006を実体同期し、20本→未登録13本の`partial`で終了。登録リクエスト反復を中止
-- `npm run search-growth:cem-plan`を実装。総監209本を`KEEP 31 / IMPROVE 19 / CONSOLIDATE 0 / NOINDEX_REVIEW 0 / MONITOR 159`へ分類し、`.claude/state/improvements/cem-index-consolidation-2026-08-22.{json,md}`へ保存
-- 技術修正候補は0。現在は承認対象の統合クラスタも0なので、301・削除・noindex・pilot deployは行わない
-
-**2026-08-26 再分類完了**: `DN-0106` Phase 1の完全スナップショット（`truncated:false`）取得後に
-`search-growth:report`（universe 2477 URL・FIX_TECHNICAL 0・REDIRECT_LEGACY 0）と`search-growth:cem-plan`
-（総監209本 `KEEP 31 / IMPROVE 20 / CONSOLIDATE 0 / NOINDEX_REVIEW 0 / MONITOR 158`）を再実行。
-8/22比の差分は`pe-comprehensive-management-copyright`が MONITOR→IMPROVE の1件のみ（2回連続未登録の
-再分類ルールどおり）。**CONSOLIDATE は今回も0でpilot対象なし**。保存先: `.claude/state/improvements/
-cem-index-consolidation-2026-08-26.{json,md}`。
-
-**残作業**:
-
-1. 2026-09-01の月次URL Inspectionで全体・総監・各カテゴリの遷移を更新。`MONITOR`のうち2回連続未登録になったURLだけ再分類
-2. `CONSOLIDATE`が出た場合のみ、source/target/残す固有情報/需要を最大10件で提示し、明示承認後にpilotする
-
-**権威性の外向きレバー**:
-
-1. 既存資産を再利用し、被リンク理由になる独自データを1本だけ作る。第一候補は既存 `frequent-topics` の根拠データ・算出方法・CSV/表の公開強化。重複ページは新設しない
-2. civil版ランキングは past-exam backlink / 論点タグのcoverageを先に監査し、根拠が作れる場合だけ1級または2級の1本を制作する
-3. hub・該当過去問・カテゴリから文脈リンクを集め、note無料記事とSNSではデータの要点を紹介してcanonicalへdeep linkする
-4. 外部サイトへの掲載依頼・プロフィール更新・実送信はユーザー担当。Claude Codeは候補先、依頼文、UTM、記録テンプレまで作る
-5. 28日で impressions / indexed、56日で参照ドメインまたは外部リンク獲得を判定し、量産は成果確認後に決める
-
-**技術warnの低優先監査**:
-
-- `check-seo-meta` の HIGH 0は維持する。`jsonld_headline_mismatch` 59件は10件をサンプルし、schemaがseoTitleを使う共通実装の問題か、意図的なH1差かを判定する。共通原因なら1箇所で直し、59 MDXを個別編集しない
-- `description_long` 24件は順位・表示が実験条件を満たすURLだけ直す
-- `ssr_thin_body` は `/search` がnoindexの意図的状態かを確認し、`/category/reference-materials` だけユーザー価値のある説明が不足する場合に限って改善する
-- このwarn監査をcoverage回復の主因として扱わない
-
-**残る完了条件**:
-
-- 次回全件データと月次Inspectionで再分類し、pilotを見送るか承認済み5〜10クラスタに限定する
-- 独自データ1本に算出根拠・canonical・内部配線・外向け配布計画を揃える
-- 28日/次回月次の判定を`gsc-management.md`へ記録する
-
-**Claude Code 実行プロンプト**:
-
-```text
-DN-0107をPhase 0から順番に実行してください。最初にAGENTS.md、
-.claude/knowledge/reference/gsc-management.md、
-.claude/knowledge/reference/measurement-incidents.md、
-docs/operations/06_seo-note-synergy-strategy.md、
-docs/strategy/13_土木公務員SEO戦略2026-08.md、
-backlogのDN-0015/DN-0088/DN-0106を読んでください。
-
-まずEXP-006とgsc-indexing historyのドリフトを、run item単位の証拠で是正してください。次に総監のcrawled-not-indexed母集合をcanonical URLで重複排除し、検索実績・index遷移・内部リンク・類似性・過去問価値を付けた5分類レポートを作ってください。
-
-このターンで自動実施してよいのはread-only分析、台帳の事実同期、候補レポート、テストまでです。301、削除、published変更、noindex、GSC登録リクエスト、外部投稿、deployは、対象URL一覧と影響を提示してユーザー承認を得るまで実行しないでください。
-
-承認後もpilotは5〜10クラスタ、1deploy最大10 source URLです。メタ一括変更・類似記事の新規量産・313件一括noindexは禁止です。最後にbaseline、分類件数、pilot候補、検証結果、28日後と次回月次の測定日を報告してください。
-```
 
 ### [DN-0135] ユーザー手作業でしか閉じない残務（外部依存 11 件を統合）
 タグ: [収益化] [種類:不具合] [起票:2026-08-25]
@@ -196,7 +107,7 @@ weekly.md の手動キューはこの ID だけを参照する（weekly は ID �
 | # | 残務 | 実体（2026-08-25 照合） | 律速 |
 |---|---|---|---|
 | 1 | Issue #473 のクローズ | 無料プレビュー下限の食い違いは解消し `note-live-audit.yml` は green 実測済み（run 32797779154）。診断コメントも投稿済み | automation-failure のクローズは**復旧実体を確認した人間**の担当（CLAUDE.md §8） |
-| 3 | Kindle `e-02` の差し替え | **2026-08-27 実測で前提が変わった**: `in_review` ではなく既に**LIVE（ASIN B0H3GX3HNW・販売中）**。ローカルEPUB（2026-08-12修復・章名article.mdx漏れ解消）はepubcheck 0件・check-kindle-epub-leak PASS済みだが、KDPへの差し替えは未実施＝**ライブで販売中の内容が欠陥版のままの可能性**。`kdp-publish.mjs` に「LIVE本のマニュスクリプト更新」モードが無く、`--dump --page content` の `title-setup/kindle/<asin>/content` は既刊では404（下書き専用パス）。正しいKDP編集導線（本棚→編集→コンテンツ更新）の特定から必要 | KDP 実機。顧客影響がある可能性が高いため優先度を上げて確認すべき |
+| 3 | Kindle `e-02` の差し替え | catalog は LIVE 反映済み（2026-08-28・ASIN B0H3GX3HNW）。残＝ローカルの修復済みEPUB（2026-08-12修復・章名article.mdx漏れ解消・epubcheck 0件・check-kindle-epub-leak PASS）をKDPへ差し替える経路が無い。`kdp-publish.mjs` に「LIVE本のマニュスクリプト更新」モードが未実装で、`--dump --page content` の `title-setup/kindle/<asin>/content` は既刊では404（下書き専用パス） | 正しいKDP編集導線（本棚→編集→コンテンツ更新）の特定から必要。KDP 実機。顧客影響がある可能性が高いため優先度を上げて確認すべき |
 | 6 | コンクリート系 `cta-bg` 2 枚 | **実測: `public/images/cta-bg/` は 5 枚（civil-1 / civil-2 / note-hero / pe-comprehensive / pe-construction）で、主任技士・診断士が欠落**。生成スクリプトは無く手描きイラスト | 画像制作。無いあいだはテーマ色のベタ塗りへフォールバックする（実害は見栄えのみ） |
 | 8 | civil-1 一次過去問 公式キー 24 件 | 残＝`h28-a`(19)・`h29-a`(1=No.38)・`h29-b`(4=No.3/12/17/21)。h28-a は 19 件と突出＝official 配列自体の OCR 誤りを疑い、mass-fix 前に第2ソースで再検証 | pre-H30 原典 PDF の入手（touhokugiken.com / dobokujira.com に h29 学科A/B は無し）。**LLM 推測厳禁**・キー番号だけの書き換え禁止 |
 | 9 | 過去問 解説・図の要照合クラスタ | 解説＝civil-1 `secondary-construction-plan-past-problems` No.9(1) 記述省略／civil-2 `secondary-r06` 問8 画像未挿入／総監 h21・h22・h28・h30 の 7 問／pe-first-stage 3 問。図＝`rescan-need-source` 9 図 ＋ `r07-a-fig-02`（画素欠損で再クロップ不可・DN-0056 から合流） | 原典照合・外部原典の入手。台帳に理由記録済（真実源 `figure-provenance.md`・進捗ビューは admin 記事図版タブ） |
@@ -207,6 +118,19 @@ weekly.md の手動キューはこの ID だけを参照する（weekly は ID �
 **完了条件**: 各行の実体が解消したら行ごと消す。全行が消えたらカードを削除する。**部分的に片付いたら行を消して残数を書き直す**（「残 N 件」を本文に持たない＝表の行数が真実源）。
 
 ## 🟡 中 — 2〜3ヶ月以内
+
+### [DN-0151] Kindle 保管の残課題（A系経路外・死蔵14.8MB・R2方針の宙吊り）
+タグ: [収益化] [種類:改善] [起票:2026-08-28]
+
+2026-08-28 の調査で判明した Kindle 保管の残課題を 1 枚に集約（admin `/content/kindle` が drift を常時表示する）。
+
+(1) A系 7 冊が自動再ビルド経路の外: buildSpec 無し・kdp-memo.json 未登録＝sync-kindle-dist も /kdp-publish も通らない。THEMES は build-takuitsu-reconstruct.mjs 内にあり spec 化は可能。
+(2) `scripts/kindle-published/cover-designs/` 14.8MB は品番マッピング無しの死蔵（再入稿に不使用）。孤児 約1.2MB（`A-01_安全管理_論点別過去問.epub`・`kindle-cover-A-01-確認用.jpg` は catalog 非参照）。
+(3) EPUB の R2 退避方針が宙吊り: binary-policy は「R2 private へ」と言うが repo-assets 監査は REVIEW（LIVE 同一性の要否未確認）で停止、asset-storage.json に kindle グループ未定義・退避経路未実装。決着させるまで EPUB 更新 commit は毎回 SKIP_GIT_BINARY_POLICY=1 が要る。
+(4) `scripts/kindle-covers/README.md`「出力 JPEG は git 追跡不要」と実態（kindle-dist/*.jpg 39枚追跡）の矛盾。
+(5) catalog の kdpMemo 死ポインタ 30 件（c/f/e 系の `KDP入力メモ_*.txt` 不在。gen-kdp-memo で生成するか kdp-memo.json 参照へ改める）。
+
+**完了条件**: 各項の方針が決まり適用済み（部分完了は行ごと消して残数を書き直す）。live EPUB 差し替え経路は DN-0135 行3 が別途追跡（重複起票しない）。
 
 ### [DN-0120] 転職アフィリの成果が 3 ヶ月ゼロ — 継続するか、面を畳んで別収益に寄せるか
 タグ: [収益化] [種類:意思決定] [起票:2026-08-24] [期日:2026-09-16]
@@ -239,7 +163,7 @@ weekly.md の手動キューはこの ID だけを参照する（weekly は ID �
 「インターフェアリングフロートとは」クエリ（278impr / position 9.17 / clicks 0。
 8/4見送り済みの主クエリとは別物と確認済み）。これを `/nsm-experiment` で起票して
 seoTitle変更を実験化するかをユーザーと決める。**推測でtitle/descriptionを一括変更しない**。
-DN-0107（index coverage・対話）と合流して判断するのが自然。
+次回の月次 URL Inspection（`search-growth:cem-plan`・[gsc-management.md](../knowledge/reference/gsc-management.md)「総監 CNI 5分類の運用ルール」）と合流して判断するのが自然。
 
 ### [DN-0139] LINE公式アカウントを開設し一次二次ブリッジ磁石の配信を始める
 タグ: [収益化] [種類:制作] [起票:2026-08-26]
@@ -277,14 +201,13 @@ DN-0107（index coverage・対話）と合流して判断するのが自然。
 - `content/sns/video-packs/{exam}/{slug}/`を制作SSOT、`.claude/state/video-content-status.json`を可変状態、mp4/wav等をR2とする
 - adminは`/content/video`で企画・QA・派生・公開・計測をjoinするread-onlyビュー。編集・投稿・shell・secret・ライブAPIを持たせない
 - Shortsは関連通常動画へ送り、通常動画のクリック可能な概要欄からサイト/note/ココナラへ送客する。1動画1主CTA
+- 契約の機械可読SSOT＝`.claude/config/video-content.json`、ゲート＝`npm run check-video-content`（quality:audit ci登録済み・fixture＝`tests/fixtures/video-content/`）。schema/状態/UTM を変えるときは config・policy・fixture・checker を同一 commit で同期
 
-**Phase 0 — 契約と偽PASS防止**: manifest schema、state machine、CTA/UTM、sourceRef、relatedVideoIdを確定。`check-video-content`とfixtureを作り、対象0件・parse失敗・source未解決・status未取得をPASSにしない。既存Shortsの尺・リンク・cron記述を現行仕様へ同期。
-
-**Phase 1 — 手動pilot 4本**: 16:9 renderer・字幕・音声の最小経路を実装。1級/2級土木施工経験記述2本＋技術士総監2本を制作し、各通常動画からShorts 2本・IG 1組・X 1スレッドを派生。公開前に機械ゲート、独立QA、ユーザー承認を通し、公開後に実URL・videoId・関連動画・CTAを再照合する。
+**Phase 1 残 — pilot 4本の音声/mp4と派生**: pilot 4パック（koji-gaiyo-7items／anzen-ippanron-3riyu／gokanri-tradeoff／monbun-yomikata）は制作・機械ゲート・独立QA（6軸 avg2.67-2.83・BLOCK 0）まで完了し state=qa_passed。残り＝(1) VOICEVOX+ffmpeg のある環境（Mac/Actions）で `npm run render-longform` を完走させ mp4/wav を生成→R2退避、(2) QA横断指摘の反映＝出典記事の既存SVG図版（figure-tradeoff-frequency-matrix 等）を scene visual に埋め込める renderer 拡張（現状 text-list のみで軸4が全パック2点）、(3) 各通常動画から Shorts 2本・IG 1組・X 1スレッドを派生、(4) ユーザー承認（approved は user のみ）→公開→実URL・videoId・関連動画・CTA 再照合。
 
 **Phase 2 — skill/agents**: 薄い`/video-content` skillと上記2agentを新設。生成→機械ゲート→独立QA→承認待ちで停止し、レンダリング・R2・投稿は既存CLI/workflowへ委譲する。skills/agents registry、coupling gate、責務境界テストを同時更新。
 
-**Phase 3 — admin/CI**: `/content/video`、SNS状態、動画成果ビューを追加。manifest＋runtime state＋CI供給snapshotをjoinし、未取得/期限切れ/ドリフトを明示。YouTube AnalyticsとGA4 UTMはCIで取得し、会社PCからライブAPIを叩かない。
+**Phase 3 完了（2026-08-28）**: `/content/video`・`/content/lifecycle`・`/metrics/video`（成果＝公開状態×GA4送客を `utm_campaign=packId` で join）・`/sns` の動画パック節・GA4 campaign 次元の CI 供給・公開実体の照合（実査 `verify-video-publication` は CI 週次、ゲート `check-video-publication` は quality:audit ci）まで実装済み。
 
 **Phase 4 — 段階拡張**: 6週間のpilotでShorts→関連動画、視聴維持、YouTube UTM、note/ココナラ遷移を評価。送客シグナルが無ければ自動化拡張を停止。成立後だけ他資格とThreads会話briefへ広げる。ThreadsのX単純クロスポスト、全記事一括動画化、全資格同時展開は禁止。
 
@@ -757,7 +680,7 @@ Playwrightのログインprofileはサービス別に永続化されているが
 
 **機械チェック**: ①CI/ローカル共通=`check-playwright-auth-wiring:strict`でMac/Windows絶対パス、repo相対profile、resolver未使用、secret key候補を0にする、②PCローカルoffline=`auth:paths/doctor`でroot・権限・lock・legacy・profile競合を診断、③PCローカルonline read-only=`auth:status`で`authenticated/expired/blocked/unknown/unsupported`を実ページ＋account assertから判定する。profile存在だけをauthenticatedにしない。CIには実profile・login・statusを持ち込まない。
 
-**実行順**: ①service registry・OS非依存resolver・配線ratchet、②note/Brain/ココナラ/KDP移行、③X/Instagram/Google/A8/もしも/afb移行、④`auth:paths/doctor/login/status/migrate`とservice lock、⑤専用`playwright-auth`スキル新設・registry登録、⑥Windows実機→同じcommit候補でMac実機の順に独立login/status検証、⑦恒久SSOTへ抽出して本カードとplanを削除する。各Phaseで検証・報告して停止する。
+**実行順**: ②note/Brain/ココナラ/KDP移行、③X/Instagram/Google/A8/もしも/afb移行、④`auth:paths/doctor/login/status/migrate`とservice lock、⑤専用`playwright-auth`スキル新設・registry登録、⑥Windows実機→同じcommit候補でMac実機の順に独立login/status検証、⑦恒久SSOTへ抽出して本カードとplanを削除する。各Phaseで検証・報告して停止する。
 
 **禁止**: profile/Cookie/storageStateのPC間・クラウド・Git同期、password/2FA自動入力、CAPTCHA回避、旧profileの自動削除、target上書き、profile並行利用時の自動kill、profile存在だけでauthenticated判定、account/site/property assert弱化、Gmail Playwright化、投稿・公開・申請・購入・push・deploy。
 
@@ -806,10 +729,6 @@ Brain 商品自体（施工経験記述キット・総監施策バンク）は `
 両方 `status: 'listed'` と持つ（審査結果はメールで確認済み・状態はそちら参照）。
 運用の詳細は [brain-operations.md](../knowledge/reference/brain-operations.md)。
 
-### [DN-0032] note施策C フォローアップ: 一次「出る順 合格ノート」の露出調整（任意・売れ行き次第）
-タグ: [収益化] [種類:改善]
-
-C（`civil-1-ichiji-ronten` ¥1,480・[nec34238ca6d6](https://note.com/dobokunote/n/nec34238ca6d6)）は 2026-07-16 公開済。civil primary/secondary の中間CTAは**転職アフィリ優先の既存設計**のため、C は主に L2 土木もくじ経由で露出（もくじには収録済）。**hero-cta の全体ロジックは触らない**方針（2026-07-16 ユーザー確定＝A案）。数週間の売れ行きを見て露出不足なら、相性の良い一次ガイド記事の**本文に `<MagazineCard id="civil-1-ichiji-ronten">` を個別挿入**（記事単位・転職導線と非競合の外科的調整）。B（`civil-1-r8-bunseki`）も同様の位置づけ。
 
 ### [DN-0033] civil-1 土木一般編 テキスト章 本文変換（土工/コンクリート工/基礎工 ~19記事）
 タグ: [コンテンツ品質] [種類:制作]
@@ -839,16 +758,6 @@ C（`civil-1-ichiji-ronten` ¥1,480・[nec34238ca6d6](https://note.com/dobokunot
 
 
 
-### [DN-0041] 回遊・note 動線 P4-P7
-タグ: [UI・UX] [種類:改善]
-
-P1-P3（GA4 計測基盤・NextStepNav・季節モード note CTA）は実装済み。
-
-- **P4**: `keyword-relations.json`（598KB・未活用）から RelatedKeywords 未記述の keyword 記事へ build 時 top-N 自動挿入 fallback。要: 挿入品質の監査＋PE keyword 面 A/B
-- **P5-b**: 面別 CTR の実値化 — **計測窓は揃った**（2026-07-16〜08-12 の GA4 で `BuildJob-endbanner` 623 imp / `article-mid` 967 imp / `article-end` 975 imp を実測。7/30 以降を完全に含む）。`report-buildjob-affiliate` を実値で回して面別 CTR を出す
-- **P5**: アフィリ EPC 判定（~2026-09）。基準は `affiliate-operations.md` §6.5 に新設済。**着手前に 2 点確認**: ①現状は確定成果 0 件（累計 137click）で**分母規律未達＝判定不能**、分母供給には A8 単月取得（`a8-ui:fetch -- --month`）が前提 ②9/1 以降は 50/50 A/B を停止して**建設JOBs 単一 arm**にしたため、判定は arm 間比較ではなく**時系列比較**（8 月の BuildJob ↔ 9 月以降の建設JOBs）になる。期限で無理に決めず、判定不能なら §6.5 の裁定ログに据え置きを記録する
-- **P6**: 高購買意欲ページへ MDX 本文内 `<MagazineCard>` の個別商品導線補強。要: `sales-log.json` で対象ページ特定が先
-- **P7**（🟢）: concrete 系の L2 もくじ新設（note 商品拡充が前提）
 
 
 ### [DN-0043] note 導線 後続配線（Fable P1 残・3 件）
@@ -865,7 +774,7 @@ P1-P3（GA4 計測基盤・NextStepNav・季節モード note CTA）は実装済
 ### [DN-0046] 競合の勝ち型を policy 化（SNS 投稿型カタログ拡張）
 タグ: [SNS・マーケ] [種類:改善]
 
-SNS競合実地調査（2026-07-04・`07_競合調査.md` SNS節）でsurfaceした残り2型: ①合格後キャリア/現場リアル リール＝**運営者の一次情報素材待ち** ②**お悩み相談回答＝素材不要で先行policy化可**（既存FAQ/キーワードから素材化）。聞き流し一問一答と16:9動画基盤は`DN-0110`へ統合した。着手時に該当writerエージェントの参照を更新。真実源`content-angle-policy`／`00_SNS整理マップ §型カタログ`。
+SNS競合実地調査（2026-07-04・`07_競合調査.md` SNS節）でsurfaceした残り型: 合格後キャリア/現場リアル リール＝**運営者の一次情報素材待ち**。聞き流し一問一答と16:9動画基盤は`DN-0110`へ統合した。真実源`content-angle-policy`／`00_SNS整理マップ §型カタログ`。
 
 
 ### [DN-0049] SEO 品質ゲート後続（PR #390 マージ後の残タスク）
@@ -875,7 +784,7 @@ SEO 品質ゲート実装（PR #390・handoff `2026-07-13-seo-quality-gates.md` 
 1. **deploy 後の GSC 監視**: `develop→main` deploy で canonical/OGP 修正が本番反映＝サイト全ページ canonical 一斉更新の再クロールが走る。**コアアップデート期を避け、直後2週間は GSC 日次を監視**（gsc-management.md 2026-07-10 の教訓）。
 2. **GSC page×query 実データ確認**: 初回検証 2026-07-15 完了（workflow_dispatch で `gsc-page-query-2026-07-15` 取得・窓 6/14–7/12）。Pattern 7 site-wide 検出 3 件は**すべて同一ページの #fragment 誤検出＝カニバリ実証 0 件**。残: (a) メタ改善は少数 URL の 14〜28 日実験に限る、(b) **8/31 BuildJob キャンペーン終了後に civil-construction-1 career 26 本を page×query で再測定**。先行シグナルは `guide-1-vs-2` ↔ `guide-grade-comparison` が同一クエリ「1級 2級 土木」で共に表示（impr 1/3・pos 73/80、閾値 impr≥5×pos≤30 に未達）のみ。年収系4本（salary-up/salary-by-role/allowance/career-salary）・辞める系3本（quit-or-stay/quit-honne/career-consultation-before-quit）はクエリ競合の観測なし。実証されたペアのみ統合（301 or canonical）、感覚では削らない。
 3. **orphan/unreachable 6本の gate 昇格**: `pe-comprehensive-management-r8-essay-theme-*` 6本は現状 warn（意図的未リンク）。導線設計を決めたら check-seo-build の gate へ昇格。
-4. **robots / OAI-SearchBot の ADR**（v2監査 §8.3）: ChatGPT Search 露出を取りに行くか。training bot は block 維持、search/user bot の許可可否を ADR で決定。robots.txt/Cloudflare はユーザー承認事項。
+4. **robots / OAI-SearchBot の ADR**（v2監査 §8.3）: ADR ドラフト起案済み → [robots-ai-crawler-decision.md](../../docs/operations/robots-ai-crawler-decision.md)。実測: robots.txt はリポジトリ管理下になく Cloudflare Managed（全 AI bot 既に Disallow）。案B（search/user bot のみ選択的許可）を推奨として提示、適用はユーザー承認（Cloudflare ダッシュボード側の設定変更が必要でこの環境からは不可）。
 
 
 ### [DN-0051] 計測基盤 Tier 2/3 ＋ GA4 UI 設定
@@ -893,7 +802,7 @@ Tier 1（NoteLink 計測・cadence 化・bot 監査 CI 等）は実装完了。�
 ### [DN-0052] SVG図版 dual-use パイプライン残
 タグ: [コンテンツ品質] [種類:改善]
 
-PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事への `<ArticleImage>` 埋込（orphan 6点・**ユーザー保留中**）・SNSパイプライン残（IG管理別カルーセルのオーケストレーション/コピーGenerator/Evaluator配線）・doc-sync 宿題（`build-svg-catalog`/`render-figure-sns` を reference 索引へ追記）。
+PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事への `<ArticleImage>` 埋込（orphan 6点・**ユーザー保留中**）・SNSパイプライン残（IG管理別カルーセルのオーケストレーション/コピーGenerator/Evaluator配線）。
 
 
 
@@ -957,6 +866,8 @@ Anthropic の Opus 5 プロンプトガイドが「旧モデル向けに仕込�
 - 簡素化できるならスキル側の前処理ステップを削る。できないなら**なぜ必要か**を各エージェント定義に1行残す（次に同じ検討を繰り返さないため）
 - 根拠: <https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5>
 
+**2026-08-28 着手→中断**: A/B比較には原本PDF（過去問/テキスト）が要るが、この環境（Windows会社PC）には実体が無い。`content/sources/textbook/` 配下・asset manifest とも過去問PDFの登録なし。figure-provenance.md は「元PDFは大半が実在しフル再抽出可能」と記録するが、これは作業時にユーザーが `.tmp/` 配下へ都度配置する運用（.gitignore対象）を指しており、常設の格納場所ではない。**原本PDF入手が前提条件**（DN-0090・figure-provenance の rescan-need-source と同型の制約）。PDFが手元にあるセッションで再着手すること。
+
 
 
 
@@ -990,14 +901,14 @@ PDF クロップ済み白黒図 約65枚（construction-machinery-01=13/-02=7/sc
 ### [DN-0079] カテゴリカードの残改善
 タグ: [UI・UX] [種類:改善]
 
-①サムネイル画像の本格採用（OGP はタイトル焼込みで二重になるため写真素材を別途持つ設計が要る）②人気データの鮮度（CI の ga4-page 取得依存・週次見込み）③トップページ／検索結果ページへの横展開。
+人気データの鮮度（CI の ga4-page 取得依存・週次見込み）。
 
 
 
 ### [DN-0082] API トークン更新サイクル ＋ MCP 棚卸し
 タグ: [インフラ・計測] [種類:改善]
 
-GitHub Secrets: `CLOUDFLARE_API_TOKEN`/R2 キー=90日・`PSI_API_KEY`/`YOUTUBE_CLIENT_SECRET`=180日。①期限確認・更新 ②Cloudflare token の権限スコープ最小化 ③`.mcp.json` の MCP サーバー棚卸し ④更新サイクルを Calendar/schedule hook に登録。
+GitHub Secrets: `CLOUDFLARE_API_TOKEN`/R2 キー=90日・`PSI_API_KEY`/`YOUTUBE_CLIENT_SECRET`=180日。①期限確認・更新 ②Cloudflare token の権限スコープ最小化 ④更新サイクルを Calendar/schedule hook に登録。
 
 ### [DN-0083] note 編集スクリプトの共有 lib 化（Tier 2 保守性）
 タグ: [エージェント・SSOT] [種類:改善]

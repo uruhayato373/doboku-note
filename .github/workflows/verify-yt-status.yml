@@ -52,12 +52,27 @@ jobs:
           node .claude/scripts/youtube/verify-yt-status.mjs 2>&1 | tee /tmp/yt-verify.log
           echo "exit_code=$?" >> "$GITHUB_OUTPUT"
 
+      # 動画パック（DN-0110）の派生物照合。Shorts 台帳とは対象が別（台帳＝IG 過去問由来のレガシー、
+      # こちら＝video-content-status.json の派生物）。creds 不足・API 失敗は exit 2＝検査不成立で、
+      # 記録を書き換えない（偽の緑を残さない）。対象 0 件（公開前）は checked:0 を記録して正常終了。
+      - name: Verify video pack publication
+        id: verify_packs
+        continue-on-error: true
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+        run: |
+          set -o pipefail
+          node scripts/verify-video-publication.mjs 2>&1 | tee /tmp/video-verify.log
+          echo "exit_code=$?" >> "$GITHUB_OUTPUT"
+
       - name: Publish report to develop (.claude/state/yt-verify/)
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add .claude/state/yt-verify
+          git add .claude/state/yt-verify .claude/state/video-publication-verify.json
           if git diff --cached --quiet; then
             echo "No changes to publish"
             exit 0
@@ -78,4 +93,18 @@ jobs:
         run: |
           echo "::error::verify-yt-status.mjs が認証/ネットワークエラーで失敗しました。/tmp/yt-verify.log を確認してください"
           tail -40 /tmp/yt-verify.log || true
+          exit 1
+
+      - name: Fail on video pack drift
+        if: steps.verify_packs.outputs.exit_code == '1'
+        run: |
+          echo "::error::動画パックの公開実体にドリフト（削除/非公開/CTA UTM 欠落/関連動画未設定）。.claude/state/video-publication-verify.json を確認してください。"
+          tail -40 /tmp/video-verify.log || true
+          exit 1
+
+      - name: Fail on video pack verification not possible
+        if: steps.verify_packs.outputs.exit_code == '2'
+        run: |
+          echo "::error::動画パック照合が検査不成立（creds 不足 / API 失敗）。記録は更新していません＝以後 check-video-publication が鮮度切れで赤くなります。"
+          tail -40 /tmp/video-verify.log || true
           exit 1

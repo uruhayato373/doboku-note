@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-interface ExamData {
+export interface ExamData {
   slug: string;
   label: string;
   en: string;
@@ -40,7 +40,8 @@ const EXAM_IMAGE: Record<string, string> = {
   "concrete-diagnostician": "/images/card-concrete-diagnostician.webp",
 };
 
-function ExamCard({ e }: { e: ExamData }) {
+// export: 検索ゼロステート（SearchZeroState）が同じ資格カードデザインを横展開するため（DN-0079③）。
+export function ExamCard({ e }: { e: ExamData }) {
   const t = EXAM_THEME[e.slug] ?? FALLBACK_THEME;
   const img = EXAM_IMAGE[e.slug];
   // stats を 1 行のスコープに集約（deep-link はやめ、網羅性の提示のみ残す）。

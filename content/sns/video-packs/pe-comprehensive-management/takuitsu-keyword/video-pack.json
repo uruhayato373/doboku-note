@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "takuitsu-keyword",
+  "exam": "pe-comprehensive-management",
+  "title": "択一はキーワード集をこう使う",
+  "audience": "総監択一の学習法が定まらない受験者",
+  "pain": "600超のキーワードをどう回せばよいか分からない",
+  "promise": "5管理別の優先順位と回し方が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/keyword-2026/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "tankan-reading-guide",
+    "campaign": "takuitsu-keyword"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

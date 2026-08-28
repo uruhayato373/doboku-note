@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-2kyu-level",
+  "exam": "civil-construction-2",
+  "title": "2級で求められる記述レベルはここまで",
+  "audience": "高度な内容を書かなければと思い込んでいる2級受検者",
+  "pain": "特殊工法や高度な内容を書けないと受からないと思っている",
+  "promise": "主任技術者レベルの現場管理で十分と分かり書き出せる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "coconala-service",
+    "targetId": "coconala-shindan",
+    "campaign": "keiken-2kyu-level"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

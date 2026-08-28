@@ -33,6 +33,8 @@ import { execSync, execFileSync } from 'node:child_process';
 import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { checkLineEndings } from './lib/line-endings.mjs';
+import { findAnswerStartLine, isAnswerPart } from './lib/note-answer-zone.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BOLD_CHECKER = join(ROOT, '.claude', 'scripts', 'check-note-bold-paren.mjs');
@@ -71,6 +73,14 @@ function checkMojibake(content) {
   const out = [];
   content.split('\n').forEach((l, i) => { if (l.includes('�')) out.push({ line: i + 1, msg: 'U+FFFD（文字化け）' }); });
   return out;
+}
+// 改行コードの破損。2026-08-28 に content/note 配下 15 件（BK-01_道路 R03〜R07）へ
+// \r\r\n が混入していたが、当時の note-lint に改行検査が無く content/site 側の
+// validate-mdx も .mdx しか見ないため誰も気づかなかった（カバレッジ穴）。
+// 連続 CR はパーサーの行末解釈を壊す（site 側では GFM テーブルが崩壊した）。
+function checkLineEndingIssue(content) {
+  const issue = checkLineEndings(content);
+  return issue ? [{ line: 1, msg: `改行コード異常: ${issue.message}` }] : [];
 }
 // マガジン誘導URL（注入後の実URL）/ {{MAGAZINE_URL}} プレースホルダは「単独行」でなければ
 // note のリンクカードに変換できない（全角括弧で囲む・同一行に文がある＝ただのテキスト）。
@@ -217,12 +227,20 @@ function checkParagraphLength(file, content) {
   if (!/notePricing:\s*"?free"?/.test(fm)) return [];
   const out = [];
   let inFence = false;
-  content.split('\n').forEach((l, i) => {
+  const lines = content.split('\n');
+  // 答案本文域（## 試験問題 以降）は散文答案が仕様なので段落長を当てない。
+  // notePricing だけでは無料記事に載る模範解答を外せず、reflow が直せない違反を
+  // 報告してしまう（2026-08-28・R8本試験模範解答例で59件の誤検出）。
+  const answerStart = findAnswerStartLine(lines);
+  lines.forEach((l, i) => {
+    if (i >= answerStart) return;
     const s = l.trim();
     if (s.startsWith('```')) { inFence = !inFence; return; }
     if (inFence || !s) return;
     // 地の文以外（見出し/リスト/引用/画像/コメント/表/URL単独行/frontmatter区切り）は対象外
     if (/^(#|[-*+]\s|>|!\[|<|\||https?:\/\/|---$|\d+\.\s)/.test(s)) return;
+    // 答案パーツ（**①施策の内容…**：等）は散文が仕様なので対象外
+    if (isAnswerPart(s)) return;
     // 表示文字数で計測（markdown リンクは URL を除きテキストのみ数える）
     const display = s.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1');
     if (display.length >= 200) {
@@ -285,7 +303,7 @@ const partialState = buildPartialInjectionState(files);
 let violations = 0;
 for (const f of files) {
   const content = readFileSync(f, 'utf8');
-  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkMagazineLinkCard(content), ...checkMagazineCta(f), ...checkNote3set(f), ...checkBoldParen(f), ...checkPartialInjection(f, partialState), ...checkDeprecatedSection(content), ...checkToolArtifact(content), ...checkParagraphLength(f, content), ...checkMultilineBlockquote(content)];
+  const issues = [...checkPipeTable(content), ...checkMojibake(content), ...checkLineEndingIssue(content), ...checkMagazineLinkCard(content), ...checkMagazineCta(f), ...checkNote3set(f), ...checkBoldParen(f), ...checkPartialInjection(f, partialState), ...checkDeprecatedSection(content), ...checkToolArtifact(content), ...checkParagraphLength(f, content), ...checkMultilineBlockquote(content)];
   if (issues.length) {
     violations += issues.length;
     const rel = f.replace(ROOT + '\\', '').replace(ROOT + '/', '').replace(/\\/g, '/');

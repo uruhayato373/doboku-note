@@ -1,0 +1,260 @@
+{
+  "schemaVersion": 1,
+  "packs": {
+    "koji-gaiyo-7items": {
+      "derivatives": {
+        "longform": {
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.67,
+            "blocks": 0,
+            "at": "2026-08-28",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
+        }
+      }
+    },
+    "anzen-ippanron-3riyu": {
+      "derivatives": {
+        "longform": {
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-08-28",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
+        }
+      }
+    },
+    "gokanri-tradeoff": {
+      "derivatives": {
+        "longform": {
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.67,
+            "blocks": 0,
+            "at": "2026-08-28",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
+        }
+      }
+    },
+    "monbun-yomikata": {
+      "derivatives": {
+        "longform": {
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.67,
+            "blocks": 0,
+            "at": "2026-08-28",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
+        }
+      }
+    },
+    "keiken-taisho-koji": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "keiken-kadai-kakikata": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "keiken-kento-kakikata": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "keiken-taio-hyoka": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "keiken-r6-shinkeishiki": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "keiken-kaizen-example": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "niji-junbi-roadmap": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "gakka-network-koteihyo": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "gakka-morido-shimekatame": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "gakka-nanjaku-jiban": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "gakka-ashiba-kijun": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "gakka-roudou-kijun": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "gakka-histogram": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "study-plan-1kyu": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "keiken-genten-kyotsuten": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "keiken-hinshitsu-kakikata": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "keiken-kotei-kakikata": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "keiken-koji-ga-nai": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "keiken-2kyu-level": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "nikyuu-gaiyo-roadmap": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "sanso-kozo": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "setsumon3-shisaku": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "r8-yosou-theme": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "persona-settei": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "kata-oudan-ryuyo": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "hakusho-map": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "sokan-goukaku-senryaku": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "takuitsu-keyword": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    },
+    "gyoumu-keirekihyo": {
+      "derivatives": {
+        "longform": {
+          "status": "draft"
+        }
+      }
+    }
+  }
+}

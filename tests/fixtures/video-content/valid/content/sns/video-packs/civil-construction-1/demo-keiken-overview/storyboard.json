@@ -1,0 +1,27 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "hook",
+      "start": 0,
+      "end": 20,
+      "narration": "施工経験記述の採点は工事概要から始まります。",
+      "caption": "採点は工事概要から始まる",
+      "sourceRef": "content/site/civil-construction-1/demo-article/article.mdx"
+    },
+    {
+      "sceneId": "body-1",
+      "start": 20,
+      "end": 70,
+      "narration": "工事名と発注者の対応を最初に確認します。",
+      "caption": "工事名と発注者の対応"
+    },
+    {
+      "sceneId": "cta",
+      "start": 70,
+      "end": 120,
+      "narration": "完成例は概要欄のリンクから確認できます。",
+      "caption": "概要欄のリンクへ"
+    }
+  ]
+}

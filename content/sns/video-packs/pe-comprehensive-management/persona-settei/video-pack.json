@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "persona-settei",
+  "exam": "pe-comprehensive-management",
+  "title": "論文の立場（ペルソナ）はどう選ぶか",
+  "audience": "答案で名乗る立場の設定に迷う総監受験者",
+  "pain": "自分の経歴でどの立場から書けば減点されないか分からない",
+  "promise": "経験座に根ざした立場選びと越権を避ける書き方が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/essay-persona-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "essay-complete-pack",
+    "campaign": "persona-settei"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

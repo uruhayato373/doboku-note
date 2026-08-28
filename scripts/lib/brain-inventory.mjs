@@ -128,9 +128,11 @@ export function loadBrainInventory() {
  */
 export function validateBrainInventory(inventory) {
   const violations = [];
+  // Windows では join() が `\` 区切りを返すため、表示は常に `/` 区切りの repo 相対へ正規化する
+  const relToRoot = (absPath) => absPath.slice(REPO_ROOT.length + 1).replace(/\\/g, '/');
 
-  if (inventory.legacyListingsPresent) violations.push(`旧配置が残存: ${LEGACY_LISTINGS_PATH.replace(REPO_ROOT + '/', '')}（content/brain/listings.json へ移行済みのはず）`);
-  if (inventory.legacyBrainDirPresent) violations.push(`旧配置が残存: ${LEGACY_BRAIN_DIR.replace(REPO_ROOT + '/', '')}（content/brain/{assets,dist} へ移行済みのはず）`);
+  if (inventory.legacyListingsPresent) violations.push(`旧配置が残存: ${relToRoot(LEGACY_LISTINGS_PATH)}（content/brain/listings.json へ移行済みのはず）`);
+  if (inventory.legacyBrainDirPresent) violations.push(`旧配置が残存: ${relToRoot(LEGACY_BRAIN_DIR)}（content/brain/{assets,dist} へ移行済みのはず）`);
   if (!inventory.catalogExists) violations.push('カタログなし: src/lib/brain-products.ts');
   if (inventory.listingsError) violations.push(`content/brain/listings.json 読取不可: ${inventory.listingsError}`);
   if (inventory.items.length === 0) violations.push('カタログから1件も抽出できない（記述順 id→status→articleId→productUrl を確認）');

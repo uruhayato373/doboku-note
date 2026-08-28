@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "packId": "sokan-goukaku-senryaku",
+  "exam": "pe-comprehensive-management",
+  "title": "総監の合格戦略 — 択一と記述の配分",
+  "audience": "総監の学習計画を立てる受験者",
+  "pain": "択一と記述にどう時間配分すべきか判断できない",
+  "promise": "トレードオフ思考を軸にした学習計画の立て方が分かる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "sokan-goukaku-senryaku"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

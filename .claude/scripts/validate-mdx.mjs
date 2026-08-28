@@ -16,6 +16,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import remarkMath from "remark-math";
 import remarkGfm from "remark-gfm";
 import rehypeKatex from "rehype-katex";
+import { checkLineEndings as detectLineEndingIssue } from "../../scripts/lib/line-endings.mjs";
 
 const CONTENT_DIR = "content/site";
 
@@ -37,14 +38,10 @@ function scanMdxFiles(dir, files = []) {
 
 // ── Line ending check ──
 
+// 検査ロジックは scripts/lib/line-endings.mjs（単一 SSOT・tests/line-endings.test.mjs で固定）
 function checkLineEndings(content, filePath) {
-  const hasCRLF = content.includes("\r\n");
-  const afterCRLFRemoval = content.split("\r\n").join("");
-  const hasMixed = hasCRLF && afterCRLFRemoval.includes("\n");
-  if (hasMixed) {
-    return `Mixed line endings (CRLF + LF) — causes MDX parser errors`;
-  }
-  return null;
+  const issue = detectLineEndingIssue(content);
+  return issue ? issue.message : null;
 }
 
 // ── MDX compile check (uses next-mdx-remote for parity with actual rendering) ──

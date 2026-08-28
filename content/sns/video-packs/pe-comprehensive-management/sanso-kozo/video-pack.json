@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "sanso-kozo",
+  "exam": "pe-comprehensive-management",
+  "title": "合否を分ける三層構造 — 前提・施策・最大リスク",
+  "audience": "総監論文の構成が定まらない受験者",
+  "pain": "設問ごとに何を書くべきかの役割分担が分からない",
+  "promise": "三層それぞれの役割と層をまたぐ一貫性の作り方が分かる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "essay-complete-pack",
+    "campaign": "sanso-kozo"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

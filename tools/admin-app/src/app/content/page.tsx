@@ -3,6 +3,7 @@ import { PageHead } from '@/components/ui';
 import { summarizeChannels } from '@/lib/document-store';
 import { rootById, contentChannelLabel } from '@/lib/document-roots';
 import { loadBrainView } from '@/lib/brain';
+import { loadKindleSummary } from '@/lib/kindle';
 
 export const dynamic = 'force-dynamic';
 
@@ -24,6 +25,9 @@ export default function ContentPage() {
   const totalMb = channels.reduce((n, c) => n + c.bytes, 0) / 1048576;
   const hasBrain = channels.some((c) => c.segment === 'brain');
   const brainView = hasBrain ? loadBrainView() : null;
+  const hasKindle = channels.some((c) => c.segment === 'kindle');
+  // /content ではカード表示に必要な件数だけ（loadKindleView の git log 実行はここでは呼ばない）。
+  const kindleSummary = hasKindle ? loadKindleSummary() : null;
 
   return (
     <>
@@ -48,6 +52,23 @@ export default function ContentPage() {
                 </div>
                 <p>
                   {c.files} ファイル・{(c.bytes / 1048576).toFixed(1)}MB（販売文・画像・配布ZIP）
+                </p>
+                <code>{c.filePrefix}{c.relDir ? `/${c.relDir}` : ''}</code>
+              </Link>
+            );
+          }
+
+          if (c.segment === 'kindle' && kindleSummary) {
+            return (
+              <Link className="knowledge-card" href="/content/kindle" key={`${c.filePrefix}/${c.segment}`}>
+                <h2>{contentChannelLabel(c.segment)}</h2>
+                <div className="knowledge-card-meta">
+                  <span>{kindleSummary.total} 冊</span>
+                  <span>live {kindleSummary.live}</span>
+                  {kindleSummary.inReview > 0 && <span>審査中 {kindleSummary.inReview}</span>}
+                </div>
+                <p>
+                  {c.files} ファイル・{(c.bytes / 1048576).toFixed(1)}MB（EPUB・表紙・前付け・戦略ドキュメント）
                 </p>
                 <code>{c.filePrefix}{c.relDir ? `/${c.relDir}` : ''}</code>
               </Link>

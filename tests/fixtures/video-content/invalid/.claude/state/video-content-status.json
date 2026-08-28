@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "packs": {
+    "ghost-pack": {
+      "derivatives": {
+        "longform": { "status": "draft" }
+      }
+    },
+    "missing-bits": {
+      "status": "published",
+      "derivatives": {}
+    },
+    "leaky-verbatim": {
+      "derivatives": {
+        "longform": { "status": "qa_passed" }
+      }
+    },
+    "bad-storyboard": {
+      "derivatives": {
+        "longform": { "status": "published", "videoId": "VID001", "approvedBy": "user" },
+        "shorts": [
+          { "status": "published", "videoId": "VID001", "approvedBy": "user" },
+          { "status": "live" }
+        ],
+        "instagramCarousel": { "status": "approved" },
+        "xThread": { "status": "measured", "url": "https://x.com/doboku373/status/1", "approvedBy": "user" },
+        "tiktok": { "status": "draft" }
+      }
+    }
+  }
+}
