@@ -31,6 +31,7 @@
 import { readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 import { readMdxFile, writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
+import { findAnswerStartBlock, isAnswerPart } from './lib/note-answer-zone.mjs';
 
 let argv = process.argv.slice(2);
 let target = 120, dry = false;
@@ -59,6 +60,9 @@ function isPlainPara(block) {
   if (/^(#{1,6}\s|[-*+]\s|>\s?|\||---|```|https?:\/\/|!\[)/.test(t)) return false;
   // 太字だけの見出し的ブロック（**こんな人…** / **Q. …**）は対象外
   if (/^\*\*/.test(t) && /\*\*\s*$/.test(t.split('\n')[0])) return false;
+  // 答案パーツ（**①施策の内容…**：等）は散文が仕様なので分割しない。
+  // 境界は note-lint の段落長検査と共有する（scripts/lib/note-answer-zone.mjs）。
+  if (isAnswerPart(t)) return false;
   return true;
 }
 
@@ -87,12 +91,16 @@ for (const file of files) {
   const fm = lf.match(/^(---\n[\s\S]*?\n---\n)/);
   const head = fm ? fm[1] : '';
   const body = fm ? lf.slice(head.length) : lf;
+  // 末尾改行を保存する。ブロック分割時に最終ブロックの `\n+$` を落とすため、
+  // そのまま join するとファイル末尾の改行が消える（2026-08-28 実測。git が
+  // "\ No newline at end of file" を出す状態になり、EOL 検査の対象にもなる）。
+  const trailingNewline = /\n$/.test(body) ? '\n' : '';
   const blocks = body.split(/\n\n+/);
   // essay マガジン記事の「答案本文」保護: 「## 試験問題 / ## 予想問題 / ## A 案 / ## B 案」以降は
-  // 連続散文（模範答案・設問再掲）なので分割しない（split-essay-intro-paragraphs.mjs と同じ境界）。
+  // 連続散文（模範答案・設問再掲）なので分割しない。境界は scripts/lib/note-answer-zone.mjs が
+  // 単一 SSOT（note-lint の段落長検査と必ず同じ境界を見る＝直せない違反を報告しないため）。
   // 一般記事（入口/ガイド等）にこの見出しは無いので全段落が対象になる。
-  let answerStart = blocks.findIndex((b) => /^##\s*(試験問題|予想問題|A 案|B 案)/.test(b.trim()));
-  if (answerStart === -1) answerStart = blocks.length;
+  const answerStart = findAnswerStartBlock(blocks);
   let longCount = 0, afterCount = 0;
   const out = blocks.map((b, idx) => {
     const bb = b.replace(/\n+$/, '');
@@ -108,7 +116,7 @@ for (const file of files) {
     if (longCount > 0) console.log(`WARN ${file}: >${target}字の段落 ${longCount} 件（分割推奨→ node scripts/reflow-note-paragraphs.mjs --target ${target} "${file}"）`);
   } else {
     if (longCount > 0) {
-      writeMdxFile(file, head + out.join('\n\n'), eol);
+      writeMdxFile(file, head + out.join('\n\n').replace(/\n*$/, '') + trailingNewline, eol);
       console.log(`OK ${file}  (${longCount}段落を分割→${afterCount})`);
     } else {
       console.log(`skip ${file}  (>${target}字の段落なし)`);

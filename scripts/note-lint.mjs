@@ -34,6 +34,7 @@ import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { checkLineEndings } from './lib/line-endings.mjs';
+import { findAnswerStartLine, isAnswerPart } from './lib/note-answer-zone.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BOLD_CHECKER = join(ROOT, '.claude', 'scripts', 'check-note-bold-paren.mjs');
@@ -226,12 +227,20 @@ function checkParagraphLength(file, content) {
   if (!/notePricing:\s*"?free"?/.test(fm)) return [];
   const out = [];
   let inFence = false;
-  content.split('\n').forEach((l, i) => {
+  const lines = content.split('\n');
+  // 答案本文域（## 試験問題 以降）は散文答案が仕様なので段落長を当てない。
+  // notePricing だけでは無料記事に載る模範解答を外せず、reflow が直せない違反を
+  // 報告してしまう（2026-08-28・R8本試験模範解答例で59件の誤検出）。
+  const answerStart = findAnswerStartLine(lines);
+  lines.forEach((l, i) => {
+    if (i >= answerStart) return;
     const s = l.trim();
     if (s.startsWith('```')) { inFence = !inFence; return; }
     if (inFence || !s) return;
     // 地の文以外（見出し/リスト/引用/画像/コメント/表/URL単独行/frontmatter区切り）は対象外
     if (/^(#|[-*+]\s|>|!\[|<|\||https?:\/\/|---$|\d+\.\s)/.test(s)) return;
+    // 答案パーツ（**①施策の内容…**：等）は散文が仕様なので対象外
+    if (isAnswerPart(s)) return;
     // 表示文字数で計測（markdown リンクは URL を除きテキストのみ数える）
     const display = s.replace(/\[([^\]]*)\]\([^)]*\)/g, '$1');
     if (display.length >= 200) {
