@@ -139620,12 +139620,12 @@
     "content/site/civil-construction-1/guide-1-vs-2/ogp.png": {
       "bucket": "public",
       "r2Key": "posts/civil-construction-1/guide-1-vs-2/ogp.png",
-      "sha256": "9a5572dea694bed187fea1ab26cd54640a0189a7d8895f92f4ada06fc054a824",
-      "bytes": 580524,
+      "sha256": "35f9cbcb9f53e58d3ce319db8940ad1e3d08b77801e820ea6cfaaf5ef3ca6084",
+      "bytes": 585025,
       "visibility": "public",
       "regenerable": false,
       "group": "site-ogp-png",
-      "verifiedAt": "2026-08-29T09:11:48.313Z",
+      "verifiedAt": "2026-08-29T09:13:40.166Z",
       "width": 1200,
       "height": 630,
       "logicalPath": "content/site/civil-construction-1/guide-1-vs-2/ogp.png",
@@ -139636,7 +139636,7 @@
         "scripts/check-ogp-coverage.mjs",
         "scripts/check-orphan-ogp.mjs"
       ],
-      "srcHash": "e6e50e2a3770b2ff"
+      "srcHash": "e533a50dafbf511b"
     },
     "content/site/civil-construction-1/guide-consultant/ogp.png": {
       "bucket": "public",
