@@ -98,12 +98,15 @@ jobs:
             import { dirname, join } from "node:path";
             const kind = process.env.SELECTOR_KIND, sel = process.env.SELECTOR;
             const m = JSON.parse(readFileSync(".claude/state/assets/manifest.json", "utf8"));
-            const all = Array.isArray(m.entries) ? m.entries : Object.values(m.entries);
-            const want = all.filter((e) =>
-              kind === "group" ? e.group === sel : String(e.logicalPath || "").startsWith(sel));
+            // logicalPath は entries のキーそのもの（lean format では省略されうるので、
+            // e.logicalPath ではなく Object.entries の key を使う。2026-08-29）。
+            const pairs = Array.isArray(m.entries)
+              ? m.entries.map((e) => [e.logicalPath, e])
+              : Object.entries(m.entries);
+            const want = pairs.filter(([p, e]) =>
+              kind === "group" ? e.group === sel : String(p || "").startsWith(sel));
             let copied = 0;
-            for (const e of want) {
-              const p = e.logicalPath;
+            for (const [p] of want) {
               if (!p || !existsSync(p)) continue;
               const dest = join("/tmp/hydrated", p);
               mkdirSync(dirname(dest), { recursive: true });

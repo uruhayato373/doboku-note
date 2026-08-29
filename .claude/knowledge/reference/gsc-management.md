@@ -437,3 +437,18 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
   カテゴリ配置修正=examGuideへ移動・R8行の補完）。アウトリーチキットを
   `docs/marketing/04_被リンク獲得アウトリーチ.md` に起案（送信はユーザー担当）
 - 効果判定は 28 日後 2026-09-25、56 日後 2026-10-23
+
+### 2026-08-28（週次・自動レビュー）
+
+- 観測: GSC 2026-07-28〜08-25（truncated:false）／GA4 28日窓 07-31〜08-27。High-Impr-Low-CTR 10件・Rank-Stuck 約30件・Orphan-Query 1件、Traffic-Drop / SNS-Source-Shift / Cannibalization / Content-Decay ✓ なし
+- 上位候補と推奨:
+  1. `/docs/civil-construction-1-secondary-r07` — impr45・clicks0・position4.82（4週間）。1ページ目上位でクリック0＝seoTitle/スニペット実験の最有力
+  2. `/docs/pe-comprehensive-management-capacity-management` — impr21・clicks0・position3.76。同型（総監キーワードページに同傾向が計10件、〜5URL の実験群候補）
+  3. `/docs/civil-construction-1-textbook-scraper` — 「モータースクレーパー」impr136・clicks2・position7.28。Rank-Stuck 中最大 impr。内部リンク・追記で上位進出余地
+- 他 7 件 → improvements/2026-08-28.md（Orphan-Query「供用開始」impr19・pos44、Hidden-Winner pe-construction/コンクリート系ほか）
+- 自動裁定:
+  - 候補1: 推奨=実験化候補（seoTitle 実験・単独 or 候補2と同バッチ・14〜28日）
+  - 候補2: 推奨=実験化候補（総監 High-Impr-Low-CTR 群から最大5URL・14〜28日のメタ実験。一括変更はしない）
+  - 候補3: 保留（再浮上条件＝内部リンク網点検の実施後もposition 7前後で停滞していたら実験化。メタでなく構造リンク施策のため実験枠外で着手可）
+  - Orphan-Query「供用開始」: 見送り（impr19・pos44と規模小。再浮上条件＝impr 50超 or 関連クエリ群の出現）
+- 注記: 自動生成（人間の上書き歓迎）。GA4 は28日ローリング窓で厳密な週次比較不可。network-schedule 主クエリ（08-04見送り）・インターフェアリングフロート（08-26実験化済・判定09-23）は除外済み

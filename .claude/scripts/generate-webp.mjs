@@ -15,7 +15,7 @@
  */
 
 import { readdirSync, statSync, existsSync, readFileSync, writeFileSync } from "node:fs";
-import { join, extname, dirname } from "node:path";
+import { join, extname, dirname, sep } from "node:path";
 import sharp from "sharp";
 
 const POSTS_DIR = "content/site";
@@ -28,13 +28,23 @@ const FORCE = args.includes("--force");
 const limitIdx = args.indexOf("--limit");
 const LIMIT = limitIdx >= 0 ? parseInt(args[limitIdx + 1], 10) : Infinity;
 
+// img/ 配下のみ対象（ogp.png 等の記事直下ファイルは対象外。
+// walk 自体は content/site を再帰するが、収集時に "img" セグメントを含むパスだけ採用する）
+function isUnderImgDir(full) {
+  return full.split(sep).includes("img");
+}
+
 function walk(dir, out = []) {
   if (!existsSync(dir)) return out;
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const full = join(dir, entry.name);
     if (entry.isDirectory()) {
       walk(full, out);
-    } else if (entry.isFile() && SUPPORTED.has(extname(entry.name).toLowerCase())) {
+    } else if (
+      entry.isFile() &&
+      SUPPORTED.has(extname(entry.name).toLowerCase()) &&
+      isUnderImgDir(full)
+    ) {
       out.push(full);
     }
   }

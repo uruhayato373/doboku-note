@@ -27,9 +27,20 @@
 
 ### 1-1. 教材の文字起こし本文は private Google Drive vault
 
+Drive 側は `~/Google Drive/マイドライブ/doboku-note/` を単一ルートとして管理する（2026-08-29 統合）:
+
+```
+マイドライブ/doboku-note/
+├── private-sources/textbook/   # L1 中間産物＝文字起こし md・派生図版（旧 doboku-note-private-sources/）
+└── references/                 # L0 原資料＝参考 PDF（読み取り専用）
+    ├── 白書/                   # 白書 44 本（総監の白書根拠）
+    ├── 資格試験/               # 1級土木テキスト・問題集＋診断士（完全一致の重複4dir含め33本・重複解消は未実施）
+    └── 書籍/                   # 土木・建設系の市販書 12 冊（逐語転用禁止）
+```
+
 `content/sources/textbook/**` の文字起こし本文（.md/.html）と派生図版は、書籍の著作権物をほぼそのまま
 含むため 2026-08-27 に public repo（`doboku-note`）の追跡から外し、`~/Google Drive/マイドライブ/
-doboku-note-private-sources/textbook/` へ移設した（stats47 の `stats47-private-sources/` と同じ命名規約）。
+doboku-note/private-sources/textbook/` へ移設した（stats47 の `stats47-private-sources/` と同じ命名規約）。
 `.gitignore` の `content/sources/textbook/**`（README.md だけ `!` で例外）が実体。
 
 - **新しい端末での復元**: Google Drive デスクトップアプリで同アカウントにログインし vault を同期 →

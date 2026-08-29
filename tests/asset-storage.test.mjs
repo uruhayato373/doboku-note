@@ -17,6 +17,7 @@ import { fileURLToPath } from 'node:url';
 import {
   loadConfig, groupFor, r2KeyFor, mimeFor, bucketForFile, visibilityFor,
   findSecrets, sanitizeEntry, cachePathFor, emptyManifest, toPosix,
+  migrateManifestToLeanFormat, expandManifestFromLeanFormat,
 } from '../scripts/lib/asset-storage.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -163,9 +164,74 @@ test('sanitizeEntry: 許可キー以外は落とす（秘密の混入経路を�
     logicalPath: 'a', bucket: 'private', r2Key: 'k', sha256: 'x', bytes: 1,
     accessKeyId: 'AKIAIOSFODNN7EXAMPLE', signedUrl: 'https://x?X-Amz-Signature=abc', absPath: '/Users/me/x',
   });
-  assert.deepEqual(Object.keys(e).sort(), ['bucket', 'bytes', 'logicalPath', 'r2Key', 'sha256']);
+  // logicalPath は lean format（2026-08-29〜）で書かない。entries のキーと重複するため
+  // sanitizeEntry の許可リストから外れ、読み出し側は loadManifest の互換層が key から補う。
+  assert.deepEqual(Object.keys(e).sort(), ['bucket', 'bytes', 'r2Key', 'sha256']);
+  assert.equal(e.logicalPath, undefined);
   assert.equal(e.accessKeyId, undefined);
   assert.equal(e.signedUrl, undefined);
+});
+
+test('sanitizeEntry: mime / generator / requiredBy も lean format では書かない', () => {
+  const e = sanitizeEntry({
+    group: 'note-cover-png', bucket: 'public', r2Key: 'k', sha256: 'x', bytes: 1,
+    mime: 'image/png', generator: 'scripts/generate-note-covers.mjs', requiredBy: ['scripts/note-publish.mjs'],
+  });
+  assert.equal(e.mime, undefined);
+  assert.equal(e.generator, undefined);
+  assert.equal(e.requiredBy, undefined);
+});
+
+test('migrateManifestToLeanFormat / expandManifestFromLeanFormat: config と一致するフィールドは間引かれ、往復で元に戻る', () => {
+  const g = groupById('textbook-page-image');
+  const original = emptyManifest();
+  const key = 'content/sources/textbook/x/img/p1.png';
+  original.entries[key] = {
+    group: 'textbook-page-image', bucket: 'private',
+    r2Key: 'textbook/x/img/p1.png', sha256: 'a'.repeat(64), bytes: 100,
+    logicalPath: key, mime: 'image/png',
+    visibility: 'private', regenerable: true,
+    generator: g.generator, requiredBy: g.requiredBy,
+    verifiedAt: '2026-08-01T00:00:00.000Z', width: 10, height: 10,
+  };
+
+  const lean = migrateManifestToLeanFormat(original, CFG);
+  const leanEntry = lean.entries[key];
+  assert.equal(leanEntry.logicalPath, undefined, 'キーと重複する logicalPath は間引かれる');
+  assert.equal(leanEntry.mime, undefined, '拡張子から導ける mime は間引かれる');
+  assert.equal(leanEntry.generator, undefined, 'group 定義と一致する generator は間引かれる');
+  assert.equal(leanEntry.requiredBy, undefined, 'group 定義と一致する requiredBy は間引かれる');
+  // 導出できないフィールドはそのまま残る
+  assert.equal(leanEntry.sha256, 'a'.repeat(64));
+  assert.equal(leanEntry.r2Key, 'textbook/x/img/p1.png');
+
+  const restored = expandManifestFromLeanFormat(lean, CFG);
+  assert.deepEqual(restored, original, '間引いたフィールドは group 定義から同じ値に復元される');
+});
+
+test('migrateManifestToLeanFormat: group 定義とずれた値（drift）は間引かずに残す', () => {
+  // legacy-r2-orphan は config の requiredBy が非空だが、書かれた当時のエントリは
+  // requiredBy: [] のまま（2026-08-22 の config 追記より前に書かれたため）。
+  // 間引いて config から復元すると値が変わってしまうので、drift しているエントリは間引かない。
+  const original = emptyManifest();
+  const key = '.local/archive/legacy-r2/x.png';
+  original.entries[key] = {
+    group: 'legacy-r2-orphan', bucket: 'private',
+    r2Key: 'archive/legacy-r2/x.png', sha256: 'b'.repeat(64), bytes: 50,
+    logicalPath: key, mime: 'image/png',
+    visibility: 'private', regenerable: false,
+    generator: null, requiredBy: [],
+    verifiedAt: '2026-08-01T00:00:00.000Z',
+  };
+
+  const lean = migrateManifestToLeanFormat(original, CFG);
+  const leanEntry = lean.entries[key];
+  assert.equal(leanEntry.logicalPath, undefined, 'logicalPath は drift の対象外なので常に間引かれる');
+  assert.equal(leanEntry.mime, undefined, 'mime も drift の対象外なので常に間引かれる');
+  assert.deepEqual(leanEntry.requiredBy, [], 'config とずれた requiredBy は明示のまま残す');
+
+  const restored = expandManifestFromLeanFormat(lean, CFG);
+  assert.deepEqual(restored, original, 'drift エントリも往復で元の値に戻る（config 側の値で上書きしない）');
 });
 
 test('findSecrets: credential / 署名 URL / 絶対パス / R2 エンドポイントを検出する', () => {

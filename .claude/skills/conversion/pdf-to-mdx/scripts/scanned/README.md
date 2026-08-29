@@ -74,4 +74,4 @@ python trim_placeholders.py "$WORK"
 | ![図]直後の冗長な（図:…）プレースホルダ | trim_placeholders.py で要点だけに短縮（埋め込み済みのみ） |
 | crop_embed の二重挿入 | 冪等でない。再実行前に concat で章 md を再生成 |
 | 系統 OCR 誤読（築造→施造） | concat の SUBS で一括補正（本ごとに追記可） |
-| 図を公開R2に出してしまう懸念 | `content/sources/textbook/**/img` は r2-sync 対象外。かつ 2026-08-27〜 README.md 以外 git 追跡外＝実体は Drive vault（`doboku-note-private-sources/textbook/`）のみ（公開されない。生成後は vault へコピーして永続化） |
+| 図を公開R2に出してしまう懸念 | `content/sources/textbook/**/img` は r2-sync 対象外。かつ 2026-08-27〜 README.md 以外 git 追跡外＝実体は Drive vault（`doboku-note/private-sources/textbook/`）のみ（公開されない。生成後は vault へコピーして永続化） |

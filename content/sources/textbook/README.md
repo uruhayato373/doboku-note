@@ -9,14 +9,14 @@
 | 種別 | 置き場 |
 |---|---|
 | 元 PDF・スキャンページ画像 | private R2 バケット `doboku-note-archive/textbook/`（従来どおり。[textbook-pdf-archive.md](../../../.claude/knowledge/reference/textbook-pdf-archive.md)） |
-| 文字起こし本文（.md/.html/図版）・作業ファイル | private Google Drive vault `マイドライブ/doboku-note-private-sources/textbook/`（新設） |
+| 文字起こし本文（.md/.html/図版）・作業ファイル | private Google Drive vault `マイドライブ/doboku-note/private-sources/textbook/`（新設） |
 | 各サブディレクトリの README.md | git 追跡を継続（この案内のため） |
 
 ## ローカルで復元する手順
 
 新しい端末で作業する場合:
 
-1. Google Drive デスクトップアプリでこの Mac のアカウントにログインし、`マイドライブ/doboku-note-private-sources/textbook/` を展開・同期する
+1. Google Drive デスクトップアプリでこの Mac のアカウントにログインし、`マイドライブ/doboku-note/private-sources/textbook/` を展開・同期する
 2. 展開先を `content/sources/textbook/{各ディレクトリ}/` へコピーする（`.gitignore` により再追跡はされない）
 3. PDF・ページ画像が必要な場合は別途 `npm run asset-hydrate -- --group textbook-source-pdf` で R2 から取得する
 

@@ -1,0 +1,72 @@
+<svg viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg"
+     style="max-width:400px;width:100%"
+     role="img"
+     aria-label="コンクリートのひび割れを発生時期、主な原因、典型的な位置で切り分け、時間が上から下へ連続して進むことを示す図">
+  <defs>
+    <style>
+      text { font-family: Inter, "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif; }
+      .t-summary { font-size: 11px; fill: #555; } /* ink-body */
+      .t-axis { font-size: 11px; font-weight: bold; fill: #555; } /* ink-body */
+      .t-field { font-size: 11px; fill: #555; } /* ink-body */
+      .t-value { font-size: 13px; font-weight: bold; fill: #222; } /* ink-strong */
+      .box-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 1.5; } /* brand-fill / brand */
+      .box-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 1.5; } /* warn-fill / warn */
+      .box-danger { fill: #f8d7da; stroke: #b22234; stroke-width: 1.5; } /* danger-fill / danger */
+      .box-surface { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1.5; } /* surface / token-border */
+      .axis-band { fill: #f5f5f5; stroke: #d7d7d7; stroke-width: 1; } /* surface / token-border */
+      .axis-line { fill: none; stroke: #555; stroke-width: 2; } /* ink-body */
+      .dot-brand { fill: #e8f0fe; stroke: #2e6da4; stroke-width: 2; } /* brand-fill / brand */
+      .dot-warn { fill: #fff3cd; stroke: #d4a017; stroke-width: 2; } /* warn-fill / warn */
+      .dot-danger { fill: #f8d7da; stroke: #b22234; stroke-width: 2; } /* danger-fill / danger */
+      .arrow-ink { fill: #555; } /* ink-body */
+    </style>
+    <marker id="time-arrow" markerWidth="8" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon class="arrow-ink" points="0,0 8,3.5 0,7"/>
+    </marker>
+  </defs>
+
+  <text class="t-summary" x="20" y="18">上から下へ時間が進む。4区分の境界は連続的な目安</text>
+
+  <rect class="axis-band" x="20" y="31" width="64" height="416" rx="8"/>
+  <text class="t-axis" x="52" y="49" text-anchor="middle">時間</text>
+  <line class="axis-line" x1="52" y1="57" x2="52" y2="441" marker-end="url(#time-arrow)"/>
+
+  <rect class="box-brand" x="85" y="31" width="295" height="93" rx="8"/>
+  <circle class="dot-brand" cx="52" cy="77" r="8"/>
+  <text class="t-field" x="100" y="54">発生時期</text>
+  <text class="t-value" x="170" y="54">打込み後数時間</text>
+  <text class="t-field" x="100" y="84">主な原因</text>
+  <text class="t-value" x="170" y="84">沈下</text>
+  <text class="t-field" x="100" y="108">典型的な位置</text>
+  <text class="t-value" x="190" y="108">鉄筋・型枠沿い</text>
+
+  <rect class="box-brand" x="85" y="136" width="295" height="93" rx="8"/>
+  <circle class="dot-brand" cx="52" cy="182" r="8"/>
+  <text class="t-field" x="100" y="159">発生時期</text>
+  <text class="t-value" x="170" y="159">数日〜2週間</text>
+  <text class="t-field" x="100" y="189">主な原因</text>
+  <text class="t-value" x="170" y="189">温度応力</text>
+  <text class="t-field" x="100" y="213">典型的な位置</text>
+  <text class="t-value" x="190" y="213">部材中央・等間隔</text>
+
+  <rect class="box-warn" x="85" y="241" width="295" height="93" rx="8"/>
+  <circle class="dot-warn" cx="52" cy="287" r="8"/>
+  <text class="t-field" x="100" y="264">発生時期</text>
+  <text class="t-value" x="170" y="264">数週間〜数か月</text>
+  <text class="t-field" x="100" y="294">主な原因</text>
+  <text class="t-value" x="170" y="294">乾燥収縮</text>
+  <text class="t-field" x="100" y="318">典型的な位置</text>
+  <text class="t-value" x="190" y="318">開口部・隅角部</text>
+
+  <rect class="box-danger" x="85" y="346" width="295" height="93" rx="8"/>
+  <circle class="dot-danger" cx="52" cy="392" r="8"/>
+  <text class="t-field" x="100" y="369">発生時期</text>
+  <text class="t-value" x="170" y="369">数年〜数十年</text>
+  <text class="t-field" x="100" y="399">主な原因</text>
+  <text class="t-value" x="170" y="399">劣化（塩害等）</text>
+  <text class="t-field" x="100" y="423">典型的な位置</text>
+  <text class="t-value" x="190" y="423">鉄筋沿い・錆汁</text>
+
+  <rect class="box-surface" x="20" y="448" width="360" height="39" rx="6"/>
+  <text class="t-summary" x="200" y="472" text-anchor="middle">厳密な境界はなく、部材厚・養生条件で前後する</text>
+</svg>

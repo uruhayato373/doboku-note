@@ -29,6 +29,12 @@ jobs:
       - name: Install Dependencies
         run: npm ci --legacy-peer-deps
 
+      # doc-meta-index.json は git 追跡から外した生成物（2026-08-29・履歴肥大の再発防止）。
+      # ビルド時に自動生成されるが、それより前に走る quality:audit:ci の各検査が
+      # src/config/doc-meta-index.json を直接読むため、ここで明示的に生成しておく。
+      - name: Build doc meta index
+        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+
       # 機械品質チェックを横断実行（type-check / test / validate-mdx / eslint /
       # ラチェット / frontmatter / svg / image / links / 台帳整合 等を1ステップに集約）。
       # 個別ステップの真実源は scripts/quality-audit.mjs の CHECKS(ci:true)。

@@ -69,8 +69,8 @@
     },
     {
       "id": "textbook-transcription-text",
-      "reason": "書籍・白書の文字起こし本文（自前 Markdown 化）。2026-08-27 に doboku-note repo が public であることを理由に Git 追跡から外し、private Google Drive vault（doboku-note-private-sources/textbook/）を唯一の実体にした。各ディレクトリの README.md だけは案内のため追跡を継続する",
-      "correctPlace": "Google Drive private vault（マイドライブ/doboku-note-private-sources/textbook/）。asset-storage-policy.md §1-1 参照",
+      "reason": "書籍・白書の文字起こし本文（自前 Markdown 化）。2026-08-27 に doboku-note repo が public であることを理由に Git 追跡から外し、private Google Drive vault（doboku-note/private-sources/textbook/）を唯一の実体にした。各ディレクトリの README.md だけは案内のため追跡を継続する",
+      "correctPlace": "Google Drive private vault（マイドライブ/doboku-note/private-sources/textbook/）。asset-storage-policy.md §1-1 参照",
       "match": {
         "pathPrefix": [
           "content/sources/textbook/"

@@ -9,9 +9,17 @@
  *      一致を確かめる。確かめられなければ manifest へ載せず、当然ローカルも消さない。
  *   2. **manifest は原子的に置換する。** 一時ファイルへ書いて検証が通ってから rename。
  *      途中で落ちても既存 manifest が壊れない。
- *   3. **秘密を持たない。** manifest に載るのは logicalPath / bucket / r2Key / sha256 /
- *      bytes / mime / visibility / regenerable / generator / requiredBy だけ。
+ *   3. **秘密を持たない。** manifest に新規で書くのは bucket / r2Key / sha256 / bytes /
+ *      visibility / regenerable / group / verifiedAt / width / height だけ。
  *      credential・署名 URL・Cookie・ローカル絶対パスは載せない。
+ *
+ * **軽量形（lean format・2026-08-29〜）**: logicalPath（entries のキーと重複）・mime（拡張子から
+ * 導出可能）・generator / requiredBy（group 定義の定数）は冗長なので新規エントリには書かない。
+ * loadManifest はこれらが欠けているエントリを読んだとき、キーと .claude/config/asset-storage.json
+ * の group 定義から動的に補って、旧形式のエントリと同じ内部表現にする（read-time compat layer）。
+ * ただし旧形式のエントリが既に明示の値を持っているときは触らない——過去の config 変更で
+ * group 定義とずれた値（drift）を上書きして「無かったことにする」のは事故のもとなので、
+ * migrateManifestToLeanFormat も同じ理由でずれているエントリはフィールドを残す（§ 移行参照）。
  *
  * 会社 PC はプロキシで外部 API が遮断される（measurement-incidents.md）。R2 を触る操作は
  * 自宅端末か CI で行い、ローカルでは --dry-run / --offline で完結できるようにしてある。
@@ -275,19 +283,109 @@ export function emptyManifest() {
 
 export function loadManifest() {
   if (!existsSync(MANIFEST_PATH)) return emptyManifest();
+  let m;
   try {
-    const m = JSON.parse(readFileSync(MANIFEST_PATH, 'utf-8'));
-    if (!m.entries) m.entries = {};
-    return m;
+    m = JSON.parse(readFileSync(MANIFEST_PATH, 'utf-8'));
   } catch (e) {
     throw new Error('asset-storage: manifest が壊れている（' + MANIFEST_PATH + '）: ' + e.message);
   }
+  if (!m.entries) m.entries = {};
+  hydrateLeanEntries(m, tryLoadConfig());
+  return m;
 }
 
-/** manifest に載せてよいキーだけを通す。想定外のキーは落として秘密の混入を防ぐ。 */
+/**
+ * 読み時互換層。エントリに logicalPath / mime / generator / requiredBy が**無いときだけ**
+ * キーと group 定義から補って書き戻す。既に値を持つ旧形式のエントリは触らない
+ * （config が後から変わっていても、書かれた当時の値をそのまま尊重する）。
+ */
+function hydrateLeanEntries(manifest, cfg) {
+  for (const [key, entry] of Object.entries(manifest.entries)) {
+    if (
+      entry.logicalPath !== undefined && entry.mime !== undefined
+      && entry.generator !== undefined && entry.requiredBy !== undefined
+    ) continue; // 旧形式（全フィールド明示済み）はそのまま
+    manifest.entries[key] = hydrateEntry(key, entry, cfg);
+  }
+}
+
+/** loadConfig() の例外を飲み込むラッパー。設定が読めない極端な状況でも manifest 読込自体は落とさない。 */
+function tryLoadConfig() {
+  try { return loadConfig(); } catch { return null; }
+}
+
+/**
+ * lean format で省略できる 4 フィールドの「今の group 定義から導ける値」を返す。
+ * generator / requiredBy は group が引けないと導出できない（undefined を返す＝補完しない）。
+ */
+function deriveLeanDefaults(key, entry, cfg) {
+  const group = cfg ? (cfg.groups || []).find((g) => g.id === entry.group) : undefined;
+  return {
+    logicalPath: key,
+    mime: mimeFor(key),
+    generator: group ? (group.generator ?? null) : undefined,
+    requiredBy: group ? (group.requiredBy ?? []) : undefined,
+  };
+}
+
+/** entry に欠けている lean フィールドだけを defaults で埋めた新しいオブジェクトを返す（非破壊）。 */
+function hydrateEntry(key, entry, cfg) {
+  const defaults = deriveLeanDefaults(key, entry, cfg);
+  const out = { ...entry };
+  if (out.logicalPath === undefined) out.logicalPath = defaults.logicalPath;
+  if (out.mime === undefined) out.mime = defaults.mime;
+  if (out.generator === undefined && defaults.generator !== undefined) out.generator = defaults.generator;
+  if (out.requiredBy === undefined && defaults.requiredBy !== undefined) out.requiredBy = defaults.requiredBy;
+  return out;
+}
+
+const jsonEq = (a, b) => JSON.stringify(a) === JSON.stringify(b);
+
+/**
+ * 旧形式（logicalPath/mime/generator/requiredBy を明示保持）の manifest 全体を軽量形へ変換する。
+ *
+ * **group 定義から今まさに導出できる値と一致するフィールドだけを間引く。** 過去の config 変更で
+ * group 定義とずれてしまったエントリ（例: legacy-r2-orphan の requiredBy・sns-archived-media の
+ * generator/requiredBy 一部）は、間引くと「無かったことにする」上書きになるため、明示のまま残す。
+ * r2Key を常に自己完結させる設計判断（keyPrefix 変更に追従させない）と同じ理由。
+ *
+ * 呼び出し側は変換後、expandManifestFromLeanFormat で逆変換し、
+ * util.isDeepStrictEqual で元の manifest と一致することを確認してから採用すること。
+ */
+export function migrateManifestToLeanFormat(manifest, cfg = loadConfig()) {
+  const out = { ...manifest, entries: {} };
+  for (const [key, entry] of Object.entries(manifest.entries || {})) {
+    const defaults = deriveLeanDefaults(key, entry, cfg);
+    const lean = { ...entry };
+    if (lean.logicalPath !== undefined && jsonEq(lean.logicalPath, defaults.logicalPath)) delete lean.logicalPath;
+    if (lean.mime !== undefined && jsonEq(lean.mime, defaults.mime)) delete lean.mime;
+    if (lean.generator !== undefined && defaults.generator !== undefined && jsonEq(lean.generator, defaults.generator)) delete lean.generator;
+    if (lean.requiredBy !== undefined && defaults.requiredBy !== undefined && jsonEq(lean.requiredBy, defaults.requiredBy)) delete lean.requiredBy;
+    out.entries[key] = lean;
+  }
+  return out;
+}
+
+/**
+ * migrateManifestToLeanFormat の逆変換。lean format のエントリへ、省略された
+ * logicalPath / mime / generator / requiredBy を group 定義から補って旧形式相当へ復元する。
+ * loadManifest の読み時互換層（hydrateEntry）と同じ導出ロジックを使う。deep-equal 検証専用。
+ */
+export function expandManifestFromLeanFormat(manifest, cfg = loadConfig()) {
+  const out = { ...manifest, entries: {} };
+  for (const [key, entry] of Object.entries(manifest.entries || {})) {
+    out.entries[key] = hydrateEntry(key, entry, cfg);
+  }
+  return out;
+}
+
+/** manifest に載せてよいキーだけを通す。想定外のキーは落として秘密の混入を防ぐ。
+ * logicalPath / mime / generator / requiredBy は書かない（lean format・2026-08-29〜）——
+ * logicalPath は entries のキーと重複、mime は拡張子から、generator/requiredBy は group 定義から
+ * 導出できる。読み出し側は loadManifest の互換層がこれらを動的に補う。 */
 // width / height は画像だけに付く。値は退避時に**実バイトのヘッダから測ったもの**で、
 // 手で書いた値ではない（下の imageSize を参照）。秘密になり得ない数値なので allowlist に入れてよい。
-const ENTRY_KEYS = ['logicalPath', 'bucket', 'r2Key', 'sha256', 'bytes', 'mime', 'visibility', 'regenerable', 'generator', 'requiredBy', 'group', 'verifiedAt', 'width', 'height'];
+const ENTRY_KEYS = ['bucket', 'r2Key', 'sha256', 'bytes', 'visibility', 'regenerable', 'group', 'verifiedAt', 'width', 'height'];
 export function sanitizeEntry(e) {
   const out = {};
   for (const k of ENTRY_KEYS) if (e[k] !== undefined) out[k] = e[k];

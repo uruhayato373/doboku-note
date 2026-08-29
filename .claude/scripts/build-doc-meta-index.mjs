@@ -10,6 +10,8 @@
  *
  * Usage:
  *   node .claude/scripts/build-doc-meta-index.mjs
+ *   node .claude/scripts/build-doc-meta-index.mjs --ci   # git 日付フォールバックが1件でも
+ *                                                          # 発生したら案内を出して exit 1
  */
 import { readdirSync, readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, relative, dirname, extname } from 'node:path';
@@ -19,6 +21,7 @@ import { loadGitDates, lookupGitDates } from './lib/git-dates.mjs';
 const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, 'content/site');
 const OUT_PATH = join(ROOT, 'src/config/doc-meta-index.json');
+const CI_MODE = process.argv.includes('--ci');
 
 // ── MDX 列挙 ────────────────────────────────────────────────────
 
@@ -131,7 +134,7 @@ function main() {
         if (!meta.created) meta.created = gd.created;
         if (!meta.dateModified) meta.dateModified = gd.dateModified;
         gitFallbackCount += 1;
-        gitFallbackFiles.push(relPath);
+        gitFallbackFiles.push({ slug, relPath });
       }
     }
 
@@ -150,8 +153,20 @@ function main() {
     console.log('[doc-meta] 日付はすべて frontmatter から解決（git 履歴に触れていない）');
   } else {
     console.warn(`[doc-meta] frontmatter に日付が無く git へフォールバックした: ${gitFallbackCount} 件`);
-    for (const f of gitFallbackFiles.slice(0, 10)) console.warn(`    ${f}`);
+    for (const f of gitFallbackFiles.slice(0, 10)) console.warn(`    ${f.relPath}`);
     console.warn('    → node .claude/scripts/backfill-mdx-dates.mjs で frontmatter へ書き込むこと');
+
+    // --ci: git フォールバックは「ビルドが git 履歴に依存している」証拠そのもの
+    // （shallow clone・履歴書換え・リネームで公開 SEO 信号が黙って動く。§113-124 のコメント参照）。
+    // CI ではこれを許容せず、frontmatter を backfill させてから再実行させる。
+    if (CI_MODE) {
+      console.error('');
+      console.error(`[doc-meta] --ci: git フォールバックが ${gitFallbackCount} 件発生したため中断します`);
+      console.error('  対象 slug:');
+      for (const f of gitFallbackFiles) console.error(`    ${f.slug}`);
+      console.error('  → node .claude/scripts/backfill-mdx-dates.mjs を実行してから再試行してください');
+      process.exit(1);
+    }
   }
 
   // slug 順でソート（決定論的出力）

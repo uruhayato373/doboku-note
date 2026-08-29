@@ -93,13 +93,15 @@ const preserved = (() => {
   let m;
   try { m = JSON.parse(fs.readFileSync(path.join(root, '.claude/state/assets/manifest.json'), 'utf8')); }
   catch { return set; }
-  for (const e of Object.values(m.entries || {})) {
+  // logicalPath は entries のキーそのもの（lean format では省略されうるので、
+  // e.logicalPath ではなく Object.entries の key を使う。2026-08-29）。
+  for (const [logicalPath, e] of Object.entries(m.entries || {})) {
     if (!e.sha256 || !e.bytes) continue;
     const k = String(e.r2Key || '').normalize('NFC');
     set.add(k);                                                   // 台帳に載っているキーそのもの
     if (k.startsWith('archive/legacy-r2/')) set.add(k.slice('archive/legacy-r2/'.length)); // 退避元のキー
     // リポジトリに実体が現存するなら、それも保全されているとみなす
-    if (e.logicalPath && fs.existsSync(path.join(root, e.logicalPath))) set.add(k);
+    if (logicalPath && fs.existsSync(path.join(root, logicalPath))) set.add(k);
   }
   return set;
 })();
