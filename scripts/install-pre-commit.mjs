@@ -135,6 +135,17 @@ if [ -z "$SKIP_GIT_BINARY_POLICY" ]; then
   fi
 fi
 
+# R2 へ退避済みのファイルが git add -f 等で再追跡されようとしていないか（DN-0156）。
+# check-git-binary-policy は「置き場の正しさ」しか見ず、check-asset-storage は
+# 「Git 追跡中は正常」を前提にするため、この種の事故はどちらも検知しない。
+# SKIP_ASSET_REENTRY=1 で回避
+if [ -z "$SKIP_ASSET_REENTRY" ]; then
+  node scripts/check-asset-reentry.mjs --staged
+  if [ $? -ne 0 ]; then
+    exit 1
+  fi
+fi
+
 # 4 領域モデル（docs/content/.claude/実装）への逆戻り検知。廃止した置き場への新規ファイル・
 # docs への制作物混入・content への台帳混入。SKIP_INFORMATION_ARCHITECTURE=1 で回避
 node scripts/check-information-architecture.mjs --staged
