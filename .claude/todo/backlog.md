@@ -826,6 +826,22 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 
 ## 🟢 低 — 時期未定
 
+### [DN-0157] srcHashがogp.title上書き時にtitle変更で無駄な再生成を起こす
+タグ: [インフラ・計測] [種類:改善] [起票:2026-08-29]
+
+2026-08-29のogp-supply実地検証（G2負テスト）で判明。`update-ogp-srchash.mjs`のsrcHashは
+`title`/`ogpTitle`/`ogpSubtitle`全てをハッシュに含めるが、`ogp-create.mjs:279`の
+`data.ogp?.title || data.title || fullSlug`は`frontmatter.ogp.title`が設定されている
+記事（例: civil-construction-1-guide-1-vs-2）では`title`を完全に無視して描画する。
+結果、`ogp.title`が変わらない限り見た目は不変なのに、`title`（本文タイトル・記事一覧等で
+使う別フィールド）を編集するだけでsrcHashが変わりstale判定→無駄な再生成・R2再upload・
+manifest commitが走る（実害はないがCIリソースの無駄・commit履歴の水増し）。
+本番影響は無い（実地検証で確認済み・R2とローカル再生成物がbyte一致）。
+
+対応案: srcHashの計算で`ogp.title`が設定されている記事は`title`をハッシュに含めない
+（`ogp.title`未設定の記事のみ`title`をフォールバック入力として使う、
+ogp-create.mjsの優先順位ロジックと対称にする）。
+
 ### [DN-0153] kindle-dist EPUBのgit追跡解除（2条件付き・条件(ii)は前提が要再検証）
 タグ: [インフラ・計測] [種類:改善] [起票:2026-08-29]
 
