@@ -142,15 +142,15 @@ node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs --all --debug-w
 
 気に入らないページは `frontmatter.ogp.title` で上書きする（下記参照）。
 
-### ケース5: 生成後の R2 退避
+### ケース5: R2 への供給
 
-`ogp.png` は `r2-sync.yml` の自動同期対象ではないため、生成しただけでは R2 に反映されない。
+`ogp.png` は git 追跡せず R2 専用（`r2-sync.yml` の自動同期対象外）。develop へ push すれば CI（`ogp-supply.yml`）が欠落・陳腐化を検知して自動生成・R2 供給まで行うため、通常はこのステップの手動実行は不要。
 
 ```bash
 node scripts/asset-offload.mjs --group site-ogp-png --commit
 ```
 
-未退避は `npm run check-asset-storage`（`quality:audit` に同梱）が検出するが、検出は事後になるため、生成直後に手動実行するのが望ましい。
+即時反映したい場合（CI の次回 run を待たずに og:image を差し替えたい等）のオプション。未退避は `npm run check-asset-storage`（`quality:audit` に同梱）が検出する。
 
 ## frontmatter でのオーバーライド
 
