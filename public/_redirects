@@ -43,12 +43,6 @@
 /docs/civil-construction-1-textbook-related-laws-02 /exam/civil-construction-1/textbook/road-act 301
 
 # 削除済みコンテンツ → トップページ（301 Moved Permanently）
-/docs/river/* / 301
-/docs/general/* / 301
-/docs/port/* / 301
-/docs/low/* / 301
-/docs/environment/* / 301
-/docs/road/* / 301
 /docs/river-low / 301
 
 # 旧 /docs/exam/* 構造 → フラット URL へ（2026-04-21 追加、GSC Issue #28 対応）
@@ -56,7 +50,6 @@
 /docs/exam/civil-construction-1/primary/h26-a /exam/civil-construction-1/primary/h26-a 301
 /docs/exam/civil-construction-1/primary/h29-a /exam/civil-construction-1/primary/h29-a 301
 /docs/exam/civil-construction-1/secondary/experience-writing/guide /exam/civil-construction-1/secondary/experience-writing-guide 301
-/docs/exam/* / 301
 
 # Cloudflare Pages: 画像を R2 にリダイレクト
 # NOTE: Cloudflare Pages の _redirects は 200 ステータス（内部 rewrite）で外部オリジンへのプロキシに
@@ -66,8 +59,6 @@
 /docs/pe-comprehensive-management-before-service /exam/pe-comprehensive-management/keywords/customer-satisfaction 301
 /docs/pe-comprehensive-management-after-service /exam/pe-comprehensive-management/keywords/customer-satisfaction 301
 /docs/pe-comprehensive-management-service-quality /exam/pe-comprehensive-management/keywords/customer-satisfaction 301
-
-/posts/* https://storage.doboku-note.com/posts/:splat 301
 
 # BEGIN GENERATED PUBLIC ROUTES
 # /docs flat URLs → intent-based canonical URLs (one-to-one, permanent)
@@ -1231,4 +1222,14 @@
 /category/reference-materials /standards 301
 /docs /exam 301
 /category /exam 301
+
+# Dynamic redirects must remain after every static redirect (Cloudflare Pages contract)
+/docs/river/* / 301
+/docs/general/* / 301
+/docs/port/* / 301
+/docs/low/* / 301
+/docs/environment/* / 301
+/docs/road/* / 301
+/docs/exam/* / 301
+/posts/* https://storage.doboku-note.com/posts/:splat 301
 # END GENERATED PUBLIC ROUTES

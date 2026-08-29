@@ -9,6 +9,13 @@ const startMarker = '# BEGIN GENERATED PUBLIC ROUTES';
 const endMarker = '# END GENERATED PUBLIC ROUTES';
 const source = readFileSync(path, 'utf8');
 
+function isDynamicRedirect(line: string): boolean {
+  const trimmed = line.trim();
+  if (!trimmed || trimmed.startsWith('#')) return false;
+  const [redirectSource] = trimmed.split(/\s+/);
+  return /[*:]/.test(redirectSource ?? '');
+}
+
 function stripManagedBlock(value: string): string {
   const start = value.indexOf(startMarker);
   if (start < 0) return value.trimEnd();
@@ -35,7 +42,15 @@ function canonicalizeExistingTargets(value: string): string {
     .join('\n');
 }
 
-const base = canonicalizeExistingTargets(stripManagedBlock(source));
+// Cloudflare Pages は静的ルールを動的ルールより前に置く必要がある。
+// 動的ルールの後ろに静的ルールを置くと、後続も動的上限（100件）の対象として
+// 打ち切られるため、既存のワイルドカードを全て管理ブロック末尾へ移動する。
+const dynamicRedirects = [...new Set(source.split('\n').filter(isDynamicRedirect).map((line) => line.trim()))];
+const base = canonicalizeExistingTargets(stripManagedBlock(source))
+  .split('\n')
+  .filter((line) => !isDynamicRedirect(line))
+  .join('\n')
+  .trimEnd();
 const routes = getAllPublicDocRoutes();
 const generated = [
   startMarker,
@@ -46,6 +61,9 @@ const generated = [
   ...getAllCategories().map((category) => `/category/${category.slug} ${getCategoryHubPath(category.slug)} 301`),
   '/docs /exam 301',
   '/category /exam 301',
+  '',
+  '# Dynamic redirects must remain after every static redirect (Cloudflare Pages contract)',
+  ...dynamicRedirects,
   endMarker,
 ].join('\n');
 
@@ -56,6 +74,10 @@ const rules = output
   .filter((line) => line && !line.startsWith('#'));
 const staticRules = rules.filter((line) => !/[*:]/.test(line.split(/\s+/)[0] ?? ''));
 const dynamicRules = rules.length - staticRules.length;
+const firstDynamicIndex = rules.findIndex(isDynamicRedirect);
+if (firstDynamicIndex >= 0 && rules.slice(firstDynamicIndex + 1).some((line) => !isDynamicRedirect(line))) {
+  throw new Error('Cloudflare Pages redirect 順序違反: 動的ルールの後ろに静的ルールがあります');
+}
 
 if (staticRules.length > 2000 || dynamicRules > 100) {
   throw new Error(`Cloudflare Pages redirect 上限超過: static=${staticRules.length}/2000, dynamic=${dynamicRules}/100`);
