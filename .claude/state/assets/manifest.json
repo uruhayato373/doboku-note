@@ -162758,7 +162758,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:54.645Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/1級・2級土木/1級土木/magazines/1級土木-二次学科記述-直前暗記ノート/_cover.png": {
       "bucket": "private",
@@ -162770,7 +162776,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:54.654Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/1級土木/magazines/1級土木-二次学科記述-直前暗記ノート/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/1級・2級土木/1級土木/magazines/1級土木-二次学科記述-テーマ別出る順/_cover.png": {
       "bucket": "private",
@@ -162782,7 +162794,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:54.748Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/1級土木/magazines/1級土木-二次学科記述-テーマ別出る順/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集/_cover.png": {
       "bucket": "private",
@@ -162794,7 +162812,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:54.767Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-過去問模範答案集/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/_cover.png": {
       "bucket": "private",
@@ -162806,7 +162830,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:54.771Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-過去問模範答案集/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-2テーマ組合せ大全/_cover.png": {
       "bucket": "private",
@@ -162818,7 +162848,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:54.775Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-2テーマ組合せ大全/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士建設部門/magazines/BK-02_河川砂防/_cover.png": {
       "bucket": "private",
@@ -162830,7 +162866,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:54.874Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士建設部門/magazines/BK-02_河川砂防/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/_cover.png": {
       "bucket": "private",
@@ -162842,7 +162884,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:54.890Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-施工経験記述-完成答案集/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/_cover.png": {
       "bucket": "private",
@@ -162854,7 +162902,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:54.898Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/1級土木/magazines/1級土木-経験記述-完全攻略パック/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-完成答案集/_cover.png": {
       "bucket": "private",
@@ -162866,7 +162920,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:54.910Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/1級土木/magazines/1級土木-施工経験記述-完成答案集/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/1級・2級土木/1級土木/magazines/1級土木-二次まるごとパック/_cover.png": {
       "bucket": "private",
@@ -162878,7 +162938,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:54.970Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/1級土木/magazines/1級土木-二次まるごとパック/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士建設部門/magazines/BK-03_都市計画/_cover.png": {
       "bucket": "private",
@@ -162890,7 +162956,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:54.984Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士建設部門/magazines/BK-03_都市計画/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/_cover.png": {
       "bucket": "private",
@@ -162902,7 +162974,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:55.026Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/コンクリート診断士/magazines/コンクリート診断士-記述式-模範答案集/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-二次学科記述-直前暗記ノート/_cover.png": {
       "bucket": "private",
@@ -162914,7 +162992,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:55.042Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-二次学科記述-直前暗記ノート/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士建設部門/magazines/BK-01_道路/_cover.png": {
       "bucket": "private",
@@ -162926,7 +163010,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:55.094Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士建設部門/magazines/BK-01_道路/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-二次学科記述-テーマ別出る順/_cover.png": {
       "bucket": "private",
@@ -162938,7 +163028,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:55.159Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-二次学科記述-テーマ別出る順/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士建設部門/magazines/BK-07_建設環境/_cover.png": {
       "bucket": "private",
@@ -162950,7 +163046,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:55.478Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士建設部門/magazines/BK-07_建設環境/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監テキスト精読ガイド/_cover.png": {
       "bucket": "private",
@@ -162962,7 +163064,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:55.547Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監テキスト精読ガイド/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/_cover.png": {
       "bucket": "private",
@@ -162974,7 +163082,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:55.613Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士建設部門/magazines/BK-04_土質及び基礎/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/_cover.png": {
       "bucket": "private",
@@ -162986,7 +163100,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:55.632Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士建設部門/magazines/BK-08_港湾及び空港/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士建設部門/magazines/BK-06_施工計画/_cover.png": {
       "bucket": "private",
@@ -162998,7 +163118,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:55.689Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士建設部門/magazines/BK-06_施工計画/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士建設部門/magazines/PACK-01_道路まるごと合格パック/_cover.png": {
       "bucket": "private",
@@ -163010,7 +163136,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:55.774Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士建設部門/magazines/PACK-01_道路まるごと合格パック/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士建設部門/magazines/BK-09_電力土木/_cover.png": {
       "bucket": "private",
@@ -163022,7 +163154,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:55.800Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士建設部門/magazines/BK-09_電力土木/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士建設部門/magazines/BK-10_鉄道/_cover.png": {
       "bucket": "private",
@@ -163034,7 +163172,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:55.844Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士建設部門/magazines/BK-10_鉄道/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/_cover.png": {
       "bucket": "private",
@@ -163046,7 +163190,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:55.896Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士建設部門/magazines/BK-05_鋼構造及びコンクリート/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監模範論文-河川コンサル/_cover.png": {
       "bucket": "private",
@@ -163058,7 +163208,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:55.897Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監模範論文-河川コンサル/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監模範論文-自治体公園緑地担当/_cover.png": {
       "bucket": "private",
@@ -163070,7 +163226,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:55.920Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監模範論文-自治体公園緑地担当/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士建設部門/magazines/BK-I_必須科目I/_cover.png": {
       "bucket": "private",
@@ -163082,7 +163244,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:55.958Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士建設部門/magazines/BK-I_必須科目I/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監模範論文-自治体上水道担当/_cover.png": {
       "bucket": "private",
@@ -163094,7 +163262,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:55.990Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監模範論文-自治体上水道担当/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士建設部門/magazines/BK-11_トンネル/_cover.png": {
       "bucket": "private",
@@ -163106,7 +163280,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:56.037Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士建設部門/magazines/BK-11_トンネル/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監模範論文-ゼネコン/_cover.png": {
       "bucket": "private",
@@ -163118,7 +163298,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:56.113Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監模範論文-ゼネコン/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監模範論文-自治体下水道担当/_cover.png": {
       "bucket": "private",
@@ -163130,7 +163316,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:56.143Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監模範論文-自治体下水道担当/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監模範論文-自治体技術基準担当/_cover.png": {
       "bucket": "private",
@@ -163142,7 +163334,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:56.436Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監模範論文-自治体技術基準担当/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監模範論文-自治体契約調達担当/_cover.png": {
       "bucket": "private",
@@ -163154,7 +163352,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:56.493Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監模範論文-自治体契約調達担当/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監模範論文-自治体砂防担当/_cover.png": {
       "bucket": "private",
@@ -163166,7 +163370,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:56.517Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監模範論文-自治体砂防担当/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監模範論文-道路橋梁コンサル/_cover.png": {
       "bucket": "private",
@@ -163178,7 +163388,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:56.537Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監模範論文-道路橋梁コンサル/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監模範論文-都市計画コンサル/_cover.png": {
       "bucket": "private",
@@ -163190,7 +163406,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:56.714Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監模範論文-都市計画コンサル/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監模範論文-自治体道路担当/_cover.png": {
       "bucket": "private",
@@ -163202,7 +163424,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:56.744Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監模範論文-自治体道路担当/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監模範論文-自治体河川担当/_cover.png": {
       "bucket": "private",
@@ -163214,7 +163442,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:56.754Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監模範論文-自治体河川担当/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監模範論文-自治体港湾担当/_cover.png": {
       "bucket": "private",
@@ -163226,7 +163460,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:56.795Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監模範論文-自治体港湾担当/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監模範論文-自治体都市計画担当/_cover.png": {
       "bucket": "private",
@@ -163238,7 +163478,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:56.805Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監模範論文-自治体都市計画担当/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/_cover.png": {
       "bucket": "private",
@@ -163250,7 +163496,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:56.864Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監記述式-設問3国家施策バンク/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監記述式-R8予想問題集/_cover.png": {
       "bucket": "private",
@@ -163262,7 +163514,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:56.877Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監記述式-R8予想問題集/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監記述式-コアパック/_cover.png": {
       "bucket": "private",
@@ -163274,7 +163532,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:56.916Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監記述式-コアパック/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監記述式-完全パック/_cover.png": {
       "bucket": "private",
@@ -163286,7 +163550,13 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:56.935Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監記述式-完全パック/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
     },
     "content/note/技術士総監/magazines/総監記述式-5管理クロストレードオフ/_cover.png": {
       "bucket": "private",
@@ -163298,7 +163568,1387 @@
       "group": "note-magazine-cover-png",
       "verifiedAt": "2026-08-29T01:14:56.940Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/技術士総監/magazines/総監記述式-5管理クロストレードオフ/_cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/moshi-src/C8-1級模試/解答解説.md": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/moshi-src/C8-1級模試/解答解説.md",
+      "sha256": "f243945943e181788bfac94ddb1aefa0e27a9c4ee174e58255660ff3a7b650cc",
+      "bytes": 33411,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:28.904Z",
+      "logicalPath": ".claude/config/coconala/assets/moshi-src/C8-1級模試/解答解説.md",
+      "mime": "application/octet-stream",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/moshi-src/C9-2級模試/解答解説.md": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/moshi-src/C9-2級模試/解答解説.md",
+      "sha256": "4fd8a6f21a8c45d6940bf89fc39171ed769de44761e36cb929e9aba6ccfaf208",
+      "bytes": 27875,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:28.916Z",
+      "logicalPath": ".claude/config/coconala/assets/moshi-src/C9-2級模試/解答解説.md",
+      "mime": "application/octet-stream",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-04-施工計画.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C2-完成答案-04-施工計画.pdf",
+      "sha256": "535cc901018b03bc021c4864e076a85483bb5e2083ba88eb53acbb4073114d8d",
+      "bytes": 299266,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:28.985Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-04-施工計画.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-02-安全管理.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C2-完成答案-02-安全管理.pdf",
+      "sha256": "b505e3c30623962f5774937b6972c55905fe9efc68e1b6cdcaa749e72e37c324",
+      "bytes": 323742,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:28.991Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-02-安全管理.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-05-環境対策.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C2-完成答案-05-環境対策.pdf",
+      "sha256": "febde2a905935de4919e8beac2af844766582a071da6dc7c5386fee4302dfd2f",
+      "bytes": 304997,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.015Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-05-環境対策.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/moshi-src/C9-2級模試/問題冊子.md": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/moshi-src/C9-2級模試/問題冊子.md",
+      "sha256": "94e1bb7ff9c980305325fd48245ef36fbf67d263cc153787d6b9f43ed6301b09",
+      "bytes": 19966,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.025Z",
+      "logicalPath": ".claude/config/coconala/assets/moshi-src/C9-2級模試/問題冊子.md",
+      "mime": "application/octet-stream",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/moshi-src/C8-1級模試/問題冊子.md": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/moshi-src/C8-1級模試/問題冊子.md",
+      "sha256": "8b6736d4a003903f8ade69c8963723b7676058479be06809a3a3843f927b541c",
+      "bytes": 19872,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.042Z",
+      "logicalPath": ".claude/config/coconala/assets/moshi-src/C8-1級模試/問題冊子.md",
+      "mime": "application/octet-stream",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C3-2級完成答案-01-品質管理.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C3-2級完成答案-01-品質管理.pdf",
+      "sha256": "fbb0ac57f4ce1dd9184ab1c85ee50e2153b67cf65be9b886e5f796bf8dbba102",
+      "bytes": 298567,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.045Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C3-2級完成答案-01-品質管理.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-03-工程管理.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C2-完成答案-03-工程管理.pdf",
+      "sha256": "dbd5ccc9e0af484c83ee52512f8c01cd1eb06493f939058f4ae1ae55b0313db0",
+      "bytes": 316902,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.050Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-03-工程管理.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C3-2級完成答案-03-工程管理.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C3-2級完成答案-03-工程管理.pdf",
+      "sha256": "d19a27793df2a5d5177748c6868475df9bfd2acd571c07791714b394f7459de3",
+      "bytes": 305200,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.064Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C3-2級完成答案-03-工程管理.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C3-2級完成答案-02-安全管理.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C3-2級完成答案-02-安全管理.pdf",
+      "sha256": "b6026eaf05e957aa38c717f51c811410c4e8530d2eba686f4e7ae020bb3c3f49",
+      "bytes": 320220,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.099Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C3-2級完成答案-02-安全管理.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/bg-docs.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/bg-docs.png",
+      "sha256": "145c1e3475263a968d0b38611b310bee26a777b050c3bf46803f09762eeeffcf",
+      "bytes": 1213318,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.105Z",
+      "width": 1024,
+      "height": 1024,
+      "logicalPath": ".claude/config/coconala/assets/bg-docs.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-01-品質管理.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C2-完成答案-01-品質管理.pdf",
+      "sha256": "79c5e1f3ebfc2c1cf0de5bb7981010aea9a641dba20e0d39802d238b2a908c6c",
+      "bytes": 313258,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.136Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-01-品質管理.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/cover-profile.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/cover-profile.png",
+      "sha256": "6d405541ab6e16c751c773833c18b580903202005be88c79ee7e1fcb2b68c541",
+      "bytes": 570468,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.357Z",
+      "width": 1600,
+      "height": 525,
+      "logicalPath": ".claude/config/coconala/assets/cover-profile.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R04.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C4-1級過去問模範-R04.pdf",
+      "sha256": "70c16e9dbf4e55f6d1a9c798b170a47066210612f51b76e14e03d0d7a8d9cd5b",
+      "bytes": 310744,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.523Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R04.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R03.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C4-1級過去問模範-R03.pdf",
+      "sha256": "a0ed43ed0b24e674895dc962b6fbf34f1ad817afade0bf2ad50ee74ab07c8e57",
+      "bytes": 313193,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.620Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R03.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/bg-civil.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/bg-civil.png",
+      "sha256": "7283c929b7bb4550cf9dc4ef188f01dc7d3bad242155ea423ccc16412df2b8f2",
+      "bytes": 1059827,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.659Z",
+      "width": 1024,
+      "height": 1024,
+      "logicalPath": ".claude/config/coconala/assets/bg-civil.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R03.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C5-2級過去問模範-R03.pdf",
+      "sha256": "3d0f7589fd26e36e8995fe148612c6ccc71c2107c0cc2b560d0193ab9307f7e5",
+      "bytes": 339938,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.677Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R03.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R06.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C4-1級過去問模範-R06.pdf",
+      "sha256": "140452acb6a65d266a35e9ad6c3134580d1c782f1b93fb86f5c5ed151a58bf2f",
+      "bytes": 309410,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.682Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R06.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-03-土工.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C6-1級学科記述-03-土工.pdf",
+      "sha256": "c7b7f112712da194ed06448fc05b71892be709bd377a91e667a127935249057f",
+      "bytes": 331570,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.703Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-03-土工.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R07.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C5-2級過去問模範-R07.pdf",
+      "sha256": "8a0f461fcfb04c915635510bb8a76a3991aebb3e0ce4d597ffbab6f5d1438b5a",
+      "bytes": 314647,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.715Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R07.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R07.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C4-1級過去問模範-R07.pdf",
+      "sha256": "6f1cf8b48b7316fbc71248b19214f727cdd6da68b603ae767e797a805ad4ef82",
+      "bytes": 307897,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.732Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R07.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R06.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C5-2級過去問模範-R06.pdf",
+      "sha256": "d65bab0c03742d5e6187b9aa4165c41e991780a9c0a3dfa72207874edee45076",
+      "bytes": 301784,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.767Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R06.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R05.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C5-2級過去問模範-R05.pdf",
+      "sha256": "2563661c47b922ea1eb765bb99a45ea6c5ad93c10f9144f0e26ef19d24965423",
+      "bytes": 333120,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.772Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R05.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C1-出題分析-1級土木二次.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C1-出題分析-1級土木二次.pdf",
+      "sha256": "b871495a68e22424b52649732df83b947e1dab7c6b0ecad96949c067b3e4cf10",
+      "bytes": 336544,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.818Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C1-出題分析-1級土木二次.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-02-品質管理.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C6-1級学科記述-02-品質管理.pdf",
+      "sha256": "ca1859bce599976893bf82e980d757361ce337f98064bfa80bfdee2513a142b8",
+      "bytes": 199377,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.820Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-02-品質管理.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R05.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C4-1級過去問模範-R05.pdf",
+      "sha256": "dea7efff0db8ecafce7ba533a248703b376a75a7781e659f604119abc534e66e",
+      "bytes": 283618,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:29.863Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R05.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-04-安全管理・法規.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C6-1級学科記述-04-安全管理・法規.pdf",
+      "sha256": "702f5ff053a44b4cf7ea4ec3efafe08da4e21686ae2811407835da66190de24b",
+      "bytes": 341587,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:30.074Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-04-安全管理・法規.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R04.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C5-2級過去問模範-R04.pdf",
+      "sha256": "818f0f761fd8cbcdd1a27af8be9143b719d08ca0a0b0fa113122cae51f5faa97",
+      "bytes": 333314,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:30.141Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R04.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-05-施工計画・環境.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C6-1級学科記述-05-施工計画・環境.pdf",
+      "sha256": "70724b0d9e06e8e1a8b617f4d0cd6b340d80492dfc2fa72363d73435a36d4466",
+      "bytes": 370934,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:30.212Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-05-施工計画・環境.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-01-コンクリート工.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C6-1級学科記述-01-コンクリート工.pdf",
+      "sha256": "709f652f8fc780d40ef56b793550616201ed30e7ce108c3cf9c4b1fce12cf1ed",
+      "bytes": 356328,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:30.268Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-01-コンクリート工.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-01-コンクリート工.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C7-2級学科記述-01-コンクリート工.pdf",
+      "sha256": "aababd2d76bc0b93c2f7be4462ec0b8417952a1062134af2691af146736437db",
+      "bytes": 235385,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:30.312Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-01-コンクリート工.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C9-2級二次予想模試-解答解説.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C9-2級二次予想模試-解答解説.pdf",
+      "sha256": "a6ba3376e70893d8882013a729efa5884479d047d2513f91d79a6249e26f3c17",
+      "bytes": 448197,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:30.329Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C9-2級二次予想模試-解答解説.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-03-土工.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C7-2級学科記述-03-土工.pdf",
+      "sha256": "c601999e7718d0b607e1ac88da8686721855cc12e5ea5de2a84f9123403740c5",
+      "bytes": 333667,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:30.357Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-03-土工.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-04-安全管理・法規.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C7-2級学科記述-04-安全管理・法規.pdf",
+      "sha256": "fba46d9296d188158c8032ec0a93ed3ad58ea232cd04ca3e44310abade3c8d0f",
+      "bytes": 247063,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:30.360Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-04-安全管理・法規.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C9-2級二次予想模試-問題冊子.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C9-2級二次予想模試-問題冊子.pdf",
+      "sha256": "772a69f800e55f0d350a0549fcafd875ea504aaca54c943552600fcc5093c9d9",
+      "bytes": 485035,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:30.389Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C9-2級二次予想模試-問題冊子.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/thumb-1kyu-full-pdf.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/thumb-1kyu-full-pdf.png",
+      "sha256": "567ae473e93fcd17ebd82e2726af8a5fb55b9b2101f77875df0125c6b16f5550",
+      "bytes": 1030839,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:30.482Z",
+      "width": 1200,
+      "height": 900,
+      "logicalPath": ".claude/config/coconala/assets/thumb-1kyu-full-pdf.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C8-1級二次予想模試-問題冊子.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C8-1級二次予想模試-問題冊子.pdf",
+      "sha256": "763efeb8df0de054bb814f271353dd2c4848939c3a8e70610fb37b3bc71cf4af",
+      "bytes": 570069,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:30.501Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C8-1級二次予想模試-問題冊子.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-05-施工計画・環境.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C7-2級学科記述-05-施工計画・環境.pdf",
+      "sha256": "78eddbaec73e0ce710809ac6435a9a0c53baa15d0d45562b64bfb63864780f3a",
+      "bytes": 362328,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:30.516Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-05-施工計画・環境.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-sokan-bunseki.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-sokan-bunseki.pdf",
+      "sha256": "c914efe2b08a8aac55b76f550b1f7c1a71fc071b14889e4c57d7a7be09b8520b",
+      "bytes": 196807,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:30.539Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-sokan-bunseki.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/thumb-1kyu-kakomon-pdf.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/thumb-1kyu-kakomon-pdf.png",
+      "sha256": "c9f3816e6d9b17c4f7f11386bb8804f7e413a4f40e40ccc8107508d1a170f2f9",
+      "bytes": 865782,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:30.740Z",
+      "width": 1200,
+      "height": 900,
+      "logicalPath": ".claude/config/coconala/assets/thumb-1kyu-kakomon-pdf.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C8-1級二次予想模試-解答解説.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C8-1級二次予想模試-解答解説.pdf",
+      "sha256": "9653cb94a80316c5a213774b564571b02895aba27a16dea12f8d7d3250057e6a",
+      "bytes": 564106,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:30.746Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C8-1級二次予想模試-解答解説.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-02-品質管理.pdf": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/pdf/coconala-C7-2級学科記述-02-品質管理.pdf",
+      "sha256": "bd26dd320c6d97803ecd533fb619fdb10ad979313cdbf923a7eeb1fd2eb3add3",
+      "bytes": 240901,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:30.752Z",
+      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-02-品質管理.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/thumb-1kyu-gakka-pdf.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/thumb-1kyu-gakka-pdf.png",
+      "sha256": "d165373592da20dd60588bd1362431636046d3d9f4b6e1f9785e025b126d22ff",
+      "bytes": 863674,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:30.947Z",
+      "width": 1200,
+      "height": 900,
+      "logicalPath": ".claude/config/coconala/assets/thumb-1kyu-gakka-pdf.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/thumb-2kyu-kanseitoan-pdf.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/thumb-2kyu-kanseitoan-pdf.png",
+      "sha256": "4ee2ac88eec7fbe17d0229ebfa7a9fa18bb2e6ae9ef82471d18375277fab1017",
+      "bytes": 984488,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:31.018Z",
+      "width": 1200,
+      "height": 900,
+      "logicalPath": ".claude/config/coconala/assets/thumb-2kyu-kanseitoan-pdf.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/thumb-2kyu-moshi-pdf.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/thumb-2kyu-moshi-pdf.png",
+      "sha256": "9f3c0aa8a8c4e244532f6197972dbd1ad3bd76aff3bbe2242447079fad468b2b",
+      "bytes": 1103119,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:31.049Z",
+      "width": 1200,
+      "height": 900,
+      "logicalPath": ".claude/config/coconala/assets/thumb-2kyu-moshi-pdf.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/thumb-1kyu-moshi-pdf.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/thumb-1kyu-moshi-pdf.png",
+      "sha256": "1157b3c037515760e8cfbd5ac6684a3870b6675aa861c8416c4feb6fbcbfb31e",
+      "bytes": 1131333,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:31.091Z",
+      "width": 1200,
+      "height": 900,
+      "logicalPath": ".claude/config/coconala/assets/thumb-1kyu-moshi-pdf.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/thumb-2kyu-gakka-pdf.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/thumb-2kyu-gakka-pdf.png",
+      "sha256": "8ce5d22c2b5f2a9a4b75695c08779b4822cb1a83fec822afee86e9b5f93c6d34",
+      "bytes": 863805,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:31.126Z",
+      "width": 1200,
+      "height": 900,
+      "logicalPath": ".claude/config/coconala/assets/thumb-2kyu-gakka-pdf.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/thumb-bunseki-pdf.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/thumb-bunseki-pdf.png",
+      "sha256": "07c4bf8e5cf41a3b551f03048b5857fe7ebe50cfb458e60dee91a4a858104eaf",
+      "bytes": 863073,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:31.132Z",
+      "width": 1200,
+      "height": 900,
+      "logicalPath": ".claude/config/coconala/assets/thumb-bunseki-pdf.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/thumb-2kyu-kakomon-pdf.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/thumb-2kyu-kakomon-pdf.png",
+      "sha256": "1d10b3b5eec7d5576fc767490d6a707417077ac93c40afc17f4960e8dd405528",
+      "bytes": 865904,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:31.136Z",
+      "width": 1200,
+      "height": 900,
+      "logicalPath": ".claude/config/coconala/assets/thumb-2kyu-kakomon-pdf.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/thumb-sakusei.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/thumb-sakusei.png",
+      "sha256": "139e58467003a339cf7c48b91511caeeb37e8da999826665cf735f31d59daddc",
+      "bytes": 645433,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:31.202Z",
+      "width": 1200,
+      "height": 900,
+      "logicalPath": ".claude/config/coconala/assets/thumb-sakusei.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/thumb-sakusei-4theme.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/thumb-sakusei-4theme.png",
+      "sha256": "bdeb4434fb9d1104ef3bc1f262c6d7f15f675cce4b24574538ab676124777937",
+      "bytes": 644498,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:31.203Z",
+      "width": 1200,
+      "height": 900,
+      "logicalPath": ".claude/config/coconala/assets/thumb-sakusei-4theme.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/thumb-2kyu-full-pdf.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/thumb-2kyu-full-pdf.png",
+      "sha256": "61cc661fb6300d65bafcab3b100eedd23bf61afba266d84f0eaa18911a521772",
+      "bytes": 1059188,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:31.262Z",
+      "width": 1200,
+      "height": 900,
+      "logicalPath": ".claude/config/coconala/assets/thumb-2kyu-full-pdf.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/thumb-civil-keiken-kit.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/thumb-civil-keiken-kit.png",
+      "sha256": "852351b6b29ae7f3f4f8aa82aaaee242af6fad954cb432f133dd512e3ce4eb3d",
+      "bytes": 777615,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:31.282Z",
+      "width": 1200,
+      "height": 900,
+      "logicalPath": ".claude/config/coconala/assets/thumb-civil-keiken-kit.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/thumb-1kyu-premium.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/thumb-1kyu-premium.png",
+      "sha256": "5786d39f9cd676634cd68ec594c29289cbadcea88f95a6c6a765209386cc54ac",
+      "bytes": 701476,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:31.333Z",
+      "width": 1200,
+      "height": 900,
+      "logicalPath": ".claude/config/coconala/assets/thumb-1kyu-premium.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/thumb-sokan-bunseki-pdf.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/thumb-sokan-bunseki-pdf.png",
+      "sha256": "9f1adba97af70bbbc291f766f8c2abe43ff381f17b2602e3076ba725880ea0d1",
+      "bytes": 770575,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:31.381Z",
+      "width": 1200,
+      "height": 900,
+      "logicalPath": ".claude/config/coconala/assets/thumb-sokan-bunseki-pdf.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/thumb-tensaku-set.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/thumb-tensaku-set.png",
+      "sha256": "2bc959ffe66c114b6742c6b6b2a28ecdd078f4cf57e4b78bd1f5b86ca543124a",
+      "bytes": 644227,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:31.416Z",
+      "width": 1200,
+      "height": 900,
+      "logicalPath": ".claude/config/coconala/assets/thumb-tensaku-set.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/thumb-shindan.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/thumb-shindan.png",
+      "sha256": "e9f1efeb039d26d904cef75849f21d5c2552707bf2ff7e51bdd3485ba324d21e",
+      "bytes": 775487,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:31.438Z",
+      "width": 1200,
+      "height": 900,
+      "logicalPath": ".claude/config/coconala/assets/thumb-shindan.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    ".claude/config/coconala/assets/thumb-kanseitoan-pdf.png": {
+      "bucket": "private",
+      "r2Key": "coconala/assets/thumb-kanseitoan-pdf.png",
+      "sha256": "dc71510afe35bf7f0b2094aa2de3c987bd16a2b8e16c657f52ba7f028a7d4489",
+      "bytes": 885583,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "coconala-asset",
+      "verifiedAt": "2026-08-29T01:22:31.452Z",
+      "width": 1200,
+      "height": 900,
+      "logicalPath": ".claude/config/coconala/assets/thumb-kanseitoan-pdf.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
+    },
+    "scripts/kindle-published/cover-designs/Book Cover Design Image Jul 8 2026.png": {
+      "bucket": "private",
+      "r2Key": "archive/repo/scripts/kindle-published/cover-designs/Book Cover Design Image Jul 8 2026.png",
+      "sha256": "a877db10665c69ca97d5e5ebe4a4d93efdc9e5105a5db3f7434c0fdd29acc9a1",
+      "bytes": 1766024,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "repo-archive",
+      "verifiedAt": "2026-08-29T01:22:32.684Z",
+      "width": 992,
+      "height": 1586
+    },
+    "scripts/kindle-published/cover-designs/Book Cover Design Image Jul 8 2026 (1).png": {
+      "bucket": "private",
+      "r2Key": "archive/repo/scripts/kindle-published/cover-designs/Book Cover Design Image Jul 8 2026 (1).png",
+      "sha256": "cb293cadf42b94c855734f8f911df08a93f6eb8605dc9a79c1d1bf7f712f7139",
+      "bytes": 1875165,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "repo-archive",
+      "verifiedAt": "2026-08-29T01:22:32.727Z",
+      "width": 992,
+      "height": 1586
+    },
+    "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (5).png": {
+      "bucket": "private",
+      "r2Key": "archive/repo/scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (5).png",
+      "sha256": "d1718ff7ccc14cc2989ced13ba617f24572f122dcc2bb2bfecde774f1004c3d9",
+      "bytes": 1870303,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "repo-archive",
+      "verifiedAt": "2026-08-29T01:22:32.741Z",
+      "width": 992,
+      "height": 1586
+    },
+    "content/sns/_assets/character/_source/grid-2.png": {
+      "bucket": "private",
+      "r2Key": "archive/repo/content/sns/_assets/character/_source/grid-2.png",
+      "sha256": "8570c4cb4a1e0e0630bf3a488758ea3a5dbb68452e81eea25cdde238b19e0f71",
+      "bytes": 1486985,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "repo-archive",
+      "verifiedAt": "2026-08-29T01:22:32.784Z",
+      "width": 1254,
+      "height": 1254
+    },
+    "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (1).png": {
+      "bucket": "private",
+      "r2Key": "archive/repo/scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (1).png",
+      "sha256": "ba228f60ffe5ae84e3b3241b7b72551e50b4fab47ca0bc65ad13ff047b15bacd",
+      "bytes": 1836754,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "repo-archive",
+      "verifiedAt": "2026-08-29T01:22:32.865Z",
+      "width": 992,
+      "height": 1586
+    },
+    "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (4).png": {
+      "bucket": "private",
+      "r2Key": "archive/repo/scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (4).png",
+      "sha256": "b3776099e8084cf1813cf24b07af51793871b2134da7e972f04dd341d4a2bc7a",
+      "bytes": 2120621,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "repo-archive",
+      "verifiedAt": "2026-08-29T01:22:32.929Z",
+      "width": 992,
+      "height": 1586
+    },
+    "content/sns/_assets/character/_source/grid-1.png": {
+      "bucket": "private",
+      "r2Key": "archive/repo/content/sns/_assets/character/_source/grid-1.png",
+      "sha256": "62d04dcc804e943db27425bfd3f229d807ada15bd528ce4f7f6b4a8b512413a4",
+      "bytes": 1484206,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "repo-archive",
+      "verifiedAt": "2026-08-29T01:22:32.952Z",
+      "width": 1254,
+      "height": 1254
+    },
+    "content/sns/_assets/character/_source/grid-3.png": {
+      "bucket": "private",
+      "r2Key": "archive/repo/content/sns/_assets/character/_source/grid-3.png",
+      "sha256": "8d001db7020e312e23adc719eec59128fb883872e845ecef8bb3c57808c4dba2",
+      "bytes": 1963135,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "repo-archive",
+      "verifiedAt": "2026-08-29T01:22:32.952Z",
+      "width": 1254,
+      "height": 1254
+    },
+    ".claude/state/ocr-audit/2026-04-24.json": {
+      "bucket": "private",
+      "r2Key": "archive/repo/.claude/state/ocr-audit/2026-04-24.json",
+      "sha256": "9bd0d1c777c16b99188ebed60bbadc07e2b64fcb625a68d24efe08fa704b0216",
+      "bytes": 3926044,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "repo-archive",
+      "verifiedAt": "2026-08-29T01:22:33.004Z"
+    },
+    "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026.png": {
+      "bucket": "private",
+      "r2Key": "archive/repo/scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026.png",
+      "sha256": "d52b0b61d8809b36ae5b8ede23e8090bd54d1baeb90fd28c085fb490cefba698",
+      "bytes": 1940963,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "repo-archive",
+      "verifiedAt": "2026-08-29T01:22:33.050Z",
+      "width": 992,
+      "height": 1586
+    },
+    "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (2).png": {
+      "bucket": "private",
+      "r2Key": "archive/repo/scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (2).png",
+      "sha256": "c7f3f3c452d58161124dbc67387dd9830c0ebd6eee2fe123da3a594a24394b0e",
+      "bytes": 2071169,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "repo-archive",
+      "verifiedAt": "2026-08-29T01:22:33.079Z",
+      "width": 992,
+      "height": 1586
+    },
+    "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (3).png": {
+      "bucket": "private",
+      "r2Key": "archive/repo/scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (3).png",
+      "sha256": "c7f3f3c452d58161124dbc67387dd9830c0ebd6eee2fe123da3a594a24394b0e",
+      "bytes": 2071169,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "repo-archive",
+      "verifiedAt": "2026-08-29T01:22:33.085Z",
+      "width": 992,
+      "height": 1586
+    },
+    ".claude/state/ocr-audit/2026-04-26.json": {
+      "bucket": "private",
+      "r2Key": "archive/repo/.claude/state/ocr-audit/2026-04-26.json",
+      "sha256": "423adbc63cd7abbb04548b02541726070fc5f0d2503ed563faff0fdd3bceac59",
+      "bytes": 3899707,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "repo-archive",
+      "verifiedAt": "2026-08-29T01:22:33.295Z"
     }
   }
 }

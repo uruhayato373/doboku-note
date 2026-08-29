@@ -342,3 +342,17 @@ content/site/**/ogp.png
 # bucket:private固定。復元は node scripts/asset-hydrate.mjs --group note-magazine-cover-png。
 # 2026-08-29。
 content/note/**/magazines/*/_cover.png
+
+# .claude/config/coconala/assets/（59件・28.3MB）はasset-storage.jsonの
+# coconala-asset groupでR2退避済み（private・--verify 3者照合OK）。
+# ココナラ出品Playwright自動化はローカル実体を直接参照するので挙動不変。
+# 復元は node scripts/asset-hydrate.mjs --group coconala-asset。2026-08-29。
+.claude/config/coconala/assets/**
+
+# repo-archive group（性質の異なる3種の死蔵物・13件・27.0MB）でR2退避済み
+# （private・--verify 3者照合OK）: OCR監査ログ・Kindle表紙デザイン案・
+# キャラ素材グリッド原本。監査証跡として当面残す価値があるため消さず退避。
+# 復元は node scripts/asset-hydrate.mjs --group repo-archive。2026-08-29。
+.claude/state/ocr-audit/**
+scripts/kindle-published/cover-designs/**
+content/sns/_assets/character/_source/**
