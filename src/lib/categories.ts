@@ -29,3 +29,17 @@ export function getCategoryBySlug(slug: string): CategoryDef | undefined {
 export function getCategoryLabel(slug: string): string {
   return getCategoryBySlug(slug)?.label ?? slug;
 }
+
+/**
+ * Public hub path for a content category.
+ *
+ * Exam preparation, field practice, and official standards are separate user
+ * intents, so the public URL must not expose the legacy catch-all /category
+ * namespace. Keep this resolver as the single source used by navigation,
+ * breadcrumbs, structured data, and redirects.
+ */
+export function getCategoryHubPath(slug: string): string {
+  if (slug === 'civil-practice') return '/practice';
+  if (slug === 'reference-materials') return '/standards';
+  return `/exam/${slug}`;
+}

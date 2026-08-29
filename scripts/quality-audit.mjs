@@ -209,13 +209,13 @@ const CHECKS = [
   { id: 'knip-ratchet', npm: 'check-knip-ratchet', timeout: 300_000, ci: true, note: 'デッドコードが baseline から増えていないか' },
   {
     id: 'cta-density', npm: 'check-cta-density', timeout: 90_000, ci: false,
-    note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）（out/docs 未ビルドなら skip 理由付きで報告される）',
-    skip: () => existsSync(join(ROOT, 'out', 'docs')) ? null : 'ビルド成果物 out/docs が無い（npm run build 後に実行）',
+    note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）（out 未ビルドなら skip 理由付きで報告される）',
+    skip: () => existsSync(join(ROOT, 'out', 'index.html')) ? null : 'ビルド成果物 out/index.html が無い（npm run build 後に実行）',
   },
   {
     id: 'seo-meta', npm: 'check-seo-meta', timeout: 300_000, ci: false,
-    note: '読み手＝/seo-growth-review と technical-seo-auditor。weekly-review-guard の report digest でも拾うが、CI には dev server が無いため常に skip 理由付きで報告される',
-    skip: async () => (await portOpen(3020)) ? null : 'dev server (localhost:3020) 不在（npm run dev 起動時のみ実行）',
+    note: '読み手＝/seo-growth-review と technical-seo-auditor。build 済み out/ を直接検査し、weekly-review-guard の report digest でも拾う',
+    skip: () => existsSync(join(ROOT, 'out', 'sitemap.xml')) ? null : 'ビルド成果物 out/sitemap.xml が無い（npm run build 後に実行）',
   },
   // 週次レビューが読む収益カバレッジ集計が「実行できる」ことを毎回確かめる（ci ゲート）。
   // 2026-07-06 に magazine-placement.ts から resolveCategoryMagazines が消えて import

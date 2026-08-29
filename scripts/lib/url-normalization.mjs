@@ -1,5 +1,5 @@
 /**
- * url-normalization.mjs — GSC/GA4 突合のための URL キー生成（純関数・テスト対象）
+ * url-normalization.mjs — GSC/GA4 突合のための URL キー生成（テスト対象）
  * ---------------------------------------------------------------------------
  * 2 種類のキーを提供する。用途を明確に分ける。
  *
@@ -19,7 +19,35 @@
  * comparisonKey は「壊さない」、joinKey は「寄せる」。両者を混同しない。
  */
 
+import { existsSync, readFileSync } from "node:fs";
+import { dirname, join } from "node:path";
+import { fileURLToPath } from "node:url";
+
 const SITE_HOST_RE = /^https?:\/\/(www\.)?doboku-note\.com/i;
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), "../..");
+
+let publicPathToLegacySlug = null;
+
+/**
+ * 旧 /docs slug と正規公開 URL の対応は public/_redirects の生成ブロックから読む。
+ * GSC には移行前後の URL が混在するため、doc-meta との突合では両方を同じ論理 slug へ戻す。
+ */
+function loadPublicPathMap() {
+  if (publicPathToLegacySlug) return publicPathToLegacySlug;
+  publicPathToLegacySlug = new Map();
+  const redirectsPath = join(ROOT, "public/_redirects");
+  if (!existsSync(redirectsPath)) return publicPathToLegacySlug;
+  let managed = false;
+  for (const raw of readFileSync(redirectsPath, "utf8").split("\n")) {
+    const line = raw.trim();
+    if (line === "# BEGIN GENERATED PUBLIC ROUTES") { managed = true; continue; }
+    if (line === "# END GENERATED PUBLIC ROUTES") break;
+    if (!managed || !line || line.startsWith("#")) continue;
+    const match = line.match(/^\/docs\/([^/*\s]+)\s+(\/\S+)\s+301$/);
+    if (match) publicPathToLegacySlug.set(toJoinKey(match[2]), match[1]);
+  }
+  return publicPathToLegacySlug;
+}
 
 /**
  * URL 文字列を安全に URL オブジェクトへ。相対パス（先頭 /）も site origin 基準で解釈する。
@@ -83,9 +111,11 @@ export function toAbsoluteUrl(raw, origin = "https://doboku-note.com") {
   return null;
 }
 
-/** /docs/{slug} の slug を取り出す（doc-meta-index との突合用）。無ければ null。 */
+/** 旧 /docs または正規公開 URL から論理 slug を取り出す（doc-meta-index との突合用）。 */
 export function slugFromKey(key) {
   if (!key) return null;
-  const m = String(key).match(/^\/docs\/([^/?#]+)\/?$/);
-  return m ? m[1] : null;
+  const normalized = toJoinKey(key);
+  const legacy = normalized.match(/^\/docs\/([^/?#]+)$/);
+  if (legacy) return legacy[1];
+  return loadPublicPathMap().get(normalized) ?? null;
 }

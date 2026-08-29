@@ -11,6 +11,7 @@
  * 1級と2級でそれぞれ別 index を持つ（civil-exam-textbook-index.json / -2.json）。
  */
 import Link from 'next/link';
+import { getPublicDocPath } from '@/lib/content-routes';
 import type { DocMeta } from '@/lib/docs';
 import { classifyDoc } from '@/lib/doc-classifier';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
@@ -148,7 +149,7 @@ export default function RelatedTextbooks({ currentMeta, categoryArticles }: Rela
         {entries.map((doc) => (
           <li key={doc.slug}>
             <Link
-              href={`/docs/${doc.slug}`}
+              href={getPublicDocPath(doc.slug)}
               className="block rounded-card-content border border-[var(--rule-soft)] px-4 py-3 transition-colors hover:border-[var(--accent)]"
             >
               <div className="text-sm font-semibold text-[var(--accent)]">{doc.title}</div>

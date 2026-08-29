@@ -9,6 +9,7 @@ import {
   subjectDisplayLabel,
   subjectFullLabel,
 } from '@/lib/pe-construction-subjects';
+import { getPublicDocPath } from '@/lib/content-routes';
 
 /** カード表示用の更新日を YYYY.MM.DD で返す（取れなければ null）。LatestArticles と同じ整形。 */
 function cardDate(doc: DocMeta): string | null {
@@ -25,7 +26,7 @@ export function DocCard({ doc }: { doc: DocMeta }) {
   const date = cardDate(doc);
   return (
     <Link
-      href={`/docs/${doc.slug}`}
+      href={getPublicDocPath(doc.slug)}
       data-cta="nav"
       data-cta-label="category-card"
       className="group relative flex flex-col overflow-hidden border border-[var(--rule-soft)] bg-[var(--paper)] transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-fill)]"
@@ -328,7 +329,7 @@ export function OgpThumbRow({ doc, rank, eager = false }: { doc: DocMeta; rank?:
   const excerpt = doc.subtitle || doc.description;
   return (
     <li className="border-b border-[var(--rule-soft)] last:border-b-0">
-      <Link href={`/docs/${doc.slug}`} className="group flex gap-3 sm:gap-4 py-4">
+      <Link href={getPublicDocPath(doc.slug)} className="group flex gap-3 sm:gap-4 py-4">
         {/* self-start 必須: 親 flex の align-items:stretch がサムネをテキスト列の高さに
             引き伸ばし aspect-[1200/630] を無効化する（縦伸び事故の根治・2026-07-15）。 */}
         <div className="relative aspect-[1200/630] w-[124px] sm:w-[168px] shrink-0 self-start overflow-hidden border border-[var(--rule-soft)] bg-[var(--bg)]">

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import peChaptersData from '@/config/pe-chapters.json';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import { peKeywordPageExists } from '@/lib/pe-keyword-nav';
+import { getPublicDocPath } from '@/lib/content-routes';
 
 interface SectionKeywordsProps {
   currentSlug: string;
@@ -40,7 +41,7 @@ export default function SectionKeywords({ currentSlug, section }: SectionKeyword
         {others.map(kw => (
           <Link
             key={kw.slug}
-            href={`/docs/pe-comprehensive-management-${kw.slug}`}
+            href={getPublicDocPath(`pe-comprehensive-management-${kw.slug}`)}
             className="text-sm px-3 py-1.5 rounded-full border border-[var(--rule-soft)] bg-[var(--bg)] text-[var(--ink-body)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
           >
             {kw.title}

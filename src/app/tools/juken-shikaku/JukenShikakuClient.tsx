@@ -252,11 +252,11 @@ export default function JukenShikakuClient() {
       <div className="mt-6">
         <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--ink-muted)] mb-3">試験の全体像を知る</div>
         <div className="grid gap-3 sm:grid-cols-2">
-          <Link href="/docs/civil-construction-1-guide-exam-overview" className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]">
+          <Link href="/exam/civil-construction-1/guide/exam-overview" className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]">
             <div className="font-bold text-[var(--ink)]">1級土木 試験概要</div>
             <div className="text-sm text-[var(--ink-body)] mt-1">受験資格・科目・合格率・日程をまとめて解説</div>
           </Link>
-          <Link href="/docs/civil-construction-2-guide-exam-overview" className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]">
+          <Link href="/exam/civil-construction-2/guide/exam-overview" className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]">
             <div className="font-bold text-[var(--ink)]">2級土木 試験概要</div>
             <div className="text-sm text-[var(--ink-body)] mt-1">受験資格・科目・合格率・日程をまとめて解説</div>
           </Link>

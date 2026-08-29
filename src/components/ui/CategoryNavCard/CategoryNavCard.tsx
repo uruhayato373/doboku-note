@@ -13,6 +13,7 @@ import peChaptersData from '@/config/pe-chapters.json';
 import type { PeChapter } from '@/config/pe-chapters';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import { peKeywordPageExists } from '@/lib/pe-keyword-nav';
+import { getPublicDocPath } from '@/lib/content-routes';
 
 const peChapters = peChaptersData.chapters as PeChapter[];
 
@@ -29,7 +30,7 @@ function CellLink({ slug, label, currentSlug }: { slug: string | undefined; labe
   if (!slug) return <span className="text-[var(--ink-muted)] opacity-50">—</span>;
   if (slug === currentSlug) return <span className="font-bold text-[var(--ink)]">{label}</span>;
   return (
-    <Link href={`/docs/${slug}`} className="text-brand hover:text-brand-deep hover:underline">
+    <Link href={getPublicDocPath(slug)} className="text-brand hover:text-brand-deep hover:underline">
       {label}
     </Link>
   );
@@ -132,7 +133,7 @@ function SectionCard({ variant, currentSlug, currentSection }: { variant: 'sideb
                 </span>
               ) : (
                 <Link
-                  href={`/docs/pe-comprehensive-management-${kw.slug}`}
+                  href={getPublicDocPath(`pe-comprehensive-management-${kw.slug}`)}
                   className="block text-sm py-2 text-brand underline decoration-brand/30 underline-offset-2 hover:text-brand-deep hover:decoration-brand transition-colors"
                 >
                   {kw.title}
@@ -250,7 +251,7 @@ function LinkListCard({
                     {sub && <NavSubtitle>{sub}</NavSubtitle>}
                   </span>
                 ) : (
-                  <Link href={`/docs/${d.slug}`} className="group block py-2">
+                  <Link href={getPublicDocPath(d.slug)} className="group block py-2">
                     <span className="block text-sm text-brand underline decoration-brand/30 underline-offset-2 group-hover:text-brand-deep group-hover:decoration-brand transition-colors">
                       {main}
                     </span>
@@ -278,7 +279,7 @@ function LinkListCard({
                   {sub && <NavSubtitle>{sub}</NavSubtitle>}
                 </>
               ) : (
-                <Link href={`/docs/${d.slug}`} className="group block">
+                <Link href={getPublicDocPath(d.slug)} className="group block">
                   <span className="block text-sm text-brand group-hover:underline">{main}</span>
                   {sub && <NavSubtitle>{sub}</NavSubtitle>}
                 </Link>

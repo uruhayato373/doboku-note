@@ -1,6 +1,7 @@
 import Link from "next/link";
 import categoriesData from "@/config/categories.json";
 import { buildKeywordHref } from "@/lib/keyword-href.mjs";
+import { getPublicDocPath } from '@/lib/content-routes';
 import Callout from "../Callout/Callout";
 
 interface KeywordItem {
@@ -15,7 +16,7 @@ interface RelatedKeywordsProps {
 const CATEGORY_SLUGS = categoriesData.map((c) => c.slug);
 
 function buildHref(slug: string): string {
-  return buildKeywordHref(slug, CATEGORY_SLUGS);
+  return getPublicDocPath(buildKeywordHref(slug, CATEGORY_SLUGS).replace(/^\/docs\//, ''));
 }
 
 /**

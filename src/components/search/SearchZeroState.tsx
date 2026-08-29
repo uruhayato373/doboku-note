@@ -2,6 +2,8 @@ import Link from "next/link";
 import { ExamCard, type ExamData } from "@/components/home";
 import { type CategoryDef } from "@/lib/categories";
 import { type PopularDoc } from "@/lib/popular";
+import { getCategoryHubPath } from '@/lib/categories';
+import { getPublicDocPath } from '@/lib/content-routes';
 
 interface SearchZeroStateProps {
   examCards: ExamData[];
@@ -38,7 +40,7 @@ export function SearchZeroState({ examCards, otherCategories, popular }: SearchZ
             {otherCategories.map((cat) => (
               <Link
                 key={cat.slug}
-                href={`/category/${cat.slug}`}
+                href={getCategoryHubPath(cat.slug)}
                 className="focus-ring card-surface-content group flex flex-col gap-1 p-4 transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
               >
                 <span className="font-serif font-bold text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors">
@@ -59,7 +61,7 @@ export function SearchZeroState({ examCards, otherCategories, popular }: SearchZ
             {popular.map((item) => (
               <li key={item.doc.slug}>
                 <Link
-                  href={`/docs/${item.doc.slug}`}
+                  href={getPublicDocPath(item.doc.slug)}
                   className="focus-ring group flex gap-3 border-b border-[var(--rule-soft)] px-4 py-3 transition-colors last:border-b-0 hover:bg-[var(--accent-fill)]"
                 >
                   <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent-fill)] font-mono text-xs font-bold text-[var(--accent)]">

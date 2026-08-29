@@ -41,7 +41,9 @@ function listArticles() {
   if (!existsSync(POSTS)) return [];
   return readdirSync(POSTS, { recursive: true, withFileTypes: false })
     .map((p) => String(p).replace(/\\/g, "/"))
-    .filter((p) => /\/[^/]+\.(mdx|md)$/.test(p) && !p.includes("/img/"))
+    // standards-library は原本の逐語文字起こし。別分冊の「表N.M」参照も原文どおり保持するため、
+    // 編集記事向けの「同一記事内にキャプション必須」規則を適用しない。
+    .filter((p) => /\/[^/]+\.(mdx|md)$/.test(p) && !p.includes("/img/") && !p.startsWith("standards-library/"))
     .map((rel) => join(POSTS, rel));
 }
 
@@ -57,7 +59,7 @@ function stagedArticles() {
   return out
     .split("\n")
     .map((l) => l.trim().replace(/\\/g, "/"))
-    .filter((l) => /^\content\/site\/.+\.(mdx|md)$/.test(l) && !l.includes("/img/"))
+    .filter((l) => /^\content\/site\/.+\.(mdx|md)$/.test(l) && !l.includes("/img/") && !l.includes("/standards-library/"))
     .map((l) => join(ROOT, l));
 }
 

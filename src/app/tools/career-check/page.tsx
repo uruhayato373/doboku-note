@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { CAREER_HUB_ENTRIES, CAREER_HUB_SLUG } from "@/config/career-pathways";
 import CareerCheckClient from "./CareerCheckClient";
+import { getPublicDocPath } from '@/lib/content-routes';
 
 export const metadata: Metadata = {
   title: "土木施工管理キャリア整理ツール｜資格・工種・工事規模・立場を棚卸しする",
@@ -66,7 +67,7 @@ export default function CareerCheckPage() {
           </p>
           <ul className="mt-3 space-y-2">
             <li>
-              <Link href={`/docs/${CAREER_HUB_SLUG}`} className="text-brand underline">
+              <Link href={getPublicDocPath(CAREER_HUB_SLUG)} className="text-brand underline">
                 施工管理の転職（悩み別の入口）
               </Link>
             </li>

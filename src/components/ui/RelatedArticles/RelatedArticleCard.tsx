@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import type { DocMeta } from '@/lib/docs';
 import { getOgpDisplayUrl } from '@/lib/r2-image-loader';
+import { getPublicDocPath } from '@/lib/content-routes';
 
 interface RelatedArticleCardProps {
   readonly doc: DocMeta;
@@ -16,7 +17,7 @@ interface RelatedArticleCardProps {
 export default function RelatedArticleCard({ doc }: RelatedArticleCardProps) {
   return (
     <Link
-      href={`/docs/${doc.slug}`}
+      href={getPublicDocPath(doc.slug)}
       className="card-interactive card-surface-content focus-ring not-prose group flex h-full flex-col overflow-hidden hover:border-brand dark:hover:border-brand"
     >
       <div className="relative aspect-[1200/630] w-full overflow-hidden bg-[var(--bg)]">

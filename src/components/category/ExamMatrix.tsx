@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { getPublicDocPath } from '@/lib/content-routes';
 import { type DocMeta } from '@/lib/docs';
 
 // カテゴリページの「過去問（年度 × 問題種別リンク）」を全資格共通で描画する。
@@ -102,7 +103,7 @@ export default function ExamMatrix({
             >
               <span className={rowLabelClass} title={row.labelTitle}>{row.label}</span>
               {available.map((c) => (
-                <ExamChipLink key={c.label} href={`/docs/${c.doc!.slug}`} dense={dense}>
+                <ExamChipLink key={c.label} href={getPublicDocPath(c.doc!.slug)} dense={dense}>
                   {c.chipLabel ?? c.label}
                 </ExamChipLink>
               ))}
@@ -144,7 +145,7 @@ export default function ExamMatrix({
                 {row.cells.map((c, i) => (
                   <td key={i} className={`${cellX} whitespace-nowrap py-3 text-center`}>
                     {c.doc ? (
-                      <Link href={`/docs/${c.doc.slug}`} className="text-[var(--accent)] hover:underline">
+                      <Link href={getPublicDocPath(c.doc.slug)} className="text-[var(--accent)] hover:underline">
                         {c.label}
                       </Link>
                     ) : (

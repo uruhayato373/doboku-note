@@ -77,7 +77,7 @@ const EXAM_CARDS: ExamCard[] = [
     site: {
       label: "過去問から学ぶ",
       sub: "令和元年度〜7年度の3科目を年度別・科目別に収録",
-      href: "/category/pe-first-stage",
+      href: "/exam/pe-first-stage",
     },
   },
   {
@@ -87,7 +87,7 @@ const EXAM_CARDS: ExamCard[] = [
     site: {
       label: "サイトで無料学習",
       sub: "11選択科目の過去問と論述の型を整理",
-      href: "/category/pe-construction",
+      href: "/exam/pe-construction",
     },
   },
   {
@@ -97,7 +97,7 @@ const EXAM_CARDS: ExamCard[] = [
     site: {
       label: "キーワード集を読む",
       sub: "650+ 語の解説と過去問 H21-R7 を全問公開",
-      href: "/category/pe-comprehensive-management",
+      href: "/exam/pe-comprehensive-management",
     },
   },
   {
@@ -107,7 +107,7 @@ const EXAM_CARDS: ExamCard[] = [
     site: {
       label: "サイトで無料学習",
       sub: "過去問・テキスト・要点を全公開",
-      href: "/category/civil-construction-1",
+      href: "/exam/civil-construction-1",
     },
   },
   {
@@ -117,7 +117,7 @@ const EXAM_CARDS: ExamCard[] = [
     site: {
       label: "サイトで無料学習",
       sub: "過去問解説と経験記述の書き方",
-      href: "/category/civil-construction-2",
+      href: "/exam/civil-construction-2",
     },
   },
   {
@@ -127,7 +127,7 @@ const EXAM_CARDS: ExamCard[] = [
     site: {
       label: "サイトで無料学習",
       sub: "8分野の過去問解説・テキスト・小論文対策",
-      href: "/category/concrete-chief-engineer",
+      href: "/exam/concrete-chief-engineer",
     },
   },
   {
@@ -137,7 +137,7 @@ const EXAM_CARDS: ExamCard[] = [
     site: {
       label: "サイトで無料学習",
       sub: "6分野のテキスト・択一演習・記述式対策",
-      href: "/category/concrete-diagnostician",
+      href: "/exam/concrete-diagnostician",
     },
   },
 ];

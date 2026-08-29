@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Hash } from "lucide-react";
+import { getPublicDocPath } from '@/lib/content-routes';
 
 export interface LatestArticle {
   slug: string;
@@ -38,7 +39,7 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
           return (
             <Link
               key={a.slug}
-              href={`/docs/${a.slug}`}
+              href={getPublicDocPath(a.slug)}
               className="focus-ring card-surface-section group flex overflow-hidden transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-soft"
             >
               {/* サムネ（記事別 OGP＝1200:630・資格別テーマ色＋タグ焼き込み。RelatedArticleCard と同系統）。

@@ -195,7 +195,7 @@ export default function TrenchLegalCheckClient() {
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           <Link
-            href="/docs/civil-practice-trench-excavation-safety"
+            href="/practice/trench-excavation-safety"
             className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
           >
             <div className="font-bold text-[var(--ink)]">溝掘削の土留めをいつ入れるか</div>

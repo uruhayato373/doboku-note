@@ -1,3 +1,5 @@
+import { getCategoryHubPath } from '@/lib/categories';
+
 // guide（要点・概要）記事を読んだ人を「次のステップ（演習・テキスト・分野）」へ送る導線の解決。
 // href はカテゴリページの sec-* アンカー（そこに直前期の note CTA も同居＝回遊と収益導線が接続）。
 // アンカー slug は src/components/category/CategoryViews.tsx / CategorySections.tsx の section id と一致させる。
@@ -36,6 +38,6 @@ export function resolveNextSteps(category: string): NextStep[] {
   return steps.map((s) => ({
     label: s.label,
     hint: s.hint,
-    href: `/category/${category}#sec-${s.anchor}`,
+    href: `${getCategoryHubPath(category)}#sec-${s.anchor}`,
   }));
 }

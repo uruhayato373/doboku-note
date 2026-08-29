@@ -28,6 +28,12 @@ export type CareerNeed =
   | "application"
   | "service-choice";
 
+const careerArticlePath = (slug: string) => {
+  const civil2 = 'civil-construction-2-guide-';
+  if (slug.startsWith(civil2)) return `/exam/civil-construction-2/guide/${slug.slice(civil2.length)}`;
+  return `/exam/civil-construction-1/guide/${slug.replace(/^civil-construction-1-guide-/, '')}`;
+};
+
 /** キャリア hub。全 need の戻り先。 */
 export const CAREER_HUB_SLUG = "civil-construction-1-guide-career";
 
@@ -196,12 +202,12 @@ export function resolveCareerNextSteps(slug: string | undefined): readonly Caree
   if (need) {
     const def = CAREER_NEEDS[need];
     if (def.pillarSlug !== slug) {
-      steps.push({ href: `/docs/${def.pillarSlug}`, title: def.nextStepTitle, reason: def.nextStepReason });
+      steps.push({ href: careerArticlePath(def.pillarSlug), title: def.nextStepTitle, reason: def.nextStepReason });
     }
   }
   if (slug !== CAREER_HUB_SLUG) {
     steps.push({
-      href: `/docs/${CAREER_HUB_SLUG}`,
+      href: careerArticlePath(CAREER_HUB_SLUG),
       title: "施工管理の転職（悩み別の入口）",
       reason: "6 つの悩みから、いま読むべき 1 ページを選び直せます。",
     });
@@ -231,42 +237,42 @@ export const CAREER_HUB_ENTRIES: readonly CareerHubEntry[] = [
     need: "quit-or-stay",
     state: "辞めたい気持ちが消えない",
     first: "辞めたい理由の切り分け",
-    href: "/docs/civil-construction-1-guide-quit-or-stay",
+    href: "/exam/civil-construction-1/guide/quit-or-stay",
     label: "辞めたいと思ったら",
   },
   {
     need: "pay",
     state: "いまの年収が妥当か分からない",
     first: "経験と資格の棚卸し",
-    href: "/docs/civil-construction-1-guide-market-value",
+    href: "/exam/civil-construction-1/guide/market-value",
     label: "1級の市場価値",
   },
   {
     need: "career-path",
     state: "施工管理を続けるか迷う",
     first: "現場以外の進路の比較",
-    href: "/docs/civil-construction-1-guide-career-path",
+    href: "/exam/civil-construction-1/guide/career-path",
     label: "資格のキャリアパス",
   },
   {
     need: "application",
     state: "応募の書き方が分からない",
     first: "工事経歴の言語化",
-    href: "/docs/civil-construction-1-guide-resume",
+    href: "/exam/civil-construction-1/guide/resume",
     label: "職務経歴書の書き方",
   },
   {
     need: "service-choice",
     state: "どのサービスを使うか迷う",
     first: "タイプ別の使い分け",
-    href: "/docs/civil-construction-1-guide-career-agent-comparison",
+    href: "/exam/civil-construction-1/guide/career-agent-comparison",
     label: "エージェントを軸で比較",
   },
   {
     need: "career-path",
     state: "2級・若手・未経験である",
     first: "経験段階に応じた戦略",
-    href: "/docs/civil-construction-2-guide-career",
+    href: "/exam/civil-construction-2/guide/career",
     label: "2級のキャリア・メリット",
   },
 ];

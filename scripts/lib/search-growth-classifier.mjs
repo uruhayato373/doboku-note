@@ -56,7 +56,13 @@ function hasGa4Usage(sig) {
  */
 export function classifyUrl(sig = {}) {
   const reasons = [];
-  const inSitemap = !!(sig.inLiveSitemap || sig.inLocalSitemap);
+  // build 済み local sitemap があるときは、それを「次回公開する desired state」として判定する。
+  // URL 移行の公開前は live sitemap に旧 URL、local sitemap に新 URL が載るため OR すると、
+  // 意図した旧 301 を「sitemap 内 redirect」と誤って FIX_TECHNICAL に分類してしまう。
+  // local が無い収集専用環境だけ live にフォールバックする。
+  const inSitemap = sig.localSitemapAvailable
+    ? !!sig.inLocalSitemap
+    : !!sig.inLiveSitemap;
   const status = sig.httpStatus ?? null;
 
   // ── 1. FIX_TECHNICAL: sitemap 掲載なのに技術的に壊れている ──

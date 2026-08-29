@@ -1,0 +1,4265 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-08-29",
+  "generatedAt": "2026-08-29T08:59:39.599Z",
+  "status": "PASS_WITH_SOURCE_LIMITATIONS",
+  "scope": "MLIT regional civil-works common specifications and bureau companion/Hikkei-equivalent documents",
+  "totals": {
+    "agencies": 10,
+    "documents": 72,
+    "pages": 11109,
+    "parts": 274,
+    "sourceBytes": 202028704,
+    "markdownBytes": 31206414,
+    "replacementCharacters": 0,
+    "visualReviewedPages": 775,
+    "pendingVisualPages": 0,
+    "unreadableRanges": 7
+  },
+  "agencies": [
+    {
+      "agencyId": "chubu",
+      "agencyName": "中部地方整備局",
+      "documentCount": 2,
+      "pages": 865,
+      "partCount": 19
+    },
+    {
+      "agencyId": "chugoku",
+      "agencyName": "中国地方整備局",
+      "documentCount": 2,
+      "pages": 752,
+      "partCount": 16
+    },
+    {
+      "agencyId": "hokkaido",
+      "agencyName": "北海道開発局",
+      "documentCount": 3,
+      "pages": 1035,
+      "partCount": 22
+    },
+    {
+      "agencyId": "hokuriku",
+      "agencyName": "北陸地方整備局",
+      "documentCount": 2,
+      "pages": 829,
+      "partCount": 18
+    },
+    {
+      "agencyId": "kanto",
+      "agencyName": "関東地方整備局",
+      "documentCount": 2,
+      "pages": 903,
+      "partCount": 19
+    },
+    {
+      "agencyId": "kinki",
+      "agencyName": "近畿地方整備局",
+      "documentCount": 2,
+      "pages": 1421,
+      "partCount": 30
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentCount": 36,
+      "pages": 1806,
+      "partCount": 64
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentCount": 18,
+      "pages": 1020,
+      "partCount": 34
+    },
+    {
+      "agencyId": "shikoku",
+      "agencyName": "四国地方整備局",
+      "documentCount": 2,
+      "pages": 910,
+      "partCount": 19
+    },
+    {
+      "agencyId": "tohoku",
+      "agencyName": "東北地方整備局",
+      "documentCount": 3,
+      "pages": 1568,
+      "partCount": 33
+    }
+  ],
+  "documents": [
+    {
+      "agencyId": "chubu",
+      "agencyName": "中部地方整備局",
+      "documentId": "common",
+      "role": "common",
+      "title": "土木工事共通仕様書 令和8年6月改訂版",
+      "landing": "https://www.cbr.mlit.go.jp/architecture/kensetsugijutsu/doboku_shiyousyo/r08.htm",
+      "sourceUrl": "https://www.cbr.mlit.go.jp/architecture/kensetsugijutsu/doboku_shiyousyo/pdf/r08/shiryou01.pdf",
+      "sourceSha256": "74b4e2085ff55fef07fd930ce5284d730ff007cf01281e8d9413d5a89ff5bf15",
+      "sourceBytes": 3872406,
+      "pages": 660,
+      "partCount": 14,
+      "markdownBytes": 2024310,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "common__土木工事共通仕様書_令和8年6月改訂版.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "chubu/common/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "56f91b81d5f8deab250e41fe00d69cb601ed90f9abbc5d8c9a6671c6612a318c",
+          "bytes": 224864
+        },
+        {
+          "slug": "part-02",
+          "file": "chubu/common/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "8b2e8165cb97ab1548113774039c2e370b7c27e982949520376298602c6aac46",
+          "bytes": 197181
+        },
+        {
+          "slug": "part-03",
+          "file": "chubu/common/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "6a3fdd77466cb893600d097bebfbb0399a90cd9e81d84410f4b746854d30ce13",
+          "bytes": 155216
+        },
+        {
+          "slug": "part-04",
+          "file": "chubu/common/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "7304630b5a515d37495bdda14e926da02efb1968fca00eede6efbf1fe54c2a7e",
+          "bytes": 142917
+        },
+        {
+          "slug": "part-05",
+          "file": "chubu/common/part-05.md",
+          "firstPage": 201,
+          "lastPage": 250,
+          "pageCount": 50,
+          "sha256": "68fda551f20c7973fc185c1029f27a823a04005438c0ff0d773d618d1e262b00",
+          "bytes": 148262
+        },
+        {
+          "slug": "part-06",
+          "file": "chubu/common/part-06.md",
+          "firstPage": 251,
+          "lastPage": 300,
+          "pageCount": 50,
+          "sha256": "89585d10bd9906eb4445b2339972253b7b04ca7288255a4270a44dc0a5642142",
+          "bytes": 167509
+        },
+        {
+          "slug": "part-07",
+          "file": "chubu/common/part-07.md",
+          "firstPage": 301,
+          "lastPage": 350,
+          "pageCount": 50,
+          "sha256": "f5a6be1384a05bb3719f2105d91676d13f5fd2f6b8a0789a86b0c111c743201b",
+          "bytes": 148071
+        },
+        {
+          "slug": "part-08",
+          "file": "chubu/common/part-08.md",
+          "firstPage": 351,
+          "lastPage": 400,
+          "pageCount": 50,
+          "sha256": "467ed4a0548ee74ebe4e3273280539cd27d117853572d2b15bc899106b75a243",
+          "bytes": 140742
+        },
+        {
+          "slug": "part-09",
+          "file": "chubu/common/part-09.md",
+          "firstPage": 401,
+          "lastPage": 450,
+          "pageCount": 50,
+          "sha256": "e7fc7ec780b3ada4d1a35df0d7718f4e472047dcaa6294d22c3a0ee374ffa91f",
+          "bytes": 133650
+        },
+        {
+          "slug": "part-10",
+          "file": "chubu/common/part-10.md",
+          "firstPage": 451,
+          "lastPage": 500,
+          "pageCount": 50,
+          "sha256": "e1ab99c2391d5becb11f4801770fb773420160cbcc243e77592a30f8ebd10c96",
+          "bytes": 129320
+        },
+        {
+          "slug": "part-11",
+          "file": "chubu/common/part-11.md",
+          "firstPage": 501,
+          "lastPage": 550,
+          "pageCount": 50,
+          "sha256": "433bf53af78fabb239cb463b4276ad8cfd1714afc10fa53ea46da676c2fc7ed3",
+          "bytes": 137444
+        },
+        {
+          "slug": "part-12",
+          "file": "chubu/common/part-12.md",
+          "firstPage": 551,
+          "lastPage": 600,
+          "pageCount": 50,
+          "sha256": "7cd940af2660560a71cdf9c815f93a50e32d337252c52673a3ed9ec283e21ef1",
+          "bytes": 137823
+        },
+        {
+          "slug": "part-13",
+          "file": "chubu/common/part-13.md",
+          "firstPage": 601,
+          "lastPage": 650,
+          "pageCount": 50,
+          "sha256": "ca584cc8674a7fc86cdc92c131dee8a2eebfd7bff63ef3c4448d72ddaa858cab",
+          "bytes": 132905
+        },
+        {
+          "slug": "part-14",
+          "file": "chubu/common/part-14.md",
+          "firstPage": 651,
+          "lastPage": 660,
+          "pageCount": 10,
+          "sha256": "495af4bf46187f087cc66e143b9396a678971119b0065f04a831919331106b86",
+          "bytes": 28406
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "chubu",
+      "agencyName": "中部地方整備局",
+      "documentId": "special",
+      "role": "companion",
+      "title": "中部地方整備局 土木工事特記仕様書 令和8年6月改訂版",
+      "landing": "https://www.cbr.mlit.go.jp/architecture/kensetsugijutsu/doboku_shiyousyo/r08.htm",
+      "sourceUrl": "https://www.cbr.mlit.go.jp/architecture/kensetsugijutsu/doboku_shiyousyo/pdf/r08/shiryou07.pdf",
+      "sourceSha256": "13f9ba5977a612705bac60034c28d2b35744551c381fe0bf85e81060db25d588",
+      "sourceBytes": 1676992,
+      "pages": 205,
+      "partCount": 5,
+      "markdownBytes": 485967,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 4,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "special__中部地方整備局_土木工事特記仕様書_令和8年6月改訂版.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "chubu/special/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "cffee63d40fe2f7c59e8c16a20150937c4d48973c6e683a26d8dc33f3de3c161",
+          "bytes": 148635
+        },
+        {
+          "slug": "part-02",
+          "file": "chubu/special/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "947e3b4124b2bbcc00de231344286b995deb0d0cd3535e612982c002bd95bf97",
+          "bytes": 138016
+        },
+        {
+          "slug": "part-03",
+          "file": "chubu/special/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "57e570890a22d10c359f44286ec37c60dc23a7464e16f19377866569f74a25a9",
+          "bytes": 83138
+        },
+        {
+          "slug": "part-04",
+          "file": "chubu/special/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "fcc80b6a8efffd1db1bdb6dc43d383de2cd7726c1c09e1f30b1e31873aacca11",
+          "bytes": 103972
+        },
+        {
+          "slug": "part-05",
+          "file": "chubu/special/part-05.md",
+          "firstPage": 201,
+          "lastPage": 205,
+          "pageCount": 5,
+          "sha256": "e3a62f25dfcf631ad0d760d519bbdd56d1f6f6664774d03ac2455042f65dde8c",
+          "bytes": 12206
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "chugoku",
+      "agencyName": "中国地方整備局",
+      "documentId": "common",
+      "role": "common",
+      "title": "土木工事共通仕様書 令和8年度版",
+      "landing": "https://www.cgr.mlit.go.jp/kikaku/hinkaku/general/techserv/index.html",
+      "sourceUrl": "https://www.cgr.mlit.go.jp/techserv/documents/02/r08/r8kyoutushiyou2604.pdf",
+      "sourceSha256": "abe3a86d222d13b4a16479c07d9e52c09b3155e5da20dd6303e1808789b23b73",
+      "sourceBytes": 3958145,
+      "pages": 660,
+      "partCount": 14,
+      "markdownBytes": 2024224,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "common__土木工事共通仕様書_令和8年度版.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "chugoku/common/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "085147ac30c752fa93b600c73c2d4342eeeb0ecf05e7390e092bd764d001f78f",
+          "bytes": 224869
+        },
+        {
+          "slug": "part-02",
+          "file": "chugoku/common/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "79fc1cc9ee0596df94e0a8a6beb1fd88d30516f23f95bd60db7eaaa1ee982a40",
+          "bytes": 197174
+        },
+        {
+          "slug": "part-03",
+          "file": "chugoku/common/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "9c671c4481aa567a063bdbff3673e490cf3c3364b76cf1cf22942936b0028492",
+          "bytes": 155209
+        },
+        {
+          "slug": "part-04",
+          "file": "chugoku/common/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "f29a09323c610977124f17d5d9c9ea0974f8aa63f7d00237f780fe1de991b600",
+          "bytes": 142910
+        },
+        {
+          "slug": "part-05",
+          "file": "chugoku/common/part-05.md",
+          "firstPage": 201,
+          "lastPage": 250,
+          "pageCount": 50,
+          "sha256": "d020ead8b8feee9a9009363004d01711e05a326fa5b48b52d91b05421d0cf93c",
+          "bytes": 148255
+        },
+        {
+          "slug": "part-06",
+          "file": "chugoku/common/part-06.md",
+          "firstPage": 251,
+          "lastPage": 300,
+          "pageCount": 50,
+          "sha256": "adef7a6afe48bbb7f7bf230cc93353b6f1d69bfdab0f4c8cdce12ad42e0259d1",
+          "bytes": 167502
+        },
+        {
+          "slug": "part-07",
+          "file": "chugoku/common/part-07.md",
+          "firstPage": 301,
+          "lastPage": 350,
+          "pageCount": 50,
+          "sha256": "45dc7fcf9d81e55ecb313786f86e9874d3e19b8cb246fc6ad2bb476e7fbdfd0a",
+          "bytes": 148064
+        },
+        {
+          "slug": "part-08",
+          "file": "chugoku/common/part-08.md",
+          "firstPage": 351,
+          "lastPage": 400,
+          "pageCount": 50,
+          "sha256": "4417800a611f80f5ba52469de2c661833c65fe7b53a4b5b32899b4c608acf6e3",
+          "bytes": 140735
+        },
+        {
+          "slug": "part-09",
+          "file": "chugoku/common/part-09.md",
+          "firstPage": 401,
+          "lastPage": 450,
+          "pageCount": 50,
+          "sha256": "32df23c24a333beb3de5fc3a44d43f0ef2fc5dd8992f44ce4bdba54b2a8a797f",
+          "bytes": 133643
+        },
+        {
+          "slug": "part-10",
+          "file": "chugoku/common/part-10.md",
+          "firstPage": 451,
+          "lastPage": 500,
+          "pageCount": 50,
+          "sha256": "a15791aac8c99156700d27d80e0ba99015e51d402a4137ac3dab898f31c014c6",
+          "bytes": 129313
+        },
+        {
+          "slug": "part-11",
+          "file": "chugoku/common/part-11.md",
+          "firstPage": 501,
+          "lastPage": 550,
+          "pageCount": 50,
+          "sha256": "942990008a1384a9db8ed043966229fb9ac8cb76596c3cb39f47c8e27627e0f9",
+          "bytes": 137437
+        },
+        {
+          "slug": "part-12",
+          "file": "chugoku/common/part-12.md",
+          "firstPage": 551,
+          "lastPage": 600,
+          "pageCount": 50,
+          "sha256": "83e4291606284aa44819d337f7c8334dbfc815b602ce304f16d5b55fa2abff10",
+          "bytes": 137816
+        },
+        {
+          "slug": "part-13",
+          "file": "chugoku/common/part-13.md",
+          "firstPage": 601,
+          "lastPage": 650,
+          "pageCount": 50,
+          "sha256": "4cafb7847a365169bd2e26692e3d7e03e705a81580a2c74e2fe8211079ebb323",
+          "bytes": 132898
+        },
+        {
+          "slug": "part-14",
+          "file": "chugoku/common/part-14.md",
+          "firstPage": 651,
+          "lastPage": 660,
+          "pageCount": 10,
+          "sha256": "4d5aa174227c69882ad9509702ade836aa1f538a3f5597d09f465d905199dd22",
+          "bytes": 28399
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "chugoku",
+      "agencyName": "中国地方整備局",
+      "documentId": "local",
+      "role": "companion",
+      "title": "土木工事共通仕様書 中国地方整備局版 令和8年度版",
+      "landing": "https://www.cgr.mlit.go.jp/kikaku/hinkaku/general/techserv/index.html",
+      "sourceUrl": "https://www.cgr.mlit.go.jp/techserv/documents/02/r08/r8chugokuchisei2606.pdf",
+      "sourceSha256": "d4f3d088b7c1262eadf295ea8ca9e3bd764a0cc30b52fdd8c32dcbe6e6a65d27",
+      "sourceBytes": 3703559,
+      "pages": 92,
+      "partCount": 2,
+      "markdownBytes": 345229,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 1,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "local__土木工事共通仕様書_中国地方整備局版_令和8年度版.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "chugoku/local/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "0bb91354ab1a8ec559e09b432bd314990d90947dc063cc10c80cd2c1ef17ae6e",
+          "bytes": 223488
+        },
+        {
+          "slug": "part-02",
+          "file": "chugoku/local/part-02.md",
+          "firstPage": 51,
+          "lastPage": 92,
+          "pageCount": 42,
+          "sha256": "16caab65a9d286e9d79928ae83b046f8b6a83cc225a57b9dd7cc639b8636093b",
+          "bytes": 121741
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "hokkaido",
+      "agencyName": "北海道開発局",
+      "documentId": "common",
+      "role": "common",
+      "title": "令和8年度版 道路・河川工事仕様書 1 工事仕様書（令和8年5月版）",
+      "landing": "https://www.hkd.mlit.go.jp/ky/jg/gijyutu/jtfkjs0000008wx6.html",
+      "sourceUrl": "https://www.hkd.mlit.go.jp/ky/jg/gijyutu/jtfkjs0000008wx6-att/jtfkjs0000008wzq.pdf",
+      "sourceSha256": "afae4cdeb088ac991684c03e1b324aab77c7adc97db009d473706b1d4249aaac",
+      "sourceBytes": 4682135,
+      "pages": 669,
+      "partCount": 14,
+      "markdownBytes": 2011694,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 6,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "common__令和8年度版_道路・河川工事仕様書_1_工事仕様書(令和8年5月版).pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "hokkaido/common/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "99567c8504eb20b7aa7fe76f0ee74388ae2b6e5fd1b50212164b378b56077cb5",
+          "bytes": 180985
+        },
+        {
+          "slug": "part-02",
+          "file": "hokkaido/common/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "4fa933ad01a891c1f24fe0f739de9eb045adc6e4d5419a7e470e581dc51e9d19",
+          "bytes": 169351
+        },
+        {
+          "slug": "part-03",
+          "file": "hokkaido/common/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "32f5b6486651960aeb9b49f27654dc9a0d7063f6d792cb6b065a94d99d02d91d",
+          "bytes": 165592
+        },
+        {
+          "slug": "part-04",
+          "file": "hokkaido/common/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "dd51a7aaf16ef8cf56fb9865c655e757195b5053febb724498b7ea959c1c0396",
+          "bytes": 156939
+        },
+        {
+          "slug": "part-05",
+          "file": "hokkaido/common/part-05.md",
+          "firstPage": 201,
+          "lastPage": 250,
+          "pageCount": 50,
+          "sha256": "0051f7eebcf93e6ae76d863999f7962803b1c43264da70809092fd9b1ff63c60",
+          "bytes": 148836
+        },
+        {
+          "slug": "part-06",
+          "file": "hokkaido/common/part-06.md",
+          "firstPage": 251,
+          "lastPage": 300,
+          "pageCount": 50,
+          "sha256": "9d5fe47883e1ecd17073d22ca63f6c2a33b1dd76745574f105cd213366a88eb1",
+          "bytes": 169178
+        },
+        {
+          "slug": "part-07",
+          "file": "hokkaido/common/part-07.md",
+          "firstPage": 301,
+          "lastPage": 350,
+          "pageCount": 50,
+          "sha256": "4ed831985c923dd648e0569948f2f78a5ae39b2e20e3ff8c2521f840aceced6b",
+          "bytes": 161093
+        },
+        {
+          "slug": "part-08",
+          "file": "hokkaido/common/part-08.md",
+          "firstPage": 351,
+          "lastPage": 400,
+          "pageCount": 50,
+          "sha256": "d570f34e9cb05757a082b8ca1ee52cf31d202b1d86a657681efd50ca533cbd60",
+          "bytes": 139778
+        },
+        {
+          "slug": "part-09",
+          "file": "hokkaido/common/part-09.md",
+          "firstPage": 401,
+          "lastPage": 450,
+          "pageCount": 50,
+          "sha256": "cec597c54495c0851238d9be57ad86c71a1935019cb2a9ed6111884f07514e40",
+          "bytes": 127332
+        },
+        {
+          "slug": "part-10",
+          "file": "hokkaido/common/part-10.md",
+          "firstPage": 451,
+          "lastPage": 500,
+          "pageCount": 50,
+          "sha256": "44dbfadf50aa7a269e49f1c7664b18a028ae8d800cbd1e70b9c208eb70e85195",
+          "bytes": 127183
+        },
+        {
+          "slug": "part-11",
+          "file": "hokkaido/common/part-11.md",
+          "firstPage": 501,
+          "lastPage": 550,
+          "pageCount": 50,
+          "sha256": "93de17dace86866541286932143ee4fc0fb3ad1325b7d48ff7073e09a5bba958",
+          "bytes": 140207
+        },
+        {
+          "slug": "part-12",
+          "file": "hokkaido/common/part-12.md",
+          "firstPage": 551,
+          "lastPage": 600,
+          "pageCount": 50,
+          "sha256": "d7097e4450e5f412d58fcbac3ac3c6d8a08410a37080964dddec757a6be9c2ad",
+          "bytes": 143701
+        },
+        {
+          "slug": "part-13",
+          "file": "hokkaido/common/part-13.md",
+          "firstPage": 601,
+          "lastPage": 650,
+          "pageCount": 50,
+          "sha256": "b49b1fdc06576ecb87d09fa4dab4e7fb3a1e3fe820f01213487a062c5de7319d",
+          "bytes": 128979
+        },
+        {
+          "slug": "part-14",
+          "file": "hokkaido/common/part-14.md",
+          "firstPage": 651,
+          "lastPage": 669,
+          "pageCount": 19,
+          "sha256": "cb16108310fe2ff48ebf6ad80c857dae9d54165ef41656aa444a87cc58bdfdfe",
+          "bytes": 52540
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "hokkaido",
+      "agencyName": "北海道開発局",
+      "documentId": "appendix",
+      "role": "companion",
+      "title": "令和8年度版 道路・河川工事仕様書 6 付表",
+      "landing": "https://www.hkd.mlit.go.jp/ky/jg/gijyutu/jtfkjs0000008wx6.html",
+      "sourceUrl": "https://www.hkd.mlit.go.jp/ky/jg/gijyutu/jtfkjs0000008wx6-att/jtfkjs0000008x30.pdf",
+      "sourceSha256": "43d79e68a3ba3bb5f171c85889c632f7ada44008435f2ba850da652fd0d0fa18",
+      "sourceBytes": 8630080,
+      "pages": 238,
+      "partCount": 5,
+      "markdownBytes": 436129,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 87,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "appendix__令和8年度版_道路・河川工事仕様書_6_付表.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "hokkaido/appendix/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "deaaa7303a0f2fcde903747f6881c5cba96b22c867e836241899a5cb0caac5bc",
+          "bytes": 93231
+        },
+        {
+          "slug": "part-02",
+          "file": "hokkaido/appendix/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "a70448cdb6c1a748769da71b984d9a98bd1bda7bdc4c303eeba09e7abc64b778",
+          "bytes": 53954
+        },
+        {
+          "slug": "part-03",
+          "file": "hokkaido/appendix/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "2a2cb43d7d58826d169f85bc6129a1f1f7f64d079d99b0670fe8cb5cacb2cd46",
+          "bytes": 109168
+        },
+        {
+          "slug": "part-04",
+          "file": "hokkaido/appendix/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "a6eaa98163e7384cb657fafe0e5791a75373e2527722487032e81e458494c0e1",
+          "bytes": 98619
+        },
+        {
+          "slug": "part-05",
+          "file": "hokkaido/appendix/part-05.md",
+          "firstPage": 201,
+          "lastPage": 238,
+          "pageCount": 38,
+          "sha256": "de6f52531c19c8567a8eb679d0379639d6b7816b0ee3020cc131fa55e638abeb",
+          "bytes": 81157
+        }
+      ],
+      "unreadableRanges": [
+        {
+          "agencyId": "hokkaido",
+          "documentId": "appendix",
+          "page": 17,
+          "range": "C－1型は作業車直後から50m標識列までの斜線端部で、黒点周囲の④・⑤・⑪・⑮・⑯と、50m位置の①・②・⑤の各出現順。C－2型は15°～30°斜線の上端・下端に重複表示された⑧・⑫の組がどちらの端を指すかの対応順。番号の種類は反対側の同型配置と明瞭な文字から確認済みだが、800dpi拡大でも密接位置の原画像画素が重なり一意化できない。",
+          "notes": "400dpi・800dpi画像で再照合し、C－1型に②・⑧・⑫、C－2型に②・⑤・⑭・⑱を補完した。作業車の⑧・⑫とC－2型終端の⑭は確認済み。原PDFの埋込画像は約88ppiで、密集部の出現順に限り原本自体に分離可能な画素情報がない。"
+        },
+        {
+          "agencyId": "hokkaido",
+          "documentId": "appendix",
+          "page": 18,
+          "range": "D－1型の作業車直後から50m標識列までの斜線端部で、黒点周囲の④・⑤・⑪・⑮・⑯と、50m位置の①・②・⑤の各出現順。番号の種類は反対側の同型配置で確認済みだが、800dpi拡大でも密接位置の原画像画素が重なり一意化できない。D－2型は全ラベル確定済み。",
+          "notes": "400dpi・800dpi画像で再照合し、D－1型に②・⑧・⑫、D－2型に⑫を補完し、④と読み誤っていた作業車の黄色回転灯を⑧に訂正した。D－2型は全数字と配置を確定。原PDFの埋込画像は約89ppiで、D－1型密集部の出現順に限り原本自体に分離可能な画素情報がない。"
+        },
+        {
+          "agencyId": "hokkaido",
+          "documentId": "appendix",
+          "page": 25,
+          "range": "様式7下端の2つの『電話』に続く点列・番号相当部分。400dpiでも元の埋め込み画像が低解像度で、点・丸の個数や配列を確定できない。",
+          "notes": "テキスト層はページ番号のみ。400dpi原画像で番号・記号、看板本文、主要寸法、全6注記、発注者・所属名・施工者欄まで確定した。電話欄の点列だけは元画像に解像情報がなく未確定。"
+        },
+        {
+          "agencyId": "hokkaido",
+          "documentId": "appendix",
+          "page": 28,
+          "range": "様式18最下段の発注者・施工者欄（所属名および各電話行）の微小細字。400dpiでも元の埋め込み画像が低解像度で、文字列全体を確定できない。",
+          "notes": "テキスト層はページ番号のみ。400dpi原画像で4様式の番号・記号、主要寸法、看板本文、URL・電話番号・問合せ番号のプレースホルダー、全注記を確定した。様式18最下段の発注者・施工者細字だけは元画像に解像情報がなく未確定。"
+        }
+      ]
+    },
+    {
+      "agencyId": "hokkaido",
+      "agencyName": "北海道開発局",
+      "documentId": "local",
+      "role": "companion",
+      "title": "令和8年度版 道路・河川工事仕様書 5 北海道開発局独自",
+      "landing": "https://www.hkd.mlit.go.jp/ky/jg/gijyutu/jtfkjs0000008wx6.html",
+      "sourceUrl": "https://www.hkd.mlit.go.jp/ky/jg/gijyutu/jtfkjs0000008wx6-att/jtfkjs0000008x3e.pdf",
+      "sourceSha256": "1f747db37c6412e8ad3b9996fe78ce4d2c5a226887412cb94fa65f22fba09859",
+      "sourceBytes": 3467940,
+      "pages": 128,
+      "partCount": 3,
+      "markdownBytes": 366524,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 4,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "local__令和8年度版_道路・河川工事仕様書_5_北海道開発局独自.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "hokkaido/local/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "406d75e60fa5b87930f835752bc147641651f05bd27d54365961542a6f505230",
+          "bytes": 176444
+        },
+        {
+          "slug": "part-02",
+          "file": "hokkaido/local/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "c1676900625336bafafdb3f7e88ebd014606b78e2eb7780d02d5a7528260276d",
+          "bytes": 120385
+        },
+        {
+          "slug": "part-03",
+          "file": "hokkaido/local/part-03.md",
+          "firstPage": 101,
+          "lastPage": 128,
+          "pageCount": 28,
+          "sha256": "a0dcd197a060c89b38937fa6a7055ef167c86487311fff6047fc8d29f9945994",
+          "bytes": 69695
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "hokuriku",
+      "agencyName": "北陸地方整備局",
+      "documentId": "common",
+      "role": "common",
+      "title": "土木工事共通仕様書 令和8年3月",
+      "landing": "https://www.hrr.mlit.go.jp/gijyutu/kaitei/index_doboku.html",
+      "sourceUrl": "https://www.hrr.mlit.go.jp/gijyutu/kaitei/shiyousho/0803/dobokukyoutsuuR0803.pdf",
+      "sourceSha256": "bafb4a02dc467e59a5144b81f42b049521f47e40729bbfc01ab3a15e9e4a646d",
+      "sourceBytes": 4546749,
+      "pages": 660,
+      "partCount": 14,
+      "markdownBytes": 2024378,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "common__土木工事共通仕様書_令和8年3月.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "hokuriku/common/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "554b1f81105f44e68205a92200a5ffbb22c1f8e42451b690f1027aa9549098a6",
+          "bytes": 224891
+        },
+        {
+          "slug": "part-02",
+          "file": "hokuriku/common/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "30efd1ab9a0732fc9fcae8730349a2b45e7d5a0d4b3a48a559219e16bb6a7e8d",
+          "bytes": 197172
+        },
+        {
+          "slug": "part-03",
+          "file": "hokuriku/common/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "58f8002622c28a1fd65ac6d710e7636af6b789aa782718fd301c0d6eece71843",
+          "bytes": 155207
+        },
+        {
+          "slug": "part-04",
+          "file": "hokuriku/common/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "fe54e918fb5d8ae7fd573ed39c26a72ba03b77c9a19db7aa505825ea9c7539d9",
+          "bytes": 142908
+        },
+        {
+          "slug": "part-05",
+          "file": "hokuriku/common/part-05.md",
+          "firstPage": 201,
+          "lastPage": 250,
+          "pageCount": 50,
+          "sha256": "6d87f4ae4231f2c85007ef1db30e6c7619eaf34f6a74e5b8be4b36aeec0a1918",
+          "bytes": 148253
+        },
+        {
+          "slug": "part-06",
+          "file": "hokuriku/common/part-06.md",
+          "firstPage": 251,
+          "lastPage": 300,
+          "pageCount": 50,
+          "sha256": "f408f46905a8a81f4a902a210b60d39a3dc9ec9cddb57f894d90163c1eeee49c",
+          "bytes": 167658
+        },
+        {
+          "slug": "part-07",
+          "file": "hokuriku/common/part-07.md",
+          "firstPage": 301,
+          "lastPage": 350,
+          "pageCount": 50,
+          "sha256": "02964f14af39f6660a8652b1541850004160744a04b8a7f008f9b72102067f1e",
+          "bytes": 148062
+        },
+        {
+          "slug": "part-08",
+          "file": "hokuriku/common/part-08.md",
+          "firstPage": 351,
+          "lastPage": 400,
+          "pageCount": 50,
+          "sha256": "886859cba088b9a8e2329cae38ab3d69688085ba3fccdfc4cf5cb3f442d9d331",
+          "bytes": 140733
+        },
+        {
+          "slug": "part-09",
+          "file": "hokuriku/common/part-09.md",
+          "firstPage": 401,
+          "lastPage": 450,
+          "pageCount": 50,
+          "sha256": "549c610e14c700074311152d7e8b632ccdd2215bd25cfa3133d1337607edd863",
+          "bytes": 133641
+        },
+        {
+          "slug": "part-10",
+          "file": "hokuriku/common/part-10.md",
+          "firstPage": 451,
+          "lastPage": 500,
+          "pageCount": 50,
+          "sha256": "0338063aeb2800eb64ce3ba040aee8ba401e3007adce3aacd3d9258571b41751",
+          "bytes": 129311
+        },
+        {
+          "slug": "part-11",
+          "file": "hokuriku/common/part-11.md",
+          "firstPage": 501,
+          "lastPage": 550,
+          "pageCount": 50,
+          "sha256": "3ee54dd423bc51ed0513f5decab178a43efb9ddfa6d97037c0c8d1b0ca2ad565",
+          "bytes": 137435
+        },
+        {
+          "slug": "part-12",
+          "file": "hokuriku/common/part-12.md",
+          "firstPage": 551,
+          "lastPage": 600,
+          "pageCount": 50,
+          "sha256": "5e86b002ae9810173221090de285c704336492cbd78960d15810150358c2660a",
+          "bytes": 137814
+        },
+        {
+          "slug": "part-13",
+          "file": "hokuriku/common/part-13.md",
+          "firstPage": 601,
+          "lastPage": 650,
+          "pageCount": 50,
+          "sha256": "5fcc11492dcc9377861dc783bf86c46bedc6487a75f3ff92647f391f1ed669dc",
+          "bytes": 132896
+        },
+        {
+          "slug": "part-14",
+          "file": "hokuriku/common/part-14.md",
+          "firstPage": 651,
+          "lastPage": 660,
+          "pageCount": 10,
+          "sha256": "fa230c5a804a4f526a86bce1a161d51074d38ef8231d529df2be07644a77854f",
+          "bytes": 28397
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "hokuriku",
+      "agencyName": "北陸地方整備局",
+      "documentId": "hikkei",
+      "role": "companion",
+      "title": "土木工事現場必携 工事書類作成マニュアル編 令和6年3月版（令和7年1月訂正反映）",
+      "landing": "https://www.hrr.mlit.go.jp/gijyutu/kaitei/index_doboku.html",
+      "sourceUrl": "https://www.hrr.mlit.go.jp/gijyutu/hikkei/PDF/R0603hikkeitebiki_verR0701.pdf",
+      "sourceSha256": "74620e5c2155a4f78046ccdbda360c138b6c402441d464a9a871f91b330d3136",
+      "sourceBytes": 11463543,
+      "pages": 169,
+      "partCount": 4,
+      "markdownBytes": 383268,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 10,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei__土木工事現場必携_工事書類作成マニュアル編_令和6年3月版(令和7年1月訂正反映).pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "hokuriku/hikkei/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "191c69e32df366a6304cd152b9e851897ae27e0e967700b699e953ceda4bc3c7",
+          "bytes": 164655
+        },
+        {
+          "slug": "part-02",
+          "file": "hokuriku/hikkei/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "8f4a98c15a2b55a0ce15fa7ceb5d247e9b67d9399831a73602a5f84d2e0c4b5e",
+          "bytes": 104663
+        },
+        {
+          "slug": "part-03",
+          "file": "hokuriku/hikkei/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "1db42508fec9ac966553016e091553e99e56a4141466e42b1bbf69a4e6f66a2e",
+          "bytes": 80491
+        },
+        {
+          "slug": "part-04",
+          "file": "hokuriku/hikkei/part-04.md",
+          "firstPage": 151,
+          "lastPage": 169,
+          "pageCount": 19,
+          "sha256": "cba543e14e67b193a7d65f9f24ee93b5228c9103c3baff1981a478c6e65256b8",
+          "bytes": 33459
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kanto",
+      "agencyName": "関東地方整備局",
+      "documentId": "common",
+      "role": "common",
+      "title": "関東地方整備局 土木工事共通仕様書 令和8年度版",
+      "landing": "https://www.ktr.mlit.go.jp/gijyutu/gijyutu00000035.html",
+      "sourceUrl": "https://www.ktr.mlit.go.jp/ktr_content/content/000941516.pdf",
+      "sourceSha256": "0df72903340735d91e1667aee7048228a8d6dfd79863e8962bbd890b412b6734",
+      "sourceBytes": 3765749,
+      "pages": 660,
+      "partCount": 14,
+      "markdownBytes": 2026971,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "common__関東地方整備局_土木工事共通仕様書_令和8年度版.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kanto/common/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "ebeb9aa0425a627b19913ae8bbedc414ed874242f830d1dd1c10481ff8bfb433",
+          "bytes": 227330
+        },
+        {
+          "slug": "part-02",
+          "file": "kanto/common/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "ab378475bc35f3bf3a0b6bd8c1630fb68c20a7a639c6ae60cc401dcf90e3e031",
+          "bytes": 197196
+        },
+        {
+          "slug": "part-03",
+          "file": "kanto/common/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "42bfd2257cfd88f4b6d9e87db434083540652f609533814bbc7670e92f1a2468",
+          "bytes": 155231
+        },
+        {
+          "slug": "part-04",
+          "file": "kanto/common/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "99f51815389debf567242826c650422c01b9f3b3c006dff866a0b82dc3979a3f",
+          "bytes": 142932
+        },
+        {
+          "slug": "part-05",
+          "file": "kanto/common/part-05.md",
+          "firstPage": 201,
+          "lastPage": 250,
+          "pageCount": 50,
+          "sha256": "1dbad9cfd68ec38e858a4754d5ab6b4e648cd3dec0192f17f7db55e495ae4262",
+          "bytes": 148277
+        },
+        {
+          "slug": "part-06",
+          "file": "kanto/common/part-06.md",
+          "firstPage": 251,
+          "lastPage": 300,
+          "pageCount": 50,
+          "sha256": "9eda275ea8e6ba28e62a8945febac0a0c8d760571693edbebae545110fafaaac",
+          "bytes": 167524
+        },
+        {
+          "slug": "part-07",
+          "file": "kanto/common/part-07.md",
+          "firstPage": 301,
+          "lastPage": 350,
+          "pageCount": 50,
+          "sha256": "55c1624817e80275caa7ba17877468974ead6af8c78b7dc0d43a1546240559e0",
+          "bytes": 148086
+        },
+        {
+          "slug": "part-08",
+          "file": "kanto/common/part-08.md",
+          "firstPage": 351,
+          "lastPage": 400,
+          "pageCount": 50,
+          "sha256": "b4f22a30577915465c2809d7520ea446147c864bca89e0bf3198fd2239e91eb8",
+          "bytes": 140757
+        },
+        {
+          "slug": "part-09",
+          "file": "kanto/common/part-09.md",
+          "firstPage": 401,
+          "lastPage": 450,
+          "pageCount": 50,
+          "sha256": "12dbe8132d9a6adc358f7695db84c398de062cf809e098c72356527db7653c08",
+          "bytes": 133665
+        },
+        {
+          "slug": "part-10",
+          "file": "kanto/common/part-10.md",
+          "firstPage": 451,
+          "lastPage": 500,
+          "pageCount": 50,
+          "sha256": "505f5f5a74281025a440acb4b01be8a20173a9c3a61ba2f26ba53a7621ccb20e",
+          "bytes": 129335
+        },
+        {
+          "slug": "part-11",
+          "file": "kanto/common/part-11.md",
+          "firstPage": 501,
+          "lastPage": 550,
+          "pageCount": 50,
+          "sha256": "bba6dcc3f7c10bc22ffb62efac273e86abfcb33033e0087942d1b5ac6759d1cc",
+          "bytes": 137459
+        },
+        {
+          "slug": "part-12",
+          "file": "kanto/common/part-12.md",
+          "firstPage": 551,
+          "lastPage": 600,
+          "pageCount": 50,
+          "sha256": "4add3268c5716dd3914469000f3a6004c0b0acf0de9bac7169878df87efeccc5",
+          "bytes": 137838
+        },
+        {
+          "slug": "part-13",
+          "file": "kanto/common/part-13.md",
+          "firstPage": 601,
+          "lastPage": 650,
+          "pageCount": 50,
+          "sha256": "9995ffc48ca8dbbfb48fc792717dedb669cdb085f4d5428bab758a8ef1861552",
+          "bytes": 132920
+        },
+        {
+          "slug": "part-14",
+          "file": "kanto/common/part-14.md",
+          "firstPage": 651,
+          "lastPage": 660,
+          "pageCount": 10,
+          "sha256": "6d6d38c873babcf12c0f11b7ed1ab28c9e61a6e6231cc78fc3777cf1b326509a",
+          "bytes": 28421
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kanto",
+      "agencyName": "関東地方整備局",
+      "documentId": "manual",
+      "role": "companion",
+      "title": "土木工事電子書類作成マニュアル R8.3",
+      "landing": "https://www.ktr.mlit.go.jp/gijyutu/gijyutu00000035.html",
+      "sourceUrl": "https://www.ktr.mlit.go.jp/ktr_content/content/000940986.pdf",
+      "sourceSha256": "555052f31a06f7f0c8216385170fbbdf9ff8203763fbea88355225109e0d356f",
+      "sourceBytes": 20410208,
+      "pages": 243,
+      "partCount": 5,
+      "markdownBytes": 471864,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 134,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "manual__土木工事電子書類作成マニュアル_R8.3.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kanto/manual/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "e6b1d1ae6770c3517a4052618eae8330cef6c1e4f4c05aac98911e8377f22ad1",
+          "bytes": 75909
+        },
+        {
+          "slug": "part-02",
+          "file": "kanto/manual/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "28ec4bd0671c3cf1c216aad60e3e40c30b72c6c6ae0fde2020f4c847b83ae099",
+          "bytes": 94688
+        },
+        {
+          "slug": "part-03",
+          "file": "kanto/manual/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "796ddec803b8e67188d3d077f551ecc73b6280840e2c8aa874d9a77bb3c4fffb",
+          "bytes": 58583
+        },
+        {
+          "slug": "part-04",
+          "file": "kanto/manual/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "be9d108ffd0a1649d19c7084595734a9dc8d369ddd2ea06d826699c4c0799165",
+          "bytes": 105819
+        },
+        {
+          "slug": "part-05",
+          "file": "kanto/manual/part-05.md",
+          "firstPage": 201,
+          "lastPage": 243,
+          "pageCount": 43,
+          "sha256": "bb447c38f0a07844e1be6040898ab4b89bf560de44a1590a32b185f9ffbc38bc",
+          "bytes": 136865
+        }
+      ],
+      "unreadableRanges": [
+        {
+          "agencyId": "kanto",
+          "documentId": "manual",
+          "page": 112,
+          "range": "3次元出来形ヒートマップ左下の4行×5列の極小集計凡例。原画像内の文字自体が低解像度で潰れており、項目名と一部数値の全対応を一意に判読できない。",
+          "notes": "横向き原稿を原寸と回転表示で確認。極小凡例は切り出し拡大も行ったが原画像解像度を超えて復元せず、推測せず未読範囲に記録した。"
+        }
+      ]
+    },
+    {
+      "agencyId": "kinki",
+      "agencyName": "近畿地方整備局",
+      "documentId": "common",
+      "role": "common",
+      "title": "土木工事共通仕様書（案）令和8年4月改定",
+      "landing": "https://www.kkr.mlit.go.jp/plan/jigyousya/technical_information/gijutsukanri/index.html",
+      "sourceUrl": null,
+      "sourceSha256": "b707c014922ceeac16b2b615eef006e9b9f7336f53d613b53dce2db81043a769",
+      "sourceBytes": 4056529,
+      "pages": 660,
+      "partCount": 14,
+      "markdownBytes": 2054813,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 11,
+      "pendingVisualPages": 0,
+      "edition": "令和8年4月改定",
+      "sourceFile": "土木工事共通仕様書（案）_令和8年4月改定.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kinki/common/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "fc32bbb0fc0e3c6a76ab311a786265e41dca362c1bb2d282ee12542e3c72fbad",
+          "bytes": 226760
+        },
+        {
+          "slug": "part-02",
+          "file": "kinki/common/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "db2871c6ff023d6afbe417eeaf313ebe98d955713b8d98ec20e62fe46410f893",
+          "bytes": 200149
+        },
+        {
+          "slug": "part-03",
+          "file": "kinki/common/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "dd189af4030bad31a708f74334eb41fa0f0d833f3914808b6f6b5260573d73a0",
+          "bytes": 157405
+        },
+        {
+          "slug": "part-04",
+          "file": "kinki/common/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "a3a39899679e0ca96d8d5c60ed16f168d14887a424bea1342ce9135fd000b89e",
+          "bytes": 144850
+        },
+        {
+          "slug": "part-05",
+          "file": "kinki/common/part-05.md",
+          "firstPage": 201,
+          "lastPage": 250,
+          "pageCount": 50,
+          "sha256": "83fb19d367f23c85137f9d600530980b72a4006f1b115bc64f507b8e97a9a118",
+          "bytes": 152643
+        },
+        {
+          "slug": "part-06",
+          "file": "kinki/common/part-06.md",
+          "firstPage": 251,
+          "lastPage": 300,
+          "pageCount": 50,
+          "sha256": "45e35e0dd5d0fe4ac1bf848d367a9d6bb18e7912270ad0632d68509d0f0cba4b",
+          "bytes": 169442
+        },
+        {
+          "slug": "part-07",
+          "file": "kinki/common/part-07.md",
+          "firstPage": 301,
+          "lastPage": 350,
+          "pageCount": 50,
+          "sha256": "ac113c36c5b0a51ae8de6c1fee48bbc6ace062854f2a7a6ada28fb602f4311f2",
+          "bytes": 150294
+        },
+        {
+          "slug": "part-08",
+          "file": "kinki/common/part-08.md",
+          "firstPage": 351,
+          "lastPage": 400,
+          "pageCount": 50,
+          "sha256": "cb08b299016040ba82f431dc2ad0dbf40ebf2aad03e49d1055387f9964d9eb15",
+          "bytes": 142882
+        },
+        {
+          "slug": "part-09",
+          "file": "kinki/common/part-09.md",
+          "firstPage": 401,
+          "lastPage": 450,
+          "pageCount": 50,
+          "sha256": "6ad6851a9810b90807cad9380c79b39735749e69393fa9ddde6268c0e18b69fd",
+          "bytes": 135583
+        },
+        {
+          "slug": "part-10",
+          "file": "kinki/common/part-10.md",
+          "firstPage": 451,
+          "lastPage": 500,
+          "pageCount": 50,
+          "sha256": "df86d0b77f4faf381b604e8a676e3fde1e87bc6623103cc9153caf105654be42",
+          "bytes": 131253
+        },
+        {
+          "slug": "part-11",
+          "file": "kinki/common/part-11.md",
+          "firstPage": 501,
+          "lastPage": 550,
+          "pageCount": 50,
+          "sha256": "9815c3ee5beb552c5a55f29e9961eff92abdf21be154c156c170a5b2a0e2f1a7",
+          "bytes": 139377
+        },
+        {
+          "slug": "part-12",
+          "file": "kinki/common/part-12.md",
+          "firstPage": 551,
+          "lastPage": 600,
+          "pageCount": 50,
+          "sha256": "55e2fc13c35064c49259e9c24d8f3f7a515769b7e8a3d2b9b3513f2eb4c275d8",
+          "bytes": 140478
+        },
+        {
+          "slug": "part-13",
+          "file": "kinki/common/part-13.md",
+          "firstPage": 601,
+          "lastPage": 650,
+          "pageCount": 50,
+          "sha256": "bf6746a90b7d18b40d7174cbbfd5685096926c048360d8f068be22d877c42f68",
+          "bytes": 134838
+        },
+        {
+          "slug": "part-14",
+          "file": "kinki/common/part-14.md",
+          "firstPage": 651,
+          "lastPage": 660,
+          "pageCount": 10,
+          "sha256": "0c220b76100e74b44185961a718d10619d2292f15fe439a7a9f95e465e7780b3",
+          "bytes": 28859
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kinki",
+      "agencyName": "近畿地方整備局",
+      "documentId": "hikkei",
+      "role": "companion",
+      "title": "土木請負工事必携 令和6年8月",
+      "landing": "https://www.kkr.mlit.go.jp/plan/jigyousya/technical_information/gijutsukanri/index.html",
+      "sourceUrl": null,
+      "sourceSha256": "586c2e359fc398561d49ec2972ebdedf4bf9a569779e8093b29eaf90361eea91",
+      "sourceBytes": 18073645,
+      "pages": 761,
+      "partCount": 16,
+      "markdownBytes": 1870567,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 123,
+      "pendingVisualPages": 0,
+      "edition": "令和6年8月",
+      "sourceFile": "土木請負工事必携_令和6年8月.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kinki/hikkei/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "05bdd73bbbe83c785c9af131b779c62de9868a80709c14be0a4dfbd87de04dd2",
+          "bytes": 208757
+        },
+        {
+          "slug": "part-02",
+          "file": "kinki/hikkei/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "3ef71dcfe83538a6dcc5f5e9cd7bf862388df15548e6b96476067bdd5a849af6",
+          "bytes": 96586
+        },
+        {
+          "slug": "part-03",
+          "file": "kinki/hikkei/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "9c1f7710dad13b963023362415ccb539d63eb36305cb4e258d4e7fc42abf02de",
+          "bytes": 93731
+        },
+        {
+          "slug": "part-04",
+          "file": "kinki/hikkei/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "1edab4baabb641cfc0cd35f88dac284816df2204347c0c03fb54fe6ada5e43a6",
+          "bytes": 128233
+        },
+        {
+          "slug": "part-05",
+          "file": "kinki/hikkei/part-05.md",
+          "firstPage": 201,
+          "lastPage": 250,
+          "pageCount": 50,
+          "sha256": "b3db38bf56d269f07e84633b0d848deee353b84b19243df94bd068593cdaf42b",
+          "bytes": 129458
+        },
+        {
+          "slug": "part-06",
+          "file": "kinki/hikkei/part-06.md",
+          "firstPage": 251,
+          "lastPage": 300,
+          "pageCount": 50,
+          "sha256": "58c81ee6a6100a881a623ce0b23f2a5c87d3c62def22663a93ec80bebff74325",
+          "bytes": 136056
+        },
+        {
+          "slug": "part-07",
+          "file": "kinki/hikkei/part-07.md",
+          "firstPage": 301,
+          "lastPage": 350,
+          "pageCount": 50,
+          "sha256": "fbf78ddd02085840a8efbfda6bf0af5fc2aaaaf58ce014895fee86088f11af4d",
+          "bytes": 147128
+        },
+        {
+          "slug": "part-08",
+          "file": "kinki/hikkei/part-08.md",
+          "firstPage": 351,
+          "lastPage": 400,
+          "pageCount": 50,
+          "sha256": "7773457cb39a2bfaa0a6d51702e9d7753649982e7a74c5ac6c25b693d5f5cf5a",
+          "bytes": 121146
+        },
+        {
+          "slug": "part-09",
+          "file": "kinki/hikkei/part-09.md",
+          "firstPage": 401,
+          "lastPage": 450,
+          "pageCount": 50,
+          "sha256": "a1dc3373998bdbe71e54b0686a6bb0e3ad0edb9c63d7213f9e457de4ba5bf420",
+          "bytes": 95270
+        },
+        {
+          "slug": "part-10",
+          "file": "kinki/hikkei/part-10.md",
+          "firstPage": 451,
+          "lastPage": 500,
+          "pageCount": 50,
+          "sha256": "7ffdb807600b93e527a630b3aac61080f70436756a1b75e2d5315a22a4477342",
+          "bytes": 94238
+        },
+        {
+          "slug": "part-11",
+          "file": "kinki/hikkei/part-11.md",
+          "firstPage": 501,
+          "lastPage": 550,
+          "pageCount": 50,
+          "sha256": "7eef9119bb9588bd8ca6be0446375152ce26d3aa04c270fc32b46d5470e2a575",
+          "bytes": 107279
+        },
+        {
+          "slug": "part-12",
+          "file": "kinki/hikkei/part-12.md",
+          "firstPage": 551,
+          "lastPage": 600,
+          "pageCount": 50,
+          "sha256": "5a77f15131166a0dc8f23fb7323f983fcfed4ddf5879c95f58d3058cf145f272",
+          "bytes": 105181
+        },
+        {
+          "slug": "part-13",
+          "file": "kinki/hikkei/part-13.md",
+          "firstPage": 601,
+          "lastPage": 650,
+          "pageCount": 50,
+          "sha256": "7697a0f441c6fc827a1ba30ec6e5ede0992f58970ee58a1c1ac81b06d58daba1",
+          "bytes": 123504
+        },
+        {
+          "slug": "part-14",
+          "file": "kinki/hikkei/part-14.md",
+          "firstPage": 651,
+          "lastPage": 700,
+          "pageCount": 50,
+          "sha256": "cebab9ef1a11c888a1a767355ac71f90cabe8944980d8edd34921dd117dd50ef",
+          "bytes": 130037
+        },
+        {
+          "slug": "part-15",
+          "file": "kinki/hikkei/part-15.md",
+          "firstPage": 701,
+          "lastPage": 750,
+          "pageCount": 50,
+          "sha256": "57407813be543a94ac091d2c242da8bd7c0acbbd825870204306d9caadf757b2",
+          "bytes": 128885
+        },
+        {
+          "slug": "part-16",
+          "file": "kinki/hikkei/part-16.md",
+          "firstPage": 751,
+          "lastPage": 761,
+          "pageCount": 11,
+          "sha256": "af9cc6b09b546f9d3b726e086ec54169a85f1c97e8e0d7a2ff5c8553c5c66065",
+          "bytes": 25078
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "common",
+      "role": "common",
+      "title": "土木工事共通仕様書（案）令和8年3月",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900005867.pdf",
+      "sourceSha256": "21e1b80fb6f7bf067e9c10303aa56d76f13ccbd31ceb1a47d54b834e4ecdc89c",
+      "sourceBytes": 3772925,
+      "pages": 660,
+      "partCount": 14,
+      "markdownBytes": 2024308,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "common__土木工事共通仕様書(案)令和8年3月.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/common/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "23c4fb35a937d311699bfea3c376cd32d32f7f12f462facca150d1842416dbd5",
+          "bytes": 224875
+        },
+        {
+          "slug": "part-02",
+          "file": "kyushu/common/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "3df01f46f9c0da7e61a5223d9676dc59b3d9487fa6fafb6c0b1fb5952e02d3ce",
+          "bytes": 197180
+        },
+        {
+          "slug": "part-03",
+          "file": "kyushu/common/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "71c47d2c5c41b40b2daaca67c18bb950d374f7cdc744e25e108aafb0b33c1a78",
+          "bytes": 155215
+        },
+        {
+          "slug": "part-04",
+          "file": "kyushu/common/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "34fd943a1a50dc5c52197774903158e667d8939e78eea672d18bf246a2d384e9",
+          "bytes": 142916
+        },
+        {
+          "slug": "part-05",
+          "file": "kyushu/common/part-05.md",
+          "firstPage": 201,
+          "lastPage": 250,
+          "pageCount": 50,
+          "sha256": "3384c59bc019f012c8553952a6418bc2e6b105925d57e496d9a44f878e090bf2",
+          "bytes": 148261
+        },
+        {
+          "slug": "part-06",
+          "file": "kyushu/common/part-06.md",
+          "firstPage": 251,
+          "lastPage": 300,
+          "pageCount": 50,
+          "sha256": "23c587a5362c19eb20ebf68f4a891e95b9af0e64e70a9f0c9baa7a804b556dc8",
+          "bytes": 167508
+        },
+        {
+          "slug": "part-07",
+          "file": "kyushu/common/part-07.md",
+          "firstPage": 301,
+          "lastPage": 350,
+          "pageCount": 50,
+          "sha256": "89dcf0cf6362533f29b6c912194ee5a91073554f6b2c7a7a02d215d0f2a48ccd",
+          "bytes": 148070
+        },
+        {
+          "slug": "part-08",
+          "file": "kyushu/common/part-08.md",
+          "firstPage": 351,
+          "lastPage": 400,
+          "pageCount": 50,
+          "sha256": "f84f681ca164c5cc406d0f5d108cb6afb10b1d2b146fc53f2c76b1228c6e0d7f",
+          "bytes": 140741
+        },
+        {
+          "slug": "part-09",
+          "file": "kyushu/common/part-09.md",
+          "firstPage": 401,
+          "lastPage": 450,
+          "pageCount": 50,
+          "sha256": "21f6ec9c777d1ae2dbfe8475bb3d525967be14e9d2cbcc1487f19530deedb175",
+          "bytes": 133649
+        },
+        {
+          "slug": "part-10",
+          "file": "kyushu/common/part-10.md",
+          "firstPage": 451,
+          "lastPage": 500,
+          "pageCount": 50,
+          "sha256": "43ee879b6f038d96c5eca5b2d32b9eb831dce6eaa8210a0236aa75f60b5da9e9",
+          "bytes": 129319
+        },
+        {
+          "slug": "part-11",
+          "file": "kyushu/common/part-11.md",
+          "firstPage": 501,
+          "lastPage": 550,
+          "pageCount": 50,
+          "sha256": "3e18107b649993ce820f63185e0ffb723842a6d71e227d130580c07eb36ebd65",
+          "bytes": 137443
+        },
+        {
+          "slug": "part-12",
+          "file": "kyushu/common/part-12.md",
+          "firstPage": 551,
+          "lastPage": 600,
+          "pageCount": 50,
+          "sha256": "b34d59da97aeb70c17918e4fb898d5ccf7d9fc163e2117966162fa5ff3fadd62",
+          "bytes": 137822
+        },
+        {
+          "slug": "part-13",
+          "file": "kyushu/common/part-13.md",
+          "firstPage": 601,
+          "lastPage": 650,
+          "pageCount": 50,
+          "sha256": "f4fef2bfc3ff588047d0fdef5a4319748c8ba2a2b45d80943b3569a82afb875c",
+          "bytes": 132904
+        },
+        {
+          "slug": "part-14",
+          "file": "kyushu/common/part-14.md",
+          "firstPage": 651,
+          "lastPage": 660,
+          "pageCount": 10,
+          "sha256": "06bb325cbbd553118bcc148466dd8a634c306804f089f40da4254cbe2c6b86a8",
+          "bytes": 28405
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-common-01",
+      "role": "companion",
+      "title": "土木請負工事必携 共通編／「施工体制台帳」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012392.pdf",
+      "sourceSha256": "71b21fce0e8bf5308c7def77c99101af073cc859503d0b8dc4155a9875f3f9ba",
+      "sourceBytes": 281749,
+      "pages": 8,
+      "partCount": 1,
+      "markdownBytes": 21229,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-common-01__土木請負工事必携_共通編_「施工体制台帳」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-common-01/part-01.md",
+          "firstPage": 1,
+          "lastPage": 8,
+          "pageCount": 8,
+          "sha256": "dd798574812381fcb18d5eee6124f2c2d1b0cab47b48e6caa5140d823617680a",
+          "bytes": 21229
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-common-02",
+      "role": "companion",
+      "title": "土木請負工事必携 共通編／「腕章について」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012393.pdf",
+      "sourceSha256": "300b688941776ef6438b698188754ecc099f411805040754602225f44a72fa47",
+      "sourceBytes": 247437,
+      "pages": 3,
+      "partCount": 1,
+      "markdownBytes": 2803,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 1,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-common-02__土木請負工事必携_共通編_「腕章について」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-common-02/part-01.md",
+          "firstPage": 1,
+          "lastPage": 3,
+          "pageCount": 3,
+          "sha256": "e1beec8d77b244eb57a02cf17cfc14dead6b495c23e1685498e981dd59afb5ee",
+          "bytes": 2803
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-common-03",
+      "role": "companion",
+      "title": "土木請負工事必携 共通編／「工事現場に掲げる標識について」（平成２４年２月２３日修正）",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012394.pdf",
+      "sourceSha256": "e0507738394d66d917879d3cb129ca08e10ef307dde445742ef62e7eef0d7e0c",
+      "sourceBytes": 750662,
+      "pages": 3,
+      "partCount": 1,
+      "markdownBytes": 4692,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 1,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-common-03__土木請負工事必携_共通編_「工事現場に掲げる標識について」(平成24年2月23日修正).pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-common-03/part-01.md",
+          "firstPage": 1,
+          "lastPage": 3,
+          "pageCount": 3,
+          "sha256": "6b7705c818d39a8ff6fa3e38846391be4bae9c68f996dd18b1c5a3bb595190d1",
+          "bytes": 4692
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-common-04",
+      "role": "companion",
+      "title": "土木請負工事必携 共通編／「工事書類の簡素化の試行について」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012395.pdf",
+      "sourceSha256": "f056d9c271a8b9c1d9662e05aa99b896bab2432e7b3c90260113feae19f5a3b6",
+      "sourceBytes": 364244,
+      "pages": 10,
+      "partCount": 1,
+      "markdownBytes": 32336,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-common-04__土木請負工事必携_共通編_「工事書類の簡素化の試行について」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-common-04/part-01.md",
+          "firstPage": 1,
+          "lastPage": 10,
+          "pageCount": 10,
+          "sha256": "a168a8d49a25b2356276054b234bfedcadff0b1547c5f059c67674a045002ff0",
+          "bytes": 32336
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-common-05",
+      "role": "companion",
+      "title": "土木請負工事必携 共通編／「工事現場における説明性の向上について」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012396.pdf",
+      "sourceSha256": "9681279bfa4a9a0b8ef609753976d4f05decbb52d8d58eacb20c785e64fd4ffd",
+      "sourceBytes": 187078,
+      "pages": 3,
+      "partCount": 1,
+      "markdownBytes": 5211,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-common-05__土木請負工事必携_共通編_「工事現場における説明性の向上について」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-common-05/part-01.md",
+          "firstPage": 1,
+          "lastPage": 3,
+          "pageCount": 3,
+          "sha256": "fb2dd14593d6e571ba508b38ce384881981b7b067362bc70358e3abb8b8fb8dd",
+          "bytes": 5211
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-common-06",
+      "role": "companion",
+      "title": "土木請負工事必携 共通編／「建設現場へのモニターカメラ設置に関する運用要領（案）について」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012397.pdf",
+      "sourceSha256": "fbddffd44a257f36f625662d2b747b20a2398209e6da80b177a8fc81948a972a",
+      "sourceBytes": 633027,
+      "pages": 5,
+      "partCount": 1,
+      "markdownBytes": 7333,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 1,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-common-06__土木請負工事必携_共通編_「建設現場へのモニターカメラ設置に関する運用要領(案)について」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-common-06/part-01.md",
+          "firstPage": 1,
+          "lastPage": 5,
+          "pageCount": 5,
+          "sha256": "a0bc98c690371c56309332ee0a0c511f0753fb4b050c7640fcd43132c1c65d34",
+          "bytes": 7333
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-common-07",
+      "role": "companion",
+      "title": "土木請負工事必携 共通編／「工事監督におけるワンデーレスポンス実施運用（案）」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012398.pdf",
+      "sourceSha256": "36409316c58a9d10e7b3543eec74c44837a418b46f37b2d400d8d863eec2f1a1",
+      "sourceBytes": 537044,
+      "pages": 7,
+      "partCount": 1,
+      "markdownBytes": 19760,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-common-07__土木請負工事必携_共通編_「工事監督におけるワンデーレスポンス実施運用(案)」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-common-07/part-01.md",
+          "firstPage": 1,
+          "lastPage": 7,
+          "pageCount": 7,
+          "sha256": "09cd4d560c3a1c7815f8e110c14178f92ea7b21358a70296c2abae2c4db4b79b",
+          "bytes": 19760
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-common-08",
+      "role": "companion",
+      "title": "土木請負工事必携 共通編／「道路工事完成図書等作成要領」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012399.pdf",
+      "sourceSha256": "fb68997e90911cd53e636a239052b8a54cfe1959a281ec9bfc042985139d06ff",
+      "sourceBytes": 8251586,
+      "pages": 202,
+      "partCount": 5,
+      "markdownBytes": 602718,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 2,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-common-08__土木請負工事必携_共通編_「道路工事完成図書等作成要領」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-common-08/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "d6d8657cd404c64994a74db915335671e4b9282aef8fbd68dcead6520920558c",
+          "bytes": 122501
+        },
+        {
+          "slug": "part-02",
+          "file": "kyushu/hikkei-common-08/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "024520e1e4552ddc1ae4aae8dc5da44a4a8435a0fa6af482eecc8b910c8ca666",
+          "bytes": 130244
+        },
+        {
+          "slug": "part-03",
+          "file": "kyushu/hikkei-common-08/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "92b90f181fc31c9184c33091403d6ec7009f81ebbf878baf67f5908e50f2d106",
+          "bytes": 136420
+        },
+        {
+          "slug": "part-04",
+          "file": "kyushu/hikkei-common-08/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "8e8ff4cd2207402578160b7d83d44b0549cba0f9f68068cf34975223e74edb5a",
+          "bytes": 209190
+        },
+        {
+          "slug": "part-05",
+          "file": "kyushu/hikkei-common-08/part-05.md",
+          "firstPage": 201,
+          "lastPage": 202,
+          "pageCount": 2,
+          "sha256": "b5cbf8229b50aca7dda32ea818a32dac0d3154ac38f395d814645b8cf3fadcd5",
+          "bytes": 4363
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-common-09",
+      "role": "companion",
+      "title": "土木請負工事必携 共通編／「土木工事安全施工技術指針」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012400.pdf",
+      "sourceSha256": "66ea668641b1c32e6711edad60145eb4033ed9cb149026e073900311614ad054",
+      "sourceBytes": 949018,
+      "pages": 109,
+      "partCount": 3,
+      "markdownBytes": 306649,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-common-09__土木請負工事必携_共通編_「土木工事安全施工技術指針」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-common-09/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "014a1a95439a9aeb77b2449f65e33e33dde93a70c45cac271f1e9eb763d8cba1",
+          "bytes": 136431
+        },
+        {
+          "slug": "part-02",
+          "file": "kyushu/hikkei-common-09/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "568c021e60487373bbd4c1ff1f1e1bc5b2dc0482915d72a0862a9a3ac23bc475",
+          "bytes": 146595
+        },
+        {
+          "slug": "part-03",
+          "file": "kyushu/hikkei-common-09/part-03.md",
+          "firstPage": 101,
+          "lastPage": 109,
+          "pageCount": 9,
+          "sha256": "c36e3fd462391d59e2651504247777ea821e4ef66b342953177afef4c6282425",
+          "bytes": 23623
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-common-10",
+      "role": "companion",
+      "title": "土木請負工事必携 共通編／「建設工事公衆災害防止対策要綱（土木工事編）」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012419.pdf",
+      "sourceSha256": "e0640cb98aad5100edeab2111baf56d0af966708fae2250995f40d18fe54cf24",
+      "sourceBytes": 1776577,
+      "pages": 199,
+      "partCount": 4,
+      "markdownBytes": 575553,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-common-10__土木請負工事必携_共通編_「建設工事公衆災害防止対策要綱(土木工事編)」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-common-10/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "41ae73e305d755d227a7cc386032cfd96410c8ae340c4c5c2a7f05842e07c489",
+          "bytes": 88135
+        },
+        {
+          "slug": "part-02",
+          "file": "kyushu/hikkei-common-10/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "d0b04b6a4f4d6c3f5578d305db970f4c506c207cd202123fe567c71d319d979e",
+          "bytes": 126865
+        },
+        {
+          "slug": "part-03",
+          "file": "kyushu/hikkei-common-10/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "09355332dbca67bd9037c9199603d1928adecf8ddd759fc25c7ebc982cea2266",
+          "bytes": 181809
+        },
+        {
+          "slug": "part-04",
+          "file": "kyushu/hikkei-common-10/part-04.md",
+          "firstPage": 151,
+          "lastPage": 199,
+          "pageCount": 49,
+          "sha256": "f9dbf75cd6a34ad459e6ddc4d3929c85775de5504d89824fc5011a0b9899092c",
+          "bytes": 178744
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-common-11",
+      "role": "companion",
+      "title": "土木請負工事必携 共通編／「道路工事現場における標示施設等の設置基準」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012402.pdf",
+      "sourceSha256": "ab6831ccec2ef2816239279ce20b664cbdf08f897db38715d05ba02a790dedb9",
+      "sourceBytes": 190016,
+      "pages": 11,
+      "partCount": 1,
+      "markdownBytes": 19713,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-common-11__土木請負工事必携_共通編_「道路工事現場における標示施設等の設置基準」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-common-11/part-01.md",
+          "firstPage": 1,
+          "lastPage": 11,
+          "pageCount": 11,
+          "sha256": "adf817e6a1fffab60a40aa479184f9c1dbac4b0e1e87f1b3f8f914267c556df9",
+          "bytes": 19713
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-common-12",
+      "role": "companion",
+      "title": "土木請負工事必携 共通編／「手すり先行工法に関するガイドライン」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012403.pdf",
+      "sourceSha256": "98c11a7662189d3e778331f9759eacefbb807e7a6c3d2e4365ccfd55caf60080",
+      "sourceBytes": 475454,
+      "pages": 30,
+      "partCount": 1,
+      "markdownBytes": 61327,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 1,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-common-12__土木請負工事必携_共通編_「手すり先行工法に関するガイドライン」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-common-12/part-01.md",
+          "firstPage": 1,
+          "lastPage": 30,
+          "pageCount": 30,
+          "sha256": "bf034081bb64d3898d0ce5b965b74da466ac23892215f9fdb69c83641e7ab841",
+          "bytes": 61327
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-common-13",
+      "role": "companion",
+      "title": "土木請負工事必携 共通編／「建設副産物適正処理推進要綱」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012404.pdf",
+      "sourceSha256": "017a6997270fb5dace63d1d0d3b00276df2ce6d4e361a7ab68c8b57aeb7dca18",
+      "sourceBytes": 119772,
+      "pages": 20,
+      "partCount": 1,
+      "markdownBytes": 64913,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-common-13__土木請負工事必携_共通編_「建設副産物適正処理推進要綱」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-common-13/part-01.md",
+          "firstPage": 1,
+          "lastPage": 20,
+          "pageCount": 20,
+          "sha256": "2fc6694c9d33510658fbfbce579eeb1da170873b374ebd158165e70b03d4c4d6",
+          "bytes": 64913
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-common-14",
+      "role": "companion",
+      "title": "土木請負工事必携 共通編／「建設リサイクルガイドライン」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012405.pdf",
+      "sourceSha256": "888f0a0aedf24a24ed6855c40deeecc86deb388881fc6df557db8f103e807b43",
+      "sourceBytes": 129504,
+      "pages": 16,
+      "partCount": 1,
+      "markdownBytes": 68940,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-common-14__土木請負工事必携_共通編_「建設リサイクルガイドライン」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-common-14/part-01.md",
+          "firstPage": 1,
+          "lastPage": 16,
+          "pageCount": 16,
+          "sha256": "83f0a4b134af8920486077026ac38f899069f2570a55cadd1270e122b79365ff",
+          "bytes": 68940
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-common-15",
+      "role": "companion",
+      "title": "土木請負工事必携 共通編／「建設工事に係る資材の再生資源化等に関する法律第11条に基づく国の機関からの都道府県知事への対象建設工事の計画の通知に関する取扱要領」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012406.pdf",
+      "sourceSha256": "bc362bbb87b67d5d2f66e8f39c68823ebb383548f695d3bdae8f8228fffb3fab",
+      "sourceBytes": 185218,
+      "pages": 8,
+      "partCount": 1,
+      "markdownBytes": 20266,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-common-15__土木請負工事必携_共通編_「建設工事に係る資材の再生資源化等に関する法律第11条に基づく国の機関からの都道府県知事への対象建設工事の計画の通知に関する取扱要領」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-common-15/part-01.md",
+          "firstPage": 1,
+          "lastPage": 8,
+          "pageCount": 8,
+          "sha256": "bb7f810c7e8a587febb84bce509d649fb0dd59c78e2970d8c2add4e7bbd925fe",
+          "bytes": 20266
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-common-16",
+      "role": "companion",
+      "title": "土木請負工事必携 共通編／「再生資源の利用促進について」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012407.pdf",
+      "sourceSha256": "ff9c5867d3d06f06a86d9f22ce59bcb9561b66b750b99303df237db1fc4bfaf6",
+      "sourceBytes": 212634,
+      "pages": 4,
+      "partCount": 1,
+      "markdownBytes": 6854,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-common-16__土木請負工事必携_共通編_「再生資源の利用促進について」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-common-16/part-01.md",
+          "firstPage": 1,
+          "lastPage": 4,
+          "pageCount": 4,
+          "sha256": "ca51875d8c55b4ec75271ab262bc735f3cdba0d4ce0b256f26f9f82c0d08f331",
+          "bytes": 6854
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-common-17",
+      "role": "companion",
+      "title": "土木請負工事必携 共通編／「リサイクル原則化ルール」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012408.pdf",
+      "sourceSha256": "d14b32287fbfbdd9415671ab62d175de6c88d644ddc404b9e0029cd2e939ef1f",
+      "sourceBytes": 71924,
+      "pages": 3,
+      "partCount": 1,
+      "markdownBytes": 5846,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-common-17__土木請負工事必携_共通編_「リサイクル原則化ルール」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-common-17/part-01.md",
+          "firstPage": 1,
+          "lastPage": 3,
+          "pageCount": 3,
+          "sha256": "32fcdf5a159cac92950798a17f6e0303bd4c9819f68b8b614a8edb425ef7dba0",
+          "bytes": 5846
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-control-01",
+      "role": "companion",
+      "title": "土木請負工事必携 施工管理編／「鋼橋製作における仮組立検査の省略について」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012376.pdf",
+      "sourceSha256": "e2597c0517f06124809705f74e44ee1e0d0f78149cf764cb0b5e5bc6a4bd3812",
+      "sourceBytes": 201380,
+      "pages": 3,
+      "partCount": 1,
+      "markdownBytes": 5446,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-control-01__土木請負工事必携_施工管理編_「鋼橋製作における仮組立検査の省略について」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-control-01/part-01.md",
+          "firstPage": 1,
+          "lastPage": 3,
+          "pageCount": 3,
+          "sha256": "1646213ecc9a1ec09795070503a1aec0791ceed7ede9014186611078ba46a070",
+          "bytes": 5446
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-control-02",
+      "role": "companion",
+      "title": "土木請負工事必携 施工管理編／「鋼橋用鋼材（厚鋼板）の立会の簡素化について」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012377.pdf",
+      "sourceSha256": "a3878c1f8e249e38d694e01cd24e0abf51eeadafab22cdb3aea8eafc7ba423c1",
+      "sourceBytes": 186603,
+      "pages": 2,
+      "partCount": 1,
+      "markdownBytes": 2819,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-control-02__土木請負工事必携_施工管理編_「鋼橋用鋼材(厚鋼板)の立会の簡素化について」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-control-02/part-01.md",
+          "firstPage": 1,
+          "lastPage": 2,
+          "pageCount": 2,
+          "sha256": "df4034e5b563e955ef20cd5b4790639a84f270e6dc03e5622296ce8e8d959964",
+          "bytes": 2819
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-control-03",
+      "role": "companion",
+      "title": "土木請負工事必携 施工管理編／「土木コンクリート構造物の品質確保について」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012378.pdf",
+      "sourceSha256": "b67218914426a372896b2e43c9dc2ed4aac655ebe82fe01d32c33bc4dd8b8a4a",
+      "sourceBytes": 446055,
+      "pages": 15,
+      "partCount": 1,
+      "markdownBytes": 14830,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 1,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-control-03__土木請負工事必携_施工管理編_「土木コンクリート構造物の品質確保について」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-control-03/part-01.md",
+          "firstPage": 1,
+          "lastPage": 15,
+          "pageCount": 15,
+          "sha256": "172c39c8d36f0bf90b07dbf3bf3ca5376392aa14ac6600a520c86412b2f3ae89",
+          "bytes": 14830
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-control-04",
+      "role": "companion",
+      "title": "土木請負工事必携 施工管理編／「コンクリート耐久性向上対策実施要領」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012379.pdf",
+      "sourceSha256": "19a3c630750acc88988159bee7db4776ae120e89861ce000a987714a27eabc9b",
+      "sourceBytes": 256308,
+      "pages": 10,
+      "partCount": 1,
+      "markdownBytes": 18016,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 1,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-control-04__土木請負工事必携_施工管理編_「コンクリート耐久性向上対策実施要領」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-control-04/part-01.md",
+          "firstPage": 1,
+          "lastPage": 10,
+          "pageCount": 10,
+          "sha256": "a4fc1eb8d663393428383d3dc5de1844ce1a6cb1a4af6aea7b6bdda44ef8afaf",
+          "bytes": 18016
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-control-05",
+      "role": "companion",
+      "title": "土木請負工事必携 施工管理編／「コンクリート中の塩化物総量規制（土木構造物）実施要領」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012380.pdf",
+      "sourceSha256": "f5223ba55278be03b185cc26790a81ff46b766d0e7a7616fd5da4e60ed014659",
+      "sourceBytes": 190788,
+      "pages": 3,
+      "partCount": 1,
+      "markdownBytes": 6972,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-control-05__土木請負工事必携_施工管理編_「コンクリート中の塩化物総量規制(土木構造物)実施要領」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-control-05/part-01.md",
+          "firstPage": 1,
+          "lastPage": 3,
+          "pageCount": 3,
+          "sha256": "027574975f7732e8688bea7b16f6ff3daf5218b7ab8cfc681b5f9f9a5e44962c",
+          "bytes": 6972
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-control-06",
+      "role": "companion",
+      "title": "土木請負工事必携 施工管理編／「アルカリ骨材反応抑制対策実施要領」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012381.pdf",
+      "sourceSha256": "fe966d781ad4360d371b29ee1ecdce36824a920abd587289e35883a91c71f1e5",
+      "sourceBytes": 179289,
+      "pages": 5,
+      "partCount": 1,
+      "markdownBytes": 9323,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-control-06__土木請負工事必携_施工管理編_「アルカリ骨材反応抑制対策実施要領」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-control-06/part-01.md",
+          "firstPage": 1,
+          "lastPage": 5,
+          "pageCount": 5,
+          "sha256": "e27ea52b02917b8fadf065bbdb684ce8b8b5f17bdf8154e819e43b2669ad6714",
+          "bytes": 9323
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-control-07",
+      "role": "companion",
+      "title": "土木請負工事必携 施工管理編／「コンクリート構造物に使用する普通ポルトランドセメントについて」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012382.pdf",
+      "sourceSha256": "4d005153abeb0c6793271e086e19c4025833e6565056cb6acd4eab9c14bc8d21",
+      "sourceBytes": 139863,
+      "pages": 2,
+      "partCount": 1,
+      "markdownBytes": 1666,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-control-07__土木請負工事必携_施工管理編_「コンクリート構造物に使用する普通ポルトランドセメントについて」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-control-07/part-01.md",
+          "firstPage": 1,
+          "lastPage": 2,
+          "pageCount": 2,
+          "sha256": "343f091903e307ef936467d3a735c56bc3fc4348d52eadc4e4db0c8d78160bc6",
+          "bytes": 1666
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-control-08",
+      "role": "companion",
+      "title": "土木請負工事必携 施工管理編／「レディーミクストコンクリートの品質確保について（単位水量）」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012383.pdf",
+      "sourceSha256": "0df37239309f4cca049e01979643b4b808d0f2650df3beebd1369327970076a1",
+      "sourceBytes": 186981,
+      "pages": 5,
+      "partCount": 1,
+      "markdownBytes": 6601,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-control-08__土木請負工事必携_施工管理編_「レディーミクストコンクリートの品質確保について(単位水量)」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-control-08/part-01.md",
+          "firstPage": 1,
+          "lastPage": 5,
+          "pageCount": 5,
+          "sha256": "384ae07d8d1f6d72e015b34219f148cc29226ed413f04d97f8e493bef329258c",
+          "bytes": 6601
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-control-09",
+      "role": "companion",
+      "title": "土木請負工事必携 施工管理編／「レディーミクストコンクリート単位水量測定要領（案）」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012384.pdf",
+      "sourceSha256": "2bdac1af8aca84e6e2485a572f7f86e3a3277972372f8d7c745f50dc641ff94d",
+      "sourceBytes": 414892,
+      "pages": 9,
+      "partCount": 1,
+      "markdownBytes": 32596,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-control-09__土木請負工事必携_施工管理編_「レディーミクストコンクリート単位水量測定要領(案)」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-control-09/part-01.md",
+          "firstPage": 1,
+          "lastPage": 9,
+          "pageCount": 9,
+          "sha256": "9438d7295b0f00acd459edfcbfbe79637332aa7d744489584823d85ca3ed59cc",
+          "bytes": 32596
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-control-10",
+      "role": "companion",
+      "title": "土木請負工事必携 施工管理編／「微破壊・非破壊試験によるコンクリート構造物の強度測定試行要領（案）」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012385.pdf",
+      "sourceSha256": "ba4cffa3593d64e58645794363ca6d74dcd99348e446e1845fe331d875c58490",
+      "sourceBytes": 349195,
+      "pages": 15,
+      "partCount": 1,
+      "markdownBytes": 35822,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 1,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-control-10__土木請負工事必携_施工管理編_「微破壊・非破壊試験によるコンクリート構造物の強度測定試行要領(案)」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-control-10/part-01.md",
+          "firstPage": 1,
+          "lastPage": 15,
+          "pageCount": 15,
+          "sha256": "66453aca11ac828d299fe036af04465c06eb0bc35bdf52637862d21fb7777bc2",
+          "bytes": 35822
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-control-11",
+      "role": "companion",
+      "title": "土木請負工事必携 施工管理編／「非破壊試験によるコンクリート構造物中の配筋状態及びかぶり測定要領（案）」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012386.pdf",
+      "sourceSha256": "876c6dc60720416695f330aa59426f99d79ea16fa45a17de527a927fa6148aac",
+      "sourceBytes": 558422,
+      "pages": 26,
+      "partCount": 1,
+      "markdownBytes": 46109,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 2,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-control-11__土木請負工事必携_施工管理編_「非破壊試験によるコンクリート構造物中の配筋状態及びかぶり測定要領(案)」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-control-11/part-01.md",
+          "firstPage": 1,
+          "lastPage": 26,
+          "pageCount": 26,
+          "sha256": "494aa93b647ee9559aeee33c9ae7b18ad21699b0cf1667639df78fa578abfec2",
+          "bytes": 46109
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-control-12",
+      "role": "companion",
+      "title": "土木請負工事必携 施工管理編／「RI計器を用いた盛土の締固め管理要領（案）」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012387.pdf",
+      "sourceSha256": "560bc2e7b822cbc82db0716461f7038439545570b218fc49bc8ff0091f6dbbec",
+      "sourceBytes": 2822004,
+      "pages": 26,
+      "partCount": 1,
+      "markdownBytes": 41116,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 11,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-control-12__土木請負工事必携_施工管理編_「RI計器を用いた盛土の締固め管理要領(案)」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-control-12/part-01.md",
+          "firstPage": 1,
+          "lastPage": 26,
+          "pageCount": 26,
+          "sha256": "70400a5a388ab4b9fa46b405b73f731041697740115c90fa0490bf7e47dd204a",
+          "bytes": 41116
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-control-13",
+      "role": "companion",
+      "title": "土木請負工事必携 施工管理編／「TS・GPSを用いた盛土の締固め情報施工管理要領（案）」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012388.pdf",
+      "sourceSha256": "7f05149b2637b8d672495b150423b3fa60025728547b2d175183721601f2ab42",
+      "sourceBytes": 2221204,
+      "pages": 51,
+      "partCount": 2,
+      "markdownBytes": 128218,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 3,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-control-13__土木請負工事必携_施工管理編_「TS・GPSを用いた盛土の締固め情報施工管理要領(案)」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-control-13/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "00a02c39067c88fe8e890b6f7af896fe19e8c5d826d571739ed426d490cb5231",
+          "bytes": 126557
+        },
+        {
+          "slug": "part-02",
+          "file": "kyushu/hikkei-control-13/part-02.md",
+          "firstPage": 51,
+          "lastPage": 51,
+          "pageCount": 1,
+          "sha256": "a02c8671f45c22e96de2a063a1b049d1039e01b5ad7fcab9a0f065a96bdab4c7",
+          "bytes": 1661
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-control-14",
+      "role": "companion",
+      "title": "土木請負工事必携 施工管理編／「施工管理データを搭載したトータルステーションによる出来形管理要領（案）（道路土工編）」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012389.pdf",
+      "sourceSha256": "2eb145fb2405ecc683c8613ee3e2c9d5e791796c0e9e32e6787e447b10b40ab8",
+      "sourceBytes": 879751,
+      "pages": 35,
+      "partCount": 1,
+      "markdownBytes": 80038,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 1,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-control-14__土木請負工事必携_施工管理編_「施工管理データを搭載したトータルステーションによる出来形管理要領(案)(道路土工編)」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-control-14/part-01.md",
+          "firstPage": 1,
+          "lastPage": 35,
+          "pageCount": 35,
+          "sha256": "46ab3b95e802a018cc7bcc794c760fefdcf41500ae54bed0e91c1562c8403746",
+          "bytes": 80038
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-control-15",
+      "role": "companion",
+      "title": "土木請負工事必携 施工管理編／「施工管理データを搭載したトータルステーションによる出来形管理要領（案）（河川・海岸・砂防土工編）」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012390.pdf",
+      "sourceSha256": "da3fbd20cae135fb203a6f0705e3edfae1a0927659f03e18626c2e5d3f9c97dd",
+      "sourceBytes": 1199837,
+      "pages": 63,
+      "partCount": 2,
+      "markdownBytes": 125081,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 5,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-control-15__土木請負工事必携_施工管理編_「施工管理データを搭載したトータルステーションによる出来形管理要領(案)(河川・海岸・砂防土工編)」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-control-15/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "0a79654ac7a877c63c0000e138ead4f5263e1a235ec7f0327496b9bc130ec80e",
+          "bytes": 103670
+        },
+        {
+          "slug": "part-02",
+          "file": "kyushu/hikkei-control-15/part-02.md",
+          "firstPage": 51,
+          "lastPage": 63,
+          "pageCount": 13,
+          "sha256": "1da0cd966d679bd43e3645c97462d7f9ef8cf31e90c99ae7714074988a972001",
+          "bytes": 21411
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "hikkei-control-16",
+      "role": "companion",
+      "title": "土木請負工事必携 施工管理編／「薬液注入工事に係る管理について」",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900012391.pdf",
+      "sourceSha256": "59cbc97276d83a2136e6d79a4ca430bd6a8875762b65c73590c526b7837c19e8",
+      "sourceBytes": 99898,
+      "pages": 6,
+      "partCount": 1,
+      "markdownBytes": 7861,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-control-16__土木請負工事必携_施工管理編_「薬液注入工事に係る管理について」.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/hikkei-control-16/part-01.md",
+          "firstPage": 1,
+          "lastPage": 6,
+          "pageCount": 6,
+          "sha256": "4cf2a8c3c37affdb8aa705bc439181709c5d9631ad703d454738810b9952d8ff",
+          "bytes": 7861
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "management-manual",
+      "role": "companion",
+      "title": "土木工事施工管理の手引き 令和6年12月",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900005853.pdf",
+      "sourceSha256": "1998b2497b40fb76d401f7afe7c57688ef7bd20e84b34509d886e34a6cbad5cd",
+      "sourceBytes": 5048475,
+      "pages": 209,
+      "partCount": 5,
+      "markdownBytes": 690331,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 51,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "management-manual__土木工事施工管理の手引き_令和6年12月.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/management-manual/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "839582c312724c750169db3e1de613c0051240040239c5fdb2128cc8ecbce5ac",
+          "bytes": 194063
+        },
+        {
+          "slug": "part-02",
+          "file": "kyushu/management-manual/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "a9358ce0c65c612196d77ad25357faf122ced531156101a305362e10ccb8c88b",
+          "bytes": 175394
+        },
+        {
+          "slug": "part-03",
+          "file": "kyushu/management-manual/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "b792e769e6a662e893e3033fd194a8904eba0079fb0c4889109ac49ef1ae3c31",
+          "bytes": 125446
+        },
+        {
+          "slug": "part-04",
+          "file": "kyushu/management-manual/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "f64f66ae2ca000a2c65ab102743dbb6b753fa8ab0a39d6a1ffd76e3cb92fd4db",
+          "bytes": 162106
+        },
+        {
+          "slug": "part-05",
+          "file": "kyushu/management-manual/part-05.md",
+          "firstPage": 201,
+          "lastPage": 209,
+          "pageCount": 9,
+          "sha256": "5b493a44e457a0a4d34c6b7cd069c9e8544e7731d6b0a6014e53b1828af20bf7",
+          "bytes": 33322
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "kyushu",
+      "agencyName": "九州地方整備局",
+      "documentId": "road-safety",
+      "role": "companion",
+      "title": "道路工事保安施設設置基準（案）令和6年2月改定",
+      "landing": "https://www.qsr.mlit.go.jp/for_company/kensetu_joho/koujisekou.html",
+      "sourceUrl": "https://www.qsr.mlit.go.jp/content/900005854.pdf",
+      "sourceSha256": "e55cbffdefcc21116149521497a38a47a395f7d9bf9d05335c19ddc8778b203d",
+      "sourceBytes": 2008235,
+      "pages": 20,
+      "partCount": 1,
+      "markdownBytes": 24018,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "road-safety__道路工事保安施設設置基準(案)令和6年2月改定.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "kyushu/road-safety/part-01.md",
+          "firstPage": 1,
+          "lastPage": 20,
+          "pageCount": 20,
+          "sha256": "566d3a9508334c2281a5a596db52717d14d2cd01f87e4450506ab0af491b8c87",
+          "bytes": 24018
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentId": "common",
+      "role": "common",
+      "title": "土木工事共通仕様書 令和8年3月",
+      "landing": "https://www.ogb.go.jp/kaiken/koji/007771",
+      "sourceUrl": "https://www.ogb.go.jp/-/media/Files/OGB/Kaiken/kyoku/about/gikan/doboku_kouji/pdf/01_kyoutsu/01_r08kyotsu/PDF_R0803_doboku_kyoutsusyo.pdf",
+      "sourceSha256": "abe3a86d222d13b4a16479c07d9e52c09b3155e5da20dd6303e1808789b23b73",
+      "sourceBytes": 3958145,
+      "pages": 660,
+      "partCount": 14,
+      "markdownBytes": 2024196,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "common__土木工事共通仕様書_令和8年3月.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "okinawa/common/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "08f4bc7d874ac516b1a22328e0788cd279c467c743cbce59c5693b9172c1b0d2",
+          "bytes": 224867
+        },
+        {
+          "slug": "part-02",
+          "file": "okinawa/common/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "30efd1ab9a0732fc9fcae8730349a2b45e7d5a0d4b3a48a559219e16bb6a7e8d",
+          "bytes": 197172
+        },
+        {
+          "slug": "part-03",
+          "file": "okinawa/common/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "58f8002622c28a1fd65ac6d710e7636af6b789aa782718fd301c0d6eece71843",
+          "bytes": 155207
+        },
+        {
+          "slug": "part-04",
+          "file": "okinawa/common/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "fe54e918fb5d8ae7fd573ed39c26a72ba03b77c9a19db7aa505825ea9c7539d9",
+          "bytes": 142908
+        },
+        {
+          "slug": "part-05",
+          "file": "okinawa/common/part-05.md",
+          "firstPage": 201,
+          "lastPage": 250,
+          "pageCount": 50,
+          "sha256": "6d87f4ae4231f2c85007ef1db30e6c7619eaf34f6a74e5b8be4b36aeec0a1918",
+          "bytes": 148253
+        },
+        {
+          "slug": "part-06",
+          "file": "okinawa/common/part-06.md",
+          "firstPage": 251,
+          "lastPage": 300,
+          "pageCount": 50,
+          "sha256": "2686ff853716903427f8175ed70006ccab6120287609ad41b4daa068c155a071",
+          "bytes": 167500
+        },
+        {
+          "slug": "part-07",
+          "file": "okinawa/common/part-07.md",
+          "firstPage": 301,
+          "lastPage": 350,
+          "pageCount": 50,
+          "sha256": "02964f14af39f6660a8652b1541850004160744a04b8a7f008f9b72102067f1e",
+          "bytes": 148062
+        },
+        {
+          "slug": "part-08",
+          "file": "okinawa/common/part-08.md",
+          "firstPage": 351,
+          "lastPage": 400,
+          "pageCount": 50,
+          "sha256": "886859cba088b9a8e2329cae38ab3d69688085ba3fccdfc4cf5cb3f442d9d331",
+          "bytes": 140733
+        },
+        {
+          "slug": "part-09",
+          "file": "okinawa/common/part-09.md",
+          "firstPage": 401,
+          "lastPage": 450,
+          "pageCount": 50,
+          "sha256": "549c610e14c700074311152d7e8b632ccdd2215bd25cfa3133d1337607edd863",
+          "bytes": 133641
+        },
+        {
+          "slug": "part-10",
+          "file": "okinawa/common/part-10.md",
+          "firstPage": 451,
+          "lastPage": 500,
+          "pageCount": 50,
+          "sha256": "0338063aeb2800eb64ce3ba040aee8ba401e3007adce3aacd3d9258571b41751",
+          "bytes": 129311
+        },
+        {
+          "slug": "part-11",
+          "file": "okinawa/common/part-11.md",
+          "firstPage": 501,
+          "lastPage": 550,
+          "pageCount": 50,
+          "sha256": "3ee54dd423bc51ed0513f5decab178a43efb9ddfa6d97037c0c8d1b0ca2ad565",
+          "bytes": 137435
+        },
+        {
+          "slug": "part-12",
+          "file": "okinawa/common/part-12.md",
+          "firstPage": 551,
+          "lastPage": 600,
+          "pageCount": 50,
+          "sha256": "5e86b002ae9810173221090de285c704336492cbd78960d15810150358c2660a",
+          "bytes": 137814
+        },
+        {
+          "slug": "part-13",
+          "file": "okinawa/common/part-13.md",
+          "firstPage": 601,
+          "lastPage": 650,
+          "pageCount": 50,
+          "sha256": "5fcc11492dcc9377861dc783bf86c46bedc6487a75f3ff92647f391f1ed669dc",
+          "bytes": 132896
+        },
+        {
+          "slug": "part-14",
+          "file": "okinawa/common/part-14.md",
+          "firstPage": 651,
+          "lastPage": 660,
+          "pageCount": 10,
+          "sha256": "fa230c5a804a4f526a86bce1a161d51074d38ef8231d529df2be07644a77854f",
+          "bytes": 28397
+        }
+      ],
+      "unreadableRanges": [],
+      "duplicateOf": "chugoku/common"
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentId": "hikkei-01",
+      "role": "companion",
+      "title": "土木請負工事必携／銅橋製作における仮組立検査の省略について",
+      "landing": "https://www.ogb.go.jp/kaiken/koji/007771",
+      "sourceUrl": "https://www.ogb.go.jp/-/media/Files/OGB/Kaiken/kyoku/about/gikan/doboku_ukeoi_hikkei/03.pdf",
+      "sourceSha256": "7af79a546ef78a3e3489ab15868cd0f235efa2eda791cd7a8906a29ab1573beb",
+      "sourceBytes": 57171,
+      "pages": 4,
+      "partCount": 1,
+      "markdownBytes": 5858,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 4,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-01__土木請負工事必携_銅橋製作における仮組立検査の省略について.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "okinawa/hikkei-01/part-01.md",
+          "firstPage": 1,
+          "lastPage": 4,
+          "pageCount": 4,
+          "sha256": "30934347db768a606d0d59a7eb7f066b3f8247d7b90bfbdadc6e4be4b7a2fe76",
+          "bytes": 5858
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentId": "hikkei-02",
+      "role": "companion",
+      "title": "土木請負工事必携／鋼橋付属品用鋼材(厚鋼板)の規格及び板厚の限定(案)について",
+      "landing": "https://www.ogb.go.jp/kaiken/koji/007771",
+      "sourceUrl": "https://www.ogb.go.jp/-/media/Files/OGB/Kaiken/kyoku/about/gikan/doboku_ukeoi_hikkei/04.pdf",
+      "sourceSha256": "81c2191b211f7ba40d6209dc585f30592e64c4e13ed457435db5be78e0ecd959",
+      "sourceBytes": 39013,
+      "pages": 3,
+      "partCount": 1,
+      "markdownBytes": 3251,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 3,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-02__土木請負工事必携_鋼橋付属品用鋼材(厚鋼板)の規格及び板厚の限定(案)について.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "okinawa/hikkei-02/part-01.md",
+          "firstPage": 1,
+          "lastPage": 3,
+          "pageCount": 3,
+          "sha256": "3b9477792fe76b1943be28d33750131132a7082a93879164806b65f677d2cf44",
+          "bytes": 3251
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentId": "hikkei-03",
+      "role": "companion",
+      "title": "土木請負工事必携／鋼橋用鋼材(厚鋼板)の立会の簡素化について",
+      "landing": "https://www.ogb.go.jp/kaiken/koji/007771",
+      "sourceUrl": "https://www.ogb.go.jp/-/media/Files/OGB/Kaiken/kyoku/about/gikan/doboku_ukeoi_hikkei/05.pdf",
+      "sourceSha256": "fb3a2796ccb33936455971224f4ac9770a3f9b43a9296d63e1b59339a2e7d5aa",
+      "sourceBytes": 46507,
+      "pages": 3,
+      "partCount": 1,
+      "markdownBytes": 3742,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 3,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-03__土木請負工事必携_鋼橋用鋼材(厚鋼板)の立会の簡素化について.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "okinawa/hikkei-03/part-01.md",
+          "firstPage": 1,
+          "lastPage": 3,
+          "pageCount": 3,
+          "sha256": "575dd09812345c567965e5a6d4d5f4a73b04afd33e8f2bc2f77f3009d76abae1",
+          "bytes": 3742
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentId": "hikkei-04",
+      "role": "companion",
+      "title": "土木請負工事必携／RI計器を用いた盛土の締固め管理要領(案)",
+      "landing": "https://www.ogb.go.jp/kaiken/koji/007771",
+      "sourceUrl": "https://www.ogb.go.jp/-/media/Files/OGB/Kaiken/kyoku/about/gikan/doboku_ukeoi_hikkei/06.pdf",
+      "sourceSha256": "c2b27adea50b1fee6975dd14a2e43a17fdb51cd502b0f451fae523d3524d918b",
+      "sourceBytes": 607062,
+      "pages": 29,
+      "partCount": 1,
+      "markdownBytes": 41721,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 29,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-04__土木請負工事必携_RI計器を用いた盛土の締固め管理要領(案).pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "okinawa/hikkei-04/part-01.md",
+          "firstPage": 1,
+          "lastPage": 29,
+          "pageCount": 29,
+          "sha256": "4a72a09a5500a5288b23e24abaa744310828c151ef0deb390962efba368b475c",
+          "bytes": 41721
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentId": "hikkei-05",
+      "role": "companion",
+      "title": "土木請負工事必携／土木工事品質の規格値(参考)",
+      "landing": "https://www.ogb.go.jp/kaiken/koji/007771",
+      "sourceUrl": "https://www.ogb.go.jp/-/media/Files/OGB/Kaiken/kyoku/about/gikan/doboku_ukeoi_hikkei/07.pdf",
+      "sourceSha256": "13b0c7eff60a2359ad077d60728ab1ab8ecc20c5ffc200ed33a024c51dc2893a",
+      "sourceBytes": 45876,
+      "pages": 3,
+      "partCount": 1,
+      "markdownBytes": 3831,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 3,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-05__土木請負工事必携_土木工事品質の規格値(参考).pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "okinawa/hikkei-05/part-01.md",
+          "firstPage": 1,
+          "lastPage": 3,
+          "pageCount": 3,
+          "sha256": "35dc795190cf25bfe6063e32763c51bde7b96e7afbfd4d3c370db16e7671f6d2",
+          "bytes": 3831
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentId": "hikkei-06",
+      "role": "companion",
+      "title": "土木請負工事必携／建設工事に伴う騒音振動対策技術指針",
+      "landing": "https://www.ogb.go.jp/kaiken/koji/007771",
+      "sourceUrl": "https://www.ogb.go.jp/-/media/Files/OGB/Kaiken/kyoku/about/gikan/doboku_ukeoi_hikkei/09.pdf",
+      "sourceSha256": "4cae4d457840e72db24d3d5728625b530d33c11366cb05b532d0333ab2aea142",
+      "sourceBytes": 268343,
+      "pages": 10,
+      "partCount": 1,
+      "markdownBytes": 21126,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 10,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-06__土木請負工事必携_建設工事に伴う騒音振動対策技術指針.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "okinawa/hikkei-06/part-01.md",
+          "firstPage": 1,
+          "lastPage": 10,
+          "pageCount": 10,
+          "sha256": "c438b6d325ad06f32878defdd37a3b9a84df85d85baa9e034f5a42f72863e47b",
+          "bytes": 21126
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentId": "hikkei-07",
+      "role": "companion",
+      "title": "土木請負工事必携／建設工事公衆災害防止対策要綱［令和元年9月］",
+      "landing": "https://www.ogb.go.jp/kaiken/koji/007771",
+      "sourceUrl": "https://www.ogb.go.jp/-/media/Files/OGB/Kaiken/kyoku/about/gikan/doboku_ukeoi_hikkei/R0109_kousyusaigai_bousai_youkou.pdf",
+      "sourceSha256": "2e3a61109e15dab8e7b5cb3c72becd64b3d4838e24a36660474052ef7171dc9c",
+      "sourceBytes": 350387,
+      "pages": 65,
+      "partCount": 2,
+      "markdownBytes": 114405,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-07__土木請負工事必携_建設工事公衆災害防止対策要綱[令和元年9月].pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "okinawa/hikkei-07/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "aa438c8f12e3a87bf2c7805a7016551046a0f1ac880db3bc873545545777443b",
+          "bytes": 88120
+        },
+        {
+          "slug": "part-02",
+          "file": "okinawa/hikkei-07/part-02.md",
+          "firstPage": 51,
+          "lastPage": 65,
+          "pageCount": 15,
+          "sha256": "bfb8d93dda3ded49f588f13ea3a63b2820e637a96d98ec47956d2a820c44875e",
+          "bytes": 26285
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentId": "hikkei-08",
+      "role": "companion",
+      "title": "土木請負工事必携／建設工事公衆災害防止対策要綱の解説［令和元年9月］",
+      "landing": "https://www.ogb.go.jp/kaiken/koji/007771",
+      "sourceUrl": "https://www.ogb.go.jp/-/media/Files/OGB/Kaiken/kyoku/about/gikan/doboku_ukeoi_hikkei/R0109_kousyusaigai_bousai_kaisetsu.pdf",
+      "sourceSha256": "0612a510cd91a423077513748adf3eeaf745753819def104e794ccaf487a4b6a",
+      "sourceBytes": 1115133,
+      "pages": 119,
+      "partCount": 3,
+      "markdownBytes": 427428,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-08__土木請負工事必携_建設工事公衆災害防止対策要綱の解説[令和元年9月].pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "okinawa/hikkei-08/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "85d2df659ecd9250cad4bfeb8f97bfa3c34e8c88a01a4590be3c289b900b144a",
+          "bytes": 179259
+        },
+        {
+          "slug": "part-02",
+          "file": "okinawa/hikkei-08/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "e5f733240aad82d90d881f0e2fe0ff41105fa13a648340707328eaa7ae634ed8",
+          "bytes": 179032
+        },
+        {
+          "slug": "part-03",
+          "file": "okinawa/hikkei-08/part-03.md",
+          "firstPage": 101,
+          "lastPage": 119,
+          "pageCount": 19,
+          "sha256": "35656af2de006efee7ec5b91b84e847ba16047e42400f0aa995bc174346e8cf3",
+          "bytes": 69137
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentId": "hikkei-09",
+      "role": "companion",
+      "title": "土木請負工事必携／建設副産物適正化処理推進要項",
+      "landing": "https://www.ogb.go.jp/kaiken/koji/007771",
+      "sourceUrl": "https://www.ogb.go.jp/-/media/Files/OGB/Kaiken/kyoku/about/gikan/doboku_ukeoi_hikkei/11.pdf",
+      "sourceSha256": "be6c7537cbdf6a6dd9fcb8ca1e77ad7da5918aacb8b9e048829c9cdd11ff9bc2",
+      "sourceBytes": 751037,
+      "pages": 17,
+      "partCount": 1,
+      "markdownBytes": 50672,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 17,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-09__土木請負工事必携_建設副産物適正化処理推進要項.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "okinawa/hikkei-09/part-01.md",
+          "firstPage": 1,
+          "lastPage": 17,
+          "pageCount": 17,
+          "sha256": "e262832365ce2a7361771dcbc5915c60e4e17b60594a43772187435d5ccb91fc",
+          "bytes": 50672
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentId": "hikkei-10",
+      "role": "companion",
+      "title": "土木請負工事必携／道路工事現場における標示施設等の設置基準",
+      "landing": "https://www.ogb.go.jp/kaiken/koji/007771",
+      "sourceUrl": "https://www.ogb.go.jp/-/media/Files/OGB/Kaiken/kyoku/about/gikan/doboku_ukeoi_hikkei/12.pdf",
+      "sourceSha256": "24381dc24abc8928facc9e51d5c260cd3a5bd99769722109ff13f03888fbef31",
+      "sourceBytes": 259513,
+      "pages": 11,
+      "partCount": 1,
+      "markdownBytes": 20077,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 1,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-10__土木請負工事必携_道路工事現場における標示施設等の設置基準.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "okinawa/hikkei-10/part-01.md",
+          "firstPage": 1,
+          "lastPage": 11,
+          "pageCount": 11,
+          "sha256": "790b62885558691fd0cd467daa15f47c9b249d3ff5d49f5cf19ee356b4014fdb",
+          "bytes": 20077
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentId": "hikkei-11",
+      "role": "companion",
+      "title": "土木請負工事必携／道路工事保安施設設置基準(案)",
+      "landing": "https://www.ogb.go.jp/kaiken/koji/007771",
+      "sourceUrl": "https://www.ogb.go.jp/-/media/Files/OGB/Kaiken/kyoku/about/gikan/doboku_ukeoi_hikkei/13_R0602.pdf",
+      "sourceSha256": "e55cbffdefcc21116149521497a38a47a395f7d9bf9d05335c19ddc8778b203d",
+      "sourceBytes": 2008235,
+      "pages": 20,
+      "partCount": 1,
+      "markdownBytes": 24021,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-11__土木請負工事必携_道路工事保安施設設置基準(案).pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "okinawa/hikkei-11/part-01.md",
+          "firstPage": 1,
+          "lastPage": 20,
+          "pageCount": 20,
+          "sha256": "3019c28e71789d1e04a154744133996af70984244ea7ed14a107db6f44373a7f",
+          "bytes": 24021
+        }
+      ],
+      "unreadableRanges": [],
+      "duplicateOf": "kyushu/road-safety"
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentId": "hikkei-12",
+      "role": "companion",
+      "title": "土木請負工事必携／コンクリート中の塩化物総量規制及びアルカリ骨材反応抑制対策実施要領",
+      "landing": "https://www.ogb.go.jp/kaiken/koji/007771",
+      "sourceUrl": "https://www.ogb.go.jp/-/media/Files/OGB/Kaiken/kyoku/about/gikan/doboku_ukeoi_hikkei/14.pdf",
+      "sourceSha256": "d43235a7c605c1936194f4d6f581dbab93d1ec24ae97613dc8901454a12709af",
+      "sourceBytes": 595919,
+      "pages": 22,
+      "partCount": 1,
+      "markdownBytes": 47821,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 22,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-12__土木請負工事必携_コンクリート中の塩化物総量規制及びアルカリ骨材反応抑制対策実施要領.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "okinawa/hikkei-12/part-01.md",
+          "firstPage": 1,
+          "lastPage": 22,
+          "pageCount": 22,
+          "sha256": "78d6dbf6be18b8942d7661049c3e32796cb42f2ec07e17c9263968fae1062215",
+          "bytes": 47821
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentId": "hikkei-13",
+      "role": "companion",
+      "title": "土木請負工事必携／舗装台帳作成要領について",
+      "landing": "https://www.ogb.go.jp/kaiken/koji/007771",
+      "sourceUrl": "https://www.ogb.go.jp/-/media/Files/OGB/Kaiken/kyoku/about/gikan/doboku_ukeoi_hikkei/15.pdf",
+      "sourceSha256": "4898b2354eec256a28510738a3ef991ce5212fea4d31fce2eba4a7d695f42e24",
+      "sourceBytes": 180372,
+      "pages": 10,
+      "partCount": 1,
+      "markdownBytes": 12957,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 10,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-13__土木請負工事必携_舗装台帳作成要領について.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "okinawa/hikkei-13/part-01.md",
+          "firstPage": 1,
+          "lastPage": 10,
+          "pageCount": 10,
+          "sha256": "b930ec7af6e831ce1e68824779cf828c0e5baf62aa61fc5bafc414b80a8dd09e",
+          "bytes": 12957
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentId": "hikkei-14",
+      "role": "companion",
+      "title": "土木請負工事必携／植栽維持管理台帳作成要領(案)",
+      "landing": "https://www.ogb.go.jp/kaiken/koji/007771",
+      "sourceUrl": "https://www.ogb.go.jp/-/media/Files/OGB/Kaiken/kyoku/about/gikan/doboku_ukeoi_hikkei/16.pdf",
+      "sourceSha256": "f41e3ad0a42d7e7de06bbb7feb86aa4e091c786b8a8e0e6298e2bbb8349fb990",
+      "sourceBytes": 302825,
+      "pages": 13,
+      "partCount": 1,
+      "markdownBytes": 13800,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 13,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-14__土木請負工事必携_植栽維持管理台帳作成要領(案).pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "okinawa/hikkei-14/part-01.md",
+          "firstPage": 1,
+          "lastPage": 13,
+          "pageCount": 13,
+          "sha256": "e2039506bdcd0d6f779a32c6453addcc35dd7155242f4c6410ac04bb9d2e3455",
+          "bytes": 13800
+        }
+      ],
+      "unreadableRanges": [
+        {
+          "agencyId": "okinawa",
+          "documentId": "hikkei-14",
+          "page": 5,
+          "range": "上部の管内路線図記入例内：『残地』以外の極小地名・河川名（原図の文字が潰れており個別に確定不能）",
+          "notes": "画像原本と地図拡大クロップを確認。本文、記入例表、管理記号は逐語転記。地図内の原図極小ラベルのみ具体的に未判読として残した。"
+        }
+      ]
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentId": "hikkei-15",
+      "role": "companion",
+      "title": "土木請負工事必携／植栽パトロール要領(案)",
+      "landing": "https://www.ogb.go.jp/kaiken/koji/007771",
+      "sourceUrl": "https://www.ogb.go.jp/-/media/Files/OGB/Kaiken/kyoku/about/gikan/doboku_ukeoi_hikkei/17.pdf",
+      "sourceSha256": "3698cafed8ce997d1f11971bf4263f9450931034e71d0f9ea25d9ad0e8516344",
+      "sourceBytes": 282020,
+      "pages": 13,
+      "partCount": 1,
+      "markdownBytes": 19589,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 13,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-15__土木請負工事必携_植栽パトロール要領(案).pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "okinawa/hikkei-15/part-01.md",
+          "firstPage": 1,
+          "lastPage": 13,
+          "pageCount": 13,
+          "sha256": "bc39123253da9614a8ed51042b26fc8d13f9dc237cdda532ae65742c14124995",
+          "bytes": 19589
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentId": "hikkei-16",
+      "role": "companion",
+      "title": "土木請負工事必携／建設材料の品質記録保存業務実施要領（案）［平成30年4月］",
+      "landing": "https://www.ogb.go.jp/kaiken/koji/007771",
+      "sourceUrl": "https://www.ogb.go.jp/-/media/Files/OGB/Kaiken/kyoku/about/gikan/doboku_ukeoi_hikkei/H3004_hinshitsu_hozon_youkou.pdf",
+      "sourceSha256": "6468ecc364a33c99ddca267d7fa1e70db11d2ccde2b6485b3b7b59ffd7f86699",
+      "sourceBytes": 233723,
+      "pages": 4,
+      "partCount": 1,
+      "markdownBytes": 7075,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-16__土木請負工事必携_建設材料の品質記録保存業務実施要領(案)[平成30年4月].pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "okinawa/hikkei-16/part-01.md",
+          "firstPage": 1,
+          "lastPage": 4,
+          "pageCount": 4,
+          "sha256": "588c07616e3288ec437967cfedc7c56e9b58ee47714b9accb1d8e0b7ea1ed136",
+          "bytes": 7075
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "okinawa",
+      "agencyName": "沖縄総合事務局",
+      "documentId": "hikkei-17",
+      "role": "companion",
+      "title": "土木請負工事必携／建設材料の品質記録保存業務実施要領(案)",
+      "landing": "https://www.ogb.go.jp/kaiken/koji/007771",
+      "sourceUrl": "https://www.ogb.go.jp/-/media/Files/OGB/Kaiken/kyoku/about/gikan/doboku_ukeoi_hikkei/18.pdf",
+      "sourceSha256": "d1f1b03faa573192a7766d915609d4ee33111b84b5d0f5812bea637a41383193",
+      "sourceBytes": 227889,
+      "pages": 14,
+      "partCount": 1,
+      "markdownBytes": 14104,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 14,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "hikkei-17__土木請負工事必携_建設材料の品質記録保存業務実施要領(案).pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "okinawa/hikkei-17/part-01.md",
+          "firstPage": 1,
+          "lastPage": 14,
+          "pageCount": 14,
+          "sha256": "863907dc5c5e721520a041cdff452ffdbda4dcfad744904597d62d4ca1b06d76",
+          "bytes": 14104
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "shikoku",
+      "agencyName": "四国地方整備局",
+      "documentId": "common",
+      "role": "common",
+      "title": "土木工事共通仕様書 令和8年3月",
+      "landing": "https://www.skr.mlit.go.jp/etc/kyoutuusiyousyotou/",
+      "sourceUrl": "https://www.skr.mlit.go.jp/etc/kyoutuusiyousyotou/R803_koujikyoutuusiyousyo.pdf",
+      "sourceSha256": "a9a9d38fbb6ae5a2b222c4fa3dc3ca4e0facda434e09453a093ff9c74fcc086b",
+      "sourceBytes": 3972591,
+      "pages": 660,
+      "partCount": 14,
+      "markdownBytes": 2023669,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "common__土木工事共通仕様書_令和8年3月.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "shikoku/common/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "654ef07e0983fb2896611f93a6ba43f5acbc4c7e02249e3be74b1adbbd4c6caf",
+          "bytes": 224878
+        },
+        {
+          "slug": "part-02",
+          "file": "shikoku/common/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "387389f085f39a69adbd09e9ea6ac9c9b52fb844230268fdc0ac2e2ceca1c42f",
+          "bytes": 197172
+        },
+        {
+          "slug": "part-03",
+          "file": "shikoku/common/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "4ca74889ba1fc13d4bfe476c3e573d2ddf178b7a57b621d07d1687fc116f8e92",
+          "bytes": 155177
+        },
+        {
+          "slug": "part-04",
+          "file": "shikoku/common/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "ccc1d83f9c9849127e93f7891e55dc2940d60f80e28a8311359417e037db73ea",
+          "bytes": 142871
+        },
+        {
+          "slug": "part-05",
+          "file": "shikoku/common/part-05.md",
+          "firstPage": 201,
+          "lastPage": 250,
+          "pageCount": 50,
+          "sha256": "126c6f9cb3b0a39a87137e136c65d59f92d8e476f7ce5be7c4736552fc6a1fda",
+          "bytes": 148265
+        },
+        {
+          "slug": "part-06",
+          "file": "shikoku/common/part-06.md",
+          "firstPage": 251,
+          "lastPage": 300,
+          "pageCount": 50,
+          "sha256": "3bfca6386d2d0fbdacfb2d704ea5657455666c4b9097db84bb5dcdfc6a1887b8",
+          "bytes": 167309
+        },
+        {
+          "slug": "part-07",
+          "file": "shikoku/common/part-07.md",
+          "firstPage": 301,
+          "lastPage": 350,
+          "pageCount": 50,
+          "sha256": "8bde05515a0a0acee6fcb338452d4258784e674ecdf921a6ccbc8591cb2c0ee3",
+          "bytes": 148012
+        },
+        {
+          "slug": "part-08",
+          "file": "shikoku/common/part-08.md",
+          "firstPage": 351,
+          "lastPage": 400,
+          "pageCount": 50,
+          "sha256": "2d657c7d3a68a7520d5dbb357fd17f875f24a82e9eb316f12a5cbab59b636410",
+          "bytes": 140484
+        },
+        {
+          "slug": "part-09",
+          "file": "shikoku/common/part-09.md",
+          "firstPage": 401,
+          "lastPage": 450,
+          "pageCount": 50,
+          "sha256": "f8180a8e9b31458b31189529f5f8481f15ffe8b3733a9a10ce40b1620a73b46b",
+          "bytes": 133628
+        },
+        {
+          "slug": "part-10",
+          "file": "shikoku/common/part-10.md",
+          "firstPage": 451,
+          "lastPage": 500,
+          "pageCount": 50,
+          "sha256": "ca996bf70695250413ef6672a0693a4deb4a42b031569c395bee28899cdb4284",
+          "bytes": 129308
+        },
+        {
+          "slug": "part-11",
+          "file": "shikoku/common/part-11.md",
+          "firstPage": 501,
+          "lastPage": 550,
+          "pageCount": 50,
+          "sha256": "32e2ce12d22fcad6c53dc883f838d2ecfd6455ec3fbe5cbc63752e9cdca92671",
+          "bytes": 137435
+        },
+        {
+          "slug": "part-12",
+          "file": "shikoku/common/part-12.md",
+          "firstPage": 551,
+          "lastPage": 600,
+          "pageCount": 50,
+          "sha256": "017e0953d8059cebcf5d887aa0b756e8e4f02305df1945485da33cee4d93a7bd",
+          "bytes": 137814
+        },
+        {
+          "slug": "part-13",
+          "file": "shikoku/common/part-13.md",
+          "firstPage": 601,
+          "lastPage": 650,
+          "pageCount": 50,
+          "sha256": "1187947573d00a8daf08f7257450ab1142d748de06d8bc8907cd4142f61afb29",
+          "bytes": 132917
+        },
+        {
+          "slug": "part-14",
+          "file": "shikoku/common/part-14.md",
+          "firstPage": 651,
+          "lastPage": 660,
+          "pageCount": 10,
+          "sha256": "6ac801fdb84220854258a3789ddcf24b80a7e02b766f52538da48ccf0c8ed05e",
+          "bytes": 28399
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "shikoku",
+      "agencyName": "四国地方整備局",
+      "documentId": "manual",
+      "role": "companion",
+      "title": "土木工事書類作成マニュアル",
+      "landing": "https://www.skr.mlit.go.jp/etc/kyoutuusiyousyotou/",
+      "sourceUrl": "https://www.skr.mlit.go.jp/etc/doboku_manual/doboku-manual.pdf",
+      "sourceSha256": "a2ab9ec4d5e9bcc2674892079d850bd1f4a8a8dd8ca80e49caa05f6fb605fe69",
+      "sourceBytes": 9468008,
+      "pages": 250,
+      "partCount": 5,
+      "markdownBytes": 735605,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 44,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "manual__土木工事書類作成マニュアル.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "shikoku/manual/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "ed26dd8e53b57777b8978917385793656695926677aa711281d9d9bba51ba4dc",
+          "bytes": 127260
+        },
+        {
+          "slug": "part-02",
+          "file": "shikoku/manual/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "81b19ea16e992edbaf8114f73ff85a872d7313346d25cfd308c25529c8767e0f",
+          "bytes": 229410
+        },
+        {
+          "slug": "part-03",
+          "file": "shikoku/manual/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "98ed024c263c0f36b6c232add4f733bd1a0fd732aba3f27cdb67622248e35936",
+          "bytes": 98571
+        },
+        {
+          "slug": "part-04",
+          "file": "shikoku/manual/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "13e1ebd01d7d6bfe0e94229517e279103a7ace195a20508e19b0bf58f0bff5ef",
+          "bytes": 89872
+        },
+        {
+          "slug": "part-05",
+          "file": "shikoku/manual/part-05.md",
+          "firstPage": 201,
+          "lastPage": 250,
+          "pageCount": 50,
+          "sha256": "0b5c6aa718361757df69b11655bcdf7072f4d974b92798154dc4a3aef5730801",
+          "bytes": 190492
+        }
+      ],
+      "unreadableRanges": [
+        {
+          "agencyId": "shikoku",
+          "documentId": "manual",
+          "page": 62,
+          "range": "出来形管理記録の「BOX、ピアー：良好であるが、P2～P3～P4が未確認」に続く括弧内注記は原画像で文字が重なり判読不能。",
+          "notes": "横向き記入例を正立化・部分拡大し、全行を照合。重なった括弧内注記のみ推測せず保留。"
+        }
+      ]
+    },
+    {
+      "agencyId": "tohoku",
+      "agencyName": "東北地方整備局",
+      "documentId": "common",
+      "role": "common",
+      "title": "土木工事共通仕様書 令和8年度版",
+      "landing": "https://www.thr.mlit.go.jp/bumon/b00097/k00910/kyoutuu/R8siyousho/r8siyousho.htm",
+      "sourceUrl": "https://www.thr.mlit.go.jp/bumon/b00097/k00910/kyoutuu/R8siyousho/r8/r8kyoushi.pdf",
+      "sourceSha256": "15573b820b9ed17220493050d0915256046ccb53c878ee6611dab21936ce4232",
+      "sourceBytes": 3931431,
+      "pages": 660,
+      "partCount": 14,
+      "markdownBytes": 2024240,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "common__土木工事共通仕様書_令和8年度版.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "tohoku/common/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "a962245b06d6d1fe019d134291d4583c01a4d7a6eda019cd4af5fe0082aa56f5",
+          "bytes": 224885
+        },
+        {
+          "slug": "part-02",
+          "file": "tohoku/common/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "79fc1cc9ee0596df94e0a8a6beb1fd88d30516f23f95bd60db7eaaa1ee982a40",
+          "bytes": 197174
+        },
+        {
+          "slug": "part-03",
+          "file": "tohoku/common/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "9c671c4481aa567a063bdbff3673e490cf3c3364b76cf1cf22942936b0028492",
+          "bytes": 155209
+        },
+        {
+          "slug": "part-04",
+          "file": "tohoku/common/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "f29a09323c610977124f17d5d9c9ea0974f8aa63f7d00237f780fe1de991b600",
+          "bytes": 142910
+        },
+        {
+          "slug": "part-05",
+          "file": "tohoku/common/part-05.md",
+          "firstPage": 201,
+          "lastPage": 250,
+          "pageCount": 50,
+          "sha256": "d020ead8b8feee9a9009363004d01711e05a326fa5b48b52d91b05421d0cf93c",
+          "bytes": 148255
+        },
+        {
+          "slug": "part-06",
+          "file": "tohoku/common/part-06.md",
+          "firstPage": 251,
+          "lastPage": 300,
+          "pageCount": 50,
+          "sha256": "adef7a6afe48bbb7f7bf230cc93353b6f1d69bfdab0f4c8cdce12ad42e0259d1",
+          "bytes": 167502
+        },
+        {
+          "slug": "part-07",
+          "file": "tohoku/common/part-07.md",
+          "firstPage": 301,
+          "lastPage": 350,
+          "pageCount": 50,
+          "sha256": "45dc7fcf9d81e55ecb313786f86e9874d3e19b8cb246fc6ad2bb476e7fbdfd0a",
+          "bytes": 148064
+        },
+        {
+          "slug": "part-08",
+          "file": "tohoku/common/part-08.md",
+          "firstPage": 351,
+          "lastPage": 400,
+          "pageCount": 50,
+          "sha256": "4417800a611f80f5ba52469de2c661833c65fe7b53a4b5b32899b4c608acf6e3",
+          "bytes": 140735
+        },
+        {
+          "slug": "part-09",
+          "file": "tohoku/common/part-09.md",
+          "firstPage": 401,
+          "lastPage": 450,
+          "pageCount": 50,
+          "sha256": "32df23c24a333beb3de5fc3a44d43f0ef2fc5dd8992f44ce4bdba54b2a8a797f",
+          "bytes": 133643
+        },
+        {
+          "slug": "part-10",
+          "file": "tohoku/common/part-10.md",
+          "firstPage": 451,
+          "lastPage": 500,
+          "pageCount": 50,
+          "sha256": "a15791aac8c99156700d27d80e0ba99015e51d402a4137ac3dab898f31c014c6",
+          "bytes": 129313
+        },
+        {
+          "slug": "part-11",
+          "file": "tohoku/common/part-11.md",
+          "firstPage": 501,
+          "lastPage": 550,
+          "pageCount": 50,
+          "sha256": "942990008a1384a9db8ed043966229fb9ac8cb76596c3cb39f47c8e27627e0f9",
+          "bytes": 137437
+        },
+        {
+          "slug": "part-12",
+          "file": "tohoku/common/part-12.md",
+          "firstPage": 551,
+          "lastPage": 600,
+          "pageCount": 50,
+          "sha256": "83e4291606284aa44819d337f7c8334dbfc815b602ce304f16d5b55fa2abff10",
+          "bytes": 137816
+        },
+        {
+          "slug": "part-13",
+          "file": "tohoku/common/part-13.md",
+          "firstPage": 601,
+          "lastPage": 650,
+          "pageCount": 50,
+          "sha256": "4cafb7847a365169bd2e26692e3d7e03e705a81580a2c74e2fe8211079ebb323",
+          "bytes": 132898
+        },
+        {
+          "slug": "part-14",
+          "file": "tohoku/common/part-14.md",
+          "firstPage": 651,
+          "lastPage": 660,
+          "pageCount": 10,
+          "sha256": "4d5aa174227c69882ad9509702ade836aa1f538a3f5597d09f465d905199dd22",
+          "bytes": 28399
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "tohoku",
+      "agencyName": "東北地方整備局",
+      "documentId": "reference",
+      "role": "companion",
+      "title": "土木工事共通仕様書 参考資料 令和8年度版",
+      "landing": "https://www.thr.mlit.go.jp/bumon/b00097/k00910/kyoutuu/R8siyousho/r8siyousho.htm",
+      "sourceUrl": "https://www.thr.mlit.go.jp/bumon/b00097/k00910/kyoutuu/R8siyousho/r8/r8sanko.pdf",
+      "sourceSha256": "c21a5eeed9f52dce64a6d1d2539331e54282e2217c0a2a87f24bddc523a2a51f",
+      "sourceBytes": 43884966,
+      "pages": 874,
+      "partCount": 18,
+      "markdownBytes": 1786472,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 127,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "reference__土木工事共通仕様書_参考資料_令和8年度版.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "tohoku/reference/part-01.md",
+          "firstPage": 1,
+          "lastPage": 50,
+          "pageCount": 50,
+          "sha256": "85d3f11237fa0982a288d47b1692e4463ff3f8b92b4c69b8536a5e15398bfe27",
+          "bytes": 154705
+        },
+        {
+          "slug": "part-02",
+          "file": "tohoku/reference/part-02.md",
+          "firstPage": 51,
+          "lastPage": 100,
+          "pageCount": 50,
+          "sha256": "bee0483247fd55b98ecf4d785edadc1939a66c203399bffa6c37b77b2acfb26b",
+          "bytes": 122459
+        },
+        {
+          "slug": "part-03",
+          "file": "tohoku/reference/part-03.md",
+          "firstPage": 101,
+          "lastPage": 150,
+          "pageCount": 50,
+          "sha256": "a59606df27db9b2142087f5064fd58083c2f4f2c3f81fd6dc2e0f76b2aa45af1",
+          "bytes": 150614
+        },
+        {
+          "slug": "part-04",
+          "file": "tohoku/reference/part-04.md",
+          "firstPage": 151,
+          "lastPage": 200,
+          "pageCount": 50,
+          "sha256": "2dc365466e078ad4b8e3801ef2275913e1907d33f6c8bbb0e08105fcd36ec0f5",
+          "bytes": 126253
+        },
+        {
+          "slug": "part-05",
+          "file": "tohoku/reference/part-05.md",
+          "firstPage": 201,
+          "lastPage": 250,
+          "pageCount": 50,
+          "sha256": "31a1906456214140e63622cfd100e777b78c5fc398a1f18619909542458eaf86",
+          "bytes": 103784
+        },
+        {
+          "slug": "part-06",
+          "file": "tohoku/reference/part-06.md",
+          "firstPage": 251,
+          "lastPage": 300,
+          "pageCount": 50,
+          "sha256": "7334c19da0417bb23ac2014db64293a78c62d5b0f5a6e066e1818240d8fa292e",
+          "bytes": 120456
+        },
+        {
+          "slug": "part-07",
+          "file": "tohoku/reference/part-07.md",
+          "firstPage": 301,
+          "lastPage": 350,
+          "pageCount": 50,
+          "sha256": "61ec834c21e2feeb49e8b6f4f95a60661123f90c68a311eb1d52fc40b4c8210f",
+          "bytes": 93992
+        },
+        {
+          "slug": "part-08",
+          "file": "tohoku/reference/part-08.md",
+          "firstPage": 351,
+          "lastPage": 400,
+          "pageCount": 50,
+          "sha256": "fb9dbf38b691d9e12612a37c1626fcd2ec9a700b7553c0d3780296f0dcd76796",
+          "bytes": 56188
+        },
+        {
+          "slug": "part-09",
+          "file": "tohoku/reference/part-09.md",
+          "firstPage": 401,
+          "lastPage": 450,
+          "pageCount": 50,
+          "sha256": "e7959c0275a9810b63ba6411b0c1e82811a695a0596593b925abfdaea6e867b9",
+          "bytes": 108464
+        },
+        {
+          "slug": "part-10",
+          "file": "tohoku/reference/part-10.md",
+          "firstPage": 451,
+          "lastPage": 500,
+          "pageCount": 50,
+          "sha256": "43357e0a4c111c325b3ba0936418ac3d21a1927d371c5da7104ffaf66126e8a4",
+          "bytes": 105625
+        },
+        {
+          "slug": "part-11",
+          "file": "tohoku/reference/part-11.md",
+          "firstPage": 501,
+          "lastPage": 550,
+          "pageCount": 50,
+          "sha256": "bd4ac1bdab3986e7f0544c3ae2c8615554444430ed358d125c5d7f2f7c5e3093",
+          "bytes": 89760
+        },
+        {
+          "slug": "part-12",
+          "file": "tohoku/reference/part-12.md",
+          "firstPage": 551,
+          "lastPage": 600,
+          "pageCount": 50,
+          "sha256": "e1787fe3405dbbc12f9af0fc528431199cd18aa22005b738d76bf5ed120466f2",
+          "bytes": 76630
+        },
+        {
+          "slug": "part-13",
+          "file": "tohoku/reference/part-13.md",
+          "firstPage": 601,
+          "lastPage": 650,
+          "pageCount": 50,
+          "sha256": "b278d33cb62dc6ab9a4e389eaa15d20f20adff666faa1fd27a091c9db7a0b621",
+          "bytes": 83256
+        },
+        {
+          "slug": "part-14",
+          "file": "tohoku/reference/part-14.md",
+          "firstPage": 651,
+          "lastPage": 700,
+          "pageCount": 50,
+          "sha256": "aeed15126b2b2e1f303155f3505f78714f9a80e689ed5d1b3a716d59c852bb6c",
+          "bytes": 99968
+        },
+        {
+          "slug": "part-15",
+          "file": "tohoku/reference/part-15.md",
+          "firstPage": 701,
+          "lastPage": 750,
+          "pageCount": 50,
+          "sha256": "50b78ba07baaab268d7819ee5b8a6e9c0bf8d617db5383505cb92a3aabec968f",
+          "bytes": 71607
+        },
+        {
+          "slug": "part-16",
+          "file": "tohoku/reference/part-16.md",
+          "firstPage": 751,
+          "lastPage": 800,
+          "pageCount": 50,
+          "sha256": "c930fa4c772b2d8be10692cd68869e2b2fe7ea0d6a40902011252de54a25bbce",
+          "bytes": 70356
+        },
+        {
+          "slug": "part-17",
+          "file": "tohoku/reference/part-17.md",
+          "firstPage": 801,
+          "lastPage": 850,
+          "pageCount": 50,
+          "sha256": "62335094cb51ec91dda97ef6cc7f775c16ca722be1c1f49498d2e182ed16f9e1",
+          "bytes": 108359
+        },
+        {
+          "slug": "part-18",
+          "file": "tohoku/reference/part-18.md",
+          "firstPage": 851,
+          "lastPage": 874,
+          "pageCount": 24,
+          "sha256": "2f77e7284f231e22914fc20159a190e3f9b9c80a4a4c5fff4f7962e0134f1b25",
+          "bytes": 43996
+        }
+      ],
+      "unreadableRanges": []
+    },
+    {
+      "agencyId": "tohoku",
+      "agencyName": "東北地方整備局",
+      "documentId": "special",
+      "role": "companion",
+      "title": "土木工事共通特記仕様書 令和8年4月",
+      "landing": "https://www.thr.mlit.go.jp/bumon/b00097/k00910/kyoutuu/R8siyousho/r8siyousho.htm",
+      "sourceUrl": "https://www.thr.mlit.go.jp/bumon/b00097/k00910/kyoutuu/R8siyousho/r8/R8kyou_toki.pdf",
+      "sourceSha256": "e2b9a3b045b05846729f3186d1eb62a214c88c82909d57bb6e97c607aee2857c",
+      "sourceBytes": 609809,
+      "pages": 34,
+      "partCount": 1,
+      "markdownBytes": 127502,
+      "replacementCharacters": 0,
+      "visualReviewedPages": 0,
+      "pendingVisualPages": 0,
+      "edition": null,
+      "sourceFile": "special__土木工事共通特記仕様書_令和8年4月.pdf",
+      "parts": [
+        {
+          "slug": "part-01",
+          "file": "tohoku/special/part-01.md",
+          "firstPage": 1,
+          "lastPage": 34,
+          "pageCount": 34,
+          "sha256": "1eeaa254353d58338429d5e37ab3e8b869c2ddb6a444df8f6f8310ed17006d9e",
+          "bytes": 127502
+        }
+      ],
+      "unreadableRanges": []
+    }
+  ],
+  "qa": {
+    "checks": {
+      "sourceInventoryMatched": true,
+      "pageHeadingsContinuous": true,
+      "partHashesMatched": true,
+      "replacementCharactersZero": true,
+      "visualReviewComplete": true
+    },
+    "errors": [],
+    "unreadableRanges": [
+      {
+        "agencyId": "hokkaido",
+        "documentId": "appendix",
+        "page": 17,
+        "range": "C－1型は作業車直後から50m標識列までの斜線端部で、黒点周囲の④・⑤・⑪・⑮・⑯と、50m位置の①・②・⑤の各出現順。C－2型は15°～30°斜線の上端・下端に重複表示された⑧・⑫の組がどちらの端を指すかの対応順。番号の種類は反対側の同型配置と明瞭な文字から確認済みだが、800dpi拡大でも密接位置の原画像画素が重なり一意化できない。",
+        "notes": "400dpi・800dpi画像で再照合し、C－1型に②・⑧・⑫、C－2型に②・⑤・⑭・⑱を補完した。作業車の⑧・⑫とC－2型終端の⑭は確認済み。原PDFの埋込画像は約88ppiで、密集部の出現順に限り原本自体に分離可能な画素情報がない。"
+      },
+      {
+        "agencyId": "hokkaido",
+        "documentId": "appendix",
+        "page": 18,
+        "range": "D－1型の作業車直後から50m標識列までの斜線端部で、黒点周囲の④・⑤・⑪・⑮・⑯と、50m位置の①・②・⑤の各出現順。番号の種類は反対側の同型配置で確認済みだが、800dpi拡大でも密接位置の原画像画素が重なり一意化できない。D－2型は全ラベル確定済み。",
+        "notes": "400dpi・800dpi画像で再照合し、D－1型に②・⑧・⑫、D－2型に⑫を補完し、④と読み誤っていた作業車の黄色回転灯を⑧に訂正した。D－2型は全数字と配置を確定。原PDFの埋込画像は約89ppiで、D－1型密集部の出現順に限り原本自体に分離可能な画素情報がない。"
+      },
+      {
+        "agencyId": "hokkaido",
+        "documentId": "appendix",
+        "page": 25,
+        "range": "様式7下端の2つの『電話』に続く点列・番号相当部分。400dpiでも元の埋め込み画像が低解像度で、点・丸の個数や配列を確定できない。",
+        "notes": "テキスト層はページ番号のみ。400dpi原画像で番号・記号、看板本文、主要寸法、全6注記、発注者・所属名・施工者欄まで確定した。電話欄の点列だけは元画像に解像情報がなく未確定。"
+      },
+      {
+        "agencyId": "hokkaido",
+        "documentId": "appendix",
+        "page": 28,
+        "range": "様式18最下段の発注者・施工者欄（所属名および各電話行）の微小細字。400dpiでも元の埋め込み画像が低解像度で、文字列全体を確定できない。",
+        "notes": "テキスト層はページ番号のみ。400dpi原画像で4様式の番号・記号、主要寸法、看板本文、URL・電話番号・問合せ番号のプレースホルダー、全注記を確定した。様式18最下段の発注者・施工者細字だけは元画像に解像情報がなく未確定。"
+      },
+      {
+        "agencyId": "kanto",
+        "documentId": "manual",
+        "page": 112,
+        "range": "3次元出来形ヒートマップ左下の4行×5列の極小集計凡例。原画像内の文字自体が低解像度で潰れており、項目名と一部数値の全対応を一意に判読できない。",
+        "notes": "横向き原稿を原寸と回転表示で確認。極小凡例は切り出し拡大も行ったが原画像解像度を超えて復元せず、推測せず未読範囲に記録した。"
+      },
+      {
+        "agencyId": "okinawa",
+        "documentId": "hikkei-14",
+        "page": 5,
+        "range": "上部の管内路線図記入例内：『残地』以外の極小地名・河川名（原図の文字が潰れており個別に確定不能）",
+        "notes": "画像原本と地図拡大クロップを確認。本文、記入例表、管理記号は逐語転記。地図内の原図極小ラベルのみ具体的に未判読として残した。"
+      },
+      {
+        "agencyId": "shikoku",
+        "documentId": "manual",
+        "page": 62,
+        "range": "出来形管理記録の「BOX、ピアー：良好であるが、P2～P3～P4が未確認」に続く括弧内注記は原画像で文字が重なり判読不能。",
+        "notes": "横向き記入例を正立化・部分拡大し、全行を照合。重なった括弧内注記のみ推測せず保留。"
+      }
+    ]
+  },
+  "publication": {
+    "sourceAttribution": "各文書の発行機関・原典掲載ページを文書ページに表示",
+    "derivativeNotice": "doboku-noteが検索・閲覧用にページ単位で文字起こしし、分冊・整形した二次利用物",
+    "license": "国土交通省ウェブサイト利用規約／公共データ利用規約（第1.0版）。個別の権利表示がある素材はその表示を優先",
+    "disclaimer": "正確性を保証するものではありません。契約・施工判断では発注機関が公開する最新版の原本を確認してください。"
+  }
+}

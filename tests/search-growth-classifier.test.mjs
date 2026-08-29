@@ -8,6 +8,7 @@ function sig(overrides = {}) {
     comparisonKey: "/docs/x",
     inLiveSitemap: false,
     inLocalSitemap: false,
+    localSitemapAvailable: false,
     httpStatus: 200,
     redirectTarget: null,
     redirectHops: 0,
@@ -74,6 +75,20 @@ test("published:false の下書き（isDraft）→ EXPECTED_EXCLUSION（redirect
 test("sitemap 外の意図した旧 301 → EXPECTED_EXCLUSION", () => {
   const r = classifyUrl(
     sig({ inLiveSitemap: false, httpStatus: 301, isIntentionalRedirect: true, redirectTarget: "/docs/y" }),
+  );
+  assert.equal(r.action, "EXPECTED_EXCLUSION");
+});
+
+test("URL移行前の live 旧URL / local 新URL は desired state を優先して EXPECTED_EXCLUSION", () => {
+  const r = classifyUrl(
+    sig({
+      inLiveSitemap: true,
+      inLocalSitemap: false,
+      localSitemapAvailable: true,
+      httpStatus: 301,
+      isIntentionalRedirect: true,
+      redirectTarget: "/exam/x/keywords/y",
+    }),
   );
   assert.equal(r.action, "EXPECTED_EXCLUSION");
 });

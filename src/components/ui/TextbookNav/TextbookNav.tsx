@@ -3,6 +3,7 @@
  * textbook_order でソートし、現在ページの前後を表示。
  */
 import Link from 'next/link';
+import { getPublicDocPath } from '@/lib/content-routes';
 import type { DocMeta } from '@/lib/docs';
 import { classifyDoc } from '@/lib/doc-classifier';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
@@ -33,7 +34,7 @@ export default function TextbookNav({ currentSlug, categoryArticles }: TextbookN
       <div className="grid gap-3 grid-cols-1 sm:grid-cols-2">
         {prev ? (
           <Link
-            href={`/docs/${prev.slug}`}
+            href={getPublicDocPath(prev.slug)}
             className="block rounded-card-content border border-[var(--rule-soft)] p-4 transition-colors hover:border-[var(--accent)]"
           >
             <div className="text-xs text-[var(--ink-muted)] mb-1">← 前の章</div>
@@ -44,7 +45,7 @@ export default function TextbookNav({ currentSlug, categoryArticles }: TextbookN
         )}
         {next ? (
           <Link
-            href={`/docs/${next.slug}`}
+            href={getPublicDocPath(next.slug)}
             className="block rounded-card-content border border-[var(--rule-soft)] p-4 text-right transition-colors hover:border-[var(--accent)]"
           >
             <div className="text-xs text-[var(--ink-muted)] mb-1">次の章 →</div>

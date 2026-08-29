@@ -227,7 +227,7 @@ export default function SlingTensionClient() {
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           <Link
-            href="/docs/civil-practice-sling-work-wire-rope"
+            href="/practice/sling-work-wire-rope"
             className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
           >
             <div className="font-bold text-[var(--ink)]">玉掛けとワイヤーロープの選定</div>

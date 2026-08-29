@@ -5,6 +5,7 @@ import { GetObjectCommand, ListObjectsV2Command } from '@aws-sdk/client-s3';
 import { getS3Client } from './r2-client';
 import { readLocalPost, findLocalMdxFiles } from './local-post-reader';
 import docMetaIndex from '@/config/doc-meta-index.json';
+import { rewriteLegacyDocUrls } from '@/lib/content-routes';
 
 type DocMetaIndex = {
   docs: Record<string, Omit<DocMeta, 'slug'> & { slug?: string }>;
@@ -27,7 +28,7 @@ function isMissingObjectError(error: unknown): boolean {
  * - Escapes stray { } in non-code, non-JSX-component, non-math contexts
  */
 function preprocessMDX(content: string): string {
-  const result = content
+  const result = rewriteLegacyDocUrls(content)
     .replace(/\{\/\*[\s\S]*?\*\/\}/g, '')
     .replace(/<!--[\s\S]*?-->/g, '');
 

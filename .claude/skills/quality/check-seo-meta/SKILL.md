@@ -1,7 +1,7 @@
 ---
 name: check-seo-meta
 description: >
-  build 済み out/ の全 URL（/docs/* + 静的ルート）を検査して title・description・self canonical・
+  build 済み out/ の全正規 URL（sitemap + 公開記事 + 静的ルート）を検査して title・description・self canonical・
   self og:url・robots・JSON-LD・SSR の欠落/不一致を検出する。canonical は self URL 完全一致で判定。
   検査ロジックは build 後 SEO スキャナ（scripts/lib/seo-checks.mjs）を再利用。母集合は
   doc-meta-index.json（published のみ）で、収集不足時は監査失敗にする。dev server は不要（out/ 直接検査が主経路・HTTP は --base-url）。
@@ -10,7 +10,7 @@ description: >
 
 # /check-seo-meta — SEO meta タグ・OGP・JSON-LD 監査
 
-build 済み out/ の全 URL の HTML から `<title>`, `<meta>`, `<link rel="canonical">`, `og:url`, `robots`, `<script type="application/ld+json">`, `<main>`/`<h1>`/本文 を構造化パーサ（node-html-parser）で抽出し、self canonical/og:url 一致・title 重複・欠落を検出するスキル。検査関数は build 後 SEO スキャナ（`scripts/lib/seo-checks.mjs`）と共有し、`npm run check-seo-build` と同じ判定を単一 URL 群にも適用する。
+build 済み out/ の全正規 URL の HTML から `<title>`, `<meta>`, `<link rel="canonical">`, `og:url`, `robots`, `<script type="application/ld+json">`, `<main>`/`<h1>`/本文 を構造化パーサ（node-html-parser）で抽出し、self canonical/og:url 一致・title 重複・欠落を検出するスキル。検査関数は build 後 SEO スキャナ（`scripts/lib/seo-checks.mjs`）と共有し、`npm run check-seo-build` と同じ判定を単一 URL 群にも適用する。
 
 ## 設計の真実源
 
@@ -19,7 +19,7 @@ build 済み out/ の全 URL の HTML から `<title>`, `<meta>`, `<link rel="ca
 | 項目 | 初期値 | 変更する時 |
 |---|---|---|
 | 検査対象 | build 済み `out/`（主経路） | HTTP は `--base-url https://doboku-note.com` |
-| 巡回 URL ソース | `src/config/doc-meta-index.json`（`docs` object・published/noindex で絞る）+ `include_routes` | 静的ルート追加・除外時 |
+| 巡回 URL ソース | `out/sitemap.xml` + `src/config/doc-meta-index.json`（公開URLへ解決）+ `include_routes` | 静的ルート追加・除外時 |
 | 母集合ガード | doc URL ≥ max(1000, published×0.9) | 記事総数が大きく変わった時 |
 | concurrency | 8（HTTP モードのみ） | 本番巡回で詰まったら下げる |
 | title | `doboku-note` 出現 ≤ 1（重複検出） | サイト名変更時 |
@@ -35,7 +35,7 @@ build 済み out/ の全 URL の HTML から `<title>`, `<meta>`, `<link rel="ca
 
 - **主経路は out/ 直接検査（dev server 不要）**。先に `npm run build` で out/ を生成しておく
   - HTTP 巡回が必要な場合のみ `--base-url https://doboku-note.com`（本番は Cloudflare Bot 保護で制限され得る・Issue #159）
-- **母集合ガード**: doc-meta-index.json（`published !== false && noindex !== true`）から doc URL を全収集し、
+- **母集合ガード**: doc-meta-index.json（`published !== false && noindex !== true`）から正規 doc URL を全収集し、
   収集数が published の 90%（かつ最低 1,000）を下回ると監査失敗（exit 1）。母集合不足を「違反ゼロ＝成功」と誤認しない
 - Node 20+ / node-html-parser（`seo-checks.mjs` 経由）に依存
 
@@ -94,11 +94,11 @@ npm run check-seo-meta:check -- --exit-on-violation
   },
   "results": [
     {
-      "url": "/docs/...",
+      "url": "/exam/...",
       "title": { "value": "...", "length": 45 },
       "description": { "value": "...", "length": 120 },
-      "canonical": "https://doboku-note.com/docs/...",
-      "og_url": "https://doboku-note.com/docs/...",
+      "canonical": "https://doboku-note.com/exam/...",
+      "og_url": "https://doboku-note.com/exam/...",
       "robots": "index, follow",
       "json_ld": { "count": 5 },
       "violations": []

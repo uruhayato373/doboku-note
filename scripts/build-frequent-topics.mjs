@@ -30,7 +30,12 @@ const OUT = join(ROOT, "content/site/pe-comprehensive-management/frequent-topics
 const CSV_OUT = join(ROOT, "public/data/pe-cem-frequent-topics.csv");
 const SITE_DIR = join(ROOT, "content/site/pe-comprehensive-management");
 
-const PREFIX = "pe-comprehensive-management-";
+const PUBLIC_KEYWORD_ROOT = "/exam/pe-comprehensive-management/keywords";
+const PUBLIC_KEYWORD_GUIDE = "/exam/pe-comprehensive-management/guide/keyword-2026";
+
+function publicKeywordPath(slug) {
+  return `${PUBLIC_KEYWORD_ROOT}/${slug}`;
+}
 
 // JST（会社PCのローカルTZ非依存で日付を出す。CI/ローカルどちらでも同じ結果にするため）
 // Date#getTime() は常に UTC epoch ミリ秒なので、getTimezoneOffset() で補正すると
@@ -148,7 +153,7 @@ const ranked = [...topics].sort(byFreq);
 
 // --- 3. MDX 生成 ---
 const row = (i, t) =>
-  `| ${i} | [${t.title}](/docs/pe-comprehensive-management-${t.slug}) | ${t.count} | ${t.yearsCount} | ${t.latestYear} |`;
+  `| ${i} | [${t.title}](${publicKeywordPath(t.slug)}) | ${t.count} | ${t.yearsCount} | ${t.latestYear} |`;
 
 const overallTable = [
   "| 順位 | 論点 | 出現 | 出題年度数 | 直近出題 |",
@@ -211,14 +216,14 @@ ${kanriBlocks}
 
 ## 出典と方法論
 
-- **基礎データ**: 当サイトが文字起こしした技術士総合技術監理部門 択一過去問（${yearRange}）。各設問は[総合技術監理 キーワード集 2026](/docs/pe-comprehensive-management-keyword-2026)の論点体系に沿って分類した。
+- **基礎データ**: 当サイトが文字起こしした技術士総合技術監理部門 択一過去問（${yearRange}）。各設問は[総合技術監理 キーワード集 2026](${PUBLIC_KEYWORD_GUIDE})の論点体系に沿って分類した。
 - **集計**: 論点ごとの設問紐づけ件数・出題年度を機械集計（\`scripts/build-frequent-topics.mjs\`）。新年度の過去問を追加すると自動で更新される。
 - 各論点名のリンク先は、その論点の定義・過去問・試験対策ポイントをまとめた個別解説ページである。
 - **カバー率**: キーワード集掲載 ${slugMeta.size} 論点のうち出題実績（本データの出現）を持つのは ${totalTopics}（${((totalTopics / slugMeta.size) * 100).toFixed(1)}%）。5 管理への分類率は ${((topics.filter((t) => t.kanri !== "その他").length / totalTopics) * 100).toFixed(1)}%（未分類は「その他」に計上）。
 - **全 ${totalTopics} 論点の集計データ**は [CSV でダウンロード](/data/pe-cem-frequent-topics.csv) できる（出典リンクの明記を条件に引用・転載可）。
 
 <Callout type="note" title="関連ページ">
-- [総合技術監理 キーワード集 2026](/docs/pe-comprehensive-management-keyword-2026) — 5管理600+論点の全文解説
+- [総合技術監理 キーワード集 2026](${PUBLIC_KEYWORD_GUIDE}) — 5管理600+論点の全文解説
 </Callout>
 `;
 
@@ -243,13 +248,13 @@ console.log(`  TOP5: ${ranked.slice(0, 5).map((t) => `${t.title}(${t.count})`).j
 const csvHeader = ["slug", "論点名", "5管理分類", "出現回数", "出題年度数", "直近出題年度", "出題年度リスト", "ページURL"];
 const csvRows = ranked.map((t) => {
   const dirExists = existsSync(join(SITE_DIR, t.slug));
-  const url = dirExists ? `https://doboku-note.com/docs/${PREFIX}${t.slug}` : "";
+  const url = dirExists ? `https://doboku-note.com${publicKeywordPath(t.slug)}` : "";
   return [t.slug, t.title, t.kanri, t.count, t.yearsCount, t.latestYear, t.years.join(";"), url];
 });
 const csvContent =
   "﻿" +
-  [csvHeader, ...csvRows].map((row) => row.map(csvEscape).join(",")).join("\r\n") +
-  "\r\n";
+  [csvHeader, ...csvRows].map((row) => row.map(csvEscape).join(",")).join("\n") +
+  "\n";
 mkdirSync(dirname(CSV_OUT), { recursive: true });
 writeFileSync(CSV_OUT, csvContent, "utf-8");
 console.log(`[build-frequent-topics] wrote ${CSV_OUT}（${csvRows.length} 行）`);
