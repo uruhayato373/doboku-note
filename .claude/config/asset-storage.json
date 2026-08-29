@@ -204,6 +204,46 @@
       ],
       "reason": "content/site/**/ogp.png は 1,166 件 607MB でリポジトリ git 追跡容量 1,163MB の 52% を占める。配信は既に R2 301（public/_redirects）経由で本番稼働中。R2 キーは upload-images-to-r2.mjs の `posts/${rel}` と機械的に一致するため URL は変わらない。visibility を fixed:public にするのは、現行の r2-sync.yml が published 記事かどうかを問わず全記事の ogp.png を public へ同期している現状の挙動を変えないため。",
       "phase": "site-ogp-offload"
+    },
+    {
+      "id": "coconala-asset",
+      "match": {
+        "pathRegex": "^\\.claude/config/coconala/assets/.+"
+      },
+      "bucket": "private",
+      "keyPrefix": "coconala/assets/",
+      "keyFrom": "stripPrefix:.claude/config/coconala/assets/",
+      "visibilityFrom": "fixed:private",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ],
+      "reason": "ココナラ出品自動化（Playwright）が参照する商品サムネ・背景素材。読者はローカル実体を直接参照するため git 追跡容量を圧迫するだけで公開配信には使われていない。退避してもローカルの読者コードは影響を受けない（ワークツリーの実体はそのまま残るため）",
+      "phase": "unclassified-backfill"
+    },
+    {
+      "id": "repo-archive",
+      "match": {
+        "pathRegex": "^(\\.claude/state/ocr-audit/.+|scripts/kindle-published/cover-designs/.+|content/sns/_assets/character/_source/.+)$"
+      },
+      "bucket": "private",
+      "keyPrefix": "archive/repo/",
+      "keyFrom": "repoRelative",
+      "visibilityFrom": "fixed:private",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "OCR 監査の経緯を遡って確認するとき（.claude/state/ocr-audit/）",
+        "Kindle 表紙デザイン案を再検討するとき（scripts/kindle-published/cover-designs/・DN-0151）",
+        "キャラクター素材グリッド原本から新規ポーズを切り出すとき（content/sns/_assets/character/_source/）"
+      ],
+      "reason": "性質の異なる3種の死蔵物（OCR監査ログ・Kindle表紙デザイン案・キャラ素材グリッド原本）をまとめて退避する。個別に group を作るほどの規模ではないが、いずれも『消さず退避』が適切（監査証跡・意思決定の記録として当面残す価値がある）。ローカル削除は別判断",
+      "phase": "unclassified-backfill"
     }
   ]
 }
