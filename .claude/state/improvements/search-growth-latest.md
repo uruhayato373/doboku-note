@@ -1,8 +1,8 @@
 # Search Growth 診断レポート
 
-- run: `2026-08-29T23-08-49Z` / 生成: 2026-08-29T23:08:50.421Z
+- run: `2026-08-29T23-52-08Z` / 生成: 2026-08-29T23:52:09.633Z
 - URL universe: **2477** 件（GSC UI 1982 行 ∪ URL Inspection）
-- sitemap: live=1175（source: live）/ local=1417 / _redirects=1190
+- sitemap: live=1417（source: live）/ local=1417 / _redirects=1190
 - 入力: inspection=`inspection-batch-2026-08-01T05-03-32.json` gsc-page=`gsc-page-query-2026-08-28T05-02-24.json` ga4-page=`ga4-page-2026-08-28T05-02-25.json`
 - GSC UI データ源: `ssot`（ssot=追跡SSOT・どのマシン/worktree でも再現／run-normalized=このマシンの run のみ）
 
@@ -26,12 +26,12 @@
 
 | action | 件数 | 前回比 |
 |---|--:|--:|
-| FIX_TECHNICAL | 0 | -1098 |
+| FIX_TECHNICAL | 0 | +0 |
 | REDIRECT_LEGACY | 0 | +0 |
 | KEEP_MONITOR | 4 | +0 |
 | CONSOLIDATE_CANDIDATE | 0 | +0 |
 | NOINDEX_CANDIDATE | 0 | +0 |
-| EXPECTED_EXCLUSION | 2191 | +1098 |
+| EXPECTED_EXCLUSION | 2191 | +0 |
 | UNKNOWN_REVIEW | 282 | +0 |
 
 > 自動適用は内部リンクの旧 URL 修正のみ。redirect 追加・noindex・統合・削除・deploy は approval gate で停止。
