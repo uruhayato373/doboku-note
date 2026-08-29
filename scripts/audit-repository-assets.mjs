@@ -125,6 +125,42 @@ function noteDirVisibility(imgPath) {
 }
 
 /**
+ * IG パックの公開状態は同ディレクトリ（最大 5 階層上）の status.json で決まる。
+ * いずれかのチャネル（carousel/reel）が posted なら投稿済み＝公開、判定不能・未投稿は private へ倒す。
+ * ロジックは scripts/lib/asset-storage.mjs の igPackVisibility（asset-storage.json の
+ * ig-rendered-image group が visibilityFrom: igPackStatus として使う判定）と同一。
+ */
+const igVisibilityCache = new Map();
+function igPackVisibility(imgPath) {
+  const startDir = dirname(join(ROOT, imgPath));
+  if (igVisibilityCache.has(startDir)) return igVisibilityCache.get(startDir);
+  let visibility = 'private';
+  let dir = startDir;
+  for (let i = 0; i < 5; i++) {
+    const s = join(dir, 'status.json');
+    if (existsSync(s)) {
+      try {
+        const j = JSON.parse(readFileSync(s, 'utf-8'));
+        if (j.posted === true) {
+          visibility = 'public'; // 旧形式のトップレベル
+        } else {
+          for (const v of Object.values(j)) {
+            if (!v || typeof v !== 'object') continue;
+            if (v.status === 'posted' || Boolean(v.posted_at) || Boolean(v.postedAt)) { visibility = 'public'; break; }
+          }
+        }
+      } catch { /* 壊れていたら private のまま */ }
+      break;
+    }
+    const parent = dirname(dir);
+    if (parent === dir) break;
+    dir = parent;
+  }
+  igVisibilityCache.set(startDir, visibility);
+  return visibility;
+}
+
+/**
  * 分類ルール（上から順に最初に当たったものを採用）。
  * reason は「なぜその置き場なのか」、regenFrom は再生成入力、usedBy は実際に読むコード。
  * usedBy が空配列の REGENERATE は「参照ゼロの中間生成物」＝最優先の削除候補。
@@ -151,6 +187,13 @@ const RULES = [
     visibility: (p) => noteDirVisibility(p),
   },
   {
+    id: 'note-image',
+    test: (p) => /^content\/note\//.test(p) && /\.(png|jpe?g|webp|gif)$/i.test(p),
+    bucket: 'KEEP_GIT',
+    reason: '記事本文の図版（cover*.png はすでに note-cover-png ルールで先に一致するので、ここに来るのは figure-*.png 等の本文埋め込み画像のみ）。note アップロード時に本文中へ自動アップロードされる原本（lib/note-images.mjs）。R2 台帳の対象外で Git 側が唯一の実体',
+    regenFrom: null, usedBy: ['note 本文中の画像参照（scripts/lib/note-images.mjs）'], generator: null, visibility: () => 'n/a',
+  },
+  {
     id: 'textbook-page-image',
     test: (p) => /^content\/sources\/textbook\//.test(p) && /\.(png|jpe?g|webp|tiff?)$/i.test(p),
     bucket: 'R2_PRIVATE',
@@ -164,7 +207,7 @@ const RULES = [
     id: 'note-pdf',
     test: (p) => /^content\/note\//.test(p) && /\.pdf$/i.test(p),
     bucket: 'R2_PRIVATE',
-    reason: 'note 添付・商品 PDF。「公開配布可 / 有料添付 / 原典・非公開」の再分類が要るため既定は private 側へ倒す（Phase 4-D で確定）',
+    reason: 'note 添付・商品 PDF。購入者限定の配布物を含むため既定は private 側へ倒す（asset-storage.json note-delivery-pdf group と同じ既定）。「公開配布可 / 有料添付 / 原典・非公開」の再分類は Phase 4-D で行う（未着手）',
     regenFrom: 'magazine-to-pdf の spec + article.md',
     usedBy: ['scripts/note-attach-file.mjs'],
     generator: 'scripts/magazine-to-pdf.mjs',
@@ -173,22 +216,22 @@ const RULES = [
   {
     id: 'ig-rendered-png',
     test: (p) => /^content\/sns\/instagram\//.test(p) && /\.(png|jpe?g)$/i.test(p),
-    bucket: 'REGENERATE',
-    reason: 'slide-data.json から決定論的に焼けるレンダー成果物。投稿済みパックは R2 archive、未投稿は再生成で足りる',
+    bucket: (p) => (igPackVisibility(p) === 'public' ? 'R2_PUBLIC' : 'R2_PRIVATE'),
+    reason: 'slide-data.json から決定論的に焼けるレンダー成果物。asset-storage.json の ig-rendered-image group（byVisibility・visibilityFrom: igPackStatus）で既に大半が R2 へ退避済み（1,990 件・2026-08-29 時点）。投稿済みパックの status.json は R2_PUBLIC、未投稿・判定不能パックは private へ倒す（誤って公開バケットへ置かない）',
     regenFrom: 'slide-data.json / script.json + caption.txt',
     usedBy: ['publish-ig-bs（投稿時に読む）'],
     generator: '.claude/scripts/sns/ 系レンダラ',
-    visibility: () => 'public',
+    visibility: (p) => igPackVisibility(p),
   },
   {
     id: 'sns-binary',
     test: (p) => /^content\/sns\//.test(p) && /\.(mp4|wav|mp3|mov|m4a)$/i.test(p),
-    bucket: 'R2_PRIVATE',
-    reason: '動画・音声。sns-archive-policy.md の既存 R2 退避経路（upload-sns-r2）へ寄せる',
+    bucket: 'R2_PUBLIC',
+    reason: '動画・音声。sns-archive-policy.md の既存 R2 退避経路（upload-sns-r2）で asset-storage.json の sns-archived-media group（bucket: public・投稿済みで既に公開されているため公開バケット）へ退避済み',
     regenFrom: 'script.json + wav（VOICEVOX 再合成）',
     usedBy: ['publish-ig-bs / yt upload'],
     generator: 'ig-reel-create 系',
-    visibility: () => 'private',
+    visibility: () => 'public',
   },
   {
     id: 'kindle-artifact',

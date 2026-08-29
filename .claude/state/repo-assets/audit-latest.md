@@ -1,6 +1,6 @@
 # リポジトリ資産監査（DN-0111 Phase 0）
 
-実行: 2026-08-29T01:30:50.748Z / branch `develop` / HEAD `7fed444fc7`
+実行: 2026-08-29T01:44:45.000Z / branch `develop` / HEAD `3bfe37ecde`
 
 > [!warning]
 > 3 つの容量は別の指標。**HEAD から消しても Git 履歴（pack）は減らない**。
@@ -19,14 +19,17 @@ garbage: 0 bytes / in-pack objects: 108,963
 
 | 分類 | 容量 | 件数 |
 | --- | ---: | ---: |
-| **KEEP_GIT** | 219.6 MiB | 8715 |
-| **REVIEW** | 195.4 MiB | 919 |
-| **REGENERATE** | 0.3 MiB | 7 |
+| **KEEP_GIT** | 299.1 MiB | 9049 |
+| **REVIEW** | 116 MiB | 585 |
+| **R2_PRIVATE** | 0.3 MiB | 7 |
 
-### KEEP_GIT — 219.6 MiB / 8715 files
+### KEEP_GIT — 299.1 MiB / 9049 files
 
 - **`text-ssot`** — 111.5 MiB / 7109 files
   - 理由: 原稿・設定・コードの SSOT
+- **`note-image`** — 79.4 MiB / 334 files
+  - 理由: 記事本文の図版（cover*.png はすでに note-cover-png ルールで先に一致するので、ここに来るのは figure-*.png 等の本文埋め込み画像のみ）。note アップロード時に本文中へ自動アップロードされる原本（lib/note-images.mjs）。R2 台帳の対象外で Git 側が唯一の実体
+  - 参照コード: `note 本文中の画像参照（scripts/lib/note-images.mjs）`
 - **`kindle-artifact`** — 57.3 MiB / 158 files
   - 理由: KDP 入稿成果物。scripts/kindle-dist/ 配下は R2 バックアップ済み（kindle-dist group・2026-08-29 決着）。kindle-published/・kindle-covers/ は cover-designs（P6 で repo-archive group へ退避済み）を除き未バックアップだが、いずれも git が正典で CI（check-kindle-format.mjs 等）が git 実体に依存するため untrack はしない
   - 再生成入力: content/kindle/books/**（要検証）
@@ -42,11 +45,11 @@ garbage: 0 bytes / in-pack objects: 108,963
   - 理由: レンダリング必須のフォント実体（allowlist）
   - 参照コード: `satori / OGP 生成`
 
-### REVIEW — 195.4 MiB / 919 files
+### REVIEW — 116 MiB / 585 files
 
-- **`(unmatched)`** — 147.4 MiB / 907 files
+- **`(unmatched)`** — 68 MiB / 573 files
   - 理由: どのルールにも当たらない。置き場の方針が未定義
-- **`text-ssot`** — 21.9 MiB / 5 files
+- **`text-ssot`** — 22 MiB / 5 files
   - 理由: 原稿・設定・コードの SSOT
 - **`kindle-artifact`** — 21 MiB / 6 files
   - 理由: KDP 入稿成果物。scripts/kindle-dist/ 配下は R2 バックアップ済み（kindle-dist group・2026-08-29 決着）。kindle-published/・kindle-covers/ は cover-designs（P6 で repo-archive group へ退避済み）を除き未バックアップだが、いずれも git が正典で CI（check-kindle-format.mjs 等）が git 実体に依存するため untrack はしない
@@ -57,10 +60,10 @@ garbage: 0 bytes / in-pack objects: 108,963
   - 理由: レンダリング必須のフォント実体（allowlist）
   - 参照コード: `satori / OGP 生成`
 
-### REGENERATE — 0.3 MiB / 7 files
+### R2_PRIVATE — 0.3 MiB / 7 files
 
 - **`ig-rendered-png`** — 0.3 MiB / 7 files
-  - 理由: slide-data.json から決定論的に焼けるレンダー成果物。投稿済みパックは R2 archive、未投稿は再生成で足りる
+  - 理由: slide-data.json から決定論的に焼けるレンダー成果物。asset-storage.json の ig-rendered-image group（byVisibility・visibilityFrom: igPackStatus）で既に大半が R2 へ退避済み（1,990 件・2026-08-29 時点）。投稿済みパックの status.json は R2_PUBLIC、未投稿・判定不能パックは private へ倒す（誤って公開バケットへ置かない）
   - 再生成入力: slide-data.json / script.json + caption.txt
   - 生成器: `.claude/scripts/sns/ 系レンダラ`
   - 参照コード: `publish-ig-bs（投稿時に読む）`
@@ -70,7 +73,7 @@ garbage: 0 bytes / in-pack objects: 108,963
 | 拡張子 | 容量 | 件数 |
 | --- | ---: | ---: |
 | `.png` | 170.7 MiB | 930 |
-| `.json` | 64.2 MiB | 1564 |
+| `.json` | 64.3 MiB | 1564 |
 | `.jpg` | 41.2 MiB | 72 |
 | `.epub` | 28.8 MiB | 46 |
 | `.md` | 24.5 MiB | 1928 |
