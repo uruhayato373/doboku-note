@@ -237,6 +237,11 @@ content/sns/instagram/**/reels/_combined.mp4
 content/sns/instagram/**/reels/_empty.ass
 content/sns/instagram/**/reels/concat.txt
 
+# doc-meta-index.json は全 MDX frontmatter から build-doc-meta-index.mjs が再生成する成果物。
+# 過去7日で70回commit・97.7MB の履歴肥大の主因だった（1.42MB×70版）。predev / CI 側の
+# 明示ステップで再生成する（真実源: .claude/scripts/build-doc-meta-index.mjs）。2026-08-29。
+src/config/doc-meta-index.json
+
 # quality:audit の生成レポート（baseline はコミットする・reportは生成物）
 .claude/state/quality/audit-latest.json
 .claude/state/quality/audit-latest.md

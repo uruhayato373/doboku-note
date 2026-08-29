@@ -28,7 +28,7 @@ permissions:
 jobs:
   guard:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10 # 2026-08-29: doc-meta-index生成用のnpm ci追加分の余裕（元5分）
     steps:
       - name: Checkout
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
@@ -106,6 +106,16 @@ jobs:
             --channel gsc-auto-review \
             --title "記録層の沈黙を検知（weekly-review-guard）" \
             --body-file /tmp/auto-review-body.md
+
+      # check-internal-links-vs-gsc.mjs は src/config/doc-meta-index.json を直接読む。
+      # 同ファイルは git 追跡から外した生成物（2026-08-29・履歴肥大の再発防止）で、
+      # 生成スクリプト自体は gray-matter に依存するため、ここでのみ依存インストールが要る
+      # （このジョブの他ステップは node: 標準モジュールのみで npm ci 不要）。
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps --ignore-scripts
+
+      - name: Build doc meta index
+        run: node .claude/scripts/build-doc-meta-index.mjs --ci
 
       # 決定的ゲート: 公開ページが GSC の 404/リダイレクト URL を指していたら赤。
       # これは「0 件が正常」な検査なので surfacer と違い hard fail にする。

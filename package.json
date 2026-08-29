@@ -264,7 +264,7 @@
     "pre-push:install": "node scripts/install-pre-push.mjs",
     "prebuild": "npm run check-public-bloat && npm run generate-webp && npm run update-image-refs",
     "preadmin": "node scripts/ensure-local-media.mjs",
-    "predev": "node scripts/kill-port.mjs 3020 && node scripts/kill-port.mjs 3022 && node scripts/ensure-local-media.mjs",
+    "predev": "node scripts/kill-port.mjs 3020 && node scripts/kill-port.mjs 3022 && node scripts/ensure-local-media.mjs && node .claude/scripts/build-doc-meta-index.mjs",
     "prepare": "node scripts/install-pre-commit.mjs",
     "psi-audit:check": "node .claude/scripts/psi-threshold-check.mjs",
     "quality-census": "node .claude/scripts/build-quality-census.mjs",
