@@ -1,6 +1,6 @@
 # リポジトリ資産監査（DN-0111 Phase 0）
 
-実行: 2026-08-29T01:44:45.000Z / branch `develop` / HEAD `3bfe37ecde`
+実行: 2026-08-29T06:22:49.925Z / branch `develop` / HEAD `3c61bbae78`
 
 > [!warning]
 > 3 つの容量は別の指標。**HEAD から消しても Git 履歴（pack）は減らない**。
@@ -9,7 +9,7 @@
 
 | 指標 | 値 | 意味 |
 | --- | --- | --- |
-| ワークツリー | 11.61 GiB | 作業ディレクトリの実容量（追跡外含む・.git 除く） |
+| ワークツリー | 11.27 GiB | 作業ディレクトリの実容量（追跡外含む・.git 除く） |
 | HEAD 追跡 | 0.41 GiB / 9641 files | clone 直後に checkout される量。Phase 6 の削減目標対象 |
 | Git 履歴 (pack) | 1.03 GiB | 過去 blob 込み。通常 commit では減らない（Phase 7 の別承認） |
 
@@ -19,13 +19,13 @@ garbage: 0 bytes / in-pack objects: 108,963
 
 | 分類 | 容量 | 件数 |
 | --- | ---: | ---: |
-| **KEEP_GIT** | 299.1 MiB | 9049 |
-| **REVIEW** | 116 MiB | 585 |
+| **KEEP_GIT** | 325.8 MiB | 9101 |
+| **REVIEW** | 89.2 MiB | 533 |
 | **R2_PRIVATE** | 0.3 MiB | 7 |
 
-### KEEP_GIT — 299.1 MiB / 9049 files
+### KEEP_GIT — 325.8 MiB / 9101 files
 
-- **`text-ssot`** — 111.5 MiB / 7109 files
+- **`text-ssot`** — 105.2 MiB / 7039 files
   - 理由: 原稿・設定・コードの SSOT
 - **`note-image`** — 79.4 MiB / 334 files
   - 理由: 記事本文の図版（cover*.png はすでに note-cover-png ルールで先に一致するので、ここに来るのは figure-*.png 等の本文埋め込み画像のみ）。note アップロード時に本文中へ自動アップロードされる原本（lib/note-images.mjs）。R2 台帳の対象外で Git 側が唯一の実体
@@ -38,6 +38,15 @@ garbage: 0 bytes / in-pack objects: 108,963
 - **`site-image`** — 48.2 MiB / 926 files
   - 理由: 公開記事の図版・OGP。R2 へは CI が同期するが Git 側が原本。ただし巨大 blob は個別に REVIEW へ落とす
   - 参照コード: `MDX 本文 / og:image`
+- **`public-static`** — 19.6 MiB / 49 files
+  - 理由: サイトが直接配信する静的アセットの原本。R2 ではなく Next.js のビルド入力（git-binary-policy.json allowlist で既に判定済み）
+  - 参照コード: `Next.js static assets`
+- **`ogp-background`** — 7.7 MiB / 9 files
+  - 理由: 資格別ブランド写真プール。note カバーとサイト OGP の再生成入力そのもので、これを外すと生成が不能になる（git-binary-policy.json allowlist で既に判定済み）
+  - 参照コード: `scripts/generate-note-covers.mjs` / `scripts/generate-magazine-covers.mjs` / `scripts/coconala-thumb.mjs` / `.claude/skills/conversion/ogp-create`
+- **`obsidian-env`** — 5.9 MiB / 64 files
+  - 理由: Obsidian のプラグイン・アイコン素材。制作物ではなくエディタ環境で、全 PC 共有が要る（git-binary-policy.json allowlist で既に判定済み。DN-0154 で退避可否を別途検証中）
+  - 参照コード: `Obsidian エディタ`
 - **`site-figure-svg`** — 2.3 MiB / 521 files
   - 理由: 記事図版の編集可能ベクター。原本かつ通常は小さい（Base64 raster 混入は別途 FAIL 対象）
   - 参照コード: `MDX 本文`
@@ -45,20 +54,26 @@ garbage: 0 bytes / in-pack objects: 108,963
   - 理由: レンダリング必須のフォント実体（allowlist）
   - 参照コード: `satori / OGP 生成`
 
-### REVIEW — 116 MiB / 585 files
+### REVIEW — 89.2 MiB / 533 files
 
-- **`(unmatched)`** — 68 MiB / 573 files
+- **`(unmatched)`** — 28.8 MiB / 519 files
   - 理由: どのルールにも当たらない。置き場の方針が未定義
-- **`text-ssot`** — 22 MiB / 5 files
-  - 理由: 原稿・設定・コードの SSOT
+- **`obsidian-env`** — 21.9 MiB / 4 files
+  - 理由: Obsidian のプラグイン・アイコン素材。制作物ではなくエディタ環境で、全 PC 共有が要る（git-binary-policy.json allowlist で既に判定済み。DN-0154 で退避可否を別途検証中）
+  - 参照コード: `Obsidian エディタ`
 - **`kindle-artifact`** — 21 MiB / 6 files
   - 理由: KDP 入稿成果物。scripts/kindle-dist/ 配下は R2 バックアップ済み（kindle-dist group・2026-08-29 決着）。kindle-published/・kindle-covers/ は cover-designs（P6 で repo-archive group へ退避済み）を除き未バックアップだが、いずれも git が正典で CI（check-kindle-format.mjs 等）が git 実体に依存するため untrack はしない
   - 再生成入力: content/kindle/books/**（要検証）
   - 生成器: `kindle-build`
   - 参照コード: `scripts/kdp-publish.mjs`
+- **`text-ssot`** — 10.5 MiB / 2 files
+  - 理由: 原稿・設定・コードの SSOT
 - **`font`** — 5.1 MiB / 1 files
   - 理由: レンダリング必須のフォント実体（allowlist）
   - 参照コード: `satori / OGP 生成`
+- **`public-static`** — 2.1 MiB / 1 files
+  - 理由: サイトが直接配信する静的アセットの原本。R2 ではなく Next.js のビルド入力（git-binary-policy.json allowlist で既に判定済み）
+  - 参照コード: `Next.js static assets`
 
 ### R2_PRIVATE — 0.3 MiB / 7 files
 
@@ -144,7 +159,7 @@ garbage: 0 bytes / in-pack objects: 108,963
 | 2.1 MiB | REVIEW | `public/quiz/civil-1.json` |
 | 2 MiB | REVIEW | `scripts/kindle-covers/backgrounds/a-04.png` |
 | 2 MiB | KEEP_GIT | `scripts/kindle-covers/backgrounds/a-03.png` |
-| 1.9 MiB | REVIEW | `public/logo.png` |
+| 1.9 MiB | KEEP_GIT | `public/logo.png` |
 | 1.9 MiB | KEEP_GIT | `scripts/kindle-covers/backgrounds/a-01.png` |
 | 1.8 MiB | KEEP_GIT | `src/config/exam-questions.json` |
 | 1.8 MiB | KEEP_GIT | `scripts/kindle-covers/backgrounds/a-00.png` |
@@ -152,5 +167,5 @@ garbage: 0 bytes / in-pack objects: 108,963
 | 1.8 MiB | KEEP_GIT | `scripts/kindle-dist/b-heisei.epub` |
 | 1.8 MiB | KEEP_GIT | `scripts/kindle-covers/backgrounds/a-02.png` |
 | 1.7 MiB | KEEP_GIT | `scripts/kindle-covers/backgrounds/a-06.png` |
-| 1.5 MiB | REVIEW | `public/images/civil-exam-prep/concrete-exam-viaduct-rebar-bg-right.png` |
-| 1.5 MiB | REVIEW | `public/images/civil-exam-prep/civil-exam-teacher-mascot.png` |
+| 1.5 MiB | KEEP_GIT | `public/images/civil-exam-prep/concrete-exam-viaduct-rebar-bg-right.png` |
+| 1.5 MiB | KEEP_GIT | `public/images/civil-exam-prep/civil-exam-teacher-mascot.png` |
