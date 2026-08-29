@@ -866,18 +866,6 @@ untrack するには次の2条件が要る:
 他セッションが動いていないときに行うこと（2026-08-29時点で obsidian-1e 等の並行セッションが
 複数稼働しており、このカードには一切手を付けていない）。
 
-### [DN-0156] R2退避済みファイルの再追跡を検知するゲートが無い
-タグ: [インフラ・計測] [種類:改善] [起票:2026-08-29]
-
-2026-08-29 の全ストレージ最適化P8で逆行テスト（`git add -f` で退避済みogp.pngを仮ステージ）
-を行ったところ、`check-git-binary-policy`（denyRule/sizeLimitのパターンマッチのみ）も
-`check-asset-storage`（Git追跡中を正常状態として扱う設計——kindle-distのような意図的併存
-ケースがあるため）も検知しないと判明。つまり誰かが誤って`git add -f`で退避済みファイルを
-再コミットしても、機械ゲートは止めない（.gitignoreだけが頼り）。asset-storage.jsonの
-regenerable:false かつ visibilityFrom:fixed:* な group（kindle-distのような意図的併存を除く）
-について、staged diffに「manifestへ退避済みのlogicalPathが含まれる」ケースを検出する
-新規チェックを設計する。
-
 ### [DN-0155] git履歴の次回切り詰め（.git実体1.0GBの回収）
 タグ: [インフラ・計測] [種類:改善] [起票:2026-08-29]
 
