@@ -168,6 +168,25 @@
       ],
       "reason": "公開バケットに孤児として残っていた旧配置の素材（content/ の旧記事画像 2,573 件と sns/ の消えた構造の残骸 1,146 件）。リポジトリにも posts/ にも対応が無く**唯一の実体**だったので、消す前に private へ退避して台帳に載せた（DN-0116 B）。公開バケット側は削除する。",
       "phase": "DN-0116"
+    },
+    {
+      "id": "site-ogp-png",
+      "match": {
+        "pathRegex": "^content/site/.+/ogp\\.png$"
+      },
+      "bucket": "public",
+      "keyPrefix": "posts/",
+      "keyFrom": "stripPrefix:content/site/",
+      "visibilityFrom": "fixed:public",
+      "regenerable": false,
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "reason": "content/site/**/ogp.png は 1,166 件 607MB でリポジトリ git 追跡容量 1,163MB の 52% を占める。配信は既に R2 301（public/_redirects）経由で本番稼働中。R2 キーは upload-images-to-r2.mjs の `posts/${rel}` と機械的に一致するため URL は変わらない。visibility を fixed:public にするのは、現行の r2-sync.yml が published 記事かどうかを問わず全記事の ogp.png を public へ同期している現状の挙動を変えないため。",
+      "phase": "site-ogp-offload"
     }
   ]
 }

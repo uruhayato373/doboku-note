@@ -18,15 +18,22 @@
  *      （Convention A: MDX は親に平置き・OGP は slug 子ディレクトリ）
  *   published:true / false は不問（下書きでも記事があれば正当）。「記事が全く無い」ものだけ孤児。
  *
+ * ワークツリー孤児（上記）に加え、asset-storage の manifest（group: site-ogp-png）に登録されて
+ * いるが対応する記事 MDX が無くなったエントリ（＝記事が削除されたのに退避台帳に残っている OGP）も
+ * 「manifest 孤児」として別集計で報告する。ogp.png は R2 退避対象になったため、ワークツリー走査
+ * だけでは untrack 後の孤児を検知できない。
+ *
  * Usage:
  *   node scripts/check-orphan-ogp.mjs            # 検査のみ（孤児あれば exit 1）
  *   node scripts/check-orphan-ogp.mjs --json     # 機械可読出力
- *   node scripts/check-orphan-ogp.mjs --fix      # 孤児 OGP を削除し空ディレクトリも除去（exit 0）
+ *   node scripts/check-orphan-ogp.mjs --fix      # ワークツリー孤児 OGP を削除し空ディレクトリも除去
+ *                                                 # （manifest エントリの削除はしない・退避システムの管轄）
  */
 import { writeSync } from 'node:fs';
 import fs from 'node:fs';
 import path from 'node:path';
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { loadManifest } from './lib/asset-storage.mjs';
 
 const root = process.cwd();
 const POSTS_DIR = SITE_CONTENT_ROOT;
@@ -106,49 +113,98 @@ const orphans = ogpFiles.filter((f) => {
   return !dirsWithMdx.has(dir) && !resolvedOgpDirs.has(dir);
 });
 
-if (doFix && orphans.length) {
+// manifest 孤児: asset-storage manifest（group: site-ogp-png）に登録されているが
+// 記事 MDX が無くなったディレクトリを指すエントリ。ワークツリーに実体が無くても検知できる。
+const SITE_KEY_PREFIX = 'content/site/';
+function manifestKeyToDir(key) {
+  if (!key.startsWith(SITE_KEY_PREFIX)) return null;
+  const parts = key.slice(SITE_KEY_PREFIX.length).split('/');
+  parts.pop(); // ファイル名を除く
+  return parts.length ? path.join(POSTS_DIR, ...parts) : POSTS_DIR;
+}
+const manifestEntries = loadManifest().entries || {};
+const manifestOgpKeys = Object.keys(manifestEntries).filter(
+  (key) => manifestEntries[key].group === 'site-ogp-png',
+);
+const manifestOrphans = manifestOgpKeys.filter((key) => {
+  const dir = manifestKeyToDir(key);
+  return dir && !dirsWithMdx.has(dir) && !resolvedOgpDirs.has(dir);
+});
+
+if (doFix) {
   const removedDirs = new Set();
-  for (const f of orphans) fs.rmSync(f);
-  // 孤児のみになって空になったディレクトリを掃除（上位へ辿る）。
-  for (const f of orphans) {
-    let dir = path.dirname(f);
-    while (dir.startsWith(POSTS_DIR) && dir !== POSTS_DIR) {
-      if (fs.existsSync(dir) && fs.readdirSync(dir).length === 0) {
-        fs.rmdirSync(dir);
-        removedDirs.add(dir);
-        dir = path.dirname(dir);
-      } else break;
+  if (orphans.length) {
+    for (const f of orphans) fs.rmSync(f);
+    // 孤児のみになって空になったディレクトリを掃除（上位へ辿る）。
+    for (const f of orphans) {
+      let dir = path.dirname(f);
+      while (dir.startsWith(POSTS_DIR) && dir !== POSTS_DIR) {
+        if (fs.existsSync(dir) && fs.readdirSync(dir).length === 0) {
+          fs.rmdirSync(dir);
+          removedDirs.add(dir);
+          dir = path.dirname(dir);
+        } else break;
+      }
     }
   }
   if (!asJson) {
-    console.log(`[check-orphan-ogp] --fix: 孤児 OGP ${orphans.length} ファイルを削除`);
+    console.log(`[check-orphan-ogp] --fix: ワークツリー孤児 OGP ${orphans.length} ファイルを削除`);
     orphans.forEach((f) => console.log(`  - ${rel(f)}`));
     if (removedDirs.size) {
       console.log(`  空ディレクトリ ${removedDirs.size} 件も除去`);
     }
-    console.log('  → git add で削除をステージし commit（main push で r2-sync が R2 反映）');
+    if (orphans.length) {
+      console.log('  → git add で削除をステージし commit（main push で r2-sync が R2 反映）');
+    }
+    if (manifestOrphans.length) {
+      console.log(
+        `\n[check-orphan-ogp] manifest 孤児 ${manifestOrphans.length} 件は --fix の対象外（manifest 編集は退避システムの管轄）:`,
+      );
+      manifestOrphans.forEach((k) => console.log(`  - ${k}`));
+      console.log(
+        '  → 記事を復活させないなら .claude/state/assets/manifest.json から該当エントリを手動で削除すること',
+      );
+    }
   } else {
-    writeSync(1, JSON.stringify({ fixed: orphans.map(rel), removedDirs: [...removedDirs].map(rel) }, null, 2) + '\n');
+    writeSync(
+      1,
+      JSON.stringify(
+        { fixed: orphans.map(rel), removedDirs: [...removedDirs].map(rel), manifestOrphansUnfixed: manifestOrphans },
+        null,
+        2,
+      ) + '\n',
+    );
   }
   process.exit(0);
 }
 
 if (asJson) {
-  console.log(JSON.stringify({ scanned: ogpFiles.length, orphans: orphans.map(rel) }, null, 2));
+  console.log(JSON.stringify({ scanned: ogpFiles.length, orphans: orphans.map(rel), manifestOrphans }, null, 2));
 } else {
   console.log(`[check-orphan-ogp] OGP ${ogpFiles.length} ファイルを検査（記事 ${mdxFiles.length} 本）`);
+  console.log(`  ワークツリー孤児 ${orphans.length} 件 / manifest孤児 ${manifestOrphans.length} 件`);
 }
 
-if (orphans.length) {
+if (orphans.length || manifestOrphans.length) {
   if (!asJson) {
-    console.error(`\n[NG] 記事 MDX の無い孤児 OGP: ${orphans.length} ファイル`);
-    orphans.forEach((f) => console.error(`  - ${rel(f)}`));
-    console.error(
-      '\n対応: 記事を書く予定が無ければ `npm run check-orphan-ogp -- --fix` で削除して commit。',
-    );
-    console.error('（記事を復活させる場合は MDX を配置し `npm run ogp -- <slug> --force` で再生成）');
+    if (orphans.length) {
+      console.error(`\n[NG] 記事 MDX の無い孤児 OGP（ワークツリー）: ${orphans.length} ファイル`);
+      orphans.forEach((f) => console.error(`  - ${rel(f)}`));
+      console.error(
+        '\n対応: 記事を書く予定が無ければ `npm run check-orphan-ogp -- --fix` で削除して commit。',
+      );
+      console.error('（記事を復活させる場合は MDX を配置し `npm run ogp -- <slug> --force` で再生成）');
+    }
+    if (manifestOrphans.length) {
+      console.error(`\n[NG] 記事 MDX の無い孤児 OGP（manifest 登録のみ）: ${manifestOrphans.length} 件`);
+      manifestOrphans.forEach((k) => console.error(`  - ${k}`));
+      console.error(
+        '\n対応: .claude/state/assets/manifest.json から該当エントリを手動で削除する'
+        + '（本スクリプトの --fix はワークツリーのみが対象で manifest は自動修正しない）。',
+      );
+    }
   }
   process.exit(1);
 }
 
-if (!asJson) console.log('[OK] 孤児 OGP なし');
+if (!asJson) console.log('[OK] 孤児 OGP なし（ワークツリー・manifest とも）');

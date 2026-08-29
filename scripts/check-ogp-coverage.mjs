@@ -16,11 +16,18 @@
  * 変則レイアウト（例: pe-construction-guide-required-essay/article.mdx → category=pe-construction）
  * も slug 解決で正しく `pe-construction/guide-required-essay/ogp.png` を指す。
  *
+ * カバー判定はワークツリー実体だけでなく asset-storage の manifest（group: site-ogp-png）も見る。
+ * ogp.png は R2 退避対象なので、untrack 後はワークツリーに実体が無くても manifest 登録があれば
+ * 「カバーされている」とみなす。出力には「検査ゼロを PASS と呼ばない」原則
+ * （CLAUDE.md §9）に沿って、ローカル実体で確認できた件数と manifest のみで確認できた件数の
+ * 内訳を必ず表示する。
+ *
  * Usage: node scripts/check-ogp-coverage.mjs [--json]
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { loadManifest } from './lib/asset-storage.mjs';
 
 const root = process.cwd();
 const POSTS_DIR = SITE_CONTENT_ROOT;
@@ -68,10 +75,21 @@ if (!fs.existsSync(POSTS_DIR)) {
   process.exit(2);
 }
 
+const manifestEntries = loadManifest().entries || {};
+
+/** ogp.png の絶対パス → manifest の site-ogp-png group エントリで登録されているか。 */
+function isCoveredByManifest(ogpAbsPath) {
+  const key = path.relative(root, ogpAbsPath).split(path.sep).join('/');
+  const entry = manifestEntries[key];
+  return Boolean(entry && entry.group === 'site-ogp-png');
+}
+
 const mdxFiles = findMdx(POSTS_DIR);
 const missing = [];
 const unknownCat = [];
 let checked = 0;
+let localCount = 0;
+let manifestOnlyCount = 0;
 
 for (const f of mdxFiles) {
   if (!isPublished(f.full)) continue;
@@ -82,13 +100,22 @@ for (const f of mdxFiles) {
     unknownCat.push(slug);
     continue;
   }
-  if (!fs.existsSync(ogp)) missing.push({ slug, ogp: path.relative(root, ogp).split(path.sep).join('/') });
+  if (fs.existsSync(ogp)) {
+    localCount++;
+  } else if (isCoveredByManifest(ogp)) {
+    manifestOnlyCount++;
+  } else {
+    missing.push({ slug, ogp: path.relative(root, ogp).split(path.sep).join('/') });
+  }
 }
 
 if (asJson) {
-  console.log(JSON.stringify({ checked, missing, unknownCat }, null, 2));
+  console.log(JSON.stringify({ checked, localCount, manifestOnlyCount, missing, unknownCat }, null, 2));
 } else {
   console.log(`[check-ogp-coverage] published:true ${checked} 件を検査`);
+  console.log(
+    `  カバー確認: ローカル実体 ${localCount} 件 / manifest登録のみ ${manifestOnlyCount} 件 / 未カバー ${missing.length} 件`,
+  );
   if (unknownCat.length) {
     console.log(`  警告: categories.json 未登録で OGP 解決不可 ${unknownCat.length} 件:`);
     unknownCat.forEach((s) => console.log(`    - ${s}`));

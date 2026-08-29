@@ -142,6 +142,16 @@ node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs --all --debug-w
 
 気に入らないページは `frontmatter.ogp.title` で上書きする（下記参照）。
 
+### ケース5: 生成後の R2 退避
+
+`ogp.png` は `r2-sync.yml` の自動同期対象ではないため、生成しただけでは R2 に反映されない。
+
+```bash
+node scripts/asset-offload.mjs --group site-ogp-png --commit
+```
+
+未退避は `npm run check-asset-storage`（`quality:audit` に同梱）が検出するが、検出は事後になるため、生成直後に手動実行するのが望ましい。
+
 ## frontmatter でのオーバーライド
 
 ```yaml
