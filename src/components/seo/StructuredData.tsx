@@ -3,6 +3,8 @@ import type { DocMeta } from "@/lib/docs";
 
 import categoriesData from "@/config/categories.json";
 import { AUTHOR } from "@/config/author";
+import { getCategoryHubPath } from '@/lib/categories';
+import { getPublicDocPath } from '@/lib/content-routes';
 
 interface StructuredDataProps {
   type: "article" | "website" | "organization";
@@ -37,7 +39,7 @@ function generateBreadcrumbSchema(
       "@type": "ListItem",
       position: 2,
       name: getCategoryLabelForSchema(category),
-      item: `${baseUrl}/category/${category}`,
+      item: `${baseUrl}${getCategoryHubPath(category)}`,
     });
   }
 
@@ -59,7 +61,7 @@ function isKeywordPage(meta: DocMeta | PostData): boolean {
 }
 
 function generateDefinedTermSchema(meta: DocMeta | PostData, baseUrl: string) {
-  const slug = "id" in meta ? meta.id : meta.slug;
+  const slug = String("id" in meta ? meta.id : meta.slug);
   const category = meta.category;
 
   return {
@@ -67,7 +69,7 @@ function generateDefinedTermSchema(meta: DocMeta | PostData, baseUrl: string) {
     "@type": "DefinedTerm",
     name: meta.title,
     description: meta.description || meta.title,
-    url: `${baseUrl}/docs/${slug}`,
+    url: `${baseUrl}${getPublicDocPath(slug)}`,
     inDefinedTermSet: {
       "@type": "DefinedTermSet",
       name: category === "pe-comprehensive-management"
@@ -78,8 +80,8 @@ function generateDefinedTermSchema(meta: DocMeta | PostData, baseUrl: string) {
             ? "2級土木施工管理技士 キーワード集"
             : "土木系資格試験 キーワード集",
       url: category === "pe-comprehensive-management"
-        ? `${baseUrl}/docs/pe-comprehensive-management-keyword-2026`
-        : `${baseUrl}/category/${category}`,
+        ? `${baseUrl}${getPublicDocPath('pe-comprehensive-management-keyword-2026')}`
+        : `${baseUrl}${getCategoryHubPath(category || 'uncategorized')}`,
     },
     inLanguage: "ja-JP",
   };
@@ -140,7 +142,7 @@ function generateFAQSchema(faqs: FAQEntry[]) {
 }
 
 function generateQuizSchema(meta: DocMeta | PostData, baseUrl: string) {
-  const slug = "id" in meta ? meta.id : meta.slug;
+  const slug = String("id" in meta ? meta.id : meta.slug);
   return {
     "@context": "https://schema.org",
     "@type": "Quiz",
@@ -155,7 +157,7 @@ function generateQuizSchema(meta: DocMeta | PostData, baseUrl: string) {
       "@type": "Organization",
       name: "doboku-note",
     },
-    url: `${baseUrl}/docs/${slug}`,
+    url: `${baseUrl}${getPublicDocPath(slug)}`,
     learningResourceType: "Practice",
   };
 }
@@ -187,7 +189,7 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
             dateModified: post.date,
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": `${baseUrl}/docs/${post.id}`,
+              "@id": `${baseUrl}${getPublicDocPath(post.id)}`,
             },
             articleSection: post.category,
             keywords: post.tags?.join(", "),
@@ -226,7 +228,7 @@ export default function StructuredData({ type, post, docMeta }: StructuredDataPr
               undefined,
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": `${baseUrl}/docs/${docMeta.slug}`,
+              "@id": `${baseUrl}${getPublicDocPath(docMeta.slug)}`,
             },
             articleSection: docMeta.category,
             keywords: docMeta.tags?.join(", "),

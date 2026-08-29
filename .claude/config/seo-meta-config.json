@@ -7,12 +7,15 @@
   "include_routes": [
     "/",
     "/about",
-    "/category/civil-construction-1",
-    "/category/pe-comprehensive-management",
-    "/category/reference-materials",
     "/contact",
+    "/exam",
+    "/exam/civil-construction-1",
+    "/exam/pe-comprehensive-management",
+    "/practice",
     "/privacy",
+    "/standards",
     "/terms",
+    "/topics",
     "/search"
   ],
   "concurrency": 8,

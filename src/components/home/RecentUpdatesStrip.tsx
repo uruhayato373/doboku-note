@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { getPublicDocPath } from '@/lib/content-routes';
 import { ArrowRight } from 'lucide-react';
 import type { LatestArticle } from './LatestArticles';
 
@@ -38,7 +39,7 @@ export default function RecentUpdatesStrip({ articles }: { articles: LatestArtic
             return (
               <li key={article.slug} className="min-w-0">
                 <Link
-                  href={`/docs/${article.slug}`}
+                  href={getPublicDocPath(article.slug)}
                   className="focus-ring group flex min-h-11 items-center gap-2 rounded-card-inline px-2 transition-colors hover:bg-[var(--accent-fill)]"
                 >
                   {date && (

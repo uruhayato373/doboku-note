@@ -350,7 +350,7 @@ exams: ["civil-construction-1", "pe-comprehensive-management"]
 - **数式**: KaTeX 一択（他のレンダラを混在させない）
 - **図表**: SVG（模式図・フロー）/ PNG（写真・複雑なイラスト）。フロー/タイムライン/PDCA は `<Timeline>` `<PdcaCycle>` コンポーネントも利用可
 - **画像配信**: R2 経由 `/posts/{slug}/img/` パスで参照
-- **URL**: フラット `/docs/{slug}` 設計
+- **URL**: 公開先は検索意図別（試験 `/exam/`、実務 `/practice/`、公的資料 `/standards/`、横断ハブ `/topics/`）。原稿の論理 slug は従来どおり保持し、`src/lib/content-routes.ts` が正規 URL へ変換する
 - **見出し階層**: H1 = ページタイトル、H2-H4 = 本文構造、H1 を本文中に複数置かない
 - **絵文字禁止**: 装飾絵文字（❌✅💡🔑📌⚠️ 等）は本文に使わない（Callout の type で表現する）
 - **MDX 書き込み**: `.claude/scripts/lib/mdx-io.mjs` の `readMdxFile` / `writeMdxFile` 経由で改行コード保持

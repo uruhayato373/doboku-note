@@ -452,7 +452,7 @@ function FunnelLinks() {
           <div className="text-sm text-[var(--ink-body)] mt-1">頻出論点を出る順で総まとめ。直前の得点源に</div>
         </a>
         <Link
-          href="/docs/civil-construction-1-primary-r07-a"
+          href="/exam/civil-construction-1/primary/r07-a"
           className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
         >
           <div className="font-bold text-[var(--ink)]">令和7年度 問題A 全解説</div>

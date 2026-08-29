@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import ThemeToggle from "../ui/ThemeToggle/ThemeToggle";
 import categoriesData from "@/config/categories.json";
-import { CategoryDef } from "@/lib/categories";
+import { CategoryDef, getCategoryHubPath } from "@/lib/categories";
 
 const categories = (categoriesData as CategoryDef[]).filter(c => c.visible !== false);
 
@@ -258,7 +258,7 @@ export default function Header() {
                           </div>
                         )}
                         <Link
-                          href={`/category/${cat.slug}`}
+                          href={getCategoryHubPath(cat.slug)}
                           onClick={closeCategoryDropdown}
                           className="focus-ring flex items-center gap-3 px-4 py-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] transition-colors"
                         >
@@ -270,6 +270,14 @@ export default function Header() {
                   </div>
                 )}
               </div>
+
+              <Link
+                href="/standards"
+                className="focus-ring flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
+              >
+                <BookOpen className="w-5 h-5" />
+                <span className="text-[11px] font-medium">基準類</span>
+              </Link>
 
               <Link
                 href="/links"
@@ -349,7 +357,7 @@ export default function Header() {
                   </div>
                 )}
                 <Link
-                  href={`/category/${cat.slug}`}
+                  href={getCategoryHubPath(cat.slug)}
                   onClick={closeMenu}
                   className="focus-ring flex min-h-11 items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
                 >
@@ -358,6 +366,24 @@ export default function Header() {
                 </Link>
               </div>
             ))}
+
+            <Link
+              href="/standards"
+              onClick={closeMenu}
+              className="focus-ring flex min-h-11 items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+            >
+              <BookOpen className="w-5 h-5" />
+              <span className="font-medium">基準類・仕様書</span>
+            </Link>
+
+            <Link
+              href="/topics"
+              onClick={closeMenu}
+              className="focus-ring flex min-h-11 items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+            >
+              <Layers className="w-5 h-5" />
+              <span className="font-medium">テーマから探す</span>
+            </Link>
 
             {/* 教材（/links）リンク */}
             <Link

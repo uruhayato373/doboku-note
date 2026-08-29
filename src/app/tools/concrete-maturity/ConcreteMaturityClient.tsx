@@ -162,7 +162,7 @@ export default function ConcreteMaturityClient() {
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           <Link
-            href="/docs/civil-practice-formwork-removal-timing"
+            href="/practice/formwork-removal-timing"
             className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
           >
             <div className="font-bold text-[var(--ink)]">型枠・支保工はいつ外せるか</div>

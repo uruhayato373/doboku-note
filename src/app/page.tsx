@@ -7,6 +7,8 @@ import { getOgpImageUrl } from "@/lib/r2-image-loader";
 import { buildExamCards } from "@/lib/home-exam-cards";
 import categoriesData from "@/config/categories.json";
 import { CategoryDef } from "@/lib/categories";
+import Link from 'next/link';
+import SectionBlock from '@/components/layout/SectionBlock';
 
 const categories = categoriesData as CategoryDef[];
 
@@ -67,6 +69,40 @@ export default async function HomePage() {
       <Hero />
       <RecentUpdatesStrip articles={latest.slice(0, 2)} />
       <ExamCards exams={exams} />
+      <SectionBlock space="sm" ariaLabel="実務と基準資料">
+        <div className="grid gap-4 md:grid-cols-3">
+          {[
+            {
+              href: '/practice',
+              label: 'PRACTICE',
+              title: '土木施工の実務',
+              description: '現場で迷いやすい管理値・計画・安全判断を、公的根拠とともに確認',
+            },
+            {
+              href: '/standards',
+              label: 'STANDARDS',
+              title: '共通仕様書・工事必携',
+              description: '全国10機関・72文書・11,109ページの全文文字起こしライブラリ',
+            },
+            {
+              href: '/topics',
+              label: 'TOPICS',
+              title: 'テーマから横断検索',
+              description: '試験・実務・基準資料を、コンクリートや安全管理などのテーマで接続',
+            },
+          ].map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="focus-ring card-interactive border border-[var(--rule-soft)] bg-[var(--paper)] p-5 transition-[border-color,box-shadow] hover:border-[var(--accent)]"
+            >
+              <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--accent)]">{item.label}</div>
+              <h2 className="mt-2 font-serif text-xl font-bold text-[var(--ink)]">{item.title}</h2>
+              <p className="mt-2 text-[13px] leading-[1.75] text-[var(--ink-muted)]">{item.description}</p>
+            </Link>
+          ))}
+        </div>
+      </SectionBlock>
       <LatestArticles articles={latest} />
       <AboutSection />
       {/* note 有料教材ハブへの導線（複数資格横断のトップは単一商品でなく /links 集約へ）。

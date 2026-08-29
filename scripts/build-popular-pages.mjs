@@ -4,7 +4,8 @@
  *
  * 最新の GA4 ページ別スナップショット（.claude/state/metrics/ga4/ga4-page-*.json、
  * CI が `npm run fetch-ga4-data -- --dimension page` で取得・コミット）を読み、
- * /docs/{slug} の記事を activeUsers 降順に並べた `src/config/popular-pages.json` を生成する。
+ * 正規公開 URL（および移行期間中の旧 /docs URL）の記事を activeUsers 降順に並べた
+ * `src/config/popular-pages.json` を生成する。
  *
  * 用途: カテゴリ hub の「よく読まれている記事」特集＋サイドバー人気ランキング。
  * 設計方針: app は .claude/state（zone C 機械データ）を直接読まず、ビルド時に distill した
@@ -14,6 +15,7 @@
  */
 import { readFileSync, writeFileSync, readdirSync } from 'node:fs';
 import { join, basename } from 'node:path';
+import { slugFromKey } from './lib/url-normalization.mjs';
 
 const GA4_DIR = join(process.cwd(), '.claude', 'state', 'metrics', 'ga4');
 const OUT = join(process.cwd(), 'src', 'config', 'popular-pages.json');
@@ -52,13 +54,12 @@ function build() {
 
   const rows = Array.isArray(data.rows) ? data.rows : [];
   const pages = rows
-    .filter((r) => typeof r.page === 'string' && r.page.startsWith('/docs/'))
     .map((r) => ({
-      slug: r.page.replace(/^\/docs\//, '').replace(/\/$/, ''),
+      slug: typeof r.page === 'string' ? slugFromKey(r.page) : null,
       activeUsers: Math.round(Number(r.activeUsers) || 0),
       sessions: Math.round(Number(r.sessions) || 0),
     }))
-    .filter((p) => p.slug.length > 0)
+    .filter((p) => typeof p.slug === 'string' && p.slug.length > 0)
     .sort((a, b) => b.activeUsers - a.activeUsers);
 
   const out = {
@@ -68,7 +69,7 @@ function build() {
   };
 
   writeFileSync(OUT, JSON.stringify(out, null, 2) + '\n');
-  console.log(`[build-popular-pages] ${pages.length} 件の /docs ページを ${out.generatedFrom} から生成`);
+  console.log(`[build-popular-pages] ${pages.length} 件の公開記事を ${out.generatedFrom} から生成`);
 }
 
 build();

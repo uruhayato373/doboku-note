@@ -8,7 +8,9 @@
  * JSON-LD / SSR を検査する。canonical は「ドメイン接頭辞」ではなく self URL 完全一致で判定。
  *
  * 母集合: doc-meta-index.json（現行 { docs: { slug: meta } } 形式）から
- * published !== false かつ noindex !== true の記事を全収集（+ include_routes）。
+ * published !== false かつ noindex !== true の記事を全収集し、旧 slug は
+ * public/_redirects の生成ブロックで正規 URL へ解決する。build 済み sitemap.xml の
+ * URL も加え、公的仕様書・トピック・静的ハブを含む全 indexable ページを検査する。
  * 収集 doc URL が published の 90%（かつ最低 1,000）を下回る場合は監査失敗にする
  * （母集合不足を「違反ゼロ＝成功」と誤認しない）。
  *
@@ -57,9 +59,37 @@ function parseArgs() {
 
 // ── URL 収集（現行 doc-meta-index 形式に対応） ──
 
-function collectUrls(config) {
+function loadCanonicalDocPaths() {
+  const map = new Map();
+  const path = "public/_redirects";
+  if (!existsSync(path)) return map;
+  let managed = false;
+  for (const raw of readFileSync(path, "utf8").split("\n")) {
+    const line = raw.trim();
+    if (line === "# BEGIN GENERATED PUBLIC ROUTES") { managed = true; continue; }
+    if (line === "# END GENERATED PUBLIC ROUTES") break;
+    if (!managed || !line || line.startsWith("#")) continue;
+    const match = line.match(/^\/docs\/([^/*\s]+)\s+(\/\S+)\s+301$/);
+    if (match) map.set(match[1], match[2]);
+  }
+  return map;
+}
+
+function loadSitemapPaths(outDir = "out") {
+  const path = join(outDir, "sitemap.xml");
+  if (!existsSync(path)) return [];
+  const urls = [];
+  const re = /<loc>https?:\/\/[^/]+([^<]*)<\/loc>/g;
+  let match;
+  const xml = readFileSync(path, "utf8");
+  while ((match = re.exec(xml))) urls.push(match[1] || "/");
+  return urls;
+}
+
+function collectUrls(config, outDir) {
   const includeRoutes = config.include_routes || [];
   const idxPath = config.url_source || "src/config/doc-meta-index.json";
+  const canonicalDocPaths = loadCanonicalDocPaths();
   const docUrls = [];
   let publishedCount = 0;
   if (existsSync(idxPath)) {
@@ -69,11 +99,12 @@ function collectUrls(config) {
     for (const [slug, meta] of Object.entries(docs)) {
       if (meta?.published === false) continue;
       if (meta?.noindex === true) continue;
-      docUrls.push(`/docs/${slug}`);
+      docUrls.push(canonicalDocPaths.get(slug) || `/docs/${slug}`);
     }
   }
   // include_routes は静的ルート。doc URL とは分けて母集合ガードの対象は doc URL 数にする。
-  const all = Array.from(new Set([...includeRoutes, ...docUrls])).sort();
+  const sitemapRoutes = loadSitemapPaths(outDir);
+  const all = Array.from(new Set([...includeRoutes, ...docUrls, ...sitemapRoutes])).sort();
   return { urls: all, docUrlCount: docUrls.length, publishedCount, includeRoutes: new Set(includeRoutes) };
 }
 
@@ -142,7 +173,7 @@ async function main() {
   const httpMode = Boolean(opts.baseUrl);
   const outDir = resolve(process.cwd(), opts.out);
 
-  const { urls: allUrls, docUrlCount, publishedCount, includeRoutes } = collectUrls(config);
+  const { urls: allUrls, docUrlCount, publishedCount, includeRoutes } = collectUrls(config, opts.out);
   let urls = allUrls;
   if (opts.limit) urls = urls.slice(0, opts.limit);
 

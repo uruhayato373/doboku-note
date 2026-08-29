@@ -1,11 +1,11 @@
 import Link from "next/link";
+import { getTopicPathForTag } from '@/lib/topics';
 
 interface MetaRowProps {
   tags?: string[] | undefined;
   readMinutes?: number | undefined;
   publishedAt?: string | undefined;
   updatedAt?: string | undefined;
-  category?: string | undefined;
   /**
    * "footer" (default): タグ pill + 日付 + 読了。本文末尾に border-top で配置
    * "byline": 日付 + 読了のみ（タグ非表示）。タイトル直下に border-bottom で配置
@@ -25,7 +25,6 @@ export default function MetaRow({
   readMinutes,
   publishedAt,
   updatedAt,
-  category,
   variant = "footer",
 }: MetaRowProps) {
   const updated = formatDate(updatedAt);
@@ -57,7 +56,7 @@ export default function MetaRow({
           {visibleTags.map((tag) => (
             <Link
               key={tag}
-              href={category ? `/category/${category}?tag=${encodeURIComponent(tag)}` : `/search?q=${encodeURIComponent(tag)}`}
+              href={getTopicPathForTag(tag) ?? `/search?q=${encodeURIComponent(tag)}`}
               className="font-mono text-[11px] text-[var(--accent)] bg-[var(--accent-fill)] hover:bg-[var(--accent)] hover:text-white px-2.5 py-0.5 rounded-full transition-colors"
             >
               #{tag}

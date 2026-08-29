@@ -16,10 +16,10 @@ const OUT_DIR = 'out';
 const POSTS_DIR = SITE_CONTENT_ROOT;
 const REDIRECTS_FILE = join('public', '_redirects');
 
-// _redirects から 301 ソース側の /docs/{slug} を抽出（generate-sitemap.mjs と同じロジック）
-function parseRedirectedDocSlugs() {
-  const excluded = new Set();
-  if (!existsSync(REDIRECTS_FILE)) return excluded;
+// _redirects の generated route map を sitemap と共有する。
+function parseDocRoutes() {
+  const routes = new Map();
+  if (!existsSync(REDIRECTS_FILE)) return routes;
   const content = readFileSync(REDIRECTS_FILE, 'utf8');
   for (const rawLine of content.split('\n')) {
     const line = rawLine.trim();
@@ -27,10 +27,11 @@ function parseRedirectedDocSlugs() {
     const parts = line.split(/\s+/);
     if (parts.length < 2) continue;
     const from = parts[0];
+    const to = parts[1];
     const m = from.match(/^\/docs\/([^/*]+)$/);
-    if (m) excluded.add(m[1]);
+    if (m && to.startsWith('/')) routes.set(m[1], to);
   }
-  return excluded;
+  return routes;
 }
 
 // 2026-08-22: frontmatter を一次にした（git は欠けているときだけの保険）。
@@ -110,10 +111,10 @@ function toIso8601(date) {
   return date.toISOString();
 }
 
-function buildRss(items, lastBuildDate) {
+function buildRss(items, lastBuildDate, routes) {
   const itemsXml = items
     .map((it) => {
-      const url = `${SITE_URL}/docs/${it.slug}`;
+      const url = `${SITE_URL}${routes.get(it.slug) ?? `/docs/${it.slug}`}`;
       const categoryXml = it.tags.map((t) => `    <category>${escapeXml(t)}</category>`).join('\n');
       return `  <item>
     <title>${escapeXml(it.title)}</title>
@@ -141,10 +142,10 @@ ${itemsXml}
 `;
 }
 
-function buildAtom(items, lastBuildDate) {
+function buildAtom(items, lastBuildDate, routes) {
   const entriesXml = items
     .map((it) => {
-      const url = `${SITE_URL}/docs/${it.slug}`;
+      const url = `${SITE_URL}${routes.get(it.slug) ?? `/docs/${it.slug}`}`;
       const categoryXml = it.tags
         .map((t) => `    <category term="${escapeXml(t)}" />`)
         .join('\n');
@@ -181,7 +182,7 @@ ${entriesXml}
 
 if (!existsSync(OUT_DIR)) mkdirSync(OUT_DIR, { recursive: true });
 
-const excludedSlugs = parseRedirectedDocSlugs();
+const docRoutes = parseDocRoutes();
 
 // git は frontmatter に日付が無いときだけの保険。呼ばれなければ履歴に触れない。
 let _gitDates = null;
@@ -195,7 +196,7 @@ const gitDatesLazy = () => {
   return _gitDates;
 };
 
-const allDocs = walkMdxFiles(POSTS_DIR, gitDatesLazy).filter((d) => !excludedSlugs.has(d.slug));
+const allDocs = walkMdxFiles(POSTS_DIR, gitDatesLazy);
 console.log(gitFallbacks === 0
   ? '[rss] 日付はすべて frontmatter から解決（git 履歴に触れていない）'
   : `[rss] frontmatter に日付が無く git へフォールバック: ${gitFallbacks} 件`);
@@ -206,8 +207,8 @@ const items = allDocs.slice(0, MAX_ITEMS);
 
 const lastBuildDate = items[0]?.updatedDate || new Date();
 
-writeFileSync(join(OUT_DIR, 'feed.xml'), buildRss(items, lastBuildDate));
-writeFileSync(join(OUT_DIR, 'atom.xml'), buildAtom(items, lastBuildDate));
+writeFileSync(join(OUT_DIR, 'feed.xml'), buildRss(items, lastBuildDate, docRoutes));
+writeFileSync(join(OUT_DIR, 'atom.xml'), buildAtom(items, lastBuildDate, docRoutes));
 
 console.log(`✅ Generated feed.xml + atom.xml with ${items.length} items (of ${allDocs.length} published)`);
 console.log(`   latest: ${items[0]?.title || '(none)'} (${items[0]?.updatedDate.toISOString().slice(0, 10)})`);

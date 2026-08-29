@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { getCategoryHubPath } from '@/lib/categories';
 
 export interface ExamData {
   slug: string;
@@ -48,7 +49,7 @@ export function ExamCard({ e }: { e: ExamData }) {
   return (
     // 画像前面カード: 背景画像＋下部スクリム＋テーマ色ライン、左下にライブ文字を重ねる。カード全体＝カテゴリへのリンク。
     <Link
-      href={`/category/${e.slug}`}
+      href={getCategoryHubPath(e.slug)}
       className={`focus-ring group relative block aspect-[3/2] overflow-hidden rounded-card-section border border-[var(--rule-soft)] transition-[border-color,box-shadow,transform] hover:-translate-y-0.5 hover:shadow-lift ${t.hoverBorder}`}
     >
       {img ? (
@@ -85,7 +86,11 @@ export default function ExamCards({ exams }: ExamCardsProps) {
   return (
     <section id="exams" className="scroll-mt-24 max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-8 sm:py-10">
       <div className="mb-6 sm:mb-8">
-        <h2 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)]">対応する資格・試験</h2>
+        <h2 className="font-serif text-2xl sm:text-3xl font-black text-[var(--ink)]">
+          <Link href="/exam" className="focus-ring rounded-card-inline hover:text-[var(--accent)] transition-colors">
+            対応する資格・試験
+          </Link>
+        </h2>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
         {exams.map((e) => (

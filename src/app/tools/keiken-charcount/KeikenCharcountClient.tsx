@@ -266,14 +266,14 @@ export default function KeikenCharcountClient() {
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           <Link
-            href="/docs/civil-construction-1-secondary-experience-writing-guide"
+            href="/exam/civil-construction-1/secondary/experience-writing-guide"
             className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
           >
             <div className="font-bold text-[var(--ink)]">1級土木 施工経験記述の書き方</div>
             <div className="text-sm text-[var(--ink-body)] mt-1">課題→検討→対応の型と頻出テーマを解説</div>
           </Link>
           <Link
-            href="/docs/civil-construction-2-secondary-experience-writing-guide"
+            href="/exam/civil-construction-2/secondary/experience-writing-guide"
             className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
           >
             <div className="font-bold text-[var(--ink)]">2級土木 施工経験記述の書き方</div>

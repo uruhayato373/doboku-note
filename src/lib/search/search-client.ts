@@ -62,12 +62,10 @@ async function getPagefind(): Promise<PagefindModule> {
 }
 
 function categoryFromPath(path: string): string {
-  if (path.startsWith("/docs/pe-comprehensive-management"))
-    return "pe-comprehensive-management";
-  if (path.startsWith("/docs/civil-construction-2"))
-    return "civil-construction-2";
-  if (path.startsWith("/docs/civil-construction-1"))
-    return "civil-construction-1";
+  const exam = path.match(/^\/exam\/([^/]+)/)?.[1];
+  if (exam) return exam;
+  if (path.startsWith('/practice/')) return 'civil-practice';
+  if (path.startsWith('/standards/')) return 'reference-materials';
   return "";
 }
 
@@ -78,7 +76,7 @@ function stripMark(html: string): string {
 function toEntry(data: PagefindData): SearchIndexEntry {
   const path = data.url;
   return {
-    id: path.replace(/^\/docs\//, ""),
+    id: path.replace(/^\//, ""),
     title: data.meta.title ?? "",
     description: stripMark(data.excerpt),
     path,

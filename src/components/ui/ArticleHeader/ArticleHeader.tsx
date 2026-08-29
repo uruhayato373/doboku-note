@@ -12,6 +12,7 @@
 import Link from 'next/link';
 import { generateHeadingId } from '@/lib/toc';
 import MetaRow from '@/components/ui/MetaRow/MetaRow';
+import { getCategoryHubPath } from '@/lib/categories';
 
 interface ArticleHeaderProps {
   title: string;
@@ -43,7 +44,7 @@ export default function ArticleHeader({
           aria-label="breadcrumb"
           className="mb-6 font-mono text-[11px] text-[var(--ink-muted)] uppercase tracking-widest flex items-center gap-2"
         >
-          <Link href={`/category/${category}`} className="hover:text-[var(--accent)] transition-colors">
+          <Link href={getCategoryHubPath(category)} className="hover:text-[var(--accent)] transition-colors">
             {categoryLabel}
           </Link>
           {groupLabel && (

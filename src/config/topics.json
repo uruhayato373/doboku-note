@@ -1,0 +1,72 @@
+[
+  {
+    "slug": "concrete",
+    "label": "コンクリート",
+    "description": "材料・配合・施工・型枠・鉄筋・品質管理を、資格試験、現場実務、公的基準の3方向から横断して確認できます。",
+    "tags": ["concrete", "formwork", "rebar", "鋼構造及びコンクリート"],
+    "standardKeywords": ["コンクリート", "品質"]
+  },
+  {
+    "slug": "earthwork-foundations",
+    "label": "土工・土質・基礎",
+    "description": "掘削・盛土・締固め・土質調査・基礎を、施工管理の判断値と試験論点をつないで整理します。",
+    "tags": ["earthwork", "土質及び基礎"],
+    "standardKeywords": ["盛土", "土工", "土質", "基礎"]
+  },
+  {
+    "slug": "roads",
+    "label": "道路・舗装",
+    "description": "道路計画、舗装、道路工事の安全施設・完成図書など、道路分野の学習と実務資料を横断します。",
+    "tags": ["道路"],
+    "standardKeywords": ["道路", "舗装"]
+  },
+  {
+    "slug": "rivers-disaster-prevention",
+    "label": "河川・砂防・防災",
+    "description": "河川構造物、流域治水、砂防、国土強靱化を、試験キーワードと設計・施工資料から立体的に確認します。",
+    "tags": ["河川", "砂防", "防災", "流域治水", "river-structure", "河川、砂防及び海岸・海洋", "国土強靱化"],
+    "standardKeywords": ["河川", "砂防", "防災"]
+  },
+  {
+    "slug": "construction-management",
+    "label": "施工計画・工程・機械",
+    "description": "施工計画、工程管理、建設機械、測量を、資格試験の体系と現場の計画・管理実務からまとめて探せます。",
+    "tags": ["construction-plan", "schedule-management", "construction-machinery", "surveying", "施工計画、施工設備及び積算"],
+    "standardKeywords": ["施工管理", "施工計画", "建設機械"]
+  },
+  {
+    "slug": "safety-laws",
+    "label": "安全管理・関係法令",
+    "description": "労働安全、現場保安、公衆災害防止、関連法令を、試験問題と実務基準の両方から確認します。",
+    "tags": ["safety-management", "related-laws"],
+    "standardKeywords": ["安全", "公衆災害", "保安", "法令"]
+  },
+  {
+    "slug": "quality-management",
+    "label": "品質管理・出来形",
+    "description": "品質規格、出来形、検査、記録保存を、施工管理試験・現場判断・発注機関資料で横断します。",
+    "tags": ["quality-management"],
+    "standardKeywords": ["品質", "出来形", "検査"]
+  },
+  {
+    "slug": "environment-decarbonization",
+    "label": "建設環境・脱炭素",
+    "description": "建設環境、騒音振動、グリーンインフラ、カーボンニュートラルを、試験と公共工事資料から整理します。",
+    "tags": ["environmental-management", "建設環境", "カーボンニュートラル", "脱炭素", "グリーンインフラ"],
+    "standardKeywords": ["環境", "騒音", "振動"]
+  },
+  {
+    "slug": "maintenance-asset-management",
+    "label": "維持管理・アセットマネジメント",
+    "description": "点検・診断・予防保全・長寿命化を、コンクリート診断と技術士論点をまたいで整理します。",
+    "tags": ["維持管理", "予防保全", "アセットマネジメント"],
+    "standardKeywords": ["維持管理", "台帳"]
+  },
+  {
+    "slug": "tunnels",
+    "label": "トンネル",
+    "description": "トンネルの計画・施工・坑口・換気・補助工法を、技術士試験と設計便覧の要点から確認します。",
+    "tags": ["トンネル"],
+    "standardKeywords": ["トンネル"]
+  }
+]

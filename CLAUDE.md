@@ -36,7 +36,7 @@ content/kindle/        # Kindle戦略・非公開原稿（Claudeエージェン�
 tools/admin-app/               # 運営管理画面 Next.js 版（ローカル専用・npm run admin・全タブ）
 ```
 
-**URL**: すべて `/docs/{slug}` フラット。Convention A（個別ファイル名）と Convention B（`article.mdx`）が共存。新規コンテンツは Convention B 推奨。詳細・frontmatter テンプレ → [content-authoring.md](.claude/knowledge/reference/content-authoring.md)
+**URL**: 公開 URL は検索意図別に `/exam/`（資格試験）・`/practice/`（土木施工実務）・`/standards/`（共通仕様書・実務参考資料）・`/topics/`（横断トピック）へ分割する。MDX の論理 slug とファイル命名は従来どおり Convention A（個別ファイル名）と Convention B（`article.mdx`）が共存し、新規コンテンツは Convention B 推奨。旧 `/docs/*` は対応する正規 URL へ 1 対 1 で恒久転送する。詳細 → [05_情報アーキテクチャ.md](docs/strategy/05_情報アーキテクチャ.md)、frontmatter テンプレ → [content-authoring.md](.claude/knowledge/reference/content-authoring.md)
 
 **frontmatter 必須**: `title` / `seoTitle` / `description` / `category` / `tags` / `published`
 

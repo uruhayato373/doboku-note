@@ -359,7 +359,7 @@ export default function RebarSpliceCheckClient() {
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           <Link
-            href="/docs/civil-practice-rebar-splice-selection"
+            href="/practice/rebar-splice-selection"
             className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
           >
             <div className="font-bold text-[var(--ink)]">継手を3方式から選ぶ</div>

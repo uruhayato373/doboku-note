@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { type PopularDoc, popularWindow } from '@/lib/popular';
 import { OgpThumbRow } from '@/components/category/CategorySections';
+import { getPublicDocPath } from '@/lib/content-routes';
 
 /** 集計窓を「YYYY.MM.DD–MM.DD」で短く表示。窓不明なら null。 */
 function windowLabel(): string | null {
@@ -50,7 +51,7 @@ export function PopularRanking({ items }: { items: PopularDoc[] }) {
         {items.map((item) => (
           <li key={item.doc.slug}>
             <Link
-              href={`/docs/${item.doc.slug}`}
+              href={getPublicDocPath(item.doc.slug)}
               className="group flex gap-3 px-4 py-3 border-b border-[var(--rule-soft)] last:border-b-0 hover:bg-[var(--accent-fill)] transition-colors"
             >
               <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-card-inline bg-[var(--accent-fill)] font-mono text-xs font-bold text-[var(--accent)]">

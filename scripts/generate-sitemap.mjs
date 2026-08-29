@@ -15,12 +15,13 @@ const HIDDEN_CATEGORY_PATHS = new Set(
     .map((category) => `/category/${category.slug}`),
 );
 
-// ---- _redirects から 301 ソース側の /docs/{slug} を抽出 -------------
-// Cloudflare Pages は物理ファイルを _redirects より優先するため、
-// sitemap には「正規側」だけを載せる。
-function parseRedirectedDocSlugs() {
-  const excluded = new Set();
-  if (!existsSync(REDIRECTS_FILE)) return excluded;
+// ---- _redirects から旧 doc → canonical と全 redirect source を抽出 ----
+// 公開URLの移行表は build-public-route-redirects.ts が _redirects に生成する。
+// sitemap も同じ表を読むことで、URLロジックの二重実装を避ける。
+function parseRedirects() {
+  const docRoutes = new Map();
+  const sources = new Set();
+  if (!existsSync(REDIRECTS_FILE)) return { docRoutes, sources };
   const content = readFileSync(REDIRECTS_FILE, 'utf8');
   for (const rawLine of content.split('\n')) {
     const line = rawLine.trim();
@@ -28,11 +29,12 @@ function parseRedirectedDocSlugs() {
     const parts = line.split(/\s+/);
     if (parts.length < 2) continue;
     const from = parts[0];
-    // 完全一致の /docs/{slug} のみ除外対象（ワイルドカード除外は元から HTML 存在しない）
+    const to = parts[1];
+    if (!from.includes('*') && !from.includes(':')) sources.add(from);
     const m = from.match(/^\/docs\/([^/*]+)$/);
-    if (m) excluded.add(m[1]);
+    if (m && to.startsWith('/')) docRoutes.set(m[1], to);
   }
-  return excluded;
+  return { docRoutes, sources };
 }
 
 // ---- lastmod 解決（優先順: frontmatter > git log > mtime） -----------
@@ -121,6 +123,12 @@ function getUrlMeta(urlPath, slug) {
   if (urlPath.startsWith('/category/')) {
     return { priority: '0.9', changefreq: 'weekly' };
   }
+  if (urlPath === '/exam' || urlPath === '/practice' || urlPath === '/standards' || urlPath === '/topics') {
+    return { priority: '0.9', changefreq: 'weekly' };
+  }
+  if (/^\/exam\/[^/]+$/.test(urlPath) || /^\/standards\/[^/]+$/.test(urlPath) || /^\/topics\/[^/]+$/.test(urlPath)) {
+    return { priority: '0.8', changefreq: 'monthly' };
+  }
   if (urlPath === '/search' || urlPath === '/_not-found') {
     return null;
   }
@@ -171,7 +179,7 @@ function collectStaticHtmlFiles(dir, files = [], root = dir) {
 
 // ---- メイン ---------------------------------------------------------
 
-const excludedSlugs = parseRedirectedDocSlugs();
+const { docRoutes, sources: redirectSources } = parseRedirects();
 
 // git は frontmatter に日付が無いときだけの保険。呼ばれなければ履歴に触れない。
 let _gitDates = null;
@@ -184,7 +192,8 @@ const gitDatesLazy = () => {
   gitFallbacks += 1;
   return _gitDates;
 };
-const mdxDocs = walkMdxFiles(POSTS_DIR, gitDatesLazy).filter((d) => !excludedSlugs.has(d.slug));
+const mdxDocs = walkMdxFiles(POSTS_DIR, gitDatesLazy);
+const canonicalDocPaths = new Set(mdxDocs.map((doc) => docRoutes.get(doc.slug) ?? `/docs/${doc.slug}`));
 console.log(gitFallbacks === 0
   ? '[sitemap] lastmod はすべて frontmatter から解決（git 履歴に触れていない）'
   : `[sitemap] frontmatter に日付が無く git へフォールバック: ${gitFallbacks} 件`);
@@ -202,14 +211,17 @@ for (const { path, mtime } of collectStaticHtmlFiles(OUT_DIR)) {
   const relUrl = relative(OUT_DIR, path).split(sep).join('/');
   let urlPath = '/' + relUrl.replace(/\.html$/, '').replace(/\/index$/, '');
   if (urlPath === '/index') urlPath = '/';
+  if (redirectSources.has(urlPath) || canonicalDocPaths.has(urlPath)) continue;
+  const html = readFileSync(path, 'utf8');
+  if (/<meta(?=[^>]*name=["']robots["'])(?=[^>]*content=["'][^"']*noindex)[^>]*>/i.test(html)) continue;
   const meta = getUrlMeta(urlPath, null);
   if (!meta) continue;
   urls.push({ loc: `${SITE_URL}${urlPath}`, lastmod: mtime.toISOString(), ...meta });
 }
 
-// /docs/ は MDX ソースから生成
+// MDX は意図別 canonical route で生成。旧 /docs は _redirects のみ。
 for (const { slug, lastmod } of mdxDocs) {
-  const urlPath = `/docs/${slug}`;
+  const urlPath = docRoutes.get(slug) ?? `/docs/${slug}`;
   const meta = getUrlMeta(urlPath, slug);
   if (!meta) continue;
   urls.push({ loc: `${SITE_URL}${urlPath}`, lastmod: lastmod.toISOString(), ...meta });
@@ -315,6 +327,4 @@ const summary = Object.entries(pCount).sort().map(([p, n]) => `${p}: ${n}件`).j
 
 console.log(`✅ Generated sitemap.xml with ${unique.length} URLs`);
 console.log(`   priority: ${summary}`);
-if (excludedSlugs.size > 0) {
-  console.log(`   excluded (via _redirects): ${excludedSlugs.size}件 — ${Array.from(excludedSlugs).join(', ')}`);
-}
+console.log(`   canonicalized legacy docs: ${docRoutes.size}件 / redirect sources: ${redirectSources.size}件`);

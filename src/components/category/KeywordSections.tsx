@@ -3,6 +3,7 @@ import { type DocMeta } from '@/lib/docs';
 import { type ResolvedKeywordSection } from '@/lib/category-curriculum';
 import { CurriculumSection, CurriculumList } from '@/components/category/CurriculumSections';
 import ExamMatrix, { type ExamMatrixRow } from '@/components/category/ExamMatrix';
+import { getPublicDocPath } from '@/lib/content-routes';
 
 // キーワード節（keyword group）を「必須科目I ブロック ＋ 選択科目 科目×種別マトリクス」で描画する。
 // 35 本を 3 列カードグリッドに流すと 12 行（実測 2,600px）になり 1 画面に 3〜6 本しか入らないため、
@@ -30,7 +31,7 @@ function KeywordChip({ doc }: { doc: DocMeta }) {
   const full = doc.shortTitle || doc.title || '';
   return (
     <Link
-      href={`/docs/${doc.slug}`}
+      href={getPublicDocPath(doc.slug)}
       data-cta="nav"
       data-cta-label="keyword-chip"
       aria-label={full}
@@ -56,7 +57,7 @@ function BlockHeading({ label, count }: { label: string; count: number }) {
 function LeadRow({ doc }: { doc: DocMeta }) {
   return (
     <Link
-      href={`/docs/${doc.slug}`}
+      href={getPublicDocPath(doc.slug)}
       data-cta="nav"
       data-cta-label="keyword-lead"
       className="focus-ring group mb-4 flex items-center gap-3 border border-[var(--rule-soft)] border-l-[3px] border-l-[var(--accent)] bg-[var(--paper)] px-3 py-2.5 transition-colors hover:border-[var(--accent)] hover:bg-[var(--accent-fill)]"

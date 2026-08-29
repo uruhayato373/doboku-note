@@ -28,6 +28,8 @@ interface ArticleFooterProps {
   readonly sectionStr: string | undefined;
   readonly meta: DocMeta;
   readonly categoryArticles: DocMeta[];
+  /** 全資格・実務を横断した関連記事候補。カテゴリ内ナビとは分離する。 */
+  readonly relatedArticles: DocMeta[];
   /** もくじ（L2 索引）タイル。HUB 資格 & 非 career のとき非 null。全 HUB ページの記事末尾に統一表示。 */
   readonly footerMokuji: ResolvedHubCta | null;
   /** 外部チャネル（ココナラ/Brain）CTA。高適合ページのみ非空（offsite-cta.ts が解決）。 */
@@ -54,6 +56,7 @@ export default function ArticleFooter({
   sectionStr,
   meta,
   categoryArticles,
+  relatedArticles,
   footerMokuji,
   offsiteCta,
   faqs,
@@ -227,7 +230,7 @@ export default function ArticleFooter({
 
       {/* 関連記事（全記事共通・記事末 AuthorCard の前）。関連 2 件未満なら自動で非表示。 */}
       <div className="mt-8">
-        <RelatedArticles currentMeta={meta} categoryArticles={categoryArticles} />
+        <RelatedArticles currentMeta={meta} categoryArticles={relatedArticles} />
       </div>
 
       {/* 執筆者・最終更新日（全記事共通・E-A-T 強化） */}

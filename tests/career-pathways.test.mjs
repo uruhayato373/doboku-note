@@ -18,6 +18,25 @@ import { loadTsModule } from './lib/load-ts.mjs';
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const read = (rel) => readFileSync(join(ROOT, rel), 'utf8');
 
+function publicRouteIndex() {
+  const bySlug = new Map();
+  const byPath = new Map();
+  let managed = false;
+  for (const raw of read('public/_redirects').split('\n')) {
+    const line = raw.trim();
+    if (line === '# BEGIN GENERATED PUBLIC ROUTES') { managed = true; continue; }
+    if (line === '# END GENERATED PUBLIC ROUTES') break;
+    if (!managed || !line || line.startsWith('#')) continue;
+    const match = line.match(/^\/docs\/([^/*\s]+)\s+(\/\S+)\s+301$/);
+    if (!match) continue;
+    bySlug.set(match[1], match[2]);
+    byPath.set(match[2], match[1]);
+  }
+  return { bySlug, byPath };
+}
+
+const PUBLIC_ROUTES = publicRouteIndex();
+
 const pathways = await loadTsModule('src/config/career-pathways.ts');
 const { CAREER_NEEDS, CAREER_HUB_ENTRIES, CAREER_HUB_SLUG, resolveCareerNeed, resolveCareerNextSteps } = pathways;
 // 禁止表現は TS からではなく機械可読 config を真実源にする（テストだけが読む export を作らない）。
@@ -113,7 +132,7 @@ test('記事末の内部次行動は自分自身を指さない', () => {
     const steps = resolveCareerNextSteps(slug);
     assert.ok(steps.length > 0, `${slug} の次行動が 0 件`);
     for (const s of steps) {
-      assert.notEqual(s.href, `/docs/${slug}`, `${slug} が自分自身へ戻るリンクを出している`);
+      assert.notEqual(s.href, PUBLIC_ROUTES.bySlug.get(slug), `${slug} が自分自身へ戻るリンクを出している`);
     }
   }
 });
@@ -122,7 +141,8 @@ test('hub の入口はすべて実在の記事を指す', () => {
   const index = JSON.parse(read('src/config/doc-meta-index.json'));
   assert.ok(CAREER_HUB_ENTRIES.length >= 5, `hub の入口が ${CAREER_HUB_ENTRIES.length} 件しかない`);
   for (const e of CAREER_HUB_ENTRIES) {
-    const slug = e.href.replace('/docs/', '');
+    const slug = PUBLIC_ROUTES.byPath.get(e.href);
+    assert.ok(slug, `hub の入口 ${e.href} が公開URL台帳に存在しない`);
     assert.ok(index.docs[slug], `hub の入口 ${slug} が実在しない`);
     assert.ok(CAREER_NEEDS[e.need], `hub の入口が未知の need ${e.need} を持つ`);
   }

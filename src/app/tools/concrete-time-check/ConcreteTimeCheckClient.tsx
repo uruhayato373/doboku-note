@@ -307,7 +307,7 @@ export default function ConcreteTimeCheckClient() {
             </div>
           </Link>
           <Link
-            href="/category/civil-construction-1"
+            href="/exam/civil-construction-1"
             className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
           >
             <div className="font-bold text-[var(--ink)]">1級土木施工管理技士</div>

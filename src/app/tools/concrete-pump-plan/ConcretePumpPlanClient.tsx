@@ -330,7 +330,7 @@ export default function ConcretePumpPlanClient() {
         </div>
         <div className="grid gap-3 sm:grid-cols-2">
           <Link
-            href="/docs/civil-practice-concrete-pump-capacity"
+            href="/practice/concrete-pump-capacity"
             className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
           >
             <div className="font-bold text-[var(--ink)]">ポンプ車・ミキサ車は何台必要か</div>

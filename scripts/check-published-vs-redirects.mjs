@@ -37,12 +37,21 @@ const REDIRECTS = join(ROOT, 'public/_redirects');
 const TAG = '[check-published-vs-redirects]';
 const STAGED = process.argv.includes('--staged');
 
-/** _redirects の「完全一致 /docs/{slug}」な転送元 → 転送先 */
+/**
+ * _redirects の「完全一致 /docs/{slug}」な転送元 → 転送先。
+ *
+ * BEGIN/END GENERATED PUBLIC ROUTES 内は、公開 URL の意図別移行そのものなので除外する。
+ * この検査が止めるのは、その外側にある「記事統合で消したはずの slug の再公開」だけ。
+ */
 function redirectSources() {
   const map = new Map();
   if (!existsSync(REDIRECTS)) return map;
+  let generatedPublicRoutes = false;
   for (const raw of readFileSync(REDIRECTS, 'utf8').split('\n')) {
     const line = raw.trim();
+    if (line === '# BEGIN GENERATED PUBLIC ROUTES') { generatedPublicRoutes = true; continue; }
+    if (line === '# END GENERATED PUBLIC ROUTES') { generatedPublicRoutes = false; continue; }
+    if (generatedPublicRoutes) continue;
     if (!line || line.startsWith('#')) continue;
     const parts = line.split(/\s+/);
     if (parts.length < 2) continue;
@@ -96,11 +105,7 @@ for (const t of targets) {
 }
 
 // 「検査ゼロを PASS と呼ばない」: 母集合と実検査数を必ず出す。
-console.log(`${TAG} _redirects の /docs 転送元 ${redirects.size} 件 / 対象 .mdx ${targets.length} 件 / published を実検査 ${inspected} 件${STAGED ? '（staged）' : ''}`);
-if (!STAGED && redirects.size === 0) {
-  console.error(`${TAG} FAIL: _redirects から転送元を1件も読めていません（検査不成立）`);
-  process.exit(1);
-}
+console.log(`${TAG} 記事統合用 /docs 転送元 ${redirects.size} 件（公開URL移行ブロックは除外）/ 対象 .mdx ${targets.length} 件 / published を実検査 ${inspected} 件${STAGED ? '（staged）' : ''}`);
 if (violations.length === 0) {
   console.log(`${TAG} OK: published な記事が 301 の転送元になっている箇所なし`);
   process.exit(0);

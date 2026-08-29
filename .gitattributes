@@ -1,3 +1,7 @@
 # GSC/GA4 CSV パーサのテスト fixture は「バイト厳密」（BOM/CRLF/quoted-newline）が本質。
 # EOL 正規化されると CRLF テストが壊れるため -text（EOL 変換禁止）＋ -whitespace（空白検査除外）。
 tests/fixtures/google-console/*.csv -text -whitespace
+
+# 公的資料の逐語文字起こしは紙面の空白・行末空白も検証対象として保持する。
+# 通常の Markdown 編集規則で削ると原本対応が崩れるため、この生成ライブラリだけ whitespace 検査を外す。
+content/site/standards-library/**/*.md -whitespace

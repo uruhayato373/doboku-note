@@ -1,6 +1,6 @@
 import Link from "next/link";
 import categoriesData from "@/config/categories.json";
-import { CategoryDef } from "@/lib/categories";
+import { CategoryDef, getCategoryHubPath } from "@/lib/categories";
 
 const categories = (categoriesData as CategoryDef[]).filter((category) => category.visible !== false);
 
@@ -27,7 +27,7 @@ export default function Footer() {
               {categories.map(cat => (
                 <li key={cat.slug}>
                   <Link
-                    href={`/category/${cat.slug}`}
+                    href={getCategoryHubPath(cat.slug)}
                     className="inline-flex min-h-11 items-center text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors"
                   >
                     {cat.label}
@@ -41,6 +41,16 @@ export default function Footer() {
           <div>
             <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--ink-muted)] mb-3">Site</div>
             <ul className="space-y-2">
+              <li>
+                <Link href="/standards" className="inline-flex min-h-11 items-center text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
+                  基準類・仕様書
+                </Link>
+              </li>
+              <li>
+                <Link href="/topics" className="inline-flex min-h-11 items-center text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
+                  テーマ別索引
+                </Link>
+              </li>
               <li>
                 <Link href="/about" className="inline-flex min-h-11 items-center text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
                   About

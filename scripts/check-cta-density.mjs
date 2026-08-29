@@ -2,7 +2,7 @@
 /**
  * check-cta-density.mjs
  *
- * ビルド後の静的 HTML（out/docs/**​/index.html）を走査し、1 ページあたりの収益要素
+ * ビルド後の全静的 HTML（out 配下の .html）を走査し、1 ページあたりの収益要素
  * （note 有料 CTA / 転職アフィリ）の密度が design-system.md「収益要素の密度ルール」の
  * 上限を超えていないかを検査する。1 件でも超過すれば exit 1（CI を赤くする）。
  *
@@ -35,7 +35,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = process.cwd();
-const OUT_DOCS = path.join(root, 'out', 'docs');
+const OUT_ROOT = path.join(root, 'out');
 const asJson = process.argv.includes('--json');
 
 const LIMITS = {
@@ -44,14 +44,14 @@ const LIMITS = {
   sameMatPixel: 1,
 };
 
-// next export（output: 'export'）は docs を `out/docs/<slug>.html` のフラット HTML で出力する
-// （`<slug>/` ディレクトリは RSC ペイロードのため .html のみ拾う）。
+// next export（output: 'export'）は正規 URL を `out/<route>.html` へ出力する。
+// Pagefind の生成 HTML はサイトルートではないため除外する。
 function walkHtml(dir) {
   const out = [];
   if (!fs.existsSync(dir)) return out;
   for (const e of fs.readdirSync(dir, { withFileTypes: true })) {
     const full = path.join(dir, e.name);
-    if (e.isDirectory()) out.push(...walkHtml(full));
+    if (e.isDirectory() && e.name !== 'pagefind') out.push(...walkHtml(full));
     else if (e.name.endsWith('.html')) out.push(full);
   }
   return out;
@@ -83,10 +83,10 @@ function impressionMatCounts(html) {
   return counts;
 }
 
-const files = walkHtml(OUT_DOCS);
+const files = walkHtml(OUT_ROOT);
 if (files.length === 0) {
   const msg =
-    'check-cta-density: out/docs が空です。先に `npm run build` を実行してください（post-build gate）。';
+    'check-cta-density: out/ の HTML が空です。先に `npm run build` を実行してください（post-build gate）。';
   if (asJson) writeSync(1, JSON.stringify({ ok: false, reason: 'no-build', files: 0 }) + '\n');
   else console.error(msg);
   process.exit(1);
@@ -97,7 +97,7 @@ for (const file of files) {
   const html = fs.readFileSync(file, 'utf8');
   const noteTotal = countCta(html, 'note');
   const noteNonFooter = countNonFooterNote(html);
-  const rel = path.relative(OUT_DOCS, file).replace(/\.html$/, '');
+  const rel = path.relative(OUT_ROOT, file).replace(/\.html$/, '');
 
   if (noteNonFooter > LIMITS.noteNonFooter)
     violations.push({ slug: rel, rule: 'note-non-footer', count: noteNonFooter, limit: LIMITS.noteNonFooter });

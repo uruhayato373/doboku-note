@@ -15,6 +15,7 @@ import civilExamTextbookIndex from '@/config/civil-exam-textbook-index.json';
 import civilExamTextbookIndex2 from '@/config/civil-exam-textbook-index-2.json';
 import MetaCard from '@/components/ui/MetaCard/MetaCard';
 import MetaListItem from '@/components/ui/MetaListItem/MetaListItem';
+import { getPublicDocPath } from '@/lib/content-routes';
 
 interface PastExamBacklinksProps {
   category: string;
@@ -70,7 +71,7 @@ export default function PastExamBacklinks({ category, currentSlug }: PastExamBac
           {civilEntries.map((b, i) => (
             <li key={`${b.examSlug}-${b.section}-${i}`}>
               <Link
-                href={`/docs/${prefix}${b.examSlug}`}
+                href={getPublicDocPath(`${prefix}${b.examSlug}`)}
                 className="block group"
               >
                 <MetaListItem
@@ -107,7 +108,7 @@ export default function PastExamBacklinks({ category, currentSlug }: PastExamBac
       <ul className="space-y-2">
         {backlinks.map((b, i) => (
           <li key={`${b.examSlug}-${b.anchor}-${i}`}>
-            <Link href={`/docs/${b.examSlug}#${b.anchor}`} className="block group">
+            <Link href={`${getPublicDocPath(b.examSlug)}#${b.anchor}`} className="block group">
               <MetaListItem
                 title={
                   <>

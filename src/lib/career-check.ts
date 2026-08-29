@@ -16,6 +16,9 @@
  */
 import { CAREER_HUB_SLUG, CAREER_NEEDS, type CareerNeed } from "@/config/career-pathways";
 
+const careerArticlePath = (slug: string) =>
+  `/exam/civil-construction-1/guide/${slug.replace(/^civil-construction-1-guide-/, '')}`;
+
 /**
  * 読者が選ぶ悩み。`urgent` だけは need ではなく**安全側の分岐**で、
  * 転職の話に進まず公的窓口を先に案内する。
@@ -135,7 +138,7 @@ const CHANGE_WANT_NEED: Readonly<Record<ChangeWant, CareerNeed>> = {
 };
 
 const HUB_READ: CareerCheckRead = {
-  href: `/docs/${CAREER_HUB_SLUG}`,
+  href: careerArticlePath(CAREER_HUB_SLUG),
   title: "施工管理の転職（悩み別の入口）",
   reason: "6 つの悩みから読むページを選び直せます。",
 };
@@ -262,11 +265,11 @@ export function evaluateCareerCheck(input: CareerCheckInput): CareerCheckResult 
   };
   if (need) {
     const def = CAREER_NEEDS[need];
-    push({ href: `/docs/${def.pillarSlug}`, title: def.nextStepTitle, reason: def.nextStepReason });
+    push({ href: careerArticlePath(def.pillarSlug), title: def.nextStepTitle, reason: def.nextStepReason });
   }
   const wantNeed = CHANGE_WANT_NEED[input.changeWant];
   const wantDef = CAREER_NEEDS[wantNeed];
-  push({ href: `/docs/${wantDef.pillarSlug}`, title: wantDef.nextStepTitle, reason: wantDef.nextStepReason });
+  push({ href: careerArticlePath(wantDef.pillarSlug), title: wantDef.nextStepTitle, reason: wantDef.nextStepReason });
   push(HUB_READ);
 
   const questions = [

@@ -8,6 +8,7 @@
  */
 import Link from "next/link";
 import MetaCard from "@/components/ui/MetaCard/MetaCard";
+import { getPublicDocPath } from '@/lib/content-routes';
 
 interface PillarNavCardProps {
   variant: "sidebar" | "mobile";
@@ -28,8 +29,6 @@ const PILLARS: readonly Pillar[] = [
   { sectionPrefix: "5", label: "安全管理", slug: "safety-management-pillar" },
   { sectionPrefix: "6", label: "社会環境管理", slug: "social-environment-management-pillar" },
 ] as const;
-
-const PE_PREFIX = "/docs/pe-comprehensive-management-";
 
 function getActivePrefix(currentSection?: string | undefined): string | null {
   if (!currentSection) return null;
@@ -55,7 +54,7 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
             return (
               <li key={p.slug}>
                 <Link
-                  href={`${PE_PREFIX}${p.slug}`}
+                  href={getPublicDocPath(`pe-comprehensive-management-${p.slug}`)}
                   aria-current={isActive ? "true" : undefined}
                   className={
                     isActive
@@ -91,7 +90,7 @@ export default function PillarNavCard({ variant, currentSection }: PillarNavCard
               }`}
             >
               <Link
-                href={`${PE_PREFIX}${p.slug}`}
+                href={getPublicDocPath(`pe-comprehensive-management-${p.slug}`)}
                 aria-current={isActive ? "true" : undefined}
                 className={
                   isActive

@@ -6,6 +6,8 @@ import SectionBlock from '@/components/layout/SectionBlock';
 import { getDocsMetaByCategory, type DocMeta } from '@/lib/docs';
 import peChaptersData from '@/config/pe-chapters.json';
 import type { PeChapter } from '@/config/pe-chapters';
+import { getPublicDocPath } from '@/lib/content-routes';
+import { getCategoryHubPath } from '@/lib/categories';
 
 const PE_CHAPTERS: PeChapter[] = peChaptersData.chapters;
 
@@ -76,7 +78,7 @@ function PeSectionTree({ keywordDocs }: { keywordDocs: DocMeta[] }) {
                         .map(kw => (
                           <Link
                             key={kw.slug}
-                            href={`/docs/${kw.slug}`}
+                            href={getPublicDocPath(kw.slug)}
                             className="text-base px-2.5 py-1 rounded-full border border-[var(--rule-soft)] bg-[var(--paper)] text-[var(--ink-body)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
                           >
                             {kw.title}
@@ -100,7 +102,7 @@ function PeSectionTree({ keywordDocs }: { keywordDocs: DocMeta[] }) {
               .map(kw => (
                 <Link
                   key={kw.slug}
-                  href={`/docs/${kw.slug}`}
+                  href={getPublicDocPath(kw.slug)}
                   className="text-base px-2.5 py-1 rounded-full border border-[var(--rule-soft)] bg-[var(--paper)] text-[var(--ink-body)] hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
                 >
                   {kw.title}
@@ -126,7 +128,7 @@ export default async function SitemapKeywordsPage() {
         width="wide"
         breadcrumb={[
           { label: 'Home', href: '/' },
-          { label: '総合技術監理', href: '/category/pe-comprehensive-management' },
+          { label: '総合技術監理', href: getCategoryHubPath('pe-comprehensive-management') },
           { label: 'キーワード索引' },
         ]}
         label="SITEMAP"

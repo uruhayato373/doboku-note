@@ -12,7 +12,7 @@
  *   - live sitemap:   https://doboku-note.com/sitemap.xml（取得可なら／不可なら out/sitemap.xml）
  *   - local sitemap:  out/sitemap.xml
  *   - _redirects:     public/_redirects
- *   - 生成 HTML:      out/docs/<slug>.html（canonical / robots / 存在=200）
+ *   - 生成 HTML:      out/<canonical-path>.html（canonical / robots / 存在=200）
  *   - doc-meta:       src/config/doc-meta-index.json（contentFamily）
  *
  * 出力:
@@ -275,24 +275,29 @@ function loadRedirects() {
 }
 
 const HTML_CACHE = new Map();
-/** out/docs/<slug>.html を読み canonical/robots/存在 を返す。 */
+/** 正規 URL に対応する生成 HTML を読み canonical/robots/存在を返す。 */
 function localHtmlInfo(joinKey) {
-  const slug = slugFromKey(joinKey);
-  if (!slug) return { exists: false };
-  if (HTML_CACHE.has(slug)) return HTML_CACHE.get(slug);
-  const path = join("out", "docs", `${slug}.html`);
+  if (!joinKey || !joinKey.startsWith("/")) return { exists: false };
+  if (HTML_CACHE.has(joinKey)) return HTML_CACHE.get(joinKey);
+  const relativePath = joinKey.replace(/^\/+/, "");
+  const candidates = joinKey === "/"
+    ? [join("out", "index.html")]
+    : [join("out", `${relativePath}.html`), join("out", relativePath, "index.html")];
   let info = { exists: false };
-  if (existsSync(path)) {
+  const path = candidates.find((candidate) => existsSync(candidate));
+  if (path) {
     const html = readFileSync(path, "utf-8");
-    const canon = html.match(/<link[^>]+rel=["']canonical["'][^>]+href=["']([^"']+)["']/i);
-    const robots = html.match(/<meta[^>]+name=["']robots["'][^>]+content=["']([^"']+)["']/i);
+    const canonicalTag = html.match(/<link(?=[^>]*rel=["']canonical["'])[^>]*>/i)?.[0] ?? "";
+    const robotsTag = html.match(/<meta(?=[^>]*name=["']robots["'])[^>]*>/i)?.[0] ?? "";
+    const canon = canonicalTag.match(/href=["']([^"']+)["']/i);
+    const robots = robotsTag.match(/content=["']([^"']+)["']/i);
     info = {
       exists: true,
       canonical: canon ? canon[1] : null,
       robots: robots ? robots[1] : null,
     };
   }
-  HTML_CACHE.set(slug, info);
+  HTML_CACHE.set(joinKey, info);
   return info;
 }
 
@@ -490,6 +495,7 @@ async function main() {
       comparisonKey: e.comparisonKey,
       inLiveSitemap: inLive,
       inLocalSitemap: inLocal,
+      localSitemapAvailable: localSitemap.size > 0,
       httpStatus,
       redirectTarget,
       redirectHops,
@@ -704,11 +710,11 @@ function renderMarkdown(meta, rows, top, counts, prevCounts) {
 
   L.push(`## 優先修正 Top${top.length}（FIX_TECHNICAL → REDIRECT_LEGACY、impressions 降順）`);
   L.push("");
-  L.push(`| # | action | url | status | impr | pos | inSitemap | issue | 根拠 |`);
+  L.push(`| # | action | url | status | impr | pos | sitemap live/local | issue | 根拠 |`);
   L.push(`|--:|---|---|--:|--:|--:|:--:|---|---|`);
   top.forEach((r, i) => {
     L.push(
-      `| ${i + 1} | ${r.action} | ${r.comparisonKey || r.url} | ${r.httpStatus ?? "?"} | ${r.impressions} | ${r.position?.toFixed?.(1) ?? "—"} | ${r.inLiveSitemap ? "✓" : "—"} | ${r.gscUiIssue || r.gscInspectionState || "—"} | ${(r.reasons[0] || "").slice(0, 48)} |`,
+      `| ${i + 1} | ${r.action} | ${r.comparisonKey || r.url} | ${r.httpStatus ?? "?"} | ${r.impressions} | ${r.position?.toFixed?.(1) ?? "—"} | ${r.inLiveSitemap ? "✓" : "—"}/${r.inLocalSitemap ? "✓" : "—"} | ${r.gscUiIssue || r.gscInspectionState || "—"} | ${(r.reasons[0] || "").slice(0, 48)} |`,
     );
   });
   if (!top.length) L.push(`（優先修正候補なし）`);
