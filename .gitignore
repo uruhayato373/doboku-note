@@ -335,3 +335,10 @@ content/site/**/ogp.webp
 # node scripts/asset-offload.mjs --group site-ogp-png --commit で直接R2へ。
 # 復元は node scripts/asset-hydrate.mjs --group site-ogp-png。2026-08-29・DN-0111系。
 content/site/**/ogp.png
+
+# content/note/**/magazines/*/_cover.png（46件・45.1MB）はasset-storage.jsonの
+# note-magazine-cover-png groupでR2退避済み（private・--verify 3者照合OK）。
+# マガジンにはarticle.mdが無く既存note-cover-pngのfrontmatter判定が使えないため
+# bucket:private固定。復元は node scripts/asset-hydrate.mjs --group note-magazine-cover-png。
+# 2026-08-29。
+content/note/**/magazines/*/_cover.png
