@@ -113,12 +113,12 @@
     "default": 5.0
   },
   "budgets": {
-    "_comment": "ディレクトリ別の追跡総量上限（MiB）。個別ファイルが小さくても件数で膨らむ経路を止める。狙いは通常の執筆ペースを妨げず『まとまった投入』を止めること。Phase 4 の移行で content/note と content/sources が大きく下がるので、そのたびに締め直す。",
-    "content/note": 2600,
-    "content/site": 900,
-    "content/sns": 300,
-    "content/sources": 600,
-    "scripts": 120
+    "_comment": "ディレクトリ別の追跡総量上限（MiB）。個別ファイルが小さくても件数で膨らむ経路を止める。狙いは通常の執筆ペースを妨げず『まとまった投入』を止めること。2026-08-29 の全ストレージ最適化（ogp.png/webp・note magazine cover・coconala/repo-archive・kindle-dist backup を R2 へ退避）で実測が content/note 99.2 / content/site 69.0 / content/sns 28.3 / content/sources 0.0 / scripts 82.2 MiB まで下がったため締め直した。次に大きく下がる移行があればそのたびに再度締める。",
+    "content/note": 150,
+    "content/site": 120,
+    "content/sns": 60,
+    "content/sources": 20,
+    "scripts": 100
   },
   "derivedPairRules": [
     {
