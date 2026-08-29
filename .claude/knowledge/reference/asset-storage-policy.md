@@ -15,6 +15,7 @@
 | 記事・SNS 原本（.md / frontmatter / hashtags / slide-data / 台本 / caption / status） | ○ | — | 人が書いた原本。差分レビューの対象 |
 | 真正ベクター図版（Base64 raster を含まない .svg） | ○ | — | テキストで差分が読め、サイズも小さい |
 | note カバー PNG | — | 公開済み→`doboku-note` / 下書き→`doboku-note-archive` | frontmatter の `cover:` が原本だが **byte 再現はできない**（§6） |
+| `content/site/**/ogp.png` | — | `doboku-note`（`posts/`・site-ogp-png group） | 配信中の og:image 実体。1,166 件 607.2MB が Git 追跡容量の過半を占めていたため 2026-08-29 に untrack（詳細 §9） |
 | note 配布 PDF | — | `doboku-note-archive` | 購入者限定の配布物を含む。公開バケットへは置かない |
 | IG レンダー画像 | — | 投稿済み→`doboku-note` / それ以外→`doboku-note-archive` | slide-data / SVG が SoT のレンダー成果物 |
 | 教材ページ画像・教材 PDF | — | `doboku-note-archive` | 書籍が原本 |
@@ -259,9 +260,10 @@ cache は `.local/cache/assets/`（Git 非追跡）。最終アクセス時刻�
 
 ## 9. R2 に何が入っているか（台帳のカバー範囲）
 
-2026-08-22 の棚卸しと整理のあと。**台帳（`manifest.json`）が R2 の全オブジェクトを管理している**
-状態になっている（`check-asset-storage` の走査で該当 4,414 件すべてが「Git 追跡 0 / 退避済み 4,414 /
-どちらでもない 0」）。
+2026-08-29 の全ストレージ最適化のあと。**台帳（`manifest.json`）が R2 の全オブジェクトを管理している**
+状態になっている（`check-asset-storage` の走査で該当 5,633 件すべてが「Git 追跡 0 / 退避済み 5,633 /
+どちらでもない 0」・`kindle-dist` の 76 件は Git 追跡を維持したままの意図的な併存で、この件数には
+含まれない）。
 
 | バケット / prefix | 件数 | 真実源 | 復元 |
 |---|---|---|---|
@@ -269,10 +271,24 @@ cache は `.local/cache/assets/`（Git 非追跡）。最終アクセス時刻�
 | private（退避資産 4 群） | 3,487 | 台帳 | `asset-hydrate --group <id>` |
 | private `archive/git-history/` | 1 | 台帳 `git-history-bundle` | `rclone copy` → `git clone <bundle>` |
 | private `archive/legacy-r2/` | 3,719 | 台帳 `legacy-r2-orphan` | `asset-hydrate --group legacy-r2-orphan` |
+| private `note/magazine-covers/` | 46（45.1MB） | 台帳 `note-magazine-cover-png` | `asset-hydrate --group note-magazine-cover-png` |
+| private `coconala/assets/` | 59（28.3MB） | 台帳 `coconala-asset` | `asset-hydrate --group coconala-asset` |
+| private `archive/repo/` | 13（27.0MB） | 台帳 `repo-archive` | `asset-hydrate --group repo-archive` |
+| private `kindle/dist/` | 76（56.8MB） | Git ＋ 台帳 `kindle-dist`（バックアップのみ） | 通常は Git。R2 は `asset-hydrate --group kindle-dist`（バックアップ確認用） |
 | public `posts/` | 5,234 | **Git**（`content/site/**`） | `upload-images-r2` が一方向で同期。配信コピーなので台帳不要 |
-| public `note/covers/` | 777 | 台帳 `note-cover-png` | `asset-hydrate` |
+| public `posts/`（ogp.png） | 1,166（607.2MB） | 台帳 `site-ogp-png` | `asset-hydrate --group site-ogp-png` |
+| public `note/covers/` | 813 | 台帳 `note-cover-png` | `asset-hydrate` |
 | public `sns/` | 150 | 台帳 `sns-archived-media` / `ig-rendered-image` | `asset-hydrate --group sns-archived-media` |
 | public `brain/` | 2 | `brain-products.ts` | `upload-brain-dist-r2` |
+
+**2026-08-29 に追加したもの**: `site-ogp-png` / `note-magazine-cover-png` / `coconala-asset` /
+`repo-archive` / `kindle-dist` の 5 group を新設し R2 へ退避した（`kindle-dist` は Git 追跡を
+維持したままの R2 バックアップ）。`note-cover-png` は前回棚卸し（2026-08-22・777 件）から
+813 件へ増加している。
+
+`content/site/**/ogp.webp`（1,166 件 39.9MB）は **R2 に入っていない**。og:image が参照しない
+未使用の派生ファイルで、prebuild のたび `generate-webp.mjs` が ogp.png から再生成する中間物のため、
+git 追跡のみ解除し退避はしていない。
 
 **2026-08-22 に片付けたもの（DN-0116）**:
 
