@@ -48,6 +48,23 @@
       "phase": "4-B"
     },
     {
+      "id": "note-magazine-cover-png",
+      "match": {
+        "pathRegex": "^content/note/.+/magazines/[^/]+/_cover\\.png$"
+      },
+      "bucket": "private",
+      "keyPrefix": "note/magazine-covers/",
+      "keyFrom": "stripPrefix:content/note/",
+      "visibilityFrom": "fixed:private",
+      "regenerable": true,
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ],
+      "reason": "マガジン直下（magazines/<name>/_cover.png）は記事のような frontmatter を持たないため、既存の note-cover-png group の noteFrontmatter 判定が使えない。判定不能なものは private へ倒す原則（asset-storage-policy.md の不変条件）に従い bucket は private 固定にする。regenerable は true だが、note-cover-png と同様に byte 再現は信用しない（生成物として再現できても、退避前の実バイトを保管する）。",
+      "phase": "4-B"
+    },
+    {
       "id": "textbook-page-image",
       "match": {
         "pathRegex": "^content/sources/textbook/.+\\.(png|jpe?g|webp|tiff?)$"

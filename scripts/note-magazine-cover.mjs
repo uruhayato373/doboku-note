@@ -41,7 +41,7 @@ const KEY = getArg('--key');
 const DIR = getArg('--dir');
 const IMAGE = getArg('--image') || (DIR ? join(ROOT, DIR, '_cover.png') : null);
 if (!KEY) { console.error('--key <magKey> required'); process.exit(1); }
-if (!IMAGE || !existsSync(IMAGE)) { console.error('cover image not found: ' + IMAGE + '（--image か --dir で指定）'); process.exit(1); }
+if (!IMAGE || !existsSync(IMAGE)) { console.error('cover image not found: ' + IMAGE + '（--image か --dir で指定。R2 へ退避済みなら node scripts/asset-hydrate.mjs --group note-magazine-cover-png で復元できる）'); process.exit(1); }
 console.log(`[prep] key=${KEY} image=${IMAGE} mode=${COMMIT ? 'COMMIT(保存)' : 'PROBE'}`);
 
 function curlJson(url) {
