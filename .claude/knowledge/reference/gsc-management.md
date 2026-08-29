@@ -452,3 +452,13 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
   - 候補3: 保留（再浮上条件＝内部リンク網点検の実施後もposition 7前後で停滞していたら実験化。メタでなく構造リンク施策のため実験枠外で着手可）
   - Orphan-Query「供用開始」: 見送り（impr19・pos44と規模小。再浮上条件＝impr 50超 or 関連クエリ群の出現）
 - 注記: 自動生成（人間の上書き歓迎）。GA4 は28日ローリング窓で厳密な週次比較不可。network-schedule 主クエリ（08-04見送り）・インターフェアリングフロート（08-26実験化済・判定09-23）は除外済み
+
+### 2026-08-30（月次・/google-search-growth — 情報設計移行後）
+
+- run: `search-growth-2026-08-29T23-52-08Z`。GSC UI は 2026-08-22 の完全取得（11ユニット・1,982行・失敗0・truncated 0）を使用
+- 公開後突合: sitemap は live/local ともに **1,417 URL**、旧 `/docs`・`/category` は `_redirects` **1,190 静的 + 8 動的**へ移行。preview deployment で静的301全1,190件の status/location 完全一致を確認
+- GSC UI 理由別: alternate canonical 160 / crawled-not-indexed 353（submitted 302）/ discovered-not-indexed 3 / forbidden 5 / noindex 2 / notFound 297 / redirect 857。いずれもCSV上限未到達
+- action: `FIX_TECHNICAL 0 / REDIRECT_LEGACY 0 / KEEP_MONITOR 4 / EXPECTED_EXCLUSION 2,191 / UNKNOWN_REVIEW 282`。sitemap掲載URLの技術不良・追加301候補はゼロ
+- 判断: 今回の `/exam`・`/practice`・`/standards`・`/topics` への移行に追加のredirect/noindex/統合は行わない。旧URLは301でGoogleの再クロールを待つ
+- `UNKNOWN_REVIEW` は過去404・旧URL・RSS/フォント等の観測残が中心。impressionsを持つのは `/links` の1件のみ（1 impression / position 73）で、公開阻害ではない
+- 外部状態変更（URL検査開始・インデックス登録リクエスト・GSC設定保存）は実行していない。次回は 2026-09-01 の月次 URL Inspection で新sitemap 1,417件のcoverage推移を観測する
