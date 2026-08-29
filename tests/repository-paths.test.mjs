@@ -156,7 +156,12 @@ test('content/ の各チャネルに実体がある（空を PASS と呼ばな�
   // sns -1,997 の予定）。そのときは**数字を下げる前に、減った分が
   // `.claude/state/assets/manifest.json` に sha256 付きで載っていることを確かめる**。
   // 確かめずに下限だけ下げると、この検査は事故を通すだけの飾りになる。
-  assert.ok(counts.site > 4000, `content/site が少なすぎる: ${counts.site}`);
+  // 2026-08-29 に 4000 → 2000 へ。全ストレージ最適化 P3/P4 で ogp.webp 1,166 件（読むコード
+  // 0 行の純中間物・R2 退避不要）と ogp.png 1,166 件（site-ogp-png group で R2 へ退避）を
+  // 追跡から外した（4,945 → 2,613）。png 側は下げる前に 1,166 件すべてが manifest に
+  // sha256・bytes つきで載り、R2（公開 posts/）に実在して bytes 一致することを確認済み
+  // （--verify 1166/1166・不一致 0）。
+  assert.ok(counts.site > 2000, `content/site が少なすぎる: ${counts.site}`);
   // 2026-08-21 に 3000 → 2000 へ。Phase 4-B で cover PNG 827 件を R2 へ退避して追跡から外した
   // （3,710 → 2,883）。下げる前に 827 件すべてが manifest に sha256・bytes・寸法つきで載り、
   // R2（公開 777 / archive 50）に実在して bytes 一致することを確認済み。
