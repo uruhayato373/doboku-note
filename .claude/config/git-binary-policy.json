@@ -218,6 +218,13 @@
       "appliesTo": [
         "size"
       ]
+    },
+    {
+      "path": "scripts/kindle-dist/",
+      "reason": "KDP 入稿済み EPUB+表紙 jpg。asset-storage.json の kindle-dist group で R2 private（doboku-note-archive/kindle/dist/）へバックアップ済みだが、check-kindle-format.mjs が ci:true で CI がこの Git 実体を直接検査するため untrack はしない（DN-0151(3) 決着）。untrack するには (i) 全冊再ビルドの内容一致検証 (ii) check-kindle-format の CI 実体依存問題の解決 の両方が要る。",
+      "appliesTo": [
+        "generated-ebook"
+      ]
     }
   ]
 }

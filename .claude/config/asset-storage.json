@@ -244,6 +244,24 @@
       ],
       "reason": "性質の異なる3種の死蔵物（OCR監査ログ・Kindle表紙デザイン案・キャラ素材グリッド原本）をまとめて退避する。個別に group を作るほどの規模ではないが、いずれも『消さず退避』が適切（監査証跡・意思決定の記録として当面残す価値がある）。ローカル削除は別判断",
       "phase": "unclassified-backfill"
+    },
+    {
+      "id": "kindle-dist",
+      "match": {
+        "pathRegex": "^scripts/kindle-dist/.+\\.(epub|jpg)$"
+      },
+      "bucket": "private",
+      "keyPrefix": "kindle/dist/",
+      "keyFrom": "stripPrefix:scripts/kindle-dist/",
+      "visibilityFrom": "fixed:private",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "scripts/kdp-publish.mjs",
+        "scripts/sync-kindle-dist.mjs"
+      ],
+      "reason": "gitが唯一の実体（catalog.jsonの全45冊がlive/in_review保護skipのためsync-kindle-distの既定再ビルド対象外）。EPUBはzipのため再ビルドでタイムスタンプが変わりsha256が再現しない（PDF系と同じ問題）。check-kindle-format.mjsがci:trueで0冊ならexit 2のCI実体依存ゲートのため、untrackはCI破壊に直結する。今回はR2バックアップのみ行い、git追跡は維持する（DN-0151(3)決着）。untrackの前提条件: (i)全冊再ビルドの内容一致検証 (ii)check-kindle-formatのCI実体問題の解決",
+      "phase": "DN-0151"
     }
   ]
 }
