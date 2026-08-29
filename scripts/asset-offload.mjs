@@ -149,8 +149,11 @@ async function main() {
   const tracked = git(['ls-files']).split('\n').filter(Boolean);
   let candidates = tracked;
   if (INCLUDE_UNTRACKED) {
-    // gitignore 済みも含めて列挙する（--others --ignored）。
-    const others = git(['ls-files', '--others', '--ignored', '--exclude-standard', 'content']).split('\n').filter(Boolean);
+    // gitignore 済みも含めて列挙する（--others --ignored）。pathspec は repo 全体（'content' 固定
+    // だと content/ 外の group = coconala-asset・repo-archive・kindle-dist 等で untracked を
+    // 拾えず --include-untracked が機能しなかった。直後の groupFor() regex フィルタが絞るので
+    // 全体列挙しても過剰対象にはならない。2026-08-29 修正）。
+    const others = git(['ls-files', '--others', '--ignored', '--exclude-standard']).split('\n').filter(Boolean);
     candidates = [...new Set([...tracked, ...others])];
   }
   let targets = candidates.filter((p) => groupFor(p, cfg)?.id === group.id);

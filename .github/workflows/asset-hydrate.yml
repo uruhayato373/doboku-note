@@ -26,7 +26,8 @@ name: Asset Hydrate (R2 -> artifact)
 #
 # **この workflow は取り出し専用（read-only）**。R2 への書き戻しはしない。
 # 退避（offload）は「実体を持っている端末」が行う操作で、CI は gitignore 済みの
-# ファイルを checkout で得られないため代行できない。詳細は
+# ファイルを checkout で得られないため代行できない（例外＝CI自身が実体を生成できる
+# アセット。site-ogp-png は ogp-supply.yml が CI 内で生成してから供給する）。詳細は
 # .claude/knowledge/reference/asset-storage-policy.md。
 
 on:

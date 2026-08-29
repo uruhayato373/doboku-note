@@ -265,6 +265,27 @@ const RULES = [
     regenFrom: null, usedBy: ['satori / OGP 生成'], generator: null, visibility: () => 'n/a',
   },
   {
+    id: 'ogp-background',
+    test: (p) => /^\.claude\/config\/ogp\//.test(p),
+    bucket: 'KEEP_GIT',
+    reason: '資格別ブランド写真プール。note カバーとサイト OGP の再生成入力そのもので、これを外すと生成が不能になる（git-binary-policy.json allowlist で既に判定済み）',
+    regenFrom: null, usedBy: ['scripts/generate-note-covers.mjs', 'scripts/generate-magazine-covers.mjs', 'scripts/coconala-thumb.mjs', '.claude/skills/conversion/ogp-create'], generator: null, visibility: () => 'n/a',
+  },
+  {
+    id: 'public-static',
+    test: (p) => /^public\//.test(p),
+    bucket: 'KEEP_GIT',
+    reason: 'サイトが直接配信する静的アセットの原本。R2 ではなく Next.js のビルド入力（git-binary-policy.json allowlist で既に判定済み）',
+    regenFrom: null, usedBy: ['Next.js static assets'], generator: null, visibility: () => 'public',
+  },
+  {
+    id: 'obsidian-env',
+    test: (p) => /^\.obsidian\//.test(p),
+    bucket: 'KEEP_GIT',
+    reason: 'Obsidian のプラグイン・アイコン素材。制作物ではなくエディタ環境で、全 PC 共有が要る（git-binary-policy.json allowlist で既に判定済み。DN-0154 で退避可否を別途検証中）',
+    regenFrom: null, usedBy: ['Obsidian エディタ'], generator: null, visibility: () => 'n/a',
+  },
+  {
     id: 'text-ssot',
     test: (p) => /\.(md|mdx|json|jsonl|ts|tsx|js|mjs|cjs|css|yml|yaml|txt|html|toml|sh|py|xml|csv)$/i.test(p) || !basename(p).includes('.') || basename(p).startsWith('.'),
     bucket: 'KEEP_GIT',

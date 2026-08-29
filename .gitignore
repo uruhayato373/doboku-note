@@ -331,8 +331,9 @@ content/site/**/ogp.webp
 
 # ogp.png（1,166件・607MB＝git追跡容量の52%）は asset-storage.json の site-ogp-png
 # group でR2退避済み（--verify 3者照合OK）。配信は既にR2 301（public/_redirects）
-# 経由で本番稼働中なので untrack しても配信影響なし。新規記事は npm run ogp の後
-# node scripts/asset-offload.mjs --group site-ogp-png --commit で直接R2へ。
+# 経由で本番稼働中なので untrack しても配信影響なし。新規記事はdevelopへpushすれば
+# ogp-supply.ymlが自動生成してR2へ供給する（即時反映したい場合のみ手動で
+# node scripts/asset-offload.mjs --group site-ogp-png --commit）。
 # 復元は node scripts/asset-hydrate.mjs --group site-ogp-png。2026-08-29・DN-0111系。
 content/site/**/ogp.png
 

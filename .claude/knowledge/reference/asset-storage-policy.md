@@ -84,6 +84,11 @@ group か path を指定 → dry_run で対象確認 → 本実行 → artifact 
 **退避（offload）も CI に代行させられる**（2026-08-25 新設）。CI は checkout で gitignore 済みの
 実体を得られないので、`scripts/asset-inbox-push.mjs` が GitHub Release を橋にしてファイルを CI まで運ぶ。
 
+**例外は CI 自身が実体を生成できるアセット**——`site-ogp-png` がその第一号で、`ogp-supply.yml` が
+CI 内で `ogp-create.mjs` を実行して `ogp.png` を作ってから供給するため、この Release 橋を経由しない
+（詳細 §3）。この「CI が生成できる」は `asset-storage.json` の `regenerable` フィールド（byte 再現を
+保証するかの意味・§6）とは別概念——`site-ogp-png` の `regenerable` は引き続き `false`。
+
 ```
 npm run asset-inbox-push -- --path '<前方一致>' --commit   # ローカル: R2 credential 不要
   → release asset-inbox-<ts>（prerelease・inbox.tar.gz + inbox.json）
@@ -113,7 +118,7 @@ node scripts/asset-offload.mjs --group <group> --commit
 この検査だけがワークツリーを走査するので、**CI では走査 0 件になるのが正常**。
 0 件を「異常なし」と読まないよう、件数は必ず出力される。
 
-**`site-ogp-png` はこの経路を日常的に使う group** —— 他の group の多くは §4 の一度きりの移行で退避対象が固定されるが、こちらは記事追加のたびに新規 `ogp.png` エントリが生まれ続ける。
+**`site-ogp-png` は記事追加のたびに新規 `ogp.png` エントリが生まれ続ける group** —— 他の group の多くは §4 の一度きりの移行で退避対象が固定されるが、こちらは違う。日常経路は develop push 契機の CI 自動供給（`.github/workflows/ogp-supply.yml`）に変わった（2026-08-29）。この節の手動コマンドは即時反映したいときのオプション。
 
 ## 4. 追跡から外すとき（グループ移行の手順）
 

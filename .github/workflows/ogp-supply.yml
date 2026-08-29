@@ -1,0 +1,274 @@
+name: OGP Supply (generate -> R2)
+
+# content/site/**/*.mdx が develop へ push されたとき、OGP 画像（ogp.png）の欠落・陳腐化を検知して
+# 自動生成し R2 へ供給する。
+#
+# なぜ要るか:
+#   ogp.png（1,166 件）は 2026-08-29 に git 追跡から外し R2（asset-storage.json の group:
+#   site-ogp-png・public バケット doboku-note・posts/ prefix）へ退避した。生成は
+#   `npm run ogp -- <slug>`、供給は `node scripts/asset-offload.mjs --group site-ogp-png --commit`
+#   の 2 段階だが、これはローカルで手動実行する運用であり、記事を書いた・タイトルを直した
+#   だけでは誰も実行しない。忘れると og:image が R2 で 404 のままになる
+#   （2026-06-12 OGP 404 incident と同じ形の再発。.claude/knowledge/reference/measurement-incidents.md）。
+#   この workflow は「未生成（missing）」を check-ogp-coverage.mjs、「frontmatter 変更で見た目が
+#   古いまま（stale）」を update-ogp-srchash.mjs --check でそれぞれ検知し、生成 → R2 供給 →
+#   manifest 更新までを CI だけで完結させる（R2 credential が無いローカル環境でも記事執筆は続けられる）。
+#
+# 自己ループ防止（二重）:
+#   1. commit メッセージに [skip ci] を付ける
+#   2. このワークフロー自体の trigger paths は content/site/**/*.mdx のみで、
+#      commit 対象の .claude/state/assets/manifest.json はこの paths フィルタに該当しない
+#      （そもそも push trigger で自分自身が再起動する経路が無い）
+#
+# 部分失敗時の性質（fail-open ではなく「次回 run が収束させる」設計）:
+#   - 一部 slug の生成失敗 → 隔離して継続。成功分だけ offload・manifest 更新まで進める
+#     （Generate ステップの成功 0 件＝全滅のときだけ止める）
+#   - offload 失敗 → manifest 未 publish のまま job が赤くなる。次回 run が同じ slug を
+#     missing/stale として再検出するので、原因を直して再実行すれば収束する
+#   - rebase/push 失敗 → R2 へは供給済みだが台帳（manifest.json）が develop に反映されない
+#     まま赤くなる。asset-inbox.yml が 2026-08-27 run 33034670182 で実際に踏んだ罠と同型
+#     （commit を rebase より先に行う理由は Publish ステップのコメント参照）。再実行で収束する
+#   - Post-supply coverage check が赤い ＝ 「一部の slug は供給できたが、まだ欠落/陳腐化が
+#     残っている」という設計どおりの状態（missing/stale がゼロになるまで赤いままにする）
+#
+# 既知の制約:
+#   新規 workflow は main に載るまで workflow_dispatch / schedule が発火しない
+#   （.github/workflows/asset-hydrate.yml のヘッダコメント、
+#   .claude/knowledge/reference/measurement-incidents.md「定期ジョブの実行ブランチ」節）。
+#   push トリガーは develop への push そのもので起動するため、main 昇格前でも develop 上の
+#   このファイルの版で動く。
+
+on:
+  push:
+    branches: [develop]
+    paths:
+      - 'content/site/**/*.mdx'
+  workflow_dispatch:
+    inputs:
+      max:
+        description: '生成上限の上書き（既定50）'
+        required: false
+        default: '50'
+        type: string
+  schedule:
+    - cron: '0 21 * * 0'
+
+# DN-0109 Phase 1: develop への自動書込み系ワークフロー間の push 衝突を防ぐ共通グループ
+# （asset-inbox.yml と同じグループで直列化。他の develop 書込み workflow と衝突しないため）。
+# 同時実行を待たせるだけで落とさない（cancel-in-progress: false）。
+concurrency:
+  group: develop-git-write
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  supply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: develop
+
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      # --ignore-scripts を付けない。prepare が pre-commit フックを入れ、CI 内で行う
+      # commit（Publish manifest ステップ）にもフルゲートが走るようにするため
+      # （asset-inbox.yml と同じ判断。--ignore-scripts 付きの asset-hydrate.yml は
+      # commit しない read-only workflow なので事情が異なる）。
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      # missing（未生成）と stale（frontmatter 変更で陳腐化）を検知し、生成対象 slug の
+      # 和集合を作る。検査対象数・内訳を必ずログへ出す（CLAUDE.md §9「検査ゼロを PASS と呼ばない」）。
+      - name: Detect missing/stale OGP
+        id: detect
+        run: |
+          set -u
+          set -o pipefail
+
+          echo "::group::check-ogp-coverage --json"
+          set +e
+          node scripts/check-ogp-coverage.mjs --json > /tmp/ogp-coverage.json
+          coverage_exit=$?
+          set -e
+          echo "exit code: ${coverage_exit}"
+          echo "::endgroup::"
+
+          # missing>0 は exit 1、missing=0 は exit 0。それ以外は検査自体が壊れている。
+          if [ "${coverage_exit}" -gt 1 ]; then
+            echo "::error::check-ogp-coverage.mjs --json が想定外の exit code (${coverage_exit}) で終了した。"
+            exit "${coverage_exit}"
+          fi
+
+          echo "::group::update-ogp-srchash --check --json"
+          set +e
+          node scripts/update-ogp-srchash.mjs --check --json > /tmp/ogp-srchash.json
+          srchash_exit=$?
+          set -e
+          echo "exit code: ${srchash_exit}"
+          echo "::endgroup::"
+
+          # stale/noHash>0 は exit 1、無ければ exit 0、検査対象 0 件（検査不成立）は exit 2。
+          if [ "${srchash_exit}" -eq 2 ]; then
+            echo "::error::update-ogp-srchash.mjs --check --json が検査不成立（exit 2）で終了した。published 記事の走査自体が壊れている可能性が高い。"
+            exit 1
+          fi
+          if [ "${srchash_exit}" -gt 1 ]; then
+            echo "::error::update-ogp-srchash.mjs --check --json が想定外の exit code (${srchash_exit}) で終了した。"
+            exit "${srchash_exit}"
+          fi
+
+          checked=$(jq -r '.checked' /tmp/ogp-coverage.json)
+          if [ "${checked}" = "0" ] || [ "${checked}" = "null" ]; then
+            echo "::error::published 記事 0 件（検査不成立）。POSTS_DIR や published 判定・categories.json の解決を確認すること。"
+            exit 1
+          fi
+
+          # 生成できない件数の明示（処理は継続。missing/stale の集合には含まれないので生成対象からは漏れる）。
+          unknown_cat_coverage=$(jq -r '.unknownCat | length' /tmp/ogp-coverage.json)
+          unknown_cat_srchash=$(jq -r '.unknownCat | length' /tmp/ogp-srchash.json)
+          if [ "${unknown_cat_coverage}" != "0" ]; then
+            echo "::warning::check-ogp-coverage: categories.json 未登録で OGP 解決不可な記事が ${unknown_cat_coverage} 件ある。"
+          fi
+          if [ "${unknown_cat_srchash}" != "0" ]; then
+            echo "::warning::update-ogp-srchash: categories.json 未登録で OGP 解決不可な記事が ${unknown_cat_srchash} 件ある。"
+          fi
+
+          jq -r '.missing[].slug' /tmp/ogp-coverage.json > /tmp/ogp-slugs-missing.txt
+          jq -r '.stale[].slug' /tmp/ogp-srchash.json > /tmp/ogp-slugs-stale.txt
+          sort -u /tmp/ogp-slugs-missing.txt /tmp/ogp-slugs-stale.txt | sed '/^$/d' > /tmp/ogp-targets.txt
+
+          missing_count=$(jq -r '.missing | length' /tmp/ogp-coverage.json)
+          stale_count=$(jq -r '.stale | length' /tmp/ogp-srchash.json)
+          count=$(wc -l < /tmp/ogp-targets.txt | tr -d ' ')
+
+          echo "checked ${checked} 件 / missing ${missing_count} 件 / stale ${stale_count} 件 / 対象 ${count} 件"
+
+          {
+            echo "checked=${checked}"
+            echo "missing=${missing_count}"
+            echo "stale=${stale_count}"
+            echo "count=${count}"
+          } >> "$GITHUB_OUTPUT"
+
+      # 対象件数が上限を大きく超えるのは、frontmatter の一括変更や srcHash ロジックの不具合など
+      # 系統異常の疑いがある。通常のインクリメンタルな記事更新なら数件〜十数件で収まるはず。
+      - name: Cap check
+        if: steps.detect.outputs.count != '0'
+        run: |
+          set -eu
+          count="${{ steps.detect.outputs.count }}"
+          max="${{ inputs.max || '50' }}"
+          echo "対象 ${count} 件 / 上限 ${max} 件"
+          if [ "${count}" -gt "${max}" ]; then
+            echo "::error::生成対象 ${count} 件が上限 ${max} 件を超えている。系統異常の疑い。意図的な一括供給なら workflow_dispatch の max パラメータで明示解除すること。"
+            exit 1
+          fi
+
+      # 失敗した slug は隔離して継続する（1 件の生成失敗で全体を止めない）。
+      # 全滅（成功 0 件）のときだけ異常として止める。
+      - name: Generate OGP images
+        if: steps.detect.outputs.count != '0'
+        id: generate
+        run: |
+          set -u
+          : > /tmp/ogp-generated-slugs.txt
+          : > /tmp/ogp-failed-slugs.txt
+          success=0
+          failed=0
+          while IFS= read -r slug; do
+            [ -z "${slug}" ] && continue
+            echo "::group::generate ${slug}"
+            if node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs "${slug}"; then
+              echo "${slug}" >> /tmp/ogp-generated-slugs.txt
+              success=$((success + 1))
+            else
+              echo "::warning::OGP 生成に失敗した slug: ${slug}"
+              echo "${slug}" >> /tmp/ogp-failed-slugs.txt
+              failed=$((failed + 1))
+            fi
+            echo "::endgroup::"
+          done < /tmp/ogp-targets.txt
+
+          echo "生成成功 ${success} 件 / 失敗 ${failed} 件"
+          if [ "${success}" -eq 0 ]; then
+            echo "::error::OGP 生成が全滅した（${failed} 件すべて失敗）。"
+            exit 1
+          fi
+
+          {
+            echo "generated=${success}"
+            echo "failed=${failed}"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Offload generated OGP to R2
+        if: steps.detect.outputs.count != '0'
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: node scripts/asset-offload.mjs --group site-ogp-png --include-untracked --commit
+
+      - name: Update srcHash for generated slugs
+        if: steps.detect.outputs.count != '0'
+        run: node scripts/update-ogp-srchash.mjs --write --slugs-file /tmp/ogp-generated-slugs.txt
+
+      - name: Publish manifest to develop
+        if: steps.detect.outputs.count != '0'
+        run: |
+          set -eu
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add .claude/state/assets/manifest.json
+          if git diff --cached --quiet; then
+            echo "::error::offload 成功なのに manifest.json に差分が無い。OGP 生成・R2 アップロードが成功していれば台帳は必ず動くはずで、動いていないのは異常（asset-inbox.yml とは逆の判定＝あちらは差分なしを正常とするが、こちらは生成・offload が成功した前提なので差分なしを異常とする）。"
+            exit 1
+          fi
+          # commit を rebase より先に行う。逆順だと staged な manifest が index に残ったままで
+          # `cannot rebase: Your index contains uncommitted changes` になり、R2 への upload は
+          # 成功しているのに台帳だけ published されない状態で毎回落ちる
+          # （asset-inbox.yml が 2026-08-27 run 33034670182 で実際に踏んだのと同じ罠）。
+          git commit -m "chore(assets): ogp-supply ${{ steps.generate.outputs.generated }} 件を R2 へ供給 [skip ci]"
+          git fetch origin develop
+          git rebase origin/develop
+          git push origin HEAD:develop
+
+      # 失敗 slug が残っていれば自然にここが赤くなる（成功分は供給済みだが job は赤、という
+      # 設計どおりの状態）。GitHub Actions の run: は既定で bash -e なので、素直に2行並べると
+      # 1行目が失敗した時点で2行目（srcHash側の残存確認）が実行されずログに出ない。
+      # 両方の結果を必ず見せてから、どちらかが失敗していれば job を落とす。
+      - name: Post-supply coverage check
+        if: steps.detect.outputs.count != '0'
+        run: |
+          set +e
+          node scripts/check-ogp-coverage.mjs
+          coverage_exit=$?
+          node scripts/update-ogp-srchash.mjs --check
+          srchash_exit=$?
+          set -e
+          if [ "${coverage_exit}" -ne 0 ] || [ "${srchash_exit}" -ne 0 ]; then
+            echo "::error::供給後もmissing/staleが残っている（coverage exit=${coverage_exit} / srchash exit=${srchash_exit}）"
+            exit 1
+          fi
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## OGP Supply Summary"
+            echo ""
+            echo "| 項目 | 件数 |"
+            echo "|---|---|"
+            echo "| published 記事（検査対象） | ${{ steps.detect.outputs.checked || 'N/A' }} |"
+            echo "| missing（未生成） | ${{ steps.detect.outputs.missing || 'N/A' }} |"
+            echo "| stale（frontmatter変更で陳腐化） | ${{ steps.detect.outputs.stale || 'N/A' }} |"
+            echo "| 生成成功 | ${{ steps.generate.outputs.generated || '0' }} |"
+            echo "| 生成失敗 | ${{ steps.generate.outputs.failed || '0' }} |"
+          } >> "$GITHUB_STEP_SUMMARY"

@@ -385,7 +385,11 @@ export function expandManifestFromLeanFormat(manifest, cfg = loadConfig()) {
  * 導出できる。読み出し側は loadManifest の互換層がこれらを動的に補う。 */
 // width / height は画像だけに付く。値は退避時に**実バイトのヘッダから測ったもの**で、
 // 手で書いた値ではない（下の imageSize を参照）。秘密になり得ない数値なので allowlist に入れてよい。
-const ENTRY_KEYS = ['bucket', 'r2Key', 'sha256', 'bytes', 'visibility', 'regenerable', 'group', 'verifiedAt', 'width', 'height'];
+// srcHash は OGP 画像の鮮度検知用（DN-0156 系）。中身は MDX frontmatter（title 等）から
+// 導出した非秘密の短縮ハッシュで、値そのものが秘密になり得ないので allowlist に入れてよい
+// （長さの根拠は findSecrets の long-hex-secret 除外条件を参照。16 桁に切り詰める理由は
+// scripts/update-ogp-srchash.mjs のコメントを参照）。
+const ENTRY_KEYS = ['bucket', 'r2Key', 'sha256', 'bytes', 'visibility', 'regenerable', 'group', 'verifiedAt', 'width', 'height', 'srcHash'];
 export function sanitizeEntry(e) {
   const out = {};
   for (const k of ENTRY_KEYS) if (e[k] !== undefined) out[k] = e[k];
