@@ -11,11 +11,11 @@ on:
       - main
     paths:
       - 'content/site/**/img/**'
-      # ogp.png/.webp は記事ディレクトリ直下（img/ の外）にあるため、img/** だけだと
+      # ogp.png は記事ディレクトリ直下（img/ の外）にあるため、img/** だけだと
       # OGP 画像更新が push で自動同期されず R2 で 404 → 外部リンクカード生成失敗の原因に
       # なる（2026-06-12 技術士建設部門の note リンクカード不具合）。明示的に拾う。
+      # ogp.webp は og:image が参照しない未使用の派生ファイルのため対象外（追跡もしない）。
       - 'content/site/**/ogp.png'
-      - 'content/site/**/ogp.webp'
 
   # 手動実行（初回・緊急・一括同期用）
   workflow_dispatch:
