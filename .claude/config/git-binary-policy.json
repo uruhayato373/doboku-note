@@ -113,12 +113,12 @@
     "default": 5.0
   },
   "budgets": {
-    "_comment": "ディレクトリ別の追跡総量上限（MiB）。個別ファイルが小さくても件数で膨らむ経路を止める。狙いは通常の執筆ペースを妨げず『まとまった投入』を止めること。Phase 4 の移行で content/note と content/sources が大きく下がるので、そのたびに締め直す。",
-    "content/note": 2600,
-    "content/site": 900,
-    "content/sns": 300,
-    "content/sources": 600,
-    "scripts": 120
+    "_comment": "ディレクトリ別の追跡総量上限（MiB）。個別ファイルが小さくても件数で膨らむ経路を止める。狙いは通常の執筆ペースを妨げず『まとまった投入』を止めること。2026-08-29 の全ストレージ最適化（ogp.png/webp・note magazine cover・coconala/repo-archive・kindle-dist backup を R2 へ退避）で実測が content/note 99.2 / content/site 69.0 / content/sns 28.3 / content/sources 0.0 / scripts 82.2 MiB まで下がったため締め直した。次に大きく下がる移行があればそのたびに再度締める。",
+    "content/note": 150,
+    "content/site": 120,
+    "content/sns": 60,
+    "content/sources": 20,
+    "scripts": 100
   },
   "derivedPairRules": [
     {
@@ -217,6 +217,13 @@
       "reason": "R2 退避の台帳。**これが無いと退避したものを復元できない**ので Git に置くしかない（8,531 件で 6.3 MiB・JSON 上限 4 MiB を超える）。1 エントリあたり約 750 byte で、退避が増えるほど太る。将来さらに膨らむなら logicalPath（キーと重複）・r2Key（group から導出可能）・mime（拡張子から導出可能）・generator/requiredBy（group 単位の定数）を落とせば 6 割減らせる。履歴 959 MB に対して 0.7% なので現時点では許容する。",
       "appliesTo": [
         "size"
+      ]
+    },
+    {
+      "path": "scripts/kindle-dist/",
+      "reason": "KDP 入稿済み EPUB+表紙 jpg。asset-storage.json の kindle-dist group で R2 private（doboku-note-archive/kindle/dist/）へバックアップ済みだが、check-kindle-format.mjs が ci:true で CI がこの Git 実体を直接検査するため untrack はしない（DN-0151(3) 決着）。untrack するには (i) 全冊再ビルドの内容一致検証 (ii) check-kindle-format の CI 実体依存問題の解決 の両方が要る。",
+      "appliesTo": [
+        "generated-ebook"
       ]
     }
   ]

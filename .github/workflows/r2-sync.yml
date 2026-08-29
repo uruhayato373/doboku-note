@@ -11,11 +11,11 @@ on:
       - main
     paths:
       - 'content/site/**/img/**'
-      # ogp.png は記事ディレクトリ直下（img/ の外）にあるため、img/** だけだと
-      # OGP 画像更新が push で自動同期されず R2 で 404 → 外部リンクカード生成失敗の原因に
-      # なる（2026-06-12 技術士建設部門の note リンクカード不具合）。明示的に拾う。
-      # ogp.webp は og:image が参照しない未使用の派生ファイルのため対象外（追跡もしない）。
-      - 'content/site/**/ogp.png'
+      # ogp.png は R2 退避対象（asset-storage.json の site-ogp-png group）へ移行したため、
+      # 新規生成時は asset-offload で直接 R2 へ上げる。git 経由の同期は不要になった
+      # （旧: img/** だけだと OGP 更新が push で自動同期されず 404 になるため明示的に拾っていた
+      # ＝ 2026-06-12 技術士建設部門の note リンクカード不具合。ogp.png は git 追跡対象でなくなる
+      # ため、この経路そのものが不要）。
 
   # 手動実行（初回・緊急・一括同期用）
   workflow_dispatch:

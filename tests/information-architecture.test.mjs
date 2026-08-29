@@ -80,7 +80,11 @@ test('二重 SSOT は旧ルートの実在で検出する', () => {
 
 test('実リポジトリは違反 0 で、検査対象が 0 件ではない', () => {
   const files = listTargets();
-  assert.ok(files.length > 10000, `検査対象が少なすぎる（走査の破損を疑う）: ${files.length}`);
+  // 2026-08-29 に 10000 → 8000 へ。全ストレージ最適化 P3/P4 で ogp.webp 1,166 件（読むコード
+  // 0 行の純中間物）と ogp.png 1,166 件（R2 退避・--verify 1166/1166 確認済み）を追跡から
+  // 外し、リポジトリ全体の追跡数が 12,091 → 9,759 まで下がった。この下限は「今と同じ桁」の
+  // 目安（走査の破損を疑う基準）で、正確な値に意味は無い。
+  assert.ok(files.length > 8000, `検査対象が少なすぎる（走査の破損を疑う）: ${files.length}`);
   const violations = files.flatMap((f) => auditPath(f, CFG));
   assert.deepEqual(violations.slice(0, 5), [], `違反 ${violations.length} 件`);
 });

@@ -328,3 +328,31 @@ docs/textbook/
 # 新規には作られなくなるが、既存の追跡分は untrack する（実体はローカルに残す）。
 # 2026-08-29。
 content/site/**/ogp.webp
+
+# ogp.png（1,166件・607MB＝git追跡容量の52%）は asset-storage.json の site-ogp-png
+# group でR2退避済み（--verify 3者照合OK）。配信は既にR2 301（public/_redirects）
+# 経由で本番稼働中なので untrack しても配信影響なし。新規記事は npm run ogp の後
+# node scripts/asset-offload.mjs --group site-ogp-png --commit で直接R2へ。
+# 復元は node scripts/asset-hydrate.mjs --group site-ogp-png。2026-08-29・DN-0111系。
+content/site/**/ogp.png
+
+# content/note/**/magazines/*/_cover.png（46件・45.1MB）はasset-storage.jsonの
+# note-magazine-cover-png groupでR2退避済み（private・--verify 3者照合OK）。
+# マガジンにはarticle.mdが無く既存note-cover-pngのfrontmatter判定が使えないため
+# bucket:private固定。復元は node scripts/asset-hydrate.mjs --group note-magazine-cover-png。
+# 2026-08-29。
+content/note/**/magazines/*/_cover.png
+
+# .claude/config/coconala/assets/（59件・28.3MB）はasset-storage.jsonの
+# coconala-asset groupでR2退避済み（private・--verify 3者照合OK）。
+# ココナラ出品Playwright自動化はローカル実体を直接参照するので挙動不変。
+# 復元は node scripts/asset-hydrate.mjs --group coconala-asset。2026-08-29。
+.claude/config/coconala/assets/**
+
+# repo-archive group（性質の異なる3種の死蔵物・13件・27.0MB）でR2退避済み
+# （private・--verify 3者照合OK）: OCR監査ログ・Kindle表紙デザイン案・
+# キャラ素材グリッド原本。監査証跡として当面残す価値があるため消さず退避。
+# 復元は node scripts/asset-hydrate.mjs --group repo-archive。2026-08-29。
+.claude/state/ocr-audit/**
+scripts/kindle-published/cover-designs/**
+content/sns/_assets/character/_source/**

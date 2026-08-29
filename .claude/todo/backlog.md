@@ -119,14 +119,29 @@ weekly.md の手動キューはこの ID だけを参照する（weekly は ID �
 
 ## 🟡 中 — 2〜3ヶ月以内
 
-### [DN-0151] Kindle 保管の残課題（A系経路外・死蔵14.8MB・R2方針の宙吊り）
+### [DN-0152] git履歴の再肥大を計測する（全ストレージ最適化P8の再計測）
+タグ: [インフラ・計測] [種類:改善] [検証:audit-repo-assets] [起票:2026-08-29] [期日:2026-09-05]
+
+2026-08-29 に全ストレージ最適化（P1-P8）を実施。git追跡容量は1,163MB→415.4MBまで削減した
+（.claude/config/asset-storage.json の group 群で ogp.png/webp・note magazine cover・
+coconala/repo-archive・kindle-dist backup を R2 へ退避）。一方で切り詰め直後の再肥大は
+DN-0111 完了後わずか7日で321.5MB（主犯は doc-meta-index.json 70版・manifest.json 6版などの
+生成物の毎回commit）だったため、今回の対策（doc-meta-index untrack・manifestスリム化）が
+効いているか実測で確認する。
+
+**手順**: `git count-objects -vH` の size-pack を計測し、2026-08-29時点の 1.03 GiB からの増分を見る。
+目標は「~130MB/週 → ≤10MB/週」。増分が大きければ何がpackを太らせているか
+（`git rev-list --objects HEAD~N..HEAD` 等で path 別集計）を特定し、追加の untrack か
+commit 頻度の見直しを検討する。
+
+### [DN-0151] Kindle 保管の残課題（A系経路外・死蔵14.8MB・catalog死ポインタ）
 タグ: [収益化] [種類:改善] [起票:2026-08-28]
 
 2026-08-28 の調査で判明した Kindle 保管の残課題を 1 枚に集約（admin `/content/kindle` が drift を常時表示する）。
+R2 退避方針の宙吊りは決着済み（2026-08-29・下記参照）。
 
 (1) A系 7 冊が自動再ビルド経路の外: buildSpec 無し・kdp-memo.json 未登録＝sync-kindle-dist も /kdp-publish も通らない。THEMES は build-takuitsu-reconstruct.mjs 内にあり spec 化は可能。
-(2) `scripts/kindle-published/cover-designs/` 14.8MB は品番マッピング無しの死蔵（再入稿に不使用）。孤児 約1.2MB（`A-01_安全管理_論点別過去問.epub`・`kindle-cover-A-01-確認用.jpg` は catalog 非参照）。
-(3) EPUB の R2 退避方針が宙吊り: binary-policy は「R2 private へ」と言うが repo-assets 監査は REVIEW（LIVE 同一性の要否未確認）で停止、asset-storage.json に kindle グループ未定義・退避経路未実装。決着させるまで EPUB 更新 commit は毎回 SKIP_GIT_BINARY_POLICY=1 が要る。
+(2) `scripts/kindle-published/cover-designs/` 14.8MB は品番マッピング無しの死蔵（再入稿に不使用）。孤児 約1.2MB（`A-01_安全管理_論点別過去問.epub`・`kindle-cover-A-01-確認用.jpg` は catalog 非参照）。**保存場所は決着**（2026-08-29・repo-archive group で R2 private へバックアップ済み・消さず退避）。残るのは品番マッピングの要否そのもの。
 (4) `scripts/kindle-covers/README.md`「出力 JPEG は git 追跡不要」と実態（kindle-dist/*.jpg 39枚追跡）の矛盾。
 (5) catalog の kdpMemo 死ポインタ 30 件（c/f/e 系の `KDP入力メモ_*.txt` 不在。gen-kdp-memo で生成するか kdp-memo.json 参照へ改める）。
 
@@ -810,6 +825,49 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 
 
 ## 🟢 低 — 時期未定
+
+### [DN-0153] kindle-dist EPUBのgit追跡解除（2条件付き）
+タグ: [インフラ・計測] [種類:改善] [起票:2026-08-29]
+
+2026-08-29 に scripts/kindle-dist/（76件・56.8MB）を kindle-dist group で R2 private へ
+バックアップ済み（DN-0151(3) 決着・commit 994e481de）。ただし git 追跡は維持している——
+untrack するには次の2条件が要る:
+(i) 全冊再ビルドの内容一致検証（EPUBはzipのため再ビルドでタイムスタンプが変わりsha256は
+再現しない。PDF系と同じ問題なのでbyte比較ではなく内容比較で代替する方法を先に決める）
+(ii) `scripts/check-kindle-format.mjs`（ci:trueゲート・0冊ならexit 2）がgit実体に直接依存
+している問題の解決（CIへhydrate+credentialを入れるか、ゲートをcredentialed workflowへ
+移すか）
+
+### [DN-0154] .obsidian/icons（12.4MB）の退避検証
+タグ: [インフラ・計測] [種類:改善] [起票:2026-08-29]
+
+.obsidian/icons/font-awesome-{solid,regular}.zip（各6.2MB）と plugins/obisidian-note-linker/
+main.js（7.2MB）が未分類のまま git 追跡容量を圧迫している（audit-repo-assets の REVIEW/
+unmatched に含まれる）。obsidian-sync が git を同期経路にしているため、安易に退避すると
+新端末セットアップが壊れるおそれがある。plugin が起動時に自動再取得できるか・icons zip が
+Obsidian 本体の再インストールで復元できるかを検証してから、退避するかどうかを決める。
+
+### [DN-0156] R2退避済みファイルの再追跡を検知するゲートが無い
+タグ: [インフラ・計測] [種類:改善] [起票:2026-08-29]
+
+2026-08-29 の全ストレージ最適化P8で逆行テスト（`git add -f` で退避済みogp.pngを仮ステージ）
+を行ったところ、`check-git-binary-policy`（denyRule/sizeLimitのパターンマッチのみ）も
+`check-asset-storage`（Git追跡中を正常状態として扱う設計——kindle-distのような意図的併存
+ケースがあるため）も検知しないと判明。つまり誰かが誤って`git add -f`で退避済みファイルを
+再コミットしても、機械ゲートは止めない（.gitignoreだけが頼り）。asset-storage.jsonの
+regenerable:false かつ visibilityFrom:fixed:* な group（kindle-distのような意図的併存を除く）
+について、staged diffに「manifestへ退避済みのlogicalPathが含まれる」ケースを検出する
+新規チェックを設計する。
+
+### [DN-0155] git履歴の次回切り詰め（.git実体1.0GBの回収）
+タグ: [インフラ・計測] [種類:改善] [起票:2026-08-29]
+
+DN-0111（2026-08-22）で単一commitへ切り詰めたが、.git実体は現在1.03GiB（size-pack）まで
+再肥大している。2026-08-29の全ストレージ最適化（P1-P8）でHEAD追跡容量は415.4MBまで
+下がったが、過去のcommit履歴（切り詰め後の7日分含む）は.gitのpackに残ったままで、通常の
+commitでは減らない。**全worktree停止が必要な単独作業**（policy §8手順）なので、
+P1-P8完了後（このカード起票時点）にやるのが最も効果が大きい。DN-0152の再計測結果を見てから
+着手を判断する。
 
 ### [DN-0088] search-growth 残存 UNKNOWN 1,280 URL の発生源裁定
 タグ: [インフラ・計測] [種類:意思決定] [起票:2026-08-22]

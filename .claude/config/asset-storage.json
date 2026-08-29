@@ -48,6 +48,23 @@
       "phase": "4-B"
     },
     {
+      "id": "note-magazine-cover-png",
+      "match": {
+        "pathRegex": "^content/note/.+/magazines/[^/]+/_cover\\.png$"
+      },
+      "bucket": "private",
+      "keyPrefix": "note/magazine-covers/",
+      "keyFrom": "stripPrefix:content/note/",
+      "visibilityFrom": "fixed:private",
+      "regenerable": true,
+      "generator": "scripts/generate-magazine-covers.mjs",
+      "requiredBy": [
+        "scripts/note-magazine-cover.mjs"
+      ],
+      "reason": "マガジン直下（magazines/<name>/_cover.png）は記事のような frontmatter を持たないため、既存の note-cover-png group の noteFrontmatter 判定が使えない。判定不能なものは private へ倒す原則（asset-storage-policy.md の不変条件）に従い bucket は private 固定にする。regenerable は true だが、note-cover-png と同様に byte 再現は信用しない（生成物として再現できても、退避前の実バイトを保管する）。",
+      "phase": "4-B"
+    },
+    {
       "id": "textbook-page-image",
       "match": {
         "pathRegex": "^content/sources/textbook/.+\\.(png|jpe?g|webp|tiff?)$"
@@ -168,6 +185,83 @@
       ],
       "reason": "公開バケットに孤児として残っていた旧配置の素材（content/ の旧記事画像 2,573 件と sns/ の消えた構造の残骸 1,146 件）。リポジトリにも posts/ にも対応が無く**唯一の実体**だったので、消す前に private へ退避して台帳に載せた（DN-0116 B）。公開バケット側は削除する。",
       "phase": "DN-0116"
+    },
+    {
+      "id": "site-ogp-png",
+      "match": {
+        "pathRegex": "^content/site/.+/ogp\\.png$"
+      },
+      "bucket": "public",
+      "keyPrefix": "posts/",
+      "keyFrom": "stripPrefix:content/site/",
+      "visibilityFrom": "fixed:public",
+      "regenerable": false,
+      "generator": "npm run ogp",
+      "requiredBy": [
+        "src/lib/r2-image-loader.ts（getOgpImageUrl・og:image メタタグ）",
+        "scripts/check-ogp-coverage.mjs",
+        "scripts/check-orphan-ogp.mjs"
+      ],
+      "reason": "content/site/**/ogp.png は 1,166 件 607MB でリポジトリ git 追跡容量 1,163MB の 52% を占める。配信は既に R2 301（public/_redirects）経由で本番稼働中。R2 キーは upload-images-to-r2.mjs の `posts/${rel}` と機械的に一致するため URL は変わらない。visibility を fixed:public にするのは、現行の r2-sync.yml が published 記事かどうかを問わず全記事の ogp.png を public へ同期している現状の挙動を変えないため。",
+      "phase": "site-ogp-offload"
+    },
+    {
+      "id": "coconala-asset",
+      "match": {
+        "pathRegex": "^\\.claude/config/coconala/assets/.+"
+      },
+      "bucket": "private",
+      "keyPrefix": "coconala/assets/",
+      "keyFrom": "stripPrefix:.claude/config/coconala/assets/",
+      "visibilityFrom": "fixed:private",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ],
+      "reason": "ココナラ出品自動化（Playwright）が参照する商品サムネ・背景素材。読者はローカル実体を直接参照するため git 追跡容量を圧迫するだけで公開配信には使われていない。退避してもローカルの読者コードは影響を受けない（ワークツリーの実体はそのまま残るため）",
+      "phase": "unclassified-backfill"
+    },
+    {
+      "id": "repo-archive",
+      "match": {
+        "pathRegex": "^(\\.claude/state/ocr-audit/.+|scripts/kindle-published/cover-designs/.+|content/sns/_assets/character/_source/.+)$"
+      },
+      "bucket": "private",
+      "keyPrefix": "archive/repo/",
+      "keyFrom": "repoRelative",
+      "visibilityFrom": "fixed:private",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "OCR 監査の経緯を遡って確認するとき（.claude/state/ocr-audit/）",
+        "Kindle 表紙デザイン案を再検討するとき（scripts/kindle-published/cover-designs/・DN-0151）",
+        "キャラクター素材グリッド原本から新規ポーズを切り出すとき（content/sns/_assets/character/_source/）"
+      ],
+      "reason": "性質の異なる3種の死蔵物（OCR監査ログ・Kindle表紙デザイン案・キャラ素材グリッド原本）をまとめて退避する。個別に group を作るほどの規模ではないが、いずれも『消さず退避』が適切（監査証跡・意思決定の記録として当面残す価値がある）。ローカル削除は別判断",
+      "phase": "unclassified-backfill"
+    },
+    {
+      "id": "kindle-dist",
+      "match": {
+        "pathRegex": "^scripts/kindle-dist/.+\\.(epub|jpg)$"
+      },
+      "bucket": "private",
+      "keyPrefix": "kindle/dist/",
+      "keyFrom": "stripPrefix:scripts/kindle-dist/",
+      "visibilityFrom": "fixed:private",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "scripts/kdp-publish.mjs",
+        "scripts/sync-kindle-dist.mjs"
+      ],
+      "reason": "gitが唯一の実体（catalog.jsonの全45冊がlive/in_review保護skipのためsync-kindle-distの既定再ビルド対象外）。EPUBはzipのため再ビルドでタイムスタンプが変わりsha256が再現しない（PDF系と同じ問題）。check-kindle-format.mjsがci:trueで0冊ならexit 2のCI実体依存ゲートのため、untrackはCI破壊に直結する。今回はR2バックアップのみ行い、git追跡は維持する（DN-0151(3)決着）。untrackの前提条件: (i)全冊再ビルドの内容一致検証 (ii)check-kindle-formatのCI実体問題の解決",
+      "phase": "DN-0151"
     }
   ]
 }
