@@ -127,7 +127,9 @@ if (missing.length) {
     console.error(`\n[NG] OGP 画像が欠落している published 記事: ${missing.length} 件`);
     missing.forEach((m) => console.error(`  - ${m.slug}  ->  ${m.ogp}`));
     console.error(
-      '\n対応: npm run ogp -- --all で生成し ogp.png を commit（main push で r2-sync が R2 同期）。',
+      '\n対応: develop へ push すれば ogp-supply.yml が自動生成して R2 へ供給する。' +
+        '即時反映したいなら `gh workflow run ogp-supply.yml`。' +
+        'ローカル生成（npm run ogp）はプレビュー用（R2 へは供給されない）。',
     );
     console.error('詳細: .claude/knowledge/reference/measurement-incidents.md「2026-06-12 OGP 404」');
   }
