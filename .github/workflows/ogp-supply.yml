@@ -84,6 +84,15 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
+      # doc-meta-index.json は git 追跡から外した生成物（2026-08-29・履歴肥大の再発防止）。
+      # --ignore-scripts を付けていないため prepare が pre-commit フックを入れており、
+      # Publish manifest ステップの git commit でそのフックが走る。フック内の複数チェック
+      # （check-x-campaign-plan 等）がこのファイルを直接読むため、無いと commit 自体が
+      # ENOENT で失敗する（2026-08-29 実測: run 33244616204 で Publish manifest が落ちた）。
+      # ci.yml / r2-audit.yml と同じ配線。
+      - name: Build doc meta index
+        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+
       # missing（未生成）と stale（frontmatter 変更で陳腐化）を検知し、生成対象 slug の
       # 和集合を作る。検査対象数・内訳を必ずログへ出す（CLAUDE.md §9「検査ゼロを PASS と呼ばない」）。
       - name: Detect missing/stale OGP
