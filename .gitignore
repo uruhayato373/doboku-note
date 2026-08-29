@@ -321,3 +321,10 @@ content/sns/instagram/**/*.jpeg
 # `npm run asset-hydrate -- --group textbook-source-pdf` で docs/textbook/ 配下へ取り戻すが、
 # **取り戻したものを再びコミットしないこと**（実測でここが素通りだったので明示的に塞ぐ）。
 docs/textbook/
+
+# ogp.webp は og:image が参照しない未使用の派生ファイル（読むコード0行）。
+# ogp.png から prebuild のたび generate-webp.mjs が再生成する純中間物で、
+# 過去7日で履歴肥大の一因だった。generate-webp.mjs は img/ 配下限定に修正済みで
+# 新規には作られなくなるが、既存の追跡分は untrack する（実体はローカルに残す）。
+# 2026-08-29。
+content/site/**/ogp.webp
