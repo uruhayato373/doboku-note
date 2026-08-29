@@ -164808,7 +164808,15 @@
       "group": "repo-archive",
       "verifiedAt": "2026-08-29T01:22:32.684Z",
       "width": 992,
-      "height": 1586
+      "height": 1586,
+      "logicalPath": "scripts/kindle-published/cover-designs/Book Cover Design Image Jul 8 2026.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "OCR 監査の経緯を遡って確認するとき（.claude/state/ocr-audit/）",
+        "Kindle 表紙デザイン案を再検討するとき（scripts/kindle-published/cover-designs/・DN-0151）",
+        "キャラクター素材グリッド原本から新規ポーズを切り出すとき（content/sns/_assets/character/_source/）"
+      ]
     },
     "scripts/kindle-published/cover-designs/Book Cover Design Image Jul 8 2026 (1).png": {
       "bucket": "private",
@@ -164820,7 +164828,15 @@
       "group": "repo-archive",
       "verifiedAt": "2026-08-29T01:22:32.727Z",
       "width": 992,
-      "height": 1586
+      "height": 1586,
+      "logicalPath": "scripts/kindle-published/cover-designs/Book Cover Design Image Jul 8 2026 (1).png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "OCR 監査の経緯を遡って確認するとき（.claude/state/ocr-audit/）",
+        "Kindle 表紙デザイン案を再検討するとき（scripts/kindle-published/cover-designs/・DN-0151）",
+        "キャラクター素材グリッド原本から新規ポーズを切り出すとき（content/sns/_assets/character/_source/）"
+      ]
     },
     "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (5).png": {
       "bucket": "private",
@@ -164832,7 +164848,15 @@
       "group": "repo-archive",
       "verifiedAt": "2026-08-29T01:22:32.741Z",
       "width": 992,
-      "height": 1586
+      "height": 1586,
+      "logicalPath": "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (5).png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "OCR 監査の経緯を遡って確認するとき（.claude/state/ocr-audit/）",
+        "Kindle 表紙デザイン案を再検討するとき（scripts/kindle-published/cover-designs/・DN-0151）",
+        "キャラクター素材グリッド原本から新規ポーズを切り出すとき（content/sns/_assets/character/_source/）"
+      ]
     },
     "content/sns/_assets/character/_source/grid-2.png": {
       "bucket": "private",
@@ -164844,7 +164868,15 @@
       "group": "repo-archive",
       "verifiedAt": "2026-08-29T01:22:32.784Z",
       "width": 1254,
-      "height": 1254
+      "height": 1254,
+      "logicalPath": "content/sns/_assets/character/_source/grid-2.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "OCR 監査の経緯を遡って確認するとき（.claude/state/ocr-audit/）",
+        "Kindle 表紙デザイン案を再検討するとき（scripts/kindle-published/cover-designs/・DN-0151）",
+        "キャラクター素材グリッド原本から新規ポーズを切り出すとき（content/sns/_assets/character/_source/）"
+      ]
     },
     "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (1).png": {
       "bucket": "private",
@@ -164856,7 +164888,15 @@
       "group": "repo-archive",
       "verifiedAt": "2026-08-29T01:22:32.865Z",
       "width": 992,
-      "height": 1586
+      "height": 1586,
+      "logicalPath": "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (1).png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "OCR 監査の経緯を遡って確認するとき（.claude/state/ocr-audit/）",
+        "Kindle 表紙デザイン案を再検討するとき（scripts/kindle-published/cover-designs/・DN-0151）",
+        "キャラクター素材グリッド原本から新規ポーズを切り出すとき（content/sns/_assets/character/_source/）"
+      ]
     },
     "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (4).png": {
       "bucket": "private",
@@ -164868,7 +164908,15 @@
       "group": "repo-archive",
       "verifiedAt": "2026-08-29T01:22:32.929Z",
       "width": 992,
-      "height": 1586
+      "height": 1586,
+      "logicalPath": "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (4).png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "OCR 監査の経緯を遡って確認するとき（.claude/state/ocr-audit/）",
+        "Kindle 表紙デザイン案を再検討するとき（scripts/kindle-published/cover-designs/・DN-0151）",
+        "キャラクター素材グリッド原本から新規ポーズを切り出すとき（content/sns/_assets/character/_source/）"
+      ]
     },
     "content/sns/_assets/character/_source/grid-1.png": {
       "bucket": "private",
@@ -164880,7 +164928,15 @@
       "group": "repo-archive",
       "verifiedAt": "2026-08-29T01:22:32.952Z",
       "width": 1254,
-      "height": 1254
+      "height": 1254,
+      "logicalPath": "content/sns/_assets/character/_source/grid-1.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "OCR 監査の経緯を遡って確認するとき（.claude/state/ocr-audit/）",
+        "Kindle 表紙デザイン案を再検討するとき（scripts/kindle-published/cover-designs/・DN-0151）",
+        "キャラクター素材グリッド原本から新規ポーズを切り出すとき（content/sns/_assets/character/_source/）"
+      ]
     },
     "content/sns/_assets/character/_source/grid-3.png": {
       "bucket": "private",
@@ -164892,7 +164948,15 @@
       "group": "repo-archive",
       "verifiedAt": "2026-08-29T01:22:32.952Z",
       "width": 1254,
-      "height": 1254
+      "height": 1254,
+      "logicalPath": "content/sns/_assets/character/_source/grid-3.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "OCR 監査の経緯を遡って確認するとき（.claude/state/ocr-audit/）",
+        "Kindle 表紙デザイン案を再検討するとき（scripts/kindle-published/cover-designs/・DN-0151）",
+        "キャラクター素材グリッド原本から新規ポーズを切り出すとき（content/sns/_assets/character/_source/）"
+      ]
     },
     ".claude/state/ocr-audit/2026-04-24.json": {
       "bucket": "private",
@@ -164902,7 +164966,15 @@
       "visibility": "private",
       "regenerable": false,
       "group": "repo-archive",
-      "verifiedAt": "2026-08-29T01:22:33.004Z"
+      "verifiedAt": "2026-08-29T01:22:33.004Z",
+      "logicalPath": ".claude/state/ocr-audit/2026-04-24.json",
+      "mime": "application/octet-stream",
+      "generator": null,
+      "requiredBy": [
+        "OCR 監査の経緯を遡って確認するとき（.claude/state/ocr-audit/）",
+        "Kindle 表紙デザイン案を再検討するとき（scripts/kindle-published/cover-designs/・DN-0151）",
+        "キャラクター素材グリッド原本から新規ポーズを切り出すとき（content/sns/_assets/character/_source/）"
+      ]
     },
     "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026.png": {
       "bucket": "private",
@@ -164914,7 +164986,15 @@
       "group": "repo-archive",
       "verifiedAt": "2026-08-29T01:22:33.050Z",
       "width": 992,
-      "height": 1586
+      "height": 1586,
+      "logicalPath": "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026.png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "OCR 監査の経緯を遡って確認するとき（.claude/state/ocr-audit/）",
+        "Kindle 表紙デザイン案を再検討するとき（scripts/kindle-published/cover-designs/・DN-0151）",
+        "キャラクター素材グリッド原本から新規ポーズを切り出すとき（content/sns/_assets/character/_source/）"
+      ]
     },
     "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (2).png": {
       "bucket": "private",
@@ -164926,7 +165006,15 @@
       "group": "repo-archive",
       "verifiedAt": "2026-08-29T01:22:33.079Z",
       "width": 992,
-      "height": 1586
+      "height": 1586,
+      "logicalPath": "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (2).png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "OCR 監査の経緯を遡って確認するとき（.claude/state/ocr-audit/）",
+        "Kindle 表紙デザイン案を再検討するとき（scripts/kindle-published/cover-designs/・DN-0151）",
+        "キャラクター素材グリッド原本から新規ポーズを切り出すとき（content/sns/_assets/character/_source/）"
+      ]
     },
     "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (3).png": {
       "bucket": "private",
@@ -164938,7 +165026,15 @@
       "group": "repo-archive",
       "verifiedAt": "2026-08-29T01:22:33.085Z",
       "width": 992,
-      "height": 1586
+      "height": 1586,
+      "logicalPath": "scripts/kindle-published/cover-designs/Book Cover Design Request July 8 2026 (3).png",
+      "mime": "image/png",
+      "generator": null,
+      "requiredBy": [
+        "OCR 監査の経緯を遡って確認するとき（.claude/state/ocr-audit/）",
+        "Kindle 表紙デザイン案を再検討するとき（scripts/kindle-published/cover-designs/・DN-0151）",
+        "キャラクター素材グリッド原本から新規ポーズを切り出すとき（content/sns/_assets/character/_source/）"
+      ]
     },
     ".claude/state/ocr-audit/2026-04-26.json": {
       "bucket": "private",
@@ -164948,7 +165044,851 @@
       "visibility": "private",
       "regenerable": false,
       "group": "repo-archive",
-      "verifiedAt": "2026-08-29T01:22:33.295Z"
+      "verifiedAt": "2026-08-29T01:22:33.295Z",
+      "logicalPath": ".claude/state/ocr-audit/2026-04-26.json",
+      "mime": "application/octet-stream",
+      "generator": null,
+      "requiredBy": [
+        "OCR 監査の経緯を遡って確認するとき（.claude/state/ocr-audit/）",
+        "Kindle 表紙デザイン案を再検討するとき（scripts/kindle-published/cover-designs/・DN-0151）",
+        "キャラクター素材グリッド原本から新規ポーズを切り出すとき（content/sns/_assets/character/_source/）"
+      ]
+    },
+    "scripts/kindle-dist/c-06.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-06.epub",
+      "sha256": "c4832824095633cb75a8821fc0ef6c31e64bf2fe00a1de7ea4d29c314c6cd262",
+      "bytes": 121903,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.108Z"
+    },
+    "scripts/kindle-dist/c-02.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-02.epub",
+      "sha256": "78ed1c4ed0c7fbab290b12fad533b0cc4e3035d95fe607ff53af30ba565e69c7",
+      "bytes": 121979,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.208Z"
+    },
+    "scripts/kindle-dist/c-03.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-03.jpg",
+      "sha256": "86794d9d7155503ccc31eec7dd0cd5b82f33b7ec9887d28bd56f6a8ffc5b338b",
+      "bytes": 937221,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.235Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/c-03.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-03.epub",
+      "sha256": "7765a96d5bd4dfdcf5a09fcdc97473069b9481bfe3bd5d4a3ac4d87d53baf973",
+      "bytes": 120550,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.236Z"
+    },
+    "scripts/kindle-dist/c-01.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-01.epub",
+      "sha256": "f9cd8d731b2923fee14fbc4fa33abc22ae7c916fd91ac247779fcae4afc4917e",
+      "bytes": 119191,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.264Z"
+    },
+    "scripts/kindle-dist/b-heisei.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/b-heisei.jpg",
+      "sha256": "c0e88469e3820168e0a4ebbe0605631edf859807318c90fa9e74855d90e01026",
+      "bytes": 752786,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.272Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/c-05.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-05.epub",
+      "sha256": "21f00c4254cea8838e223f2af7936baf3d018cc64d7c91d71a1a8147d2d7af24",
+      "bytes": 119802,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.308Z"
+    },
+    "scripts/kindle-dist/c-02.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-02.jpg",
+      "sha256": "ccc67de3eb3e0f882be0fe4c689484d9fdf030c6929afac0bb3292e06b90b9d3",
+      "bytes": 941589,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.368Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/c-04.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-04.epub",
+      "sha256": "d792c720a849c84d007070ea8347be5c283664bfdce88a1c73bb5650bf263827",
+      "bytes": 118104,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.370Z"
+    },
+    "scripts/kindle-dist/c-06.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-06.jpg",
+      "sha256": "696776d0d7877864e513882091adea6693621a14bc69996ec313e9c9a7bd6d94",
+      "bytes": 935912,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.432Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/b-reiwa.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/b-reiwa.epub",
+      "sha256": "ef33f789028bcd67eb16a7c038721f240658235c3baec353b37fc35132bef382",
+      "bytes": 811145,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.513Z"
+    },
+    "scripts/kindle-dist/c-01.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-01.jpg",
+      "sha256": "919053c6ade761b030e75eb22dbbdb947d349a2bf9665b3058cd93bce893676a",
+      "bytes": 929099,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.579Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/b-reiwa.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/b-reiwa.jpg",
+      "sha256": "25fbbc563eebe0fea9ca0d23192d129db76af44f91fc6ebd3f44438b66be81f1",
+      "bytes": 750316,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.651Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/c-04.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-04.jpg",
+      "sha256": "e122d6520434607d132fbb89550a77156866465429468d1bfb39424ad7bdd36e",
+      "bytes": 954511,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.667Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/c-05.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-05.jpg",
+      "sha256": "0b920e63200fc86799c5073fbf761b4b9e0f15f0c080466562b8c8150e245d9b",
+      "bytes": 943499,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.667Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/c-08.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-08.epub",
+      "sha256": "763efbfec30a5873004c173ec4fd9b8e608f8e79318c75bc0c6c300d2f4557fb",
+      "bytes": 119779,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.835Z"
+    },
+    "scripts/kindle-dist/c-07.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-07.jpg",
+      "sha256": "536d87187a892d0e4068ddeded90c3b01b11ed1bec517fdd605aa356049e52e7",
+      "bytes": 950014,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.860Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/c-07.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-07.epub",
+      "sha256": "73ea990d56a48c084b2f56924405c06a6d71296cef340d1a0ea17771d11a6543",
+      "bytes": 120057,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.893Z"
+    },
+    "scripts/kindle-dist/b-heisei.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/b-heisei.epub",
+      "sha256": "c66fd0d867e272dcde07f4be840e09cde44a215497806e281f437e9eb0797d5d",
+      "bytes": 1837324,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.915Z"
+    },
+    "scripts/kindle-dist/c-09.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-09.epub",
+      "sha256": "a9df0adea02cd476d33379a805ea3982e16d3190f256c68b5570985df0b88a07",
+      "bytes": 120682,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.953Z"
+    },
+    "scripts/kindle-dist/c-08.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-08.jpg",
+      "sha256": "a10b67badfbe87afb4b8b84615f46df82b00380917617317c6ba51809c3c82de",
+      "bytes": 958658,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:19.971Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/c-10.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-10.epub",
+      "sha256": "92bb02d88c7cb6054e8f9bcbe577abbc435203f37322f3b57297d47c018369b0",
+      "bytes": 125883,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.000Z"
+    },
+    "scripts/kindle-dist/c-09.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-09.jpg",
+      "sha256": "64ad6a2db4db3032396f06a0e946284e000c33c83e04a73b4666c654e8fb7fa2",
+      "bytes": 933165,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.059Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/c-11.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-11.epub",
+      "sha256": "ca3a26507ede02e7bad79041574e6d4a4cc637765428f2778c57828b2e1316e2",
+      "bytes": 126456,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.224Z"
+    },
+    "scripts/kindle-dist/c-11.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-11.jpg",
+      "sha256": "28f6d0eca6aef70f8ed0907b13696bdf053dc2b045bebcbe5c09eebedb0fdded",
+      "bytes": 930258,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.291Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/c-I.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-I.epub",
+      "sha256": "03b8f3f9eed687fd359fc93ae02d3329a24c231616b762bd0d8dd77d3a007cd0",
+      "bytes": 56657,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.311Z"
+    },
+    "scripts/kindle-dist/c-I.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-I.jpg",
+      "sha256": "4ca3e27cbe1a2b8de5907abb8301a6613fd407f96acc95af60ea54e7dcba3ed9",
+      "bytes": 945215,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.317Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/c-10.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/c-10.jpg",
+      "sha256": "097f460e11512c789d7f610f56866d1b8c267b0b831d37271d62e6b389d3c1dc",
+      "bytes": 931235,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.345Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/d-00.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/d-00.jpg",
+      "sha256": "0e4426aec404afa51fbdc2082d700adfaab305c26ac796d9dbc810cd74835ace",
+      "bytes": 907342,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.452Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/d-01.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/d-01.jpg",
+      "sha256": "72182c7d781f5f7b47ba533bed8156c86ccbf1121ea7f0b2454b3e0c7ae18733",
+      "bytes": 912485,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.507Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/d-02.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/d-02.epub",
+      "sha256": "7b1662b81228386b5f0ead2efbcf09bd4d77261c655ff5b68a4de549cb118c85",
+      "bytes": 570213,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.591Z"
+    },
+    "scripts/kindle-dist/d-02.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/d-02.jpg",
+      "sha256": "a04c9a464f2d8d96960a071ac3d6cb10c188e78d4a3b5ddbe9d6a5c075e94333",
+      "bytes": 909098,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.667Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/d-03.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/d-03.jpg",
+      "sha256": "3abf2331d1c73b403cd2c5458bb604af0391097554565a6e38bde3dfb608f5f9",
+      "bytes": 903978,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.720Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/e-01.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/e-01.jpg",
+      "sha256": "cc224670c41d70fd4a9e350bc89d5604d6dc7787031827bc19338e1d1a30059c",
+      "bytes": 660600,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.742Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/d-01.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/d-01.epub",
+      "sha256": "5a3362f6328b2a844e8601195ee00ed4b45dffd6b3620c381b9eb06d9fe734de",
+      "bytes": 2405648,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.769Z"
+    },
+    "scripts/kindle-dist/f-01.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-01.epub",
+      "sha256": "b54824e375d2addbd0e4bfe0ff7d9838d6a96cb7802079379f6bdca5c07a8e1b",
+      "bytes": 54635,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.861Z"
+    },
+    "scripts/kindle-dist/d-00.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/d-00.epub",
+      "sha256": "fc3eed1f47ded28cac1d8f29d4552fe5079f97874a2cdcef12192ca78a6f261e",
+      "bytes": 4566361,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.887Z"
+    },
+    "scripts/kindle-dist/f-02.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-02.epub",
+      "sha256": "a16a5e33ade08225f78189352e2f2ea7070a1b09a3208058920a9564c125e5b5",
+      "bytes": 55379,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.933Z"
+    },
+    "scripts/kindle-dist/e-02.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/e-02.jpg",
+      "sha256": "7377fc7b5eb7c1e6c0e9d404b13bb16615e35b2ae86a039e6578a96f160b38dc",
+      "bytes": 911300,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.938Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/e-01.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/e-01.epub",
+      "sha256": "f49d4786b574b87d1767fa93525b5c479f780e81686e4ba85dc180454f017398",
+      "bytes": 3126953,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:20.952Z"
+    },
+    "scripts/kindle-dist/d-03.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/d-03.epub",
+      "sha256": "03291624d556ca9c080d8a6cabf0efd15519c61f4baffd06c8f7be0037f34e0f",
+      "bytes": 1612336,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:21.012Z"
+    },
+    "scripts/kindle-dist/f-02.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-02.jpg",
+      "sha256": "7fec1e25453a10741599c6cec375205349ef0409422c9041c6c2027abc988716",
+      "bytes": 740237,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:21.061Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/f-03.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-03.epub",
+      "sha256": "227078fb0877c4522ce40105ba960adec80e2b92bf7d866033bcd4ab4d9e3155",
+      "bytes": 67605,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:21.068Z"
+    },
+    "scripts/kindle-dist/f-01.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-01.jpg",
+      "sha256": "64a33614bf4872394479b7d4ee01f363409a22208f42aaadc24f13e3d01d1dfb",
+      "bytes": 734062,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:21.105Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/f-04.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-04.epub",
+      "sha256": "5e5d4276e1d0b84fcafae2888327f2637065d414c70e0522c1705d09e062ae95",
+      "bytes": 66689,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:21.131Z"
+    },
+    "scripts/kindle-dist/f-05.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-05.epub",
+      "sha256": "3c4903cc86727d507f6caf0b241ad046ad9da32bede1188307596af595a531be",
+      "bytes": 66566,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:21.404Z"
+    },
+    "scripts/kindle-dist/f-07.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-07.epub",
+      "sha256": "acc379114a81c77d24901d0e47dd6d448b9d4db7c1132bc2f798220dffc6108f",
+      "bytes": 64306,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:21.531Z"
+    },
+    "scripts/kindle-dist/f-06.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-06.epub",
+      "sha256": "2d824f824749d96e68dbf1050932f79474318a4d833ac4143b44aaf5f3406dae",
+      "bytes": 64724,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:21.548Z"
+    },
+    "scripts/kindle-dist/f-08.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-08.epub",
+      "sha256": "218b9df51d6659aae783d853f081afbd005307591ed5e37c7c44d46f04cb1690",
+      "bytes": 66984,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:21.600Z"
+    },
+    "scripts/kindle-dist/f-10.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-10.epub",
+      "sha256": "9c9ebd25245e56e0012a53bfec87e64db0f102477a6ab29ae2f6f8b68503c48f",
+      "bytes": 64626,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:21.616Z"
+    },
+    "scripts/kindle-dist/f-09.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-09.epub",
+      "sha256": "1fca0ba8bc2c5dc9a32bb703d6c4f7c0d82e845c8555ecc7a01230876a29494d",
+      "bytes": 65301,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:21.681Z"
+    },
+    "scripts/kindle-dist/f-03.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-03.jpg",
+      "sha256": "798fb036f13dad2d5603f32551b522748077b6e3a566e20f3053d369295c8f24",
+      "bytes": 732778,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:21.683Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/e-02.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/e-02.epub",
+      "sha256": "0c01a3429657c76dd8740072167c95e0a3d38793468a189a22c20546a4bd7982",
+      "bytes": 6988973,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:21.684Z"
+    },
+    "scripts/kindle-dist/f-09.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-09.jpg",
+      "sha256": "57e9966535149a6e2fb1b6e683a41b0b59ee15710b861f0c8db5f48b940b2ea1",
+      "bytes": 735056,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:21.684Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/f-06.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-06.jpg",
+      "sha256": "35d68ff991a5cd0f579047f285723c08d7573316dfb6fa93d1c9d7c77eae35c0",
+      "bytes": 752532,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:21.697Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/f-11.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-11.epub",
+      "sha256": "d52ee2204589c3f33763b325fcd54b168e466fea3ae31287f1bc69c7a96cdbbd",
+      "bytes": 58425,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:21.740Z"
+    },
+    "scripts/kindle-dist/f-04.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-04.jpg",
+      "sha256": "996ac8a911a21ddc6ed1c0c868f5e4c4d56f18969f1d80b3bb846a68613826c9",
+      "bytes": 734368,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:21.893Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/f-07.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-07.jpg",
+      "sha256": "78574cd58ebaad115b799f539aab6e5b710713915da4d2c74f0ad32089e6c3c5",
+      "bytes": 749069,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:21.943Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/f-10.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-10.jpg",
+      "sha256": "0b9b358583d9e0d6805e05fe90ceb8ba9782782b1e91e972b642c42ef19c1c8f",
+      "bytes": 730238,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:22.089Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/f-11.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-11.jpg",
+      "sha256": "a59cfc04ea6f16ffcf498edd5daee8facee154be1ef486912cb8afd4538c522e",
+      "bytes": 752154,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:22.129Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/f-05.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-05.jpg",
+      "sha256": "0eaecb9e34137aececf4696f56d300d9850582e1a7fb20d6c2fbb7e237aa6991",
+      "bytes": 751290,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:22.180Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/f-12.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-12.epub",
+      "sha256": "b540fa239197d87b3f35ffa2e495babe339cd6e9b956f6ad1c77ac50acade452",
+      "bytes": 67288,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:22.201Z"
+    },
+    "scripts/kindle-dist/f-08.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-08.jpg",
+      "sha256": "41c63f433a1588d0da68828fe888a1365f6b1cd2e3ce157d0b4b684dd5a74477",
+      "bytes": 748352,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:22.219Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/f-12.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-12.jpg",
+      "sha256": "1f77dd1a5220f199256023bde9212fe6423aa0b60646930063aca035e7b7a544",
+      "bytes": 738920,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:22.286Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/f-15.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-15.epub",
+      "sha256": "b481ac1c0c8da5f7f4d69cfb5fa148a3e6f3fb285d29b5eef778c0eecd0d6ec8",
+      "bytes": 52173,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:22.307Z"
+    },
+    "scripts/kindle-dist/f-14.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-14.epub",
+      "sha256": "d075838ab381e23c44a64a095b528ebf40b27aab652d24b388360c640b50a3b5",
+      "bytes": 66709,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:22.308Z"
+    },
+    "scripts/kindle-dist/f-16.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-16.epub",
+      "sha256": "452b384e7ab73763e2c16c792b2bf5e8634854449bb0a3527a5709007d70c5c5",
+      "bytes": 91876,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:22.312Z"
+    },
+    "scripts/kindle-dist/f-14.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-14.jpg",
+      "sha256": "bf3fbb813da69e4772475146af9b64a6e69ee4bc28e743fef53a14ad631c6aa0",
+      "bytes": 744295,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:22.355Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/f-13.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-13.jpg",
+      "sha256": "1c99f31e716eda4ee8df14441ce2a38a34e2acacf4d41795529b5968c9b1244d",
+      "bytes": 754825,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:22.398Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/f-13.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-13.epub",
+      "sha256": "1f8c127181d73356a012d1cf327f17f781d6c925b8ed72d48931b71f5096a742",
+      "bytes": 66658,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:22.623Z"
+    },
+    "scripts/kindle-dist/f-15.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-15.jpg",
+      "sha256": "654962c14f3fd73c9d91976d47fe6d4ab00277872a576844c8e9dd1886f8d196",
+      "bytes": 731631,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:22.640Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/f-16.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/f-16.jpg",
+      "sha256": "1a79e85b66382f0d8edb90557d7e0fbe8e02ea7b92d9ee294608ab07a79cfa40",
+      "bytes": 741303,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:22.720Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/g-01.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/g-01.jpg",
+      "sha256": "441406e14a9c0631a0831a0001bb8eb2e25848e91cfac1f647737960378e3a4c",
+      "bytes": 936698,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:22.945Z",
+      "width": 1600,
+      "height": 2560
+    },
+    "scripts/kindle-dist/g-02.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/g-02.epub",
+      "sha256": "3c0807a37d550244951d592e616a326f92e480772a8d5217fd60be7472ea05d2",
+      "bytes": 917180,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:23.015Z"
+    },
+    "scripts/kindle-dist/g-01.epub": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/g-01.epub",
+      "sha256": "55e4aecf8fc06f675612663811687026c6836fd6e8815a1d96aa6643fa597ac3",
+      "bytes": 2762912,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:23.213Z"
+    },
+    "scripts/kindle-dist/g-02.jpg": {
+      "bucket": "private",
+      "r2Key": "kindle/dist/g-02.jpg",
+      "sha256": "47479100730f2b8cbeb58ddb743c8d64607964b79246bbff449bc2e459e734a1",
+      "bytes": 748097,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "kindle-dist",
+      "verifiedAt": "2026-08-29T01:31:23.344Z",
+      "width": 1600,
+      "height": 2560
     }
   }
 }
