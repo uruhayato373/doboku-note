@@ -826,26 +826,45 @@ PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事�
 
 ## 🟢 低 — 時期未定
 
-### [DN-0153] kindle-dist EPUBのgit追跡解除（2条件付き）
+### [DN-0153] kindle-dist EPUBのgit追跡解除（2条件付き・条件(ii)は前提が要再検証）
 タグ: [インフラ・計測] [種類:改善] [起票:2026-08-29]
 
 2026-08-29 に scripts/kindle-dist/（76件・56.8MB）を kindle-dist group で R2 private へ
 バックアップ済み（DN-0151(3) 決着・commit 994e481de）。ただし git 追跡は維持している——
 untrack するには次の2条件が要る:
-(i) 全冊再ビルドの内容一致検証（EPUBはzipのため再ビルドでタイムスタンプが変わりsha256は
-再現しない。PDF系と同じ問題なのでbyte比較ではなく内容比較で代替する方法を先に決める）
-(ii) `scripts/check-kindle-format.mjs`（ci:trueゲート・0冊ならexit 2）がgit実体に直接依存
-している問題の解決（CIへhydrate+credentialを入れるか、ゲートをcredentialed workflowへ
-移すか）
+(i) 全冊再ビルドの内容一致検証。ツールの部品は揃っている（`scripts/check-kindle-format.mjs`
+の `unzip -Z1`/`unzip -p` パターンを転用すればタイムスタンプ非依存の内容比較器を組める）が
+未実装。**危険**: `scripts/sync-kindle-dist.mjs` を id 全指定で流すと再ビルドしたEPUBが
+即座に `scripts/kindle-dist/` へ上書きコピーされる設計（catalog.json 実測=live 43/in_review 2）
+ので、比較前に別ディレクトリへ退避する安全なラッパーが要る。
+(ii) **2026-08-29 の再調査で前提が誤りと判明**: `scripts/check-kindle-format.mjs` の既定スキャン
+対象は `scripts/kindle-published/*.epub` のハードコードで、`scripts/kindle-dist/` は一切
+スキャンしていない（grep で確認・kindle-dist を引数に取る呼び出しは repo 全体に無い）。
+つまり現状の CI 配線では kindle-dist の untrack は check-kindle-format の「0冊で exit 2」
+ゲートを壊さない可能性が高い。ただしこれが意図的設計か記述が古いだけかは未確認——
+着手前に再確認すること。
 
-### [DN-0154] .obsidian/icons（12.4MB）の退避検証
+### [DN-0154] .obsidian/icons・pluginの退避検証（実増分は6.2MB・obsidian関連セッション稼働中は着手しない）
 タグ: [インフラ・計測] [種類:改善] [起票:2026-08-29]
 
-.obsidian/icons/font-awesome-{solid,regular}.zip（各6.2MB）と plugins/obisidian-note-linker/
-main.js（7.2MB）が未分類のまま git 追跡容量を圧迫している（audit-repo-assets の REVIEW/
-unmatched に含まれる）。obsidian-sync が git を同期経路にしているため、安易に退避すると
-新端末セットアップが壊れるおそれがある。plugin が起動時に自動再取得できるか・icons zip が
-Obsidian 本体の再インストールで復元できるかを検証してから、退避するかどうかを決める。
+.obsidian/icons/font-awesome-{solid,regular}.zip と plugins/obisidian-note-linker/main.js
+（7.2MB）が未分類のまま git 追跡容量を圧迫している。**2026-08-29 の再調査で判明**:
+- 2つの zip は MD5・git blob sha ともに完全一致（Font Awesome Free 6.5.1 公式配布物）。
+  git は既に内部で重複排除しており、**実際のpack容量増分は6.2MBのみ**（12.4MBではない）
+- 「obsidian-sync が git を同期経路にしている」という記述は不正確。obsidian-sync skill が
+  扱う vault（iCloud + `obsidian-vault.git`）は**別物**。doboku-note の `.obsidian/` は
+  doboku-noteリポジトリ自身のgitで同期されている
+- `.claude/config/git-binary-policy.json` の allowlist に既に「全PC共有が要る」という
+  KEEP_GIT判断が明記済み（2026-08-29 に audit-repository-assets.mjs 側にも反映：commit
+  b620e327c）。DN-0154はこの既存判断を**覆すかどうか**の検討であり、まだ答えは出ていない
+- font-awesome zipはObsidian本体（1.6+）のIcon packs機能で再ダウンロード可能と推定されるが
+  **未実機検証**（zip削除→再起動→復元確認が要る）
+- plugin `obisidian-note-linker`（作者 AlexW00・v1.2.7）はコミュニティプラグインとして
+  再取得可能な標準配布物
+
+**着手条件**: 実機検証（zip削除→Obsidian再起動→アイコン復元確認）が要るため、Obsidian関連の
+他セッションが動いていないときに行うこと（2026-08-29時点で obsidian-1e 等の並行セッションが
+複数稼働しており、このカードには一切手を付けていない）。
 
 ### [DN-0156] R2退避済みファイルの再追跡を検知するゲートが無い
 タグ: [インフラ・計測] [種類:改善] [起票:2026-08-29]
