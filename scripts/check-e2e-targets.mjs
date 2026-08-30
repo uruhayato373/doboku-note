@@ -32,6 +32,8 @@ const E2E_DIR = path.join(ROOT, 'e2e');
 const OUT = path.join(ROOT, 'out');
 const REDIRECTS = path.join(ROOT, 'public', '_redirects');
 const WORKFLOWS = path.join(ROOT, '.github', 'workflows');
+/** 本番 URL を行単位で持つ設定ファイル。ワークフローと同じ「転送元を測り続ける」事故が起きる。 */
+const URL_LIST_FILES = [path.join(ROOT, '.claude', 'config', 'psi-urls.txt')];
 
 /** 本番を指す絶対 URL のホスト。ここから後ろのパスを out/ と突合する。 */
 const SITE_HOSTS = ['doboku-note.pages.dev', 'doboku-note.com'];
@@ -141,6 +143,35 @@ function collectWorkflowUrls() {
   return found;
 }
 
+/**
+ * 本番 URL を列挙する設定ファイル（psi-urls.txt 等）から URL を集める。
+ *
+ * PSI は 2026-08-30 の IA 移行後、22 URL 中 20 が `_redirects` の転送元になっていた。
+ * Lighthouse は 301 を追うので lab 値は出るが、**CrUX(field) は要求した URL をキーに持つ**
+ * ため転送元には存在せず、field 0 件で min_field_coverage ゲートが恒久的に赤になる。
+ */
+function collectUrlListFiles() {
+  const found = [];
+  for (const file of URL_LIST_FILES) {
+    if (!fs.existsSync(file)) continue;
+    const rel = path.relative(ROOT, file);
+    fs.readFileSync(file, 'utf8').split('\n').forEach((raw, index) => {
+      const line = raw.trim();
+      if (!line || line.startsWith('#')) return;
+      if (line.includes(REDIRECT_TEST_MARKER)) return;
+      for (const host of SITE_HOSTS) {
+        const re = new RegExp(`^https?://${host.replace(/\./g, '\\.')}(/[A-Za-z0-9\\-_/]*)$`);
+        const m = line.match(re);
+        if (!m) continue;
+        const url = m[1].replace(/\/$/, '') || '/';
+        if (IGNORED.has(url)) continue;
+        found.push({ file: rel, line: index + 1, url });
+      }
+    });
+  }
+  return found;
+}
+
 function main() {
   const asJson = process.argv.includes('--json');
 
@@ -158,7 +189,12 @@ function main() {
     fail('ワークフローから本番 URL を 1 件も抽出できなかった。抽出ロジックが壊れている疑い（検査不成立）。');
     return;
   }
-  const urls = [...e2eUrls, ...workflowUrls];
+  const urlListUrls = collectUrlListFiles();
+  if (urlListUrls.length === 0) {
+    fail('URL 一覧ファイルから本番 URL を 1 件も抽出できなかった。抽出ロジックが壊れている疑い（検査不成立）。');
+    return;
+  }
+  const urls = [...e2eUrls, ...workflowUrls, ...urlListUrls];
 
   const { sources, prefixes, targets } = loadRedirects();
   const violations = [];
@@ -196,14 +232,14 @@ function main() {
     console.log(JSON.stringify(report, null, 2));
   } else {
     console.log(
-      `[check-e2e-targets] サイト内 URL ${checked.size} 種（延べ ${urls.length} 箇所 = E2E ${e2eUrls.length} / ワークフロー ${workflowUrls.length}）を out/ と _redirects に突合`,
+      `[check-e2e-targets] サイト内 URL ${checked.size} 種（延べ ${urls.length} 箇所 = E2E ${e2eUrls.length} / ワークフロー ${workflowUrls.length} / URL 一覧 ${urlListUrls.length}）を out/ と _redirects に突合`,
     );
     for (const v of violations) {
       console.log(`  [${v.reason}] ${v.file}:${v.line} ${v.url} — ${v.detail}`);
     }
     console.log(
       violations.length === 0
-        ? '[check-e2e-targets] ✓ E2E とワークフローが叩く URL はすべて実在する'
+        ? '[check-e2e-targets] ✓ E2E・ワークフロー・URL 一覧が叩く URL はすべて実在する'
         : `[check-e2e-targets] NG: ${violations.length} 件が実在しない URL を叩いている`,
     );
   }
