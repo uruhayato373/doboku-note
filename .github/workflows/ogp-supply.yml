@@ -43,6 +43,10 @@ on:
     branches: [develop]
     paths:
       - 'content/site/**/*.mdx'
+      # 公的基準の章記事は MDX ではなく manifest 駆動。ここを入れないと章が増減しても
+      # 供給が発火せず、og:image が R2 に無い URL を指したまま本番へ出る。
+      - 'content/site/standards-articles/**/manifest.json'
+      - 'scripts/build-standards-ogp.mjs'
   workflow_dispatch:
     inputs:
       max:
@@ -256,7 +260,10 @@ jobs:
           # `cannot rebase: Your index contains uncommitted changes` になり、R2 への upload は
           # 成功しているのに台帳だけ published されない状態で毎回落ちる
           # （asset-inbox.yml が 2026-08-27 run 33034670182 で実際に踏んだのと同じ罠）。
-          git commit -m "chore(assets): ogp-supply ${{ steps.generate.outputs.generated }} 件を R2 へ供給 [skip ci]"
+          # 記事 OGP（steps.generate）と章 OGP（steps.chapters）は別ステップなので両方を書く。
+          # 片方だけだと、章しか生成しなかった run が「 件を R2 へ供給」と件数の空いた
+          # 履歴を残し、あとから何を供給したか追えなくなる。
+          git commit -m "chore(assets): ogp-supply 記事 ${{ steps.generate.outputs.generated || 0 }} 件 / 章 ${{ steps.chapters.outputs.chapters_generated || 0 }} 件を R2 へ供給 [skip ci]"
           git fetch origin develop
           git rebase origin/develop
           git push origin HEAD:develop
