@@ -41,10 +41,14 @@ jobs:
           # 注: doboku-note.com は Cloudflare Bot Protection が GitHub Actions IP を
           # 403 でブロックするため、直 URL（doboku-note.pages.dev）で SSR / body を検証する。
           # カスタムドメイン (doboku-note.com) の DNS / CF 設定の問題は別系統で監視する想定。
+          # **正規 URL を叩く。** 旧 /docs/ /category/ は `_redirects` の転送元で 301 を返し、
+          # この検査は 200 しか通さないので必ず落ちる。実際 IA 移行後ずっと赤で、
+          # 「SSR 壊れ」と報告し続けていた（サイトは終始正常・2026-08-30 実測）。
+          # 毎回オオカミ少年になる監視は、本物の障害が来ても見分けられない＝無いのと同じ。
           URLS=(
             "https://doboku-note.pages.dev/"
-            "https://doboku-note.pages.dev/docs/pe-comprehensive-management-keyword-2026"
-            "https://doboku-note.pages.dev/category/civil-construction-1"
+            "https://doboku-note.pages.dev/exam/pe-comprehensive-management/guide/keyword-2026"
+            "https://doboku-note.pages.dev/exam/civil-construction-1"
           )
 
           UA_DESKTOP="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36"

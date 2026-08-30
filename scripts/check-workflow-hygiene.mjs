@@ -25,6 +25,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createLinter } from 'actionlint';
+import { load } from 'js-yaml';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const WORKFLOW_DIR = join(ROOT, '.github/workflows');
@@ -50,8 +51,25 @@ function isPinned(ref) {
   return /^[0-9a-f]{40}$/.test(version);
 }
 
+/**
+ * workflow の全 job / 全 step から `run:` の中身だけを集める。
+ * コメント行やプロンプト本文を判定材料にしないための前処理。
+ */
+function collectRunScripts(content) {
+  let doc;
+  try { doc = load(content); } catch { return []; }
+  const out = [];
+  for (const job of Object.values(doc?.jobs ?? {})) {
+    for (const step of job?.steps ?? []) {
+      if (typeof step?.run === 'string') out.push(step.run);
+    }
+  }
+  return out;
+}
+
 async function main() {
   const files = listWorkflowFiles();
+  let hookCommitScanned = 0;
   if (files.length === 0) {
     console.error(`${TAG} FAIL: workflow ファイルが 0 件（走査不成立）`);
     process.exit(2);
@@ -107,18 +125,45 @@ async function main() {
         violations.push({ file, kind: 'sha-pin', line: 0, message: `${ref} がタグ参照のまま（commit SHA 固定が必要）` });
       }
     }
+
+    // 5. commit する workflow は doc-meta-index を用意しているか。
+    //    npm ci（--ignore-scripts なし）は prepare で pre-commit フックを入れる。そのフックの
+    //    check-x-campaign-plan 等が git 追跡外の src/config/doc-meta-index.json を直接読むので、
+    //    生成ステップが無いと **commit の瞬間に ENOENT で落ちる**。本来の処理が終わっていても
+    //    記録が残らず、ワークフロー全体が赤になる。
+    //    e2e.yml（2026-08-22〜）と psi-audit.yml（〜2026-08-30）が実際にこれで死んでいた。
+    //    同じ穴が 7 本に残っていたので静的に止める。
+    // 判定は**実際の run: の中身**だけで行う。生テキストを regex すると、コメントや
+    // プロンプト本文の「npm ci を実行しない」という記述まで拾って誤検知する
+    // （gsc-auto-review.yml と link-audit.yml で実際に踏んだ）。
+    const runScripts = collectRunScripts(content);
+    const installsHooks =
+      runScripts.some((r) => /npm (ci|install)/.test(r) && !/--ignore-scripts/.test(r));
+    const commits = runScripts.some((r) => /git commit/.test(r));
+    if (installsHooks && commits && !/build-doc-meta-index/.test(content)) {
+      hookCommitScanned++;
+      violations.push({
+        file, kind: 'doc-meta-index', line: 0,
+        message: 'npm ci で pre-commit フックが入り git commit もするのに、'
+          + 'doc-meta-index の生成ステップが無い（commit 時に ENOENT で落ちる）。'
+          + '`- run: node .claude/scripts/build-doc-meta-index.mjs --ci` を npm ci の直後へ',
+      });
+    } else if (installsHooks && commits) {
+      hookCommitScanned++;
+    }
   }
 
-  const result = { check: 'workflow-hygiene', filesScanned: files.length, jobsScanned: jobCount, usesScanned: usesCount, violations };
+  const result = { check: 'workflow-hygiene', filesScanned: files.length, jobsScanned: jobCount, usesScanned: usesCount, hookCommitScanned, violations };
 
   if (JSON_OUT) {
     console.log(JSON.stringify(result, null, 2));
     process.exit(violations.length ? 1 : 0);
   }
 
-  console.log(`${TAG} workflow ${files.length} 本 / job ${jobCount} 件 / uses 参照 ${usesCount} 件を実検査`);
+  console.log(`${TAG} workflow ${files.length} 本 / job ${jobCount} 件 / uses 参照 ${usesCount} 件を実検査`
+    + `（うち フック有効で commit する ${hookCommitScanned} 本の doc-meta-index も確認）`);
   if (violations.length === 0) {
-    console.log(`${TAG} ✓ actionlint / permissions / timeout-minutes / SHA固定 いずれも違反なし`);
+    console.log(`${TAG} ✓ actionlint / permissions / timeout-minutes / SHA固定 / doc-meta-index いずれも違反なし`);
     process.exit(0);
   }
   for (const v of violations) {

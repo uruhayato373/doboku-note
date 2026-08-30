@@ -31,6 +31,10 @@ const ROOT = process.cwd();
 const E2E_DIR = path.join(ROOT, 'e2e');
 const OUT = path.join(ROOT, 'out');
 const REDIRECTS = path.join(ROOT, 'public', '_redirects');
+const WORKFLOWS = path.join(ROOT, '.github', 'workflows');
+
+/** 本番を指す絶対 URL のホスト。ここから後ろのパスを out/ と突合する。 */
+const SITE_HOSTS = ['doboku-note.pages.dev', 'doboku-note.com'];
 
 /**
  * この行内マーカーが付いた行の URL は「リダイレクトそのものを試すテスト」なので転送元でよい。
@@ -104,6 +108,39 @@ function collectUrls() {
   return found;
 }
 
+/**
+ * ワークフローが叩く本番 URL を集める。
+ *
+ * E2E だけを見ていては足りなかった。uptime-ping.yml は IA 移行後もずっと
+ * 旧 /docs/ /category/ を叩いていて、`_redirects` が返す 301 を「200 でない＝SSR 壊れ」と
+ * 判定し、**サイトが正常なまま毎回赤**を出し続けていた（2026-08-30 実測）。
+ * 毎回オオカミ少年になる監視は本物の障害と見分けられない＝無いのと同じ。
+ */
+function collectWorkflowUrls() {
+  const found = [];
+  if (!fs.existsSync(WORKFLOWS)) return found;
+  for (const name of fs.readdirSync(WORKFLOWS)) {
+    if (!name.endsWith('.yml') && !name.endsWith('.yaml')) continue;
+    const file = path.join(WORKFLOWS, name);
+    const lines = fs.readFileSync(file, 'utf8').split('\n');
+    lines.forEach((line, index) => {
+      if (line.includes(REDIRECT_TEST_MARKER)) return;
+      const head = line.trim();
+      if (head.startsWith('#')) return;
+      for (const host of SITE_HOSTS) {
+        const re = new RegExp(`https?://${host.replace(/\./g, '\\.')}(/[A-Za-z0-9\\-_/]*)`, 'g');
+        for (const match of line.matchAll(re)) {
+          const url = match[1].replace(/\/$/, '') || '/';
+          if (IGNORED.has(url)) continue;
+          if (/\.[a-z0-9]+$/i.test(url)) continue;
+          found.push({ file: `.github/workflows/${name}`, line: index + 1, url });
+        }
+      }
+    });
+  }
+  return found;
+}
+
 function main() {
   const asJson = process.argv.includes('--json');
 
@@ -111,11 +148,17 @@ function main() {
     fail('out/ が無い。先に `npm run build` を実行する（ビルド成果物と突合する検査のため）。');
     return;
   }
-  const urls = collectUrls();
-  if (urls.length === 0) {
+  const e2eUrls = collectUrls();
+  if (e2eUrls.length === 0) {
     fail('E2E から URL を 1 件も抽出できなかった。抽出ロジックが壊れている疑い（検査不成立）。');
     return;
   }
+  const workflowUrls = collectWorkflowUrls();
+  if (workflowUrls.length === 0) {
+    fail('ワークフローから本番 URL を 1 件も抽出できなかった。抽出ロジックが壊れている疑い（検査不成立）。');
+    return;
+  }
+  const urls = [...e2eUrls, ...workflowUrls];
 
   const { sources, prefixes, targets } = loadRedirects();
   const violations = [];
@@ -153,14 +196,14 @@ function main() {
     console.log(JSON.stringify(report, null, 2));
   } else {
     console.log(
-      `[check-e2e-targets] E2E のサイト内 URL ${checked.size} 種（延べ ${urls.length} 箇所）を out/ と _redirects に突合`,
+      `[check-e2e-targets] サイト内 URL ${checked.size} 種（延べ ${urls.length} 箇所 = E2E ${e2eUrls.length} / ワークフロー ${workflowUrls.length}）を out/ と _redirects に突合`,
     );
     for (const v of violations) {
       console.log(`  [${v.reason}] ${v.file}:${v.line} ${v.url} — ${v.detail}`);
     }
     console.log(
       violations.length === 0
-        ? '[check-e2e-targets] ✓ E2E が叩く URL はすべて実在する'
+        ? '[check-e2e-targets] ✓ E2E とワークフローが叩く URL はすべて実在する'
         : `[check-e2e-targets] NG: ${violations.length} 件が実在しない URL を叩いている`,
     );
   }
