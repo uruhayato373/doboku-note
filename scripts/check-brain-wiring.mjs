@@ -27,7 +27,7 @@ import { loadBrainInventory, validateBrainInventory } from './lib/brain-inventor
 const staged = process.argv.includes('--staged');
 if (staged) {
   let names = '';
-  try { names = execFileSync('git', ['diff', '--cached', '--name-only'], { encoding: 'utf-8', maxBuffer: 256 * 1024 * 1024 }); } catch { /* noop */ }
+  try { names = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only'], { encoding: 'utf-8', maxBuffer: 256 * 1024 * 1024 }); } catch { /* noop */ }
   const hit = names.split('\n').some((p) =>
     /src\/lib\/brain-products\.ts|content\/brain\/|\.claude\/config\/brain-listings\.json|\.claude\/config\/brain\//.test(p.replace(/\\/g, '/')));
   if (!hit) process.exit(0);

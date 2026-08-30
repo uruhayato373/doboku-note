@@ -79,7 +79,7 @@ function listFiles() {
   if (STAGED) {
     const out = execFileSync(
       "git",
-      ["diff", "--cached", "--name-only", "--diff-filter=ACM"],
+      ['-c', 'core.quotepath=false', "diff", "--cached", "--name-only", "--diff-filter=ACM"],
       { encoding: "utf8", maxBuffer: 256 * 1024 * 1024 },
     );
     return out

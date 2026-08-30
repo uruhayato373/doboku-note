@@ -51,16 +51,21 @@ const isAllowed = (f) => ALLOW.some((a) => a.re.test(f));
 
 let files;
 if (STAGED) {
-  files = execSync('git diff --cached --name-only --diff-filter=ACM', { encoding: 'utf8' })
+  files = execSync('git -c core.quotepath=false diff --cached --name-only --diff-filter=ACM', { encoding: 'utf8' })
     .split('\n').filter((f) => f && existsSync(f));
 } else {
   // このリポジトリは追跡ファイルが 6 万超あり、既定バッファでは ENOBUFS で落ちる
   // （2026-08-13 実発生）。拡張子で絞ってから取得し、上限も明示的に上げる。
   // shell を通さない。cmd.exe はシングルクォートを剥がさないので、execSync だと git が
   // `'*.md'` というリテラルを受け取り Windows で走査 0 件＝検査不成立になる（2026-08-24 実測）。
+  // -c core.quotepath=false が無いと、git は非 ASCII を含むパスを 8 進エスケープした
+  // "content/note/\346\212\200…" の形で返す。このリポジトリは .md の 38%（975/2553）が
+  // 日本語パス配下なので、無いとその全てが存在しないファイル名になり、**走査したことに
+  // なったまま素通りして ✓ が出る**（2026-08-30 実測）。
   files = execFileSync(
     'git',
-    ['ls-files', '--', '*.md', '*.mdx', '*.json', '*.mjs', '*.js', '*.ts', '*.tsx', '*.txt', '*.yml', '*.yaml', '*.sh'],
+    ['-c', 'core.quotepath=false',
+      'ls-files', '--', '*.md', '*.mdx', '*.json', '*.mjs', '*.js', '*.ts', '*.tsx', '*.txt', '*.yml', '*.yaml', '*.sh'],
     { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 },
   ).split('\n').filter(Boolean);
 }

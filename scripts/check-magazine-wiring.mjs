@@ -38,7 +38,7 @@ const staged = process.argv.includes('--staged');
 if (staged) {
   let changed = '';
   try {
-    changed = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf-8', maxBuffer: 256 * 1024 * 1024 });
+    changed = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf-8', maxBuffer: 256 * 1024 * 1024 });
   } catch { changed = ''; }
   const relevant = changed.split('\n').some((p) =>
     /content\/note\/1級・2級土木\/[12]級土木\/magazines\//.test(p)

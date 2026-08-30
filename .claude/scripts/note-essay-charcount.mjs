@@ -226,8 +226,11 @@ function targets(args) {
   }
   // 引数省略時: 模範論文系マガジン（模範論文 + R8予想問題集）の article.md。
   // 精読ガイド等の非・論文マガジンは対象外。
+  // -c core.quotepath=false は必須。対象パスが丸ごと日本語なので、無いと git が
+  // 8 進エスケープした名前を返し、全件が「ファイルなし」になって 1 本も検証しない
+  // （2026-08-30 実測。それでも exit 0 で終わっていた）。
   const out = execSync(
-    'git ls-files "content/note/技術士総監/magazines/総監模範論文-*/*/article.md" "content/note/技術士総監/magazines/総監記述式-*/*/article.md"',
+    'git -c core.quotepath=false ls-files "content/note/技術士総監/magazines/総監模範論文-*/*/article.md" "content/note/技術士総監/magazines/総監記述式-*/*/article.md"',
     { cwd: ROOT, encoding: 'utf8' }
   );
   return out

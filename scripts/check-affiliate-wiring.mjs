@@ -32,7 +32,7 @@ const STATUS_VOCAB = new Set(["approved", "applying", "none", "unavailable", "un
 if (process.argv.includes("--staged")) {
   let files = [];
   try {
-    files = execSync("git diff --cached --name-only", { encoding: "utf-8" }).split("\n").filter(Boolean);
+    files = execSync("git -c core.quotepath=false diff --cached --name-only", { encoding: "utf-8" }).split("\n").filter(Boolean);
   } catch {
     files = [];
   }

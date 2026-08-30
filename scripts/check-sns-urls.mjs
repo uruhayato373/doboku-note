@@ -58,7 +58,7 @@ if (MDX) {
   // noteマガジン本文（content/note/**/*.md）
   files = walk('content/note', [], /\.md$/);
 } else if (STAGED) {
-  const staged = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
+  const staged = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
     .split('\n').map((s) => s.trim()).filter(Boolean);
   // SNS（content/sns の md/txt/json）＋ MDX本文（content/site の mdx）＋ noteマガジン本文（content/note の md）を staged から検査
   files = staged.filter((f) => existsSync(f) && (

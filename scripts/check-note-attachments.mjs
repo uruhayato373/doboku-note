@@ -113,7 +113,7 @@ function expectedPdfs(file) {
 let stagedSet = null;
 if (STAGED) {
   const { execFileSync } = await import('node:child_process');
-  const out = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACMR'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 });
+  const out = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACMR'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 });
   stagedSet = new Set(out.split(/\r?\n/).filter((p) => /^content\/note\/.*\/article(-[^/]+)?\.md$/.test(p)));
 }
 

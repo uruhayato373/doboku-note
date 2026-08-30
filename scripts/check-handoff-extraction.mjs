@@ -49,7 +49,7 @@ if (process.env.SKIP_HANDOFF_EXTRACT === '1') {
 function stagedNameStatus() {
   const out = execFileSync(
     'git',
-    ['diff', '--cached', '--no-renames', '--name-status', '--diff-filter=AD'],
+    ['-c', 'core.quotepath=false', 'diff', '--cached', '--no-renames', '--name-status', '--diff-filter=AD'],
     { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 }
   );
   return out
@@ -72,7 +72,7 @@ function showHead(path) {
 
 // backlog は「変更(M)」で staged されるのが通常なので、AD だけでなく全ステータスで検出する。
 function stagedAllPaths() {
-  const out = execFileSync('git', ['diff', '--cached', '--name-only'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 });
+  const out = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 });
   return new Set(out.split('\n').map((l) => l.trim()).filter(Boolean));
 }
 

@@ -82,7 +82,7 @@ let files;
 if (STAGED) {
   let staged = [];
   try {
-    staged = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACM'], {
+    staged = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], {
       encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
       .split('\n')
       .map((s) => s.trim())

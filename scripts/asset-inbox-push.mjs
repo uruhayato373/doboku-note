@@ -43,7 +43,14 @@ const SEND_ALL = flag('--all');
 
 const NAME = 'asset-inbox-push';
 const mib = (b) => (b / 1048576).toFixed(2);
-const git = (args) => execFileSync('git', args, { cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 });
+// core.quotepath=false は必須。既定だと git は非 ASCII のパスを 8 進エスケープした
+// "content/note/\346\212\200..." の形で返し、groupFor も existsSync も外れて**黙って 0 件**になる。
+// この repo の退避対象はほぼ全て日本語パス配下なので、無いと選択が常に空＝
+// check-asset-storage が案内する復旧コマンドが何もしない（2026-08-30 実測）。
+const git = (args) =>
+  execFileSync('git', ['-c', 'core.quotepath=false', ...args], {
+    cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 512 * 1024 * 1024,
+  });
 
 /**
  * 退避 group に属するローカル実体を列挙する。
@@ -64,7 +71,9 @@ function listLocalAssets(cfg) {
     out.push({ path: p, group: g.id, abs });
   };
   for (const l of git(['ls-files']).split('\n')) add(l);
-  for (const l of git(['ls-files', '--others', '--ignored', '--exclude-standard', 'content']).split('\n')) add(l);
+  // pathspec は付けない。'content' 固定だと content/ 外の group（coconala-asset 等）を
+  // 取りこぼす（asset-offload.mjs では 2026-08-29 に同じ理由で外した）。
+  for (const l of git(['ls-files', '--others', '--ignored', '--exclude-standard']).split('\n')) add(l);
   return out;
 }
 
@@ -143,8 +152,11 @@ async function main() {
   // 読んでから tarball を展開する。
   //
   // --force-local: GNU tar は `C:\…` を `host:path`（リモート）と解釈して
-  // 「Cannot connect to C: resolve failed」で落ちる。Windows で必須。
-  execFileSync('tar', ['--force-local', '-czf', tarball, '-C', REPO_ROOT, '-T', listFile], { stdio: 'inherit' });
+  // 「Cannot connect to C: resolve failed」で落ちる。**Windows でだけ**必要。
+  // macOS の tar は bsdtar でこのオプション自体が無く、付けると usage を吐いて必ず失敗する
+  // （2026-08-30 実測。--commit がこの Mac で一度も通っていなかった）。
+  const tarArgs = process.platform === 'win32' ? ['--force-local'] : [];
+  execFileSync('tar', [...tarArgs, '-czf', tarball, '-C', REPO_ROOT, '-T', listFile], { stdio: 'inherit' });
 
   const tarBytes = statSync(tarball).size;
   console.log(`\n[${NAME}] tarball ${mib(tarBytes)} MiB → release ${tag}`);
