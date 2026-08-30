@@ -456,7 +456,7 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 ### 2026-08-30（月次・/google-search-growth — 情報設計移行後）
 
 - run: `search-growth-2026-08-29T23-52-08Z`。GSC UI は 2026-08-22 の完全取得（11ユニット・1,982行・失敗0・truncated 0）を使用
-- 公開後突合: sitemap は live/local ともに **1,417 URL**、旧 `/docs`・`/category` は `_redirects` **1,190 静的 + 8 動的**へ移行。preview deployment で静的301全1,190件の status/location 完全一致を確認
+- 公開後突合: sitemap は live/local ともに **1,421 URL**、旧 `/docs`・`/category` は `_redirects` **1,194 静的 + 8 動的**へ移行。preview deployment で静的301全1,194件の status/location 完全一致を確認
 - GSC UI 理由別: alternate canonical 160 / crawled-not-indexed 353（submitted 302）/ discovered-not-indexed 3 / forbidden 5 / noindex 2 / notFound 297 / redirect 857。いずれもCSV上限未到達
 - action: `FIX_TECHNICAL 0 / REDIRECT_LEGACY 0 / KEEP_MONITOR 4 / EXPECTED_EXCLUSION 2,191 / UNKNOWN_REVIEW 282`。sitemap掲載URLの技術不良・追加301候補はゼロ
 - 判断: 今回の `/exam`・`/practice`・`/standards`・`/topics` への移行に追加のredirect/noindex/統合は行わない。旧URLは301でGoogleの再クロールを待つ
