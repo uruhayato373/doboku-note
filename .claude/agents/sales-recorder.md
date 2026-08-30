@@ -89,8 +89,6 @@ kuro
 | `1級土木 施工経験記述｜完全攻略パック` | `civil-1-keiken-complete-pack` |
 | `1級土木 二次学科記述｜テーマ別 出る順`（セット） | `civil-1-gakka-kijutsu` |
 | `2級土木 二次学科記述｜テーマ別 出る順`（セット） | `civil-2-gakka-kijutsu` |
-| `1級土木 二次学科記述｜直前暗記ノート` | `civil-1-anki-note` |
-| `2級土木 二次学科記述｜直前暗記ノート` | `civil-2-anki-note` |
 | `1級土木 二次検定まるごとパック`（経験＋学科＋暗記の統合） | `civil-1-niji-marugoto-pack` |
 | `技術士 建設部門 2次｜必須科目I` / `必須科目I 模範解答集` | `bk-i-required-essay-magazine` |
 | `建設部門2次｜道路 選択科目 模範解答集` | `bk-road-secondary-magazine` |
@@ -124,6 +122,11 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `2級土木 施工経験記述｜{工種} 5管理フルカバー完成答案`（想定工事バンク単品¥980） | `article:civil-2-koji-bank-{koshu}`（{koshu} は想定工事バンクの工事番号。例: `article:civil-2-koji-bank-68`＝工事68-上水道配水管布設開削） |
 | `1級土木 二次学科記述｜{テーマ}`（テーマ別出る順 単品¥580） | `article:civil-1-gakka-kijutsu-{theme}` |
 | `2級土木 二次学科記述｜{テーマ}`（テーマ別出る順 単品） | `article:civil-2-gakka-kijutsu-{theme}` |
+| `1級土木 二次学科記述｜直前暗記ノート` | `article:civil-1-anki-note` |
+| `2級土木 二次学科記述｜直前暗記ノート` | `article:civil-2-anki-note` |
+| `1級土木 第1次検定｜出る順 合格ノート` | `article:civil-1-ichiji-ronten` |
+| `1級土木 二次｜出題分析と直前の重点` | `article:civil-1-r8-bunseki` |
+| `コンクリート主任技士｜配合計算 実戦演習12問` | `article:cce-mix-calculation-practice` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-1` | `article:bk-01-road-r8-yosou-ii1` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-2` | `article:bk-01-road-r8-yosou-ii2-*` |
 | `技術士 建設部門｜道路 R8予想 選択科目III` | `article:bk-01-road-r8-yosou-iii-*` |
@@ -136,6 +139,7 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `資源循環 × サプライチェーン強靱化`（総監R8予想） | `article:r8-resource-circulation-supply-chain` |
 | `令和8年度 総監記述式 模範論文｜{ペルソナ}版（{テーマ}／R8予想{③..⑥}）`（ペルソナ別R8予想単品¥780） | `article:essay-{persona}-r08-{3..6}`（persona はマガジン id `essay-{persona}-magazine` に合わせる。例: `essay-sabo-municipality-r08-3` / `essay-general-contractor-r08-6` / `essay-road-consultant-r08-5`） |
 | `2級土木 第1次検定｜過去問PDF` / `2級土木 一次 過去問PDF`（Kindle択一の従チャネル・¥1,480） | `article:civil-2-takuitsu-pdf` |
+| `1級土木 第1次検定｜過去問PDF` / `1級土木 一次 過去問PDF`（Kindle択一の従チャネル・¥1,980） | `article:civil-1-takuitsu-pdf` |
 | `技術士 第一次試験｜過去問PDF 合本` / `技術士一次 過去問PDF`（¥1,480） | `article:pe1-takuitsu-pdf` |
 | `技術士 総合技術監理部門｜択一 過去問PDF 令和` / `総監 択一過去問PDF 令和`（¥980） | `article:tankan-takuitsu-reiwa-pdf` |
 | `技術士 総合技術監理部門｜択一 過去問PDF 平成` / `総監 択一過去問PDF 平成`（¥980） | `article:tankan-takuitsu-heisei-pdf` |

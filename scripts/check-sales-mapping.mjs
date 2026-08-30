@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-// sales-log.json に出現する productId が sales-recorder エージェントの mapping テーブルに
-// 文書化されているかを検証する（capability ドリフトの再発防止）。
+// sales-log.json に出現する productId と、公開済み単品商品が sales-recorder エージェントの
+// mapping テーブルに文書化されているかを検証する（capability ドリフトの再発防止）。
 //
 // 背景: .claude/knowledge/reference/sales-tracking.md「新商品の追加」手順② は「新商品を売ったら
 // .claude/agents/sales-recorder.md の productId 推定ルールに追加する」と定めるが、
@@ -11,11 +11,14 @@
 //
 // 検査内容:
 //   1. .claude/state/sales/sales-log.json の distinct productId を収集
-//   2. .claude/agents/sales-recorder.md の backtick コードスパンから productId パターンを抽出し
+//   2. src/lib/note-magazines.ts の公開済み単品（/n/）を article:<id> として収集
+//   3. .claude/agents/sales-recorder.md の backtick コードスパンから productId パターンを抽出し
 //      （`{subject}`→任意 slug, `{N}`→数字, `{a|b}`→選択肢, `*`→任意）正規表現に変換
-//   3. どのパターンにも一致しない productId、および article:unknown-* を違反として列挙
+//   4. どのパターンにも一致しない productId、公開単品の明示 mapping 漏れ、
+//      article:unknown-* を違反として列挙
 //
-// --staged 時は sales-log.json か sales-recorder.md が staged の場合のみ起動（それ以外は no-op）。
+// --staged 時は sales-log.json / sales-recorder.md / note-magazines.ts のいずれかが
+// staged の場合のみ起動（それ以外は no-op）。
 // 違反が 1 件でもあれば exit 1。緊急回避: SKIP_SALES_MAPPING=1、または git commit --no-verify。
 //
 // 使い方:
@@ -27,9 +30,11 @@
 
 import { readFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
+import { publishedArticleProductIds } from './lib/sales-mapping.mjs';
 
 const SALES_LOG = '.claude/state/sales/sales-log.json';
 const RECORDER = '.claude/agents/sales-recorder.md';
+const NOTE_CATALOG = 'src/lib/note-magazines.ts';
 
 if (process.env.SKIP_SALES_MAPPING === '1') {
   console.log('[check-sales-mapping] スキップ（SKIP_SALES_MAPPING=1）');
@@ -49,7 +54,11 @@ if (staged) {
   } catch {
     stagedFiles = [];
   }
-  if (!stagedFiles.includes(SALES_LOG) && !stagedFiles.includes(RECORDER)) {
+  if (
+    !stagedFiles.includes(SALES_LOG) &&
+    !stagedFiles.includes(RECORDER) &&
+    !stagedFiles.includes(NOTE_CATALOG)
+  ) {
     process.exit(0); // 売上系の変更が無いコミットは対象外
   }
 }
@@ -109,8 +118,9 @@ function patternToRegExp(p) {
 }
 
 const patterns = patternTokens.map((t) => ({ src: t, re: patternToRegExp(t) }));
+const catalogArticleIds = publishedArticleProductIds(readFileSync(NOTE_CATALOG, 'utf8'));
 
-// --- 3. 照合 ---
+// --- 3. 公開済み単品カタログを収集し、売上実績と合わせて照合 ---
 const violations = [];
 for (const id of productIds) {
   if (/(^|:)unknown-/.test(id)) {
@@ -123,9 +133,18 @@ for (const id of productIds) {
   }
 }
 
+for (const id of catalogArticleIds) {
+  if (!patternTokens.includes(id)) {
+    violations.push({
+      id,
+      reason: 'note-magazines.ts の公開済み単品だが sales-recorder.md に明示 mapping がない',
+    });
+  }
+}
+
 if (violations.length === 0) {
   console.log(
-    `[check-sales-mapping] ✓ productId ${productIds.length} 種は全て sales-recorder.md の mapping に存在`
+    `[check-sales-mapping] ✓ 売上 productId ${productIds.length} 種＋公開単品 ${catalogArticleIds.length} 件は全て sales-recorder.md の mapping に存在`
   );
   process.exit(0);
 }

@@ -824,6 +824,23 @@ const MAGAZINES_RAW = {
     badge: 'note 限定 教材',
   },
 
+  // 原稿配置: content/note/コンクリート主任技士/配合計算-実戦演習/article.md
+  // 小論文ラインに対する択一の入口商品。既存 Kindle g-02 の過去問本文は流用せず、
+  // note 専用のオリジナル計算問題12問（途中式・全選択肢解説）で KDP Select と分離する。
+  // 公開後は primary/textbook-mix-design の2面から分野一致で送客する。
+  'cce-mix-calculation-practice': {
+    id: 'cce-mix-calculation-practice',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n5a55ae6dc16b',
+    title: 'コンクリート主任技士｜配合計算 実戦演習12問（途中式・全選択肢解説）',
+    description:
+      'コンクリート主任技士の四肢択一で頻出する配合計算を、note専用のオリジナル問題12問で反復する実戦教材。水セメント比、表面水補正、絶対容積、細骨材率、空気量、混合結合材、配合修正、減水率までを収録し、正答の途中式と3つの誤答原因を全問解説する。',
+    shortTitle: '主任技士 配合計算 実戦演習12問',
+    shortDescription: '配合計算12問。途中式と全選択肢の誤答原因まで解説。',
+    price: '¥1,480',
+    badge: 'note 限定 教材',
+  },
+
   // 技術士 建設部門 2次（BK シリーズ）。公開済み（published:true・noteUrl 埋め済み）。
   // CTA は pe-construction-r0X-required ページ等で発火。価格ラダーは各エントリ price 参照。
   'pe-construction-required-magazine': {
