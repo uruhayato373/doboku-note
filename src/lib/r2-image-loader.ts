@@ -13,6 +13,17 @@ export function toR2Url(src: string): string {
 }
 
 /**
+ * content/site 配下の相対パスから R2 公開 URL を作る（記事系以外のアセット用）。
+ *
+ * R2 キーは upload-images-to-r2.mjs / asset-storage の site-ogp-png グループと同じく
+ * `posts/` + content/site からの相対パス。基準類の章記事のように、記事 slug 体系に
+ * 乗らないページの OGP をここから引く。R2 のベース URL をこのファイルの外へ漏らさない。
+ */
+export function getSiteAssetR2Url(relativeFromSiteContent: string): string {
+  return `${R2_PUBLIC_URL}/posts/${relativeFromSiteContent.replace(/^\/+/, '')}`;
+}
+
+/**
  * OGP画像の絶対URLを生成（メタタグ用）。
  * 画像は scripts/generate-ogps.mjs で content/site/{category}/{localSlug}/ogp.png に生成され、
  * R2 にアップロードされる。フルスラグ（`{category}-{localSlug}` 結合形式）から category を

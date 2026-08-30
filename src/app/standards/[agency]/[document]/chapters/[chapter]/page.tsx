@@ -17,6 +17,7 @@ import {
   getStandardChapter,
   getStandardChapters,
   readStandardChapterMarkdown,
+  standardChapterOgpUrl,
   standardChapterPath,
 } from '@/lib/standards-articles';
 import { getTopicsForStandardText } from '@/lib/topics';
@@ -51,9 +52,20 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
       `${sectionNames ? `（${sectionNames} ほか）` : ''}。原本PDF ${target.firstPage}–${target.lastPage}ページ。`,
     path: standardChapterPath(entry, target),
   });
-  // 同一原本を 10 機関が公開しているため、canonical 機関以外の章は noindex, follow にする
+  // 章ごとの OGP（機関名 + 第N編 + 第M章）。buildPageMetadata の既定は og-default.png で、
+  // 344 章がすべて同じカードになり SNS で中身が判別できないため差し替える。
+  const ogpUrl = standardChapterOgpUrl(entry, target);
+  const withImage: Metadata = {
+    ...base,
+    openGraph: {
+      ...base.openGraph,
+      images: [{ url: ogpUrl, width: 1200, height: 630, alt: target.title }],
+    },
+    twitter: { card: 'summary_large_image', title: target.title, images: [ogpUrl] },
+  };
+  // 同一原本を 9 機関が公開しているため、canonical 機関以外の章は noindex, follow にする
   // （読める状態は保ちつつ重複クロールを作らない）。判定の真実源は manifest の indexable。
-  return target.indexable ? base : { ...base, robots: { index: false, follow: true } };
+  return target.indexable ? withImage : { ...withImage, robots: { index: false, follow: true } };
 }
 
 export default async function StandardChapterPage({ params }: { params: Promise<Params> }) {

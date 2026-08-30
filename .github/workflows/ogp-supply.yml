@@ -43,6 +43,10 @@ on:
     branches: [develop]
     paths:
       - 'content/site/**/*.mdx'
+      # 公的基準の章記事は MDX ではなく manifest 駆動。ここを入れないと章が増減しても
+      # 供給が発火せず、og:image が R2 に無い URL を指したまま本番へ出る。
+      - 'content/site/standards-articles/**/manifest.json'
+      - 'scripts/build-standards-ogp.mjs'
   workflow_dispatch:
     inputs:
       max:
@@ -182,6 +186,18 @@ jobs:
 
       # 失敗した slug は隔離して継続する（1 件の生成失敗で全体を止めない）。
       # 全滅（成功 0 件）のときだけ異常として止める。
+      # 公的基準の章記事は MDX ではないので上の detect（published な MDX を数える）に載らない。
+      # 別建てで不足分だけを生成する（既存はスキップされるので毎回の再生成にはならない）。
+      - name: Generate standards chapter OGP
+        id: chapters
+        run: |
+          set -u
+          : > /tmp/ogp-generated-slugs.txt
+          out=$(node scripts/build-standards-ogp.mjs)
+          echo "${out}"
+          made=$(echo "${out}" | sed -n 's/.*\/ 生成 \([0-9]*\) \/.*/\1/p')
+          echo "chapters_generated=${made:-0}" >> "$GITHUB_OUTPUT"
+
       - name: Generate OGP images
         if: steps.detect.outputs.count != '0'
         id: generate
@@ -217,7 +233,7 @@ jobs:
           } >> "$GITHUB_OUTPUT"
 
       - name: Offload generated OGP to R2
-        if: steps.detect.outputs.count != '0'
+        if: steps.detect.outputs.count != '0' || steps.chapters.outputs.chapters_generated != '0'
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
@@ -229,7 +245,7 @@ jobs:
         run: node scripts/update-ogp-srchash.mjs --write --slugs-file /tmp/ogp-generated-slugs.txt
 
       - name: Publish manifest to develop
-        if: steps.detect.outputs.count != '0'
+        if: steps.detect.outputs.count != '0' || steps.chapters.outputs.chapters_generated != '0'
         run: |
           set -eu
           git config user.name "github-actions[bot]"
@@ -244,7 +260,10 @@ jobs:
           # `cannot rebase: Your index contains uncommitted changes` になり、R2 への upload は
           # 成功しているのに台帳だけ published されない状態で毎回落ちる
           # （asset-inbox.yml が 2026-08-27 run 33034670182 で実際に踏んだのと同じ罠）。
-          git commit -m "chore(assets): ogp-supply ${{ steps.generate.outputs.generated }} 件を R2 へ供給 [skip ci]"
+          # 記事 OGP（steps.generate）と章 OGP（steps.chapters）は別ステップなので両方を書く。
+          # 片方だけだと、章しか生成しなかった run が「 件を R2 へ供給」と件数の空いた
+          # 履歴を残し、あとから何を供給したか追えなくなる。
+          git commit -m "chore(assets): ogp-supply 記事 ${{ steps.generate.outputs.generated || 0 }} 件 / 章 ${{ steps.chapters.outputs.chapters_generated || 0 }} 件を R2 へ供給 [skip ci]"
           git fetch origin develop
           git rebase origin/develop
           git push origin HEAD:develop

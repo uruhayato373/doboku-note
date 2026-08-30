@@ -16,6 +16,9 @@
  *   1. OGP と同一ディレクトリに `.mdx` がある（Convention B: article.mdx と ogp.png が同居）
  *   2. いずれかの記事 slug の resolveOgpPath がその OGP ディレクトリを指す
  *      （Convention A: MDX は親に平置き・OGP は slug 子ディレクトリ）
+ *   3. 公的基準の章記事が指す OGP ディレクトリ（standards-articles/{agency}/{doc}/chapters/{id}/）。
+ *      章記事は MDX ではなく manifest.json 駆動なので、上の 2 つのシグナルではどちらも
+ *      孤児に見える。ここを教えないと `--fix` が生成済みの 344 枚を全部消してしまう。
  *   published:true / false は不問（下書きでも記事があれば正当）。「記事が全く無い」ものだけ孤児。
  *
  * ワークツリー孤児（上記）に加え、asset-storage の manifest（group: site-ogp-png）に登録されて
@@ -87,6 +90,29 @@ function resolveOgpDir(fullSlug) {
   return localSlug ? path.join(POSTS_DIR, cat.slug, localSlug) : path.join(POSTS_DIR, cat.slug);
 }
 
+/**
+ * 公的基準の章記事が持つ OGP ディレクトリ。manifest.json を真実源にし、ディレクトリ名から
+ * 推測しない（manifest から消えた章の OGP はきちんと孤児として検出されるべきなので）。
+ */
+function standardsChapterOgpDirs() {
+  const dirs = new Set();
+  const articlesRoot = path.join(POSTS_DIR, 'standards-articles');
+  if (!fs.existsSync(articlesRoot)) return dirs;
+  for (const agency of fs.readdirSync(articlesRoot)) {
+    const agencyDir = path.join(articlesRoot, agency);
+    if (!fs.statSync(agencyDir).isDirectory()) continue;
+    for (const documentId of fs.readdirSync(agencyDir)) {
+      const manifestPath = path.join(agencyDir, documentId, 'manifest.json');
+      if (!fs.existsSync(manifestPath)) continue;
+      const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+      for (const chapter of manifest.chapters ?? []) {
+        dirs.add(path.join(agencyDir, documentId, 'chapters', chapter.chapterId));
+      }
+    }
+  }
+  return dirs;
+}
+
 function rel(p) {
   return path.relative(root, p).split(path.sep).join('/');
 }
@@ -107,10 +133,13 @@ const resolvedOgpDirs = new Set(
     .filter(Boolean),
 );
 
+// シグナル3: 章記事（manifest 駆動・MDX を持たない）が指す OGP ディレクトリ。
+const standardsChapterDirs = standardsChapterOgpDirs();
+
 const ogpFiles = findOgp(POSTS_DIR);
 const orphans = ogpFiles.filter((f) => {
   const dir = path.dirname(f);
-  return !dirsWithMdx.has(dir) && !resolvedOgpDirs.has(dir);
+  return !dirsWithMdx.has(dir) && !resolvedOgpDirs.has(dir) && !standardsChapterDirs.has(dir);
 });
 
 // manifest 孤児: asset-storage manifest（group: site-ogp-png）に登録されているが
@@ -128,7 +157,7 @@ const manifestOgpKeys = Object.keys(manifestEntries).filter(
 );
 const manifestOrphans = manifestOgpKeys.filter((key) => {
   const dir = manifestKeyToDir(key);
-  return dir && !dirsWithMdx.has(dir) && !resolvedOgpDirs.has(dir);
+  return dir && !dirsWithMdx.has(dir) && !resolvedOgpDirs.has(dir) && !standardsChapterDirs.has(dir);
 });
 
 if (doFix) {

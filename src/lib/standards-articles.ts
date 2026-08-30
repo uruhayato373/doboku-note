@@ -3,6 +3,7 @@ import 'server-only';
 import { readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { getStandardDocument, type StandardDocument, type StandardPart } from '@/lib/standards';
+import { getSiteAssetR2Url } from '@/lib/r2-image-loader';
 
 /**
  * 構造化章記事（レイヤー2）の読み出し。
@@ -177,4 +178,21 @@ export function parseSourcePages(value: string): { first: number; last: number }
   if (!match) return null;
   const first = Number(match[1]);
   return { first, last: match[2] ? Number(match[2]) : first };
+}
+
+/**
+ * 章記事の OGP 画像 URL。
+ *
+ * 実体は scripts/build-standards-ogp.mjs が
+ * content/site/standards-articles/{agency}/{document}/chapters/{chapterId}/ogp.png へ生成し、
+ * asset-storage の site-ogp-png グループ（`^content/site/.+/ogp\.png$` → `posts/` prefix）が
+ * R2 へ供給する。パスと R2 キーが 1:1 なので、ここでの導出と供給側がズレない。
+ */
+export function standardChapterOgpUrl(
+  document: Pick<StandardDocument, 'agencyId' | 'documentId'>,
+  chapter: Pick<StandardChapter, 'chapterId'>,
+): string {
+  return getSiteAssetR2Url(
+    `standards-articles/${document.agencyId}/${document.documentId}/chapters/${chapter.chapterId}/ogp.png`,
+  );
 }
