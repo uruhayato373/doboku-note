@@ -11,13 +11,16 @@ for (const journey of categoryJourneys) {
     await expect(page).toHaveURL(new RegExp(`${journey.categoryPath}$`));
     await expect(page.getByRole('heading', { name: journey.categoryName, exact: false }).first()).toBeVisible();
 
-    const articleLink = page.locator('main a[href^="/docs/"]:visible').first();
+    // 記事 URL も正規形（/exam/{資格}/{グループ}/{slug}）。旧 /docs/ はこのページに存在しない。
+    const articleLink = page
+      .locator(`main a[href^="${journey.categoryPath}/"]:visible`)
+      .first();
     await expect(articleLink).toBeVisible();
     const articlePath = await articleLink.getAttribute('href');
-    expect(articlePath).toMatch(/^\/docs\/[^#?]+/);
+    expect(articlePath).toMatch(new RegExp(`^${journey.categoryPath}/[^#?]+`));
     await articleLink.click();
 
-    await expect(page).toHaveURL(/\/docs\//);
+    await expect(page).toHaveURL(new RegExp(`${journey.categoryPath}/`));
     await expect(page.locator('main h1').first()).toBeVisible();
   });
 }
