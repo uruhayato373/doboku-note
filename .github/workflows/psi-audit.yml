@@ -38,6 +38,14 @@ jobs:
       - name: Install dependencies
         run: npm ci --legacy-peer-deps
 
+      # npm ci（--ignore-scripts なし）は prepare で pre-commit フックを入れる。そのフックの
+      # check-x-campaign-plan などが src/config/doc-meta-index.json を直接読むが、これは
+      # git 追跡外の生成物なので、ここで作らないと **commit の瞬間に ENOENT で落ちる**。
+      # 症状はワークフロー全体の赤で、本来の処理が終わっていても記録が残らない。
+      - name: Build doc meta index
+        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+
+
       - name: Run PSI audit (mobile + desktop)
         env:
           PSI_API_KEY: ${{ secrets.PSI_API_KEY }}
