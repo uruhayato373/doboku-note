@@ -5,6 +5,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import SectionBlock from '@/components/layout/SectionBlock';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
+import StandardsAgencySelector from '@/components/standards/StandardsAgencySelector';
 import StandardDocumentCard from '@/components/standards/StandardDocumentCard';
 import { DocCard } from '@/components/category/CategorySections';
 import { buildPageMetadata } from '@/lib/metadata';
@@ -33,7 +34,8 @@ export default function StandardsPage() {
       />
 
       <SectionBlock space="md">
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <StandardsAgencySelector agencies={catalog.agencies} />
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {[
             ['収録ページ', `${catalog.totals.pages.toLocaleString('ja-JP')}頁`],
             ['目視確認', `${catalog.totals.visualReviewedPages.toLocaleString('ja-JP')}頁`],

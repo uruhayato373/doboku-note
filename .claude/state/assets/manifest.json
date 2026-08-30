@@ -167568,6 +167568,56 @@
         "scripts/kdp-publish.mjs",
         "scripts/sync-kindle-dist.mjs"
       ]
+    },
+    "docs/textbook/新しい時代の安全管理のすべて_第7版/05_第3編_労働安全衛生マネジメントシステム_p260-273.pdf": {
+      "bucket": "private",
+      "r2Key": "textbook/新しい時代の安全管理のすべて_第7版/05_第3編_労働安全衛生マネジメントシステム_p260-273.pdf",
+      "sha256": "cb656044715d893c809a0ca93ef4e27a01bb149993782137551514bb140cfe51",
+      "bytes": 6087096,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "textbook-source-pdf",
+      "verifiedAt": "2026-08-30T00:07:23.318Z"
+    },
+    "docs/textbook/新しい時代の安全管理のすべて_第7版/01_第2編_安全管理システム_p106-145.pdf": {
+      "bucket": "private",
+      "r2Key": "textbook/新しい時代の安全管理のすべて_第7版/01_第2編_安全管理システム_p106-145.pdf",
+      "sha256": "3144ab9865c62d6651c2b61080bd6bbeb1ed9db9780df3ef7f8def2b7d1807d8",
+      "bytes": 16684150,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "textbook-source-pdf",
+      "verifiedAt": "2026-08-30T00:07:24.104Z"
+    },
+    "docs/textbook/新しい時代の安全管理のすべて_第7版/04_第3編_労働安全衛生マネジメントシステム_p220-259.pdf": {
+      "bucket": "private",
+      "r2Key": "textbook/新しい時代の安全管理のすべて_第7版/04_第3編_労働安全衛生マネジメントシステム_p220-259.pdf",
+      "sha256": "8185773cbd12bd25a60df5dee36aa87607f2978c29d1cbf9d53e7b5360ea7917",
+      "bytes": 18905588,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "textbook-source-pdf",
+      "verifiedAt": "2026-08-30T00:07:24.871Z"
+    },
+    "docs/textbook/新しい時代の安全管理のすべて_第7版/03_第2編_安全管理システム_p188-219.pdf": {
+      "bucket": "private",
+      "r2Key": "textbook/新しい時代の安全管理のすべて_第7版/03_第2編_安全管理システム_p188-219.pdf",
+      "sha256": "5ebbedde591d423ce3c4db80a95cd3234236bec8b7788c627d28f2d38e854b3b",
+      "bytes": 14942803,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "textbook-source-pdf",
+      "verifiedAt": "2026-08-30T00:07:24.948Z"
+    },
+    "docs/textbook/新しい時代の安全管理のすべて_第7版/02_第2編_安全管理システム_p146-187.pdf": {
+      "bucket": "private",
+      "r2Key": "textbook/新しい時代の安全管理のすべて_第7版/02_第2編_安全管理システム_p146-187.pdf",
+      "sha256": "44cf6305b2bf8539a350808b121dc5460dee72585ca2a04299863597cab90626",
+      "bytes": 18724462,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "textbook-source-pdf",
+      "verifiedAt": "2026-08-30T00:07:24.986Z"
     }
   }
 }

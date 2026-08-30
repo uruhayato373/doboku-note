@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-08-29T23:13:57.865Z",
+  "generated_at": "2026-08-30T01:01:37.564Z",
   "summary": {
-    "total_mdx_files": 1166,
+    "total_mdx_files": 1170,
     "total_unique_tags": 175,
     "allowlist_size": 155,
     "known_count": 86,
@@ -1077,7 +1077,7 @@
     },
     {
       "name": "guide",
-      "count": 181,
+      "count": 185,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1177,6 +1177,7 @@
         "civil-practice-formwork-removal-timing",
         "civil-practice-formwork-waterstop-details",
         "civil-practice-lifting-equipment-selection",
+        "civil-practice-oshms-pdca-site-operation",
         "civil-practice-pile-bearing-verification",
         "civil-practice-pile-concrete-head-treatment",
         "civil-practice-pipe-jacking-methods",
@@ -1187,9 +1188,12 @@
         "civil-practice-rebar-cover-placement",
         "civil-practice-rebar-splice-selection",
         "civil-practice-reference-values",
+        "civil-practice-risk-assessment-construction-workflow",
         "civil-practice-river-park-erosion-control",
         "civil-practice-road-fixtures-precast",
         "civil-practice-safety-culture-discipline",
+        "civil-practice-safety-health-education-plan",
+        "civil-practice-safety-patrol-corrective-action",
         "civil-practice-schedule-and-road-permit",
         "civil-practice-sheet-pile-snow-coating",
         "civil-practice-sling-work-wire-rope",
@@ -2073,7 +2077,7 @@
     },
     {
       "name": "earthwork",
-      "count": 21,
+      "count": 22,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-secondary-earthwork-basics",
@@ -2092,6 +2096,7 @@
         "civil-practice-pile-concrete-head-treatment",
         "civil-practice-pipe-jacking-methods",
         "civil-practice-precast-pile-methods",
+        "civil-practice-sheet-pile-snow-coating",
         "civil-practice-slope-drainage-monitoring",
         "civil-practice-slope-protection-selection",
         "civil-practice-soil-improvement-sandbag",
@@ -2181,6 +2186,32 @@
       ]
     },
     {
+      "name": "道路",
+      "count": 19,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-asphalt-pavement-control",
+        "civil-practice-road-fixtures-precast",
+        "civil-practice-schedule-and-road-permit",
+        "pe-comprehensive-management-essay-pattern-cross-year-application",
+        "pe-comprehensive-management-pattern-essay-road-municipality",
+        "pe-comprehensive-management-r03-essay-road-municipality",
+        "pe-comprehensive-management-r04-essay-road-municipality",
+        "pe-comprehensive-management-r05-essay-road-municipality",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-comprehensive-management-r07-essay-road-municipality",
+        "pe-construction-r01-road",
+        "pe-construction-r02-road",
+        "pe-construction-r03-road",
+        "pe-construction-r04-road",
+        "pe-construction-r05-road",
+        "pe-construction-r06-road",
+        "pe-construction-r07-road",
+        "pe-construction-road-exam-themes",
+        "pe-construction-road-ronbun-keyword"
+      ]
+    },
+    {
       "name": "concrete-diagnostician",
       "count": 18,
       "inAllowlist": true,
@@ -2203,6 +2234,30 @@
         "concrete-diagnostician-textbook-maintenance",
         "concrete-diagnostician-textbook-repair",
         "concrete-diagnostician-textbook-variation"
+      ]
+    },
+    {
+      "name": "safety-management",
+      "count": 17,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-safety-excavation-shoring",
+        "civil-construction-1-textbook-safety-industrial-safety-law",
+        "civil-construction-1-textbook-safety-machinery-crane",
+        "civil-construction-1-textbook-safety-management-system",
+        "civil-construction-1-textbook-safety-risk-assessment",
+        "civil-construction-1-textbook-safety-scaffolding",
+        "civil-construction-1-textbook-safety-work-environment",
+        "civil-practice-checklist-shoring-buoyancy",
+        "civil-practice-lifting-equipment-selection",
+        "civil-practice-oshms-pdca-site-operation",
+        "civil-practice-risk-assessment-construction-workflow",
+        "civil-practice-safety-culture-discipline",
+        "civil-practice-safety-health-education-plan",
+        "civil-practice-safety-patrol-corrective-action",
+        "civil-practice-sheet-pile-snow-coating",
+        "civil-practice-sling-work-wire-rope",
+        "civil-practice-stacking-heat-machine-safety"
       ]
     },
     {
@@ -2367,26 +2422,25 @@
       ]
     },
     {
-      "name": "道路",
-      "count": 16,
+      "name": "concrete",
+      "count": 15,
       "inAllowlist": true,
       "usedIn": [
-        "pe-comprehensive-management-essay-pattern-cross-year-application",
-        "pe-comprehensive-management-pattern-essay-road-municipality",
-        "pe-comprehensive-management-r03-essay-road-municipality",
-        "pe-comprehensive-management-r04-essay-road-municipality",
-        "pe-comprehensive-management-r05-essay-road-municipality",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-comprehensive-management-r07-essay-road-municipality",
-        "pe-construction-r01-road",
-        "pe-construction-r02-road",
-        "pe-construction-r03-road",
-        "pe-construction-r04-road",
-        "pe-construction-r05-road",
-        "pe-construction-r06-road",
-        "pe-construction-r07-road",
-        "pe-construction-road-exam-themes",
-        "pe-construction-road-ronbun-keyword"
+        "civil-construction-1-secondary-concrete-basics",
+        "civil-construction-1-secondary-concrete-past-problems",
+        "civil-practice-concrete-compaction-numbers",
+        "civil-practice-concrete-crack-causes",
+        "civil-practice-concrete-finishing-curing",
+        "civil-practice-concrete-mix-acceptance",
+        "civil-practice-concrete-placement-order",
+        "civil-practice-concrete-placement-timing",
+        "civil-practice-concrete-pump-capacity",
+        "civil-practice-concrete-repair-leakage",
+        "civil-practice-formwork-removal-timing",
+        "civil-practice-preventive-maintenance-diagnosis",
+        "civil-practice-risk-assessment-construction-workflow",
+        "civil-practice-road-fixtures-precast",
+        "civil-practice-safety-patrol-corrective-action"
       ]
     },
     {
@@ -2474,22 +2528,41 @@
       ]
     },
     {
-      "name": "concrete",
+      "name": "construction-machinery",
       "count": 12,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-secondary-concrete-basics",
-        "civil-construction-1-secondary-concrete-past-problems",
-        "civil-practice-concrete-compaction-numbers",
-        "civil-practice-concrete-crack-causes",
-        "civil-practice-concrete-finishing-curing",
-        "civil-practice-concrete-mix-acceptance",
-        "civil-practice-concrete-placement-order",
-        "civil-practice-concrete-placement-timing",
-        "civil-practice-concrete-pump-capacity",
-        "civil-practice-concrete-repair-leakage",
-        "civil-practice-formwork-removal-timing",
-        "civil-practice-preventive-maintenance-diagnosis"
+        "civil-construction-1-textbook-crane",
+        "civil-construction-1-textbook-grader-compaction",
+        "civil-construction-1-textbook-loader",
+        "civil-construction-1-textbook-machinery-overview",
+        "civil-construction-1-textbook-machinery-structure",
+        "civil-construction-1-textbook-scraper",
+        "civil-construction-1-textbook-shovel-excavator",
+        "civil-construction-1-textbook-tractor-bulldozer",
+        "civil-construction-1-textbook-transport-machinery",
+        "civil-practice-lifting-equipment-selection",
+        "civil-practice-sling-work-wire-rope",
+        "civil-practice-stacking-heat-machine-safety"
+      ]
+    },
+    {
+      "name": "construction-plan",
+      "count": 12,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-secondary-construction-plan-basics",
+        "civil-construction-1-secondary-construction-plan-past-problems",
+        "civil-construction-1-textbook-construction-mgmt-overview",
+        "civil-construction-1-textbook-construction-plan-overview",
+        "civil-construction-1-textbook-management-subplans",
+        "civil-construction-1-textbook-site-investigation",
+        "civil-construction-1-textbook-work-scheduling",
+        "civil-practice-construction-plan-document",
+        "civil-practice-cost-and-design-change",
+        "civil-practice-oshms-pdca-site-operation",
+        "civil-practice-quality-record-site-bcp",
+        "civil-practice-risk-assessment-construction-workflow"
       ]
     },
     {
@@ -2529,6 +2602,23 @@
       ]
     },
     {
+      "name": "related-laws",
+      "count": 10,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-building-standards",
+        "civil-construction-1-textbook-construction-business",
+        "civil-construction-1-textbook-explosives-act",
+        "civil-construction-1-textbook-labor-standards",
+        "civil-construction-1-textbook-law-compliance",
+        "civil-construction-1-textbook-port-regulations",
+        "civil-construction-1-textbook-river-act",
+        "civil-construction-1-textbook-road-act",
+        "civil-construction-1-textbook-standard-contract",
+        "civil-practice-safety-health-education-plan"
+      ]
+    },
+    {
       "name": "選択科目",
       "count": 10,
       "inAllowlist": false,
@@ -2562,35 +2652,19 @@
       ]
     },
     {
-      "name": "construction-machinery",
+      "name": "quality-management",
       "count": 9,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-textbook-crane",
-        "civil-construction-1-textbook-grader-compaction",
-        "civil-construction-1-textbook-loader",
-        "civil-construction-1-textbook-machinery-overview",
-        "civil-construction-1-textbook-machinery-structure",
-        "civil-construction-1-textbook-scraper",
-        "civil-construction-1-textbook-shovel-excavator",
-        "civil-construction-1-textbook-tractor-bulldozer",
-        "civil-construction-1-textbook-transport-machinery"
-      ]
-    },
-    {
-      "name": "related-laws",
-      "count": 9,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-building-standards",
-        "civil-construction-1-textbook-construction-business",
-        "civil-construction-1-textbook-explosives-act",
-        "civil-construction-1-textbook-labor-standards",
-        "civil-construction-1-textbook-law-compliance",
-        "civil-construction-1-textbook-port-regulations",
-        "civil-construction-1-textbook-river-act",
-        "civil-construction-1-textbook-road-act",
-        "civil-construction-1-textbook-standard-contract"
+        "civil-construction-1-secondary-quality-management-basics",
+        "civil-construction-1-secondary-quality-management-past-problems",
+        "civil-construction-1-textbook-control-chart",
+        "civil-construction-1-textbook-histogram",
+        "civil-construction-1-textbook-quality-inspection",
+        "civil-construction-1-textbook-quality-overview",
+        "civil-practice-quality-record-site-bcp",
+        "civil-practice-reference-values",
+        "civil-practice-safety-patrol-corrective-action"
       ]
     },
     {
@@ -2737,6 +2811,21 @@
       ]
     },
     {
+      "name": "河川",
+      "count": 8,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-practice-river-park-erosion-control",
+        "pe-comprehensive-management-pattern-essay-river-consultant",
+        "pe-comprehensive-management-r03-essay-river-consultant",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-r05-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r07-essay-river-consultant",
+        "pe-construction-river-coast-ronbun-keyword"
+      ]
+    },
+    {
       "name": "河川、砂防及び海岸・海洋",
       "count": 8,
       "inAllowlist": false,
@@ -2794,34 +2883,6 @@
         "pe-construction-r06-urban-planning",
         "pe-construction-r07-urban-planning",
         "pe-construction-urban-planning-exam-themes"
-      ]
-    },
-    {
-      "name": "construction-plan",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-construction-plan-basics",
-        "civil-construction-1-secondary-construction-plan-past-problems",
-        "civil-construction-1-textbook-construction-mgmt-overview",
-        "civil-construction-1-textbook-construction-plan-overview",
-        "civil-construction-1-textbook-management-subplans",
-        "civil-construction-1-textbook-site-investigation",
-        "civil-construction-1-textbook-work-scheduling"
-      ]
-    },
-    {
-      "name": "safety-management",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-safety-excavation-shoring",
-        "civil-construction-1-textbook-safety-industrial-safety-law",
-        "civil-construction-1-textbook-safety-machinery-crane",
-        "civil-construction-1-textbook-safety-management-system",
-        "civil-construction-1-textbook-safety-risk-assessment",
-        "civil-construction-1-textbook-safety-scaffolding",
-        "civil-construction-1-textbook-safety-work-environment"
       ]
     },
     {
@@ -2895,20 +2956,6 @@
       ]
     },
     {
-      "name": "河川",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-pattern-essay-river-consultant",
-        "pe-comprehensive-management-r03-essay-river-consultant",
-        "pe-comprehensive-management-r04-essay-river-consultant",
-        "pe-comprehensive-management-r05-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r07-essay-river-consultant",
-        "pe-construction-river-coast-ronbun-keyword"
-      ]
-    },
-    {
       "name": "砂防",
       "count": 7,
       "inAllowlist": false,
@@ -2947,19 +2994,6 @@
         "civil-construction-2-secondary-experience-writing-examples",
         "civil-construction-2-secondary-experience-writing-guide",
         "civil-construction-2-secondary-getting-started"
-      ]
-    },
-    {
-      "name": "quality-management",
-      "count": 6,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-secondary-quality-management-basics",
-        "civil-construction-1-secondary-quality-management-past-problems",
-        "civil-construction-1-textbook-control-chart",
-        "civil-construction-1-textbook-histogram",
-        "civil-construction-1-textbook-quality-inspection",
-        "civil-construction-1-textbook-quality-overview"
       ]
     },
     {
@@ -3002,6 +3036,18 @@
       ]
     },
     {
+      "name": "environmental-management",
+      "count": 5,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-construction-byproduct-recycle",
+        "civil-construction-1-textbook-noise-vibration-regulation",
+        "civil-construction-1-textbook-waste-disposal-manifest",
+        "civil-construction-1-textbook-water-air-soil-pollution",
+        "civil-practice-environment-neighborhood"
+      ]
+    },
+    {
       "name": "reference",
       "count": 5,
       "inAllowlist": true,
@@ -3011,6 +3057,18 @@
         "reference-materials-inverted-siphon",
         "reference-materials-river-abandonment",
         "reference-materials-tunnel-02"
+      ]
+    },
+    {
+      "name": "schedule-management",
+      "count": 5,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-textbook-network-schedule",
+        "civil-construction-1-textbook-schedule-charts",
+        "civil-construction-1-textbook-schedule-overview",
+        "civil-practice-cost-and-design-change",
+        "civil-practice-schedule-and-road-permit"
       ]
     },
     {
@@ -3026,21 +3084,11 @@
       ]
     },
     {
-      "name": "environmental-management",
+      "name": "formwork",
       "count": 4,
       "inAllowlist": true,
       "usedIn": [
-        "civil-construction-1-textbook-construction-byproduct-recycle",
-        "civil-construction-1-textbook-noise-vibration-regulation",
-        "civil-construction-1-textbook-waste-disposal-manifest",
-        "civil-construction-1-textbook-water-air-soil-pollution"
-      ]
-    },
-    {
-      "name": "formwork",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
+        "civil-practice-checklist-shoring-buoyancy",
         "civil-practice-formwork-material-inspection",
         "civil-practice-formwork-removal-timing",
         "civil-practice-formwork-waterstop-details"
@@ -3064,16 +3112,6 @@
         "civil-practice-rebar-corrosion-handling",
         "civil-practice-rebar-cover-placement",
         "civil-practice-rebar-splice-selection"
-      ]
-    },
-    {
-      "name": "schedule-management",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-textbook-network-schedule",
-        "civil-construction-1-textbook-schedule-charts",
-        "civil-construction-1-textbook-schedule-overview"
       ]
     },
     {

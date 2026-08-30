@@ -1,0 +1,1560 @@
+{
+  "checkedAt": "2026-08-30T00:58:47.159Z",
+  "summary": {
+    "files": 1170,
+    "occurrences": 2574,
+    "uniqueUrls": 1958,
+    "ok": 1846,
+    "broken": 0,
+    "timeout": 0,
+    "errors": 112
+  },
+  "broken": [],
+  "errors": [
+    {
+      "url": "https://www.obayashi.co.jp/technology/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.obayashi.co.jp/technology/",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-construction-plan-overview/article.mdx",
+          "line": 392
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-control-chart/article.mdx",
+          "line": 274
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-demolition/article.mdx",
+          "line": 386
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-quality-inspection/article.mdx",
+          "line": 145
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-quality-overview/article.mdx",
+          "line": 400
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-schedule-charts/article.mdx",
+          "line": 283
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-schedule-overview/article.mdx",
+          "line": 271
+        }
+      ]
+    },
+    {
+      "url": "https://www.kobelco-cranes.com/ja/products/crawler/",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-crane/article.mdx",
+          "line": 234
+        }
+      ]
+    },
+    {
+      "url": "https://psgsv2.gsi.go.jp/koukyou/public/jyunsoku/index.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-distance-angle/article.mdx",
+          "line": 335
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-leveling/article.mdx",
+          "line": 325
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-surveying-basics/article.mdx",
+          "line": 183
+        }
+      ]
+    },
+    {
+      "url": "https://www.gsi.go.jp/",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-distance-angle/article.mdx",
+          "line": 336
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-surveying-basics/article.mdx",
+          "line": 181
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/safety_security/industrial_safety/sangyo/gunpowder/hoan/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/safety_security/industrial_safety/sangyo/gunpowder/hoan/index.html",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-explosives-act/article.mdx",
+          "line": 181
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/statistics/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/statistics/",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-histogram/article.mdx",
+          "line": 313
+        }
+      ]
+    },
+    {
+      "url": "https://www.labor.tokyo/",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-labor-standards/article.mdx",
+          "line": 308
+        }
+      ]
+    },
+    {
+      "url": "https://www.gsi.go.jp/sokuchikijun/suijun.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-leveling/article.mdx",
+          "line": 326
+        }
+      ]
+    },
+    {
+      "url": "https://www.hitachicm.com/global/jp/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.hitachicm.com/global/jp/",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-loader/article.mdx",
+          "line": 241
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-machinery-overview/article.mdx",
+          "line": 325
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-machinery-structure/article.mdx",
+          "line": 187
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-shovel-excavator/article.mdx",
+          "line": 329
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-tractor-bulldozer/article.mdx",
+          "line": 321
+        }
+      ]
+    },
+    {
+      "url": "https://jiban.co.jp/jbn/",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-site-investigation/article.mdx",
+          "line": 231
+        }
+      ]
+    },
+    {
+      "url": "https://www.gsi.go.jp/sokuchikijun/datum-main.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-surveying-basics/article.mdx",
+          "line": 182
+        }
+      ]
+    },
+    {
+      "url": "https://www.astm.org/c0876-15.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.astm.org/c0876-15.html",
+      "locations": [
+        {
+          "relativePath": "concrete-diagnostician/textbook-investigation/article.mdx",
+          "line": 162
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/earthquake/nuclear/hairo_osensui/alps.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/earthquake/nuclear/hairo_osensui/alps.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/alps-treated-water/article.mdx",
+          "line": 155
+        }
+      ]
+    },
+    {
+      "url": "https://www.iaea.org/topics/response/fukushima-daiichi-nuclear-accident/fukushima-daiichi-alps-treated-water-discharge",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.iaea.org/topics/response/fukushima-daiichi-nuclear-accident/fukushima-daiichi-alps-treated-water-discharge",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/alps-treated-water/article.mdx",
+          "line": 156
+        }
+      ]
+    },
+    {
+      "url": "https://www.gov-online.go.jp/article/201203/entry-9063.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.gov-online.go.jp/article/201203/entry-9063.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/asbestos-issue/article.mdx",
+          "line": 137
+        }
+      ]
+    },
+    {
+      "url": "https://www.u-tokyo.ac.jp/focus/ja/press/p01_200425.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/asch-conformity-experiment/article.mdx",
+          "line": 115
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/press/2024/08/20240819002/20240819002.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/press/2024/08/20240819002/20240819002.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/bioeconomy/article.mdx",
+          "line": 90
+        }
+      ]
+    },
+    {
+      "url": "https://www.iso.org/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.iso.org/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/bowtie-analysis/article.mdx",
+          "line": 84
+        }
+      ]
+    },
+    {
+      "url": "https://www.chusho.meti.go.jp/bcp/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.chusho.meti.go.jp/bcp/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/business-continuity-plan/article.mdx",
+          "line": 133
+        }
+      ]
+    },
+    {
+      "url": "https://japancredit.go.jp/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://japancredit.go.jp/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/carbon-neutral/article.mdx",
+          "line": 45
+        },
+        {
+          "relativePath": "pe-comprehensive-management/carbon-neutral/article.mdx",
+          "line": 153
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/energy_environment/global_warming/disclosure.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/energy_environment/global_warming/disclosure.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/carbon-neutral/article.mdx",
+          "line": 155
+        }
+      ]
+    },
+    {
+      "url": "https://echa.europa.eu/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://echa.europa.eu/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/chemical-substances-review-act/article.mdx",
+          "line": 26
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/chemical_management/kasinhou/about/about_index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/chemical_management/kasinhou/about/about_index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/chemical-substances-review-act/article.mdx",
+          "line": 138
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/press/2023/03/20230331003/20230331003.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/press/2023/03/20230331003/20230331003.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/circular-economy/article.mdx",
+          "line": 136
+        }
+      ]
+    },
+    {
+      "url": "https://www.tandfonline.com/doi/abs/10.1080/01944366908977225",
+      "status": 403,
+      "ok": false,
+      "redirected": true,
+      "finalUrl": "https://www.tandfonline.com/doi/abs/10.1080/01944366908977225?cookieSet=1",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/citizen-participation/article.mdx",
+          "line": 97
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/shingikai/enecho/denryoku_gas/genshiryoku/hairo_sairijiku/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/shingikai/enecho/denryoku_gas/genshiryoku/hairo_sairijiku/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/clearance-level/article.mdx",
+          "line": 112
+        }
+      ]
+    },
+    {
+      "url": "https://www.keyence.co.jp/ss/products/microscope/measurement-solutions/concurrent-engineering.jsp",
+      "status": 400,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.keyence.co.jp/ss/products/microscope/measurement-solutions/concurrent-engineering.jsp",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/concurrent-engineering/article.mdx",
+          "line": 103
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/product_safety/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/product_safety/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/consumer-product-safety-act/article.mdx",
+          "line": 129
+        },
+        {
+          "relativePath": "pe-comprehensive-management/product-safety/article.mdx",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "url": "https://www.caa.go.jp/policies/policy/consumer_safety/safety_measures/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.caa.go.jp/policies/policy/consumer_safety/safety_measures/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/consumer-safety/article.mdx",
+          "line": 114
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/shingikai/mono_info_service/dx_report/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/shingikai/mono_info_service/dx_report/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/data-cleansing/article.mdx",
+          "line": 109
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/press/2022/07/20220720004/20220720004.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/press/2022/07/20220720004/20220720004.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/data-governance/article.mdx",
+          "line": 120
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/it_policy/ai/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/it_policy/ai/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/data-mining/article.mdx",
+          "line": 148
+        },
+        {
+          "relativePath": "pe-comprehensive-management/data-mining/article.mdx",
+          "line": 148
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/economy/hyojun-kijun/katsuyo/jitsumu-nyumon/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/economy/hyojun-kijun/katsuyo/jitsumu-nyumon/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/de-jure-standard/article.mdx",
+          "line": 120
+        }
+      ]
+    },
+    {
+      "url": "https://www.jpo.go.jp/system/design/gaiyo/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jpo.go.jp/system/design/gaiyo/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/design-rights/article.mdx",
+          "line": 152
+        }
+      ]
+    },
+    {
+      "url": "https://www.jpo.go.jp/system/laws/rule/kaisetu/design/r01_ishouhou_kaisei.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jpo.go.jp/system/laws/rule/kaisetu/design/r01_ishouhou_kaisei.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/design-rights/article.mdx",
+          "line": 153
+        }
+      ]
+    },
+    {
+      "url": "https://www.jpc-nd.or.jp/",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/disclosure-request/article.mdx",
+          "line": 108
+        }
+      ]
+    },
+    {
+      "url": "https://www.enecho.meti.go.jp/category/others/basic_plan/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.enecho.meti.go.jp/category/others/basic_plan/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/energy/article.mdx",
+          "line": 136
+        },
+        {
+          "relativePath": "pe-comprehensive-management/s-plus-3e/article.mdx",
+          "line": 73
+        }
+      ]
+    },
+    {
+      "url": "https://www.enecho.meti.go.jp/about/whitepaper/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.enecho.meti.go.jp/about/whitepaper/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/energy/article.mdx",
+          "line": 137
+        },
+        {
+          "relativePath": "pe-comprehensive-management/energy-conservation-act/article.mdx",
+          "line": 98
+        },
+        {
+          "relativePath": "pe-comprehensive-management/whitepaper-study-map/article.mdx",
+          "line": 346
+        }
+      ]
+    },
+    {
+      "url": "https://www.enecho.meti.go.jp/category/saving_and_new/saving/enterprise/overview/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.enecho.meti.go.jp/category/saving_and_new/saving/enterprise/overview/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/energy-conservation-act/article.mdx",
+          "line": 27
+        },
+        {
+          "relativePath": "pe-comprehensive-management/energy-conservation-act/article.mdx",
+          "line": 61
+        },
+        {
+          "relativePath": "pe-comprehensive-management/energy-conservation-act/article.mdx",
+          "line": 97
+        }
+      ]
+    },
+    {
+      "url": "https://www.enecho.meti.go.jp/category/saving_and_new/saving/enterprise/overview/amendment/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.enecho.meti.go.jp/category/saving_and_new/saving/enterprise/overview/amendment/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/energy-conservation-act/article.mdx",
+          "line": 37
+        }
+      ]
+    },
+    {
+      "url": "https://kankyobusiness.jp/content/20240600019698",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/environmental-basic-plan/article.mdx",
+          "line": 119
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/shingikai/mono_info_service/digital_transformation/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/shingikai/mono_info_service/digital_transformation/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/erp/article.mdx",
+          "line": 97
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/it_policy/investment/dgc/dgc.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/it_policy/investment/dgc/dgc.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/erp/article.mdx",
+          "line": 98
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/press/2024/04/20240419004/20240419004.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/press/2024/04/20240419004/20240419004.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/generative-ai/article.mdx",
+          "line": 143
+        }
+      ]
+    },
+    {
+      "url": "https://www.nli-research.co.jp/report/detail/id=80382?site=nli",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nli-research.co.jp/report/detail/id=80382?site=nli",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/generative-ai/article.mdx",
+          "line": 145
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/energy_environment/global_warming/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/energy_environment/global_warming/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/green-transformation/article.mdx",
+          "line": 102
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/energy_environment/global_warming/GX-league/gx-league.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/energy_environment/global_warming/GX-league/gx-league.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/green-transformation/article.mdx",
+          "line": 103
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/press/2024/02/20250218004/20250218004.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/press/2024/02/20250218004/20250218004.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/green-transformation/article.mdx",
+          "line": 104
+        }
+      ]
+    },
+    {
+      "url": "https://www.enecho.meti.go.jp/about/special/johoteikyo/gxseisaku2025.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.enecho.meti.go.jp/about/special/johoteikyo/gxseisaku2025.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/green-transformation/article.mdx",
+          "line": 105
+        }
+      ]
+    },
+    {
+      "url": "https://www.monodukuri.com/gihou/article/2792",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.monodukuri.com/gihou/article/2792",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/hazop/article.mdx",
+          "line": 125
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/mono_info_service/healthcare/kenkoukeiei_yuryouhouzin.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/mono_info_service/healthcare/kenkoukeiei_yuryouhouzin.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/health-management/article.mdx",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/safety_security/industrial_safety/sangyo/hipregas/kisei/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/safety_security/industrial_safety/sangyo/hipregas/kisei/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/high-pressure-gas-act/article.mdx",
+          "line": 104
+        }
+      ]
+    },
+    {
+      "url": "https://www.monodukuri.com/gihou/article_list/60/VTA%EF%BC%8FETA",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.monodukuri.com/gihou/article_list/60/VTA%EF%BC%8FETA",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/human-error-probability/article.mdx",
+          "line": 154
+        },
+        {
+          "relativePath": "pe-comprehensive-management/vta-method/article.mdx",
+          "line": 90
+        }
+      ]
+    },
+    {
+      "url": "https://www.monodukuri.com/gihou/article_list/10/%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2%E7%99%BA%E6%83%B3%E6%B3%95%E4%B8%80%E8%88%AC",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.monodukuri.com/gihou/article_list/10/%E3%82%A2%E3%82%A4%E3%83%87%E3%82%A2%E7%99%BA%E6%83%B3%E6%B3%95%E4%B8%80%E8%88%AC",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/idea-generation-methods/article.mdx",
+          "line": 88
+        }
+      ]
+    },
+    {
+      "url": "https://www.asb.or.jp/jp/",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/ifrs/article.mdx",
+          "line": 142
+        }
+      ]
+    },
+    {
+      "url": "https://www.jpo.go.jp/system/patent/gaiyo/seidogaiyo/chizai01.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jpo.go.jp/system/patent/gaiyo/seidogaiyo/chizai01.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/industrial-property-rights/article.mdx",
+          "line": 173
+        }
+      ]
+    },
+    {
+      "url": "https://www.iso.org/standard/51528.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.iso.org/standard/51528.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/inherent-safety/article.mdx",
+          "line": 24
+        }
+      ]
+    },
+    {
+      "url": "https://www.digikey.jp/ja/articles/basics-of-safety-interlocks",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.digikey.jp/ja/articles/basics-of-safety-interlocks",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/interlock/article.mdx",
+          "line": 80
+        }
+      ]
+    },
+    {
+      "url": "https://www.jpo.go.jp/system/patent/gaiyo/seidogaiyo/chizai02.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jpo.go.jp/system/patent/gaiyo/seidogaiyo/chizai02.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/ip-creation/article.mdx",
+          "line": 77
+        },
+        {
+          "relativePath": "pe-comprehensive-management/ip-protection/article.mdx",
+          "line": 87
+        }
+      ]
+    },
+    {
+      "url": "https://www.jpo.go.jp/system/patent/shutugan/shokumu/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jpo.go.jp/system/patent/shutugan/shokumu/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/ip-creation/article.mdx",
+          "line": 78
+        }
+      ]
+    },
+    {
+      "url": "https://www.chusho.meti.go.jp/keiei/keieisupport/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.chusho.meti.go.jp/keiei/keieisupport/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/knowledge-sharing/article.mdx",
+          "line": 106
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/press/2018/09/20180907010/20180907010-3.pdf",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/press/2018/09/20180907010/20180907010-3.pdf",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/knowledge-sharing/article.mdx",
+          "line": 107
+        }
+      ]
+    },
+    {
+      "url": "https://www.jkms.gr.jp/",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/knowledge-sharing/article.mdx",
+          "line": 108
+        }
+      ]
+    },
+    {
+      "url": "https://www.keyence.co.jp/ss/general/manufacture-tips/takt-time_cycle-time_lead-time.jsp",
+      "status": 400,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.keyence.co.jp/ss/general/manufacture-tips/takt-time_cycle-time_lead-time.jsp",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/lead-time/article.mdx",
+          "line": 116
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/energy_environment/global_warming/ggs/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/energy_environment/global_warming/ggs/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/long-term-strategy-2050/article.mdx",
+          "line": 89
+        }
+      ]
+    },
+    {
+      "url": "https://www.enecho.meti.go.jp/about/special/johoteikyo/carbon_neutral_01.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.enecho.meti.go.jp/about/special/johoteikyo/carbon_neutral_01.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/long-term-strategy-2050/article.mdx",
+          "line": 91
+        }
+      ]
+    },
+    {
+      "url": "https://www.jsme.or.jp/jsme-medwiki/doku.php?id=01:1001629",
+      "status": 429,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jsme.or.jp/jsme-medwiki/doku.php?id=01:1001629",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/monte-carlo-simulation/article.mdx",
+          "line": 102
+        }
+      ]
+    },
+    {
+      "url": "https://www.keyence.co.jp/ss/general/manufacture-tips/sqc_course2.jsp",
+      "status": 400,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.keyence.co.jp/ss/general/manufacture-tips/sqc_course2.jsp",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/nonconformity-rate/article.mdx",
+          "line": 89
+        }
+      ]
+    },
+    {
+      "url": "https://survey.gov-online.go.jp/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://survey.gov-online.go.jp/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/normalcy-bias/article.mdx",
+          "line": 79
+        }
+      ]
+    },
+    {
+      "url": "https://www.iso.org/iso-45001-occupational-health-and-safety.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.iso.org/iso-45001-occupational-health-and-safety.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/oshms/article.mdx",
+          "line": 114
+        },
+        {
+          "relativePath": "pe-comprehensive-management/safety-management-system/article.mdx",
+          "line": 84
+        },
+        {
+          "relativePath": "pe-comprehensive-management/safety-objectives/article.mdx",
+          "line": 108
+        }
+      ]
+    },
+    {
+      "url": "https://www.monodukuri.com/gihou/article/1894",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.monodukuri.com/gihou/article/1894",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/pdpc-method/article.mdx",
+          "line": 98
+        }
+      ]
+    },
+    {
+      "url": "https://www.keyence.co.jp/ss/general/iot-glossary/predictive-maintenance.jsp",
+      "status": 400,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.keyence.co.jp/ss/general/iot-glossary/predictive-maintenance.jsp",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/predictive-maintenance/article.mdx",
+          "line": 98
+        }
+      ]
+    },
+    {
+      "url": "https://www.jpo.go.jp/system/patent/gaiyo/senshiyo/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jpo.go.jp/system/patent/gaiyo/senshiyo/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/prior-use-rights/article.mdx",
+          "line": 106
+        }
+      ]
+    },
+    {
+      "url": "https://keieikanrikaikei.com/history-of-costing/",
+      "status": 500,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://keieikanrikaikei.com/history-of-costing/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/process-costing/article.mdx",
+          "line": 109
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/chemical_management/kakanhou/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/chemical_management/kakanhou/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/prtr-act/article.mdx",
+          "line": 76
+        }
+      ]
+    },
+    {
+      "url": "https://journals.sagepub.com/doi/10.2307/2666999",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://journals.sagepub.com/doi/10.2307/2666999",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/psychological-safety/article.mdx",
+          "line": 121
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/energy_environment/nuclear/housyasei/housha_haikibutsu.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/energy_environment/nuclear/housyasei/housha_haikibutsu.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/radioactive-waste/article.mdx",
+          "line": 86
+        }
+      ]
+    },
+    {
+      "url": "https://echa.europa.eu/regulations/reach/understanding-reach",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://echa.europa.eu/regulations/reach/understanding-reach",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/reach-regulation/article.mdx",
+          "line": 82
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/chemical_management/int/reach.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/chemical_management/int/reach.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/reach-regulation/article.mdx",
+          "line": 83
+        }
+      ]
+    },
+    {
+      "url": "https://www.nli-research.co.jp/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.nli-research.co.jp/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/recommendation-systems/article.mdx",
+          "line": 118
+        }
+      ]
+    },
+    {
+      "url": "https://www.jilpt.go.jp/institute/research/2018/179.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/recruitment-management/article.mdx",
+          "line": 108
+        }
+      ]
+    },
+    {
+      "url": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/kaitori/surcharge.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/kaitori/surcharge.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/renewable-energy-act/article.mdx",
+          "line": 80
+        }
+      ]
+    },
+    {
+      "url": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/kaitori/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/kaitori/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/renewable-energy-act/article.mdx",
+          "line": 81
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/chemical_management/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/chemical_management/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/rohs-weee/article.mdx",
+          "line": 120
+        }
+      ]
+    },
+    {
+      "url": "https://www.monodukuri.com/gihou/article/1990",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.monodukuri.com/gihou/article/1990",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/root-cause-analysis/article.mdx",
+          "line": 137
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/it_policy/dx/dx.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/it_policy/dx/dx.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/rpa/article.mdx",
+          "line": 88
+        }
+      ]
+    },
+    {
+      "url": "https://www.enecho.meti.go.jp/about/special/johoteikyo/s_3e.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.enecho.meti.go.jp/about/special/johoteikyo/s_3e.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/s-plus-3e/article.mdx",
+          "line": 72
+        }
+      ]
+    },
+    {
+      "url": "https://www.igsap.org/",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/safety-2-0/article.mdx",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "url": "https://www.iso.org/standard/53940.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.iso.org/standard/53940.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/safety-and-security/article.mdx",
+          "line": 82
+        }
+      ]
+    },
+    {
+      "url": "https://www.jisha.or.jp/order/article/10_construction.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/safety-control/article.mdx",
+          "line": 118
+        }
+      ]
+    },
+    {
+      "url": "https://www.foresight.jp/sharoushi/column/safety-health-management/",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/safety-health-org-structure/article.mdx",
+          "line": 112
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/shingikai/mono_info_service/digital_transformation/20180907_report.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/shingikai/mono_info_service/digital_transformation/20180907_report.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/sales-management-system/article.mdx",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/press/2018/12/20181212004/20181212004-1.pdf",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/press/2018/12/20181212004/20181212004-1.pdf",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/sales-management-system/article.mdx",
+          "line": 97
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/mono_info_service/mono/supply_chain/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/mono_info_service/mono/supply_chain/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/scm-system/article.mdx",
+          "line": 95
+        }
+      ]
+    },
+    {
+      "url": "https://www.chusho.meti.go.jp/keiei/dx/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.chusho.meti.go.jp/keiei/dx/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/scm-system/article.mdx",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "url": "https://www.jstage.jst.go.jp/article/oukan/8/1/8_32/_article/-char/ja/",
+      "status": 500,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jstage.jst.go.jp/article/oukan/8/1/8_32/_article/-char/ja/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/sl-theory/article.mdx",
+          "line": 94
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/safety_security/industrial_safety/smart_industrial_safety/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/safety_security/industrial_safety/smart_industrial_safety/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/smart-safety/article.mdx",
+          "line": 107
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/economy/keiei_innovation/kigyoukaikei/csr_guide.pdf",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/economy/keiei_innovation/kigyoukaikei/csr_guide.pdf",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/stakeholder/article.mdx",
+          "line": 112
+        },
+        {
+          "relativePath": "pe-comprehensive-management/stakeholder/article.mdx",
+          "line": 112
+        }
+      ]
+    },
+    {
+      "url": "https://www.jpo.go.jp/system/patent/gaiyo/setsumei/patent_license.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jpo.go.jp/system/patent/gaiyo/setsumei/patent_license.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/technology-licensing/article.mdx",
+          "line": 135
+        }
+      ]
+    },
+    {
+      "url": "https://www.enecho.meti.go.jp/category/saving_and_new/saving/enterprise/equipment/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.enecho.meti.go.jp/category/saving_and_new/saving/enterprise/equipment/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/top-runner-system/article.mdx",
+          "line": 96
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/energy_environment/energy_saving/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/energy_environment/energy_saving/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/top-runner-system/article.mdx",
+          "line": 97
+        }
+      ]
+    },
+    {
+      "url": "https://www.jpo.go.jp/system/trademark/gaiyo/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jpo.go.jp/system/trademark/gaiyo/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/trademark-rights/article.mdx",
+          "line": 132
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/economy/chizai/chiteki/trade-secret.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/economy/chizai/chiteki/trade-secret.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/unfair-competition-prevention-act/article.mdx",
+          "line": 109
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/economy/chizai/chiteki/pdf/H31ts_full.pdf",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/economy/chizai/chiteki/pdf/H31ts_full.pdf",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/unfair-competition-prevention-act/article.mdx",
+          "line": 110
+        }
+      ]
+    },
+    {
+      "url": "https://www.jpo.go.jp/system/utility/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jpo.go.jp/system/utility/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/utility-model-rights/article.mdx",
+          "line": 119
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/economy/jinzai/startupworkshop/pdf/value_chain.pdf",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/economy/jinzai/startupworkshop/pdf/value_chain.pdf",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/value-chain-analysis/article.mdx",
+          "line": 107
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/policy/mono_info_service/healthcare/kenkoukeiei_yuryouhojin.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/policy/mono_info_service/healthcare/kenkoukeiei_yuryouhojin.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/wellbeing-org/article.mdx",
+          "line": 84
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/report/whitepaper/index_mono.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/report/whitepaper/index_mono.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/whitepaper-study-map/article.mdx",
+          "line": 82
+        }
+      ]
+    },
+    {
+      "url": "https://www.meti.go.jp/report/whitepaper/index_tuhaku.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.meti.go.jp/report/whitepaper/index_tuhaku.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/whitepaper-study-map/article.mdx",
+          "line": 92
+        }
+      ]
+    },
+    {
+      "url": "https://www.chusho.meti.go.jp/pamflet/hakusyo/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.chusho.meti.go.jp/pamflet/hakusyo/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/whitepaper-study-map/article.mdx",
+          "line": 102
+        }
+      ]
+    },
+    {
+      "url": "https://www.jpo.go.jp/resources/report/nenji/2025/index.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jpo.go.jp/resources/report/nenji/2025/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/whitepaper-study-map/article.mdx",
+          "line": 112
+        }
+      ]
+    },
+    {
+      "url": "https://positive-ryouritsu.mhlw.go.jp/positivedb/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://positive-ryouritsu.mhlw.go.jp/positivedb/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/women-empowerment-act/article.mdx",
+          "line": 93
+        }
+      ]
+    }
+  ],
+  "timeout": []
+}

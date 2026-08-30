@@ -4,6 +4,7 @@ import Link from 'next/link';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
+import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
 import {
   getStandardDocuments,
   getStandardPart,
@@ -12,6 +13,7 @@ import {
   standardDocumentPath,
   standardPartPath,
 } from '@/lib/standards';
+import { getTopicsForStandardText } from '@/lib/topics';
 
 type Params = { agency: string; document: string; part: string };
 
@@ -54,6 +56,7 @@ export default async function StandardPartPage({ params }: { params: Promise<Par
   if (!resolved) notFound();
   const { document: entry, part: entryPart } = resolved;
   const pages = readTranscribedPages(entryPart);
+  const relatedTopics = getTopicsForStandardText(entry, pages.map((page) => page.text).join('\n'));
   const partIndex = entry.parts.findIndex((candidate) => candidate.slug === entryPart.slug);
   const previous = partIndex > 0 ? entry.parts[partIndex - 1] : null;
   const next = partIndex >= 0 && partIndex < entry.parts.length - 1 ? entry.parts[partIndex + 1] : null;
@@ -117,6 +120,7 @@ export default async function StandardPartPage({ params }: { params: Promise<Par
         {next ? <Link href={standardPartPath(entry, next)} className="text-[var(--accent)] hover:underline">次の分冊 →</Link> : <span />}
       </nav>
 
+      <StandardTopicLinks topics={relatedTopics} />
       <StandardsAttribution document={entry} />
     </PageShell>
   );

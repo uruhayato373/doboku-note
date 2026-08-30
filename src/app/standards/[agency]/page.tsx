@@ -4,6 +4,7 @@ import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionBlock from '@/components/layout/SectionBlock';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
+import StandardsAgencySelector from '@/components/standards/StandardsAgencySelector';
 import StandardDocumentCard from '@/components/standards/StandardDocumentCard';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardDocuments, getStandardsCatalog } from '@/lib/standards';
@@ -44,6 +45,9 @@ export default async function StandardsAgencyPage({ params }: { params: Promise<
         meta={`${entry.pages.toLocaleString('ja-JP')}ページ / ${entry.partCount}分冊`}
       />
       <SectionBlock>
+        <div className="mb-8">
+          <StandardsAgencySelector agencies={getStandardsCatalog().agencies} currentAgency={agency} />
+        </div>
         <div className="grid gap-4 lg:grid-cols-2">
           {documents.map((document) => <StandardDocumentCard key={document.documentId} document={document} />)}
         </div>

@@ -26,7 +26,7 @@ function start(args) {
 }
 
 start([mediaServer]);
-start([nextBin, 'dev', '-p', '3020']);
+start([nextBin, 'dev', '-p', '3020', ...process.argv.slice(2)]);
 
 function stop(signal) {
   if (stopping) return;

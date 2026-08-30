@@ -6,6 +6,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import SectionBlock from '@/components/layout/SectionBlock';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
+import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
 import { buildPageMetadata } from '@/lib/metadata';
 import {
   getStandardDocument,
@@ -13,6 +14,7 @@ import {
   standardDocumentPath,
   standardPartPath,
 } from '@/lib/standards';
+import { getTopicsForStandardDocument } from '@/lib/topics';
 
 type Params = { agency: string; document: string };
 
@@ -40,6 +42,7 @@ export default async function StandardDocumentPage({ params }: { params: Promise
   const { agency, document } = await params;
   const entry = getStandardDocument(agency, document);
   if (!entry) notFound();
+  const relatedTopics = getTopicsForStandardDocument(entry);
 
   const schema = {
     '@context': 'https://schema.org',
@@ -114,6 +117,7 @@ export default async function StandardDocumentPage({ params }: { params: Promise
           </ol>
         </section>
 
+        <StandardTopicLinks topics={relatedTopics} />
         <StandardsAttribution document={entry} />
       </SectionBlock>
     </PageShell>
