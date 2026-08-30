@@ -39,6 +39,13 @@ jobs:
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
 
+      # src/config/doc-meta-index.json はビルド生成物で git 追跡していない。これが無いと
+      # type-check が「Cannot find module '@/config/doc-meta-index.json'」で落ち、E2E 本体に
+      # 到達しないまま赤になる（2026-08-22 の run も同じ理由で、ずっと誰も見ていなかった）。
+      # ci.yml / ogp-supply.yml には配線済みだったが、このワークフローだけ漏れていた。
+      - name: Build doc meta index
+        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+
       - name: Type check
         run: npm run type-check
 
