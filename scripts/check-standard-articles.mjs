@@ -29,6 +29,7 @@ import {
   loadOverrides,
   patterns,
 } from './lib/standards-structure.mjs';
+import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
 
 const sha256 = (value) => createHash('sha256').update(value).digest('hex');
 
@@ -687,7 +688,7 @@ function checkChapterOgp(def, { manifest, agencyId, documentId, assetManifest })
   for (const chapter of manifest.chapters) {
     const relPath = `content/site/standards-articles/${agencyId}/${documentId}/chapters/${chapter.chapterId}/ogp.png`;
     const onDisk = existsSync(join(process.cwd(), relPath));
-    const inLedger = Boolean(assetManifest?.assets?.[relPath] ?? assetManifest?.[relPath]);
+    const inLedger = Boolean(assetManifest?.entries?.[relPath]);
     if (onDisk) local += 1;
     else if (inLedger) offloaded += 1;
     else violations.push(`${chapter.chapterId}: OGP 画像がローカルにも退避台帳にも無い（${relPath}）`);
@@ -696,7 +697,16 @@ function checkChapterOgp(def, { manifest, agencyId, documentId, assetManifest })
   if (manifest.chapters.length === 0) {
     return result(def, { status: INCONCLUSIVE, checked: 0, unit: '章', violations: ['章が 0 件'] });
   }
-  notes.push(`ローカル実体 ${local} 件 / 退避台帳のみ ${offloaded} 件（生成: npm run build-standards-ogp）`);
+  // 台帳に 1 件も載っていない状態は、未供給と「参照の壊れ」の区別がつかない。
+  // ローカル実体で緑になっている裏で参照が死んでいても気づけるよう、台帳側の件数も必ず出す。
+  const ledgerHits = manifest.chapters.filter(
+    (c) => assetManifest?.entries?.[
+      `content/site/standards-articles/${agencyId}/${documentId}/chapters/${c.chapterId}/ogp.png`
+    ],
+  ).length;
+  notes.push(
+    `ローカル実体 ${local} 件 / 退避台帳のみ ${offloaded} 件 / 台帳に載っている ${ledgerHits} 件（生成: npm run build-standards-ogp）`,
+  );
   return result(def, {
     status: verdict(violations, []),
     checked: manifest.chapters.length,
@@ -919,11 +929,12 @@ function main() {
     return;
   }
 
-  // 退避台帳（R2 へ出した OGP の記録）。読めなくても検査は続け、ローカル実体だけで判定する。
+  // 退避台帳（R2 へ出した OGP の記録）。手書きで JSON を解析するとキー形状がズレても
+  // ローカルに実体がある環境では気づけない（実際にそれで CI だけ赤にした）。
+  // 退避システムと同じ loadManifest を使い、形状の真実源を 1 つにする。
   let assetManifest = null;
   try {
-    const ledgerPath = join(process.cwd(), '.claude', 'state', 'assets', 'manifest.json');
-    if (existsSync(ledgerPath)) assetManifest = JSON.parse(readFileSync(ledgerPath, 'utf8'));
+    assetManifest = loadAssetManifest();
   } catch {
     assetManifest = null;
   }
