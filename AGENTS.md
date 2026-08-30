@@ -83,7 +83,8 @@ npm run check-video-publication # 公開済み派生物の実体照合が回っ�
 npm run check-relative-links   # Markdown の相対リンク `](../x)` の実在（check-doc-refs はリンク**テキスト**しか見ないので、置き場を変えると href だけ黙って壊れる。pre-commit --staged ＋ quality:audit）
 npm run check-published-vs-redirects # 統合済み記事の再公開を止める（published:true なのに `_redirects` で 301 の転送元＝ページは在るのに別ページへ飛ぶ。統合の記録は frontmatter に無く _redirects にしかないので目視では気づけない。pre-commit --staged ＋ quality:audit）
 npm run check-ogp-line-count   # OGP タイトルが何行に折れるかを実測（既定は surfacer で判定しない。`--max=N` / `check-ogp-line-count:done` で完了判定になる。check-ogp-title-fit はフォントサイズしか見ない）
-npm run check-command-guidance # 検査やスクリプトが案内するコマンド（npm run / node パス）が実在するか。移設後に旧パスを案内し続ける置き去りを止める
+npm run check-command-guidance # 検査やスクリプトが案内するコマンド（npm run / node パス）が実在するか。**CLAUDE.md / AGENTS.md の頻用コマンド表も対象**（記載はあるが package.json に無い `npm run serve` を 2026-08-30 まで放置していた再発防止）
+npm run check-e2e-targets      # E2E が叩くサイト内 URL が out/ に実在するか（`_redirects` の転送元を叩くと dev で必ず 404 になり、検査が成立しないまま赤が放置される）。**要 `npm run build`** なので quality:audit ではなく ci.yml / e2e.yml の build 後に置く。exit 2=検査不成立
 npm run check-mdx-dates      # 記事の created/dateModified が frontmatter に揃っているか（sitemap lastmod と JSON-LD datePublished の真実源。欠けるとビルドが git 履歴へフォールバックし、公開 SEO 信号がリネームや履歴書換えで動く状態へ逆戻りする。書き込みは pre-commit の backfill-mdx-dates --staged）
 npm run check-bold-rendering # 太字が実際に描画されるか（remark で実パースし text に ** が残る＝崩壊を検出・quality:audit に同梱）
 npm run check-table-rendering # GFM テーブルが実際に table になるか（remark 実パースでデリミタ行が text に残る＝生パイプ表示を検出。原因〔改行 \r\r\n 破損／ヘッダとデリミタのセル数不一致〕を問わず症状で拾う・pre-commit --staged ＋ quality:audit）

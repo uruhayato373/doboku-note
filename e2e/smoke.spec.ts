@@ -29,9 +29,10 @@ test('存在しないURLで404案内と復帰リンクを表示する', async ({
 // URL 移行のあと `/category/` `/docs/` を指したままのフィクスチャが「常に 404 で赤」に
 // なっても誰も直さない状態が続いた。ビルド成果物を配信する構成になったので、ここで
 // 実際に 301 が出ることを固定しておく。
+// ここだけは転送元の URL を意図的に叩く。check-e2e-targets はこのマーカーの行を除外する。
 for (const [from, to] of [
-  ['/category/civil-construction-1', '/exam/civil-construction-1'],
-  ['/docs/pe-comprehensive-management-keyword-2026', '/exam/pe-comprehensive-management/guide/keyword-2026'],
+  ['/category/civil-construction-1', '/exam/civil-construction-1'], // check-e2e-targets:redirect-source
+  ['/docs/pe-comprehensive-management-keyword-2026', '/exam/pe-comprehensive-management/guide/keyword-2026'], // check-e2e-targets:redirect-source
 ] as const) {
   test(`旧URL ${from} が正規URLへ 301 で転送される`, async ({ page }) => {
     const response = await page.goto(from);

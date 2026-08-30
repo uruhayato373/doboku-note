@@ -45,6 +45,11 @@ jobs:
         run: npm run build
 
       # build 依存の SEO ゲートは build 直後にのみ置く（build 前の quality:audit:ci へは混ぜない）。
+      # out/ を突合するので Build の後。quality-audit（Build より前に走る）へ入れると
+      # 常に out/ 不在で検査不成立になる。
+      - name: Check E2E targets (out/)
+        run: npm run check-e2e-targets
+
       - name: Check build-time SEO (out/)
         run: npm run check-seo-build:ci
 

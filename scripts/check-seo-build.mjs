@@ -161,6 +161,44 @@ const SITEMAP_OPTIONAL = new Set([
   );
 }
 
+// ---- landmark: <main> はページに 1 つ ----
+// HTML 仕様上 main landmark は 1 文書 1 つ。入れ子になるとスクリーンリーダーの landmark
+// 移動が 2 つに割れ、SSR 検査の `<main` 数え上げも狂う。
+// 2026-08-30 に実際に踏んだ: PageShell の variant='article' は「内側の TwoColumnShell が
+// <main> を出す」前提で <div> を返す設計だが、standards の 4 ページが variant='default'
+// （自分で <main> を出す形）と併用しており、全 standards ページで入れ子になっていた。
+// smoke.spec の toHaveCount(1) は代表 5 ページしか見ないので通り抜けた。ここは
+// sitemap 母集合ではなくビルドされた全 HTML ルートを見る（noindex ページでも不正は不正）。
+{
+  let landmarkChecked = 0;
+  let landmarkBad = 0;
+  for (const rel of allHtmlRel) {
+    let html;
+    try {
+      html = fs.readFileSync(path.join(OUT, rel), 'utf8');
+    } catch {
+      continue;
+    }
+    landmarkChecked += 1;
+    // 実出力は常に class 付き（`<main class="flex-grow">`）なので開きタグの前方一致で数える。
+    // `<main>` の完全一致は構造的に必ず 0 になる（deploy skill の偽赤メモと同じ理由）。
+    const mains = (html.match(/<main[\s>]/g) ?? []).length;
+    if (mains === 1) continue;
+    landmarkBad += 1;
+    const urlPath = fileToUrlPath(rel);
+    if (mains === 0) {
+      add('error', 'landmark_no_main', urlPath, '<main> が 0 件（SSR 破壊の疑い）');
+    } else {
+      add('error', 'landmark_nested_main', urlPath, `<main> が ${mains} 件（1 文書 1 main。PageShell の variant と TwoColumnShell の as が二重に landmark を出していないか）`);
+    }
+  }
+  // §9: 検査ゼロを PASS と呼ばない。
+  if (landmarkChecked === 0) {
+    add('error', 'landmark_not_inspected', '-', 'HTML ルートを 1 件も読めず landmark 検査が成立していない');
+  }
+  console.log(`[landmark] HTML ルート ${landmarkChecked} 件の <main> を検査 → 不正 ${landmarkBad} 件`);
+}
+
 // ---- 全 sitemap ページを解析（link graph でも再利用） ----
 const pages = new Map(); // urlPath -> seo
 let checked = 0;
