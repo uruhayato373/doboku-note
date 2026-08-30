@@ -1,6 +1,6 @@
 # リポジトリ資産監査（DN-0111 Phase 0）
 
-実行: 2026-08-29T06:22:49.925Z / branch `develop` / HEAD `3c61bbae78`
+実行: 2026-08-30T10:09:36.250Z / branch `develop` / HEAD `2e38491db3`
 
 > [!warning]
 > 3 つの容量は別の指標。**HEAD から消しても Git 履歴（pack）は減らない**。
@@ -9,23 +9,23 @@
 
 | 指標 | 値 | 意味 |
 | --- | --- | --- |
-| ワークツリー | 11.27 GiB | 作業ディレクトリの実容量（追跡外含む・.git 除く） |
-| HEAD 追跡 | 0.41 GiB / 9641 files | clone 直後に checkout される量。Phase 6 の削減目標対象 |
-| Git 履歴 (pack) | 1.03 GiB | 過去 blob 込み。通常 commit では減らない（Phase 7 の別承認） |
+| ワークツリー | 4.26 GiB | 作業ディレクトリの実容量（追跡外含む・.git 除く） |
+| HEAD 追跡 | 0.46 GiB / 10338 files | clone 直後に checkout される量。Phase 6 の削減目標対象 |
+| Git 履歴 (pack) | 1.04 GiB | 過去 blob 込み。通常 commit では減らない（Phase 7 の別承認） |
 
-garbage: 0 bytes / in-pack objects: 108,963
+garbage: 0 bytes / in-pack objects: 130,610
 
 ## 2. 分類サマリ
 
 | 分類 | 容量 | 件数 |
 | --- | ---: | ---: |
-| **KEEP_GIT** | 325.8 MiB | 9101 |
-| **REVIEW** | 89.2 MiB | 533 |
+| **KEEP_GIT** | 380.5 MiB | 9798 |
+| **REVIEW** | 89.4 MiB | 533 |
 | **R2_PRIVATE** | 0.3 MiB | 7 |
 
-### KEEP_GIT — 325.8 MiB / 9101 files
+### KEEP_GIT — 380.5 MiB / 9798 files
 
-- **`text-ssot`** — 105.2 MiB / 7039 files
+- **`text-ssot`** — 159.7 MiB / 7736 files
   - 理由: 原稿・設定・コードの SSOT
 - **`note-image`** — 79.4 MiB / 334 files
   - 理由: 記事本文の図版（cover*.png はすでに note-cover-png ルールで先に一致するので、ここに来るのは figure-*.png 等の本文埋め込み画像のみ）。note アップロード時に本文中へ自動アップロードされる原本（lib/note-images.mjs）。R2 台帳の対象外で Git 側が唯一の実体
@@ -38,7 +38,7 @@ garbage: 0 bytes / in-pack objects: 108,963
 - **`site-image`** — 48.2 MiB / 926 files
   - 理由: 公開記事の図版・OGP。R2 へは CI が同期するが Git 側が原本。ただし巨大 blob は個別に REVIEW へ落とす
   - 参照コード: `MDX 本文 / og:image`
-- **`public-static`** — 19.6 MiB / 49 files
+- **`public-static`** — 19.7 MiB / 49 files
   - 理由: サイトが直接配信する静的アセットの原本。R2 ではなく Next.js のビルド入力（git-binary-policy.json allowlist で既に判定済み）
   - 参照コード: `Next.js static assets`
 - **`ogp-background`** — 7.7 MiB / 9 files
@@ -54,7 +54,7 @@ garbage: 0 bytes / in-pack objects: 108,963
   - 理由: レンダリング必須のフォント実体（allowlist）
   - 参照コード: `satori / OGP 生成`
 
-### REVIEW — 89.2 MiB / 533 files
+### REVIEW — 89.4 MiB / 533 files
 
 - **`(unmatched)`** — 28.8 MiB / 519 files
   - 理由: どのルールにも当たらない。置き場の方針が未定義
@@ -66,7 +66,7 @@ garbage: 0 bytes / in-pack objects: 108,963
   - 再生成入力: content/kindle/books/**（要検証）
   - 生成器: `kindle-build`
   - 参照コード: `scripts/kdp-publish.mjs`
-- **`text-ssot`** — 10.5 MiB / 2 files
+- **`text-ssot`** — 10.7 MiB / 2 files
   - 理由: 原稿・設定・コードの SSOT
 - **`font`** — 5.1 MiB / 1 files
   - 理由: レンダリング必須のフォント実体（allowlist）
@@ -88,16 +88,16 @@ garbage: 0 bytes / in-pack objects: 108,963
 | 拡張子 | 容量 | 件数 |
 | --- | ---: | ---: |
 | `.png` | 170.7 MiB | 930 |
-| `.json` | 64.3 MiB | 1564 |
+| `.json` | 77.1 MiB | 1586 |
+| `.md` | 66.1 MiB | 2553 |
 | `.jpg` | 41.2 MiB | 72 |
 | `.epub` | 28.8 MiB | 46 |
-| `.md` | 24.5 MiB | 1928 |
-| `.mdx` | 18.5 MiB | 1168 |
+| `.mdx` | 18.6 MiB | 1172 |
 | `.webp` | 18.4 MiB | 518 |
 | `.zip` | 12.6 MiB | 4 |
 | `.js` | 8.1 MiB | 17 |
 | `.css` | 7.3 MiB | 26 |
-| `.mjs` | 5.8 MiB | 691 |
+| `.mjs` | 6 MiB | 708 |
 | `.ttf` | 5.4 MiB | 2 |
 
 ## 4. ディレクトリ別 TOP
@@ -105,20 +105,20 @@ garbage: 0 bytes / in-pack objects: 108,963
 | ディレクトリ | 容量 | 件数 |
 | --- | ---: | ---: |
 | `content/note/1級・2級土木` | 69.1 MiB | 899 |
+| `.claude/state/metrics` | 39.8 MiB | 627 |
 | `content/site/civil-construction-1` | 32.2 MiB | 899 |
-| `.claude/state/metrics` | 31.5 MiB | 618 |
+| `content/site/standards-library` | 29.9 MiB | 276 |
 | `content/note/技術士総監` | 22.3 MiB | 758 |
+| `content/site/standards-articles` | 15.5 MiB | 353 |
 | `scripts/kindle-covers/backgrounds` | 12.9 MiB | 7 |
 | `public/images/civil-exam-prep` | 12.6 MiB | 9 |
-| `content/site/pe-comprehensive-management` | 12.5 MiB | 1047 |
+| `content/site/pe-comprehensive-management` | 12.4 MiB | 1047 |
 | `content/sns/x` | 11.7 MiB | 246 |
 | `content/sns/_assets` | 11.1 MiB | 22 |
 | `content/site/pe-construction` | 10.8 MiB | 185 |
 | `.claude/config/ogp` | 7.7 MiB | 9 |
-| `.claude/state/assets` | 7.3 MiB | 1 |
+| `.claude/state/assets` | 7.5 MiB | 1 |
 | `.obsidian/plugins/obisidian-note-linker` | 7.2 MiB | 3 |
-| `scripts/kindle-dist/e-02.epub` | 6.7 MiB | 1 |
-| `.obsidian/icons/font-awesome-regular.zip` | 6.2 MiB | 1 |
 
 ## 5. Base64 raster 入り SVG（真のベクターではない）
 
@@ -127,7 +127,7 @@ garbage: 0 bytes / in-pack objects: 108,963
 
 ## 6. 整合チェック
 
-- **同一 blob 重複**: 59 sha / checkout 余剰 71.5 MiB（pack 実体は 9.1 MiB）
+- **同一 blob 重複**: 127 sha / checkout 余剰 83.6 MiB（pack 実体は 13.9 MiB）
   - worktreeWaste は「checkout 時に余分に展開される容量」。pack 上は同一 blob が 1 個しか無いので、Git 履歴の削減見込みへ足さない。
 - **追跡中なのに ignore 対象**: 8 件
   - `.claude/settings.local.json`
@@ -144,7 +144,7 @@ garbage: 0 bytes / in-pack objects: 108,963
 
 | 容量 | 分類 | パス |
 | ---: | --- | --- |
-| 7.3 MiB | REVIEW | `.claude/state/assets/manifest.json` |
+| 7.5 MiB | REVIEW | `.claude/state/assets/manifest.json` |
 | 7.2 MiB | REVIEW | `.obsidian/plugins/obisidian-note-linker/main.js` |
 | 6.7 MiB | REVIEW | `scripts/kindle-dist/e-02.epub` |
 | 6.2 MiB | REVIEW | `.obsidian/icons/font-awesome-regular.zip` |
