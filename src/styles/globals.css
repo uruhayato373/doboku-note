@@ -682,6 +682,11 @@
   .prose-blog pre {
     @apply mx-4 my-6 rounded-card-content;
     border: 1px solid var(--rule-soft);
+    /* 長い行はブロック内で横スクロールさせる。基準類の章記事は原本の版面を保った表を
+       コードブロックで出すため、これが無いとページ全体が横に伸びる（実測 302px はみ出し）。
+       多列データ表を .table-scroll で包むのと同じ考え方で、内容を削らず到達性だけを確保する。 */
+    overflow-x: auto;
+    max-width: 100%;
   }
 
   /* ========================================

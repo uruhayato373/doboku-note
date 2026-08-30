@@ -129,6 +129,12 @@ function getUrlMeta(urlPath, slug) {
   if (/^\/exam\/[^/]+$/.test(urlPath) || /^\/standards\/[^/]+$/.test(urlPath) || /^\/topics\/[^/]+$/.test(urlPath)) {
     return { priority: '0.8', changefreq: 'monthly' };
   }
+  // 基準類の章記事。編・章・節で構造化した検索インデックスの中心（逐語の分冊ページより上に置く）。
+  // 改訂は年単位なので changefreq は yearly。canonical でない機関の章は noindex なので
+  // out/ の robots メタ検査（下の noindex 除外）で自動的にここへ来ない。
+  if (/^\/standards\/[^/]+\/[^/]+\/chapters\/[^/]+$/.test(urlPath)) {
+    return { priority: '0.7', changefreq: 'yearly' };
+  }
   if (urlPath === '/search' || urlPath === '/_not-found') {
     return null;
   }

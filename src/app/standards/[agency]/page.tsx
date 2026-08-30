@@ -2,10 +2,10 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
-import SectionBlock from '@/components/layout/SectionBlock';
+import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
-import StandardsAgencySelector from '@/components/standards/StandardsAgencySelector';
 import StandardDocumentCard from '@/components/standards/StandardDocumentCard';
+import StandardsNavigation from '@/components/standards/StandardsNavigation';
 import { buildPageMetadata } from '@/lib/metadata';
 import { getStandardDocuments, getStandardsCatalog } from '@/lib/standards';
 
@@ -44,15 +44,27 @@ export default async function StandardsAgencyPage({ params }: { params: Promise<
         lead={`土木工事共通仕様書・工事必携等 ${entry.documentCount}文書を、原本PDFのページ番号を保って公開しています。`}
         meta={`${entry.pages.toLocaleString('ja-JP')}ページ / ${entry.partCount}分冊`}
       />
-      <SectionBlock>
-        <div className="mb-8">
-          <StandardsAgencySelector agencies={getStandardsCatalog().agencies} currentAgency={agency} />
+      <TwoColumnShell
+        as="div"
+        mainClassName="py-8 sm:py-10"
+        aside={<StandardsNavigation agencyId={agency} />}
+      >
+        <div className="mb-6 zenn-desktop:hidden">
+          <StandardsNavigation agencyId={agency} variant="mobile" />
         </div>
-        <div className="grid gap-4 lg:grid-cols-2">
-          {documents.map((document) => <StandardDocumentCard key={document.documentId} document={document} />)}
-        </div>
+        <section aria-labelledby="agency-documents">
+          <div className="mb-6 border-b border-[var(--rule-soft)] pb-5">
+            <h2 id="agency-documents" className="font-serif text-2xl font-bold text-[var(--ink)]">収録文書</h2>
+            <p className="mt-2 text-[14px] leading-[1.8] text-[var(--ink-muted)]">
+              文書を選ぶと、原本PDFのページ番号に対応した全文文字起こしを分冊単位で読めます。
+            </p>
+          </div>
+          <div className="grid gap-4 lg:grid-cols-2">
+            {documents.map((document) => <StandardDocumentCard key={document.documentId} document={document} />)}
+          </div>
+        </section>
         <StandardsAttribution />
-      </SectionBlock>
+      </TwoColumnShell>
     </PageShell>
   );
 }

@@ -22,8 +22,8 @@ import rehypeHeadingIds from '@/lib/rehype-heading-ids';
 import rehypeExamReferences from '@/lib/rehype-exam-references';
 import rehypeMidCta from '@/lib/rehype-mid-cta';
 import rehypeExternalLinks from 'rehype-external-links';
-import { compileMDX } from 'next-mdx-remote/rsc';
 import { MDXProvider } from '@mdx-js/react';
+import SafeMdx from '@/components/mdx/SafeMdx';
 import { extractHeadings } from '@/lib/toc';
 import { resolvePlacement } from '@/lib/magazine-placement';
 import { resolveHubCta } from '@/lib/hub-cta';
@@ -112,7 +112,11 @@ function stripLeadingH1(content: string): string {
   return content;
 }
 
-async function SafeMDXRemote({
+/**
+ * コンパイル本体とエラー境界は SafeMdx（standards の章記事と共有）へ移した。
+ * ここに残すのは docs 固有のプラグイン構成（KaTeX・見出し ID・中間 CTA）を options へ束ねる薄い層だけ。
+ */
+function SafeMDXRemote({
   source,
   components,
   midCtaPositions,
@@ -121,29 +125,7 @@ async function SafeMDXRemote({
   components: React.ComponentProps<typeof MDXProvider>['components'];
   midCtaPositions?: readonly number[] | undefined;
 }) {
-  let content: React.ReactElement;
-  try {
-    // Compile once and use the result directly (avoid double compilation)
-    ({ content } = await compileMDX({
-      source,
-      options: buildMdxOptions(midCtaPositions),
-      components,
-    }));
-  } catch (error: unknown) {
-    const message = error instanceof Error ? error.message : String(error);
-    console.error('MDX compile error:', message.slice(0, 200));
-    return (
-      <div className="rounded-card-content border border-[var(--color-warn)] bg-[var(--color-warn-fill)] p-4">
-        <p className="text-[var(--color-warn)] font-semibold">
-          このページのコンテンツにフォーマットエラーがあります。
-        </p>
-        <p className="text-[var(--color-warn)] text-sm mt-1">
-          管理者に報告してください。
-        </p>
-      </div>
-    );
-  }
-  return <>{content}</>;
+  return <SafeMdx source={source} components={components} options={buildMdxOptions(midCtaPositions)} />;
 }
 
 /**
