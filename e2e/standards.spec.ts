@@ -238,3 +238,16 @@ test('最大の章（167ページ）でも節目次から目的の節へ飛べ�
   );
   expect(overflow).toBeLessThanOrEqual(1);
 });
+
+test('章記事の OGP がサイト既定ではなく章ごとの画像を指す', async ({ page }) => {
+  // 344 章がすべて og-default.png だと SNS に貼っても中身が判別できない。
+  // 章ごとの画像（機関名 + 第N編 + 第M章）を指していることを固定する。
+  await page.goto('/standards/chubu/common/chapters/1-3');
+
+  const image = page.locator('meta[property="og:image"]');
+  await expect(image).toHaveAttribute(
+    'content',
+    /\/posts\/standards-articles\/chubu\/common\/chapters\/1-3\/ogp\.png$/,
+  );
+  await expect(page.locator('meta[name="twitter:card"]')).toHaveAttribute('content', 'summary_large_image');
+});

@@ -30,6 +30,7 @@
     "build-standards-library": "node scripts/build-standards-library.mjs",
     "serve": "node scripts/static-server.mjs",
     "build-standard-articles": "node scripts/build-standard-articles.mjs",
+    "build-standards-ogp": "node scripts/build-standards-ogp.mjs",
     "check-standard-articles": "node scripts/check-standard-articles.mjs",
     "build-public-redirects": "tsx scripts/build-public-route-redirects.ts",
     "build-backlinks": "node .claude/skills/quality/exam-backlinks/scripts/build-exam-backlinks.mjs",

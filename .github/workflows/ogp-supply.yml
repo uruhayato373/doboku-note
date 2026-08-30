@@ -182,6 +182,18 @@ jobs:
 
       # 失敗した slug は隔離して継続する（1 件の生成失敗で全体を止めない）。
       # 全滅（成功 0 件）のときだけ異常として止める。
+      # 公的基準の章記事は MDX ではないので上の detect（published な MDX を数える）に載らない。
+      # 別建てで不足分だけを生成する（既存はスキップされるので毎回の再生成にはならない）。
+      - name: Generate standards chapter OGP
+        id: chapters
+        run: |
+          set -u
+          : > /tmp/ogp-generated-slugs.txt
+          out=$(node scripts/build-standards-ogp.mjs)
+          echo "${out}"
+          made=$(echo "${out}" | sed -n 's/.*\/ 生成 \([0-9]*\) \/.*/\1/p')
+          echo "chapters_generated=${made:-0}" >> "$GITHUB_OUTPUT"
+
       - name: Generate OGP images
         if: steps.detect.outputs.count != '0'
         id: generate
@@ -217,7 +229,7 @@ jobs:
           } >> "$GITHUB_OUTPUT"
 
       - name: Offload generated OGP to R2
-        if: steps.detect.outputs.count != '0'
+        if: steps.detect.outputs.count != '0' || steps.chapters.outputs.chapters_generated != '0'
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
@@ -229,7 +241,7 @@ jobs:
         run: node scripts/update-ogp-srchash.mjs --write --slugs-file /tmp/ogp-generated-slugs.txt
 
       - name: Publish manifest to develop
-        if: steps.detect.outputs.count != '0'
+        if: steps.detect.outputs.count != '0' || steps.chapters.outputs.chapters_generated != '0'
         run: |
           set -eu
           git config user.name "github-actions[bot]"

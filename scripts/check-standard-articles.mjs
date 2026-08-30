@@ -48,6 +48,7 @@ const CHECK_DEFS = [
   { id: 12, name: '同一章の重複 indexable なし（全文書横断）' },
   { id: 13, name: 'catalog 全文書の被覆と除外理由の実証（全文書横断）' },
   { id: 14, name: '表の復元が台帳と一致し GFM が可逆' },
+  { id: 15, name: '章ごとの OGP 画像がそろっている' },
 ];
 
 const PASS = 'PASS';
@@ -668,6 +669,43 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
   return result(def, { status: verdict(violations, []), checked: total, unit: '表', violations, notes });
 }
 
+/**
+ * 章ごとの OGP 画像の被覆。
+ *
+ * 章記事は MDX ではないので check-ogp-coverage（published な MDX を数える）の射程外にあり、
+ * 放っておくと「章の OGP が 1 枚も無くても全部緑」になる。ここで章数と画像枚数を突き合わせる。
+ *
+ * 画像の実体はローカルに無いことがある（R2 へ退避されるため）。ローカル実体と退避台帳の
+ * どちらかにあれば OK とし、両方に無いものだけを違反にする（asset-storage の他の検査と同じ考え方）。
+ */
+function checkChapterOgp(def, { manifest, agencyId, documentId, assetManifest }) {
+  const violations = [];
+  const notes = [];
+  let local = 0;
+  let offloaded = 0;
+
+  for (const chapter of manifest.chapters) {
+    const relPath = `content/site/standards-articles/${agencyId}/${documentId}/chapters/${chapter.chapterId}/ogp.png`;
+    const onDisk = existsSync(join(process.cwd(), relPath));
+    const inLedger = Boolean(assetManifest?.assets?.[relPath] ?? assetManifest?.[relPath]);
+    if (onDisk) local += 1;
+    else if (inLedger) offloaded += 1;
+    else violations.push(`${chapter.chapterId}: OGP 画像がローカルにも退避台帳にも無い（${relPath}）`);
+  }
+
+  if (manifest.chapters.length === 0) {
+    return result(def, { status: INCONCLUSIVE, checked: 0, unit: '章', violations: ['章が 0 件'] });
+  }
+  notes.push(`ローカル実体 ${local} 件 / 退避台帳のみ ${offloaded} 件（生成: npm run build-standards-ogp）`);
+  return result(def, {
+    status: verdict(violations, []),
+    checked: manifest.chapters.length,
+    unit: '章',
+    violations,
+    notes,
+  });
+}
+
 function checkDuplicateIndexable(def, documents) {
   const violations = [];
   const notes = [];
@@ -881,6 +919,15 @@ function main() {
     return;
   }
 
+  // 退避台帳（R2 へ出した OGP の記録）。読めなくても検査は続け、ローカル実体だけで判定する。
+  let assetManifest = null;
+  try {
+    const ledgerPath = join(process.cwd(), '.claude', 'state', 'assets', 'manifest.json');
+    if (existsSync(ledgerPath)) assetManifest = JSON.parse(readFileSync(ledgerPath, 'utf8'));
+  } catch {
+    assetManifest = null;
+  }
+
   const contexts = [];
   for (const target of targets) {
     try {
@@ -908,7 +955,13 @@ function main() {
     report.documents.push({
       target: context.target,
       title: context.manifest.documentTitle,
-      checks: [...runDocumentChecks(context), crossCheck, coverageCheck, checkTables(CHECK_DEFS[13], context)],
+      checks: [
+        ...runDocumentChecks(context),
+        crossCheck,
+        coverageCheck,
+        checkTables(CHECK_DEFS[13], context),
+        checkChapterOgp(CHECK_DEFS[14], { ...context, assetManifest }),
+      ],
     });
   }
 
