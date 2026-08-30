@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "_comment": "土木工事共通仕様書の構造化（レイヤー2）の設定。パーサーの例外補正はコードに条件を足さずここへ集約する。真実源の説明は scripts/lib/standards-structure.mjs 冒頭。",
+  "canonical": {
+    "_comment": "同一内容を 9 機関が公開しているため、role=common は 1 機関だけを検索インデックス対象にする。既定は src/lib/standards.ts の isStandardPartIndexable と同じ kinki。ここを変えると章記事の indexable が切り替わる。",
+    "commonAgencyId": "kinki"
+  },
+  "build": {
+    "_comment": "生成対象。catalog の 72 文書のうち、編・章の柱（running header）を持つ共通仕様書 8 文書だけが構造化できる。okinawa/common は chugoku/common と原本 SHA-256 が完全一致する重複なので生成しない（文書ページが chugoku へ誘導する）。除外理由は skipped に機械可読で持ち、check-standard-articles が「未対象を黙って緑にしていないか」を検査する。",
+    "documents": [
+      "chubu/common",
+      "chugoku/common",
+      "hokuriku/common",
+      "kanto/common",
+      "kinki/common",
+      "kyushu/common",
+      "shikoku/common",
+      "tohoku/common"
+    ]
+  },
+  "skipped": {
+    "_comment": "構造化しない文書と理由。空欄・未記載を許さず、catalog の全 72 文書が build.documents か skipped のどちらかへ必ず入る（check-standard-articles の被覆検査）。",
+    "reasons": {
+      "duplicate-source": {
+        "label": "原本 SHA-256 が他機関と完全一致（重複ページを作らない）",
+        "documents": ["okinawa/common"]
+      },
+      "no-book-chapter-structure": {
+        "label": "編・章の柱を持たず、共通仕様書と構造が異なる（工事必携・地方版・マニュアル・北海道の道路河川工事仕様書など）。逐語分冊での提供を継続する。",
+        "documents": "*"
+      }
+    }
+  },
+  "documents": {
+    "chubu/common": {
+      "_comment": "bodyStartPage は印刷ページ番号の巻き戻り＋目次ドットリーダーの消失で自動検出できている（p79）。override は不要。"
+    }
+  }
+}
