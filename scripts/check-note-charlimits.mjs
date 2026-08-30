@@ -89,7 +89,7 @@ function targetFiles() {
     // pathspec グロブ（magazines/*/*/...）も非ASCIIで不安定なので使わず JS の正規表現で絞る。
     let out = "";
     try {
-      out = execSync("git diff --cached --name-only --diff-filter=ACM -z", {
+      out = execSync("git -c core.quotepath=false diff --cached --name-only --diff-filter=ACM -z", {
         encoding: "utf-8",
         maxBuffer: 32 * 1024 * 1024,
       });

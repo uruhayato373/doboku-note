@@ -32,6 +32,7 @@ import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { checkPauseReasons, findOverdueResume } from './lib/coconala-guards.mjs';
 import { todayJst } from './lib/jst-date.mjs';
+import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
 
 const ROOT = process.cwd();
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
@@ -46,7 +47,7 @@ const staged = process.argv.includes('--staged');
 if (staged) {
   let changed = '';
   try {
-    changed = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACM'], {
+    changed = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], {
       encoding: 'utf-8', maxBuffer: 256 * 1024 * 1024,
     });
   } catch {
@@ -162,6 +163,11 @@ if (listed.length > 0) {
 const listingsData = readJson(LISTINGS_PATH);
 if (listingsData?.__parseError) violations.push(`coconala-listings.json が JSON として壊れています: ${listingsData.__parseError}`);
 const listings = listingsData?.listings || {};
+// 退避台帳。ローカルに実体が無いときの第二の根拠（asset-storage が唯一の真実源）。
+const assetLedger = loadAssetManifest()?.entries ?? {};
+let thumbLocal = 0;
+let thumbInLedger = 0;
+
 for (const s of catalog) {
   const l = listings[s.id];
   if (!l) {
@@ -170,9 +176,19 @@ for (const s of catalog) {
     if (!l.category?.master || !l.category?.sub) violations.push(`[${s.id}] listings.category（master/sub）が未確定です`);
     if (!l.body) violations.push(`[${s.id}] listings.body（サービス内容本文）が空です`);
   }
+  // 商品画像は coconala-asset グループで R2 へ退避してある。**ローカル実体だけを見ない**——
+  // 退避済みの端末や CI のクリーンチェックアウトでは実体が無いのが正常で、そこで落とすと
+  // 「生成しろ」と言われても生成すべきものが既に在る、という直せない赤になる（2026-08-30）。
+  // 判定は「ローカル実体 または 退避台帳」。どちらにも無ければ本当に存在しない。
   const thumbRel = `.claude/config/coconala/assets/thumb-${s.id.replace(/^coconala-/, '')}.png`;
   if (!existsSync(join(ROOT, thumbRel))) {
-    violations.push(`[${s.id}] 商品画像 ${thumbRel} がありません（coconala-thumb で生成してください）`);
+    if (assetLedger[thumbRel]) {
+      thumbInLedger += 1;
+    } else {
+      violations.push(`[${s.id}] 商品画像 ${thumbRel} がありません（coconala-thumb で生成してください）`);
+    }
+  } else {
+    thumbLocal += 1;
   }
 }
 
@@ -282,6 +298,12 @@ if (violations.length) {
   process.exit(1);
 }
 
+// 商品画像の判定根拠を必ず出す。台帳側の引き方が壊れても、ローカル実体があるうちは
+// 緑のままになる（2026-08-30 に章 OGP で踏んだのと同じ穴）。この数字が両方 0 なら故障。
+console.log(
+  `[check-coconala-wiring] 商品画像 ${thumbLocal + thumbInLedger}/${catalog.length} 件を確認` +
+    `（ローカル実体 ${thumbLocal} / 退避台帳 ${thumbInLedger}）`
+);
 console.log(
   `[check-coconala-wiring] ✓ カタログ ${catalog.length} 件（listed ${listed.length}）・受注 ${
     orders?.orders?.length ?? 0

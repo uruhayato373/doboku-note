@@ -78,7 +78,7 @@ function expandTargets(args) {
   if (args.all) return walkMdx(POSTS_ROOT);
   if (args.stdin) {
     try {
-      const out = execSync('git diff --cached --name-only --diff-filter=ACM -- "*.mdx"', {
+      const out = execSync('git -c core.quotepath=false diff --cached --name-only --diff-filter=ACM -- "*.mdx"', {
         encoding: 'utf8',
       });
       return out

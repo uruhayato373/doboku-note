@@ -196,7 +196,7 @@ function resolveTargets(positional, flags) {
   if (positional.length === 0) {
     // git diff モード
     try {
-      const out = execSync('git diff --name-only', { encoding: 'utf8' });
+      const out = execSync('git -c core.quotepath=false diff --name-only', { encoding: 'utf8' });
       return out
         .split(/\r?\n/)
         .filter((p) => p.endsWith('.mdx') && existsSync(p));

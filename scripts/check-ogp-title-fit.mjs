@@ -69,7 +69,7 @@ function walk(dir, out = []) {
   return out;
 }
 function stagedMdx() {
-  try { return execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 }).split('\n').map((s) => s.trim()).filter((s) => s.startsWith(ROOT) && s.endsWith('.mdx')); }
+  try { return execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 }).split('\n').map((s) => s.trim()).filter((s) => s.startsWith(ROOT) && s.endsWith('.mdx')); }
   catch { return []; }
 }
 

@@ -134,3 +134,69 @@ test("危険な git 呼び出しの検出が実際に効く（負検証）", () 
   assert.deepEqual(findHazardousGitCalls(good2), []);
   assert.deepEqual(findHazardousGitCalls(mention), []);
 });
+
+/**
+ * パスを列挙する git 呼び出しは core.quotepath=false を明示する。
+ *
+ * 既定の git は非 ASCII を含むパスを 8 進エスケープした `"content/note/\346\212\200…"`
+ * の形（両端のダブルクォート込み）で返す。このリポジトリは .md の 38%（975/2553）が
+ * 日本語パス配下なので、付け忘れると **その全てが「存在しないファイル名」になる**。
+ *
+ * 厄介なのは落ち方で、例外にならず件数が静かに減るだけ。2026-08-30 に実測した被害:
+ *   - check-dead-handles      : 5,769 件しか検査しておらず ✓ を出していた（正しくは 7,728 件）
+ *   - note-essay-charcount    : 対象の模範論文が全件「ファイルなし」。それでも exit 0
+ *   - asset-inbox-push        : 選択 0 件。check-asset-storage が案内する復旧コマンドが無反応
+ *
+ * 「緑」と「そもそも走っていない」を区別できない状態を作らない（CLAUDE.md §9）。
+ */
+
+/** git 呼び出しのうち、出力を**ファイルパスとして使う**ものを抽出する。 */
+function findPathListingGitCalls(source) {
+  const CALL = /exec(?:File)?Sync\(\s*(?:"git |'git |"git"|'git')[\s\S]{0,400}?\)/g;
+  return [...(source.match(CALL) ?? [])].filter((c) =>
+    /ls-files|--name-only|--name-status|ls-tree/.test(c),
+  );
+}
+
+test('パスを列挙する git 呼び出しは core.quotepath=false を明示している', () => {
+  const files = execFileSync(
+    'git',
+    ['-c', 'core.quotepath=false', 'ls-files', '-z', 'scripts', '.claude/scripts'],
+    { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 },
+  ).split('\0').filter(Boolean).filter((f) => f.endsWith('.mjs'));
+
+  let inspected = 0;
+  const missing = [];
+  for (const rel of files) {
+    const source = readFileSync(join(ROOT, rel), 'utf8');
+    for (const call of findPathListingGitCalls(source)) {
+      inspected += 1;
+      if (!/quotepath/.test(call)) {
+        const line = source.slice(0, source.indexOf(call)).split('\n').length;
+        missing.push(`${rel}:${line}`);
+      }
+    }
+  }
+
+  // 検査ゼロを PASS と呼ばない: 抽出そのものが壊れていないことを先に確かめる
+  assert.ok(inspected > 20, `パス列挙の抽出が異常に少ない（正規表現の破損を疑う）: ${inspected}`);
+  assert.deepEqual(missing, [], `core.quotepath=false 未指定: ${missing.join(', ')}`);
+});
+
+test('抽出は「quotepath 無しのパス列挙」を実際に検出できる（負検証）', () => {
+  // フィクスチャは連結して組み立てる（ベタ書きするとこのファイル自身が上のテストに掛かる）。
+  const FILE_CALL = (args) => `exec${'File'}Sync(${"'git'"}, [${args}], { encoding: 'utf8' })`;
+  const bad = FILE_CALL(`'ls-files', '--others'`);
+  const good = FILE_CALL(`'-c', 'core.quotepath=false', 'ls-files', '--others'`);
+  assert.equal(findPathListingGitCalls(bad).length, 1);
+  assert.equal(/quotepath/.test(findPathListingGitCalls(bad)[0]), false);
+  assert.equal(/quotepath/.test(findPathListingGitCalls(good)[0]), true);
+
+  // shell 文字列形式（execSync('git ls-files …')）も同じ規則で拾う
+  const shellBad = `exec${'Sync'}('git ls-files "content/note/x/*.md"', { encoding: 'utf8' })`;
+  assert.equal(findPathListingGitCalls(shellBad).length, 1);
+
+  // パスを列挙しない git 呼び出しは対象外（付ける意味がないので強制しない）
+  assert.deepEqual(findPathListingGitCalls(FILE_CALL(`'rev-parse', 'HEAD'`)), []);
+  assert.deepEqual(findPathListingGitCalls(FILE_CALL(`'log', '--oneline', '-3'`)), []);
+});

@@ -169,7 +169,7 @@ export function auditMagazine({ id, labels, repoCount, extra, entry, liveCount }
 function relevantStaged() {
   let changed = '';
   try {
-    changed = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACMRD'], {
+    changed = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACMRD'], {
       cwd: ROOT, encoding: 'utf8', maxBuffer: 256 * 1024 * 1024,
     });
   } catch { return true; } // git が読めないなら判断せず検査する

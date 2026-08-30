@@ -84,7 +84,7 @@ function isKeikenArticle(p) {
 }
 function stagedKeikenTargets() {
   let out = '';
-  try { out = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf-8', maxBuffer: 256 * 1024 * 1024 }); }
+  try { out = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf-8', maxBuffer: 256 * 1024 * 1024 }); }
   catch { return []; }
   return out.split('\n').map((x) => x.trim())
     .filter((x) => x && isKeikenArticle(x) && existsSync(join(ROOT, x)))

@@ -51,7 +51,7 @@ const walk = (d, out = []) => {
 
 let files;
 if (STAGED) {
-  const out = execSync('git diff --cached --name-only --diff-filter=ACM', { encoding: 'utf8' });
+  const out = execSync('git -c core.quotepath=false diff --cached --name-only --diff-filter=ACM', { encoding: 'utf8' });
   files = out.split('\n').filter((f) => f.startsWith('scripts/') && /\.(mjs|js|ts)$/.test(f) && existsSync(f));
 } else {
   // ROOT + '/' の除去は Windows で当たらない（walk は join 由来で `\` 区切りを返す）。

@@ -85,11 +85,11 @@
     {
       "id": "textbook-source-pdf",
       "match": {
-        "pathRegex": "^docs/textbook/.+\\.pdf$"
+        "pathRegex": "^content/sources/textbook/.+\\.pdf$"
       },
       "bucket": "private",
       "keyPrefix": "textbook/",
-      "keyFrom": "stripPrefix:docs/textbook/",
+      "keyFrom": "stripPrefix:content/sources/textbook/",
       "visibilityFrom": "fixed:private",
       "regenerable": false,
       "generator": null,
@@ -97,7 +97,7 @@
         "pdf-to-mdx（スキャン教材の変換）",
         "scanned-textbook-transcriber（OCR）"
       ],
-      "reason": "市販テキスト・白書の原典 PDF。2026-07 に rclone で R2 へ出し、2026-08-22 に git 履歴からも除去したため **R2 が唯一の実体**。台帳に載せないと check-asset-storage の監視外＝消えても誰も気づかない状態になる。logicalPath は「取り戻すならここへ置く」場所であり、リポジトリには実在しない（.gitignore 済み）。再生成は不可（原本は紙の書籍）。",
+      "reason": "市販テキスト・白書の原典 PDF。2026-07 に rclone で R2 へ出し、2026-08-22 に git 履歴からも除去したため **R2 が唯一の実体**。台帳に載せないと check-asset-storage の監視外＝消えても誰も気づかない状態になる。logicalPath は「取り戻すならここへ置く」場所であり、リポジトリには実在しない（.gitignore 済み）。再生成は不可（原本は紙の書籍）。2026-08-30: 置き場が docs/textbook/ → content/sources/textbook/ へ移った（4 領域モデルの content 化）のに、この pathRegex と keyFrom だけ旧パスのまま残っていた。その間は**どのグループにも該当しない＝offload の対象にならず check-asset-storage の監視外**で、行政書士など 10 件がローカルにしか無い状態で溜まっていた。R2 キーは stripPrefix の残りが同じなので不変。",
       "phase": "catalog-backfill"
     },
     {

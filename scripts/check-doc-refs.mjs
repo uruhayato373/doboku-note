@@ -74,7 +74,7 @@ function walk(dir, out = [], re = /\.md$/) {
 // ソースファイル集合
 let files;
 if (STAGED) {
-  const staged = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
+  const staged = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
     .split('\n').map((s) => s.trim()).filter(Boolean);
   files = staged.filter((f) => existsSync(f) && /\.md$/.test(f) && (
     f.startsWith('.claude/skills/') ||

@@ -25,7 +25,7 @@ import { checkLineEndings } from "./lib/line-endings.mjs";
 function getStagedMdxFiles() {
   try {
     const output = execSync(
-      'git diff --cached --name-only --diff-filter=ACM -- "*.mdx"',
+      'git -c core.quotepath=false diff --cached --name-only --diff-filter=ACM -- "*.mdx"',
       { encoding: "utf-8" }
     );
     return output
@@ -41,7 +41,7 @@ function getStagedMdxFiles() {
 function getStagedSvgFiles() {
   try {
     const output = execSync(
-      'git diff --cached --name-only --diff-filter=ACM -- "content/site/**/img/*.svg"',
+      'git -c core.quotepath=false diff --cached --name-only --diff-filter=ACM -- "content/site/**/img/*.svg"',
       { encoding: "utf-8" }
     );
     return output

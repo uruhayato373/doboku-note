@@ -55,7 +55,7 @@ function walk(dir, out = []) {
 
 function stagedFiles() {
   try {
-    const out = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACM'], {
+    const out = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], {
       encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 });
     return out
       .split('\n')

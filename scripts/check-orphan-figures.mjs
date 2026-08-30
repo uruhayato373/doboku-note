@@ -54,7 +54,7 @@ function listAllFigures() {
 function stagedArticleDirs() {
   let out = "";
   try {
-    out = execFileSync("git", ["diff", "--cached", "--name-only", "--diff-filter=ACM"], {
+    out = execFileSync("git", ['-c', 'core.quotepath=false', "diff", "--cached", "--name-only", "--diff-filter=ACM"], {
       cwd: ROOT,
       encoding: "utf8", maxBuffer: 256 * 1024 * 1024 });
   } catch {

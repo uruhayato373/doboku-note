@@ -49,7 +49,7 @@ function walk(dir, acc) {
 
 let files;
 if (STAGED) {
-  files = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
+  files = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACM'], { encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
     .split('\n')
     .filter((f) => /^content\/sns\/x\/(draft|published)\//.test(f) && /tweets\.md$/.test(f) && !isExcluded(f) && existsSync(f));
 } else {

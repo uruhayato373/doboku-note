@@ -104,7 +104,7 @@ export function loadGitDates() {
     }
   }
 
-  const out = execSync('git log --all --name-status -M100% --format=__COMMIT__:%ai', {
+  const out = execSync('git -c core.quotepath=false log --all --name-status -M100% --format=__COMMIT__:%ai', {
     encoding: 'utf-8',
     stdio: ['pipe', 'pipe', 'ignore'],
     maxBuffer: 64 * 1024 * 1024, // 64MB（38k 行 × 数百 byte 程度を想定）

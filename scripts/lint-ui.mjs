@@ -79,7 +79,7 @@ function getTargetFiles() {
   // ステージされた UI ファイル
   try {
     const output = execSync(
-      'git diff --cached --name-only --diff-filter=ACM -- "*.tsx" "*.css"',
+      'git -c core.quotepath=false diff --cached --name-only --diff-filter=ACM -- "*.tsx" "*.css"',
       { encoding: "utf-8" }
     );
     return output

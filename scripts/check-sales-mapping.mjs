@@ -46,7 +46,7 @@ const staged = process.argv.includes('--staged');
 if (staged) {
   let stagedFiles = [];
   try {
-    stagedFiles = execFileSync('git', ['diff', '--cached', '--name-only', '--diff-filter=ACMR'], {
+    stagedFiles = execFileSync('git', ['-c', 'core.quotepath=false', 'diff', '--cached', '--name-only', '--diff-filter=ACMR'], {
       encoding: 'utf8', maxBuffer: 256 * 1024 * 1024 })
       .split('\n')
       .map((s) => s.trim())
