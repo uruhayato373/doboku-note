@@ -49,6 +49,11 @@ jobs:
       - name: Build
         run: npm run build
 
+      # E2E 本体の前に「叩く URL が実在するか」を見る。存在しない URL だと個々の
+      # テストが謎の 404 で落ちるだけで、原因（フィクスチャの陳腐化）に辿り着けない。
+      - name: Check E2E targets (out/)
+        run: npm run check-e2e-targets
+
       - name: Run E2E
         run: npm run test:e2e
 

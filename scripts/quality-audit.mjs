@@ -133,10 +133,6 @@ const CHECKS = [
   { id: 'bold-rendering', npm: 'check-bold-rendering', timeout: 120_000, ci: true, note: '閉じ/開き ** が flanking を満たさず太字にならずアスタリスクが本文に出る事故。remark で実パースして text ノードに ** が残るかで判定する（規則の再実装ではない）' },
   { id: 'table-rendering', npm: 'check-table-rendering', timeout: 120_000, ci: true, note: 'GFM テーブルが table にならず生のパイプ区切りテキストで表示される事故（2026-08-28: 改行の \\r\\r\\n 破損で過去問18本／ヘッダとデリミタのセル数不一致で r02-primary）。原因ごとにルールを足さず、remark 実パースで「デリミタ行が text ノードに残る」症状そのものを見るので未知の原因も同じ網で拾う' },
   { id: 'orphan-ogp', npm: 'check-orphan-ogp', timeout: 90_000, ci: true },
-  // 2026-08-30: URL 移行後 e2e/fixtures.ts が旧 /category/ /docs/ を指したまま残り、
-  // dev では必ず 404 になるため smoke と navigation が長期間ずっと赤だった。CI も同じ
-  // dev サーバーで走っていたので誰も気づけなかった。E2E が叩く URL の実在を機械で固定する。
-  { id: 'e2e-targets', npm: 'check-e2e-targets', timeout: 60_000, ci: true, note: 'E2E が叩くサイト内 URL が out/ に実在するか（リダイレクト転送元を叩いて空振りしていないか）。要 npm run build' },
   // 2026-08-18: 実質オーファンだった（package.json にはあるがどの経路にも配線なし）。EPUB の書式インバリアントは epubcheck が見ない領域で、ビルダー 2 本に CSS/構造がコピー実装されている。
   { id: 'kindle-format', npm: 'check-kindle-format', timeout: 300_000, ci: true, skip: unzipMissing, note: '配布 EPUB の書式インバリアント（本文可読性・章の改ページ・解答のネタバレ改ページ）。ローカルは EDR のファイル走査律速で数分かかるが CI では速い。0 冊なら exit 2（検査不成立）' },
   { id: 'kindle-epub-leak', npm: 'check-kindle-epub-leak', timeout: 180_000, ci: true, skip: unzipMissing, note: '配布 EPUB に章タイトル article.mdx / YAML frontmatter が印字される事故（2026-08-12・e-02 は審査中だった）。真因はソース MDX の BOM で frontmatter の ^--- が外れること。EPUB 実展開＋ソース BOM の二段で検査する' },
