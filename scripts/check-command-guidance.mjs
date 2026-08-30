@@ -36,6 +36,13 @@ const files = execFileSync('git', ['-c', 'core.quotepath=false', 'ls-files', '-z
   cwd: REPO_ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024,
 }).split('\0').filter((f) => f && f.endsWith('.mjs'));
 
+// スクリプト同士の案内だけでなく、**人間とエージェントが読む正典**も見る。
+// 2026-08-30: CLAUDE.md の頻用コマンド表に `npm run serve` が載っていたのに
+// package.json には存在せず、指示どおり叩くと必ず失敗する状態が放置されていた。
+// スクリプトしか走査していなかったので、この種のドリフトはどの検査にも掛からなかった。
+const DOC_FILES = ['CLAUDE.md', 'AGENTS.md'];
+const docFiles = DOC_FILES.filter((f) => existsSync(join(REPO_ROOT, f)));
+
 const pkgScripts = JSON.parse(readFileSync(join(REPO_ROOT, 'package.json'), 'utf8')).scripts || {};
 
 const broken = [];
@@ -58,13 +65,28 @@ for (const f of files) {
   }
 }
 
+// 正典ドキュメントの `npm run X` は、コードブロック内の案内も含めて実在を要求する。
+// node パス案内はドキュメントでは例示（プレースホルダ）が混ざるため npm run だけを見る。
+let refDoc = 0;
+for (const f of docFiles) {
+  const src = readFileSync(join(REPO_ROOT, f), 'utf8');
+  const seen = new Set();
+  for (const m of src.matchAll(/npm run ([a-z0-9][a-z0-9:-]*)/g)) {
+    refDoc += 1;
+    if (pkgScripts[m[1]] || seen.has(m[1])) continue;
+    seen.add(m[1]);
+    broken.push({ file: f, kind: 'npm-doc', ref: 'npm run ' + m[1] });
+  }
+}
+
 if (JSON_OUT) {
-  console.log(JSON.stringify({ files: files.length, refNpm, refPath, broken }, null, 2));
+  console.log(JSON.stringify({ files: files.length, docFiles: docFiles.length, refNpm, refPath, refDoc, broken }, null, 2));
 } else {
-  console.log('[check-command-guidance] ' + files.length + ' スクリプトを実検査 / 案内 '
-    + (refNpm + refPath) + ' 件（npm run ' + refNpm + ' / node パス ' + refPath + '）');
+  console.log('[check-command-guidance] ' + files.length + ' スクリプト + ' + docFiles.length
+    + ' 正典ドキュメントを実検査 / 案内 ' + (refNpm + refPath + refDoc)
+    + ' 件（npm run ' + refNpm + ' / node パス ' + refPath + ' / doc の npm run ' + refDoc + '）');
   // 検査ゼロを PASS と呼ばない（CLAUDE.md §9）
-  if (files.length < 100 || refNpm + refPath < 100) {
+  if (files.length < 100 || refNpm + refPath < 100 || docFiles.length === 0 || refDoc < 20) {
     console.error('✗ 走査結果が異常に少ない＝抽出が壊れている疑い（検査不成立）');
     process.exit(1);
   }
