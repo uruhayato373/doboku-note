@@ -1,4 +1,4 @@
-name: Audit internal links
+name: Audit links
 
 on:
   schedule:
@@ -34,6 +34,10 @@ jobs:
       - name: Run internal link audit
         continue-on-error: true
         run: npm run check-links-audit
+
+      - name: Run external link audit
+        continue-on-error: true
+        run: npm run check-external-links -- --report .claude/state/link-audit/external-latest.json
 
       - name: Publish report to develop branch (.claude/state/link-audit/)
         run: |

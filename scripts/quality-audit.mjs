@@ -93,6 +93,8 @@ const CHECKS = [
   { id: 'ads-tests', npm: 'test:ads', timeout: 120_000, ci: true, note: 'A8/もしも/afb のサイト帰属ガードと CSV 正規化の単体テスト' },
   // 2026-08-17: check-gate-parity で「どこからも呼ばれていない」と判明したため配線（実行して緑を確認）。
   { id: 'public-bloat', npm: 'check-public-bloat', timeout: 60_000, ci: true, note: 'public/ の生成物滞留（放置するとビルドが落ちる）' },
+  { id: 'playwright-auth-wiring', npm: 'check-playwright-auth-wiring', timeout: 60_000, ci: false, note: '読み手＝Playwright 認証共通化の実装担当。永続プロファイルを使うスクリプトが共通 auth guard を経由しているかを棚卸し' },
+  { id: 'playwright-auth-wiring-strict', npm: 'check-playwright-auth-wiring:strict', timeout: 60_000, ci: false, note: '読み手＝Playwright 認証共通化の実装担当。Phase 03 完了後に違反 0 を要求する将来ゲート。現状 111 件の既存移行対象があるため report-only' },
   { id: 'gate-parity', npm: 'check-gate-parity:ci', timeout: 60_000, ci: true, note: 'pre-commit / quality-audit / workflow のどこからも呼ばれていない検査を検出（オーファン化の防止）' },
   { id: 'eslint', npm: 'lint', timeout: 180_000, ci: true },
   { id: 'validate-mdx', npm: 'validate-mdx', timeout: 180_000, ci: true },
@@ -171,6 +173,7 @@ const CHECKS = [
   // BROKEN_SLUG 166→0（RelatedKeywords 解決を categories.json 由来へ統一・2026-07-13）を受け、
   // site scope の内部リンク切れを ci gate へ昇格（--scope site。build 前 source link 契約）。
   { id: 'internal-links', cmd: ['npm', 'run', '--silent', 'check-links', '--', '--scope', 'site'], timeout: 180_000, ci: true, note: 'site scope の /docs・/category・anchor リンク切れ（RelatedKeywords 共通 resolver）' },
+  { id: 'topic-wiring', npm: 'check-topic-wiring', timeout: 60_000, ci: true, note: '全国10機関・topic参照・公開実務ガイドのタグ接続を機械検査。実務記事が検索だけに孤立する回帰を止める' },
   { id: 'katex-warnings', npm: 'audit-katex:ci', timeout: 240_000, ci: true, note: 'build の KaTeX strict 警告を数式単位で検出（remark-math パイプライン。0 件を維持）' },
 
   // note-meta-lint は 2026-08-16 に Node20 対応済み（glob import → readdirSync）。

@@ -8,6 +8,7 @@ export type Topic = {
   description: string;
   tags: string[];
   standardKeywords: string[];
+  featuredStandardRefs?: string[];
 };
 
 const topics = topicsJson as Topic[];
@@ -33,7 +34,24 @@ export function getTopicDocs(topic: Topic): DocMeta[] {
 }
 
 export function getTopicStandards(topic: Topic): StandardDocument[] {
-  return getStandardDocuments().filter((document) =>
-    topic.standardKeywords.some((keyword) => document.title.includes(keyword)),
+  const featured = new Set(topic.featuredStandardRefs ?? []);
+  return getStandardDocuments().filter((document) => {
+    const ref = `${document.agencyId}/${document.documentId}`;
+    return featured.has(ref) || topic.standardKeywords.some((keyword) => document.title.includes(keyword));
+  });
+}
+
+export function getTopicsForStandardDocument(document: StandardDocument): Topic[] {
+  const ref = `${document.agencyId}/${document.documentId}`;
+  return topics.filter((topic) =>
+    topic.featuredStandardRefs?.includes(ref)
+    || topic.standardKeywords.some((keyword) => document.title.includes(keyword)),
+  );
+}
+
+export function getTopicsForStandardText(document: StandardDocument, text: string): Topic[] {
+  const searchable = `${document.title}\n${text}`;
+  return topics.filter((topic) =>
+    topic.standardKeywords.some((keyword) => searchable.includes(keyword)),
   );
 }

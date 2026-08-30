@@ -16,6 +16,7 @@ import { SITE_CONTENT_ROOT } from '../../../../../../../scripts/lib/repository-p
 const postsDir = SITE_CONTENT_ROOT;
 const TIMEOUT_MS = 15000;
 const CONCURRENCY = parseInt(process.argv.find((_, i, a) => a[i - 1] === '--concurrency') || '10');
+const REPORT_PATH = process.argv.find((_, i, a) => a[i - 1] === '--report') || null;
 const SKIP_DOMAINS = new Set(['localhost', 'storage.doboku-note.com', 'doboku-note.com']);
 
 // Step 1: 全MDXファイルから外部URLを抽出
@@ -37,7 +38,12 @@ function findMdxFiles(dir) {
 
 function extractExternalUrls(filePath) {
   const content = fs.readFileSync(filePath, 'utf8');
-  const lines = content.split('\n');
+  // JSX / HTML comments are provenance and implementation notes, not links a reader can follow.
+  // Counting them creates false positives for archived source URLs that are not rendered in HTML.
+  const renderedContent = content
+    .replace(/\{\/\*[\s\S]*?\*\/\}/g, '')
+    .replace(/<!--[\s\S]*?-->/g, '');
+  const lines = renderedContent.split('\n');
   const urls = [];
   const urlPattern = /https?:\/\/[^\s)）\]"<>]+/g;
 
@@ -196,6 +202,27 @@ function printSection(title, items) {
 printSection('❌ リンク切れ（404/410）— 要修正', broken);
 printSection('⚠️  エラー（接続不可・拒否等）— 要確認', errors);
 printSection('⏱️  タイムアウト — 要確認（政府サイトは遅いだけの場合あり）', timeout);
+
+if (REPORT_PATH) {
+  const report = {
+    checkedAt: new Date().toISOString(),
+    summary: {
+      files: files.length,
+      occurrences: allEntries.length,
+      uniqueUrls: uniqueUrls.size,
+      ok: ok.length,
+      broken: broken.length,
+      timeout: timeout.length,
+      errors: errors.length,
+    },
+    broken,
+    errors,
+    timeout,
+  };
+  fs.mkdirSync(path.dirname(REPORT_PATH), { recursive: true });
+  fs.writeFileSync(REPORT_PATH, `${JSON.stringify(report, null, 2)}\n`);
+  console.log(`📄 JSON report: ${REPORT_PATH}`);
+}
 
 if (broken.length === 0 && errors.length === 0 && timeout.length === 0) {
   console.log(`\n✅ すべての外部リンクが有効です。\n`);
