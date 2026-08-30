@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-08-29T23:20:03.057Z",
+  "generated_at": "2026-08-30T05:32:38.050Z",
   "thresholds": {
     "fail": 2,
     "thin_chars": 3000,
@@ -11,12 +11,12 @@
     ]
   },
   "totals": {
-    "total": 1147,
+    "total": 1151,
     "scored": 1064,
-    "unscored": 83,
+    "unscored": 87,
     "failed": 0,
-    "thin": 315,
-    "coverage_pct": 92.8
+    "thin": 324,
+    "coverage_pct": 92.4
   },
   "by_category": {
     "civil-construction-1": {
@@ -100,18 +100,18 @@
     "civil-practice": {
       "groups": {
         "guide": {
-          "total": 45,
+          "total": 49,
           "scored": 0,
-          "unscored": 45,
+          "unscored": 49,
           "failed": 0,
           "thin": 0,
           "avg_weighted": null
         }
       },
       "totals": {
-        "total": 45,
+        "total": 49,
         "scored": 0,
-        "unscored": 45,
+        "unscored": 49,
         "failed": 0,
         "thin": 0
       }
@@ -201,7 +201,7 @@
           "scored": 659,
           "unscored": 2,
           "failed": 0,
-          "thin": 298,
+          "thin": 307,
           "avg_weighted": 2.71
         },
         "past-exam": {
@@ -226,7 +226,7 @@
         "scored": 724,
         "unscored": 4,
         "failed": 0,
-        "thin": 298
+        "thin": 307
       }
     },
     "pe-construction": {
@@ -502,7 +502,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.75,
-      "body_chars": 2617
+      "body_chars": 2532
     },
     {
       "slug": "pe-comprehensive-management-catastrophe-bias",
@@ -710,7 +710,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.3,
-      "body_chars": 2004
+      "body_chars": 1854
     },
     {
       "slug": "pe-comprehensive-management-demand-forecasting",
@@ -774,7 +774,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.9,
-      "body_chars": 2203
+      "body_chars": 2112
     },
     {
       "slug": "pe-comprehensive-management-disclosure-standards",
@@ -1089,6 +1089,14 @@
       "body_chars": 2585
     },
     {
+      "slug": "pe-comprehensive-management-game-theory",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "reason": "thin",
+      "weighted": 3,
+      "body_chars": 2981
+    },
+    {
       "slug": "pe-comprehensive-management-gantt-chart",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -1353,6 +1361,14 @@
       "body_chars": 2759
     },
     {
+      "slug": "pe-comprehensive-management-ismap",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "reason": "thin",
+      "weighted": 2.75,
+      "body_chars": 2736
+    },
+    {
       "slug": "pe-comprehensive-management-iso-26000",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -1374,7 +1390,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 3,
-      "body_chars": 2532
+      "body_chars": 2432
     },
     {
       "slug": "pe-comprehensive-management-jit-production",
@@ -1441,12 +1457,20 @@
       "body_chars": 2258
     },
     {
+      "slug": "pe-comprehensive-management-labor-cost-ratio",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "reason": "thin",
+      "weighted": 3,
+      "body_chars": 2771
+    },
+    {
       "slug": "pe-comprehensive-management-labor-mobility",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.75,
-      "body_chars": 2441
+      "body_chars": 2382
     },
     {
       "slug": "pe-comprehensive-management-labor-policy-act",
@@ -1606,7 +1630,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 3,
-      "body_chars": 2383
+      "body_chars": 2296
     },
     {
       "slug": "pe-comprehensive-management-mental-health",
@@ -1729,6 +1753,14 @@
       "body_chars": 2664
     },
     {
+      "slug": "pe-comprehensive-management-npv-net-present-value",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "reason": "thin",
+      "weighted": 3,
+      "body_chars": 2968
+    },
+    {
       "slug": "pe-comprehensive-management-occupational-accident-prevention-plan",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -1742,7 +1774,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.75,
-      "body_chars": 2360
+      "body_chars": 2270
     },
     {
       "slug": "pe-comprehensive-management-operation-errors",
@@ -1862,7 +1894,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.5,
-      "body_chars": 2974
+      "body_chars": 2915
     },
     {
       "slug": "pe-comprehensive-management-polluter-pays-principle",
@@ -1990,7 +2022,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.5,
-      "body_chars": 2047
+      "body_chars": 1844
     },
     {
       "slug": "pe-comprehensive-management-prtr-act",
@@ -1998,7 +2030,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 3,
-      "body_chars": 2235
+      "body_chars": 2149
     },
     {
       "slug": "pe-comprehensive-management-pull-production",
@@ -2078,7 +2110,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.35,
-      "body_chars": 2017
+      "body_chars": 1940
     },
     {
       "slug": "pe-comprehensive-management-reach-regulation",
@@ -2094,7 +2126,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.6,
-      "body_chars": 1939
+      "body_chars": 1867
     },
     {
       "slug": "pe-comprehensive-management-regional-circular-symbiosis",
@@ -2102,7 +2134,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.35,
-      "body_chars": 2635
+      "body_chars": 2543
     },
     {
       "slug": "pe-comprehensive-management-renewable-energy-act",
@@ -2126,7 +2158,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.35,
-      "body_chars": 2112
+      "body_chars": 2029
     },
     {
       "slug": "pe-comprehensive-management-right-to-know",
@@ -2174,7 +2206,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.65,
-      "body_chars": 1942
+      "body_chars": 1864
     },
     {
       "slug": "pe-comprehensive-management-s-plus-3e",
@@ -2190,7 +2222,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 3,
-      "body_chars": 2587
+      "body_chars": 2421
     },
     {
       "slug": "pe-comprehensive-management-safety-and-security",
@@ -2198,7 +2230,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.5,
-      "body_chars": 1911
+      "body_chars": 1605
     },
     {
       "slug": "pe-comprehensive-management-safety-case",
@@ -2246,7 +2278,23 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.5,
-      "body_chars": 2095
+      "body_chars": 1958
+    },
+    {
+      "slug": "pe-comprehensive-management-safety-objectives",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "reason": "thin",
+      "weighted": 2.5,
+      "body_chars": 2826
+    },
+    {
+      "slug": "pe-comprehensive-management-sales-management-system",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "reason": "thin",
+      "weighted": 2.2,
+      "body_chars": 2855
     },
     {
       "slug": "pe-comprehensive-management-scientific-management",
@@ -2254,7 +2302,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.5,
-      "body_chars": 2923
+      "body_chars": 2831
     },
     {
       "slug": "pe-comprehensive-management-scm-system",
@@ -2270,7 +2318,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.35,
-      "body_chars": 2096
+      "body_chars": 2009
     },
     {
       "slug": "pe-comprehensive-management-security-software",
@@ -2278,7 +2326,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.05,
-      "body_chars": 2934
+      "body_chars": 2769
     },
     {
       "slug": "pe-comprehensive-management-seniority-wage",
@@ -2393,6 +2441,14 @@
       "body_chars": 2822
     },
     {
+      "slug": "pe-comprehensive-management-stakeholder",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "reason": "thin",
+      "weighted": 2.75,
+      "body_chars": 2739
+    },
+    {
       "slug": "pe-comprehensive-management-standardization-strategy",
       "category": "pe-comprehensive-management",
       "group": "keyword",
@@ -2406,7 +2462,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.5,
-      "body_chars": 2530
+      "body_chars": 2481
     },
     {
       "slug": "pe-comprehensive-management-surcharge",
@@ -2422,7 +2478,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.6,
-      "body_chars": 2477
+      "body_chars": 2403
     },
     {
       "slug": "pe-comprehensive-management-system-outage-degradation",
@@ -2438,7 +2494,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.75,
-      "body_chars": 1911
+      "body_chars": 1816
     },
     {
       "slug": "pe-comprehensive-management-tacit-knowledge",
@@ -2457,12 +2513,20 @@
       "body_chars": 2777
     },
     {
+      "slug": "pe-comprehensive-management-tbm-toolbox-meeting",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "reason": "thin",
+      "weighted": 2.5,
+      "body_chars": 2952
+    },
+    {
       "slug": "pe-comprehensive-management-tcfd",
       "category": "pe-comprehensive-management",
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.5,
-      "body_chars": 2017
+      "body_chars": 1891
     },
     {
       "slug": "pe-comprehensive-management-teal-organization",
@@ -2478,7 +2542,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.5,
-      "body_chars": 2466
+      "body_chars": 2379
     },
     {
       "slug": "pe-comprehensive-management-terrorism",
@@ -2510,7 +2574,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.6,
-      "body_chars": 2227
+      "body_chars": 2146
     },
     {
       "slug": "pe-comprehensive-management-three-c-analysis",
@@ -2558,7 +2622,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.5,
-      "body_chars": 2578
+      "body_chars": 2410
     },
     {
       "slug": "pe-comprehensive-management-unsafe-conditions-behavior",
@@ -2582,7 +2646,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.75,
-      "body_chars": 2223
+      "body_chars": 2112
     },
     {
       "slug": "pe-comprehensive-management-value-engineering",
@@ -2591,6 +2655,14 @@
       "reason": "thin",
       "weighted": 2.9,
       "body_chars": 2637
+    },
+    {
+      "slug": "pe-comprehensive-management-verbal-nonverbal-communication",
+      "category": "pe-comprehensive-management",
+      "group": "keyword",
+      "reason": "thin",
+      "weighted": 2.5,
+      "body_chars": 2941
     },
     {
       "slug": "pe-comprehensive-management-veteran-bias",
@@ -2630,7 +2702,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.85,
-      "body_chars": 2562
+      "body_chars": 2475
     },
     {
       "slug": "pe-comprehensive-management-vr-ar-metaverse",
@@ -2662,7 +2734,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.6,
-      "body_chars": 2615
+      "body_chars": 2529
     },
     {
       "slug": "pe-comprehensive-management-wced",
@@ -2678,7 +2750,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.5,
-      "body_chars": 2129
+      "body_chars": 2033
     },
     {
       "slug": "pe-comprehensive-management-women-empowerment-act",
@@ -2702,7 +2774,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.8,
-      "body_chars": 2812
+      "body_chars": 2807
     },
     {
       "slug": "pe-construction-carbon-neutral-kensetsu",
@@ -2726,7 +2798,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.8,
-      "body_chars": 2836
+      "body_chars": 2831
     },
     {
       "slug": "pe-construction-kensetsu-dx",
@@ -2750,7 +2822,7 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.8,
-      "body_chars": 2632
+      "body_chars": 2627
     },
     {
       "slug": "pe-construction-port-airport-ronbun-keyword",
@@ -2822,12 +2894,12 @@
       "group": "keyword",
       "reason": "thin",
       "weighted": 2.4,
-      "body_chars": 2417
+      "body_chars": 2412
     }
   ],
   "delta": {
     "first_run": false,
-    "previous_generated_at": "2026-08-27T12:51:12.548Z",
+    "previous_generated_at": "2026-08-30T05:17:56.916Z",
     "totals_diff": {
       "total": 0,
       "scored": 0,
@@ -3658,7 +3730,7 @@
       "slug": "civil-construction-1-public-servant-merit",
       "category": "civil-construction-1",
       "group": "guide",
-      "body_chars": 6002,
+      "body_chars": 5870,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -3746,7 +3818,7 @@
       "slug": "civil-construction-1-secondary-experience-writing-guide",
       "category": "civil-construction-1",
       "group": "secondary",
-      "body_chars": 17233,
+      "body_chars": 17004,
       "scored": true,
       "weighted": 2.3,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -3845,7 +3917,7 @@
       "slug": "civil-construction-1-textbook-building-standards",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 5765,
+      "body_chars": 5692,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -3878,7 +3950,7 @@
       "slug": "civil-construction-1-textbook-construction-mgmt-overview",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 4932,
+      "body_chars": 4830,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -3889,7 +3961,7 @@
       "slug": "civil-construction-1-textbook-construction-plan-overview",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 8252,
+      "body_chars": 8129,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-08-26T05:21:33.077Z",
@@ -3900,7 +3972,7 @@
       "slug": "civil-construction-1-textbook-control-chart",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 6721,
+      "body_chars": 6659,
       "scored": true,
       "weighted": 2.7,
       "scored_at": "2026-08-26T05:21:33.077Z",
@@ -3911,7 +3983,7 @@
       "slug": "civil-construction-1-textbook-crane",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 5325,
+      "body_chars": 5163,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -3933,7 +4005,7 @@
       "slug": "civil-construction-1-textbook-demolition",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 6884,
+      "body_chars": 6811,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -3999,7 +4071,7 @@
       "slug": "civil-construction-1-textbook-labor-standards",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 10693,
+      "body_chars": 10542,
       "scored": true,
       "weighted": 2,
       "scored_at": "2026-08-26T05:21:33.077Z",
@@ -4032,7 +4104,7 @@
       "slug": "civil-construction-1-textbook-loader",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 5003,
+      "body_chars": 4939,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -4043,7 +4115,7 @@
       "slug": "civil-construction-1-textbook-machinery-overview",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 10265,
+      "body_chars": 10198,
       "scored": true,
       "weighted": 2.2,
       "scored_at": "2026-08-26T05:21:33.077Z",
@@ -4054,7 +4126,7 @@
       "slug": "civil-construction-1-textbook-machinery-structure",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 5360,
+      "body_chars": 5310,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -4065,7 +4137,7 @@
       "slug": "civil-construction-1-textbook-management-subplans",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 13038,
+      "body_chars": 12916,
       "scored": true,
       "weighted": 2.7,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -4076,7 +4148,7 @@
       "slug": "civil-construction-1-textbook-network-schedule",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 7407,
+      "body_chars": 7345,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -4109,7 +4181,7 @@
       "slug": "civil-construction-1-textbook-quality-inspection",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 3590,
+      "body_chars": 3528,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -4131,7 +4203,7 @@
       "slug": "civil-construction-1-textbook-river-act",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 5176,
+      "body_chars": 5113,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-04-20T05:46:29.772Z",
@@ -4230,7 +4302,7 @@
       "slug": "civil-construction-1-textbook-schedule-charts",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 7230,
+      "body_chars": 7105,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-08-26T05:21:33.077Z",
@@ -4241,7 +4313,7 @@
       "slug": "civil-construction-1-textbook-schedule-overview",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 6406,
+      "body_chars": 6344,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-08-26T05:21:33.077Z",
@@ -4274,7 +4346,7 @@
       "slug": "civil-construction-1-textbook-site-investigation",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 4678,
+      "body_chars": 4614,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-08-26T05:21:33.077Z",
@@ -4373,7 +4445,7 @@
       "slug": "civil-construction-1-textbook-work-scheduling",
       "category": "civil-construction-1",
       "group": "textbook",
-      "body_chars": 7608,
+      "body_chars": 7483,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-08-26T05:21:33.077Z",
@@ -5085,6 +5157,17 @@
       "thin": false
     },
     {
+      "slug": "civil-practice-oshms-pdca-site-operation",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3182,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-practice-pile-bearing-verification",
       "category": "civil-practice",
       "group": "guide",
@@ -5195,6 +5278,17 @@
       "thin": false
     },
     {
+      "slug": "civil-practice-risk-assessment-construction-workflow",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3189,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
       "slug": "civil-practice-river-park-erosion-control",
       "category": "civil-practice",
       "group": "guide",
@@ -5221,6 +5315,28 @@
       "category": "civil-practice",
       "group": "guide",
       "body_chars": 4627,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-safety-health-education-plan",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3149,
+      "scored": false,
+      "weighted": null,
+      "scored_at": null,
+      "failed": false,
+      "thin": false
+    },
+    {
+      "slug": "civil-practice-safety-patrol-corrective-action",
+      "category": "civil-practice",
+      "group": "guide",
+      "body_chars": 3210,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -5561,7 +5677,7 @@
       "slug": "concrete-diagnostician-guide-study-method",
       "category": "concrete-diagnostician",
       "group": "guide",
-      "body_chars": 3737,
+      "body_chars": 3732,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -5682,7 +5798,7 @@
       "slug": "concrete-diagnostician-textbook-deterioration",
       "category": "concrete-diagnostician",
       "group": "textbook",
-      "body_chars": 6651,
+      "body_chars": 6646,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -5693,7 +5809,7 @@
       "slug": "concrete-diagnostician-textbook-investigation",
       "category": "concrete-diagnostician",
       "group": "textbook",
-      "body_chars": 7999,
+      "body_chars": 7994,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -5704,7 +5820,7 @@
       "slug": "concrete-diagnostician-textbook-maintenance",
       "category": "concrete-diagnostician",
       "group": "textbook",
-      "body_chars": 8549,
+      "body_chars": 8548,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -5726,7 +5842,7 @@
       "slug": "concrete-diagnostician-textbook-variation",
       "category": "concrete-diagnostician",
       "group": "textbook",
-      "body_chars": 6347,
+      "body_chars": 6342,
       "scored": false,
       "weighted": null,
       "scored_at": null,
@@ -5737,7 +5853,7 @@
       "slug": "pe-comprehensive-management-360-degree-evaluation",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3172,
+      "body_chars": 3091,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:00.803Z",
@@ -5957,7 +6073,7 @@
       "slug": "pe-comprehensive-management-analytic-hierarchy-process",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3260,
+      "body_chars": 3002,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:01.453Z",
@@ -6078,7 +6194,7 @@
       "slug": "pe-comprehensive-management-backcasting",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4000,
+      "body_chars": 3760,
       "scored": true,
       "weighted": 2.7,
       "scored_at": "2026-05-29T05:50:43.342Z",
@@ -6155,7 +6271,7 @@
       "slug": "pe-comprehensive-management-bioeconomy",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4760,
+      "body_chars": 4634,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:02.008Z",
@@ -6210,7 +6326,7 @@
       "slug": "pe-comprehensive-management-bowtie-analysis",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4111,
+      "body_chars": 3984,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:02.161Z",
@@ -6320,7 +6436,7 @@
       "slug": "pe-comprehensive-management-career-track-system",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2617,
+      "body_chars": 2532,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:02.430Z",
@@ -6386,7 +6502,7 @@
       "slug": "pe-comprehensive-management-chemical-substances-review-act",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4072,
+      "body_chars": 4035,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:02.608Z",
@@ -6419,7 +6535,7 @@
       "slug": "pe-comprehensive-management-childcare-nursing-leave-act",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3449,
+      "body_chars": 3133,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:02.699Z",
@@ -6441,7 +6557,7 @@
       "slug": "pe-comprehensive-management-circular-society-basic-act",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 5438,
+      "body_chars": 5154,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:02.730Z",
@@ -6694,7 +6810,7 @@
       "slug": "pe-comprehensive-management-content-process",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3406,
+      "body_chars": 3312,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:03.246Z",
@@ -6793,7 +6909,7 @@
       "slug": "pe-comprehensive-management-cost-driver",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3998,
+      "body_chars": 3908,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-05-16T08:22:15.997Z",
@@ -6991,7 +7107,7 @@
       "slug": "pe-comprehensive-management-data-governance",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3328,
+      "body_chars": 3130,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:03.743Z",
@@ -7101,7 +7217,7 @@
       "slug": "pe-comprehensive-management-defense-in-depth",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2004,
+      "body_chars": 1854,
       "scored": true,
       "weighted": 2.3,
       "scored_at": "2026-05-29T05:50:43.342Z",
@@ -7354,7 +7470,7 @@
       "slug": "pe-comprehensive-management-disaster-countermeasures-act",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3513,
+      "body_chars": 3399,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:04.366Z",
@@ -7398,7 +7514,7 @@
       "slug": "pe-comprehensive-management-disclosure-request",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2203,
+      "body_chars": 2112,
       "scored": true,
       "weighted": 2.9,
       "scored_at": "2026-06-20T01:46:04.456Z",
@@ -7475,7 +7591,7 @@
       "slug": "pe-comprehensive-management-doughnut-economics",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3569,
+      "body_chars": 3479,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-06-20T01:46:04.671Z",
@@ -7684,7 +7800,7 @@
       "slug": "pe-comprehensive-management-employment-insurance",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3357,
+      "body_chars": 3282,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:05.041Z",
@@ -7783,7 +7899,7 @@
       "slug": "pe-comprehensive-management-environmental-basic-act",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3619,
+      "body_chars": 3536,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:05.254Z",
@@ -8190,7 +8306,7 @@
       "slug": "pe-comprehensive-management-flat-organization",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3584,
+      "body_chars": 3448,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:05.987Z",
@@ -8366,7 +8482,7 @@
       "slug": "pe-comprehensive-management-fta",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4705,
+      "body_chars": 4598,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:06.319Z",
@@ -8399,12 +8515,12 @@
       "slug": "pe-comprehensive-management-game-theory",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3077,
+      "body_chars": 2981,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:06.409Z",
       "failed": false,
-      "thin": false
+      "thin": true
     },
     {
       "slug": "pe-comprehensive-management-gantt-chart",
@@ -9059,7 +9175,7 @@
       "slug": "pe-comprehensive-management-ifrs",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4303,
+      "body_chars": 4153,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:07.172Z",
@@ -9070,7 +9186,7 @@
       "slug": "pe-comprehensive-management-immigration-control-act",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3337,
+      "body_chars": 3263,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:07.204Z",
@@ -9169,7 +9285,7 @@
       "slug": "pe-comprehensive-management-industrial-property-rights",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 5221,
+      "body_chars": 5151,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:07.420Z",
@@ -9422,7 +9538,7 @@
       "slug": "pe-comprehensive-management-investment-recovery-plan",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4040,
+      "body_chars": 3867,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-05-29T05:50:43.342Z",
@@ -9488,12 +9604,12 @@
       "slug": "pe-comprehensive-management-ismap",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3013,
+      "body_chars": 2736,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:08.045Z",
       "failed": false,
-      "thin": false
+      "thin": true
     },
     {
       "slug": "pe-comprehensive-management-isms-iso27001",
@@ -9543,7 +9659,7 @@
       "slug": "pe-comprehensive-management-jisec",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2532,
+      "body_chars": 2432,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:08.171Z",
@@ -9642,7 +9758,7 @@
       "slug": "pe-comprehensive-management-job-type-employment",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 6311,
+      "body_chars": 6231,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:08.324Z",
@@ -9675,7 +9791,7 @@
       "slug": "pe-comprehensive-management-knowledge-sharing",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3159,
+      "body_chars": 3071,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-06-20T01:46:08.383Z",
@@ -9686,7 +9802,7 @@
       "slug": "pe-comprehensive-management-kunming-montreal-framework",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3743,
+      "body_chars": 3575,
       "scored": true,
       "weighted": 2.65,
       "scored_at": "2026-06-20T01:46:08.415Z",
@@ -9719,18 +9835,18 @@
       "slug": "pe-comprehensive-management-labor-cost-ratio",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3026,
+      "body_chars": 2771,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:08.506Z",
       "failed": false,
-      "thin": false
+      "thin": true
     },
     {
       "slug": "pe-comprehensive-management-labor-mobility",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2441,
+      "body_chars": 2382,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:08.537Z",
@@ -10192,7 +10308,7 @@
       "slug": "pe-comprehensive-management-membership-type-employment",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2383,
+      "body_chars": 2296,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:09.370Z",
@@ -10478,12 +10594,12 @@
       "slug": "pe-comprehensive-management-npv-net-present-value",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3111,
+      "body_chars": 2968,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:09.997Z",
       "failed": false,
-      "thin": false
+      "thin": true
     },
     {
       "slug": "pe-comprehensive-management-nuclear-disaster-act",
@@ -10555,7 +10671,7 @@
       "slug": "pe-comprehensive-management-online-meetings",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2360,
+      "body_chars": 2270,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:10.187Z",
@@ -10786,7 +10902,7 @@
       "slug": "pe-comprehensive-management-payback-period-method",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3176,
+      "body_chars": 3049,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:10.555Z",
@@ -10874,7 +10990,7 @@
       "slug": "pe-comprehensive-management-performance-shaping-factors",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3299,
+      "body_chars": 3149,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:10.707Z",
@@ -10907,7 +11023,7 @@
       "slug": "pe-comprehensive-management-personal-communication",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3577,
+      "body_chars": 3407,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:10.767Z",
@@ -10951,7 +11067,7 @@
       "slug": "pe-comprehensive-management-personnel-management",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2974,
+      "body_chars": 2915,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:10.856Z",
@@ -11358,7 +11474,7 @@
       "slug": "pe-comprehensive-management-production-management-system",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2047,
+      "body_chars": 1844,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:11.910Z",
@@ -11380,7 +11496,7 @@
       "slug": "pe-comprehensive-management-prtr-act",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2235,
+      "body_chars": 2149,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:11.970Z",
@@ -11402,7 +11518,7 @@
       "slug": "pe-comprehensive-management-public-acceptance",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3404,
+      "body_chars": 3280,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-06-20T01:46:12.031Z",
@@ -11446,7 +11562,7 @@
       "slug": "pe-comprehensive-management-public-safety",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3440,
+      "body_chars": 3369,
       "scored": true,
       "weighted": 2.35,
       "scored_at": "2026-06-20T01:46:12.124Z",
@@ -11864,7 +11980,7 @@
       "slug": "pe-comprehensive-management-radioactive-waste",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2017,
+      "body_chars": 1940,
       "scored": true,
       "weighted": 2.35,
       "scored_at": "2026-06-20T01:46:12.512Z",
@@ -11919,7 +12035,7 @@
       "slug": "pe-comprehensive-management-red-list",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1939,
+      "body_chars": 1867,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-06-20T01:46:12.635Z",
@@ -11952,7 +12068,7 @@
       "slug": "pe-comprehensive-management-regional-circular-symbiosis",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2635,
+      "body_chars": 2543,
       "scored": true,
       "weighted": 2.35,
       "scored_at": "2026-06-20T01:46:12.727Z",
@@ -12062,7 +12178,7 @@
       "slug": "pe-comprehensive-management-return-to-work-support",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2112,
+      "body_chars": 2029,
       "scored": true,
       "weighted": 2.35,
       "scored_at": "2026-06-20T01:46:13.039Z",
@@ -12227,7 +12343,7 @@
       "slug": "pe-comprehensive-management-rohs-weee",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3301,
+      "body_chars": 3214,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:13.377Z",
@@ -12238,7 +12354,7 @@
       "slug": "pe-comprehensive-management-role-grade-system",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4065,
+      "body_chars": 3910,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:13.406Z",
@@ -12260,7 +12376,7 @@
       "slug": "pe-comprehensive-management-rpa",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1942,
+      "body_chars": 1864,
       "scored": true,
       "weighted": 2.65,
       "scored_at": "2026-06-20T01:46:13.467Z",
@@ -12282,7 +12398,7 @@
       "slug": "pe-comprehensive-management-safety-2-0",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2587,
+      "body_chars": 2421,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:13.526Z",
@@ -12293,7 +12409,7 @@
       "slug": "pe-comprehensive-management-safety-and-security",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1911,
+      "body_chars": 1605,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:13.558Z",
@@ -12326,7 +12442,7 @@
       "slug": "pe-comprehensive-management-safety-control",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4865,
+      "body_chars": 4561,
       "scored": true,
       "weighted": 2.35,
       "scored_at": "2026-06-20T01:46:13.618Z",
@@ -12337,7 +12453,7 @@
       "slug": "pe-comprehensive-management-safety-culture",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4986,
+      "body_chars": 4734,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:13.648Z",
@@ -12414,7 +12530,7 @@
       "slug": "pe-comprehensive-management-safety-investment",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4285,
+      "body_chars": 3998,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:13.827Z",
@@ -12436,7 +12552,7 @@
       "slug": "pe-comprehensive-management-safety-management-system",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2095,
+      "body_chars": 1958,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:13.857Z",
@@ -12447,12 +12563,12 @@
       "slug": "pe-comprehensive-management-safety-objectives",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3028,
+      "body_chars": 2826,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:13.886Z",
       "failed": false,
-      "thin": false
+      "thin": true
     },
     {
       "slug": "pe-comprehensive-management-safety-patrol",
@@ -12469,12 +12585,12 @@
       "slug": "pe-comprehensive-management-sales-management-system",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3057,
+      "body_chars": 2855,
       "scored": true,
       "weighted": 2.2,
       "scored_at": "2026-06-20T01:46:13.946Z",
       "failed": false,
-      "thin": false
+      "thin": true
     },
     {
       "slug": "pe-comprehensive-management-satoyama-initiative",
@@ -12491,7 +12607,7 @@
       "slug": "pe-comprehensive-management-scientific-management",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2923,
+      "body_chars": 2831,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:14.010Z",
@@ -12535,7 +12651,7 @@
       "slug": "pe-comprehensive-management-security-education",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2096,
+      "body_chars": 2009,
       "scored": true,
       "weighted": 2.35,
       "scored_at": "2026-06-20T01:46:14.104Z",
@@ -12546,7 +12662,7 @@
       "slug": "pe-comprehensive-management-security-software",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2934,
+      "body_chars": 2769,
       "scored": true,
       "weighted": 2.05,
       "scored_at": "2026-06-20T01:46:14.135Z",
@@ -12557,7 +12673,7 @@
       "slug": "pe-comprehensive-management-self-declaration-system",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4038,
+      "body_chars": 3786,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:14.165Z",
@@ -12612,7 +12728,7 @@
       "slug": "pe-comprehensive-management-seven-types-of-pollution",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 5611,
+      "body_chars": 5543,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:14.316Z",
@@ -12832,12 +12948,12 @@
       "slug": "pe-comprehensive-management-stakeholder",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3356,
+      "body_chars": 2739,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:14.795Z",
       "failed": false,
-      "thin": false
+      "thin": true
     },
     {
       "slug": "pe-comprehensive-management-standard-costing",
@@ -12887,7 +13003,7 @@
       "slug": "pe-comprehensive-management-subcontracting-act",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2530,
+      "body_chars": 2481,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:14.917Z",
@@ -12931,7 +13047,7 @@
       "slug": "pe-comprehensive-management-survey-analysis",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2477,
+      "body_chars": 2403,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-06-20T01:46:15.011Z",
@@ -12964,7 +13080,7 @@
       "slug": "pe-comprehensive-management-system-availability",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4099,
+      "body_chars": 3989,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:15.105Z",
@@ -13008,7 +13124,7 @@
       "slug": "pe-comprehensive-management-system-safety",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 5879,
+      "body_chars": 5684,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:15.228Z",
@@ -13019,7 +13135,7 @@
       "slug": "pe-comprehensive-management-system-security",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4673,
+      "body_chars": 4605,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:15.258Z",
@@ -13030,7 +13146,7 @@
       "slug": "pe-comprehensive-management-system-serviceability",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 1911,
+      "body_chars": 1816,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:15.288Z",
@@ -13096,18 +13212,18 @@
       "slug": "pe-comprehensive-management-tbm-toolbox-meeting",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3240,
+      "body_chars": 2952,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:15.377Z",
       "failed": false,
-      "thin": false
+      "thin": true
     },
     {
       "slug": "pe-comprehensive-management-tcfd",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2017,
+      "body_chars": 1891,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:15.407Z",
@@ -13129,7 +13245,7 @@
       "slug": "pe-comprehensive-management-technical-nontechnical-skills",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2466,
+      "body_chars": 2379,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:15.471Z",
@@ -13140,7 +13256,7 @@
       "slug": "pe-comprehensive-management-technology-licensing",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3351,
+      "body_chars": 3262,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:15.502Z",
@@ -13151,7 +13267,7 @@
       "slug": "pe-comprehensive-management-telework",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4604,
+      "body_chars": 4469,
       "scored": true,
       "weighted": 3,
       "scored_at": "2026-06-20T01:46:15.531Z",
@@ -13162,7 +13278,7 @@
       "slug": "pe-comprehensive-management-temporary-works-plan",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4755,
+      "body_chars": 4594,
       "scored": true,
       "weighted": 2.35,
       "scored_at": "2026-06-20T01:46:15.560Z",
@@ -13206,7 +13322,7 @@
       "slug": "pe-comprehensive-management-threat-awareness-training",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2227,
+      "body_chars": 2146,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-06-20T01:46:15.620Z",
@@ -13239,7 +13355,7 @@
       "slug": "pe-comprehensive-management-timeline-disaster",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4273,
+      "body_chars": 4153,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-05-29T05:50:43.342Z",
@@ -13272,7 +13388,7 @@
       "slug": "pe-comprehensive-management-total-wage-management",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4476,
+      "body_chars": 4402,
       "scored": true,
       "weighted": 2.35,
       "scored_at": "2026-06-20T01:46:15.711Z",
@@ -13382,7 +13498,7 @@
       "slug": "pe-comprehensive-management-unreasonable-trade-restraint",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2578,
+      "body_chars": 2410,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:15.983Z",
@@ -13415,7 +13531,7 @@
       "slug": "pe-comprehensive-management-utility-model-rights",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3230,
+      "body_chars": 3143,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:16.075Z",
@@ -13437,7 +13553,7 @@
       "slug": "pe-comprehensive-management-value-chain-analysis",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2223,
+      "body_chars": 2112,
       "scored": true,
       "weighted": 2.75,
       "scored_at": "2026-06-20T01:46:16.105Z",
@@ -13470,12 +13586,12 @@
       "slug": "pe-comprehensive-management-verbal-nonverbal-communication",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 3010,
+      "body_chars": 2941,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:16.198Z",
       "failed": false,
-      "thin": false
+      "thin": true
     },
     {
       "slug": "pe-comprehensive-management-veteran-bias",
@@ -13525,7 +13641,7 @@
       "slug": "pe-comprehensive-management-vpn",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2562,
+      "body_chars": 2475,
       "scored": true,
       "weighted": 2.85,
       "scored_at": "2026-06-20T01:46:16.320Z",
@@ -13602,7 +13718,7 @@
       "slug": "pe-comprehensive-management-waterfall",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2615,
+      "body_chars": 2529,
       "scored": true,
       "weighted": 2.6,
       "scored_at": "2026-06-20T01:46:16.504Z",
@@ -13624,7 +13740,7 @@
       "slug": "pe-comprehensive-management-web-services",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 2129,
+      "body_chars": 2033,
       "scored": true,
       "weighted": 2.5,
       "scored_at": "2026-06-20T01:46:16.562Z",
@@ -13712,7 +13828,7 @@
       "slug": "pe-comprehensive-management-workers-compensation-insurance",
       "category": "pe-comprehensive-management",
       "group": "keyword",
-      "body_chars": 4934,
+      "body_chars": 4813,
       "scored": true,
       "weighted": 2.35,
       "scored_at": "2026-06-20T01:46:16.744Z",
@@ -13745,7 +13861,7 @@
       "slug": "pe-construction-bosai-kokudo-kyoujinka",
       "category": "pe-construction",
       "group": "keyword",
-      "body_chars": 2812,
+      "body_chars": 2807,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -13932,7 +14048,7 @@
       "slug": "pe-construction-infra-roukyuuka-iji",
       "category": "pe-construction",
       "group": "keyword",
-      "body_chars": 2836,
+      "body_chars": 2831,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -13987,7 +14103,7 @@
       "slug": "pe-construction-ninaite-kakuho-seisansei",
       "category": "pe-construction",
       "group": "keyword",
-      "body_chars": 2632,
+      "body_chars": 2627,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -15054,7 +15170,7 @@
       "slug": "pe-construction-secondary-study-method",
       "category": "pe-construction",
       "group": "guide",
-      "body_chars": 3859,
+      "body_chars": 3853,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -15065,7 +15181,7 @@
       "slug": "pe-construction-sentaku-kamoku-kakiwake",
       "category": "pe-construction",
       "group": "guide",
-      "body_chars": 3501,
+      "body_chars": 3496,
       "scored": true,
       "weighted": 2.8,
       "scored_at": "2026-07-10T00:00:00.000Z",
@@ -15164,7 +15280,7 @@
       "slug": "pe-construction-urban-planning-ronbun-keyword",
       "category": "pe-construction",
       "group": "keyword",
-      "body_chars": 2417,
+      "body_chars": 2412,
       "scored": true,
       "weighted": 2.4,
       "scored_at": "2026-07-10T00:00:00.000Z",

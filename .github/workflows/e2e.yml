@@ -5,6 +5,8 @@ on:
     paths:
       - "src/**"
       - "public/**"
+      - "content/**"
+      - "scripts/**"
       - "package.json"
       - "package-lock.json"
       - "next.config.mjs"
@@ -19,7 +21,7 @@ permissions:
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -39,6 +41,13 @@ jobs:
 
       - name: Type check
         run: npm run type-check
+
+      # E2E は dev サーバーではなくビルド成果物（out/）に対して回す。
+      # dev だと初めて踏むルートがリクエスト時にコンパイルされ、落ちるテストが実行ごとに
+      # 入れ替わる（実装は正しいのに赤）。さらに旧 /category/ /docs/ は Cloudflare の
+      # _redirects でしか存在せず dev では必ず 404 になり、リダイレクト検査が成立しない。
+      - name: Build
+        run: npm run build
 
       - name: Run E2E
         run: npm run test:e2e

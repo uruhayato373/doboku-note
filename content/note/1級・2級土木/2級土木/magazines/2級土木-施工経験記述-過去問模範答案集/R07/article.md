@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/ncb2a47ae9ddf
 noteId: ncb2a47ae9ddf
 notePublishedAt: 2026-06-02
 coverTitle: ["2級土木 施工経験記述", "令和7年度 過去問"]
-price: 980
+price: 1480
 paidBoundary: "想定工事①"
 cover:
   variant: crop-safe-v4

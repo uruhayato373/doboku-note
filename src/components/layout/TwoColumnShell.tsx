@@ -1,7 +1,7 @@
 /**
  * 2カラムレイアウト（本文 + 右サイドバー）の単一定義。
  *
- * docs 記事・category ページが個別に手書きしていた
+ * docs 記事・category ページ・standards ライブラリが個別に手書きしていた
  *   <div className="max-w-[1280px] mx-auto ... flex gap-* relative"><main>…</main><aside>…</aside></div>
  * を 1 箇所に集約する（2026-07 余白リデザインで新設）。
  *
@@ -14,7 +14,7 @@
  *
  * gutter（外周余白）は 2 系統:
  * - 'flush-mobile' : docs 記事用。≤576px は外周 0（記事カードをフルブリードさせるため）
- * - 'default'      : category 等。サイト共通の px-4 sm:px-6 lg:px-10
+ * - 'default'      : category / standards 等。サイト共通の px-4 sm:px-6 lg:px-10
  */
 
 import type { ReactNode } from 'react';
@@ -29,6 +29,16 @@ const GUTTERS: Record<Gutter, string> = {
 interface TwoColumnShellProps {
   /** 外周 gutter。既定 'default' */
   gutter?: Gutter;
+  /**
+   * 本文列の要素。既定 'main'（docs 記事・category が PageShell variant='article' と組み、
+   * このシェルが landmark を供給する形）。
+   *
+   * 'div' は、ページ側が **PageShell variant='default' の <main> の内側で** このシェルを使うとき。
+   * standards がこれで、band 見出し（H1）をシェルの外＝<main> の直下に置きたいので landmark は
+   * PageShell 側が持つ。ここで両方が <main> を出すと入れ子になって HTML として不正になり
+   * （1 文書 1 main）、SSR 検査の <main> 数え上げも狂う。
+   */
+  as?: 'main' | 'div';
   /** <main> への追加クラス（縦 padding の差分吸収用）。既定 'py-10' */
   mainClassName?: string;
   /** 右サイドバーの中身。<aside> 要素・幅（w-[316px]）・表示制御（≥993px）はシェルが所有する */
@@ -38,16 +48,18 @@ interface TwoColumnShellProps {
 
 export default function TwoColumnShell({
   gutter = 'default',
+  as = 'main',
   mainClassName = 'py-10',
   aside,
   children,
 }: TwoColumnShellProps) {
+  const Body = as;
   return (
     <div className={`max-w-[1280px] mx-auto ${GUTTERS[gutter]} flex gap-10 relative`}>
       {/* 上端揃えの不変条件: aside の py-10 は main の上 padding（既定 mainClassName='py-10'、
           category は 'pt-8 sm:pt-10'＝≥993px で 40px）と同値であること。ここが唯一の縦位置供給源。
           main/aside の先頭要素に独自 margin-top を持たせない（先頭が下がって上端がズレる）。 */}
-      <main className={`flex-1 min-w-0 ${mainClassName}`}>{children}</main>
+      <Body className={`flex-1 min-w-0 ${mainClassName}`}>{children}</Body>
       {aside && (
         <aside className="hidden zenn-desktop:block w-[316px] shrink-0 py-10">{aside}</aside>
       )}

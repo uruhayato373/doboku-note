@@ -146,7 +146,8 @@
 | コンポーネント | 役割 | 主な API |
 |---|---|---|
 | `PageShell`（`layout/PageShell.tsx`） | 全ページの chrome（Header/main/Footer）を 1 箇所に集約 | `variant`: `default`（素の main・ページ側が PageHeader+SectionBlock を構成）/ `content`（内側 content rail を持つ単カラム）/ `article`（2カラム記事・内側で `TwoColumnShell` を使う）。`rail`: `780`(既定)/`820`/`860`。`beforeHeader` |
-| `TwoColumnShell`（`layout/TwoColumnShell.tsx`） | **2カラム（本文＋右サイドバー）の単一定義**。docs 記事・category が共用（旧: 各ページが手書きコピペ）。外枠 `max-w-[1280px]`・カラム間 `gap-10`(40px)・サイドバー `w-[316px]`(316px＝300px バナー + 内側 padding 16px)・`zenn-desktop`(≥993px)でのみサイドバー表示——これらレイアウト値の**真実源はこのファイルのみ**（幅・gap・cap を変えるときはここだけ）。サイドバー中身は `aside` prop へ渡す（`<aside>` 要素・幅・表示制御はシェルが所有） | `gutter`: `flush-mobile`（docs・≤576px 外周0でカードフルブリード）/ `default`（category 等・`px-4 sm:px-6 lg:px-10`）。`mainClassName`(既定 `py-10`)。`aside` |
+| `TwoColumnShell`（`layout/TwoColumnShell.tsx`） | **2カラム（本文＋右サイドバー）の単一定義**。docs 記事・category・standards 下層が共用（旧: 各ページが手書きコピペ）。外枠 `max-w-[1280px]`・カラム間 `gap-10`(40px)・サイドバー `w-[316px]`(316px＝300px バナー + 内側 padding 16px)・`zenn-desktop`(≥993px)でのみサイドバー表示——これらレイアウト値の**真実源はこのファイルのみ**（幅・gap・cap を変えるときはここだけ）。サイドバー中身は `aside` prop へ渡す（`<aside>` 要素・幅・表示制御はシェルが所有） | `gutter`: `flush-mobile`（docs・≤576px 外周0でカードフルブリード）/ `default`（category / standards 等・`px-4 sm:px-6 lg:px-10`）。`mainClassName`(既定 `py-10`)。`aside` |
+| `StandardsNavigation`（`standards/StandardsNavigation.tsx`） | `/standards` 下層の階層ナビ。地域ページ＝発行機関、文書ページ＝同機関の文書＋分冊、文字起こしページ＝分冊＋当該 PDF ページアンカーへ文脈に応じて切替。PC は右サイドバー全体を `sticky top-6`＋内部スクロール、モバイルは同一情報を native `<details>` に畳み、サイドバー非表示時も導線を失わない。広告・著者情報は置かず、公共資料の閲覧ナビに限定する | `agencyId` / `currentDocument?` / `currentPart?` / `pageNumbers?` / `variant`（sidebar/mobile） |
 | `PageHeader`（`layout/PageHeader.tsx`） | 下層ページの breadcrumb + eyebrow label + h1 + lead + meta + actions | `variant`: `band`(全幅帯)/`inline`(帯なし)。`titleSize`: `default`/`lg`。`width`: `wide`(既定)/`860`/`780`/`760` |
 | `SectionBlock`（`layout/SectionBlock.tsx`） | セクション間余白・band 背景を統一 | — |
 | `SectionCard`（`ui/SectionCard/`） | カード（radius/border/shadow を token に統一・カード内カード回避） | — |
@@ -177,7 +178,7 @@
 | 記事カード 横 padding | ≤576px `16px`（`--article-gutter-sp`）/ 577–992px `40px`（`px-10`）/ ≥993px `44px`（`zenn-desktop:px-11`） |
 
 単カラムページでも外枠は変えず、読み幅は内側 content rail で制御する。
-2カラム（docs/category）は必ず `TwoColumnShell` を使い、コンテナ・サイドバー幅・gap を手書きしない。
+2カラム（docs/category/standards 下層）は必ず `TwoColumnShell` を使い、コンテナ・サイドバー幅・gap を手書きしない。
 モバイル（≤576px）は記事カードを外周0でフルブリードし、設問カード（`.prose-blog details`）は
 `--article-gutter-sp` を負マージンで相殺して真の全幅化＋内側同値 padding の単層にする（二重 padding 回避）。
 
@@ -190,21 +191,24 @@
 
 ### 3.4 右サイドバー
 
-右サイドバーを置くのは以下の**2 ページのみ**:
+右サイドバーを置くのは以下の**3 系統のみ**:
 
 - `/docs/[slug]`（記事 = `ArticleSidebar`）
 - `/category/[slug]`
+- `/standards/[agency]` とその下層（公共基準類ライブラリ = `StandardsNavigation`）
 
 以下には**追加しない**: `/links`・`/search`・`/about`・`/privacy`・`/terms`・`/tools`。
 理由 — 検索=入力と結果比較に集中 / links=試験カードを全幅で大きく / about=本文そのもので右に逃さない。
 
-**上端揃え（docs/category 共通）**: メイン本文と右サイドバーの上端は揃える。縦位置は `TwoColumnShell` の `aside py-10` ＝ main の上 padding（≥993px で 40px）が唯一の供給源で、**サイドバー先頭要素・main 先頭要素に独自の `margin-top` を持たせない**（先頭が下がって上端がズレる。例: 旧 `SidebarAdBanner` の `mt-3` を撤去して是正）。
+**上端揃え（docs/category/standards 共通）**: メイン本文と右サイドバーの上端は揃える。縦位置は `TwoColumnShell` の `aside py-10` ＝ main の上 padding（≥993px で 40px）が唯一の供給源で、**サイドバー先頭要素・main 先頭要素に独自の `margin-top` を持たせない**（先頭が下がって上端がズレる。例: 旧 `SidebarAdBanner` の `mt-3` を撤去して是正）。
 
 **PC 右サイドバー（`/docs`）は 2 ブロック構成**（2026-07 改訂）:
 1. **通常フロー（追従させない）**: 転職アフィリ枠（最上部・唯一のピクセル源）→ note もくじタイル（`HubCtaBanner`・転職枠直下に 1 枚・utm `-docs-sb`。HUB 対応資格 & 非 career 記事のときのみ＝`resolveHubCta` が null で自動非表示）→ 運営者プロフィール。広告・著者は追従させない（「広告が追いかけてくる」体験を避ける）。
 2. **sticky クラスタ（列の最終要素・読中に追従）**: TOC / 設問ナビ → カテゴリナビ → ピラーナビ。`sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto`。ナビゲーションだけ追従させ長記事でも導線を視界に残す。
 
 > sticky クラスタの**下に非 sticky 要素を置かない**（下スクロールで届かなくなる過去事故）。だからクラスタは列の末尾に置く。TOC 自身の `max-h` は撤去し高さ制御を sticky コンテナへ一元化。note もくじタイルは記事末尾（`ArticleFooter`・utm `-footer`）と PC サイドバー（utm `-docs-sb`）に各 1 枚を併掲し全 HUB ページで統一（2026-07・個別マガジンタイルは廃止）。
+
+**PC 右サイドバー（`/standards` 下層）は閲覧ナビ専用**: 地域→文書→分冊→PDFページのうち現在地に必要な階層だけを表示する。列全体を `sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto` とし、長い分冊・ページ一覧も画面内で操作できる。広告・著者カードは置かない。モバイルでは同一リンク群を `<details>` に畳み、右サイドバーが消える幅でも階層移動を維持する。
 
 ---
 

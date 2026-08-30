@@ -149,6 +149,10 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 | 総監 ペルソナ別 R8予想単品（③老朽化/④災害復旧/⑤AI社会/⑥経済安保・¥780） | `article:essay-{persona}-r08-{3..6}`（例: `essay-sabo-municipality-r08-3` / `essay-general-contractor-r08-6`。persona はマガジン id `essay-{persona}-magazine` に合わせる） |
 | 建設部門 電力土木/鉄道 R8予想単品 | `article:bk-power-civil-r8-yosou-{ii1\|ii2\|iii}` / `article:bk-railway-r8-yosou-{ii1\|ii2\|iii}` |
 | 1級2級土木 学科記述 直前暗記ノート | `article:civil-1-anki-note`（¥980）/ `article:civil-2-anki-note`（¥580）。noteUrl は `/n/…` 単品（マガジン非収録） |
+| 1級土木 第1次検定 出る順 合格ノート | `article:civil-1-ichiji-ronten` |
+| 1級土木 二次 出題分析と直前の重点 | `article:civil-1-r8-bunseki` |
+| コンクリート主任技士 配合計算 実戦演習12問 | `article:cce-mix-calculation-practice` |
+| 1級土木 第1次検定 過去問PDF | `article:civil-1-takuitsu-pdf` |
 
 ### ココナラ（非 note チャネル・2026-07-16〜）
 
@@ -169,9 +173,11 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 3. 本ドキュメントの命名規則テーブルに追記
 
 > **機械ガード**: 手順②の取りこぼし（mapping 陳腐化）は `npm run check-sales-mapping` が検知する。
-> sales-log.json に出現する productId が sales-recorder.md の mapping パターンに 1 つも一致しない、
-> または `article:unknown-*` が残っていると **pre-commit で commit を止める**（sales-log.json か
-> sales-recorder.md を含むコミットのみ発火）。緊急回避は `SKIP_SALES_MAPPING=1`。
+> sales-log.json に出現する productId が sales-recorder.md の mapping パターンに一致しない、
+> `article:unknown-*` が残っている、または `note-magazines.ts` の公開済み単品（`/n/`）に
+> `article:<catalog-id>` の明示 mapping がないと **pre-commit / CI で止める**。
+> pre-commit は sales-log.json・sales-recorder.md・note-magazines.ts のいずれかを含む変更で発火する。
+> 緊急回避は `SKIP_SALES_MAPPING=1`。
 
 ---
 

@@ -636,6 +636,19 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
+  // 10.5. コンクリート主任技士 配合設計 → 配合計算の分野一致商品。
+  //       過去問解説／体系解説を読んだ直後に、別数値のオリジナル12問で定着させる。
+  //       published:false の間は slot() が空になり、公開前のリンク露出を防ぐ。
+  if (
+    slug === 'concrete-chief-engineer-primary-mix-design' ||
+    slug === 'concrete-chief-engineer-textbook-mix-design'
+  ) {
+    return {
+      top: slot('cce-mix-calculation-practice', slug, 'top'),
+      inline: [],
+    };
+  }
+
   // 11. 高流入なのに note 導線が無かった 5 面（DN-0128・2026-08-25）。
   //     W33/W34/W35 と 3 週続けて Must に挙がり続けた面のうち、実際に未配線だったもの。
   //     （r08-primary と competency-revision-r8 は W33 時点で top 配線済みだったが、
@@ -663,7 +676,6 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //   - textbook-mix-design（配合設計）→「耐久性」（W/C 比・かぶり）経由の接続で、上 2 つより弱い
   if (
     slug === 'concrete-chief-engineer-textbook-production-qc' ||
-    slug === 'concrete-chief-engineer-textbook-mix-design' ||
     slug === 'concrete-chief-engineer-primary-construction'
   ) {
     // inline は h2>=5 かつ 8,000 字を満たす textbook のみ意味を持つ。

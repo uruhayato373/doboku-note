@@ -1,6 +1,6 @@
 ---
 notePricing: membership
-noteStatus: reserved
+noteStatus: published
 noteSeries: 学科記述予想
 membershipOnly: true
 utmCampaign: civil-membership-gakka-quality
