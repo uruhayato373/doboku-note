@@ -175321,7 +175321,13 @@
       "visibility": "private",
       "regenerable": true,
       "group": "note-delivery-pdf",
-      "verifiedAt": "2026-08-31T22:50:48.506Z"
+      "verifiedAt": "2026-08-31T22:50:48.506Z",
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C9-2級二次予想模試-第3回-問題冊子.pdf",
+      "mime": "application/pdf",
+      "generator": "scripts/magazine-to-pdf.mjs",
+      "requiredBy": [
+        "scripts/note-attach-file.mjs"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C9-2級二次予想模試-第2回-問題冊子.pdf": {
       "bucket": "private",
@@ -175331,7 +175337,13 @@
       "visibility": "private",
       "regenerable": true,
       "group": "note-delivery-pdf",
-      "verifiedAt": "2026-08-31T22:50:48.649Z"
+      "verifiedAt": "2026-08-31T22:50:48.649Z",
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C9-2級二次予想模試-第2回-問題冊子.pdf",
+      "mime": "application/pdf",
+      "generator": "scripts/magazine-to-pdf.mjs",
+      "requiredBy": [
+        "scripts/note-attach-file.mjs"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C9-2級二次予想模試-第1回-解答解説.pdf": {
       "bucket": "private",
@@ -175341,7 +175353,13 @@
       "visibility": "private",
       "regenerable": true,
       "group": "note-delivery-pdf",
-      "verifiedAt": "2026-08-31T22:50:48.671Z"
+      "verifiedAt": "2026-08-31T22:50:48.671Z",
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C9-2級二次予想模試-第1回-解答解説.pdf",
+      "mime": "application/pdf",
+      "generator": "scripts/magazine-to-pdf.mjs",
+      "requiredBy": [
+        "scripts/note-attach-file.mjs"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C9-2級二次予想模試-第3回-解答解説.pdf": {
       "bucket": "private",
@@ -175351,7 +175369,13 @@
       "visibility": "private",
       "regenerable": true,
       "group": "note-delivery-pdf",
-      "verifiedAt": "2026-08-31T22:50:48.726Z"
+      "verifiedAt": "2026-08-31T22:50:48.726Z",
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C9-2級二次予想模試-第3回-解答解説.pdf",
+      "mime": "application/pdf",
+      "generator": "scripts/magazine-to-pdf.mjs",
+      "requiredBy": [
+        "scripts/note-attach-file.mjs"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C9-2級二次予想模試-第2回-解答解説.pdf": {
       "bucket": "private",
@@ -175361,7 +175385,13 @@
       "visibility": "private",
       "regenerable": true,
       "group": "note-delivery-pdf",
-      "verifiedAt": "2026-08-31T22:50:48.827Z"
+      "verifiedAt": "2026-08-31T22:50:48.827Z",
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C9-2級二次予想模試-第2回-解答解説.pdf",
+      "mime": "application/pdf",
+      "generator": "scripts/magazine-to-pdf.mjs",
+      "requiredBy": [
+        "scripts/note-attach-file.mjs"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C9-2級二次予想模試-第1回-問題冊子.pdf": {
       "bucket": "private",
@@ -175371,7 +175401,93 @@
       "visibility": "private",
       "regenerable": true,
       "group": "note-delivery-pdf",
-      "verifiedAt": "2026-08-31T22:50:48.915Z"
+      "verifiedAt": "2026-08-31T22:50:48.915Z",
+      "logicalPath": "content/note/1級・2級土木/2級土木/magazines/2級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C9-2級二次予想模試-第1回-問題冊子.pdf",
+      "mime": "application/pdf",
+      "generator": "scripts/magazine-to-pdf.mjs",
+      "requiredBy": [
+        "scripts/note-attach-file.mjs"
+      ]
+    },
+    "content/note/1級・2級土木/1級土木/magazines/1級土木-R8二次-予想模試3回/施工経験記述/img/cover.png": {
+      "bucket": "public",
+      "r2Key": "note/covers/1級・2級土木/1級土木/magazines/1級土木-R8二次-予想模試3回/施工経験記述/img/cover.png",
+      "sha256": "bd52f02b3069cd5fd2e8079fef23584c29771b3eb26d1c0337014511b0e04e77",
+      "bytes": 1054324,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-08-31T22:51:59.340Z",
+      "width": 1280,
+      "height": 670,
+      "logicalPath": "content/note/1級・2級土木/1級土木/magazines/1級土木-R8二次-予想模試3回/施工経験記述/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-publish.mjs",
+        "scripts/note-update-cover.mjs",
+        "tools/admin-app（画像ギャラリー）"
+      ]
+    },
+    "content/note/1級・2級土木/1級土木/magazines/1級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C8-1級二次予想模試-第3回-問題冊子.pdf": {
+      "bucket": "private",
+      "r2Key": "note/delivery-pdf/1級・2級土木/1級土木/magazines/1級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C8-1級二次予想模試-第3回-問題冊子.pdf",
+      "sha256": "4482724117b571507f88dfb42c3601df1debc5d0fd6da36cfb94108de4262be4",
+      "bytes": 710638,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "note-delivery-pdf",
+      "verifiedAt": "2026-08-31T22:52:04.304Z"
+    },
+    "content/note/1級・2級土木/1級土木/magazines/1級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C8-1級二次予想模試-第2回-問題冊子.pdf": {
+      "bucket": "private",
+      "r2Key": "note/delivery-pdf/1級・2級土木/1級土木/magazines/1級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C8-1級二次予想模試-第2回-問題冊子.pdf",
+      "sha256": "889fb09d0caf50be04850f5403192281e64861577c43b9de26579966efbc1323",
+      "bytes": 656641,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "note-delivery-pdf",
+      "verifiedAt": "2026-08-31T22:52:05.063Z"
+    },
+    "content/note/1級・2級土木/1級土木/magazines/1級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C8-1級二次予想模試-第3回-解答解説.pdf": {
+      "bucket": "private",
+      "r2Key": "note/delivery-pdf/1級・2級土木/1級土木/magazines/1級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C8-1級二次予想模試-第3回-解答解説.pdf",
+      "sha256": "5512ebdca2ef9d5e95c03e7900d5e6ede4bdbef63c65d7d3851ced18eeec1eba",
+      "bytes": 628896,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "note-delivery-pdf",
+      "verifiedAt": "2026-08-31T22:52:05.142Z"
+    },
+    "content/note/1級・2級土木/1級土木/magazines/1級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C8-1級二次予想模試-第1回-問題冊子.pdf": {
+      "bucket": "private",
+      "r2Key": "note/delivery-pdf/1級・2級土木/1級土木/magazines/1級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C8-1級二次予想模試-第1回-問題冊子.pdf",
+      "sha256": "83d5edce329b689f99946a38278c0d58f29512c0db3def3daaebe0b5f2296df8",
+      "bytes": 1101919,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "note-delivery-pdf",
+      "verifiedAt": "2026-08-31T22:52:05.462Z"
+    },
+    "content/note/1級・2級土木/1級土木/magazines/1級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C8-1級二次予想模試-第1回-解答解説.pdf": {
+      "bucket": "private",
+      "r2Key": "note/delivery-pdf/1級・2級土木/1級土木/magazines/1級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C8-1級二次予想模試-第1回-解答解説.pdf",
+      "sha256": "84b7312b320381e26152da603bfbb465ad69df2407f311a2475178155ee7d307",
+      "bytes": 1170444,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "note-delivery-pdf",
+      "verifiedAt": "2026-08-31T22:52:05.861Z"
+    },
+    "content/note/1級・2級土木/1級土木/magazines/1級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C8-1級二次予想模試-第2回-解答解説.pdf": {
+      "bucket": "private",
+      "r2Key": "note/delivery-pdf/1級・2級土木/1級土木/magazines/1級土木-R8二次-予想模試3回/施工経験記述/pdf/coconala-C8-1級二次予想模試-第2回-解答解説.pdf",
+      "sha256": "abb24226684fc8d7dd68590928dde9ec2393df6e8679e745b1965b6184c86e45",
+      "bytes": 577836,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "note-delivery-pdf",
+      "verifiedAt": "2026-08-31T22:52:05.938Z"
     }
   }
 }
