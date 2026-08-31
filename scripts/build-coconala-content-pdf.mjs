@@ -104,8 +104,12 @@ const PRODUCTS = {
     label: 'coconala-1kyu-moshi-pdf',
     generated: true,
     articles: [
-      { src: 'C8-1級模試/問題冊子.md', out: 'coconala-C8-1級二次予想模試-問題冊子', title: '1級土木 第2次検定 予想模擬試験 問題冊子', includeFrom: '^## ' },
-      { src: 'C8-1級模試/解答解説.md', out: 'coconala-C8-1級二次予想模試-解答解説', title: '1級土木 第2次検定 予想模擬試験 解答・解説', includeFrom: '^## ' },
+      { src: 'C8-1級模試/問題冊子.md', out: 'coconala-C8-1級二次予想模試-第1回-問題冊子', title: '1級土木 第2次検定 予想模擬試験 第1回 問題冊子', includeFrom: '^## ' },
+      { src: 'C8-1級模試/解答解説.md', out: 'coconala-C8-1級二次予想模試-第1回-解答解説', title: '1級土木 第2次検定 予想模擬試験 第1回 解答・解説', includeFrom: '^## ' },
+      { src: 'C8-1級模試/第2回問題冊子.md', out: 'coconala-C8-1級二次予想模試-第2回-問題冊子', title: '1級土木 第2次検定 予想模擬試験 第2回 問題冊子', includeFrom: '^## ' },
+      { src: 'C8-1級模試/第2回解答解説.md', out: 'coconala-C8-1級二次予想模試-第2回-解答解説', title: '1級土木 第2次検定 予想模擬試験 第2回 解答・解説', includeFrom: '^## ' },
+      { src: 'C8-1級模試/第3回問題冊子.md', out: 'coconala-C8-1級二次予想模試-第3回-問題冊子', title: '1級土木 第2次検定 予想模擬試験 第3回 問題冊子', includeFrom: '^## ' },
+      { src: 'C8-1級模試/第3回解答解説.md', out: 'coconala-C8-1級二次予想模試-第3回-解答解説', title: '1級土木 第2次検定 予想模擬試験 第3回 解答・解説', includeFrom: '^## ' },
     ],
   },
   // C9: 2級 二次 予想模擬試験（問題冊子＋解答解説冊子）。源=生成 markdown（C7論点から）。
@@ -113,8 +117,12 @@ const PRODUCTS = {
     label: 'coconala-2kyu-moshi-pdf',
     generated: true,
     articles: [
-      { src: 'C9-2級模試/問題冊子.md', out: 'coconala-C9-2級二次予想模試-問題冊子', title: '2級土木 第2次検定 予想模擬試験 問題冊子', includeFrom: '^## ' },
-      { src: 'C9-2級模試/解答解説.md', out: 'coconala-C9-2級二次予想模試-解答解説', title: '2級土木 第2次検定 予想模擬試験 解答・解説', includeFrom: '^## ' },
+      { src: 'C9-2級模試/問題冊子.md', out: 'coconala-C9-2級二次予想模試-第1回-問題冊子', title: '2級土木 第2次検定 予想模擬試験 第1回 問題冊子', includeFrom: '^## ' },
+      { src: 'C9-2級模試/解答解説.md', out: 'coconala-C9-2級二次予想模試-第1回-解答解説', title: '2級土木 第2次検定 予想模擬試験 第1回 解答・解説', includeFrom: '^## ' },
+      { src: 'C9-2級模試/第2回問題冊子.md', out: 'coconala-C9-2級二次予想模試-第2回-問題冊子', title: '2級土木 第2次検定 予想模擬試験 第2回 問題冊子', includeFrom: '^## ' },
+      { src: 'C9-2級模試/第2回解答解説.md', out: 'coconala-C9-2級二次予想模試-第2回-解答解説', title: '2級土木 第2次検定 予想模擬試験 第2回 解答・解説', includeFrom: '^## ' },
+      { src: 'C9-2級模試/第3回問題冊子.md', out: 'coconala-C9-2級二次予想模試-第3回-問題冊子', title: '2級土木 第2次検定 予想模擬試験 第3回 問題冊子', includeFrom: '^## ' },
+      { src: 'C9-2級模試/第3回解答解説.md', out: 'coconala-C9-2級二次予想模試-第3回-解答解説', title: '2級土木 第2次検定 予想模擬試験 第3回 解答・解説', includeFrom: '^## ' },
     ],
   },
 };
