@@ -71,6 +71,13 @@ function labelsOf(text) {
     const slot = m[1] === '(1)' || m[1] === '①' ? 1 : 2;
     push(slot, m[1] + ' ' + m[2]);
   }
+  // 箇条書きの要素ラベル（配点目安・チェックリスト等）。`- ② 検討した内容：3点（…）` の形。
+  // **設問文だけ直して配点表を直し忘れる**のが実際に起きた（2026-08-31 の C8 模試。
+  // 設問(2)・字数案内は 1級式へ直っていたのに、配点目安だけ「② 検討した内容」が残っていた）。
+  // 要素名は「：」「（」の手前まで。点数や採点基準の文言まで含めると誤検知する。
+  for (const m of text.matchAll(/^\s*[-*]\s*([①②])\s*([^：:（(\n]+)/gm)) {
+    push(m[1] === '①' ? 1 : 2, m[1] + ' ' + m[2]);
+  }
   // 設問文（「それぞれ①…、②…を記述しなさい」）も拾う
   for (const m of text.matchAll(/それぞれ①([^、]+)、②([^を]+)を記述/g)) {
     push(1, '① ' + m[1]);
@@ -108,6 +115,12 @@ for (const s of SCAN) {
     filesScanned++;
     for (const { slot, label } of labels) {
       labelsScanned++;
+      // 箇条書きの要素ラベルは「② 検討した項目」のように助詞を伴わないので、
+      // KENTO_WRITTEN_HERE（と/、での並列）では拾えない。要素名そのものが検討なら違反。
+      if (slot === 2 && /^②\s*検討(した)?(内容|項目|事項)\s*$/.test(label) && grade === 'civil-1') {
+        violations.push({ file: rel, grade, slot, label, why: '1級の配点/要素一覧で検討要素を②側に置いている。1級の検討項目は①側（設問文だけ直して配点表を直し忘れた形）' });
+        continue;
+      }
       if (slot === 2 && KENTO_WRITTEN_HERE.test(label) && grade === 'civil-1') {
         violations.push({ file: rel, grade, slot, label, why: '1級の(2)で検討要素を書かせている（2級式の混入）。検討項目は(1)側。②は「(1)で検討した項目の対応処置とその評価」' });
       }
