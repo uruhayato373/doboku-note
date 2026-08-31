@@ -53,6 +53,20 @@ function toSlug(filePath) {
   return withoutExt.split(/[\\/]/).filter((s) => s && s !== 'article').join('-');
 }
 
+// ── 同数タグの並びをマシン非依存に固定する ──────
+// localeCompare() は実行環境のロケールで結果が変わる（ja-JP だと
+// 「建設部門」と「技術士（第二次試験）」（ともに count=128）の前後が
+// en-US と逆になり、生成マシンを跨ぐと同値タグの順序が入れ替わって
+// 562 行の差分ノイズになる。小文字畳み込み（Unicode 規定でロケール非依存）
+// → コードポイント順の 2 段で、既存の並びを保ったまま Node/ICU/OS に依らず確定させる。
+
+function compareTagName(a, b) {
+  const la = a.toLowerCase();
+  const lb = b.toLowerCase();
+  if (la !== lb) return la < lb ? -1 : 1;
+  return a < b ? -1 : a > b ? 1 : 0;
+}
+
 // ── Levenshtein 距離 (制限付き、距離 1 のみ興味がある) ──────
 
 function levenshteinLE1(a, b) {
@@ -140,7 +154,7 @@ function main() {
       inAllowlist: allowlistSet.has(name),
       usedIn: Array.from(usedIn).sort(),
     }))
-    .sort((a, b) => b.count - a.count || a.name.localeCompare(b.name));
+    .sort((a, b) => b.count - a.count || compareTagName(a.name, b.name));
 
   const unknown = allTags.filter((t) => !t.inAllowlist).map((t) => t.name);
 
