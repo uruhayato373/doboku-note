@@ -36530,7 +36530,13 @@
       "visibility": "private",
       "regenerable": true,
       "group": "note-delivery-pdf",
-      "verifiedAt": "2026-08-31T08:18:27.584Z"
+      "verifiedAt": "2026-08-31T08:18:27.584Z",
+      "logicalPath": "content/note/技術士建設部門/magazines/BK-01_道路/R03/建設部門-道路-R03-III-模範解答.pdf",
+      "mime": "application/pdf",
+      "generator": "scripts/magazine-to-pdf.mjs",
+      "requiredBy": [
+        "scripts/note-attach-file.mjs"
+      ]
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事68-上水道配水管布設開削/2級土木-想定工事-工事68-上水道配水管布設開削.pdf": {
       "bucket": "private",
@@ -36556,7 +36562,13 @@
       "visibility": "private",
       "regenerable": true,
       "group": "note-delivery-pdf",
-      "verifiedAt": "2026-08-31T08:18:27.644Z"
+      "verifiedAt": "2026-08-31T08:18:27.644Z",
+      "logicalPath": "content/note/技術士建設部門/magazines/BK-01_道路/R03/建設部門-道路-R03-II-2-模範解答.pdf",
+      "mime": "application/pdf",
+      "generator": "scripts/magazine-to-pdf.mjs",
+      "requiredBy": [
+        "scripts/note-attach-file.mjs"
+      ]
     },
     "content/note/技術士建設部門/magazines/BK-01_道路/R03/建設部門-道路-R03-II-1-模範解答.pdf": {
       "bucket": "private",
@@ -36566,7 +36578,13 @@
       "visibility": "private",
       "regenerable": true,
       "group": "note-delivery-pdf",
-      "verifiedAt": "2026-08-31T08:18:27.473Z"
+      "verifiedAt": "2026-08-31T08:18:27.473Z",
+      "logicalPath": "content/note/技術士建設部門/magazines/BK-01_道路/R03/建設部門-道路-R03-II-1-模範解答.pdf",
+      "mime": "application/pdf",
+      "generator": "scripts/magazine-to-pdf.mjs",
+      "requiredBy": [
+        "scripts/note-attach-file.mjs"
+      ]
     },
     "content/note/技術士一次/一次択一-過去問PDF/技術士一次択一-過去問PDF.pdf": {
       "bucket": "private",
@@ -165456,22 +165474,12 @@
     ".claude/config/coconala/assets/pdf/coconala-C8-1級二次予想模試-問題冊子.pdf": {
       "bucket": "private",
       "r2Key": "coconala/assets/pdf/coconala-C8-1級二次予想模試-問題冊子.pdf",
-      "sha256": "763efeb8df0de054bb814f271353dd2c4848939c3a8e70610fb37b3bc71cf4af",
-      "bytes": 570069,
+      "sha256": "7573241c11a7553df75dd50015803107efeaa6ae3637223ddc5770ebe6200a8d",
+      "bytes": 570635,
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:30.501Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C8-1級二次予想模試-問題冊子.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T08:39:08.391Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-05-施工計画・環境.pdf": {
       "bucket": "private",
@@ -165538,22 +165546,12 @@
     ".claude/config/coconala/assets/pdf/coconala-C8-1級二次予想模試-解答解説.pdf": {
       "bucket": "private",
       "r2Key": "coconala/assets/pdf/coconala-C8-1級二次予想模試-解答解説.pdf",
-      "sha256": "9653cb94a80316c5a213774b564571b02895aba27a16dea12f8d7d3250057e6a",
-      "bytes": 564106,
+      "sha256": "8357521c220755b1073ef5705ac7cdb4610c840fa79976a76da604e863fcaa73",
+      "bytes": 568896,
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:30.746Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C8-1級二次予想模試-解答解説.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T08:39:08.469Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-02-品質管理.pdf": {
       "bucket": "private",
