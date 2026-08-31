@@ -1,6 +1,6 @@
 # 089 concrete-chief-2026-08-late
 
-<!-- コンクリート主任技士 X 継続展開(086の続き)。申込締切2026-09-01・試験2026-11-30。086(8/19・8/21)とフック/CTAを重複させない。表記は必ず「主任技士」。8/31の2本は締切前日。 -->
+<!-- コンクリート主任技士 X 継続展開(086の続き)。申込締切2026-08-25・試験2026-11-29。086(8/19・8/21)とフック/CTAを重複させない。表記は必ず「主任技士」。 -->
 
 ## Tweet 01: 8/23 12:35 concrete-chief / 出題実績分析 / site
 
@@ -39,6 +39,6 @@ https://doboku-note.com/docs/concrete-chief-engineer-guide-essay?utm_source=x&ut
 過去問20問を年度別に解説:
 https://doboku-note.com/docs/concrete-chief-engineer-primary-durability?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=aug31-primary-durability
 
-申込締切は明日9/1、試験は11/30。
+2026年度の申込受付は8/25で終了、試験は11/29。
 
 #コンクリート主任技士 #コンクリート技士

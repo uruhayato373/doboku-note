@@ -18,6 +18,10 @@ const STEPS: Record<string, StepSpec[]> = {
     { anchor: 'primary', label: '過去問で実力をためす', hint: '年度別の第1次・第2次検定' },
     { anchor: 'fields', label: '他の分野の要点を見る', hint: '出題分野別のまとめ' },
   ],
+  'concrete-engineer': [
+    { anchor: 'textbook', label: '分野別テキストで基礎を固める', hint: '材料・配合・試験・製造・施工' },
+    { anchor: 'primary', label: 'オリジナル問題で確認する', hint: '技士レベルの四肢択一' },
+  ],
   'concrete-chief-engineer': [
     { anchor: 'primary', label: '過去問で実力をためす', hint: '分野別の四肢択一' },
     { anchor: 'textbook', label: 'テキストで体系的に学ぶ', hint: '章立ての本文解説' },

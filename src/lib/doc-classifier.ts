@@ -68,7 +68,7 @@ export function classifyDoc(meta: DocMeta): DocGroupKey {
     return 'guide';
   }
 
-  if (category === 'concrete-chief-engineer' || category === 'concrete-diagnostician') {
+  if (category === 'concrete-engineer' || category === 'concrete-chief-engineer' || category === 'concrete-diagnostician') {
     if (tags.includes('textbook')) return 'textbook';
     if (tags.includes('primary') || tags.includes('past-questions')) return 'primary';
     if (tags.includes('guide')) return 'guide';
@@ -105,6 +105,11 @@ const GROUP_LABELS: Record<string, Partial<Record<DocGroupKey, string>>> = {
     pastExam: '過去問',
     keyword: 'キーワード',
   },
+  'concrete-engineer': {
+    guide: '試験ガイド',
+    textbook: 'テキスト（分野別解説）',
+    primary: 'オリジナル演習',
+  },
   'concrete-chief-engineer': {
     guide: '試験ガイド',
     textbook: 'テキスト（分野別解説）',
@@ -122,7 +127,7 @@ export function getGroupOrder(category: string): DocGroupKey[] {
   if (category === 'pe-first-stage') return PE_FIRST_STAGE_GROUP_ORDER;
   if (category === 'pe-construction') return PE_CONSTRUCTION_GROUP_ORDER;
   if (category === 'civil-construction-1' || category === 'civil-construction-2') return CIVIL_GROUP_ORDER;
-  if (category === 'concrete-chief-engineer' || category === 'concrete-diagnostician') return CONCRETE_GROUP_ORDER;
+  if (category === 'concrete-engineer' || category === 'concrete-chief-engineer' || category === 'concrete-diagnostician') return CONCRETE_GROUP_ORDER;
   return ['keyword'];
 }
 

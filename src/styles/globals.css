@@ -66,6 +66,7 @@
     --exam-civil-2: #2a7050;         /* 2級土木＝緑 */
     --exam-pe: #16365c;              /* 総監・第一次＝濃紺 */
     --exam-pe-construction: #33356b; /* 建設部門＝藍 */
+    --exam-concrete: #287a62;        /* コンクリート技士＝緑寄りティール */
     --exam-concrete-chief: #0f6e6e;  /* コンクリート主任＝ティール */
     --exam-concrete-diagnosis: #6e3a8c; /* コンクリート診断士＝紫（note カバー/OGP と同一の資格アイデンティティ色） */
 
@@ -171,6 +172,7 @@
     --exam-civil-2: #6bbf8f;
     --exam-pe: #7fa3d6;
     --exam-pe-construction: #8385d0;
+    --exam-concrete: #65b995;
     --exam-concrete-chief: #4db3b3;
     --exam-concrete-diagnosis: #ac82c6;
 

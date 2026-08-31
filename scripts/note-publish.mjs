@@ -272,7 +272,12 @@ try {
       if (caretOk && box) {
         await page.mouse.click(box.x, box.y); await sleep(1800);
         const toc = page.locator('#toc-setting');
-        if (await toc.count()) { await toc.first().click({ timeout: 8000 }); await sleep(2000); inserted = true; }
+        if (await toc.count()) {
+          await toc.first().scrollIntoViewIfNeeded();
+          await toc.first().click({ timeout: 15000, force: true });
+          await sleep(2000);
+          inserted = true;
+        }
         else console.log('[6.5] 目次ボタン(#toc-setting) 未検出 → menu 内容を screenshot');
       } else console.log('[6.5] h2/+メニュー 未検出（TOC skip）');
       const tocGuess = await page.evaluate(() => {

@@ -35,6 +35,11 @@ const GROUP_DESCRIPTIONS: Record<string, Record<string, string>> = {
     keyword: '必須科目Iの論点キーワードと選択科目別の出題テーマ分析（R01〜R07）',
     pastExam: '令和元〜7年度の必須科目I・選択科目（11科目）の記述式問題文',
   },
+  'concrete-engineer': {
+    guide: '試験概要・2026年度の受験資格・学習計画・主任技士との違い',
+    textbook: '材料・配（調）合・試験・製造品質管理・施工・環境問題の体系的な基礎解説',
+    primary: '技士レベルのオリジナル四肢択一と解説',
+  },
   'concrete-chief-engineer': {
     guide: '試験概要・出題傾向・小論文対策',
     textbook: '8分野（材料・性質・耐久性・配合設計・製造品質管理・施工・製品・構造設計）の体系的な解説',
@@ -87,7 +92,7 @@ function sortDocs(docs: DocMeta[], group: DocGroupKey, category: string) {
         return isBasicsA - isBasicsB;
       });
     }
-  } else if (category === 'concrete-chief-engineer' || category === 'concrete-diagnostician') {
+  } else if (category === 'concrete-engineer' || category === 'concrete-chief-engineer' || category === 'concrete-diagnostician') {
     if (group === 'guide') {
       docs.sort((a, b) => {
         const orderA = a.guide_order ?? 999;

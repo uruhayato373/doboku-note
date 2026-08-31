@@ -16,6 +16,7 @@ const EXAM_SCOPE_BY_KEY: Partial<Record<ExamKey, string>> = {
   'pe-first-stage': 'pe-first-stage',
   'civil-1': 'civil-1',
   'civil-2': 'civil-2',
+  concrete: 'concrete-engineer',
 };
 
 /** ExamKey → 商品カタログ側の examScope 値。対応が無い資格（concrete 等）は null。 */

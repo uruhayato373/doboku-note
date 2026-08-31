@@ -105,6 +105,7 @@ mono-tag は資格ごとに **AI 生成の背景画像**を任意で敷ける（
 | `pe-first-stage` | `pe-comprehensive` | `#16365C`（濃紺・総監に合わせる） |
 | `civil-construction-1` | `civil-1` | `#1E73C8`（青） |
 | `civil-construction-2` | `civil-2` | `#2A7050`（緑） |
+| `concrete-engineer` | `concrete-engineer` | `#287A62`（緑寄りティール） |
 | `concrete-chief-engineer` | `concrete-chief` | `#0F6E6E`（ティール） |
 | `concrete-diagnostician` | `concrete-diagnosis` | `#6E3A8C`（紫） |
 | `pe-construction` | `pe-construction` | `#33356B`（藍） |
@@ -172,6 +173,7 @@ npm run ogp-gallery -- --open  # .tmp/ogp-gallery.html を生成しブラウザ�
 | 2026-06-29 | **左上の四角アーティファクトを解消（地を radial 化）＋グリッド dead code 整理**: ユーザー指摘の「左上の四角」を切り分けた結果、原因は **satori が `linear-gradient(135deg)` の原点コーナーをブロック状に塗る**ことだった（grid/border ではない。md5 検証＝grid 有無で出力バイト不変＝grid は描画されない no-op）。`darkBgGradient` と固定フォールバックを **`radial-gradient(120% 120% at 18% 8%, …)`** へ変更し恒久解消（左上寄りの柔らかな奥行きは維持）。併せて描画されない fine/major グリッドレイヤーを `renderMonoTagDark` から撤去（無影響の整理。`gridDataUrl`・ライト/note-cover は継続）。全件再生成 | 左上アーティファクトの恒久解消。radial で深み維持・四角消失 |
 | 2026-06-29 | **ダークの 16px テーマ色外枠を撤去（完全クリーン化）**: radial 化後に残った左上の小さな四角の正体は**外枠の角**（上辺＋左辺の 16px 帯の重なり）だった。コーナー装飾化（薄枠＋シアン三角）も試作したが、ユーザー判断で**外枠ごと撤去＝装飾なしのミニマル**を採用。分野別テーマ色は radial 地の色味＋kicker＋バッジで担保（ライト/note カバーの外枠は継続）。全件再生成 | 角の四角を根絶。深紺 radial＋大主題のミニマルで最もクリーン |
 | 2026-07-02 | **ライト写真前面を既定化（ダーク→反転）**: 資格別背景を Codex 生成ブランド写真（トップ hero / ExamCards と同素材）へ差替（civil-1 / civil-2 / pe-comprehensive / pe-construction / concrete-chief。concrete-diagnosis は旧背景維持）。`ogp-create.mjs` の既定を `light: true` へ反転（旧ダークは `--dark`）。`renderMonoTag` の light 分岐に **subtitle(subLines) 描画**を追加、タイトルを `lines`→`mainLines`（分割後）に統一し「区切り込みの溢れ＋サブ重複」を解消。全 1033 枚を再生成 | トップ hero / カード / note カバーと写真の世界観を統一しファネル全体のブランド一貫性を向上。過去に AI 背景が暗スクリムで濁り見送られたが、明るい写真＋淡スクリム＋濃色文字で解消（サンプル比較で確認） |
+| 2026-09-01 | **コンクリート技士を独立ブランド化**: `concrete-engineer` exam-key と緑寄りティール `#287A62` を追加。試験・品質管理の基礎を示す供試体・骨材・スランプコーンの明るい専用背景を生成し、主任技士の橋梁・鉄筋背景と識別 | 技士17記事の新設に伴い、主任技士色・背景の流用を避けて資格階段を視覚的にも区別するため |
 | 2026-07-07 | **ライト（既定）mono-tag のメタ帯リデザイン（トレンド準拠）**: ①資格名を**主役 kicker 化**（旧チップ 17→**30px 塗りチップ**・左上へ）＋**▶ 装飾マーカー撤去**、②種別バッジを**テキストのみのピル**へ（**装飾アイコン `g2IconImg` 撤去**＝ラベルで種別は一意・「ガイド」アイコンの字化け解消）、③**左上シアン/右下紺の装飾ライン（80×4）を撤去**、④**ワードマークを左上→右下へ従属配置**（28→24px）、⑤メタを 2 行→**1 行に統合**＋上パディング 110→**72px**・gap 28→16px でタイトルを最前面化。`ogp-templates.mjs` の light `renderMonoTag` のみ変更（16px 外枠色・背景写真・グリッド・`--dark` 分岐は不変）。全 1098 枚再生成 | フィード縮小時にメタが小さく読めない一方、非効率な余白＋装飾がスペースを占有していた（ユーザー指摘）。2025–26 の text-forward・minimal maximalism・装飾削減トレンドに沿い、資格名とタイトルだけを強く立てるクリーンな構成へ |
 | 2026-07-20 | **執筆者資格クレジットを両テンプレへ追加（信頼性資産化 P2）**: ライト mono-tag は左下 absolute（21px・`AUTHOR_CREDENTIAL_OGP`「技術士（総監・建設）×1級土木｜元発注者」・flow 外＝縦フィット無干渉）、note-cover-g2 はロゴ直下（15px・`AUTHOR_CREDENTIAL_G2`・children/vchildren 両対応）。`G2_ICON_PATHS` に `award` 追加（R8的中チップ等の per-article 用）。個別抑止 `ogp.credential:false`/`cover.credential:false`。時事文言はテンプレに入れない（的中訴求は cover.chips/投稿面）。OGP 1,113 記事分＋カバー717 記事分を全面再生成 | R8的中を機に E-E-A-T を全画像へ常時表示。civil 含む全資格の画像に総監資格が載る＝総監の分析力を土木の信頼へ転移 |
 

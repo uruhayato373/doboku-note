@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   // （旧: "Links — doboku-note の入口" + テンプレ = サイト名二重だった）。
   title: "Links — SNS・note・サイトの入口",
   description:
-    "発注者視点で土木・建設系7資格の合格を支援。技術士第一次・建設部門・総合技術監理部門、1級／2級土木施工管理技士、コンクリート主任技士・診断士の無料解説と教材への入口まとめ。",
+    "発注者視点で土木・建設系8資格の合格を支援。技術士第一次・建設部門・総合技術監理部門、1級／2級土木施工管理技士、コンクリート技士・主任技士・診断士の無料解説と教材への入口まとめ。",
   alternates: {
     canonical: "https://doboku-note.com/links",
   },
@@ -27,14 +27,14 @@ export const metadata: Metadata = {
     type: "website",
     title: "Links — doboku-note の入口",
     description:
-      "技術士・土木施工管理・コンクリート系の7資格を、無料サイト解説から教材まで分野別に案内します。",
+      "技術士・土木施工管理・コンクリート系の8資格を、無料サイト解説から教材まで分野別に案内します。",
     url: "https://doboku-note.com/links",
     images: [
       {
         url: "https://doboku-note.com/images/og-links.png",
         width: 1200,
         height: 630,
-        alt: "doboku-note 土木・建設系7資格の試験対策コンテンツ一覧",
+        alt: "doboku-note 土木・建設系8資格の試験対策コンテンツ一覧",
       },
     ],
   },
@@ -121,6 +121,16 @@ const EXAM_CARDS: ExamCard[] = [
     },
   },
   {
+    key: "concrete",
+    heading: "コンクリート技士",
+    tagline: "材料・配合・試験・製造・施工を、日常業務レベルから固める",
+    site: {
+      label: "サイトで無料学習",
+      sub: "2026年度制度対応の受験ガイドと分野別テキスト",
+      href: "/exam/concrete-engineer",
+    },
+  },
+  {
     key: "concrete-chief",
     heading: "コンクリート主任技士",
     tagline: "材料・配合・施工・耐久性を体系化し、択一と小論文に備える",
@@ -163,8 +173,8 @@ const EXAM_GROUPS: {
   {
     id: "concrete",
     title: "コンクリート",
-    description: "製造・施工を担う主任技士と、維持管理を担う診断士を分けて学ぶ",
-    keys: ["concrete-chief", "concrete-diagnosis"],
+    description: "技士から主任技士、維持管理の診断士まで段階別に学ぶ",
+    keys: ["concrete", "concrete-chief", "concrete-diagnosis"],
   },
 ];
 
