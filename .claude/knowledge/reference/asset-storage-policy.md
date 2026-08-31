@@ -75,11 +75,19 @@ credential が無い端末（会社 PC はプロキシで外部 API が遮断さ
 
 **cache にも無いものは CI に代行させる**（2026-08-25 新設）。`.github/workflows/asset-hydrate.yml` を
 Actions から dispatch すると、CI 側の credential で R2 から取り出し、artifact `hydrated-assets` として
-出す。ダウンロードして repo 直下へ展開すればよい（退避対象は `.gitignore` 済みなので `git status` は汚れない）。
+出す。artifact は **tar.gz 1 個**なので、ダウンロードして repo 直下で展開する
+（退避対象は `.gitignore` 済みなので `git status` は汚れない）。
 
+```bash
+# group か path を指定 → dry_run で対象確認 → 本実行 → artifact をダウンロード
+tar -xzf hydrated-assets.tar.gz
 ```
-group か path を指定 → dry_run で対象確認 → 本実行 → artifact を展開
-```
+
+> tar に固めてあるのは、`upload-artifact` の glob が**ドット始まりを拾わない**ため。
+> 素の path 指定だと `.claude/config/**` のアセットはコピー済みでも「No files were found」で
+> 落ちる（2026-08-31、ココナラ模試の原稿 4 件が取り出せず発覚）。
+> Git Bash では `tar -xzf 'C:/...'` が `C:` をリモートhost と解釈して失敗するので、
+> `/c/Users/...` 形式のパスを使う。
 
 **退避（offload）も CI に代行させられる**（2026-08-25 新設）。CI は checkout で gitignore 済みの
 実体を得られないので、`scripts/asset-inbox-push.mjs` が GitHub Release を橋にしてファイルを CI まで運ぶ。

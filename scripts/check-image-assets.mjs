@@ -50,6 +50,19 @@ function walk(dir, onFile) {
   }
 }
 
+// baseline は git が保存する LF 基準のバイト数で記録されている。autocrlf の作業ツリー
+// （Windows）では SVG が CRLF に展開され、1 行あたり 1 バイト増えるので、実体をそのまま
+// 数えると中身が同じでも「肥大」と報告される（2026-08-31 実測: 13793 → 13923・+130 = 行数）。
+// テキスト画像（SVG）だけ LF に揃えて数える。PNG/WebP はバイナリなので触らない。
+function measuredBytes(absPath, st) {
+  if (!/\.svg$/i.test(absPath)) return st.size;
+  try {
+    return Buffer.byteLength(readFileSync(absPath, 'utf8').split('\r\n').join('\n'), 'utf8');
+  } catch {
+    return st.size;
+  }
+}
+
 function collectImages(cfg) {
   const files = []; // { rel, bytes }
   for (const root of cfg.roots) {
@@ -59,7 +72,7 @@ function collectImages(cfg) {
       const rel = relative(ROOT, p).split('\\').join('/');
       // match: "img" が指定されたら /img/ 配下のみ
       if (root.match === 'img' && !/\/img\//.test(rel)) return;
-      files.push({ rel, bytes: st.size });
+      files.push({ rel, bytes: measuredBytes(p, st) });
     });
   }
   return files;

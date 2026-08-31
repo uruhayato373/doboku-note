@@ -320,6 +320,13 @@ function runCheck(source) {
 
   const agentsFilesSet = new Set(agentsListing.files);
   const missingSkills = [];
+  // 生成物は git が LF で保存し、autocrlf の作業ツリーでは CRLF に展開される。
+  // バイト厳密に比べると **clone / git checkout しただけで mismatch** になり、しかも
+  // git 側は正規化して差分ゼロに見せるので原因に辿り着けない（2026-08-31 実測）。
+  // 中身が同じかを見たいので、比較の前に改行だけ揃える。
+  const sameContent = (a, b) =>
+    String(a).split('\r\n').join('\n') === String(b).split('\r\n').join('\n');
+
   const mismatchSkills = [];
   const readFailures = [];
   let generatedBytes = 0;
@@ -339,7 +346,7 @@ function runCheck(source) {
     }
     presentCount++;
     generatedBytes += Buffer.byteLength(actual, 'utf8');
-    if (actual !== expectedContent) mismatchSkills.push(agentsPath);
+    if (!sameContent(actual, expectedContent)) mismatchSkills.push(agentsPath);
   }
 
   const extra = agentsListing.files.filter((p) => !skillExpected.has(p));
@@ -351,7 +358,7 @@ function runCheck(source) {
   if (agentsMdActual === null) {
     agentsMdStatus = 'missing';
     agentsMdMissing = true;
-  } else if (agentsMdActual !== agentsMdExpected) {
+  } else if (!sameContent(agentsMdActual, agentsMdExpected)) {
     agentsMdStatus = 'mismatch';
     agentsMdMismatch = true;
   }

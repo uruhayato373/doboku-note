@@ -89,7 +89,11 @@ async function main() {
 
   for (const file of files) {
     const path = join(WORKFLOW_DIR, file);
-    const content = readFileSync(path, 'utf8');
+    // job ブロックの判定は `\n` 固定の regex を使う。autocrlf の作業ツリー（Windows）では
+    // 行末に `\r` が残って **25 本すべてが不一致**になり、timeout-minutes を宣言済みの
+    // workflow まで違反として報告していた（2026-08-31 実測。Linux CI では再現しない）。
+    // 読み込みの一箇所で LF に揃える。
+    const content = readFileSync(path, 'utf8').split('\r\n').join('\n');
 
     // 1. actionlint
     for (const r of linter(content, file)) {
