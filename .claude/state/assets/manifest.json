@@ -164731,7 +164731,17 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-31T07:07:33.980Z"
+      "verifiedAt": "2026-08-31T07:07:33.980Z",
+      "logicalPath": ".claude/config/coconala/assets/moshi-src/C8-1級模試/解答解説.md",
+      "mime": "application/octet-stream",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
     },
     ".claude/config/coconala/assets/moshi-src/C9-2級模試/解答解説.md": {
       "bucket": "private",
@@ -164841,7 +164851,17 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-31T07:07:34.014Z"
+      "verifiedAt": "2026-08-31T07:07:34.014Z",
+      "logicalPath": ".claude/config/coconala/assets/moshi-src/C8-1級模試/問題冊子.md",
+      "mime": "application/octet-stream",
+      "generator": null,
+      "requiredBy": [
+        "scripts/coconala-publish.mjs",
+        "scripts/coconala-edit.mjs",
+        "scripts/coconala-cover.mjs",
+        "scripts/coconala-thumb.mjs",
+        "scripts/build-coconala-content-pdf.mjs"
+      ]
     },
     ".claude/config/coconala/assets/pdf/coconala-C3-2級完成答案-01-品質管理.pdf": {
       "bucket": "private",
@@ -174838,6 +174858,26 @@
         "pdf-to-mdx（スキャン教材の変換）",
         "scanned-textbook-transcriber（OCR）"
       ]
+    },
+    "content/sources/textbook/コンクリート主任技師2024/コンクリート主任技士2024.pdf": {
+      "bucket": "private",
+      "r2Key": "textbook/コンクリート主任技師2024/コンクリート主任技士2024.pdf",
+      "sha256": "066f7034b31dd5f19256b65f0a4ee538d5c62a9dad053eaff5bcee579bfbda2d",
+      "bytes": 101811129,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "textbook-source-pdf",
+      "verifiedAt": "2026-08-31T08:16:34.852Z"
+    },
+    "content/sources/textbook/コンクリート主任技師2022/コンクリート主任技師2022.pdf": {
+      "bucket": "private",
+      "r2Key": "textbook/コンクリート主任技師2022/コンクリート主任技師2022.pdf",
+      "sha256": "e27223deae037974027dcb7ec88b507e978d5840c7eba70a3045ab5ddaeb3711",
+      "bytes": 180955352,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "textbook-source-pdf",
+      "verifiedAt": "2026-08-31T08:16:41.684Z"
     }
   }
 }
