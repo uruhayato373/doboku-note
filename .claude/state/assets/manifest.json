@@ -36525,18 +36525,12 @@
     "content/note/技術士建設部門/magazines/BK-01_道路/R03/建設部門-道路-R03-III-模範解答.pdf": {
       "bucket": "private",
       "r2Key": "note/delivery-pdf/技術士建設部門/magazines/BK-01_道路/R03/建設部門-道路-R03-III-模範解答.pdf",
-      "sha256": "d0c1f40331b3961ab3cc79d6f29b2eee40c3cd744bdd1fd0ec6fa8e4ce2ae392",
-      "bytes": 353485,
+      "sha256": "043efd3817e1ffb1b672da6edac37d19452dde8c120061673cb3e9c98350c0f2",
+      "bytes": 351327,
       "visibility": "private",
       "regenerable": true,
       "group": "note-delivery-pdf",
-      "verifiedAt": "2026-08-30T09:53:52.725Z",
-      "logicalPath": "content/note/技術士建設部門/magazines/BK-01_道路/R03/建設部門-道路-R03-III-模範解答.pdf",
-      "mime": "application/pdf",
-      "generator": "scripts/magazine-to-pdf.mjs",
-      "requiredBy": [
-        "scripts/note-attach-file.mjs"
-      ]
+      "verifiedAt": "2026-08-31T08:18:27.584Z"
     },
     "content/note/1級・2級土木/2級土木/magazines/2級土木-想定工事バンク/工事68-上水道配水管布設開削/2級土木-想定工事-工事68-上水道配水管布設開削.pdf": {
       "bucket": "private",
@@ -36557,34 +36551,22 @@
     "content/note/技術士建設部門/magazines/BK-01_道路/R03/建設部門-道路-R03-II-2-模範解答.pdf": {
       "bucket": "private",
       "r2Key": "note/delivery-pdf/技術士建設部門/magazines/BK-01_道路/R03/建設部門-道路-R03-II-2-模範解答.pdf",
-      "sha256": "fd1c3acff5bd0bb217bce2a692da268176619e130ce4ef521538098fda3fcd0f",
+      "sha256": "959eb96ef76a45c929316fb8c87142bedac84baf9849d01d45f457247b78ea5f",
       "bytes": 247426,
       "visibility": "private",
       "regenerable": true,
       "group": "note-delivery-pdf",
-      "verifiedAt": "2026-08-30T09:53:52.300Z",
-      "logicalPath": "content/note/技術士建設部門/magazines/BK-01_道路/R03/建設部門-道路-R03-II-2-模範解答.pdf",
-      "mime": "application/pdf",
-      "generator": "scripts/magazine-to-pdf.mjs",
-      "requiredBy": [
-        "scripts/note-attach-file.mjs"
-      ]
+      "verifiedAt": "2026-08-31T08:18:27.644Z"
     },
     "content/note/技術士建設部門/magazines/BK-01_道路/R03/建設部門-道路-R03-II-1-模範解答.pdf": {
       "bucket": "private",
       "r2Key": "note/delivery-pdf/技術士建設部門/magazines/BK-01_道路/R03/建設部門-道路-R03-II-1-模範解答.pdf",
-      "sha256": "5939f91817415fb0c4be40c894b19275aa1231609d7907d59cf6950058f9bc53",
+      "sha256": "3ca5f1c33572b5e6cbb76e72035cb0a5cbf5e0254d7037e34adb3e968d4c245a",
       "bytes": 236501,
       "visibility": "private",
       "regenerable": true,
       "group": "note-delivery-pdf",
-      "verifiedAt": "2026-08-30T09:53:52.409Z",
-      "logicalPath": "content/note/技術士建設部門/magazines/BK-01_道路/R03/建設部門-道路-R03-II-1-模範解答.pdf",
-      "mime": "application/pdf",
-      "generator": "scripts/magazine-to-pdf.mjs",
-      "requiredBy": [
-        "scripts/note-attach-file.mjs"
-      ]
+      "verifiedAt": "2026-08-31T08:18:27.473Z"
     },
     "content/note/技術士一次/一次択一-過去問PDF/技術士一次択一-過去問PDF.pdf": {
       "bucket": "private",
@@ -174867,7 +174849,14 @@
       "visibility": "private",
       "regenerable": false,
       "group": "textbook-source-pdf",
-      "verifiedAt": "2026-08-31T08:16:34.852Z"
+      "verifiedAt": "2026-08-31T08:16:34.852Z",
+      "logicalPath": "content/sources/textbook/コンクリート主任技師2024/コンクリート主任技士2024.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "pdf-to-mdx（スキャン教材の変換）",
+        "scanned-textbook-transcriber（OCR）"
+      ]
     },
     "content/sources/textbook/コンクリート主任技師2022/コンクリート主任技師2022.pdf": {
       "bucket": "private",
@@ -174877,7 +174866,14 @@
       "visibility": "private",
       "regenerable": false,
       "group": "textbook-source-pdf",
-      "verifiedAt": "2026-08-31T08:16:41.684Z"
+      "verifiedAt": "2026-08-31T08:16:41.684Z",
+      "logicalPath": "content/sources/textbook/コンクリート主任技師2022/コンクリート主任技師2022.pdf",
+      "mime": "application/pdf",
+      "generator": null,
+      "requiredBy": [
+        "pdf-to-mdx（スキャン教材の変換）",
+        "scanned-textbook-transcriber（OCR）"
+      ]
     }
   }
 }
