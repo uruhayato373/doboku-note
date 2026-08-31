@@ -156,7 +156,13 @@ async function main() {
   // macOS の tar は bsdtar でこのオプション自体が無く、付けると usage を吐いて必ず失敗する
   // （2026-08-30 実測。--commit がこの Mac で一度も通っていなかった）。
   const tarArgs = process.platform === 'win32' ? ['--force-local'] : [];
-  execFileSync('tar', [...tarArgs, '-czf', tarball, '-C', REPO_ROOT, '-T', listFile], { stdio: 'inherit' });
+  // macOS の bsdtar は既定で Finder 拡張属性を AppleDouble（`._file`）として
+  // tarball に混ぜる。inbox.json に宣言していない余計なファイルなので CI の
+  // fail-closed ingest が拒否する。COPYFILE_DISABLE=1 でデータフォークだけを送る。
+  execFileSync('tar', [...tarArgs, '-czf', tarball, '-C', REPO_ROOT, '-T', listFile], {
+    stdio: 'inherit',
+    env: process.platform === 'darwin' ? { ...process.env, COPYFILE_DISABLE: '1' } : process.env,
+  });
 
   const tarBytes = statSync(tarball).size;
   console.log(`\n[${NAME}] tarball ${mib(tarBytes)} MiB → release ${tag}`);
