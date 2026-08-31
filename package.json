@@ -103,6 +103,7 @@
     "check-image-assets": "node scripts/check-image-assets.mjs",
     "check-image-assets:ci": "node scripts/check-image-assets.mjs --ci",
     "check-internal-links-vs-gsc": "node scripts/check-internal-links-vs-gsc.mjs",
+    "check-keiken-answer-split": "node scripts/check-keiken-answer-split.mjs",
     "check-jst-date": "node scripts/check-jst-date.mjs",
     "check-kindle-epub-leak": "node scripts/check-kindle-epub-leak.mjs",
     "check-kindle-format": "node scripts/check-kindle-format.mjs",
