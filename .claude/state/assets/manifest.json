@@ -175881,6 +175881,42 @@
         "scripts/check-orphan-ogp.mjs"
       ],
       "srcHash": "e209682334fb44d7"
+    },
+    "content/note/コンクリート技士/配合計算-JIS判断-実戦演習/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/コンクリート技士/配合計算-JIS判断-実戦演習/img/cover.png",
+      "sha256": "e37cea6d3f4b9a924f9cdbfcf310febb8691f41912dfa7b541b28fef63812b44",
+      "bytes": 46280,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-08-31T23:19:38.088Z",
+      "width": 1280,
+      "height": 670
+    },
+    "content/note/コンクリート主任技士/四肢択一-R8予想50問/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/コンクリート主任技士/四肢択一-R8予想50問/img/cover.png",
+      "sha256": "99d464d88e09030c2ab6d5a92e933b12c3e8dd15f970af9919aa24f2ecf173d9",
+      "bytes": 1009425,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-08-31T23:19:38.503Z",
+      "width": 1280,
+      "height": 670
+    },
+    "content/note/コンクリート主任技士/コンクリート資格もくじ/img/cover.png": {
+      "bucket": "private",
+      "r2Key": "note/covers/コンクリート主任技士/コンクリート資格もくじ/img/cover.png",
+      "sha256": "7228700c48da94107c94fd54b1c8bd701f8d4035ab319d8189aa4f5da8602362",
+      "bytes": 1011120,
+      "visibility": "private",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-08-31T23:19:38.534Z",
+      "width": 1280,
+      "height": 670
     }
   }
 }
