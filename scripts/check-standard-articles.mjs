@@ -34,6 +34,14 @@ import { pathToFileURL } from 'node:url';
 
 const sha256 = (value) => createHash('sha256').update(value).digest('hex');
 
+// catalog / manifest のハッシュ・バイト数は git が保存する LF 基準で記録されている。
+// autocrlf の作業ツリー（Windows）は CRLF で展開されるため、実体をそのまま数えると
+// 中身が同一でも構造的に必ず不一致になる（＝偽赤）。比較の前に LF へ正規化する。
+const toLf = (value) => {
+  const text = Buffer.isBuffer(value) ? value.toString('utf8') : value;
+  return Buffer.from(text.split('\r\n').join('\n'), 'utf8');
+};
+
 /** 検査の定義。INCONCLUSIVE を作るときも同じ並びで 12 件返せるようにここを唯一の並び順とする。 */
 const CHECK_DEFS = [
   { id: 1, name: '本文の取りこぼしゼロ' },
@@ -82,10 +90,13 @@ function readManifest(agencyId, documentId) {
   return { path, raw, manifest: JSON.parse(raw) };
 }
 
+// 下流の検査は見出し・GFM 表を `\n` 前提の regex で数える。autocrlf の作業ツリーでは
+// 行末の `\r` が残って軒並み 0 件になる（＝中身は正しいのに構造的に必ず赤い）ので、
+// 読み込みの一箇所で LF へ正規化する。ハッシュ・バイト数も LF 基準で記録されている。
 function readChapterFile(agencyId, documentId, file) {
   const path = join(ARTICLES_ROOT, agencyId, documentId, file);
   if (!existsSync(path)) return { path, text: null };
-  return { path, text: readFileSync(path, 'utf8') };
+  return { path, text: toLf(readFileSync(path, 'utf8')).toString('utf8') };
 }
 
 /**
@@ -479,7 +490,7 @@ function checkSourceHashes(def, { manifest, document }) {
       violations.push(`${part.slug}: 原典ファイルが無い（${path}）`);
       continue;
     }
-    const buffer = readFileSync(path);
+    const buffer = toLf(readFileSync(path));
     const actual = sha256(buffer);
     if (actual !== part.sha256) violations.push(`${part.slug}: sha256 不一致（実体 ${actual} / catalog ${part.sha256}）`);
     if (buffer.length !== part.bytes) violations.push(`${part.slug}: bytes 不一致（実体 ${buffer.length} / catalog ${part.bytes}）`);
@@ -515,11 +526,12 @@ function checkOutputHashes(def, { manifest, agencyId, documentId }) {
       violations.push(`${chapter.file}: ファイルが無い（${path}）`);
       continue;
     }
-    const actual = sha256(Buffer.from(text, 'utf8'));
+    const normalized = toLf(text);
+    const actual = sha256(normalized);
     if (actual !== chapter.outputSha256) {
       violations.push(`${chapter.file}: outputSha256 不一致（実体 ${actual} / manifest ${chapter.outputSha256}）`);
     }
-    const bytes = Buffer.byteLength(text, 'utf8');
+    const bytes = normalized.length;
     if (chapter.outputBytes !== undefined && bytes !== chapter.outputBytes) {
       violations.push(`${chapter.file}: outputBytes 不一致（実体 ${bytes} / manifest ${chapter.outputBytes}）`);
     }
@@ -599,7 +611,7 @@ function checkTables(def, { manifest, agencyId, documentId, document }) {
   // 原典ページの本文（空白除去）をページ単位で用意し、GFM セルの実在確認に使う
   const pageText = new Map();
   for (const part of document.parts) {
-    const source = readFileSync(join(LIBRARY_ROOT, part.file), 'utf8');
+    const source = toLf(readFileSync(join(LIBRARY_ROOT, part.file), 'utf8')).toString('utf8');
     const heads = [...source.matchAll(/^## PDF page (\d+)\s*$/gm)];
     heads.forEach((match, index) => {
       const start = (match.index ?? 0) + match[0].length;
