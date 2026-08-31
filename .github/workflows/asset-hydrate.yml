@@ -21,7 +21,8 @@ name: Asset Hydrate (R2 -> artifact)
 #
 # 使い方:
 #   1. Actions からこの workflow を dispatch し、group か path を指定する
-#   2. 完了後 artifact `hydrated-assets` をダウンロードして repo 直下へ展開する
+#   2. 完了後 artifact `hydrated-assets`（tar.gz）をダウンロードし、repo 直下で
+#      `tar -xzf hydrated-assets.tar.gz` で展開する
 #      （退避対象は .gitignore 済みなので、置いても git status は汚れない）
 #
 # **この workflow は取り出し専用（read-only）**。R2 への書き戻しはしない。
@@ -122,11 +123,22 @@ jobs:
             echo "::warning::取り出せたファイルが 0 件。dry-run か、対象が manifest/R2 に無い可能性がある。上の件数を読むこと（0 件は「異常なし」ではない）。"
           fi
 
+      # tar に固めてから上げる。upload-artifact の glob は **ドット始まりを拾わない**ため、
+      # `.claude/config/**` に置いたアセット（coconala 素材など）はコピー済みでも
+      # 「No files were found」で落ちていた（2026-08-31 実測。復元 4 件・コピー 4 件でも 0 件扱い）。
+      # tar なら隠しディレクトリを含めて 1 ファイルになるので、この差を踏まない。
+      - name: Pack hydrated files
+        if: steps.collect.outputs.count != '0'
+        run: |
+          set -eu
+          tar -czf /tmp/hydrated-assets.tar.gz -C /tmp/hydrated .
+          echo "tar 内のファイル数: $(tar -tzf /tmp/hydrated-assets.tar.gz | grep -vc '/$')"
+
       - name: Upload artifact
         if: steps.collect.outputs.count != '0'
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: hydrated-assets
-          path: /tmp/hydrated
+          path: /tmp/hydrated-assets.tar.gz
           retention-days: 3
           if-no-files-found: error
