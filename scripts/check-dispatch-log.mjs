@@ -13,7 +13,7 @@
  */
 import { readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const LOG_PATH = '.claude/state/dispatch/dispatch-log.json';
@@ -38,7 +38,7 @@ export function validateDispatchLog(json, { legacyCutoff = LEGACY_CUTOFF } = {})
   return { violations, legacy, checked: json.entries.length };
 }
 
-if (import.meta.url === `file://${process.argv[1]}`.replace(/\\/g, '/') || process.argv[1]?.endsWith('check-dispatch-log.mjs')) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   let json;
   try { json = JSON.parse(readFileSync(join(ROOT, LOG_PATH), 'utf8')); }
   catch (e) { console.error(`[check-dispatch-log] 検査不成立: ${LOG_PATH} を読めない: ${e.message}`); process.exit(2); }

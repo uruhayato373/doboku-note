@@ -18,6 +18,7 @@ import { BetaAnalyticsDataClient } from "@google-analytics/data";
 import { google } from "googleapis";
 import { readFileSync, existsSync } from "node:fs";
 import dotenv from "dotenv";
+import { pathToFileURL } from "node:url";
 
 dotenv.config({ path: ".env.local" });
 
@@ -595,7 +596,7 @@ export function formatNsmSection(metrics) {
 }
 
 // CLI 直接実行時は JSON or markdown を標準出力に
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const mode = process.argv.includes("--json") ? "json" : "markdown";
   const metrics = await fetchWeeklyNsmMetrics();
   if (mode === "json") {

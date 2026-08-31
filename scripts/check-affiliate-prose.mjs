@@ -38,8 +38,16 @@ const denyTerms = config.denyTerms || [];
 // allow: (file, term) ペアの集合。term 省略時はそのファイルの全 denyTerms を許可。
 const allow = new Set((config.allow || []).map((a) => `${a.file}::${a.term || '*'}`));
 
+// Windows の join() は `\` 区切りを返すため、allow（config は `/` 区切り）と
+// 照合が外れ「登録済みなのに違反」になる。表示側も `\v` `\a` が制御文字として
+// 解釈されパスが読めなくなる。照合・表示の両方を `/` 区切りへ正規化してから使う。
+function toPosix(file) {
+  return file.split('\\').join('/');
+}
+
 function isAllowed(file, term) {
-  return allow.has(`${file}::${term}`) || allow.has(`${file}::*`);
+  const key = toPosix(file);
+  return allow.has(`${key}::${term}`) || allow.has(`${key}::*`);
 }
 
 function walk(dir, out = []) {
@@ -86,7 +94,7 @@ if (violations.length > 0) {
   );
   console.error('  真実源: .claude/knowledge/reference/affiliate-operations.md / memory affiliate-career-only');
   for (const v of violations) {
-    console.error(`  ${v.file}:${v.line}  「${v.term}」  ${v.text}`);
+    console.error(`  ${toPosix(v.file)}:${v.line}  「${v.term}」  ${v.text}`);
   }
   console.error(
     '  → 講座/添削の推奨を除去し、穴は note 模範論文・完成答案＋勉強仲間/職場の有資格者の目で埋める表現へ。',

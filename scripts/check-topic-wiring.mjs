@@ -3,6 +3,7 @@
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 import matter from 'gray-matter';
+import { pathToFileURL } from 'node:url';
 
 const EXPECTED_AGENCIES = [
   'chubu', 'chugoku', 'hokkaido', 'hokuriku', 'kanto',
@@ -75,7 +76,7 @@ export function auditTopicWiring(root = process.cwd()) {
   };
 }
 
-if (process.argv[1] && import.meta.url === new URL(`file://${process.argv[1]}`).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const result = auditTopicWiring();
   console.log('Topic・基準資料・実務ガイド配線チェック');
   console.log(JSON.stringify(result.summary, null, 2));

@@ -28,6 +28,7 @@ import sharp from 'sharp';
 import { createRequire } from 'node:module';
 import { renderTemplate, LAYOUT_CONSTANTS } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs';
 import { wrapTitle, pickFontSize } from '../.claude/skills/conversion/ogp-create/scripts/lib/ogp-text.mjs';
+import { pathToFileURL } from 'node:url';
 
 const require = createRequire(import.meta.url);
 const coverTokens = require(path.join(process.cwd(), '.claude/knowledge/design-system/note-cover-tokens.json'));
@@ -177,4 +178,4 @@ async function main() {
   if (failed.length > 0) process.exitCode = 1;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) main();
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();

@@ -33,6 +33,12 @@ jobs:
       - name: Check note funnel drift
         run: npm run check-note-funnel
 
+      # doc-meta-index.json は git 追跡から外した生成物（2026-08-29・履歴肥大の再発防止）。
+      # npm ci --ignore-scripts では自動生成されないため、これを読む検査が走る前に
+      # ここで明示的に生成しておく（他の生成物系チェックと同じ前提を揃える）。
+      - name: Build doc meta index
+        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+
       - name: Check career separation
         run: npm run check-career-separation
 

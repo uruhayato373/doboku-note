@@ -25,6 +25,7 @@ import { mkdirSync, rmSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { writeMdxFile } from '../.claude/scripts/lib/mdx-io.mjs';
 import { tryGfmTable } from './lib/standards-table.mjs';
+import { pathToFileURL } from 'node:url';
 import {
   ARTICLES_ROOT,
   analyzeDocument,
@@ -374,6 +375,6 @@ function main() {
   if (failed > 0) process.exitCode = 1;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) main();
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
 
 export { renderChapter, summarizeChapter };

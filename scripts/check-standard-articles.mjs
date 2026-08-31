@@ -30,6 +30,7 @@ import {
   patterns,
 } from './lib/standards-structure.mjs';
 import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
+import { pathToFileURL } from 'node:url';
 
 const sha256 = (value) => createHash('sha256').update(value).digest('hex');
 
@@ -1002,6 +1003,6 @@ function emit(report, asJson, fallbackMessage) {
   process.exitCode = report.exitCode;
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) main();
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();
 
 export { CHECK_DEFS, parseHeadings };

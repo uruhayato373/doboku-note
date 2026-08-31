@@ -29,6 +29,7 @@ import { readFileSync, readdirSync, existsSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { stripTweetMemos } from "./lib/x-tweets-md.mjs";
+import { pathToFileURL } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DRAFTS_DIR = join(__dirname, "../content/sns/x/draft");
@@ -190,4 +191,4 @@ function main() {
   process.exit(violations.length > 0 ? 1 : 0);
 }
 
-if (import.meta.url === `file://${process.argv[1]}`) main();
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main();

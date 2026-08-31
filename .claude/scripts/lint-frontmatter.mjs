@@ -26,6 +26,7 @@ import { execSync } from 'node:child_process';
 import { join, relative, dirname, extname } from 'node:path';
 import matter from 'gray-matter';
 import { FrontmatterSchema } from '#lib/frontmatter-schema.mjs';
+import { pathToFileURL } from 'node:url';
 
 const ROOT = process.cwd();
 const POSTS_ROOT = join(ROOT, 'content/site');
@@ -338,6 +339,6 @@ function main() {
 }
 
 // 直接実行時のみ main() を起動。import された場合はスキップ
-if (import.meta.url === `file://${process.argv[1]}`) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main();
 }
