@@ -68,6 +68,28 @@
 
 
 
+### [DN-0160] Brain 経験記述キットのソースリポジトリに、ZIP へ直接入れた修正を反映する
+タグ: [コンテンツ品質] [種類:不具合] [起票:2026-08-31] [検証:check-keiken-answer-split]
+
+配布 ZIP（`content/brain/dist/claude-code-civil-essay-kit-beta-8K93ERd_D6fR.zip`）の 4 ファイルが
+1級の解答欄割り振りを2級式で書いており、C8 模試とまったく同じ誤りだった。1級購入者にだけ
+誤りが届く構造で、**販売中**だったため 2026-08-31 に ZIP を直接修正して同一 URL で R2 を
+上書きした（既存購入者のリンクからも修正版が落ちる）。
+
+**そのため、キットのソースリポジトリ（別 private repo `claude-code-civil-essay-kit`・この Mac には
+無い）と配布物がドリフトしている。** ソース側を直さないと、次に `git archive` で作り直したときに
+誤りが復活する。
+
+修正した 4 ファイルと内容（ZIP から取り出せる）:
+- `.claude/skills/draft-civil-experience-essay/references/civil-1.md` — current2 の設問(1)(2) を
+  1級の正しい割り振りへ。2級と逆である旨の注記も追加
+- `.claude/skills/draft-civil-experience-essay/assets/answer.template.md` — 見出し 2 つ
+- `examples/sample-question.md` — 設問文
+- `examples/sample-draft.md` — 見出しに加え**答案本文も配分し直した**（実測 191字/163字で1区画200字以内）
+
+**完了条件**: ソースリポジトリの 4 ファイルが配布 ZIP と一致し、`git archive` で作り直しても
+`npm run check-keiken-answer-split` 相当の検査を通る状態になっている。
+
 ### [DN-0159] ココナラブログ2本のライブ本文が2級式のまま（原稿は修正済み）
 タグ: [コンテンツ品質] [種類:不具合] [起票:2026-08-31] [検証:check-coconala-blog]
 
