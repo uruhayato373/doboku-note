@@ -125,6 +125,15 @@ for (const file of files) {
     else throw e;
   }
 
+  // S2b 装飾記法。ココナラのエディタは ** を解釈しない。coconala-blog-publish は段落と
+  // 見出ししか作らず太字を当てる処理が無く、実際にライブ本文の <strong> は 0 件。
+  // 原稿に ** を書くとアスタリスクがそのまま読者に見える。2026-08-31、級の違いを説明する
+  // 段落を 4 記事へ足したときに実際に混入した（公開前に気づいて除去）。
+  const boldCount = (body(raw).match(/\*\*/g) || []).length;
+  if (boldCount > 0) {
+    out.violations.push(`${rel}: 本文に太字記法 ** が ${boldCount} 個（エディタが解釈せず、アスタリスクがそのまま表示される。強調は「」で表す）`);
+  }
+
   // S3 公開状態の整合
   if (status === 'published' && !blogUrl) {
     out.violations.push(`${rel}: status:'published' なのに blogUrl が空（公開したのに書き戻せていない疑い）`);
