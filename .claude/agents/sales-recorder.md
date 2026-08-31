@@ -126,6 +126,8 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `2級土木 二次学科記述｜直前暗記ノート` | `article:civil-2-anki-note` |
 | `1級土木 第1次検定｜出る順 合格ノート` | `article:civil-1-ichiji-ronten` |
 | `1級土木 二次｜出題分析と直前の重点` | `article:civil-1-r8-bunseki` |
+| `1級土木 令和8年度 第2次検定｜予想模試3回` | `article:civil-1-r8-mock3-pdf` |
+| `2級土木 令和8年度 第2次検定｜予想模試3回` | `article:civil-2-r8-mock3-pdf` |
 | `コンクリート主任技士｜配合計算 実戦演習12問` | `article:cce-mix-calculation-practice` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-1` | `article:bk-01-road-r8-yosou-ii1` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-2` | `article:bk-01-road-r8-yosou-ii2-*` |
