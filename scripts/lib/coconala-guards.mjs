@@ -225,9 +225,40 @@ export function assessSnapshot(snap, nowMs, { staleDays = 7, checkFreshness = tr
  * @param {Array} resolved  [{dmId, reason}] 人が決着と判断した DM
  * @returns {{actions:Array, infos:Array, excluded:Array}}
  */
-export function classifyInquiries(inquiries, resolved = []) {
+/**
+ * DM 一覧の日付表記（相対『19時間前』/ 絶対『8月12日』）を概算の epoch ms へ直す。
+ * 決着済み DM に新着が入ったかを判定するためだけに使うので、日単位の粗さで足りる。
+ * 解釈できないときは null を返し、呼び出し側は『隠さない』側へ倒す。
+ */
+export function parseInquiryDate(dateText, nowMs) {
+  const text = String(dateText ?? '').trim();
+  if (!text) return null;
+  if (/たった今|今すぐ/.test(text)) return nowMs;
+  const rel = /^(\d+)\s*(分|時間|日|週間|か月|ヶ月)前$/.exec(text);
+  if (rel) {
+    const n = Number(rel[1]);
+    const unit = { 分: 60e3, 時間: 3600e3, 日: 86400e3, 週間: 7 * 86400e3, 'か月': 30 * 86400e3, 'ヶ月': 30 * 86400e3 }[rel[2]];
+    return unit ? nowMs - n * unit : null;
+  }
+  const abs = /^(\d{1,2})月(\d{1,2})日$/.exec(text);
+  if (abs) {
+    const now = new Date(nowMs);
+    let t = Date.UTC(now.getUTCFullYear(), Number(abs[1]) - 1, Number(abs[2]));
+    // 年をまたぐ表記（12月◯日 を 1 月に見る）は前年扱いにする
+    if (t > nowMs + 86400e3) t = Date.UTC(now.getUTCFullYear() - 1, Number(abs[1]) - 1, Number(abs[2]));
+    return t;
+  }
+  const ymd = /^(\d{4})[-/](\d{1,2})[-/](\d{1,2})/.exec(text);
+  if (ymd) return Date.UTC(Number(ymd[1]), Number(ymd[2]) - 1, Number(ymd[3]));
+  return null;
+}
+
+export function classifyInquiries(inquiries, resolved = [], nowMs = Date.now()) {
   const resolvedMap = new Map(
-    (Array.isArray(resolved) ? resolved : []).map((r) => [String(r?.dmId ?? ''), r?.reason || '決着済み']),
+    (Array.isArray(resolved) ? resolved : []).map((r) => [
+      String(r?.dmId ?? ''),
+      { reason: r?.reason || '決着済み', resolvedOn: r?.resolvedOn ?? null },
+    ]),
   );
   const actions = [];
   const infos = [];
@@ -236,7 +267,28 @@ export function classifyInquiries(inquiries, resolved = []) {
     if (!q || !q.dmId) continue;
     const id = String(q.dmId);
     if (resolvedMap.has(id)) {
-      excluded.push({ ...q, why: resolvedMap.get(id) });
+      // 決着は『その時点まで』の判断でしかない。同じスレッドに新着が入ったら再オープンする。
+      // dmId 単位で永久に除外していたため、2026-08-30 に既存顧客（room 18091375・¥7,500）の
+      // 問い合わせが要対応から消えていた（人が画面で気づいて発覚）。
+      const entry = resolvedMap.get(id);
+      const hasDate = String(q.dateText ?? '').trim() !== '';
+      const lastMs = hasDate ? parseInquiryDate(q.dateText, nowMs) : null;
+      const resolvedMs = entry.resolvedOn ? Date.parse(entry.resolvedOn) : null;
+      // 手がかりが何も無いときだけ従来どおり除外する。日付があるのに読めない／いつ決着
+      // したか分からない場合は「比較できなかった」ので隠さない側へ倒す。
+      const undecidable = hasDate && (lastMs === null || resolvedMs === null);
+      const newer = lastMs !== null && resolvedMs !== null && lastMs > resolvedMs;
+      if (!undecidable && !newer) {
+        excluded.push({ ...q, why: entry.reason });
+        continue;
+      }
+      actions.push({
+        ...q,
+        reopened: true,
+        why: newer
+          ? `決着済み（${entry.resolvedOn}）の後に新着（${q.dateText}）`
+          : `決着済み（${entry.reason}）だが新旧を判定できないため隠さない（${q.dateText}）`,
+      });
       continue;
     }
     if (q.violationRemoved) {

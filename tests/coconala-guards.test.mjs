@@ -20,6 +20,7 @@ import {
   classifyReplyDeadlines,
   assessSnapshot,
   classifyInquiries,
+  parseInquiryDate,
 } from '../scripts/lib/coconala-guards.mjs';
 
 /** 本日のカタログを模したフィクスチャ */
@@ -277,4 +278,57 @@ test('classifyInquiries: 実データ相当（4件）は要対応 0 / info 3 / �
   assert.equal(r.actions.length, 0);
   assert.equal(r.infos.length, 3);
   assert.equal(r.excluded.length, 1);
+});
+
+// --- 決着済み DM の再オープン（2026-08-31 追加） ---
+// 既存顧客（room 18091375・¥7,500）が 8/30 に同じスレッドへ問い合わせたが、dmId 単位の
+// 永続除外だったため要対応から消えていた。人が画面で気づくまで機械は 0 件と言い続けた。
+
+const REOPEN_NOW = Date.UTC(2026, 7, 31, 4, 0, 0);
+
+test('parseInquiryDate: 相対・絶対の表記を概算 epoch に直す', () => {
+  assert.equal(parseInquiryDate('19時間前', REOPEN_NOW), REOPEN_NOW - 19 * 3600e3);
+  assert.equal(parseInquiryDate('3日前', REOPEN_NOW), REOPEN_NOW - 3 * 86400e3);
+  assert.equal(parseInquiryDate('8月12日', REOPEN_NOW), Date.UTC(2026, 7, 12));
+  assert.equal(parseInquiryDate('12月30日', REOPEN_NOW), Date.UTC(2025, 11, 30), '年またぎは前年');
+  assert.equal(parseInquiryDate('', REOPEN_NOW), null);
+  assert.equal(parseInquiryDate('よくわからない表記', REOPEN_NOW), null);
+});
+
+test('classifyInquiries: 決着済みでも決着日より後の新着なら要対応へ戻す', () => {
+  const r = classifyInquiries(
+    [{ dmId: '10051134', dateText: '19時間前' }],
+    [{ dmId: '10051134', reason: '納品・評価まで完了', resolvedOn: '2026-08-17' }],
+    REOPEN_NOW,
+  );
+  assert.equal(r.excluded.length, 0, '新着があるのに除外されている');
+  assert.equal(r.actions.length, 1);
+  assert.equal(r.actions[0].reopened, true);
+  assert.match(r.actions[0].why, /決着済み（2026-08-17）の後に新着/);
+});
+
+test('classifyInquiries: 決着日より前の動きしか無ければ除外のまま（鳴らしすぎない）', () => {
+  const r = classifyInquiries(
+    [{ dmId: '9', dateText: '8月5日' }],
+    [{ dmId: '9', reason: '返信して完了', resolvedOn: '2026-08-17' }],
+    REOPEN_NOW,
+  );
+  assert.equal(r.actions.length, 0);
+  assert.equal(r.excluded.length, 1);
+});
+
+test('classifyInquiries: 日付があるのに読めない・決着日が無いときは隠さない', () => {
+  const unreadable = classifyInquiries(
+    [{ dmId: '9', dateText: '謎の表記' }],
+    [{ dmId: '9', reason: '完了', resolvedOn: '2026-08-17' }],
+    REOPEN_NOW,
+  );
+  assert.equal(unreadable.actions.length, 1, '読めない日付を決着扱いで消している');
+
+  const noResolvedOn = classifyInquiries(
+    [{ dmId: '9', dateText: '19時間前' }],
+    [{ dmId: '9', reason: '完了' }],
+    REOPEN_NOW,
+  );
+  assert.equal(noResolvedOn.actions.length, 1, 'いつ決着したか不明なのに消している');
 });

@@ -138,13 +138,15 @@ for (const d of classifyReplyDeadlines(snapOrders, now, { warnHours: REPLY_WARN_
 //     本物の警告を埋もれさせていた（X の陳腐化下書きと同じ構図）。
 const inquiries = Array.isArray(snap.inquiries) ? snap.inquiries : [];
 const resolvedList = readJson(RESOLVED_PATH)?.resolved ?? [];
-const inq = classifyInquiries(inquiries, resolvedList);
+const inq = classifyInquiries(inquiries, resolvedList, Date.now());
 for (const q of inq.actions) {
   const what = q.serviceId ?? (q.subject ? `「${q.subject}」` : '（対象商品不明）');
+  // 再オープンは「なぜ今出てきたか」が分からないと取り違えられるので理由を添える。
+  const note = q.reopened ? `（再オープン: ${q.why}）` : '';
   if (q.unread) {
-    actions.push(`DM ${q.dmId}: 未読の問い合わせ ${what}（${q.dateText}）。${q.dmUrl}`);
+    actions.push(`DM ${q.dmId}: 未読の問い合わせ ${what}（${q.dateText}）${note}。${q.dmUrl}`);
   } else {
-    actions.push(`DM ${q.dmId}: 既読の問い合わせ ${what}（${q.dateText}）— 返信済みか確認。${q.dmUrl}`);
+    actions.push(`DM ${q.dmId}: 既読の問い合わせ ${what}（${q.dateText}）${note} — 返信済みか確認。${q.dmUrl}`);
   }
 }
 // 返信不可でも**読まれる経路は残す**。出品取り下げのような重要通知はここにしか来ない
