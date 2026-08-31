@@ -164731,17 +164731,17 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-31T10:07:01.782Z"
+      "verifiedAt": "2026-08-31T11:10:40.176Z"
     },
     ".claude/config/coconala/assets/moshi-src/C9-2級模試/解答解説.md": {
       "bucket": "private",
       "r2Key": "coconala/assets/moshi-src/C9-2級模試/解答解説.md",
-      "sha256": "4fd8a6f21a8c45d6940bf89fc39171ed769de44761e36cb929e9aba6ccfaf208",
-      "bytes": 27875,
+      "sha256": "41dc5b0aa499f7fcfc7cfb9447bf6d4c8a0e04f8494d4fba77e5f6796bad9661",
+      "bytes": 27877,
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-31T10:07:01.764Z"
+      "verifiedAt": "2026-08-31T11:10:40.170Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-04-施工計画.pdf": {
       "bucket": "private",
@@ -164751,17 +164751,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:28.985Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-04-施工計画.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:43.320Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-02-安全管理.pdf": {
       "bucket": "private",
@@ -164771,17 +164761,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:28.991Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-02-安全管理.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:43.499Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-05-環境対策.pdf": {
       "bucket": "private",
@@ -164791,17 +164771,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:29.015Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-05-環境対策.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:43.485Z"
     },
     ".claude/config/coconala/assets/moshi-src/C9-2級模試/問題冊子.md": {
       "bucket": "private",
@@ -164811,7 +164781,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-31T10:07:01.769Z"
+      "verifiedAt": "2026-08-31T11:10:40.181Z"
     },
     ".claude/config/coconala/assets/moshi-src/C8-1級模試/問題冊子.md": {
       "bucket": "private",
@@ -164821,7 +164791,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-31T10:07:01.794Z"
+      "verifiedAt": "2026-08-31T11:10:40.314Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C3-2級完成答案-01-品質管理.pdf": {
       "bucket": "private",
@@ -164831,17 +164801,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:29.045Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C3-2級完成答案-01-品質管理.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:43.469Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-03-工程管理.pdf": {
       "bucket": "private",
@@ -164851,17 +164811,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:29.050Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-03-工程管理.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:43.504Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C3-2級完成答案-03-工程管理.pdf": {
       "bucket": "private",
@@ -164871,17 +164821,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:29.064Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C3-2級完成答案-03-工程管理.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:49.877Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C3-2級完成答案-02-安全管理.pdf": {
       "bucket": "private",
@@ -164891,17 +164831,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:29.099Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C3-2級完成答案-02-安全管理.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:43.249Z"
     },
     ".claude/config/coconala/assets/bg-docs.png": {
       "bucket": "private",
@@ -164933,17 +164863,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:29.136Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C2-完成答案-01-品質管理.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:40.094Z"
     },
     ".claude/config/coconala/assets/cover-profile.png": {
       "bucket": "private",
@@ -164975,17 +164895,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:29.523Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R04.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:46.660Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R03.pdf": {
       "bucket": "private",
@@ -164995,17 +164905,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:29.620Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R03.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:46.579Z"
     },
     ".claude/config/coconala/assets/bg-civil.png": {
       "bucket": "private",
@@ -165037,17 +164937,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:29.677Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R03.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:49.258Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R06.pdf": {
       "bucket": "private",
@@ -165057,17 +164947,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:29.682Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R06.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:46.328Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-03-土工.pdf": {
       "bucket": "private",
@@ -165077,17 +164957,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:29.703Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-03-土工.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:52.562Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R07.pdf": {
       "bucket": "private",
@@ -165097,17 +164967,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:29.715Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R07.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:49.719Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R07.pdf": {
       "bucket": "private",
@@ -165117,17 +164977,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:29.732Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R07.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:47.001Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R06.pdf": {
       "bucket": "private",
@@ -165137,17 +164987,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:29.767Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R06.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:49.995Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R05.pdf": {
       "bucket": "private",
@@ -165157,17 +164997,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:29.772Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R05.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:50.137Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C1-出題分析-1級土木二次.pdf": {
       "bucket": "private",
@@ -165177,17 +165007,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:29.818Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C1-出題分析-1級土木二次.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:40.388Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-02-品質管理.pdf": {
       "bucket": "private",
@@ -165197,17 +165017,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:29.820Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-02-品質管理.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:52.064Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R05.pdf": {
       "bucket": "private",
@@ -165217,17 +165027,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:29.863Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C4-1級過去問模範-R05.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:46.276Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-04-安全管理・法規.pdf": {
       "bucket": "private",
@@ -165237,17 +165037,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:30.074Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-04-安全管理・法規.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:52.673Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R04.pdf": {
       "bucket": "private",
@@ -165257,17 +165047,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:30.141Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C5-2級過去問模範-R04.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:49.086Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-05-施工計画・環境.pdf": {
       "bucket": "private",
@@ -165277,17 +165057,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:30.212Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-05-施工計画・環境.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:52.768Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-01-コンクリート工.pdf": {
       "bucket": "private",
@@ -165297,17 +165067,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:30.268Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C6-1級学科記述-01-コンクリート工.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:51.859Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-01-コンクリート工.pdf": {
       "bucket": "private",
@@ -165317,37 +165077,17 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:30.312Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-01-コンクリート工.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:53.156Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C9-2級二次予想模試-解答解説.pdf": {
       "bucket": "private",
       "r2Key": "coconala/assets/pdf/coconala-C9-2級二次予想模試-解答解説.pdf",
-      "sha256": "a6ba3376e70893d8882013a729efa5884479d047d2513f91d79a6249e26f3c17",
-      "bytes": 448197,
+      "sha256": "18a6c80431a3c4a35831f3964c318705bf825e5fd15b301c4c1ee5cb724e66e0",
+      "bytes": 1010580,
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:30.329Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C9-2級二次予想模試-解答解説.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:57.922Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-03-土工.pdf": {
       "bucket": "private",
@@ -165357,17 +165097,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:30.357Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-03-土工.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:55.081Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-04-安全管理・法規.pdf": {
       "bucket": "private",
@@ -165377,37 +165107,17 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:30.360Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-04-安全管理・法規.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:55.446Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C9-2級二次予想模試-問題冊子.pdf": {
       "bucket": "private",
       "r2Key": "coconala/assets/pdf/coconala-C9-2級二次予想模試-問題冊子.pdf",
-      "sha256": "772a69f800e55f0d350a0549fcafd875ea504aaca54c943552600fcc5093c9d9",
-      "bytes": 485035,
+      "sha256": "7a0e12952f7c61925e00f1af6281b541778420f5d52648708b4da7fb376161cb",
+      "bytes": 992018,
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:30.389Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C9-2級二次予想模試-問題冊子.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:57.786Z"
     },
     ".claude/config/coconala/assets/thumb-1kyu-full-pdf.png": {
       "bucket": "private",
@@ -165439,7 +165149,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-31T10:07:01.819Z"
+      "verifiedAt": "2026-08-31T11:10:55.763Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-05-施工計画・環境.pdf": {
       "bucket": "private",
@@ -165449,17 +165159,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:30.516Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-05-施工計画・環境.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:56.093Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-sokan-bunseki.pdf": {
       "bucket": "private",
@@ -165469,17 +165169,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:30.539Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-sokan-bunseki.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:58.350Z"
     },
     ".claude/config/coconala/assets/thumb-1kyu-kakomon-pdf.png": {
       "bucket": "private",
@@ -165511,7 +165201,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-31T10:07:01.913Z"
+      "verifiedAt": "2026-08-31T11:10:56.367Z"
     },
     ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-02-品質管理.pdf": {
       "bucket": "private",
@@ -165521,17 +165211,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "coconala-asset",
-      "verifiedAt": "2026-08-29T01:22:30.752Z",
-      "logicalPath": ".claude/config/coconala/assets/pdf/coconala-C7-2級学科記述-02-品質管理.pdf",
-      "mime": "application/pdf",
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ]
+      "verifiedAt": "2026-08-31T11:10:54.710Z"
     },
     ".claude/config/coconala/assets/thumb-1kyu-gakka-pdf.png": {
       "bucket": "private",

@@ -35,9 +35,9 @@ https://note.com/dobokunote/m/md29a34906314
 
 ## Tweet 05: 9/2 12:25 civil-2 / 要点圧縮 / site
 
-施工経験記述は(1)技術的課題→(2)検討項目・検討理由・検討内容→(3)対応処置とその評価、の3段だけ覚えればいい。令和6年度以降は設問が2項目に増えたが、この3段構成自体は変わっていない。
+2級の施工経験記述、令和6年度以降は解答欄が2つ。(1)現場状況と技術的課題、(2)検討した項目とその対応処置。旧年度の3項目（課題／検討／対応処置）とは区切りが違うので、過去問の答案をそのまま写すと欄に収まらない。
 
-https://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep02-c2-exp-examples
+https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-examples?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep02-c2-exp-examples
 #2級土木施工管理技士 #施工管理技士 #経験記述
 
 ## Tweet 06: 9/2 20:05 civil-1 / 発注者視点解説 / linkless
