@@ -111,20 +111,20 @@ const THUMB_COPY = {
   'coconala-1kyu-premium': {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定 教材＋添削',
     title: ['教材一式', '＋経験記述添削'],
-    hook: 'PDF18冊(115ページ)で書き方を掴み\nあなたの答案を発注者視点で赤入れ',
+    hook: 'PDF22冊(145ページ)で書き方を掴み\nあなたの答案を発注者視点で赤入れ',
     priceLabel: '添削2テーマ・書き直し1回込み／週1名',
   },
   'coconala-1kyu-full-pdf': {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定 対策PDF',
     title: ['二次 教材', 'フルパック'],
-    hook: '分析・模範答案・学科・模試の全部入り\nPDF 18冊（分析と学科はパック限定）',
-    priceLabel: 'PDF 18冊・全部入り',
+    hook: '分析・模範答案・学科・模試の全部入り\nPDF 22冊（分析と学科はパック限定）',
+    priceLabel: 'PDF 22冊・全部入り',
   },
   'coconala-2kyu-full-pdf': {
     eyebrow: '2級土木施工管理技士 ／ 第2次検定 対策PDF',
     title: ['二次 教材', 'フルパック'],
-    hook: '模範答案・学科・模試の全部入り\nPDF 15冊（学科攻略はパック限定）',
-    priceLabel: 'PDF 15冊・全部入り',
+    hook: '模範答案・学科・模試の全部入り\nPDF 19冊（学科攻略はパック限定）',
+    priceLabel: 'PDF 19冊・全部入り',
   },
   'coconala-bunseki-pdf': {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定 対策PDF',
@@ -170,15 +170,15 @@ const THUMB_COPY = {
   },
   'coconala-1kyu-moshi-pdf': {
     eyebrow: '1級土木施工管理技士 ／ 第2次検定',
-    title: ['二次 予想', '模擬試験 PDF'],
-    hook: '本番形式1回分＋解答解説の2冊\n印刷して手書きで解く・自己採点ガイド付',
-    priceLabel: '問題＋解答解説 PDF',
+    title: ['R8 二次予想', '模試 3回分'],
+    hook: '本番形式3回・問題＋解答解説の6冊\n選択問題・時間配分・自己採点まで一体化',
+    priceLabel: 'PDF 6冊',
   },
   'coconala-2kyu-moshi-pdf': {
     eyebrow: '2級土木施工管理技士 ／ 第2次検定',
-    title: ['二次 予想', '模擬試験 PDF'],
-    hook: '本番形式1回分＋解答解説の2冊\n印刷して手書きで解く・自己採点ガイド付',
-    priceLabel: '問題＋解答解説 PDF',
+    title: ['R8 二次予想', '模試 3回分'],
+    hook: '本番形式3回・問題＋解答解説の6冊\n必須4問＋選択2問を120分で通し演習',
+    priceLabel: 'PDF 6冊',
   },
 };
 
