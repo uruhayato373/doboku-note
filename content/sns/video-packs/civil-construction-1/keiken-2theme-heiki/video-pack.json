@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-2theme-heiki",
+  "exam": "civil-construction-1",
+  "title": "2テーマ指定への備え — 設問1と設問2の書き分け",
+  "audience": "1級土木二次の新形式2テーマ指定に不安がある受検者",
+  "pain": "設問1と設問2で別テーマを指定される形式に対応できる気がしない",
+  "promise": "1つの工事から2テーマ分の材料を仕込む準備法が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/1級土木/1級経験記述R6新形式と設問書き分け/article.md",
+      "access": "free"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-combo-essay",
+    "campaign": "keiken-2theme-heiki"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

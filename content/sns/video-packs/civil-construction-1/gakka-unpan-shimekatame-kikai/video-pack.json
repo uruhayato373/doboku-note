@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-unpan-shimekatame-kikai",
+  "exam": "civil-construction-1",
+  "title": "運搬・敷均し・締固め機械の整理法",
+  "audience": "1級土木一次で運搬距離と機械選定の数値が曖昧な受験者",
+  "pain": "運搬機械の適用距離や締固め機械と土質の対応が覚えられない",
+  "promise": "距離と土質という2軸だけで機械選定を整理できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-scraper/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-transport-machinery/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-grader-compaction/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-anki-note",
+    "campaign": "gakka-unpan-shimekatame-kikai"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

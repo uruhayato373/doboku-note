@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-hoki-kenchiku-kayaku",
+  "exam": "civil-construction-1",
+  "title": "建築基準法・火薬類取締法の頻出点",
+  "audience": "1級土木一次で出題数の少ない法規を効率よく拾いたい受験者",
+  "pain": "出題頻度の低い法規にどこまで時間を掛けるべきか分からない",
+  "promise": "仮設建築物と火薬類の頻出論点だけを短時間で押さえられる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-building-standards/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-explosives-act/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-law-compliance/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-anki-note",
+    "campaign": "gakka-hoki-kenchiku-kayaku"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

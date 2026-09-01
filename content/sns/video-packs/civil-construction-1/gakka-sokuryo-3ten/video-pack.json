@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-sokuryo-3ten",
+  "exam": "civil-construction-1",
+  "title": "測量の頻出3テーマ — 基準・水準測量・距離と角度",
+  "audience": "1級土木一次で測量の計算問題を後回しにしている受験者",
+  "pain": "水準測量の計算や誤差の扱いが毎回あやふやになる",
+  "promise": "出題パターンが決まった測量3テーマの解き手順が固まる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-surveying-basics/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-leveling/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-distance-angle/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "gakka-sokuryo-3ten"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

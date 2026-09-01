@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "career-komuin-minkan",
+  "exam": "civil-construction-1",
+  "title": "公務員土木か民間か — 発注者と受注者のリアル",
+  "audience": "公務員土木と民間で進路を迷っている土木技術者",
+  "pain": "公務員と民間の働き方の違いを両方経験した人の話が聞けない",
+  "promise": "元自治体土木職の実体験から両者の向き不向きが分かる",
+  "intent": "career",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-public-servant/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/public-servant-merit/article.mdx"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/公務員土木か民間か-無料/article.md",
+      "access": "free"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "career-komuin-minkan"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

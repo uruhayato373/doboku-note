@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "packId": "study-plan-2kyu",
+  "exam": "civil-construction-2",
+  "title": "2級土木の勉強計画 — 仕事と両立する学習設計",
+  "audience": "2級土木を働きながら受ける受検者",
+  "pain": "仕事と両立しながら何をいつまでに進めるか計画できない",
+  "promise": "残り期間から逆算した週単位の学習計画が作れる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-study-plan/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-study-method/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "study-plan-2kyu"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

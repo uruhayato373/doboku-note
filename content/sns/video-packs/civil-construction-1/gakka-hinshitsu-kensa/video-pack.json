@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-hinshitsu-kensa",
+  "exam": "civil-construction-1",
+  "title": "品質管理の検査 — 全数・抜取の使い分け",
+  "audience": "1級土木一次で品質検査方式の問題が苦手な受験者",
+  "pain": "全数検査と抜取検査をどの条件で使い分けるか説明できない",
+  "promise": "検査方式を選ぶ判断条件を具体例つきで説明できるようになる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-quality-overview/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "gakka-hinshitsu-kensa"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

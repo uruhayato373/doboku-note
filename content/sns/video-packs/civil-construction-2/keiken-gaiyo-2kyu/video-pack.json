@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-gaiyo-2kyu",
+  "exam": "civil-construction-2",
+  "title": "2級 工事概要の書き方 — 最初の失点を防ぐ",
+  "audience": "2級土木二次で工事概要の書き方に自信がない受検者",
+  "pain": "工事概要に何をどこまで書けば設問と整合するか分からない",
+  "promise": "経験記述本文と矛盾しない工事概要の書き方が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/2級土木/工事概要の書き方/article.md",
+      "access": "free"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-koji-bank",
+    "campaign": "keiken-gaiyo-2kyu"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

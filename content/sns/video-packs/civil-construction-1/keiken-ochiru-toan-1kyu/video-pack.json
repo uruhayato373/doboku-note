@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-ochiru-toan-1kyu",
+  "exam": "civil-construction-1",
+  "title": "落ちる答案の共通パターン — 内容以前の減点を消す",
+  "audience": "1級土木二次で自分の答案に不安がある受検者",
+  "pain": "内容以前の理由で減点される答案の特徴を知らないまま書いている",
+  "promise": "落ちる答案の型を知り自分の答案を事前に診断できる",
+  "intent": "diagnosis",
+  "sourceRefs": [
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/経験記述-落ちる答案診断-無料/article.md",
+      "access": "free"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/1級土木/1級経験記述で落ちる答案/article.md",
+      "access": "free"
+    }
+  ],
+  "primaryCta": {
+    "kind": "coconala-service",
+    "targetId": "coconala-shindan",
+    "campaign": "keiken-ochiru-toan-1kyu"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

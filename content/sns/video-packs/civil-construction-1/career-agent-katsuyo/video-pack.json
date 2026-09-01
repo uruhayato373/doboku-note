@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "packId": "career-agent-katsuyo",
+  "exam": "civil-construction-1",
+  "title": "転職エージェントの使い方 — 施工管理向けの選び方",
+  "audience": "転職エージェントを使うか迷っている施工管理職",
+  "pain": "エージェントの種類が多くどれをどう使えばよいか分からない",
+  "promise": "施工管理向けエージェントの選び方と使い倒し方が分かる",
+  "intent": "career",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-career-agents/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-career-agent-comparison/article.mdx"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/転職エージェントの使い方-無料/article.md",
+      "access": "free"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/転職エージェント比較-無料/article.md",
+      "access": "free"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "career-agent-katsuyo"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

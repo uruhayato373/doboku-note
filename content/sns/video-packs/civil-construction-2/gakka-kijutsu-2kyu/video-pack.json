@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-kijutsu-2kyu",
+  "exam": "civil-construction-2",
+  "title": "2級二次の学科記述 — 出る分野と解答の型",
+  "audience": "2級土木二次の学科記述に何が出るか知らない受検者",
+  "pain": "経験記述以外の記述問題に何がどの形式で出るか分からない",
+  "promise": "2級二次の学科記述の出題分野と解答の型が分かる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-getting-started/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-r07/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-gakka-kijutsu",
+    "campaign": "gakka-kijutsu-2kyu"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

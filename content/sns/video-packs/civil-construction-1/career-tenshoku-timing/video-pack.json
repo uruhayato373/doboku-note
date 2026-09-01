@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "career-tenshoku-timing",
+  "exam": "civil-construction-1",
+  "title": "施工管理の転職タイミング — 資格取得前か後か",
+  "audience": "転職を考え始めた土木施工管理技士の受験者・保有者",
+  "pain": "資格を取ってから転職すべきか今動くべきか判断できない",
+  "promise": "資格と転職市場の関係からベストな動き方を判断できる",
+  "intent": "career",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-timing/article.mdx"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/転職のベストタイミング-無料/article.md",
+      "access": "free"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "career-tenshoku-timing"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

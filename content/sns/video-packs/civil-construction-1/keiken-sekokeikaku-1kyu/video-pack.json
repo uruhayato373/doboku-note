@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-sekokeikaku-1kyu",
+  "exam": "civil-construction-1",
+  "title": "施工計画テーマの経験記述 — 検討の幅で差をつける",
+  "audience": "1級土木二次で施工計画テーマの書き方が分からない受検者",
+  "pain": "施工計画テーマは範囲が広く何を検討項目にするか迷う",
+  "promise": "施工計画テーマで評価される検討項目の選び方が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md",
+      "access": "free"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-experience-essay",
+    "campaign": "keiken-sekokeikaku-1kyu"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

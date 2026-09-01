@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-dodome-kussaku",
+  "exam": "civil-construction-1",
+  "title": "土止め支保工と明り掘削の安全基準",
+  "audience": "1級土木一次で掘削の安全基準の数値問題を落とす受験者",
+  "pain": "掘削面の勾配や土止め支保工の点検時期の数値が曖昧",
+  "promise": "地山の種類×掘削高さの表で安全基準を即答できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-anki-note",
+    "campaign": "gakka-dodome-kussaku"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

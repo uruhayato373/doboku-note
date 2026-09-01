@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-soteikoji-katsuyo",
+  "exam": "civil-construction-1",
+  "title": "完成答案の正しい使い方 — 写すのではなく置き換える",
+  "audience": "1級土木二次で模範答案の活用方法に迷っている受検者",
+  "pain": "模範答案を読んでも自分の工事にどう応用するか分からない",
+  "promise": "模範答案を自分の現場条件へ置き換える手順が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/1級土木/1級経験記述を自分の現場に置換/article.md",
+      "access": "free"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-keiken-complete-pack",
+    "campaign": "keiken-soteikoji-katsuyo"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

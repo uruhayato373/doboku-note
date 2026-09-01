@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-anzen-2kyu-kakikata",
+  "exam": "civil-construction-2",
+  "title": "2級 安全管理テーマの書き方 — 現場の数字で具体化する",
+  "audience": "2級土木二次で安全管理テーマを書く予定の受検者",
+  "pain": "安全管理の検討内容をどう具体化すればよいか分からない",
+  "promise": "自分の現場の条件と数字で安全管理を書く手順が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-safety-management/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-experience-essay",
+    "campaign": "keiken-anzen-2kyu-kakikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

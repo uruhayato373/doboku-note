@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "kikinagashi-hoki-suchi",
+  "exam": "civil-construction-1",
+  "title": "耳で覚える法規の数字 — 労基法・安衛法・騒音振動",
+  "audience": "通勤時間で法規の数値を覚えたい1級土木受験者",
+  "pain": "法規の人数・年限・デシベルの数値が直前まで定着しない",
+  "promise": "法規の頻出数値を反復リズムで長期記憶に入れられる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-safety-industrial-safety-law/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-noise-vibration-regulation/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-anki-note",
+    "campaign": "kikinagashi-hoki-suchi"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "chokuzen-check-1kyu-niji",
+  "exam": "civil-construction-1",
+  "title": "1級二次 直前チェック — 最後の1週間でやること",
+  "audience": "1級土木二次の直前期にいる受検者",
+  "pain": "直前期に何を確認すれば得点が伸びるか優先順位が分からない",
+  "promise": "直前1週間の確認項目を優先順に消化できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-last-minute-2026/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-r8-bunseki",
+    "campaign": "chokuzen-check-1kyu-niji"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-kikai-kiso",
+  "exam": "civil-construction-1",
+  "title": "建設機械の基礎 — 走行装置と原動機の頻出点",
+  "audience": "1級土木一次で建設機械の構造問題を落としたくない受験者",
+  "pain": "走行装置や原動機の細かい構造の違いが頭に入らない",
+  "promise": "出題される構造の対比ポイントだけに絞って覚えられる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-machinery-overview/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-machinery-structure/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-anki-note",
+    "campaign": "gakka-kikai-kiso"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

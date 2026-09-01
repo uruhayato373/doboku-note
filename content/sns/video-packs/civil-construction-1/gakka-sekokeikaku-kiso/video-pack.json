@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-sekokeikaku-kiso",
+  "exam": "civil-construction-1",
+  "title": "施工計画の立て方 — 事前調査から仮設まで",
+  "audience": "1級土木一次で施工計画の問題を感覚で解いている受験者",
+  "pain": "施工計画の検討順序と各計画の中身が体系立っていない",
+  "promise": "事前調査から仮設計画までの検討フローで解けるようになる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-construction-mgmt-overview/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-construction-plan-overview/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-management-subplans/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "gakka-sekokeikaku-kiso"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

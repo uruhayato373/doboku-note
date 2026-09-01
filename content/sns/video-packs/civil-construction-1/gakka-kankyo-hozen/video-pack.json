@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-kankyo-hozen",
+  "exam": "civil-construction-1",
+  "title": "騒音・振動規制の数字と公害防止の頻出点",
+  "audience": "1級土木一次で環境法規の基準値が覚えられない受験者",
+  "pain": "特定建設作業の規制値と届出期限の数字が毎回抜ける",
+  "promise": "規制値と届出をワンセットの型で記憶に定着できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-water-air-soil-pollution/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-noise-vibration-regulation/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-anki-note",
+    "campaign": "gakka-kankyo-hozen"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

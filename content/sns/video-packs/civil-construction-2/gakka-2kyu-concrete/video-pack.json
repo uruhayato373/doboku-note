@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-2kyu-concrete",
+  "exam": "civil-construction-2",
+  "title": "2級土木 コンクリートの頻出点 — 打込み・養生・継目",
+  "audience": "2級土木一次でコンクリートの基本問題を確実に取りたい受検者",
+  "pain": "打込みや養生の細かい規定のどれが試験に出るのか分からない",
+  "promise": "毎年問われる規定に絞ってコンクリートを得点源にできる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-concrete-key-points/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-anki-note",
+    "campaign": "gakka-2kyu-concrete"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

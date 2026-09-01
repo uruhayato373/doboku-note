@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "niji-kijutsu-concrete",
+  "exam": "civil-construction-1",
+  "title": "二次の学科記述 コンクリート — 頻出規定の整理",
+  "audience": "1級土木二次の学科記述でコンクリートに不安がある受検者",
+  "pain": "コンクリートの施工規定のどこが記述式で問われるか分からない",
+  "promise": "打込み・養生・継目の頻出規定を記述で書ける形に整理できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-concrete-basics/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-gakka-kijutsu",
+    "campaign": "niji-kijutsu-concrete"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

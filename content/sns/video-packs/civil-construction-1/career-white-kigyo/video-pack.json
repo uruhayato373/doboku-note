@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "packId": "career-white-kigyo",
+  "exam": "civil-construction-1",
+  "title": "ホワイトな建設会社の見分け方 — 求人票の読み方",
+  "audience": "労働環境の良い会社へ移りたい施工管理職",
+  "pain": "求人票からは入社後の働き方の実態が読み取れない",
+  "promise": "求人票と面接で実態を見抜くチェックポイントが分かる",
+  "intent": "career",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-white-company/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-buildjob-review/article.mdx"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/ホワイトな建設会社の見分け方-無料/article.md",
+      "access": "free"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/ビルドジョブの評判-発注者目線-無料/article.md",
+      "access": "free"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "career-white-kigyo"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

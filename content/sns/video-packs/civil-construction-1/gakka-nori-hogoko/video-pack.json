@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-nori-hogoko",
+  "exam": "civil-construction-1",
+  "title": "法面保護工の使い分け — 植生工か構造物工か",
+  "audience": "1級土木一次で法面保護工の種類の多さに混乱する受験者",
+  "pain": "法面保護工の種類が多くどの条件でどれを選ぶか整理できない",
+  "promise": "植生工と構造物工を適用条件で二分する判断軸が分かる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "gakka-nori-hogoko"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "packId": "roadmap-1kyu-vs-2kyu",
+  "exam": "civil-construction-1",
+  "title": "1級と2級どちらから受けるか — 判断基準",
+  "audience": "土木施工管理技士をこれから受ける級で迷っている人",
+  "pain": "自分の経験年数とキャリアでどちらの級が正解か分からない",
+  "promise": "実務経験と目的から受ける級を決める判断基準が分かる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-1-vs-2/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "roadmap-1kyu-vs-2kyu"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

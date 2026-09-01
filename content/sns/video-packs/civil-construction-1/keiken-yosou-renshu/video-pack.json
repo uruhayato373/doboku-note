@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-yosou-renshu",
+  "exam": "civil-construction-1",
+  "title": "経験記述は予想問題で「書く練習」をする",
+  "audience": "1級土木二次で答案を1本しか用意していない受検者",
+  "pain": "本番でテーマが外れたときに書ける自信がない",
+  "promise": "予想テーマで複数本書く練習の回し方が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/経験記述-予想問題で書く練習-無料/article.md",
+      "access": "free"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-r8-mock3-pdf",
+    "campaign": "keiken-yosou-renshu"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}
