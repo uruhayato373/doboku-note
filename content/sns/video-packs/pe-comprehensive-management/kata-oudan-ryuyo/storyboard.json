@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "毎年、過去問ごとに一から論文を書いていませんか。今日は、1つのパターンを設問の差分だけ調整して流用する手順を説明します。",
+      "caption": "1パターンで複数年度に対応する",
+      "visual": {
+        "kind": "cover",
+        "heading": "1つの論文パターンを複数年度へ流用する",
+        "items": ["技術士 総合技術監理部門・記述式"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 60,
+      "narration": "年度が変われば論文も書き直す、という誤解があります。出題は「出題テーマ×受験者が選ぶ管理対象」の組み合わせで、テーマは年度固定ですが管理対象は自由に選べます。",
+      "caption": "テーマは固定でも管理対象は選べる",
+      "visual": {
+        "heading": "誤解：年度ごとに全部書き直す",
+        "items": ["出題＝テーマ×管理対象の組み合わせ", "テーマは固定、管理対象は受験者が選択"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-pattern-cross-year-application/article.mdx"
+    },
+    {
+      "sceneId": "scope",
+      "start": 60,
+      "end": 115,
+      "narration": "論文は管理対象と前提条件の設定、施策、将来展望の3層です。管理対象と前提条件はテーマに依存せず、年度を超えて再利用できます。テーマに反応するのは施策と展望の2層だけです。",
+      "caption": "使い回せるのは前提条件の設定",
+      "visual": {
+        "heading": "3層のうち使い回せる部分",
+        "items": ["Ⅰ 管理対象と前提条件＝再利用可能", "Ⅱ 施策・Ⅲ 展望＝テーマに反応する層"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-pattern-cross-year-application/article.mdx"
+    },
+    {
+      "sceneId": "selection",
+      "start": 115,
+      "end": 165,
+      "narration": "パターン選びの基準は3つ。自分の業務経験に近いこと。5管理すべてに接続できる幅があること。ハードとソフト両方で論じられること。この3つを満たす1〜2パターンに絞ります。",
+      "caption": "流用しやすいパターンの3条件",
+      "visual": {
+        "heading": "パターン選定の基準",
+        "items": ["自分の業務経験に近い", "5管理すべてに接続できる幅", "ハード・ソフト両面で論じられる"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-pattern-cross-year-application/article.mdx"
+    },
+    {
+      "sceneId": "adjustment",
+      "start": 165,
+      "end": 225,
+      "narration": "施策そのものをゼロから考え直す必要はありません。DXやAI、ナレッジマネジメント、ライフサイクル評価、市民協働は複数テーマで使える定番のストックです。変えるのは、その施策を論じる切り口だけです。",
+      "caption": "変えるのは施策の切り口だけ",
+      "visual": {
+        "heading": "差分調整は切り口を変えるだけ",
+        "items": ["定番施策ストック（DX・AI・LCA等）を使い回す", "テーマごとに論じる切り口だけ変える"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-pattern-cross-year-application/article.mdx"
+    },
+    {
+      "sceneId": "judgement",
+      "start": 225,
+      "end": 275,
+      "narration": "複数パターンを用意したら、問題文のヒントから本番で選びます。既存インフラの活用が問われれば維持管理系、新設や整備が問われれば整備系というように、対応をあらかじめ整理しておきます。",
+      "caption": "問題文のヒントで選ぶ",
+      "visual": {
+        "heading": "本番での選択判断",
+        "items": ["キーワードとパターンの対応表を用意", "試験前日に30秒以内で選べる状態へ"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-pattern-cross-year-application/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 275,
+      "end": 315,
+      "narration": "まとめます。使い回せるのは管理対象と前提条件の設定。テーマごとに変えるのは施策と展望の切り口だけ。この構造で1パターンを複数年度へ流用できます。",
+      "caption": "使い回す・変えるを切り分ける",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 前提条件は使い回す", "② 施策・展望は切り口だけ変える", "③ 1〜2パターンに絞って習熟する"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 315,
+      "end": 345,
+      "narration": "橋梁長寿命化とバイパス整備、2つのパターンをR5からR8予想まで書き分けた詳細を、記述式コアパックにまとめています。概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+      "caption": "流用戦略の詳細は概要欄から",
+      "visual": {
+        "kind": "cover",
+        "heading": "1パターンを型で使い回す",
+        "items": ["総監記述式 コアパック（概要欄リンク）"]
+      }
+    }
+  ]
+}
