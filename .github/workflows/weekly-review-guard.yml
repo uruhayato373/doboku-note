@@ -197,7 +197,10 @@ jobs:
             echo "- 判定ロジック: \`scripts/check-workflow-health.mjs\`"
             echo "- 閾値そのものを変えるときは config に理由を書く（間隔より短い上限は偽赤になる）"
           } > /tmp/wf-health-body.md
-          node scripts/report-automation-failure.mjs \n            --channel workflow-health \n            --title "重要 workflow が赤いまま/動いていません" \n            --body-file /tmp/wf-health-body.md
+          node scripts/report-automation-failure.mjs \
+            --channel workflow-health \
+            --title "重要 workflow が赤いまま/動いていません" \
+            --body-file /tmp/wf-health-body.md
 
       # report 区分（quality-audit の ci:false）の読み手を機械化する（2026-08-24 新設）。
       #
@@ -229,7 +232,10 @@ jobs:
             echo "- 再現: \`node scripts/quality-audit.mjs --report-only\`"
             echo "- 直すか、読む人がいないなら検査ごと消す（CLAUDE.md §9）"
           } > /tmp/report-digest-body.md
-          node scripts/report-automation-failure.mjs \n            --channel report-checks \n            --title "quality-audit の report 区分に FAIL があります" \n            --body-file /tmp/report-digest-body.md
+          node scripts/report-automation-failure.mjs \
+            --channel report-checks \
+            --title "quality-audit の report 区分に FAIL があります" \
+            --body-file /tmp/report-digest-body.md
 
       # 先週分の docs/reviews/weekly/YYYY-Www-review.md が無ければ exit 1（赤落ち）。
       # 依存パッケージ不要（fs のみ）なので npm ci はスキップ。

@@ -23,7 +23,7 @@
  */
 import { readdirSync, readFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { createLinter } from 'actionlint';
 import { load } from 'js-yaml';
 
@@ -65,6 +65,24 @@ function collectRunScripts(content) {
     }
   }
   return out;
+}
+
+/**
+ * 6. 行継続の潰れ。`cmd \` + 改行 で書くつもりの引数列が、YAML 上でリテラル `\n`（バックスラッシュ
+ *    + 文字 n）1 行に潰れている形を検出する。bash は未クォートの `\n` を `n` 1 文字に解釈するので
+ *    argv に余分な `n` が混ざる。report-automation-failure.mjs の indexOf ベースのパーサが偶然無視
+ *    して動いていたため 3 箇所（uptime-ping / weekly-review-guard ×2）が 2026-09-01 まで気づかれなかった。
+ *    判定は run: の中身だけ（printf '%s\n' --x のように `\n` の直後がクォートなら該当しない）。
+ */
+export function findCollapsedContinuations(runScript) {
+  const hits = [];
+  const re = /\\n[ \t]+--[A-Za-z]/g;
+  const lines = String(runScript ?? '').split('\n');
+  lines.forEach((line, i) => {
+    if (re.test(line)) hits.push({ line: i + 1, text: line.trim().slice(0, 80) });
+    re.lastIndex = 0;
+  });
+  return hits;
 }
 
 async function main() {
@@ -155,6 +173,17 @@ async function main() {
     } else if (installsHooks && commits) {
       hookCommitScanned++;
     }
+
+    // 6. 行継続の潰れ（findCollapsedContinuations 参照）
+    for (const script of runScripts) {
+      for (const h of findCollapsedContinuations(script)) {
+        violations.push({
+          file, kind: 'collapsed-continuation', line: 0,
+          message: `run: 内でリテラル \\n に潰れた行継続がある（bash では引数 "n" になる）: ${h.text}`
+            + ' → `\\` + 改行 + インデント で書き直す（ci.yml の report-automation-failure 呼び出しが見本）',
+        });
+      }
+    }
   }
 
   const result = { check: 'workflow-hygiene', filesScanned: files.length, jobsScanned: jobCount, usesScanned: usesCount, hookCommitScanned, violations };
@@ -167,7 +196,7 @@ async function main() {
   console.log(`${TAG} workflow ${files.length} 本 / job ${jobCount} 件 / uses 参照 ${usesCount} 件を実検査`
     + `（うち フック有効で commit する ${hookCommitScanned} 本の doc-meta-index も確認）`);
   if (violations.length === 0) {
-    console.log(`${TAG} ✓ actionlint / permissions / timeout-minutes / SHA固定 / doc-meta-index いずれも違反なし`);
+    console.log(`${TAG} ✓ actionlint / permissions / timeout-minutes / SHA固定 / doc-meta-index / 行継続 いずれも違反なし`);
     process.exit(0);
   }
   for (const v of violations) {
@@ -177,4 +206,5 @@ async function main() {
   process.exit(1);
 }
 
-main();
+const isMain = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
+if (isMain) main();
