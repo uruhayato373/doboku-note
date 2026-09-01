@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "同じ実力・経験でも、数年後の年収には大きな差がつくことがあります。今日は年収を上げる動き方を説明します。",
+      "caption": "年収を上げる施工管理の動き方",
+      "visual": {
+        "kind": "cover",
+        "heading": "年収を上げる施工管理の動き方",
+        "items": ["資格の市場価値"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "資格を取れば年収が上がる、とよく聞きますが実際は複雑です。資格で役割が広がり、その変化が評価に反映される、というのが実態です。",
+      "caption": "資格単体が年収を押し上げるわけではない",
+      "visual": {
+        "heading": "誤解：資格を取れば年収は上がる",
+        "items": ["資格で担える役割が広がる", "役割の変化が評価・報酬に反映される"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-salary-up/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 55,
+      "end": 115,
+      "narration": "土木施工管理技術者の年収は、年齢とともに段階的に上がり、50代前半でピークを迎える傾向があります。1級保持者の方が評価・上限が高い傾向も見られます。",
+      "caption": "年収は経験と役割の積み重ねで上がる",
+      "visual": {
+        "heading": "1. まず全体像を知る",
+        "items": ["年齢とともに段階的に上がる", "1級は監理技術者を担え評価・上限が高い傾向"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-salary-up/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 115,
+      "end": 185,
+      "narration": "年収を上げる方法は4つ。現職での昇進、資格手当と評価、より条件の良い会社への転職、そして技術士や独立という長期的な選択肢です。",
+      "caption": "年収を上げる4つのルート",
+      "visual": {
+        "heading": "2. 年収を上げる4ルート",
+        "items": ["① 昇進・役職アップ", "② 資格手当・資格による評価", "③ 転職でより評価される会社へ", "④ 技術士・独立で上限を引き上げる"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-salary-up/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 185,
+      "end": 240,
+      "narration": "1級が評価される最大の理由は経営事項審査です。抱える技術者の資格が点数に反映され、1級保持者は会社の入札力を直接押し上げます。",
+      "caption": "1級の価値の源泉は経営事項審査",
+      "visual": {
+        "heading": "3. 経営事項審査という仕組み",
+        "items": ["公共工事の入札に必要な審査", "抱える技術者の資格が点数に反映される"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-market-value/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 240,
+      "end": 300,
+      "narration": "上げる人と上がらない人の違いは3つです。資格を活かすところまで考えるか、市場価値を把握しているか、環境を変える選択肢を持っているかです。",
+      "caption": "年収を上げる人・上がらない人の違い",
+      "visual": {
+        "heading": "4. 上げる人の共通点",
+        "items": ["資格を「活かす」ところまで考える", "市場価値を定期的に把握する", "環境を変える選択肢を持っている"]
+      },
+      "sourceRef": "content/note/1級・2級土木/年収を上げる人の違い-無料/article.md"
+    },
+    {
+      "sceneId": "summary",
+      "start": 300,
+      "end": 340,
+      "narration": "まとめます。年収は経験と役割の積み重ねで上がります。昇進・資格・転職・独立を組み合わせ、市場価値を定期的に把握してください。",
+      "caption": "組み合わせと市場価値の把握が鍵",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 4ルートを組み合わせる", "② 市場価値を定期的に把握する", "③ 環境を変える選択肢を持つ"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 340,
+      "end": 370,
+      "narration": "自分の市場価値と年収の現在地を確認したい方は、概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "続きは概要欄のリンクから",
+        "items": ["doboku-note リンクハブ"]
+      }
+    }
+  ]
+}

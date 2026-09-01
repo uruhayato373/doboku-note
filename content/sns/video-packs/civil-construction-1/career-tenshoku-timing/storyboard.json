@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "施工管理の転職は、どこへ動くかと同じくらい、いつ動くかが結果を左右します。今日は動くタイミングの判断基準を説明します。",
+      "caption": "施工管理の転職タイミング",
+      "visual": {
+        "kind": "cover",
+        "heading": "施工管理の転職タイミング",
+        "items": ["資格取得前か後か"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "良い求人が出たらすぐ動く、という判断は危険です。現場が動いている最中に抜けると引き継ぎが重くなります。タイミングを外すと、良い転職先が見つかっても辞めるに辞められません。",
+      "caption": "動くタイミングは現場の状況から逆算する",
+      "visual": {
+        "heading": "誤解：良い求人が出たらすぐ動く",
+        "items": ["現場の途中で抜けると引き継ぎが重い", "求人の巡り合わせより先に現場の状況を見る"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-timing/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 55,
+      "end": 115,
+      "narration": "一番動きやすいのは現場の切れ目です。担当現場が竣工し、次の現場に入る前のタイミングを指します。転職を考え始めたら、竣工予定から逆算して段取りを組みます。",
+      "caption": "一番動きやすいのは「現場の切れ目」",
+      "visual": {
+        "heading": "1. 現場の切れ目で動く",
+        "items": ["竣工〜次現場の間が最も動きやすい", "竣工予定から逆算して段取りを組む"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-timing/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 115,
+      "end": 180,
+      "narration": "資格取得前か後か。1級などの取得直後は、監理技術者を担える根拠を得て市場価値が上がっています。取得が目前なら、取ってから動く方が有利なことが多いです。",
+      "caption": "資格取得直後は市場価値が高い",
+      "visual": {
+        "heading": "2. 資格取得前か後か",
+        "items": ["取得直後は監理技術者の根拠を得て価値が上がる", "取得が目前なら取ってから動く方が有利"]
+      },
+      "sourceRef": "content/note/1級・2級土木/転職のベストタイミング-無料/article.md"
+    },
+    {
+      "sceneId": "step3",
+      "start": 180,
+      "end": 240,
+      "narration": "転職活動は在職中に進めるのが基本です。収入を確保したまま、いまの会社と候補先を具体的に比べられます。忙しい施工管理は、エージェントに探索を任せると進めやすくなります。",
+      "caption": "活動は在職中に進めるのが基本",
+      "visual": {
+        "heading": "3. 在職中に進める",
+        "items": ["収入を確保したまま候補先と比較できる", "求人探し・日程調整はエージェントへ任せられる"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-timing/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 240,
+      "end": 295,
+      "narration": "退職時は円満に区切ることも重要です。就業規則より早めに上司へ伝え、現場の区切りに合わせて引き継ぎ計画を立てます。繁忙期の突然の退職は避けたいところです。",
+      "caption": "円満退職は早めの意思表示と引き継ぎ計画",
+      "visual": {
+        "heading": "4. 円満退職と引き継ぎ",
+        "items": ["就業規則より早めに直属の上司へ伝える", "現場の区切りに合わせて引き継ぎ計画を立てる"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-timing/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 295,
+      "end": 340,
+      "narration": "まとめます。動くタイミングは、現場の切れ目、資格取得の直後、在職中の3つで判断します。完璧な時期を待ち続けて動けなくなるのも考えものです。",
+      "caption": "判断軸：現場の切れ目・資格取得・在職中",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 現場の切れ目", "② 資格取得の直後", "③ 在職中に進める", "④ 円満に区切る"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 340,
+      "end": 370,
+      "narration": "自分の状況に当てはめて相談したい方は、概要欄のリンクから確認してください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "続きは概要欄のリンクから",
+        "items": ["doboku-note リンクハブ"]
+      }
+    }
+  ]
+}
