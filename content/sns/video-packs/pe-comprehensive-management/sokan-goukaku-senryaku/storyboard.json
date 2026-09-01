@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "択一と記述、どちらにどれだけ時間を割けばいいか判断がつきません。今日は、合否を分ける思考法と学習計画の立て方を説明します。",
+      "caption": "択一と記述の配分で迷わない",
+      "visual": {
+        "kind": "cover",
+        "heading": "総監の合格戦略 — 択一と記述の配分",
+        "items": ["技術士 総合技術監理部門・学習計画"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 60,
+      "narration": "一般部門に合格した実力で総監も同じ感覚で臨めば通用する、という誤解があります。総監は専門技術の深さでなく、5つの管理を横断する統合力を問う別物の試験です。",
+      "caption": "総監は「統合力」を問う別物の試験",
+      "visual": {
+        "heading": "誤解：一般部門と同じ感覚で臨める",
+        "items": ["総監の本質は5管理の統合力", "同じ勉強法では伸びが頭打ちになる"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "tradeoff",
+      "start": 60,
+      "end": 115,
+      "narration": "合否を分けるのは、5つの管理間で起きるトレードオフを俯瞰し調整する力です。択一でも記述でも、この視点が出題の底に流れています。個別知識が正確でも、管理どうしの衝突を裁けなければ合格水準に届きません。",
+      "caption": "合否を分けるのはトレードオフ思考",
+      "visual": {
+        "heading": "1. トレードオフ思考が本質",
+        "items": ["5管理の衝突を俯瞰し調整する力", "択一・記述どちらの底流にもある視点"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "diff",
+      "start": 115,
+      "end": 170,
+      "narration": "一般部門には学協会や白書がありますが、総監にはありません。キーワード集が唯一の公式情報源です。総監は技術的妥当性だけでなく、コストや体制、社会への影響まで俯瞰して調整させます。",
+      "caption": "総監の公式情報源はキーワード集のみ",
+      "visual": {
+        "heading": "2. 一般部門との決定的な違い",
+        "items": ["学協会・白書なし → キーワード集が公式情報源", "妥当性だけでなくコスト・体制・社会影響まで俯瞰"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "balance",
+      "start": 170,
+      "end": 230,
+      "narration": "筆記は択一と記述の合計で60パーセント以上が必要です。片方に賭ける戦略は不利になります。択一は努力が点数に直結するので、まず土台を固めます。ただし、分野を丸ごと捨ててはいけません。",
+      "caption": "択一と記述、両方に賭ける",
+      "visual": {
+        "heading": "3. 択一と記述、両方に賭ける",
+        "items": ["合計60%以上・片方偏重は不利", "経済性の計算問題は確実な得点源", "1分野を捨てると残り4分野で75%要る"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "phases",
+      "start": 230,
+      "end": 300,
+      "narration": "合格者の多くは、試験日から6から7か月前にはスタートを切っています。全体像把握、本格学習、直前の仕上げ、そして試験後の口頭対策。この4フェーズで、各期にやることを決めておきます。",
+      "caption": "逆算した4フェーズで学習を組む",
+      "visual": {
+        "heading": "4. 逆算の4フェーズ学習計画",
+        "items": ["① 全体像把握 → ② 本格学習", "③ 直前の仕上げ → ④ 口頭対策", "6〜7か月前から逆算してスタート"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "recovery",
+      "start": 300,
+      "end": 350,
+      "narration": "一度で通らないことは珍しくありません。大事なのは、前回どこで落ちたかを曖昧にせず、そこにだけ対策を集中させることです。択一・記述・口頭、それぞれ切り分けて次に臨みます。",
+      "caption": "再受験は敗因を1点に絞る",
+      "visual": {
+        "heading": "5. 再受験は敗因を1点に絞る",
+        "items": ["択一は分野別に、記述は段階別に切り分け", "口頭は経歴の語り方を整備し直す"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 350,
+      "end": 390,
+      "narration": "まとめます。合否はトレードオフ思考で決まります。択一と記述の両方に賭け、逆算した4フェーズで学習を組み、敗因を1点に絞って次に臨む。これが合格戦略の骨格です。",
+      "caption": "思考法→両立→逆算→敗因分析",
+      "visual": {
+        "heading": "まとめ　合格戦略の骨格",
+        "items": ["① トレードオフ思考を軸に置く", "② 択一・記述の両方に賭ける", "③ 逆算4フェーズ→敗因を1点に絞る"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 390,
+      "end": 420,
+      "narration": "5管理のトレードオフの解決フレームや、フェーズごとの学習法の詳細は、リンクまとめページからご覧ください。ご視聴ありがとうございました。",
+      "caption": "詳しい学習計画はリンクまとめから",
+      "visual": {
+        "kind": "cover",
+        "heading": "学習計画の詳細はリンクから",
+        "items": ["総監 合格戦略まとめ（リンクページ）"]
+      }
+    }
+  ]
+}
