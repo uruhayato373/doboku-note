@@ -17,6 +17,7 @@
 | `07a_YouTube競合分析_土木施工管理技士_2026-09.md` | 定点 | 2026-09-01 | 競合分析の根拠資料（13ch yt-dlp実測・GET研究所発見・再取得手順つき） |
 | `08_YouTube戦略_技術士建設部門.md` | v1 | 2026-09-01 | **建設部門 YT の独立 SSOT**。1級土木×建設部門の横断軸・書き分け空白の先占・準備先行/公開はpilot判定後 |
 | `08a_YouTube競合分析_技術士建設部門_2026-09.md` | 定点 | 2026-09-01 | 競合分析の根拠資料（5ch実測・ぺんたID誤り訂正・白地12クエリ） |
+| `09_YouTube戦略_コンクリート技士・主任技士.md` | v1 | 2026-09-01 | **コンクリート技士・主任技士 YT の独立 SSOT**（2資格合本）。note 6商品への送客・競合実査未実施＝空白主張封印・準備先行/公開はpilot判定後 |
 | `.claude/knowledge/reference/x-post-policy.md` | — | — | X 投稿規約＋**凍結ガードレール §11**（doc本体より詳細） |
 | `.claude/knowledge/reference/content-angle-policy.md` | v1 | 2026-06-09 | **6切り口**（結論/理由/体験/反論/数字/ハウツー）の SSOT・Red Line 1-5 |
 | `.claude/knowledge/reference/sns-repurpose-policy.md` | — | — | 6切り口のチャネル別適用 |
