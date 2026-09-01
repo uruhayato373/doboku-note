@@ -1,0 +1,110 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "品質管理のテーマを選んだのに「規格値内に収まった」としか書けない。今日は課題の立て方から対応処置までを説明します。",
+      "caption": "品質管理テーマの組み立て方",
+      "visual": {
+        "kind": "cover",
+        "heading": "品質管理テーマの組み立て方",
+        "items": ["2級土木 第2次検定・施工経験記述"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "基準を守れば書ける、と思われがちですが、規格値を守っただけでは技術的課題になりません。現場条件で達成が難しくなった場面を具体的に示すことが出発点です。",
+      "caption": "規格値を守るだけでは課題にならない",
+      "visual": {
+        "heading": "誤解：基準を守れば書ける",
+        "items": ["規格値の遵守だけでは技術的課題にならない", "出発点は「現場条件で達成が難しくなった場面」"]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "nagare",
+      "start": 55,
+      "end": 105,
+      "narration": "品質管理も書く要素は共通です。現場状況と課題、検討した項目の理由・内容、実施した対応処置とその評価。この5つを品質管理の言葉に当てはめます。",
+      "caption": "型は「現場状況→課題→検討→対応→評価」",
+      "visual": {
+        "heading": "品質管理も5要素の流れ",
+        "items": ["現場状況→技術的課題", "検討項目（理由・内容）→対応処置", "最後に評価で締める"]
+      }
+    },
+    {
+      "sceneId": "kadai",
+      "start": 105,
+      "end": 165,
+      "narration": "検討項目の観点は、計画・材料・施工・養生・検査・周知の6つです。現場条件が原因で、どの品質項目の達成が難しくなったかを具体的に書きます。",
+      "caption": "検討観点は計画・材料・施工・養生・検査・周知",
+      "visual": {
+        "heading": "課題は現場条件と規格値のギャップ",
+        "items": ["観点：計画・材料・施工・養生・検査・周知", "軟弱地盤・梅雨・暑さ寒さが原因になる"]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "doko",
+      "start": 165,
+      "end": 225,
+      "narration": "土工系の典型は、締固め不足と雨水対策です。巻出し厚を明示し、RI計器や砂置換法で締固め度を測定します。雨水は排水勾配や仮排水路で浸透を防ぎます。",
+      "caption": "土工系：締固め不足と雨水対策",
+      "visual": {
+        "heading": "典型パターン：土工系",
+        "items": ["締固め不足→巻出し厚の管理＋RI計器・砂置換法", "雨水による支持力低下→排水勾配・仮排水路"]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "concrete",
+      "start": 225,
+      "end": 285,
+      "narration": "コンクリートは季節対応です。暑い時期はコールドジョイント防止に練混ぜ水の冷却や打重ね時間の管理、寒い時期は保温養生で初期凍害を防ぎます。舗装は温度管理を一貫させます。",
+      "caption": "コンクリート・舗装は季節対応がカギ",
+      "visual": {
+        "heading": "典型パターン：コンクリート・舗装",
+        "items": ["暑中：練混ぜ水冷却・打重ね時間の管理", "寒中：保温養生で初期凍害を防止", "舗装：温度管理を運搬から転圧まで一貫"]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "taio",
+      "start": 285,
+      "end": 340,
+      "narration": "対応処置には測定方法や管理基準の数値を必ず入れます。評価は「所定の品質を確保できた」と端的に締めます。ここで挙げた例は自分の現場に置き換えて使ってください。",
+      "caption": "数値で対応処置、評価は端的に",
+      "visual": {
+        "heading": "対応処置と評価の書き方",
+        "items": ["対応処置＝測定方法＋管理基準の数値", "評価は「規格値を確保できた」と端的に", "例はそのまま書き写さず自分の現場に置換"]
+      }
+    },
+    {
+      "sceneId": "summary",
+      "start": 340,
+      "end": 380,
+      "narration": "まとめます。品質管理は5要素の流れに、計画・材料・施工・養生・検査・周知の観点を当てはめ、現場条件と規格値のギャップから課題を立てるのが基本です。",
+      "caption": "観点を当てはめ、ギャップから課題を立てる",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["5要素の流れに品質管理の観点を当てはめる", "課題は現場条件と規格値のギャップから", "対応処置は数値、評価は端的に"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 380,
+      "end": 410,
+      "narration": "複数工種の完成答案で品質管理の書き分けを掴みたい方は、概要欄のリンクから経験記述の完全パックへ。ご視聴ありがとうございました。",
+      "caption": "完成答案は概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "完成答案で確認する",
+        "items": ["経験記述 完全パック（概要欄リンク）"]
+      }
+    }
+  ]
+}
