@@ -134,20 +134,20 @@
 | `hissu1-theme-map` | 必須科目Ⅰの出題テーマ地図 — 7年分を6系統で読む | 必須Ⅰの出題範囲が広すぎてどのテーマから仕込むか決められない | exam-point | 下書き | 台本/構成 | `pe-construction-required-magazine` |
 | `kaitourei-tsukaikata` | 模範解答の正しい使い方 — 写経では受からない | 解答例を読んでも自分の答案がよくならない | howto | レビュー | 台本/構成 | `pe-construction-required-magazine` |
 | `keirekihyo-kakikata` | 業務経歴票の書き方 — 720字の「業務内容の詳細」 | 業務内容の詳細に何をどこまで書けば口頭試験まで戦えるか分からない | howto | レビュー | 台本/構成 | `site-article` |
-| `kensetsu-pe-career-kachi` | 技術士（建設部門）を取ると何が変わるか — 転職と年収 | 労力に見合うリターンがあるのか取得の価値を判断できない | career | 下書き | 台本/構成 | `links-hub` |
+| `kensetsu-pe-career-kachi` | 技術士（建設部門）を取ると何が変わるか — 転職と年収 | 労力に見合うリターンがあるのか取得の価値を判断できない | career | レビュー | 台本/構成 | `links-hub` |
 | `nanido-goukakuritsu-shindan` | 建設部門二次の難易度 — 合格率1桁台をどう読むか | 合格率の低さだけを見て自分に受かるのか判断できない | diagnosis | レビュー | 台本/構成 | `links-hub` |
-| `r8-yosou-dashikata` | R8予想はこう導く — 重点施策×改訂×過去傾向 | 出題予想を根拠なく信じてよいのか判断できない | exam-point | 下書き | 台本/構成 | `pe-construction-required-magazine` |
+| `r8-yosou-dashikata` | R8予想はこう導く — 重点施策×改訂×過去傾向 | 出題予想を根拠なく信じてよいのか判断できない | exam-point | レビュー | 台本/構成 | `pe-construction-required-magazine` |
 | `secondary-study-houhou` | 建設部門二次の独学ロードマップ — 何をどの順で | 講座なしで何をどの順に進めれば合格水準に届くのか分からない | roadmap | レビュー | 台本/構成 | `links-hub` |
-| `sentaku-construction-planning-yomikata` | 選択科目「施工計画・積算」の出題テーマの読み方 | 施工計画・積算の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | 下書き | 台本/構成 | `pe-construction-construction-planning-magazine` |
-| `sentaku-environment-yomikata` | 選択科目「建設環境」の出題テーマの読み方 | 建設環境の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | 下書き | 台本/構成 | `pe-construction-environment-magazine` |
-| `sentaku-geotechnical-yomikata` | 選択科目「土質・基礎」の出題テーマの読み方 | 土質・基礎の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | 下書き | 台本/構成 | `pe-construction-geotechnical-magazine` |
+| `sentaku-construction-planning-yomikata` | 選択科目「施工計画・積算」の出題テーマの読み方 | 施工計画・積算の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | レビュー | 台本/構成 | `pe-construction-construction-planning-magazine` |
+| `sentaku-environment-yomikata` | 選択科目「建設環境」の出題テーマの読み方 | 建設環境の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | レビュー | 台本/構成 | `pe-construction-environment-magazine` |
+| `sentaku-geotechnical-yomikata` | 選択科目「土質・基礎」の出題テーマの読み方 | 土質・基礎の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | レビュー | 台本/構成 | `pe-construction-geotechnical-magazine` |
 | `sentaku-kakiwake-3type` | Ⅱ-1・Ⅱ-2・Ⅲは別の試験 — 設問タイプ別の書き分け | Ⅱ-1もⅡ-2もⅢも同じ調子で書いてしまいどこで差がつくのか分からない | exam-point | レビュー | 台本/構成 | `links-hub` |
-| `sentaku-port-airport-yomikata` | 選択科目「港湾・空港」の出題テーマの読み方 | 港湾・空港の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | 下書き | 台本/構成 | `pe-construction-port-airport-magazine` |
-| `sentaku-power-civil-yomikata` | 選択科目「電力土木」の出題テーマの読み方 | 電力土木の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | 下書き | 台本/構成 | `pe-construction-power-civil-magazine` |
-| `sentaku-railway-yomikata` | 選択科目「鉄道」の出題テーマの読み方 | 鉄道の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | 下書き | 台本/構成 | `pe-construction-railway-magazine` |
-| `sentaku-river-coast-yomikata` | 選択科目「河川・砂防・海岸」の出題テーマの読み方 | 河川・砂防・海岸の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | 下書き | 台本/構成 | `pe-construction-river-coast-magazine` |
-| `sentaku-road-yomikata` | 選択科目「道路」の出題テーマの読み方 | 道路の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | 下書き | 台本/構成 | `pe-construction-road-magazine` |
-| `sentaku-steel-concrete-yomikata` | 選択科目「鋼構造・コンクリート」の出題テーマの読み方 | 鋼構造・コンクリートの出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | 下書き | 台本/構成 | `pe-construction-steel-concrete-magazine` |
-| `sentaku-tunnel-yomikata` | 選択科目「トンネル」の出題テーマの読み方 | トンネルの出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | 下書き | 台本/構成 | `pe-construction-tunnel-magazine` |
-| `sentaku-urban-planning-yomikata` | 選択科目「都市計画」の出題テーマの読み方 | 都市計画の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | 下書き | 台本/構成 | `pe-construction-urban-planning-magazine` |
+| `sentaku-port-airport-yomikata` | 選択科目「港湾・空港」の出題テーマの読み方 | 港湾・空港の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | レビュー | 台本/構成 | `pe-construction-port-airport-magazine` |
+| `sentaku-power-civil-yomikata` | 選択科目「電力土木」の出題テーマの読み方 | 電力土木の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | レビュー | 台本/構成 | `pe-construction-power-civil-magazine` |
+| `sentaku-railway-yomikata` | 選択科目「鉄道」の出題テーマの読み方 | 鉄道の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | レビュー | 台本/構成 | `pe-construction-railway-magazine` |
+| `sentaku-river-coast-yomikata` | 選択科目「河川・砂防・海岸」の出題テーマの読み方 | 河川・砂防・海岸の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | レビュー | 台本/構成 | `pe-construction-river-coast-magazine` |
+| `sentaku-road-yomikata` | 選択科目「道路」の出題テーマの読み方 | 道路の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | レビュー | 台本/構成 | `pe-construction-road-magazine` |
+| `sentaku-steel-concrete-yomikata` | 選択科目「鋼構造・コンクリート」の出題テーマの読み方 | 鋼構造・コンクリートの出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | レビュー | 台本/構成 | `pe-construction-steel-concrete-magazine` |
+| `sentaku-tunnel-yomikata` | 選択科目「トンネル」の出題テーマの読み方 | トンネルの出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | レビュー | 台本/構成 | `pe-construction-tunnel-magazine` |
+| `sentaku-urban-planning-yomikata` | 選択科目「都市計画」の出題テーマの読み方 | 都市計画の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | レビュー | 台本/構成 | `pe-construction-urban-planning-magazine` |
 | `toan-kousei-template` | 答案構成のテンプレート — 課題抽出から効果・リスクまで | 書き始めてから構成が崩れ時間内に論文がまとまらない | howto | レビュー | 台本/構成 | `pe-construction-required-magazine` |

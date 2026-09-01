@@ -5,12 +5,14 @@
       "sceneId": "cover",
       "start": 0,
       "end": 15,
-      "narration": "鉄道は軌道・構造物・駅・防災と工種が多く見え、的が絞りにくい科目です。今日は7年分の出題を発注者の実務視点で読み解きます。",
+      "narration": "鉄道は軌道・構造物・駅・防災と工種が多く見え、的が絞りにくい科目です。軌道の鉄板テーマと、Ⅲで問われる大きな流れ。この二本立てで7年分を読み解きます。",
       "caption": "鉄道 出題テーマの読み方",
       "visual": {
         "kind": "cover",
         "heading": "選択科目「鉄道」の出題テーマの読み方",
-        "items": ["技術士 建設部門・第二次試験"]
+        "items": [
+          "技術士 建設部門・第二次試験"
+        ]
       }
     },
     {
@@ -21,7 +23,10 @@
       "caption": "軌道はII-1でほぼ毎年出る鉄板分野",
       "visual": {
         "heading": "誤解：工種が多く的が絞れない",
-        "items": ["軌道はII-1でほぼ毎年出題", "まず軌道を固めてから広げる"]
+        "items": [
+          "軌道はII-1でほぼ毎年出題",
+          "まず軌道を固めてから広げる"
+        ]
       },
       "sourceRef": "content/site/pe-construction/railway-exam-themes/article.mdx"
     },
@@ -33,7 +38,10 @@
       "caption": "軌道：レール・分岐器・カント・軌道変位",
       "visual": {
         "heading": "軌道はII-1の鉄板分野",
-        "items": ["レール・分岐器・カント", "軌道変位・継目の検査"]
+        "items": [
+          "レール・分岐器・カント",
+          "軌道変位・継目の検査"
+        ]
       },
       "sourceRef": "content/site/pe-construction/railway-exam-themes/article.mdx"
     },
@@ -45,7 +53,11 @@
       "caption": "構造物の維持管理は140年インフラが背景",
       "visual": {
         "heading": "構造物の維持管理",
-        "items": ["橋梁・トンネル・土構造物の検査", "健全度判定・コンクリート劣化", "140年に及ぶ鉄道インフラ"]
+        "items": [
+          "橋梁・トンネル・土構造物の検査",
+          "健全度判定・コンクリート劣化",
+          "140年に及ぶ鉄道インフラ"
+        ]
       },
       "sourceRef": "content/site/pe-construction/railway-exam-themes/article.mdx"
     },
@@ -57,7 +69,10 @@
       "caption": "IIIは防災・耐震と地方鉄道の二本立て",
       "visual": {
         "heading": "IIIの二本立て",
-        "items": ["防災・耐震（地震・豪雨・洗掘）", "地方鉄道の持続性・担い手確保"]
+        "items": [
+          "防災・耐震（地震・豪雨・洗掘）",
+          "地方鉄道の持続性・担い手確保"
+        ]
       },
       "sourceRef": "content/site/pe-construction/railway-exam-themes/article.mdx"
     },
@@ -69,7 +84,10 @@
       "caption": "発注者視点は連続立体交差で活きる",
       "visual": {
         "heading": "発注者視点：連続立体交差",
-        "items": ["自治体×鉄道事業者の連携事業", "まちづくりと一体の合意形成"]
+        "items": [
+          "自治体×鉄道事業者の連携事業",
+          "まちづくりと一体の合意形成"
+        ]
       },
       "sourceRef": "content/site/pe-construction/railway-ronbun-keyword/article.mdx"
     },
@@ -81,7 +99,11 @@
       "caption": "軌道＋維持管理＋防災・地方鉄道の3層",
       "visual": {
         "heading": "まとめ",
-        "items": ["① 軌道（鉄板）", "② 構造物の維持管理", "③ 防災・地方鉄道→④ 連続立体交差"]
+        "items": [
+          "① 軌道（鉄板）",
+          "② 構造物の維持管理",
+          "③ 防災・地方鉄道→④ 連続立体交差"
+        ]
       }
     },
     {
@@ -93,7 +115,9 @@
       "visual": {
         "kind": "cover",
         "heading": "続きは鉄道マガジンで",
-        "items": ["7年分の出題テーマ＋本文の書き方（概要欄リンク）"]
+        "items": [
+          "7年分の出題テーマ＋本文の書き方（概要欄リンク）"
+        ]
       }
     }
   ]
