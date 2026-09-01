@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "筆記試験に受かった方へ。次は口頭試験で、自分の経歴を総監の言葉でどう語るかが問われます。今日は、その準備の考え方を説明します。",
+      "caption": "経歴を総監の言葉で語る準備",
+      "visual": {
+        "kind": "cover",
+        "heading": "口頭試験の考え方 経歴を総監の言葉で語る",
+        "items": ["技術士 総合技術監理部門・口頭試験"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 60,
+      "narration": "口頭試験は知識を問われる場だと思われがちです。実際に問われるのは、経歴票に書いた業務を5つの管理の視点で説明できるかどうかです。知識より説明力の不足が、不合格の主因になりやすいのです。",
+      "caption": "問われるのは知識でなく説明力",
+      "visual": {
+        "heading": "誤解：口頭は知識を問われる場",
+        "items": ["実際は経歴を5管理の視点で語れるか", "知識より説明力の不足が不合格の主因"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "whatasked",
+      "start": 60,
+      "end": 115,
+      "narration": "口頭試験では、経歴票に書いた業務について、5つの管理の視点でどう取り組んだかを深く問われます。知識を問う試験ではなく、経歴を語る力を確かめる試験だと捉えてください。",
+      "caption": "経歴票の業務を5管理で問われる",
+      "visual": {
+        "heading": "口頭試験で問われているもの",
+        "items": ["経歴票の業務を5管理の視点で深掘り", "知識でなく経歴を語る力を見る試験"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "cases",
+      "start": 115,
+      "end": 170,
+      "narration": "筆記合格発表のあとは、5管理の適用事例を3件から5件用意します。それぞれの業務で、どんなトレードオフが起き、どう調整したかを口頭で再現できるようにしておきます。",
+      "caption": "適用事例を3〜5件用意する",
+      "visual": {
+        "heading": "5管理の適用事例を用意する",
+        "items": ["業務ごとに5管理の適用事例を3〜5件", "トレードオフと調整の経験を再現できる形に"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "story",
+      "start": 170,
+      "end": 225,
+      "narration": "経歴票の1つ目から5つ目の業務にかけて、総監技術士としての成長が読み取れる流れを、2分から3分のプレゼンの骨子として準備します。この成長ストーリーが、口頭試験の説明の軸になります。",
+      "caption": "成長ストーリーを2〜3分で語る",
+      "visual": {
+        "heading": "成長ストーリーを準備する",
+        "items": ["1つ目→5つ目の業務で成長の流れを示す", "2〜3分のプレゼン骨子として整理する"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "qa",
+      "start": 225,
+      "end": 285,
+      "narration": "各業務について、5管理をどう適用したか、最も重要だったトレードオフの判断根拠、もう一度同じ業務をするなら何を改善するか、この経験を他へどう活かしたか、を声に出して練習します。第三者を相手にした模擬口頭で、説明の穴を埋めましょう。",
+      "caption": "想定問答を声に出して練習する",
+      "visual": {
+        "heading": "想定問答と模擬口頭",
+        "items": ["5管理の適用・トレードオフの根拠を声に出す", "第三者との模擬口頭で説明の穴を埋める"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 285,
+      "end": 325,
+      "narration": "まとめます。口頭で問われるのは経歴の説明力です。5管理の適用事例を複数用意し、成長ストーリーとして語れるよう、想定問答を声に出して練習しておきましょう。",
+      "caption": "事例・ストーリー・声出し練習",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 5管理の適用事例を複数用意", "② 成長ストーリーを2〜3分で語る", "③ 想定問答を声に出して練習する"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 325,
+      "end": 355,
+      "narration": "記述式・口頭対策をまとめた完全パックを用意しています。概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+      "caption": "口頭対策の詳細は概要欄から",
+      "visual": {
+        "kind": "cover",
+        "heading": "経歴を総監の言葉で語りきる",
+        "items": ["総監 記述式・口頭 完全パック（概要欄リンク）"]
+      }
+    }
+  ]
+}
