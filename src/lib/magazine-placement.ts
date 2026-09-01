@@ -694,7 +694,7 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   // 技術士 第一次試験 令和7年度 基礎科目（29users・全30問 69,753字）→ 一次 過去問PDF 合本。
   // 同一試験・令和元〜7年度 全560問・全選択肢解説で、読んでいる年度をそのまま含む完全一致。
   // 総監 r0X-primary → 択一 過去問PDF（4.2）と同型。group=primary なので inline は描画されない。
-  if (/^pe-first-stage-r0[1-9]-(basic|aptitude|specialty)$/.test(slug)) {
+  if (/^pe-first-stage-r0[1-9]-(basic|aptitude|construction)$/.test(slug)) {
     return { top: slot('pe1-takuitsu-pdf', slug, 'top'), inline: [] };
   }
 
