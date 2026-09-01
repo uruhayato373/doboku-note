@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "コンクリート技士を受けると決めたけれど、試験の全体像が分からない、という方へ。今日は出題範囲と勉強の始め方を一つにつなげます。",
+      "caption": "コンクリート技士の全体像を1本で",
+      "visual": {
+        "kind": "cover",
+        "heading": "コンクリート技士の全体像",
+        "items": ["試験概要と勉強法"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 50,
+      "narration": "「技士も主任技士も同じような試験だろう」と思われがちですが、資格名が似ているだけで、求められる能力の深さは別物です。",
+      "caption": "技士と主任技士は名前が似ているだけ",
+      "visual": {
+        "heading": "誤解：似た名前だから同じ試験",
+        "items": ["技士＝標準業務を実施する力", "主任技士＝計画・指導までを問う"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-overview/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 50,
+      "end": 110,
+      "narration": "コンクリート技士は、日本コンクリート工学会が認定する資格です。製造、施工、試験、検査、管理といった日常の技術業務を正しく実施できる技術者を証明します。",
+      "caption": "JCI認定、日常業務を実施する力を証明",
+      "visual": {
+        "heading": "STEP 1　資格の位置づけ",
+        "items": ["日本コンクリート工学会（JCI）認定資格", "対象は生コン工場だけでなく施工・製品・維持管理まで"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-overview/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 110,
+      "end": 170,
+      "narration": "試験は四肢択一式で、主任技士にある小論文はありません。選択肢のどこが数値や条件として違うのかを説明できる状態を目指しましょう。",
+      "caption": "四肢択一のみ、小論文なし",
+      "visual": {
+        "heading": "STEP 2　試験方式",
+        "items": ["四肢択一式（小論文なし）", "「なぜ正しいか」を説明できる理解が必要", "合格基準点は非公表、高い正答率を狙う"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-overview/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 170,
+      "end": 230,
+      "narration": "出題は大きく8つの領域につながっています。材料、配合、試験、プラント管理、製造・品質管理、施工、環境問題です。因果関係でつなげて覚えるのがコツです。",
+      "caption": "出題8領域は材料〜施工まで一直線",
+      "visual": {
+        "heading": "STEP 3　出題は8領域",
+        "items": ["材料・配合・試験は一つの流れでつながる", "製造・品質管理・施工は現場の判断力を問う", "構造設計は範囲外、日常業務が中心"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-overview/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 230,
+      "end": 280,
+      "narration": "技士は標準的な方法を理解して実施・判定する役割、主任技士は特殊条件での計画や指導まで担う役割です。初学者は技士から始めるのが自然です。",
+      "caption": "技士は実施、主任技士は計画・指導まで",
+      "visual": {
+        "heading": "STEP 4　主任技士との違い",
+        "items": ["技士＝実施・判定、主任技士＝計画・指導", "初めて体系的に学ぶなら技士から", "詳しい比較は別の動画で解説"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-overview/article.mdx"
+    },
+    {
+      "sceneId": "step5",
+      "start": 280,
+      "end": 340,
+      "narration": "勉強は、まず全体像をつかむ通読から始め、材料から施工までを週単位で回します。過去問は誤りの肢がどこを直せば正しくなるかまで確認しましょう。",
+      "caption": "勉強の流れは全体像→分野別→通し演習",
+      "visual": {
+        "heading": "STEP 5　合格までの勉強の流れ",
+        "items": ["最初は選考基準と目次を照合して全体像をつかむ", "分野を週単位で回し誤答理由まで分析", "仕上げは時間を計った通し演習"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-overview/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 340,
+      "end": 390,
+      "narration": "コンクリート技士は、日常の技術業務を正しく実施する力を問う四肢択一試験です。全体像をつかんでから分野別に積み上げるのが近道です。",
+      "caption": "全体像→分野別→通し演習の順で積む",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["JCI認定・四肢択一・小論文なし", "出題8領域はつながっている", "全体像→分野別→通し演習の順で積む"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 390,
+      "end": 420,
+      "narration": "詳しい受験資格や12週間の学習計画は、概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "受験資格・学習計画を確認する",
+        "items": ["概要欄のリンクへ"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "コンクリート技士と主任技士、どちらを受けるべきか迷っていませんか。今日は違いから自分に合う方を判断します。",
+      "caption": "技士と主任技士どちらを受ける？",
+      "visual": {
+        "kind": "cover",
+        "heading": "技士と主任技士どちらを受けるか",
+        "items": ["違いで判断する"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 50,
+      "narration": "資格名が似ているので主任技士は上位版だと思われがちですが、知識量の差ではありません。問われる能力の物差しが別です。",
+      "caption": "「上位版」ではなく問われる力が別物",
+      "visual": {
+        "heading": "誤解：主任技士は技士の上位版",
+        "items": ["技士＝標準業務を実施する力", "主任技士＝計画・指導までを問う"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-difference-chief/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 50,
+      "end": 115,
+      "narration": "技士は日常の技術業務を実施する能力のある技術者、主任技士は計画・管理・指導を実施する高度な技術者と位置づけられています。技士の実施力が主任技士の土台になります。",
+      "caption": "技士は実施、主任技士は計画・指導",
+      "visual": {
+        "heading": "STEP 1　違いの本質",
+        "items": ["技士＝日常業務を正しく実施する力", "主任技士＝計画・管理・指導まで担う力", "技士の実施力が主任技士の土台になる"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-difference-chief/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 115,
+      "end": 175,
+      "narration": "技士は四肢択一式で2時間、小論文はありません。主任技士は四肢択一に加えて小論文があり、3時間で実施されます。時間配分の設計が必要です。",
+      "caption": "技士は択一2時間、主任技士は択一+小論文3時間",
+      "visual": {
+        "heading": "STEP 2　試験方式と時間の違い",
+        "items": ["技士：四肢択一のみ、2時間", "主任技士：四肢択一＋小論文、3時間", "主任技士は択一と小論文の時間配分がカギ"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-difference-chief/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 175,
+      "end": 235,
+      "narration": "基礎領域は共通ですが深さが違います。材料試験なら、技士はJISの試験実施・判定、主任技士はJIS以外の試験や新材料の検討まで担います。受験資格も別条件です。",
+      "caption": "基礎は共通、深さと受験資格が違う",
+      "visual": {
+        "heading": "STEP 3　出題範囲と受験資格の違い",
+        "items": ["基礎領域は共通、深さと判断の範囲が違う", "主任技士はJIS以外の試験・新材料の検討まで", "受験資格は別条件、技士だけ2026年度に改定"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-difference-chief/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 235,
+      "end": 290,
+      "narration": "初めて体系的に学ぶ方は技士が第一候補です。特殊条件での計画や指導を担う立場なら主任技士を検討しましょう。迷ったら技士の択一で全肢を説明できるか確認します。",
+      "caption": "初学者は技士、計画・指導なら主任技士",
+      "visual": {
+        "heading": "STEP 4　どちらを受けるか判定する",
+        "items": ["初学者・基礎固めなら技士が第一候補", "計画・指導を担う立場なら主任技士を検討", "迷ったら技士の四肢択一を時間内に解いて確認"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-difference-chief/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 290,
+      "end": 335,
+      "narration": "技士と主任技士の違いは、知識量ではなく問われる役割です。実施・判定を固めたいなら技士、計画・指導まで担うなら主任技士です。",
+      "caption": "違いは知識量ではなく役割",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["違いは知識量ではなく役割", "技士＝実施・判定／主任技士＝計画・指導", "基礎を説明できるかで判断する"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 335,
+      "end": 365,
+      "narration": "自分に合う資格が決まったら、それぞれの試験概要も概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "試験概要を確認する",
+        "items": ["概要欄のリンクへ"]
+      }
+    }
+  ]
+}

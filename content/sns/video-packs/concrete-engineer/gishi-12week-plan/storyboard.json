@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "コンクリート技士の勉強を12週間でどう進めるか、迷っていませんか。今日は現在地の測り方から本番演習まで、段階を追って説明します。",
+      "caption": "12週間で合格水準に届く計画",
+      "visual": {
+        "kind": "cover",
+        "heading": "コンクリート技士 12週間の合格スケジュール",
+        "items": ["現在地を測る→本番演習まで"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 50,
+      "narration": "合計で何時間勉強したかを目標にしがちですが、JCIは標準学習時間を公表していません。大事なのは理由付きで判定できるかどうかです。",
+      "caption": "目安は時間の合計ではなく判定力",
+      "visual": {
+        "heading": "誤解：勉強時間の合計を目標にする",
+        "items": ["JCIは標準学習時間を公表していない", "指標は各分野を理由付きで判定できるか"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-study-plan/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 50,
+      "end": 110,
+      "narration": "最初の休日に、四肢択一を1回分、資料を見ずに解きます。誤答原因を5パターンに分け、正解した問題も全ての肢を説明できるか確認します。",
+      "caption": "まず現在地を測る",
+      "visual": {
+        "heading": "STEP 1　現在地を測る",
+        "items": ["資料なしで1回分解いて現在地を測る", "誤答原因を5パターンに分けて記録", "正答肢だけでなく全肢を説明できるか確認"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-study-plan/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 110,
+      "end": 175,
+      "narration": "1〜2週目は教材の目次と選考基準を照合し、材料から施工までのつながりを一度通します。3〜4週目は性質と試験方法をセットで学びます。",
+      "caption": "1〜4週目：全体像と材料・性質・試験",
+      "visual": {
+        "heading": "STEP 2　1〜4週目：全体像と基礎",
+        "items": ["1〜2週目：全体像と材料の基礎をつなげる", "3〜4週目：性質と試験方法をセットで学ぶ", "用語は「増えると何が変わるか」まで整理"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-study-plan/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 175,
+      "end": 240,
+      "narration": "5〜6週目は配合計算です。求める値と使う式を書き出しながら練習します。7〜8週目は製造・品質管理・施工をつなげて整理します。",
+      "caption": "5〜8週目：配合計算と製造・品質管理・施工",
+      "visual": {
+        "heading": "STEP 3　5〜8週目：配合と施工をつなぐ",
+        "items": ["5〜6週目：配合計算を得点源にする", "7〜8週目：製造・品質管理・施工をつなげる", "式より先に求める値と既知の値を書き出す"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-study-plan/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 240,
+      "end": 300,
+      "narration": "9〜10週目は復習の質を上げる期間です。四つの肢を正しい・誤り・判断保留に分けます。11〜12週目は時間を計った通し演習です。",
+      "caption": "9〜12週目：弱点つぶしと本番演習",
+      "visual": {
+        "heading": "STEP 4　9〜12週目：弱点つぶしと本番演習",
+        "items": ["9〜10週目：全肢解説で弱点台帳を作る", "判断保留は正解扱いにしない", "11〜12週目：通し演習で時間配分を確認"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-study-plan/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 300,
+      "end": 355,
+      "narration": "現在地を測る、全体像と基礎、配合計算、製造品質管理と施工、弱点つぶしと本番演習。この順序を保てば、期間が短くても計画を組み直せます。",
+      "caption": "順序を保てば期間が短くても組み直せる",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["現在地→基礎→配合→製造/施工→弱点つぶし→本番演習", "期間が短い時は順序を保ったまま圧縮する"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 355,
+      "end": 390,
+      "narration": "配合計算をもっと演習したい方は、概要欄のリンクから演習パックをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "配合計算をもっと演習する",
+        "items": ["概要欄のリンクへ"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "コンクリート技士の受験資格は2026年度から変わりました。何が変わり、自分は対象になるのか、今日で整理します。",
+      "caption": "コンクリート技士 受験資格2026年度版",
+      "visual": {
+        "kind": "cover",
+        "heading": "コンクリート技士の受験資格",
+        "items": ["実務経験1年への改定"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 50,
+      "narration": "古い解説では、学歴と履修科目だけで受験できると書かれていることがありますが、2026年度からその経路は無くなりました。",
+      "caption": "学歴だけの経路は2026年度で廃止",
+      "visual": {
+        "heading": "誤解：学歴だけで受けられる",
+        "items": ["学歴＋履修科目の経路は廃止済み", "今の公式案内で確認が必要"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-eligibility-2026/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 50,
+      "end": 110,
+      "narration": "2026年度の改定で、学歴・年齢を問わず実務経験1年以上で受験できる経路が新設されました。主任技士の受験資格は変わっていません。",
+      "caption": "実務経験1年の経路が新設",
+      "visual": {
+        "heading": "STEP 1　2026年度改定の要点",
+        "items": ["実務経験1年以上で受験できる経路が新設", "学歴のみの経路は廃止", "主任技士の受験資格は変更なし"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-eligibility-2026/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 110,
+      "end": 170,
+      "narration": "対象資格を有効に登録していれば、経路Aで実務経歴書や勤務先証明を省略できます。コンクリート診断士や技術士、RCCMなどが対象です。",
+      "caption": "経路A：対象資格登録なら証明書類だけ",
+      "visual": {
+        "heading": "STEP 2　経路A：対象資格の登録",
+        "items": ["対象資格の登録があれば実務経歴書が不要", "コンクリート診断士・技術士・RCCM等が対象", "1級施工管理技士は資格者証まで必要"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-eligibility-2026/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 170,
+      "end": 230,
+      "narration": "対象資格が無くても、実務経験1年以上で経路Bとして申請できます。学歴や年齢は問いません。年数の基準日は申込締切より後にある点に注意します。",
+      "caption": "経路B：実務経験1年以上・学歴不問",
+      "visual": {
+        "heading": "STEP 3　経路B：実務経験1年以上",
+        "items": ["実務経験1年以上・学歴不問", "実務経歴書に勤務先証明を受けて提出", "年数の基準日は申込締切より後にある"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-eligibility-2026/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 230,
+      "end": 285,
+      "narration": "認められるのは、計画・施工・維持管理・試験・製造など技術的に関与する業務です。販売や営業、設備保守は原則対象外です。",
+      "caption": "認められるのは技術的に関与した業務",
+      "visual": {
+        "heading": "STEP 4　認められる業務・認められない業務",
+        "items": ["技術的に関与する業務（計画・施工・試験等）が対象", "販売・営業・設備保守・運転手は原則対象外", "「何を判断・実施したか」を具体的に書く"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-eligibility-2026/article.mdx"
+    },
+    {
+      "sceneId": "step5",
+      "start": 285,
+      "end": 335,
+      "narration": "まず対象資格の登録有無を確認し、無ければ実務経験1年以上かを職務経歴と照合します。申請にはパソコンと証明書類のPDFが必要です。",
+      "caption": "対象資格→実務経験の順で自分の経路を判定",
+      "visual": {
+        "heading": "STEP 5　自分の経路を判定する",
+        "items": ["まず対象資格の登録有無を確認", "次に実務経験1年以上を職務経歴と照合", "申請はPC必須、証明書類PDFを準備"]
+      },
+      "sourceRef": "content/site/concrete-engineer/guide-eligibility-2026/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 335,
+      "end": 385,
+      "narration": "2026年度は、学歴のみの経路が廃止され、実務経験1年以上の経路ができました。対象資格の有無で経路が決まり、職務内容を具体的に整理することが鍵です。",
+      "caption": "経路A・Bのどちらかを職務内容で判定",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["学歴のみの経路は廃止、実務経験1年の経路が新設", "経路A＝対象資格登録／経路B＝実務経験1年", "自分の職務内容を具体的に整理する"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 385,
+      "end": 415,
+      "narration": "自分の経路が分かったら、試験の全体像や勉強の始め方も概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "試験の全体像を確認する",
+        "items": ["概要欄のリンクへ"]
+      }
+    }
+  ]
+}
