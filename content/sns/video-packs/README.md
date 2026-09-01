@@ -21,28 +21,28 @@
 | `gakka-ashiba-kijun` | 足場の安全基準は数字で問われる | 作業床の幅・隙間・手すり高さなどの数値が覚えきれない | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
 | `gakka-crane-sogo` | クレーン作業の頻出点 — 性能と安全規定をまとめて | クレーンの性能表示と労働安全衛生法の規定が結びつかない | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
 | `gakka-dodome-kussaku` | 土止め支保工と明り掘削の安全基準 | 掘削面の勾配や土止め支保工の点検時期の数値が曖昧 | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
-| `gakka-doshitsu-chosa` | 土質調査は「何を知りたいか」で試験名を逆引きする | 原位置試験と室内試験のどれが何を求める試験か覚えられない | exam-point | 企画 | —/— | `civil-1-ichiji-ronten` |
-| `gakka-haikibutsu-recycle` | 建設副産物・廃棄物処理の頻出点 — マニフェストと再資源化 | マニフェストの保存年限や特定建設資材の区別が覚えられない | exam-point | 企画 | —/— | `civil-1-ichiji-ronten` |
-| `gakka-hinshitsu-kensa` | 品質管理の検査 — 全数・抜取の使い分け | 全数検査と抜取検査をどの条件で使い分けるか説明できない | exam-point | 下書き | 台本/構成 | `civil-1-ichiji-ronten` |
+| `gakka-doshitsu-chosa` | 土質調査は「何を知りたいか」で試験名を逆引きする | 原位置試験と室内試験のどれが何を求める試験か覚えられない | exam-point | 下書き | 台本/構成 | `civil-1-ichiji-ronten` |
+| `gakka-haikibutsu-recycle` | 建設副産物・廃棄物処理の頻出点 — マニフェストと再資源化 | マニフェストの保存年限や特定建設資材の区別が覚えられない | exam-point | 下書き | 台本/構成 | `civil-1-ichiji-ronten` |
+| `gakka-hinshitsu-kensa` | 品質管理の検査 — 全数・抜取の使い分け | 全数検査と抜取検査をどの条件で使い分けるか説明できない | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
 | `gakka-histogram` | ヒストグラムと工程能力図の読み方 | ヒストグラムの形状や規格値との関係の読み取りが不安 | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
-| `gakka-hoki-kasen-doro` | 河川法・道路法・港則法 — 許可と届出の整理 | どの行為が誰の許可か、法律ごとの違いが覚えられない | exam-point | 企画 | —/— | `civil-1-ichiji-ronten` |
-| `gakka-hoki-kenchiku-kayaku` | 建築基準法・火薬類取締法の頻出点 | 出題頻度の低い法規にどこまで時間を掛けるべきか分からない | exam-point | 企画 | —/— | `civil-1-ichiji-ronten` |
-| `gakka-kankyo-hozen` | 騒音・振動規制の数字と公害防止の頻出点 | 特定建設作業の規制値と届出期限の数字が毎回抜ける | exam-point | 企画 | —/— | `civil-1-ichiji-ronten` |
-| `gakka-kanrizu` | 管理図の読み方 — 異常判定のルール | 管理図のどの並びが異常でどれが正常か判定基準が曖昧 | exam-point | 下書き | 台本/構成 | `civil-1-ichiji-ronten` |
-| `gakka-kensetsugyoho` | 建設業法の頻出点 — 技術者配置と許可の数字 | 主任技術者・監理技術者の配置条件と金額要件が混ざる | exam-point | 企画 | —/— | `civil-1-ichiji-ronten` |
-| `gakka-kikai-kiso` | 建設機械の基礎 — 走行装置と原動機の頻出点 | 走行装置や原動機の細かい構造の違いが頭に入らない | exam-point | 企画 | —/— | `civil-1-ichiji-ronten` |
-| `gakka-kotei-kanri-kiso` | 工程表の種類と使い分け — バーチャートから曲線式まで | 各工程表の長所短所がどれも同じに見えて区別できない | exam-point | 下書き | 台本/構成 | `civil-1-ichiji-ronten` |
-| `gakka-kussaku-tsumikomi-kikai` | 掘削・積込機械の適用整理 — ブルドーザ・ショベル系・ローダ | 似た機械のどれがどの掘削・積込条件に適するか混ざる | exam-point | 企画 | —/— | `civil-1-ichiji-ronten` |
+| `gakka-hoki-kasen-doro` | 河川法・道路法・港則法 — 許可と届出の整理 | どの行為が誰の許可か、法律ごとの違いが覚えられない | exam-point | 下書き | 台本/構成 | `civil-1-ichiji-ronten` |
+| `gakka-hoki-kenchiku-kayaku` | 建築基準法・火薬類取締法の頻出点 | 出題頻度の低い法規にどこまで時間を掛けるべきか分からない | exam-point | 下書き | 台本/構成 | `civil-1-ichiji-ronten` |
+| `gakka-kankyo-hozen` | 騒音・振動規制の数字と公害防止の頻出点 | 特定建設作業の規制値と届出期限の数字が毎回抜ける | exam-point | 下書き | 台本/構成 | `civil-1-ichiji-ronten` |
+| `gakka-kanrizu` | 管理図の読み方 — 異常判定のルール | 管理図のどの並びが異常でどれが正常か判定基準が曖昧 | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
+| `gakka-kensetsugyoho` | 建設業法の頻出点 — 技術者配置と許可の数字 | 主任技術者・監理技術者の配置条件と金額要件が混ざる | exam-point | 下書き | 台本/構成 | `civil-1-ichiji-ronten` |
+| `gakka-kikai-kiso` | 建設機械の基礎 — 走行装置と原動機の頻出点 | 走行装置や原動機の細かい構造の違いが頭に入らない | exam-point | 下書き | 台本/構成 | `civil-1-ichiji-ronten` |
+| `gakka-kotei-kanri-kiso` | 工程表の種類と使い分け — バーチャートから曲線式まで | 各工程表の長所短所がどれも同じに見えて区別できない | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
+| `gakka-kussaku-tsumikomi-kikai` | 掘削・積込機械の適用整理 — ブルドーザ・ショベル系・ローダ | 似た機械のどれがどの掘削・積込条件に適するか混ざる | exam-point | 下書き | 台本/構成 | `civil-1-ichiji-ronten` |
 | `gakka-morido-shimekatame` | 盛土の施工と締固め管理の頻出点 | 盛土の施工規定と締固めの管理方式が混ざって覚えられない | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
 | `gakka-nanjaku-jiban` | 軟弱地盤対策工法の整理法 | 似た名前の対策工法が多く原理と対応が覚えられない | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
 | `gakka-network-koteihyo` | ネットワーク式工程表の解き方 | クリティカルパスや余裕日数の計算手順が定着しない | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
-| `gakka-nori-hogoko` | 法面保護工の使い分け — 植生工か構造物工か | 法面保護工の種類が多くどの条件でどれを選ぶか整理できない | exam-point | 企画 | —/— | `civil-1-ichiji-ronten` |
+| `gakka-nori-hogoko` | 法面保護工の使い分け — 植生工か構造物工か | 法面保護工の種類が多くどの条件でどれを選ぶか整理できない | exam-point | 下書き | 台本/構成 | `civil-1-ichiji-ronten` |
 | `gakka-risk-assessment` | リスクアセスメントと作業環境の頻出点 | リスク低減措置の優先順位と作業環境基準が整理できていない | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
 | `gakka-roudou-kijun` | 労働基準法の頻出 — 就業制限と労働時間 | 年少者・女性の就業制限や労働時間の規定が整理できない | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
-| `gakka-sekokeikaku-kiso` | 施工計画の立て方 — 事前調査から仮設まで | 施工計画の検討順序と各計画の中身が体系立っていない | exam-point | 下書き | 台本/構成 | `civil-1-ichiji-ronten` |
-| `gakka-sokuryo-3ten` | 測量の頻出3テーマ — 基準・水準測量・距離と角度 | 水準測量の計算や誤差の扱いが毎回あやふやになる | exam-point | 企画 | —/— | `civil-1-ichiji-ronten` |
-| `gakka-ukeoi-yakkan` | 公共工事標準請負契約約款は「誰の義務か」で読む | 約款の規定が発注者と受注者どちらの義務か判断できない | exam-point | 企画 | —/— | `civil-1-ichiji-ronten` |
-| `gakka-unpan-shimekatame-kikai` | 運搬・敷均し・締固め機械の整理法 | 運搬機械の適用距離や締固め機械と土質の対応が覚えられない | exam-point | 企画 | —/— | `civil-1-ichiji-ronten` |
+| `gakka-sekokeikaku-kiso` | 施工計画の立て方 — 事前調査から仮設まで | 施工計画の検討順序と各計画の中身が体系立っていない | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
+| `gakka-sokuryo-3ten` | 測量の頻出3テーマ — 基準・水準測量・距離と角度 | 水準測量の計算や誤差の扱いが毎回あやふやになる | exam-point | 下書き | 台本/構成 | `civil-1-ichiji-ronten` |
+| `gakka-ukeoi-yakkan` | 公共工事標準請負契約約款は「誰の義務か」で読む | 約款の規定が発注者と受注者どちらの義務か判断できない | exam-point | 下書き | 台本/構成 | `civil-1-ichiji-ronten` |
+| `gakka-unpan-shimekatame-kikai` | 運搬・敷均し・締固め機械の整理法 | 運搬機械の適用距離や締固め機械と土質の対応が覚えられない | exam-point | 下書き | 台本/構成 | `civil-1-ichiji-ronten` |
 | `keiken-2theme-heiki` | 2テーマ指定への備え — 設問1と設問2の書き分け | 設問1と設問2で別テーマを指定される形式に対応できる気がしない | howto | レビュー | 台本/構成 | `civil-1-combo-essay` |
 | `keiken-ai-sekkei` | AIに経験記述を丸投げすると落ちる理由と正しい使い方 | AIに書かせた答案がそのまま使えるのか判断できない | howto | レビュー | 台本/構成 | `brain-civil-essay-kit` |
 | `keiken-anzen-1kyu` | 安全管理テーマの経験記述 — 一般論にしない書き方 | 安全管理の答案がどの現場でも通じる一般論になってしまう | howto | レビュー | 台本/構成 | `civil-1-experience-essay` |
@@ -71,11 +71,11 @@
 | `niji-kijutsu-doko` | 二次の学科記述 土工 — 穴埋めで問われる数字の型 | 土工の学科記述で問われる規定と数値の範囲が絞れない | exam-point | レビュー | 台本/構成 | `civil-1-gakka-kijutsu` |
 | `niji-kijutsu-hinshitsu` | 二次の学科記述 品質管理 — 試験名と規格値の対応 | 品質管理の試験名・規格値・頻度の対応が記述で書けない | exam-point | レビュー | 台本/構成 | `civil-1-gakka-kijutsu` |
 | `niji-kijutsu-sekokeikaku` | 二次の学科記述 施工計画 — 計画立案の記述パターン | 施工計画の記述問題は形式が幅広く対策の的が絞れない | exam-point | レビュー | 台本/構成 | `civil-1-gakka-kijutsu` |
-| `roadmap-1kyu-vs-2kyu` | 1級と2級どちらから受けるか — 判断基準 | 自分の経験年数とキャリアでどちらの級が正解か分からない | roadmap | 下書き | 台本/構成 | `links-hub` |
-| `roadmap-juken-shikaku` | 1級土木の受検資格と試験制度 — 全体像をつかむ | 受検資格や一次二次の制度が複雑で全体像がつかめない | roadmap | 下書き | 台本/構成 | `links-hub` |
-| `roadmap-nanido-goukakuritsu` | 1級土木の難易度 — 合格率の読み方と必要な学習量 | 合格率の数字だけでは自分に合格できるか判断できない | roadmap | 下書き | 台本/構成 | `links-hub` |
+| `roadmap-1kyu-vs-2kyu` | 1級と2級どちらから受けるか — 判断基準 | 自分の経験年数とキャリアでどちらの級が正解か分からない | roadmap | レビュー | 台本/構成 | `links-hub` |
+| `roadmap-juken-shikaku` | 1級土木の受検資格と試験制度 — 全体像をつかむ | 受検資格や一次二次の制度が複雑で全体像がつかめない | roadmap | レビュー | 台本/構成 | `links-hub` |
+| `roadmap-nanido-goukakuritsu` | 1級土木の難易度 — 合格率の読み方と必要な学習量 | 合格率の数字だけでは自分に合格できるか判断できない | roadmap | レビュー | 台本/構成 | `links-hub` |
 | `sekokan-shippaidan` | 施工管理の失敗談 — 現場で学んだ教訓 | 失敗事例から学びたいが実名では誰も話してくれない | career | 企画 | —/— | `links-hub` |
-| `study-plan-1kyu` | 1級土木の勉強計画 — 何をいつまでに | 仕事と両立しながら何をどの順で進めるか計画できない | roadmap | 下書き | 台本/構成 | `links-hub` |
+| `study-plan-1kyu` | 1級土木の勉強計画 — 何をいつまでに | 仕事と両立しながら何をどの順で進めるか計画できない | roadmap | レビュー | 台本/構成 | `links-hub` |
 
 ## 2級土木施工管理技士（18）
 
@@ -98,7 +98,7 @@
 | `keiken-nendo-keiko-2kyu` | 2級二次の出題傾向 — 5年分から読むテーマの流れ | 2級の二次で何がどの周期で出ているのか把握できていない | exam-point | レビュー | 台本/構成 | `civil-2-pastexam-essay` |
 | `kikinagashi-2kyu-matome` | 耳で覚える2級土木 — 頻出点の総ざらい | 直前期に全分野を机で回す時間が取れない | exam-point | レビュー | 台本/構成 | `civil-2-takuitsu-pdf` |
 | `nikyuu-gaiyo-roadmap` | 2級土木の全体像と学習順序 | 受検資格・科目・日程と何から始めるかが分からない | roadmap | レビュー | 台本/構成 | `links-hub` |
-| `study-plan-2kyu` | 2級土木の勉強計画 — 仕事と両立する学習設計 | 仕事と両立しながら何をいつまでに進めるか計画できない | roadmap | 下書き | 台本/構成 | `links-hub` |
+| `study-plan-2kyu` | 2級土木の勉強計画 — 仕事と両立する学習設計 | 仕事と両立しながら何をいつまでに進めるか計画できない | roadmap | レビュー | 台本/構成 | `links-hub` |
 
 ## 技術士 総合技術監理部門（11）
 
