@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "廃棄物系の法規は保存年限や数量の閾値が多く混同しやすい分野です。副産物の流れに沿って義務を整理します。",
+      "caption": "マニフェストと再資源化を流れで整理",
+      "visual": {
+        "kind": "cover",
+        "heading": "建設副産物・廃棄物処理",
+        "items": ["1級土木 第1次検定・法規"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 50,
+      "narration": "廃棄物を出しているのは下請だから責任も下請、と考えがちですが、下請施工分を含めて元請業者が排出事業者としての責任を負います。",
+      "caption": "責任を負うのは元請業者",
+      "visual": {
+        "heading": "誤解：責任は廃棄物を出した下請にある",
+        "items": ["下請施工分を含めて元請業者が責任者", "まず「誰の責任か」を押さえる"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-waste-disposal-manifest/article.mdx"
+    },
+    {
+      "sceneId": "overview",
+      "start": 50,
+      "end": 100,
+      "narration": "産業廃棄物は事業者が自らの責任で処理する排出事業者責任があります。建設工事では、下請施工分を含め元請業者がこの責任を負い、委託しても責任は消えません。",
+      "caption": "排出事業者責任は元請業者が負う",
+      "visual": {
+        "heading": "STEP 1　排出事業者は元請業者",
+        "items": ["排出事業者責任＝元請業者が負う", "許可業者に委託しても責任は消えない"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-waste-disposal-manifest/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 100,
+      "end": 155,
+      "narration": "処理を委託するときは、収集運搬業者・処分業者それぞれと個別に契約する二者契約が原則です。三者間の一本契約は認められず、再委託も原則禁止です。",
+      "caption": "二者契約が原則、再委託は原則禁止",
+      "visual": {
+        "heading": "STEP 2　委託契約は二者契約",
+        "items": ["収集運搬・処分業者それぞれと個別契約", "三者間契約は不可・再委託も原則禁止"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-waste-disposal-manifest/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 155,
+      "end": 215,
+      "narration": "マニフェストの写しは交付者が5年間保存します。運搬・処分終了の控えは90日以内、最終処分は180日以内に返送を受け、未返送は30日以内に知事へ報告します。",
+      "caption": "写し5年保存・返送90日と180日",
+      "visual": {
+        "heading": "STEP 3　マニフェストの数字",
+        "items": ["交付者は写しを5年間保存", "返送：運搬・処分終了90日以内／最終処分180日以内", "未返送は経過後30日以内に知事へ報告"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-waste-disposal-manifest/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 215,
+      "end": 275,
+      "narration": "指定副産物は土砂・コンクリート塊・アスコン塊・建設発生木材の4品目。特定建設資材はコンクリート・コン鉄・木材・アスコンの4区分で、土砂は含まれません。",
+      "caption": "指定副産物は土砂含む、特定建設資材は含まない",
+      "visual": {
+        "heading": "STEP 4　指定副産物と特定建設資材の違い",
+        "items": ["指定副産物（資源有効利用促進法）：土砂を含む4品目", "特定建設資材（建設リサイクル法）：土砂を含まない4区分"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-byproduct-recycle/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 275,
+      "end": 330,
+      "narration": "土木工事などその他の工作物は請負代金500万円以上で分別解体等が義務です。発注者または自主施工者が着手7日前までに都道府県知事へ届け出ます。",
+      "caption": "土木は500万円以上・7日前に知事へ届出",
+      "visual": {
+        "heading": "STEP 5　建設リサイクル法の届出",
+        "items": ["その他の工作物（土木等）：請負代金500万円以上", "届出：発注者・自主施工者が着手7日前までに知事へ"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-byproduct-recycle/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 330,
+      "end": 375,
+      "narration": "まとめます。責任は元請業者、委託は二者契約で再委託は原則禁止、マニフェストは90日・180日・5年。副産物は指定副産物と特定建設資材を区別し、土木は500万円以上で届出が必要です。",
+      "caption": "流れに沿って義務を並べて覚える",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["排出事業者＝元請業者", "委託は二者契約・再委託は原則禁止", "マニフェスト：90日・180日・5年保存", "土木工事は500万円以上で届出"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 375,
+      "end": 400,
+      "narration": "数値と手続きをまとめて演習したい方は、概要欄のリンクから1次検定の頻出論点パックをご覧ください。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "頻出論点パックで確認する",
+        "items": ["1次検定・頻出論点パック（概要欄リンク）"]
+      }
+    }
+  ]
+}

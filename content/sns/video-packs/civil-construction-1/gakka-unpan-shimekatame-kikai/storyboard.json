@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "運搬機械の適用距離や締固め機械と土質の対応は、数字が多く曖昧になりがちです。今日は距離と土質の2軸で整理します。",
+      "caption": "運搬・敷均し・締固め機械の整理法",
+      "visual": {
+        "kind": "cover",
+        "heading": "運搬・敷均し・締固め機械",
+        "items": ["1級土木 第1次検定・建設機械"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "現場で覚えればいいと後回しにされがちですが、運搬距離と土質という2つの軸に当てはめるだけでかなり絞り込めます。数字は軸に当てはめて覚えます。",
+      "caption": "誤解：現場で覚えればいいという後回し",
+      "visual": {
+        "heading": "誤解：現場で覚えればいい",
+        "items": ["軸1：運搬距離（スクレーパ・ダンプ・コンベヤ）", "軸2：土質（締固め機械5種）"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-scraper/article.mdx"
+    },
+    {
+      "sceneId": "scraper",
+      "start": 55,
+      "end": 115,
+      "narration": "スクレーパは掘削・積込み・運搬・敷均しを1台で行える機械です。被けん引式は60から400メートル、モータスクレーパは200から1,200メートル、スクレープドーザは軟弱地の40から250メートルに向きます。",
+      "caption": "スクレーパは運搬距離で3種類を使い分け",
+      "visual": {
+        "heading": "スクレーパ3種の適用距離",
+        "items": ["被けん引式：60〜400m", "モータスクレーパ：200〜1,200m", "スクレープドーザ：軟弱地40〜250m"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-scraper/article.mdx"
+    },
+    {
+      "sceneId": "unpan",
+      "start": 115,
+      "end": 170,
+      "narration": "ダンプトラックは中距離以上の運搬に最も多く使われますが、過積載は法令で禁じられています。不整地運搬車はダンプが入れない不整地・軟弱地・狭い場所に使い、ベルトコンベヤは大量のバラものを連続して運びます。",
+      "caption": "ダンプ・不整地運搬車・コンベヤの使い分け",
+      "visual": {
+        "heading": "運搬機械は距離と現場条件で選ぶ",
+        "items": ["ダンプトラック：中距離以上、過積載は法令で厳禁", "不整地運搬車：不整地・軟弱地・狭所", "ベルトコンベヤ：バラものの大量連続運搬"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-transport-machinery/article.mdx"
+    },
+    {
+      "sceneId": "grader",
+      "start": 170,
+      "end": 215,
+      "narration": "モータグレーダは平面仕上げを主目的とした機械です。前輪の揺動機構により、車輪が上下してもブレードの変動を車輪変動量のおよそ8分の1に抑え、高精度で仕上げます。",
+      "caption": "モータグレーダは敷均しと整形の精度担当",
+      "visual": {
+        "heading": "モータグレーダの役割",
+        "items": ["主目的は路面・地表の平面仕上げ", "揺動機構でブレード変動を車輪変動の1/8に抑制"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-grader-compaction/article.mdx"
+    },
+    {
+      "sceneId": "shimekatame",
+      "start": 215,
+      "end": 280,
+      "narration": "締固め機械は土質で選びます。マカダムローラは砕石の初期転圧、タンデムローラはアスファルトの仕上げ転圧です。タイヤローラは砕石で接地圧を高く、粘性土で低くします。タンピングローラは重転圧、振動ローラは深層まで効果が及びます。",
+      "caption": "締固め機械は土質で選ぶ5種類",
+      "visual": {
+        "heading": "締固め機械5種と土質対応",
+        "items": ["マカダム＝砕石の初期転圧／タンデム＝仕上げ", "タイヤ＝砕石は接地圧高、粘性土は低", "タンピング＝重転圧／振動＝深層まで効果"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-grader-compaction/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 280,
+      "end": 325,
+      "narration": "運搬機械は距離で選び、被けん引式・モータ・スクレープドーザの順に距離が変わります。締固め機械は土質で選び、砕石はマカダム、粘性土はタイヤローラの接地圧を下げます。",
+      "caption": "運搬は距離、締固めは土質で選ぶ",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 運搬機械は運搬距離で選ぶ", "② モータグレーダは敷均し・整形の精度", "③ 締固め機械は土質で選ぶ"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 325,
+      "end": 355,
+      "narration": "運搬・敷均し・締固め機械の対応表を確認したい方は、概要欄のリンクから1級土木一次の論点まとめマガジンをご覧ください。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "対応表をまとめて確認する",
+        "items": ["1級土木一次 論点まとめ（概要欄リンク）"]
+      }
+    }
+  ]
+}

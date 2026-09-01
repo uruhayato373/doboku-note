@@ -1,0 +1,111 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "環境法規は数字が多く、規制値と届出のセットが抜け落ちやすい分野です。今日はセットで覚える型を説明します。",
+      "caption": "規制値と届出をワンセットで覚える",
+      "visual": {
+        "kind": "cover",
+        "heading": "騒音・振動規制と公害防止",
+        "items": ["1級土木 第1次検定・法規"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 50,
+      "narration": "環境対策は現場の常識で解けると油断すると、敷地境界線の測定や届出の期限といった細かい数字を落とします。",
+      "caption": "測る場所と届出先までセットで覚える",
+      "visual": {
+        "heading": "誤解：現場の常識で解ける",
+        "items": ["数値は「どこで測るか」までセット", "届出は「いつ・誰に」までセット"]
+      }
+    },
+    {
+      "sceneId": "overview",
+      "start": 50,
+      "end": 105,
+      "narration": "著しい騒音や振動を発生させる作業のうち、2日以上にわたるものが特定建設作業です。その日のうちに終わる作業は対象外で、届出も不要です。",
+      "caption": "2日以上の作業だけが特定建設作業",
+      "visual": {
+        "heading": "STEP 1　特定建設作業になる条件",
+        "items": ["2日以上にわたる著しい騒音・振動の作業", "1日で終わる作業は対象外・届出不要"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-noise-vibration-regulation/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 105,
+      "end": 155,
+      "narration": "規制基準は、作業場所ではなく工事現場の敷地の境界線で測ります。騒音は85デシベル、振動は75デシベルを超えないことが求められます。",
+      "caption": "敷地境界線で騒音85dB・振動75dB",
+      "visual": {
+        "heading": "STEP 2　規制基準は敷地の境界線",
+        "items": ["測定点：敷地の境界線", "騒音85dB・振動75dBを超えない"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-noise-vibration-regulation/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 155,
+      "end": 205,
+      "narration": "指定地域内で特定建設作業を行う元請業者は、作業開始の7日前までに市町村長へ届け出ます。届出先は市町村長で、労働基準監督署長ではありません。",
+      "caption": "元請業者が7日前までに市町村長へ",
+      "visual": {
+        "heading": "STEP 3　届出は元請業者・7日前・市町村長",
+        "items": ["届出義務者：元請業者", "期限：作業開始の7日前まで", "届出先：市町村長"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-noise-vibration-regulation/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 205,
+      "end": 260,
+      "narration": "ばい煙や粉じんは大気汚染防止法、公共用水域への排水は水質汚濁防止法、公共下水道への排水は下水道法が適用されます。放流先で従う法令が変わります。",
+      "caption": "排水先で適用法令が変わる",
+      "visual": {
+        "heading": "STEP 4　排出物と適用法令の対応",
+        "items": ["ばい煙・粉じん：大気汚染防止法", "公共用水域への排水：水質汚濁防止法", "公共下水道への排水：下水道法"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-water-air-soil-pollution/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 260,
+      "end": 310,
+      "narration": "騒音・振動対策は発生源・伝搬経路・受音点の3分類で、基本は発生源対策です。伝搬経路では距離が2倍になると騒音レベルが約6デシベル減衰します。",
+      "caption": "発生源対策が基本、距離2倍で6dB減衰",
+      "visual": {
+        "heading": "STEP 5　対策の順番と距離減衰",
+        "items": ["基本は発生源対策", "距離2倍で約6dB減衰（逆二乗則）"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-noise-vibration-regulation/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 310,
+      "end": 355,
+      "narration": "まとめます。特定建設作業は2日以上、規制基準は敷地境界で騒音85・振動75、届出は元請が7日前に市町村長へ。排水先で法令が変わり、対策は発生源が基本です。",
+      "caption": "数値のかたまりで押さえる",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["特定建設作業：2日以上", "敷地境界：騒音85dB・振動75dB", "届出：元請が7日前に市町村長へ", "排水先で法令変化・対策は発生源が基本"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 355,
+      "end": 380,
+      "narration": "規制値と届出をまとめて演習したい方は、概要欄のリンクから1次検定の頻出論点パックをご覧ください。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "頻出論点パックで確認する",
+        "items": ["1次検定・頻出論点パック（概要欄リンク）"]
+      }
+    }
+  ]
+}

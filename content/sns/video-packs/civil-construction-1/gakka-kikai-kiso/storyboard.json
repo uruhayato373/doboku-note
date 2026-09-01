@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "建設機械の分類・原動機・動力伝達は、機種ごとの話に入る前の土台です。今日はこの土台を一気に整理します。",
+      "caption": "建設機械の基礎を整理する",
+      "visual": {
+        "kind": "cover",
+        "heading": "建設機械の基礎",
+        "items": ["1級土木 第1次検定・建設機械"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "構造は機種ごとに個別に覚えるしかないと思われがちですが、分類・原動機・動力伝達・保護装置は機種が変わっても共通のものさしです。先に持っておくと後が速くなります。",
+      "caption": "誤解：機種ごとに個別に覚えるしかない",
+      "visual": {
+        "heading": "誤解：機種ごとの丸暗記",
+        "items": ["分類・原動機・動力伝達は機種横断の共通ものさし"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-machinery-overview/article.mdx"
+    },
+    {
+      "sceneId": "bunrui",
+      "start": 55,
+      "end": 110,
+      "narration": "建設業法では、トラクタ系・ショベル系・基礎工事用・モータグレーダ・締固め用・舗装用などに区分します。個々の規格は、作業装置の大きさ、作業能力、質量、原動機出力の4種類で代表させます。",
+      "caption": "分類は建設業法6区分・規格表示4種",
+      "visual": {
+        "heading": "分類と規格表示",
+        "items": ["建設業法：トラクタ系・ショベル系・基礎工事用 他", "規格表示：大きさ・作業能力・質量・原動機出力"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-machinery-overview/article.mdx"
+    },
+    {
+      "sceneId": "gendoki",
+      "start": 110,
+      "end": 165,
+      "narration": "原動機はエンジンと電動機に大別されます。通常はディーゼルエンジンで、熱効率30から45パーセントとガソリンより高いのが最大の理由です。電動機は定置式のプラント類やトンネル工事で使われます。",
+      "caption": "ディーゼルが主流な理由は熱効率",
+      "visual": {
+        "heading": "原動機の使い分け",
+        "items": ["ディーゼル：熱効率30〜45%（ガソリンは20〜30%）", "電動機：定置式プラント・トンネル工事"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-machinery-structure/article.mdx"
+    },
+    {
+      "sceneId": "dendatsu",
+      "start": 165,
+      "end": 225,
+      "narration": "動力伝達装置は機械式と油圧式に大別されます。機械式にはダイレクトドライブ・パワーシフトドライブ・トルコンパワーシフトの3方式があり、負荷変動に強いトルコンパワーシフトが大型機の主流です。油圧式は動力配分は自由ですが伝達効率は低めです。",
+      "caption": "動力伝達は機械式3方式と油圧式",
+      "visual": {
+        "heading": "動力伝達装置の分類",
+        "items": ["機械式：ダイレクト／パワーシフト／トルコンパワーシフト", "油圧式：配分は自由、伝達効率は低い"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-machinery-structure/article.mdx"
+    },
+    {
+      "sceneId": "hogo",
+      "start": 225,
+      "end": 270,
+      "narration": "保護装置には、落下物用のFOPS、転倒時用のROPS、横転時用のTOPSなどがあります。運転資格は、機体質量3トン未満なら特別教育、3トン以上なら技能講習の修了が基準です。",
+      "caption": "保護装置と資格は機体質量3トンが境目",
+      "visual": {
+        "heading": "保護装置と資格要件",
+        "items": ["FOPS＝落下物、ROPS＝転倒、TOPS＝横転", "機体質量3t未満＝特別教育、3t以上＝技能講習"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-machinery-overview/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 270,
+      "end": 315,
+      "narration": "分類は建設業法6区分と規格表示4種、原動機はディーゼルの熱効率の高さ、動力伝達は機械式3方式と油圧式。保護装置と資格は機体質量3トンが境目です。",
+      "caption": "分類・原動機・動力伝達・資格を土台にする",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 分類は建設業法6区分・規格表示4種", "② 原動機はディーゼル優位の理由を押さえる", "③ 動力伝達3方式と資格3t基準"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 315,
+      "end": 345,
+      "narration": "建設機械の分類・原動機・動力伝達をまとめて確認したい方は、概要欄のリンクから1級土木一次の論点まとめマガジンをご覧ください。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "まとめて確認する",
+        "items": ["1級土木一次 論点まとめ（概要欄リンク）"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "契約約款の条文問題は、発注者と受注者どちらの義務かで誤答します。今日は主語で仕分ける読み方を説明します。",
+      "caption": "約款は「誰の義務か」で読む",
+      "visual": {
+        "kind": "cover",
+        "heading": "公共工事標準請負契約約款",
+        "items": ["1級土木 第1次検定・法規"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "約款は発注者に有利、と思って読むと足をすくわれます。もとは受注者が不利になりやすい片務性を是正するための文書で、双方に義務があります。",
+      "caption": "約款は双方に義務がある文書",
+      "visual": {
+        "heading": "誤解：発注者に有利な文書",
+        "items": ["片務性の是正が目的", "義務は発注者・受注者の双方にある"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-standard-contract/article.mdx"
+    },
+    {
+      "sceneId": "overview",
+      "start": 55,
+      "end": 105,
+      "narration": "発注者・受注者は約款と設計図書に従って契約を履行する義務を負います。そのうえで、一括下請負の禁止は受注者側の義務です。",
+      "caption": "双方の義務＋一括下請負禁止は受注者",
+      "visual": {
+        "heading": "約款の基本構造",
+        "items": ["発注者・受注者とも契約履行義務を負う", "一括下請負の禁止＝受注者の義務"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-standard-contract/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 105,
+      "end": 165,
+      "narration": "現場代理人や主任技術者の通知は、受注者から発注者へ書面で行います。監督員を置いたときの通知は逆に、発注者から受注者へ書面で行う義務です。",
+      "caption": "通知の向きは逆になることがある",
+      "visual": {
+        "heading": "STEP 1　通知は誰から誰へ",
+        "items": ["現場代理人等：受注者→発注者", "監督員：発注者→受注者", "同じ「通知」でも向きが違う"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-standard-contract/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 165,
+      "end": 225,
+      "narration": "工期の延長は、受注者の責めによらない理由があるとき受注者から発注者へ請求します。短縮は逆に発注者から受注者へ請求できます。中止は発注者が通知します。",
+      "caption": "延長は受注者請求・短縮は発注者請求",
+      "visual": {
+        "heading": "STEP 2　工期変更は誰が請求するか",
+        "items": ["延長：受注者→発注者へ書面請求", "短縮：発注者→受注者へ請求", "中止：発注者が通知して行う"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-standard-contract/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 225,
+      "end": 295,
+      "narration": "一般的損害と第三者損害は原則受注者負担です。ただし通常避けられない騒音や振動による第三者損害は発注者負担。不可抗力は請負代金の1%を超える分だけ発注者が負担します。",
+      "caption": "損害は原則受注者、例外は発注者",
+      "visual": {
+        "heading": "STEP 3　損害の負担も主語で決まる",
+        "items": ["一般的損害・第三者損害：原則受注者", "通常避けられない騒音等の第三者損害：発注者", "不可抗力：1%超の部分は発注者、災害復旧は全額発注者"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-standard-contract/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 295,
+      "end": 345,
+      "narration": "契約不適合を理由に修補や代金減額、契約解除を請求できるのは発注者です。ただし引渡しを受けた日から2年以内という期限があります。",
+      "caption": "契約不適合の請求は発注者・2年以内",
+      "visual": {
+        "heading": "STEP 4　契約不適合責任は発注者が請求",
+        "items": ["請求主体は発注者", "期限：引渡しを受けた日から2年以内", "起算点は「完成時」ではない"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-standard-contract/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 345,
+      "end": 390,
+      "narration": "まとめます。通知は向きが2種類、工期変更は延長が受注者請求・短縮が発注者請求、損害は原則受注者で例外が発注者、契約不適合は発注者が2年以内に請求します。",
+      "caption": "条文は主語の型で正誤判定する",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["通知：受注者→発注者と発注者→受注者の両方", "工期：延長＝受注者請求／短縮＝発注者請求", "損害：原則受注者、例外は発注者", "契約不適合：発注者が2年以内に請求"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 390,
+      "end": 415,
+      "narration": "条文横断の頻出論点をまとめて確認したい方は、概要欄のリンクから1次検定の頻出論点パックをご覧ください。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "頻出論点パックで確認する",
+        "items": ["1次検定・頻出論点パック（概要欄リンク）"]
+      }
+    }
+  ]
+}
