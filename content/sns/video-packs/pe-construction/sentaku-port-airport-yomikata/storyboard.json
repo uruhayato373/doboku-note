@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "港湾・空港は科目名が二つ入っていて、どちらに比重を置くか迷います。今日は7年分の出題を発注者の実務視点で読み解きます。",
+      "caption": "港湾・空港 出題テーマの読み方",
+      "visual": {
+        "kind": "cover",
+        "heading": "選択科目「港湾・空港」の出題テーマの読み方",
+        "items": ["技術士 建設部門・第二次試験"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "港湾だけ勉強すれば足りる、という誤解があります。ですがII-1-4という指定席には、令和3年度以降5年連続で空港固有の施設が出題され続けています。港湾と空港、両方の骨格を準備するのが前提です。",
+      "caption": "II-1-4は空港固有テーマの指定席",
+      "visual": {
+        "heading": "誤解：港湾だけ勉強すれば足りる",
+        "items": ["II-1-4は空港固有テーマの指定席", "R03以降5年連続で空港が出題"]
+      },
+      "sourceRef": "content/site/pe-construction/port-airport-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "airport",
+      "start": 55,
+      "end": 125,
+      "narration": "II-1-4では、滑走路のブリスタリング、滑走路端安全区域、略してRESA、アールイーエスエーの拡張、アスファルト舗装、誘導路、滑走路の配置と、5年連続で空港固有のテーマが並びます。港湾だけに寄せた対策では、この1問を確実に落とします。",
+      "caption": "空港は滑走路・誘導路が5年連続出題",
+      "visual": {
+        "heading": "空港側の指定席：II-1-4",
+        "items": ["滑走路のブリスタリング／RESA拡張", "アスファルト舗装／誘導路／配置"]
+      },
+      "sourceRef": "content/site/pe-construction/port-airport-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "port",
+      "start": 125,
+      "end": 185,
+      "narration": "港湾側はII-1の他の設問で、港湾計画・物流、防波堤や護岸などの構造物、地盤・基礎が循環します。液状化や圧密沈下といった地盤の知識と、防波堤・ケーソンの設計知識を組み合わせて準備します。",
+      "caption": "港湾は計画・構造物・地盤が循環",
+      "visual": {
+        "heading": "港湾側の骨格：計画・構造物・地盤",
+        "items": ["港湾計画・物流", "防波堤・護岸などの構造物", "液状化・圧密沈下などの地盤"]
+      },
+      "sourceRef": "content/site/pe-construction/port-airport-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "logistics",
+      "start": 185,
+      "end": 245,
+      "narration": "選択科目IIIで最も繰り返されるのは、コンテナ物流や輸出、サプライチェーンといった国際競争力のテーマです。国際戦略港湾による機能強化が背景にあり、港湾は我が国の物流を支える基盤という切り口で問われ続けます。",
+      "caption": "IIIの主役は物流と国際競争力",
+      "visual": {
+        "heading": "IIIの主役：物流・国際競争力",
+        "items": ["コンテナ物流・輸出・サプライチェーン", "国際戦略港湾による機能強化"]
+      },
+      "sourceRef": "content/site/pe-construction/port-airport-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "convergence",
+      "start": 245,
+      "end": 300,
+      "narration": "カーボンニュートラルポート、略してCNP、シーエヌピーと呼ばれる港湾の脱炭素化と、ケーソンや護岸の老朽化に対する維持管理が、ここ数年で存在感を増しています。洋上風力の基地港湾も、この流れの一部です。",
+      "caption": "脱炭素CNPと維持管理が近年の合流点",
+      "visual": {
+        "heading": "近年の合流点：脱炭素・維持管理",
+        "items": ["カーボンニュートラルポート（CNP）", "ケーソン・護岸の維持管理", "洋上風力の基地港湾"]
+      },
+      "sourceRef": "content/site/pe-construction/port-airport-ronbun-keyword/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 300,
+      "end": 345,
+      "narration": "港湾・空港は、空港側の指定席II-1-4、港湾側の計画・構造物・地盤、IIIの物流・国際競争力、そして脱炭素と維持管理の合流という4本柱で読みます。",
+      "caption": "空港指定席＋港湾骨格＋物流＋脱炭素",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 空港の指定席 II-1-4", "② 港湾の計画・構造物・地盤", "③ IIIの物流→④ 脱炭素・維持管理"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 345,
+      "end": 378,
+      "narration": "7年分の出題テーマを年度別に整理した一覧と、本文の書き方まで含めた対策は、概要欄の港湾・空港マガジンでご確認ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄の港湾・空港マガジンへ",
+      "visual": {
+        "kind": "cover",
+        "heading": "続きは港湾・空港マガジンで",
+        "items": ["7年分の出題テーマ＋本文の書き方（概要欄リンク）"]
+      }
+    }
+  ]
+}
