@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "直前期は残り時間が限られ、全分野は回せません。今日は頻出度と配点感から固める分野の絞り方を整理します。",
+      "caption": "直前期の総仕上げを頻出度で絞る",
+      "visual": {
+        "kind": "cover",
+        "heading": "主任技士 直前期の総仕上げ",
+        "items": ["頻出度で固める分野を絞る"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "択一の点さえ積めば逃げ切れる、と思われがちですが、採点は択一と小論文の別建てで、一方の貯金でもう一方の不足は埋められません。",
+      "caption": "小論文未達なら択一が良くても不合格",
+      "visual": {
+        "heading": "誤解：択一を伸ばせば安心",
+        "items": ["択一と小論文は別々に採点", "小論文未達だと択一の得点は関係ない"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 55,
+      "end": 120,
+      "narration": "直前期の最優先は小論文の水準確保です。文章量よりも論旨を明確にすることが評価軸で、体裁は箇条書き形式でも構いません。キーワードで論旨をはっきりさせる練習を優先します。",
+      "caption": "小論文は論旨の明確さが評価軸",
+      "visual": {
+        "heading": "STEP 1　小論文の水準確保を最優先",
+        "items": ["文章量より論旨の明確さ", "箇条書き形式でも可", "キーワードで論旨をはっきりさせる"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 120,
+      "end": 185,
+      "narration": "択一は定番項目から総仕上げします。用材料、性質、耐久性、配合設計、そして施工の運搬・打込み・締固め・打継ぎ、養生・仕上げ、型枠・支保工、鉄筋、寒中暑中、マスコンが優先です。",
+      "caption": "択一は定番項目から総仕上げ",
+      "visual": {
+        "heading": "STEP 2　択一は定番項目から",
+        "items": ["用材料・性質・耐久性・配合設計", "施工は運搬〜マスコンの定番項目"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 185,
+      "end": 240,
+      "narration": "水、水密コンクリート、その他および各種コンクリートは近年出題が確認できません。高流動、水中、海洋、舗装・ダムコンクリートも低頻度です。ここに時間をかけず定番分野の精度を上げます。",
+      "caption": "低頻度・出題なしは直前期に回さない",
+      "visual": {
+        "heading": "STEP 3　低頻度・出題なしは後回し",
+        "items": ["水・水密・その他各種は出題なし", "高流動・水中・海洋・舗装ダムは低頻度"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 240,
+      "end": 300,
+      "narration": "過去問は分野別の縦串で最終確認します。各肢が適当か不適当かを取り違えないこと、正答の肢以外がどこで誤りかを説明できるようにしておくことが仕上げになります。",
+      "caption": "過去問は分野別の縦串で仕上げる",
+      "visual": {
+        "heading": "STEP 4　過去問は分野別の縦串で",
+        "items": ["同じ項目を複数年度まとめて解く", "他の肢の誤りも説明できるようにする"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 300,
+      "end": 345,
+      "narration": "直前期は小論文の水準確保を最優先にしつつ、択一は定番項目から固め、低頻度・出題なしの項目は後回しにする。この絞り方が得点を積み上げる道筋です。",
+      "caption": "小論文最優先、択一は定番から",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 小論文の水準確保を最優先", "② 択一は定番項目から固める", "③ 低頻度・出題なしは後回し"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 345,
+      "end": 375,
+      "narration": "直前期に仕上げる分野の頻出度をさらに詰めたい方は、概要欄のリンクから択一演習パックをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "頻出度を見ながら仕上げる",
+        "items": ["択一演習パック（概要欄リンク）"]
+      }
+    }
+  ]
+}

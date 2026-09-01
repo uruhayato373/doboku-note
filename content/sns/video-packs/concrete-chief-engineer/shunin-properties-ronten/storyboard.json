@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "ワーカビリティーやブリーディングなど、フレッシュ性状の用語が似ていて選択肢で迷いやすい分野です。今日は混同をなくす整理をします。",
+      "caption": "主任技士「コンクリートの性質」の頻出論点",
+      "visual": {
+        "kind": "cover",
+        "heading": "コンクリートの性質の頻出論点",
+        "items": ["コンクリート主任技士・四肢択一"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "ワーカビリティーとコンシステンシーは同じ意味と思われがちですが、両者は親子の関係です。扱いやすさ全体を束ねる親がワーカビリティー、変形や流れやすさだけを切り出した子がコンシステンシーです。",
+      "caption": "ワーカビリティーとコンシステンシーは階層が違う",
+      "visual": {
+        "heading": "誤解：両者は同じ意味",
+        "items": ["ワーカビリティー＝作業性全体の総合概念", "コンシステンシー＝流動性・変形抵抗性のみ"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-properties/article.mdx"
+    },
+    {
+      "sceneId": "consistency",
+      "start": 55,
+      "end": 115,
+      "narration": "コンシステンシーはスランプ試験で測ります。高流動コンクリートのスランプフロー試験では、最大とその直交方向の直径を1ミリ単位で測り、平均値を5ミリまたは0.5センチ単位に丸めます。",
+      "caption": "スランプフローは1mm測定・5mm丸め",
+      "visual": {
+        "heading": "1. コンシステンシーと測定単位",
+        "items": ["スランプ試験＝沈下量を測定", "スランプフロー＝2方向を1mm単位で測定", "平均値は5mmまたは0.5cm単位に丸め"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-properties/article.mdx"
+    },
+    {
+      "sceneId": "bingham",
+      "start": 115,
+      "end": 175,
+      "narration": "フレッシュコンクリートはビンガム流体で近似されます。降伏値が大きいほど変形しにくくスランプは小さくなります。塑性粘度が大きいほど圧送時の負荷が増します。",
+      "caption": "降伏値↑でスランプ↓、塑性粘度↑で圧送負荷↑",
+      "visual": {
+        "heading": "2. ビンガム流体の2パラメータ",
+        "items": ["降伏値＝変形抵抗性（大きいほどスランプ小）", "塑性粘度＝流動中の粘り（大きいほど圧送負荷大）"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-properties/article.mdx"
+    },
+    {
+      "sceneId": "bleeding",
+      "start": 175,
+      "end": 235,
+      "narration": "ブリーディングは固体粒子の沈下で水が分離する現象で、拘束があると沈下ひび割れが生じます。膨張材は乾燥収縮対策で、沈下ひび割れの対策としては不適当です。凝結は始発3.5、終結28.0ニュートン毎平方ミリメートルで判定します。",
+      "caption": "膨張材は沈下ひび割れ対策としては不適当",
+      "visual": {
+        "heading": "3. ブリーディングと凝結の定義値",
+        "items": ["沈下ひび割れは鉄筋・セパレータで発生", "膨張材はブリーディング対策にならない", "凝結は始発3.5・終結28.0N/mm²"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-properties/article.mdx"
+    },
+    {
+      "sceneId": "elastic",
+      "start": 235,
+      "end": 295,
+      "narration": "圧縮強度は水セメント比が小さいほど大きくなります。引張強度は圧縮強度の10分の1から13分の1程度で、高強度ほどこの比率は小さくなります。静弾性係数は縦ひずみ100万分の50の点と最大荷重3分の1の点を結ぶ勾配です。",
+      "caption": "静弾性係数は原点でなく50×10⁻⁶の点から",
+      "visual": {
+        "heading": "4. 圧縮強度と静弾性係数の求め方",
+        "items": ["圧縮強度は水セメント比と逆相関", "引張強度は圧縮強度の1/10〜1/13程度", "静弾性係数の基点は原点ではない"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/primary-properties/article.mdx"
+    },
+    {
+      "sceneId": "creep",
+      "start": 295,
+      "end": 355,
+      "narration": "クリープはひずみが載荷応力にほぼ比例して増える現象で、クリープ係数はクリープひずみを載荷時弾性ひずみで割った値です。自己収縮は高強度コンクリートで顕著です。熱膨張係数は鋼材とほぼ等しい値になります。",
+      "caption": "クリープ係数の分母は載荷時弾性ひずみ",
+      "visual": {
+        "heading": "5. クリープ・収縮・熱膨張係数",
+        "items": ["クリープ係数＝クリープひずみ÷弾性ひずみ", "自己収縮は高強度コンクリートで顕著", "熱膨張係数は鋼材とほぼ同じ値"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-properties/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 355,
+      "end": 400,
+      "narration": "フレッシュは階層関係とビンガムの2パラメータ、硬化後は静弾性係数の基点とクリープ係数の分母、この4点を押さえれば混同がなくなります。",
+      "caption": "4点を押さえれば用語の混同がなくなる",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① ワーカビリティーとコンシステンシーの階層", "② 降伏値とスランプ、塑性粘度と圧送負荷", "③ 静弾性係数は原点起点ではない", "④ クリープ係数の分母は弾性ひずみ"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 400,
+      "end": 430,
+      "narration": "8分野を横断した予想問題で仕上げたい方は、概要欄のリンクから令和8年度予想50問をご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "R8予想50問で仕上げる",
+        "items": ["8分野・全選択肢解説（概要欄リンク）"]
+      }
+    }
+  ]
+}

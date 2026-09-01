@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "曲げやせん断の構造計算は久しぶりで解き方を思い出せない、という受験者が多いです。今日は設計分野の頻出パターンと解き筋を整理します。",
+      "caption": "コンクリート構造の設計、頻出の解き筋",
+      "visual": {
+        "kind": "cover",
+        "heading": "コンクリート構造の設計の頻出論点",
+        "items": ["コンクリート主任技士 四肢択一"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 60,
+      "narration": "引張主筋を太くすればせん断耐力も上がると思われがちですが、せん断耐力を左右するのはコンクリート強度とせん断補強筋です。主筋の降伏強度は曲げ耐力にのみ効き、せん断耐力には効きません。",
+      "caption": "主筋の降伏強度はせん断耐力に効かない",
+      "visual": {
+        "heading": "誤解：主筋を太くすればせん断も強くなる",
+        "items": ["せん断耐力はコンクリート強度と補強筋で決まる", "主筋の降伏強度は曲げ耐力にのみ寄与"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-structural-design/article.mdx"
+    },
+    {
+      "sceneId": "bending-assumptions",
+      "start": 60,
+      "end": 120,
+      "narration": "曲げ耐力の計算には4つの仮定があります。鉄筋とコンクリートが一体で滑らない完全付着、ひずみが中立軸からの距離に比例する平面保持、コンクリートの引張は無視する仮定、そして圧縮側は等価応力ブロックで扱う仮定です。コンクリートを弾性体として仮定する、という選択肢は不適当なので注意してください。",
+      "caption": "曲げ耐力の4仮定、弾性体仮定は不適当",
+      "visual": {
+        "heading": "STEP 1　曲げ耐力の4つの仮定",
+        "items": ["完全付着・平面保持", "コンクリートの引張は無視", "圧縮側は等価応力ブロック"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-structural-design/article.mdx"
+    },
+    {
+      "sceneId": "shear-capacity",
+      "start": 120,
+      "end": 180,
+      "narration": "せん断耐力は、コンクリートが負担する分とせん断補強筋が負担する分の合計です。コンクリート強度が高いほど、スターラップの間隔を狭め本数を増やすほど、耐力は高くなります。せん断破壊は急激で脆いので、曲げ破壊を先行させて粘りを確保するのが設計の基本です。",
+      "caption": "せん断より曲げ破壊を先行させ靭性を確保",
+      "visual": {
+        "heading": "STEP 2　せん断耐力と設計方針",
+        "items": ["コンクリート強度＋スターラップで決まる", "主筋降伏強度は寄与しない", "曲げ破壊を先行させ靭性を確保"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-structural-design/article.mdx"
+    },
+    {
+      "sceneId": "member-behavior",
+      "start": 180,
+      "end": 245,
+      "narration": "軸力が大きい柱ほど曲げ変形能力は小さくなり、帯筋を密にすると改善します。梁の圧縮鉄筋はコンクリートの圧縮負担を軽くし、急な圧壊を抑えて靭性を高めます。鉄筋径が太いほど付着応力が大きくなり、付着割裂破壊が起きやすくなります。",
+      "caption": "軸力・圧縮鉄筋・鉄筋径が挙動を左右する",
+      "visual": {
+        "heading": "STEP 3　部材の挙動を左右する要因",
+        "items": ["軸力大→柱の変形能力は小さくなる", "圧縮鉄筋は靭性を高める", "太径鉄筋ほど付着割裂しやすい"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-structural-design/article.mdx"
+    },
+    {
+      "sceneId": "design-method",
+      "start": 245,
+      "end": 305,
+      "narration": "許容応力度設計法は、構造物を弾性挙動と仮定し応力度が許容値を超えないか確かめる方法です。ラーメンの隅角部では、モーメントが開く側、つまり引張側にひび割れが生じます。モーメント図を描いて引張側を確認する手順が確実です。",
+      "caption": "モーメント図の引張側にひび割れが出る",
+      "visual": {
+        "heading": "STEP 4　設計法とラーメンのひび割れ",
+        "items": ["許容応力度設計法は弾性挙動を仮定", "隅角部は開く側（引張側）にひび割れ", "モーメント図→引張側の順で確認"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-structural-design/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 305,
+      "end": 350,
+      "narration": "まとめます。曲げは4つの仮定、せん断はコンクリート強度と補強筋、部材挙動は軸力・圧縮鉄筋・鉄筋径、設計はモーメント図から引張側を読む。この4つの軸で構造問題を整理してください。",
+      "caption": "4つの軸で構造問題を整理する",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["曲げ耐力の4仮定・せん断の支配因子", "軸力・圧縮鉄筋・付着割裂", "モーメント図から引張側を読む"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 350,
+      "end": 380,
+      "narration": "解き筋をもっと過去問で確かめたい方は、概要欄のリンクから択一対策マガジンをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "解き筋を過去問で確かめる",
+        "items": ["択一対策マガジン（概要欄リンク）"]
+      }
+    }
+  ]
+}

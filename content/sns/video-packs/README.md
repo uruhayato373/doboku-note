@@ -157,21 +157,21 @@
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
 | `kikinagashi-shunin-suchi` | 聞き流し 主任技士 頻出数値・JIS規定 | 机に向かう時間が取れず数値規定の反復が足りないまま直前期に入る | exam-point | 企画 | —/— | `cce-r8-mc-50` |
-| `shunin-chokuzen-senryaku` | 主任技士 直前期の総仕上げ — 頻出度で絞る | 残り時間で全分野は回せず何を捨てて何を固めるか決められない | howto | 企画 | —/— | `cce-r8-mc-50` |
-| `shunin-construction-ronten` | 主任技士「施工」の頻出論点 | ポンプ圧送から養生まで工程が広く数値規定の暗記が追いつかない | exam-point | 企画 | —/— | `cce-r8-mc-50` |
-| `shunin-durability-ronten` | 主任技士「コンクリートの耐久性」の頻出論点 | 中性化・塩害・凍害・ASRの劣化機構がごちゃつき対策の対応づけを間違える | exam-point | 企画 | —/— | `cce-r8-mc-50` |
-| `shunin-hinshutsu-yusen` | 主任技士 四肢択一の頻出分野 — 学習の優先順位 | 9分野を均等に回すには時間が足りず捨て分野の判断もつかない | exam-point | 企画 | —/— | `cce-r8-mc-50` |
-| `shunin-materials-ronten` | 主任技士「コンクリート用材料」の頻出論点 | ポルトランドセメントの種類も混和材料の使い分けも似た記述が多く覚え分けられない | exam-point | 企画 | —/— | `cce-r8-mc-50` |
-| `shunin-mix-design-ronten` | 主任技士「配(調)合設計」の頻出論点 | 水セメント比や単位量の計算手順が安定せず本番で時間を溶かす | exam-point | 企画 | —/— | `cce-mix-calculation-practice` |
-| `shunin-ochiru-shouronbun` | 落ちる小論文の共通点 — 主任技士で評価されない答案 | 書けた気になっているが評価される答案なのか自分で判断できない | diagnosis | 企画 | —/— | `cce-essay-magazine` |
-| `shunin-production-qc-ronten` | 主任技士「製造・品質管理／検査」の頻出論点 | JIS A 5308の規定値と検査ルールが細かく丸暗記では本番で出てこない | exam-point | 企画 | —/— | `cce-r8-mc-50` |
-| `shunin-products-ronten` | 主任技士「コンクリート製品」の頻出論点 | 工場製品の製造方法は現場経験だけではイメージが湧かず後回しになりがち | exam-point | 企画 | —/— | `cce-r8-mc-50` |
-| `shunin-properties-ronten` | 主任技士「コンクリートの性質」の頻出論点 | ワーカビリティーやブリーディングなどフレッシュ性状の用語が混ざって選択肢で迷う | exam-point | 企画 | —/— | `cce-r8-mc-50` |
-| `shunin-r8-juuten` | 主任技士 R8の重点分野予想 — 頻出度からこう導く | 直前期にどの分野へ張るべきか予想の根拠が持てない | exam-point | 企画 | —/— | `cce-r8-mc-50` |
-| `shunin-shiken-zentaizou` | コンクリート主任技士の全体像 — 四肢択一×小論文の二本立て | 四肢択一と小論文の二本立てで何をどの配分で仕込むべきか掴めない | roadmap | 企画 | —/— | `links-hub` |
-| `shunin-shouronbun-kousei` | 主任技士 小論文の答案構成 — 評価される観点から逆算する | 技術的な文章を書き慣れておらず1,000字の構成が組めない | howto | 企画 | —/— | `cce-essay-magazine` |
-| `shunin-shouronbun-theme` | 主任技士 小論文のテーマ傾向 — 何が問われてきたか | どんなテーマが出るか分からず経験の棚卸しが的外れになりそうで不安 | exam-point | 企画 | —/— | `cce-essay-magazine` |
-| `shunin-structural-design-ronten` | 主任技士「コンクリート構造の設計」の頻出論点 | 曲げやせん断の構造計算は久しぶりで解き方を思い出せない | exam-point | 企画 | —/— | `cce-r8-mc-50` |
+| `shunin-chokuzen-senryaku` | 主任技士 直前期の総仕上げ — 頻出度で絞る | 残り時間で全分野は回せず何を捨てて何を固めるか決められない | howto | レビュー | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-construction-ronten` | 主任技士「施工」の頻出論点 | ポンプ圧送から養生まで工程が広く数値規定の暗記が追いつかない | exam-point | レビュー | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-durability-ronten` | 主任技士「コンクリートの耐久性」の頻出論点 | 中性化・塩害・凍害・ASRの劣化機構がごちゃつき対策の対応づけを間違える | exam-point | レビュー | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-hinshutsu-yusen` | 主任技士 四肢択一の頻出分野 — 学習の優先順位 | 全分野を均等に回すには時間が足りず捨て分野の判断もつかない | exam-point | レビュー | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-materials-ronten` | 主任技士「コンクリート用材料」の頻出論点 | ポルトランドセメントの種類も混和材料の使い分けも似た記述が多く覚え分けられない | exam-point | レビュー | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-mix-design-ronten` | 主任技士「配(調)合設計」の頻出論点 | 水セメント比や単位量の計算手順が安定せず本番で時間を溶かす | exam-point | レビュー | 台本/構成 | `cce-mix-calculation-practice` |
+| `shunin-ochiru-shouronbun` | 落ちる小論文の共通点 — 主任技士で評価されない答案 | 書けた気になっているが評価される答案なのか自分で判断できない | diagnosis | 下書き | 台本/構成 | `cce-essay-magazine` |
+| `shunin-production-qc-ronten` | 主任技士「製造・品質管理／検査」の頻出論点 | JIS A 5308の規定値と検査ルールが細かく丸暗記では本番で出てこない | exam-point | レビュー | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-products-ronten` | 主任技士「コンクリート製品」の頻出論点 | 工場製品の製造方法は現場経験だけではイメージが湧かず後回しになりがち | exam-point | 下書き | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-properties-ronten` | 主任技士「コンクリートの性質」の頻出論点 | ワーカビリティーやブリーディングなどフレッシュ性状の用語が混ざって選択肢で迷う | exam-point | レビュー | 台本/構成 | `cce-r8-mc-50` |
+| `shunin-r8-juuten` | 主任技士 R8の重点分野予想 — 頻出度からこう導く | 直前期にどの分野へ張るべきか予想の根拠が持てない | exam-point | 下書き | 台本/— | `cce-r8-mc-50` |
+| `shunin-shiken-zentaizou` | コンクリート主任技士の全体像 — 四肢択一×小論文の二本立て | 四肢択一と小論文の二本立てで何をどの配分で仕込むべきか掴めない | roadmap | レビュー | 台本/構成 | `links-hub` |
+| `shunin-shouronbun-kousei` | 主任技士 小論文の答案構成 — 評価される観点から逆算する | 技術的な文章を書き慣れておらず1,000字の構成が組めない | howto | 下書き | 台本/構成 | `cce-essay-magazine` |
+| `shunin-shouronbun-theme` | 主任技士 小論文のテーマ傾向 — 何が問われてきたか | どんなテーマが出るか分からず経験の棚卸しが的外れになりそうで不安 | exam-point | 下書き | 台本/構成 | `cce-essay-magazine` |
+| `shunin-structural-design-ronten` | 主任技士「コンクリート構造の設計」の頻出論点 | 曲げやせん断の構造計算は久しぶりで解き方を思い出せない | exam-point | 下書き | 台本/構成 | `cce-r8-mc-50` |
 
 ## コンクリート技士（12）
 

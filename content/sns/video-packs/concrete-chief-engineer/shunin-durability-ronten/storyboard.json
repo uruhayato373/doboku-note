@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "中性化・塩害・凍害・アルカリシリカ反応、劣化機構が多くてごちゃつく分野です。今日は原因と対策の対応づけを整理します。",
+      "caption": "主任技士「コンクリートの耐久性」の頻出論点",
+      "visual": {
+        "kind": "cover",
+        "heading": "コンクリートの耐久性の頻出論点",
+        "items": ["コンクリート主任技士・四肢択一"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "劣化は1つの原因から単独で進むと思われがちですが、実際には連鎖します。中性化が塩化物イオンを解き放って塩害を加速させ、凍結融解がそれを奥へ運ぶ。複合劣化が実態です。",
+      "caption": "劣化機構は単独でなく複合で進むことが多い",
+      "visual": {
+        "heading": "誤解：劣化は単一原因で進む",
+        "items": ["中性化の進行が塩害を助長する", "凍結融解が塩化物イオンを内部へ運ぶ"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+    },
+    {
+      "sceneId": "carbonation",
+      "start": 55,
+      "end": 115,
+      "narration": "二酸化炭素の侵入で水酸化カルシウムが炭酸カルシウムに変わり、pHが約9以下になると不動態皮膜が壊れます。固定されていた塩化物イオンは中性化域で遊離し、内部の未中性化領域へ移動して濃縮します。",
+      "caption": "塩化物イオンは未中性化の内部領域に濃縮する",
+      "visual": {
+        "heading": "1. 中性化フロントの塩化物イオン濃縮",
+        "items": ["pH約9以下で不動態皮膜が破壊", "遊離した塩化物イオンは内部へ移動", "濃縮は中性化フロントより内部側"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+    },
+    {
+      "sceneId": "salt",
+      "start": 115,
+      "end": 175,
+      "narration": "塩化物イオンは外来塩分と内在塩分に分かれ、腐食発生限界濃度はセメント種類で異なります。対策はかぶり確保・水セメント比低減・混合セメント・エポキシ塗装鉄筋の組み合わせですが、塗装鉄筋は凍害への抵抗性は改善しません。",
+      "caption": "エポキシ塗装鉄筋は凍害には効かない",
+      "visual": {
+        "heading": "2. 塩害の抑制対策",
+        "items": ["腐食発生限界濃度はセメント種類で異なる", "対策はかぶり・水セメント比・混合セメント", "塗装鉄筋は凍害抵抗性を改善しない"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+    },
+    {
+      "sceneId": "frost",
+      "start": 175,
+      "end": 235,
+      "narration": "凍結時に押し出された未凍結水の水圧がコンクリート組織を損傷します。表面剥離のスケーリングと骨材由来のポップアウトが代表的です。基本対策はAE剤でエントレインドエアを均一に連行することです。",
+      "caption": "凍害対策の基本はAE剤による気泡連行",
+      "visual": {
+        "heading": "3. 凍害はAE剤による気泡連行が基本",
+        "items": ["未凍結水の水圧が組織を損傷", "スケーリングとポップアウトが代表的", "吸水率の高い骨材自体も原因になる"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+    },
+    {
+      "sceneId": "chemical",
+      "start": 235,
+      "end": 290,
+      "narration": "酸は水酸化カルシウムと反応して組織を溶解させます。下水管路では硫化水素が硫酸に酸化され、コンクリートを腐食させる微生物誘発腐食が起きます。損傷の主因は硫酸による腐食であり、硫酸塩の膨張が主因ではありません。",
+      "caption": "下水管の腐食は硫酸による腐食が主因",
+      "visual": {
+        "heading": "4. 化学的侵食の主因",
+        "items": ["酸は水酸化カルシウムと反応し組織を溶解", "微生物誘発腐食は硫化水素が硫酸に酸化", "主因は硫酸腐食、膨張が主因ではない"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+    },
+    {
+      "sceneId": "asr",
+      "start": 290,
+      "end": 350,
+      "narration": "アルカリシリカ反応は反応性骨材・水酸化アルカリ・水分の3条件がそろって起こり、乾燥状態では発生しません。拘束された柱では主筋に平行な方向にひび割れが生じやすく、主筋に直角という記述は誤りです。",
+      "caption": "ASRのひび割れは主筋に平行に生じる",
+      "visual": {
+        "heading": "5. ASRの3条件とひび割れ方向",
+        "items": ["3条件＝反応性骨材・水酸化アルカリ・水分", "乾燥状態では膨張ひび割れは生じない", "拘束柱では主筋に平行なひび割れ"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 350,
+      "end": 400,
+      "narration": "中性化フロントの塩化物イオン濃縮、塗装鉄筋は凍害に効かない、化学的侵食の主因は硫酸、ASRのひび割れは主筋に平行。この4点を対応づければ選択肢が絞れます。",
+      "caption": "4つの対応づけで選択肢を絞る",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 塩化物イオンは内部領域に濃縮", "② 塗装鉄筋は凍害には効かない", "③ 化学的侵食の主因は硫酸", "④ ASRのひび割れは主筋に平行"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 400,
+      "end": 430,
+      "narration": "8分野を横断した予想問題で仕上げたい方は、概要欄のリンクから令和8年度予想50問をご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "R8予想50問で仕上げる",
+        "items": ["8分野・全選択肢解説（概要欄リンク）"]
+      }
+    }
+  ]
+}

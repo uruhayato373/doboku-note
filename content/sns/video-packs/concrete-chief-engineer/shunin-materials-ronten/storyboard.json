@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "セメントの種類も混和材料の使い分けも似た説明が多く、覚え分けが難しい分野です。今日は判断の軸を作ります。",
+      "caption": "主任技士「コンクリート用材料」の頻出論点",
+      "visual": {
+        "kind": "cover",
+        "heading": "コンクリート用材料の頻出論点",
+        "items": ["コンクリート主任技士・四肢択一"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "規定値をそのまま暗記すればよいと思われがちですが、JISの規定には上限値と下限値が混在します。向きを逆に覚えると正誤が丸ごと逆転します。",
+      "caption": "規定は上限か下限か、向きを先に整理する",
+      "visual": {
+        "heading": "誤解：数値をそのまま暗記すればよい",
+        "items": ["JIS規定は上限値と下限値が混在", "向きを逆に覚えると正誤が反転する"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+    },
+    {
+      "sceneId": "clinker",
+      "start": 55,
+      "end": 115,
+      "narration": "クリンカーの組成化合物は4つ。C3Sは比較的速く反応し28日以内の早期強度を担います。C2Sは反応が緩やかで長期強度、水和熱と収縮は小さめです。C3Aは非常に速く反応し1日以内の初期強度に効きますが水和熱と収縮が大きい。C4AFは強度への寄与がほとんどありません。",
+      "caption": "C3S・C2S・C3A・C4AFの特性を区別する",
+      "visual": {
+        "heading": "1. クリンカー4化合物の特性",
+        "items": ["C3S＝早期強度／C2S＝長期強度", "C3A＝初期強度だが高発熱・低抵抗性", "C4AF＝強度寄与ほぼなし"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+    },
+    {
+      "sceneId": "cement-types",
+      "start": 115,
+      "end": 180,
+      "narration": "早強セメントはC3Sを増やして早期強度を高めます。中庸熱はC3Sを50%以下、C3Aを8%以下に抑えます。低熱はさらにC2Sを多くしますがC3Sの上限はありません。耐硫酸塩はC3Aを4%以下に規制します。ここに挙げた規定はすべて上限値です。",
+      "caption": "早強・中庸熱・低熱・耐硫酸塩の規定はすべて上限",
+      "visual": {
+        "heading": "2. 各種セメントの規定と用途",
+        "items": ["中庸熱＝C3S 50%以下・C3A 8%以下", "低熱＝C3A 6%以下（C3Sの上限なし）", "耐硫酸塩＝C3A 4%以下"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/primary-materials/article.mdx"
+    },
+    {
+      "sceneId": "aggregate",
+      "start": 180,
+      "end": 240,
+      "narration": "骨材の含水状態は絶乾・気乾・表乾・湿潤の4段階です。有害物は有機不純物と微粒分に注意。反応性鉱物はクリストバライト・オパール・カルセドニーが代表例です。反応膨張が最大になる混合率をペシマム量と呼び、粒度が変われば値も変わります。",
+      "caption": "含水状態4段階とペシマム量の変化に注意",
+      "visual": {
+        "heading": "3. 骨材の含水状態とペシマム量",
+        "items": ["絶乾→気乾→表乾→湿潤の4段階", "反応性鉱物＝クリストバライト等", "ペシマム量は粒度でも変化する"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+    },
+    {
+      "sceneId": "admixtures",
+      "start": 240,
+      "end": 300,
+      "narration": "高炉スラグ微粉末は潜在水硬性が特徴で、水酸化カルシウムが刺激剤となって反応します。フライアッシュやシリカフュームはポゾラン反応で組織を緻密化します。この2つの取り違えが繰り返し出題されます。膨張材は3から7日ほどで膨張が終わります。",
+      "caption": "潜在水硬性とポゾラン反応を混同しない",
+      "visual": {
+        "heading": "4. 混和材料は反応機構で判断する",
+        "items": ["高炉スラグ＝潜在水硬性", "フライアッシュ・シリカフューム＝ポゾラン反応", "膨張材は3〜7日で膨張が終了"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+    },
+    {
+      "sceneId": "reinforcement",
+      "start": 300,
+      "end": 360,
+      "narration": "現在の鉄筋の大半は電炉鉄筋です。弾性係数は鋼種によらずほぼ一定で約2.0かける10の5乗。比例限界は弾性限界より小さい。熱膨張係数は約10かける10のマイナス6乗毎度でコンクリートとほぼ等しい。PC鋼材の耐力は永久ひずみ0.2%の応力で定義されます。",
+      "caption": "鉄筋は電炉が主流、PC鋼材の耐力は0.2%耐力",
+      "visual": {
+        "heading": "5. 鉄筋・PC鋼材の数値のすり替え",
+        "items": ["鉄筋の大半は電炉鉄筋（高炉ではない）", "比例限界＜弾性限界", "PC鋼材の耐力＝永久ひずみ0.2%時の応力"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 360,
+      "end": 405,
+      "narration": "材料分野は、セメント規定の上限下限、骨材のペシマム量、混和材料の反応機構、鉄筋・PC鋼材の数値のすり替え、この4パターンを押さえれば判断軸が持てます。",
+      "caption": "4つの引っかけパターンで判断軸を作る",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① セメント規定は上限か下限か", "② ペシマム量は粒度でも変化", "③ 潜在水硬性とポゾラン反応の区別", "④ 鉄筋・PC鋼材の数値のすり替え"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 405,
+      "end": 435,
+      "narration": "8分野を横断した予想問題で仕上げたい方は、概要欄のリンクから令和8年度予想50問をご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "R8予想50問で仕上げる",
+        "items": ["8分野・全選択肢解説（概要欄リンク）"]
+      }
+    }
+  ]
+}
