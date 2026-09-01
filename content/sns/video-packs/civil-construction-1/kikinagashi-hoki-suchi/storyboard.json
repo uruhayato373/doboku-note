@@ -1,0 +1,291 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 25,
+      "narration": "1級土木の法規は、人数や年限、デシベルの数字が直前まで定着しにくい分野です。今日は労基法・安衛法・騒音振動の頻出数値を耳から総復習します。",
+      "caption": "耳で覚える法規の数字",
+      "visual": {
+        "kind": "cover",
+        "heading": "耳で覚える法規の数字",
+        "items": ["労基法・安衛法・騒音振動の頻出数値"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 25,
+      "end": 65,
+      "narration": "先に使い方を確認します。この動画は机での学習を終えた総復習用です。年限やパーセントの数字は、条文の主語とセットで思い出す練習をしましょう。",
+      "caption": "数字は条文の主語とセットで覚える",
+      "visual": {
+        "heading": "聞き流しの前提",
+        "items": ["机での学習を終えた人向けの総復習", "数字は条文の主語とセットで思い出す"]
+      }
+    },
+    {
+      "sceneId": "avg-wage-contract",
+      "start": 65,
+      "end": 105,
+      "narration": "最初は労基法の基本、平均賃金と契約期間です。平均賃金は算定事由発生日以前3か月間の賃金総額から計算します。労働契約の期間は原則3年が上限です。",
+      "caption": "平均賃金は3か月間、契約期間は原則3年",
+      "visual": {
+        "heading": "平均賃金と労働契約期間",
+        "items": ["平均賃金：算定事由以前3か月間の総額", "労働契約：原則3年が上限（有期事業は除く）"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "sceneId": "dismissal-notice",
+      "start": 105,
+      "end": 145,
+      "narration": "ここで押さえたいのが解雇予告です。使用者は少なくとも30日前に予告するか、平均賃金30日分以上の予告手当を支払います。",
+      "caption": "解雇予告は30日前、または30日分の手当",
+      "visual": {
+        "heading": "解雇予告と予告手当",
+        "items": ["少なくとも30日前に予告", "予告なしなら平均賃金30日分以上の手当"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "sceneId": "notice-exception",
+      "start": 145,
+      "end": 185,
+      "narration": "あわせて覚えたいのが予告手当の例外です。1か月以内の日雇い、2か月以内の短期、4か月以内の季節業務、14日以内の試用期間は、予告手当が不要です。",
+      "caption": "日雇い1か月・季節4か月・試用14日は例外",
+      "visual": {
+        "heading": "予告手当が不要な特例",
+        "items": ["日雇い（1か月以内）・2か月以内の短期", "4か月以内の季節業務・試用14日以内"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "sceneId": "compensation",
+      "start": 185,
+      "end": 225,
+      "narration": "混同しやすい2つの補償日数です。療養開始後3年で打切補償は平均賃金1,200日分。業務上死亡の遺族補償は1,000日分です。",
+      "caption": "打切補償1,200日分、遺族補償1,000日分",
+      "visual": {
+        "heading": "打切補償と遺族補償",
+        "items": ["打切補償：療養開始後3年→1,200日分", "遺族補償：業務上死亡→1,000日分"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "sceneId": "working-hours",
+      "start": 225,
+      "end": 260,
+      "narration": "分野を移して労働時間の基本です。休憩時間を除き、1週40時間、1日8時間を超えてはなりません。",
+      "caption": "労働時間は週40時間・1日8時間が上限",
+      "visual": {
+        "heading": "法定労働時間",
+        "items": ["1週40時間・1日8時間が原則"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "sceneId": "overtime-limit",
+      "start": 260,
+      "end": 300,
+      "narration": "続けて時間外労働の上限です。臨時的な特別条項でも、月100時間未満、年720時間が上限。坑内労働など有害業務の延長は2時間までです。",
+      "caption": "月100時間未満・年720時間・有害業務2時間",
+      "visual": {
+        "heading": "時間外労働の上限",
+        "items": ["1か月100時間未満・1年720時間", "坑内労働等の延長は2時間まで"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "sceneId": "holiday-wage",
+      "start": 300,
+      "end": 340,
+      "narration": "ここでもうひとつ、休日と割増賃金です。休日は週1日以上または4週4日以上。時間外・休日労働の割増賃金は25パーセントから50パーセントの範囲です。",
+      "caption": "休日は週1日か4週4日、割増は25〜50%",
+      "visual": {
+        "heading": "休日と割増賃金",
+        "items": ["休日：週1日以上または4週4日以上", "割増賃金：通常賃金の25〜50%"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "sceneId": "break-time",
+      "start": 340,
+      "end": 375,
+      "narration": "短い数字ですが休憩時間です。労働時間が6時間を超えると45分以上、8時間を超えると1時間以上の休憩が必要です。",
+      "caption": "6時間超45分、8時間超1時間の休憩",
+      "visual": {
+        "heading": "休憩時間の基準",
+        "items": ["6時間超：45分以上", "8時間超：1時間以上"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "sceneId": "paid-leave",
+      "start": 375,
+      "end": 410,
+      "narration": "続いて年次有給休暇です。雇入れから6か月継続勤務し、8割以上出勤した労働者に、10労働日の有給休暇を与えます。",
+      "caption": "6か月継続勤務・8割出勤で10労働日",
+      "visual": {
+        "heading": "年次有給休暇の要件",
+        "items": ["6か月継続勤務・全労働日の8割以上出勤", "10労働日の有給休暇を付与"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "sceneId": "work-rules",
+      "start": 410,
+      "end": 445,
+      "narration": "ここは事業場の規模で決まる話です。常時10人以上の労働者を使用する使用者は、就業規則を作成し労働基準監督署に届け出ます。",
+      "caption": "常時10人以上で就業規則の作成義務",
+      "visual": {
+        "heading": "就業規則の作成義務",
+        "items": ["常時10人以上を使用する使用者が対象", "作成し労働基準監督署へ届け出る"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "sceneId": "record-keeping",
+      "start": 445,
+      "end": 475,
+      "narration": "地味ですが頻出、保存年限です。労働者名簿、賃金台帳など労働関係の重要書類は3年間保存します。",
+      "caption": "労働者名簿・賃金台帳は3年間保存",
+      "visual": {
+        "heading": "書類の保存年限",
+        "items": ["労働者名簿・賃金台帳・重要書類", "3年間の保存が必要"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "sceneId": "minor-worker",
+      "start": 475,
+      "end": 515,
+      "narration": "ここからは年少者の制限です。満18歳未満は坑内労働や高さ5メートル以上の危険業務が禁止。重量物は満16歳未満で断続12キログラム、継続8キログラムまでです。",
+      "caption": "18歳未満は坑内・高所禁止、重量物も制限",
+      "visual": {
+        "heading": "年少者の就業制限",
+        "items": ["18歳未満：坑内労働・高さ5m以上等が禁止", "重量物：満16歳未満で断続12kg・継続8kg"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "sceneId": "maternal-worker",
+      "start": 515,
+      "end": 555,
+      "narration": "続けて妊産婦の就業制限です。妊婦は危険業務が一律禁止。産婦は本人が申し出た場合に禁止され、その他の女性は就業できます。",
+      "caption": "妊婦は一律禁止、産婦は申出で禁止",
+      "visual": {
+        "heading": "妊産婦等の就業制限",
+        "items": ["妊婦：危険業務が一律禁止", "産婦：申し出た場合に禁止／その他は就業可"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-labor-standards/article.mdx"
+    },
+    {
+      "sceneId": "rescue-measures",
+      "start": 555,
+      "end": 595,
+      "narration": "分野を移して安衛法、救護措置の基準です。出入口からの距離1,000メートル以上、深さ50メートル以上のたて坑、ゲージ圧力0.1メガパスカル以上の作業で、救護措置が必要です。",
+      "caption": "1,000m・50m・0.1MPaで救護措置が必要",
+      "visual": {
+        "heading": "救護に関する措置の対象",
+        "items": ["出入口から1,000m以上のずい道等", "深さ50m以上のたて坑・0.1MPa以上の圧気"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-industrial-safety-law/article.mdx"
+    },
+    {
+      "sceneId": "lead-contractor",
+      "start": 595,
+      "end": 635,
+      "narration": "ここで押さえたいのが措置義務の主体です。特定元方事業者は協議組織の設置と作業間の連絡調整を行います。注文者の措置は、最も先次の注文者のみが負います。",
+      "caption": "協議組織は特定元方、注文者は最先次のみ",
+      "visual": {
+        "heading": "措置義務の主体",
+        "items": ["特定元方事業者：協議組織の設置・連絡調整", "注文者：最も先次の注文者のみが義務"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-industrial-safety-law/article.mdx"
+    },
+    {
+      "sceneId": "plan-notification",
+      "start": 635,
+      "end": 680,
+      "narration": "ここは3系統に分かれる計画の届出です。厚生労働大臣へは30日前、労働基準監督署長へは14日前、機械等の設置届も30日前です。",
+      "caption": "大臣30日前・署長14日前・設置届30日前",
+      "visual": {
+        "heading": "計画の届出3系統",
+        "items": ["厚生労働大臣：30日前（大規模工事）", "労働基準監督署長：14日前（一定規模）", "機械等設置届：30日前（支保工3.5m等）"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-industrial-safety-law/article.mdx"
+    },
+    {
+      "sceneId": "special-construction",
+      "start": 680,
+      "end": 710,
+      "narration": "分野を移して騒音振動、特定建設作業の定義です。著しい騒音や振動を発生させ、2日以上にわたる作業が対象です。1日で終わる作業は対象外です。",
+      "caption": "特定建設作業は2日以上にわたる作業",
+      "visual": {
+        "heading": "特定建設作業の定義",
+        "items": ["著しい騒音・振動を発生させる作業", "2日以上にわたる作業が対象"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-noise-vibration-regulation/article.mdx"
+    },
+    {
+      "sceneId": "noise-standard",
+      "start": 710,
+      "end": 745,
+      "narration": "ここが最頻出、敷地境界の規制基準です。騒音は敷地境界線で85デシベル、振動は75デシベルを超えないことが基準です。",
+      "caption": "敷地境界は騒音85dB・振動75dB以下",
+      "visual": {
+        "heading": "規制基準（敷地境界線）",
+        "items": ["騒音：85dB以下", "振動：75dB以下"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-noise-vibration-regulation/article.mdx"
+    },
+    {
+      "sceneId": "noise-machines",
+      "start": 745,
+      "end": 785,
+      "narration": "続けて対象機械の出力数値です。空気圧縮機は15キロワット以上、バックホウは80キロワット以上、トラクターショベルは70キロワット以上、ブルドーザは40キロワット以上が対象です。",
+      "caption": "空気圧縮機15kW・バックホウ80kW等が対象",
+      "visual": {
+        "heading": "特定建設作業の対象機械",
+        "items": ["空気圧縮機：15kW以上", "バックホウ80kW・ショベル70kW・ブルドーザ40kW"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-noise-vibration-regulation/article.mdx"
+    },
+    {
+      "sceneId": "notification-noise",
+      "start": 785,
+      "end": 825,
+      "narration": "最後に近づいてきました、届出と距離減衰です。元請業者が作業開始7日前までに市町村長へ届け出ます。距離が2倍になると騒音レベルは約6デシベル減衰します。",
+      "caption": "7日前に市町村長へ届出、距離2倍で6dB減衰",
+      "visual": {
+        "heading": "届出と距離減衰",
+        "items": ["元請業者が7日前までに市町村長へ届出", "距離2倍で騒音レベル約6dB減衰"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-noise-vibration-regulation/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 825,
+      "end": 870,
+      "narration": "まとめます。労基法は30日・1,200日・1,000日、安衛法は30日・14日、騒音振動は85デシベル・75デシベル・7日前。数字は主語とセットで思い出しましょう。",
+      "caption": "数字は主語とセットで思い出す",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["労基法：解雇予告30日・打切1,200日・遺族1,000日", "安衛法：届出は大臣30日・署長14日", "騒音振動：85dB・75dB・7日前届出"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 870,
+      "end": 900,
+      "narration": "総復習した数値を一つずつ確認したい方は、概要欄のリンクから1次の頻出論点マガジンをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "頻出論点マガジンで確認する",
+        "items": ["1次の頻出論点マガジン（概要欄リンク）"]
+      }
+    }
+  ]
+}

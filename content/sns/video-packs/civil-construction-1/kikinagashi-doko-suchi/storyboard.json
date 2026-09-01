@@ -1,0 +1,255 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 25,
+      "narration": "1級土木の土工は、似た数値がまぎらわしく暗記の的です。今日は盛土・切土・軟弱地盤の頻出数値を耳から総ざらいします。",
+      "caption": "耳で覚える土工の数字",
+      "visual": {
+        "kind": "cover",
+        "heading": "耳で覚える土工の数字",
+        "items": ["盛土・切土・軟弱地盤の頻出数値"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 25,
+      "end": 70,
+      "narration": "先に使い方を確認します。この動画は机での学習を終えた総復習用です。初めて出会う数値は、テキストで一度目にしてから聞くと定着します。",
+      "caption": "机の学習を終えた人の総復習用です",
+      "visual": {
+        "heading": "聞き流しの前提",
+        "items": ["机での学習を終えた人向けの総復習", "初出の数値はテキストで一度読んでから"]
+      }
+    },
+    {
+      "sceneId": "soft-ground-judge",
+      "start": 70,
+      "end": 115,
+      "narration": "最初は軟弱地盤の判定です。粘性土類では、標準貫入試験のN値が4未満、コーン指数が250キロニュートン毎平方メートル以下、一軸圧縮強度が50キロニュートン毎平方メートル未満が目安です。",
+      "caption": "N値4未満・コーン指数250・強度50が目安",
+      "visual": {
+        "heading": "軟弱地盤の判定目安",
+        "items": ["N値4未満", "コーン指数250kN/m²以下", "一軸圧縮強度50kN/m²未満"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    },
+    {
+      "sceneId": "embankment-check",
+      "start": 115,
+      "end": 155,
+      "narration": "あわせて確認したいのが高盛土と液状化です。盛土高がおおむね15メートル以上になると安定性の検討が必要です。締め固めた砂地盤ではN値10以下で液状化のおそれがあります。",
+      "caption": "盛土高15m以上・N値10以下で液状化注意",
+      "visual": {
+        "heading": "安定性検討が必要な条件",
+        "items": ["盛土高おおむね15m以上", "締め固めた砂地盤でN値10以下は液状化に注意"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    },
+    {
+      "sceneId": "slope-standard",
+      "start": 155,
+      "end": 200,
+      "narration": "ここから法面勾配の目安です。粒度の良い砂・礫混じり砂は盛土高5メートル以下で1対1.5から1.8。火山灰質粘性土はより緩く、1対1.8から2.0です。",
+      "caption": "砂礫1:1.5〜1.8、火山灰質は1:1.8〜2.0",
+      "visual": {
+        "heading": "盛土法面の標準勾配",
+        "items": ["粒度の良い砂・礫（5m以下）：1:1.5〜1.8", "火山灰質粘性土（5m以下）：1:1.8〜2.0"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    },
+    {
+      "sceneId": "step",
+      "start": 200,
+      "end": 240,
+      "narration": "ここで押さえたいのが小段の寸法です。幅は1から3メートル程度、法肩から垂直距離5から7メートルごとに設けます。水がたまらないよう5パーセント程度の外傾斜をつけます。",
+      "caption": "小段は幅1〜3m・垂直5〜7mごとに設置",
+      "visual": {
+        "heading": "法面の小段",
+        "items": ["幅1〜3m程度", "垂直距離5〜7mごとに設置・外傾斜5%程度"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    },
+    {
+      "sceneId": "soil-classification",
+      "start": 240,
+      "end": 285,
+      "narration": "話題を変えて建設発生土の区分です。コーン指数が目安で、第2種は800、第3種は400、第4種は200キロニュートン毎平方メートル以上。200未満は泥土です。",
+      "caption": "第2種800・第3種400・第4種200が境界",
+      "visual": {
+        "heading": "建設発生土のコーン指数目安",
+        "items": ["第2種：800kN/m²以上", "第3種：400kN/m²以上", "第4種：200kN/m²以上・未満は泥土"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    },
+    {
+      "sceneId": "spreading-thickness",
+      "start": 285,
+      "end": 325,
+      "narration": "続けて敷均しの厚さです。道路盛土の路体は35から45センチメートル敷き均し、締固め後30センチメートル以下。路床は25から30センチメートルで、締固め後20センチメートル以下です。",
+      "caption": "路体は仕上り30cm以下・路床は20cm以下",
+      "visual": {
+        "heading": "敷均し厚さと仕上り厚さ",
+        "items": ["路体：35〜45cm敷均し→30cm以下", "路床：25〜30cm敷均し→20cm以下"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    },
+    {
+      "sceneId": "step-cut",
+      "start": 325,
+      "end": 370,
+      "narration": "もう一段深く、段切りの数字です。傾斜地盤の勾配が1対4より急な場合に行います。最小幅は50センチメートル程度、段高さは1メートル程度が目安です。",
+      "caption": "1:4より急なら段切り、幅50cm・高さ1m",
+      "visual": {
+        "heading": "傾斜地盤の段切り",
+        "items": ["勾配が1:4より急な場合に実施", "最小幅50cm程度・段高さ1m程度"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    },
+    {
+      "sceneId": "drainage-slope",
+      "start": 370,
+      "end": 405,
+      "narration": "細かい数字ですが、盛土面の排水勾配です。盛土面には4から5パーセント程度の勾配を保ちながら敷き均し、雨水の浸入を防ぎます。",
+      "caption": "盛土面は4〜5%の排水勾配を保つ",
+      "visual": {
+        "heading": "盛土部の排水処理",
+        "items": ["盛土面に4〜5%程度の勾配を保つ", "降雨予想時は表面をならし雨水浸入を防ぐ"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    },
+    {
+      "sceneId": "cut-slope-standard",
+      "start": 405,
+      "end": 450,
+      "narration": "分野を移して、切土法面の標準勾配です。硬岩は1対0.3から0.8、軟岩は1対0.5から1.2。数字が小さいほど急な勾配を意味します。",
+      "caption": "硬岩1:0.3〜0.8、軟岩1:0.5〜1.2",
+      "visual": {
+        "heading": "切土法面の標準勾配",
+        "items": ["硬岩：1:0.3〜0.8", "軟岩：1:0.5〜1.2"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"
+    },
+    {
+      "sceneId": "cut-slope-step",
+      "start": 450,
+      "end": 490,
+      "narration": "ここでもうひとつ、小段の設置基準です。切土高さが5から10メートル以上で小段を設けます。幅は1.0から2.0メートル、5から10パーセントの横断勾配で排水を促します。",
+      "caption": "切土高5〜10m以上で小段、幅1.0〜2.0m",
+      "visual": {
+        "heading": "切土法面の小段",
+        "items": ["切土高5〜10m以上で設置", "幅1.0〜2.0m・横断勾配5〜10%"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"
+    },
+    {
+      "sceneId": "vegetation-slope",
+      "start": 490,
+      "end": 530,
+      "narration": "視点を変えて、植生工の勾配条件です。勾配が急になるほど活着が悪くなるため、一般に1対0.8より緩やかにします。寒冷地では1対1.5より緩やかが目安です。",
+      "caption": "植生は1:0.8より緩やか、寒冷地は1:1.5",
+      "visual": {
+        "heading": "法面保護工（植生工）の勾配",
+        "items": ["一般に1:0.8より緩やか", "寒冷地は1:1.5より緩やか"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"
+    },
+    {
+      "sceneId": "rock-finish",
+      "start": 530,
+      "end": 565,
+      "narration": "短い数字ですが、岩盤法面の仕上げです。仕上げ法面には30センチメートル程度の余裕を持たせ、浮石は丁寧に取り除きます。",
+      "caption": "岩盤法面の仕上げ余裕は30cm程度",
+      "visual": {
+        "heading": "岩盤法面の施工",
+        "items": ["仕上げ法面に30cm程度の余裕", "浮石は丁寧に除去・大岩はアンカーで固定"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"
+    },
+    {
+      "sceneId": "liquefaction",
+      "start": 565,
+      "end": 610,
+      "narration": "ここからは軟弱地盤対策、まず液状化です。過剰間隙水圧を防ぐ、消散させる、ずれ変位を防ぐ、変形を抑制する、杭で支えるという5方向で整理します。",
+      "caption": "液状化対策は5つの視点で整理する",
+      "visual": {
+        "heading": "液状化対策の5つの視点",
+        "items": ["過剰間隙水圧を防ぐ・消散させる", "ずれ変位を防ぐ・変形を抑制・杭で支持"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx"
+    },
+    {
+      "sceneId": "sand-mat",
+      "start": 610,
+      "end": 645,
+      "narration": "具体的な工法名にいきましょう、サンドマットです。厚さ50から120センチメートル程度の砂を敷き均し、排水層と施工基盤を兼ねさせます。",
+      "caption": "サンドマットは厚さ50〜120cm程度",
+      "visual": {
+        "heading": "サンドマット工法",
+        "items": ["厚さ50〜120cm程度の砂を敷き均す", "排水層と施工基盤を兼ねる"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx"
+    },
+    {
+      "sceneId": "drain-method",
+      "start": 645,
+      "end": 690,
+      "narration": "ここは名前が紛らわしいバーチカルドレーンです。サンドドレーンは砂柱を、ペーパードレーンは人工ドレーン材を用います。ペーパーのほうが施工速度が速く経済的です。",
+      "caption": "サンドは砂柱、ペーパーは人工ドレーン材",
+      "visual": {
+        "heading": "バーチカルドレーン工法",
+        "items": ["サンドドレーン：砂柱を打設", "ペーパードレーン：人工ドレーン材で経済的"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx"
+    },
+    {
+      "sceneId": "lightweight-fill",
+      "start": 690,
+      "end": 725,
+      "narration": "話を変えて、軽量盛土の数字です。発泡スチロールブロックのEPS、イーピーエスは単位体積重量がおおむね0.1から0.3キロニュートン毎立方メートル。通常の土砂よりかなり軽量です。",
+      "caption": "EPSの単位体積重量は0.1〜0.3kN/m³",
+      "visual": {
+        "heading": "軽量盛土工法（EPS）",
+        "items": ["単位体積重量0.1〜0.3kN/m³程度", "軟弱地盤上の盛土や地すべり地に有効"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx"
+    },
+    {
+      "sceneId": "wellpoint",
+      "start": 725,
+      "end": 770,
+      "narration": "仕上げに近い項目、排水工法の揚水高さです。ウェルポイント工法の揚水高さは理論上約10メートル、実用上は6から7メートル程度が限度です。深井戸排水は径600ミリメートル程度の井戸管を使います。",
+      "caption": "ウェルポイントは実用6〜7m・深井戸は600mm",
+      "visual": {
+        "heading": "排水工法の揚水高さ",
+        "items": ["ウェルポイント：理論10m・実用6〜7m", "深井戸排水：径600mm程度の井戸管"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 770,
+      "end": 815,
+      "narration": "まとめます。盛土はN値4・コーン指数250、法面勾配は材料と高さの組み合わせ、切土は硬岩0.3から0.8、軟弱地盤対策は工法名と数値をセットで思い出す練習をしましょう。",
+      "caption": "工法名と数値はセットで思い出す",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["軟弱地盤：N値4・コーン指数250が目安", "法面勾配は材料×高さで決まる", "対策工法は名前と数値をセットで暗記"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 815,
+      "end": 845,
+      "narration": "総ざらいした数値を一つずつ確認したい方は、概要欄のリンクから1次の頻出論点マガジンをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "頻出論点マガジンで確認する",
+        "items": ["1次の頻出論点マガジン（概要欄リンク）"]
+      }
+    }
+  ]
+}
