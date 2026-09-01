@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "施工経験記述は、書いた工事そのものが対象外だと評価されません。今日は対象になる工事とならない工事の線引きを説明します。",
+      "caption": "書ける工事・書けない工事の線引き",
+      "visual": {
+        "kind": "cover",
+        "heading": "施工経験記述に書ける工事・書けない工事",
+        "items": ["1級土木 第2次検定・施工経験記述"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "現場に長くいた経験があれば書ける、と思われがちですが、実際には工事の種類そのものが実務経験として認められているかが先に問われます。全国建設研修センターは対象外の工事・業務を明確に定めています。",
+      "caption": "経験の長さより工事の種類が先に問われる",
+      "visual": {
+        "heading": "誤解：現場経験が長ければ書ける",
+        "items": ["先に問われるのは工事の種類そのもの", "対象外の工事・業務は試験機関が明示"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "block1",
+      "start": 55,
+      "end": 115,
+      "narration": "書ける工事の範囲は幅広く、土木一般の土工事や地盤改良、河川・海岸・砂防・道路・橋梁・トンネル・上下水道などが該当します。迷ったら、自分が担当した工事がこの一覧のどこに当てはまるかをまず照らし合わせます。",
+      "caption": "土木一般〜上下水道まで対象は幅広い",
+      "visual": {
+        "heading": "STEP 1　「書ける」工事の範囲",
+        "items": ["土工事・地盤改良などの土木一般", "河川・道路・橋梁・トンネル等", "迷ったら一覧と自分の工事を照合"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "block2",
+      "start": 115,
+      "end": 175,
+      "narration": "対象外の代表例は、プレキャスト製品などの工場製作、建築の杭・基礎や外構、給排水などの建築設備、構造物の解体・撤去です。トンネル内の照明器具取替えのような小規模な維持・修繕工事も避けます。",
+      "caption": "工場製作・建築・解体などは対象外",
+      "visual": {
+        "heading": "STEP 2　「書けない」工事の代表例",
+        "items": ["プレキャスト製作など工場製作", "建築の杭・基礎・外構、建築設備工事", "解体・撤去、小規模な維持修繕"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "block3",
+      "start": 175,
+      "end": 235,
+      "narration": "業務内容と立場も審査対象です。主任技術者や現場代理人としての施工管理、工事監理者としての設計監理、発注者側の現場監督は対象になります。設計、調査、積算、事務、教育研究は対象になりません。",
+      "caption": "業務内容と現場での立場も審査対象",
+      "visual": {
+        "heading": "STEP 3　業務内容・立場も対象",
+        "items": ["主任技術者・現場代理人・工事監理者", "発注者側の現場監督も対象", "設計・調査・積算・事務・教育研究は対象外"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "block4",
+      "start": 235,
+      "end": 295,
+      "narration": "自分の経験がどちらに当たるか迷う場合は、受験申込書に同封される受験の手引を確認します。手引に載っていない微妙な工事を無理に選ぶより、明確に対象と分かる工事を選ぶ方が安全です。",
+      "caption": "迷ったら受験の手引を確認する",
+      "visual": {
+        "heading": "STEP 4　迷ったときの確認先",
+        "items": ["受験申込書に同封の受験の手引を確認", "微妙な工事より明確に対象な工事を選ぶ"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 295,
+      "end": 340,
+      "narration": "まとめます。確認する順序は、工事種別が一覧にあるか、除外リストに当たらないか、自分の業務・立場が施工管理側か。この3段階で判断します。",
+      "caption": "工事種別→除外リスト→業務・立場の順",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 工事種別が一覧にあるか", "② 除外リストに当たらないか", "③ 業務・立場が施工管理側か"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 340,
+      "end": 370,
+      "narration": "自分の工事が対象になるか迷う方は、概要欄のリンクからヒアリング型の記述ドラフト構成サービスをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "記述ドラフト構成で相談する",
+        "items": ["ヒアリング→文章化（概要欄リンク）"]
+      }
+    }
+  ]
+}
