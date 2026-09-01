@@ -1,0 +1,99 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "土質・基礎の出題テーマは毎年違って見えますが、7年分並べると循環パターンが見えます。今日は発注者実務の視点から、優先して仕込むテーマの決め方を説明します。",
+      "caption": "土質・基礎 出題テーマの読み方",
+      "visual": {
+        "kind": "cover",
+        "heading": "土質・基礎 出題テーマの読み方",
+        "items": ["技術士 建設部門 選択科目「土質及び基礎」"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 65,
+      "narration": "設問番号を覚えるのはこの科目では的外れです。液状化や軟弱地盤・圧密沈下といった中核トピックが、年によって違う枠で出題されます。",
+      "caption": "設問位置は固定されない科目",
+      "visual": {
+        "heading": "誤解：設問番号を覚える",
+        "items": ["II-1の設問位置は固定されていない", "液状化・軟弱地盤が年ごとに枠を移動"]
+      },
+      "sourceRef": "content/site/pe-construction/geotechnical-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "block1",
+      "start": 65,
+      "end": 130,
+      "narration": "道路や都市計画と違い、土質・基礎は設問位置が年ごとに入れ替わります。6つの系統が順番を変えながら循環している、と捉えると整理しやすくなります。",
+      "caption": "癖：6系統が順番を変えて循環",
+      "visual": {
+        "heading": "土質・基礎の癖",
+        "items": ["設問位置が固定されない", "6系統が循環：液状化/軟弱地盤/杭基礎/土留め/のり面/土質試験"]
+      }
+    },
+    {
+      "sceneId": "block2",
+      "start": 130,
+      "end": 200,
+      "narration": "液状化はメカニズム・判定・対策工・地形区分と切り口を変え、軟弱地盤・圧密沈下は圧密理論と地盤改良が軸の最頻出トピックです。",
+      "caption": "液状化・軟弱地盤：最頻出の2系統",
+      "visual": {
+        "heading": "液状化・軟弱地盤・圧密沈下",
+        "items": ["液状化：メカニズム・判定・対策工", "軟弱地盤：圧密理論・地盤改良"]
+      },
+      "sourceRef": "content/site/pe-construction/geotechnical-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "block3",
+      "start": 200,
+      "end": 265,
+      "narration": "杭基礎・支持力では公式や工法、載荷試験が問われ、土留めではヒービングやボイリングといった安全上の現象が問われます。のり面・地すべりは対策工の選定が中心です。",
+      "caption": "杭基礎・土留め・のり面：設計と施工",
+      "visual": {
+        "heading": "杭基礎・土留め・のり面",
+        "items": ["杭基礎：支持力公式・工法・載荷試験", "土留め：ヒービング・ボイリング"]
+      },
+      "sourceRef": "content/site/pe-construction/soil-foundation-ronbun-keyword/article.mdx"
+    },
+    {
+      "sceneId": "block4",
+      "start": 265,
+      "end": 330,
+      "narration": "IIIでは盛土規制法のような制度と、老朽化・建設DXが問われます。発注者として規制と合意形成の両立を担ってきた立場からは、制度運用まで書けるかが差になります。",
+      "caption": "III：盛土規制・老朽化を発注者視点で",
+      "visual": {
+        "heading": "III：盛土規制・老朽化",
+        "items": ["盛土規制法は自治体が運用主体", "対策工＋制度運用の視点が差になる"]
+      },
+      "sourceRef": "content/site/pe-construction/soil-foundation-ronbun-keyword/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 330,
+      "end": 375,
+      "narration": "土質・基礎は設問位置でなく6系統で守備範囲を決める科目です。液状化・軟弱地盤を最優先に、杭基礎・土留め・のり面を基本とし、IIIは制度運用まで含めます。",
+      "caption": "6系統管理＋制度運用で準備",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["6系統で守備範囲を決める", "液状化・軟弱地盤を最優先", "IIIは制度運用まで含める"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 375,
+      "end": 405,
+      "narration": "年度別の出題一覧と全設問の解答の形は、概要欄のリンクから土質・基礎科目のマガジンでご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄の土質・基礎マガジンへ",
+      "visual": {
+        "kind": "cover",
+        "heading": "土質・基礎マガジンで確認する",
+        "items": ["年度別の出題テーマと解答の形（概要欄リンク）"]
+      }
+    }
+  ]
+}
