@@ -4,7 +4,7 @@
 > 真実源: 各 `video-pack.json` ＋ `.claude/state/video-content-status.json`。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **154**（更新: 2026-09-02）
+パック数: **155**（更新: 2026-09-02）
 
 ## 1級土木施工管理技士（66）
 
@@ -152,6 +152,12 @@
 | `sentaku-urban-planning-yomikata` | 選択科目「都市計画」の出題テーマの読み方 | 都市計画の出題テーマが毎年変わるように見えて対策の軸が決まらない | exam-point | レビュー | 台本/構成 | `pe-construction-urban-planning-magazine` |
 | `toan-kousei-template` | 答案構成のテンプレート — 課題抽出から効果・リスクまで | 書き始めてから構成が崩れ時間内に論文がまとまらない | howto | レビュー | 台本/構成 | `pe-construction-required-magazine` |
 
+## 技術士 第一次試験（1）
+
+| packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
+|---|---|---|---|---|---|---|
+| `pe1-zentaizou` | 技術士一次の全体像 — 3科目の構成と学習設計 | 基礎・適性・専門の3科目で何をどの配分から仕込めばよいか掴めない | roadmap | レビュー | 台本/構成 | `pe1-takuitsu-pdf` |
+
 ## コンクリート主任技士（16）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
@@ -178,14 +184,14 @@
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
 | `gishi-12week-plan` | コンクリート技士 12週間の合格スケジュール | 何をどの順で何週間やれば合格水準に届くのか計画が立てられない | roadmap | レビュー | 台本/構成 | `ce-mix-jis-practice` |
-| `gishi-construction-ronten` | コンクリート技士「施工（運搬・打込み・養生）」の頻出論点 | 運搬時間や打重ねなど時間規定の数値が似ていて混ざる | exam-point | 下書き | 台本/構成 | `ce-mix-jis-practice` |
-| `gishi-environment-ronten` | コンクリート技士「環境配慮・脱炭素・資源循環」の頻出論点 | 環境分野は手薄になりがちで混合材や再生骨材の論点が押さえられていない | exam-point | 下書き | 台本/構成 | `ce-mix-jis-practice` |
-| `gishi-haigou-keisan` | コンクリート技士 配合計算の解き方 — 手順を型にする | 配合計算は毎回解き方を組み立て直していて時間も正答率も安定しない | howto | 下書き | 台本/構成 | `ce-mix-jis-practice` |
-| `gishi-jis-handan` | コンクリート技士 JIS問題の判断法 — 規定の背景で覚える | JISの数値規定を丸暗記しても選択肢を少しひねられると判断できない | howto | 下書き | 台本/構成 | `ce-mix-jis-practice` |
+| `gishi-construction-ronten` | コンクリート技士「施工（運搬・打込み・養生）」の頻出論点 | 運搬時間や打重ねなど時間規定の数値が似ていて混ざる | exam-point | レビュー | 台本/構成 | `ce-mix-jis-practice` |
+| `gishi-environment-ronten` | コンクリート技士「環境配慮・脱炭素・資源循環」の頻出論点 | 環境分野は手薄になりがちで混合材や再生骨材の論点が押さえられていない | exam-point | レビュー | 台本/構成 | `ce-mix-jis-practice` |
+| `gishi-haigou-keisan` | コンクリート技士 配合計算の解き方 — 手順を型にする | 配合計算は毎回解き方を組み立て直していて時間も正答率も安定しない | howto | レビュー | 台本/構成 | `ce-mix-jis-practice` |
+| `gishi-jis-handan` | コンクリート技士 JIS問題の判断法 — 規定の背景で覚える | JISの数値規定を丸暗記しても選択肢を少しひねられると判断できない | howto | レビュー | 台本/構成 | `ce-mix-jis-practice` |
 | `gishi-jukenshikaku-2026` | コンクリート技士の受験資格 — 実務経験1年への改定 | 受験資格の改定があったと聞いたが自分が対象になるのか判断できない | exam-point | レビュー | 台本/構成 | `links-hub` |
 | `gishi-materials-ronten` | コンクリート技士「セメント・骨材・混和材料」の頻出論点 | セメントの水和や骨材の含水状態など基礎の用語が現場感覚と結びつかない | exam-point | レビュー | 台本/構成 | `ce-mix-jis-practice` |
 | `gishi-mix-design-ronten` | コンクリート技士「配合設計と現場配合補正」の頻出論点 | 配合計算の手順があやふやで表面水補正が出ると手が止まる | exam-point | レビュー | 台本/構成 | `ce-mix-jis-practice` |
-| `gishi-production-qc-ronten` | コンクリート技士「製造・品質管理と検査」の頻出論点 | JIS A 5308の呼び方や受入検査の規定が細かく整理しきれない | exam-point | 下書き | 台本/構成 | `ce-mix-jis-practice` |
+| `gishi-production-qc-ronten` | コンクリート技士「製造・品質管理と検査」の頻出論点 | JIS A 5308の呼び方や受入検査の規定が細かく整理しきれない | exam-point | レビュー | 台本/構成 | `ce-mix-jis-practice` |
 | `gishi-properties-testing-ronten` | コンクリート技士「コンクリートの性質と試験」の頻出論点 | スランプや空気量など試験方法の細かい規定が覚えきれない | exam-point | レビュー | 台本/構成 | `ce-mix-jis-practice` |
 | `gishi-shiken-zentaizou` | コンクリート技士の全体像 — 試験概要と勉強法 | 初受験で試験形式も出題分野も分からずどこから手を付けるか決められない | roadmap | レビュー | 台本/構成 | `links-hub` |
 | `gishi-shunin-dochira` | 技士と主任技士どちらを受けるか — 違いで判断する | 2つの資格の難易度や位置づけの違いが分からずどちらを受けるか決められない | diagnosis | レビュー | 台本/構成 | `links-hub` |

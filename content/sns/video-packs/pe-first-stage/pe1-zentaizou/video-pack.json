@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "packId": "pe1-zentaizou",
+  "exam": "pe-first-stage",
+  "title": "技術士一次の全体像 — 3科目の構成と学習設計",
+  "audience": "技術士第一次試験の受験を決めた建設系技術者",
+  "pain": "基礎・適性・専門の3科目で何をどの配分から仕込めばよいか掴めない",
+  "promise": "3科目の構成と合格基準の考え方が分かり試験日から逆算した学習設計を組める",
+  "intent": "roadmap",
+  "sourceRefs": [
+    { "type": "site", "path": "content/site/pe-first-stage/guide-overview/article.mdx" },
+    { "type": "site", "path": "content/site/pe-first-stage/guide-study-plan/article.mdx" }
+  ],
+  "primaryCta": { "kind": "note-magazine", "targetId": "pe1-takuitsu-pdf", "campaign": "pe1-zentaizou" },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}
