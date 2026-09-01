@@ -40,4 +40,3 @@
 
 - content/site/civil-construction-1/textbook-building-standards/article.mdx
 - content/site/civil-construction-1/textbook-explosives-act/article.mdx
-- content/site/civil-construction-1/textbook-law-compliance/article.mdx

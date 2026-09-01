@@ -379,35 +379,65 @@
     "gakka-doshitsu-chosa": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 3,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "gakka-nori-hogoko": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "gakka-kikai-kiso": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "gakka-kussaku-tsumikomi-kikai": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 3,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "gakka-unpan-shimekatame-kikai": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 3,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
@@ -427,35 +457,65 @@
     "gakka-sokuryo-3ten": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "gakka-ukeoi-yakkan": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 3,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "gakka-kensetsugyoho": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 3,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "gakka-hoki-kasen-doro": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "gakka-hoki-kenchiku-kayaku": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 3,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
@@ -553,14 +613,26 @@
     "gakka-kankyo-hozen": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "gakka-haikibutsu-recycle": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
