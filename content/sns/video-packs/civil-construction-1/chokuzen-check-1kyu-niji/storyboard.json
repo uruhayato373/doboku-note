@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "二次検定の直前期、何を確認すれば得点が伸びるのか優先順位が分からなくなります。今日は最後の1週間でやることを順に説明します。",
+      "caption": "1級二次 直前チェック",
+      "visual": {
+        "kind": "cover",
+        "heading": "1級二次 直前チェック",
+        "items": ["最後の1週間でやること"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "直前こそ新しい問題集を追加した方が安心、と思われがちですが、新しい分野に手を広げるとかえって既に固めた部分の精度が落ちます。直前1週間は絞り込むほうが得点が伸びます。",
+      "caption": "直前は広げるより絞り込む",
+      "visual": {
+        "heading": "誤解：直前こそ新しい教材を追加する",
+        "items": ["新しい分野を広げると既存の精度が落ちる", "直前1週間は絞り込みが正解"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-last-minute-2026/article.mdx"
+    },
+    {
+      "sceneId": "policy",
+      "start": 55,
+      "end": 95,
+      "narration": "最後の1週間でやるべきは、新しい知識の追加ではなく確認です。すでに準備した経験記述と学科記述を、漏れなく仕上がっているかという視点で見直します。",
+      "caption": "基本方針は「追加」ではなく「確認」",
+      "visual": {
+        "heading": "直前1週間の基本方針",
+        "items": ["新しい知識の追加はしない", "準備済みの内容を確認に使う"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-last-minute-2026/article.mdx"
+    },
+    {
+      "sceneId": "check-3points",
+      "start": 95,
+      "end": 150,
+      "narration": "経験記述は、工種、現場状況、工夫、効果の3点セットが漏れていないかを声に出して読み返します。現場状況はなぜその管理が必要だったか、効果はどう良くなったかを数値を交えて確認してください。",
+      "caption": "経験記述は3点セットを音読で確認",
+      "visual": {
+        "heading": "CHECK 1　経験記述を音読する",
+        "items": ["工種・現場状況・工夫・効果の3点セット", "現場状況と効果は数値を交えて確認"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-last-minute-2026/article.mdx"
+    },
+    {
+      "sceneId": "check-marksheet",
+      "start": 150,
+      "end": 200,
+      "narration": "選択問題は必ず決められた問題数ずつ解答します。指定より多く解答すると減点対象です。解答用紙の選択欄に丸印を忘れず記入したかも、最終確認してください。",
+      "caption": "選択欄の記入漏れは失点しやすい",
+      "visual": {
+        "heading": "CHECK 2　選択欄と解答数を確認",
+        "items": ["指定を超えて解答すると減点対象", "選択欄の丸印を忘れず記入"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-last-minute-2026/article.mdx"
+    },
+    {
+      "sceneId": "check-gakka",
+      "start": 200,
+      "end": 245,
+      "narration": "学科記述は、自分が選ぶと決めた分野のキーワードだけを自作メモで最終確認します。選ばなかった分野には手を出さないのが、直前期の鉄則です。",
+      "caption": "学科記述は選んだ分野だけ絞る",
+      "visual": {
+        "heading": "CHECK 3　選んだ分野のキーワード確認",
+        "items": ["選ぶと決めた分野の自作メモを最終確認", "選ばなかった分野には手を出さない"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-last-minute-2026/article.mdx"
+    },
+    {
+      "sceneId": "check-belongings",
+      "start": 245,
+      "end": 285,
+      "narration": "受験票、鉛筆や消しゴム、時計、身分証明書。忘れると受検できないものは、前日のうちに一度並べて確認します。会場までの交通手段と所要時間もあわせて確認してください。",
+      "caption": "持ち物は前日にまとめて確認",
+      "visual": {
+        "heading": "CHECK 4　当日の持ち物",
+        "items": ["受験票・筆記用具・時計・身分証明書", "会場までの交通手段と所要時間"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-last-minute-2026/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 285,
+      "end": 325,
+      "narration": "まとめます。順序は、経験記述の音読確認、選択欄と字数のチェック、選んだ分野のキーワード確認、持ち物の前日確認。新しいことに手を出さないのが最大のポイントです。",
+      "caption": "順序：経験記述→選択欄→分野→持ち物",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 経験記述を音読確認", "② 選択欄と解答数を確認", "③ 選んだ分野のキーワード確認", "④ 持ち物を前日確認"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 325,
+      "end": 355,
+      "narration": "直前期に何を優先すべきか、過去の出題実績から攻め所を絞った分析を概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "優先順位を絞って確認する",
+        "items": ["出題分析・直前重点（概要欄リンク）"]
+      }
+    }
+  ]
+}

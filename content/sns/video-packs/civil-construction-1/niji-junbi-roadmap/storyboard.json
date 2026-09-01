@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "一次検定に合格したあと、二次まで何をどの順で準備すればよいか。今日は経験記述と学科記述の準備順序と配分を説明します。",
+      "caption": "一次のあとに始める二次検定ロードマップ",
+      "visual": {
+        "kind": "cover",
+        "heading": "二次検定ロードマップ",
+        "items": ["1級土木 第2次検定・準備の始め方"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "合格発表を待って参考書を頭から読み進めればいい、と思われがちですが、それでは経験記述がいつまでも書き始められません。経験記述は自分の工事を題材にする問題で、暗記の一夜漬けが効かないからです。",
+      "caption": "参考書を頭から読むだけでは書き始められない",
+      "visual": {
+        "heading": "誤解：参考書を順に読めばよい",
+        "items": ["経験記述は暗記の一夜漬けが効かない", "題材を決めないと書き始められない"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "time-matters",
+      "start": 55,
+      "end": 95,
+      "narration": "二次までの期間は決して長くありません。配点の大きい経験記述は、題材の掘り起こしと文章化に時間がかかります。早く動いた人ほど確実に有利になります。",
+      "caption": "期間の使い方がそのまま結果に出る",
+      "visual": {
+        "heading": "期間の使い方が結果を分ける",
+        "items": ["経験記述は掘り起こしと文章化に時間がかかる", "早く動くほど有利になる"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "overview",
+      "start": 95,
+      "end": 150,
+      "narration": "二次は2本柱です。1つは経験記述で、担当した工事の施工管理を書く必須問題。近年は複数の管理項目を記述させる出題に変わっています。もう1つが学科記述で、範囲は広いものの頻出テーマを絞れば効率よく対策できます。",
+      "caption": "二次は経験記述と学科記述の2本柱",
+      "visual": {
+        "heading": "二次検定の全体像",
+        "items": ["① 施工経験記述（必須・複数管理項目）", "② 学科記述（問題2〜11・頻出テーマを絞れる）"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "first-step",
+      "start": 150,
+      "end": 205,
+      "narration": "最初の一歩は、経験記述で書く工事を1つ決めることです。品質・安全・工程のいずれかで、課題と検討したこと、実際の対応を具体的に語れる工事を選びます。工事の規模や派手さは問われません。",
+      "caption": "最初の一歩は題材を1つ決めること",
+      "visual": {
+        "heading": "STEP 0　題材を1つ決める",
+        "items": ["品質・安全・工程のどれかで具体的に語れる工事", "規模や派手さは問われない"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "four-steps",
+      "start": 205,
+      "end": 265,
+      "narration": "題材が決まったら、工事概要を正確に書き出し、品質・安全・工程それぞれで課題を1つ挙げます。なぜそう考えたかという検討と、実際の対応を分けて書き、最後に解答欄の字数へ収めます。",
+      "caption": "題材が決まったら4ステップで肉付け",
+      "visual": {
+        "heading": "決まったら4ステップ",
+        "items": ["① 工事概要を正確に書く", "② 品質・安全・工程で課題を挙げる", "③ 検討と対応を分けて書く", "④ 字数に収めて型に流し込む"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "pitfalls",
+      "start": 265,
+      "end": 315,
+      "narration": "やりがちな失敗は、題材を決めずに参考書だけ進めること、模範解答を丸暗記して出題形式の変化に対応できないこと、工事概要があいまいで数字がかみ合わないこと、字数を意識せず書くことです。",
+      "caption": "やりがちな失敗を先に知っておく",
+      "visual": {
+        "heading": "やりがちな失敗",
+        "items": ["題材を決めずに参考書だけ進める", "模範解答の丸暗記", "工事概要があいまい・字数無視"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 315,
+      "end": 355,
+      "narration": "まとめます。全体像を把握し、題材を1つ決め、4ステップで肉付けし、やりがちな失敗を避ける。参考書を開く前に、まず題材を1つ決めてください。",
+      "caption": "まず題材を1つ決めることから",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 全体像を把握する", "② 題材を1つ決める", "③ 4ステップで肉付けする", "④ やりがちな失敗を避ける"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 355,
+      "end": 385,
+      "narration": "経験記述と学科記述を一体で対策したい方は、概要欄のリンクから二次まるごとパックをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "二次まるごとで対策する",
+        "items": ["二次検定まるごとパック（概要欄リンク）"]
+      }
+    }
+  ]
+}
