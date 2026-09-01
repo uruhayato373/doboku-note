@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "受検資格や第一次・第二次の制度が複雑で、全体像がつかめない。今日は受検資格から合格までの流れを1本の線でつなげます。",
+      "caption": "1級土木の受検資格と試験制度",
+      "visual": {
+        "kind": "cover",
+        "heading": "1級土木の受検資格と試験制度",
+        "items": ["全体像をつかむ"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "受検資格の仕組みが複雑で、自分がいつ受けられるか分からない、という声をよく聞きます。実際は制度改正で、第一次検定に限れば年齢だけで受験でき、以前よりシンプルになっています。",
+      "caption": "誤解：受検資格は複雑で分かりにくい",
+      "visual": {
+        "heading": "誤解：受検資格の仕組みが複雑",
+        "items": ["第一次は年齢だけで受験可能", "改正前より見通しやすくなった"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 55,
+      "end": 115,
+      "narration": "第一次検定は四肢択一で、土木一般・専門土木・法規・施工管理法の知識が問われます。第二次は記述式で、経験記述を含む応用力が問われます。第一次だけ先に合格し技士補になる戦略も有効です。",
+      "caption": "試験は第一次・第二次の2段階",
+      "visual": {
+        "heading": "1　試験は第一次・第二次の2段階",
+        "items": ["第一次：四肢択一（マークシート）", "第二次：記述式（経験記述を含む）"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 115,
+      "end": 175,
+      "narration": "第一次検定は、年度末に満19歳以上であれば実務経験を問わず受験できます。第二次は第一次合格後に所定の実務経験を積んでから受けます。年数や内容は取得済み資格で変わるため確認が必要です。",
+      "caption": "受験資格は第一次から始まる",
+      "visual": {
+        "heading": "2　受験資格は第一次から始まる",
+        "items": ["第一次：満19歳以上・実務経験不問", "第二次：第一次合格後に実務経験が必要"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 175,
+      "end": 230,
+      "narration": "第一次は土木一般、専門土木、法規、施工管理法の4分野です。施工管理法には応用能力を問う問題も含まれます。第二次は経験記述を軸に、施工計画・品質・工程・安全の記述力が問われます。",
+      "caption": "第一次は4分野、第二次は経験記述が軸",
+      "visual": {
+        "heading": "3　科目と出題範囲",
+        "items": ["第一次：土木一般・専門土木・法規・施工管理法", "第二次：経験記述を軸に実務の記述力"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 230,
+      "end": 285,
+      "narration": "合格基準は第一次・第二次ともおおむね6割です。第一次はさらに施工管理法の応用能力でも6割以上が必要です。第一次合格で技士補、両方合格して初めて1級技士になります。",
+      "caption": "6割の合格基準と技士補から技士への流れ",
+      "visual": {
+        "heading": "4　合格基準と技士補から技士への流れ",
+        "items": ["合格基準はおおむね6割", "第一次合格＝技士補、両方合格＝技士"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 285,
+      "end": 325,
+      "narration": "まとめます。第一次・第二次の2段階構成、年齢から始まる受験資格、4分野の出題範囲、6割の合格基準。この4つをつなげれば、いつ何を受けられるか見通せます。",
+      "caption": "4つのポイントで制度の全体像をつかむ",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 第一次・第二次の2段階構成", "② 年齢から始まる受験資格", "③ 4分野の出題範囲と6割の基準"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 325,
+      "end": 355,
+      "narration": "自分の受検資格の判定や制度の詳しい確認は、概要欄のリンクまとめページから記事とツールにアクセスできます。ご視聴ありがとうございました。",
+      "caption": "受検資格の判定は概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "自分の受検資格を確認する",
+        "items": ["リンクまとめページ（概要欄リンク）"]
+      }
+    }
+  ]
+}

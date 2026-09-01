@@ -1,0 +1,88 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "管理限界線の外に出たときだけ異常、と思っていませんか。今日は管理図で異常を判定する手順を整理します。",
+      "caption": "管理図の読み方 異常判定のルール",
+      "visual": {
+        "kind": "cover",
+        "heading": "管理図の読み方 異常判定のルール",
+        "items": ["1級土木 第1次検定・品質管理"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "管理図は規格値を満足しているかを確認する図、という誤解が多いのですが、それはヒストグラムや工程能力図の役割です。管理図が判定するのは、工程が統計的に安定しているかどうかです。",
+      "caption": "管理図は規格値でなく安定性を見る図",
+      "visual": {
+        "heading": "誤解：管理図＝規格値の充足を見る図",
+        "items": ["規格値との対比はヒストグラム・工程能力図の役割", "管理図が見るのは工程の安定性"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-control-chart/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 55,
+      "end": 105,
+      "narration": "管理図で扱うバラツキの原因は2種類です。技術的におさえられない偶然原因は許容し、作業標準を守らないなど技術的に除去できる異常原因は検出して除去します。",
+      "caption": "偶然原因は許容、異常原因は除去する",
+      "visual": {
+        "heading": "偶然原因と異常原因",
+        "items": ["偶然原因：技術的におさえられない・許容する", "異常原因：技術的に除去できる・検出して除去する"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-control-chart/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 105,
+      "end": 175,
+      "narration": "点が管理限界線の内側にあり、並び方にクセがなければ安定状態です。逆に、点が限界線の外側に出る、中心付近に集まる、限界線に接近して現れる、のいずれかがあれば異常原因の存在を疑います。限界線の内側でも安心はできません。",
+      "caption": "限界線内でもクセがあれば異常を疑う",
+      "visual": {
+        "heading": "安定・異常の判定",
+        "items": ["内側でクセなし＝安定（偶然原因のみ）", "外側に出る／中心に集まる／限界線に接近＝異常", "限界線の内側でも油断しない"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-control-chart/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 175,
+      "end": 235,
+      "narration": "建設現場では予備データを多数集めるのが難しいため、最初の5群で次の5群を管理し、10群、20群と段階的にデータを増やしながら管理線を更新していく5-5-10-20-20方式が使われます。",
+      "caption": "予備データが少ない現場は段階的に管理",
+      "visual": {
+        "heading": "建設現場の運用：5-5-10-20-20方式",
+        "items": ["最初5群→次の5群を管理", "10群・20群と段階的に管理線を更新", "工期途中でも運用できる方式"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-control-chart/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 235,
+      "end": 275,
+      "narration": "まとめます。管理図が見るのは規格値でなく安定性。偶然原因は許容し異常原因は除去する。限界線内でも並び方にクセがあれば異常を疑い、現場では段階的に管理線を更新します。",
+      "caption": "目的→原因の区別→3パターンの判定",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 管理図＝工程の安定性を判定", "② 偶然原因は許容・異常原因は除去", "③ クセの3パターンで異常を疑う"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 275,
+      "end": 305,
+      "narration": "判定ルールを含めて確認したい方は、概要欄のリンクから一次検定頻出論点まとめをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "頻出論点まとめで確認する",
+        "items": ["一次検定 頻出論点まとめ（概要欄リンク）"]
+      }
+    }
+  ]
+}

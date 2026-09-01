@@ -32,9 +32,9 @@
 
 ## 主CTA
 
-優先順位と基準値を1枚で確認したい方は、概要欄のリンクから安全管理の暗記ノート（noteマガジン）をご覧ください。
+優先順位と基準値を1枚で確認したい方は、概要欄のリンクから一次の出る順合格ノート（noteマガジン）をご覧ください。
 
-- CTA: catalog `civil-1-anki-note`（utm_campaign=gakka-risk-assessment / utm_content=longform で公開時に解決）
+- CTA: catalog `civil-1-ichiji-ronten`（utm_campaign=gakka-risk-assessment / utm_content=longform で公開時に解決）
 
 ## 出典一覧
 

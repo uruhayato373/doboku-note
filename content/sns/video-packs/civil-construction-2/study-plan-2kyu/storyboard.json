@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "仕事と両立しながら2級土木を学ぶとき、何をいつまでに終わらせるか計画しにくいですよね。今日は残り期間から逆算する週単位の学習設計を説明します。",
+      "caption": "2級土木の勉強計画｜仕事と両立",
+      "visual": {
+        "kind": "cover",
+        "heading": "2級土木の勉強計画",
+        "items": ["仕事と両立する学習設計"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 60,
+      "narration": "週末にまとめて長時間勉強しないと間に合わない、と思われがちです。実際は毎日少しずつ触れる習慣のほうが定着は上がります。通勤や昼休みのすき間時間を積み重ねる設計が向いています。",
+      "caption": "誤解：週末の長時間学習が必要",
+      "visual": {
+        "heading": "誤解：週末にまとめて勉強すればいい",
+        "items": ["毎日少しずつのほうが定着は上がる", "すき間時間を積み重ねる設計が向く"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-study-method/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 60,
+      "end": 110,
+      "narration": "第一次は知識の網羅と再現、第二次は自分の実務経験を言語化する力です。第一次は過去問演習、第二次は経験記述の準備と、対策の方向性がまったく違います。時期に応じて重点を切り替えましょう。",
+      "caption": "第一次と第二次で対策の方向性が違う",
+      "visual": {
+        "heading": "1　学習の全体像",
+        "items": ["第一次：知識の網羅と再現", "第二次：経験を言語化して伝える力"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-study-plan/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 110,
+      "end": 170,
+      "narration": "テキストで出題分野を俯瞰して地図を作り、あとは過去問5年分を繰り返す2ステップで足ります。間違えた問題の根拠だけテキストで引く往復に切り替えると、知識の置き場所が一元化されます。",
+      "caption": "第一次はテキストで地図→過去問で反復",
+      "visual": {
+        "heading": "2　第一次検定の進め方",
+        "items": ["テキストで出題分野の地図を作る", "過去問5年分を繰り返す", "間違えた根拠だけテキストで引く"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-study-method/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 170,
+      "end": 230,
+      "narration": "中心は経験記述です。工事概要、現場状況、技術的課題、検討、対応処置、評価の順で組み立てます。先に箇条書きで埋めてから文章化すると、論理の抜けが防げます。第三者の添削も一度通しましょう。",
+      "caption": "第二次は経験記述を型に沿って組み立てる",
+      "visual": {
+        "heading": "3　第二次検定の進め方",
+        "items": ["工事概要→現場状況→技術的課題の順", "箇条書きで埋めてから文章化", "第三者の添削を一度通す"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-study-method/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 230,
+      "end": 290,
+      "narration": "通勤や昼休みのすき間時間に過去問を解き、週末に解説や経験記述を見直す組み合わせが続きやすいパターンです。残り期間を第一次と第二次の期間に分け、第二次の着手を後ろへ倒しすぎないよう逆算します。",
+      "caption": "すき間時間×週末で逆算の計画を組む",
+      "visual": {
+        "heading": "4　仕事と両立する週単位の計画",
+        "items": ["すき間時間で過去問、週末に見直し", "残り期間を第一次・第二次に配分"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-study-plan/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 290,
+      "end": 330,
+      "narration": "まとめます。第一次は過去問の反復、第二次は経験記述の早期着手。すき間時間と週末を組み合わせ、残り期間から逆算した週単位の計画に落とし込みましょう。",
+      "caption": "すき間時間と逆算で仕事と両立する",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 第一次：過去問の反復", "② 第二次：経験記述の早期着手", "③ すき間時間×週末で逆算する"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 330,
+      "end": 360,
+      "narration": "学習を進めるための記事やツールは、概要欄のリンクまとめページからまとめて確認できます。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "続きはリンクまとめで",
+        "items": ["リンクまとめページ（概要欄リンク）"]
+      }
+    }
+  ]
+}

@@ -36,9 +36,9 @@
 
 ## 主CTA
 
-軟弱地盤の工法名を短時間で覚え直したい場合は、一発合格暗記ノート（noteマガジン）へ。概要欄のリンクから開けます。
+軟弱地盤の工法名を短時間で覚え直したい場合は、一次の出る順合格ノート（noteマガジン）へ。概要欄のリンクから開けます。
 
-- CTA: catalog `civil-1-anki-note`（utm_campaign=gakka-nanjaku-jiban / utm_content=longform で公開時に解決）
+- CTA: catalog `civil-1-ichiji-ronten`（utm_campaign=gakka-nanjaku-jiban / utm_content=longform で公開時に解決）
 
 ## 出典一覧
 

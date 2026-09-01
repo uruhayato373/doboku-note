@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "全数検査と抜取検査、どちらを選ぶかの判断基準を説明できますか。今日は具体例つきで使い分けの条件を整理します。",
+      "caption": "品質管理の検査 全数・抜取の使い分け",
+      "visual": {
+        "kind": "cover",
+        "heading": "品質管理の検査 全数・抜取の使い分け",
+        "items": ["1級土木 第1次検定・品質管理"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "全数検査の方が厳しくて安心、と思われがちですが、それは誤解です。破壊検査や連続体、検査個数が多い場合など、全数にできない事情があるから抜取検査を使います。",
+      "caption": "使い分けは厳しさでなく物理的な制約",
+      "visual": {
+        "heading": "誤解：全数検査の方が厳しい検査",
+        "items": ["実際は破壊検査・連続体など全数にできない事情で選ぶ", "抜取検査は簡易版ではない"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 55,
+      "end": 115,
+      "narration": "全数検査は、品物1個ずつすべてを検査する100%検査です。不良品混入が許せない場合、検査が容易な場合、品質を良くしたい場合、そしてロットが小さく抜取の意味がない場合に使います。",
+      "caption": "全数検査が向く4つの場面",
+      "visual": {
+        "heading": "全数検査（100%検査）が向く場面",
+        "items": ["わずかな不良品混入も許せない場合", "検査が容易・ロットが小さい場合", "良品と不良品を選別する目的"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 115,
+      "end": 175,
+      "narration": "抜取検査は、ロットから一部のサンプルを抜き取って試験し、その結果でロット全体の合否を判定します。破壊検査、連続体、検査個数や項目が多い場合に向きます。舗装工事の出来形検査では、同一設計・施工の舗装面積1万平方メートル以下を1ロットとします。",
+      "caption": "抜取検査＝ロットから一部を抜き取って判定",
+      "visual": {
+        "heading": "抜取検査が向く場面とロット",
+        "items": ["破壊検査・連続体・検査個数が多い場合", "例：舗装出来形検査は10,000㎡以下で1ロット", "サンプルで全体を判定する"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 175,
+      "end": 235,
+      "narration": "抜取検査には、1回だけ抜き取って判定する1回抜取検査、1回で決まらない場合に2回目を行う2回抜取検査、さらに広げた多数回抜取検査、1個ずつ判定していく逐次抜取検査があります。建設工事では、一般に1回抜取検査が用いられます。",
+      "caption": "建設工事の標準は1回抜取検査",
+      "visual": {
+        "heading": "抜取検査の4種類",
+        "items": ["1回抜取検査：1回で合否判定（建設工事の標準）", "2回・多数回抜取検査：段階的に判定", "逐次抜取検査：1個ずつ精密に判定"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 235,
+      "end": 300,
+      "narration": "抜取検査は判定を誤る危険を完全にはなくせません。良いロットを誤って不合格にする危険を生産者危険、悪いロットを誤って合格させる危険を消費者危険といいます。この関係を表す曲線がOC曲線で、AQLは合格としてよい不良率の上限の目安です。",
+      "caption": "OC曲線＝不良率と合格確率の関係",
+      "visual": {
+        "heading": "OC曲線とAQL",
+        "items": ["生産者危険α：良いロットを誤って不合格", "消費者危険β：悪いロットを誤って合格", "AQL：JIS Z 9015の合格品質水準"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 300,
+      "end": 340,
+      "narration": "まとめます。全数か抜取かは厳しさでなく、破壊検査や連続体など物理的な制約で決まる。建設工事は1回抜取検査が標準で、判定にはOC曲線とAQLが関わります。",
+      "caption": "選ぶ基準は制約、標準は1回抜取検査",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 全数＝不良品混入不可・容易・小ロット", "② 抜取＝破壊検査・連続体・多数", "③ 建設工事は1回抜取検査が標準"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 340,
+      "end": 370,
+      "narration": "検査方式の判断条件を含めて確認したい方は、概要欄のリンクから一次検定頻出論点まとめをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "頻出論点まとめで確認する",
+        "items": ["一次検定 頻出論点まとめ（概要欄リンク）"]
+      }
+    }
+  ]
+}

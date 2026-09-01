@@ -147,42 +147,78 @@
     "gakka-network-koteihyo": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "gakka-morido-shimekatame": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 3,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "gakka-nanjaku-jiban": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.67,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "gakka-ashiba-kijun": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.5,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "gakka-roudou-kijun": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.5,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "gakka-histogram": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 3,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
@@ -372,7 +408,13 @@
     "gakka-crane-sogo": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.67,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
@@ -428,21 +470,39 @@
     "gakka-anzen-taisei": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.5,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "gakka-dodome-kussaku": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.5,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "gakka-risk-assessment": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.5,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },

@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "1級土木はどれくらい難しいのか。合格率の数字だけでは、自分が合格できるかは分かりません。今日は合格率の読み方と必要な学習量を説明します。",
+      "caption": "1級土木の難易度と合格率の読み方",
+      "visual": {
+        "kind": "cover",
+        "heading": "1級土木の難易度",
+        "items": ["合格率の読み方と必要な学習量"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 60,
+      "narration": "合格率が低い年度を見て難しいと判断するのは早計です。試験は第一次と第二次の2段階で、それぞれ性質が違います。年度の変動は制度改正の影響も大きく、正確な数値は概要欄の記事で確認してください。",
+      "caption": "合格率の水準だけで難易度を判断しない",
+      "visual": {
+        "heading": "誤解：合格率が低い年度＝難しい",
+        "items": ["第一次と第二次で性質が違う", "変動には制度改正の影響も大きい"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-difficulty/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 60,
+      "end": 115,
+      "narration": "第一次は知識確認型、第二次は記述式で経験記述を含みます。合格率はどちらもおおむね4割から6割程度で推移しますが、水準だけで簡単と判断するのは危険です。第二次は書いて伝える力が問われます。",
+      "caption": "第一次と第二次で見るべき力が違う",
+      "visual": {
+        "heading": "1　合格率は2つの検定で見方が変わる",
+        "items": ["水準はおおむね4割〜6割程度で推移", "第二次は「書いて伝える力」が別枠"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-difficulty/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 115,
+      "end": 170,
+      "narration": "合格基準は第一次・第二次ともおおむね6割です。第一次は総得点6割に加え、施工管理法の応用能力でも6割以上という二重基準があります。この応用能力は確実に得点しておく必要があります。",
+      "caption": "合格基準は6割＋応用能力の二重基準",
+      "visual": {
+        "heading": "2　合格基準を先に押さえる",
+        "items": ["総得点でおおむね6割以上", "第一次は応用能力でも6割以上必要"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-difficulty/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 170,
+      "end": 225,
+      "narration": "独学の場合、必要な勉強時間の目安はおおむね200時間から500時間です。実務経験が豊富なほど短く済み、経験が浅い分野が多いほど長めに見ておきます。毎日少しずつの習慣化が定着率を高めます。",
+      "caption": "必要な学習量はおおむね200〜500時間",
+      "visual": {
+        "heading": "3　必要な学習量の目安",
+        "items": ["独学ならおおむね200〜500時間が目安", "実務経験の有無で必要時間が変わる", "短期集中より毎日の習慣化"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-difficulty/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 225,
+      "end": 285,
+      "narration": "第一次は過去問の反復と頻出分野の得点積み上げが対策の核です。苦手分野をゼロにするより得意分野で確実に6割を確保します。第二次は経験記述の型を早めに身につけ、完成度を上げていきます。",
+      "caption": "頻出分野の反復と経験記述の早期着手",
+      "visual": {
+        "heading": "4　難易度を踏まえた対策の方向性",
+        "items": ["第一次：得意分野で6割を確実に確保", "第二次：経験記述の型を早めに固める"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-difficulty/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 285,
+      "end": 325,
+      "narration": "まとめます。合格率は水準だけで判断せず、合格基準の二重構造と必要な学習量から自分の戦略を立てましょう。第一次は頻出分野の反復、第二次は経験記述の早期着手が鍵です。",
+      "caption": "合格基準と学習量から自分の戦略を立てる",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 合格率は水準だけで判断しない", "② 合格基準の二重構造を押さえる", "③ 必要学習量から戦略を立てる"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 325,
+      "end": 355,
+      "narration": "最新の合格率の数値や制度改正の詳細は、概要欄のリンクまとめページから記事で確認できます。ご視聴ありがとうございました。",
+      "caption": "最新の数値は概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "最新の数値で確認する",
+        "items": ["リンクまとめページ（概要欄リンク）"]
+      }
+    }
+  ]
+}

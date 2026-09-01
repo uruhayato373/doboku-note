@@ -36,9 +36,9 @@
 
 ## 主CTA
 
-頻出論点をまとめて確認したい場合は、2級土木の暗記ノートnoteマガジンへ。概要欄のリンクから開けます。
+頻出論点をまとめて確認したい場合は、2級土木 一次の過去問PDF（noteマガジン）へ。概要欄のリンクから開けます。
 
-- CTA: catalog `civil-2-anki-note`（utm_campaign=gakka-2kyu-kiso / utm_content=longform で公開時に解決）
+- CTA: catalog `civil-2-takuitsu-pdf`（utm_campaign=gakka-2kyu-kiso / utm_content=longform で公開時に解決）
 
 ## 出典一覧
 

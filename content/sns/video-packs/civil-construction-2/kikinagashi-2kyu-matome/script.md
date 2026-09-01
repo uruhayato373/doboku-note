@@ -36,9 +36,9 @@
 
 ## 主CTA
 
-暗記した点を一つずつ確認したい場合は、2級土木の暗記ノート（noteマガジン）へ。概要欄のリンクから開けます。
+暗記した点を一つずつ確認したい場合は、2級土木の一次の過去問PDF（noteマガジン）へ。概要欄のリンクから開けます。
 
-- CTA: catalog `civil-2-anki-note`（utm_campaign=kikinagashi-2kyu-matome / utm_content=longform で公開時に解決）
+- CTA: catalog `civil-2-takuitsu-pdf`（utm_campaign=kikinagashi-2kyu-matome / utm_content=longform で公開時に解決）
 
 ## 出典一覧
 
