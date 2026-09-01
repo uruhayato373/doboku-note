@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "packId": "gishi-jukenshikaku-2026",
+  "exam": "concrete-engineer",
+  "title": "コンクリート技士の受験資格 — 実務経験1年への改定",
+  "audience": "コンクリート技士を受けられるか確認したい技術者",
+  "pain": "受験資格の改定があったと聞いたが自分が対象になるのか判断できない",
+  "promise": "対象資格と実務経験年数の要件を整理し自分の受験可否が分かる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/guide-eligibility-2026/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "gishi-jukenshikaku-2026"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

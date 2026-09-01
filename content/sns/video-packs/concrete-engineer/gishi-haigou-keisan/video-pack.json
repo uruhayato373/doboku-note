@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "gishi-haigou-keisan",
+  "exam": "concrete-engineer",
+  "title": "コンクリート技士 配合計算の解き方 — 手順を型にする",
+  "audience": "コンクリート技士の計算問題が苦手な受験者",
+  "pain": "配合計算は毎回解き方を組み立て直していて時間も正答率も安定しない",
+  "promise": "水セメント比から絶対容積まで手順を型にして安定して解ける",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/primary-mix-design/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "ce-mix-jis-practice",
+    "campaign": "gishi-haigou-keisan"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

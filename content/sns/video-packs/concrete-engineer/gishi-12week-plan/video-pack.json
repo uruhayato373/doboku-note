@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "gishi-12week-plan",
+  "exam": "concrete-engineer",
+  "title": "コンクリート技士 12週間の合格スケジュール",
+  "audience": "仕事と両立してコンクリート技士を目指す受験者",
+  "pain": "何をどの順で何週間やれば合格水準に届くのか計画が立てられない",
+  "promise": "8分野の学習順を含む12週間の計画で今日から進められる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/guide-study-plan/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "ce-mix-jis-practice",
+    "campaign": "gishi-12week-plan"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

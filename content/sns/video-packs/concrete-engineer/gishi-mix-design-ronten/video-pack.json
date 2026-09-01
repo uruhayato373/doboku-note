@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "gishi-mix-design-ronten",
+  "exam": "concrete-engineer",
+  "title": "コンクリート技士「配合設計と現場配合補正」の頻出論点",
+  "audience": "コンクリート技士で配合設計と現場配合補正まわりを固めたい受験者",
+  "pain": "配合計算の手順があやふやで表面水補正が出ると手が止まる",
+  "promise": "計算手順と現場配合補正の型を押さえ計算問題を得点源にできる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/primary-mix-design/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "ce-mix-jis-practice",
+    "campaign": "gishi-mix-design-ronten"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "packId": "gishi-shiken-zentaizou",
+  "exam": "concrete-engineer",
+  "title": "コンクリート技士の全体像 — 試験概要と勉強法",
+  "audience": "コンクリート技士の受験を決めた技術者",
+  "pain": "初受験で試験形式も出題分野も分からずどこから手を付けるか決められない",
+  "promise": "JCI公式案内に沿った試験の全体像と勉強の始め方が分かる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/guide-overview/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "gishi-shiken-zentaizou"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

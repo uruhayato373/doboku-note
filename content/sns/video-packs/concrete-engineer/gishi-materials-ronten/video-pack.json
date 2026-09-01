@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "gishi-materials-ronten",
+  "exam": "concrete-engineer",
+  "title": "コンクリート技士「セメント・骨材・混和材料」の頻出論点",
+  "audience": "コンクリート技士でセメントまわりを固めたい受験者",
+  "pain": "セメントの水和や骨材の含水状態など基礎の用語が現場感覚と結びつかない",
+  "promise": "材料分野の頻出論点を現場の感覚と結びつけて覚えられる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/textbook-materials/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/primary-materials/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "ce-mix-jis-practice",
+    "campaign": "gishi-materials-ronten"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

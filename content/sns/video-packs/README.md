@@ -4,7 +4,7 @@
 > 真実源: 各 `video-pack.json` ＋ `.claude/state/video-content-status.json`。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **142**（更新: 2026-09-02）
+パック数: **154**（更新: 2026-09-02）
 
 ## 1級土木施工管理技士（66）
 
