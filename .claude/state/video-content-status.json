@@ -196,42 +196,78 @@
     "keiken-genten-kyotsuten": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 3,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "keiken-hinshitsu-kakikata": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 3,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "keiken-kotei-kakikata": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "keiken-koji-ga-nai": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "keiken-2kyu-level": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.67,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "nikyuu-gaiyo-roadmap": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 3,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
@@ -632,21 +668,39 @@
     "keiken-anzen-2kyu-kakikata": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.5,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "keiken-gaiyo-2kyu": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "keiken-nendo-keiko-2kyu": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 3,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
@@ -681,7 +735,13 @@
     "gakka-kijutsu-2kyu": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 3,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },

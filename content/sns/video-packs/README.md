@@ -67,10 +67,10 @@
 | `kikinagashi-hoki-suchi` | 耳で覚える法規の数字 — 労基法・安衛法・騒音振動 | 法規の人数・年限・デシベルの数値が直前まで定着しない | exam-point | 企画 | —/— | `civil-1-anki-note` |
 | `koji-gaiyo-7items` | 工事概要7項目で失点しない | 工事概要の7項目に何をどこまで書けばよいか分からない | howto | レビュー | 台本/構成 | `civil-1-keiken-complete-pack` |
 | `niji-junbi-roadmap` | 一次のあとに始める二次検定ロードマップ | 二次まで何をどの順で準備すればよいか分からない | roadmap | レビュー | 台本/構成 | `civil-1-niji-marugoto-pack` |
-| `niji-kijutsu-concrete` | 二次の学科記述 コンクリート — 頻出規定の整理 | コンクリートの施工規定のどこが記述式で問われるか分からない | exam-point | 企画 | —/— | `civil-1-gakka-kijutsu` |
-| `niji-kijutsu-doko` | 二次の学科記述 土工 — 穴埋めで問われる数字の型 | 土工の学科記述で問われる規定と数値の範囲が絞れない | exam-point | 企画 | —/— | `civil-1-gakka-kijutsu` |
-| `niji-kijutsu-hinshitsu` | 二次の学科記述 品質管理 — 試験名と規格値の対応 | 品質管理の試験名・規格値・頻度の対応が記述で書けない | exam-point | 企画 | —/— | `civil-1-gakka-kijutsu` |
-| `niji-kijutsu-sekokeikaku` | 二次の学科記述 施工計画 — 計画立案の記述パターン | 施工計画の記述問題は形式が幅広く対策の的が絞れない | exam-point | 企画 | —/— | `civil-1-gakka-kijutsu` |
+| `niji-kijutsu-concrete` | 二次の学科記述 コンクリート — 頻出規定の整理 | コンクリートの施工規定のどこが記述式で問われるか分からない | exam-point | 下書き | 台本/構成 | `civil-1-gakka-kijutsu` |
+| `niji-kijutsu-doko` | 二次の学科記述 土工 — 穴埋めで問われる数字の型 | 土工の学科記述で問われる規定と数値の範囲が絞れない | exam-point | 下書き | 台本/構成 | `civil-1-gakka-kijutsu` |
+| `niji-kijutsu-hinshitsu` | 二次の学科記述 品質管理 — 試験名と規格値の対応 | 品質管理の試験名・規格値・頻度の対応が記述で書けない | exam-point | 下書き | 台本/構成 | `civil-1-gakka-kijutsu` |
+| `niji-kijutsu-sekokeikaku` | 二次の学科記述 施工計画 — 計画立案の記述パターン | 施工計画の記述問題は形式が幅広く対策の的が絞れない | exam-point | 下書き | 台本/構成 | `civil-1-gakka-kijutsu` |
 | `roadmap-1kyu-vs-2kyu` | 1級と2級どちらから受けるか — 判断基準 | 自分の経験年数とキャリアでどちらの級が正解か分からない | roadmap | 企画 | —/— | `links-hub` |
 | `roadmap-juken-shikaku` | 1級土木の受検資格と試験制度 — 全体像をつかむ | 受検資格や一次二次の制度が複雑で全体像がつかめない | roadmap | 企画 | —/— | `links-hub` |
 | `roadmap-nanido-goukakuritsu` | 1級土木の難易度 — 合格率の読み方と必要な学習量 | 合格率の数字だけでは自分に合格できるか判断できない | roadmap | 企画 | —/— | `links-hub` |
@@ -82,22 +82,22 @@
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
 | `anzen-ippanron-3riyu` | 安全管理の答案が一般論になる3つの原因 | 安全管理の答案がどの現場でも通じる一般論になってしまう | diagnosis | レビュー | 台本/構成 | `coconala-shindan` |
-| `gakka-2kyu-concrete` | 2級土木 コンクリートの頻出点 — 打込み・養生・継目 | 打込みや養生の細かい規定のどれが試験に出るのか分からない | exam-point | 企画 | —/— | `civil-2-anki-note` |
-| `gakka-2kyu-doko` | 2級土木 土工の頻出点 — 最短で押さえる | 土工の範囲が広くどこから覚えれば得点になるか分からない | exam-point | 下書き | 台本/— | `civil-2-anki-note` |
-| `gakka-2kyu-hoki` | 2級土木 法規の頻出点 — 労基法と安衛法を優先する | 法規の出題範囲が広すぎてどの法律を優先するか決められない | exam-point | 企画 | —/— | `civil-2-anki-note` |
-| `gakka-2kyu-kiso` | 2級土木 基礎工の頻出点 — 杭とケーソンの整理 | 既製杭・場所打ち杭の工法の違いが名前だけで判別できない | exam-point | 企画 | —/— | `civil-2-anki-note` |
-| `gakka-2kyu-sekokeikaku` | 2級土木 施工管理法の頻出点 — 計画・工程・安全・品質 | 施工管理法は範囲が広く分野ごとの頻出点が見えていない | exam-point | 企画 | —/— | `civil-2-anki-note` |
-| `gakka-kijutsu-2kyu` | 2級二次の学科記述 — 出る分野と解答の型 | 経験記述以外の記述問題に何がどの形式で出るか分からない | exam-point | 下書き | 台本/構成 | `civil-2-gakka-kijutsu` |
-| `keiken-2kyu-level` | 2級で求められる記述レベルはここまで | 特殊工法や高度な内容を書けないと受からないと思っている | exam-point | 下書き | 台本/構成 | `coconala-shindan` |
-| `keiken-anzen-2kyu-kakikata` | 2級 安全管理テーマの書き方 — 現場の数字で具体化する | 安全管理の検討内容をどう具体化すればよいか分からない | howto | 下書き | 台本/構成 | `civil-2-experience-essay` |
-| `keiken-gaiyo-2kyu` | 2級 工事概要の書き方 — 最初の失点を防ぐ | 工事概要に何をどこまで書けば設問と整合するか分からない | howto | 下書き | 台本/構成 | `civil-2-koji-bank` |
-| `keiken-genten-kyotsuten` | 減点される答案の共通点 | 内容以前の理由で減点される答案の特徴を知らない | diagnosis | 下書き | 台本/構成 | `coconala-shindan` |
-| `keiken-hinshitsu-kakikata` | 品質管理テーマの組み立て方 | 品質管理の課題と対応処置の組み立て方が分からない | howto | 下書き | 台本/構成 | `civil-2-experience-essay` |
-| `keiken-koji-ga-nai` | 「書ける工事が無い」と感じたら | 小規模工事しか経験がなく題材にできるか不安 | diagnosis | 下書き | 台本/構成 | `civil-2-koji-bank` |
-| `keiken-kotei-kakikata` | 工程管理テーマの組み立て方 | 工程管理は遅延の話しか思いつかず内容が薄くなる | howto | 下書き | 台本/構成 | `civil-2-experience-essay` |
-| `keiken-nendo-keiko-2kyu` | 2級二次の出題傾向 — 5年分から読むテーマの流れ | 2級の二次で何がどの周期で出ているのか把握できていない | exam-point | 下書き | 台本/構成 | `civil-2-pastexam-essay` |
-| `kikinagashi-2kyu-matome` | 耳で覚える2級土木 — 頻出点の総ざらい | 直前期に全分野を机で回す時間が取れない | exam-point | 企画 | —/— | `civil-2-anki-note` |
-| `nikyuu-gaiyo-roadmap` | 2級土木の全体像と学習順序 | 受検資格・科目・日程と何から始めるかが分からない | roadmap | 下書き | 台本/構成 | `links-hub` |
+| `gakka-2kyu-concrete` | 2級土木 コンクリートの頻出点 — 打込み・養生・継目 | 打込みや養生の細かい規定のどれが試験に出るのか分からない | exam-point | 下書き | 台本/構成 | `civil-2-anki-note` |
+| `gakka-2kyu-doko` | 2級土木 土工の頻出点 — 最短で押さえる | 土工の範囲が広くどこから覚えれば得点になるか分からない | exam-point | 下書き | 台本/構成 | `civil-2-anki-note` |
+| `gakka-2kyu-hoki` | 2級土木 法規の頻出点 — 労基法と安衛法を優先する | 法規の出題範囲が広すぎてどの法律を優先するか決められない | exam-point | 下書き | 台本/構成 | `civil-2-anki-note` |
+| `gakka-2kyu-kiso` | 2級土木 基礎工の頻出点 — 杭とケーソンの整理 | 既製杭・場所打ち杭の工法の違いが名前だけで判別できない | exam-point | 下書き | 台本/構成 | `civil-2-anki-note` |
+| `gakka-2kyu-sekokeikaku` | 2級土木 施工管理法の頻出点 — 計画・工程・安全・品質 | 施工管理法は範囲が広く分野ごとの頻出点が見えていない | exam-point | 下書き | 台本/構成 | `civil-2-anki-note` |
+| `gakka-kijutsu-2kyu` | 2級二次の学科記述 — 出る分野と解答の型 | 経験記述以外の記述問題に何がどの形式で出るか分からない | exam-point | レビュー | 台本/構成 | `civil-2-gakka-kijutsu` |
+| `keiken-2kyu-level` | 2級で求められる記述レベルはここまで | 特殊工法や高度な内容を書けないと受からないと思っている | exam-point | レビュー | 台本/構成 | `coconala-shindan` |
+| `keiken-anzen-2kyu-kakikata` | 2級 安全管理テーマの書き方 — 現場の数字で具体化する | 安全管理の検討内容をどう具体化すればよいか分からない | howto | レビュー | 台本/構成 | `civil-2-experience-essay` |
+| `keiken-gaiyo-2kyu` | 2級 工事概要の書き方 — 最初の失点を防ぐ | 工事概要に何をどこまで書けば設問と整合するか分からない | howto | レビュー | 台本/構成 | `civil-2-koji-bank` |
+| `keiken-genten-kyotsuten` | 減点される答案の共通点 | 内容以前の理由で減点される答案の特徴を知らない | diagnosis | レビュー | 台本/構成 | `coconala-shindan` |
+| `keiken-hinshitsu-kakikata` | 品質管理テーマの組み立て方 | 品質管理の課題と対応処置の組み立て方が分からない | howto | レビュー | 台本/構成 | `civil-2-experience-essay` |
+| `keiken-koji-ga-nai` | 「書ける工事が無い」と感じたら | 小規模工事しか経験がなく題材にできるか不安 | diagnosis | レビュー | 台本/構成 | `civil-2-koji-bank` |
+| `keiken-kotei-kakikata` | 工程管理テーマの組み立て方 | 工程管理は遅延の話しか思いつかず内容が薄くなる | howto | レビュー | 台本/構成 | `civil-2-experience-essay` |
+| `keiken-nendo-keiko-2kyu` | 2級二次の出題傾向 — 5年分から読むテーマの流れ | 2級の二次で何がどの周期で出ているのか把握できていない | exam-point | レビュー | 台本/構成 | `civil-2-pastexam-essay` |
+| `kikinagashi-2kyu-matome` | 耳で覚える2級土木 — 頻出点の総ざらい | 直前期に全分野を机で回す時間が取れない | exam-point | 下書き | 台本/構成 | `civil-2-anki-note` |
+| `nikyuu-gaiyo-roadmap` | 2級土木の全体像と学習順序 | 受検資格・科目・日程と何から始めるかが分からない | roadmap | レビュー | 台本/構成 | `links-hub` |
 | `study-plan-2kyu` | 2級土木の勉強計画 — 仕事と両立する学習設計 | 仕事と両立しながら何をいつまでに進めるか計画できない | roadmap | 企画 | —/— | `links-hub` |
 
 ## 技術士 総合技術監理部門（11）
