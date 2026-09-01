@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "shunin-ochiru-shouronbun",
+  "exam": "concrete-chief-engineer",
+  "title": "落ちる小論文の共通点 — 主任技士で評価されない答案",
+  "audience": "小論文の自己評価ができないコンクリート主任技士受験者",
+  "pain": "書けた気になっているが評価される答案なのか自分で判断できない",
+  "promise": "評価されない答案の典型パターンを知り自分の答案を診断できる",
+  "intent": "diagnosis",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "cce-essay-magazine",
+    "campaign": "shunin-ochiru-shouronbun"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "shunin-shouronbun-theme",
+  "exam": "concrete-chief-engineer",
+  "title": "主任技士 小論文のテーマ傾向 — 何が問われてきたか",
+  "audience": "コンクリート主任技士の小論文でテーマの備えをしたい受験者",
+  "pain": "どんなテーマが出るか分からず経験の棚卸しが的外れになりそうで不安",
+  "promise": "テーマ傾向を押さえ自分の実務経験をどの引き出しに備えるか決められる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "cce-essay-magazine",
+    "campaign": "shunin-shouronbun-theme"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

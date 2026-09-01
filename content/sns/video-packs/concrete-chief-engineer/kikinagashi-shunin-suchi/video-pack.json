@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "packId": "kikinagashi-shunin-suchi",
+  "exam": "concrete-chief-engineer",
+  "title": "聞き流し 主任技士 頻出数値・JIS規定",
+  "audience": "移動時間で耳から復習したいコンクリート主任技士受験者",
+  "pain": "机に向かう時間が取れず数値規定の反復が足りないまま直前期に入る",
+  "promise": "配合・製造・耐久性・施工の頻出数値を耳から反復できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/textbook-construction/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "cce-r8-mc-50",
+    "campaign": "kikinagashi-shunin-suchi"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

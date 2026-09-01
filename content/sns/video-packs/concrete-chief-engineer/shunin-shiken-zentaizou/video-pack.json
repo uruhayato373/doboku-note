@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "packId": "shunin-shiken-zentaizou",
+  "exam": "concrete-chief-engineer",
+  "title": "コンクリート主任技士の全体像 — 四肢択一×小論文の二本立て",
+  "audience": "コンクリート主任技士の受験を決めた技術者",
+  "pain": "四肢択一と小論文の二本立てで何をどの配分で仕込むべきか掴めない",
+  "promise": "JCI公式区分に沿った出題分野と試験の全体像が分かり配分を決められる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "shunin-shiken-zentaizou"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

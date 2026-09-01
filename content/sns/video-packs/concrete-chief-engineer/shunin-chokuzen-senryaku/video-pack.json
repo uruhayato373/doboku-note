@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "shunin-chokuzen-senryaku",
+  "exam": "concrete-chief-engineer",
+  "title": "主任技士 直前期の総仕上げ — 頻出度で絞る",
+  "audience": "試験直前期のコンクリート主任技士受験者",
+  "pain": "残り時間で全分野は回せず何を捨てて何を固めるか決められない",
+  "promise": "頻出度と配点感から直前期に固める分野の絞り方が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "cce-r8-mc-50",
+    "campaign": "shunin-chokuzen-senryaku"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

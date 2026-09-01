@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "shunin-structural-design-ronten",
+  "exam": "concrete-chief-engineer",
+  "title": "主任技士「コンクリート構造の設計」の頻出論点",
+  "audience": "コンクリート主任技士の択一でコンクリート構造の設計分野を固めたい受験者",
+  "pain": "曲げやせん断の構造計算は久しぶりで解き方を思い出せない",
+  "promise": "設計分野の頻出パターンと解き筋を整理し構造問題で得点できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/textbook-structural-design/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/primary-structural-design/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "cce-r8-mc-50",
+    "campaign": "shunin-structural-design-ronten"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

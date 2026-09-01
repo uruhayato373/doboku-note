@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "shunin-materials-ronten",
+  "exam": "concrete-chief-engineer",
+  "title": "主任技士「コンクリート用材料」の頻出論点",
+  "audience": "コンクリート主任技士の択一でコンクリート用材料分野を固めたい受験者",
+  "pain": "ポルトランドセメントの種類も混和材料の使い分けも似た記述が多く覚え分けられない",
+  "promise": "セメント・骨材・混和材料の頻出論点を整理し選択肢の判断軸が持てる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/textbook-materials/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/primary-materials/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "cce-r8-mc-50",
+    "campaign": "shunin-materials-ronten"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}
