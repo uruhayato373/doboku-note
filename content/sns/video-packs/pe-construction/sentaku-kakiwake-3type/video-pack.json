@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "packId": "sentaku-kakiwake-3type",
+  "exam": "pe-construction",
+  "title": "Ⅱ-1・Ⅱ-2・Ⅲは別の試験 — 設問タイプ別の書き分け",
+  "audience": "技術士建設部門二次で選択科目の答案を書き始めた受験者",
+  "pain": "Ⅱ-1もⅡ-2もⅢも同じ調子で書いてしまいどこで差がつくのか分からない",
+  "promise": "3つの設問タイプごとに求められる能力と書き分けの型が分かる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "sentaku-kakiwake-3type"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

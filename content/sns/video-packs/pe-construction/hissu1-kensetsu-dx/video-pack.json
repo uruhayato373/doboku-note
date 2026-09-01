@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "hissu1-kensetsu-dx",
+  "exam": "pe-construction",
+  "title": "建設DX・i-Construction — 施策の全体像と論点",
+  "audience": "必須ⅠでDXテーマに備える建設部門受験者",
+  "pain": "DX施策の名前は知っていても論文で使える形になっていない",
+  "promise": "建設DXの施策体系と必須Ⅰでの問われ方が整理できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/kensetsu-dx/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/ninaite-dx-ronbun-keyword/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-required-magazine",
+    "campaign": "hissu1-kensetsu-dx"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

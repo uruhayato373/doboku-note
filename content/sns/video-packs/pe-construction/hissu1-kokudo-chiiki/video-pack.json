@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "hissu1-kokudo-chiiki",
+  "exam": "pe-construction",
+  "title": "国土形成と地域づくり — 社会資本整備の論点整理",
+  "audience": "必須Ⅰで国土・地域テーマに備える建設部門受験者",
+  "pain": "国土計画系のテーマは抽象的で課題設定の切り口が見つからない",
+  "promise": "国土形成・地域づくりの論点と社会資本整備の土台が整理できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/kokudo-keisei-chiiki/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/chiiki-dukuri-ronbun-keyword/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/shakai-shihon-ronbun-keyword/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-required-magazine",
+    "campaign": "hissu1-kokudo-chiiki"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

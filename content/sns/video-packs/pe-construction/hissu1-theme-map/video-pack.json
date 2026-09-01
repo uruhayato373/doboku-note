@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "hissu1-theme-map",
+  "exam": "pe-construction",
+  "title": "必須科目Ⅰの出題テーマ地図 — 7年分を6系統で読む",
+  "audience": "技術士建設部門二次の必須Ⅰ対策を始める受験者",
+  "pain": "必須Ⅰの出題範囲が広すぎてどのテーマから仕込むか決められない",
+  "promise": "過去7年の出題を6系統に整理しテーマの仕込み順を決められる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/required-exam-themes/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-required-magazine",
+    "campaign": "hissu1-theme-map"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

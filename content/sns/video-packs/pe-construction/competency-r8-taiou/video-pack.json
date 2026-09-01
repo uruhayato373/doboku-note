@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "competency-r8-taiou",
+  "exam": "pe-construction",
+  "title": "令和8年度コンピテンシー改訂 — 何が変わり答案はどう変わるか",
+  "audience": "令和8年度の技術士建設部門二次を受ける受験者",
+  "pain": "コンピテンシー改訂で評価軸がどう変わるのか掴めていない",
+  "promise": "新旧の違いと答案・口頭で意識すべき変更点が分かる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/competency-revision-r8/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-required-magazine",
+    "campaign": "competency-r8-taiou"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

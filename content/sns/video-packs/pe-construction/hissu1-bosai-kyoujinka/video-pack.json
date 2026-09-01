@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "hissu1-bosai-kyoujinka",
+  "exam": "pe-construction",
+  "title": "防災・国土強靱化 — 必須Ⅰ最頻出テーマの論点整理",
+  "audience": "必須Ⅰで防災テーマに備える建設部門受験者",
+  "pain": "防災・減災は範囲が広く必須Ⅰでどう問われるのか掴めない",
+  "promise": "過去の問われ方と論点の骨格が整理でき課題設定から書き始められる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/bosai-kokudo-kyoujinka/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/bousai-genseigai-ronbun-keyword/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-required-magazine",
+    "campaign": "hissu1-bosai-kyoujinka"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

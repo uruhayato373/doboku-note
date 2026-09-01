@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "packId": "secondary-study-houhou",
+  "exam": "pe-construction",
+  "title": "建設部門二次の独学ロードマップ — 何をどの順で",
+  "audience": "技術士建設部門二次を独学で目指す受験者",
+  "pain": "講座なしで何をどの順に進めれば合格水準に届くのか分からない",
+  "promise": "教材と過去問を使った独学の進め方が段階で分かる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/secondary-study-method/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "secondary-study-houhou"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

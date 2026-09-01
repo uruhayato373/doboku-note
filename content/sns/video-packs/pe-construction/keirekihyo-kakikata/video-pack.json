@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "keirekihyo-kakikata",
+  "exam": "pe-construction",
+  "title": "業務経歴票の書き方 — 720字の「業務内容の詳細」",
+  "audience": "技術士二次の受験申込を準備する建設部門の受験者",
+  "pain": "業務内容の詳細に何をどこまで書けば口頭試験まで戦えるか分からない",
+  "promise": "技術士にふさわしい業務として伝わる720字の組み立て方が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "site-article",
+    "targetPath": "content/site/pe-construction/gyoumu-keireki-hyou/article.mdx",
+    "campaign": "keirekihyo-kakikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

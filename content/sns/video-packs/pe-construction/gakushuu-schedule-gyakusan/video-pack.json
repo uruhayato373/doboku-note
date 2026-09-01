@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakushuu-schedule-gyakusan",
+  "exam": "pe-construction",
+  "title": "勉強時間とスケジュール — 逆算で間に合わせる",
+  "audience": "仕事と両立しながら建設部門二次を目指す受験者",
+  "pain": "何ヶ月前から何をやれば筆記に間に合うのか計画できない",
+  "promise": "筆記から逆算した月単位の学習スケジュールが組める",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/gakushuu-jikan-schedule/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "gakushuu-schedule-gyakusan"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

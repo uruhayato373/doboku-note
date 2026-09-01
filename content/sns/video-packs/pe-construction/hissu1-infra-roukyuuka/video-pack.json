@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "hissu1-infra-roukyuuka",
+  "exam": "pe-construction",
+  "title": "インフラ老朽化と予防保全 — 維持管理テーマの論点整理",
+  "audience": "必須Ⅰで維持管理テーマに備える建設部門受験者",
+  "pain": "老朽化対策の施策が多くどれを軸に論文を組むか決められない",
+  "promise": "予防保全への転換を軸にした課題・方策の骨格が整理できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/infra-roukyuuka-iji/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/iji-kanri-ronbun-keyword/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-required-magazine",
+    "campaign": "hissu1-infra-roukyuuka"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}
