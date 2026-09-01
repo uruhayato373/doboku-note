@@ -22,6 +22,7 @@ const GROUP_DESCRIPTIONS: Record<string, Record<string, string>> = {
     secondary: '経験記述・施工管理（コンクリート工・土工・品質管理・施工計画）の基礎と過去問（主任技術者視点）',
   },
   'pe-first-stage': {
+    guide: '試験制度・科目構成・合格基準・学習計画・一次合格後のロードマップ',
     primary: '年度別の適性科目・基礎科目・専門科目（建設部門）全問解説',
   },
   'pe-comprehensive-management': {
@@ -108,7 +109,14 @@ function sortDocs(docs: DocMeta[], group: DocGroupKey, category: string) {
       });
     }
   } else if (category === 'pe-first-stage') {
-    if (group === 'primary') {
+    if (group === 'guide') {
+      docs.sort((a, b) => {
+        const orderA = a.guide_order ?? 999;
+        const orderB = b.guide_order ?? 999;
+        if (orderA !== orderB) return orderA - orderB;
+        return (a.title || '').localeCompare(b.title || '', 'ja');
+      });
+    } else if (group === 'primary') {
       docs.sort((a, b) => {
         const yearA = a.slug?.match(/(r|h)(\d+)/);
         const yearB = b.slug?.match(/(r|h)(\d+)/);

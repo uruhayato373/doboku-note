@@ -39,7 +39,7 @@ const GROUP_FIELD_MAP: Record<string, DocGroupKey> = {
 };
 
 const PE_GROUP_ORDER: DocGroupKey[] = ['guide', 'pillar', 'pastExam', 'keyword'];
-const PE_FIRST_STAGE_GROUP_ORDER: DocGroupKey[] = ['primary'];
+const PE_FIRST_STAGE_GROUP_ORDER: DocGroupKey[] = ['guide', 'primary'];
 const PE_CONSTRUCTION_GROUP_ORDER: DocGroupKey[] = ['guide', 'keyword', 'pastExam'];
 const CIVIL_GROUP_ORDER: DocGroupKey[] = ['guide', 'textbook', 'primary', 'secondary'];
 const CONCRETE_GROUP_ORDER: DocGroupKey[] = ['guide', 'textbook', 'primary'];
@@ -98,6 +98,7 @@ const GROUP_LABELS: Record<string, Partial<Record<DocGroupKey, string>>> = {
     secondary: '第2次検定',
   },
   'pe-first-stage': {
+    guide: '試験ガイド',
     primary: '過去問',
   },
   'pe-construction': {

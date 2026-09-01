@@ -32,10 +32,11 @@ function stripPrefix(value: string, prefix: string): string {
 }
 
 function routeGroup(meta: DocMeta): DocGroupKey {
-  // pe-first-stage is a past-question archive. Older entries predate the
-  // explicit frontmatter group field, so the generic classifier calls them
-  // keywords even though their public intent is unambiguously primary exams.
-  if (meta.category === 'pe-first-stage') return 'primary';
+  // pe-first-stage entries without an explicit frontmatter group predate the
+  // field and would be classified as keywords by the generic fallback, even
+  // though their public intent is unambiguously primary exams. Docs that do
+  // declare a group (e.g. the guide articles) follow the classifier.
+  if (meta.category === 'pe-first-stage' && !meta.group) return 'primary';
   return classifyDoc(meta);
 }
 
