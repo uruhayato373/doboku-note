@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-08-31T23:05:29.369Z",
+  "generated_at": "2026-09-01T22:25:05.373Z",
   "summary": {
-    "total_mdx_files": 1187,
-    "total_unique_tags": 179,
+    "total_mdx_files": 1190,
+    "total_unique_tags": 180,
     "allowlist_size": 157,
     "known_count": 87,
-    "unknown_count": 92,
+    "unknown_count": 93,
     "typo_candidates_count": 5
   },
   "tags": [
@@ -1077,7 +1077,7 @@
     },
     {
       "name": "guide",
-      "count": 190,
+      "count": 193,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1269,7 +1269,10 @@
         "pe-construction-tunnel-exam-themes",
         "pe-construction-tunnel-ronbun-keyword",
         "pe-construction-urban-planning-exam-themes",
-        "pe-construction-urban-planning-ronbun-keyword"
+        "pe-construction-urban-planning-ronbun-keyword",
+        "pe-first-stage-guide-after-pass",
+        "pe-first-stage-guide-overview",
+        "pe-first-stage-guide-study-plan"
       ]
     },
     {
@@ -1973,7 +1976,7 @@
     },
     {
       "name": "exam-preparation",
-      "count": 41,
+      "count": 44,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-career-salary",
@@ -2016,7 +2019,10 @@
         "concrete-engineer-guide-eligibility-2026",
         "concrete-engineer-guide-overview",
         "concrete-engineer-guide-study-plan",
-        "pe-comprehensive-management-exam-passing-strategy"
+        "pe-comprehensive-management-exam-passing-strategy",
+        "pe-first-stage-guide-after-pass",
+        "pe-first-stage-guide-overview",
+        "pe-first-stage-guide-study-plan"
       ]
     },
     {
@@ -3172,6 +3178,16 @@
       ]
     },
     {
+      "name": "pe-first-stage",
+      "count": 3,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-first-stage-guide-after-pass",
+        "pe-first-stage-guide-overview",
+        "pe-first-stage-guide-study-plan"
+      ]
+    },
+    {
       "name": "rebar",
       "count": 3,
       "inAllowlist": true,
@@ -4075,6 +4091,7 @@
     "ゼネコン",
     "建設コンサル",
     "施工",
+    "pe-first-stage",
     "SWOT分析",
     "コンパクトシティ",
     "データ利活用",

@@ -18,26 +18,147 @@
       ]
     },
     "textbookChapters": [
-      { "volume": "土木一般・共通工学編", "chapterNo": "第1章", "label": "土工", "min": 1, "max": 49, "introGuides": ["guide-earthwork-key-points"] },
-      { "volume": "土木一般・共通工学編", "chapterNo": "第2章", "label": "建設機械", "min": 100, "max": 149, "introGuides": ["guide-machinery"] },
-      { "volume": "土木一般・共通工学編", "chapterNo": "第3章", "label": "コンクリート工", "min": 50, "max": 79, "introGuides": ["guide-concrete-key-points", "guide-concrete-maintenance"] },
-      { "volume": "土木一般・共通工学編", "chapterNo": "第4章", "label": "基礎工", "min": 80, "max": 99, "introGuides": ["guide-foundation"] },
-      { "volume": "土木一般・共通工学編", "chapterNo": "第5章", "label": "測量", "min": 150, "max": 169, "introGuides": ["guide-surveying"] },
-      { "volume": "土木一般・共通工学編", "chapterNo": "第6章", "label": "解体工事", "min": 170, "max": 199, "introGuides": ["guide-demolition"] },
-      { "volume": "施工管理・法規編", "chapterNo": "第1-2章", "label": "施工管理・施工計画", "min": 200, "max": 249, "introGuides": ["guide-construction-plan"] },
-      { "volume": "施工管理・法規編", "chapterNo": "第3章", "label": "工程管理", "min": 250, "max": 299, "introGuides": ["guide-schedule-management"] },
-      { "volume": "施工管理・法規編", "chapterNo": "第4章", "label": "品質管理", "min": 300, "max": 399, "introGuides": ["guide-quality-management"] },
-      { "volume": "施工管理・法規編", "chapterNo": "第5章", "label": "安全管理", "min": 500, "max": 599, "introGuides": ["guide-safety-management"] },
-      { "volume": "施工管理・法規編", "chapterNo": "第6章", "label": "環境保全・建設副産物", "min": 600, "max": 699, "introGuides": ["guide-environment-management"] },
-      { "volume": "施工管理・法規編", "chapterNo": "第7章", "label": "関係法規", "min": 400, "max": 499, "introGuides": ["guide-law-key-points"] }
+      {
+        "volume": "土木一般・共通工学編",
+        "chapterNo": "第1章",
+        "label": "土工",
+        "min": 1,
+        "max": 49,
+        "introGuides": [
+          "guide-earthwork-key-points"
+        ]
+      },
+      {
+        "volume": "土木一般・共通工学編",
+        "chapterNo": "第2章",
+        "label": "建設機械",
+        "min": 100,
+        "max": 149,
+        "introGuides": [
+          "guide-machinery"
+        ]
+      },
+      {
+        "volume": "土木一般・共通工学編",
+        "chapterNo": "第3章",
+        "label": "コンクリート工",
+        "min": 50,
+        "max": 79,
+        "introGuides": [
+          "guide-concrete-key-points",
+          "guide-concrete-maintenance"
+        ]
+      },
+      {
+        "volume": "土木一般・共通工学編",
+        "chapterNo": "第4章",
+        "label": "基礎工",
+        "min": 80,
+        "max": 99,
+        "introGuides": [
+          "guide-foundation"
+        ]
+      },
+      {
+        "volume": "土木一般・共通工学編",
+        "chapterNo": "第5章",
+        "label": "測量",
+        "min": 150,
+        "max": 169,
+        "introGuides": [
+          "guide-surveying"
+        ]
+      },
+      {
+        "volume": "土木一般・共通工学編",
+        "chapterNo": "第6章",
+        "label": "解体工事",
+        "min": 170,
+        "max": 199,
+        "introGuides": [
+          "guide-demolition"
+        ]
+      },
+      {
+        "volume": "施工管理・法規編",
+        "chapterNo": "第1-2章",
+        "label": "施工管理・施工計画",
+        "min": 200,
+        "max": 249,
+        "introGuides": [
+          "guide-construction-plan"
+        ]
+      },
+      {
+        "volume": "施工管理・法規編",
+        "chapterNo": "第3章",
+        "label": "工程管理",
+        "min": 250,
+        "max": 299,
+        "introGuides": [
+          "guide-schedule-management"
+        ]
+      },
+      {
+        "volume": "施工管理・法規編",
+        "chapterNo": "第4章",
+        "label": "品質管理",
+        "min": 300,
+        "max": 399,
+        "introGuides": [
+          "guide-quality-management"
+        ]
+      },
+      {
+        "volume": "施工管理・法規編",
+        "chapterNo": "第5章",
+        "label": "安全管理",
+        "min": 500,
+        "max": 599,
+        "introGuides": [
+          "guide-safety-management"
+        ]
+      },
+      {
+        "volume": "施工管理・法規編",
+        "chapterNo": "第6章",
+        "label": "環境保全・建設副産物",
+        "min": 600,
+        "max": 699,
+        "introGuides": [
+          "guide-environment-management"
+        ]
+      },
+      {
+        "volume": "施工管理・法規編",
+        "chapterNo": "第7章",
+        "label": "関係法規",
+        "min": 400,
+        "max": 499,
+        "introGuides": [
+          "guide-law-key-points"
+        ]
+      }
     ],
-    "careerFeatured": ["guide-career", "guide-career-salary", "guide-career-agents", "guide-quit-or-stay", "guide-timing"]
+    "careerFeatured": [
+      "guide-career",
+      "guide-career-salary",
+      "guide-career-agents",
+      "guide-quit-or-stay",
+      "guide-timing"
+    ]
   },
   "civil-construction-2": {
     "examGuide": {
       "title": "受験ガイド",
       "description": "2級の試験概要・学習計画・勉強法・参考書など、まず全体像をつかむための記事",
-      "slugs": ["guide-overview", "guide-exam-overview", "guide-study-plan", "guide-study-method", "guide-textbooks"]
+      "slugs": [
+        "guide-overview",
+        "guide-exam-overview",
+        "guide-study-plan",
+        "guide-study-method",
+        "guide-textbooks"
+      ]
     },
     "fields": {
       "title": "第1次検定 分野別対策",
@@ -46,41 +167,82 @@
         {
           "id": "doboku-ippan",
           "label": "土木一般（土工・コンクリート・基礎工）",
-          "slugs": ["guide-earthwork-key-points", "guide-concrete-key-points", "guide-foundation-key-points"]
+          "slugs": [
+            "guide-earthwork-key-points",
+            "guide-concrete-key-points",
+            "guide-foundation-key-points"
+          ]
         },
         {
           "id": "seko-kanri",
           "label": "施工管理法（施工計画・工程・品質・安全）",
-          "slugs": ["guide-construction-plan-key-points", "guide-schedule-management", "guide-quality-management", "guide-safety-management"]
+          "slugs": [
+            "guide-construction-plan-key-points",
+            "guide-schedule-management",
+            "guide-quality-management",
+            "guide-safety-management"
+          ]
         },
         {
           "id": "hoki",
           "label": "法規",
-          "slugs": ["guide-law-key-points"]
+          "slugs": [
+            "guide-law-key-points"
+          ]
         }
       ]
     },
-    "careerFeatured": ["guide-salary", "guide-career-change", "guide-quit-or-stay"]
+    "careerFeatured": [
+      "guide-salary",
+      "guide-career-change",
+      "guide-quit-or-stay"
+    ]
   },
   "concrete-engineer": {
     "examGuide": {
       "title": "受験ガイド",
       "description": "2026年度の試験概要・受験資格・技士と主任技士の違い・学習計画",
-      "slugs": ["guide-overview", "guide-eligibility-2026", "guide-difference-chief", "guide-study-plan", "guide-books"]
+      "slugs": [
+        "guide-overview",
+        "guide-eligibility-2026",
+        "guide-difference-chief",
+        "guide-study-plan",
+        "guide-books"
+      ]
     }
   },
   "concrete-chief-engineer": {
     "examGuide": {
       "title": "受験ガイド",
       "description": "試験概要・出題傾向・小論文対策",
-      "slugs": ["guide-overview", "guide-trends", "guide-essay"]
+      "slugs": [
+        "guide-overview",
+        "guide-trends",
+        "guide-essay"
+      ]
     }
   },
   "concrete-diagnostician": {
     "examGuide": {
       "title": "受験ガイド",
       "description": "試験概要・出題傾向・学習法・記述式対策",
-      "slugs": ["guide-overview", "guide-trends", "guide-study-method", "guide-essay"]
+      "slugs": [
+        "guide-overview",
+        "guide-trends",
+        "guide-study-method",
+        "guide-essay"
+      ]
+    }
+  },
+  "pe-first-stage": {
+    "examGuide": {
+      "title": "受験ガイド",
+      "description": "試験制度・2026年度日程・学習計画・一次合格後のロードマップ",
+      "slugs": [
+        "guide-overview",
+        "guide-study-plan",
+        "guide-after-pass"
+      ]
     }
   },
   "pe-construction": {
@@ -94,11 +256,25 @@
         "groups": [
           {
             "label": "論点キーワード",
-            "slugs": ["shakai-shihon-ronbun-keyword", "bousai-genseigai-ronbun-keyword", "iji-kanri-ronbun-keyword", "ninaite-dx-ronbun-keyword", "datsutanso-kankyo-ronbun-keyword", "chiiki-dukuri-ronbun-keyword"]
+            "slugs": [
+              "shakai-shihon-ronbun-keyword",
+              "bousai-genseigai-ronbun-keyword",
+              "iji-kanri-ronbun-keyword",
+              "ninaite-dx-ronbun-keyword",
+              "datsutanso-kankyo-ronbun-keyword",
+              "chiiki-dukuri-ronbun-keyword"
+            ]
           },
           {
             "label": "論文の書き方",
-            "slugs": ["bosai-kokudo-kyoujinka", "infra-roukyuuka-iji", "ninaite-kakuho-seisansei", "kensetsu-dx", "carbon-neutral-kensetsu", "kokudo-keisei-chiiki"]
+            "slugs": [
+              "bosai-kokudo-kyoujinka",
+              "infra-roukyuuka-iji",
+              "ninaite-kakuho-seisansei",
+              "kensetsu-dx",
+              "carbon-neutral-kensetsu",
+              "kokudo-keisei-chiiki"
+            ]
           }
         ]
       },
@@ -106,28 +282,110 @@
         "label": "選択科目（11 分野）",
         "note": "自分の受験科目の行だけ横に読む。行の並びは下の過去問マトリクスと同じ。",
         "columns": [
-          { "header": "出題テーマ分析", "cell": "R01〜R07" },
-          { "header": "論文のキーワード", "cell": "論文キーワード" }
+          {
+            "header": "出題テーマ分析",
+            "cell": "R01〜R07"
+          },
+          {
+            "header": "論文のキーワード",
+            "cell": "論文キーワード"
+          }
         ],
         "subjects": [
-          { "label": "土質及び基礎", "slugs": ["geotechnical-exam-themes", "soil-foundation-ronbun-keyword"] },
-          { "label": "鋼構造・コンクリート", "fullLabel": "鋼構造及びコンクリート", "slugs": ["steel-concrete-exam-themes", "steel-concrete-ronbun-keyword"] },
-          { "label": "都市・地方計画", "fullLabel": "都市及び地方計画", "slugs": ["urban-planning-exam-themes", "urban-planning-ronbun-keyword"] },
-          { "label": "河川・砂防・海岸", "fullLabel": "河川、砂防及び海岸・海洋", "slugs": ["river-coast-exam-themes", "river-coast-ronbun-keyword"] },
-          { "label": "港湾・空港", "fullLabel": "港湾及び空港", "slugs": ["port-airport-exam-themes", "port-airport-ronbun-keyword"] },
-          { "label": "電力土木", "slugs": ["power-civil-exam-themes", "power-civil-ronbun-keyword"] },
-          { "label": "道路", "slugs": ["road-exam-themes", "road-ronbun-keyword"] },
-          { "label": "鉄道", "slugs": ["railway-exam-themes", "railway-ronbun-keyword"] },
-          { "label": "トンネル", "slugs": ["tunnel-exam-themes", "tunnel-ronbun-keyword"] },
-          { "label": "施工計画・積算", "fullLabel": "施工計画、施工設備及び積算", "slugs": ["construction-planning-exam-themes", "construction-planning-ronbun-keyword"] },
-          { "label": "建設環境", "slugs": ["environment-exam-themes", "construction-environment-ronbun-keyword"] }
+          {
+            "label": "土質及び基礎",
+            "slugs": [
+              "geotechnical-exam-themes",
+              "soil-foundation-ronbun-keyword"
+            ]
+          },
+          {
+            "label": "鋼構造・コンクリート",
+            "fullLabel": "鋼構造及びコンクリート",
+            "slugs": [
+              "steel-concrete-exam-themes",
+              "steel-concrete-ronbun-keyword"
+            ]
+          },
+          {
+            "label": "都市・地方計画",
+            "fullLabel": "都市及び地方計画",
+            "slugs": [
+              "urban-planning-exam-themes",
+              "urban-planning-ronbun-keyword"
+            ]
+          },
+          {
+            "label": "河川・砂防・海岸",
+            "fullLabel": "河川、砂防及び海岸・海洋",
+            "slugs": [
+              "river-coast-exam-themes",
+              "river-coast-ronbun-keyword"
+            ]
+          },
+          {
+            "label": "港湾・空港",
+            "fullLabel": "港湾及び空港",
+            "slugs": [
+              "port-airport-exam-themes",
+              "port-airport-ronbun-keyword"
+            ]
+          },
+          {
+            "label": "電力土木",
+            "slugs": [
+              "power-civil-exam-themes",
+              "power-civil-ronbun-keyword"
+            ]
+          },
+          {
+            "label": "道路",
+            "slugs": [
+              "road-exam-themes",
+              "road-ronbun-keyword"
+            ]
+          },
+          {
+            "label": "鉄道",
+            "slugs": [
+              "railway-exam-themes",
+              "railway-ronbun-keyword"
+            ]
+          },
+          {
+            "label": "トンネル",
+            "slugs": [
+              "tunnel-exam-themes",
+              "tunnel-ronbun-keyword"
+            ]
+          },
+          {
+            "label": "施工計画・積算",
+            "fullLabel": "施工計画、施工設備及び積算",
+            "slugs": [
+              "construction-planning-exam-themes",
+              "construction-planning-ronbun-keyword"
+            ]
+          },
+          {
+            "label": "建設環境",
+            "slugs": [
+              "environment-exam-themes",
+              "construction-environment-ronbun-keyword"
+            ]
+          }
         ]
       }
     },
     "examGuide": {
       "title": "受験ガイド",
       "description": "難易度・学習計画・勉強法・コンピテンシー改訂など、二次試験の全体像",
-      "slugs": ["nanido-goukakuritsu", "gakushuu-jikan-schedule", "secondary-study-method", "competency-revision-r8"]
+      "slugs": [
+        "nanido-goukakuritsu",
+        "gakushuu-jikan-schedule",
+        "secondary-study-method",
+        "competency-revision-r8"
+      ]
     },
     "fields": {
       "title": "記述式論文の書き方",
@@ -136,7 +394,14 @@
         {
           "id": "kakikata",
           "label": "論文の書き方・業務経歴票",
-          "slugs": ["pe-secondary-essay-guide", "toan-kousei-template", "sentaku-kamoku-kakiwake", "hissu-kamoku-kaitourei", "guide-required-essay", "gyoumu-keireki-hyou"]
+          "slugs": [
+            "pe-secondary-essay-guide",
+            "toan-kousei-template",
+            "sentaku-kamoku-kakiwake",
+            "hissu-kamoku-kaitourei",
+            "guide-required-essay",
+            "gyoumu-keireki-hyou"
+          ]
         }
       ]
     }
@@ -145,7 +410,15 @@
     "examGuide": {
       "title": "受験ガイド",
       "description": "試験ガイド・合格戦略・出願の留意点",
-      "slugs": ["exam-index", "exam-passing-strategy", "course-selection-guide", "exam-application-guide", "general-vs-comprehensive", "keyword-2026", "frequent-topics"]
+      "slugs": [
+        "exam-index",
+        "exam-passing-strategy",
+        "course-selection-guide",
+        "exam-application-guide",
+        "general-vs-comprehensive",
+        "keyword-2026",
+        "frequent-topics"
+      ]
     },
     "fields": {
       "title": "記述式論文の対策",
@@ -154,22 +427,45 @@
         {
           "id": "essay-strategy",
           "label": "記述式の学習法・戦略",
-          "slugs": ["essay-exam-strategy", "essay-persona-guide", "essay-pattern-cross-year-application", "whitepaper-study-map", "management-tradeoffs", "last-minute-2026"]
+          "slugs": [
+            "essay-exam-strategy",
+            "essay-persona-guide",
+            "essay-pattern-cross-year-application",
+            "whitepaper-study-map",
+            "management-tradeoffs",
+            "last-minute-2026"
+          ]
         },
         {
           "id": "r8-forecast",
           "label": "R8 予想問題",
-          "slugs": ["r8-essay-keyword-forecast", "r8-essay-theme-climate-adaptation", "r8-essay-theme-disaster-recovery", "r8-essay-theme-circular-economy", "r8-essay-theme-infrastructure-maintenance", "r8-essay-theme-ai-governance", "r8-essay-theme-economic-security"]
+          "slugs": [
+            "r8-essay-keyword-forecast",
+            "r8-essay-theme-climate-adaptation",
+            "r8-essay-theme-disaster-recovery",
+            "r8-essay-theme-circular-economy",
+            "r8-essay-theme-infrastructure-maintenance",
+            "r8-essay-theme-ai-governance",
+            "r8-essay-theme-economic-security"
+          ]
         },
         {
           "id": "model-essay",
           "label": "立場別 模範論文",
-          "slugs": ["pattern-essay-general-contractor", "pattern-essay-river-consultant", "pattern-essay-road-municipality"]
+          "slugs": [
+            "pattern-essay-general-contractor",
+            "pattern-essay-river-consultant",
+            "pattern-essay-road-municipality"
+          ]
         },
         {
           "id": "why-comprehensive",
           "label": "総監を取る意味・キャリア",
-          "slugs": ["public-servant-comprehensive-merit", "private-engineer-comprehensive-merit", "public-engineer-qualification-map"]
+          "slugs": [
+            "public-servant-comprehensive-merit",
+            "private-engineer-comprehensive-merit",
+            "public-engineer-qualification-map"
+          ]
         }
       ]
     }
