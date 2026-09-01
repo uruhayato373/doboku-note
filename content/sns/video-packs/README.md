@@ -105,9 +105,9 @@
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
 | `gokanri-tradeoff` | 5管理を列挙で終わらせずトレードオフにする方法 | 5管理を列挙しただけの答案から抜け出せない | exam-point | レビュー | 台本/構成 | `tradeoff-5kanri` |
-| `gyoumu-keirekihyo` | 業務経歴票の書き方 — 出願でつまずかない | 経歴票に何をどう書けば監理経験として認められるか不安 | howto | 下書き | 台本/構成 | `links-hub` |
+| `gyoumu-keirekihyo` | 業務経歴票の書き方 — 出願でつまずかない | 経歴票に何をどう書けば監理経験として認められるか不安 | howto | レビュー | 台本/構成 | `links-hub` |
 | `hakusho-map` | 白書はどれを読む？5管理×27白書の使い分け | 白書が多すぎてどれをどこまで読むべきか分からない | roadmap | レビュー | 台本/構成 | `tankan-reading-guide` |
-| `kata-oudan-ryuyo` | 1つの論文パターンを複数年度へ流用する | 過去問ごとに別の答案を用意する準備量に耐えられない | howto | 下書き | 台本/構成 | `essay-core-pack` |
+| `kata-oudan-ryuyo` | 1つの論文パターンを複数年度へ流用する | 過去問ごとに別の答案を用意する準備量に耐えられない | howto | レビュー | 台本/構成 | `essay-core-pack` |
 | `kikinagashi-sokan-keyword` | 耳で覚える総監キーワード — 5管理の核を反復する | 5管理のキーワードが多すぎて机の学習だけでは反復が足りない | exam-point | レビュー | 台本/構成 | `tankan-takuitsu-reiwa-pdf` |
 | `monbun-yomikata` | 総監記述式で設問の役割を取り違えない読み方 | 長い問題文のどこを読み、各設問で何を書けばよいか分からない | howto | レビュー | 台本/構成 | `essay-core-pack` |
 | `persona-settei` | 論文の立場（ペルソナ）はどう選ぶか | 自分の経歴でどの立場から書けば減点されないか分からない | howto | レビュー | 台本/構成 | `essay-complete-pack` |
@@ -115,7 +115,7 @@
 | `sanso-kozo` | 合否を分ける三層構造 — 前提・施策・最大リスク | 設問ごとに何を書くべきかの役割分担が分からない | exam-point | レビュー | 台本/構成 | `essay-complete-pack` |
 | `setsumon3-shisaku` | 設問3で国家施策が出てこない人へ | 将来展望で書ける国家スケールの施策の持ち駒が無い | howto | レビュー | 台本/構成 | `setsumon3-policy-bank` |
 | `sokan-goukaku-senryaku` | 総監の合格戦略 — 択一と記述の配分 | 択一と記述にどう時間配分すべきか判断できない | roadmap | レビュー | 台本/構成 | `links-hub` |
-| `sokan-kojutsu-kangaekata` | 口頭試験の考え方 — 経歴を総監の言葉で語る | 口頭試験で自分の経歴や業務をどう総監らしく語ればよいか分からない | howto | 下書き | 台本/構成 | `essay-complete-pack` |
+| `sokan-kojutsu-kangaekata` | 口頭試験の考え方 — 経歴を総監の言葉で語る | 口頭試験で自分の経歴や業務をどう総監らしく語ればよいか分からない | howto | レビュー | 台本/構成 | `essay-complete-pack` |
 | `takuitsu-keyword` | 択一はキーワード集をこう使う | 600超のキーワードをどう回せばよいか分からない | howto | レビュー | 台本/構成 | `tankan-reading-guide` |
 | `takuitsu-r07-enshu` | 令和7年度の択一を3問だけ解く — 型で落とさない | 択一の過去問をどう解き進めれば力になるのか掴めない | exam-point | レビュー | 台本/構成 | `tankan-takuitsu-reiwa-pdf` |
 

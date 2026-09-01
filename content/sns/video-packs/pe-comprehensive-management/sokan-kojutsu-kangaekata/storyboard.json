@@ -10,7 +10,9 @@
       "visual": {
         "kind": "cover",
         "heading": "口頭試験の考え方 経歴を総監の言葉で語る",
-        "items": ["技術士 総合技術監理部門・口頭試験"]
+        "items": [
+          "技術士 総合技術監理部門・口頭試験"
+        ]
       }
     },
     {
@@ -21,7 +23,10 @@
       "caption": "問われるのは知識でなく説明力",
       "visual": {
         "heading": "誤解：口頭は知識を問われる場",
-        "items": ["実際は経歴を5管理の視点で語れるか", "知識より説明力の不足が不合格の主因"]
+        "items": [
+          "実際は経歴を5管理の視点で語れるか",
+          "知識より説明力の不足が不合格の主因"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
     },
@@ -33,7 +38,10 @@
       "caption": "経歴票の業務を5管理で問われる",
       "visual": {
         "heading": "口頭試験で問われているもの",
-        "items": ["経歴票の業務を5管理の視点で深掘り", "知識でなく経歴を語る力を見る試験"]
+        "items": [
+          "経歴票の業務を5管理の視点で深掘り",
+          "知識でなく経歴を語る力を見る試験"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
     },
@@ -45,7 +53,10 @@
       "caption": "適用事例を3〜5件用意する",
       "visual": {
         "heading": "5管理の適用事例を用意する",
-        "items": ["業務ごとに5管理の適用事例を3〜5件", "トレードオフと調整の経験を再現できる形に"]
+        "items": [
+          "業務ごとに5管理の適用事例を3〜5件",
+          "トレードオフと調整の経験を再現できる形に"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
     },
@@ -57,7 +68,10 @@
       "caption": "成長ストーリーを2〜3分で語る",
       "visual": {
         "heading": "成長ストーリーを準備する",
-        "items": ["1つ目→5つ目の業務で成長の流れを示す", "2〜3分のプレゼン骨子として整理する"]
+        "items": [
+          "1つ目→5つ目の業務で成長の流れを示す",
+          "2〜3分のプレゼン骨子として整理する"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
     },
@@ -65,11 +79,14 @@
       "sceneId": "qa",
       "start": 225,
       "end": 285,
-      "narration": "各業務について、5管理をどう適用したか、最も重要だったトレードオフの判断根拠、もう一度同じ業務をするなら何を改善するか、この経験を他へどう活かしたか、を声に出して練習します。第三者を相手にした模擬口頭で、説明の穴を埋めましょう。",
+      "narration": "準備は問いのセットで。5管理はどこに効いたか。二律背反をなぜその向きに裁いたか。やり直すなら何を変えるか。教訓を次のどこで使ったか。声に出して答える練習をします。",
       "caption": "想定問答を声に出して練習する",
       "visual": {
         "heading": "想定問答と模擬口頭",
-        "items": ["5管理の適用・トレードオフの根拠を声に出す", "第三者との模擬口頭で説明の穴を埋める"]
+        "items": [
+          "5管理の適用・トレードオフの根拠を声に出す",
+          "第三者との模擬口頭で説明の穴を埋める"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx"
     },
@@ -81,7 +98,11 @@
       "caption": "事例・ストーリー・声出し練習",
       "visual": {
         "heading": "まとめ",
-        "items": ["① 5管理の適用事例を複数用意", "② 成長ストーリーを2〜3分で語る", "③ 想定問答を声に出して練習する"]
+        "items": [
+          "① 5管理の適用事例を複数用意",
+          "② 成長ストーリーを2〜3分で語る",
+          "③ 想定問答を声に出して練習する"
+        ]
       }
     },
     {
@@ -93,7 +114,9 @@
       "visual": {
         "kind": "cover",
         "heading": "経歴を総監の言葉で語りきる",
-        "items": ["総監 記述式・口頭 完全パック（概要欄リンク）"]
+        "items": [
+          "総監 記述式・口頭 完全パック（概要欄リンク）"
+        ]
       }
     }
   ]
