@@ -10,7 +10,9 @@
       "visual": {
         "kind": "cover",
         "heading": "白書はどれを読む？5管理×27白書の使い分け",
-        "items": ["技術士 総合技術監理部門・白書対策"]
+        "items": [
+          "技術士 総合技術監理部門・白書対策"
+        ]
       }
     },
     {
@@ -21,7 +23,10 @@
       "caption": "全冊通読は非現実的",
       "visual": {
         "heading": "誤解：白書は全冊通読が必要",
-        "items": ["27冊の全文通読は非現実的", "必要なのは管理ごとの絞り込み"]
+        "items": [
+          "27冊の全文通読は非現実的",
+          "必要なのは管理ごとの絞り込み"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
     },
@@ -33,7 +38,10 @@
       "caption": "白書はキーワード集の肉付け役",
       "visual": {
         "heading": "1. キーワード集と白書は役割が違う",
-        "items": ["キーワード集＝骨格の用語定義", "白書＝最新動向・数値・特集の肉付け"]
+        "items": [
+          "キーワード集＝骨格の用語定義",
+          "白書＝最新動向・数値・特集の肉付け"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
     },
@@ -45,7 +53,10 @@
       "caption": "読むのは概要版と特集だけ",
       "visual": {
         "heading": "2. 概要版と特集に絞って読む",
-        "items": ["概要版（10〜30ページ）で論点把握", "本文は特集・第1部のみ深掘り"]
+        "items": [
+          "概要版（10〜30ページ）で論点把握",
+          "本文は特集・第1部のみ深掘り"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
     },
@@ -57,7 +68,10 @@
       "caption": "キーワードから逆引きする",
       "visual": {
         "heading": "3. キーワードから逆引きする",
-        "items": ["BCP→防災白書、カーボンニュートラル→環境・エネルギー白書", "直近2〜3年分に絞る"]
+        "items": [
+          "BCP→防災白書、カーボンニュートラル→環境・エネルギー白書",
+          "直近2〜3年分に絞る"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
     },
@@ -69,7 +83,13 @@
       "caption": "5管理ごとに核となる白書がある",
       "visual": {
         "heading": "4. 5管理ごとの核となる白書",
-        "items": ["経済性：経済財政白書＋中小企業白書", "人的資源：厚生労働白書＋労働経済の分析", "安全：防災白書＋労働災害発生状況"]
+        "items": [
+          "経済性：経済財政白書ほか",
+          "人的資源：厚生労働白書ほか",
+          "情報：情報通信白書",
+          "安全：防災白書ほか",
+          "社会環境：環境白書"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
     },
@@ -81,7 +101,10 @@
       "caption": "社会環境管理は計画的に読み分ける",
       "visual": {
         "heading": "5. 社会環境管理は読み分けが要る",
-        "items": ["対応白書数が5管理中で最多", "業務や興味に近いテーマから優先"]
+        "items": [
+          "対応白書数が5管理中で最多",
+          "業務や興味に近いテーマから優先"
+        ]
       },
       "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
     },
@@ -93,7 +116,11 @@
       "caption": "骨格→肉付け→逆引き→核から押さえる",
       "visual": {
         "heading": "まとめ",
-        "items": ["① 概要版と特集に絞って読む", "② キーワードから逆引きする", "③ 5管理ごとの核から押さえる"]
+        "items": [
+          "① 概要版と特集に絞って読む",
+          "② キーワードから逆引きする",
+          "③ 5管理ごとの核から押さえる"
+        ]
       }
     },
     {
@@ -105,7 +132,9 @@
       "visual": {
         "kind": "cover",
         "heading": "白書を使い切る",
-        "items": ["白書×キーワード集 攻略マガジン（概要欄リンク）"]
+        "items": [
+          "白書×キーワード集 攻略マガジン（概要欄リンク）"
+        ]
       }
     }
   ]
