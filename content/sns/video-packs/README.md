@@ -125,13 +125,13 @@
 |---|---|---|---|---|---|---|
 | `competency-r8-taiou` | 令和8年度コンピテンシー改訂 — 何が変わり答案はどう変わるか | コンピテンシー改訂で評価軸がどう変わるのか掴めていない | exam-point | レビュー | 台本/構成 | `pe-construction-required-magazine` |
 | `gakushuu-schedule-gyakusan` | 勉強時間とスケジュール — 逆算で間に合わせる | 何ヶ月前から何をやれば筆記に間に合うのか計画できない | roadmap | レビュー | 台本/構成 | `links-hub` |
-| `hissu1-bosai-kyoujinka` | 防災・国土強靱化 — 必須Ⅰ最頻出テーマの論点整理 | 防災・減災は範囲が広く必須Ⅰでどう問われるのか掴めない | exam-point | 下書き | 台本/構成 | `pe-construction-required-magazine` |
-| `hissu1-carbon-neutral` | カーボンニュートラルとGX — 脱炭素テーマの論点整理 | 脱炭素は総論しか書けず建設分野の具体策が出てこない | exam-point | 下書き | 台本/構成 | `pe-construction-required-magazine` |
-| `hissu1-infra-roukyuuka` | インフラ老朽化と予防保全 — 維持管理テーマの論点整理 | 老朽化対策の施策が多くどれを軸に論文を組むか決められない | exam-point | 下書き | 台本/構成 | `pe-construction-required-magazine` |
-| `hissu1-kensetsu-dx` | 建設DX・i-Construction — 施策の全体像と論点 | DX施策の名前は知っていても論文で使える形になっていない | exam-point | 下書き | 台本/構成 | `pe-construction-required-magazine` |
-| `hissu1-kokudo-chiiki` | 国土形成と地域づくり — 社会資本整備の論点整理 | 国土計画系のテーマは抽象的で課題設定の切り口が見つからない | exam-point | 下書き | 台本/構成 | `pe-construction-required-magazine` |
-| `hissu1-ninaite-seisansei` | 担い手確保と生産性向上 — 2024年問題の論点整理 | 担い手不足の話が一般論になり論文の論点に落とせない | exam-point | 下書き | 台本/構成 | `pe-construction-required-magazine` |
-| `hissu1-theme-map` | 必須科目Ⅰの出題テーマ地図 — 7年分を6系統で読む | 必須Ⅰの出題範囲が広すぎてどのテーマから仕込むか決められない | exam-point | 下書き | 台本/構成 | `pe-construction-required-magazine` |
+| `hissu1-bosai-kyoujinka` | 防災・国土強靱化 — 必須Ⅰ最頻出テーマの論点整理 | 防災・減災は範囲が広く必須Ⅰでどう問われるのか掴めない | exam-point | レビュー | 台本/構成 | `pe-construction-required-magazine` |
+| `hissu1-carbon-neutral` | カーボンニュートラルとGX — 脱炭素テーマの論点整理 | 脱炭素は総論しか書けず建設分野の具体策が出てこない | exam-point | レビュー | 台本/構成 | `pe-construction-required-magazine` |
+| `hissu1-infra-roukyuuka` | インフラ老朽化と予防保全 — 維持管理テーマの論点整理 | 老朽化対策の施策が多くどれを軸に論文を組むか決められない | exam-point | レビュー | 台本/構成 | `pe-construction-required-magazine` |
+| `hissu1-kensetsu-dx` | 建設DX・i-Construction — 施策の全体像と論点 | DX施策の名前は知っていても論文で使える形になっていない | exam-point | レビュー | 台本/構成 | `pe-construction-required-magazine` |
+| `hissu1-kokudo-chiiki` | 国土形成と地域づくり — 社会資本整備の論点整理 | 国土計画系のテーマは抽象的で課題設定の切り口が見つからない | exam-point | レビュー | 台本/構成 | `pe-construction-required-magazine` |
+| `hissu1-ninaite-seisansei` | 担い手確保と生産性向上 — 2024年問題の論点整理 | 担い手不足の話が一般論になり論文の論点に落とせない | exam-point | レビュー | 台本/構成 | `pe-construction-required-magazine` |
+| `hissu1-theme-map` | 必須科目Ⅰの出題テーマ地図 — 7年分を6系統で読む | 必須Ⅰの出題範囲が広すぎてどのテーマから仕込むか決められない | exam-point | レビュー | 台本/構成 | `pe-construction-required-magazine` |
 | `kaitourei-tsukaikata` | 模範解答の正しい使い方 — 写経では受からない | 解答例を読んでも自分の答案がよくならない | howto | レビュー | 台本/構成 | `pe-construction-required-magazine` |
 | `keirekihyo-kakikata` | 業務経歴票の書き方 — 720字の「業務内容の詳細」 | 業務内容の詳細に何をどこまで書けば口頭試験まで戦えるか分からない | howto | レビュー | 台本/構成 | `site-article` |
 | `kensetsu-pe-career-kachi` | 技術士（建設部門）を取ると何が変わるか — 転職と年収 | 労力に見合うリターンがあるのか取得の価値を判断できない | career | レビュー | 台本/構成 | `links-hub` |
