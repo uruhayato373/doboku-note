@@ -129,6 +129,8 @@ productId は `article:<slug>` 形式。slug は商品名から推定:
 | `1級土木 令和8年度 第2次検定｜予想模試3回` | `article:civil-1-r8-mock3-pdf` |
 | `2級土木 令和8年度 第2次検定｜予想模試3回` | `article:civil-2-r8-mock3-pdf` |
 | `コンクリート主任技士｜配合計算 実戦演習12問` | `article:cce-mix-calculation-practice` |
+| `コンクリート主任技士｜令和8年度 四肢択一 予想50問` | `article:cce-r8-mc-50` |
+| `コンクリート技士｜配合計算・JIS判断 実戦演習12問` | `article:ce-mix-jis-practice` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-1` | `article:bk-01-road-r8-yosou-ii1` |
 | `技術士 建設部門｜道路 R8予想 選択科目II-2` | `article:bk-01-road-r8-yosou-ii2-*` |
 | `技術士 建設部門｜道路 R8予想 選択科目III` | `article:bk-01-road-r8-yosou-iii-*` |

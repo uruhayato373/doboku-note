@@ -152,6 +152,8 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 | 1級土木 第1次検定 出る順 合格ノート | `article:civil-1-ichiji-ronten` |
 | 1級土木 二次 出題分析と直前の重点 | `article:civil-1-r8-bunseki` |
 | コンクリート主任技士 配合計算 実戦演習12問 | `article:cce-mix-calculation-practice` |
+| コンクリート主任技士 令和8年度 四肢択一 予想50問 | `article:cce-r8-mc-50` |
+| コンクリート技士 配合計算・JIS判断 実戦演習12問 | `article:ce-mix-jis-practice` |
 | 1級土木 第1次検定 過去問PDF | `article:civil-1-takuitsu-pdf` |
 
 ### ココナラ（非 note チャネル・2026-07-16〜）

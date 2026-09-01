@@ -67,6 +67,15 @@ cover:
 
 無料で基礎を確認したい場合は、先に[配合設計の要点解説](https://doboku-note.com/exam/concrete-chief-engineer/textbook-mix-design?utm_source=note&utm_medium=referral&utm_campaign=cce-mix-calculation-practice&utm_content=textbook)と[配合設計の過去問解説](https://doboku-note.com/exam/concrete-chief-engineer/primary-mix-design?utm_source=note&utm_medium=referral&utm_campaign=cce-mix-calculation-practice&utm_content=primary)を一周すると、演習効果が上がります。
 
+---
+
+<!-- cta:concrete-mokuji -->
+コンクリート技士・主任技士・診断士の無料記事と教材は「コンクリート資格もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/nd59f471c9214
+
+---
+
 ## 実戦問題1｜水セメント比から単位セメント量を求める
 
 単位水量が168kg/m³、水セメント比が48.0%のコンクリートについて、単位セメント量として適当なものはどれか。

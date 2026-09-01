@@ -1,9 +1,12 @@
 ---
 notePricing: paid
-noteStatus: draft
+noteStatus: published
 noteDraftId: n63568f1ae404
 noteSeries: コンクリート技士-配合計算・JIS判断
 utmCampaign: ce-mix-jis-practice
+notePublishedAt: "2026-09-01"
+noteId: "n63568f1ae404"
+noteUrl: "https://note.com/dobokunote/n/n63568f1ae404"
 price: 1280
 paidBoundary: "実戦問題1｜水結合材比と混合材の質量"
 coverTitle:
@@ -72,6 +75,15 @@ JIS判断も同じです。規格番号や限界値を断片的に覚えるだ�
 無料で基礎を整理する場合は、[配合設計テキスト](https://doboku-note.com/exam/concrete-engineer/textbook/mix-design?utm_source=note&utm_medium=referral&utm_campaign=ce-mix-jis-practice&utm_content=textbook-mix)と[製造・品質管理テキスト](https://doboku-note.com/exam/concrete-engineer/textbook/production-qc?utm_source=note&utm_medium=referral&utm_campaign=ce-mix-jis-practice&utm_content=textbook-qc)を先に確認してください。
 
 ここから先は、問題を解いてから解説を開く使い方を想定しています。1周目は正答率、2周目は途中式、3周目は誤答肢の修正説明まで行うと、知識を選択肢判断へ変換できます。
+
+---
+
+<!-- cta:concrete-mokuji -->
+コンクリート技士・主任技士・診断士の無料記事と教材は「コンクリート資格もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/nd59f471c9214
+
+---
 
 ## 実戦問題1｜水結合材比と混合材の質量
 

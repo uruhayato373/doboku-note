@@ -131,6 +131,74 @@
         "marker": "cta:civil-mokuji",
         "text": "<!-- cta:civil-mokuji -->\n1級・2級土木のほかの記事・経験記述の答案集は「土木もくじ」から一覧できます。\n\nhttps://note.com/dobokunote/n/n4fde0f62dc20"
       }
+    },
+    "concrete-engineer": {
+      "label": "コンクリート技士",
+      "articleGlob": "content/note/コンクリート技士",
+      "excludeDirs": [],
+      "magazineExamMatch": [
+        "^ce-"
+      ],
+      "L2": {
+        "noteId": "nd59f471c9214",
+        "title": "コンクリート資格もくじ",
+        "articleDir": "content/note/コンクリート主任技士/コンクリート資格もくじ",
+        "noteUrl": "https://note.com/dobokunote/n/nd59f471c9214"
+      },
+      "topCta": {
+        "marker": "",
+        "text": ""
+      },
+      "bottomCta": {
+        "marker": "cta:concrete-mokuji",
+        "text": "<!-- cta:concrete-mokuji -->\nコンクリート技士・主任技士・診断士の無料記事と教材は「コンクリート資格もくじ」から一覧できます。\n\nhttps://note.com/dobokunote/n/nd59f471c9214"
+      }
+    },
+    "concrete-chief": {
+      "label": "コンクリート主任技士",
+      "articleGlob": "content/note/コンクリート主任技士",
+      "excludeDirs": [
+        "コンクリート資格もくじ"
+      ],
+      "magazineExamMatch": [
+        "^cce-"
+      ],
+      "L2": {
+        "noteId": "nd59f471c9214",
+        "title": "コンクリート資格もくじ",
+        "articleDir": "content/note/コンクリート主任技士/コンクリート資格もくじ",
+        "noteUrl": "https://note.com/dobokunote/n/nd59f471c9214"
+      },
+      "topCta": {
+        "marker": "",
+        "text": ""
+      },
+      "bottomCta": {
+        "marker": "cta:concrete-mokuji",
+        "text": "<!-- cta:concrete-mokuji -->\nコンクリート技士・主任技士・診断士の無料記事と教材は「コンクリート資格もくじ」から一覧できます。\n\nhttps://note.com/dobokunote/n/nd59f471c9214"
+      }
+    },
+    "concrete-diagnosis": {
+      "label": "コンクリート診断士",
+      "articleGlob": "content/note/コンクリート診断士",
+      "excludeDirs": [],
+      "magazineExamMatch": [
+        "^cd-"
+      ],
+      "L2": {
+        "noteId": "nd59f471c9214",
+        "title": "コンクリート資格もくじ",
+        "articleDir": "content/note/コンクリート主任技士/コンクリート資格もくじ",
+        "noteUrl": "https://note.com/dobokunote/n/nd59f471c9214"
+      },
+      "topCta": {
+        "marker": "",
+        "text": ""
+      },
+      "bottomCta": {
+        "marker": "cta:concrete-mokuji",
+        "text": "<!-- cta:concrete-mokuji -->\nコンクリート技士・主任技士・診断士の無料記事と教材は「コンクリート資格もくじ」から一覧できます。\n\nhttps://note.com/dobokunote/n/nd59f471c9214"
+      }
     }
   }
 }

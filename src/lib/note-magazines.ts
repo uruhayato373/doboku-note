@@ -873,8 +873,8 @@ const MAGAZINES_RAW = {
   // 8分野を横断し、正答だけでなく全誤答肢の理由と分野別採点表を収録する。
   'cce-r8-mc-50': {
     id: 'cce-r8-mc-50',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/nfad294307263',
     title: 'コンクリート主任技士｜令和8年度 四肢択一 予想50問（8分野・全選択肢解説）',
     description:
       'コンクリート主任技士の令和8年度四肢択一対策として、材料・性質・耐久性・配合・製造品質管理・施工・製品・構造設計の8分野を横断するオリジナル予想50問。配合・統計は途中式、全問に4肢の正誤理由、分野別採点表と無料テキストへの復習導線を付ける。出題的中を保証するものではない。',
@@ -889,8 +889,8 @@ const MAGAZINES_RAW = {
   // 複合計算6問＋品質・JIS判断6問を、途中式／全誤答肢解説つきで収録する。
   'ce-mix-jis-practice': {
     id: 'ce-mix-jis-practice',
-    published: false,
-    noteUrl: '',
+    published: true,
+    noteUrl: 'https://note.com/dobokunote/n/n63568f1ae404',
     title: 'コンクリート技士｜配合計算・JIS判断 実戦演習12問（途中式・全選択肢解説）',
     description:
       'コンクリート技士の四肢択一対策として、配合計算6問と品質・JIS判断6問を収録したnote専用オリジナル教材。水結合材比、絶対容積、表面水、吸水、空気量、バッチ換算と、呼び方、試料採取、スランプ、空気量、圧縮強度供試体、塩化物・トレーサビリティーを、途中式または判断手順と全誤答肢の理由まで解説する。',

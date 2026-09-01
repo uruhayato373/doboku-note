@@ -3,7 +3,10 @@ title: "【コンクリート資格もくじ】技士・主任技士・診断士
 notePricing: free
 noteSeries: 総合案内
 utmCampaign: 103-concrete-index
-noteStatus: draft
+notePublishedAt: "2026-09-01"
+noteId: "nd59f471c9214"
+noteUrl: "https://note.com/dobokunote/n/nd59f471c9214"
+noteStatus: published
 noteDraftId: nd59f471c9214
 coverTitle:
   - コンクリート資格
@@ -61,7 +64,11 @@ cover:
 
 [コンクリート技士の無料テキスト一覧](https://doboku-note.com/exam/concrete-engineer?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index)
 
-技士向けの計算・JIS判断の実戦教材は、現在制作中です。公開後、このもくじの技士欄へ追加します。
+### 配合計算・JIS判断を実戦12問で仕上げたい
+
+水結合材比、絶対容積、表面水補正などの計算6問と、呼び方・試験・検査・異常時対応を扱うJIS判断6問を収録しています。全12問に途中式または判断手順と、4つの選択肢すべての理由を付けました。
+
+https://note.com/dobokunote/n/n63568f1ae404
 
 ---
 
@@ -75,7 +82,13 @@ cover:
 
 [主任技士の小論文の書き方を無料で確認する](https://doboku-note.com/exam/concrete-chief-engineer/guide/essay?utm_source=note&utm_medium=referral&utm_campaign=103-concrete-index)
 
-### 配合計算を反復したい
+### 四肢択一50問で8分野を総仕上げしたい
+
+材料、性質、耐久性、配合、製造・品質管理、施工、製品、構造を横断する令和8年度向けオリジナル予想50問です。各問に正答だけでなく、誤っている語句と残り3肢の理由まで付けています。
+
+https://note.com/dobokunote/n/nfad294307263
+
+### 主任技士レベルの配合計算を反復したい
 
 水セメント比、表面水補正、絶対容積、細骨材率、混合結合材、減水率まで、オリジナル12問を途中式と全選択肢の誤答原因付きで解説しています。
 
@@ -112,7 +125,9 @@ https://note.com/dobokunote/m/mf2a132408b6f
 ## 目的から逆引き
 
 - **初めてコンクリート資格を受ける** → 技士の試験概要 → 12週間計画 → 分野別テキスト
-- **配合計算で失点する** → 技士の配合設計テキスト → 主任技士の実戦演習12問
+- **技士の配合計算・JIS判断で失点する** → 技士の配合設計テキスト → 技士向け実戦演習12問
+- **主任技士の択一を8分野まとめて仕上げる** → 主任技士の無料テキスト・過去問 → 令和8年度予想50問
+- **主任技士レベルの配合計算を反復する** → 主任技士の配合設計テキスト → 実戦演習12問
 - **主任技士の小論文を初めて書く** → 無料の書き方ガイド → 4テーマ模範答案集
 - **自分の勤務先に合う小論文が見つからない** → ペルソナ選択ガイド → 8立場別答案集
 - **診断士の記述式で論理が飛ぶ** → 問題A・問題B 模範答案集

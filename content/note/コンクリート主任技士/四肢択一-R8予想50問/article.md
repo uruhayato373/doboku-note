@@ -1,9 +1,12 @@
 ---
 notePricing: paid
-noteStatus: draft
+noteStatus: published
 noteDraftId: nfad294307263
 noteSeries: コンクリート主任技士-四肢択一-R8予想
 utmCampaign: cce-r8-mc-50
+notePublishedAt: "2026-09-01"
+noteId: "nfad294307263"
+noteUrl: "https://note.com/dobokunote/n/nfad294307263"
 price: 1980
 paidBoundary: "予想問題1｜低熱ポルトランドセメント"
 coverTitle:
@@ -69,6 +72,15 @@ cover:
 - 分野正答率70%未満は、無料テキストと過去問解説へ戻る
 
 [主任技士の無料テキスト・過去問一覧](https://doboku-note.com/exam/concrete-chief-engineer?utm_source=note&utm_medium=referral&utm_campaign=cce-r8-mc-50&utm_content=free-hub)を別タブで開いておくと、誤答直後に根拠を復習できます。
+
+---
+
+<!-- cta:concrete-mokuji -->
+コンクリート技士・主任技士・診断士の無料記事と教材は「コンクリート資格もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/nd59f471c9214
+
+---
 
 ## 予想問題1｜低熱ポルトランドセメント
 
