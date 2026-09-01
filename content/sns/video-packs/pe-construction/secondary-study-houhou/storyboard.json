@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "独学で建設部門二次を目指すと、何をどの順に進めればよいか迷います。今日は独学の攻略ロードマップを説明します。",
+      "caption": "建設部門二次の独学ロードマップ",
+      "visual": {
+        "kind": "cover",
+        "heading": "建設部門二次の独学ロードマップ",
+        "items": ["技術士 建設部門・第二次試験"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "参考書を1ページ目から読み込めば力がつく、と思われがちです。しかし問われるのは知識量ではなく、答案を組み立てる力です。",
+      "caption": "問われるのは知識量でなく組み立て方",
+      "visual": {
+        "heading": "誤解：参考書の通読で力がつく",
+        "items": ["暗記量でなく答案の組み立て方が肝", "通読型の独学は遠回りになりやすい"]
+      },
+      "sourceRef": "content/site/pe-construction/secondary-study-method/article.mdx"
+    },
+    {
+      "sceneId": "twoaxis",
+      "start": 55,
+      "end": 115,
+      "narration": "対策は型とネタの二本柱です。型は答案の組み立て方、ネタは白書や重点施策という論拠。どちらか一方では合格答案になりません。",
+      "caption": "対策は型とネタの二本柱",
+      "visual": {
+        "heading": "型とネタの二本柱",
+        "items": ["型：設問を分解し観点を絞り字数に収める", "ネタ：白書・重点施策・基準という論拠", "片方だけでは合格答案にならない"]
+      },
+      "sourceRef": "content/site/pe-construction/secondary-study-method/article.mdx"
+    },
+    {
+      "sceneId": "subjects",
+      "start": 115,
+      "end": 180,
+      "narration": "必須科目Iは課題遂行能力、II-1は専門知識、II-2は応用能力、IIIは問題解決能力を問います。まずII-1で土台を作り、必須科目Iの型づくりを並行させます。",
+      "caption": "科目ごとに問われる力が違う",
+      "visual": {
+        "heading": "科目別の対策順序",
+        "items": ["必須I：課題遂行能力（並行して型づくり）", "II-1：専門知識（先に土台を作る）", "II-2・III：応用力・問題解決力は後で本格化"]
+      },
+      "sourceRef": "content/site/pe-construction/secondary-study-method/article.mdx"
+    },
+    {
+      "sceneId": "foursteps",
+      "start": 180,
+      "end": 245,
+      "narration": "年間計画は4ステップです。傾向把握でつかんで、ネタ集めでテーマ別に整理し、骨子作成で組み立て、フル答案と添削で仕上げます。骨子を飛ばすと破綻に気づけません。",
+      "caption": "独学の年間4ステップ",
+      "visual": {
+        "heading": "独学の年間計画・4ステップ",
+        "items": ["① 傾向把握 → ② ネタ集め", "③ 骨子作成 → ④ フル答案と添削", "骨子を飛ばすと論理の破綻に気づけない"]
+      },
+      "sourceRef": "content/site/pe-construction/secondary-study-method/article.mdx"
+    },
+    {
+      "sceneId": "pastexam",
+      "start": 245,
+      "end": 300,
+      "narration": "序盤から中盤の過去問は、解く練習ではなく型を分析する素材として使います。どの観点で課題を立てたかを書き出すと、繰り返しの設問パターンが見えてきます。",
+      "caption": "過去問は「解く」でなく「抽出する」素材",
+      "visual": {
+        "heading": "過去問の使い方",
+        "items": ["解答を書く練習ではなく型を分析する素材", "設問を分解しどの観点で課題を立てたか書き出す", "年度をまたぐ設問パターンが見えてくる"]
+      },
+      "sourceRef": "content/site/pe-construction/secondary-study-method/article.mdx"
+    },
+    {
+      "sceneId": "review",
+      "start": 300,
+      "end": 360,
+      "narration": "型・ネタ・骨子を積んでも、フル答案で初めて見える課題があります。自分の答案は自分では評価できないので、第三者の添削を必ず入れます。",
+      "caption": "添削と時間配分が独学の分かれ目",
+      "visual": {
+        "heading": "添削と時間配分",
+        "items": ["答え漏れ・論理の矛盾はフル答案で初めて見える", "自分の答案は自分では客観評価できない", "600字を20分前後で書く速度感を骨子段階から"]
+      },
+      "sourceRef": "content/site/pe-construction/secondary-study-method/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 360,
+      "end": 405,
+      "narration": "まとめます。型とネタを二本柱に、II-1と必須科目Iを並行させ、4ステップで積み上げる。過去問は型を抽出し、最後は第三者の添削で確かめます。",
+      "caption": "二本柱・並行・4ステップ・添削",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 型とネタの二本柱を意識する", "② II-1と必須Iを並行して進める", "③ 傾向把握→ネタ集め→骨子→添削", "④ 過去問は型を抽出する素材として使う"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 405,
+      "end": 430,
+      "narration": "型づくりの関連記事や発注者視点のマガジンは、概要欄のリンクからまとめて確認できます。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "独学の続きは概要欄から",
+        "items": ["関連記事・マガジン（概要欄リンク）"]
+      }
+    }
+  ]
+}
