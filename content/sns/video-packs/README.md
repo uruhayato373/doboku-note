@@ -43,24 +43,24 @@
 | `gakka-sokuryo-3ten` | 測量の頻出3テーマ — 基準・水準測量・距離と角度 | 水準測量の計算や誤差の扱いが毎回あやふやになる | exam-point | 企画 | —/— | `civil-1-ichiji-ronten` |
 | `gakka-ukeoi-yakkan` | 公共工事標準請負契約約款は「誰の義務か」で読む | 約款の規定が発注者と受注者どちらの義務か判断できない | exam-point | 企画 | —/— | `civil-1-ichiji-ronten` |
 | `gakka-unpan-shimekatame-kikai` | 運搬・敷均し・締固め機械の整理法 | 運搬機械の適用距離や締固め機械と土質の対応が覚えられない | exam-point | 企画 | —/— | `civil-1-anki-note` |
-| `keiken-2theme-heiki` | 2テーマ指定への備え — 設問1と設問2の書き分け | 設問1と設問2で別テーマを指定される形式に対応できる気がしない | howto | 企画 | —/— | `civil-1-combo-essay` |
-| `keiken-ai-sekkei` | AIに経験記述を丸投げすると落ちる理由と正しい使い方 | AIに書かせた答案がそのまま使えるのか判断できない | howto | 企画 | —/— | `civil-membership-lab` |
-| `keiken-anzen-1kyu` | 安全管理テーマの経験記述 — 一般論にしない書き方 | 安全管理の答案がどの現場でも通じる一般論になってしまう | howto | 企画 | —/— | `civil-1-experience-essay` |
+| `keiken-2theme-heiki` | 2テーマ指定への備え — 設問1と設問2の書き分け | 設問1と設問2で別テーマを指定される形式に対応できる気がしない | howto | レビュー | 台本/構成 | `civil-1-combo-essay` |
+| `keiken-ai-sekkei` | AIに経験記述を丸投げすると落ちる理由と正しい使い方 | AIに書かせた答案がそのまま使えるのか判断できない | howto | レビュー | 台本/構成 | `brain-civil-essay-kit` |
+| `keiken-anzen-1kyu` | 安全管理テーマの経験記述 — 一般論にしない書き方 | 安全管理の答案がどの現場でも通じる一般論になってしまう | howto | レビュー | 台本/構成 | `civil-1-experience-essay` |
 | `keiken-dokugaku-genkai` | 独学添削の限界 — 自分の答案は自分で採点できない | 自分の答案のどこが減点対象か自分では判断できない | diagnosis | レビュー | 台本/構成 | `coconala-tensaku-set` |
-| `keiken-hinshitsu-1kyu` | 品質管理テーマの経験記述 — 課題・検討・対応の組み立て方 | 品質管理で何を課題にすれば答案が成立するのか分からない | howto | 企画 | —/— | `civil-1-experience-essay` |
+| `keiken-hinshitsu-1kyu` | 品質管理テーマの経験記述 — 課題・検討・対応の組み立て方 | 品質管理で何を課題にすれば答案が成立するのか分からない | howto | レビュー | 台本/構成 | `civil-1-experience-essay` |
 | `keiken-kadai-kakikata` | 技術的課題は「現場条件→原因→課題」で書く | 技術的課題が何を書けばよいか分からず一般論になる | howto | レビュー | 台本/構成 | `civil-1-experience-essay` |
 | `keiken-kaizen-example` | 添削ビフォーアフターで学ぶ経験記述 | 何を直せば合格答案になるのかが具体例で見えない | howto | レビュー | 台本/構成 | `coconala-tensaku-set` |
-| `keiken-kankyo-1kyu` | 環境対策テーマの経験記述 — 出題されたら書けるか | 環境対策がテーマ指定されたときに書ける工事経験の整理が無い | howto | 企画 | —/— | `civil-1-experience-essay` |
+| `keiken-kankyo-1kyu` | 環境対策テーマの経験記述 — 出題されたら書けるか | 環境対策がテーマ指定されたときに書ける工事経験の整理が無い | howto | レビュー | 台本/構成 | `civil-1-experience-essay` |
 | `keiken-kento-kakikata` | 検討項目の書き方 — 「解決方法」と書かない | 1級は検討項目が(1)側なのに、旧年度の感覚で(2)へ書いて欄からあふれる | howto | レビュー | 台本/構成 | `coconala-tensaku-set` |
-| `keiken-kotei-1kyu` | 工程管理テーマの経験記述 — 遅延の話で終わらせない | 工程管理は遅延対応しか思いつかず検討内容が薄くなる | howto | 企画 | —/— | `civil-1-experience-essay` |
-| `keiken-nendo-keiko-1kyu` | 1級二次の出題傾向 — 5年分から読むテーマの流れ | 過去問を年度別に眺めてもテーマの流れが読み取れない | exam-point | 企画 | —/— | `civil-1-pastexam-essay` |
+| `keiken-kotei-1kyu` | 工程管理テーマの経験記述 — 遅延の話で終わらせない | 工程管理は遅延対応しか思いつかず検討内容が薄くなる | howto | レビュー | 台本/構成 | `civil-1-experience-essay` |
+| `keiken-nendo-keiko-1kyu` | 1級二次の出題傾向 — 5年分から読むテーマの流れ | 過去問を年度別に眺めてもテーマの流れが読み取れない | exam-point | レビュー | 台本/構成 | `civil-1-pastexam-essay` |
 | `keiken-ochiru-toan-1kyu` | 落ちる答案の共通パターン — 内容以前の減点を消す | 内容以前の理由で減点される答案の特徴を知らないまま書いている | diagnosis | レビュー | 台本/構成 | `coconala-shindan` |
 | `keiken-r6-shinkeishiki` | 令和6年度からの新形式 — 2テーマ指定への備え | 設問1と設問2で別テーマが指定される新形式に対応できない | exam-point | レビュー | 台本/構成 | `civil-1-combo-essay` |
-| `keiken-sekokeikaku-1kyu` | 施工計画テーマの経験記述 — 検討の幅で差をつける | 施工計画テーマは範囲が広く何を検討項目にするか迷う | howto | 企画 | —/— | `civil-1-experience-essay` |
-| `keiken-soteikoji-katsuyo` | 完成答案の正しい使い方 — 写すのではなく置き換える | 模範答案を読んでも自分の工事にどう応用するか分からない | howto | 企画 | —/— | `civil-1-keiken-complete-pack` |
+| `keiken-sekokeikaku-1kyu` | 施工計画テーマの経験記述 — 検討の幅で差をつける | 施工計画テーマは範囲が広く何を検討項目にするか迷う | howto | レビュー | 台本/構成 | `civil-1-experience-essay` |
+| `keiken-soteikoji-katsuyo` | 完成答案の正しい使い方 — 写すのではなく置き換える | 模範答案を読んでも自分の工事にどう応用するか分からない | howto | レビュー | 台本/構成 | `civil-1-keiken-complete-pack` |
 | `keiken-taio-hyoka` | 対応処置と評価は数値で締める | 対応処置が結果の羅列になり評価の書き方も分からない | howto | レビュー | 台本/構成 | `civil-1-experience-essay` |
 | `keiken-taisho-koji` | 施工経験記述に書ける工事・書けない工事 | どの工事を題材にすれば認められるのか判断できない | howto | レビュー | 台本/構成 | `coconala-sakusei` |
-| `keiken-yosou-renshu` | 経験記述は予想問題で「書く練習」をする | 本番でテーマが外れたときに書ける自信がない | howto | 企画 | —/— | `civil-1-r8-mock3-pdf` |
+| `keiken-yosou-renshu` | 経験記述は予想問題で「書く練習」をする | 本番でテーマが外れたときに書ける自信がない | howto | レビュー | 台本/構成 | `civil-1-r8-mock3-pdf` |
 | `kikinagashi-anzen-suchi` | 耳で覚える安全管理の数字 — 足場・掘削・クレーン・環境 | 安全基準の数値が多すぎて机に向かう時間だけでは覚えきれない | exam-point | 企画 | —/— | `civil-1-anki-note` |
 | `kikinagashi-doko-suchi` | 耳で覚える土工の数字 — 盛土・法面・軟弱地盤 | 締固めや法面の規定値が似た数字ばかりで混ざってしまう | exam-point | 企画 | —/— | `civil-1-anki-note` |
 | `kikinagashi-hinshitsu-kikaku` | 耳で覚える品質管理 — 検査・管理図・ヒストグラム | 品質管理の用語と判定基準が図を見ないと思い出せない | exam-point | 企画 | —/— | `civil-1-anki-note` |
@@ -83,21 +83,21 @@
 |---|---|---|---|---|---|---|
 | `anzen-ippanron-3riyu` | 安全管理の答案が一般論になる3つの原因 | 安全管理の答案がどの現場でも通じる一般論になってしまう | diagnosis | レビュー | 台本/構成 | `coconala-shindan` |
 | `gakka-2kyu-concrete` | 2級土木 コンクリートの頻出点 — 打込み・養生・継目 | 打込みや養生の細かい規定のどれが試験に出るのか分からない | exam-point | 企画 | —/— | `civil-2-anki-note` |
-| `gakka-2kyu-doko` | 2級土木 土工の頻出点 — 最短で押さえる | 土工の範囲が広くどこから覚えれば得点になるか分からない | exam-point | 企画 | —/— | `civil-2-anki-note` |
+| `gakka-2kyu-doko` | 2級土木 土工の頻出点 — 最短で押さえる | 土工の範囲が広くどこから覚えれば得点になるか分からない | exam-point | 下書き | 台本/— | `civil-2-anki-note` |
 | `gakka-2kyu-hoki` | 2級土木 法規の頻出点 — 労基法と安衛法を優先する | 法規の出題範囲が広すぎてどの法律を優先するか決められない | exam-point | 企画 | —/— | `civil-2-anki-note` |
 | `gakka-2kyu-kiso` | 2級土木 基礎工の頻出点 — 杭とケーソンの整理 | 既製杭・場所打ち杭の工法の違いが名前だけで判別できない | exam-point | 企画 | —/— | `civil-2-anki-note` |
 | `gakka-2kyu-sekokeikaku` | 2級土木 施工管理法の頻出点 — 計画・工程・安全・品質 | 施工管理法は範囲が広く分野ごとの頻出点が見えていない | exam-point | 企画 | —/— | `civil-2-anki-note` |
-| `gakka-kijutsu-2kyu` | 2級二次の学科記述 — 出る分野と解答の型 | 経験記述以外の記述問題に何がどの形式で出るか分からない | exam-point | 企画 | —/— | `civil-2-gakka-kijutsu` |
-| `keiken-2kyu-level` | 2級で求められる記述レベルはここまで | 特殊工法や高度な内容を書けないと受からないと思っている | exam-point | 企画 | —/— | `coconala-shindan` |
-| `keiken-anzen-2kyu-kakikata` | 2級 安全管理テーマの書き方 — 現場の数字で具体化する | 安全管理の検討内容をどう具体化すればよいか分からない | howto | 企画 | —/— | `civil-2-experience-essay` |
-| `keiken-gaiyo-2kyu` | 2級 工事概要の書き方 — 最初の失点を防ぐ | 工事概要に何をどこまで書けば設問と整合するか分からない | howto | 企画 | —/— | `civil-2-koji-bank` |
-| `keiken-genten-kyotsuten` | 減点される答案の共通点 | 内容以前の理由で減点される答案の特徴を知らない | diagnosis | 企画 | —/— | `coconala-shindan` |
-| `keiken-hinshitsu-kakikata` | 品質管理テーマの組み立て方 | 品質管理の課題と対応処置の組み立て方が分からない | howto | 企画 | —/— | `civil-2-experience-essay` |
-| `keiken-koji-ga-nai` | 「書ける工事が無い」と感じたら | 小規模工事しか経験がなく題材にできるか不安 | diagnosis | 企画 | —/— | `civil-2-koji-bank` |
-| `keiken-kotei-kakikata` | 工程管理テーマの組み立て方 | 工程管理は遅延の話しか思いつかず内容が薄くなる | howto | 企画 | —/— | `civil-2-experience-essay` |
-| `keiken-nendo-keiko-2kyu` | 2級二次の出題傾向 — 5年分から読むテーマの流れ | 2級の二次で何がどの周期で出ているのか把握できていない | exam-point | 企画 | —/— | `civil-2-pastexam-essay` |
+| `gakka-kijutsu-2kyu` | 2級二次の学科記述 — 出る分野と解答の型 | 経験記述以外の記述問題に何がどの形式で出るか分からない | exam-point | 下書き | 台本/構成 | `civil-2-gakka-kijutsu` |
+| `keiken-2kyu-level` | 2級で求められる記述レベルはここまで | 特殊工法や高度な内容を書けないと受からないと思っている | exam-point | 下書き | 台本/構成 | `coconala-shindan` |
+| `keiken-anzen-2kyu-kakikata` | 2級 安全管理テーマの書き方 — 現場の数字で具体化する | 安全管理の検討内容をどう具体化すればよいか分からない | howto | 下書き | 台本/構成 | `civil-2-experience-essay` |
+| `keiken-gaiyo-2kyu` | 2級 工事概要の書き方 — 最初の失点を防ぐ | 工事概要に何をどこまで書けば設問と整合するか分からない | howto | 下書き | 台本/構成 | `civil-2-koji-bank` |
+| `keiken-genten-kyotsuten` | 減点される答案の共通点 | 内容以前の理由で減点される答案の特徴を知らない | diagnosis | 下書き | 台本/構成 | `coconala-shindan` |
+| `keiken-hinshitsu-kakikata` | 品質管理テーマの組み立て方 | 品質管理の課題と対応処置の組み立て方が分からない | howto | 下書き | 台本/構成 | `civil-2-experience-essay` |
+| `keiken-koji-ga-nai` | 「書ける工事が無い」と感じたら | 小規模工事しか経験がなく題材にできるか不安 | diagnosis | 下書き | 台本/構成 | `civil-2-koji-bank` |
+| `keiken-kotei-kakikata` | 工程管理テーマの組み立て方 | 工程管理は遅延の話しか思いつかず内容が薄くなる | howto | 下書き | 台本/構成 | `civil-2-experience-essay` |
+| `keiken-nendo-keiko-2kyu` | 2級二次の出題傾向 — 5年分から読むテーマの流れ | 2級の二次で何がどの周期で出ているのか把握できていない | exam-point | 下書き | 台本/構成 | `civil-2-pastexam-essay` |
 | `kikinagashi-2kyu-matome` | 耳で覚える2級土木 — 頻出点の総ざらい | 直前期に全分野を机で回す時間が取れない | exam-point | 企画 | —/— | `civil-2-anki-note` |
-| `nikyuu-gaiyo-roadmap` | 2級土木の全体像と学習順序 | 受検資格・科目・日程と何から始めるかが分からない | roadmap | 企画 | —/— | `links-hub` |
+| `nikyuu-gaiyo-roadmap` | 2級土木の全体像と学習順序 | 受検資格・科目・日程と何から始めるかが分からない | roadmap | 下書き | 台本/構成 | `links-hub` |
 | `study-plan-2kyu` | 2級土木の勉強計画 — 仕事と両立する学習設計 | 仕事と両立しながら何をいつまでに進めるか計画できない | roadmap | 企画 | —/— | `links-hub` |
 
 ## 技術士 総合技術監理部門（11）

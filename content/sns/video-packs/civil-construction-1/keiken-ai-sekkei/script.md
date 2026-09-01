@@ -32,9 +32,9 @@ AIに丸投げすると事実まで作られてしまうのが危険です。事
 
 ## 主CTA
 
-この分担を自分の作業で回したい方は、会員制の合格ラボへ。概要欄のリンクから開けます。
+この分担をそのまま自分の答案づくりに使いたい方は、AIと一緒に経験記述を設計するキットを用意しています。概要欄のリンクから開けます。
 
-- CTA: catalog `civil-membership-lab`（utm_campaign=keiken-ai-sekkei / utm_content=longform で公開時に解決）
+- CTA: catalog `brain-civil-essay-kit`（utm_campaign=keiken-ai-sekkei / utm_content=longform で公開時に解決）
 
 ## 出典一覧
 
