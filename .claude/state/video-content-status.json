@@ -1029,28 +1029,52 @@
     "kikinagashi-anzen-suchi": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "kikinagashi-doko-suchi": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "kikinagashi-hinshitsu-kikaku": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "kikinagashi-hoki-suchi": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
@@ -1070,49 +1094,91 @@
     "career-tenshoku-timing": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "career-agent-katsuyo": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "career-yameru-mae": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "career-nenshu-up": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "career-white-kigyo": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "career-komuin-minkan": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "sekokan-shippaidan": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     }

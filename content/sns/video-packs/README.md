@@ -10,12 +10,12 @@
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
-| `career-agent-katsuyo` | 転職エージェントの使い方 — 施工管理向けの選び方 | エージェントの種類が多くどれをどう使えばよいか分からない | career | 下書き | 台本/構成 | `links-hub` |
-| `career-komuin-minkan` | 公務員土木か民間か — 発注者と受注者のリアル | 公務員と民間の働き方の違いを両方経験した人の話が聞けない | career | 下書き | 台本/構成 | `links-hub` |
-| `career-nenshu-up` | 年収を上げる施工管理の動き方 — 資格の市場価値 | 同じ仕事をしていて年収が上がる人と上がらない人の差が分からない | career | 下書き | 台本/構成 | `links-hub` |
-| `career-tenshoku-timing` | 施工管理の転職タイミング — 資格取得前か後か | 資格を取ってから転職すべきか今動くべきか判断できない | career | 下書き | 台本/構成 | `links-hub` |
-| `career-white-kigyo` | ホワイトな建設会社の見分け方 — 求人票の読み方 | 求人票からは入社後の働き方の実態が読み取れない | career | 下書き | 台本/構成 | `links-hub` |
-| `career-yameru-mae` | 辞める前に確認すること — 後悔しない退職判断 | 勢いで辞めて後悔しないか、確認すべきことが分からない | career | 下書き | 台本/構成 | `links-hub` |
+| `career-agent-katsuyo` | 転職エージェントの使い方 — 施工管理向けの選び方 | エージェントの種類が多くどれをどう使えばよいか分からない | career | レビュー | 台本/構成 | `links-hub` |
+| `career-komuin-minkan` | 公務員土木か民間か — 発注者と受注者のリアル | 公務員と民間の働き方の違いを両方経験した人の話が聞けない | career | レビュー | 台本/構成 | `links-hub` |
+| `career-nenshu-up` | 年収を上げる施工管理の動き方 — 資格の市場価値 | 同じ仕事をしていて年収が上がる人と上がらない人の差が分からない | career | レビュー | 台本/構成 | `links-hub` |
+| `career-tenshoku-timing` | 施工管理の転職タイミング — 資格取得前か後か | 資格を取ってから転職すべきか今動くべきか判断できない | career | レビュー | 台本/構成 | `links-hub` |
+| `career-white-kigyo` | ホワイトな建設会社の見分け方 — 求人票の読み方 | 求人票からは入社後の働き方の実態が読み取れない | career | レビュー | 台本/構成 | `links-hub` |
+| `career-yameru-mae` | 辞める前に確認すること — 後悔しない退職判断 | 勢いで辞めて後悔しないか、確認すべきことが分からない | career | レビュー | 台本/構成 | `links-hub` |
 | `chokuzen-check-1kyu-niji` | 1級二次 直前チェック — 最後の1週間でやること | 直前期に何を確認すれば得点が伸びるか優先順位が分からない | exam-point | レビュー | 台本/構成 | `civil-1-r8-bunseki` |
 | `gakka-anzen-taisei` | 安全管理体制の数字 — 選任要件と度数率・強度率 | 安全衛生管理体制の選任要件の人数と事業場規模が混ざる | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
 | `gakka-ashiba-kijun` | 足場の安全基準は数字で問われる | 作業床の幅・隙間・手すり高さなどの数値が覚えきれない | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
@@ -61,10 +61,10 @@
 | `keiken-taio-hyoka` | 対応処置と評価は数値で締める | 対応処置が結果の羅列になり評価の書き方も分からない | howto | レビュー | 台本/構成 | `civil-1-experience-essay` |
 | `keiken-taisho-koji` | 施工経験記述に書ける工事・書けない工事 | どの工事を題材にすれば認められるのか判断できない | howto | レビュー | 台本/構成 | `coconala-sakusei` |
 | `keiken-yosou-renshu` | 経験記述は予想問題で「書く練習」をする | 本番でテーマが外れたときに書ける自信がない | howto | レビュー | 台本/構成 | `civil-1-r8-mock3-pdf` |
-| `kikinagashi-anzen-suchi` | 耳で覚える安全管理の数字 — 足場・掘削・クレーン・環境 | 安全基準の数値が多すぎて机に向かう時間だけでは覚えきれない | exam-point | 下書き | 台本/— | `civil-1-ichiji-ronten` |
-| `kikinagashi-doko-suchi` | 耳で覚える土工の数字 — 盛土・法面・軟弱地盤 | 締固めや法面の規定値が似た数字ばかりで混ざってしまう | exam-point | 企画 | —/— | `civil-1-ichiji-ronten` |
-| `kikinagashi-hinshitsu-kikaku` | 耳で覚える品質管理 — 検査・管理図・ヒストグラム | 品質管理の用語と判定基準が図を見ないと思い出せない | exam-point | 企画 | —/— | `civil-1-ichiji-ronten` |
-| `kikinagashi-hoki-suchi` | 耳で覚える法規の数字 — 労基法・安衛法・騒音振動 | 法規の人数・年限・デシベルの数値が直前まで定着しない | exam-point | 企画 | —/— | `civil-1-ichiji-ronten` |
+| `kikinagashi-anzen-suchi` | 耳で覚える安全管理の数字 — 足場・掘削・クレーン・環境 | 安全基準の数値が多すぎて机に向かう時間だけでは覚えきれない | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
+| `kikinagashi-doko-suchi` | 耳で覚える土工の数字 — 盛土・法面・軟弱地盤 | 締固めや法面の規定値が似た数字ばかりで混ざってしまう | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
+| `kikinagashi-hinshitsu-kikaku` | 耳で覚える品質管理 — 検査・管理図・ヒストグラム | 品質管理の用語と判定基準が図を見ないと思い出せない | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
+| `kikinagashi-hoki-suchi` | 耳で覚える法規の数字 — 労基法・安衛法・騒音振動 | 法規の人数・年限・デシベルの数値が直前まで定着しない | exam-point | レビュー | 台本/構成 | `civil-1-ichiji-ronten` |
 | `koji-gaiyo-7items` | 工事概要7項目で失点しない | 工事概要の7項目に何をどこまで書けばよいか分からない | howto | レビュー | 台本/構成 | `civil-1-keiken-complete-pack` |
 | `niji-junbi-roadmap` | 一次のあとに始める二次検定ロードマップ | 二次まで何をどの順で準備すればよいか分からない | roadmap | レビュー | 台本/構成 | `civil-1-niji-marugoto-pack` |
 | `niji-kijutsu-concrete` | 二次の学科記述 コンクリート — 頻出規定の整理 | コンクリートの施工規定のどこが記述式で問われるか分からない | exam-point | レビュー | 台本/構成 | `civil-1-gakka-kijutsu` |
@@ -74,7 +74,7 @@
 | `roadmap-1kyu-vs-2kyu` | 1級と2級どちらから受けるか — 判断基準 | 自分の経験年数とキャリアでどちらの級が正解か分からない | roadmap | レビュー | 台本/構成 | `links-hub` |
 | `roadmap-juken-shikaku` | 1級土木の受検資格と試験制度 — 全体像をつかむ | 受検資格や一次二次の制度が複雑で全体像がつかめない | roadmap | レビュー | 台本/構成 | `links-hub` |
 | `roadmap-nanido-goukakuritsu` | 1級土木の難易度 — 合格率の読み方と必要な学習量 | 合格率の数字だけでは自分に合格できるか判断できない | roadmap | レビュー | 台本/構成 | `links-hub` |
-| `sekokan-shippaidan` | 施工管理の失敗談 — 現場で学んだ教訓 | 失敗事例から学びたいが実名では誰も話してくれない | career | 下書き | 台本/構成 | `links-hub` |
+| `sekokan-shippaidan` | 施工管理の失敗談 — 現場で学んだ教訓 | 失敗事例から学びたいが実名では誰も話してくれない | career | レビュー | 台本/構成 | `links-hub` |
 | `study-plan-1kyu` | 1級土木の勉強計画 — 何をいつまでに | 仕事と両立しながら何をどの順で進めるか計画できない | roadmap | レビュー | 台本/構成 | `links-hub` |
 
 ## 2級土木施工管理技士（18）
