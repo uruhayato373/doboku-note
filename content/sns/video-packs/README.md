@@ -4,7 +4,7 @@
 > 真実源: 各 `video-pack.json` ＋ `.claude/state/video-content-status.json`。契約: `.claude/knowledge/reference/video-content-policy.md`
 > 管理画面の企画ボード（資格・段階で絞り込める表）: `/content/video`
 
-パック数: **95**（更新: 2026-09-01）
+パック数: **98**（更新: 2026-09-01）
 
 ## 1級土木施工管理技士（66）
 
@@ -100,7 +100,7 @@
 | `nikyuu-gaiyo-roadmap` | 2級土木の全体像と学習順序 | 受検資格・科目・日程と何から始めるかが分からない | roadmap | レビュー | 台本/構成 | `links-hub` |
 | `study-plan-2kyu` | 2級土木の勉強計画 — 仕事と両立する学習設計 | 仕事と両立しながら何をいつまでに進めるか計画できない | roadmap | レビュー | 台本/構成 | `links-hub` |
 
-## 技術士 総合技術監理部門（11）
+## 技術士 総合技術監理部門（14）
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
@@ -108,10 +108,13 @@
 | `gyoumu-keirekihyo` | 業務経歴票の書き方 — 出願でつまずかない | 経歴票に何をどう書けば監理経験として認められるか不安 | howto | 企画 | —/— | `links-hub` |
 | `hakusho-map` | 白書はどれを読む？5管理×27白書の使い分け | 白書が多すぎてどれをどこまで読むべきか分からない | roadmap | 企画 | —/— | `tankan-reading-guide` |
 | `kata-oudan-ryuyo` | 1つの論文パターンを複数年度へ流用する | 過去問ごとに別の答案を用意する準備量に耐えられない | howto | 企画 | —/— | `essay-core-pack` |
+| `kikinagashi-sokan-keyword` | 耳で覚える総監キーワード — 5管理の核を反復する | 5管理のキーワードが多すぎて机の学習だけでは反復が足りない | exam-point | 企画 | —/— | `tankan-takuitsu-reiwa-pdf` |
 | `monbun-yomikata` | 総監記述式で設問の役割を取り違えない読み方 | 長い問題文のどこを読み、各設問で何を書けばよいか分からない | howto | レビュー | 台本/構成 | `essay-core-pack` |
 | `persona-settei` | 論文の立場（ペルソナ）はどう選ぶか | 自分の経歴でどの立場から書けば減点されないか分からない | howto | 企画 | —/— | `essay-complete-pack` |
 | `r8-yosou-theme` | R8予想テーマの読み方 — 白書から出題を絞る | 出題テーマの山張りを根拠なくやってしまう | exam-point | 企画 | —/— | `r8-essay-forecast` |
 | `sanso-kozo` | 合否を分ける三層構造 — 前提・施策・最大リスク | 設問ごとに何を書くべきかの役割分担が分からない | exam-point | 企画 | —/— | `essay-complete-pack` |
 | `setsumon3-shisaku` | 設問3で国家施策が出てこない人へ | 将来展望で書ける国家スケールの施策の持ち駒が無い | howto | 企画 | —/— | `setsumon3-policy-bank` |
 | `sokan-goukaku-senryaku` | 総監の合格戦略 — 択一と記述の配分 | 択一と記述にどう時間配分すべきか判断できない | roadmap | 企画 | —/— | `links-hub` |
+| `sokan-kojutsu-kangaekata` | 口頭試験の考え方 — 経歴を総監の言葉で語る | 口頭試験で自分の経歴や業務をどう総監らしく語ればよいか分からない | howto | 企画 | —/— | `essay-complete-pack` |
 | `takuitsu-keyword` | 択一はキーワード集をこう使う | 600超のキーワードをどう回せばよいか分からない | howto | 企画 | —/— | `tankan-reading-guide` |
+| `takuitsu-r07-enshu` | 令和7年度の択一を3問だけ解く — 型で落とさない | 択一の過去問をどう解き進めれば力になるのか掴めない | exam-point | 企画 | —/— | `tankan-takuitsu-reiwa-pdf` |
