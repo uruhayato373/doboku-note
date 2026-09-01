@@ -181,7 +181,7 @@
 | `gishi-construction-ronten` | コンクリート技士「施工（運搬・打込み・養生）」の頻出論点 | 運搬時間や打重ねなど時間規定の数値が似ていて混ざる | exam-point | 下書き | 台本/構成 | `ce-mix-jis-practice` |
 | `gishi-environment-ronten` | コンクリート技士「環境配慮・脱炭素・資源循環」の頻出論点 | 環境分野は手薄になりがちで混合材や再生骨材の論点が押さえられていない | exam-point | 下書き | 台本/構成 | `ce-mix-jis-practice` |
 | `gishi-haigou-keisan` | コンクリート技士 配合計算の解き方 — 手順を型にする | 配合計算は毎回解き方を組み立て直していて時間も正答率も安定しない | howto | 下書き | 台本/構成 | `ce-mix-jis-practice` |
-| `gishi-jis-handan` | コンクリート技士 JIS問題の判断法 — 規定の背景で覚える | JISの数値規定を丸暗記しても選択肢を少しひねられると判断できない | howto | 企画 | —/— | `ce-mix-jis-practice` |
+| `gishi-jis-handan` | コンクリート技士 JIS問題の判断法 — 規定の背景で覚える | JISの数値規定を丸暗記しても選択肢を少しひねられると判断できない | howto | 下書き | 台本/構成 | `ce-mix-jis-practice` |
 | `gishi-jukenshikaku-2026` | コンクリート技士の受験資格 — 実務経験1年への改定 | 受験資格の改定があったと聞いたが自分が対象になるのか判断できない | exam-point | レビュー | 台本/構成 | `links-hub` |
 | `gishi-materials-ronten` | コンクリート技士「セメント・骨材・混和材料」の頻出論点 | セメントの水和や骨材の含水状態など基礎の用語が現場感覚と結びつかない | exam-point | レビュー | 台本/構成 | `ce-mix-jis-practice` |
 | `gishi-mix-design-ronten` | コンクリート技士「配合設計と現場配合補正」の頻出論点 | 配合計算の手順があやふやで表面水補正が出ると手が止まる | exam-point | レビュー | 台本/構成 | `ce-mix-jis-practice` |
