@@ -96,9 +96,9 @@ const CHECKS = [
   { id: 'playwright-auth-wiring', npm: 'check-playwright-auth-wiring', timeout: 60_000, ci: false, note: '読み手＝Playwright 認証共通化の実装担当。永続プロファイルを使うスクリプトが共通 auth guard を経由しているかを棚卸し' },
   // expectedFail: 「今は失敗が正常」な将来ゲート。--report-only の失敗集計から外す代わりに、
   // PASS に転じた瞬間に「前提が解消した＝フラグを外して昇格せよ」で赤くする（居座り防止のラチェット）。
-  // ci:true には付けられない（起動時ガード）。毎週の偽再発で report-checks Issue が読み飛ばされる
+  // ゲート（ci フラグ true）には付けられない（起動時ガード）。毎週の偽再発で report-checks Issue が読み飛ばされる
   // 状態（#479）の方が §9 に反するので、期日付きで分離する。
-  { id: 'playwright-auth-wiring-strict', npm: 'check-playwright-auth-wiring:strict', timeout: 60_000, ci: false, expectedFail: 'Phase 03（Playwright 認証共通化）完了まで。完了時にこのキーを外し ci:true へ昇格する', note: '読み手＝Playwright 認証共通化の実装担当。Phase 03 完了後に違反 0 を要求する将来ゲート。現状 111 件の既存移行対象があるため report-only' },
+  { id: 'playwright-auth-wiring-strict', npm: 'check-playwright-auth-wiring:strict', timeout: 60_000, ci: false, expectedFail: 'Phase 03（Playwright 認証共通化）完了まで。完了時にこのキーを外し ci フラグを true にして昇格する', note: '読み手＝Playwright 認証共通化の実装担当。Phase 03 完了後に違反 0 を要求する将来ゲート。現状 111 件の既存移行対象があるため report-only' },
   { id: 'gate-parity', npm: 'check-gate-parity:ci', timeout: 60_000, ci: true, note: 'pre-commit / quality-audit / workflow のどこからも呼ばれていない検査を検出（オーファン化の防止）' },
   { id: 'eslint', npm: 'lint', timeout: 180_000, ci: true },
   { id: 'validate-mdx', npm: 'validate-mdx', timeout: 180_000, ci: true },
