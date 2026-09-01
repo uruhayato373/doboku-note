@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 16,
+      "narration": "施工計画は着工前の検討全般を指すため、範囲が広く迷いがちです。施工管理との区別と、検討項目を絞る考え方を説明します。",
+      "caption": "施工計画テーマ 検討の幅で差をつける",
+      "visual": {
+        "kind": "cover",
+        "heading": "施工計画テーマの経験記述",
+        "items": ["1級土木 第2次検定・施工経験記述"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 16,
+      "end": 60,
+      "narration": "先に施工計画で書くと決めて課題を探すと一般論になりがちです。範囲を絞らないまま書き始めると内容が発散します。施工計画は着工前の検討であることをまず意識します。",
+      "caption": "範囲を絞らないと内容が発散する",
+      "visual": {
+        "heading": "誤解：施工計画は範囲が広いまま書ける",
+        "items": ["絞らないと内容が発散する", "着工前の検討であることを意識する"]
+      },
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md"
+    },
+    {
+      "sceneId": "plan-vs-management",
+      "start": 60,
+      "end": 118,
+      "narration": "施工計画は、着工前に設計図書・材料・方法・構造・資金を検討することです。建設機械の使用計画や工程計画などを含み、事前調査と施工体制の検討を経て工事着工、着工後の施工管理へつながります。",
+      "caption": "施工計画と施工管理の区切りを意識する",
+      "visual": {
+        "heading": "STEP 1　施工計画と施工管理を区別する",
+        "items": ["施工計画＝着工前の事前検討全般", "事前調査・施工体制の検討を含む", "着工後の施工管理（品質・工程・安全）とは別"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "four-categories",
+      "start": 118,
+      "end": 176,
+      "narration": "検討項目は、仮設計画、工法比較、近接施工の防護、関係者協議の4系統に絞ります。仮設道路や仮締切の規模、地盤改良の施工計画、既設構造物近接の工法選定、地下埋設物への協議が代表例です。",
+      "caption": "検討項目は4系統に絞って選ぶ",
+      "visual": {
+        "heading": "STEP 2　検討項目を4系統に絞る",
+        "items": ["仮設計画（仮設道路・仮締切の規模）", "工法比較（競合回避・地盤改良の計画）", "近接施工の防護・関係者協議"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "concrete-example",
+      "start": 176,
+      "end": 234,
+      "narration": "既設構造物に近接する施工では、近接の程度に合った工法・機種選定・防護方法をまとめます。寒中・暑中コンクリート施工では、品質確保と温度管理のための施工計画を立案します。",
+      "caption": "近接施工と寒中暑中施工の検討例",
+      "visual": {
+        "heading": "STEP 3　具体例で検討を確認する",
+        "items": ["近接施工：工法・機種選定・防護方法", "寒中・暑中コンクリート：温度管理の計画", "何を検討し、どう判断したかを書く"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "action-as-plan",
+      "start": 234,
+      "end": 292,
+      "narration": "対応処置として、立案した計画そのものを書けます。仮締切の規模を検討し、場内仮置きで盛替え数量・施工日数を短縮したケースのように、計画立案の効果を書きます。",
+      "caption": "立案した計画そのものを成果として書く",
+      "visual": {
+        "heading": "STEP 4　計画立案の効果を成果として書く",
+        "items": ["対応処置＝立案した計画そのもの", "計画立案がもたらした効果を書く", "例：盛替え数量・施工日数の短縮"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 292,
+      "end": 330,
+      "narration": "まとめます。施工計画と施工管理を区別し、検討項目を4系統に絞り、具体例で検討の書き方を確認し、立案した計画そのものを成果として書く。範囲の広さは絞り込みで解消できます。",
+      "caption": "区別→4系統→具体例→計画を成果に",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 施工計画と施工管理を区別する", "② 検討項目を4系統に絞る", "③ 具体例で検討を確認する", "④ 立案した計画を成果として書く"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 330,
+      "end": 360,
+      "narration": "施工計画の書き方の幅を掴みたい方は、概要欄のリンクから経験記述の完全パックをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "検討の幅を掴む",
+        "items": ["経験記述 完全パック（概要欄リンク）"]
+      }
+    }
+  ]
+}
