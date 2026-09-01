@@ -156,7 +156,7 @@
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
-| `kikinagashi-shunin-suchi` | 聞き流し 主任技士 頻出数値・JIS規定 | 机に向かう時間が取れず数値規定の反復が足りないまま直前期に入る | exam-point | 下書き | 台本/構成 | `cce-r8-mc-50` |
+| `kikinagashi-shunin-suchi` | 聞き流し 主任技士 頻出数値・JIS規定 | 机に向かう時間が取れず数値規定の反復が足りないまま直前期に入る | exam-point | レビュー | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-chokuzen-senryaku` | 主任技士 直前期の総仕上げ — 頻出度で絞る | 残り時間で全分野は回せず何を捨てて何を固めるか決められない | howto | レビュー | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-construction-ronten` | 主任技士「施工」の頻出論点 | ポンプ圧送から養生まで工程が広く数値規定の暗記が追いつかない | exam-point | レビュー | 台本/構成 | `cce-r8-mc-50` |
 | `shunin-durability-ronten` | 主任技士「コンクリートの耐久性」の頻出論点 | 中性化・塩害・凍害・ASRの劣化機構がごちゃつき対策の対応づけを間違える | exam-point | レビュー | 台本/構成 | `cce-r8-mc-50` |
@@ -177,15 +177,15 @@
 
 | packId | タイトル | 悩み | intent | 段階 | 台本/構成 | 主CTA |
 |---|---|---|---|---|---|---|
-| `gishi-12week-plan` | コンクリート技士 12週間の合格スケジュール | 何をどの順で何週間やれば合格水準に届くのか計画が立てられない | roadmap | 下書き | 台本/構成 | `ce-mix-jis-practice` |
-| `gishi-construction-ronten` | コンクリート技士「施工（運搬・打込み・養生）」の頻出論点 | 運搬時間や打重ねなど時間規定の数値が似ていて混ざる | exam-point | 企画 | —/— | `ce-mix-jis-practice` |
-| `gishi-environment-ronten` | コンクリート技士「環境配慮・脱炭素・資源循環」の頻出論点 | 環境分野は手薄になりがちで混合材や再生骨材の論点が押さえられていない | exam-point | 企画 | —/— | `ce-mix-jis-practice` |
-| `gishi-haigou-keisan` | コンクリート技士 配合計算の解き方 — 手順を型にする | 配合計算は毎回解き方を組み立て直していて時間も正答率も安定しない | howto | 企画 | —/— | `ce-mix-jis-practice` |
+| `gishi-12week-plan` | コンクリート技士 12週間の合格スケジュール | 何をどの順で何週間やれば合格水準に届くのか計画が立てられない | roadmap | レビュー | 台本/構成 | `ce-mix-jis-practice` |
+| `gishi-construction-ronten` | コンクリート技士「施工（運搬・打込み・養生）」の頻出論点 | 運搬時間や打重ねなど時間規定の数値が似ていて混ざる | exam-point | 下書き | 台本/構成 | `ce-mix-jis-practice` |
+| `gishi-environment-ronten` | コンクリート技士「環境配慮・脱炭素・資源循環」の頻出論点 | 環境分野は手薄になりがちで混合材や再生骨材の論点が押さえられていない | exam-point | 下書き | 台本/構成 | `ce-mix-jis-practice` |
+| `gishi-haigou-keisan` | コンクリート技士 配合計算の解き方 — 手順を型にする | 配合計算は毎回解き方を組み立て直していて時間も正答率も安定しない | howto | 下書き | 台本/構成 | `ce-mix-jis-practice` |
 | `gishi-jis-handan` | コンクリート技士 JIS問題の判断法 — 規定の背景で覚える | JISの数値規定を丸暗記しても選択肢を少しひねられると判断できない | howto | 企画 | —/— | `ce-mix-jis-practice` |
-| `gishi-jukenshikaku-2026` | コンクリート技士の受験資格 — 実務経験1年への改定 | 受験資格の改定があったと聞いたが自分が対象になるのか判断できない | exam-point | 下書き | 台本/構成 | `links-hub` |
-| `gishi-materials-ronten` | コンクリート技士「セメント・骨材・混和材料」の頻出論点 | セメントの水和や骨材の含水状態など基礎の用語が現場感覚と結びつかない | exam-point | 下書き | 台本/構成 | `ce-mix-jis-practice` |
-| `gishi-mix-design-ronten` | コンクリート技士「配合設計と現場配合補正」の頻出論点 | 配合計算の手順があやふやで表面水補正が出ると手が止まる | exam-point | 下書き | 台本/構成 | `ce-mix-jis-practice` |
-| `gishi-production-qc-ronten` | コンクリート技士「製造・品質管理と検査」の頻出論点 | JIS A 5308の呼び方や受入検査の規定が細かく整理しきれない | exam-point | 企画 | —/— | `ce-mix-jis-practice` |
-| `gishi-properties-testing-ronten` | コンクリート技士「コンクリートの性質と試験」の頻出論点 | スランプや空気量など試験方法の細かい規定が覚えきれない | exam-point | 下書き | 台本/構成 | `ce-mix-jis-practice` |
-| `gishi-shiken-zentaizou` | コンクリート技士の全体像 — 試験概要と勉強法 | 初受験で試験形式も出題分野も分からずどこから手を付けるか決められない | roadmap | 下書き | 台本/構成 | `links-hub` |
-| `gishi-shunin-dochira` | 技士と主任技士どちらを受けるか — 違いで判断する | 2つの資格の難易度や位置づけの違いが分からずどちらを受けるか決められない | diagnosis | 下書き | 台本/構成 | `links-hub` |
+| `gishi-jukenshikaku-2026` | コンクリート技士の受験資格 — 実務経験1年への改定 | 受験資格の改定があったと聞いたが自分が対象になるのか判断できない | exam-point | レビュー | 台本/構成 | `links-hub` |
+| `gishi-materials-ronten` | コンクリート技士「セメント・骨材・混和材料」の頻出論点 | セメントの水和や骨材の含水状態など基礎の用語が現場感覚と結びつかない | exam-point | レビュー | 台本/構成 | `ce-mix-jis-practice` |
+| `gishi-mix-design-ronten` | コンクリート技士「配合設計と現場配合補正」の頻出論点 | 配合計算の手順があやふやで表面水補正が出ると手が止まる | exam-point | レビュー | 台本/構成 | `ce-mix-jis-practice` |
+| `gishi-production-qc-ronten` | コンクリート技士「製造・品質管理と検査」の頻出論点 | JIS A 5308の呼び方や受入検査の規定が細かく整理しきれない | exam-point | 下書き | 台本/構成 | `ce-mix-jis-practice` |
+| `gishi-properties-testing-ronten` | コンクリート技士「コンクリートの性質と試験」の頻出論点 | スランプや空気量など試験方法の細かい規定が覚えきれない | exam-point | レビュー | 台本/構成 | `ce-mix-jis-practice` |
+| `gishi-shiken-zentaizou` | コンクリート技士の全体像 — 試験概要と勉強法 | 初受験で試験形式も出題分野も分からずどこから手を付けるか決められない | roadmap | レビュー | 台本/構成 | `links-hub` |
+| `gishi-shunin-dochira` | 技士と主任技士どちらを受けるか — 違いで判断する | 2つの資格の難易度や位置づけの違いが分からずどちらを受けるか決められない | diagnosis | レビュー | 台本/構成 | `links-hub` |
