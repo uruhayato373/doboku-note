@@ -30,6 +30,12 @@ const expected = {
     written: "2026-07-20",
     source: "https://www.engineer.or.jp/c_topics/011/011422.html",
   },
+  "pe-first-stage": {
+    applicationOpen: "2026-06-10",
+    applicationDeadline: "2026-06-23",
+    exam: "2026-11-22",
+    source: "https://www.engineer.or.jp/c_topics/011/011423.html",
+  },
   "concrete-engineer": {
     applicationOpen: "2026-07-01",
     applicationDeadline: "2026-08-25",
@@ -110,11 +116,13 @@ const textExtensions = new Set([".md", ".mdx", ".json", ".ts", ".mjs"]);
  */
 const PATH_LITERALS = [
   /コンクリート主任技師20/g, // content/sources/textbook/コンクリート主任技師2022|2024（ローカル PDF 名・実在）
+  /09_YouTube戦略_コンクリート技士・主任技士\.md/g, // docs/marketing の実在ファイル名。版表で直後に更新日（YYYY-MM-DD）が並ぶと日付近接ルールが誤検知する
 ];
 // 除外の前提（実体が在ること）が崩れたら落とす。除外は「実在するから誤記でない」という
 // 主張なので、実在しなくなった瞬間に除外自体が誤りになる。
 const PATH_LITERAL_ROOTS = [
   { glob: "content/sources/textbook", startsWith: "コンクリート主任技師20", why: "content/sources/textbook/コンクリート主任技師20xx" },
+  { glob: "docs/marketing", startsWith: "09_YouTube戦略_コンクリート技士", why: "docs/marketing/09_YouTube戦略_コンクリート技士・主任技士.md" },
 ];
 const forbidden = [
   { pattern: /2026-10-27/g, reason: "2級後期・第二次は2026-10-25" },
@@ -133,6 +141,7 @@ const forbidden = [
   {
     pattern: /コンクリート(?:主任)?技士[^\n]{0,30}(?:2026-09-01|2026-11-30|9月1日|11月30日)/g,
     reason: "2026年度のコンクリート技士・主任技士は申込締切8/25、試験11/29",
+    stripPathLiterals: true,
   },
 ];
 
@@ -181,7 +190,7 @@ for (const root of PATH_LITERAL_ROOTS) {
   const exists =
     existsSync(dir) &&
     readdirSync(dir, { withFileTypes: true }).some(
-      (e) => e.isDirectory() && e.name.startsWith(root.startsWith),
+      (e) => (e.isDirectory() || e.isFile()) && e.name.startsWith(root.startsWith),
     );
   if (!exists) {
     errors.push(
