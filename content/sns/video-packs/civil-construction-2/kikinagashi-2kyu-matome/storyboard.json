@@ -1,0 +1,280 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 25,
+      "narration": "2級土木の直前期、机で全分野を回す時間がない、という方に向けて、主要5分野の頻出点を耳から総ざらいします。",
+      "caption": "耳で覚える2級土木、頻出点の総ざらい",
+      "visual": {
+        "kind": "cover",
+        "heading": "耳で覚える2級土木",
+        "items": ["主要5分野・頻出点の総ざらい"]
+      }
+    },
+    {
+      "sceneId": "soil-tests",
+      "start": 25,
+      "end": 75,
+      "narration": "地盤を知る手がかりから始めます。標準貫入試験はN値で地盤の硬さを、平板載荷試験は支持力を直接確認し、現場CBR試験は路床や路盤の支持力を求める試験です。",
+      "caption": "N値・支持力・CBR、試験名と目的を対で",
+      "visual": {
+        "heading": "土質試験とN値",
+        "items": ["標準貫入試験：N値で地盤の硬さを知る", "平板載荷試験：支持力を直接確認", "現場CBR試験：路床・路盤の支持力"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+    },
+    {
+      "sceneId": "soil-volume",
+      "start": 75,
+      "end": 110,
+      "narration": "地盤の次は土量です。ほぐし率のLは運搬土量の計算に、締固め率のCは盛土の仕上がり土量の計算に使い分けます。",
+      "caption": "運搬はL、盛土の仕上がりはCで計算",
+      "visual": {
+        "heading": "土量変化率のLとC",
+        "items": ["L＝ほぐし率、運搬土量に使う", "C＝締固め率、盛土の仕上がりに使う"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+    },
+    {
+      "sceneId": "compaction",
+      "start": 110,
+      "end": 150,
+      "narration": "ここで押さえたいのが締固めです。最適含水比のもとで施工し、現場の乾燥密度と最大乾燥密度の比である締固め度で品質を確認します。",
+      "caption": "最適含水比と締固め度で品質を確認",
+      "visual": {
+        "heading": "盛土の締固め管理",
+        "items": ["最適含水比のもとで施工する", "締固め度＝現場密度÷最大乾燥密度"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+    },
+    {
+      "sceneId": "soft-ground",
+      "start": 150,
+      "end": 200,
+      "narration": "軟弱地盤の対策工法は、目的で分けると覚えやすくなります。圧密排水工法は沈下を促して強度を増し、締固め工法は緩い砂地盤を締め固め、置換工法は軟弱層を良質な材料に置き換えます。",
+      "caption": "圧密排水・締固め・置換を目的で区別",
+      "visual": {
+        "heading": "軟弱地盤対策工法の目的別分類",
+        "items": ["圧密排水工法：沈下を促し強度を増す", "締固め工法：緩い砂を締め固める", "置換工法：軟弱層を良質材に置き換える"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+    },
+    {
+      "sceneId": "concrete-materials",
+      "start": 200,
+      "end": 250,
+      "narration": "分野を移してコンクリートです。混和剤は使用量が少なく容積に算入せず、混和材は使用量が多く容積に算入します。骨材は表面乾燥飽水状態を基準に配合を決めます。",
+      "caption": "混和剤と混和材、使用量と算入の違い",
+      "visual": {
+        "heading": "コンクリートの材料",
+        "items": ["混和剤：使用量少・容積に算入しない", "混和材：使用量多・容積に算入する", "骨材は表面乾燥飽水状態を基準に配合"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-concrete-key-points/article.mdx"
+    },
+    {
+      "sceneId": "mix-design",
+      "start": 250,
+      "end": 290,
+      "narration": "水セメント比を小さくするほど強度と耐久性は上がりますが、その分スランプが下がり施工性は落ちるというトレードオフがあります。",
+      "caption": "強度と施工性はトレードオフの関係",
+      "visual": {
+        "heading": "配合：水セメント比とスランプ",
+        "items": ["水セメント比を小さくすると強度が上がる", "一方でスランプが下がり施工性が落ちる"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-concrete-key-points/article.mdx"
+    },
+    {
+      "sceneId": "placing",
+      "start": 290,
+      "end": 340,
+      "narration": "打込みでは打重ね時間の限度を守り、コールドジョイントを防ぎます。締固めのバイブレータは鉛直に挿入し、横移動の手段としては使いません。",
+      "caption": "打重ね時間の限度とバイブレータの操作",
+      "visual": {
+        "heading": "打込みと締固めの手順",
+        "items": ["打重ね時間の限度を守りコールドジョイントを防ぐ", "バイブレータは鉛直に挿入", "横移動の手段には使わない"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-concrete-key-points/article.mdx"
+    },
+    {
+      "sceneId": "curing-crack",
+      "start": 340,
+      "end": 380,
+      "narration": "養生は湿潤状態の保持が基本です。ひび割れの対策は、水セメント比を小さくする、単位水量を減らす、養生を丁寧に行う、打継ぎを丁寧に処理するという4つで押さえます。",
+      "caption": "湿潤養生とひび割れ対策4方針",
+      "visual": {
+        "heading": "養生とひび割れ対策",
+        "items": ["養生は湿潤状態の保持が基本", "対策は水セメント比・単位水量・養生・打継ぎ"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-concrete-key-points/article.mdx"
+    },
+    {
+      "sceneId": "foundation-types",
+      "start": 380,
+      "end": 425,
+      "narration": "ここからは基礎工です。支持層が浅ければ直接基礎、深ければ杭基礎、より大きな荷重を伝える大型構造物ではケーソン基礎という分類が基本です。",
+      "caption": "支持層の深さで基礎形式を分ける",
+      "visual": {
+        "heading": "基礎形式の分類",
+        "items": ["直接基礎：支持層が浅い場合", "杭基礎：支持層が深い場合", "ケーソン基礎：大型構造物の深い支持層"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-foundation-key-points/article.mdx"
+    },
+    {
+      "sceneId": "bearing-layer",
+      "start": 425,
+      "end": 460,
+      "narration": "直接基礎の支持層の目安は、砂や砂礫でN値30程度以上、粘性土でN値20程度以上です。",
+      "caption": "支持層の目安、砂礫30・粘性土20",
+      "visual": {
+        "heading": "直接基礎の支持層",
+        "items": ["砂・砂礫：N値30程度以上", "粘性土：N値20程度以上"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-foundation-key-points/article.mdx"
+    },
+    {
+      "sceneId": "bored-pile",
+      "start": 460,
+      "end": 510,
+      "narration": "場所打ち杭は、オールケーシング、リバース、アースドリル、深礎という工法名を孔壁の保護方法で区別します。荷重の支え方では、先端で支える支持杭と、周面の摩擦で支える摩擦杭に分かれます。",
+      "caption": "孔壁の保護方法で杭の工法名を区別",
+      "visual": {
+        "heading": "場所打ち杭と支持・摩擦の区別",
+        "items": ["オールケーシング・リバース・アースドリル・深礎", "支持杭は先端で、摩擦杭は周面で支える"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-foundation-key-points/article.mdx"
+    },
+    {
+      "sceneId": "retaining-wall",
+      "start": 510,
+      "end": 545,
+      "narration": "掘削では土留め壁で周辺の崩壊を防ぎます。ヒービングは軟弱な粘性土で掘削底面が盛り上がる現象、ボイリングは砂質地盤で地下水とともに砂が湧き上がる現象です。",
+      "caption": "ヒービングは粘性土、ボイリングは砂質",
+      "visual": {
+        "heading": "土留めと掘削底面の破壊現象",
+        "items": ["土留め壁で周辺の土砂崩壊を防ぐ", "ヒービング：軟弱粘性土で底面が隆起", "ボイリング：砂質＋地下水で噴砂"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-foundation-key-points/article.mdx"
+    },
+    {
+      "sceneId": "labor-standards",
+      "start": 545,
+      "end": 595,
+      "narration": "話題を変えて法規です。労働基準法は、労働時間が原則1日8時間、1週40時間。満18歳未満の年少者は危険有害業務と深夜業が制限されます。賃金は通貨で直接、全額を毎月払うという5原則もあります。",
+      "caption": "8時間・40時間・満18歳未満を正確に",
+      "visual": {
+        "heading": "労働基準法の数字",
+        "items": ["労働時間：原則1日8時間・1週40時間", "年少者：満18歳未満は危険業務・深夜業を制限", "賃金支払いの5原則"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-law-key-points/article.mdx"
+    },
+    {
+      "sceneId": "safety-law",
+      "start": 595,
+      "end": 630,
+      "narration": "労働安全衛生法では、型枠支保工や地山の掘削といった危険作業に作業主任者を選任します。下請けが混在する現場では、統括安全衛生責任者が現場全体を統括します。",
+      "caption": "危険作業は作業主任者、混在現場は統括責任者",
+      "visual": {
+        "heading": "労働安全衛生法",
+        "items": ["型枠支保工・地山の掘削は作業主任者を選任", "混在現場は統括安全衛生責任者が統括"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-law-key-points/article.mdx"
+    },
+    {
+      "sceneId": "construction-business-law",
+      "start": 630,
+      "end": 675,
+      "narration": "建設業法では、工事現場に主任技術者を配置することが原則です。一定規模以上では監理技術者が必要になり、施工体制台帳で下請を含む体制を明確にします。",
+      "caption": "主任技術者・監理技術者・施工体制台帳",
+      "visual": {
+        "heading": "建設業法",
+        "items": ["現場には主任技術者を配置する", "一定規模以上は監理技術者が必要", "施工体制台帳で下請の体制を明確化"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-law-key-points/article.mdx"
+    },
+    {
+      "sceneId": "road-river-law",
+      "start": 675,
+      "end": 710,
+      "narration": "道路の占用や河川区域内での工事には許可が必要です。一方、くい打ちなどの特定建設作業は、事前の届出が必要という手続きの違いを区別します。",
+      "caption": "許可が必要な工事と届出が必要な作業",
+      "visual": {
+        "heading": "道路・河川・特定建設作業",
+        "items": ["道路の占用・河川区域内の工事は許可が必要", "特定建設作業は事前の届出が必要"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-law-key-points/article.mdx"
+    },
+    {
+      "sceneId": "planning-steps",
+      "start": 710,
+      "end": 750,
+      "narration": "最後の柱、施工計画です。事前調査、基本計画、詳細計画、管理計画という4段階の順序で計画を組み立てていきます。",
+      "caption": "事前調査→基本計画→詳細計画→管理計画",
+      "visual": {
+        "heading": "施工計画作成の4段階",
+        "items": ["事前調査→基本計画→詳細計画→管理計画の順"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx"
+    },
+    {
+      "sceneId": "preliminary-survey",
+      "start": 750,
+      "end": 795,
+      "narration": "事前調査では、契約条件、そして現場の自然条件と立地条件を確認します。自然条件は地形や地質、立地条件は搬入路や近接構造物です。",
+      "caption": "契約条件・自然条件・立地条件を確認",
+      "visual": {
+        "heading": "事前調査の3つの確認",
+        "items": ["契約条件：工期・請負代金など", "自然条件：地形・地質・気象", "立地条件：搬入路・近接構造物"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx"
+    },
+    {
+      "sceneId": "construction-plan-doc",
+      "start": 795,
+      "end": 840,
+      "narration": "施工計画書には、組織編成を示す現場組織表、主要工種ごとの作業手順を示す施工方法、そして品質・安全・環境の各種管理計画を記載します。",
+      "caption": "組織表・施工方法・各種管理計画を記載",
+      "visual": {
+        "heading": "施工計画書の記載内容",
+        "items": ["現場組織表：組織編成と業務分担", "施工方法：主要工種ごとの作業手順", "各種管理計画：品質・安全・環境"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx"
+    },
+    {
+      "sceneId": "schedule-temporary",
+      "start": 840,
+      "end": 880,
+      "narration": "工程計画は、休日や悪天候日を除いた作業可能日数をもとに施工速度を決めます。仮設備計画には、設置だけでなく撤去や後片付けまでが含まれます。",
+      "caption": "作業可能日数と仮設備の撤去まで含む",
+      "visual": {
+        "heading": "工程計画と仮設備計画",
+        "items": ["作業可能日数から施工速度を決める", "仮設備は撤去・後片付けまで含む"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 880,
+      "end": 925,
+      "narration": "まとめます。5分野に共通するのは対応関係です。土質試験は目的と、工法は適用条件と、法規は数値と、施工計画は手順の順序と、いつも対で思い出す練習を積んでおきましょう。",
+      "caption": "5分野に共通するのは「対応関係」で覚える",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["土工・コンクリート・基礎工は工法と条件の対応", "法規は数値、施工計画は手順の順序"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 925,
+      "end": 965,
+      "narration": "総ざらいした点を一つずつ確認したい方は、概要欄のリンクから2級土木の暗記ノートをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "暗記ノートで確認する",
+        "items": ["2級土木の暗記ノート（概要欄リンク）"]
+      }
+    }
+  ]
+}
