@@ -45,7 +45,10 @@ const CONFIG_OF_ENTRY = {
 
 function sh(args) {
   try {
-    return execFileSync('git', args, { encoding: 'utf8' }).trim();
+    // stderr は捨てる。symbolic-ref が無い環境（CI の浅い checkout・pre-commit）で
+    // `fatal: ref refs/remotes/origin/HEAD is not a symbolic ref` が毎回漏れていた。
+    // 失敗は catch で '' に畳むので stderr を継承する理由が無い。
+    return execFileSync('git', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
   } catch {
     return '';
   }
