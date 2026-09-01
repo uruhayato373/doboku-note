@@ -1759,42 +1759,78 @@
     "shunin-products-ronten": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 3,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "shunin-structural-design-ronten": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 3,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "shunin-shouronbun-kousei": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "shunin-shouronbun-theme": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "shunin-ochiru-shouronbun": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 2.83,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
     "shunin-r8-juuten": {
       "derivatives": {
         "longform": {
-          "status": "draft"
+          "status": "qa_passed",
+          "qa": {
+            "avg": 3,
+            "blocks": 0,
+            "at": "2026-09-01",
+            "by": "general-purpose (video-content-qa 代行・6軸)"
+          }
         }
       }
     },
