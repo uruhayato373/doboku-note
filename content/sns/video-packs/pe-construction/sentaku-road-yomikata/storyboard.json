@@ -1,0 +1,99 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "道路の出題テーマは毎年違って見えますが、7年分並べると固定パターンが見えます。今日は優先して仕込むテーマの決め方を説明します。",
+      "caption": "道路 出題テーマの読み方",
+      "visual": {
+        "kind": "cover",
+        "heading": "道路 出題テーマの読み方",
+        "items": ["技術士 建設部門 選択科目「道路」"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 60,
+      "narration": "毎年ゼロから予想するのは非効率です。II-1は道路構造・法改正・舗装・地盤の4枠がほぼ固定で、舗装と地盤は7年連続で同じ枠に出ています。",
+      "caption": "II-1は4枠がほぼ固定",
+      "visual": {
+        "heading": "誤解：毎年ゼロから予想する",
+        "items": ["II-1は4枠固定：構造/法改正/舗装/地盤", "舗装・地盤は7年連続で同じ枠"]
+      },
+      "sourceRef": "content/site/pe-construction/road-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "block1",
+      "start": 60,
+      "end": 120,
+      "narration": "道路科目に合格した実感として、この科目は新しいテーマを探す科目ではなく、決まった4枠を均等に仕込む科目です。まず4枠の存在を知ることが出発点です。",
+      "caption": "道路の癖：4枠を均等に仕込む科目",
+      "visual": {
+        "heading": "道路科目の癖",
+        "items": ["新テーマ探しでなく4枠を仕込む", "II-1-1構造/II-1-2法改正/II-1-3舗装/II-1-4地盤"]
+      }
+    },
+    {
+      "sceneId": "block2",
+      "start": 120,
+      "end": 195,
+      "narration": "舗装は7年連続の最頻出枠です。構造比較から性能指標、点検・診断、再生利用へと切り口が回ります。舗装アセットマネジメントという点検・診断・措置・記録のサイクルを軸に整理すると強いです。",
+      "caption": "舗装：7年連続・切り口が循環",
+      "visual": {
+        "heading": "舗装（II-1-3・7年連続）",
+        "items": ["構造→性能→点検・診断→再生利用", "軸は舗装アセットマネジメント"]
+      },
+      "sourceRef": "content/site/pe-construction/road-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "block3",
+      "start": 195,
+      "end": 265,
+      "narration": "道路法改正も7年連続の枠です。一つの大きな改正が単発で終わらず、複数年にわたって形を変えて出続けます。無電柱化のような防災・景観に関わる制度も有力です。",
+      "caption": "法改正：一つの改正が複数年続く",
+      "visual": {
+        "heading": "道路法改正（II-1-2・7年連続）",
+        "items": ["大きな改正は複数年に分けて出る", "無電柱化など防災・景観の制度も候補"]
+      },
+      "sourceRef": "content/site/pe-construction/road-ronbun-keyword/article.mdx"
+    },
+    {
+      "sceneId": "block4",
+      "start": 265,
+      "end": 330,
+      "narration": "近年は能登半島地震を踏まえた防災、道路のデジタル化、道路空間再配分が目立ちます。道路空間再配分は新しいモビリティに合わせて車道・歩道の配分を見直す論点です。",
+      "caption": "防災・DX・道路空間再配分が近年伸長",
+      "visual": {
+        "heading": "防災・DX・道路空間再配分",
+        "items": ["能登半島地震を踏まえた防災", "道路空間再配分＝新モビリティ対応の車道・歩道見直し"]
+      },
+      "sourceRef": "content/site/pe-construction/road-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 330,
+      "end": 375,
+      "narration": "道路科目は4枠を均等に仕込む科目です。舗装と法改正は7年連続の鉄板として優先し、防災・DX・道路空間再配分は施策の流れを追って仕上げます。",
+      "caption": "4枠均等＋舗装・法改正を優先",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["4枠を均等に仕込む", "舗装・法改正＝鉄板優先", "防災・DX・道路空間再配分は流れで補強"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 375,
+      "end": 405,
+      "narration": "年度別の出題一覧と全設問の解答の形は、概要欄のリンクから道路科目のマガジンでご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄の道路科目マガジンへ",
+      "visual": {
+        "kind": "cover",
+        "heading": "道路科目マガジンで確認する",
+        "items": ["年度別の出題テーマと解答の形（概要欄リンク）"]
+      }
+    }
+  ]
+}
