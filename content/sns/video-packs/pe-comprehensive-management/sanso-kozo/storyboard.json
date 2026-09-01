@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "総監の論文で、設問ごとに何を書けばいいか分からず手が止まる。今日は、Ⅰ・Ⅱ・Ⅲそれぞれの役割と、層をまたいだ一貫性の作り方を説明します。",
+      "caption": "Ⅰ前提・Ⅱ施策・Ⅲ最大リスクの役割分担",
+      "visual": {
+        "kind": "cover",
+        "heading": "三層構造で書く　役割分担と一貫性",
+        "items": ["技術士 総合技術監理部門・記述式"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "三層構造は単なる見出しの区分、という誤解があります。実際はⅠ・Ⅱ・Ⅲが原因と結果でつながる一本の因果構造で、どこか一層でも役割を外すと、他が正しくても評価されません。",
+      "caption": "三層は一本の因果構造",
+      "visual": {
+        "heading": "誤解：三層は見出しの区分",
+        "items": ["実際は原因→結果でつながる因果構造", "一層でも役割を外すと全体が崩れる"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "layer1",
+      "start": 55,
+      "end": 120,
+      "narration": "Ⅰの本質は説明でなく設計図です。管理対象を明確にする、自分の立場を明示する、後段が成立する前提条件を置く。この3つの役割があります。対象を広げすぎると後段で論旨が迷走します。",
+      "caption": "Ⅰの役割は説明でなく設計図",
+      "visual": {
+        "heading": "Ⅰ　管理対象と前提条件",
+        "items": ["管理対象を限定する", "立場・役割を明示する", "後段が成立する前提を置く"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "layer2",
+      "start": 120,
+      "end": 195,
+      "narration": "Ⅱは方針でなく施策です。「DXを推進する」は方針で、「特定業務にシステムを導入する」まで具体化して施策になります。施策には4条件があり、書いたら効果と問題点を必ずセットで示します。",
+      "caption": "Ⅱは方針でなく施策＋問題点",
+      "visual": {
+        "heading": "Ⅱ　施策は4条件＋効果と問題点のセット",
+        "items": ["近い将来に実現できる・自分で動かせる", "資源制約を意識・Ⅰの前提と直結", "効果と管理上の問題点を必ず併記"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "layer3",
+      "start": 195,
+      "end": 260,
+      "narration": "Ⅲは夢のある構想でなく、Ⅱを進めた結果の課題を見抜くパートです。無関係な新技術・Ⅰに無い条件・話の急な拡大は禁物。最大リスクを3視点で絞り込み、克服策は管理行為で示します。",
+      "caption": "Ⅲは最大リスク1つに絞る",
+      "visual": {
+        "heading": "Ⅲ　最大リスク1つ＋管理行為での克服",
+        "items": ["トレードオフ最大・組織の弱点・規模拡大", "1つに絞り込み並列に並べない", "克服策は新技術でなく管理行為"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "consistency",
+      "start": 260,
+      "end": 310,
+      "narration": "一貫性は3つの自己診断で確認します。ⅠだけでⅡ・Ⅲが予想できるか、Ⅱの施策はⅠの条件があるから成立しているか、Ⅲの課題はⅡの結果として自然に出るか。1つでも「いいえ」なら骨組みを作り直します。",
+      "caption": "一貫性は自己診断3問で確認",
+      "visual": {
+        "heading": "書く前の自己診断3問",
+        "items": ["Ⅰ→Ⅱ・Ⅲの方向性が予想できるか", "Ⅱの施策はⅠの条件から成立するか", "Ⅲの課題はⅡの結果として自然か"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-exam-strategy/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 310,
+      "end": 345,
+      "narration": "まとめます。Ⅰは設計図、Ⅱは効果と問題点のセット、Ⅲは最大リスク1つと管理行為での克服。3つの役割を守り、自己診断3問で一貫性を確認する。これが三層構造の書き方です。",
+      "caption": "設計図→施策→最大リスクの因果",
+      "visual": {
+        "heading": "まとめ　三層構造の役割分担",
+        "items": ["Ⅰ設計図・Ⅱ効果と問題点・Ⅲ最大リスク1つ", "自己診断3問で一貫性を確認"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 345,
+      "end": 375,
+      "narration": "三層それぞれの型と、施策の書き方、最大リスクの絞り込み方までをまとめた記述式完全パックを用意しています。概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+      "caption": "三層の型は記述式完全パックへ",
+      "visual": {
+        "kind": "cover",
+        "heading": "三層構造の型を最短で",
+        "items": ["総監記述式 完全パック（概要欄リンク）"]
+      }
+    }
+  ]
+}
