@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "模範解答を何度読んでも、自分の答案がよくなりません。今日は、写経で終わらせない解答例の使い方を説明します。",
+      "caption": "模範解答の正しい使い方",
+      "visual": {
+        "kind": "cover",
+        "heading": "模範解答の正しい使い方",
+        "items": ["技術士 建設部門・必須科目I"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 60,
+      "narration": "読んで理解できれば書けるようになる、と思われがちです。しかし読んで理解できることと、白紙の答案用紙に時間内で再現できることは、まったく別の能力です。",
+      "caption": "読める・書けるは別の能力",
+      "visual": {
+        "heading": "誤解：読んで理解すれば書ける",
+        "items": ["読解と再現は別の能力", "この距離が本番の白紙で手を止める"]
+      },
+      "sourceRef": "content/site/pe-construction/hissu-kamoku-kaitourei/article.mdx"
+    },
+    {
+      "sceneId": "layers",
+      "start": 60,
+      "end": 125,
+      "narration": "完成答案は3層に分けて読みます。設問層は段落の対応、骨子層は論点の圧縮、展開層は字数内の肉付けです。もっとも重要なのは真ん中の骨子層になります。",
+      "caption": "解答例を3層に分けて読む",
+      "visual": {
+        "heading": "解答例を読む3層",
+        "items": ["設問層：設問と段落の対応", "骨子層：論点の圧縮（最重要）", "展開層：字数内の肉付け"]
+      },
+      "sourceRef": "content/site/pe-construction/hissu-kamoku-kaitourei/article.mdx"
+    },
+    {
+      "sceneId": "compress",
+      "start": 125,
+      "end": 180,
+      "narration": "完成答案を、観点とキーワードだけの箇条書きに逆圧縮します。防災テーマなら、ハード対策・ソフト対策・統合的視点という論点の並びを取り出すイメージです。",
+      "caption": "骨子層は逆圧縮して取り出す",
+      "visual": {
+        "heading": "骨子層の逆圧縮",
+        "items": ["観点とキーワードだけに圧縮する", "例：ハード対策／ソフト対策／統合的視点", "見ながら自分の言葉で展開し直せるか"]
+      },
+      "sourceRef": "content/site/pe-construction/hissu-kamoku-kaitourei/article.mdx"
+    },
+    {
+      "sceneId": "competency",
+      "start": 180,
+      "end": 240,
+      "narration": "抜き出した骨子は、課題遂行能力や問題解決、評価、技術者倫理といった評価項目と突き合わせます。各論点の横に対応する項目を書き添えると、弱い部分が見えてきます。",
+      "caption": "骨子を評価項目に対応づける",
+      "visual": {
+        "heading": "骨子と評価項目を突き合わせる",
+        "items": ["各論点に対応する評価項目を書き添える", "1項目が複数の設問部にまたがることもある", "薄い項目＝本番で失点しやすい弱点"]
+      },
+      "sourceRef": "content/site/pe-construction/hissu-kamoku-kaitourei/article.mdx"
+    },
+    {
+      "sceneId": "fiveyears",
+      "start": 240,
+      "end": 305,
+      "narration": "解答例は複数年度をまとめて読む価値があります。通読で型の共通性をつかみ、骨子層へ逆圧縮し、最後に自分のネタへ置換する。この置換が本番力に直結します。",
+      "caption": "通読・逆圧縮・置換の順で読む",
+      "visual": {
+        "heading": "読む順序",
+        "items": ["1. 通読：型の共通性をつかむ", "2. 逆圧縮：骨子層を抜き出す", "3. 置換：自分の専門・経験に差し替える"]
+      },
+      "sourceRef": "content/site/pe-construction/hissu-kamoku-kaitourei/article.mdx"
+    },
+    {
+      "sceneId": "stuck",
+      "start": 305,
+      "end": 360,
+      "narration": "自分の経験がテーマに合わないと感じたら、論点の言葉でなく分類・選定理由・リスクの方向性という構造に着目します。同じ骨格に別の素材を載せる発想です。",
+      "caption": "詰まったら論点の構造を借りる",
+      "visual": {
+        "heading": "置換に詰まったときの発想",
+        "items": ["表面の言葉でなく論点の構造に着目", "分類の軸・選定理由・リスクの方向性", "同じ骨格に自分の素材を載せる"]
+      },
+      "sourceRef": "content/site/pe-construction/hissu-kamoku-kaitourei/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 360,
+      "end": 405,
+      "narration": "まとめます。3層に分解し、骨子層を逆圧縮し、評価項目と対応づけ、通読・逆圧縮・置換の順で複数年度を読む。これが写経で終わらせない使い方です。",
+      "caption": "3層・逆圧縮・対応づけ・置換",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 設問層・骨子層・展開層に分解", "② 骨子層を逆圧縮する", "③ 評価項目と対応づける", "④ 通読・逆圧縮・置換の順で読む"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 405,
+      "end": 435,
+      "narration": "発注者視点のコメント付きで骨子を確認したい方は、必須科目Iのマガジンを概要欄からご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のマガジンから",
+      "visual": {
+        "kind": "cover",
+        "heading": "骨子で確認する",
+        "items": ["必須科目I マガジン（概要欄リンク）"]
+      }
+    }
+  ]
+}
