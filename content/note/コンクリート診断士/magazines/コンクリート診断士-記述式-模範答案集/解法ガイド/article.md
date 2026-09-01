@@ -60,6 +60,13 @@ cover:
 
 https://note.com/dobokunote/m/mf2a132408b6f
 
+---
+
+<!-- cta:concrete-mokuji -->
+コンクリート技士・主任技士・診断士の無料記事と教材は「コンクリート資格もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/nd59f471c9214
+
 ## 問題Bの答案の型（5ステップ）
 
 問題Bは以下の5ステップで構成する。これは解答の順序でもあり、採点者が答案を読む際に期待する流れでもある。

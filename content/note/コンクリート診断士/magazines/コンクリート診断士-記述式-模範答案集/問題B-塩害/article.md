@@ -72,6 +72,13 @@ cover:
 
 https://note.com/dobokunote/m/mf2a132408b6f
 
+---
+
+<!-- cta:concrete-mokuji -->
+コンクリート技士・主任技士・診断士の無料記事と教材は「コンクリート資格もくじ」から一覧できます。
+
+https://note.com/dobokunote/n/nd59f471c9214
+
 ## 答案の方針
 
 問題Bの5ステップ型をこのシナリオに落とし込む際のポイントを整理する。
