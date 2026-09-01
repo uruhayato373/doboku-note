@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "保護具をつければ安全、と思っていませんか。低減措置の優先順位と、投下・酸欠・悪天候の基準値を対で整理します。",
+      "caption": "リスクアセスメントと作業環境の頻出点",
+      "visual": {
+        "kind": "cover",
+        "heading": "リスクアセスメントと作業環境の頻出点",
+        "items": ["1級土木 第1次検定・安全管理"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "「保護具を着ければ対策は十分」という理解は逆です。個人用保護具は最後の手段で、まず危険な作業そのものをなくす対策が優先されます。",
+      "caption": "保護具は「最優先」ではなく「最後」",
+      "visual": {
+        "heading": "誤解：保護具を着ければ対策十分",
+        "items": ["保護具は低減措置の最後の手段", "優先順位の逆転が引っかけ"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-risk-assessment/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 55,
+      "end": 115,
+      "narration": "リスクアセスメントは4つの手順です。まず危険性・有害性を特定します。次に、重篤度と発生可能性の組み合わせでリスクを見積ります。優先度を設定し、低減措置を実施し、記録します。",
+      "caption": "手順は「特定→見積り→優先度→実施」",
+      "visual": {
+        "heading": "STEP 1　リスクアセスメントの4手順",
+        "items": ["危険性・有害性を特定する", "重篤度×発生可能性でリスクを見積る", "優先度設定→低減措置→記録"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-risk-assessment/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 115,
+      "end": 175,
+      "narration": "リスク低減措置には優先順位があります。最も優先されるのは危険な作業をなくす本質的対策。次に工学的対策、次に管理的対策。個人用保護具は、これらで除去しきれないリスクに使う最後の手段です。",
+      "caption": "本質的→工学的→管理的→保護具の順",
+      "visual": {
+        "heading": "STEP 2　低減措置の優先順位",
+        "items": ["①本質的対策＝危険な作業をなくす", "②工学的対策・③管理的対策と続く", "④個人用保護具は最後の手段"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-risk-assessment/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 175,
+      "end": 240,
+      "narration": "作業環境の基準もセットで覚えます。高さ3メートル以上から物を投下するときは、投下設備と監視人が必要です。落下には防網と立入禁止区域、飛来には防護設備や保護具で対応します。酸素欠乏は酸素18%未満、または硫化水素10ppmを超える状態です。",
+      "caption": "投下3m・酸欠は18%未満/10ppm超",
+      "visual": {
+        "heading": "STEP 3　投下・落下・飛来と酸素欠乏",
+        "items": ["投下3m以上＝投下設備＋監視人", "落下＝防網、飛来＝防護設備や保護具", "酸欠＝酸素18%未満または硫化水素10ppm超"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-work-environment/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 240,
+      "end": 300,
+      "narration": "悪天候による作業中止の基準は、強風が毎秒10メートル以上、大雨が50ミリメートル以上、大雪が25センチメートル以上です。これらの数値は、日々の安全施工サイクルの点検にも組み込まれています。",
+      "caption": "悪天候は「風10m・雨50mm・雪25cm」",
+      "visual": {
+        "heading": "STEP 4　悪天候の中止基準と安全施工サイクル",
+        "items": ["強風10m/s・大雨50mm・大雪25cm以上", "高さ2m以上の作業は中止対象", "日々の点検サイクルにも組み込む"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-work-environment/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 300,
+      "end": 345,
+      "narration": "まとめます。リスクアセスメントは特定から低減措置実施までの4手順で、保護具は最後。作業環境の数字は、投下3メートル、酸欠18%と10ppm、悪天候10メートル・50ミリ・25センチで対にして覚えます。",
+      "caption": "優先順位と基準値を対で押さえる",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① RAは4手順・保護具は最後", "② 投下3m・酸欠18%/10ppm", "③ 悪天候10m/s・50mm・25cm"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 345,
+      "end": 375,
+      "narration": "優先順位と基準値を1枚で確認したい方は、概要欄のリンクから暗記ノートをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "1枚で確認する",
+        "items": ["安全管理の暗記ノート（概要欄リンク）"]
+      }
+    }
+  ]
+}

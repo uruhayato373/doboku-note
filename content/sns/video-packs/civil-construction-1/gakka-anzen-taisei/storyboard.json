@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "度数率と強度率、そして選任する人数の「100人」「50人」「30人」。似た数字が並ぶ安全管理体制を、閾値で整理します。",
+      "caption": "安全管理体制の数字を閾値で整理",
+      "visual": {
+        "kind": "cover",
+        "heading": "安全管理体制の数字—選任要件と度数率・強度率",
+        "items": ["1級土木 第1次検定・安全管理"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "「50人」は一度覚えれば足りる、と思いがちですが実は違います。事業場単位の安全管理者と、混在現場の統括安全衛生責任者、どちらも50人ですが意味も対象も別です。",
+      "caption": "「50人」は2つの意味で登場する",
+      "visual": {
+        "heading": "誤解：50人は1種類の基準",
+        "items": ["事業場単位と混在現場で別の50人", "数える対象も異なる"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-management-system/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 55,
+      "end": 115,
+      "narration": "まず統計指標です。度数率は延べ労働時間100万時間あたりの死傷者数で、災害の発生頻度を表します。強度率は延べ労働時間1,000時間あたりの労働損失日数で、災害の重さを表します。",
+      "caption": "頻度は度数率・重さは強度率",
+      "visual": {
+        "heading": "STEP 1　度数率と強度率",
+        "items": ["度数率＝100万時間あたりの死傷者数", "強度率＝1,000時間あたりの労働損失日数", "頻度＝度数率、重さ＝強度率"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-management-system/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 115,
+      "end": 175,
+      "narration": "次は事業場単位の選任です。常時100人以上で総括安全衛生管理者を選任します。常時50人以上では、安全管理者と衛生管理者をそれぞれ選任します。総括を選んでいても別途必要です。",
+      "caption": "事業場は「総括100・安全/衛生50」",
+      "visual": {
+        "heading": "STEP 2　事業場単位の選任人数",
+        "items": ["総括安全衛生管理者＝100人以上", "安全管理者・衛生管理者＝50人以上", "総括を選任していても別途必要"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-management-system/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 175,
+      "end": 235,
+      "narration": "混在現場ではまた別の基準です。元請と下請を合わせて常時50人以上で、統括安全衛生責任者を選任します。ずい道等・一定の橋梁・圧気工法の工事では、この基準が30人以上に下がります。",
+      "caption": "混在現場は「統括50・特定30」",
+      "visual": {
+        "heading": "STEP 3　混在現場の統括安全衛生責任者",
+        "items": ["元請+下請の合計50人以上で選任", "ずい道等・橋梁・圧気は30人以上", "元方安全衛生管理者もあわせて選任"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-management-system/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 235,
+      "end": 300,
+      "narration": "措置義務は、誰が主語かで内容が変わります。事業者・元方事業者・特定元方事業者・注文者の4つです。特定元方事業者は協議組織の設置や連絡調整を担い、中規模の現場では店社安全衛生管理者を選任します。",
+      "caption": "主体を見分けてから人数を当てはめる",
+      "visual": {
+        "heading": "STEP 4　主体の見分けと店社安全衛生管理者",
+        "items": ["事業者/元方/特定元方/注文者で義務が変わる", "特定元方事業者＝協議組織・連絡調整", "中規模現場は店社安全衛生管理者"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-industrial-safety-law/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 300,
+      "end": 345,
+      "narration": "まとめます。度数率は頻度、強度率は重さ。事業場単位は総括100人・安全/衛生50人。混在現場は統括50人、ずい道等や橋梁・圧気は30人。数字は現場の種類とセットで覚えてください。",
+      "caption": "数字は「現場の種類」とセットで覚える",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["度数率＝頻度・強度率＝重さ", "事業場＝総括100・安全/衛生50", "混在現場＝統括50・特定業種30"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 345,
+      "end": 375,
+      "narration": "選任要件を1枚の表で確認したい方は、概要欄のリンクから暗記ノートをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "1枚の表で確認する",
+        "items": ["安全管理の暗記ノート（概要欄リンク）"]
+      }
+    }
+  ]
+}
