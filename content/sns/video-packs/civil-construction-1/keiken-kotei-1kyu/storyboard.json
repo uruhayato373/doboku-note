@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 14,
+      "narration": "工程管理は遅延を挽回した、で終わらせると検討内容が薄くなります。事前の検討から制約対応まで、書ける切り口を広げます。",
+      "caption": "工程管理テーマ 遅延の話で終わらせない",
+      "visual": {
+        "kind": "cover",
+        "heading": "工程管理テーマの経験記述",
+        "items": ["1級土木 第2次検定・施工経験記述"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 14,
+      "end": 54,
+      "narration": "先に工程管理で書くと決めて課題を探すと一般論になりがちです。遅延した、挽回した、だけでは薄い答案になります。事前の検討や制約への対応まで書けると厚みが出ます。",
+      "caption": "遅延→挽回だけでは検討が薄くなる",
+      "visual": {
+        "heading": "誤解：遅延を挽回した、で完成",
+        "items": ["結果だけでは検討内容が薄い", "事前の検討・制約対応で厚みが出る"]
+      },
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md"
+    },
+    {
+      "sceneId": "three-factors",
+      "start": 54,
+      "end": 104,
+      "narration": "工程管理の対象として、天候不順、工事変更、使用機械の故障の3つが挙げられます。まずどの要因が自分の工事に該当したかを整理します。",
+      "caption": "工程管理が扱う3つの外的要因",
+      "visual": {
+        "heading": "STEP 1　3つの外的要因を整理する",
+        "items": ["天候不順", "工事変更（設計変更等）", "使用機械等の故障"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "prevent-in-advance",
+      "start": 104,
+      "end": 154,
+      "narration": "土工事と杭工事が競合する工程では、施工順序を検討して安全性を確保しつつ工程短縮を図ります。遅延が発生する前の検討そのものが書ける材料になります。",
+      "caption": "遅延を防ぐ「事前」の検討を書く",
+      "visual": {
+        "heading": "STEP 2　事前の検討を書く",
+        "items": ["競合工程を施工順序の検討で回避", "安全性の確保とセットで書く", "事前の検討は挽回策より厚みが出る"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "recover-after-delay",
+      "start": 154,
+      "end": 204,
+      "narration": "地下埋設物が計画より支障になった場合は、関係機関との協議を経て、工法や機械の変更、増班によって工程の挽回を図ります。複数の挽回策を組み合わせて書きます。",
+      "caption": "遅延が起きた後の「挽回」策を書く",
+      "visual": {
+        "heading": "STEP 3　事後の挽回策を書く",
+        "items": ["関係機関との協議に時間をかける", "工法・施工機械の変更", "増班で挽回を図る"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "seasonal-constraint",
+      "start": 204,
+      "end": 254,
+      "narration": "出水期と重なる橋梁の架設工事では、出水期前に主要工種を完了させる工程計画の見直しが課題です。交通規制下の舗装工事では、施工手順・機械配置の検討が課題です。",
+      "caption": "季節・規制という制約型の工程管理",
+      "visual": {
+        "heading": "STEP 4　季節・規制の制約対応",
+        "items": ["橋梁：出水期前に主要工種を完了", "舗装：交通規制の範囲内で完了", "制約から工程計画を逆算する"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "shorten-as-technique",
+      "start": 254,
+      "end": 304,
+      "narration": "マンホール工でプレキャスト部材を使いジョイント接着で短縮する、管渠工で推進工法を採用して短縮するというように、工法選定そのものを工程管理の検討として書けます。",
+      "caption": "短縮そのものを技術として書く",
+      "visual": {
+        "heading": "STEP 5　短縮を技術として書く",
+        "items": ["マンホール工：プレキャスト部材の採用", "管渠工：推進工法の採用", "工法選定を工程管理の検討として書く"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 304,
+      "end": 350,
+      "narration": "まとめます。3つの外的要因を整理し、事前の検討と事後の挽回策を分けて書き、季節・規制の制約対応と短縮の技術も加える。遅延の一場面だけで終わらせないことが厚みになります。",
+      "caption": "要因整理→事前検討→挽回→制約→技術",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 3つの外的要因を整理する", "② 事前の検討を書く", "③ 事後の挽回策を書く", "④ 季節・規制の制約対応を加える"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 350,
+      "end": 385,
+      "narration": "工程管理の書き分けを掴みたい方は、概要欄のリンクから経験記述の完全パックをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "書き分けを掴む",
+        "items": ["経験記述 完全パック（概要欄リンク）"]
+      }
+    }
+  ]
+}
