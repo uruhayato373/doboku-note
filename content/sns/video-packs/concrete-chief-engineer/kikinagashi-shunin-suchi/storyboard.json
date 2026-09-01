@@ -1,0 +1,279 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 25,
+      "narration": "コンクリート主任技士の頻出数値を、配合・製造・耐久性・施工の4分野にわたって耳から総復習します。今日は数値と規定を中心に一気に振り返ります。",
+      "caption": "聞き流し 主任技士 頻出数値・JIS規定",
+      "visual": {
+        "kind": "cover",
+        "heading": "聞き流し 主任技士 頻出数値・JIS規定",
+        "items": ["配合設計・製造品質管理・耐久性・施工"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 25,
+      "end": 65,
+      "narration": "この動画は机での学習を終えた方の総復習用です。初めて出会う用語は先にテキストで一度読んでから聞くと定着しやすくなります。数値は必ず対象とセットで確認していきましょう。",
+      "caption": "机の学習を終えた人の総復習用です",
+      "visual": {
+        "heading": "聞き流しの前提",
+        "items": ["机での学習を終えた人向けの総復習", "初出の用語はテキストで一度読んでから"]
+      }
+    },
+    {
+      "sceneId": "wc-ratio",
+      "start": 65,
+      "end": 110,
+      "narration": "まず配合設計です。水セメント比が小さいほど、強度と耐久性がともに向上します。海水の影響を受けるコンクリートでは、高炉セメントB種を使う場合に限り、普通ポルトランドセメントより5パーセント大きい水セメント比が認められます。",
+      "caption": "水セメント比↓で強度・耐久性↑、海水は例外あり",
+      "visual": {
+        "heading": "水セメント比の基本",
+        "items": ["小さいほど強度・耐久性が向上", "海水×高炉セメントB種のみ+5%緩和"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "tanni-saikotsu-kuuki",
+      "start": 110,
+      "end": 155,
+      "narration": "続いて単位水量と細骨材率です。単位水量が増えるとスランプは大きくなりますが、ブリーディングと収縮も増えます。細骨材の粗粒率が大きくなる場合は細骨材率を大きくして同じスランプを保ちます。空気量は軽量骨材コンクリートで普通骨材より1パーセント大きくするのが標準です。",
+      "caption": "単位水量↑でブリーディング↑、空気量は軽量骨材+1%",
+      "visual": {
+        "heading": "単位水量・細骨材率・空気量",
+        "items": ["単位水量↑→スランプ↑・ブリーディング↑", "粗粒率↑→細骨材率も↑", "軽量骨材は空気量+1%が標準"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "warizoushi",
+      "start": 155,
+      "end": 200,
+      "narration": "配合強度を決める割増し係数は2種類あります。アルファ1は下側10パーセント点が呼び強度の85パーセントを下回らないという考え方、アルファ2は平均値が呼び強度を下回らないという考え方です。大きいほうを採用します。",
+      "caption": "割増し係数はアルファ1・アルファ2の大きい方",
+      "visual": {
+        "heading": "配合強度の割増し係数",
+        "items": ["アルファ1：下側10%点が85%以上", "アルファ2：平均値が呼び強度以上", "大きい方を採用"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "yoseki-hou",
+      "start": 200,
+      "end": 250,
+      "narration": "配合計算の容積法では、水・セメント・空気・粗骨材・細骨材の絶対容積の合計が1000リットルになるよう決めます。ある年の出題例では、水結合材比55.0パーセント、単位水量180キログラムから単位結合材量を327キログラムと求め、細骨材の絶対容積316リットルから単位細骨材量815キログラムを算出しています。",
+      "caption": "絶対容積の合計は1000リットルに収束",
+      "visual": {
+        "heading": "容積法の計算実例",
+        "items": ["絶対容積の合計=1000リットル", "単位水量180kg・水結合材比55%→結合材327kg", "細骨材絶対容積316L→単位量815kg"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "yobikata-slump",
+      "start": 250,
+      "end": 295,
+      "narration": "分野を移して製造・品質管理です。レディーミクストコンクリートの呼び方は、種類、呼び強度、スランプ、粗骨材最大寸法、セメント種類の順に並べます。高性能AE減水剤を使い呼び強度27以上のコンクリートは、スランプの許容差がプラスマイナス2センチと通常より緩くなります。",
+      "caption": "呼び強度27以上・高性能AE減水剤は許容差±2cm",
+      "visual": {
+        "heading": "JIS呼び方とスランプ許容差",
+        "items": ["呼び方＝種類+呼び強度+スランプ+寸法+セメント種類", "高性能AE減水剤×呼び強度27以上→許容差±2cm"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "sceneId": "keiryou-kyoyousa",
+      "start": 295,
+      "end": 340,
+      "narration": "材料の計量許容差も頻出です。セメントと水はプラスマイナス1パーセント、骨材と混和剤はプラスマイナス3パーセント。混和材のうち高炉スラグ微粉末は1パーセント、それ以外は2パーセントです。混和剤に水を累加計量する場合は合計でプラスマイナス1パーセント以下に収める必要があります。",
+      "caption": "セメント・水±1%、骨材・混和剤±3%",
+      "visual": {
+        "heading": "計量値の許容差",
+        "items": ["セメント・水：±1%", "骨材・混和剤：±3%（高炉スラグ微粉末は±1%）", "混和剤+水の累加は合計±1%以下"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "sceneId": "mixer-unpan",
+      "start": 340,
+      "end": 380,
+      "narration": "ミキサの排出時間は、傾胴形とパン形が25秒以内、水平一軸形と水平二軸形が15秒以内です。運搬にも時間制限があり、外気温25度以下なら90分以内、25度を超えると60分以内に打込みを終える必要があります。",
+      "caption": "排出は25秒/15秒、運搬は90分/60分",
+      "visual": {
+        "heading": "排出時間と運搬時間の制限",
+        "items": ["傾胴形・パン形：25秒以内／水平軸形：15秒以内", "25℃以下：90分以内／25℃超：60分以内"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "sceneId": "kensa-hantei",
+      "start": 380,
+      "end": 425,
+      "narration": "検査の判定基準です。圧縮強度は、3回の平均が呼び強度以上であることと、1回の結果が呼び強度の85パーセント以上であることの両方を満たす必要があります。塩化物含有量は、1立方メートルあたり0.30キログラム以下という基準を各回ごとに個別に判定します。",
+      "caption": "強度は平均＆85%以上、塩化物は0.30kg/m³以下",
+      "visual": {
+        "heading": "圧縮強度・塩化物の判定基準",
+        "items": ["3回平均が呼び強度以上 かつ 1回が85%以上", "塩化物イオン量：0.30kg/m³以下（個別判定）"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "sceneId": "hendou-keisu",
+      "start": 425,
+      "end": 470,
+      "narration": "統計的品質管理では、変動係数を標準偏差割る平均値かける100で求めます。ある例では、平均値39.0、標準偏差2.50、呼び強度33.0のとき係数kは2.40となり、正規分布表から下回る確率は約0.82パーセントと読み取れます。工程能力指数は1.33以上で安定した工程とされます。",
+      "caption": "変動係数と正規分布表、Cp1.33以上で安定",
+      "visual": {
+        "heading": "変動係数と正規分布",
+        "items": ["変動係数＝標準偏差÷平均値×100", "k=2.40→下回る確率は約0.82%", "工程能力指数Cpは1.33以上で安定"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "sceneId": "chuuseika",
+      "start": 470,
+      "end": 515,
+      "narration": "分野を耐久性に移します。コンクリートの細孔溶液は通常pH12から13の高アルカリ性ですが、二酸化炭素の侵入でpHが9以下まで下がると不動態皮膜が壊れます。中性化深さは経過時間の平方根に比例し、材齢9年で深さ6ミリなら材齢25年では深さ10ミリと推定されます。",
+      "caption": "pH9以下で腐食開始、深さは時間の平方根に比例",
+      "visual": {
+        "heading": "中性化の機構と速度式",
+        "items": ["pH12〜13→CO2侵入でpH9以下→鉄筋腐食開始", "深さは経過時間の平方根に比例（9年6mm→25年10mm）"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+    },
+    {
+      "sceneId": "engai",
+      "start": 515,
+      "end": 555,
+      "narration": "ここで塩害に目を向けます。塩化物イオンは、自由に動けるフリー状態、細孔壁に吸着した状態、固定された状態の3つの形で存在し、腐食に直接関わるのはフリー状態です。補修段階で使う脱塩工法は、通電期間がおおむね1から2か月程度とされています。",
+      "caption": "塩化物イオンは3形態、脱塩工法は1〜2か月通電",
+      "visual": {
+        "heading": "塩害の機構と脱塩工法",
+        "items": ["塩化物イオンはフリー・吸着・固定の3形態", "脱塩工法の通電期間は1〜2か月程度"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+    },
+    {
+      "sceneId": "tougai-asr",
+      "start": 555,
+      "end": 600,
+      "narration": "もう一つの劣化が凍害です。スケーリングとポップアウトという2つの損傷形態で現れます。アルカリシリカ反応は、反応性骨材、水酸化アルカリ、水分という3条件がそろって初めて進行し、乾燥状態では膨張ひび割れが生じません。",
+      "caption": "凍害は2形態、ASRは3条件がそろって進行",
+      "visual": {
+        "heading": "凍害とアルカリシリカ反応",
+        "items": ["凍害：スケーリング・ポップアウト", "ASR：反応性骨材・水酸化アルカリ・水分の3条件"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-durability/article.mdx"
+    },
+    {
+      "sceneId": "pump-atsusou",
+      "start": 600,
+      "end": 640,
+      "narration": "ここからは施工分野です。コンクリートポンプの圧送では、算定した圧送負荷に1.25倍の余裕を持たせてポンプ能力と比較します。管径は、粗骨材最大寸法25ミリ程度の普通コンクリートで5インチ、125ミリ以上を用いるのが一般的です。",
+      "caption": "圧送負荷は1.25倍の余裕、管径は5インチ以上",
+      "visual": {
+        "heading": "ポンプ圧送の基準",
+        "items": ["圧送負荷に1.25倍の余裕を見てポンプ能力と比較", "管径は5インチ（125mm）以上が目安"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "sceneId": "uchikomi-shimekatame",
+      "start": 640,
+      "end": 680,
+      "narration": "打込みの場面では、材料分離を防ぐため自由落下高さを1.5メートル以下に抑えるのが標準です。締固めに使う棒形振動機は、前の挿入箇所との間隔を60センチメートル以下とし、コンクリートがまだ固まり始める前に再振動を行います。",
+      "caption": "自由落下1.5m以下、振動機挿入間隔60cm以下",
+      "visual": {
+        "heading": "打込み・締固めの基準",
+        "items": ["自由落下高さ：1.5m以下が標準", "棒形振動機の挿入間隔：60cm以下"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "sceneId": "sokuatsu-shien",
+      "start": 680,
+      "end": 720,
+      "narration": "型枠に作用する側圧は、施工時の水平荷重、鉛直荷重のおおむね2.5から5パーセント程度とは別に考える必要があります。多層階の支柱は、荷重を直線的に伝えるため各階で同一の鉛直線上に配置します。",
+      "caption": "側圧は水平荷重（2.5〜5%）とは別物、支柱は同一線上",
+      "visual": {
+        "heading": "型枠側圧と支柱の配置",
+        "items": ["側圧は水平荷重（鉛直荷重の2.5〜5%）とは別", "支柱は各階で同一鉛直線上に配置"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "sceneId": "tekkin-tsugite",
+      "start": 720,
+      "end": 760,
+      "narration": "視点を変えて、鉄筋の継手です。重ね継手の長さは、鉄筋径の20倍以上が最低要件です。ガス圧接は、呼び径の差がおおむね7ミリ以下であれば異径の鉄筋にも適用できます。",
+      "caption": "重ね継手は径の20倍以上、ガス圧接は径差7mm以下",
+      "visual": {
+        "heading": "鉄筋継手の基準",
+        "items": ["重ね継手：鉄筋径の20倍以上", "ガス圧接：呼び径の差7mm以下で異径も可"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "sceneId": "youjou-nissuu",
+      "start": 760,
+      "end": 805,
+      "narration": "ここで養生期間を確認します。日平均気温が10度以上15度未満のとき、普通ポルトランドセメントで9日、混合セメントB種で12日の湿潤養生が標準です。積算温度は、コンクリート温度に10度を足した値に日数を掛けます。コンクリート温度5度で14日養生すると、積算温度は210度日になります。",
+      "caption": "湿潤養生は9日・12日、積算温度の計算式も要確認",
+      "visual": {
+        "heading": "湿潤養生期間と積算温度",
+        "items": ["10〜15℃：普通9日／混合セメントB種12日", "積算温度＝(温度+10)×日数（例：210℃・日）"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "sceneId": "kanchu-shochu",
+      "start": 805,
+      "end": 855,
+      "narration": "寒中コンクリートは、日平均気温4度以下が対象期間で、初期凍害を防ぐため打込み後の温度を5度以上に保ちます。暑中コンクリートでは、練混ぜ温度が10度上がるごとに、同じスランプを得るための単位水量が4から5パーセント増えます。練上がり温度を1度下げるには、セメントを約8度、水を約4度、骨材を約2度、それぞれ下げる必要があります。",
+      "caption": "寒中は5℃以上、暑中は10℃上昇で単位水量4〜5%増",
+      "visual": {
+        "heading": "寒中・暑中コンクリートの温度管理",
+        "items": ["寒中：気温4℃以下が対象、打込み後5℃以上を保持", "暑中：練混ぜ温度+10℃で単位水量+4〜5%"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "sceneId": "kakushu-concrete",
+      "start": 855,
+      "end": 905,
+      "narration": "仕上げに各種コンクリートの数字です。舗装コンクリートは、凍結融解がしばしば起こる場合の水セメント比の上限が55パーセント、粗骨材のすりへり減量はロサンゼルス試験で35パーセント以下です。高流動コンクリートの自由落下高さは5メートル以下、水中不分離性コンクリートの水中落下高さは50センチメートル以下が目安です。",
+      "caption": "舗装は水セメント比55%、水中不分離は落下50cm以下",
+      "visual": {
+        "heading": "各種コンクリートの数値",
+        "items": ["舗装：水セメント比上限55%、すりへり35%以下", "高流動：自由落下5m以下／水中不分離：落下50cm以下"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 905,
+      "end": 950,
+      "narration": "まとめます。配合は水セメント比と割増し係数、製造は計量許容差と判定基準、耐久性はpHと3条件、施工は数値の対と規定の組み合わせ。数字は必ず対象とセットで思い出す練習を積んでおきましょう。",
+      "caption": "数字は対象とセットで、4分野を横断して復習",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["配合：水セメント比・割増し係数", "製造：計量許容差・判定基準", "耐久性・施工：数値と規定の対応"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 950,
+      "end": 980,
+      "narration": "頻出数値を一つずつ確認したい方は、概要欄のリンクから主任技士のマガジンをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "頻出論点マガジンで確認する",
+        "items": ["主任技士 頻出論点マガジン（概要欄リンク）"]
+      }
+    }
+  ]
+}
