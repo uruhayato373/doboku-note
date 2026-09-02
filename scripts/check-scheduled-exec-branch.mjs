@@ -147,7 +147,7 @@ function resolveAlias(spec) {
     if (spec.startsWith(pre) && spec.endsWith(post || '')) {
       const mid = spec.slice(pre.length, spec.length - (post ? post.length : 0));
       const t = typeof target === 'string' ? target : target?.default;
-      if (typeof t === 'string') return t.replace('*', mid).replace(/^\.\//, '');
+      if (typeof t === 'string') return t.replaceAll('*', mid).replace(/^\.\//, '');
     }
   }
   return null;
