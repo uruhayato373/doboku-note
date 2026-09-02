@@ -131,6 +131,7 @@
     "check-note-attachments:live": "node scripts/check-note-attachments.mjs --live",
     "check-note-boundary": "node scripts/check-note-boundary.mjs",
     "check-note-charlimits": "node scripts/check-note-charlimits.mjs",
+    "check-note-cover-coverage": "node scripts/check-note-cover-coverage.mjs",
     "check-note-cover-fit": "node scripts/check-note-cover-fit.mjs",
     "check-note-cover-tokens": "node scripts/check-note-cover-tokens.mjs",
     "check-note-delivery-due": "node scripts/check-note-delivery-due.mjs",
