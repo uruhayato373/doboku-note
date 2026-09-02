@@ -96,6 +96,13 @@ tar -xzf hydrated-assets.tar.gz
 CI 内で `ogp-create.mjs` を実行して `ogp.png` を作ってから供給するため、この Release 橋を経由しない
 （詳細 §3）。この「CI が生成できる」は `asset-storage.json` の `regenerable` フィールド（byte 再現を
 保証するかの意味・§6）とは別概念——`site-ogp-png` の `regenerable` は引き続き `false`。
+第二号は `note-cover-png`（2026-09-02・`note-cover-supply.yml`）。develop への `content/note/**/article*.md`
+push で `scripts/check-note-cover-coverage.mjs --json` が欠落 dir を拾い、`generate-note-covers.mjs <dir>` で
+生成 → **欠落として検出したカバー以外の生成物は削除**（同居記事の再描画分を上げると既存 R2 カバーを別バイトで
+上書きし manifest の sha256 が動く）→ `asset-offload --group note-cover-png --include-untracked --commit` →
+manifest を develop へ commit する。R2 creds の無い環境（会社 PC・Claude Code Remote）で書いた記事は、
+ローカルで Release 橋を使わなくても develop へマージされれば供給される（PR 上の unit-tests は
+マージ後の manifest commit を取り込んだ次の push から緑）。
 
 ```
 npm run asset-inbox-push -- --path '<前方一致>' --commit   # ローカル: R2 credential 不要
