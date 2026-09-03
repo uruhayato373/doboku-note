@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { getCategoryHubPath } from '@/lib/categories';
+import type { NextExamEvent } from '@/lib/exam-schedule';
+import ExamCountdown from './ExamCountdown';
 
 export interface ExamData {
   slug: string;
@@ -9,6 +11,8 @@ export interface ExamData {
   description: string;
   stats: { k: string; v: string; anchor?: string }[];
   nextExam: string;
+  /** exam-calendar から解決した次の試験（無ければ null → nextExam の手打ち文言を表示） */
+  nextExamEvent?: NextExamEvent | null;
   variant: "civil" | "pe";
 }
 
@@ -75,7 +79,9 @@ export function ExamCard({ e }: { e: ExamData }) {
       <div className="absolute inset-x-0 bottom-0">
         <div aria-hidden="true" className="h-6 bg-gradient-to-t from-black/35 to-transparent" />
         <div className="border-t border-white/10 bg-black/45 px-4 py-3 text-white backdrop-blur-md">
-          <div className="font-mono text-[10px] uppercase tracking-widest text-white/80">{e.nextExam}</div>
+          <div className="font-mono text-[10px] uppercase tracking-widest text-white/80">
+            {e.nextExamEvent ? <ExamCountdown date={e.nextExamEvent.date} label={e.nextExamEvent.label} /> : e.nextExam}
+          </div>
           <h3 className="mt-0.5 font-serif text-lg font-black leading-tight sm:text-xl">{e.label}</h3>
           <div className="mt-1 line-clamp-1 text-[12px] leading-snug text-white/85">{e.subtitle}</div>
         </div>

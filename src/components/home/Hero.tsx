@@ -1,4 +1,5 @@
-import { ArrowRight } from "lucide-react";
+import Link from "next/link";
+import { ArrowRight, Search } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -37,16 +38,26 @@ export default function Hero() {
             <span aria-hidden="true" className="hero-rule h-px w-6 sm:w-10" />
           </span>
         </h1>
-        <p className="hero-ink-soft hero-shadow-soft mt-4 font-sans text-[13px] sm:mt-5 sm:text-[16px]">
-          学ぶ人の『理解』を支え、『合格』へつなぐ。
+        <p className="hero-ink-soft hero-shadow-soft mt-4 max-w-[34em] font-sans text-[13px] leading-relaxed sm:mt-5 sm:text-[16px]">
+          土木施工管理技士・技術士・コンクリート系資格の受験者向けに、試験ガイド・体系テキスト・過去問解説・キーワード集を無料で公開。
+          元発注者の合格体験をもとに『理解』を支え、『合格』へつなぐ。
         </p>
-        <a
-          href="#exams"
-          className="hero-ink mt-7 inline-flex items-center gap-2.5 rounded-full bg-warn px-7 py-3.5 font-mono text-[13px] font-bold uppercase tracking-wider shadow-lift transition-[filter,transform] hover:-translate-y-0.5 hover:brightness-105 sm:mt-9 sm:px-9 sm:py-4 sm:text-[15px]"
-        >
-          <span>資格を選んで学ぶ</span>
-          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2.5} />
-        </a>
+        <div className="mt-7 flex flex-wrap items-center justify-center gap-3 sm:mt-9 sm:gap-4">
+          <a
+            href="#exams"
+            className="hero-ink inline-flex items-center gap-2.5 rounded-full bg-warn px-7 py-3.5 font-mono text-[13px] font-bold uppercase tracking-wider shadow-lift transition-[filter,transform] hover:-translate-y-0.5 hover:brightness-105 sm:px-9 sm:py-4 sm:text-[15px]"
+          >
+            <span>資格を選んで学ぶ</span>
+            <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" strokeWidth={2.5} />
+          </a>
+          <Link
+            href="/search"
+            className="hero-ink inline-flex min-h-11 items-center gap-2 rounded-full border border-white/70 bg-white/60 px-5 py-3 font-sans text-[13px] font-bold shadow-s backdrop-blur-sm transition-[filter,transform] hover:-translate-y-0.5 hover:brightness-105 sm:text-[14px]"
+          >
+            <Search className="h-4 w-4" strokeWidth={2.5} />
+            <span>用語・過去問を検索</span>
+          </Link>
+        </div>
       </div>
     </section>
   );

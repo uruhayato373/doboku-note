@@ -2,6 +2,7 @@ import { getDocsMetaByCategory, type DocMeta } from "@/lib/docs";
 import { type CategoryDef } from "@/lib/categories";
 import categoriesData from "@/config/categories.json";
 import homeExamCardsData from "@/config/home-exam-cards.json";
+import { getNextExamEvent } from "@/lib/exam-schedule";
 import type { ExamData } from "@/components/home";
 
 // トップの資格カード固有のコピー（label/subtitle/description/en/nextExam/stats/order）は
@@ -79,7 +80,9 @@ export function buildExamCards(): ExamData[] {
         en: card.en,
         subtitle: card.subtitle,
         description: card.description,
+        // 試験日は exam-calendar（SSOT）から解決し、未来のイベントが無い資格だけ手打ち文字列（nextExam）へ退避
         nextExam: card.nextExam,
+        nextExamEvent: getNextExamEvent(card.slug),
         variant: cat.variant as "civil" | "pe",
         stats: card.stats.map((s) => computeStat(metas, s)),
       };
