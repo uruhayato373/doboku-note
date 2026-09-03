@@ -28,6 +28,7 @@ import CategoryJumpNav from '@/components/category/CategoryJumpNav';
 const GROUPED_CATEGORIES = new Set([
   'civil-construction-1',
   'civil-construction-2',
+  'civil-practice',
   'pe-comprehensive-management',
   'pe-first-stage',
   'concrete-engineer',
