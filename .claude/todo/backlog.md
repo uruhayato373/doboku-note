@@ -189,6 +189,36 @@ weekly.md の手動キューはこの ID だけを参照する（weekly は ID �
 
 ## 🟡 中 — 2〜3ヶ月以内
 
+### [DN-0161] GSC と GA4 の検索流入が 60 倍乖離している原因を確定する
+タグ: [インフラ・計測] [種類:不具合] [起票:2026-09-03]
+
+GSC 日次合計は約 4 クリック/日（`gsc-date-*`）、GA4 Organic Search は約 175 セッション/日（28 日 4,869）。`fetch-metrics.yml` に GA4 `hostName` 次元の週次取得を足したので、次回以降の `ga4-hostName-*.json` で「別ホストの計測混入」を先に潰す。混入が無ければ GSC プロパティ（`sc-domain:doboku-note.com`）の設定と GA4 の bot 混入を順に確認。原因が決まるまで GSC クリック数を NSM の実数として使わない（measurement-incidents 2026-09-03）。
+
+### [DN-0162] 過去問逆引き・教材章ナビを建設部門とコンクリート 3 資格へ開通する
+タグ: [コンテンツ品質] [種類:改善] [起票:2026-09-03]
+
+`PastExamBacklinks`・`RelatedTextbooks`・`TextbookNav` は総監と 1級・2級土木にしか配線されていない（`ArticleFooter.tsx`）。同じ keyword＋過去問構造を持つ pe-construction、textbook＋primary を持つコンクリート 3 資格に無い。`build-exam-backlinks.mjs` の対象を拡張して索引 JSON を生成し、footer の分岐を category 集合へ広げる。2026-09-03 監査で Rank-Stuck の建設部門 過去問 30 件超に対する一括レバーとして特定。
+
+### [DN-0163] 記事末尾の CTA 順序（転職アフィリが自社 note より先）を見直す
+タグ: [収益化] [種類:意思決定] [起票:2026-09-03]
+
+textbook 記事の末尾は「関連キーワード → 転職 PR（MDX 内 CareerAffiliate）→ note もくじタイル → 章ナビ」の順で、自社商品より先にアフィリが出る（2026-09-03 実画面）。inline CareerAffiliate は MDX 側にあるため footer の並び替えでは直らない。1 ページ 1 GKS ピクセルの配置ポリシー（affiliate-operations）と両立する形（inline を末尾へ移す一括スクリプト、または footer の転職バナーへ一本化）を決めてから実施する。
+
+### [DN-0164] 旧 /docs の 404（GSC 既知 297 件・うち 289 件は転送なし）の扱いを決める
+タグ: [インフラ・計測] [種類:意思決定] [起票:2026-09-03]
+
+`gsc-ui/ssot/urls/notFound--allKnownPages.json` の 297 件を `_redirects` と突合すると 289 件に転送が無い。大半は `pe-comprehensive-management-concrete-chief-engineer-…` のような接頭辞が二重になった不正 slug（過去のリンク生成バグ由来）で、正規ページに対応しない。放置（Google が自然に落とす）／`_redirects` で 1 対 1 に吸収できる少数（`civil-construction-1-guide-four-management-5` 等）だけ救う、のどちらかを決めて実行する。
+
+### [DN-0165] 技術士一次の科目別ガイド（基礎・適性・専門）を書き、curriculum の fields を定義する
+タグ: [コンテンツ品質] [種類:制作] [起票:2026-09-03]
+
+pe-first-stage は `category-curriculum.json` に examGuide しか無く、過去問 21 本（basic/aptitude/construction × 7 年度）が科目別に束ねられていない。科目別の要点ガイド 3 本を書いてから `fields.blocks` を定義する（ガイドが無いと fields は空になる）。
+
+### [DN-0166] 総監 keyword 記事に技術トピックの細タグを付与する（LLM 判定）
+タグ: [コンテンツ品質] [種類:改善] [起票:2026-09-03]
+
+2026-09-03 に section 由来の 5 管理タグを 656 本へ機械付与し、/topics の総監 5 テーマと関連記事が生成されるようにした。品質管理・リスク評価・DX 等の技術トピック細タグは本文判定が要るため未付与。`tags.json` の語彙内で 1 記事 1〜3 個を sonnet で判定し、`refresh-indexes` で関連度を上げる。
+
 ### [DN-0152] git履歴の再肥大を計測する（全ストレージ最適化P8の再計測）
 タグ: [インフラ・計測] [種類:改善] [検証:audit-repo-assets] [起票:2026-08-29] [期日:2026-09-05]
 
