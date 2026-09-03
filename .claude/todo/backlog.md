@@ -209,11 +209,6 @@ textbook 記事の末尾は「関連キーワード → 転職 PR（MDX 内 Care
 
 `gsc-ui/ssot/urls/notFound--allKnownPages.json` の 297 件を `_redirects` と突合すると 289 件に転送が無い。大半は `pe-comprehensive-management-concrete-chief-engineer-…` のような接頭辞が二重になった不正 slug（過去のリンク生成バグ由来）で、正規ページに対応しない。放置（Google が自然に落とす）／`_redirects` で 1 対 1 に吸収できる少数（`civil-construction-1-guide-four-management-5` 等）だけ救う、のどちらかを決めて実行する。
 
-### [DN-0165] 技術士一次の科目別ガイド（基礎・適性・専門）を書き、curriculum の fields を定義する
-タグ: [コンテンツ品質] [種類:制作] [起票:2026-09-03]
-
-pe-first-stage は `category-curriculum.json` に examGuide しか無く、過去問 21 本（basic/aptitude/construction × 7 年度）が科目別に束ねられていない。科目別の要点ガイド 3 本を書いてから `fields.blocks` を定義する（ガイドが無いと fields は空になる）。
-
 ### [DN-0152] git履歴の再肥大を計測する（全ストレージ最適化P8の再計測）
 タグ: [インフラ・計測] [種類:改善] [検証:audit-repo-assets] [起票:2026-08-29] [期日:2026-09-05]
 

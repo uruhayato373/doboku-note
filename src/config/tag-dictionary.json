@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "generated_at": "2026-09-03T04:09:20.852Z",
+  "generated_at": "2026-09-03T04:26:54.121Z",
   "summary": {
-    "total_mdx_files": 1209,
+    "total_mdx_files": 1212,
     "total_unique_tags": 186,
     "allowlist_size": 158,
     "known_count": 93,
@@ -1077,7 +1077,7 @@
     },
     {
       "name": "guide",
-      "count": 197,
+      "count": 200,
       "inAllowlist": true,
       "usedIn": [
         "civil-construction-1-guide-1-vs-2",
@@ -1275,6 +1275,9 @@
         "pe-construction-urban-planning-exam-themes",
         "pe-construction-urban-planning-ronbun-keyword",
         "pe-first-stage-guide-after-pass",
+        "pe-first-stage-guide-aptitude-subject",
+        "pe-first-stage-guide-basic-subject",
+        "pe-first-stage-guide-construction-subject",
         "pe-first-stage-guide-overview",
         "pe-first-stage-guide-study-plan"
       ]
@@ -2795,6 +2798,62 @@
       ]
     },
     {
+      "name": "exam-preparation",
+      "count": 49,
+      "inAllowlist": true,
+      "usedIn": [
+        "civil-construction-1-guide-career-salary",
+        "civil-construction-1-guide-concrete-key-points",
+        "civil-construction-1-guide-concrete-maintenance",
+        "civil-construction-1-guide-construction-plan",
+        "civil-construction-1-guide-demolition",
+        "civil-construction-1-guide-difficulty",
+        "civil-construction-1-guide-earthwork-key-points",
+        "civil-construction-1-guide-environment-management",
+        "civil-construction-1-guide-foundation",
+        "civil-construction-1-guide-four-management",
+        "civil-construction-1-guide-grade-comparison",
+        "civil-construction-1-guide-last-minute-2026",
+        "civil-construction-1-guide-law-key-points",
+        "civil-construction-1-guide-machinery",
+        "civil-construction-1-guide-quality-management",
+        "civil-construction-1-guide-safety-management",
+        "civil-construction-1-guide-schedule-management",
+        "civil-construction-1-guide-strategy",
+        "civil-construction-1-guide-study-method",
+        "civil-construction-1-guide-surveying",
+        "civil-construction-1-keyword-2026",
+        "civil-construction-2-guide-concrete-key-points",
+        "civil-construction-2-guide-construction-plan-key-points",
+        "civil-construction-2-guide-earthwork-key-points",
+        "civil-construction-2-guide-foundation-key-points",
+        "civil-construction-2-guide-law-key-points",
+        "civil-construction-2-guide-overview",
+        "civil-construction-2-guide-quality-management",
+        "civil-construction-2-guide-safety-management",
+        "civil-construction-2-guide-schedule-management",
+        "civil-construction-2-guide-study-method",
+        "civil-construction-2-guide-textbooks",
+        "civil-construction-2-secondary-grading-and-partial-credit",
+        "civil-construction-2-secondary-written-questions-guide",
+        "concrete-chief-engineer-guide-overview",
+        "concrete-chief-engineer-guide-trends",
+        "concrete-diagnostician-guide-overview",
+        "concrete-engineer-guide-books",
+        "concrete-engineer-guide-difference-chief",
+        "concrete-engineer-guide-eligibility-2026",
+        "concrete-engineer-guide-overview",
+        "concrete-engineer-guide-study-plan",
+        "pe-comprehensive-management-exam-passing-strategy",
+        "pe-first-stage-guide-after-pass",
+        "pe-first-stage-guide-aptitude-subject",
+        "pe-first-stage-guide-basic-subject",
+        "pe-first-stage-guide-construction-subject",
+        "pe-first-stage-guide-overview",
+        "pe-first-stage-guide-study-plan"
+      ]
+    },
+    {
       "name": "技術士（総合技術監理部門）",
       "count": 47,
       "inAllowlist": true,
@@ -2846,59 +2905,6 @@
         "pe-comprehensive-management-r8-essay-theme-infrastructure-maintenance",
         "pe-comprehensive-management-value-engineering",
         "pe-comprehensive-management-whitepaper-study-map"
-      ]
-    },
-    {
-      "name": "exam-preparation",
-      "count": 46,
-      "inAllowlist": true,
-      "usedIn": [
-        "civil-construction-1-guide-career-salary",
-        "civil-construction-1-guide-concrete-key-points",
-        "civil-construction-1-guide-concrete-maintenance",
-        "civil-construction-1-guide-construction-plan",
-        "civil-construction-1-guide-demolition",
-        "civil-construction-1-guide-difficulty",
-        "civil-construction-1-guide-earthwork-key-points",
-        "civil-construction-1-guide-environment-management",
-        "civil-construction-1-guide-foundation",
-        "civil-construction-1-guide-four-management",
-        "civil-construction-1-guide-grade-comparison",
-        "civil-construction-1-guide-last-minute-2026",
-        "civil-construction-1-guide-law-key-points",
-        "civil-construction-1-guide-machinery",
-        "civil-construction-1-guide-quality-management",
-        "civil-construction-1-guide-safety-management",
-        "civil-construction-1-guide-schedule-management",
-        "civil-construction-1-guide-strategy",
-        "civil-construction-1-guide-study-method",
-        "civil-construction-1-guide-surveying",
-        "civil-construction-1-keyword-2026",
-        "civil-construction-2-guide-concrete-key-points",
-        "civil-construction-2-guide-construction-plan-key-points",
-        "civil-construction-2-guide-earthwork-key-points",
-        "civil-construction-2-guide-foundation-key-points",
-        "civil-construction-2-guide-law-key-points",
-        "civil-construction-2-guide-overview",
-        "civil-construction-2-guide-quality-management",
-        "civil-construction-2-guide-safety-management",
-        "civil-construction-2-guide-schedule-management",
-        "civil-construction-2-guide-study-method",
-        "civil-construction-2-guide-textbooks",
-        "civil-construction-2-secondary-grading-and-partial-credit",
-        "civil-construction-2-secondary-written-questions-guide",
-        "concrete-chief-engineer-guide-overview",
-        "concrete-chief-engineer-guide-trends",
-        "concrete-diagnostician-guide-overview",
-        "concrete-engineer-guide-books",
-        "concrete-engineer-guide-difference-chief",
-        "concrete-engineer-guide-eligibility-2026",
-        "concrete-engineer-guide-overview",
-        "concrete-engineer-guide-study-plan",
-        "pe-comprehensive-management-exam-passing-strategy",
-        "pe-first-stage-guide-after-pass",
-        "pe-first-stage-guide-overview",
-        "pe-first-stage-guide-study-plan"
       ]
     },
     {
@@ -4074,6 +4080,19 @@
       ]
     },
     {
+      "name": "pe-first-stage",
+      "count": 6,
+      "inAllowlist": false,
+      "usedIn": [
+        "pe-first-stage-guide-after-pass",
+        "pe-first-stage-guide-aptitude-subject",
+        "pe-first-stage-guide-basic-subject",
+        "pe-first-stage-guide-construction-subject",
+        "pe-first-stage-guide-overview",
+        "pe-first-stage-guide-study-plan"
+      ]
+    },
+    {
       "name": "practice",
       "count": 6,
       "inAllowlist": false,
@@ -4214,16 +4233,6 @@
         "reference-materials-floodgate",
         "reference-materials-inverted-siphon",
         "reference-materials-tunnel-02"
-      ]
-    },
-    {
-      "name": "pe-first-stage",
-      "count": 3,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-first-stage-guide-after-pass",
-        "pe-first-stage-guide-overview",
-        "pe-first-stage-guide-study-plan"
       ]
     },
     {
@@ -5064,11 +5073,11 @@
     "地方公共団体",
     "砂防",
     "original-questions",
+    "pe-first-stage",
     "practice",
     "ゼネコン",
     "建設コンサル",
     "施工",
-    "pe-first-stage",
     "SWOT分析",
     "コンパクトシティ",
     "データ利活用",
