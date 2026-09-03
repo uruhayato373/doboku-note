@@ -88,7 +88,9 @@ export default function SearchPageClient({ examCards, otherCategories, popular }
       )}
 
       {query.trim() ? (
-        <>
+        /* Pagefind の遅延ロード中はスピナー → 結果でレイアウトが伸びる（PSI 実測 CLS 0.58）ため、
+           結果領域の高さを先に確保して下のフッターが跳ねないようにする。 */
+        <div className="min-h-[60vh]">
           <SearchResults
             results={results}
             isLoading={isLoading}
@@ -104,7 +106,7 @@ export default function SearchPageClient({ examCards, otherCategories, popular }
               onPageChange={changePage}
             />
           )}
-        </>
+        </div>
       ) : (
         <SearchZeroState examCards={examCards} otherCategories={otherCategories} popular={popular} />
       )}

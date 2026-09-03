@@ -531,6 +531,14 @@
     width: calc(100% - 2rem);
     overflow-x: auto;
     overscroll-behavior-x: contain; /* 端まで来てもページ全体が横に動かない */
+    /* 横にはみ出す表の「続きがある」手がかり: 右端（未読側）にだけ影を出し、
+       スクロールで端に着くと消える（background-attachment: local の定番）。実測（390px）で
+       4 列以上の規格表は右端が切れて見え、スクロールできることが伝わらなかった。 */
+    background:
+      linear-gradient(to right, var(--paper) 30%, transparent) left / 40px 100% no-repeat local,
+      linear-gradient(to left, var(--paper) 30%, transparent) right / 40px 100% no-repeat local,
+      linear-gradient(to right, rgba(0, 0, 0, 0.14), transparent) left / 14px 100% no-repeat scroll,
+      linear-gradient(to left, rgba(0, 0, 0, 0.14), transparent) right / 14px 100% no-repeat scroll;
   }
   .prose-blog table {
     @apply my-0 text-sm rounded-card-content overflow-hidden;
