@@ -129,6 +129,8 @@ export function getGroupOrder(category: string): DocGroupKey[] {
   if (category === 'pe-construction') return PE_CONSTRUCTION_GROUP_ORDER;
   if (category === 'civil-construction-1' || category === 'civil-construction-2') return CIVIL_GROUP_ORDER;
   if (category === 'concrete-engineer' || category === 'concrete-chief-engineer' || category === 'concrete-diagnostician') return CONCRETE_GROUP_ORDER;
+  // 土木施工の実務は guide のみ（工種別ブロックは PracticeView が curriculum の fields で描画）
+  if (category === 'civil-practice') return ['guide'];
   return ['keyword'];
 }
 
