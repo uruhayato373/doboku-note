@@ -214,11 +214,6 @@ textbook 記事の末尾は「関連キーワード → 転職 PR（MDX 内 Care
 
 pe-first-stage は `category-curriculum.json` に examGuide しか無く、過去問 21 本（basic/aptitude/construction × 7 年度）が科目別に束ねられていない。科目別の要点ガイド 3 本を書いてから `fields.blocks` を定義する（ガイドが無いと fields は空になる）。
 
-### [DN-0166] 総監 keyword 記事に技術トピックの細タグを付与する（LLM 判定）
-タグ: [コンテンツ品質] [種類:改善] [起票:2026-09-03]
-
-2026-09-03 に section 由来の 5 管理タグを 656 本へ機械付与し、/topics の総監 5 テーマと関連記事が生成されるようにした。品質管理・リスク評価・DX 等の技術トピック細タグは本文判定が要るため未付与。`tags.json` の語彙内で 1 記事 1〜3 個を sonnet で判定し、`refresh-indexes` で関連度を上げる。
-
 ### [DN-0152] git履歴の再肥大を計測する（全ストレージ最適化P8の再計測）
 タグ: [インフラ・計測] [種類:改善] [検証:audit-repo-assets] [起票:2026-08-29] [期日:2026-09-05]
 
