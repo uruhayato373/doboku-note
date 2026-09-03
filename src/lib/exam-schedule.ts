@@ -29,7 +29,7 @@ function jstToday(): string {
   return jst.toISOString().slice(0, 10);
 }
 
-export function formatJaDate(iso: string): string {
+function formatJaDate(iso: string): string {
   const [y, m, d] = iso.split('-').map(Number);
   return `${y}年${m}月${d}日`;
 }
@@ -48,9 +48,4 @@ export function getNextExamEvent(categorySlug: string, today: string = jstToday(
   const next = upcoming[0];
   if (!next) return null;
   return { label: next.label, date: next.date, dateLabel: formatJaDate(next.date), isDeadline: next.isDeadline };
-}
-
-/** 資格カードの 1 行表示（例: 「次回 2026年10月4日 第二次検定」）。 */
-export function formatNextExamLine(ev: NextExamEvent): string {
-  return `${ev.isDeadline ? '締切' : '次回'} ${ev.dateLabel} ${ev.label}`;
 }

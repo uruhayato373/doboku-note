@@ -217,7 +217,10 @@
     "tags": [
       "経済性管理"
     ],
-    "standardKeywords": []
+    "standardKeywords": [
+      "積算",
+      "工程管理"
+    ]
   },
   {
     "slug": "human-resource-management",
@@ -229,7 +232,10 @@
       "外国人材",
       "特定技能"
     ],
-    "standardKeywords": []
+    "standardKeywords": [
+      "労務",
+      "安全衛生"
+    ]
   },
   {
     "slug": "information-management",
@@ -240,7 +246,10 @@
       "DX",
       "i-Construction"
     ],
-    "standardKeywords": []
+    "standardKeywords": [
+      "電子納品",
+      "情報共有"
+    ]
   },
   {
     "slug": "safety-management-cem",
@@ -249,16 +258,21 @@
     "tags": [
       "安全管理"
     ],
-    "standardKeywords": []
+    "standardKeywords": [
+      "安全管理",
+      "事故防止"
+    ]
   },
   {
     "slug": "social-environment-management",
     "label": "社会環境管理（総監）",
     "description": "環境影響評価・地球環境・循環型社会・環境法規。持続可能性と事業の両立に関わるキーワードを、総監キーワード集と過去問から横断して確認できます。",
     "tags": [
-      "社会環境管理",
-      "流域治水"
+      "社会環境管理"
     ],
-    "standardKeywords": []
+    "standardKeywords": [
+      "環境保全",
+      "騒音"
+    ]
   }
 ]
