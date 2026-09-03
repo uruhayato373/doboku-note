@@ -469,5 +469,92 @@
         }
       ]
     }
+  },
+  "civil-practice": {
+    "fields": {
+      "title": "工種別ノート",
+      "description": "現場で迷いやすい管理値・手順・安全対策を、工種ごとにまとめて確認できます",
+      "blocks": [
+        {
+          "id": "earthwork",
+          "label": "土工（盛土・切土・軟弱地盤・排水）",
+          "slugs": [
+            "backfill-river-excavation",
+            "cast-in-place-pile-methods",
+            "earth-retaining-displacement",
+            "embankment-quality-control",
+            "excavation-bottom-failure",
+            "excavation-pre-survey",
+            "pile-bearing-verification",
+            "pile-concrete-head-treatment",
+            "pipe-jacking-methods",
+            "precast-pile-methods",
+            "sheet-pile-snow-coating",
+            "slope-drainage-monitoring",
+            "slope-protection-selection",
+            "soil-improvement-sandbag",
+            "subbase-subgrade-control",
+            "trench-excavation-safety"
+          ]
+        },
+        {
+          "id": "concrete",
+          "label": "コンクリート（配合・打込み・型枠・鉄筋）",
+          "slugs": [
+            "checklist-shoring-buoyancy",
+            "concrete-compaction-numbers",
+            "concrete-crack-causes",
+            "concrete-finishing-curing",
+            "concrete-mix-acceptance",
+            "concrete-placement-order",
+            "concrete-placement-timing",
+            "concrete-pump-capacity",
+            "concrete-repair-leakage",
+            "formwork-material-inspection",
+            "formwork-removal-timing",
+            "formwork-waterstop-details",
+            "preventive-maintenance-diagnosis",
+            "rebar-corrosion-handling",
+            "rebar-cover-placement",
+            "rebar-splice-selection",
+            "risk-assessment-construction-workflow",
+            "road-fixtures-precast",
+            "safety-patrol-corrective-action"
+          ]
+        },
+        {
+          "id": "safety",
+          "label": "安全管理（足場・掘削・クレーン・保護具）",
+          "slugs": [
+            "lifting-equipment-selection",
+            "oshms-pdca-site-operation",
+            "safety-culture-discipline",
+            "safety-health-education-plan",
+            "sling-work-wire-rope",
+            "stacking-heat-machine-safety"
+          ]
+        },
+        {
+          "id": "management",
+          "label": "施工計画・工程・品質・建設機械・環境",
+          "slugs": [
+            "construction-plan-document",
+            "cost-and-design-change",
+            "quality-record-site-bcp",
+            "reference-values",
+            "schedule-and-road-permit",
+            "environment-neighborhood"
+          ]
+        },
+        {
+          "id": "structures",
+          "label": "道路・河川構造物",
+          "slugs": [
+            "asphalt-pavement-control",
+            "river-park-erosion-control"
+          ]
+        }
+      ]
+    }
   }
 }
