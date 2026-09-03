@@ -1,16 +1,92 @@
 {
-  "checkedAt": "2026-08-30T00:58:47.159Z",
+  "checkedAt": "2026-09-03T23:48:49.573Z",
   "summary": {
-    "files": 1170,
-    "occurrences": 2574,
-    "uniqueUrls": 1958,
-    "ok": 1846,
-    "broken": 0,
-    "timeout": 0,
-    "errors": 112
+    "files": 1187,
+    "occurrences": 2581,
+    "uniqueUrls": 1963,
+    "ok": 1815,
+    "broken": 1,
+    "timeout": 2,
+    "errors": 145
   },
-  "broken": [],
+  "broken": [
+    {
+      "url": "https://jinjibu.jp/spcl/kohei2023/cl/detl/4998/",
+      "status": 404,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://jinjibu.jp/spcl/kohei2023/cl/detl/4998/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/problem-setting-ability/article.mdx",
+          "line": 104
+        }
+      ]
+    }
+  ],
   "errors": [
+    {
+      "url": "https://www.kajima.co.jp/csr/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.kajima.co.jp/csr/",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-construction-business/article.mdx",
+          "line": 248
+        }
+      ]
+    },
+    {
+      "url": "https://www.kajima.co.jp/tech/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.kajima.co.jp/tech/",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-construction-mgmt-overview/article.mdx",
+          "line": 248
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-construction-plan-overview/article.mdx",
+          "line": 393
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-control-chart/article.mdx",
+          "line": 275
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-demolition/article.mdx",
+          "line": 387
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-management-subplans/article.mdx",
+          "line": 489
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-quality-inspection/article.mdx",
+          "line": 146
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-quality-overview/article.mdx",
+          "line": 399
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-river-act/article.mdx",
+          "line": 203
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-schedule-charts/article.mdx",
+          "line": 282
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-schedule-overview/article.mdx",
+          "line": 272
+        }
+      ]
+    },
     {
       "url": "https://www.obayashi.co.jp/technology/",
       "status": 403,
@@ -57,6 +133,31 @@
         {
           "relativePath": "civil-construction-1/textbook-crane/article.mdx",
           "line": 234
+        }
+      ]
+    },
+    {
+      "url": "http://www.kajima.co.jp/technology/",
+      "status": 403,
+      "ok": false,
+      "redirected": true,
+      "finalUrl": "https://www.kajima.co.jp/technology/",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-cut-slope-protection/article.mdx",
+          "line": 231
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-embankment/article.mdx",
+          "line": 214
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-soft-ground-drainage/article.mdx",
+          "line": 178
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-soil-investigation-methods/article.mdx",
+          "line": 244
         }
       ]
     },
@@ -176,6 +277,31 @@
       ]
     },
     {
+      "url": "https://www.pmi.org/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.pmi.org/",
+      "locations": [
+        {
+          "relativePath": "civil-construction-1/textbook-network-schedule/article.mdx",
+          "line": 343
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-schedule-charts/article.mdx",
+          "line": 281
+        },
+        {
+          "relativePath": "civil-construction-1/textbook-work-scheduling/article.mdx",
+          "line": 364
+        },
+        {
+          "relativePath": "pe-comprehensive-management/analogous-estimation/article.mdx",
+          "line": 82
+        }
+      ]
+    },
+    {
       "url": "https://jiban.co.jp/jbn/",
       "status": 0,
       "ok": false,
@@ -209,6 +335,31 @@
         {
           "relativePath": "concrete-diagnostician/textbook-investigation/article.mdx",
           "line": 162
+        }
+      ]
+    },
+    {
+      "url": "https://gihodobooks.sslserve.jp/information/index_seigo.html",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "concrete-engineer/guide-books/article.mdx",
+          "line": 50
+        }
+      ]
+    },
+    {
+      "url": "https://biz.moneyforward.com/erp/basic/397/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://biz.moneyforward.com/erp/basic/397/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/accounting-systems/article.mdx",
+          "line": 106
         }
       ]
     },
@@ -252,14 +403,15 @@
       ]
     },
     {
-      "url": "https://www.u-tokyo.ac.jp/focus/ja/press/p01_200425.html",
-      "status": 0,
+      "url": "https://www.jsme.or.jp/jsme-medwiki/doku.php?id=19:1010172",
+      "status": 403,
       "ok": false,
-      "error": "fetch failed",
+      "redirected": false,
+      "finalUrl": "https://www.jsme.or.jp/jsme-medwiki/doku.php?id=19:1010172",
       "locations": [
         {
-          "relativePath": "pe-comprehensive-management/asch-conformity-experiment/article.mdx",
-          "line": 115
+          "relativePath": "pe-comprehensive-management/bathtub-curve/article.mdx",
+          "line": 110
         }
       ]
     },
@@ -290,6 +442,19 @@
       ]
     },
     {
+      "url": "https://biz.moneyforward.com/accounting/basic/34/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://biz.moneyforward.com/accounting/basic/34/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/break-even-point/article.mdx",
+          "line": 128
+        }
+      ]
+    },
+    {
       "url": "https://www.chusho.meti.go.jp/bcp/",
       "status": 403,
       "ok": false,
@@ -299,6 +464,19 @@
         {
           "relativePath": "pe-comprehensive-management/business-continuity-plan/article.mdx",
           "line": 133
+        }
+      ]
+    },
+    {
+      "url": "https://jis.eomec.com/jisz81412022/4",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://jis.eomec.com/jisz81412022/4",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/capacity-management/article.mdx",
+          "line": 77
         }
       ]
     },
@@ -329,6 +507,19 @@
         {
           "relativePath": "pe-comprehensive-management/carbon-neutral/article.mdx",
           "line": 155
+        }
+      ]
+    },
+    {
+      "url": "https://biz.moneyforward.com/accounting/basic/120/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://biz.moneyforward.com/accounting/basic/120/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/cash-flow-statement/article.mdx",
+          "line": 222
         }
       ]
     },
@@ -375,8 +566,8 @@
       "url": "https://www.tandfonline.com/doi/abs/10.1080/01944366908977225",
       "status": 403,
       "ok": false,
-      "redirected": true,
-      "finalUrl": "https://www.tandfonline.com/doi/abs/10.1080/01944366908977225?cookieSet=1",
+      "redirected": false,
+      "finalUrl": "https://www.tandfonline.com/doi/abs/10.1080/01944366908977225",
       "locations": [
         {
           "relativePath": "pe-comprehensive-management/citizen-participation/article.mdx",
@@ -394,6 +585,19 @@
         {
           "relativePath": "pe-comprehensive-management/clearance-level/article.mdx",
           "line": 112
+        }
+      ]
+    },
+    {
+      "url": "https://www.iaea.org/publications/7118/application-of-the-concepts-of-exclusion-exemption-and-clearance",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.iaea.org/publications/7118/application-of-the-concepts-of-exclusion-exemption-and-clearance",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/clearance-level/article.mdx",
+          "line": 113
         }
       ]
     },
@@ -497,6 +701,32 @@
       ]
     },
     {
+      "url": "https://www.jsme.or.jp/jsme-medwiki/doku.php?id=17:1001623",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jsme.or.jp/jsme-medwiki/doku.php?id=17:1001623",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/demand-forecasting/article.mdx",
+          "line": 117
+        }
+      ]
+    },
+    {
+      "url": "https://biz.moneyforward.com/accounting/basic/depreciation/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://biz.moneyforward.com/accounting/basic/depreciation/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/depreciation/article.mdx",
+          "line": 113
+        }
+      ]
+    },
+    {
       "url": "https://www.jpo.go.jp/system/design/gaiyo/index.html",
       "status": 403,
       "ok": false,
@@ -523,6 +753,18 @@
       ]
     },
     {
+      "url": "https://www.hropen.org/",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/diagnostic-od/article.mdx",
+          "line": 105
+        }
+      ]
+    },
+    {
       "url": "https://www.jpc-nd.or.jp/",
       "status": 0,
       "ok": false,
@@ -531,6 +773,32 @@
         {
           "relativePath": "pe-comprehensive-management/disclosure-request/article.mdx",
           "line": 108
+        }
+      ]
+    },
+    {
+      "url": "https://www.spf.org/opri/newsletter/429_2.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.spf.org/opri/newsletter/429_2.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/eco-drr/article.mdx",
+          "line": 88
+        }
+      ]
+    },
+    {
+      "url": "https://biz.moneyforward.com/payroll/basic/62647/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://biz.moneyforward.com/payroll/basic/62647/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/employee-benefits/article.mdx",
+          "line": 88
         }
       ]
     },
@@ -607,6 +875,19 @@
       ]
     },
     {
+      "url": "https://biz.moneyforward.com/accounting/basic/46679/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://biz.moneyforward.com/accounting/basic/46679/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/environmental-accounting/article.mdx",
+          "line": 99
+        }
+      ]
+    },
+    {
       "url": "https://kankyobusiness.jp/content/20240600019698",
       "status": 0,
       "ok": false,
@@ -615,6 +896,32 @@
         {
           "relativePath": "pe-comprehensive-management/environmental-basic-plan/article.mdx",
           "line": 119
+        }
+      ]
+    },
+    {
+      "url": "https://www.env.go.jp/policy/assess/",
+      "status": 403,
+      "ok": false,
+      "redirected": true,
+      "finalUrl": "https://assess.env.go.jp/index.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/environmental-impact-assessment/article.mdx",
+          "line": 107
+        }
+      ]
+    },
+    {
+      "url": "https://waza.mhlw.go.jp/shokushu/list/kikaihozen.html",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://waza.mhlw.go.jp/shokushu/list/kikaihozen.html",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/equipment-characteristics/article.mdx",
+          "line": 111
         }
       ]
     },
@@ -749,6 +1056,18 @@
       ]
     },
     {
+      "url": "https://tenbou.nies.go.jp/science/description/detail.php?id=18",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/heat-island-effect/article.mdx",
+          "line": 121
+        }
+      ]
+    },
+    {
       "url": "https://www.meti.go.jp/policy/safety_security/industrial_safety/sangyo/hipregas/kisei/index.html",
       "status": 403,
       "ok": false,
@@ -804,6 +1123,18 @@
       ]
     },
     {
+      "url": "https://www.jitco.or.jp/ja/regulation/",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/immigration-control-act/article.mdx",
+          "line": 120
+        }
+      ]
+    },
+    {
       "url": "https://www.jpo.go.jp/system/patent/gaiyo/seidogaiyo/chizai01.html",
       "status": 403,
       "ok": false,
@@ -843,6 +1174,19 @@
       ]
     },
     {
+      "url": "https://biz.moneyforward.com/ma/basic/404/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://biz.moneyforward.com/ma/basic/404/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/internal-rate-of-return/article.mdx",
+          "line": 91
+        }
+      ]
+    },
+    {
       "url": "https://www.jpo.go.jp/system/patent/gaiyo/seidogaiyo/chizai02.html",
       "status": 403,
       "ok": false,
@@ -869,6 +1213,32 @@
         {
           "relativePath": "pe-comprehensive-management/ip-creation/article.mdx",
           "line": 78
+        }
+      ]
+    },
+    {
+      "url": "https://biz.moneyforward.com/contract/basic/2483/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://biz.moneyforward.com/contract/basic/2483/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/ip-protection/article.mdx",
+          "line": 88
+        }
+      ]
+    },
+    {
+      "url": "https://biz.moneyforward.com/erp/basic/1966/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://biz.moneyforward.com/erp/basic/1966/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/job-order-costing/article.mdx",
+          "line": 97
         }
       ]
     },
@@ -907,6 +1277,19 @@
         {
           "relativePath": "pe-comprehensive-management/knowledge-sharing/article.mdx",
           "line": 108
+        }
+      ]
+    },
+    {
+      "url": "https://biz.moneyforward.com/payroll/basic/51964/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://biz.moneyforward.com/payroll/basic/51964/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/labor-policy-act/article.mdx",
+          "line": 121
         }
       ]
     },
@@ -950,8 +1333,34 @@
       ]
     },
     {
+      "url": "https://biz.moneyforward.com/accounting/basic/59288/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://biz.moneyforward.com/accounting/basic/59288/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/maintenance-cost/article.mdx",
+          "line": 92
+        }
+      ]
+    },
+    {
+      "url": "https://www.jsme.or.jp/jsme-medwiki/19:1008250",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.jsme.or.jp/jsme-medwiki/19:1008250",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/master-schedule-planning/article.mdx",
+          "line": 93
+        }
+      ]
+    },
+    {
       "url": "https://www.jsme.or.jp/jsme-medwiki/doku.php?id=01:1001629",
-      "status": 429,
+      "status": 403,
       "ok": false,
       "redirected": false,
       "finalUrl": "https://www.jsme.or.jp/jsme-medwiki/doku.php?id=01:1001629",
@@ -1019,6 +1428,31 @@
         {
           "relativePath": "pe-comprehensive-management/pdpc-method/article.mdx",
           "line": 98
+        }
+      ]
+    },
+    {
+      "url": "https://service.aeondelight.co.jp/blog/lifecycle-management/",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/planned-usage-period/article.mdx",
+          "line": 110
+        }
+      ]
+    },
+    {
+      "url": "https://biz.moneyforward.com/payroll/basic/72077/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://biz.moneyforward.com/payroll/basic/72077/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/positive-action/article.mdx",
+          "line": 82
         }
       ]
     },
@@ -1152,6 +1586,44 @@
       ]
     },
     {
+      "url": "https://biz.moneyforward.com/payroll/basic/93087/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://biz.moneyforward.com/payroll/basic/93087/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/reemployment-system/article.mdx",
+          "line": 136
+        }
+      ]
+    },
+    {
+      "url": "https://www.iges.or.jp/jp/topics/cities-rural-areas",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.iges.or.jp/jp/topics/cities-rural-areas",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/regional-circular-symbiosis/article.mdx",
+          "line": 97
+        }
+      ]
+    },
+    {
+      "url": "https://niigata-elcc.mhlw.go.jp/column/0119/",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/relative-absolute-evaluation/article.mdx",
+          "line": 101
+        }
+      ]
+    },
+    {
       "url": "https://www.enecho.meti.go.jp/category/saving_and_new/saiene/kaitori/surcharge.html",
       "status": 403,
       "ok": false,
@@ -1251,18 +1723,6 @@
         {
           "relativePath": "pe-comprehensive-management/safety-and-security/article.mdx",
           "line": 82
-        }
-      ]
-    },
-    {
-      "url": "https://www.jisha.or.jp/order/article/10_construction.html",
-      "status": 0,
-      "ok": false,
-      "error": "fetch failed",
-      "locations": [
-        {
-          "relativePath": "pe-comprehensive-management/safety-control/article.mdx",
-          "line": 118
         }
       ]
     },
@@ -1374,6 +1834,18 @@
       ]
     },
     {
+      "url": "https://ja.wikipedia.org/wiki/気候関連財務情報開示タスクフォース",
+      "status": 0,
+      "ok": false,
+      "error": "fetch failed",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/tcfd/article.mdx",
+          "line": 70
+        }
+      ]
+    },
+    {
       "url": "https://www.jpo.go.jp/system/patent/gaiyo/setsumei/patent_license.html",
       "status": 403,
       "ok": false,
@@ -1383,6 +1855,19 @@
         {
           "relativePath": "pe-comprehensive-management/technology-licensing/article.mdx",
           "line": 135
+        }
+      ]
+    },
+    {
+      "url": "https://biz.moneyforward.com/work-efficiency/basic/3788/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://biz.moneyforward.com/work-efficiency/basic/3788/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/three-c-analysis/article.mdx",
+          "line": 106
         }
       ]
     },
@@ -1554,7 +2039,45 @@
           "line": 93
         }
       ]
+    },
+    {
+      "url": "https://www.cloudflare.com/ja-jp/learning/security/glossary/what-is-zero-trust/",
+      "status": 403,
+      "ok": false,
+      "redirected": false,
+      "finalUrl": "https://www.cloudflare.com/ja-jp/learning/security/glossary/what-is-zero-trust/",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/zero-trust/article.mdx",
+          "line": 99
+        }
+      ]
     }
   ],
-  "timeout": []
+  "timeout": [
+    {
+      "url": "https://business.adobe.com/jp/blog/basics/digital-rights-management",
+      "status": 0,
+      "ok": false,
+      "error": "TIMEOUT",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/digital-rights/article.mdx",
+          "line": 102
+        }
+      ]
+    },
+    {
+      "url": "https://www.jisha.or.jp/order/article/10_construction.html",
+      "status": 0,
+      "ok": false,
+      "error": "TIMEOUT",
+      "locations": [
+        {
+          "relativePath": "pe-comprehensive-management/safety-control/article.mdx",
+          "line": 118
+        }
+      ]
+    }
+  ]
 }
