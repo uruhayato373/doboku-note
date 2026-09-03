@@ -194,10 +194,10 @@ weekly.md の手動キューはこの ID だけを参照する（weekly は ID �
 
 GSC 日次合計は約 4 クリック/日（`gsc-date-*`）、GA4 Organic Search は約 175 セッション/日（28 日 4,869）。`fetch-metrics.yml` に GA4 `hostName` 次元の週次取得を足したので、次回以降の `ga4-hostName-*.json` で「別ホストの計測混入」を先に潰す。混入が無ければ GSC プロパティ（`sc-domain:doboku-note.com`）の設定と GA4 の bot 混入を順に確認。原因が決まるまで GSC クリック数を NSM の実数として使わない（measurement-incidents 2026-09-03）。
 
-### [DN-0162] 過去問逆引き・教材章ナビを建設部門とコンクリート 3 資格へ開通する
+### [DN-0162] 建設部門の過去問に設問単位の逆引き（キーワード↔設問）を開通する
 タグ: [コンテンツ品質] [種類:改善] [起票:2026-09-03]
 
-`PastExamBacklinks`・`RelatedTextbooks`・`TextbookNav` は総監と 1級・2級土木にしか配線されていない（`ArticleFooter.tsx`）。同じ keyword＋過去問構造を持つ pe-construction、textbook＋primary を持つコンクリート 3 資格に無い。`build-exam-backlinks.mjs` の対象を拡張して索引 JSON を生成し、footer の分岐を category 集合へ広げる。2026-09-03 監査で Rank-Stuck の建設部門 過去問 30 件超に対する一括レバーとして特定。
+`PastExamBacklinks` の設問単位逆引きは総監（`exam-keyword-map.json`＝人手キュレーション）と 1級・2級土木（本文照合の自動索引）にしかない。pe-construction は past-exam 84 本と keyword 35 本が科目タグ（都市及び地方計画・道路 等）で `RelatedArticles` により**記事単位では既に相互リンク済み**（2026-09-03 実物確認）。残るのは設問単位の紐付けで、総監と同じく `exam-keyword-map.json` を pe-construction 向けにキュレーション（`exam-keyword-mapping-auditor` の対象拡張）してから `build-exam-backlinks.mjs` の走査対象へ加える。コンクリート 3 資格は primary-X ↔ textbook-X が同じ分野名で 1 対 1 に対応し、各記事の `RelatedKeywords` で既に明示リンク済みのため対象外。
 
 ### [DN-0163] 記事末尾の CTA 順序（転職アフィリが自社 note より先）を見直す
 タグ: [収益化] [種類:意思決定] [起票:2026-09-03]
