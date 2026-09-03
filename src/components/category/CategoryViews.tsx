@@ -183,6 +183,36 @@ export function ConcreteView({ groups, mobileCareerAds = [] }: { groups: DocGrou
   );
 }
 
+/** civil-practice: 実務ノート 49 本を工種別ブロック（category-curriculum の fields）で束ねる。
+ *  既定の DocSection はフラットなカード列（モバイル 9,700px・2026-09 監査）になるため専用 View にした。
+ *  fields に無い記事は unassigned として末尾に必ず出す（silent drop 防止）。 */
+export function PracticeView({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
+  const guideGroup = groups.find(g => g.key === 'guide');
+  const category = groups.flatMap(g => g.docs)[0]?.category ?? 'civil-practice';
+  const curriculum = resolveCurriculum(category, guideGroup?.docs ?? []);
+  const fieldsCount = curriculum.fields?.blocks.reduce((n, b) => n + b.docs.length, 0) ?? 0;
+  const restDocs = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
+  const others = groups.filter(g => g.key !== 'guide');
+  return (
+    <>
+      {curriculum.fields && fieldsCount > 0 && (
+        <CurriculumSection id="fields" title={curriculum.fields.title} description={curriculum.fields.description} count={fieldsCount}>
+          <CurriculumList blocks={curriculum.fields.blocks} />
+        </CurriculumSection>
+      )}
+      {restDocs.length > 0 && (
+        <CurriculumSection id="guide" title="その他の実務ノート" count={restDocs.length}>
+          <CurriculumList blocks={[{ docs: restDocs }]} />
+        </CurriculumSection>
+      )}
+      {mobileCareerAds[0]}
+      {others.map(group => (
+        <DocSection key={group.title} group={group} />
+      ))}
+    </>
+  );
+}
+
 /** pe-first-stage: 適性・基礎・専門マトリクス */
 export function PeFirstStageView({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
   const primaryGroup = groups.find(g => g.title === getGroupLabel('pe-first-stage', 'primary'));

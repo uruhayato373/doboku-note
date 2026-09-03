@@ -12,6 +12,7 @@ import {
   CivilConstruction1View,
   CivilConstruction2View,
   ConcreteView,
+  PracticeView,
   PeFirstStageView,
   PeComprehensiveView,
   PeConstructionView,
@@ -169,6 +170,8 @@ export default async function CategoryPage({
                 <PeConstructionView groups={groups} mobileCareerAds={mobileCareerAds} />
               ) : slug === 'concrete-engineer' || slug === 'concrete-chief-engineer' || slug === 'concrete-diagnostician' ? (
                 <ConcreteView groups={groups} mobileCareerAds={mobileCareerAds} />
+              ) : slug === 'civil-practice' ? (
+                <PracticeView groups={groups} mobileCareerAds={mobileCareerAds} />
               ) : (
                 groups.map(group => (
                   <DocSection key={group.title} group={group} />
