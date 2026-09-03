@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-09-03T01:51:02.702Z",
+  "generated_at": "2026-09-03T04:09:20.852Z",
   "summary": {
     "total_mdx_files": 1209,
-    "total_unique_tags": 181,
+    "total_unique_tags": 186,
     "allowlist_size": 158,
-    "known_count": 88,
+    "known_count": 93,
     "unknown_count": 93,
     "typo_candidates_count": 5
   },
@@ -2515,6 +2515,159 @@
       ]
     },
     {
+      "name": "環境保全",
+      "count": 79,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-acid-rain",
+        "pe-comprehensive-management-agenda-21",
+        "pe-comprehensive-management-air-pollution-control-act",
+        "pe-comprehensive-management-alps-treated-water",
+        "pe-comprehensive-management-asbestos-issue",
+        "pe-comprehensive-management-backcasting",
+        "pe-comprehensive-management-basel-convention",
+        "pe-comprehensive-management-biodiversity-basic-act",
+        "pe-comprehensive-management-circular-economy",
+        "pe-comprehensive-management-circular-society-basic-act",
+        "pe-comprehensive-management-cites",
+        "pe-comprehensive-management-climate-change-adaptation-act",
+        "pe-comprehensive-management-climate-change-international",
+        "pe-comprehensive-management-club-of-rome",
+        "pe-comprehensive-management-consensus-instruments",
+        "pe-comprehensive-management-convention-on-biodiversity",
+        "pe-comprehensive-management-design-for-environment",
+        "pe-comprehensive-management-dioxin-countermeasures-act",
+        "pe-comprehensive-management-eco-action-21",
+        "pe-comprehensive-management-eco-drr",
+        "pe-comprehensive-management-eco-label",
+        "pe-comprehensive-management-ecosystem-services",
+        "pe-comprehensive-management-end-of-pipe",
+        "pe-comprehensive-management-energy",
+        "pe-comprehensive-management-energy-conservation-act",
+        "pe-comprehensive-management-environmental-accounting",
+        "pe-comprehensive-management-environmental-basic-act",
+        "pe-comprehensive-management-environmental-basic-plan",
+        "pe-comprehensive-management-environmental-communication",
+        "pe-comprehensive-management-environmental-impact-assessment",
+        "pe-comprehensive-management-environmental-standards",
+        "pe-comprehensive-management-extended-producer-responsibility",
+        "pe-comprehensive-management-forests-villages-rivers-seas",
+        "pe-comprehensive-management-four-major-pollution-diseases",
+        "pe-comprehensive-management-gfc-chemicals-framework",
+        "pe-comprehensive-management-green-bond",
+        "pe-comprehensive-management-green-infrastructure",
+        "pe-comprehensive-management-heat-island-effect",
+        "pe-comprehensive-management-interim-storage-facility",
+        "pe-comprehensive-management-invasive-alien-species",
+        "pe-comprehensive-management-ipbes",
+        "pe-comprehensive-management-iso-14000",
+        "pe-comprehensive-management-kunming-montreal-framework",
+        "pe-comprehensive-management-landscape-act",
+        "pe-comprehensive-management-lifecycle-assessment",
+        "pe-comprehensive-management-millennium-ecosystem-assessment",
+        "pe-comprehensive-management-minamata-convention",
+        "pe-comprehensive-management-nagoya-protocol",
+        "pe-comprehensive-management-natural-parks-act",
+        "pe-comprehensive-management-nature-conservation-act",
+        "pe-comprehensive-management-nature-positive",
+        "pe-comprehensive-management-nature-restoration-act",
+        "pe-comprehensive-management-ocean-plastic",
+        "pe-comprehensive-management-planetary-boundaries",
+        "pe-comprehensive-management-polluter-pays-principle",
+        "pe-comprehensive-management-pollution-control-manager",
+        "pe-comprehensive-management-pops-convention",
+        "pe-comprehensive-management-precautionary-principle",
+        "pe-comprehensive-management-prevention-principle",
+        "pe-comprehensive-management-prtr-act",
+        "pe-comprehensive-management-radioactive-decontamination-act",
+        "pe-comprehensive-management-radioactive-waste",
+        "pe-comprehensive-management-ramsar-convention",
+        "pe-comprehensive-management-reach-regulation",
+        "pe-comprehensive-management-red-list",
+        "pe-comprehensive-management-regional-circular-symbiosis",
+        "pe-comprehensive-management-renewable-energy-act",
+        "pe-comprehensive-management-rio-declaration",
+        "pe-comprehensive-management-rohs-weee",
+        "pe-comprehensive-management-satoyama-initiative",
+        "pe-comprehensive-management-seven-types-of-pollution",
+        "pe-comprehensive-management-soil-contamination-act",
+        "pe-comprehensive-management-sound-water-cycle",
+        "pe-comprehensive-management-source-control-principle",
+        "pe-comprehensive-management-species-preservation-act",
+        "pe-comprehensive-management-subsidiarity-principle",
+        "pe-comprehensive-management-surcharge",
+        "pe-comprehensive-management-sustainable-fashion",
+        "pe-construction-datsutanso-kankyo-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "関係法規",
+      "count": 60,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-air-pollution-control-act",
+        "pe-comprehensive-management-antitrust-compliance",
+        "pe-comprehensive-management-asbestos-issue",
+        "pe-comprehensive-management-basel-convention",
+        "pe-comprehensive-management-bid-rigging",
+        "pe-comprehensive-management-biodiversity-basic-act",
+        "pe-comprehensive-management-chemical-substances-review-act",
+        "pe-comprehensive-management-child-rearing-support-act",
+        "pe-comprehensive-management-child-support-act",
+        "pe-comprehensive-management-childcare-nursing-leave-act",
+        "pe-comprehensive-management-circular-society-basic-act",
+        "pe-comprehensive-management-cites",
+        "pe-comprehensive-management-civil-protection-act",
+        "pe-comprehensive-management-climate-change-adaptation-act",
+        "pe-comprehensive-management-copyright",
+        "pe-comprehensive-management-data-breach-response",
+        "pe-comprehensive-management-dioxin-countermeasures-act",
+        "pe-comprehensive-management-disability-discrimination-act",
+        "pe-comprehensive-management-disability-employment",
+        "pe-comprehensive-management-disability-employment-act",
+        "pe-comprehensive-management-disaster-countermeasures-act",
+        "pe-comprehensive-management-disclosure-request",
+        "pe-comprehensive-management-disclosure-standards",
+        "pe-comprehensive-management-discretionary-work-system",
+        "pe-comprehensive-management-fire-service-act",
+        "pe-comprehensive-management-gender-equality-act",
+        "pe-comprehensive-management-global-warming-countermeasures-act",
+        "pe-comprehensive-management-hazardous-facility-disaster-prevention",
+        "pe-comprehensive-management-high-pressure-gas-act",
+        "pe-comprehensive-management-indefinite-conversion-rule",
+        "pe-comprehensive-management-individual-labor-dispute-act",
+        "pe-comprehensive-management-industrial-property-rights",
+        "pe-comprehensive-management-information-disclosure-act",
+        "pe-comprehensive-management-landscape-act",
+        "pe-comprehensive-management-machinery-safety-guidelines",
+        "pe-comprehensive-management-minimum-wage-act",
+        "pe-comprehensive-management-my-number-act",
+        "pe-comprehensive-management-national-resilience-act",
+        "pe-comprehensive-management-natural-parks-act",
+        "pe-comprehensive-management-nature-conservation-act",
+        "pe-comprehensive-management-nature-restoration-act",
+        "pe-comprehensive-management-nuclear-disaster-act",
+        "pe-comprehensive-management-occupational-safety-act",
+        "pe-comprehensive-management-pollution-control-manager",
+        "pe-comprehensive-management-pops-convention",
+        "pe-comprehensive-management-prior-use-rights",
+        "pe-comprehensive-management-privacy-mark",
+        "pe-comprehensive-management-private-monopoly",
+        "pe-comprehensive-management-product-liability",
+        "pe-comprehensive-management-product-liability-act",
+        "pe-comprehensive-management-product-safety",
+        "pe-comprehensive-management-prtr-act",
+        "pe-comprehensive-management-radioactive-decontamination-act",
+        "pe-comprehensive-management-reach-regulation",
+        "pe-comprehensive-management-renewable-energy-act",
+        "pe-comprehensive-management-right-to-know",
+        "pe-comprehensive-management-soil-contamination-act",
+        "pe-comprehensive-management-species-preservation-act",
+        "pe-comprehensive-management-state-secrets-act",
+        "pe-comprehensive-management-subcontracting-act"
+      ]
+    },
+    {
       "name": "primary",
       "count": 58,
       "inAllowlist": true,
@@ -2795,6 +2948,45 @@
       ]
     },
     {
+      "name": "DX",
+      "count": 32,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-agile",
+        "pe-comprehensive-management-api",
+        "pe-comprehensive-management-cloud-on-premises",
+        "pe-comprehensive-management-crm-system",
+        "pe-comprehensive-management-data-cleansing",
+        "pe-comprehensive-management-data-governance",
+        "pe-comprehensive-management-data-mining",
+        "pe-comprehensive-management-data-visualization",
+        "pe-comprehensive-management-digital-twin-cps",
+        "pe-comprehensive-management-edge-computing",
+        "pe-comprehensive-management-generative-ai",
+        "pe-comprehensive-management-groupware",
+        "pe-comprehensive-management-hr-systems",
+        "pe-comprehensive-management-iot",
+        "pe-comprehensive-management-machine-learning",
+        "pe-comprehensive-management-malware",
+        "pe-comprehensive-management-mobile-communication",
+        "pe-comprehensive-management-multi-factor-authentication",
+        "pe-comprehensive-management-my-number-act",
+        "pe-comprehensive-management-non-repudiation",
+        "pe-comprehensive-management-production-management-system",
+        "pe-comprehensive-management-public-private-data-act",
+        "pe-comprehensive-management-r04-essay-general-contractor",
+        "pe-comprehensive-management-r04-essay-river-consultant",
+        "pe-comprehensive-management-recommendation-systems",
+        "pe-comprehensive-management-rpa",
+        "pe-comprehensive-management-sfa-system",
+        "pe-comprehensive-management-smart-safety",
+        "pe-comprehensive-management-system-availability",
+        "pe-comprehensive-management-system-integrity",
+        "pe-comprehensive-management-system-outage-degradation",
+        "pe-comprehensive-management-system-reliability"
+      ]
+    },
+    {
       "name": "secondary",
       "count": 28,
       "inAllowlist": true,
@@ -2888,6 +3080,34 @@
         "civil-practice-risk-assessment-construction-workflow",
         "civil-practice-road-fixtures-precast",
         "civil-practice-safety-patrol-corrective-action"
+      ]
+    },
+    {
+      "name": "品質管理",
+      "count": 21,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-cause-and-effect-diagram",
+        "pe-comprehensive-management-control-limits",
+        "pe-comprehensive-management-design-quality",
+        "pe-comprehensive-management-design-review",
+        "pe-comprehensive-management-haccp",
+        "pe-comprehensive-management-inspection-methods",
+        "pe-comprehensive-management-manufacturing-quality",
+        "pe-comprehensive-management-nonconformity-rate",
+        "pe-comprehensive-management-pqcdsme",
+        "pe-comprehensive-management-process-capability-index",
+        "pe-comprehensive-management-qc-circle",
+        "pe-comprehensive-management-quality-assurance",
+        "pe-comprehensive-management-quality-characteristics",
+        "pe-comprehensive-management-quality-control",
+        "pe-comprehensive-management-quality-costing",
+        "pe-comprehensive-management-quality-improvement",
+        "pe-comprehensive-management-quality-objectives",
+        "pe-comprehensive-management-quality-planning",
+        "pe-comprehensive-management-quality-policy",
+        "pe-comprehensive-management-required-quality",
+        "pe-comprehensive-management-small-group-activities"
       ]
     },
     {
@@ -3045,6 +3265,30 @@
         "civil-practice-sheet-pile-snow-coating",
         "civil-practice-sling-work-wire-rope",
         "civil-practice-stacking-heat-machine-safety"
+      ]
+    },
+    {
+      "name": "働き方改革",
+      "count": 17,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-childcare-nursing-leave-act",
+        "pe-comprehensive-management-continued-employment-system",
+        "pe-comprehensive-management-discretionary-work-system",
+        "pe-comprehensive-management-flextime-system",
+        "pe-comprehensive-management-highly-professional-system",
+        "pe-comprehensive-management-location-limited-employee",
+        "pe-comprehensive-management-mandatory-management-retirement",
+        "pe-comprehensive-management-part-time-fixed-term-act",
+        "pe-comprehensive-management-positive-action",
+        "pe-comprehensive-management-power-harassment",
+        "pe-comprehensive-management-psychological-safety",
+        "pe-comprehensive-management-reemployment-system",
+        "pe-comprehensive-management-reskilling",
+        "pe-comprehensive-management-return-to-work-support",
+        "pe-comprehensive-management-side-jobs",
+        "pe-comprehensive-management-stress-check-system",
+        "pe-construction-ninaite-kakuho-seisansei"
       ]
     },
     {
@@ -3273,6 +3517,26 @@
       ]
     },
     {
+      "name": "カーボンニュートラル",
+      "count": 13,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-carbon-neutral",
+        "pe-comprehensive-management-carbon-pricing",
+        "pe-comprehensive-management-cdp-sbt-re100",
+        "pe-comprehensive-management-energy",
+        "pe-comprehensive-management-energy-conservation-act",
+        "pe-comprehensive-management-global-warming-countermeasures-act",
+        "pe-comprehensive-management-green-transformation",
+        "pe-comprehensive-management-long-term-strategy-2050",
+        "pe-comprehensive-management-r06-essay-general-contractor",
+        "pe-comprehensive-management-r06-essay-river-consultant",
+        "pe-comprehensive-management-r06-essay-road-municipality",
+        "pe-construction-carbon-neutral-kensetsu",
+        "pe-construction-datsutanso-kankyo-ronbun-keyword"
+      ]
+    },
+    {
       "name": "出題傾向",
       "count": 13,
       "inAllowlist": true,
@@ -3481,6 +3745,22 @@
         "pe-construction-r06-geotechnical",
         "pe-construction-r07-geotechnical",
         "pe-construction-soil-foundation-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "工程管理",
+      "count": 9,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-capacity-management",
+        "pe-comprehensive-management-gantt-chart",
+        "pe-comprehensive-management-lead-time",
+        "pe-comprehensive-management-load-capacity",
+        "pe-comprehensive-management-load-leveling",
+        "pe-comprehensive-management-master-schedule-planning",
+        "pe-comprehensive-management-pert-cpm",
+        "pe-comprehensive-management-process-planning-construction",
+        "pe-comprehensive-management-progress-management"
       ]
     },
     {
@@ -3768,6 +4048,19 @@
       ]
     },
     {
+      "name": "GX",
+      "count": 6,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-carbon-neutral",
+        "pe-comprehensive-management-carbon-pricing",
+        "pe-comprehensive-management-cdp-sbt-re100",
+        "pe-comprehensive-management-green-transformation",
+        "pe-comprehensive-management-long-term-strategy-2050",
+        "pe-construction-carbon-neutral-kensetsu"
+      ]
+    },
+    {
       "name": "original-questions",
       "count": 6,
       "inAllowlist": false,
@@ -3869,15 +4162,15 @@
       ]
     },
     {
-      "name": "カーボンニュートラル",
+      "name": "流域治水",
       "count": 5,
       "inAllowlist": true,
       "usedIn": [
-        "pe-comprehensive-management-r06-essay-general-contractor",
-        "pe-comprehensive-management-r06-essay-river-consultant",
-        "pe-comprehensive-management-r06-essay-road-municipality",
-        "pe-construction-carbon-neutral-kensetsu",
-        "pe-construction-datsutanso-kankyo-ronbun-keyword"
+        "pe-comprehensive-management-climate-change-adaptation-act",
+        "pe-comprehensive-management-sound-water-cycle",
+        "pe-construction-bosai-kokudo-kyoujinka",
+        "pe-construction-bousai-genseigai-ronbun-keyword",
+        "pe-construction-river-coast-ronbun-keyword"
       ]
     },
     {
@@ -3900,6 +4193,17 @@
         "civil-construction-1-textbook-earth-retaining-cofferdam",
         "civil-construction-1-textbook-foundation-overview-survey",
         "civil-construction-1-textbook-pile-foundation-precast"
+      ]
+    },
+    {
+      "name": "施工計画",
+      "count": 4,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-construction-plan",
+        "pe-comprehensive-management-method-planning",
+        "pe-comprehensive-management-process-planning-construction",
+        "pe-construction-construction-planning-ronbun-keyword"
       ]
     },
     {
@@ -3993,16 +4297,6 @@
       ]
     },
     {
-      "name": "流域治水",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-bosai-kokudo-kyoujinka",
-        "pe-construction-bousai-genseigai-ronbun-keyword",
-        "pe-construction-river-coast-ronbun-keyword"
-      ]
-    },
-    {
       "name": "生産性向上",
       "count": 3,
       "inAllowlist": false,
@@ -4010,15 +4304,6 @@
         "pe-construction-kensetsu-dx",
         "pe-construction-ninaite-dx-ronbun-keyword",
         "pe-construction-ninaite-kakuho-seisansei"
-      ]
-    },
-    {
-      "name": "DX",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-r04-essay-general-contractor",
-        "pe-comprehensive-management-r04-essay-river-consultant"
       ]
     },
     {
@@ -4049,6 +4334,15 @@
       ]
     },
     {
+      "name": "PPP/PFI",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-pfi",
+        "pe-construction-shakai-shihon-ronbun-keyword"
+      ]
+    },
+    {
       "name": "river-structure",
       "count": 2,
       "inAllowlist": true,
@@ -4067,12 +4361,30 @@
       ]
     },
     {
+      "name": "インフラ老朽化",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-aging-infrastructure",
+        "pe-construction-infra-roukyuuka-iji"
+      ]
+    },
+    {
       "name": "グリーンインフラ",
       "count": 2,
       "inAllowlist": false,
       "usedIn": [
         "pe-construction-carbon-neutral-kensetsu",
         "pe-construction-datsutanso-kankyo-ronbun-keyword"
+      ]
+    },
+    {
+      "name": "トレードオフ",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-management-tradeoffs",
+        "pe-comprehensive-management-multi-objective-optimization"
       ]
     },
     {
@@ -4112,6 +4424,15 @@
       ]
     },
     {
+      "name": "外国人材",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-foreign-trainee-program",
+        "pe-comprehensive-management-immigration-control-act"
+      ]
+    },
+    {
       "name": "学習計画",
       "count": 2,
       "inAllowlist": false,
@@ -4136,6 +4457,15 @@
       "usedIn": [
         "pe-construction-ninaite-dx-ronbun-keyword",
         "pe-construction-ninaite-kakuho-seisansei"
+      ]
+    },
+    {
+      "name": "特定技能",
+      "count": 2,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-comprehensive-management-foreign-trainee-program",
+        "pe-comprehensive-management-immigration-control-act"
       ]
     },
     {
@@ -4273,14 +4603,6 @@
       ]
     },
     {
-      "name": "GX",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-carbon-neutral-kensetsu"
-      ]
-    },
-    {
       "name": "hyogo-common-specs",
       "count": 1,
       "inAllowlist": true,
@@ -4353,14 +4675,6 @@
       ]
     },
     {
-      "name": "PPP/PFI",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-shakai-shihon-ronbun-keyword"
-      ]
-    },
-    {
       "name": "river",
       "count": 1,
       "inAllowlist": true,
@@ -4409,14 +4723,6 @@
       ]
     },
     {
-      "name": "インフラ老朽化",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-infra-roukyuuka-iji"
-      ]
-    },
-    {
       "name": "キーワード集",
       "count": 1,
       "inAllowlist": false,
@@ -4438,22 +4744,6 @@
       "inAllowlist": false,
       "usedIn": [
         "pe-construction-gakushuu-jikan-schedule"
-      ]
-    },
-    {
-      "name": "トレードオフ",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-comprehensive-management-management-tradeoffs"
-      ]
-    },
-    {
-      "name": "働き方改革",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-ninaite-kakuho-seisansei"
       ]
     },
     {
@@ -4553,14 +4843,6 @@
       ]
     },
     {
-      "name": "施工計画",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-construction-planning-ronbun-keyword"
-      ]
-    },
-    {
       "name": "業務内容の詳細",
       "count": 1,
       "inAllowlist": false,
@@ -4614,14 +4896,6 @@
       "inAllowlist": false,
       "usedIn": [
         "pe-construction-secondary-study-method"
-      ]
-    },
-    {
-      "name": "環境保全",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-construction-datsutanso-kankyo-ronbun-keyword"
       ]
     },
     {

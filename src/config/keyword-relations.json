@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "generated_at": "2026-09-03T01:51:03.912Z",
+  "generated_at": "2026-09-03T04:09:21.753Z",
   "summary": {
     "total_keywords": 660,
     "published_keywords": 660,
@@ -942,26 +942,26 @@
         ]
       },
       {
+        "slug": "method-planning",
+        "label": "工法計画",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "process-planning-construction",
+        "label": "工程計画",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
         "slug": "budget-planning",
         "label": "予算計画",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "business-continuity-plan",
-        "label": "BCP・BCM",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "concurrent-engineering",
-        "label": "コンカレントエンジニアリング",
         "score": 11,
         "signals": [
           "section",
@@ -973,7 +973,7 @@
       {
         "slug": "pert-cpm",
         "label": "PERT/CPM",
-        "score": 27,
+        "score": 28,
         "signals": [
           "section",
           "exam",
@@ -983,7 +983,7 @@
       {
         "slug": "gantt-chart",
         "label": "ガントチャート",
-        "score": 23,
+        "score": 24,
         "signals": [
           "section",
           "exam",
@@ -993,7 +993,7 @@
       {
         "slug": "master-schedule-planning",
         "label": "大日程計画・中日程計画・小日程計画",
-        "score": 21,
+        "score": 22,
         "signals": [
           "section",
           "exam",
@@ -1003,7 +1003,7 @@
       {
         "slug": "progress-management",
         "label": "進捗管理",
-        "score": 19,
+        "score": 20,
         "signals": [
           "section",
           "exam",
@@ -1013,7 +1013,7 @@
       {
         "slug": "lead-time",
         "label": "リードタイム",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -1022,6 +1022,24 @@
       }
     ],
     "method-planning": [
+      {
+        "slug": "construction-plan",
+        "label": "工事計画",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "process-planning-construction",
+        "label": "工程計画",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
       {
         "slug": "budget-planning",
         "label": "予算計画",
@@ -1043,24 +1061,6 @@
       {
         "slug": "concurrent-engineering",
         "label": "コンカレントエンジニアリング",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "construction-plan",
-        "label": "工事計画",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "cost-benefit-analysis",
-        "label": "費用便益分析（CBA）",
         "score": 11,
         "signals": [
           "section",
@@ -1715,16 +1715,7 @@
       {
         "slug": "control-limits",
         "label": "管理限界",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "customer-satisfaction",
-        "label": "顧客満足（CS）",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -1733,7 +1724,7 @@
       {
         "slug": "design-quality",
         "label": "設計品質",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -1742,7 +1733,7 @@
       {
         "slug": "inspection-methods",
         "label": "全数検査／抜取検査",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -1751,7 +1742,16 @@
       {
         "slug": "manufacturing-quality",
         "label": "製造品質",
-        "score": 11,
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "nonconformity-rate",
+        "label": "不適合品率／適合品率",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -1812,7 +1812,7 @@
       {
         "slug": "quality-control",
         "label": "品質管理",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -1822,7 +1822,7 @@
       {
         "slug": "inspection-methods",
         "label": "全数検査／抜取検査",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -1832,7 +1832,7 @@
       {
         "slug": "nonconformity-rate",
         "label": "不適合品率／適合品率",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -1842,7 +1842,7 @@
       {
         "slug": "process-capability-index",
         "label": "工程能力指数（Cp・Cpk）",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -1852,7 +1852,7 @@
       {
         "slug": "quality-improvement",
         "label": "品質改善活動",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -1864,7 +1864,7 @@
       {
         "slug": "quality-control",
         "label": "品質管理",
-        "score": 21,
+        "score": 22,
         "signals": [
           "section",
           "exam",
@@ -1874,7 +1874,7 @@
       {
         "slug": "inspection-methods",
         "label": "全数検査／抜取検査",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -1884,7 +1884,7 @@
       {
         "slug": "nonconformity-rate",
         "label": "不適合品率／適合品率",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -1894,7 +1894,7 @@
       {
         "slug": "quality-assurance",
         "label": "品質保証",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -1904,7 +1904,7 @@
       {
         "slug": "quality-characteristics",
         "label": "品質特性",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -1916,16 +1916,7 @@
       {
         "slug": "control-limits",
         "label": "管理限界",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "customer-satisfaction",
-        "label": "顧客満足（CS）",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -1934,7 +1925,7 @@
       {
         "slug": "design-quality",
         "label": "設計品質",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -1943,7 +1934,7 @@
       {
         "slug": "haccp",
         "label": "HACCP",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -1952,7 +1943,16 @@
       {
         "slug": "inspection-methods",
         "label": "全数検査／抜取検査",
-        "score": 11,
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "nonconformity-rate",
+        "label": "不適合品率／適合品率",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -1963,7 +1963,7 @@
       {
         "slug": "product-safety",
         "label": "製品安全",
-        "score": 19,
+        "score": 20,
         "signals": [
           "section",
           "exam",
@@ -2010,17 +2010,18 @@
     ],
     "product-safety": [
       {
-        "slug": "consumer-product-safety-act",
-        "label": "消費生活用製品安全法",
-        "score": 26,
+        "slug": "product-liability-act",
+        "label": "製造物責任法（PL法）",
+        "score": 27,
         "signals": [
           "section",
-          "exam"
+          "exam",
+          "tag"
         ]
       },
       {
-        "slug": "product-liability-act",
-        "label": "製造物責任法（PL法）",
+        "slug": "consumer-product-safety-act",
+        "label": "消費生活用製品安全法",
         "score": 26,
         "signals": [
           "section",
@@ -2039,7 +2040,7 @@
       {
         "slug": "product-liability",
         "label": "製造物責任（PL）",
-        "score": 19,
+        "score": 20,
         "signals": [
           "section",
           "exam",
@@ -2081,16 +2082,7 @@
       {
         "slug": "control-limits",
         "label": "管理限界",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "customer-satisfaction",
-        "label": "顧客満足（CS）",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -2099,7 +2091,16 @@
       {
         "slug": "haccp",
         "label": "HACCP",
-        "score": 11,
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "inspection-methods",
+        "label": "全数検査／抜取検査",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -2110,7 +2111,7 @@
       {
         "slug": "process-capability-index",
         "label": "工程能力指数（Cp・Cpk）",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -2120,7 +2121,7 @@
       {
         "slug": "quality-control",
         "label": "品質管理",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -2130,7 +2131,7 @@
       {
         "slug": "nonconformity-rate",
         "label": "不適合品率／適合品率",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -2140,7 +2141,7 @@
       {
         "slug": "control-limits",
         "label": "管理限界",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -2150,7 +2151,7 @@
       {
         "slug": "quality-assurance",
         "label": "品質保証",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -2162,7 +2163,7 @@
       {
         "slug": "quality-control",
         "label": "品質管理",
-        "score": 29,
+        "score": 30,
         "signals": [
           "section",
           "exam",
@@ -2172,7 +2173,7 @@
       {
         "slug": "quality-assurance",
         "label": "品質保証",
-        "score": 19,
+        "score": 20,
         "signals": [
           "section",
           "exam",
@@ -2182,7 +2183,7 @@
       {
         "slug": "process-capability-index",
         "label": "工程能力指数（Cp・Cpk）",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -2192,7 +2193,7 @@
       {
         "slug": "quality-planning",
         "label": "品質計画",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -2202,7 +2203,7 @@
       {
         "slug": "control-limits",
         "label": "管理限界",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -2214,7 +2215,7 @@
       {
         "slug": "quality-improvement",
         "label": "品質改善活動",
-        "score": 29,
+        "score": 30,
         "signals": [
           "section",
           "exam",
@@ -2224,7 +2225,7 @@
       {
         "slug": "quality-assurance",
         "label": "品質保証",
-        "score": 27,
+        "score": 28,
         "signals": [
           "section",
           "exam",
@@ -2234,7 +2235,7 @@
       {
         "slug": "process-capability-index",
         "label": "工程能力指数（Cp・Cpk）",
-        "score": 21,
+        "score": 22,
         "signals": [
           "section",
           "exam",
@@ -2244,7 +2245,7 @@
       {
         "slug": "inspection-methods",
         "label": "全数検査／抜取検査",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -2254,7 +2255,7 @@
       {
         "slug": "nonconformity-rate",
         "label": "不適合品率／適合品率",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -2266,7 +2267,7 @@
       {
         "slug": "quality-assurance",
         "label": "品質保証",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -2276,7 +2277,7 @@
       {
         "slug": "quality-control",
         "label": "品質管理",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -2286,7 +2287,7 @@
       {
         "slug": "quality-improvement",
         "label": "品質改善活動",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -2296,7 +2297,7 @@
       {
         "slug": "quality-policy",
         "label": "品質方針",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -2306,7 +2307,7 @@
       {
         "slug": "quality-objectives",
         "label": "品質目標",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -2318,7 +2319,7 @@
       {
         "slug": "process-capability-index",
         "label": "工程能力指数（Cp・Cpk）",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -2328,17 +2329,7 @@
       {
         "slug": "quality-control",
         "label": "品質管理",
-        "score": 15,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "customer-satisfaction",
-        "label": "顧客満足（CS）",
-        "score": 13,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -2348,7 +2339,7 @@
       {
         "slug": "inspection-methods",
         "label": "全数検査／抜取検査",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -2358,7 +2349,17 @@
       {
         "slug": "nonconformity-rate",
         "label": "不適合品率／適合品率",
-        "score": 13,
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "quality-improvement",
+        "label": "品質改善活動",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -2370,7 +2371,7 @@
       {
         "slug": "quality-control",
         "label": "品質管理",
-        "score": 27,
+        "score": 28,
         "signals": [
           "section",
           "exam",
@@ -2380,7 +2381,7 @@
       {
         "slug": "quality-improvement",
         "label": "品質改善活動",
-        "score": 19,
+        "score": 20,
         "signals": [
           "section",
           "exam",
@@ -2390,7 +2391,7 @@
       {
         "slug": "quality-policy",
         "label": "品質方針",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -2400,7 +2401,7 @@
       {
         "slug": "process-capability-index",
         "label": "工程能力指数（Cp・Cpk）",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -2410,7 +2411,7 @@
       {
         "slug": "quality-planning",
         "label": "品質計画",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -2422,7 +2423,7 @@
       {
         "slug": "quality-assurance",
         "label": "品質保証",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -2432,7 +2433,7 @@
       {
         "slug": "quality-control",
         "label": "品質管理",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -2442,7 +2443,7 @@
       {
         "slug": "quality-planning",
         "label": "品質計画",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -2452,7 +2453,7 @@
       {
         "slug": "quality-improvement",
         "label": "品質改善活動",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -2462,7 +2463,7 @@
       {
         "slug": "quality-objectives",
         "label": "品質目標",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -2474,7 +2475,7 @@
       {
         "slug": "quality-assurance",
         "label": "品質保証",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -2484,7 +2485,7 @@
       {
         "slug": "quality-planning",
         "label": "品質計画",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -2494,7 +2495,7 @@
       {
         "slug": "quality-policy",
         "label": "品質方針",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -2504,16 +2505,16 @@
       {
         "slug": "control-limits",
         "label": "管理限界",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "customer-satisfaction",
-        "label": "顧客満足（CS）",
-        "score": 11,
+        "slug": "design-quality",
+        "label": "設計品質",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -2524,7 +2525,7 @@
       {
         "slug": "quality-control",
         "label": "品質管理",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -2534,7 +2535,7 @@
       {
         "slug": "inspection-methods",
         "label": "全数検査／抜取検査",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -2544,7 +2545,7 @@
       {
         "slug": "process-capability-index",
         "label": "工程能力指数（Cp・Cpk）",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -2554,7 +2555,7 @@
       {
         "slug": "control-limits",
         "label": "管理限界",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -2564,7 +2565,7 @@
       {
         "slug": "quality-characteristics",
         "label": "品質特性",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -2576,16 +2577,7 @@
       {
         "slug": "control-limits",
         "label": "管理限界",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "customer-satisfaction",
-        "label": "顧客満足（CS）",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -2594,7 +2586,7 @@
       {
         "slug": "design-quality",
         "label": "設計品質",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -2603,7 +2595,7 @@
       {
         "slug": "haccp",
         "label": "HACCP",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -2612,7 +2604,16 @@
       {
         "slug": "inspection-methods",
         "label": "全数検査／抜取検査",
-        "score": 11,
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "manufacturing-quality",
+        "label": "製造品質",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -2774,7 +2775,7 @@
       {
         "slug": "gantt-chart",
         "label": "ガントチャート",
-        "score": 31,
+        "score": 32,
         "signals": [
           "section",
           "exam",
@@ -2784,7 +2785,7 @@
       {
         "slug": "process-planning-construction",
         "label": "工程計画",
-        "score": 27,
+        "score": 28,
         "signals": [
           "section",
           "exam",
@@ -2794,7 +2795,7 @@
       {
         "slug": "master-schedule-planning",
         "label": "大日程計画・中日程計画・小日程計画",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -2804,7 +2805,7 @@
       {
         "slug": "progress-management",
         "label": "進捗管理",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -2873,7 +2874,7 @@
       {
         "slug": "pert-cpm",
         "label": "PERT/CPM",
-        "score": 31,
+        "score": 32,
         "signals": [
           "section",
           "exam",
@@ -2883,7 +2884,7 @@
       {
         "slug": "process-planning-construction",
         "label": "工程計画",
-        "score": 23,
+        "score": 24,
         "signals": [
           "section",
           "exam",
@@ -2893,7 +2894,7 @@
       {
         "slug": "progress-management",
         "label": "進捗管理",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -2903,7 +2904,7 @@
       {
         "slug": "master-schedule-planning",
         "label": "大日程計画・中日程計画・小日程計画",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -3124,19 +3125,9 @@
     ],
     "lead-time": [
       {
-        "slug": "jit-production",
-        "label": "JIT生産方式",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
         "slug": "load-leveling",
         "label": "負荷平準化（山積み・山くずし）",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -3146,7 +3137,7 @@
       {
         "slug": "master-schedule-planning",
         "label": "大日程計画・中日程計画・小日程計画",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -3156,7 +3147,7 @@
       {
         "slug": "process-planning-construction",
         "label": "工程計画",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -3166,6 +3157,16 @@
       {
         "slug": "progress-management",
         "label": "進捗管理",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "jit-production",
+        "label": "JIT生産方式",
         "score": 13,
         "signals": [
           "section",
@@ -3437,7 +3438,7 @@
       {
         "slug": "process-planning-construction",
         "label": "工程計画",
-        "score": 19,
+        "score": 20,
         "signals": [
           "section",
           "exam",
@@ -3447,7 +3448,7 @@
       {
         "slug": "gantt-chart",
         "label": "ガントチャート",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -3457,7 +3458,7 @@
       {
         "slug": "pert-cpm",
         "label": "PERT/CPM",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -3467,7 +3468,7 @@
       {
         "slug": "capacity-management",
         "label": "余力管理",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -3475,9 +3476,9 @@
         ]
       },
       {
-        "slug": "inventory-control",
-        "label": "現品管理",
-        "score": 15,
+        "slug": "master-schedule-planning",
+        "label": "大日程計画・中日程計画・小日程計画",
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -3541,7 +3542,7 @@
       {
         "slug": "process-planning-construction",
         "label": "工程計画",
-        "score": 21,
+        "score": 22,
         "signals": [
           "section",
           "exam",
@@ -3551,7 +3552,7 @@
       {
         "slug": "pert-cpm",
         "label": "PERT/CPM",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -3561,7 +3562,7 @@
       {
         "slug": "load-leveling",
         "label": "負荷平準化（山積み・山くずし）",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -3571,7 +3572,7 @@
       {
         "slug": "progress-management",
         "label": "進捗管理",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -3581,7 +3582,7 @@
       {
         "slug": "capacity-management",
         "label": "余力管理",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -3593,7 +3594,7 @@
       {
         "slug": "load-leveling",
         "label": "負荷平準化（山積み・山くずし）",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -3613,7 +3614,17 @@
       {
         "slug": "capacity-management",
         "label": "余力管理",
-        "score": 13,
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "pert-cpm",
+        "label": "PERT/CPM",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -3629,23 +3640,13 @@
           "exam",
           "tag"
         ]
-      },
-      {
-        "slug": "pert-cpm",
-        "label": "PERT/CPM",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
       }
     ],
     "load-leveling": [
       {
         "slug": "capacity-management",
         "label": "余力管理",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -3655,7 +3656,7 @@
       {
         "slug": "load-capacity",
         "label": "負荷工数・生産能力",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -3665,17 +3666,7 @@
       {
         "slug": "master-schedule-planning",
         "label": "大日程計画・中日程計画・小日程計画",
-        "score": 15,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "inventory-control",
-        "label": "現品管理",
-        "score": 13,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -3685,7 +3676,17 @@
       {
         "slug": "lead-time",
         "label": "リードタイム",
-        "score": 13,
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "pert-cpm",
+        "label": "PERT/CPM",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -3694,6 +3695,26 @@
       }
     ],
     "capacity-management": [
+      {
+        "slug": "load-leveling",
+        "label": "負荷平準化（山積み・山くずし）",
+        "score": 16,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "progress-management",
+        "label": "進捗管理",
+        "score": 16,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
       {
         "slug": "inventory-control",
         "label": "現品管理",
@@ -3705,29 +3726,9 @@
         ]
       },
       {
-        "slug": "load-leveling",
-        "label": "負荷平準化（山積み・山くずし）",
-        "score": 15,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "progress-management",
-        "label": "進捗管理",
-        "score": 15,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
         "slug": "load-capacity",
         "label": "負荷工数・生産能力",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -3737,7 +3738,7 @@
       {
         "slug": "master-schedule-planning",
         "label": "大日程計画・中日程計画・小日程計画",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -6302,7 +6303,7 @@
       {
         "slug": "quality-control",
         "label": "品質管理",
-        "score": 12,
+        "score": 13,
         "signals": [
           "chapter",
           "exam",
@@ -6312,7 +6313,7 @@
       {
         "slug": "quality-improvement",
         "label": "品質改善活動",
-        "score": 12,
+        "score": 13,
         "signals": [
           "chapter",
           "exam",
@@ -7868,6 +7869,16 @@
         ]
       },
       {
+        "slug": "return-to-work-support",
+        "label": "職場復帰支援",
+        "score": 18,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "health-management",
         "label": "健康経営",
         "score": 17,
@@ -7878,19 +7889,9 @@
         ]
       },
       {
-        "slug": "return-to-work-support",
-        "label": "職場復帰支援",
-        "score": 17,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "labor-contract-act",
-        "label": "労働契約法",
-        "score": 13,
+        "slug": "part-time-fixed-term-act",
+        "label": "パートタイム・有期雇用労働法",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -8028,9 +8029,9 @@
         ]
       },
       {
-        "slug": "employment-statistics",
-        "label": "就労状況・労働統計",
-        "score": 13,
+        "slug": "stress-check-system",
+        "label": "ストレスチェック制度",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -8038,8 +8039,8 @@
         ]
       },
       {
-        "slug": "labor-mobility",
-        "label": "人材流動化",
+        "slug": "employment-statistics",
+        "label": "就労状況・労働統計",
         "score": 13,
         "signals": [
           "section",
@@ -8070,6 +8071,16 @@
         ]
       },
       {
+        "slug": "stress-check-system",
+        "label": "ストレスチェック制度",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "gender-equality-act",
         "label": "男女共同参画社会基本法",
         "score": 13,
@@ -8082,16 +8093,6 @@
       {
         "slug": "labor-policy-act",
         "label": "労働施策総合推進法",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "stress-check-system",
-        "label": "ストレスチェック制度",
         "score": 13,
         "signals": [
           "section",
@@ -8124,7 +8125,7 @@
       {
         "slug": "discretionary-work-system",
         "label": "裁量労働制",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -8134,7 +8135,7 @@
       {
         "slug": "highly-professional-system",
         "label": "高度プロフェッショナル制度",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -8280,7 +8281,7 @@
       {
         "slug": "gender-equality-act",
         "label": "男女共同参画社会基本法",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -8567,7 +8568,7 @@
       {
         "slug": "discretionary-work-system",
         "label": "裁量労働制",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -8587,7 +8588,7 @@
       {
         "slug": "flextime-system",
         "label": "フレックスタイム制",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -8671,7 +8672,7 @@
       {
         "slug": "continued-employment-system",
         "label": "継続雇用制度",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -8682,6 +8683,16 @@
         "slug": "elderly-employment-act",
         "label": "高年齢者雇用安定法",
         "score": 15,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "mandatory-management-retirement",
+        "label": "役職定年制",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -8707,16 +8718,6 @@
           "exam",
           "tag"
         ]
-      },
-      {
-        "slug": "indefinite-conversion-rule",
-        "label": "無期転換ルール",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
       }
     ],
     "minimum-wage-act": [
@@ -8733,7 +8734,7 @@
       {
         "slug": "disability-employment-act",
         "label": "障害者雇用促進法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -8795,7 +8796,7 @@
       {
         "slug": "flextime-system",
         "label": "フレックスタイム制",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -8805,7 +8806,7 @@
       {
         "slug": "highly-professional-system",
         "label": "高度プロフェッショナル制度",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -8825,18 +8826,9 @@
     ],
     "child-support-act": [
       {
-        "slug": "annual-salary-system",
-        "label": "年俸制",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "child-rearing-support-act",
         "label": "次世代育成支援対策推進法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -8845,7 +8837,7 @@
       {
         "slug": "childcare-nursing-leave-act",
         "label": "育児・介護休業法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -8854,7 +8846,7 @@
       {
         "slug": "disability-discrimination-act",
         "label": "障害者差別解消法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -8863,7 +8855,16 @@
       {
         "slug": "disability-employment-act",
         "label": "障害者雇用促進法",
-        "score": 11,
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "discretionary-work-system",
+        "label": "裁量労働制",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -8874,7 +8875,7 @@
       {
         "slug": "childcare-nursing-leave-act",
         "label": "育児・介護休業法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -8902,18 +8903,18 @@
         ]
       },
       {
-        "slug": "annual-salary-system",
-        "label": "年俸制",
-        "score": 11,
+        "slug": "child-support-act",
+        "label": "子ども・子育て支援法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "child-support-act",
-        "label": "子ども・子育て支援法",
-        "score": 11,
+        "slug": "disability-discrimination-act",
+        "label": "障害者差別解消法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -9124,7 +9125,17 @@
       {
         "slug": "disability-discrimination-act",
         "label": "障害者差別解消法",
-        "score": 13,
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "minimum-wage-act",
+        "label": "最低賃金法",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -9152,16 +9163,6 @@
         ]
       },
       {
-        "slug": "minimum-wage-act",
-        "label": "最低賃金法",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
         "slug": "reemployment-system",
         "label": "再雇用制度",
         "score": 13,
@@ -9176,7 +9177,7 @@
       {
         "slug": "disability-employment-act",
         "label": "障害者雇用促進法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -9184,18 +9185,9 @@
         ]
       },
       {
-        "slug": "annual-salary-system",
-        "label": "年俸制",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "child-rearing-support-act",
         "label": "次世代育成支援対策推進法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -9204,7 +9196,7 @@
       {
         "slug": "child-support-act",
         "label": "子ども・子育て支援法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -9213,7 +9205,16 @@
       {
         "slug": "childcare-nursing-leave-act",
         "label": "育児・介護休業法",
-        "score": 11,
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "discretionary-work-system",
+        "label": "裁量労働制",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -9334,7 +9335,7 @@
       {
         "slug": "stress-check-system",
         "label": "ストレスチェック制度",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -9352,18 +9353,18 @@
         ]
       },
       {
-        "slug": "annual-salary-system",
-        "label": "年俸制",
-        "score": 11,
+        "slug": "childcare-nursing-leave-act",
+        "label": "育児・介護休業法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "child-rearing-support-act",
-        "label": "次世代育成支援対策推進法",
-        "score": 11,
+        "slug": "discretionary-work-system",
+        "label": "裁量労働制",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -9671,7 +9672,7 @@
       {
         "slug": "childcare-nursing-leave-act",
         "label": "育児・介護休業法",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -9981,36 +9982,36 @@
         ]
       },
       {
-        "slug": "annual-salary-system",
-        "label": "年俸制",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "child-rearing-support-act",
-        "label": "次世代育成支援対策推進法",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "child-support-act",
-        "label": "子ども・子育て支援法",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "childcare-nursing-leave-act",
         "label": "育児・介護休業法",
-        "score": 11,
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "discretionary-work-system",
+        "label": "裁量労働制",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "flextime-system",
+        "label": "フレックスタイム制",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "highly-professional-system",
+        "label": "高度プロフェッショナル制度",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -10160,9 +10161,9 @@
         ]
       },
       {
-        "slug": "annual-salary-system",
-        "label": "年俸制",
-        "score": 11,
+        "slug": "child-rearing-support-act",
+        "label": "次世代育成支援対策推進法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -11261,16 +11262,16 @@
       {
         "slug": "continued-employment-system",
         "label": "継続雇用制度",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "disability-employment",
-        "label": "障害者雇用",
-        "score": 11,
+        "slug": "mandatory-management-retirement",
+        "label": "役職定年制",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -11281,7 +11282,7 @@
       {
         "slug": "reemployment-system",
         "label": "再雇用制度",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -11291,7 +11292,7 @@
       {
         "slug": "mandatory-management-retirement",
         "label": "役職定年制",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -11299,26 +11300,26 @@
         ]
       },
       {
+        "slug": "location-limited-employee",
+        "label": "勤務地限定社員制度",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "positive-action",
+        "label": "ポジティブアクション",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
         "slug": "career-track-system",
         "label": "総合職・一般職",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "disability-employment",
-        "label": "障害者雇用",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "formal-informal-organization",
-        "label": "公式組織・非公式組織",
         "score": 11,
         "signals": [
           "section",
@@ -12076,7 +12077,7 @@
       {
         "slug": "continued-employment-system",
         "label": "継続雇用制度",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -12086,7 +12087,7 @@
       {
         "slug": "reemployment-system",
         "label": "再雇用制度",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -12094,26 +12095,26 @@
         ]
       },
       {
+        "slug": "location-limited-employee",
+        "label": "勤務地限定社員制度",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "positive-action",
+        "label": "ポジティブアクション",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
         "slug": "career-track-system",
         "label": "総合職・一般職",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "disability-employment",
-        "label": "障害者雇用",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "formal-informal-organization",
-        "label": "公式組織・非公式組織",
         "score": 11,
         "signals": [
           "section",
@@ -14140,7 +14141,7 @@
       {
         "slug": "data-mining",
         "label": "データマイニング",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -14150,7 +14151,7 @@
       {
         "slug": "generative-ai",
         "label": "生成AI",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -14160,7 +14161,7 @@
       {
         "slug": "machine-learning",
         "label": "機械学習",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -14168,18 +14169,18 @@
         ]
       },
       {
-        "slug": "cluster-analysis",
-        "label": "クラスター分析",
-        "score": 11,
+        "slug": "data-visualization",
+        "label": "データ可視化",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "collective-intelligence",
-        "label": "集合知",
-        "score": 11,
+        "slug": "public-private-data-act",
+        "label": "官民データ活用推進基本法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -14187,6 +14188,16 @@
       }
     ],
     "data-mining": [
+      {
+        "slug": "machine-learning",
+        "label": "機械学習",
+        "score": 16,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
       {
         "slug": "explicit-knowledge",
         "label": "形式知",
@@ -14208,16 +14219,6 @@
         ]
       },
       {
-        "slug": "machine-learning",
-        "label": "機械学習",
-        "score": 15,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
         "slug": "tacit-knowledge",
         "label": "暗黙知",
         "score": 15,
@@ -14228,9 +14229,9 @@
         ]
       },
       {
-        "slug": "cluster-analysis",
-        "label": "クラスター分析",
-        "score": 13,
+        "slug": "data-cleansing",
+        "label": "データクレンジング",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -14239,6 +14240,26 @@
       }
     ],
     "data-visualization": [
+      {
+        "slug": "data-mining",
+        "label": "データマイニング",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "machine-learning",
+        "label": "機械学習",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
       {
         "slug": "cluster-analysis",
         "label": "クラスター分析",
@@ -14260,28 +14281,8 @@
         ]
       },
       {
-        "slug": "data-mining",
-        "label": "データマイニング",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
         "slug": "descriptive-statistics",
         "label": "記述統計",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "linear-regression",
-        "label": "線形回帰と最小二乗法",
         "score": 13,
         "signals": [
           "section",
@@ -14539,45 +14540,45 @@
     ],
     "public-private-data-act": [
       {
-        "slug": "cluster-analysis",
-        "label": "クラスター分析",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "collective-intelligence",
-        "label": "集合知",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "correlation-analysis",
-        "label": "相関分析",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "data-cleansing",
         "label": "データクレンジング",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "data-collection",
-        "label": "データ収集",
-        "score": 11,
+        "slug": "data-mining",
+        "label": "データマイニング",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "data-visualization",
+        "label": "データ可視化",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "generative-ai",
+        "label": "生成AI",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "machine-learning",
+        "label": "機械学習",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -14588,7 +14589,7 @@
       {
         "slug": "generative-ai",
         "label": "生成AI",
-        "score": 23,
+        "score": 24,
         "signals": [
           "section",
           "exam",
@@ -14598,7 +14599,7 @@
       {
         "slug": "data-mining",
         "label": "データマイニング",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -14616,9 +14617,9 @@
         ]
       },
       {
-        "slug": "cluster-analysis",
-        "label": "クラスター分析",
-        "score": 13,
+        "slug": "data-cleansing",
+        "label": "データクレンジング",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -14626,9 +14627,9 @@
         ]
       },
       {
-        "slug": "data-cleansing",
-        "label": "データクレンジング",
-        "score": 13,
+        "slug": "data-visualization",
+        "label": "データ可視化",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -14839,45 +14840,45 @@
     ],
     "recommendation-systems": [
       {
-        "slug": "cluster-analysis",
-        "label": "クラスター分析",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "collective-intelligence",
-        "label": "集合知",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "correlation-analysis",
-        "label": "相関分析",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "data-cleansing",
         "label": "データクレンジング",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "data-collection",
-        "label": "データ収集",
-        "score": 11,
+        "slug": "data-mining",
+        "label": "データマイニング",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "data-visualization",
+        "label": "データ可視化",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "generative-ai",
+        "label": "生成AI",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "machine-learning",
+        "label": "機械学習",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -14940,7 +14941,7 @@
       {
         "slug": "machine-learning",
         "label": "機械学習",
-        "score": 23,
+        "score": 24,
         "signals": [
           "section",
           "exam",
@@ -14950,7 +14951,7 @@
       {
         "slug": "data-cleansing",
         "label": "データクレンジング",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -14960,7 +14961,7 @@
       {
         "slug": "data-mining",
         "label": "データマイニング",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -14968,18 +14969,18 @@
         ]
       },
       {
-        "slug": "cluster-analysis",
-        "label": "クラスター分析",
-        "score": 11,
+        "slug": "data-visualization",
+        "label": "データ可視化",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "collective-intelligence",
-        "label": "集合知",
-        "score": 11,
+        "slug": "public-private-data-act",
+        "label": "官民データ活用推進基本法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -15589,10 +15590,28 @@
       {
         "slug": "information-disclosure-act",
         "label": "情報公開法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "disclosure-request",
+        "label": "開示請求",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "right-to-know",
+        "label": "知る権利",
+        "score": 12,
+        "signals": [
+          "section",
           "tag"
         ]
       },
@@ -15604,27 +15623,29 @@
           "section",
           "tag"
         ]
-      },
-      {
-        "slug": "communication-control",
-        "label": "コミュニケーション・コントロール",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "communication-planning",
-        "label": "コミュニケーション計画",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
       }
     ],
     "disclosure-request": [
+      {
+        "slug": "information-disclosure-act",
+        "label": "情報公開法",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "right-to-know",
+        "label": "知る権利",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
       {
         "slug": "information-disclosure",
         "label": "情報開示",
@@ -15636,37 +15657,17 @@
         ]
       },
       {
-        "slug": "information-disclosure-act",
-        "label": "情報公開法",
-        "score": 13,
+        "slug": "disclosure-standards",
+        "label": "開示基準",
+        "score": 12,
         "signals": [
           "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "right-to-know",
-        "label": "知る権利",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
           "tag"
         ]
       },
       {
         "slug": "citizen-participation",
         "label": "住民参加",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "communication-control",
-        "label": "コミュニケーション・コントロール",
         "score": 11,
         "signals": [
           "section",
@@ -15980,7 +15981,7 @@
       {
         "slug": "disclosure-request",
         "label": "開示請求",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -15990,7 +15991,7 @@
       {
         "slug": "disclosure-standards",
         "label": "開示基準",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -16000,7 +16001,7 @@
       {
         "slug": "right-to-know",
         "label": "知る権利",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -16021,7 +16022,17 @@
       {
         "slug": "disclosure-request",
         "label": "開示請求",
-        "score": 13,
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "information-disclosure-act",
+        "label": "情報公開法",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -16039,27 +16050,17 @@
         ]
       },
       {
-        "slug": "information-disclosure-act",
-        "label": "情報公開法",
-        "score": 13,
+        "slug": "disclosure-standards",
+        "label": "開示基準",
+        "score": 12,
         "signals": [
           "section",
-          "exam",
           "tag"
         ]
       },
       {
         "slug": "citizen-participation",
         "label": "住民参加",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "communication-control",
-        "label": "コミュニケーション・コントロール",
         "score": 11,
         "signals": [
           "section",
@@ -16334,18 +16335,9 @@
         ]
       },
       {
-        "slug": "anonymized-information",
-        "label": "匿名加工情報",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "antitrust-compliance",
         "label": "独占禁止法とコンプライアンス",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -16354,7 +16346,16 @@
       {
         "slug": "bid-rigging",
         "label": "談合（入札談合）",
-        "score": 11,
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "copyright",
+        "label": "著作権（著作権法）",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -16467,18 +16468,9 @@
     ],
     "subcontracting-act": [
       {
-        "slug": "anonymized-information",
-        "label": "匿名加工情報",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "antitrust-compliance",
         "label": "独占禁止法とコンプライアンス",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -16487,7 +16479,7 @@
       {
         "slug": "bid-rigging",
         "label": "談合（入札談合）",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -16496,7 +16488,7 @@
       {
         "slug": "copyright",
         "label": "著作権（著作権法）",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -16505,7 +16497,16 @@
       {
         "slug": "data-breach-response",
         "label": "個人情報の漏洩時対応",
-        "score": 11,
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "industrial-property-rights",
+        "label": "産業財産権",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -16711,7 +16712,7 @@
       {
         "slug": "antitrust-compliance",
         "label": "独占禁止法とコンプライアンス",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -16784,7 +16785,7 @@
       {
         "slug": "copyright",
         "label": "著作権（著作権法）",
-        "score": 21,
+        "score": 22,
         "signals": [
           "section",
           "exam",
@@ -16826,7 +16827,7 @@
       {
         "slug": "antitrust-compliance",
         "label": "独占禁止法とコンプライアンス",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -16864,9 +16865,9 @@
         ]
       },
       {
-        "slug": "anonymized-information",
-        "label": "匿名加工情報",
-        "score": 11,
+        "slug": "bid-rigging",
+        "label": "談合（入札談合）",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -17030,7 +17031,7 @@
       {
         "slug": "copyright",
         "label": "著作権（著作権法）",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -17040,7 +17041,7 @@
       {
         "slug": "industrial-property-rights",
         "label": "産業財産権",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -17058,18 +17059,18 @@
         ]
       },
       {
-        "slug": "anonymized-information",
-        "label": "匿名加工情報",
-        "score": 11,
+        "slug": "antitrust-compliance",
+        "label": "独占禁止法とコンプライアンス",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "antitrust-compliance",
-        "label": "独占禁止法とコンプライアンス",
-        "score": 11,
+        "slug": "bid-rigging",
+        "label": "談合（入札談合）",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -17080,7 +17081,7 @@
       {
         "slug": "antitrust-compliance",
         "label": "独占禁止法とコンプライアンス",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -17098,18 +17099,9 @@
         ]
       },
       {
-        "slug": "anonymized-information",
-        "label": "匿名加工情報",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "copyright",
         "label": "著作権（著作権法）",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -17118,7 +17110,16 @@
       {
         "slug": "data-breach-response",
         "label": "個人情報の漏洩時対応",
-        "score": 11,
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "industrial-property-rights",
+        "label": "産業財産権",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -17290,7 +17291,7 @@
       {
         "slug": "industrial-property-rights",
         "label": "産業財産権",
-        "score": 21,
+        "score": 22,
         "signals": [
           "section",
           "exam",
@@ -17433,18 +17434,9 @@
     ],
     "state-secrets-act": [
       {
-        "slug": "anonymized-information",
-        "label": "匿名加工情報",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "antitrust-compliance",
         "label": "独占禁止法とコンプライアンス",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -17453,7 +17445,7 @@
       {
         "slug": "bid-rigging",
         "label": "談合（入札談合）",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -17462,7 +17454,7 @@
       {
         "slug": "copyright",
         "label": "著作権（著作権法）",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -17471,7 +17463,16 @@
       {
         "slug": "data-breach-response",
         "label": "個人情報の漏洩時対応",
-        "score": 11,
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "industrial-property-rights",
+        "label": "産業財産権",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -17482,17 +17483,7 @@
       {
         "slug": "bid-rigging",
         "label": "談合（入札談合）",
-        "score": 15,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "patent-rights",
-        "label": "特許権（特許法）",
-        "score": 13,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -17502,6 +17493,16 @@
       {
         "slug": "private-monopoly",
         "label": "私的独占",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "patent-rights",
+        "label": "特許権（特許法）",
         "score": 13,
         "signals": [
           "section",
@@ -17753,27 +17754,27 @@
         ]
       },
       {
-        "slug": "accounting-systems",
-        "label": "財務会計・管理会計システム",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "agile",
         "label": "アジャイル",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "blockchain-crypto",
-        "label": "ブロックチェーン・暗号資産",
-        "score": 11,
+        "slug": "cloud-on-premises",
+        "label": "クラウドコンピューティング／オンプレミス",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "crm-system",
+        "label": "顧客管理（CRM）システム",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -17834,7 +17835,7 @@
       {
         "slug": "digital-twin-cps",
         "label": "デジタルツイン・サイバーフィジカルシステム（CPS）",
-        "score": 25,
+        "score": 26,
         "signals": [
           "section",
           "exam",
@@ -17844,17 +17845,7 @@
       {
         "slug": "cloud-on-premises",
         "label": "クラウドコンピューティング／オンプレミス",
-        "score": 21,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "blockchain-crypto",
-        "label": "ブロックチェーン・暗号資産",
-        "score": 19,
+        "score": 22,
         "signals": [
           "section",
           "exam",
@@ -17864,6 +17855,16 @@
       {
         "slug": "edge-computing",
         "label": "エッジコンピューティング",
+        "score": 20,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "blockchain-crypto",
+        "label": "ブロックチェーン・暗号資産",
         "score": 19,
         "signals": [
           "section",
@@ -17886,17 +17887,7 @@
       {
         "slug": "iot",
         "label": "IoT（Internet of Things）",
-        "score": 15,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "blockchain-crypto",
-        "label": "ブロックチェーン・暗号資産",
-        "score": 13,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -17906,6 +17897,16 @@
       {
         "slug": "digital-twin-cps",
         "label": "デジタルツイン・サイバーフィジカルシステム（CPS）",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "blockchain-crypto",
+        "label": "ブロックチェーン・暗号資産",
         "score": 13,
         "signals": [
           "section",
@@ -17924,9 +17925,9 @@
         ]
       },
       {
-        "slug": "accounting-systems",
-        "label": "財務会計・管理会計システム",
-        "score": 11,
+        "slug": "agile",
+        "label": "アジャイル",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -18048,36 +18049,36 @@
         ]
       },
       {
-        "slug": "accounting-systems",
-        "label": "財務会計・管理会計システム",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "api",
         "label": "API",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "blockchain-crypto",
-        "label": "ブロックチェーン・暗号資産",
-        "score": 11,
+        "slug": "cloud-on-premises",
+        "label": "クラウドコンピューティング／オンプレミス",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "business-intelligence",
-        "label": "ビジネスインテリジェンス（BI）",
-        "score": 11,
+        "slug": "crm-system",
+        "label": "顧客管理（CRM）システム",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "digital-twin-cps",
+        "label": "デジタルツイン・サイバーフィジカルシステム（CPS）",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -18188,7 +18189,7 @@
       {
         "slug": "cloud-on-premises",
         "label": "クラウドコンピューティング／オンプレミス",
-        "score": 19,
+        "score": 20,
         "signals": [
           "section",
           "exam",
@@ -18198,7 +18199,7 @@
       {
         "slug": "iot",
         "label": "IoT（Internet of Things）",
-        "score": 19,
+        "score": 20,
         "signals": [
           "section",
           "exam",
@@ -18208,7 +18209,7 @@
       {
         "slug": "digital-twin-cps",
         "label": "デジタルツイン・サイバーフィジカルシステム（CPS）",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -18228,7 +18229,7 @@
       {
         "slug": "mobile-communication",
         "label": "移動通信",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -18240,7 +18241,7 @@
       {
         "slug": "iot",
         "label": "IoT（Internet of Things）",
-        "score": 21,
+        "score": 22,
         "signals": [
           "section",
           "exam",
@@ -18250,7 +18251,7 @@
       {
         "slug": "edge-computing",
         "label": "エッジコンピューティング",
-        "score": 19,
+        "score": 20,
         "signals": [
           "section",
           "exam",
@@ -18270,7 +18271,7 @@
       {
         "slug": "digital-twin-cps",
         "label": "デジタルツイン・サイバーフィジカルシステム（CPS）",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -18344,7 +18345,7 @@
       {
         "slug": "iot",
         "label": "IoT（Internet of Things）",
-        "score": 25,
+        "score": 26,
         "signals": [
           "section",
           "exam",
@@ -18364,7 +18365,7 @@
       {
         "slug": "cloud-on-premises",
         "label": "クラウドコンピューティング／オンプレミス",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -18374,7 +18375,7 @@
       {
         "slug": "edge-computing",
         "label": "エッジコンピューティング",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -18542,7 +18543,7 @@
       {
         "slug": "iot",
         "label": "IoT（Internet of Things）",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -18572,7 +18573,7 @@
       {
         "slug": "cloud-on-premises",
         "label": "クラウドコンピューティング／オンプレミス",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -18582,7 +18583,7 @@
       {
         "slug": "edge-computing",
         "label": "エッジコンピューティング",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -18592,18 +18593,9 @@
     ],
     "sfa-system": [
       {
-        "slug": "accounting-systems",
-        "label": "財務会計・管理会計システム",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "agile",
         "label": "アジャイル",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -18612,25 +18604,34 @@
       {
         "slug": "api",
         "label": "API",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "blockchain-crypto",
-        "label": "ブロックチェーン・暗号資産",
-        "score": 11,
+        "slug": "cloud-on-premises",
+        "label": "クラウドコンピューティング／オンプレミス",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "business-intelligence",
-        "label": "ビジネスインテリジェンス（BI）",
-        "score": 11,
+        "slug": "crm-system",
+        "label": "顧客管理（CRM）システム",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "digital-twin-cps",
+        "label": "デジタルツイン・サイバーフィジカルシステム（CPS）",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -18671,7 +18672,7 @@
       {
         "slug": "cloud-on-premises",
         "label": "クラウドコンピューティング／オンプレミス",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -18679,9 +18680,9 @@
         ]
       },
       {
-        "slug": "data-leak-tampering-loss",
-        "label": "情報漏洩・改ざん・消失",
-        "score": 13,
+        "slug": "system-reliability",
+        "label": "信頼性（Reliability）",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -18786,18 +18787,9 @@
     ],
     "crm-system": [
       {
-        "slug": "accounting-systems",
-        "label": "財務会計・管理会計システム",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "agile",
         "label": "アジャイル",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -18806,25 +18798,34 @@
       {
         "slug": "api",
         "label": "API",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "blockchain-crypto",
-        "label": "ブロックチェーン・暗号資産",
-        "score": 11,
+        "slug": "cloud-on-premises",
+        "label": "クラウドコンピューティング／オンプレミス",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "business-intelligence",
-        "label": "ビジネスインテリジェンス（BI）",
-        "score": 11,
+        "slug": "digital-twin-cps",
+        "label": "デジタルツイン・サイバーフィジカルシステム（CPS）",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "edge-computing",
+        "label": "エッジコンピューティング",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -18928,7 +18929,7 @@
       {
         "slug": "system-availability",
         "label": "可用性（Availability）",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -18936,56 +18937,9 @@
         ]
       },
       {
-        "slug": "access-control",
-        "label": "アクセス制御・アクセス権限設定",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "access-log-analysis",
-        "label": "アクセスログ分析",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "accountability-traceability",
-        "label": "責任追跡性（Accountability）",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "accounting-systems",
-        "label": "財務会計・管理会計システム",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      }
-    ],
-    "hr-systems": [
-      {
-        "slug": "accounting-systems",
-        "label": "財務会計・管理会計システム",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "agile",
         "label": "アジャイル",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -18994,25 +18948,72 @@
       {
         "slug": "api",
         "label": "API",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "blockchain-crypto",
-        "label": "ブロックチェーン・暗号資産",
-        "score": 11,
+        "slug": "cloud-on-premises",
+        "label": "クラウドコンピューティング／オンプレミス",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "business-intelligence",
-        "label": "ビジネスインテリジェンス（BI）",
-        "score": 11,
+        "slug": "crm-system",
+        "label": "顧客管理（CRM）システム",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      }
+    ],
+    "hr-systems": [
+      {
+        "slug": "agile",
+        "label": "アジャイル",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "api",
+        "label": "API",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "cloud-on-premises",
+        "label": "クラウドコンピューティング／オンプレミス",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "crm-system",
+        "label": "顧客管理（CRM）システム",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "digital-twin-cps",
+        "label": "デジタルツイン・サイバーフィジカルシステム（CPS）",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -19031,18 +19032,9 @@
         ]
       },
       {
-        "slug": "accounting-systems",
-        "label": "財務会計・管理会計システム",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "agile",
         "label": "アジャイル",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -19051,16 +19043,25 @@
       {
         "slug": "api",
         "label": "API",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "blockchain-crypto",
-        "label": "ブロックチェーン・暗号資産",
-        "score": 11,
+        "slug": "cloud-on-premises",
+        "label": "クラウドコンピューティング／オンプレミス",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "crm-system",
+        "label": "顧客管理（CRM）システム",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -19163,18 +19164,9 @@
     ],
     "system-integrity": [
       {
-        "slug": "accounting-systems",
-        "label": "財務会計・管理会計システム",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "agile",
         "label": "アジャイル",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -19183,25 +19175,34 @@
       {
         "slug": "api",
         "label": "API",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "blockchain-crypto",
-        "label": "ブロックチェーン・暗号資産",
-        "score": 11,
+        "slug": "cloud-on-premises",
+        "label": "クラウドコンピューティング／オンプレミス",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "business-intelligence",
-        "label": "ビジネスインテリジェンス（BI）",
-        "score": 11,
+        "slug": "crm-system",
+        "label": "顧客管理（CRM）システム",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "digital-twin-cps",
+        "label": "デジタルツイン・サイバーフィジカルシステム（CPS）",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -19661,45 +19662,45 @@
     ],
     "system-outage-degradation": [
       {
-        "slug": "access-control",
-        "label": "アクセス制御・アクセス権限設定",
-        "score": 11,
+        "slug": "data-governance",
+        "label": "データガバナンス",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "access-log-analysis",
-        "label": "アクセスログ分析",
-        "score": 11,
+        "slug": "malware",
+        "label": "マルウェア",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "accountability-traceability",
-        "label": "責任追跡性（Accountability）",
-        "score": 11,
+        "slug": "multi-factor-authentication",
+        "label": "多要素認証",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "authenticity",
-        "label": "真正性（Authenticity）",
-        "score": 11,
+        "slug": "non-repudiation",
+        "label": "否認防止（Non-repudiation）",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "common-criteria",
-        "label": "セキュリティ評価基準CC（ISO/IEC 15408）",
-        "score": 11,
+        "slug": "system-availability",
+        "label": "可用性（Availability）",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -19914,45 +19915,45 @@
     ],
     "data-governance": [
       {
-        "slug": "access-control",
-        "label": "アクセス制御・アクセス権限設定",
-        "score": 11,
+        "slug": "malware",
+        "label": "マルウェア",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "access-log-analysis",
-        "label": "アクセスログ分析",
-        "score": 11,
+        "slug": "multi-factor-authentication",
+        "label": "多要素認証",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "accountability-traceability",
-        "label": "責任追跡性（Accountability）",
-        "score": 11,
+        "slug": "non-repudiation",
+        "label": "否認防止（Non-repudiation）",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "authenticity",
-        "label": "真正性（Authenticity）",
-        "score": 11,
+        "slug": "system-availability",
+        "label": "可用性（Availability）",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "common-criteria",
-        "label": "セキュリティ評価基準CC（ISO/IEC 15408）",
-        "score": 11,
+        "slug": "system-outage-degradation",
+        "label": "システム停止・性能低下",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -20816,9 +20817,9 @@
         ]
       },
       {
-        "slug": "access-control",
-        "label": "アクセス制御・アクセス権限設定",
-        "score": 11,
+        "slug": "data-governance",
+        "label": "データガバナンス",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -21663,35 +21664,35 @@
         ]
       },
       {
+        "slug": "fire-service-act",
+        "label": "消防法",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "high-pressure-gas-act",
+        "label": "高圧ガス保安法",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "product-liability-act",
+        "label": "製造物責任法（PL法）",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
         "slug": "aging-infrastructure",
         "label": "インフラ老朽化対策",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "all-hazard-approach",
-        "label": "オールハザードアプローチ",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "consumer-product-safety-act",
-        "label": "消費生活用製品安全法",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "consumer-safety",
-        "label": "消費者安全",
         "score": 11,
         "signals": [
           "section",
@@ -21750,6 +21751,33 @@
     ],
     "high-pressure-gas-act": [
       {
+        "slug": "fire-service-act",
+        "label": "消防法",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "machinery-safety-guidelines",
+        "label": "機械の包括的な安全基準に関する指針",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "product-liability-act",
+        "label": "製造物責任法（PL法）",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
         "slug": "aging-infrastructure",
         "label": "インフラ老朽化対策",
         "score": 11,
@@ -21761,33 +21789,6 @@
       {
         "slug": "all-hazard-approach",
         "label": "オールハザードアプローチ",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "consumer-product-safety-act",
-        "label": "消費生活用製品安全法",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "consumer-safety",
-        "label": "消費者安全",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "cybersecurity-safety",
-        "label": "サイバーセキュリティ",
         "score": 11,
         "signals": [
           "section",
@@ -21905,35 +21906,35 @@
         ]
       },
       {
+        "slug": "high-pressure-gas-act",
+        "label": "高圧ガス保安法",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "machinery-safety-guidelines",
+        "label": "機械の包括的な安全基準に関する指針",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "product-liability-act",
+        "label": "製造物責任法（PL法）",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
         "slug": "aging-infrastructure",
         "label": "インフラ老朽化対策",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "all-hazard-approach",
-        "label": "オールハザードアプローチ",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "consumer-product-safety-act",
-        "label": "消費生活用製品安全法",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "consumer-safety",
-        "label": "消費者安全",
         "score": 11,
         "signals": [
           "section",
@@ -21955,10 +21956,11 @@
       {
         "slug": "product-safety",
         "label": "製品安全",
-        "score": 26,
+        "score": 27,
         "signals": [
           "section",
-          "exam"
+          "exam",
+          "tag"
         ]
       },
       {
@@ -21972,18 +21974,18 @@
         ]
       },
       {
-        "slug": "aging-infrastructure",
-        "label": "インフラ老朽化対策",
-        "score": 11,
+        "slug": "fire-service-act",
+        "label": "消防法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "all-hazard-approach",
-        "label": "オールハザードアプローチ",
-        "score": 11,
+        "slug": "high-pressure-gas-act",
+        "label": "高圧ガス保安法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -25707,6 +25709,33 @@
     ],
     "hazardous-facility-disaster-prevention": [
       {
+        "slug": "civil-protection-act",
+        "label": "国民保護法",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "disaster-countermeasures-act",
+        "label": "災害対策基本法",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "national-resilience-act",
+        "label": "国土強靱化基本法",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
         "slug": "alert-levels",
         "label": "警戒レベル",
         "score": 11,
@@ -25716,35 +25745,8 @@
         ]
       },
       {
-        "slug": "civil-protection-act",
-        "label": "国民保護法",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "contingency",
         "label": "不測事態",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "crisis-communication",
-        "label": "危機広報",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "crisis-management-manual",
-        "label": "危機管理マニュアル",
         "score": 11,
         "signals": [
           "section",
@@ -25907,9 +25909,9 @@
     ],
     "national-resilience-act": [
       {
-        "slug": "crisis-management-manual",
-        "label": "危機管理マニュアル",
-        "score": 13,
+        "slug": "disaster-countermeasures-act",
+        "label": "災害対策基本法",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -25917,8 +25919,8 @@
         ]
       },
       {
-        "slug": "disaster-countermeasures-act",
-        "label": "災害対策基本法",
+        "slug": "crisis-management-manual",
+        "label": "危機管理マニュアル",
         "score": 13,
         "signals": [
           "section",
@@ -25936,18 +25938,18 @@
         ]
       },
       {
-        "slug": "alert-levels",
-        "label": "警戒レベル",
-        "score": 11,
+        "slug": "civil-protection-act",
+        "label": "国民保護法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "civil-protection-act",
-        "label": "国民保護法",
-        "score": 11,
+        "slug": "hazardous-facility-disaster-prevention",
+        "label": "危険物施設防災",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -25958,10 +25960,28 @@
       {
         "slug": "disaster-countermeasures-act",
         "label": "災害対策基本法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "hazardous-facility-disaster-prevention",
+        "label": "危険物施設防災",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "national-resilience-act",
+        "label": "国土強靱化基本法",
+        "score": 12,
+        "signals": [
+          "section",
           "tag"
         ]
       },
@@ -25977,24 +25997,6 @@
       {
         "slug": "contingency",
         "label": "不測事態",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "crisis-communication",
-        "label": "危機広報",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "crisis-management-manual",
-        "label": "危機管理マニュアル",
         "score": 11,
         "signals": [
           "section",
@@ -26045,7 +26047,7 @@
       {
         "slug": "civil-protection-act",
         "label": "国民保護法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -27157,17 +27159,7 @@
       {
         "slug": "kunming-montreal-framework",
         "label": "昆明・モントリオール生物多様性枠組",
-        "score": 15,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 13,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -27177,7 +27169,7 @@
       {
         "slug": "cites",
         "label": "ワシントン条約（CITES）",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -27187,7 +27179,7 @@
       {
         "slug": "convention-on-biodiversity",
         "label": "生物多様性条約",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -27197,6 +27189,16 @@
       {
         "slug": "nagoya-protocol",
         "label": "名古屋議定書",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "biosafety",
+        "label": "バイオセーフティ",
         "score": 13,
         "signals": [
           "section",
@@ -27256,7 +27258,7 @@
       {
         "slug": "convention-on-biodiversity",
         "label": "生物多様性条約",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -27266,7 +27268,7 @@
       {
         "slug": "ecosystem-services",
         "label": "生態系サービス",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -27276,7 +27278,7 @@
       {
         "slug": "nagoya-protocol",
         "label": "名古屋議定書",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -27286,7 +27288,7 @@
       {
         "slug": "acid-rain",
         "label": "酸性雨",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -27295,7 +27297,7 @@
       {
         "slug": "agenda-21",
         "label": "アジェンダ21",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -27353,7 +27355,7 @@
       {
         "slug": "acid-rain",
         "label": "酸性雨",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -27362,25 +27364,7 @@
       {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "carbon-neutral",
-        "label": "カーボンニュートラル",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -27389,7 +27373,25 @@
       {
         "slug": "cites",
         "label": "ワシントン条約（CITES）",
-        "score": 11,
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "climate-change-adaptation-act",
+        "label": "気候変動適応法",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "climate-change-international",
+        "label": "気候変動・国際対応",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -27447,7 +27449,7 @@
       {
         "slug": "carbon-neutral",
         "label": "カーボンニュートラル",
-        "score": 37,
+        "score": 38,
         "signals": [
           "section",
           "exam",
@@ -27457,7 +27459,7 @@
       {
         "slug": "carbon-pricing",
         "label": "環境税・カーボンプライシング",
-        "score": 24,
+        "score": 25,
         "signals": [
           "chapter",
           "exam",
@@ -27467,7 +27469,7 @@
       {
         "slug": "climate-change-international",
         "label": "気候変動・国際対応",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -27475,18 +27477,18 @@
         ]
       },
       {
-        "slug": "acid-rain",
-        "label": "酸性雨",
-        "score": 11,
+        "slug": "energy-conservation-act",
+        "label": "省エネ法",
+        "score": 13,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "agenda-21",
-        "label": "アジェンダ21",
-        "score": 11,
+        "slug": "acid-rain",
+        "label": "酸性雨",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -27686,7 +27688,7 @@
       {
         "slug": "acid-rain",
         "label": "酸性雨",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -27695,7 +27697,7 @@
       {
         "slug": "agenda-21",
         "label": "アジェンダ21",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -27704,25 +27706,25 @@
       {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 11,
+        "slug": "cites",
+        "label": "ワシントン条約（CITES）",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "carbon-neutral",
-        "label": "カーボンニュートラル",
-        "score": 11,
+        "slug": "climate-change-adaptation-act",
+        "label": "気候変動適応法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -27785,7 +27787,7 @@
       {
         "slug": "acid-rain",
         "label": "酸性雨",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -27794,7 +27796,7 @@
       {
         "slug": "agenda-21",
         "label": "アジェンダ21",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -27803,25 +27805,25 @@
       {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 11,
+        "slug": "cites",
+        "label": "ワシントン条約（CITES）",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "carbon-neutral",
-        "label": "カーボンニュートラル",
-        "score": 11,
+        "slug": "climate-change-adaptation-act",
+        "label": "気候変動適応法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -27832,7 +27834,7 @@
       {
         "slug": "nature-conservation-act",
         "label": "自然環境保全法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -27842,7 +27844,7 @@
       {
         "slug": "acid-rain",
         "label": "酸性雨",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -27851,7 +27853,7 @@
       {
         "slug": "agenda-21",
         "label": "アジェンダ21",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -27860,16 +27862,16 @@
       {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 11,
+        "slug": "cites",
+        "label": "ワシントン条約（CITES）",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -27880,7 +27882,7 @@
       {
         "slug": "convention-on-biodiversity",
         "label": "生物多様性条約",
-        "score": 21,
+        "score": 22,
         "signals": [
           "section",
           "exam",
@@ -27890,7 +27892,7 @@
       {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -27900,7 +27902,7 @@
       {
         "slug": "cites",
         "label": "ワシントン条約（CITES）",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -27910,7 +27912,7 @@
       {
         "slug": "invasive-alien-species",
         "label": "特定外来生物（外来生物法）",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -27920,7 +27922,7 @@
       {
         "slug": "ecosystem-services",
         "label": "生態系サービス",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -27932,7 +27934,7 @@
       {
         "slug": "cites",
         "label": "ワシントン条約（CITES）",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -27942,7 +27944,7 @@
       {
         "slug": "convention-on-biodiversity",
         "label": "生物多様性条約",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -27952,7 +27954,7 @@
       {
         "slug": "invasive-alien-species",
         "label": "特定外来生物（外来生物法）",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -27962,7 +27964,7 @@
       {
         "slug": "ramsar-convention",
         "label": "ラムサール条約",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -27972,7 +27974,7 @@
       {
         "slug": "acid-rain",
         "label": "酸性雨",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -27983,7 +27985,7 @@
       {
         "slug": "acid-rain",
         "label": "酸性雨",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -27992,7 +27994,7 @@
       {
         "slug": "agenda-21",
         "label": "アジェンダ21",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -28001,25 +28003,25 @@
       {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 11,
+        "slug": "cites",
+        "label": "ワシントン条約（CITES）",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "carbon-neutral",
-        "label": "カーボンニュートラル",
-        "score": 11,
+        "slug": "climate-change-adaptation-act",
+        "label": "気候変動適応法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -28030,7 +28032,7 @@
       {
         "slug": "convention-on-biodiversity",
         "label": "生物多様性条約",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -28040,7 +28042,7 @@
       {
         "slug": "ramsar-convention",
         "label": "ラムサール条約",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -28050,17 +28052,7 @@
       {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 13,
+        "score": 15,
         "signals": [
           "section",
           "exam",
@@ -28070,7 +28062,17 @@
       {
         "slug": "invasive-alien-species",
         "label": "特定外来生物（外来生物法）",
-        "score": 13,
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "ipbes",
+        "label": "IPBES",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -28082,7 +28084,7 @@
       {
         "slug": "climate-change-international",
         "label": "気候変動・国際対応",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -28122,7 +28124,7 @@
       {
         "slug": "acid-rain",
         "label": "酸性雨",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -28143,7 +28145,7 @@
       {
         "slug": "energy",
         "label": "エネルギー",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -28153,7 +28155,7 @@
       {
         "slug": "climate-change-adaptation-act",
         "label": "気候変動適応法",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -28183,45 +28185,45 @@
     ],
     "renewable-energy-act": [
       {
-        "slug": "acid-rain",
-        "label": "酸性雨",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "agenda-21",
-        "label": "アジェンダ21",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 11,
+        "slug": "cites",
+        "label": "ワシントン条約（CITES）",
+        "score": 13,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "carbon-neutral",
-        "label": "カーボンニュートラル",
-        "score": 11,
+        "slug": "climate-change-adaptation-act",
+        "label": "気候変動適応法",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "natural-parks-act",
+        "label": "自然公園法",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "nature-conservation-act",
+        "label": "自然環境保全法",
+        "score": 13,
         "signals": [
           "section",
           "tag"
@@ -28230,9 +28232,18 @@
     ],
     "energy-conservation-act": [
       {
+        "slug": "energy",
+        "label": "エネルギー",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
         "slug": "acid-rain",
         "label": "酸性雨",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -28241,7 +28252,7 @@
       {
         "slug": "agenda-21",
         "label": "アジェンダ21",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -28250,16 +28261,7 @@
       {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -28268,7 +28270,7 @@
       {
         "slug": "carbon-neutral",
         "label": "カーボンニュートラル",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -28279,7 +28281,7 @@
       {
         "slug": "climate-change-adaptation-act",
         "label": "気候変動適応法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -28297,27 +28299,27 @@
         ]
       },
       {
-        "slug": "acid-rain",
-        "label": "酸性雨",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "agenda-21",
-        "label": "アジェンダ21",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 11,
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "carbon-neutral",
+        "label": "カーボンニュートラル",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "cites",
+        "label": "ワシントン条約（CITES）",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -28328,7 +28330,7 @@
       {
         "slug": "climate-change-international",
         "label": "気候変動・国際対応",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -28338,7 +28340,7 @@
       {
         "slug": "global-warming-countermeasures-act",
         "label": "地球温暖化対策推進法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -28346,27 +28348,27 @@
         ]
       },
       {
-        "slug": "acid-rain",
-        "label": "酸性雨",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "agenda-21",
-        "label": "アジェンダ21",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 11,
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "cites",
+        "label": "ワシントン条約（CITES）",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "natural-parks-act",
+        "label": "自然公園法",
+        "score": 13,
         "signals": [
           "section",
           "tag"
@@ -28375,45 +28377,45 @@
     ],
     "long-term-strategy-2050": [
       {
-        "slug": "acid-rain",
-        "label": "酸性雨",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "agenda-21",
-        "label": "アジェンダ21",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "biodiversity-basic-act",
-        "label": "生物多様性基本法",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "carbon-neutral",
         "label": "カーボンニュートラル",
-        "score": 11,
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "green-transformation",
+        "label": "グリーントランスフォーメーション（GX）",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "energy",
+        "label": "エネルギー",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "energy-conservation-act",
+        "label": "省エネ法",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "global-warming-countermeasures-act",
+        "label": "地球温暖化対策推進法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -28422,45 +28424,45 @@
     ],
     "green-transformation": [
       {
-        "slug": "acid-rain",
-        "label": "酸性雨",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "agenda-21",
-        "label": "アジェンダ21",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "biodiversity-basic-act",
-        "label": "生物多様性基本法",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "carbon-neutral",
         "label": "カーボンニュートラル",
-        "score": 11,
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "long-term-strategy-2050",
+        "label": "2050年長期戦略",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "energy",
+        "label": "エネルギー",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "energy-conservation-act",
+        "label": "省エネ法",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "global-warming-countermeasures-act",
+        "label": "地球温暖化対策推進法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -28471,7 +28473,7 @@
       {
         "slug": "energy",
         "label": "エネルギー",
-        "score": 37,
+        "score": 38,
         "signals": [
           "section",
           "exam",
@@ -28481,7 +28483,7 @@
       {
         "slug": "carbon-pricing",
         "label": "環境税・カーボンプライシング",
-        "score": 30,
+        "score": 32,
         "signals": [
           "chapter",
           "exam",
@@ -28626,7 +28628,7 @@
       {
         "slug": "convention-on-biodiversity",
         "label": "生物多様性条約",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -28636,7 +28638,7 @@
       {
         "slug": "ipbes",
         "label": "IPBES",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -28646,7 +28648,7 @@
       {
         "slug": "nagoya-protocol",
         "label": "名古屋議定書",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -28656,7 +28658,7 @@
       {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -28664,9 +28666,9 @@
         ]
       },
       {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 13,
+        "slug": "cites",
+        "label": "ワシントン条約（CITES）",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -28688,7 +28690,7 @@
       {
         "slug": "agenda-21",
         "label": "アジェンダ21",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -28697,25 +28699,25 @@
       {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 11,
+        "slug": "cites",
+        "label": "ワシントン条約（CITES）",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "carbon-neutral",
-        "label": "カーボンニュートラル",
-        "score": 11,
+        "slug": "climate-change-adaptation-act",
+        "label": "気候変動適応法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -28778,7 +28780,7 @@
       {
         "slug": "convention-on-biodiversity",
         "label": "生物多様性条約",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -28788,7 +28790,7 @@
       {
         "slug": "ecosystem-services",
         "label": "生態系サービス",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -28798,7 +28800,7 @@
       {
         "slug": "millennium-ecosystem-assessment",
         "label": "ミレニアム生態系評価",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -28808,7 +28810,7 @@
       {
         "slug": "ramsar-convention",
         "label": "ラムサール条約",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -28816,9 +28818,9 @@
         ]
       },
       {
-        "slug": "acid-rain",
-        "label": "酸性雨",
-        "score": 11,
+        "slug": "biodiversity-basic-act",
+        "label": "生物多様性基本法",
+        "score": 13,
         "signals": [
           "section",
           "tag"
@@ -28829,7 +28831,7 @@
       {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 13,
+        "score": 15,
         "signals": [
           "section",
           "exam",
@@ -28839,7 +28841,7 @@
       {
         "slug": "invasive-alien-species",
         "label": "特定外来生物（外来生物法）",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -28849,7 +28851,7 @@
       {
         "slug": "ramsar-convention",
         "label": "ラムサール条約",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -28857,18 +28859,18 @@
         ]
       },
       {
-        "slug": "acid-rain",
-        "label": "酸性雨",
-        "score": 11,
+        "slug": "cites",
+        "label": "ワシントン条約（CITES）",
+        "score": 13,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "agenda-21",
-        "label": "アジェンダ21",
-        "score": 11,
+        "slug": "climate-change-adaptation-act",
+        "label": "気候変動適応法",
+        "score": 13,
         "signals": [
           "section",
           "tag"
@@ -28877,45 +28879,45 @@
     ],
     "nature-restoration-act": [
       {
-        "slug": "acid-rain",
-        "label": "酸性雨",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "agenda-21",
-        "label": "アジェンダ21",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 11,
+        "slug": "cites",
+        "label": "ワシントン条約（CITES）",
+        "score": 13,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "carbon-neutral",
-        "label": "カーボンニュートラル",
-        "score": 11,
+        "slug": "climate-change-adaptation-act",
+        "label": "気候変動適応法",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "natural-parks-act",
+        "label": "自然公園法",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "nature-conservation-act",
+        "label": "自然環境保全法",
+        "score": 13,
         "signals": [
           "section",
           "tag"
@@ -28926,7 +28928,7 @@
       {
         "slug": "invasive-alien-species",
         "label": "特定外来生物（外来生物法）",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -28934,36 +28936,36 @@
         ]
       },
       {
-        "slug": "acid-rain",
-        "label": "酸性雨",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "agenda-21",
-        "label": "アジェンダ21",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 11,
+        "slug": "cites",
+        "label": "ワシントン条約（CITES）",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "climate-change-adaptation-act",
+        "label": "気候変動適応法",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "natural-parks-act",
+        "label": "自然公園法",
+        "score": 13,
         "signals": [
           "section",
           "tag"
@@ -28974,7 +28976,7 @@
       {
         "slug": "acid-rain",
         "label": "酸性雨",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -28983,7 +28985,7 @@
       {
         "slug": "agenda-21",
         "label": "アジェンダ21",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -28992,25 +28994,25 @@
       {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 11,
+        "slug": "cites",
+        "label": "ワシントン条約（CITES）",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "carbon-neutral",
-        "label": "カーボンニュートラル",
-        "score": 11,
+        "slug": "climate-change-adaptation-act",
+        "label": "気候変動適応法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -29068,7 +29070,7 @@
       {
         "slug": "convention-on-biodiversity",
         "label": "生物多様性条約",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -29078,7 +29080,7 @@
       {
         "slug": "nagoya-protocol",
         "label": "名古屋議定書",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -29088,7 +29090,7 @@
       {
         "slug": "nature-conservation-act",
         "label": "自然環境保全法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -29098,7 +29100,7 @@
       {
         "slug": "ramsar-convention",
         "label": "ラムサール条約",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -29108,7 +29110,7 @@
       {
         "slug": "satoyama-initiative",
         "label": "SATOYAMAイニシアティブ",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -29120,7 +29122,7 @@
       {
         "slug": "convention-on-biodiversity",
         "label": "生物多様性条約",
-        "score": 19,
+        "score": 20,
         "signals": [
           "section",
           "exam",
@@ -29130,7 +29132,7 @@
       {
         "slug": "ramsar-convention",
         "label": "ラムサール条約",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -29140,17 +29142,7 @@
       {
         "slug": "invasive-alien-species",
         "label": "特定外来生物（外来生物法）",
-        "score": 15,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 13,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -29160,7 +29152,17 @@
       {
         "slug": "cites",
         "label": "ワシントン条約（CITES）",
-        "score": 13,
+        "score": 15,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "natural-parks-act",
+        "label": "自然公園法",
+        "score": 15,
         "signals": [
           "section",
           "exam",
@@ -29172,7 +29174,7 @@
       {
         "slug": "ramsar-convention",
         "label": "ラムサール条約",
-        "score": 21,
+        "score": 22,
         "signals": [
           "section",
           "exam",
@@ -29182,7 +29184,7 @@
       {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 19,
+        "score": 20,
         "signals": [
           "section",
           "exam",
@@ -29192,7 +29194,7 @@
       {
         "slug": "cites",
         "label": "ワシントン条約（CITES）",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -29202,7 +29204,7 @@
       {
         "slug": "nagoya-protocol",
         "label": "名古屋議定書",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -29210,9 +29212,9 @@
         ]
       },
       {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 15,
+        "slug": "ecosystem-services",
+        "label": "生態系サービス",
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -29273,7 +29275,7 @@
       {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -29283,7 +29285,7 @@
       {
         "slug": "convention-on-biodiversity",
         "label": "生物多様性条約",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -29293,7 +29295,7 @@
       {
         "slug": "ramsar-convention",
         "label": "ラムサール条約",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -29303,7 +29305,7 @@
       {
         "slug": "cites",
         "label": "ワシントン条約（CITES）",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -29313,7 +29315,7 @@
       {
         "slug": "natural-parks-act",
         "label": "自然公園法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -29325,7 +29327,7 @@
       {
         "slug": "convention-on-biodiversity",
         "label": "生物多様性条約",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -29335,7 +29337,7 @@
       {
         "slug": "kunming-montreal-framework",
         "label": "昆明・モントリオール生物多様性枠組",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -29345,17 +29347,7 @@
       {
         "slug": "biodiversity-basic-act",
         "label": "生物多様性基本法",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "biosafety",
-        "label": "バイオセーフティ",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -29365,7 +29357,17 @@
       {
         "slug": "cites",
         "label": "ワシントン条約（CITES）",
-        "score": 13,
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "ecosystem-services",
+        "label": "生態系サービス",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -29374,6 +29376,16 @@
       }
     ],
     "alps-treated-water": [
+      {
+        "slug": "radioactive-waste",
+        "label": "放射性廃棄物",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
       {
         "slug": "nuclear-disaster-act",
         "label": "原子力災害対策特別措置法",
@@ -29385,19 +29397,9 @@
         ]
       },
       {
-        "slug": "radioactive-waste",
-        "label": "放射性廃棄物",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -29406,7 +29408,7 @@
       {
         "slug": "asbestos-issue",
         "label": "アスベスト問題",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -29415,7 +29417,7 @@
       {
         "slug": "basel-convention",
         "label": "バーゼル条約",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -29473,7 +29475,17 @@
       {
         "slug": "green-infrastructure",
         "label": "グリーンインフラ",
-        "score": 13,
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "heat-island-effect",
+        "label": "ヒートアイランド現象",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -29491,19 +29503,9 @@
         ]
       },
       {
-        "slug": "heat-island-effect",
-        "label": "ヒートアイランド現象",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -29512,7 +29514,7 @@
       {
         "slug": "alps-treated-water",
         "label": "ALPS処理水",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -29520,6 +29522,26 @@
       }
     ],
     "gfc-chemicals-framework": [
+      {
+        "slug": "prtr-act",
+        "label": "化管法／PRTR法",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "reach-regulation",
+        "label": "REACH規制",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
       {
         "slug": "chemical-substances-review-act",
         "label": "化審法",
@@ -29531,29 +29553,9 @@
         ]
       },
       {
-        "slug": "prtr-act",
-        "label": "化管法／PRTR法",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "reach-regulation",
-        "label": "REACH規制",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -29562,7 +29564,7 @@
       {
         "slug": "alps-treated-water",
         "label": "ALPS処理水",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -29573,7 +29575,17 @@
       {
         "slug": "chemical-substances-review-act",
         "label": "化審法",
-        "score": 17,
+        "score": 18,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "prtr-act",
+        "label": "化管法／PRTR法",
+        "score": 15,
         "signals": [
           "section",
           "exam",
@@ -29583,17 +29595,7 @@
       {
         "slug": "minamata-convention",
         "label": "水俣条約",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "prtr-act",
-        "label": "化管法／PRTR法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -29603,16 +29605,16 @@
       {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "alps-treated-water",
-        "label": "ALPS処理水",
-        "score": 11,
+        "slug": "asbestos-issue",
+        "label": "アスベスト問題",
+        "score": 13,
         "signals": [
           "section",
           "tag"
@@ -29621,9 +29623,19 @@
     ],
     "reach-regulation": [
       {
+        "slug": "prtr-act",
+        "label": "化管法／PRTR法",
+        "score": 15,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "chemical-substances-review-act",
         "label": "化審法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -29633,17 +29645,7 @@
       {
         "slug": "gfc-chemicals-framework",
         "label": "GFC",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "prtr-act",
-        "label": "化管法／PRTR法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -29653,16 +29655,16 @@
       {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "alps-treated-water",
-        "label": "ALPS処理水",
-        "score": 11,
+        "slug": "asbestos-issue",
+        "label": "アスベスト問題",
+        "score": 13,
         "signals": [
           "section",
           "tag"
@@ -29673,7 +29675,7 @@
       {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -29682,7 +29684,7 @@
       {
         "slug": "alps-treated-water",
         "label": "ALPS処理水",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -29691,7 +29693,7 @@
       {
         "slug": "asbestos-issue",
         "label": "アスベスト問題",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -29700,16 +29702,16 @@
       {
         "slug": "basel-convention",
         "label": "バーゼル条約",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "chemical-substances-review-act",
-        "label": "化審法",
-        "score": 11,
+        "slug": "circular-economy",
+        "label": "サーキュラーエコノミー",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -29720,17 +29722,7 @@
       {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "seven-types-of-pollution",
-        "label": "典型７公害",
-        "score": 13,
+        "score": 15,
         "signals": [
           "section",
           "exam",
@@ -29740,7 +29732,7 @@
       {
         "slug": "soil-contamination-act",
         "label": "土壌汚染対策法",
-        "score": 13,
+        "score": 15,
         "signals": [
           "section",
           "exam",
@@ -29748,18 +29740,28 @@
         ]
       },
       {
-        "slug": "alps-treated-water",
-        "label": "ALPS処理水",
-        "score": 11,
+        "slug": "seven-types-of-pollution",
+        "label": "典型７公害",
+        "score": 14,
         "signals": [
           "section",
+          "exam",
           "tag"
         ]
       },
       {
         "slug": "basel-convention",
         "label": "バーゼル条約",
-        "score": 11,
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "circular-society-basic-act",
+        "label": "循環型社会形成推進基本法",
+        "score": 13,
         "signals": [
           "section",
           "tag"
@@ -29817,7 +29819,17 @@
       {
         "slug": "eco-drr",
         "label": "Eco-DRR（生態系を活用した防災・減災）",
-        "score": 13,
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "heat-island-effect",
+        "label": "ヒートアイランド現象",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -29835,19 +29847,9 @@
         ]
       },
       {
-        "slug": "heat-island-effect",
-        "label": "ヒートアイランド現象",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -29856,7 +29858,7 @@
       {
         "slug": "alps-treated-water",
         "label": "ALPS処理水",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -29867,7 +29869,7 @@
       {
         "slug": "circular-society-basic-act",
         "label": "循環型社会形成推進基本法",
-        "score": 31,
+        "score": 32,
         "signals": [
           "section",
           "exam",
@@ -29887,7 +29889,7 @@
       {
         "slug": "extended-producer-responsibility",
         "label": "拡大生産者責任（EPR）",
-        "score": 20,
+        "score": 21,
         "signals": [
           "chapter",
           "exam",
@@ -29897,7 +29899,7 @@
       {
         "slug": "ocean-plastic",
         "label": "海洋プラスチック問題",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -29907,7 +29909,7 @@
       {
         "slug": "basel-convention",
         "label": "バーゼル条約",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -29919,7 +29921,7 @@
       {
         "slug": "basel-convention",
         "label": "バーゼル条約",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -29929,7 +29931,7 @@
       {
         "slug": "circular-economy",
         "label": "サーキュラーエコノミー",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -29939,7 +29941,7 @@
       {
         "slug": "circular-society-basic-act",
         "label": "循環型社会形成推進基本法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -29949,7 +29951,7 @@
       {
         "slug": "regional-circular-symbiosis",
         "label": "地域循環共生圏",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -29959,7 +29961,7 @@
       {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -29970,17 +29972,7 @@
       {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "seven-types-of-pollution",
-        "label": "典型７公害",
-        "score": 13,
+        "score": 15,
         "signals": [
           "section",
           "exam",
@@ -29990,7 +29982,17 @@
       {
         "slug": "soil-contamination-act",
         "label": "土壌汚染対策法",
-        "score": 13,
+        "score": 15,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "seven-types-of-pollution",
+        "label": "典型７公害",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -30008,9 +30010,9 @@
         ]
       },
       {
-        "slug": "alps-treated-water",
-        "label": "ALPS処理水",
-        "score": 11,
+        "slug": "asbestos-issue",
+        "label": "アスベスト問題",
+        "score": 13,
         "signals": [
           "section",
           "tag"
@@ -30019,9 +30021,9 @@
     ],
     "basel-convention": [
       {
-        "slug": "circular-economy",
-        "label": "サーキュラーエコノミー",
-        "score": 13,
+        "slug": "circular-society-basic-act",
+        "label": "循環型社会形成推進基本法",
+        "score": 15,
         "signals": [
           "section",
           "exam",
@@ -30029,9 +30031,9 @@
         ]
       },
       {
-        "slug": "circular-society-basic-act",
-        "label": "循環型社会形成推進基本法",
-        "score": 13,
+        "slug": "circular-economy",
+        "label": "サーキュラーエコノミー",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -30041,7 +30043,7 @@
       {
         "slug": "ocean-plastic",
         "label": "海洋プラスチック問題",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -30051,7 +30053,7 @@
       {
         "slug": "regional-circular-symbiosis",
         "label": "地域循環共生圏",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -30061,7 +30063,7 @@
       {
         "slug": "sustainable-fashion",
         "label": "サステナブルファッション",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -30123,7 +30125,7 @@
       {
         "slug": "eco-drr",
         "label": "Eco-DRR（生態系を活用した防災・減災）",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -30133,7 +30135,7 @@
       {
         "slug": "green-infrastructure",
         "label": "グリーンインフラ",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -30163,7 +30165,7 @@
       {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -30174,17 +30176,7 @@
       {
         "slug": "chemical-substances-review-act",
         "label": "化審法",
-        "score": 17,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "gfc-chemicals-framework",
-        "label": "GFC",
-        "score": 13,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -30194,7 +30186,7 @@
       {
         "slug": "pops-convention",
         "label": "POPs条約",
-        "score": 13,
+        "score": 15,
         "signals": [
           "section",
           "exam",
@@ -30204,7 +30196,17 @@
       {
         "slug": "reach-regulation",
         "label": "REACH規制",
-        "score": 13,
+        "score": 15,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "gfc-chemicals-framework",
+        "label": "GFC",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -30214,7 +30216,7 @@
       {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
           "tag"
@@ -30225,7 +30227,7 @@
       {
         "slug": "pops-convention",
         "label": "POPs条約",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -30235,7 +30237,17 @@
       {
         "slug": "prtr-act",
         "label": "化管法／PRTR法",
-        "score": 17,
+        "score": 18,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "reach-regulation",
+        "label": "REACH規制",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -30261,16 +30273,6 @@
           "exam",
           "tag"
         ]
-      },
-      {
-        "slug": "reach-regulation",
-        "label": "REACH規制",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
       }
     ],
     "ocean-plastic": [
@@ -30287,7 +30289,7 @@
       {
         "slug": "circular-society-basic-act",
         "label": "循環型社会形成推進基本法",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -30297,7 +30299,7 @@
       {
         "slug": "circular-economy",
         "label": "サーキュラーエコノミー",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -30307,7 +30309,7 @@
       {
         "slug": "basel-convention",
         "label": "バーゼル条約",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -30317,7 +30319,7 @@
       {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -30328,16 +30330,7 @@
       {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "alps-treated-water",
-        "label": "ALPS処理水",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
           "tag"
@@ -30346,7 +30339,7 @@
       {
         "slug": "asbestos-issue",
         "label": "アスベスト問題",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
           "tag"
@@ -30355,16 +30348,25 @@
       {
         "slug": "basel-convention",
         "label": "バーゼル条約",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "chemical-substances-review-act",
-        "label": "化審法",
-        "score": 11,
+        "slug": "circular-society-basic-act",
+        "label": "循環型社会形成推進基本法",
+        "score": 13,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "dioxin-countermeasures-act",
+        "label": "ダイオキシン類対策特別措置法",
+        "score": 13,
         "signals": [
           "section",
           "tag"
@@ -30375,7 +30377,7 @@
       {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -30384,7 +30386,7 @@
       {
         "slug": "alps-treated-water",
         "label": "ALPS処理水",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -30393,7 +30395,7 @@
       {
         "slug": "asbestos-issue",
         "label": "アスベスト問題",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -30402,16 +30404,16 @@
       {
         "slug": "basel-convention",
         "label": "バーゼル条約",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "chemical-substances-review-act",
-        "label": "化審法",
-        "score": 11,
+        "slug": "circular-economy",
+        "label": "サーキュラーエコノミー",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -30432,7 +30434,7 @@
       {
         "slug": "radioactive-decontamination-act",
         "label": "放射性物質汚染対処特別措置法",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -30462,7 +30464,7 @@
       {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -30473,7 +30475,7 @@
       {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -30483,7 +30485,7 @@
       {
         "slug": "seven-types-of-pollution",
         "label": "典型７公害",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -30503,7 +30505,7 @@
       {
         "slug": "alps-treated-water",
         "label": "ALPS処理水",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -30512,7 +30514,7 @@
       {
         "slug": "asbestos-issue",
         "label": "アスベスト問題",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -30533,7 +30535,7 @@
       {
         "slug": "circular-economy",
         "label": "サーキュラーエコノミー",
-        "score": 31,
+        "score": 32,
         "signals": [
           "section",
           "exam",
@@ -30543,7 +30545,7 @@
       {
         "slug": "extended-producer-responsibility",
         "label": "拡大生産者責任（EPR）",
-        "score": 28,
+        "score": 29,
         "signals": [
           "chapter",
           "exam",
@@ -30553,7 +30555,7 @@
       {
         "slug": "ocean-plastic",
         "label": "海洋プラスチック問題",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -30563,7 +30565,7 @@
       {
         "slug": "regional-circular-symbiosis",
         "label": "地域循環共生圏",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -30625,6 +30627,16 @@
     ],
     "minamata-convention": [
       {
+        "slug": "pops-convention",
+        "label": "POPs条約",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "chemical-substances-review-act",
         "label": "化審法",
         "score": 13,
@@ -30635,19 +30647,9 @@
         ]
       },
       {
-        "slug": "pops-convention",
-        "label": "POPs条約",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -30656,7 +30658,7 @@
       {
         "slug": "alps-treated-water",
         "label": "ALPS処理水",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -30665,7 +30667,7 @@
       {
         "slug": "asbestos-issue",
         "label": "アスベスト問題",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -30676,7 +30678,7 @@
       {
         "slug": "seven-types-of-pollution",
         "label": "典型７公害",
-        "score": 27,
+        "score": 28,
         "signals": [
           "section",
           "exam",
@@ -30696,7 +30698,7 @@
       {
         "slug": "soil-contamination-act",
         "label": "土壌汚染対策法",
-        "score": 17,
+        "score": 19,
         "signals": [
           "section",
           "exam",
@@ -30706,7 +30708,7 @@
       {
         "slug": "environmental-standards",
         "label": "環境基準",
-        "score": 16,
+        "score": 17,
         "signals": [
           "chapter",
           "exam",
@@ -30716,7 +30718,7 @@
       {
         "slug": "asbestos-issue",
         "label": "アスベスト問題",
-        "score": 13,
+        "score": 15,
         "signals": [
           "section",
           "exam",
@@ -30728,7 +30730,7 @@
       {
         "slug": "circular-society-basic-act",
         "label": "循環型社会形成推進基本法",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -30738,7 +30740,7 @@
       {
         "slug": "basel-convention",
         "label": "バーゼル条約",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -30748,7 +30750,7 @@
       {
         "slug": "circular-economy",
         "label": "サーキュラーエコノミー",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -30758,7 +30760,7 @@
       {
         "slug": "sustainable-fashion",
         "label": "サステナブルファッション",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -30778,6 +30780,26 @@
     ],
     "interim-storage-facility": [
       {
+        "slug": "radioactive-decontamination-act",
+        "label": "放射性物質汚染対処特別措置法",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "radioactive-waste",
+        "label": "放射性廃棄物",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
         "slug": "nuclear-disaster-act",
         "label": "原子力災害対策特別措置法",
         "score": 13,
@@ -30788,29 +30810,9 @@
         ]
       },
       {
-        "slug": "radioactive-decontamination-act",
-        "label": "放射性物質汚染対処特別措置法",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "radioactive-waste",
-        "label": "放射性廃棄物",
-        "score": 13,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -30819,7 +30821,7 @@
       {
         "slug": "alps-treated-water",
         "label": "ALPS処理水",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -30830,7 +30832,7 @@
       {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 27,
+        "score": 28,
         "signals": [
           "section",
           "exam",
@@ -30850,7 +30852,7 @@
       {
         "slug": "soil-contamination-act",
         "label": "土壌汚染対策法",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -30860,7 +30862,7 @@
       {
         "slug": "asbestos-issue",
         "label": "アスベスト問題",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -30870,7 +30872,7 @@
       {
         "slug": "dioxin-countermeasures-act",
         "label": "ダイオキシン類対策特別措置法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -30930,7 +30932,7 @@
       {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 17,
+        "score": 19,
         "signals": [
           "section",
           "exam",
@@ -30940,7 +30942,7 @@
       {
         "slug": "seven-types-of-pollution",
         "label": "典型７公害",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -30950,7 +30952,7 @@
       {
         "slug": "asbestos-issue",
         "label": "アスベスト問題",
-        "score": 13,
+        "score": 15,
         "signals": [
           "section",
           "exam",
@@ -30960,7 +30962,7 @@
       {
         "slug": "dioxin-countermeasures-act",
         "label": "ダイオキシン類対策特別措置法",
-        "score": 13,
+        "score": 15,
         "signals": [
           "section",
           "exam",
@@ -31034,7 +31036,7 @@
       {
         "slug": "radioactive-decontamination-act",
         "label": "放射性物質汚染対処特別措置法",
-        "score": 19,
+        "score": 20,
         "signals": [
           "section",
           "exam",
@@ -31064,7 +31066,7 @@
       {
         "slug": "alps-treated-water",
         "label": "ALPS処理水",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -31074,7 +31076,7 @@
       {
         "slug": "interim-storage-facility",
         "label": "中間貯蔵施設",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -31086,7 +31088,7 @@
       {
         "slug": "radioactive-waste",
         "label": "放射性廃棄物",
-        "score": 19,
+        "score": 20,
         "signals": [
           "section",
           "exam",
@@ -31096,7 +31098,7 @@
       {
         "slug": "nuclear-disaster-act",
         "label": "原子力災害対策特別措置法",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -31106,7 +31108,7 @@
       {
         "slug": "interim-storage-facility",
         "label": "中間貯蔵施設",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -31126,7 +31128,7 @@
       {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 11,
+        "score": 13,
         "signals": [
           "section",
           "tag"
@@ -31185,7 +31187,7 @@
       {
         "slug": "lifecycle-assessment",
         "label": "ライフサイクルアセスメント",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -31195,25 +31197,7 @@
       {
         "slug": "backcasting",
         "label": "バックキャスティング",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "behavioral-regulation",
-        "label": "行為規制",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "carbon-pricing",
-        "label": "環境税・カーボンプライシング",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -31222,7 +31206,25 @@
       {
         "slug": "consensus-instruments",
         "label": "合意的手法",
-        "score": 11,
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "eco-label",
+        "label": "環境ラベル",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "environmental-basic-act",
+        "label": "環境基本法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -31330,7 +31332,7 @@
       {
         "slug": "environmental-basic-plan",
         "label": "環境基本計画",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -31358,18 +31360,18 @@
         ]
       },
       {
-        "slug": "behavioral-regulation",
-        "label": "行為規制",
-        "score": 11,
+        "slug": "consensus-instruments",
+        "label": "合意的手法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "consensus-instruments",
-        "label": "合意的手法",
-        "score": 11,
+        "slug": "eco-label",
+        "label": "環境ラベル",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -31432,7 +31434,7 @@
       {
         "slug": "eco-label",
         "label": "環境ラベル",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -31442,7 +31444,7 @@
       {
         "slug": "design-for-environment",
         "label": "環境適合設計",
-        "score": 14,
+        "score": 15,
         "signals": [
           "chapter",
           "exam",
@@ -31452,7 +31454,7 @@
       {
         "slug": "end-of-pipe",
         "label": "エンドオブパイプ型対策",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -31462,7 +31464,7 @@
       {
         "slug": "environmental-impact-assessment",
         "label": "環境影響評価法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -31472,7 +31474,7 @@
       {
         "slug": "backcasting",
         "label": "バックキャスティング",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -31483,17 +31485,7 @@
       {
         "slug": "extended-producer-responsibility",
         "label": "拡大生産者責任（EPR）",
-        "score": 19,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "carbon-pricing",
-        "label": "環境税・カーボンプライシング",
-        "score": 13,
+        "score": 20,
         "signals": [
           "section",
           "exam",
@@ -31503,7 +31495,7 @@
       {
         "slug": "eco-label",
         "label": "環境ラベル",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -31513,7 +31505,7 @@
       {
         "slug": "environmental-basic-plan",
         "label": "環境基本計画",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -31523,6 +31515,16 @@
       {
         "slug": "environmental-standards",
         "label": "環境基準",
+        "score": 14,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "carbon-pricing",
+        "label": "環境税・カーボンプライシング",
         "score": 13,
         "signals": [
           "section",
@@ -31535,25 +31537,7 @@
       {
         "slug": "backcasting",
         "label": "バックキャスティング",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "behavioral-regulation",
-        "label": "行為規制",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "carbon-pricing",
-        "label": "環境税・カーボンプライシング",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -31562,16 +31546,34 @@
       {
         "slug": "consensus-instruments",
         "label": "合意的手法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "deposit-system",
-        "label": "デポジット制度",
-        "score": 11,
+        "slug": "eco-label",
+        "label": "環境ラベル",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "end-of-pipe",
+        "label": "エンドオブパイプ型対策",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "environmental-basic-act",
+        "label": "環境基本法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -31582,7 +31584,7 @@
       {
         "slug": "circular-society-basic-act",
         "label": "循環型社会形成推進基本法",
-        "score": 28,
+        "score": 29,
         "signals": [
           "chapter",
           "exam",
@@ -31602,7 +31604,7 @@
       {
         "slug": "circular-economy",
         "label": "サーキュラーエコノミー",
-        "score": 20,
+        "score": 21,
         "signals": [
           "chapter",
           "exam",
@@ -31612,7 +31614,7 @@
       {
         "slug": "polluter-pays-principle",
         "label": "汚染者負担原則（PPP）",
-        "score": 19,
+        "score": 20,
         "signals": [
           "section",
           "exam",
@@ -31622,7 +31624,7 @@
       {
         "slug": "environmental-basic-plan",
         "label": "環境基本計画",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -31631,6 +31633,16 @@
       }
     ],
     "eco-label": [
+      {
+        "slug": "lifecycle-assessment",
+        "label": "ライフサイクルアセスメント",
+        "score": 16,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
       {
         "slug": "carbon-pricing",
         "label": "環境税・カーボンプライシング",
@@ -31642,19 +31654,9 @@
         ]
       },
       {
-        "slug": "lifecycle-assessment",
-        "label": "ライフサイクルアセスメント",
-        "score": 15,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
         "slug": "environmental-basic-plan",
         "label": "環境基本計画",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -31664,7 +31666,7 @@
       {
         "slug": "environmental-impact-assessment",
         "label": "環境影響評価法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -31674,7 +31676,7 @@
       {
         "slug": "extended-producer-responsibility",
         "label": "拡大生産者責任（EPR）",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -31686,7 +31688,7 @@
       {
         "slug": "environmental-basic-plan",
         "label": "環境基本計画",
-        "score": 35,
+        "score": 36,
         "signals": [
           "section",
           "exam",
@@ -31696,7 +31698,7 @@
       {
         "slug": "environmental-standards",
         "label": "環境基準",
-        "score": 23,
+        "score": 24,
         "signals": [
           "section",
           "exam",
@@ -31738,7 +31740,7 @@
       {
         "slug": "environmental-basic-plan",
         "label": "環境基本計画",
-        "score": 23,
+        "score": 24,
         "signals": [
           "section",
           "exam",
@@ -31748,7 +31750,7 @@
       {
         "slug": "environmental-impact-assessment",
         "label": "環境影響評価法",
-        "score": 23,
+        "score": 24,
         "signals": [
           "section",
           "exam",
@@ -31758,7 +31760,7 @@
       {
         "slug": "air-pollution-control-act",
         "label": "大気汚染防止法",
-        "score": 16,
+        "score": 17,
         "signals": [
           "chapter",
           "exam",
@@ -31766,9 +31768,9 @@
         ]
       },
       {
-        "slug": "carbon-pricing",
-        "label": "環境税・カーボンプライシング",
-        "score": 13,
+        "slug": "polluter-pays-principle",
+        "label": "汚染者負担原則（PPP）",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -31776,9 +31778,9 @@
         ]
       },
       {
-        "slug": "performance-regulation",
-        "label": "パフォーマンス規制",
-        "score": 13,
+        "slug": "precautionary-principle",
+        "label": "予防原則",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -31790,7 +31792,7 @@
       {
         "slug": "environmental-impact-assessment",
         "label": "環境影響評価法",
-        "score": 35,
+        "score": 36,
         "signals": [
           "section",
           "exam",
@@ -31800,7 +31802,7 @@
       {
         "slug": "environmental-standards",
         "label": "環境基準",
-        "score": 23,
+        "score": 24,
         "signals": [
           "section",
           "exam",
@@ -31820,7 +31822,7 @@
       {
         "slug": "backcasting",
         "label": "バックキャスティング",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -31830,7 +31832,7 @@
       {
         "slug": "extended-producer-responsibility",
         "label": "拡大生産者責任（EPR）",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -31842,25 +31844,7 @@
       {
         "slug": "backcasting",
         "label": "バックキャスティング",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "behavioral-regulation",
-        "label": "行為規制",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "carbon-pricing",
-        "label": "環境税・カーボンプライシング",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -31869,16 +31853,34 @@
       {
         "slug": "consensus-instruments",
         "label": "合意的手法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "deposit-system",
-        "label": "デポジット制度",
-        "score": 11,
+        "slug": "eco-label",
+        "label": "環境ラベル",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "end-of-pipe",
+        "label": "エンドオブパイプ型対策",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "environmental-basic-plan",
+        "label": "環境基本計画",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -31889,7 +31891,7 @@
       {
         "slug": "carbon-neutral",
         "label": "カーボンニュートラル",
-        "score": 30,
+        "score": 32,
         "signals": [
           "chapter",
           "exam",
@@ -31899,7 +31901,7 @@
       {
         "slug": "energy",
         "label": "エネルギー",
-        "score": 24,
+        "score": 25,
         "signals": [
           "chapter",
           "exam",
@@ -31941,25 +31943,7 @@
       {
         "slug": "backcasting",
         "label": "バックキャスティング",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "behavioral-regulation",
-        "label": "行為規制",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "carbon-pricing",
-        "label": "環境税・カーボンプライシング",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -31968,16 +31952,34 @@
       {
         "slug": "consensus-instruments",
         "label": "合意的手法",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "deposit-system",
-        "label": "デポジット制度",
-        "score": 11,
+        "slug": "eco-label",
+        "label": "環境ラベル",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "end-of-pipe",
+        "label": "エンドオブパイプ型対策",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "environmental-basic-act",
+        "label": "環境基本法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -32039,34 +32041,7 @@
       {
         "slug": "backcasting",
         "label": "バックキャスティング",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "behavioral-regulation",
-        "label": "行為規制",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "carbon-pricing",
-        "label": "環境税・カーボンプライシング",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "deposit-system",
-        "label": "デポジット制度",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -32075,7 +32050,34 @@
       {
         "slug": "eco-label",
         "label": "環境ラベル",
-        "score": 11,
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "end-of-pipe",
+        "label": "エンドオブパイプ型対策",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "environmental-basic-act",
+        "label": "環境基本法",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "environmental-basic-plan",
+        "label": "環境基本計画",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -32086,7 +32088,7 @@
       {
         "slug": "precautionary-principle",
         "label": "予防原則",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -32096,7 +32098,7 @@
       {
         "slug": "prevention-principle",
         "label": "未然防止原則",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -32106,25 +32108,25 @@
       {
         "slug": "backcasting",
         "label": "バックキャスティング",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "behavioral-regulation",
-        "label": "行為規制",
-        "score": 11,
+        "slug": "consensus-instruments",
+        "label": "合意的手法",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "carbon-pricing",
-        "label": "環境税・カーボンプライシング",
-        "score": 11,
+        "slug": "eco-label",
+        "label": "環境ラベル",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -32135,7 +32137,7 @@
       {
         "slug": "precautionary-principle",
         "label": "予防原則",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -32145,7 +32147,7 @@
       {
         "slug": "environmental-impact-assessment",
         "label": "環境影響評価法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -32155,7 +32157,7 @@
       {
         "slug": "environmental-standards",
         "label": "環境基準",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -32165,7 +32167,7 @@
       {
         "slug": "subsidiarity-principle",
         "label": "補完性原則・補完性原理",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -32175,7 +32177,7 @@
       {
         "slug": "backcasting",
         "label": "バックキャスティング",
-        "score": 11,
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -32186,7 +32188,7 @@
       {
         "slug": "prevention-principle",
         "label": "未然防止原則",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -32196,7 +32198,7 @@
       {
         "slug": "environmental-basic-plan",
         "label": "環境基本計画",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -32206,7 +32208,7 @@
       {
         "slug": "environmental-impact-assessment",
         "label": "環境影響評価法",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -32216,7 +32218,7 @@
       {
         "slug": "environmental-standards",
         "label": "環境基準",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -32226,7 +32228,7 @@
       {
         "slug": "extended-producer-responsibility",
         "label": "拡大生産者責任（EPR）",
-        "score": 13,
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -32439,7 +32441,7 @@
       {
         "slug": "environmental-accounting",
         "label": "環境会計",
-        "score": 23,
+        "score": 24,
         "signals": [
           "section",
           "exam",
@@ -32449,7 +32451,7 @@
       {
         "slug": "eco-action-21",
         "label": "エコアクション21",
-        "score": 19,
+        "score": 20,
         "signals": [
           "section",
           "exam",
@@ -32459,7 +32461,7 @@
       {
         "slug": "environmental-communication",
         "label": "環境コミュニケーション",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -32469,7 +32471,7 @@
       {
         "slug": "design-for-environment",
         "label": "環境適合設計",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -32647,7 +32649,7 @@
       {
         "slug": "iso-14000",
         "label": "ISO 14000シリーズ",
-        "score": 19,
+        "score": 20,
         "signals": [
           "section",
           "exam",
@@ -32657,17 +32659,7 @@
       {
         "slug": "environmental-accounting",
         "label": "環境会計",
-        "score": 17,
-        "signals": [
-          "section",
-          "exam",
-          "tag"
-        ]
-      },
-      {
-        "slug": "csr",
-        "label": "CSR",
-        "score": 15,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -32677,6 +32669,16 @@
       {
         "slug": "environmental-communication",
         "label": "環境コミュニケーション",
+        "score": 16,
+        "signals": [
+          "section",
+          "exam",
+          "tag"
+        ]
+      },
+      {
+        "slug": "csr",
+        "label": "CSR",
         "score": 15,
         "signals": [
           "section",
@@ -32707,9 +32709,9 @@
         ]
       },
       {
-        "slug": "csr",
-        "label": "CSR",
-        "score": 13,
+        "slug": "iso-14000",
+        "label": "ISO 14000シリーズ",
+        "score": 14,
         "signals": [
           "section",
           "exam",
@@ -32717,8 +32719,8 @@
         ]
       },
       {
-        "slug": "iso-14000",
-        "label": "ISO 14000シリーズ",
+        "slug": "csr",
+        "label": "CSR",
         "score": 13,
         "signals": [
           "section",
@@ -32845,7 +32847,7 @@
       {
         "slug": "environmental-accounting",
         "label": "環境会計",
-        "score": 21,
+        "score": 22,
         "signals": [
           "section",
           "exam",
@@ -32855,7 +32857,7 @@
       {
         "slug": "iso-14000",
         "label": "ISO 14000シリーズ",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -32865,7 +32867,7 @@
       {
         "slug": "eco-action-21",
         "label": "エコアクション21",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -32883,9 +32885,9 @@
         ]
       },
       {
-        "slug": "bioeconomy",
-        "label": "バイオエコノミー",
-        "score": 11,
+        "slug": "design-for-environment",
+        "label": "環境適合設計",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -32896,7 +32898,7 @@
       {
         "slug": "iso-14000",
         "label": "ISO 14000シリーズ",
-        "score": 23,
+        "score": 24,
         "signals": [
           "section",
           "exam",
@@ -32906,7 +32908,7 @@
       {
         "slug": "environmental-communication",
         "label": "環境コミュニケーション",
-        "score": 21,
+        "score": 22,
         "signals": [
           "section",
           "exam",
@@ -32916,7 +32918,7 @@
       {
         "slug": "eco-action-21",
         "label": "エコアクション21",
-        "score": 17,
+        "score": 18,
         "signals": [
           "section",
           "exam",
@@ -32934,9 +32936,9 @@
         ]
       },
       {
-        "slug": "csr",
-        "label": "CSR",
-        "score": 15,
+        "slug": "design-for-environment",
+        "label": "環境適合設計",
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -32948,7 +32950,7 @@
       {
         "slug": "environmental-accounting",
         "label": "環境会計",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -32958,7 +32960,7 @@
       {
         "slug": "iso-14000",
         "label": "ISO 14000シリーズ",
-        "score": 15,
+        "score": 16,
         "signals": [
           "section",
           "exam",
@@ -32968,7 +32970,7 @@
       {
         "slug": "lifecycle-assessment",
         "label": "ライフサイクルアセスメント",
-        "score": 14,
+        "score": 15,
         "signals": [
           "chapter",
           "exam",
@@ -32976,18 +32978,18 @@
         ]
       },
       {
-        "slug": "bioeconomy",
-        "label": "バイオエコノミー",
-        "score": 11,
+        "slug": "eco-action-21",
+        "label": "エコアクション21",
+        "score": 12,
         "signals": [
           "section",
           "tag"
         ]
       },
       {
-        "slug": "cdp-sbt-re100",
-        "label": "CDP・SBT・RE100",
-        "score": 11,
+        "slug": "environmental-communication",
+        "label": "環境コミュニケーション",
+        "score": 12,
         "signals": [
           "section",
           "tag"
@@ -32996,45 +32998,45 @@
     ],
     "pollution-control-manager": [
       {
-        "slug": "bioeconomy",
-        "label": "バイオエコノミー",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "cdp-sbt-re100",
-        "label": "CDP・SBT・RE100",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "csr",
-        "label": "CSR",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
-        "slug": "csv",
-        "label": "CSV",
-        "score": 11,
-        "signals": [
-          "section",
-          "tag"
-        ]
-      },
-      {
         "slug": "design-for-environment",
         "label": "環境適合設計",
-        "score": 11,
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "eco-action-21",
+        "label": "エコアクション21",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "environmental-accounting",
+        "label": "環境会計",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "environmental-communication",
+        "label": "環境コミュニケーション",
+        "score": 12,
+        "signals": [
+          "section",
+          "tag"
+        ]
+      },
+      {
+        "slug": "green-bond",
+        "label": "グリーンボンド",
+        "score": 12,
         "signals": [
           "section",
           "tag"
