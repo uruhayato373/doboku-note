@@ -1,0 +1,55 @@
+{
+  "meta": {
+    "startDate": "2026-08-27",
+    "endDate": "2026-09-02",
+    "dimension": "sourceMedium",
+    "dimensionApiName": "sessionSourceMedium",
+    "metrics": [
+      "activeUsers",
+      "sessions",
+      "screenPageViewsPerSession",
+      "averageSessionDuration",
+      "engagementRate",
+      "bounceRate"
+    ],
+    "limit": 50,
+    "organicOnly": false,
+    "snsOnly": true,
+    "snsSources": [
+      "x",
+      "instagram",
+      "youtube",
+      "note"
+    ],
+    "japanOnly": true,
+    "excludeSpam": true,
+    "spamSourcesExcluded": [
+      "(not set)",
+      "ntp.msn.com",
+      "statics.teams.cdn.office.net",
+      "hustler.zenhp.co.jp",
+      "mobilesecurity.trendmicro.com"
+    ],
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "sourceMedium": "note / referral",
+      "activeUsers": 22,
+      "sessions": 60,
+      "screenPageViewsPerSession": 8.833333333333334,
+      "averageSessionDuration": 680.6469592333334,
+      "engagementRate": 0.7333333333333333,
+      "bounceRate": 0.26666666666666666
+    },
+    {
+      "sourceMedium": "x / social",
+      "activeUsers": 10,
+      "sessions": 11,
+      "screenPageViewsPerSession": 2.090909090909091,
+      "averageSessionDuration": 52.207205181818175,
+      "engagementRate": 0.45454545454545453,
+      "bounceRate": 0.5454545454545454
+    }
+  ]
+}
