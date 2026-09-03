@@ -7,6 +7,9 @@ export type Topic = {
   label: string;
   description: string;
   tags: string[];
+  /** このカテゴリの記事は全件このテーマに属す（例: コンクリート 3 資格 → concrete）。
+      タグ語彙が資格ごとに揺れて突合 0% になるカテゴリの受け皿（2026-09 監査で 6/10 カテゴリが 0% だった）。 */
+  categories?: string[];
   standardKeywords: string[];
   featuredStandardRefs?: string[];
 };
@@ -28,8 +31,13 @@ export function getTopicPathForTag(tag: string): string | null {
 
 export function getTopicDocs(topic: Topic): DocMeta[] {
   const tags = new Set(topic.tags);
+  const categories = new Set(topic.categories ?? []);
   return getAllDocsMeta()
-    .filter((doc) => doc.published !== false && doc.tags?.some((tag) => tags.has(tag)))
+    .filter(
+      (doc) =>
+        doc.published !== false &&
+        (categories.has(String(doc.category)) || doc.tags?.some((tag) => tags.has(tag))),
+    )
     .sort((a, b) => String(b.dateModified ?? b.updatedAt ?? '').localeCompare(String(a.dateModified ?? a.updatedAt ?? '')));
 }
 
