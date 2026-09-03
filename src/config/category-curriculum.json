@@ -189,6 +189,15 @@
           "slugs": [
             "guide-law-key-points"
           ]
+        },
+        {
+          "id": "secondary",
+          "label": "第2次検定（学科記述・経験記述・直前対策）",
+          "slugs": [
+            "secondary-written-questions-guide",
+            "secondary-last-two-weeks-plan",
+            "secondary-grading-and-partial-credit"
+          ]
         }
       ]
     },
@@ -242,6 +251,33 @@
         "guide-overview",
         "guide-study-plan",
         "guide-after-pass"
+      ]
+    },
+    "fields": {
+      "title": "科目別対策",
+      "description": "基礎・適性・専門（建設部門）の出題傾向と頻出テーマを科目ごとに整理",
+      "blocks": [
+        {
+          "id": "basic",
+          "label": "基礎科目",
+          "slugs": [
+            "guide-basic-subject"
+          ]
+        },
+        {
+          "id": "aptitude",
+          "label": "適性科目",
+          "slugs": [
+            "guide-aptitude-subject"
+          ]
+        },
+        {
+          "id": "construction",
+          "label": "専門科目（建設部門）",
+          "slugs": [
+            "guide-construction-subject"
+          ]
+        }
       ]
     }
   },
@@ -551,7 +587,8 @@
           "label": "道路・河川構造物",
           "slugs": [
             "asphalt-pavement-control",
-            "river-park-erosion-control"
+            "river-park-erosion-control",
+            "service-commencement"
           ]
         }
       ]
