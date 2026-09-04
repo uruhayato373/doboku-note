@@ -108,7 +108,7 @@ test('Brain 同一URL上書きは単一ZIPへ限定し、成功後に同じ配�
   assert.match(unsafe.stderr, /--file/);
   const workflow = readFileSync('.github/workflows/r2-brain-dist.yml', 'utf8');
   assert.match(workflow, /overwrite == 'true'/);
-  assert.match(workflow, /r2\/buckets\/doboku-note\/domains\/custom/);
+  assert.match(workflow, /pages\/projects\/doboku-note\/domains/);
   assert.match(workflow, /zones\/\$ZONE_ID\/purge_cache/);
   assert.match(workflow, /storage\.doboku-note\.com\/brain\/dist\/\$DIST_FILE/);
 });

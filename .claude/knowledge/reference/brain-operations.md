@@ -60,7 +60,7 @@ kit repo で git archive --format=zip -o content/brain/dist/<name>-<token>.zip <
 
 ローカル移動後も R2 object key は `brain/dist/{filename}` のまま不変（DN-0103 Phase 03・`scripts/lib/repository-paths.mjs` の `BRAIN_DIST_ROOT` が唯一の root 宣言）。
 
-納品は有料エリア内の R2 リンク（リンクを知る人のみ＝Drive リンク共有と同等）。通常の版更新では**新トークンで別名**にし、本文のURLも更新する（旧URLの無効化はできないため）。公開済み配布物の誤記訂正など、既存購入者へ同一URLで修正版を届ける必要がある場合に限り、`r2-brain-dist.yml` の `file=<正確な basename>` と `overwrite=true` を指定する。上書きは単一ファイル指定が必須で、`upload-brain-dist-r2.mjs` が R2 から再取得した bytes の SHA-256 をローカルと照合できなければ失敗する。さらに workflow は R2 カスタムドメイン設定から `zoneId` を解決して当該配布URLだけを Cloudflare CDN から purge し、旧 bytes のキャッシュ残留を防ぐ。ワークツリーだけを上書きしても workflow は `main` を checkout するため、修正版 ZIP を先に commit・main へ昇格してから実行する。
+納品は有料エリア内の R2 リンク（リンクを知る人のみ＝Drive リンク共有と同等）。通常の版更新では**新トークンで別名**にし、本文のURLも更新する（旧URLの無効化はできないため）。公開済み配布物の誤記訂正など、既存購入者へ同一URLで修正版を届ける必要がある場合に限り、`r2-brain-dist.yml` の `file=<正確な basename>` と `overwrite=true` を指定する。上書きは単一ファイル指定が必須で、`upload-brain-dist-r2.mjs` が R2 から再取得した bytes の SHA-256 をローカルと照合できなければ失敗する。さらに workflow は Pages のカスタムドメイン設定から同一ゾーンの `zone_tag` を解決して当該配布URLだけを Cloudflare CDN から purge し、旧 bytes のキャッシュ残留を防ぐ。ワークツリーだけを上書きしても workflow は `main` を checkout するため、修正版 ZIP を先に commit・main へ昇格してから実行する。
 
 ## 3. 出品フロー（`/brain-publish`）
 
