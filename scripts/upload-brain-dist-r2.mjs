@@ -46,7 +46,7 @@ if (!dryRun && (!ACCOUNT_ID || !KEY_ID || !SECRET)) {
 }
 
 const TYPES = { '.zip': 'application/zip', '.pdf': 'application/pdf' };
-const OVERWRITE_CACHE_CONTROL = 'no-cache, no-store, must-revalidate';
+const DISTRIBUTION_CACHE_CONTROL = 'no-cache, no-store, must-revalidate';
 
 if (!existsSync(DIST)) { console.log('dist ディレクトリなし。終了'); process.exit(0); }
 let files = readdirSync(DIST).filter((f) => TYPES[extname(f)] && statSync(join(DIST, f)).isFile());
@@ -75,7 +75,7 @@ for (const f of files) {
     Bucket: BUCKET, Key: key,
     Body: localBytes,
     ContentType: TYPES[extname(f)],
-    ...(overwrite ? { CacheControl: OVERWRITE_CACHE_CONTROL } : {}),
+    CacheControl: DISTRIBUTION_CACHE_CONTROL,
   }));
   const remote = await s3.send(new GetObjectCommand({ Bucket: BUCKET, Key: key }));
   const remoteBytes = Buffer.from(await remote.Body.transformToByteArray());
@@ -84,8 +84,8 @@ for (const f of files) {
     console.error(`upload 後 sha256 不一致: ${f} local=${localSha} remote=${remoteSha}`);
     process.exit(1);
   }
-  if (overwrite && remote.CacheControl !== OVERWRITE_CACHE_CONTROL) {
-    console.error(`upload 後 Cache-Control 不一致: ${f} expected=${OVERWRITE_CACHE_CONTROL} actual=${remote.CacheControl ?? 'なし'}`);
+  if (remote.CacheControl !== DISTRIBUTION_CACHE_CONTROL) {
+    console.error(`upload 後 Cache-Control 不一致: ${f} expected=${DISTRIBUTION_CACHE_CONTROL} actual=${remote.CacheControl ?? 'なし'}`);
     process.exit(1);
   }
   console.log(`${exists ? 'overwritten' : 'uploaded'}: ${url} sha256=${localSha}`);

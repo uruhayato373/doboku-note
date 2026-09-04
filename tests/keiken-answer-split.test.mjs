@@ -114,5 +114,5 @@ test('Brain 同一URL上書きは単一ZIPへ限定し、no-store と可能な�
   assert.match(workflow, /storage\.doboku-note\.com\/brain\/dist\/\$DIST_FILE/);
   const uploader = readFileSync('scripts/upload-brain-dist-r2.mjs', 'utf8');
   assert.match(uploader, /no-cache, no-store, must-revalidate/);
-  assert.match(uploader, /remote\.CacheControl !== OVERWRITE_CACHE_CONTROL/);
+  assert.match(uploader, /remote\.CacheControl !== DISTRIBUTION_CACHE_CONTROL/);
 });
