@@ -818,8 +818,9 @@ R2 でも同型が起きた。`rclone lsd obsidian-r2:` が空を返したので
 **その remote から見えていないだけ**と分かった（`CLOUDFLARE_ACCOUNT_ID` と rclone の endpoint が別アカウント）。
 見えない環境から「無い」と結論しない。
 
-## 2026-09-03 GSC と GA4 の検索流入が 60 倍乖離している（原因未確定・診断中）
+## 2026-09-03 GSC と GA4 の検索流入が 60 倍乖離した（2026-09-04 原因確定）
 
-- **事象**: GSC 日次合計（`gsc-date-2026-08-28`・次元 date・匿名化で落ちない）は 8 日で 30 クリック（約 4/日）。同時期の GA4 は 1 日 366〜387 セッション、28 日の Organic Search 4,869 セッション（約 175/日）。プロパティは `sc-domain:doboku-note.com` と GA4 `properties/419382901`。
-- **読み方**: どちらかが「別のもの」を数えている。候補は (1) GA4 プロパティが別ホスト名（同一 GA4 タグを共有するサイト）を含む、(2) GA4 の Organic Search が bot/AI クローラを含む、(3) GSC 側のプロパティ設定・データ遅延。`fetch-metrics.yml` に GA4 `hostName` 次元の週次取得を足した（2026-09-03）。次回以降 `ga4-hostName-*.json` を見て (1) を先に潰す。
-- **禁止**: 原因が確定するまで、GSC のクリック数を「検索流入の実数」として NSM や前年同期比に使わない。`record-monthly-snapshot` は `gsc-query-*`（匿名化クエリが落ち 28 日で 7 クリックになる）ではなく `gsc-date-*` を合計するよう変更済み。
+- **事象**: GSC 日次合計は 8 日で 42 クリック（約5.3/日）なのに対し、GA4 の Organic Search は28日で6,224セッション（約222/日）だった。プロパティは `sc-domain:doboku-note.com` と GA4 `properties/419382901`。
+- **原因**: 比較対象の範囲が違った。GSC は Google 検索のみ、GA4 の Organic Search は Bing・Yahoo 等も含む。2026-08-21〜09-03 の GA4 source 別監査では Bing 2,683 users、Google 82 usersで、Googleだけなら約5.9 users/日となりGSCの約5.3 clicks/日と同程度だった。Bing は99.5%が国内・engagement 71.3%で、既存のbot判定にも該当しない。
+- **切り分け**: hostName 別28日値は `doboku-note.com` 7,539 sessions、`localhost` 732、`127.0.0.1` 1。ローカル混入は全体の8.9%で、40倍超の差の主因ではない。GSCプロパティも意図どおり `sc-domain:doboku-note.com` だった。
+- **恒久ルール**: NSMは従来どおりGA4 Organic Search の activeUsers（全検索エンジン）を使う。GSC clicks はGoogle検索の露出・CTR診断に限定し、GA4 Organic Search 全体と同じ母数として比較しない。Google流入だけを照合するときは GA4 `sessionSource=google` と比較する。

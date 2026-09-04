@@ -66,15 +66,6 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-data -- --dimension date
 
-      # 診断: GSC の日次クリック（約 4/日・gsc-date）と GA4 の Organic Search（約 250 セッション/日）が
-      # 60 倍乖離している（2026-09-03 監査）。GA4 プロパティが別ホスト名の計測を含んでいないかを
-      # hostName 次元で毎週残す。乖離の原因が確定するまで削らない。
-      - name: Fetch GA4 (hostName, GSC/GA4 乖離の診断)
-        env:
-          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
-          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
-        run: npm run fetch-ga4-data -- --dimension hostName --days 28 --limit 20
-
       # 週次レビュー(オフライン)用: クリーンな7日窓の Organic Search スナップショット。
       # 既定の channel フェッチは28日窓のため WoW にならない。これは ga4-channel-organic-*.json として出力され、
       # weekly-review のオフライン経路が最新2ファイルで NSM の週次比較を算出する。

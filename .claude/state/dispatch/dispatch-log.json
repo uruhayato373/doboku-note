@@ -367,6 +367,18 @@
       "commit": null,
       "verification": "npm run audit-repo-assets; git count-objects -vH; baseline commit 9171e54bf 以降の tree size 差分集計",
       "note": "2026-08-29基準1.03GiB→1.05GiB（約20MiB/6日、目標10MB/週以下を超過）。新規 seo-meta 時系列JSON 11件・約13MiBが主な回避可能要因。結果と対策をDN-0155へ引き継いだ"
+    },
+    {
+      "id": "DN-0161",
+      "at": "2026-09-04",
+      "task": "GSC と GA4 の検索流入が 60 倍乖離している原因を確定する",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null,
+      "verification": "GitHub Actions run 33858548034; ga4-hostName-2026-09-04T09-32-39.json; bot-audit-2026-09-04T09-34-29.json; gsc-date-2026-09-04T09-32-44.json",
+      "note": "原因は母数差。GSCはGoogle検索のみ、GA4 Organic Searchは全検索エンジンで、GA4はBing 2,683 users/14日が支配的。Google 82 users/14日とGSC 42 clicks/8日は日次規模がほぼ一致。恒久ルールをmeasurement-incidentsへ記録し、診断専用hostName週次取得を撤去"
     }
   ]
 }
