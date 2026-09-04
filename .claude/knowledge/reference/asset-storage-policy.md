@@ -295,6 +295,7 @@ cache は `.local/cache/assets/`（Git 非追跡）。最終アクセス時刻�
 | private `coconala/assets/` | 59（28.3MB） | 台帳 `coconala-asset` | `asset-hydrate --group coconala-asset` |
 | private `archive/repo/` | 13（27.0MB） | 台帳 `repo-archive` | `asset-hydrate --group repo-archive` |
 | private `kindle/dist/` | 76（56.8MB） | Git ＋ 台帳 `kindle-dist`（バックアップのみ） | 通常は Git。R2 は `asset-hydrate --group kindle-dist`（バックアップ確認用） |
+| private `video/render/` | 動画ごとに変動 | 台帳 `video-render-artifact` | `asset-hydrate --group video-render-artifact` |
 | public `posts/` | 5,234 | **Git**（`content/site/**`） | `upload-images-r2` が一方向で同期。配信コピーなので台帳不要 |
 | public `posts/`（ogp.png） | 1,166（607.2MB） | 台帳 `site-ogp-png` | `asset-hydrate --group site-ogp-png` |
 | public `note/covers/` | 813 | 台帳 `note-cover-png` | `asset-hydrate` |

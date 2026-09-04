@@ -170,6 +170,24 @@
       "phase": "DN-0116"
     },
     {
+      "id": "video-render-artifact",
+      "match": {
+        "pathRegex": "^\\.tmp/video-render/(?!verify-frames/)[^/]+/.+\\.(png|wav|ass|mp4|json)$"
+      },
+      "bucket": "private",
+      "keyPrefix": "video/render/",
+      "keyFrom": "stripPrefix:.tmp/video-render/",
+      "visibilityFrom": "fixed:private",
+      "regenerable": true,
+      "generator": "npm run render-longform -- --pack-dir content/sns/video-packs/{exam}/{packId}",
+      "requiredBy": [
+        "video-content-qa（公開前の映像・音声・字幕確認）",
+        "YouTube通常動画の公開処理"
+      ],
+      "reason": "通常動画pilotのmp4・wav・ASS・レンダリングframe。公開承認前の制作物なのでpublicへ出さずprivate R2へ退避し、manifestのsha256を再取得経路の真実源にする。",
+      "phase": "DN-0110"
+    },
+    {
       "id": "legacy-r2-orphan",
       "match": {
         "pathRegex": "^\\.local/archive/legacy-r2/.+$"

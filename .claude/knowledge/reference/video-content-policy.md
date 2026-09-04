@@ -15,7 +15,7 @@ title: 動画コンテンツ運用ポリシー
 | 制作意図・台本 | `content/sns/video-packs/{exam}/{slug}/` | manifest、script、storyboard、thumbnail spec |
 | 派生制作物 | 既存の `content/sns/{instagram,x,youtube}/` | 各チャネルpolicyに従う入力 |
 | 公開・照合状態 | `.claude/state/video-content-status.json` | URL、videoId、status、計測鮮度 |
-| 再生成可能バイナリ | R2 | mp4、wav、字幕、frame、生成済み画像 |
+| 再生成可能バイナリ | private R2（公開後も公開用オブジェクトとは分離） | mp4、wav、字幕、frame、生成済み画像 |
 | 戦略・判断 | `docs/marketing/06_動画コンテンツ運用設計.md` | 優先順位、KPI、段階実装 |
 
 制作意図と可変状態を同じJSONに保存しない。既存 `.claude/state/youtube-schedule.json` はShorts投稿台帳として残し、reconcileで共通statusへjoinする。
@@ -95,7 +95,15 @@ title: 動画コンテンツ運用ポリシー
 
 Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺を混同しない。推奨尺はフォーマット別policyに置く。
 
-16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure', heading, items[], src? }` で持ち、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は Mac または GitHub Actions で同コマンドを完走させる。
+16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure', heading, items[], src? }` で持ち、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・WAV・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は Mac または GitHub Actions で同コマンドを完走させる。
+
+完成したバイナリは `video-render-artifact` group としてprivate R2へ退避する。未公開動画をpublicバケットへ置かない。既定dry-runで対象を確認してからuploadし、bytesとSHA-256の読み戻し検証を通った実体だけをmanifestへ記録する。復元は同じgroupを指定する。
+
+```bash
+node scripts/asset-offload.mjs --group video-render-artifact --include-untracked
+node scripts/asset-offload.mjs --group video-render-artifact --include-untracked --commit
+node scripts/asset-hydrate.mjs --group video-render-artifact
+```
 
 ## 5. 状態モデル
 

@@ -137,7 +137,13 @@ function main() {
   const scan = { walked: 0, matched: 0, tracked: 0, offloaded: 0, orphan: 0, hashed: 0, hashSkipped: 0, stale: 0 };
   const groups = (cfg.groups || []).map((g) => ({ g, re: new RegExp(g.match.pathRegex) }));
   if (groups.length) {
-    const stack = [join(REPO_ROOT, 'content')];
+    // 通常の制作物は content/、16:9動画の重い生成物だけは .tmp/video-render/ に置く。
+    // 後者を走査しないと video-render-artifact group を追加しても、offload 忘れが
+    // ローカル限定のまま無言で残るため、明示的に監視対象へ含める。
+    const stack = [
+      join(REPO_ROOT, 'content'),
+      join(REPO_ROOT, '.tmp', 'video-render'),
+    ];
     while (stack.length) {
       const dir = stack.pop();
       let ents = [];

@@ -42,6 +42,9 @@ test('groupFor: パスから所属グループを引ける（他グループを�
   assert.equal(groupFor('content/note/技術士総監/x/pdf/a.pdf', CFG).id, 'note-delivery-pdf');
   assert.equal(groupFor('content/sources/textbook/主任技師2022/img/p1.png', CFG).id, 'textbook-page-image');
   assert.equal(groupFor('content/sns/instagram/cem/pack/img/01.png', CFG).id, 'ig-rendered-image');
+  assert.equal(groupFor('.tmp/video-render/sample/video.mp4', CFG).id, 'video-render-artifact');
+  assert.equal(groupFor('.tmp/video-render/sample/wav/00-cover.wav', CFG).id, 'video-render-artifact');
+  assert.equal(groupFor('.tmp/video-render/verify-frames/contact-sheet.png', CFG), null);
   // 対象外は null。サイト記事の図版や原稿を巻き込まない。
   assert.equal(groupFor('content/site/civil-construction-1/guide-x/img/fig.png', CFG), null);
   assert.equal(groupFor('content/note/技術士総監/x/article.md', CFG), null);
@@ -55,6 +58,9 @@ test('r2Key: stripPrefix でキーからリポジトリ内パスの重複が消�
 
   const tb = r2KeyFor('content/sources/textbook/主任技師2022/img/p1.png', groupById('textbook-page-image'));
   assert.equal(tb, 'textbook/主任技師2022/img/p1.png', '既存 rclone 運用のキー体系と一致すること');
+
+  const video = r2KeyFor('.tmp/video-render/sample/video.mp4', groupById('video-render-artifact'));
+  assert.equal(video, 'video/render/sample/video.mp4', 'ローカル一時ディレクトリ名をR2キーへ重複させない');
 });
 
 test('r2Key: stripPrefix に合わないパスは黙って通さず例外にする', () => {
@@ -83,6 +89,10 @@ test('visibility: fixed:private のグループは常に private バケットへ
   const g = groupById('note-delivery-pdf');
   assert.equal(visibilityFor('content/note/a/pdf/x.pdf', g), 'private');
   assert.equal(bucketForFile('content/note/a/pdf/x.pdf', g), 'private');
+
+  const video = groupById('video-render-artifact');
+  assert.equal(visibilityFor('.tmp/video-render/sample/video.mp4', video), 'private');
+  assert.equal(bucketForFile('.tmp/video-render/sample/video.mp4', video), 'private');
 });
 
 test('visibility: IG は status.json の入れ子スキーマを読む（トップレベルだけ見ない）', () => {
