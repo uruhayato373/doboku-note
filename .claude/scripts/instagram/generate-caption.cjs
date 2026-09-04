@@ -180,6 +180,23 @@ if (Array.isArray(cta?.related) && cta.related.length > 0) {
 // ハッシュタグ（v5 §252-255: 大3 + 中5 + 小ニッチ7 = 15 個）
 // 試験別に切替（_meta.exam）。総監（exam 未設定）は従来セットを維持。
 const HASHTAG_SETS = {
+  "pe-first-stage": [
+    "#技術士",
+    "#資格勉強",
+    "#国家資格",
+    "#技術士第一次試験",
+    "#技術士一次試験",
+    "#技術士補",
+    "#建設部門",
+    "#過去問",
+    "#基礎科目",
+    "#適性科目",
+    "#専門科目",
+    "#2026年受験",
+    "#社会人勉強垢",
+    "#土木技術者",
+    "#建設技術者",
+  ],
   "civil-1": [
     // 大（発見性）
     "#資格勉強",
@@ -241,7 +258,16 @@ const HASHTAG_SETS = {
     "#総監キーワード",
   ],
 };
-const hashtags = HASHTAG_SETS[_meta?.exam] || HASHTAG_SETS.default;
+let hashtags = HASHTAG_SETS[_meta?.exam] || HASHTAG_SETS.default;
+if (_meta?.exam === "pe-first-stage" && _meta?.subject) {
+  const subjectTags = {
+    basic: "#基礎科目",
+    aptitude: "#適性科目",
+    construction: "#専門科目",
+  };
+  const activeSubjectTag = subjectTags[_meta.subject];
+  hashtags = hashtags.filter((tag) => !Object.values(subjectTags).includes(tag) || tag === activeSubjectTag);
+}
 
 lines.push(hashtags.join(" "));
 

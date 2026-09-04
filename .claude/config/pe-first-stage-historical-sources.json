@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "exam": "pe-first-stage",
+  "officialIndex": "https://www.engineer.or.jp/c_categories/index02021.html",
+  "answerIndex": "https://www.engineer.or.jp/c_topics/004/004106.html",
+  "scope": "平成25〜30年度・基礎科目／適性科目／専門科目（建設部門）",
+  "expectedQuestionsPerYear": 80,
+  "conversionNote": "問題PDFは画像主体のためOCR＋原典目視突合が必要。正答はH23〜H30合冊PDFを年度・科目・建設部門で照合する。原典突合前の問題・正答は公開しない。",
+  "answerSource": {
+    "file": "h23-h30-answers.pdf",
+    "url": "https://www.engineer.or.jp/c_topics/004/attached/attach_4106_12.pdf",
+    "sha256": "6c9ab4987ca4de9247a903b62c967baa6475fcb091ef179352400328e7dfc683",
+    "pages": 176
+  },
+  "years": {
+    "h25": {
+      "basic": { "file": "h25-basic.pdf", "url": "https://www.engineer.or.jp/c_topics/007/attached/attach_7458_1.pdf", "sha256": "20f3dee6674342d80b085979efa0b843c276ad96e0062def058bf8112723cf74", "pages": 22 },
+      "aptitude": { "file": "h25-aptitude.pdf", "url": "https://www.engineer.or.jp/c_topics/007/attached/attach_7458_2.pdf", "sha256": "dfe1929d9e92bd20858580cbef556579c81ecc182af8db51c4d525ad461c523e", "pages": 17 },
+      "construction": { "file": "h25-construction.pdf", "url": "https://www.engineer.or.jp/c_topics/007/attached/attach_7458_11.pdf", "sha256": "1f3f35bfc4d0dd7686e7dcbd2976672f3508a3457865996fe5dc17445538bd81", "pages": 18 }
+    },
+    "h26": {
+      "basic": { "file": "h26-basic.pdf", "url": "https://www.engineer.or.jp/c_topics/007/attached/attach_7460_1.pdf", "sha256": "4c0e2df34ffb080a320049d9af5cde5e4b962e71b38dc497c1c3432ddc2ecb2f", "pages": 18 },
+      "aptitude": { "file": "h26-aptitude.pdf", "url": "https://www.engineer.or.jp/c_topics/007/attached/attach_7460_2.pdf", "sha256": "5691e940fce3cbf9423bc99a96803c1c6273563931b76b91bdb9f2b67e6233d3", "pages": 15 },
+      "construction": { "file": "h26-construction.pdf", "url": "https://www.engineer.or.jp/c_topics/007/attached/attach_7460_11.pdf", "sha256": "913c18b9bcc26acc21039198e4bab64b9296879962fbd72e867a22725909d374", "pages": 18 }
+    },
+    "h27": {
+      "basic": { "file": "h27-basic.pdf", "url": "https://www.engineer.or.jp/c_topics/007/attached/attach_7462_1.pdf", "sha256": "cfa427e716c21b364ae9cbe3c9c2f693ceecebb38b7a0962b05bd13c883b2039", "pages": 18 },
+      "aptitude": { "file": "h27-aptitude.pdf", "url": "https://www.engineer.or.jp/c_topics/007/attached/attach_7462_2.pdf", "sha256": "2965cecde9e4c31c06a94192bf7a750346fbf85d07d37943d58a3fa15d15ebeb", "pages": 16 },
+      "construction": { "file": "h27-construction.pdf", "url": "https://www.engineer.or.jp/c_topics/007/attached/attach_7462_11.pdf", "sha256": "13845642b955576fa105e313ec18574060a3f60d8c6d5648b35c28c137c633e1", "pages": 18 }
+    },
+    "h28": {
+      "basic": { "file": "h28-basic.pdf", "url": "https://www.engineer.or.jp/c_topics/004/attached/attach_4717_1.pdf", "sha256": "baf501c88349587471f9aceb24093b82108c1bfa0f7ecd0f7e57e14d01cf4724", "pages": 24 },
+      "aptitude": { "file": "h28-aptitude.pdf", "url": "https://www.engineer.or.jp/c_topics/004/attached/attach_4717_2.pdf", "sha256": "2960d5ff16afaa394186362bb969ee236511012ee2819db45847199af58b073c", "pages": 16 },
+      "construction": { "file": "h28-construction.pdf", "url": "https://www.engineer.or.jp/c_topics/004/attached/attach_4717_11.pdf", "sha256": "eeea91777f0e07e062de282b14b7ac6d4ec11ac77b39625610b2525a0d821667", "pages": 17 }
+    },
+    "h29": {
+      "basic": { "file": "h29-basic.pdf", "url": "https://www.engineer.or.jp/c_topics/005/attached/attach_5370_1.pdf", "sha256": "44af5abdd64f1e4abbd8daae537c8da12de87fef792e54288f8f2578a974d7bb", "pages": 20 },
+      "aptitude": { "file": "h29-aptitude.pdf", "url": "https://www.engineer.or.jp/c_topics/005/attached/attach_5370_2.pdf", "sha256": "4014afcc66cec6978c2bc161d9e296dbf5de68ccf2420af006416ab3cca99ce0", "pages": 14 },
+      "construction": { "file": "h29-construction.pdf", "url": "https://www.engineer.or.jp/c_topics/005/attached/attach_5370_11.pdf", "sha256": "2f36ad8e4794b21476ad3f508466ee1875180dbf1e4be7aae88d6e724ab67ec9", "pages": 16 }
+    },
+    "h30": {
+      "basic": { "file": "h30-basic.pdf", "url": "https://www.engineer.or.jp/c_topics/006/attached/attach_6113_1.pdf", "sha256": "c6963164384b53726843ecdf2f2a6bff7e7ca6e8a39d19faeceeaaa298548f9f", "pages": 20 },
+      "aptitude": { "file": "h30-aptitude.pdf", "url": "https://www.engineer.or.jp/c_topics/006/attached/attach_6113_2.pdf", "sha256": "9b92cd3549fc1ad21636a544978f1385f63667ff6ac0112f81e553cf2ee4b1f5", "pages": 15 },
+      "construction": { "file": "h30-construction.pdf", "url": "https://www.engineer.or.jp/c_topics/006/attached/attach_6113_11.pdf", "sha256": "2f65bc56c0711ef41efd2ae8f18d739cc9019639d1460f6a34e413e3f0f7e873", "pages": 17 }
+    }
+  }
+}

@@ -20,6 +20,7 @@ import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { pickTitleSize } from './fit-title.mjs';
+import { examColor } from '../../sns/lib/exam-palette.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const TOKENS = JSON.parse(
@@ -1149,13 +1150,21 @@ export function buildQuizAnswer({ width, height, data }) {
  * }
  */
 // CTA の色・統計を試験別に出し分け（多資格）。総監は既存 tokens 値＝差分ゼロ維持。
+const PE_FIRST_STAGE = examColor('pe-first-stage', 'deep');
 const CTA_THEME = {
   'pe-comprehensive': { bg: CTA.background, decor: CTA.decor, accent: CTA.accent, brand: BRAND.primary },
+  'pe-first-stage': {
+    bg: PE_FIRST_STAGE.use,
+    decor: PE_FIRST_STAGE.soft,
+    accent: PE_FIRST_STAGE.accent,
+    brand: PE_FIRST_STAGE.accent,
+  },
   'civil-1': { bg: '#10355F', decor: '#1B527E', accent: '#7FB8F5', brand: '#1E73C8' },
   'civil-2': { bg: '#11402C', decor: '#1C5B40', accent: '#6FCF9A', brand: '#2A7050' },
 };
 const CTA_STATS = {
   'pe-comprehensive': SLIDES.cta.stats, // 640問 / 5管理（総監固有）
+  'pe-first-stage': [{ num: '560', unit: '問', label: 'PRACTICE' }, { num: '3', unit: '科目', label: 'SUBJECTS' }],
   'civil-1': [{ num: '1162', unit: '問', label: 'PRACTICE' }, { num: '12', unit: '年度', label: 'YEARS' }],
   'civil-2': [{ num: '630', unit: '問', label: 'PRACTICE' }, { num: '10', unit: '回', label: 'EXAMS' }],
 };

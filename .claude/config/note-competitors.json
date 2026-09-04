@@ -1,5 +1,5 @@
 {
-  "_note": "note 競合クリエイターのハンドル一覧。scripts/scout-note-competitors.mjs が読む。handle = note.com/{handle} の {handle} 部分（表示名でなく urlname）。exams = sokan(総監) | pe-construction(建設部門) | pe(技術士一般) | civil(1級2級土木) | concrete-engineer(コンクリート技士) | concrete-chief(コンクリート主任技士) | concrete-diagnostician(コンクリート診断士)。1社が複数試験にまたがるのは正常（ファイル分割せず exams 配列で持つ＝重複ドリフト回避）。実行時に絞るなら scout に --exam <tag> を渡す。新規追加は note ユーザー検索 API（api/v3/searches?context=user&q=）で urlname を確認してから。真実源の分析記録は docs/strategy/09_販売チャネル競合分析.md。",
+  "_note": "note 競合クリエイターのハンドル一覧。scripts/scout-note-competitors.mjs が読む。handle = note.com/{handle} の {handle} 部分（表示名でなく urlname）。exams = sokan(総監) | pe-first-stage(技術士第一次試験) | pe-construction(建設部門) | pe(技術士一般) | civil(1級2級土木) | concrete-engineer(コンクリート技士) | concrete-chief(コンクリート主任技士) | concrete-diagnostician(コンクリート診断士)。1社が複数試験にまたがるのは正常（ファイル分割せず exams 配列で持つ＝重複ドリフト回避）。実行時に絞るなら scout に --exam <tag> を渡す。新規追加は note ユーザー検索 API（api/v3/searches?context=user&q=）で urlname を確認してから。真実源の分析記録は docs/strategy/09_販売チャネル競合分析.md。",
   "competitors": [
     { "handle": "sosou_nino",       "label": "小泉士郎",         "exams": ["sokan", "pe-construction"], "note": "最大競合。総監サブスク¥9,900/月・物量最大手（6千記事超・64マガジン）" },
     { "handle": "gijyutsushi",      "label": "技術士（論文）",    "exams": ["pe", "sokan"],              "note": "R8必須8題＋おまけ¥9,500・A判定実績訴求" },
@@ -20,6 +20,7 @@
     { "handle": "apt_lily9030",     "label": "yuri（1級土木経験記述）", "exams": ["civil"],               "note": "2026-07-20 検索『土木施工管理技士 経験記述』で発掘。1級土木経験記述¥980・3マガジン" },
     { "handle": "fine_takumi296",   "label": "匠習作（技術士Lock-On）", "exams": ["pe", "sokan"],         "note": "2026-07-20 検索『技術士二次試験』で発掘。1016F・76記事。note本体は無料でロックオン講座(有料通信)へ誘導＝07 YouTube競合と同一主体" },
     { "handle": "i_love_concrete",  "label": "RIKISEI",                 "exams": ["concrete-engineer"],    "note": "コンクリート技士の勉強法＋PDF/Excel教材を¥1,000で販売。資格・実務経験と『理解優先』を訴求" },
-    { "handle": "gosharub",         "label": "ゴーシャ",                 "exams": ["concrete-chief", "concrete-diagnostician"], "note": "主任技士2023合格再現論文＋2019〜2023解答例¥2,000〜、診断士再現論文¥500〜" }
+    { "handle": "gosharub",         "label": "ゴーシャ",                 "exams": ["concrete-chief", "concrete-diagnostician"], "note": "主任技士2023合格再現論文＋2019〜2023解答例¥2,000〜、診断士再現論文¥500〜" },
+    { "handle": "20260729",         "label": "技術者の教室",              "exams": ["pe-first-stage"], "note": "2026-09-04発掘。技術士一次のブラウザ問題集¥1,180（過去問495問＋自作450問）と適性科目テーマ分析を販売" }
   ]
 }

@@ -133,7 +133,8 @@ for (const file of files) {
     if (post.funnel === "site" && post.target) {
       const url = new URL(post.target);
       const slug = url.pathname.replace(/^\/docs\//, "");
-      if (!docs.has(slug)) errors.push(`${label}: サイトslugが存在しない ${slug}`);
+      const staticPage = join("src/app", url.pathname.replace(/^\//, ""), "page.tsx");
+      if (!docs.has(slug) && !existsSync(staticPage)) errors.push(`${label}: サイトパスが存在しない ${url.pathname}`);
       for (const key of ["utm_source", "utm_medium", "utm_campaign", "utm_content"]) {
         if (!url.searchParams.get(key)) errors.push(`${label}: ${key}がない`);
       }

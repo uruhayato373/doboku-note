@@ -1,0 +1,310 @@
+{
+  "_meta": {
+    "exam": "pe-first-stage",
+    "examDir": "技術士一次",
+    "year": "r07",
+    "packNum": "03",
+    "fmtLabel": "基礎科目 過去問",
+    "subject": "basic",
+    "subjectLabel": "基礎科目",
+    "source": "public/quiz/pe-first-stage.json"
+  },
+  "slides": [
+    {
+      "type": "cover",
+      "title": "令和7年度",
+      "subtitle": "基礎科目 過去問",
+      "sectionTag": "過去問",
+      "pageIndex": 1,
+      "totalPages": 10
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "次のうち、標的型攻撃に対する有効な対策として、最も不適切なものは",
+        "どれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "標的型攻撃の対策は、複数の対策を多層的に組合せて防御する。"
+        },
+        {
+          "num": 2,
+          "text": "あらかじめ組織内に連絡する窓口を設け、利用者が標的型攻撃メールを受信した際の連絡先として周知させる。"
+        },
+        {
+          "num": 3,
+          "text": "あらかじめシステムや実行ポリシーで、利用者の環境で実行可能なファイルを制限しておく。"
+        },
+        {
+          "num": 4,
+          "text": "標的型攻撃を受けた場合には、攻撃の手口を積極的に複数の組織間で共有することで、より多くの攻撃事例で攻撃対策を行うことができる。"
+        },
+        {
+          "num": 5,
+          "text": "自組織でメールに添付されたファイルの安全性を確認するために、オンラインで提供されるウイルス検査やサンドボックスのサービスを積極に活用することが望ましい。"
+        }
+      ],
+      "qNum": 1,
+      "totalQ": 4
+    },
+    {
+      "type": "answer",
+      "correctNum": 5,
+      "correctText": "標的型攻撃対策",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "correct": true,
+          "text": "多層的に組み合わせて防御する多重防御は適切"
+        },
+        {
+          "num": 2,
+          "correct": true,
+          "text": "連絡窓口を設け周知させる体制整備は適切"
+        },
+        {
+          "num": 3,
+          "correct": true,
+          "text": "実行可能ファイルを制限し被害を抑える対策は適切"
+        },
+        {
+          "num": 4,
+          "correct": true,
+          "text": "攻撃の手口を組織間で共有し対策に活かすことは適切"
+        },
+        {
+          "num": 5,
+          "correct": false,
+          "text": "機密ファイルを外部のオンラインサービスに無制限にアップロードして検査すると情報漏えいのリスクがあり、「積極に活用することが望ましい」とするのは不適切で最も不適切"
+        }
+      ],
+      "pointText": "標的型攻撃対策は多層防御・体制整備・情報共有が基本。機密の外部送信は禁物",
+      "qNum": 1,
+      "totalQ": 4,
+      "sourceQuestionId": "r07-basic-ⅰ-2-4",
+      "articlePath": "/exam/pe-first-stage/primary/r07-basic"
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "次の物質のうち、下線を付した原子の酸化数が最大なものとして、最も",
+        "適切なものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "H₂ S O₄"
+        },
+        {
+          "num": 2,
+          "text": "Mn O₄⁻"
+        },
+        {
+          "num": 3,
+          "text": "Cr ₂O₇²⁻"
+        },
+        {
+          "num": 4,
+          "text": "H N O₃"
+        },
+        {
+          "num": 5,
+          "text": "N O₂"
+        }
+      ],
+      "qNum": 2,
+      "totalQ": 4
+    },
+    {
+      "type": "answer",
+      "correctNum": 2,
+      "correctText": "酸化数",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "correct": false,
+          "text": "S は +6 で最大ではないため誤り"
+        },
+        {
+          "num": 2,
+          "correct": true,
+          "text": "Mn は +7 で最大であり正しい"
+        },
+        {
+          "num": 3,
+          "correct": false,
+          "text": "Cr は +6 で最大ではないため誤り"
+        },
+        {
+          "num": 4,
+          "correct": false,
+          "text": "N は +5 で最大ではないため誤り"
+        },
+        {
+          "num": 5,
+          "correct": false,
+          "text": "N は +4 で最大ではないため誤り"
+        }
+      ],
+      "pointText": "酸化数は酸素−2・水素+1を基準に全体の電荷から逆算する",
+      "qNum": 2,
+      "totalQ": 4,
+      "sourceQuestionId": "r07-basic-ⅰ-4-1",
+      "articlePath": "/exam/pe-first-stage/primary/r07-basic"
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "希薄水溶液中における酸の強さ（酸性度）に関する次の（ア）〜（エ）",
+        "の記述について、正しいものの組合せとして、最も適切なものはどれか",
+        "。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "ア、イ"
+        },
+        {
+          "num": 2,
+          "text": "ア、ウ"
+        },
+        {
+          "num": 3,
+          "text": "イ、ウ"
+        },
+        {
+          "num": 4,
+          "text": "イ、エ"
+        },
+        {
+          "num": 5,
+          "text": "ウ、エ"
+        }
+      ],
+      "lists": [
+        {
+          "label": "記述",
+          "items": [
+            "（ア）フッ化水素の酸性度は、塩化水素の酸性度より高い。",
+            "（イ）トリフルオロ酢酸の酸性度は、酢酸の酸性度より高い。",
+            "（ウ）エタノールの酸性度は、酢酸の酸性度より低い。",
+            "（エ）フェノールの酸性度は、エタノールの酸性度より低い。"
+          ]
+        }
+      ],
+      "qNum": 3,
+      "totalQ": 4
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "希薄水溶液中における酸の強さ（酸性度）",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "correct": false,
+          "text": "アが誤りのため誤り"
+        },
+        {
+          "num": 2,
+          "correct": false,
+          "text": "アが誤りのため誤り"
+        },
+        {
+          "num": 3,
+          "correct": true,
+          "text": "イ・ウで正しい"
+        },
+        {
+          "num": 4,
+          "correct": false,
+          "text": "エが誤りのため誤り"
+        },
+        {
+          "num": 5,
+          "correct": false,
+          "text": "エが誤りのため誤り"
+        }
+      ],
+      "pointText": "酸性度の序列：トリフルオロ酢酸＞酢酸＞フェノール＞エタノール、HCl＞HF",
+      "qNum": 3,
+      "totalQ": 4,
+      "sourceQuestionId": "r07-basic-ⅰ-4-2",
+      "articlePath": "/exam/pe-first-stage/primary/r07-basic"
+    },
+    {
+      "type": "problem",
+      "bodyLines": [
+        "金属材料に関する次の記述のうち、最も不適切なものはどれか。"
+      ],
+      "options": [
+        {
+          "num": 1,
+          "text": "硫黄を質量分率で0.3%含有する鋼材は、硫黄を質量分率で0.005%含有する鋼材に比べ被削性に優れる。"
+        },
+        {
+          "num": 2,
+          "text": "体心立方構造を持つ金属は、結晶の単位胞に含まれる原子の数が2個である。"
+        },
+        {
+          "num": 3,
+          "text": "鋼材は、結晶粒を粗大化させることによって、強度を向上させることができる。"
+        },
+        {
+          "num": 4,
+          "text": "加工硬化した金属材料を加熱し再結晶させると、延性を増加させることができる。"
+        },
+        {
+          "num": 5,
+          "text": "シャルピー衝撃試験は、金属材料のじん性を評価することができる。"
+        }
+      ],
+      "qNum": 4,
+      "totalQ": 4
+    },
+    {
+      "type": "answer",
+      "correctNum": 3,
+      "correctText": "金属材料",
+      "optionExplanations": [
+        {
+          "num": 1,
+          "correct": true,
+          "text": "硫黄を多く含むと快削鋼となり被削性（切削しやすさ）が向上するため適切"
+        },
+        {
+          "num": 2,
+          "correct": true,
+          "text": "体心立方構造（BCC）の単位胞には角の8個×1/8＋中心1個＝2個の原子が含まれるため適切"
+        },
+        {
+          "num": 3,
+          "correct": false,
+          "text": "結晶粒を微細化すると強度が向上する（ホール・ペッチの関係）。粗大化で強度向上とするのは誤りで最も不適切"
+        },
+        {
+          "num": 4,
+          "correct": true,
+          "text": "加工硬化材を加熱し再結晶させると軟化して延性が回復・増加するため適切"
+        },
+        {
+          "num": 5,
+          "correct": true,
+          "text": "シャルピー衝撃試験は材料のじん性（衝撃に対する粘り強さ）を評価する試験で適切"
+        }
+      ],
+      "pointText": "結晶粒は微細化すると強度向上（ホール・ペッチ）。粗大化では強度は下がる",
+      "qNum": 4,
+      "totalQ": 4,
+      "sourceQuestionId": "r07-basic-ⅰ-4-3",
+      "articlePath": "/exam/pe-first-stage/primary/r07-basic"
+    },
+    {
+      "type": "cta",
+      "pageIndex": 10,
+      "totalPages": 10
+    }
+  ]
+}

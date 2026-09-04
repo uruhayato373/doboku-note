@@ -43,6 +43,7 @@ const DEFAULT_COLORS = { bg: "#2e6da4", fill: "#e8f0fe" };
 // civil-2 #1c5038 は tokens の deep と同値なので、移行しても出力は変わらない）。
 // fill は各試験色の淡色。tokens に淡色系の枠が無いので、deep から算出せず明示定義する。
 const EXAM_FILL = {
+  "pe-first-stage": "#e9eaf3",
   "civil-1": "#e7f0fa",
   "civil-2": "#e8f3ec",
   "concrete-chief": "#e4f1f1",
@@ -53,6 +54,7 @@ const examColors = (slug) => ({ bg: examColor(slug, "deep").use, fill: EXAM_FILL
 
 const EXAM_CONFIG = {
   "pe-comprehensive": { headerLabel: "総監キーワード解説", titleRe: /【総監キーワード解説】(.+?) ?#\d+/, badge: null, colors: null },
+  "pe-first-stage": { headerLabel: "技術士一次 過去問", titleRe: /【技術士一次 過去問】(.+?) ?#\d+/, badge: "第一次試験", colors: examColors("pe-first-stage") },
   "civil-1": { headerLabel: "1級土木 過去問", titleRe: /【1級土木 過去問】(.+?) ?#\d+/, badge: "1級土木", colors: examColors("civil-1") },
   "civil-2": { headerLabel: "2級土木 過去問", titleRe: /【2級土木 過去問】(.+?) ?#\d+/, badge: "2級土木", colors: examColors("civil-2") },
   // 正式名称は「コンクリート主任技士」（技師ではない）。exam-calendar.json の policy 参照。
@@ -66,6 +68,7 @@ const EXAM_CONFIG = {
 // **未知を黙って総監にしない**（2026-08-13 まで concrete/建設部門のドラフトが総監カードとして
 // 誤生成されていた＝別資格の色のまま出る事故）。
 const EXAM_PATTERNS = [
+  ["pe-first-stage", /pe-first-stage|pe1|技術士一次|技術士第一次試験/],
   ["concrete-chief", /concrete-chief|コンクリート主任技[士師]|主任技[士師]/],
   ["concrete-diagnosis", /concrete-diag|コンクリート診断士|診断士/],
   ["pe-construction", /pe-construction|pe-const|建設部門/],
@@ -144,6 +147,7 @@ function parseTweetsFile(content, folderExam = "pe-comprehensive") {
 
       const num = parseInt(headerMatch[1]);
       const sectionTitle = headerMatch[2].trim();
+      const scheduleMatch = sectionTitle.match(/^(\d{1,2}\/\d{1,2})\s+(\d{2}:\d{2})\s+[^/]+\s+\/\s+([^/]+?)\s+\/\s+(.+)$/u);
 
       // 1日3本体制では1ドラフトに複数資格が混ざる（例: 朝=1級・昼=主任技士・夜=総監）。
       // 資格は**ツイート見出し単位**で判定し、書かれていなければフォルダ既定を使う。
@@ -175,10 +179,16 @@ function parseTweetsFile(content, folderExam = "pe-comprehensive") {
         exam !== "pe-comprehensive" && !kwMatch && allText.includes("#経験記述")
           ? `${cfg.badge} 経験記述`
           : cfg.headerLabel;
-      const displaySectionTitle =
+      let displaySectionTitle =
         exam !== "pe-comprehensive" && allText.includes("#経験記述")
           ? "施工経験記述のコツ"
           : sectionTitle.replace(/\s*[（(][^）)]*[）)]\s*$/, "");
+      if (scheduleMatch && exam !== 'pe-comprehensive') {
+        const baseTags = new Set(['#技術士', '#技術士第一次試験']);
+        const topicTag = (allText.match(/#[^\s#]+/gu) || []).find((tag) => !baseTags.has(tag));
+        keywordName = scheduleMatch[3].trim();
+        displaySectionTitle = `${scheduleMatch[1]} ${scheduleMatch[2]}${topicTag ? `・${topicTag.slice(1)}` : ''}`;
+      }
 
       // 本文コンテンツ（先頭ヘッダ行・URL・ハッシュタグ・区切り線を除外）
       const contentLines = lines.slice(1)
@@ -207,7 +217,7 @@ function parseTweetsFile(content, folderExam = "pe-comprehensive") {
           .replace(/[（(][^）)]*[）)]\s*$/, "")
           .trim();
       }
-      if (exam !== "pe-comprehensive" && contentLines[0]) {
+      if (!scheduleMatch && exam !== "pe-comprehensive" && contentLines[0]) {
         const firstSentence = contentLines[0].split("。")[0];
         const focusMatch =
           firstSentence.match(/最初に迷うのが(.+)$/) ||

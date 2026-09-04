@@ -28,6 +28,7 @@ const ROOT = join(__dirname, "..");
 // （生成: .claude/scripts/sns/generate-civil-theme-packs.mjs ＋ render-civil-theme-packs.mjs）。
 const EXAM_DIRS = {
   cem:      "cem/exam-packs",
+  "pe-first-stage": "pe-first-stage/exam-packs",
 };
 const examKey = process.argv.find((a) => a.startsWith("--exam="))?.split("=")[1] || "cem";
 const BASE = join(ROOT, "content/sns/instagram", EXAM_DIRS[examKey] ?? EXAM_DIRS.cem);
@@ -78,7 +79,7 @@ if (!skipLint) {
   if (existsSync(lintScript)) {
     const lintTarget = yearArg || (onlyList && onlyList[0]?.replace(/^(.+?)-pack-(\d+)$/, "$1/pack-$2")) || "";
     try {
-      execSync(`node "${lintScript}" ${lintTarget}`, { stdio: "inherit" });
+      execSync(`node "${lintScript}" --exam=${examKey} ${lintTarget}`, { stdio: "inherit" });
     } catch (e) {
       console.error("");
       console.error("✗ pre-check (lint) で構造違反を検出。生成を中止します。");
@@ -132,7 +133,7 @@ for (let i = 0; i < allPacks.length; i++) {
     process.stdout.write(`${idx} ${id} — generating PNG...`);
     const t0 = Date.now();
     execSync(
-      `node "${IG_POST_CREATE}" --exam ${id} --size ${size}`,
+      `node "${IG_POST_CREATE}" --exam ${id} --exam-dir ${examKey} --size ${size}`,
       { cwd: ROOT, stdio: "pipe" },
     );
     process.stdout.write(` PNG OK (${((Date.now() - t0) / 1000).toFixed(1)}s)`);

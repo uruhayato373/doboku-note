@@ -5,9 +5,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "無料ツール一覧｜土木施工管理技士 受験対策",
+  title: "無料ツール一覧｜土木・技術士の試験対策",
   description:
-    "土木施工管理技士の受験対策とキャリア整理に使える無料web ツール集。施工経験記述の文字数チェッカー、受験資格チェッカー、過去問ミニ演習、経験の棚卸しツールなど、その場で使えるものをまとめています。",
+    "土木施工管理技士・技術士の受験対策とキャリア整理に使える無料Webツール集。過去問演習、施工経験記述の文字数、受験資格、経験の棚卸しなどをその場で使えます。",
   alternates: { canonical: "/tools" },
   openGraph: {
     type: "website",
@@ -20,6 +20,12 @@ export const metadata: Metadata = {
 };
 
 const TOOLS = [
+  {
+    href: "/tools/kakomon-quiz/pe-first-stage",
+    title: "技術士第一次試験 過去問 無料演習",
+    desc: "基礎・適性・専門（建設部門）の令和元〜7年度 全560問。年度別・科目別・ランダム・間違い復習、図・数式・全選択肢解説つき。",
+    tag: "演習",
+  },
   {
     href: "/tools/kakomon-quiz",
     title: "1級土木 過去問 無料演習",

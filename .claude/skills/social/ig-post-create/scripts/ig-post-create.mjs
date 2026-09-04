@@ -234,10 +234,25 @@ if (mode === 'exam') {
     process.exit(1);
   }
   const [, year, packNum] = match;
-  // 試験軸: {exam}/exam-packs/{年度}/pack-NN（全資格対称）。
-  // --exam-dir 省略時は技術士総監（既定）。多資格は 1級土木 / 2級土木 等を明示。
-  const resolvedExamDir = examDir || '技術士総監';
-  outBase = resolve(ROOT, `content/sns/instagram/cem/exam-packs/${resolvedExamDir}/${year}/pack-${packNum}`);
+  // 試験軸ごとにトップ階層を解決する。旧日本語キーも後方互換として受け付ける。
+  const examBaseDirs = {
+    cem: 'content/sns/instagram/cem/exam-packs',
+    'pe-comprehensive': 'content/sns/instagram/cem/exam-packs',
+    '技術士総監': 'content/sns/instagram/cem/exam-packs',
+    'pe-first-stage': 'content/sns/instagram/pe-first-stage/exam-packs',
+    '技術士一次': 'content/sns/instagram/pe-first-stage/exam-packs',
+    'civil-1': 'content/sns/instagram/civil-1/exam-packs',
+    '1級土木': 'content/sns/instagram/civil-1/exam-packs',
+    'civil-2': 'content/sns/instagram/civil-2/exam-packs',
+    '2級土木': 'content/sns/instagram/civil-2/exam-packs',
+  };
+  const resolvedExamDir = examDir || 'cem';
+  const examBaseDir = examBaseDirs[resolvedExamDir];
+  if (!examBaseDir) {
+    console.error(`Error: 未対応の --exam-dir: ${resolvedExamDir}`);
+    process.exit(1);
+  }
+  outBase = resolve(ROOT, `${examBaseDir}/${year}/pack-${packNum}`);
 } else {
   outBase = resolve(ROOT, `content/sns/instagram/${date}-${slug}`);
 }

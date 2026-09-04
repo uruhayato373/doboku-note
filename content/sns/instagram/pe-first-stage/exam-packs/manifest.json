@@ -1,0 +1,174 @@
+{
+  "exam": "pe-first-stage",
+  "generatedAt": "Tue Jul 14 2026 09:00:00 GMT+0900 (Japan Standard Time)",
+  "years": {
+    "r07": {
+      "generated": [
+        {
+          "packNum": "01",
+          "subject": "basic",
+          "questionIds": [
+            "r07-basic-ⅰ-1-1",
+            "r07-basic-ⅰ-1-2",
+            "r07-basic-ⅰ-1-3",
+            "r07-basic-ⅰ-1-4"
+          ]
+        },
+        {
+          "packNum": "02",
+          "subject": "basic",
+          "questionIds": [
+            "r07-basic-ⅰ-1-5",
+            "r07-basic-ⅰ-2-1",
+            "r07-basic-ⅰ-2-2",
+            "r07-basic-ⅰ-2-3"
+          ]
+        },
+        {
+          "packNum": "03",
+          "subject": "basic",
+          "questionIds": [
+            "r07-basic-ⅰ-2-4",
+            "r07-basic-ⅰ-4-1",
+            "r07-basic-ⅰ-4-2",
+            "r07-basic-ⅰ-4-3"
+          ]
+        },
+        {
+          "packNum": "04",
+          "subject": "basic",
+          "questionIds": [
+            "r07-basic-ⅰ-4-4",
+            "r07-basic-ⅰ-4-5",
+            "r07-basic-ⅰ-4-6",
+            "r07-basic-ⅰ-5-1"
+          ]
+        },
+        {
+          "packNum": "05",
+          "subject": "basic",
+          "questionIds": [
+            "r07-basic-ⅰ-5-2",
+            "r07-basic-ⅰ-5-3",
+            "r07-basic-ⅰ-5-4",
+            "r07-basic-ⅰ-5-5"
+          ]
+        },
+        {
+          "packNum": "06",
+          "subject": "aptitude",
+          "questionIds": [
+            "r07-aptitude-ⅱ-1",
+            "r07-aptitude-ⅱ-2",
+            "r07-aptitude-ⅱ-4",
+            "r07-aptitude-ⅱ-5"
+          ]
+        },
+        {
+          "packNum": "07",
+          "subject": "aptitude",
+          "questionIds": [
+            "r07-aptitude-ⅱ-6",
+            "r07-aptitude-ⅱ-7",
+            "r07-aptitude-ⅱ-8",
+            "r07-aptitude-ⅱ-9"
+          ]
+        },
+        {
+          "packNum": "08",
+          "subject": "aptitude",
+          "questionIds": [
+            "r07-aptitude-ⅱ-10",
+            "r07-aptitude-ⅱ-11",
+            "r07-aptitude-ⅱ-12",
+            "r07-aptitude-ⅱ-13"
+          ]
+        },
+        {
+          "packNum": "09",
+          "subject": "construction",
+          "questionIds": [
+            "r07-construction-ⅲ-3",
+            "r07-construction-ⅲ-4",
+            "r07-construction-ⅲ-7",
+            "r07-construction-ⅲ-8"
+          ]
+        },
+        {
+          "packNum": "10",
+          "subject": "construction",
+          "questionIds": [
+            "r07-construction-ⅲ-9",
+            "r07-construction-ⅲ-10",
+            "r07-construction-ⅲ-11",
+            "r07-construction-ⅲ-12"
+          ]
+        },
+        {
+          "packNum": "11",
+          "subject": "construction",
+          "questionIds": [
+            "r07-construction-ⅲ-14",
+            "r07-construction-ⅲ-15",
+            "r07-construction-ⅲ-16",
+            "r07-construction-ⅲ-18"
+          ]
+        },
+        {
+          "packNum": "12",
+          "subject": "construction",
+          "questionIds": [
+            "r07-construction-ⅲ-19",
+            "r07-construction-ⅲ-20",
+            "r07-construction-ⅲ-21",
+            "r07-construction-ⅲ-22"
+          ]
+        },
+        {
+          "packNum": "13",
+          "subject": "construction",
+          "questionIds": [
+            "r07-construction-ⅲ-23",
+            "r07-construction-ⅲ-24",
+            "r07-construction-ⅲ-25",
+            "r07-construction-ⅲ-26"
+          ]
+        },
+        {
+          "packNum": "14",
+          "subject": "construction",
+          "questionIds": [
+            "r07-construction-ⅲ-28",
+            "r07-construction-ⅲ-29",
+            "r07-construction-ⅲ-30",
+            "r07-construction-ⅲ-31"
+          ]
+        },
+        {
+          "packNum": "15",
+          "subject": "construction",
+          "questionIds": [
+            "r07-construction-ⅲ-32",
+            "r07-construction-ⅲ-33",
+            "r07-construction-ⅲ-34",
+            "r07-construction-ⅲ-35"
+          ]
+        }
+      ],
+      "omitted": [
+        {
+          "id": "r07-basic-ⅰ-5-6",
+          "reason": "subject-pack-remainder"
+        },
+        {
+          "id": "r07-aptitude-ⅱ-3",
+          "reason": "layout-overflow"
+        },
+        {
+          "id": "r07-aptitude-ⅱ-15",
+          "reason": "subject-pack-remainder"
+        }
+      ]
+    }
+  }
+}

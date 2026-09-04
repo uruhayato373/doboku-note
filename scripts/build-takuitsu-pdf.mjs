@@ -243,9 +243,54 @@ ol.opts li, ul li { margin-bottom:1mm; }
 .math { text-align:center; margin:2mm 0; }
 table.tbl { border-collapse:collapse; margin:2mm 0; font-size:9.5pt; }
 table.tbl td { border:1px solid #bbb; padding:1mm 2mm; }
+.worksheet { break-after:page; }
+.worksheet h1 { font-size:16pt; color:#0c3a5e; border-bottom:3px solid #1d5a8a; padding-bottom:2mm; margin:0 0 4mm; }
+.worksheet h2 { margin-top:4mm; }
+.worksheet .lead { font-size:9pt; color:#444; margin-bottom:3mm; }
+.sheet-table { width:100%; border-collapse:collapse; font-size:9pt; margin:2mm 0 4mm; }
+.sheet-table th,.sheet-table td { border:1px solid #999; padding:1.5mm 2mm; height:8mm; }
+.sheet-table th { background:#e8f0f7; color:#0c3a5e; }
+.sheet-table .qno { width:9mm; text-align:center; font-weight:bold; }
+.sheet-table .marks { white-space:nowrap; letter-spacing:.7mm; }
 blockquote { margin:1.5mm 0; padding:1mm 3mm; border-left:3px solid #9db8cc; color:#444; }
 hr { border:none; border-top:1px solid #ddd; margin:3mm 0; }
 `
+
+function answerGrid(title, count, note) {
+  const columns = 3
+  const rows = Math.ceil(count / columns)
+  const head = Array.from({ length: columns }, () => '<th>No.</th><th>解答</th>').join('')
+  const body = Array.from({ length: rows }, (_, row) => {
+    const cells = Array.from({ length: columns }, (_, column) => {
+      const number = row + column * rows + 1
+      return number <= count
+        ? `<td class="qno">${number}</td><td class="marks">□1 □2 □3 □4 □5</td>`
+        : '<td></td><td></td>'
+    }).join('')
+    return `<tr>${cells}</tr>`
+  }).join('')
+  return `<h2>${title}</h2><p class="lead">${note}</p><table class="sheet-table"><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`
+}
+
+function buildStudySheets(spec) {
+  if (spec.studySheets !== 'pe-first-stage') return ''
+  const blanks = Array.from({ length: 7 }, () => '<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>').join('')
+  return `<section class="worksheet"><h1>11週間の学習計画・周回記録</h1>
+<table class="sheet-table"><thead><tr><th>時期</th><th>学習対象</th><th>完了条件</th></tr></thead><tbody>
+<tr><td>11〜9週前</td><td>専門科目 245問・1周目</td><td>得意分野と捨て候補を分ける</td></tr>
+<tr><td>8〜7週前</td><td>基礎科目 210問・1周目</td><td>5群すべての弱点を特定する</td></tr>
+<tr><td>6週前</td><td>適性科目 105問・1周目</td><td>技術士法・倫理の誤り肢を説明する</td></tr>
+<tr><td>5〜4週前</td><td>3科目の誤答だけ2周目</td><td>誤答原因を4分類する</td></tr>
+<tr><td>3〜2週前</td><td>年度別・本番時間で演習</td><td>各科目の基準点を安定して超える</td></tr>
+<tr><td>1週前</td><td>誤答・法令・公式だけ確認</td><td>再誤答を潰す</td></tr></tbody></table>
+<h2>周回記録</h2><p class="lead">誤答原因は「知識不足・読違い・計算ミス・時間切れ」のいずれかへ印を付け、次回確認日を決めます。</p>
+<table class="sheet-table"><thead><tr><th>日付</th><th>年度・科目</th><th>採点数</th><th>正答数</th><th>知識</th><th>読違い</th><th>計算</th><th>時間</th><th>次回</th></tr></thead><tbody>${blanks}</tbody></table></section>
+<section class="worksheet"><h1>答案記入シート｜基礎・適性</h1>
+${answerGrid('基礎科目（全30問から各群3問・計15問を選択）', 30, '解答した15問の番号だけ記入し、未選択問題は空欄にします。')}
+${answerGrid('適性科目（全15問必須）', 15, '15問すべてに解答します。')}</section>
+<section class="worksheet"><h1>答案記入シート｜専門科目（建設部門）</h1>
+${answerGrid('専門科目（全35問から25問を選択）', 35, '解答した25問の番号だけ記入し、未選択10問は空欄にします。')}</section>`
+}
 
 async function renderSources(spec, images, imageSrc) {
   const chapters = []
@@ -281,7 +326,7 @@ async function main() {
 <p class="credit"><strong>免責</strong><br/>${xesc(DISCLAIMER)}</p>
 <p class="credit"><strong>著者・発行</strong>　${xesc(AUTHOR)}</p></div>`
 
-  let bodyHtml = coverHtml + creditHtml + chapters.join('\n')
+  let bodyHtml = coverHtml + creditHtml + buildStudySheets(spec) + chapters.join('\n')
   // 画像 href → base64 data URI に差し替え（単一 HTML 埋め込み）
   for (const [href, dataUri] of images) bodyHtml = bodyHtml.split(`src="${href}"`).join(`src="${dataUri}"`)
 
