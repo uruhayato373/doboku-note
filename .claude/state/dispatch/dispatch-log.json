@@ -535,6 +535,18 @@
       "commit": null,
       "verification": "node --test tests/kindle-sync-targets.test.mjs tests/admin-kindle-catalog.test.mjs; A-02 theme EPUB生成＋unzip -t; inventory rebuildable=45/45・deadMemo=0",
       "note": "A系はcatalog buildThemeでID明示再生成、B-G系はbuildSpecを維持。生成可能なKDPメモを死ポインタ扱いしないようadmin判定を修正し、表紙READMEの追跡方針も実態へ同期"
+    },
+    {
+      "id": "DN-0158",
+      "at": "2026-09-04",
+      "task": "PSI の field(CrUX) 欠測時の判定方式を確定",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null,
+      "verification": "node --test tests/psi-threshold-check.test.mjs tests/psi-retry.test.mjs; npm run psi-audit:check（field 0/44を警告、gate 0、exit 0）",
+      "note": "primary_source=field を維持し、field_missing_policy=report_only を採用。CrUX 欠測は判定不能として可視化を続け、field AVERAGE/SLOW と取得失敗率20%超だけをCIゲートにした。lab中央値は診断専用"
     }
   ]
 }

@@ -55,7 +55,7 @@ test('collection errors fail CI', () => {
 // primary_source を切り替えるべきかの判断材料が無い。fetch-psi-data が result に残す
 // field_availability を threshold-check が集計し、--json と markdown の両方に出すことを固定する。
 
-test('field-coverage violation carries field_availability and the DN-0158 (2) hint when only origin-level CrUX exists', () => {
+test('field-coverage warning carries field_availability when only origin-level CrUX exists', () => {
   const run = runWith({
     url: base.url,
     strategy: base.strategy,
@@ -70,12 +70,13 @@ test('field-coverage violation carries field_availability and the DN-0158 (2) hi
       origin_overall_category: 'FAST',
     },
   })
-  assert.equal(run.status, 1)
-  const v = run.json.gate_violations.find((x) => x.type === 'field-coverage')
+  assert.equal(run.status, 0)
+  const v = run.json.violations.find((x) => x.type === 'field-coverage')
   assert.ok(v, 'field-coverage violation missing')
+  assert.ok(!run.json.gate_violations.some((x) => x.type === 'field-coverage'))
   assert.deepEqual(v.field_availability, { urlLevel: 0, originLevel: 1, neither: 0, unrecorded: 0, total: 1 })
   assert.match(v.detail, /origin レベル 1/)
-  assert.match(v.detail, /DN-0158 \(2\)/)
+  assert.match(v.detail, /CI ゲート対象外/)
 })
 
 test('batches recorded before field_availability existed are reported as unrecorded, not as (2)/(3)', () => {
@@ -86,8 +87,8 @@ test('batches recorded before field_availability existed are reported as unrecor
     lab_data: base.lab_data,
     field_data: null,
   })
-  assert.equal(run.status, 1)
-  const v = run.json.gate_violations.find((x) => x.type === 'field-coverage')
+  assert.equal(run.status, 0)
+  const v = run.json.violations.find((x) => x.type === 'field-coverage')
   assert.ok(v, 'field-coverage violation missing')
   assert.deepEqual(v.field_availability, { urlLevel: 0, originLevel: 0, neither: 0, unrecorded: 1, total: 1 })
   assert.match(v.detail, /フラグ未記録 1/)

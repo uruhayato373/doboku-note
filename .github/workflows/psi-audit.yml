@@ -97,11 +97,12 @@ jobs:
           git push origin develop
 
       # タスク自動化(task-queue.json/build-todo)は廃止(2026-06-11、.claude/todo/ 手動運用へ一本化)。
-      # CI 失敗にするのは3種類だけ: field 実害 / 取得失敗率20%超 / **field 判定不能**。
+      # CI 失敗にするのは2種類だけ: field 実害 / 取得失敗率20%超。
       # 単発 lab 超過はレポート上の改善候補で赤にしない（2026-07-27 の誤報対策）。
-      # field 判定不能 = CrUX が 1 件も返らない状態。判定材料が無いことを緑で隠さない（DN-0127）。
+      # field 判定不能は report-only。CrUX 公開可否は Google 側の閾値に依存し、欠測を CI failure にしても
+      # 解消できないため。レポートには残し「実害なし」とは区別する（DN-0127 / DN-0158）。
       - name: Fail on field violations or invalid input (アラート)
         if: steps.check.outputs.exit_code != '0'
         run: |
-          echo "::error::PSI の field 実害 / 取得失敗率20%超 / field 判定不能（CrUX ゼロ）を検出。詳細は .claude/state/metrics/psi/latest-report.md の冒頭『field(CrUX) 取得』行。.claude/todo/ に手動で起票してください。"
+          echo "::error::PSI の field 実害または取得失敗率20%超を検出。詳細は .claude/state/metrics/psi/latest-report.md を確認し、.claude/todo/ に手動で起票してください。"
           exit 1
