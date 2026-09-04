@@ -785,8 +785,8 @@
       "outcome": "blocked",
       "plan": ".claude/plans/DN-0108-cross-device-playwright-auth/00-master.md",
       "commit": "d16ea6849",
-      "verification": "auth CLI tests 49件、check-playwright-auth-wiring:strict、check-command-guidance、check-codex-compat、check-gate-parity:ci、check-doc-couplingがPASS",
-      "note": "Phase04まで実装済み。実profile移行・login/statusとWindows→Mac実機証拠はユーザー確認が必要なため、カードは削除せず残作業だけへ縮小"
+      "verification": "Macでauth:migrate(note)をdry-run→commit、auth:doctor、別プロセスauth:statusを実行。OS標準root・lockなし・authenticated・account assert一致を確認",
+      "note": "Mac実機はPASSへ進展。旧sourceは保持し、移行profileでnote L1/L2 4記事のaccount gateと公開API検証も通過。Windows実機の独立login/statusとworktree非依存が未検証のためカードは残す"
     },
     {
       "id": "DN-0027",
@@ -811,6 +811,30 @@
       "commit": null,
       "verification": "gsc-auto-reviewの2026-08-28/09-04記録、check-note-site-utm 840ファイル/2012リンク違反0、note/referral 23users/62sessions、bot-audit最新値、note-funnel-efficiency tests 4件を実査",
       "note": "商品別期間効率レポートを週次CIへ配線。高カーディナリティ重複paramとclean URL redirectは採用せず、個別購入attributionを断定しない境界を固定。GA4 UIバックアップとbing最終判定だけDN-0135へ統合"
+    },
+    {
+      "id": "DN-0101",
+      "at": "2026-09-05",
+      "task": "note L1/L2再編をライブ反映して実査する",
+      "tier": "low",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": ".claude/plans/DN-0101-note-funnel-information-architecture.md",
+      "commit": null,
+      "verification": "L1+L2 3本を直列更新し全件API実体検証OK。audit-note-funnel --live --ci、check-note-funnel、check-note-republish対象4本SYNC、type-checkがPASS",
+      "note": "L1へ技術士第一次試験入口を追加し、3 L2を無料で現在地確認が先の構成へ反映。土木の本文画像1枚も再挿入・API一致。カードと一時planを削除"
+    },
+    {
+      "id": "DN-0135",
+      "at": "2026-09-05",
+      "task": "人・外部実体が必要な残務 — note会員プラン初回設定保存",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "check-note-membership PASS、両プラン編集画面をread-only実査、非ログイン加入ページで名称・月額1480/4980を確認",
+      "note": "未保存という前提が陳腐化。2プランとも名称・説明・会費・特典マガジンが保存済みで公開面一致のため、無意味な再保存をせず行14だけ削除"
     }
   ]
 }

@@ -95,7 +95,6 @@
 | 12 | KDP Select 自動更新オフ A-00〜A-06（旧DN-0089） | note 択一PDF（`n155093f42183`・¥1,980・公開済み）との抵触リスクを安全側に倒すと判断（2026-08-27）。e-02 は Select 非加入方針・A 系列は収録範囲違い（422問論点別 vs 1162問全年度）だが部分集合の可能性が否定できない | KDP 管理画面で A-00〜A-06 の「KDPセレクトへの自動登録」をオフ。**期限=独占明け 2026-10-06 より前（10月上旬）**。10/6 を過ぎて自動更新されなければ制約自体が消滅 |
 | 19 | 技術士第一次試験 KDP Select早期解除の回答反映 | D-00／D-03の状態は`scripts/kindle-published/catalog.json`の`notes`を真実源とする。申請受付のローカル証跡は`.tmp/kdp-select-support-result.json`にあり、Amazonからの回答待ち | 回答受信後、KDP本棚で両書籍のSelect状態を実査する。解除済みならcatalogと`content/kindle/strategy.md`へ反映し、noteとの併売可否を確定する。未解除なら回答内容に従い再連絡し、解除確認前に恒常併売を確定しない |
 | 13 | LINE 一次→二次ブリッジの器 | 磁石記事・配信台本3通・友だち追加CTA文言は完成済み。残るのは外部アカウントと実URLだけ | LINE公式アカウント開設→`delivery-script.md`を管理画面へ転記→`friend-add-cta.md`のプレースホルダーを実URLへ差し替え、X・note・サイトへ配置 |
-| 14 | note 会員プランの初回設定保存 | 公開中プランの保存結果は未実測。非公開ドラフトのままと断定せず、即時ライブ反映の可能性を前提にする | 説明文など影響の小さい差分を保存前に提示し、ユーザー承認後だけ`--commit`。保存後に管理UIと公開面を実査 |
 | 15 | Cloudflare / R2 認証キーの最小権限化 | 固定90/180日ローテーションの根拠はない。R2監査専用キーの作成手順は`ci-cd-security-hardening.md`に既存 | Cloudflare管理画面で`CLOUDFLARE_API_TOKEN`の実期限・権限を確認し、R2読み取り専用キーを`CLOUDFLARE_R2_AUDIT_*`へ登録。`r2-audit.yml`が汎用キーへフォールバックせず成功することを確認 |
 | 16 | コンクリート主任技士の原典待ち問題 | H25 skip 18問・H24 conflict 4問とR6/R7はローカル原典がなく、推測補完できない。詳細は`exam-content-policy.md`の主任技士メモが真実源 | 原典入手後に問題・公式解答表を視覚照合し、復元できた設問だけ追加。解答キーに合わせた本文創作は禁止 |
 | 17 | コンクリート診断士 98問＋記述式8本の技術内容レビュー | 2026-09-05実査で一次演習8記事は13+14+13+12+12+13+10+11=98問、記述式マガジン`mf2a132408b6f`は8記事、サイト`guide-essay`も存在。公開後の人手レビュー完了を示す実体はない | 一次演習98問、note記述式8本、`content/site/concrete-diagnostician/guide-essay`を有資格者が技術レビューし、誤りを修正・再デプロイする。原典照合できない数値を推測で補わない |
@@ -223,22 +222,11 @@ Playwrightのログインprofileはサービス別に永続化されているが
 
 **機械チェック**: ①CI/ローカル共通=`check-playwright-auth-wiring:strict`でMac/Windows絶対パス、repo相対profile、resolver未使用、secret key候補を0にする、②PCローカルoffline=`auth:paths/doctor`でroot・権限・lock・legacy・profile競合を診断、③PCローカルonline read-only=`auth:status`で`authenticated/expired/blocked/unknown/unsupported`を実ページ＋account assertから判定する。profile存在だけをauthenticatedにしない。CIには実profile・login・statusを持ち込まない。
 
-**残作業**: ⑥Windows実機→同じcommit候補でMac実機の順に独立login/status検証、⑦恒久SSOTへ抽出して本カードとplanを削除する。実profile移行・login・statusは各PCでユーザー確認後に実行し、両PCの証拠が揃うまで完了扱いにしない。
+**残作業**: Windows実機で、Macと同じcommit候補を使い独立した`auth:paths`→`auth:doctor`→noteのlogin/status→Chrome再起動後status→worktree非依存を検証する。Macは2026-09-05に旧note profileをOS標準rootへコピー（旧source保持）し、別プロセス`auth:status`で`authenticated`＋account assert一致までPASS済み。両PCの証拠が揃ったら恒久SSOTを最終確認し、本カードとplanを削除する。
 
 **禁止**: profile/Cookie/storageStateのPC間・クラウド・Git同期、password/2FA自動入力、CAPTCHA回避、旧profileの自動削除、target上書き、profile並行利用時の自動kill、profile存在だけでauthenticated判定、account/site/property assert弱化、Gmail Playwright化、投稿・公開・申請・購入・push・deploy。
 
 **完了条件**: runtimeのMac絶対パスとrepo相対profile直書きが0、全対象が共通resolver利用、Windows/Mac双方でnoteのlogin→close→別プロセスstatusとworktree非依存がPASSする。専用スキルが薄いCLIオーケストレーターとして登録され、専用agentが増えていない。A8 profile-plus-state、afb same-process、Gmail非対応を維持し、`check-playwright-auth-wiring:strict`・auth CLIテスト・affiliate/Google配線・lint/type-check/doc refsがPASS。profile/state/Cookie/password/token/2FAのGit差分は0。
-
-### [DN-0101] note L1/L2再編をライブ反映して実査する
-タグ: [UI・UX] [種類:改善] [起票:2026-08-20] [期日:2026-10-04]
-
-**実装指示書**: [DN-0101-note-funnel-information-architecture.md](../plans/DN-0101-note-funnel-information-architecture.md)
-
-ソース側はL1に技術士第一次試験の公開済み入口を追加し、3つのL2で無料の現在地確認を最初の選択肢にした。1級一次ページの主CTAも`exam-calendar.json`の二次試験日を読み、試験当日までは二次教材、翌日から一次教材へ戻る。
-
-**残作業**: ユーザー承認後、L1と3つのL2を1本ずつ安全に更新する。更新通知は「いいえ」とし、既存の目次・画像・価格を保持する。公開APIと`audit-note-funnel --live --ci`で4本を実査し、問題がなければ指示書と本カードを削除する。
-
-
 
 ### [DN-0026] 土木公務員 SEO 第1期の効果測定（handoff 2026-08-17 抽出）
 タグ: [SNS・マーケ] [種類:改善] [期日:2026-09-14]
