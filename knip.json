@@ -17,5 +17,5 @@
     "public/**",
     "out/**"
   ],
-  "ignoreBinaries": ["ffmpeg", "netstat", "gh"]
+  "ignoreBinaries": ["ffmpeg", "netstat", "gh", "pdfinfo"]
 }
