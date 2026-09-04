@@ -1,21 +1,110 @@
 {
   "account": "dobokunotecom",
-  "at": "2026-08-28T05:31:22.733Z",
+  "at": "2026-09-04T11:06:58.687Z",
   "counts": {
     "published_recorded": 75,
-    "published_UNrecorded": 0,
+    "published_UNrecorded": 31,
     "draft_misrecorded": 0,
-    "scheduled": 78,
-    "unpublished": 59,
+    "scheduled": 80,
+    "unpublished": 41,
     "recorded_but_gone": 0,
     "type_mismatch": 0,
-    "anomaly": 33,
-    "reel_gap": 125,
+    "anomaly": 31,
+    "reel_gap": 135,
     "reel_built_unposted": 42
   },
   "live": {
-    "posts": 60,
-    "scheduledByDay": {}
+    "posts": 15,
+    "scheduledByDay": {
+      "30日": [
+        "12:00",
+        "19:00",
+        "19:00"
+      ],
+      "31日": [
+        "12:00",
+        "12:00",
+        "19:00",
+        "19:00"
+      ],
+      "1日": [
+        "12:00",
+        "12:00",
+        "19:00",
+        "19:00"
+      ],
+      "2日": [
+        "12:00",
+        "12:00",
+        "19:00",
+        "19:00",
+        "19:00"
+      ],
+      "3日": [
+        "12:00",
+        "12:00",
+        "19:00",
+        "19:00"
+      ],
+      "4日": [
+        "12:00",
+        "12:00",
+        "12:00",
+        "12:00"
+      ],
+      "5日": [
+        "7:00",
+        "20:00",
+        "12:00",
+        "12:00"
+      ],
+      "6日": [
+        "12:00",
+        "12:00",
+        "19:00",
+        "19:00"
+      ],
+      "7日": [
+        "12:00",
+        "12:00",
+        "19:00",
+        "19:00"
+      ],
+      "8日": [
+        "12:00",
+        "12:00",
+        "19:00",
+        "19:00"
+      ],
+      "9日": [
+        "12:00",
+        "12:00",
+        "19:00",
+        "19:00"
+      ],
+      "10日": [
+        "12:00",
+        "19:00"
+      ],
+      "11日": [
+        "19:00"
+      ],
+      "14日": [
+        "12:00"
+      ],
+      "18日": [
+        "19:00"
+      ],
+      "21日": [
+        "12:00"
+      ],
+      "25日": [
+        "19:00"
+      ],
+      "28日": [
+        "12:00"
+      ]
+    }
   },
   "cats": {
     "published_recorded": [
@@ -920,7 +1009,704 @@
         "reelMaterial": false
       }
     ],
-    "published_UNrecorded": [],
+    "published_UNrecorded": [
+      {
+        "rel": "civil-1/theme-packs/anzen-scaffold/pack-01",
+        "head": "頻出論点安全管理/足場墜落高所作業★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-06T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc2Xv7gm_Jo",
+          "Dczy9oUAcAF"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/anzen-scaffold/pack-02",
+          "civil-1/theme-packs/anzen-scaffold/pack-03",
+          "civil-1/theme-packs/anzen-scaffold/pack-04",
+          "civil-1/theme-packs/anzen-scaffold/pack-05",
+          "civil-2/theme-packs/anzen-scaffold/pack-01",
+          "civil-2/theme-packs/anzen-scaffold/pack-02",
+          "civil-2/theme-packs/anzen-scaffold/pack-03"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/anzen-scaffold/pack-02",
+        "head": "頻出論点安全管理/足場墜落高所作業★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-07T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc2Xv7gm_Jo",
+          "Dczy9oUAcAF"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/anzen-scaffold/pack-01",
+          "civil-1/theme-packs/anzen-scaffold/pack-03",
+          "civil-1/theme-packs/anzen-scaffold/pack-04",
+          "civil-1/theme-packs/anzen-scaffold/pack-05",
+          "civil-2/theme-packs/anzen-scaffold/pack-01",
+          "civil-2/theme-packs/anzen-scaffold/pack-02",
+          "civil-2/theme-packs/anzen-scaffold/pack-03"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/anzen-scaffold/pack-03",
+        "head": "頻出論点安全管理/足場墜落高所作業★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-07T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc2Xv7gm_Jo",
+          "Dczy9oUAcAF"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/anzen-scaffold/pack-01",
+          "civil-1/theme-packs/anzen-scaffold/pack-02",
+          "civil-1/theme-packs/anzen-scaffold/pack-04",
+          "civil-1/theme-packs/anzen-scaffold/pack-05",
+          "civil-2/theme-packs/anzen-scaffold/pack-01",
+          "civil-2/theme-packs/anzen-scaffold/pack-02",
+          "civil-2/theme-packs/anzen-scaffold/pack-03"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/anzen-scaffold/pack-04",
+        "head": "頻出論点安全管理/足場墜落高所作業★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-08T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc2Xv7gm_Jo",
+          "Dczy9oUAcAF"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/anzen-scaffold/pack-01",
+          "civil-1/theme-packs/anzen-scaffold/pack-02",
+          "civil-1/theme-packs/anzen-scaffold/pack-03",
+          "civil-1/theme-packs/anzen-scaffold/pack-05",
+          "civil-2/theme-packs/anzen-scaffold/pack-01",
+          "civil-2/theme-packs/anzen-scaffold/pack-02",
+          "civil-2/theme-packs/anzen-scaffold/pack-03"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/anzen-scaffold/pack-05",
+        "head": "頻出論点安全管理/足場墜落高所作業★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-08T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc2Xv7gm_Jo",
+          "Dczy9oUAcAF"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/anzen-scaffold/pack-01",
+          "civil-1/theme-packs/anzen-scaffold/pack-02",
+          "civil-1/theme-packs/anzen-scaffold/pack-03",
+          "civil-1/theme-packs/anzen-scaffold/pack-04",
+          "civil-2/theme-packs/anzen-scaffold/pack-01",
+          "civil-2/theme-packs/anzen-scaffold/pack-02",
+          "civil-2/theme-packs/anzen-scaffold/pack-03"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-building/pack-01",
+        "head": "頻出論点法規/建築基準法仮設建築物の制限緩和★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-08-30T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "DcvZdhlFdLY"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-building/pack-02",
+          "civil-1/theme-packs/hoki-building/pack-03"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-building/pack-02",
+        "head": "頻出論点法規/建築基準法仮設建築物の制限緩和★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-08-31T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "DcvZdhlFdLY"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-building/pack-01",
+          "civil-1/theme-packs/hoki-building/pack-03"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-building/pack-03",
+        "head": "頻出論点法規/建築基準法仮設建築物の制限緩和★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-01T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "DcvZdhlFdLY"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-building/pack-01",
+          "civil-1/theme-packs/hoki-building/pack-02"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-construction_business/pack-01",
+        "head": "頻出論点法規/建設業法技術者制度元請下請契約約款",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-03T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc3H2rbCcB2",
+          "Dc0jBJKgfto"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-construction_business/pack-02",
+          "civil-1/theme-packs/hoki-construction_business/pack-03",
+          "civil-1/theme-packs/hoki-construction_business/pack-04",
+          "civil-1/theme-packs/hoki-construction_business/pack-05"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-construction_business/pack-02",
+        "head": "頻出論点法規/建設業法技術者制度元請下請契約約款",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-04T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc3H2rbCcB2",
+          "Dc0jBJKgfto"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-construction_business/pack-01",
+          "civil-1/theme-packs/hoki-construction_business/pack-03",
+          "civil-1/theme-packs/hoki-construction_business/pack-04",
+          "civil-1/theme-packs/hoki-construction_business/pack-05"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-construction_business/pack-03",
+        "head": "頻出論点法規/建設業法技術者制度元請下請契約約款",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-05T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc3H2rbCcB2",
+          "Dc0jBJKgfto"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-construction_business/pack-01",
+          "civil-1/theme-packs/hoki-construction_business/pack-02",
+          "civil-1/theme-packs/hoki-construction_business/pack-04",
+          "civil-1/theme-packs/hoki-construction_business/pack-05"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-construction_business/pack-04",
+        "head": "頻出論点法規/建設業法技術者制度元請下請契約約款",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-06T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc3H2rbCcB2",
+          "Dc0jBJKgfto"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-construction_business/pack-01",
+          "civil-1/theme-packs/hoki-construction_business/pack-02",
+          "civil-1/theme-packs/hoki-construction_business/pack-03",
+          "civil-1/theme-packs/hoki-construction_business/pack-05"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-construction_business/pack-05",
+        "head": "頻出論点法規/建設業法技術者制度元請下請契約約款",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-07T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc3H2rbCcB2",
+          "Dc0jBJKgfto"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-construction_business/pack-01",
+          "civil-1/theme-packs/hoki-construction_business/pack-02",
+          "civil-1/theme-packs/hoki-construction_business/pack-03",
+          "civil-1/theme-packs/hoki-construction_business/pack-04"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-explosive/pack-01",
+        "head": "頻出論点法規/火薬類取締法火薬類の取扱い消費★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-05T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "DcxOKVWlUMW"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-explosive/pack-02",
+          "civil-2/theme-packs/hoki-explosive/pack-01"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-explosive/pack-02",
+        "head": "頻出論点法規/火薬類取締法火薬類の取扱い消費★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-06T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "DcxOKVWlUMW"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-explosive/pack-01",
+          "civil-2/theme-packs/hoki-explosive/pack-01"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-port/pack-01",
+        "head": "頻出論点法規/港則法港内の航行工事の許可★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-04T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc3H1cQDRJ_",
+          "Dc2XvZfidXi",
+          "DcupaDbDOBn"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-port/pack-02",
+          "civil-1/theme-packs/hoki-port/pack-03",
+          "civil-2/theme-packs/hoki-port/pack-01",
+          "civil-2/theme-packs/hoki-port/pack-02"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-port/pack-02",
+        "head": "頻出論点法規/港則法港内の航行工事の許可★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-04T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc3H1cQDRJ_",
+          "Dc2XvZfidXi",
+          "DcupaDbDOBn"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-port/pack-01",
+          "civil-1/theme-packs/hoki-port/pack-03",
+          "civil-2/theme-packs/hoki-port/pack-01",
+          "civil-2/theme-packs/hoki-port/pack-02"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-port/pack-03",
+        "head": "頻出論点法規/港則法港内の航行工事の許可★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-05T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc3H1cQDRJ_",
+          "Dc2XvZfidXi",
+          "DcupaDbDOBn"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-port/pack-01",
+          "civil-1/theme-packs/hoki-port/pack-02",
+          "civil-2/theme-packs/hoki-port/pack-01",
+          "civil-2/theme-packs/hoki-port/pack-02"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-river/pack-01",
+        "head": "頻出論点法規/河川法河川区域内の行為許可★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-03T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc0jAuMAbP9",
+          "Dczy9wbgYC5"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-river/pack-02",
+          "civil-2/theme-packs/hoki-river/pack-01"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-river/pack-02",
+        "head": "頻出論点法規/河川法河川区域内の行為許可★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-03T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc0jAuMAbP9",
+          "Dczy9wbgYC5"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-river/pack-01",
+          "civil-2/theme-packs/hoki-river/pack-01"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/kankyo-recycle/pack-01",
+        "head": "頻出論点環境管理/建設リサイクル法建設副産物の有",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-02T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dcx-N2ZF15s"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/kankyo-water_soil/pack-01",
+        "head": "頻出論点環境管理/水質汚濁濁水土壌汚染対策★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-01T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dcx-OFsEayb",
+          "DcvZcIBCXsJ"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/kankyo-water_soil/pack-02"
+        ]
+      },
+      {
+        "rel": "civil-1/theme-packs/kankyo-water_soil/pack-02",
+        "head": "頻出論点環境管理/水質汚濁濁水土壌汚染対策★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-02T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dcx-OFsEayb",
+          "DcvZcIBCXsJ"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/kankyo-water_soil/pack-01"
+        ]
+      },
+      {
+        "rel": "civil-2/theme-packs/anzen-scaffold/pack-01",
+        "head": "頻出論点安全管理/足場墜落高所作業★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-03T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc2Xv7gm_Jo",
+          "Dczy9oUAcAF"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/anzen-scaffold/pack-01",
+          "civil-1/theme-packs/anzen-scaffold/pack-02",
+          "civil-1/theme-packs/anzen-scaffold/pack-03",
+          "civil-1/theme-packs/anzen-scaffold/pack-04",
+          "civil-1/theme-packs/anzen-scaffold/pack-05",
+          "civil-2/theme-packs/anzen-scaffold/pack-02",
+          "civil-2/theme-packs/anzen-scaffold/pack-03"
+        ]
+      },
+      {
+        "rel": "civil-2/theme-packs/anzen-scaffold/pack-02",
+        "head": "頻出論点安全管理/足場墜落高所作業★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-04T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc2Xv7gm_Jo",
+          "Dczy9oUAcAF"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/anzen-scaffold/pack-01",
+          "civil-1/theme-packs/anzen-scaffold/pack-02",
+          "civil-1/theme-packs/anzen-scaffold/pack-03",
+          "civil-1/theme-packs/anzen-scaffold/pack-04",
+          "civil-1/theme-packs/anzen-scaffold/pack-05",
+          "civil-2/theme-packs/anzen-scaffold/pack-01",
+          "civil-2/theme-packs/anzen-scaffold/pack-03"
+        ]
+      },
+      {
+        "rel": "civil-2/theme-packs/anzen-scaffold/pack-03",
+        "head": "頻出論点安全管理/足場墜落高所作業★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-05T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc2Xv7gm_Jo",
+          "Dczy9oUAcAF"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/anzen-scaffold/pack-01",
+          "civil-1/theme-packs/anzen-scaffold/pack-02",
+          "civil-1/theme-packs/anzen-scaffold/pack-03",
+          "civil-1/theme-packs/anzen-scaffold/pack-04",
+          "civil-1/theme-packs/anzen-scaffold/pack-05",
+          "civil-2/theme-packs/anzen-scaffold/pack-01",
+          "civil-2/theme-packs/anzen-scaffold/pack-02"
+        ]
+      },
+      {
+        "rel": "civil-2/theme-packs/hinshitsu-basic/pack-01",
+        "head": "頻出論点品質管理/品質管理の基本品質マネジメント",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-02T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "DcxOJxmCauv"
+        ]
+      },
+      {
+        "rel": "civil-2/theme-packs/hoki-explosive/pack-01",
+        "head": "頻出論点法規/火薬類取締法火薬類の取扱い消費★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-02T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "DcxOKVWlUMW"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-explosive/pack-01",
+          "civil-1/theme-packs/hoki-explosive/pack-02"
+        ]
+      },
+      {
+        "rel": "civil-2/theme-packs/hoki-port/pack-01",
+        "head": "頻出論点法規/港則法港内の航行工事の許可★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-08-31T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc3H1cQDRJ_",
+          "Dc2XvZfidXi",
+          "DcupaDbDOBn"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-port/pack-01",
+          "civil-1/theme-packs/hoki-port/pack-02",
+          "civil-1/theme-packs/hoki-port/pack-03",
+          "civil-2/theme-packs/hoki-port/pack-02"
+        ]
+      },
+      {
+        "rel": "civil-2/theme-packs/hoki-port/pack-02",
+        "head": "頻出論点法規/港則法港内の航行工事の許可★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-01T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc3H1cQDRJ_",
+          "Dc2XvZfidXi",
+          "DcupaDbDOBn"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-port/pack-01",
+          "civil-1/theme-packs/hoki-port/pack-02",
+          "civil-1/theme-packs/hoki-port/pack-03",
+          "civil-2/theme-packs/hoki-port/pack-01"
+        ]
+      },
+      {
+        "rel": "civil-2/theme-packs/hoki-river/pack-01",
+        "head": "頻出論点法規/河川法河川区域内の行為許可★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-08-30T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc0jAuMAbP9",
+          "Dczy9wbgYC5"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-river/pack-01",
+          "civil-1/theme-packs/hoki-river/pack-02"
+        ]
+      }
+    ],
     "draft_misrecorded": [],
     "scheduled": [
       {
@@ -1452,59 +2238,23 @@
         "reelMaterial": true
       },
       {
-        "rel": "civil-1/theme-packs/anzen-scaffold/pack-01",
-        "head": "頻出論点安全管理/足場墜落高所作業★★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-06T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-1/theme-packs/anzen-scaffold/pack-02",
-        "head": "頻出論点安全管理/足場墜落高所作業★★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-07T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-1/theme-packs/anzen-scaffold/pack-03",
-        "head": "頻出論点安全管理/足場墜落高所作業★★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-07T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-1/theme-packs/anzen-scaffold/pack-04",
-        "head": "頻出論点安全管理/足場墜落高所作業★★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-08T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-1/theme-packs/anzen-scaffold/pack-05",
-        "head": "頻出論点安全管理/足場墜落高所作業★★★",
+        "rel": "civil-1/theme-packs/anzen-general_hazard/pack-01",
+        "head": "頻出論点安全管理/感電電気設備／工事現場の危険防",
         "recordedShortcode": null,
         "recordedUrl": null,
         "scheduledAt": "2026-09-08T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "civil-1/theme-packs/anzen-general_hazard/pack-02",
+        "head": "頻出論点安全管理/感電電気設備／工事現場の危険防",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-09T19:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
@@ -1536,90 +2286,6 @@
         "reelMaterial": false
       },
       {
-        "rel": "civil-1/theme-packs/hoki-explosive/pack-01",
-        "head": "頻出論点法規/火薬類取締法火薬類の取扱い消費★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-05T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-1/theme-packs/hoki-explosive/pack-02",
-        "head": "頻出論点法規/火薬類取締法火薬類の取扱い消費★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-06T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-1/theme-packs/hoki-port/pack-01",
-        "head": "頻出論点法規/港則法港内の航行工事の許可★★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-04T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-1/theme-packs/hoki-port/pack-02",
-        "head": "頻出論点法規/港則法港内の航行工事の許可★★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-04T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-1/theme-packs/hoki-port/pack-03",
-        "head": "頻出論点法規/港則法港内の航行工事の許可★★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-05T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-1/theme-packs/hoki-river/pack-01",
-        "head": "頻出論点法規/河川法河川区域内の行為許可★★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-03T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-1/theme-packs/hoki-river/pack-02",
-        "head": "頻出論点法規/河川法河川区域内の行為許可★★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-03T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
         "rel": "civil-1/theme-packs/hoki-road/pack-01",
         "head": "頻出論点法規/道路法道路占用車両制限令★★★",
         "recordedShortcode": null,
@@ -1637,6 +2303,42 @@
         "recordedShortcode": null,
         "recordedUrl": null,
         "scheduledAt": "2026-09-09T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-vibration/pack-01",
+        "head": "頻出論点法規/振動規制法特定建設作業★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-08-28T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-vibration/pack-02",
+        "head": "頻出論点法規/振動規制法特定建設作業★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-08-29T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-vibration/pack-03",
+        "head": "頻出論点法規/振動規制法特定建設作業★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-08-30T19:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
@@ -1668,11 +2370,11 @@
         "reelMaterial": false
       },
       {
-        "rel": "civil-1/theme-packs/kankyo-water_soil/pack-01",
-        "head": "頻出論点環境管理/水質汚濁濁水土壌汚染対策★★★",
+        "rel": "civil-1/theme-packs/sekokeikaku-planning/pack-01",
+        "head": "頻出論点施工計画/施工計画の作成立案★★★",
         "recordedShortcode": null,
         "recordedUrl": null,
-        "scheduledAt": "2026-09-01T19:00:00.000+09:00",
+        "scheduledAt": "2026-08-31T19:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
@@ -1680,11 +2382,23 @@
         "reelMaterial": false
       },
       {
-        "rel": "civil-1/theme-packs/kankyo-water_soil/pack-02",
-        "head": "頻出論点環境管理/水質汚濁濁水土壌汚染対策★★★",
+        "rel": "civil-2/theme-packs/anzen-excavation/pack-02",
+        "head": "頻出論点安全管理/明り掘削土止め支保工★★★",
         "recordedShortcode": null,
         "recordedUrl": null,
-        "scheduledAt": "2026-09-02T19:00:00.000+09:00",
+        "scheduledAt": "2026-08-29T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "civil-2/theme-packs/anzen-general_hazard/pack-01",
+        "head": "頻出論点安全管理/感電電気設備／工事現場の危険防",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-08-29T12:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
@@ -1716,95 +2430,11 @@
         "reelMaterial": false
       },
       {
-        "rel": "civil-2/theme-packs/anzen-scaffold/pack-01",
-        "head": "頻出論点安全管理/足場墜落高所作業★★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-03T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-2/theme-packs/anzen-scaffold/pack-02",
-        "head": "頻出論点安全管理/足場墜落高所作業★★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-04T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-2/theme-packs/anzen-scaffold/pack-03",
-        "head": "頻出論点安全管理/足場墜落高所作業★★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-05T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-2/theme-packs/hoki-explosive/pack-01",
-        "head": "頻出論点法規/火薬類取締法火薬類の取扱い消費★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-02T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
         "rel": "civil-2/theme-packs/hoki-noise/pack-01",
         "head": "頻出論点法規/騒音規制法特定建設作業★★☆",
         "recordedShortcode": null,
         "recordedUrl": null,
         "scheduledAt": "2026-09-01T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-2/theme-packs/hoki-port/pack-01",
-        "head": "頻出論点法規/港則法港内の航行工事の許可★★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-08-31T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-2/theme-packs/hoki-port/pack-02",
-        "head": "頻出論点法規/港則法港内の航行工事の許可★★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-01T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-2/theme-packs/hoki-river/pack-01",
-        "head": "頻出論点法規/河川法河川区域内の行為許可★★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-08-30T12:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
@@ -1853,6 +2483,186 @@
         "recordedShortcode": null,
         "recordedUrl": null,
         "scheduledAt": "2026-08-31T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-01",
+        "head": "令和7年度基礎科目過去問R07過去問1",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-11T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-02",
+        "head": "令和7年度基礎科目過去問R07過去問2",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-14T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-03",
+        "head": "令和7年度基礎科目過去問R07過去問3",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-18T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-04",
+        "head": "令和7年度基礎科目過去問R07過去問4",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-21T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-05",
+        "head": "令和7年度基礎科目過去問R07過去問5",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-25T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-06",
+        "head": "令和7年度適性科目過去問R07過去問6",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-28T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-07",
+        "head": "令和7年度適性科目過去問R07過去問7",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-10-02T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-08",
+        "head": "令和7年度適性科目過去問R07過去問8",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-10-05T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-09",
+        "head": "令和7年度専門科目建設部門過去問R07過去問9",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-10-09T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-10",
+        "head": "令和7年度専門科目建設部門過去問R07過去問10",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-10-12T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-11",
+        "head": "令和7年度専門科目建設部門過去問R07過去問11",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-10-16T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-12",
+        "head": "令和7年度専門科目建設部門過去問R07過去問12",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-10-19T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-13",
+        "head": "令和7年度専門科目建設部門過去問R07過去問13",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-10-23T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-14",
+        "head": "令和7年度専門科目建設部門過去問R07過去問14",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-10-26T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-15",
+        "head": "令和7年度専門科目建設部門過去問R07過去問15",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-10-30T19:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
@@ -2066,6 +2876,42 @@
         "reelMaterial": false
       },
       {
+        "rel": "civil-1/theme-packs/hinshitsu-ndt/pack-01",
+        "head": "頻出論点品質管理/鉄筋の継手加工組立の検査非破壊",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "civil-1/theme-packs/hinshitsu-ndt/pack-02",
+        "head": "頻出論点品質管理/鉄筋の継手加工組立の検査非破壊",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "civil-1/theme-packs/hinshitsu-ndt/pack-03",
+        "head": "頻出論点品質管理/鉄筋の継手加工組立の検査非破壊",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
         "rel": "civil-1/theme-packs/hinshitsu-soil/pack-01",
         "head": "頻出論点品質管理/盛土土工の品質管理情報化施工の",
         "recordedShortcode": null,
@@ -2246,6 +3092,30 @@
         "reelMaterial": false
       },
       {
+        "rel": "civil-1/theme-packs/sekokeikaku-machine/pack-01",
+        "head": "頻出論点施工計画/建設機械の選定組合せ経済性★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "civil-1/theme-packs/sekokeikaku-machine/pack-02",
+        "head": "頻出論点施工計画/建設機械の選定組合せ経済性★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": null,
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
         "rel": "civil-1/theme-packs/sekokeikaku-planning_other/pack-01",
         "head": "頻出論点施工計画/施工管理の基本PDCA調達計画",
         "recordedShortcode": null,
@@ -2292,10 +3162,82 @@
         "reelPostedUrl": null,
         "reelScheduledAt": null,
         "reelMaterial": false
+      }
+    ],
+    "recorded_but_gone": [],
+    "type_mismatch": [],
+    "anomaly": [
+      {
+        "rel": "civil-1/theme-packs/anzen-scaffold/pack-01",
+        "head": "頻出論点安全管理/足場墜落高所作業★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-06T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc2Xv7gm_Jo",
+          "Dczy9oUAcAF"
+        ],
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
       {
-        "rel": "civil-1/theme-packs/anzen-general_hazard/pack-01",
-        "head": "頻出論点安全管理/感電電気設備／工事現場の危険防",
+        "rel": "civil-1/theme-packs/anzen-scaffold/pack-02",
+        "head": "頻出論点安全管理/足場墜落高所作業★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-07T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc2Xv7gm_Jo",
+          "Dczy9oUAcAF"
+        ],
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
+      },
+      {
+        "rel": "civil-1/theme-packs/anzen-scaffold/pack-03",
+        "head": "頻出論点安全管理/足場墜落高所作業★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-07T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc2Xv7gm_Jo",
+          "Dczy9oUAcAF"
+        ],
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
+      },
+      {
+        "rel": "civil-1/theme-packs/anzen-scaffold/pack-04",
+        "head": "頻出論点安全管理/足場墜落高所作業★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-08T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc2Xv7gm_Jo",
+          "Dczy9oUAcAF"
+        ],
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
+      },
+      {
+        "rel": "civil-1/theme-packs/anzen-scaffold/pack-05",
+        "head": "頻出論点安全管理/足場墜落高所作業★★★",
         "recordedShortcode": null,
         "recordedUrl": null,
         "scheduledAt": "2026-09-08T19:00:00.000+09:00",
@@ -2305,175 +3247,10 @@
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DcihensgaMx"
+          "Dc2Xv7gm_Jo",
+          "Dczy9oUAcAF"
         ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/anzen-general_hazard/pack-02",
-          "civil-2/theme-packs/anzen-general_hazard/pack-01"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DcihensgaMx は全て他パックへ記録済み）＝未投稿"
-      },
-      {
-        "rel": "civil-1/theme-packs/anzen-general_hazard/pack-02",
-        "head": "頻出論点安全管理/感電電気設備／工事現場の危険防",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-09T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DcihensgaMx"
-        ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/anzen-general_hazard/pack-01",
-          "civil-2/theme-packs/anzen-general_hazard/pack-01"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DcihensgaMx は全て他パックへ記録済み）＝未投稿"
-      },
-      {
-        "rel": "civil-1/theme-packs/hinshitsu-ndt/pack-01",
-        "head": "頻出論点品質管理/鉄筋の継手加工組立の検査非破壊",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": null,
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DckWMTmIIwt",
-          "DchxZHygVtO"
-        ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/hinshitsu-ndt/pack-02",
-          "civil-1/theme-packs/hinshitsu-ndt/pack-03"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DckWMTmIIwt,DchxZHygVtO は全て他パックへ記録済み）＝未投稿"
-      },
-      {
-        "rel": "civil-1/theme-packs/hinshitsu-ndt/pack-02",
-        "head": "頻出論点品質管理/鉄筋の継手加工組立の検査非破壊",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": null,
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DckWMTmIIwt",
-          "DchxZHygVtO"
-        ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/hinshitsu-ndt/pack-01",
-          "civil-1/theme-packs/hinshitsu-ndt/pack-03"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DckWMTmIIwt,DchxZHygVtO は全て他パックへ記録済み）＝未投稿"
-      },
-      {
-        "rel": "civil-1/theme-packs/hinshitsu-ndt/pack-03",
-        "head": "頻出論点品質管理/鉄筋の継手加工組立の検査非破壊",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": null,
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DckWMTmIIwt",
-          "DchxZHygVtO"
-        ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/hinshitsu-ndt/pack-01",
-          "civil-1/theme-packs/hinshitsu-ndt/pack-02"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DckWMTmIIwt,DchxZHygVtO は全て他パックへ記録済み）＝未投稿"
-      },
-      {
-        "rel": "civil-1/theme-packs/hoki-building/pack-01",
-        "head": "頻出論点法規/建築基準法仮設建築物の制限緩和★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-08-30T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbR8vKZGZM6",
-          "DbPX8prjL3N"
-        ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/hoki-building/pack-02",
-          "civil-1/theme-packs/hoki-building/pack-03"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DbR8vKZGZM6,DbPX8prjL3N は全て他パックへ記録済み）＝未投稿"
-      },
-      {
-        "rel": "civil-1/theme-packs/hoki-building/pack-02",
-        "head": "頻出論点法規/建築基準法仮設建築物の制限緩和★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-08-31T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbR8vKZGZM6",
-          "DbPX8prjL3N"
-        ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/hoki-building/pack-01",
-          "civil-1/theme-packs/hoki-building/pack-03"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DbR8vKZGZM6,DbPX8prjL3N は全て他パックへ記録済み）＝未投稿"
-      },
-      {
-        "rel": "civil-1/theme-packs/hoki-building/pack-03",
-        "head": "頻出論点法規/建築基準法仮設建築物の制限緩和★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-01T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbR8vKZGZM6",
-          "DbPX8prjL3N"
-        ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/hoki-building/pack-01",
-          "civil-1/theme-packs/hoki-building/pack-02"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DbR8vKZGZM6,DbPX8prjL3N は全て他パックへ記録済み）＝未投稿"
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
       {
         "rel": "civil-1/theme-packs/hoki-construction_business/pack-01",
@@ -2487,18 +3264,10 @@
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DbZrIRHDYt0",
-          "DbXGUyLDF9b"
+          "Dc3H2rbCcB2",
+          "Dc0jBJKgfto"
         ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/hoki-construction_business/pack-02",
-          "civil-1/theme-packs/hoki-construction_business/pack-03",
-          "civil-1/theme-packs/hoki-construction_business/pack-04",
-          "civil-1/theme-packs/hoki-construction_business/pack-05"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DbZrIRHDYt0,DbXGUyLDF9b は全て他パックへ記録済み）＝未投稿"
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
       {
         "rel": "civil-1/theme-packs/hoki-construction_business/pack-02",
@@ -2512,18 +3281,10 @@
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DbZrIRHDYt0",
-          "DbXGUyLDF9b"
+          "Dc3H2rbCcB2",
+          "Dc0jBJKgfto"
         ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/hoki-construction_business/pack-01",
-          "civil-1/theme-packs/hoki-construction_business/pack-03",
-          "civil-1/theme-packs/hoki-construction_business/pack-04",
-          "civil-1/theme-packs/hoki-construction_business/pack-05"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DbZrIRHDYt0,DbXGUyLDF9b は全て他パックへ記録済み）＝未投稿"
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
       {
         "rel": "civil-1/theme-packs/hoki-construction_business/pack-03",
@@ -2537,18 +3298,10 @@
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DbZrIRHDYt0",
-          "DbXGUyLDF9b"
+          "Dc3H2rbCcB2",
+          "Dc0jBJKgfto"
         ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/hoki-construction_business/pack-01",
-          "civil-1/theme-packs/hoki-construction_business/pack-02",
-          "civil-1/theme-packs/hoki-construction_business/pack-04",
-          "civil-1/theme-packs/hoki-construction_business/pack-05"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DbZrIRHDYt0,DbXGUyLDF9b は全て他パックへ記録済み）＝未投稿"
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
       {
         "rel": "civil-1/theme-packs/hoki-construction_business/pack-04",
@@ -2562,18 +3315,10 @@
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DbZrIRHDYt0",
-          "DbXGUyLDF9b"
+          "Dc3H2rbCcB2",
+          "Dc0jBJKgfto"
         ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/hoki-construction_business/pack-01",
-          "civil-1/theme-packs/hoki-construction_business/pack-02",
-          "civil-1/theme-packs/hoki-construction_business/pack-03",
-          "civil-1/theme-packs/hoki-construction_business/pack-05"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DbZrIRHDYt0,DbXGUyLDF9b は全て他パックへ記録済み）＝未投稿"
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
       {
         "rel": "civil-1/theme-packs/hoki-construction_business/pack-05",
@@ -2587,91 +3332,119 @@
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DbZrIRHDYt0",
-          "DbXGUyLDF9b"
+          "Dc3H2rbCcB2",
+          "Dc0jBJKgfto"
         ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/hoki-construction_business/pack-01",
-          "civil-1/theme-packs/hoki-construction_business/pack-02",
-          "civil-1/theme-packs/hoki-construction_business/pack-03",
-          "civil-1/theme-packs/hoki-construction_business/pack-04"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DbZrIRHDYt0,DbXGUyLDF9b は全て他パックへ記録済み）＝未投稿"
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
       {
-        "rel": "civil-1/theme-packs/hoki-vibration/pack-01",
-        "head": "頻出論点法規/振動規制法特定建設作業★★★",
+        "rel": "civil-1/theme-packs/hoki-port/pack-01",
+        "head": "頻出論点法規/港則法港内の航行工事の許可★★★",
         "recordedShortcode": null,
         "recordedUrl": null,
-        "scheduledAt": "2026-08-28T19:00:00.000+09:00",
+        "scheduledAt": "2026-09-04T12:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DcfMnBvjUT7",
-          "Dbe0u3tDDnw"
+          "Dc3H1cQDRJ_",
+          "Dc2XvZfidXi",
+          "DcupaDbDOBn"
         ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/hoki-vibration/pack-02",
-          "civil-1/theme-packs/hoki-vibration/pack-03"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DcfMnBvjUT7,Dbe0u3tDDnw は全て他パックへ記録済み）＝未投稿"
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
       {
-        "rel": "civil-1/theme-packs/hoki-vibration/pack-02",
-        "head": "頻出論点法規/振動規制法特定建設作業★★★",
+        "rel": "civil-1/theme-packs/hoki-port/pack-02",
+        "head": "頻出論点法規/港則法港内の航行工事の許可★★★",
         "recordedShortcode": null,
         "recordedUrl": null,
-        "scheduledAt": "2026-08-29T19:00:00.000+09:00",
+        "scheduledAt": "2026-09-04T19:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DcfMnBvjUT7",
-          "Dbe0u3tDDnw"
+          "Dc3H1cQDRJ_",
+          "Dc2XvZfidXi",
+          "DcupaDbDOBn"
         ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/hoki-vibration/pack-01",
-          "civil-1/theme-packs/hoki-vibration/pack-03"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DcfMnBvjUT7,Dbe0u3tDDnw は全て他パックへ記録済み）＝未投稿"
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
       {
-        "rel": "civil-1/theme-packs/hoki-vibration/pack-03",
-        "head": "頻出論点法規/振動規制法特定建設作業★★★",
+        "rel": "civil-1/theme-packs/hoki-port/pack-03",
+        "head": "頻出論点法規/港則法港内の航行工事の許可★★★",
         "recordedShortcode": null,
         "recordedUrl": null,
-        "scheduledAt": "2026-08-30T19:00:00.000+09:00",
+        "scheduledAt": "2026-09-05T12:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DcfMnBvjUT7",
-          "Dbe0u3tDDnw"
+          "Dc3H1cQDRJ_",
+          "Dc2XvZfidXi",
+          "DcupaDbDOBn"
         ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/hoki-vibration/pack-01",
-          "civil-1/theme-packs/hoki-vibration/pack-02"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DcfMnBvjUT7,Dbe0u3tDDnw は全て他パックへ記録済み）＝未投稿"
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
       {
-        "rel": "civil-1/theme-packs/kankyo-recycle/pack-01",
-        "head": "頻出論点環境管理/建設リサイクル法建設副産物の有",
+        "rel": "civil-1/theme-packs/hoki-river/pack-01",
+        "head": "頻出論点法規/河川法河川区域内の行為許可★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-03T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc0jAuMAbP9",
+          "Dczy9wbgYC5"
+        ],
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-river/pack-02",
+        "head": "頻出論点法規/河川法河川区域内の行為許可★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-03T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dc0jAuMAbP9",
+          "Dczy9wbgYC5"
+        ],
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
+      },
+      {
+        "rel": "civil-1/theme-packs/kankyo-water_soil/pack-01",
+        "head": "頻出論点環境管理/水質汚濁濁水土壌汚染対策★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-01T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "Dcx-OFsEayb",
+          "DcvZcIBCXsJ"
+        ],
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
+      },
+      {
+        "rel": "civil-1/theme-packs/kankyo-water_soil/pack-02",
+        "head": "頻出論点環境管理/水質汚濁濁水土壌汚染対策★★★",
         "recordedShortcode": null,
         "recordedUrl": null,
         "scheduledAt": "2026-09-02T19:00:00.000+09:00",
@@ -2681,655 +3454,59 @@
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DbUhifcGoKH"
+          "Dcx-OFsEayb",
+          "DcvZcIBCXsJ"
         ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DbUhifcGoKH は全て他パックへ記録済み）＝未投稿"
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
       {
-        "rel": "civil-1/theme-packs/sekokeikaku-machine/pack-01",
-        "head": "頻出論点施工計画/建設機械の選定組合せ経済性★★",
+        "rel": "civil-2/theme-packs/anzen-scaffold/pack-01",
+        "head": "頻出論点安全管理/足場墜落高所作業★★★",
         "recordedShortcode": null,
         "recordedUrl": null,
-        "scheduledAt": null,
+        "scheduledAt": "2026-09-03T12:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DbcP7OOkcNk"
+          "Dc2Xv7gm_Jo",
+          "Dczy9oUAcAF"
         ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/sekokeikaku-machine/pack-02"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DbcP7OOkcNk は全て他パックへ記録済み）＝未投稿"
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
       {
-        "rel": "civil-1/theme-packs/sekokeikaku-machine/pack-02",
-        "head": "頻出論点施工計画/建設機械の選定組合せ経済性★★",
+        "rel": "civil-2/theme-packs/anzen-scaffold/pack-02",
+        "head": "頻出論点安全管理/足場墜落高所作業★★★",
         "recordedShortcode": null,
         "recordedUrl": null,
-        "scheduledAt": null,
+        "scheduledAt": "2026-09-04T12:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DbcP7OOkcNk"
+          "Dc2Xv7gm_Jo",
+          "Dczy9oUAcAF"
         ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/sekokeikaku-machine/pack-01"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DbcP7OOkcNk は全て他パックへ記録済み）＝未投稿"
+        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
       {
-        "rel": "civil-1/theme-packs/sekokeikaku-planning/pack-01",
-        "head": "頻出論点施工計画/施工計画の作成立案★★★",
+        "rel": "civil-2/theme-packs/anzen-scaffold/pack-03",
+        "head": "頻出論点安全管理/足場墜落高所作業★★★",
         "recordedShortcode": null,
         "recordedUrl": null,
-        "scheduledAt": "2026-08-31T19:00:00.000+09:00",
+        "scheduledAt": "2026-09-05T12:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DchxZ5iiUD5"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DchxZ5iiUD5 は全て他パックへ記録済み）＝未投稿"
-      },
-      {
-        "rel": "civil-2/theme-packs/anzen-excavation/pack-02",
-        "head": "頻出論点安全管理/明り掘削土止め支保工★★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-08-29T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DckWLOwj9bU"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DckWLOwj9bU は全て他パックへ記録済み）＝未投稿"
-      },
-      {
-        "rel": "civil-2/theme-packs/anzen-general_hazard/pack-01",
-        "head": "頻出論点安全管理/感電電気設備／工事現場の危険防",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-08-29T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DcihensgaMx"
-        ],
-        "ambiguous": true,
-        "ambiguousWith": [
-          "civil-1/theme-packs/anzen-general_hazard/pack-01",
-          "civil-1/theme-packs/anzen-general_hazard/pack-02"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DcihensgaMx は全て他パックへ記録済み）＝未投稿"
-      },
-      {
-        "rel": "civil-2/theme-packs/hinshitsu-basic/pack-01",
-        "head": "頻出論点品質管理/品質管理の基本品質マネジメント",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": "2026-09-02T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbVRpcTjyZW",
-          "DbSszv1lE9y",
-          "DbQIDU9DK3u"
-        ],
-        "falseMatchResolved": true,
-        "note": "誤ヒット確定（matched DbVRpcTjyZW,DbSszv1lE9y,DbQIDU9DK3u は全て他パックへ記録済み）＝未投稿"
-      }
-    ],
-    "recorded_but_gone": [],
-    "type_mismatch": [],
-    "anomaly": [
-      {
-        "rel": "civil-1/theme-packs/anzen-org/pack-01",
-        "head": "頻出論点安全管理/安全衛生管理体制作業主任者教育",
-        "recordedShortcode": "DbX2ZZ0jik5",
-        "recordedUrl": "https://www.instagram.com/p/DbX2ZZ0jik5/",
-        "scheduledAt": "2026-07-29T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DcihfqtD2wO",
-          "Dcf8qGWjdvN",
-          "Dbfky3riAsa",
-          "Dbc__mdDJX2",
-          "DbabNSQCNOn",
-          "DbX2ZZ0jik5",
-          "DbMzKkvmzgT",
-          "DbKOXrnDEry"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-1/theme-packs/anzen-org/pack-02",
-        "head": "頻出論点安全管理/安全衛生管理体制作業主任者教育",
-        "recordedShortcode": "DbabNSQCNOn",
-        "recordedUrl": "https://www.instagram.com/p/DbabNSQCNOn/",
-        "scheduledAt": "2026-07-30T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DcihfqtD2wO",
-          "Dcf8qGWjdvN",
-          "Dbfky3riAsa",
-          "Dbc__mdDJX2",
-          "DbabNSQCNOn",
-          "DbX2ZZ0jik5",
-          "DbMzKkvmzgT",
-          "DbKOXrnDEry"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-1/theme-packs/anzen-org/pack-03",
-        "head": "頻出論点安全管理/安全衛生管理体制作業主任者教育",
-        "recordedShortcode": "Dbc__mdDJX2",
-        "recordedUrl": "https://www.instagram.com/p/Dbc__mdDJX2/",
-        "scheduledAt": "2026-07-31T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DcihfqtD2wO",
-          "Dcf8qGWjdvN",
-          "Dbfky3riAsa",
-          "Dbc__mdDJX2",
-          "DbabNSQCNOn",
-          "DbX2ZZ0jik5",
-          "DbMzKkvmzgT",
-          "DbKOXrnDEry"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-1/theme-packs/anzen-org/pack-04",
-        "head": "頻出論点安全管理/安全衛生管理体制作業主任者教育",
-        "recordedShortcode": "Dbfky3riAsa",
-        "recordedUrl": "https://www.instagram.com/p/Dbfky3riAsa/",
-        "scheduledAt": "2026-08-01T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DcihfqtD2wO",
-          "Dcf8qGWjdvN",
-          "Dbfky3riAsa",
-          "Dbc__mdDJX2",
-          "DbabNSQCNOn",
-          "DbX2ZZ0jik5",
-          "DbMzKkvmzgT",
-          "DbKOXrnDEry"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-1/theme-packs/anzen-org/pack-05",
-        "head": "頻出論点安全管理/安全衛生管理体制作業主任者教育",
-        "recordedShortcode": "Dcf8qGWjdvN",
-        "recordedUrl": "https://www.instagram.com/p/Dcf8qGWjdvN/",
-        "scheduledAt": "2026-08-26T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DcihfqtD2wO",
-          "Dcf8qGWjdvN",
-          "Dbfky3riAsa",
-          "Dbc__mdDJX2",
-          "DbabNSQCNOn",
-          "DbX2ZZ0jik5",
-          "DbMzKkvmzgT",
-          "DbKOXrnDEry"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-1/theme-packs/anzen-org/pack-06",
-        "head": "頻出論点安全管理/安全衛生管理体制作業主任者教育",
-        "recordedShortcode": "DcihfqtD2wO",
-        "recordedUrl": "https://www.instagram.com/p/DcihfqtD2wO/",
-        "scheduledAt": "2026-08-27T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DcihfqtD2wO",
-          "Dcf8qGWjdvN",
-          "Dbfky3riAsa",
-          "Dbc__mdDJX2",
-          "DbabNSQCNOn",
-          "DbX2ZZ0jik5",
-          "DbMzKkvmzgT",
-          "DbKOXrnDEry"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-1/theme-packs/hinshitsu-basic/pack-01",
-        "head": "頻出論点品質管理/品質管理の基本品質マネジメント",
-        "recordedShortcode": "DbQIDU9DK3u",
-        "recordedUrl": "https://www.instagram.com/p/DbQIDU9DK3u/",
-        "scheduledAt": "2026-07-26T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbVRpcTjyZW",
-          "DbSszv1lE9y",
-          "DbQIDU9DK3u"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-1/theme-packs/hinshitsu-basic/pack-02",
-        "head": "頻出論点品質管理/品質管理の基本品質マネジメント",
-        "recordedShortcode": "DbSszv1lE9y",
-        "recordedUrl": "https://www.instagram.com/p/DbSszv1lE9y/",
-        "scheduledAt": "2026-07-27T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbVRpcTjyZW",
-          "DbSszv1lE9y",
-          "DbQIDU9DK3u"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-1/theme-packs/hinshitsu-basic/pack-03",
-        "head": "頻出論点品質管理/品質管理の基本品質マネジメント",
-        "recordedShortcode": "DbVRpcTjyZW",
-        "recordedUrl": "https://www.instagram.com/p/DbVRpcTjyZW/",
-        "scheduledAt": "2026-07-28T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbVRpcTjyZW",
-          "DbSszv1lE9y",
-          "DbQIDU9DK3u"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-1/theme-packs/hinshitsu-concrete/pack-01",
-        "head": "頻出論点品質管理/レディーミクストコンクリートの",
-        "recordedShortcode": "Da7hr9ciTck",
-        "recordedUrl": "https://www.instagram.com/p/Da7hr9ciTck/",
-        "scheduledAt": "2026-07-18T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbArQH4iFsa",
-          "Da-GdkhiPNo",
-          "Da9WaFGDw-h",
-          "Da7hr9ciTck",
-          "Da6xnCaguSN"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-1/theme-packs/hinshitsu-concrete/pack-02",
-        "head": "頻出論点品質管理/レディーミクストコンクリートの",
-        "recordedShortcode": "Da-GdkhiPNo",
-        "recordedUrl": "https://www.instagram.com/p/Da-GdkhiPNo/",
-        "scheduledAt": "2026-07-19T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbArQH4iFsa",
-          "Da-GdkhiPNo",
-          "Da9WaFGDw-h",
-          "Da7hr9ciTck",
-          "Da6xnCaguSN"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-1/theme-packs/hinshitsu-concrete/pack-03",
-        "head": "頻出論点品質管理/レディーミクストコンクリートの",
-        "recordedShortcode": "DbArQH4iFsa",
-        "recordedUrl": "https://www.instagram.com/p/DbArQH4iFsa/",
-        "scheduledAt": "2026-07-20T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbArQH4iFsa",
-          "Da-GdkhiPNo",
-          "Da9WaFGDw-h",
-          "Da7hr9ciTck",
-          "Da6xnCaguSN"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-1/theme-packs/hoki-labor/pack-01",
-        "head": "頻出論点法規/労働基準法労働契約賃金労働時間災害",
-        "recordedShortcode": "DbDQEYtm1XE",
-        "recordedUrl": "https://www.instagram.com/p/DbDQEYtm1XE/",
-        "scheduledAt": "2026-07-21T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbNjPXzDHJ9",
-          "DbK-c5JnV0L",
-          "DbIZo2KjaAA",
-          "DbHpl9IiPtv",
-          "DbF01H8FJlG",
-          "DbFExclj-yl",
-          "DbDQEYtm1XE",
-          "DbCf_C1CSJb",
-          "Da_7OTsjfTe"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-1/theme-packs/hoki-labor/pack-02",
-        "head": "頻出論点法規/労働基準法労働契約賃金労働時間災害",
-        "recordedShortcode": "DbF01H8FJlG",
-        "recordedUrl": "https://www.instagram.com/p/DbF01H8FJlG/",
-        "scheduledAt": "2026-07-22T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbNjPXzDHJ9",
-          "DbK-c5JnV0L",
-          "DbIZo2KjaAA",
-          "DbHpl9IiPtv",
-          "DbF01H8FJlG",
-          "DbFExclj-yl",
-          "DbDQEYtm1XE",
-          "DbCf_C1CSJb",
-          "Da_7OTsjfTe"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-1/theme-packs/hoki-labor/pack-03",
-        "head": "頻出論点法規/労働基準法労働契約賃金労働時間災害",
-        "recordedShortcode": "DbIZo2KjaAA",
-        "recordedUrl": "https://www.instagram.com/p/DbIZo2KjaAA/",
-        "scheduledAt": "2026-07-23T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbNjPXzDHJ9",
-          "DbK-c5JnV0L",
-          "DbIZo2KjaAA",
-          "DbHpl9IiPtv",
-          "DbF01H8FJlG",
-          "DbFExclj-yl",
-          "DbDQEYtm1XE",
-          "DbCf_C1CSJb",
-          "Da_7OTsjfTe"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-1/theme-packs/hoki-labor/pack-04",
-        "head": "頻出論点法規/労働基準法労働契約賃金労働時間災害",
-        "recordedShortcode": "DbK-c5JnV0L",
-        "recordedUrl": "https://www.instagram.com/p/DbK-c5JnV0L/",
-        "scheduledAt": "2026-07-24T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbNjPXzDHJ9",
-          "DbK-c5JnV0L",
-          "DbIZo2KjaAA",
-          "DbHpl9IiPtv",
-          "DbF01H8FJlG",
-          "DbFExclj-yl",
-          "DbDQEYtm1XE",
-          "DbCf_C1CSJb",
-          "Da_7OTsjfTe"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-1/theme-packs/hoki-labor/pack-05",
-        "head": "頻出論点法規/労働基準法労働契約賃金労働時間災害",
-        "recordedShortcode": "DbNjPXzDHJ9",
-        "recordedUrl": "https://www.instagram.com/p/DbNjPXzDHJ9/",
-        "scheduledAt": "2026-07-25T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbNjPXzDHJ9",
-          "DbK-c5JnV0L",
-          "DbIZo2KjaAA",
-          "DbHpl9IiPtv",
-          "DbF01H8FJlG",
-          "DbFExclj-yl",
-          "DbDQEYtm1XE",
-          "DbCf_C1CSJb",
-          "Da_7OTsjfTe"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-2/theme-packs/anzen-org/pack-01",
-        "head": "頻出論点安全管理/安全衛生管理体制作業主任者教育",
-        "recordedShortcode": "DbKOXrnDEry",
-        "recordedUrl": "https://www.instagram.com/p/DbKOXrnDEry/",
-        "scheduledAt": "2026-07-24T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DcihfqtD2wO",
-          "Dcf8qGWjdvN",
-          "Dbfky3riAsa",
-          "Dbc__mdDJX2",
-          "DbabNSQCNOn",
-          "DbX2ZZ0jik5",
-          "DbMzKkvmzgT",
-          "DbKOXrnDEry"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-2/theme-packs/anzen-org/pack-02",
-        "head": "頻出論点安全管理/安全衛生管理体制作業主任者教育",
-        "recordedShortcode": "DbMzKkvmzgT",
-        "recordedUrl": "https://www.instagram.com/p/DbMzKkvmzgT/",
-        "scheduledAt": "2026-07-25T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DcihfqtD2wO",
-          "Dcf8qGWjdvN",
-          "Dbfky3riAsa",
-          "Dbc__mdDJX2",
-          "DbabNSQCNOn",
-          "DbX2ZZ0jik5",
-          "DbMzKkvmzgT",
-          "DbKOXrnDEry"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-2/theme-packs/hinshitsu-concrete/pack-01",
-        "head": "頻出論点品質管理/レディーミクストコンクリートの",
-        "recordedShortcode": "Da6xnCaguSN",
-        "recordedUrl": "https://www.instagram.com/p/Da6xnCaguSN/",
-        "scheduledAt": "2026-07-18T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbArQH4iFsa",
-          "Da-GdkhiPNo",
-          "Da9WaFGDw-h",
-          "Da7hr9ciTck",
-          "Da6xnCaguSN"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-2/theme-packs/hinshitsu-concrete/pack-02",
-        "head": "頻出論点品質管理/レディーミクストコンクリートの",
-        "recordedShortcode": "Da9WaFGDw-h",
-        "recordedUrl": "https://www.instagram.com/p/Da9WaFGDw-h/",
-        "scheduledAt": "2026-07-19T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbArQH4iFsa",
-          "Da-GdkhiPNo",
-          "Da9WaFGDw-h",
-          "Da7hr9ciTck",
-          "Da6xnCaguSN"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-2/theme-packs/hinshitsu-ndt/pack-01",
-        "head": "頻出論点品質管理/鉄筋の継手加工組立の検査非破壊",
-        "recordedShortcode": "DchxZHygVtO",
-        "recordedUrl": "https://www.instagram.com/p/DchxZHygVtO/",
-        "scheduledAt": "2026-08-27T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DckWMTmIIwt",
-          "DchxZHygVtO"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-2/theme-packs/hinshitsu-ndt/pack-02",
-        "head": "頻出論点品質管理/鉄筋の継手加工組立の検査非破壊",
-        "recordedShortcode": "DckWMTmIIwt",
-        "recordedUrl": "https://www.instagram.com/p/DckWMTmIIwt/",
-        "scheduledAt": "2026-08-28T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DckWMTmIIwt",
-          "DchxZHygVtO"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-2/theme-packs/hoki-building/pack-01",
-        "head": "頻出論点法規/建築基準法仮設建築物の制限緩和★★",
-        "recordedShortcode": "DbPX8prjL3N",
-        "recordedUrl": "https://www.instagram.com/p/DbPX8prjL3N/",
-        "scheduledAt": "2026-07-26T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbR8vKZGZM6",
-          "DbPX8prjL3N"
-        ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
-      },
-      {
-        "rel": "civil-2/theme-packs/hoki-building/pack-02",
-        "head": "頻出論点法規/建築基準法仮設建築物の制限緩和★★",
-        "recordedShortcode": "DbR8vKZGZM6",
-        "recordedUrl": "https://www.instagram.com/p/DbR8vKZGZM6/",
-        "scheduledAt": "2026-07-27T12:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false,
-        "matched": [
-          "DbR8vKZGZM6",
-          "DbPX8prjL3N"
+          "Dc2Xv7gm_Jo",
+          "Dczy9oUAcAF"
         ],
         "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
@@ -3345,8 +3522,8 @@
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DbZrIRHDYt0",
-          "DbXGUyLDF9b"
+          "Dc3H2rbCcB2",
+          "Dc0jBJKgfto"
         ],
         "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
@@ -3362,140 +3539,189 @@
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DbZrIRHDYt0",
-          "DbXGUyLDF9b"
+          "Dc3H2rbCcB2",
+          "Dc0jBJKgfto"
         ],
         "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
       {
-        "rel": "civil-2/theme-packs/hoki-labor/pack-01",
-        "head": "頻出論点法規/労働基準法労働契約賃金労働時間災害",
-        "recordedShortcode": "Da_7OTsjfTe",
-        "recordedUrl": "https://www.instagram.com/p/Da_7OTsjfTe/",
-        "scheduledAt": "2026-07-20T12:00:00.000+09:00",
+        "rel": "civil-2/theme-packs/hoki-port/pack-01",
+        "head": "頻出論点法規/港則法港内の航行工事の許可★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-08-31T12:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DbNjPXzDHJ9",
-          "DbK-c5JnV0L",
-          "DbIZo2KjaAA",
-          "DbHpl9IiPtv",
-          "DbF01H8FJlG",
-          "DbFExclj-yl",
-          "DbDQEYtm1XE",
-          "DbCf_C1CSJb",
-          "Da_7OTsjfTe"
+          "Dc3H1cQDRJ_",
+          "Dc2XvZfidXi",
+          "DcupaDbDOBn"
         ],
         "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
       {
-        "rel": "civil-2/theme-packs/hoki-labor/pack-02",
-        "head": "頻出論点法規/労働基準法労働契約賃金労働時間災害",
-        "recordedShortcode": "DbCf_C1CSJb",
-        "recordedUrl": "https://www.instagram.com/p/DbCf_C1CSJb/",
-        "scheduledAt": "2026-07-21T12:00:00.000+09:00",
+        "rel": "civil-2/theme-packs/hoki-port/pack-02",
+        "head": "頻出論点法規/港則法港内の航行工事の許可★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-01T12:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DbNjPXzDHJ9",
-          "DbK-c5JnV0L",
-          "DbIZo2KjaAA",
-          "DbHpl9IiPtv",
-          "DbF01H8FJlG",
-          "DbFExclj-yl",
-          "DbDQEYtm1XE",
-          "DbCf_C1CSJb",
-          "Da_7OTsjfTe"
+          "Dc3H1cQDRJ_",
+          "Dc2XvZfidXi",
+          "DcupaDbDOBn"
         ],
         "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
       {
-        "rel": "civil-2/theme-packs/hoki-labor/pack-03",
-        "head": "頻出論点法規/労働基準法労働契約賃金労働時間災害",
-        "recordedShortcode": "DbFExclj-yl",
-        "recordedUrl": "https://www.instagram.com/p/DbFExclj-yl/",
-        "scheduledAt": "2026-07-22T12:00:00.000+09:00",
+        "rel": "civil-2/theme-packs/hoki-river/pack-01",
+        "head": "頻出論点法規/河川法河川区域内の行為許可★★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-08-30T12:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DbNjPXzDHJ9",
-          "DbK-c5JnV0L",
-          "DbIZo2KjaAA",
-          "DbHpl9IiPtv",
-          "DbF01H8FJlG",
-          "DbFExclj-yl",
-          "DbDQEYtm1XE",
-          "DbCf_C1CSJb",
-          "Da_7OTsjfTe"
+          "Dc0jAuMAbP9",
+          "Dczy9wbgYC5"
         ],
         "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
       },
       {
-        "rel": "civil-2/theme-packs/hoki-labor/pack-04",
-        "head": "頻出論点法規/労働基準法労働契約賃金労働時間災害",
-        "recordedShortcode": "DbHpl9IiPtv",
-        "recordedUrl": "https://www.instagram.com/p/DbHpl9IiPtv/",
-        "scheduledAt": "2026-07-23T12:00:00.000+09:00",
+        "rel": "civil-1/theme-packs/hoki-building/pack-01",
+        "head": "頻出論点法規/建築基準法仮設建築物の制限緩和★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-08-30T19:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DbNjPXzDHJ9",
-          "DbK-c5JnV0L",
-          "DbIZo2KjaAA",
-          "DbHpl9IiPtv",
-          "DbF01H8FJlG",
-          "DbFExclj-yl",
-          "DbDQEYtm1XE",
-          "DbCf_C1CSJb",
-          "Da_7OTsjfTe"
+          "DcvZdhlFdLY"
         ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-building/pack-02",
+          "civil-1/theme-packs/hoki-building/pack-03"
+        ],
+        "reason": "同一のライブ投稿 DcvZdhlFdLY を 3 パックが主張（逆方向の衝突・要人手判断）"
       },
       {
-        "rel": "civil-2/theme-packs/hoki-vibration/pack-01",
-        "head": "頻出論点法規/振動規制法特定建設作業★★★",
-        "recordedShortcode": "Dbe0u3tDDnw",
-        "recordedUrl": "https://www.instagram.com/p/Dbe0u3tDDnw/",
-        "scheduledAt": "2026-08-01T12:00:00.000+09:00",
+        "rel": "civil-1/theme-packs/hoki-building/pack-02",
+        "head": "頻出論点法規/建築基準法仮設建築物の制限緩和★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-08-31T19:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DcfMnBvjUT7",
-          "Dbe0u3tDDnw"
+          "DcvZdhlFdLY"
         ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-building/pack-01",
+          "civil-1/theme-packs/hoki-building/pack-03"
+        ],
+        "reason": "同一のライブ投稿 DcvZdhlFdLY を 3 パックが主張（逆方向の衝突・要人手判断）"
       },
       {
-        "rel": "civil-2/theme-packs/hoki-vibration/pack-02",
-        "head": "頻出論点法規/振動規制法特定建設作業★★★",
-        "recordedShortcode": "DcfMnBvjUT7",
-        "recordedUrl": "https://www.instagram.com/p/DcfMnBvjUT7/",
-        "scheduledAt": "2026-08-26T12:00:00.000+09:00",
+        "rel": "civil-1/theme-packs/hoki-building/pack-03",
+        "head": "頻出論点法規/建築基準法仮設建築物の制限緩和★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-01T19:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
         "reelScheduledAt": null,
         "reelMaterial": false,
         "matched": [
-          "DcfMnBvjUT7",
-          "Dbe0u3tDDnw"
+          "DcvZdhlFdLY"
         ],
-        "reason": "同一テーマが複数のカルーセル投稿に一致（重複の疑い・型考慮済み）"
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-building/pack-01",
+          "civil-1/theme-packs/hoki-building/pack-02"
+        ],
+        "reason": "同一のライブ投稿 DcvZdhlFdLY を 3 パックが主張（逆方向の衝突・要人手判断）"
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-explosive/pack-01",
+        "head": "頻出論点法規/火薬類取締法火薬類の取扱い消費★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-05T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "DcxOKVWlUMW"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-explosive/pack-02",
+          "civil-2/theme-packs/hoki-explosive/pack-01"
+        ],
+        "reason": "同一のライブ投稿 DcxOKVWlUMW を 3 パックが主張（逆方向の衝突・要人手判断）"
+      },
+      {
+        "rel": "civil-1/theme-packs/hoki-explosive/pack-02",
+        "head": "頻出論点法規/火薬類取締法火薬類の取扱い消費★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-06T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "DcxOKVWlUMW"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-explosive/pack-01",
+          "civil-2/theme-packs/hoki-explosive/pack-01"
+        ],
+        "reason": "同一のライブ投稿 DcxOKVWlUMW を 3 パックが主張（逆方向の衝突・要人手判断）"
+      },
+      {
+        "rel": "civil-2/theme-packs/hoki-explosive/pack-01",
+        "head": "頻出論点法規/火薬類取締法火薬類の取扱い消費★★",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-02T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false,
+        "matched": [
+          "DcxOKVWlUMW"
+        ],
+        "ambiguous": true,
+        "ambiguousWith": [
+          "civil-1/theme-packs/hoki-explosive/pack-01",
+          "civil-1/theme-packs/hoki-explosive/pack-02"
+        ],
+        "reason": "同一のライブ投稿 DcxOKVWlUMW を 3 パックが主張（逆方向の衝突・要人手判断）"
       }
     ],
     "reel_gap": [
@@ -4100,42 +4326,6 @@
         "reelMaterial": false
       },
       {
-        "rel": "civil-1/theme-packs/hinshitsu-ndt/pack-01",
-        "head": "頻出論点品質管理/鉄筋の継手加工組立の検査非破壊",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": null,
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-1/theme-packs/hinshitsu-ndt/pack-02",
-        "head": "頻出論点品質管理/鉄筋の継手加工組立の検査非破壊",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": null,
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-1/theme-packs/hinshitsu-ndt/pack-03",
-        "head": "頻出論点品質管理/鉄筋の継手加工組立の検査非破壊",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": null,
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
         "rel": "civil-1/theme-packs/hinshitsu-pavement/pack-01",
         "head": "頻出論点品質管理/道路舗装の品質管理路床路盤アス",
         "recordedShortcode": null,
@@ -4513,30 +4703,6 @@
         "recordedShortcode": null,
         "recordedUrl": null,
         "scheduledAt": "2026-09-02T19:00:00.000+09:00",
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-1/theme-packs/sekokeikaku-machine/pack-01",
-        "head": "頻出論点施工計画/建設機械の選定組合せ経済性★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": null,
-        "draftFlag": false,
-        "hasContent": true,
-        "reelPostedUrl": null,
-        "reelScheduledAt": null,
-        "reelMaterial": false
-      },
-      {
-        "rel": "civil-1/theme-packs/sekokeikaku-machine/pack-02",
-        "head": "頻出論点施工計画/建設機械の選定組合せ経済性★★",
-        "recordedShortcode": null,
-        "recordedUrl": null,
-        "scheduledAt": null,
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,
@@ -4993,6 +5159,186 @@
         "recordedShortcode": "DchxZ5iiUD5",
         "recordedUrl": "https://www.instagram.com/p/DchxZ5iiUD5/",
         "scheduledAt": "2026-08-27T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-01",
+        "head": "令和7年度基礎科目過去問R07過去問1",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-11T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-02",
+        "head": "令和7年度基礎科目過去問R07過去問2",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-14T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-03",
+        "head": "令和7年度基礎科目過去問R07過去問3",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-18T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-04",
+        "head": "令和7年度基礎科目過去問R07過去問4",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-21T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-05",
+        "head": "令和7年度基礎科目過去問R07過去問5",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-25T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-06",
+        "head": "令和7年度適性科目過去問R07過去問6",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-09-28T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-07",
+        "head": "令和7年度適性科目過去問R07過去問7",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-10-02T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-08",
+        "head": "令和7年度適性科目過去問R07過去問8",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-10-05T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-09",
+        "head": "令和7年度専門科目建設部門過去問R07過去問9",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-10-09T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-10",
+        "head": "令和7年度専門科目建設部門過去問R07過去問10",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-10-12T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-11",
+        "head": "令和7年度専門科目建設部門過去問R07過去問11",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-10-16T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-12",
+        "head": "令和7年度専門科目建設部門過去問R07過去問12",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-10-19T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-13",
+        "head": "令和7年度専門科目建設部門過去問R07過去問13",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-10-23T19:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-14",
+        "head": "令和7年度専門科目建設部門過去問R07過去問14",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-10-26T12:00:00.000+09:00",
+        "draftFlag": false,
+        "hasContent": true,
+        "reelPostedUrl": null,
+        "reelScheduledAt": null,
+        "reelMaterial": false
+      },
+      {
+        "rel": "pe-first-stage/exam-packs/r07/pack-15",
+        "head": "令和7年度専門科目建設部門過去問R07過去問15",
+        "recordedShortcode": null,
+        "recordedUrl": null,
+        "scheduledAt": "2026-10-30T19:00:00.000+09:00",
         "draftFlag": false,
         "hasContent": true,
         "reelPostedUrl": null,

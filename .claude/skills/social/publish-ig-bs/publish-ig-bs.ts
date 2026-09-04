@@ -141,6 +141,7 @@ const SEL = {
   caption: (p: Page): Locator[] => [
     p.locator('div[contenteditable="true"][role="textbox"]'),
     p.locator('[contenteditable="true"]'),
+    p.locator('textarea[aria-label*="テキスト"], textarea[aria-label*="キャプション"], textarea[placeholder*="テキスト"]'),
     p.getByRole("textbox", { name: /テキスト|キャプション|説明|caption/i }),
   ],
   // 投稿先ドロップダウンを開くフィールド（FB ページ名を表示している）
@@ -513,7 +514,51 @@ async function uploadImages(page: Page, images: string[]): Promise<boolean> {
 
 // ─── キャプション入力（clipboard 経由 + read-back 検証）─────
 async function fillCaption(page: Page, caption: string): Promise<boolean> {
-  const box = await firstVisible(SEL.caption(page), 6000);
+  let box = await firstVisible(SEL.caption(page), 6000);
+  if (!box) {
+    // 2026-09-04 の Meta UI は、10枚カルーセルのメディア一覧が左ペインを占有し、
+    // 下方のキャプション欄を遅延描画する。スクロール可能な左ペインを末尾へ送って再探索する。
+    const scrolled = await page.evaluate(() => {
+      const candidates = [...document.querySelectorAll<HTMLElement>('div')]
+        .filter((el) => {
+          const r = el.getBoundingClientRect();
+          return r.left < 760 && r.width > 250 && r.height > 250 && el.scrollHeight > el.clientHeight + 80;
+        })
+        .sort((a, b) => (b.scrollHeight - b.clientHeight) - (a.scrollHeight - a.clientHeight));
+      for (const el of candidates.slice(0, 3)) el.scrollTop = el.scrollHeight;
+      return candidates.length;
+    }).catch(() => 0);
+    console.log(`[caption] 左ペイン末尾へスクロール（候補 ${scrolled}）`);
+    await page.waitForTimeout(1500);
+    box = await firstVisible(SEL.caption(page), 5000);
+    if (!box) {
+      // 現行UIでは空のテキスト欄が role/contenteditable を持たず、クリック後にだけ
+      // 編集要素へフォーカスが移る場合がある。ラベル直下の入力面をクリックして :focus を採る。
+      const rect = await page.evaluate(() => {
+        const labels = [...document.querySelectorAll<HTMLElement>('*')]
+          .filter((el) => el.childElementCount === 0 && el.textContent?.trim() === 'テキスト')
+          .map((el) => el.getBoundingClientRect())
+          .filter((r) => r.width > 0 && r.height > 0 && r.left < 760 && r.top >= 0 && r.bottom <= innerHeight);
+        const r = labels[0];
+        return r ? { x: r.x, y: r.y, width: r.width, height: r.height } : null;
+      }).catch(() => null);
+      if (rect) {
+        await page.mouse.click(rect.x + Math.min(180, Math.max(40, rect.width / 2)), rect.y + rect.height + 45);
+        await page.waitForTimeout(500);
+        const focused = page.locator(':focus').first();
+        if ((await focused.count()) > 0 && await focused.isVisible().catch(() => false)) {
+          box = focused;
+          const attrs = await focused.evaluate((el) => ({
+            tag: el.tagName,
+            role: el.getAttribute('role'),
+            aria: el.getAttribute('aria-label'),
+            contenteditable: el.getAttribute('contenteditable'),
+          })).catch(() => null);
+          console.log(`[caption] ラベル直下クリックで入力面を捕捉 ${JSON.stringify(attrs)}`);
+        }
+      }
+    }
+  }
   if (!box) {
     console.error("🚨 キャプション入力欄が見つかりません");
     await shot(page, "caption-box-missing");

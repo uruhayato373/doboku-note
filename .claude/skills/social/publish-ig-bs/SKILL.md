@@ -99,7 +99,7 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 | 投稿先を開く | `getByText(/Doboku-note/)`（FB ページ名） | boundingBox で開を確認 |
 | FB を外す | `role=option name=Doboku-note` の `aria-selected` を true→クリック→false 検証 | IG 単独化 |
 | メディア追加 | `role=button name=/写真.*追加/` → filechooser（fallback: menu「アップロード」/ `input[type=file]`） | IG単独は「写真・動画を追加」 |
-| キャプション | `[contenteditable=true][role=textbox]` → clipboard paste + read-back 検証 | 日本語 OK |
+| キャプション | `[contenteditable=true][role=textbox]` / `textarea` → clipboard paste + read-back 検証。10枚カルーセルで欄が遅延描画される現行UIは左ペイン末尾へ自動スクロールして再探索 | 日本語 OK |
 | 予約 ON | `role=switch name=日時を設定` の `aria-checked` | これで日時欄が出現 |
 | 日付 | `input[placeholder="yyyy/mm/dd"]` に `YYYY/MM/DD` | 全行に同一日時 |
 | 時 / 分 | `input[aria-label="時間"]` / `input[aria-label="分"]` に `HH` / `MM` | 24時間。午後時刻は AM/PM 要確認 |
