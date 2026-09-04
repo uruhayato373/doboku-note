@@ -55,16 +55,18 @@ jobs:
       - name: Purge overwritten distribution URL from CDN
         if: ${{ github.event.inputs.dry_run != 'true' && github.event.inputs.overwrite == 'true' }}
         env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           DIST_FILE: ${{ github.event.inputs.file }}
         run: |
           set -euo pipefail
           test -n "$DIST_FILE"
-          ZONE_RESPONSE=$(curl --fail --silent --show-error \
+          DOMAIN_RESPONSE=$(curl --fail --silent --show-error \
             --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
             --header "Content-Type: application/json" \
-            "https://api.cloudflare.com/client/v4/zones?name=doboku-note.com")
-          ZONE_ID=$(printf '%s' "$ZONE_RESPONSE" | jq -er '.result[0].id')
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/r2/buckets/doboku-note/domains/custom")
+          ZONE_ID=$(printf '%s' "$DOMAIN_RESPONSE" | jq -er \
+            '.result.domains[] | select(.domain == "storage.doboku-note.com") | .zoneId')
           DIST_URL="https://storage.doboku-note.com/brain/dist/$DIST_FILE"
           PURGE_PAYLOAD=$(jq -cn --arg url "$DIST_URL" '{files: [$url]}')
           PURGE_RESPONSE=$(curl --fail --silent --show-error \
