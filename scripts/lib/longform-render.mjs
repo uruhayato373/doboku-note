@@ -44,6 +44,18 @@ export function wrapJp(text, maxChars) {
   return lines;
 }
 
+/**
+ * 字幕を1画面1行に収めつつ、末尾だけ1〜2文字になる不均衡を避ける。
+ * 例: 30文字・上限28文字 → 15文字×2（28文字＋2文字にはしない）。
+ */
+export function chunkJpBalanced(text, maxChars) {
+  const chars = [...(text ?? '')];
+  if (chars.length === 0) return [];
+  const chunkCount = Math.ceil(chars.length / maxChars);
+  const chunkSize = Math.ceil(chars.length / chunkCount);
+  return wrapJp(chars.join(''), chunkSize);
+}
+
 function assTime(sec) {
   const h = Math.floor(sec / 3600);
   const m = Math.floor((sec % 3600) / 60);
@@ -73,8 +85,15 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text`
   const lines = [header];
   scenes.forEach((scene, i) => {
     const dur = durations?.[i] ?? (scene.end - scene.start);
-    const text = wrapJp(scene.narration ?? '', 28).join('\\N');
-    lines.push(`Dialogue: 0,${assTime(t)},${assTime(t + dur)},Default,,0,0,0,,${text}`);
+    const chunks = chunkJpBalanced(scene.narration ?? '', 28);
+    let chunkStart = t;
+    chunks.forEach((text, chunkIndex) => {
+      const chunkEnd = chunkIndex === chunks.length - 1
+        ? t + dur
+        : chunkStart + dur * ([...text].length / Math.max(1, [...(scene.narration ?? '')].length));
+      lines.push(`Dialogue: 0,${assTime(chunkStart)},${assTime(chunkEnd)},Default,,0,0,0,,${text}`);
+      chunkStart = chunkEnd;
+    });
     t += dur;
   });
   return lines.join('\n');
@@ -91,6 +110,8 @@ export function buildSceneNode(scene, ctx) {
   const kind = visual.kind ?? 'points';
 
   if (kind === 'cover') {
+    const headingLength = [...(visual.heading ?? '')].length;
+    const headingFontSize = headingLength <= 18 ? 84 : headingLength <= 26 ? 68 : 56;
     return {
       type: 'div',
       props: {
@@ -116,8 +137,9 @@ export function buildSceneNode(scene, ctx) {
             props: {
               style: {
                 display: 'flex', flexWrap: 'wrap', justifyContent: 'center',
-                fontSize: 84, fontWeight: 700, color: WHITE,
+                fontSize: headingFontSize, fontWeight: 700, color: WHITE,
                 lineHeight: 1.6, textAlign: 'center', fontFamily: FONT_JP,
+                whiteSpace: 'nowrap',
               },
               children: visual.heading,
             },

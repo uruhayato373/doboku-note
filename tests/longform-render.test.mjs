@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url';
 
 import {
   LONGFORM_W, LONGFORM_H, EXAM_TO_PALETTE,
-  wrapJp, buildLongformAss, buildSceneNode, planLongformRender,
+  wrapJp, chunkJpBalanced, buildLongformAss, buildSceneNode, planLongformRender,
 } from '../scripts/lib/longform-render.mjs';
 import { resolveExam } from '../.claude/scripts/sns/lib/exam-palette.mjs';
 
@@ -25,19 +25,27 @@ test('wrapJp: 和文を maxChars で折り返す', () => {
   assert.deepEqual(wrapJp('', 3), []);
 });
 
+test('chunkJpBalanced: 末尾だけ短い字幕を作らない', () => {
+  assert.deepEqual(chunkJpBalanced('あ'.repeat(30), 28).map((s) => s.length), [15, 15]);
+  assert.deepEqual(chunkJpBalanced('', 28), []);
+});
+
 test('buildLongformAss: PlayRes 1920×1080・設計尺で連続タイミング', () => {
   const ass = buildLongformAss(SCENES);
   assert.ok(ass.includes(`PlayResX: ${LONGFORM_W}`));
   assert.ok(ass.includes(`PlayResY: ${LONGFORM_H}`));
-  assert.ok(ass.includes('Dialogue: 0,0:00:00.00,0:00:20.00'));
   assert.ok(ass.includes('Dialogue: 0,0:00:20.00,0:01:20.00'));
-  // 28字折返し（30字ナレーション → \N が入る）
-  assert.ok(ass.includes('\\N'));
+  // 30字ナレーションは15字×2へ時間分割し、1画面に複数行を詰めない。
+  assert.equal((ass.match(/^Dialogue:/gm) ?? []).length, 3);
+  assert.ok(ass.includes('Dialogue: 0,0:00:00.00,0:00:10.00'));
+  assert.ok(ass.includes('Dialogue: 0,0:00:10.00,0:00:20.00'));
+  assert.ok(!ass.includes('\\N'));
 });
 
 test('buildLongformAss: wav 実測 durations が設計尺を上書きする', () => {
   const ass = buildLongformAss(SCENES, [12.5, 33.0]);
-  assert.ok(ass.includes('Dialogue: 0,0:00:00.00,0:00:12.50'));
+  assert.ok(ass.includes('Dialogue: 0,0:00:00.00,0:00:06.25'));
+  assert.ok(ass.includes('Dialogue: 0,0:00:06.25,0:00:12.50'));
   assert.ok(ass.includes('Dialogue: 0,0:00:12.50,0:00:45.50'));
 });
 
@@ -63,6 +71,17 @@ test('buildSceneNode: cover は deep 背景の中央レイアウト', () => {
   const flat = JSON.stringify(node);
   assert.ok(flat.includes('カバー見出し'));
   assert.ok(flat.includes('#0E2645'));
+});
+
+test('buildSceneNode: 長い cover 見出しは1行を維持して縮小する', () => {
+  const theme = { base: '#16365C', deep: '#0E2645', accent: '#1E73C8', label: '技術士（総合技術監理部門）' };
+  const node = buildSceneNode(
+    { sceneId: 'cover', start: 0, end: 10, narration: 'n', visual: { kind: 'cover', heading: '総監記述式　設問の役割を取り違えない読み方' } },
+    { theme, packTitle: 'タイトル' },
+  );
+  const flat = JSON.stringify(node);
+  assert.ok(flat.includes('"fontSize":68'));
+  assert.ok(flat.includes('"whiteSpace":"nowrap"'));
 });
 
 test('planLongformRender: exam→palette 解決と format ガード', () => {

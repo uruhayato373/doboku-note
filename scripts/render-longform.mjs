@@ -129,7 +129,13 @@ async function main() {
   if (!args['skip-tts']) {
     mp4Path = join(outDir, 'video.mp4');
     console.log('\n[ffmpeg] 動画合成中...');
-    await composeShortsVideo({ pngPaths, wavPaths, assPath, outPath: mp4Path, options: { tmpDir: wavDir } });
+    await composeShortsVideo({
+      pngPaths,
+      wavPaths,
+      assPath,
+      outPath: mp4Path,
+      options: { tmpDir: wavDir, requireSubtitles: true },
+    });
     totalSec = await probeDuration(mp4Path);
     console.log(`  実尺 ${totalSec.toFixed(1)}s（設計尺 ${scenes.at(-1).end}s）`);
   }
@@ -142,6 +148,7 @@ async function main() {
     render: [LONGFORM_W, LONGFORM_H],
     renderedAt: new Date().toISOString(),
     tts: !args['skip-tts'],
+    subtitles: !args['skip-tts'],
     scenes: scenes.map((s, i) => ({
       sceneId: s.sceneId,
       png: basename(pngPaths[i]),
