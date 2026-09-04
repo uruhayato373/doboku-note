@@ -763,18 +763,6 @@ DN-0100で行き止まりと季節ドリフトを止めた後、機械監査で�
 原典照合できない数値は出していない（JIS 規格値は原理を問う形へ、改正年代順は塩化物総量規制の考え方へ差し替え済み）。
 
 
-### [DN-0031] Brain 2商品の審査後フォローと販売運用（2026-07-22 申請済み）
-タグ: [収益化] [種類:改善] [コンテンツ品質]
-
-残るのは note 入口記事 2 本の公開（`published: false` のまま待機中）:
-①`content/note/技術士総監/出題テーマ分析-R8地方創生検証/`
-②`content/note/1級・2級土木/経験記述-AI設計-無料/`。
-**完了条件**: `src/lib/note-magazines.ts` で両記事が `published: true` かつライブ URL 実在。
-Brain 商品自体（施工経験記述キット・総監施策バンク）は `src/lib/brain-products.ts` が
-両方 `status: 'listed'` と持つ（審査結果はメールで確認済み・状態はそちら参照）。
-運用の詳細は [brain-operations.md](../knowledge/reference/brain-operations.md)。
-
-
 ### [DN-0036] モバイル可読性リライト 第1弾
 タグ: [コンテンツ品質] [種類:制作]
 

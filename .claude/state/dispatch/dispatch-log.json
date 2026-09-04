@@ -415,6 +415,18 @@
       "commit": null,
       "verification": "node scripts/kdp-publish.mjs --sync-status（45/45冊再現・価格不一致0）; catalog/strategy/READMEの3箇所でASIN突合; check-kindle-format 8/8 PASS; check-kdp-category-coverage 38/38 PASS",
       "note": "KDP本棚でg-01/g-02とも販売中を確認。g-01=ASIN B0HGXCGGS2・¥990、g-02=ASIN B0HGXLGJ5Y・¥1,250を3つのSSOTへ反映した"
+    },
+    {
+      "id": "DN-0031",
+      "at": "2026-09-04",
+      "task": "Brain 2商品の審査後フォローと販売運用",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "node scripts/note-probe.mjs n58099ccfeceb / n0171b3105e2d（両方published・無料・本文実在）; content/note 2記事のnoteStatus=published＋noteUrl実在; src/lib/brain-products.ts 2商品status=listed",
+      "note": "カードがサイト用publishedフラグをnote公開状態と誤認していた。note公開のSSOTでは入口2記事とも公開済みで、Brain 2商品も販売中。todo-standardsが状態複製の陳腐化実例としてDN-0031を明記しているため完了済みカードを掃除した"
     }
   ]
 }
