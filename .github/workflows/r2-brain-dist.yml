@@ -64,16 +64,23 @@ jobs:
           DOMAIN_RESPONSE=$(curl --fail --silent --show-error \
             --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
             --header "Content-Type: application/json" \
-            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/doboku-note/domains/doboku-note.com")
-          ZONE_ID=$(printf '%s' "$DOMAIN_RESPONSE" | jq -er \
-            '.result.zone_tag')
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/doboku-note/domains/doboku-note.com" || true)
+          ZONE_ID=$(printf '%s' "$DOMAIN_RESPONSE" | jq -r \
+            '.result.zone_tag // empty' 2>/dev/null || true)
           DIST_URL="https://storage.doboku-note.com/brain/dist/$DIST_FILE"
+          if [ -z "$ZONE_ID" ]; then
+            echo "::warning::zone_tag を取得できないため即時 purge は省略。上書き object の no-store により現在の edge TTL 満了後は旧 bytes を再キャッシュしません。"
+            exit 0
+          fi
           PURGE_PAYLOAD=$(jq -cn --arg url "$DIST_URL" '{files: [$url]}')
           PURGE_RESPONSE=$(curl --fail --silent --show-error \
             --request POST \
             --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
             --header "Content-Type: application/json" \
             --data "$PURGE_PAYLOAD" \
-            "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/purge_cache")
-          printf '%s' "$PURGE_RESPONSE" | jq -e '.success == true' >/dev/null
+            "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/purge_cache" || true)
+          if ! printf '%s' "$PURGE_RESPONSE" | jq -e '.success == true' >/dev/null 2>&1; then
+            echo "::warning::URL purge が許可されなかったため即時 purge は省略。上書き object の no-store により現在の edge TTL 満了後は旧 bytes を再キャッシュしません。"
+            exit 0
+          fi
           echo "purged: $DIST_URL"

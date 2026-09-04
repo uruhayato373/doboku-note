@@ -99,7 +99,7 @@ test('要求された全走査領域と Brain ZIP をスコープに固定する
   ]) assert.ok(paths.has(expected), `走査スコープ欠落: ${expected}`);
 });
 
-test('Brain 同一URL上書きは単一ZIPへ限定し、成功後に同じ配布URLのCDNキャッシュを消す', () => {
+test('Brain 同一URL上書きは単一ZIPへ限定し、no-store と可能ならURL purgeで旧キャッシュを防ぐ', () => {
   const zip = 'claude-code-civil-essay-kit-beta-8K93ERd_D6fR.zip';
   const output = execFileSync('node', ['scripts/upload-brain-dist-r2.mjs', '--dry-run', '--file', zip, '--overwrite'], { encoding: 'utf8' });
   assert.match(output, new RegExp(`\\[dry overwrite\\] brain/dist/${zip.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`));
@@ -112,4 +112,7 @@ test('Brain 同一URL上書きは単一ZIPへ限定し、成功後に同じ配�
   assert.match(workflow, /zones\/\$ZONE_ID\/purge_cache/);
   assert.match(workflow, /pages\/projects\/doboku-note\/domains\/doboku-note\.com/);
   assert.match(workflow, /storage\.doboku-note\.com\/brain\/dist\/\$DIST_FILE/);
+  const uploader = readFileSync('scripts/upload-brain-dist-r2.mjs', 'utf8');
+  assert.match(uploader, /no-cache, no-store, must-revalidate/);
+  assert.match(uploader, /remote\.CacheControl !== OVERWRITE_CACHE_CONTROL/);
 });
