@@ -164,6 +164,17 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-cta-clicks -- --by-label
 
+      # 1級土木PWA Phase 0: 無料演習→Premium関心の匿名ファネル。
+      # eventName別 totalUsers を成功判定に使い、eventCount の重複を購入希望人数へ足さない。
+      - name: Fetch GA4 (quiz Premium Phase 0 funnel)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: node scripts/fetch-ga4-quiz-funnel.mjs
+
+      - name: Report quiz Premium Phase 0 gate
+        run: node scripts/report-quiz-premium-funnel.mjs
+
       # アフィリ面改善用: 配置別（cta_placement）の可視 impression / click。
       # article-mid / article-end-mobile / category-sidebar など配置単位の CTR を出す。
       # 要 GA4 カスタムディメンション（イベントスコープ・cta_placement）。登録前データは遡及しない。

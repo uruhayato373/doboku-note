@@ -4,6 +4,13 @@ import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties }
 import Link from "next/link";
 import type { QuizDataset, QuizQuestion } from "@/lib/quiz/types";
 import { event } from "@/lib/gtag";
+import {
+  buildQuizFunnelEvent,
+  quizInterestStorageKey,
+  shouldShowMenuPremium,
+  type QuizFunnelMode,
+  type QuizFunnelPlacement,
+} from "@/lib/quiz/funnel";
 
 /**
  * 1級土木 第一次検定 過去問 フル演習エンジン（v1・オンライン先行）。
@@ -25,6 +32,8 @@ export type KakomonQuizConfig = {
   showSubjects?: boolean;
   placeholderYears?: QuizDataset["years"];
   placeholderSubjects?: NonNullable<QuizDataset["subjects"]>;
+  /** Phase 0の匿名Premium需要テスト対象。現時点では1級土木だけを有効化する。 */
+  premiumPilot?: boolean;
   noteCta: { id: string; href: string; title: string; description: string };
   detailCta: { href: string; title: string; description: string };
 };
@@ -37,6 +46,7 @@ const DEFAULT_CONFIG: KakomonQuizConfig = {
   sourceNote:
     "出典: 1級土木施工管理技術検定 第一次検定 過去問（各設問は原典で照合済み）。施工管理法（応用能力）等の図・記述系設問は4択演習の対象外です。",
   yearTitleSuffix: "・第一次検定",
+  premiumPilot: true,
   noteCta: {
     id: "civil-1-ichiji",
     href: "https://note.com/dobokunote/n/nec34238ca6d6?utm_source=doboku-note&utm_medium=quiz&utm_campaign=civil-1-kakomon",
@@ -73,12 +83,14 @@ function shuffle<T>(arr: T[]): T[] {
 export default function KakomonQuizClient({ config = DEFAULT_CONFIG }: { config?: KakomonQuizConfig }) {
   const wrongKey = `dnq:${config.exam}:wrong`;
   const tallyKey = `dnq:${config.exam}:tally`;
+  const completionKey = `dnq:${config.exam}:completions`;
   const [data, setData] = useState<QuizDataset | null>(null);
   const [loading, setLoading] = useState(false);
   const [loadError, setLoadError] = useState(false);
   const [mode, setMode] = useState<Mode | null>(null);
   const [wrong, setWrong] = useState<Set<string>>(new Set());
   const [tally, setTally] = useState<Tally>({ answered: 0, correct: 0 });
+  const [completionCount, setCompletionCount] = useState(0);
   const dataRef = useRef<QuizDataset | null>(null);
 
   // localStorage 読み出しは mount 後（SSR/hydration 安全）
@@ -88,10 +100,12 @@ export default function KakomonQuizClient({ config = DEFAULT_CONFIG }: { config?
       if (Array.isArray(w)) setWrong(new Set(w));
       const t = JSON.parse(localStorage.getItem(tallyKey) || "null");
       if (t && typeof t.answered === "number") setTally(t);
+      const completions = Number(localStorage.getItem(completionKey) || "0");
+      if (Number.isSafeInteger(completions) && completions >= 0) setCompletionCount(completions);
     } catch {
       /* 破損時は無視 */
     }
-  }, [tallyKey, wrongKey]);
+  }, [completionKey, tallyKey, wrongKey]);
 
   const ensureData = useCallback(async (): Promise<QuizDataset | null> => {
     if (dataRef.current) return dataRef.current;
@@ -117,12 +131,9 @@ export default function KakomonQuizClient({ config = DEFAULT_CONFIG }: { config?
       const d = await ensureData();
       if (d) {
         setMode(m);
-        event({
-          action: "quiz_start",
-          category: "quiz",
-          label: `${config.exam}:${m.kind}`,
-          params: { exam: config.exam, mode: m.kind },
-        });
+        const context = { exam: config.exam, placement: "quiz_menu" as const, mode: m.kind };
+        event(buildQuizFunnelEvent("quiz_start", context));
+        if (m.kind === "review") event(buildQuizFunnelEvent("review_start", context));
       }
     },
     [config.exam, ensureData],
@@ -151,6 +162,18 @@ export default function KakomonQuizClient({ config = DEFAULT_CONFIG }: { config?
     });
   }, [tallyKey, wrongKey]);
 
+  const recordCompletion = useCallback(() => {
+    setCompletionCount((previous) => {
+      const next = previous + 1;
+      try {
+        localStorage.setItem(completionKey, String(next));
+      } catch {
+        /* 保存不可でも演習は継続 */
+      }
+      return next;
+    });
+  }, [completionKey]);
+
   const questions = useMemo<QuizQuestion[]>(() => {
     if (!data || !mode) return [];
     if (mode.kind === "year") {
@@ -177,7 +200,9 @@ export default function KakomonQuizClient({ config = DEFAULT_CONFIG }: { config?
         questions={questions}
         config={config}
         onRecord={recordAnswer}
+        onComplete={recordCompletion}
         onExit={() => setMode(null)}
+        modeKind={mode.kind}
       />
     );
   }
@@ -189,6 +214,7 @@ export default function KakomonQuizClient({ config = DEFAULT_CONFIG }: { config?
       loadError={loadError}
       wrongCount={wrong.size}
       tally={tally}
+      completionCount={completionCount}
       onStart={start}
       onRetry={ensureData}
       config={config}
@@ -216,6 +242,7 @@ function MenuScreen({
   loadError,
   wrongCount,
   tally,
+  completionCount,
   onStart,
   onRetry,
   config,
@@ -225,6 +252,7 @@ function MenuScreen({
   loadError: boolean;
   wrongCount: number;
   tally: Tally;
+  completionCount: number;
   onStart: (m: Mode) => void;
   onRetry: () => void;
   config: KakomonQuizConfig;
@@ -284,6 +312,10 @@ function MenuScreen({
           </div>
         </button>
       </div>
+
+      {config.premiumPilot && shouldShowMenuPremium(completionCount, wrongCount) && (
+        <PremiumInterestCard config={config} placement="quiz_menu" mode="menu" />
+      )}
 
       {config.showSubjects && (data?.subjects ?? config.placeholderSubjects) && (
         <>
@@ -350,13 +382,17 @@ function QuizRunner({
   questions,
   config,
   onRecord,
+  onComplete,
   onExit,
+  modeKind,
 }: {
   title: string;
   questions: QuizQuestion[];
   config: KakomonQuizConfig;
   onRecord: (id: string, isCorrect: boolean) => void;
+  onComplete: () => void;
   onExit: () => void;
+  modeKind: Exclude<QuizFunnelMode, "menu">;
 }) {
   const [idx, setIdx] = useState(0);
   const [selected, setSelected] = useState<number | null>(null);
@@ -364,6 +400,7 @@ function QuizRunner({
   const [score, setScore] = useState(0);
   const [scoredAnswered, setScoredAnswered] = useState(0);
   const [finished, setFinished] = useState(false);
+  const completionRecorded = useRef(false);
 
   const q = questions[idx]!;
   const isLast = idx === questions.length - 1;
@@ -393,15 +430,20 @@ function QuizRunner({
   }
 
   useEffect(() => {
-    if (!finished) return;
-    event({
-      action: "quiz_complete",
-      category: "quiz",
-      label: `${config.exam}:${title}`,
-      value: score,
-      params: { exam: config.exam, question_count: questions.length, scored_count: scoredAnswered },
+    if (!finished || completionRecorded.current) return;
+    completionRecorded.current = true;
+    onComplete();
+    const payload = buildQuizFunnelEvent("quiz_complete", {
+      exam: config.exam,
+      placement: "quiz_result",
+      mode: modeKind,
     });
-  }, [config.exam, finished, questions.length, score, scoredAnswered, title]);
+    event({
+      ...payload,
+      value: score,
+      params: { ...payload.params, question_count: questions.length, scored_count: scoredAnswered },
+    });
+  }, [config.exam, finished, modeKind, onComplete, questions.length, score, scoredAnswered]);
 
   if (finished) {
     const pct = scoredAnswered > 0 ? Math.round((score / scoredAnswered) * 100) : 0;
@@ -427,7 +469,10 @@ function QuizRunner({
           </div>
         </div>
 
-        <FunnelLinks config={config} />
+        {config.premiumPilot && (
+          <PremiumInterestCard config={config} placement="quiz_result" mode={modeKind} />
+        )}
+        <FunnelLinks config={config} mode={modeKind} />
       </div>
     );
   }
@@ -560,7 +605,96 @@ function QuizRichText({
 
 /* ---------------- 送客導線 ---------------- */
 
-function FunnelLinks({ config }: { config: KakomonQuizConfig }) {
+function PremiumInterestCard({
+  config,
+  placement,
+  mode,
+}: {
+  config: KakomonQuizConfig;
+  placement: QuizFunnelPlacement;
+  mode: QuizFunnelMode;
+}) {
+  const [selected, setSelected] = useState<Set<string>>(new Set());
+
+  useEffect(() => {
+    const current = new Set<string>();
+    for (const action of ["premium_intent", "email_interest", "line_interest"] as const) {
+      try {
+        if (localStorage.getItem(quizInterestStorageKey(config.exam, action)) === "1") current.add(action);
+      } catch {
+        /* localStorage不可でも表示と計測は継続 */
+      }
+    }
+    setSelected(current);
+    event(buildQuizFunnelEvent("premium_view", { exam: config.exam, placement, mode }));
+  }, [config.exam, mode, placement]);
+
+  function markInterest(action: "premium_intent" | "email_interest" | "line_interest") {
+    const key = quizInterestStorageKey(config.exam, action);
+    let alreadySent = selected.has(action);
+    try {
+      alreadySent ||= localStorage.getItem(key) === "1";
+      if (!alreadySent) localStorage.setItem(key, "1");
+    } catch {
+      /* localStorage不可時は現在のmount内だけ重複を抑える */
+    }
+    if (!alreadySent) event(buildQuizFunnelEvent(action, { exam: config.exam, placement, mode }));
+    setSelected((previous) => new Set(previous).add(action));
+  }
+
+  const interestButton = (
+    action: "email_interest" | "line_interest",
+    title: string,
+    description: string,
+  ) => {
+    const active = selected.has(action);
+    return (
+      <button
+        type="button"
+        onClick={() => markInterest(action)}
+        aria-pressed={active}
+        className="focus-ring rounded-card-content border border-[var(--rule-soft)] bg-[var(--paper)] p-3 text-left transition-colors hover:border-[var(--accent)]"
+      >
+        <span className="block text-sm font-bold text-[var(--ink)]">{active ? "希望を記録しました" : title}</span>
+        <span className="mt-1 block text-xs leading-5 text-[var(--ink-muted)]">{description}</span>
+      </button>
+    );
+  };
+
+  const mainSelected = selected.has("premium_intent");
+  return (
+    <section className="card-surface-section mt-6 overflow-hidden" aria-labelledby={`premium-${placement}`}>
+      <div className="border-b border-[var(--rule-soft)] bg-[var(--accent-fill)] px-5 py-3">
+        <span className="text-[11px] font-bold uppercase tracking-wider text-[var(--accent)]">Premium 準備中</span>
+      </div>
+      <div className="p-5 sm:p-6">
+        <h2 id={`premium-${placement}`} className="font-serif text-xl font-black text-[var(--ink)] sm:text-2xl">
+          解くだけで終わらない学習管理へ
+        </h2>
+        <p className="mt-2 text-sm leading-7 text-[var(--ink-body)]">
+          全1,098問の無料演習はそのまま。苦手分野の分析、復習スケジュール、端末間同期を追加する買い切り機能を検討しています。
+        </p>
+        <div className="mt-4 rounded-card-content bg-[var(--bg)] p-4 text-sm leading-6 text-[var(--ink-body)]">
+          価格仮説は<strong className="text-[var(--ink)]">資格ごと買い切り ¥980〜¥1,480</strong>。現在は需要検証中で、決済も連絡先入力もありません。
+        </div>
+        <button
+          type="button"
+          onClick={() => markInterest("premium_intent")}
+          aria-pressed={mainSelected}
+          className="focus-ring mt-4 w-full rounded-card-content border border-[var(--accent)] bg-[var(--accent)] px-5 py-3 text-sm font-bold text-white transition-opacity hover:opacity-90"
+        >
+          {mainSelected ? "購入意向を記録しました" : "この内容なら使いたい（匿名で記録）"}
+        </button>
+        <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          {interestButton("email_interest", "メールで学習レポート", "復習状況と先行案内。今はアドレスを取得しません")}
+          {interestButton("line_interest", "LINEで試験日通知", "試験日・合格発表など期限通知。今は友だち追加しません")}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function FunnelLinks({ config, mode }: { config: KakomonQuizConfig; mode: Exclude<QuizFunnelMode, "menu"> }) {
   useEffect(() => {
     event({
       action: "quiz_cta_impression",
@@ -581,12 +715,20 @@ function FunnelLinks({ config }: { config: KakomonQuizConfig }) {
           target="_blank"
           rel="noopener"
           onClick={() =>
-            event({
-              action: "quiz_cta_click",
-              category: "quiz_conversion",
-              label: config.noteCta.id,
-              params: { exam: config.exam, cta_placement: "quiz_result", destination: "note" },
-            })
+            {
+              event(buildQuizFunnelEvent("note_cta_click", {
+                exam: config.exam,
+                placement: "quiz_result",
+                mode,
+              }));
+              // 既存の時系列を切らない移行イベント。新しい評価は note_cta_click を使う。
+              event({
+                action: "quiz_cta_click",
+                category: "quiz_conversion",
+                label: config.noteCta.id,
+                params: { exam: config.exam, cta_placement: "quiz_result", destination: "note" },
+              });
+            }
           }
           className="focus-ring card-surface-content block p-4 shadow-none transition-colors hover:border-[var(--accent)]"
         >
