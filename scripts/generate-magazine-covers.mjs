@@ -470,6 +470,15 @@ export const MAGAZINES = [
     fillBg: '#522A69',
   },
   {
+    id: 'cce-marugoto',
+    fileBaseName: 'cce-marugoto-cover',
+    magazineDir: 'content/note/コンクリート主任技士/magazines/コンクリート主任技士-まるごとパック',
+    lines: ['コンクリート主任技士', 'まるごとパック', '択一＋小論文＋配合計算'],
+    category: 'コンクリート主任技士',
+    fontSize: 42,
+    fillBg: '#0f6e6e',
+  },
+  {
     id: 'pe-construction-road-pack',
     fileBaseName: 'pe-construction-road-pack-cover',
     magazineDir: 'content/note/技術士建設部門/magazines/PACK-01_道路まるごと合格パック',

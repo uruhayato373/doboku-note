@@ -1,49 +1,332 @@
 {
   "$comment": "note マガジンカバー Crop-safe V4 フィールドの一元マップ。generate-magazine-covers.mjs が MAGAZINES[].id でマージし、entry があれば V4 レンダ（無ければ従来 magazine-banner）。字数制約: magazineName 実効≤8.1 / qualifier ≤18.9 / proof ≤17.7 / benefit ≤19.2。価格・自動同期できない記事本数は書かない。背景=examKey のブランド写真プール（brand-image-system §3）。仕様 SSOT: note-cover-crop-safe-v4.md §6",
-  "river-consultant": { "examKey": "pe-comprehensive", "qualifier": "総監 記述式｜模範論文", "magazineName": "河川コンサル", "proof": "R03-R07 5年分", "benefit": "立場が同じ答案で書ける" },
-  "general-contractor": { "examKey": "pe-comprehensive", "qualifier": "総監 記述式｜模範論文", "magazineName": "ゼネコン", "proof": "R03-R07 5年分", "benefit": "立場が同じ答案で書ける" },
-  "road-municipality": { "examKey": "pe-comprehensive", "qualifier": "総監 記述式｜模範論文", "magazineName": "自治体 道路担当", "proof": "過去問5年＋R8予想", "benefit": "立場が同じ答案で書ける" },
-  "procurement-municipality": { "examKey": "pe-comprehensive", "qualifier": "総監 記述式｜模範論文", "magazineName": "自治体 契約調達", "proof": "過去問5年＋R8予想", "benefit": "立場が同じ答案で書ける" },
-  "standards-municipality": { "examKey": "pe-comprehensive", "qualifier": "総監 記述式｜模範論文", "magazineName": "自治体 技術基準", "proof": "過去問5年＋R8予想", "benefit": "立場が同じ答案で書ける" },
-  "river-municipality": { "examKey": "pe-comprehensive", "qualifier": "総監 記述式｜模範論文", "magazineName": "自治体 河川担当", "proof": "過去問5年＋R8予想", "benefit": "立場が同じ答案で書ける" },
-  "urban-municipality": { "examKey": "pe-comprehensive", "qualifier": "総監 記述式｜模範論文", "magazineName": "自治体 都市計画", "proof": "過去問5年＋R8予想", "benefit": "立場が同じ答案で書ける" },
-  "sewage-municipality": { "examKey": "pe-comprehensive", "qualifier": "総監 記述式｜模範論文", "magazineName": "自治体 下水道", "proof": "過去問5年＋R8予想", "benefit": "立場が同じ答案で書ける" },
-  "sabo-municipality": { "examKey": "pe-comprehensive", "qualifier": "総監 記述式｜模範論文", "magazineName": "自治体 砂防担当", "proof": "過去問5年＋R8予想", "benefit": "立場が同じ答案で書ける" },
-  "port-municipality": { "examKey": "pe-comprehensive", "qualifier": "総監 記述式｜模範論文", "magazineName": "自治体 港湾担当", "proof": "過去問5年＋R8予想", "benefit": "立場が同じ答案で書ける" },
-  "park-municipality": { "examKey": "pe-comprehensive", "qualifier": "総監 記述式｜模範論文", "magazineName": "自治体 公園緑地", "proof": "過去問5年＋R8予想", "benefit": "立場が同じ答案で書ける" },
-  "water-municipality": { "examKey": "pe-comprehensive", "qualifier": "総監 記述式｜模範論文", "magazineName": "自治体 上水道", "proof": "過去問5年＋R8予想", "benefit": "立場が同じ答案で書ける" },
-  "road-consultant": { "examKey": "pe-comprehensive", "qualifier": "総監 記述式｜模範論文", "magazineName": "道路橋梁コンサル", "proof": "過去問5年＋R8予想", "benefit": "立場が同じ答案で書ける" },
-  "urban-consultant": { "examKey": "pe-comprehensive", "qualifier": "総監 記述式｜模範論文", "magazineName": "都市計画コンサル", "proof": "過去問5年＋R8予想", "benefit": "立場が同じ答案で書ける" },
-  "whitepaper-r7-strategy": { "examKey": "pe-comprehensive", "qualifier": "技術士 総監｜二次対策", "magazineName": "白書R7×5管理", "proof": "7大テーマ対応", "benefit": "R8の再出題に備えられる" },
-  "r8-essay-forecast": { "examKey": "pe-comprehensive", "qualifier": "総監 記述式｜R8予想", "magazineName": "R8予想問題集", "proof": "3大テーマ×三層構造", "benefit": "本番前に型を装填できる" },
-  "tradeoff-5kanri": { "examKey": "pe-comprehensive", "qualifier": "総監 記述式｜5管理", "magazineName": "トレードオフ辞書", "proof": "20セル全網羅", "benefit": "答案ひな型まで揃う" },
-  "setsumon3-policy-bank": { "examKey": "pe-comprehensive", "qualifier": "技術士 総監｜記述式", "magazineName": "国家施策バンク", "proof": "11テーマ・68施策", "benefit": "設問3の弾薬を備蓄" },
-  "essay-complete-pack": { "examKey": "pe-comprehensive", "qualifier": "総監 記述式｜全部入り", "magazineName": "完全パック", "proof": "型×設問3×予想×論文", "benefit": "記述式対策はこれで完結" },
-  "essay-core-pack": { "examKey": "pe-comprehensive", "qualifier": "総監 記述式｜土台", "magazineName": "コアパック", "proof": "型×設問3×R8予想", "benefit": "ペルソナ非依存で使える" },
-  "civil-1-gakka": { "examKey": "civil-1", "qualifier": "1級土木｜二次学科記述", "magazineName": "テーマ別 出る順", "proof": "土工・コンクリ他5テーマ", "benefit": "出る所から覚えられる" },
-  "civil-2-gakka": { "examKey": "civil-2", "qualifier": "2級土木｜二次学科記述", "magazineName": "テーマ別 出る順", "proof": "工程表・コンクリ他5テーマ", "benefit": "出る所から覚えられる" },
-  "civil-1-anki": { "examKey": "civil-1", "qualifier": "1級土木｜二次学科記述", "magazineName": "直前暗記ノート", "proof": "穴埋め一問一答＋赤シート", "benefit": "直前の総仕上げができる" },
-  "civil-2-anki": { "examKey": "civil-2", "qualifier": "2級土木｜二次学科記述", "magazineName": "直前暗記ノート", "proof": "穴埋め一問一答＋赤シート", "benefit": "直前の総仕上げができる" },
-  "civil-1-marugoto": { "examKey": "civil-1", "qualifier": "1級土木｜第2次検定", "magazineName": "まるごとパック", "proof": "経験記述＋学科記述＋直前暗記", "benefit": "二次対策はこれ一冊で完結" },
-  "civil-1-experience": { "examKey": "civil-1", "qualifier": "1級土木｜施工経験記述", "magazineName": "完成答案集", "proof": "工種×テーマ別", "benefit": "書き換えてそのまま使える" },
-  "civil-2-experience": { "examKey": "civil-2", "qualifier": "2級土木｜施工経験記述", "magazineName": "完成答案集", "proof": "安全・品質・工程の3テーマ", "benefit": "書き換えてそのまま使える" },
-  "civil-1-pastexam": { "examKey": "civil-1", "qualifier": "1級土木｜施工経験記述", "magazineName": "過去問 模範答案", "proof": "R03-R07 年度別5年分", "benefit": "本試験の型がそのまま学べる" },
-  "civil-2-pastexam": { "examKey": "civil-2", "qualifier": "2級土木｜施工経験記述", "magazineName": "過去問 模範答案", "proof": "R03-R07 年度別5年分", "benefit": "本試験の型がそのまま学べる" },
-  "civil-1-combo": { "examKey": "civil-1", "qualifier": "1級土木｜施工経験記述", "magazineName": "2テーマ組合せ", "proof": "5管理 全10組合せ", "benefit": "どの組合せでも書ける" },
-  "civil-1-keiken-complete": { "examKey": "civil-1", "qualifier": "1級土木｜施工経験記述", "magazineName": "完全攻略パック", "proof": "想定工事150×5管理", "benefit": "自分の工事に必ず寄せられる" },
-  "civil-2-koji-bank": { "examKey": "civil-2", "qualifier": "2級土木｜施工経験記述", "magazineName": "想定工事バンク", "proof": "想定工事60×5管理", "benefit": "どのテーマが来ても書ける" },
-  "bk-i-required": { "examKey": "pe-construction", "qualifier": "技術士 建設部門｜二次", "magazineName": "必須科目I", "proof": "R03-R07 模範解答", "benefit": "そのまま答案に展開できる" },
-  "bk-01-road": { "examKey": "pe-construction", "qualifier": "技術士 建設部門｜二次", "magazineName": "道路", "proof": "II-1/II-2/III 5年分", "benefit": "全設問の模範解答を収録" },
-  "bk-02-river": { "examKey": "pe-construction", "qualifier": "技術士 建設部門｜二次", "magazineName": "河川・砂防", "proof": "II-1/II-2/III 5年分", "benefit": "全設問の模範解答を収録" },
-  "bk-03-urban": { "examKey": "pe-construction", "qualifier": "技術士 建設部門｜二次", "magazineName": "都市計画", "proof": "II-1/II-2/III 5年分", "benefit": "全設問の模範解答を収録" },
-  "bk-04-geotech": { "examKey": "pe-construction", "qualifier": "技術士 建設部門｜二次", "magazineName": "土質及び基礎", "proof": "II-1/II-2/III 5年分", "benefit": "全設問の模範解答を収録" },
-  "bk-05-steel": { "examKey": "pe-construction", "qualifier": "技術士 建設部門｜二次", "magazineName": "鋼構造コンクリ", "proof": "II-1/II-2/III 5年分", "benefit": "全設問の模範解答を収録" },
-  "bk-06-construction": { "examKey": "pe-construction", "qualifier": "技術士 建設部門｜二次", "magazineName": "施工計画", "proof": "II-1/II-2/III 5年分", "benefit": "全設問の模範解答を収録" },
-  "bk-07-environment": { "examKey": "pe-construction", "qualifier": "技術士 建設部門｜二次", "magazineName": "建設環境", "proof": "II-1/II-2/III 5年分", "benefit": "全設問の模範解答を収録" },
-  "bk-08-port": { "examKey": "pe-construction", "qualifier": "技術士 建設部門｜二次", "magazineName": "港湾及び空港", "proof": "II-1/II-2/III 5年分", "benefit": "全設問の模範解答を収録" },
-  "bk-09-power": { "examKey": "pe-construction", "qualifier": "技術士 建設部門｜二次", "magazineName": "電力土木", "proof": "II-1/II-2/III 5年分", "benefit": "全設問の模範解答を収録" },
-  "bk-10-railway": { "examKey": "pe-construction", "qualifier": "技術士 建設部門｜二次", "magazineName": "鉄道", "proof": "II-1/II-2/III 5年分", "benefit": "全設問の模範解答を収録" },
-  "bk-11-tunnel": { "examKey": "pe-construction", "qualifier": "技術士 建設部門｜二次", "magazineName": "トンネル", "proof": "II-1/II-2/III 5年分", "benefit": "全設問の模範解答を収録" },
-  "cd-essay": { "examKey": "concrete-diagnosis", "qualifier": "コンクリート診断士｜記述式", "magazineName": "模範答案集", "proof": "劣化機構別 全8本", "benefit": "そのまま答案に展開できる" },
-  "pe-construction-road-pack": { "examKey": "pe-construction", "qualifier": "建設部門｜道路", "magazineName": "道路合格パック", "proof": "必須科目I＋道路 二次一式", "benefit": "道路で受けるならこれ一冊" }
+  "river-consultant": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "総監 記述式｜模範論文",
+    "magazineName": "河川コンサル",
+    "proof": "R03-R07 5年分",
+    "benefit": "立場が同じ答案で書ける"
+  },
+  "general-contractor": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "総監 記述式｜模範論文",
+    "magazineName": "ゼネコン",
+    "proof": "R03-R07 5年分",
+    "benefit": "立場が同じ答案で書ける"
+  },
+  "road-municipality": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "総監 記述式｜模範論文",
+    "magazineName": "自治体 道路担当",
+    "proof": "過去問5年＋R8予想",
+    "benefit": "立場が同じ答案で書ける"
+  },
+  "procurement-municipality": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "総監 記述式｜模範論文",
+    "magazineName": "自治体 契約調達",
+    "proof": "過去問5年＋R8予想",
+    "benefit": "立場が同じ答案で書ける"
+  },
+  "standards-municipality": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "総監 記述式｜模範論文",
+    "magazineName": "自治体 技術基準",
+    "proof": "過去問5年＋R8予想",
+    "benefit": "立場が同じ答案で書ける"
+  },
+  "river-municipality": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "総監 記述式｜模範論文",
+    "magazineName": "自治体 河川担当",
+    "proof": "過去問5年＋R8予想",
+    "benefit": "立場が同じ答案で書ける"
+  },
+  "urban-municipality": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "総監 記述式｜模範論文",
+    "magazineName": "自治体 都市計画",
+    "proof": "過去問5年＋R8予想",
+    "benefit": "立場が同じ答案で書ける"
+  },
+  "sewage-municipality": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "総監 記述式｜模範論文",
+    "magazineName": "自治体 下水道",
+    "proof": "過去問5年＋R8予想",
+    "benefit": "立場が同じ答案で書ける"
+  },
+  "sabo-municipality": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "総監 記述式｜模範論文",
+    "magazineName": "自治体 砂防担当",
+    "proof": "過去問5年＋R8予想",
+    "benefit": "立場が同じ答案で書ける"
+  },
+  "port-municipality": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "総監 記述式｜模範論文",
+    "magazineName": "自治体 港湾担当",
+    "proof": "過去問5年＋R8予想",
+    "benefit": "立場が同じ答案で書ける"
+  },
+  "park-municipality": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "総監 記述式｜模範論文",
+    "magazineName": "自治体 公園緑地",
+    "proof": "過去問5年＋R8予想",
+    "benefit": "立場が同じ答案で書ける"
+  },
+  "water-municipality": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "総監 記述式｜模範論文",
+    "magazineName": "自治体 上水道",
+    "proof": "過去問5年＋R8予想",
+    "benefit": "立場が同じ答案で書ける"
+  },
+  "road-consultant": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "総監 記述式｜模範論文",
+    "magazineName": "道路橋梁コンサル",
+    "proof": "過去問5年＋R8予想",
+    "benefit": "立場が同じ答案で書ける"
+  },
+  "urban-consultant": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "総監 記述式｜模範論文",
+    "magazineName": "都市計画コンサル",
+    "proof": "過去問5年＋R8予想",
+    "benefit": "立場が同じ答案で書ける"
+  },
+  "whitepaper-r7-strategy": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "技術士 総監｜二次対策",
+    "magazineName": "白書R7×5管理",
+    "proof": "7大テーマ対応",
+    "benefit": "R8の再出題に備えられる"
+  },
+  "r8-essay-forecast": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "総監 記述式｜R8予想",
+    "magazineName": "R8予想問題集",
+    "proof": "3大テーマ×三層構造",
+    "benefit": "本番前に型を装填できる"
+  },
+  "tradeoff-5kanri": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "総監 記述式｜5管理",
+    "magazineName": "トレードオフ辞書",
+    "proof": "20セル全網羅",
+    "benefit": "答案ひな型まで揃う"
+  },
+  "setsumon3-policy-bank": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "技術士 総監｜記述式",
+    "magazineName": "国家施策バンク",
+    "proof": "11テーマ・68施策",
+    "benefit": "設問3の弾薬を備蓄"
+  },
+  "essay-complete-pack": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "総監 記述式｜全部入り",
+    "magazineName": "完全パック",
+    "proof": "型×設問3×予想×論文",
+    "benefit": "記述式対策はこれで完結"
+  },
+  "essay-core-pack": {
+    "examKey": "pe-comprehensive",
+    "qualifier": "総監 記述式｜土台",
+    "magazineName": "コアパック",
+    "proof": "型×設問3×R8予想",
+    "benefit": "ペルソナ非依存で使える"
+  },
+  "civil-1-gakka": {
+    "examKey": "civil-1",
+    "qualifier": "1級土木｜二次学科記述",
+    "magazineName": "テーマ別 出る順",
+    "proof": "土工・コンクリ他5テーマ",
+    "benefit": "出る所から覚えられる"
+  },
+  "civil-2-gakka": {
+    "examKey": "civil-2",
+    "qualifier": "2級土木｜二次学科記述",
+    "magazineName": "テーマ別 出る順",
+    "proof": "工程表・コンクリ他5テーマ",
+    "benefit": "出る所から覚えられる"
+  },
+  "civil-1-anki": {
+    "examKey": "civil-1",
+    "qualifier": "1級土木｜二次学科記述",
+    "magazineName": "直前暗記ノート",
+    "proof": "穴埋め一問一答＋赤シート",
+    "benefit": "直前の総仕上げができる"
+  },
+  "civil-2-anki": {
+    "examKey": "civil-2",
+    "qualifier": "2級土木｜二次学科記述",
+    "magazineName": "直前暗記ノート",
+    "proof": "穴埋め一問一答＋赤シート",
+    "benefit": "直前の総仕上げができる"
+  },
+  "civil-1-marugoto": {
+    "examKey": "civil-1",
+    "qualifier": "1級土木｜第2次検定",
+    "magazineName": "まるごとパック",
+    "proof": "経験記述＋学科記述＋直前暗記",
+    "benefit": "二次対策はこれ一冊で完結"
+  },
+  "civil-1-experience": {
+    "examKey": "civil-1",
+    "qualifier": "1級土木｜施工経験記述",
+    "magazineName": "完成答案集",
+    "proof": "工種×テーマ別",
+    "benefit": "書き換えてそのまま使える"
+  },
+  "civil-2-experience": {
+    "examKey": "civil-2",
+    "qualifier": "2級土木｜施工経験記述",
+    "magazineName": "完成答案集",
+    "proof": "安全・品質・工程の3テーマ",
+    "benefit": "書き換えてそのまま使える"
+  },
+  "civil-1-pastexam": {
+    "examKey": "civil-1",
+    "qualifier": "1級土木｜施工経験記述",
+    "magazineName": "過去問 模範答案",
+    "proof": "R03-R07 年度別5年分",
+    "benefit": "本試験の型がそのまま学べる"
+  },
+  "civil-2-pastexam": {
+    "examKey": "civil-2",
+    "qualifier": "2級土木｜施工経験記述",
+    "magazineName": "過去問 模範答案",
+    "proof": "R03-R07 年度別5年分",
+    "benefit": "本試験の型がそのまま学べる"
+  },
+  "civil-1-combo": {
+    "examKey": "civil-1",
+    "qualifier": "1級土木｜施工経験記述",
+    "magazineName": "2テーマ組合せ",
+    "proof": "5管理 全10組合せ",
+    "benefit": "どの組合せでも書ける"
+  },
+  "civil-1-keiken-complete": {
+    "examKey": "civil-1",
+    "qualifier": "1級土木｜施工経験記述",
+    "magazineName": "完全攻略パック",
+    "proof": "想定工事150×5管理",
+    "benefit": "自分の工事に必ず寄せられる"
+  },
+  "civil-2-koji-bank": {
+    "examKey": "civil-2",
+    "qualifier": "2級土木｜施工経験記述",
+    "magazineName": "想定工事バンク",
+    "proof": "想定工事60×5管理",
+    "benefit": "どのテーマが来ても書ける"
+  },
+  "bk-i-required": {
+    "examKey": "pe-construction",
+    "qualifier": "技術士 建設部門｜二次",
+    "magazineName": "必須科目I",
+    "proof": "R03-R07 模範解答",
+    "benefit": "そのまま答案に展開できる"
+  },
+  "bk-01-road": {
+    "examKey": "pe-construction",
+    "qualifier": "技術士 建設部門｜二次",
+    "magazineName": "道路",
+    "proof": "II-1/II-2/III 5年分",
+    "benefit": "全設問の模範解答を収録"
+  },
+  "bk-02-river": {
+    "examKey": "pe-construction",
+    "qualifier": "技術士 建設部門｜二次",
+    "magazineName": "河川・砂防",
+    "proof": "II-1/II-2/III 5年分",
+    "benefit": "全設問の模範解答を収録"
+  },
+  "bk-03-urban": {
+    "examKey": "pe-construction",
+    "qualifier": "技術士 建設部門｜二次",
+    "magazineName": "都市計画",
+    "proof": "II-1/II-2/III 5年分",
+    "benefit": "全設問の模範解答を収録"
+  },
+  "bk-04-geotech": {
+    "examKey": "pe-construction",
+    "qualifier": "技術士 建設部門｜二次",
+    "magazineName": "土質及び基礎",
+    "proof": "II-1/II-2/III 5年分",
+    "benefit": "全設問の模範解答を収録"
+  },
+  "bk-05-steel": {
+    "examKey": "pe-construction",
+    "qualifier": "技術士 建設部門｜二次",
+    "magazineName": "鋼構造コンクリ",
+    "proof": "II-1/II-2/III 5年分",
+    "benefit": "全設問の模範解答を収録"
+  },
+  "bk-06-construction": {
+    "examKey": "pe-construction",
+    "qualifier": "技術士 建設部門｜二次",
+    "magazineName": "施工計画",
+    "proof": "II-1/II-2/III 5年分",
+    "benefit": "全設問の模範解答を収録"
+  },
+  "bk-07-environment": {
+    "examKey": "pe-construction",
+    "qualifier": "技術士 建設部門｜二次",
+    "magazineName": "建設環境",
+    "proof": "II-1/II-2/III 5年分",
+    "benefit": "全設問の模範解答を収録"
+  },
+  "bk-08-port": {
+    "examKey": "pe-construction",
+    "qualifier": "技術士 建設部門｜二次",
+    "magazineName": "港湾及び空港",
+    "proof": "II-1/II-2/III 5年分",
+    "benefit": "全設問の模範解答を収録"
+  },
+  "bk-09-power": {
+    "examKey": "pe-construction",
+    "qualifier": "技術士 建設部門｜二次",
+    "magazineName": "電力土木",
+    "proof": "II-1/II-2/III 5年分",
+    "benefit": "全設問の模範解答を収録"
+  },
+  "bk-10-railway": {
+    "examKey": "pe-construction",
+    "qualifier": "技術士 建設部門｜二次",
+    "magazineName": "鉄道",
+    "proof": "II-1/II-2/III 5年分",
+    "benefit": "全設問の模範解答を収録"
+  },
+  "bk-11-tunnel": {
+    "examKey": "pe-construction",
+    "qualifier": "技術士 建設部門｜二次",
+    "magazineName": "トンネル",
+    "proof": "II-1/II-2/III 5年分",
+    "benefit": "全設問の模範解答を収録"
+  },
+  "cd-essay": {
+    "examKey": "concrete-diagnosis",
+    "qualifier": "コンクリート診断士｜記述式",
+    "magazineName": "模範答案集",
+    "proof": "劣化機構別 全8本",
+    "benefit": "そのまま答案に展開できる"
+  },
+  "pe-construction-road-pack": {
+    "examKey": "pe-construction",
+    "qualifier": "建設部門｜道路",
+    "magazineName": "道路合格パック",
+    "proof": "必須科目I＋道路 二次一式",
+    "benefit": "道路で受けるならこれ一冊"
+  },
+  "cce-marugoto": {
+    "examKey": "concrete-chief",
+    "qualifier": "コンクリート主任技士",
+    "magazineName": "まるごとパック",
+    "proof": "択一＋小論文＋配合計算",
+    "benefit": "択一も小論文もこれ一つで"
+  }
 }

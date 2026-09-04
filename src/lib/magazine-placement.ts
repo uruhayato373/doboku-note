@@ -612,10 +612,14 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //    ただし inline は本文 8,000 字が条件で本ページでは発火しないため、上位版は
   //    **本文の該当節（4テーマを挙げる「テーマの傾向と準備」）に <MagazineCard> を直接置いた**。
   //    top は入口の 5 本セットのままにして、入口→上位のラダーにする（入口→上位ラダー方針）。
+  //    2026-09-04: 最上位アンカー cce-marugoto-pack（¥9,800）を新設。top（入口 ¥2,480）は据え置き、
+  //    inline を top と同一マガジンの重複から最上位パックへ差し替えて入口→上位→最上位の 3 段にする。
+  //    本ページで inline が実際に描画されるかは 2026-08-13 時点で未確認のため、確実に出る導線は
+  //    本文末尾の <MagazineCard id="cce-marugoto-pack">（persona-pack と同じ実績のある機構）が担う。
   if (slug === 'concrete-chief-engineer-guide-essay') {
     return {
       top: slot('cce-essay-magazine', slug, 'top'),
-      inline: [slot('cce-essay-magazine', slug, 'inline-1')],
+      inline: [slot('cce-marugoto-pack', slug, 'inline-1')],
     };
   }
 
