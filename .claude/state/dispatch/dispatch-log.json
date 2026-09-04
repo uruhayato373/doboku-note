@@ -667,6 +667,90 @@
       "commit": null,
       "verification": "DocPage・ArticleFooterの配置とaffiliate-operationsの意図別方針を照合",
       "note": "一律の縦順変更はせず、学習意図はnote・キャリア意図はaffiliateを主とする判断を恒久方針へ明記。DOM順だけによる一括改修を撤収"
+    },
+    {
+      "id": "DN-0139",
+      "at": "2026-09-04",
+      "task": "LINE公式アカウントを開設し一次二次ブリッジ磁石の配信を始める",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "磁石記事・delivery-script.md・friend-add-cta.mdの完成と、残作業が全て外部アカウント操作であることを照合",
+      "note": "ユーザー作業だけになった3工程をDN-0135の外部実体残務へ統合し、二重カードを削除"
+    },
+    {
+      "id": "DN-0059",
+      "at": "2026-09-04",
+      "task": "フロントエンド土台リファクタ 残増分",
+      "tier": "low",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "ArticleFooter・category-groupsの現行分岐と新資格追加手順を照合",
+      "note": "現在の障害ではない将来抽象化を退役。同型分岐が3資格以上になった場合だけfactory化する確認項目を新資格チェックリストへ移した"
+    },
+    {
+      "id": "DN-0060",
+      "at": "2026-09-04",
+      "task": "note 会員プラン設定の保存が即時ライブ反映か未検証",
+      "tier": "low",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null,
+      "verification": "note-membership skillとnote-membership-plan-edit.mjsの保存説明を突合",
+      "note": "実プランを書き換える試験はせず、公開中プランへの保存は即時ライブ反映になり得る前提へ安全側に統一。差分提示・明示承認・保存後実査を必須化"
+    },
+    {
+      "id": "DN-0069",
+      "at": "2026-09-04",
+      "task": "コンクリート主任技士 H24/H25 skip 分の補完＋R6/R7 拡張",
+      "tier": "low",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "原典PDF 0件、H25 skip18問・H24 conflict4問を実査し、令和1年度7箇所を令和元年度へ統一",
+      "note": "今直せる表記揺れを解消。原典入手待ち22問とR6/R7は問題番号をexam-content-policyへ保存し、DN-0135へ統合"
+    },
+    {
+      "id": "DN-0082",
+      "at": "2026-09-04",
+      "task": "API トークン更新サイクル ＋ MCP 棚卸し",
+      "tier": "low",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "ci-cd-security-hardening.mdのR2監査専用キー手順と認証設定を照合",
+      "note": "根拠のない固定90/180日ローテーションを採用せず、具体的な最小権限化だけをDN-0135へ統合。対象と出口のないMCP棚卸しは撤収"
+    },
+    {
+      "id": "DN-0083",
+      "at": "2026-09-04",
+      "task": "note 編集スクリプトの共有 lib 化",
+      "tier": "low",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "note-browser・note-api・note-frontmatterの共有libと既存consumerを実査",
+      "note": "全既存スクリプトの移行バーンダウンを廃止し、対象を実変更するとき1本ずつ共有libへ移して挙動同一を確認するtouch-on-change方針へ移行"
+    },
+    {
+      "id": "DN-0114",
+      "at": "2026-09-04",
+      "task": "法人・組織向け資格支援パックとライセンス収益のpilot",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "法人案内・offer spec・商品catalog・実装commitが0件で、収益化戦略では法人ライセンス凍結中と確認",
+      "note": "営業チャネルのない投機的pilotを撤収。適格な法人問い合わせ1件または具体的な営業チャネル確保を再開条件として戦略SSOTへ固定"
     }
   ]
 }

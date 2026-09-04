@@ -29,8 +29,8 @@ API バージョニングはこちらが操作できない外部都合で、こ�
 - `isUnmeasurable` は `note-live-check.mjs` から re-export。alive/unmeasurable/dead/unknown の
   4 値は下記「404 の意味」参照。
 - **creator の全マガジン一覧**（`verify-note-magazines.mjs` が使う）はまだ note-api.mjs に
-  無い——既存 13 本の note API 直叩きは DN-0083 で段階移行の対象。該当スクリプトの実装を
-  直接読むこと（この文書に URL を重複させない）。
+  無い。既存実装は一括移行せず、対象スクリプトを修正するときに共有 lib へ移して挙動同一を確認する。
+  該当スクリプトの実装を直接読むこと（この文書に URL を重複させない）。
 - note は Nuxt 製のため HTML に `__NEXT_DATA__` は無い。HTML スクレイプより JSON API が堅牢。
 
 ### 404 の意味（削除・下書き・非公開を区別しない）

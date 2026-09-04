@@ -6,9 +6,9 @@
  * （プラン名 / 説明 / 会費 / 人数制限=定員 / 特典マガジンの紐付け）を編集して**保存**するブラウザ CLI。
  *
  * 位置づけ・安全設計（重要）:
- *   - **保存（「プランを変更する」）は非公開ドラフトのまま**＝可逆。公開（③ プランを公開しよう）は
- *     不可逆なので**本スクリプトの守備外**（運営者が UI で明示実施）。ここでは会費・説明の下ごしらえ
- *     までを担い、公開クリックはしない。
+ *   - **保存（「プランを変更する」）は公開中プランへ即時反映され得る外部変更**として扱う。
+ *     公開操作そのもの（③ プランを公開しよう）は本スクリプトの守備外だが、既存プランの説明等も
+ *     非公開ドラフトのままとは断定しない。保存前の差分提示・明示承認・保存後の公開面実査が必要。
  *   - 既定は **dry-run**（現在値の読取＋スクショのみ・書込なし）。実書込は `--commit` 必須。
  *   - `note-magazine-add-articles` と同じ「システム Chrome（channel:'chrome'）＋永続プロファイル
  *     （.local/playwright-note-profile）＋proxy＋ignoreHTTPSErrors」で会社PCの社内プロキシを越える。
@@ -24,7 +24,7 @@
  * 使い方:
  *   # 現在値の確認（ブラウザ起動・読取のみ）
  *   node scripts/note-membership-plan-edit.mjs --plan 4956c2d4f928
- *   # 会費だけ設定して保存（非公開のまま・可逆）
+ *   # 会費だけ設定して保存（公開中プランでは即時反映の可能性あり）
  *   node scripts/note-membership-plan-edit.mjs --plan 4956c2d4f928 --price 1480 --commit
  *   # 定員つきプラン（添削・定員確定後）
  *   node scripts/note-membership-plan-edit.mjs --plan <新規作成直後のid> --price 4980 --limit 20 --commit
@@ -234,7 +234,7 @@ if (BENEFIT_MAGS.length) {
 
 await page.screenshot({ path: join(TMP, `mplan-${PLAN}-filled.png`), fullPage: true });
 
-// save（＝プランを変更する。非公開ドラフトのまま・公開はしない）
+// save（＝プランを変更する。公開中プランでは即時反映され得る。公開操作自体はしない）
 if (!(await saveBtn.count())) { console.error('ABORT: 「プランを変更する」ボタン未検出'); await ctx.close(); process.exit(5); }
 const disabled = await saveBtn.first().isDisabled().catch(() => false);
 if (disabled) { console.error('ABORT: 保存ボタンが disabled（必須項目未充足）。プラン名/説明/会費を確認'); await page.screenshot({ path: join(TMP, `mplan-${PLAN}-disabled.png`), fullPage: true }); await ctx.close(); process.exit(6); }
@@ -248,5 +248,5 @@ const after = await page.evaluate(() => {
   return { price: price ? price.value : '(page changed)', url: location.href };
 });
 console.log('[5] 保存後:', JSON.stringify(after));
-console.log('[done] プラン内容を保存（非公開のまま）。公開は運営者が「③ プランを公開しよう」で明示実施。');
+console.log('[done] プラン内容を保存。公開中プランでは即時反映の可能性があるため、管理UIと公開面を実査してください。公開操作自体は実施していません。');
 await ctx.close();
