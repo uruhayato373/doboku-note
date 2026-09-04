@@ -150,6 +150,7 @@ const CHECKS = [
   { id: 'home-exam-coverage', npm: 'check-home-exam-coverage', timeout: 60_000, ci: true },
   { id: 'character-avatars', npm: 'check-character-avatars', timeout: 60_000, ci: true, note: 'note CTA のキャラアバター: manifest siteCta ⇔ 配信 webp ⇔ ctaPose union の三者整合（union だけ広げると本番 404）' },
   { id: 'category-curriculum', npm: 'check-category-curriculum', timeout: 60_000, ci: true },
+  { id: 'pe-construction-subject-links', cmd: ['node', 'scripts/check-pe-construction-subject-links.mjs'], timeout: 60_000, ci: true, note: '建設部門の過去問84本↔keyword35本の科目単位双方向導線と、設問単位mapの細粒度限定ポリシーを検証' },
   { id: 'career-separation', npm: 'check-career-separation', timeout: 60_000, ci: true },
   { id: 'ssot-consumers', npm: 'check-ssot-consumers', timeout: 60_000, ci: true },
   { id: 'sales-freshness', npm: 'check-sales-freshness', timeout: 30_000, ci: true, note: '売上転記が止まっていないか（updatedAt が 21 日超で赤）。2026-07 は 18% しか転記されず 34 日誰も気づかなかった' },

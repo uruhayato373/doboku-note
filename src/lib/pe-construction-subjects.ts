@@ -44,3 +44,11 @@ export function subjectFullLabel(s: PeConstructionSubject): string | undefined {
 export function findPeConstructionSubject(key: string): PeConstructionSubject | undefined {
   return PE_CONSTRUCTION_SUBJECTS.find((s) => s.key === key);
 }
+
+/** `pe-construction-r07-road` / `r07-road` のどちらからでも科目 key を得る。 */
+export function peConstructionSubjectKeyFromExamSlug(slug: string): string | undefined {
+  const localSlug = slug.replace(/^pe-construction-/, '');
+  const match = localSlug.match(/^r\d{2}-(.+)$/);
+  const key = match?.[1];
+  return key && findPeConstructionSubject(key) ? key : undefined;
+}

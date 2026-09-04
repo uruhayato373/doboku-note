@@ -763,6 +763,18 @@
       "commit": null,
       "verification": "e-01を.tmpへ直接再生成して展開比較し、本文要素削除と画像寸法変更を確認。kindle-dist 76件はprivate R2へ再同期後、ローカル・manifest・R2のbytes/sha256三者一致を確認",
       "note": "現行generatorは公開済みEPUBの同内容再現手段にならないため、git追跡を維持すると決定。R2は完全バックアップとして更新し、追跡解除は実施しなかった"
+    },
+    {
+      "id": "DN-0162",
+      "at": "2026-09-04",
+      "task": "建設部門の過去問↔科目キーワード導線を設計し、設問単位へ拡張する",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null,
+      "verification": "check-pe-construction-subject-linksで12科目・過去問84本・keyword35本を検査し、クリーン作業ツリーのNext.js production buildと道路・河川・都市計画の生成HTML6方向を確認",
+      "note": "科目単位は全119記事を双方向化。設問単位は細粒度の中心概念ページだけを許可し、広い科目記事の機械付与をゲートで禁止する正源へ一本化"
     }
   ]
 }
