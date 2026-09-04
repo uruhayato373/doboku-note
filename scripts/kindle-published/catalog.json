@@ -1,7 +1,7 @@
 {
   "_comment": "Kindle 全書籍のマスター登録簿。status=ready(制作完了・提出待ち)/in_review(KDP審査中)/live(公開). epub/cover は git 追跡(A系=kindle-published/・B-F=kindle-dist/). 提出後 ASIN と status=live を更新。再生成は npm run sync-kindle-dist。",
   "schemaVersion": 1,
-  "updatedAt": "2026-08-28",
+  "updatedAt": "2026-09-04",
   "books": [
     {
       "id": "A-00",
@@ -1281,13 +1281,13 @@
     },
     {
       "id": "g-01",
-      "asin": null,
+      "asin": "B0HGXCGGS2",
       "title": "コンクリート診断士 体系解説＋四肢択一演習98問",
       "subtitle": "変状・劣化機構・調査・診断・対策・維持管理の6分野＋演習8回",
       "series": "G コンクリート系資格",
       "priceJpy": 990,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-pe1-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/g-01.json",
       "epub": "kindle-dist/g-01.epub",
@@ -1304,19 +1304,25 @@
           "version": "1.0",
           "date": "2026-08-28",
           "change": "KDP出版申請（審査中）・draft A2OMU1X8YED1C1"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-09-04",
+          "change": "KDP本棚実査でLIVE化(販売中)を確認・ASIN=B0HGXCGGS2・catalogへ反映（正確な公開日は本棚に記録が無く不明）"
         }
       ],
-      "draftAsin": "A2OMU1X8YED1C1"
+      "draftAsin": "A2OMU1X8YED1C1",
+      "publishedDate": "2026-09-04"
     },
     {
       "id": "g-02",
-      "asin": null,
+      "asin": "B0HGXLGJ5Y",
       "title": "コンクリート主任技士 体系解説＋過去問解説303問",
       "subtitle": "平成26〜令和5年度 四肢択一を8分野別に収録",
       "series": "G コンクリート系資格",
       "priceJpy": 1250,
       "royalty": 0.7,
-      "status": "in_review",
+      "status": "live",
       "builder": "scripts/build-pe1-kindle.mjs",
       "buildSpec": "scripts/kindle-specs/g-02.json",
       "epub": "kindle-dist/g-02.epub",
@@ -1333,9 +1339,15 @@
           "version": "1.0",
           "date": "2026-08-28",
           "change": "KDP出版申請（審査中）・draft A1SOBDV0E25MSK"
+        },
+        {
+          "version": "1.0",
+          "date": "2026-09-04",
+          "change": "KDP本棚実査でLIVE化(販売中)を確認・ASIN=B0HGXLGJ5Y・catalogへ反映（正確な公開日は本棚に記録が無く不明）"
         }
       ],
-      "draftAsin": "A1SOBDV0E25MSK"
+      "draftAsin": "A1SOBDV0E25MSK",
+      "publishedDate": "2026-09-04"
     }
   ]
 }

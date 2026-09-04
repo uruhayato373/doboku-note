@@ -65,6 +65,8 @@ A（問題/解答を別 XHTML に分割＝構造的改ページ）と D（`.ans`
 | F-14 都市計画コンサル | B0HCMRYPC8 | 1.0 | `kindle-dist/f-14.epub` | `kindle-dist/f-14.jpg` | kdp-memo.json |
 | F-15 5管理クロストレードオフ論文集 | B0HCMR444R | 1.0 | `kindle-dist/f-15.epub` | `kindle-dist/f-15.jpg` | kdp-memo.json |
 | F-16 設問3国家施策バンク | B0HCMNDNX8 | 1.0 | `kindle-dist/f-16.epub` | `kindle-dist/f-16.jpg` | kdp-memo.json |
+| G-01 コンクリート診断士 | B0HGXCGGS2 | 1.0 | `kindle-dist/g-01.epub` | `kindle-dist/g-01.jpg` | kdp-memo.json |
+| G-02 コンクリート主任技士 | B0HGXLGJ5Y | 1.0 | `kindle-dist/g-02.epub` | `kindle-dist/g-02.jpg` | kdp-memo.json |
 
 > ASIN の真実源は `scripts/kindle-published/catalog.json`（`asin` フィールド）。この表と
 > `content/kindle/strategy.md` は人が読む索引で、**3 箇所とも同時に更新する**

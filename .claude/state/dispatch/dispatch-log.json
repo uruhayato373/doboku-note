@@ -403,6 +403,18 @@
       "commit": null,
       "verification": "node --test tests/ogp-srchash.test.mjs（4件PASS）",
       "note": "OGP描画と同じ優先順位に統一。明示的なogp.titleがある記事では本文titleをsrcHashから除外し、ogp.title未指定・空文字のときだけ本文titleをフォールバック入力にした"
+    },
+    {
+      "id": "DN-0150",
+      "at": "2026-09-04",
+      "task": "Kindle g-01/g-02 の LIVE 化確認と ASIN 記録（審査中2冊の後追い）",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null,
+      "verification": "node scripts/kdp-publish.mjs --sync-status（45/45冊再現・価格不一致0）; catalog/strategy/READMEの3箇所でASIN突合; check-kindle-format 8/8 PASS; check-kdp-category-coverage 38/38 PASS",
+      "note": "KDP本棚でg-01/g-02とも販売中を確認。g-01=ASIN B0HGXCGGS2・¥990、g-02=ASIN B0HGXLGJ5Y・¥1,250を3つのSSOTへ反映した"
     }
   ]
 }
