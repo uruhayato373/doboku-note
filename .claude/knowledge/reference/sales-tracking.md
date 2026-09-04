@@ -111,6 +111,16 @@ npm run sales-summary -- 2026-06   # 指定月（位置引数。--month フラ�
 2. `npm run sales-summary -- YYYY-MM` と比較
 3. 差異があれば sales-log.json を確認・修正
 
+### 4. 商品別CTAとの期間効率
+
+```bash
+npm run report-note-funnel-efficiency
+```
+
+最新のGA4 `ga4-cta-clicks-by-label`と同じ期間に絞り、商品ID付きnote CTAの表示・クリックとマガジン売上を並べる。建設部門のsales-log独自ID（`bk-*`）はnote商品ID（`pe-construction-*`）へ正規化する。出力は`.claude/state/metrics/monetization/note-funnel-efficiency-latest.{json,md}`。
+
+これは購入者をクリックへ結合したCVRではない。note販売履歴に流入識別子が無いため、売上÷クリックは同期間の診断指標に限り、因果attributionと表現しない。単品記事売上と商品IDを持たないハブ導線は対象外。
+
 ---
 
 ## productId 命名規則

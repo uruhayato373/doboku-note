@@ -205,6 +205,12 @@ jobs:
         continue-on-error: true
         run: npm run report-monetization-coverage
 
+      # 商品ID付き note CTA のクリック/表示と、同じ期間のマガジン売上を並べる。
+      # 購入者単位の結合ではないため CVR/因果 attribution とは扱わず、期間効率の診断に限定する。
+      - name: Generate note funnel efficiency report
+        continue-on-error: true
+        run: npm run report-note-funnel-efficiency
+
       # bot 混入監視: Japan フィルタ後も残る bot 署名（高外国比率・低engagement の参照元）を surface し
       # bot-audit-*.json を ga4/ に出力（新規スパム候補は STDOUT）。従来 CI 未配線＝2026-05-17 以降実行ゼロ。
       - name: Audit GA4 bot ratio

@@ -1,0 +1,610 @@
+{
+  "schemaVersion": 1,
+  "window": {
+    "startDate": "2026-08-07",
+    "endDate": "2026-09-03"
+  },
+  "generatedAt": "2026-09-04T15:26:58.103Z",
+  "rows": [
+    {
+      "productId": "pe-construction-road-pack",
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 2,
+      "revenue": 9960,
+      "salesPerClick": null,
+      "salesProductIds": [
+        "bk-road-pack"
+      ]
+    },
+    {
+      "productId": "pe-construction-required-magazine",
+      "impressions": 99,
+      "clicks": 5,
+      "ctr": 0.050505050505050504,
+      "sales": 1,
+      "revenue": 3480,
+      "salesPerClick": 0.2,
+      "salesProductIds": [
+        "bk-i-required-essay-magazine"
+      ]
+    },
+    {
+      "productId": "pe-construction-railway-magazine",
+      "impressions": 0,
+      "clicks": 0,
+      "ctr": null,
+      "sales": 1,
+      "revenue": 2980,
+      "salesPerClick": null,
+      "salesProductIds": [
+        "bk-railway-secondary-magazine"
+      ]
+    },
+    {
+      "productId": "civil-2-experience-essay",
+      "impressions": 211,
+      "clicks": 22,
+      "ctr": 0.10426540284360189,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-2-pastexam-essay",
+      "impressions": 321,
+      "clicks": 21,
+      "ctr": 0.06542056074766354,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-2-koji-bank",
+      "impressions": 1049,
+      "clicks": 8,
+      "ctr": 0.0076263107721639654,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-1-pastexam-essay",
+      "impressions": 45,
+      "clicks": 5,
+      "ctr": 0.1111111111111111,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-1-experience-essay",
+      "impressions": 173,
+      "clicks": 4,
+      "ctr": 0.023121387283236993,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-2-r8-mock3-pdf",
+      "impressions": 11,
+      "clicks": 4,
+      "ctr": 0.36363636363636365,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "tankan-takuitsu-reiwa-pdf",
+      "impressions": 122,
+      "clicks": 4,
+      "ctr": 0.03278688524590164,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-1-combo-essay",
+      "impressions": 51,
+      "clicks": 3,
+      "ctr": 0.058823529411764705,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-1-ichiji-ronten",
+      "impressions": 97,
+      "clicks": 3,
+      "ctr": 0.030927835051546393,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "cce-essay-persona-pack",
+      "impressions": 6,
+      "clicks": 2,
+      "ctr": 0.3333333333333333,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-2-anki-note",
+      "impressions": 26,
+      "clicks": 2,
+      "ctr": 0.07692307692307693,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-membership-lab",
+      "impressions": 714,
+      "clicks": 2,
+      "ctr": 0.0028011204481792717,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "cce-mix-calculation-practice",
+      "impressions": 9,
+      "clicks": 1,
+      "ctr": 0.1111111111111111,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "cd-essay-magazine",
+      "impressions": 26,
+      "clicks": 1,
+      "ctr": 0.038461538461538464,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-1-keiken-complete-pack",
+      "impressions": 297,
+      "clicks": 1,
+      "ctr": 0.003367003367003367,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "essay-complete-pack",
+      "impressions": 17,
+      "clicks": 1,
+      "ctr": 0.058823529411764705,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "essay-core-pack",
+      "impressions": 2,
+      "clicks": 1,
+      "ctr": 0.5,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "essay-sewage-municipality-magazine",
+      "impressions": 2,
+      "clicks": 1,
+      "ctr": 0.5,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "pe-construction-environment-magazine",
+      "impressions": 2,
+      "clicks": 1,
+      "ctr": 0.5,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "pe-construction-river-coast-magazine",
+      "impressions": 5,
+      "clicks": 1,
+      "ctr": 0.2,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "pe-construction-road-magazine",
+      "impressions": 5,
+      "clicks": 1,
+      "ctr": 0.2,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "pe-construction-steel-concrete-magazine",
+      "impressions": 4,
+      "clicks": 1,
+      "ctr": 0.25,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "cce-essay-magazine",
+      "impressions": 41,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "cce-r8-mc-50",
+      "impressions": 16,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "ce-mix-jis-practice",
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-1-anki-note",
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-1-gakka-kijutsu",
+      "impressions": 57,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-1-niji-marugoto-pack",
+      "impressions": 199,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-1-r8-bunseki",
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-2-gakka-kijutsu",
+      "impressions": 99,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-2-takuitsu-pdf",
+      "impressions": 25,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "essay-general-contractor-magazine",
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "essay-park-municipality-magazine",
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "essay-port-municipality-magazine",
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "essay-procurement-municipality-magazine",
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "essay-river-consultant-magazine",
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "essay-river-municipality-magazine",
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "essay-road-consultant-magazine",
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "essay-road-municipality-magazine",
+      "impressions": 10,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "essay-sabo-municipality-magazine",
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "essay-standards-municipality-magazine",
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "essay-urban-consultant-magazine",
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "essay-urban-municipality-magazine",
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "essay-water-municipality-magazine",
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "pe-construction-construction-planning-magazine",
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "pe-construction-geotechnical-magazine",
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "pe-construction-port-airport-magazine",
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "pe-construction-tunnel-magazine",
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "pe-construction-urban-planning-magazine",
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "pe1-takuitsu-pdf",
+      "impressions": 74,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "r8-essay-forecast",
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "setsumon3-policy-bank",
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "tankan-reading-guide",
+      "impressions": 16,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "tankan-takuitsu-heisei-pdf",
+      "impressions": 13,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "tradeoff-5kanri",
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    }
+  ],
+  "summary": {
+    "products": 58,
+    "impressions": 3894,
+    "clicks": 95,
+    "sales": 4,
+    "revenue": 16420,
+    "excludedGa4Rows": 61,
+    "excludedArticleSales": 2,
+    "excludedOutsideWindow": 274
+  },
+  "interpretation": {
+    "metric": "同一期間のマガジン売上件数 ÷ 商品ID付きnote CTAクリック数",
+    "limitation": "クリックと購入者を結合していない期間集計であり、個別購入の因果attributionやCVRではない。"
+  }
+}

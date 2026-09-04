@@ -690,6 +690,10 @@ lab が恒常的に悪い理由自体は本物だった。Playwright + `Performa
 
 **運用ルール（2026-07-01 確定）**: **GSC を Google 人間検索の真実源（下限）として扱う**。GA4-google（77/2週）≒ GSC(~5クリック/日×14) で両者は一致しており、GSC は汚染されない。GA4 の「organic 84%・低アクセスではない」は **bing 水増し込み**として割り引く。
 
+### 2026-09-05 フォローアップ（自動監査ではbot判定せず）
+
+最新14日（2026-08-21〜09-03）のbot監査でbingは2,683 users、googleは82 users。ただしbingは日本比率99.4%、engagement 71.3%で、実装済みのbot署名には該当せず`flagged:false`だった。したがって、件数の逆転だけでbotとして除外しない。Bing Webmasterとの突合と、device・landing・新規/再訪の実査ができるまで「疑わしいが未確定」を維持する。残務はDN-0135へ集約した。
+
 ## 2026-04-25: Cloudflare Bot 保護で外部 RSS/Atom Validator が 403
 
 ### 現象

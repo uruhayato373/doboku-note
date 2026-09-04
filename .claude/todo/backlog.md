@@ -99,6 +99,7 @@
 | 15 | Cloudflare / R2 認証キーの最小権限化 | 固定90/180日ローテーションの根拠はない。R2監査専用キーの作成手順は`ci-cd-security-hardening.md`に既存 | Cloudflare管理画面で`CLOUDFLARE_API_TOKEN`の実期限・権限を確認し、R2読み取り専用キーを`CLOUDFLARE_R2_AUDIT_*`へ登録。`r2-audit.yml`が汎用キーへフォールバックせず成功することを確認 |
 | 16 | コンクリート主任技士の原典待ち問題 | H25 skip 18問・H24 conflict 4問とR6/R7はローカル原典がなく、推測補完できない。詳細は`exam-content-policy.md`の主任技士メモが真実源 | 原典入手後に問題・公式解答表を視覚照合し、復元できた設問だけ追加。解答キーに合わせた本文創作は禁止 |
 | 17 | コンクリート診断士 98問＋記述式8本の技術内容レビュー | 2026-09-05実査で一次演習8記事は13+14+13+12+12+13+10+11=98問、記述式マガジン`mf2a132408b6f`は8記事、サイト`guide-essay`も存在。公開後の人手レビュー完了を示す実体はない | 一次演習98問、note記述式8本、`content/site/concrete-diagnostician/guide-essay`を有資格者が技術レビューし、誤りを修正・再デプロイする。原典照合できない数値を推測で補わない |
+| 18 | GA4 UIバックアップとbing流入の外部照合 | Data API・週次`metrics-analyzer`・note referral集計・商品別期間効率は稼働済み。GA4 UI CSVは3ユニットとも未成立。最新14日のbingは2,683 usersだが日本比率99.4%・engagement 71.3%で自動bot署名は`flagged:false` | ログイン済みGA4 UIで正式レポート名を確定しfixtureを更新する。Bing Webmasterとdevice・landing・新規/再訪を突合し、件数比だけでbot除外しない。API主経路は継続する |
 
 **完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
@@ -247,18 +248,6 @@ Playwrightのログインprofileはサービス別に永続化されているが
 1. 資格ハブ（`pe-comprehensive-management-public-engineer-qualification-map`）と新設ページ（`civil-construction-1-public-servant-merit`）を GSC で URL 検査し、インデックス状況を記録する
 2. **目安 2026-09-14 以降**、公開後 28 日と直前 28 日を比較する。判定の正規表現と基準は [13_土木公務員SEO戦略2026-08.md](../../docs/strategy/13_土木公務員SEO戦略2026-08.md)
 3. 次記事「土木公務員に技術士は必要？」の着手可否は 1・2 の結果を見てから判断する（語順違いの類似ページは作らない）
-
-### [DN-0051] 計測基盤 Tier 2/3 ＋ GA4 UI 設定
-タグ: [インフラ・計測] [種類:改善]
-
-詳細な真実源は [計測基盤強化ロードマップ.md](../../docs/operations/計測基盤強化ロードマップ.md)。残る実装項目は同文書の #5 / #7 / #8 / #12 / #14 / #15 と bing bot 疑いの確定。
-
-`fetch-ga4-ui-csv.mjs` は未ログイン検証までで、ログイン済み実UIでは 3 ユニットとも取得失敗（`trafficAcquisition`: `csv-menu-ambiguous`、`landingPage` / `events`: `report-not-found`）。正式ラベルを確定して fixture と回帰テストへ反映する。API優先方針は維持する。
-
-
-
-
-
 
 ## 🟢 低 — 時期未定
 

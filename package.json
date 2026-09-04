@@ -298,6 +298,7 @@
     "report-career-funnel": "node .claude/scripts/report-career-funnel.mjs",
     "report-ga4-gsc-crosswalk": "node .claude/scripts/report-ga4-gsc-crosswalk.mjs",
     "report-monetization-coverage": "tsx .claude/scripts/report-monetization-coverage.mts",
+    "report-note-funnel-efficiency": "node scripts/report-note-funnel-efficiency.mjs",
     "sales-summary": "node scripts/sales-summary.mjs",
     "schedule-view": "node scripts/schedule-view.mjs",
     "scout-coconala-blogs": "node scripts/scout-coconala-blogs.mjs",

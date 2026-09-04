@@ -799,6 +799,18 @@
       "commit": null,
       "verification": "一次演習8記事の設問数を13+14+13+12+12+13+10+11=98と実査。記述式マガジン8記事、mf2a132408b6f、サイトguide-essayの実在を確認",
       "note": "未完の人手レビューをDN-0135の外部残務へ統合し、独立カードだけを撤収。レビュー完了とは扱っていない"
+    },
+    {
+      "id": "DN-0051",
+      "at": "2026-09-05",
+      "task": "計測基盤 Tier 2/3 ＋ GA4 UI 設定",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null,
+      "verification": "gsc-auto-reviewの2026-08-28/09-04記録、check-note-site-utm 840ファイル/2012リンク違反0、note/referral 23users/62sessions、bot-audit最新値、note-funnel-efficiency tests 4件を実査",
+      "note": "商品別期間効率レポートを週次CIへ配線。高カーディナリティ重複paramとclean URL redirectは採用せず、個別購入attributionを断定しない境界を固定。GA4 UIバックアップとbing最終判定だけDN-0135へ統合"
     }
   ]
 }
