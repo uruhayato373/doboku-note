@@ -417,6 +417,11 @@ test('redactAuthDiagnostic: 長い token らしい文字列は伏せる', () => 
   assert.equal(redactAuthDiagnostic(tokenLike), '[REDACTED]');
 });
 
+test('redactAuthDiagnostic: 診断対象のpathは長くても表示する', () => {
+  const path = '/Users/example/repository/.local/playwright-note-profile';
+  assert.equal(redactAuthDiagnostic({ profilePath: path }).profilePath, path);
+});
+
 test('redactAuthDiagnostic: 通常の日本語説明文は素通し', () => {
   const text = 'これはユーザーが読む説明文で、40文字を超えても伏せられるべきではない普通の文章です。';
   assert.equal(redactAuthDiagnostic(text), text);

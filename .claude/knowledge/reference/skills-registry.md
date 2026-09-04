@@ -22,14 +22,16 @@ title: スキル ガバナンス記録
 ├── conversion/      # 7 — 形式変換（MDX / OGP 画像 / 紙用 PDF / Kindle EPUB）＋ KDP 入稿・出版 ＋ OGP 意匠の素案試作
 ├── quality/         # 16 — MDX・note 公開前品質検査
 ├── management/      # 24 — 計画・分析・戦略
-├── dev/             # 13 — 開発・CI/CD
+├── dev/             # 14 — 開発・CI/CD・ローカルPlaywright認証運用
 ├── analytics/       # 2 — サイト分析
 ├── social/          # 24 — SNS 投稿・note運用
 ├── metrics/         # 1 — 売上記録
 └── ui/              # 1 — UI/UX デザイン
 ```
 
-合計 **103 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+合計 **104 スキル**（10 カテゴリ・SKILL.md 実数）。Phase 2 待機 6 本（`skills-guide.md` 末尾）は**計画のみ＝ファイル未作成**なのでこの数に含めない。
+
+> 2026-09-05 新設: `dev/playwright-auth`（Windows/Mac各PCのPlaywright認証profileを、共通CLI `scripts/playwright-auth.mjs`へ委譲して保存先確認・offline doctor・手動login・read-only status・旧profileの安全copy移行を行うuser-invocableスキル。`disable-model-invocation: true`）。認証実体はOS標準ローカル領域へ端末別保存し、PC間同期・自動cleanup・process killは禁止。service lockはatomic create、migrateはdry-run既定かつtarget非空/利用中で停止。専用agentは作らない。合計 `103→104`、dev `13→14`。
 
 > 2026-08-30 復元: `social/note-membership` を追加。`note-membership-operator` と agents registry には `/note-membership` 起動契約が存在していた一方、対応する SKILL.md だけが欠落していた。会員限定公開・特典マガジン収録・プラン操作を既存スクリプトへ束ねるユーザー起動専用入口として復元し、スキル件数を 102→103 に更新した。
 

@@ -107,6 +107,7 @@ title: スキル ナビゲーションガイド
 | `/pr-create` | 現ブランチから GitHub PR を作成 | `PR作成`, `/pr-create` |
 | `/simplify` | 変更 diff を点検し最小差分で修正→lint→PR チェーン | `diff確認`, `最小修正`, `/simplify` |
 | `/create-skill` | スキル作成ガイド | `スキルを作りたい`, `/create-skill` |
+| `/playwright-auth` | Windows/Mac各PCのPlaywright認証profileを共通CLIで保存先確認・offline診断・手動login・read-only status・安全copy移行。自動削除/kill/PC間同期なし | `Playwrightログイン`, `認証profile診断`, `auth status`, `/playwright-auth doctor` |
 | `/sync-r2-images` | R2 画像のローカル同期 | `R2同期`, `/sync-r2-images` |
 | `/diff-r2` | ローカル（`content/site/`）↔ R2（prefix `posts/`）の双方向差分検出 | `R2差分`, `/diff-r2` |
 | `npm run upload-sns-r2` + `sns-archive-auditor` エージェント | content/sns の reels wav/mp4 等を R2 へ退避（容量削減）。`sns-archive-auditor` が SoT 無傷＝再生成可否で OFFLOAD/ARCHIVE_KEEP/KEEP_LOCAL/BLOCK を判定→`--purge-local` は R2 バイト一致検証後のみ削除。真実源 `sns-archive-policy.md` | `SNS容量削減`, `wav/mp4退避`, `投稿済みパック退避` |
