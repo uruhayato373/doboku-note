@@ -36589,18 +36589,12 @@
     "content/note/技術士一次/一次択一-過去問PDF/技術士一次択一-過去問PDF.pdf": {
       "bucket": "private",
       "r2Key": "note/delivery-pdf/技術士一次/一次択一-過去問PDF/技術士一次択一-過去問PDF.pdf",
-      "sha256": "027e985a226ccdb9836acb86b785818785bc22e137cbfd3adda99ae8fdbcc8fa",
-      "bytes": 9802744,
+      "sha256": "745b7003c1b5dc42178267e3aad3b5d825deb7c48ec0c3d3a0f3d97a4e369bb7",
+      "bytes": 10094120,
       "visibility": "private",
       "regenerable": true,
       "group": "note-delivery-pdf",
-      "verifiedAt": "2026-08-21T12:49:09.681Z",
-      "logicalPath": "content/note/技術士一次/一次択一-過去問PDF/技術士一次択一-過去問PDF.pdf",
-      "mime": "application/pdf",
-      "generator": "scripts/magazine-to-pdf.mjs",
-      "requiredBy": [
-        "scripts/note-attach-file.mjs"
-      ]
+      "verifiedAt": "2026-09-04T10:13:33.795Z"
     },
     "content/note/1級・2級土木/2級土木/一次択一-過去問PDF/2級土木一次択一-過去問PDF.pdf": {
       "bucket": "private",
@@ -175892,7 +175886,15 @@
       "group": "note-cover-png",
       "verifiedAt": "2026-09-04T10:12:16.855Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/コンクリート技士/配合計算-JIS判断-実戦演習/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-publish.mjs",
+        "scripts/note-update-cover.mjs",
+        "tools/admin-app（画像ギャラリー）"
+      ]
     },
     "content/note/コンクリート主任技士/四肢択一-R8予想50問/img/cover.png": {
       "bucket": "public",
@@ -175904,7 +175906,15 @@
       "group": "note-cover-png",
       "verifiedAt": "2026-09-04T10:12:17.204Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/コンクリート主任技士/四肢択一-R8予想50問/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-publish.mjs",
+        "scripts/note-update-cover.mjs",
+        "tools/admin-app（画像ギャラリー）"
+      ]
     },
     "content/note/コンクリート主任技士/コンクリート資格もくじ/img/cover.png": {
       "bucket": "public",
@@ -175916,7 +175926,15 @@
       "group": "note-cover-png",
       "verifiedAt": "2026-09-04T10:12:17.193Z",
       "width": 1280,
-      "height": 670
+      "height": 670,
+      "logicalPath": "content/note/コンクリート主任技士/コンクリート資格もくじ/img/cover.png",
+      "mime": "image/png",
+      "generator": "scripts/generate-note-covers.mjs",
+      "requiredBy": [
+        "scripts/note-publish.mjs",
+        "scripts/note-update-cover.mjs",
+        "tools/admin-app（画像ギャラリー）"
+      ]
     },
     "content/note/技術士総監/週次レビュー-テンプレ集/img/cover.png": {
       "bucket": "private",
@@ -175956,6 +175974,2706 @@
         "scripts/note-publish.mjs",
         "scripts/note-update-cover.mjs",
         "tools/admin-app（画像ギャラリー）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/04-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/04-answer.png",
+      "sha256": "8b07a922a2fc3f770b7494041b5a3044b0e77db99d9af4377aa23d78988e8df3",
+      "bytes": 70498,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:56.757Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/04-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/03-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/03-problem.png",
+      "sha256": "306d0cd5bd1537b5560a1a8009a84ff6e4df33941d4e5d3d103926ddec52e22e",
+      "bytes": 130998,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:56.767Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/03-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/00-cover.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/00-cover.png",
+      "sha256": "b9cf7282e943a5986682ea6ee1dbaad6ec6fc6390c94d45e2541f91abf95cf2f",
+      "bytes": 64655,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:56.798Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/00-cover.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/06-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/06-answer.png",
+      "sha256": "20a212f881c5d0e8161f159ac7232188eaba38a74d3253dcc3e5cbe534bc197f",
+      "bytes": 85398,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:56.808Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/06-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/02-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/02-answer.png",
+      "sha256": "99f9eabb787ae6fd4897f7658a1ad8cab692809d369a17bc17509f6e7dc3fe7b",
+      "bytes": 100524,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:56.812Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/02-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/07-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/07-problem.png",
+      "sha256": "5fc6f6d07279393c1593cd5b287506b26732e1ddd1a624bb85835316b29cfe6e",
+      "bytes": 159312,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:56.828Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/07-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/01-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/01-problem.png",
+      "sha256": "89974901e5b6eef9132ddee76926b84c4158de29e0b61bb0ac352c38dd76f687",
+      "bytes": 182478,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:56.836Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/01-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/05-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/05-problem.png",
+      "sha256": "06f7b82694bec098fbe6e9766bd341bf9773b015c53186a258821743f7556e7c",
+      "bytes": 137229,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:56.885Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/05-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/08-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/08-answer.png",
+      "sha256": "44e8c1b1fd55878fd21bc74721d337f130e1c3df652fb35bc31fda0b69a88817",
+      "bytes": 142251,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:57.223Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/08-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/09-cta.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/09-cta.png",
+      "sha256": "cf367ef7a0773be48bde567ca744a659a60d0222d7fb12f004aa5e539e6d0837",
+      "bytes": 72770,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:57.236Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-01/carousel/img/09-cta.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/00-cover.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/00-cover.png",
+      "sha256": "b9cf7282e943a5986682ea6ee1dbaad6ec6fc6390c94d45e2541f91abf95cf2f",
+      "bytes": 64655,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:57.267Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/00-cover.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/04-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/04-answer.png",
+      "sha256": "4b9f53d6a622b05fe24f156311850c72319689955923258c762e3775931d4d9c",
+      "bytes": 75150,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:57.285Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/04-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/03-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/03-problem.png",
+      "sha256": "25f97f051c42fd63eaa0f3655f1531bc8c12a134ba5045834e229693e2c35dd4",
+      "bytes": 79028,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:57.295Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/03-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/01-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/01-problem.png",
+      "sha256": "8cc478ce3f517f6bd0aabe295f192ec8504ace5c27487ddd9bf94ddd964122df",
+      "bytes": 131230,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:57.299Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/01-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/02-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/02-answer.png",
+      "sha256": "638fc5e2862f1eb8a7bb0fcccf7d60f664ffc6002ae12d4d8ce8ec4a2f183edf",
+      "bytes": 77628,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:57.371Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/02-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/05-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/05-problem.png",
+      "sha256": "b8b857c7d42c13c3476b1bc93ee7f82816a5b43b9cfaf61a5d7f8cf30fd9e776",
+      "bytes": 228712,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:57.428Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/05-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/06-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/06-answer.png",
+      "sha256": "d7db88cdbc35dbeaa38be71b792248688676f5b11da16ede93abcb942f9799ea",
+      "bytes": 151291,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:57.683Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/06-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/07-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/07-problem.png",
+      "sha256": "5f239b6bae730f69ab4d848d526fdd12ca83c0166357bff3e1601c52843f4f40",
+      "bytes": 174974,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:57.713Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/07-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/01-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/01-problem.png",
+      "sha256": "5276a7c86416a3b4d66a19e08db99cd369bae92588f3f3102e6274e68922fee5",
+      "bytes": 140692,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:57.740Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/01-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/09-cta.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/09-cta.png",
+      "sha256": "cf367ef7a0773be48bde567ca744a659a60d0222d7fb12f004aa5e539e6d0837",
+      "bytes": 72770,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:57.750Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/09-cta.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/08-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/08-answer.png",
+      "sha256": "ed8deecd817958fc3dde2199bc5971ab7258fbf32c0a2e8a7ca8b8b05482bf87",
+      "bytes": 134791,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:57.751Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-02/carousel/img/08-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/00-cover.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/00-cover.png",
+      "sha256": "b9cf7282e943a5986682ea6ee1dbaad6ec6fc6390c94d45e2541f91abf95cf2f",
+      "bytes": 64655,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:57.783Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/00-cover.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/02-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/02-answer.png",
+      "sha256": "9667268dcf6ca74ec6c2e49010d657551b152daf91be8b7ebe236ec0e3cd9729",
+      "bytes": 122330,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:57.925Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/02-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/03-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/03-problem.png",
+      "sha256": "ce63fcd4bc32d2ae37cb86968e222d67bc9dfe3f218b3c312cb50a9f4d17de96",
+      "bytes": 69340,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:57.932Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/03-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/06-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/06-answer.png",
+      "sha256": "10c24be01e7da7d4434b51804228e5b996100cd14c467f8774a5e44be8aabffa",
+      "bytes": 78267,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:58.181Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/06-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/04-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/04-answer.png",
+      "sha256": "37a77e34138342ea1e28eb25c74ea422f864ab7b4b796f16dbe859244fd721a6",
+      "bytes": 79188,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:58.211Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/04-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/08-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/08-answer.png",
+      "sha256": "dfe31881d5a9422bb3f3ec9797424ae40060b9a713c6bb18c82f1e091300da95",
+      "bytes": 129675,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:58.230Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/08-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/07-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/07-problem.png",
+      "sha256": "eacab48663c7d4c2cdb30a6a828d9a724871af5c3c86b0643780f32225bc006d",
+      "bytes": 130331,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:58.244Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/07-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/09-cta.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/09-cta.png",
+      "sha256": "cf367ef7a0773be48bde567ca744a659a60d0222d7fb12f004aa5e539e6d0837",
+      "bytes": 72770,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:58.248Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/09-cta.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/05-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/05-problem.png",
+      "sha256": "ea2065e066f8f5144234a1995981c360e09233f0dcbfda64c2f607cd204b3e20",
+      "bytes": 95176,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:58.258Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-03/carousel/img/05-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/00-cover.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/00-cover.png",
+      "sha256": "b9cf7282e943a5986682ea6ee1dbaad6ec6fc6390c94d45e2541f91abf95cf2f",
+      "bytes": 64655,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:58.460Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/00-cover.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/01-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/01-problem.png",
+      "sha256": "31d681a33ab3ba22f02ea422db546014b64e900a6149616a2466b0c5411d64ac",
+      "bytes": 129616,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:58.533Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/01-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/02-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/02-answer.png",
+      "sha256": "3a6f693236ecd9fa6887ff69f1bdee967d01faa1e7d1e4ba5bada38cd1f02d29",
+      "bytes": 79308,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:58.699Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/02-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/07-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/07-problem.png",
+      "sha256": "073ae772e0fa5cbad7ef099f1cedb53bee3e036aa5dfcb4489a11043f2d0e9de",
+      "bytes": 193751,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:58.728Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/07-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/06-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/06-answer.png",
+      "sha256": "9e374b6a624090b73f80691c4b3c473f4309ad73d1868b6ce0eb376a3ba711c3",
+      "bytes": 135895,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:58.778Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/06-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/04-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/04-answer.png",
+      "sha256": "b6e94d7824c771832af35d1d0d3e38ce57c8214d1e1ffa5c5cc37b02a0054995",
+      "bytes": 100975,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:58.803Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/04-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/03-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/03-problem.png",
+      "sha256": "fdf15fe6c6bba9c8215017399abf56346b5a3cd25127b5a30d0e11ad059e0e1a",
+      "bytes": 115538,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:58.818Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/03-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/08-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/08-answer.png",
+      "sha256": "1ecd256501d89fb8c2dd29966411ce4ae7378e6ee9792de9a6013561842380b5",
+      "bytes": 128013,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:58.943Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/08-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/05-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/05-problem.png",
+      "sha256": "aa5b73e9a79f702b786152324bdbb873784175601cf405efea5ecc48bde55c20",
+      "bytes": 154051,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:58.971Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/05-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/09-cta.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/09-cta.png",
+      "sha256": "cf367ef7a0773be48bde567ca744a659a60d0222d7fb12f004aa5e539e6d0837",
+      "bytes": 72770,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:59.026Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-04/carousel/img/09-cta.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/02-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/02-answer.png",
+      "sha256": "fe5dc9f9b434511c1ff9bf03715520994a2e6ccabb39d0c0b2cb800c515c2ba0",
+      "bytes": 86017,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:59.266Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/02-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/04-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/04-answer.png",
+      "sha256": "ee5e560abac8ca804a478db3a72da117cc80cabdb64c81b22a125c5971cd8ae0",
+      "bytes": 148914,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:59.386Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/04-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/03-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/03-problem.png",
+      "sha256": "8a39cd3534a9158c98bb84af9efb634285a65fb7eb51077b164bcc90782d5bd4",
+      "bytes": 165470,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:59.439Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/03-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/06-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/06-answer.png",
+      "sha256": "f508b419069c5eacc95a8abe883c5cbfb2a17b38d0646a250ee651e05d1bab6a",
+      "bytes": 74649,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:59.445Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/06-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/00-cover.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/00-cover.png",
+      "sha256": "b9cf7282e943a5986682ea6ee1dbaad6ec6fc6390c94d45e2541f91abf95cf2f",
+      "bytes": 64655,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:59.473Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/00-cover.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/07-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/07-problem.png",
+      "sha256": "0867304d28f1fe1d9a2c9dac88676328a1a9da7b0811f8b4501a83a75e584d14",
+      "bytes": 148502,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:59.510Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/07-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/01-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/01-problem.png",
+      "sha256": "36e5c49f49cbfdb620ddeed156f69c4a33110a98e90ecb3e1f8d585041e4faba",
+      "bytes": 229396,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:59.538Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/01-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/08-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/08-answer.png",
+      "sha256": "738f97f86f45e51136ac896a6a6bd2a760b15f42f0830657e7513287b0cc8003",
+      "bytes": 128927,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:59.723Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/08-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/05-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/05-problem.png",
+      "sha256": "ce5fef2dd354aec42b04a99a5353ed8b54b791810ffab03415341af45c2f5700",
+      "bytes": 197566,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:59.815Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/05-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/00-cover.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/00-cover.png",
+      "sha256": "e559fb94b0580beded5dc371b231e380a803c850fedea595fad96ab422f8916e",
+      "bytes": 64620,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:12:59.955Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/00-cover.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/09-cta.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/09-cta.png",
+      "sha256": "cf367ef7a0773be48bde567ca744a659a60d0222d7fb12f004aa5e539e6d0837",
+      "bytes": 72770,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:00.034Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-05/carousel/img/09-cta.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/04-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/04-answer.png",
+      "sha256": "61fcf654eb7d27a41072ddcee098dc0da005242ff19107f62db921cd975b6ca5",
+      "bytes": 82171,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:00.034Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/04-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/02-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/02-answer.png",
+      "sha256": "736e6e496667df50557ffc2e7ca85c04aa49df6defc7f39aed327f488d87c48a",
+      "bytes": 101572,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:00.035Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/02-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/01-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/01-problem.png",
+      "sha256": "55507bffec3f6c87b6675e332be507e425cc474e0b977feaae407ed014727f79",
+      "bytes": 191902,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:00.107Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/01-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/03-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/03-problem.png",
+      "sha256": "1e0e23b8c8650a4bd64eceb2fad91d8056a514cadba3cfa34e236531da589000",
+      "bytes": 184707,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:00.306Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/03-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/05-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/05-problem.png",
+      "sha256": "4b465f86b20c5debb130370630c05dc0bad75ef374969a3e4d752eb667ba50da",
+      "bytes": 213172,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:00.340Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/05-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/06-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/06-answer.png",
+      "sha256": "aea6e57946401da17c709bae1695ca6cb301ab583097ca0061c3319a38f4dcff",
+      "bytes": 126633,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:00.366Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/06-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/09-cta.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/09-cta.png",
+      "sha256": "cf367ef7a0773be48bde567ca744a659a60d0222d7fb12f004aa5e539e6d0837",
+      "bytes": 72770,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:00.495Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/09-cta.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/08-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/08-answer.png",
+      "sha256": "8d264f1a3eadb1fd35c9de7446c6856291da50b046a22fbf49dd1b3f32e114c6",
+      "bytes": 87440,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:00.506Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/08-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/00-cover.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/00-cover.png",
+      "sha256": "e559fb94b0580beded5dc371b231e380a803c850fedea595fad96ab422f8916e",
+      "bytes": 64620,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:00.530Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/00-cover.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/07-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/07-problem.png",
+      "sha256": "d21ed1358da3596cbfcd53db5cdc7eb2dc11359a3b9f76adb35c377df2f85f18",
+      "bytes": 200478,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:00.627Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-06/carousel/img/07-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/04-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/04-answer.png",
+      "sha256": "eff600cdb8f5924c018b91ba052ef40d37d5bf4dd320af8560480fd6cd2e2f95",
+      "bytes": 86287,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:00.871Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/04-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/02-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/02-answer.png",
+      "sha256": "d6d485adfc6947234ef0a99c6b0b08702b7ac479f1c92c263024c46c1e5d0655",
+      "bytes": 70007,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:00.882Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/02-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/06-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/06-answer.png",
+      "sha256": "423cb7946e88c5916843dadce84eb212a5d0981454cf6355f3a4dbf6dac33eab",
+      "bytes": 85601,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:00.985Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/06-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/01-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/01-problem.png",
+      "sha256": "6e3578e9352930ff9d135d6a1ed4122861877812af4a46fcf827361a6a47e299",
+      "bytes": 201993,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:01.025Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/01-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/03-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/03-problem.png",
+      "sha256": "ddba1021c6a7e460fc644f1994a769d7f5faa944cb9403e8a642348306a582f3",
+      "bytes": 219232,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:01.028Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/03-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/05-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/05-problem.png",
+      "sha256": "b7a02059d1888c21edb18fca02a525f436dd1708c465ed6def28120799e41afd",
+      "bytes": 147947,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:01.048Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/05-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/07-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/07-problem.png",
+      "sha256": "7d5e22035228eef637d1bd62dd4d08940f60122e749199f7db4bbeed11ede829",
+      "bytes": 223576,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:01.085Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/07-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/08-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/08-answer.png",
+      "sha256": "ba7f7b8a55e41f44309855f81d280449521b9000a79e1b94449b1f5701971150",
+      "bytes": 80089,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:01.112Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/08-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/09-cta.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/09-cta.png",
+      "sha256": "cf367ef7a0773be48bde567ca744a659a60d0222d7fb12f004aa5e539e6d0837",
+      "bytes": 72770,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:01.354Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-07/carousel/img/09-cta.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/00-cover.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/00-cover.png",
+      "sha256": "e559fb94b0580beded5dc371b231e380a803c850fedea595fad96ab422f8916e",
+      "bytes": 64620,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:01.373Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/00-cover.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/04-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/04-answer.png",
+      "sha256": "94c882d7301cfdffd5ab01a52c05dae41e63713a5b28e7805b1bb090815281fe",
+      "bytes": 93526,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:01.513Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/04-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/02-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/02-answer.png",
+      "sha256": "44263a2fef0cec929f37221d4d4a4e8baca0d70ede2490844d022068980cdc28",
+      "bytes": 83669,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:01.517Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/02-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/03-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/03-problem.png",
+      "sha256": "b2956c85eed3d6b5c0fc98802cedd9efd5a0b1fe0c8fbe7f44909b196266fa50",
+      "bytes": 231101,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:01.681Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/03-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/01-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/01-problem.png",
+      "sha256": "b3336ba41aa4d09a7426b9ec4d4a2290e5fad83b854cd4a209cf4ea4c227a6b2",
+      "bytes": 217817,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:01.690Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/01-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/06-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/06-answer.png",
+      "sha256": "eb500bcfc311b1173441320a0490efaf48de41a016c2df9d95f82dcbf874bd0b",
+      "bytes": 150874,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:01.785Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/06-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/07-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/07-problem.png",
+      "sha256": "240a2b8da6e0b6f876d344f2826d674dea021823fef729202484f9bf7b986a7c",
+      "bytes": 227868,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:01.858Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/07-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/05-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/05-problem.png",
+      "sha256": "7e3d9a4d56ff660234d71e3c03d428b403fcf2b9ab2109162e7d3e0890f31ba3",
+      "bytes": 215074,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:01.897Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/05-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/08-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/08-answer.png",
+      "sha256": "7b228df92bb620d043db337a614f7e6fe68bc0957cef846c89f28045934216df",
+      "bytes": 155796,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:01.917Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/08-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/09-cta.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/09-cta.png",
+      "sha256": "cf367ef7a0773be48bde567ca744a659a60d0222d7fb12f004aa5e539e6d0837",
+      "bytes": 72770,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:01.969Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-08/carousel/img/09-cta.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/00-cover.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/00-cover.png",
+      "sha256": "4797f708e255cb95b71e5c6dd62dc529e94f4be0112698569bf150169b5452a4",
+      "bytes": 69738,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:02.031Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/00-cover.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/02-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/02-answer.png",
+      "sha256": "0b053ad50359f87c99876d96c002581ed891370f5d21609afbcbffaee3ebeb8b",
+      "bytes": 143863,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:02.150Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/02-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/01-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/01-problem.png",
+      "sha256": "aa35667cf39c4d17c6f3a1e7876d2c2344825887cad9a78a28a6ea036a12a383",
+      "bytes": 135227,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:02.175Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/01-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/03-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/03-problem.png",
+      "sha256": "f76f6856c545104d44099e4c34788d3e81817bebf8df794300920356c16f1ef9",
+      "bytes": 175104,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:02.359Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/03-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/04-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/04-answer.png",
+      "sha256": "87abe8d8895589833477702ae511d7fd09e0e34726a25f748d130b40ded41464",
+      "bytes": 139410,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:02.369Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/04-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/05-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/05-problem.png",
+      "sha256": "99f4d74c075254e4530f5254c2869325c1dd0d45e35ada044955a05bfe479243",
+      "bytes": 132951,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:02.371Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/05-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/06-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/06-answer.png",
+      "sha256": "40e824d9fb9f9790b016bcc59e5b4a9db0c4e1e4a0857296d54fdbd5a863c388",
+      "bytes": 140267,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:02.456Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/06-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/08-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/08-answer.png",
+      "sha256": "bf1609b941423734590d8caddcbfb52a28ce0853cd195caaf92e29f4c676e445",
+      "bytes": 139702,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:02.563Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/08-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/09-cta.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/09-cta.png",
+      "sha256": "cf367ef7a0773be48bde567ca744a659a60d0222d7fb12f004aa5e539e6d0837",
+      "bytes": 72770,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:02.636Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/09-cta.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/00-cover.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/00-cover.png",
+      "sha256": "4797f708e255cb95b71e5c6dd62dc529e94f4be0112698569bf150169b5452a4",
+      "bytes": 69738,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:02.669Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/00-cover.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/03-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/03-problem.png",
+      "sha256": "97f9f9f22999fdfe61fdead789e4586e34e6c875faf0a132c85207c697ed87d2",
+      "bytes": 144600,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:02.835Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/03-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/07-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/07-problem.png",
+      "sha256": "da5c24c4bae0b72bbeced3d407f752024f8441a45ab868e6f0920e1812b74e0e",
+      "bytes": 243594,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:02.847Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-09/carousel/img/07-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/02-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/02-answer.png",
+      "sha256": "22678a6a6f25d2e66e9bc9f8200d9cd1806f205892424f60942cd4e7316176b0",
+      "bytes": 139543,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:02.899Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/02-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/01-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/01-problem.png",
+      "sha256": "83d48f88edde8c46f489cb981a480eaa77dcb9231ee8f8cc6dc56c1bf0ed0b7c",
+      "bytes": 164305,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:02.913Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/01-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/04-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/04-answer.png",
+      "sha256": "537ef3692a2ff3efad631f5d79d69961663fe9b1e216e012b3abdd1e92cda7fd",
+      "bytes": 133549,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:02.992Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/04-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/05-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/05-problem.png",
+      "sha256": "f5857dfe440482cfb4d3fa7bef2a4cb0e3f0c7accd7acb9d0627c0e2b9da1fd9",
+      "bytes": 143293,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:03.057Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/05-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/06-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/06-answer.png",
+      "sha256": "528f53ce8a130c176913bee745d71ffbd6fa31ef2c18d68708e4be40494d3ec5",
+      "bytes": 128536,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:03.198Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/06-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/07-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/07-problem.png",
+      "sha256": "dcb73a45129846e1058ec61bcae327f8f45ee834b5a31f7a34fef4b2ca373cf9",
+      "bytes": 128078,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:03.256Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/07-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/09-cta.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/09-cta.png",
+      "sha256": "cf367ef7a0773be48bde567ca744a659a60d0222d7fb12f004aa5e539e6d0837",
+      "bytes": 72770,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:03.307Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/09-cta.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/08-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/08-answer.png",
+      "sha256": "75d028d0acb2db016a32c119c4d92224c910e5619a62f1c13d48e9240e36a8e9",
+      "bytes": 135477,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:03.323Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-10/carousel/img/08-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/00-cover.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/00-cover.png",
+      "sha256": "4797f708e255cb95b71e5c6dd62dc529e94f4be0112698569bf150169b5452a4",
+      "bytes": 69738,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:03.415Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/00-cover.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/02-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/02-answer.png",
+      "sha256": "a92af0a70bd78a767f86af5f80438ee9d8a564a954b04a3a4cc8717f5055340c",
+      "bytes": 159350,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:03.525Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/02-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/01-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/01-problem.png",
+      "sha256": "4817f735e8dc52eb94c0e69079769ab68bc67bdcee49dcf27983a5a40288b52e",
+      "bytes": 180455,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:03.567Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/01-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/05-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/05-problem.png",
+      "sha256": "49f97b09d5e7f6664f2bd176fc0d3fa6e769dee1feae333c5e4e6f7f7eef7625",
+      "bytes": 144729,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:03.707Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/05-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/04-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/04-answer.png",
+      "sha256": "7a1722d9186b26ef1f31b4a3ebb99a9209a21fcc26433e14d6375f33fd8b784f",
+      "bytes": 138892,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:03.774Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/04-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/06-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/06-answer.png",
+      "sha256": "dedab70f553c8d76bb889adac8864b98c22c7ec5bf5db48cdf39709238075d63",
+      "bytes": 136291,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:03.790Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/06-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/07-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/07-problem.png",
+      "sha256": "b6691a25e254039a662b838b0dd30ee3f69c0fae22f7837c2cc7c703f74abe66",
+      "bytes": 142045,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:03.820Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/07-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/08-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/08-answer.png",
+      "sha256": "598aebd6b90e855eb6cf0e239a687392ce48d2ae30f6b90c899964a97a5d1b26",
+      "bytes": 123099,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:03.923Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/08-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/03-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/03-problem.png",
+      "sha256": "67221116eaa47540eee9b0526ea68af94f2489c93fa56d747d1a86971cb6df5f",
+      "bytes": 237722,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:03.933Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/03-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/09-cta.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/09-cta.png",
+      "sha256": "cf367ef7a0773be48bde567ca744a659a60d0222d7fb12f004aa5e539e6d0837",
+      "bytes": 72770,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:04.095Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-11/carousel/img/09-cta.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/01-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/01-problem.png",
+      "sha256": "5d1fd40a0631bc7dfff9084add608a762fbab4fa91803ea0ef53458b52a77534",
+      "bytes": 127505,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:04.172Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/01-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/00-cover.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/00-cover.png",
+      "sha256": "4797f708e255cb95b71e5c6dd62dc529e94f4be0112698569bf150169b5452a4",
+      "bytes": 69738,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:04.195Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/00-cover.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/03-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/03-problem.png",
+      "sha256": "c3aad3f4bdb5881750df99deb2dd67b744128e4d4c00efc96132c1fb60bee40a",
+      "bytes": 130742,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:04.238Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/03-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/04-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/04-answer.png",
+      "sha256": "ed57cb07aa9367fa9ab2719c0367e255a68a59f5afc89eb21caed87cdcd87552",
+      "bytes": 124119,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:04.290Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/04-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/02-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/02-answer.png",
+      "sha256": "a8658f8906ba41722064057b04fcabee23d8a40c49f8b08645c9e30bf7c10238",
+      "bytes": 137891,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:04.290Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/02-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/06-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/06-answer.png",
+      "sha256": "7fe11ecdccc31c464e352a5e766d05a28afc95575af1d6b76d35f70c91ae683b",
+      "bytes": 141155,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:04.419Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/06-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/05-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/05-problem.png",
+      "sha256": "48bac97ef0ffd30a24ed977b36551d612cc64cdfa32a13c9de2d7cbd3d81d1d4",
+      "bytes": 131867,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:04.432Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/05-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/07-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/07-problem.png",
+      "sha256": "78f14216750772a3149b2f740beb6b8c0a4709479d25bc44fd049b06177e0e5c",
+      "bytes": 150473,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:04.569Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/07-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/09-cta.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/09-cta.png",
+      "sha256": "cf367ef7a0773be48bde567ca744a659a60d0222d7fb12f004aa5e539e6d0837",
+      "bytes": 72770,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:04.651Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/09-cta.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/08-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/08-answer.png",
+      "sha256": "3ebcdfd5354656eb25a83943fcefa059191512d07f2bbfa347d73d651539e40d",
+      "bytes": 141299,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:04.681Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-12/carousel/img/08-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/00-cover.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/00-cover.png",
+      "sha256": "4797f708e255cb95b71e5c6dd62dc529e94f4be0112698569bf150169b5452a4",
+      "bytes": 69738,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:04.705Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/00-cover.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/02-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/02-answer.png",
+      "sha256": "18b18e75fb5aeb8235f2196579bcb4322c7dd9202ac27c92a304c7dea3a2428c",
+      "bytes": 123415,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:04.794Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/02-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/04-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/04-answer.png",
+      "sha256": "d8098d75b7424222010805b44423f35b4637f05246239fbf33a7637b43bb5c22",
+      "bytes": 140038,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:04.981Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/04-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/03-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/03-problem.png",
+      "sha256": "1e844f64550cc36f6eda7ec594af48e07538a6d516869399e1796f5808b31620",
+      "bytes": 168617,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:05.055Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/03-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/05-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/05-problem.png",
+      "sha256": "a753bc28737012ca5b964d1a96ee3dcaec09afb9637d36899bda34b593106a11",
+      "bytes": 179224,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:05.089Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/05-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/01-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/01-problem.png",
+      "sha256": "d09920a216f85f9edca04c957d9e0416c80e1e038e8d8669936b7c62276226cb",
+      "bytes": 132231,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:05.094Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/01-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/07-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/07-problem.png",
+      "sha256": "61be67f7f428caa8dbaaa0bd0102ccd1fd32495d92b039a9baf37e2142807775",
+      "bytes": 127300,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:05.142Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/07-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/06-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/06-answer.png",
+      "sha256": "d3c94cbbfaaaf221b9da4e778a49326b19815e874d8caae3a198ddbc082016b8",
+      "bytes": 121445,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:05.221Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/06-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/08-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/08-answer.png",
+      "sha256": "453a6b8facc3d41046e40221a9e2b6d641aa9216a93887d2347f2848ee2a174f",
+      "bytes": 135981,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:05.242Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/08-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/09-cta.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/09-cta.png",
+      "sha256": "cf367ef7a0773be48bde567ca744a659a60d0222d7fb12f004aa5e539e6d0837",
+      "bytes": 72770,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:05.268Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-13/carousel/img/09-cta.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/00-cover.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/00-cover.png",
+      "sha256": "4797f708e255cb95b71e5c6dd62dc529e94f4be0112698569bf150169b5452a4",
+      "bytes": 69738,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:05.471Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/00-cover.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/03-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/03-problem.png",
+      "sha256": "05eea17521c362813b7f9ba6b613e6c5ff3e26e06ca2b0b58b77bdca5dca9d16",
+      "bytes": 130369,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:05.612Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/03-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/06-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/06-answer.png",
+      "sha256": "90943367dbd9a292203a717e80dff959cafb3b7e33dde12978bf9b666563de4a",
+      "bytes": 124827,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:05.714Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/06-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/05-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/05-problem.png",
+      "sha256": "199a3ff5d6d49c43cb7f8e2db7ad328732c3b9e79a563ed4e9ba8bbce75a37f4",
+      "bytes": 181773,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:05.718Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/05-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/04-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/04-answer.png",
+      "sha256": "9d7e5a7f6a555f1fb67a865c5b1ff8146881d30d442cfb609ceed82819d8faef",
+      "bytes": 126330,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:05.756Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/04-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/07-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/07-problem.png",
+      "sha256": "a131fc0f80bf42633007c005da8e9e82150e2fabd7dad57256c7f94c582ae4b3",
+      "bytes": 138324,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:05.759Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/07-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/02-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/02-answer.png",
+      "sha256": "8a6c120fc655629fe3e677d522cfdbf90b6dd3d6c69fd5b29da7816756dfa641",
+      "bytes": 164039,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:05.819Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/02-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/01-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/01-problem.png",
+      "sha256": "e4e93b231cc5efd2d45aa14d9c7500d569d32ca054d909a7de46610edeeef5c5",
+      "bytes": 169651,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:05.947Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/01-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/08-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/08-answer.png",
+      "sha256": "6f4093bff9a9ff765c14e5964746119a81b62eaa96b58a245c4be72afb8eed1d",
+      "bytes": 130977,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:05.953Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/08-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/09-cta.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/09-cta.png",
+      "sha256": "cf367ef7a0773be48bde567ca744a659a60d0222d7fb12f004aa5e539e6d0837",
+      "bytes": 72770,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:06.088Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-14/carousel/img/09-cta.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/00-cover.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/00-cover.png",
+      "sha256": "4797f708e255cb95b71e5c6dd62dc529e94f4be0112698569bf150169b5452a4",
+      "bytes": 69738,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:06.175Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/00-cover.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/02-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/02-answer.png",
+      "sha256": "f0eb788e1f19816f3499aacb47ec0f69dc304bd12b8eaf84b27041e49c48b402",
+      "bytes": 149693,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:06.227Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/02-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/03-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/03-problem.png",
+      "sha256": "d1afdb48e159905ecd4bdf61755122feabf1ffe6c235b7d7fe26e30d8322c493",
+      "bytes": 162292,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:06.295Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/03-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/04-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/04-answer.png",
+      "sha256": "1c8c871cca7b4a2a9227c3874877dbc89d8ea7dc1c932e0868a9d39def25eb85",
+      "bytes": 145012,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:06.333Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/04-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/01-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/01-problem.png",
+      "sha256": "74e5153d2c5536b6af159ed4dc41c502c145cbc68a4dc9e8b95976f14f610487",
+      "bytes": 195060,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:06.525Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/01-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/08-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/08-answer.png",
+      "sha256": "fe9c9326afdb0a8d8bc105b3f9147ae8c6550a88b4b131aa7a0e2e6a90084c81",
+      "bytes": 159216,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:06.632Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/08-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/07-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/07-problem.png",
+      "sha256": "1eca6ac2719b7c6089ec98a188eb36af31fa0b56dc1baeb916afcd9622e58bcd",
+      "bytes": 230346,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:06.669Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/07-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/05-problem.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/05-problem.png",
+      "sha256": "b8225df36544a65ae78fbd5ba883a35f74bd85c9a9ae4e653327b025136bf440",
+      "bytes": 193545,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:06.693Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/05-problem.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/09-cta.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/09-cta.png",
+      "sha256": "cf367ef7a0773be48bde567ca744a659a60d0222d7fb12f004aa5e539e6d0837",
+      "bytes": 72770,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:06.702Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/09-cta.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
+      ]
+    },
+    "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/06-answer.png": {
+      "bucket": "private",
+      "r2Key": "sns/rendered/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/06-answer.png",
+      "sha256": "3647f7307dff2cee106f848c8865fdd5b37b10afb0471f1f26c44db024ad64f9",
+      "bytes": 153424,
+      "visibility": "private",
+      "regenerable": true,
+      "group": "ig-rendered-image",
+      "verifiedAt": "2026-09-04T10:13:06.778Z",
+      "width": 1080,
+      "height": 1350,
+      "logicalPath": "content/sns/instagram/pe-first-stage/exam-packs/r07/pack-15/carousel/img/06-answer.png",
+      "mime": "image/png",
+      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
+      "requiredBy": [
+        "publish-ig-bs（投稿時）"
       ]
     }
   }
