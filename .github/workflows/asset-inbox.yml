@@ -110,6 +110,17 @@ jobs:
           tar -xzf /tmp/inbox/inbox.tar.gz -C /tmp/inbox/unpacked
           node scripts/asset-inbox-ingest.mjs --unpacked /tmp/inbox/unpacked --meta /tmp/inbox/inbox.json
 
+      # moshi-src は gitignore 済みなので通常 CI から見えない。inbox に模試原稿が来た時点で
+      # A〜E を検査しないと、誤った生成元だけが R2 に残って次回 hydrate で復活する。
+      - name: Validate keiken answer split before asset upload
+        run: |
+          set -eu
+          if find .claude/config/coconala/assets/moshi-src -type f -print -quit 2>/dev/null | grep -q .; then
+            npm run check-keiken-answer-split:strict
+          else
+            npm run check-keiken-answer-split
+          fi
+
       - name: Upload to R2
         env:
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
