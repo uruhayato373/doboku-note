@@ -51,3 +51,27 @@ jobs:
           if [ -n "${{ github.event.inputs.file }}" ]; then ARGS+=(--file "${{ github.event.inputs.file }}"); fi
           if [ "${{ github.event.inputs.overwrite }}" = "true" ]; then ARGS+=(--overwrite); fi
           node scripts/upload-brain-dist-r2.mjs "${ARGS[@]}"
+
+      - name: Purge overwritten distribution URL from CDN
+        if: ${{ github.event.inputs.dry_run != 'true' && github.event.inputs.overwrite == 'true' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          DIST_FILE: ${{ github.event.inputs.file }}
+        run: |
+          set -euo pipefail
+          test -n "$DIST_FILE"
+          ZONE_RESPONSE=$(curl --fail --silent --show-error \
+            --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            --header "Content-Type: application/json" \
+            "https://api.cloudflare.com/client/v4/zones?name=doboku-note.com")
+          ZONE_ID=$(printf '%s' "$ZONE_RESPONSE" | jq -er '.result[0].id')
+          DIST_URL="https://storage.doboku-note.com/brain/dist/$DIST_FILE"
+          PURGE_PAYLOAD=$(jq -cn --arg url "$DIST_URL" '{files: [$url]}')
+          PURGE_RESPONSE=$(curl --fail --silent --show-error \
+            --request POST \
+            --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            --header "Content-Type: application/json" \
+            --data "$PURGE_PAYLOAD" \
+            "https://api.cloudflare.com/client/v4/zones/$ZONE_ID/purge_cache")
+          printf '%s' "$PURGE_RESPONSE" | jq -e '.success == true' >/dev/null
+          echo "purged: $DIST_URL"

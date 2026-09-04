@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import { execFileSync, spawnSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
 import process from 'node:process';
 import { test } from 'node:test';
 import { analyzeText, loadLimits, SCAN_TARGETS } from '../scripts/lib/keiken-answer-split.mjs';
@@ -98,11 +99,15 @@ test('要求された全走査領域と Brain ZIP をスコープに固定する
   ]) assert.ok(paths.has(expected), `走査スコープ欠落: ${expected}`);
 });
 
-test('Brain 同一URL上書きは対象ファイル指定を必須にし、dry-runで単一ZIPへ限定する', () => {
+test('Brain 同一URL上書きは単一ZIPへ限定し、成功後に同じ配布URLのCDNキャッシュを消す', () => {
   const zip = 'claude-code-civil-essay-kit-beta-8K93ERd_D6fR.zip';
   const output = execFileSync('node', ['scripts/upload-brain-dist-r2.mjs', '--dry-run', '--file', zip, '--overwrite'], { encoding: 'utf8' });
   assert.match(output, new RegExp(`\\[dry overwrite\\] brain/dist/${zip.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}`));
   const unsafe = spawnSync('node', ['scripts/upload-brain-dist-r2.mjs', '--dry-run', '--overwrite'], { encoding: 'utf8' });
   assert.equal(unsafe.status, 1);
   assert.match(unsafe.stderr, /--file/);
+  const workflow = readFileSync('.github/workflows/r2-brain-dist.yml', 'utf8');
+  assert.match(workflow, /overwrite == 'true'/);
+  assert.match(workflow, /zones\/\$ZONE_ID\/purge_cache/);
+  assert.match(workflow, /storage\.doboku-note\.com\/brain\/dist\/\$DIST_FILE/);
 });
