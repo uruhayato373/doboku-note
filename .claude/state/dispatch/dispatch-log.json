@@ -379,6 +379,18 @@
       "commit": null,
       "verification": "GitHub Actions run 33858548034; ga4-hostName-2026-09-04T09-32-39.json; bot-audit-2026-09-04T09-34-29.json; gsc-date-2026-09-04T09-32-44.json",
       "note": "原因は母数差。GSCはGoogle検索のみ、GA4 Organic Searchは全検索エンジンで、GA4はBing 2,683 users/14日が支配的。Google 82 users/14日とGSC 42 clicks/8日は日次規模がほぼ一致。恒久ルールをmeasurement-incidentsへ記録し、診断専用hostName週次取得を撤去"
+    },
+    {
+      "id": "DN-0079",
+      "at": "2026-09-04",
+      "task": "カテゴリカードの残改善",
+      "tier": "low",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "node scripts/build-popular-pages.mjs（ga4-page-2026-09-04T09-32-47.jsonから84件生成）; fetch-metrics.ymlのGA4 page週次取得; npm buildのrefresh-indexes配線",
+      "note": "残作業だった人気データ鮮度はCI週次取得→build時distillまで既に成立。最新28日窓（2026-08-07〜09-03）へ再生成し、完了済みカードを掃除"
     }
   ]
 }
