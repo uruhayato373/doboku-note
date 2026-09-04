@@ -18,23 +18,12 @@ import {
   readFileSync,
   existsSync,
 } from "node:fs";
-import { join } from "node:path";
-import { homedir } from "node:os";
+import { dirname, join, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { createHash } from "node:crypto";
+import { resolveProfileDir, resolveStatePath } from "./playwright-auth-profile.mjs";
 
-// playwright-auth-profiles.md 準拠: プロファイルは本体チェックアウト固定（worktree 分裂でも共有）。
-//
-// 2026-07-30 修正: 旧実装は Mac の絶対パス（/Users/<name>/doboku-note）をハードコードしており、
-// Windows では存在しないため `process.cwd()` にフォールバックしていた。その結果 worktree から
-// 実行すると **プロファイルが worktree 内に作られ、worktree を捨てると同時にログインが消える**
-// （実際このマシンには .local/playwright-google-profile が存在せず、GSC UI 取得は Mac 専用に
-// なっていた）。`~/doboku-note` は Mac も Windows も本体チェックアウトを指すので、
-// ユーザー名をハードコードせずに両機で同じ場所へ解決できる。
-const PROFILE_ROOT_CANDIDATES = [
-  process.env.DOBOKU_PROFILE_ROOT || null,
-  join(homedir(), "doboku-note"),
-  "/Users/minamidaisuke/doboku-note", // 旧実装の互換（チェックアウトが ~ 直下でない場合）
-].filter(Boolean);
+const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), "..", "..");
 export const CONFIG_PATH = ".claude/config/google-console-automation.json";
 
 export function loadConfig() {
@@ -43,12 +32,34 @@ export function loadConfig() {
 }
 
 /**
- * 永続プロファイルの置き場。**本体チェックアウト固定**（worktree から実行しても同じログインを共有）。
- * 解決できる候補が 1 つも無ければ cwd にフォールバックする（従来挙動）。
+ * 旧 `DOBOKU_PROFILE_ROOT` は repository root を意味していた。移行期間だけ、
+ * `DOBOKU_AUTH_ROOT` 未指定かつ config に legacy path がある場合に限って明示的に使う。
+ * Phase 05 完了後にこの fallback と legacy config を削除する。
  */
+function legacyAuthPath(cfg, key) {
+  if (process.env.DOBOKU_AUTH_ROOT || !process.env.DOBOKU_PROFILE_ROOT) return null;
+  const legacyRelative = cfg.browser?.[key];
+  return legacyRelative ? resolve(process.env.DOBOKU_PROFILE_ROOT, legacyRelative) : null;
+}
+
+function authOptions() {
+  return { cwd: REPO_ROOT, repoRoot: REPO_ROOT };
+}
+
+function authService(cfg) {
+  const serviceId = cfg.browser?.authService;
+  if (!serviceId) throw new Error("browser.authService が config にありません");
+  return serviceId;
+}
+
+/** 永続プロファイルの置き場。OS 標準 auth root を共通 resolver で解決する。 */
 export function profileDir(cfg) {
-  const base = PROFILE_ROOT_CANDIDATES.find((p) => existsSync(p)) ?? process.cwd();
-  return join(base, cfg.browser.profileDir);
+  return legacyAuthPath(cfg, "legacyProfileDir") ?? resolveProfileDir(authService(cfg), authOptions());
+}
+
+/** storageState が必要なサービスだけ、その保存先を共通 resolver で返す。 */
+export function authStatePath(cfg) {
+  return legacyAuthPath(cfg, "legacyStateFile") ?? resolveStatePath(authService(cfg), authOptions());
 }
 
 /**
@@ -67,7 +78,7 @@ export function profileInitialized(cfg) {
 }
 
 export function debugRoot(cfg) {
-  return join(process.cwd(), cfg.browser.debugDir);
+  return join(REPO_ROOT, cfg.browser.debugDir);
 }
 
 /** ISO 由来の run-id（ファイル名安全）。呼び出し側で 1 回生成し使い回す。 */
@@ -104,6 +115,8 @@ export function sha256Buf(buf) {
 export async function launchContext(cfg, { headless } = {}) {
   const dir = profileDir(cfg);
   mkdirSync(dir, { recursive: true });
+  const state = authStatePath(cfg);
+  if (state) mkdirSync(dirname(state), { recursive: true });
   const ctx = await chromium.launchPersistentContext(dir, {
     channel: cfg.browser.channel || "chrome",
     headless: headless ?? cfg.browser.headless ?? false,

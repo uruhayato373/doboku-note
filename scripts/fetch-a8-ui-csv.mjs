@@ -385,7 +385,7 @@ async function main() {
       // A8 のセッション Cookie は永続プロファイルに残らないため、ログイン直後に storageState を保存する
       // （これをしないと毎回ログインが必要になる）。
       const saved = await saveA8Session(ctx, cfg);
-      console.log(saved.ok ? `セッションを保存しました: ${saved.statePath}` : `[warn] セッション保存に失敗: ${saved.reason}`);
+      console.log(saved.ok ? "セッションを保存しました" : `[warn] セッション保存に失敗: ${saved.reason}`);
     }
     if (manifest.dryRun) manifest.dryRun.loggedIn = true;
 

@@ -26,7 +26,6 @@ import {
   openAsp,
   ensureTargetSite,
   visibleText,
-  checkoutRoot,
   SiteAttributionError,
 } from "./lib/asp-browser.mjs";
 
@@ -101,7 +100,7 @@ async function main() {
   const catalog = JSON.parse(readFileSync(CATALOG, "utf-8"));
   const targets = opts.asps ?? Object.keys(root.asps);
 
-  const debugDir = join(checkoutRoot(getAsp(root, targets[0])), ".local/affiliate-status");
+  const debugDir = join(process.cwd(), ".local/affiliate-status");
   mkdirSync(debugDir, { recursive: true });
   const logPath = join(debugDir, "status.log");
   writeFileSync(logPath, "", "utf-8");

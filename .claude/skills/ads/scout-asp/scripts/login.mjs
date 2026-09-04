@@ -8,30 +8,30 @@
  *
  * ★ A8 は 2024 以降メディア管理画面を media-console.a8.net に刷新済み (旧 pub.a8.net/a8v2 は廃止)。
  *
- * 使い方 (本体リポジトリ ~/doboku-note で実行。worktree 不可 — プロファイルは .local/ で gitignore):
+ * 使い方（任意の checkout/worktree から実行可。認証先は共通 resolver が固定）:
  *   node .claude/skills/ads/scout-asp/scripts/login.mjs
  *
  * 参照: .claude/knowledge/reference/playwright-auth-profiles.md / .claude/knowledge/reference/a8-affiliate-pipeline.md
  */
 import { chromium } from "playwright";
-import { existsSync } from "node:fs";
+import { mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve } from "node:path";
+import { resolveProfileDir, resolveStatePath } from "../../../../../scripts/lib/playwright-auth-profile.mjs";
 
-// メインチェックアウト固定（worktree 共有）。ただし実在しない環境（Windows 機等）では
-// リポジトリルートへフォールバックする。Mac パス直書きだと別ドライブ配下に空プロファイルを
-// 掘ってしまい、a8-browser 側が見る storageState と食い違う（2026-07-27 に Windows で発覚）。
-const MAC_PROFILE_ROOT = "/Users/minamidaisuke/doboku-note";
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), "../../../../..");
-const PROFILE_ROOT = existsSync(MAC_PROFILE_ROOT) ? MAC_PROFILE_ROOT : REPO_ROOT;
-const PROFILE_DIR = `${PROFILE_ROOT}/.local/playwright-a8-profile`;
+const AUTH_OPTIONS = { cwd: REPO_ROOT, repoRoot: REPO_ROOT };
+const PROFILE_DIR = resolveProfileDir("a8", AUTH_OPTIONS);
 // ★A8 の認証はセッション Cookie (揮発性) で、永続プロファイルには保存されない。
 //   storageState (セッション Cookie を含む JSON) に捕獲し、a8-browser が起動時に再注入する。
-const STATE_PATH = `${PROFILE_ROOT}/.local/playwright-a8-state.json`;
+const STATE_PATH = resolveStatePath("a8", AUTH_OPTIONS);
+if (!STATE_PATH) throw new Error("A8 の stateFileName が auth registry にありません");
 // 会員ページ。未ログインなら A8 が /common/re-authentication (ログインフォーム) にリダイレクトする。
 const HOME_URL = "https://media-console.a8.net/home";
 const TIMEOUT_MS = 12 * 60 * 1000;
 
+mkdirSync(PROFILE_DIR, { recursive: true });
+mkdirSync(dirname(STATE_PATH), { recursive: true });
 const ctx = await chromium.launchPersistentContext(PROFILE_DIR, {
   headless: false,
   viewport: { width: 1280, height: 900 },
@@ -85,7 +85,7 @@ if (saved) {
 }
 await ctx.close();
 if (saved) {
-  console.log("✅ セッションを保存しました:", STATE_PATH);
+  console.log("✅ セッションを保存しました");
   process.exit(0);
 } else {
   console.error("⏱ タイムアウト。ログインを検知できませんでした。再実行してください。");

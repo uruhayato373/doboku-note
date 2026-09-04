@@ -28,16 +28,18 @@
 import { chromium, type BrowserContext, type Page } from "playwright";
 import * as path from "path";
 import * as fs from "fs";
+import { resolveProfileDir } from "../../../../scripts/lib/playwright-auth-profile.mjs";
 
 // ─── 設定 ─────────────────────────────────────────────
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
 const DRAFTS_DIR = path.join(PROJECT_ROOT, "content/sns/x/draft");
 const ACCOUNT_CONFIG = JSON.parse(
   fs.readFileSync(path.join(PROJECT_ROOT, ".claude/config/x-account.json"), "utf-8")
-) as { handle: string; playwrightProfile: string };
-// セッションは端末ごとのローカル領域に置く。macOS 固有の絶対パスに固定すると、Windows で
-// 別ユーザーの古いプロファイルを誤読するため、アカウント SSOT の相対パスから解決する。
-const PROFILE_DIR = path.resolve(PROJECT_ROOT, ACCOUNT_CONFIG.playwrightProfile);
+) as { handle: string; authService: string };
+const PROFILE_DIR = resolveProfileDir(ACCOUNT_CONFIG.authService, {
+  cwd: PROJECT_ROOT,
+  repoRoot: PROJECT_ROOT,
+});
 const EXPECTED_HANDLE = ACCOUNT_CONFIG.handle;
 const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-x-debug");
 

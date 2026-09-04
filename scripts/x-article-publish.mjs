@@ -15,11 +15,12 @@ import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import { chromium } from "playwright";
+import { resolveProfileDir } from "./lib/playwright-auth-profile.mjs";
 
 const ROOT = process.cwd();
 const DRAFT_DIR = path.join(ROOT, "content/sns/x/draft/094-career-longform-pilot");
 const REGISTRY_PATH = path.join(DRAFT_DIR, "article-drafts.json");
-const PROFILE_DIR = path.join(ROOT, ".local/playwright-x-profile");
+const PROFILE_DIR = resolveProfileDir("x", { cwd: ROOT, repoRoot: ROOT });
 const DEBUG_DIR = path.join(ROOT, ".local/playwright-x-debug");
 const EXPECTED_ACCOUNT = "doboku373";
 const BEFORE_WINDOW_MS = 15 * 60 * 1000;

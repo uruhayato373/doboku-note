@@ -14,9 +14,10 @@ import { chromium } from "playwright";
 import fs from "fs";
 import path from "path";
 import { glob } from "glob";
+import { resolveProfileDir } from "./lib/playwright-auth-profile.mjs";
 
 const ROOT = process.cwd();
-const PROFILE_DIR = path.join(ROOT, ".local/playwright-x-profile");
+const PROFILE_DIR = resolveProfileDir("x", { cwd: ROOT, repoRoot: ROOT });
 const DRY = process.argv.includes("--dry");
 const NOW = new Date();
 

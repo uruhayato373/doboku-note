@@ -13,18 +13,16 @@
  *
  * 前提:
  *   1. システム Chrome がインストール済み（publish-x と同条件）
- *   2. 初回ログイン済み（`.tmp/x-login.ts` でセッションを .local/playwright-x-profile/ に保存）
+ *   2. 初回ログイン済み（共通 auth resolver が返す X 専用プロファイルを使用）
  *   3. config.json の ownHandle が設定済み
  */
 import { chromium, type BrowserContext, type Page } from "playwright";
 import * as path from "path";
 import * as fs from "fs";
+import { resolveProfileDir } from "../../../../scripts/lib/playwright-auth-profile.mjs";
 
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
-// ログインプロファイルはメインチェックアウト固定で共有する（worktree 実行時の再ログイン防止）。
-// .claude/knowledge/reference/playwright-auth-profiles.md
-const PROFILE_ROOT = "/Users/minamidaisuke/doboku-note";
-const PROFILE_DIR = path.join(PROFILE_ROOT, ".local/playwright-x-profile");
+const PROFILE_DIR = resolveProfileDir("x", { cwd: PROJECT_ROOT, repoRoot: PROJECT_ROOT });
 const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-x-debug");
 const STATE_DIR = path.join(PROJECT_ROOT, ".claude/state/x-repost");
 const CONFIG_PATH = path.join(STATE_DIR, "config.json");

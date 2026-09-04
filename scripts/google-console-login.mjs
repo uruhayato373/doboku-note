@@ -3,7 +3,7 @@
  * google-console-login.mjs — GSC/GA4 用の永続 Chrome プロファイルを headed で開き、
  * 人間がログイン・2FA・CAPTCHA を完了するのを待つ（ローカル専用）。
  *
- * 一度ログインすれば `.local/playwright-google-profile/` に保持され、以降の
+ * 一度ログインすれば共通 auth resolver 配下の Google 専用領域に保持され、以降の
  * fetch-gsc-ui-csv.mjs / fetch-ga4-ui-csv.mjs は再ログイン不要。
  *
  * 使い方:

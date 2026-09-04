@@ -30,7 +30,7 @@ import {
   openAsp,
   ensureTargetSite,
   visibleText,
-  checkoutRoot,
+  debugRoot,
   dumpFailure,
   aspBrowserCfg,
   makeRunId,
@@ -86,7 +86,7 @@ async function main() {
   const root = loadAspConfig();
   const asp = getAsp(root, "afb");
   const runId = makeRunId();
-  const debugDir = join(checkoutRoot(asp), asp.browser.debugDir);
+  const debugDir = debugRoot(aspBrowserCfg(asp));
   mkdirSync(debugDir, { recursive: true });
 
   // ★ バックグラウンド実行だと stdout がバッファされ進捗が見えない（診断できず何度も無駄打ちした）。

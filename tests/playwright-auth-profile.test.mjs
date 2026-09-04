@@ -281,6 +281,64 @@ test('Phase 02 runtimeはrepo相対profileを持たず共通resolverを参照す
   }
 });
 
+test('Phase 03の6サービスはprofile/state制約を同じauth rootで区別する', () => {
+  const dir = makeTmpDir('doboku-auth-phase03-');
+  try {
+    const options = {
+      cwd: REPO_ROOT,
+      repoRoot: REPO_ROOT,
+      overrideRoot: dir,
+      homeDir: '/home/tester',
+    };
+    for (const service of ['x', 'instagram', 'google', 'a8', 'moshimo', 'afb']) {
+      assert.equal(resolveProfileDir(service, options), join(dir, 'profiles', `playwright-${service === 'instagram' ? 'ig-bs' : service}-profile`));
+    }
+    assert.equal(resolveStatePath('x', options), null);
+    assert.equal(resolveStatePath('instagram', options), null);
+    assert.equal(resolveStatePath('google', options), null);
+    assert.equal(resolveStatePath('a8', options), join(dir, 'states', 'playwright-a8-state.json'));
+    assert.equal(resolveStatePath('moshimo', options), join(dir, 'states', 'playwright-moshimo-state.json'));
+    assert.equal(resolveStatePath('afb', options), join(dir, 'states', 'playwright-afb-state.json'));
+
+    const registry = loadAuthRegistry({ cwd: REPO_ROOT });
+    assert.equal(registry.services.a8.sessionMode, 'profile-plus-state');
+    assert.equal(registry.services.afb.sessionMode, 'same-process');
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('Phase 03 runtimeは共通resolverを使い、account configはlogical service IDだけを持つ', () => {
+  const files = [
+    'scripts/lib/google-console-browser.mjs',
+    'scripts/verify-ig-status.mjs',
+    'scripts/x-article-publish.mjs',
+    'scripts/x-schedule-guard.mjs',
+    'scripts/x-sync-status.mjs',
+    'scripts/x-thread-replies.mjs',
+    '.claude/skills/ads/scout-asp/scripts/a8-browser.ts',
+    '.claude/skills/ads/scout-asp/scripts/login.mjs',
+    '.claude/skills/social/publish-ig-bs/publish-ig-bs.ts',
+    '.claude/skills/social/publish-x/publish-x.ts',
+    '.claude/skills/social/x-repost/x-repost-discover.ts',
+    '.claude/skills/social/x-repost/x-repost-exec.ts',
+  ];
+  for (const file of files) {
+    const source = readFileSync(join(REPO_ROOT, file), 'utf8');
+    assert.match(source, /playwright-auth-profile\.mjs/, file);
+    assert.doesNotMatch(source, /\.local\/playwright-[A-Za-z0-9_-]+-profile/, file);
+  }
+
+  for (const [file, expected] of [
+    ['.claude/config/x-account.json', 'x'],
+    ['.claude/config/ig-account.json', 'instagram'],
+  ]) {
+    const account = JSON.parse(readFileSync(join(REPO_ROOT, file), 'utf8'));
+    assert.equal(account.authService, expected);
+    assert.equal('playwrightProfile' in account, false);
+  }
+});
+
 test('resolveStatePath: stateFileName を持たない service は null', () => {
   const dir = makeTmpDir('doboku-auth-root-');
   try {
