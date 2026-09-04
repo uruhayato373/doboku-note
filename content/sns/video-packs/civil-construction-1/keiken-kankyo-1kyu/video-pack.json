@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-kankyo-1kyu",
+  "exam": "civil-construction-1",
+  "title": "環境対策テーマの経験記述 — 出題されたら書けるか",
+  "audience": "1級土木二次で環境対策テーマへの備えが無い受検者",
+  "pain": "環境対策がテーマ指定されたときに書ける工事経験の整理が無い",
+  "promise": "騒音・粉じん等の環境対策を答案の型に載せる準備ができる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md",
+      "access": "free"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-experience-essay",
+    "campaign": "keiken-kankyo-1kyu"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

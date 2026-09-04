@@ -1,0 +1,88 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "対応処置の欄が結果報告だけになり、評価も何を書けばいいか分からない。今日は数値を入れた処置の書き方と評価の締め方を説明します。",
+      "caption": "対応処置と評価は数値で締める",
+      "visual": {
+        "kind": "cover",
+        "heading": "対応処置と評価は数値で締める",
+        "items": ["1級土木 第2次検定・施工経験記述"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "対応処置は実施したことを書けば十分、と思われがちですが、具体的な数値を入れることが重要です。「地盤改良工法とした」だけでは、理由も工法の中身も伝わりません。",
+      "caption": "結果だけの記述では理由が伝わらない",
+      "visual": {
+        "heading": "誤解：実施内容を書けば十分",
+        "items": ["対応処置には具体的な数値が重要", "「○○工法とした」だけでは理由が伝わらない"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "block1",
+      "start": 55,
+      "end": 125,
+      "narration": "品質管理の場合は、対応処置のベースとなる管理基準をまず明示します。そのうえで工法、機械、材料、管理方法をできるだけ具体的に記述します。数値が入って初めて管理内容が伝わります。",
+      "caption": "管理基準を示し工法・機械・材料を具体的に",
+      "visual": {
+        "heading": "STEP 1　数値と管理基準を入れる",
+        "items": ["品質管理は対応処置の管理基準を明示", "工法・機械・材料・管理方法を具体的に", "数値があって初めて管理内容が伝わる"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "block2",
+      "start": 125,
+      "end": 195,
+      "narration": "「地盤改良工法とした」だけで終わらせず、理由から工法、そして留意点までをつなげて書きます。検討結果は結果の一文だけにしないのがポイントです。",
+      "caption": "理由→工法→留意点の順でつなげる",
+      "visual": {
+        "heading": "STEP 2　結果だけで終わらせない",
+        "items": ["悪い例：地盤改良工法とした", "良い例：理由→工法→留意点までつなげる", "結果の一文だけにしない"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "block3",
+      "start": 195,
+      "end": 265,
+      "narration": "評価はスペースの残りがわずかなので端的に書きます。工事の結果としての評価であることと、対処が正しかったとする補足的な内容であること、この2点を意識します。",
+      "caption": "評価は結果への評価と対処の補足を端的に",
+      "visual": {
+        "heading": "STEP 3　評価は最後の3〜4行で端的に",
+        "items": ["工事の結果としての評価", "対処が正しかったとする補足的な内容", "残りスペースは少ないので端的に"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 265,
+      "end": 310,
+      "narration": "まとめます。対応処置は管理基準と数値を入れ、理由から工法へつなげる。評価は最後の3〜4行で端的に締めます。",
+      "caption": "数値で処置→理由でつなぐ→評価は端的に",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 管理基準と数値を入れる", "② 理由から工法へつなげる", "③ 評価は最後の3〜4行で端的に"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 310,
+      "end": 340,
+      "narration": "数値の入れ方や評価の締め方を確認したい方は、概要欄のリンクから経験記述の完成答案集をご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "完成答案で確認する",
+        "items": ["経験記述 完成答案集（概要欄リンク）"]
+      }
+    }
+  ]
+}

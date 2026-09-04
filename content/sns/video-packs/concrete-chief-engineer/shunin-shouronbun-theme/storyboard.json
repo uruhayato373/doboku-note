@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "どんなテーマが出るか分からないと、経験の棚卸しをどこから始めればいいか迷います。今日は出題されやすいテーマの傾向と、経験の引き出しの作り方を説明します。",
+      "caption": "何が問われてきたか、テーマ傾向を知る",
+      "visual": {
+        "kind": "cover",
+        "heading": "小論文のテーマ傾向",
+        "items": ["コンクリート主任技士・小論文対策"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 50,
+      "narration": "特定年度に何が出たかを暗記しても、本番で同じテーマが出る保証はありません。傾向として捉え、領域横断で応用できる経験を増やすほうが再現性は高くなります。",
+      "caption": "年度暗記より領域横断の経験が効く",
+      "visual": {
+        "heading": "誤解：年度別に丸暗記すれば安心",
+        "items": ["同じテーマが出る保証はない", "傾向で捉え応用できる経験を増やす"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "nendo",
+      "start": 50,
+      "end": 100,
+      "narration": "1つ目、テーマは年度暗記でなく傾向で捉えます。出題テーマはコンクリート技術の実務に直結する領域から選ばれ、どのテーマにも対応できる経験の引き出しを用意しておくのが準備の本筋です。",
+      "caption": "テーマは傾向で捉え引き出しを備える",
+      "visual": {
+        "heading": "STEP 1　傾向で捉える",
+        "items": ["実務に直結する領域から出題される", "年度別暗記は効率が悪い"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "ryouiki",
+      "start": 100,
+      "end": 170,
+      "narration": "2つ目、論じやすい4つの領域です。耐久性は中性化や塩害など劣化機構と対策。品質管理は配合設計や受入検査、養生の管理。環境配慮は混和材や資源循環、CO2低減。施工トラブル対応はひび割れなど現場の不具合と対策です。",
+      "caption": "耐久性・品質管理・環境配慮・トラブル対応",
+      "visual": {
+        "heading": "STEP 2　論じやすい4領域",
+        "items": ["耐久性：劣化機構と抑制対策", "品質管理：配合・検査・養生の管理", "環境配慮／施工トラブル対応"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "gengoka",
+      "start": 170,
+      "end": 225,
+      "narration": "3つ目、経験を事象・原因・対策・結果と留意点の順で言語化します。4つの領域ごとに1セットずつ用意しておくと、テーマが決まってから慌てて考えずに済みます。",
+      "caption": "事象→原因→対策→留意点で言語化",
+      "visual": {
+        "heading": "STEP 3　経験ブロックを言語化する",
+        "items": ["事象→原因→対策→結果と留意点", "領域ごとに1セットずつ用意", "試験前にストックしておく"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "kumikae",
+      "start": 225,
+      "end": 275,
+      "narration": "4つ目、ストックした経験ブロックはテーマが変わっても組み替えて使えます。同じ現場の経験でも切り口を変えれば別の領域のテーマに転用できることがあります。",
+      "caption": "経験ブロックは組み替えて使い回す",
+      "visual": {
+        "heading": "STEP 4　経験ブロックを組み替える",
+        "items": ["テーマが変わっても本論は組める", "切り口を変えれば別領域にも転用可"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 275,
+      "end": 310,
+      "narration": "まとめます。年度暗記をやめ、4領域を押さえ、事象・原因・対策・留意点で言語化し、組み替えて使う。この順で進めれば、テーマ傾向を押さえた準備ができます。",
+      "caption": "年度暗記をやめ4領域を引き出しに",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 年度暗記をやめ傾向で捉える", "② 4領域を押さえる", "③ 事象・原因・対策で言語化", "④ 組み替えて本論にする"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 310,
+      "end": 340,
+      "narration": "自分の実務経験をどの領域に当てはめるか整理したい方は、概要欄のリンクから小論文対策マガジンをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "経験をどの領域に備えるか整理する",
+        "items": ["小論文対策マガジン（概要欄リンク）"]
+      }
+    }
+  ]
+}

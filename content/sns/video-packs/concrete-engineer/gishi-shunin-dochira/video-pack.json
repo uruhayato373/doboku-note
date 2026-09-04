@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "packId": "gishi-shunin-dochira",
+  "exam": "concrete-engineer",
+  "title": "技士と主任技士どちらを受けるか — 違いで判断する",
+  "audience": "コンクリート技士と主任技士で迷っている技術者",
+  "pain": "2つの資格の難易度や位置づけの違いが分からずどちらを受けるか決められない",
+  "promise": "受験資格・難易度・仕事での位置づけの違いから自分の受け方を決められる",
+  "intent": "diagnosis",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/guide-difference-chief/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "gishi-shunin-dochira"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

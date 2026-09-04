@@ -38,7 +38,7 @@ title: 動画コンテンツ運用ポリシー
     { "type": "site", "path": "content/site/.../article.mdx" }
   ],
   "primaryCta": {
-    "kind": "catalog",
+    "kind": "note-magazine",
     "targetId": "...",
     "campaign": "civil-keiken-overview-seven-fields"
   },
@@ -56,6 +56,7 @@ title: 動画コンテンツ運用ポリシー
 必須要件:
 
 - `packId` はリポジトリ全体で一意かつ公開後変更しない。ディレクトリ名 `{slug}` と一致させる
+- `intent` は `exam-point | howto | diagnosis | roadmap | career` の5値（`career` は 2026-09-01 追加＝キャリア・転職系。試験対策4値と分けて送客判定を濁さない）。`primaryCta.kind` は `note-magazine | coconala-service | brain-product | site-article | links-hub` の5値。いずれも機械可読SSOTは `.claude/config/video-content.json`
 - `pain` と `promise` は1つずつ
 - `sourceRefs` は実在し、公開可否を機械判定できる
   - `type: site|note|figure` は `path` 必須＋実在必須

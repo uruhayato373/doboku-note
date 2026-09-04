@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "gishi-environment-ronten",
+  "exam": "concrete-engineer",
+  "title": "コンクリート技士「環境配慮・脱炭素・資源循環」の頻出論点",
+  "audience": "コンクリート技士で環境配慮まわりを固めたい受験者",
+  "pain": "環境分野は手薄になりがちで混合材や再生骨材の論点が押さえられていない",
+  "promise": "環境・資源循環分野の頻出論点を短時間で押さえられる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/textbook-environment/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/primary-environment/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "ce-mix-jis-practice",
+    "campaign": "gishi-environment-ronten"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

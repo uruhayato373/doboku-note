@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-kensetsugyoho",
+  "exam": "civil-construction-1",
+  "title": "建設業法の頻出点 — 技術者配置と許可の数字",
+  "audience": "1級土木一次で建設業法の数値要件が覚えられない受験者",
+  "pain": "主任技術者・監理技術者の配置条件と金額要件が混ざる",
+  "promise": "技術者配置を金額の閾値で整理する型が身につく",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-construction-business/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "gakka-kensetsugyoho"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-hoki-kasen-doro",
+  "exam": "civil-construction-1",
+  "title": "河川法・道路法・港則法 — 許可と届出の整理",
+  "audience": "1級土木一次で法規の許可者と手続きが混ざる受験者",
+  "pain": "どの行為が誰の許可か、法律ごとの違いが覚えられない",
+  "promise": "3法を「行為×許可者」の同じ枠で横並び整理できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-river-act/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-road-act/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-port-regulations/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "gakka-hoki-kasen-doro"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

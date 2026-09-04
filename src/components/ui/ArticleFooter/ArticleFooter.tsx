@@ -200,15 +200,23 @@ export default function ArticleFooter({
           docGroup === 'pillar' ||
           docGroup === 'secondary' ||
           docGroup === 'textbook') && (
-          <div className="mt-8 zenn-desktop:hidden">
-            <CategoryNavCard
-              variant="mobile"
-              category={category}
-              currentSlug={slugStr}
-              docGroup={docGroup}
-              categoryArticles={categoryArticles}
-            />
-          </div>
+          /* モバイルでは記事一覧が数千 px になり本文の倍近い高さを占めるため（textbook 実測 5,000px）、
+             既定は閉じた details にして、開きたい人だけ展開させる。デスクトップはサイドバーで表示済み。 */
+          <details className="mt-8 zenn-desktop:hidden group rounded-card-section border border-[var(--rule-soft)] bg-[var(--paper)] dark:border-[var(--rule-soft)]">
+            <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center justify-between px-4 py-3 text-[14px] font-bold text-[var(--ink)] [&::-webkit-details-marker]:hidden">
+              <span>この資格の記事一覧を開く</span>
+              <span aria-hidden="true" className="text-[var(--ink-muted)] transition-transform group-open:rotate-180">⌄</span>
+            </summary>
+            <div className="px-3 pb-3">
+              <CategoryNavCard
+                variant="mobile"
+                category={category}
+                currentSlug={slugStr}
+                docGroup={docGroup}
+                categoryArticles={categoryArticles}
+              />
+            </div>
+          </details>
         )}
 
       {/* guide（キャリア記事を除く）: 次のステップ導線（演習・テキスト・分野へ）。全ビューポート。

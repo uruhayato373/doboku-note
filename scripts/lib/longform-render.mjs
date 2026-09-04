@@ -26,6 +26,7 @@ export const EXAM_TO_PALETTE = {
   'pe-first-stage': 'pe-first-stage',
   'concrete-chief-engineer': 'concrete-chief',
   'concrete-diagnostician': 'concrete-diagnosis',
+  'concrete-engineer': 'concrete-engineer',
 };
 
 const WHITE = '#ffffff';

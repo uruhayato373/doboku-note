@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-dokugaku-genkai",
+  "exam": "civil-construction-1",
+  "title": "独学添削の限界 — 自分の答案は自分で採点できない",
+  "audience": "経験記述を独学だけで仕上げようとしている受検者",
+  "pain": "自分の答案のどこが減点対象か自分では判断できない",
+  "promise": "独学で見落とす減点ポイントと第三者チェックの使い所が分かる",
+  "intent": "diagnosis",
+  "sourceRefs": [
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/経験記述-独学添削の限界-無料/article.md",
+      "access": "free"
+    }
+  ],
+  "primaryCta": {
+    "kind": "coconala-service",
+    "targetId": "coconala-tensaku-set",
+    "campaign": "keiken-dokugaku-genkai"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

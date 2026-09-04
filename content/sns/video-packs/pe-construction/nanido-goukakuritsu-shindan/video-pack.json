@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "packId": "nanido-goukakuritsu-shindan",
+  "exam": "pe-construction",
+  "title": "建設部門二次の難易度 — 合格率1桁台をどう読むか",
+  "audience": "技術士建設部門の受験を検討している技術者",
+  "pain": "合格率の低さだけを見て自分に受かるのか判断できない",
+  "promise": "合格率の内訳と落ちる要因から自分の現在地を診断できる",
+  "intent": "diagnosis",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/nanido-goukakuritsu/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "nanido-goukakuritsu-shindan"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "選択科目のⅡ-1・Ⅱ-2・Ⅲを同じ調子で書いていませんか。今日は設問タイプ別に評価される力と、書き分けの型を説明します。",
+      "caption": "Ⅱ-1・Ⅱ-2・Ⅲは別の試験",
+      "visual": {
+        "kind": "cover",
+        "heading": "Ⅱ-1・Ⅱ-2・Ⅲは別の試験",
+        "items": ["技術士 二次試験・建設部門 選択科目"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "量を増やせば評価も上がる、と思われがちです。しかし3つの設問は、分量だけでなく評価される力そのものが段階的に違います。",
+      "caption": "誤解：量が増えれば評価も上がる",
+      "visual": {
+        "heading": "誤解：量を増やせば評価が上がる",
+        "items": ["実際は測る力が段階的に違う", "設問番号は量の違いではない"]
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "overview",
+      "start": 55,
+      "end": 100,
+      "narration": "まず全体像です。Ⅱ-1は600字1枚で専門知識、Ⅱ-2は2枚で応用能力、Ⅲは3枚で問題解決能力を測ります。時間配分もⅢに厚く割くのが定石です。",
+      "caption": "分量と評価軸の全体像",
+      "visual": {
+        "heading": "答案分量と評価軸",
+        "items": ["Ⅱ-1：600字1枚・専門知識の正確さ", "Ⅱ-2：2枚・応用能力（手順と調整）", "Ⅲ：3枚・問題解決能力と多面性"]
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "ii1",
+      "start": 100,
+      "end": 160,
+      "narration": "Ⅱ-1は専門用語の定義・原理・適用条件を正確に説明できるかを測ります。評価は正しさと過不足のなさの二軸。定義・原理・留意点の3ブロックで組むと収まりがよく、ここで整理した知識はⅡ-2やⅢの根拠として再登場します。",
+      "caption": "Ⅱ-1は正しさと過不足のなさ",
+      "visual": {
+        "heading": "Ⅱ-1の読み方",
+        "items": ["評価軸は「正しさ」と「過不足のなさ」", "定義・原理・適用上の留意点の3ブロック", "整理した知識はⅡ-2・Ⅲの根拠になる"]
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "ii2",
+      "start": 160,
+      "end": 235,
+      "narration": "Ⅱ-2は、あなたが担当責任者として業務を進める前提で、調査検討事項、業務手順、関係者との調整方策を書く設問です。知識の列挙では評価が伸びません。発注者の立場で言えば、住民対応や法令遵守、総合調整といった技術の外側の段取りをどれだけ具体的に書けるかで差がつきます。",
+      "caption": "Ⅱ-2は手順と調整の再現性",
+      "visual": {
+        "heading": "Ⅱ-2の読み方",
+        "items": ["「担当責任者として進める」前提で書く", "与条件→調査検討→手順→調整方策の流れ", "住民対応・総合調整など技術の外側の段取りで差がつく"]
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "iii",
+      "start": 235,
+      "end": 310,
+      "narration": "Ⅲは、多面的な課題抽出、最重要課題への解決策、新たに生じるリスクと対策という流れです。必須科目Ⅰが建設部門全体を論じるのに対し、Ⅲは選んだ専門科目の領域内で問題解決を論じる点が違います。リスクは解決策の副作用として対称に書きます。",
+      "caption": "Ⅲは専門科目内の多面的解決",
+      "visual": {
+        "heading": "Ⅲの読み方",
+        "items": ["課題抽出→最重要課題の解決策→リスクと対策", "必須科目Ⅰとの違いは論じる土俵（専門科目内）", "リスクは解決策の副作用として対称に書く"]
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "starting-point",
+      "start": 310,
+      "end": 360,
+      "narration": "書き分けの起点は、設問が測る力の特定です。知識、遂行、解決という階層に沿って準備し、Ⅱの調整方策はコミュニケーションやリーダーシップ、Ⅲの解決策はマネジメントや評価と対応させて考えます。",
+      "caption": "起点は「設問が測る力」の特定",
+      "visual": {
+        "heading": "書き分けの起点",
+        "items": ["知識(Ⅱ-1)→遂行(Ⅱ-2)→解決(Ⅲ)の階層", "コンピテンシーと対応させて捉える", "過去問を設問種別ごとに分類して演習する"]
+      },
+      "sourceRef": "content/site/pe-construction/sentaku-kamoku-kakiwake/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 360,
+      "end": 400,
+      "narration": "まとめます。Ⅱ-1は知識の正確さ、Ⅱ-2は業務遂行の段取りと調整、Ⅲは社会的課題への多面的な解決力。設問番号は量ではなく、測る力の違いを表しています。",
+      "caption": "測る力はⅡ-1・Ⅱ-2・Ⅲで違う",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["Ⅱ-1：知識の正確さ", "Ⅱ-2：業務遂行の段取りと調整", "Ⅲ：社会的課題への多面的解決力"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 400,
+      "end": 425,
+      "narration": "3つの設問タイプをさらに深掘りする記事やコンピテンシー対応表は、概要欄のリンクからまとめて確認できます。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "書き分けをさらに深める",
+        "items": ["設問タイプ別の記事（概要欄リンク）"]
+      }
+    }
+  ]
+}

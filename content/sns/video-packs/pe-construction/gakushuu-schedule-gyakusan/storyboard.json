@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "何ヶ月前から何をやれば筆記に間に合うのか、計画が立てられません。今日は、逆算のスケジュールを説明します。",
+      "caption": "勉強時間とスケジュール、逆算で間に合わせる",
+      "visual": {
+        "kind": "cover",
+        "heading": "逆算で間に合わせるスケジュール",
+        "items": ["技術士 建設部門・第二次試験"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "300時間や500時間という総時間の数字を目標にしがちです。しかし実務経験や記述慣れの差が大きく、時間数だけでは意味が薄いのです。",
+      "caption": "総時間より試験日からの逆算が肝心",
+      "visual": {
+        "heading": "誤解：総勉強時間の数字が目安",
+        "items": ["実務経験・記述慣れの差で必要時間は幅がある", "大切なのは試験日程からの逆算"]
+      },
+      "sourceRef": "content/site/pe-construction/gakushuu-jikan-schedule/article.mdx"
+    },
+    {
+      "sceneId": "milestones",
+      "start": 55,
+      "end": 120,
+      "narration": "建設部門の節目は、例年4月の申込、7月の筆記、11月の合否通知、そして年末から翌年の口頭試験です。このリズムに工程を当てはめます。",
+      "caption": "試験日程を逆算の起点にする",
+      "visual": {
+        "heading": "年間の節目",
+        "items": ["4月：受験申込（実務経験証明書の提出）", "7月：筆記試験　11月：筆記合否通知", "12月〜翌年1月：口頭試験"]
+      },
+      "sourceRef": "content/site/pe-construction/gakushuu-jikan-schedule/article.mdx"
+    },
+    {
+      "sceneId": "threephase",
+      "start": 120,
+      "end": 195,
+      "narration": "半年のモデルは3フェーズです。着手期はテーマと傾向をつかみ、構築期は骨子からフル答案へ、仕上げ期は答案用紙を時間内に埋め切る訓練に移ります。遅れたら後半を優先します。",
+      "caption": "着手期・構築期・仕上げ期の3フェーズ",
+      "visual": {
+        "heading": "3フェーズのモデルスケジュール",
+        "items": ["着手期：テーマ・出題傾向をつかむ", "構築期：骨子を量産しフル答案へ移行", "仕上げ期：時間内に書き切る訓練に集中"]
+      },
+      "sourceRef": "content/site/pe-construction/gakushuu-jikan-schedule/article.mdx"
+    },
+    {
+      "sceneId": "docs",
+      "start": 195,
+      "end": 250,
+      "narration": "申込時の実務経験証明書は口頭試験でも問われる重要書類です。筆記対策に追われて後回しにせず、年明けの早い段階で下書きを進めておきます。",
+      "caption": "申込書類は筆記と別枠で早めに",
+      "visual": {
+        "heading": "申込書類は別タスクで確保する",
+        "items": ["実務経験証明書は口頭試験でも問われる", "筆記対策より前・年明けから下書きを始める"]
+      },
+      "sourceRef": "content/site/pe-construction/gakushuu-jikan-schedule/article.mdx"
+    },
+    {
+      "sceneId": "count",
+      "start": 250,
+      "end": 310,
+      "narration": "社会人はまとまった時間を取りにくいものです。平日は骨子整理、週末にフル答案を1〜2本。何時間やったかより、答案を何本書いたかで進捗を測ります。",
+      "caption": "勉強時間は「本数」で測る",
+      "visual": {
+        "heading": "勉強時間は本数で測る",
+        "items": ["平日：通勤・昼休みに骨子整理", "週末：フル答案を1〜2本書いて見直す", "総時間でなく本番形式の本数で進捗を測る"]
+      },
+      "sourceRef": "content/site/pe-construction/gakushuu-jikan-schedule/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 310,
+      "end": 355,
+      "narration": "まとめます。試験日程を起点に3フェーズで逆算し、申込書類は早めに別枠で進め、勉強時間は本数で測る。フル答案を何本書いたかが合否に直結します。",
+      "caption": "起点・3フェーズ・別枠・本数",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 試験日程を逆算の起点にする", "② 着手期・構築期・仕上げ期で組む", "③ 申込書類は早めに別枠で進める", "④ 勉強時間は本数で測る"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 355,
+      "end": 380,
+      "narration": "独学の進め方や答案づくりの参考記事は、概要欄のリンクからまとめて確認できます。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "続きは概要欄から",
+        "items": ["独学ロードマップ・関連記事（概要欄リンク）"]
+      }
+    }
+  ]
+}

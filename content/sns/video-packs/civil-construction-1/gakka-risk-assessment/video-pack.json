@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-risk-assessment",
+  "exam": "civil-construction-1",
+  "title": "リスクアセスメントと作業環境の頻出点",
+  "audience": "1級土木一次で安全の新傾向問題に備えたい受験者",
+  "pain": "リスク低減措置の優先順位と作業環境基準が整理できていない",
+  "promise": "低減措置の優先順位と環境基準値を対で覚えられる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-safety-risk-assessment/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-safety-work-environment/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "gakka-risk-assessment"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

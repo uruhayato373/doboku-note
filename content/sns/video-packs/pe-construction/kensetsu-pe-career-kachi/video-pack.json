@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "packId": "kensetsu-pe-career-kachi",
+  "exam": "pe-construction",
+  "title": "技術士（建設部門）を取ると何が変わるか — 転職と年収",
+  "audience": "技術士取得を迷っている建設系技術者",
+  "pain": "労力に見合うリターンがあるのか取得の価値を判断できない",
+  "promise": "取得後のキャリア・年収・活かし方の実像が分かる",
+  "intent": "career",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/guide-career/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "kensetsu-pe-career-kachi"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

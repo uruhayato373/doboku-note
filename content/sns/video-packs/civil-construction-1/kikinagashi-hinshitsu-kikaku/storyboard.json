@@ -1,0 +1,255 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 25,
+      "narration": "1級土木の品質管理は、図を見ないと思い出せない用語が多い分野です。今日は検査・管理図・ヒストグラムの要点を耳から総復習します。",
+      "caption": "耳で覚える品質管理",
+      "visual": {
+        "kind": "cover",
+        "heading": "耳で覚える品質管理",
+        "items": ["検査・管理図・ヒストグラムの要点"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 25,
+      "end": 70,
+      "narration": "始める前に確認しておきます。この動画は机での学習を終えた総復習用です。図で覚えた内容を、言葉だけで説明できるかを確かめる使い方が向いています。",
+      "caption": "図なしで説明できるか確かめる総復習用",
+      "visual": {
+        "heading": "聞き流しの前提",
+        "items": ["机での学習を終えた人向けの総復習", "図で覚えた内容を言葉で説明できるか確認"]
+      }
+    },
+    {
+      "sceneId": "population-sampling",
+      "start": 70,
+      "end": 115,
+      "narration": "最初は基本用語の整理です。調べたい集団を母集団、そこから抜き取ったものをサンプル。検査のためのひとまとまりをロットと呼びます。",
+      "caption": "母集団からサンプルを抜くひとまとまりがロット",
+      "visual": {
+        "heading": "母集団・サンプル・ロット",
+        "items": ["母集団：調べたい対象の集団全体", "サンプル：母集団から抜き取ったもの", "ロット：検査のためのひとまとまり"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "sceneId": "full-vs-sampling",
+      "start": 115,
+      "end": 160,
+      "narration": "ここで押さえたいのが検査方式の使い分けです。不良品が許せない場合やロットが小さい場合は全数検査。破壊検査や検査個数が多い場合は抜取検査です。",
+      "caption": "不良を許せない＝全数、破壊検査＝抜取",
+      "visual": {
+        "heading": "全数検査と抜取検査の使い分け",
+        "items": ["全数検査：不良が許せない・ロットが小さい", "抜取検査：破壊検査・検査個数が多い"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "sceneId": "lot-size",
+      "start": 160,
+      "end": 195,
+      "narration": "具体例として舗装工事のロットです。同一の設計と施工による出来形検査では、舗装面積10,000平方メートル以下を1ロットとします。",
+      "caption": "舗装の出来形検査は1万㎡以下で1ロット",
+      "visual": {
+        "heading": "ロットの具体例",
+        "items": ["舗装工事の出来形検査", "10,000m²以下を1ロットとする"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "sceneId": "sampling-types",
+      "start": 195,
+      "end": 240,
+      "narration": "続けて抜取検査の種類です。1回、2回、多数回、逐次の4種類があります。建設工事で標準とされるのは、1回抜取検査です。",
+      "caption": "建設工事の標準は1回抜取検査",
+      "visual": {
+        "heading": "抜取検査の種類",
+        "items": ["1回・2回・多数回・逐次の4種類", "建設工事の標準は1回抜取検査"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "sceneId": "oc-curve",
+      "start": 240,
+      "end": 280,
+      "narration": "ここからは検査特性曲線、通称オーシー曲線です。横軸にロットの不良率、縦軸に合格する確率をとると、右下がりの曲線になります。",
+      "caption": "OC曲線は不良率と合格確率の右下がり曲線",
+      "visual": {
+        "heading": "OC曲線（検査特性曲線）",
+        "items": ["横軸：ロットの不良率", "縦軸：合格する確率、右下がりの曲線"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "sceneId": "risk-aql",
+      "start": 280,
+      "end": 325,
+      "narration": "あわせて覚えたいのが2つの危険とAQLです。良いロットを誤って不合格にするのが生産者危険、悪いロットを誤って合格させるのが消費者危険。AQL、エーキューエルは合格品質水準です。",
+      "caption": "生産者危険は良ロットの誤不合格",
+      "visual": {
+        "heading": "生産者危険・消費者危険・AQL",
+        "items": ["生産者危険α：良ロットを誤って不合格", "消費者危険β：悪ロットを誤って合格", "AQL：合格品質水準（JIS Z 9015）"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "sceneId": "control-chart-purpose",
+      "start": 325,
+      "end": 370,
+      "narration": "分野を移して、管理図です。管理図の目的は、規格値を満たしているかではなく、工程が統計的に安定しているかどうかを判定することです。",
+      "caption": "管理図の目的は工程の安定性の判定",
+      "visual": {
+        "heading": "管理図の目的",
+        "items": ["規格値との対比ではない", "工程が統計的に安定しているかを判定"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-control-chart/article.mdx"
+    },
+    {
+      "sceneId": "cause-type",
+      "start": 370,
+      "end": 405,
+      "narration": "ここは頻出の引っかけ、原因の区別です。技術的におさえられない偶然原因は許容し、除去できる異常原因は検出して取り除きます。",
+      "caption": "偶然原因は許容、異常原因は検出して除去",
+      "visual": {
+        "heading": "偶然原因と異常原因",
+        "items": ["偶然原因：技術的におさえられず許容する", "異常原因：技術的に除去できるため検出する"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-control-chart/article.mdx"
+    },
+    {
+      "sceneId": "chart-types",
+      "start": 405,
+      "end": 445,
+      "narration": "続けて管理図の種類です。連続的な計量値には、エックスバー・アール管理図など3種類、離散的な計数値には、ピー管理図など4種類があります。",
+      "caption": "計量値3種・計数値4種の管理図がある",
+      "visual": {
+        "heading": "管理図の種類",
+        "items": ["計量値：X̄-R管理図など3種類", "計数値：P管理図など4種類"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-control-chart/article.mdx"
+    },
+    {
+      "sceneId": "xbar-r-group",
+      "start": 445,
+      "end": 485,
+      "narration": "ここでもうひとつ、群の大きさの目安です。1群のデータ数は通常3から5個。アール管理図は群の大きさが10以下の場合に用います。",
+      "caption": "群の大きさは3〜5個、R管理図はn10以下",
+      "visual": {
+        "heading": "X̄-R管理図の群の大きさ",
+        "items": ["1群のデータ数は通常3〜5個", "R管理図は群の大きさ10以下で使用"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-control-chart/article.mdx"
+    },
+    {
+      "sceneId": "control-limit",
+      "start": 485,
+      "end": 530,
+      "narration": "少し数式にも触れます、管理限界線です。エックスバー管理図は総平均に係数エーツーとアールバーを足し引きして上下限を求めます。アール管理図はディーフォーとディースリーをアールバーに掛けて求めます。",
+      "caption": "管理限界線は係数A2・D4・D3で求める",
+      "visual": {
+        "heading": "管理限界線の計算",
+        "items": ["X̄管理図：総平均±A2×R̄", "R管理図：D4×R̄とD3×R̄"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-control-chart/article.mdx"
+    },
+    {
+      "sceneId": "step-5-5-10",
+      "start": 530,
+      "end": 570,
+      "narration": "現場向けの工夫が5-5-10-20-20方式です。最初の5群で次の5群を管理し、10群、20群と段階的に広げていきます。予備データが少ない現場向けの方法です。",
+      "caption": "5-5-10-20-20方式は段階的に群を広げる",
+      "visual": {
+        "heading": "5-5-10-20-20方式",
+        "items": ["最初5群→次の5群を管理", "10群・20群と段階的に拡大する現場向け方式"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-control-chart/article.mdx"
+    },
+    {
+      "sceneId": "histogram-purpose",
+      "start": 570,
+      "end": 610,
+      "narration": "分野を移して、ヒストグラムです。データの分布形状を見る図で、規格値とのゆとりを確認できます。ただし個々のデータの時間的な変化はわかりません。",
+      "caption": "ヒストグラムは分布を見る、時間変化は不明",
+      "visual": {
+        "heading": "ヒストグラムの目的",
+        "items": ["分布の形状・規格値とのゆとりを確認", "個々のデータの時間的変化はわからない"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-histogram/article.mdx"
+    },
+    {
+      "sceneId": "class-count",
+      "start": 610,
+      "end": 645,
+      "narration": "ここは表で覚えるクラス数の目安です。データ数50以下で5から8クラス、100以内で10クラス、1,000以上で20クラスが目安です。",
+      "caption": "クラス数はデータ数50で5〜8、1000で20",
+      "visual": {
+        "heading": "ヒストグラムのクラス数",
+        "items": ["50以下：5〜8クラス", "100以内：10クラス／1,000以上：20クラス"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-histogram/article.mdx"
+    },
+    {
+      "sceneId": "shape-pattern",
+      "start": 645,
+      "end": 690,
+      "narration": "続けて分布の形からわかる異常です。規格値内でもバラツキが大きいゆとり不足、上下限をともに割る両側超過、2つの工程が混ざるふた山型があります。",
+      "caption": "ゆとり不足・両側超過・ふた山型に注意",
+      "visual": {
+        "heading": "ヒストグラムの異常な形状",
+        "items": ["ゆとり不足：規格内だが割るおそれ", "両側超過：上下限をともに割る", "ふた山型：2つの工程が混在"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-histogram/article.mdx"
+    },
+    {
+      "sceneId": "process-capability",
+      "start": 690,
+      "end": 735,
+      "narration": "ここで数量的な評価、工程能力指数です。シーピーケーが1.33以上なら十分、1.00以上1.33未満はまあまあ、1.00未満は不足と判定します。",
+      "caption": "Cpk1.33以上で十分、1.00未満は不足",
+      "visual": {
+        "heading": "工程能力指数Cpkの判定",
+        "items": ["1.33以上：十分", "1.00〜1.33未満：まあまあ", "1.00未満：不足"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-histogram/article.mdx"
+    },
+    {
+      "sceneId": "capability-graph",
+      "start": 735,
+      "end": 770,
+      "narration": "最後に混同しやすい2つの図の違いです。工程能力図はデータを規格値と対比し、管理図は統計的な管理限界線の内側にあるかを調べます。",
+      "caption": "工程能力図は規格値、管理図は管理限界線と対比",
+      "visual": {
+        "heading": "工程能力図と管理図の違い",
+        "items": ["工程能力図：規格値と対比", "管理図：管理限界線の内側かを確認"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-histogram/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 770,
+      "end": 815,
+      "narration": "まとめます。検査は全数と抜取の使い分け、管理図は工程の安定性、ヒストグラムは分布の形。図なしで説明できるまで、言葉で繰り返し確認しましょう。",
+      "caption": "図なしで説明できるまで言葉で確認する",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["検査：全数と抜取の使い分け", "管理図：工程の安定性を判定", "ヒストグラム：分布の形とCpk"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 815,
+      "end": 845,
+      "narration": "総復習した用語を一つずつ確認したい方は、概要欄のリンクから1次の頻出論点マガジンをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "頻出論点マガジンで確認する",
+        "items": ["1次の頻出論点マガジン（概要欄リンク）"]
+      }
+    }
+  ]
+}

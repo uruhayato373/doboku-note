@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "packId": "roadmap-juken-shikaku",
+  "exam": "civil-construction-1",
+  "title": "1級土木の受検資格と試験制度 — 全体像をつかむ",
+  "audience": "1級土木の受検を初めて検討している人",
+  "pain": "受検資格や一次二次の制度が複雑で全体像がつかめない",
+  "promise": "受検資格の確認から合格までの流れが1本の線でつながる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-exam-overview/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "roadmap-juken-shikaku"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

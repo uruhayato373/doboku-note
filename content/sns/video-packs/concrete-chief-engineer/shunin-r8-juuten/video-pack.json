@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "shunin-r8-juuten",
+  "exam": "concrete-chief-engineer",
+  "title": "主任技士 R8の重点分野予想 — 頻出度からこう導く",
+  "audience": "令和8年度コンクリート主任技士の直前対策をする受験者",
+  "pain": "直前期にどの分野へ張るべきか予想の根拠が持てない",
+  "promise": "過去の頻出度データから重点分野を導くプロセスごと分かる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "cce-r8-mc-50",
+    "campaign": "shunin-r8-juuten"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

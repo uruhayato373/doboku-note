@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-crane-sogo",
+  "exam": "civil-construction-1",
+  "title": "クレーン作業の頻出点 — 性能と安全規定をまとめて",
+  "audience": "1級土木一次でクレーンの構造と安全規定を別々に覚えている受験者",
+  "pain": "クレーンの性能表示と労働安全衛生法の規定が結びつかない",
+  "promise": "機種の特徴と安全規定を1本の流れで押さえられる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-crane/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-safety-machinery-crane/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "gakka-crane-sogo"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

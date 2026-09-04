@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "shunin-hinshutsu-yusen",
+  "exam": "concrete-chief-engineer",
+  "title": "主任技士 四肢択一の頻出分野 — 学習の優先順位",
+  "audience": "コンクリート主任技士の択一対策を始める受験者",
+  "pain": "全分野を均等に回すには時間が足りず捨て分野の判断もつかない",
+  "promise": "平成21年度からの項目別頻出度で仕込む順番を決められる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/guide-trends/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "cce-r8-mc-50",
+    "campaign": "shunin-hinshutsu-yusen"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

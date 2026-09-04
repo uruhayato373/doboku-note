@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "toan-kousei-template",
+  "exam": "pe-construction",
+  "title": "答案構成のテンプレート — 課題抽出から効果・リスクまで",
+  "audience": "技術士建設部門二次で答案の骨組みが毎回ぶれる受験者",
+  "pain": "書き始めてから構成が崩れ時間内に論文がまとまらない",
+  "promise": "設問から逆算した答案構成のテンプレートで安定して書ける",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/toan-kousei-template/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-required-magazine",
+    "campaign": "toan-kousei-template"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

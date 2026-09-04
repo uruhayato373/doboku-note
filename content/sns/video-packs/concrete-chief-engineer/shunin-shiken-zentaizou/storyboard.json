@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "四肢択一と小論文の二本立てで、配分に迷っていませんか。今日は出題分野と試験の全体像を整理します。",
+      "caption": "主任技士試験の全体像",
+      "visual": {
+        "kind": "cover",
+        "heading": "コンクリート主任技士の全体像",
+        "items": ["四肢択一×小論文の二本立て"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "技士の対策を延長すれば届く、と思われがちですが、主任技士は応用・判断・立案までが評価対象です。技士は実施、主任技士はその先まで問われます。",
+      "caption": "技士との違いは応用・判断・立案",
+      "visual": {
+        "heading": "誤解：技士対策の延長で足りる",
+        "items": ["主任技士は応用・判断・立案まで評価", "技士レベルの知識が土台になる"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+    },
+    {
+      "sceneId": "overview",
+      "start": 55,
+      "end": 95,
+      "narration": "コンクリート主任技士はJCIが認定する資格で、製造・工事・研究の計画・管理・指導を担う高度技術者です。実施する段階を超えた立場が求められます。",
+      "caption": "主任技士は計画・管理・指導を担う",
+      "visual": {
+        "heading": "主任技士という資格の位置づけ",
+        "items": ["JCI認定の資格", "計画・改善・指導まで担う高度技術者"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 95,
+      "end": 155,
+      "narration": "試験は四肢択一一問一答と小論文1題の2部構成です。四肢択一は誤答・無答が零点、小論文にも一定水準が求められ、それぞれ別々に採点されます。択一が高得点でも小論文が低すぎると不合格になることがあります。",
+      "caption": "択一と小論文は別々に採点される",
+      "visual": {
+        "heading": "STEP 1　試験は二本立て",
+        "items": ["四肢択一一問一答＋小論文1題", "誤答・無答は零点", "択一と小論文は別採点"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 155,
+      "end": 215,
+      "narration": "出題の柱は、用材料、性質、耐久性、配合設計、製造・品質管理検査、施工の6分野です。年度によっては製品や構造設計が加わることもあり、横断的に問われます。",
+      "caption": "出題の柱は6分野プラスアルファ",
+      "visual": {
+        "heading": "STEP 2　出題分野の柱",
+        "items": ["用材料／性質／耐久性", "配合設計／製造品質管理／施工", "製品・構造設計が加わる年度も"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 215,
+      "end": 275,
+      "narration": "用材料の品質試験でも、技士に求められるのは試験実施と結果判定、主任技士は使用可否の判断と使用法の立案です。小論文では根拠をもって判断・提案する力が問われます。",
+      "caption": "技士は実施、主任技士は判断・立案",
+      "visual": {
+        "heading": "STEP 3　技士との違い",
+        "items": ["技士：試験実施と結果判定", "主任技士：使用可否の判断と立案", "小論文は根拠ある判断・提案力"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 275,
+      "end": 330,
+      "narration": "基礎知識を固め、過去問で出題傾向に慣れ、最後に小論文の論述訓練でアウトプット力を高める順序が取り組みやすいです。択一と小論文は並行して意識しておきます。",
+      "caption": "択一と小論文を並行して鍛える",
+      "visual": {
+        "heading": "STEP 4　学習の進め方",
+        "items": ["基礎固め→過去問→小論文訓練", "初期段階から二本立てを意識"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-overview/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 330,
+      "end": 375,
+      "narration": "主任技士は実施でなく計画・判断・指導が評価軸。出題分野を横断的に押さえ、択一と小論文を並行して鍛えることが合格への道筋です。",
+      "caption": "評価軸は計画・判断・指導",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 主任技士は計画・判断・指導まで評価", "② 出題分野は横断的", "③ 択一と小論文を並行して鍛える"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 375,
+      "end": 405,
+      "narration": "出題分野ごとの配分の考え方をさらに詰めたい方は、概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "配分の考え方を詰める",
+        "items": ["概要欄のリンクへ"]
+      }
+    }
+  ]
+}

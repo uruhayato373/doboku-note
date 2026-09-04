@@ -27,6 +27,7 @@ const codesOf = (result) =>
 
 test('実リポジトリの config が parse でき、契約キーを持つ', () => {
   assert.equal(config.manifest.schemaVersion, 1);
+  assert.ok(config.manifest.intentEnum.includes('career'));
   assert.ok(config.state.statusEnum.includes('published'));
   assert.ok(config.utm.contentEnum.includes('longform'));
   assert.equal(config.paths.packsRoot, 'content/sns/video-packs');

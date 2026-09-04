@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "総監の答案で名乗る立場をどう決めればいいか分からない。今日は、経験に根ざした立場の選び方と、越権を避ける考え方を説明します。",
+      "caption": "論文の立場（ペルソナ）はどう選ぶか",
+      "visual": {
+        "kind": "cover",
+        "heading": "論文の立場はどう選ぶか",
+        "items": ["技術士 総合技術監理部門・記述式"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 50,
+      "narration": "立場は分野が近ければどれでもいい、と思われがちです。実際には、まず発注者か受注者かという立場を確定させることが先で、分野選びはその後になります。",
+      "caption": "分野より先に立場を確定する",
+      "visual": {
+        "heading": "誤解：分野が近ければどれでもいい",
+        "items": ["先に確定するのは発注者か受注者か", "立場の違いが答案の骨格を左右する"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-persona-guide/article.mdx"
+    },
+    {
+      "sceneId": "position",
+      "start": 50,
+      "end": 110,
+      "narration": "発注者、たとえば自治体は事業監理・予算執行・住民や関係機関との調整が中心です。受注者、コンサルやゼネコンは技術的判断・成果品質・元請けと下請けの調整が主戦場です。この違いが答案の骨格を決めます。",
+      "caption": "発注者か受注者かで骨格が変わる",
+      "visual": {
+        "heading": "まず立場を決める",
+        "items": ["発注者＝事業監理・予算執行・関係機関調整", "受注者＝技術判断・成果品質・元請下請調整"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-persona-guide/article.mdx"
+    },
+    {
+      "sceneId": "keiken-za",
+      "start": 110,
+      "end": 175,
+      "narration": "立場を選ぶ軸は、日常業務で誰から仕事を受け、誰に指示を出しているかです。経験にない立場を無理に選ぶと、Ⅰで置いた前提条件が不自然になり、そこから先の施策も経験から離れていきます。これが越権のリスクです。",
+      "caption": "経験座で選び、越権を避ける",
+      "visual": {
+        "heading": "経験座から選ぶ",
+        "items": ["誰から受け、誰に指示するかで判断", "経験にない立場は前提条件から不自然に"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-persona-guide/article.mdx"
+    },
+    {
+      "sceneId": "adjacent",
+      "start": 175,
+      "end": 225,
+      "narration": "総監は分野横断の試験です。自分の分野にぴったりの立場がなくても、まず発注者か受注者かを優先し、次に最も近い分野を選べば、管理対象と前提条件を入れ替えるだけで対応できます。",
+      "caption": "分野より立場が合えば応用できる",
+      "visual": {
+        "heading": "分野が一致しなくても",
+        "items": ["立場優先→次に近い分野を選ぶ", "管理対象と前提条件を入れ替えて応用"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-persona-guide/article.mdx"
+    },
+    {
+      "sceneId": "layer1-link",
+      "start": 225,
+      "end": 280,
+      "narration": "総監記述式は、管理対象と前提条件の設定で評価の大半が決まり、それは発注者か受注者かで大きく変わります。立場に合った選び方をすれば、自分の経験を答案に反映しやすくなります。",
+      "caption": "立場の選択が前提条件を決める",
+      "visual": {
+        "heading": "立場の選択＝Ⅰの前提条件を決める",
+        "items": ["評価の大半は管理対象と前提条件の設定", "立場が合うほど経験を反映しやすい"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/essay-persona-guide/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 280,
+      "end": 315,
+      "narration": "まとめます。まず発注者か受注者かを決める。経験座から立場を選び、越権を避ける。分野が完全一致しなくても立場が合えば応用できます。",
+      "caption": "立場→経験座→分野の順で選ぶ",
+      "visual": {
+        "heading": "まとめ　立場の選び方",
+        "items": ["① 発注者か受注者かを先に決める", "② 経験座で選び越権を避ける", "③ 分野は立場が合えば応用できる"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 315,
+      "end": 345,
+      "narration": "立場ごとの管理対象パターンの型と、記述式の骨組みまでをまとめた記述式完全パックを用意しています。概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+      "caption": "立場の型は記述式完全パックへ",
+      "visual": {
+        "kind": "cover",
+        "heading": "自分の立場の型を最短で",
+        "items": ["総監記述式 完全パック（概要欄リンク）"]
+      }
+    }
+  ]
+}

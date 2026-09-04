@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-nendo-keiko-2kyu",
+  "exam": "civil-construction-2",
+  "title": "2級二次の出題傾向 — 5年分から読むテーマの流れ",
+  "audience": "2級土木二次の出題傾向を短時間で把握したい受検者",
+  "pain": "2級の二次で何がどの周期で出ているのか把握できていない",
+  "promise": "直近5年の出題傾向から対策の優先順位を決められる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-r03/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-r04/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-r05/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-r06/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/secondary-r07/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-pastexam-essay",
+    "campaign": "keiken-nendo-keiko-2kyu"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

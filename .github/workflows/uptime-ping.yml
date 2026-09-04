@@ -158,7 +158,10 @@ jobs:
             echo "SSR 壊れ / body 空 / HTTP エラーのいずれか。2026-W16 BAILOUT の再発監視。"
             echo "run のログで、どの URL がどう落ちたかを確認する。"
           } > /tmp/uptime-body.md
-          node scripts/report-automation-failure.mjs \n            --channel uptime \n            --title "サイト健全性チェック失敗（uptime-ping）" \n            --body-file /tmp/uptime-body.md
+          node scripts/report-automation-failure.mjs \
+            --channel uptime \
+            --title "サイト健全性チェック失敗（uptime-ping）" \
+            --body-file /tmp/uptime-body.md
 
       - name: Fail on uptime failure (アラート)
         if: steps.check.outputs.failed == 'true'

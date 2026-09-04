@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "gishi-construction-ronten",
+  "exam": "concrete-engineer",
+  "title": "コンクリート技士「施工（運搬・打込み・養生）」の頻出論点",
+  "audience": "コンクリート技士で施工まわりを固めたい受験者",
+  "pain": "運搬時間や打重ねなど時間規定の数値が似ていて混ざる",
+  "promise": "工程順の整理で時間規定・温度規定の混同をなくせる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/primary-construction/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "ce-mix-jis-practice",
+    "campaign": "gishi-construction-ronten"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

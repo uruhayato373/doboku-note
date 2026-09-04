@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "gishi-production-qc-ronten",
+  "exam": "concrete-engineer",
+  "title": "コンクリート技士「製造・品質管理と検査」の頻出論点",
+  "audience": "コンクリート技士で製造まわりを固めたい受験者",
+  "pain": "JIS A 5308の呼び方や受入検査の規定が細かく整理しきれない",
+  "promise": "製造から検査までの頻出規定を工程順に整理できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/primary-production-qc/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "ce-mix-jis-practice",
+    "campaign": "gishi-production-qc-ronten"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { getDoc, getAllDocsMeta, getDocsMetaByCategory, type DocMeta } from '@/lib/docs';
 import PageShell from '@/components/layout/PageShell';
+import QuestionJumpNav from '@/components/ui/QuestionJumpNav';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import ArticleHeader from '@/components/ui/ArticleHeader/ArticleHeader';
 import { getAllComponents } from '@/lib/component-loader';
@@ -457,6 +458,8 @@ export async function renderDocPage(slugStr: string) {
                   <TableOfContents headings={headings} variant="mobile" />
                 </div>
               )}
+              {/* 年度別過去問: TOC の代わりに問題番号チップ（全ビューポート・5 問以上のときだけ） */}
+              {isQuestionSeries && <QuestionJumpNav headings={headings} />}
               {/* 記事冒頭 CTA（二次系高 intent ページのみ・1 行テキスト）。未公開は topMagazine=null で非表示 */}
               {topSlot && topMagazine && (
                 <MagazineTopBanner

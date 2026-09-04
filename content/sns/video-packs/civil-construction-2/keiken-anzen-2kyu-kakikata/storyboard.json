@@ -1,0 +1,99 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "作業床の幅40センチ、手すりの高さ85センチ。覚えた数値、経験記述で使えていますか。今日は法定の数値基準を答案に当てはめる手順を説明します。",
+      "caption": "2級 安全管理テーマの書き方",
+      "visual": {
+        "kind": "cover",
+        "heading": "2級 安全管理テーマの書き方",
+        "items": ["2級土木 第2次検定・施工経験記述"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 60,
+      "narration": "安全衛生法の数値を覚えれば経験記述に使える、と思われがちです。しかし暗記した数値をそのまま書いても具体化にはなりません。自分の現場でどう確認し、どう守ったかに落とし込んで初めて中身になります。",
+      "caption": "数値は自分の現場に落とし込んで初めて意味を持つ",
+      "visual": {
+        "heading": "誤解：数値基準を覚えれば書ける",
+        "items": ["暗記した数値は具体化にならない", "「どう確認し、どう守ったか」が本体"]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 60,
+      "end": 120,
+      "narration": "最初に決めるのは、どの法定基準が効いてくる現場だったか。高い場所の作業なら墜落防止、深い掘削なら崩壊防止。関係する基準から、課題が自然に一つへ絞れます。",
+      "caption": "手順1：現場条件から課題を一つに絞る",
+      "visual": {
+        "heading": "手順1　現場条件から課題を絞る",
+        "items": ["軟弱地盤・道路近接・狭いヤードを書き出す", "課題は一つに絞る（欲張らない）"]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 120,
+      "end": 195,
+      "narration": "課題への検討項目を二つか三つ挙げます。高さ2m以上では作業床を設け、幅40cm以上・すき間3cm以下を確保する。手すりは高さ85cm以上。地山掘削は勾配を守り、高さ2m以上なら作業主任者を選任する。これらを「なぜ必要だったか」とセットで書きます。",
+      "caption": "手順2：検討項目に安全衛生法の数値基準を当てる",
+      "visual": {
+        "heading": "手順2　数値基準を検討項目に当てる",
+        "items": ["作業床：幅40cm以上・すき間3cm以下", "手すり：高さ85cm以上", "掘削2m以上は作業主任者を選任"]
+      },
+      "sourceRef": "content/site/civil-construction-2/guide-safety-management/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 195,
+      "end": 260,
+      "narration": "検討の結果、現場で実施した対応処置を数値入りで書きます。手すりの高さ、点検の頻度、作業主任者の確認内容。数値が入るだけで現場が見えます。交通誘導員の配置のみの記述は除外される年度があるため、必ずほかの対策と組み合わせます。",
+      "caption": "手順3：対応処置は工法・数値・管理方法で書く",
+      "visual": {
+        "heading": "手順3　対応処置は数値で書く",
+        "items": ["工法＋数値＋管理方法をセットで書く", "誘導員配置のみの記述は不可（他策と併記）"]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 260,
+      "end": 305,
+      "narration": "最後の1〜2行で、対応処置の結果を評価として書きます。無事故・無災害で工事を完了できた、のように端的に示します。長く書く必要はありません。",
+      "caption": "手順4：評価は無事故・無災害で短く締める",
+      "visual": {
+        "heading": "手順4　評価を短く締める",
+        "items": ["「無事故・無災害で完了」を1〜2行"]
+      }
+    },
+    {
+      "sceneId": "summary",
+      "start": 305,
+      "end": 350,
+      "narration": "まとめます。順序は、現場条件から課題を絞る、検討項目に数値基準を当てる、対応処置を数値で書く、評価で締める。安全管理は、覚えた数値を自分の現場に当てはめる作業です。",
+      "caption": "条件→課題→数値基準→対応処置→評価",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 現場条件から課題を一つに絞る", "② 検討項目に数値基準を当てる", "③ 対応処置は数値で書く", "④ 評価は短く締める"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 350,
+      "end": 380,
+      "narration": "複数工種のフル完成答案で、数値の当てはめ方を確認したい方は、概要欄のリンクから経験記述の完全パックをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "完成答案で確認する",
+        "items": ["経験記述 完全パック（概要欄リンク）"]
+      }
+    }
+  ]
+}

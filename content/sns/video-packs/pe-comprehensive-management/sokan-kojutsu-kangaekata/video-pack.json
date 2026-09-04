@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "packId": "sokan-kojutsu-kangaekata",
+  "exam": "pe-comprehensive-management",
+  "title": "口頭試験の考え方 — 経歴を総監の言葉で語る",
+  "audience": "筆記合格発表を待つ・口頭試験を控えた総監受験者",
+  "pain": "口頭試験で自分の経歴や業務をどう総監らしく語ればよいか分からない",
+  "promise": "経歴を5管理の言葉へ翻訳して語る準備の考え方が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    { "type": "site", "path": "content/site/pe-comprehensive-management/exam-passing-strategy/article.mdx" },
+    { "type": "site", "path": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx" }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "essay-complete-pack",
+    "campaign": "sokan-kojutsu-kangaekata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

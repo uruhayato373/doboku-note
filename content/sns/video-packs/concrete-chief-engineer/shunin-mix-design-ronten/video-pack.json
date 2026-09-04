@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "shunin-mix-design-ronten",
+  "exam": "concrete-chief-engineer",
+  "title": "主任技士「配(調)合設計」の頻出論点",
+  "audience": "コンクリート主任技士の択一で配(調)合設計分野を固めたい受験者",
+  "pain": "水セメント比や単位量の計算手順が安定せず本番で時間を溶かす",
+  "promise": "配合計算の手順を型で押さえ計算問題を得点源にできる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/primary-mix-design/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "cce-mix-calculation-practice",
+    "campaign": "shunin-mix-design-ronten"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

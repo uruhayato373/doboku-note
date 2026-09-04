@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "niji-kijutsu-sekokeikaku",
+  "exam": "civil-construction-1",
+  "title": "二次の学科記述 施工計画 — 計画立案の記述パターン",
+  "audience": "1級土木二次の学科記述で施工計画に備えたい受検者",
+  "pain": "施工計画の記述問題は形式が幅広く対策の的が絞れない",
+  "promise": "出題パターン別に施工計画の解答の型を持てる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-construction-plan-basics/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-construction-plan-past-problems/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-gakka-kijutsu",
+    "campaign": "niji-kijutsu-sekokeikaku"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

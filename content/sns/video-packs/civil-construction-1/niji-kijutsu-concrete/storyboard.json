@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "二次の学科記述、コンクリート分野はどの規定が記述で問われるか分からないという声が多い分野です。今日は頻出の規定を整理します。",
+      "caption": "コンクリートの学科記述、頻出規定",
+      "visual": {
+        "kind": "cover",
+        "heading": "学科記述 コンクリートの頻出規定",
+        "items": ["1級土木 第2次検定・学科記述"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "配合や材料の知識があれば足りる、と思われがちですが、記述で問われるのは打込み・締固め・養生という施工の手順が中心です。",
+      "caption": "問われるのは施工の「手順」が中心",
+      "visual": {
+        "heading": "誤解：材料知識があれば安全",
+        "items": ["記述の中心は打込み・締固め・養生の手順", "材料知識だけでは手順の設問に答えられない"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx"
+    },
+    {
+      "sceneId": "overlap-time",
+      "start": 55,
+      "end": 120,
+      "narration": "まず打重ね時間です。外気温25度を超える場合は2.0時間以内、25度以下の場合は2.5時間以内。超えるとコールドジョイントが生じます。",
+      "caption": "打重ね限度は25℃超2.0h／以下2.5h",
+      "visual": {
+        "heading": "打重ね時間の限度",
+        "items": ["外気温25℃超：2.0時間以内", "外気温25℃以下：2.5時間以内", "超過するとコールドジョイントが生じる"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx"
+    },
+    {
+      "sceneId": "vibration",
+      "start": 120,
+      "end": 180,
+      "narration": "締固めは、棒状バイブレータを下層に10センチメートル程度挿入し、鉛直に、ゆっくり引き抜きます。横移動の手段には使いません。",
+      "caption": "挿入10cm・鉛直・ゆっくり引き抜く",
+      "visual": {
+        "heading": "締固めの操作手順",
+        "items": ["下層に10cm程度挿入", "鉛直に挿入しゆっくり引き抜く", "横移動の手段には使わない"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-concrete-past-problems/article.mdx"
+    },
+    {
+      "sceneId": "curing",
+      "start": 180,
+      "end": 235,
+      "narration": "養生は打込み後、一定期間湿潤状態を保ちます。乾燥収縮ひび割れの防止には湿潤養生を5日間以上行い、型枠もできるだけ長く存置します。",
+      "caption": "湿潤養生5日間以上・型枠は長く存置",
+      "visual": {
+        "heading": "養生の手順",
+        "items": ["湿潤養生を5日間以上行う", "型枠はできるだけ長く存置する", "取外し後も急激な温度変化を避ける"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-concrete-basics/article.mdx"
+    },
+    {
+      "sceneId": "acceptance",
+      "start": 235,
+      "end": 300,
+      "narration": "受入検査は荷卸し地点で確認します。塩化物イオン量は0.30キログラム毎立方メートル以下。圧縮強度は1回85パーセント以上、3回平均で呼び強度以上です。",
+      "caption": "塩化物0.30以下・強度は85%と平均で判定",
+      "visual": {
+        "heading": "受入検査の判定手順",
+        "items": ["塩化物イオン量：0.30kg/m³以下", "1回の試験：呼び強度の85%以上", "3回の平均：呼び強度以上"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-quality-management-past-problems/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 300,
+      "end": 340,
+      "narration": "まとめます。コンクリートの記述は、いつ・どの順で・どこまで行うかという施工の手順の規定を押さえることが要点です。",
+      "caption": "手順の「いつ・どの順で」を押さえる",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 打重ね時間の限度", "② 締固めの操作手順", "③ 養生の期間", "④ 受入検査の判定基準"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 340,
+      "end": 370,
+      "narration": "同じ整理を分野別にまとめた学科記述パックは、概要欄のリンクからご覧いただけます。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "学科記述パックで確認する",
+        "items": ["二次の学科記述パック（概要欄リンク）"]
+      }
+    }
+  ]
+}

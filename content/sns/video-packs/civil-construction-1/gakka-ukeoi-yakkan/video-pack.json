@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-ukeoi-yakkan",
+  "exam": "civil-construction-1",
+  "title": "公共工事標準請負契約約款は「誰の義務か」で読む",
+  "audience": "1級土木一次で契約約款の条文問題が苦手な受験者",
+  "pain": "約款の規定が発注者と受注者どちらの義務か判断できない",
+  "promise": "主語で仕分けるだけで約款問題の正誤が判定できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-standard-contract/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "gakka-ukeoi-yakkan"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

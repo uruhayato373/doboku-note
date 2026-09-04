@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-doshitsu-chosa",
+  "exam": "civil-construction-1",
+  "title": "土質調査は「何を知りたいか」で試験名を逆引きする",
+  "audience": "1級土木一次で土質調査の試験名と目的が混ざる受験者",
+  "pain": "原位置試験と室内試験のどれが何を求める試験か覚えられない",
+  "promise": "調べたい性質から試験名を逆引きする整理法が身につく",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-site-investigation/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-soil-investigation-methods/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "gakka-doshitsu-chosa"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

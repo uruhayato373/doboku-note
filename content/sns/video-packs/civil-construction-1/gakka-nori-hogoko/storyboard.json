@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "法面保護工は種類が多く選び方が整理しにくいところです。今日は植生工と構造物工をどう使い分けるか、判断軸を説明します。",
+      "caption": "法面保護工の使い分け",
+      "visual": {
+        "kind": "cover",
+        "heading": "法面保護工の使い分け",
+        "items": ["1級土木 第1次検定・土工"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "種類を全部覚えるしかないと思われがちですが、選定の考え方はシンプルです。土質が安定していれば植生工、条件が厳しいほど構造物工を併用する軸で整理できます。",
+      "caption": "誤解：工種の丸暗記が必要という思い込み",
+      "visual": {
+        "heading": "誤解：全部丸暗記するしかない",
+        "items": ["軸は「安定度が下がるほど構造物工を足す」の一本"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"
+    },
+    {
+      "sceneId": "gensoku",
+      "start": 55,
+      "end": 110,
+      "narration": "法面が安定した土質なら植生工です。侵食されやすく崩れやすいなら植生工に構造物工を併用します。湧水のある場所は法枠工やブロック張り工、落石のおそれには落石防護工・アンカー工です。",
+      "caption": "安定度が下がるほど構造物工を足す",
+      "visual": {
+        "heading": "選定の大原則",
+        "items": ["安定した土質＝植生工", "崩れやすい／湧水＝構造物工を併用", "落石のおそれ＝落石防護工・アンカー工"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"
+    },
+    {
+      "sceneId": "hisho",
+      "start": 110,
+      "end": 170,
+      "narration": "植生工には種子吹付工・植生シート工・張芝工などがあります。共通条件は、土壌が生育に適すること、春秋の適期であること、勾配が緩やかであることです。一般に1対0.8より緩やかに、寒冷地では1対1.5より緩やかにします。",
+      "caption": "植生工は土質・時期・勾配の3条件",
+      "visual": {
+        "heading": "植生工を選ぶ3条件",
+        "items": ["土壌が植物の生育に適する", "春・秋の植えつけ適期", "勾配1:0.8より緩やか（寒冷地1:1.5）"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"
+    },
+    {
+      "sceneId": "kozobutsu",
+      "start": 170,
+      "end": 225,
+      "narration": "構造物工には吹付工・枠工・ブロック張工・じゃかご工などがあります。モルタル・コンクリート吹付工は風化しやすい土砂や軟岩に使いますが、湧水のある箇所は剥落に注意します。湧水が多い法面にはじゃかご工が効果的です。",
+      "caption": "構造物工は風化と湧水の条件で選ぶ",
+      "visual": {
+        "heading": "構造物工の選び分け",
+        "items": ["風化しやすい土砂・軟岩＝モルタル/コンクリート吹付工", "湧水箇所は吹付工の剥落に注意", "湧水が多い＝じゃかご工"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"
+    },
+    {
+      "sceneId": "haisui",
+      "start": 225,
+      "end": 275,
+      "narration": "法面崩壊の多くは地表水または浸透水が原因です。表面排水工は法肩排水溝・小段排水溝・縦排水溝で水を法尻へ導き、地下排水工は暗渠排水や水平排水孔で浸透水を地中で排除します。",
+      "caption": "法面崩壊の多くは水が原因",
+      "visual": {
+        "heading": "法面排水工の2系統",
+        "items": ["表面排水工：法肩・小段・縦排水溝", "地下排水工：暗渠排水・水平排水孔"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 275,
+      "end": 320,
+      "narration": "軸は、安定した土質なら植生工、条件が厳しいほど構造物工を併用する、の一本です。植生工は土質・時期・勾配、構造物工は風化と湧水で選び、最後に排水工で水を制します。",
+      "caption": "植生工か構造物工かは1本の軸で決まる",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 安定度が下がるほど構造物工を足す", "② 植生工＝土質・時期・勾配", "③ 構造物工＝風化と湧水、最後は排水工"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 320,
+      "end": 350,
+      "narration": "法面保護工の選定条件を一覧で確認したい方は、概要欄のリンクから1級土木一次の論点まとめマガジンをご覧ください。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "選定条件を一覧で確認する",
+        "items": ["1級土木一次 論点まとめ（概要欄リンク）"]
+      }
+    }
+  ]
+}

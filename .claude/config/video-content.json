@@ -1,8 +1,8 @@
 {
   "$schema": "https://doboku-note.com/schema/video-content.json",
   "description": "動画パック（DN-0110）の機械可読契約。人間向け真実源は .claude/knowledge/reference/video-content-policy.md、戦略は docs/marketing/06_動画コンテンツ運用設計.md。checker(check-video-content)・fixture(tests/fixtures/video-content)・将来の admin parser が参照する。",
-  "version": "1.0.0",
-  "updated": "2026-08-28",
+  "version": "1.2.0",
+  "updated": "2026-09-01",
   "paths": {
     "packsRoot": "content/sns/video-packs",
     "stateFile": ".claude/state/video-content-status.json"
@@ -31,9 +31,10 @@
       "pe-construction",
       "pe-first-stage",
       "concrete-chief-engineer",
-      "concrete-diagnostician"
+      "concrete-diagnostician",
+      "concrete-engineer"
     ],
-    "intentEnum": ["exam-point", "howto", "diagnosis", "roadmap"],
+    "intentEnum": ["exam-point", "howto", "diagnosis", "roadmap", "career"],
     "outputsKeys": [
       "longform",
       "shorts",

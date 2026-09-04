@@ -1,0 +1,123 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "トンネルは山岳・開削・シールドと範囲が広く見える科目です。7年間ほぼ動かない設問構造という、この科目だけの特殊事情から話を始めます。",
+      "caption": "トンネル 出題テーマの読み方",
+      "visual": {
+        "kind": "cover",
+        "heading": "選択科目「トンネル」の出題テーマの読み方",
+        "items": [
+          "技術士 建設部門・第二次試験"
+        ]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "範囲が広いから絞れない、という誤解があります。実際はII-1の4設問の位置が、令和1年度から7年度まで7年間まったく変わっていません。位置ごとに何が出るかが決まっている、珍しい科目です。",
+      "caption": "II-1の4設問の位置が7年間固定",
+      "visual": {
+        "heading": "誤解：範囲が広くて絞れない",
+        "items": [
+          "II-1の4設問位置が7年間固定",
+          "位置ごとに出る分野が決まっている"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/tunnel-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "natm",
+      "start": 55,
+      "end": 125,
+      "narration": "II-1-1とII-1-2は、7年間ずっと山岳トンネル、いわゆるNATM工法です。吹付けコンクリート、ロックボルト、鋼製支保工といった支保部材と、計測工や切羽観察による情報化施工。この2本柱を軸に、山岳トンネルの基礎を固めます。",
+      "caption": "II-1-1/1-2は山岳トンネル（NATM）固定",
+      "visual": {
+        "heading": "II-1-1/1-2：山岳トンネル（NATM）",
+        "items": [
+          "吹付け・ロックボルト・鋼製支保工",
+          "計測工・切羽観察による情報化施工"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/tunnel-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "openshield",
+      "start": 125,
+      "end": 185,
+      "narration": "II-1-3は開削工法、II-1-4はシールド工法で、これも7年間固定です。開削は土留め設計と既設構造物への近接施工、シールドはセグメントの品質管理と切羽の安定が中心です。実務に近いものを確実な得点源にします。",
+      "caption": "II-1-3開削・II-1-4シールドも固定",
+      "visual": {
+        "heading": "II-1-3開削／II-1-4シールド",
+        "items": [
+          "開削：土留め設計・近接施工",
+          "シールド：セグメント・切羽安定"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/tunnel-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "background",
+      "start": 185,
+      "end": 245,
+      "narration": "選択科目IIIには、2つの背景があります。1つは山岳トンネル特有の、事前には分からない不確定な地質リスク。もう1つは、都市部で近接・輻輳する地下空間の利用です。地質と都市、この2つの軸で問われます。",
+      "caption": "IIIは地質リスクと都市部地下空間",
+      "visual": {
+        "heading": "IIIの二大背景",
+        "items": [
+          "山岳の不確定な地質リスク",
+          "都市部の近接・輻輳する地下空間"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/tunnel-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "maintenance",
+      "start": 245,
+      "end": 300,
+      "narration": "維持管理も見逃せません。覆工コンクリートのひび割れや剥落は、第三者被害に直結するため、定期点検の制度が定められています。トンネルの老朽化は、点検・補修の優先順位づけに関わってきた発注者の立場からも、重い論点です。",
+      "caption": "覆工の剥落と定期点検が老朽化の核心",
+      "visual": {
+        "heading": "維持管理：覆工の剥落と定期点検",
+        "items": [
+          "ひび割れ・うき・剥落と第三者被害",
+          "定期点検制度・健全性の4区分"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/tunnel-ronbun-keyword/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 300,
+      "end": 345,
+      "narration": "トンネルは、山岳・開削・シールドという固定された4設問に、地質リスクと都市部地下空間というIIIの二大背景、そして維持管理が乗る構造です。位置が固定されている分、対策の順番も決めやすい科目です。",
+      "caption": "固定4設問＋IIIの二大背景＋維持管理",
+      "visual": {
+        "heading": "まとめ",
+        "items": [
+          "① 山岳（NATM）固定2問",
+          "② 開削・シールド固定2問",
+          "③ IIIの地質・都市→④ 維持管理"
+        ]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 345,
+      "end": 382,
+      "narration": "7年分の出題テーマを年度別に整理した一覧と、本文の書き方まで含めた対策は、概要欄のトンネルマガジンでご確認ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のトンネルマガジンへ",
+      "visual": {
+        "kind": "cover",
+        "heading": "続きはトンネルマガジンで",
+        "items": [
+          "7年分の出題テーマ＋本文の書き方（概要欄リンク）"
+        ]
+      }
+    }
+  ]
+}

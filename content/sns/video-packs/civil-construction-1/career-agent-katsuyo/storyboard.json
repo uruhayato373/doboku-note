@@ -1,0 +1,125 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "転職エージェントは登録しただけでは何も起きません。使い方で届く求人の質が変わります。今日はその使い方を説明します。",
+      "caption": "転職エージェントの使い方",
+      "visual": {
+        "kind": "cover",
+        "heading": "転職エージェントの使い方",
+        "items": [
+          "施工管理向けの選び方"
+        ]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 50,
+      "narration": "エージェントは転職を決意してから使うものと思われがちですが違います。まだ迷っている段階でこそ、市場価値を知る手段として役立ちます。",
+      "caption": "「決めてから使うもの」は誤解",
+      "visual": {
+        "heading": "誤解：決めてから使うもの",
+        "items": [
+          "迷っている段階でも市場価値を確認できる",
+          "交渉するか動くかの判断材料になる"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/転職エージェントの使い方-無料/article.md"
+    },
+    {
+      "sceneId": "step1",
+      "start": 50,
+      "end": 115,
+      "narration": "転職サービスは、特化型か総合型か、エージェントか求人サイトかの2軸で整理できます。施工管理なら特化型エージェントが起点になります。",
+      "caption": "まず2軸でサービスのタイプを知る",
+      "visual": {
+        "heading": "1. サービスのタイプを知る",
+        "items": [
+          "専門領域：特化型／総合型",
+          "代行の有無：エージェント／求人サイト",
+          "施工管理は特化型が起点"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-career-agents/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 115,
+      "end": 175,
+      "narration": "特化型の担当者は、資格や経験年数、担当工種と規模を読み取り、企業の求める条件へつなぎます。非公開求人にも強く、条件交渉も代行してもらえます。",
+      "caption": "特化型は「経験の値踏み」に強い",
+      "visual": {
+        "heading": "2. 特化型が強い理由",
+        "items": [
+          "工種・規模・経験を正確に値踏みする",
+          "非公開求人と条件交渉の代行が受けられる"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-career-agents/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 175,
+      "end": 235,
+      "narration": "流れは登録、面談、求人紹介、応募です。年収や避けたい条件を具体的に伝えるほど、紹介の精度が上がります。温度感を先に伝えれば急かされません。",
+      "caption": "希望は具体的に、正直に伝える",
+      "visual": {
+        "heading": "3. 登録から面談までの流れ",
+        "items": [
+          "登録→面談→求人紹介→応募",
+          "希望は具体的に伝えるほど精度が上がる"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/転職エージェントの使い方-無料/article.md"
+    },
+    {
+      "sceneId": "step4",
+      "start": 235,
+      "end": 290,
+      "narration": "担当者との相性は結果を左右します。話を聞かない担当者は交代を申し出て、急かす言葉は疑ってください。大手だからと総合型に絞るのも悪手になりがちです。",
+      "caption": "相性が合わなければ乗り換える",
+      "visual": {
+        "heading": "4. 失敗しないための3点",
+        "items": [
+          "合わない担当者は交代・乗り換えを検討",
+          "「今月中に」の煽りは疑う",
+          "大手だからで総合型に絞らない"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-career-agents/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 290,
+      "end": 330,
+      "narration": "まとめます。特化型に登録し求人サイトも併用する。希望は具体的に伝える。相性が合わなければ乗り換える。この3点で賢く使い倒せます。",
+      "caption": "特化型＋求人サイトの併用が現実的",
+      "visual": {
+        "heading": "まとめ",
+        "items": [
+          "① 特化型＋求人サイトの併用",
+          "② 希望は具体的・正直に伝える",
+          "③ 合わない担当者は乗り換える"
+        ]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 330,
+      "end": 360,
+      "narration": "自分に合うエージェントの選び方をさらに知りたい方は、概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "続きは概要欄のリンクから",
+        "items": [
+          "doboku-note リンクハブ"
+        ]
+      }
+    }
+  ]
+}

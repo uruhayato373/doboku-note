@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "建設業法は500万円、5,000万円、8,000万円と金額が何個も出てきて混ざります。今日は金額を制度ごとに切り分けます。",
+      "caption": "技術者配置と許可の数字を整理する",
+      "visual": {
+        "kind": "cover",
+        "heading": "建設業法の頻出点",
+        "items": ["1級土木 第1次検定・法規"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 50,
+      "narration": "金額が大きいほど厳しい、とだけ覚えると混ざります。許可の要否、特定建設業の区分、専任の要否は、それぞれ別の制度の金額です。",
+      "caption": "同じ金額感覚で覚えると混ざる",
+      "visual": {
+        "heading": "誤解：金額の大小だけで覚える",
+        "items": ["制度ごとに閾値が別にある", "先に「何を分ける金額か」を確認する"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-business/article.mdx"
+    },
+    {
+      "sceneId": "overview",
+      "start": 50,
+      "end": 100,
+      "narration": "請負代金500万円未満は軽微な建設工事として許可が不要です。建築一式は1,500万円未満、または延べ150平方メートル未満の木造住宅も対象です。",
+      "caption": "500万円未満は許可不要（軽微な工事）",
+      "visual": {
+        "heading": "STEP 0　許可が要るかどうかの境目",
+        "items": ["500万円未満（建築一式1,500万円未満）は許可不要", "150m²未満の木造住宅工事も軽微な工事"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-business/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 100,
+      "end": 150,
+      "narration": "元請として下請に出す金額の合計が5,000万円、建築一式は8,000万円以上になる場合、特定建設業の許可が必要です。これは許可区分の話です。",
+      "caption": "下請総額5,000万円以上で特定建設業",
+      "visual": {
+        "heading": "STEP 1　一般建設業と特定建設業の境目",
+        "items": ["下請総額5,000万円以上（建築一式8,000万円以上）", "特定建設業の許可が必要になる"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-business/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 150,
+      "end": 205,
+      "narration": "元請の特定建設業者は、下請契約の総額が5,000万円、建築一式8,000万円以上のとき、主任技術者に代えて監理技術者を置きます。数字は同じでも、こちらは現場に置く技術者を切り替える制度です。",
+      "caption": "同じ数字でも監理技術者への切替え制度",
+      "visual": {
+        "heading": "STEP 2　主任技術者を監理技術者に代える境目",
+        "items": ["下請総額5,000万円以上（建築一式8,000万円以上）", "主任技術者→監理技術者へ切替え"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-business/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 205,
+      "end": 255,
+      "narration": "公共性のある工事で請負代金が4,500万円、建築一式9,000万円以上のとき、主任技術者や監理技術者は工事現場ごとに専任でなければなりません。",
+      "caption": "4,500万円以上で専任が必要",
+      "visual": {
+        "heading": "STEP 3　専任が必要になる境目",
+        "items": ["請負代金4,500万円以上（建築一式9,000万円以上）", "現場ごとに専任の技術者を置く"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-business/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 255,
+      "end": 310,
+      "narration": "監理技術者補佐を各現場に専任配置すれば、特例監理技術者は最大2現場を兼任できます。密接関連工事なら主任技術者も2工事まで同一人で担当できます。",
+      "caption": "補佐の配置で2現場兼任できる特例",
+      "visual": {
+        "heading": "STEP 4　兼任できる特例",
+        "items": ["補佐を各現場に専任配置で監理技術者は最大2現場", "密接関連工事は主任技術者2工事まで同一人可", "特定専門工事は下請代金3,500万円未満で元請主任技術者が兼務"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-business/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 310,
+      "end": 355,
+      "narration": "まとめます。500万円は許可の要否、5,000万円は特定建設業と監理技術者切替えの2制度共通、4,500万円は専任の要否。同じ5,000万円に2制度あることに注意します。",
+      "caption": "500万→5,000万→4,500万の3段階",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["500万円：許可が要るか", "5,000万円：特定建設業＋監理技術者切替え（2制度共通）", "4,500万円：専任が要るか"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 355,
+      "end": 380,
+      "narration": "金額基準を横断で整理した問題演習は、概要欄のリンクから1次検定の頻出論点パックをご覧ください。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "頻出論点パックで確認する",
+        "items": ["1次検定・頻出論点パック（概要欄リンク）"]
+      }
+    }
+  ]
+}

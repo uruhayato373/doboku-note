@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-kotei-kanri-kiso",
+  "exam": "civil-construction-1",
+  "title": "工程表の種類と使い分け — バーチャートから曲線式まで",
+  "audience": "1級土木一次で工程表の特徴の正誤問題を落とす受験者",
+  "pain": "各工程表の長所短所がどれも同じに見えて区別できない",
+  "promise": "「何が読み取れる工程表か」の1点で種類を判別できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-schedule-overview/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-schedule-charts/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-work-scheduling/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "gakka-kotei-kanri-kiso"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

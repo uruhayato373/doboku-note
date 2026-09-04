@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "sekokan-shippaidan",
+  "exam": "civil-construction-1",
+  "title": "施工管理の失敗談 — 現場で学んだ教訓",
+  "audience": "現場経験の浅い若手施工管理職と受験者",
+  "pain": "失敗事例から学びたいが実名では誰も話してくれない",
+  "promise": "発注者側で見てきた失敗パターンと防ぎ方が分かる",
+  "intent": "career",
+  "sourceRefs": [
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/施工管理の失敗談と教訓-無料/article.md",
+      "access": "free"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "sekokan-shippaidan"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

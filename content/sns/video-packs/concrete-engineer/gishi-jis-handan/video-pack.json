@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "gishi-jis-handan",
+  "exam": "concrete-engineer",
+  "title": "コンクリート技士 JIS問題の判断法 — 規定の背景で覚える",
+  "audience": "コンクリート技士でJIS規定の問題を落としがちな受験者",
+  "pain": "JISの数値規定を丸暗記しても選択肢を少しひねられると判断できない",
+  "promise": "規定の背景とセットで覚えることでひねった選択肢にも対応できる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/textbook-production-qc/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/primary-production-qc/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "ce-mix-jis-practice",
+    "campaign": "gishi-jis-handan"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

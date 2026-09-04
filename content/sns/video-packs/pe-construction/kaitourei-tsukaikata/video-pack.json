@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "kaitourei-tsukaikata",
+  "exam": "pe-construction",
+  "title": "模範解答の正しい使い方 — 写経では受からない",
+  "audience": "模範解答を集めて勉強している建設部門二次の受験者",
+  "pain": "解答例を読んでも自分の答案がよくならない",
+  "promise": "解答例から「型と判断」を抜き出して自分の答案に移す手順が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/hissu-kamoku-kaitourei/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-required-magazine",
+    "campaign": "kaitourei-tsukaikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

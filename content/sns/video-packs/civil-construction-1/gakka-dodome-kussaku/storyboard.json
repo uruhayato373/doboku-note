@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "掘削面の勾配は地山の種類で変わり、点検の頻度も工種で違います。数字がバラバラに見える基準を、表で整理します。",
+      "caption": "土止め支保工と明り掘削の安全基準",
+      "visual": {
+        "kind": "cover",
+        "heading": "土止め支保工と明り掘削の安全基準",
+        "items": ["1級土木 第1次検定・安全管理"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "「掘削の勾配は覚える数が多すぎる」と感じるかもしれません。実は地山が固いほど急な勾配が許され、高いほど緩い勾配が求められる、という一つの関係だけで整理できます。",
+      "caption": "勾配は「固さ」と「高さ」の関係で決まる",
+      "visual": {
+        "heading": "誤解：勾配の数値は個別に丸暗記",
+        "items": ["固いほど急・高いほど緩いの関係が軸", "地山の種類×高さの表で整理できる"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 55,
+      "end": 115,
+      "narration": "掘削面の高さが2メートル以上になる地山の掘削では、地山の掘削作業主任者を選任します。点検は、作業開始前、大雨の後、中震以上の地震の後、発破を行った後の4つの契機で行います。",
+      "caption": "作業主任者は掘削面2m以上で選任",
+      "visual": {
+        "heading": "STEP 1　地山の掘削作業主任者と点検",
+        "items": ["掘削面2m以上で作業主任者を選任", "点検は開始前・大雨後・中震後・発破後", "浮石や亀裂、湧水の状態を確認"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 115,
+      "end": 180,
+      "narration": "掘削面の勾配は、地山の種類と高さで決まります。岩盤や堅い粘土は、高さ5メートル未満で90度、5メートル以上で75度以下。その他の地山は、2メートル未満で90度、5メートル以上で60度以下です。",
+      "caption": "勾配は「地山の種類×高さ」の表で判断",
+      "visual": {
+        "heading": "STEP 2　掘削面の勾配（手掘り）",
+        "items": ["岩盤等＝5m未満90°・5m以上75°以下", "その他の地山＝2m未満90°〜5m以上60°以下", "砂＝35°以下または5m未満"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 180,
+      "end": 240,
+      "narration": "土止め支保工は、組み立てる前に組立図を作成します。切りばりや腹起しの取付け・取外しでは、土止め支保工作業主任者を選任します。点検は7日を超えない期間ごとで、明り掘削の点検とは別基準です。",
+      "caption": "点検は「7日ごと」が明り掘削と別基準",
+      "visual": {
+        "heading": "STEP 3　土止め支保工の構造と点検",
+        "items": ["組立て前に組立図を作成", "切りばり・腹起し作業で作業主任者を選任", "点検は7日を超えない期間ごと"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 240,
+      "end": 300,
+      "narration": "型枠支保工は、支柱の高さが3.5メートル以上になると、工事開始の30日前までに設置計画を届け出ます。組立てや解体の作業では、型枠支保工の組立て等作業主任者を選任します。",
+      "caption": "届出は支柱3.5m以上・30日前まで",
+      "visual": {
+        "heading": "STEP 4　型枠支保工の届出と作業主任者",
+        "items": ["支柱3.5m以上で30日前までに届出", "組立て・解体で作業主任者を選任", "打設前に支保工を点検"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 300,
+      "end": 345,
+      "narration": "まとめます。作業主任者を選任する高さは、地山の掘削で2メートル。届出が必要な支柱の高さは、型枠支保工で3.5メートル。点検の頻度は明り掘削と支保工で別基準です。",
+      "caption": "「2m・3.5m・7日ごと」で区切って覚える",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 地山の掘削作業主任者＝2m以上", "② 型枠支保工の届出＝3.5m以上", "③ 点検は明り掘削と支保工で別基準"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 345,
+      "end": 375,
+      "narration": "地山の種類×高さの表で確認したい方は、概要欄のリンクから出る順合格ノートをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "表で確認する",
+        "items": ["一次の出る順合格ノート（概要欄リンク）"]
+      }
+    }
+  ]
+}

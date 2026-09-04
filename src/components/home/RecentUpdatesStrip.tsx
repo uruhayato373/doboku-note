@@ -34,7 +34,7 @@ export default function RecentUpdatesStrip({ articles }: { articles: LatestArtic
           </Link>
         </div>
         <ul className="mt-2 grid gap-1 sm:grid-cols-2 sm:gap-4">
-          {articles.slice(0, 2).map((article) => {
+          {articles.slice(0, 6).map((article) => {
             const date = formatDate(article.date);
             return (
               <li key={article.slug} className="min-w-0">

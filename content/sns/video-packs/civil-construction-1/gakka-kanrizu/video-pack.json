@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-kanrizu",
+  "exam": "civil-construction-1",
+  "title": "管理図の読み方 — 異常判定のルール",
+  "audience": "1級土木一次で管理図の異常判定を勘で答えている受験者",
+  "pain": "管理図のどの並びが異常でどれが正常か判定基準が曖昧",
+  "promise": "管理限界線と点の並びから異常を判定する手順が固まる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-control-chart/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "gakka-kanrizu"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

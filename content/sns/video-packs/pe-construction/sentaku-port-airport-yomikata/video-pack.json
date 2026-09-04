@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "sentaku-port-airport-yomikata",
+  "exam": "pe-construction",
+  "title": "選択科目「港湾・空港」の出題テーマの読み方",
+  "audience": "技術士建設部門二次で港湾・空港を選択する受験者",
+  "pain": "港湾・空港の出題テーマが毎年変わるように見えて対策の軸が決まらない",
+  "promise": "7年分の出題から頻出軸を押さえ優先して仕込むテーマが決められる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/port-airport-exam-themes/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/port-airport-ronbun-keyword/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-port-airport-magazine",
+    "campaign": "sentaku-port-airport-yomikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

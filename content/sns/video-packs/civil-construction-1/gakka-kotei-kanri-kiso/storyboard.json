@@ -1,0 +1,124 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "工程表の長所短所がどれも同じに見えて区別がつかない。今日は何が読み取れるかという1点で見分ける方法を説明します。",
+      "caption": "工程表の種類と使い分け",
+      "visual": {
+        "kind": "cover",
+        "heading": "工程表の種類と使い分け",
+        "items": ["1級土木 第1次検定・工程管理"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "工程表はどれも似たような特徴に見えますが、比べる軸は1つ、その図から何が読み取れるかです。手順・必要日数・進行度合・工期に影響する作業の4つのうち、どれがわかりどれがわからないかで見分けます。",
+      "caption": "比べる軸は「何が読み取れるか」の1点",
+      "visual": {
+        "heading": "誤解：工程表はどれも似た特徴",
+        "items": ["軸は4つ：手順・必要日数・進行度合・工期影響作業", "この4軸のどれがわかるかで種類を判別する"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-schedule-charts/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 55,
+      "end": 115,
+      "narration": "バーチャートは、各作業の所要日数や進捗が直感的にわかり、作成も修正も容易です。ただし、工期に影響する作業はわかりません。日程の組み方には、着手日から決める順行法、竣工日からたどる逆算法、重点工種を固定する重点法があります。",
+      "caption": "バーチャート：日数と進捗はわかるが工期影響作業は不明",
+      "visual": {
+        "heading": "横線式① バーチャート",
+        "items": ["所要日数・進捗が直感的にわかる", "工期に影響する作業は不明", "順行法・逆算法・重点法で日程を組む"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-work-scheduling/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 115,
+      "end": 165,
+      "narration": "ガントチャートは、横軸に達成度をとり、各作業の現時点での進捗度合がよくわかります。ただし、必要な日数も工期に影響する作業もわかりません。バーチャートと混同しないよう注意が必要です。",
+      "caption": "ガントチャート：進捗度はわかるが日数は不明",
+      "visual": {
+        "heading": "横線式② ガントチャート",
+        "items": ["横軸に達成度、進捗度合がよくわかる", "必要な日数・工期影響作業は不明", "バーチャートと取り違えやすい"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-schedule-charts/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 165,
+      "end": 220,
+      "narration": "斜線式工程表は、横軸に区間、縦軸に日数をとる、他の工程図表とは軸の向きが逆の図表です。トンネル工事のように進捗が距離だけで決まる工事に向きますが、工種間の相互関係は不明確です。",
+      "caption": "斜線式は距離が横軸・日数が縦軸",
+      "visual": {
+        "heading": "斜線式工程表",
+        "items": ["横軸に区間（距離程）・縦軸に日数", "トンネル工事など距離進捗型に向く", "工種間の相互関係は不明確"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-schedule-charts/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 220,
+      "end": 280,
+      "narration": "グラフ式工程表は、出来高比率を工種ごとに斜線で表し、未着工・施工中・完了が一目瞭然です。出来高累計曲線は、全体の出来高比率を累計した曲線で、初期と終期に施工速度が落ちるためS字型になり、Sカーブと呼ばれます。",
+      "caption": "曲線式：出来高比率をグラフや累計曲線で見る",
+      "visual": {
+        "heading": "曲線式工程表",
+        "items": ["グラフ式：工種別の出来高比率を斜線で表示", "出来高累計曲線＝Sカーブ（初期・終期は速度低下）", "重要作業・必要日数は不明"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-schedule-charts/article.mdx"
+    },
+    {
+      "sceneId": "step5",
+      "start": 280,
+      "end": 330,
+      "narration": "バナナ曲線は、時間経過率に対する出来高を、上方許容限界と下方許容限界の間に収まっているかで見る図表です。下方限界を下回れば遅延、上方限界を超えれば人員や機械の過剰配置が疑われます。",
+      "caption": "バナナ曲線は上下許容限界内かで判定",
+      "visual": {
+        "heading": "バナナ曲線（工程管理曲線）",
+        "items": ["時間経過率と出来高を上下限界曲線で判定", "下方限界を下回る＝工程遅延", "上方限界を超える＝人員・機械の過剰配置"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-schedule-charts/article.mdx"
+    },
+    {
+      "sceneId": "step6",
+      "start": 330,
+      "end": 375,
+      "narration": "ここまでの工程表は、どれかの情報が欠けていました。4つの情報すべてを把握できるのはネットワーク式工程表だけです。ただし作成に費用と労力がかかり、短期で単純な工事には不向きです。",
+      "caption": "4情報すべてがわかるのはネットワーク式のみ",
+      "visual": {
+        "heading": "ネットワーク式工程表だけがわかること",
+        "items": ["手順・日数・進行度合・工期影響作業の全てが判明", "作成には費用と労力がかかる", "短期単純工事には不向き"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-schedule-charts/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 375,
+      "end": 415,
+      "narration": "まとめます。比べる軸は手順・日数・進行度合・工期影響作業の4つ。それぞれの工程表はどれかが欠け、ネットワーク式だけが全部わかります。この視点で覚えれば正誤問題で迷いません。",
+      "caption": "4軸で見比べればネットワーク式の特異性がわかる",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 横線式2種：日数か進捗のどちらか", "② 斜線式・曲線式：工期影響作業は不明", "③ ネットワーク式のみ4情報とも判明"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 415,
+      "end": 445,
+      "narration": "7種類の比較表を含めて確認したい方は、概要欄のリンクから一次検定頻出論点まとめをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "頻出論点まとめで確認する",
+        "items": ["一次検定 頻出論点まとめ（概要欄リンク）"]
+      }
+    }
+  ]
+}

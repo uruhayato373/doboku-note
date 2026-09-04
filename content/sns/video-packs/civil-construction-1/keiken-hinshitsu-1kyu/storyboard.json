@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "品質管理は出題頻度の高いテーマですが、規格値内に収まったと書くだけでは課題として弱くなります。ギャップの立て方から評価まで組み立てる手順を説明します。",
+      "caption": "品質管理テーマ 課題・検討・対応の組み立て方",
+      "visual": {
+        "kind": "cover",
+        "heading": "品質管理テーマの経験記述",
+        "items": ["1級土木 第2次検定・施工経験記述"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "品質管理は基準を守れば書けると思われがちですが、実際は焦点をどこに当てたかを示す必要があります。先に品質管理で書くと決めて課題を探すと一般論になりがちです。実際に苦労した場面から管理項目を選ぶのが正しい順序です。",
+      "caption": "基準遵守だけでは技術的課題にならない",
+      "visual": {
+        "heading": "誤解：基準を守れば書ける",
+        "items": ["焦点をどこに当てたかを示す必要がある", "先に管理項目を決めると一般論になりがち"]
+      },
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md"
+    },
+    {
+      "sceneId": "gap-to-issue",
+      "start": 55,
+      "end": 115,
+      "narration": "技術的課題は、現場条件と規格値のギャップから立てます。粘性土地盤や梅雨時期の含水条件、狭い施工ヤードといった条件が、どの品質にどう影響するかを具体的に書きます。条件をぼかすと課題も曖昧になります。",
+      "caption": "現場条件と規格値のギャップから課題を立てる",
+      "visual": {
+        "heading": "STEP 1　現場条件と規格値のギャップ",
+        "items": ["現場条件（地盤・気象・作業条件）を具体化する", "規格値との差分を明記する", "条件をぼかすと課題も曖昧になる"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "focus-item",
+      "start": 115,
+      "end": 175,
+      "narration": "品質管理の対象は、盛土・路盤工の締固め管理と、コンクリート工のスランプ・空気量・養生の管理に大きく分かれます。出来形にも工種ごとの規格値があり、加熱アスファルト舗装の平坦性は3mプロフィルメータで2.4mm以下です。どれか一つに絞って書きます。",
+      "caption": "締固め・コンクリート・出来形のどれかに絞る",
+      "visual": {
+        "heading": "STEP 2　品質項目を一つに絞る",
+        "items": ["盛土・路盤工＝締固め度と含水比", "コンクリート工＝スランプ・空気量・養生", "出来形の規格値は工種ごとに異なる"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "check-and-action",
+      "start": 175,
+      "end": 235,
+      "narration": "検討では、RI計や砂置換法、平板載荷試験、コア抜きといった測定方法まで書き込みます。対応処置は管理基準を明示したうえで、工法・機械・材料・管理方法のどれを変えたのかを具体的に示します。",
+      "caption": "検討は測定方法・対応処置は管理基準とセットで",
+      "visual": {
+        "heading": "STEP 3　検討と対応処置",
+        "items": ["検討：測定方法まで書く（RI計・砂置換法等）", "対応処置：管理基準を明示する", "工法・機械・材料・管理方法で具体化する"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "evaluation",
+      "start": 235,
+      "end": 295,
+      "narration": "評価に割けるスペースはわずかです。品質が確保され、予定工期内に工事を完了できた、のように結果を端的に書きます。多く書こうとせず、対処が正しかったと伝わる一文で締めます。",
+      "caption": "評価は結果を端的な一文で締める",
+      "visual": {
+        "heading": "STEP 4　評価は端的に",
+        "items": ["残りスペースはわずかと想定する", "結果を端的な一文にする", "対処が正しかったと伝わる形にする"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 295,
+      "end": 338,
+      "narration": "まとめます。現場条件と規格値のギャップで課題を立て、締固め・コンクリート・出来形のどれかに絞り、検討は測定方法、対応処置は管理基準とセットで書き、評価は端的に。品質管理は絞るほど答案が締まります。",
+      "caption": "課題→絞り込み→測定方法→評価の順で書く",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 現場条件と規格値のギャップで課題を立てる", "② 品質項目を一つに絞る", "③ 検討は測定方法・対応処置は管理基準で", "④ 評価は端的な一文で締める"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 338,
+      "end": 370,
+      "narration": "5管理・複数工種の完成答案で基準を掴みたい方は、概要欄のリンクから経験記述の完全パックをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "完成答案で基準を掴む",
+        "items": ["経験記述 完全パック（概要欄リンク）"]
+      }
+    }
+  ]
+}

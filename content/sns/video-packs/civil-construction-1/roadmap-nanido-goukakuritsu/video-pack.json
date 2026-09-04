@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "packId": "roadmap-nanido-goukakuritsu",
+  "exam": "civil-construction-1",
+  "title": "1級土木の難易度 — 合格率の読み方と必要な学習量",
+  "audience": "1級土木の受検を検討していて難易度を知りたい人",
+  "pain": "合格率の数字だけでは自分に合格できるか判断できない",
+  "promise": "合格率の内訳と必要学習量から自分の合格戦略を立てられる",
+  "intent": "roadmap",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-difficulty/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "roadmap-nanido-goukakuritsu"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

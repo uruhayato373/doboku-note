@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-2kyu-doko",
+  "exam": "civil-construction-2",
+  "title": "2級土木 土工の頻出点 — 最短で押さえる",
+  "audience": "2級土木一次で土工の頻出論点を短時間で固めたい受検者",
+  "pain": "土工の範囲が広くどこから覚えれば得点になるか分からない",
+  "promise": "出題頻度の高い論点だけに絞った土工の学習順序が分かる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-takuitsu-pdf",
+    "campaign": "gakka-2kyu-doko"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

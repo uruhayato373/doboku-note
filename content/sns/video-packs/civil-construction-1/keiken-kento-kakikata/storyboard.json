@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "1級は検討した項目が（1）側なのに、旧年度や2級の感覚で（2）側へ書いてしまう相談が多くあります。今日は正しい配分と書き方を説明します。",
+      "caption": "検討項目は(1)側「解決方法」と書かない",
+      "visual": {
+        "kind": "cover",
+        "heading": "検討項目の書き方 — 「解決方法」と書かない",
+        "items": ["1級土木 第2次検定・施工経験記述"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "検討項目は対応処置の後にまとめて書く、と思われがちですが、それは2級の区切り方です。1級令和6年度以降は、検討した項目が（1）側に入ります。",
+      "caption": "検討項目は2級と1級で位置が違う",
+      "visual": {
+        "heading": "誤解：検討項目は対応処置の後",
+        "items": ["それは2級の区切り方", "1級R6以降は検討項目が(1)側"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "block1",
+      "start": 55,
+      "end": 115,
+      "narration": "令和6年度以降の1級は、（1）が現場状況・技術的課題と検討した項目まで。（2）は（1）で書いた検討項目の対応処置とその評価です。検討項目は（1）側に入ります。",
+      "caption": "(1)に技術的課題と検討項目、(2)に処置",
+      "visual": {
+        "heading": "STEP 1　1級R6以降の配分",
+        "items": ["(1) 現場状況・技術的課題＋検討した項目", "(2) 対応処置とその評価", "検討項目は(1)側"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "block2",
+      "start": 115,
+      "end": 175,
+      "narration": "2級は検討した項目が（2）側です。1級でこの区切りを使うと（2）に検討・対応処置・評価の3要素が乗ります。1級の解答欄は1区画約200字なので物理的に収まりません。",
+      "caption": "2級式を使うと(2)に3要素乗り欄あふれ",
+      "visual": {
+        "heading": "STEP 2　2級との区切りの違い",
+        "items": ["2級：検討項目は(2)側", "1級で2級式だと(2)に3要素が乗る", "1区画約200字に収まらない"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "block3",
+      "start": 175,
+      "end": 235,
+      "narration": "検討項目で「解決方法」と書き出すと、解を明確にする記述が求められてしまいます。ここで示すのは何を目的に何を検討したかの過程で、工法や構造形式の検討内容を具体的に書きます。",
+      "caption": "「解決方法」でなく検討の過程を書く",
+      "visual": {
+        "heading": "STEP 3　「解決方法」と書かない",
+        "items": ["解を明確にする記述が求められてしまう", "書くのは何を目的に何を検討したかの過程", "工法・配置・構造形式の検討を具体的に"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "block4",
+      "start": 235,
+      "end": 295,
+      "narration": "検討項目は内容を一つに絞って集中して書きます。課題についての文は短く、検討に至った理由と具体的な検討内容の方を長く書き、根拠から結論までつなげます。",
+      "caption": "内容を一つに絞り理由・内容を厚く書く",
+      "visual": {
+        "heading": "STEP 4　一つに絞って集中して書く",
+        "items": ["課題の文は短く", "検討理由と内容は長く", "根拠から結論までつなげる"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 295,
+      "end": 340,
+      "narration": "まとめます。1級は検討項目が（1）側。2級の区切りをそのまま使わない。「解決方法」ではなく過程を書き、内容は一つに絞って理由と内容を厚くします。",
+      "caption": "配分→区切りの違い→過程を書く→絞る",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 検討項目は(1)側", "② 2級式をそのまま使わない", "③ 「解決方法」でなく過程を書く", "④ 一つに絞って理由・内容を厚く"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 340,
+      "end": 370,
+      "narration": "配分が合っているか確認したい方は、概要欄のリンクから経験記述の添削サービスをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "添削で配分を確認する",
+        "items": ["経験記述 添削（概要欄リンク）"]
+      }
+    }
+  ]
+}

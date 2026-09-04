@@ -1,0 +1,99 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "河川・砂防・海岸の出題テーマは毎年違って見えますが、7年分並べると固定パターンが見えます。今日は優先して仕込むテーマの決め方を説明します。",
+      "caption": "河川・砂防・海岸 出題テーマの読み方",
+      "visual": {
+        "kind": "cover",
+        "heading": "河川・砂防・海岸 出題テーマの読み方",
+        "items": ["技術士 建設部門 選択科目「河川、砂防及び海岸・海洋」"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 65,
+      "narration": "毎年どの分野が出るか気にする必要はありません。II-1は河川・ダム・砂防・海岸の4分野が7年間ほぼ固定で、IIIでは流域治水と総合的な土砂管理が繰り返し出ています。",
+      "caption": "4分野固定＋流域治水・総合土砂管理が軸",
+      "visual": {
+        "heading": "誤解：どの分野が出るか年ごとに読む",
+        "items": ["II-1は河川/ダム/砂防/海岸の4分野固定", "IIIは流域治水・総合的な土砂管理が二大テーマ"]
+      },
+      "sourceRef": "content/site/pe-construction/river-coast-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "block1",
+      "start": 65,
+      "end": 130,
+      "narration": "この科目に合格した実感として、得意分野だけを深めても足りません。4分野すべての基礎を均等に仕込み、得意な1分野を得点源にする二段構えが必要です。",
+      "caption": "癖：4分野を均等に仕込む科目",
+      "visual": {
+        "heading": "河川・砂防・海岸の癖",
+        "items": ["得意分野だけでは足りない", "4分野均等＋得意1分野を得点源に"]
+      }
+    },
+    {
+      "sceneId": "block2",
+      "start": 130,
+      "end": 195,
+      "narration": "河川は堤防の維持管理と浸水想定、ダムは事前放流やダム再生が軸です。事前放流は既存ダムの能力を運用面で引き出し、ハコモノを増やさず治水機能を高める考え方です。",
+      "caption": "河川・ダム：維持管理と機能強化",
+      "visual": {
+        "heading": "河川・ダム（II-1-1・II-1-2）",
+        "items": ["河川：堤防の維持管理・浸水想定", "ダム：事前放流・ダム再生"]
+      },
+      "sourceRef": "content/site/pe-construction/river-coast-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "block3",
+      "start": 195,
+      "end": 260,
+      "narration": "砂防は砂防堰堤と土砂・洪水氾濫、海岸は高潮・津波の浸水想定と海岸保全施設が中心です。透過型・不透過型のような構造の違いを正確に言えるかが得点を分けます。",
+      "caption": "砂防・海岸：施設名と制度名が要",
+      "visual": {
+        "heading": "砂防・海岸（II-1-3・II-1-4）",
+        "items": ["砂防：砂防堰堤・土砂洪水氾濫", "海岸：高潮・津波浸水想定・海岸保全施設"]
+      },
+      "sourceRef": "content/site/pe-construction/river-coast-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "block4",
+      "start": 260,
+      "end": 330,
+      "narration": "IIIの二大政策は流域治水と総合的な土砂管理です。流域治水は流域全体の関係者が協働して被害を減らす考え方、総合的な土砂管理は山から海までの土砂の動きを一貫して見る視点です。",
+      "caption": "III二大政策：流域治水と総合土砂管理",
+      "visual": {
+        "heading": "III：流域治水と総合的な土砂管理",
+        "items": ["流域治水：流域全体で協働し被害を減らす", "総合的な土砂管理：山から海まで一貫して見る"]
+      },
+      "sourceRef": "content/site/pe-construction/river-coast-ronbun-keyword/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 330,
+      "end": 375,
+      "narration": "河川・砂防・海岸は4分野を均等に仕込み、得意分野で稼ぐ科目です。IIIは流域治水と総合的な土砂管理を軸に、合意形成まで含めて準備します。",
+      "caption": "4分野均等＋二大政策で準備",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["4分野を均等に仕込む", "III＝流域治水・総合土砂管理", "合意形成まで含めて準備"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 375,
+      "end": 405,
+      "narration": "年度別の出題一覧と全設問の解答の形は、概要欄のリンクから河川・砂防・海岸科目のマガジンでご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄の河川・砂防・海岸マガジンへ",
+      "visual": {
+        "kind": "cover",
+        "heading": "河川・砂防・海岸マガジンで確認する",
+        "items": ["年度別の出題テーマと解答の形（概要欄リンク）"]
+      }
+    }
+  ]
+}

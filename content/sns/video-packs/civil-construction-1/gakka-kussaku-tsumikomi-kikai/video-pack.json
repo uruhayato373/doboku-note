@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-kussaku-tsumikomi-kikai",
+  "exam": "civil-construction-1",
+  "title": "掘削・積込機械の適用整理 — ブルドーザ・ショベル系・ローダ",
+  "audience": "1級土木一次で機械と作業の対応が覚えられない受験者",
+  "pain": "似た機械のどれがどの掘削・積込条件に適するか混ざる",
+  "promise": "作業条件から機械を選ぶ対応表が頭の中に作れる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-tractor-bulldozer/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-shovel-excavator/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-loader/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "gakka-kussaku-tsumikomi-kikai"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

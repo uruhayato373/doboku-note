@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "600を超えるキーワード集を渡されても、どこから手をつければいいか分かりません。今日は、5管理別の優先順位と回し方を説明します。",
+      "caption": "キーワード集は事典として使う",
+      "visual": {
+        "kind": "cover",
+        "heading": "択一はキーワード集をこう使う",
+        "items": ["技術士 総合技術監理部門・択一対策"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 60,
+      "narration": "最初から一語ずつ暗記していく取り組み方は非効率です。キーワード集は事典に近く、使う場面ごとに開き方を変えるべき資料です。1つの読み方に固執すると、範囲の広さに時間を食われます。",
+      "caption": "1つの読み方に固執しない",
+      "visual": {
+        "heading": "誤解：一語ずつ順に暗記する",
+        "items": ["キーワード集は暗記帳でなく事典", "場面ごとに開き方を変える"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/keyword-2026/article.mdx"
+    },
+    {
+      "sceneId": "structure",
+      "start": 60,
+      "end": 130,
+      "narration": "キーワード集は経済性、人的資源、情報、安全、社会環境の5管理で章立てされます。経済性は7サブカテゴリ約130語、人的資源は4サブカテゴリ約130語、情報は5サブカテゴリ約140語、安全は6サブカテゴリ約150語、社会環境は4サブカテゴリ約130語です。",
+      "caption": "5管理・600語超の全体量を数字で知る",
+      "visual": {
+        "heading": "1. まず構造を知る",
+        "items": ["経済性7区分／人的資源4区分／情報5区分", "安全6区分／社会環境4区分", "合わせて600語超"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/keyword-2026/article.mdx"
+    },
+    {
+      "sceneId": "read-through",
+      "start": 130,
+      "end": 185,
+      "narration": "章番号順に一度通読すると、5管理の範囲と相互関係がつかめます。目安は60分から90分。各管理の章末には学習ガイドへの誘導カードがあり、気になった管理はそこから深掘りできます。",
+      "caption": "通読は60〜90分で1周",
+      "visual": {
+        "heading": "2. 通読は60〜90分で1周",
+        "items": ["章番号順に通読し全体像をつかむ", "章末の学習ガイドカードで深掘り"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/keyword-2026/article.mdx"
+    },
+    {
+      "sceneId": "deepdive-links",
+      "start": 185,
+      "end": 235,
+      "narration": "リンクの付いたキーワードは、クリックすると個別の解説ページに飛びます。通読中に意味が曖昧な語で立ち止まらず、先に進んでから後でリンクをたどる、この2段構えが効率的です。",
+      "caption": "深掘りはリンクで2段構え",
+      "visual": {
+        "heading": "3. 個別キーワードはリンクで深掘り",
+        "items": ["通読中は立ち止まらない", "曖昧な語は後でリンクをたどる"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/keyword-2026/article.mdx"
+    },
+    {
+      "sceneId": "search",
+      "start": 235,
+      "end": 285,
+      "narration": "過去問演習や記述の骨子作りで出てきた語がどこに位置づけられているか確認したいときは、ブラウザ内検索が最速です。5管理のどこに属する語かを都度確認する習慣が理解を育てます。",
+      "caption": "検索は虫食いチェックに使う",
+      "visual": {
+        "heading": "4. 検索は虫食いチェックに使う",
+        "items": ["ブラウザ内検索（Ctrl／Cmd+F）で照合", "都度どの管理の語か確認する"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/keyword-2026/article.mdx"
+    },
+    {
+      "sceneId": "priority",
+      "start": 285,
+      "end": 345,
+      "narration": "600語すべてを均等に回す時間はまずありません。過去問18年分、720問の頻出論点ランキングを使い、5管理別に出現頻度の高い論点から優先して深掘りします。頻度の低い語は通読の一巡に留めます。",
+      "caption": "優先順位は頻出論点ランキングで決める",
+      "visual": {
+        "heading": "5. 優先順位は頻出論点ランキング",
+        "items": ["過去問18年分・720問から頻度順に把握", "頻出語に深掘りを絞る"]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/keyword-2026/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 345,
+      "end": 385,
+      "narration": "まとめます。キーワード集は事典です。60から90分で通読して全体構造をつかみ、リンクで深掘り、検索で虫食いを確認し、優先順位は頻出論点ランキングで決める。これが回し方です。",
+      "caption": "通読→深掘り→検索→優先順位",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 60〜90分で通読し全体構造をつかむ", "② リンクで深掘り・検索で虫食い確認", "③ 頻出論点ランキングで優先順位を決める"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 385,
+      "end": 410,
+      "narration": "5管理別の頻出論点ランキングと深掘りの回し方をまとめたマガジンを用意しています。概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+      "caption": "回し方の続きは概要欄から",
+      "visual": {
+        "kind": "cover",
+        "heading": "キーワード集を回し切る",
+        "items": ["択一キーワード攻略マガジン（概要欄リンク）"]
+      }
+    }
+  ]
+}

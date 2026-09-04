@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "技術的課題の欄は、一般論で終わりがちです。今日は現場条件から課題を導く型と、書く範囲の絞り方を説明します。",
+      "caption": "技術的課題を型で書く",
+      "visual": {
+        "kind": "cover",
+        "heading": "技術的課題は「現場条件→原因→課題」で書く",
+        "items": ["1級土木 第2次検定・施工経験記述"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "留意した管理項目名を書けば伝わる、と思われがちですが、技術的課題の前段は現場や施工の状況、原因、工事の規模の3つで構成されます。管理項目名だけでは、この構成が抜け落ちます。",
+      "caption": "管理項目名だけでは構成が抜け落ちる",
+      "visual": {
+        "heading": "誤解：管理項目名を書けば伝わる",
+        "items": ["技術的課題は状況＋原因＋工事規模の3要素", "管理項目名だけでは構成が抜け落ちる"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "block1",
+      "start": 55,
+      "end": 115,
+      "narration": "技術的課題のテーマの前段は、課題が生じる現場や施工の状況、その原因、工事名や施工量から整理した規模の3つで組み立てます。まず工事概要のどの施工部分を書くかを先に決めます。",
+      "caption": "課題は状況・原因・規模の3要素",
+      "visual": {
+        "heading": "STEP 1　技術的課題の3要素",
+        "items": ["課題が生じる現場・施工の状況", "その原因", "工事名・施工量から見た規模"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "block2",
+      "start": 115,
+      "end": 175,
+      "narration": "原因は現場条件、気象条件、作業条件のいずれかで具体化します。現場条件なら地盤や周辺環境、気象条件なら梅雨の時期や冬季の低温、作業条件なら機械の搬入やヤードの広さです。",
+      "caption": "原因は現場・気象・作業条件で具体化",
+      "visual": {
+        "heading": "STEP 2　原因を条件で具体化",
+        "items": ["現場条件：地盤・周辺環境など", "気象条件：梅雨・冬季の低温など", "作業条件：機械搬入・ヤードの広さ"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "block3",
+      "start": 175,
+      "end": 235,
+      "narration": "状況側は、指定された管理テーマに合わせて書き分けます。品質管理なら打設時の品質管理、安全管理なら墜落防止措置、工程管理なら工程の遅延防止、という具合です。",
+      "caption": "状況は管理テーマに合わせて書く",
+      "visual": {
+        "heading": "STEP 3　状況を管理テーマに合わせる",
+        "items": ["品質管理：打設時の品質管理など", "安全管理：墜落防止措置など", "工程管理：工程遅延の防止など"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "block4",
+      "start": 235,
+      "end": 295,
+      "narration": "工程管理か品質管理か判別しにくい書き方は避けます。対処策まで書くと課題の範囲がぼやけるので、ここでは課題の特定までにとどめ、異なるテーマを一緒にしません。",
+      "caption": "対処策は書かず課題を1つに絞る",
+      "visual": {
+        "heading": "STEP 4　課題の範囲を1つに絞る",
+        "items": ["品質か工程かが判別できる記述にする", "対処策はここでは書かない"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 295,
+      "end": 340,
+      "narration": "まとめます。原因を現場・気象・作業条件で具体化し、状況を管理テーマに合わせ、対処策を書かずに範囲を1つに絞る。この3手順です。",
+      "caption": "原因を具体化→状況を書き分け→絞る",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 原因を現場・気象・作業条件で具体化", "② 状況を管理テーマに合わせる", "③ 対処策を書かず範囲を絞る"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 340,
+      "end": 370,
+      "narration": "型どおりに書けているか確認したい方は、概要欄のリンクから経験記述の完成答案集をご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "完成答案で確認する",
+        "items": ["経験記述 完成答案集（概要欄リンク）"]
+      }
+    }
+  ]
+}

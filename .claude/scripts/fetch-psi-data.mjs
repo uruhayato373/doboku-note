@@ -30,6 +30,7 @@ import { google } from "googleapis";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "fs";
 import { join } from "path";
 import dotenv from "dotenv";
+import { runPool } from "../../scripts/lib/worker-pool.mjs";
 
 dotenv.config({ path: ".env.local" });
 
@@ -50,11 +51,17 @@ function parseArgs() {
     strategy: DEFAULT_STRATEGY,
     categories: DEFAULT_CATEGORIES,
     json: false,
+    // 同時計測数。支配項は Lighthouse 実行（1 件 20〜30 秒）なので 4 で 44 件 ≈ 6〜8 分。
+    // 8 以上は `500 Lighthouse returned error` を誘発しやすい（2026-08-18 に全件で観測）ため控えめに。
+    concurrency: Number(process.env.PSI_CONCURRENCY) || 4,
   };
   for (let i = 0; i < args.length; i++) {
     switch (args[i]) {
       case "--url":
         opts.url = args[++i];
+        break;
+      case "--concurrency":
+        opts.concurrency = Math.max(1, parseInt(args[++i], 10) || 1);
         break;
       case "--file":
         opts.file = args[++i];
@@ -134,6 +141,8 @@ async function getTopUrlsFromGsc(auth, top) {
  * 原因を隠したまま時間だけ延びる。リトライで隠していいのは相手側の一過性の失敗だけ。
  */
 const PSI_RETRY = { attempts: 3, baseDelayMs: 2000 };
+/** 1 リクエストの上限。Lighthouse は長くても 60 秒台で返るので、2 分応答が無ければハング扱い。 */
+const PSI_FETCH_TIMEOUT_MS = 120_000;
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
@@ -156,7 +165,9 @@ async function fetchPsi(url, opts) {
   for (let attempt = 1; attempt <= PSI_RETRY.attempts; attempt += 1) {
     let res = null;
     try {
-      res = await fetch(endpoint);
+      // 応答が返らない hung は 5xx と同じ「相手側の一過性」として同じリトライ経路へ乗せる。
+      // これが無いと 1 件のハングだけで job の timeout-minutes を食い潰す（2026-09-01 cancelled）。
+      res = await fetch(endpoint, { signal: AbortSignal.timeout(PSI_FETCH_TIMEOUT_MS) });
     } catch (e) {
       lastError = new Error(`PSI network error: ${String(e.message ?? e).slice(0, 200)}`);
       if (attempt < PSI_RETRY.attempts) {
@@ -268,12 +279,34 @@ function extractSummary(data, url, strategy) {
       FCP: field("FIRST_CONTENTFUL_PAINT_MS"),
       TTFB: field("EXPERIMENTAL_TIME_TO_FIRST_BYTE"),
     },
+    // DN-0158 診断 (1): field が null のとき「URL レベルに無いだけ（origin にはある）」か
+    // 「origin にも無い（CrUX 全体の供給問題）」かを、生応答を保存せずに判定できるよう
+    // 両キーの有無をフラグで残す。psi-threshold-check がレポートに内訳を出す。
+    field_availability: extractFieldAvailability(data),
     // LCP 要素（どの DOM 要素が LCP なのか）。PSI が返す監査をそのまま保持する。
     // これが無いと「LCP が遅い」までしか分からず、原因特定に別途ブラウザ計測が要る
     // （EXP-005 で実際に Playwright での再計測が必要になった。2026-07-27）
     lcp_element: extractLcpElement(audits),
     analysis_utc: lighthouse.fetchTime || null,
     final_url: lighthouse.finalUrl || url,
+  };
+}
+
+/**
+ * loadingExperience（URL レベル CrUX）と originLoadingExperience（origin レベル CrUX）の有無。
+ * PSI は URL レベルのデータが無いとき loadingExperience に origin_fallback:true を立てて
+ * origin の値を入れて返すことがあるので、url_level はそれを除いて数える。
+ */
+export function extractFieldAvailability(data) {
+  const le = data?.loadingExperience;
+  const ole = data?.originLoadingExperience;
+  const hasMetrics = (x) => Boolean(x && x.metrics && Object.keys(x.metrics).length > 0);
+  return {
+    url_level: hasMetrics(le) && !le.origin_fallback,
+    origin_level: hasMetrics(ole),
+    origin_fallback: Boolean(le?.origin_fallback),
+    url_overall_category: le?.overall_category ?? null,
+    origin_overall_category: ole?.overall_category ?? null,
   };
 }
 
@@ -358,20 +391,28 @@ async function main() {
     );
   }
 
-  // 各 URL を順次計測（PSI はレスポンス時間が長い、並列は避ける）
-  const summaries = [];
-  for (const url of urls) {
-    try {
-      console.log(`\n[${summaries.length + 1}/${urls.length}] ${url}`);
-      const data = await fetchPsi(url, opts);
-      const summary = extractSummary(data, url, opts.strategy);
-      summaries.push(summary);
-      if (!opts.json) printSummary(summary);
-    } catch (e) {
-      console.error(`  Error: ${e.message?.slice(0, 200)}`);
-      summaries.push({ url, strategy: opts.strategy, error: e.message?.slice(0, 200) });
+  // 固定並列で計測する（既定 4）。直列だと 44 件で 15〜21 分かかり、job の timeout-minutes 20 に
+  // 当たって cancelled になった（2026-09-01）。結果は runPool が入力順で返すので順序は保たれる。
+  console.log(`同時計測数: ${opts.concurrency}`);
+  let loggedTopLevelKeys = false;
+  const pooled = await runPool(urls, opts.concurrency, async (url, i) => {
+    console.log(`\n[${i + 1}/${urls.length}] ${url}`);
+    const data = await fetchPsi(url, opts);
+    if (!loggedTopLevelKeys) {
+      // DN-0158 診断 (1): 生応答の保存の代わりにトップレベルキーを 1 回だけログに残す
+      loggedTopLevelKeys = true;
+      console.log(`  [psi] 応答トップレベルキー: ${Object.keys(data).join(",")}`);
     }
-  }
+    const summary = extractSummary(data, url, opts.strategy);
+    if (!opts.json) printSummary(summary);
+    return summary;
+  });
+  const summaries = pooled.map((r, i) => {
+    if (r.ok) return r.value;
+    const e = r.error;
+    console.error(`  Error (${urls[i]}): ${e.message?.slice(0, 200)}`);
+    return { url: urls[i], strategy: opts.strategy, error: e.message?.slice(0, 200) };
+  });
 
   const filepath = saveJson(summaries);
   console.log(`\n出力: ${filepath}`);

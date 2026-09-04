@@ -1,0 +1,111 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "二次の学科記述、土工分野は規定の数値がどこで問われるか絞り込めないという声が多い分野です。今日は頻出の数字を整理します。",
+      "caption": "土工の学科記述、数字の型",
+      "visual": {
+        "kind": "cover",
+        "heading": "学科記述 土工の数字の型",
+        "items": ["1級土木 第2次検定・学科記述"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "工法名や現象名を覚えれば足りる、と思われがちですが、記述式では語句と数値が対で問われます。数値を落とすと部分点にしかなりません。",
+      "caption": "語句だけでなく数値までが記述の対象",
+      "visual": {
+        "heading": "誤解：語句だけ覚えれば安全",
+        "items": ["語句と数値は対で問われる", "数値を落とすと部分点どまり"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-earthwork-past-problems/article.mdx"
+    },
+    {
+      "sceneId": "thickness",
+      "start": 55,
+      "end": 115,
+      "narration": "まず盛土の厚さです。路体は締固め後30センチメートル以下、敷均し35から45センチメートル以下。路床は締固め後20センチメートル以下、敷均し25から30センチメートル以下です。",
+      "caption": "路体30cm・路床20cm、対で覚える",
+      "visual": {
+        "heading": "盛土の仕上り厚さと敷均し厚さ",
+        "items": ["路体：仕上り30cm以下／敷均し35〜45cm以下", "路床：仕上り20cm以下／敷均し25〜30cm以下"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-earthwork-basics/article.mdx"
+    },
+    {
+      "sceneId": "gradient",
+      "start": 115,
+      "end": 180,
+      "narration": "次に勾配です。盛土面の横断勾配は4から5パーセント程度。植生工ののり面勾配は1対0.8より緩やか。傾斜地盤の段切りは1対4より急な場合に行います。",
+      "caption": "勾配は数値と条件のペアで覚える",
+      "visual": {
+        "heading": "盛土面・のり面の勾配",
+        "items": ["横断勾配：4〜5%程度", "植生工ののり面：1：0.8より緩やか", "段切り：原地盤が1：4より急な場合"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-earthwork-basics/article.mdx"
+    },
+    {
+      "sceneId": "soft-ground",
+      "start": 180,
+      "end": 245,
+      "narration": "軟弱地盤対策工法は、工法名を単独で覚えるより目的から逆引きします。沈下対策、安定対策、地震時の液状化防止という区分に工法をあてはめます。",
+      "caption": "工法名は目的から逆引きする",
+      "visual": {
+        "heading": "軟弱地盤対策の目的別区分",
+        "items": ["沈下対策：圧密沈下の促進・全沈下量の減少", "安定対策：強度増加の促進・すべり抵抗の増加", "地震時対策：液状化の防止"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-earthwork-basics/article.mdx"
+    },
+    {
+      "sceneId": "failure",
+      "start": 245,
+      "end": 305,
+      "narration": "掘削底面の破壊現象は地盤条件で区別します。ヒービングは軟弱粘性土で底面が盛り上がる現象、ボイリングは砂質地盤で砂が湧き上がる現象です。",
+      "caption": "破壊現象は地盤条件とセットで区別",
+      "visual": {
+        "heading": "掘削底面の破壊現象",
+        "items": ["ヒービング：軟弱粘性土で底面が盛り上がる", "ボイリング：砂質地盤＋地下水で砂が湧く", "盤ぶくれ：被圧地下水で難透水層が浮く"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-earthwork-past-problems/article.mdx"
+    },
+    {
+      "sceneId": "pattern",
+      "start": 305,
+      "end": 350,
+      "narration": "穴埋め問題では、文脈から語句か数値かをまず判断します。幅のある数値は幅で、基準となる単一の数値は正確な値で答えます。",
+      "caption": "文脈で語句か数値かを判断する",
+      "visual": {
+        "heading": "穴埋め問題の解き方の型",
+        "items": ["前後の文脈で語句／数値を判断", "幅がある数値は幅で答える"]
+      }
+    },
+    {
+      "sceneId": "summary",
+      "start": 350,
+      "end": 395,
+      "narration": "まとめます。土工の記述は、語句と数値をペアで、目的や地盤条件から逆引きできる形で覚えることが得点への近道です。",
+      "caption": "語句×数値を目的・地盤条件から逆引き",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 厚さの数値を対で覚える", "② 勾配は条件とペアで覚える", "③ 工法・現象は目的や地盤から逆引き"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 395,
+      "end": 425,
+      "narration": "分野別の頻出規定を穴埋めの形のまま確認したい方は、概要欄のリンクから学科記述パックをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "学科記述パックで確認する",
+        "items": ["二次の学科記述パック（概要欄リンク）"]
+      }
+    }
+  ]
+}

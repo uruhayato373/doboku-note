@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "書き終えて達成感はあっても、それが評価される答案かは自分では判断しにくいものです。今日は評価されない答案に共通する4つのパターンを診断形式で見ていきます。",
+      "caption": "落ちる小論文に共通する4パターン",
+      "visual": {
+        "kind": "cover",
+        "heading": "評価されない答案の診断",
+        "items": ["コンクリート主任技士・小論文対策"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "字数が埋まっていれば合格点、と思われがちですが違います。技術的妥当性・論理構成・具体性・技術理解のどれかが欠ければ、字数を満たしていても評価は伸びません。",
+      "caption": "字数を埋めても評価される保証はない",
+      "visual": {
+        "heading": "誤解：字数さえ埋めれば合格点",
+        "items": ["4観点のどれかが欠ければ評価は伸びない", "落ちる答案には共通のパターンがある"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "ippan",
+      "start": 55,
+      "end": 105,
+      "narration": "パターン1、一般論に終始している答案です。教科書的な記述だけで、自分の現場や判断が出てきません。他の受験者が書いても同じ内容になっていないか、読み返して確認します。",
+      "caption": "パターン1：一般論に終始している",
+      "visual": {
+        "heading": "パターン1　一般論止まり",
+        "items": ["自分の現場・判断が出てこない", "誰が書いても同じ内容にならないか確認"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "chusho",
+      "start": 105,
+      "end": 160,
+      "narration": "パターン2、抽象表現で止まっている答案です。「適切に管理した」で終わり、どう管理したかの中身がありません。用語を並べるだけでなく、現場の判断や対策に結びつけて書きます。",
+      "caption": "パターン2：抽象表現で止まっている",
+      "visual": {
+        "heading": "パターン2　抽象表現止まり",
+        "items": ["「適切に管理した」で中身がない", "用語の羅列でなく判断・対策に結びつける"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "jisu",
+      "start": 160,
+      "end": 215,
+      "narration": "パターン3、字数不足や構成の崩れです。本論を書ききれず尻すぼみになる、序論が長すぎて本論が薄い、といった状態です。本論に字数の大半を割く配分が崩れています。",
+      "caption": "パターン3：字数不足・構成の崩れ",
+      "visual": {
+        "heading": "パターン3　字数不足・構成崩れ",
+        "items": ["本論が尻すぼみになる", "序論が長すぎて本論が薄い"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "tema",
+      "start": 215,
+      "end": 265,
+      "narration": "パターン4、テーマから逸脱している答案です。知っていることを書きたいあまり、設問が問うていない論点に流れます。内容が正しくても、問われていないことは加点されません。",
+      "caption": "パターン4：テーマから逸脱している",
+      "visual": {
+        "heading": "パターン4　テーマからの逸脱",
+        "items": ["問われていない論点に流れる", "正しくても加点されない"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 265,
+      "end": 300,
+      "narration": "まとめます。落ちる答案は一般論止まり、抽象表現止まり、字数不足と構成崩れ、テーマ逸脱の4パターンです。提出前に自分の答案がどれかに当てはまっていないか読み返します。",
+      "caption": "4パターンに当てはまらないか読み返す",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 一般論に終始している", "② 抽象表現で止まっている", "③ 字数不足・構成崩れ", "④ テーマから逸脱している"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 300,
+      "end": 330,
+      "narration": "自分の答案がどのパターンに近いか具体的に見極めたい方は、概要欄のリンクから小論文対策マガジンをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "自分の答案を具体的に診断する",
+        "items": ["小論文対策マガジン（概要欄リンク）"]
+      }
+    }
+  ]
+}

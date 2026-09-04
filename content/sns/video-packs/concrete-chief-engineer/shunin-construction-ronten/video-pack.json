@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "shunin-construction-ronten",
+  "exam": "concrete-chief-engineer",
+  "title": "主任技士「施工」の頻出論点",
+  "audience": "コンクリート主任技士の択一で施工分野を固めたい受験者",
+  "pain": "ポンプ圧送から養生まで工程が広く数値規定の暗記が追いつかない",
+  "promise": "工程順に頻出規定を整理し施工分野の出題パターンに対応できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/textbook-construction/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/primary-construction/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "cce-r8-mc-50",
+    "campaign": "shunin-construction-ronten"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

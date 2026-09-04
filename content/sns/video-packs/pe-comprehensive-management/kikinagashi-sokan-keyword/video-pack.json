@@ -1,0 +1,77 @@
+{
+  "schemaVersion": 1,
+  "packId": "kikinagashi-sokan-keyword",
+  "exam": "pe-comprehensive-management",
+  "title": "耳で覚える総監キーワード — 5管理の核を反復する",
+  "audience": "スキマ時間で総監択一の用語を固めたい受験者",
+  "pain": "5管理のキーワードが多すぎて机の学習だけでは反復が足りない",
+  "promise": "5管理の核となる用語を聞き流しの反復で定着できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/economic-management-pillar/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/human-resource-management-pillar/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/information-management-pillar/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/safety-management-pillar/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/social-environment-management-pillar/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/keyword-2026/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/bathtub-curve/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/mcgregor-xy-theory/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/patent-rights/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/copyright/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/carbon-neutral/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/process-capability-index/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-comprehensive-management/business-continuity-plan/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "tankan-takuitsu-reiwa-pdf",
+    "campaign": "kikinagashi-sokan-keyword"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

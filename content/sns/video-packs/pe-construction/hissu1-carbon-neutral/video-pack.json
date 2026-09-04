@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "hissu1-carbon-neutral",
+  "exam": "pe-construction",
+  "title": "カーボンニュートラルとGX — 脱炭素テーマの論点整理",
+  "audience": "必須Ⅰで脱炭素テーマに備える建設部門受験者",
+  "pain": "脱炭素は総論しか書けず建設分野の具体策が出てこない",
+  "promise": "建設分野の脱炭素施策と必須Ⅰでの問われ方が整理できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/carbon-neutral-kensetsu/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/datsutanso-kankyo-ronbun-keyword/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-required-magazine",
+    "campaign": "hissu1-carbon-neutral"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

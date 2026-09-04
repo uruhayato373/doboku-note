@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "packId": "keiken-ai-sekkei",
+  "exam": "civil-construction-1",
+  "title": "AIに経験記述を丸投げすると落ちる理由と正しい使い方",
+  "audience": "AIで経験記述を作ろうとしている1級土木受検者",
+  "pain": "AIに書かせた答案がそのまま使えるのか判断できない",
+  "promise": "AIを設計に使い事実は自分で埋める安全な分担が分かる",
+  "intent": "howto",
+  "sourceRefs": [
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/経験記述-AI設計-無料/article.md",
+      "access": "free"
+    }
+  ],
+  "primaryCta": {
+    "kind": "brain-product",
+    "targetId": "brain-civil-essay-kit",
+    "campaign": "keiken-ai-sekkei"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "sentaku-river-coast-yomikata",
+  "exam": "pe-construction",
+  "title": "選択科目「河川・砂防・海岸」の出題テーマの読み方",
+  "audience": "技術士建設部門二次で河川・砂防・海岸を選択する受験者",
+  "pain": "河川・砂防・海岸の出題テーマが毎年変わるように見えて対策の軸が決まらない",
+  "promise": "7年分の出題から頻出軸を押さえ優先して仕込むテーマが決められる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/river-coast-exam-themes/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/river-coast-ronbun-keyword/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-river-coast-magazine",
+    "campaign": "sentaku-river-coast-yomikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

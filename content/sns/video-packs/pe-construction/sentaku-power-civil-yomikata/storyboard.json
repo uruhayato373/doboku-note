@@ -1,0 +1,123 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "電力土木は原子力から水力、再生可能エネルギーまで範囲が広く、どこに比重を置くか迷う科目です。電力土木ならではの出題の柱を、発注も受注も知る土木技術者の目線で腑分けしていきます。",
+      "caption": "電力土木 出題テーマの読み方",
+      "visual": {
+        "kind": "cover",
+        "heading": "選択科目「電力土木」の出題テーマの読み方",
+        "items": [
+          "技術士 建設部門・第二次試験"
+        ]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "原子力さえ押さえれば安心、という誤解があります。実際は原子力の耐震・津波と、供用期間が長い施設の維持管理・劣化が、二つの独立した柱として繰り返し出題されています。",
+      "caption": "原子力と維持管理・劣化の二本柱構造",
+      "visual": {
+        "heading": "誤解：原子力さえ押さえれば安心",
+        "items": [
+          "原子力（耐震・津波）と維持管理は別の柱",
+          "二本柱がそれぞれ繰り返し出題"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/power-civil-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "nuclear",
+      "start": 55,
+      "end": 120,
+      "narration": "原子力は、福島第一原発事故以降の重点テーマです。基準津波の策定方法、津波防潮堤の設計、原子炉施設の耐震設計と重要度分類。能登半島地震を踏まえた設問も加わり、耐震・津波の系統だけで5年分の出題があります。",
+      "caption": "原子力は基準津波・耐震設計が中心",
+      "visual": {
+        "heading": "原子力：耐震・津波",
+        "items": [
+          "基準津波の策定・津波防潮堤",
+          "原子炉施設の耐震設計・重要度分類"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/power-civil-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "maintenance",
+      "start": 120,
+      "end": 180,
+      "narration": "維持管理・劣化は、II-1・II-2・IIIのすべての設問種別にまたがって出ます。塩化物イオンの影響を受ける鉄筋コンクリート、マスコンクリートの温度ひび割れ、腐食対策。半世紀を超えて供用する施設という前提が、この分野全体を貫いています。",
+      "caption": "維持管理・劣化は全設問種別に横断",
+      "visual": {
+        "heading": "維持管理・劣化",
+        "items": [
+          "塩化物イオン・マスコンクリート",
+          "腐食対策・半世紀超の供用施設"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/power-civil-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "hydro",
+      "start": 180,
+      "end": 240,
+      "narration": "水力・ダムと再生可能エネルギーも、もう1つの柱です。既設ダムの有効活用、いわゆるダム再生や、洋上風力の基礎構造、2050カーボンニュートラルに向けた取り組みが循環して出題されます。事前放流のような運用の考え方も押さえます。",
+      "caption": "水力・再エネはダム再生と洋上風力",
+      "visual": {
+        "heading": "水力・再エネ",
+        "items": [
+          "既設ダムの有効活用（ダム再生）",
+          "洋上風力の基礎構造・事前放流"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/power-civil-ronbun-keyword/article.mdx"
+    },
+    {
+      "sceneId": "demand",
+      "start": 240,
+      "end": 295,
+      "narration": "選択科目IIIでは、データセンターや半導体工場の新増設による電力需要増という、比較的新しいテーマが登場しています。あわせて、熟練技術者の退職に伴う技術継承や、電力システム改革も繰り返し問われます。",
+      "caption": "IIIは電力需要増と技術継承が新潮流",
+      "visual": {
+        "heading": "IIIの新潮流：電力需要・技術継承",
+        "items": [
+          "データセンター・半導体の電力需要増",
+          "熟練技術者の技術継承"
+        ]
+      },
+      "sourceRef": "content/site/pe-construction/power-civil-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 295,
+      "end": 340,
+      "narration": "電力土木は、原子力の耐震・津波と、維持管理・劣化という二本柱に、水力・再エネと、電力需要・技術継承というIIIのテーマが乗る構造です。長期供用という視点で全体をつなげて準備します。",
+      "caption": "二本柱＋水力再エネ＋電力需要の3層",
+      "visual": {
+        "heading": "まとめ",
+        "items": [
+          "① 原子力（耐震・津波）",
+          "② 維持管理・劣化",
+          "③ 水力・再エネ→④ 電力需要・技術継承"
+        ]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 340,
+      "end": 373,
+      "narration": "7年分の出題テーマを年度別に整理した一覧と、本文の書き方まで含めた対策は、概要欄の電力土木マガジンでご確認ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄の電力土木マガジンへ",
+      "visual": {
+        "kind": "cover",
+        "heading": "続きは電力土木マガジンで",
+        "items": [
+          "7年分の出題テーマ＋本文の書き方（概要欄リンク）"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-2kyu-sekokeikaku",
+  "exam": "civil-construction-2",
+  "title": "2級土木 施工管理法の頻出点 — 計画・工程・安全・品質",
+  "audience": "2級土木一次で配点の大きい施工管理法を固めたい受検者",
+  "pain": "施工管理法は範囲が広く分野ごとの頻出点が見えていない",
+  "promise": "施工計画を軸に4分野へつながる骨組みから学習を始められる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-takuitsu-pdf",
+    "campaign": "gakka-2kyu-sekokeikaku"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

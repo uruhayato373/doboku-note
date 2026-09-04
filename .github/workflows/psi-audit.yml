@@ -17,7 +17,10 @@ permissions:
 jobs:
   audit:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    # 20 だった 2026-09-01 に「Run PSI audit」が 20 分で cancelled。44 計測を直列で回すと 15〜21 分
+    # （リトライが積むと超える）で、上限が直列実測の下限に等しかった。fetch-psi-data を 4 並列にして
+    # 見込み 6〜8 分にしたうえで、並列が効かず直列に退化しても収まる 40 に置く。
+    timeout-minutes: 40
     steps:
       - name: Checkout develop
         # schedule はデフォルトブランチ（main）を checkout するため、ref を明示しないと

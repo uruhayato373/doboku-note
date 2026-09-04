@@ -1,0 +1,98 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "都市計画の出題テーマは毎年違って見えますが、7年分並べると固定パターンが見えます。今日は優先して仕込むテーマの決め方を説明します。",
+      "caption": "都市計画 出題テーマの読み方",
+      "visual": {
+        "kind": "cover",
+        "heading": "都市計画 出題テーマの読み方",
+        "items": ["技術士 建設部門 選択科目「都市及び地方計画」"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 65,
+      "narration": "範囲が広くて的が絞れないと思われがちですが、公園緑地は7年連続の鉄板枠、立地適正化計画は全設問種別にまたがる背骨です。",
+      "caption": "公園緑地＝鉄板／立地適正化計画＝背骨",
+      "visual": {
+        "heading": "誤解：範囲が広くて的が絞れない",
+        "items": ["公園緑地（II-1-4）は7年連続", "立地適正化計画は全種別にまたがる"]
+      },
+      "sourceRef": "content/site/pe-construction/urban-planning-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "block1",
+      "start": 65,
+      "end": 125,
+      "narration": "合格した実感として、毎年新しいテーマが出る科目ではありません。公園緑地を確実に押さえ、立地適正化計画を軸に他のテーマを関連づける組み立てが効率的です。",
+      "caption": "癖：鉄板枠＋背骨で組み立てる",
+      "visual": {
+        "heading": "都市計画の癖",
+        "items": ["公園緑地を確実に押さえる", "立地適正化計画を軸に他テーマを関連づけ"]
+      }
+    },
+    {
+      "sceneId": "block2",
+      "start": 125,
+      "end": 190,
+      "narration": "公園緑地は公園機能から緑地保全制度、Park-PFIのような公民連携制度へと切り口が変化しています。法制度の名前と対象を正確に押さえることが得点力に直結します。",
+      "caption": "公園緑地：制度名の理解が要",
+      "visual": {
+        "heading": "公園緑地（II-1-4・7年連続）",
+        "items": ["公園機能→緑地保全制度→公民連携", "バリアフリー法・特別緑地保全地区等"]
+      },
+      "sourceRef": "content/site/pe-construction/urban-planning-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "block3",
+      "start": 190,
+      "end": 260,
+      "narration": "立地適正化計画は誘導区域の見直しや防災指針の追加という形で、II-1・II-2・IIIのすべてに登場します。誘導であって強制ではない点が論点になりやすい部分です。",
+      "caption": "立地適正化計画：全種別にまたがる背骨",
+      "visual": {
+        "heading": "立地適正化計画",
+        "items": ["誘導区域の見直し・防災指針が頻出", "誘導であり強制でない点が論点"]
+      },
+      "sourceRef": "content/site/pe-construction/urban-planning-ronbun-keyword/article.mdx"
+    },
+    {
+      "sceneId": "block4",
+      "start": 260,
+      "end": 325,
+      "narration": "密集市街地の防災、公民連携、都市のスポンジ化はいずれも人口減少・高齢化が共通背景です。個別暗記より共通背景から演繹すると整理しやすくなります。",
+      "caption": "防災・公民連携・スポンジ化の共通背景",
+      "visual": {
+        "heading": "防災・公民連携・低未利用地",
+        "items": ["共通背景は人口減少・高齢化", "個別暗記より演繹で整理する"]
+      }
+    },
+    {
+      "sceneId": "summary",
+      "start": 325,
+      "end": 370,
+      "narration": "都市計画は公園緑地という鉄板枠と、立地適正化計画という背骨で組み立てる科目です。他のテーマは人口減少という共通背景から演繹します。",
+      "caption": "鉄板枠＋背骨＋共通背景で整理",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["公園緑地＝鉄板枠", "立地適正化計画＝背骨", "他テーマは人口減少から演繹"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 370,
+      "end": 400,
+      "narration": "年度別の出題一覧と全設問の解答の形は、概要欄のリンクから都市計画科目のマガジンでご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄の都市計画マガジンへ",
+      "visual": {
+        "kind": "cover",
+        "heading": "都市計画マガジンで確認する",
+        "items": ["年度別の出題テーマと解答の形（概要欄リンク）"]
+      }
+    }
+  ]
+}

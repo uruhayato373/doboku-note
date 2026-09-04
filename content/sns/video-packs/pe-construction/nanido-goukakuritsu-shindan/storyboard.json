@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "合格率の低さだけを見て、自分に受かるのか判断できません。今日は、合格率の内訳から自分の現在地を診断します。",
+      "caption": "合格率1桁台をどう読むか",
+      "visual": {
+        "kind": "cover",
+        "heading": "建設部門二次の難易度を診断する",
+        "items": ["技術士 建設部門・第二次試験"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "合格率が低い試験だから知識量で決まる、と思われがちです。実際に問われるのは、答案でコンピテンシーを示せるかどうかです。",
+      "caption": "問われるのは知識量でなく答案設計",
+      "visual": {
+        "heading": "誤解：低い合格率＝知識量勝負",
+        "items": ["知識量ではなく答案の論述設計が評価される", "同じ知識でも設計が弱いと点にならない"]
+      },
+      "sourceRef": "content/site/pe-construction/nanido-goukakuritsu/article.mdx"
+    },
+    {
+      "sceneId": "twostage",
+      "start": 55,
+      "end": 120,
+      "narration": "最大の関門は筆記試験です。直近の合格率は1桁台から10%前後で推移し、ここで受験者の1〜2割程度まで絞られます。口頭は筆記より合格率が高いとされます。",
+      "caption": "合格率は筆記と口頭の二段階で読む",
+      "visual": {
+        "heading": "合格率の二段階構造",
+        "items": ["筆記：最大の関門、1桁台〜10%前後で推移", "口頭：筆記合格者のみ、合格率は筆記より高め", "最終合格率＝二段階の掛け算"]
+      },
+      "sourceRef": "content/site/pe-construction/nanido-goukakuritsu/article.mdx"
+    },
+    {
+      "sceneId": "competency",
+      "start": 120,
+      "end": 180,
+      "narration": "必須科目Iは、課題抽出から解決策、リスク、倫理までを一貫した論理で組み立てます。技術面だけでなく住民対応や総合調整まで視点を広げるほど説得力が増します。",
+      "caption": "難しさの正体はコンピテンシー",
+      "visual": {
+        "heading": "難しさの正体",
+        "items": ["課題抽出→解決策→リスク→倫理の一貫した論理", "多面性＝住民対応・法令遵守・総合調整の視点"]
+      },
+      "sourceRef": "content/site/pe-construction/nanido-goukakuritsu/article.mdx"
+    },
+    {
+      "sceneId": "selfcheck",
+      "start": 180,
+      "end": 250,
+      "narration": "自己診断です。テーマを重点施策に結び付けて整理しているか、論述の流れを白紙から再現できるか、経歴を具体例に変換できるか。この3つを確認してください。",
+      "caption": "自己診断：合格者に共通する3項目",
+      "visual": {
+        "heading": "自己診断チェック",
+        "items": ["① テーマを重点施策・白書と結び付けているか", "② 課題抽出→解決策→リスク→倫理を白紙で書けるか", "③ 経歴を答案の具体例に変換できるか"]
+      },
+      "sourceRef": "content/site/pe-construction/nanido-goukakuritsu/article.mdx"
+    },
+    {
+      "sceneId": "eligibility",
+      "start": 250,
+      "end": 315,
+      "narration": "難易度の前に受験資格です。一定年数の実務経験が要り、試験は年1回のみ。筆記は例年7月、口頭は年末から翌年にかけて行われます。",
+      "caption": "受験資格とタイミングを確認する",
+      "visual": {
+        "heading": "受験資格とスケジュール感",
+        "items": ["一定年数の実務経験が必要（要件は経歴で変わる）", "年1回のみ実施：筆記は例年7月・口頭は年末〜翌年"]
+      },
+      "sourceRef": "content/site/pe-construction/nanido-goukakuritsu/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 315,
+      "end": 360,
+      "narration": "まとめます。合格率は筆記と口頭の二段階で読み、正体はコンピテンシー。自己診断3項目で伸びしろを確認し、受験資格とタイミングを見通します。",
+      "caption": "二段階・コンピテンシー・自己診断",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 合格率は筆記×口頭の二段階で読む", "② 難しさの正体は答案でのコンピテンシー", "③ 自己診断3項目で伸びしろを確認する", "④ 受験資格とタイミングを見通す"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 360,
+      "end": 385,
+      "narration": "合格率の年度別データや対策の入口記事は、概要欄のリンクからまとめて確認できます。ご視聴ありがとうございました。",
+      "caption": "詳しいデータは概要欄から",
+      "visual": {
+        "kind": "cover",
+        "heading": "現在地を確認する",
+        "items": ["合格率データ・対策記事（概要欄リンク）"]
+      }
+    }
+  ]
+}

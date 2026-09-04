@@ -98,7 +98,9 @@ function main() {
       : null;
   }
 
-  const gscFile = latest('.claude/state/metrics/gsc', 'gsc-query-');
+  // gsc-query-*（query 次元）は匿名化クエリが落ちるため合計が過小になる（2026-08 実測: 28 日で 7 クリック）。
+  // 日次合計（gsc-date-*・次元 date）は落ちないので、こちらを合計する。窓は 8 日なので sources に残す。
+  const gscFile = latest('.claude/state/metrics/gsc', 'gsc-date-') ?? latest('.claude/state/metrics/gsc', 'gsc-query-');
   let gscClicks = null;
   let gscImpr = null;
   let gscWindow = null;

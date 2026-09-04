@@ -1,0 +1,141 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "白書は数十冊あり、どれをどこまで読めばいいのか分からず手が止まります。今日は、キーワード集との役割の違いと、5管理ごとの絞り方を説明します。",
+      "caption": "27白書、どれを読むか迷わない",
+      "visual": {
+        "kind": "cover",
+        "heading": "白書はどれを読む？5管理×27白書の使い分け",
+        "items": [
+          "技術士 総合技術監理部門・白書対策"
+        ]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "白書は全冊を通読しなければならない、という思い込みがあります。実際には全冊通読は非現実的で、必要なのは自分の管理に近い白書だけを絞って深く読むことです。",
+      "caption": "全冊通読は非現実的",
+      "visual": {
+        "heading": "誤解：白書は全冊通読が必要",
+        "items": [
+          "27冊の全文通読は非現実的",
+          "必要なのは管理ごとの絞り込み"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "role-diff",
+      "start": 55,
+      "end": 120,
+      "narration": "キーワード集は出題範囲の骨格を示す用語の定義リストにすぎません。最新の政策動向や統計数値、特集テーマの肉付けを担うのが白書です。択一では白書の数字がそのまま選択肢に現れます。",
+      "caption": "白書はキーワード集の肉付け役",
+      "visual": {
+        "heading": "1. キーワード集と白書は役割が違う",
+        "items": [
+          "キーワード集＝骨格の用語定義",
+          "白書＝最新動向・数値・特集の肉付け"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "summary-tokushu",
+      "start": 120,
+      "end": 175,
+      "narration": "27冊を全文通読する必要はありません。各白書の概要版は10から30ページ程度で、まずそこで論点を把握します。本文は関心を持ったテーマと「特集」「第1部」だけで十分です。",
+      "caption": "読むのは概要版と特集だけ",
+      "visual": {
+        "heading": "2. 概要版と特集に絞って読む",
+        "items": [
+          "概要版（10〜30ページ）で論点把握",
+          "本文は特集・第1部のみ深掘り"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "keyword-crossref",
+      "start": 175,
+      "end": 235,
+      "narration": "白書はキーワード集と紐づけて読むと効率が上がります。BCP（ビーシーピー）なら防災白書、カーボンニュートラルなら環境白書とエネルギー白書というように、覚えた語から該当の章を逆引きします。直近2〜3年分に絞ればさらに軽くなります。",
+      "caption": "キーワードから逆引きする",
+      "visual": {
+        "heading": "3. キーワードから逆引きする",
+        "items": [
+          "BCP→防災白書、カーボンニュートラル→環境・エネルギー白書",
+          "直近2〜3年分に絞る"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "core-whitepapers",
+      "start": 235,
+      "end": 300,
+      "narration": "5管理には核となる白書があります。経済性は経済財政白書と中小企業白書、人的資源は厚生労働白書と労働経済の分析、情報は情報通信白書と情報セキュリティ白書、安全は防災白書と労働災害発生状況、社会環境は環境白書の合冊とエネルギー白書、国土交通白書です。",
+      "caption": "5管理ごとに核となる白書がある",
+      "visual": {
+        "heading": "4. 5管理ごとの核となる白書",
+        "items": [
+          "経済性：経済財政白書ほか",
+          "人的資源：厚生労働白書ほか",
+          "情報：情報通信白書",
+          "安全：防災白書ほか",
+          "社会環境：環境白書"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "shakai-kankyo",
+      "start": 300,
+      "end": 345,
+      "narration": "社会環境管理は対応する白書の数が5管理で最多で、複数の省庁にまたがります。すべて均等に扱おうとせず、自分の業務や興味に近いテーマから優先順位をつけて読み分けます。",
+      "caption": "社会環境管理は計画的に読み分ける",
+      "visual": {
+        "heading": "5. 社会環境管理は読み分けが要る",
+        "items": [
+          "対応白書数が5管理中で最多",
+          "業務や興味に近いテーマから優先"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/whitepaper-study-map/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 345,
+      "end": 385,
+      "narration": "まとめます。キーワード集は骨格、白書は肉付けです。概要版と特集に絞り、キーワードから逆引きし、5管理ごとの核となる白書から押さえる。これが27冊を使い切る方法です。",
+      "caption": "骨格→肉付け→逆引き→核から押さえる",
+      "visual": {
+        "heading": "まとめ",
+        "items": [
+          "① 概要版と特集に絞って読む",
+          "② キーワードから逆引きする",
+          "③ 5管理ごとの核から押さえる"
+        ]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 385,
+      "end": 410,
+      "narration": "5管理ごとの白書の読みどころと、キーワード集との組み合わせ方をまとめたマガジンを用意しています。概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のマガジンから",
+      "visual": {
+        "kind": "cover",
+        "heading": "白書を使い切る",
+        "items": [
+          "白書×キーワード集 攻略マガジン（概要欄リンク）"
+        ]
+      }
+    }
+  ]
+}

@@ -30,6 +30,7 @@ const EXAM_LABEL = {
   'pe-construction': '技術士 建設部門',
   'pe-first-stage': '技術士 第一次試験',
   'concrete-chief-engineer': 'コンクリート主任技士',
+  'concrete-engineer': 'コンクリート技士',
   'concrete-diagnostician': 'コンクリート診断士',
 };
 

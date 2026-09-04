@@ -1,0 +1,255 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 25,
+      "narration": "1級土木の安全管理は、数値を覚えているかで得点が決まります。今日は足場・掘削・クレーン・作業環境の頻出数値を耳から総復習します。",
+      "caption": "耳で覚える安全管理の数字",
+      "visual": {
+        "kind": "cover",
+        "heading": "耳で覚える安全管理の数字",
+        "items": ["足場・掘削・クレーン・作業環境の頻出数値"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 25,
+      "end": 70,
+      "narration": "始める前に一つ確認します。この動画は、机での学習を終えた人の総復習用です。初めて出会う用語は、先にテキストで一度読んでから聞くと定着します。",
+      "caption": "机の学習を終えた人の総復習用です",
+      "visual": {
+        "heading": "聞き流しの前提",
+        "items": ["机での学習を終えた人向けの総復習", "初出の用語はテキストで一度読んでから"]
+      }
+    },
+    {
+      "sceneId": "scaffold-platform",
+      "start": 70,
+      "end": 115,
+      "narration": "最初のテーマは足場です。作業床の幅は40センチメートル以上、床材のすき間は3センチメートル以下。この組み合わせが安全管理で最も問われます。",
+      "caption": "作業床は幅40cm以上・すき間3cm以下",
+      "visual": {
+        "heading": "足場・作業床の基準",
+        "items": ["幅40cm以上・すき間3cm以下", "つり足場はすき間なしが基準"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx"
+    },
+    {
+      "sceneId": "scaffold-rail",
+      "start": 115,
+      "end": 155,
+      "narration": "あわせて覚えたいのが端部の対策です。手すりは高さ85センチメートル以上、中桟は35から50センチメートル、幅木は10センチメートル以上です。",
+      "caption": "手すり85cm・中桟35〜50cm・幅木10cm",
+      "visual": {
+        "heading": "作業床の端部対策",
+        "items": ["手すり85cm以上", "中桟35〜50cm・幅木10cm以上"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx"
+    },
+    {
+      "sceneId": "walkway",
+      "start": 155,
+      "end": 200,
+      "narration": "次のテーマは通路まわりです。架設通路の勾配は30度以下、15度を超えると踏さんが必要です。はしご道は上端60センチメートル以上突出、幅30センチメートル以上です。",
+      "caption": "通路勾配30度・はしご道は60cm突出",
+      "visual": {
+        "heading": "架設通路とはしご道",
+        "items": ["勾配30度以下・15度超で踏さん", "はしご道は上端60cm突出・幅30cm以上"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx"
+    },
+    {
+      "sceneId": "scaffold-notify",
+      "start": 200,
+      "end": 245,
+      "narration": "ここで押さえたいのが届出と選任の境目です。高さ10メートル以上かつ60日以上の足場は30日前に届出。組立て等作業主任者は高さ5メートル以上で選任します。",
+      "caption": "届出＝10m・60日以上／主任者＝5m以上",
+      "visual": {
+        "heading": "足場の届出と作業主任者",
+        "items": ["高さ10m以上・60日以上→30日前届出", "組立て等作業主任者は高さ5m以上"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx"
+    },
+    {
+      "sceneId": "tanjou-scaffold",
+      "start": 245,
+      "end": 290,
+      "narration": "細かい数字が続くのが単管足場です。建地の間隔はけた行1.85メートル以下、はり間1.5メートル以下。最高部から31メートルを超える建地は2本組にします。",
+      "caption": "建地は1.85m×1.5m・31m超で2本組",
+      "visual": {
+        "heading": "単管足場の建地",
+        "items": ["けた行1.85m以下・はり間1.5m以下", "31mを超える部分は建地を2本組に"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx"
+    },
+    {
+      "sceneId": "gouka-badweather",
+      "start": 290,
+      "end": 330,
+      "narration": "視点を変えて、作業構台と悪天候の基準です。作業構台は高さ2メートル以上が対象。作業中止の目安は、風速毎秒10メートル、降雨50ミリ、降雪25センチ、中震以上です。",
+      "caption": "悪天候中止は風10m・雨50mm・雪25cm",
+      "visual": {
+        "heading": "作業構台と悪天候の基準",
+        "items": ["作業構台は高さ2m以上が対象", "強風10m/s・大雨50mm・大雪25cm・中震以上"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx"
+    },
+    {
+      "sceneId": "dig-supervisor",
+      "start": 330,
+      "end": 375,
+      "narration": "分野を移して、明り掘削です。掘削面の高さが2メートル以上で、地山の掘削作業主任者を選任します。点検は作業開始前、大雨後、中震後、発破後の4つの契機です。",
+      "caption": "掘削面2m以上で作業主任者を選任",
+      "visual": {
+        "heading": "明り掘削の作業主任者と点検",
+        "items": ["掘削面2m以上→地山の掘削作業主任者", "点検は開始前・大雨後・中震後・発破後"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx"
+    },
+    {
+      "sceneId": "dig-slope",
+      "start": 375,
+      "end": 420,
+      "narration": "ここは頻出の勾配の数字です。岩盤は高さ5メートル未満で90度、5メートル以上で75度以下。その他の地山は2から5メートルで75度以下。砂は35度以下です。",
+      "caption": "岩盤75度・その他2〜5mで75度・砂35度",
+      "visual": {
+        "heading": "手掘りの掘削面勾配",
+        "items": ["岩盤：5m未満90°・5m以上75°以下", "その他の地山2〜5m：75°以下／砂：35°以下"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx"
+    },
+    {
+      "sceneId": "earth-retaining",
+      "start": 420,
+      "end": 465,
+      "narration": "続けて土止め支保工です。組立て前には組立図を作成します。切りばりや腹起しの取付け取外しで作業主任者を選任し、点検は7日を超えない期間ごとです。",
+      "caption": "点検は7日を超えない期間ごと",
+      "visual": {
+        "heading": "土止め支保工の組立図と点検",
+        "items": ["組立て前に組立図を作成", "切りばり・腹起しの作業で主任者を選任", "点検は7日を超えない期間ごと"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx"
+    },
+    {
+      "sceneId": "formwork-support",
+      "start": 465,
+      "end": 505,
+      "narration": "もう一段深く、型枠支保工です。支柱の高さが3.5メートル以上になると、30日前までに届出が必要です。組立て等作業主任者もあわせて選任します。",
+      "caption": "支柱3.5m以上は30日前に届出",
+      "visual": {
+        "heading": "型枠支保工の届出と作業主任者",
+        "items": ["支柱高さ3.5m以上→30日前届出", "組立て等作業主任者を選任"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-excavation-shoring/article.mdx"
+    },
+    {
+      "sceneId": "crane-rating",
+      "start": 505,
+      "end": 545,
+      "narration": "ここからはクレーンです。定格総荷重はつり具の質量を含めた最大の荷重、定格荷重はそこからつり具の質量を引いた荷重。この入れ替えが引っかけの定番です。",
+      "caption": "定格総荷重＝つり具込み、定格荷重＝除いた値",
+      "visual": {
+        "heading": "定格総荷重と定格荷重",
+        "items": ["定格総荷重：つり具の質量を含む最大値", "定格荷重：つり具の質量を引いた値"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-crane/article.mdx"
+    },
+    {
+      "sceneId": "crane-speed-law",
+      "start": 545,
+      "end": 590,
+      "narration": "加えて、法令にかかわる数字も押さえます。ラフテレーンクレーンの最高速度は毎時50キロメートル未満。平成31年3月以降製造のつり上げ荷重3トン未満の移動式クレーンには過負荷防止措置が義務です。",
+      "caption": "ラフテレーン50km/h未満・3t未満は過負荷防止義務",
+      "visual": {
+        "heading": "クレーンの速度制限と法改正",
+        "items": ["ラフテレーンクレーンは50km/h未満", "2019年3月〜つり上げ3t未満に過負荷防止措置"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-crane/article.mdx"
+    },
+    {
+      "sceneId": "aerial-platform",
+      "start": 590,
+      "end": 625,
+      "narration": "同じクレーンの仲間で、高所作業車です。走行装置はトラック式・ホイール式・クローラ式の3種類。作業装置は伸縮ブーム型など4種類に分類されます。",
+      "caption": "高所作業車は走行3種・作業装置4種",
+      "visual": {
+        "heading": "高所作業車の2軸分類",
+        "items": ["走行装置：トラック式・ホイール式・クローラ式", "作業装置：伸縮・屈折・混合ブーム・垂直昇降型"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-crane/article.mdx"
+    },
+    {
+      "sceneId": "drop-object",
+      "start": 625,
+      "end": 665,
+      "narration": "ここで話題を作業環境に移します。高さ3メートル以上から物を投下するときは、投下設備と監視人が必要です。措置がなければ投下はできません。",
+      "caption": "3m以上の投下は投下設備と監視人が必要",
+      "visual": {
+        "heading": "物体の投下設備",
+        "items": ["高さ3m以上→投下設備を設置", "あわせて監視人を配置"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-work-environment/article.mdx"
+    },
+    {
+      "sceneId": "oxygen-deficiency",
+      "start": 665,
+      "end": 710,
+      "narration": "続いて命にかかわる基準、酸素欠乏です。酸素18パーセント未満、または硫化水素10ピーピーエムを超える状態を指します。作業開始前に必ず濃度を測定します。",
+      "caption": "酸素18%未満・硫化水素10ppm超が境界",
+      "visual": {
+        "heading": "酸素欠乏の基準",
+        "items": ["酸素18%未満または硫化水素10ppm超", "作業開始前に濃度を測定・換気で維持"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-work-environment/article.mdx"
+    },
+    {
+      "sceneId": "tunnel",
+      "start": 710,
+      "end": 755,
+      "narration": "ここからはトンネル、ずい道の数字です。坑内は炭酸ガス濃度1.5パーセント以下、気温37度以下に保ちます。出入口から1,000メートル以上や深さ50メートル以上の立坑では、避難救護の体制が必要です。",
+      "caption": "坑内は炭酸ガス1.5%以下・気温37℃以下",
+      "visual": {
+        "heading": "山岳トンネルの環境基準",
+        "items": ["炭酸ガス1.5%以下・気温37℃以下", "1,000m以上・深さ50m以上で避難救護体制"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-work-environment/article.mdx"
+    },
+    {
+      "sceneId": "pneumatic-work",
+      "start": 755,
+      "end": 790,
+      "narration": "仕上げに近い項目、圧気工事です。高圧室内作業では作業室ごとに高圧室内作業主任者を選任します。従事する労働者には6か月以内ごとに健康診断を行います。",
+      "caption": "圧気工事は作業室ごとに主任者・6か月健診",
+      "visual": {
+        "heading": "圧気工事（高圧室内作業）",
+        "items": ["作業室ごとに高圧室内作業主任者を選任", "常時従事者は6か月以内ごとに健康診断"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-safety-work-environment/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 790,
+      "end": 835,
+      "narration": "まとめます。足場は40・3・85、掘削は2メートル・7日、クレーンは総荷重と定格荷重の違い、作業環境は3メートル・18パーセント・10ppm。数字は必ず対象とセットで覚えましょう。",
+      "caption": "数字は対象とセットで覚える",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["足場：40cm・3cm・85cm", "掘削：2m・7日ごと", "作業環境：3m・18%・10ppm"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 835,
+      "end": 865,
+      "narration": "総復習した数値を一つずつ確認したい方は、概要欄のリンクから1次の頻出論点マガジンをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "頻出論点マガジンで確認する",
+        "items": ["1次の頻出論点マガジン（概要欄リンク）"]
+      }
+    }
+  ]
+}

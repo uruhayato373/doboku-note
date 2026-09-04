@@ -74,6 +74,26 @@
       },
       "note": "総監以外の全技術部門は7月20日に実施。合格発表・口頭試験の扱いは pe-comprehensive-management と同じ。"
     },
+    "pe-first-stage": {
+      "label": "技術士第一次試験",
+      "year": 2026,
+      "source": "https://www.engineer.or.jp/c_topics/011/011423.html",
+      "events": {
+        "applicationOpen": {
+          "label": "受験申込 受付開始",
+          "date": "2026-06-10"
+        },
+        "applicationDeadline": {
+          "label": "受験申込 締切（Web）",
+          "date": "2026-06-23"
+        },
+        "exam": {
+          "label": "筆記試験",
+          "date": "2026-11-22"
+        }
+      },
+      "note": "書面申込の締切は2026-06-24（Web は 6/23 17:00）。合格発表日は公式未発表のため events に入れない。受験手数料 13,000 円。出典は令和8年度実施案内（011423.html・2026-09-01 本文確認）。"
+    },
     "concrete-engineer": {
       "label": "コンクリート技士",
       "year": 2026,

@@ -43,10 +43,37 @@ function parseChecks(source) {
       ci: /\bci:\s*true\b/.test(block),
       digestFalse: /\bdigest:\s*false\b/.test(block),
       note: /note:\s*'((?:[^'\\]|\\.)*)'/.exec(block)?.[1] ?? '',
+      expectedFail: /expectedFail:\s*'((?:[^'\\]|\\.)*)'/.exec(block)?.[1] ?? null,
     });
   }
   return out;
 }
+
+test('expectedFail は ci:false にしか付かず、理由に期限/Phase が書かれている', () => {
+  // 「今は失敗が正常」を ci:true に認めると Pre-merge の判定が空文になる（実装側も exit 2 で止める）。
+  // 理由に期限が無いと、いつ外すべきか誰にも分からず居座る。
+  const checks = parseChecks(SRC);
+  const flagged = checks.filter((c) => c.expectedFail != null);
+  assert.ok(flagged.length >= 1, 'expectedFail 付きの検査が 1 件も取れていない（解析の破損を疑う）');
+  assert.deepEqual(flagged.filter((c) => c.ci).map((c) => c.id), [], 'ci:true に expectedFail が付いている');
+  const vague = flagged.filter((c) => !/Phase|まで|20\d\d-\d\d/.test(c.expectedFail)).map((c) => c.id);
+  assert.deepEqual(vague, [], `expectedFail の理由に期限/Phase が無い: ${vague.join(', ')}`);
+});
+
+test('partitionReportOnly: expected は exit に効かず、unexpectedPass は失敗扱い（昇格ラチェット）', async () => {
+  const { partitionReportOnly } = await import('../scripts/quality-audit.mjs');
+  const results = [
+    { id: 'a', status: 'fail', expectedFail: 'Phase 03 まで' },
+    { id: 'b', status: 'fail', expectedFail: null },
+    { id: 'c', status: 'pass', expectedFail: 'Phase 03 まで' },
+    { id: 'd', status: 'pass', expectedFail: null },
+    { id: 'e', status: 'timeout', expectedFail: null },
+  ];
+  const part = partitionReportOnly(results);
+  assert.deepEqual(part.expected.map((r) => r.id), ['a']);
+  assert.deepEqual(part.unexpected.map((r) => r.id), ['b', 'e']);
+  assert.deepEqual(part.unexpectedPass.map((r) => r.id), ['c']);
+});
 
 test('CHECKS を解析できている（対象 0 件を PASS と呼ばない）', () => {
   const checks = parseChecks(SRC);

@@ -1,0 +1,125 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "建築基準法と火薬類取締法は出題数が少なく、時間の掛け方に迷う分野です。仮設建築物と火薬類だけに絞って説明します。",
+      "caption": "建築基準法・火薬類取締法の頻出点",
+      "visual": {
+        "kind": "cover",
+        "heading": "建築基準法・火薬類取締法",
+        "items": [
+          "1級土木 第1次検定・法規"
+        ]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "建築基準法は土木に関係ない、と飛ばすと現場事務所の建築確認の問題を落とします。火薬類も発破業者の話と思うと保安責任者の問題を落とします。",
+      "caption": "どちらも土木の施工管理に直結する",
+      "visual": {
+        "heading": "誤解：どちらも自分には関係ない",
+        "items": [
+          "現場事務所は建築基準法の対象",
+          "保安責任者の選任は現場の義務"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-building-standards/article.mdx"
+    },
+    {
+      "sceneId": "overview",
+      "start": 55,
+      "end": 115,
+      "narration": "現場事務所・小屋・材料置場などの仮設建築物は、建築確認・完了検査が不要で、集団規定も原則適用されません。唯一の例外は、防火地域で延べ面積50平方メートルを超える屋根の構造です。",
+      "caption": "仮設建築物は確認不要・集団規定原則不要",
+      "visual": {
+        "heading": "STEP 1　仮設建築物の規制緩和",
+        "items": [
+          "建築確認・完了検査：不要",
+          "集団規定：原則適用されない",
+          "例外：防火地域50m²超の仮設建築物の屋根のみ適用"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-building-standards/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 115,
+      "end": 165,
+      "narration": "火薬庫の設置と消費場所での発破は、いずれも都道府県知事の許可です。陸上運搬だけは都道府県公安委員会に届け出て証明書の交付を受けます。",
+      "caption": "許可は知事、運搬だけ公安委員会",
+      "visual": {
+        "heading": "STEP 2　火薬類の許可権者",
+        "items": [
+          "火薬庫設置・消費（発破）：都道府県知事の許可",
+          "陸上運搬：都道府県公安委員会へ届出"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-explosives-act/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 165,
+      "end": 220,
+      "narration": "火薬庫の所有者や、1か月に25キログラム以上の火薬・爆薬を消費する者は、保安責任者と副保安責任者を選任して知事に届け出ます。18歳未満は取扱いができません。",
+      "caption": "25kg以上消費で保安責任者を選任",
+      "visual": {
+        "heading": "STEP 3　保安責任者の選任義務",
+        "items": [
+          "1か月25kg以上消費で保安責任者を選任・届出",
+          "18歳未満は火薬類の取扱い禁止"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-explosives-act/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 220,
+      "end": 275,
+      "narration": "火薬類取扱所は消費場所ごとに1か所のみ、火工所は1か所以上設けられます。電気雷管の不発では、再点火できない措置をした後5分以上待って接近します。",
+      "caption": "取扱所は1か所のみ、火工所は1か所以上",
+      "visual": {
+        "heading": "STEP 4　現場の数量ルール",
+        "items": [
+          "火薬類取扱所：消費場所ごとに1か所のみ",
+          "火工所：1か所以上設置可",
+          "電気雷管の不発：5分以上経過後に接近"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-explosives-act/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 275,
+      "end": 320,
+      "narration": "まとめます。仮設建築物は確認不要・集団規定原則不要・防火地域50平方メートル超の屋根だけ例外。火薬類は知事許可が基本、運搬だけ公安委員会、25キログラムで保安責任者、取扱所は1か所のみです。",
+      "caption": "権者名と数値の組み合わせで覚える",
+      "visual": {
+        "heading": "まとめ",
+        "items": [
+          "仮設建築物：確認不要・集団規定原則不要",
+          "火薬類：許可は知事、運搬は公安委員会",
+          "25kgで保安責任者、取扱所は1か所のみ"
+        ]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 320,
+      "end": 345,
+      "narration": "出題頻度の低い法規もまとめて確認したい方は、概要欄のリンクから1次検定の頻出論点パックをご覧ください。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "頻出論点パックで確認する",
+        "items": [
+          "1次検定・頻出論点パック（概要欄リンク）"
+        ]
+      }
+    }
+  ]
+}

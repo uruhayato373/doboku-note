@@ -185,6 +185,42 @@ function countFieldCoverage(results) {
   return { withField: usable.length, total: results.length };
 }
 
+/**
+ * DN-0158 診断 (1) の内訳。fetch-psi-data が result に残した field_availability を数える。
+ *   urlLevel    … URL レベルの CrUX がある
+ *   originLevel … URL には無いが origin（サイト全体）レベルにはある → CrUX の最小トラフィック閾値割れ（DN-0158 (2)）
+ *   neither     … どちらも無い → CrUX 全体の供給問題（DN-0158 (3)）
+ *   unrecorded  … フラグ未記録（本機能より前のバッチ）
+ */
+export function countFieldAvailability(results) {
+  const c = { urlLevel: 0, originLevel: 0, neither: 0, unrecorded: 0, total: results.length };
+  for (const r of results) {
+    const a = r.field_availability;
+    if (!a) { c.unrecorded += 1; continue; }
+    if (a.url_level) c.urlLevel += 1;
+    else if (a.origin_level) c.originLevel += 1;
+    else c.neither += 1;
+  }
+  return c;
+}
+
+function fieldAvailabilityLine(results) {
+  const a = countFieldAvailability(results);
+  return `field 判定不能の内訳: URL レベル ${a.urlLevel} / origin レベル ${a.originLevel} / どちらも無し ${a.neither}（フラグ未記録 ${a.unrecorded}）`;
+}
+
+function fieldAvailabilityHint(results) {
+  const a = countFieldAvailability(results);
+  if (a.unrecorded === a.total) return "内訳フラグ未記録のバッチ（fetch-psi-data の field_availability 導入前）。次回の計測で判別できる。";
+  if (a.urlLevel === 0 && a.originLevel > 0) {
+    return "URL レベルの CrUX 閾値割れ（origin レベルにはデータあり）。DN-0158 (2)＝judgment.primary_source を lab 中央値ベースへ切り替える候補（ユーザー判断）。";
+  }
+  if (a.urlLevel === 0 && a.originLevel === 0) {
+    return "origin レベルにも CrUX が無い。DN-0158 (3)＝CrUX 全体の供給問題として記録する。";
+  }
+  return "";
+}
+
 function formatMarkdown(results, violations, gateViolations, thresholds) {
   const date = new Date().toISOString().slice(0, 10);
   const lines = [];
@@ -196,6 +232,11 @@ function formatMarkdown(results, violations, gateViolations, thresholds) {
     `- field(CrUX) 取得: **${cov.withField}/${cov.total}件**` +
       (cov.withField === 0 ? "　← **判定不能**（実害の有無を判定する材料が無い）" : ""),
   );
+  if (cov.withField < cov.total) {
+    lines.push(`- ${fieldAvailabilityLine(results)}`);
+    const hint = fieldAvailabilityHint(results);
+    if (hint) lines.push(`  - ${hint}`);
+  }
   lines.push(`- 診断上のしきい値超過: **${violations.length}件**`);
   lines.push(`- CI ゲート違反（field 実害・取得失敗率20%超）: **${gateViolations.length}件**`);
   lines.push("");
@@ -286,7 +327,10 @@ function main() {
       detail:
         `field(CrUX) を持つ result が ${fieldCov.withField}/${fieldCov.total} 件。` +
         "primary_source=field なので実害を判定できない（違反ゼロ＝安全 ではない）。" +
-        "CrUX の供給が戻るのを待つか、judgment.primary_source を lab 中央値ベースへ変更して原則を書き換える。",
+        "CrUX の供給が戻るのを待つか、judgment.primary_source を lab 中央値ベースへ変更して原則を書き換える。" +
+        ` ${fieldAvailabilityLine(results)}` +
+        (fieldAvailabilityHint(results) ? ` ${fieldAvailabilityHint(results)}` : ""),
+      field_availability: countFieldAvailability(results),
     });
   }
 
@@ -309,7 +353,10 @@ function main() {
     `field(CrUX) coverage: ${fieldCov.withField}/${fieldCov.total}` +
       (fieldCov.withField === 0 ? '  <- 判定不能（緑でも安全の意味ではない）' : ''),
   );
+  if (fieldCov.withField < fieldCov.total) console.error(fieldAvailabilityLine(results));
   process.exit(gateViolations.length > 0 ? 1 : 0);
 }
 
-main();
+// import 時は実行しない（テストが countFieldAvailability を読めるようにする）。
+const isMain = process.argv[1] && process.argv[1].split(/[\\/]/).pop() === "psi-threshold-check.mjs";
+if (isMain) main();

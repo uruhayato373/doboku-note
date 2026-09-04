@@ -1,0 +1,111 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "工程管理は「遅れたけど挽回した」という話しか思いつかない。今日は遅延原因別の型と数値の入れ方を説明します。",
+      "caption": "工程管理テーマの組み立て方",
+      "visual": {
+        "kind": "cover",
+        "heading": "工程管理テーマの組み立て方",
+        "items": ["2級土木 第2次検定・施工経験記述"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "工程管理は遅延を書けばよい、と思われがちですが、実際は着手前の留意事項も対象です。遅延の結果だけを書くと検討過程が見えず、答案が薄くなります。",
+      "caption": "遅延の結果だけでは検討過程が見えない",
+      "visual": {
+        "heading": "誤解：遅延を書けばよい",
+        "items": ["工事着手前の留意事項も対象", "結果だけでは検討過程が見えず薄くなる"]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "nagare",
+      "start": 55,
+      "end": 110,
+      "narration": "工程管理も流れは共通です。検討項目の観点は、材料・機械、工程表、作業の効率化、気温対策、創意工夫の5つ。何を検討してどう手を打ったかを一貫して書きます。",
+      "caption": "検討観点は材料・機械・工程表・効率化など",
+      "visual": {
+        "heading": "工程管理も5要素の流れ",
+        "items": ["現場状況→課題→検討→対応処置→評価", "観点：材料・機械、工程表、効率化、気温対策、創意工夫"]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "tenko",
+      "start": 110,
+      "end": 165,
+      "narration": "梅雨や台風で作業が遅れる課題には、休工日を見込んだネットワーク工程表を作成し、進捗を確認しながら遅延工程をフォローアップする、という型が使えます。",
+      "caption": "型①：天候による遅れ",
+      "visual": {
+        "heading": "型①　天候による遅れ",
+        "items": ["休工日込みのネットワーク工程表を作成", "進捗確認しながら遅延工程をフォローアップ"]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "tetsuzuki",
+      "start": 165,
+      "end": 230,
+      "narration": "関係機関協議や用地取得で着手が遅れる場合は、先行して手続きに着手し、施工順序を入れ替えます。地下埋設物で設計変更が生じた場合は、迂回工法や夜間施工への切替えで影響を抑えます。",
+      "caption": "型②：手続き・支障物による遅れ",
+      "visual": {
+        "heading": "型②　手続き・支障物による遅れ",
+        "items": ["先行手続き＋施工順序の入替え", "地下埋設物→代替工法の比較・迂回や夜間施工"]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "kisei",
+      "start": 230,
+      "end": 290,
+      "narration": "交通規制内で舗装を復旧する場合は、規制時間内に完了するよう手順と機械配置を最適化します。工期短縮の要請には、増班や機械増強、並行作業でクリティカルパスを重点管理します。",
+      "caption": "型③：規制・短縮要請への対応",
+      "visual": {
+        "heading": "型③　規制・短縮要請",
+        "items": ["規制時間内完了へ手順・機械配置を最適化", "増班・機械増強・並行作業でクリティカルパス管理"]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "suuchi",
+      "start": 290,
+      "end": 345,
+      "narration": "対応処置には日数や台数、班数などの数値を入れます。評価は「工期内に完了できた」「〇〇日の遅れを挽回できた」のように端的に締めます。着手前の留意事項としても同じ型が使えます。",
+      "caption": "数値で対応処置、評価は端的に",
+      "visual": {
+        "heading": "数値の入れ方と評価",
+        "items": ["対応処置＝日数・台数・班数などの数値", "評価は「工期内完了」「〇〇日挽回」で端的に", "着手前の留意事項にも同じ型が使える"]
+      }
+    },
+    {
+      "sceneId": "summary",
+      "start": 345,
+      "end": 385,
+      "narration": "まとめます。工程管理は5要素の流れに、材料・機械、工程表、効率化、気温対策、創意工夫の観点を当てはめ、遅延原因の型に応じて組み立てるのが基本です。",
+      "caption": "観点を当てはめ、型に応じて組み立てる",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["5要素の流れに工程管理の観点を当てはめる", "遅延原因の型：天候／手続き・支障物／規制・短縮", "対応処置は数値、評価は端的に"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 385,
+      "end": 415,
+      "narration": "複数工種の完成答案で工程管理の書き分けを掴みたい方は、概要欄のリンクから経験記述の完全パックへ。ご視聴ありがとうございました。",
+      "caption": "完成答案は概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "完成答案で確認する",
+        "items": ["経験記述 完全パック（概要欄リンク）"]
+      }
+    }
+  ]
+}

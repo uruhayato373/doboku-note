@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "仕事と両立しながら1級土木を学ぶとき、何からどの順で進めるか迷いますよね。今日は試験日から逆算した学習の組み立て方を説明します。",
+      "caption": "1級土木の勉強計画｜何をいつまでに",
+      "visual": {
+        "kind": "cover",
+        "heading": "1級土木の勉強計画",
+        "items": ["何をいつまでに"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "テキストを最初から通読すれば身につく、と思われがちですが実は非効率です。第一次と第二次では求められる力がまったく違うため、同じやり方を通すと準備期間が足りなくなります。",
+      "caption": "誤解：通読すれば身につく",
+      "visual": {
+        "heading": "誤解：テキストの通読で対応できる",
+        "items": ["第一次と第二次は求められる力が別物", "同じやり方だと準備期間が足りない"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-study-plan/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 55,
+      "end": 105,
+      "narration": "第一次は知識の定着が勝負で、過去問演習の反復が最短ルートです。第二次は実務に基づく記述力が問われ、自分の工事経験を文章にする準備が要ります。まずこの違いを理解しておきましょう。",
+      "caption": "第一次と第二次は別物と考える",
+      "visual": {
+        "heading": "STEP 1　第一次と第二次は別物",
+        "items": ["第一次：過去問反復で知識を定着", "第二次：経験の文章化で記述力"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-study-plan/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 105,
+      "end": 165,
+      "narration": "第一次は直近5年程度の過去問を繰り返すのが基本です。1周目は理解中心、2周目以降は時間を意識して解きます。施工管理法・土工・コンクリートなど出題数の多い分野から固めましょう。",
+      "caption": "第一次は頻出分野から過去問を反復",
+      "visual": {
+        "heading": "STEP 2　第一次検定の進め方",
+        "items": ["直近5年の過去問を反復", "施工管理法・土工・コンクリートを優先", "専門土木は実務に近い分野を選ぶ"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-study-plan/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 165,
+      "end": 225,
+      "narration": "第二次の合否を左右するのは経験記述です。工種・規模・課題・対応を棚卸しし、品質・工程・安全など複数のテーマで書けるように準備します。模範答案と照らして第三者の目で確認する工程も欠かせません。",
+      "caption": "第二次は経験記述を早期に準備",
+      "visual": {
+        "heading": "STEP 3　第二次検定の進め方",
+        "items": ["工種・規模・課題・対応を棚卸し", "品質・工程・安全のテーマで準備", "模範答案と照らし添削を重ねる"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-study-plan/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 225,
+      "end": 280,
+      "narration": "大切なのは、第二次の準備を後回しにしないことです。第一次を始める段階で、数か月後には経験棚卸しに着手できるよう、あらかじめ日程を逆算しておきます。手応えが出てから動くと時間が足りなくなりがちです。",
+      "caption": "試験日から逆算し第二次も並行",
+      "visual": {
+        "heading": "STEP 4　逆算スケジュールの組み方",
+        "items": ["第二次の準備を後回しにしない", "第一次の学習開始時に着手時期を決める"]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-study-plan/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 280,
+      "end": 320,
+      "narration": "まとめます。第一次は過去問の反復、第二次は経験記述の早期着手。この2本柱を試験日から逆算したスケジュールに乗せることが、働きながら合格する現実的な進め方です。",
+      "caption": "第一次・第二次を逆算のスケジュールに乗せる",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 第一次：過去問の反復", "② 第二次：経験記述の早期着手", "③ 試験日から逆算して並行させる"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 320,
+      "end": 350,
+      "narration": "学習を進めるための記事やツールは、概要欄のリンクまとめページからまとめて確認できます。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "続きはリンクまとめで",
+        "items": ["リンクまとめページ（概要欄リンク）"]
+      }
+    }
+  ]
+}

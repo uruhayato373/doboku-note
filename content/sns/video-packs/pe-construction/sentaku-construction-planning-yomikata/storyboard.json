@@ -1,0 +1,99 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "施工計画・積算の出題テーマは毎年違って見えますが、技術系統と制度系統に分けると整理できます。今日は発注者実務の視点から優先順位を説明します。",
+      "caption": "施工計画・積算 出題テーマの読み方",
+      "visual": {
+        "kind": "cover",
+        "heading": "施工計画・積算 出題テーマの読み方",
+        "items": ["技術士 建設部門 選択科目「施工計画、施工設備及び積算」"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 65,
+      "narration": "現場の技術だけでは足りません。コンクリートは7年連続の鉄板枠ですが、契約・積算制度は法改正のたびに変わり、担い手確保・働き方改革も制度と直結します。",
+      "caption": "技術系統と制度系統は別物",
+      "visual": {
+        "heading": "誤解：現場の技術を覚えれば足りる",
+        "items": ["コンクリート（II-1-4）は7年連続", "契約・積算制度は法改正で毎年動く"]
+      },
+      "sourceRef": "content/site/pe-construction/construction-planning-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "block1",
+      "start": 65,
+      "end": 130,
+      "narration": "土工・安全管理・コンクリートという技術系統と、契約・積算制度という制度系統がII-1の4枠に分かれています。制度系統は最新の法改正を追う必要があります。",
+      "caption": "癖：技術系統と制度系統の二本立て",
+      "visual": {
+        "heading": "施工計画・積算の癖",
+        "items": ["技術系統：土工/安全管理/コンクリート", "制度系統：契約・積算制度（法改正が要）"]
+      }
+    },
+    {
+      "sceneId": "block2",
+      "start": 130,
+      "end": 195,
+      "narration": "コンクリートはII-1-4に7年連続で出題され、材料から劣化機構、検査・診断、補修・更新へと切り口が循環します。土工・地盤も他科目と重なる基礎技術です。",
+      "caption": "コンクリート・土工：7年連続の技術系統",
+      "visual": {
+        "heading": "コンクリート・土工（II-1-4・II-1-1）",
+        "items": ["コンクリート：材料→劣化→検査→補修", "土工・地盤：液状化・のり面対策"]
+      },
+      "sourceRef": "content/site/pe-construction/construction-planning-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "block3",
+      "start": 195,
+      "end": 265,
+      "narration": "契約・積算制度では入札契約方式やスライド条項など最新制度が問われ、安全管理も法改正やBIM/CIM、i-Constructionへ重心が移っています。",
+      "caption": "契約・積算・安全管理は法改正が要",
+      "visual": {
+        "heading": "契約・積算制度・安全管理",
+        "items": ["入札契約方式・スライド条項が頻出", "安全管理はBIM/CIM・i-Constructionへ移行"]
+      },
+      "sourceRef": "content/site/pe-construction/construction-planning-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "block4",
+      "start": 265,
+      "end": 330,
+      "narration": "IIIの最頻出は担い手確保・働き方改革です。発注者として工期設定や平準化に取り組んできた立場からは、発注者の責務とセットで語る視点が実現性を高めます。",
+      "caption": "III：担い手確保を発注者視点の工期で",
+      "visual": {
+        "heading": "III：担い手確保・働き方改革",
+        "items": ["時間外労働の上限規制下の工期確保", "発注者の工期設定・積算とセットで語る"]
+      },
+      "sourceRef": "content/site/pe-construction/construction-planning-ronbun-keyword/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 330,
+      "end": 375,
+      "narration": "施工計画・積算は技術系統と制度系統の二本立てで準備する科目です。コンクリート・土工は理論を積み上げ、制度系統は法改正を追い、IIIは発注者の責務まで含めます。",
+      "caption": "技術×制度の二本立てで準備",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["技術系統は理論を積み上げる", "制度系統は法改正を追う", "IIIは発注者の責務まで含める"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 375,
+      "end": 405,
+      "narration": "年度別の出題一覧と全設問の解答の形は、概要欄のリンクから施工計画・積算科目のマガジンでご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄の施工計画・積算マガジンへ",
+      "visual": {
+        "kind": "cover",
+        "heading": "施工計画・積算マガジンで確認する",
+        "items": ["年度別の出題テーマと解答の形（概要欄リンク）"]
+      }
+    }
+  ]
+}

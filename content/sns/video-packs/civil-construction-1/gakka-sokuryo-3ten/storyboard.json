@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "水準測量の計算や誤差の扱いは毎回あやふやになりがちです。今日は測量の頻出3テーマを、解き手順で整理します。",
+      "caption": "測量の頻出3テーマを整理する",
+      "visual": {
+        "kind": "cover",
+        "heading": "測量の頻出3テーマ",
+        "items": ["1級土木 第1次検定・測量"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "数値を暗記するだけの科目と思われがちですが、問われるのはどの場面でどの方法・誤差処理を選ぶかという判断です。数値は判断の入口として押さえます。",
+      "caption": "誤解：測量は数値暗記だけの科目",
+      "visual": {
+        "heading": "誤解：数値暗記だけの科目",
+        "items": ["問われるのは場面ごとの方法選び"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-surveying-basics/article.mdx"
+    },
+    {
+      "sceneId": "kijun",
+      "start": 55,
+      "end": 110,
+      "narration": "日本の測量基準は2001年に世界測地系へ移行しました。水準原点は東京都千代田区永田町、標高24.3900メートルです。誤差は、過失・定誤差・不定誤差の3つに分かれ、消し方が違います。",
+      "caption": "基準は世界測地系と誤差の3分類",
+      "visual": {
+        "heading": "測量の基準",
+        "items": ["2001年：世界測地系へ移行", "水準原点：標高24.3900m", "誤差3分類：過失・定誤差・不定誤差"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-surveying-basics/article.mdx"
+    },
+    {
+      "sceneId": "suijun",
+      "start": 110,
+      "end": 175,
+      "narration": "水準測量は、後視の読みから前視の読みを引いて高低差を求めます。後視1.256、前視0.875なら高低差は0.381です。積み上げて標高を求め、往復観測で平均を取ります。視準距離は1・2級50メートル、3・4級70メートルです。",
+      "caption": "水準測量は「後視引く前視」の積み上げ",
+      "visual": {
+        "heading": "水準測量の求め方",
+        "items": ["高低差＝後視の読み−前視の読み", "往復観測して平均を取る", "視準距離：1・2級50m、3・4級70m"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-leveling/article.mdx"
+    },
+    {
+      "sceneId": "kyori",
+      "start": 175,
+      "end": 220,
+      "narration": "鋼巻尺の斜距離は、尺定数・温度・傾斜・気差・たるみの各補正で水平距離に直します。最も影響が大きいのは温度補正です。光波測距儀は、光を反射プリズムに送り返し往復時間から距離を求めます。",
+      "caption": "鋼巻尺は温度補正の影響が最大",
+      "visual": {
+        "heading": "距離の測定",
+        "items": ["鋼巻尺：尺定数・温度・傾斜・気差・たるみ補正", "温度補正の影響が最も大きい", "光波測距儀：反射プリズムと往復時間"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-distance-angle/article.mdx"
+    },
+    {
+      "sceneId": "kaku",
+      "start": 220,
+      "end": 280,
+      "narration": "セオドライトの正・反対回観測で、視準軸誤差・水平軸誤差・外心誤差は消せますが、鉛直軸誤差は整準の精度で決まり消えません。GNSSは、高精度な基準点測量はスタティック法、効率重視の工事測量はRTK法を使います。",
+      "caption": "対回で消える誤差と消えない誤差がある",
+      "visual": {
+        "heading": "角の測定とGNSS",
+        "items": ["対回で消える：視準軸・水平軸・外心誤差", "対回で消えない：鉛直軸誤差", "基準点＝スタティック法／工事測量＝RTK法"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-distance-angle/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 280,
+      "end": 325,
+      "narration": "基準は世界測地系と誤差3分類、水準測量は後視引く前視の積み上げ、距離は温度補正が最重要、角とGNSSは消える誤差と消えない誤差、方式の使い分けです。",
+      "caption": "3テーマとも「場面ごとの選び方」で解く",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 基準：世界測地系と誤差3分類", "② 水準測量：後視引く前視、等級別の許容範囲", "③ 距離・角：補正の重み、消える誤差と消えない誤差"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 325,
+      "end": 355,
+      "narration": "水準測量の野帳計算やセオドライトの誤差処理を演習で確認したい方は、概要欄のリンクから1級土木一次の論点まとめマガジンをご覧ください。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "演習で計算に慣れる",
+        "items": ["1級土木一次 論点まとめ（概要欄リンク）"]
+      }
+    }
+  ]
+}

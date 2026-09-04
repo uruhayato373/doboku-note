@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "技術的な文章を書き慣れていないと、白紙から1,000字前後の構成を組むのは難しいものです。今日は評価される観点から逆算した答案構成の型を説明します。",
+      "caption": "評価される観点から逆算する答案構成",
+      "visual": {
+        "kind": "cover",
+        "heading": "小論文の答案構成の型",
+        "items": ["コンクリート主任技士・小論文対策"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "小論文を知識量を測る試験だと思われがちですが誤解です。問われているのは、知識を現場の判断や対策に翻訳できるかという点。小論文はここを見ています。",
+      "caption": "小論文は知識でなく翻訳力を見る試験",
+      "visual": {
+        "heading": "誤解：知識量が問われる試験",
+        "items": ["見られるのは知識を判断に翻訳できるか", "説明できることと対策を選べることは別能力"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "kanten",
+      "start": 55,
+      "end": 120,
+      "narration": "1つ目、評価される4つの観点をチェックリストにします。技術的妥当性・論理構成・実務経験の具体性・コンクリート技術の理解の4つです。書き終えたらこの4語で自己採点し、空欄の観点が減点ポイントです。",
+      "caption": "4観点をチェックリストで自己採点",
+      "visual": {
+        "heading": "STEP 1　4観点をチェックリスト化",
+        "items": ["技術的妥当性／論理構成", "実務経験の具体性／技術の理解", "空欄の観点が減点ポイント"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "kousei",
+      "start": 120,
+      "end": 180,
+      "narration": "2つ目、序論・本論・結論の3部構成で、重みは本論に置きます。序論で課題と背景を短く示し、本論で原因分析と具体策を述べ、結論で留意点に触れます。字数の大半は本論に割きます。",
+      "caption": "序論・本論・結論、重みは本論に",
+      "visual": {
+        "heading": "STEP 2　序論・本論・結論の重み",
+        "items": ["序論：課題と背景を短く", "本論：原因分析と具体策、最重量", "結論：留意点で締める"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "kossi",
+      "start": 180,
+      "end": 235,
+      "narration": "3つ目、骨子は箇条書きで先に決めてから清書します。いきなり書き始めると本論の途中で論点が枝分かれして時間切れになりがちです。見出しと対策の数を先にメモしておきます。",
+      "caption": "骨子は箇条書きで先に決める",
+      "visual": {
+        "heading": "STEP 3　骨子を先に箇条書きで決める",
+        "items": ["いきなり書き出すと論点が枝分かれする", "序論・本論・結論の見出しを先にメモ", "本論で挙げる対策の数も決めておく"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "jikan",
+      "start": 235,
+      "end": 300,
+      "narration": "4つ目、時間配分に応じて書き方を切り替えます。余裕があれば下書きを削って収める通常モード。厳しければキーワードの概説から各論、まとめへ進むキーワード先出しモードです。",
+      "caption": "時間配分で書き方を切り替える",
+      "visual": {
+        "heading": "STEP 4　時間配分に応じたモード",
+        "items": ["通常モード：下書きを削って収める", "キーワード先出しモード：概説→各論→まとめ", "残り時間で切り替える"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/guide-essay/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 300,
+      "end": 335,
+      "narration": "まとめます。4観点の確認、序論・本論・結論で本論重視、骨子を先に箇条書き、時間に応じたモード選択。この順で組み立てれば、白紙から迷わず書き始められます。",
+      "caption": "型は4観点→構成→骨子→時間配分",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 4観点をチェックリスト化", "② 序論・本論・結論、本論重視", "③ 骨子を先に箇条書き", "④ 時間配分でモードを切り替え"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 335,
+      "end": 365,
+      "narration": "自分の実務経験をこの型に当てはめて書き進めたい方は、概要欄のリンクから小論文対策マガジンをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "自分の経験を型に当てはめる",
+        "items": ["小論文対策マガジン（概要欄リンク）"]
+      }
+    }
+  ]
+}

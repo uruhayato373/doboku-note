@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "二次の学科記述、施工計画分野は問われ方の幅が広く対策の的を絞りにくいという声が多い分野です。今日は3パターンに整理します。",
+      "caption": "施工計画の学科記述、3つの出題パターン",
+      "visual": {
+        "kind": "cover",
+        "heading": "学科記述 施工計画の3パターン",
+        "items": ["1級土木 第2次検定・学科記述"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "施工計画は現場ごとに内容が違うから対策しづらい、と思われがちですが、実際の出題形式は3パターンに絞られています。",
+      "caption": "現場は違っても解答の型は同じ",
+      "visual": {
+        "heading": "誤解：現場ごとに違うから対策しづらい",
+        "items": ["出題形式は3パターンに絞られる", "現場が変わっても解答の型は同じ"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-construction-plan-past-problems/article.mdx"
+    },
+    {
+      "sceneId": "pattern1",
+      "start": 55,
+      "end": 120,
+      "narration": "パターン1は留意事項の穴埋めです。第三者災害の防止、組織の業務分担、環境対策といった頻出キーワードがあらかじめ決まっています。",
+      "caption": "パターン1：留意事項の穴埋め",
+      "visual": {
+        "heading": "パターン1　留意事項の穴埋め",
+        "items": ["第三者災害の防止", "組織の業務分担", "振動・騒音などの環境対策"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-construction-plan-past-problems/article.mdx"
+    },
+    {
+      "sceneId": "pattern2",
+      "start": 120,
+      "end": 180,
+      "narration": "パターン2は施工計画書の記載内容の記述です。現場組織表なら組織編成と業務分担、安全管理なら責任者体制と対策方針、と項目ごとに書く内容が決まっています。",
+      "caption": "パターン2：施工計画書の記載内容",
+      "visual": {
+        "heading": "パターン2　施工計画書の記載内容",
+        "items": ["現場組織表：組織編成と業務分担", "安全管理：責任者体制と対策方針"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-construction-plan-basics/article.mdx"
+    },
+    {
+      "sceneId": "pattern3",
+      "start": 180,
+      "end": 240,
+      "narration": "パターン3は施工手順フローの穴埋めです。ボックスカルバートなら床掘工、基礎工、据付工、埋戻し工の順序を軸に、各段階の留意事項を対応させます。",
+      "caption": "パターン3：工種名・機械・留意事項の3点",
+      "visual": {
+        "heading": "パターン3　施工手順フローの穴埋め",
+        "items": ["工種名・使用機械・留意事項の3点セット", "例：床掘工→基礎工→据付工→埋戻し工"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-construction-plan-past-problems/article.mdx"
+    },
+    {
+      "sceneId": "four-stages",
+      "start": 240,
+      "end": 295,
+      "narration": "事前調査、基本計画、詳細計画、管理計画という4段階の順序を軸に置くと、どのパターンで問われても今どの段階の話かを判断できます。",
+      "caption": "4段階の順序を軸に位置づける",
+      "visual": {
+        "heading": "4段階の順序を軸に置く",
+        "items": ["事前調査：契約条件・現場条件", "管理計画：工程・品質・安全の方針"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-construction-plan-basics/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 295,
+      "end": 335,
+      "narration": "まとめます。施工計画の記述は3パターンに絞って型を持ち、事前調査から管理計画までの順序を軸に位置づけることが要点です。",
+      "caption": "3パターン×4段階の軸で解答する",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 留意事項の穴埋め", "② 施工計画書の記載内容", "③ 施工手順フローの穴埋め", "④ 4段階の順序を軸に置く"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 335,
+      "end": 365,
+      "narration": "パターン別の書き方をさらに詳しく確認したい方は、概要欄のリンクから学科記述パックをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "学科記述パックで確認する",
+        "items": ["二次の学科記述パック（概要欄リンク）"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "工場でしか見ない製造方法は、現場経験だけではイメージが湧きにくく後回しになりがちです。今日はコンクリート製品分野の頻出論点を短時間で押さえます。",
+      "caption": "コンクリート製品の頻出論点を押さえる",
+      "visual": {
+        "kind": "cover",
+        "heading": "コンクリート製品の頻出論点",
+        "items": ["コンクリート主任技士 四肢択一"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "締固め方法はどれも似ていると思われがちですが、実際は製品ごとに決まった組合せがあります。遠心力締固めを桁のような中実部材に対応づける誤りが典型的な引っかけです。",
+      "caption": "対応を逆にする引っかけが頻出",
+      "visual": {
+        "heading": "誤解：締固め方法はどれも同じ",
+        "items": ["対応は製品ごとに決まっている", "遠心力→桁は典型的な誤答"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-products/article.mdx"
+    },
+    {
+      "sceneId": "overview",
+      "start": 55,
+      "end": 95,
+      "narration": "工場製品の締固め方法は、即時脱型、遠心力、ロール転圧、加圧の4つに整理できます。それぞれ得意な製品の形が違うので、まず全体像をつかみましょう。",
+      "caption": "4つの締固め方法を先に俯瞰する",
+      "visual": {
+        "heading": "4つの締固め方法",
+        "items": ["即時脱型・遠心力", "ロール転圧・加圧", "得意な製品形状が異なる"]
+      }
+    },
+    {
+      "sceneId": "method-match",
+      "start": 95,
+      "end": 160,
+      "narration": "即時脱型は超硬練りコンクリートに振動と圧力を同時に加え、直後に脱型する方法でブロックや平板向きです。遠心力とロール転圧は筒状型枠を使う管状製品向きで、コンクリート管やマンホールに用います。加圧は余剰水を絞り出して緻密化する方法で、矢板やPC板に適用します。",
+      "caption": "即時脱型→ブロック、加圧→矢板・PC板",
+      "visual": {
+        "heading": "STEP 1　方法と製品を対で覚える",
+        "items": ["即時脱型→ブロック・平板", "遠心力・ロール転圧→管類", "加圧→矢板・PC板"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/primary-products/article.mdx"
+    },
+    {
+      "sceneId": "steam-curing",
+      "start": 160,
+      "end": 210,
+      "narration": "促進養生でよく使う蒸気養生には3つの管理点があります。前養生で常温期間を置いてから昇温し、昇温速度は部材が大きいほど緩やかに、最高温度も上げすぎないよう管理します。",
+      "caption": "蒸気養生は前養生・昇温・最高温度を管理",
+      "visual": {
+        "heading": "STEP 2　蒸気養生の3管理点",
+        "items": ["前養生：常温期間を置く", "昇温速度：大きい部材ほど緩やかに", "最高温度：上げすぎない"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-products/article.mdx"
+    },
+    {
+      "sceneId": "autoclave",
+      "start": 210,
+      "end": 250,
+      "narration": "オートクレーブ養生は、蒸気養生よりさらに高温高圧で行う養生方法です。シリカと石灰が反応してトバモライトを生成し、軽量気泡コンクリート、通称エーエルシーなどで使われます。",
+      "caption": "オートクレーブ養生でトバモライト生成",
+      "visual": {
+        "heading": "オートクレーブ養生とトバモライト",
+        "items": ["蒸気養生よりさらに高温高圧", "トバモライトが強度・耐久性を高める", "ALC等で短期間の高強度化に利用"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/textbook-products/article.mdx"
+    },
+    {
+      "sceneId": "jis-standard",
+      "start": 250,
+      "end": 310,
+      "narration": "プレキャスト製品にはジス規格があります。プレストレストコンクリート製品は緊張材の腐食防止のため、水結合材比の上限が鉄筋コンクリートより小さく規定されています。再生骨材も、緊張材保護の観点からプレストレストコンクリート製品では原則使いません。",
+      "caption": "PC製品は水結合材比が小さく再生骨材も原則不可",
+      "visual": {
+        "heading": "STEP 3　JIS規格と水結合材比",
+        "items": ["PC製品は水結合材比の上限が小さい", "理由は緊張材の腐食防止", "再生骨材はPC製品で原則不可"]
+      },
+      "sourceRef": "content/site/concrete-chief-engineer/primary-products/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 310,
+      "end": 350,
+      "narration": "まとめます。軸は締固め方法と代表製品の対応です。ここに養生の管理点と、水結合材比・再生骨材の規格を紐づけて覚えると、製品分野は得点源になります。",
+      "caption": "対応表×養生×規格をセットで覚える",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["締固め方法×代表製品の対応", "蒸気養生の3管理点", "水結合材比・再生骨材の規格"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 350,
+      "end": 380,
+      "narration": "より多くの過去問で対応表を体に入れたい方は、概要欄のリンクから択一対策マガジンをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "対応表を過去問で体に入れる",
+        "items": ["択一対策マガジン（概要欄リンク）"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "自分の答案のどこを直せば合格ラインに届くか、独学では判断が難しいものです。今日はよくある改善前パターンを4つ見ていきます。",
+      "caption": "添削ビフォーアフターで学ぶ経験記述",
+      "visual": {
+        "kind": "cover",
+        "heading": "添削ビフォーアフターで学ぶ経験記述",
+        "items": ["1級土木 第2次検定・施工経験記述"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 50,
+      "narration": "経験を積めば自然と書けるようになる、と思われがちですが、書き方の型を知らないと同じ弱点を繰り返します。改善前後を見比べる方が、直しどころに早く気づけます。",
+      "caption": "経験より先に型を知ることが近道",
+      "visual": {
+        "heading": "誤解：経験を積めば自然に書ける",
+        "items": ["型を知らないと同じ弱点を繰り返す", "改善前後の比較が直しどころへの近道"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx"
+    },
+    {
+      "sceneId": "general",
+      "start": 50,
+      "end": 110,
+      "narration": "1つ目は、一般論で終わっている答案です。「〇〇に留意した」で終わり、現場固有の地名や数値が入っていません。工事の概要、現場や施工の状況、留意した技術的課題という3段階で書くと、一般論から抜け出せます。",
+      "caption": "一般論を抜けるには3段階で書く",
+      "visual": {
+        "heading": "STEP 1　一般論で終わっている答案",
+        "items": ["「〇〇に留意した」で終わる答案が典型", "概要→現場の状況→技術的課題の3段階で書く", "地名・数値など現場固有の情報を入れる"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx"
+    },
+    {
+      "sceneId": "reasoning",
+      "start": 110,
+      "end": 165,
+      "narration": "2つ目は、検討理由が項目ごとに書かれていない答案です。検討した項目を並べるだけで、なぜその項目を検討したのかがありません。項目を1つ挙げるごとに、理由もセットで書きます。",
+      "caption": "検討項目には理由をセットで書く",
+      "visual": {
+        "heading": "STEP 2　検討理由が項目ごとにない",
+        "items": ["項目の列挙だけで理由が抜けている", "項目1つごとに検討理由をセットで書く"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx"
+    },
+    {
+      "sceneId": "action",
+      "start": 165,
+      "end": 225,
+      "narration": "3つ目は、対応処置に具体性と評価が足りない答案です。「実施した」で終わり、工法・機械・材料・管理方法の具体性や結果の評価がありません。工程管理なら工法変更だけでなく、施工体制の改善や住民との連携まで書くと厚みが出ます。",
+      "caption": "処置は具体性と評価まで書き切る",
+      "visual": {
+        "heading": "STEP 3　対応処置に具体性がない",
+        "items": ["工法・機械・材料・管理方法まで具体的に", "工程管理は工法変更だけに閉じない", "結果の評価まで書いて締める"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx"
+    },
+    {
+      "sceneId": "overview",
+      "start": 225,
+      "end": 280,
+      "narration": "4つ目は、工事概要の詰めが甘い答案です。発注者名や工期が曖昧なまま、あるいは会社での役職を立場欄に書いてしまいます。発注者名は正確な名称、工期は年号を含めて正確に、立場は現場での立場を書きます。",
+      "caption": "発注者名・工期・立場を正確に書く",
+      "visual": {
+        "heading": "STEP 4　工事概要の詰めが甘い",
+        "items": ["発注者名は正確な名称で記入", "工期は年号を含めて正確に", "立場は会社の役職でなく現場の立場"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-examples/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 280,
+      "end": 320,
+      "narration": "まとめます。一般論を現場固有の数値に、検討項目に理由をセットで、対応処置に具体性と評価を、工事概要を正確に。この4点を見比べるだけで、答案の弱点が見えてきます。",
+      "caption": "4つの直しどころを見比べて点検する",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 一般論を現場固有の数値に", "② 検討項目に理由をセット", "③ 対応処置は具体性と評価まで", "④ 工事概要を正確に"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 320,
+      "end": 350,
+      "narration": "自分の答案がどこで減点されているか、第三者の目で確認したい方は、概要欄のリンクから添削サービスをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "第三者の目で確認する",
+        "items": ["経験記述 添削サービス（概要欄リンク）"]
+      }
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "kikinagashi-hinshitsu-kikaku",
+  "exam": "civil-construction-1",
+  "title": "耳で覚える品質管理 — 検査・管理図・ヒストグラム",
+  "audience": "スキマ時間で品質管理の用語を固めたい1級土木受験者",
+  "pain": "品質管理の用語と判定基準が図を見ないと思い出せない",
+  "promise": "図なしでも説明できるレベルまで用語を言語で定着できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-quality-inspection/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-control-chart/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-histogram/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "kikinagashi-hinshitsu-kikaku"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

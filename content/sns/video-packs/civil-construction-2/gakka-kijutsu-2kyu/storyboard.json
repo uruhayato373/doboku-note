@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "第2次検定は経験記述だけではありません。今日は学科記述に何がどんな形式で出るかを説明します。",
+      "caption": "2級二次の学科記述 — 出る分野と型",
+      "visual": {
+        "kind": "cover",
+        "heading": "2級二次の学科記述",
+        "items": ["出る分野と解答の型"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "学科記述は一次の暗記の延長で何が出るかわからない、と思われがちです。実際は範囲が広くても出題形式は限られています。形式を先に知れば得点の取り方が変わります。",
+      "caption": "範囲は広くても出題形式は限られる",
+      "visual": {
+        "heading": "誤解：範囲が広く対策しづらい",
+        "items": ["出題形式は限られたパターンに収まる"]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "fields",
+      "start": 55,
+      "end": 110,
+      "narration": "土工、コンクリート工、品質管理、安全管理、工程管理、施工計画・環境対策。範囲は広く感じますが、この顔ぶれ自体は毎年大きくは変わりません。",
+      "caption": "出る分野は毎年ほぼ同じ",
+      "visual": {
+        "heading": "出る分野は毎年ほぼ同じ",
+        "items": ["土工／コンクリート工／品質管理", "安全管理／工程管理／施工計画・環境"]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-getting-started/article.mdx"
+    },
+    {
+      "sceneId": "pattern1",
+      "start": 110,
+      "end": 160,
+      "narration": "型その1は穴埋めです。文章中の空欄に当てはまる語句や数値を、選択肢群から選びます。用語の意味や使われる場面とセットで覚えると、迷わず選べます。",
+      "caption": "型1：穴埋め（語句選択問題）",
+      "visual": {
+        "heading": "解答の型1　穴埋め（語句選択）",
+        "items": ["空欄に語句・数値を選択肢から選ぶ", "用語は意味・場面とセットで覚える"]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-r07/article.mdx"
+    },
+    {
+      "sceneId": "pattern2",
+      "start": 160,
+      "end": 215,
+      "narration": "型その2は記述式です。留意事項を2つ、特徴を1つずつ、のように複数の観点から具体的に書きます。1つを深掘りするより、複数の切り口を用意しておくほうが対応しやすくなります。",
+      "caption": "型2：記述式（要素を複数挙げる）",
+      "visual": {
+        "heading": "解答の型2　記述式（複数挙げる）",
+        "items": ["「2つ」「1つずつ」で複数の観点を書く", "切り口を複数用意しておく"]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-r07/article.mdx"
+    },
+    {
+      "sceneId": "pattern3",
+      "start": 215,
+      "end": 265,
+      "narration": "型その3は選択問題です。年度によっては、2問のうち1問を選んで解答する枠があります。本番で迷わないよう、得意な分野をあらかじめ決めておきます。",
+      "caption": "型3：選択問題（2問から1問を選ぶ）",
+      "visual": {
+        "heading": "解答の型3　選択問題",
+        "items": ["2問から1問を選ぶ年度がある", "得意分野をあらかじめ決めておく"]
+      },
+      "sourceRef": "content/site/civil-construction-2/secondary-r07/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 265,
+      "end": 305,
+      "narration": "まとめます。学科記述は、頻出分野を、穴埋め・複数記述・選択という3つの型で押さえるのが対策の骨格です。",
+      "caption": "頻出分野を3つの型で押さえる",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["出る分野は毎年ほぼ同じ", "穴埋め・複数記述・選択の3型で対策"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 305,
+      "end": 330,
+      "narration": "分野別に穴埋め・記述の型をまとめて確認したい方は、概要欄のリンクから学科記述の対策パックをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "学科記述の型で確認する",
+        "items": ["学科記述 対策パック（概要欄リンク）"]
+      }
+    }
+  ]
+}

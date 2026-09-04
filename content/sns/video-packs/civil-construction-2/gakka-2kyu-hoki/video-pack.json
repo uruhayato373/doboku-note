@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-2kyu-hoki",
+  "exam": "civil-construction-2",
+  "title": "2級土木 法規の頻出点 — 労基法と安衛法を優先する",
+  "audience": "2級土木一次で法規の学習範囲を絞りたい受検者",
+  "pain": "法規の出題範囲が広すぎてどの法律を優先するか決められない",
+  "promise": "出題比率に沿った法規の優先順位と頻出条文が分かる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-law-key-points/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-takuitsu-pdf",
+    "campaign": "gakka-2kyu-hoki"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

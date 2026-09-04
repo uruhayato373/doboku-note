@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "packId": "takuitsu-r07-enshu",
+  "exam": "pe-comprehensive-management",
+  "title": "令和7年度の択一を3問だけ解く — 型で落とさない",
+  "audience": "総監択一の過去問演習を始めたい受験者",
+  "pain": "択一の過去問をどう解き進めれば力になるのか掴めない",
+  "promise": "実際の出題で論点を見抜いて型で解く手順が身につく",
+  "intent": "exam-point",
+  "sourceRefs": [
+    { "type": "site", "path": "content/site/pe-comprehensive-management/r07-primary/article.mdx" }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "tankan-takuitsu-reiwa-pdf",
+    "campaign": "takuitsu-r07-enshu"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

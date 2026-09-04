@@ -1,0 +1,124 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "総監の出願書類、経歴票に何を書けば監理経験として認められるか、悩んでいませんか。今日は、出願でつまずかない経歴票の書き方を説明します。",
+      "caption": "経歴票で監理経験をどう示すか",
+      "visual": {
+        "kind": "cover",
+        "heading": "業務経歴票の書き方 出願でつまずかない",
+        "items": [
+          "技術士 総合技術監理部門・出願"
+        ]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 60,
+      "narration": "一般部門の経歴票をそのまま使えばいい、という誤解があります。総監で問われるのは、5つの管理を統合的に適用する力と、管理者・監理者としての俯瞰的な判断です。技術的な成果だけを並べては、この視点が伝わりません。",
+      "caption": "技術的成果だけでは伝わらない",
+      "visual": {
+        "heading": "誤解：一般部門の書き方を流用",
+        "items": [
+          "総監が問うのは5管理の統合力",
+          "管理者・監理者としての俯瞰的判断"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "diff",
+      "start": 60,
+      "end": 115,
+      "narration": "一般部門と総監部門では、経歴票のアピールポイントが違います。一般部門は専門技術の深さ、総監部門は5つの管理の統合的な適用力です。記述の視点も、技術的課題ではなく管理技術の視点での課題整理に変わります。",
+      "caption": "問われる視点そのものが違う",
+      "visual": {
+        "heading": "一般部門との違い",
+        "items": [
+          "アピール＝専門技術の深さ→5管理の統合力",
+          "記述視点＝技術的課題→管理技術の視点"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "mapping",
+      "start": 115,
+      "end": 175,
+      "narration": "まず経験業務を網羅的に書き出します。次に、経済性・人的資源・情報・安全・社会環境の5管理の視点で、それぞれの業務が何をしていたかを整理します。5管理すべてに無理に記入する必要はなく、該当しない管理は空欄で構いません。",
+      "caption": "5管理の視点で業務を整理する",
+      "visual": {
+        "heading": "業務を5管理で整理する",
+        "items": [
+          "業務を網羅的に書き出す",
+          "5管理それぞれで該当有無を整理",
+          "該当しない管理は空欄でよい"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "tradeoff",
+      "start": 175,
+      "end": 230,
+      "narration": "次に、異なる2つの管理間で起きた対立、トレードオフを書き出します。同じ管理の中の対立ではなく、異なる管理間の対立であることが重要です。最後に、5管理のバランスとトレードオフの経験を基準に、5つの業務へ絞り込みます。",
+      "caption": "異なる管理間の対立を描く",
+      "visual": {
+        "heading": "トレードオフの描出と絞り込み",
+        "items": [
+          "対立は異なる2管理間で書く（同一管理内はNG）",
+          "5管理のバランスと経験で5業務に絞る"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "detail",
+      "start": 230,
+      "end": 290,
+      "narration": "5つのうち1つを選んで書く業務内容の詳細は、業務概要と立場、最重点管理項目、トレードオフ、改善案、成果の順で構成します。見られているのは判断の痕跡です。何を比べ、何を根拠に決めたのかが書けていれば、監理経験として読んでもらえます。",
+      "caption": "「何を判断したか」を明示する",
+      "visual": {
+        "heading": "監理経験として認められる書き方",
+        "items": [
+          "立場と役割→最重点管理項目→トレードオフ→改善案→成果",
+          "「管理者として何を判断したか」を明示"
+        ]
+      },
+      "sourceRef": "content/site/pe-comprehensive-management/exam-application-guide/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 290,
+      "end": 330,
+      "narration": "まとめます。一般部門のままでは総監の視点は伝わりません。5管理で整理し、異なる管理間のトレードオフを描き、管理者としての判断を明示する。これが認められる経歴票の書き方です。",
+      "caption": "5管理で整理し判断を明示する",
+      "visual": {
+        "heading": "まとめ",
+        "items": [
+          "① 5管理の視点で業務を整理する",
+          "② 異なる管理間のトレードオフを描く",
+          "③ 管理者としての判断を明示する"
+        ]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 330,
+      "end": 360,
+      "narration": "出願前のチェックリストとサンプルの詳細はリンクハブからご覧ください。ご視聴ありがとうございました。",
+      "caption": "詳細はリンクハブから",
+      "visual": {
+        "kind": "cover",
+        "heading": "経歴票の詳細はリンクハブへ",
+        "items": [
+          "リンクハブ（概要欄）"
+        ]
+      }
+    }
+  ]
+}

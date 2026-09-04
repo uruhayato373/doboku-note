@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-haikibutsu-recycle",
+  "exam": "civil-construction-1",
+  "title": "建設副産物・廃棄物処理の頻出点 — マニフェストと再資源化",
+  "audience": "1級土木一次で廃棄物系の法規を混同する受験者",
+  "pain": "マニフェストの保存年限や特定建設資材の区別が覚えられない",
+  "promise": "副産物の流れに沿って各法の義務を一続きで整理できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-waste-disposal-manifest/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-construction-byproduct-recycle/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-demolition/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "gakka-haikibutsu-recycle"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

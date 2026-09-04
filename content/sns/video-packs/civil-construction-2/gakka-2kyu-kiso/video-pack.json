@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-2kyu-kiso",
+  "exam": "civil-construction-2",
+  "title": "2級土木 基礎工の頻出点 — 杭とケーソンの整理",
+  "audience": "2級土木一次で基礎工の工法名が覚えられない受検者",
+  "pain": "既製杭・場所打ち杭の工法の違いが名前だけで判別できない",
+  "promise": "施工方法の違いで杭工法を仕分ける判断軸が身につく",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-foundation-key-points/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-takuitsu-pdf",
+    "campaign": "gakka-2kyu-kiso"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

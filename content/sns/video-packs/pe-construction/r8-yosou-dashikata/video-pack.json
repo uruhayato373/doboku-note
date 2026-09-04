@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "r8-yosou-dashikata",
+  "exam": "pe-construction",
+  "title": "R8予想はこう導く — 重点施策×改訂×過去傾向",
+  "audience": "令和8年度の建設部門二次に向けてテーマを絞りたい受験者",
+  "pain": "出題予想を根拠なく信じてよいのか判断できない",
+  "promise": "予想の導出プロセスと限界を知り自分でテーマを絞れるようになる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/competency-revision-r8/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/required-exam-themes/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-required-magazine",
+    "campaign": "r8-yosou-dashikata"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "配合計算は、問題ごとに解き方を組み立て直していて安定しませんよね。今日は最後まで同じ手順で解く型を作ります。",
+      "caption": "配合計算の解き方 — 手順を型にする",
+      "visual": {
+        "kind": "cover",
+        "heading": "配合計算の解き方",
+        "items": ["コンクリート技士・計算問題を型で解く"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "配合計算は公式を思い出す科目ではなく、決まった手順をなぞる科目です。単位をそろえる、百分率を小数へ直す、W/CとC/Wを混同しない。この3つを固定するだけでミスの大半は防げます。",
+      "caption": "公式暗記より「同じ手順をなぞる」科目",
+      "visual": {
+        "heading": "誤解：公式さえ覚えれば解ける",
+        "items": ["単位・百分率・W/CとC/Wの向きを先に固定する", "手順を毎回同じ順でなぞることがミス防止になる"]
+      },
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 55,
+      "end": 105,
+      "narration": "基準は1立方メートル、1000リットル。百分率は計算前に小数へ直す。水セメント比W/Cとセメント水比C/Wを逆にしない。この3つを最初に確認してから式を立てます。",
+      "caption": "基準・百分率・向きを最初に確認",
+      "visual": {
+        "heading": "1. 計算前に3つをそろえる",
+        "items": ["基準は1m³＝1000L", "百分率は計算前に小数へ直す", "W/CとC/Wを逆にしない"]
+      },
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 105,
+      "end": 165,
+      "narration": "単位セメント量Cは、単位水量Wを水セメント比W/Cで割ります。単位水量170kg、水セメント比50パーセントなら、170を0.50で割って340kg/m³。170を50で割る扱い忘れが典型的なミスです。",
+      "caption": "C＝W÷（W/C）、170÷0.50＝340kg",
+      "visual": {
+        "heading": "2. 単位セメント量は「水÷水セメント比」の型",
+        "items": ["C＝W÷（W/C）", "例：170kg÷0.50＝340kg/m³", "百分率を0.50へ直し忘れると計算が崩れる"]
+      },
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 165,
+      "end": 240,
+      "narration": "各材料の絶対容積は質量を密度で割ります。水170kgで170リットル、セメント340kgで約108リットル、空気量4.5パーセントで45リットル。粗骨材360リットルとすれば細骨材は317リットル、密度2.60をかけて表乾質量は約824.2kg/m³。合計が1000リットルへ戻るか確認します。",
+      "caption": "質量÷密度で1000Lへ積み上げる",
+      "visual": {
+        "heading": "3. 絶対容積は「質量÷密度」で1000Lへ積み上げる",
+        "items": ["水170L・セメント約108L・空気45L", "1000－（水+セメント+空気+粗骨材）＝細骨材の容積", "例：細骨材317L×密度2.60＝約824.2kg/m³"]
+      },
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 240,
+      "end": 300,
+      "narration": "示方配合は骨材を表乾状態で示しますが、実際は湿潤していることが多いので水量がずれます。表乾細骨材800kg、表面水率3.0パーセントなら、湿潤の計量値は824kg/m³。増えた24kgは練混ぜ水から差し引きます。",
+      "caption": "骨材を増やして、水を引く",
+      "visual": {
+        "heading": "4. 表面水補正は「増やして、引く」の型",
+        "items": ["湿潤計量値＝表乾質量×（1＋表面水率）", "例：800kg×1.03＝824kg/m³", "増えた24kgを練混ぜ水から差し引く"]
+      },
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "step5",
+      "start": 300,
+      "end": 360,
+      "narration": "最後に7ステップで検算します。基準は1m³か。百分率を小数へ直したか。W/CとC/Wを逆にしていないか。掛け算と割り算の向きは合っているか。空気量をリットルへ換算したか。表面水を反映したか。容積合計が1000リットルへ戻るか。",
+      "caption": "検算7ステップで原因を特定する",
+      "visual": {
+        "heading": "5. 最後に7ステップで検算する",
+        "items": ["基準・百分率・W/CとC/Wの向きを再確認", "質量⇔容積の掛け算・割り算の向きを確認", "空気量のL換算・表面水の反映・合計1000Lを確認"]
+      },
+      "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 360,
+      "end": 400,
+      "narration": "まとめます。単位をそろえ、水÷水セメント比でセメント量を出し、質量÷密度で1000リットルへ積み上げ、表面水は骨材を増やして水を引き、最後に7ステップで検算する。この手順を毎回同じ順でなぞってください。",
+      "caption": "同じ手順を毎回なぞれば崩れない",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 単位・百分率・向きをそろえる", "② C＝W÷（W/C）→絶対容積で1000Lへ積み上げる", "③ 表面水は骨材を増やして水を引き、7ステップで検算"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 400,
+      "end": 425,
+      "narration": "この手順で計算問題を通しで練習したい方は、概要欄のリンクから配合計算・JIS判断 実戦演習12問をご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "手順を通しで練習する",
+        "items": ["配合計算・JIS判断 実戦演習12問（概要欄リンク）"]
+      }
+    }
+  ]
+}

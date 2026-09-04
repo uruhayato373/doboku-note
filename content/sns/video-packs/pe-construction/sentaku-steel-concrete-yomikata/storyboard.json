@@ -1,0 +1,99 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "鋼構造・コンクリートの出題テーマは毎年違って見えますが、II-1は実は2系統にはっきり分かれています。今日は発注者実務の視点から仕込む優先順位を説明します。",
+      "caption": "鋼構造・コンクリート 出題テーマの読み方",
+      "visual": {
+        "kind": "cover",
+        "heading": "鋼構造・コンクリート 出題テーマの読み方",
+        "items": ["技術士 建設部門 選択科目「鋼構造及びコンクリート」"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 65,
+      "narration": "両方を満遍なく深く仕込むのは非効率です。前半2問が鋼構造、後半2問がコンクリートで、溶接・高力ボルト接合と劣化機構（ASR等）が繰り返し出ています。",
+      "caption": "II-1は前半鋼構造・後半コンクリート",
+      "visual": {
+        "heading": "誤解：両方を満遍なく深く仕込む",
+        "items": ["II-1前半＝鋼構造／後半＝コンクリート", "溶接・高力ボルト接合と劣化機構（ASR等）が頻出"]
+      },
+      "sourceRef": "content/site/pe-construction/steel-concrete-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "block1",
+      "start": 65,
+      "end": 125,
+      "narration": "II-1-1・II-1-2が鋼構造、II-1-3・II-1-4がコンクリートと系統が完全に分かれています。専門系統を確実な得点源に、もう一方は基礎だけ押さえます。",
+      "caption": "癖：2系統が完全に分離",
+      "visual": {
+        "heading": "鋼構造・コンクリートの癖",
+        "items": ["II-1が鋼構造とコンクリートに完全分離", "専門系統を得点源に・他方は基礎を維持"]
+      }
+    },
+    {
+      "sceneId": "block2",
+      "start": 125,
+      "end": 195,
+      "narration": "鋼構造は座屈、溶接や高力ボルト接合、腐食・防食、疲労き裂の4本柱が循環します。接合は施工上の品質確保まで押さえる必要があります。",
+      "caption": "鋼構造：座屈・接合・腐食・疲労",
+      "visual": {
+        "heading": "鋼構造（II-1-1・II-1-2）",
+        "items": ["座屈・溶接/高力ボルト接合", "腐食・防食・疲労き裂"]
+      },
+      "sourceRef": "content/site/pe-construction/steel-concrete-exam-themes/article.mdx"
+    },
+    {
+      "sceneId": "block3",
+      "start": 195,
+      "end": 265,
+      "narration": "コンクリートは中性化・塩害・ASR・凍害の劣化機構と、暑中・寒中・高強度の特殊コンクリートが二本柱です。劣化機構は原因から補修まで一貫して整理します。",
+      "caption": "コンクリート：劣化機構と特殊コンクリート",
+      "visual": {
+        "heading": "コンクリート（II-1-3・II-1-4）",
+        "items": ["劣化機構：中性化/塩害/ASR/凍害", "特殊コンクリート：暑中/寒中/高強度"]
+      },
+      "sourceRef": "content/site/pe-construction/steel-concrete-ronbun-keyword/article.mdx"
+    },
+    {
+      "sceneId": "block4",
+      "start": 265,
+      "end": 330,
+      "narration": "IIIはインフラ老朽化・維持管理が最頻出です。橋梁点検の発注に携わってきた立場からは、全構造物を一律に直せない制約と優先順位付けが説得力を左右します。",
+      "caption": "III：老朽化を発注者視点の優先順位で",
+      "visual": {
+        "heading": "III：老朽化・カーボンニュートラル",
+        "items": ["全構造物を一律に直す案は財政的に不成立", "優先順位付けが答案の説得力を左右"]
+      },
+      "sourceRef": "content/site/pe-construction/steel-concrete-ronbun-keyword/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 330,
+      "end": 375,
+      "narration": "鋼構造・コンクリートはII-1が2系統に分かれる科目です。専門系統を得点源に基礎を補い、IIIは老朽化と優先順位付けまで含めて準備します。",
+      "caption": "2系統分離＋優先順位付けで準備",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["II-1は鋼構造とコンクリートに分離", "専門系統を得点源に", "IIIは優先順位付けまで含める"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 375,
+      "end": 405,
+      "narration": "年度別の出題一覧と全設問の解答の形は、概要欄のリンクから鋼構造・コンクリート科目のマガジンでご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄の鋼構造・コンクリートマガジンへ",
+      "visual": {
+        "kind": "cover",
+        "heading": "鋼構造・コンクリートマガジンで確認する",
+        "items": ["年度別の出題テーマと解答の形（概要欄リンク）"]
+      }
+    }
+  ]
+}

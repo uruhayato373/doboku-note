@@ -67,7 +67,7 @@ export default async function HomePage() {
   return (
     <PageShell variant="default">
       <Hero />
-      <RecentUpdatesStrip articles={latest.slice(0, 2)} />
+      <RecentUpdatesStrip articles={latest.slice(0, 6)} />
       <ExamCards exams={exams} />
       <SectionBlock space="sm" ariaLabel="実務と基準資料">
         <div className="grid gap-4 md:grid-cols-3">

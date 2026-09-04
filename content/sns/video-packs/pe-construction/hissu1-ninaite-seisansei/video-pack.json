@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "hissu1-ninaite-seisansei",
+  "exam": "pe-construction",
+  "title": "担い手確保と生産性向上 — 2024年問題の論点整理",
+  "audience": "必須Ⅰで担い手・働き方テーマに備える建設部門受験者",
+  "pain": "担い手不足の話が一般論になり論文の論点に落とせない",
+  "promise": "担い手確保の問われ方と課題・方策の骨格が整理できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/ninaite-kakuho-seisansei/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/pe-construction/ninaite-dx-ronbun-keyword/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "pe-construction-required-magazine",
+    "campaign": "hissu1-ninaite-seisansei"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "転職の後悔で最も多いのは、前より消耗する会社を引くことです。今日は求人票の段階で見抜く読み方を説明します。",
+      "caption": "ホワイトな建設会社の見分け方",
+      "visual": {
+        "kind": "cover",
+        "heading": "ホワイトな建設会社の見分け方",
+        "items": [
+          "求人票の読み方"
+        ]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 50,
+      "narration": "大手だから、有名だからホワイトだろう、という思い込みは危険です。働きやすさは残業・休日・離職率という具体的な数字にしか表れません。",
+      "caption": "会社の知名度とホワイトさは別物",
+      "visual": {
+        "heading": "誤解：大手なら安心",
+        "items": [
+          "知名度ではなく残業・休日・離職率で見る",
+          "求人票の数字は面接で裏を取る"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-white-company/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 50,
+      "end": 115,
+      "narration": "まず残業時間と休日。月平均残業時間、年間休日数、完全週休二日制かを確認します。次に離職率や平均勤続年数、資格手当の記載も見ます。",
+      "caption": "求人票で確認すべき項目",
+      "visual": {
+        "heading": "1. 求人票で確認する項目",
+        "items": [
+          "月平均残業時間・年間休日数",
+          "離職率・平均勤続年数",
+          "資格手当・福利厚生の記載"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-white-company/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 115,
+      "end": 170,
+      "narration": "2024年4月から時間外労働の上限規制が建設業にも適用されました。原則は月45時間・年360時間です。この規制への対応姿勢で会社の本気度が分かります。",
+      "caption": "2024年問題への対応姿勢を見る",
+      "visual": {
+        "heading": "2. 2024年問題への対応",
+        "items": [
+          "原則 月45時間・年360時間",
+          "週休二日制・ICT施工の取り組みに注目"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/ホワイトな建設会社の見分け方-無料/article.md"
+    },
+    {
+      "sceneId": "step3",
+      "start": 170,
+      "end": 230,
+      "narration": "求人票の数字は面接で裏を取ります。「繁忙期はどのくらい忙しいか」「週休二日は現場でも取れているか」を聞きます。回答が曖昧なら注意信号です。",
+      "caption": "面接で実態を確かめる質問",
+      "visual": {
+        "heading": "3. 面接で確かめる質問",
+        "items": [
+          "「繁忙期の忙しさは？」",
+          "「週休二日は現場でも取れているか？」",
+          "曖昧・不機嫌な反応は注意信号"
+        ]
+      },
+      "sourceRef": "content/site/civil-construction-1/guide-white-company/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 230,
+      "end": 285,
+      "narration": "口コミサイトは、不満を持って辞めた人ほど書き込みやすい傾向があります。特定の一件を鵜呑みにせず、複数の情報源で共通点だけを参考にします。",
+      "caption": "口コミは参考程度に、複数で判断",
+      "visual": {
+        "heading": "4. 口コミの扱い方",
+        "items": [
+          "ネガティブな声は実態より多く見えやすい",
+          "複数の情報源で共通点だけ参考にする"
+        ]
+      },
+      "sourceRef": "content/note/1級・2級土木/ホワイトな建設会社の見分け方-無料/article.md"
+    },
+    {
+      "sceneId": "summary",
+      "start": 285,
+      "end": 325,
+      "narration": "まとめます。求人票で残業・休日・離職率を確認し、2024年問題への対応を読み取り、面接で実態を質問する。この3段階が基本です。",
+      "caption": "3段階：求人票→2024年問題→面接",
+      "visual": {
+        "heading": "まとめ",
+        "items": [
+          "① 求人票で数字を確認",
+          "② 2024年問題への対応を見る",
+          "③ 面接で実態を質問する"
+        ]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 325,
+      "end": 355,
+      "narration": "求人票では分からない内部の実態を知りたい方は、概要欄のリンクからご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "続きは概要欄のリンクから",
+        "items": [
+          "doboku-note リンクハブ"
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "niji-kijutsu-doko",
+  "exam": "civil-construction-1",
+  "title": "二次の学科記述 土工 — 穴埋めで問われる数字の型",
+  "audience": "1級土木二次の学科記述で土工を得点源にしたい受検者",
+  "pain": "土工の学科記述で問われる規定と数値の範囲が絞れない",
+  "promise": "土工の頻出規定を語句と数値のペアで覚えられる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-earthwork-basics/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-earthwork-past-problems/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-gakka-kijutsu",
+    "campaign": "niji-kijutsu-doko"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

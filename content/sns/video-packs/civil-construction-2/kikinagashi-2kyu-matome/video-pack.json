@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "packId": "kikinagashi-2kyu-matome",
+  "exam": "civil-construction-2",
+  "title": "耳で覚える2級土木 — 頻出点の総ざらい",
+  "audience": "スキマ時間で2級土木一次の総復習をしたい受検者",
+  "pain": "直前期に全分野を机で回す時間が取れない",
+  "promise": "主要5分野の頻出点を聞き流しで総ざらいできる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-earthwork-key-points/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-concrete-key-points/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-foundation-key-points/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-law-key-points/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-2/guide-construction-plan-key-points/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-2-takuitsu-pdf",
+    "campaign": "kikinagashi-2kyu-matome"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "packId": "career-nenshu-up",
+  "exam": "civil-construction-1",
+  "title": "年収を上げる施工管理の動き方 — 資格の市場価値",
+  "audience": "年収を上げたい土木施工管理職",
+  "pain": "同じ仕事をしていて年収が上がる人と上がらない人の差が分からない",
+  "promise": "1級土木の市場価値と年収を上げる人の共通行動が分かる",
+  "intent": "career",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-salary-up/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-market-value/article.mdx"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/年収を上げる人の違い-無料/article.md",
+      "access": "free"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/1級土木で市場価値が変わる-無料/article.md",
+      "access": "free"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "career-nenshu-up"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

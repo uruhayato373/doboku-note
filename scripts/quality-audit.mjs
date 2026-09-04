@@ -23,7 +23,7 @@
 import { spawnSync } from 'node:child_process';
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import net from 'node:net';
 
 const ROOT = resolve(join(dirname(fileURLToPath(import.meta.url)), '..'));
@@ -94,7 +94,11 @@ const CHECKS = [
   // 2026-08-17: check-gate-parity で「どこからも呼ばれていない」と判明したため配線（実行して緑を確認）。
   { id: 'public-bloat', npm: 'check-public-bloat', timeout: 60_000, ci: true, note: 'public/ の生成物滞留（放置するとビルドが落ちる）' },
   { id: 'playwright-auth-wiring', npm: 'check-playwright-auth-wiring', timeout: 60_000, ci: false, note: '読み手＝Playwright 認証共通化の実装担当。永続プロファイルを使うスクリプトが共通 auth guard を経由しているかを棚卸し' },
-  { id: 'playwright-auth-wiring-strict', npm: 'check-playwright-auth-wiring:strict', timeout: 60_000, ci: false, note: '読み手＝Playwright 認証共通化の実装担当。Phase 03 完了後に違反 0 を要求する将来ゲート。現状 111 件の既存移行対象があるため report-only' },
+  // expectedFail: 「今は失敗が正常」な将来ゲート。--report-only の失敗集計から外す代わりに、
+  // PASS に転じた瞬間に「前提が解消した＝フラグを外して昇格せよ」で赤くする（居座り防止のラチェット）。
+  // ゲート（ci フラグ true）には付けられない（起動時ガード）。毎週の偽再発で report-checks Issue が読み飛ばされる
+  // 状態（#479）の方が §9 に反するので、期日付きで分離する。
+  { id: 'playwright-auth-wiring-strict', npm: 'check-playwright-auth-wiring:strict', timeout: 60_000, ci: false, expectedFail: 'Phase 03（Playwright 認証共通化）完了まで。完了時にこのキーを外し ci フラグを true にして昇格する', note: '読み手＝Playwright 認証共通化の実装担当。Phase 03 完了後に違反 0 を要求する将来ゲート。現状 111 件の既存移行対象があるため report-only' },
   { id: 'gate-parity', npm: 'check-gate-parity:ci', timeout: 60_000, ci: true, note: 'pre-commit / quality-audit / workflow のどこからも呼ばれていない検査を検出（オーファン化の防止）' },
   { id: 'eslint', npm: 'lint', timeout: 180_000, ci: true },
   { id: 'validate-mdx', npm: 'validate-mdx', timeout: 180_000, ci: true },
@@ -188,6 +192,7 @@ const CHECKS = [
   { id: 'doc-lifecycle', npm: 'check-doc-lifecycle', timeout: 90_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。加えて /weekly-review の Agent H と /doc-declutter が読む' },
   { id: 'policy-anchors', npm: 'check-policy-anchors', timeout: 90_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）' },
   { id: 'ogp-coverage', npm: 'check-ogp-coverage', timeout: 90_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。r2-audit.yml が週次で同スクリプトを赤落ちゲートとして実行しており、こちらは横断監査での再掲' },
+  { id: 'note-cover-coverage', npm: 'check-note-cover-coverage', timeout: 90_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。note-cover-supply.yml が develop push ごとに同スクリプトの --json で欠落 dir を拾って生成→R2→manifest まで供給し、供給後の残存を赤落ちゲートにしている。unit-tests（note-cover-contract）も同じ判定を PR で走らせる。こちらは横断監査での再掲' },
   { id: 'ogp-design', npm: 'check-ogp-design', timeout: 120_000, ci: false, note: '読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）' },
   { id: 'quality-census', npm: 'quality-census', timeout: 180_000, ci: false, note: 'census.json 再生成（薄層可視化）。読み手＝weekly-review-guard の report digest（--report-only を週次実行し FAIL は automation-failure Issue へ集約）。生成物は /quality-cycle と admin の /quality が読む' },
   { id: 'env-inventory', cmd: ['node', 'scripts/report-env-inventory.mjs'], timeout: 60_000, ci: false },
@@ -253,6 +258,31 @@ const CHECKS = [
   },
 ];
 
+// expectedFail は ci:true には付けられない。ゲートに「失敗が正常」を認めると Pre-merge の
+// 判定が空文になる。設定ミスは検査不成立（exit 2）で止める。
+{
+  const bad = CHECKS.filter((c) => c.ci && c.expectedFail).map((c) => c.id);
+  if (bad.length) {
+    process.stderr.write(`[quality-audit] ✗ 検査不成立: ci:true に expectedFail は付けられない: ${bad.join(', ')}\n`);
+    process.exit(2);
+  }
+}
+
+/**
+ * --report-only の集計。純関数（テストが import する）。
+ *   unexpected     … 通常の FAIL/TIMEOUT → exit 1
+ *   expected       … expectedFail 付きの FAIL/TIMEOUT → ログに [EXPECTED] として出すだけ（exit に影響しない）
+ *   unexpectedPass … expectedFail 付きなのに PASS → 前提が解消した。フラグを外して昇格するまで exit 1（ラチェット）
+ */
+export function partitionReportOnly(results) {
+  const failed = results.filter((r) => r.status === 'fail' || r.status === 'timeout');
+  return {
+    unexpected: failed.filter((r) => !r.expectedFail),
+    expected: failed.filter((r) => r.expectedFail),
+    unexpectedPass: results.filter((r) => r.expectedFail && r.status === 'pass'),
+  };
+}
+
 function resolveCommand(check) {
   if (check.cmd) return check.cmd;
   if (check.npm) {
@@ -305,11 +335,11 @@ async function runCheck(check) {
   if (REPORT_ONLY && (check.ci || check.digest === false)) return null;
   if (check.skip) {
     const reason = await check.skip();
-    if (reason) return { id: check.id, ci: check.ci, status: 'skip', skipReason: reason, durationMs: 0, note: check.note };
+    if (reason) return { id: check.id, ci: check.ci, status: 'skip', skipReason: reason, durationMs: 0, note: check.note, expectedFail: check.expectedFail ?? null };
   }
   const command = resolveCommand(check);
   if (!command) {
-    return { id: check.id, ci: check.ci, status: 'skip', skipReason: `npm script '${check.npm}' が未定義`, durationMs: 0, note: check.note };
+    return { id: check.id, ci: check.ci, status: 'skip', skipReason: `npm script '${check.npm}' が未定義`, durationMs: 0, note: check.note, expectedFail: check.expectedFail ?? null };
   }
   // Windows では npm/npx の実体が .cmd のため shell 無しの spawnSync は ENOENT で即死する。
   // これを放置すると node 直起動の検査だけが走り、残り全部が 0.0s FAIL になる＝「偽赤」で
@@ -328,6 +358,7 @@ async function runCheck(check) {
   return {
     id: check.id, ci: check.ci, status, exitCode: r.status ?? null, durationMs,
     stdoutTail: tail(r.stdout), stderrTail: tail(r.stderr), note: check.note,
+    expectedFail: check.expectedFail ?? null,
     // 全文はここでしか手に入らない（tail 済みの文字列からは信号行を拾えない）
     excerpt: status === 'pass' ? '' : failureExcerpt(r.stdout, r.stderr),
   };
@@ -354,7 +385,8 @@ function buildMarkdown(results, meta) {
   L.push('| チェック | 区分 | 状態 | 時間 | 備考 |');
   L.push('|---|---|---|---|---|');
   for (const r of results) {
-    const badge = { pass: 'PASS', fail: '**FAIL**', timeout: '**TIMEOUT**', skip: 'skip' }[r.status];
+    let badge = { pass: 'PASS', fail: '**FAIL**', timeout: '**TIMEOUT**', skip: 'skip' }[r.status];
+    if (r.expectedFail && (r.status === 'fail' || r.status === 'timeout')) badge = 'EXPECTED';
     const sec = r.durationMs ? `${(r.durationMs / 1000).toFixed(1)}s` : '—';
     const memo = r.status === 'skip' ? (r.skipReason || '') : (r.note || '');
     L.push(`| ${r.id} | ${r.ci ? 'ci' : 'report'} | ${badge} | ${sec} | ${memo} |`);
@@ -412,13 +444,26 @@ async function main() {
   if (REPORT_ONLY && results.length === 0) {
     process.stderr.write('[quality-audit] ✗ 検査不成立: ci:false の検査が 1 件も実行されなかった\n');
     process.exitCode = 2;
-  } else if (REPORT_ONLY && failed.length) {
-    for (const r of failed) {
+  } else if (REPORT_ONLY) {
+    const part = partitionReportOnly(results);
+    for (const r of part.expected) {
+      // 集計からは外すが黙らせない: 件数（excerpt の末尾）と理由をログに残す＝「検査ゼロ」にしない
+      process.stderr.write(`[EXPECTED] ${r.id} (exit ${r.exitCode}) — ${r.expectedFail}\n`);
+      process.stderr.write(`  ${tail(r.excerpt, 2).replace(/\n/g, '\n  ') || '(出力なし)'}\n`);
+    }
+    for (const r of part.unexpected) {
       process.stderr.write(`\n--- ${r.id} — ${r.status} (exit ${r.exitCode}) ---\n`);
       process.stderr.write((r.excerpt || '(出力なし)') + '\n');
     }
-    process.stderr.write(`[quality-audit] report 区分の失敗: ${failed.map((f) => f.id).join(', ')}\n`);
-    process.exitCode = 1;
+    for (const r of part.unexpectedPass) {
+      process.stderr.write(`\n--- ${r.id} — PASS なのに expectedFail が残っている ---\n`);
+      process.stderr.write(`前提「${r.expectedFail}」が解消した。CHECKS から expectedFail を外して ci:true へ昇格すること。\n`);
+    }
+    if (part.unexpected.length || part.unexpectedPass.length) {
+      const ids = [...part.unexpected, ...part.unexpectedPass].map((f) => f.id);
+      process.stderr.write(`[quality-audit] report 区分の失敗: ${ids.join(', ')}\n`);
+      process.exitCode = 1;
+    }
   }
 
   if (CI && failed.length) {
@@ -433,4 +478,6 @@ async function main() {
   }
 }
 
-main();
+// import 時は実行しない（テストが partitionReportOnly を読めるようにする）。
+const isMain = process.argv[1] && pathToFileURL(process.argv[1]).href === import.meta.url;
+if (isMain) main();

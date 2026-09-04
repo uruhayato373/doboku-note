@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "shunin-products-ronten",
+  "exam": "concrete-chief-engineer",
+  "title": "主任技士「コンクリート製品」の頻出論点",
+  "audience": "コンクリート主任技士の択一でコンクリート製品分野を固めたい受験者",
+  "pain": "工場製品の製造方法は現場経験だけではイメージが湧かず後回しになりがち",
+  "promise": "即時脱型など製品分野の頻出論点を短時間で押さえられる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/textbook-products/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-chief-engineer/primary-products/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "cce-r8-mc-50",
+    "campaign": "shunin-products-ronten"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

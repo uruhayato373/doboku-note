@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "施工計画の問題を感覚で解いていませんか。今日は事前調査から仮設計画までの検討フローを説明します。",
+      "caption": "施工計画の立て方 事前調査から仮設まで",
+      "visual": {
+        "kind": "cover",
+        "heading": "施工計画の立て方 事前調査から仮設まで",
+        "items": ["1級土木 第1次検定・施工計画"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "施工方法は発注者が指示してくれる、と思われがちですが、設計図書に示されるのは形状・寸法・品質までです。施工方法や仮設備は、特に指定がなければ施工者自身が検討して決めます。",
+      "caption": "施工方法は施工者が自ら組み立てる",
+      "visual": {
+        "heading": "誤解：施工方法は発注者が指示する",
+        "items": ["設計図書は形状・寸法・品質までを示す", "施工方法・仮設は施工者の検討事項"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-plan-overview/article.mdx"
+    },
+    {
+      "sceneId": "step1",
+      "start": 55,
+      "end": 115,
+      "narration": "事前調査は、契約条件・工事条件・自然条件の3カテゴリで確認します。契約条件は契約書や設計図書、工事条件は地形や立地、自然条件は気象や地質、地下水位です。地形を自然条件と取り違えないよう注意します。",
+      "caption": "事前調査は3カテゴリで確認する",
+      "visual": {
+        "heading": "事前調査の3カテゴリ",
+        "items": ["契約条件：契約書・設計図書など", "工事条件：地形・立地・運搬路など", "自然条件：気象・地質・地下水位・文化財など"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-plan-overview/article.mdx"
+    },
+    {
+      "sceneId": "step2",
+      "start": 115,
+      "end": 185,
+      "narration": "施工計画は、事前調査、基本計画、詳細計画、管理計画の4段階で組み立てます。基本計画では施工方法の概略と経済性を比較し、詳細計画では機械選定や人員配置を決め、管理計画では現場組織や資金計画をまとめます。",
+      "caption": "計画は4段階で積み上げる",
+      "visual": {
+        "heading": "施工計画作成の4段階",
+        "items": ["① 事前調査 → ② 基本計画（施工方法・経済性）", "③ 詳細計画（機械選定・人員配置・積算）", "④ 管理計画（現場組織・資金・安全衛生）"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-plan-overview/article.mdx"
+    },
+    {
+      "sceneId": "step3",
+      "start": 185,
+      "end": 235,
+      "narration": "施工計画は1つの案だけで決めません。複数の代案をつくり、経済性・施工性・安全性の長所短所を比較検討して、最も適した計画を採用します。",
+      "caption": "代案を複数つくって3観点で比較する",
+      "visual": {
+        "heading": "代案比較の3観点",
+        "items": ["経済性・施工性・安全性を比較", "1つの案のみで決定しない", "新しい工法・技術も検討対象に含める"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-construction-plan-overview/article.mdx"
+    },
+    {
+      "sceneId": "step4",
+      "start": 235,
+      "end": 300,
+      "narration": "仮設備は、契約上の扱いで指定仮設と任意仮設に分かれます。指定仮設は発注者が仕様や配置を指定し、変更は設計変更の対象になります。任意仮設は施工者の自主性にゆだねられ、契約変更の対象にはなりません。",
+      "caption": "指定仮設は設計変更、任意仮設は変更対象外",
+      "visual": {
+        "heading": "仮設備計画：指定仮設と任意仮設",
+        "items": ["指定仮設：発注者が指定・設計変更の対象", "任意仮設：施工者の自主性・契約変更の対象外", "別軸で直接仮設と共通仮設の区分もある"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-management-subplans/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 300,
+      "end": 340,
+      "narration": "まとめます。流れは、事前調査の3カテゴリ、基本・詳細・管理の4段階、代案比較の3観点、そして仮設備の指定・任意の区分。施工方法は待つものではなく、自ら組み立てるものです。",
+      "caption": "事前調査→4段階→代案比較→仮設計画",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 事前調査：契約・工事・自然条件", "② 事前調査→基本→詳細→管理の4段階", "③ 代案比較と指定・任意仮設の区分"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 340,
+      "end": 370,
+      "narration": "事前調査から仮設計画までを含めて確認したい方は、概要欄のリンクから一次検定頻出論点まとめをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "頻出論点まとめで確認する",
+        "items": ["一次検定 頻出論点まとめ（概要欄リンク）"]
+      }
+    }
+  ]
+}

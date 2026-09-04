@@ -1,0 +1,100 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "原位置試験と室内試験、何を求める試験なのか混ざりやすいところです。今日は知りたい値から試験名を逆引きする整理法を説明します。",
+      "caption": "土質調査は試験名を逆引きする",
+      "visual": {
+        "kind": "cover",
+        "heading": "土質調査は試験名を逆引きする",
+        "items": ["1級土木 第1次検定・土工"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 55,
+      "narration": "試験名と数値をセットで丸暗記すればいい、と思いがちですが、コーン指数を求める試験は2つあります。ポータブルコーンと機械式コーンで対象の地盤の硬さが違い、名前だけの暗記では取り違えます。",
+      "caption": "誤解：試験名の丸暗記だけでは足りない",
+      "visual": {
+        "heading": "誤解：試験名の丸暗記",
+        "items": ["コーン指数qcを求める試験は2つある", "対象地盤の硬さが違うので取り違えやすい"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-soil-investigation-methods/article.mdx"
+    },
+    {
+      "sceneId": "genri",
+      "start": 55,
+      "end": 105,
+      "narration": "原位置試験は、土をサンプリングせず地盤の中で直接調べる試験です。室内試験は、試料を持ち帰り試験室で調べます。まずどちらの土俵の話かを意識してください。",
+      "caption": "現場で直接か、持ち帰って調べるか",
+      "visual": {
+        "heading": "原位置試験と室内試験の違い",
+        "items": ["原位置＝乱さずに現場で直接調べる", "室内＝試料を持ち帰り試験室で調べる"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-soil-investigation-methods/article.mdx"
+    },
+    {
+      "sceneId": "gyakubiki",
+      "start": 105,
+      "end": 175,
+      "narration": "土の硬軟を知りたいなら標準貫入試験でエヌ値です。トラフィカビリティなら、浅い軟弱地盤はポータブルコーン貫入試験、比較的固い地盤は機械式コーン貫入試験でコーン指数を求めます。粘着力ならベーン試験、地盤反力係数なら平板載荷試験です。",
+      "caption": "知りたい値から試験名を逆引きする",
+      "visual": {
+        "heading": "知りたい値→試験名（原位置）",
+        "items": ["N値＝標準貫入試験", "コーン指数＝ポータブル/機械式コーン", "粘着力＝ベーン試験、K＝平板載荷試験"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-soil-investigation-methods/article.mdx"
+    },
+    {
+      "sceneId": "sounding",
+      "start": 175,
+      "end": 220,
+      "narration": "標準貫入試験・スクリューウエイト貫入試験・ポータブルコーン・機械式コーンは、まとめてサウンディングと呼ばれます。ただし標準貫入試験だけが動的、残り3つは静的サウンディングです。",
+      "caption": "サウンディングは動的1つ・静的3つ",
+      "visual": {
+        "heading": "サウンディングの分類",
+        "items": ["動的：標準貫入試験のみ", "静的：スクリューウエイト／ポータブルコーン／機械式コーン"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-soil-investigation-methods/article.mdx"
+    },
+    {
+      "sceneId": "shitsunai",
+      "start": 220,
+      "end": 290,
+      "narration": "室内試験は、土の判別分類のための試験と、力学的性質を求める試験に分かれます。前者は含水比や粒度で大まかな性質を、後者は一軸圧縮試験など設計に使う値を求めます。一軸圧縮強さを2で割ると粘着力です。",
+      "caption": "室内試験は「知る」か「使う値」かで二分",
+      "visual": {
+        "heading": "室内試験の2系統",
+        "items": ["判別分類：含水比・粒度・液性/塑性限界", "力学的性質：一面せん断・一軸圧縮・三軸・圧密"]
+      },
+      "sourceRef": "content/site/civil-construction-1/textbook-soil-investigation-methods/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 290,
+      "end": 335,
+      "narration": "原位置試験は現場で直接、室内試験は持ち帰って。知りたい値を先に決め、そこから試験名を逆引きする順序に変えてください。",
+      "caption": "知りたい値→試験名の順で覚える",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 原位置か室内かを意識する", "② 知りたい値から試験名を逆引きする", "③ 動的サウンディングは標準貫入試験だけ"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 335,
+      "end": 365,
+      "narration": "原位置試験と室内試験の対応表を確認したい方は、概要欄のリンクから1級土木一次の論点まとめマガジンをご覧ください。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "対応表で確認する",
+        "items": ["1級土木一次 論点まとめ（概要欄リンク）"]
+      }
+    }
+  ]
+}

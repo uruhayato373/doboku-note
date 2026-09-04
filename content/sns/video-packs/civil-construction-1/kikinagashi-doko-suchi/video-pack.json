@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "packId": "kikinagashi-doko-suchi",
+  "exam": "civil-construction-1",
+  "title": "耳で覚える土工の数字 — 盛土・法面・軟弱地盤",
+  "audience": "通勤時間で土工の規定値を覚えたい1級土木受験者",
+  "pain": "締固めや法面の規定値が似た数字ばかりで混ざってしまう",
+  "promise": "土工の頻出数値を対比の形で耳から定着できる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-embankment/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-soft-ground-drainage/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "kikinagashi-doko-suchi"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

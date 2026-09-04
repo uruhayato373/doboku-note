@@ -1,0 +1,270 @@
+name: Note Cover Supply (generate -> R2)
+
+# content/note/**/article*.md が develop へ push されたとき、note カバー PNG（img/cover*.png）の
+# 欠落を検知して自動生成し R2 へ供給する（ogp-supply.yml の note カバー版）。
+#
+# なぜ要るか:
+#   cover PNG は DN-0111 Phase 4-B で git 追跡から外し R2（asset-storage.json の group:
+#   note-cover-png・記事 frontmatter で public/private を判定）へ退避した。生成は
+#   `node scripts/generate-note-covers.mjs <dir>`、供給は
+#   `node scripts/asset-offload.mjs --group note-cover-png --include-untracked --commit` の
+#   2 段階だが、R2 credential の無い環境（会社 PC・Claude Code Remote）では実行できず、
+#   新しい note 記事を書いた PR は unit-tests（tests/note-cover-contract.test.mjs＝「カバーが
+#   ローカルにも manifest にも無い」）が赤のまま残る（2026-09-01 PR #480 で実際に起きた）。
+#   この workflow は check-note-cover-coverage.mjs --json で欠落 dir を拾い、生成 → R2 供給 →
+#   manifest 更新までを CI だけで完結させる。
+#
+# 自己ループ防止（二重）:
+#   1. commit メッセージに [skip ci] を付ける
+#   2. trigger paths は content/note/**/article*.md のみで、commit 対象の
+#      .claude/state/assets/manifest.json はこの paths フィルタに該当しない
+#
+# 生成の副作用と Prune:
+#   generate-note-covers は dir 単位で **同居する全 article*.md のカバー** を書き直す
+#   （article.md と article-II1.md が同居する dir で II1 だけ欠けていても cover.png も再描画される）。
+#   カバー PNG は byte 再現できない（asset-storage-policy.md）ので、そのまま offload すると既に
+#   R2 にある cover.png を別バイトで上書きし manifest の sha256 も書き換わる。Prune ステップで
+#   「欠落として検出したカバー」以外の生成物を消してから offload する。
+#
+# 部分失敗時の性質（ogp-supply.yml と同じ「次回 run が収束させる」設計）:
+#   - 一部 dir の生成失敗 → 隔離して継続。成功分だけ offload・manifest 更新まで進める
+#   - offload 失敗 → manifest 未 publish のまま赤。次回 run が同じ dir を欠落として再検出する
+#   - Post-supply check が赤い ＝ 欠落がまだ残っている設計どおりの状態
+#
+# 既知の制約:
+#   新規 workflow は main に載るまで workflow_dispatch / schedule が発火しない
+#   （measurement-incidents.md「定期ジョブの実行ブランチ」節）。push トリガーは develop への
+#   push そのもので起動するため、main 昇格前でも develop 上のこのファイルの版で動く。
+#   PR 上の unit-tests は、その PR が develop へマージされ本 workflow が manifest を commit した
+#   **次の push から** 緑になる（マージ前に緑にするならローカルで asset-inbox-push）。
+
+on:
+  push:
+    branches: [develop]
+    paths:
+      - 'content/note/**/article*.md'
+  workflow_dispatch:
+    inputs:
+      max:
+        description: '生成上限の上書き（既定20）'
+        required: false
+        default: '20'
+        type: string
+  schedule:
+    - cron: '0 22 * * 0'
+
+# DN-0109 Phase 1: develop への自動書込み系ワークフロー間の push 衝突を防ぐ共通グループ。
+# 同時実行を待たせるだけで落とさない（cancel-in-progress: false）。
+concurrency:
+  group: develop-git-write
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  supply:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: develop
+
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      # --ignore-scripts を付けない。prepare が pre-commit フックを入れ、CI 内で行う
+      # commit（Publish manifest ステップ）にもフルゲートが走るようにするため（ogp-supply.yml と同じ）。
+      - name: Install dependencies
+        run: npm ci --legacy-peer-deps
+
+      # doc-meta-index.json は git 追跡外の生成物。pre-commit フック内の複数チェックが直接読むため、
+      # 無いと Publish manifest の commit が ENOENT で落ちる（ogp-supply.yml / ci.yml と同じ配線）。
+      - name: Build doc meta index
+        run: node .claude/scripts/build-doc-meta-index.mjs --ci
+
+      # 欠落（ローカルにも manifest にも無い）を検知し、生成対象 dir の一覧を作る。
+      # 検査対象数・内訳を必ずログへ出す（CLAUDE.md §9「検査ゼロを PASS と呼ばない」）。
+      - name: Detect missing covers
+        id: detect
+        run: |
+          set -u
+          set -o pipefail
+
+          echo "::group::check-note-cover-coverage --json"
+          set +e
+          node scripts/check-note-cover-coverage.mjs --json > /tmp/note-cover.json
+          cov_exit=$?
+          set -e
+          echo "exit code: ${cov_exit}"
+          echo "::endgroup::"
+
+          # 欠落>0 は exit 1、無ければ exit 0。exit 2 は検査不成立（走査の破損）で止める。
+          if [ "${cov_exit}" -gt 1 ]; then
+            echo "::error::check-note-cover-coverage.mjs --json が検査不成立（exit ${cov_exit}）。記事の走査か manifest の読込が壊れている。"
+            exit 1
+          fi
+
+          checked=$(jq -r '.checked' /tmp/note-cover.json)
+          if [ "${checked}" = "0" ] || [ "${checked}" = "null" ]; then
+            echo "::error::note 記事 0 件（検査不成立）。git ls-files content/note の解決を確認すること。"
+            exit 1
+          fi
+
+          # 生成では直らない不正（寸法違い・PNG でない・退避記録の欠落）は warning で明示する。
+          for key in notPng noProof wrongSize; do
+            n=$(jq -r ".${key} | length" /tmp/note-cover.json)
+            if [ "${n}" != "0" ]; then
+              echo "::warning::check-note-cover-coverage: ${key} が ${n} 件。生成では直らないので手で確認すること（詳細は /tmp/note-cover.json）。"
+            fi
+          done
+
+          jq -r '.missing[].dir' /tmp/note-cover.json | sort -u | sed '/^$/d' > /tmp/note-cover-dirs.txt
+          jq -r '.missing[].cover' /tmp/note-cover.json | sort -u | sed '/^$/d' > /tmp/note-cover-expected.txt
+
+          missing_count=$(jq -r '.missing | length' /tmp/note-cover.json)
+          count=$(wc -l < /tmp/note-cover-dirs.txt | tr -d ' ')
+          resolved=$(jq -r '.resolved' /tmp/note-cover.json)
+
+          echo "checked ${checked} 件 / resolved ${resolved} 件 / missing ${missing_count} 件 / 対象 dir ${count} 件"
+          if [ "${count}" != "0" ]; then
+            echo "--- 対象 dir ---"
+            cat /tmp/note-cover-dirs.txt
+          fi
+
+          {
+            echo "checked=${checked}"
+            echo "missing=${missing_count}"
+            echo "count=${count}"
+          } >> "$GITHUB_OUTPUT"
+
+      # 対象 dir が上限を大きく超えるのは、manifest の破損や asset-storage.json の group 変更など
+      # 系統異常の疑い。通常の記事追加なら数件で収まるはず。
+      - name: Cap check
+        if: steps.detect.outputs.count != '0'
+        run: |
+          set -eu
+          count="${{ steps.detect.outputs.count }}"
+          max="${{ inputs.max || '20' }}"
+          echo "対象 ${count} dir / 上限 ${max}"
+          if [ "${count}" -gt "${max}" ]; then
+            echo "::error::生成対象 ${count} dir が上限 ${max} を超えている。系統異常の疑い。意図的な一括供給なら workflow_dispatch の max パラメータで明示解除すること。"
+            exit 1
+          fi
+
+      # dir ごとに生成する（generate-note-covers は allDirs との完全一致で 1 dir だけ処理する）。
+      # 失敗した dir は隔離して継続し、全滅（成功 0 件）のときだけ止める。
+      - name: Generate covers
+        if: steps.detect.outputs.count != '0'
+        id: generate
+        run: |
+          set -u
+          : > /tmp/note-cover-generated-dirs.txt
+          : > /tmp/note-cover-failed-dirs.txt
+          success=0
+          failed=0
+          while IFS= read -r dir; do
+            [ -z "${dir}" ] && continue
+            echo "::group::generate ${dir}"
+            if node scripts/generate-note-covers.mjs "${dir}"; then
+              echo "${dir}" >> /tmp/note-cover-generated-dirs.txt
+              success=$((success + 1))
+            else
+              echo "::warning::カバー生成に失敗した dir: ${dir}"
+              echo "${dir}" >> /tmp/note-cover-failed-dirs.txt
+              failed=$((failed + 1))
+            fi
+            echo "::endgroup::"
+          done < /tmp/note-cover-dirs.txt
+
+          echo "生成成功 ${success} dir / 失敗 ${failed} dir"
+          if [ "${success}" -eq 0 ]; then
+            echo "::error::カバー生成が全滅した（${failed} dir すべて失敗）。"
+            exit 1
+          fi
+
+          {
+            echo "generated=${success}"
+            echo "failed=${failed}"
+          } >> "$GITHUB_OUTPUT"
+
+      # 欠落として検出したカバー以外の生成物（同居記事の再描画分）を消す。
+      # checkout には cover PNG が 1 枚も無い（gitignore・R2 退避済み）ので、ここに在る cover*.png は
+      # すべて直前の Generate が書いたもの。期待リストに無いものを offload すると R2 の既存カバーを
+      # 別バイトで上書きし manifest の sha256 まで書き換わる。
+      - name: Prune covers that were not missing
+        if: steps.detect.outputs.count != '0'
+        run: |
+          set -u
+          set -o pipefail
+          git -c core.quotepath=false ls-files --others --ignored --exclude-standard content/note \
+            | grep -E '/img/cover[A-Za-z0-9_-]*\.png$' > /tmp/note-cover-present.txt || true
+          present=$(wc -l < /tmp/note-cover-present.txt | tr -d ' ')
+          kept=0
+          pruned=0
+          while IFS= read -r p; do
+            [ -z "${p}" ] && continue
+            if grep -qxF "${p}" /tmp/note-cover-expected.txt; then
+              kept=$((kept + 1))
+            else
+              rm -f -- "${p}"
+              pruned=$((pruned + 1))
+              echo "prune: ${p}"
+            fi
+          done < /tmp/note-cover-present.txt
+          echo "生成物 ${present} 枚 / 供給 ${kept} 枚 / 削除 ${pruned} 枚"
+          if [ "${kept}" -eq 0 ]; then
+            echo "::error::供給できるカバーが 0 枚（生成物と期待リストが一致しない）。generate-note-covers の出力名（cover-XXX.png）と check-note-cover-coverage の expectedCoverPath がずれている。"
+            exit 1
+          fi
+
+      - name: Offload generated covers to R2
+        if: steps.detect.outputs.count != '0'
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: node scripts/asset-offload.mjs --group note-cover-png --include-untracked --commit
+
+      - name: Publish manifest to develop
+        if: steps.detect.outputs.count != '0'
+        run: |
+          set -eu
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add .claude/state/assets/manifest.json
+          if git diff --cached --quiet; then
+            echo "::error::offload 成功なのに manifest.json に差分が無い。生成・R2 アップロードが成功していれば台帳は必ず動くはずで、動いていないのは異常。"
+            exit 1
+          fi
+          # commit を rebase より先に行う。逆順だと staged な manifest が index に残ったままで
+          # `cannot rebase: Your index contains uncommitted changes` になる
+          # （asset-inbox.yml が 2026-08-27 run 33034670182 で踏んだ罠・ogp-supply.yml と同じ順序）。
+          git commit -m "chore(assets): note-cover-supply ${{ steps.generate.outputs.generated || 0 }} dir のカバーを R2 へ供給 [skip ci]"
+          git fetch origin develop
+          git rebase origin/develop
+          git push origin HEAD:develop
+
+      # 失敗 dir が残っていれば自然にここが赤くなる（成功分は供給済みだが job は赤、という設計どおりの状態）。
+      - name: Post-supply coverage check
+        if: steps.detect.outputs.count != '0'
+        run: node scripts/check-note-cover-coverage.mjs
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "## Note Cover Supply Summary"
+            echo ""
+            echo "| 項目 | 件数 |"
+            echo "|---|---|"
+            echo "| note 記事（検査対象） | ${{ steps.detect.outputs.checked || 'N/A' }} |"
+            echo "| missing（カバー未供給の記事） | ${{ steps.detect.outputs.missing || 'N/A' }} |"
+            echo "| 生成対象 dir | ${{ steps.detect.outputs.count || 'N/A' }} |"
+            echo "| 生成成功 dir | ${{ steps.generate.outputs.generated || '0' }} |"
+            echo "| 生成失敗 dir | ${{ steps.generate.outputs.failed || '0' }} |"
+          } >> "$GITHUB_STEP_SUMMARY"

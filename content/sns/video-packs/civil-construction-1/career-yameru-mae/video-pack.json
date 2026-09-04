@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "packId": "career-yameru-mae",
+  "exam": "civil-construction-1",
+  "title": "辞める前に確認すること — 後悔しない退職判断",
+  "audience": "今の会社を辞めるか迷っている施工管理職",
+  "pain": "勢いで辞めて後悔しないか、確認すべきことが分からない",
+  "promise": "退職判断の前に確認するチェック項目が揃う",
+  "intent": "career",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-quit-or-stay/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/guide-career-consultation-before-quit/article.mdx"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/辞める前に確認すること-無料/article.md",
+      "access": "free"
+    },
+    {
+      "type": "note",
+      "path": "content/note/1級・2級土木/転職した方がいい施工管理-発注者視点-無料/article.md",
+      "access": "free"
+    }
+  ],
+  "primaryCta": {
+    "kind": "links-hub",
+    "campaign": "career-yameru-mae"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": false,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

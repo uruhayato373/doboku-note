@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "gishi-properties-testing-ronten",
+  "exam": "concrete-engineer",
+  "title": "コンクリート技士「コンクリートの性質と試験」の頻出論点",
+  "audience": "コンクリート技士でコンクリートの性質と試験まわりを固めたい受験者",
+  "pain": "スランプや空気量など試験方法の細かい規定が覚えきれない",
+  "promise": "性質と試験方法の頻出規定をセットで整理し取りこぼしを減らせる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/textbook-properties-testing/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/concrete-engineer/primary-properties-testing/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "ce-mix-jis-practice",
+    "campaign": "gishi-properties-testing-ronten"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "format": "longform-16x9",
+  "scenes": [
+    {
+      "sceneId": "cover",
+      "start": 0,
+      "end": 15,
+      "narration": "安全管理は安全第一に努めた、だけでは一般論になってしまいます。危険源を現場条件から特定し、対策を比較する書き方を説明します。",
+      "caption": "安全管理テーマ 一般論にしない書き方",
+      "visual": {
+        "kind": "cover",
+        "heading": "安全管理テーマの経験記述",
+        "items": ["1級土木 第2次検定・施工経験記述"]
+      }
+    },
+    {
+      "sceneId": "premise",
+      "start": 15,
+      "end": 58,
+      "narration": "先に安全管理で書くと決めて課題を探すと、一般論になりがちです。安全に配慮しただけでは技術的課題になりません。どんな危険源をどう予測して対策を選んだかが問われます。",
+      "caption": "安全に配慮しただけでは課題にならない",
+      "visual": {
+        "heading": "誤解：安全第一に努めた、で書ける",
+        "items": ["「配慮した」だけでは課題にならない", "危険源の予測と対策選定が問われる"]
+      },
+      "sourceRef": "content/note/1級・2級土木/1級土木/1級経験記述テーマ選び5管理/article.md"
+    },
+    {
+      "sceneId": "identify-hazard",
+      "start": 58,
+      "end": 110,
+      "narration": "危険源は、法面の急勾配、高所の足場作業、重機の輻輳、大規模な掘削といった現場条件から特定します。墜落の危険があった、だけでなくどの高さ・どの勾配かまで書きます。",
+      "caption": "危険源は現場条件から具体的に特定する",
+      "visual": {
+        "heading": "STEP 1　危険源を現場条件から特定する",
+        "items": ["法面勾配・高所作業・重機輻輳を具体化", "「危険があった」で止めない", "高さ・勾配など具体条件で示す"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "compare-measures",
+      "start": 110,
+      "end": 162,
+      "narration": "検討では複数の対策を比較して選んだ理由を書きます。法面はハーネス型安全帯と親綱・防護ネット、足場は手すり・中さん・巾木と安全ネット、掘削は地山観察と土留め支保工です。",
+      "caption": "検討は複数の対策を比較して書く",
+      "visual": {
+        "heading": "STEP 2　対策を比較して検討する",
+        "items": ["法面：安全帯＋親綱＋防護ネット", "足場：手すり・中さん・巾木＋安全ネット", "掘削：地山観察＋土留め支保工"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "public-safety",
+      "start": 162,
+      "end": 214,
+      "narration": "現場内の労働災害だけでなく、周辺住民や通行車両への公衆災害の配慮も書き分けます。道路標識・保安灯の設置、車両誘導、車道幅員と歩行者通路の確保が代表例です。",
+      "caption": "公衆災害への配慮も書き分ける",
+      "visual": {
+        "heading": "STEP 3　公衆災害への対策も書く",
+        "items": ["標識・標示板、保安灯の設置", "通行車両・歩行者の誘導", "車道幅員・歩行者通路の確保"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "safety-activity-ingenuity",
+      "start": 214,
+      "end": 266,
+      "narration": "安全施工サイクルやKY活動、ツールボックスミーティング、安全パトロールは多くの現場で実施されています。並べるだけでなく、現場に合わせた工夫や新しい取組を書くと評価が高くなります。",
+      "caption": "安全活動は「工夫」を書くと差がつく",
+      "visual": {
+        "heading": "STEP 4　安全活動は工夫を書く",
+        "items": ["安全施工サイクル・KY活動・TBM", "並べるだけでは差がつかない", "現場に合わせた工夫・新しい取組を書く"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "action-evaluation",
+      "start": 266,
+      "end": 318,
+      "narration": "対応処置には具体的な数値や基準を入れます。評価は、労働災害なく安全に工事を完了できた、のように結果を端的に書きます。",
+      "caption": "対応処置と評価は端的に",
+      "visual": {
+        "heading": "STEP 5　対応処置と評価",
+        "items": ["対応処置は具体的な数値・基準を入れる", "評価は結果を端的な一文にする"]
+      },
+      "sourceRef": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    },
+    {
+      "sceneId": "summary",
+      "start": 318,
+      "end": 360,
+      "narration": "まとめます。危険源を現場条件から特定し、対策を比較して検討し、公衆災害も書き分け、安全活動は工夫を示し、対応処置と評価は端的に。一般論を避ける鍵は危険源の具体化です。",
+      "caption": "危険源→対策比較→公衆災害→工夫→評価",
+      "visual": {
+        "heading": "まとめ",
+        "items": ["① 危険源を現場条件から特定する", "② 対策を比較して検討する", "③ 公衆災害も書き分ける", "④ 安全活動は工夫を書く"]
+      }
+    },
+    {
+      "sceneId": "cta",
+      "start": 360,
+      "end": 392,
+      "narration": "具体的に書く基準を掴みたい方は、概要欄のリンクから経験記述の完全パックをご覧ください。ご視聴ありがとうございました。",
+      "caption": "続きは概要欄のリンクから",
+      "visual": {
+        "kind": "cover",
+        "heading": "具体的に書く基準を掴む",
+        "items": ["経験記述 完全パック（概要欄リンク）"]
+      }
+    }
+  ]
+}

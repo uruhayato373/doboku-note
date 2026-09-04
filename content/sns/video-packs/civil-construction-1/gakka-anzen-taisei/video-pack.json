@@ -1,0 +1,33 @@
+{
+  "schemaVersion": 1,
+  "packId": "gakka-anzen-taisei",
+  "exam": "civil-construction-1",
+  "title": "安全管理体制の数字 — 選任要件と度数率・強度率",
+  "audience": "1級土木一次で安全管理者等の選任人数を覚えきれない受験者",
+  "pain": "安全衛生管理体制の選任要件の人数と事業場規模が混ざる",
+  "promise": "規模の閾値で管理体制を1枚に整理して覚えられる",
+  "intent": "exam-point",
+  "sourceRefs": [
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-safety-management-system/article.mdx"
+    },
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/textbook-safety-industrial-safety-law/article.mdx"
+    }
+  ],
+  "primaryCta": {
+    "kind": "note-magazine",
+    "targetId": "civil-1-ichiji-ronten",
+    "campaign": "gakka-anzen-taisei"
+  },
+  "outputs": {
+    "longform": true,
+    "shorts": 2,
+    "instagramCarousel": true,
+    "instagramReel": false,
+    "xThread": true,
+    "threadsBrief": false
+  }
+}
