@@ -84,6 +84,20 @@ test('buildSceneNode: 長い cover 見出しは1行を維持して縮小する',
   assert.ok(flat.includes('"whiteSpace":"nowrap"'));
 });
 
+test('buildSceneNode: figure は既存画像と要点を左右配置する', () => {
+  const theme = { base: '#16365C', deep: '#0E2645', accent: '#1E73C8', label: '技術士' };
+  const node = buildSceneNode(
+    { sceneId: 'pairs', visual: { kind: 'figure', heading: '頻出ペア', items: ['経済性×安全'] } },
+    { theme, packTitle: 'トレードオフ', assetDataUri: 'data:image/png;base64,iVBORw0KGgo=' },
+  );
+  const flat = JSON.stringify(node);
+  assert.ok(flat.includes('data:image/png;base64,iVBORw0KGgo='));
+  assert.ok(flat.includes('"width":704'));
+  assert.ok(flat.includes('頻出ペア'));
+  assert.ok(flat.includes('経済性×安全'));
+  assert.ok(flat.includes('objectFit'));
+});
+
 test('planLongformRender: exam→palette 解決と format ガード', () => {
   const manifest = { exam: 'civil-construction-1', title: 't', packId: 'p' };
   const plan = planLongformRender(manifest, { format: 'longform-16x9', scenes: SCENES }, resolveExam);

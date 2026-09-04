@@ -95,7 +95,7 @@ title: 動画コンテンツ運用ポリシー
 
 Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺を混同しない。推奨尺はフォーマット別policyに置く。
 
-16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points', heading, items[] }` で持ち、試験色は exam-palette（note-cover-tokens.json）を解決する。出力は `.tmp/video-render/{packId}/`（PNG・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は Mac または GitHub Actions で同コマンドを完走させる。
+16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure', heading, items[], src? }` で持ち、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は Mac または GitHub Actions で同コマンドを完走させる。
 
 ## 5. 状態モデル
 
@@ -226,4 +226,3 @@ ThreadsはX本文の機械的な複製先にしない。packから「質問」�
 - 新skill: `skills-registry.md` とskills guide
 - 新チャネル派生: `content/sns/README.md` と各channel policy
 - 戦略・KPI変更: `docs/marketing/06_動画コンテンツ運用設計.md`
-

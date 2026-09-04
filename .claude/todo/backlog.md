@@ -132,7 +132,7 @@
 
 
 
-### [DN-0110] 通常動画pilot 4本の図版・派生・公開・6週間判定
+### [DN-0110] 通常動画pilot 4本の退避・派生・公開・6週間判定
 タグ: [SNS・マーケ] [種類:改善] [Codex候補] [検証:quality:audit:ci] [起票:2026-08-21]
 
 **戦略SSOT**: [06_動画コンテンツ運用設計.md](../../docs/marketing/06_動画コンテンツ運用設計.md)
@@ -141,12 +141,11 @@
 
 pilot 4パック（`koji-gaiyo-7items` / `anzen-ippanron-3riyu` / `gokanri-tradeoff` / `monbun-yomikata`）は `qa_passed`。残作業は次の順で行う。
 
-1. 既存SVG図版をscene visualへ埋め込めるようrendererを拡張し、4本を最終再生成する
-2. `.tmp/video-render/` のmp4・wav・ASS・frameをR2へ検証付きで退避し、再取得経路を用意する
-3. 各通常動画からShorts 2本・IG 1組・X 1スレッドを派生する
-4. 薄い`/video-content` skillと`video-script-writer`（Generator）／`video-content-qa`（Evaluator）を追加する
-5. 公開対象・日時・アカウントを提示し、ユーザー承認後に公開してURL・videoId・関連動画・CTAを照合する
-6. 公開6週間後にShorts→関連動画、視聴維持、YouTube UTM、note/ココナラ遷移から継続・修正・停止を判定する
+1. `.tmp/video-render/` のmp4・wav・ASS・frameをR2へ検証付きで退避し、再取得経路を用意する
+2. 各通常動画からShorts 2本・IG 1組・X 1スレッドを派生する
+3. 薄い`/video-content` skillと`video-script-writer`（Generator）／`video-content-qa`（Evaluator）を追加する
+4. 公開対象・日時・アカウントを提示し、ユーザー承認後に公開してURL・videoId・関連動画・CTAを照合する
+5. 公開6週間後にShorts→関連動画、視聴維持、YouTube UTM、note/ココナラ遷移から継続・修正・停止を判定する
 
 **制約**: `approved` はユーザーだけが設定する。mp4/wavをGitへ入れない。ThreadsのX単純クロスポスト、全記事一括動画化、全資格同時展開は行わない。IGの既存リール素材は本pilot成立後に判断する。
 
