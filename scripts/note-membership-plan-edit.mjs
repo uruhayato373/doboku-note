@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-membership-plan-edit.mjs
  * ---------------------------------------------------------------------------
@@ -11,7 +12,7 @@
  *     非公開ドラフトのままとは断定しない。保存前の差分提示・明示承認・保存後の公開面実査が必要。
  *   - 既定は **dry-run**（現在値の読取＋スクショのみ・書込なし）。実書込は `--commit` 必須。
  *   - `note-magazine-add-articles` と同じ「システム Chrome（channel:'chrome'）＋永続プロファイル
- *     （.local/playwright-note-profile）＋proxy＋ignoreHTTPSErrors」で会社PCの社内プロキシを越える。
+ *     （OS標準auth rootのnote profile）＋proxy＋ignoreHTTPSErrors」で会社PCの社内プロキシを越える。
  *   - **account=dobokunote を assert**（不一致は即中断・1フィールドも触らない）。
  *   - 各ステップ .tmp/ にスクショ。
  *
@@ -53,7 +54,7 @@ import { fileURLToPath } from 'node:url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const PROFILE = join(ROOT, '.local/playwright-note-profile');
+const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const TMP = join(ROOT, '.tmp');
 const CREATOR = 'dobokunote';
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';

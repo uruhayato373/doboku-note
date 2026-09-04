@@ -12,11 +12,12 @@ import { readFileSync, writeFileSync, copyFileSync, existsSync, rmSync } from 'n
 import { resolve } from 'node:path'
 import { homedir } from 'node:os'
 import { todayJst } from './lib/jst-date.mjs'
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs'
 
 const REPO = resolve(import.meta.dirname, '..')
 const DIST = resolve(REPO, 'scripts/kindle-dist')
 const DL = resolve(homedir(), 'Downloads')
-const PROFILE = resolve(REPO, '.local/playwright-kdp-profile')
+const PROFILE = resolveProfileDir('kdp', { cwd: REPO, repoRoot: REPO })
 const CATALOG = resolve(REPO, 'scripts/kindle-published/catalog.json')
 const TODAY = todayJst()
 

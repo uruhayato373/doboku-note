@@ -3,7 +3,7 @@
  * ---------------------------------------------------------------------------
  * note-publish.mjs の「システム Chrome(channel:chrome) + 永続プロファイル +
  * account gate」方式を踏襲。ココナラ専用の永続プロファイル
- * (.local/playwright-coconala-profile) を使い、ログイン状態を跨いで保持する。
+ * （OS標準auth root）を使い、ログイン状態を跨いで保持する。
  *
  * 安全弁（収益アカウントのため note と同思想）:
  *   - launchContext: 永続プロファイル。初回だけ headed でユーザーが手動ログイン。
@@ -20,9 +20,10 @@ import { readFileSync, existsSync, writeFileSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { todayJst } from './jst-date.mjs';
+import { resolveProfileDir } from './playwright-auth-profile.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-export const PROFILE = join(ROOT, '.local/playwright-coconala-profile');
+export const PROFILE = resolveProfileDir('coconala', { cwd: ROOT, repoRoot: ROOT });
 export const ACCOUNT_PATH = join(ROOT, '.claude/config/coconala-account.json');
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 

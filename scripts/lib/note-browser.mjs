@@ -26,11 +26,12 @@
 import { chromium } from 'playwright';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { resolveProfileDir } from './playwright-auth-profile.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
 /** 全 note-*.mjs / check-note-*.mjs が共有する永続プロファイル（note ログインセッション）。 */
-export const PROFILE = join(ROOT, '.local/playwright-note-profile');
+export const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 
 /** 会社 PC のプロキシ越しに Chrome を起動するため。未設定なら undefined（システム既定）。 */
 const ENV_PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';

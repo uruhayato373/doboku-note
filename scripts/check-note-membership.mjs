@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * check-note-membership.mjs
  * ---------------------------------------------------------------------------
@@ -102,7 +103,7 @@ let liveChecked = 0;
 if (LIVE) {
   const { chromium } = await import('playwright');
   const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
-  const ctx = await chromium.launchPersistentContext(join(ROOT, '.local/playwright-note-profile'), {
+  const ctx = await chromium.launchPersistentContext(resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT }), {
     channel: 'chrome', headless: false, ignoreHTTPSErrors: true, ...(PROXY ? { proxy: { server: PROXY } } : {}),
   });
   try {

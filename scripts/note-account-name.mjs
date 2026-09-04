@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-account-name.mjs
  * ---------------------------------------------------------------------------
@@ -35,7 +36,7 @@ import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const PROFILE = join(ROOT, '.local/playwright-note-profile');
+const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const TMP = join(ROOT, '.tmp');
 const CREATOR = 'dobokunote';
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';

@@ -4,9 +4,10 @@
 // options で渡す cwd/homeDir/env で完結させる。
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { mkdtempSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs';
-import { join, sep } from 'node:path';
+import { mkdtempSync, readFileSync, writeFileSync, mkdirSync, existsSync, rmSync } from 'node:fs';
+import { join } from 'node:path';
 import { tmpdir } from 'node:os';
+import { fileURLToPath } from 'node:url';
 import {
   resolveDefaultAuthRoot,
   resolveAuthRoot,
@@ -21,6 +22,8 @@ import {
   redactAuthDiagnostic,
   looksLikeSecretKey,
 } from '../scripts/lib/playwright-auth-profile.mjs';
+
+const REPO_ROOT = fileURLToPath(new URL('..', import.meta.url));
 
 function makeTmpDir(prefix) {
   return mkdtempSync(join(tmpdir(), prefix));
@@ -225,6 +228,56 @@ test('resolveProfileDir: service の profileDirName を auth root 配下へ解�
     assert.equal(profileDir, join(dir, 'profiles', 'playwright-note-profile'));
   } finally {
     rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('Phase 02の4サービスは同じ一時auth rootから別profileへ解決する', () => {
+  const dir = makeTmpDir('doboku-auth-phase02-');
+  try {
+    for (const [service, profileName] of [
+      ['note', 'playwright-note-profile'],
+      ['brain', 'playwright-brain-profile'],
+      ['coconala', 'playwright-coconala-profile'],
+      ['kdp', 'playwright-kdp-profile'],
+    ]) {
+      const actual = resolveProfileDir(service, {
+        cwd: REPO_ROOT,
+        repoRoot: REPO_ROOT,
+        overrideRoot: dir,
+        homeDir: '/home/tester',
+      });
+      assert.equal(actual, join(dir, 'profiles', profileName));
+    }
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+});
+
+test('Phase 02 runtimeはrepo相対profileを持たず共通resolverを参照する', () => {
+  const files = [
+    'scripts/lib/note-browser.mjs',
+    'scripts/lib/brain-session.mjs',
+    'scripts/lib/coconala-session.mjs',
+    'scripts/kdp-batch.mjs',
+    'scripts/kdp-publish.mjs',
+    'scripts/kdp-report.mjs',
+    'scripts/check-note-membership.mjs',
+    'scripts/coconala-rate-buyer.mjs',
+    'scripts/coconala-research.mjs',
+    'scripts/scout-coconala-blogs.mjs',
+    'scripts/scout-coconala-competitors.mjs',
+    ...[
+      'account-name', 'append-cta', 'append-list-links', 'article-price-sweep',
+      'attach-file', 'comment-reply', 'delete-note', 'edit-magazine', 'edit-session',
+      'magazine-add-articles', 'magazine-cover', 'magazine-create',
+      'membership-plan-create', 'membership-plan-edit', 'membership-plan-status',
+      'publish-discover', 'publish', 'sales-fetch', 'sync-tags', 'update-body', 'update-cover',
+    ].map((name) => `scripts/note-${name}.mjs`),
+  ];
+  for (const file of files) {
+    const source = readFileSync(join(REPO_ROOT, file), 'utf8');
+    assert.doesNotMatch(source, /\.local\/playwright-(?:note|brain|coconala|kdp)-profile/, file);
+    assert.match(source, /playwright-auth-profile\.mjs/, file);
   }
 });
 
