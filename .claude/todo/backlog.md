@@ -105,7 +105,7 @@
 
 ## 🟡 中 — 2〜3ヶ月以内
 
-### [DN-0163] コンクリート単品¥980の値上げ可否を試験後に判定する
+### [DN-0167] コンクリート単品¥980の値上げ可否を試験後に判定する
 タグ: [収益化] [種類:改善] [起票:2026-09-04] [期日:2026-12-12]
 
 2026-09-04 に最上位アンカー `cce-marugoto-pack`（¥9,800）を新設した（既存SKUは据え置き）。残る論点は小論文/記述の単品 45 本（主任技士 37・診断士 8）が一律 ¥980 で、同じ記述式の土木 経験記述 ¥1,680〜1,980 より低いこと。字数単価では ¥183/千字で自社上位帯のため「安すぎる」とは断定できず、実売も 0 件のため値上げの効果は未検証。**アンカー新設の効果（¥9,800 の実売・¥5,980 の動き）を 11-29 試験〜12月上旬で観測してから**、¥1,480 への改定可否を判定する。
@@ -133,38 +133,25 @@
 
 
 
-### [DN-0110] 動画パック基盤・通常動画pilot・read-only管理画面
+### [DN-0110] 通常動画pilot 4本の図版・派生・公開・6週間判定
 タグ: [SNS・マーケ] [種類:改善] [Codex候補] [検証:quality:audit:ci] [起票:2026-08-21]
-
-サイト・note・既存図版をYouTube通常動画へ再編集し、関連Shorts・Instagram・Xへ派生するストックコンテンツ基盤を作る。現状はShorts台帳200本（公開13・retired187）がある一方、通常動画への接続、クリック可能な外部導線、動画パック単位の品質・公開・成果管理がない。追加量産より先に、動画マスターと回遊・計測を成立させる。
 
 **戦略SSOT**: [06_動画コンテンツ運用設計.md](../../docs/marketing/06_動画コンテンツ運用設計.md)
 
 **作業契約**: [video-content-policy.md](../knowledge/reference/video-content-policy.md)
 
-**批判的レビュー**: [動画コンテンツ運用設計_批判的レビュー.md](../../docs/reviews/critical/動画コンテンツ運用設計_批判的レビュー.md)
+pilot 4パック（`koji-gaiyo-7items` / `anzen-ippanron-3riyu` / `gokanri-tradeoff` / `monbun-yomikata`）は `qa_passed`。残作業は次の順で行う。
 
-**依存関係**: 左ナビのコンテンツ中心IAとYouTube入口は`DN-0103`を再利用し、本カードで別のナビregistryを作らない。聞き流し一問一答は本カードへ統合済み。
+1. 既存SVG図版をscene visualへ埋め込めるようrendererを拡張し、4本を最終再生成する
+2. `.tmp/video-render/` のmp4・wav・ASS・frameをR2へ検証付きで退避し、再取得経路を用意する
+3. 各通常動画からShorts 2本・IG 1組・X 1スレッドを派生する
+4. 薄い`/video-content` skillと`video-script-writer`（Generator）／`video-content-qa`（Evaluator）を追加する
+5. 公開対象・日時・アカウントを提示し、ユーザー承認後に公開してURL・videoId・関連動画・CTAを照合する
+6. 公開6週間後にShorts→関連動画、視聴維持、YouTube UTM、note/ココナラ遷移から継続・修正・停止を判定する
 
-**IG リール残（旧 DN-0136 から合流・2026-08-27）**: cem 42 パックは `reels/script.txt`（ナレーション原稿）のみで **mp4/wav は未生成**（`verify-ig-status.mjs:88` が script.txt の存在だけで「素材あり」判定するため、旧カードの「素材完成済み・投稿するだけ」は誤り）。別途 97 パックは原稿から。生成には VOICEVOX + ffmpeg が要る。カルーセル既投稿パックのリール派生は、本カードの動画基盤が成立してから判断する。
+**制約**: `approved` はユーザーだけが設定する。mp4/wavをGitへ入れない。ThreadsのX単純クロスポスト、全記事一括動画化、全資格同時展開は行わない。IGの既存リール素材は本pilot成立後に判断する。
 
-**確定方針**:
-- 資格別・媒体別agentは増やさず、`video-script-writer`（Generator）と`video-content-qa`（Evaluator）の1組だけを新設する
-- 既存`yt-shorts-title-writer`／`yt-shorts-publisher-qa`はShorts固有責務に限定して残す
-- `content/sns/video-packs/{exam}/{slug}/`を制作SSOT、`.claude/state/video-content-status.json`を可変状態、mp4/wav等をR2とする
-- adminは`/content/video`で企画・QA・派生・公開・計測をjoinするread-onlyビュー。編集・投稿・shell・secret・ライブAPIを持たせない
-- Shortsは関連通常動画へ送り、通常動画のクリック可能な概要欄からサイト/note/ココナラへ送客する。1動画1主CTA
-- 契約の機械可読SSOT＝`.claude/config/video-content.json`、ゲート＝`npm run check-video-content`（quality:audit ci登録済み・fixture＝`tests/fixtures/video-content/`）。schema/状態/UTM を変えるときは config・policy・fixture・checker を同一 commit で同期
-
-**Phase 1 残 — pilot 4本の音声/mp4と派生**: pilot 4パック（koji-gaiyo-7items／anzen-ippanron-3riyu／gokanri-tradeoff／monbun-yomikata）は制作・機械ゲート・独立QA（6軸 avg2.67-2.83・BLOCK 0）まで完了し state=qa_passed。残り＝(1) VOICEVOX+ffmpeg のある環境（Mac/Actions）で `npm run render-longform` を完走させ mp4/wav を生成→R2退避、(2) QA横断指摘の反映＝出典記事の既存SVG図版（figure-tradeoff-frequency-matrix 等）を scene visual に埋め込める renderer 拡張（現状 text-list のみで軸4が全パック2点）、(3) 各通常動画から Shorts 2本・IG 1組・X 1スレッドを派生、(4) ユーザー承認（approved は user のみ）→公開→実URL・videoId・関連動画・CTA 再照合。
-
-**Phase 2 — skill/agents**: 薄い`/video-content` skillと上記2agentを新設。生成→機械ゲート→独立QA→承認待ちで停止し、レンダリング・R2・投稿は既存CLI/workflowへ委譲する。skills/agents registry、coupling gate、責務境界テストを同時更新。
-
-**Phase 3 完了（2026-08-28）**: `/content/video`・`/content/lifecycle`・`/metrics/video`（成果＝公開状態×GA4送客を `utm_campaign=packId` で join）・`/sns` の動画パック節・GA4 campaign 次元の CI 供給・公開実体の照合（実査 `verify-video-publication` は CI 週次、ゲート `check-video-publication` は quality:audit ci）まで実装済み。
-
-**Phase 4 — 段階拡張**: 6週間のpilotでShorts→関連動画、視聴維持、YouTube UTM、note/ココナラ遷移を評価。送客シグナルが無ければ自動化拡張を停止。成立後だけ他資格とThreads会話briefへ広げる。ThreadsのX単純クロスポスト、全記事一括動画化、全資格同時展開は禁止。
-
-**完了条件**: 4packのmanifest/script/storyboard/QA/派生/statusが一意にjoinされ、全機械・意味ゲートとadmin型検査/E2EがPASSする。4本の通常動画と関連Shortsを外部実体で照合し、6週間後の継続/修正/停止判断日とbaselineを記録する。公開・push・deploy・外部設定変更は対象と影響を提示してユーザー承認を得るまで実行しない。
+**完了条件**: 4packのmanifest/script/storyboard/QA/派生/statusが一意にjoinされ、全機械・意味ゲートとadmin型検査/E2EがPASSする。4本の通常動画と関連Shortsを外部実体で照合し、6週間後の継続/修正/停止判断とbaselineを記録したらカードを削除する。
 
 
 
