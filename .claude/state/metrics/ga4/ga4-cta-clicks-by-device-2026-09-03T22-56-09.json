@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "startDate": "2026-08-06",
+    "endDate": "2026-09-02",
+    "windowKind": "days",
+    "eventNames": [
+      "note_cta_click",
+      "note_cta_impression",
+      "affiliate_cta_click",
+      "affiliate_cta_impression",
+      "note_article_click",
+      "internal_nav_click",
+      "career_need_select"
+    ],
+    "japanOnly": true,
+    "byDevice": true,
+    "byLabel": false,
+    "byPlacement": false,
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "device": "desktop",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 14618
+    },
+    {
+      "device": "desktop",
+      "eventName": "note_cta_impression",
+      "eventCount": 7555
+    },
+    {
+      "device": "desktop",
+      "eventName": "internal_nav_click",
+      "eventCount": 1925
+    },
+    {
+      "device": "mobile",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 254
+    },
+    {
+      "device": "desktop",
+      "eventName": "note_cta_click",
+      "eventCount": 190
+    },
+    {
+      "device": "mobile",
+      "eventName": "note_cta_impression",
+      "eventCount": 182
+    },
+    {
+      "device": "mobile",
+      "eventName": "internal_nav_click",
+      "eventCount": 105
+    },
+    {
+      "device": "tablet",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 104
+    },
+    {
+      "device": "tablet",
+      "eventName": "note_cta_impression",
+      "eventCount": 50
+    },
+    {
+      "device": "mobile",
+      "eventName": "note_cta_click",
+      "eventCount": 14
+    },
+    {
+      "device": "desktop",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 13
+    },
+    {
+      "device": "desktop",
+      "eventName": "note_article_click",
+      "eventCount": 8
+    },
+    {
+      "device": "tablet",
+      "eventName": "internal_nav_click",
+      "eventCount": 5
+    },
+    {
+      "device": "mobile",
+      "eventName": "note_article_click",
+      "eventCount": 3
+    }
+  ]
+}

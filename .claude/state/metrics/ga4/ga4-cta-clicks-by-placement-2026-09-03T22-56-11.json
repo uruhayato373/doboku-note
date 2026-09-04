@@ -1,0 +1,183 @@
+{
+  "meta": {
+    "startDate": "2026-08-06",
+    "endDate": "2026-09-02",
+    "windowKind": "days",
+    "eventNames": [
+      "note_cta_click",
+      "note_cta_impression",
+      "affiliate_cta_click",
+      "affiliate_cta_impression",
+      "note_article_click",
+      "internal_nav_click",
+      "career_need_select"
+    ],
+    "japanOnly": true,
+    "byDevice": false,
+    "byLabel": false,
+    "byPlacement": true,
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "placement": "sidebar",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 7662
+    },
+    {
+      "placement": "article-sidebar",
+      "eventName": "note_cta_impression",
+      "eventCount": 3201
+    },
+    {
+      "placement": "article-end",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2482
+    },
+    {
+      "placement": "article-mid",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2207
+    },
+    {
+      "placement": "(unknown)",
+      "eventName": "internal_nav_click",
+      "eventCount": 2035
+    },
+    {
+      "placement": "article-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1795
+    },
+    {
+      "placement": "article-inline",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1680
+    },
+    {
+      "placement": "article-footer",
+      "eventName": "note_cta_impression",
+      "eventCount": 1061
+    },
+    {
+      "placement": "article-body",
+      "eventName": "note_cta_impression",
+      "eventCount": 926
+    },
+    {
+      "placement": "category-sidebar",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 849
+    },
+    {
+      "placement": "article-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 658
+    },
+    {
+      "placement": "(unknown)",
+      "eventName": "note_cta_click",
+      "eventCount": 111
+    },
+    {
+      "placement": "category-sidebar",
+      "eventName": "note_cta_impression",
+      "eventCount": 99
+    },
+    {
+      "placement": "category-mobile",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 92
+    },
+    {
+      "placement": "article-body",
+      "eventName": "note_cta_click",
+      "eventCount": 61
+    },
+    {
+      "placement": "article-end",
+      "eventName": "note_cta_impression",
+      "eventCount": 30
+    },
+    {
+      "placement": "home-hero",
+      "eventName": "note_cta_impression",
+      "eventCount": 15
+    },
+    {
+      "placement": "article-top",
+      "eventName": "note_cta_click",
+      "eventCount": 14
+    },
+    {
+      "placement": "(unknown)",
+      "eventName": "note_article_click",
+      "eventCount": 7
+    },
+    {
+      "placement": "article-footer",
+      "eventName": "note_cta_click",
+      "eventCount": 6
+    },
+    {
+      "placement": "article-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 6
+    },
+    {
+      "placement": "article-mid",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 5
+    },
+    {
+      "placement": "article-body",
+      "eventName": "note_article_click",
+      "eventCount": 4
+    },
+    {
+      "placement": "category-career-section",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "placement": "article-end",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "placement": "article-inline",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 3
+    },
+    {
+      "placement": "sidebar",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 3
+    },
+    {
+      "placement": "article-sidebar",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "placement": "category-mobile",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "placement": "article-end",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 1
+    },
+    {
+      "placement": "category-sidebar",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 1
+    },
+    {
+      "placement": "category-sidebar",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    }
+  ]
+}

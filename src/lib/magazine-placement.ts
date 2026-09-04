@@ -619,6 +619,21 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
     };
   }
 
+  // 9.5. コンクリート主任技士の試験概要・傾向・分野別過去問 → R8四肢択一予想50問。
+  //      mix-design は分野特化の配合計算12問を優先し、essay は小論文商品を優先する。
+  //      published:false の間は slot() が空になり、公開前リンクは露出しない。
+  if (
+    slug === 'concrete-chief-engineer-guide-overview' ||
+    slug === 'concrete-chief-engineer-guide-trends' ||
+    (/^concrete-chief-engineer-primary-/.test(slug) &&
+      slug !== 'concrete-chief-engineer-primary-mix-design')
+  ) {
+    return {
+      top: slot('cce-r8-mc-50', slug, 'top'),
+      inline: [],
+    };
+  }
+
   // 10. コンクリート診断士 記述式 → 記述式 模範答案集マガジン。
   //     送客元は「記述式の書き方を知りたい人が必ず通る面」に絞る。
   //     - guide-essay: 記述式対策ガイド（最も整合）
@@ -645,6 +660,21 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   ) {
     return {
       top: slot('cce-mix-calculation-practice', slug, 'top'),
+      inline: [],
+    };
+  }
+
+  // 10.6. コンクリート技士 配合・製造品質管理 → 技士専用の計算・JIS判断教材。
+  //       無料48問で基礎確認後、複合計算と品質判断を一段深く反復する分野一致導線。
+  //       published:false の間は slot() が空になり、公開前リンクは露出しない。
+  if (
+    slug === 'concrete-engineer-primary-mix-design' ||
+    slug === 'concrete-engineer-textbook-mix-design' ||
+    slug === 'concrete-engineer-primary-production-qc' ||
+    slug === 'concrete-engineer-textbook-production-qc'
+  ) {
+    return {
+      top: slot('ce-mix-jis-practice', slug, 'top'),
       inline: [],
     };
   }

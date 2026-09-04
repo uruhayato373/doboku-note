@@ -29,6 +29,7 @@ const GROUPED_CATEGORIES = new Set([
   'civil-construction-2',
   'pe-comprehensive-management',
   'pe-first-stage',
+  'concrete-engineer',
   'concrete-chief-engineer',
   'concrete-diagnostician',
   'pe-construction',
@@ -166,7 +167,7 @@ export default async function CategoryPage({
                 <PeComprehensiveView groups={groups} mobileCareerAds={mobileCareerAds} />
               ) : slug === 'pe-construction' ? (
                 <PeConstructionView groups={groups} mobileCareerAds={mobileCareerAds} />
-              ) : slug === 'concrete-chief-engineer' || slug === 'concrete-diagnostician' ? (
+              ) : slug === 'concrete-engineer' || slug === 'concrete-chief-engineer' || slug === 'concrete-diagnostician' ? (
                 <ConcreteView groups={groups} mobileCareerAds={mobileCareerAds} />
               ) : (
                 groups.map(group => (

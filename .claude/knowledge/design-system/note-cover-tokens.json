@@ -2,8 +2,8 @@
   "$schema": "https://json-schema.org/draft-07/schema#",
   "$id": "note-cover-tokens",
   "description": "note カバー画像（G2「全幅バナー帯」レイアウト）のデザイントークン単一真実源。scripts/generate-note-covers.mjs が exam→パレット解決と G2 props 組み立てに参照し、.claude/skills/conversion/ogp-create/scripts/lib/ogp-templates.mjs の renderNoteCoverG2 が描画する。試験区分=ベース色 / 系列(notePricing)=濃淡 の二軸。src/styles/globals.css の --color-* と整合すべき（satori は CSS 変数を解釈しないため hex リテラルで埋め込む）。",
-  "version": "1.1.0",
-  "updated": "2026-07-24",
+  "version": "1.1.1",
+  "updated": "2026-09-01",
   "source": "handoff covers-g2-all.jsx（claude.ai/design プロトタイプ G2 案）を satori 本番レンダラへ移植。1.1.0 で Crop-safe V4（opt-in variant）を追加（.claude/knowledge/design-system/note-cover-crop-safe-v4.md）",
 
   "canvas": {
@@ -58,6 +58,16 @@
       "base": "#1E73C8",
       "deep": "#155293",
       "soft": "#3E8FDC",
+      "accent": "#16365C"
+    },
+    "concrete-engineer": {
+      "dir": "コンクリート技士",
+      "label": "コンクリート技士",
+      "short": "コンクリ技士",
+      "hue": "teal",
+      "base": "#168080",
+      "deep": "#0F6262",
+      "soft": "#38A0A0",
       "accent": "#16365C"
     },
     "concrete-chief": {

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "timezone": "Asia/Tokyo",
-  "verifiedAt": "2026-08-12",
+  "verifiedAt": "2026-09-01",
   "policy": "試験日を本文・投稿・計画へ記載する前に本ファイルを参照する。年度更新時は公式ページで確認し、verifiedAtとsourceを同時更新する。label は公式名称をそのまま使う（2026-08-12: 「コンクリート主任技師」という誤記が記事・戦略docへ伝播していたため、正式名称「コンクリート主任技士」を本ファイルで固定した）。",
   "exams": {
     "civil-construction-1": {
@@ -74,10 +74,10 @@
       },
       "note": "総監以外の全技術部門は7月20日に実施。合格発表・口頭試験の扱いは pe-comprehensive-management と同じ。"
     },
-    "concrete-chief-engineer": {
-      "label": "コンクリート主任技士",
+    "concrete-engineer": {
+      "label": "コンクリート技士",
       "year": 2026,
-      "source": "https://www.jci-net.or.jp/j/exam/gishi/index.html",
+      "source": "https://www.jci-net.or.jp/j/exam/gishi/chart/gs_schedule.html",
       "events": {
         "applicationOpen": {
           "label": "受験申込 受付開始（オンライン）",
@@ -85,14 +85,42 @@
         },
         "applicationDeadline": {
           "label": "受験申込 締切",
-          "date": "2026-09-01"
+          "date": "2026-08-25"
         },
         "exam": {
           "label": "試験",
-          "date": "2026-11-30"
+          "date": "2026-11-29"
+        },
+        "result": {
+          "label": "合格発表",
+          "date": "2027-01-15"
         }
       },
-      "note": "正式名称は「コンクリート主任技士」（技師ではない）。コンクリート技士も同日実施。合否確認は2027年1月中旬。"
+      "note": "2026年度から受験資格の実務経験要件が改定された。試験日程はコンクリート主任技士と共通。"
+    },
+    "concrete-chief-engineer": {
+      "label": "コンクリート主任技士",
+      "year": 2026,
+      "source": "https://www.jci-net.or.jp/j/exam/gishi/chart/gs_schedule.html",
+      "events": {
+        "applicationOpen": {
+          "label": "受験申込 受付開始（オンライン）",
+          "date": "2026-07-01"
+        },
+        "applicationDeadline": {
+          "label": "受験申込 締切",
+          "date": "2026-08-25"
+        },
+        "exam": {
+          "label": "試験",
+          "date": "2026-11-29"
+        },
+        "result": {
+          "label": "合格発表",
+          "date": "2027-01-15"
+        }
+      },
+      "note": "正式名称は「コンクリート主任技士」（技師ではない）。コンクリート技士も同日実施。"
     },
     "concrete-diagnostician": {
       "label": "コンクリート診断士",

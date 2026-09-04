@@ -62,6 +62,13 @@
     },
     "careerFeatured": ["guide-salary", "guide-career-change", "guide-quit-or-stay"]
   },
+  "concrete-engineer": {
+    "examGuide": {
+      "title": "受験ガイド",
+      "description": "2026年度の試験概要・受験資格・技士と主任技士の違い・学習計画",
+      "slugs": ["guide-overview", "guide-eligibility-2026", "guide-difference-chief", "guide-study-plan", "guide-books"]
+    }
+  },
   "concrete-chief-engineer": {
     "examGuide": {
       "title": "受験ガイド",

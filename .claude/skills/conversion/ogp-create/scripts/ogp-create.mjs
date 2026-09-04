@@ -51,6 +51,7 @@ const CATEGORY_TO_EXAM_KEY = {
   'pe-comprehensive-management': 'pe-comprehensive',
   'civil-construction-1': 'civil-1',
   'civil-construction-2': 'civil-2',
+  'concrete-engineer': 'concrete-engineer',
   'concrete-chief-engineer': 'concrete-chief',
   'concrete-diagnostician': 'concrete-diagnosis',
   'pe-construction': 'pe-construction',
@@ -77,7 +78,10 @@ const GROUP_TO_TYPE = {
   keyword: { label: 'キーワード', icon: 'target' },
   pillar: { label: 'まとめ', icon: 'flag' },
 };
-function resolveContentType(group) {
+function resolveContentType(group, category) {
+  if (category === 'concrete-engineer' && group === 'primary') {
+    return { label: '演習', icon: 'pen' };
+  }
   return GROUP_TO_TYPE[group] || null;
 }
 
@@ -310,7 +314,7 @@ async function generateOne({ fullPath, fullSlug, fonts, args, stats }) {
   // 資格別共有背景を優先し、無ければテンプレ定義の静的背景にフォールバック。
   const backgroundImage = resolveBackgroundImage(data.category) || loadBackgroundImage(templateDef);
   const accentColor = resolveAccentColor(data.category);
-  const contentType = resolveContentType(data.group);
+  const contentType = resolveContentType(data.group, data.category);
 
   // ダークレイアウト用の主題/サブタイトル。
   //  - frontmatter.ogp.title 明示時 = 完全手動モード: ogp.title=主題 / ogp.subtitle=サブ。

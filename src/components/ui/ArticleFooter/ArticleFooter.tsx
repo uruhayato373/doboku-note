@@ -81,6 +81,7 @@ export default function ArticleFooter({
     'civil-construction-1',
     'civil-construction-2',
     'pe-construction',
+    'concrete-engineer',
     'concrete-chief-engineer',
     'concrete-diagnostician',
     'pe-first-stage',

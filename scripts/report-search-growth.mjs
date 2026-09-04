@@ -646,7 +646,7 @@ async function main() {
 function familyFromKey(jk) {
   const slug = slugFromKey(jk);
   if (!slug) return "other";
-  const m = slug.match(/^(civil-construction-1|civil-construction-2|pe-comprehensive-management|pe-construction|pe-first-stage|concrete-chief-engineer|concrete-diagnostician|reference-materials)/);
+  const m = slug.match(/^(civil-construction-1|civil-construction-2|pe-comprehensive-management|pe-construction|pe-first-stage|concrete-engineer|concrete-chief-engineer|concrete-diagnostician|reference-materials)/);
   return m ? m[1] : "other";
 }
 

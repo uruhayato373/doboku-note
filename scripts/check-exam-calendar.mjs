@@ -30,11 +30,19 @@ const expected = {
     written: "2026-07-20",
     source: "https://www.engineer.or.jp/c_topics/011/011422.html",
   },
+  "concrete-engineer": {
+    applicationOpen: "2026-07-01",
+    applicationDeadline: "2026-08-25",
+    exam: "2026-11-29",
+    result: "2027-01-15",
+    source: "https://www.jci-net.or.jp/j/exam/gishi/chart/gs_schedule.html",
+  },
   "concrete-chief-engineer": {
     applicationOpen: "2026-07-01",
-    applicationDeadline: "2026-09-01",
-    exam: "2026-11-30",
-    source: "https://www.jci-net.or.jp/j/exam/gishi/index.html",
+    applicationDeadline: "2026-08-25",
+    exam: "2026-11-29",
+    result: "2027-01-15",
+    source: "https://www.jci-net.or.jp/j/exam/gishi/chart/gs_schedule.html",
   },
   "concrete-diagnostician": {
     applicationOpen: "2026-04-15",
@@ -88,6 +96,7 @@ const scanRoots = [
   "src/config",
   "src/lib",
   "content/site/concrete-chief-engineer",
+  "content/site/concrete-engineer",
   "content/site/concrete-diagnostician",
 ];
 const textExtensions = new Set([".md", ".mdx", ".json", ".ts", ".mjs"]);
@@ -119,7 +128,11 @@ const forbidden = [
   },
   {
     pattern: /コンクリート主任技士[^\n]{0,12}10月/g,
-    reason: "コンクリート主任技士の試験は11/30（申込締切9/01）。10月ではない",
+    reason: "コンクリート主任技士の試験は11/29（申込締切8/25）。10月ではない",
+  },
+  {
+    pattern: /コンクリート(?:主任)?技士[^\n]{0,30}(?:2026-09-01|2026-11-30|9月1日|11月30日)/g,
+    reason: "2026年度のコンクリート技士・主任技士は申込締切8/25、試験11/29",
   },
 ];
 

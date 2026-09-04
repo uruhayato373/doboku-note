@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-25T12:58:25.679+09:00",
+  "updated_at": "2026-09-04T13:44:03+09:00",
   "exam": "civil-1",
   "campaign": "civil-secondary-2026",
   "note": "2026-09 分（1日3本・schemaVersion 2）。計画=.claude/config/x-campaigns/2026-09-civil.json。予約は §11.6 に従い1週間分ずつ。",
@@ -36,7 +36,7 @@
       "title": "9/2 12:25 civil-2 / 要点圧縮 / site",
       "status": "queued",
       "scheduled_at": "2026-09-02T12:25:00.000+09:00",
-      "text": "施工経験記述は(1)技術的課題→(2)検討項目・検討理由・検討内容→(3)対応処置とその評価、の3段だけ覚えればいい。令和6年度以降は設問が2項目に増えたが、この3段構成自体は変わっていない。\r\n\r\nhttps://doboku-note.com/docs/civil-construction-2-secondary-experience-writing-examples?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep02-c2-exp-examples\r\n#2級土木施工管理技士 #施工管理技士 #経験記述",
+      "text": "2級の施工経験記述、令和6年度以降は解答欄が2つ。(1)現場状況と技術的課題、(2)検討した項目とその対応処置。旧年度の3項目（課題／検討／対応処置）とは区切りが違うので、過去問の答案をそのまま写すと欄に収まらない。\r\n\r\nhttps://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-examples?utm_source=x&utm_medium=social&utm_campaign=civil-secondary-2026&utm_content=sep02-c2-exp-examples\r\n#2級土木施工管理技士 #施工管理技士 #経験記述",
       "posted_at": null
     },
     "6": {
@@ -217,5 +217,5 @@
       "posted_at": null
     }
   },
-  "updatedAt": "2026-08-25T03:58:50.174Z"
+  "updatedAt": "2026-09-04T04:44:03.000Z"
 }

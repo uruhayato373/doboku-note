@@ -21,6 +21,7 @@ title: ブランド画像システム（資格別・多フォーマット・色�
 | `civil-2` | 2級土木施工管理技士 | `#2a7050` | 緑 |
 | `pe-comprehensive` | 技術士（総合技術監理）※第一次も共有 | `#16365c` | 濃紺 |
 | `pe-construction` | 技術士（建設部門） | `#33356b` | 藍 |
+| `concrete-engineer` | コンクリート技士 | `#287a62` | 緑寄りティール |
 | `concrete-chief` | コンクリート主任技士 | `#0f6e6e` | ティール |
 | `concrete-diagnosis` | コンクリート診断士 | `#6e3a8c` | 紫 |
 
@@ -68,6 +69,7 @@ editorial 基調：`--accent #2a5f96` / `--ink #181a1f` / CTA=`--color-warn #d4a
 | **civil-2** `#2a7050` | road embankment under construction with a compaction roller and a small excavator, grassy slope | a compaction roller on a fresh embankment, centered |
 | **pe-comprehensive** `#16365c` | elevated panoramic view of integrated infrastructure — roads, a river, bridges and structures seen from above | an aerial view of a single river-crossing bridge and its surroundings, centered |
 | **pe-construction** `#33356b` | a signature long-span cable-stayed bridge in soft daylight | the pylon of a cable-stayed bridge, centered, low angle |
+| **concrete-engineer** `#287a62` | a modern ready-mixed-concrete quality-control laboratory with a concrete test cylinder, aggregate samples and a slump cone, generous bright negative space | a concrete test cylinder and aggregate samples in a clean laboratory, centered |
 | **concrete-chief** `#0f6e6e` | a concrete viaduct with visible concrete surface texture and exposed reinforcing bar | close view of a concrete column with reinforcing bar, centered |
 | **concrete-diagnosis** `#6e3a8c` | a concrete structure under inspection — fine surface cracks, maintenance/diagnosis motif | close view of a concrete surface with a hairline crack, centered |
 

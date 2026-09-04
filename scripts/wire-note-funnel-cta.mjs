@@ -96,8 +96,22 @@ for (const adir of articleDirs) {
   } else if (topText) { skipTop++; }
 
   if (ex.bottomCta.text && !body.includes(ex.bottomCta.marker)) {
-    body = body.replace(/\s*$/, '') + '\n\n---\n\n' + ex.bottomCta.text + '\n';
-    actions.push('BOTTOM'); botN++;
+    // 有料記事の「末尾」は全文末尾ではなく、未購入者にも見える無料プレビュー末尾へ置く。
+    // paidBoundary 後へ置くと public API から見えず、購入前の回遊導線としても機能しない。
+    const pricing = (head.match(/^notePricing:[ \t]*(.+?)[ \t]*$/m) || [])[1]?.replace(/^['"]|['"]$/g, '');
+    const boundary = (head.match(/^paidBoundary:[ \t]*(?:"([^"]+)"|'([^']+)'|(.+?))[ \t]*$/m) || [])
+      .slice(1).find(Boolean)?.trim();
+    const boundaryIdx = pricing === 'paid' && boundary ? body.indexOf('## ' + boundary) : -1;
+    if (boundaryIdx >= 0) {
+      body = body.slice(0, boundaryIdx).replace(/\s*$/, '')
+        + '\n\n---\n\n' + ex.bottomCta.text + '\n\n---\n\n'
+        + body.slice(boundaryIdx);
+      actions.push('BOTTOM-PREVIEW');
+    } else {
+      body = body.replace(/\s*$/, '') + '\n\n---\n\n' + ex.bottomCta.text + '\n';
+      actions.push('BOTTOM');
+    }
+    botN++;
   } else if (ex.bottomCta.text) { skipBot++; }
 
   if (actions.length && APPLY) writeFileSync(f, head + body);

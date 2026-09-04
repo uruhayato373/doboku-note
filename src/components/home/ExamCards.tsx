@@ -25,6 +25,7 @@ const EXAM_THEME: Record<string, ExamTheme> = {
   "pe-first-stage": { bar: "bg-[var(--exam-pe)]", hoverBorder: "hover:border-[var(--exam-pe)]" },
   "pe-construction": { bar: "bg-[var(--exam-pe-construction)]", hoverBorder: "hover:border-[var(--exam-pe-construction)]" },
   "pe-comprehensive-management": { bar: "bg-[var(--exam-pe)]", hoverBorder: "hover:border-[var(--exam-pe)]" },
+  "concrete-engineer": { bar: "bg-[var(--exam-concrete)]", hoverBorder: "hover:border-[var(--exam-concrete)]" },
   "concrete-chief-engineer": { bar: "bg-[var(--exam-concrete-chief)]", hoverBorder: "hover:border-[var(--exam-concrete-chief)]" },
   "concrete-diagnostician": { bar: "bg-[var(--exam-concrete-diagnosis)]", hoverBorder: "hover:border-[var(--exam-concrete-diagnosis)]" },
 };
@@ -37,6 +38,7 @@ const EXAM_IMAGE: Record<string, string> = {
   "pe-first-stage": "/images/card-pe-first-stage.webp",
   "pe-construction": "/images/card-pe-construction.webp",
   "pe-comprehensive-management": "/images/card-pe-comprehensive-management.webp",
+  "concrete-engineer": "/images/card-concrete-engineer.webp",
   "concrete-chief-engineer": "/images/card-concrete-chief-engineer.webp",
   "concrete-diagnostician": "/images/card-concrete-diagnostician.webp",
 };

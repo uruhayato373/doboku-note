@@ -17,6 +17,11 @@ const CATEGORY_JUMPS: Record<string, JumpItem[]> = {
     { href: '#sec-secondary', label: '第2次対策' },
     { href: '#sec-career', label: 'キャリア' },
   ],
+  'concrete-engineer': [
+    { href: '#sec-guide', label: '受験ガイド' },
+    { href: '#sec-textbook', label: 'テキスト' },
+    { href: '#sec-primary', label: '演習問題' },
+  ],
   'concrete-chief-engineer': [
     { href: '#sec-guide', label: '受験ガイド' },
     { href: '#sec-textbook', label: 'テキスト' },
