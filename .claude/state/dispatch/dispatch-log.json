@@ -547,6 +547,126 @@
       "commit": null,
       "verification": "node --test tests/psi-threshold-check.test.mjs tests/psi-retry.test.mjs; npm run psi-audit:check（field 0/44を警告、gate 0、exit 0）",
       "note": "primary_source=field を維持し、field_missing_policy=report_only を採用。CrUX 欠測は判定不能として可視化を続け、field AVERAGE/SLOW と取得失敗率20%超だけをCIゲートにした。lab中央値は診断専用"
+    },
+    {
+      "id": "DN-0014",
+      "at": "2026-09-04",
+      "task": "読み方ガイド 横展開（建設部門＋土木）",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "土木1級・2級のscaffoldと建設部門noteコンテンツ計画を実査",
+      "note": "土木版は全巻scaffold済み。未制作の建設部門版はコンテンツ制作企画のSSOTへ移し、backlog上の二重管理を解消"
+    },
+    {
+      "id": "DN-0036",
+      "at": "2026-09-04",
+      "task": "モバイル可読性リライト 第1弾",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "第1弾の完了記録と現行の定常品質ゲートを照合",
+      "note": "有限の第1弾は完了済み。残る改善は品質レポートと週次CIが継続検出するため、反復運用カードを撤収"
+    },
+    {
+      "id": "DN-0043",
+      "at": "2026-09-04",
+      "task": "note 導線 後続配線（残・2 件）",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "建設部門note計画の11科目マトリクスとnote-magazines scaffoldを照合",
+      "note": "トンネル・都市計画パックは制作計画と公開状態SSOTに存在。未収容の無料ブリッジ記事だけを制作計画へ移し、重複カードを削除"
+    },
+    {
+      "id": "DN-0052",
+      "at": "2026-09-04",
+      "task": "SVG図版 dual-use パイプライン残",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null,
+      "verification": "npm run build-svg-catalog（embedded 521 / orphan 0）; 6件のArticleImage参照を絶対R2パスへ修正",
+      "note": "SNS派生パイプラインは既設。残っていた4記事6図の相対参照を修復し、全SVGが記事へ結線された"
+    },
+    {
+      "id": "DN-0063",
+      "at": "2026-09-04",
+      "task": "画像系 pre-render ワークアラウンドの再検証（Opus 5 vision）",
+      "tier": "low",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "現行エージェント定義と画像系品質ゲートを実査",
+      "note": "特定の将来モデルを前提にした再検証で、現在の欠陥・成果条件・対象実装がないため退役"
+    },
+    {
+      "id": "DN-0075",
+      "at": "2026-09-04",
+      "task": "土木一般編（スキャン教材）図タイト化・素材活用",
+      "tier": "low",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "published civil textbook figuresのprovenanceとfigure-recrop運用を照合（35/35 needs=ok）",
+      "note": "全320図を再処理する根拠はなく、公開済み図は現行台帳で正常。個別不良は既存の図品質サイクルで扱う"
+    },
+    {
+      "id": "DN-0112",
+      "at": "2026-09-04",
+      "task": "NotebookLMコンテキスト圧縮ゲートウェイでClaude/Codexトークンを削減",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "notebooklm-researchの既定とNotebookLM CLI運用資料を照合",
+      "note": "実測baselineのない6段階ゲートウェイは過剰設計。1 notebook・1質問・結論と出典のみを渡す既定を恒久資料へ残して企画を退役"
+    },
+    {
+      "id": "DN-0113",
+      "at": "2026-09-04",
+      "task": "Claude/Codexのモデル分業・コンテキスト予算でトークン消費を削減",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "CLAUDE.md §5の委任基準と現行ランタイム能力を照合; npm run check-codex-compat",
+      "note": "モデル名のリポジトリSSOT化は実行環境と重複して陳腐化する。親既定の継承と最小fork範囲を恒久原則へ追加して企画を退役"
+    },
+    {
+      "id": "DN-0141",
+      "at": "2026-09-04",
+      "task": "GSC実験候補1件を/nsm-experimentへ起票するか判断",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null,
+      "verification": "対象ページの09-03変更・GSC baseline/latest・active実験2件を照合",
+      "note": "13ページ一括変更で単一介入にならず、active上限にも達しているため新規実験化しない。09-23まで一括SEO改善として観測する裁定を記録"
+    },
+    {
+      "id": "DN-0163",
+      "at": "2026-09-04",
+      "task": "記事末尾の CTA 順序（転職アフィリが自社 note より先）を見直す",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "DocPage・ArticleFooterの配置とaffiliate-operationsの意図別方針を照合",
+      "note": "一律の縦順変更はせず、学習意図はnote・キャリア意図はaffiliateを主とする判断を恒久方針へ明記。DOM順だけによる一括改修を撤収"
     }
   ]
 }

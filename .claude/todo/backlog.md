@@ -68,16 +68,6 @@
 
 
 
-### [DN-0014] 読み方ガイド 横展開（建設部門＋土木）
-タグ: [収益化] [種類:制作]
-
-総監の3点セット（完全パック＋R8予想＋読み方ガイド）が sales-log で売上TOP3独占を実証。「科目非依存の読み方ガイドのみが横断で成立」（2026-06-23。建設部門は選択科目制ゆえ横断R8予想・横断完全パックは作らない）。
-
-**②土木側は完結（2026-08-26）**: 1級=全2巻（`civil-1-reading-guide`）・2級=全1巻（`civil-2-reading-guide`・約5,000字・93タグ）とも `note-magazines.ts` に `published: false` で登録済み。note公開・価格はユーザー判断待ち。
-
-**残る①建設部門のみ**: 11専門分野の技術事実を扱うため WebSearch によるファクトチェックが必須
-（`pe-secondary-exam-factcheck` エージェント相当の裏取りをしてから着手する）。
-論文対策キーワード6テーマ＋論文の書き方の組成。成果物は content＋published:false まで。
 
 
 ### [DN-0167] 技術士第一次試験 Xキャンペーン095を週次予約する
@@ -117,10 +107,6 @@
 
 `PastExamBacklinks` の設問単位逆引きは総監（`exam-keyword-map.json`＝人手キュレーション）と 1級・2級土木（本文照合の自動索引）にしかない。pe-construction は past-exam 84 本と keyword 35 本が科目タグ（都市及び地方計画・道路 等）で `RelatedArticles` により**記事単位では既に相互リンク済み**（2026-09-03 実物確認）。残るのは設問単位の紐付けで、総監と同じく `exam-keyword-map.json` を pe-construction 向けにキュレーション（`exam-keyword-mapping-auditor` の対象拡張）してから `build-exam-backlinks.mjs` の走査対象へ加える。コンクリート 3 資格は primary-X ↔ textbook-X が同じ分野名で 1 対 1 に対応し、各記事の `RelatedKeywords` で既に明示リンク済みのため対象外。
 
-### [DN-0163] 記事末尾の CTA 順序（転職アフィリが自社 note より先）を見直す
-タグ: [収益化] [種類:意思決定] [起票:2026-09-03]
-
-textbook 記事の末尾は「関連キーワード → 転職 PR（MDX 内 CareerAffiliate）→ note もくじタイル → 章ナビ」の順で、自社商品より先にアフィリが出る（2026-09-03 実画面）。inline CareerAffiliate は MDX 側にあるため footer の並び替えでは直らない。1 ページ 1 GKS ピクセルの配置ポリシー（affiliate-operations）と両立する形（inline を末尾へ移す一括スクリプト、または footer の転職バナーへ一本化）を決めてから実施する。
 
 ### [DN-0120] 転職アフィリの成果が 3 ヶ月ゼロ — 継続するか、面を畳んで別収益に寄せるか
 タグ: [収益化] [種類:意思決定] [起票:2026-08-24] [期日:2026-09-16]
@@ -142,18 +128,6 @@ textbook 記事の末尾は「関連キーワード → 転職 PR（MDX 内 Care
 について、再公開14日後（2026-09-09以降）にGSCでインデックス状況とimpressions/clicksのdeltaを計測し、
 再実験化（EXP系起票）するかを判断する。EXP-002はcancelled（2026-06-27）なので新規起票になる。
 
-### [DN-0141] GSC実験候補1件を/nsm-experimentへ起票するか判断する（旧DN-0106の残作業）
-タグ: [インフラ・計測] [種類:意思決定] [起票:2026-08-26]
-
-旧DN-0106（GSC検索流入停滞の原因分離）のPhase 1（データ全件化）・Phase 2（RCA）は2026-08-26完了。
-結論は**季節性が支配的**（clicks減-201の82%が総監・建設部門の試験後需要減。技術エラー0件）。
-詳細: `.claude/state/improvements/2026-08-26-gsc-access-rca.md`・判断ログ: `gsc-management.md`末尾。
-
-**残る判断**: Phase 3実験候補は1件のみ——`civil-1-textbook-network-schedule` の
-「インターフェアリングフロートとは」クエリ（278impr / position 9.17 / clicks 0。
-8/4見送り済みの主クエリとは別物と確認済み）。これを `/nsm-experiment` で起票して
-seoTitle変更を実験化するかをユーザーと決める。**推測でtitle/descriptionを一括変更しない**。
-次回の月次 URL Inspection（`search-growth:cem-plan`・[gsc-management.md](../knowledge/reference/gsc-management.md)「総監 CNI 5分類の運用ルール」）と合流して判断するのが自然。
 
 ### [DN-0139] LINE公式アカウントを開設し一次二次ブリッジ磁石の配信を始める
 タグ: [収益化] [種類:制作] [起票:2026-08-26]
@@ -203,226 +177,7 @@ seoTitle変更を実験化するかをユーザーと決める。**推測でtitl
 
 **完了条件**: 4packのmanifest/script/storyboard/QA/派生/statusが一意にjoinされ、全機械・意味ゲートとadmin型検査/E2EがPASSする。4本の通常動画と関連Shortsを外部実体で照合し、6週間後の継続/修正/停止判断日とbaselineを記録する。公開・push・deploy・外部設定変更は対象と影響を提示してユーザー承認を得るまで実行しない。
 
-### [DN-0112] NotebookLMコンテキスト圧縮ゲートウェイでClaude/Codexトークンを削減
-タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-08-21]
 
-大量の白書・標準テキスト・過去問をClaude/Codexへ直接読み込ませず、NotebookLMを検索・根拠抽出層として使い、制作エージェントには短い根拠パックだけを渡す。MCPを追加すること自体はトークン削減にならず、取得回答をそのまま会話へ流すと逆に増えるため、**ルーティング・出力上限・キャッシュ・引用検査・効果計測**を先に実装する。
-
-**現状**:
-
-- `.mcp.json`にNotebookLM MCPはなく、現行経路は`.claude/scripts/notebooklm-cross-query.mjs`と`notebooklm-batch-ask.mjs`からNotebookLM CLIを呼ぶ方式
-- `cross-query`は指定した全notebookへ同じ質問を逐次送信し、各回答全文を連結する。notebookを増やすほど受信コンテキストも増える
-- 総監標準テキスト、一次過去問、記述式模範解答、白書notebookは構築済みだが、質問結果の再利用、最大文字数、共通schema、source更新時のcache失効、作業別routingがない
-- Windows会社PCは`~/bin/notebooklm.bat`経由でproxyを通す必要があり、認証切れは人による`notebooklm login`が必要。CIへ認証profileを持ち込まない
-
-**目標フロー**:
-
-```text
-作業種別＋対象slug
-  → 1冊を原則とするnotebook routing
-  → 最大1回の構造化質問
-  → citation付きevidence pack（800〜1,500字）
-  → cache
-  → Sonnet/Codexは記事＋evidence packだけを読む
-  → 根拠不足時だけ追加質問／人の確認
-```
-
-**Phase 0 — 現状計測とMCP要否の切り分け**:
-
-1. キーワード記事、白書数値照合、過去問論点、論文骨子、図解設計を各4件、計20件の固定fixtureにする
-2. 現行方式の質問回数、対象notebook数、NotebookLM返答文字数、エージェントへ渡した文字数、所要時間、引用取得率、最終QA結果をbaselineとして記録する
-3. 「CLI経由でも達成できる機能」と「MCPでなければ困る機能」を分ける。接続方式は利便性、トークン削減は返却コンテキスト制御の問題として混同しない
-4. 個人版NotebookLMの非公式連携を増やす前に既存wrapperを利用する。Gemini Notebook Enterprise API／将来の公式MCPは、料金・ライセンス・認証・個人版notebook互換を確認できた場合だけ候補にする
-
-**Phase 1 — routingとevidence pack契約**:
-
-1. `.claude/config/notebooklm-routing.json`に作業種別→既定notebook、fallback、最大質問数、必須引用数、cache TTLを定義する。通常は1冊、複数notebook横断は明示opt-inにする
-2. `scripts/notebooklm-context-pack.mjs`を追加し、`taskType`、`target`、`questionTemplateVersion`、`notebook`を受ける薄い入口にする。既存cross-query／batch-askを内部利用し、別の認証実装を作らない
-3. 出力を`conclusion`最大3件、`evidence`最大3件、`examPoints`最大3件、`unknowns`、`sourceTitles`、`citations`へ固定する。通常800〜1,500字、引用本文は必要最小限、長文回答を禁止する
-4. 定義・背景・事例・試験論点を別々に連打せず、1回の構造化質問へまとめる。引用不足・unknownsありの場合だけ追加質問を1回許可する
-
-**Phase 2 — cacheと生回答の隔離**:
-
-1. cache keyを`notebook ID + source inventory hash + question template version + normalized question`のSHA-256とする
-2. 生回答とdebug JSONは`.tmp/notebooklm/raw/`へ保存してGit非追跡とし、制作エージェントは原則読まない。エージェントへ渡すのは検証済み`context-pack.json`だけにする
-3. 標準テキスト等の静的sourceは長いTTL、白書・年度更新資料は短いTTLとする。source追加・rename・status変更時はinventory hashを更新してcacheを失効させる
-4. cache hit／miss、質問数、返答文字数、pack文字数、圧縮率、引用数、追加質問理由を`.claude/state/notebooklm/metrics.json`へ記録する。質問文・回答本文・認証情報はmetricsへ保存しない
-
-**Phase 3 — 機械ゲートと偽PASS防止**:
-
-1. JSON schema、最大文字数、最大件数、notebook解決、source status、citation存在、空回答、重複evidenceを検査する`check-notebooklm-context-pack`を追加する
-2. 白書数値・固有名・制度名を使う作業はcitation 0件をFAIL、概念構造の補助はWARNなど、taskType別に厳しさを変える
-3. NotebookLM回答は一次資料そのものではないため、引用先が質問対象sourceに存在することを確認できない主張を本文へ自動反映しない。`unknowns`を空欄で握り潰さない
-4. 認証切れ、proxy 503、rate limit、notebook不存在、source processing中、回答0件を成功扱いしない。認証切れはexit 2で停止して手動loginを案内する
-
-**Phase 4 — 既存skill／agentへ段階配線**:
-
-1. パイロットは`notebooklm-research`と`note-fact-checker`の2経路だけに配線し、直接`cross-query`を呼ぶ箇所をcontext pack経由へ置換する
-2. 効果確認後、`improve-article`、`visual-research`、`quality-cycle`、`audit-exam-mapping`へ広げる。各skillにraw回答をReadしない契約とtaskTypeを明記する
-3. Generatorはpackから要約・再構成し、Evaluatorはclaimとcitationの対応だけを見る。NotebookLM回答をそのまま記事へ貼らず、同じエージェントに生成と根拠判定を兼務させない
-4. agents／skills registry、doc coupling、CLI gotchas、作業別routing表を同期する。資格別NotebookLM agentを量産せず、共通gatewayを1つだけ持つ
-
-**Phase 5 — 効果判定**:
-
-1. Phase 0と同じ20件で、エージェントへ渡すNotebookLM由来文字数を現行比60%以上削減する
-2. 質問回数、所要時間、認証／rate失敗率、引用取得率を比較し、最終QAのBLOCK件数、事実誤り、内容網羅性を悪化させない
-3. cache再実行ではNotebookLM問い合わせ0、同一pack再利用、source更新後は確実にcache missとなることをテストする
-4. 60%削減または品質同等を満たさなければ展開を止め、routing／schemaを修正する。MCP導入はこの結果でCLIが律速と確認された場合だけ別途判断する
-
-**使う作業／使わない作業**:
-
-- 使う: 白書・標準テキスト・過去問の横断検索、数値／制度の引用確認、論文根拠、図解・動画台本の概念構造抽出
-- 使わない: Git差分、コード構造、テスト失敗、ファイル配置、現在値のWeb調査。これらは`rg`、ローカル検査、公式Web一次情報を優先する
-
-**停止条件・禁止事項**:
-
-- NotebookLM／GoogleのCookie、OAuth state、認証profileをGit、`.env`、GitHub Secrets、CI artifactへ保存しない。CIから個人NotebookLMへログインしない
-- sourceに投入する権利が不明なPDF、顧客情報、非公開注文原稿を追加しない。既存sourceの削除・共有設定変更はユーザー承認前に行わない
-- citation 0、回答不能、認証切れをAIの一般知識で補完して「NotebookLM照合済み」と記録しない
-- 複数notebookへの並列連打をしない。既存`notebooklm-batch-ask`の逐次・間隔・有限retry契約を維持する
-
-**完了条件**:
-
-- 固定20件でNotebookLM由来の受信コンテキスト60%以上削減、QA非劣化、引用必須taskのcitation取得率100%
-- context pack schema、routing、cache失効、偽PASS、認証切れ、Windows全角引数、proxy経路のテストがPASS
-- `notebooklm-research`と`note-fact-checker`がraw回答を直接読まず、cache hit時は外部問い合わせ0で同じ根拠パックを返す
-- 恒久ルールと計測結果を`notebooklm-cli-gotchas.md`または専用referenceへ抽出し、MCPを「採用／見送り／再検討条件付き」のいずれかに決定して本カードを削除する
-
-**Claude Code実行プロンプト**:
-
-```text
-DN-0112をPhase 0から1 Phaseずつ実行してください。最初にAGENTS.md、
-.claude/todo/backlog.mdのDN-0112、.mcp.json、
-.claude/scripts/notebooklm-cross-query.mjs、notebooklm-batch-ask.mjs、
-notebooklm-notebook-builder.mjs、notebooklm-cli-gotchas.md、
-notebooklm-research／improve-article／visual-researchの各SKILL.md、
-note-fact-checker.mdを全文読んでください。
-
-開始前にbranch、originとの差、dirty filesを確認し、他セッションの変更を上書き・revertしないでください。
-Phase 0ではコードを変える前に固定20件のbaselineを取り、NotebookLM返答全文の文字数と、
-実際にエージェントへ渡した文字数を分けて計測してください。
-
-MCP追加を先に行わず、既存CLI wrapperを再利用してrouting、1,500字以下のevidence pack、
-cache、citation gateを実装してください。raw回答は.tmpへ隔離し、制作エージェントに読ませないでください。
-個人NotebookLM認証をCIへ移さず、認証切れは手動login待ちで停止してください。
-
-各Phase終了時に変更ファイル、質問数、返答文字数、pack文字数、圧縮率、引用取得率、
-QA差分、失敗ケースを報告して停止してください。既存20件で60%以上削減かつ品質同等が確認できるまで
-既存skill全体へ展開しないでください。source追加・削除・共有変更、MCP／Enterprise契約、外部設定変更は
-影響と費用を提示してユーザー承認を得るまで実行しないでください。
-```
-
-### [DN-0113] Claude/Codexのモデル分業・コンテキスト予算でトークン消費を削減
-タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-08-21]
-
-親モデルへ全作業を集中させず、**高判断作業は Opus / GPT-5.6 Sol、定型実装・意味監査は Sonnet / GPT-5.6 Terra、機械寄りの大量処理は GPT-5.6 Luna または決定的スクリプト**へ分ける。同時に、サブエージェントへ会話履歴・巨大ログ・無関係な参照を重複投入しないコンテキスト契約を作り、品質を落とさず高性能モデル使用量と総トークンを削減する。
-
-**DN-0112との境界**: `DN-0112` はNotebookLMの長い資料を短い evidence pack に圧縮する「外部知識入力」の改善。本カードは、コード・記事・監査を含む全作業の**モデル選択、spawn条件、親子間コンテキスト、返却量、効果計測**を扱う。NotebookLM、MCP、資料検索機能は本カードで新設しない。
-
-**起票時の実査結果（再調査不要）**:
-
-- `.claude/agents/*.md` は80体中77体が `model: sonnet`、`inherit` は `strategy-advisor`、`guide-qa`、`civil-construction-review` の3体。Claude Code側の「Opusで考え、Sonnetで実行」はすでに大半へ配線済み
-- `CLAUDE.md` / `AGENTS.md` §5 はサブエージェントSonnet既定、同時3体まで、小作業を委任しない、検証目的だけのspawnを禁止している。この原則は維持する
-- `.Codex/agents/*.toml` の本文にある ``model: sonnet`` は説明文で、Codex実行時のモデル指定ではない。Codexのspawnでoverrideしなければ親モデルを継承し、期待した節約が成立しない
-- 並列化は待ち時間を短くするが、親と複数workerが同じ会話履歴・AGENTS・ログ・対象ファイルを読むと**総トークンは増える**。評価対象は「親モデル使用量」だけでなく、親子合計、retry、品質、所要時間とする
-- OpenAI公式の現行モデル区分は `gpt-5.6-sol`＝最高性能、`gpt-5.6-terra`＝性能とコストの均衡、`gpt-5.6-luna`＝高頻度・大量処理向け。モデル名は直接各skillへ散在させず、provider別routing SSOTから解決する
-
-**目標ルーティング**:
-
-| 作業 | Claude Code | Codex | 例 |
-|---|---|---|---|
-| 親の計画・競合解決・最終統合・高リスク判断 | Opus / `inherit` | GPT-5.6 Sol | 設計変更、複数案の採否、外部write前判断 |
-| 境界の明確な実装・定型Generator・意味Evaluator | Sonnet | GPT-5.6 Terra | MDX校正、UI実装、ルーブリック採点、URL分類 |
-| 低判断の大量処理・抽出・分類 | pilot合格時のみ軽量モデル候補 | GPT-5.6 Luna | ファイル棚卸し、ログ要約、schema分類、候補列挙 |
-| 終了条件がコードで決まる処理 | LLMを使わない | LLMを使わない | grep、件数、hash、schema、lint、status code |
-
-Sonnet/Terra/Lunaへの変更は、名前だけで一括置換しない。専門事実、曖昧な要件、広い設計判断、不可逆操作の対象選択は親へ残す。軽量モデルが失敗して親が全文を読み直す経路は二重消費なので、pilotでretry率まで比較する。
-
-**Phase 0 — 使用量baselineと代表fixture**:
-
-1. 代表作業を最低12件固定する。内訳は、CI失敗診断、単一バグ修正、複数ファイル実装、MDX校正、定型QA、GSC分類、doc-sync、TODO整理を含める。同じ入力・同じ合格条件を再利用可能にする
-2. 取得可能なusage metadataから、親/worker別のinput・cached input・output・reasoning tokens、tool call数、spawn数、retry数、所要時間、gate PASS/FAILを記録する。製品が正確なtoken数を返さない場合は、入力文字数・読んだファイル数・出力文字数をproxyとして明記し、推測値を正確なtokenとして扱わない
-3. 現行の「親単独」「既定spawn」をbaselineにする。実装後は「provider別routing」「最小context」の2段階を別々に比較し、何が効いたかを混ぜない
-4. 計測ログに会話本文、顧客情報、認証情報、長いモデル出力を保存しない。task class、model tier、数値、結果、fixture IDだけを保持する
-
-**Phase 1 — provider非依存のrouting SSOT**:
-
-1. 既存config配置規則を確認し、`flagship / balanced / fast / deterministic` の論理tier、Claude/Codexの実モデル、許可するtask class、既定reasoning、fallback、親へのescalation条件を1つのJSONへ定義する
-2. Claude側は既存77体のSonnet指定を基線として保持し、3つの`inherit`を「親判断が本当に必要か」fixtureで再確認する。Opus固定の新規agentは原則作らない
-3. Codex側はAgent TOML本文のSonnet表記を実行指定と誤認しないようprovider別説明へ直す。spawnするskill/orchestratorはrouting SSOTを参照し、境界の明確なtaskで `gpt-5.6-terra` / `gpt-5.6-luna` を明示する。対応モデルが利用不能なら黙って別provider名を使わず、`balanced`から親継承へfail-safeする
-4. 全agentに固定モデルを埋め込まず、role既定＋例外allowlistにする。例外には理由、fixture、再評価日を必須とする
-5. `check-agent-model-routing`を追加し、未登録agent、不明tier、provider不一致、理由のないflagship/inherit、退役model、skill内へのモデル名散在を検出する。対象0件・config parse失敗をPASSにしない
-
-**Phase 2 — spawnとコンテキストの予算契約**:
-
-1. spawn条件を「独立している」「親が並行して別作業を進められる」「数回のtool callでは終わらない」「明確な成果物または判定がある」の4条件へ固定する。満たさない小作業と、親の作業を再確認するだけのworkerは禁止する
-2. workerへ渡す入力を `objective / owned files / evidence / constraints / acceptance / output schema` に固定する。会話全文、未整理ログ、repo全体の説明を貼らない。必要な参照はパスと読む理由を指定する
-3. Codexの境界明確なworkerは原則 `fork_turns: none` または必要な直近turnだけを使う。full-history forkは、過去の判断そのものが成果物要件である場合だけ理由付きで許可する
-4. Claudeの`context: fork`は明確な実行タスクだけに使い、ガイドを読むだけ・確認だけのforkを禁止する。子が再度同じ大規模referenceを読む場合は、親が要約を複製せず必要節へ直接routeする
-5. 初期contextのファイル数・文字数、worker返却文字数、同じファイルを読んだagent数を計測する。上限値はPhase 0の分布から決め、超過時は警告＋理由を記録する。根拠なしの一律文字数制限は作らない
-6. 返却は原則 `outcome / changed filesまたはfile:line / validation / unresolved` のみ。全文転載、長い実況、親が再度要約する前提の重複説明を禁止する
-
-**Phase 3 — skillとagentのコンテキスト縮小**:
-
-1. `AGENTS.md` / `CLAUDE.md`、agent definition、`SKILL.md`、reference間の同一指示重複を機械抽出し、真実源への参照で済む箇所を特定する。安全弁・受入条件・製品固有のルールは削らない
-2. skillは選択した`SKILL.md`を完全に読む前提を維持しつつ、無関係なreferenceを列挙して一括読込させない。用途別routingを明示し、1タスクで読むreferenceを必要最小限にする
-3. 長いログは親が保存して、workerへは失敗step、error、前後行、再現コマンドだけを渡す。画像・PDF・CSVも対象ページ/行/列へ絞る
-4. ルーティング、retry、status code、件数、hash、重複、schemaなど決定論で処理できる部分をscriptへ移す。LLMはscriptがsurfaceした候補の意味判断だけを担当する
-5. Generator/Evaluator分離は商品品質の自己評価バイアス対策として維持する。ただし両者に同じ巨大入力を渡さず、Evaluatorには成果物、rubric、決定的gate結果、検証対象の根拠だけを渡す
-
-**Phase 4 — A/B pilotと段階展開**:
-
-1. 12件以上の固定fixtureで `現行` / `routingのみ` / `routing＋最小context` を比較する。最低指標は親高性能モデルtokens、親子総tokens、cached比率、spawn数、retry、gate成功率、重大指摘、所要時間
-2. pilot目標は、高性能モデル使用量40%以上削減、親子総トークン20%以上削減、決定的gate成功率非劣化、重大な品質欠落0件とする。実測で達成不能なら値を都合よく変えず、task class別に採用/見送りを分ける
-3. 軽量modelでretryが増え、親が全文再読するtask classはbalancedまたはflagshipへ戻す。速さだけ改善して総tokensや品質が悪化した経路は採用しない
-4. pilot合格後だけ、利用頻度の高いskillから5件ずつ段階配線する。一括変更しない。各batchでrouting gateと既存quality gateを通す
-5. 結果をagent設計SSOTへ抽出し、モデル更新時の再評価条件、期限、担当を残す。恒久化後は本カードを削除する
-
-**停止条件・禁止事項**:
-
-- model変更だけを目的に全80agentを一括編集しない。provider間で存在しないモデル名をコピーしない
-- サブエージェント数や並列数の増加を削減成果として扱わない。wall-clock短縮と総tokens削減を分ける
-- 品質評価を同じGeneratorの自己申告だけで合格にしない。決定的gateまたは独立Evaluatorの既存契約を維持する
-- usage metadataに認証情報、会話本文、顧客原稿、外部サービスの生データを保存しない
-- API課金、新しい外部サービス、Claude/Codexプラン変更、CIでの有料model呼出しは、費用・上限・停止方法を提示してユーザー承認を得るまで行わない
-- 他セッションのdirty file、未追跡成果物、進行中cardをrevert・commitしない
-
-**完了条件**:
-
-- provider別routing SSOTと`check-agent-model-routing`が存在し、全agentの論理tier、例外理由、fallbackを機械検証できる
-- Claudeの77 Sonnet / 3 inheritを維持または根拠付きで改善し、CodexはSonnetという説明文ではなくSol/Terra/Lunaの実行可能なroutingへ分離される
-- spawn入力と返却schema、full-history例外、コンテキスト超過の記録、決定論優先がskill作成規約とagent registryへ反映される
-- 固定fixtureのbaselineとA/B結果が再現でき、高性能モデル40%以上・総tokens20%以上削減、gate非劣化、重大欠落0を満たすtask classだけ本運用へ展開される
-- `check-agent-model-routing`、既存のagent/skill coupling検査、対象skillの決定的gate、`quality:audit:ci`がPASSする。恒久ルールと結果をSSOTへ抽出後、本カードを削除する
-
-**Claude Code実行プロンプト**:
-
-```text
-DN-0113をPhase 0から1 Phaseずつ実行してください。最初にCLAUDE.md §5-6、AGENTS.md §5-6、
-.claude/todo/backlog.mdのDN-0113、.claude/skills/dev/create-skill/SKILL.mdのmodel指定ルール、
-.claude/knowledge/reference/agents-registry.md、skills-design-guide.mdを読んでください。
-
-開始前にbranch、originとの差、dirty/untracked files、他セッションの進行中作業を確認し、
-他人の変更をrevert・commitしないでください。DN-0112のNotebookLM入力圧縮とは分離し、
-本タスクではmodel routing、spawn条件、親子context、返却量、usage計測だけを扱ってください。
-
-Phase 0ではコードやagent定義を変更せず、最低12件の固定fixtureと現行baselineを作ってください。
-正確なtoken metadataが取得できない項目は文字数等のproxyであることを明記し、推測tokenを記録しないでください。
-親高性能modelだけでなく親子合計、cached input、spawn、retry、gate結果、所要時間を比較してください。
-
-Phase 1ではprovider非依存のflagship/balanced/fast/deterministicをSSOT化し、ClaudeはOpus/Sonnet、
-CodexはSol/Terra/Lunaへ実モデルを解決してください。.Codex agent本文のmodel: sonnetを実行指定として扱わず、
-spawn側でroutingを実装してください。対応modelが無ければ親継承へfail-safeし、別provider名へ置換しないでください。
-
-Phase 2以降はfull-history forkを既定にせず、objective、owned files、evidence、constraints、acceptance、
-output schemaだけをworkerへ渡してください。小作業・検証だけのspawn・同一巨大入力の複製を増やさないでください。
-モデル名の全80件一括置換や外部有料サービス追加は行わないでください。
-
-各Phase終了時に変更ファイル、fixture別の親tokens、親子総tokens、retry、gate結果、品質差分、
-未解決点を短く報告して停止してください。高性能model40%以上、総tokens20%以上削減、gate非劣化、
-重大欠落0を同時に満たすtask classだけ次Phaseへ進めてください。API課金、CI有料model利用、
-プラン変更、外部設定変更は費用と影響を提示し、ユーザー承認を得るまで実行しないでください。
-```
 
 ### [DN-0114] 法人・組織向け資格支援パックとライセンス収益のpilot
 タグ: [収益化] [種類:改善] [Codex候補] [起票:2026-08-21]
@@ -434,7 +189,7 @@ output schemaだけをworkerへ渡してください。小作業・検証だけ�
 - noteは個人受験者向けの高粗利な学習商品、ココナラは個別診断・添削・単発PDF、Brainは個人向けClaude Codeキットの販売を継続する。本カードは**法人が支払う複数人利用・組織内利用**に限定し、同じ個人商品を別市場へ安売りしない
 - 学習・受験意図への教材／講座アフィリエイトは再開しない。既存Red Lineどおり、学習の財布は自社商品、キャリア意図は転職アフィリエイトに分ける
 - PWAの買い切り／会員認証は既存PWA計画の担当。本カードではPWA本体、独自会員基盤、LMS、決済Webhookを実装しない
-- `DN-0112`はNotebookLM入力圧縮、`DN-0113`はモデル分業。本カードはそれらの開発者向け仕組みを商品化せず、販売オファーと検証を扱う
+- 内部開発者向けの NotebookLM・モデル運用は商品化せず、本カードは販売オファーと検証だけを扱う
 
 **起票時の実査結果（2026-08-21・再調査不要）**:
 
@@ -619,7 +374,7 @@ SEO記事・note・SNS
 - 認証メールと販促メールを分離し、販促はオプトイン、送信者表示、解除、suppressionを必須にする。解除済みへの再送をテストで防ぐ
 - Secret、Webhook署名、メールアドレス、Stripe customer、LINE user ID、session、magic-link tokenをGit、ログ、GA4、Sentry、CI artifactへ出さない
 - 外部サービス登録、DNS、Stripe本番設定、価格公開、実決済、メール／LINE送信、deployは、対象、費用、送信内容、保存データ、停止・削除方法を提示し、ユーザー承認まで実行しない
-- 現在のdirty `.claude/todo/backlog.md` には他セッションのDN-0113/0114がある。revert、代理commit、カードの並べ替えをしない
+- 並行セッションの未コミット変更を revert・代理 commit せず、カードの並べ替えをしない
 
 **完了条件**:
 
@@ -708,24 +463,11 @@ DN-0100で行き止まりと季節ドリフトを止めた後、機械監査で�
 原典照合できない数値は出していない（JIS 規格値は原理を問う形へ、改正年代順は塩化物総量規制の考え方へ差し替え済み）。
 
 
-### [DN-0036] モバイル可読性リライト 第1弾
-タグ: [コンテンツ品質] [種類:制作]
-
-機械ラチェット基盤は整備済み（`content-rules.json`＋`lint-mdx-mobile --all`＋週次 `check-content-quality`）。初回30記事の改修後も baseline に残る既存違反を、GA4 人気度順にリライトして漸減させる。
-
-- **優先上位**: `civil-construction-1-guide-strategy`（3-1×29・#1人気）／`pe-comprehensive-management-keyword-2026`（3-1×48）／`civil-construction-2-secondary-r0X`／`pe-construction/*-exam-themes` 残11本
-- **手順**: レポート上位を group 対応の `/quality-cycle` へ。表→非表・入れ子→フラット・長段落→改段。1バッチ 10-20 記事、完了ごとに `npm run update-content-quality-baseline`
-- **注意**: civil textbook の規格表・配合表は override 除外済み。過去問の年度×選択肢表は無理に崩さない
 
 
 
 
 
-### [DN-0043] note 導線 後続配線（残・2 件）
-タグ: [収益化] [種類:改善] [起票:2026-08-17]
-
-1. **トンネル / 都市計画パックの実体作成**（律速＝note 実機）。掲載文は `content/note/**/PACK-02` `PACK-03` に作成済みだが、`note-magazines.ts` の `pe-construction-tunnel-pack` / `pe-construction-urban-planning-pack` は `published: false` / `noteUrl: ''`
-2. **建設→総監ブリッジ記事 1 本**（無料・建設部門合格者を総監の来季見込み客に）。現状は建設部門もくじに L1 総合案内リンクがあるだけで専用記事なし。**執筆自体は sweep で可能**
 
 
 ### [DN-0051] 計測基盤 Tier 2/3 ＋ GA4 UI 設定
@@ -734,10 +476,6 @@ DN-0100で行き止まりと季節ドリフトを止めた後、機械監査で�
 詳細な真実源は [計測基盤強化ロードマップ.md](../../docs/operations/計測基盤強化ロードマップ.md)。残る実装項目は同文書の #5 / #7 / #8 / #12 / #14 / #15 と bing bot 疑いの確定。
 
 `fetch-ga4-ui-csv.mjs` は未ログイン検証までで、ログイン済み実UIでは 3 ユニットとも取得失敗（`trafficAcquisition`: `csv-menu-ambiguous`、`landingPage` / `events`: `report-not-found`）。正式ラベルを確定して fixture と回帰テストへ反映する。API優先方針は維持する。
-### [DN-0052] SVG図版 dual-use パイプライン残
-タグ: [コンテンツ品質] [種類:改善]
-
-PR #269（カタログ）/#270（SNSレンダラー）済。残 = Phase4 記事への `<ArticleImage>` 埋込（orphan 6点・**ユーザー保留中**）・SNSパイプライン残（IG管理別カルーセルのオーケストレーション/コピーGenerator/Evaluator配線）。
 
 
 
@@ -790,19 +528,6 @@ P1-P8完了後（このカード起票時点）にやるのが最も効果が大
 
 公開中プランに対する `note-membership-plan-edit` は一度も実行しておらず、保存が即座にライブへ出るかが分かっていない。会費・定員・特典マガジン紐付けを触る前に、影響の小さい項目（説明文）で 1 回だけ実機確認する。会費そのものは変更不可で作り直しになる（memory `note-membership-publish`）。
 
-### [DN-0063] 画像系 pre-render ワークアラウンドの再検証（Opus 5 vision）
-タグ: [インフラ・計測] [種類:改善]
-
-Anthropic の Opus 5 プロンプトガイドが「旧モデル向けに仕込んだ vision ワークアラウンドは不要になっている可能性があるので再検証せよ」「vision はモデル自身が切り出し・拡大・目視確認できるツールを持つときに最も精度が出る（思考量を上げるより費用対効果が高い）」としている。
-
-現状、図まわりは親が**事前に**レンダリング・抽出してからエージェントへ渡す設計になっている。この前処理が今も必要か測る。
-
-- 対象: `civil-exam-figure-extractor`（事前レンダリング済みページ画像を Read して bbox spec を返す）、`scanned-textbook-transcriber` / `scanned-figure-crop-auditor`（`pdfimages` で抽出・回転・分割した単ページ画像を渡す）、`figure-crop-worker`
-- 測り方: 既知の正解がある数枚で「従来の事前レンダリング経路」と「エージェントが自分で開いて拡大・クロップして確認する経路」を突き合わせ、bbox 精度と総トークンを比較
-- 簡素化できるならスキル側の前処理ステップを削る。できないなら**なぜ必要か**を各エージェント定義に1行残す（次に同じ検討を繰り返さないため）
-- 根拠: <https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-opus-5>
-
-**2026-08-28 着手→中断**: A/B比較には原本PDF（過去問/テキスト）が要るが、この環境（Windows会社PC）には実体が無い。`content/sources/textbook/` 配下・asset manifest とも過去問PDFの登録なし。figure-provenance.md は「元PDFは大半が実在しフル再抽出可能」と記録するが、これは作業時にユーザーが `.tmp/` 配下へ都度配置する運用（.gitignore対象）を指しており、常設の格納場所ではない。**原本PDF入手が前提条件**（DN-0090・figure-provenance の rescan-need-source と同型の制約）。PDFが手元にあるセッションで再着手すること。
 
 
 
@@ -822,10 +547,6 @@ Anthropic の Opus 5 プロンプトガイドが「旧モデル向けに仕込�
 
 
 
-### [DN-0075] 土木一般編（スキャン教材）図タイト化・素材活用
-タグ: [コンテンツ品質] [種類:改善]
-
-①図320点のタイト化 — 再開時は軽量版 `apply_deltas_recrop.py --damp 0.7`＋監査2-3ラウンド上限（フルはトークン過大で後回し）②素材活用（本丸）: 検証済みテキストで guide 品質改善・note 無料集客記事展開（GSC 先行で伸び悩みトピック特定）。runbook = `.claude/skills/conversion/pdf-to-mdx/scripts/scanned/README.md`。
 
 ### [DN-0082] API トークン更新サイクル ＋ MCP 棚卸し
 タグ: [インフラ・計測] [種類:改善]
