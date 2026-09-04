@@ -306,6 +306,12 @@ cache は `.local/cache/assets/`（Git 非追跡）。最終アクセス時刻�
 維持したままの R2 バックアップ）。`note-cover-png` は前回棚卸し（2026-08-22・777 件）から
 813 件へ増加している。
 
+`kindle-dist` は2026-09-04に76件を再同期し、ローカル・manifest・private R2のbytes/sha256三者一致を
+確認した。ただし `e-01` を `.tmp` へ直接再生成して展開比較すると、UUID・日付以外にも本文からの
+`CareerAffiliate` 除去と画像寸法変更があり、公開版と実内容が一致しなかった。この反例で全冊の内容一致
+条件は不成立と確定したため、Git追跡は維持する。R2は完全バックアップであり、現行generatorを公開済み
+配布版のbyte/内容再現手段とは扱わない。
+
 `content/site/**/ogp.webp`（1,166 件 39.9MB）は **R2 に入っていない**。og:image が参照しない
 未使用の派生ファイルで、prebuild のたび `generate-webp.mjs` が ogp.png から再生成する中間物のため、
 git 追跡のみ解除し退避はしていない。

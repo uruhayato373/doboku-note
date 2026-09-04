@@ -260,7 +260,7 @@
         "scripts/kdp-publish.mjs",
         "scripts/sync-kindle-dist.mjs"
       ],
-      "reason": "gitが唯一の実体（catalog.jsonの全45冊がlive/in_review保護skipのためsync-kindle-distの既定再ビルド対象外）。EPUBはzipのため再ビルドでタイムスタンプが変わりsha256が再現しない（PDF系と同じ問題）。check-kindle-format.mjsがci:trueで0冊ならexit 2のCI実体依存ゲートのため、untrackはCI破壊に直結する。今回はR2バックアップのみ行い、git追跡は維持する（DN-0151(3)決着）。untrackの前提条件: (i)全冊再ビルドの内容一致検証 (ii)check-kindle-formatのCI実体問題の解決",
+      "reason": "公開・審査済み版の不変な配布実体としてgit追跡を維持する。2026-09-04に76件をprivate R2へ再同期し、ローカル・manifest・R2のbytes/sha256三者一致を確認した。一方、e-01を同期処理を通さず.tmpへ再生成して展開比較すると、UUID/日付だけでなくCareerAffiliate除去と画像寸法変更の実内容差があり、現行generatorから公開版を同内容で復元できないことを確認した。R2は完全バックアップ、Gitはレビュー可能な配布版の正本として併存させる",
       "phase": "DN-0151"
     }
   ]

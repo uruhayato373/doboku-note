@@ -166209,14 +166209,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.108Z",
-      "logicalPath": "scripts/kindle-dist/c-06.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:48.881Z"
     },
     "scripts/kindle-dist/c-02.epub": {
       "bucket": "private",
@@ -166226,14 +166219,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.208Z",
-      "logicalPath": "scripts/kindle-dist/c-02.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:47.997Z"
     },
     "scripts/kindle-dist/c-03.jpg": {
       "bucket": "private",
@@ -166243,16 +166229,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.235Z",
+      "verifiedAt": "2026-09-04T13:19:48.765Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/c-03.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/c-03.epub": {
       "bucket": "private",
@@ -166262,14 +166241,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.236Z",
-      "logicalPath": "scripts/kindle-dist/c-03.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:48.685Z"
     },
     "scripts/kindle-dist/c-01.epub": {
       "bucket": "private",
@@ -166279,14 +166251,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.264Z",
-      "logicalPath": "scripts/kindle-dist/c-01.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:48.016Z"
     },
     "scripts/kindle-dist/b-heisei.jpg": {
       "bucket": "private",
@@ -166296,16 +166261,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.272Z",
+      "verifiedAt": "2026-09-04T13:19:48.181Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/b-heisei.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/c-05.epub": {
       "bucket": "private",
@@ -166315,14 +166273,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.308Z",
-      "logicalPath": "scripts/kindle-dist/c-05.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:48.671Z"
     },
     "scripts/kindle-dist/c-02.jpg": {
       "bucket": "private",
@@ -166332,16 +166283,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.368Z",
+      "verifiedAt": "2026-09-04T13:19:48.045Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/c-02.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/c-04.epub": {
       "bucket": "private",
@@ -166351,14 +166295,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.370Z",
-      "logicalPath": "scripts/kindle-dist/c-04.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:48.543Z"
     },
     "scripts/kindle-dist/c-06.jpg": {
       "bucket": "private",
@@ -166368,16 +166305,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.432Z",
+      "verifiedAt": "2026-09-04T13:19:48.896Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/c-06.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/b-reiwa.epub": {
       "bucket": "private",
@@ -166387,14 +166317,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.513Z",
-      "logicalPath": "scripts/kindle-dist/b-reiwa.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:48.154Z"
     },
     "scripts/kindle-dist/c-01.jpg": {
       "bucket": "private",
@@ -166404,16 +166327,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.579Z",
+      "verifiedAt": "2026-09-04T13:19:48.303Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/c-01.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/b-reiwa.jpg": {
       "bucket": "private",
@@ -166423,16 +166339,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.651Z",
+      "verifiedAt": "2026-09-04T13:19:48.336Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/b-reiwa.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/c-04.jpg": {
       "bucket": "private",
@@ -166442,16 +166351,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.667Z",
+      "verifiedAt": "2026-09-04T13:19:48.745Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/c-04.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/c-05.jpg": {
       "bucket": "private",
@@ -166461,16 +166363,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.667Z",
+      "verifiedAt": "2026-09-04T13:19:48.940Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/c-05.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/c-08.epub": {
       "bucket": "private",
@@ -166480,14 +166375,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.835Z",
-      "logicalPath": "scripts/kindle-dist/c-08.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:49.334Z"
     },
     "scripts/kindle-dist/c-07.jpg": {
       "bucket": "private",
@@ -166497,16 +166385,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.860Z",
+      "verifiedAt": "2026-09-04T13:19:50.243Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/c-07.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/c-07.epub": {
       "bucket": "private",
@@ -166516,14 +166397,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.893Z",
-      "logicalPath": "scripts/kindle-dist/c-07.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:49.074Z"
     },
     "scripts/kindle-dist/b-heisei.epub": {
       "bucket": "private",
@@ -166533,14 +166407,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.915Z",
-      "logicalPath": "scripts/kindle-dist/b-heisei.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:48.123Z"
     },
     "scripts/kindle-dist/c-09.epub": {
       "bucket": "private",
@@ -166550,14 +166417,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.953Z",
-      "logicalPath": "scripts/kindle-dist/c-09.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:49.355Z"
     },
     "scripts/kindle-dist/c-08.jpg": {
       "bucket": "private",
@@ -166567,16 +166427,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:19.971Z",
+      "verifiedAt": "2026-09-04T13:19:49.395Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/c-08.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/c-10.epub": {
       "bucket": "private",
@@ -166586,14 +166439,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.000Z",
-      "logicalPath": "scripts/kindle-dist/c-10.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:49.567Z"
     },
     "scripts/kindle-dist/c-09.jpg": {
       "bucket": "private",
@@ -166603,16 +166449,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.059Z",
+      "verifiedAt": "2026-09-04T13:19:49.487Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/c-09.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/c-11.epub": {
       "bucket": "private",
@@ -166622,14 +166461,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.224Z",
-      "logicalPath": "scripts/kindle-dist/c-11.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:49.629Z"
     },
     "scripts/kindle-dist/c-11.jpg": {
       "bucket": "private",
@@ -166639,16 +166471,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.291Z",
+      "verifiedAt": "2026-09-04T13:19:49.992Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/c-11.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/c-I.epub": {
       "bucket": "private",
@@ -166658,14 +166483,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.311Z",
-      "logicalPath": "scripts/kindle-dist/c-I.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:49.938Z"
     },
     "scripts/kindle-dist/c-I.jpg": {
       "bucket": "private",
@@ -166675,16 +166493,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.317Z",
+      "verifiedAt": "2026-09-04T13:19:50.100Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/c-I.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/c-10.jpg": {
       "bucket": "private",
@@ -166694,16 +166505,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.345Z",
+      "verifiedAt": "2026-09-04T13:19:49.886Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/c-10.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/d-00.jpg": {
       "bucket": "private",
@@ -166713,16 +166517,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.452Z",
+      "verifiedAt": "2026-09-04T13:19:50.240Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/d-00.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/d-01.jpg": {
       "bucket": "private",
@@ -166732,16 +166529,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.507Z",
+      "verifiedAt": "2026-09-04T13:19:51.200Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/d-01.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/d-02.epub": {
       "bucket": "private",
@@ -166751,14 +166541,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.591Z",
-      "logicalPath": "scripts/kindle-dist/d-02.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:50.849Z"
     },
     "scripts/kindle-dist/d-02.jpg": {
       "bucket": "private",
@@ -166768,16 +166551,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.667Z",
+      "verifiedAt": "2026-09-04T13:19:50.857Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/d-02.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/d-03.jpg": {
       "bucket": "private",
@@ -166787,16 +166563,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.720Z",
+      "verifiedAt": "2026-09-04T13:19:50.961Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/d-03.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/e-01.jpg": {
       "bucket": "private",
@@ -166806,16 +166575,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.742Z",
+      "verifiedAt": "2026-09-04T13:19:51.223Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/e-01.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/d-01.epub": {
       "bucket": "private",
@@ -166825,14 +166587,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.769Z",
-      "logicalPath": "scripts/kindle-dist/d-01.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:50.608Z"
     },
     "scripts/kindle-dist/f-01.epub": {
       "bucket": "private",
@@ -166842,31 +166597,17 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.861Z",
-      "logicalPath": "scripts/kindle-dist/f-01.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:51.409Z"
     },
     "scripts/kindle-dist/d-00.epub": {
       "bucket": "private",
       "r2Key": "kindle/dist/d-00.epub",
-      "sha256": "fc3eed1f47ded28cac1d8f29d4552fe5079f97874a2cdcef12192ca78a6f261e",
-      "bytes": 4566361,
+      "sha256": "135240696371dbd1b0cd9e5f2326cb928355577ca78b1ecd82c2147e13494efe",
+      "bytes": 4559673,
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.887Z",
-      "logicalPath": "scripts/kindle-dist/d-00.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:50.679Z"
     },
     "scripts/kindle-dist/f-02.epub": {
       "bucket": "private",
@@ -166876,14 +166617,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.933Z",
-      "logicalPath": "scripts/kindle-dist/f-02.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:51.531Z"
     },
     "scripts/kindle-dist/e-02.jpg": {
       "bucket": "private",
@@ -166893,16 +166627,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.938Z",
+      "verifiedAt": "2026-09-04T13:19:51.604Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/e-02.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/e-01.epub": {
       "bucket": "private",
@@ -166912,31 +166639,17 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:20.952Z",
-      "logicalPath": "scripts/kindle-dist/e-01.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:51.685Z"
     },
     "scripts/kindle-dist/d-03.epub": {
       "bucket": "private",
       "r2Key": "kindle/dist/d-03.epub",
-      "sha256": "03291624d556ca9c080d8a6cabf0efd15519c61f4baffd06c8f7be0037f34e0f",
-      "bytes": 1612336,
+      "sha256": "0a4396ea9b8c0e00b2e2fab8496b7d3a4348b9e56df91d6ed6c5344689581499",
+      "bytes": 1610013,
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:21.012Z",
-      "logicalPath": "scripts/kindle-dist/d-03.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:50.785Z"
     },
     "scripts/kindle-dist/f-02.jpg": {
       "bucket": "private",
@@ -166946,16 +166659,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:21.061Z",
+      "verifiedAt": "2026-09-04T13:19:52.431Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/f-02.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/f-03.epub": {
       "bucket": "private",
@@ -166965,14 +166671,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:21.068Z",
-      "logicalPath": "scripts/kindle-dist/f-03.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:51.765Z"
     },
     "scripts/kindle-dist/f-01.jpg": {
       "bucket": "private",
@@ -166982,16 +166681,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:21.105Z",
+      "verifiedAt": "2026-09-04T13:19:51.900Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/f-01.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/f-04.epub": {
       "bucket": "private",
@@ -167001,14 +166693,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:21.131Z",
-      "logicalPath": "scripts/kindle-dist/f-04.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:52.153Z"
     },
     "scripts/kindle-dist/f-05.epub": {
       "bucket": "private",
@@ -167018,14 +166703,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:21.404Z",
-      "logicalPath": "scripts/kindle-dist/f-05.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:52.182Z"
     },
     "scripts/kindle-dist/f-07.epub": {
       "bucket": "private",
@@ -167035,14 +166713,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:21.531Z",
-      "logicalPath": "scripts/kindle-dist/f-07.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:52.717Z"
     },
     "scripts/kindle-dist/f-06.epub": {
       "bucket": "private",
@@ -167052,14 +166723,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:21.548Z",
-      "logicalPath": "scripts/kindle-dist/f-06.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:52.592Z"
     },
     "scripts/kindle-dist/f-08.epub": {
       "bucket": "private",
@@ -167069,14 +166733,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:21.600Z",
-      "logicalPath": "scripts/kindle-dist/f-08.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:52.844Z"
     },
     "scripts/kindle-dist/f-10.epub": {
       "bucket": "private",
@@ -167086,14 +166743,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:21.616Z",
-      "logicalPath": "scripts/kindle-dist/f-10.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:53.246Z"
     },
     "scripts/kindle-dist/f-09.epub": {
       "bucket": "private",
@@ -167103,14 +166753,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:21.681Z",
-      "logicalPath": "scripts/kindle-dist/f-09.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:53.033Z"
     },
     "scripts/kindle-dist/f-03.jpg": {
       "bucket": "private",
@@ -167120,16 +166763,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:21.683Z",
+      "verifiedAt": "2026-09-04T13:19:51.989Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/f-03.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/e-02.epub": {
       "bucket": "private",
@@ -167139,14 +166775,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:21.684Z",
-      "logicalPath": "scripts/kindle-dist/e-02.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:52.271Z"
     },
     "scripts/kindle-dist/f-09.jpg": {
       "bucket": "private",
@@ -167156,16 +166785,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:21.684Z",
+      "verifiedAt": "2026-09-04T13:19:53.225Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/f-09.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/f-06.jpg": {
       "bucket": "private",
@@ -167175,16 +166797,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:21.697Z",
+      "verifiedAt": "2026-09-04T13:19:53.361Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/f-06.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/f-11.epub": {
       "bucket": "private",
@@ -167194,14 +166809,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:21.740Z",
-      "logicalPath": "scripts/kindle-dist/f-11.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:53.704Z"
     },
     "scripts/kindle-dist/f-04.jpg": {
       "bucket": "private",
@@ -167211,16 +166819,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:21.893Z",
+      "verifiedAt": "2026-09-04T13:19:52.278Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/f-04.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/f-07.jpg": {
       "bucket": "private",
@@ -167230,16 +166831,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:21.943Z",
+      "verifiedAt": "2026-09-04T13:19:52.777Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/f-07.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/f-10.jpg": {
       "bucket": "private",
@@ -167249,16 +166843,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:22.089Z",
+      "verifiedAt": "2026-09-04T13:19:53.315Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/f-10.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/f-11.jpg": {
       "bucket": "private",
@@ -167268,16 +166855,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:22.129Z",
+      "verifiedAt": "2026-09-04T13:19:53.470Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/f-11.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/f-05.jpg": {
       "bucket": "private",
@@ -167287,16 +166867,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:22.180Z",
+      "verifiedAt": "2026-09-04T13:19:52.515Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/f-05.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/f-12.epub": {
       "bucket": "private",
@@ -167306,14 +166879,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:22.201Z",
-      "logicalPath": "scripts/kindle-dist/f-12.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:53.695Z"
     },
     "scripts/kindle-dist/f-08.jpg": {
       "bucket": "private",
@@ -167323,16 +166889,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:22.219Z",
+      "verifiedAt": "2026-09-04T13:19:52.867Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/f-08.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/f-12.jpg": {
       "bucket": "private",
@@ -167342,16 +166901,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:22.286Z",
+      "verifiedAt": "2026-09-04T13:19:53.809Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/f-12.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/f-15.epub": {
       "bucket": "private",
@@ -167361,14 +166913,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:22.307Z",
-      "logicalPath": "scripts/kindle-dist/f-15.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:54.010Z"
     },
     "scripts/kindle-dist/f-14.epub": {
       "bucket": "private",
@@ -167378,14 +166923,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:22.308Z",
-      "logicalPath": "scripts/kindle-dist/f-14.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:53.811Z"
     },
     "scripts/kindle-dist/f-16.epub": {
       "bucket": "private",
@@ -167395,14 +166933,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:22.312Z",
-      "logicalPath": "scripts/kindle-dist/f-16.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:54.201Z"
     },
     "scripts/kindle-dist/f-14.jpg": {
       "bucket": "private",
@@ -167412,16 +166943,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:22.355Z",
+      "verifiedAt": "2026-09-04T13:19:53.944Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/f-14.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/f-13.jpg": {
       "bucket": "private",
@@ -167431,16 +166955,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:22.398Z",
+      "verifiedAt": "2026-09-04T13:19:54.275Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/f-13.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/f-13.epub": {
       "bucket": "private",
@@ -167450,14 +166967,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:22.623Z",
-      "logicalPath": "scripts/kindle-dist/f-13.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:53.759Z"
     },
     "scripts/kindle-dist/f-15.jpg": {
       "bucket": "private",
@@ -167467,16 +166977,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:22.640Z",
+      "verifiedAt": "2026-09-04T13:19:54.441Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/f-15.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/f-16.jpg": {
       "bucket": "private",
@@ -167486,16 +166989,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:22.720Z",
+      "verifiedAt": "2026-09-04T13:19:54.604Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/f-16.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/g-01.jpg": {
       "bucket": "private",
@@ -167505,16 +167001,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:22.945Z",
+      "verifiedAt": "2026-09-04T13:19:55.061Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/g-01.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "scripts/kindle-dist/g-02.epub": {
       "bucket": "private",
@@ -167524,14 +167013,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:23.015Z",
-      "logicalPath": "scripts/kindle-dist/g-02.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:54.561Z"
     },
     "scripts/kindle-dist/g-01.epub": {
       "bucket": "private",
@@ -167541,14 +167023,7 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:23.213Z",
-      "logicalPath": "scripts/kindle-dist/g-01.epub",
-      "mime": "application/epub+zip",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "verifiedAt": "2026-09-04T13:19:54.880Z"
     },
     "scripts/kindle-dist/g-02.jpg": {
       "bucket": "private",
@@ -167558,16 +167033,9 @@
       "visibility": "private",
       "regenerable": false,
       "group": "kindle-dist",
-      "verifiedAt": "2026-08-29T01:31:23.344Z",
+      "verifiedAt": "2026-09-04T13:19:54.588Z",
       "width": 1600,
-      "height": 2560,
-      "logicalPath": "scripts/kindle-dist/g-02.jpg",
-      "mime": "image/jpeg",
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ]
+      "height": 2560
     },
     "content/sources/textbook/新しい時代の安全管理のすべて_第7版/05_第3編_労働安全衛生マネジメントシステム_p260-273.pdf": {
       "bucket": "private",

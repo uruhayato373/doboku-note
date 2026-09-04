@@ -751,6 +751,18 @@
       "commit": null,
       "verification": "法人案内・offer spec・商品catalog・実装commitが0件で、収益化戦略では法人ライセンス凍結中と確認",
       "note": "営業チャネルのない投機的pilotを撤収。適格な法人問い合わせ1件または具体的な営業チャネル確保を再開条件として戦略SSOTへ固定"
+    },
+    {
+      "id": "DN-0153",
+      "at": "2026-09-04",
+      "task": "kindle-dist EPUBの再生成内容一致を検証してgit追跡解除を判断する",
+      "tier": "low",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null,
+      "verification": "e-01を.tmpへ直接再生成して展開比較し、本文要素削除と画像寸法変更を確認。kindle-dist 76件はprivate R2へ再同期後、ローカル・manifest・R2のbytes/sha256三者一致を確認",
+      "note": "現行generatorは公開済みEPUBの同内容再現手段にならないため、git追跡を維持すると決定。R2は完全バックアップとして更新し、追跡解除は実施しなかった"
     }
   ]
 }

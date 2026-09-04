@@ -1,6 +1,6 @@
 # scripts/kindle-dist/
 
-KDP 提出用に**制作完了した Kindle 配布物（EPUB＋表紙）を git 追跡**する置き場（B〜F シリーズ = 35冊）。
+KDP 提出用に**制作完了した Kindle 配布物（EPUB＋表紙）を git 追跡**する置き場（B〜G シリーズ = 38冊）。
 KDP のアカウント作成数制限で提出は数日〜に分けて進めるため、いつでも取り出せるよう成果物を保全する。
 
 - `<id>.epub` … 入稿用 EPUB（build-pe1-kindle / build-essay-kindle の出力）
