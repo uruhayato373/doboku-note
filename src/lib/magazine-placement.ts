@@ -17,6 +17,7 @@
  */
 import type { DocGroupKey } from './doc-classifier';
 import type { MagazineId } from './note-magazines';
+import examCalendar from '../../.claude/config/exam-calendar.json';
 
 export interface PlacementSlot {
   readonly magazineId: MagazineId;
@@ -46,6 +47,20 @@ function utmContentFor(slug: string, position: string): string {
 
 function slot(magazineId: MagazineId, slug: string, position: string): PlacementSlot {
   return { magazineId, utmContent: utmContentFor(slug, position) };
+}
+
+/**
+ * 1級一次ページの主CTAを、試験日のSSOTに合わせて切り替える。
+ * 第二次検定当日（JST）までは二次答案、翌日からは次年度の一次学習を案内する。
+ */
+export function resolveCivil1PrimaryLead(nowMs = Date.now()): MagazineId {
+  const secondExamDate = examCalendar.exams['civil-construction-1'].events.second.date;
+  const examDayStartMs = Date.parse(`${secondExamDate}T00:00:00+09:00`);
+  if (!Number.isFinite(examDayStartMs)) {
+    throw new Error('Invalid civil-construction-1.events.second.date in exam-calendar.json');
+  }
+  const nextDayStartMs = examDayStartMs + 86_400_000;
+  return nowMs < nextDayStartMs ? 'civil-1-experience-essay' : 'civil-1-ichiji-ronten';
 }
 
 /**
@@ -574,12 +589,11 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //     top が必須。inline だけだと描画されない（page.tsx の midEligibleGroup は
   //     guide/pillar/textbook/civil-secondary 限定で primary を含まないため）。
   //     2026-08-17 まで inline のみで note CTA が実質ゼロだった（同型欠陥 4 度目）。
-  //     【季節切替】一次は 7/5 に終わり合格発表も 2026-08-13 に済んでいるので、
-  //     二次(2026-10-04)までは二次商品を lead にする。一次の出る順ノートは
-  //     inline に残し、二次終了後（2026年10月中旬）に top へ戻すこと。
+  //     【季節切替】一次終了後から二次試験当日までは二次商品を lead にし、
+  //     翌日から一次の出る順ノートへ戻す。日付は exam-calendar.json がSSOT。
   if (docGroup === 'primary' && slug.startsWith('civil-construction-1-')) {
     return {
-      top: slot('civil-1-experience-essay', slug, 'top'), // 二次(10/4)が買い場。10月中旬に civil-1-ichiji-ronten へ戻す
+      top: slot(resolveCivil1PrimaryLead(), slug, 'top'),
       inline: [
         slot('civil-1-ichiji-ronten', slug, 'inline-1'), // 一次の出る順ノート（不合格→来年再挑戦の層向け）
         slot('civil-membership-lab', slug, 'inline-2'),

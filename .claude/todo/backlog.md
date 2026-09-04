@@ -286,16 +286,14 @@ Playwrightのログインprofileはサービス別に永続化されているが
 
 **完了条件**: runtimeのMac絶対パスとrepo相対profile直書きが0、全対象が共通resolver利用、Windows/Mac双方でnoteのlogin→close→別プロセスstatusとworktree非依存がPASSする。専用スキルが薄いCLIオーケストレーターとして登録され、専用agentが増えていない。A8 profile-plus-state、afb same-process、Gmail非対応を維持し、`check-playwright-auth-wiring:strict`・auth CLIテスト・affiliate/Google配線・lint/type-check/doc refsがPASS。profile/state/Cookie/password/token/2FAのGit差分は0。
 
-### [DN-0101] note L1/L2・サイト→note意味導線の残修正
+### [DN-0101] note L1/L2再編をライブ反映して実査する
 タグ: [UI・UX] [種類:改善] [起票:2026-08-20] [期日:2026-10-04]
-
-L1のコンクリート2資格「準備中」表示は解消済み。残るのは、L1に技術士第一次試験の入口がないこと、3つのL2で有料商品が無料の現在地確認より先に出ること、サイトの1級一次→二次CTAが10月以降の戻しを手動コメントに依存していること。
 
 **実装指示書**: [DN-0101-note-funnel-information-architecture.md](../plans/DN-0101-note-funnel-information-architecture.md)
 
-**実行順**: ①L1の公開実体との一致、②3 L2を「無料で現在地確認→有料で仕上げる→目的別逆引き」へ再編、③総監・建設・土木の資格セグメント維持、④1級一次過去問の季節商品切替を `exam-calendar.json` 駆動化、⑤ソース監査、⑥ユーザー承認後のnoteライブ反映。新しいL2や商品は作らず、既存公開実体だけを案内する。
+ソース側はL1に技術士第一次試験の公開済み入口を追加し、3つのL2で無料の現在地確認を最初の選択肢にした。1級一次ページの主CTAも`exam-calendar.json`の二次試験日を読み、試験当日までは二次教材、翌日から一次教材へ戻る。
 
-**完了条件**: L1の「準備中」誤表示と資格入口欠落が解消し、3 L2の最初の選択肢が無料の現在地診断になる。1級一次CTAが10/4後に一次商品へ戻ることを日付固定テストで証明し、`audit-note-funnel`・`check-magazine-cta:ci`・`check-note-link-cards`・`check-note-site-utm` がPASS。ライブ更新後はL1/L2公開APIと目次ブロックを実査する。
+**残作業**: ユーザー承認後、L1と3つのL2を1本ずつ安全に更新する。更新通知は「いいえ」とし、既存の目次・画像・価格を保持する。公開APIと`audit-note-funnel --live --ci`で4本を実査し、問題がなければ指示書と本カードを削除する。
 
 
 
