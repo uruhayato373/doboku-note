@@ -93,14 +93,6 @@ async function main() {
     process.exit(2);
   }
 
-  let linter;
-  try {
-    linter = await createLinter();
-  } catch (e) {
-    console.error(`${TAG} FAIL: actionlint の読み込みに失敗 — ${e.message}`);
-    process.exit(2);
-  }
-
   const violations = [];
   let jobCount = 0;
   let usesCount = 0;
@@ -114,8 +106,17 @@ async function main() {
     const content = readFileSync(path, 'utf8').split('\r\n').join('\n');
 
     // 1. actionlint
-    for (const r of linter(content, file)) {
-      violations.push({ file, kind: 'actionlint', line: r.line, message: r.message });
+    // actionlint 2.0.6 の WASM は同一インスタンスへ大きな workflow を連続投入すると、
+    // 累積状態により RuntimeError: unreachable で落ちる（ogp-supply.yml 到達時に再現）。
+    // ファイルごとに独立したインスタンスを作り、検査器のクラッシュを回避する。
+    try {
+      const linter = await createLinter();
+      for (const r of linter(content, file)) {
+        violations.push({ file, kind: 'actionlint', line: r.line, message: r.message });
+      }
+    } catch (e) {
+      console.error(`${TAG} FAIL: actionlint が ${file} の検査中に停止 — ${e.message}`);
+      process.exit(2);
     }
 
     // 2. permissions（top-level か、全 job に個別宣言があれば可）
