@@ -391,6 +391,18 @@
       "commit": null,
       "verification": "node scripts/build-popular-pages.mjs（ga4-page-2026-09-04T09-32-47.jsonから84件生成）; fetch-metrics.ymlのGA4 page週次取得; npm buildのrefresh-indexes配線",
       "note": "残作業だった人気データ鮮度はCI週次取得→build時distillまで既に成立。最新28日窓（2026-08-07〜09-03）へ再生成し、完了済みカードを掃除"
+    },
+    {
+      "id": "DN-0157",
+      "at": "2026-09-04",
+      "task": "srcHashがogp.title上書き時にtitle変更で無駄な再生成を起こす",
+      "tier": "low",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null,
+      "verification": "node --test tests/ogp-srchash.test.mjs（4件PASS）",
+      "note": "OGP描画と同じ優先順位に統一。明示的なogp.titleがある記事では本文titleをsrcHashから除外し、ogp.title未指定・空文字のときだけ本文titleをフォールバック入力にした"
     }
   ]
 }

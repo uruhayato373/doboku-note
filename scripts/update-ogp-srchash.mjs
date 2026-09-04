@@ -10,7 +10,7 @@
  * manifest.entries[<ogp.png のrepo相対パス>].srcHash として記録・照合する。
  *
  * srcHash の入力（v1）:
- *   - title            : frontmatter.title
+ *   - title            : frontmatter.ogp.title が未指定・空文字のときだけ frontmatter.title
  *   - ogpTitle         : frontmatter.ogp?.title ?? null
  *   - ogpSubtitle      : frontmatter.ogp?.subtitle ?? null
  *   - templateInputs   : { template, category, tags }（下記「テンプレ解決について」を参照）
@@ -54,11 +54,11 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { createHash } from 'node:crypto';
 import matter from 'gray-matter';
 
 import { REPO_ROOT, SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
 import { loadManifest, writeManifestAtomic } from './lib/asset-storage.mjs';
+import { computeOgpSrcHash } from './lib/ogp-srchash.mjs';
 
 const POSTS_DIR = SITE_CONTENT_ROOT;
 const categories = JSON.parse(
@@ -125,35 +125,6 @@ function toRepoRel(absPath) {
   return path.relative(REPO_ROOT, absPath).split(path.sep).join('/');
 }
 
-// ------------------------------------------------------------------ srcHash
-
-/** オブジェクトを key でソートして JSON 化する（挿入順ではなく値だけでハッシュを決めるため）。 */
-function canonicalStringify(value) {
-  if (Array.isArray(value)) return `[${value.map(canonicalStringify).join(',')}]`;
-  if (value && typeof value === 'object') {
-    const keys = Object.keys(value).sort();
-    return `{${keys.map((k) => `${JSON.stringify(k)}:${canonicalStringify(value[k])}`).join(',')}}`;
-  }
-  return JSON.stringify(value);
-}
-
-/** frontmatter（gray-matter の data）から srcHash（16 桁）を計算する。ファイル冒頭のコメント参照。 */
-function computeSrcHash(data) {
-  const payload = {
-    v: 1,
-    title: data.title ?? null,
-    ogpTitle: data.ogp?.title ?? null,
-    ogpSubtitle: data.ogp?.subtitle ?? null,
-    templateInputs: {
-      template: data.ogp?.template ?? null,
-      category: data.category ?? null,
-      tags: data.tags ?? [],
-    },
-  };
-  const full = createHash('sha256').update(canonicalStringify(payload)).digest('hex');
-  return full.slice(0, 16);
-}
-
 // ------------------------------------------------------------------ 対象記事の解決
 
 /** published:true の全記事を { slug, full, ogpRel } の配列で返す。categories.json 未登録は unknownCat へ。 */
@@ -190,7 +161,7 @@ function runCheck(args) {
   for (const t of targets) {
     checked++;
     const { data } = matter(fs.readFileSync(t.full, 'utf8'));
-    const computed = computeSrcHash(data);
+    const computed = computeOgpSrcHash(data);
     const entry = entries[t.ogpRel];
     if (!entry || entry.group !== 'site-ogp-png') {
       untracked.push({ slug: t.slug, ogp: t.ogpRel });
@@ -301,7 +272,7 @@ function runWrite(args) {
       continue;
     }
     const { data } = matter(fs.readFileSync(t.full, 'utf8'));
-    entry.srcHash = computeSrcHash(data);
+    entry.srcHash = computeOgpSrcHash(data);
     updated++;
   }
 
