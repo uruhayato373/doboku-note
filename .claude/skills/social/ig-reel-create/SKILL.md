@@ -28,6 +28,10 @@ allowed-tools: Bash, Read, Write
 node .claude/skills/social/ig-reel-create/scripts/ig-reel-create.mjs \
   --exam r07-pack-01
 
+# 技術士第一次試験
+node .claude/skills/social/ig-reel-create/scripts/ig-reel-create.mjs \
+  --exam-dir pe-first-stage --exam r07-pack-01
+
 # 1級土木（令和7年度）
 node .claude/skills/social/ig-reel-create/scripts/ig-reel-create.mjs \
   --exam-dir 1級土木 --exam r07-pack-01 --skip-png
@@ -42,9 +46,10 @@ node .claude/skills/social/ig-reel-create/scripts/ig-reel-create.mjs \
 | 引数 | 必須 | 既定 | 説明 |
 |---|---|---|---|
 | `--exam` | ✅ | - | パック ID（例: `r07-pack-01`）。2級土木は年度に前期/後期の接尾辞が付く（`r07z`=前期 / `r07k`=後期、例: `r07k-pack-01`） |
-| `--exam-dir` | - | 技術士総監 | 試験軸ディレクトリ（`1級土木` / `2級土木` 等）。`content/sns/instagram/cem/exam-packs/<exam-dir>/<year>/` を参照 |
+| `--exam-dir` | - | 技術士総監 | 試験軸（`pe-first-stage` / `1級土木` / `2級土木` 等）。資格ごとの `content/sns/instagram/<exam>/exam-packs/<year>/` を参照 |
 | `--speaker` | - | 1（四国めたん） | VOICEVOX speaker ID |
 | `--skip-png` | - | false | PNG 再生成をスキップ（既存 reels/img/*.png を使う）。既存 PNG が 1080×1920 ならこれを付けて Satori 再生成を回避 |
+| `--audio-only` | - | false | `script.txt` と `reels/wav/*.wav` まで生成して終了。推奨の1問1リールをJIT生成する前処理 |
 | `--problem-pause` | - | 3 | problem スライド読み上げ後に挿入する無音秒数（考える間）。`0` で無効 |
 
 > [!warning]

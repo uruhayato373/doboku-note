@@ -52,7 +52,7 @@ for (let day = 1; day <= days; day++) {
 const plan = {
   schemaVersion: 2,
   month,
-  objective: '11月22日の技術士第一次試験へ向け、無料560問演習を主入口に認知・保存・再訪を積み上げる',
+  objective: '11月22日の技術士第一次試験へ向け、無料1,040問演習を主入口に認知・保存・再訪を積み上げる',
   coverage: { from: `${month}-01`, to: `${month}-${String(days).padStart(2, '0')}`, perDay: 1 },
   guardrails: ['URL付きは12/31本（note 5・site 7）まで', '販売投稿は夜枠のみ', '時刻は帯内で分散', '各投稿はクイズJSONの異なる論点から執筆'],
   posts,

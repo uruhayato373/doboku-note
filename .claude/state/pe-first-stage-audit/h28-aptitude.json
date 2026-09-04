@@ -1,0 +1,25 @@
+{
+  "slug": "pe-first-stage-h28-aptitude",
+  "year": "H28",
+  "sub": "aptitude",
+  "audited_at": "2026-09-04",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 15,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 15,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 15,
+    "expected_count": 15,
+    "details_count": 15,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "Official H28 aptitude PDF all 16 pages were visually inspected at 150 dpi. All 15 stems, polarity phrases and 75 options were compared directly with the page images; 5 transcription mismatches (やむを得ない, 基本的, × symbol, title dash, ISO letter O) were corrected. The 15 answers were rechecked against page 112 of the official combined answer PDF. Combination choices were reconstructed from independent ア〜オ judgments with concrete reasons. No source figure was required."
+  }
+}

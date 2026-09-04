@@ -1,0 +1,28 @@
+{
+  "slug": "pe-first-stage-h30-construction",
+  "year": "H30",
+  "sub": "construction",
+  "audited_at": "2026-09-05",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "option_checked_count": 175,
+    "source_pages_checked": 17,
+    "source_text_mismatches_fixed": 24,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "公式建設部門PDFの全17ページを150dpi画像で確認し、35問・175肢を逐語照合。飽和度・間隙比の式、2次元透水、長方形断面諸量、上向き溶接、順次緊張、縁応力度、BRT、漂砂、立て坑、信号機、洪積層、公害苦情統計ほか24箇所を修復。公式正答表35問と全件一致し、2図を接続した。独立再監査でⅢ-2・5・7・9・11・16・18・27・30・31を含む成立肢を、各肢固有の式・機能・制度根拠へ改訂し、汎用説明を全廃した。Ⅲ-3の応力経路、Ⅲ-4の主働・受働・静止土圧とクーロン土圧論、Ⅲ-34のゼロ・エミッションも判別条件・作用が分かる学習点へ修正した。Ⅲ-9肢2は吊橋の主ケーブル・補剛桁で衝撃を考慮しない規定、Ⅲ-13は原典誤記『特別用途制限地域』と法定名称『特定用途制限地域』の区別、および肢5の『耐火性能』を公式画像どおり再確認した。Ⅲ-29は建築限界、Ⅲ-35は平成28年度統計を明記して再確認した。"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-h25-basic",
+  "year": "H25",
+  "sub": "basic",
+  "audited_at": "2026-09-04T22:21:12+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 30,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 30,
+    "option_checked_count": 150,
+    "source_pages_checked": 22,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 30,
+    "expected_count": 30,
+    "details_count": 30,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "公式ページ画像22ページを1問ずつ直接確認し、30問・150肢の問題文、極性、選択肢を照合。原文不一致2箇所（Ⅰ-2-3肢1のXに存在しない否定線、Ⅰ-5-4肢2の一次処理→二次処理への意味改変）を修復。全150肢の解説を、各肢の誤語・数値・式・条件を示す具体的な理由へ改稿し、30問のExamPointも学習論点へ置換。公式正答表30問は全件一致。"
+  }
+}

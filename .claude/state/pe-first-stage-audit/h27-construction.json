@@ -1,0 +1,25 @@
+{
+  "slug": "pe-first-stage-h27-construction",
+  "year": "H27",
+  "sub": "construction",
+  "audited_at": "2026-09-04",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "Official H27 construction PDF all 18 pages were visually inspected at 150 dpi. All 35 stems, polarity phrases and 175 options were compared directly with the page images; 2 mathematical transcription mismatches (sigma-prime notation and I_x=9a^4) were corrected. The 35 answers were rechecked against page 99 of the official combined answer PDF. Each false statement now identifies the wrong term, direction, coefficient or definition and gives the correct one. Three tightly cropped source figures are connected with ArticleImage."
+  }
+}

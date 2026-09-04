@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-h26-aptitude",
+  "year": "H26",
+  "sub": "aptitude",
+  "audited_at": "2026-09-04T22:21:12+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 15,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 15,
+    "option_checked_count": 75,
+    "source_pages_checked": 15,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 15,
+    "expected_count": 15,
+    "details_count": 15,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "公式ページ画像15ページを1問ずつ直接確認し、15問・75肢の問題文、極性、選択肢を照合。原文不一致4箇所（Ⅱ-7肢4の欠陥、Ⅱ-13肢4の諸元・整備、同肢5のボランティア）を修復。○×組合せ表もOCRに依存せず画像を直接確認し、公式正答表15問は全件一致。再監査で汎用・循環説明28件を各肢の具体的な成立理由又は誤りへ置換し、15問のExamPointを完結した学習論点へ修復。追加ラチェットで検出したExamPointのsummary/item重複4件は、根拠・定義と誤答を見抜く対比が異なる学習点になるよう修復。指定汎用句、未完summary、ExamPoint重複、制御文字、奇数個の$を含む行、KaTeX警告はいずれも0件。"
+  }
+}

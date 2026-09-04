@@ -6,5 +6,14 @@
     "posted_at": null,
     "image_count": 10,
     "updated_at": "2026-09-04T19:35:52.958+09:00"
+  },
+  "reel": {
+    "channel": "business-suite",
+    "status": "scheduled",
+    "scheduled_at": "2026-10-03T19:00:00.000+09:00",
+    "posted_at": null,
+    "video": "reels-pp/q1/video.mp4",
+    "source": "reels-pp/q1",
+    "updated_at": "2026-09-04T22:18:24.307+09:00"
   }
 }

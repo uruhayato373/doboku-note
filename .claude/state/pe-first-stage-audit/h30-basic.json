@@ -1,0 +1,28 @@
+{
+  "slug": "pe-first-stage-h30-basic",
+  "year": "H30",
+  "sub": "basic",
+  "audited_at": "2026-09-05",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 30,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 30,
+    "option_checked_count": 150,
+    "source_pages_checked": 20,
+    "source_text_mismatches_fixed": 37,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 30,
+    "expected_count": 30,
+    "details_count": 30,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "公式基礎科目PDFの全20ページを150dpi画像で確認し、30問・150肢を逐語照合。公式正答表30問と全件一致し、6図を接続した。独立再監査を受け、Ⅰ-1-1をA=0.950²［1−（1−X）²］、B=X³、X≈0.966、共通信頼度≈0.901の導出へ修正し、成立肢の解説を肢固有の式・定義・根拠へ全面改訂。追加再監査ではⅠ-4-1の10⁵・10²³、Ⅰ-4-2の設問文と炭酸塩・アンモニウム塩の反応式、Ⅰ-4-6のαアミノ酸、Ⅰ-5-5の『次の』と選択肢区切り線を公式画像へ再照合し、累計37箇所の原典転記を修復した。"
+  }
+}

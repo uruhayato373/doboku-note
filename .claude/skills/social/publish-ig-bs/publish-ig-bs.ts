@@ -35,7 +35,7 @@
  * 引数:
  *   <pack>            content/sns/instagram 配下のパスか、絶対/相対パス。
  *                     carousel/img/*.png + carousel/caption.txt を含むディレクトリ（img/ caption.txt 直下も可）
- *   --schedule <dt>   予約日時 JST（YYYY-MM-DDTHH:MM）。Meta 制約: 約20分後〜75日先
+ *   --schedule <dt>   予約日時 JST（YYYY-MM-DDTHH:MM）。Meta 制約: 約20分後〜カルーセル75日／リール29日先
  *   --now             予約せず即時公開（fail-safe が緩むため非推奨。明示時のみ）
  *   --dry-run         予約確定の手前で停止しスクショ（実投稿しない）
  *   --pause           schedule ステップ手前で page.pause()（Inspector でセレクタ採取）
@@ -312,7 +312,14 @@ function loadPack(arg: string, kind: "carousel" | "reel" = "carousel"): Pack {
 
 // ─── status.json 更新 ─────────────────────────────────
 function updateStatus(pack: Pack, scheduledDate: Date | null): void {
-  const statusPath = path.join(pack.dir, "status.json");
+  // per-problem Reel（<pack>/reels-pp/qN）も、公開状態のSoTは親パックの
+  // status.jsonへ集約する。子ディレクトリへ書くと verify-ig-status が
+  // 予約済みと認識できず、同じ動画を再送する危険がある。
+  const reelsPpMarker = `${path.sep}reels-pp${path.sep}`;
+  const statusDir = pack.kind === "reel" && pack.dir.includes(reelsPpMarker)
+    ? pack.dir.slice(0, pack.dir.indexOf(reelsPpMarker))
+    : pack.dir;
+  const statusPath = path.join(statusDir, "status.json");
   const cur = fs.existsSync(statusPath)
     ? JSON.parse(fs.readFileSync(statusPath, "utf-8"))
     : {};
@@ -327,7 +334,10 @@ function updateStatus(pack: Pack, scheduledDate: Date | null): void {
     scheduled_at: scheduledJst,
     posted_at: scheduledDate ? null : nowJst,
     ...(pack.kind === "reel"
-      ? { video: pack.video ? path.basename(pack.video) : null }
+      ? {
+          video: pack.video ? path.relative(statusDir, pack.video).replace(/\\/g, "/") : null,
+          source: path.relative(statusDir, pack.dir).replace(/\\/g, "/") || ".",
+        }
       : { image_count: pack.images.length }),
     updated_at: nowJst,
   };
@@ -814,7 +824,24 @@ async function publish(page: Page, pack: Pack, when: Date | null, keepFb: boolea
 //   シェアする: 「日時を指定」→日付/時刻（共通）→「公開日時を指定」で確定
 // ════════════════════════════════════════════════════════
 async function openReelComposer(page: Page): Promise<boolean> {
-  await page.goto("https://business.facebook.com/latest/home", { waitUntil: "domcontentloaded" });
+  let homeLoaded = false;
+  for (let attempt = 1; attempt <= 2 && !homeLoaded; attempt++) {
+    try {
+      await page.goto("https://business.facebook.com/latest/home", { waitUntil: "domcontentloaded", timeout: 60000 });
+      homeLoaded = true;
+    } catch (error) {
+      const bodyLength = await page.locator('body').innerText().then((t) => t.trim().length).catch(() => 0);
+      if (/business\.facebook\.com/.test(page.url()) && bodyLength > 100) {
+        homeLoaded = true;
+      } else if (attempt < 2) {
+        console.warn(`⚠️  Business Suite home 読み込み再試行 (${attempt}/1)`);
+        await page.waitForTimeout(3000);
+      } else {
+        console.error(`🚨 Business Suite home を読み込めません: ${(error as Error).message.split('\n')[0]}`);
+      }
+    }
+  }
+  if (!homeLoaded) { await shot(page, "reel-home-timeout"); return false; }
   await page.waitForTimeout(4000);
   const entry = await firstVisible([SEL.reelEntry(page)], 6000);
   if (!entry) {
@@ -1018,11 +1045,20 @@ async function awaitSuccessAndDismiss(page: Page): Promise<boolean> {
     return await page.getByRole("button", { name: "後で" }).first().isVisible().catch(() => false);
   };
   let done = false;
-  for (let i = 0; i < 20; i++) {
+  // 動画のサーバー処理後に予約が確定するため、少なくとも20秒はモーダルを待つ。
+  for (let i = 0; i < 40; i++) {
     await page.waitForTimeout(500);
     if (await successModal()) { done = true; console.log("📅 予約成功モーダルを検出"); break; }
   }
-  if (!done) return false;
+  if (!done) {
+    // Metaは予約自体を受理してプランナーへ反映した後も、作成画面を「しばらくお待ちください」
+    // のまま返さないことがある（2026-09-04に2件連続でプランナー実体を確認）。
+    // この状態で再送すると重複するため受理済みとして閉じ、最終確認は必ずプランナー照合で行う。
+    const pending = await page.getByText(/しばらくお待ちください/).first().isVisible().catch(() => false);
+    if (!pending) return false;
+    console.log("⏳ Metaの送信中表示が継続。重複防止のため受理済みとして終了し、プランナー照合へ回します");
+    return true;
+  }
   const later = await firstVisible([
     page.getByRole("button", { name: "後で" }),
     page.getByRole("button", { name: /閉じる|Close/ }),
@@ -1199,15 +1235,17 @@ function parseArgs(): Cli {
     process.exit(1);
   }
 
-  // Meta 予約制約: 約20分後〜75日先
+  // Meta 予約制約（2026-09-04 実画面）:
+  // カルーセルは最大75日先、リールは最大29日先。
   if (when) {
     const diffMin = (when.getTime() - Date.now()) / 60000;
     if (diffMin < 20) {
       console.error(`🚨 予約は最低 20 分後（Meta 制約）。指定は ${Math.round(diffMin)} 分後`);
       process.exit(1);
     }
-    if (diffMin > 75 * 24 * 60) {
-      console.error("🚨 予約は最大 75 日先（Meta 制約）");
+    const maxDays = reel ? 29 : 75;
+    if (diffMin > maxDays * 24 * 60) {
+      console.error(`🚨 ${reel ? "リール" : "カルーセル"}予約は最大 ${maxDays} 日先（Meta 制約）`);
       process.exit(1);
     }
   }

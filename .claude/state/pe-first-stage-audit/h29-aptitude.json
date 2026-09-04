@@ -1,0 +1,28 @@
+{
+  "slug": "pe-first-stage-h29-aptitude",
+  "year": "H29",
+  "sub": "aptitude",
+  "audited_at": "2026-09-04",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 15,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 15,
+    "option_checked_count": 75,
+    "source_pages_checked": 14,
+    "source_text_mismatches_fixed": 33,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 15,
+    "expected_count": 15,
+    "details_count": 15,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "公式適性科目PDFの全14ページを150dpi画像で確認し、15問・75肢を逐語照合。先行監査後の独立再監査を反映し、「連携はもちろん」と消費生活用製品安全法の略称「消安法」を含む計33箇所の欠字・誤字・欄記号を修復した。Ⅱ-5は正答3を維持してア×・イ×・ウ○・エ○・オ○へ訂正し、本文再掲だった13肢を法令上の要件や安全原則まで示す解説へ具体化、ExamPointの重複を解消した。2026-09-05追加修復で、Ⅱ-5の設問極性記号を公式の「正しいものは○、誤っているものは×」へ復元した。2026-09-05強化guard対応で、Ⅱ-8肢3の解説とExamPointを製造物責任法2条1項の対象範囲（製造・加工された動産。不動産・未加工農林水産物は対象外）まで示す根拠へ具体化した。"
+  }
+}

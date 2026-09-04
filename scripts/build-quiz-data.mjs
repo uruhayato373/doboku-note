@@ -53,6 +53,13 @@ function toYearLabel(year) {
   return `${era}${num}年度`;
 }
 
+/** 和暦コードを西暦相当の通し番号へ変換し、新しい年度から並べるために使う。 */
+function peYearRank(year) {
+  const m = /^([hr])0*(\d+)$/.exec(String(year).toLowerCase());
+  if (!m) return Number.NEGATIVE_INFINITY;
+  return Number(m[2]) + (m[1] === 'h' ? 1988 : 2018);
+}
+
 /** 生の 1 問を共通スキーマへ正規化する（civil-1 系スキーマ） */
 function normalizeQuestion(raw, year) {
   const options = (raw.options || []).map((o) => ({
@@ -270,13 +277,14 @@ function extractExamPoint(answerPart) {
 function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
   const baseDir = resolve(ROOT, srcPath);
   const articleDirs = readdirSync(baseDir)
-    .filter((name) => /^r\d{2}-(basic|aptitude|construction)$/.test(name))
-    .sort();
+    .filter((name) => /^[hr]\d{2}-(basic|aptitude|construction)$/.test(name))
+    .sort((a, b) => peYearRank(b.slice(0, 3)) - peYearRank(a.slice(0, 3))
+      || PE1_SUBJECTS[a.split('-')[1]].order - PE1_SUBJECTS[b.split('-')[1]].order);
   const questions = [];
   const modifiedDates = [];
 
   for (const articleDir of articleDirs) {
-    const [, year, subject] = articleDir.match(/^(r\d{2})-(basic|aptitude|construction)$/);
+    const [, year, subject] = articleDir.match(/^([hr]\d{2})-(basic|aptitude|construction)$/);
     const file = resolve(baseDir, articleDir, 'article.mdx');
     const parsed = matter(readFileSync(file, 'utf8'));
     if (parsed.data.dateModified) modifiedDates.push(String(parsed.data.dateModified));
@@ -343,7 +351,9 @@ function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
     }
   }
 
-  const years = [...new Set(questions.map((q) => q.year))].sort().map((year) => ({
+  const years = [...new Set(questions.map((q) => q.year))]
+    .sort((a, b) => peYearRank(b) - peYearRank(a))
+    .map((year) => ({
     year,
     yearLabel: toYearLabel(year),
     parts: Object.values(PE1_SUBJECTS).map((s) => s.label),
@@ -355,8 +365,28 @@ function buildPeFirstStageDataset({ exam, examLabel, srcPath }) {
     count: questions.filter((q) => q.subject === subject).length,
   }));
   const unscored = questions.filter((q) => q.correct == null);
-  if (questions.length !== 560 || unscored.length !== 1) {
-    throw new Error(`pe-first-stage: ${questions.length}問 / 採点対象外${unscored.length}問（期待 560 / 1）`);
+  if (questions.length !== 1040 || unscored.length !== 2) {
+    throw new Error(`pe-first-stage: ${questions.length}問 / 採点対象外${unscored.length}問（期待 1040 / 2）`);
+  }
+  const malformed = questions.filter((q) =>
+    q.options.length !== 5
+    || q.explanations.length !== 5
+    || q.explanations.some((item) => !item.text)
+    || (q.correct != null && (q.correct < 1 || q.correct > 5))
+  );
+  if (malformed.length) {
+    throw new Error(`pe-first-stage: 5肢・5解説・正答範囲の不整合 ${malformed.map((q) => q.id).join(', ')}`);
+  }
+  const expectedUnscored = new Set(['h30-aptitude-ⅱ-14', 'r07-construction-ⅲ-13']);
+  if (unscored.some((q) => !expectedUnscored.has(q.id)) || [...expectedUnscored].some((id) => !unscored.some((q) => q.id === id))) {
+    throw new Error(`pe-first-stage: 採点対象外IDが想定外 ${unscored.map((q) => q.id).join(', ')}`);
+  }
+  const expectedSubjects = { basic: 390, aptitude: 195, construction: 455 };
+  if (subjects.some(({ subject, count }) => count !== expectedSubjects[subject])) {
+    throw new Error(`pe-first-stage: 科目件数が想定外 ${subjects.map(({ subject, count }) => `${subject}=${count}`).join(', ')}`);
+  }
+  if (years.length !== 13 || years.some(({ count }) => count !== 80)) {
+    throw new Error(`pe-first-stage: 年度件数が想定外 ${years.map(({ year, count }) => `${year}=${count}`).join(', ')}`);
   }
   return {
     exam,

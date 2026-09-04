@@ -322,6 +322,7 @@
     "upload-images-r2": "tsx .claude/scripts/upload-images-to-r2.mjs",
     "upload-sns-r2": "node .claude/scripts/upload-sns-r2.mjs",
     "validate-mdx": "node .claude/scripts/validate-mdx.mjs",
+    "check-pe-first-stage-historical": "node scripts/check-pe-first-stage-historical.mjs",
     "verify-ig-status": "node scripts/verify-ig-status.mjs",
     "verify-note-magazines": "node scripts/verify-note-magazines.mjs",
     "verify-note-status": "node scripts/verify-note-status.mjs",

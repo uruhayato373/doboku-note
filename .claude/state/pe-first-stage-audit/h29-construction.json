@@ -1,0 +1,28 @@
+{
+  "slug": "pe-first-stage-h29-construction",
+  "year": "H29",
+  "sub": "construction",
+  "audited_at": "2026-09-04",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "option_checked_count": 175,
+    "source_pages_checked": 16,
+    "source_text_mismatches_fixed": 20,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "公式建設部門PDFの全16ページを150dpi画像で確認し、35問・175肢を逐語照合。先行監査後の独立再監査を反映し、指標生物の読点を含む計20箇所を原文へ復元した。Ⅲ-1はb=高いを保持して肢2の誤りをd=応力履歴だけに限定し、肢3・5ではc=高いが誤りと明記、正答1との整合を再確認した。本文再掲だった45肢を力学・土質・計画・水理等の肢固有理由へ具体化し、4問のExamPointを相互に異なる学習点へ分離した。公式正答表35問と全件一致を維持し、5図を接続した。2026-09-05追加修復で、Ⅲ-9・10・13・14・15・18・19・21・22・23・24・26・28・29・32・33・34・35の58肢を法則・式・制度要件・作用機構を示す固有解説へ改め、同型のExamPoint 16件も具体化した。"
+  }
+}

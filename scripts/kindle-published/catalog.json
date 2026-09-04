@@ -414,8 +414,8 @@
       "epub": "kindle-dist/d-03.epub",
       "cover": "kindle-dist/d-03.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-03.txt",
-      "version": "1.0",
-      "notes": "2026-07-23 LIVE確認。2026-09-04 修正版EPUBを準備済み。KDP Selectは2026-10-13 PDTまで登録中、自動更新OFFを実機確認。Select期間満了まではnote版とのデジタル独占競合があるため再提出しない。",
+      "version": "1.1",
+      "notes": "2026-07-23 LIVE確認。2026-09-04 修正版EPUBを既刊へ差し替え、KDP原稿チェック完了・保存後再検証済み。KDP Selectは2026-10-13 PDTまで登録中、自動更新OFFを実機確認。同日、note版とのデジタル独占競合を解消するためKDPサポートへ早期解除を申請（回答待ち）。",
       "versionHistory": [
         {
           "version": "1.0",
@@ -426,6 +426,11 @@
           "version": "1.0",
           "date": "2026-07-16",
           "change": "KDP 新規提出・レビュー中"
+        },
+        {
+          "version": "1.1",
+          "date": "2026-09-04",
+          "change": "修正版EPUBへ差し替え。原稿チェック完了・下書き保存後の再読込検証済み。KDP Select早期解除をサポートへ申請"
         }
       ]
     },
@@ -445,8 +450,8 @@
       "epub": "kindle-dist/d-00.epub",
       "cover": "kindle-dist/d-00.jpg",
       "kdpMemo": "scripts/kindle-published/KDP入力メモ_d-00.txt",
-      "version": "1.0",
-      "notes": "2026-07-23 LIVE確認。2026-09-04 修正版EPUBを準備済み。KDP Selectは2026-10-14 PDTまで登録中、自動更新OFFを実機確認。Select期間満了まではnote版とのデジタル独占競合があるため再提出しない。分冊 d-01/d-02/d-03 との重複コンテンツ規約は審査で実態確認。",
+      "version": "1.1",
+      "notes": "2026-07-23 LIVE確認。2026-09-04 修正版EPUBを既刊へ差し替え、KDP原稿チェック完了・正常保存・誤字脱字0件を再確認。KDP Selectは2026-10-14 PDTまで登録中、自動更新OFFを実機確認。同日、note版とのデジタル独占競合を解消するためKDPサポートへ早期解除を申請（回答待ち）。分冊 d-01/d-02/d-03 との重複コンテンツ規約は審査で実態確認。",
       "versionHistory": [
         {
           "version": "1.0",
@@ -457,6 +462,11 @@
           "version": "1.0",
           "date": "2026-07-16",
           "change": "KDP 新規提出・レビュー中"
+        },
+        {
+          "version": "1.1",
+          "date": "2026-09-04",
+          "change": "修正版EPUBへ差し替え。原稿チェック完了・正常保存・誤字脱字0件を再確認。KDP Select早期解除をサポートへ申請"
         }
       ]
     },

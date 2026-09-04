@@ -16,6 +16,7 @@
  *   node scripts/kdp-publish.mjs --id <id>                    # 新規提出(下書き保存まで・出版せず)＋チェックリスト
  *   node scripts/kdp-publish.mjs --id <id> --commit-publish   # 上記＋出版(不可逆)＋出版後検証
  *   node scripts/kdp-publish.mjs --sync-status                # catalog 各冊を本棚でタイトル検索し {asin,status,提出日} を突合
+ *   node scripts/kdp-publish.mjs --id <id> --update-manuscript [--commit] # LIVE本の原稿だけを差し替え
  *   node scripts/kdp-publish.mjs --list-drafts                # 本棚を .tmp へダンプ(読み取り)
  *   node scripts/kdp-publish.mjs --delete-drafts <ASIN,...>   # 下書きのみ削除(1件ずつ・下書きassert)
  *   node scripts/kdp-publish.mjs --dump --asin <ASIN> --page <details|content|pricing>  # UI変更時の較正
@@ -26,8 +27,9 @@
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
-import { readFileSync, writeFileSync, existsSync, mkdirSync, writeSync } from 'node:fs';
-import { join, dirname } from 'node:path';
+import { readFileSync, writeFileSync, existsSync, mkdirSync, writeSync, statSync } from 'node:fs';
+import { join, dirname, basename } from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { homedir } from 'node:os';
 import { resolveBook, validateBook, getDefaults, AI_AMOUNT_LABELS } from './lib/kdp-common.mjs';
@@ -51,6 +53,7 @@ const MODE_DUMP = argv.includes('--dump');
 const MODE_DIAG_CAT = argv.includes('--diag-category');
 const MODE_PUBLISH_ONLY = argv.includes('--publish-only');
 const MODE_SET_PRICE = argv.includes('--set-price');
+const MODE_UPDATE_MANUSCRIPT = argv.includes('--update-manuscript');
 const COMMIT = argv.includes('--commit');
 const BOOKLESS = MODE_SYNC || MODE_LIST || MODE_DELETE;
 if (!ID && !BOOKLESS) { console.error('--id <book id> required（または --sync-status / --list-drafts / --delete-drafts）'); process.exit(1); }
@@ -66,7 +69,8 @@ if (ID) {
   book.epub = join(homedir(), 'Downloads', `kindle-${ID}.epub`);
   book.cover = join(homedir(), 'Downloads', `kindle-cover-${ID}.jpg`);
   if (!MODE_DUMP && !MODE_DIAG_CAT && !MODE_PUBLISH_ONLY && !MODE_SET_PRICE) {
-    for (const [label, f] of [['EPUB', book.epub], ['表紙', book.cover]]) {
+    const requiredFiles = MODE_UPDATE_MANUSCRIPT ? [['EPUB', book.epub]] : [['EPUB', book.epub], ['表紙', book.cover]];
+    for (const [label, f] of requiredFiles) {
       if (!existsSync(f)) { console.error(`ABORT: ${label} が無い: ${f}\n（先に npm run sync-kindle-dist -- --downloads ${ID} で配置）`); process.exit(1); }
     }
   }
@@ -124,6 +128,167 @@ try {
     } else {
       console.log(`[1b] account assert スキップ（検出=${detected || '不明'}）。有効化するには .claude/config/kdp-memo.json defaults.accountEmail を設定`);
     }
+  }
+
+  // ═══ MODE: --update-manuscript（LIVE本の原稿だけを安全に差し替え）════
+  // 詳細・表紙・価格・KDP Select には触れない。タイトル・ASIN・販売状態を本棚と
+  // コンテンツページの両方で照合し、既存 LIVE 本以外は fail-closed で停止する。
+  if (MODE_UPDATE_MANUSCRIPT) {
+    const catalog = readCatalog();
+    const catalogBook = catalog?.books?.find((b) => b.id === ID);
+    if (!catalogBook?.asin || catalogBook.status !== 'live') {
+      console.error(`ABORT: catalog の ${ID} が ASIN 付き live ではない`);
+      await ctx.close(); process.exit(2);
+    }
+    if (catalogBook.title !== book.title) {
+      console.error(`ABORT: spec と catalog のタイトル不一致\n  spec=${book.title}\n  catalog=${catalogBook.title}`);
+      await ctx.close(); process.exit(2);
+    }
+
+    const input = page.locator('#podbookshelftable-search-input');
+    if (!(await input.count())) {
+      console.error('ABORT: 本棚の検索窓が見つからない'); await ctx.close(); process.exit(2);
+    }
+    await input.first().fill(book.title);
+    await page.keyboard.press('Enter');
+    await sleep(3200);
+    const shelf = await page.evaluate(({ title, asin }) => {
+      const rows = [...document.querySelectorAll('tr.mt-row')];
+      for (const tr of rows) {
+        const text = (tr.textContent || '').replace(/\s+/g, ' ').trim();
+        if (!text.includes('著:') || !text.includes(`ASIN: ${asin}`)) continue;
+        const hrefs = [...tr.querySelectorAll('a[href]')].map((a) => a.getAttribute('href') || '');
+        const setup = hrefs.find((h) => /title-setup\/kindle\/[A-Z0-9]+\//i.test(h)) || '';
+        return {
+          text,
+          shelfTitle: text.split('著:')[0].trim(),
+          status: (text.match(/下書き|レビュー中|販売中|ブロック|出版準備中|非公開/) || [])[0] || null,
+          titleId: (setup.match(/title-setup\/kindle\/([A-Z0-9]+)\//i) || [])[1] || null,
+          titleHeadMatches: text.split('著:')[0].trim().startsWith(title.slice(0, 12)),
+        };
+      }
+      return null;
+    }, { title: book.title, asin: catalogBook.asin });
+    if (!shelf || shelf.status !== '販売中' || !shelf.titleHeadMatches) {
+      console.error(`ABORT: 本棚の LIVE 行を一意に照合できない（${JSON.stringify(shelf)}）`);
+      await shot(page, 'update-shelf-fail'); await ctx.close(); process.exit(2);
+    }
+
+    // 行内リンクが遅延描画される UI では、直前の較正ダンプから内部 titleId を補助取得する。
+    // 遷移後に title/ASIN を再照合するため、この値だけを信頼して更新することはない。
+    let titleId = shelf.titleId;
+    if (!titleId) {
+      const dump = join(TMP, `kdp-${ID}-dump-content.html`);
+      const html = existsSync(dump) ? readFileSync(dump, 'utf8') : '';
+      titleId = (html.match(/title-setup\/kindle\/([A-Z0-9]+)\/content/) || [])[1] || null;
+    }
+    if (!titleId) {
+      console.error('ABORT: 既存 LIVE 本の内部 titleId を取得できない'); await ctx.close(); process.exit(2);
+    }
+
+    const contentUrl = `https://kdp.amazon.co.jp/ja_JP/title-setup/kindle/${titleId}/content`;
+    await page.goto(contentUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await page.waitForSelector('#data-assets-interior-file-upload-AjaxInput', { state: 'attached', timeout: 30000 });
+    const current = await page.evaluate(() => ({
+      title: (document.querySelector('#data-title-text')?.textContent || '').trim(),
+      hiddenTitle: document.querySelector('input[name="data[title]"]')?.value || '',
+      filename: document.querySelector('#data-assets-interior-asset-filename')?.value || '',
+      status: document.querySelector('#data-assets-interior-asset-status-msg')?.value || '',
+    }));
+    if (current.title !== book.title || current.hiddenTitle !== book.title) {
+      console.error(`ABORT: コンテンツページのタイトル不一致\n  visible=${current.title}\n  hidden=${current.hiddenTitle}`);
+      await shot(page, 'update-title-fail'); await ctx.close(); process.exit(2);
+    }
+    const body = await page.evaluate(() => document.body.innerText || '');
+    if (body.includes('ASIN:') && !body.includes(catalogBook.asin)) {
+      console.error(`ABORT: コンテンツページの ASIN が catalog と不一致（期待 ${catalogBook.asin}）`);
+      await ctx.close(); process.exit(2);
+    }
+
+    const bytes = statSync(book.epub).size;
+    const sha256 = createHash('sha256').update(readFileSync(book.epub)).digest('hex');
+    console.log(`[update] 本棚照合 OK: ${ID} / ${catalogBook.asin} / 販売中 / titleId=${titleId}`);
+    console.log(`[update] 現在の原稿=${current.filename || '(不明)'} / 新原稿=${basename(book.epub)} / ${bytes} bytes / sha256=${sha256}`);
+    if (!COMMIT) {
+      console.log('[update] dry-run 完了（--commit で原稿だけをアップロードして下書き保存）');
+      await shot(page, 'update-dry-run'); await ctx.close(); process.exit(0);
+    }
+
+    // 既存の成功表示はアップロード前から DOM に残るため、いったん不可視化して
+    // 新しい処理完了表示だけを肯定証拠にする。KDP の uploader は fetch/XHR 以外の
+    // 経路も使うため、特定 URL の response 待ちは完了判定に使わない。
+    await page.evaluate(() => {
+      const success = document.querySelector('#data-assets-interior-file-upload-success');
+      if (success) success.classList.add('a-hidden');
+    });
+    await page.locator('#data-assets-interior-file-upload-AjaxInput').setInputFiles(book.epub);
+    const selectedName = await page.locator('#data-assets-interior-file-upload-AjaxInput').evaluate((el) => el.files?.[0]?.name || '');
+    if (selectedName !== basename(book.epub)) {
+      console.error(`ABORT: ブラウザが新原稿を選択できていない（${selectedName || '空'}）`);
+      await shot(page, 'update-file-select-fail'); await ctx.close(); process.exit(4);
+    }
+    console.log(`[update] 原稿ファイル選択 OK: ${selectedName}`);
+
+    let uploadState = 'timeout';
+    for (let t = 0; t < 120; t++) {
+      await sleep(5000);
+      const state = await page.evaluate(() => ({
+        successVisible: (() => {
+          const el = document.querySelector('#data-assets-interior-file-upload-success');
+          return !!el && !el.classList.contains('a-hidden') && getComputedStyle(el).display !== 'none';
+        })(),
+        successText: (() => {
+          const el = document.querySelector('#data-assets-interior-file-upload-success');
+          return (el?.innerText || '').replace(/\s+/g, ' ').trim();
+        })(),
+        failureVisible: (() => {
+          const el = document.querySelector('#data-assets-interior-file-upload-failure');
+          return !!el && !el.classList.contains('a-hidden') && getComputedStyle(el).display !== 'none';
+        })(),
+        filename: document.querySelector('#data-assets-interior-asset-filename')?.value || '',
+        status: document.querySelector('#data-assets-interior-asset-status-msg')?.value || '',
+      }));
+      if (state.failureVisible) { uploadState = 'error'; break; }
+      if (state.successVisible && state.filename === basename(book.epub) && /原稿チェックが完了しました/.test(state.successText)) {
+        uploadState = 'ok'; break;
+      }
+      if (t % 6 === 0) console.log(`[update] 原稿処理待ち… ${t * 5}s`);
+    }
+    await shot(page, 'update-uploaded');
+    if (uploadState !== 'ok') {
+      console.error(`ABORT: 原稿処理 ${uploadState}。保存せず停止`);
+      await ctx.close(); process.exit(4);
+    }
+
+    await page.locator('#save-announce').click({ timeout: 10000 });
+    let saved = false;
+    for (let t = 0; t < 12; t++) {
+      await sleep(2500);
+      const saveText = await page.evaluate(() => document.body.innerText || '').catch(() => '');
+      if (/正常に保存しました/.test(saveText)) { saved = true; break; }
+    }
+    if (!saved) {
+      console.error('ABORT: 「正常に保存しました」を確認できない');
+      await shot(page, 'update-save-fail'); await ctx.close(); process.exit(4);
+    }
+    await sleep(1500);
+
+    // 保存後に同じ content URL を再読込し、タイトルと処理完了状態を再確認する。
+    await page.goto(contentUrl, { waitUntil: 'domcontentloaded', timeout: 60000 });
+    await page.waitForSelector('#data-assets-interior-asset-filename', { state: 'attached', timeout: 30000 });
+    const verified = await page.evaluate(() => ({
+      title: (document.querySelector('#data-title-text')?.textContent || '').trim(),
+      hiddenTitle: document.querySelector('input[name="data[title]"]')?.value || '',
+      filename: document.querySelector('#data-assets-interior-asset-filename')?.value || '',
+      status: document.querySelector('#data-assets-interior-asset-status-msg')?.value || '',
+    }));
+    if (verified.title !== book.title || verified.hiddenTitle !== book.title || verified.filename !== basename(book.epub) || !/原稿チェックが完了しました/.test(verified.status)) {
+      console.error(`ABORT: 保存後の再検証に失敗（${JSON.stringify(verified)}）`);
+      await shot(page, 'update-verify-fail'); await ctx.close(); process.exit(4);
+    }
+    await shot(page, 'update-verified');
+    console.log(`[done] 原稿差し替え完了: ${ID} / ${catalogBook.asin} / ${verified.filename} / sha256=${sha256}`);
+    await ctx.close(); process.exit(0);
   }
 
   // ═══ MODE: --sync-status（catalog 駆動でタイトル検索し {asin,status,提出日} を取得）════

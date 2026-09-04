@@ -1,12 +1,12 @@
 {
   "version": 1,
-  "generated_at": "2026-09-04T06:31:44.208Z",
+  "generated_at": "2026-09-04T15:01:09.402Z",
   "summary": {
-    "total_mdx_files": 1212,
-    "total_unique_tags": 186,
-    "allowlist_size": 158,
-    "known_count": 93,
-    "unknown_count": 93,
+    "total_mdx_files": 1230,
+    "total_unique_tags": 191,
+    "allowlist_size": 170,
+    "known_count": 99,
+    "unknown_count": 92,
     "typo_candidates_count": 5
   },
   "tags": [
@@ -2908,6 +2908,58 @@
       ]
     },
     {
+      "name": "技術士（第一次試験）",
+      "count": 45,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-guide-after-pass",
+        "pe-first-stage-guide-aptitude-subject",
+        "pe-first-stage-guide-basic-subject",
+        "pe-first-stage-guide-construction-subject",
+        "pe-first-stage-guide-overview",
+        "pe-first-stage-guide-study-plan",
+        "pe-first-stage-h25-aptitude",
+        "pe-first-stage-h25-basic",
+        "pe-first-stage-h25-construction",
+        "pe-first-stage-h26-aptitude",
+        "pe-first-stage-h26-basic",
+        "pe-first-stage-h26-construction",
+        "pe-first-stage-h27-aptitude",
+        "pe-first-stage-h27-basic",
+        "pe-first-stage-h27-construction",
+        "pe-first-stage-h28-aptitude",
+        "pe-first-stage-h28-basic",
+        "pe-first-stage-h28-construction",
+        "pe-first-stage-h29-aptitude",
+        "pe-first-stage-h29-basic",
+        "pe-first-stage-h29-construction",
+        "pe-first-stage-h30-aptitude",
+        "pe-first-stage-h30-basic",
+        "pe-first-stage-h30-construction",
+        "pe-first-stage-r01-aptitude",
+        "pe-first-stage-r01-basic",
+        "pe-first-stage-r01-construction",
+        "pe-first-stage-r02-aptitude",
+        "pe-first-stage-r02-basic",
+        "pe-first-stage-r02-construction",
+        "pe-first-stage-r03-aptitude",
+        "pe-first-stage-r03-basic",
+        "pe-first-stage-r03-construction",
+        "pe-first-stage-r04-aptitude",
+        "pe-first-stage-r04-basic",
+        "pe-first-stage-r04-construction",
+        "pe-first-stage-r05-aptitude",
+        "pe-first-stage-r05-basic",
+        "pe-first-stage-r05-construction",
+        "pe-first-stage-r06-aptitude",
+        "pe-first-stage-r06-basic",
+        "pe-first-stage-r06-construction",
+        "pe-first-stage-r07-aptitude",
+        "pe-first-stage-r07-basic",
+        "pe-first-stage-r07-construction"
+      ]
+    },
+    {
       "name": "career",
       "count": 39,
       "inAllowlist": true,
@@ -3114,34 +3166,6 @@
         "pe-comprehensive-management-quality-policy",
         "pe-comprehensive-management-required-quality",
         "pe-comprehensive-management-small-group-activities"
-      ]
-    },
-    {
-      "name": "技術士（第一次試験）",
-      "count": 21,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-r01-aptitude",
-        "pe-first-stage-r01-basic",
-        "pe-first-stage-r01-construction",
-        "pe-first-stage-r02-aptitude",
-        "pe-first-stage-r02-basic",
-        "pe-first-stage-r02-construction",
-        "pe-first-stage-r03-aptitude",
-        "pe-first-stage-r03-basic",
-        "pe-first-stage-r03-construction",
-        "pe-first-stage-r04-aptitude",
-        "pe-first-stage-r04-basic",
-        "pe-first-stage-r04-construction",
-        "pe-first-stage-r05-aptitude",
-        "pe-first-stage-r05-basic",
-        "pe-first-stage-r05-construction",
-        "pe-first-stage-r06-aptitude",
-        "pe-first-stage-r06-basic",
-        "pe-first-stage-r06-construction",
-        "pe-first-stage-r07-aptitude",
-        "pe-first-stage-r07-basic",
-        "pe-first-stage-r07-construction"
       ]
     },
     {
@@ -3560,6 +3584,66 @@
         "pe-construction-steel-concrete-exam-themes",
         "pe-construction-tunnel-exam-themes",
         "pe-construction-urban-planning-exam-themes"
+      ]
+    },
+    {
+      "name": "基礎科目",
+      "count": 13,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-h25-basic",
+        "pe-first-stage-h26-basic",
+        "pe-first-stage-h27-basic",
+        "pe-first-stage-h28-basic",
+        "pe-first-stage-h29-basic",
+        "pe-first-stage-h30-basic",
+        "pe-first-stage-r01-basic",
+        "pe-first-stage-r02-basic",
+        "pe-first-stage-r03-basic",
+        "pe-first-stage-r04-basic",
+        "pe-first-stage-r05-basic",
+        "pe-first-stage-r06-basic",
+        "pe-first-stage-r07-basic"
+      ]
+    },
+    {
+      "name": "専門科目（建設部門）",
+      "count": 13,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-h25-construction",
+        "pe-first-stage-h26-construction",
+        "pe-first-stage-h27-construction",
+        "pe-first-stage-h28-construction",
+        "pe-first-stage-h29-construction",
+        "pe-first-stage-h30-construction",
+        "pe-first-stage-r01-construction",
+        "pe-first-stage-r02-construction",
+        "pe-first-stage-r03-construction",
+        "pe-first-stage-r04-construction",
+        "pe-first-stage-r05-construction",
+        "pe-first-stage-r06-construction",
+        "pe-first-stage-r07-construction"
+      ]
+    },
+    {
+      "name": "適性科目",
+      "count": 13,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-h25-aptitude",
+        "pe-first-stage-h26-aptitude",
+        "pe-first-stage-h27-aptitude",
+        "pe-first-stage-h28-aptitude",
+        "pe-first-stage-h29-aptitude",
+        "pe-first-stage-h30-aptitude",
+        "pe-first-stage-r01-aptitude",
+        "pe-first-stage-r02-aptitude",
+        "pe-first-stage-r03-aptitude",
+        "pe-first-stage-r04-aptitude",
+        "pe-first-stage-r05-aptitude",
+        "pe-first-stage-r06-aptitude",
+        "pe-first-stage-r07-aptitude"
       ]
     },
     {
@@ -3984,34 +4068,6 @@
       ]
     },
     {
-      "name": "基礎科目",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-r01-basic",
-        "pe-first-stage-r02-basic",
-        "pe-first-stage-r03-basic",
-        "pe-first-stage-r04-basic",
-        "pe-first-stage-r05-basic",
-        "pe-first-stage-r06-basic",
-        "pe-first-stage-r07-basic"
-      ]
-    },
-    {
-      "name": "専門科目（建設部門）",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-r01-construction",
-        "pe-first-stage-r02-construction",
-        "pe-first-stage-r03-construction",
-        "pe-first-stage-r04-construction",
-        "pe-first-stage-r05-construction",
-        "pe-first-stage-r06-construction",
-        "pe-first-stage-r07-construction"
-      ]
-    },
-    {
       "name": "択一式",
       "count": 7,
       "inAllowlist": true,
@@ -4040,20 +4096,6 @@
       ]
     },
     {
-      "name": "適性科目",
-      "count": 7,
-      "inAllowlist": true,
-      "usedIn": [
-        "pe-first-stage-r01-aptitude",
-        "pe-first-stage-r02-aptitude",
-        "pe-first-stage-r03-aptitude",
-        "pe-first-stage-r04-aptitude",
-        "pe-first-stage-r05-aptitude",
-        "pe-first-stage-r06-aptitude",
-        "pe-first-stage-r07-aptitude"
-      ]
-    },
-    {
       "name": "GX",
       "count": 6,
       "inAllowlist": true,
@@ -4077,19 +4119,6 @@
         "concrete-engineer-primary-mix-design",
         "concrete-engineer-primary-production-qc",
         "concrete-engineer-primary-properties-testing"
-      ]
-    },
-    {
-      "name": "pe-first-stage",
-      "count": 6,
-      "inAllowlist": false,
-      "usedIn": [
-        "pe-first-stage-guide-after-pass",
-        "pe-first-stage-guide-aptitude-subject",
-        "pe-first-stage-guide-basic-subject",
-        "pe-first-stage-guide-construction-subject",
-        "pe-first-stage-guide-overview",
-        "pe-first-stage-guide-study-plan"
       ]
     },
     {
@@ -4303,6 +4332,66 @@
         "pe-comprehensive-management-r07-essay-general-contractor",
         "pe-comprehensive-management-r07-essay-river-consultant",
         "pe-comprehensive-management-r07-essay-road-municipality"
+      ]
+    },
+    {
+      "name": "平成25年度",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-h25-aptitude",
+        "pe-first-stage-h25-basic",
+        "pe-first-stage-h25-construction"
+      ]
+    },
+    {
+      "name": "平成26年度",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-h26-aptitude",
+        "pe-first-stage-h26-basic",
+        "pe-first-stage-h26-construction"
+      ]
+    },
+    {
+      "name": "平成27年度",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-h27-aptitude",
+        "pe-first-stage-h27-basic",
+        "pe-first-stage-h27-construction"
+      ]
+    },
+    {
+      "name": "平成28年度",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-h28-aptitude",
+        "pe-first-stage-h28-basic",
+        "pe-first-stage-h28-construction"
+      ]
+    },
+    {
+      "name": "平成29年度",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-h29-aptitude",
+        "pe-first-stage-h29-basic",
+        "pe-first-stage-h29-construction"
+      ]
+    },
+    {
+      "name": "平成30年度",
+      "count": 3,
+      "inAllowlist": true,
+      "usedIn": [
+        "pe-first-stage-h30-aptitude",
+        "pe-first-stage-h30-basic",
+        "pe-first-stage-h30-construction"
       ]
     },
     {
@@ -5073,7 +5162,6 @@
     "地方公共団体",
     "砂防",
     "original-questions",
-    "pe-first-stage",
     "practice",
     "ゼネコン",
     "建設コンサル",

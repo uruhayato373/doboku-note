@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-h25-aptitude",
+  "year": "H25",
+  "sub": "aptitude",
+  "audited_at": "2026-09-04T22:21:12+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 15,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 15,
+    "option_checked_count": 75,
+    "source_pages_checked": 17,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 15,
+    "expected_count": 15,
+    "details_count": 15,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "公式ページ画像17ページを1問ずつ直接確認し、15問・75肢の問題文、極性、選択肢を照合。原文不一致10箇所（Ⅱ-12の確信・プロジェクト、Ⅱ-14のリオ宣言等7箇所、Ⅱ-15の倫理的課題）を修復。全75肢の解説を具体的な理由へ改稿し、15問のExamPointを学習論点へ置換。公式正答表15問は全件一致。"
+  }
+}

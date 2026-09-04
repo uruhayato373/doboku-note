@@ -69,7 +69,7 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
 | パラメータ | 必須 | 説明 |
 |---|---|---|
 | `post <pack>` | ✓ | パックのパス。`content/sns/instagram` 相対 or 絶対/プロジェクト相対。`carousel/img/*.png` + `carousel/caption.txt`（または直下 `img/` + `caption.txt`）を含むこと |
-| `--schedule <dt>` | ※ | 予約日時 JST（`YYYY-MM-DDTHH:MM`）。Meta 制約: 約20分後〜75日先。`--now` と排他 |
+| `--schedule <dt>` | ※ | 予約日時 JST（`YYYY-MM-DDTHH:MM`）。Meta 制約: 約20分後〜カルーセル75日先／リール29日先。`--now` と排他 |
 | `--now` | ※ | 予約せず即時公開（fail-safe が緩むため非推奨。検証用） |
 | `--dry-run` | - | 確定の手前で停止しスクショ（**初回・セレクタ更新後は必須**） |
 | `--pause` | - | schedule 手前で `page.pause()`（Playwright Inspector でセレクタ採取） |

@@ -221,7 +221,7 @@ export function PeFirstStageView({ groups, mobileCareerAds = [] }: { groups: Doc
       <section className="card-surface-section mb-10 p-5 sm:p-6" aria-labelledby="pe1-free-quiz">
         <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--accent)]">登録不要・無料</div>
         <h2 id="pe1-free-quiz" className="mt-1 font-serif text-[21px] sm:text-[24px] font-black text-[var(--ink)]">
-          令和元〜7年度・全560問をその場で演習
+          平成25〜令和7年度・全1,040問をその場で演習
         </h2>
         <p className="mt-2 text-[14px] leading-7 text-[var(--ink-body)]">
           基礎・適性・専門（建設部門）を、年度別・科目別・ランダムで即採点。間違えた問題だけの復習にも対応しています。

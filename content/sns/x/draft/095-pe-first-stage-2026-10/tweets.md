@@ -44,7 +44,7 @@ https://doboku-note.com/tools/kakomon-quiz/pe-first-stage?utm_source=x&utm_mediu
 
 ## Tweet 07: 10/7 12:55 pe-first-stage / 過去問1問1答 / site
 
-560問を頭から均等に解く必要はない。まず科目別モードで専門245問・基礎210問・適性105問の現在地を確認し、配分は誤答数から決める。無料演習で弱点を先に見える化できる。
+1,040問を頭から均等に解く必要はない。まず科目別モードで専門455問・基礎390問・適性195問の現在地を確認し、配分は誤答数から決める。無料演習で弱点を先に見える化できる。
 
 https://doboku-note.com/tools/kakomon-quiz/pe-first-stage?utm_source=x&utm_medium=social&utm_campaign=pe-first-stage-2026-10&utm_content=202610-07
 #技術士 #技術士第一次試験 #過去問
@@ -197,7 +197,7 @@ https://note.com/dobokunote/n/n466132e6fd74?utm_source=x&utm_medium=social&utm_c
 
 ## Tweet 31: 10/31 12:55 pe-first-stage / 過去問1問1答 / site
 
-11月は、3科目を同じ時間で回すより弱点へ寄せたい。無料演習は年度別・科目別で解ける。560問中、公式正答のある559問を採点し、正答番号の公表がない1問は採点対象外にしている。
+11月は、3科目を同じ時間で回すより弱点へ寄せたい。無料演習は年度別・科目別で解ける。1,040問中、公式採点できる1,038問を採点し、全員正解扱い1問と正答非公表1問は採点対象外にしている。
 
 https://doboku-note.com/tools/kakomon-quiz/pe-first-stage?utm_source=x&utm_medium=social&utm_campaign=pe-first-stage-2026-10&utm_content=202610-31
 #技術士 #技術士第一次試験 #過去問

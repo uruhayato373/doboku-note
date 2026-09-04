@@ -1,0 +1,25 @@
+{
+  "slug": "pe-first-stage-h27-aptitude",
+  "year": "H27",
+  "sub": "aptitude",
+  "audited_at": "2026-09-04",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 15,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 15,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 15,
+    "expected_count": 15,
+    "details_count": 15,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "Official H27 aptitude PDF all 16 pages were visually inspected at 150 dpi. All 15 stems, polarity phrases and 75 options were compared directly with the page images; 4 transcription mismatches (能力×2, STAP, 等へリコール) were corrected. The 15 answers were rechecked against page 90 of the official combined answer PDF. All five-choice explanations were rewritten as claim-specific judgments; no circular answer-number template remains. No source figure was required."
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-h26-basic",
+  "year": "H26",
+  "sub": "basic",
+  "audited_at": "2026-09-04T22:21:12+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 30,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 30,
+    "option_checked_count": 150,
+    "source_pages_checked": 18,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 30,
+    "expected_count": 30,
+    "details_count": 30,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "公式ページ画像18ページを1問ずつ直接確認し、30問・150肢の問題文、極性、選択肢を照合。不一致修正0箇所。Ⅰ-5-3の正答5は公式訂正版（2014-11-13訂正）で確認し、公式正答表30問は全件一致。必要図6点の結線も確認。再監査で汎用・循環説明200件を各肢の具体的な成立理由又は誤りへ置換し、30問のExamPointを完結した学習論点へ修復。壊れていたR≠0、ω、核種式、σ=Eε等のLaTeXも修正。追加ラチェットで検出したExamPointのsummary/item重複9件は、根拠・定義と誤答を見抜く対比が異なる学習点になるよう修復。指定汎用句、未完summary、ExamPoint重複、制御文字、奇数個の$を含む行、KaTeX警告はいずれも0件。"
+  }
+}

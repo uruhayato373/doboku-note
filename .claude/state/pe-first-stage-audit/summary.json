@@ -1,21 +1,21 @@
 {
   "schema_version": "2.0",
-  "last_run": "2026-06-09",
+  "last_run": "2026-09-05",
   "scope": {
-    "years": ["R01", "R02", "R03", "R04", "R05", "R06", "R07"],
+    "years": ["H25", "H26", "H27", "H28", "H29", "H30", "R01", "R02", "R03", "R04", "R05", "R06", "R07"],
     "subs": ["aptitude", "basic", "construction"]
   },
   "totals": {
-    "pages": 21,
-    "answer_pass": 21,
+    "pages": 39,
+    "answer_pass": 39,
     "answer_fail": 0,
     "visual_ok": 0,
     "visual_issues": 0,
     "visual_not_run": 0,
-    "visual_pass": 21,
+    "visual_pass": 39,
     "visual_partial": 0,
     "visual_fail": 0,
-    "structure_pass": 21,
+    "structure_pass": 39,
     "structure_fail": 0
   },
   "fix_log": {
@@ -51,7 +51,7 @@
       { "slug": "r07-basic", "count": 2, "commit": "ecaeacb6e,44f37cfa0,12520738e" },
       { "slug": "r07-construction", "count": 9, "commit": "9719ba00f,20348260d,3e573e34e" }
     ],
-    "note": "全21ページの視覚突合誤記修正を2026-06-08〜09に実施。answer_fail全8件・visual_issues合計100件以上を修正完了。全21ページ visual_pass 達成。r02-basic/r06-constructionはPNG参照バグ(C:\\tmp vs .tmp)で再監査エージェントが視覚突合不能だったが別エージェントで補完完了。"
+    "note": "R01〜R07の21ページは2026-06-08〜09、H25〜H30の18ページは2026-09-04に公式問題・正答表との視覚突合を完了。H29・H30は2026-09-05に修正担当とは別の監査者が再照合してPASSを確認した。計39ページ・1,040問（5肢5,200件）を収録し、H30適性Ⅱ-14は公式の全員正解扱い、R07専門Ⅲ-13は正答非公表として採点対象外。H25〜H30は汎用循環解説・既知OCR破損・未閉鎖数式の再発防止ゲートも追加。"
   },
   "pages": {
     "r01-aptitude": {
@@ -203,6 +203,132 @@
       "visual_check": "pass",
       "structure_check": "pass",
       "audited_at": "2026-06-09"
+    },
+    "h25-basic": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-09-04"
+    },
+    "h25-aptitude": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-09-04"
+    },
+    "h25-construction": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-09-04"
+    },
+    "h26-basic": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-09-04"
+    },
+    "h26-aptitude": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-09-04"
+    },
+    "h26-construction": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-09-04"
+    },
+    "h27-basic": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-09-04"
+    },
+    "h27-aptitude": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-09-04"
+    },
+    "h27-construction": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-09-04"
+    },
+    "h28-basic": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-09-04"
+    },
+    "h28-aptitude": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-09-04"
+    },
+    "h28-construction": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-09-04"
+    },
+    "h29-basic": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-09-05"
+    },
+    "h29-aptitude": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-09-05"
+    },
+    "h29-construction": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-09-05"
+    },
+    "h30-basic": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-09-05"
+    },
+    "h30-aptitude": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-09-05"
+    },
+    "h30-construction": {
+      "status": "pass",
+      "answer_check": "pass",
+      "visual_check": "pass",
+      "structure_check": "pass",
+      "audited_at": "2026-09-05"
     }
   }
 }

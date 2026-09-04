@@ -45,8 +45,21 @@ const { svgToPng } = await import(pathToFileURL(resolve('.claude/scripts/sns/lib
 const W = 1080, H = 1920;
 const examRoot = (examDir) => join('content', 'sns', 'instagram', examDir, 'exam-packs');
 
+async function synthesizeWithRetry(args) {
+  let lastError;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try { return await synthesize(args); }
+    catch (error) {
+      lastError = error;
+      if (attempt < 3) await new Promise((resolveRetry) => setTimeout(resolveRetry, attempt * 2000));
+    }
+  }
+  throw lastError;
+}
+
 function yearLabel(year) {
-  return `令和${year.replace(/^[rRhH]0?/, '')}年度`;
+  const era = /^[hH]/.test(year) ? '平成' : '令和';
+  return `${era}${year.replace(/^[rRhH]0?/, '')}年度`;
 }
 function probeDur(file) {
   const r = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'format=duration', '-of', 'default=noprint_wrappers=1:nokey=1', file], { encoding: 'utf8' });
@@ -98,7 +111,7 @@ async function ensureCoverWav(year, coversDir) {
   const wavPath = join(coversDir, `cover-${year}.wav`);
   if (existsSync(wavPath)) return wavPath;
   const narration = `${yearLabel(year)}の択一式過去問。答えは動画内で発表します。`;
-  const wav = await synthesize({ text: applyReadingDict(narration), speaker: 1 });
+  const wav = await synthesizeWithRetry({ text: applyReadingDict(narration), speaker: 1 });
   writeFileSync(wavPath, wav);
   return wavPath;
 }
@@ -111,6 +124,17 @@ function reelWav(reelsDir, slot, preferPadded) {
   }
   const base = join(reelsDir, 'wav', `slide-${slot}.wav`);
   return existsSync(base) ? base : null;
+}
+
+async function ensureReelWav({ reelsDir, slot, narration }) {
+  const existing = reelWav(reelsDir, slot, false);
+  if (existing) return existing;
+  const wavDir = join(reelsDir, 'wav');
+  mkdirSync(wavDir, { recursive: true });
+  const wavPath = join(wavDir, `slide-${slot}.wav`);
+  const wav = await synthesizeWithRetry({ text: applyReadingDict(narration), speaker: 1 });
+  writeFileSync(wavPath, wav);
+  return wavPath;
 }
 
 function buildMeta({ year, packNum, q, title, durationSec, management, exam }) {
@@ -161,8 +185,10 @@ function firstProblemLine(bodyLines) {
 }
 
 // IG リール（1問1本）の caption。論点＝correctText を主役に。ig-reels-policy.md 準拠。
-function buildIgReelCaption({ pr, an, year, management }) {
-  const mgmt = MGMT_LABEL[management] || management;
+function buildIgReelCaption({ pr, an, year, management, exam, subjectLabel }) {
+  const mgmt = exam === 'pe-first-stage'
+    ? (subjectLabel || '技術士第一次試験')
+    : (MGMT_LABEL[management] || management);
   const topic = an.correctText || '過去問';
   const point = (an.pointText || '').replace(/\s+/g, ' ').trim().slice(0, 70);
   const lines = [
@@ -173,8 +199,22 @@ function buildIgReelCaption({ pr, an, year, management }) {
   ];
   if (point) lines.push('', `📌 ${point}`);
   lines.push('', '🔗 全問解説はプロフィールの doboku-note サイトで', '');
-  lines.push(['#技術士', '#総合技術監理部門', '#技術士総監', `#${mgmt}`, '#過去問', '#択一式', '#資格勉強', '#技術士試験'].join(' '));
+  const hashtags = exam === 'pe-first-stage'
+    ? ['#技術士', '#技術士第一次試験', '#技術士一次試験', `#${mgmt.replace(/[（）]/g, '')}`, '#過去問', '#資格勉強', '#技術士補', '#建設部門']
+    : ['#技術士', '#総合技術監理部門', '#技術士総監', `#${mgmt}`, '#過去問', '#択一式', '#資格勉強', '#技術士試験'];
+  lines.push(hashtags.join(' '));
   return lines.join('\n');
+}
+
+async function ensureProblemWav({ key, q, pr }) {
+  const wavPath = join(NARRATION_DIR, `${key}.wav`);
+  if (existsSync(wavPath)) return wavPath;
+  mkdirSync(NARRATION_DIR, { recursive: true });
+  const lead = firstProblemLine(pr.bodyLines);
+  const narration = `問題${q}。${lead}。画面の選択肢から答えを考えてください。`;
+  const wav = await synthesizeWithRetry({ text: applyReadingDict(narration), speaker: 1 });
+  writeFileSync(wavPath, wav);
+  return wavPath;
 }
 
 async function main() {
@@ -213,8 +253,7 @@ async function main() {
       const packNum = m[1];
       if (values.pack && `${year}-pack-${packNum}` !== values.pack) continue;
       const reels = join(root, year, pk, 'reels');
-      const ready = existsSync(join(root, year, pk, 'slide-data.json'))
-        && ['00', '01', '02', '09'].every((n) => existsSync(join(reels, 'wav', `slide-${n}.wav`)));
+      const ready = existsSync(join(root, year, pk, 'slide-data.json'));
       if (!ready) { console.log(`  skip(未生成) ${year}-pack-${packNum}`); continue; }
       targets.push({ year, packNum, packDir: join(root, year, pk), reels });
     }
@@ -229,7 +268,7 @@ async function main() {
   for (const { year, packNum, packDir, reels } of targets) {
     const slideData = JSON.parse(readFileSync(join(packDir, 'slide-data.json'), 'utf8'));
     const meta = slideData._meta || {};
-    const management = meta.management || 'safety';
+    const management = meta.management || meta.subject || 'safety';
     const exam = meta.exam || 'pe-comprehensive';
     const coverExam = meta.examDir || examDir;
     const fmtLabel = meta.fmtLabel || '択一式 過去問';
@@ -247,7 +286,11 @@ async function main() {
     const coverWav = await ensureCoverWav(year, coversDir);
     const ctaPng = join(packTmp, 'cta.png');
     writeFileSync(ctaPng, await renderSlide({ width: W, height: H, slide: { type: 'quiz-cta', data: { ytMode: true, exam } } }));
-    const ctaWav = reelWav(reels, '09', false);
+    const ctaWav = await ensureReelWav({
+      reelsDir: reels,
+      slot: '09',
+      narration: 'フォローすると毎週、過去問解説が届きます。全問解説はドボクノートでチェック。',
+    });
     const ctaMp4 = join(packTmp, 'cta.mp4');
     composeSlide(ctaPng, ctaWav, ctaMp4);
 
@@ -257,15 +300,21 @@ async function main() {
       if (!pr || !an) { console.log(`  ⚠ ${year}-pack-${packNum} q${q} スライドデータ欠落`); continue; }
       const key = `${year}-pack-${packNum}-q${q}`;
       let title = titles[key];
-      if (!title) { title = `技術士総監 ${yearLabel(year)} 択一｜${an.correctText || '過去問解説'} #Shorts`; if (!igMode) fallbackTitle++; }
+      if (!title) {
+        const examLabel = exam === 'pe-first-stage' ? '技術士一次' : '技術士総監';
+        title = `${examLabel} ${yearLabel(year)} 択一｜${an.correctText || '過去問解説'} #Shorts`;
+        if (!igMode) fallbackTitle++;
+      }
       const topic = igMode ? (an.correctText || '') : (topicFromTitle(title) || an.correctText || '');
 
       const answerSlot = String(2 * q).padStart(2, '0');
       // 問題音声: YT専用の短いナレーション（reelは設問全文を読み長すぎるため流用不可。設問本文はPNGに表示）
-      const problemWav = join(NARRATION_DIR, `${key}.wav`);
-      const answerWav = reelWav(reels, answerSlot, false); // 解答音声は簡潔なので reel を再利用
-      if (!existsSync(problemWav)) { console.log(`  ⚠ ${key} 問題ナレーション欠落（pregen-yt-narration.mjs 未実行?）`); continue; }
-      if (!answerWav) { console.log(`  ⚠ ${key} 解答wav欠落`); continue; }
+      const problemWav = await ensureProblemWav({ key, q, pr });
+      const answerWav = await ensureReelWav({
+        reelsDir: reels,
+        slot: answerSlot,
+        narration: `正答は${an.correctNum}番。${an.correctText || ''}。${an.pointText || ''}`,
+      });
 
       const qTmp = join(packTmp, `q${q}`);
       mkdirSync(qTmp, { recursive: true });
@@ -300,7 +349,7 @@ async function main() {
       if (dur > capLimit) { capDuration(outMp4, dur, qTmp, igMode ? 85 : 57); const capped = probeDur(outMp4); over60++; overList.push(`${key}:${dur.toFixed(0)}→${capped.toFixed(0)}s`); dur = capped; }
 
       if (igMode) {
-        writeFileSync(join(outDir, 'caption.txt'), buildIgReelCaption({ pr, an, year, management }) + '\n');
+        writeFileSync(join(outDir, 'caption.txt'), buildIgReelCaption({ pr, an, year, management, exam, subjectLabel: meta.subjectLabel }) + '\n');
         // カバー PNG（論点カバー＝動画先頭スライド）を残し、publish-ig-bs が編集ステップで
         // 明示アップロードしてサムネを確定する（Meta 自動抽出任せにしない）。
         copyFileSync(coverPng, join(outDir, 'cover.png'));

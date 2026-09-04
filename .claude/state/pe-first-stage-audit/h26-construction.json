@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-h26-construction",
+  "year": "H26",
+  "sub": "construction",
+  "audited_at": "2026-09-04T22:21:12+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "option_checked_count": 175,
+    "source_pages_checked": 18,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "公式ページ画像18ページを1問ずつ直接確認し、35問・175肢の問題文、極性、選択肢を照合。原文不一致4箇所（Ⅲ-1肢3の欠落句、Ⅲ-5肢5の体積→応力、Ⅲ-9肢4の応力－ひずみ、Ⅲ-32肢4の亀裂）を修復。必要図3点の結線を確認し、公式正答表35問は全件一致。再監査で汎用・循環説明208件を各肢の具体的な成立理由又は誤りへ置換し、35問のExamPointを完結した学習論点へ修復。Ⅲ-7の片持ばりたわみはδ=P(3L)^3/(3EI)=9PL^3/EIへ修正。追加ラチェットで検出したExamPointのsummary/item重複1件は、根拠・定義と誤答を見抜く対比が異なる学習点になるよう修復。指定汎用句、未完summary、ExamPoint重複、制御文字、奇数個の$を含む行、KaTeX警告はいずれも0件。"
+  }
+}

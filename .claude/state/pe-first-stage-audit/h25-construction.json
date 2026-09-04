@@ -1,0 +1,27 @@
+{
+  "slug": "pe-first-stage-h25-construction",
+  "year": "H25",
+  "sub": "construction",
+  "audited_at": "2026-09-04T22:21:12+09:00",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 35,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 35,
+    "option_checked_count": 175,
+    "source_pages_checked": 18,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 35,
+    "expected_count": 35,
+    "details_count": 35,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "公式ページ画像18ページを1問ずつ直接確認し、35問・175肢の問題文、極性、選択肢を照合。原文不一致16箇所（Ⅲ-1の意味反転5肢、Ⅲ-2の飽和度分母、Ⅲ-3の省略された試験条件、Ⅲ-19の堤体、Ⅲ-22の汀線、Ⅲ-27の表崩れ5肢、Ⅲ-33の吊下げ・洪積層）と正答不一致1問（Ⅲ-33: 4→3）を修復。全175肢の解説を、各肢の誤語・数値・式・主体を示す具体的な理由へ改稿し、35問のExamPointも学習論点へ置換。Ⅲ-8は相反定理からδC=(2P/4P)δP=δP/2と明示。必要図5点の結線も確認し、公式正答表35問は修復後に全件一致。"
+  }
+}

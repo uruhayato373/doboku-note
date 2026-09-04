@@ -1,4 +1,4 @@
-﻿#!/usr/bin/env node
+#!/usr/bin/env node
 /**
  * Instagram Reels 自動生成 CLI（カルーセルパック → VOICEVOX TTS → mp4）
  *
@@ -16,7 +16,7 @@
 
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { join, resolve, dirname } from 'node:path';
-import { execSync } from 'node:child_process';
+import { execFileSync, execSync } from 'node:child_process';
 import { parseArgs } from 'node:util';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -41,6 +41,7 @@ const { values: args } = parseArgs({
     speaker: { type: 'string', default: '1' },
     'skip-png': { type: 'boolean' },
     'script-only': { type: 'boolean' },  // 台本だけ事前生成（VOICEVOX/ffmpeg 不要）
+    'audio-only': { type: 'boolean' },   // 台本+WAVまで生成（1問1リールのJIT素材用）
     'problem-pause': { type: 'string', default: '3' },  // problem 後の沈黙秒数
   },
 });
@@ -83,9 +84,26 @@ if (!scriptOnly) {
 
 // ─── パック情報 ──────────────────────────────────────────────
 
-// 試験軸: --exam-dir 省略時=技術士総監（既定）。多資格は 1級土木 / 2級土木 等を明示。
+// 試験軸: --exam-dir 省略時=技術士総監（既定）。
+// ig-post-create と同じキーを受け、資格ごとの実ディレクトリへ解決する。
 const examDir = (typeof args['exam-dir'] === 'string' && args['exam-dir']) || '技術士総監';
-const packDir = resolve(ROOT, `content/sns/instagram/cem/exam-packs/${examDir}/${year}/pack-${packNum}`);
+const examBaseDirs = {
+  cem: 'content/sns/instagram/cem/exam-packs',
+  'pe-comprehensive': 'content/sns/instagram/cem/exam-packs',
+  '技術士総監': 'content/sns/instagram/cem/exam-packs',
+  'pe-first-stage': 'content/sns/instagram/pe-first-stage/exam-packs',
+  '技術士一次': 'content/sns/instagram/pe-first-stage/exam-packs',
+  'civil-1': 'content/sns/instagram/civil-1/exam-packs',
+  '1級土木': 'content/sns/instagram/civil-1/exam-packs',
+  'civil-2': 'content/sns/instagram/civil-2/exam-packs',
+  '2級土木': 'content/sns/instagram/civil-2/exam-packs',
+};
+const examBaseDir = examBaseDirs[examDir];
+if (!examBaseDir) {
+  console.error(`Error: 未対応の --exam-dir: ${examDir}`);
+  process.exit(1);
+}
+const packDir = resolve(ROOT, examBaseDir, year, `pack-${packNum}`);
 const slideDataPath = join(packDir, 'slide-data.json');
 if (!existsSync(slideDataPath)) {
   console.error(`Error: ${slideDataPath} not found`);
@@ -102,8 +120,9 @@ console.log(`  speaker: ${args.speaker}`);
 
 if (!args['skip-png']) {
   console.log('\n[1/4] PNG 1080×1920 を生成中...');
-  execSync(
-    `node ".claude/skills/social/ig-post-create/scripts/ig-post-create.mjs" --exam ${args.exam} --size reels`,
+  execFileSync(
+    'node',
+    ['.claude/skills/social/ig-post-create/scripts/ig-post-create.mjs', '--exam', args.exam, '--exam-dir', examDir, '--size', 'reels'],
     { stdio: 'inherit', cwd: ROOT },
   );
 } else {
@@ -117,11 +136,16 @@ console.log('\n[2/4] 台本生成中...');
 function buildScript(sl, idx, meta) {
   if (sl.type === 'cover') {
     const packN = String(packNum).replace(/^0+/, '') || '1';
-    if (examDir === '技術士総監') {
+    if (['技術士総監', 'cem', 'pe-comprehensive'].includes(examDir)) {
       // cover-title が「令和7年度／択一式 過去問 #N」に統一されたので、台本も同じ形に。
       // 旧 sl.title（管理名）は使わない。
       const yearN = year.replace(/^[rR]0?/, '');
       return `令和${yearN}年度の択一式過去問、${packN}番です。全4問、答えは動画内で発表します。`;
+    }
+    if (['技術士一次', 'pe-first-stage'].includes(examDir)) {
+      const era = /^[hH]/.test(year) ? '平成' : '令和';
+      const eraN = year.replace(/^[hHrR]0?/, '');
+      return `${era}${eraN}年度の技術士第一次試験過去問、${packN}番です。全4問、答えは動画内で発表します。`;
     }
     // 土木（1級/2級）: 年度末尾 k=後期 / z=前期、先頭 h=平成 / r=令和
     const era = /^[hH]/.test(year) ? '平成' : '令和';
@@ -178,14 +202,31 @@ for (let i = 0; i < scripts.length; i++) {
     console.warn(`  [${i}] 台本が空、スキップ`);
     continue;
   }
-  const wav = await synthesize({ text, speaker: Number(args.speaker) });
   const wavPath = join(wavDir, `slide-${String(i).padStart(2, '0')}.wav`);
+  const paddedPath = join(wavDir, `slide-${String(i).padStart(2, '0')}-padded.wav`);
+  const needsPadding = slides[i]?.type === 'problem' && problemPauseSec > 0;
+  if (existsSync(wavPath) && (!needsPadding || existsSync(paddedPath))) {
+    wavPaths.push(needsPadding ? paddedPath : wavPath);
+    process.stdout.write(`  ↳ slide-${String(i).padStart(2, '0')}.wav 既存を再利用\n`);
+    continue;
+  }
+
+  let wav;
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      wav = await synthesize({ text, speaker: Number(args.speaker) });
+      break;
+    } catch (error) {
+      if (attempt === 3) throw error;
+      console.warn(`  [retry ${attempt}/2] slide-${String(i).padStart(2, '0')} TTS失敗: ${error.message}`);
+      await new Promise((resolveRetry) => setTimeout(resolveRetry, attempt * 2000));
+    }
+  }
   writeFileSync(wavPath, wav);
 
   // problem スライドのみ、末尾に無音 padding を追加
   let finalWavPath = wavPath;
   if (slides[i]?.type === 'problem' && problemPauseSec > 0) {
-    const paddedPath = join(wavDir, `slide-${String(i).padStart(2, '0')}-padded.wav`);
     execSync(
       `ffmpeg -y -i "${wavPath}" -af "apad=pad_dur=${problemPauseSec}" "${paddedPath}"`,
       { stdio: 'pipe' },
@@ -196,6 +237,11 @@ for (let i = 0; i < scripts.length; i++) {
     process.stdout.write(`  ✓ slide-${String(i).padStart(2, '0')}.wav (${(wav.length / 1024).toFixed(0)}KB)\n`);
   }
   wavPaths.push(finalWavPath);
+}
+
+if (args['audio-only']) {
+  console.log(`\n✓ 台本+WAV生成完了 → ${reelsDir}`);
+  process.exit(0);
 }
 
 // ─── 4) ffmpeg で連結 ──────────────────────────────────────

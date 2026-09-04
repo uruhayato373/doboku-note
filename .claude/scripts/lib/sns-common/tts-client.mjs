@@ -48,7 +48,7 @@ export async function synthesize({ text, speaker, baseUrl, queryOverrides } = {}
 
   const queryRes = await fetch(
     `${url}/audio_query?speaker=${sp}&text=${encodeURIComponent(text)}`,
-    { method: 'POST' }
+    { method: 'POST', headers: { Connection: 'close' }, signal: AbortSignal.timeout(30000) }
   );
   if (!queryRes.ok) {
     throw new Error(`VOICEVOX /audio_query failed: ${queryRes.status} ${queryRes.statusText}`);
@@ -58,8 +58,9 @@ export async function synthesize({ text, speaker, baseUrl, queryOverrides } = {}
 
   const synthRes = await fetch(`${url}/synthesis?speaker=${sp}`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', Connection: 'close' },
     body: JSON.stringify(merged),
+    signal: AbortSignal.timeout(120000),
   });
   if (!synthRes.ok) {
     throw new Error(`VOICEVOX /synthesis failed: ${synthRes.status} ${synthRes.statusText}`);

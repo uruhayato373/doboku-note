@@ -1,0 +1,25 @@
+{
+  "slug": "pe-first-stage-h28-basic",
+  "year": "H28",
+  "sub": "basic",
+  "audited_at": "2026-09-04",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 30,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 30,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 30,
+    "expected_count": 30,
+    "details_count": 30,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "Official H28 basic PDF all 24 pages were visually inspected at 150 dpi. All 30 stems, polarity phrases and 150 options were compared directly with the page images; 2 source mismatches (国連環境開発会議 and D-prime notation) plus five explanation-only isotope math delimiters were corrected. The 30 answers were rechecked against page 111 of the official combined answer PDF. Every distractor now includes the governing calculation, fact or corrected term. Nine tightly cropped source figures are connected with ArticleImage."
+  }
+}

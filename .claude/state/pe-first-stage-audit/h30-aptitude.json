@@ -1,0 +1,28 @@
+{
+  "slug": "pe-first-stage-h30-aptitude",
+  "year": "H30",
+  "sub": "aptitude",
+  "audited_at": "2026-09-05",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 15,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 15,
+    "option_checked_count": 75,
+    "source_pages_checked": 15,
+    "source_text_mismatches_fixed": 37,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 15,
+    "expected_count": 15,
+    "details_count": 15,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "公式適性科目PDFの全15ページを150dpi画像で確認し、15問・75肢を逐語照合。Ⅱ-14は公式どおり全員正解扱いとし、その他14問も公式正答と一致した。独立再監査を受け、Ⅱ-4・Ⅱ-8・Ⅱ-11の成立肢を制度目的・保護要件・評価原則が分かる個別解説へ改訂。Ⅱ-10の正誤記号を○・×へ復元し、Ⅱ-14は肢5へ混入していた公式訂正文を分離して原典肢を復元、正答null・SNS非対象の扱いを維持した。追加再監査ではⅡ-8の『と信じるに足りる相当の理由』を公式画像へ再照合し、公益通報者保護法の外部通報要件が分かるExamPointへ修正した。原典転記の修復は累計37箇所。"
+  }
+}

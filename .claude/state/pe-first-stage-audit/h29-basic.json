@@ -1,0 +1,28 @@
+{
+  "slug": "pe-first-stage-h29-basic",
+  "year": "H29",
+  "sub": "basic",
+  "audited_at": "2026-09-04",
+  "answer_check": {
+    "status": "pass",
+    "verified_count": 30,
+    "mismatches": []
+  },
+  "visual_check": {
+    "status": "pass",
+    "checked_count": 30,
+    "option_checked_count": 150,
+    "source_pages_checked": 20,
+    "source_text_mismatches_fixed": 43,
+    "issues": []
+  },
+  "structure_check": {
+    "status": "pass",
+    "exam_point_count": 30,
+    "expected_count": 30,
+    "details_count": 30,
+    "frontmatter_ok": true,
+    "missing_questions": [],
+    "notes": "公式基礎科目PDFの全20ページを150dpi画像で確認し、30問・150肢を逐語照合。先行監査後の独立再監査を反映し、2階差分の分数・添字、Ag⁺/Fe³⁺/Mg²⁺/Al³⁺/Cu²⁺、C₆H₁₂O₆/CaCl₂、1.5［°C］、CH₄、kg/m³、X線など計43箇所のOCR・式・表記不一致を修復した。公式正答表30問と全件一致を維持し、本文再掲だった20肢を肢固有の成立理由へ具体化、6問のExamPointを結論・根拠・対比に分離した。2026-09-05追加修復で、Ⅰ-5-5の正答肢4件を蒸気機関・工場制・自動機構・工場法まで示す肢固有解説へ改め、ExamPointの同型表現も解消した。"
+  }
+}
