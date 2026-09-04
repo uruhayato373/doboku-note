@@ -11,6 +11,15 @@ on:
         required: false
         default: false
         type: boolean
+      file:
+        description: '対象 basename（既存ZIP差替え時は必須）'
+        required: false
+        type: string
+      overwrite:
+        description: '同一 object key を上書き（file 指定必須）'
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: read
@@ -36,6 +45,9 @@ jobs:
           CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
           CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
         run: |
-          ARGS=""
-          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS="--dry-run"; fi
-          node scripts/upload-brain-dist-r2.mjs $ARGS
+          set -eu
+          ARGS=()
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS+=(--dry-run); fi
+          if [ -n "${{ github.event.inputs.file }}" ]; then ARGS+=(--file "${{ github.event.inputs.file }}"); fi
+          if [ "${{ github.event.inputs.overwrite }}" = "true" ]; then ARGS+=(--overwrite); fi
+          node scripts/upload-brain-dist-r2.mjs "${ARGS[@]}"

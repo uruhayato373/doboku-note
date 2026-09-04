@@ -24,6 +24,8 @@
  * 使い方:
  *   node scripts/coconala-blog-publish.mjs --post <slug>              # 下書き保存（既定）
  *   node scripts/coconala-blog-publish.mjs --post <slug> --commit     # 公開
+ *   node scripts/coconala-blog-publish.mjs --post <slug> --update     # 公開済み記事を再構築（保存しない）
+ *   node scripts/coconala-blog-publish.mjs --post <slug> --update --commit # 公開済み記事を再構築してライブ反映
  *   node scripts/coconala-blog-publish.mjs --post <slug> --headless
  * exit: 0=成功/冪等スキップ / 1=ガード違反 / 2=login・account・ライブ検証の失敗 / 3=UI 到達失敗
  * ---------------------------------------------------------------------------
@@ -41,6 +43,7 @@ const getArg = (k) => { const i = argv.indexOf(k); return i >= 0 ? argv[i + 1] :
 const SLUG = getArg('--post');
 const COMMIT = argv.includes('--commit');
 const HEADLESS = argv.includes('--headless');
+const UPDATE = argv.includes('--update');
 
 if (!SLUG) { console.error(`${TAG} --post <slug> が必要です`); process.exit(1); }
 const DIR = join(ROOT, 'content/coconala/blog', SLUG);
@@ -62,11 +65,16 @@ const funnel = fmList('funnel');
 const category = fm('category') || '学び';
 const tags = fmList('tags');
 const coverRel = fm('cover');
+const existingBlogId = fm('blogId') || (fm('blogUrl').match(/\/(\d+)\/?$/) || [])[1] || '';
 
 // --- 冪等ガード（二重公開しない） ------------------------------------------
-if (status === 'published' && fm('blogUrl')) {
+if (status === 'published' && fm('blogUrl') && !UPDATE) {
   console.log(`${TAG} 既に公開済み（${fm('blogUrl')}）— 何もしません`);
   process.exit(0);
+}
+if (UPDATE && (status !== 'published' || !fm('blogUrl') || !existingBlogId)) {
+  console.error(`${TAG} --update は status=published かつ blogUrl/blogId がある記事だけに使えます`);
+  process.exit(1);
 }
 
 // --- ハードゲート（通信前に落とす） ----------------------------------------
@@ -128,7 +136,7 @@ const ctx = await launchContext({ headless: HEADLESS });
 const page = ctx.pages()[0] || (await ctx.newPage());
 let exitCode = 0;
 let liveUrl = '';
-let blogId = '';
+let blogId = UPDATE ? existingBlogId : '';
 
 try {
   const login = await waitForLogin(page, { tag: TAG });
@@ -137,7 +145,10 @@ try {
   if (!acct.ok) { console.error(`${TAG} account assert 失敗: ${acct.reason}`); process.exit(2); }
 
   // [1] エディタを開く
-  await page.goto('https://coconala.com/mypage/blogs/add?kind=1', { waitUntil: 'domcontentloaded', timeout: 60_000 });
+  const editorUrl = UPDATE
+    ? `https://coconala.com/mypage/blogs/edit/${blogId}`
+    : 'https://coconala.com/mypage/blogs/add?kind=1';
+  await page.goto(editorUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
   await sleep(4000);
   if (!(await page.$('input[placeholder="ブログタイトル"]'))) {
     await page.screenshot({ path: shot(`blog-nav-fail-${SLUG}.png`) }).catch(() => {});
@@ -147,7 +158,7 @@ try {
   // [1b] 同じタイトルの記事が**既にココナラ側にある**なら止める。
   //   エディタはオートセーブするので、前回の中断（exit 3）で下書きが残っていることがある。
   //   気づかず再実行すると同じ記事が2本になり、最悪そのまま二重公開になる（2026-08-12 実装中に多発）。
-  {
+  if (!UPDATE) {
     const listPage = await ctx.newPage();
     await listPage.goto('https://coconala.com/mypage/blogs', { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await sleep(3000);
@@ -169,7 +180,7 @@ try {
   }
 
   // [2] カバー画像
-  if (coverAbs) {
+  if (coverAbs && !UPDATE) {
     await page.setInputFiles('input[type=file]', coverAbs).catch((e) => console.log(`${TAG} カバー添付 skip: ${e.message.slice(0, 60)}`));
     await sleep(2500);
   }
@@ -185,6 +196,26 @@ try {
   //   contenteditable からフォーカスが外れ、**以降の insertText がどこにも入らない**
   //   （2026-08-12 実測: 本文が 500/1684 字で切れ、見出しも2個目以降が失敗した）。
   const CE = '[contenteditable="true"]';
+  if (UPDATE) {
+    await page.click(CE);
+    await page.keyboard.press(process.platform === 'darwin' ? 'Meta+A' : 'Control+A');
+    await page.keyboard.press('Backspace');
+    await sleep(1200);
+    const cleared = await page.evaluate((sel) => {
+      const ce = document.querySelector(sel);
+      return {
+        text: (ce?.innerText || '').trim().length,
+        cards: ce?.querySelectorAll('.c-blogBody_service').length || 0,
+        nonEmptyBlocks: [...(ce?.children || [])].filter((el) => (el.textContent || '').trim() || el.matches('.c-blogBody_service')).length,
+      };
+    }, CE);
+    console.log(`${TAG} 既存本文の空化: ${JSON.stringify(cleared)}`);
+    if (cleared.text || cleared.cards || cleared.nonEmptyBlocks) {
+      await page.screenshot({ path: shot(`blog-update-clear-fail-${SLUG}.png`) }).catch(() => {});
+      console.error(`${TAG} 既存本文を完全に空化できません。ライブへ反映せず中断します`);
+      process.exit(3);
+    }
+  }
   await page.click(CE);
   await sleep(400);
   for (const b of blocks) {
@@ -345,31 +376,38 @@ try {
     console.error(`${TAG} サービスカードが ${filled.cards}/${wantCards} 枚しか生成されていません。中断します`); process.exit(3);
   }
 
-  // [6] 下書き保存（テキスト一致では掴めないので DOM から拾って click）
-  const savedDraft = await page.evaluate(() => {
-    const b = [...document.querySelectorAll('button')].find((x) => /下書き保存/.test(x.textContent || ''));
-    if (!b) return false; b.click(); return true;
-  });
-  console.log(`${TAG} 下書き保存クリック: ${savedDraft}`);
-  await sleep(6000);
-  blogId = (page.url().match(/\/mypage\/blogs\/edit\/(\d+)/) || [])[1] || '';
+  if (!UPDATE) {
+    // [6] 新規記事だけ下書き保存する。公開済み記事の --update で押すと非公開化の挙動が未検証。
+    const savedDraft = await page.evaluate(() => {
+      const b = [...document.querySelectorAll('button')].find((x) => /下書き保存/.test(x.textContent || ''));
+      if (!b) return false; b.click(); return true;
+    });
+    console.log(`${TAG} 下書き保存クリック: ${savedDraft}`);
+    await sleep(6000);
+    blogId = (page.url().match(/\/mypage\/blogs\/edit\/(\d+)/) || [])[1] || '';
 
-  // [7] 一覧で実在を確認（クリックの成否ではなく**実体**で判定する）
-  await page.goto('https://coconala.com/mypage/blogs', { waitUntil: 'domcontentloaded', timeout: 60_000 });
-  await sleep(3500);
-  const listed = await page.evaluate((t) =>
-    [...document.querySelectorAll('.c-blogContent')].some((r) => (r.innerText || '').includes(t)), title);
-  console.log(`${TAG} 一覧に実在: ${listed}${blogId ? ` (blogId=${blogId})` : ''}`);
-  if (!listed) {
-    await page.screenshot({ path: shot(`blog-draft-missing-${SLUG}.png`) }).catch(() => {});
-    console.error(`${TAG} 下書きが一覧にありません。中断します`); process.exit(3);
+    // [7] 一覧で実在を確認（クリックの成否ではなく**実体**で判定する）
+    await page.goto('https://coconala.com/mypage/blogs', { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    await sleep(3500);
+    const listed = await page.evaluate((t) =>
+      [...document.querySelectorAll('.c-blogContent')].some((r) => (r.innerText || '').includes(t)), title);
+    console.log(`${TAG} 一覧に実在: ${listed}${blogId ? ` (blogId=${blogId})` : ''}`);
+    if (!listed) {
+      await page.screenshot({ path: shot(`blog-draft-missing-${SLUG}.png`) }).catch(() => {});
+      console.error(`${TAG} 下書きが一覧にありません。中断します`); process.exit(3);
+    }
+  } else {
+    await page.screenshot({ path: shot(`blog-update-preflight-${SLUG}.png`), fullPage: true }).catch(() => {});
+    console.log(`${TAG} 公開済み記事の再構築を保存前に検証済み（下書き保存は押していません）`);
   }
 
   if (!COMMIT) {
     console.log(`${TAG} 下書きまで完了（公開するには --commit）`);
   } else {
     // [8] 公開設定 → カテゴリ・ハッシュタグ → 投稿する
-    if (!blogId) {
+    if (UPDATE) {
+      // 検証済みの同一編集セッションを保つ。再読込すると再構築内容が失われる。
+    } else if (!blogId) {
       blogId = await page.evaluate((t) => {
         const row = [...document.querySelectorAll('.c-blogContent')].find((r) => (r.innerText || '').includes(t));
         row?.querySelector('.c-blogContent_edit')?.click();
@@ -399,7 +437,7 @@ try {
     console.log(`${TAG} カテゴリ "${category}": ${catOk}`);
     if (!catOk) { console.error(`${TAG} カテゴリを選べません（公開設定に必須）`); process.exit(3); }
 
-    for (const t of tags.slice(0, 4)) {
+    for (const t of (UPDATE ? [] : tags.slice(0, 4))) {
       const input = await page.$('.c-modal input.input, [class*="Publishing"] input.input');
       if (!input) break;
       await input.fill(t);
@@ -408,7 +446,7 @@ try {
     }
 
     const posted = await page.evaluate(() => {
-      const b = [...document.querySelectorAll('button')].find((x) => /^投稿する$/.test((x.textContent || '').trim()));
+      const b = [...document.querySelectorAll('button')].find((x) => /^(投稿する|更新する)$/.test((x.textContent || '').trim()));
       if (!b) return false; b.click(); return true;
     });
     console.log(`${TAG} 投稿するクリック: ${posted}`);
@@ -443,17 +481,23 @@ try {
         const ap = await anon.newPage();
         await ap.goto(liveUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
         await sleep(2500);
-        const v = await ap.evaluate(() => ({
+        const v = await ap.evaluate((expected) => {
+          const norm = (s) => (s || '').replace(/[\s\u00a0]+/g, '');
+          const pageText = norm(document.body.innerText || '');
+          return {
           title: document.title,
           text: (document.body.innerText || '').replace(/\s/g, '').length,
           external: [...document.querySelectorAll('article a[href], [class*="blogBody"] a[href]')]
             .map((a) => a.getAttribute('href') || '')
             .filter((h) => /^https?:\/\//.test(h) && !/^https:\/\/coconala\.com/.test(h)),
-        }));
+            missingBlocks: expected.filter((t) => !pageText.includes(norm(t))).map((t) => t.slice(0, 40)),
+          };
+        }, blocks.filter((b) => b.kind !== 'service').map((b) => b.text));
         const titleOk = v.title.includes(title.slice(0, 10));
-        console.log(`${TAG} ライブ実査: title一致=${titleOk} 本文${v.text}字 外部リンク${v.external.length}件`);
+        console.log(`${TAG} ライブ実査: title一致=${titleOk} 本文${v.text}字 外部リンク${v.external.length}件 欠落ブロック${v.missingBlocks.length}件`);
         if (!titleOk || v.text < 200) { console.error(`${TAG} ライブでの描画を確認できません`); exitCode = 2; }
         if (v.external.length) { console.error(`${TAG} ★ライブに外部リンクがあります: ${v.external.join(', ')}`); exitCode = 2; }
+        if (v.missingBlocks.length) { console.error(`${TAG} ★ライブに原稿ブロックがありません: ${v.missingBlocks.join(' / ')}`); exitCode = 2; }
       } finally { await anon.close(); }
     } else {
       console.error(`${TAG} ライブ URL を取れないため G6 検証が不成立（公開自体は一覧で確認済み）`);
@@ -461,12 +505,14 @@ try {
     }
 
     // [11] frontmatter 書き戻し
-    if (exitCode === 0) {
+    if (exitCode === 0 && !UPDATE) {
       // ココナラの公開日時は JST。UTC の toISOString だと JST 09:00 前の公開が前日付になり、
       // 「1日1本まで」の運用判断がズレる（2026-08-13 07:38 JST 公開が 2026-08-12 と記録された）。
       const jstDate = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
       writeBackFm({ blogUrl: liveUrl, blogId, status: 'published', publishedAt: jstDate });
       console.log(`${TAG} frontmatter 書き戻し完了`);
+    } else if (exitCode === 0) {
+      console.log(`${TAG} 公開済み記事の更新完了（既存の公開日時・URLは保持）`);
     } else {
       console.log(`${TAG} 検証が通っていないので frontmatter は書き戻しません（status は draft のまま）`);
     }
@@ -474,7 +520,7 @@ try {
 } finally {
   await ctx.close();
 }
-console.log('RESULT:', JSON.stringify({ slug: SLUG, mode: COMMIT ? 'commit' : 'draft', blogId, liveUrl, exitCode }));
+console.log('RESULT:', JSON.stringify({ slug: SLUG, mode: UPDATE ? (COMMIT ? 'update-commit' : 'update-preflight') : (COMMIT ? 'commit' : 'draft'), blogId, liveUrl, exitCode }));
 process.exit(exitCode);
 
 /** frontmatter を「あれば置換・無ければ挿入」で書き戻す（置換のみだと無言で失敗する） */
