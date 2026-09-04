@@ -64,9 +64,9 @@ jobs:
           DOMAIN_RESPONSE=$(curl --fail --silent --show-error \
             --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
             --header "Content-Type: application/json" \
-            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/doboku-note/domains")
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/doboku-note/domains/doboku-note.com")
           ZONE_ID=$(printf '%s' "$DOMAIN_RESPONSE" | jq -er \
-            '.result[] | select(.name == "doboku-note.com") | .zone_tag')
+            '.result.zone_tag')
           DIST_URL="https://storage.doboku-note.com/brain/dist/$DIST_FILE"
           PURGE_PAYLOAD=$(jq -cn --arg url "$DIST_URL" '{files: [$url]}')
           PURGE_RESPONSE=$(curl --fail --silent --show-error \

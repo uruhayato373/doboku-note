@@ -110,5 +110,6 @@ test('Brain 同一URL上書きは単一ZIPへ限定し、成功後に同じ配�
   assert.match(workflow, /overwrite == 'true'/);
   assert.match(workflow, /pages\/projects\/doboku-note\/domains/);
   assert.match(workflow, /zones\/\$ZONE_ID\/purge_cache/);
+  assert.match(workflow, /pages\/projects\/doboku-note\/domains\/doboku-note\.com/);
   assert.match(workflow, /storage\.doboku-note\.com\/brain\/dist\/\$DIST_FILE/);
 });
