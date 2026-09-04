@@ -53,6 +53,30 @@ test('D: 散文の「設問2では検討を書く」を捕捉し、外側のテ�
   assert.equal(neutral.length, 0);
 });
 
+test('JSONの3項目以上の手順番号を解答欄番号と誤認しない', () => {
+  const summary = audit(
+    '「items」: ["① 課題を絞る", "② 検討項目を整理する", "③ 対応処置を書く", "④ 評価を確認する"]',
+    'content/sns/video-packs/civil-construction-1/keiken-fixture/storyboard.json',
+  );
+  assert.deepEqual(summary, []);
+});
+
+test('別級の記事内にある級名付きの正しい比較説明を、その記事側の級として誤検知しない', () => {
+  const comparison = audit(
+    '# 施工経験記述 current2\n1級では、(1)に現場状況・技術的課題・検討した項目、(2)に対応処置と評価を書く。',
+    'content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx',
+  );
+  assert.deepEqual(comparison, []);
+});
+
+test('欄説明の後ろにある級名は比較対象として扱い、ファイル側の級を保つ', () => {
+  const comparison = audit(
+    '# 施工経験記述 current2\n設問(2)は「検討した項目とその対応処置」。1級とは検討項目を置く側が逆になる。',
+    'content/site/civil-construction-2/secondary-experience-writing-guide/article.mdx',
+  );
+  assert.deepEqual(comparison, []);
+});
+
 test('E: 旧3項目を現行として提示する文を捕捉する', () => {
   const rows = audit('# 施工経験記述\n## 令和6年度以降の現行形式\n課題→検討→処置の3段構成です。', 'civil-construction-2/fixture.md');
   assert.ok(types(rows).includes('E'));

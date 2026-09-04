@@ -83,7 +83,13 @@ function contextsOf(text, file) {
 function gradeFragments(line, fallbackGrade) {
   const matches = [...line.matchAll(/civil-[12]|[１２12]級/g)];
   const grades = new Set(matches.map((m) => /(?:civil-1|[１1]級)/.test(m[0]) ? 'civil-1' : 'civil-2'));
-  if (grades.size < 2) return [{ text: line, grade: fallbackGrade || (grades.size === 1 ? [...grades][0] : null) }];
+  // 行頭側で級を明示している比較説明は、ファイル側の級より行内ラベルを優先する。
+  // 一方「設問(2)は…、1級とは逆」のように欄説明の後へ出る級名は比較対象なので fallback を保つ。
+  if (grades.size < 2) {
+    const firstMarker = line.search(MARKER);
+    const explicitGradeLeads = grades.size === 1 && (firstMarker < 0 || matches[0].index < firstMarker);
+    return [{ text: line, grade: explicitGradeLeads ? [...grades][0] : fallbackGrade }];
+  }
   const out = [];
   for (let i = 0; i < matches.length; i++) {
     const start = matches[i].index;
@@ -97,6 +103,9 @@ function gradeFragments(line, fallbackGrade) {
 
 function markerClaims(line) {
   if (!RELEVANT.test(line)) return [];
+  // JSON の summary items で使う ①→②→③… は手順番号であり、解答欄 (1)/(2) ではない。
+  // 「設問」「解答欄」を明示する場合だけ、3 項目以上の列挙でも欄番号として検査する。
+  if (/[①②]/.test(line) && /[③④⑤]/.test(line) && !/設問|解答欄/.test(line)) return [];
   if (/[①②]/.test(line) && !/設問|解答欄|現場状況|技術的課題|検討(?:した)?項目|対応処置/.test(line)) return [];
   let matches = [...line.matchAll(MARKER)].map((m) => ({
     index: m.index, end: m.index + m[0].length,
