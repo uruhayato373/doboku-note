@@ -462,3 +462,18 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
 - 判断: 今回の `/exam`・`/practice`・`/standards`・`/topics` への移行に追加のredirect/noindex/統合は行わない。旧URLは301でGoogleの再クロールを待つ
 - `UNKNOWN_REVIEW` は過去404・旧URL・RSS/フォント等の観測残が中心。impressionsを持つのは `/links` の1件のみ（1 impression / position 73）で、公開阻害ではない
 - 外部状態変更（URL検査開始・インデックス登録リクエスト・GSC設定保存）は実行していない。次回は 2026-09-01 の月次 URL Inspection で新sitemap 1,417件のcoverage推移を観測する
+
+### 2026-09-04（週次・自動レビュー）
+
+- 観測: GSC 2026-08-03〜08-31（truncated:false）／GA4 28日窓 08-06〜09-02。High-Impr-Low-CTR 34件・Rank-Stuck 11件・Hidden-Winner 43件・SNS-Source-Shift 1件。Traffic-Drop 13件は窓重複の参考値、Orphan-Query / Cannibalization / Content-Decay ✓ なし
+- 上位候補と推奨:
+  1. civil-construction-2 系 Hidden-Winner — 経験記述ガイド（sessions 435+113）・secondary-r07（366+95）ほか計8URLで sessions 1,000超（新旧URL合算・engagement 0.55〜0.92）。対策外の2級土木が最大流入源。戦略棚卸しで2級の扱いを検討
+  2. `/docs/civil-construction-2-secondary-r07` — impr26・CTR0%・pos4.3。同型の pe-construction-construction-planning-exam-themes（impr19・pos13.2）・pe-comprehensive-management-nonconformity-rate（impr20・pos10.3）と合わせ3URLのメタ実験候補
+  3. `/docs/pe-comprehensive-management-keyword-2026` — Rank-Stuck（pos8.2〜9.0）＋GA4 sessions 327→249（-23.9%・参考値）。内部リンク・追記の構造施策候補
+- 他 7 件 → improvements/2026-09-04.md（r08-primary 流入減、専用ページ実在なのに pos70超のクエリ群、x/social -42% ほか）
+- 自動裁定:
+  - 候補1: 保留（実験枠外＝戦略判断。2級土木の位置づけは人間が棚卸しで決定）
+  - 候補2: 推奨=実験化候補（3URL・14〜28日のメタ実験。一括変更はしない）
+  - 候補3: 推奨=実験化候補（内部リンク＋追記の構造施策・メタ変更なし・実験枠外で着手可）
+  - x/social sessions 19→11（-42.1%）: 保留（再浮上条件＝次週も継続減 or sessions 10未満。原因は現物未照合）
+- 注記: 自動生成（人間の上書き歓迎）。前週裁定済みの civil-construction-1-secondary-r07（impr59・CTR0%・pos5.2）・capacity-management（impr19・pos3.7）は継続観測、インターフェアリングフロート実験は判定09-23。08月末の /docs→/exam 等 URL 移行で GA4 集計が新旧 URL に分裂しており単一 URL の件数は過小評価
