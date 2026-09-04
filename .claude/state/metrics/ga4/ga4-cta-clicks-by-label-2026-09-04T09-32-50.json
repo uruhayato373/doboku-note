@@ -1,0 +1,1788 @@
+{
+  "meta": {
+    "startDate": "2026-08-07",
+    "endDate": "2026-09-03",
+    "windowKind": "days",
+    "eventNames": [
+      "note_cta_click",
+      "note_cta_impression",
+      "affiliate_cta_click",
+      "affiliate_cta_impression",
+      "note_article_click",
+      "internal_nav_click",
+      "career_need_select"
+    ],
+    "japanOnly": true,
+    "byDevice": false,
+    "byLabel": true,
+    "byPlacement": false,
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "label": "BuildJob-sidebar",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 4678
+    },
+    {
+      "label": "DXConsulting-sidebar",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2697
+    },
+    {
+      "label": "ビルドジョブ",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 2330
+    },
+    {
+      "label": "KensetsuJobs-sidebar",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1479
+    },
+    {
+      "label": "BuildJob-endbanner",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1451
+    },
+    {
+      "label": "category-pe-comprehensive-management-hub-mokuji-docs-sb",
+      "eventName": "note_cta_impression",
+      "eventCount": 1109
+    },
+    {
+      "label": "ハイクラス DX・コンサル転職",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 1078
+    },
+    {
+      "label": "category-civil-construction-2-hub-mokuji-docs-sb",
+      "eventName": "note_cta_impression",
+      "eventCount": 1045
+    },
+    {
+      "label": "category-civil-construction-1-hub-seasonal-docs-sb",
+      "eventName": "note_cta_impression",
+      "eventCount": 888
+    },
+    {
+      "label": "past-exam-backlinks",
+      "eventName": "internal_nav_click",
+      "eventCount": 841
+    },
+    {
+      "label": "DXConsulting-endbanner",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 785
+    },
+    {
+      "label": "建設JOBs",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 627
+    },
+    {
+      "label": "category-civil-construction-1-hub-mokuji-docs-sb",
+      "eventName": "note_cta_impression",
+      "eventCount": 425
+    },
+    {
+      "label": "category-nav",
+      "eventName": "internal_nav_click",
+      "eventCount": 423
+    },
+    {
+      "label": "curriculum-list",
+      "eventName": "internal_nav_click",
+      "eventCount": 417
+    },
+    {
+      "label": "category-civil-construction-2-hub-mokuji-footer",
+      "eventName": "note_cta_impression",
+      "eventCount": 358
+    },
+    {
+      "label": "civil-2-koji-bank:secondary-experience-writing-guide-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 356
+    },
+    {
+      "label": "category-pe-comprehensive-management-hub-mokuji-footer",
+      "eventName": "note_cta_impression",
+      "eventCount": 348
+    },
+    {
+      "label": "civil-2-koji-bank:secondary-r07-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 329
+    },
+    {
+      "label": "KensetsuJobs-endbanner",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 303
+    },
+    {
+      "label": "category-civil-construction-1-hub-seasonal-footer",
+      "eventName": "note_cta_impression",
+      "eventCount": 252
+    },
+    {
+      "label": "civil-membership-lab:secondary-experience-writing-guide-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 221
+    },
+    {
+      "label": "civil-1-keiken-complete-pack:secondary-experience-writing-guide-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 198
+    },
+    {
+      "label": "popular-showcase",
+      "eventName": "internal_nav_click",
+      "eventCount": 196
+    },
+    {
+      "label": "civil-membership-lab:secondary-r07-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 184
+    },
+    {
+      "label": "civil-1-niji-marugoto-pack:secondary-r07-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 146
+    },
+    {
+      "label": "category-civil-construction-1-hub-mokuji-footer",
+      "eventName": "note_cta_impression",
+      "eventCount": 145
+    },
+    {
+      "label": "civil-2-experience-essay:secondary-experience-guide",
+      "eventName": "note_cta_impression",
+      "eventCount": 132
+    },
+    {
+      "label": "category-pe-construction-hub-mokuji-docs-sb",
+      "eventName": "note_cta_impression",
+      "eventCount": 129
+    },
+    {
+      "label": "civil-2-pastexam-essay:secondary-experience-guide",
+      "eventName": "note_cta_impression",
+      "eventCount": 125
+    },
+    {
+      "label": "civil-1-experience-essay:secondary-experience-writing-guide-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 121
+    },
+    {
+      "label": "civil-2-koji-bank:secondary-r06-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 104
+    },
+    {
+      "label": "civil-1-keiken-complete-pack:secondary-experience-writing-examples-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 99
+    },
+    {
+      "label": "civil-2-gakka-kijutsu:c2-gakka-kijutsu",
+      "eventName": "note_cta_impression",
+      "eventCount": 99
+    },
+    {
+      "label": "civil-1-ichiji-ronten:c1-exam-overview",
+      "eventName": "note_cta_impression",
+      "eventCount": 96
+    },
+    {
+      "label": "related-articles",
+      "eventName": "internal_nav_click",
+      "eventCount": 94
+    },
+    {
+      "label": "tankan-takuitsu-reiwa-pdf:r08-primary-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 87
+    },
+    {
+      "label": "category-pe-construction-hub-mokuji-footer",
+      "eventName": "note_cta_impression",
+      "eventCount": 85
+    },
+    {
+      "label": "civil-2-koji-bank:secondary-r04-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 83
+    },
+    {
+      "label": "civil-2-koji-bank:secondary-experience-writing-examples-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 81
+    },
+    {
+      "label": "civil-2-experience-essay:secondary-experience-examples",
+      "eventName": "note_cta_impression",
+      "eventCount": 79
+    },
+    {
+      "label": "civil-2-pastexam-essay:secondary-experience-examples",
+      "eventName": "note_cta_impression",
+      "eventCount": 78
+    },
+    {
+      "label": "civil-2-pastexam-essay:secondary-r07-q1",
+      "eventName": "note_cta_impression",
+      "eventCount": 76
+    },
+    {
+      "label": "civil-membership-lab:secondary-getting-started-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 71
+    },
+    {
+      "label": "category-pe-comprehensive-management-hub-mokuji-sb",
+      "eventName": "note_cta_impression",
+      "eventCount": 57
+    },
+    {
+      "label": "civil-membership-lab:secondary-r04-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 51
+    },
+    {
+      "label": "GKS-sidebar",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 50
+    },
+    {
+      "label": "civil-membership-lab:secondary-r06-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 46
+    },
+    {
+      "label": "civil-2-koji-bank:secondary-getting-started-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 39
+    },
+    {
+      "label": "civil-2-koji-bank:secondary-r05-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 39
+    },
+    {
+      "label": "civil-1-pastexam-essay:secondary-r07-q1",
+      "eventName": "note_cta_impression",
+      "eventCount": 35
+    },
+    {
+      "label": "pe1-takuitsu-pdf:pe-first-stage-r07-basic-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 34
+    },
+    {
+      "label": "civil-1-combo-essay:secondary-experience-guide-combo",
+      "eventName": "note_cta_impression",
+      "eventCount": 33
+    },
+    {
+      "label": "civil-2-anki-note:c2-secondary-start",
+      "eventName": "note_cta_impression",
+      "eventCount": 26
+    },
+    {
+      "label": "civil-2-takuitsu-pdf:c2-exam-overview",
+      "eventName": "note_cta_impression",
+      "eventCount": 25
+    },
+    {
+      "label": "next-step",
+      "eventName": "internal_nav_click",
+      "eventCount": 23
+    },
+    {
+      "label": "civil-1-experience-essay:secondary-experience-examples",
+      "eventName": "note_cta_impression",
+      "eventCount": 21
+    },
+    {
+      "label": "civil-membership-lab:secondary-r05-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 21
+    },
+    {
+      "label": "tankan-takuitsu-reiwa-pdf:r07-primary-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 21
+    },
+    {
+      "label": "civil-membership-lab:secondary-r03-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 20
+    },
+    {
+      "label": "category-card",
+      "eventName": "internal_nav_click",
+      "eventCount": 19
+    },
+    {
+      "label": "category-civil-construction-2-hub-mokuji-sb",
+      "eventName": "note_cta_impression",
+      "eventCount": 18
+    },
+    {
+      "label": "civil-1-combo-essay:secondary-experience-examples",
+      "eventName": "note_cta_impression",
+      "eventCount": 18
+    },
+    {
+      "label": "civil-2-koji-bank:secondary-r03-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 18
+    },
+    {
+      "label": "category-civil-construction-1-hub-seasonal-sb",
+      "eventName": "note_cta_impression",
+      "eventCount": 17
+    },
+    {
+      "label": "civil-1-niji-marugoto-pack:secondary-r06-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 17
+    },
+    {
+      "label": "civil-membership-lab:textbook-construction-plan-overview-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 17
+    },
+    {
+      "label": "home-note-hero",
+      "eventName": "note_cta_impression",
+      "eventCount": 17
+    },
+    {
+      "label": "civil-2-pastexam-essay:secondary-r04-q1",
+      "eventName": "note_cta_impression",
+      "eventCount": 16
+    },
+    {
+      "label": "secondary-r07-q1",
+      "eventName": "note_cta_click",
+      "eventCount": 16
+    },
+    {
+      "label": "civil-1-niji-marugoto-pack:secondary-r04-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 15
+    },
+    {
+      "label": "civil-2-pastexam-essay:secondary-r06-q1",
+      "eventName": "note_cta_impression",
+      "eventCount": 15
+    },
+    {
+      "label": "civil-1-gakka-kijutsu:secondary-earthwork-basics-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 14
+    },
+    {
+      "label": "civil-membership-lab:primary-r07-kouki-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 14
+    },
+    {
+      "label": "pe-construction-required-magazine:pe-construction-competency-revision-r8-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 14
+    },
+    {
+      "label": "tankan-reading-guide:keyword-2026-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 14
+    },
+    {
+      "label": "category-pe-construction-hub-mokuji-sb",
+      "eventName": "note_cta_impression",
+      "eventCount": 13
+    },
+    {
+      "label": "cce-essay-magazine:concrete-chief-engineer-textbook-mix-design-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 13
+    },
+    {
+      "label": "cd-essay-magazine:concrete-diagnostician-guide-overview-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 13
+    },
+    {
+      "label": "civil-2-experience-essay:secondary-experience-examples",
+      "eventName": "note_cta_click",
+      "eventCount": 13
+    },
+    {
+      "label": "secondary-experience-guide",
+      "eventName": "note_cta_click",
+      "eventCount": 13
+    },
+    {
+      "label": "cce-essay-magazine:concrete-chief-engineer-primary-construction-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 12
+    },
+    {
+      "label": "civil-1-gakka-kijutsu:secondary-construction-plan-past-problems-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 11
+    },
+    {
+      "label": "civil-2-pastexam-essay:secondary-r07-q1",
+      "eventName": "note_cta_click",
+      "eventCount": 11
+    },
+    {
+      "label": "civil-2-r8-mock3-pdf:c2-secondary-start-mock3",
+      "eventName": "note_cta_impression",
+      "eventCount": 11
+    },
+    {
+      "label": "essay-complete-pack:keyword-2026-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 11
+    },
+    {
+      "label": "pe-construction-required-magazine:secondary-study-method-end",
+      "eventName": "note_cta_impression",
+      "eventCount": 11
+    },
+    {
+      "label": "pe-construction-required-magazine:secondary-study-method-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 11
+    },
+    {
+      "label": "category-jump-nav",
+      "eventName": "internal_nav_click",
+      "eventCount": 10
+    },
+    {
+      "label": "category-pe-comprehensive-management-hub-mokuji-footer",
+      "eventName": "note_cta_click",
+      "eventCount": 10
+    },
+    {
+      "label": "cce-essay-magazine:concrete-chief-engineer-textbook-production-qc-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 10
+    },
+    {
+      "label": "civil-membership-lab:primary-r05-kouki-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 10
+    },
+    {
+      "label": "cd-essay-magazine:concrete-diagnostician-guide-essay-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "label": "civil-1-gakka-kijutsu:secondary-earthwork-past-problems-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "label": "civil-1-niji-marugoto-pack:secondary-r03-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "label": "civil-2-experience-essay:secondary-experience-guide",
+      "eventName": "note_cta_click",
+      "eventCount": 9
+    },
+    {
+      "label": "pe1-takuitsu-pdf:pe-first-stage-r07-aptitude-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 9
+    },
+    {
+      "label": "civil-1-gakka-kijutsu:secondary-concrete-past-problems-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "label": "civil-1-gakka-kijutsu:secondary-construction-plan-basics-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "label": "civil-2-pastexam-essay:secondary-r05-q1",
+      "eventName": "note_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "label": "pe-construction-required-magazine:gakushuu-jikan-schedule-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 8
+    },
+    {
+      "label": "secondary-experience-examples",
+      "eventName": "note_cta_click",
+      "eventCount": 8
+    },
+    {
+      "label": "cce-mix-calculation-practice:concrete-chief-engineer-textbook-mix-design-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "label": "cce-r8-mc-50:concrete-chief-engineer-guide-overview-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "label": "pe1-takuitsu-pdf:pe1-r07-basic",
+      "eventName": "note_cta_impression",
+      "eventCount": 7
+    },
+    {
+      "label": "cce-essay-magazine:concrete-chief-engineer-guide-essay-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "label": "cce-essay-persona-pack:guide-essay-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "label": "civil-1-experience-essay:primary-r07-b-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "label": "civil-1-niji-marugoto-pack:guide-last-minute-2026-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "label": "civil-1-niji-marugoto-pack:secondary-r05-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "label": "civil-membership-lab:secondary-concrete-past-problems-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "label": "pe-construction-required-magazine:gakushuu-jikan-schedule-foot",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "label": "pe-construction-required-magazine:toan-kousei-template-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "label": "pe1-takuitsu-pdf:pe-first-stage-r05-basic-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 6
+    },
+    {
+      "label": "category-civil-construction-2-hub-mokuji-docs-sb",
+      "eventName": "note_cta_click",
+      "eventCount": 5
+    },
+    {
+      "label": "civil-1-experience-essay:primary-r03-a-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "label": "civil-1-experience-essay:primary-r07-a-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "label": "civil-1-gakka-kijutsu:secondary-quality-management-past-problems-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "label": "civil-1-pastexam-essay:secondary-r06-q1",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "label": "pe-construction-required-magazine:construction-planning-ronbun-keyword-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "label": "pe-construction-required-magazine:construction-planning-ronbun-keyword-sub",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "label": "pe-construction-required-magazine:toan-kousei-template-footer",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "label": "pe-construction-river-coast-magazine:river-coast-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "label": "pe1-takuitsu-pdf:pe-first-stage-r06-basic-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 5
+    },
+    {
+      "label": "persona-guide-general-contractor",
+      "eventName": "note_cta_click",
+      "eventCount": 5
+    },
+    {
+      "label": "popular-ranking",
+      "eventName": "internal_nav_click",
+      "eventCount": 5
+    },
+    {
+      "label": "category-pe-comprehensive-management-hub-mokuji-docs-sb",
+      "eventName": "note_cta_click",
+      "eventCount": 4
+    },
+    {
+      "label": "civil-1-pastexam-essay:secondary-r07-q1",
+      "eventName": "note_cta_click",
+      "eventCount": 4
+    },
+    {
+      "label": "civil-2-pastexam-essay:secondary-r06-q1",
+      "eventName": "note_cta_click",
+      "eventCount": 4
+    },
+    {
+      "label": "civil-2-r8-mock3-pdf:c2-secondary-start-mock3",
+      "eventName": "note_cta_click",
+      "eventCount": 4
+    },
+    {
+      "label": "civil-membership-lab:primary-r05-zenki-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "label": "civil-membership-lab:secondary-earthwork-past-problems-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "label": "civil-membership-lab:textbook-tractor-bulldozer-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "label": "pe-construction-required-magazine:steel-concrete-ronbun-keyword-sub",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "label": "tankan-takuitsu-reiwa-pdf:r04-primary-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 4
+    },
+    {
+      "label": "BuildJob-hubcareer",
+      "eventName": "affiliate_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "BuildJob-sidebar",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "c2-secondary-start",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "category-civil-construction-2-hub-mokuji-footer",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "category-pe-comprehensive-management-hub-mokuji-sb",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "cce-r8-mc-50:concrete-chief-engineer-primary-construction-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "cd-essay-magazine:textbook-repair-end",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "civil-1-combo-essay:secondary-experience-guide-combo",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "civil-1-experience-essay:primary-h27-a-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "civil-1-experience-essay:primary-h28-a-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "civil-1-experience-essay:secondary-experience-writing-guide-inline-1-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "civil-1-ichiji-ronten:c1-exam-overview",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "civil-2-koji-bank:secondary-experience-writing-guide-top",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "civil-2-pastexam-essay:secondary-r03-q1",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "civil-membership-lab:guide-concrete-maintenance-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "civil-membership-lab:guide-last-minute-2026-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "civil-membership-lab:secondary-construction-plan-basics-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "essay-general-contractor-magazine:persona-guide-general-contractor",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "essay-river-consultant-magazine:persona-guide-river-consultant",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "essay-road-consultant-magazine:persona-guide-road-consultant",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "essay-road-municipality-magazine:management-tradeoffs-economy-safety",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "essay-road-municipality-magazine:management-tradeoffs-economy-social",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "essay-urban-consultant-magazine:persona-guide-urban-consultant",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "home-recent-updates",
+      "eventName": "internal_nav_click",
+      "eventCount": 3
+    },
+    {
+      "label": "keyword-chip",
+      "eventName": "internal_nav_click",
+      "eventCount": 3
+    },
+    {
+      "label": "note-n3bcb87efddad",
+      "eventName": "note_article_click",
+      "eventCount": 3
+    },
+    {
+      "label": "note-ndf7ddb3f0a97",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "pe-construction-required-magazine:nanido-goukakuritsu-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "pe-construction-required-magazine:steel-concrete-ronbun-keyword-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "pe-construction-road-magazine:road-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "pe-construction-road-pack:pec-road-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "pe-construction-steel-concrete-magazine:steel-concrete-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "section-keywords",
+      "eventName": "internal_nav_click",
+      "eventCount": 3
+    },
+    {
+      "label": "tankan-takuitsu-heisei-pdf:h25-primary-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "tankan-takuitsu-heisei-pdf:h28-primary-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "tankan-takuitsu-reiwa-pdf:r03-primary-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 3
+    },
+    {
+      "label": "tankan-takuitsu-reiwa-pdf:r08-primary-top",
+      "eventName": "note_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "ハイクラス DX・コンサル転職",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "ビルドジョブ",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 3
+    },
+    {
+      "label": "c1-exam-overview",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "category-civil-construction-1-hub-mokuji-footer",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "category-pe-comprehensive-management-hub-mokuji-mob",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "category-pe-construction-hub-mokuji-sb",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "cce-essay-persona-pack:guide-essay-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "cce-mix-calculation-practice:concrete-chief-engineer-primary-mix-design-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "cce-r8-mc-50:concrete-chief-engineer-primary-materials-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "ce-mix-jis-practice:concrete-engineer-textbook-mix-design-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-1-experience-essay:primary-h29-a-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-1-experience-essay:primary-r06-b-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-1-gakka-kijutsu:secondary-concrete-basics-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-1-pastexam-essay:secondary-r04-q1",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-1-pastexam-essay:secondary-r05-q1",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-2-anki-note:c2-secondary-start",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-2-koji-bank:secondary-r04-top",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-2-koji-bank:secondary-r07-top",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-2-pastexam-essay:secondary-experience-examples",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-2-pastexam-essay:secondary-r04-q1",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-2-pastexam-essay:secondary-r05-q1",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-membership-lab:guide-construction-plan-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-membership-lab:guide-earthwork-key-points-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-membership-lab:guide-environment-management-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-membership-lab:guide-four-management-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-membership-lab:primary-r04-kouki-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-membership-lab:primary-r06-kouki-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-membership-lab:primary-r06-zenki-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-membership-lab:primary-r07-zenki-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-membership-lab:secondary-concrete-basics-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-membership-lab:secondary-construction-plan-past-problems-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "civil-membership-lab:textbook-shovel-excavator-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "construction-planning-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "economic-management-pillar-inline-1-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "essay-complete-pack:essay-exam-strategy-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "essay-complete-pack:exam-index-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "essay-complete-pack:persona-guide-complete-pack",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "essay-core-pack:essay-strategy-kyotsu",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "essay-park-municipality-magazine:persona-guide-park-municipality",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "essay-port-municipality-magazine:persona-guide-port-municipality",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "essay-procurement-municipality-magazine:persona-guide-procurement-municipality",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "essay-river-municipality-magazine:persona-guide-river-municipality",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "essay-road-municipality-magazine:management-tradeoffs-economy-human",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "essay-road-municipality-magazine:persona-guide-road-municipality",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "essay-sabo-municipality-magazine:persona-guide-sabo-municipality",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "essay-sewage-municipality-magazine:persona-guide-sewage-municipality",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "essay-standards-municipality-magazine:persona-guide-standards-municipality",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "essay-urban-municipality-magazine:persona-guide-urban-municipality",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "essay-water-municipality-magazine:persona-guide-water-municipality",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "home-note-hero",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "note-n0c52cfabab78",
+      "eventName": "note_article_click",
+      "eventCount": 2
+    },
+    {
+      "label": "note-n4424bc5ce1c9",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "note-nc360aaa381b0",
+      "eventName": "note_article_click",
+      "eventCount": 2
+    },
+    {
+      "label": "pe-construction-construction-planning-magazine:construction-planning-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "pe-construction-environment-magazine:environment-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "pe-construction-geotechnical-magazine:geotechnical-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "pe-construction-required-magazine:gyoumu-keireki-hyou-end",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "pe-construction-required-magazine:gyoumu-keireki-hyou-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "pe-construction-required-magazine:nanido-goukakuritsu-tail",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "pe-construction-required-magazine:road-ronbun-keyword-sub",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "pe-construction-road-magazine:road-ronbun-keyword-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "pe1-takuitsu-pdf:pe-first-stage-r01-basic-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "pe1-takuitsu-pdf:pe-first-stage-r04-basic-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "pe1-takuitsu-pdf:pe-first-stage-r05-aptitude-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "pe1-takuitsu-pdf:pe-first-stage-r06-aptitude-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "persona-guide-road-consultant",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "r08-primary-top",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "r8-essay-forecast:essay-strategy-kyotsu",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "secondary-experience-writing-examples-top",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "secondary-experience-writing-guide-top",
+      "eventName": "note_cta_click",
+      "eventCount": 2
+    },
+    {
+      "label": "setsumon3-policy-bank:essay-strategy-kyotsu",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "tankan-takuitsu-heisei-pdf:h26-primary-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "tankan-takuitsu-heisei-pdf:h27-primary-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "tankan-takuitsu-heisei-pdf:h29-primary-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "tankan-takuitsu-reiwa-pdf:r02-primary-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "tankan-takuitsu-reiwa-pdf:r05-primary-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "tankan-takuitsu-reiwa-pdf:r06-primary-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "tradeoff-5kanri:essay-strategy-kyotsu",
+      "eventName": "note_cta_impression",
+      "eventCount": 2
+    },
+    {
+      "label": "DXConsulting-endbanner",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "KensetsuJobs-sidebar",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "bosai-kokudo-kyoujinka-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "category-civil-construction-1-hub-mokuji-docs-sb",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "category-civil-construction-1-hub-mokuji-sb",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "category-pe-comprehensive-management-hub-mokuji-mob",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "category-pe-construction-hub-mokuji-footer",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "cce-mix-calculation-practice:concrete-chief-engineer-textbook-mix-design-top",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "cce-r8-mc-50:concrete-chief-engineer-guide-trends-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "cce-r8-mc-50:concrete-chief-engineer-primary-durability-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "cce-r8-mc-50:concrete-chief-engineer-primary-products-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "cce-r8-mc-50:concrete-chief-engineer-primary-structural-design-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "cd-essay-magazine:concrete-diagnostician-guide-essay-top",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "cd-essay-magazine:textbook-assessment-end",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "ce-mix-jis-practice:concrete-engineer-textbook-production-qc-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-1-anki-note:c1-last-minute",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-1-experience-essay:primary-h26-a-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-1-experience-essay:primary-h26-b-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-1-experience-essay:primary-r01-b-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-1-experience-essay:primary-r03-b-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-1-experience-essay:primary-r05-a-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-1-experience-essay:secondary-experience-examples",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-1-ichiji-ronten:c1-construction-plan",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-1-keiken-complete-pack:secondary-experience-writing-guide-top",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-1-pastexam-essay:secondary-r03-q1",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-1-pastexam-essay:secondary-r06-q1",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-1-r8-bunseki:c1-last-minute",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-2-koji-bank:secondary-experience-writing-examples-top",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-membership-lab:guide-concrete-key-points-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-membership-lab:guide-foundation-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-membership-lab:guide-law-key-points-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-membership-lab:guide-machinery-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-membership-lab:guide-quality-management-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-membership-lab:primary-r03-kouki-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-membership-lab:primary-r03-zenki-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-membership-lab:secondary-earthwork-basics-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-membership-lab:secondary-experience-writing-guide-inline-1-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-membership-lab:secondary-r07-inline-1-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-membership-lab:textbook-machinery-overview-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "civil-membership-lab:textbook-soil-investigation-methods-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "essay-complete-pack:keyword-2026-inline-1-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "essay-core-pack:essay-strategy-kyotsu",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "essay-exam-strategy-inline-1-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "essay-sewage-municipality-magazine:persona-guide-sewage-municipality",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "guide-construction-plan-inline-1-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "human-resource-management-pillar-inline-1-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "keyword-lead",
+      "eventName": "internal_nav_click",
+      "eventCount": 1
+    },
+    {
+      "label": "management-tradeoffs-economy-safety",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "management-tradeoffs-economy-social",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "note-n05314b15b375",
+      "eventName": "note_article_click",
+      "eventCount": 1
+    },
+    {
+      "label": "note-n6f9854578518",
+      "eventName": "note_article_click",
+      "eventCount": 1
+    },
+    {
+      "label": "note-nb010cafe207b",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "note-nb052deac97b1",
+      "eventName": "note_article_click",
+      "eventCount": 1
+    },
+    {
+      "label": "note-nb4e6f088f0e8",
+      "eventName": "note_article_click",
+      "eventCount": 1
+    },
+    {
+      "label": "note-ndf7ddb3f0a97",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-environment-magazine:environment-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-port-airport-magazine:port-airport-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-required-magazine:carbon-neutral-kensetsu-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-required-magazine:carbon-neutral-kensetsu-tail",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-required-magazine:construction-environment-ronbun-keyword-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-required-magazine:construction-environment-ronbun-keyword-sub",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-required-magazine:construction-planning-ronbun-keyword-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-required-magazine:gakushuu-jikan-schedule-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-required-magazine:iji-kanri-ronbun-keyword-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-required-magazine:required-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-required-magazine:secondary-study-method-end",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-required-magazine:shakai-shihon-ronbun-keyword-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-required-magazine:soil-foundation-ronbun-keyword-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-required-magazine:soil-foundation-ronbun-keyword-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-required-magazine:soil-foundation-ronbun-keyword-sub",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-required-magazine:toan-kousei-template-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-required-magazine:urban-planning-ronbun-keyword-sub",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-river-coast-magazine:river-coast-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-road-magazine:road-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-steel-concrete-magazine:steel-concrete-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-steel-concrete-magazine:steel-concrete-ronbun-keyword-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-tunnel-magazine:tunnel-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-urban-planning-magazine:urban-planning-exam-themes",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe-construction-urban-planning-magazine:urban-planning-ronbun-keyword-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe1-takuitsu-pdf:pe-first-stage-r02-aptitude-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe1-takuitsu-pdf:pe-first-stage-r02-basic-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe1-takuitsu-pdf:pe-first-stage-r03-aptitude-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe1-takuitsu-pdf:pe-first-stage-r03-basic-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "pe1-takuitsu-pdf:pe-first-stage-r04-aptitude-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "persona-guide-complete-pack",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "persona-guide-road-municipality",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "pillar-nav",
+      "eventName": "internal_nav_click",
+      "eventCount": 1
+    },
+    {
+      "label": "port-airport-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "related-textbooks",
+      "eventName": "internal_nav_click",
+      "eventCount": 1
+    },
+    {
+      "label": "secondary-experience-writing-guide-inline-1-mid",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "secondary-getting-started-top",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "secondary-r03-q1",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "secondary-r04-q1",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "secondary-r06-q1",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "steel-concrete-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "tankan-h21-primary",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "tankan-reading-guide:economic-management-pillar-inline-1-mid",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "tankan-reading-guide:general-overview-refs",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "tankan-takuitsu-heisei-pdf:h30-primary-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "tankan-takuitsu-reiwa-pdf:r01-primary-top",
+      "eventName": "note_cta_impression",
+      "eventCount": 1
+    },
+    {
+      "label": "tankan-takuitsu-reiwa-pdf:r06-primary-top",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "urban-planning-exam-themes",
+      "eventName": "note_cta_click",
+      "eventCount": 1
+    },
+    {
+      "label": "建設JOBs",
+      "eventName": "affiliate_cta_click",
+      "eventCount": 1
+    }
+  ]
+}

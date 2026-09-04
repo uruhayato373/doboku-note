@@ -1,0 +1,3117 @@
+{
+  "meta": {
+    "startDate": "2026-08-04",
+    "endDate": "2026-09-01",
+    "dimensions": [
+      "page",
+      "query"
+    ],
+    "limit": null,
+    "pages_fetched": 1,
+    "row_count": 310,
+    "truncated": false,
+    "api_note": "Search Analytics API は全行の返却を保証しない（sampling / privacy filtering で低ボリューム行が欠落し得る）。row_count は startRow ページングの合算実測値であり、母集合全体とは限らない。"
+  },
+  "rows": [
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "インターフェアリングフロート"
+      ],
+      "clicks": 1,
+      "impressions": 169,
+      "ctr": 0.005917159763313609,
+      "position": 9.644970414201184
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-lifecycle-costing-method",
+        "ライフサイクルコスティング"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 32
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-quality-costing",
+        "品質原価計算とは"
+      ],
+      "clicks": 1,
+      "impressions": 1,
+      "ctr": 1,
+      "position": 21
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/civil-construction-1/textbook/schedule-overview",
+        "採算速度とは"
+      ],
+      "clicks": 1,
+      "impressions": 5,
+      "ctr": 0.2,
+      "position": 8.8
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/okinawa",
+        "土木工事共通仕様書 沖縄県"
+      ],
+      "clicks": 1,
+      "impressions": 2,
+      "ctr": 0.5,
+      "position": 10
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "2h ルール"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 29
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "2hルール"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 26
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "じゃっけつ 土木"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 92
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "ずい道とは"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 72
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "仮復旧"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 71
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "伏せ越しとは"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 59
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "供用開始"
+      ],
+      "clicks": 0,
+      "impressions": 27,
+      "ctr": 0,
+      "position": 42.888888888888886
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "供用開始とは"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 46.75
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "函 渠"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 88
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "函渠"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 84
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "函渠 基礎"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 70
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "函渠 施工方法"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 83
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "品質証明書"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 58
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "土手 とは"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 52
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "土手 河川敷"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "土被り"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 73
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "地ふく"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 75
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "埋め 戻し 巻き 出し 厚"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 69
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "基面整正"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 48
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "堤防 土手"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 59
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "局所洗堀"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 54
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "旧河道"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 56
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "旧河道とは"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 54
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "概成"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 46
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "水路敷とは"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 79
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "河川敷 土手"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 61
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "河川敷 土手 違い"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 50.666666666666664
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "溝掘り 土木"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 79
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "縦 帯 工 と は"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 47
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "落差工"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 59
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "行き止まり 道路"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 52
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "裏法"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 29
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/",
+        "道路 立ち退き"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 85.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/category/pe-first-stage",
+        "技術士 総合技術監理"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 23
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-guide-1-vs-2",
+        "土木施工管理技士１級 ２級"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 80
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-guide-age-career",
+        "施工管理 50代"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 63
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-guide-age-career",
+        "施工管理技士 50代 転職"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 63
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-guide-buildjob-review",
+        "ビルドジョブ"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 35
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-guide-buildjob-review",
+        "ビルドジョブ 口コミ"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 22.166666666666668
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-guide-buildjob-review",
+        "ビルドジョブ 評判"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 23.75
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-guide-buildjob-review",
+        "施工管理job 評判"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 79
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-guide-company-types",
+        "サブコン ゼネコン"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 91
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-guide-company-types",
+        "ゼネコン総合建設業違い"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 84
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-primary-r04-b",
+        "どぼくじら"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 66
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-primary-r05-b",
+        "\"関連工事との調整を図って本件工事を円滑に完成するため作業所長\""
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-secondary-r06",
+        "2級土木施工管理技士 実地試験 解答例 令和6 年"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 88
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-construction-mgmt-overview",
+        "施工 管理 5 大 管理"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 96
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-construction-mgmt-overview",
+        "施工管理 5大管理"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 98
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-construction-mgmt-overview",
+        "施工管理 原価管理"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 81
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-control-chart",
+        "管理 図 異常 判定 ルール"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 93.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-control-chart",
+        "管理限界線"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 73
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-law-compliance",
+        "土木 法令順守"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 27.857142857142858
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-machinery-overview",
+        "1 級 建設 機械 施工 技士 乗れる 機械"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 79
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-machinery-overview",
+        "土木機械"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 80.75
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-machinery-overview",
+        "建設機械施工管理技士 土木施工管理技士 違い"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 81
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-machinery-overview",
+        "施工 機械"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 78
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-machinery-overview",
+        "施工機械"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 74.4
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "est lst"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "インター フェア リング フロート 計算"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "インターフェアリングフロートとは"
+      ],
+      "clicks": 0,
+      "impressions": 723,
+      "ctr": 0,
+      "position": 8.427385892116183
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "クリティカルパス 工程表"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 80
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "クリティカルパス工程表"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 79
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "トータル フロート と は"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 43
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "トータル フロート フリー フロート 違い"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 30
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "トータルフロート 求め方"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 27
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "ネットワーク 工程"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 70.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "ネットワーク 工程 表"
+      ],
+      "clicks": 0,
+      "impressions": 34,
+      "ctr": 0,
+      "position": 66.79411764705883
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "ネットワーク 工程 表 と は"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 73
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "ネットワーク 工程 表 クリティカル パス"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 64
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "ネットワーク 式 工程 表 と は"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 67
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "ネットワーク工程表"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 57.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "ネットワーク工程表 とは"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 68
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "ネットワーク工程表 インターフェアリングフロート"
+      ],
+      "clicks": 0,
+      "impressions": 14,
+      "ctr": 0,
+      "position": 8.071428571428571
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "ネットワーク工程表 用語"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 49
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "ネットワーク工程表 解き方"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 52
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-network-schedule",
+        "最早 開始 時刻"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 40
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-quality-overview",
+        "品質管理とは 土木"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 76
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-quality-overview",
+        "建設 業 品質 管理"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 87.6
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-quality-overview",
+        "建設業 品質管理"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 73
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-quality-overview",
+        "施工管理 品質管理"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 97
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-schedule-overview",
+        "採算速度"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-scraper",
+        "スクレーパ と は 土木"
+      ],
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 10.076923076923077
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-scraper",
+        "スクレーパ 土木"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 9.375
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-scraper",
+        "スクレーパ 建設機械"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-scraper",
+        "スクレーパとは"
+      ],
+      "clicks": 0,
+      "impressions": 55,
+      "ctr": 0,
+      "position": 8.763636363636364
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-scraper",
+        "スクレーパー と は"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 73
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-scraper",
+        "スクレーパー 機械"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 33
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-scraper",
+        "スクレープ ドーザ"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 24
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-scraper",
+        "スクレープドーザ"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-scraper",
+        "スクレープドーザとは"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-scraper",
+        "スクレープドーザーとは"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-scraper",
+        "モーター スクレーパー"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 22
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-scraper",
+        "モータースクレーパー"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 4.9
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-scraper",
+        "レーキドーザとは"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 69
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-scraper",
+        "自走式スクレーパ"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 5.75
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-scraper",
+        "自走式スクレーパー"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 1
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-scraper",
+        "被けん引式スクレーパ"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/civil-construction-1-textbook-scraper",
+        "被牽引式スクレーパー"
+      ],
+      "clicks": 0,
+      "impressions": 7,
+      "ctr": 0,
+      "position": 3.5714285714285716
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/concrete-chief-engineer-guide-overview",
+        "コンクリート技士 試験時間"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 33
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/concrete-diagnostician-guide-overview",
+        "コンクリート 診断 士"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 77.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/concrete-diagnostician-guide-overview",
+        "コンクリート診断士"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 71
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/concrete-diagnostician-textbook-deterioration",
+        "コンクリート アルカリ性"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 87.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/concrete-diagnostician-textbook-deterioration",
+        "コンクリート 中性化"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 98
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/concrete-diagnostician-textbook-deterioration",
+        "コンクリートアルカリ性"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 83
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-alarp-principle",
+        "alarp とは"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 12
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-alarp-principle",
+        "alarpとは"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-analytic-hierarchy-process",
+        "階層 分析 法"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 57
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-blind-drill",
+        "ブラインド 訓練"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 20.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-blind-drill",
+        "ブラインド型訓練"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 14
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-blind-drill",
+        "ブラインド訓練"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 22
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-break-even-point",
+        "優劣分岐点"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 9.2
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-break-even-point",
+        "優劣分岐点とは"
+      ],
+      "clicks": 0,
+      "impressions": 9,
+      "ctr": 0,
+      "position": 6.666666666666667
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-break-even-point",
+        "原価 計算 損益 分岐 点"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 97
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-budget-planning",
+        "予算計画"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 33
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-business-intelligence",
+        "ビジネス インテリジェンス と は"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 98
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-career-path",
+        "キャリアラダー キャリアパス 違い"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 87
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-design-quality",
+        "設計 品質"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 68
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-equal-employment-act",
+        "男女雇用機会均等法 背景"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 77
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-exam-index",
+        "技術士 総合技術監理部門"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 32
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-exam-index",
+        "技術士二次試験 総監"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 40
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-exam-index",
+        "技術士総合技術監理部門"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 55
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-exam-index",
+        "技術士総合技術監理部門とは"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 40.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-exam-index",
+        "技術士総合技術監理部門名刺"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 53
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-exam-index",
+        "技術士総合技術監理部門難易度"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 44
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-exam-index",
+        "総合技術監理部門"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 79.33333333333333
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-exam-index",
+        "総監技術士"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 37
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-firewall-ids",
+        "不正 侵入 検知"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 91
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-fool-proof",
+        "fool proof 意味"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 89
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-fool-proof",
+        "フェイル プルーフ"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 88
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-fool-proof",
+        "フール プルーフ"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 86.8
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-fool-proof",
+        "フール プルーフ 意味"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 81
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-fool-proof",
+        "フールプルーフ"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 82.66666666666667
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-fool-proof",
+        "フールプルーフ 例"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 77
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-fool-proof",
+        "フールプルーフとは"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 85
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-fool-proof",
+        "フールプルーフ例"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 78
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-fool-proof",
+        "ﾌｰﾙ ﾌﾟﾙｰﾌ 例"
+      ],
+      "clicks": 0,
+      "impressions": 43,
+      "ctr": 0,
+      "position": 80.46511627906976
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-green-infrastructure",
+        "グリーンインフラ"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 93.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-green-infrastructure",
+        "グリーンインフラとは"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 86
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-groupware",
+        "グループウェア 士業"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 47.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-hazid",
+        "hazid"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 52
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-herzberg-two-factor-theory",
+        "ハーズバーグの二要因理論"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 89
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-herzberg-two-factor-theory",
+        "二 要因 理論"
+      ],
+      "clicks": 0,
+      "impressions": 18,
+      "ctr": 0,
+      "position": 91.55555555555556
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-human-error-probability",
+        "トライポッド理論"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-indirect-manufacturing-cost",
+        "間接費管理 製造業"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 88
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-inherent-safety",
+        "本質安全"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 64
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-inherent-safety",
+        "本質的安全設計とは"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 39
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-inspection-methods",
+        "全数 検査"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 86
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-inspection-methods",
+        "全数検査"
+      ],
+      "clicks": 0,
+      "impressions": 55,
+      "ctr": 0,
+      "position": 81.38181818181818
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-jisec",
+        "jisec"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 16
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-jisec",
+        "jisecとは"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026",
+        "総合技術監理 キーワード集 2026"
+      ],
+      "clicks": 0,
+      "impressions": 20,
+      "ctr": 0,
+      "position": 8.15
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026",
+        "総合技術監理 キーワード集 解説"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026",
+        "総監 キーワード 2026"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-keyword-2026",
+        "総監キーワード2026"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-lopa",
+        "lopaとは何ですか"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 19
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-mentor",
+        "不動産業界 部下育成 メンター制度"
+      ],
+      "clicks": 0,
+      "impressions": 30,
+      "ctr": 0,
+      "position": 70.83333333333333
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-multi-track-hr-system",
+        "複線型 人事制度"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 83.25
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-multi-track-hr-system",
+        "複線型人事制度"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 82.75
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-overall-equipment-effectiveness",
+        "oee とは"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 75.33333333333333
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-overall-equipment-effectiveness",
+        "oeeとは"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 75.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-overall-equipment-effectiveness",
+        "設備 総合 効率"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 83.33333333333333
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-overall-equipment-effectiveness",
+        "設備総合効率"
+      ],
+      "clicks": 0,
+      "impressions": 20,
+      "ctr": 0,
+      "position": 79.8
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-overall-equipment-effectiveness",
+        "設備総合効率とは"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 77
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-overall-equipment-effectiveness",
+        "速度 稼働 率"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 72
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-predictive-maintenance",
+        "cbm tbm"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 94
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-predictive-maintenance",
+        "cbm とは 保全"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 90.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-predictive-maintenance",
+        "cbm 予知保全"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 77.66666666666667
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-predictive-maintenance",
+        "tbm 保全"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 91
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-predictive-maintenance",
+        "tbmとは 保全"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 85.33333333333333
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-predictive-maintenance",
+        "tbm管理"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 90
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-process-safety-mgmt",
+        "プロセス安全管理システム"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 45
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-quality-costing",
+        "paf法"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 38
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-quality-costing",
+        "品質 コスト の 管理 会計"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 60.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-quality-costing",
+        "品質コストとは"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 83
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-quality-costing",
+        "品質原価計算"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 15
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-r08-secondary",
+        "令和8年度 技術士二次試験"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 59
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment",
+        "risk assessment"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 92
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment",
+        "risk assessment 意味"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 82
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment",
+        "リスク アセスメント 評価"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 64
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment",
+        "リスク マネジメント リスク 評価"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 90
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment",
+        "リスク 評価"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 90
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment",
+        "リスク 評価 と は"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 82
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment",
+        "リスク 評価 手法"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 94
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-risk-assessment",
+        "安全 リスク 評価"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 83
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-root-cause-analysis",
+        "根本 原因 分析"
+      ],
+      "clicks": 0,
+      "impressions": 50,
+      "ctr": 0,
+      "position": 84.28
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-root-cause-analysis",
+        "根本原因"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 74
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-safety-and-security",
+        "技術 安心・安全"
+      ],
+      "clicks": 0,
+      "impressions": 11,
+      "ctr": 0,
+      "position": 42.90909090909091
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-scientific-management",
+        "テイラー システム"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 85
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-scientific-management",
+        "科学的管理法"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 70
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-scientific-management",
+        "科学的管理法 テイラー"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 72
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-scientific-management",
+        "科学的管理法とは"
+      ],
+      "clicks": 0,
+      "impressions": 39,
+      "ctr": 0,
+      "position": 72.07692307692308
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-scientific-management",
+        "課業 管理"
+      ],
+      "clicks": 0,
+      "impressions": 13,
+      "ctr": 0,
+      "position": 30
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-tbm-toolbox-meeting",
+        "tbm-ky"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 61.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-tbm-toolbox-meeting",
+        "tbm-ky-r"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 87
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-tbm-toolbox-meeting",
+        "tbmとは"
+      ],
+      "clicks": 0,
+      "impressions": 6,
+      "ctr": 0,
+      "position": 69.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-tbm-toolbox-meeting",
+        "ツールボックスミーティング"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 33
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-visual-management",
+        "総合技術監理部門"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 130
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-vta-method",
+        "vta 分析 やり方"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 14
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-vta-method",
+        "vta分析"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 14.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-comprehensive-management-vta-method",
+        "vta分析とは"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 15
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-construction-construction-planning-exam-themes",
+        "技術士 施工計画"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 76
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-construction-hissu-kamoku-kaitourei",
+        "技術士模範解答"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 31
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-construction-port-airport-ronbun-keyword",
+        "技術士 港湾"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 29
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-construction-r01-construction-planning",
+        "技術士二次試験 施工計画"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 30
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-construction-r01-port-airport",
+        "技術士 港湾"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 105
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-construction-r01-railway",
+        "技術士鉄道"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 63
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-construction-r05-railway",
+        "技術士鉄道"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 75
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-construction-r07-railway",
+        "技術士鉄道"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 32
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-construction-river-coast-exam-themes",
+        "技術士 河川砂防及び海岸"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-construction-road-exam-themes",
+        "技術士道路"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 40
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/pe-construction-tunnel-exam-themes",
+        "技術士 トンネル"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 17
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/reference-materials-floodgate",
+        "水門"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 71
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/docs/reference-materials-inverted-siphon",
+        "伏せ越しとは"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 27
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/civil-construction-1/guide/career-salary",
+        "一級土木施工管理技士 年収"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 61
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/civil-construction-1/guide/resume",
+        "施工管理 履歴書"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 80
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/civil-construction-1/guide/resume",
+        "職務 経歴 書 建設 業"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 94.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/civil-construction-1/secondary/quality-management-basics",
+        "盛土の所要力学特性とは"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/civil-construction-1/textbook/distance-angle",
+        "測角"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/civil-construction-1/textbook/distance-angle",
+        "測角とは"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/civil-construction-1/textbook/scraper",
+        "スクレーパとは"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 6
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/civil-construction-1/textbook/scraper",
+        "スクレープドーザ"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/civil-construction-1/textbook/scraper",
+        "スクレープドーザとは"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/civil-construction-1/textbook/scraper",
+        "自走式スクレーパー"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/civil-construction-2/secondary/getting-started",
+        "技術士二次試験"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 17
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/concrete-chief-engineer/primary/materials",
+        "jis r 5210では，普通ポルトランドセメントの塩化物イオン量の上限値が0.035％と規定されている。"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 4
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/concrete-diagnostician/textbook/deterioration",
+        "コンクリート 中性化"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 97.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/concrete-diagnostician/textbook/deterioration",
+        "中性化"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 99
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/guide/exam-index",
+        "技術士二次試験"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 14
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/guide/frequent-topics",
+        "技術士二次試験"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/access-control",
+        "アクセスコントロール"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 91
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/activity-abc",
+        "活動基準原価計算"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 82.66666666666667
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/activity-abc",
+        "活動基準原価計算とは"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 81
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/business-intelligence",
+        "ビジネスインテリジェンス"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 94
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/business-intelligence",
+        "ビジネス・インテリジェンス"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 95.33333333333333
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/conformity-bias",
+        "多数派同調 バイアス"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 42
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/control-limits",
+        "上方管理限界"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/cost-driver",
+        "cost driver"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 6.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/cost-driver",
+        "cost driver definition"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 87
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/cost-driver",
+        "コストドライバー"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 19
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/cost-driver",
+        "コストドライバーとは"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 8.666666666666668
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/four-m-analysis",
+        "4m分析"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 69
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/inspection-methods",
+        "全数検査"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 77
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/ismap",
+        "ismap 読み方"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 90
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/jisec",
+        "jisec"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 11.333333333333334
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/labor-cost-ratio",
+        "労務費率"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 53
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/machinery-safety-guidelines",
+        "機械の包括的な安全基準に関する指針 厚生労働省"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 27
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/normalcy-bias",
+        "正常 性 バイアス"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 90
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/normalcy-bias",
+        "正常性バイアス"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 99
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/operation-errors",
+        "オペレーション ミス"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 17
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/performance-linked-bonus",
+        "業績連動型賞与"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 43
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/performance-linked-bonus",
+        "業績連動賞与"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 52
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/planetary-boundaries",
+        "プラネタリーバウンダリー"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 91
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/pyramid-organization",
+        "ピラミッド型組織"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 77
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/safety-patrol",
+        "安全パトロール"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 80
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/scientific-management",
+        "科学的管理法とは"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 71
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/skill-qualification-system",
+        "職能資格制度"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 67
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/sop",
+        "sop 標準作業手順書"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 72
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/sop",
+        "作業標準書（sop）"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 73.66666666666667
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/technical-nontechnical-skills",
+        "テクニカルスキルとは？"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 87
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/technical-nontechnical-skills",
+        "技術士スキル"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/unsafe-conditions-behavior",
+        "不安全状態"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 37
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/unsafe-conditions-behavior",
+        "不安全状態とは"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 25
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/unsafe-conditions-behavior",
+        "不安全行動 不安全状態 違い"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 32
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/unsafe-conditions-behavior",
+        "不安全行動とは"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 49
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/utilization-rate",
+        "稼働率"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 91
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/keywords/verbal-nonverbal-communication",
+        "非言語ｺﾐｭﾆｹｰｼｮﾝ 種類"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 88
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-comprehensive-management/past-exams/h28-primary",
+        "pcb特措法"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-construction",
+        "技術士二次試験"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 24
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-construction/guide/career",
+        "技術 士 年収"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 75
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-construction/guide/career",
+        "技術士 年収"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 73.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-construction/guide/career",
+        "技術士転職"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 82.5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/exam/pe-first-stage/primary/r06-construction",
+        "土質"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/links",
+        "どぼくじら"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 73
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/practice/safety-patrol-corrective-action",
+        "安全パトロール"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 86
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards",
+        "土木 共通仕様書"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 63
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/chugoku/common",
+        "共通仕様書 土木"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 51
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/chugoku/local",
+        "中国地整 共通仕様書"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/chugoku/local",
+        "中国地方整備局"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/chugoku/local",
+        "中国地方整備局 共通仕様書"
+      ],
+      "clicks": 0,
+      "impressions": 8,
+      "ctr": 0,
+      "position": 7.75
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/chugoku/local",
+        "土木工事共通仕様書 中国地方整備局"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/hokkaido",
+        "北海道建設管理部 共通仕様書"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 22
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/hokkaido",
+        "北海道開発局 土木工事共通仕様書"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/hokkaido",
+        "開発局 仕様書"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/hokuriku",
+        "共通仕様書 北陸地方整備局"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 9
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/hokuriku",
+        "北陸地方整備局 土木工事共通仕様書"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/hokuriku",
+        "土木工事共通仕様書 北陸地方整備局"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 8
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/hokuriku/common",
+        "共通仕様書 土木"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 63
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/hokuriku/common",
+        "土木 共通仕様書"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 49
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/hokuriku/common",
+        "土木共通仕様書"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 54
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/kinki",
+        "近畿地方整備局 土木工事共通仕様書"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/kinki/hikkei",
+        "土木請負工事必携 最新"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 10
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/okinawa",
+        "沖縄県 土木工事共通仕様書"
+      ],
+      "clicks": 0,
+      "impressions": 5,
+      "ctr": 0,
+      "position": 10.6
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/okinawa",
+        "沖縄県土木工事共通仕様書"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 11
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/standards/tohoku",
+        "東北地方整備局 共通仕様書"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 16
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/tools/juken-shikaku",
+        "1級 2級 土木"
+      ],
+      "clicks": 0,
+      "impressions": 4,
+      "ctr": 0,
+      "position": 83.25
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/tools/juken-shikaku",
+        "2級土木施工管理技士 学科のみ合格 有効期限"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 62
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/tools/juken-shikaku",
+        "一級 土木 施工 管理 技士 受験 資格"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 73
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/tools/juken-shikaku",
+        "一級 土木施工管理技士 合格基準"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 81
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/tools/juken-shikaku",
+        "一級土木施工管理技士 合格基準"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 77
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/tools/juken-shikaku",
+        "二級土木施工管理技士 受験資格"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 69
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/tools/juken-shikaku",
+        "土木 試験"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 54
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/tools/juken-shikaku",
+        "土木 資格"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 89
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/tools/juken-shikaku",
+        "土木の資格一覧"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 96
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/tools/juken-shikaku",
+        "土木施工管理技士 受験資格"
+      ],
+      "clicks": 0,
+      "impressions": 10,
+      "ctr": 0,
+      "position": 79.6
+    },
+    {
+      "keys": [
+        "https://doboku-note.com/tools/juken-shikaku",
+        "建築 土木 施工管理合格ネット"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 53
+    }
+  ]
+}

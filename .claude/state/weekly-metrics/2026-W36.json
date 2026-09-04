@@ -2,26 +2,26 @@
   "week_id": "2026-W36",
   "year": 2026,
   "week": 36,
-  "generated_at": "2026-09-03T22:56:33.609Z",
+  "generated_at": "2026-09-04T09:34:27.670Z",
   "ranges": {
     "ga4": {
       "this": {
-        "start": "2026-08-27",
-        "end": "2026-09-02"
+        "start": "2026-08-28",
+        "end": "2026-09-03"
       },
       "prev": {
-        "start": "2026-08-20",
-        "end": "2026-08-26"
+        "start": "2026-08-21",
+        "end": "2026-08-27"
       }
     },
     "gsc": {
       "this": {
-        "start": "2026-08-25",
-        "end": "2026-08-31"
+        "start": "2026-08-26",
+        "end": "2026-09-01"
       },
       "prev": {
-        "start": "2026-08-18",
-        "end": "2026-08-24"
+        "start": "2026-08-19",
+        "end": "2026-08-25"
       }
     }
   },
@@ -29,193 +29,193 @@
     "channels": [
       {
         "channel": "Organic Search",
-        "thisUsers": 1606,
-        "prevUsers": 1144,
-        "userDelta": 462,
-        "userDeltaPct": 40.38461538461539,
-        "thisSessions": 2253,
-        "prevSessions": 1613,
-        "thisEngagementRate": 0.7154904571682201
+        "thisUsers": 1772,
+        "prevUsers": 1159,
+        "userDelta": 613,
+        "userDeltaPct": 52.89042277825712,
+        "thisSessions": 2473,
+        "prevSessions": 1617,
+        "thisEngagementRate": 0.7064294379296401
       },
       {
         "channel": "Direct",
-        "thisUsers": 1008,
-        "prevUsers": 106,
-        "userDelta": 902,
-        "userDeltaPct": 850.9433962264151,
-        "thisSessions": 1076,
-        "prevSessions": 136,
-        "thisEngagementRate": 0.15985130111524162
+        "thisUsers": 956,
+        "prevUsers": 172,
+        "userDelta": 784,
+        "userDeltaPct": 455.8139534883721,
+        "thisSessions": 1027,
+        "prevSessions": 205,
+        "thisEngagementRate": 0.14410905550146055
       },
       {
         "channel": "Referral",
         "thisUsers": 33,
-        "prevUsers": 27,
-        "userDelta": 6,
-        "userDeltaPct": 22.22222222222222,
-        "thisSessions": 93,
-        "prevSessions": 117,
-        "thisEngagementRate": 0.6559139784946236
-      },
-      {
-        "channel": "AI Assistant",
-        "thisUsers": 17,
-        "prevUsers": 12,
-        "userDelta": 5,
-        "userDeltaPct": 41.66666666666667,
-        "thisSessions": 21,
-        "prevSessions": 13,
-        "thisEngagementRate": 0.42857142857142855
-      },
-      {
-        "channel": "Unassigned",
-        "thisUsers": 15,
-        "prevUsers": 10,
-        "userDelta": 5,
-        "userDeltaPct": 50,
-        "thisSessions": 15,
-        "prevSessions": 10,
-        "thisEngagementRate": 0.2
+        "prevUsers": 26,
+        "userDelta": 7,
+        "userDeltaPct": 26.923076923076923,
+        "thisSessions": 97,
+        "prevSessions": 118,
+        "thisEngagementRate": 0.6597938144329897
       },
       {
         "channel": "Organic Social",
+        "thisUsers": 17,
+        "prevUsers": 21,
+        "userDelta": -4,
+        "userDeltaPct": -19.047619047619047,
+        "thisSessions": 19,
+        "prevSessions": 22,
+        "thisEngagementRate": 0.47368421052631576
+      },
+      {
+        "channel": "AI Assistant",
+        "thisUsers": 16,
+        "prevUsers": 10,
+        "userDelta": 6,
+        "userDeltaPct": 60,
+        "thisSessions": 20,
+        "prevSessions": 12,
+        "thisEngagementRate": 0.45
+      },
+      {
+        "channel": "Unassigned",
         "thisUsers": 13,
-        "prevUsers": 23,
-        "userDelta": -10,
-        "userDeltaPct": -43.47826086956522,
-        "thisSessions": 15,
-        "prevSessions": 24,
-        "thisEngagementRate": 0.5333333333333333
+        "prevUsers": 14,
+        "userDelta": -1,
+        "userDeltaPct": -7.142857142857142,
+        "thisSessions": 13,
+        "prevSessions": 14,
+        "thisEngagementRate": 0.23076923076923078
       }
     ],
     "total": {
-      "thisUsers": 2692,
-      "prevUsers": 1322,
-      "thisSessions": 3473,
-      "prevSessions": 1913,
-      "userDelta": 1370,
-      "userDeltaPct": 103.63086232980332
+      "thisUsers": 2807,
+      "prevUsers": 1402,
+      "thisSessions": 3649,
+      "prevSessions": 1988,
+      "userDelta": 1405,
+      "userDeltaPct": 100.21398002853068
     },
     "organic": {
       "channel": "Organic Search",
-      "thisUsers": 1606,
-      "prevUsers": 1144,
-      "userDelta": 462,
-      "userDeltaPct": 40.38461538461539,
-      "thisSessions": 2253,
-      "prevSessions": 1613,
-      "thisEngagementRate": 0.7154904571682201
+      "thisUsers": 1772,
+      "prevUsers": 1159,
+      "userDelta": 613,
+      "userDeltaPct": 52.89042277825712,
+      "thisSessions": 2473,
+      "prevSessions": 1617,
+      "thisEngagementRate": 0.7064294379296401
     }
   },
   "ga4_jp": {
     "channels": [
       {
         "channel": "Organic Search",
-        "thisUsers": 1599,
-        "prevUsers": 1134,
-        "userDelta": 465,
-        "userDeltaPct": 41.00529100529101,
-        "thisSessions": 2243,
-        "prevSessions": 1591,
-        "thisEngagementRate": 0.7155595185020063
+        "thisUsers": 1767,
+        "prevUsers": 1146,
+        "userDelta": 621,
+        "userDeltaPct": 54.18848167539267,
+        "thisSessions": 2465,
+        "prevSessions": 1592,
+        "thisEngagementRate": 0.7066937119675456
       },
       {
         "channel": "Direct",
-        "thisUsers": 896,
-        "prevUsers": 83,
-        "userDelta": 813,
-        "userDeltaPct": 979.5180722891565,
-        "thisSessions": 964,
-        "prevSessions": 113,
-        "thisEngagementRate": 0.1628630705394191
+        "thisUsers": 848,
+        "prevUsers": 137,
+        "userDelta": 711,
+        "userDeltaPct": 518.9781021897811,
+        "thisSessions": 917,
+        "prevSessions": 170,
+        "thisEngagementRate": 0.1450381679389313
       },
       {
         "channel": "Referral",
         "thisUsers": 33,
-        "prevUsers": 27,
-        "userDelta": 6,
-        "userDeltaPct": 22.22222222222222,
-        "thisSessions": 93,
-        "prevSessions": 117,
-        "thisEngagementRate": 0.6559139784946236
-      },
-      {
-        "channel": "AI Assistant",
-        "thisUsers": 17,
-        "prevUsers": 12,
-        "userDelta": 5,
-        "userDeltaPct": 41.66666666666667,
-        "thisSessions": 21,
-        "prevSessions": 13,
-        "thisEngagementRate": 0.42857142857142855
+        "prevUsers": 26,
+        "userDelta": 7,
+        "userDeltaPct": 26.923076923076923,
+        "thisSessions": 97,
+        "prevSessions": 118,
+        "thisEngagementRate": 0.6597938144329897
       },
       {
         "channel": "Organic Social",
-        "thisUsers": 13,
-        "prevUsers": 20,
-        "userDelta": -7,
-        "userDeltaPct": -35,
-        "thisSessions": 15,
-        "prevSessions": 21,
-        "thisEngagementRate": 0.5333333333333333
+        "thisUsers": 17,
+        "prevUsers": 18,
+        "userDelta": -1,
+        "userDeltaPct": -5.555555555555555,
+        "thisSessions": 19,
+        "prevSessions": 19,
+        "thisEngagementRate": 0.47368421052631576
+      },
+      {
+        "channel": "AI Assistant",
+        "thisUsers": 16,
+        "prevUsers": 10,
+        "userDelta": 6,
+        "userDeltaPct": 60,
+        "thisSessions": 20,
+        "prevSessions": 12,
+        "thisEngagementRate": 0.45
       },
       {
         "channel": "Unassigned",
-        "thisUsers": 9,
-        "prevUsers": 8,
-        "userDelta": 1,
-        "userDeltaPct": 12.5,
-        "thisSessions": 9,
-        "prevSessions": 8,
-        "thisEngagementRate": 0.3333333333333333
+        "thisUsers": 7,
+        "prevUsers": 11,
+        "userDelta": -4,
+        "userDeltaPct": -36.36363636363637,
+        "thisSessions": 7,
+        "prevSessions": 11,
+        "thisEngagementRate": 0.42857142857142855
       }
     ],
     "total": {
-      "thisUsers": 2567,
-      "prevUsers": 1284,
-      "thisSessions": 3345,
-      "prevSessions": 1863,
-      "userDelta": 1283,
-      "userDeltaPct": 99.9221183800623
+      "thisUsers": 2688,
+      "prevUsers": 1348,
+      "thisSessions": 3525,
+      "prevSessions": 1922,
+      "userDelta": 1340,
+      "userDeltaPct": 99.40652818991099
     },
     "organic": {
       "channel": "Organic Search",
-      "thisUsers": 1599,
-      "prevUsers": 1134,
-      "userDelta": 465,
-      "userDeltaPct": 41.00529100529101,
-      "thisSessions": 2243,
-      "prevSessions": 1591,
-      "thisEngagementRate": 0.7155595185020063
+      "thisUsers": 1767,
+      "prevUsers": 1146,
+      "userDelta": 621,
+      "userDeltaPct": 54.18848167539267,
+      "thisSessions": 2465,
+      "prevSessions": 1592,
+      "thisEngagementRate": 0.7066937119675456
     }
   },
   "sns": {
     "sources": [
       {
         "source": "note",
-        "thisUsers": 22,
+        "thisUsers": 23,
         "prevUsers": 20,
-        "userDelta": 2,
-        "userDeltaPct": 10,
-        "thisSessions": 60,
+        "userDelta": 3,
+        "userDeltaPct": 15,
+        "thisSessions": 62,
         "prevSessions": 46
       },
       {
         "source": "x",
-        "thisUsers": 10,
-        "prevUsers": 20,
-        "userDelta": -10,
-        "userDeltaPct": -50,
-        "thisSessions": 11,
-        "prevSessions": 21
+        "thisUsers": 14,
+        "prevUsers": 18,
+        "userDelta": -4,
+        "userDeltaPct": -22.22222222222222,
+        "thisSessions": 15,
+        "prevSessions": 19
       }
     ],
     "total": {
-      "thisUsers": 32,
-      "prevUsers": 40,
-      "thisSessions": 71,
-      "userDelta": -8,
-      "userDeltaPct": -20
+      "thisUsers": 37,
+      "prevUsers": 38,
+      "thisSessions": 77,
+      "userDelta": -1,
+      "userDeltaPct": -2.631578947368421
     },
     "snsSources": [
       "x",
@@ -228,40 +228,47 @@
     "url": "https://doboku-note.com/",
     "strategy": "mobile",
     "scores": {
-      "performance": 61,
+      "performance": 87,
       "accessibility": 100,
       "best_practices": 100,
       "seo": 100
     },
     "lab_data": {
-      "LCP_ms": 11478.005331417799,
-      "TBT_ms": 201,
-      "CLS": 0,
-      "FCP_ms": 3165.053977525788,
-      "TTI_ms": 11920.545139843067
+      "LCP_ms": 2551.1539378368025,
+      "TBT_ms": 362.49999999999955,
+      "CLS": 0.02487245123754016,
+      "FCP_ms": 1817.552140149346,
+      "TTI_ms": 9117.087016284342
     }
   },
   "gsc": {
     "total": {
-      "thisClicks": 31,
-      "prevClicks": 25,
-      "clickDelta": 6,
-      "clickDeltaPct": 24,
-      "thisImpressions": 1734,
-      "prevImpressions": 1007,
-      "impressionDelta": 727,
-      "thisCtr": 0.01787773933102653,
-      "prevCtr": 0.024826216484607744,
-      "thisPosition": 21.680507497116494,
-      "prevPosition": 21.504468718967228
+      "thisClicks": 37,
+      "prevClicks": 28,
+      "clickDelta": 9,
+      "clickDeltaPct": 32.142857142857146,
+      "thisImpressions": 2129,
+      "prevImpressions": 1033,
+      "impressionDelta": 1096,
+      "thisCtr": 0.01737905119774542,
+      "prevCtr": 0.027105517909002903,
+      "thisPosition": 20.92719586660404,
+      "prevPosition": 21.528557599225557
     },
     "topQueries": [
       {
+        "query": "土木工事共通仕様書 沖縄県",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 10
+      },
+      {
         "query": "採算速度とは",
         "clicks": 1,
-        "impressions": 1,
-        "ctr": 1,
-        "position": 9
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 8.8
       },
       {
         "query": "1級 2級 土木",
@@ -269,6 +276,13 @@
         "impressions": 1,
         "ctr": 0,
         "position": 74
+      },
+      {
+        "query": "2級土木施工管理技士 学科のみ合格 有効期限",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 62
       },
       {
         "query": "4m分析",
@@ -301,35 +315,21 @@
       {
         "query": "cost driver",
         "clicks": 0,
-        "impressions": 1,
+        "impressions": 2,
         "ctr": 0,
-        "position": 7
+        "position": 6.5
       },
       {
-        "query": "fool proof 意味",
+        "query": "cost driver definition",
         "clicks": 0,
         "impressions": 1,
         "ctr": 0,
-        "position": 89
-      },
-      {
-        "query": "hazid",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 52
-      },
-      {
-        "query": "ismap 読み方",
-        "clicks": 0,
-        "impressions": 1,
-        "ctr": 0,
-        "position": 90
+        "position": 87
       }
     ]
   },
   "notes": [
-    "GSC データは 3 日遅延のため、直近期間は 2026-08-25 〜 2026-08-31 を採用",
+    "GSC データは 3 日遅延のため、直近期間は 2026-08-26 〜 2026-09-01 を採用",
     "NSM = Organic Search の activeUsers (definition.md 準拠)",
     "ga4_jp は country=Japan フィルタ版（bot 流入の影響を受けにくい母数）。incident 2026-04-26 を参照",
     "sns は sessionSource を SNS source 集合(utm-templates.json)+Japan に絞った source 別 WoW",

@@ -1,0 +1,80 @@
+{
+  "meta": {
+    "startDate": "2026-08-07",
+    "endDate": "2026-09-03",
+    "dimension": "channel",
+    "dimensionApiName": "sessionDefaultChannelGroup",
+    "metrics": [
+      "activeUsers",
+      "sessions",
+      "screenPageViewsPerSession",
+      "averageSessionDuration",
+      "engagementRate",
+      "bounceRate"
+    ],
+    "limit": 100,
+    "organicOnly": false,
+    "snsOnly": false,
+    "snsSources": [],
+    "japanOnly": true,
+    "excludeSpam": true,
+    "spamSourcesExcluded": [],
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "channel": "Organic Search",
+      "activeUsers": 4004,
+      "sessions": 6224,
+      "screenPageViewsPerSession": 1.743091259640103,
+      "averageSessionDuration": 354.03016633579693,
+      "engagementRate": 0.6963367609254498,
+      "bounceRate": 0.3036632390745501
+    },
+    {
+      "channel": "Direct",
+      "activeUsers": 1093,
+      "sessions": 1259,
+      "screenPageViewsPerSession": 1.294678316123908,
+      "averageSessionDuration": 86.28969580063543,
+      "engagementRate": 0.23431294678316125,
+      "bounceRate": 0.7656870532168387
+    },
+    {
+      "channel": "Referral",
+      "activeUsers": 99,
+      "sessions": 514,
+      "screenPageViewsPerSession": 4.208171206225681,
+      "averageSessionDuration": 542.6659229571983,
+      "engagementRate": 0.49416342412451364,
+      "bounceRate": 0.5058365758754864
+    },
+    {
+      "channel": "AI Assistant",
+      "activeUsers": 56,
+      "sessions": 66,
+      "screenPageViewsPerSession": 1.0909090909090908,
+      "averageSessionDuration": 177.83183374242424,
+      "engagementRate": 0.5,
+      "bounceRate": 0.5
+    },
+    {
+      "channel": "Organic Social",
+      "activeUsers": 55,
+      "sessions": 58,
+      "screenPageViewsPerSession": 2.103448275862069,
+      "averageSessionDuration": 82.20461544827586,
+      "engagementRate": 0.5,
+      "bounceRate": 0.5
+    },
+    {
+      "channel": "Unassigned",
+      "activeUsers": 25,
+      "sessions": 47,
+      "screenPageViewsPerSession": 2.9361702127659575,
+      "averageSessionDuration": 615.9525741914894,
+      "engagementRate": 0.6170212765957447,
+      "bounceRate": 0.3829787234042553
+    }
+  ]
+}

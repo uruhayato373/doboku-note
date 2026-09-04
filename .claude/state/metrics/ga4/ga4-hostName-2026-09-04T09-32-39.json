@@ -1,0 +1,53 @@
+{
+  "meta": {
+    "startDate": "2026-08-07",
+    "endDate": "2026-09-03",
+    "dimension": "hostName",
+    "dimensionApiName": "hostName",
+    "metrics": [
+      "activeUsers",
+      "sessions",
+      "screenPageViewsPerSession",
+      "averageSessionDuration",
+      "engagementRate",
+      "bounceRate"
+    ],
+    "limit": 20,
+    "organicOnly": false,
+    "snsOnly": false,
+    "snsSources": [],
+    "japanOnly": true,
+    "excludeSpam": true,
+    "spamSourcesExcluded": [],
+    "propertyId": "properties/419382901"
+  },
+  "rows": [
+    {
+      "hostName": "doboku-note.com",
+      "activeUsers": 4576,
+      "sessions": 7539,
+      "screenPageViewsPerSession": 1.8774373259052926,
+      "averageSessionDuration": 349.5714089202812,
+      "engagementRate": 0.6543308131051864,
+      "bounceRate": 0.34566918689481363
+    },
+    {
+      "hostName": "localhost",
+      "activeUsers": 731,
+      "sessions": 732,
+      "screenPageViewsPerSession": 1.1188524590163935,
+      "averageSessionDuration": 1.4869597636612022,
+      "engagementRate": 0.05191256830601093,
+      "bounceRate": 0.9480874316939891
+    },
+    {
+      "hostName": "127.0.0.1",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 0,
+      "engagementRate": 0,
+      "bounceRate": 1
+    }
+  ]
+}
