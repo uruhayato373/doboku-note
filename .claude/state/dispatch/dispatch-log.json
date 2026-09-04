@@ -355,6 +355,18 @@
       "commit": "ef2fc41fc1b6",
       "verification": "--list-drafts 再走査で 41→27 件を実確認（削除対象14件が正確に消滅、他13件は無傷）",
       "note": "ユーザー承認済み14件を削除: カード確定2件(総監マガジンの歩き方/ビルドジョブ)+同題重複7件(横断歩道橋設置2/空港用地造成2/道路改良高盛土3・いずれも公開済み記事と同題で公開に使われなかった中間版)+今日の予約投稿実機検証(DN-0044)で生じた実験残骸5件。副次修正: note-delete-note.mjsの座標クリックがloadAllDrafts最終スクロール位置基準のままで対象行が画面外だと外れるバグを発見・修正(クリック直前にscrollIntoView+座標再取得)。再走査ステップは別の未解決の例外(公開ステータスフィルタのタイムアウト)があるが削除自体は[3]確認ボタンまで到達し都度--list-draftsで件数を実測して確認した"
+    },
+    {
+      "id": "DN-0152",
+      "at": "2026-09-04",
+      "task": "git履歴の再肥大を計測する（全ストレージ最適化P8の再計測）",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null,
+      "verification": "npm run audit-repo-assets; git count-objects -vH; baseline commit 9171e54bf 以降の tree size 差分集計",
+      "note": "2026-08-29基準1.03GiB→1.05GiB（約20MiB/6日、目標10MB/週以下を超過）。新規 seo-meta 時系列JSON 11件・約13MiBが主な回避可能要因。結果と対策をDN-0155へ引き継いだ"
     }
   ]
 }

@@ -166,20 +166,6 @@ textbook 記事の末尾は「関連キーワード → 転職 PR（MDX 内 Care
 
 `gsc-ui/ssot/urls/notFound--allKnownPages.json` の 297 件を `_redirects` と突合すると 289 件に転送が無い。大半は `pe-comprehensive-management-concrete-chief-engineer-…` のような接頭辞が二重になった不正 slug（過去のリンク生成バグ由来）で、正規ページに対応しない。放置（Google が自然に落とす）／`_redirects` で 1 対 1 に吸収できる少数（`civil-construction-1-guide-four-management-5` 等）だけ救う、のどちらかを決めて実行する。
 
-### [DN-0152] git履歴の再肥大を計測する（全ストレージ最適化P8の再計測）
-タグ: [インフラ・計測] [種類:改善] [検証:audit-repo-assets] [起票:2026-08-29] [期日:2026-09-05]
-
-2026-08-29 に全ストレージ最適化（P1-P8）を実施。git追跡容量は1,163MB→415.4MBまで削減した
-（.claude/config/asset-storage.json の group 群で ogp.png/webp・note magazine cover・
-coconala/repo-archive・kindle-dist backup を R2 へ退避）。一方で切り詰め直後の再肥大は
-DN-0111 完了後わずか7日で321.5MB（主犯は doc-meta-index.json 70版・manifest.json 6版などの
-生成物の毎回commit）だったため、今回の対策（doc-meta-index untrack・manifestスリム化）が
-効いているか実測で確認する。
-
-**手順**: `git count-objects -vH` の size-pack を計測し、2026-08-29時点の 1.03 GiB からの増分を見る。
-目標は「~130MB/週 → ≤10MB/週」。増分が大きければ何がpackを太らせているか
-（`git rev-list --objects HEAD~N..HEAD` 等で path 別集計）を特定し、追加の untrack か
-commit 頻度の見直しを検討する。
 
 ### [DN-0151] Kindle 保管の残課題（A系経路外・死蔵14.8MB・catalog死ポインタ）
 タグ: [収益化] [種類:改善] [起票:2026-08-28]
@@ -921,8 +907,12 @@ DN-0111（2026-08-22）で単一commitへ切り詰めたが、.git実体は現�
 再肥大している。2026-08-29の全ストレージ最適化（P1-P8）でHEAD追跡容量は415.4MBまで
 下がったが、過去のcommit履歴（切り詰め後の7日分含む）は.gitのpackに残ったままで、通常の
 commitでは減らない。**全worktree停止が必要な単独作業**（policy §8手順）なので、
-P1-P8完了後（このカード起票時点）にやるのが最も効果が大きい。DN-0152の再計測結果を見てから
-着手を判断する。
+P1-P8完了後（このカード起票時点）にやるのが最も効果が大きい。
+
+2026-09-04 の DN-0152 再計測では size-pack が 1.03GiB→1.05GiB（約20MiB/6日）となり、
+目標の10MB/週以下を超過した。主な回避可能要因は `seo-meta` の時系列 JSON 11件（約13MiB）。
+残りは standards 記事・OGP背景など意図した新規コンテンツだった。次回の履歴切り詰め前に、
+`seo-meta` の保存世代数または commit 頻度を制限し、再肥大源を止めてから単一 worktree で実施する。
 
 ### [DN-0088] search-growth 残存 UNKNOWN 1,280 URL の発生源裁定
 タグ: [インフラ・計測] [種類:意思決定] [起票:2026-08-22]
@@ -1057,7 +1047,6 @@ note-api.mjs / note-frontmatter.mjs は**新規に書くコードだけ**が使�
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
-
 
 
 
