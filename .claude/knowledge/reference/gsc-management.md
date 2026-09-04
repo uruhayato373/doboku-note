@@ -477,3 +477,10 @@ EXP-006 の本判定は予定どおり next_check 2026-08-27 に、カバレッ�
   - 候補3: 推奨=実験化候補（内部リンク＋追記の構造施策・メタ変更なし・実験枠外で着手可）
   - x/social sessions 19→11（-42.1%）: 保留（再浮上条件＝次週も継続減 or sessions 10未満。原因は現物未照合）
 - 注記: 自動生成（人間の上書き歓迎）。前週裁定済みの civil-construction-1-secondary-r07（impr59・CTR0%・pos5.2）・capacity-management（impr19・pos3.7）は継続観測、インターフェアリングフロート実験は判定09-23。08月末の /docs→/exam 等 URL 移行で GA4 集計が新旧 URL に分裂しており単一 URL の件数は過小評価
+
+### 2026-09-04（search-growth UNKNOWN の発生源裁定）
+
+- 最新の完全取得（全 GSC UI バケット `truncated:false`）では `UNKNOWN_REVIEW` は 1,280 件から 282 件へ縮小した
+- 282 件の内訳は、旧 `/docs/*` 244 件を旧 URL 404 の判断へ統合、非 `/docs` のフォント・feed・誤抽出 URL 33 件を `EXPECTED_EXCLUSION`、`/contact`・`/links`・`/terms`・`/tools` 系 5 件を `KEEP_MONITOR` と裁定する
+- 別バケットの GSC 既知 404 は 297 件中、既存転送 8 件に加え、対応先が一意な接頭辞欠落 URL 30 件を正規ページへ 301。二重接頭辞・本文断片・数値など残る 259 件は誤転送を避けて 404 のまま自然消滅させる
+- noindex・統合は適用しない。再浮上条件は、上記 KEEP_MONITOR 5 URL に継続的な impressions が発生するか、既知バケット外の UNKNOWN が新規に出ること

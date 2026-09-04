@@ -427,6 +427,114 @@
       "commit": null,
       "verification": "node scripts/note-probe.mjs n58099ccfeceb / n0171b3105e2d（両方published・無料・本文実在）; content/note 2記事のnoteStatus=published＋noteUrl実在; src/lib/brain-products.ts 2商品status=listed",
       "note": "カードがサイト用publishedフラグをnote公開状態と誤認していた。note公開のSSOTでは入口2記事とも公開済みで、Brain 2商品も販売中。todo-standardsが状態複製の陳腐化実例としてDN-0031を明記しているため完了済みカードを掃除した"
+    },
+    {
+      "id": "DN-0154",
+      "at": "2026-09-04",
+      "task": ".obsidian/icons・pluginの退避検証",
+      "tier": "low",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "git-binary-policy.json と audit-repository-assets.mjs の KEEP_GIT 判定を突合; npm run audit-repo-assets",
+      "note": "全PC共有が必要なエディタ環境としてGit保持する方針がSSOTで確定済み。6.2MBを再度退避検討するカードは方針と衝突するため削除"
+    },
+    {
+      "id": "DN-0088",
+      "at": "2026-09-04",
+      "task": "search-growth 残存 UNKNOWN URL の発生源裁定",
+      "tier": "low",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null,
+      "verification": "最新 search-growth 完全取得を再分類: UNKNOWN_REVIEW 282件（旧/docs 244、EXPECTED_EXCLUSION 33、KEEP_MONITOR 5）",
+      "note": "裁定をgsc-managementの観測・判断ログへ記録。旧/docs群はDN-0164が扱い、それ以外に破壊的変更候補はない"
+    },
+    {
+      "id": "DN-0122",
+      "at": "2026-09-04",
+      "task": "発注者クラスタの新設可否",
+      "tier": "low",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null,
+      "verification": "content/siteの実査とdocs/strategy/02_設計思想.mdの試験対策ハブ定義を突合",
+      "note": "会計検査・臨時協議の空白は実在するが、受験者の検索意図と事業定義から外れるため競合追随の6記事新設は見送った"
+    },
+    {
+      "id": "DN-0058",
+      "at": "2026-09-04",
+      "task": "サイトアクセス×収益化 戦略の深掘り論点",
+      "tier": "low",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "DN-0051・DN-0101・DN-0026と現行SEO/収益化戦略SSOTへの重複を全項目照合",
+      "note": "6論点の大半が実行カードと戦略SSOTへ吸収済み。固有のnote内発見性・AI検索は測定方法と完了条件のない未整理案のため、影バックログを残さず撤収"
+    },
+    {
+      "id": "DN-0076",
+      "at": "2026-09-04",
+      "task": "textbook 白黒図のカラー化",
+      "tier": "low",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "カード本文と現行記事を実査し、学習内容の欠落・著作権問題・品質ゲート違反がないことを確認",
+      "note": "見栄え向上だけの任意作業で有料生成も必要。成果や不具合に結びつかないため撤収"
+    },
+    {
+      "id": "DN-0046",
+      "at": "2026-09-04",
+      "task": "競合の勝ち型を policy 化",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "swept",
+      "plan": null,
+      "commit": null,
+      "verification": "docs/marketing/00_SNS整理マップ.md の型カタログと content-angle-policy を実査",
+      "note": "合格後キャリア・現場リアルの型と一次情報待ちは恒久SSOTへ記録済み。policy化は完了し、素材がない状態を独立カードで保持する必要がないため削除"
+    },
+    {
+      "id": "DN-0049",
+      "at": "2026-09-04",
+      "task": "SEO 品質ゲート後続",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null,
+      "verification": "最新GSC page-queryでCannibalization 0; CEM orphan 6解消を確認; robots ADRを案Aへ確定",
+      "note": "監視・実データ確認・旧orphan対応は完了済み。残っていたAI crawler判断はCloudflare Managedの全面ブロックを維持し、測定手段が整うまで外部設定を変更しない方針で閉じた"
+    },
+    {
+      "id": "DN-0164",
+      "at": "2026-09-04",
+      "task": "旧 /docs の既知 404 を裁定",
+      "tier": "high",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null,
+      "verification": "GSC notFound 297件と public/_redirects を突合; 対応先が一意な30件を301、残る259件は404維持",
+      "note": "接頭辞欠落の年度・textbook URLとfour-management-5だけを救済。二重接頭辞、本文断片、数値、対応先不明URLは誤転送を避けて自然消滅させる"
+    },
+    {
+      "id": "DN-0151",
+      "at": "2026-09-04",
+      "task": "Kindle 保管の残課題を解消",
+      "tier": "mid",
+      "executor": "codex",
+      "outcome": "done",
+      "plan": null,
+      "commit": null,
+      "verification": "node --test tests/kindle-sync-targets.test.mjs tests/admin-kindle-catalog.test.mjs; A-02 theme EPUB生成＋unzip -t; inventory rebuildable=45/45・deadMemo=0",
+      "note": "A系はcatalog buildThemeでID明示再生成、B-G系はbuildSpecを維持。生成可能なKDPメモを死ポインタ扱いしないようadmin判定を修正し、表紙READMEの追跡方針も実態へ同期"
     }
   ]
 }

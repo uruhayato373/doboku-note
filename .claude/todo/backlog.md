@@ -124,12 +124,10 @@ field どころか計測自体が失敗している。つまり「取得・パ�
 **完了条件**: 31投稿が `queued` または `posted` としてX実キュー／公開面に一致し、同時刻衝突・近似重複・1日上限超過が0件になったらカードを削除する。
 
 
-### [DN-0135] ユーザー手作業でしか閉じない残務
+### [DN-0135] 人・外部実体が必要な残務
 タグ: [収益化] [種類:不具合] [起票:2026-08-25]
 
-2026-08-25 に `[種類:不具合]` 26 枚を実体照合したとき、**この環境からは 1 手も進められない**ものを 1 枚へ畳んだ（個別カードは削除・詳細は git 履歴）。畳む前に各件の実体を読み直して状態を書き直してある——カードの自己申告で完了と決めない。
-
-weekly.md の手動キューはこの ID だけを参照する（weekly は ID 参照ビューで、本文を複製しない仕様）。
+この環境だけでは完了できない残務を集約する。weekly の手動キューはこの ID だけを参照し、状態や件数は複製しない。
 
 | # | 残務 | 実体（2026-08-25 照合） | 律速 |
 |---|---|---|---|
@@ -137,13 +135,13 @@ weekly.md の手動キューはこの ID だけを参照する（weekly は ID �
 | 3 | Kindle `e-02` の差し替え | catalog は LIVE 反映済み（2026-08-28・ASIN B0H3GX3HNW）。残＝ローカルの修復済みEPUB（2026-08-12修復・章名article.mdx漏れ解消・epubcheck 0件・check-kindle-epub-leak PASS）をKDPへ差し替える経路が無い。`kdp-publish.mjs` に「LIVE本のマニュスクリプト更新」モードが未実装で、`--dump --page content` の `title-setup/kindle/<asin>/content` は既刊では404（下書き専用パス） | 正しいKDP編集導線（本棚→編集→コンテンツ更新）の特定から必要。KDP 実機。顧客影響がある可能性が高いため優先度を上げて確認すべき |
 | 6 | コンクリート系 `cta-bg` 2 枚 | **実測: `public/images/cta-bg/` は 5 枚（civil-1 / civil-2 / note-hero / pe-comprehensive / pe-construction）で、主任技士・診断士が欠落**。生成スクリプトは無く手描きイラスト | 画像制作。無いあいだはテーマ色のベタ塗りへフォールバックする（実害は見栄えのみ） |
 | 8 | civil-1 一次過去問 公式キー 24 件 | 残＝`h28-a`(19)・`h29-a`(1=No.38)・`h29-b`(4=No.3/12/17/21)。h28-a は 19 件と突出＝official 配列自体の OCR 誤りを疑い、mass-fix 前に第2ソースで再検証 | pre-H30 原典 PDF の入手（touhokugiken.com / dobokujira.com に h29 学科A/B は無し）。**LLM 推測厳禁**・キー番号だけの書き換え禁止 |
-| 9 | 過去問 解説・図の要照合クラスタ | 解説＝civil-1 `secondary-construction-plan-past-problems` No.9(1) 記述省略／civil-2 `secondary-r06` 問8 画像未挿入／総監 h21・h22・h28・h30 の 7 問／pe-first-stage 3 問。図＝`rescan-need-source` 9 図 ＋ `r07-a-fig-02`（画素欠損で再クロップ不可・DN-0056 から合流） | 原典照合・外部原典の入手。台帳に理由記録済（真実源 `figure-provenance.md`・進捗ビューは admin 記事図版タブ） |
+| 9 | 過去問 解説・図の要照合クラスタ | 解説＝civil-1 `secondary-construction-plan-past-problems` No.9(1) 記述省略／civil-2 `secondary-r06` 問8 画像未挿入／総監 h21・h22・h28・h30 の 7 問／pe-first-stage 3 問。図は `figure-provenance.md` の `rescan-need-source` 7 図（`r07-a-fig-02` を含む） | 原典照合・外部原典の入手。進捗ビューは admin 記事図版タブ |
 | 10 | ココナラ C12 プレミアム週枠の再判断（旧DN-0007） | C12（教材18冊＋添削2テーマ・¥15,000）は`weeklyCapacity: 1`で開始。添削は本番顧客への納品実績が無く（S2レビュー0）、初回工数が読めないための暫定値 | 初受注時に`orders-log`の`tensakuMinutes`を実測記録。2〜3件出たら週枠を再判断（判断基準→[ココナラ展開キット.md §5](../../content/note/1級・2級土木/ココナラ展開キット.md)）。実受注が無いと1手も進まない |
 | 11 | Gmail転送＋フィルタ設定（旧DN-0017・別PC作業） | ココナラの運営通知は`dobokunotecom@gmail.com`にしか届かずMCPから見えない。ラベル`dobokunotecom`は作成済み、`create_filter`はセッションに未公開のためフィルタ作成は人の作業 | 手順1: `uruhayato373`側でフィルタ作成（To=dobokunotecom・受信トレイスキップ＋ラベル付与）→手順2: `dobokunotecom`側で転送先追加・確認コード承認・転送有効化。完了条件は`label:dobokunotecom`で1件以上ヒット |
 | 12 | KDP Select 自動更新オフ A-00〜A-06（旧DN-0089） | note 択一PDF（`n155093f42183`・¥1,980・公開済み）との抵触リスクを安全側に倒すと判断（2026-08-27）。e-02 は Select 非加入方針・A 系列は収録範囲違い（422問論点別 vs 1162問全年度）だが部分集合の可能性が否定できない | KDP 管理画面で A-00〜A-06 の「KDPセレクトへの自動登録」をオフ。**期限=独占明け 2026-10-06 より前（10月上旬）**。10/6 を過ぎて自動更新されなければ制約自体が消滅 |
 | 19 | 技術士第一次試験 KDP Select早期解除の回答反映 | D-00／D-03の状態は`scripts/kindle-published/catalog.json`の`notes`を真実源とする。申請受付のローカル証跡は`.tmp/kdp-select-support-result.json`にあり、Amazonからの回答待ち | 回答受信後、KDP本棚で両書籍のSelect状態を実査する。解除済みならcatalogと`content/kindle/strategy.md`へ反映し、noteとの併売可否を確定する。未解除なら回答内容に従い再連絡し、解除確認前に恒常併売を確定しない |
 
-**完了条件**: 各行の実体が解消したら行ごと消す。全行が消えたらカードを削除する。**部分的に片付いたら行を消して残数を書き直す**（「残 N 件」を本文に持たない＝表の行数が真実源）。
+**完了条件**: 各行の実体が解消したら行ごと消し、全行が消えたらカードを削除する。
 
 ## 🟡 中 — 2〜3ヶ月以内
 
@@ -157,25 +155,6 @@ weekly.md の手動キューはこの ID だけを参照する（weekly は ID �
 タグ: [収益化] [種類:意思決定] [起票:2026-09-03]
 
 textbook 記事の末尾は「関連キーワード → 転職 PR（MDX 内 CareerAffiliate）→ note もくじタイル → 章ナビ」の順で、自社商品より先にアフィリが出る（2026-09-03 実画面）。inline CareerAffiliate は MDX 側にあるため footer の並び替えでは直らない。1 ページ 1 GKS ピクセルの配置ポリシー（affiliate-operations）と両立する形（inline を末尾へ移す一括スクリプト、または footer の転職バナーへ一本化）を決めてから実施する。
-
-### [DN-0164] 旧 /docs の 404（GSC 既知 297 件・うち 289 件は転送なし）の扱いを決める
-タグ: [インフラ・計測] [種類:意思決定] [起票:2026-09-03]
-
-`gsc-ui/ssot/urls/notFound--allKnownPages.json` の 297 件を `_redirects` と突合すると 289 件に転送が無い。大半は `pe-comprehensive-management-concrete-chief-engineer-…` のような接頭辞が二重になった不正 slug（過去のリンク生成バグ由来）で、正規ページに対応しない。放置（Google が自然に落とす）／`_redirects` で 1 対 1 に吸収できる少数（`civil-construction-1-guide-four-management-5` 等）だけ救う、のどちらかを決めて実行する。
-
-
-### [DN-0151] Kindle 保管の残課題（A系経路外・死蔵14.8MB・catalog死ポインタ）
-タグ: [収益化] [種類:改善] [起票:2026-08-28]
-
-2026-08-28 の調査で判明した Kindle 保管の残課題を 1 枚に集約（admin `/content/kindle` が drift を常時表示する）。
-R2 退避方針の宙吊りは決着済み（2026-08-29・下記参照）。
-
-(1) A系 7 冊が自動再ビルド経路の外: buildSpec 無し・kdp-memo.json 未登録＝sync-kindle-dist も /kdp-publish も通らない。THEMES は build-takuitsu-reconstruct.mjs 内にあり spec 化は可能。
-(2) `scripts/kindle-published/cover-designs/` 14.8MB は品番マッピング無しの死蔵（再入稿に不使用）。孤児 約1.2MB（`A-01_安全管理_論点別過去問.epub`・`kindle-cover-A-01-確認用.jpg` は catalog 非参照）。**保存場所は決着**（2026-08-29・repo-archive group で R2 private へバックアップ済み・消さず退避）。残るのは品番マッピングの要否そのもの。
-(4) `scripts/kindle-covers/README.md`「出力 JPEG は git 追跡不要」と実態（kindle-dist/*.jpg 39枚追跡）の矛盾。
-(5) catalog の kdpMemo 死ポインタ 30 件（c/f/e 系の `KDP入力メモ_*.txt` 不在。gen-kdp-memo で生成するか kdp-memo.json 参照へ改める）。
-
-**完了条件**: 各項の方針が決まり適用済み（部分完了は行ごと消して残数を書き直す）。live EPUB 差し替え経路は DN-0135 行3 が別途追跡（重複起票しない）。
 
 ### [DN-0120] 転職アフィリの成果が 3 ヶ月ゼロ — 継続するか、面を畳んで別収益に寄せるか
 タグ: [収益化] [種類:意思決定] [起票:2026-08-24] [期日:2026-09-16]
@@ -228,7 +207,7 @@ seoTitle変更を実験化するかをユーザーと決める。**推測でtitl
 ### [DN-0110] 動画パック基盤・通常動画pilot・read-only管理画面
 タグ: [SNS・マーケ] [種類:改善] [Codex候補] [検証:quality:audit:ci] [起票:2026-08-21]
 
-サイト・note・既存図版をYouTube通常動画へ再編集し、関連Shorts・Instagram・Xへ派生するストックコンテンツ基盤を作る。現状はShorts台帳200本（公開13・pending187）がある一方、通常動画への接続、クリック可能な外部導線、動画パック単位の品質・公開・成果管理がない。追加量産より先に、動画マスターと回遊・計測を成立させる。
+サイト・note・既存図版をYouTube通常動画へ再編集し、関連Shorts・Instagram・Xへ派生するストックコンテンツ基盤を作る。現状はShorts台帳200本（公開13・retired187）がある一方、通常動画への接続、クリック可能な外部導線、動画パック単位の品質・公開・成果管理がない。追加量産より先に、動画マスターと回遊・計測を成立させる。
 
 **戦略SSOT**: [06_動画コンテンツ運用設計.md](../../docs/marketing/06_動画コンテンツ運用設計.md)
 
@@ -236,7 +215,7 @@ seoTitle変更を実験化するかをユーザーと決める。**推測でtitl
 
 **批判的レビュー**: [動画コンテンツ運用設計_批判的レビュー.md](../../docs/reviews/critical/動画コンテンツ運用設計_批判的レビュー.md)
 
-**依存関係**: 左ナビのコンテンツ中心IAとYouTube入口は`DN-0103`を再利用し、本カードで別のナビregistryを作らない。`DN-0046`の聞き流し一問一答は本カードへ統合済み。
+**依存関係**: 左ナビのコンテンツ中心IAとYouTube入口は`DN-0103`を再利用し、本カードで別のナビregistryを作らない。聞き流し一問一答は本カードへ統合済み。
 
 **IG リール残（旧 DN-0136 から合流・2026-08-27）**: cem 42 パックは `reels/script.txt`（ナレーション原稿）のみで **mp4/wav は未生成**（`verify-ig-status.mjs:88` が script.txt の存在だけで「素材あり」判定するため、旧カードの「素材完成済み・投稿するだけ」は誤り）。別途 97 パックは原稿から。生成には VOICEVOX + ffmpeg が要る。カルーセル既投稿パックのリール派生は、本カードの動画基盤が成立してから判断する。
 
@@ -766,57 +745,29 @@ DN-0100で行き止まりと季節ドリフトを止めた後、機械監査で�
 ### [DN-0036] モバイル可読性リライト 第1弾
 タグ: [コンテンツ品質] [種類:制作]
 
-機械ラチェット基盤は整備済み（`content-rules.json`＋`lint-mdx-mobile --all`＋週次 `check-content-quality`）。baseline に grandfather された既存違反を GA4 人気度順にリライトして漸減させる。
+機械ラチェット基盤は整備済み（`content-rules.json`＋`lint-mdx-mobile --all`＋週次 `check-content-quality`）。初回30記事の改修後も baseline に残る既存違反を、GA4 人気度順にリライトして漸減させる。
 
 - **優先上位**: `civil-construction-1-guide-strategy`（3-1×29・#1人気）／`pe-comprehensive-management-keyword-2026`（3-1×48）／`civil-construction-2-secondary-r0X`／`pe-construction/*-exam-themes` 残11本
 - **手順**: レポート上位を group 対応の `/quality-cycle` へ。表→非表・入れ子→フラット・長段落→改段。1バッチ 10-20 記事、完了ごとに `npm run update-content-quality-baseline`
-- **バッチ1実績（2026-08-26）**: cem keyword 15本で可読性改修込みリライト実施・baseline更新済み（違反記事592件）。
-- **バッチ2実績（2026-08-26）**: cem keyword 追加15本（計30本）。残バッチは優先上位（guide-strategy等）から
 - **注意**: civil textbook の規格表・配合表は override 除外済み。過去問の年度×選択肢表は無理に崩さない
 
 
 
 
 
-### [DN-0043] note 導線 後続配線（Fable P1 残・3 件）
+### [DN-0043] note 導線 後続配線（残・2 件）
 タグ: [収益化] [種類:改善] [起票:2026-08-17]
 
-2026-08-17 に 4 bullet を個別実査し、②「一次→二次 季節CTA切替」は **2026-07-01 の journey stage 再設計で完了済み**と確認したので削除した（`magazine-placement.ts` の `CIVIL_EXAM_PREP_GUIDES` が既に二次・経験記述 led）。
-
-残り:
 1. **トンネル / 都市計画パックの実体作成**（律速＝note 実機）。掲載文は `content/note/**/PACK-02` `PACK-03` に作成済みだが、`note-magazines.ts` の `pe-construction-tunnel-pack` / `pe-construction-urban-planning-pack` は `published: false` / `noteUrl: ''`
 2. **建設→総監ブリッジ記事 1 本**（無料・建設部門合格者を総監の来季見込み客に）。現状は建設部門もくじに L1 総合案内リンクがあるだけで専用記事なし。**執筆自体は sweep で可能**
-3. 道路パックの finer placement（任意・現状 1 面）
-
-
-### [DN-0046] 競合の勝ち型を policy 化（SNS 投稿型カタログ拡張）
-タグ: [SNS・マーケ] [種類:改善]
-
-SNS競合実地調査（2026-07-04・`07_競合調査.md` SNS節）でsurfaceした残り型: 合格後キャリア/現場リアル リール＝**運営者の一次情報素材待ち**。聞き流し一問一答と16:9動画基盤は`DN-0110`へ統合した。真実源`content-angle-policy`／`00_SNS整理マップ §型カタログ`。
-
-
-### [DN-0049] SEO 品質ゲート後続（PR #390 マージ後の残タスク）
-タグ: [インフラ・計測] [種類:改善]
-
-SEO 品質ゲート実装（PR #390・handoff `2026-07-13-seo-quality-gates.md` は削除済・git 履歴参照）の後続。ゲート本体は develop 済み。残:
-1. **deploy 後の GSC 監視**: `develop→main` deploy で canonical/OGP 修正が本番反映＝サイト全ページ canonical 一斉更新の再クロールが走る。**コアアップデート期を避け、直後2週間は GSC 日次を監視**（gsc-management.md 2026-07-10 の教訓）。
-2. **GSC page×query 実データ確認**: 初回検証 2026-07-15 完了（workflow_dispatch で `gsc-page-query-2026-07-15` 取得・窓 6/14–7/12）。Pattern 7 site-wide 検出 3 件は**すべて同一ページの #fragment 誤検出＝カニバリ実証 0 件**。残: (a) メタ改善は少数 URL の 14〜28 日実験に限る、(b) **8/31 BuildJob キャンペーン終了後に civil-construction-1 career 26 本を page×query で再測定**。先行シグナルは `guide-1-vs-2` ↔ `guide-grade-comparison` が同一クエリ「1級 2級 土木」で共に表示（impr 1/3・pos 73/80、閾値 impr≥5×pos≤30 に未達）のみ。年収系4本（salary-up/salary-by-role/allowance/career-salary）・辞める系3本（quit-or-stay/quit-honne/career-consultation-before-quit）はクエリ競合の観測なし。実証されたペアのみ統合（301 or canonical）、感覚では削らない。
-3. **orphan/unreachable 6本の gate 昇格**: `pe-comprehensive-management-r8-essay-theme-*` 6本は現状 warn（意図的未リンク）。導線設計を決めたら check-seo-build の gate へ昇格。
-4. **robots / OAI-SearchBot の ADR**（v2監査 §8.3）: ADR ドラフト起案済み → [robots-ai-crawler-decision.md](../../docs/operations/robots-ai-crawler-decision.md)。実測: robots.txt はリポジトリ管理下になく Cloudflare Managed（全 AI bot 既に Disallow）。案B（search/user bot のみ選択的許可）を推奨として提示、適用はユーザー承認（Cloudflare ダッシュボード側の設定変更が必要でこの環境からは不可）。
 
 
 ### [DN-0051] 計測基盤 Tier 2/3 ＋ GA4 UI 設定
 タグ: [インフラ・計測] [種類:改善]
 
-Tier 1（NoteLink 計測・cadence 化・bot 監査 CI 等）は実装完了。残:
-- **Tier 2/3**: カスタムパラメータ・検索/scroll イベント・アフィリA/B の label 取得・GA4↔GSC 突合・sales×流入 attribution・送客リダイレクタ・A8 EPC
-- **GA4 サーバ側（ユーザー手作業）**: 残るのは**未解決の bing bot 疑いの確定**のみ（内部トラフィック/参照除外・既知ボット除外・カスタムディメンション登録はすべて完了済み。`ga4-admin:check` / `check-ga4-dimensions` とも「不足 0」を実測）。真実源 → [計測基盤強化ロードマップ.md](../../docs/operations/計測基盤強化ロードマップ.md)
-- **Playwright UI CSV**: `fetch-ga4-ui-csv.mjs` は未ログイン検証のみ。ログイン済み実UIでレポート名・ディメンション・指標・ダウンロードメニューの正式ラベルを確定し、fixtureと回帰テストへ反映（API優先方針は維持）
-  - **2026-08-25 実測: ga4-ui は一度も完全成功していない**。`check-gsc-ui-due --json` の `ga4-ui` が `due:true`（直近実行 2026-07-30 は 取得 0/3・失敗 3＝`csv-menu-ambiguous` / `report-not-found`×2、完全取得の記録なし）。gsc-ui は 11/16 取得で期限内なので、欠測しているのは GA4 UI 由来の指標だけ
-  - **故障記録（2026-07-30 実測・`check-gsc-ui-due` が DUE を出し続ける原因）**: 3 ユニットとも失敗。
-    `trafficAcquisition` は `csv-menu-ambiguous`（ダウンロードメニューの候補が一意に決まらない）、
-    `landingPage` は `report-not-found`（候補 0）、`events` は `report-not-found`（候補 11＝絞り込めていない）。
-    上のラベル確定作業がそのまま修正になる。**GSC UI 側は正常**（2026-07-30 に 10 ユニット中 7 取得・失敗 0）
+詳細な真実源は [計測基盤強化ロードマップ.md](../../docs/operations/計測基盤強化ロードマップ.md)。残る実装項目は同文書の #5 / #7 / #8 / #12 / #14 / #15 と bing bot 疑いの確定。
+
+`fetch-ga4-ui-csv.mjs` は未ログイン検証までで、ログイン済み実UIでは 3 ユニットとも取得失敗（`trafficAcquisition`: `csv-menu-ambiguous`、`landingPage` / `events`: `report-not-found`）。正式ラベルを確定して fixture と回帰テストへ反映する。API優先方針は維持する。
 ### [DN-0052] SVG図版 dual-use パイプライン残
 タグ: [コンテンツ品質] [種類:改善]
 
@@ -848,28 +799,6 @@ untrack するには次の2条件が要る:
 ゲートを壊さない可能性が高い。ただしこれが意図的設計か記述が古いだけかは未確認——
 着手前に再確認すること。
 
-### [DN-0154] .obsidian/icons・pluginの退避検証（実増分は6.2MB・obsidian関連セッション稼働中は着手しない）
-タグ: [インフラ・計測] [種類:改善] [起票:2026-08-29]
-
-.obsidian/icons/font-awesome-{solid,regular}.zip と plugins/obisidian-note-linker/main.js
-（7.2MB）が未分類のまま git 追跡容量を圧迫している。**2026-08-29 の再調査で判明**:
-- 2つの zip は MD5・git blob sha ともに完全一致（Font Awesome Free 6.5.1 公式配布物）。
-  git は既に内部で重複排除しており、**実際のpack容量増分は6.2MBのみ**（12.4MBではない）
-- 「obsidian-sync が git を同期経路にしている」という記述は不正確。obsidian-sync skill が
-  扱う vault（iCloud + `obsidian-vault.git`）は**別物**。doboku-note の `.obsidian/` は
-  doboku-noteリポジトリ自身のgitで同期されている
-- `.claude/config/git-binary-policy.json` の allowlist に既に「全PC共有が要る」という
-  KEEP_GIT判断が明記済み（2026-08-29 に audit-repository-assets.mjs 側にも反映：commit
-  b620e327c）。DN-0154はこの既存判断を**覆すかどうか**の検討であり、まだ答えは出ていない
-- font-awesome zipはObsidian本体（1.6+）のIcon packs機能で再ダウンロード可能と推定されるが
-  **未実機検証**（zip削除→再起動→復元確認が要る）
-- plugin `obisidian-note-linker`（作者 AlexW00・v1.2.7）はコミュニティプラグインとして
-  再取得可能な標準配布物
-
-**着手条件**: 実機検証（zip削除→Obsidian再起動→アイコン復元確認）が要るため、Obsidian関連の
-他セッションが動いていないときに行うこと（2026-08-29時点で obsidian-1e 等の並行セッションが
-複数稼働しており、このカードには一切手を付けていない）。
-
 ### [DN-0155] git履歴の次回切り詰め（.git実体1.0GBの回収）
 タグ: [インフラ・計測] [種類:改善] [起票:2026-08-29]
 
@@ -883,38 +812,6 @@ P1-P8完了後（このカード起票時点）にやるのが最も効果が大
 目標の10MB/週以下を超過した。主な回避可能要因は `seo-meta` の時系列 JSON 11件（約13MiB）。
 残りは standards 記事・OGP背景など意図した新規コンテンツだった。次回の履歴切り詰め前に、
 `seo-meta` の保存世代数または commit 頻度を制限し、再肥大源を止めてから単一 worktree で実施する。
-
-### [DN-0088] search-growth 残存 UNKNOWN 1,280 URL の発生源裁定
-タグ: [インフラ・計測] [種類:意思決定] [起票:2026-08-22]
-
-トリガー: DN-0106 で全件化した GSC query/page の**次回 CI スナップショット（`truncated:false`）が
-取れたら**着手（それまで判断材料が無い＝2026-08-27 に 🟣 から trigger 待ち 🟢 へ移動）。
-
-1. `npm run search-growth:report` を再実行し、残る UNKNOWN を発生源別に束ねる。
-2. 上位バケットの代表 URL を確認し、EXPECTED_EXCLUSION / KEEP_MONITOR / 個別精査へ一括裁定する。
-3. noindex は「固有価値が低い」かつ「長期ゼロ流入」の双方が確認できた場合だけ提案し、自動適用しない。
-4. 決定を `gsc-management.md` の観測・判断ログへ記録し、同じバケットの再検討を防ぐ。
-
-seo-fix-planner は audit-only。変更候補が再発生しても適用は人の承認後。
-前提整理済み（2026-08-22 分類ロジック修正・最新 run = EXPECTED_EXCLUSION 1,084 /
-UNKNOWN_REVIEW 1,280 / 破壊的変更候補 0）。
-
-
-### [DN-0122] 発注者クラスタ（会計検査・臨時協議・設計変更）の新設可否
-タグ: [コンテンツ品質] [種類:制作] [起票:2026-08-24]
-
-genba-career 調査（2026-08-24）で見つかった**相手固有の空白のうち、doboku-note が最も強く書ける領域**。
-
-実照合: `content/site/**/*.mdx` で「発注者」に触れる記事は 224 本あるが、**会計検査 0 件・臨時協議 0 件**。相手は「発注者が数年後まで会計検査を怖れている」「協議の早さは技術力と同じくらい信頼をつくる」「設計変更が嫌がられる2つの本音」を実体験で書いており、6本で1カテゴリを構成している。
-
-運営者は元自治体土木（発注者）＝この座を持つ唯一の側。相手は受注者→発注者→発注者支援の順で、**発注者としての決裁・検査の当事者性はこちらが上**。
-
-ただし**受験者の検索意図ではない**ため、試験対策ハブという事業定義から外れる。13 の SEO クラスタにも入れていない。やるなら「なぜこのサイトにこの記事があるか」の位置づけを先に決める。
-
-### [DN-0058] サイトアクセス×収益化 戦略の深掘り論点
-タグ: [SNS・マーケ] [種類:改善]
-
-「検索→サイト→note」が実収益回路と判明（サイト流入84%オーガニック・CTAクリック構成が売上と一致）。土木は同回路が未稼働＝最大の伸びしろ。残（全未着手・別PC）: ①勝ち記事の型抽出（GA4 page×cta-clicks で総監の勝ちパターン→土木移植）②土木SEOビルド計画（textbook 34本×テキスト13章ギャップ表）③土木のサイト→note導線整備 ④売上×イベント相関 ⑤note内発見性の手動検証 ⑥AI検索対策。
 
 ### [DN-0059] フロントエンド土台リファクタ 残増分（新資格が増えたら着手）
 タグ: [UI・UX] [種類:改善] [起票:2026-08-17]
@@ -964,16 +861,6 @@ Anthropic の Opus 5 プロンプトガイドが「旧モデル向けに仕込�
 
 ①図320点のタイト化 — 再開時は軽量版 `apply_deltas_recrop.py --damp 0.7`＋監査2-3ラウンド上限（フルはトークン過大で後回し）②素材活用（本丸）: 検証済みテキストで guide 品質改善・note 無料集客記事展開（GSC 先行で伸び悩みトピック特定）。runbook = `.claude/skills/conversion/pdf-to-mdx/scripts/scanned/README.md`。
 
-### [DN-0076] textbook 白黒図のカラー化（対象B・任意）
-タグ: [コンテンツ品質] [種類:改善]
-
-PDF クロップ済み白黒図 約65枚（construction-machinery-01=13/-02=7/schedule-management=24/surveying=11/demolition=6/construction-mgmt-overview=4 ほか）。著作権問題なし・見栄え向上のみ。**Gemini 有料→着手前に必ずユーザー確認（[[gemini-cost-confirm]]）**。パイロット5枚→品質・コスト確認→全体。
-
-
-
-
-
-
 ### [DN-0082] API トークン更新サイクル ＋ MCP 棚卸し
 タグ: [インフラ・計測] [種類:改善]
 
@@ -1013,8 +900,3 @@ note-api.mjs / note-frontmatter.mjs は**新規に書くコードだけ**が使�
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
-
-
-
-
-
