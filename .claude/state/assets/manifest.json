@@ -6017,44 +6017,28 @@
       "width": 1280
     },
     "content/note/1級・2級土木/メンバーシップ/学科記述予想/04_安全管理/img/cover.png": {
-      "bucket": "private",
-      "bytes": 1046554,
-      "generator": "scripts/generate-note-covers.mjs",
-      "group": "note-cover-png",
-      "height": 670,
-      "logicalPath": "content/note/1級・2級土木/メンバーシップ/学科記述予想/04_安全管理/img/cover.png",
-      "mime": "image/png",
+      "bucket": "public",
       "r2Key": "note/covers/1級・2級土木/メンバーシップ/学科記述予想/04_安全管理/img/cover.png",
-      "regenerable": false,
-      "requiredBy": [
-        "scripts/note-publish.mjs",
-        "scripts/note-update-cover.mjs",
-        "tools/admin-app（画像ギャラリー）"
-      ],
       "sha256": "9da32ce13a8583be97d03f4074fbc856b1a0c53714c5f2f3cfd8d62c56f2e007",
-      "verifiedAt": "2026-08-26T06:45:11.220Z",
-      "visibility": "private",
-      "width": 1280
+      "bytes": 1046554,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-09-05T09:59:02.585Z",
+      "width": 1280,
+      "height": 670
     },
     "content/note/1級・2級土木/メンバーシップ/学科記述予想/05_工程管理/img/cover.png": {
-      "bucket": "private",
-      "bytes": 1045904,
-      "generator": "scripts/generate-note-covers.mjs",
-      "group": "note-cover-png",
-      "height": 670,
-      "logicalPath": "content/note/1級・2級土木/メンバーシップ/学科記述予想/05_工程管理/img/cover.png",
-      "mime": "image/png",
+      "bucket": "public",
       "r2Key": "note/covers/1級・2級土木/メンバーシップ/学科記述予想/05_工程管理/img/cover.png",
-      "regenerable": false,
-      "requiredBy": [
-        "scripts/note-publish.mjs",
-        "scripts/note-update-cover.mjs",
-        "tools/admin-app（画像ギャラリー）"
-      ],
       "sha256": "8ad52620cdc245c352f96df41d4ff8ab707828443c465131bd83bd29d6532c80",
-      "verifiedAt": "2026-08-26T06:45:11.394Z",
-      "visibility": "private",
-      "width": 1280
+      "bytes": 1045904,
+      "visibility": "public",
+      "regenerable": false,
+      "group": "note-cover-png",
+      "verifiedAt": "2026-09-05T09:59:02.866Z",
+      "width": 1280,
+      "height": 670
     },
     "content/note/1級・2級土木/メンバーシップ/学科記述予想/06_施工計画/img/cover.png": {
       "bucket": "private",
