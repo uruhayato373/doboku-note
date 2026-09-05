@@ -46,7 +46,26 @@ function candidates() {
     .slice(0, max);
 }
 
-function main() {
+function runPack(item) {
+  const result = spawnSync(process.execPath, [
+    path.join(__dirname, 'publish-video-pack.cjs'), '--pack-id', item.packId, '--phase', 'longform',
+  ], { cwd: ROOT, env: process.env, encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 });
+  if (result.stdout) process.stdout.write(result.stdout);
+  if (result.stderr) process.stderr.write(result.stderr);
+  return {
+    ok: result.status === 0,
+    detail: `${result.stdout ?? ''}\n${result.stderr ?? ''}`,
+  };
+}
+
+function isRetryableProcessingError(detail) {
+  return /"code":403/.test(detail)
+    && /(?:youtube\.video|youtube\.thumbnail)/.test(detail)
+    && /forbidden/i.test(detail)
+    && !/uploadLimitExceeded|dailyLimitExceeded|quotaExceeded/i.test(detail);
+}
+
+async function main() {
   const targets = candidates();
   console.log(`batch target: ${targets.length}本 / max=${max} / exams=${[...exams].join(',')}`);
   for (const item of targets) console.log(`  ${item.publishAt} ${item.packId}`);
@@ -56,24 +75,42 @@ function main() {
   let succeeded = 0;
   for (const [index, item] of targets.entries()) {
     console.log(`\n[${index + 1}/${targets.length}] ${item.packId}`);
-    const result = spawnSync(process.execPath, [
-      path.join(__dirname, 'publish-video-pack.cjs'), '--pack-id', item.packId, '--phase', 'longform',
-    ], { cwd: ROOT, env: process.env, encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 });
-    if (result.stdout) process.stdout.write(result.stdout);
-    if (result.stderr) process.stderr.write(result.stderr);
-    if (result.status === 0) {
+    const result = runPack(item);
+    if (result.ok) {
       succeeded += 1;
       continue;
     }
-    const detail = `${result.stdout ?? ''}\n${result.stderr ?? ''}`;
-    failed.push(item.packId);
-    if (/uploadLimitExceeded|dailyLimitExceeded|quotaExceeded/i.test(detail)) {
+    failed.push({ item, detail: result.detail });
+    if (/uploadLimitExceeded|dailyLimitExceeded|quotaExceeded/i.test(result.detail)) {
       console.error('YouTube の日次上限を検出したため、このバッチを安全に停止します。翌日の再実行で続きから再開できます。');
       break;
     }
   }
-  console.log(`\nbatch result: success=${succeeded} failed=${failed.length} remaining=${candidates().length}`);
-  if (failed.length) process.exitCode = 1;
+
+  // YouTube はアップロード直後の処理中動画に対する thumbnail.set / videos.update を
+  // 一時的に 403 forbidden で拒否することがある。同一タイトルを再利用できるため、
+  // バッチ末尾で待ってから対象だけを一度再試行する（重複アップロードはしない）。
+  const retryable = failed.filter(({ detail }) => isRetryableProcessingError(detail));
+  if (retryable.length) {
+    console.log(`\nYouTube 処理待ち ${retryable.length}本を30秒後に再試行します...`);
+    await new Promise((resolve) => setTimeout(resolve, 30_000));
+    for (const { item } of retryable) {
+      console.log(`\n[retry] ${item.packId}`);
+      const result = runPack(item);
+      if (result.ok) succeeded += 1;
+      else failed.find((entry) => entry.item.packId === item.packId).detail = result.detail;
+    }
+  }
+
+  const unresolved = failed.filter(({ item }) => {
+    const current = JSON.parse(fs.readFileSync(STATE_PATH, 'utf8'));
+    return current.packs?.[item.packId]?.derivatives?.longform?.status !== 'scheduled';
+  });
+  console.log(`\nbatch result: success=${succeeded} failed=${unresolved.length} remaining=${candidates().length}`);
+  if (unresolved.length) process.exitCode = 1;
 }
 
-main();
+main().catch((error) => {
+  console.error(error);
+  process.exitCode = 1;
+});
