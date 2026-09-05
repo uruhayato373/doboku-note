@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/n24364d960294
 noteId: n24364d960294
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "工程管理×施工計画"]
-price: 980
+price: 1480
 paidBoundary: "工程管理と施工計画の書き分け方（採点者が見るポイント）"
 cover:
   variant: crop-safe-v4

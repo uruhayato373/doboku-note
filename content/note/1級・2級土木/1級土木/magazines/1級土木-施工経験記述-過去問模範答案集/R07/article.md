@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/n9dbc2ecdf84b
 noteId: n9dbc2ecdf84b
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "令和7年度 過去問"]
-price: 980
+price: 1480
 paidBoundary: "想定工事①"
 cover:
   variant: crop-safe-v4
