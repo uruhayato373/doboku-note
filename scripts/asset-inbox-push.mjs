@@ -15,7 +15,7 @@
 //
 // 使い方:
 //   node scripts/asset-inbox-push.mjs --path 'content/note/技術士建設部門/…/R03/'   # dry-run（既定）
-//   node scripts/asset-inbox-push.mjs --group note-delivery-pdf --commit            # 実送信
+//   node scripts/asset-inbox-push.mjs --group note-cover-png --commit               # 実送信
 //   node scripts/asset-inbox-push.mjs --group note-cover-png --all --commit         # 未変更も含める
 //
 // 既定は **manifest と sha256 が違うもの（新規 or 更新）だけ**を送る。
@@ -78,7 +78,7 @@ function listLocalAssets(cfg) {
     out.push({ path: p, group: g.id, abs });
   };
   for (const l of git(['ls-files']).split('\n')) add(l);
-  // pathspec は付けない。'content' 固定だと content/ 外の group（coconala-asset 等）を
+  // pathspec は付けない。'content' 固定だと content/ 外の group（.local/archive の git-history-bundle 等）を
   // 取りこぼす（asset-offload.mjs では 2026-08-29 に同じ理由で外した）。
   for (const l of git(['ls-files', '--others', '--ignored', '--exclude-standard']).split('\n')) add(l);
   if (skippedDrive) console.log(`[${NAME}] Drive vault 管轄のため CI へ運ばないファイル: ${skippedDrive} 件（drive-vault-sync で vault へ）`);

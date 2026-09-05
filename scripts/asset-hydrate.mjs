@@ -14,7 +14,7 @@
 // 一時ファイルのまま捨てる（壊れたファイルを正しい名前で置かない）。
 //
 // 使い方:
-//   node scripts/asset-hydrate.mjs --group textbook-page-image            # group 全部
+//   node scripts/asset-hydrate.mjs --group note-cover-png                 # group 全部（人 tier の group は drive-vault-sync --pull）
 //   node scripts/asset-hydrate.mjs --path 'content/sources/textbook/コンクリート主任技師2022/'  # 前方一致で部分取得
 //   node scripts/asset-hydrate.mjs --group note-cover-png --offline       # cache のみ
 //   node scripts/asset-hydrate.mjs --group note-cover-png --dry-run       # 何をどこから取るかだけ出す

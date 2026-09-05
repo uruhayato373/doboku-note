@@ -49,7 +49,7 @@ Google Drive 側が `.claude/config/drive-vault.json`（台帳 `.claude/state/as
 | `coconala-asset` | human | Drive `制作物/ココナラ/` | |
 | `note-magazine-cover-png` | human | Drive `制作物/マガジンカバー/` | |
 | `repo-archive` | human | Drive `アーカイブ/repo/` | |
-| `legacy-r2-orphan` | human | 記事画像 2,573 件は削除（参照 0 を確認）・SNS 素材 1,146 件は Drive `アーカイブ/旧R2/sns/` | 完了後 group を削除 |
+| ~~`legacy-r2-orphan`~~ | human | 記事画像 2,573 件は削除済み（参照 0 を確認）・SNS 素材 1,146 件は Drive `アーカイブ/旧R2/sns/` | 2026-09-05 に R2 から消し group を削除 |
 
 **公開バケットへ置かないもの**: 教材、購入者限定 PDF、未公開商品、draft 画像、そして **人しか読まないもの全部**。
 `doboku-note-archive` にはカスタムドメインを付けない（S3 API だけで扱う）。
@@ -262,8 +262,9 @@ xargs -a list.txt git rm --cached                                     # 4. 追�
 実体が無い側は記録を検査すればよい。sha256 が同じである限り記録は実体の性質を指し続ける。
 **「ローカルに在る分だけ検査する」形にはしない** —— 全件退避した瞬間に無検査になる（CLAUDE.md §9）。
 
-外部（note / Instagram）へ書き込むスクリプトは `ensureLocal()`（`scripts/lib/asset-storage.mjs`）で
-使う直前に取り寄せ、**取れなければ外部へ触れる前に止める**。カバー無しで公開する・
+外部（note / Instagram）へ書き込むスクリプトは `ensureLocalAny()`（`scripts/lib/asset-locate.mjs`＝R2 台帳 → Drive 台帳の順に
+引く。tier を意識させない入口）で使う直前に取り寄せ、**取れなければ外部へ触れる前に止める**。Drive のマウントが無い端末では
+pull が失敗して止まる。それが正しい挙動で、マウント無しで外部へ書かない。カバー無しで公開する・
 PDF 無しで添付を名乗るのが最悪の結果になる。
 
 ## 6. 再生成では代替できない
@@ -376,29 +377,31 @@ cache は `.local/cache/assets/`（Git 非追跡）。最終アクセス時刻�
 > GitHub は 1 回の push が 2 GiB を超えると `pack exceeds maximum allowed size` で拒否する。
 > 超える場合は一時 ref へ first-parent を分割して送り、最後にブランチを切り替える。
 
-## 9. R2 に何が入っているか（台帳のカバー範囲）
+## 9. R2 と Drive に何が入っているか（台帳のカバー範囲）
 
-2026-08-29 の全ストレージ最適化のあと。**台帳（`manifest.json`）が R2 の全オブジェクトを管理している**
-状態になっている（`check-asset-storage` の走査で該当 5,633 件すべてが「Git 追跡 0 / 退避済み 5,633 /
-どちらでもない 0」・`kindle-dist` の 76 件は Git 追跡を維持したままの意図的な併存で、この件数には
-含まれない）。
+2026-09-05 の Drive 移行後の実測（`rclone size` / `rclone lsf`）。R2 のオブジェクトは **台帳 `manifest.json`
+（4 group・2,696 エントリ）か Git（`posts/` の記事図版）か `brain-products.ts`** のどれかが持つ。人 tier は
+**Drive vault の台帳 `drive-manifest.json`（11 group・19,236 エントリ）**が持つ。
 
-| バケット / prefix | 件数 | 真実源 | 復元 |
+| 置き場 / prefix | 件数 | 真実源 | 復元 |
 |---|---|---|---|
-| private `textbook/` | 397 | 台帳 `textbook-source-pdf` | `asset-hydrate --group textbook-source-pdf` |
-| private（退避資産 4 群） | 3,487 | 台帳 | `asset-hydrate --group <id>` |
-| private `archive/git-history/` | 1 | 台帳 `git-history-bundle` | `rclone copy` → `git clone <bundle>` |
-| private `archive/legacy-r2/` | 3,719 | 台帳 `legacy-r2-orphan` | `asset-hydrate --group legacy-r2-orphan` |
-| private `note/magazine-covers/` | 46（45.1MB） | 台帳 `note-magazine-cover-png` | `asset-hydrate --group note-magazine-cover-png` |
-| private `coconala/assets/` | 59（28.3MB） | 台帳 `coconala-asset` | `asset-hydrate --group coconala-asset` |
-| private `archive/repo/` | 13（27.0MB） | 台帳 `repo-archive` | `asset-hydrate --group repo-archive` |
-| private `kindle/dist/` | 76（56.8MB） | Git ＋ 台帳 `kindle-dist`（バックアップのみ） | 通常は Git。R2 は `asset-hydrate --group kindle-dist`（バックアップ確認用） |
-| private `video/render/` | 動画ごとに変動 | 台帳 `video-render-artifact` | `asset-hydrate --group video-render-artifact` |
-| public `posts/` | 5,234 | **Git**（`content/site/**`） | `upload-images-r2` が一方向で同期。配信コピーなので台帳不要 |
-| public `posts/`（ogp.png） | 1,166（607.2MB） | 台帳 `site-ogp-png` | `asset-hydrate --group site-ogp-png` |
-| public `note/covers/` | 813 | 台帳 `note-cover-png` | `asset-hydrate` |
-| public `sns/` | 150 | 台帳 `sns-archived-media` / `ig-rendered-image` | `asset-hydrate --group sns-archived-media` |
-| public `brain/` | 2 | `brain-products.ts` | `upload-brain-dist-r2` |
+| private `archive/git-history/` | 1（2.65GiB） | 台帳 `git-history-bundle`（human 例外） | `rclone copy` → `git clone <bundle>` |
+| private `note/covers/` | 58（53.8MiB） | 台帳 `note-cover-png`（下書き記事のカバー。台帳は 19 件で 39 件が台帳外→DN-0172） | `asset-hydrate --group note-cover-png` |
+| public `posts/`（記事図版） | 4,298（149MiB） | **Git**（`content/site/**/img`） | `r2-sync.yml` が一方向で同期。配信コピーなので台帳不要 |
+| public `posts/`（ogp.png） | 1,586（662MiB） | 台帳 `site-ogp-png`（1,574） | `ogp-supply.yml` が生成・供給 |
+| public `note/covers/` | 821（718MiB） | 台帳 `note-cover-png` | `asset-hydrate --group note-cover-png` |
+| public `sns/` | 281（265MiB） | 台帳 `sns-archived-media`（human 例外） | `upload-sns-r2` 系統（[sns-archive-policy.md](sns-archive-policy.md)） |
+| public `brain/dist/` | 2 | `brain-products.ts` | `upload-brain-dist-r2` |
+| Drive `マイドライブ/doboku-note/` | 20,078（11.4GiB） | 台帳 `drive-manifest.json` 19,236 ＋ 手で置いた原本・文字起こし | `drive-vault-sync --pull --group <id>` |
+
+**2026-09-05 に Drive へ移したもの（DN-0169 完了）**: 11 group 19,236 件＝共通仕様書ページ 11,898 / 教材 PDF 417
+（うち 63 は Drive に手で置いてあった原本を sha256 で adopt）/ 教材ページ画像 868 / note 配布 PDF 598 / IG レンダー 2,155 /
+動画レンダー 1,939 / Kindle 76 / ココナラ 79 / マガジンカバー 47 / repo アーカイブ 13 / 旧 R2 孤児の SNS 素材 1,146。
+全 group を `--verify --deep --cloud`（台帳・vault・Drive API md5 の 3 者一致・不一致 0）で通してから
+`delete-r2-objects --from-manifest-group` で R2 側を消した（12 実行・不在 0・失敗 0）。旧孤児の記事画像 2,573 件は
+参照 0 を再確認し保全せず削除。private バケットは 13,700 超 → 59 オブジェクト、public は 9,128 → 6,988。
+`delete-r2-objects --from-manifest-group` の保全判定は **Drive 台帳の同 sha256 だけ**を認める（R2 台帳自身は循環するので
+使わない。動画レンダー 1,724 件が Drive 未同期のまま purge に進めた穴を同日に塞いだ）。
 
 **2026-08-29 に追加したもの**: `site-ogp-png` / `note-magazine-cover-png` / `coconala-asset` /
 `repo-archive` / `kindle-dist` の 5 group を新設し R2 へ退避した（`kindle-dist` は Git 追跡を
@@ -408,7 +411,7 @@ cache は `.local/cache/assets/`（Git 非追跡）。最終アクセス時刻�
 `kindle-dist` は2026-09-04に76件を再同期し、ローカル・manifest・private R2のbytes/sha256三者一致を
 確認した。ただし `e-01` を `.tmp` へ直接再生成して展開比較すると、UUID・日付以外にも本文からの
 `CareerAffiliate` 除去と画像寸法変更があり、公開版と実内容が一致しなかった。この反例で全冊の内容一致
-条件は不成立と確定したため、Git追跡は維持する。R2は完全バックアップであり、現行generatorを公開済み
+条件は不成立と確定したため、Git追跡は維持する。Drive vault（`制作物/Kindle/`・2026-09-05 に R2 から移設）は完全バックアップであり、現行generatorを公開済み
 配布版のbyte/内容再現手段とは扱わない。
 
 `content/site/**/ogp.webp`（1,166 件 39.9MB）は **R2 に入っていない**。og:image が参照しない

@@ -33,6 +33,7 @@ import { execFileSync } from 'node:child_process';
 import { checkPauseReasons, findOverdueResume } from './lib/coconala-guards.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 import { loadManifest as loadAssetManifest } from './lib/asset-storage.mjs';
+import { loadDriveManifest } from './lib/drive-vault.mjs';
 
 const ROOT = process.cwd();
 const CATALOG_PATH = join(ROOT, 'src/lib/coconala-services.ts');
@@ -164,7 +165,8 @@ const listingsData = readJson(LISTINGS_PATH);
 if (listingsData?.__parseError) violations.push(`coconala-listings.json が JSON として壊れています: ${listingsData.__parseError}`);
 const listings = listingsData?.listings || {};
 // 退避台帳。ローカルに実体が無いときの第二の根拠（asset-storage が唯一の真実源）。
-const assetLedger = loadAssetManifest()?.entries ?? {};
+// R2 台帳と Drive 台帳の両方（商品画像は 2026-09-05 に Drive vault へ移した）
+const assetLedger = { ...(loadAssetManifest()?.entries ?? {}), ...(loadDriveManifest()?.entries ?? {}) };
 let thumbLocal = 0;
 let thumbInLedger = 0;
 
@@ -176,7 +178,7 @@ for (const s of catalog) {
     if (!l.category?.master || !l.category?.sub) violations.push(`[${s.id}] listings.category（master/sub）が未確定です`);
     if (!l.body) violations.push(`[${s.id}] listings.body（サービス内容本文）が空です`);
   }
-  // 商品画像は coconala-asset グループで R2 へ退避してある。**ローカル実体だけを見ない**——
+  // 商品画像は coconala-asset グループで Google Drive vault へ退避してある（2026-09-05 まで R2）。**ローカル実体だけを見ない**——
   // 退避済みの端末や CI のクリーンチェックアウトでは実体が無いのが正常で、そこで落とすと
   // 「生成しろ」と言われても生成すべきものが既に在る、という直せない赤になる（2026-08-30）。
   // 判定は「ローカル実体 または 退避台帳」。どちらにも無ければ本当に存在しない。

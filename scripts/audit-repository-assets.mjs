@@ -2,7 +2,8 @@
 // audit-repository-assets.mjs — DN-0111 Phase 0 の read-only 監査。
 //
 // リポジトリ肥大化の実体を「3 つの別指標」として測り、追跡中の各ファイルを
-// KEEP_GIT / R2_PUBLIC / R2_PRIVATE / REGENERATE / REVIEW へ分類する。
+// KEEP_GIT / R2_PUBLIC / R2_PRIVATE / DRIVE_VAULT / REGENERATE / REVIEW へ分類する。
+// DRIVE_VAULT＝人か手元のスクリプトだけが使うもの（asset-storage-policy.md §1・2026-09-05）。
 //
 //   1. ワークツリー容量  — 作業ディレクトリの実ファイル（追跡外も含む）
 //   2. HEAD 追跡容量     — 現在の commit が持つ blob の合計（clone 直後の checkout 相当）
@@ -196,9 +197,9 @@ const RULES = [
   {
     id: 'textbook-page-image',
     test: (p) => /^content\/sources\/textbook\//.test(p) && /\.(png|jpe?g|webp|tiff?)$/i.test(p),
-    bucket: 'R2_PRIVATE',
-    reason: '市販テキスト・白書のページ画像。原典 PDF は既に .gitignore 済みで、ページ画像だけが追跡に取り残されている。リポジトリは PRIVATE なので公開露出は無い（2026-08-21 に gh と未認証 raw の 404 で二重確認。textbook-pdf-archive.md の旧「PUBLIC 前提」は誤りだった）が、HEAD と CI checkout を重くする',
-    regenFrom: '原典 PDF（private R2 の doboku-note-archive/textbook/）から再抽出',
+    bucket: 'DRIVE_VAULT',
+    reason: '市販テキスト・白書のページ画像。人（OCR・図クロップ）しか読まないので Google Drive vault（原資料PDF/教材/・drive-vault.json textbook-page-image）。2026-09-05 に private R2 から移設。リポジトリは PRIVATE なので公開露出は無いが、HEAD と CI checkout を重くする',
+    regenFrom: '原典 PDF（Drive vault 原資料PDF/教材/）から再抽出',
     usedBy: ['OCR / 図クロップ worker（書名単位 hydrate 前提）'],
     generator: 'scripts/pdf-to-mdx 系',
     visibility: () => 'private',
@@ -206,8 +207,8 @@ const RULES = [
   {
     id: 'note-pdf',
     test: (p) => /^content\/note\//.test(p) && /\.pdf$/i.test(p),
-    bucket: 'R2_PRIVATE',
-    reason: 'note 添付・商品 PDF。購入者限定の配布物を含むため既定は private 側へ倒す（asset-storage.json note-delivery-pdf group と同じ既定）。「公開配布可 / 有料添付 / 原典・非公開」の再分類は Phase 4-D で行う（未着手）',
+    bucket: 'DRIVE_VAULT',
+    reason: 'note 添付・商品 PDF。人が note に添付するだけでサイトも CI も読まないので Google Drive vault（制作物/note配布PDF/・drive-vault.json note-delivery-pdf）。2026-09-05 に private R2 から移設。購入者限定の配布物を含むので public には置かない',
     regenFrom: 'magazine-to-pdf の spec + article.md',
     usedBy: ['scripts/note-attach-file.mjs'],
     generator: 'scripts/magazine-to-pdf.mjs',
@@ -216,8 +217,8 @@ const RULES = [
   {
     id: 'ig-rendered-png',
     test: (p) => /^content\/sns\/instagram\//.test(p) && /\.(png|jpe?g)$/i.test(p),
-    bucket: (p) => (igPackVisibility(p) === 'public' ? 'R2_PUBLIC' : 'R2_PRIVATE'),
-    reason: 'slide-data.json から決定論的に焼けるレンダー成果物。asset-storage.json の ig-rendered-image group（byVisibility・visibilityFrom: igPackStatus）で既に大半が R2 へ退避済み（1,990 件・2026-08-29 時点）。投稿済みパックの status.json は R2_PUBLIC、未投稿・判定不能パックは private へ倒す（誤って公開バケットへ置かない）',
+    bucket: 'DRIVE_VAULT',
+    reason: 'slide-data.json から決定論的に焼けるレンダー成果物。publish-ig-bs（人の手元）しか読まないので Google Drive vault（制作物/IGレンダー/・drive-vault.json ig-rendered-image）。2026-09-05 に R2 の byVisibility 配置（public 7 / private 2,133）から移設',
     regenFrom: 'slide-data.json / script.json + caption.txt',
     usedBy: ['publish-ig-bs（投稿時に読む）'],
     generator: '.claude/scripts/sns/ 系レンダラ',

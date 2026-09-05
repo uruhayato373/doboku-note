@@ -15,6 +15,9 @@
 | 見出し | 意味 |
 |---|---|
 | ## 🔴 高 | 来月中に着手したい |
+| ## 🟡 中 | 2〜3ヶ月以内 |
+| ## 🟢 低 | 時期未定 |
+| ## 🟣 判断待ち | **やるかどうかの意思決定が未了**（着手できないのではなく、着手すべきか決まっていない） |
 
 ## 🔴 高 — 来月中に着手
 
@@ -27,26 +30,6 @@
 タグ: [収益化] [種類:改善] [検証:check-note-republish] [起票:2026-09-05] [期日:2026-09-08]
 
 2026-09-05 に正方形バナー＋本文 2 段落へ 93 本（無料 26・会員 8・有料 59）を `note-swap-author-banner` で差し替えた（差し替え済みは全件ハッシュ同期・drift 0）。残り 141 本＝**有料 89**（うち 28 本は frontmatter に `noteStatus` が無く当日のリスト生成から漏れたが API では published＝2テーマ組合せ大全ほか。n9d9a77c66392 は空 p 掃除後の DOM 順序検証で 2 回失敗＝手動で editor を見る）・無料 1（1級経験記述で落ちる答案）・**コンクリート 51**（無料 3 を含む）。対象リストは noteStatus でなく `npm run check-note-republish -- --json` の driftFiles ∩ バナー入り記事から作る。画像アップロードが note の 1 日 100 ファイル上限に数えられるか未確認のため `--daily-limit 90` で日を分ける。手順: `node scripts/note-swap-author-banner.mjs --list <paths> --commit --max-consecutive-fail 3`（30 本ずつ・全文置換はしない）→ 各バッチ後 `node scripts/check-note-structure.mjs --ci` と `node scripts/check-note-attachments.mjs --live`。完了条件＝バナー入り 247 本の本文 drift が 0。
-### [DN-0169] アセット置き場移行の仕上げ（R2 側の撤去とグループ切替）
-タグ: [インフラ・計測] [種類:改善] [検証:check-drive-vault] [起票:2026-09-05]
-
-2026-09-05 に置き場ルールを「誰が使うか」へ改め、人 tier の 11 group を Google Drive vault へ同期した（drive-manifest.json）。
-残りは **R2 側の削除を伴う後半**で、大量削除は人が実行する。順序は必須（asset-storage-policy.md §4・/asset-route）:
-
-0. **教材 PDF だけ未同期**（`textbook-source-pdf` 415 本 4.1GB）。同期中に Mac の空きが 17→3.6GB まで落ちた
-   （Drive が同期済み 6GB をアップロード前にローカルへ滞留）ので止めた。Drive のアップロードが終わり空きが 8GB 以上
-   戻ったら `npm run drive-vault-sync -- --group textbook-source-pdf --from-r2 --dedupe-by-sha --commit`
-   （既存の手動配置 63 本は sha256 で adopt）。あるいは 6 の standards ローカルコピー 3.4GB を先に消してから
-1. `rclone config` で Google Drive バックエンドのリモート `doboku-gdrive` を作る（ブラウザ OAuth・1 回）
-2. group ごとに `npm run drive-vault-sync -- --group <id> --verify --deep --cloud`（クラウド md5 まで一致）
-3. `node scripts/delete-r2-objects.mjs --bucket private --from-manifest-group <id> --commit`（ig-rendered-image は `--bucket public` も）
-4. `node scripts/asset-offload.mjs --forget-group <id> --commit`
-5. asset-storage.json から group を削除・drive-vault.json 側を `status: active`・`tests/asset-storage.test.mjs` のサンプル差し替え・`check-asset-reentry.mjs` の `COEXIST_WITH_GIT` を空に
-6. standards-page-image はローカル `content/sources/standards/**/{pages,text}`（3.4GB）を削除、textbook 系は `content/sources/textbook/**` の残存実体を確認
-7. legacy-r2-orphan: 記事画像 2,573 件（`archive/legacy-r2/content/**`）は参照 0 を再確認して削除、SNS 素材 1,146 件は Drive 同期後に削除。group を削除
-8. policy §9 の在庫表を実測で更新。合格条件: `check-drive-vault` の pending 0・`rclone ls doboku-r2:doboku-note-archive` が git-history 1 ＋ note/covers 下書きだけ
-9. `scripts/audit-repository-assets.mjs` の分類ラベル（教材を R2_PRIVATE と表示）を Drive tier へ追随させる
-| ## 🟡 中 | 2〜3ヶ月以内 |
 
 
 
@@ -228,7 +211,6 @@ CI（note-cover-supply.yml）が書く資産なので R2 のままでよいが�
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-05]
 
 11,898 件で 6.3MiB（JSON 上限 4MiB を allowlist で例外扱い）。非 adopted の `vaultPath` は group から導出できるので、R2 側 manifest.json と同じ読み時補完（lean format）で 3 割減らせる。全 group 移行後に。
-| ## 🟣 判断待ち | **やるかどうかの意思決定が未了**（着手できないのではなく、着手すべきか決まっていない） |
 
 > [!note] 🟣 は「ユーザー作業待ち」置き場ではない（2026-08-17 是正）
 > 以前は 12 件中 7 件が「ユーザーの手作業待ち」で、判断は済んでいるのに 🟣 に沈殿していた。
