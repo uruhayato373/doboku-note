@@ -68,6 +68,38 @@ function todoBoardPlanCards(file) {
   return JSON.parse(out);
 }
 
+function visibleCompletionFixture(file) {
+  const out = execFileSync(
+    process.execPath,
+    [TSX_CLI,
+      '-e',
+      `import { visibleTodoCards } from './tools/admin-app/src/lib/todo.ts';
+       const cards = [{ id: 'active', complete: false }, { id: 'done', complete: true }];
+       process.stdout.write(JSON.stringify(visibleTodoCards(cards, ${JSON.stringify(file)})));`,
+    ],
+    { cwd: ROOT, encoding: 'utf8', maxBuffer: 1024 * 1024 },
+  );
+  return JSON.parse(out);
+}
+
+function planCompletionFixture() {
+  const out = execFileSync(
+    process.execPath,
+    [TSX_CLI,
+      '-e',
+      `import { isPlanItemComplete } from './tools/admin-app/src/lib/todo.ts';
+       const cases = [
+         isPlanItemComplete('通常タスク', '', '✅ 完了。反映済み'),
+         isPlanItemComplete('~~取消済みタスク~~', '', '対象なし'),
+         isPlanItemComplete('通常タスク', '', '⏳ ユーザー。詳細・完了条件は backlog を参照'),
+       ];
+       process.stdout.write(JSON.stringify(cases));`,
+    ],
+    { cwd: ROOT, encoding: 'utf8', maxBuffer: 1024 * 1024 },
+  );
+  return JSON.parse(out);
+}
+
 test('admin の backlog カードが backlog-lib と全件一致する（line/tier/title/category/kind/codex）', () => {
   const fromAdmin = todoBoardBacklogCards();
   const fromLib = parseBacklog(readFileSync(join(ROOT, '.claude/todo/backlog.md'), 'utf8'));
@@ -132,4 +164,14 @@ test('週間・月間は章見出しではなく計画表の各行をタスク�
     '章見出しがタスクに戻っている');
   assert.ok(!monthly.some((item) => /^今月のゴール|今月やらないこと/.test(item.title)),
     '月間テーマ見出しがタスクに戻っている');
+});
+
+test('週間・月間の表示は完了済みを除外し、年間は達成済みも残す', () => {
+  assert.deepEqual(visibleCompletionFixture('weekly').map((item) => item.id), ['active']);
+  assert.deepEqual(visibleCompletionFixture('monthly').map((item) => item.id), ['active']);
+  assert.deepEqual(visibleCompletionFixture('annual').map((item) => item.id), ['active', 'done']);
+});
+
+test('計画行の説明に「完了条件」があっても完了扱いにしない', () => {
+  assert.deepEqual(planCompletionFixture(), [true, true, false]);
 });

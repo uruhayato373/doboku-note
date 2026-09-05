@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "generated_at": "2026-09-04T13:43:05.751Z",
+    "category": "civil-construction-1",
+    "topic": null
+  },
+  "summary": {
+    "scanned_files": 40,
+    "files_with_issues": 0,
+    "total_findings": 0,
+    "by_pattern": {
+      "P1-headless": 0,
+      "P2-examPoint-empty": 0
+    },
+    "patterns": [
+      {
+        "id": "P1-headless",
+        "description": "解説の文頭が閉じカギから始まる（本文欠落）"
+      },
+      {
+        "id": "P2-examPoint-empty",
+        "description": "ExamPoint の summary が欠落・閉じカギだけで始まる"
+      }
+    ]
+  },
+  "findings": []
+}

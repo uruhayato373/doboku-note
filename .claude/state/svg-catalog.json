@@ -2,20 +2,20 @@
   "description": "サイト図版SVGの派生カタログ（SSOT）。build-svg-catalog.mjs が生成。手動編集しない。",
   "source": "content/site/**/img/*.svg",
   "summary": {
-    "total": 518,
-    "embedded": 512,
-    "orphan": 6,
+    "total": 521,
+    "embedded": 521,
+    "orphan": 0,
     "missingConcept": 0,
     "withHighAudit": 0,
     "figures": {
-      "total": 440,
-      "conforming": 440,
+      "total": 443,
+      "conforming": 443,
       "needsRework": 0
     },
     "byCategory": {
       "civil-construction-1": 177,
       "civil-construction-2": 20,
-      "civil-practice": 17,
+      "civil-practice": 20,
       "concrete-chief-engineer": 57,
       "concrete-diagnostician": 22,
       "pe-comprehensive-management": 225
@@ -720,7 +720,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -1026,8 +1026,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 1
       }
     },
     {
@@ -1044,7 +1044,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -1062,7 +1062,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -1170,7 +1170,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -1765,7 +1765,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -1927,7 +1927,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 6
       }
     },
     {
@@ -2574,7 +2574,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 4,
         "low": 0
       }
     },
@@ -2647,7 +2647,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -2665,7 +2665,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 6
       }
     },
     {
@@ -2683,7 +2683,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 11
       }
     },
     {
@@ -3006,7 +3006,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -3641,6 +3641,24 @@
       }
     },
     {
+      "file": "content/site/civil-practice/concrete-crack-causes/img/figure-crack-timeline.svg",
+      "category": "civil-practice",
+      "slug": "concrete-crack-causes",
+      "name": "figure-crack-timeline.svg",
+      "concept": "コンクリートのひび割れを発生時期、主な原因、典型的な位置で切り分け、時間が上から下へ連続して進むことを示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/civil-practice/concrete-mix-acceptance/img/figure-acceptance-cards.svg",
       "category": "civil-practice",
       "slug": "concrete-mix-acceptance",
@@ -3682,6 +3700,24 @@
       "slug": "earth-retaining-displacement",
       "name": "figure-management-levels.svg",
       "concept": "土留め壁の変位を一次管理値（設計値のおおむね8割）と二次管理値（設計値相当）の二段階で運用する考え方を示す図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
+      "file": "content/site/civil-practice/embankment-quality-control/img/figure-quality-method-selection.svg",
+      "category": "civil-practice",
+      "slug": "embankment-quality-control",
+      "name": "figure-quality-method-selection.svg",
+      "concept": "盛土の締固め管理で品質規定方式と工法規定方式を比較し、品質規定方式を選んだ場合の三つの管理方法と適する土質を示す図",
       "viewBox": "0 0 400 500",
       "aspect": 0.8,
       "canvas": "feed",
@@ -3875,6 +3911,24 @@
       }
     },
     {
+      "file": "content/site/civil-practice/trench-excavation-safety/img/figure-obligation-basis.svg",
+      "category": "civil-practice",
+      "slug": "trench-excavation-safety",
+      "name": "figure-obligation-basis.svg",
+      "concept": "溝掘削における土止め支保工の設置義務と二種類の作業主任者の選任義務が、別々の法令根拠と判断基準から生じることを対比した図",
+      "viewBox": "0 0 400 500",
+      "aspect": 0.8,
+      "canvas": "feed",
+      "fitStatus": "conforming",
+      "hasWideVariant": false,
+      "embedded": true,
+      "audit": {
+        "high": 0,
+        "medium": 0,
+        "low": 0
+      }
+    },
+    {
       "file": "content/site/concrete-chief-engineer/primary-construction/img/bingham-shear-r04.svg",
       "category": "concrete-chief-engineer",
       "slug": "primary-construction",
@@ -3906,8 +3960,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 4,
+        "low": 11
       }
     },
     {
@@ -3924,8 +3978,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 2
       }
     },
     {
@@ -3942,8 +3996,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 6,
+        "low": 19
       }
     },
     {
@@ -3960,7 +4014,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 2,
         "low": 0
       }
     },
@@ -3978,8 +4032,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 12
       }
     },
     {
@@ -4032,8 +4086,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 3,
+        "low": 1
       }
     },
     {
@@ -4050,8 +4104,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 2,
+        "low": 22
       }
     },
     {
@@ -4068,8 +4122,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 2,
+        "low": 21
       }
     },
     {
@@ -4086,8 +4140,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 12
       }
     },
     {
@@ -4104,7 +4158,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4122,8 +4176,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 5,
+        "low": 33
       }
     },
     {
@@ -4140,8 +4194,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 7,
+        "low": 26
       }
     },
     {
@@ -4159,7 +4213,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 13
       }
     },
     {
@@ -4177,7 +4231,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 13
       }
     },
     {
@@ -4194,7 +4248,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 2,
         "low": 0
       }
     },
@@ -4212,8 +4266,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 4,
+        "low": 34
       }
     },
     {
@@ -4230,8 +4284,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 2,
+        "low": 5
       }
     },
     {
@@ -4248,8 +4302,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 2,
+        "low": 3
       }
     },
     {
@@ -4266,8 +4320,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 2,
+        "low": 5
       }
     },
     {
@@ -4284,8 +4338,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 3,
+        "low": 8
       }
     },
     {
@@ -4302,8 +4356,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 2,
+        "low": 26
       }
     },
     {
@@ -4338,8 +4392,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 2,
+        "low": 5
       }
     },
     {
@@ -4392,7 +4446,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4410,8 +4464,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 7,
+        "low": 68
       }
     },
     {
@@ -4446,7 +4500,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4537,7 +4591,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 3
       }
     },
     {
@@ -4554,7 +4608,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4572,7 +4626,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4590,8 +4644,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 21
       }
     },
     {
@@ -4608,8 +4662,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 4
       }
     },
     {
@@ -4626,7 +4680,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4644,7 +4698,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4662,7 +4716,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4698,7 +4752,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4716,7 +4770,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4734,7 +4788,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4752,8 +4806,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 4
       }
     },
     {
@@ -4770,7 +4824,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4806,7 +4860,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4824,7 +4878,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4842,7 +4896,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4860,7 +4914,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4878,7 +4932,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -4896,7 +4950,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5382,8 +5436,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 6
       }
     },
     {
@@ -5418,7 +5472,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5563,7 +5617,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 7
       }
     },
     {
@@ -5724,8 +5778,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 2
       }
     },
     {
@@ -5743,7 +5797,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 3
       }
     },
     {
@@ -5796,7 +5850,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5814,7 +5868,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5851,7 +5905,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 3
       }
     },
     {
@@ -5904,7 +5958,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5922,7 +5976,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -5941,7 +5995,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -5976,8 +6030,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 2
       }
     },
     {
@@ -5994,7 +6048,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -6102,7 +6156,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -6246,7 +6300,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -6337,7 +6391,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -6409,7 +6463,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 4
       }
     },
     {
@@ -6426,8 +6480,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 6
       }
     },
     {
@@ -6570,8 +6624,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 21
       }
     },
     {
@@ -6729,7 +6783,7 @@
       "canvas": "feed",
       "fitStatus": "conforming",
       "hasWideVariant": false,
-      "embedded": false,
+      "embedded": true,
       "audit": {
         "high": 0,
         "medium": 0,
@@ -6747,7 +6801,7 @@
       "canvas": "feed",
       "fitStatus": "conforming",
       "hasWideVariant": false,
-      "embedded": false,
+      "embedded": true,
       "audit": {
         "high": 0,
         "medium": 0,
@@ -6804,7 +6858,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -6822,8 +6876,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 1
       }
     },
     {
@@ -6859,7 +6913,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -6894,7 +6948,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -6913,7 +6967,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 3
       }
     },
     {
@@ -6930,8 +6984,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 1
       }
     },
     {
@@ -6984,7 +7038,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -7344,7 +7398,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -7453,7 +7507,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 4
       }
     },
     {
@@ -7471,7 +7525,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 6
       }
     },
     {
@@ -7507,7 +7561,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -7596,7 +7650,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -7629,7 +7683,7 @@
       "canvas": "feed",
       "fitStatus": "conforming",
       "hasWideVariant": false,
-      "embedded": false,
+      "embedded": true,
       "audit": {
         "high": 0,
         "medium": 0,
@@ -7650,8 +7704,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 8
       }
     },
     {
@@ -7668,8 +7722,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 4
       }
     },
     {
@@ -7885,7 +7939,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 18
       }
     },
     {
@@ -8046,7 +8100,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -8119,7 +8173,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 2
       }
     },
     {
@@ -8187,7 +8241,7 @@
       "canvas": "feed",
       "fitStatus": "conforming",
       "hasWideVariant": false,
-      "embedded": false,
+      "embedded": true,
       "audit": {
         "high": 0,
         "medium": 0,
@@ -8388,7 +8442,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -8533,7 +8587,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -8551,7 +8605,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 10
       }
     },
     {
@@ -8569,7 +8623,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 15
       }
     },
     {
@@ -8727,7 +8781,7 @@
       "canvas": "feed",
       "fitStatus": "conforming",
       "hasWideVariant": false,
-      "embedded": false,
+      "embedded": true,
       "audit": {
         "high": 0,
         "medium": 0,
@@ -8745,7 +8799,7 @@
       "canvas": "feed",
       "fitStatus": "conforming",
       "hasWideVariant": false,
-      "embedded": false,
+      "embedded": true,
       "audit": {
         "high": 0,
         "medium": 0,
@@ -8784,8 +8838,8 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
-        "low": 0
+        "medium": 1,
+        "low": 1
       }
     },
     {
@@ -8802,7 +8856,7 @@
       "embedded": true,
       "audit": {
         "high": 0,
-        "medium": 0,
+        "medium": 1,
         "low": 0
       }
     },
@@ -8857,7 +8911,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 1
       }
     },
     {
@@ -9091,7 +9145,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 6
       }
     },
     {
@@ -9109,7 +9163,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 2
       }
     },
     {
@@ -9199,7 +9253,7 @@
       "audit": {
         "high": 0,
         "medium": 0,
-        "low": 0
+        "low": 5
       }
     },
     {

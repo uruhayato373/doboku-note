@@ -6,6 +6,7 @@ import CopyButton from '@/components/CopyButton';
 import {
   todoBoard,
   backlogIndex,
+  visibleTodoCards,
   KIND_ORDER,
   type TodoCard,
   type Tier,
@@ -351,6 +352,7 @@ export default async function TodoPage({ searchParams }: { searchParams: Promise
   const layer = board.files.some((file) => file.id === query.f) ? query.f! : 'backlog';
   const meta = board.files.find((file) => file.id === layer);
   const layerCards = board.items.filter((item) => item.file === layer);
+  const displayedLayerCards = visibleTodoCards(layerCards, layer);
   const isBacklog = layer === 'backlog';
 
   const tier = isBacklog && TIERS.some((item) => item.key === query.t) ? query.t as TierKey : null;
@@ -379,9 +381,10 @@ export default async function TodoPage({ searchParams }: { searchParams: Promise
 
   const activeCount = layerCards.filter((card) => !card.complete).length;
   const completeCount = layerCards.length - activeCount;
+  const completedAreHidden = displayedLayerCards.length !== layerCards.length;
   const sub = isBacklog
     ? `${visible.length} / ${layerCards.length}件を表示`
-    : `${meta?.title ?? meta?.label ?? layer} · 未完了 ${activeCount}件${completeCount ? ` / 完了 ${completeCount}件` : ''}`;
+    : `${meta?.title ?? meta?.label ?? layer} · 未完了 ${activeCount}件${completeCount && !completedAreHidden ? ` / 完了 ${completeCount}件` : ''}`;
 
   return (
     <>
@@ -396,7 +399,7 @@ export default async function TodoPage({ searchParams }: { searchParams: Promise
           {isBacklog ? (
             <BacklogTable cards={visible} focusId={query.id} docRefs={docRefs} />
           ) : (
-            <PlanTable cards={layerCards} annual={layer === 'annual'} backlogRefs={backlogRefs} />
+            <PlanTable cards={displayedLayerCards} annual={layer === 'annual'} backlogRefs={backlogRefs} />
           )}
         </div>
 

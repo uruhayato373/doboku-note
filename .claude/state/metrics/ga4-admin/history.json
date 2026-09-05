@@ -85,6 +85,18 @@
       "created": [],
       "createFailures": [],
       "dataRetentionDrift": null
+    },
+    {
+      "runId": "2026-09-04T11-11-01Z",
+      "collectedAt": "2026-09-04T11:11:01.307Z",
+      "mode": "dry-run",
+      "status": "ok",
+      "desiredCount": 2,
+      "presentCount": 2,
+      "missing": [],
+      "created": [],
+      "createFailures": [],
+      "dataRetentionDrift": null
     }
   ]
 }

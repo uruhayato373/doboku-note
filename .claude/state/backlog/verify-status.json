@@ -1,62 +1,14 @@
 {
   "_doc": "check-backlog-verify が前回の status を覚えておくための状態。red → green の遷移だけが「完了の疑い」で、常時 green は [検証:] の指定が完了判定になっていない疑い（surfacer を指している）。",
-  "updatedAt": "2026-08-25",
+  "updatedAt": "2026-09-04",
   "commands": {
-    "check-note-structure": {
-      "status": "error",
-      "at": "2026-08-25"
-    },
     "psi-audit:check": {
-      "status": "green",
-      "at": "2026-08-25"
-    },
-    "check-career-separation": {
-      "status": "green",
-      "at": "2026-08-25"
-    },
-    "audit-figures": {
-      "status": "error",
-      "at": "2026-08-25"
-    },
-    "check-note-paid-cta": {
-      "status": "green",
-      "at": "2026-08-25"
+      "status": "red",
+      "at": "2026-09-04"
     },
     "quality:audit:ci": {
-      "status": "error",
-      "at": "2026-08-25"
-    },
-    "check-backlog-schema": {
-      "status": "green",
-      "at": "2026-08-25"
-    },
-    "test:e2e:admin": {
       "status": "red",
-      "at": "2026-08-25"
-    },
-    "audit-note-funnel": {
-      "status": "green",
-      "at": "2026-08-25"
-    },
-    "knip": {
-      "status": "red",
-      "at": "2026-08-25"
-    },
-    "check-ogp-line-count:done": {
-      "status": "red",
-      "at": "2026-08-25"
-    },
-    "check-doc-refs": {
-      "status": "green",
-      "at": "2026-08-25"
-    },
-    "quality-census": {
-      "status": "green",
-      "at": "2026-08-25"
-    },
-    "x-queue-surfacer": {
-      "status": "green",
-      "at": "2026-08-25"
+      "at": "2026-09-04"
     }
   }
 }
