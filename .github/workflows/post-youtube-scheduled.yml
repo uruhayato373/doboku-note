@@ -16,7 +16,7 @@ on:
   workflow_dispatch:
     inputs:
       max:
-        description: "通常は上限。動画パックは pack:<packId>:<phase>:PUBLISH[:RELATED]"
+        description: "通常は上限。動画パックは pack:<id>:<phase>:PUBLISH[:RELATED] / batch:civil:PUBLISH:<max>"
         required: false
       dry_run:
         description: "true で対象表示のみ（アップしない）"
@@ -32,7 +32,7 @@ concurrency:
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 360
     steps:
       - name: 🧰 Checkout requested ref
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
@@ -58,12 +58,12 @@ jobs:
 
 
       - name: 🔍 Validate schedule (重複チェック)
-        if: ${{ !startsWith(inputs.max, 'pack:') }}
+        if: ${{ !startsWith(inputs.max, 'pack:') && !startsWith(inputs.max, 'batch:') }}
         run: node .claude/scripts/youtube/validate-schedule.mjs
 
       - name: ▶️ Upload due scheduled shorts
         id: post
-        if: ${{ !startsWith(inputs.max, 'pack:') }}
+        if: ${{ !startsWith(inputs.max, 'pack:') && !startsWith(inputs.max, 'batch:') }}
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
@@ -106,8 +106,31 @@ jobs:
           fi
           node .claude/scripts/youtube/publish-video-pack.cjs "${args[@]}" 2>&1 | tee /tmp/yt-post.log
 
+      - name: ▶️ Schedule rendered longform batch
+        id: video_batch
+        if: ${{ startsWith(inputs.max, 'batch:') }}
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: |
+          set -o pipefail
+          IFS=':' read -r kind scope confirm batch_max <<EOF
+          ${{ inputs.max }}
+          EOF
+          if [ "$kind" != "batch" ] || [ "$scope" != "civil" ] || [ "$confirm" != "PUBLISH" ]; then
+            echo "::error::max=batch:civil:PUBLISH:<max> が必要です"
+            exit 1
+          fi
+          args=(--exam civil-construction-1,civil-construction-2 --max "${batch_max:-20}")
+          if [ "${{ inputs.dry_run }}" = "true" ]; then args+=(--dry-run); fi
+          node .claude/scripts/youtube/publish-video-batch.cjs "${args[@]}" 2>&1 | tee /tmp/yt-post.log
+
       - name: 📝 Commit ledger + log
-        if: success() && !startsWith(inputs.max, 'pack:') && inputs.dry_run != 'true' && steps.post.outputs.uploaded != '' && steps.post.outputs.uploaded != '0'
+        if: success() && !startsWith(inputs.max, 'pack:') && !startsWith(inputs.max, 'batch:') && inputs.dry_run != 'true' && steps.post.outputs.uploaded != '' && steps.post.outputs.uploaded != '0'
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
@@ -121,7 +144,7 @@ jobs:
           git push origin "HEAD:${GITHUB_REF_NAME}"
 
       - name: 📝 Commit video pack publication state
-        if: success() && startsWith(inputs.max, 'pack:')
+        if: always() && (startsWith(inputs.max, 'pack:') || startsWith(inputs.max, 'batch:')) && inputs.dry_run != 'true'
         run: |
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config user.name "github-actions[bot]"

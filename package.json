@@ -186,6 +186,8 @@
     "check-video-publication": "node scripts/check-video-publication.mjs",
     "verify-video-publication": "node scripts/verify-video-publication.mjs",
     "render-longform": "node scripts/render-longform.mjs",
+    "render-longform:approved": "node scripts/render-approved-longforms.mjs",
+    "youtube-longform:prepare": "tsx scripts/prepare-youtube-longforms.mts",
     "build-video-pack-index": "node scripts/build-video-pack-index.mjs",
     "check-public-bloat": "node scripts/check-public-bloat.mjs",
     "check-sales-freshness": "node scripts/check-sales-freshness.mjs",

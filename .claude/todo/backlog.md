@@ -104,7 +104,7 @@
 
 ## 🟡 中 — 2〜3ヶ月以内
 
-### [DN-0167] コンクリート単品¥980の値上げ可否を試験後に判定する
+### [DN-0168] コンクリート単品¥980の値上げ可否を試験後に判定する
 タグ: [収益化] [種類:改善] [起票:2026-09-04] [期日:2026-12-12]
 
 2026-09-04 に最上位アンカー `cce-marugoto-pack`（¥9,800）を新設した（既存SKUは据え置き）。残る論点は小論文/記述の単品 45 本（主任技士 37・診断士 8）が一律 ¥980 で、同じ記述式の土木 経験記述 ¥1,680〜1,980 より低いこと。字数単価では ¥183/千字で自社上位帯のため「安すぎる」とは断定できず、実売も 0 件のため値上げの効果は未検証。**アンカー新設の効果（¥9,800 の実売・¥5,980 の動き）を 11-29 試験〜12月上旬で観測してから**、¥1,480 への改定可否を判定する。
@@ -132,23 +132,23 @@
 
 
 
-### [DN-0110] 通常動画pilot 4本の派生・公開・6週間判定
+### [DN-0110] 土木通常動画84本の公開・pilot派生・6週間判定
 タグ: [SNS・マーケ] [種類:改善] [Codex候補] [検証:quality:audit:ci] [起票:2026-08-21]
 
 **戦略SSOT**: [06_動画コンテンツ運用設計.md](../../docs/marketing/06_動画コンテンツ運用設計.md)
 
 **作業契約**: [video-content-policy.md](../knowledge/reference/video-content-policy.md)
 
-pilot 4パック（`koji-gaiyo-7items` / `anzen-ippanron-3riyu` / `gokanri-tradeoff` / `monbun-yomikata`）は `qa_passed`。残作業は次の順で行う。
+2026-09-05のユーザー決定で、QA済みの1級土木66本・2級土木18本は試験日前の通常動画公開を先行する。1級1本は公開済み、残り83本は`video-content-status.json`の`publishAt`を真実源にAPI予約する。残作業は次の順で行う。
 
-1. 各通常動画からShorts 2本・IG 1組・X 1スレッドを派生する
-2. 薄い`/video-content` skillと`video-script-writer`（Generator）／`video-content-qa`（Evaluator）を追加する
-3. 公開対象・日時・アカウントを提示し、ユーザー承認後に公開してURL・videoId・関連動画・CTAを照合する
+1. 1級残り65本を2026-09-08〜10-03、2級18本を10-05〜10-22にAPI予約し、全件の`videoId`・`publishAt`・CTAを実査する
+2. pilot 4本からShorts 2本・IG 1組・X 1スレッドを派生する
+3. 薄い`/video-content` skillと`video-script-writer`（Generator）／`video-content-qa`（Evaluator）を追加する
 4. 公開6週間後にShorts→関連動画、視聴維持、YouTube UTM、note/ココナラ遷移から継続・修正・停止を判定する
 
-**制約**: `approved` はユーザーだけが設定する。mp4/wavをGitへ入れない。ThreadsのX単純クロスポスト、全記事一括動画化、全資格同時展開は行わない。IGの既存リール素材は本pilot成立後に判断する。
+**制約**: `approved` はユーザーだけが設定する。mp4/wavをGitへ入れない。今回の先行対象はQA済み土木84本だけで、他資格の公開、ThreadsのX単純クロスポスト、未監査記事の一括動画化は行わない。IGの既存リール素材はpilot成立後に判断する。
 
-**完了条件**: 4packのmanifest/script/storyboard/QA/派生/statusが一意にjoinされ、全機械・意味ゲートとadmin型検査/E2EがPASSする。4本の通常動画と関連Shortsを外部実体で照合し、6週間後の継続/修正/停止判断とbaselineを記録したらカードを削除する。
+**完了条件**: 土木84本の通常動画とpilot関連Shortsを外部実体で照合し、4packの派生が一意にjoinされ、全機械・意味ゲートとadmin型検査/E2EがPASSする。6週間後の継続/修正/停止判断とbaselineを記録したらカードを削除する。
 
 
 

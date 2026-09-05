@@ -61,6 +61,9 @@ function assertMetadata(item, packId) {
   }
   if (!/^[a-f0-9]{64}$/.test(item.sha256 ?? '')) throw new Error(`${item.key}: sha256 が未確定です`);
   if (!/^[a-f0-9]{64}$/.test(item.thumbnailSha256 ?? '')) throw new Error(`${item.key}: thumbnailSha256 が未確定です`);
+  if (item.publishAt && !Number.isFinite(new Date(item.publishAt).getTime())) {
+    throw new Error(`${item.key}: publishAt がISO日時ではありません: ${item.publishAt}`);
+  }
 }
 
 function loadState() {
@@ -263,11 +266,22 @@ async function main() {
   const now = new Date().toISOString();
 
   if (PHASE === 'longform') {
-    const { videoId } = await upload(youtube, s3, uploadsPlaylistId, publish.longform, 'public');
-    upsertDerivative(state, PACK_ID, 'longform', {
-      status: 'published', approvedBy: 'user', videoId,
-      url: `https://www.youtube.com/watch?v=${videoId}`, publishedAt: now, privacyStatus: 'public',
-    });
+    const scheduled = Boolean(publish.longform.publishAt);
+    const { videoId } = await upload(youtube, s3, uploadsPlaylistId, publish.longform, scheduled ? 'private' : 'public');
+    if (scheduled) {
+      const actual = await schedulePublic(youtube, videoId, publish.longform.publishAt);
+      upsertDerivative(state, PACK_ID, 'longform', {
+        status: 'scheduled', approvedBy: 'user', videoId,
+        url: `https://www.youtube.com/watch?v=${videoId}`, scheduledAt: now,
+        publishAt: actual.status.publishAt, privacyStatus: 'private',
+      });
+      console.log(`${publish.longform.key}: scheduled ${actual.status.publishAt} ${videoId}`);
+    } else {
+      upsertDerivative(state, PACK_ID, 'longform', {
+        status: 'published', approvedBy: 'user', videoId,
+        url: `https://www.youtube.com/watch?v=${videoId}`, publishedAt: now, privacyStatus: 'public',
+      });
+    }
   } else if (PHASE === 'shorts-upload') {
     const relatedVideoId = state.packs?.[PACK_ID]?.derivatives?.longform?.videoId;
     if (!relatedVideoId) throw new Error('先にlongformを公開してvideoIdを確定してください');
