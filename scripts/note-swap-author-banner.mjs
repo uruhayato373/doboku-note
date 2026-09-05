@@ -772,8 +772,12 @@ async function locateSquareBannerForCleanup(page, position, selectExtraEmpty = f
     if (empty?.tagName !== 'P' || normalize(empty.innerText || empty.textContent)) {
       return { ok: false, emptyBefore };
     }
+    // 空 p を「ノード選択」して Delete すると、直後の figure まで巻き込んで消える（2026-09-05 実測・
+    // 2テーマ組合せ大全 2 本で figure が消失し最終検証で止まった）。probe で実証済みの
+    // 「空 p の中にカーソルを置いて Backspace」だけを使う。
     const range = document.createRange();
-    range.selectNode(empty);
+    range.selectNodeContents(empty);
+    range.collapse(true);
     editor.focus();
     selection.removeAllRanges();
     selection.addRange(range);
@@ -802,7 +806,8 @@ async function cleanupExtraEmptyParagraphs(page, following, prose, allowedCount,
       console.log('[WARN] 空 p 掃除後にバナー位置を再取得できず（掃除を打ち切り）');
       return { ok: true, placement, cleanupIncomplete: true };
     }
-    await page.keyboard.press('Delete');
+    await sleep(300);
+    await page.keyboard.press('Backspace');
     await sleep(600);
     const relocated = await locateSquareBannerForCleanup(page, position);
     if (!relocated.ok) {
