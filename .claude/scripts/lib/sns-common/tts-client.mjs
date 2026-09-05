@@ -48,7 +48,9 @@ export async function synthesize({ text, speaker, baseUrl, queryOverrides } = {}
 
   const queryRes = await fetch(
     `${url}/audio_query?speaker=${sp}&text=${encodeURIComponent(text)}`,
-    { method: 'POST', headers: { Connection: 'close' }, signal: AbortSignal.timeout(30000) }
+    // 長尺バッチでは別リクエストの synthesis 待ちが発生する。audio_query 自体の失敗と
+    // サーバー待ちを混同しないよう、synthesis と同じ 120 秒まで待つ。
+    { method: 'POST', headers: { Connection: 'close' }, signal: AbortSignal.timeout(120000) }
   );
   if (!queryRes.ok) {
     throw new Error(`VOICEVOX /audio_query failed: ${queryRes.status} ${queryRes.statusText}`);
