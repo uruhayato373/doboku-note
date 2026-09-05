@@ -8,6 +8,7 @@
  * 使い方:
  *   node scripts/note-swap-author-banner.mjs --article <article.md>              # probeのみ（既定）
  *   node scripts/note-swap-author-banner.mjs --article <article.md> --commit     # 差替・ライブ更新
+ *   node scripts/note-swap-author-banner.mjs --article <article.md> --image-only # 本文を触らず画像だけ
  *   node scripts/note-swap-author-banner.mjs --list <paths.txt> --commit          # 一括更新
  *   npm run note-swap-author-banner -- --list <paths.txt> [--commit]
  *
@@ -53,6 +54,7 @@ const ARTICLE_ARG = getArg('--article');
 const LIST_ARG = getArg('--list');
 const BOUNDARY_ARG = getArg('--boundary-h2');
 const COMMIT = argv.includes('--commit');
+const FORCE_IMAGE_ONLY = argv.includes('--image-only');
 const MAX_CONSEC_FAIL = Number(getArg('--max-consecutive-fail') || 3);
 const DAILY_LIMIT = Number(getArg('--daily-limit') || 90);
 
@@ -119,11 +121,10 @@ function parseArticle(articlePath) {
   }
 
   const firstIndex = banners[0].line - 1;
-  const prose = lines.slice(firstIndex + 1).map((line) => line.trim()).filter(Boolean).slice(0, 2);
-  if (prose.length < 2) throw new Error('先頭バナー直後の本文2段落を取得できません');
-  if (!prose[0].startsWith(NEW_PROSE_PREFIX)) {
-    throw new Error(`先頭バナー直後の第1段落が想定外です: ${prose[0].slice(0, 60)}`);
-  }
+  const proseCandidate = lines.slice(firstIndex + 1).map((line) => line.trim()).filter(Boolean).slice(0, 2);
+  const prose = !FORCE_IMAGE_ONLY && proseCandidate.length >= 2 && proseCandidate[0].startsWith(NEW_PROSE_PREFIX)
+    ? proseCandidate
+    : null;
 
   return {
     abs,
@@ -152,7 +153,10 @@ function doneTodayCount() {
 
 function recordDone(noteId) {
   const state = readDoneState();
-  state.done.push({ noteId, at: todayJst() });
+  const at = todayJst();
+  if (!state.done.some((entry) => entry?.noteId === noteId && entry?.at === at)) {
+    state.done.push({ noteId, at });
+  }
   mkdirSync(dirname(DONE_LOG), { recursive: true });
   writeFileSync(DONE_LOG, JSON.stringify(state, null, 2) + '\n');
 }
@@ -723,74 +727,111 @@ async function inspectUploadedBanner(page, following, prose = null) {
   }, { target: following, paragraphs: prose });
 }
 
-async function placeCaretInImmediateEmptyBeforeBanner(page, following, prose = null) {
-  return page.evaluate(({ target, paragraphs }) => {
+async function locateSquareBannerForCleanup(page, position, selectExtraEmpty = false) {
+  return page.evaluate(({ targetPosition, shouldSelectExtraEmpty, bottomPrefix }) => {
     const editor = document.querySelector('[contenteditable=true]');
     const selection = window.getSelection();
     const normalize = (value) => String(value || '').normalize('NFC').replace(/\s+/g, ' ').trim();
-    if (!editor || !selection) return null;
-    const blocks = Array.from(editor.querySelectorAll('p,h2,h3,li,blockquote')).filter((block) => !block.closest('figure'));
-    let firstAfterFigure = null;
-    if (paragraphs) {
-      const b = blocks.find((block) =>
-        block.tagName.toLowerCase() === target.tag &&
-        normalize(block.innerText || block.textContent) === normalize(target.text) &&
-        block.previousElementSibling?.tagName === 'P' &&
-        normalize(block.previousElementSibling.innerText || block.previousElementSibling.textContent) === normalize(paragraphs[1]) &&
-        block.previousElementSibling?.previousElementSibling?.tagName === 'P' &&
-        normalize(block.previousElementSibling.previousElementSibling.innerText || block.previousElementSibling.previousElementSibling.textContent) === normalize(paragraphs[0]),
-      );
-      firstAfterFigure = b?.previousElementSibling?.previousElementSibling || null;
+    if (!editor || !selection) return { ok: false, emptyBefore: -1 };
+    const ratioOf = (figure) => {
+      const image = figure?.querySelector('img');
+      const attrWidth = Number.parseFloat(image?.getAttribute('width') || '');
+      const attrHeight = Number.parseFloat(image?.getAttribute('height') || '');
+      const width = image?.naturalWidth > 0 ? image.naturalWidth : (attrWidth > 0 ? attrWidth : 0);
+      const height = image?.naturalHeight > 0 ? image.naturalHeight : (attrHeight > 0 ? attrHeight : 0);
+      return width > 0 && height > 0 ? width / height : null;
+    };
+    const isSquare = (figure) => {
+      const ratio = ratioOf(figure);
+      return ratio != null && ratio >= 0.95 && ratio <= 1.05;
+    };
+    let figure = null;
+    if (targetPosition === 'top') {
+      const firstH2 = editor.querySelector('h2');
+      figure = firstH2
+        ? Array.from(editor.querySelectorAll('figure')).find((candidate) =>
+          isSquare(candidate) && Boolean(candidate.compareDocumentPosition(firstH2) & Node.DOCUMENT_POSITION_FOLLOWING),
+        ) || null
+        : null;
     } else {
-      firstAfterFigure = blocks.find((block) =>
-        block.tagName.toLowerCase() === target.tag &&
-        normalize(block.innerText || block.textContent) === normalize(target.text) &&
-        block.previousElementSibling?.tagName === 'FIGURE',
+      const bridge = Array.from(editor.querySelectorAll('p')).find((paragraph) =>
+        !paragraph.closest('figure') && normalize(paragraph.innerText || paragraph.textContent).startsWith(bottomPrefix),
       ) || null;
+      const candidate = bridge?.previousElementSibling || null;
+      figure = candidate?.tagName === 'FIGURE' && isSquare(candidate) ? candidate : null;
     }
-    const figure = firstAfterFigure?.previousElementSibling || null;
+    if (!figure) return { ok: false, emptyBefore: -1 };
+    let emptyBefore = 0;
+    let cursor = figure.previousElementSibling;
+    while (cursor?.tagName === 'P' && !normalize(cursor.innerText || cursor.textContent)) {
+      emptyBefore++;
+      cursor = cursor.previousElementSibling;
+    }
+    if (!shouldSelectExtraEmpty) return { ok: true, emptyBefore };
     const empty = figure?.previousElementSibling || null;
-    if (figure?.tagName !== 'FIGURE' || empty?.tagName !== 'P' || normalize(empty.innerText || empty.textContent)) return null;
+    if (empty?.tagName !== 'P' || normalize(empty.innerText || empty.textContent)) {
+      return { ok: false, emptyBefore };
+    }
     const range = document.createRange();
-    range.selectNodeContents(empty);
-    range.collapse(true);
+    range.selectNode(empty);
     editor.focus();
     selection.removeAllRanges();
     selection.addRange(range);
     empty.scrollIntoView({ block: 'center' });
-    return true;
-  }, { target: following, paragraphs: prose });
+    return { ok: true, emptyBefore };
+  }, { targetPosition: position, shouldSelectExtraEmpty: selectExtraEmpty, bottomPrefix: BOTTOM_PROSE_PREFIX });
 }
 
-async function cleanupExtraEmptyParagraphs(page, following, prose, allowedCount) {
+async function cleanupExtraEmptyParagraphs(page, following, prose, allowedCount, position) {
   let placement = await inspectUploadedBanner(page, following, prose);
   if (!placement.ok) {
     console.log(`[diag] upload-placement=${JSON.stringify(placement)}`);
     return { ok: false, reason: 'upload 後に figure.nextElementSibling を確認できない' };
   }
   const maxAttempts = Math.max(0, placement.emptyBefore - allowedCount);
+  let warned = false;
   for (let attempt = 0; attempt < maxAttempts && placement.emptyBefore > allowedCount; attempt++) {
-    const before = placement.emptyBefore;
-    const placed = await placeCaretInImmediateEmptyBeforeBanner(page, following, prose);
-    if (!placed) {
-      return { ok: false, reason: '削除対象の余分な空 p に Range を置けない' };
+    const beforeOrder = await inspectUploadedBanner(page, following, prose);
+    if (!beforeOrder.ok) {
+      return { ok: false, reason: `空 p 掃除前の DOM が ${prose ? 'figure → P1 → P2 → B' : 'figure → B'} の順ではない` };
     }
-    await page.keyboard.press('Backspace');
+    const before = beforeOrder.emptyBefore;
+    placement = beforeOrder;
+    const located = await locateSquareBannerForCleanup(page, position, true);
+    if (!located.ok) {
+      console.log('[WARN] 空 p 掃除後にバナー位置を再取得できず（掃除を打ち切り）');
+      return { ok: true, placement, cleanupIncomplete: true };
+    }
+    await page.keyboard.press('Delete');
     await sleep(600);
-    placement = await inspectUploadedBanner(page, following, prose);
-    if (!placement.ok || placement.emptyBefore >= before) {
-      console.log(`[diag] empty-p-cleanup=${JSON.stringify({ before, after: placement })}`);
-      return { ok: false, reason: 'Backspace 後にバナー直前の空 p 数が減少しない' };
+    const relocated = await locateSquareBannerForCleanup(page, position);
+    if (!relocated.ok) {
+      console.log('[WARN] 空 p 掃除後にバナー位置を再取得できず（掃除を打ち切り）');
+      return { ok: true, placement, cleanupIncomplete: true };
+    }
+    const afterOrder = await inspectUploadedBanner(page, following, prose);
+    if (!afterOrder.ok) {
+      console.log(`[WARN] 空 p 掃除後に ${prose ? 'figure → P1 → P2 → B' : 'figure → B'} の順序を確認できず（掃除を打ち切り）`);
+      return { ok: true, placement, cleanupIncomplete: true };
+    }
+    placement = { ...afterOrder, emptyBefore: relocated.emptyBefore };
+    if (placement.emptyBefore >= before) {
+      console.log(`[WARN] 余分な空 p を除去できず（残 ${placement.emptyBefore}）`);
+      warned = true;
+      continue;
     }
     console.log(`[swap] empty-p cleanup ${before}→${placement.emptyBefore}（probe=${allowedCount}）`);
   }
-  if (placement.emptyBefore !== allowedCount) {
+  if (placement.emptyBefore < allowedCount) {
     return { ok: false, reason: `バナー直前の空 p 数が probe と不一致（${placement.emptyBefore} != ${allowedCount}）` };
+  }
+  if (placement.emptyBefore > allowedCount && !warned) {
+    console.log(`[WARN] 余分な空 p を除去できず（残 ${placement.emptyBefore}）`);
   }
   return { ok: true, placement };
 }
 
-async function uploadBannerAtCaret(page, banner, following, emptyBefore, prose = null) {
+async function uploadBannerAtCaret(page, banner, following, emptyBefore, prose = null, position = 'top') {
   if (prose) {
     const placed = await placeCaretAtP1Start(page, following, prose);
     if (!placed) return { ok: false, reason: 'P1 block 先頭へ Range を置けない' };
@@ -802,7 +843,7 @@ async function uploadBannerAtCaret(page, banner, following, emptyBefore, prose =
   const imageTarget = await countEditorImages(page);
   const settled = await settleUploads(page, imageTarget, Math.max(SETTLE_MIN_MS, SETTLE_PER_IMG_MS), '[swap-image]');
   if (!settled.ok) return { ok: false, reason: `画像の CDN 確定失敗 (${settled.confirmed}/${imageTarget})` };
-  return cleanupExtraEmptyParagraphs(page, following, prose, emptyBefore);
+  return cleanupExtraEmptyParagraphs(page, following, prose, emptyBefore, position);
 }
 
 async function verifyTopDom(page, following, prose) {
@@ -886,15 +927,18 @@ async function inspectExistingTopProse(page, prose) {
   }, prose);
 }
 
-async function verifyPublishedBody(noteId, isMembership) {
+async function verifyPublishedBody(noteId, { requireNewProse = true } = {}) {
   const live = await fetchNoteBody(noteId);
-  if (live.error) return { ok: false, reason: `public API 取得失敗: ${live.error}` };
-  if (live.unmeasurable && isMembership) {
-    console.log('[5e] WARN: public API では本文を計測できない（membership）→ エディタ側の最終 DOM 検証のみ');
+  if (live.error) {
+    console.log(`[5e] raw error=${JSON.stringify(live.error)} unmeasurable=${Boolean(live.unmeasurable)} httpStatus=${live.httpStatus ?? live.statusCode ?? 'n/a'}`);
+    console.log('[5e] WARN: public API で本文を計測できない（有料マガジン同梱の無料記事等）→ エディタ側の最終 DOM 検証のみ');
     return { ok: true, unmeasurable: true };
   }
-  if (live.unmeasurable) return { ok: false, reason: 'public API で本文を計測できない（free/paid）' };
-  if (!live.body.includes(NEW_PROSE_PREFIX)) return { ok: false, reason: '公開本文に新しい著者説明がない' };
+  if (live.unmeasurable || !live.body) {
+    console.log('[5e] WARN: public API で本文を計測できない（有料マガジン同梱の無料記事等）→ エディタ側の最終 DOM 検証のみ');
+    return { ok: true, unmeasurable: true };
+  }
+  if (requireNewProse && !live.body.includes(NEW_PROSE_PREFIX)) return { ok: false, reason: '公開本文に新しい著者説明がない' };
   if (live.body.includes(OLD_CAPTION)) return { ok: false, reason: '公開本文に旧キャプションが残っている' };
   return { ok: true };
 }
@@ -916,6 +960,10 @@ async function processArticle(page, article) {
   if (article.isMembership) {
     console.log('[NOTE] membership 記事: 有料境界は free と同様に扱い、既存の試し読みラインを動かさない');
   }
+  const imageOnly = article.prose === null;
+  if (imageOnly) {
+    console.log(`[NOTE] image-only: ${FORCE_IMAGE_ONLY ? '--image-only 指定' : 'ローカル先頭バナー直後に標準 P1/P2 なし'} → 本文は変更しない`);
+  }
 
   const dirtyDraftReason = 'エディタに未保存の下書き差分が残っている疑い（画像0・本文だけ新形式）→ note-update-body --commit で正規化してから再実行';
   if (probe.newTopCount > 1) {
@@ -927,17 +975,15 @@ async function processArticle(page, article) {
     }
   }
   if (probe.mode === 'none') {
-    if (probe.hasNewProse && probe.newTopCount === 0) return { ok: false, reason: dirtyDraftReason };
+    if (!imageOnly && probe.hasNewProse && probe.newTopCount === 0) return { ok: false, reason: dirtyDraftReason };
     return { ok: false, reason: 'old/new バナーを位置＋画像比率から分類できない' };
   }
 
-  if (probe.mode === 'already-done') {
+  const imageOnlyAlreadyDone = imageOnly && probe.oldCount === 0 && probe.newTopCount === 1;
+  if (probe.mode === 'already-done' || imageOnlyAlreadyDone) {
     if (!article.isMembership) {
-      const live = await fetchNoteBody(article.noteId);
-      if (live.error) return { ok: false, reason: `already-done 公開 API 検証失敗: ${live.error}` };
-      if (live.unmeasurable || !live.body.includes(NEW_PROSE_PREFIX)) {
-        return { ok: false, reason: '公開 API 本文に新形式の著者説明がない（エディタの未保存下書き疑い）' };
-      }
+      const live = await verifyPublishedBody(article.noteId, { requireNewProse: !imageOnly });
+      if (!live.ok) return { ok: false, reason: `already-done 公開 API 検証失敗: ${live.reason}` };
       console.log('[PROBE] already-done confirmed by editor DOM + public API');
     } else {
       console.log('[PROBE] already-done confirmed by editor DOM（membership は public API 計測不能）');
@@ -945,6 +991,7 @@ async function processArticle(page, article) {
     if (COMMIT) {
       if (recordPublishedHash(article.relativePath)) console.log(`[hash] ${article.relativePath} 再公開ハッシュ更新（already-done）`);
       else console.log(`[hash] WARN: ${article.relativePath} の再公開ハッシュを記録できない`);
+      recordDone(article.noteId);
     }
     return { ok: true, dryRun: !COMMIT, alreadyDone: true };
   } else if (!COMMIT) {
@@ -953,6 +1000,9 @@ async function processArticle(page, article) {
 
   const oldTop = probe.targets.filter((figure) => figure.pos === 'top').sort((left, right) => left.index - right.index);
   const oldBottom = probe.targets.filter((figure) => figure.pos === 'bottom').sort((left, right) => left.index - right.index);
+  if (imageOnly && oldTop.length === 0 && probe.newTopCount === 0) {
+    return { ok: false, reason: 'image-only: top の old/new figure がなく挿入位置を決められない' };
+  }
   const targetsDescending = [...probe.targets].sort((left, right) => right.index - left.index);
   for (const target of targetsDescending) {
     const following = { tag: target.nextTag, text: target.nextFull };
@@ -964,51 +1014,78 @@ async function processArticle(page, article) {
   let insertedCount = 0;
   let topFollowing = null;
   let topEmptyBaseline = oldTop[0]?.emptyParagraphsBefore ?? 0;
-  if (probe.hasNewProse) {
-    const existingProse = await inspectExistingTopProse(page, article.prose);
-    if (!existingProse.ok) {
-      console.log(`[diag] existing-prose=${JSON.stringify(existingProse.actual)}`);
-      return { ok: false, reason: '本文あり判定だが top の p=P1 → p=P2 → B 構造を確認できない' };
-    }
-    topFollowing = existingProse.following;
-    if (!oldTop.length) topEmptyBaseline = existingProse.emptyParagraphsBefore;
-  } else {
-    const topReference = oldTop.at(-1) || probe.newTop[0] || probe.firstH2;
-    topFollowing = topReference ? {
-      tag: topReference.nextTag || topReference.tag,
-      text: topReference.nextFull || topReference.text,
-    } : null;
-    if (!oldTop.length) topEmptyBaseline = topReference?.emptyParagraphsBefore ?? 0;
+  if (imageOnly) {
+    const topReference = oldTop.at(-1) || probe.newTop[0];
+    topFollowing = topReference ? { tag: topReference.nextTag, text: topReference.nextFull } : null;
     if (!topFollowing?.tag || !topFollowing?.text) {
-      return { ok: false, reason: 'top prose 挿入位置 B を特定できない' };
+      return { ok: false, reason: 'image-only: old top figure の後続 block を特定できない' };
     }
     if (!['p', 'h2', 'h3'].includes(topFollowing.tag)) {
-      return { ok: false, reason: `top prose 挿入位置 B の tag=${topFollowing.tag} は未対応（p/h2/h3 のみ）` };
+      return { ok: false, reason: `image-only: 後続 block の tag=${topFollowing.tag} は未対応（p/h2/h3 のみ）` };
     }
-    const placed = await placeCaretAtFollowingBlockStart(page, topFollowing);
-    if (!placed) return { ok: false, reason: 'top prose 挿入位置 B の先頭へ Range を置けない' };
-    const pasted = await pasteTopParagraphs(page, topFollowing, article.prose);
-    if (!pasted.ok) return { ok: false, reason: `先頭バナー直後の本文挿入失敗: ${pasted.reason}` };
-    console.log(pasted.mode === 'heading'
-      ? `[swap] ${topFollowing.tag} start→Enter→ArrowUp→empty p→paste ${PASTE_SHORTCUT}: p=P1 / p=P2 / ${topFollowing.tag}=B`
-      : `[swap] paste ${PASTE_SHORTCUT}: p=P1 / p=P2 / block=P2+B → leading P2 Delete → block=B`);
-  }
-
-  if (probe.newTopCount === 0) {
-    const uploaded = await uploadBannerAtCaret(
-      page,
-      article.banners[0],
-      topFollowing,
-      topEmptyBaseline,
-      article.prose,
-    );
-    if (!uploaded.ok) return { ok: false, reason: `先頭バナー画像挿入失敗: ${uploaded.reason}` };
-    insertedCount++;
+    if (probe.newTopCount === 0) {
+      const placed = await placeCaretAtFollowingBlockStart(page, topFollowing);
+      if (!placed) return { ok: false, reason: 'image-only: 後続 block 先頭へ Range を置けない' };
+      const uploaded = await uploadBannerAtCaret(
+        page,
+        article.banners[0],
+        topFollowing,
+        topEmptyBaseline,
+      );
+      if (!uploaded.ok) return { ok: false, reason: `先頭バナー画像挿入失敗: ${uploaded.reason}` };
+      insertedCount++;
+    } else {
+      console.log('[swap] image-only: new top figure は既存1件を維持（追加アップロードなし）');
+    }
+    const placement = await inspectUploadedBanner(page, topFollowing);
+    if (!placement.ok) return { ok: false, reason: 'image-only: new top figure が元の後続 block の直前にない' };
   } else {
-    console.log('[swap] new top figure は既存1件を維持（追加アップロードなし）');
+    if (probe.hasNewProse) {
+      const existingProse = await inspectExistingTopProse(page, article.prose);
+      if (!existingProse.ok) {
+        console.log(`[diag] existing-prose=${JSON.stringify(existingProse.actual)}`);
+        return { ok: false, reason: '本文あり判定だが top の p=P1 → p=P2 → B 構造を確認できない' };
+      }
+      topFollowing = existingProse.following;
+      if (!oldTop.length) topEmptyBaseline = existingProse.emptyParagraphsBefore;
+    } else {
+      const topReference = oldTop.at(-1) || probe.newTop[0] || probe.firstH2;
+      topFollowing = topReference ? {
+        tag: topReference.nextTag || topReference.tag,
+        text: topReference.nextFull || topReference.text,
+      } : null;
+      if (!oldTop.length) topEmptyBaseline = topReference?.emptyParagraphsBefore ?? 0;
+      if (!topFollowing?.tag || !topFollowing?.text) {
+        return { ok: false, reason: 'top prose 挿入位置 B を特定できない' };
+      }
+      if (!['p', 'h2', 'h3'].includes(topFollowing.tag)) {
+        return { ok: false, reason: `top prose 挿入位置 B の tag=${topFollowing.tag} は未対応（p/h2/h3 のみ）` };
+      }
+      const placed = await placeCaretAtFollowingBlockStart(page, topFollowing);
+      if (!placed) return { ok: false, reason: 'top prose 挿入位置 B の先頭へ Range を置けない' };
+      const pasted = await pasteTopParagraphs(page, topFollowing, article.prose);
+      if (!pasted.ok) return { ok: false, reason: `先頭バナー直後の本文挿入失敗: ${pasted.reason}` };
+      console.log(pasted.mode === 'heading'
+        ? `[swap] ${topFollowing.tag} start→Enter→ArrowUp→empty p→paste ${PASTE_SHORTCUT}: p=P1 / p=P2 / ${topFollowing.tag}=B`
+        : `[swap] paste ${PASTE_SHORTCUT}: p=P1 / p=P2 / block=P2+B → leading P2 Delete → block=B`);
+    }
+
+    if (probe.newTopCount === 0) {
+      const uploaded = await uploadBannerAtCaret(
+        page,
+        article.banners[0],
+        topFollowing,
+        topEmptyBaseline,
+        article.prose,
+      );
+      if (!uploaded.ok) return { ok: false, reason: `先頭バナー画像挿入失敗: ${uploaded.reason}` };
+      insertedCount++;
+    } else {
+      console.log('[swap] new top figure は既存1件を維持（追加アップロードなし）');
+    }
+    const topDom = await verifyTopDom(page, topFollowing, article.prose);
+    if (!topDom.ok) return { ok: false, reason: `先頭バナー直後の最終検証失敗: ${topDom.reason}` };
   }
-  const topDom = await verifyTopDom(page, topFollowing, article.prose);
-  if (!topDom.ok) return { ok: false, reason: `先頭バナー直後の最終検証失敗: ${topDom.reason}` };
 
   if (oldBottom.length > 0) {
     if (!probe.bridge) return { ok: false, reason: 'old bottom figure はあるが bridge paragraph を再取得できない' };
@@ -1020,6 +1097,8 @@ async function processArticle(page, article) {
       bottomBanner,
       probe.bridge,
       oldBottom[0].emptyParagraphsBefore,
+      null,
+      'bottom',
     );
     if (!uploaded.ok) return { ok: false, reason: `下部バナー画像挿入失敗: ${uploaded.reason}` };
     insertedCount++;
@@ -1069,7 +1148,7 @@ async function processArticle(page, article) {
   });
   if (!published) return { ok: false, reason: 'publishLive が失敗' };
 
-  const verified = await verifyPublishedBody(article.noteId, article.isMembership);
+  const verified = await verifyPublishedBody(article.noteId, { requireNewProse: !imageOnly });
   if (!verified.ok) return { ok: false, reason: `公開後検証失敗: ${verified.reason}` };
   if (!verified.unmeasurable) console.log('[verify] public API: 新本文あり / 旧キャプションなし');
 

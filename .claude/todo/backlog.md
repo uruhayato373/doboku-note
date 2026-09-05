@@ -18,6 +18,11 @@
 
 ## 🔴 高 — 来月中に着手
 
+### [DN-0173] 著者オーソリティ新バナーの残り 112 本をライブ差し替えする
+タグ: [収益化] [種類:改善] [検証:check-note-republish] [起票:2026-09-05] [期日:2026-09-08]
+
+2026-09-05 に正方形バナー＋本文 2 段落へ 93 本（無料 26・会員 8・有料 59）を `note-swap-author-banner` で差し替えた。残りは有料 61 本（`1級・2級土木` の未処理分＝`npm run check-note-republish` の本文 drift のうちバナー入り記事。n9d9a77c66392 は空 p 掃除後の DOM 順序検証で 2 回失敗＝手動で editor を見る）とコンクリート 51 本。画像アップロードが note の 1 日 100 ファイル上限に数えられるか未確認のため `--daily-limit 90` で日を分ける。手順: `node scripts/note-swap-author-banner.mjs --list <paths> --commit --max-consecutive-fail 3`（30 本ずつ・全文置換はしない）→ 各バッチ後 `node scripts/check-note-structure.mjs --ci` と `node scripts/check-note-attachments.mjs --live`。完了条件＝バナー入り 247 本の本文 drift が 0。
+
 
 ### [DN-0169] アセット置き場移行の仕上げ（R2 側の撤去とグループ切替）
 タグ: [インフラ・計測] [種類:改善] [検証:check-drive-vault] [起票:2026-09-05]
