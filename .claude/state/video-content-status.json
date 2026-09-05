@@ -383,7 +383,7 @@
     "keiken-hinshitsu-kakikata": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -392,8 +392,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-10-13T20:00:00+09:00",
-          "renderedAt": "2026-09-05T03:33:40.924Z"
+          "publishAt": "2026-10-13T11:00:00Z",
+          "renderedAt": "2026-09-05T03:33:40.924Z",
+          "videoId": "ySo7PYMJ1-k",
+          "url": "https://www.youtube.com/watch?v=ySo7PYMJ1-k",
+          "scheduledAt": "2026-09-05T03:36:24.502Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -618,7 +622,7 @@
     "gakka-kikai-kiso": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -627,8 +631,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-22T07:30:00+09:00",
-          "renderedAt": "2026-09-05T03:33:43.653Z"
+          "publishAt": "2026-09-21T22:30:00Z",
+          "renderedAt": "2026-09-05T03:33:43.653Z",
+          "videoId": "rbZU7Z0bjcw",
+          "url": "https://www.youtube.com/watch?v=rbZU7Z0bjcw",
+          "scheduledAt": "2026-09-05T03:35:56.274Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -752,7 +760,7 @@
     "gakka-hoki-kenchiku-kayaku": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -761,8 +769,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-20T12:30:00+09:00",
-          "renderedAt": "2026-09-05T03:33:46.690Z"
+          "publishAt": "2026-09-20T03:30:00Z",
+          "renderedAt": "2026-09-05T03:33:46.690Z",
+          "videoId": "t0P1QCqMv8c",
+          "url": "https://www.youtube.com/watch?v=t0P1QCqMv8c",
+          "scheduledAt": "2026-09-05T03:35:38.271Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -890,7 +902,7 @@
     "gakka-kanrizu": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -899,8 +911,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-21T07:30:00+09:00",
-          "renderedAt": "2026-09-05T03:33:52.275Z"
+          "publishAt": "2026-09-20T22:30:00Z",
+          "renderedAt": "2026-09-05T03:33:52.275Z",
+          "videoId": "joUOf152UjE",
+          "url": "https://www.youtube.com/watch?v=joUOf152UjE",
+          "scheduledAt": "2026-09-05T03:35:48.160Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -1282,7 +1298,7 @@
     "keiken-gaiyo-2kyu": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -1291,8 +1307,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-10-09T20:00:00+09:00",
-          "renderedAt": "2026-09-05T03:33:54.864Z"
+          "publishAt": "2026-10-09T11:00:00Z",
+          "renderedAt": "2026-09-05T03:33:54.864Z",
+          "videoId": "KYikQB6NJn4",
+          "url": "https://www.youtube.com/watch?v=KYikQB6NJn4",
+          "scheduledAt": "2026-09-05T03:36:15.814Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -1494,7 +1514,7 @@
     "chokuzen-check-1kyu-niji": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -1503,8 +1523,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-10-03T20:00:00+09:00",
-          "renderedAt": "2026-09-05T03:33:58.073Z"
+          "publishAt": "2026-10-03T11:00:00Z",
+          "renderedAt": "2026-09-05T03:33:58.073Z",
+          "videoId": "VW9MNz-AWSk",
+          "url": "https://www.youtube.com/watch?v=VW9MNz-AWSk",
+          "scheduledAt": "2026-09-05T03:36:05.947Z",
+          "privacyStatus": "private"
         }
       }
     },
