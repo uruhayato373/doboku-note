@@ -18,6 +18,11 @@
 
 ## 🔴 高 — 来月中に着手
 
+### [DN-0174] ライブ添付が欠けている note 記事 95 本へ PDF を再添付する
+タグ: [収益化] [種類:不具合] [検証:check-note-attachments] [起票:2026-09-05] [期日:2026-09-12]
+
+2026-09-05 の `node scripts/check-note-attachments.mjs --live`（575 本実査・取得失敗 0）で、本文が PDF 配布を約束しているのにライブに添付が無い記事が 95 本（1級土木/magazines 38本／magazines/総監模範論文-ゼネコン 6本／magazines/総監模範論文-河川コンサル 6本／magazines/総監模範論文-自治体上水道担当 4本／magazines/総監模範論文-自治体下水道担当 4本／magazines/総監模範論文-自治体公園緑地担当 4本／magazines/総監模範論文-自治体契約調達担当 4本／magazines/総監模範論文-自治体技術基準担当 4本／magazines/総監模範論文-自治体河川担当 4本／magazines/総監模範論文-自治体港湾担当 4本／magazines/総監模範論文-自治体砂防担当 4本／magazines/総監模範論文-自治体道路担当 4本／magazines/総監模範論文-自治体都市計画担当 4本／magazines/総監模範論文-都市計画コンサル 4本／magazines/総監模範論文-道路橋梁コンサル 1本）。当日のバナー差し替え 87 本とは無関係（台帳突合で 0 件一致）で、以前から欠けていたものが実査で表面化した。実体 PDF はローカル／Drive vault にある。手順: `node scripts/note-attach-batch.mjs --commit --limit 90`（note の 1 日 100 ファイル上限に合わせて 2 日に分ける）→ 翌日 `check-note-attachments --live` で 0 件を確認。台帳は .claude/state/note-attachments-missing.json。
+
 ### [DN-0173] 著者オーソリティ新バナーの残り 112 本をライブ差し替えする
 タグ: [収益化] [種類:改善] [検証:check-note-republish] [起票:2026-09-05] [期日:2026-09-08]
 
