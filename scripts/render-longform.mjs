@@ -19,7 +19,7 @@
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import sharp from 'sharp';
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { existsSync, readFileSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
 import { resolve, dirname, join, basename, extname, relative, isAbsolute } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
@@ -38,6 +38,7 @@ const { values: args } = parseArgs({
     speaker: { type: 'string', default: '1' },
     'skip-tts': { type: 'boolean' },
     'skip-png': { type: 'boolean' },
+    resume: { type: 'boolean' },
   },
 });
 
@@ -118,7 +119,7 @@ async function main() {
     const pngPath = join(imgDir, `${pad}-${scene.sceneId}.png`);
     const wavPath = join(wavDir, `${pad}-${scene.sceneId}.wav`);
 
-    if (!args['skip-png']) {
+    if (!args['skip-png'] && !(args.resume && existsSync(pngPath) && statSync(pngPath).size > 0)) {
       process.stdout.write(`  [PNG ${i + 1}/${scenes.length}] ${scene.sceneId}... `);
       const node = buildSceneNode(scene, { theme, packTitle, assetDataUri: await loadVisualAsset(scene) });
       const svg = await satori(node, { width: LONGFORM_W, height: LONGFORM_H, fonts });
@@ -126,7 +127,7 @@ async function main() {
       console.log('✓');
     }
 
-    if (!args['skip-tts']) {
+    if (!args['skip-tts'] && !(args.resume && existsSync(wavPath) && statSync(wavPath).size > 0)) {
       process.stdout.write(`  [TTS ${i + 1}/${scenes.length}] ${scene.narration.slice(0, 20)}... `);
       const wavBuf = await synthesize({ text: scene.narration, speaker: Number(args.speaker) });
       writeFileSync(wavPath, Buffer.from(wavBuf));

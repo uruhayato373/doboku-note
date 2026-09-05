@@ -59,7 +59,7 @@ function main() {
   for (const [index, item] of pending.entries()) {
     console.log(`\n[${index + 1}/${pending.length}] ${item.publishAt} ${item.packId}`);
     const result = spawnSync(process.execPath, [
-      join(ROOT, 'scripts/render-longform.mjs'), '--pack-dir', item.dir,
+      join(ROOT, 'scripts/render-longform.mjs'), '--pack-dir', item.dir, '--resume',
     ], { cwd: ROOT, stdio: 'inherit' });
     if (result.status !== 0 || !complete(item.packId)) failures.push(item.packId);
   }
