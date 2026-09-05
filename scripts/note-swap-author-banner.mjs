@@ -12,9 +12,9 @@
  *   npm run note-swap-author-banner -- --list <paths.txt> [--commit]
  *
  * 安全ゲート:
- *   - dobokunote アカウント確認、旧 figure の位置と前後文脈を編集前に表示
+ *   - dobokunote アカウント確認、全 figure の位置・画像比率・old/new 分類を編集前に表示
  *   - PDF 添付数を編集前後で比較し、減少時は保存しない
- *   - 画像数は差替前後で同数（bottom 未検出時のみ +1 も許容）
+ *   - figure 数は before - old_count + inserted_count と一致し、最終 old=0 / new top=1
  *   - CDN 確定待ち、公開 API の新本文/旧キャプション検証、1日あたり成功件数上限
  * ---------------------------------------------------------------------------
  */
@@ -41,6 +41,7 @@ const BOTTOM_PROSE_PREFIX = '上位資格の分析力';
 const DEFAULT_BOUNDARY = '試験問題|予想問題';
 const SETTLE_MIN_MS = Number(process.env.NOTE_IMG_SETTLE_MIN_MS || 90_000);
 const SETTLE_PER_IMG_MS = Number(process.env.NOTE_IMG_SETTLE_PER_IMG_MS || 90_000);
+const PASTE_SHORTCUT = process.platform === 'darwin' ? 'Meta+V' : 'Control+V';
 const sleep = (ms) => new Promise((resolveSleep) => setTimeout(resolveSleep, ms));
 
 const argv = process.argv.slice(2);
@@ -168,13 +169,14 @@ async function accountGate(page) {
   return false;
 }
 
-async function probeBannerFigures(page, wanted) {
-  return page.evaluate(({ captionPrefix, bottomPrefix, limit }) => {
+async function probeBannerFigures(page) {
+  return page.evaluate(async ({ captionPrefix, bottomPrefix, newProsePrefix }) => {
     const editor = document.querySelector('[contenteditable=true]');
-    if (!editor) return { mode: 'none', figuresTotal: 0, targets: [] };
+    if (!editor) return { mode: 'none', figuresTotal: 0, figures: [], targets: [] };
     const figures = Array.from(editor.querySelectorAll('figure'));
     const firstH2 = editor.querySelector('h2');
     const before = (left, right) => Boolean(left.compareDocumentPosition(right) & Node.DOCUMENT_POSITION_FOLLOWING);
+    const normalize = (value) => String(value || '').normalize('NFC').replace(/\s+/g, ' ').trim();
     const topBlock = (element) => {
       let block = element;
       while (block.parentElement && block.parentElement !== editor) block = block.parentElement;
@@ -189,50 +191,124 @@ async function probeBannerFigures(page, wanted) {
       }
       return '';
     };
-    const describe = (figure, source) => ({
-      index: figures.indexOf(figure),
-      source,
-      caption: (figure.querySelector('figcaption')?.innerText || '').replace(/\s+/g, ' ').trim().slice(0, 40),
-      previous: nearbyText(figure, 'previous'),
-      next: nearbyText(figure, 'next'),
-    });
-
-    const captionMatches = figures.filter((figure) =>
-      (figure.querySelector('figcaption')?.innerText || '').trim().startsWith(captionPrefix),
+    const followingTextBlock = (element) => {
+      let cursor = topBlock(element)?.nextElementSibling || null;
+      for (; cursor; cursor = cursor.nextElementSibling) {
+        if (!cursor.matches('p,h2,h3,li,blockquote') || cursor.closest('figure')) continue;
+        const text = normalize(cursor.innerText || cursor.textContent);
+        if (text) return { element: cursor, text };
+      }
+      return null;
+    };
+    const emptyParagraphsImmediatelyBefore = (element) => {
+      let cursor = topBlock(element)?.previousElementSibling || null;
+      let count = 0;
+      while (cursor?.tagName === 'P' && !(cursor.innerText || cursor.textContent || '').trim()) {
+        count++;
+        cursor = cursor.previousElementSibling;
+      }
+      return count;
+    };
+    const describeTextBlock = (block) => block ? {
+      tag: block.tagName.toLowerCase(),
+      text: normalize(block.innerText || block.textContent),
+      emptyParagraphsBefore: emptyParagraphsImmediatelyBefore(block),
+    } : null;
+    const bridge = Array.from(editor.querySelectorAll('p')).find((paragraph) =>
+      !paragraph.closest('figure') && normalize(paragraph.innerText || paragraph.textContent).startsWith(bottomPrefix),
     );
-    let mode = 'caption';
-    let selected = captionMatches;
-    if (!selected.length) {
-      mode = 'fallback';
-      selected = [];
-      const top = firstH2 ? figures.find((figure) => before(figure, firstH2)) : figures[0];
-      if (top) selected.push(top);
-
-      const sequence = Array.from(editor.querySelectorAll('figure,p,h2')).filter((element) =>
-        element.tagName === 'FIGURE' || !element.closest('figure'),
-      );
-      const bridgeIndex = sequence.findIndex((element) =>
-        element.tagName === 'P' && (element.innerText || '').trim().startsWith(bottomPrefix),
-      );
-      const bottom = bridgeIndex > 0 && sequence[bridgeIndex - 1].tagName === 'FIGURE'
-        ? sequence[bridgeIndex - 1]
-        : null;
-      if (bottom && !selected.includes(bottom)) selected.push(bottom);
+    const hasNewProse = (editor.innerText || '').includes(newProsePrefix);
+    const classified = [];
+    for (let index = 0; index < figures.length; index++) {
+      const figure = figures[index];
+      const image = figure.querySelector('img');
+      figure.scrollIntoView({ block: 'center' });
+      if (image) {
+        const deadline = Date.now() + 3000;
+        while (!(image.complete && image.naturalWidth > 0) && Date.now() < deadline) {
+          await new Promise((resolveWait) => setTimeout(resolveWait, 100));
+        }
+      }
+      const attrWidth = Number.parseFloat(image?.getAttribute('width') || '');
+      const attrHeight = Number.parseFloat(image?.getAttribute('height') || '');
+      const width = image?.naturalWidth > 0 ? image.naturalWidth : (attrWidth > 0 ? attrWidth : 0);
+      const height = image?.naturalHeight > 0 ? image.naturalHeight : (attrHeight > 0 ? attrHeight : 0);
+      const rawRatio = width > 0 && height > 0 ? width / height : null;
+      const ratio = rawRatio == null ? null : Number(rawRatio.toFixed(4));
+      const captionFull = normalize(figure.querySelector('figcaption')?.innerText || '');
+      const block = topBlock(figure);
+      const isBottom = Boolean(bridge && block.nextElementSibling === topBlock(bridge));
+      const isTop = Boolean(firstH2 && before(block, topBlock(firstH2)));
+      const pos = isBottom ? 'bottom' : isTop ? 'top' : 'other';
+      const eligible = isTop || isBottom || captionFull.startsWith(captionPrefix);
+      const imageClass = eligible && ratio != null && ratio >= 1.6 && ratio <= 1.95
+        ? 'old'
+        : eligible && ratio != null && ratio >= 0.95 && ratio <= 1.05
+          ? 'new'
+          : 'other';
+      const previous = nearbyText(figure, 'previous');
+      const following = followingTextBlock(figure);
+      classified.push({
+        index,
+        pos,
+        ratio,
+        class: imageClass,
+        width,
+        height,
+        caption20: captionFull.slice(0, 20),
+        caption: captionFull.slice(0, 40),
+        previous,
+        next: following?.text.slice(0, 40) || nearbyText(figure, 'next'),
+        nextFull: following?.text || '',
+        nextTag: following?.element.tagName.toLowerCase() || '',
+        emptyParagraphsBefore: emptyParagraphsImmediatelyBefore(figure),
+        isFirstBlock: !previous,
+      });
     }
-    selected.sort((left, right) => figures.indexOf(left) - figures.indexOf(right));
+    const oldFigures = classified.filter((figure) => figure.class === 'old');
+    const newTop = classified.filter((figure) => figure.class === 'new' && figure.pos === 'top');
+    const newBottom = classified.filter((figure) => figure.class === 'new' && figure.pos === 'bottom');
+    const oldOther = oldFigures.filter((figure) => figure.pos === 'other');
+    const mode = oldFigures.length
+      ? 'swap'
+      : newTop.length && !hasNewProse
+        ? 'prose-only'
+        : newTop.length && hasNewProse
+          ? 'already-done'
+          : 'none';
     return {
       mode,
       figuresTotal: figures.length,
-      targets: selected.slice(0, limit).map((figure) => describe(figure, mode)),
+      figures: classified,
+      hasNewProse,
+      oldCount: oldFigures.length,
+      oldTopCount: oldFigures.filter((figure) => figure.pos === 'top').length,
+      oldBottomCount: oldFigures.filter((figure) => figure.pos === 'bottom').length,
+      oldOtherCount: oldOther.length,
+      newTopCount: newTop.length,
+      newBottomCount: newBottom.length,
+      newTop,
+      newBottom,
+      targets: oldFigures,
+      bridge: describeTextBlock(bridge),
+      firstH2: describeTextBlock(firstH2),
     };
-  }, { captionPrefix: OLD_CAPTION_PREFIX, bottomPrefix: BOTTOM_PROSE_PREFIX, limit: wanted });
+  }, {
+    captionPrefix: OLD_CAPTION_PREFIX,
+    bottomPrefix: BOTTOM_PROSE_PREFIX,
+    newProsePrefix: NEW_PROSE_PREFIX,
+  });
 }
 
-function printProbe(article, probe, attachedBefore, imgsBefore) {
-  console.log(`[PROBE] ${article.noteId} local-banners=${article.banners.length} figures=${probe.figuresTotal} targets=${probe.targets.length} mode=${probe.mode}`);
-  console.log(`[PROBE] counts attached=${attachedBefore.length} images=${imgsBefore}`);
+function printProbe(article, probe, attachedBefore, figuresBefore) {
+  console.log(`[PROBE] ${article.noteId} local-banners=${article.banners.length} figures=${probe.figuresTotal} old=${probe.oldCount} new-top=${probe.newTopCount} new-bottom=${probe.newBottomCount} mode=${probe.mode} prose=${probe.hasNewProse ? 'present' : 'missing'}`);
+  console.log(`[PROBE] counts attached=${attachedBefore.length} figures=${figuresBefore}`);
+  for (const figure of probe.figures) {
+    const ratio = figure.ratio == null ? 'n/a' : figure.ratio.toFixed(3);
+    console.log(`  figure index=${figure.index} pos=${figure.pos} ratio=${ratio} class=${figure.class} caption20="${figure.caption20}"`);
+  }
   for (const target of probe.targets) {
-    console.log(`  figure[${target.index}] source=${target.source} prev="${target.previous}" next="${target.next}" caption="${target.caption}"`);
+    console.log(`  target figure[${target.index}] pos=${target.pos} empty-before=${target.emptyParagraphsBefore} prev="${target.previous}" next=${target.nextTag}:"${target.next}"`);
   }
 }
 
@@ -241,99 +317,6 @@ async function selectFigure(page, index) {
     const editor = document.querySelector('[contenteditable=true]');
     const figure = editor?.querySelectorAll('figure')[figureIndex];
     if (!editor || !figure) return null;
-    editor.focus();
-    figure.scrollIntoView({ block: 'center' });
-    const rect = figure.getBoundingClientRect();
-    const range = document.createRange();
-    range.selectNode(figure);
-    const selection = window.getSelection();
-    selection.removeAllRanges();
-    selection.addRange(range);
-    return { y: rect.top + rect.height / 2, caption: (figure.querySelector('figcaption')?.innerText || '').slice(0, 50) };
-  }, index);
-}
-
-async function countEditorFigures(page) {
-  return page.evaluate(() => document.querySelectorAll('[contenteditable=true] figure').length);
-}
-
-async function placeCaretAfterDeletion(page, formerY) {
-  return page.evaluate((y) => {
-    const editor = document.querySelector('[contenteditable=true]');
-    const selection = window.getSelection();
-    if (!editor || !selection) return { ok: false, reason: 'editor/selection 未検出' };
-    editor.focus();
-
-    const anchorElement = selection.anchorNode?.nodeType === Node.ELEMENT_NODE
-      ? selection.anchorNode
-      : selection.anchorNode?.parentElement;
-    const selectedParagraph = anchorElement?.closest?.('p');
-    if (selectedParagraph && editor.contains(selectedParagraph) && !(selectedParagraph.innerText || '').trim()) {
-      const range = document.createRange();
-      range.selectNodeContents(selectedParagraph);
-      range.collapse(true);
-      selection.removeAllRanges();
-      selection.addRange(range);
-      return { ok: true, caret: 'empty-paragraph' };
-    }
-    if (selection.rangeCount && anchorElement && editor.contains(anchorElement)) {
-      const range = selection.getRangeAt(0);
-      range.collapse(true);
-      selection.removeAllRanges();
-      selection.addRange(range);
-      return { ok: true, caret: 'collapsed-selection' };
-    }
-
-    const emptyParagraphs = Array.from(editor.querySelectorAll('p')).filter((paragraph) => !(paragraph.innerText || '').trim());
-    emptyParagraphs.sort((left, right) =>
-      Math.abs(left.getBoundingClientRect().top - y) - Math.abs(right.getBoundingClientRect().top - y),
-    );
-    if (!emptyParagraphs[0]) return { ok: false, reason: '削除位置の caret/空段落を復元できない' };
-    const range = document.createRange();
-    range.selectNodeContents(emptyParagraphs[0]);
-    range.collapse(true);
-    selection.removeAllRanges();
-    selection.addRange(range);
-    return { ok: true, caret: 'nearest-empty-paragraph' };
-  }, formerY);
-}
-
-async function deleteFigureAtIndex(page, index, expectedCaption = null) {
-  const before = await countEditorFigures(page);
-  let selected = await selectFigure(page, index);
-  if (!selected) return { ok: false, reason: `figure[${index}] を選択できない` };
-  if (expectedCaption && !selected.caption.startsWith(expectedCaption)) {
-    return { ok: false, reason: `figure[${index}] の caption が probe 後に変化した: ${selected.caption}` };
-  }
-
-  let key = 'Delete';
-  await page.keyboard.press(key);
-  await sleep(700);
-  let after = await countEditorFigures(page);
-  if (after === before) {
-    selected = await selectFigure(page, index);
-    if (!selected) return { ok: false, reason: `Delete 後に figure[${index}] を再選択できない` };
-    if (expectedCaption && !selected.caption.startsWith(expectedCaption)) {
-      return { ok: false, reason: `figure[${index}] の caption が Delete 再試行前に変化した: ${selected.caption}` };
-    }
-    key = 'Backspace';
-    await page.keyboard.press(key);
-    await sleep(700);
-    after = await countEditorFigures(page);
-  }
-  if (after !== before - 1) {
-    return { ok: false, reason: `${key} 後の figure 数が ${before}→${after}（1件減ではない）` };
-  }
-  const caret = await placeCaretAfterDeletion(page, selected.y);
-  if (!caret.ok) return caret;
-  return { ok: true, key, caret: caret.caret, before, after };
-}
-
-async function selectFigureForParagraphs(page, index) {
-  return page.evaluate((figureIndex) => {
-    const editor = document.querySelector('[contenteditable=true]');
-    const figure = editor?.querySelectorAll('figure')[figureIndex];
-    if (!editor || !figure) return false;
     editor.focus();
     figure.scrollIntoView({ block: 'center' });
     const range = document.createRange();
@@ -345,27 +328,572 @@ async function selectFigureForParagraphs(page, index) {
   }, index);
 }
 
-async function insertTopParagraphs(page, index, prose) {
-  if (!(await selectFigureForParagraphs(page, index))) return false;
-  await page.keyboard.press('End');
-  await sleep(250);
-  await page.keyboard.press('Enter');
-  await sleep(350);
-  await page.keyboard.type(prose[0], { delay: 6 });
-  await page.keyboard.press('Enter');
-  await page.keyboard.type(prose[1], { delay: 6 });
-  await sleep(500);
+async function countEditorFigures(page) {
+  return page.evaluate(() => document.querySelectorAll('[contenteditable=true] figure').length);
+}
+
+async function deleteFigureAtIndex(page, index, following) {
+  if (!following?.tag || !following?.text) {
+    return { ok: false, reason: `figure[${index}] の後続 block 全文を probe できていない` };
+  }
+  const before = await countEditorFigures(page);
+  const selected = await selectFigure(page, index);
+  if (!selected) return { ok: false, reason: `figure[${index}] を選択できない` };
+
+  // Range 選択がエディタの選択状態へ同期するまで一拍置く（probe では 300ms で安定。
+  // 待たずに Delete すると選択が反映されず figure が残る＝2026-09-05 実測）。
+  await sleep(300);
+  await page.keyboard.press('Delete');
+  await sleep(700);
+  let after = await countEditorFigures(page);
+  let key = 'Delete';
+  if (after === before) {
+    // Delete が効かない環境向けの保険。選択し直してから Backspace。
+    if (!(await selectFigure(page, index))) return { ok: false, reason: `figure[${index}] を再選択できない` };
+    await sleep(300);
+    await page.keyboard.press('Backspace');
+    await sleep(700);
+    after = await countEditorFigures(page);
+    key = 'Backspace';
+  }
+  if (after !== before - 1) {
+    return { ok: false, reason: `${key} 後の figure 数が ${before}→${after}（1件減ではない）` };
+  }
+  const followingExists = await page.evaluate((expected) => {
+    const editor = document.querySelector('[contenteditable=true]');
+    const normalize = (value) => String(value || '').normalize('NFC').replace(/\s+/g, ' ').trim();
+    return Array.from(editor?.querySelectorAll('p,h2,h3,li,blockquote') || []).some((block) =>
+      !block.closest('figure') && normalize(block.innerText || block.textContent) === normalize(expected),
+    );
+  }, following.text);
+  if (!followingExists) {
+    return {
+      ok: false,
+      reason: `Delete 後に後続 block B が見つからない（text="${following.text}"）`,
+    };
+  }
+  return { ok: true, key, before, after };
+}
+
+async function placeCaretAtFollowingBlockStart(page, following, afterFigureIndex = null) {
+  return page.evaluate(({ target, figureIndex }) => {
+    const editor = document.querySelector('[contenteditable=true]');
+    const selection = window.getSelection();
+    if (!editor || !selection) return null;
+    const normalize = (value) => String(value || '').normalize('NFC').replace(/\s+/g, ' ').trim();
+    const blocks = Array.from(editor.querySelectorAll('p,h2,h3,li,blockquote')).filter((block) =>
+      !block.closest('figure'),
+    );
+    let candidates = blocks.filter((block) =>
+      block.tagName.toLowerCase() === target.tag &&
+      normalize(block.innerText || block.textContent) === normalize(target.text),
+    );
+    if (Number.isInteger(figureIndex)) {
+      const figure = editor.querySelectorAll('figure')[figureIndex];
+      if (figure) candidates = candidates.filter((block) =>
+        Boolean(figure.compareDocumentPosition(block) & Node.DOCUMENT_POSITION_FOLLOWING),
+      );
+    }
+    const block = candidates[0] || null;
+    if (!block) return null;
+    const walker = document.createTreeWalker(block, NodeFilter.SHOW_TEXT);
+    const firstText = walker.nextNode();
+    const range = document.createRange();
+    if (firstText) range.setStart(firstText, 0);
+    else range.setStart(block, 0);
+    range.collapse(true);
+    editor.focus();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    block.scrollIntoView({ block: 'center' });
+    return {
+      tag: block.tagName.toLowerCase(),
+      text30: normalize(block.innerText || block.textContent).slice(0, 30),
+    };
+  }, { target: following, figureIndex: afterFigureIndex });
+}
+
+async function selectPastedP2Prefix(page, following, prose) {
+  return page.evaluate(({ target, paragraphs }) => {
+    const editor = document.querySelector('[contenteditable=true]');
+    const selection = window.getSelection();
+    const normalize = (value) => String(value || '').normalize('NFC').replace(/\s+/g, ' ').trim();
+    const describe = (block) => ({
+      tag: block?.tagName?.toLowerCase() || null,
+      text: normalize(block?.innerText || block?.textContent),
+    });
+    if (!editor || !selection?.rangeCount) return { ok: false, reason: 'editor/selection 未検出' };
+    const anchor = selection.anchorNode;
+    const selector = 'p,h2,h3,li,blockquote';
+    const candidates = [];
+    const addCandidate = (node) => {
+      const element = node?.nodeType === Node.ELEMENT_NODE ? node : node?.parentElement;
+      const block = element?.matches?.(selector) ? element : element?.closest?.(selector) || null;
+      if (block && editor.contains(block) && !block.closest('figure') && !candidates.includes(block)) candidates.push(block);
+    };
+    addCandidate(anchor);
+    if (anchor?.nodeType === Node.ELEMENT_NODE) {
+      addCandidate(anchor.childNodes[selection.anchorOffset] || null);
+      addCandidate(anchor.childNodes[selection.anchorOffset - 1] || null);
+    }
+    const expectedP1 = normalize(paragraphs[0]);
+    const expectedP2 = normalize(paragraphs[1]);
+    const expectedB = normalize(target.text);
+    const isPastedMergedBlock = (block) => {
+      const p2 = block?.previousElementSibling || null;
+      const p1 = p2?.previousElementSibling || null;
+      return Boolean(
+        p1?.tagName === 'P' && normalize(p1.innerText || p1.textContent) === expectedP1 &&
+        p2?.tagName === 'P' && normalize(p2.innerText || p2.textContent) === expectedP2 &&
+        block?.tagName?.toLowerCase() === target.tag &&
+        normalize(block.innerText || block.textContent) === expectedP2 + expectedB,
+      );
+    };
+    const merged = candidates.find(isPastedMergedBlock) || candidates[0] || null;
+    const p2 = merged?.previousElementSibling || null;
+    const p1 = p2?.previousElementSibling || null;
+    const structureOk = Boolean(
+      merged && editor.contains(merged) && !merged.closest('figure') &&
+      isPastedMergedBlock(merged),
+    );
+    if (!structureOk) {
+      return {
+        ok: false,
+        reason: 'paste 後の p=P1 / p=P2 / block=P2+B が不一致',
+        blocks: [describe(p1), describe(p2), describe(merged)],
+      };
+    }
+
+    const walker = document.createTreeWalker(merged, NodeFilter.SHOW_TEXT);
+    let textNode = walker.nextNode();
+    if (!textNode) return { ok: false, reason: 'merged block に text node がない' };
+    const range = document.createRange();
+    range.setStart(textNode, 0);
+    let remaining = paragraphs[1].length;
+    let endNode = null;
+    let endOffset = 0;
+    while (textNode) {
+      if (remaining <= textNode.data.length) {
+        endNode = textNode;
+        endOffset = remaining;
+        break;
+      }
+      remaining -= textNode.data.length;
+      textNode = walker.nextNode();
+    }
+    if (!endNode) return { ok: false, reason: `P2.length=${paragraphs[1].length} まで Range を伸ばせない` };
+    range.setEnd(endNode, endOffset);
+    if (normalize(range.toString()) !== expectedP2) {
+      return { ok: false, reason: `Range 選択文字列が P2 と不一致: ${JSON.stringify(range.toString())}` };
+    }
+    selection.removeAllRanges();
+    selection.addRange(range);
+    merged.scrollIntoView({ block: 'center' });
+    return { ok: true, tag: merged.tagName.toLowerCase(), selectedLength: range.toString().length };
+  }, { target: following, paragraphs: prose });
+}
+
+async function verifyRestoredFollowingBlock(page, following, prose) {
+  return page.evaluate(({ target, paragraphs }) => {
+    const editor = document.querySelector('[contenteditable=true]');
+    const selection = window.getSelection();
+    const normalize = (value) => String(value || '').normalize('NFC').replace(/\s+/g, ' ').trim();
+    const anchor = selection?.anchorNode;
+    const selector = 'p,h2,h3,li,blockquote';
+    const candidates = [];
+    const addCandidate = (node) => {
+      const element = node?.nodeType === Node.ELEMENT_NODE ? node : node?.parentElement;
+      const block = element?.matches?.(selector) ? element : element?.closest?.(selector) || null;
+      if (block && editor?.contains(block) && !block.closest('figure') && !candidates.includes(block)) candidates.push(block);
+    };
+    addCandidate(anchor);
+    if (anchor?.nodeType === Node.ELEMENT_NODE) {
+      addCandidate(anchor.childNodes[selection.anchorOffset] || null);
+      addCandidate(anchor.childNodes[selection.anchorOffset - 1] || null);
+    }
+    const isRestoredBlock = (block) => {
+      const p2 = block?.previousElementSibling || null;
+      const p1 = p2?.previousElementSibling || null;
+      return Boolean(
+        block?.tagName?.toLowerCase() === target.tag &&
+        normalize(block.innerText || block.textContent) === normalize(target.text) &&
+        p1?.tagName === 'P' && normalize(p1.innerText || p1.textContent) === normalize(paragraphs[0]) &&
+        p2?.tagName === 'P' && normalize(p2.innerText || p2.textContent) === normalize(paragraphs[1]),
+      );
+    };
+    const block = candidates.find(isRestoredBlock) || candidates[0] || null;
+    return {
+      ok: Boolean(
+        editor && block && editor.contains(block) && !block.closest('figure') &&
+        isRestoredBlock(block),
+      ),
+      tag: block?.tagName?.toLowerCase() || null,
+      text: normalize(block?.innerText || block?.textContent),
+    };
+  }, { target: following, paragraphs: prose });
+}
+
+async function verifyFocusedEmptyParagraphBeforeHeading(page, following) {
+  return page.evaluate((target) => {
+    const editor = document.querySelector('[contenteditable=true]');
+    const selection = window.getSelection();
+    const normalize = (value) => String(value || '').normalize('NFC').replace(/\s+/g, ' ').trim();
+    if (!editor || !selection?.rangeCount) return { ok: false, focusedTag: null, focusedText: '' };
+    const anchor = selection.anchorNode;
+    const selector = 'p,h2,h3,li,blockquote';
+    const candidates = [];
+    const addCandidate = (node) => {
+      const element = node?.nodeType === Node.ELEMENT_NODE ? node : node?.parentElement;
+      const block = element?.matches?.(selector) ? element : element?.closest?.(selector) || null;
+      if (block && editor.contains(block) && !block.closest('figure') && !candidates.includes(block)) candidates.push(block);
+    };
+    addCandidate(anchor);
+    if (anchor?.nodeType === Node.ELEMENT_NODE) {
+      addCandidate(anchor.childNodes[selection.anchorOffset] || null);
+      addCandidate(anchor.childNodes[selection.anchorOffset - 1] || null);
+    }
+    const isExpectedEmpty = (block) => {
+      const next = block?.nextElementSibling || null;
+      return Boolean(
+        block?.tagName === 'P' && !normalize(block.innerText || block.textContent) &&
+        next?.tagName?.toLowerCase() === target.tag &&
+        normalize(next.innerText || next.textContent) === normalize(target.text),
+      );
+    };
+    const focused = candidates.find(isExpectedEmpty) || candidates[0] || null;
+    return {
+      ok: isExpectedEmpty(focused),
+      focusedTag: focused?.tagName?.toLowerCase() || null,
+      focusedText: normalize(focused?.innerText || focused?.textContent),
+      nextTag: focused?.nextElementSibling?.tagName?.toLowerCase() || null,
+      nextText: normalize(focused?.nextElementSibling?.innerText || focused?.nextElementSibling?.textContent),
+    };
+  }, following);
+}
+
+async function verifyHeadingPaste(page, following, prose) {
+  return page.evaluate(({ target, paragraphs }) => {
+    const editor = document.querySelector('[contenteditable=true]');
+    const normalize = (value) => String(value || '').normalize('NFC').replace(/\s+/g, ' ').trim();
+    const describe = (block) => ({
+      tag: block?.tagName?.toLowerCase() || null,
+      text: normalize(block?.innerText || block?.textContent),
+    });
+    const blocks = Array.from(editor?.querySelectorAll('p,h2,h3,li,blockquote') || []).filter((block) => !block.closest('figure'));
+    const b = blocks.find((block) =>
+      block.tagName.toLowerCase() === target.tag &&
+      normalize(block.innerText || block.textContent) === normalize(target.text) &&
+      block.previousElementSibling?.tagName === 'P' &&
+      normalize(block.previousElementSibling.innerText || block.previousElementSibling.textContent) === normalize(paragraphs[1]) &&
+      block.previousElementSibling?.previousElementSibling?.tagName === 'P' &&
+      normalize(block.previousElementSibling.previousElementSibling.innerText || block.previousElementSibling.previousElementSibling.textContent) === normalize(paragraphs[0]),
+    ) || null;
+    const p2 = b?.previousElementSibling || null;
+    const p1 = p2?.previousElementSibling || null;
+    return {
+      ok: Boolean(p1 && p2 && b),
+      blocks: [describe(p1), describe(p2), describe(b)],
+    };
+  }, { target: following, paragraphs: prose });
+}
+
+async function pasteTopParagraphs(page, following, prose) {
+  if (!['p', 'h2', 'h3'].includes(following.tag)) {
+    return { ok: false, reason: `後続 block B の tag=${following.tag || '(none)'} は未対応（p/h2/h3 のみ）` };
+  }
+
+  if (following.tag === 'h2' || following.tag === 'h3') {
+    await page.keyboard.press('Enter');
+    await sleep(400);
+    await page.keyboard.press('ArrowUp');
+    await sleep(300);
+    const empty = await verifyFocusedEmptyParagraphBeforeHeading(page, following);
+    if (!empty.ok) {
+      console.log(`[diag] heading-empty-p=${JSON.stringify(empty)}`);
+      return { ok: false, reason: `${following.tag} B の直前に focused empty p を作成できない` };
+    }
+
+    const headingPasteText = `${prose[0]}\n\n${prose[1]}\n\n`;
+    try {
+      await page.evaluate((text) => navigator.clipboard.writeText(text), headingPasteText);
+    } catch (error) {
+      return { ok: false, reason: `clipboard.writeText 失敗: ${error.message}` };
+    }
+    await page.keyboard.press(PASTE_SHORTCUT);
+    await sleep(1500);
+    const verified = await verifyHeadingPaste(page, following, prose);
+    if (!verified.ok) {
+      console.log(`[diag] heading-paste=${JSON.stringify(verified.blocks)}`);
+      return { ok: false, reason: `heading paste 後の p=P1 / p=P2 / ${following.tag}=B が不一致` };
+    }
+    return { ok: true, mode: 'heading' };
+  }
+
+  const pasteText = `${prose[0]}\n\n${prose[1]}\n\n${prose[1]}\n\n`;
+  try {
+    await page.evaluate((text) => navigator.clipboard.writeText(text), pasteText);
+  } catch (error) {
+    return { ok: false, reason: `clipboard.writeText 失敗: ${error.message}` };
+  }
+  await page.keyboard.press(PASTE_SHORTCUT);
+  await sleep(1500);
+
+  const selected = await selectPastedP2Prefix(page, following, prose);
+  if (!selected.ok) {
+    console.log(`[diag] paste-structure=${JSON.stringify(selected)}`);
+    return { ok: false, reason: selected.reason };
+  }
+  await page.keyboard.press('Delete');
+  await sleep(700);
+  const restored = await verifyRestoredFollowingBlock(page, following, prose);
+  if (!restored.ok) {
+    console.log(`[diag] restored-B=${JSON.stringify(restored)}`);
+    return { ok: false, reason: `先頭 P2 削除後に B または tag を復元できない（expected=${following.tag}:"${following.text}"）` };
+  }
+  return { ok: true, mode: 'paragraph' };
+}
+
+async function placeCaretAtP1Start(page, following, prose) {
+  return page.evaluate(({ target, paragraphs }) => {
+    const editor = document.querySelector('[contenteditable=true]');
+    const selection = window.getSelection();
+    const normalize = (value) => String(value || '').normalize('NFC').replace(/\s+/g, ' ').trim();
+    if (!editor || !selection) return null;
+    const blocks = Array.from(editor.querySelectorAll('p,h2,h3,li,blockquote')).filter((block) => !block.closest('figure'));
+    const b = blocks.find((block) =>
+      block.tagName.toLowerCase() === target.tag &&
+      normalize(block.innerText || block.textContent) === normalize(target.text) &&
+      block.previousElementSibling?.tagName === 'P' &&
+      normalize(block.previousElementSibling.innerText || block.previousElementSibling.textContent) === normalize(paragraphs[1]) &&
+      block.previousElementSibling?.previousElementSibling?.tagName === 'P' &&
+      normalize(block.previousElementSibling.previousElementSibling.innerText || block.previousElementSibling.previousElementSibling.textContent) === normalize(paragraphs[0]),
+    );
+    const p1 = b?.previousElementSibling?.previousElementSibling || null;
+    if (!p1) return null;
+    const range = document.createRange();
+    range.setStart(p1.firstChild || p1, 0);
+    range.collapse(true);
+    editor.focus();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    p1.scrollIntoView({ block: 'center' });
+    return { tag: 'p', text30: normalize(p1.innerText || p1.textContent).slice(0, 30) };
+  }, { target: following, paragraphs: prose });
+}
+
+async function inspectUploadedBanner(page, following, prose = null) {
+  return page.evaluate(({ target, paragraphs }) => {
+    const editor = document.querySelector('[contenteditable=true]');
+    const normalize = (value) => String(value || '').normalize('NFC').replace(/\s+/g, ' ').trim();
+    if (!editor) return { ok: false, reason: 'editor 未検出', emptyBefore: -1 };
+    const blocks = Array.from(editor.querySelectorAll('p,h2,h3,li,blockquote')).filter((block) => !block.closest('figure'));
+    let followingBlock = null;
+    let firstAfterFigure = null;
+    if (paragraphs) {
+      followingBlock = blocks.find((block) =>
+        block.tagName.toLowerCase() === target.tag &&
+        normalize(block.innerText || block.textContent) === normalize(target.text) &&
+        block.previousElementSibling?.tagName === 'P' &&
+        normalize(block.previousElementSibling.innerText || block.previousElementSibling.textContent) === normalize(paragraphs[1]) &&
+        block.previousElementSibling?.previousElementSibling?.tagName === 'P' &&
+        normalize(block.previousElementSibling.previousElementSibling.innerText || block.previousElementSibling.previousElementSibling.textContent) === normalize(paragraphs[0]),
+      ) || null;
+      firstAfterFigure = followingBlock?.previousElementSibling?.previousElementSibling || null;
+    } else {
+      followingBlock = blocks.find((block) =>
+        block.tagName.toLowerCase() === target.tag &&
+        normalize(block.innerText || block.textContent) === normalize(target.text) &&
+        block.previousElementSibling?.tagName === 'FIGURE',
+      ) || null;
+      firstAfterFigure = followingBlock;
+    }
+    const figure = firstAfterFigure?.previousElementSibling || null;
+    let emptyBefore = 0;
+    let cursor = figure?.previousElementSibling || null;
+    while (cursor?.tagName === 'P' && !normalize(cursor.innerText || cursor.textContent)) {
+      emptyBefore++;
+      cursor = cursor.previousElementSibling;
+    }
+    return {
+      ok: Boolean(figure?.tagName === 'FIGURE' && figure.nextElementSibling === firstAfterFigure),
+      emptyBefore,
+      nextTag: firstAfterFigure?.tagName?.toLowerCase() || null,
+      nextText: normalize(firstAfterFigure?.innerText || firstAfterFigure?.textContent),
+    };
+  }, { target: following, paragraphs: prose });
+}
+
+async function placeCaretInImmediateEmptyBeforeBanner(page, following, prose = null) {
+  return page.evaluate(({ target, paragraphs }) => {
+    const editor = document.querySelector('[contenteditable=true]');
+    const selection = window.getSelection();
+    const normalize = (value) => String(value || '').normalize('NFC').replace(/\s+/g, ' ').trim();
+    if (!editor || !selection) return null;
+    const blocks = Array.from(editor.querySelectorAll('p,h2,h3,li,blockquote')).filter((block) => !block.closest('figure'));
+    let firstAfterFigure = null;
+    if (paragraphs) {
+      const b = blocks.find((block) =>
+        block.tagName.toLowerCase() === target.tag &&
+        normalize(block.innerText || block.textContent) === normalize(target.text) &&
+        block.previousElementSibling?.tagName === 'P' &&
+        normalize(block.previousElementSibling.innerText || block.previousElementSibling.textContent) === normalize(paragraphs[1]) &&
+        block.previousElementSibling?.previousElementSibling?.tagName === 'P' &&
+        normalize(block.previousElementSibling.previousElementSibling.innerText || block.previousElementSibling.previousElementSibling.textContent) === normalize(paragraphs[0]),
+      );
+      firstAfterFigure = b?.previousElementSibling?.previousElementSibling || null;
+    } else {
+      firstAfterFigure = blocks.find((block) =>
+        block.tagName.toLowerCase() === target.tag &&
+        normalize(block.innerText || block.textContent) === normalize(target.text) &&
+        block.previousElementSibling?.tagName === 'FIGURE',
+      ) || null;
+    }
+    const figure = firstAfterFigure?.previousElementSibling || null;
+    const empty = figure?.previousElementSibling || null;
+    if (figure?.tagName !== 'FIGURE' || empty?.tagName !== 'P' || normalize(empty.innerText || empty.textContent)) return null;
+    const range = document.createRange();
+    range.selectNodeContents(empty);
+    range.collapse(true);
+    editor.focus();
+    selection.removeAllRanges();
+    selection.addRange(range);
+    empty.scrollIntoView({ block: 'center' });
+    return true;
+  }, { target: following, paragraphs: prose });
+}
+
+async function cleanupExtraEmptyParagraphs(page, following, prose, allowedCount) {
+  let placement = await inspectUploadedBanner(page, following, prose);
+  if (!placement.ok) {
+    console.log(`[diag] upload-placement=${JSON.stringify(placement)}`);
+    return { ok: false, reason: 'upload 後に figure.nextElementSibling を確認できない' };
+  }
+  const maxAttempts = Math.max(0, placement.emptyBefore - allowedCount);
+  for (let attempt = 0; attempt < maxAttempts && placement.emptyBefore > allowedCount; attempt++) {
+    const before = placement.emptyBefore;
+    const placed = await placeCaretInImmediateEmptyBeforeBanner(page, following, prose);
+    if (!placed) {
+      return { ok: false, reason: '削除対象の余分な空 p に Range を置けない' };
+    }
+    await page.keyboard.press('Backspace');
+    await sleep(600);
+    placement = await inspectUploadedBanner(page, following, prose);
+    if (!placement.ok || placement.emptyBefore >= before) {
+      console.log(`[diag] empty-p-cleanup=${JSON.stringify({ before, after: placement })}`);
+      return { ok: false, reason: 'Backspace 後にバナー直前の空 p 数が減少しない' };
+    }
+    console.log(`[swap] empty-p cleanup ${before}→${placement.emptyBefore}（probe=${allowedCount}）`);
+  }
+  if (placement.emptyBefore !== allowedCount) {
+    return { ok: false, reason: `バナー直前の空 p 数が probe と不一致（${placement.emptyBefore} != ${allowedCount}）` };
+  }
+  return { ok: true, placement };
+}
+
+async function uploadBannerAtCaret(page, banner, following, emptyBefore, prose = null) {
+  if (prose) {
+    const placed = await placeCaretAtP1Start(page, following, prose);
+    if (!placed) return { ok: false, reason: 'P1 block 先頭へ Range を置けない' };
+  }
+  const upload = await uploadAtCaret(page, banner.abs);
+  if (!upload.ok) return { ok: false, reason: `画像アップロード失敗: ${upload.reason}` };
+  console.log(`[swap] upload ${banner.rel}（captionなし）`);
+
+  const imageTarget = await countEditorImages(page);
+  const settled = await settleUploads(page, imageTarget, Math.max(SETTLE_MIN_MS, SETTLE_PER_IMG_MS), '[swap-image]');
+  if (!settled.ok) return { ok: false, reason: `画像の CDN 確定失敗 (${settled.confirmed}/${imageTarget})` };
+  return cleanupExtraEmptyParagraphs(page, following, prose, emptyBefore);
+}
+
+async function verifyTopDom(page, following, prose) {
+  const verified = await page.evaluate(({ target, paragraphs }) => {
+    const editor = document.querySelector('[contenteditable=true]');
+    const normalize = (value) => String(value || '').normalize('NFC').replace(/\s+/g, ' ').trim();
+    const blocks = Array.from(editor?.querySelectorAll('p,h2,h3,li,blockquote') || []).filter((block) => !block.closest('figure'));
+    const b = blocks.find((block) =>
+      block.tagName.toLowerCase() === target.tag &&
+      normalize(block.innerText || block.textContent) === normalize(target.text) &&
+      block.previousElementSibling?.tagName === 'P' &&
+      normalize(block.previousElementSibling.innerText || block.previousElementSibling.textContent) === normalize(paragraphs[1]) &&
+      block.previousElementSibling?.previousElementSibling?.tagName === 'P' &&
+      normalize(block.previousElementSibling.previousElementSibling.innerText || block.previousElementSibling.previousElementSibling.textContent) === normalize(paragraphs[0]),
+    ) || null;
+    const p2 = b?.previousElementSibling || null;
+    const p1 = p2?.previousElementSibling || null;
+    const figure = p1?.previousElementSibling || null;
+    const domBlocks = [];
+    let current = figure;
+    for (let guard = 0; current && guard < 200; guard++) {
+      const text = normalize(current.innerText || current.textContent);
+      domBlocks.push({ tag: current.tagName.toLowerCase(), length: Array.from(text).length, text30: text.slice(0, 30) });
+      if (current.tagName === 'H2') break;
+      current = current.nextElementSibling;
+    }
+    return {
+      ok: Boolean(
+        figure?.tagName === 'FIGURE' && figure.nextElementSibling === p1 &&
+        p1?.tagName === 'P' && normalize(p1.innerText || p1.textContent) === normalize(paragraphs[0]) &&
+        p2?.tagName === 'P' && normalize(p2.innerText || p2.textContent) === normalize(paragraphs[1]) &&
+        b?.tagName?.toLowerCase() === target.tag && normalize(b.innerText || b.textContent) === normalize(target.text),
+      ),
+      domBlocks,
+    };
+  }, { target: following, paragraphs: prose });
+  console.log(`[dom] blocks=${JSON.stringify(verified.domBlocks)}`);
+  return verified.ok
+    ? { ok: true }
+    : { ok: false, reason: '最終 DOM が figure → P1 → P2 → B（元 tag/text）の順ではない' };
+}
+
+async function inspectExistingTopProse(page, prose) {
   return page.evaluate((paragraphs) => {
-    const texts = Array.from(document.querySelectorAll('[contenteditable=true] p'))
-      .map((paragraph) => (paragraph.innerText || '').trim());
-    return paragraphs.every((paragraph) => texts.includes(paragraph));
+    const editor = document.querySelector('[contenteditable=true]');
+    const firstH2 = editor?.querySelector('h2') || null;
+    const normalize = (value) => String(value || '').normalize('NFC').replace(/\s+/g, ' ').trim();
+    const before = (left, right) => Boolean(left.compareDocumentPosition(right) & Node.DOCUMENT_POSITION_FOLLOWING);
+    const p1 = Array.from(editor?.querySelectorAll('p') || []).find((paragraph) =>
+      !paragraph.closest('figure') &&
+      normalize(paragraph.innerText || paragraph.textContent) === normalize(paragraphs[0]) &&
+      (!firstH2 || before(paragraph, firstH2)) &&
+      paragraph.nextElementSibling?.tagName === 'P' &&
+      normalize(paragraph.nextElementSibling.innerText || paragraph.nextElementSibling.textContent) === normalize(paragraphs[1]),
+    ) || null;
+    const p2 = p1?.nextElementSibling || null;
+    const following = p2?.nextElementSibling || null;
+    let emptyParagraphsBefore = 0;
+    let cursor = p1?.previousElementSibling || null;
+    while (cursor?.tagName === 'P' && !normalize(cursor.innerText || cursor.textContent)) {
+      emptyParagraphsBefore++;
+      cursor = cursor.previousElementSibling;
+    }
+    const supportedFollowing = Boolean(
+      following && !following.closest('figure') && following.matches('p,h2,h3'),
+    );
+    return {
+      ok: Boolean(p1 && p2 && supportedFollowing),
+      following: supportedFollowing ? {
+        tag: following.tagName.toLowerCase(),
+        text: normalize(following.innerText || following.textContent),
+      } : null,
+      emptyParagraphsBefore,
+      actual: {
+        p1: p1 ? normalize(p1.innerText || p1.textContent) : null,
+        p2: p2 ? normalize(p2.innerText || p2.textContent) : null,
+        nextTag: following?.tagName?.toLowerCase() || null,
+        nextText: normalize(following?.innerText || following?.textContent),
+      },
+    };
   }, prose);
 }
 
-async function verifyPublishedBody(noteId) {
+async function verifyPublishedBody(noteId, isMembership) {
   const live = await fetchNoteBody(noteId);
   if (live.error) return { ok: false, reason: `public API 取得失敗: ${live.error}` };
-  if (live.unmeasurable) return { ok: false, reason: 'public API で本文を計測できない（membership 限定等）' };
+  if (live.unmeasurable && isMembership) {
+    console.log('[5e] WARN: public API では本文を計測できない（membership）→ エディタ側の最終 DOM 検証のみ');
+    return { ok: true, unmeasurable: true };
+  }
+  if (live.unmeasurable) return { ok: false, reason: 'public API で本文を計測できない（free/paid）' };
   if (!live.body.includes(NEW_PROSE_PREFIX)) return { ok: false, reason: '公開本文に新しい著者説明がない' };
   if (live.body.includes(OLD_CAPTION)) return { ok: false, reason: '公開本文に旧キャプションが残っている' };
   return { ok: true };
@@ -382,49 +910,128 @@ async function processArticle(page, article) {
   await sleep(5000);
 
   const attachedBefore = await listAttachedFiles(page);
-  const imgsBefore = await countEditorImages(page);
-  const probe = await probeBannerFigures(page, article.banners.length);
-  printProbe(article, probe, attachedBefore, imgsBefore);
+  const figuresBefore = await countEditorFigures(page);
+  const probe = await probeBannerFigures(page);
+  printProbe(article, probe, attachedBefore, figuresBefore);
   if (article.isMembership) {
     console.log('[NOTE] membership 記事: 有料境界は free と同様に扱い、既存の試し読みラインを動かさない');
   }
-  if (!probe.targets.length) return { ok: false, reason: '差替対象の旧バナー figure を特定できない' };
-  const bottomMissing = article.banners.length > 1 && probe.targets.length < 2;
-  if (bottomMissing) console.log('[PROBE] NOTE: bottom figure 未検出（画像数ガードは imgsBefore または imgsBefore+1 を許容）');
 
-  if (!COMMIT) return { ok: true, dryRun: true };
-
-  for (let order = 0; order < probe.targets.length; order++) {
-    const target = probe.targets[order];
-    const banner = article.banners[order];
-    const deletion = await deleteFigureAtIndex(
-      page,
-      target.index,
-      target.source === 'caption' ? OLD_CAPTION_PREFIX : null,
-    );
-    if (!deletion.ok) return { ok: false, reason: `figure[${target.index}] 削除失敗: ${deletion.reason}` };
-    console.log(`[swap] figure[${target.index}] ${deletion.key}（${deletion.before}→${deletion.after}） caret=${deletion.caret}`);
-
-    const upload = await uploadAtCaret(page, banner.abs);
-    if (!upload.ok) return { ok: false, reason: `画像アップロード失敗: ${upload.reason}` };
-    console.log(`[swap] upload ${banner.rel}（captionなし）`);
-
-    if (order === 0) {
-      const topTarget = await countEditorImages(page);
-      const topSettled = await settleUploads(page, topTarget, Math.max(SETTLE_MIN_MS, SETTLE_PER_IMG_MS), '[swap-top]');
-      if (!topSettled.ok) return { ok: false, reason: `先頭画像の CDN 確定失敗 (${topSettled.confirmed}/${topTarget})` };
-      if (!(await insertTopParagraphs(page, target.index, article.prose))) {
-        return { ok: false, reason: '先頭バナー直後へ本文2段落を p 要素として挿入できない' };
-      }
-      console.log('[swap] TOP figure 後へ End/Enter + P1/Enter/P2 を入力');
+  const dirtyDraftReason = 'エディタに未保存の下書き差分が残っている疑い（画像0・本文だけ新形式）→ note-update-body --commit で正規化してから再実行';
+  if (probe.newTopCount > 1) {
+    return { ok: false, reason: `new top figure が ${probe.newTopCount} 件ある（正しくは1件）` };
+  }
+  for (const target of probe.targets) {
+    if (!target.nextTag || !target.nextFull) {
+      return { ok: false, reason: `old figure[${target.index}] の後続 block B 全文を probe できない` };
     }
+  }
+  if (probe.mode === 'none') {
+    if (probe.hasNewProse && probe.newTopCount === 0) return { ok: false, reason: dirtyDraftReason };
+    return { ok: false, reason: 'old/new バナーを位置＋画像比率から分類できない' };
+  }
+
+  if (probe.mode === 'already-done') {
+    if (!article.isMembership) {
+      const live = await fetchNoteBody(article.noteId);
+      if (live.error) return { ok: false, reason: `already-done 公開 API 検証失敗: ${live.error}` };
+      if (live.unmeasurable || !live.body.includes(NEW_PROSE_PREFIX)) {
+        return { ok: false, reason: '公開 API 本文に新形式の著者説明がない（エディタの未保存下書き疑い）' };
+      }
+      console.log('[PROBE] already-done confirmed by editor DOM + public API');
+    } else {
+      console.log('[PROBE] already-done confirmed by editor DOM（membership は public API 計測不能）');
+    }
+    if (COMMIT) {
+      if (recordPublishedHash(article.relativePath)) console.log(`[hash] ${article.relativePath} 再公開ハッシュ更新（already-done）`);
+      else console.log(`[hash] WARN: ${article.relativePath} の再公開ハッシュを記録できない`);
+    }
+    return { ok: true, dryRun: !COMMIT, alreadyDone: true };
+  } else if (!COMMIT) {
+    return { ok: true, dryRun: true };
+  }
+
+  const oldTop = probe.targets.filter((figure) => figure.pos === 'top').sort((left, right) => left.index - right.index);
+  const oldBottom = probe.targets.filter((figure) => figure.pos === 'bottom').sort((left, right) => left.index - right.index);
+  const targetsDescending = [...probe.targets].sort((left, right) => right.index - left.index);
+  for (const target of targetsDescending) {
+    const following = { tag: target.nextTag, text: target.nextFull };
+    const deletion = await deleteFigureAtIndex(page, target.index, following);
+    if (!deletion.ok) return { ok: false, reason: `figure[${target.index}] 削除失敗: ${deletion.reason}` };
+    console.log(`[swap] old ${target.pos} figure[${target.index}] ${deletion.key}（${deletion.before}→${deletion.after}） B=present`);
+  }
+
+  let insertedCount = 0;
+  let topFollowing = null;
+  let topEmptyBaseline = oldTop[0]?.emptyParagraphsBefore ?? 0;
+  if (probe.hasNewProse) {
+    const existingProse = await inspectExistingTopProse(page, article.prose);
+    if (!existingProse.ok) {
+      console.log(`[diag] existing-prose=${JSON.stringify(existingProse.actual)}`);
+      return { ok: false, reason: '本文あり判定だが top の p=P1 → p=P2 → B 構造を確認できない' };
+    }
+    topFollowing = existingProse.following;
+    if (!oldTop.length) topEmptyBaseline = existingProse.emptyParagraphsBefore;
+  } else {
+    const topReference = oldTop.at(-1) || probe.newTop[0] || probe.firstH2;
+    topFollowing = topReference ? {
+      tag: topReference.nextTag || topReference.tag,
+      text: topReference.nextFull || topReference.text,
+    } : null;
+    if (!oldTop.length) topEmptyBaseline = topReference?.emptyParagraphsBefore ?? 0;
+    if (!topFollowing?.tag || !topFollowing?.text) {
+      return { ok: false, reason: 'top prose 挿入位置 B を特定できない' };
+    }
+    if (!['p', 'h2', 'h3'].includes(topFollowing.tag)) {
+      return { ok: false, reason: `top prose 挿入位置 B の tag=${topFollowing.tag} は未対応（p/h2/h3 のみ）` };
+    }
+    const placed = await placeCaretAtFollowingBlockStart(page, topFollowing);
+    if (!placed) return { ok: false, reason: 'top prose 挿入位置 B の先頭へ Range を置けない' };
+    const pasted = await pasteTopParagraphs(page, topFollowing, article.prose);
+    if (!pasted.ok) return { ok: false, reason: `先頭バナー直後の本文挿入失敗: ${pasted.reason}` };
+    console.log(pasted.mode === 'heading'
+      ? `[swap] ${topFollowing.tag} start→Enter→ArrowUp→empty p→paste ${PASTE_SHORTCUT}: p=P1 / p=P2 / ${topFollowing.tag}=B`
+      : `[swap] paste ${PASTE_SHORTCUT}: p=P1 / p=P2 / block=P2+B → leading P2 Delete → block=B`);
+  }
+
+  if (probe.newTopCount === 0) {
+    const uploaded = await uploadBannerAtCaret(
+      page,
+      article.banners[0],
+      topFollowing,
+      topEmptyBaseline,
+      article.prose,
+    );
+    if (!uploaded.ok) return { ok: false, reason: `先頭バナー画像挿入失敗: ${uploaded.reason}` };
+    insertedCount++;
+  } else {
+    console.log('[swap] new top figure は既存1件を維持（追加アップロードなし）');
+  }
+  const topDom = await verifyTopDom(page, topFollowing, article.prose);
+  if (!topDom.ok) return { ok: false, reason: `先頭バナー直後の最終検証失敗: ${topDom.reason}` };
+
+  if (oldBottom.length > 0) {
+    if (!probe.bridge) return { ok: false, reason: 'old bottom figure はあるが bridge paragraph を再取得できない' };
+    const placed = await placeCaretAtFollowingBlockStart(page, probe.bridge);
+    if (!placed) return { ok: false, reason: 'bridge paragraph 先頭へ Range を置けない' };
+    const bottomBanner = article.banners[1] || article.banners[0];
+    const uploaded = await uploadBannerAtCaret(
+      page,
+      bottomBanner,
+      probe.bridge,
+      oldBottom[0].emptyParagraphsBefore,
+    );
+    if (!uploaded.ok) return { ok: false, reason: `下部バナー画像挿入失敗: ${uploaded.reason}` };
+    insertedCount++;
+  } else {
+    console.log('[swap] bottom: old figure なし → 変更なし（mirror, never add）');
   }
 
   const imgsAfterUpload = await countEditorImages(page);
   const settled = await settleUploads(
     page,
     imgsAfterUpload,
-    Math.max(SETTLE_MIN_MS, probe.targets.length * SETTLE_PER_IMG_MS),
+    Math.max(SETTLE_MIN_MS, Math.max(insertedCount, 1) * SETTLE_PER_IMG_MS),
     '[swap]',
   );
   if (!settled.ok) return { ok: false, reason: `画像の CDN 確定失敗 (${settled.confirmed}/${imgsAfterUpload})` };
@@ -437,15 +1044,23 @@ async function processArticle(page, article) {
       reason: `添付が減少 ${attachedBefore.length}→${attachedAfter.length}。保存せず editor を終了`,
     };
   }
-  const imgsAfter = await countEditorImages(page);
-  const allowedImageCounts = bottomMissing ? [imgsBefore, imgsBefore + 1] : [imgsBefore];
-  if (!allowedImageCounts.includes(imgsAfter)) {
+  const figuresAfter = await countEditorFigures(page);
+  const expectedFiguresAfter = figuresBefore - probe.oldCount + insertedCount;
+  if (figuresAfter !== expectedFiguresAfter) {
     return {
       ok: false,
-      reason: `画像数が不正 ${imgsBefore}→${imgsAfter}（許容: ${allowedImageCounts.join(' or ')}）。保存しない`,
+      reason: `figure 数が不正 ${figuresBefore} - old(${probe.oldCount}) + inserted(${insertedCount}) = ${expectedFiguresAfter}、実測 ${figuresAfter}。保存しない`,
     };
   }
-  console.log(`[guard] attached ${attachedBefore.length}→${attachedAfter.length}, images ${imgsBefore}→${imgsAfter}`);
+  const finalProbe = await probeBannerFigures(page);
+  if (finalProbe.oldCount !== 0 || finalProbe.newTopCount !== 1) {
+    console.log(`[diag] final-classification=${JSON.stringify(finalProbe.figures.map((figure) => ({ index: figure.index, pos: figure.pos, ratio: figure.ratio, class: figure.class })))}`);
+    return { ok: false, reason: `最終バナー分類が不正（old=${finalProbe.oldCount}, new-top=${finalProbe.newTopCount}）。保存しない` };
+  }
+  if (oldBottom.length > 0 && finalProbe.newBottomCount !== 1) {
+    return { ok: false, reason: `最終 new bottom figure が ${finalProbe.newBottomCount} 件（正しくは1件）。保存しない` };
+  }
+  console.log(`[guard] attached ${attachedBefore.length}→${attachedAfter.length}, figures ${figuresBefore}→${figuresAfter} (old=${probe.oldCount}, inserted=${insertedCount}), final old=0 new-top=1`);
 
   const published = await publishLive(page, article.noteId, article.boundary, article.isPaid, {
     keepBoundary: false,
@@ -454,9 +1069,9 @@ async function processArticle(page, article) {
   });
   if (!published) return { ok: false, reason: 'publishLive が失敗' };
 
-  const verified = await verifyPublishedBody(article.noteId);
+  const verified = await verifyPublishedBody(article.noteId, article.isMembership);
   if (!verified.ok) return { ok: false, reason: `公開後検証失敗: ${verified.reason}` };
-  console.log('[verify] public API: 新本文あり / 旧キャプションなし');
+  if (!verified.unmeasurable) console.log('[verify] public API: 新本文あり / 旧キャプションなし');
 
   if (recordPublishedHash(article.relativePath)) console.log(`[hash] ${article.relativePath} 再公開ハッシュ更新`);
   else console.log(`[hash] WARN: ${article.relativePath} の再公開ハッシュを記録できない`);
@@ -495,6 +1110,7 @@ if (!stoppedByLimit && !stateError) {
     args: ['--disable-blink-features=AutomationControlled'],
   });
   try {
+    await context.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: 'https://editor.note.com' });
     const page = context.pages()[0] || (await context.newPage());
     if (!(await accountGate(page))) {
       console.error('[FAIL] ABORT: account != dobokunote');
@@ -521,7 +1137,10 @@ if (!stoppedByLimit && !stateError) {
           if (result.ok) {
             ok++;
             consecutiveFail = 0;
-            console.log(`[OK] ${article.noteId} ${result.dryRun ? 'probe完了（未変更）' : 'バナー差替・公開後検証完了'}`);
+            const outcome = result.alreadyDone
+              ? `already-done（skip${result.dryRun ? '・未変更' : '・hash記録'}）`
+              : result.dryRun ? 'probe完了（未変更）' : 'バナー差替・公開後検証完了';
+            console.log(`[OK] ${article.noteId} ${outcome}`);
           } else {
             fail++;
             consecutiveFail++;
