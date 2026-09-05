@@ -1689,7 +1689,7 @@
     "career-tenshoku-timing": {
       "derivatives": {
         "longform": {
-          "status": "approved",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -1698,7 +1698,8 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-28T12:30:00+09:00"
+          "publishAt": "2026-09-28T12:30:00+09:00",
+          "renderedAt": "2026-09-05T04:37:14.707Z"
         }
       }
     },
@@ -1726,7 +1727,7 @@
     "career-yameru-mae": {
       "derivatives": {
         "longform": {
-          "status": "approved",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -1735,7 +1736,8 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-29T07:30:00+09:00"
+          "publishAt": "2026-09-29T07:30:00+09:00",
+          "renderedAt": "2026-09-05T04:37:21.537Z"
         }
       }
     },
@@ -1805,7 +1807,7 @@
     "sekokan-shippaidan": {
       "derivatives": {
         "longform": {
-          "status": "approved",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -1814,7 +1816,8 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-29T20:00:00+09:00"
+          "publishAt": "2026-09-29T20:00:00+09:00",
+          "renderedAt": "2026-09-05T04:37:24.482Z"
         }
       }
     },
