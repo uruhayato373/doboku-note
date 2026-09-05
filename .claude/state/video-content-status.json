@@ -1425,7 +1425,7 @@
     "gakka-kijutsu-2kyu": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -1434,8 +1434,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-10-17T20:00:00+09:00",
-          "renderedAt": "2026-09-05T03:42:26.658Z"
+          "publishAt": "2026-10-17T11:00:00Z",
+          "renderedAt": "2026-09-05T03:42:26.658Z",
+          "videoId": "rnZwT4kxuw4",
+          "url": "https://www.youtube.com/watch?v=rnZwT4kxuw4",
+          "scheduledAt": "2026-09-05T03:44:35.522Z",
+          "privacyStatus": "private"
         }
       }
     },
