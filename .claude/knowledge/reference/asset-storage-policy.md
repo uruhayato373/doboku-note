@@ -386,7 +386,7 @@ cache は `.local/cache/assets/`（Git 非追跡）。最終アクセス時刻�
 | 置き場 / prefix | 件数 | 真実源 | 復元 |
 |---|---|---|---|
 | private `archive/git-history/` | 1（2.65GiB） | 台帳 `git-history-bundle`（human 例外） | `rclone copy` → `git clone <bundle>` |
-| private `note/covers/` | 58（53.8MiB） | 台帳 `note-cover-png`（下書き記事のカバー。台帳は 19 件で 39 件が台帳外→DN-0172） | `asset-hydrate --group note-cover-png` |
+| private `note/covers/` | 17 | 台帳 `note-cover-png`（下書き記事のカバー。公開後に public へ再 upload しても private の旧コピーが残る＝台帳外 39 件を 2026-09-05 に削除、再発防止は DN-0171） | `asset-hydrate --group note-cover-png` |
 | public `posts/`（記事図版） | 4,298（149MiB） | **Git**（`content/site/**/img`） | `r2-sync.yml` が一方向で同期。配信コピーなので台帳不要 |
 | public `posts/`（ogp.png） | 1,586（662MiB） | 台帳 `site-ogp-png`（1,574） | `ogp-supply.yml` が生成・供給 |
 | public `note/covers/` | 821（718MiB） | 台帳 `note-cover-png` | `asset-hydrate --group note-cover-png` |

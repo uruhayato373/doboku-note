@@ -206,6 +206,7 @@ Playwrightのログインprofileはサービス別に永続化されているが
 
 `note-cover-png` は byVisibility で公開済みを public R2 `note/covers/` に置くが、サイトも note も読んでいない（2026-09-05 実査・`src/` `tools/` に参照 0）。
 CI（note-cover-supply.yml）が書く資産なので R2 のままでよいが、public 複製は不要。group を `private` 一本にし 820 件を撤去する。
+再発の型（2026-09-05 実測）: 記事が公開されると asset-offload が同じキーを public へ再 upload するが private の旧コピーは消さないので、byVisibility のままだと private 側に台帳外が溜まる（39 件を同日削除・drift 2 件は check-asset-storage の manifest-bucket FAIL で顕在化）。private 一本化でこの型は消える。
 
 ### [DN-0172] drive-manifest.json を lean 化する
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-05]
