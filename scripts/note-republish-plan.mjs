@@ -11,7 +11,7 @@
  *
  * 分類（投入する順に優先度が高い）:
  *   ready        画像なし・PDF 配布の約束なし・会員限定でない → そのまま投入できる
- *   pdfMissing   画像なし・PDF 配布を約束・ローカルに実体なし → asset-hydrate か spec 再生成が先
+ *   pdfMissing   画像なし・PDF 配布を約束・ローカルに実体なし → drive-vault-sync --pull か spec 再生成が先
  *   pdfReady     画像なし・PDF 配布を約束・ローカルに実体あり → --reattach-pdf 付きで投入できる
  *   hasImage     画像あり → DN-0009（CDN 確定失敗）の決着待ち
  *   membership   会員限定 → 公開範囲の扱いが別（このツールでは対象外のまま報告のみ）

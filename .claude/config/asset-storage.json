@@ -35,10 +35,10 @@
       "match": {
         "pathRegex": "^content/note/.+/img/cover[A-Za-z0-9_-]*\\.png$"
       },
-      "bucket": "byVisibility",
+      "bucket": "private",
       "keyPrefix": "note/covers/",
       "keyFrom": "stripPrefix:content/note/",
-      "visibilityFrom": "noteFrontmatter",
+      "visibilityFrom": "fixed:private",
       "regenerable": false,
       "generator": "scripts/generate-note-covers.mjs",
       "requiredBy": [
@@ -46,124 +46,8 @@
         "scripts/note-update-cover.mjs",
         "tools/admin-app（画像ギャラリー）"
       ],
-      "reason": "note へアップロード済みの実体。2026-08-21 の全 827 件再生成で byte 再現できないことを実測したので（不一致 9 件・うち 8 件は 340 万サブピクセル中 18 個の不可視差）、再生成ではなく保管する。",
+      "reason": "note へアップロード済みの実体。2026-08-21 の全 827 件再生成で byte 再現できないことを実測したので（不一致 9 件・うち 8 件は 340 万サブピクセル中 18 個の不可視差）、再生成ではなく保管する。 2026-09-05（DN-0171）に byVisibility → private 一本化: public 複製はサイトも note も読んでおらず（src/ tools/ に参照 0）、公開のたびに private の旧コピーが台帳外で残る型の温床だった。",
       "phase": "4-B"
-    },
-    {
-      "id": "note-magazine-cover-png",
-      "audience": "human",
-      "audienceException": "Phase 3 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
-      "match": {
-        "pathRegex": "^content/note/.+/magazines/[^/]+/_cover\\.png$"
-      },
-      "bucket": "private",
-      "keyPrefix": "note/magazine-covers/",
-      "keyFrom": "stripPrefix:content/note/",
-      "visibilityFrom": "fixed:private",
-      "regenerable": true,
-      "generator": "scripts/generate-magazine-covers.mjs",
-      "requiredBy": [
-        "scripts/note-magazine-cover.mjs"
-      ],
-      "reason": "マガジン直下（magazines/<name>/_cover.png）は記事のような frontmatter を持たないため、既存の note-cover-png group の noteFrontmatter 判定が使えない。判定不能なものは private へ倒す原則（asset-storage-policy.md の不変条件）に従い bucket は private 固定にする。regenerable は true だが、note-cover-png と同様に byte 再現は信用しない（生成物として再現できても、退避前の実バイトを保管する）。",
-      "phase": "4-B"
-    },
-    {
-      "id": "textbook-page-image",
-      "audience": "human",
-      "audienceException": "Phase 4 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
-      "match": {
-        "pathRegex": "^content/sources/textbook/.+\\.(png|jpe?g|webp|tiff?)$"
-      },
-      "bucket": "private",
-      "keyPrefix": "textbook/",
-      "keyFrom": "stripPrefix:content/sources/textbook/",
-      "visibilityFrom": "fixed:private",
-      "regenerable": true,
-      "generator": "原典 PDF から再抽出（pdfimages → 回転 → 分割）",
-      "requiredBy": [
-        "scanned-textbook-transcriber（OCR）",
-        "scanned-figure-crop-auditor（図クロップ）"
-      ],
-      "reason": "市販テキスト・白書のページ画像。リポジトリは PRIVATE で公開露出は無い（2026-08-21 確認）が、868 件 571.2 MiB が HEAD と CI checkout を重くしている。原典 PDF は既に private R2 にあるので、同じ prefix へ揃える。",
-      "phase": "4-C"
-    },
-    {
-      "id": "standards-page-image",
-      "audience": "human",
-      "audienceException": "Phase 2 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
-      "bucket": "private",
-      "match": {
-        "pathRegex": "^content/sources/standards/.+/(pages/.+\\.jpe?g|text/.+\\.txt)$"
-      },
-      "keyPrefix": "",
-      "keyFrom": "repoRelative",
-      "visibilityFrom": "fixed:private",
-      "regenerable": true,
-      "generator": "npm run build-standards-page-images",
-      "requiredBy": [
-        "scripts/check-standards-page-images.mjs"
-      ],
-      "reason": "共通仕様書のページ画像・ページテキスト。2026-09-05 に途中まで private R2 へ上げて止めたもの（2,550 件）。人しか読まない再生成可能な派生物なので Drive vault が正しい置き場。Phase 2 で vault へ移し R2 側を purge する。",
-      "phase": "2（Drive へ移行・撤去予定）"
-    },
-    {
-      "id": "textbook-source-pdf",
-      "audience": "human",
-      "audienceException": "Phase 4 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
-      "match": {
-        "pathRegex": "^content/sources/textbook/.+\\.pdf$"
-      },
-      "bucket": "private",
-      "keyPrefix": "textbook/",
-      "keyFrom": "stripPrefix:content/sources/textbook/",
-      "visibilityFrom": "fixed:private",
-      "regenerable": false,
-      "generator": null,
-      "requiredBy": [
-        "pdf-to-mdx（スキャン教材の変換）",
-        "scanned-textbook-transcriber（OCR）"
-      ],
-      "reason": "市販テキスト・白書の原典 PDF。2026-07 に rclone で R2 へ出し、2026-08-22 に git 履歴からも除去したため **R2 が唯一の実体**。台帳に載せないと check-asset-storage の監視外＝消えても誰も気づかない状態になる。logicalPath は「取り戻すならここへ置く」場所であり、リポジトリには実在しない（.gitignore 済み）。再生成は不可（原本は紙の書籍）。2026-08-30: 置き場が docs/textbook/ → content/sources/textbook/ へ移った（4 領域モデルの content 化）のに、この pathRegex と keyFrom だけ旧パスのまま残っていた。その間は**どのグループにも該当しない＝offload の対象にならず check-asset-storage の監視外**で、行政書士など 10 件がローカルにしか無い状態で溜まっていた。R2 キーは stripPrefix の残りが同じなので不変。",
-      "phase": "catalog-backfill"
-    },
-    {
-      "id": "note-delivery-pdf",
-      "audience": "human",
-      "audienceException": "Phase 4 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
-      "match": {
-        "pathRegex": "^content/note/.+\\.pdf$"
-      },
-      "bucket": "private",
-      "keyPrefix": "note/delivery-pdf/",
-      "keyFrom": "stripPrefix:content/note/",
-      "visibilityFrom": "fixed:private",
-      "regenerable": true,
-      "generator": "scripts/magazine-to-pdf.mjs",
-      "requiredBy": [
-        "scripts/note-attach-file.mjs"
-      ],
-      "reason": "note 添付・商品 PDF。購入者限定の配布物を含むため既定は private。公開配布可 / 有料添付 / 原典・非公開 の再分類は Phase 4-D で行う。",
-      "phase": "4-D"
-    },
-    {
-      "id": "ig-rendered-image",
-      "audience": "human",
-      "audienceException": "Phase 4 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
-      "match": {
-        "pathRegex": "^content/sns/instagram/(?!.*/reels/).+\\.(png|jpe?g)$"
-      },
-      "bucket": "byVisibility",
-      "keyPrefix": "sns/rendered/instagram/",
-      "keyFrom": "stripPrefix:content/sns/instagram/",
-      "visibilityFrom": "igPackStatus",
-      "regenerable": true,
-      "generator": ".claude/scripts/sns/ 系レンダラ（slide-data.json から決定論的に再生成）",
-      "requiredBy": [
-        "publish-ig-bs（投稿時）"
-      ],
-      "reason": "slide-data.json が SoT のレンダー成果物。投稿済みパックは R2 archive、未投稿・制作中は再生成で足りる。reels/ は除外する——あちらは sns-archive-policy と upload-sns-r2 が管轄する別系統で、frames は既に gitignore 済み・script/slide-data から再生成する中間物。両方の regime で同じファイルを見ると、片方が「未退避」と誤検出する。",
-      "phase": "4-E"
     },
     {
       "id": "git-history-bundle",
@@ -205,45 +89,6 @@
       "phase": "DN-0116"
     },
     {
-      "id": "video-render-artifact",
-      "audience": "human",
-      "audienceException": "Phase 3 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
-      "match": {
-        "pathRegex": "^\\.tmp/video-render/(?!verify-frames/)[^/]+/.+\\.(png|wav|ass|mp4|json)$"
-      },
-      "bucket": "private",
-      "keyPrefix": "video/render/",
-      "keyFrom": "stripPrefix:.tmp/video-render/",
-      "visibilityFrom": "fixed:private",
-      "regenerable": true,
-      "generator": "npm run render-longform -- --pack-dir content/sns/video-packs/{exam}/{packId}",
-      "requiredBy": [
-        "video-content-qa（公開前の映像・音声・字幕確認）",
-        "YouTube通常動画の公開処理"
-      ],
-      "reason": "通常動画pilotのmp4・wav・ASS・レンダリングframe。公開承認前の制作物なのでpublicへ出さずprivate R2へ退避し、manifestのsha256を再取得経路の真実源にする。",
-      "phase": "DN-0110"
-    },
-    {
-      "id": "legacy-r2-orphan",
-      "audience": "human",
-      "audienceException": "旧 R2 からの退避物 3,719 件。Phase 5 で棚卸し: 記事画像 2,573 件は参照 0 を確認して削除、SNS 素材 1,146 件は drive-vault.json の同名 group（vaultDir アーカイブ/旧R2/sns）へ移す。完了後この group は消える。",
-      "match": {
-        "pathRegex": "^\\.local/archive/legacy-r2/.+$"
-      },
-      "bucket": "private",
-      "keyPrefix": "archive/legacy-r2/",
-      "keyFrom": "stripPrefix:.local/archive/legacy-r2/",
-      "visibilityFrom": "fixed:private",
-      "regenerable": false,
-      "generator": null,
-      "requiredBy": [
-        "削除・改称された旧記事や旧 SNS 構造の素材を掘り起こすとき"
-      ],
-      "reason": "公開バケットに孤児として残っていた旧配置の素材（content/ の旧記事画像 2,573 件と sns/ の消えた構造の残骸 1,146 件）。リポジトリにも posts/ にも対応が無く**唯一の実体**だったので、消す前に private へ退避して台帳に載せた（DN-0116 B）。公開バケット側は削除する。",
-      "phase": "DN-0116"
-    },
-    {
       "id": "site-ogp-png",
       "audience": "site",
       "match": {
@@ -262,70 +107,6 @@
       ],
       "reason": "content/site/**/ogp.png は 1,166 件 607MB でリポジトリ git 追跡容量 1,163MB の 52% を占める。配信は既に R2 301（public/_redirects）経由で本番稼働中。R2 キーは upload-images-to-r2.mjs の `posts/${rel}` と機械的に一致するため URL は変わらない。visibility を fixed:public にするのは、現行の r2-sync.yml が published 記事かどうかを問わず全記事の ogp.png を public へ同期している現状の挙動を変えないため。",
       "phase": "site-ogp-offload"
-    },
-    {
-      "id": "coconala-asset",
-      "audience": "human",
-      "audienceException": "Phase 3 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
-      "match": {
-        "pathRegex": "^\\.claude/config/coconala/assets/.+"
-      },
-      "bucket": "private",
-      "keyPrefix": "coconala/assets/",
-      "keyFrom": "stripPrefix:.claude/config/coconala/assets/",
-      "visibilityFrom": "fixed:private",
-      "regenerable": false,
-      "generator": null,
-      "requiredBy": [
-        "scripts/coconala-publish.mjs",
-        "scripts/coconala-edit.mjs",
-        "scripts/coconala-cover.mjs",
-        "scripts/coconala-thumb.mjs",
-        "scripts/build-coconala-content-pdf.mjs"
-      ],
-      "reason": "ココナラ出品自動化（Playwright）が参照する商品サムネ・背景素材。読者はローカル実体を直接参照するため git 追跡容量を圧迫するだけで公開配信には使われていない。退避してもローカルの読者コードは影響を受けない（ワークツリーの実体はそのまま残るため）",
-      "phase": "unclassified-backfill"
-    },
-    {
-      "id": "repo-archive",
-      "audience": "human",
-      "audienceException": "Phase 3 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
-      "match": {
-        "pathRegex": "^(\\.claude/state/ocr-audit/.+|scripts/kindle-published/cover-designs/.+|content/sns/_assets/character/_source/.+)$"
-      },
-      "bucket": "private",
-      "keyPrefix": "archive/repo/",
-      "keyFrom": "repoRelative",
-      "visibilityFrom": "fixed:private",
-      "regenerable": false,
-      "generator": null,
-      "requiredBy": [
-        "OCR 監査の経緯を遡って確認するとき（.claude/state/ocr-audit/）",
-        "Kindle 表紙デザイン案を再検討するとき（scripts/kindle-published/cover-designs/・DN-0151）",
-        "キャラクター素材グリッド原本から新規ポーズを切り出すとき（content/sns/_assets/character/_source/）"
-      ],
-      "reason": "性質の異なる3種の死蔵物（OCR監査ログ・Kindle表紙デザイン案・キャラ素材グリッド原本）をまとめて退避する。個別に group を作るほどの規模ではないが、いずれも『消さず退避』が適切（監査証跡・意思決定の記録として当面残す価値がある）。ローカル削除は別判断",
-      "phase": "unclassified-backfill"
-    },
-    {
-      "id": "kindle-dist",
-      "audience": "human",
-      "audienceException": "Phase 3 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
-      "match": {
-        "pathRegex": "^scripts/kindle-dist/.+\\.(epub|jpg)$"
-      },
-      "bucket": "private",
-      "keyPrefix": "kindle/dist/",
-      "keyFrom": "stripPrefix:scripts/kindle-dist/",
-      "visibilityFrom": "fixed:private",
-      "regenerable": false,
-      "generator": null,
-      "requiredBy": [
-        "scripts/kdp-publish.mjs",
-        "scripts/sync-kindle-dist.mjs"
-      ],
-      "reason": "公開・審査済み版の不変な配布実体としてgit追跡を維持する。2026-09-04に76件をprivate R2へ再同期し、ローカル・manifest・R2のbytes/sha256三者一致を確認した。一方、e-01を同期処理を通さず.tmpへ再生成して展開比較すると、UUID/日付だけでなくCareerAffiliate除去と画像寸法変更の実内容差があり、現行generatorから公開版を同内容で復元できないことを確認した。R2は完全バックアップ、Gitはレビュー可能な配布版の正本として併存させる",
-      "phase": "DN-0151"
     }
   ]
 }

@@ -8,7 +8,7 @@ noteUrl: https://note.com/dobokunote/n/n842ef5dd4d01
 noteId: n842ef5dd4d01
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "環境対策 完成答案集"]
-price: 980
+price: 1480
 paidBoundary: "環境対策の答案で採点者が見るポイント"
 cover:
   variant: crop-safe-v4

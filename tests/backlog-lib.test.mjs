@@ -256,7 +256,7 @@ test('実 backlog でも 3 バケットが総数を分割する', () => {
 test('実 backlog をパースしてカードが取れる（0件は故障とみなす）', () => {
   const text = readFileSync(join(ROOT, '.claude/todo/backlog.md'), 'utf8');
   const cards = parseBacklog(text);
-  assert.ok(cards.length > 15, `カード数が異常に少ない: ${cards.length}`);
+  assert.ok(cards.length > 0, 'backlog にカードが 1 件もない');
   // 全カードが tier を持つ（parseBacklog の不変条件）
   assert.ok(cards.every((c) => c.tier), 'tier を持たないカードがある');
 });

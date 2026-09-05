@@ -41,7 +41,7 @@ on:
         type: choice
         options: [path, group]
       selector:
-        description: 'group 名（例 note-delivery-pdf）または path 前方一致（例 content/note/技術士建設部門/magazines/BK-01_道路/R03/）'
+        description: 'group 名（例 note-cover-png）または path 前方一致（例 content/note/技術士建設部門/magazines/BK-01_道路/R03/img/）。人 tier（Drive vault）の group は CI から取り寄せない'
         required: true
         type: string
       dry_run:

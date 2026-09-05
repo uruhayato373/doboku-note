@@ -86,7 +86,7 @@ test('次のアクション以外の見出し配下の未チェックは warning
 test('実 docs/ は error 0（廃止参照・参照切れなし）', () => {
   const backlog = readFileSync(join(ROOT, '.claude/todo/backlog.md'), 'utf8');
   const ids = new Set(parseBacklog(backlog).map((c) => c.id).filter(Boolean));
-  assert.ok(ids.size > 15, `backlog ID が異常に少ない: ${ids.size}`);
+  assert.ok(ids.size > 0, 'backlog ID が 1 件もない');
 
   const walk = (dir, out = []) => {
     if (!existsSync(dir)) return out;

@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/n9ad923d3cce3
 noteId: n9ad923d3cce3
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "安全管理×工程管理"]
-price: 980
+price: 1480
 paidBoundary: "安全管理×工程管理を書き分けるポイント"
 cover:
   variant: crop-safe-v4

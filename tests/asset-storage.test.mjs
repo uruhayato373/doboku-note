@@ -46,11 +46,14 @@ test('config: 全 group が bucket / keyFrom / visibilityFrom を正しく宣言
 
 test('groupFor: パスから所属グループを引ける（他グループを巻き込まない）', () => {
   assert.equal(groupFor('content/note/技術士総監/x/img/cover.png', CFG).id, 'note-cover-png');
-  assert.equal(groupFor('content/note/技術士総監/x/pdf/a.pdf', CFG).id, 'note-delivery-pdf');
-  assert.equal(groupFor('content/sources/textbook/主任技師2022/img/p1.png', CFG).id, 'textbook-page-image');
-  assert.equal(groupFor('content/sns/instagram/cem/pack/img/01.png', CFG).id, 'ig-rendered-image');
-  assert.equal(groupFor('.tmp/video-render/sample/video.mp4', CFG).id, 'video-render-artifact');
-  assert.equal(groupFor('.tmp/video-render/sample/wav/00-cover.wav', CFG).id, 'video-render-artifact');
+  assert.equal(groupFor('content/site/civil-construction-1/guide-x/ogp.png', CFG).id, 'site-ogp-png');
+  assert.equal(groupFor('content/sns/instagram/cem/pack/reels/wav/a.wav', CFG).id, 'sns-archived-media');
+  assert.equal(groupFor('.local/archive/git-history/a.bundle', CFG).id, 'git-history-bundle');
+  // 2026-09-05 に Drive vault（drive-vault.json）へ移した人 tier の group は R2 側に無い
+  assert.equal(groupFor('content/note/技術士総監/x/pdf/a.pdf', CFG), null);
+  assert.equal(groupFor('content/sources/textbook/主任技師2022/img/p1.png', CFG), null);
+  assert.equal(groupFor('content/sns/instagram/cem/pack/img/01.png', CFG), null);
+  assert.equal(groupFor('.tmp/video-render/sample/video.mp4', CFG), null);
   assert.equal(groupFor('.tmp/video-render/verify-frames/contact-sheet.png', CFG), null);
   // 対象外は null。サイト記事の図版や原稿を巻き込まない。
   assert.equal(groupFor('content/site/civil-construction-1/guide-x/img/fig.png', CFG), null);
@@ -63,43 +66,43 @@ test('r2Key: stripPrefix でキーからリポジトリ内パスの重複が消�
   assert.equal(cover, 'note/covers/1級・2級土木/x/img/cover.png');
   assert.ok(!cover.includes('content/note'), 'キーに content/note を二重に含めない');
 
-  const tb = r2KeyFor('content/sources/textbook/主任技師2022/img/p1.png', groupById('textbook-page-image'));
-  assert.equal(tb, 'textbook/主任技師2022/img/p1.png', '既存 rclone 運用のキー体系と一致すること');
+  const ogp = r2KeyFor('content/site/civil-construction-1/guide-x/ogp.png', groupById('site-ogp-png'));
+  assert.equal(ogp, 'posts/civil-construction-1/guide-x/ogp.png', 'r2-sync.yml のキー体系（posts/）と一致すること');
 
-  const video = r2KeyFor('.tmp/video-render/sample/video.mp4', groupById('video-render-artifact'));
-  assert.equal(video, 'video/render/sample/video.mp4', 'ローカル一時ディレクトリ名をR2キーへ重複させない');
+  const bundle = r2KeyFor('.local/archive/git-history/a.bundle', groupById('git-history-bundle'));
+  assert.equal(bundle, 'archive/git-history/a.bundle', 'ローカル置き場のディレクトリ名を R2 キーへ重複させない');
 });
 
 test('r2Key: stripPrefix に合わないパスは黙って通さず例外にする', () => {
   assert.throws(
-    () => r2KeyFor('content/site/x/img/a.png', groupById('textbook-page-image')),
+    () => r2KeyFor('content/site/x/img/a.png', groupById('note-cover-png')),
     /stripPrefix/,
   );
 });
 
 test('r2Key: Windows 区切りでも同じキーになる（複数 PC で同一キー）', () => {
-  const g = groupById('textbook-page-image');
-  const posix = r2KeyFor('content/sources/textbook/a/img/p.png', g);
+  const g = groupById('note-cover-png');
+  const posix = r2KeyFor('content/note/a/img/cover.png', g);
   // toPosix は path.sep 依存なので、ここでは「キーに \\ が残らない」ことを固定する
   assert.ok(!posix.includes('\\'), 'キーに Windows 区切りを残さない');
   assert.equal(toPosix('a/b/c.png'), 'a/b/c.png');
 });
 
 test('visibility: 判定不能は必ず private へ倒れる（公開バケット誤配置の防止）', () => {
-  const g = groupById('note-cover-png');
+  // note-cover-png は 2026-09-05（DN-0171）から fixed:private。noteFrontmatter の解釈そのものは
+  // 再生成系（audit-repository-assets 等）が使い続けるので visibilityFrom を直接与えて固定する
+  const g = { id: 'note-synthetic', visibilityFrom: 'noteFrontmatter', bucket: 'byVisibility' };
   // 実在しない記事 dir → frontmatter を読めない → private
   assert.equal(visibilityFor('content/note/存在しない記事/img/cover.png', g), 'private');
   assert.equal(bucketForFile('content/note/存在しない記事/img/cover.png', g), 'private');
 });
 
 test('visibility: fixed:private のグループは常に private バケットへ行く', () => {
-  const g = groupById('note-delivery-pdf');
-  assert.equal(visibilityFor('content/note/a/pdf/x.pdf', g), 'private');
-  assert.equal(bucketForFile('content/note/a/pdf/x.pdf', g), 'private');
-
-  const video = groupById('video-render-artifact');
-  assert.equal(visibilityFor('.tmp/video-render/sample/video.mp4', video), 'private');
-  assert.equal(bucketForFile('.tmp/video-render/sample/video.mp4', video), 'private');
+  const g = groupById('git-history-bundle');
+  assert.equal(visibilityFor('.local/archive/git-history/a.bundle', g), 'private');
+  assert.equal(bucketForFile('.local/archive/git-history/a.bundle', g), 'private');
+  // config に無い visibilityFrom は private へ倒れる（判定不能＝非公開）
+  assert.equal(visibilityFor('x/y.bin', { id: 'synthetic', visibilityFrom: 'unknown:rule' }), 'private');
 });
 
 test('visibility: IG は status.json の入れ子スキーマを読む（トップレベルだけ見ない）', () => {
@@ -130,7 +133,9 @@ test('visibility: IG は status.json の入れ子スキーマを読む（トッ�
       }
       writeFileSync(join(packDir, '01.png'), '');
       const rel = toPosix(join(base, name, 'img', '01.png').slice(ROOT.length + 1));
-      assert.equal(visibilityFor(rel, groupById('ig-rendered-image')), want, name);
+      // ig-rendered-image group は 2026-09-05 に Drive vault へ移り R2 config から消えたが、igPackStatus の
+      // スキーマ解釈は audit-repository-assets 等が使い続けるので visibilityFrom を直接与えて固定する
+      assert.equal(visibilityFor(rel, { id: 'ig-synthetic', visibilityFrom: 'igPackStatus' }), want, name);
       checked++;
     }
     assert.equal(checked, cases.length, '全ケースを実検査していること');
@@ -160,7 +165,8 @@ test('visibility: note カバーは noteStatus: reserved（予約投稿）を no
       writeFileSync(join(articleDir, 'article.md'), `---\n${fmBody}\n---\n# 本文\n`);
       writeFileSync(join(imgDir, 'cover.png'), '');
       const rel = toPosix(join(imgDir, 'cover.png').slice(ROOT.length + 1));
-      assert.equal(visibilityFor(rel, groupById('note-cover-png')), want, name);
+      // note-cover-png は fixed:private（DN-0171）。noteFrontmatter の解釈は visibilityFrom を直接与えて固定する
+      assert.equal(visibilityFor(rel, { id: 'note-synthetic', visibilityFrom: 'noteFrontmatter' }), want, name);
       checked++;
     }
     assert.equal(checked, cases.length, '全ケースを実検査していること');
@@ -200,14 +206,14 @@ test('sanitizeEntry: mime / generator / requiredBy も lean format では書か�
 });
 
 test('migrateManifestToLeanFormat / expandManifestFromLeanFormat: config と一致するフィールドは間引かれ、往復で元に戻る', () => {
-  const g = groupById('textbook-page-image');
+  const g = groupById('note-cover-png');
   const original = emptyManifest();
-  const key = 'content/sources/textbook/x/img/p1.png';
+  const key = 'content/note/x/img/cover.png';
   original.entries[key] = {
-    group: 'textbook-page-image', bucket: 'private',
-    r2Key: 'textbook/x/img/p1.png', sha256: 'a'.repeat(64), bytes: 100,
+    group: 'note-cover-png', bucket: 'private',
+    r2Key: 'note/covers/x/img/cover.png', sha256: 'a'.repeat(64), bytes: 100,
     logicalPath: key, mime: 'image/png',
-    visibility: 'private', regenerable: true,
+    visibility: 'private', regenerable: false,
     generator: g.generator, requiredBy: g.requiredBy,
     verifiedAt: '2026-08-01T00:00:00.000Z', width: 10, height: 10,
   };
@@ -220,21 +226,22 @@ test('migrateManifestToLeanFormat / expandManifestFromLeanFormat: config と一�
   assert.equal(leanEntry.requiredBy, undefined, 'group 定義と一致する requiredBy は間引かれる');
   // 導出できないフィールドはそのまま残る
   assert.equal(leanEntry.sha256, 'a'.repeat(64));
-  assert.equal(leanEntry.r2Key, 'textbook/x/img/p1.png');
+  assert.equal(leanEntry.r2Key, 'note/covers/x/img/cover.png');
 
   const restored = expandManifestFromLeanFormat(lean, CFG);
   assert.deepEqual(restored, original, '間引いたフィールドは group 定義から同じ値に復元される');
 });
 
 test('migrateManifestToLeanFormat: group 定義とずれた値（drift）は間引かずに残す', () => {
-  // legacy-r2-orphan は config の requiredBy が非空だが、書かれた当時のエントリは
-  // requiredBy: [] のまま（2026-08-22 の config 追記より前に書かれたため）。
-  // 間引いて config から復元すると値が変わってしまうので、drift しているエントリは間引かない。
+  // 実例は legacy-r2-orphan（config の requiredBy 追記より前に requiredBy: [] で書かれたエントリ。
+  // 2026-09-05 に Drive vault へ移り R2 config から消えた）。同じ形を note-cover-png で再現する:
+  // config の requiredBy は非空、エントリは []。間引いて config から復元すると値が変わってしまうので、
+  // drift しているエントリは間引かない。
   const original = emptyManifest();
-  const key = '.local/archive/legacy-r2/x.png';
+  const key = 'content/note/y/img/cover.png';
   original.entries[key] = {
-    group: 'legacy-r2-orphan', bucket: 'private',
-    r2Key: 'archive/legacy-r2/x.png', sha256: 'b'.repeat(64), bytes: 50,
+    group: 'note-cover-png', bucket: 'private',
+    r2Key: 'note/covers/y/img/cover.png', sha256: 'b'.repeat(64), bytes: 50,
     logicalPath: key, mime: 'image/png',
     visibility: 'private', regenerable: false,
     generator: null, requiredBy: [],

@@ -60,7 +60,7 @@ content/sources/textbook/**/*.PDF
 content/sources/textbook/**/Text/
 
 # 書籍由来の文字起こし本文（.md/.html/figures 等）は書籍の著作権物であり public repo に置かない。
-# private Google Drive vault（マイドライブ/doboku-note/private-sources/textbook/）へ移設した。
+# Google Drive vault（マイドライブ/doboku-note/ の 文字起こし/ と 原資料PDF/教材/）へ移設した。
 # 各サブディレクトリの README.md だけは案内として追跡を残す。
 # 詳細: .claude/knowledge/reference/asset-storage-policy.md
 content/sources/textbook/**
@@ -294,7 +294,7 @@ content/sources/textbook/**/*.jpeg
 content/sources/textbook/**/*.webp
 content/sources/textbook/**/*.pdf
 
-# note カバー PNG は R2 が保管先（公開済み→doboku-note / 下書き→doboku-note-archive）。
+# note カバー PNG は private R2（doboku-note-archive/note/covers/）が保管先（2026-09-05 DN-0171 まで公開済みは public にも複製）。
 # 追跡していたのは 827 件 725.5 MiB。frontmatter の cover: ブロックが原本で、PNG は
 # そこからの生成物だが **byte 再現はできない**（実測で 827 件中 9 件が不一致・
 # sharp は package.json が ^0.35.0 なので他マシンでの一致も保証されない）。

@@ -447,7 +447,7 @@ async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, i
       abortReason = 'pdf-missing';
       console.error(`[FAIL] --reattach-pdf: live の添付 ${attachedPdfs.length} 件のうち ${missing.length} 件がローカルに無い → 本文を触らず中断: ${noteId}`);
       for (const m of missing) console.error(`         見つからない: ${m}（探索: ${dir} と ${dir}/pdf・候補${poolSize}件）`);
-      console.error('  復旧: R2 から取り寄せる（npm run asset-hydrate）か、spec から再生成する');
+      console.error('  復旧: Drive vault から取り寄せる（node scripts/drive-vault-sync.mjs --pull --path <記事dir>/pdf/）か、spec から再生成する');
       console.error(`         node scripts/magazine-to-pdf.mjs --spec scripts/pdf-specs/<magazine>.json`);
       return false;
     }

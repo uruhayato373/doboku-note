@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * 1級・2級土木の通常動画を、試験日前に公開するための予約台帳と YouTube metadata を生成する。
+ * 試験日前に公開する通常動画の予約台帳と YouTube metadata を生成する。
  *
  * --schedule: QA 済みパックを approved にし、publishAt を確定する。
  * --metadata: レンダー実体を検証して youtube.json を生成し、status を rendered にする。
@@ -20,7 +20,10 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
 const CHANNEL = { id: 'UCHRnXPqoc0Hls8nXiK_ZYqA', title: 'doboku-note' } as const;
-const TARGET_EXAMS = ['civil-construction-1', 'civil-construction-2'] as const;
+const TARGET_EXAMS = [
+  'civil-construction-1', 'civil-construction-2',
+  'concrete-engineer', 'concrete-chief-engineer',
+] as const;
 
 type TargetExam = (typeof TARGET_EXAMS)[number];
 type Manifest = {
@@ -41,6 +44,7 @@ const val = (name: string, fallback: string) => {
 };
 const renderRoot = resolve(val('--render-root', join(ROOT, '.tmp/video-render')));
 const onlyPackId = val('--pack-id', '');
+const scope = val('--scope', 'civil');
 
 function readJson(path: string) {
   return JSON.parse(readFileSync(path, 'utf8'));
@@ -84,6 +88,25 @@ const twoKyuOrder = [
   'keiken-genten-kyotsuten', 'keiken-nendo-keiko-2kyu', 'kikinagashi-2kyu-matome',
 ];
 
+// 10/23〜11/19 は、技士と主任技士の共通分野を交互に出して両方の視聴者を
+// 早期から獲得する。小論文・予想・直前総仕上げは試験日に近い後半へ置く。
+const concreteOrder = [
+  'gishi-shiken-zentaizou', 'shunin-shiken-zentaizou',
+  'gishi-12week-plan', 'shunin-hinshutsu-yusen',
+  'gishi-materials-ronten', 'shunin-materials-ronten',
+  'gishi-properties-testing-ronten', 'shunin-properties-ronten',
+  'gishi-mix-design-ronten', 'shunin-mix-design-ronten',
+  'gishi-production-qc-ronten', 'shunin-production-qc-ronten',
+  'gishi-construction-ronten', 'shunin-construction-ronten',
+  'gishi-environment-ronten', 'shunin-durability-ronten',
+  'gishi-haigou-keisan', 'shunin-products-ronten',
+  'gishi-jis-handan', 'shunin-structural-design-ronten',
+  'gishi-jukenshikaku-2026', 'shunin-shouronbun-theme',
+  'gishi-shunin-dochira', 'shunin-shouronbun-kousei',
+  'shunin-ochiru-shouronbun', 'shunin-r8-juuten',
+  'kikinagashi-shunin-suchi', 'shunin-chokuzen-senryaku',
+];
+
 function orderedOneKyu(packs: ReturnType<typeof loadPacks>, state: any) {
   const byId = new Map(packs.map((pack) => [pack.manifest.packId, pack]));
   const published = new Set(
@@ -124,7 +147,7 @@ function addDays(date: string, days: number) {
   return d.toISOString().slice(0, 10);
 }
 
-function buildSchedule(state: any) {
+function buildCivilSchedule(state: any) {
   const one = orderedOneKyu(loadPacks('civil-construction-1'), state);
   const two = orderedTwoKyu(loadPacks('civil-construction-2'));
   if (one.length !== 65) throw new Error(`1級の未公開本数が65本でない: ${one.length}`);
@@ -142,6 +165,30 @@ function buildSchedule(state: any) {
   if (cursor !== one.length) throw new Error(`1級の予約割当が不一致: ${cursor}/${one.length}`);
   two.forEach((pack, day) => schedule.push({ ...pack, publishAt: jst(addDays('2026-10-05', day), '20:00') }));
   return schedule;
+}
+
+function buildConcreteSchedule() {
+  const packs = [
+    ...loadPacks('concrete-engineer'),
+    ...loadPacks('concrete-chief-engineer'),
+  ];
+  const byId = new Map(packs.map((pack) => [pack.manifest.packId, pack]));
+  const ordered = concreteOrder.map((id) => byId.get(id)).filter(Boolean) as typeof packs;
+  const missing = concreteOrder.filter((id) => !byId.has(id));
+  const extra = packs.filter(({ manifest }) => !concreteOrder.includes(manifest.packId));
+  if (missing.length || extra.length || ordered.length !== 28) {
+    throw new Error(`コンクリート系の予約順が在庫と不一致 missing=${missing.join(',')} extra=${extra.map(({ manifest }) => manifest.packId).join(',')}`);
+  }
+  return ordered.map((pack, day) => ({
+    ...pack,
+    publishAt: jst(addDays('2026-10-23', day), '20:00'),
+  }));
+}
+
+function buildSchedule(state: any) {
+  if (scope === 'civil') return buildCivilSchedule(state);
+  if (scope === 'concrete') return buildConcreteSchedule();
+  throw new Error(`未知の --scope: ${scope}（civil|concrete）`);
 }
 
 function cta(manifest: Manifest) {
@@ -208,9 +255,16 @@ function assertMedia(packId: string) {
 }
 
 function examMeta(exam: TargetExam) {
-  return exam === 'civil-construction-1'
-    ? { label: '1級土木', full: '1級土木施工管理技士', tags: ['1級土木施工管理技士', '1級土木'] }
-    : { label: '2級土木', full: '2級土木施工管理技士', tags: ['2級土木施工管理技士', '2級土木'] };
+  if (exam === 'civil-construction-1') {
+    return { label: '1級土木', tags: ['1級土木施工管理技士', '1級土木'], hashtags: '#1級土木 #土木施工管理技士 #試験対策' };
+  }
+  if (exam === 'civil-construction-2') {
+    return { label: '2級土木', tags: ['2級土木施工管理技士', '2級土木'], hashtags: '#2級土木 #土木施工管理技士 #試験対策' };
+  }
+  if (exam === 'concrete-engineer') {
+    return { label: 'コンクリート技士', tags: ['コンクリート技士', 'コンクリート'], hashtags: '#コンクリート技士 #コンクリート #試験対策' };
+  }
+  return { label: 'コンクリート主任技士', tags: ['コンクリート主任技士', 'コンクリート'], hashtags: '#コンクリート主任技士 #コンクリート #試験対策' };
 }
 
 function makeYoutube(manifest: Manifest, publishAt: string, existing: any) {
@@ -225,7 +279,7 @@ function makeYoutube(manifest: Manifest, publishAt: string, existing: any) {
     `この動画で分かること：${manifest.promise}`, '',
     `▼ ${link.label}`, link.url, '',
     '※制度・日程は変更される場合があります。受検年度の公式情報も確認してください。', '',
-    `#${exam.label} #土木施工管理技士 #試験対策`,
+    exam.hashtags,
   ].join('\n');
   const intentTags: Record<string, string[]> = {
     'exam-point': ['試験対策', '頻出論点'], howto: ['勉強法', '答案の書き方'],
@@ -236,7 +290,7 @@ function makeYoutube(manifest: Manifest, publishAt: string, existing: any) {
     channel: CHANNEL,
     longform: {
       key: 'longform', title, description,
-      tags: [...exam.tags, ...(intentTags[manifest.intent] ?? ['試験対策']), '土木施工管理'],
+      tags: [...exam.tags, ...(intentTags[manifest.intent] ?? ['試験対策']), 'doboku-note'],
       categoryId: '27', publishAt,
       r2Key: `video/render/${manifest.packId}/video.mp4`,
       thumbnailR2Key: `video/render/${manifest.packId}/img/00-cover.png`,
@@ -248,7 +302,7 @@ function makeYoutube(manifest: Manifest, publishAt: string, existing: any) {
 
 function main() {
   const modes = [flag('--schedule'), flag('--metadata'), flag('--report')].filter(Boolean).length;
-  if (modes !== 1) throw new Error('Usage: npx tsx scripts/prepare-youtube-longforms.mts --schedule|--metadata|--report [--render-root PATH]');
+  if (modes !== 1) throw new Error('Usage: npx tsx scripts/prepare-youtube-longforms.mts --schedule|--metadata|--report [--scope civil|concrete] [--render-root PATH]');
   const state = readJson(STATE_PATH);
   const schedule = buildSchedule(state);
   const targets = onlyPackId ? schedule.filter(({ manifest }) => manifest.packId === onlyPackId) : schedule;
@@ -283,8 +337,12 @@ function main() {
   }
   writeJson(STATE_PATH, state);
   console.log(`${flag('--schedule') ? 'approved' : 'rendered'}: ${targets.length}本`);
-  console.log('1級: 2026-09-08〜2026-10-03 / 65本（既公開1本と合計66本）');
-  console.log('2級: 2026-10-05〜2026-10-22 / 18本');
+  if (scope === 'civil') {
+    console.log('1級: 2026-09-08〜2026-10-03 / 65本（既公開1本と合計66本）');
+    console.log('2級: 2026-10-05〜2026-10-22 / 18本');
+  } else {
+    console.log('コンクリート技士・主任技士: 2026-10-23〜2026-11-19 / 28本（毎日20:00 JST）');
+  }
 }
 
 main();

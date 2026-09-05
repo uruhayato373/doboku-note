@@ -173,7 +173,7 @@
           "renderedAt": "2026-09-05T02:19:31.135Z",
           "videoId": "wXY6ZTm0qdg",
           "url": "https://www.youtube.com/watch?v=wXY6ZTm0qdg",
-          "scheduledAt": "2026-09-05T02:22:46.047Z",
+          "scheduledAt": "2026-09-05T06:23:35.210Z",
           "privacyStatus": "private"
         }
       }
@@ -2339,364 +2339,476 @@
     "shunin-shiken-zentaizou": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-10-24T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "shunin-hinshutsu-yusen": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 3,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-10-26T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "shunin-chokuzen-senryaku": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-19T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "shunin-materials-ronten": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-10-28T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "shunin-properties-ronten": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 2.67,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-10-30T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "shunin-durability-ronten": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-07T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "shunin-mix-design-ronten": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-01T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "shunin-production-qc-ronten": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-03T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "shunin-construction-ronten": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-05T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "shunin-products-ronten": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 3,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-09T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "shunin-structural-design-ronten": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 3,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-11T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "shunin-shouronbun-kousei": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-15T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "shunin-shouronbun-theme": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-13T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "shunin-ochiru-shouronbun": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-16T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "shunin-r8-juuten": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 3,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-17T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "kikinagashi-shunin-suchi": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 3,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-18T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "gishi-shiken-zentaizou": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 3,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-10-23T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "gishi-jukenshikaku-2026": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 3,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-12T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "gishi-12week-plan": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-10-25T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "gishi-shunin-dochira": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-14T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "gishi-materials-ronten": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 3,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-10-27T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "gishi-properties-testing-ronten": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 3,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-10-29T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "gishi-mix-design-ronten": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 3,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-10-31T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "gishi-production-qc-ronten": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 3,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-02T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "gishi-construction-ronten": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 3,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-04T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "gishi-environment-ronten": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-06T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "gishi-haigou-keisan": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 3,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-08T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },
     "gishi-jis-handan": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
             "at": "2026-09-01",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "approvedAt": "2026-09-05T10:02:10.975Z",
+          "publishAt": "2026-11-10T20:00:00+09:00",
+          "renderedAt": "2026-09-05T11:50:11.884Z"
         }
       }
     },

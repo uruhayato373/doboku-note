@@ -26,6 +26,7 @@ import { fileURLToPath } from 'node:url';
 import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { publishLive } from './lib/note-live-publish.mjs';
 import { fetchNoteBody } from './lib/note-live-check.mjs';
+import { listAttachedFiles } from './lib/note-attach.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
@@ -109,8 +110,20 @@ async function main() {
         await page.goto(`https://editor.note.com/notes/${a.noteId}/edit/`, { waitUntil: 'domcontentloaded', timeout: 60000 });
         await page.waitForSelector('[contenteditable=true]', { timeout: 30000 });
         await sleep(4000);
+        // PDF 添付ゲート: 本文は触らないが、保存前後で添付数が減っていないことを機械で確認する
+        const attachedBefore = await listAttachedFiles(page);
         const live = await publishLive(page, a.noteId, a.boundary, true, { screenshotPrefix: 'reanchor' });
         if (!live) { console.error(`[FAIL] ${a.noteId} 境界の再設定に失敗`); fail++; continue; }
+        // 「更新する」後はエディタを離れて記事ページへ遷移するため、その DOM で数えると常に 0 になる。
+        // エディタを開き直してから数える（保存済みの実体を見る）。
+        await page.goto(`https://editor.note.com/notes/${a.noteId}/edit/`, { waitUntil: 'domcontentloaded', timeout: 60000 });
+        await page.waitForSelector('[contenteditable=true]', { timeout: 30000 });
+        await sleep(4000);
+        const attachedAfter = await listAttachedFiles(page);
+        if (attachedAfter.length < attachedBefore.length) {
+          console.error(`[FAIL] ${a.noteId} 添付が減少 ${attachedBefore.length}→${attachedAfter.length}（保存後）→ 要手動確認`); fail++; continue;
+        }
+        if (attachedBefore.length) console.log(`[attach] ${attachedBefore.length} 件維持`);
         await sleep(3000);
         const chk = await fetchNoteBody(a.noteId);
         const previewLen = chk?.body ? chk.body.replace(/<[^>]+>/g, '').length : 0;

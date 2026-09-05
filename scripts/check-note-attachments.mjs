@@ -39,17 +39,20 @@ const BASE = join(ROOT, 'content/note');
 // 配布 PDF は DN-0111 Phase 4-D で private R2 へ退避し Git 追跡から外した。実体はローカルに
 // 残るが、CI や新規 clone のツリーには無い。ディスクを readdir するだけだと
 // **「本文で約束しているのに実体が無い」が全記事で成立して CI が偽の赤になる**。
-// 退避台帳に sha256 付きで載っているものは「在る」と数える（実体は R2）。
+// 退避台帳に sha256 付きで載っているものは「在る」と数える。配布 PDF は 2026-09-05 に
+// R2（manifest.json）から Google Drive vault（drive-manifest.json）へ移した（人 tier）ので両方を見る。
 const MANIFEST_PDFS = (() => {
   const byDir = new Map();
-  let m;
-  try { m = JSON.parse(readFileSync(join(ROOT, '.claude/state/assets/manifest.json'), 'utf8')); } catch { return byDir; }
-  for (const [logical, e] of Object.entries(m.entries || {})) {
-    if (e.group !== 'note-delivery-pdf' || !e.sha256 || !e.bytes) continue;
-    const abs = join(ROOT, logical);
-    const d = dirname(abs);
-    if (!byDir.has(d)) byDir.set(d, []);
-    byDir.get(d).push(abs);
+  for (const file of ['manifest.json', 'drive-manifest.json']) {
+    let m;
+    try { m = JSON.parse(readFileSync(join(ROOT, '.claude/state/assets', file), 'utf8')); } catch { continue; }
+    for (const [logical, e] of Object.entries(m.entries || {})) {
+      if (e.group !== 'note-delivery-pdf' || !e.sha256 || typeof e.bytes !== 'number') continue;
+      const abs = join(ROOT, logical);
+      const d = dirname(abs);
+      if (!byDir.has(d)) byDir.set(d, []);
+      byDir.get(d).push(abs);
+    }
   }
   return byDir;
 })();

@@ -22,7 +22,10 @@ const DEFAULT_SPEAKER = 1;
 export async function isRunning(baseUrl) {
   const url = baseUrl ?? process.env.VOICEVOX_BASE_URL ?? DEFAULT_BASE_URL;
   try {
-    const res = await fetch(`${url}/version`, { signal: AbortSignal.timeout(2000) });
+    // 長尺動画を並列生成中は、直前の synthesis 終了処理でエンジンが数秒応答を
+    // 返せないことがある。2秒では「未起動」と誤判定して次のパックを丸ごと飛ばすため、
+    // 起動確認だけは10秒待つ（合成本体の失敗は従来どおり呼び出し側へ伝播）。
+    const res = await fetch(`${url}/version`, { signal: AbortSignal.timeout(10000) });
     return res.ok;
   } catch {
     return false;

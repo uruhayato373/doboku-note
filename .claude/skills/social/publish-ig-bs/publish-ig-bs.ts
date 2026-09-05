@@ -227,11 +227,12 @@ function readCaption(captionPath: string): string {
 }
 
 /**
- * パックのレンダー画像は DN-0111 Phase 4-E で R2 へ退避し Git 追跡から外した。
- * 実体はローカルに残るが、新規 clone や別 PC には無い。**Instagram へ触る前に**
- * 取り寄せる。取れなければ何も投稿せずに止める（fail-closed）。
+ * パックのレンダー画像は Git 追跡外。2026-09-05 から Google Drive vault（人 tier・drive-manifest.json）、
+ * それ以前の R2 退避分（manifest.json）も台帳に残っていれば見る。新規 clone や別 PC には実体が無いので
+ * **Instagram へ触る前に**取り寄せる。取れなければ何も投稿せずに止める（fail-closed）。
+ * Drive のマウントが無い端末では pull が失敗して止まる＝それが正しい挙動（slide-data から再生成が代替）。
  *
- * asset-hydrate は「ローカルに在るものは何もしない」ので、通常運用では無害な no-op。
+ * どちらの取り寄せも「ローカルに在るものは何もしない」ので、通常運用では無害な no-op。
  */
 function hydratePackAssets(dir: string): void {
   const rel = path.relative(PROJECT_ROOT, dir).replace(/\\/g, "/");
@@ -239,16 +240,30 @@ function hydratePackAssets(dir: string): void {
   const hasImages = fs.existsSync(path.join(dir, "img"))
     && fs.readdirSync(path.join(dir, "img")).some((f) => /\.(png|jpe?g)$/i.test(f));
   if (hasImages) return;
-  const manifestPath = path.join(PROJECT_ROOT, ".claude/state/assets/manifest.json");
-  if (!fs.existsSync(manifestPath)) return;
-  const entries = JSON.parse(fs.readFileSync(manifestPath, "utf-8")).entries || {};
-  const needed = Object.keys(entries).filter((k) => k.startsWith(rel + "/"));
-  if (needed.length === 0) return;
-  console.log(`[prep] 画像がローカルに無いので R2 から取り寄せます: ${rel}（${needed.length} 件）`);
-  const r = spawnSync(process.execPath, ["scripts/asset-hydrate.mjs", "--path", rel + "/"],
-    { cwd: PROJECT_ROOT, stdio: "inherit" });
-  if (r.status !== 0) {
-    throw new Error(`アセットの取り寄せに失敗しました。Instagram には何も投稿せずに止めます: ${rel}`);
+  const keysIn = (file: string): string[] => {
+    const p = path.join(PROJECT_ROOT, ".claude/state/assets", file);
+    if (!fs.existsSync(p)) return [];
+    const entries = JSON.parse(fs.readFileSync(p, "utf-8")).entries || {};
+    return Object.keys(entries).filter((k) => k.startsWith(rel + "/"));
+  };
+  const inDrive = keysIn("drive-manifest.json");
+  const inR2 = keysIn("manifest.json");
+  if (inDrive.length === 0 && inR2.length === 0) return;
+  if (inDrive.length > 0) {
+    console.log(`[prep] 画像がローカルに無いので Drive vault から取り寄せます: ${rel}（${inDrive.length} 件）`);
+    const r = spawnSync(process.execPath, ["scripts/drive-vault-sync.mjs", "--pull", "--path", rel + "/"],
+      { cwd: PROJECT_ROOT, stdio: "inherit" });
+    if (r.status !== 0) {
+      throw new Error(`Drive vault からの取り寄せに失敗しました。Instagram には何も投稿せずに止めます: ${rel}`);
+    }
+  }
+  if (inR2.length > 0) {
+    console.log(`[prep] 画像がローカルに無いので R2 から取り寄せます: ${rel}（${inR2.length} 件）`);
+    const r = spawnSync(process.execPath, ["scripts/asset-hydrate.mjs", "--path", rel + "/"],
+      { cwd: PROJECT_ROOT, stdio: "inherit" });
+    if (r.status !== 0) {
+      throw new Error(`アセットの取り寄せに失敗しました。Instagram には何も投稿せずに止めます: ${rel}`);
+    }
   }
 }
 

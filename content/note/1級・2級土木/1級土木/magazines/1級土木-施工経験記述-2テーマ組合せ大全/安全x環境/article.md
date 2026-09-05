@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/n047355a30ea8
 noteId: n047355a30ea8
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "安全管理×環境対策"]
-price: 980
+price: 1480
 paidBoundary: "安全管理×環境対策を書き分けるポイント"
 cover:
   variant: crop-safe-v4

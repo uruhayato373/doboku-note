@@ -130,12 +130,15 @@ const COVER_RE = /^cover\.(png|jpe?g|webp)$/i;
  */
 const OFFLOADED = (() => {
   const map = new Map();
-  try {
-    const raw = JSON.parse(readFileSync('.claude/state/assets/manifest.json', 'utf8'));
-    for (const [logical, e] of Object.entries(raw.entries || {})) {
-      if (e.sha256) map.set(logical, e.sha256);
-    }
-  } catch { /* 台帳が無い環境では従来どおりディスクだけを見る */ }
+  // R2 台帳（カバー PNG）と Drive 台帳（配布 PDF・2026-09-05 に移設）の両方。どちらも repo 相対パスがキー。
+  for (const file of ['.claude/state/assets/manifest.json', '.claude/state/assets/drive-manifest.json']) {
+    try {
+      const raw = JSON.parse(readFileSync(file, 'utf8'));
+      for (const [logical, e] of Object.entries(raw.entries || {})) {
+        if (e.sha256 && !map.has(logical)) map.set(logical, e.sha256);
+      }
+    } catch { /* 台帳が無い環境では従来どおりディスクだけを見る */ }
+  }
   return map;
 })();
 

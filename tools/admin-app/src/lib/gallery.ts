@@ -24,24 +24,30 @@ function memo<T>(key: string, fn: () => T): T {
 }
 
 /**
- * 退避台帳（DN-0111）。note カバーと IG レンダー画像は R2 へ出して Git 追跡から外したので、
- * ディスクを readdir するだけだと**ギャラリーから静かに消える**。台帳に載っているものは
- * 「R2 にある・要 hydrate」として出す。壊れた <img> は出さない（実体が無いので src を作らない）。
+ * 退避台帳。note カバー（R2・manifest.json）と IG レンダー画像（2026-09-05 から Google Drive vault・
+ * drive-manifest.json）は Git 追跡外なので、ディスクを readdir するだけだと**ギャラリーから静かに消える**。
+ * 台帳に載っているものは「退避先にある・要取り寄せ」として出す（bucket は public / private / drive）。
+ * 壊れた <img> は出さない（実体が無いので src を作らない）。
  */
 interface OffloadEntry { bucket: string; group: string; bytes: number; width?: number; height?: number }
 function offloadedByRel(rootPrefix: string, groupIds: string[]): Map<string, OffloadEntry> {
   return memo('offload:' + rootPrefix + ':' + groupIds.join(','), () => {
     const out = new Map<string, OffloadEntry>();
-    let raw: { entries?: Record<string, OffloadEntry & { logicalPath?: string }> } | null = null;
-    try {
-      raw = JSON.parse(readFileSync(repoPath('.claude', 'state', 'assets', 'manifest.json'), 'utf8'));
-    } catch {
-      return out;
-    }
-    for (const [logical, e] of Object.entries(raw?.entries ?? {})) {
-      if (!groupIds.includes(e.group)) continue;
-      if (!logical.startsWith(rootPrefix)) continue;
-      out.set(logical.slice(rootPrefix.length), e);
+    const files: Array<[string, string | null]> = [['manifest.json', null], ['drive-manifest.json', 'drive']];
+    for (const [file, fixedBucket] of files) {
+      let raw: { entries?: Record<string, OffloadEntry & { logicalPath?: string }> } | null = null;
+      try {
+        raw = JSON.parse(readFileSync(repoPath('.claude', 'state', 'assets', file), 'utf8'));
+      } catch {
+        continue;
+      }
+      for (const [logical, e] of Object.entries(raw?.entries ?? {})) {
+        if (!groupIds.includes(e.group)) continue;
+        if (!logical.startsWith(rootPrefix)) continue;
+        const rel = logical.slice(rootPrefix.length);
+        if (out.has(rel)) continue;
+        out.set(rel, fixedBucket ? { ...e, bucket: fixedBucket } : e);
+      }
     }
     return out;
   });

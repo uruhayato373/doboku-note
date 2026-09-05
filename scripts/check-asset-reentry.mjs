@@ -18,10 +18,10 @@
 //   3. マッチしたパスが manifest.json の entries に存在する（＝過去に退避された実績がある）か確認
 //   4. 存在すれば FAIL（退避済みファイルの再追跡）
 //
-// kindle-dist だけを除外する理由: asset-storage.json の 13 group 中、kindle-dist のみが
-// 「バックアップ目的で R2 に複製しつつ、Git 追跡も意図的に維持する」設計（DN-0151(3)決着）。
-// このスキーマには「Git 併存を許すか」を表す専用フィールドが無いので、ここではハードコードの
-// 除外リストで対応する（スキーマ変更はしない・対象は今のところ kindle-dist 1 件のみ）。
+// 除外リスト（COEXIST_WITH_GIT）の由来: かつて kindle-dist が「バックアップ目的で R2 に複製しつつ、
+// Git 追跡も意図的に維持する」設計（DN-0151(3)決着）だった。R2 側スキーマには「Git 併存を許すか」を表す
+// 専用フィールドが無いのでハードコードで対応していた。2026-09-05 に kindle-dist は Drive vault へ移り
+// （drive-vault.json は coexistWithGit を持つ）、現在は空。
 //
 // 使い方:
 //   node scripts/check-asset-reentry.mjs --staged   # pre-commit 用（staged diff のみ）
@@ -39,7 +39,9 @@ import { loadConfig, loadManifest } from './lib/asset-storage.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 /** Git 追跡を意図的に維持する group（DN-0151(3)決着）。退避済み＝再追跡異常の対象から除く。 */
-const COEXIST_WITH_GIT = ['kindle-dist'];
+// 2026-09-05: kindle-dist は Drive vault（drive-vault.json・coexistWithGit）へ移り asset-storage.json から消えたので空。
+// 機構は残す（R2 側に Git 併存 group が再び現れたときのため）。
+const COEXIST_WITH_GIT = [];
 
 // core.quotepath=false は必須。日本語ディレクトリが 8 進エスケープされると
 // pathRegex 判定も manifest キー照合も静かに外れる（memory: note-lint-quotepath-bypass）。

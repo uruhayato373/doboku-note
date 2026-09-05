@@ -46,20 +46,14 @@ if (!NOTE || !FILE) { console.error('--note <key> --file <pdf> required'); proce
 // 他コンテンツ型（例: 直前暗記ノート）は --boundary-regex で上書き（note-publish の paidBoundary と対応）。
 const BOUNDARY = getArg('--boundary-regex') || '試験問題|予想問題';
 const fileAbs = FILE.startsWith('/') || /^[A-Za-z]:/.test(FILE) ? FILE : join(ROOT, FILE);
-// 配布 PDF は DN-0111 Phase 4-D で private R2 へ退避した（Git 追跡外）。新規 clone や
-// 別 PC では実体が無いので、退避台帳に載っていれば取りに行ってから添付する。
+// 配布 PDF は Git 追跡外（2026-09-05 から Google Drive vault・人 tier。それ以前は private R2）。
+// 新規 clone や別 PC では実体が無いので、台帳（R2 → Drive の順）に載っていれば取りに行ってから添付する。
 // **取れなければ添付しない**（外部＝note へ書き込む前に止める・fail-closed）。
 if (!existsSync(fileAbs)) {
-  const { loadManifest } = await import('./lib/asset-storage.mjs');
-  const { relative: relPath, sep: pathSep } = await import('node:path');
-  const rel = relPath(ROOT, fileAbs).split(pathSep).join('/');
-  const entry = loadManifest().entries?.[rel];
-  if (!entry) { console.error('file not found: ' + fileAbs + '（退避台帳にも無い）'); process.exit(1); }
-  console.log('[prep] ローカルに無いので R2 から取り寄せる: ' + rel);
-  const { spawnSync } = await import('node:child_process');
-  const r = spawnSync(process.execPath, ['scripts/asset-hydrate.mjs', '--path', rel], { cwd: ROOT, stdio: 'inherit' });
-  if (r.status !== 0 || !existsSync(fileAbs)) {
-    console.error('hydrate に失敗した。note へは何も書かずに止める: ' + rel);
+  const { ensureLocalAny } = await import('./lib/asset-locate.mjs');
+  console.log('[prep] ローカルに無いので退避先（R2 台帳 → Drive vault）から取り寄せる: ' + fileAbs);
+  if (!ensureLocalAny(fileAbs) || !existsSync(fileAbs)) {
+    console.error('file not found: ' + fileAbs + '（手元にも R2 台帳にも Drive vault にも無い。note へは何も書かずに止める。Drive のマウントが無い端末なら Google ドライブ アプリを起動するか DOBOKU_DRIVE_VAULT を指定）');
     process.exit(1);
   }
 }

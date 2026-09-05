@@ -7,7 +7,7 @@ noteUrl: https://note.com/dobokunote/n/na95474a0cbc4
 noteId: na95474a0cbc4
 notePublishedAt: 2026-06-02
 coverTitle: ["1級土木 施工経験記述", "品質管理×安全管理"]
-price: 980
+price: 1480
 paidBoundary: "想定工事①：鋼桁橋 RC床版工事"
 cover:
   variant: crop-safe-v4

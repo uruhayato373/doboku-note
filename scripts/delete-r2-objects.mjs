@@ -18,6 +18,8 @@
  *   2. private の archive/legacy-r2/<key> として台帳に載っている（公開バケットからの退避）
  *   3. リポジトリ内に対応する実体が現存する
  * どれでもないキーは削除せず exit 1。意図的に消すなら --allow-unpreserved を付ける。
+ * **--from-manifest-group のときは 1〜3 を使わない**（対象自身が台帳のキーなので循環する）。代わりに
+ * Drive 台帳（drive-manifest.json）に同じ repo パス・同じ sha256 で載っているキーだけを保全済みとみなす。
  *
  * Usage:
  *   node scripts/delete-r2-objects.mjs                    # dry-run（既定・何も消さない・public バケット）
@@ -124,6 +126,19 @@ const preserved = (() => {
   let m;
   try { m = JSON.parse(fs.readFileSync(path.join(root, '.claude/state/assets/manifest.json'), 'utf8')); }
   catch { return set; }
+  if (fromGroup) {
+    // --from-manifest-group では対象そのものが R2 台帳のキーなので、「台帳に載っている」は保全の証明にならない
+    // （循環）。保全と認めるのは Drive 台帳（drive-manifest.json）に同じ repo パス・同じ sha256 で載っているキーだけ。
+    // 2026-09-05: video-render-artifact が R2 1,939 件 / Drive 215 件のまま purge に進めてしまう穴を塞ぐ。
+    let d = { entries: {} };
+    try { d = JSON.parse(fs.readFileSync(path.join(root, '.claude/state/assets/drive-manifest.json'), 'utf8')); } catch { /* 無ければ全件未保全 */ }
+    for (const [logicalPath, e] of Object.entries(m.entries || {})) {
+      if (e.group !== fromGroup || !e.sha256) continue;
+      const de = d.entries?.[logicalPath] || d.entries?.[logicalPath.normalize('NFC')];
+      if (de && de.sha256 === e.sha256) set.add(String(e.r2Key || '').normalize('NFC'));
+    }
+    return set;
+  }
   // logicalPath は entries のキーそのもの（lean format では省略されうるので、
   // e.logicalPath ではなく Object.entries の key を使う。2026-08-29）。
   for (const [logicalPath, e] of Object.entries(m.entries || {})) {
@@ -143,9 +158,15 @@ if (unpreserved.length) {
   console.error(`\n✗ 退避が確認できないキーが ${unpreserved.length} 件あります（消すと復元できません）:`);
   for (const k of unpreserved.slice(0, 20)) console.error(`    ${k}`);
   if (unpreserved.length > 20) console.error(`    ... ほか ${unpreserved.length - 20} 件`);
-  console.error('\n  先に private R2 へ退避して台帳へ登録すること:');
-  console.error('    rclone copy doboku-r2:<bucket>/<prefix> doboku-r2:doboku-note-archive/archive/legacy-r2/<prefix>');
-  console.error('  そのうえで sha256 つきで manifest へ登録する（asset-storage-policy.md §9 に手順）。');
+  if (fromGroup) {
+    console.error('\n  先に Drive vault へ同期して drive-manifest に登録すること:');
+    console.error(`    node scripts/drive-vault-sync.mjs --group ${fromGroup} --from-r2 --commit`);
+    console.error(`    node scripts/drive-vault-sync.mjs --group ${fromGroup} --verify --deep --cloud`);
+  } else {
+    console.error('\n  先に private R2 へ退避して台帳へ登録すること:');
+    console.error('    rclone copy doboku-r2:<bucket>/<prefix> doboku-r2:doboku-note-archive/archive/legacy-r2/<prefix>');
+    console.error('  そのうえで sha256 つきで manifest へ登録する（asset-storage-policy.md §9 に手順）。');
+  }
   console.error('  退避せずに消すと決めたなら --allow-unpreserved を付けること。');
   if (!allowUnpreserved) process.exit(1);
   console.error('  --allow-unpreserved が指定されているため続行します。\n');
