@@ -52,7 +52,6 @@ npm run type-check        # TypeScript チェック
 npm run refresh-indexes   # 静的インデックス再生成（backlinks + cross-exam + tags + pillar問題 + popular記事[GA4] + 頻出論点）
 npm run generate-webp     # png/jpg → webp 変換
 npm run upload-images-r2  # 画像を R2 にアップロード
-npm run upload-sns-r2     # SNS バイナリ(reels wav/mp4)を R2 へ退避（--purge-local でローカル削除）
 npm run lint              # ESLint チェック（no-console: warn/error のみ許容）
 npm run quality:audit     # コード・記事・画像/SVGの機械チェックを横断実行→.claude/state/quality/audit-latest.md（:ci でCI gate厳格版）
 npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポートから取得→.claude/state/sales/kdp-royalties.json（ローカル専用・読み取り専用・当月/前月のみ）
@@ -135,7 +134,7 @@ npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run
 | [.claude/knowledge/reference/note-funnel-architecture.md](.claude/knowledge/reference/note-funnel-architecture.md) | note 導線（ファネル）の資格別 3 層モデル（L1 全資格サイトマップ / L2 資格別もくじ / L3 記事内 CTA）・原則・見直しサイクルの SSOT。機械可読は `.claude/config/note-funnel.json`、監査は `audit-note-funnel` スキル／`check-note-funnel` CI／`note-funnel-auditor` エージェント | note 記事・マガジンの回遊/購入導線を設計・見直し・新規 L2 もくじを追加するとき |
 | [.claude/knowledge/reference/note-selling-structures.md](.claude/knowledge/reference/note-selling-structures.md) | note 記事**内部**の構成テンプレ（売れる9型＝悩み直撃/勘違い破壊/Before→After/失敗談→教訓/ロードマップ/チェックリスト/比較/ケーススタディ/販売導線）＋5ステップ骨格＋資格・記事タイプ別かき分け早見表。資格横断で共通。funnel（記事**間**導線）とは直交 | note 記事の導入・無料部分・販売導線を設計するとき／note 執筆 Generator が記事タイプに合う型を選ぶとき |
 | [.claude/knowledge/reference/sns-image-policy.md](.claude/knowledge/reference/sns-image-policy.md) | SNS 投稿画像ポリシー（IG/X/Shorts のキャンバス・スワイプ方向・記号統一・wrap 算法・長文選択肢自動切替） | `content/sns/{instagram,x,youtube}/` 配下の画像を作成・修正するとき |
-| [.claude/knowledge/reference/sns-archive-policy.md](.claude/knowledge/reference/sns-archive-policy.md) | SNS バイナリ（reels wav/mp4 等）の R2+GDrive ハイブリッド退避運用。SoT/生成物の切り分け・3層モデル・`npm run upload-sns-r2`（R2 へ退避、`--purge-local` は R2 検証後にのみローカル削除）・rclone mount でのブラウズ | content/sns のバイナリで容量が圧迫されたとき・投稿済みパックを退避するとき |
+| [.claude/knowledge/reference/sns-archive-policy.md](.claude/knowledge/reference/sns-archive-policy.md) | SNS バイナリ（reels wav/mp4・YouTube Shorts mp4）の退避運用。SoT/生成物の切り分け・3層モデル・置き場は Google Drive vault `制作物/SNS音声動画/`（`drive-vault-sync --group sns-archived-media`。2026-09-05 DN-0170 で旧 `upload-sns-r2`＝public R2 系統を廃止）・`sns-archive-auditor` の判定 | content/sns のバイナリで容量が圧迫されたとき・投稿済みパックを退避するとき |
 | [.claude/knowledge/reference/asset-storage-policy.md](.claude/knowledge/reference/asset-storage-policy.md) | アセット置き場の SSOT（**誰が使うかで決める 3 行ルール**＝サイトが配信→public R2／GitHub Actions が読み書き→private R2／人か手元のスクリプトだけ→Google Drive vault。各 group の行き先表・Drive vault の 4 フォルダ・端末初期設定・R2→Drive 移行の必須順序〔dry-run→commit→`--verify --cloud`→R2 削除→forget〕・退避後に壊れる読み手の直し方・cover PNG が byte 再現できない実測）。機械可読は R2 側 `.claude/config/asset-storage.json`（台帳 `manifest.json`）と Drive 側 `.claude/config/drive-vault.json`（台帳 `drive-manifest.json`）。迷ったら `/asset-route` | 新しい端末を用意するとき・画像/PDF が手元に無いとき・アセットを新規追加したとき・退避対象を読むコードを書くとき |
 | [.claude/knowledge/reference/links-hub.md](.claude/knowledge/reference/links-hub.md) | `/links` SNS bio 用リンクハブの設計・UTM 設計・メンテ手順・KPI（Linktree 代替の自前実装） | `/links` 新 商品追加・Featured 切替・SNS bio リンク変更時 |
 | [.claude/knowledge/reference/sns-repurpose-policy.md](.claude/knowledge/reference/sns-repurpose-policy.md) | 全 SNS チャネル共通の6切り口リパーパス戦略（結論/理由/体験/反論/数字/ハウツー）。チャネル別適用方法・`angle` パラメータ仕様 | SNS 投稿のネタ展開・複数切り口生成時 |

@@ -69,26 +69,6 @@
       "phase": "history-truncation"
     },
     {
-      "id": "sns-archived-media",
-      "audience": "human",
-      "audienceException": "reels の wav/mp4 と YouTube shorts の mp4。公開 sns/ に置くのは upload-sns-r2 系統（sns-archive-policy.md）の運用で、post-youtube-scheduled.yml が読む sns/youtube-shorts/ もこのバケット。人 tier への統合は後追いカード（Phase 7）で扱う。",
-      "match": {
-        "pathRegex": "^content/sns/(instagram|youtube)/.+\\.(wav|mp4|m4a)$"
-      },
-      "bucket": "public",
-      "keyPrefix": "sns/",
-      "keyFrom": "stripPrefix:content/sns/",
-      "visibilityFrom": "fixed:public",
-      "regenerable": true,
-      "generator": "wav は VOICEVOX + reels/script.txt、mp4 は wav+png から再生成（sns-archive-policy）",
-      "requiredBy": [
-        "publish-ig-bs（reel 投稿）",
-        "publish-reel-jit"
-      ],
-      "reason": "reels の音声・動画。upload-sns-r2 が公開バケットへ退避しているが台帳に無く check-asset-storage の監視外だった（DN-0116 A）。投稿済みで既に公開されているものなので公開バケットのまま台帳へ載せる。",
-      "phase": "DN-0116"
-    },
-    {
       "id": "site-ogp-png",
       "audience": "site",
       "match": {

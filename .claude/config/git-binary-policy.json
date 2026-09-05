@@ -22,7 +22,7 @@
     {
       "id": "video-audio",
       "reason": "動画・音声は再生成可能な派生物で、1 ファイルが数十 MiB になる",
-      "correctPlace": "R2（sns-archive-policy.md の upload-sns-r2 経路）。SoT は script.json / slide-data.json / caption.txt",
+      "correctPlace": "Google Drive vault 制作物/SNS音声動画/（drive-vault.json sns-archived-media・sns-archive-policy.md）。SoT は script.json / slide-data.json / caption.txt",
       "match": {
         "ext": [
           "mp4",

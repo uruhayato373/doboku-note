@@ -111,7 +111,7 @@ title: スキル ナビゲーションガイド
 | `/sync-r2-images` | R2 画像のローカル同期 | `R2同期`, `/sync-r2-images` |
 | `/diff-r2` | ローカル（`content/site/`）↔ R2（prefix `posts/`）の双方向差分検出 | `R2差分`, `/diff-r2` |
 | `/asset-route` | Git の外に置くアセットの置き場を「誰が使うか」で決める決定木＋コマンド（サイト配信→public R2 / CI→private R2 / 人・手元→Google Drive vault）。新 group 追加・R2→Drive 移行の必須順序・マウント無し/プレースホルダサイズの罠。真実源 `asset-storage-policy.md` §1 | `アセットの置き場`, `R2かDriveか`, `/asset-route` |
-| `npm run upload-sns-r2` + `sns-archive-auditor` エージェント | content/sns の reels wav/mp4 等を R2 へ退避（容量削減）。`sns-archive-auditor` が SoT 無傷＝再生成可否で OFFLOAD/ARCHIVE_KEEP/KEEP_LOCAL/BLOCK を判定→`--purge-local` は R2 バイト一致検証後のみ削除。真実源 `sns-archive-policy.md` | `SNS容量削減`, `wav/mp4退避`, `投稿済みパック退避` |
+| `npm run drive-vault-sync -- --group sns-archived-media` + `sns-archive-auditor` エージェント | content/sns の reels wav/mp4・YouTube Shorts mp4 を Google Drive vault へ退避（容量削減・2026-09-05 DN-0170 で旧 `upload-sns-r2`＝R2 系統を廃止）。`sns-archive-auditor` が SoT 無傷＝再生成可否で OFFLOAD/ARCHIVE_KEEP/KEEP_LOCAL/BLOCK を判定→`--purge-local` は R2 バイト一致検証後のみ削除。真実源 `sns-archive-policy.md` | `SNS容量削減`, `wav/mp4退避`, `投稿済みパック退避` |
 | `/monitor` | バックグラウンド監視 | `監視`, `/monitor` |
 | `/zenn-audit` | Zenn 本番 CSS との差分検出 | `Zenn差分`, `/zenn-audit` |
 | `/doc-sync` | コード/設定変更 diff × 候補 doc を `doc-sync-auditor` で突合し prose 陳腐化を検出→適用（機械ガード check-doc-refs/coupling の意味的な補完） | `ドキュメント同期`, `doc同期`, `仕様ズレ確認`, `/doc-sync` |
@@ -184,7 +184,7 @@ title: スキル ナビゲーションガイド
 2. `/ig-reel-create --exam {pack-id}` — カルーセル PNG → 全4問フル Reels mp4（VOICEVOX + ffmpeg、≈90-145秒）
    - **短い「1問1リール」が欲しいとき**: `node .claude/skills/social/yt-shorts-create/scripts/per-problem-shorts.mjs --ig-mode --year {r07} --pack {r07-pack-01} [--questions 1,2]` → `reels-pp/q<N>/{video.mp4,caption.txt}`（≈36-45秒・チャーム無し・論点 caption）
 3. `/publish-ig-bs post {pack|reels-pp/q<N>} [--reel] --schedule …` — IG カルーセル/リールを Business Suite で**予約投稿**（即時は `--now`。Graph API 経路は 2026-06-17 全廃）
-   - **リール JIT**（生成→予約→mp4削除で在庫を持たない）: `node scripts/publish-reel-jit.mjs --pack {r07-pack-01} --question 1 --schedule {YYYY-MM-DDTHH:MM}`。動画 mp4・wav は gitignore（コミットは slide-data + script.txt + caption.txt、wav は R2 退避＝upload-sns-r2／再生成可）
+   - **リール JIT**（生成→予約→mp4削除で在庫を持たない）: `node scripts/publish-reel-jit.mjs --pack {r07-pack-01} --question 1 --schedule {YYYY-MM-DDTHH:MM}`。動画 mp4・wav は gitignore（コミットは slide-data + script.txt + caption.txt、wav は Drive vault 退避＝drive-vault-sync --group sns-archived-media／再生成可）
 4. `/yt-shorts-create --from-reels {pack-id}` — IG Reels mp4 → YouTube Shorts 派生
 5. `/create-x-card` — X 投稿カード作成（`/publish-x` 予約運用は 2026-07-07 再開・ガード付きフロー必須。policy §11.5 / skills-guide §69）
 

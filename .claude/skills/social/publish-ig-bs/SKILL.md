@@ -127,7 +127,7 @@ npx tsx .claude/skills/social/publish-ig-bs/publish-ig-bs.ts post \
   - **フルリール**: `<pack>/reels/video.mp4`（4問・長尺）。生成は `ig-reel-create`。
   - **1問1リール（推奨）**: `<pack>/reels-pp/q<N>/video.mp4`（36-45秒）。生成は `per-problem-shorts.mjs --ig-mode`。post の引数に q ディレクトリを渡す。
 - **カバー（サムネ）を明示設定**: パックに `cover.png`（reels-pp）または `reels/img/00-cover.png`（旧構造）があれば、**編集ステップでファイルアップロードしてサムネを確定**する（Meta 自動抽出任せにしない）。`per-problem-shorts.mjs --ig-mode` は `cover.png`（論点カバー＝先頭スライド）を出力する。カバーが無い／編集 UI 未検出なら **fail-soft でスキップ**（投稿フローは止めず Meta 自動サムネにフォールバック）。
-- **動画・音声・カバーは git に持たない（JIT）**: mp4・wav・cover.png は再生成可能な派生物で gitignore（コミットは slide-data + script.txt + caption.txt。wav は R2 退避＝`upload-sns-r2`／script.txt から再生成可）。**`video.mp4`・`wav` が無いのは正常** — 投稿時に生成し、予約後に削除する。`scripts/publish-reel-jit.mjs`（生成→予約→mp4/cover削除）が1コマンド化。
+- **動画・音声・カバーは git に持たない（JIT）**: mp4・wav・cover.png は再生成可能な派生物で gitignore（コミットは slide-data + script.txt + caption.txt。wav は Drive vault 退避＝`drive-vault-sync --group sns-archived-media`／script.txt から再生成可）。**`video.mp4`・`wav` が無いのは正常** — 投稿時に生成し、予約後に削除する。`scripts/publish-reel-jit.mjs`（生成→予約→mp4/cover削除）が1コマンド化。
 - 投稿後 `status.json` に `reel.{...}` を記録（caption.txt / status.json は追跡）。
 
 ### リールフローの実測（カルーセルとの差分）

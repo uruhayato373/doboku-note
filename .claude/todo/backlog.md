@@ -59,12 +59,6 @@
 
 ## 🟡 中 — 2〜3ヶ月以内
 
-### [DN-0170] reels の wav/mp4（sns-archived-media）を人 tier へ統合する
-タグ: [SNS・マーケ] [種類:改善] [起票:2026-09-05]
-
-`upload-sns-r2` 系統は public R2 `sns/` に reels の wav/mp4 を置くが、読むのは人だけ（audience=human の例外として asset-storage.json に残している）。
-`post-youtube-scheduled.yml` が読む `sns/youtube-shorts/` は退避台帳の外（監視漏れ）。CI が読む分だけ R2 に残し、残りを Drive `制作物/` へ寄せて `sns-archive-policy.md` と `sns-archive-auditor` を統合する。
-
 ### [DN-0168] コンクリート単品¥980の値上げ可否を試験後に判定する
 タグ: [収益化] [種類:改善] [起票:2026-09-04] [期日:2026-12-12]
 

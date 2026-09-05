@@ -182,7 +182,7 @@ docs/.obsidian/
 public/pagefind/
 
 # YouTube Shorts: content/sns/youtube/ 配下は全てビルド成果物（mp4/サムネ/meta）で再生成可能。
-# mp4 は R2（sns/youtube-shorts/）に保管、再現の SoT は exam-packs の slide-data + 事前生成ナレ。
+# mp4 は Google Drive vault（制作物/SNS音声動画/youtube/・drive-vault.json sns-archived-media）に保管、再現の SoT は exam-packs の slide-data + 事前生成ナレ。
 # 「どの動画をいつ予約したか」の記録は .claude/state/youtube-schedule.json（台帳）が唯一の真実源。
 # チャネル案内 README だけは追跡する（admin /content/content~sns/youtube の行き止まり防止・2026-08-28）。
 content/sns/youtube/*
@@ -232,7 +232,7 @@ content/sources/textbook/コンクリート主任技師2024/コンクリート�
 content/sources/textbook/コンクリート主任技師2022/コンクリート主任技師2022.pdf
 
 # IG Reels 中間ファイル（reels/ でコミットするのは script.txt + caption.txt のみ。
-# wav/mp4/中間物は全て再生成可能で R2 退避対象＝upload-sns-r2 / sns-archive-policy.md）
+# wav/mp4/中間物は全て再生成可能で Drive vault 退避対象＝drive-vault-sync --group sns-archived-media / sns-archive-policy.md）
 content/sns/instagram/**/reels/wav/
 content/sns/instagram/**/reels/slide-*.mp4
 content/sns/instagram/**/reels/_combined.mp4
@@ -323,7 +323,7 @@ content/note/**/*.pdf
 # Instagram のレンダー画像は実体を Google Drive vault（drive-vault.json の ig-rendered-image group・
 # 台帳 drive-manifest.json）に置く（投稿済み・未投稿とも）。
 # 追跡していたのは 1,990 件 234.4 MiB。SoT は slide-data.json と同名 .svg（どちらも Git に残す）。
-# reels/ 配下は別系統（sns-archive-policy / upload-sns-r2）で既に ignore 済み。R2 のままで変更なし。
+# reels/ 配下の wav/mp4 は sns-archived-media（Drive vault・sns-archive-policy）で既に ignore 済み。
 # publish-ig-bs は投稿前に自動で取り寄せ、取れなければ Instagram へ触れずに止まる。
 # 2026-08-21・DN-0111 Phase 4-E。2026-09-05 に private R2 から Drive vault へ移設。
 content/sns/instagram/**/*.png
