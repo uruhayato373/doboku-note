@@ -151,11 +151,31 @@ async function setThumbnail(youtube, videoId, file) {
   await youtube.thumbnails.set({ videoId, media: { mimeType: 'image/png', body: fs.createReadStream(file) } });
 }
 
+function videoSnippet(item) {
+  return {
+    title: item.title,
+    description: item.description,
+    tags: item.tags,
+    categoryId: item.categoryId ?? '27',
+    defaultLanguage: 'ja',
+    defaultAudioLanguage: 'ja',
+  };
+}
+
+async function syncSnippet(youtube, videoId, item) {
+  await youtube.videos.update({
+    part: 'snippet',
+    requestBody: { id: videoId, snippet: videoSnippet(item) },
+  });
+}
+
 async function upload(youtube, s3, uploadsPlaylistId, item, privacyStatus) {
   let videoId = await findExactTitle(youtube, uploadsPlaylistId, item.title);
   if (videoId) {
     console.log(`${item.key}: 同一タイトル既存動画を再利用 ${videoId}`);
-    // insert 後に thumbnail 設定だけ失敗したケースでも、再実行で必ず回復させる。
+    // SSOT 修正後の再実行では概要欄・タグも同期する。insert 後に thumbnail 設定だけ
+    // 失敗したケースでも、同じ再実行で必ず回復させる。
+    await syncSnippet(youtube, videoId, item);
     const thumbnail = await downloadR2(s3, item, 'thumbnail.png');
     try {
       await setThumbnail(youtube, videoId, thumbnail);
@@ -169,14 +189,7 @@ async function upload(youtube, s3, uploadsPlaylistId, item, privacyStatus) {
       const res = await youtube.videos.insert({
         part: 'snippet,status',
         requestBody: {
-          snippet: {
-            title: item.title,
-            description: item.description,
-            tags: item.tags,
-            categoryId: item.categoryId ?? '27',
-            defaultLanguage: 'ja',
-            defaultAudioLanguage: 'ja',
-          },
+          snippet: videoSnippet(item),
           status: { privacyStatus, selfDeclaredMadeForKids: false, containsSyntheticMedia: true },
         },
         media: { mimeType: 'video/mp4', body: fs.createReadStream(video) },
@@ -192,6 +205,7 @@ async function upload(youtube, s3, uploadsPlaylistId, item, privacyStatus) {
   if (!actual) throw new Error(`${item.key}: videos.list で取得不能 ${videoId}`);
   if (actual.snippet?.channelId !== publish.channel.id) throw new Error(`${item.key}: channelId 不一致`);
   if (actual.snippet?.title !== item.title) throw new Error(`${item.key}: title 不一致`);
+  if (actual.snippet?.description !== item.description) throw new Error(`${item.key}: description 不一致`);
   if (actual.status?.privacyStatus !== privacyStatus) throw new Error(`${item.key}: privacyStatus=${actual.status?.privacyStatus} expected=${privacyStatus}`);
   console.log(`${item.key}: verified status=${actual.status.privacyStatus} processing=${actual.processingDetails?.processingStatus ?? 'unknown'}`);
   return { videoId, actual };
@@ -323,8 +337,12 @@ async function main() {
   console.log(`state updated: ${path.relative(ROOT, STATE_PATH)}`);
 }
 
-main().catch((error) => {
-  const detail = error.response?.data ? JSON.stringify(error.response.data) : error.stack || error.message;
-  console.error(detail);
-  process.exit(1);
-});
+if (require.main === module) {
+  main().catch((error) => {
+    const detail = error.response?.data ? JSON.stringify(error.response.data) : error.stack || error.message;
+    console.error(detail);
+    process.exit(1);
+  });
+}
+
+module.exports = { videoSnippet };
