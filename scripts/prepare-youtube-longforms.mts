@@ -20,6 +20,7 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
 const CHANNEL = { id: 'UCHRnXPqoc0Hls8nXiK_ZYqA', title: 'doboku-note' } as const;
+const PRODUCTION_DISCLOSURE = readJson(join(ROOT, '.claude/config/youtube-production-disclosure.json'));
 const TARGET_EXAMS = [
   'civil-construction-1', 'civil-construction-2',
   'concrete-engineer', 'concrete-chief-engineer',
@@ -277,6 +278,7 @@ function makeYoutube(manifest: Manifest, publishAt: string, existing: any) {
     `${manifest.audience}向けに、「${manifest.title}」を解説します。`,
     '',
     `この動画で分かること：${manifest.promise}`, '',
+    PRODUCTION_DISCLOSURE.authorityNotice, '',
     `▼ ${link.label}`, link.url, '',
     '※制度・日程は変更される場合があります。受検年度の公式情報も確認してください。', '',
     exam.hashtags,

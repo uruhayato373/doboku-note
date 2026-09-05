@@ -13,6 +13,9 @@ const { S3Client, GetObjectCommand } = require('@aws-sdk/client-s3');
 const ROOT = path.resolve(__dirname, '../../..');
 const STATE_PATH = path.join(ROOT, '.claude/state/video-content-status.json');
 const PRIVATE_BUCKET = 'doboku-note-archive';
+const PRODUCTION_DISCLOSURE = JSON.parse(
+  fs.readFileSync(path.join(ROOT, '.claude/config/youtube-production-disclosure.json'), 'utf8'),
+);
 let publish;
 
 function arg(name, fallback = null) {
@@ -59,6 +62,9 @@ function assertMetadata(item, packId) {
   if (!item.title || item.title.length > 100) throw new Error(`${item.key}: title が空または100字超`);
   for (const required of [`utm_source=youtube`, `utm_medium=video`, `utm_campaign=${packId}`]) {
     if (!item.description?.includes(required)) throw new Error(`${item.key}: description に ${required} がありません`);
+  }
+  if (!item.description?.includes(PRODUCTION_DISCLOSURE.authorityNotice)) {
+    throw new Error(`${item.key}: description に著者オーソリティ表記がありません`);
   }
   if (!/^[a-f0-9]{64}$/.test(item.sha256 ?? '')) throw new Error(`${item.key}: sha256 が未確定です`);
   if (!/^[a-f0-9]{64}$/.test(item.thumbnailSha256 ?? '')) throw new Error(`${item.key}: thumbnailSha256 が未確定です`);
@@ -163,6 +169,21 @@ function videoSnippet(item) {
   };
 }
 
+function videoStatus(actual, containsSyntheticMedia = PRODUCTION_DISCLOSURE.containsSyntheticMedia) {
+  const status = {
+    privacyStatus: actual.status?.privacyStatus,
+    selfDeclaredMadeForKids: actual.status?.selfDeclaredMadeForKids ?? false,
+    containsSyntheticMedia,
+    embeddable: actual.status?.embeddable ?? true,
+    license: actual.status?.license ?? 'youtube',
+    publicStatsViewable: actual.status?.publicStatsViewable ?? true,
+  };
+  if (actual.status?.privacyStatus === 'private' && actual.status?.publishAt) {
+    status.publishAt = actual.status.publishAt;
+  }
+  return status;
+}
+
 async function syncSnippet(youtube, videoId, item) {
   await youtube.videos.update({
     part: 'snippet',
@@ -195,7 +216,11 @@ async function upload(youtube, s3, uploadsPlaylistId, item, privacyStatus) {
         part: 'snippet,status',
         requestBody: {
           snippet: videoSnippet(item),
-          status: { privacyStatus, selfDeclaredMadeForKids: false, containsSyntheticMedia: true },
+          status: {
+            privacyStatus,
+            selfDeclaredMadeForKids: false,
+            containsSyntheticMedia: PRODUCTION_DISCLOSURE.containsSyntheticMedia,
+          },
         },
         media: { mimeType: 'video/mp4', body: fs.createReadStream(video) },
       });
@@ -230,7 +255,7 @@ async function schedulePublic(youtube, videoId, publishAt) {
         privacyStatus: 'private',
         publishAt,
         selfDeclaredMadeForKids: false,
-        containsSyntheticMedia: true,
+        containsSyntheticMedia: PRODUCTION_DISCLOSURE.containsSyntheticMedia,
         embeddable: before.status?.embeddable ?? true,
         license: before.status?.license ?? 'youtube',
         publicStatsViewable: before.status?.publicStatsViewable ?? true,
@@ -255,9 +280,40 @@ async function schedulePublic(youtube, videoId, publishAt) {
   throw new Error(`${videoId}: 公開予約を10回のAPI確認後も実査できません: ${publishAt}`);
 }
 
+async function syncAuthorityMetadata(youtube, videoId, item) {
+  const before = await fetchVideo(youtube, videoId);
+  if (!before) throw new Error(`${item.key}: videos.list で取得不能 ${videoId}`);
+  if (before.snippet?.channelId !== publish.channel.id) throw new Error(`${item.key}: channelId 不一致`);
+  const expectedStatus = videoStatus(before);
+  await youtube.videos.update({
+    part: 'snippet,status',
+    requestBody: {
+      id: videoId,
+      snippet: videoSnippet(item),
+      status: expectedStatus,
+    },
+  });
+  for (let attempt = 1; attempt <= 10; attempt += 1) {
+    const after = await fetchVideo(youtube, videoId);
+    const publishAtMatches = !expectedStatus.publishAt
+      || new Date(after?.status?.publishAt).getTime() === new Date(expectedStatus.publishAt).getTime();
+    if (
+      after?.snippet?.title === item.title
+      && after?.snippet?.description === item.description
+      && after?.status?.privacyStatus === expectedStatus.privacyStatus
+      && after?.status?.containsSyntheticMedia !== true
+      && publishAtMatches
+    ) {
+      return after;
+    }
+    if (attempt < 10) await new Promise((resolve) => setTimeout(resolve, 1000));
+  }
+  throw new Error(`${item.key}: 著者表記・AI開示のAPI実査に失敗 ${videoId}`);
+}
+
 async function main() {
-  if (!PACK_ID || !['longform', 'thumbnail', 'shorts-upload', 'shorts-publish'].includes(PHASE)) {
-    throw new Error('Usage: --pack-id ID --phase longform|thumbnail|shorts-upload|shorts-publish [--dry-run] [--skip-thumbnail] [--related-confirmed]');
+  if (!PACK_ID || !['longform', 'metadata', 'thumbnail', 'shorts-upload', 'shorts-publish'].includes(PHASE)) {
+    throw new Error('Usage: --pack-id ID --phase longform|metadata|thumbnail|shorts-upload|shorts-publish [--dry-run] [--skip-thumbnail] [--related-confirmed]');
   }
   if (!/^[a-z0-9][a-z0-9-]{2,80}$/.test(PACK_ID)) throw new Error('pack-id 形式が不正です');
   const pack = findPack(PACK_ID);
@@ -266,7 +322,11 @@ async function main() {
   publish = JSON.parse(fs.readFileSync(publishPath, 'utf8'));
   if (publish.schemaVersion !== 1) throw new Error('youtube.json schemaVersion 不一致');
   if (pack.manifest.packId !== PACK_ID) throw new Error('manifest packId 不一致');
-  const selected = ['longform', 'thumbnail'].includes(PHASE) ? [publish.longform] : publish.shorts;
+  const selected = ['longform', 'thumbnail'].includes(PHASE)
+    ? [publish.longform]
+    : PHASE === 'metadata'
+      ? [publish.longform, ...(publish.shorts ?? [])]
+      : publish.shorts;
   for (const item of selected) assertMetadata(item, PACK_ID);
   console.log(`target: account=${publish.channel.title}/${publish.channel.id} pack=${PACK_ID} phase=${PHASE}`);
   for (const item of selected) console.log(`  ${item.key}: ${item.title}`);
@@ -275,7 +335,7 @@ async function main() {
 
   const env = loadEnv();
   const required = ['YOUTUBE_CLIENT_ID', 'YOUTUBE_CLIENT_SECRET', 'YOUTUBE_REFRESH_TOKEN'];
-  if (PHASE !== 'shorts-publish') required.push('CLOUDFLARE_ACCOUNT_ID', 'CLOUDFLARE_R2_ACCESS_KEY_ID', 'CLOUDFLARE_R2_SECRET_ACCESS_KEY');
+  if (!['metadata', 'shorts-publish'].includes(PHASE)) required.push('CLOUDFLARE_ACCOUNT_ID', 'CLOUDFLARE_R2_ACCESS_KEY_ID', 'CLOUDFLARE_R2_SECRET_ACCESS_KEY');
   const missing = required.filter((key) => !env[key]);
   if (missing.length) throw new Error(`環境変数が不足: ${missing.join(', ')}`);
 
@@ -283,7 +343,7 @@ async function main() {
   oauth2.setCredentials({ refresh_token: env.YOUTUBE_REFRESH_TOKEN });
   const youtube = google.youtube({ version: 'v3', auth: oauth2 });
   const uploadsPlaylistId = await channelAndUploads(youtube, publish.channel);
-  const s3 = PHASE === 'shorts-publish' ? null : new S3Client({
+  const s3 = ['metadata', 'shorts-publish'].includes(PHASE) ? null : new S3Client({
     region: 'auto',
     endpoint: `https://${env.CLOUDFLARE_ACCOUNT_ID}.r2.cloudflarestorage.com`,
     credentials: { accessKeyId: env.CLOUDFLARE_R2_ACCESS_KEY_ID, secretAccessKey: env.CLOUDFLARE_R2_SECRET_ACCESS_KEY },
@@ -309,6 +369,26 @@ async function main() {
         url: `https://www.youtube.com/watch?v=${videoId}`, publishedAt: now, privacyStatus: 'public',
         thumbnailStatus: SKIP_THUMBNAIL ? 'pending' : 'set',
       });
+    }
+  } else if (PHASE === 'metadata') {
+    const current = state.packs?.[PACK_ID]?.derivatives;
+    const targets = [
+      { kind: 'longform', item: publish.longform, entry: current?.longform },
+      ...(publish.shorts ?? []).map((item) => ({
+        kind: 'shorts', item,
+        entry: current?.shorts?.find((candidate) => candidate.key === item.key),
+      })),
+    ].filter(({ entry }) => entry?.videoId && ['scheduled', 'published'].includes(entry.status));
+    if (!targets.length) throw new Error(`${PACK_ID}: 公開済み・予約済みの同期対象がありません`);
+    for (const target of targets) {
+      await syncAuthorityMetadata(youtube, target.entry.videoId, target.item);
+      upsertDerivative(state, PACK_ID, target.kind, {
+        ...(target.kind === 'shorts' ? { key: target.item.key } : {}),
+        productionDisclosure: PRODUCTION_DISCLOSURE.profile,
+        containsSyntheticMedia: PRODUCTION_DISCLOSURE.containsSyntheticMedia,
+        metadataSyncedAt: now,
+      });
+      console.log(`${target.item.key}: authority metadata verified ${target.entry.videoId}`);
     }
   } else if (PHASE === 'thumbnail') {
     const current = state.packs?.[PACK_ID]?.derivatives?.longform;
@@ -370,4 +450,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { videoSnippet };
+module.exports = { videoSnippet, videoStatus };
