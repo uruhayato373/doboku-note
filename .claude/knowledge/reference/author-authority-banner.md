@@ -80,7 +80,9 @@ npm run note-swap-author-banner -- --article <article.md> --commit     # 差替�
 npm run note-swap-author-banner -- --list <paths.txt> --commit         # 一括（--max-consecutive-fail・--daily-limit 既定90）
 ```
 
-安全ゲート: account=dobokunote 確認／編集前に旧 figure の位置・前後文脈を表示／PDF 添付数が編集前後で減少していないか／画像数が差替前後で同数（bottom 未検出時のみ +1 許容）／公開後に public API で新本文の存在と旧キャプションの不在を検証／1日あたりの成功件数上限は `--daily-limit`（既定90）で `.claude/state/note-swap-banner-done.json` に記録。
+モード（editor の figure を画像比率で分類して自動決定）: `swap`＝旧 16:9 バナーを削除して新正方形バナー＋段落へ／`insert`＝ライブにバナーが 1 枚も無い記事（2026-09-05 のコンクリート 51 本）で先頭ブロック直前へ新バナー＋段落を挿入／`prose-only`＝新バナーはあるが段落が無い／`already-done`＝再公開ハッシュだけ記録。bottom バナーは旧 bottom figure がある記事だけ差し替え、無い記事へは追加しない。
+
+安全ゲート: account=dobokunote 確認／編集前に旧 figure の位置・前後文脈を表示／PDF 添付数が編集前後で減少していないか／画像数が差替前後で同数（bottom 未検出時のみ +1 許容）／公開後に public API で新本文の存在と旧キャプションの不在を検証／1日あたりの成功件数上限は `--daily-limit`（既定90）で `.claude/state/note-swap-banner-done.json` に記録。ただし **画像アップロードは note の 100 ファイル/日上限に数えられない**（2026-09-05 に 1 日で 136 本・約 150 枚を通した実測。上限に掛かるのは PDF 等のファイル添付）ので、バナー差し替えだけなら `--daily-limit 400` で 1 日に回してよい。
 
 ```bash
 node scripts/distribute-author-authority-banner.mjs                          # civil 入口(free)のみ・キャリア系除外
