@@ -4,13 +4,18 @@
     "koji-gaiyo-7items": {
       "derivatives": {
         "longform": {
-          "status": "qa_passed",
+          "status": "published",
           "qa": {
             "avg": 2.67,
             "blocks": 0,
             "at": "2026-08-28",
             "by": "general-purpose (video-content-qa 代行・6軸)"
-          }
+          },
+          "approvedBy": "user",
+          "videoId": "hJYV_U0qKvA",
+          "url": "https://www.youtube.com/watch?v=hJYV_U0qKvA",
+          "publishedAt": "2026-09-05T00:40:57.564Z",
+          "privacyStatus": "public"
         }
       }
     },
