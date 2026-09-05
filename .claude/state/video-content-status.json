@@ -50,7 +50,7 @@
     "anzen-ippanron-3riyu": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -59,8 +59,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-10-07T20:00:00+09:00",
-          "renderedAt": "2026-09-05T02:19:26.424Z"
+          "publishAt": "2026-10-07T11:00:00Z",
+          "renderedAt": "2026-09-05T02:19:26.424Z",
+          "videoId": "OcLmhVP5fho",
+          "url": "https://www.youtube.com/watch?v=OcLmhVP5fho",
+          "scheduledAt": "2026-09-05T02:23:13.594Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -93,7 +97,7 @@
     "keiken-taisho-koji": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -102,15 +106,19 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-09T07:30:00+09:00",
-          "renderedAt": "2026-09-05T02:19:28.424Z"
+          "publishAt": "2026-09-08T22:30:00Z",
+          "renderedAt": "2026-09-05T02:19:28.424Z",
+          "videoId": "Xi3vpgUopn4",
+          "url": "https://www.youtube.com/watch?v=Xi3vpgUopn4",
+          "scheduledAt": "2026-09-05T02:22:28.370Z",
+          "privacyStatus": "private"
         }
       }
     },
     "keiken-kadai-kakikata": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -119,8 +127,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-09T20:00:00+09:00",
-          "renderedAt": "2026-09-05T02:19:29.467Z"
+          "publishAt": "2026-09-09T11:00:00Z",
+          "renderedAt": "2026-09-05T02:19:29.467Z",
+          "videoId": "qlcKQVNJGFk",
+          "url": "https://www.youtube.com/watch?v=qlcKQVNJGFk",
+          "scheduledAt": "2026-09-05T02:22:38.050Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -143,7 +155,7 @@
     "keiken-taio-hyoka": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -152,15 +164,19 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-10T12:30:00+09:00",
-          "renderedAt": "2026-09-05T02:19:31.135Z"
+          "publishAt": "2026-09-10T03:30:00Z",
+          "renderedAt": "2026-09-05T02:19:31.135Z",
+          "videoId": "wXY6ZTm0qdg",
+          "url": "https://www.youtube.com/watch?v=wXY6ZTm0qdg",
+          "scheduledAt": "2026-09-05T02:22:46.047Z",
+          "privacyStatus": "private"
         }
       }
     },
     "keiken-r6-shinkeishiki": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -169,8 +185,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-08T12:30:00+09:00",
-          "renderedAt": "2026-09-05T02:19:32.838Z"
+          "publishAt": "2026-09-08T03:30:00Z",
+          "renderedAt": "2026-09-05T02:19:32.838Z",
+          "videoId": "IJh6o7FbD94",
+          "url": "https://www.youtube.com/watch?v=IJh6o7FbD94",
+          "scheduledAt": "2026-09-05T02:22:18.294Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -193,7 +213,7 @@
     "niji-junbi-roadmap": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -202,8 +222,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-08T07:30:00+09:00",
-          "renderedAt": "2026-09-05T01:48:08.312Z"
+          "publishAt": "2026-09-07T22:30:00Z",
+          "renderedAt": "2026-09-05T01:48:08.312Z",
+          "videoId": "qphAHRJ73Mo",
+          "url": "https://www.youtube.com/watch?v=qphAHRJ73Mo",
+          "scheduledAt": "2026-09-05T02:22:09.382Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -999,7 +1023,7 @@
     "keiken-kankyo-1kyu": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -1008,8 +1032,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-12T07:30:00+09:00",
-          "renderedAt": "2026-09-05T02:19:34.515Z"
+          "publishAt": "2026-09-11T22:30:00Z",
+          "renderedAt": "2026-09-05T02:19:34.515Z",
+          "videoId": "rS5CvO_X3gs",
+          "url": "https://www.youtube.com/watch?v=rS5CvO_X3gs",
+          "scheduledAt": "2026-09-05T02:22:54.677Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -1176,7 +1204,7 @@
     "niji-kijutsu-doko": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -1185,8 +1213,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-12T20:00:00+09:00",
-          "renderedAt": "2026-09-05T02:19:36.196Z"
+          "publishAt": "2026-09-12T11:00:00Z",
+          "renderedAt": "2026-09-05T02:19:36.196Z",
+          "videoId": "ZOmoMAjyQYo",
+          "url": "https://www.youtube.com/watch?v=ZOmoMAjyQYo",
+          "scheduledAt": "2026-09-05T02:23:02.559Z",
+          "privacyStatus": "private"
         }
       }
     },
