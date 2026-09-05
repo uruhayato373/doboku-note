@@ -412,12 +412,20 @@ async function main() {
     const relatedVideoId = state.packs?.[PACK_ID]?.derivatives?.longform?.videoId;
     if (!relatedVideoId) throw new Error('先にlongformを公開してvideoIdを確定してください');
     for (const item of publish.shorts) {
+      const existing = state.packs?.[PACK_ID]?.derivatives?.shorts
+        ?.find((candidate) => candidate.key === item.key && candidate.videoId);
+      if (existing) {
+        console.log(`${item.key}: already uploaded ${existing.videoId}`);
+        continue;
+      }
       const { videoId } = await upload(youtube, s3, uploadsPlaylistId, item, 'private');
       upsertDerivative(state, PACK_ID, 'shorts', {
         key: item.key, status: 'uploaded_private', approvedBy: 'user', videoId,
         url: `https://www.youtube.com/watch?v=${videoId}`, uploadedAt: now,
         privacyStatus: 'private', relatedVideoId: null, desiredRelatedVideoId: relatedVideoId,
       });
+      // 2本目が日次上限などで失敗しても、1本目のvideoIdを失わず再開できるよう即時保存する。
+      writeState(state);
     }
   } else {
     const longformId = state.packs?.[PACK_ID]?.derivatives?.longform?.videoId;

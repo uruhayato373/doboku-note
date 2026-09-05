@@ -1,8 +1,8 @@
 {
   "$schema": "https://doboku-note.com/schema/video-content.json",
   "description": "動画パック（DN-0110）の機械可読契約。人間向け真実源は .claude/knowledge/reference/video-content-policy.md、戦略は docs/marketing/06_動画コンテンツ運用設計.md。checker(check-video-content)・fixture(tests/fixtures/video-content)・将来の admin parser が参照する。",
-  "version": "1.2.0",
-  "updated": "2026-09-01",
+  "version": "1.2.1",
+  "updated": "2026-09-06",
   "paths": {
     "packsRoot": "content/sns/video-packs",
     "stateFile": ".claude/state/video-content-status.json"
@@ -96,6 +96,7 @@
       "qa_passed",
       "approved",
       "rendered",
+      "uploaded_private",
       "scheduled",
       "published",
       "failed",
@@ -108,7 +109,8 @@
       "qa_blocked": ["draft", "qa_passed"],
       "qa_passed": ["approved", "qa_blocked"],
       "approved": ["rendered", "failed", "qa_blocked"],
-      "rendered": ["scheduled", "published", "failed"],
+      "rendered": ["uploaded_private", "scheduled", "published", "failed"],
+      "uploaded_private": ["scheduled", "failed"],
       "scheduled": ["published", "failed"],
       "published": ["measured"],
       "failed": ["approved", "rendered", "stopped"],
