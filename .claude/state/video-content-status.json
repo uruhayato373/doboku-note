@@ -260,7 +260,7 @@
     "gakka-morido-shimekatame": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -269,8 +269,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-23T07:30:00+09:00",
-          "renderedAt": "2026-09-05T04:16:34.435Z"
+          "publishAt": "2026-09-22T22:30:00Z",
+          "renderedAt": "2026-09-05T04:16:34.435Z",
+          "videoId": "22qZhYmxtvA",
+          "url": "https://www.youtube.com/watch?v=22qZhYmxtvA",
+          "scheduledAt": "2026-09-05T04:20:16.148Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -319,7 +323,7 @@
     "gakka-roudou-kijun": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.5,
             "blocks": 0,
@@ -328,8 +332,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-25T07:30:00+09:00",
-          "renderedAt": "2026-09-05T04:16:41.140Z"
+          "publishAt": "2026-09-24T22:30:00Z",
+          "renderedAt": "2026-09-05T04:16:41.140Z",
+          "videoId": "3xWuFRaEuE8",
+          "url": "https://www.youtube.com/watch?v=3xWuFRaEuE8",
+          "scheduledAt": "2026-09-05T04:20:34.605Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -717,7 +725,7 @@
     "gakka-sokuryo-3ten": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -726,8 +734,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-26T07:30:00+09:00",
-          "renderedAt": "2026-09-05T04:16:45.254Z"
+          "publishAt": "2026-09-25T22:30:00Z",
+          "renderedAt": "2026-09-05T04:16:45.254Z",
+          "videoId": "qIL2YIrhb2w",
+          "url": "https://www.youtube.com/watch?v=qIL2YIrhb2w",
+          "scheduledAt": "2026-09-05T04:20:44.846Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -897,7 +909,7 @@
     "gakka-risk-assessment": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.5,
             "blocks": 0,
@@ -906,8 +918,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-24T20:00:00+09:00",
-          "renderedAt": "2026-09-05T04:16:49.462Z"
+          "publishAt": "2026-09-24T11:00:00Z",
+          "renderedAt": "2026-09-05T04:16:49.462Z",
+          "videoId": "xPSSWdLeGZQ",
+          "url": "https://www.youtube.com/watch?v=xPSSWdLeGZQ",
+          "scheduledAt": "2026-09-05T04:20:24.157Z",
+          "privacyStatus": "private"
         }
       }
     },
