@@ -13,6 +13,7 @@ name: ▶️ YouTube scheduled post (daily)
 # 対象化して 1 日 6 本の自走が始まる。消化ペースを人が決める運用にする。
 # 2026-09-05: QA済みの1級・2級土木 通常動画83本はユーザー承認済み。日次cronは
 # **video-content-status の rendered だけ**を最大12本予約し、旧 Shorts 台帳には触れない。
+# 2026-09-05: ユーザー承認によりコンクリート技士・主任技士28本も10/23〜11/19で予約。
 # 真実源: docs/marketing/05_YouTube戦略_技術士総監.md（投稿頻度の節）
 on:
   schedule:
@@ -20,7 +21,7 @@ on:
   workflow_dispatch:
     inputs:
       max:
-        description: "通常は上限。動画パックは pack:<id>:<phase>:PUBLISH[:RELATED] / batch:civil:PUBLISH:<max>"
+        description: "通常は上限。動画パックは pack:<id>:<phase>:PUBLISH[:RELATED] / batch:<civil|concrete>:PUBLISH:<max>"
         required: false
       dry_run:
         description: "true で対象表示のみ（アップしない）"
@@ -124,19 +125,26 @@ jobs:
           set -o pipefail
           if [ "${{ github.event_name }}" = "schedule" ]; then
             kind=batch
-            scope=civil
+            scope=active
             confirm=PUBLISH
             batch_max=12
           else
             IFS=':' read -r kind scope confirm batch_max <<EOF
           ${{ inputs.max }}
           EOF
-            if [ "$kind" != "batch" ] || [ "$scope" != "civil" ] || [ "$confirm" != "PUBLISH" ]; then
-              echo "::error::max=batch:civil:PUBLISH:<max> が必要です"
+            if [ "$kind" != "batch" ] || { [ "$scope" != "civil" ] && [ "$scope" != "concrete" ]; } || [ "$confirm" != "PUBLISH" ]; then
+              echo "::error::max=batch:<civil|concrete>:PUBLISH:<max> が必要です"
               exit 1
             fi
           fi
-          args=(--exam civil-construction-1,civil-construction-2 --max "${batch_max:-20}")
+          if [ "$scope" = "active" ]; then
+            exams=civil-construction-1,civil-construction-2,concrete-engineer,concrete-chief-engineer
+          elif [ "$scope" = "concrete" ]; then
+            exams=concrete-engineer,concrete-chief-engineer
+          else
+            exams=civil-construction-1,civil-construction-2
+          fi
+          args=(--exam "$exams" --max "${batch_max:-20}")
           if [ "${{ inputs.dry_run }}" = "true" ]; then args+=(--dry-run); fi
           node .claude/scripts/youtube/publish-video-batch.cjs "${args[@]}" 2>&1 | tee /tmp/yt-post.log
 

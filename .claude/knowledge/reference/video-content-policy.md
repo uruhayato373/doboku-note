@@ -97,7 +97,7 @@ Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺
 
 16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure', heading, items[], src? }` で持ち、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・WAV・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は Mac または GitHub Actions で同コマンドを完走させる。
 
-完成したバイナリは `video-render-artifact` group として Google Drive vault `制作物/動画レンダー/` へ退避する。人しか使わないので未公開動画をpublicバケットへ置かないだけでなく、R2にも置かない。既定dry-runで対象を確認してから同期し、実体・台帳・Driveの一致を確認できたものだけを台帳へ記録する。復元は同じgroupを指定する。
+完成したバイナリは `video-render-artifact` group として Google Drive vault `制作物/動画レンダー/` へ退避する。人しか使わないので未公開動画をpublicバケットへ置かず、private R2も恒久保管先にしない。GitHub ActionsのYouTube API資格情報を使う予約投入時だけ、`youtube-longform:stage` で対象mp4とサムネイルをprivate R2へ一時配置できる。予約状態・videoId・publishAtの実査後、同コマンドの`--delete --commit`で対象キーを削除する。既定dry-runで対象を確認してから同期し、実体・台帳・Driveの一致を確認できたものだけを台帳へ記録する。復元は同じgroupを指定する。
 
 ```bash
 npm run drive-vault-sync -- --group video-render-artifact

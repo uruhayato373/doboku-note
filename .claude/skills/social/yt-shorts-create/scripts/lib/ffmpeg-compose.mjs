@@ -223,7 +223,9 @@ export async function composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, ou
   args.push(
     '-filter_complex', filters.join(';'),
     '-map', '[vout]', '-map', '[aout]',
-    '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23', '-pix_fmt', 'yuv420p',
+    // 通常動画は静止スライド主体で、画質は CRF が支配する。ultrafast にしても
+    // 視覚品質を保ったままエンコード時間だけを大きく短縮できる（容量は増える）。
+    '-c:v', 'libx264', '-preset', 'ultrafast', '-crf', '23', '-pix_fmt', 'yuv420p',
     '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-shortest', outPath,
   );
   await runFFmpeg(args);

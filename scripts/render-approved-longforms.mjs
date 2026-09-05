@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/** Render approved 1級・2級 longform packs in publishAt order. Safe to resume. */
+/** Render approved longform packs in publishAt order. Safe to resume. */
 import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 import { dirname, join, resolve } from 'node:path';
@@ -9,7 +9,6 @@ const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const OUT_ROOT = join(ROOT, '.tmp/video-render');
-const TARGET_EXAMS = new Set(['civil-construction-1', 'civil-construction-2']);
 const argv = process.argv.slice(2);
 const value = (name, fallback) => {
   const i = argv.indexOf(name);
@@ -18,6 +17,7 @@ const value = (name, fallback) => {
 const max = Math.max(1, Number(value('--max', '999')) || 999);
 const shardCount = Math.max(1, Number(value('--shard-count', '1')) || 1);
 const shardIndex = Math.max(0, Number(value('--shard-index', '0')) || 0);
+const targetExams = new Set(value('--exam', 'civil-construction-1,civil-construction-2').split(',').filter(Boolean));
 if (shardIndex >= shardCount) throw new Error(`--shard-index は --shard-count 未満にしてください: ${shardIndex}/${shardCount}`);
 
 function complete(packId) {
@@ -37,8 +37,9 @@ function complete(packId) {
 function packs() {
   const state = JSON.parse(readFileSync(STATE_PATH, 'utf8'));
   const out = [];
-  for (const exam of TARGET_EXAMS) {
+  for (const exam of targetExams) {
     const examRoot = join(PACKS_ROOT, exam);
+    if (!existsSync(examRoot)) throw new Error(`試験ディレクトリがありません: ${exam}`);
     for (const entry of readdirSync(examRoot, { withFileTypes: true })) {
       if (!entry.isDirectory()) continue;
       const dir = join(examRoot, entry.name);
