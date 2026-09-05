@@ -62,6 +62,7 @@ import { recordPublishedHash, recordPublishedMetaHash } from './lib/note-republi
 import { cardifyBareUrls, repairUrlHeadings, listUrlHeadingsInEditor } from './lib/note-cardify.mjs';
 import { extractBodyImages, insertImagesAtPlaceholders, insertImagesAfterAnchors, countEditorImages } from './lib/note-images.mjs';
 import { assertLiveBody, expectedFreePreviewMin } from './lib/note-live-check.mjs';
+import { publishLive } from './lib/note-live-publish.mjs';
 import { attachFileInEditor, listAttachedFiles, resolveLocalFiles } from './lib/note-attach.mjs';
 import { todayJst } from './lib/jst-date.mjs';
 
@@ -361,140 +362,6 @@ async function insertTocBlock(page, noteId) {
   } catch (e) { console.log('[4.5] toc skip:', e.message.split('\n')[0]); return 'skip'; }
 }
 
-/**
- * 5(commit). 公開に進む →（有料なら境界保持）→ 更新する → 更新通知「いいえ」
- * note-append-cta.mjs:144-219 を移植。戻り値 = 成否。
- */
-async function publishLive(page, noteId, boundary = '試験問題|予想問題', isPaid = true) {
-  // 公開に進む（自動保存の落ち着きを待ってからクリックし、設定ページ到達を polling）
-  await sleep(3000);
-  const next = page.getByRole('button', { name: '公開に進む' });
-  if (!(await next.count())) { console.error('[5] ABORT: 「公開に進む」未検出。更新せず終了。'); await page.screenshot({ path: join(ROOT, `.tmp/nu-nonext-${noteId}.png`) }); return false; }
-  let onSettings = false;
-  for (let attempt = 0; attempt < 3 && !onSettings; attempt++) {
-    if (await next.count()) { await next.first().click(); }
-    for (let i = 0; i < 8; i++) {
-      await sleep(1800);
-      const a = await page.getByRole('button', { name: '有料エリア設定' }).count();
-      const u = await page.getByRole('button', { name: '更新する', exact: true }).count();
-      // メンバーシップ連携記事（合格ラボ等）は 有料エリア設定 でなく 試し読みエリアを設定 が出る
-      const s = await page.getByRole('button', { name: '試し読みエリアを設定', exact: true }).count();
-      if (a || u || s) { onSettings = true; break; }
-    }
-  }
-  if (!onSettings) { console.error('[5] ABORT: 公開設定ページに到達せず。保存せず終了。'); await page.screenshot({ path: join(ROOT, `.tmp/nu-nosettings-${noteId}.png`) }); return false; }
-
-  // 5b. 有料記事なら 有料エリア設定。
-  // 無料記事（notePricing: free）では**触らない**。note は無料記事でも「有料エリア設定」
-  // ボタンを出すことがあり、area の有無だけで分岐していたため無料記事が有料フローへ入り
-  // 「境界 H2 が無い」で保存中断していた（2026-07-31: 設問3バンク 00-序章）。
-  // 無料記事に paywall は無いので境界検証は不要（note-attach-file の isPaid 分岐と同型）。
-  const area = isPaid ? page.getByRole('button', { name: '有料エリア設定' }) : { count: async () => 0 };
-  if (!isPaid) console.log('[5b] 無料記事 → 有料境界の設定・検証をスキップ');
-  if (await area.count() && KEEP_BOUNDARY) {
-    // 試験問題型の境界が無い有料記事: 境界を動かさず既存を保持
-    console.log('[5b] 有料記事フロー（既存境界を保持・動かさない）');
-    await area.first().click(); await sleep(3500);
-    const hasLine = await page.evaluate(() => /このラインより先を有料にする/.test(document.body.innerText || ''));
-    await page.screenshot({ path: join(ROOT, `.tmp/nu-keepboundary-${noteId}.png`) });
-    console.log('[5b] 既存境界line=' + hasLine);
-    if (!hasLine) { console.error('[5b] ABORT: 有料記事だが既存境界lineを確認できず。保存せず中断（paywall保護）。'); return false; }
-  } else if (await area.count()) {
-    // 全文置換で境界が消える有料記事: 「試験問題/予想問題」H2 直前へ境界を再設定し検証
-    console.log('[5b] 有料記事フロー（境界を試験/予想問題 H2 直前へ再設定）');
-    await area.first().click(); await sleep(3500);
-    const t = await page.evaluate((bre) => {
-      const RE = new RegExp('^(' + bre + ')');
-      const isLineBtn = (el) => (el.tagName === 'BUTTON' || el.getAttribute('role') === 'button') && /ラインをこの場所に変更/.test(el.innerText || el.getAttribute('aria-label') || '');
-      const seq = Array.from(document.querySelectorAll('h1,h2,h3,button,[role=button]'));
-      const hIdx = seq.findIndex((el) => el.tagName === 'H2' && RE.test((el.innerText || '').trim()));
-      if (hIdx < 0) return { ok: false, reason: 'no boundary h2' };
-      let btn = null; for (let i = hIdx - 1; i >= 0; i--) { if (isLineBtn(seq[i])) { btn = seq[i]; break; } }
-      if (!btn) return { ok: false, reason: 'no preceding line-button' };
-      document.querySelectorAll('[data-np-target]').forEach((e) => e.removeAttribute('data-np-target')); btn.setAttribute('data-np-target', '1');
-      return { ok: true, heading: (seq[hIdx].innerText || '').slice(0, 24) };
-    }, boundary);
-    console.log('[5b] boundary target:', JSON.stringify(t));
-    if (!t.ok) { console.error('[5b] ABORT: 有料境界の基準(試験/予想問題 H2)を特定できず。保存せず中断。--keep-boundary か --boundary-h2 を検討。'); await page.screenshot({ path: join(ROOT, `.tmp/nu-boundary-${noteId}.png`) }); return false; }
-    // 「ラインをこの場所に変更」ボタンは note 側の再描画で detach しやすく、Playwright の
-    // actionability 待ち（stable 判定）だと "element is not stable / detached" で 30s タイム
-    // アウトする（2級 コンクリート工/品質管理 で再現）。DOM の native .click() を evaluate で
-    // 直接叩いて stability 待ちを回避する（React の click ハンドラは native click で発火する）。
-    const clicked = await page.evaluate(() => {
-      const el = document.querySelector('[data-np-target="1"]');
-      if (!el) return false;
-      el.scrollIntoView({ block: 'center' });
-      el.click();
-      return true;
-    });
-    if (!clicked) { console.error('[5b] ABORT: data-np-target ボタンを DOM 上で特定できず。'); await page.screenshot({ path: join(ROOT, `.tmp/nu-boundary-${noteId}.png`) }); return false; }
-    await sleep(2500);
-    const v = await page.evaluate((bre) => {
-      const RE = new RegExp('^(' + bre + ')');
-      const seq = Array.from(document.querySelectorAll('h1,h2,h3,p,button,[role=button]'));
-      const lineIdx = seq.findIndex((el) => /このラインより先を有料にする/.test(el.innerText || ''));
-      const hIdx = seq.findIndex((el) => el.tagName === 'H2' && RE.test((el.innerText || '').trim()));
-      let between = 0; if (lineIdx >= 0 && hIdx > lineIdx) for (let i = lineIdx + 1; i < hIdx; i++) { const tx = (seq[i].innerText || '').trim(); if (tx && !/ラインをこの場所に変更|このラインより先/.test(tx)) between++; }
-      return { lineIdx, hIdx, between, boundaryBeforeExam: lineIdx >= 0 && hIdx > lineIdx && between === 0 };
-    }, boundary);
-    console.log('[5b] boundary verify:', JSON.stringify(v));
-    await page.screenshot({ path: join(ROOT, `.tmp/nu-boundary-${noteId}.png`) });
-    if (!v.boundaryBeforeExam) { console.error('[5b] ABORT: 有料境界が「予想問題/試験問題」直前に揃わない。保存せず中断（paywall 保護）。'); return false; }
-  } else if (await page.getByRole('button', { name: '試し読みエリアを設定', exact: true }).count()) {
-    // メンバーシップ連携記事（合格ラボ等・price=0 だが is_limited=true の会員限定）。
-    // 「試し読みエリアを設定」を押すと「更新する」が出る。既存の試し読みライン（無料プレビュー
-    // 範囲）は保持したいので、ラインを一切動かさずビューを進めるだけにする（paywall/会員境界保護）。
-    // メンバーシップ連携記事（合格ラボ等・price=0 だが is_limited=true の会員限定）。
-    // 「試し読みエリアを設定」を押すと「更新する」が出る。既定はラインを動かさず更新へ進む（会員境界保護）。
-    console.log('[5b] メンバーシップ試し読みフロー' + (TRIAL_LINE_BOTTOM ? '（ラインを末尾直前に設置＝ほぼ全文プレビュー）' : '（ラインを動かさず更新へ進む）'));
-    await page.getByRole('button', { name: '試し読みエリアを設定', exact: true }).first().click();
-    await sleep(4000);
-    if (TRIAL_LINE_BOTTOM) {
-      // 入口LP復旧: 試し読みラインを「末尾の1つ手前」に置く。絶対最後（本文最終要素の後）だと
-      // ライン以下=会員限定にする中身が0で無効になり note が全文ロックに戻す（2026-07 まるごとパック実測）。
-      // 末尾直前なら最終要素だけが会員限定の"しっぽ"となり、それ以外＝ほぼ全文が無料プレビューになる。
-      const set = await page.evaluate(() => {
-        const btns = [...document.querySelectorAll('button,[role=button]')].filter((b) => /ラインをこの場所に変更/.test(b.innerText || ''));
-        if (btns.length < 2) return { ok: false, count: btns.length };
-        const target = btns[btns.length - 2]; // 末尾の1つ手前
-        target.scrollIntoView({ block: 'center' });
-        target.click();
-        return { ok: true, count: btns.length };
-      });
-      await sleep(3000);
-      const hasLine = await page.evaluate(() => document.querySelector('.paywall-line') !== null);
-      console.log(`[5b] 試し読みライン設置(末尾-1): buttons=${set.count} 確定line(.paywall-line)=${hasLine}`);
-      await page.screenshot({ path: join(ROOT, `.tmp/nu-trialline-${noteId}.png`) });
-      if (!set.ok || !hasLine) { console.error('[5b] ABORT: 試し読みライン設置を確認できず。保存せず中断（会員境界保護）。'); return false; }
-    } else {
-      await page.screenshot({ path: join(ROOT, `.tmp/nu-trialarea-${noteId}.png`) });
-    }
-  } else {
-    console.log('[5b] 無料記事（有料エリア設定ボタンなし）→ 境界処理をスキップ');
-  }
-
-  // 5c. 更新する（公開済み記事。新規の「投稿する/公開」とは別ラベル）
-  let updated = false;
-  for (const label of ['更新する', '更新']) {
-    const b = page.getByRole('button', { name: label, exact: label === '更新する' });
-    if (await b.count()) { await b.first().click(); updated = true; console.log(`[5c] 「${label}」クリック`); break; }
-  }
-  if (!updated) { console.error('[5c] ABORT: 「更新する」未検出。'); await page.screenshot({ path: join(ROOT, `.tmp/nu-noupdate-${noteId}.png`) }); return false; }
-
-  // 5d. 更新通知ダイアログ→必ず「いいえ」（購入者へ通知スパムを防ぐ）
-  await sleep(2500);
-  let notifyHandled = false;
-  for (let i = 0; i < 6 && !notifyHandled; i++) {
-    const no = page.getByRole('button', { name: 'いいえ', exact: true });
-    if (await no.count()) { await no.first().click(); notifyHandled = true; console.log('[5d] 更新通知ダイアログ→「いいえ」'); break; }
-    await sleep(1200);
-  }
-  if (!notifyHandled) console.log('[5d] 通知ダイアログ未検出（既に確定/通知なしの可能性）');
-  await sleep(3000);
-  await page.screenshot({ path: join(ROOT, `.tmp/nu-done-${noteId}.png`) });
-  return true;
-}
-
 // 本文H1とライブ題名の食い違い（frontmatter に title が無い記事）。最終サマリで surface する。
 const TITLE_DRIFTS = [];
 
@@ -525,7 +392,10 @@ async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, i
     const r = await insertImagesAfterAnchors(page, images, { tag: '[4.4]' });
     if (r.failed.length && !IMG_LENIENT) { console.error(`[4.4] ABORT: 画像挿入に失敗（${r.failed.length}件）→ 保存しない（--img-lenient で続行可）`); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgfail-${noteId}.png`) }); return false; }
     if (!r.settled && !IMG_LENIENT) { abortReason = 'img-settle'; console.error('[4.4] ABORT: 画像が CDN 確定せず（保存すると live で欠落）→ 再実行'); await page.screenshot({ path: join(ROOT, `.tmp/nu-imgsettle-${noteId}.png`) }); return false; }
-    const live = await publishLive(page, noteId, boundary, isPaid);
+    const live = await publishLive(page, noteId, boundary, isPaid, {
+      keepBoundary: KEEP_BOUNDARY,
+      trialLineBottom: TRIAL_LINE_BOTTOM,
+    });
     if (!live) { console.error(`[FAIL] ライブ反映に失敗: ${noteId}`); return false; }
     const chk = await assertLiveBody(noteId, { expectedImgs, paid: isPaid, minFreeChars });
     if (chk.fetchError) console.log(`[5e] WARN: API検証未達（${chk.fetchError}）→ 手動確認`);
@@ -755,7 +625,10 @@ async function updateArticle(page, { abs, noteId, title, bodyH1, body, images, i
     console.log(`[dry-run] paste まで成功（未反映）。スクショ: .tmp/nu-dry-${noteId}.png。実反映は --commit。`);
     return true;
   }
-  const live = await publishLive(page, noteId, boundary, isPaid);
+  const live = await publishLive(page, noteId, boundary, isPaid, {
+    keepBoundary: KEEP_BOUNDARY,
+    trialLineBottom: TRIAL_LINE_BOTTOM,
+  });
   if (!live) { console.error(`[FAIL] ライブ反映に失敗: ${noteId}`); return false; }
 
   // 5e. 公開後 API 実体検証（自動化・3検査）: URL見出し / 空引用 / 画像欠落。

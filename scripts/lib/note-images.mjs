@@ -73,7 +73,7 @@ export async function listLeftoverTokens(page) {
  * caret 位置に画像を 1 枚アップロードする内部ヘルパー（＋メニュー→画像→filechooser→完了待ち）。
  * 呼び出し前に caret が挿入したい空段落にあること。@returns {Promise<{ok:boolean, reason?:string}>}
  */
-async function uploadAtCaret(page, abs, { uploadMs = 40000 } = {}) {
+export async function uploadAtCaret(page, abs, { uploadMs = 40000 } = {}) {
   const imgBefore = await countEditorImages(page);
   // 「＋」ブロックメニューを開く。caret 行の 1 個のみ存在するため .last() が active（note-attach-file 実証方式）。
   const menuBtn = page.locator('[aria-label="メニューを開く"]');
@@ -130,7 +130,7 @@ const SETTLE_MIN_MS = Number(process.env.NOTE_IMG_SETTLE_MIN_MS || 90_000);
 // ので、速い記事は従来どおり速い＝既定を伸ばしても高速ケースの所要時間は増えない。
 const SETTLE_PER_IMG_MS = Number(process.env.NOTE_IMG_SETTLE_PER_IMG_MS || 90_000);
 
-async function settleUploads(page, target, timeoutMs, tag = '[img]') {
+export async function settleUploads(page, target, timeoutMs, tag = '[img]') {
   const t0 = Date.now();
   let confirmed = 0;
   while (Date.now() - t0 < timeoutMs) {

@@ -273,6 +273,7 @@
     "note-reflow": "node scripts/reflow-note-paragraphs.mjs",
     "note-sales-fetch": "node scripts/note-sales-fetch.mjs",
     "note-sync-tags": "node scripts/note-sync-tags.mjs",
+    "note-swap-author-banner": "node scripts/note-swap-author-banner.mjs",
     "note-update-body": "node scripts/note-update-body.mjs",
     "note-update-cover": "node scripts/note-update-cover.mjs",
     "ogp": "node .claude/skills/conversion/ogp-create/scripts/ogp-create.mjs",
