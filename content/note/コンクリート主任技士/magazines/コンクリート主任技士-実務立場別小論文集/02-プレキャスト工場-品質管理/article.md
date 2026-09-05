@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "n878783ec7899"
 noteUrl: "https://note.com/dobokunote/n/n878783ec7899"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-precast-quality
 coverTitle: "実務立場別小論文｜プレキャスト工場｜品質管理"
 cover:

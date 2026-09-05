@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "nad967d055c18"
 noteUrl: "https://note.com/dobokunote/n/nad967d055c18"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-namacon-environment
 coverTitle: "実務立場別小論文｜生コン工場｜環境配慮"
 cover:

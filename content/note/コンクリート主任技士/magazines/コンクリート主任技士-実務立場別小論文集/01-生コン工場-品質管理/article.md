@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "n15770a95fcc7"
 noteUrl: "https://note.com/dobokunote/n/n15770a95fcc7"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-namacon-quality
 coverTitle: "実務立場別小論文｜生コン工場｜品質管理"
 cover:

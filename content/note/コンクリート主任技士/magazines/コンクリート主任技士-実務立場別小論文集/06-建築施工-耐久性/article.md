@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "n0fa1dbe93c8b"
 noteUrl: "https://note.com/dobokunote/n/n0fa1dbe93c8b"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-kenchiku-durability
 coverTitle: "実務立場別小論文｜建築施工｜耐久性"
 cover:

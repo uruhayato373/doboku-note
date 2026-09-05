@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "n6a0c2038ac91"
 noteUrl: "https://note.com/dobokunote/n/n6a0c2038ac91"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-namacon-durability
 coverTitle: "実務立場別小論文｜生コン工場｜耐久性"
 cover:

@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "nb2d96b6cb98f"
 noteUrl: "https://note.com/dobokunote/n/nb2d96b6cb98f"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-genecon-trouble
 coverTitle: "実務立場別小論文｜ゼネコン施工｜施工トラブル"
 cover:

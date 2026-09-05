@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "n42d4b06077bc"
 noteUrl: "https://note.com/dobokunote/n/n42d4b06077bc"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-kenchiku-quality
 coverTitle: "実務立場別小論文｜建築施工｜品質管理"
 cover:

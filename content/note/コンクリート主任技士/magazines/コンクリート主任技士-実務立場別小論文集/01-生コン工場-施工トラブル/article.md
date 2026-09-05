@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "neafba6a77507"
 noteUrl: "https://note.com/dobokunote/n/neafba6a77507"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-namacon-trouble
 coverTitle: "実務立場別小論文｜生コン工場｜施工トラブル"
 cover:

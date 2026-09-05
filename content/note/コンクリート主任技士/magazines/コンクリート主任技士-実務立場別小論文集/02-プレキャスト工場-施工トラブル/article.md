@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "n59d13d8dc721"
 noteUrl: "https://note.com/dobokunote/n/n59d13d8dc721"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-precast-trouble
 coverTitle: "実務立場別小論文｜プレキャスト工場｜施工トラブル"
 cover:

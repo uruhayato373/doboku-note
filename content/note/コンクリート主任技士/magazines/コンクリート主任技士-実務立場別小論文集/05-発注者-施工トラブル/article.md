@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "n96c22e79ecc9"
 noteUrl: "https://note.com/dobokunote/n/n96c22e79ecc9"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-hacchusha-trouble
 coverTitle: "実務立場別小論文｜発注者・監督員｜施工トラブル"
 cover:

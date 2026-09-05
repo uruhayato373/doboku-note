@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "nb5dee851a926"
 noteUrl: "https://note.com/dobokunote/n/nb5dee851a926"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-shiken-trouble
 coverTitle: "実務立場別小論文｜試験・検査機関｜施工トラブル"
 cover:

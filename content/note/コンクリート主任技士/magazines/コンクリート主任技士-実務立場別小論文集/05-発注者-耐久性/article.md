@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "ne3bd1880f400"
 noteUrl: "https://note.com/dobokunote/n/ne3bd1880f400"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-hacchusha-durability
 coverTitle: "実務立場別小論文｜発注者・監督員｜耐久性"
 cover:

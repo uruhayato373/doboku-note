@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "n9b6c5260d8b2"
 noteUrl: "https://note.com/dobokunote/n/n9b6c5260d8b2"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-shiken-environment
 coverTitle: "実務立場別小論文｜試験・検査機関｜環境配慮"
 cover:

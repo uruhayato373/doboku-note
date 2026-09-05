@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "n6f4e0bf19d3c"
 noteUrl: "https://note.com/dobokunote/n/n6f4e0bf19d3c"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-hoshu-durability
 coverTitle: "実務立場別小論文｜維持管理・補修｜耐久性"
 cover:

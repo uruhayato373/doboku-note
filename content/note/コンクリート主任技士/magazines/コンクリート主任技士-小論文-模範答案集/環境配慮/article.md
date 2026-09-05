@@ -9,7 +9,7 @@ noteId: "na15f69e2dcb0"
 notePublishedAt: "2026-07-23"
 noteMagazine: コンクリート主任技士-小論文-模範答案集
 noteStatus: published
-price: 980
+price: 1480
 coverTitle: "小論文 模範答案｜環境配慮（環境負荷低減への取組み）"
 cover:
   variant: crop-safe-v4

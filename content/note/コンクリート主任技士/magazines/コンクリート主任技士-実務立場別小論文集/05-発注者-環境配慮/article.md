@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "nd41d1cc46f36"
 noteUrl: "https://note.com/dobokunote/n/nd41d1cc46f36"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-hacchusha-environment
 coverTitle: "実務立場別小論文｜発注者・監督員｜環境配慮"
 cover:

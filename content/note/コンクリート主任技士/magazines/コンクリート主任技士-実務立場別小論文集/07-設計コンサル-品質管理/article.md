@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "n20c9657fb83b"
 noteUrl: "https://note.com/dobokunote/n/n20c9657fb83b"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-consul-quality
 coverTitle: "実務立場別小論文｜設計コンサル｜品質管理"
 cover:

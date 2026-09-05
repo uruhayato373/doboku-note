@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "ne6c0a9d41b87"
 noteUrl: "https://note.com/dobokunote/n/ne6c0a9d41b87"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-kenchiku-environment
 coverTitle: "実務立場別小論文｜建築施工｜環境配慮"
 cover:

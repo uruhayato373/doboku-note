@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "n915c531fd7ee"
 noteUrl: "https://note.com/dobokunote/n/n915c531fd7ee"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-hoshu-trouble
 coverTitle: "実務立場別小論文｜維持管理・補修｜施工トラブル"
 cover:

@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "n82bdc51e4239"
 noteUrl: "https://note.com/dobokunote/n/n82bdc51e4239"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-consul-environment
 coverTitle: "実務立場別小論文｜設計コンサル｜環境配慮"
 cover:

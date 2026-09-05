@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "n3e21cf65b568"
 noteUrl: "https://note.com/dobokunote/n/n3e21cf65b568"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-consul-trouble
 coverTitle: "実務立場別小論文｜設計コンサル｜施工トラブル"
 cover:

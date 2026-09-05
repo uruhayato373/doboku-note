@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "n14e99badcab2"
 noteUrl: "https://note.com/dobokunote/n/n14e99badcab2"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-genecon-quality
 coverTitle: "実務立場別小論文｜ゼネコン施工｜品質管理"
 cover:

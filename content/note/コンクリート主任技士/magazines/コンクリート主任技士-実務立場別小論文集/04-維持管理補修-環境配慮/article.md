@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "n7c43b47e5286"
 noteUrl: "https://note.com/dobokunote/n/n7c43b47e5286"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-hoshu-environment
 coverTitle: "実務立場別小論文｜維持管理・補修｜環境配慮"
 cover:

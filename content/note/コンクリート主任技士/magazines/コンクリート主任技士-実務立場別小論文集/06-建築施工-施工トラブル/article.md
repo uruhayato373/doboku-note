@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "n49a34f38566c"
 noteUrl: "https://note.com/dobokunote/n/n49a34f38566c"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-kenchiku-trouble
 coverTitle: "実務立場別小論文｜建築施工｜施工トラブル"
 cover:

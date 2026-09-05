@@ -8,7 +8,7 @@ notePublishedAt: "2026-07-31"
 noteMagazine: コンクリート診断士-記述式-模範答案集
 noteStatus: published
 paidBoundary: "問題Bの答案の型（5ステップ）"
-price: 980
+price: 1480
 coverTitle: "コンクリート診断士 記述式 突破法"
 cover:
   variant: crop-safe-v4

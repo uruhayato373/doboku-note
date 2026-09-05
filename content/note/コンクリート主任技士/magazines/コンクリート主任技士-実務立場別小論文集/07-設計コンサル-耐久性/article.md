@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "nafe5a35ba5f1"
 noteUrl: "https://note.com/dobokunote/n/nafe5a35ba5f1"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-consul-durability
 coverTitle: "実務立場別小論文｜設計コンサル｜耐久性"
 cover:

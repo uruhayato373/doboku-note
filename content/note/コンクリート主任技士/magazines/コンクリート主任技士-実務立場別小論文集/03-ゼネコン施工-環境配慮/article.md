@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "nfa67791ed05c"
 noteUrl: "https://note.com/dobokunote/n/nfa67791ed05c"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-genecon-environment
 coverTitle: "実務立場別小論文｜ゼネコン施工｜環境配慮"
 cover:

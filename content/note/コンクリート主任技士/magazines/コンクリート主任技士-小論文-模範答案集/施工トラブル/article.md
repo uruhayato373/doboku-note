@@ -9,7 +9,7 @@ noteId: "nfaee2b645971"
 notePublishedAt: "2026-07-23"
 noteMagazine: コンクリート主任技士-小論文-模範答案集
 noteStatus: published
-price: 980
+price: 1480
 coverTitle: "小論文 模範答案｜施工トラブル（初期欠陥の原因と防止）"
 cover:
   variant: crop-safe-v4

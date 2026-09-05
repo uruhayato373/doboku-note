@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "n000ac2ed704d"
 noteUrl: "https://note.com/dobokunote/n/n000ac2ed704d"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-hoshu-quality
 coverTitle: "実務立場別小論文｜維持管理・補修｜品質管理"
 cover:

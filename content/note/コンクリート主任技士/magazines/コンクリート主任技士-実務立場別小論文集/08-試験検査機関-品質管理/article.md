@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "nca88fa269d45"
 noteUrl: "https://note.com/dobokunote/n/nca88fa269d45"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-shiken-quality
 coverTitle: "実務立場別小論文｜試験・検査機関｜品質管理"
 cover:
