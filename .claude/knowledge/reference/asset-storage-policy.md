@@ -20,6 +20,7 @@
 | IG レンダー画像 | — | 投稿済み→`doboku-note` / それ以外→`doboku-note-archive` | slide-data / SVG が SoT のレンダー成果物 |
 | 教材ページ画像・教材 PDF | — | `doboku-note-archive` | 書籍が原本 |
 | 教材の文字起こし本文（.md/.html/派生 .svg 等） | — | private Google Drive vault（§1-1） | 書籍由来の著作権物。public repo には置かない |
+| 公的基準のページ画像・ページテキスト（`content/sources/standards/**`） | — | `doboku-note-archive`（`standards-page-image` group） | 原本 PDF から `build-standards-page-images` で再生成できる派生物。5,949 枚 3.5GB。Git には `manifest.json` と README だけ残す（§1-2） |
 | note カバー SVG | — | — | satori の中間生成物。読むコードが無いので保存しない（`.tmp/` へ出す） |
 | IG reels の frames | — | 別系統 | `sns-archive-policy.md` と `upload-sns-r2` が管轄。この仕組みの対象外 |
 
@@ -75,6 +76,36 @@ doboku-note/文字起こし/` へ移設した。
 - PDF・ページ画像（§1 表）は従来どおり private R2。今回動いたのは文字起こしテキスト側だけ
 - git 履歴には旧コミットの内容が残る。履歴書換え（force-push）は複数セッション並行環境で危険なため
   未実施 — 必要なら別途、全 worktree 停止の単独作業として計画する
+
+### 1-2. 公的基準のページ画像は「1 ページ = 1 画像 + 1 テキスト」
+
+章記事（`content/site/standards-articles/`）の本文は `part-NN.md`（50 ページ束）までしかページ情報を
+持たず、「この記述は原本の何ページか」を機械で言えなかった。2026-09-05 に共通仕様書 10 文書
+（9 ユニーク・5,949 ページ）をページ単位へ割り、`content/sources/standards/{agencyId}/{documentId}/`
+へ置いた。ID 体系は `standards-library/catalog.json` と同じで、章記事・カタログ・ページ画像が同じキーで引ける。
+
+```
+content/sources/standards/{agencyId}/{documentId}/
+├── manifest.json   # git 追跡。原本 sha256・描画条件・parts のページ範囲・各ページの sha256
+├── pages/p0001.jpg # git 追跡外 → private R2。pdftoppm 270dpi（2233px）JPEG q85
+└── text/p0001.txt  # git 追跡外 → private R2。pdftotext -layout をページ境界(\f)で割ったもの
+```
+
+- **原本の同定はファイル名でなく sha256**。Drive 側のファイル名は整理で動くがハッシュは動かない。
+  catalog の `sourceSha256` と引き当たらない PDF は 1 バイトも書かずに落とす（fail-closed）
+- **出典は `section` + 版面ページ番号で指す**。PDF の通しページ（p0120）と版面に刷られたページ
+  （1-42）は一致せず、さらに目次が 1-1..1-77 と進んだあと本文が再び 1-1 から始まるため版面番号だけ
+  では一意にならない。各ページに `section`（front=目次 / body=本文）を持たせ、境界は「同じ編で番号が
+  減った最初の地点」で機械判定する。`check-standards-page-images` は組の重複を FAIL にする
+- **対象 PDF は全て born-digital**（`pdfimages -list` が空＝ラスタ埋め込み無しの純ベクタ）。
+  `text/` は OCR ではなく PDF 自身のテキスト層なので取り違えが原理的に起きない。OCR が要るのは
+  スキャン教材（`content/sources/textbook/`）side で、そちらは `/pdf-to-mdx --scanned` が扱う
+- **沖縄総合事務局は中国地方整備局と原本 sha256 が一致**する。画像は重複生成せず
+  `okinawa/common/manifest.json` に `sameAs: "chugoku/common"` を持たせる（catalog も同じ扱い）
+- 生成には Drive vault の原本と poppler が要る。無い端末は
+  `npm run asset-hydrate -- --path content/sources/standards/{agencyId}/` で取り戻す
+- 整合ゲートは `npm run check-standards-page-images`（`quality:audit` 同梱）。実体が無い端末では
+  manifest だけを検査し「実体検査 0 件」を緑と言わずその旨を出力する
 
 ## 2. 端末の初期設定
 

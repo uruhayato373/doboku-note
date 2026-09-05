@@ -365,3 +365,12 @@ content/note/**/magazines/*/_cover.png
 .claude/state/ocr-audit/**
 scripts/kindle-published/cover-designs/**
 content/sns/_assets/character/_source/**
+
+# 公的基準（共通仕様書）のページ画像・ページテキスト（DN / 2026-09-05）。
+# 1 ページ = 1 画像 + 1 テキスト。原本 PDF から機械生成する再現可能な派生物で、
+# 5,949 枚 3GB 規模。Git には manifest.json（provenance）と README.md だけを残し、
+# 実体は private R2（standards-page-image group）へ出す。
+# 再生成は `npm run build-standards-page-images`、取り戻しは
+# `npm run asset-hydrate -- --path content/sources/standards/{agencyId}/`。
+content/sources/standards/**/pages/*.jpg
+content/sources/standards/**/text/*.txt

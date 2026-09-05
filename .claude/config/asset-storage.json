@@ -83,6 +83,14 @@
       "phase": "4-C"
     },
     {
+      "id": "standards-page-image",
+      "description": "公的基準（共通仕様書）のページ画像とページテキスト。原本 PDF から pdftoppm/pdftotext で再生成できる派生物で、manifest.json が provenance を持つ。Git には出さない。",
+      "bucket": "private",
+      "match": {
+        "pathRegex": "^content/sources/standards/.+/(pages/.+\\.jpe?g|text/.+\\.txt)$"
+      }
+    },
+    {
       "id": "textbook-source-pdf",
       "match": {
         "pathRegex": "^content/sources/textbook/.+\\.pdf$"
