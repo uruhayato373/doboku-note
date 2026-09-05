@@ -176,7 +176,7 @@ async function accountGate(page) {
 async function probeBannerFigures(page) {
   return page.evaluate(async ({ captionPrefix, bottomPrefix, newProsePrefix }) => {
     const editor = document.querySelector('[contenteditable=true]');
-    if (!editor) return { mode: 'none', figuresTotal: 0, figures: [], targets: [] };
+    if (!editor) return { mode: 'none', figuresTotal: 0, figures: [], targets: [], firstBlock: null };
     const figures = Array.from(editor.querySelectorAll('figure'));
     const firstH2 = editor.querySelector('h2');
     const before = (left, right) => Boolean(left.compareDocumentPosition(right) & Node.DOCUMENT_POSITION_FOLLOWING);
@@ -218,6 +218,9 @@ async function probeBannerFigures(page) {
       text: normalize(block.innerText || block.textContent),
       emptyParagraphsBefore: emptyParagraphsImmediatelyBefore(block),
     } : null;
+    const firstBlock = Array.from(editor.children).find((block) =>
+      block.matches('p,h2,h3') && !block.closest('figure') && normalize(block.innerText || block.textContent),
+    ) || null;
     const bridge = Array.from(editor.querySelectorAll('p')).find((paragraph) =>
       !paragraph.closest('figure') && normalize(paragraph.innerText || paragraph.textContent).startsWith(bottomPrefix),
     );
@@ -279,7 +282,9 @@ async function probeBannerFigures(page) {
         ? 'prose-only'
         : newTop.length && hasNewProse
           ? 'already-done'
-          : 'none';
+          : !newTop.length && !hasNewProse && firstBlock
+            ? 'insert'
+            : 'none';
     return {
       mode,
       figuresTotal: figures.length,
@@ -295,6 +300,7 @@ async function probeBannerFigures(page) {
       newBottom,
       targets: oldFigures,
       bridge: describeTextBlock(bridge),
+      firstBlock: describeTextBlock(firstBlock),
       firstH2: describeTextBlock(firstH2),
     };
   }, {
@@ -306,6 +312,7 @@ async function probeBannerFigures(page) {
 
 function printProbe(article, probe, attachedBefore, figuresBefore) {
   console.log(`[PROBE] ${article.noteId} local-banners=${article.banners.length} figures=${probe.figuresTotal} old=${probe.oldCount} new-top=${probe.newTopCount} new-bottom=${probe.newBottomCount} mode=${probe.mode} prose=${probe.hasNewProse ? 'present' : 'missing'}`);
+  if (probe.mode === 'insert') console.log(`[PROBE] insert: B=${probe.firstBlock.tag}:"${probe.firstBlock.text.slice(0, 40)}"`);
   console.log(`[PROBE] counts attached=${attachedBefore.length} figures=${figuresBefore}`);
   for (const figure of probe.figures) {
     const ratio = figure.ratio == null ? 'n/a' : figure.ratio.toFixed(3);
@@ -1054,7 +1061,7 @@ async function processArticle(page, article) {
       topFollowing = existingProse.following;
       if (!oldTop.length) topEmptyBaseline = existingProse.emptyParagraphsBefore;
     } else {
-      const topReference = oldTop.at(-1) || probe.newTop[0] || probe.firstH2;
+      const topReference = oldTop.at(-1) || probe.newTop[0] || probe.firstBlock || probe.firstH2;
       topFollowing = topReference ? {
         tag: topReference.nextTag || topReference.tag,
         text: topReference.nextFull || topReference.text,
