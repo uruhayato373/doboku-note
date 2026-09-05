@@ -26,14 +26,6 @@
 
 2026-09-05 の `node scripts/check-note-attachments.mjs --live`（575 本実査・取得失敗 0）で、本文が PDF 配布を約束しているのにライブに添付が無い記事が 95 本（1級土木/magazines 38本／magazines/総監模範論文-ゼネコン 6本／magazines/総監模範論文-河川コンサル 6本／magazines/総監模範論文-自治体上水道担当 4本／magazines/総監模範論文-自治体下水道担当 4本／magazines/総監模範論文-自治体公園緑地担当 4本／magazines/総監模範論文-自治体契約調達担当 4本／magazines/総監模範論文-自治体技術基準担当 4本／magazines/総監模範論文-自治体河川担当 4本／magazines/総監模範論文-自治体港湾担当 4本／magazines/総監模範論文-自治体砂防担当 4本／magazines/総監模範論文-自治体道路担当 4本／magazines/総監模範論文-自治体都市計画担当 4本／magazines/総監模範論文-都市計画コンサル 4本／magazines/総監模範論文-道路橋梁コンサル 1本）。当日のバナー差し替え 87 本とは無関係（台帳突合で 0 件一致）で、以前から欠けていたものが実査で表面化した。実体 PDF はローカル／Drive vault にある。手順: `node scripts/note-attach-batch.mjs --commit --limit 90`（note の 1 日 100 ファイル上限に合わせて 2 日に分ける）→ 翌日 `check-note-attachments --live` で 0 件を確認。台帳は .claude/state/note-attachments-missing.json。
 
-### [DN-0173] 著者オーソリティ新バナーの残り 141 本をライブ差し替えする
-タグ: [収益化] [種類:改善] [検証:check-note-republish] [起票:2026-09-05] [期日:2026-09-08]
-
-2026-09-05 に正方形バナー＋本文 2 段落へ 93 本（無料 26・会員 8・有料 59）を `note-swap-author-banner` で差し替えた（差し替え済みは全件ハッシュ同期・drift 0）。残り 141 本＝**有料 89**（うち 28 本は frontmatter に `noteStatus` が無く当日のリスト生成から漏れたが API では published＝2テーマ組合せ大全ほか。n9d9a77c66392 は空 p 掃除後の DOM 順序検証で 2 回失敗＝手動で editor を見る）・無料 1（1級経験記述で落ちる答案）・**コンクリート 51**（無料 3 を含む）。対象リストは noteStatus でなく `npm run check-note-republish -- --json` の driftFiles ∩ バナー入り記事から作る。画像アップロードが note の 1 日 100 ファイル上限に数えられるか未確認のため `--daily-limit 90` で日を分ける。手順: `node scripts/note-swap-author-banner.mjs --list <paths> --commit --max-consecutive-fail 3`（30 本ずつ・全文置換はしない）→ 各バッチ後 `node scripts/check-note-structure.mjs --ci` と `node scripts/check-note-attachments.mjs --live`。完了条件＝バナー入り 247 本の本文 drift が 0。
-
-
-
-
 
 ### [DN-0135] 人・外部実体が必要な残務
 タグ: [収益化] [種類:不具合] [起票:2026-08-25]
@@ -67,8 +59,6 @@
 実行時の罠: 対象 48 本が `paidBoundary` を持つため `note-article-price-sweep` は既定 ABORT（exit 9）。`--allow-boundary-risk` の後に `note-update-body --commit` で境界を再設定し `npm run check-note-structure` で FULL_LOCK=0 を実査するまでが 1 セット（2026-07-24 に civil 58 本で無料プレビューを消した形）。
 
 
-
-
 ### [DN-0120] 9月中旬のA8成果を取り込み、転職アフィリ継続を再判定する
 タグ: [収益化] [種類:改善] [起票:2026-08-24] [期日:2026-09-16]
 
@@ -82,9 +72,6 @@
 （reference-materials-hyogo-port-materials / river-abandonment / inverted-siphon / floodgate / tunnel-02）
 について、再公開14日後（2026-09-09以降）にGSCでインデックス状況とimpressions/clicksのdeltaを計測し、
 再実験化（EXP系起票）するかを判断する。EXP-002はcancelled（2026-06-27）なので新規起票になる。
-
-
-
 
 
 ### [DN-0110] 承認済み動画パック112本＋Shorts224本の公開・6週間判定
@@ -104,8 +91,6 @@
 **制約**: `approved` はユーザーだけが設定する。mp4/wavをGitへ入れない。今回の対象は明示承認済み112パックだけで、技術士総監・建設部門・診断士・IG/X/Threads/TikTokへ承認を波及させない。legacy総監Shorts187本はretiredのまま再開しない。
 
 **完了条件**: 通常動画112本とShorts224本を外部実体で照合し、全Shortsの関連動画・予約日時・著者表記が正しく、全機械・意味ゲートがPASSする。6週間後の継続/修正/停止判断とbaselineを記録したらカードを削除する。
-
-
 
 
 ### [DN-0115] PWA買い切り・メール主／LINE補助の収益導線pilot
@@ -246,7 +231,6 @@ Playwrightのログインprofileはサービス別に永続化されているが
 ---
 
 
-
 ### [DN-0155] git履歴の次回切り詰め（.git実体1.0GBの回収）
 タグ: [インフラ・計測] [種類:改善] [起票:2026-08-29]
 
@@ -255,20 +239,6 @@ Playwrightのログインprofileはサービス別に永続化されているが
 `seo-meta` は追跡スナップショットを1件に固定済みで、明示的な`--snapshot`以外は
 `seo-meta-latest.json`を上書きする。履歴切り詰め後に`git count-objects -vH`とfresh clone容量を記録し、
 主要ブランチ・タグ・Cloudflareデプロイ・R2復元経路を確認してからカードを削除する。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要
