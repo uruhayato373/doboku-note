@@ -5,9 +5,9 @@
 2026-08-30 に168ページ分を二重OCRし、低一致率・低信頼度だった22ページは原画像との目視再照合まで完了した。
 
 本文、OCR第二読、ページ別照合台帳は public repo では追跡せず、Google Drive の private vault
-`doboku-note/private-sources/textbook/新しい時代の安全管理のすべて_第7版/` に保管する。
+`doboku-note/文字起こし/新しい時代の安全管理のすべて_第7版/` に保管する。
 原本PDF 5ファイルは private R2 `doboku-note-archive/textbook/` と Google Drive
-`doboku-note/references/書籍/新しい時代の安全管理のすべて_第7版/` に保存済み。
+`doboku-note/原資料PDF/書籍/新しい時代の安全管理のすべて_第7版/` に保存済み。
 
 ## 取扱い
 

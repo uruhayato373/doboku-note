@@ -43,7 +43,7 @@
 - **数百ジョブを Workflow args に inline すると破綻**する。**章別ジョブファイル＋コーディネータ agent が Read して構造化返却**（schema で確実にパース）する経路にする。
 - **低確信度 bbox は誤クロップ**になる（写真や別図を掴む）。**confidence<0.55 は未埋め込み扱い**（誤った図を貼るより貼らない）。
 - **crop_embed は冪等でない**（章 md に挿入するため再実行で二重挿入）。再クロップ時は **concat で章 md をクリーン再生成してから**回す。
-- **著作権安全（2026-08-27更新）**: `content/sources/textbook/**`（README.md 以外の本文・`img/**` 含む）は `.gitignore` で public repo の追跡対象外。実体は Google Drive の private vault（`doboku-note/private-sources/textbook/`）が SoT で、`content/sources/textbook/**/img/**` はそもそも r2-sync（`content/site/**/img/**`）の対象にも入らない＝二重に公開されない。詳細は `.claude/knowledge/reference/asset-storage-policy.md` §1-1。
+- **著作権安全（2026-08-27更新）**: `content/sources/textbook/**`（README.md 以外の本文・`img/**` 含む）は `.gitignore` で public repo の追跡対象外。実体は Google Drive の private vault（`doboku-note/文字起こし/`）が SoT で、`content/sources/textbook/**/img/**` はそもそも r2-sync（`content/site/**/img/**`）の対象にも入らない＝二重に公開されない。詳細は `.claude/knowledge/reference/asset-storage-policy.md` §1-1。
 
 ---
 
@@ -116,7 +116,7 @@ bbox 判定で `found:false`（「本文のみ／下半分グレー空白」）�
 
 - README（索引）に **ファイル↔節↔ノンブル↔字数表・文字起こし方法・図埋め込み状況・既知の限界**（図プレースホルダ／スキャン末尾の途切れ／原文ママ箇所）を記録。
 - `content/sources/textbook/` は site index 非対象 → **`refresh-indexes` 不要**。純コンテンツ編集ゆえ **`/doc-sync` も対象外**。
-- **`content/sources/textbook/**` は README.md 以外 `.gitignore` 対象（2026-08-27〜、著作権理由で public repo から追跡解除済み）。新規生成した文字起こし .md・`img/*.png` は git commit の代わりに `~/Google Drive/マイドライブ/doboku-note/private-sources/textbook/{資格}/{書名}/` へコピーして永続化する**（コピーし忘れるとこの Mac のローカルにしか残らず、ディスク整理・端末更改で失われる）。README.md の更新のみ `git add` して commit（`git add -A` 禁止・対象ファイルを明示指定）。詳細は `.claude/knowledge/reference/asset-storage-policy.md` §1-1。一時スクリプトは `.tmp/`（gitignore）に置きコミットしない。
+- **`content/sources/textbook/**` は README.md 以外 `.gitignore` 対象（2026-08-27〜、著作権理由で public repo から追跡解除済み）。新規生成した文字起こし .md・`img/*.png` は git commit の代わりに `~/Google Drive/マイドライブ/doboku-note/文字起こし/{資格}/{書名}/` へコピーして永続化する**（コピーし忘れるとこの Mac のローカルにしか残らず、ディスク整理・端末更改で失われる）。README.md の更新のみ `git add` して commit（`git add -A` 禁止・対象ファイルを明示指定）。詳細は `.claude/knowledge/reference/asset-storage-policy.md` §1-1。一時スクリプトは `.tmp/`（gitignore）に置きコミットしない。
 
 ## 実績
 

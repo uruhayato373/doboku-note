@@ -32,16 +32,22 @@ Drive 側は `~/Google Drive/マイドライブ/doboku-note/` を単一ルート
 
 ```
 マイドライブ/doboku-note/
-├── private-sources/textbook/   # L1 中間産物＝文字起こし md・派生図版（旧 doboku-note-private-sources/）
-└── references/                 # L0 原資料＝参考 PDF（読み取り専用）
+├── README.md                   # 貼り紙。Drive を開いた人が最初に読む
+├── 文字起こし/                 # L1 中間産物＝文字起こし md・派生図版（旧 private-sources/textbook/）
+└── 原資料PDF/                  # L0 原資料＝参考 PDF（読み取り専用・旧 references/）
     ├── 白書/                   # 白書 44 本（総監の白書根拠）
-    ├── 資格試験/               # 1級土木テキスト・問題集＋診断士（完全一致の重複4dir含め33本・重複解消は未実施）
+    ├── 資格試験/               # １級土木施工管理技士（テキスト・問題集・共通仕様書）／コンクリート診断士
     └── 書籍/                   # 土木・建設系の市販書 12 冊（逐語転用禁止）
 ```
 
+`文字起こし/` の直下の名前は `content/sources/textbook/` の直下と 1 対 1 で対応させる（復元がコピー
+1 回で済む前提）。2026-09-05 に英語 2 階層（`private-sources/textbook/`・`references/`）を日本語 1 階層へ
+畳み、`資格試験/` 直下にあった完全一致の重複 4 dir（156MB）と Word の `~$` 一時ファイルを
+`_重複・不要_確認後にゴミ箱へ/` へ隔離した（正本は `資格試験/１級土木施工管理技士/` 配下）。
+
 `content/sources/textbook/**` の文字起こし本文（.md/.html）と派生図版は、書籍の著作権物をほぼそのまま
 含むため 2026-08-27 に public repo（`doboku-note`）の追跡から外し、`~/Google Drive/マイドライブ/
-doboku-note/private-sources/textbook/` へ移設した（stats47 の `stats47-private-sources/` と同じ命名規約）。
+doboku-note/文字起こし/` へ移設した。
 `.gitignore` の `content/sources/textbook/**`（README.md だけ `!` で例外）が実体。
 
 - **新しい端末での復元**: Google Drive デスクトップアプリで同アカウントにログインし vault を同期 →
