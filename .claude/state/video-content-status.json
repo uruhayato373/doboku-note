@@ -647,7 +647,7 @@
     "gakka-kussaku-tsumikomi-kikai": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -656,8 +656,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-22T20:00:00+09:00",
-          "renderedAt": "2026-09-05T03:42:20.779Z"
+          "publishAt": "2026-09-22T11:00:00Z",
+          "renderedAt": "2026-09-05T03:42:20.779Z",
+          "videoId": "iWWLLMIYJL4",
+          "url": "https://www.youtube.com/watch?v=iWWLLMIYJL4",
+          "scheduledAt": "2026-09-05T03:46:33.706Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -1324,7 +1328,7 @@
     "keiken-nendo-keiko-2kyu": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -1333,8 +1337,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-10-21T20:00:00+09:00",
-          "renderedAt": "2026-09-05T03:42:24.225Z"
+          "publishAt": "2026-10-21T11:00:00Z",
+          "renderedAt": "2026-09-05T03:42:24.225Z",
+          "videoId": "XoRkjNH0XCI",
+          "url": "https://www.youtube.com/watch?v=XoRkjNH0XCI",
+          "scheduledAt": "2026-09-05T03:46:40.083Z",
+          "privacyStatus": "private"
         }
       }
     },
