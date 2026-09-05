@@ -19,10 +19,20 @@
 import { createHash } from 'node:crypto'
 import fs from 'node:fs'
 import path from 'node:path'
+import { resolveVaultRoot } from './lib/drive-vault.mjs'
 
 const ROOT = process.cwd()
 const CATALOG = path.join(ROOT, 'content/site/standards-library/catalog.json')
 const OUT_ROOT = path.join(ROOT, 'content/sources/standards')
+// 実体は Drive vault（原本 PDF の隣）。repo に残っていればそれも見る（移行中）。
+let VAULT_ROOT = null
+try {
+  const m = resolveVaultRoot()
+  VAULT_ROOT = m.root
+  if (!m.root) console.log(`[check-standards-page-images] mount 無し（${m.reason}）— 実体検査は repo に残る分だけ`)
+} catch (e) {
+  console.log(`[check-standards-page-images] drive-vault 設定を読めない（${e.message}）— 実体検査は repo に残る分だけ`)
+}
 const argv = process.argv.slice(2)
 const flag = (n, d = null) => {
   const i = argv.indexOf(`--${n}`)
@@ -38,6 +48,8 @@ const warns = []
 let checkedManifests = 0
 let checkedPages = 0
 let docsWithLocalBytes = 0
+let docsInRepo = 0
+let docsInVault = 0
 
 if (!fs.existsSync(CATALOG)) {
   console.error('[check-standards-page-images] ✗ catalog.json が無い。検査不成立')
@@ -117,8 +129,15 @@ for (const doc of targets) {
     }
   }
 
-  const pagesDir = path.join(dir, 'pages')
-  if (!fs.existsSync(pagesDir)) continue
+  // 実体の場所: repo（移行前）か vault（原本 PDF と同名フォルダ）か
+  let bodyDir = null
+  if (fs.existsSync(path.join(dir, 'pages'))) { bodyDir = dir; docsInRepo++ }
+  else if (VAULT_ROOT && m.sourceFile) {
+    const cand = path.join(VAULT_ROOT, '原資料PDF', '共通仕様書', ...m.sourceFile.replace(/\.pdf$/i, '').split('/'))
+    if (fs.existsSync(path.join(cand, 'pages'))) { bodyDir = cand; docsInVault++ }
+  }
+  if (!bodyDir) continue
+  const pagesDir = path.join(bodyDir, 'pages')
   docsWithLocalBytes++
   const onDisk = fs.readdirSync(pagesDir).filter((f) => f.endsWith('.jpg'))
   if (onDisk.length !== m.pages) {
@@ -126,7 +145,7 @@ for (const doc of targets) {
   }
   const pick = DEEP ? entries : entries.filter((_, i) => i % Math.max(1, Math.floor(entries.length / SAMPLE)) === 0)
   for (const e of pick) {
-    const f = path.join(dir, e.image)
+    const f = path.join(bodyDir, e.image)
     if (!fs.existsSync(f)) {
       fails.push(`${label}: ${e.image} が無い`)
       continue
@@ -134,13 +153,13 @@ for (const doc of targets) {
     const buf = fs.readFileSync(f)
     checkedPages++
     if (sha256(buf) !== e.imageSha256) fails.push(`${label}: ${e.image} の sha256 が manifest と不一致`)
-    const t = path.join(dir, e.text)
+    const t = path.join(bodyDir, e.text)
     if (!fs.existsSync(t)) warns.push(`${label}: ${e.text} が無い（テキスト層が退避済みの可能性）`)
   }
 }
 
 console.log(`[check-standards-page-images] 対象 ${targets.length} 文書 / manifest 実検査 ${checkedManifests} 件`)
-console.log(`[check-standards-page-images] ローカルに実体がある文書 ${docsWithLocalBytes} 件 / 画像 sha256 実照合 ${checkedPages} 枚${DEEP ? '（--deep 全件）' : `（各文書 約${SAMPLE} 枚のサンプル。全件は --deep）`}`)
+console.log(`[check-standards-page-images] 実体がある文書 ${docsWithLocalBytes} 件（repo ${docsInRepo} / vault ${docsInVault}）/ 画像 sha256 実照合 ${checkedPages} 枚${DEEP ? '（--deep 全件）' : `（各文書 約${SAMPLE} 枚のサンプル。全件は --deep）`}`)
 for (const w of warns) console.warn(`  ! ${w}`)
 if (checkedManifests === 0) {
   console.error('[check-standards-page-images] ✗ manifest を 1 件も検査していない。検査不成立')
@@ -152,7 +171,7 @@ if (fails.length) {
   process.exit(1)
 }
 if (docsWithLocalBytes === 0) {
-  console.log('[check-standards-page-images] ✓ manifest は健全（この端末に画像の実体は無い。取り戻しは npm run asset-hydrate）')
+  console.log('[check-standards-page-images] ✓ manifest は健全（この端末に画像の実体は無い＝実体検査 0 件。実体は Drive vault。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/）')
 } else {
   console.log('[check-standards-page-images] ✓ manifest と画像実体は整合')
 }

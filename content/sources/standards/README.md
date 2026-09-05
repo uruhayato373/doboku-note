@@ -13,13 +13,20 @@
 ## 構成
 
 ```
+リポジトリ側（git 追跡・provenance だけ）
 content/sources/standards/
-├── README.md                    # このファイル（git 追跡）
-└── {agencyId}/{documentId}/     # catalog.json と同じ ID 体系（例 tohoku/common）
-    ├── manifest.json            # git 追跡。provenance の実体
-    ├── pages/p0001.jpg …        # git 追跡外 → private R2
-    └── text/p0001.txt           # git 追跡外 → private R2
+├── README.md
+└── {agencyId}/{documentId}/manifest.json   # catalog.json と同じ ID 体系（例 tohoku/common）
+
+Google Drive vault 側（実体・原本 PDF の隣）
+マイドライブ/doboku-note/原資料PDF/共通仕様書/{整備局}/
+├── common__xxx.pdf                          # 原本
+└── common__xxx/                             # 原本と同名のフォルダ
+    ├── pages/p0001.jpg …
+    └── text/p0001.txt …
 ```
+
+実体をリポジトリに置かないのは置き場ルール（`asset-storage-policy.md` §1）による。この画像を読むのは人と手元のスクリプトだけで、サイトも CI も読まない。人が使うものは Google Drive に、原本 PDF と並べて置く。台帳は `.claude/state/assets/drive-manifest.json`。
 
 `agencyId` / `documentId` は `content/site/standards-library/catalog.json` の値をそのまま使う。章記事・カタログ・ページ画像が同じキーで引けるようにするため、独自の命名を作らない。
 
@@ -55,13 +62,14 @@ PDF p0120 = body  版面 1-42
 ## 生成と取り戻し
 
 ```bash
-npm run build-standards-page-images              # role=common を全整備局（既定）
+npm run build-standards-page-images              # role=common を全整備局（既定）。vault へ直接書き、台帳へ登録する
 npm run build-standards-page-images -- --role all # companion 62 文書も含む
 npm run check-standards-page-images              # provenance 整合。quality:audit にも同梱
-npm run asset-hydrate -- --path content/sources/standards/tohoku/
+npm run check-drive-vault                        # Drive 台帳と実体の整合
+npm run drive-vault-sync -- --pull --path content/sources/standards/tohoku/   # 手元に作業コピーが要るとき
 ```
 
-生成には Google ドライブ vault（`原資料PDF/共通仕様書/`）の原本 PDF と poppler（`brew install poppler`）が要る。どちらも無い端末では生成できないので、R2 から取り戻す。
+生成には Google ドライブ vault（`原資料PDF/共通仕様書/`）の原本 PDF と poppler（`brew install poppler`）が要る。Drive のマウントは `scripts/lib/drive-vault.mjs` が Mac / Windows / 環境変数 `DOBOKU_DRIVE_VAULT` の順に解決する。
 
 ## 沖縄総合事務局について
 

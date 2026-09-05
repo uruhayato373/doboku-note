@@ -85,11 +85,14 @@ doboku-note/文字起こし/` へ移設した。
 へ置いた。ID 体系は `standards-library/catalog.json` と同じで、章記事・カタログ・ページ画像が同じキーで引ける。
 
 ```
-content/sources/standards/{agencyId}/{documentId}/
-├── manifest.json   # git 追跡。原本 sha256・描画条件・parts のページ範囲・各ページの sha256
-├── pages/p0001.jpg # git 追跡外 → private R2。pdftoppm 270dpi（2233px）JPEG q85
-└── text/p0001.txt  # git 追跡外 → private R2。pdftotext -layout をページ境界(\f)で割ったもの
+repo:  content/sources/standards/{agencyId}/{documentId}/manifest.json   # git 追跡。原本 sha256・描画条件・parts のページ範囲・各ページの sha256
+vault: 原資料PDF/共通仕様書/{整備局}/{原本PDF名}/pages/p0001.jpg           # 原本 PDF の隣（同名フォルダ）。pdftoppm 270dpi（2233px）JPEG q85
+       原資料PDF/共通仕様書/{整備局}/{原本PDF名}/text/p0001.txt            # pdftotext -layout をページ境界(\f)で割ったもの
+台帳:  .claude/state/assets/drive-manifest.json（drive-vault.json の standards-page-image group）
 ```
+
+実体を private R2 でなく Drive に置くのは §1 の置き場ルール（人か手元のスクリプトだけが使う → Drive）による。
+2026-09-05 に途中まで private R2 へ上げた 2,550 件は、vault 側の全件照合（11,898/11,898 一致）の後に撤去した。
 
 - **原本の同定はファイル名でなく sha256**。Drive 側のファイル名は整理で動くがハッシュは動かない。
   catalog の `sourceSha256` と引き当たらない PDF は 1 バイトも書かずに落とす（fail-closed）
@@ -102,8 +105,8 @@ content/sources/standards/{agencyId}/{documentId}/
   スキャン教材（`content/sources/textbook/`）side で、そちらは `/pdf-to-mdx --scanned` が扱う
 - **沖縄総合事務局は中国地方整備局と原本 sha256 が一致**する。画像は重複生成せず
   `okinawa/common/manifest.json` に `sameAs: "chugoku/common"` を持たせる（catalog も同じ扱い）
-- 生成には Drive vault の原本と poppler が要る。無い端末は
-  `npm run asset-hydrate -- --path content/sources/standards/{agencyId}/` で取り戻す
+- 生成には Drive vault の原本と poppler が要る。手元に作業コピーが要るときは
+  `npm run drive-vault-sync -- --pull --path content/sources/standards/{agencyId}/`
 - 整合ゲートは `npm run check-standards-page-images`（`quality:audit` 同梱）。実体が無い端末では
   manifest だけを検査し「実体検査 0 件」を緑と言わずその旨を出力する
 

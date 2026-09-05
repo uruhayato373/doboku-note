@@ -7,11 +7,12 @@
  * 割ってはじめて (1) 出典ページの明示 (2) OCR/読み取りの再現性 (3) 図クロップの原寸確保
  * が成立する。
  *
- * 置き場（.claude/knowledge/reference/asset-storage-policy.md §1 の「教材ページ画像＝private R2」に従う）:
- *   content/sources/standards/{agencyId}/{documentId}/
- *     ├── manifest.json   git 追跡。原本 sha256・dpi・ページ数・各ページの sha256
- *     ├── pages/p0001.jpg gitignore → R2 private（asset-offload の standards-page-image group）
- *     └── text/p0001.txt  同上。PDF 内蔵テキスト層をページ境界(\f)で割ったもの
+ * 置き場（asset-storage-policy.md §1「人か手元のスクリプトだけが使う → Google Drive vault」）:
+ *   repo:  content/sources/standards/{agencyId}/{documentId}/manifest.json   git 追跡。provenance
+ *   vault: 原資料PDF/共通仕様書/{整備局}/{原本PDF名}/pages/p0001.jpg           原本 PDF の隣（同名フォルダ）
+ *          原資料PDF/共通仕様書/{整備局}/{原本PDF名}/text/p0001.txt            PDF 内蔵テキスト層をページ境界(\f)で割ったもの
+ *   台帳:  .claude/state/assets/drive-manifest.json（drive-vault.json の standards-page-image group）
+ *   マウント先は scripts/lib/drive-vault.mjs の resolveVaultRoot が解決する（Mac/Windows/env）。
  *
  * 原本の同定は **catalog.json の sourceSha256 との一致**で行う（ファイル名では引かない）。
  * Drive 側のファイル名は整理で変わりうるが sha256 は変わらないため。
@@ -26,16 +27,19 @@
 import { execFileSync, execFileSync as run } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import fs from 'node:fs'
-import os from 'node:os'
 import path from 'node:path'
+import {
+  resolveVaultRoot, loadDriveManifest, writeDriveManifestAtomic, sanitizeDriveEntry, realBytesAndHashes, toVaultRel,
+} from './lib/drive-vault.mjs'
+import { REPO_ROOT } from './lib/repository-paths.mjs'
+import { imageSize } from './lib/asset-storage.mjs'
 
-const ROOT = process.cwd()
+const ROOT = REPO_ROOT
 const CATALOG = path.join(ROOT, 'content/site/standards-library/catalog.json')
+// provenance（manifest.json）だけを repo に置く。ページ画像・テキストの実体は Drive vault の
+// 原本 PDF の隣（同名フォルダ）。置き場ルール: 人しか読まない派生物は Drive（asset-storage-policy.md §1）
 const OUT_ROOT = path.join(ROOT, 'content/sources/standards')
-const VAULT = path.join(
-  os.homedir(),
-  'Library/CloudStorage/GoogleDrive-uruhayato373@gmail.com/マイドライブ/doboku-note/原資料PDF/共通仕様書',
-)
+const STANDARDS_VAULT_DIR = '原資料PDF/共通仕様書'
 
 const argv = process.argv.slice(2)
 const flag = (n, d = null) => {
@@ -66,9 +70,9 @@ const printedPageOf = (text) => {
   const m = /^(\d{1,2})[-\u2010-\u2015\uFF0D](\d{1,3})$/.exec(last)
   return m ? `${m[1]}-${m[2]}` : null
 }
-const die = (msg) => {
+const die = (msg, code = 1) => {
   console.error(`[build-standards-page-images] ✗ ${msg}`)
-  process.exit(1)
+  process.exit(code)
 }
 
 for (const bin of ['pdftoppm', 'pdftotext', 'pdfinfo']) {
@@ -78,7 +82,14 @@ for (const bin of ['pdftoppm', 'pdftotext', 'pdfinfo']) {
     die(`${bin} が無い（brew install poppler）。検査不成立`)
   }
 }
-if (!fs.existsSync(VAULT)) die(`Drive vault が見えない: ${VAULT}\n  Google ドライブ アプリを起動して同期してから再実行する。検査不成立`)
+const mount = resolveVaultRoot()
+if (!mount.root) {
+  console.error(`[build-standards-page-images] ✗ ${mount.reason}`)
+  process.exit(2)
+}
+const VAULT = path.join(mount.root, ...STANDARDS_VAULT_DIR.split('/'))
+if (!fs.existsSync(VAULT)) die(`Drive vault に ${STANDARDS_VAULT_DIR} が無い（${mount.root}）。検査不成立`, 2)
+console.log(`[build-standards-page-images] vault: ${mount.root}（${mount.source}）`)
 
 const catalog = JSON.parse(fs.readFileSync(CATALOG, 'utf8'))
 let targets = catalog.documents.filter((d) => (ROLE === 'all' ? true : d.role === ROLE))
@@ -143,10 +154,14 @@ for (const doc of targets.sort((a, b) => a.agencyId.localeCompare(b.agencyId))) 
     continue
   }
 
+  // 実体の置き場＝原本 PDF と同名のフォルダ（PDF の隣）。人が PDF とページを見比べられる。
+  const vaultDocDir = path.join(path.dirname(pdf), path.basename(pdf).replace(/\.pdf$/i, ''))
+  const vaultDocRel = toVaultRel(path.relative(mount.root, vaultDocDir))
+
   if (fs.existsSync(manifestPath) && !FORCE) {
     const m = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
-    const n = fs.existsSync(path.join(outDir, 'pages'))
-      ? fs.readdirSync(path.join(outDir, 'pages')).filter((f) => f.endsWith('.jpg')).length
+    const n = fs.existsSync(path.join(vaultDocDir, 'pages'))
+      ? fs.readdirSync(path.join(vaultDocDir, 'pages')).filter((f) => f.endsWith('.jpg')).length
       : 0
     if (m.sourceSha256 === doc.sourceSha256 && n === m.pages && !MANIFEST_ONLY) {
       renderedBySha.set(doc.sourceSha256, label)
@@ -172,8 +187,8 @@ for (const doc of targets.sort((a, b) => a.agencyId.localeCompare(b.agencyId))) 
     continue
   }
 
-  const pagesDir = path.join(outDir, 'pages')
-  const textDir = path.join(outDir, 'text')
+  const pagesDir = path.join(vaultDocDir, 'pages')
+  const textDir = path.join(vaultDocDir, 'text')
   if (!MANIFEST_ONLY) {
     fs.rmSync(pagesDir, { recursive: true, force: true })
     fs.rmSync(textDir, { recursive: true, force: true })
@@ -279,7 +294,8 @@ for (const doc of targets.sort((a, b) => a.agencyId.localeCompare(b.agencyId))) 
         role: doc.role,
         title: doc.title,
         edition: doc.edition ?? null,
-        sourceFile: path.relative(VAULT, pdf),
+        sourceFile: toVaultRel(path.relative(VAULT, pdf)),
+        pagesLocation: { tier: 'drive-vault', vaultDir: vaultDocRel, note: '実体は Drive vault の原本 PDF と同名フォルダ。repo には無い。取り戻しは npm run drive-vault-sync -- --pull --path content/sources/standards/' + doc.agencyId + '/' },
         sourceSha256: doc.sourceSha256,
         pages: realPages,
         render: { tool: 'pdftoppm', dpi: DPI, format: 'jpeg', quality: QUALITY },
@@ -298,11 +314,30 @@ for (const doc of targets.sort((a, b) => a.agencyId.localeCompare(b.agencyId))) 
       2,
     ) + '\n',
   )
+  // Drive 台帳へ登録する（ビルドそのものが同期）。台帳には vault 相対パスだけを書く。
+  fs.mkdirSync(outDir, { recursive: true })
+  const dm = loadDriveManifest()
+  let registered = 0
+  for (const e of pageEntries) {
+    for (const [kind, rel] of [['image', e.image], ['text', e.text]]) {
+      const repoRel = toVaultRel(`content/sources/standards/${doc.agencyId}/${doc.documentId}/${rel}`)
+      const abs = path.join(vaultDocDir, ...rel.split('/'))
+      const h = await realBytesAndHashes(abs)
+      if (kind === 'image' && h.sha256 !== e.imageSha256) die(`${label}: ${rel} の読み直し sha256 が一致しない。検査不成立`)
+      dm.entries[repoRel] = sanitizeDriveEntry({
+        group: 'standards-page-image', vaultPath: `${vaultDocRel}/${rel}`, sha256: h.sha256, md5: h.md5, bytes: h.bytes,
+        regenerable: true, syncedAt: new Date().toISOString(), verifiedAt: new Date().toISOString(),
+        ...(kind === 'image' ? (imageSize(abs) || {}) : {}),
+      })
+      registered++
+    }
+  }
+  writeDriveManifestAtomic(dm)
   summary.rendered++
   summary.pages += realPages
   summary.bytes += docBytes
   renderedBySha.set(doc.sourceSha256, label)
-  console.log(`     ${realPages}p / ${(docBytes / 1048576).toFixed(0)}MB`)
+  console.log(`     ${realPages}p / ${(docBytes / 1048576).toFixed(0)}MB → ${vaultDocRel}/（Drive 台帳 +${registered}）`)
 }
 
 console.log(
