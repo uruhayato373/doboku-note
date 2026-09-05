@@ -16,7 +16,31 @@
           "url": "https://www.youtube.com/watch?v=hJYV_U0qKvA",
           "publishedAt": "2026-09-05T00:40:57.564Z",
           "privacyStatus": "public"
-        }
+        },
+        "shorts": [
+          {
+            "key": "koshu-sekoryo",
+            "status": "scheduled",
+            "approvedBy": "user",
+            "videoId": "8qhSsq9-x6k",
+            "url": "https://www.youtube.com/watch?v=8qhSsq9-x6k",
+            "uploadedAt": "2026-09-05T00:42:30.207Z",
+            "privacyStatus": "private",
+            "relatedVideoId": null,
+            "desiredRelatedVideoId": "hJYV_U0qKvA"
+          },
+          {
+            "key": "koki-sekoryo",
+            "status": "scheduled",
+            "approvedBy": "user",
+            "videoId": "HZs3Xls521s",
+            "url": "https://www.youtube.com/watch?v=HZs3Xls521s",
+            "uploadedAt": "2026-09-05T00:42:30.207Z",
+            "privacyStatus": "private",
+            "relatedVideoId": null,
+            "desiredRelatedVideoId": "hJYV_U0qKvA"
+          }
+        ]
       }
     },
     "anzen-ippanron-3riyu": {
