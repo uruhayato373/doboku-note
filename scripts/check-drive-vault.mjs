@@ -129,7 +129,7 @@ async function main() {
 
   // (e)(f) マウントが要る検査
   const mount = STAGED_ONLY ? { root: null, reason: '--staged-only はマウントを見ない' } : resolveVaultRoot({ cfg: dcfg });
-  let existence = 0, hashed = 0, unsynced = 0, localNewer = 0, pendingUnsynced = 0;
+  let existence = 0, hashed = 0, unsynced = 0, localNewer = 0, pendingUnsynced = 0, unreadable = 0;
   if (mount.root) {
     const step = DEEP ? 1 : Math.max(1, Math.floor(entries.length / SAMPLE));
     for (let i = 0; i < entries.length; i++) {
@@ -139,9 +139,21 @@ async function main() {
       if (!existsSync(abs)) { fail('vault-missing', '台帳にあるが vault に無い: ' + e.vaultPath, rel); continue; }
       if (i % step === 0) {
         hashed++;
-        const h = await realBytesAndHashes(abs);
-        if (h.sha256 !== e.sha256) fail('vault-mismatch', 'vault の実体が台帳の sha256 と違う', rel);
+        // ストリーミングマウントはアップロード中・退避中のファイルの read を ECANCELED/EBUSY で切ることがある
+        // （2026-09-05 に 6GB 同期直後の検査で実測）。1 件の読み損ねで検査全体を「不成立」にせず、
+        // その件を読めなかったと数える。全サンプルが読めなければ実体検査 0 件＝不成立。
+        try {
+          const h = await realBytesAndHashes(abs);
+          if (h.sha256 !== e.sha256) fail('vault-mismatch', 'vault の実体が台帳の sha256 と違う', rel);
+        } catch (err) {
+          unreadable++;
+          warn('vault-unreadable', 'vault の実体を読めなかった（' + (err.code || err.message) + '）。マウントが同期中なら後で再検査', rel);
+        }
       }
+    }
+    if (hashed > 0 && unreadable === hashed) {
+      console.error('[' + NAME + '] 検査不成立: サンプル ' + hashed + ' 件すべてを読めなかった（マウントが同期中か切断）。実体検査 0 件。');
+      process.exit(2);
     }
     for (const p of paths) {
       const r = routingFor(p, r2cfg, dcfg);
@@ -170,7 +182,7 @@ async function main() {
     console.log('[' + NAME + '] ' + (STAGED_ONLY ? 'staged ' : '') + 'パス ' + paths.length + ' 件を実検査 / いずれかの group に一致 ' + routed + ' / 衝突 ' + conflicts + ' / 移行中(pending)の重なり ' + pendingOverlap);
     console.log('  audience 検査 ' + audienceChecked + ' group（asset-storage.json）/ Drive group active ' + activeDrive.length + '・pending ' + pendingDrive.length + ' / 台帳 ' + entries.length + ' エントリ');
     if (mount.root) {
-      console.log('  mount: ' + mount.root + '（' + mount.source + '）— 実在確認 ' + existence + ' 件 / sha256 実照合 ' + hashed + ' 件' + (DEEP ? '（全件）' : '（サンプル。全件は --deep）') + ' / 未同期 ' + unsynced + ' / ローカルが新しい ' + localNewer + (pendingUnsynced ? ' / 移行待ち(pending)の未同期 ' + pendingUnsynced : ''));
+      console.log('  mount: ' + mount.root + '（' + mount.source + '）— 実在確認 ' + existence + ' 件 / sha256 実照合 ' + hashed + ' 件' + (unreadable ? '（うち読めず ' + unreadable + '）' : '') + (DEEP ? '（全件）' : '（サンプル。全件は --deep）') + ' / 未同期 ' + unsynced + ' / ローカルが新しい ' + localNewer + (pendingUnsynced ? ' / 移行待ち(pending)の未同期 ' + pendingUnsynced : ''));
     } else {
       console.log('  mount 無し・実体検査 0 件（' + mount.reason + '）。(a)〜(d) だけで判定する。');
     }

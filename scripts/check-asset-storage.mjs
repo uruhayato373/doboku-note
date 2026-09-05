@@ -193,9 +193,18 @@ function main() {
           continue;
         }
         scan.orphan++;
-        fail('not-offloaded', 'ワークツリーにしか無い（Git 非追跡・manifest 未登録）。'
-          + 'offload しないとこのマシンを失った時点で復元不能: '
-          + 'node scripts/asset-offload.mjs --group ' + hit.g.id + ' --commit --include-untracked', rel);
+        // 移行中（Drive 側が pending）の group は、置き場ルール上は既に人 tier。R2 へ上げる案内を出すと
+        // 誤った tier へ誘導するので、drive-vault-sync を案内する（未同期であること自体は FAIL のまま）。
+        const pendingDrive = dcfg ? driveGroupFor(rel, dcfg) : null;
+        if (pendingDrive) {
+          fail('not-offloaded', 'ワークツリーにしか無い（Git 非追跡・Drive 台帳未登録）。'
+            + '人 tier（audience=human）なので Drive vault へ: '
+            + 'node scripts/drive-vault-sync.mjs --group ' + pendingDrive.id + ' --commit', rel);
+        } else {
+          fail('not-offloaded', 'ワークツリーにしか無い（Git 非追跡・manifest 未登録）。'
+            + 'offload しないとこのマシンを失った時点で復元不能: '
+            + 'node scripts/asset-offload.mjs --group ' + hit.g.id + ' --commit --include-untracked', rel);
+        }
       }
     }
   }

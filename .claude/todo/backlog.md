@@ -25,6 +25,10 @@
 2026-09-05 に置き場ルールを「誰が使うか」へ改め、人 tier の 11 group を Google Drive vault へ同期した（drive-manifest.json）。
 残りは **R2 側の削除を伴う後半**で、大量削除は人が実行する。順序は必須（asset-storage-policy.md §4・/asset-route）:
 
+0. **教材 PDF だけ未同期**（`textbook-source-pdf` 415 本 4.1GB）。同期中に Mac の空きが 17→3.6GB まで落ちた
+   （Drive が同期済み 6GB をアップロード前にローカルへ滞留）ので止めた。Drive のアップロードが終わり空きが 8GB 以上
+   戻ったら `npm run drive-vault-sync -- --group textbook-source-pdf --from-r2 --dedupe-by-sha --commit`
+   （既存の手動配置 63 本は sha256 で adopt）。あるいは 6 の standards ローカルコピー 3.4GB を先に消してから
 1. `rclone config` で Google Drive バックエンドのリモート `doboku-gdrive` を作る（ブラウザ OAuth・1 回）
 2. group ごとに `npm run drive-vault-sync -- --group <id> --verify --deep --cloud`（クラウド md5 まで一致）
 3. `node scripts/delete-r2-objects.mjs --bucket private --from-manifest-group <id> --commit`（ig-rendered-image は `--bucket public` も）
