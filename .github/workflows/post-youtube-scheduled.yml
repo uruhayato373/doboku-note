@@ -16,7 +16,9 @@ name: ▶️ YouTube scheduled post (daily)
 # 真実源: docs/marketing/05_YouTube戦略_技術士総監.md（投稿頻度の節）
 on:
   schedule:
-    - cron: "17 19 * * *" # 毎日 04:17 JST。日次上限後の再開余地を確保する。
+    # YouTube Data API の日次クォータは太平洋時間0時に更新される。
+    # PST/PDTのどちらでも更新後になるよう、毎日17:17 JSTに実行する。
+    - cron: "17 8 * * *"
   workflow_dispatch:
     inputs:
       max:
@@ -161,7 +163,7 @@ jobs:
           node .claude/scripts/youtube/publish-video-batch.cjs "${args[@]}" 2>&1 | tee /tmp/yt-post.log
 
       # 通常動画の予約が全件終わった後だけ候補が生まれる。1 pack=Shorts 2本なので、
-      # 1日3 pack（6本）までprivate uploadし、関連動画のStudio設定を待つ。
+      # videos.insert の日次100本枠に余裕を残し、1日45 pack（90本）までprivate uploadする。
       - name: ▶️ Upload prepared video-pack Shorts
         if: ${{ github.event_name == 'schedule' && success() }}
         env:
@@ -174,7 +176,7 @@ jobs:
         run: |
           node .claude/scripts/youtube/publish-video-batch.cjs \
             --exam civil-construction-1,civil-construction-2,concrete-engineer,concrete-chief-engineer \
-            --phase shorts-upload --max 3 --skip-thumbnail
+            --phase shorts-upload --max 45 --skip-thumbnail
 
       # サムネイルAPIは動画アップロードより厳しい短時間上限を持つ。予約を先に確定し、
       # pending だけを翌日以降に少量ずつ再送する（失敗しても予約状態のcommitは続ける）。

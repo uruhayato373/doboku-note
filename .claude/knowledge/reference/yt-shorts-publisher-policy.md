@@ -124,7 +124,7 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 ## 5. 投稿カーデンス・スケジューリング（2026-09-05 更新）
 
 - legacy総監台帳の187本はretiredのまま凍結し、cronでは再開しない。
-- 2026-09-05に承認された動画パック112件のShorts224本は、日次cronで最大3 pack/6本をprivate uploadする。公開予約はStudioで関連通常動画を設定・確認した後に限る。
+- 2026-09-05に承認された動画パック112件のShorts224本は、太平洋時間のAPI日次更新後に、日次cronで最大45 pack/90本をprivate uploadする（[公式Quota Calculator](https://developers.google.com/youtube/v3/determine_quota_cost)の`videos.insert`既定100本/日に対して10本の余裕を確保）。公開予約はStudioで関連通常動画を設定・確認した後に限る。
 - 公開枠は通常動画も含めJST `07:30` / `12:30` / `20:00`の最大3投稿/日とし、試験日は投稿しない。
 - **1 Short = 1 問または1論点**。同日に類似論点を連投しない。
 

@@ -377,7 +377,7 @@ curl https://<account>.r2.cloudflarestorage.com/
 | `index-coverage.yml` | `0 2 1 * *` | **main**（ref 無し） | develop | GSC index coverage |
 | `weekly-review-guard.yml` | `17 2 * * 1` | **main**（ref 無し） | なし | 週次レビュー実施の督促 |
 | `r2-audit.yml` | `0 22 * * 0` | **main**（明示） | なし | R2 / OGP / 品質ゲート |
-| `post-youtube-scheduled.yml` | `0 19 * * *` | **main**（明示） | main | YouTube 予約投稿 |
+| `post-youtube-scheduled.yml` | `17 8 * * *` | **develop**（明示） | develop | YouTube 通常動画・Shorts 予約投稿 |
 | `link-audit.yml` | `0 22 * * 4` | **develop**（明示） | develop | リンク切れ |
 | `verify-yt-status.yml` | `0 20 * * 4` | **develop**（明示） | develop | YouTube 公開状態 |
 | `uptime-ping.yml` | `0 23,5,11 * * *` | **develop**（明示） | なし | 死活監視（shell のみ） |
