@@ -23,12 +23,10 @@
 
 2026-09-05 の `node scripts/check-note-attachments.mjs --live`（575 本実査・取得失敗 0）で、本文が PDF 配布を約束しているのにライブに添付が無い記事が 95 本（1級土木/magazines 38本／magazines/総監模範論文-ゼネコン 6本／magazines/総監模範論文-河川コンサル 6本／magazines/総監模範論文-自治体上水道担当 4本／magazines/総監模範論文-自治体下水道担当 4本／magazines/総監模範論文-自治体公園緑地担当 4本／magazines/総監模範論文-自治体契約調達担当 4本／magazines/総監模範論文-自治体技術基準担当 4本／magazines/総監模範論文-自治体河川担当 4本／magazines/総監模範論文-自治体港湾担当 4本／magazines/総監模範論文-自治体砂防担当 4本／magazines/総監模範論文-自治体道路担当 4本／magazines/総監模範論文-自治体都市計画担当 4本／magazines/総監模範論文-都市計画コンサル 4本／magazines/総監模範論文-道路橋梁コンサル 1本）。当日のバナー差し替え 87 本とは無関係（台帳突合で 0 件一致）で、以前から欠けていたものが実査で表面化した。実体 PDF はローカル／Drive vault にある。手順: `node scripts/note-attach-batch.mjs --commit --limit 90`（note の 1 日 100 ファイル上限に合わせて 2 日に分ける）→ 翌日 `check-note-attachments --live` で 0 件を確認。台帳は .claude/state/note-attachments-missing.json。
 
-### [DN-0173] 著者オーソリティ新バナーの残り 112 本をライブ差し替えする
+### [DN-0173] 著者オーソリティ新バナーの残り 141 本をライブ差し替えする
 タグ: [収益化] [種類:改善] [検証:check-note-republish] [起票:2026-09-05] [期日:2026-09-08]
 
-2026-09-05 に正方形バナー＋本文 2 段落へ 93 本（無料 26・会員 8・有料 59）を `note-swap-author-banner` で差し替えた。残りは有料 61 本（`1級・2級土木` の未処理分＝`npm run check-note-republish` の本文 drift のうちバナー入り記事。n9d9a77c66392 は空 p 掃除後の DOM 順序検証で 2 回失敗＝手動で editor を見る）とコンクリート 51 本。画像アップロードが note の 1 日 100 ファイル上限に数えられるか未確認のため `--daily-limit 90` で日を分ける。手順: `node scripts/note-swap-author-banner.mjs --list <paths> --commit --max-consecutive-fail 3`（30 本ずつ・全文置換はしない）→ 各バッチ後 `node scripts/check-note-structure.mjs --ci` と `node scripts/check-note-attachments.mjs --live`。完了条件＝バナー入り 247 本の本文 drift が 0。
-
-
+2026-09-05 に正方形バナー＋本文 2 段落へ 93 本（無料 26・会員 8・有料 59）を `note-swap-author-banner` で差し替えた（差し替え済みは全件ハッシュ同期・drift 0）。残り 141 本＝**有料 89**（うち 28 本は frontmatter に `noteStatus` が無く当日のリスト生成から漏れたが API では published＝2テーマ組合せ大全ほか。n9d9a77c66392 は空 p 掃除後の DOM 順序検証で 2 回失敗＝手動で editor を見る）・無料 1（1級経験記述で落ちる答案）・**コンクリート 51**（無料 3 を含む）。対象リストは noteStatus でなく `npm run check-note-republish -- --json` の driftFiles ∩ バナー入り記事から作る。画像アップロードが note の 1 日 100 ファイル上限に数えられるか未確認のため `--daily-limit 90` で日を分ける。手順: `node scripts/note-swap-author-banner.mjs --list <paths> --commit --max-consecutive-fail 3`（30 本ずつ・全文置換はしない）→ 各バッチ後 `node scripts/check-note-structure.mjs --ci` と `node scripts/check-note-attachments.mjs --live`。完了条件＝バナー入り 247 本の本文 drift が 0。
 ### [DN-0169] アセット置き場移行の仕上げ（R2 側の撤去とグループ切替）
 タグ: [インフラ・計測] [種類:改善] [検証:check-drive-vault] [起票:2026-09-05]
 
