@@ -55,7 +55,7 @@ node .claude/skills/social/ig-reel-create/scripts/ig-reel-create.mjs \
 > [!warning]
 > **カバー/テンプレ刷新時は `--skip-png` を付けない。** カバーPNGテンプレ（`exam-cover-ig`）や 09-cta テンプレを更新した後は、PNG から再生成しないと旧テンプレが動画に残る。`--skip-png` は「PNG が現行テンプレと一致している」と確信できる時だけ使う。カバーPNGだけ別途更新して動画を再生成しない運用は **desync を生むため禁止**（`yt-shorts-create` の `assertCoverInSync` ガードが派生時に SSIM<0.90 で検知・中断する）。
 
-> **コミット方針**: `reels/script.txt` と `caption.txt` のみコミット。`video.mp4` / `wav/` / `slide-NN.mp4` / `_combined.mp4` / `_empty.ass` / `concat.txt` は再生成可能な派生物で `.gitignore` 済み。wav は R2 退避（`npm run upload-sns-r2`）、手元に無ければ script.txt から VOICEVOX で再生成（真実源 `.claude/knowledge/reference/sns-archive-policy.md`）。
+> **コミット方針**: `reels/script.txt` と `caption.txt` のみコミット。`video.mp4` / `wav/` / `slide-NN.mp4` / `_combined.mp4` / `_empty.ass` / `concat.txt` は再生成可能な派生物で `.gitignore` 済み。wav は Google Drive vault 退避（`npm run drive-vault-sync -- --group sns-archived-media --commit`、取り戻しは `--pull`）、手元に無ければ script.txt から VOICEVOX で再生成（真実源 `.claude/knowledge/reference/sns-archive-policy.md`）。
 
 ## 出力
 

@@ -97,7 +97,10 @@ test('driveGroupFor: 台帳・原稿・サイト図版を巻き込まない', ()
   assert.equal(driveGroupFor('content/sources/textbook/x/第1章.md', DCFG), null);
   assert.equal(driveGroupFor('content/site/civil-construction-1/guide-x/img/fig.png', DCFG), null);
   assert.equal(driveGroupFor('content/note/技術士総監/x/img/cover.png', DCFG), null, 'note カバーは CI が書く R2 側');
-  assert.equal(driveGroupFor('content/sns/instagram/x/reels/a.png', DCFG), null, 'reels は別系統');
+  assert.equal(driveGroupFor('content/sns/instagram/x/reels/a.png', DCFG), null, 'reels の中間 PNG はどの group にも属さない（再生成）');
+  assert.equal(driveGroupFor('content/sns/instagram/x/reels/wav/a.wav', DCFG).id, 'sns-archived-media');
+  assert.equal(driveGroupFor('content/sns/instagram/x/reels/video.mp4', DCFG).id, 'sns-archived-media');
+  assert.equal(driveGroupFor('content/sns/youtube/2026-06-08-x/video.mp4', DCFG).id, 'sns-archived-media');
 });
 
 test('sanitizeDriveEntry: 許可キー以外を落とし、vaultPath を NFC・/ 区切りに寄せる', () => {

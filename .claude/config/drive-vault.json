@@ -44,7 +44,7 @@
   "layout": {
     "原資料PDF": "L0 原本。白書・書籍・資格試験・共通仕様書は手で整えた既存。教材/{書名}/ は content/sources/textbook/{書名}/ の 1:1 ミラー。共通仕様書/{整備局}/{PDF名}/{pages,text}/ はページ画像（PDF の隣）。",
     "文字起こし": "L1 中間産物の .md（既存・drive-vault-sync の対象外。手順は content/sources/textbook/README.md）。",
-    "制作物": "人が使う成果物。note配布PDF / IGレンダー / 動画レンダー / Kindle / ココナラ / マガジンカバー。",
+    "制作物": "人が使う成果物。note配布PDF / IGレンダー / SNS音声動画（reels wav・mp4、YouTube Shorts mp4）/ 動画レンダー / Kindle / ココナラ / マガジンカバー。",
     "アーカイブ": "repo/（repo-archive）と 旧R2/（legacy-r2-orphan の SNS 素材）。"
   },
   "groups": [
@@ -224,6 +224,23 @@
       "generator": null,
       "requiredBy": [],
       "reason": "旧 R2 から退避した SNS 素材（exam-packs の wav/mp4 等 1,146 件）。読み手は無いが再生成できないので捨てずに Drive へ。同じ孤児のうち記事画像 2,573 件は参照 0 を確認して削除する（Drive へは持たない）。"
+    },
+    {
+      "id": "sns-archived-media",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sns/(instagram|youtube)/.+\\.(wav|mp4|m4a)$"
+      },
+      "vaultDir": "制作物/SNS音声動画",
+      "keyFrom": "stripPrefix:content/sns/",
+      "regenerable": true,
+      "generator": "reels/script.txt・script.json から VOICEVOX 再合成＋ffmpeg（ig-reel-create / publish-reel-jit / yt-shorts-create）",
+      "requiredBy": [
+        "scripts/publish-reel-jit.mjs",
+        ".claude/scripts/youtube/per-problem-shorts.mjs"
+      ],
+      "reason": "IG リールの wav/mp4 と YouTube Shorts の mp4。読むのは人（手元の JIT 投稿）だけで、サイトは配信せず CI も読まない（post-youtube-scheduled.yml の Shorts 台帳は 2026-08-18 に手動投入へ切替済み・pending 0・参照キー sns/youtube-shorts/ は R2 に 0 件）。2026-09-05（DN-0170）に旧 upload-sns-r2 系統（public R2 sns/）から統合。"
     }
   ]
 }

@@ -39,7 +39,7 @@ Google Drive 側が `.claude/config/drive-vault.json`（台帳 `.claude/state/as
 | `site-ogp-png` | site | public R2 `posts/` | `ogp-supply.yml` が生成・供給 |
 | `note-cover-png` | ci | private R2 `note/covers/` | `note-cover-supply.yml` が書く。2026-09-05（DN-0171）まで byVisibility で公開済みを public にも置いていたが、サイトも note も読まないので private 一本化 |
 | `git-history-bundle` | human（例外） | private R2 | 2.65GB 書き込み一回・復元時だけ。ストリーミングマウント越しの単一巨大 blob は脆い |
-| `sns-archived-media` | human（例外） | public R2 `sns/` | `upload-sns-r2` 系統（[sns-archive-policy.md](sns-archive-policy.md)）。`post-youtube-scheduled.yml` が `sns/youtube-shorts/` を読む。統合は後追い |
+| `sns-archived-media` | human | Drive `制作物/SNS音声動画/` | reels の wav/mp4・YouTube Shorts mp4。投稿は人の JIT。`post-youtube-scheduled.yml` の Shorts 台帳は手動投入へ切替済み（pending 0・参照キー `sns/youtube-shorts/` は R2 に 0 件）なので CI は読んでいない。2026-09-05 DN-0170 で旧 `upload-sns-r2` 系統を廃止（[sns-archive-policy.md](sns-archive-policy.md)） |
 | `standards-page-image` | human | Drive `原資料PDF/共通仕様書/{整備局}/{PDF名}/{pages,text}/` | 原本 PDF の隣（§1-2） |
 | `textbook-source-pdf` / `textbook-page-image` | human | Drive `原資料PDF/教材/{書名}/**` | `content/sources/textbook/{書名}/` の 1:1 ミラー。既存の手動配置 63 本は sha256 で adopt |
 | `note-delivery-pdf` | human | Drive `制作物/note配布PDF/` | 添付は人が `note-attach-file` で実行 |
@@ -389,7 +389,6 @@ cache は `.local/cache/assets/`（Git 非追跡）。最終アクセス時刻�
 | private `note/covers/` | 840（772MiB） | 台帳 `note-cover-png`（全カバー。2026-09-05 DN-0171 で public 複製 823 件を private へ server-side copy → md5 照合 → public 側削除） | `asset-hydrate --group note-cover-png` |
 | public `posts/`（記事図版） | 4,298（149MiB） | **Git**（`content/site/**/img`） | `r2-sync.yml` が一方向で同期。配信コピーなので台帳不要 |
 | public `posts/`（ogp.png） | 1,586（662MiB） | 台帳 `site-ogp-png`（1,574） | `ogp-supply.yml` が生成・供給 |
-| public `sns/` | 281（265MiB） | 台帳 `sns-archived-media`（human 例外） | `upload-sns-r2` 系統（[sns-archive-policy.md](sns-archive-policy.md)） |
 | public `brain/dist/` | 2 | `brain-products.ts` | `upload-brain-dist-r2` |
 | Drive `マイドライブ/doboku-note/` | 20,078（11.4GiB） | 台帳 `drive-manifest.json` 19,236 ＋ 手で置いた原本・文字起こし | `drive-vault-sync --pull --group <id>` |
 
@@ -398,7 +397,7 @@ cache は `.local/cache/assets/`（Git 非追跡）。最終アクセス時刻�
 動画レンダー 1,939 / Kindle 76 / ココナラ 79 / マガジンカバー 47 / repo アーカイブ 13 / 旧 R2 孤児の SNS 素材 1,146。
 全 group を `--verify --deep --cloud`（台帳・vault・Drive API md5 の 3 者一致・不一致 0）で通してから
 `delete-r2-objects --from-manifest-group` で R2 側を消した（12 実行・不在 0・失敗 0）。旧孤児の記事画像 2,573 件は
-参照 0 を再確認し保全せず削除。private バケットは 13,700 超 → 59 オブジェクト、public は 9,128 → 6,988（同日 DN-0171 で public の note カバー 823 件も private へ寄せ、public は 6,165）。
+参照 0 を再確認し保全せず削除。private バケットは 13,700 超 → 59 オブジェクト、public は 9,128 → 6,988（同日 DN-0171 で public の note カバー 823 件を private へ寄せ、DN-0170 で `sns/` 281 件を Drive へ移し、public は 5,884）。
 `delete-r2-objects --from-manifest-group` の保全判定は **Drive 台帳の同 sha256 だけ**を認める（R2 台帳自身は循環するので
 使わない。動画レンダー 1,724 件が Drive 未同期のまま purge に進めた穴を同日に塞いだ）。
 

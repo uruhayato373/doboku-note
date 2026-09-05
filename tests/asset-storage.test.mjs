@@ -47,12 +47,12 @@ test('config: 全 group が bucket / keyFrom / visibilityFrom を正しく宣言
 test('groupFor: パスから所属グループを引ける（他グループを巻き込まない）', () => {
   assert.equal(groupFor('content/note/技術士総監/x/img/cover.png', CFG).id, 'note-cover-png');
   assert.equal(groupFor('content/site/civil-construction-1/guide-x/ogp.png', CFG).id, 'site-ogp-png');
-  assert.equal(groupFor('content/sns/instagram/cem/pack/reels/wav/a.wav', CFG).id, 'sns-archived-media');
   assert.equal(groupFor('.local/archive/git-history/a.bundle', CFG).id, 'git-history-bundle');
   // 2026-09-05 に Drive vault（drive-vault.json）へ移した人 tier の group は R2 側に無い
   assert.equal(groupFor('content/note/技術士総監/x/pdf/a.pdf', CFG), null);
   assert.equal(groupFor('content/sources/textbook/主任技師2022/img/p1.png', CFG), null);
   assert.equal(groupFor('content/sns/instagram/cem/pack/img/01.png', CFG), null);
+  assert.equal(groupFor('content/sns/instagram/cem/pack/reels/wav/a.wav', CFG), null, 'reels の wav/mp4 も 2026-09-05（DN-0170）から Drive');
   assert.equal(groupFor('.tmp/video-render/sample/video.mp4', CFG), null);
   assert.equal(groupFor('.tmp/video-render/verify-frames/contact-sheet.png', CFG), null);
   // 対象外は null。サイト記事の図版や原稿を巻き込まない。

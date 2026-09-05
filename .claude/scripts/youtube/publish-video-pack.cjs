@@ -23,6 +23,7 @@ const PACK_ID = arg('--pack-id');
 const PHASE = arg('--phase');
 const DRY = process.argv.includes('--dry-run');
 const RELATED_CONFIRMED = process.argv.includes('--related-confirmed');
+const SKIP_THUMBNAIL = process.argv.includes('--skip-thumbnail');
 
 function walk(dir, out = []) {
   for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -176,15 +177,19 @@ async function upload(youtube, s3, uploadsPlaylistId, item, privacyStatus) {
     // SSOT 修正後の再実行では概要欄・タグも同期する。insert 後に thumbnail 設定だけ
     // 失敗したケースでも、同じ再実行で必ず回復させる。
     await syncSnippet(youtube, videoId, item);
-    const thumbnail = await downloadR2(s3, item, 'thumbnail.png');
-    try {
-      await setThumbnail(youtube, videoId, thumbnail);
-    } finally {
-      if (fs.existsSync(thumbnail)) fs.unlinkSync(thumbnail);
+    if (!SKIP_THUMBNAIL) {
+      const thumbnail = await downloadR2(s3, item, 'thumbnail.png');
+      try {
+        await setThumbnail(youtube, videoId, thumbnail);
+      } finally {
+        if (fs.existsSync(thumbnail)) fs.unlinkSync(thumbnail);
+      }
+    } else {
+      console.log(`${item.key}: thumbnail はレート上限回避のため後送します`);
     }
   } else {
     const video = await downloadR2(s3, item, 'video.mp4');
-    const thumbnail = await downloadR2(s3, item, 'thumbnail.png');
+    const thumbnail = SKIP_THUMBNAIL ? null : await downloadR2(s3, item, 'thumbnail.png');
     try {
       const res = await youtube.videos.insert({
         part: 'snippet,status',
@@ -195,10 +200,10 @@ async function upload(youtube, s3, uploadsPlaylistId, item, privacyStatus) {
         media: { mimeType: 'video/mp4', body: fs.createReadStream(video) },
       });
       videoId = res.data.id;
-      await setThumbnail(youtube, videoId, thumbnail);
+      if (thumbnail) await setThumbnail(youtube, videoId, thumbnail);
       console.log(`${item.key}: uploaded ${videoId}`);
     } finally {
-      for (const p of [video, thumbnail]) if (fs.existsSync(p)) fs.unlinkSync(p);
+      for (const p of [video, thumbnail]) if (p && fs.existsSync(p)) fs.unlinkSync(p);
     }
   }
   const actual = await fetchVideo(youtube, videoId);
@@ -251,8 +256,8 @@ async function schedulePublic(youtube, videoId, publishAt) {
 }
 
 async function main() {
-  if (!PACK_ID || !['longform', 'shorts-upload', 'shorts-publish'].includes(PHASE)) {
-    throw new Error('Usage: --pack-id ID --phase longform|shorts-upload|shorts-publish [--dry-run] [--related-confirmed]');
+  if (!PACK_ID || !['longform', 'thumbnail', 'shorts-upload', 'shorts-publish'].includes(PHASE)) {
+    throw new Error('Usage: --pack-id ID --phase longform|thumbnail|shorts-upload|shorts-publish [--dry-run] [--skip-thumbnail] [--related-confirmed]');
   }
   if (!/^[a-z0-9][a-z0-9-]{2,80}$/.test(PACK_ID)) throw new Error('pack-id 形式が不正です');
   const pack = findPack(PACK_ID);
@@ -261,7 +266,7 @@ async function main() {
   publish = JSON.parse(fs.readFileSync(publishPath, 'utf8'));
   if (publish.schemaVersion !== 1) throw new Error('youtube.json schemaVersion 不一致');
   if (pack.manifest.packId !== PACK_ID) throw new Error('manifest packId 不一致');
-  const selected = PHASE === 'longform' ? [publish.longform] : publish.shorts;
+  const selected = ['longform', 'thumbnail'].includes(PHASE) ? [publish.longform] : publish.shorts;
   for (const item of selected) assertMetadata(item, PACK_ID);
   console.log(`target: account=${publish.channel.title}/${publish.channel.id} pack=${PACK_ID} phase=${PHASE}`);
   for (const item of selected) console.log(`  ${item.key}: ${item.title}`);
@@ -295,14 +300,34 @@ async function main() {
         status: 'scheduled', approvedBy: 'user', videoId,
         url: `https://www.youtube.com/watch?v=${videoId}`, scheduledAt: now,
         publishAt: actual.status.publishAt, privacyStatus: 'private',
+        thumbnailStatus: SKIP_THUMBNAIL ? 'pending' : 'set',
       });
       console.log(`${publish.longform.key}: scheduled ${actual.status.publishAt} ${videoId}`);
     } else {
       upsertDerivative(state, PACK_ID, 'longform', {
         status: 'published', approvedBy: 'user', videoId,
         url: `https://www.youtube.com/watch?v=${videoId}`, publishedAt: now, privacyStatus: 'public',
+        thumbnailStatus: SKIP_THUMBNAIL ? 'pending' : 'set',
       });
     }
+  } else if (PHASE === 'thumbnail') {
+    const current = state.packs?.[PACK_ID]?.derivatives?.longform;
+    const videoId = current?.videoId ?? await findExactTitle(youtube, uploadsPlaylistId, publish.longform.title);
+    if (!videoId) throw new Error(`${PACK_ID}: thumbnail 対象の既存動画が見つかりません`);
+    const actual = await fetchVideo(youtube, videoId);
+    if (!actual || actual.snippet?.channelId !== publish.channel.id || actual.snippet?.title !== publish.longform.title) {
+      throw new Error(`${PACK_ID}: thumbnail 対象動画の実査に失敗 ${videoId}`);
+    }
+    const thumbnail = await downloadR2(s3, publish.longform, 'thumbnail.png');
+    try {
+      await setThumbnail(youtube, videoId, thumbnail);
+    } finally {
+      if (fs.existsSync(thumbnail)) fs.unlinkSync(thumbnail);
+    }
+    upsertDerivative(state, PACK_ID, 'longform', {
+      videoId, thumbnailStatus: 'set', thumbnailSetAt: now,
+    });
+    console.log(`thumbnail: set ${videoId}`);
   } else if (PHASE === 'shorts-upload') {
     const relatedVideoId = state.packs?.[PACK_ID]?.derivatives?.longform?.videoId;
     if (!relatedVideoId) throw new Error('先にlongformを公開してvideoIdを確定してください');

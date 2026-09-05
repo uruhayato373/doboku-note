@@ -59,7 +59,7 @@ const FORGET_GROUP = val('--forget-group');
 const ALLOW_UNPRESERVED = flag('--allow-unpreserved');
 const LIMIT = Number(val('--limit', '0')) || 0;
 // 直列だと 868 件で約 12 分かかった（571 MiB の up と、sha256 検証のための down で往復 1.1 GB）。
-// 既存の upload-sns-r2 も同じ理由で 20 並列。既定 8 は R2 のレート制限に対して控えめな値。
+// 旧 upload-sns-r2（2026-09-05 廃止）も同じ理由で 20 並列だった。既定 8 は R2 のレート制限に対して控えめな値。
 const CONCURRENCY = Math.max(1, Number(val('--concurrency', '8')) || 8);
 
 const mib = (b) => (b / 1048576).toFixed(1);

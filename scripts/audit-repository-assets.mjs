@@ -227,12 +227,12 @@ const RULES = [
   {
     id: 'sns-binary',
     test: (p) => /^content\/sns\//.test(p) && /\.(mp4|wav|mp3|mov|m4a)$/i.test(p),
-    bucket: 'R2_PUBLIC',
-    reason: '動画・音声。sns-archive-policy.md の既存 R2 退避経路（upload-sns-r2）で asset-storage.json の sns-archived-media group（bucket: public・投稿済みで既に公開されているため公開バケット）へ退避済み',
+    bucket: 'DRIVE_VAULT',
+    reason: '動画・音声（reels の wav/mp4・YouTube Shorts mp4）。読むのは人の JIT 投稿だけなので Google Drive vault（制作物/SNS音声動画/・drive-vault.json sns-archived-media）。2026-09-05 DN-0170 で旧 upload-sns-r2 系統（public R2 sns/）から統合',
     regenFrom: 'script.json + wav（VOICEVOX 再合成）',
     usedBy: ['publish-ig-bs / yt upload'],
     generator: 'ig-reel-create 系',
-    visibility: () => 'public',
+    visibility: () => 'private',
   },
   {
     id: 'kindle-artifact',
