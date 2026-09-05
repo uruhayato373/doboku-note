@@ -155,6 +155,13 @@ async function upload(youtube, s3, uploadsPlaylistId, item, privacyStatus) {
   let videoId = await findExactTitle(youtube, uploadsPlaylistId, item.title);
   if (videoId) {
     console.log(`${item.key}: 同一タイトル既存動画を再利用 ${videoId}`);
+    // insert 後に thumbnail 設定だけ失敗したケースでも、再実行で必ず回復させる。
+    const thumbnail = await downloadR2(s3, item, 'thumbnail.png');
+    try {
+      await setThumbnail(youtube, videoId, thumbnail);
+    } finally {
+      if (fs.existsSync(thumbnail)) fs.unlinkSync(thumbnail);
+    }
   } else {
     const video = await downloadR2(s3, item, 'video.mp4');
     const thumbnail = await downloadR2(s3, item, 'thumbnail.png');

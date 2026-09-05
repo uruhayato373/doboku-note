@@ -81,7 +81,7 @@ async function loadVisualAsset(scene) {
 const { isRunning, synthesize } = await import(
   pathToFileURL(resolve(ROOT, '.claude/scripts/lib/sns-common/tts-client.mjs')).href
 );
-const { composeShortsVideo, ffmpegAvailable, probeDuration } = await import(
+const { composeStaticSlidesVideo, ffmpegAvailable, probeDuration } = await import(
   pathToFileURL(resolve(ROOT, '.claude/skills/social/yt-shorts-create/scripts/lib/ffmpeg-compose.mjs')).href
 );
 
@@ -152,13 +152,7 @@ async function main() {
   if (!args['skip-tts']) {
     mp4Path = join(outDir, 'video.mp4');
     console.log('\n[ffmpeg] 動画合成中...');
-    await composeShortsVideo({
-      pngPaths,
-      wavPaths,
-      assPath,
-      outPath: mp4Path,
-      options: { tmpDir: wavDir, requireSubtitles: true },
-    });
+    await composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, outPath: mp4Path });
     totalSec = await probeDuration(mp4Path);
     console.log(`  実尺 ${totalSec.toFixed(1)}s（設計尺 ${scenes.at(-1).end}s）`);
   }

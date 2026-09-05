@@ -180,6 +180,57 @@ export async function composeShortsVideo({
 }
 
 /**
+ * 静止画＋音声の複数 scene を1回の ffmpeg encode で連結し、字幕を焼き込む。
+ * 長尺では scene ごとの mp4 化＋最終再encodeが律速になるため、通常動画はこちらを使う。
+ */
+export async function composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, outPath }) {
+  if (!Array.isArray(pngPaths) || !Array.isArray(wavPaths) || pngPaths.length === 0) {
+    throw new Error('pngPaths and wavPaths must be non-empty arrays');
+  }
+  if (pngPaths.length !== wavPaths.length) {
+    throw new Error(`pngPaths/wavPaths length mismatch: ${pngPaths.length} vs ${wavPaths.length}`);
+  }
+  if (!assPath || !outPath) throw new Error('assPath and outPath are required');
+
+  const durations = [];
+  for (const wav of wavPaths) durations.push(await probeDuration(wav));
+
+  const args = ['-y'];
+  for (let i = 0; i < pngPaths.length; i++) {
+    args.push('-loop', '1', '-framerate', '1', '-t', String(durations[i]), '-i', pngPaths[i], '-i', wavPaths[i]);
+  }
+
+  const filters = [];
+  const concatInputs = [];
+  for (let i = 0; i < pngPaths.length; i++) {
+    const videoInput = i * 2;
+    const audioInput = videoInput + 1;
+    filters.push(`[${videoInput}:v]fps=30,format=yuv420p,setsar=1[v${i}]`);
+    filters.push(`[${audioInput}:a]aresample=async=1:first_pts=0[a${i}]`);
+    concatInputs.push(`[v${i}][a${i}]`);
+  }
+  filters.push(`${concatInputs.join('')}concat=n=${pngPaths.length}:v=1:a=1[vcat][aout]`);
+
+  const absAssPath = isAbsolute(assPath) ? assPath : resolve(assPath);
+  const escAssPath = absAssPath.replace(/\\/g, '\\\\').replace(/:/g, '\\:');
+  const escFontDir = FONT_DIR.replace(/\\/g, '\\\\').replace(/:/g, '\\:');
+  if (await checkFilter('subtitles')) {
+    filters.push(`[vcat]subtitles=${escAssPath}:fontsdir=${escFontDir}[vout]`);
+  } else {
+    throw new Error('字幕必須の通常動画ですが、ffmpeg に libass がありません');
+  }
+
+  args.push(
+    '-filter_complex', filters.join(';'),
+    '-map', '[vout]', '-map', '[aout]',
+    '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23', '-pix_fmt', 'yuv420p',
+    '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-shortest', outPath,
+  );
+  await runFFmpeg(args);
+  return { mp4Path: outPath, durations };
+}
+
+/**
  * ffprobe で audio の duration（秒）を取得。
  */
 export async function probeDuration(audioPath) {
