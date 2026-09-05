@@ -26,8 +26,10 @@
             "url": "https://www.youtube.com/watch?v=8qhSsq9-x6k",
             "uploadedAt": "2026-09-05T00:42:30.207Z",
             "privacyStatus": "private",
-            "relatedVideoId": null,
-            "desiredRelatedVideoId": "hJYV_U0qKvA"
+            "relatedVideoId": "hJYV_U0qKvA",
+            "desiredRelatedVideoId": "hJYV_U0qKvA",
+            "scheduledAt": "2026-09-05T01:20:31.582Z",
+            "publishAt": "2026-09-05T22:30:00Z"
           },
           {
             "key": "koki-sekoryo",
@@ -37,8 +39,10 @@
             "url": "https://www.youtube.com/watch?v=HZs3Xls521s",
             "uploadedAt": "2026-09-05T00:42:30.207Z",
             "privacyStatus": "private",
-            "relatedVideoId": null,
-            "desiredRelatedVideoId": "hJYV_U0qKvA"
+            "relatedVideoId": "hJYV_U0qKvA",
+            "desiredRelatedVideoId": "hJYV_U0qKvA",
+            "scheduledAt": "2026-09-05T01:20:31.582Z",
+            "publishAt": "2026-09-06T22:30:00Z"
           }
         ]
       }
