@@ -260,7 +260,7 @@
     "gakka-morido-shimekatame": {
       "derivatives": {
         "longform": {
-          "status": "approved",
+          "status": "rendered",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -269,7 +269,8 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-23T07:30:00+09:00"
+          "publishAt": "2026-09-23T07:30:00+09:00",
+          "renderedAt": "2026-09-05T04:16:34.435Z"
         }
       }
     },
@@ -318,7 +319,7 @@
     "gakka-roudou-kijun": {
       "derivatives": {
         "longform": {
-          "status": "approved",
+          "status": "rendered",
           "qa": {
             "avg": 2.5,
             "blocks": 0,
@@ -327,7 +328,8 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-25T07:30:00+09:00"
+          "publishAt": "2026-09-25T07:30:00+09:00",
+          "renderedAt": "2026-09-05T04:16:41.140Z"
         }
       }
     },
@@ -715,7 +717,7 @@
     "gakka-sokuryo-3ten": {
       "derivatives": {
         "longform": {
-          "status": "approved",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -724,7 +726,8 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-26T07:30:00+09:00"
+          "publishAt": "2026-09-26T07:30:00+09:00",
+          "renderedAt": "2026-09-05T04:16:45.254Z"
         }
       }
     },
@@ -894,7 +897,7 @@
     "gakka-risk-assessment": {
       "derivatives": {
         "longform": {
-          "status": "approved",
+          "status": "rendered",
           "qa": {
             "avg": 2.5,
             "blocks": 0,
@@ -903,7 +906,8 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-24T20:00:00+09:00"
+          "publishAt": "2026-09-24T20:00:00+09:00",
+          "renderedAt": "2026-09-05T04:16:49.462Z"
         }
       }
     },
