@@ -1,9 +1,12 @@
 ---
 notePricing: membership
-noteStatus: draft
+noteStatus: published
 noteSeries: 学科記述予想
 membershipOnly: true
 utmCampaign: civil-membership-gakka-schedule
+notePublishedAt: "2026-09-05"
+noteId: "n464089f39268"
+noteUrl: "https://note.com/dobokunote/n/n464089f39268"
 coverTitle: ["学科記述予想｜工程管理", "工程表の特徴とネットワーク"]
 cover:
   variant: crop-safe-v4

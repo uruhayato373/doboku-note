@@ -1,9 +1,12 @@
 ---
 notePricing: membership
-noteStatus: draft
+noteStatus: published
 noteSeries: 学科記述予想
 membershipOnly: true
 utmCampaign: civil-membership-gakka-safety
+notePublishedAt: "2026-09-05"
+noteId: "n0743446e701a"
+noteUrl: "https://note.com/dobokunote/n/n0743446e701a"
 coverTitle: ["学科記述予想｜安全管理", "型枠支保工・足場・土止め"]
 cover:
   variant: crop-safe-v4
