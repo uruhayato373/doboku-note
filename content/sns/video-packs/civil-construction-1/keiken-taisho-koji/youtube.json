@@ -22,5 +22,46 @@
     "sha256": "6c14e23f71d24fd6cd939b14650da285e9323035005d738dff67419c1934906d",
     "thumbnailSha256": "7fb080af848062cd0a064b8887ab1677d9eedbf068b2d8290192937b936cc044"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-block1-1",
+      "sceneId": "block1",
+      "title": "1級土木｜「書ける」工事の範囲 #Shorts",
+      "description": "書ける工事の範囲は幅広く、土木一般の土工事や地盤改良、河川・海岸・砂防・道路・橋梁・トンネル・上下水道などが該当します。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://coconala.com/services/4317796?utm_source=youtube&utm_medium=video&utm_campaign=keiken-taisho-koji&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-09-29T12:30:00+09:00",
+      "r2Key": "video/render/keiken-taisho-koji/shorts/point-block1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-taisho-koji/shorts/point-block1-1/thumbnail.png",
+      "sha256": "e0ddb10494f3d9eea0d26481e48c4e9802e450bc9039f6656180da5fddc78737",
+      "thumbnailSha256": "4c68c69e1634d2b546e65b57bd6e3f2b6049ed79105ce929b34f991ad33ae7d8"
+    },
+    {
+      "key": "point-block2-2",
+      "sceneId": "block2",
+      "title": "1級土木｜「書けない」工事の代表例 #Shorts",
+      "description": "対象外の代表例は、プレキャスト製品などの工場製作、建築の杭・基礎や外構、給排水などの建築設備、構造物の解体・撤去です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://coconala.com/services/4317796?utm_source=youtube&utm_medium=video&utm_campaign=keiken-taisho-koji&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-01T12:30:00+09:00",
+      "r2Key": "video/render/keiken-taisho-koji/shorts/point-block2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-taisho-koji/shorts/point-block2-2/thumbnail.png",
+      "sha256": "19a7babccaf438ac23f1f99d132cdfe156cbcd83d93b8ba35bf859db4af62915",
+      "thumbnailSha256": "a9a6251e1028a75ec753ef3d3d7172d8898ad65c4005815e2ab13f0c700be297"
+    }
+  ]
 }

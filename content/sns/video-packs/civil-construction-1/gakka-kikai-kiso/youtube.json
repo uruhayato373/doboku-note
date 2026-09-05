@@ -22,5 +22,46 @@
     "sha256": "31f5a1cdbd2d860cf863ac5767bf94c49a39a4b4231adef81a643f6dc384b1f1",
     "thumbnailSha256": "20651140af8b7f1297954178295d57f8cdcac9306b4fba6328499ef8cb4ef0f7"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-bunrui-1",
+      "sceneId": "bunrui",
+      "title": "1級土木｜分類と規格表示 #Shorts",
+      "description": "建設業法では、トラクタ系・ショベル系・基礎工事用・モータグレーダ・締固め用・舗装用などに区分します。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-kikai-kiso&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-11T20:00:00+09:00",
+      "r2Key": "video/render/gakka-kikai-kiso/shorts/point-bunrui-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-kikai-kiso/shorts/point-bunrui-1/thumbnail.png",
+      "sha256": "0f509f62396066c1bd34dfe5bdbf2156c657822eb9b37d070c38012c43c6540c",
+      "thumbnailSha256": "d39534c570ee2125c06750550eef228d380d5fc3a0a25a9ba0972c5a798bc6c4"
+    },
+    {
+      "key": "point-gendoki-2",
+      "sceneId": "gendoki",
+      "title": "1級土木｜原動機の使い分け #Shorts",
+      "description": "原動機はエンジンと電動機に大別されます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-kikai-kiso&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-12T12:30:00+09:00",
+      "r2Key": "video/render/gakka-kikai-kiso/shorts/point-gendoki-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-kikai-kiso/shorts/point-gendoki-2/thumbnail.png",
+      "sha256": "7cd52d7f5fe8377f0fbc60a4e61244ccc567cb7b5f4fc94b058c974da401eca3",
+      "thumbnailSha256": "d8f1605f6f70b22e4a831e9d85dfc58fa7fcd7d86d5a2b3865b76ec6d1de3006"
+    }
+  ]
 }

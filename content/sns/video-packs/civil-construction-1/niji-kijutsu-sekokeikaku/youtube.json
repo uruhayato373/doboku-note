@@ -22,5 +22,46 @@
     "sha256": "5921af29dfcf4e542f693e215d742926f8772666eb6269481721e955f4e6dfc7",
     "thumbnailSha256": "cb1883b3b8c471278a2d1a6a1a0fa23995701231323270ef9508f9c6d014cd0c"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-pattern1-1",
+      "sceneId": "pattern1",
+      "title": "1級土木｜パターン1 留意事項の穴埋め #Shorts",
+      "description": "パターン1は留意事項の穴埋めです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/mcfe1059b3335?utm_source=youtube&utm_medium=video&utm_campaign=niji-kijutsu-sekokeikaku&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-27T20:00:00+09:00",
+      "r2Key": "video/render/niji-kijutsu-sekokeikaku/shorts/point-pattern1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/niji-kijutsu-sekokeikaku/shorts/point-pattern1-1/thumbnail.png",
+      "sha256": "40706453fb43ac94f846b7b3a8e542c92b75db7f91ca0d8396869c9512ede850",
+      "thumbnailSha256": "ad5b9a0764e7e5a6a66970eacf6b80ee36efb9e4757e1150a2d5d6b226f2bcc2"
+    },
+    {
+      "key": "point-pattern2-2",
+      "sceneId": "pattern2",
+      "title": "1級土木｜パターン2 施工計画書の記載内容 #Shorts",
+      "description": "パターン2は施工計画書の記載内容の記述です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/mcfe1059b3335?utm_source=youtube&utm_medium=video&utm_campaign=niji-kijutsu-sekokeikaku&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-28T07:30:00+09:00",
+      "r2Key": "video/render/niji-kijutsu-sekokeikaku/shorts/point-pattern2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/niji-kijutsu-sekokeikaku/shorts/point-pattern2-2/thumbnail.png",
+      "sha256": "734dcd5157849966cb5b1b7d9710dd76dda2579decc1617440973cfac846ff33",
+      "thumbnailSha256": "aa931eb3b3c04ceb25a657110c86de7518e68e6ebf556e29624877a6d176c4a9"
+    }
+  ]
 }

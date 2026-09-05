@@ -22,5 +22,46 @@
     "sha256": "9b44f4ae99688b5f677cffe29c2d7758ebd138d2e202db87f332fd14e6c86aa5",
     "thumbnailSha256": "090bf34bfb158204d6bfc20f92542de0ae57c22b40b70992638b7110e6a93b7c"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-block1-1",
+      "sceneId": "block1",
+      "title": "1級土木｜技術的課題の3要素 #Shorts",
+      "description": "技術的課題のテーマの前段は、課題が生じる現場や施工の状況、その原因、工事名や施工量から整理した規模の3つで組み立てます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m150c9db08902?utm_source=youtube&utm_medium=video&utm_campaign=keiken-kadai-kakikata&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-03T12:30:00+09:00",
+      "r2Key": "video/render/keiken-kadai-kakikata/shorts/point-block1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-kadai-kakikata/shorts/point-block1-1/thumbnail.png",
+      "sha256": "bdaa8948eda6afb1a744fbef0791bd512e305b38a3d5a11036a61acf30fcec90",
+      "thumbnailSha256": "c63bd3662cf1247c433138c01e57dcbc67e03896c808554058dbc54f180a1435"
+    },
+    {
+      "key": "point-block2-2",
+      "sceneId": "block2",
+      "title": "1級土木｜原因を条件で具体化 #Shorts",
+      "description": "原因は現場条件、気象条件、作業条件のいずれかで具体化します。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m150c9db08902?utm_source=youtube&utm_medium=video&utm_campaign=keiken-kadai-kakikata&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-05T07:30:00+09:00",
+      "r2Key": "video/render/keiken-kadai-kakikata/shorts/point-block2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-kadai-kakikata/shorts/point-block2-2/thumbnail.png",
+      "sha256": "6369a8c37ac38f1421547ec000b23a15daada1079a3f0918eb7c134a8ab0261a",
+      "thumbnailSha256": "f2936a1ae8f910a83d6ad63097db9e849c292bd55becb3005b00bb18bbcec274"
+    }
+  ]
 }

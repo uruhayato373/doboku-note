@@ -22,5 +22,46 @@
     "sha256": "2775f7805834403d4f04022c911d5718c06ff676ce49af0778810628a8246690",
     "thumbnailSha256": "3e25e4a31c2ae9b6b01f42a57cc3325f4d0739b2958a1ef341c8c7eb3ccdb1a6"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "コンクリート主任技士｜ポンプ圧送の圧送負荷 #Shorts",
+      "description": "圧送負荷は管内圧力損失かける水平換算距離で求めます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-construction-ronten&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-07T12:30:00+09:00",
+      "r2Key": "video/render/shunin-construction-ronten/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-construction-ronten/shorts/point-overview-1/thumbnail.png",
+      "sha256": "32ad7d81065a612768e6d1bbcf4bd35185edccad0dfaa69706297004d4a0d8f2",
+      "thumbnailSha256": "0fa39bb0686a28560f008d6ab9d9fb0d6dab4fbf671696266cd7c1200a0a5a47"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "コンクリート主任技士｜打込み・締固め・打継ぎ #Shorts",
+      "description": "材料分離を防ぐため自由落下高さは1.5メートル以下が標準です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-construction-ronten&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-08T07:30:00+09:00",
+      "r2Key": "video/render/shunin-construction-ronten/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-construction-ronten/shorts/point-step1-2/thumbnail.png",
+      "sha256": "67b2f79dc327daa06cec2a90ecc3d8ec4cc5858a73c974c2c9e1cd4ea18a5fa7",
+      "thumbnailSha256": "21ae27c7637001606d05c82ec2084970bd35ea6f4d4be8dde9d0931481759f1e"
+    }
+  ]
 }

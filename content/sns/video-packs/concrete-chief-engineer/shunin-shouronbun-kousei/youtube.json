@@ -22,5 +22,46 @@
     "sha256": "1327a6a108bdfb072086a3ef6a0a3c0dad8a1acbdace3555a5df3a11a0ef9146",
     "thumbnailSha256": "08ed2caf83515b474633ee370519f873303dcab6815ba4eac247f27e370045b6"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-kanten-1",
+      "sceneId": "kanten",
+      "title": "コンクリート主任技士｜4観点をチェックリスト化 #Shorts",
+      "description": "1つ目、評価される4つの観点をチェックリストにします。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m758aba129301?utm_source=youtube&utm_medium=video&utm_campaign=shunin-shouronbun-kousei&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "勉強法",
+        "答案の書き方",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-17T12:30:00+09:00",
+      "r2Key": "video/render/shunin-shouronbun-kousei/shorts/point-kanten-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-shouronbun-kousei/shorts/point-kanten-1/thumbnail.png",
+      "sha256": "55c4c3bf5832ea5ab7c07a213b33b0ee73e4fef26ae11fd9f07b915095a9e77b",
+      "thumbnailSha256": "266028f54ff596528433985686c6f463fc282bc94a659fa7c7a39a17863de010"
+    },
+    {
+      "key": "point-kousei-2",
+      "sceneId": "kousei",
+      "title": "コンクリート主任技士｜序論・本論・結論の重み #Shorts",
+      "description": "2つ目、序論・本論・結論の3部構成で、重みは本論に置きます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m758aba129301?utm_source=youtube&utm_medium=video&utm_campaign=shunin-shouronbun-kousei&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "勉強法",
+        "答案の書き方",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-18T07:30:00+09:00",
+      "r2Key": "video/render/shunin-shouronbun-kousei/shorts/point-kousei-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-shouronbun-kousei/shorts/point-kousei-2/thumbnail.png",
+      "sha256": "8bb96a1565f546298eb78d46dd09a0dafb5b0c0e1ac34104833da0dfb0fbf0e1",
+      "thumbnailSha256": "b321be43a9a6ab1dfa57866b3fae80856c4640c300731280bad1cb26c4a38c8a"
+    }
+  ]
 }

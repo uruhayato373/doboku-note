@@ -22,5 +22,46 @@
     "sha256": "a695c1559a2ae3d9b75841dde57f5dcbc53ae9d47545c0f49a6b2e4e955a8b76",
     "thumbnailSha256": "100ded76d9b2da6895451d1059646eb95b7311343052e560f86ee722ce172779"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-taisho-1",
+      "sceneId": "taisho",
+      "title": "2級土木｜対象になる工事は幅広い #Shorts",
+      "description": "対象になる工事は思っているより幅広いです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m8554e87ca6ec?utm_source=youtube&utm_medium=video&utm_campaign=keiken-koji-ga-nai&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "施工経験記述",
+        "答案診断",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-20T12:30:00+09:00",
+      "r2Key": "video/render/keiken-koji-ga-nai/shorts/point-taisho-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-koji-ga-nai/shorts/point-taisho-1/thumbnail.png",
+      "sha256": "f177947805ca29ed0b778479e29d72e3baba3c96def5ba5d8eaae418b1bbeb03",
+      "thumbnailSha256": "ef54e0a7f00139f95eaf11df02d0f5955bd42fa75b073b73eb22292bfef81bff"
+    },
+    {
+      "key": "point-taishogai-2",
+      "sceneId": "taishogai",
+      "title": "2級土木｜確認すべきは対象外リストだけ #Shorts",
+      "description": "確認すべきは対象にならない工事だけです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m8554e87ca6ec?utm_source=youtube&utm_medium=video&utm_campaign=keiken-koji-ga-nai&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "施工経験記述",
+        "答案診断",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-21T07:30:00+09:00",
+      "r2Key": "video/render/keiken-koji-ga-nai/shorts/point-taishogai-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-koji-ga-nai/shorts/point-taishogai-2/thumbnail.png",
+      "sha256": "cfc01c2b663e10f155e30cf23075487f317351bc13c08596bb722869815cfbcb",
+      "thumbnailSha256": "ac7796c8eb27ad638f98f920cff3f5513c13db51c50037451e3e81e4ebfb6e7c"
+    }
+  ]
 }

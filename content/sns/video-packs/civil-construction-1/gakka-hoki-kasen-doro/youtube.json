@@ -22,5 +22,46 @@
     "sha256": "9f4b7ef61b12a83b2057718c402c01d0af2fbbcfa6800f130ef56ffc55de986e",
     "thumbnailSha256": "29b88e3373db0e88ccd2639c9e51fd741ee437068b3ce7d61ef9f0dbc9f12f33"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "1級土木｜河川法：対象地の範囲が違う #Shorts",
+      "description": "河川区域内の占用許可は官有地のみが対象で、民有地の占用に許可は不要です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-hoki-kasen-doro&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-08T20:00:00+09:00",
+      "r2Key": "video/render/gakka-hoki-kasen-doro/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-hoki-kasen-doro/shorts/point-overview-1/thumbnail.png",
+      "sha256": "7e2031805da670e2533f2be3e711456f3e7126c59b5d0e165686ab2c8e37c27d",
+      "thumbnailSha256": "928cfa35afd1333681ffb6f377d2c96964f731643de10b0eac94418543212cd1"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "1級土木｜道路法：許可の相手が2つ #Shorts",
+      "description": "道路の占用は、工作物を継続使用するための道路管理者の許可です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-hoki-kasen-doro&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-09T07:30:00+09:00",
+      "r2Key": "video/render/gakka-hoki-kasen-doro/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-hoki-kasen-doro/shorts/point-step1-2/thumbnail.png",
+      "sha256": "6052358ce30971c79faf2974081928e4fc9e5f890e046b1dad9c7c6e8294c661",
+      "thumbnailSha256": "158e5695b7014a0aa7f9504e4e5e54d5ef71dd338557dc05cb706d92ad273e9d"
+    }
+  ]
 }

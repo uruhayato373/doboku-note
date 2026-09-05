@@ -22,5 +22,46 @@
     "sha256": "92ed260dd89af27ecda81793688a9bdc926c83e6284e949ec947ea3fcdb3af1c",
     "thumbnailSha256": "ec3adbfd3685c8f902409e598b7c16df44e59c587ce004a792f1f5413ceeb6e7"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "1級土木｜労働時間の基本数字 #Shorts",
+      "description": "まず基本の労働時間です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-roudou-kijun&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-17T12:30:00+09:00",
+      "r2Key": "video/render/gakka-roudou-kijun/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-roudou-kijun/shorts/point-step1-1/thumbnail.png",
+      "sha256": "972f986aca77906729b9ee8387ddcc1d8e33f0b11d2393b783e748e0e754d4ae",
+      "thumbnailSha256": "1c08df0c9b3f35341b98c5a1ed5415fea8531f5b9190ed94b571e9255d3b4861"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "1級土木｜時間外労働の上限と割増賃金 #Shorts",
+      "description": "時間外労働の上限は、月100時間未満、年720時間まで。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-roudou-kijun&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-18T07:30:00+09:00",
+      "r2Key": "video/render/gakka-roudou-kijun/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-roudou-kijun/shorts/point-step2-2/thumbnail.png",
+      "sha256": "79f45c51c17bed9b1300627200786468dd5a7e3815f9b80e87693fdb96502176",
+      "thumbnailSha256": "21ce92628ff6470a5e77ab317b54bf304c33bcb77654d4d89a51bb12c913ff36"
+    }
+  ]
 }

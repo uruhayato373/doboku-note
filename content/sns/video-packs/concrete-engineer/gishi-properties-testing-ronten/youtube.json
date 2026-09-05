@@ -22,5 +22,46 @@
     "sha256": "7f729e00cc43cd7d6c0228c7728fbda19f29772e3db045a756a30da19fef5a68",
     "thumbnailSha256": "ded237250293d9beec80622dff3d4bab7112e157e5ce5392e3baaf59a614ef9b"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "コンクリート技士｜ワーカビリティーとコンシステンシーは… #Shorts",
+      "description": "ワーカビリティーは、材料分離を起こさずに運搬・打込み・締固め・仕上げができる程度を表す総合的な性質です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=gishi-properties-testing-ronten&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-31T12:30:00+09:00",
+      "r2Key": "video/render/gishi-properties-testing-ronten/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-properties-testing-ronten/shorts/point-step1-1/thumbnail.png",
+      "sha256": "55a64eaa6408fb475f5057b3c60608713214852deaa44c3b21e686ef6b26d917",
+      "thumbnailSha256": "ee1781ac06784711814c2f2d290c091af0eb886192eac3b6dc13db29860faae3"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "コンクリート技士｜スランプ試験の測り方と注意点 #Shorts",
+      "description": "スランプ試験は、コーンに詰めた試料を引き上げた後の下がり量をセンチメートルで測ります。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=gishi-properties-testing-ronten&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-01T07:30:00+09:00",
+      "r2Key": "video/render/gishi-properties-testing-ronten/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-properties-testing-ronten/shorts/point-step2-2/thumbnail.png",
+      "sha256": "3527e723791a2d4acc730b9d81a7c727adc04eddcb90ea6f821e394c68f0ffd1",
+      "thumbnailSha256": "ee17192487bee0b3fe82fac5da1a4845075a752e2dc66fa5d7d894365c193364"
+    }
+  ]
 }

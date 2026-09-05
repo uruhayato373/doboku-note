@@ -22,5 +22,46 @@
     "sha256": "c2785893633e44dd74e116ac0581423091e0ad9eea50b2376dd7853dd64bd9a9",
     "thumbnailSha256": "64add84f59c79b4378ef0fc3995dc4c004111a21184a0e0d6b8f73dee82e8574"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "コンクリート技士｜ライフサイクルの4つの軸で考える #Shorts",
+      "description": "環境負荷は、材料製造時のCO2だけでなく、原料採取、輸送、施工、供用、解体・再資源化までの全段階で生じます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=gishi-environment-ronten&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-08T12:30:00+09:00",
+      "r2Key": "video/render/gishi-environment-ronten/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-environment-ronten/shorts/point-step1-1/thumbnail.png",
+      "sha256": "92f94f3de671b5492adac6ce5f81380d5ef182b63c2fc9a19392d71e19433dd8",
+      "thumbnailSha256": "ec0aecb4306cc3f361f822490a76cba336361a221b83ac654d0ffc4bb206671d"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "コンクリート技士｜混合材はクリンカー削減、置換率は無条… #Shorts",
+      "description": "高炉スラグ微粉末やフライアッシュは結合材の一部として使うとクリンカー使用量を抑えられます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=gishi-environment-ronten&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-09T07:30:00+09:00",
+      "r2Key": "video/render/gishi-environment-ronten/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-environment-ronten/shorts/point-step2-2/thumbnail.png",
+      "sha256": "e0e1fe21d7467fa5713f03f270377f6df2d64afcf2a3ca803385bbd154649f14",
+      "thumbnailSha256": "2e3460aea2b951f9eb420c16d95d2d02076c48fb85785bd0c7ca4c0993e7e623"
+    }
+  ]
 }

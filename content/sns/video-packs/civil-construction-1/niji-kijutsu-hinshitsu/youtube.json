@@ -22,5 +22,46 @@
     "sha256": "d6d1ffad817f19555b813ecbf4e384d1b4182f0511e7652b17712ebe7f679452",
     "thumbnailSha256": "c283959f1818cda6528380f2628ee25320f8d5b8f2e00211ab270ebf731ddb72"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-compaction-1",
+      "sceneId": "compaction",
+      "title": "1級土木｜盛土の締固め管理は2方式 #Shorts",
+      "description": "まず盛土の締固め管理です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/mcfe1059b3335?utm_source=youtube&utm_medium=video&utm_campaign=niji-kijutsu-hinshitsu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-26T20:00:00+09:00",
+      "r2Key": "video/render/niji-kijutsu-hinshitsu/shorts/point-compaction-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/niji-kijutsu-hinshitsu/shorts/point-compaction-1/thumbnail.png",
+      "sha256": "5b868ba815e0f46fd9cc32f6622ad01f84b389685afdafb8954f2dbdc039d2fa",
+      "thumbnailSha256": "f76afa41f8f8cec486ad6538b3825823979f2d5105a844553512b7d6b65be673"
+    },
+    {
+      "key": "point-acceptance-test-2",
+      "sceneId": "acceptance-test",
+      "title": "1級土木｜受入検査の試験名と判定基準 #Shorts",
+      "description": "レディーミクストコンクリートの受入検査では、スランプ8から18センチメートルで許容差プラスマイナス2.5センチメートル、空気量はおおむねプラスマイナス1.5パーセントです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/mcfe1059b3335?utm_source=youtube&utm_medium=video&utm_campaign=niji-kijutsu-hinshitsu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-27T12:30:00+09:00",
+      "r2Key": "video/render/niji-kijutsu-hinshitsu/shorts/point-acceptance-test-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/niji-kijutsu-hinshitsu/shorts/point-acceptance-test-2/thumbnail.png",
+      "sha256": "3e2b5cd6a25a0b1dd31a52d3af00bbd7b32c236ec2b85e626327daf6e29762f1",
+      "thumbnailSha256": "3006437632f27736e62fc7a8083ba64e8ec8b0c75faa341f2613260baa3ba2e0"
+    }
+  ]
 }

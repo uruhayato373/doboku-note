@@ -22,5 +22,46 @@
     "sha256": "0df99f34b9ef8da47ec95a954dd030a4a8642f626f150583a9bb5b246060c96c",
     "thumbnailSha256": "1791c5e1b1769b35cc391adbf5680a0183520dbc55e1a6d9fca63a2de929c7da"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-wc-ratio-1",
+      "sceneId": "wc-ratio",
+      "title": "コンクリート主任技士｜水セメント比の基本 #Shorts",
+      "description": "まず配合設計です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=kikinagashi-shunin-suchi&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-20T12:30:00+09:00",
+      "r2Key": "video/render/kikinagashi-shunin-suchi/shorts/point-wc-ratio-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/kikinagashi-shunin-suchi/shorts/point-wc-ratio-1/thumbnail.png",
+      "sha256": "552b5e28f9da953fc2727490e604941fb2ebee2a9be91ba6debe9c71137f61bf",
+      "thumbnailSha256": "a47af0756a190d9848817def88e4ac9ad753410085e1b4bf4cbc95593c917f3e"
+    },
+    {
+      "key": "point-tanni-saikotsu-kuuki-2",
+      "sceneId": "tanni-saikotsu-kuuki",
+      "title": "コンクリート主任技士｜単位水量・細骨材率・空気量 #Shorts",
+      "description": "続いて単位水量と細骨材率です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=kikinagashi-shunin-suchi&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-21T07:30:00+09:00",
+      "r2Key": "video/render/kikinagashi-shunin-suchi/shorts/point-tanni-saikotsu-kuuki-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/kikinagashi-shunin-suchi/shorts/point-tanni-saikotsu-kuuki-2/thumbnail.png",
+      "sha256": "12ccddd2da41c6292b9f157a5a0ed9cf442f0fc7f006295a6bb2db7b2ca761f5",
+      "thumbnailSha256": "9a97ba72fcd2c57c2b8746a534d1611bc1c14ca1349615bcad31db96205bcb39"
+    }
+  ]
 }

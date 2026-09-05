@@ -22,5 +22,46 @@
     "sha256": "af15f2489a63a4bcf723d0e5d0bf3355b739b83be272ff6cf24c0b340bdcd3be",
     "thumbnailSha256": "59a8c512a795035755c756397a6b6c23ec2cdce5d67be3c066630c8b818bf34e"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "1級土木｜仮設建築物の規制緩和 #Shorts",
+      "description": "現場事務所・小屋・材料置場などの仮設建築物は、建築確認・完了検査が不要で、集団規定も原則適用されません。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-hoki-kenchiku-kayaku&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-09T12:30:00+09:00",
+      "r2Key": "video/render/gakka-hoki-kenchiku-kayaku/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-hoki-kenchiku-kayaku/shorts/point-overview-1/thumbnail.png",
+      "sha256": "ca92151c53421d30683c0ed7b9611040f71f3889463d4c69c527c45575a6f553",
+      "thumbnailSha256": "c8bb948b48f244a988840beec53aa5a3797dcba30192d4bfd0ad49cd260c7d88"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "1級土木｜火薬類の許可権者 #Shorts",
+      "description": "火薬庫の設置と消費場所での発破は、いずれも都道府県知事の許可です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-hoki-kenchiku-kayaku&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-10T07:30:00+09:00",
+      "r2Key": "video/render/gakka-hoki-kenchiku-kayaku/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-hoki-kenchiku-kayaku/shorts/point-step1-2/thumbnail.png",
+      "sha256": "0afd622339578c76997939920fa682034df0e6a33429c44df0929e29157d5421",
+      "thumbnailSha256": "335e8b682ade4d9b9521eed880c47aa0d965cb103b80571553649e2a86355b69"
+    }
+  ]
 }

@@ -22,5 +22,46 @@
     "sha256": "a19bf3389d1d5e256b246ab1d46370438907c233811f8078ec084efb5f3bd5f4",
     "thumbnailSha256": "e82ef916b55c091553cad244414bfb3bed528b85a7fc45fef97954581e86b3be"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "コンクリート技士｜計量誤差は「何と比べているか」で判断… #Shorts",
+      "description": "計量誤差の百分率は目標値を分母にして計算します。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=gishi-jis-handan&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "勉強法",
+        "答案の書き方",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-12T12:30:00+09:00",
+      "r2Key": "video/render/gishi-jis-handan/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-jis-handan/shorts/point-step1-1/thumbnail.png",
+      "sha256": "329fcc3a7f9b04c6d69b718a066a8e96a8c9585dd7c275bca26bfc8e695ea6d8",
+      "thumbnailSha256": "76e0c26c89e1388e75b2ea27d6bd06a87cb50c945e34f2d0768ab1721824e888"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "コンクリート技士｜累加計量は「順番」で誤差が持ち越される #Shorts",
+      "description": "累加計量は、同じ計量器へ材料を順に加える方式です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=gishi-jis-handan&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "勉強法",
+        "答案の書き方",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-13T07:30:00+09:00",
+      "r2Key": "video/render/gishi-jis-handan/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-jis-handan/shorts/point-step2-2/thumbnail.png",
+      "sha256": "c9ba184643d33a96e08ab74e9fc04c25e72cb06642342258511e4866dc649f98",
+      "thumbnailSha256": "490d7a923e22de78d8eb112e0a1851bd0bf073403f0f879a51594785044ecda6"
+    }
+  ]
 }

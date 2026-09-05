@@ -22,5 +22,46 @@
     "sha256": "63f26aa95e06bc94e7f0bd6f9d59f4a6253d9797c072b11af3abce9e923d1c19",
     "thumbnailSha256": "1bb6dc037869e7b4b1b3b1121c38282e5f7fd31f96177472660a1def7c66f101"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "1級土木｜作業床の数値 #Shorts",
+      "description": "まず作業床です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-ashiba-kijun&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-03T20:00:00+09:00",
+      "r2Key": "video/render/gakka-ashiba-kijun/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-ashiba-kijun/shorts/point-step1-1/thumbnail.png",
+      "sha256": "7dbe108fcc66ab2c318faa86990109f6657f5d9288b8f37675456b7a86286ab8",
+      "thumbnailSha256": "949d5f52aa4f990b26e21b532b31ab908d17a6eee2bc64a7cbed53df5cab0c26"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "1級土木｜通路とはしご道 #Shorts",
+      "description": "次は架設通路です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-ashiba-kijun&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-04T12:30:00+09:00",
+      "r2Key": "video/render/gakka-ashiba-kijun/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-ashiba-kijun/shorts/point-step2-2/thumbnail.png",
+      "sha256": "f0afeb31f4aff8109a3eb542d3305c778e404f46f0a67f0f82f52dc82f28837f",
+      "thumbnailSha256": "b7257fe6b5a81596c0d6ad515c02b86d95081a0933e7fc61d7130ba93d0a249c"
+    }
+  ]
 }

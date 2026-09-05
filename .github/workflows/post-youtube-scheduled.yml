@@ -1,8 +1,7 @@
 name: ▶️ YouTube scheduled post (daily)
 
-# .claude/state/youtube-schedule.json の pending のうち publishAt が近いものを
-# 毎日 cron で R2 から取得 → private+publishAt で YouTube にアップ（quota ≈6本/日）。
-# YouTube が publishAt 時刻に自動公開する。投稿実績は台帳と yt-posted-log.jsonl に記録。
+# legacy youtube-schedule.json はworkflow_dispatch時だけ扱う。日次cronは承認済み動画パックを
+# longform → Shorts private uploadの順で再開可能に処理し、公開状態をvideo-content-statusへ記録する。
 #
 # 前提 Secrets: YOUTUBE_CLIENT_ID / YOUTUBE_CLIENT_SECRET / YOUTUBE_REFRESH_TOKEN
 #               CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_R2_ACCESS_KEY_ID / CLOUDFLARE_R2_SECRET_ACCESS_KEY
@@ -21,7 +20,7 @@ on:
   workflow_dispatch:
     inputs:
       max:
-        description: "通常は上限。動画パックは pack:<id>:<phase>:PUBLISH[:RELATED] / batch:<civil|concrete>:PUBLISH:<max> / batch:all:metadata:PUBLISH:<max>"
+        description: "通常は上限。動画パックは pack:<id>:<phase>:PUBLISH[:RELATED] / batch:<civil|concrete|all>:<longform|metadata|shorts-upload>:PUBLISH:<max>"
         required: false
       dry_run:
         description: "true で対象表示のみ（アップしない）"
@@ -144,8 +143,8 @@ jobs:
               confirm="$fourth"
               batch_max="$fifth"
             fi
-            if [ "$kind" != "batch" ] || { [ "$scope" != "civil" ] && [ "$scope" != "concrete" ] && [ "$scope" != "all" ]; } || [ "$confirm" != "PUBLISH" ] || { [ "$phase" != "longform" ] && [ "$phase" != "metadata" ]; }; then
-              echo "::error::max=batch:<civil|concrete>:PUBLISH:<max> または batch:all:metadata:PUBLISH:<max> が必要です"
+            if [ "$kind" != "batch" ] || { [ "$scope" != "civil" ] && [ "$scope" != "concrete" ] && [ "$scope" != "all" ]; } || [ "$confirm" != "PUBLISH" ] || { [ "$phase" != "longform" ] && [ "$phase" != "metadata" ] && [ "$phase" != "shorts-upload" ]; }; then
+              echo "::error::max=batch:<civil|concrete|all>:<longform|metadata|shorts-upload>:PUBLISH:<max> が必要です"
               exit 1
             fi
           fi
@@ -160,6 +159,22 @@ jobs:
           if [ "${{ inputs.dry_run }}" = "true" ]; then args+=(--dry-run); fi
           if [ "${{ inputs.skip_thumbnail }}" = "true" ]; then args+=(--skip-thumbnail); fi
           node .claude/scripts/youtube/publish-video-batch.cjs "${args[@]}" 2>&1 | tee /tmp/yt-post.log
+
+      # 通常動画の予約が全件終わった後だけ候補が生まれる。1 pack=Shorts 2本なので、
+      # 1日3 pack（6本）までprivate uploadし、関連動画のStudio設定を待つ。
+      - name: ▶️ Upload prepared video-pack Shorts
+        if: ${{ github.event_name == 'schedule' && success() }}
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: |
+          node .claude/scripts/youtube/publish-video-batch.cjs \
+            --exam civil-construction-1,civil-construction-2,concrete-engineer,concrete-chief-engineer \
+            --phase shorts-upload --max 3 --skip-thumbnail
 
       # サムネイルAPIは動画アップロードより厳しい短時間上限を持つ。予約を先に確定し、
       # pending だけを翌日以降に少量ずつ再送する（失敗しても予約状態のcommitは続ける）。

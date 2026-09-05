@@ -2,7 +2,7 @@
 
 技術士総合技術監理部門（以下、総監）に特化した YouTube チャネルの設計・運用・撤退判断を定める SSOT。[01_SNS集客戦略.md](./01_SNS集客戦略.md)（v7.3）の YouTube 節を、総監について改訂・拡張する。
 
-**最終更新**: 2026-06-12（v1 新規制定）
+**最終更新**: 2026-09-05（legacy Shorts台帳の凍結状態とvideo-pack経路を同期）
 **運営者**: ペンネーム「架」。元・地方自治体土木職（発注者）の退職者。技術士（建設部門・総合技術監理部門）含む 10 資格保有。顔出しなし・TTS 前提（真実源: `src/config/author.ts`）
 **親 SSOT**: [01_SNS集客戦略.md](./01_SNS集客戦略.md)（SNS チャネル全体）／[06_動画コンテンツ運用設計.md](./06_動画コンテンツ運用設計.md)（多資格の動画パック・役割・管理・KPI）。本ファイルは総監固有のテーマ・Red Line・季節運用を上書きする
 **関連**: [video-content-policy.md](../../.claude/knowledge/reference/video-content-policy.md)（動画パック作業契約）／[yt-shorts-publisher-policy.md](../../.claude/knowledge/reference/yt-shorts-publisher-policy.md)（Shorts 品質基準）／[noteコンテンツ計画.md](../../content/note/技術士総監/noteコンテンツ計画.md)（送客先・Red Line の真実源）／[content-angle-policy.md](../../.claude/knowledge/reference/content-angle-policy.md)（6 切り口）
@@ -20,7 +20,7 @@
 |---|---|---|
 | YouTube の位置づけ | IG Reels mp4 の二次展開のみ（Shorts 週 1〜2 本）。YT 単独パイプライン廃止 | Shorts は slide-data.json 共通一次ソースを維持しつつ**2 経路併存**（§3）。**通常動画を YouTube 固有の一次制作として新設**（v7 で Phase 4 補助だった標準動画を総監については本丸へ昇格） |
 | Shorts の生成経路 | IG Reels mp4 の ffmpeg トリム派生 | 総監は `per-problem-shorts.mjs` の **YT 専用再描画**（2026-06-06 新設）で稼働中。IG mp4 を経由しない |
-| 投稿頻度 | 週 1〜2 本 | **手動投入**（2026-08-18〜。台帳駆動だが cron 自走は廃止＝`workflow_dispatch` を人が叩く。1 回の上限は台帳の `uploadBatchPerDay`=6 本。yt-shorts-publisher-policy 準拠） |
+| 投稿頻度 | 週 1〜2 本 | legacy総監Shortsは13本投稿済み・187本retiredで凍結。非総監video-packの日次cron承認は総監へ波及しない |
 
 ### 改訂トリガー
 
@@ -63,14 +63,14 @@
 
 | 層 | 中身 | 制作系統 | 稼働 | 設計状態 |
 |---|---|---|---|---|
-| **Tier 1** | Shorts（9:16・30-60 秒） | slide-data.json 起点・2 経路併存（下記） | **手動投入**（2026-08-18 実測: uploaded 13 本・pending 187 本） | 消化ペースを人が決める。cron 自走は 2026-08-18 に廃止 |
+| **Tier 1** | Shorts（9:16・30-60 秒） | slide-data.json 起点・2 経路併存（下記） | **legacy凍結**（uploaded 13・retired 187） | 再開しない。非総監video-pack cronとは別系統 |
 | **Tier 2** | 通常動画（16:9・5-60 分） | **YouTube 固有の一次制作**（5 ピラー、§4） | Phase B（試験後〜） | 戦略拡張の本丸。**台本+storyboard+QA 済みの在庫 14 本**（pilot 2＋2026-09-01 全量準備 12＝択一演習・聞き流し・口頭試験系の素案 1/3 対応を含む。実数 SSOT は[企画バンク](../../content/sns/video-packs/README.md)）。残るはレンダリング（16:9 実装済み `render-longform`）→承認→公開 |
 
 **Shorts の 2 経路併存（v7 原則の総監差分）**: v7 は「IG Reels mp4 のトリム派生」一本だったが、総監は `per-problem-shorts.mjs`（YT 専用再描画。ページ番号・スワイプ CTA を構造的に抑止、4 問全展開対応）で IG mp4 を経由せず生成・投稿している。両経路とも一次ソースは `slide-data.json` で共通のため、コンテンツの二重保守は発生しない。**IG Reels パイプライン障害時も YT 単独で台帳消化を継続できる**＝v7 が懸念した単一障害点は総監では構造的に緩和済み。
 
-> **どちらの経路を使うか（優先度・障害時の扱い）**: 総監の Shorts 量産は **経路B＝`per-problem-shorts.mjs`（YT 専用再描画）が正**。IG 依存がなく 4 問全展開できるため、台帳消化のデフォルトはこちら。**経路A＝`yt-shorts-create --from-reels` は、その週に IG Reels を先に作った先頭問パックを流用したいときだけ**の補助（`assertCoverInSync` で IG 表紙とのズレを SSIM 0.90 未満で中断）。**経路A が障害（IG mp4 欠落・SSIM 失敗）でも経路B は独立稼働**するので、Shorts 供給は止めない。1級・2級土木など IG 一次制作が主の資格は経路A が主、という資格差がある点も混同しない。
+> **どちらの経路を使うか（優先度・障害時の扱い）**: 総監legacy Shortsは **経路B＝`per-problem-shorts.mjs`（YT 専用再描画）が正**。**経路A＝`yt-shorts-create --from-reels` はIG Reelsを先に作ったパックの補助**。一方、2026-09-05承認済みの1級・2級土木・コンクリートは、この2経路ではなく通常動画へ1:1接続する動画パック直結経路を使う。
 
-台帳は `.claude/state/youtube-schedule.json`（実 items 200 本・論点タイトル入力済み。2026-08-18 実査: uploaded 13／pending 187）。`post-youtube-scheduled.yml` を **`gh workflow run` で手動起動**して pending を消化する（1 回 6 本）。
+台帳は `.claude/state/youtube-schedule.json`（実items 200本、uploaded 13／retired 187）の履歴SSOTとして凍結し、再投入しない。`post-youtube-scheduled.yml` の日次cronは2026-09-05に承認された1級・2級土木・コンクリートの動画パック専用で、総監legacy台帳を対象にしない。
 
 > [!warning] 2026-06-17〜08-18 に 2 か月停止していた（2026-08-18 是正）
 > 日次 cron は 6/10〜6/16 に install の ERESOLVE で全滅し（PR #258 で解消）、6/17 は アップ 6 本に成功したが
@@ -114,21 +114,21 @@ YouTube は**検索面（総監系クエリ）の占有**という、IG（Explor
 
 | 工程 | 資産/ツール | 状態 |
 |---|---|---|
-| スライド生成 | Satori + resvg（`.claude/scripts/lib/sns-common/slide-render.mjs`） | 稼働中。**縦 9:16 のみ・16:9 未実装**（推定 0.5-1 日） |
+| スライド生成 | Satori + resvg（`.claude/scripts/lib/sns-common/slide-render.mjs`） | 9:16・16:9とも実装済み |
 | 音声 | VOICEVOX 四国めたん（Docker、`tts-client.mjs`） | 稼働中 |
 | Shorts 生成 | `yt-shorts-create --from-reels`／`per-problem-shorts.mjs`（YT 専用再描画・4 問全展開・`--ig-mode`） | 実装済 |
-| Shorts 投稿 | `post-youtube-scheduled.yml`（**手動 `workflow_dispatch`**）＋台帳 `youtube-schedule.json` | 実装済・**手動運用**（uploaded 13 本） |
+| Shorts 投稿 | legacy=`youtube-schedule.json`、動画パック=`youtube.json`＋`video-content-status.json` | legacy総監は13本で凍結。日次cronは承認済み非総監video-packのみ |
 | 台帳検証 | `validate-schedule.mjs`（publishAt 重複・perDay 超過・videoId 重複） | 実装済 |
 | タイトル | `yt-shorts-title-writer`（Generator・論点ベース 40 字以内） | 実装済（200 本入力済み） |
 | 品質採点 | `yt-shorts-publisher-qa`（Evaluator・4 軸ルーブリック） | 実装済 |
 
 ### 実行環境の分担
 
-会社 PC はプロキシで外部 API（YouTube・R2・graph）遮断のため、**mp4 生成・アップロードは Mac または GitHub Actions** で実行（確立済みパターン）。台帳編集・台本生成・QA 採点は会社 PC で可。Shorts投稿は `workflow_dispatch` で人が投入量を決める。通常動画（月数本）の投稿は Mac 手動か専用workflowかをPhase Bで決定。
+会社 PC はプロキシで外部 API（YouTube・R2・graph）遮断のため、**mp4 生成・アップロードは Mac または GitHub Actions** で実行（確立済みパターン）。台帳編集・台本生成・QA 採点は会社 PC で可。通常動画・動画パックShortsには専用workflowを実装済みだが、今回の公開承認は総監14パックへ波及しない。
 
 ### 16:9 拡張（Tier 2 の前提作業）
 
-`slide-render.mjs` に横長テンプレ ID を追加し縦横切替（Shorts と同一基盤を共有、v7 標準動画節の設計を踏襲）。推定工数 0.5-1 日（着手後に確定）。
+`render-longform` が1920×1080、`render-video-pack-shorts.mjs` が1080×1920を生成する。縦横レンダー基盤は実装済み。
 
 ### Generator/Evaluator 分業の拡張方針
 
@@ -145,7 +145,7 @@ YouTube は**検索面（総監系クエリ）の占有**という、IG（Explor
 
 ### 定常カデンス
 
-- **Shorts: 手動dispatchで投入量を決定**。既存在庫を通常動画へ接続できる論点から使い、在庫消化を目的に1日3本を固定しない
+- **Shorts: legacy200本は13本投稿済み・187本retiredで凍結**。総監で再開する場合は改めてユーザー承認を要する
 - **通常動画: Phase B で月 2-4 本（パイロット）**、Phase C 以降は KPI 次第で月 4-6 本
 
 ### 試験サイクル連動 年間カレンダー
@@ -195,7 +195,7 @@ YouTube は**検索面（総監系クエリ）の占有**という、IG（Explor
 | Red Line #5 抵触（模範論文の中身が通常動画に漏れる） | 中 | `video-content-qa` のBLOCK gateで検査し、台本段階で思考フレームまでに留める |
 | IG 派生 Shorts の単一障害点（v7 懸念） | 低 | 総監は YT 専用再描画経路で IG mp4 非依存（§3）。構造的に緩和済み |
 | Lock-On の「総監×スキマ時間」参入 | 低 | 講座販促モデルとバッティングし可能性低。発注者視点・TTS で棲み分け |
-| VOICEVOX 商用規約／OAuth・API 上限 | 低 | ライセンス確認済。投入量は手動dispatchと台帳上限で制御。失効時はtask-queue追記の既存フォールバック |
+| VOICEVOX 商用規約／OAuth・API 上限 | 低 | ライセンス確認済。日次quota検出時は同日再試行せず翌日再開。総監legacyは凍結を維持 |
 
 ## 9. Phase ロードマップ
 
@@ -228,10 +228,9 @@ DoD: ① 6 ヶ月 KPI で Tier 2 継続/縮小を判定 ② 最終合格発表�
 ## 11. 未確定事項・是正タスク
 
 - **試験日の内部/外部不一致**: 内部 SoT（noteコンテンツ計画）は 07-13 想定、外部情報（アガルート等）は R8 筆記 7/19-20。公式（engineer.or.jp）で確定し §6 と noteコンテンツ計画の両方を補正する
-- **台帳メタのドリフト**: `.claude/state/youtube-schedule.json` の meta.total=168 に対し実 items=200（2026-06-12 実査）。台帳更新スクリプト側の meta 再計算を是正する
+- **legacy台帳**: `.claude/state/youtube-schedule.json` の200件はuploaded 13／retired 187として凍結。動画パック派生と統合しない
 - **YouTube 収益化審査の閾値**: TTS 量産が「繰り返しコンテンツ」と判定される実閾値は未確認。Phase A-B で実観測し §8 を更新
-- **16:9 テンプレ実工数**: 推定 0.5-1 日は未着手段階の見積もり
-- **通常動画の投稿経路**: Mac 手動か専用 workflow かを Phase B で決定
+- **総監14パックの公開判断**: レンダラーと専用workflowは実装済みだが、公開は今回の非総監112パック承認の対象外
 - **E-01〜E-04 の実 magazine ID**: note 計画上の論理 ID であり、発売後に `src/lib/note-magazines.ts` へ登録された実 ID を §6 に反映する
 
 ## 12. 付録: シナリオ素案集（6 本）

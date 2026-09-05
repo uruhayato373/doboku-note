@@ -22,5 +22,46 @@
     "sha256": "a12ff0030dba96f2beb3aa511fbc2c4797ca4a560d227d1fe8c1966aad11f186",
     "thumbnailSha256": "1d06afde837821510cde4f244f6efdb71c1b75240464665fad21c6793066e086"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-time-matters-1",
+      "sceneId": "time-matters",
+      "title": "1級土木｜期間の使い方が結果を分ける #Shorts",
+      "description": "二次までの期間は決して長くありません。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n824a4ea20acf?utm_source=youtube&utm_medium=video&utm_campaign=niji-junbi-roadmap&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強計画",
+        "受検対策",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-09-17T12:30:00+09:00",
+      "r2Key": "video/render/niji-junbi-roadmap/shorts/point-time-matters-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/niji-junbi-roadmap/shorts/point-time-matters-1/thumbnail.png",
+      "sha256": "3181bdd579442f433f14104db3bdb38b81c3989b287622cfea8916edca473306",
+      "thumbnailSha256": "8b5452ccc422eea7e69bea0adbe559fba377be66cbcbc87286d3ef3411831bd0"
+    },
+    {
+      "key": "point-overview-2",
+      "sceneId": "overview",
+      "title": "1級土木｜二次検定の全体像 #Shorts",
+      "description": "二次は2本柱です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n824a4ea20acf?utm_source=youtube&utm_medium=video&utm_campaign=niji-junbi-roadmap&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強計画",
+        "受検対策",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-09-19T12:30:00+09:00",
+      "r2Key": "video/render/niji-junbi-roadmap/shorts/point-overview-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/niji-junbi-roadmap/shorts/point-overview-2/thumbnail.png",
+      "sha256": "b720c4c135c55364d2b4cfd89e3ee08b35950c8d5170a57919ca6b7fae8e0204",
+      "thumbnailSha256": "43a6edc3b726f4745a119b64f655acc01ec708da36b34f061668ed992f28d102"
+    }
+  ]
 }

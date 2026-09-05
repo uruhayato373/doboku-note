@@ -22,5 +22,46 @@
     "sha256": "838433fcdbfca2d4d3ab669fe5a6763fc57ba449ef8011277c63803cb481f851",
     "thumbnailSha256": "b04df4b0901d85e46c082468ba9dbb5b8c320a5e21d6c4c5ccee9b21414fdd5d"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-ippan-1",
+      "sceneId": "ippan",
+      "title": "コンクリート主任技士｜パターン1 一般論止まり #Shorts",
+      "description": "パターン1、一般論に終始している答案です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m758aba129301?utm_source=youtube&utm_medium=video&utm_campaign=shunin-ochiru-shouronbun&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "施工経験記述",
+        "答案診断",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-18T12:30:00+09:00",
+      "r2Key": "video/render/shunin-ochiru-shouronbun/shorts/point-ippan-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-ochiru-shouronbun/shorts/point-ippan-1/thumbnail.png",
+      "sha256": "1e60f7009a02ff1b2b1c41fce971e8154a4a9a991aec0d750f6af13e7d223212",
+      "thumbnailSha256": "8875512ae825bde6e648a7a2fcc36df5f7b259d99da001df1f1a4112756e7f29"
+    },
+    {
+      "key": "point-chusho-2",
+      "sceneId": "chusho",
+      "title": "コンクリート主任技士｜パターン2 抽象表現止まり #Shorts",
+      "description": "パターン2、抽象表現で止まっている答案です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m758aba129301?utm_source=youtube&utm_medium=video&utm_campaign=shunin-ochiru-shouronbun&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "施工経験記述",
+        "答案診断",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-19T07:30:00+09:00",
+      "r2Key": "video/render/shunin-ochiru-shouronbun/shorts/point-chusho-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-ochiru-shouronbun/shorts/point-chusho-2/thumbnail.png",
+      "sha256": "320b7bfadf29a49dbba89f8fb59c8e2a8e8dc51fb9586998aa66598f8b00d92f",
+      "thumbnailSha256": "575a7eec922f23bf9faaafcb4f7e49c41597e5d596b1a07bf6248ffe7c3895d8"
+    }
+  ]
 }

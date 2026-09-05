@@ -22,5 +22,46 @@
     "sha256": "f8a394fc3ab79a420e0aa69b0ccd97eead265ae84980343d6ce8cd8e4148b971",
     "thumbnailSha256": "46e3dc13fcd15a527d7d7de24ce116d65d643a4568c85751045eff249aa06660"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-thickness-1",
+      "sceneId": "thickness",
+      "title": "1級土木｜盛土の仕上り厚さと敷均し厚さ #Shorts",
+      "description": "まず盛土の厚さです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/mcfe1059b3335?utm_source=youtube&utm_medium=video&utm_campaign=niji-kijutsu-doko&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-25T20:00:00+09:00",
+      "r2Key": "video/render/niji-kijutsu-doko/shorts/point-thickness-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/niji-kijutsu-doko/shorts/point-thickness-1/thumbnail.png",
+      "sha256": "6e9b149c397df9144e038de59296c4db95321a88e73efc54100493a261622d75",
+      "thumbnailSha256": "1e03f23d23168450e06ae06b21f3b00306ba2b6131626c684bdecdfaf460d7ba"
+    },
+    {
+      "key": "point-gradient-2",
+      "sceneId": "gradient",
+      "title": "1級土木｜盛土面・のり面の勾配 #Shorts",
+      "description": "次に勾配です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/mcfe1059b3335?utm_source=youtube&utm_medium=video&utm_campaign=niji-kijutsu-doko&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-26T07:30:00+09:00",
+      "r2Key": "video/render/niji-kijutsu-doko/shorts/point-gradient-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/niji-kijutsu-doko/shorts/point-gradient-2/thumbnail.png",
+      "sha256": "a29ca0045c9fe5752a0bf652fa91ba5ab032366579497db56b8dc1dc2682ff09",
+      "thumbnailSha256": "05daa18efb962ca9e92dc0847d5e5d40b72a909caa67d8e05033b8d1753845cc"
+    }
+  ]
 }

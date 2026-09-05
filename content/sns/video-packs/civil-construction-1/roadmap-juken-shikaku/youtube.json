@@ -22,5 +22,46 @@
     "sha256": "41d29cb6b7b12e486104fee1a74641e4606a8a2fb81a8670c5d84b189e5fde11",
     "thumbnailSha256": "a20db9f7c3799d8377b1c98e2ab746c2e833f70e67b416b8ef52ac552e3c25a2"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "1級土木｜試験は第一次・第二次の2段階 #Shorts",
+      "description": "第一次検定は四肢択一で、土木一般・専門土木・法規・施工管理法の知識が問われます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=roadmap-juken-shikaku&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強計画",
+        "受検対策",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-01T12:30:00+09:00",
+      "r2Key": "video/render/roadmap-juken-shikaku/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/roadmap-juken-shikaku/shorts/point-step1-1/thumbnail.png",
+      "sha256": "107113b91df4cb5995af6b8ba5bdf8d11b6dff82cf69b5609422671ac1c2ff35",
+      "thumbnailSha256": "72f160f00f64c7525cc68170338b607978dd82eeef4d7d50fd28c13ec443efee"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "1級土木｜受験資格は第一次から始まる #Shorts",
+      "description": "第一次検定は、年度末に満19歳以上であれば実務経験を問わず受験できます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=roadmap-juken-shikaku&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強計画",
+        "受検対策",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-02T07:30:00+09:00",
+      "r2Key": "video/render/roadmap-juken-shikaku/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/roadmap-juken-shikaku/shorts/point-step2-2/thumbnail.png",
+      "sha256": "bd9b0148f5886da17a4f53af29a95de1080dd0ce1d02c49db13d4f3b15015ed7",
+      "thumbnailSha256": "d1ee2741b000f83ae85983c4e0b419510d9867d4edb5a5f4472474b0a58956df"
+    }
+  ]
 }

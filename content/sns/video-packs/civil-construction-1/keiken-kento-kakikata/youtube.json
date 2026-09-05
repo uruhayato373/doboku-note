@@ -22,5 +22,46 @@
     "sha256": "3e82ba3d4837ec79ee4a73c862d77ac971554699c249d2f8d1e7eecfa420930b",
     "thumbnailSha256": "70bc0759b02f5f8c821a0e302704d74aca77c67acac0b6759ad2c5027ce3e3ee"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-block1-1",
+      "sceneId": "block1",
+      "title": "1級土木｜1級R6以降の配分 #Shorts",
+      "description": "令和6年度以降の1級は、（1）が現場状況・技術的課題と検討した項目まで。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://coconala.com/services/4317375?utm_source=youtube&utm_medium=video&utm_campaign=keiken-kento-kakikata&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-05T12:30:00+09:00",
+      "r2Key": "video/render/keiken-kento-kakikata/shorts/point-block1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-kento-kakikata/shorts/point-block1-1/thumbnail.png",
+      "sha256": "9fe2c2f6d555bc53773d149145ed7c5f197d15af9568288f96745e88f80e9730",
+      "thumbnailSha256": "4aff7f6475562debc87697022a019dd01c80d3fb9552c0d8a9a2979bba372219"
+    },
+    {
+      "key": "point-block2-2",
+      "sceneId": "block2",
+      "title": "1級土木｜2級との区切りの違い #Shorts",
+      "description": "2級は検討した項目が（2）側です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://coconala.com/services/4317375?utm_source=youtube&utm_medium=video&utm_campaign=keiken-kento-kakikata&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-06T12:30:00+09:00",
+      "r2Key": "video/render/keiken-kento-kakikata/shorts/point-block2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-kento-kakikata/shorts/point-block2-2/thumbnail.png",
+      "sha256": "1ab51d16a624651101540556700d7d912f16ca82be3c1cf23387117e9057bd21",
+      "thumbnailSha256": "b1049bddf91f5912c2854524f67db163a73a724adfcca67ac170e497c5019292"
+    }
+  ]
 }

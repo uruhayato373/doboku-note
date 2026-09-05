@@ -22,5 +22,46 @@
     "sha256": "b10051b70cc57b6104f24f3b89c06b9040c1b5e3bdef88449b4d49db14845c7f",
     "thumbnailSha256": "5924c73578163c4319cd7aa070e6c69e8e3a0ebaa20155847d93fb1a2530bb3a"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "コンクリート主任技士｜小論文の水準確保を最優先 #Shorts",
+      "description": "直前期の最優先は小論文の水準確保です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-chokuzen-senryaku&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "勉強法",
+        "答案の書き方",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-20T20:00:00+09:00",
+      "r2Key": "video/render/shunin-chokuzen-senryaku/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-chokuzen-senryaku/shorts/point-step1-1/thumbnail.png",
+      "sha256": "f72d491d6c2473fcaedb4814a7e26ce8196cd6146b189f86d5a1e48a4b6c3eda",
+      "thumbnailSha256": "f057714ad4eba3f92e0bb9290b4bc2553e380411f94a157834b638d8da4539f5"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "コンクリート主任技士｜択一は定番項目から #Shorts",
+      "description": "択一は定番項目から総仕上げします。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-chokuzen-senryaku&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "勉強法",
+        "答案の書き方",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-21T12:30:00+09:00",
+      "r2Key": "video/render/shunin-chokuzen-senryaku/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-chokuzen-senryaku/shorts/point-step2-2/thumbnail.png",
+      "sha256": "2bbab84d27d29b4b7019b5d1363e6afdb52db15c8a63a8741d140d0999c6bc68",
+      "thumbnailSha256": "9d272764cc3d9dd9755d11566e8835e104398a27e3046f75642239acb906df6b"
+    }
+  ]
 }

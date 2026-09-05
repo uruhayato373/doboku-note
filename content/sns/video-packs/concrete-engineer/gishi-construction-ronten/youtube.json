@@ -22,5 +22,46 @@
     "sha256": "599c6f9ef4e8c542e0160183caef8d32d8691fbc8cba711d88e88043240b8399",
     "thumbnailSha256": "18495fdb46ef75aec31738f9ed1145e7b763618c7888cbeb9342000f303410ff"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "コンクリート技士｜施工計画は供給能力と打込み速度をそろ… #Shorts",
+      "description": "施工計画では、構造物の形状、施工量、打込み区画、供給能力、運搬経路、気象条件を整合させます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=gishi-construction-ronten&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-06T12:30:00+09:00",
+      "r2Key": "video/render/gishi-construction-ronten/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-construction-ronten/shorts/point-step1-1/thumbnail.png",
+      "sha256": "acd58e120728694d473a67885b43c368488fc8896ac3310b160f2a6770f7c2e5",
+      "thumbnailSha256": "85bdb7787928a6bac2c2b0c4111e857fee3155c8e44d55aba626038668826a5d"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "コンクリート技士｜運搬・打込みは分離を防ぐ位置取りが軸 #Shorts",
+      "description": "場内運搬と打込みの目的は、材料分離と打込み中断の抑制です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=gishi-construction-ronten&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-07T07:30:00+09:00",
+      "r2Key": "video/render/gishi-construction-ronten/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-construction-ronten/shorts/point-step2-2/thumbnail.png",
+      "sha256": "8da97cf70d79c8cd9c7be7abd65cdf97e2205c280553ffd1f24415c9a1efb518",
+      "thumbnailSha256": "f0e44fd14bfd143d6c8b01eb8ec9e75ebde0d61eaabcbcc1751426401661a54b"
+    }
+  ]
 }

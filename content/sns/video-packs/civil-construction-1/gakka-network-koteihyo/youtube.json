@@ -22,5 +22,46 @@
     "sha256": "14075f0b6b2de38e65cea765f4424b2885d62df4f5f24c185ecc25895152d44d",
     "thumbnailSha256": "d6ae211fe41a8310477bf90b5ab36a6b23ce53e63465b099937cb0e1baa32965"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "1級土木｜基本要素の記法 #Shorts",
+      "description": "作業は矢線で示し、尾が開始・頭が終了、所要時間は下・作業名は上に書きます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-network-koteihyo&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-15T12:30:00+09:00",
+      "r2Key": "video/render/gakka-network-koteihyo/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-network-koteihyo/shorts/point-overview-1/thumbnail.png",
+      "sha256": "4a345c47d925c37a20afefa1f2d6ec2d8cd82ee75de1924febcf078e89c5958b",
+      "thumbnailSha256": "3cf10d7717c9fe0f64bc74758952d6330c8de01a270f72f800cb53662a377ef4"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "1級土木｜最早開始時刻 #Shorts",
+      "description": "最早開始時刻は、開始イベントを0として左から右へ所要時間を足し算します。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-network-koteihyo&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-16T07:30:00+09:00",
+      "r2Key": "video/render/gakka-network-koteihyo/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-network-koteihyo/shorts/point-step1-2/thumbnail.png",
+      "sha256": "a7e4285d65f94af5874a96ca65451fe0aaf22ad0337e9d4aba215756f5aba480",
+      "thumbnailSha256": "c3a45a6e0b955229c4645989e38580144903401f66709a7d591e7b69e084adf4"
+    }
+  ]
 }

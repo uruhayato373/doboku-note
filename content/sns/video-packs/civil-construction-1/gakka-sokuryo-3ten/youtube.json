@@ -22,5 +22,46 @@
     "sha256": "51c93caceb7abd50685627c488008fd282b2d1e637cfa461a610c57da9d14f5d",
     "thumbnailSha256": "d0e00be0613e9653c0c1942c8e56e7560f5e96163eada3cedca314d8197bd499"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-kijun-1",
+      "sceneId": "kijun",
+      "title": "1級土木｜測量の基準 #Shorts",
+      "description": "日本の測量基準は2001年に世界測地系へ移行しました。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-sokuryo-3ten&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-18T20:00:00+09:00",
+      "r2Key": "video/render/gakka-sokuryo-3ten/shorts/point-kijun-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-sokuryo-3ten/shorts/point-kijun-1/thumbnail.png",
+      "sha256": "2edbc8dc89e04fa1d828477ec4a8d72377c3c92a28b4c64fd13185d8545b745d",
+      "thumbnailSha256": "960b4a42fd6e8988c35611c765f0cdf324a09f4267abda8af732cf486855616a"
+    },
+    {
+      "key": "point-suijun-2",
+      "sceneId": "suijun",
+      "title": "1級土木｜水準測量の求め方 #Shorts",
+      "description": "水準測量は、後視の読みから前視の読みを引いて高低差を求めます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-sokuryo-3ten&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-19T07:30:00+09:00",
+      "r2Key": "video/render/gakka-sokuryo-3ten/shorts/point-suijun-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-sokuryo-3ten/shorts/point-suijun-2/thumbnail.png",
+      "sha256": "83d14a6719914ebd4ccad125de5132d3b0c1ad52d1c7f8b518fc9212a2eab78d",
+      "thumbnailSha256": "b4349e15ca1c7f863dba172abbd13a5b598c86311dc0383dd86e1c8199d9f2b8"
+    }
+  ]
 }

@@ -22,5 +22,46 @@
     "sha256": "ed58c6047cccadd925dc7591e8e24b96af894843efb23f8ce3d252d57b05a225",
     "thumbnailSha256": "cc9e1a4f36368e3616f84c6823a957d1a0525126fa076b85a1676c43ecb6b4d8"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "コンクリート主任技士｜呼び方の読み方と配合強度 #Shorts",
+      "description": "呼び方は種類・呼び強度・スランプ・粗骨材最大寸法・セメント種類の順で並びます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-production-qc-ronten&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-05T12:30:00+09:00",
+      "r2Key": "video/render/shunin-production-qc-ronten/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-production-qc-ronten/shorts/point-overview-1/thumbnail.png",
+      "sha256": "409c481290d7839e35ee0ee486f5f8bf170fa13f5ced257a5445e6bd8e2d6705",
+      "thumbnailSha256": "c74e08fe1a8447aa1e8edaa4b714701e649ea848b9ad69ea3a562c4887324e6c"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "コンクリート主任技士｜計量値の許容差 #Shorts",
+      "description": "計量値の許容差は材料区分で覚えます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-production-qc-ronten&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-06T07:30:00+09:00",
+      "r2Key": "video/render/shunin-production-qc-ronten/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-production-qc-ronten/shorts/point-step1-2/thumbnail.png",
+      "sha256": "5f192073640bec2addc7f8dab83bbc123a2c8823596f043bf0fa89a4de428002",
+      "thumbnailSha256": "8252e9169b87e5dd2f4bb0fa9ee1b78f6eb75190fef023b86d9a3d8f3b3f6b46"
+    }
+  ]
 }

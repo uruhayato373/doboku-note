@@ -109,6 +109,7 @@ const CHECKS = [
   // 動画パック（DN-0110 Phase 0・2026-08-28 追加）。Phase 1 未着手（packs root 不在）は明示して exit 0、
   // root があるのに 0 件は exit 2（検査不成立）。チェッカー自体の健全性は unit-tests の fixture が担保。
   { id: 'video-content', npm: 'check-video-content', timeout: 60_000, ci: true, note: '動画パックの manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/バイナリ混入/status 整合（真実源 video-content-policy.md §8 ＋ .claude/config/video-content.json）' },
+  { id: 'youtube-shorts', npm: 'check-youtube-shorts', timeout: 60_000, ci: true, note: '112動画パック×2本のShortsメタデータ、タイトル/UTM/著者表記/scene/通常動画後の公開枠と1日3本上限を固定' },
 
   // 公開実体の照合が「実際に回っているか」を見るゲート（DN-0110 Phase 3・2026-08-28 追加）。
   // 実査そのもの（verify-video-publication）は creds が要るので CI/Mac 専用。ここはオフラインで

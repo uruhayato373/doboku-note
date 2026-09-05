@@ -22,5 +22,46 @@
     "sha256": "9aacdf80cf79552df3518915ca1c90aa4b860e61de6036483973b4d149aa34c6",
     "thumbnailSha256": "c9931180a78301c2a55a1d55d6cce663f0648c5ca7eb81a408c66338b129b9b8"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "1級土木｜仕事内容か、環境か #Shorts",
+      "description": "辞めたい理由を、仕事内容への不満と環境への不満に分けます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=career-yameru-mae&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "施工管理",
+        "キャリア",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-23T20:00:00+09:00",
+      "r2Key": "video/render/career-yameru-mae/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/career-yameru-mae/shorts/point-step1-1/thumbnail.png",
+      "sha256": "aa2c8ce96bad5f5218876b3c219cee878f7b1361518d47d9e34a15d6f257e549",
+      "thumbnailSha256": "c16cf76a7ef1b202925e24114994b05a36ffcff0778c2041f1d25014de0740f2"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "1級土木｜確認すべき3点 #Shorts",
+      "description": "確認するのは3つです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=career-yameru-mae&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "施工管理",
+        "キャリア",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-24T12:30:00+09:00",
+      "r2Key": "video/render/career-yameru-mae/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/career-yameru-mae/shorts/point-step2-2/thumbnail.png",
+      "sha256": "6975140b5244025b61ef8ce715dc0d74582ff01cbf0aa8cc43f89dfa9982c65b",
+      "thumbnailSha256": "85b9e9052730e2c532aa211df546d124d3930677d2f4af0786dcfd69f87b3332"
+    }
+  ]
 }

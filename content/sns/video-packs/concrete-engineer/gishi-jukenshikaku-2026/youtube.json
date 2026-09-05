@@ -22,5 +22,46 @@
     "sha256": "cb8b70b287a87f60d620118f52783fefeef98f5ca0158f7f3fa31f031d0107a0",
     "thumbnailSha256": "608352078cee14670877225ea530b399477c7239b6ae39ca7986111a77bf7bc3"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "コンクリート技士｜2026年度改定の要点 #Shorts",
+      "description": "2026年度の改定で、学歴・年齢を問わず実務経験1年以上で受験できる経路が新設されました。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=gishi-jukenshikaku-2026&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-14T12:30:00+09:00",
+      "r2Key": "video/render/gishi-jukenshikaku-2026/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-jukenshikaku-2026/shorts/point-step1-1/thumbnail.png",
+      "sha256": "438e7ff7372acd60477d947ba21b3bcddd3fe4d95247afdbcc6ac5cd6119e6ff",
+      "thumbnailSha256": "03f9345a383c028e3f23a6aea00e995455ce1907084c4bdfbff7c9d7b1942f6b"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "コンクリート技士｜経路A：対象資格の登録 #Shorts",
+      "description": "対象資格を有効に登録していれば、経路Aで実務経歴書や勤務先証明を省略できます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=gishi-jukenshikaku-2026&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-15T07:30:00+09:00",
+      "r2Key": "video/render/gishi-jukenshikaku-2026/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-jukenshikaku-2026/shorts/point-step2-2/thumbnail.png",
+      "sha256": "460949d81918a2bac413e8ad2bab4ab4a9036c9762922b1f41a3e01159481196",
+      "thumbnailSha256": "49931bba4868971e5019dee1bbbe1dcfa4f678654b92ede3343d1b433af0c974"
+    }
+  ]
 }

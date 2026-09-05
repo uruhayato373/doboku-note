@@ -22,5 +22,46 @@
     "sha256": "2743f30919f9c94309964fbd4b7ccb9eea9c2740e00a780a37c299ede642bdfe",
     "thumbnailSha256": "d81be6c3192d42b1e7f1cec36161b1522976a75b054cd212d3da03e4c8efe733"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-policy-1",
+      "sceneId": "policy",
+      "title": "1級土木｜直前1週間の基本方針 #Shorts",
+      "description": "最後の1週間でやるべきは、新しい知識の追加ではなく確認です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nd68f3f6b5f9e?utm_source=youtube&utm_medium=video&utm_campaign=chokuzen-check-1kyu-niji&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-31T12:30:00+09:00",
+      "r2Key": "video/render/chokuzen-check-1kyu-niji/shorts/point-policy-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/chokuzen-check-1kyu-niji/shorts/point-policy-1/thumbnail.png",
+      "sha256": "af53f57586940b6e76568ef1dffa244aa0feead197d38f2d305995e31c7a26cf",
+      "thumbnailSha256": "6acb5adf9f7790fc4ef33e0a81039b0809fe84a302339b6bc7f9ecf37078d05e"
+    },
+    {
+      "key": "point-check-3points-2",
+      "sceneId": "check-3points",
+      "title": "1級土木｜CHECK 1 経験記述を音読する #Shorts",
+      "description": "経験記述は、工種、現場状況、工夫、効果の3点セットが漏れていないかを声に出して読み返します。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nd68f3f6b5f9e?utm_source=youtube&utm_medium=video&utm_campaign=chokuzen-check-1kyu-niji&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2027-01-01T07:30:00+09:00",
+      "r2Key": "video/render/chokuzen-check-1kyu-niji/shorts/point-check-3points-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/chokuzen-check-1kyu-niji/shorts/point-check-3points-2/thumbnail.png",
+      "sha256": "7b5ba0b72dc64b76cd4ba278d7155ee6cd6f0bd485d1cd211ceda47327d44212",
+      "thumbnailSha256": "bc0fadc72812f7919adca045c2139d3215bb26791d31953b6172d8be5565e1f1"
+    }
+  ]
 }

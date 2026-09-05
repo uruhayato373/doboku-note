@@ -22,5 +22,46 @@
     "sha256": "9225cb25b7a409154b89f5f5053107ed2bf63ff6e8fe6ca2bc544935df148216",
     "thumbnailSha256": "8c08264829415456d7ae7a18bcf681db1e9d4140fc74b18d41efed0c69cf54ed"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-carbonation-1",
+      "sceneId": "carbonation",
+      "title": "コンクリート主任技士｜中性化フロントの塩化物イオン濃縮 #Shorts",
+      "description": "二酸化炭素の侵入で水酸化カルシウムが炭酸カルシウムに変わり、pHが約9以下になると不動態皮膜が壊れます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-durability-ronten&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-09T12:30:00+09:00",
+      "r2Key": "video/render/shunin-durability-ronten/shorts/point-carbonation-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-durability-ronten/shorts/point-carbonation-1/thumbnail.png",
+      "sha256": "08484fb68035c2c360adf41ce3a5d7f92e22a9e78e87fed4af65f18816dbea70",
+      "thumbnailSha256": "100b07a5803df8bd26ab6c9fad6a4dc8f6fa23b8aee0869cf3701c26cca11df5"
+    },
+    {
+      "key": "point-salt-2",
+      "sceneId": "salt",
+      "title": "コンクリート主任技士｜塩害の抑制対策 #Shorts",
+      "description": "塩化物イオンは外来塩分と内在塩分に分かれ、腐食発生限界濃度はセメント種類で異なります。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-durability-ronten&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-10T07:30:00+09:00",
+      "r2Key": "video/render/shunin-durability-ronten/shorts/point-salt-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-durability-ronten/shorts/point-salt-2/thumbnail.png",
+      "sha256": "45e35bf765787018bb7486b9cc01098c780dc378dbaef29d2c4925c93d588092",
+      "thumbnailSha256": "efb81e3eaf17f8c28458ca9e2dba26511e8933dda420a14133755514683ec5fe"
+    }
+  ]
 }

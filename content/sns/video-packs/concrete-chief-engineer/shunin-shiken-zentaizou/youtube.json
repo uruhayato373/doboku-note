@@ -22,5 +22,46 @@
     "sha256": "0f1ff03b31364d855fa77253561954ed864748b1ca14ee07662c0c74ef954af3",
     "thumbnailSha256": "f5ee7ea8707bf41b5127a8e8c340747a8adb59eec4dbbb7e33e005dd9fd46f8d"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "コンクリート主任技士｜主任技士という資格の位置づけ #Shorts",
+      "description": "コンクリート主任技士はJCIが認定する資格で、製造・工事・研究の計画・管理・指導を担う高度技術者です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=shunin-shiken-zentaizou&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "勉強計画",
+        "受検対策",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-26T12:30:00+09:00",
+      "r2Key": "video/render/shunin-shiken-zentaizou/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-shiken-zentaizou/shorts/point-overview-1/thumbnail.png",
+      "sha256": "4e215a8b9b3d97749e614abd567e94792d11b2944c47a38a003af28ebd6edf53",
+      "thumbnailSha256": "9c0f2f302564497e7bd1c21cd79f902dcea0c6233467e3cec7880e33209d86d9"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "コンクリート主任技士｜試験は二本立て #Shorts",
+      "description": "試験は四肢択一一問一答と小論文1題の2部構成です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=shunin-shiken-zentaizou&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "勉強計画",
+        "受検対策",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-27T07:30:00+09:00",
+      "r2Key": "video/render/shunin-shiken-zentaizou/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-shiken-zentaizou/shorts/point-step1-2/thumbnail.png",
+      "sha256": "96e5d6962d90f969af885a27e65afc984f6f9680efda1d463d012b19eece746a",
+      "thumbnailSha256": "b5cb959719c86d5ebbe368290dba4dc039bd3780f2984850f56bdd57583e0b39"
+    }
+  ]
 }

@@ -22,5 +22,46 @@
     "sha256": "2bf3f7c3685b69b8589f4ad03c875ff13018f8623dae190531d438cc561b1126",
     "thumbnailSha256": "10bb53238d60a4c2949c6668cc869418609b1d99c7a6db5841735f67ecddc475"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "コンクリート技士｜違いの本質 #Shorts",
+      "description": "技士は日常の技術業務を実施する能力のある技術者、主任技士は計画・管理・指導を実施する高度な技術者と位置づけられています。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=gishi-shunin-dochira&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "施工経験記述",
+        "答案診断",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-16T12:30:00+09:00",
+      "r2Key": "video/render/gishi-shunin-dochira/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-shunin-dochira/shorts/point-step1-1/thumbnail.png",
+      "sha256": "5dd02ff363f14729da5a6125555e18e4515622e7dcd40fe28ef2668aff30b411",
+      "thumbnailSha256": "9d836cd02d1969af7ddee8dbd0b9938a92afc95e955e88323096d1a6252f4205"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "コンクリート技士｜試験方式と時間の違い #Shorts",
+      "description": "技士は四肢択一式で2時間、小論文はありません。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=gishi-shunin-dochira&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "施工経験記述",
+        "答案診断",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-17T07:30:00+09:00",
+      "r2Key": "video/render/gishi-shunin-dochira/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-shunin-dochira/shorts/point-step2-2/thumbnail.png",
+      "sha256": "7f38899999a5e0bfca4eb3594f884ef2075dce82f358e89bf92af78ea841f27d",
+      "thumbnailSha256": "617eb06b087b524f9fe045db3e13399c6ad1c4af7cff527406461ee2ea6260c3"
+    }
+  ]
 }

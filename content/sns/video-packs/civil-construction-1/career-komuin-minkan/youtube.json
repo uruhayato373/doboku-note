@@ -22,5 +22,46 @@
     "sha256": "998bc470fd715f7cd591af9ce1ac3648510e145d9d5bae762a2464314081be62",
     "thumbnailSha256": "891d5086f0fac5aae3ef65619b56b5d0a06a2e7c1b335ba0cd003185d90c0cdd"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "1級土木｜公務員土木で活きる経験 #Shorts",
+      "description": "公務員の土木職は、発注者の立場で公共工事を計画・発注・監督・維持管理する仕事です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=career-komuin-minkan&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "施工管理",
+        "キャリア",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-21T12:30:00+09:00",
+      "r2Key": "video/render/career-komuin-minkan/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/career-komuin-minkan/shorts/point-step1-1/thumbnail.png",
+      "sha256": "ff156882ca53700bb8328e982617efdf5941ba419882023fce66e07f36993896",
+      "thumbnailSha256": "3040095031720704051a7e8338c1807cf4c545e36cf47576f1348db1a71ae2a1"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "1級土木｜公務員土木の実情 #Shorts",
+      "description": "公務員土木の最大の魅力は労働環境と雇用の安定です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=career-komuin-minkan&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "施工管理",
+        "キャリア",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-22T07:30:00+09:00",
+      "r2Key": "video/render/career-komuin-minkan/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/career-komuin-minkan/shorts/point-step2-2/thumbnail.png",
+      "sha256": "cd183449660f80fc8ef9b218a96f296285d66c749fe562a1c89c1cbf29b27a0c",
+      "thumbnailSha256": "02db8aa5da7bcd51de710dc0ece6bc2196f013201c92d2a69902f64f32046ebd"
+    }
+  ]
 }

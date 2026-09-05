@@ -22,5 +22,46 @@
     "sha256": "73f819325ebed04204de93e22a3cc98678f665dc0b9a8b404b74bed211b605aa",
     "thumbnailSha256": "084a2060c7b844ab6dcc1a936f85549193304733ce8ac5a5203aa8f8fdbfbdae"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "コンクリート主任技士｜配合を表す4つの諸量 #Shorts",
+      "description": "配合を表す諸量は4つ。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n5a55ae6dc16b?utm_source=youtube&utm_medium=video&utm_campaign=shunin-mix-design-ronten&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-03T12:30:00+09:00",
+      "r2Key": "video/render/shunin-mix-design-ronten/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-mix-design-ronten/shorts/point-overview-1/thumbnail.png",
+      "sha256": "ff004cfae20ebeb2272313a8ab6f922147d78942ec00c102bb0d66f4d75f8d3b",
+      "thumbnailSha256": "f110784802382f9847a107818b84a9b52c1ce1410f99ec70b471caba0ebeee41"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "コンクリート主任技士｜条件変化と修正方向 #Shorts",
+      "description": "材料条件が変わったときの修正方向は「変化・影響・修正」で覚えます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n5a55ae6dc16b?utm_source=youtube&utm_medium=video&utm_campaign=shunin-mix-design-ronten&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-04T07:30:00+09:00",
+      "r2Key": "video/render/shunin-mix-design-ronten/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-mix-design-ronten/shorts/point-step1-2/thumbnail.png",
+      "sha256": "e63c962505f4c6dece28be0cd9d8ef5e79c7e263a9ca878f64e7114706afd283",
+      "thumbnailSha256": "a2e26a03f89cc5e29a91c4bc77ce6775092323c0d74b4fdc046c9f5bc460bde8"
+    }
+  ]
 }

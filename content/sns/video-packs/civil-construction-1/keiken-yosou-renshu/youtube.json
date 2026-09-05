@@ -22,5 +22,46 @@
     "sha256": "28ca253161d7e511e6f1812f04afe412f98b46cf5f5bfe5d6e1c6cebf6d8e40e",
     "thumbnailSha256": "dde4e4b5aa12d2f843cdadd6a2f0a9700c523335e4795ebd057ad2fe0d5124ca"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "1級土木｜過去問の暗記が効きにくい理由 #Shorts",
+      "description": "本番は過去問そのままでは出ません。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nc2a33b52a2f7?utm_source=youtube&utm_medium=video&utm_campaign=keiken-yosou-renshu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-27T20:00:00+09:00",
+      "r2Key": "video/render/keiken-yosou-renshu/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-yosou-renshu/shorts/point-overview-1/thumbnail.png",
+      "sha256": "ce90d4d15edc7b75b6c5855f24f07ead911b66d31ec5e9ddc8c25f1ee90a9035",
+      "thumbnailSha256": "beb2d10ec761358ec400e3bd1bb5e68d9aa04e913d36b44b18b738ba3756a210"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "1級土木｜週1回の練習サイクル #Shorts",
+      "description": "おすすめは週1回まわすサイクルです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nc2a33b52a2f7?utm_source=youtube&utm_medium=video&utm_campaign=keiken-yosou-renshu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-28T12:30:00+09:00",
+      "r2Key": "video/render/keiken-yosou-renshu/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-yosou-renshu/shorts/point-step1-2/thumbnail.png",
+      "sha256": "3cb0f6aacf15caa5303b6f6b654e07e8c6689ec4dcbd7e82b36ffede2aa46d68",
+      "thumbnailSha256": "fc474d18f929d7d9c49c4e67167cd9458cad55190cb5f2b1ee11b8bd24ccf663"
+    }
+  ]
 }

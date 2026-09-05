@@ -22,5 +22,46 @@
     "sha256": "37becdb22434bf623135471722c951f24e44d5fa91837fd06ef3029e4263940a",
     "thumbnailSha256": "9c80f8021b35382eb0e579dad516281de7b80138bd6d1a72bf7ed1071b04008a"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-gensoku-1",
+      "sceneId": "gensoku",
+      "title": "1級土木｜選定の大原則 #Shorts",
+      "description": "法面が安定した土質なら植生工です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-nori-hogoko&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-15T20:00:00+09:00",
+      "r2Key": "video/render/gakka-nori-hogoko/shorts/point-gensoku-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-nori-hogoko/shorts/point-gensoku-1/thumbnail.png",
+      "sha256": "05254465c4a6dc33484d5b667f6f4beb31765162fecc9a0e912754829cc6e21c",
+      "thumbnailSha256": "0c2136cc5212bca91e4f3f62b7af7b39e80a09daeab0498f5c34f897f565ecf9"
+    },
+    {
+      "key": "point-hisho-2",
+      "sceneId": "hisho",
+      "title": "1級土木｜植生工を選ぶ3条件 #Shorts",
+      "description": "植生工には種子吹付工・植生シート工・張芝工などがあります。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-nori-hogoko&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-16T12:30:00+09:00",
+      "r2Key": "video/render/gakka-nori-hogoko/shorts/point-hisho-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-nori-hogoko/shorts/point-hisho-2/thumbnail.png",
+      "sha256": "f78e5b9f88d3ac8f39a51c5f18482ccefbee67104f911713b2871777228b5197",
+      "thumbnailSha256": "2bddda02907d7f527b6f60a6e0bfbf71cb96430f45a68edf63adaf9805ebd86e"
+    }
+  ]
 }

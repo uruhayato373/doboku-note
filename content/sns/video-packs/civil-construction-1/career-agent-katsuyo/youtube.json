@@ -22,5 +22,46 @@
     "sha256": "90bd8cd49aa9e19d0139d931756fe6361038dbcfe8dcb62875f65c4c1c33f2f9",
     "thumbnailSha256": "da852183140cbc329463eda70b8c41941eb9d345e7503e1ae5848e6d573729de"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "1級土木｜サービスのタイプを知る #Shorts",
+      "description": "転職サービスは、特化型か総合型か、エージェントか求人サイトかの2軸で整理できます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=career-agent-katsuyo&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "施工管理",
+        "キャリア",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-20T20:00:00+09:00",
+      "r2Key": "video/render/career-agent-katsuyo/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/career-agent-katsuyo/shorts/point-step1-1/thumbnail.png",
+      "sha256": "3d0a64f47746e9bb31e05607b6bf15c46702c8465573db4e09d497fbdc5e9e9a",
+      "thumbnailSha256": "d40cda2bb52641364078cf603004bc500c5f1251e9574ecd6965c35b7f62f54e"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "1級土木｜特化型が強い理由 #Shorts",
+      "description": "特化型の担当者は、資格や経験年数、担当工種と規模を読み取り、企業の求める条件へつなぎます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=career-agent-katsuyo&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "施工管理",
+        "キャリア",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-21T07:30:00+09:00",
+      "r2Key": "video/render/career-agent-katsuyo/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/career-agent-katsuyo/shorts/point-step2-2/thumbnail.png",
+      "sha256": "57036f4487594bde65c8bf4d2a5ed840332409586237d2696eb8ed70730adb0e",
+      "thumbnailSha256": "de42396f19bdb715440354b53e22df22728ac0b0fded48d9e20947f84b530ea5"
+    }
+  ]
 }

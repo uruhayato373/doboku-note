@@ -22,5 +22,46 @@
     "sha256": "88be037a9c9153b89edf591bce738808dda10a80baf37a05d48cc2d2eeacda77",
     "thumbnailSha256": "ce1467a9c5a6494cf15628f4fa63118fb0662aef93f74547a9c4c1636c58d7e9"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "1級土木｜リスクアセスメントの4手順 #Shorts",
+      "description": "リスクアセスメントは4つの手順です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-risk-assessment&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-16T20:00:00+09:00",
+      "r2Key": "video/render/gakka-risk-assessment/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-risk-assessment/shorts/point-step1-1/thumbnail.png",
+      "sha256": "89a81bc6fae45d67054e0374e2f3ba54e1b8cafdceb6c05fb4d591322c2e84ee",
+      "thumbnailSha256": "5c4373d88b583f817ee169eccfd442c28078d194763141e30d7188c99361aa30"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "1級土木｜低減措置の優先順位 #Shorts",
+      "description": "リスク低減措置には優先順位があります。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-risk-assessment&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-17T07:30:00+09:00",
+      "r2Key": "video/render/gakka-risk-assessment/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-risk-assessment/shorts/point-step2-2/thumbnail.png",
+      "sha256": "ac36159428d8104683cc3cbb3c2e258a764eafbfde7758052cd6c31605455db7",
+      "thumbnailSha256": "387b3a2cf7ff259c4b88f48a34d8c44e12f889f836e3b9d26cced8d73acca641"
+    }
+  ]
 }

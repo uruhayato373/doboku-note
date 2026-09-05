@@ -22,5 +22,46 @@
     "sha256": "22f6a0d4b6e7d7892dd1c8ecb683ce71b3867856c2d8ab7cedbf7c32745f95be",
     "thumbnailSha256": "d90f6df712066526ea007ae763e3e7c49d37fe4780c0b41d0b16b2da792932f3"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "コンクリート技士｜セメントは反応速度・発熱・強度で比べる #Shorts",
+      "description": "セメントのクリンカーは、けい酸三カルシウムやけい酸二カルシウムなど四つの化合物からできています。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=gishi-materials-ronten&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-29T12:30:00+09:00",
+      "r2Key": "video/render/gishi-materials-ronten/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-materials-ronten/shorts/point-step1-1/thumbnail.png",
+      "sha256": "e79768cf3e60eb6d2cf3bace1de3c79892f58b479998efe2db4e0133ece5ec66",
+      "thumbnailSha256": "98982aa3b30f01541caf8a531693555c8b90414675e639a234930ae5fa525540"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "コンクリート技士｜骨材の含水状態は表乾が基準 #Shorts",
+      "description": "骨材は絶乾、気乾、表面乾燥飽水、湿潤の四段階に分かれ、配合計算の基準になるのは表乾状態です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=gishi-materials-ronten&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-30T07:30:00+09:00",
+      "r2Key": "video/render/gishi-materials-ronten/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-materials-ronten/shorts/point-step2-2/thumbnail.png",
+      "sha256": "4a3af5bd2307d2eae969b591e94cf2a201832902491769b5dc814290505b87d3",
+      "thumbnailSha256": "998fbd9c7a822f579073df7660dfcf542493dbaf3b0fe189f4bc31d460f691fc"
+    }
+  ]
 }

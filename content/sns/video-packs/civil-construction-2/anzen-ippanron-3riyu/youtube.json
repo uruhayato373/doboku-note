@@ -22,5 +22,46 @@
     "sha256": "e1f449589bf5a8b76dd7c02b805f89b0cc45ea63385ca1f1b070e04e99d4abe7",
     "thumbnailSha256": "2c6b54243ecd536f3767d20186d3f006d324976aee66b7bc9e46825330cf4842"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-cause1-1",
+      "sceneId": "cause1",
+      "title": "2級土木｜現場条件が書かれていない #Shorts",
+      "description": "原因の1つ目。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://coconala.com/services/4317349?utm_source=youtube&utm_medium=video&utm_campaign=anzen-ippanron-3riyu&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "施工経験記述",
+        "答案診断",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-08T12:30:00+09:00",
+      "r2Key": "video/render/anzen-ippanron-3riyu/shorts/point-cause1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/anzen-ippanron-3riyu/shorts/point-cause1-1/thumbnail.png",
+      "sha256": "4490789110ca9aaf260da94768eaaf27753228177d1a14498a72d1a34ba83ad5",
+      "thumbnailSha256": "e2ecbee739e7302cb1348625a35af7f6379314781dc2405f22bccf9a501e4176"
+    },
+    {
+      "key": "point-cause2-2",
+      "sceneId": "cause2",
+      "title": "2級土木｜対策が単発の列挙 #Shorts",
+      "description": "2つ目。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://coconala.com/services/4317349?utm_source=youtube&utm_medium=video&utm_campaign=anzen-ippanron-3riyu&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "施工経験記述",
+        "答案診断",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-09T07:30:00+09:00",
+      "r2Key": "video/render/anzen-ippanron-3riyu/shorts/point-cause2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/anzen-ippanron-3riyu/shorts/point-cause2-2/thumbnail.png",
+      "sha256": "8304dcc08b6a234fda6db0e3edf7dbffa6e4ae60b7d8becdd30ed4cae18ca61c",
+      "thumbnailSha256": "bc02a573d5026e532a9813531fe7d2b0e75cf7a540e1327849eed93a8de44b8d"
+    }
+  ]
 }

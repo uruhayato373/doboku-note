@@ -22,5 +22,46 @@
     "sha256": "da65e45dcf0cdd3106e9d2b4ec312b6481b420663ac0e3bf1f18ac0c6550e13f",
     "thumbnailSha256": "13a48399ec9435c1ff0f07097ee4f940b49a0a0366cd27adcff5143aa6ce8780"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-plan-vs-management-1",
+      "sceneId": "plan-vs-management",
+      "title": "1級土木｜施工計画と施工管理を区別する #Shorts",
+      "description": "施工計画は、着工前に設計図書・材料・方法・構造・資金を検討することです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m150c9db08902?utm_source=youtube&utm_medium=video&utm_campaign=keiken-sekokeikaku-1kyu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-24T20:00:00+09:00",
+      "r2Key": "video/render/keiken-sekokeikaku-1kyu/shorts/point-plan-vs-management-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-sekokeikaku-1kyu/shorts/point-plan-vs-management-1/thumbnail.png",
+      "sha256": "a9e76577a42ef2983c0701f8846f52f0588fcd5408de0b71c4c98c39cd1076a0",
+      "thumbnailSha256": "5d191b9c47e9bdad8a9bf32594ecd21f156e92e596e3cd5105e6f81d594e15e2"
+    },
+    {
+      "key": "point-four-categories-2",
+      "sceneId": "four-categories",
+      "title": "1級土木｜検討項目を4系統に絞る #Shorts",
+      "description": "検討項目は、仮設計画、工法比較、近接施工の防護、関係者協議の4系統に絞ります。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m150c9db08902?utm_source=youtube&utm_medium=video&utm_campaign=keiken-sekokeikaku-1kyu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-25T12:30:00+09:00",
+      "r2Key": "video/render/keiken-sekokeikaku-1kyu/shorts/point-four-categories-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-sekokeikaku-1kyu/shorts/point-four-categories-2/thumbnail.png",
+      "sha256": "9b087c4408ef06736bce7bfbe4d7d49556edccc3fc7bff5d46882339e8e37fa3",
+      "thumbnailSha256": "dc58b7e28a9e7c4f99f601c38dd085cee199672945da8efd2b2900a01c3be350"
+    }
+  ]
 }

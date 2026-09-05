@@ -22,5 +22,46 @@
     "sha256": "61c5e5470ae5d678badd79b645c527219398b84bd6e1d205e1dd8ebcf7348d6c",
     "thumbnailSha256": "ad8044214807d278a2a77d26aa273eabfb723e3064e7e184cbd273e41a032402"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-nagare-1",
+      "sceneId": "nagare",
+      "title": "2級土木｜品質管理も5要素の流れ #Shorts",
+      "description": "品質管理も書く要素は共通です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m1881a9578027?utm_source=youtube&utm_medium=video&utm_campaign=keiken-hinshitsu-kakikata&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-14T12:30:00+09:00",
+      "r2Key": "video/render/keiken-hinshitsu-kakikata/shorts/point-nagare-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-hinshitsu-kakikata/shorts/point-nagare-1/thumbnail.png",
+      "sha256": "9ea5276f73a997765f18f75c9cdb295ae096982ebfe49279217275db1e28ae3c",
+      "thumbnailSha256": "ef680b094ebd8842914f494007f078caf61e2120a2bc073535dafaf8c2c0f274"
+    },
+    {
+      "key": "point-kadai-2",
+      "sceneId": "kadai",
+      "title": "2級土木｜課題は現場条件と規格値のギャップ #Shorts",
+      "description": "検討項目の観点は、計画・材料・施工・養生・検査・周知の6つです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m1881a9578027?utm_source=youtube&utm_medium=video&utm_campaign=keiken-hinshitsu-kakikata&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-15T07:30:00+09:00",
+      "r2Key": "video/render/keiken-hinshitsu-kakikata/shorts/point-kadai-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-hinshitsu-kakikata/shorts/point-kadai-2/thumbnail.png",
+      "sha256": "f8c48143661acb022db421358b298cd370d93482120867e9ac55af4b0a91b538",
+      "thumbnailSha256": "6705b341634f81aafb65e8fa2c0c7e577542fa9a80b793f1f7ade1fb119f65eb"
+    }
+  ]
 }

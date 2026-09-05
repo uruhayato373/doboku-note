@@ -22,5 +22,46 @@
     "sha256": "5b3464cae7692d52bf44944adf5648532e90465be8ee1d97f28825fc4f6e5715",
     "thumbnailSha256": "b99b4ccfd73b457b81939531b41c08c8734a9587e7919e8fa5457ae03f770a56"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "1級土木｜合格率は2つの検定で見方が変わる #Shorts",
+      "description": "第一次は知識確認型、第二次は記述式で経験記述を含みます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=roadmap-nanido-goukakuritsu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強計画",
+        "受検対策",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-01T20:00:00+09:00",
+      "r2Key": "video/render/roadmap-nanido-goukakuritsu/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/roadmap-nanido-goukakuritsu/shorts/point-step1-1/thumbnail.png",
+      "sha256": "dfc93c8db920179b373b0bea936e91eabe07683c8b5adb1fb8a32e07749807fd",
+      "thumbnailSha256": "3c49dfaa3e034aaa348e205dd709ff8e3aff287e69509a7d42c5fe51fdf60da7"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "1級土木｜合格基準を先に押さえる #Shorts",
+      "description": "合格基準は第一次・第二次ともおおむね6割です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=roadmap-nanido-goukakuritsu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強計画",
+        "受検対策",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-02T12:30:00+09:00",
+      "r2Key": "video/render/roadmap-nanido-goukakuritsu/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/roadmap-nanido-goukakuritsu/shorts/point-step2-2/thumbnail.png",
+      "sha256": "cbb295200a804dfda2247076983c2afc09f42ea7120e5d66be08e89d0dfb04b9",
+      "thumbnailSha256": "39a1bb1dd03a6d0cc1ba640468c9bf70d80fe8c5706ffc4f97ac3c17c34c56f5"
+    }
+  ]
 }

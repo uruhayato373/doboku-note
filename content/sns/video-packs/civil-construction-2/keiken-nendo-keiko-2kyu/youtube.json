@@ -22,5 +22,46 @@
     "sha256": "4895cf40d076752d802cea5c9f078d9e7c89514cf921ecba56e2ae1c473b8da9",
     "thumbnailSha256": "c0672f613b14482d6bc52b8447127fadc8d963e11358f9cde27a0482d8c33561"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-theme-shift-1",
+      "sceneId": "theme-shift",
+      "title": "2級土木｜問題1のテーマと形式の変遷 #Shorts",
+      "description": "令和3年度は安全か品質、令和4年度は品質か工程、令和5年度は安全か工程を1つ選ぶ形式でした。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/md3aa0f9a37d7?utm_source=youtube&utm_medium=video&utm_campaign=keiken-nendo-keiko-2kyu&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-22T12:30:00+09:00",
+      "r2Key": "video/render/keiken-nendo-keiko-2kyu/shorts/point-theme-shift-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-nendo-keiko-2kyu/shorts/point-theme-shift-1/thumbnail.png",
+      "sha256": "07a84609ecc0e6f134c6338f2a1d1bf89d213a139a24cb43a1fd30527930719c",
+      "thumbnailSha256": "dc7c3993a617e155bb444018858f2d20a616183a00a0a84977abb0455056fac2"
+    },
+    {
+      "key": "point-gakka-fields-2",
+      "sceneId": "gakka-fields",
+      "title": "2級土木｜学科記述で毎年出る分野 #Shorts",
+      "description": "問題2以降の学科記述は、土工、コンクリート工、品質管理、安全管理、工程管理が、ほぼ毎年繰り返し登場します。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/md3aa0f9a37d7?utm_source=youtube&utm_medium=video&utm_campaign=keiken-nendo-keiko-2kyu&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-23T07:30:00+09:00",
+      "r2Key": "video/render/keiken-nendo-keiko-2kyu/shorts/point-gakka-fields-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-nendo-keiko-2kyu/shorts/point-gakka-fields-2/thumbnail.png",
+      "sha256": "8ef321a1eef9fde60f4e3cb0221640103bff55039fd9effaf6e6b2b1762c628d",
+      "thumbnailSha256": "2b1bcf0b7870b1bc3cd7958e6ed59f5b5752c3b9834ffb44767e8d062922e73f"
+    }
+  ]
 }

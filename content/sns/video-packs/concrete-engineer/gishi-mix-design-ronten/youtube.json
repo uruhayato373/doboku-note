@@ -22,5 +22,46 @@
     "sha256": "00bfedda08989fcb05ecbd415451033c4aad3eb31279bab4b65f057c046e1c23",
     "thumbnailSha256": "23ca0b7b4f83d87677a68700dea309f3a74206344d33a907368401b6d747a175"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "コンクリート技士｜配合設計は4つの要求から順に決める #Shorts",
+      "description": "配合は強度、耐久性、施工性、経済性を同時に満たすように決めます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=gishi-mix-design-ronten&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-02T12:30:00+09:00",
+      "r2Key": "video/render/gishi-mix-design-ronten/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-mix-design-ronten/shorts/point-step1-1/thumbnail.png",
+      "sha256": "691ce10052a00d7bb5509ecb22b4f3bc718621360861e6454cca41e2e110991f",
+      "thumbnailSha256": "5b42e4cf1c39a72770cf107b1c9dc9d9ffaa8961dbc3264b6d352d6d3302bfca"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "コンクリート技士｜水セメント比は厳しい方を採用する #Shorts",
+      "description": "水セメント比は、強度から求める上限と、耐久性から求める上限を比較し、厳しい方を採用します。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=gishi-mix-design-ronten&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-03T07:30:00+09:00",
+      "r2Key": "video/render/gishi-mix-design-ronten/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-mix-design-ronten/shorts/point-step2-2/thumbnail.png",
+      "sha256": "fe5683bf405f6af3113e5350c8c26e3a27214683938825f675afd29df0f8ce7d",
+      "thumbnailSha256": "67bb8384397502efc0cd223b8d48347ad23fdd330039943bf4c6b6636cb72078"
+    }
+  ]
 }

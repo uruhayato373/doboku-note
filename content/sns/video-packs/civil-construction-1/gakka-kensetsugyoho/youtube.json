@@ -22,5 +22,46 @@
     "sha256": "445a257d7cf9f0aa7b6124dd77a3a76e195501e69fee97654e393d7e8289bf2b",
     "thumbnailSha256": "2a98e573841a6001fcfdaab799c47466ebb5e326ffc95c2436cfac1cb2ce6dd4"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "1級土木｜許可が要るかどうかの境目 #Shorts",
+      "description": "請負代金500万円未満は軽微な建設工事として許可が不要です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-kensetsugyoho&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-11T12:30:00+09:00",
+      "r2Key": "video/render/gakka-kensetsugyoho/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-kensetsugyoho/shorts/point-overview-1/thumbnail.png",
+      "sha256": "e090668379295ff0b155117295b889d9d4ab2985924e0d31a443282003df74ca",
+      "thumbnailSha256": "5bb66734f4a9e9322d90ab0da327518e2afa9213c0d7d4069df45135131ee6c6"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "1級土木｜一般建設業と特定建設業の境目 #Shorts",
+      "description": "元請として下請に出す金額の合計が5,000万円、建築一式は8,000万円以上になる場合、特定建設業の許可が必要です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-kensetsugyoho&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-12T07:30:00+09:00",
+      "r2Key": "video/render/gakka-kensetsugyoho/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-kensetsugyoho/shorts/point-step1-2/thumbnail.png",
+      "sha256": "5ad47b44b87eacbd4385f89acffb7436054348d1f91a0e3d1debf3fd6ce272d7",
+      "thumbnailSha256": "b479d9e76f69043562a54faaafe3f3b762da67db5d33a5fedd8dc1316687a6b2"
+    }
+  ]
 }

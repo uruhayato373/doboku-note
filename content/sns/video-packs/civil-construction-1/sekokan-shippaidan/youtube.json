@@ -22,5 +22,46 @@
     "sha256": "84583d34230f51f982a55c677265d42bdf43bbf582e3246c72981f5776ba5410",
     "thumbnailSha256": "a8151371a3cc1536d83464ec8b82e9439f24092e6812b69318de1291c04efa15"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "1級土木｜一人で抱え込みすぎる #Shorts",
+      "description": "一人で抱え込みすぎるケースです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=sekokan-shippaidan&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "施工管理",
+        "キャリア",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-24T20:00:00+09:00",
+      "r2Key": "video/render/sekokan-shippaidan/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/sekokan-shippaidan/shorts/point-step1-1/thumbnail.png",
+      "sha256": "d3c8828bd7f3ae581c0c8682ed26d16c1c2f58d34edfd30ea44a000ee380479d",
+      "thumbnailSha256": "41a9adcd756bc881d8a609096ea8de1e03a07903ad8015027f95d9948449b79c"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "1級土木｜改善されない環境に耐え続ける #Shorts",
+      "description": "改善されない環境に耐え続けるケースです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=sekokan-shippaidan&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "施工管理",
+        "キャリア",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-25T07:30:00+09:00",
+      "r2Key": "video/render/sekokan-shippaidan/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/sekokan-shippaidan/shorts/point-step2-2/thumbnail.png",
+      "sha256": "4548c5dbca2d7585ec7e2c027469a931bbc52b2a6bd2697f34f9e5d8b2f5c24e",
+      "thumbnailSha256": "807124fbbb7efec581c12b2469776db94d60e1b8fd3ad8a5dcf1378a17b6ea5f"
+    }
+  ]
 }
