@@ -1055,7 +1055,7 @@
     "gakka-2kyu-concrete": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -1064,15 +1064,19 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-10-10T20:00:00+09:00",
-          "renderedAt": "2026-09-05T05:31:27.208Z"
+          "publishAt": "2026-10-10T11:00:00Z",
+          "renderedAt": "2026-09-05T05:31:27.208Z",
+          "videoId": "xX9zcjzLrAA",
+          "url": "https://www.youtube.com/watch?v=xX9zcjzLrAA",
+          "scheduledAt": "2026-09-05T05:33:02.244Z",
+          "privacyStatus": "private"
         }
       }
     },
     "gakka-2kyu-kiso": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -1081,15 +1085,19 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-10-12T20:00:00+09:00",
-          "renderedAt": "2026-09-05T05:31:28.856Z"
+          "publishAt": "2026-10-12T11:00:00Z",
+          "renderedAt": "2026-09-05T05:31:28.856Z",
+          "videoId": "EaGr39dA7c8",
+          "url": "https://www.youtube.com/watch?v=EaGr39dA7c8",
+          "scheduledAt": "2026-09-05T05:33:15.321Z",
+          "privacyStatus": "private"
         }
       }
     },
     "gakka-2kyu-hoki": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -1098,15 +1106,19 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-10-16T20:00:00+09:00",
-          "renderedAt": "2026-09-05T05:31:29.687Z"
+          "publishAt": "2026-10-16T11:00:00Z",
+          "renderedAt": "2026-09-05T05:31:29.687Z",
+          "videoId": "reNIefkFy0M",
+          "url": "https://www.youtube.com/watch?v=reNIefkFy0M",
+          "scheduledAt": "2026-09-05T05:33:34.770Z",
+          "privacyStatus": "private"
         }
       }
     },
     "gakka-2kyu-sekokeikaku": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -1115,8 +1127,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-10-14T20:00:00+09:00",
-          "renderedAt": "2026-09-05T05:31:30.732Z"
+          "publishAt": "2026-10-14T11:00:00Z",
+          "renderedAt": "2026-09-05T05:31:30.732Z",
+          "videoId": "JXEL3opmEE0",
+          "url": "https://www.youtube.com/watch?v=JXEL3opmEE0",
+          "scheduledAt": "2026-09-05T05:33:23.780Z",
+          "privacyStatus": "private"
         }
       }
     },
