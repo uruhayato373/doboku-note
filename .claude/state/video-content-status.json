@@ -329,7 +329,7 @@
     "gakka-histogram": {
       "derivatives": {
         "longform": {
-          "status": "approved",
+          "status": "rendered",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -338,7 +338,8 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-19T20:00:00+09:00"
+          "publishAt": "2026-09-19T20:00:00+09:00",
+          "renderedAt": "2026-09-05T03:33:38.674Z"
         }
       }
     },
@@ -382,7 +383,7 @@
     "keiken-hinshitsu-kakikata": {
       "derivatives": {
         "longform": {
-          "status": "approved",
+          "status": "rendered",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -391,7 +392,8 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-10-13T20:00:00+09:00"
+          "publishAt": "2026-10-13T20:00:00+09:00",
+          "renderedAt": "2026-09-05T03:33:40.924Z"
         }
       }
     },
@@ -616,7 +618,7 @@
     "gakka-kikai-kiso": {
       "derivatives": {
         "longform": {
-          "status": "approved",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -625,7 +627,8 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-22T07:30:00+09:00"
+          "publishAt": "2026-09-22T07:30:00+09:00",
+          "renderedAt": "2026-09-05T03:33:43.653Z"
         }
       }
     },
@@ -749,7 +752,7 @@
     "gakka-hoki-kenchiku-kayaku": {
       "derivatives": {
         "longform": {
-          "status": "approved",
+          "status": "rendered",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -758,7 +761,8 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-20T12:30:00+09:00"
+          "publishAt": "2026-09-20T12:30:00+09:00",
+          "renderedAt": "2026-09-05T03:33:46.690Z"
         }
       }
     },
@@ -886,7 +890,7 @@
     "gakka-kanrizu": {
       "derivatives": {
         "longform": {
-          "status": "approved",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -895,7 +899,8 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-21T07:30:00+09:00"
+          "publishAt": "2026-09-21T07:30:00+09:00",
+          "renderedAt": "2026-09-05T03:33:52.275Z"
         }
       }
     },
@@ -1277,7 +1282,7 @@
     "keiken-gaiyo-2kyu": {
       "derivatives": {
         "longform": {
-          "status": "approved",
+          "status": "rendered",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -1286,7 +1291,8 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-10-09T20:00:00+09:00"
+          "publishAt": "2026-10-09T20:00:00+09:00",
+          "renderedAt": "2026-09-05T03:33:54.864Z"
         }
       }
     },
@@ -1488,7 +1494,7 @@
     "chokuzen-check-1kyu-niji": {
       "derivatives": {
         "longform": {
-          "status": "approved",
+          "status": "rendered",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -1497,7 +1503,8 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-10-03T20:00:00+09:00"
+          "publishAt": "2026-10-03T20:00:00+09:00",
+          "renderedAt": "2026-09-05T03:33:58.073Z"
         }
       }
     },
