@@ -41,6 +41,14 @@ test('B: 「文字」表記の字数不一致も捕捉する', () => {
   assert.ok(rows.some((row) => row.type === 'B'));
 });
 
+test('B: 全8行を明示したうえで評価部分を最後の3〜4行と配分する説明は通す', () => {
+  const rows = audit(
+    '# 施工経験記述 current2\n全8行のうち、評価は最後の3〜4行で端的に締めます。',
+    'civil-construction-1/fixture.md',
+  );
+  assert.deepEqual(rows, []);
+});
+
 test('C: 配点表の検討要素が誤った側なら捕捉する', () => {
   const rows = audit('## 現行形式の配点表\n| (2) | 検討した項目 | 3点 |', 'civil-construction-1/fixture.md');
   assert.ok(rows.some((row) => row.type === 'C' && row.slot === 2));

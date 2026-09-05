@@ -1,8 +1,8 @@
 # コンテンツ品質 全量スキャンレポート
 
 - 対象: published MDX（content/site）
-- 違反合計: HIGH 22 / MEDIUM 3260 / LOW 470
-- 違反のある記事数: 590
+- 違反合計: HIGH 22 / MEDIUM 3289 / LOW 496
+- 違反のある記事数: 602
 - baseline 比の新規違反: 0 件
 
 優先度 = 違反数 × GA4 人気度（activeUsers）。人気ページの違反を上位に。
@@ -70,4 +70,4 @@
 | 59 | pe-first-stage-r03-basic | — | 20 | 11-2:13 1-3:5 11-1:2 |
 | 60 | pe-construction-environment-exam-themes | — | 19 | 1-4:14 1-3:2 6-1:2 9-16:1 |
 
-※ 上位 60 件のみ表示（違反記事 590 件中 530 件を省略）。全量は --update-baseline 後の baseline JSON を参照。
+※ 上位 60 件のみ表示（違反記事 602 件中 542 件を省略）。全量は --update-baseline 後の baseline JSON を参照。

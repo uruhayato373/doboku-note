@@ -241,6 +241,11 @@ function checkMeasurements(fragment, context, file, grade, limits, sheetLinesHin
   if (expectedLines) {
     for (const n of lineNumbers) {
       if (n === expectedLines) continue;
+      // 「全8行のうち評価は最後の3〜4行」のような内訳は、解答欄全体の
+      // 行数案内ではない。総行数を同じ文で明示した場合だけ部分配分として許可する。
+      const explicitTotal = new RegExp(`(?:全|計)\\s*${expectedLines}\\s*行(?:のうち|中)`).test(line);
+      const explicitSubset = new RegExp(`(?:最後|評価|対応処置).{0,40}(?:\\d{1,2}\\s*[〜～~-]\\s*)?${n}\\s*行`).test(line);
+      if (n < expectedLines && explicitTotal && explicitSubset) continue;
       pushViolation(out, { file, line: context.line, grade, quote: line, type: 'B', why: `現行解答欄の行数案内 ${n}行 が${grade === 'civil-1' ? '1級の実寸8行' : `同一教材の記入欄${expectedLines}行`}と一致しない` });
     }
   } else if (grade === 'civil-2' && /各(?:区画|欄)\s*(?:=|は)|解答欄.{0,20}\d+\s*行|現行.{0,20}\d+\s*行/.test(line)) {

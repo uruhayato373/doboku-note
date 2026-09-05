@@ -17,5 +17,15 @@
     "public/**",
     "out/**"
   ],
-  "ignoreBinaries": ["ffmpeg", "netstat", "gh", "pdfinfo"]
+  "ignoreBinaries": [
+    "ffmpeg",
+    "ffprobe",
+    "netstat",
+    "gh",
+    "pdfinfo",
+    "pdftoppm",
+    "pdftotext",
+    "rclone",
+    "which"
+  ]
 }

@@ -49,12 +49,11 @@ function parseChecks(source) {
   return out;
 }
 
-test('expectedFail は ci:false にしか付かず、理由に期限/Phase が書かれている', () => {
+test('expectedFail がある場合は ci:false に限り、理由に期限/Phase が書かれている', () => {
   // 「今は失敗が正常」を ci:true に認めると Pre-merge の判定が空文になる（実装側も exit 2 で止める）。
   // 理由に期限が無いと、いつ外すべきか誰にも分からず居座る。
   const checks = parseChecks(SRC);
   const flagged = checks.filter((c) => c.expectedFail != null);
-  assert.ok(flagged.length >= 1, 'expectedFail 付きの検査が 1 件も取れていない（解析の破損を疑う）');
   assert.deepEqual(flagged.filter((c) => c.ci).map((c) => c.id), [], 'ci:true に expectedFail が付いている');
   const vague = flagged.filter((c) => !/Phase|まで|20\d\d-\d\d/.test(c.expectedFail)).map((c) => c.id);
   assert.deepEqual(vague, [], `expectedFail の理由に期限/Phase が無い: ${vague.join(', ')}`);

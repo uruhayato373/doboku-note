@@ -1,13 +1,13 @@
 {
-  "generated_at": "2026-09-04T11:08:49.585Z",
-  "scanned": 520,
+  "generated_at": "2026-09-05T06:15:19.773Z",
+  "scanned": 579,
   "skipped_photo": 36,
   "framed": 0,
   "errors": 0,
   "counts": {
-    "HIGH": 304,
+    "HIGH": 337,
     "MEDIUM": 0,
-    "LOW": 162
+    "LOW": 195
   },
   "violations": [
     {
@@ -2935,6 +2935,468 @@
       "severity": "HIGH",
       "side": "left",
       "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 86%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h25-basic/img/q14-source.webp",
+      "rule": "STRAY_LABEL",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "bottom縁の分離島（高さ19px・全インクの1.7%・白ギャップ42px）＝小見出し/軸/写り込みのいずれか（要目視）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h25-basic/img/q32-source.webp",
+      "rule": "STRAY_LABEL",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の分離島（高さ20px・全インクの0.6%・白ギャップ31px）＝小見出し/軸/写り込みのいずれか（要目視）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h26-basic/img/q21-source.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 52%≥50%・縁幅 0%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h27-basic/img/q12-target.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 1px < 4px"
+    },
+    {
+      "path": "content/site/pe-first-stage/h27-basic/img/q16-fig.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/pe-first-stage/h27-construction/img/q05-fig.webp",
+      "rule": "STRAY_LABEL",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁の分離島（高さ32px・全インクの0.9%・白ギャップ63px）＝小見出し/軸/写り込みのいずれか（要目視）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h28-basic/img/q08-table.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 95%≥50%・縁幅 2%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h28-basic/img/q25-fig.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I1-3.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 70%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I1-3.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 124%≥50%・縁幅 3%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I1-3.webp",
+      "rule": "EDGE_TIGHT",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "right縁で先細り接触＝端点タイトトリム（密度比 14%<50%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I2-3.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 2px < 4px"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I2-3.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 69%≥50%・縁幅 8%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I2-3.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 1px < 4px"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I2-3.webp",
+      "rule": "STRAY_LABEL",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "bottom縁の分離島（高さ32px・全インクの0.5%・白ギャップ109px）＝小見出し/軸/写り込みのいずれか（要目視）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I3-4.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 160%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I3-4.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 132%≥50%・縁幅 3%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I3-4.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 110%≥50%・縁幅 2%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I3-4.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 242%≥50%・縁幅 3%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I3-4.webp",
+      "rule": "STRAY_LABEL",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "bottom縁の分離島（高さ35px・全インクの3.9%・白ギャップ69px）＝小見出し/軸/写り込みのいずれか（要目視）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I3-5.webp",
+      "rule": "EDGE_TIGHT",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁で先細り接触＝端点タイトトリム（密度比 16%<50%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I3-5.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 213%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I3-5.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 53%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I3-5.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 72%≥50%・縁幅 2%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I3-6.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 3px < 4px"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I3-6.webp",
+      "rule": "EDGE_TIGHT",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "left縁で先細り接触＝端点タイトトリム（密度比 21%<50%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I3-6.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 95%≥50%・縁幅 0%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-basic/img/q-I3-6.webp",
+      "rule": "STRAY_LABEL",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "bottom縁の分離島（高さ41px・全インクの2.0%・白ギャップ147px）＝小見出し/軸/写り込みのいずれか（要目視）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-construction/img/q03-fig.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 63%≥50%・縁幅 0%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-construction/img/q03-fig.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 151%≥50%・縁幅 2%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-construction/img/q03-fig.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 57%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-construction/img/q05-fig.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 1478%≥50%・縁幅 21%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-construction/img/q05-fig.webp",
+      "rule": "EDGE_TIGHT",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "left縁で先細り接触＝端点タイトトリム（密度比 34%<50%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-construction/img/q05-fig.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 1px < 4px"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-construction/img/q07-fig.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "白マージン 1px < 4px"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-construction/img/q07-fig.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 62%≥50%・縁幅 4%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-construction/img/q07-fig.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 77%≥50%・縁幅 2%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-construction/img/q17-fig.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 112%≥50%・縁幅 2%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-construction/img/q17-fig.webp",
+      "rule": "EDGE_TIGHT",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "bottom縁で先細り接触＝端点タイトトリム（密度比 27%<50%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-construction/img/q17-fig.webp",
+      "rule": "EDGE_TIGHT",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "left縁で先細り接触＝端点タイトトリム（密度比 18%<50%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h29-construction/img/q17-fig.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 129%≥50%・縁幅 3%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I1-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "top",
+      "detail": "top縁でストローク中割りの疑い（縁2行/内側4行の密度比 51%≥50%・縁幅 0%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I1-1.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 1px < 4px"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I1-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 75%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I1-1.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 51%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I1-2.webp",
+      "rule": "EDGE_TIGHT",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "right縁で先細り接触＝端点タイトトリム（密度比 39%<50%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I2-2.webp",
+      "rule": "EDGE_TIGHT",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁で先細り接触＝端点タイトトリム（密度比 12%<50%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I2-2.webp",
+      "rule": "EDGE_TIGHT",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "bottom縁で先細り接触＝端点タイトトリム（密度比 35%<50%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I2-2.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 240%≥50%・縁幅 21%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I2-2.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 169%≥50%・縁幅 6%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I2-5.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 1px < 4px"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I2-5.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 60%≥50%・縁幅 4%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I2-5.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 1px < 4px"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I3-4.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "bottom",
+      "detail": "bottom縁でストローク中割りの疑い（縁2行/内側4行の密度比 277%≥50%・縁幅 18%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I3-4.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "left",
+      "detail": "白マージン 1px < 4px"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I3-4.webp",
+      "rule": "EDGE_TIGHT",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "right縁で先細り接触＝端点タイトトリム（密度比 40%<50%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I3-5.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "白マージン 1px < 4px"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I3-5.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 1px < 4px"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I3-5.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 103%≥50%・縁幅 4%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-basic/img/q-I3-5.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 59%≥50%・縁幅 1%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-construction/img/q05-fig.webp",
+      "rule": "EDGE_TIGHT",
+      "severity": "LOW",
+      "side": "top",
+      "detail": "top縁で先細り接触＝端点タイトトリム（密度比 32%<50%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-construction/img/q05-fig.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "bottom",
+      "detail": "白マージン 1px < 4px"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-construction/img/q05-fig.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 60%≥50%・縁幅 4%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-construction/img/q05-fig.webp",
+      "rule": "THIN_MARGIN",
+      "severity": "LOW",
+      "side": "right",
+      "detail": "白マージン 1px < 4px"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-construction/img/q19-fig.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "left",
+      "detail": "left縁でストローク中割りの疑い（縁2行/内側4行の密度比 133%≥50%・縁幅 0%）"
+    },
+    {
+      "path": "content/site/pe-first-stage/h30-construction/img/q19-fig.webp",
+      "rule": "EDGE_CUT",
+      "severity": "HIGH",
+      "side": "right",
+      "detail": "right縁でストローク中割りの疑い（縁2行/内側4行の密度比 111%≥50%・縁幅 1%）"
     },
     {
       "path": "content/site/pe-first-stage/r01-basic/img/q1-4-fig.webp",
