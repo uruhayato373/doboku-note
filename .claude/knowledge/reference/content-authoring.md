@@ -197,6 +197,8 @@ CLAUDE.md 本体にも要点を置いているが、詳細はここで扱う。
 - **R2 からのダウンロード（新規 PC 初期化時のフォールバック）**: `/sync-r2-images` または `npm run download-images`
 - `static/img/` はサイト共通素材（favicon, logo 等）専用
 
+これは「サイトが配信する」tier（public R2）。人しか使わない画像・PDF は R2 でなく Google Drive vault（asset-storage-policy.md §1・/asset-route）へ置く。
+
 ### 読み込み優先度（LCP ゲート・必読）
 
 **本文の 1 枚目の図版（先頭 2,000 文字以内にあるもの）は `loading="eager" fetchpriority="high"` にする。2 枚目以降は `loading="lazy"`。**

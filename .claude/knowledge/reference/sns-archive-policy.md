@@ -11,16 +11,18 @@
 | ファイル | 種別 | 置き場 |
 |---|---|---|
 | `slide-data.json` / `*caption.txt` / `reels/script.txt` / `status.json` | **SoT（消えたら困る）** | git 追跡 |
-| `carousel/img/*.png` / `stories/img/*.png`（成果物スライド） | 投稿そのもの。1 枚は小さいが 1,990 件で 234.4 MiB | **git 非追跡 → R2 退避**（2026-08-21〜・DN-0111 Phase 4-E） |
+| `carousel/img/*.png` / `stories/img/*.png`（成果物スライド） | 投稿そのもの。1 枚は小さいが 1,990 件で 234.4 MiB | **git 非追跡 → Google Drive vault**（`制作物/IGレンダー/`・`ig-rendered-image`。2026-09-05〜） |
 | `reels/wav/*.wav` | TTS で再生成可能・重い | **git 非追跡 → R2 退避** |
 | `reels/video.mp4` / `concat.txt` / `_empty.ass` 等 | wav+png から再生成可能 | **git 非追跡 → R2 退避** |
 
 > [!important] 真実源は slide-data.json
 > 1 パックの「消えたら困る本体」は約 20KB のテキスト（slide-data.json + script/caption + status.json）だけ。wav/mp4/png は全て再生成できる。退避で wav/mp4 を消しても、最悪 JIT 再生成で復元できる。
 >
-> **carousel/stories の PNG は 2026-08-21 に R2 退避へ移した**（DN-0111 Phase 4-E・1,990 件 234.4 MiB）。
-> 投稿済み 7 件は公開バケット、それ以外は archive。退避・復元は共通基盤（[asset-storage-policy.md](asset-storage-policy.md)）で、
-> `upload-sns-r2` が扱う wav/mp4 とは別経路。**reels/ 配下はこの共通基盤の対象外**——
+> **carousel/stories の PNG は 2026-08-21 に一旦 R2 退避へ移した**（DN-0111 Phase 4-E・1,990 件 234.4 MiB）が、
+> 2026-09-05 の置き場ルール制定（誰が使うか）で Google Drive vault `制作物/IGレンダー/`（`ig-rendered-image`）へ統合した。
+> 投稿は人が `publish-ig-bs` で行いサイトも CI も読まないため、投稿済みだけ公開バケットへ置く分岐は旧目標の名残（真実源 [asset-storage-policy.md](asset-storage-policy.md) §1）。
+> 退避・復元は共通基盤（`drive-vault-sync`）で、
+> `upload-sns-r2` が扱う wav/mp4（public R2 `sns/`）とは別経路。**reels/ 配下（wav/mp4）はこの共通基盤の対象外**——
 > 両方の regime で同じファイルを見ると片方が「未退避」と誤検出するため、group の regex から除外してある。
 >
 > 旧運用（2026-06-09）は wav を「コミットする SoT」としていたが、2026-06-18 に wav も R2 退避へ統一した（git 肥大 596MB が大きく、gitignore と矛盾していたため）。経緯は `skills-registry.md` の 2026-06-18 エントリ。
@@ -34,15 +36,17 @@
 2. **ローカル作業セット** — 制作中パックの wav/mp4 のみ手元生成・プレビュー。
 3. **アーカイブ** — 投稿済み・旧パックの重いバイナリを R2 へ退避し、ローカル削除。
 
-## バックエンドの役割分担（ハイブリッド）
+## バックエンドの役割分担
+
+置き場は「誰が使うか」で決める（真実源 [asset-storage-policy.md](asset-storage-policy.md) §1・決定木は `/asset-route`）。この文書が扱う SNS バイナリは 2 系統に分かれる。
 
 | バックエンド | 役割 | 理由 |
 |---|---|---|
-| **Cloudflare R2**（主軸） | wav/mp4 の機械的退避・JIT 再取得元 | 既存配線（`storage.doboku-note.com`・wrangler・S3 API）。CI/headless で creds 供給可。`rclone mount` で容量を食わずにブラウズ可能 |
-| **Google Drive**（補助） | 人間が見返す・共有する完成 mp4/カルーセルの置き場 | Drive UI の一覧性。ただし大容量 binary は Drive デスクトップアプリで同期し、MCP は read/search 用途に限る |
+| **Cloudflare R2**（public `sns/` prefix） | reels の wav/mp4・YouTube Shorts mp4（`upload-sns-r2` 系統）の機械的退避・JIT 再取得元 | サイトも CI も読む配線（`storage.doboku-note.com`・wrangler・S3 API）。`post-youtube-scheduled.yml` が `sns/youtube-shorts/` を読む。CI/headless で creds 供給可 |
+| **Google Drive vault**（正・human tier） | 人しか使わないバイナリ（IG カルーセル/ストーリーズの成果物 PNG・動画レンダー成果物）の置き場 | サイトもワークフローも読まない＝audience は `human`。台帳は `.claude/state/assets/drive-manifest.json`、同期は `npm run drive-vault-sync` |
 
 > [!warning] GDrive MCP に大容量 binary を通さない
-> このリポジトリの Google Drive MCP は対話認証式で、headless/cron・会社 PC プロキシ環境では不在になりやすい（measurement-incidents.md 2026-06-05）。数百 MB の wav/mp4 を MCP の `create_file` で送るのは非現実的。バルク退避は必ず R2（下記スクリプト）で行い、GDrive は完成物の人手キュレーションに留める。
+> このリポジトリの Google Drive MCP は対話認証式で、headless/cron・会社 PC プロキシ環境では不在になりやすい（measurement-incidents.md 2026-06-05）。数百 MB のバイナリを MCP の `create_file` で送るのは非現実的。バルク退避は reels wav/mp4（public R2・下記スクリプト）と IG レンダー PNG/動画レンダー成果物（Drive vault・`npm run drive-vault-sync`＝マウント/rclone 経由）で経路が分かれ、どちらも MCP は使わない。
 
 ## 退避スクリプト `npm run upload-sns-r2`
 

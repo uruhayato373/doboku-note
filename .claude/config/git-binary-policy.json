@@ -50,7 +50,7 @@
     {
       "id": "textbook-source-asset",
       "reason": "市販テキスト・白書の原典 PDF とページ画像。2026-08-22 に両方とも Git 履歴から除去し、R2 private（doboku-note-archive/textbook/）が唯一の実体になった。asset-hydrate で docs/textbook/ 配下へ取り戻せるが、**取り戻したものを再コミットすると元に戻る**。実測でこの経路が素通りだったので、旧配置 docs/textbook/ も明示的に止める",
-      "correctPlace": "R2 private（doboku-note-archive/textbook/）。書名単位で hydrate する",
+      "correctPlace": "Google Drive vault（マイドライブ/doboku-note/原資料PDF/教材/{書名}/）。取り戻しは drive-vault-sync --pull。asset-storage-policy.md §1",
       "match": {
         "pathPrefix": [
           "content/sources/textbook/",
@@ -228,7 +228,7 @@
     },
     {
       "path": "scripts/kindle-dist/",
-      "reason": "KDP 入稿済み EPUB+表紙 jpg。asset-storage.json の kindle-dist group で R2 private（doboku-note-archive/kindle/dist/）へバックアップ済みだが、check-kindle-format.mjs が ci:true で CI がこの Git 実体を直接検査するため untrack はしない（DN-0151(3) 決着）。untrack するには (i) 全冊再ビルドの内容一致検証 (ii) check-kindle-format の CI 実体依存問題の解決 の両方が要る。",
+      "reason": "KDP 入稿済み EPUB+表紙 jpg。drive-vault.json の kindle-dist group で Google Drive vault（制作物/Kindle/）へ控えを持つが、check-kindle-format.mjs が ci:true で CI がこの Git 実体を直接検査するため untrack はしない（DN-0151(3) 決着）。Git が正本、Drive は控え。untrack するには (i) 全冊再ビルドの内容一致検証 (ii) check-kindle-format の CI 実体依存問題の解決 の両方が要る。",
       "appliesTo": [
         "generated-ebook"
       ]

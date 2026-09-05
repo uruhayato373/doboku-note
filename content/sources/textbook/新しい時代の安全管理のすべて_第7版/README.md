@@ -6,8 +6,8 @@
 
 本文、OCR第二読、ページ別照合台帳は public repo では追跡せず、Google Drive の private vault
 `doboku-note/文字起こし/新しい時代の安全管理のすべて_第7版/` に保管する。
-原本PDF 5ファイルは private R2 `doboku-note-archive/textbook/` と Google Drive
-`doboku-note/原資料PDF/書籍/新しい時代の安全管理のすべて_第7版/` に保存済み。
+原本PDF 5ファイルは Google Drive vault `doboku-note/原資料PDF/書籍/新しい時代の安全管理のすべて_第7版/` に保存済み
+（private R2 `doboku-note-archive/textbook/` は移行中で撤去予定）。
 
 ## 取扱い
 

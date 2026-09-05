@@ -163,12 +163,17 @@ async function push(cfg, group, mount, manifest) {
   let dedupeIndex = null;
   if (DEDUPE) {
     dedupeIndex = new Map();
+    // 対象と同じ拡張子だけ索引する。原資料PDF/ にはページ画像 1 万枚超が同居しており、
+    // PDF を探すのに JPEG まで全部読むと 3.4GB 余計に読む（2026-09-05 初回実行で実測）。
+    const exts = new Set(rows.map((r) => (r.rel.split('.').pop() || '').toLowerCase()));
     for (const scanDir of cfg.dedupeScan || []) {
       const absDir = vaultAbsFor(mount.root, scanDir);
       if (!existsSync(absDir)) continue;
       const files = [];
       walk(absDir, files);
-      console.log('  dedupe 索引: ' + scanDir + ' を ' + files.length + ' ファイル読んでハッシュ化 ...');
+      const picked = files.filter((f) => exts.has((f.split('.').pop() || '').toLowerCase()));
+      console.log('  dedupe 索引: ' + scanDir + ' の ' + files.length + ' ファイルのうち拡張子 {' + [...exts].join(',') + '} の ' + picked.length + ' 件を読んでハッシュ化 ...');
+      files.length = 0; files.push(...picked);
       for (const f of files) {
         const h = await realBytesAndHashes(f);
         const rel = toVaultRel(f.slice(mount.root.length + 1));

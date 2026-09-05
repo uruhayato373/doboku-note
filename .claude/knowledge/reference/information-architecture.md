@@ -100,6 +100,9 @@ content/
    それ以外の単発（不具合・改善・意思決定・計測）→ `.claude/todo/backlog.md`（ID は `DN-####`）
 6. **機械が読む状態・設定か** → `.claude/state/` / `.claude/config/`
 7. 上記いずれでもない一時メモは作らない（`.tmp/` 配下のみ）
+8. **Git の外へ出すバイナリか**（画像・PDF・レンダー・原本）→ **誰が使うかで決める**: サイトが配信→public R2 ／
+   GitHub Actions が読み書き→private R2 ／ 人か手元のスクリプトだけ→Google Drive vault
+   （真実源 → [asset-storage-policy.md](./asset-storage-policy.md) §1・決定木は `/asset-route`）
 
 ### 具体例: Brain（1 商品が 4 領域にまたがる場合）
 

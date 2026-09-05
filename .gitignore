@@ -49,8 +49,10 @@ hikkei-*.pdf
 第３部_民法.pdf
 _minpo_*.png
 
-# Scanned source PDFs (content/sources/textbook) — archived to PRIVATE R2 bucket doboku-note-archive/textbook/.
-# Pull on demand via rclone; see .claude/knowledge/reference/textbook-pdf-archive.md. Untracked to keep working tree/.git lean.
+# Scanned source PDFs (content/sources/textbook) — 実体は Google Drive vault（drive-vault.json の
+# textbook-source-pdf group・台帳 drive-manifest.json）。取り戻しは
+# npm run drive-vault-sync -- --pull --path 'content/sources/textbook/{書名}/'。
+# 詳細: .claude/knowledge/reference/textbook-pdf-archive.md. Untracked to keep working tree/.git lean.
 content/sources/textbook/**/*.pdf
 content/sources/textbook/**/*.PDF
 # PDF ビューアが吐くテキスト抽出成果物（原典 PDF と同じ著作権物の本文がそのまま入る）。
@@ -278,12 +280,14 @@ content/note/**/img/cover*.svg
 # 台帳不要（Gitの実体から再生成できる）。
 .local/r2/
 
-# 教材（スキャン原本）のページ画像・PDF は private R2（doboku-note-archive）だけに置く。
+# 教材（スキャン原本）のページ画像・PDF は実体を Google Drive vault（drive-vault.json の
+# textbook-page-image / textbook-source-pdf group・台帳 drive-manifest.json）に置く。
 # 追跡していたのは 868 件 571.2 MiB で、Git に置く理由が無い——原本は書籍、
 # 文字起こし .md と真正ベクター .svg が SSOT で、ラスタは OCR / crop の中間物。
-# 取り戻すのは書名単位で `npm run asset-hydrate -- --path content/sources/textbook/{書名}/`。
+# 取り戻すのは書名単位で
+# `npm run drive-vault-sync -- --pull --path 'content/sources/textbook/{書名}/'`。
 # .md と .svg は意図的に除外していない（Git に残すのが正）。
-# 2026-08-21・DN-0111 Phase 4-C。
+# 2026-08-21・DN-0111 Phase 4-C。2026-09-05 に private R2 から Drive vault へ移設。
 content/sources/textbook/**/*.png
 content/sources/textbook/**/*.jpg
 content/sources/textbook/**/*.jpeg
@@ -308,25 +312,28 @@ content/note/**/img/cover*.png
 content/note/**/img/figure-author-authority*.png
 !content/note/共通/著者オーソリティ/img/figure-author-authority*.png
 
-# note の配布 PDF は private R2（doboku-note-archive）だけに置く。購入者限定の配布物を含む。
+# note の配布 PDF は実体を Google Drive vault（drive-vault.json の note-delivery-pdf group・
+# 台帳 drive-manifest.json）に置く。購入者限定の配布物を含む。
 # 追跡していたのは 586 件 273.0 MiB。生成 spec と商品 ID が原本で、PDF はそこからの成果物。
 # note へ添付するときは note-attach-file が自動で取り寄せる（取れなければ note へ書かずに止まる）。
-# 手で取り戻すのは `npm run asset-hydrate -- --group note-delivery-pdf`。
-# 2026-08-21・DN-0111 Phase 4-D。
+# 手で取り戻すのは `npm run drive-vault-sync -- --pull --path 'content/note/{該当パス}/'`。
+# 2026-08-21・DN-0111 Phase 4-D。2026-09-05 に private R2 から Drive vault へ移設。
 content/note/**/*.pdf
 
-# Instagram のレンダー画像は R2 が保管先（投稿済み→doboku-note / それ以外→doboku-note-archive）。
+# Instagram のレンダー画像は実体を Google Drive vault（drive-vault.json の ig-rendered-image group・
+# 台帳 drive-manifest.json）に置く（投稿済み・未投稿とも）。
 # 追跡していたのは 1,990 件 234.4 MiB。SoT は slide-data.json と同名 .svg（どちらも Git に残す）。
-# reels/ 配下は別系統（sns-archive-policy / upload-sns-r2）で既に ignore 済み。
+# reels/ 配下は別系統（sns-archive-policy / upload-sns-r2）で既に ignore 済み。R2 のままで変更なし。
 # publish-ig-bs は投稿前に自動で取り寄せ、取れなければ Instagram へ触れずに止まる。
-# 2026-08-21・DN-0111 Phase 4-E。
+# 2026-08-21・DN-0111 Phase 4-E。2026-09-05 に private R2 から Drive vault へ移設。
 content/sns/instagram/**/*.png
 content/sns/instagram/**/*.jpg
 content/sns/instagram/**/*.jpeg
 
-# 教材の原典 PDF は private R2（doboku-note-archive/textbook/）だけに置く。
-# 2026-07 に R2 へ出し、2026-08-22 に git 履歴からも除去した（389 件）。R2 が唯一の実体。
-# `npm run asset-hydrate -- --group textbook-source-pdf` で docs/textbook/ 配下へ取り戻すが、
+# 教材の原典 PDF は実体を Google Drive vault（drive-vault.json の textbook-source-pdf group・
+# 台帳 drive-manifest.json）に置く。2026-07 に R2 へ出し、2026-08-22 に git 履歴からも除去した
+# （389 件）。2026-09-05 に置き場ルールを「誰が使うか」へ改め、private R2 から Drive vault へ移設した。
+# `npm run drive-vault-sync -- --pull --path 'content/sources/textbook/{書名}/'` で docs/textbook/ 配下へ取り戻すが、
 # **取り戻したものを再びコミットしないこと**（実測でここが素通りだったので明示的に塞ぐ）。
 docs/textbook/
 
@@ -345,23 +352,26 @@ content/site/**/ogp.webp
 # 復元は node scripts/asset-hydrate.mjs --group site-ogp-png。2026-08-29・DN-0111系。
 content/site/**/ogp.png
 
-# content/note/**/magazines/*/_cover.png（46件・45.1MB）はasset-storage.jsonの
-# note-magazine-cover-png groupでR2退避済み（private・--verify 3者照合OK）。
+# content/note/**/magazines/*/_cover.png（46件・45.1MB）は実体を Google Drive vault
+# （drive-vault.json の note-magazine-cover-png group・台帳 drive-manifest.json）に置く。
 # マガジンにはarticle.mdが無く既存note-cover-pngのfrontmatter判定が使えないため
-# bucket:private固定。復元は node scripts/asset-hydrate.mjs --group note-magazine-cover-png。
-# 2026-08-29。
+# 別グループとして分離。復元は node scripts/drive-vault-sync.mjs --pull --path 'content/note/{該当パス}/'。
+# 2026-08-29。2026-09-05 に private R2 から Drive vault へ移設。
 content/note/**/magazines/*/_cover.png
 
-# .claude/config/coconala/assets/（59件・28.3MB）はasset-storage.jsonの
-# coconala-asset groupでR2退避済み（private・--verify 3者照合OK）。
+# .claude/config/coconala/assets/（59件・28.3MB）は実体を Google Drive vault
+# （drive-vault.json の coconala-asset group・台帳 drive-manifest.json）に置く。
 # ココナラ出品Playwright自動化はローカル実体を直接参照するので挙動不変。
-# 復元は node scripts/asset-hydrate.mjs --group coconala-asset。2026-08-29。
+# 復元は node scripts/drive-vault-sync.mjs --pull --path '.claude/config/coconala/assets/'。
+# 2026-08-29。2026-09-05 に private R2 から Drive vault へ移設。
 .claude/config/coconala/assets/**
 
-# repo-archive group（性質の異なる3種の死蔵物・13件・27.0MB）でR2退避済み
-# （private・--verify 3者照合OK）: OCR監査ログ・Kindle表紙デザイン案・
-# キャラ素材グリッド原本。監査証跡として当面残す価値があるため消さず退避。
-# 復元は node scripts/asset-hydrate.mjs --group repo-archive。2026-08-29。
+# repo-archive group（性質の異なる3種の死蔵物・13件・27.0MB）は実体を Google Drive vault
+# （drive-vault.json の repo-archive group・台帳 drive-manifest.json）に置く: OCR監査ログ・
+# Kindle表紙デザイン案・キャラ素材グリッド原本。監査証跡として当面残す価値があるため消さず退避。
+# 読む人はいても読むコードは無い（audience=human）。
+# 復元は node scripts/drive-vault-sync.mjs --pull --path '{対象パス}'。
+# 2026-08-29。2026-09-05 に private R2 から Drive vault へ移設。
 .claude/state/ocr-audit/**
 scripts/kindle-published/cover-designs/**
 content/sns/_assets/character/_source/**
@@ -369,8 +379,9 @@ content/sns/_assets/character/_source/**
 # 公的基準（共通仕様書）のページ画像・ページテキスト（DN / 2026-09-05）。
 # 1 ページ = 1 画像 + 1 テキスト。原本 PDF から機械生成する再現可能な派生物で、
 # 5,949 枚 3GB 規模。Git には manifest.json（provenance）と README.md だけを残し、
-# 実体は private R2（standards-page-image group）へ出す。
+# 実体は Google Drive vault（drive-vault.json の standards-page-image group・
+# 台帳 drive-manifest.json）へ出す（読むのは人と手元の照合作業だけのため）。
 # 再生成は `npm run build-standards-page-images`、取り戻しは
-# `npm run asset-hydrate -- --path content/sources/standards/{agencyId}/`。
+# `npm run drive-vault-sync -- --pull --path 'content/sources/standards/{agencyId}/'`。
 content/sources/standards/**/pages/*.jpg
 content/sources/standards/**/text/*.txt
