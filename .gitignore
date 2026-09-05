@@ -294,7 +294,7 @@ content/sources/textbook/**/*.jpeg
 content/sources/textbook/**/*.webp
 content/sources/textbook/**/*.pdf
 
-# note カバー PNG は R2 が保管先（公開済み→doboku-note / 下書き→doboku-note-archive）。
+# note カバー PNG は private R2（doboku-note-archive/note/covers/）が保管先（2026-09-05 DN-0171 まで公開済みは public にも複製）。
 # 追跡していたのは 827 件 725.5 MiB。frontmatter の cover: ブロックが原本で、PNG は
 # そこからの生成物だが **byte 再現はできない**（実測で 827 件中 9 件が不一致・
 # sharp は package.json が ^0.35.0 なので他マシンでの一致も保証されない）。

@@ -35,10 +35,10 @@
       "match": {
         "pathRegex": "^content/note/.+/img/cover[A-Za-z0-9_-]*\\.png$"
       },
-      "bucket": "byVisibility",
+      "bucket": "private",
       "keyPrefix": "note/covers/",
       "keyFrom": "stripPrefix:content/note/",
-      "visibilityFrom": "noteFrontmatter",
+      "visibilityFrom": "fixed:private",
       "regenerable": false,
       "generator": "scripts/generate-note-covers.mjs",
       "requiredBy": [
@@ -46,7 +46,7 @@
         "scripts/note-update-cover.mjs",
         "tools/admin-app（画像ギャラリー）"
       ],
-      "reason": "note へアップロード済みの実体。2026-08-21 の全 827 件再生成で byte 再現できないことを実測したので（不一致 9 件・うち 8 件は 340 万サブピクセル中 18 個の不可視差）、再生成ではなく保管する。",
+      "reason": "note へアップロード済みの実体。2026-08-21 の全 827 件再生成で byte 再現できないことを実測したので（不一致 9 件・うち 8 件は 340 万サブピクセル中 18 個の不可視差）、再生成ではなく保管する。 2026-09-05（DN-0171）に byVisibility → private 一本化: public 複製はサイトも note も読んでおらず（src/ tools/ に参照 0）、公開のたびに private の旧コピーが台帳外で残る型の温床だった。",
       "phase": "4-B"
     },
     {

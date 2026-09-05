@@ -89,7 +89,9 @@ test('r2Key: Windows 区切りでも同じキーになる（複数 PC で同一�
 });
 
 test('visibility: 判定不能は必ず private へ倒れる（公開バケット誤配置の防止）', () => {
-  const g = groupById('note-cover-png');
+  // note-cover-png は 2026-09-05（DN-0171）から fixed:private。noteFrontmatter の解釈そのものは
+  // 再生成系（audit-repository-assets 等）が使い続けるので visibilityFrom を直接与えて固定する
+  const g = { id: 'note-synthetic', visibilityFrom: 'noteFrontmatter', bucket: 'byVisibility' };
   // 実在しない記事 dir → frontmatter を読めない → private
   assert.equal(visibilityFor('content/note/存在しない記事/img/cover.png', g), 'private');
   assert.equal(bucketForFile('content/note/存在しない記事/img/cover.png', g), 'private');
@@ -163,7 +165,8 @@ test('visibility: note カバーは noteStatus: reserved（予約投稿）を no
       writeFileSync(join(articleDir, 'article.md'), `---\n${fmBody}\n---\n# 本文\n`);
       writeFileSync(join(imgDir, 'cover.png'), '');
       const rel = toPosix(join(imgDir, 'cover.png').slice(ROOT.length + 1));
-      assert.equal(visibilityFor(rel, groupById('note-cover-png')), want, name);
+      // note-cover-png は fixed:private（DN-0171）。noteFrontmatter の解釈は visibilityFrom を直接与えて固定する
+      assert.equal(visibilityFor(rel, { id: 'note-synthetic', visibilityFrom: 'noteFrontmatter' }), want, name);
       checked++;
     }
     assert.equal(checked, cases.length, '全ケースを実検査していること');

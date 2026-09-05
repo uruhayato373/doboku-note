@@ -180,8 +180,8 @@ const RULES = [
   {
     id: 'note-cover-png',
     test: (p) => /^content\/note\/.*\/img\/cover[A-Za-z0-9_-]*\.png$/.test(p),
-    bucket: (p) => (noteDirVisibility(p) === 'public' ? 'R2_PUBLIC' : 'R2_PRIVATE'),
-    reason: 'note へアップロード済みの成果物。frontmatter の cover 仕様が原本で再生成可能だが、ライブ差し替え時の同一性確認に実体が要るため R2 を正とする',
+    bucket: 'R2_PRIVATE',
+    reason: 'note へアップロード済みの成果物。frontmatter の cover 仕様が原本で再生成可能だが、ライブ差し替え時の同一性確認に実体が要るため R2 を正とする。読むのは CI（note-cover-supply.yml）と人だけなので private 一本（2026-09-05 DN-0171 で byVisibility を廃止）',
     regenFrom: 'article*.md frontmatter の cover ブロック（generate-note-covers）',
     usedBy: ['scripts/note-publish.mjs', 'scripts/note-update-cover.mjs'],
     generator: 'scripts/generate-note-covers.mjs',
