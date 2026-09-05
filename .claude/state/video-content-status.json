@@ -1272,7 +1272,7 @@
     "keiken-yosou-renshu": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -1281,8 +1281,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-10-01T20:00:00+09:00",
-          "renderedAt": "2026-09-05T04:48:47.459Z"
+          "publishAt": "2026-10-01T11:00:00Z",
+          "renderedAt": "2026-09-05T04:48:47.459Z",
+          "videoId": "sAz8gjHtU9w",
+          "url": "https://www.youtube.com/watch?v=sAz8gjHtU9w",
+          "scheduledAt": "2026-09-05T04:51:14.304Z",
+          "privacyStatus": "private"
         }
       }
     },
