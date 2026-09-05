@@ -276,7 +276,7 @@
     "gakka-nanjaku-jiban": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.67,
             "blocks": 0,
@@ -285,8 +285,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-23T20:00:00+09:00",
-          "renderedAt": "2026-09-05T03:55:28.542Z"
+          "publishAt": "2026-09-23T11:00:00Z",
+          "renderedAt": "2026-09-05T03:55:28.542Z",
+          "videoId": "DDBHuEsPisE",
+          "url": "https://www.youtube.com/watch?v=DDBHuEsPisE",
+          "scheduledAt": "2026-09-05T03:58:05.478Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -611,7 +615,7 @@
     "gakka-nori-hogoko": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -620,8 +624,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-24T12:30:00+09:00",
-          "renderedAt": "2026-09-05T03:55:32.710Z"
+          "publishAt": "2026-09-24T03:30:00Z",
+          "renderedAt": "2026-09-05T03:55:32.710Z",
+          "videoId": "1u84bhpREhQ",
+          "url": "https://www.youtube.com/watch?v=1u84bhpREhQ",
+          "scheduledAt": "2026-09-05T03:58:15.596Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -739,7 +747,7 @@
     "gakka-kensetsugyoho": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -748,15 +756,19 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-21T20:00:00+09:00",
-          "renderedAt": "2026-09-05T03:55:39.301Z"
+          "publishAt": "2026-09-21T11:00:00Z",
+          "renderedAt": "2026-09-05T03:55:39.301Z",
+          "videoId": "jG6m425QggM",
+          "url": "https://www.youtube.com/watch?v=jG6m425QggM",
+          "scheduledAt": "2026-09-05T03:57:57.876Z",
+          "privacyStatus": "private"
         }
       }
     },
     "gakka-hoki-kasen-doro": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -765,8 +777,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-20T07:30:00+09:00",
-          "renderedAt": "2026-09-05T03:55:46.705Z"
+          "publishAt": "2026-09-19T22:30:00Z",
+          "renderedAt": "2026-09-05T03:55:46.705Z",
+          "videoId": "0KPHbjQIBMA",
+          "url": "https://www.youtube.com/watch?v=0KPHbjQIBMA",
+          "scheduledAt": "2026-09-05T03:57:50.533Z",
+          "privacyStatus": "private"
         }
       }
     },
