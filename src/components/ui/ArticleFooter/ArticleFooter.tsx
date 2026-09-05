@@ -5,6 +5,7 @@ import { resolveDocsCareerSidebarAd } from '@/config/affiliate-creatives';
 import CareerNextStepNav from '@/components/ui/CareerNextStepNav/CareerNextStepNav';
 import ExternalReferences from '@/components/ui/ExternalReferences/ExternalReferences';
 import PastExamBacklinks from '@/components/ui/PastExamBacklinks/PastExamBacklinks';
+import PeConstructionSubjectLinks from '@/components/ui/PeConstructionSubjectLinks';
 import SectionKeywords from '@/components/ui/SectionKeywords';
 import PillarNavCard from '@/components/ui/PillarNavCard';
 import RelatedTextbooks from '@/components/ui/RelatedTextbooks/RelatedTextbooks';
@@ -129,6 +130,17 @@ export default function ArticleFooter({
             <PillarNavCard variant="mobile" currentSection={sectionStr} />
           </div>
         </>
+      )}
+
+      {/* PE 建設部門: 84 過去問 ↔ 35 科目キーワード記事の確定的な双方向導線。 */}
+      {category === 'pe-construction' && (docGroup === 'pastExam' || docGroup === 'keyword') && (
+        <div className="mt-8">
+          <PeConstructionSubjectLinks
+            currentSlug={slugStr}
+            docGroup={docGroup}
+            categoryArticles={categoryArticles}
+          />
+        </div>
       )}
 
       {/* Civil primary/secondary: 関連テキスト章 (過去問→教材、1級・2級共通) */}

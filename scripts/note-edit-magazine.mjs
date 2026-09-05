@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-edit-magazine.mjs
  * ---------------------------------------------------------------------------
@@ -36,7 +37,7 @@ import { parseNoteText, checkLimits } from './lib/note-meta.mjs';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const CREATOR = 'dobokunote';
-const PROFILE = join(ROOT, '.local/playwright-note-profile');
+const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
 // ---- args ----

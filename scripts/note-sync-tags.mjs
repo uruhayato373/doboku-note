@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 // note-sync-tags.mjs — 公開済み note 記事に hashtags.txt のタグ差分だけを追加する（本文非破壊）。
 //
 // note-update-body（本文専用・タグ非適用）に対し、これはタグ専用。本文・有料境界・PDFカードには
@@ -28,7 +29,7 @@ const NOTE_CAP = 99; // note のハッシュタグ上限（超えると更新が
 const GOAL = 90;     // ライブで満たしたい下限
 const ARTICLE = getArg('--article');
 const LIST = getArg('--list');
-const PROFILE = join(ROOT, '.local/playwright-note-profile');
+const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 if (!ARTICLE && !LIST) { console.error('--article <path> or --list <file> required'); process.exit(1); }

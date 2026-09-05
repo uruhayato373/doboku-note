@@ -287,6 +287,9 @@ export function authRootExists(options = {}) {
  */
 export function redactAuthDiagnostic(value, keyHint) {
   if (keyHint && looksLikeSecretKey(keyHint)) return '[REDACTED]';
+  // profile/state/lockの**パス**と公開URLはCLIの診断対象そのもの。長いASCII文字列でも
+  // secretではないため、keyが明示する診断フィールドではtoken風ヒューリスティックを適用しない。
+  if (keyHint && /(?:path|url)$/i.test(keyHint)) return value;
   if (value === null || value === undefined) return value;
   if (Array.isArray(value)) return value.map((v) => redactAuthDiagnostic(v));
   if (typeof value === 'object') {

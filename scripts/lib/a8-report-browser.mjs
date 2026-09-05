@@ -15,11 +15,11 @@
  *   - assertTargetSiteRow : サイト別レポートに doboku-note 行があるかの確認
  */
 import { readFileSync, existsSync } from "node:fs";
-import { join } from "node:path";
 
 import {
   launchContext,
   profileDir,
+  authStatePath,
   debugRoot,
   downloadTo,
   dumpFailure,
@@ -53,17 +53,6 @@ export function loadA8Config() {
   return cfg;
 }
 
-/**
- * プロファイルと同じ「本体チェックアウト固定」root を返す。
- * profileDir(cfg) = <root>/<cfg.browser.profileDir> なので、末尾の既知サフィックス分を削る
- * （Mac 実在→cwd フォールバックの解決ロジックを google-console-browser 側に一元化したまま使う）。
- */
-export function checkoutRoot(cfg) {
-  const pdir = profileDir(cfg);
-  const suffixLen = cfg.browser.profileDir.length;
-  return pdir.slice(0, pdir.length - suffixLen);
-}
-
 /** レポート種別の URL。path が無ければ home（メニュー操作にフォールバック）。 */
 export function reportUrl(cfg, reportKey) {
   const r = cfg.a8.reports[reportKey];
@@ -77,7 +66,8 @@ export function reportUrl(cfg, reportKey) {
  * （a8-browser.ts restoreSession と同方式）。プロファイル本体と同じ root 解決を使う。
  */
 export async function restoreA8Session(context, cfg) {
-  const statePath = join(checkoutRoot(cfg), cfg.browser.stateFile);
+  const statePath = authStatePath(cfg);
+  if (!statePath) throw new Error("A8 の stateFileName が auth registry にありません");
   if (!existsSync(statePath)) {
     return { ok: false, statePath, reason: "state-missing" };
   }
@@ -96,10 +86,11 @@ export async function restoreA8Session(context, cfg) {
 /**
  * 現在のセッション Cookie を storageState として保存する（次回以降の再利用の実体）。
  * A8 のセッション Cookie は永続プロファイルに残らないため、人間のログイン直後にこれを呼ぶ。
- * scout-asp の login.mjs と同じファイルを共有する（あちらは Mac パス固定なのでこちらが portable 版）。
+ * scout-asp の login.mjs と同じ resolver/service ID を使い、同じ state を共有する。
  */
 export async function saveA8Session(context, cfg) {
-  const statePath = join(checkoutRoot(cfg), cfg.browser.stateFile);
+  const statePath = authStatePath(cfg);
+  if (!statePath) throw new Error("A8 の stateFileName が auth registry にありません");
   try {
     await context.storageState({ path: statePath });
     return { ok: true, statePath };

@@ -21,6 +21,7 @@
   "concurrency": 8,
   "timeout_ms": 10000,
   "output_dir": ".claude/state/metrics/seo-meta",
+  "latest_filename": "seo-meta-latest.json",
   "thresholds": {
     "title": {
       "max_length": 70,

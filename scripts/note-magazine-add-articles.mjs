@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-magazine-add-articles.mjs
  * ---------------------------------------------------------------------------
@@ -6,7 +7,7 @@
  * note-edit-magazine（設定/価格専用）では扱わない「収録マガジンへの追加」操作を担う。
  *
  * 設計: note-edit-session / note-edit-magazine と同じ「システム Chrome
- *   （channel:'chrome'）＋永続プロファイル（.local/playwright-note-profile）」方式。
+ *   （channel:'chrome'）＋永続プロファイル（OS標準auth rootのnote profile）」方式。
  *   初回ログインは `npm run note-edit-session` で済ませておく前提。
  *
  * 安全段階（収益アカウントのため）:
@@ -52,7 +53,7 @@ import { dirname, join } from 'node:path';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const CREATOR = 'dobokunote';
-const PROFILE = join(ROOT, '.local/playwright-note-profile');
+const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const TMP = join(ROOT, '.tmp');
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 

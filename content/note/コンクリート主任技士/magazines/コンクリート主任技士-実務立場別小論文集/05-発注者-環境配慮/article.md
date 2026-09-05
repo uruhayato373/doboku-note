@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "nd41d1cc46f36"
 noteUrl: "https://note.com/dobokunote/n/nd41d1cc46f36"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-hacchusha-environment
 coverTitle: "実務立場別小論文｜発注者・監督員｜環境配慮"
 cover:
@@ -21,6 +21,13 @@ cover:
 ---
 
 # コンクリート主任技士 小論文 模範答案｜発注者・監督員｜環境配慮
+
+
+![](img/figure-author-authority-concrete.png)
+
+この教材は、技術士（総合技術監理部門）を持つ元・地方自治体の土木職（発注者）がつくっています。コンクリート主任技士・コンクリート診断士にも自分で合格しており、小論文・記述式を書いた当事者です。
+
+総監の5つの管理の視点で記述を分析し、発注者として施工計画書や工事成績評定の書類を審査してきた目で「評価される書き方」を整理しています。
 
 **こんな人のための記事です**
 - 公共工事の発注者側技術者だが、環境配慮テーマを書こうとすると一般的な脱炭素の話に流れてしまう方
@@ -54,6 +61,11 @@ cover:
 
 <!-- cta:concrete-mokuji -->
 コンクリート技士・主任技士・診断士の無料記事と教材は「コンクリート資格もくじ」から一覧できます。
+
+
+![](img/figure-author-authority-concrete.png)
+
+上位資格の分析力・発注者として書類を評価してきた目・合格者の当事者性で、あなたの答案を合格ラインへ引き上げます。
 
 https://note.com/dobokunote/n/nd59f471c9214
 

@@ -158,12 +158,14 @@ function checkViolations(results, thresholds, fieldThresholds) {
   return violations;
 }
 
-function isGateViolation(v) {
+function isGateViolation(v, judgment = {}) {
+  if (v.type === "field-coverage") {
+    return judgment.field_missing_policy !== "report_only";
+  }
   return (
     v.type === "field" ||
     v.type === "field-category" ||
-    v.type === "coverage" ||
-    v.type === "field-coverage"
+    v.type === "coverage"
   );
 }
 
@@ -213,7 +215,7 @@ function fieldAvailabilityHint(results) {
   const a = countFieldAvailability(results);
   if (a.unrecorded === a.total) return "内訳フラグ未記録のバッチ（fetch-psi-data の field_availability 導入前）。次回の計測で判別できる。";
   if (a.urlLevel === 0 && a.originLevel > 0) {
-    return "URL レベルの CrUX 閾値割れ（origin レベルにはデータあり）。DN-0158 (2)＝judgment.primary_source を lab 中央値ベースへ切り替える候補（ユーザー判断）。";
+    return "URL レベルの CrUX 閾値割れ（origin レベルにはデータあり）。欠測は警告として継続観測し、lab は中央値による診断にだけ使う。";
   }
   if (a.urlLevel === 0 && a.originLevel === 0) {
     return "origin レベルにも CrUX が無い。DN-0158 (3)＝CrUX 全体の供給問題として記録する。";
@@ -327,14 +329,16 @@ function main() {
       detail:
         `field(CrUX) を持つ result が ${fieldCov.withField}/${fieldCov.total} 件。` +
         "primary_source=field なので実害を判定できない（違反ゼロ＝安全 ではない）。" +
-        "CrUX の供給が戻るのを待つか、judgment.primary_source を lab 中央値ベースへ変更して原則を書き換える。" +
+        (config.judgment?.field_missing_policy === "report_only"
+          ? "欠測は警告として継続観測する（CI ゲート対象外）。"
+          : "field_missing_policy が gate のため CI ゲート対象。") +
         ` ${fieldAvailabilityLine(results)}` +
         (fieldAvailabilityHint(results) ? ` ${fieldAvailabilityHint(results)}` : ""),
       field_availability: countFieldAvailability(results),
     });
   }
 
-  const gateViolations = violations.filter(isGateViolation);
+  const gateViolations = violations.filter((v) => isGateViolation(v, config.judgment));
 
   if (opts.json) {
     console.log(JSON.stringify({ date: new Date().toISOString(), results, violations, gate_violations: gateViolations }, null, 2));

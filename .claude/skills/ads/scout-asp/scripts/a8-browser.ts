@@ -2,8 +2,7 @@
  * a8-browser.ts — A8.net 管理画面の Playwright 操作 (list / import-partnered / scout / apply / check-approval / harvest)。
  *
  * doboku-note 版。publish-x.ts の永続プロファイル方式を踏襲:
- *   - chromium.launchPersistentContext(.local/playwright-a8-profile)
- *   - PROFILE_ROOT はメインチェックアウト固定 (worktree 共有・再ログイン不要)
+ *   - chromium.launchPersistentContext + 共通 auth resolver
  *   - isLoggedIn UI 判定 / tryClick 複数セレクタ / saveScreenshot / finally close
  *   - 状態変更 (apply) の前に --dry-run ゲート。isLoggedIn 失敗はカタログに記録し正常終了。
  *
@@ -30,6 +29,7 @@ import { chromium, type BrowserContext, type Page } from "playwright";
 import * as path from "path";
 import * as fs from "fs";
 import { createRequire } from "module";
+import { resolveProfileDir, resolveStatePath } from "../../../../../scripts/lib/playwright-auth-profile.mjs";
 
 const require = createRequire(import.meta.url);
 const core = require("../../../../scripts/ads/lib/a8-scout-core.mjs");
@@ -38,16 +38,12 @@ const applyBudget = require("../../../../scripts/ads/check-a8-apply-budget.cjs")
 
 // ─── 設定 ──────────────────────────────────────────
 const PROJECT_ROOT = path.resolve(__dirname, "../../../../..");
-// ログインプロファイルはメインチェックアウト固定 (.claude/knowledge/reference/playwright-auth-profiles.md)。
-// メインチェックアウト固定（worktree 共有）。ただし実在しない環境（Windows 機等）では
-// cwd にフォールバックする＝Mac パス直書きだと別ドライブ配下に空プロファイルを掘って
-// 「ログイン済みなのに未ログイン」になる（google-console-browser.mjs と同じ解決）。
-const MAC_PROFILE_ROOT = "/Users/minamidaisuke/doboku-note";
-const PROFILE_ROOT = fs.existsSync(MAC_PROFILE_ROOT) ? MAC_PROFILE_ROOT : PROJECT_ROOT;
-const PROFILE_DIR = path.join(PROFILE_ROOT, ".local/playwright-a8-profile");
+const AUTH_OPTIONS = { cwd: PROJECT_ROOT, repoRoot: PROJECT_ROOT };
+const PROFILE_DIR = resolveProfileDir("a8", AUTH_OPTIONS);
 // ★A8 の認証はセッション Cookie で永続プロファイルに残らない。login.mjs が storageState に
 //   捕獲した Cookie を起動時に addCookies で再注入する (認証再利用の実体)。
-const STATE_PATH = path.join(PROFILE_ROOT, ".local/playwright-a8-state.json");
+const STATE_PATH = resolveStatePath("a8", AUTH_OPTIONS);
+if (!STATE_PATH) throw new Error("A8 の stateFileName が auth registry にありません");
 // ★申請サイト assert: この A8 口座は複数サイト登録 (例: 統計で見る都道府県=stats47 / doboku-note)。
 //   申請 (apply) は detail ページの <select name="webSiteId"> を doboku-note に選んでから送る。
 //   選べない場合は誤サイト提携を防ぐため申請しない (publish-x / coconala の account assert と同じ思想・2026-07-20)。
@@ -150,7 +146,7 @@ async function tryClick(page: Page, selectors: string[]): Promise<boolean> {
 // A8 の認証セッション Cookie は永続プロファイルに残らないため、これが認証の実体。
 async function restoreSession(context: BrowserContext): Promise<boolean> {
   if (!fs.existsSync(STATE_PATH)) {
-    console.error(`⚠️  セッション未保存 (${STATE_PATH})。login.mjs でログインしてください。`);
+    console.error("⚠️  セッション未保存。login.mjs でログインしてください。");
     return false;
   }
   try {
@@ -930,6 +926,7 @@ async function main() {
   if (IS_DRY_RUN) console.log("🧪 DRY RUN モード");
 
   fs.mkdirSync(PROFILE_DIR, { recursive: true });
+  fs.mkdirSync(path.dirname(STATE_PATH), { recursive: true });
   const context: BrowserContext = await chromium.launchPersistentContext(PROFILE_DIR, {
     headless: !args.includes("--headed"),
     viewport: { width: 1280, height: 900 },

@@ -1080,7 +1080,7 @@
         }
       ],
       "next_check_date": "2026-09-18",
-      "resume_criteria": "deploy 後に started_at と next_check_date（deploy+28日）を入れて status=running へ。再計測は npm run report-career-funnel。判定は cta_placement 作成日（2026-07-25）以降の窓で行う。実装の詳細は git 履歴（2026-08-21 のキャリアファネル再設計コミット群）、恒久ルールは affiliate-operations.md。 close 時に note キャリア L2 を作るかを判断する（GSC クリックが 0 から動き hub→柱 の遷移が観測できたときだけ作る。前提は DN-0101 の完了。判断の根拠は affiliate-operations.md「note キャリア L2 は『先に作らない』」）。"
+      "resume_criteria": "deploy 後に started_at と next_check_date（deploy+28日）を入れて status=running へ。再計測は npm run report-career-funnel。判定は cta_placement 作成日（2026-07-25）以降の窓で行う。実装の詳細は git 履歴（2026-08-21 のキャリアファネル再設計コミット群）、恒久ルールは affiliate-operations.md。close 時に note キャリア L2 を作るかを判断する（GSC クリックが 0 から動き hub→柱 の遷移が観測できたときだけ作る。既存L1/L2再編は2026-09-05にライブ反映済み。判断の根拠は affiliate-operations.md「note キャリア L2 は『先に作らない』」）。"
     }
   ]
 }

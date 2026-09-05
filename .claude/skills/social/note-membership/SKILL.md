@@ -66,6 +66,10 @@ note メンバーシップ「土木セコカン合格ラボ」の運用入口。
 - 公開状態: `node scripts/note-membership-plan-status.mjs --plan <planId> --publish|--unpublish [--commit]`
 - 新規作成: `node scripts/note-membership-plan-create.mjs [--commit]`
 
+既存の公開中プランに対する設定保存は、説明文だけでも**即時ライブ反映になり得る外部変更**として扱う。
+`--commit` 前に現在値と変更差分を提示してユーザーの明示承認を得て、保存後は管理 UI と公開面の双方で
+反映状態を実査する。「非公開ドラフトのまま」という未確認の前提では実行しない。
+
 会費・人数制限は note 側で公開後に直接変更できない場合がある。変更はプラン作り直しを含むため、
 `.claude/agents/note-membership-operator.md` の手順と実機確認を必ず優先する。
 
@@ -75,4 +79,3 @@ note メンバーシップ「土木セコカン合格ラボ」の運用入口。
 - frontmatter の `noteUrl` / `noteId` / `notePublishedAt` / `noteStatus` が実体と一致。
 - 週次お題は特典マガジン収録済み。単独配信記事は虚偽の `noteMagazine` を持たない。
 - `npm run check-membership-drip` と `npm run check-note-membership` が通る。
-

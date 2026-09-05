@@ -1,7 +1,8 @@
 {
   "version": 1,
-  "description": "Git の外へ出すアセットの置き場と復元経路の機械可読 SSOT（DN-0111 Phase 3）。offload / hydrate / check-asset-storage の 3 スクリプトが共通で読む。manifest は .claude/state/assets/manifest.json。",
+  "description": "Git の外へ出すアセットのうち **R2 に置くもの**（audience=site / ci）の機械可読 SSOT（DN-0111 Phase 3）。置き場は誰が使うかで決める: サイトが配信する→public R2 / CI が読み書きする→private R2 / 人か手元のスクリプトだけ→Google Drive vault（.claude/config/drive-vault.json・別系）。offload / hydrate / check-asset-storage が読む。manifest は .claude/state/assets/manifest.json。",
   "invariants": [
+    "置き場は audience で決める。site（サイトが配信）→public R2 / ci（GitHub Actions が読み書き）→private R2 か byVisibility / human（人か手元のスクリプトだけ）→Google Drive vault。human を R2 に残すなら audienceException に理由を書く。",
     "offload は既定 dry-run。R2 書込みは --commit、ローカル削除と untrack はさらに別の操作。1 コマンドで全部やらない。",
     "upload 後に HeadObject で bytes を、GetObject で sha256 を再確認する。確認できないファイルはローカルにも Git にも残す。",
     "manifest は一時ファイルへ書いて検証成功後に置換する（途中で落ちても既存 manifest を壊さない）。",
@@ -9,7 +10,7 @@
     "private バケットにカスタムドメインを付けない。private アセットの URL を画面・ログ・manifest へ出さない。",
     "hydrate の解決順は ローカル実体 → cache → R2 → （再生成可能なら）generator。--offline は R2 を使わない。"
   ],
-  "bucketRouting": "group.bucket は public / private / byVisibility の 3 値。byVisibility は visibilityFrom の判定結果でファイル単位に振り分ける（公開済み→public、下書き・未投稿・判定不能→private）。カードの目標構成『公開済み=公開R2、draft/未公開=private R2』の機械表現。",
+  "bucketRouting": "group.bucket は public / private / byVisibility の 3 値。byVisibility は visibilityFrom の判定結果でファイル単位に振り分ける（公開済み→public、下書き・未投稿・判定不能→private）。さらに group.audience が bucket を縛る（site⇒public、ci⇒private|byVisibility）。human の group はここに置かない（drive-vault.json へ）。",
   "buckets": {
     "public": {
       "name": "doboku-note",
@@ -30,6 +31,7 @@
   "groups": [
     {
       "id": "note-cover-png",
+      "audience": "ci",
       "match": {
         "pathRegex": "^content/note/.+/img/cover[A-Za-z0-9_-]*\\.png$"
       },
@@ -49,6 +51,8 @@
     },
     {
       "id": "note-magazine-cover-png",
+      "audience": "human",
+      "audienceException": "Phase 3 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
       "match": {
         "pathRegex": "^content/note/.+/magazines/[^/]+/_cover\\.png$"
       },
@@ -66,6 +70,8 @@
     },
     {
       "id": "textbook-page-image",
+      "audience": "human",
+      "audienceException": "Phase 4 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
       "match": {
         "pathRegex": "^content/sources/textbook/.+\\.(png|jpe?g|webp|tiff?)$"
       },
@@ -83,7 +89,28 @@
       "phase": "4-C"
     },
     {
+      "id": "standards-page-image",
+      "audience": "human",
+      "audienceException": "Phase 2 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
+      "bucket": "private",
+      "match": {
+        "pathRegex": "^content/sources/standards/.+/(pages/.+\\.jpe?g|text/.+\\.txt)$"
+      },
+      "keyPrefix": "",
+      "keyFrom": "repoRelative",
+      "visibilityFrom": "fixed:private",
+      "regenerable": true,
+      "generator": "npm run build-standards-page-images",
+      "requiredBy": [
+        "scripts/check-standards-page-images.mjs"
+      ],
+      "reason": "共通仕様書のページ画像・ページテキスト。2026-09-05 に途中まで private R2 へ上げて止めたもの（2,550 件）。人しか読まない再生成可能な派生物なので Drive vault が正しい置き場。Phase 2 で vault へ移し R2 側を purge する。",
+      "phase": "2（Drive へ移行・撤去予定）"
+    },
+    {
       "id": "textbook-source-pdf",
+      "audience": "human",
+      "audienceException": "Phase 4 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
       "match": {
         "pathRegex": "^content/sources/textbook/.+\\.pdf$"
       },
@@ -102,6 +129,8 @@
     },
     {
       "id": "note-delivery-pdf",
+      "audience": "human",
+      "audienceException": "Phase 4 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
       "match": {
         "pathRegex": "^content/note/.+\\.pdf$"
       },
@@ -119,6 +148,8 @@
     },
     {
       "id": "ig-rendered-image",
+      "audience": "human",
+      "audienceException": "Phase 4 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
       "match": {
         "pathRegex": "^content/sns/instagram/(?!.*/reels/).+\\.(png|jpe?g)$"
       },
@@ -136,6 +167,8 @@
     },
     {
       "id": "git-history-bundle",
+      "audience": "human",
+      "audienceException": "DN-0111 で切り詰めた git 履歴の bundle 2.65GB。書き込み一回・復元時だけ人が使う。Finder で開く用途が無く、ストリーミングマウント越しに単一 2.65GB を扱うのは脆いので private R2 に残す（Drive への控えは任意・Phase 7）。",
       "match": {
         "pathRegex": "^\\.local/archive/git-history/.+\\.bundle$"
       },
@@ -153,6 +186,8 @@
     },
     {
       "id": "sns-archived-media",
+      "audience": "human",
+      "audienceException": "reels の wav/mp4 と YouTube shorts の mp4。公開 sns/ に置くのは upload-sns-r2 系統（sns-archive-policy.md）の運用で、post-youtube-scheduled.yml が読む sns/youtube-shorts/ もこのバケット。人 tier への統合は後追いカード（Phase 7）で扱う。",
       "match": {
         "pathRegex": "^content/sns/(instagram|youtube)/.+\\.(wav|mp4|m4a)$"
       },
@@ -170,7 +205,29 @@
       "phase": "DN-0116"
     },
     {
+      "id": "video-render-artifact",
+      "audience": "human",
+      "audienceException": "Phase 3 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
+      "match": {
+        "pathRegex": "^\\.tmp/video-render/(?!verify-frames/)[^/]+/.+\\.(png|wav|ass|mp4|json)$"
+      },
+      "bucket": "private",
+      "keyPrefix": "video/render/",
+      "keyFrom": "stripPrefix:.tmp/video-render/",
+      "visibilityFrom": "fixed:private",
+      "regenerable": true,
+      "generator": "npm run render-longform -- --pack-dir content/sns/video-packs/{exam}/{packId}",
+      "requiredBy": [
+        "video-content-qa（公開前の映像・音声・字幕確認）",
+        "YouTube通常動画の公開処理"
+      ],
+      "reason": "通常動画pilotのmp4・wav・ASS・レンダリングframe。公開承認前の制作物なのでpublicへ出さずprivate R2へ退避し、manifestのsha256を再取得経路の真実源にする。",
+      "phase": "DN-0110"
+    },
+    {
       "id": "legacy-r2-orphan",
+      "audience": "human",
+      "audienceException": "旧 R2 からの退避物 3,719 件。Phase 5 で棚卸し: 記事画像 2,573 件は参照 0 を確認して削除、SNS 素材 1,146 件は drive-vault.json の同名 group（vaultDir アーカイブ/旧R2/sns）へ移す。完了後この group は消える。",
       "match": {
         "pathRegex": "^\\.local/archive/legacy-r2/.+$"
       },
@@ -188,6 +245,7 @@
     },
     {
       "id": "site-ogp-png",
+      "audience": "site",
       "match": {
         "pathRegex": "^content/site/.+/ogp\\.png$"
       },
@@ -207,6 +265,8 @@
     },
     {
       "id": "coconala-asset",
+      "audience": "human",
+      "audienceException": "Phase 3 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
       "match": {
         "pathRegex": "^\\.claude/config/coconala/assets/.+"
       },
@@ -228,6 +288,8 @@
     },
     {
       "id": "repo-archive",
+      "audience": "human",
+      "audienceException": "Phase 3 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
       "match": {
         "pathRegex": "^(\\.claude/state/ocr-audit/.+|scripts/kindle-published/cover-designs/.+|content/sns/_assets/character/_source/.+)$"
       },
@@ -247,6 +309,8 @@
     },
     {
       "id": "kindle-dist",
+      "audience": "human",
+      "audienceException": "Phase 3 で Google Drive vault へ移行中（drive-vault.json 側は status: pending）。移行が済んだらこの group を削除する。",
       "match": {
         "pathRegex": "^scripts/kindle-dist/.+\\.(epub|jpg)$"
       },
@@ -260,7 +324,7 @@
         "scripts/kdp-publish.mjs",
         "scripts/sync-kindle-dist.mjs"
       ],
-      "reason": "gitが唯一の実体（catalog.jsonの全45冊がlive/in_review保護skipのためsync-kindle-distの既定再ビルド対象外）。EPUBはzipのため再ビルドでタイムスタンプが変わりsha256が再現しない（PDF系と同じ問題）。check-kindle-format.mjsがci:trueで0冊ならexit 2のCI実体依存ゲートのため、untrackはCI破壊に直結する。今回はR2バックアップのみ行い、git追跡は維持する（DN-0151(3)決着）。untrackの前提条件: (i)全冊再ビルドの内容一致検証 (ii)check-kindle-formatのCI実体問題の解決",
+      "reason": "公開・審査済み版の不変な配布実体としてgit追跡を維持する。2026-09-04に76件をprivate R2へ再同期し、ローカル・manifest・R2のbytes/sha256三者一致を確認した。一方、e-01を同期処理を通さず.tmpへ再生成して展開比較すると、UUID/日付だけでなくCareerAffiliate除去と画像寸法変更の実内容差があり、現行generatorから公開版を同内容で復元できないことを確認した。R2は完全バックアップ、Gitはレビュー可能な配布版の正本として併存させる",
       "phase": "DN-0151"
     }
   ]

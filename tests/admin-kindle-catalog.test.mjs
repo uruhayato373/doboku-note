@@ -4,6 +4,7 @@ import {
   artifactRelPaths,
   buildPathDateMap,
   estimateFreshness,
+  hasBuildRecipe,
   joinRoyalties,
   specInputPaths,
 } from '../scripts/lib/kindle-catalog.mjs'
@@ -36,6 +37,12 @@ test('artifactRelPaths: A系(裸ファイル名・buildSpec無し)は kindle-pub
     kdpMemo: null,
     buildSpec: null,
   })
+})
+
+test('hasBuildRecipe: spec駆動とA系theme駆動を再ビルド可能と判定する', () => {
+  assert.equal(hasBuildRecipe({ builder: 'scripts/build.mjs', buildSpec: 'scripts/spec.json' }), true)
+  assert.equal(hasBuildRecipe({ builder: 'scripts/build-takuitsu-reconstruct.mjs', buildTheme: 'anzen' }), true)
+  assert.equal(hasBuildRecipe({ builder: 'scripts/build.mjs' }), false)
 })
 
 test('specInputPaths: sources(文字列配列) と frontMatter を repo 相対パスとして抽出する', () => {

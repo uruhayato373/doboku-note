@@ -66,6 +66,8 @@
       "narration": "残りの項目です。工事場所は都道府県から町名、地先まで詳しく。発注者名は、下請工事なら注文者を書きます。立場は会社の役職ではなく、現場での立場です。現場代理人、現場責任者など。発注者側の方なら監督員と書きます。",
       "caption": "場所は詳しく・立場は現場の立場",
       "visual": {
+        "kind": "figure",
+        "src": "content/site/civil-construction-1/secondary-experience-writing-guide/img/fig-orderer-case.webp",
         "heading": "STEP 3　場所・発注者・立場",
         "items": ["場所：県→市郡→町名・地先まで", "発注者：下請なら注文者を書く", "立場：会社の役職ではなく現場の立場"]
       }

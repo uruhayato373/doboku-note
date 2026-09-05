@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-comment-reply.mjs
  * ---------------------------------------------------------------------------
@@ -35,7 +36,7 @@ const SUBMIT = process.argv.includes('--submit');
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 if (!NOTE || !BODY) { console.error('usage: node scripts/note-comment-reply.mjs <noteId> <本文txt> [--submit]'); process.exit(1); }
 
-const ctx = await chromium.launchPersistentContext(join(ROOT, '.local/playwright-note-profile'), {
+const ctx = await chromium.launchPersistentContext(resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT }), {
   channel: 'chrome', headless: false, ignoreHTTPSErrors: true, viewport: { width: 1400, height: 1050 },
   args: ['--disable-blink-features=AutomationControlled'], ...(PROXY ? { proxy: { server: PROXY } } : {}),
 });

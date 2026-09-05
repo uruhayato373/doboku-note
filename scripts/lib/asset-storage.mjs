@@ -37,12 +37,32 @@ export const MANIFEST_PATH = join(REPO_ROOT, '.claude/state/assets/manifest.json
 /** R2 のキーは常に '/' 区切り。Windows の path.sep が '\\' なので正規化する。 */
 export const toPosix = (p) => p.split(sep).join('/');
 
+/**
+ * 置き場は **誰が使うか（audience）** で決める（2026-09-05・asset-storage-policy.md §1）。
+ *   site  … サイトが配信する            → public R2 だけ
+ *   ci    … GitHub Actions が読み書きする → private R2 か byVisibility
+ *   human … 人か手元のスクリプトだけ     → Google Drive vault（drive-vault.json）。
+ *           R2 側に残すなら audienceException に理由（20 字以上）を書く
+ * 「資産の種類」で列挙していた旧ルールは、著作権のために書いた行を公的文書へ誤適用する事故を生んだ。
+ */
+export const AUDIENCES = ['site', 'ci', 'human'];
+export const AUDIENCE_RULES = { site: ['public'], ci: ['private', 'byVisibility'] };
+
 export function loadConfig() {
   if (!existsSync(CONFIG_PATH)) {
     throw new Error('asset-storage: 設定が無い（' + CONFIG_PATH + '）。検査不成立。');
   }
   const cfg = JSON.parse(readFileSync(CONFIG_PATH, 'utf-8'));
   for (const g of cfg.groups || []) {
+    if (!AUDIENCES.includes(g.audience)) {
+      throw new Error('asset-storage: group ' + g.id + ' に audience（site|ci|human）が無い。置き場は誰が使うかで決める');
+    }
+    if (g.audience === 'human' && !(typeof g.audienceException === 'string' && g.audienceException.length >= 20)) {
+      throw new Error('asset-storage: group ' + g.id + ' は audience=human なので R2 ではなく Drive vault（drive-vault.json）へ。R2 に残すなら audienceException に理由（20 字以上）を書く');
+    }
+    if (g.audience !== 'human' && !AUDIENCE_RULES[g.audience].includes(g.bucket)) {
+      throw new Error('asset-storage: group ' + g.id + ' は audience=' + g.audience + ' なので bucket は ' + AUDIENCE_RULES[g.audience].join('|') + ' でなければならない（' + g.bucket + '）');
+    }
     if (g.bucket === 'byVisibility') continue; // ファイル単位で解決する（bucketForFile）
     if (!cfg.buckets?.[g.bucket]) throw new Error('asset-storage: group ' + g.id + ' が未定義の bucket "' + g.bucket + '" を指している');
   }

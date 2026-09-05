@@ -426,7 +426,7 @@ W30 週次レビューで homepage の PSI を見て「Performance 59 / LCP 10,1
 - `scripts/check-lcp-image-hints.mjs` を新設し pre-commit ゲート化（下記の実害側の再発防止）
 - `weekly-review` の Agent C2 を本原則に整合
 
-### 追記 2026-08-25: field が消えると、この原則がそのまま「常時緑」に化ける（DN-0127）
+### 追記 2026-08-25／判断更新 2026-09-04: field 欠測を警告として分離する（DN-0127・DN-0158）
 
 field-primary にしたことで、**field が供給されなくなった瞬間にゲートが判定材料を失う**という
 裏面ができていた。`psi-threshold-check.mjs` が赤にするのは `field` / `field-category` /
@@ -441,19 +441,28 @@ field-primary にしたことで、**field が供給されなくなった瞬間�
 | 2026-07-21 〜 08-17 | 供給あり（最終 08-17 は 22/22） |
 | **2026-08-18 〜** | **0/22 が 12 バッチ連続** |
 
-`final_url` は出続けスキーマ（keys 9）も変わっていないので、取得とパースは動いている。
-8/17 の 22/22 から翌日 0/22 へ**全 URL 一斉に**落ちており、個別ページのサンプル数不足では
-説明しにくい。CrUX 側の供給停止として扱う。会社 PC はプロキシで PSI API を直接叩けないため
-（本ファイル冒頭の恒久ルール）、ライブ再現での確定は CI 側に委ねる。
+08-18 のバッチ自体は全件 PSI API 500 であり、「その日も取得・パースは正常」という初期診断は
+誤りだった。その後の 08-31 バッチでは 22/22 の Lighthouse 計測に成功している一方、field は
+0/22 のまま。2026-09-04 に `loadingExperience` / `originLoadingExperience` の有無を記録する実装を
+追加したが、ローカルの匿名 PSI 呼び出しは quota 429 で、生レスポンスによる URL/origin の確定は
+次回 CI 計測へ持ち越した。
 
-**対策**: `min_field_coverage`（既定 1）を `psi-config.json` に追加し、`primary_source=field` の
-ときに field 取得件数がこれを下回ると `field-coverage` 違反を立ててゲートを赤にする。
-レポートと stderr の両方に `field(CrUX) 取得: N/M件` を**常に**出す。
-これで「緑 ＝ 実害なし」と「赤 ＝ 判定不能」が区別できる。
+**対策と判断**: `min_field_coverage`（既定 1）未満では `field-coverage` 違反をレポートし、stderr
+にも取得件数と URL/origin の内訳を出す。ただし `field_missing_policy=report_only` とし、欠測だけで
+CI は失敗させない。CrUX の公開可否は Google 側のトラフィック・プライバシー閾値に依存し、サイト側で
+解消できない欠測を赤にし続けても計測品質は上がらないためである。
 
-**まだ決めていないこと**: 供給が恒久的に戻らないなら `primary_source` を lab 中央値ベースへ
-書き換える必要がある。7 日の欠測では判断せず、赤を出したまま観測を続ける。書き換えるときは
-本節の判定原則そのものを改訂する。
+公式根拠: [CrUX methodology](https://developer.chrome.com/docs/crux/methodology) は page/origin とも
+公開発見可能性と非公開の popularity 下限を満たす場合だけ収録され、資格状態の変化で自動的に追加・除外
+されると説明している。また [PageSpeed Insights API](https://developers.google.com/speed/docs/insights/v5/get-started)
+は PSI API への CrUX 実ユーザーデータ同梱を将来廃止し、CrUX API / History API を推奨すると明記している。
+したがって PSI 応答の field 欠測をサイト性能悪化と同一視しない。廃止時期が確定した場合は field の取得元だけ
+CrUX API へ移し、以下の field-primary 原則は維持する。
+
+`primary_source` は field のまま維持する。field が返れば AVERAGE/SLOW を実害としてゲートし、
+PSI 取得失敗率 20% 超もゲートする。field が無い期間は「安全」ではなく**判定不能の警告**であり、
+lab の複数バッチ中央値は改善診断にだけ使う。lab を実害判定へ昇格させないことで、2026-07-27 の
+誤報防止原則も維持する。
 
 ### 併せて判明した実害（EXP-005 の本体）
 
@@ -680,6 +689,10 @@ lab が恒常的に悪い理由自体は本物だった。Playwright + `Performa
 `ga4-source`（5/17・japanOnly＋スパム除外済）で **bing 252 users > google 77（3.3x）** が残存。フィルタで 1,293→252 に激減済みだが、**日本語土木試験サイトで bing>google の逆転は本 incident の署名のまま**。ただし残 252 は 5.36 ページ/session・493 秒・engagement 65% と **human 的挙動**で、単純 bot 署名（1ページ・0秒・直帰100%）ではない＝**「疑わしいが未確定」**。教訓#1 のとおり source 単独では判定不能。**次の CI/CD GA4 取得で bing × device × landing × 新規/再訪 を交差**して確定する（会社PC はプロキシで外部 API 不可＝CI/CD 供給待ち）。
 
 **運用ルール（2026-07-01 確定）**: **GSC を Google 人間検索の真実源（下限）として扱う**。GA4-google（77/2週）≒ GSC(~5クリック/日×14) で両者は一致しており、GSC は汚染されない。GA4 の「organic 84%・低アクセスではない」は **bing 水増し込み**として割り引く。
+
+### 2026-09-05 フォローアップ（自動監査ではbot判定せず）
+
+最新14日（2026-08-21〜09-03）のbot監査でbingは2,683 users、googleは82 users。ただしbingは日本比率99.4%、engagement 71.3%で、実装済みのbot署名には該当せず`flagged:false`だった。したがって、件数の逆転だけでbotとして除外しない。Bing Webmasterとの突合と、device・landing・新規/再訪の実査ができるまで「疑わしいが未確定」を維持する。残務はDN-0135へ集約した。
 
 ## 2026-04-25: Cloudflare Bot 保護で外部 RSS/Atom Validator が 403
 

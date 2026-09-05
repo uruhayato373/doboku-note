@@ -95,7 +95,8 @@
   "browser": {
     "channel": "chrome",
     "headless": false,
-    "profileDir": ".local/playwright-google-profile",
+    "authService": "google",
+    "legacyProfileDir": ".local/playwright-google-profile",
     "debugDir": ".local/playwright-google-debug",
     "timeoutMs": 30000,
     "statusIntervalMs": 120000,

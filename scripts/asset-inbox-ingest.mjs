@@ -27,6 +27,7 @@ import { createReadStream, existsSync, readFileSync, mkdirSync, copyFileSync, st
 import { createHash } from 'node:crypto';
 import { join, dirname, isAbsolute, relative } from 'node:path';
 import { loadConfig, groupFor, toPosix } from './lib/asset-storage.mjs';
+import { loadDriveConfig, driveGroupFor } from './lib/drive-vault.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const argv = process.argv.slice(2);
@@ -65,6 +66,7 @@ async function main() {
   }
 
   const cfg = loadConfig();
+  const dcfg = loadDriveConfig();
   const meta = JSON.parse(readFileSync(META, 'utf8'));
   const declared = new Map((meta.files || []).map((f) => [toPosix(f.path), f]));
   const found = walk(UNPACKED);
@@ -81,6 +83,11 @@ async function main() {
     }
     if (!d) {
       problems.push(`inbox.json に無いファイルが含まれている: ${rel}`); continue;
+    }
+    // CI は Google Drive を持たない。人しか読まないもの（drive-vault.json 管轄）が inbox 経由で
+    // R2 へ流れると、置き場ルール（audience）を CI が黙って破ることになる。1 バイトも受け取らない。
+    if (driveGroupFor(rel, dcfg)) {
+      problems.push(`Drive vault 管轄のパス（CI は Drive を持たない・R2 へは置かない）: ${rel} → node scripts/drive-vault-sync.mjs --path "${rel}" --commit`); continue;
     }
     const g = groupFor(rel, cfg);
     if (!g) {

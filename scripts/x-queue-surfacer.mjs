@@ -159,7 +159,7 @@ if (due.length === 0) {
     lines.push(`| ${d.name} | ${fmt(d.start)}-${fmt(d.end)} | ${go} | ${d.unqueued}/${d.count} | ${st} |`);
   }
   lines.push("");
-  lines.push("投入手順（要ローカル＝.local/playwright-x-profile のある Mac）:");
+  lines.push("投入手順（要ローカル＝共通 auth resolver 配下の X セッションがある端末）:");
   lines.push("  1. npm run x-schedule-guard -- --queue --max-per-day 2   # 緑を確認");
   lines.push("  2. npx tsx .claude/skills/social/publish-x/publish-x.ts <NNN> --tweets 1-<本数> <日時×本数>  # 時刻は±ジッタ・両試験で同時刻回避");
   lines.push("  3. npm run x-sync-status   # queued 昇格数 = 投入本数 を実査（偽成功検証）");

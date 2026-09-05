@@ -6,7 +6,8 @@
  *   同名行を誤取得しうる（2026-08-25 棚卸し）。gray-matter は依存済みなのでそれを使い、
  *   note 記事の判断でよく要る派生値までここで作る（呼び出し側で毎回組み立てない）。
  *
- * 新規に書くコードはここを呼ぶ。既存 21 本の移行は DN-0083 で段階的に行う。
+ * 新規に書くコードはここを呼ぶ。既存実装は一括移行せず、修正対象になった時点で
+ * この共有 lib へ移し、挙動同一を確認する。
  */
 import { readFileSync, existsSync, readdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';

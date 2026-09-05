@@ -1,47 +1,105 @@
-# アセット退避・復元ポリシー（R2 × Git）
+# アセット置き場ポリシー（public R2 / private R2 / Google Drive）
 
-生成物・配布物を Git から R2 へ移し、必要なときだけ手元へ戻す運用の SSOT。
-機械可読な定義は `.claude/config/asset-storage.json`、退避台帳は `.claude/state/assets/manifest.json`。
+Git の外に置くアセットを **誰が使うかで 3 つの置き場へ振り分け**、必要なときだけ手元へ戻す運用の SSOT。
+機械可読な定義は R2 側が `.claude/config/asset-storage.json`（台帳 `.claude/state/assets/manifest.json`）、
+Google Drive 側が `.claude/config/drive-vault.json`（台帳 `.claude/state/assets/drive-manifest.json`）。
+迷ったら `/asset-route`（`.claude/skills/dev/asset-route/SKILL.md`）が決定木と正確なコマンドを持つ。
 
 > [!note] 経緯
 > 2026-08-21 時点で HEAD は 4.15 GiB あり、CI ランナーが checkout で空きを使い切って落ちるところまで来ていた。
 > 原稿・設定の SSOT と、再生成できるカバー・投稿用 PNG・添付 PDF・教材ページ画像が同じ履歴に混ざっていたのが原因。
 > DN-0111 で 4,271 件 2.82 GiB を R2 へ移し（うち note カバー SVG 827 件は保存せず生成停止）、HEAD は 1.14 GiB になった。
 
-## 1. 何を Git に残し、何を R2 へ出すか
+## 1. 置き場は「誰が使うか」で決める（2026-09-05 制定）
 
-| 種別 | Git | R2 | 理由 |
+旧ルールは「資産の種類 → Git か R2」の列挙で、**判断軸が無かった**。その結果、スキャン書籍の著作権のために
+書いた「教材ページ画像 → private R2」の行が、公的文書で原本から再生成できる共通仕様書のページ画像 3.4GB に
+誤適用されかけた（2026-09-05）。private バケットは教材 PDF 3.9GB・旧孤児 1.4GB・配布 PDF・未投稿レンダーなど
+「人か手元のスクリプトしか読まないもの」の倉庫になっていた。以後は次の 3 行で決める。
+
+| audience（誰が使うか） | 置き場 | 例 |
+|---|---|---|
+| **`site`** サイトが配信する | public R2 `doboku-note`（`storage.doboku-note.com`） | 記事図版（`posts/`）・OGP・Brain 配布 ZIP |
+| **`ci`** GitHub Actions が読み書きする | R2（public / private / byVisibility） | note カバー PNG（`note-cover-supply.yml` が毎回書く）・git 履歴 bundle（例外・復元経路） |
+| **`human`** 人か手元のスクリプトだけが使う | Google Drive vault `マイドライブ/doboku-note/` | 原本 PDF・ページ画像・文字起こし・配布 PDF・未投稿レンダー・Kindle・ココナラ素材 |
+
+- **機械表現**: `asset-storage.json` の全 group に `audience` が必須。`site ⇒ bucket public`、`ci ⇒ private|byVisibility`。
+  `human` は原則 `asset-storage.json` に置かず `drive-vault.json` へ。R2 に残す例外は `audienceException` に理由
+  （20 字以上）を書く。`loadConfig`・`tests/asset-storage.test.mjs`・`check-drive-vault` の 3 か所が止める。
+- **CI は Drive を持たない**。これが 2 行目（`ci`）を分ける唯一の理由。ワークフローから `drive-vault-sync` を呼ばず、
+  `asset-inbox-ingest` は Drive 管轄のパスを拒否する。
+- **同じパスが両 tier に一致する状態を作らない**。`check-drive-vault` が `git ls-files ∪ ignore 済み` を走査して衝突を FAIL にする。
+- **Git に残すもの**は変わらない: 記事・SNS の原本（.md / frontmatter / slide-data / caption / status）、真正ベクター .svg、
+  各台帳（`manifest.json` / `drive-manifest.json`）と README。
+
+### 各 group の行き先（2026-09-05 時点）
+
+| group | audience | 置き場 | 備考 |
 |---|---|---|---|
-| 記事・SNS 原本（.md / frontmatter / hashtags / slide-data / 台本 / caption / status） | ○ | — | 人が書いた原本。差分レビューの対象 |
-| 真正ベクター図版（Base64 raster を含まない .svg） | ○ | — | テキストで差分が読め、サイズも小さい |
-| note カバー PNG | — | 公開済み→`doboku-note` / 下書き→`doboku-note-archive` | frontmatter の `cover:` が原本だが **byte 再現はできない**（§6） |
-| `content/site/**/ogp.png` | — | `doboku-note`（`posts/`・site-ogp-png group） | 配信中の og:image 実体。1,166 件 607.2MB が Git 追跡容量の過半を占めていたため 2026-08-29 に untrack（詳細 §9） |
-| note 配布 PDF | — | `doboku-note-archive` | 購入者限定の配布物を含む。公開バケットへは置かない |
-| IG レンダー画像 | — | 投稿済み→`doboku-note` / それ以外→`doboku-note-archive` | slide-data / SVG が SoT のレンダー成果物 |
-| 教材ページ画像・教材 PDF | — | `doboku-note-archive` | 書籍が原本 |
-| 教材の文字起こし本文（.md/.html/派生 .svg 等） | — | private Google Drive vault（§1-1） | 書籍由来の著作権物。public repo には置かない |
-| note カバー SVG | — | — | satori の中間生成物。読むコードが無いので保存しない（`.tmp/` へ出す） |
-| IG reels の frames | — | 別系統 | `sns-archive-policy.md` と `upload-sns-r2` が管轄。この仕組みの対象外 |
+| `site-ogp-png` | site | public R2 `posts/` | `ogp-supply.yml` が生成・供給 |
+| `note-cover-png` | ci | R2 byVisibility | `note-cover-supply.yml` が書く。public 複製 820 件はサイトが読んでいない（後追い） |
+| `git-history-bundle` | human（例外） | private R2 | 2.65GB 書き込み一回・復元時だけ。ストリーミングマウント越しの単一巨大 blob は脆い |
+| `sns-archived-media` | human（例外） | public R2 `sns/` | `upload-sns-r2` 系統（[sns-archive-policy.md](sns-archive-policy.md)）。`post-youtube-scheduled.yml` が `sns/youtube-shorts/` を読む。統合は後追い |
+| `standards-page-image` | human | Drive `原資料PDF/共通仕様書/{整備局}/{PDF名}/{pages,text}/` | 原本 PDF の隣（§1-2） |
+| `textbook-source-pdf` / `textbook-page-image` | human | Drive `原資料PDF/教材/{書名}/**` | `content/sources/textbook/{書名}/` の 1:1 ミラー。既存の手動配置 63 本は sha256 で adopt |
+| `note-delivery-pdf` | human | Drive `制作物/note配布PDF/` | 添付は人が `note-attach-file` で実行 |
+| `ig-rendered-image` | human | Drive `制作物/IGレンダー/` | 投稿は人が `publish-ig-bs` で実行。投稿済みを public R2 に置いていたのは旧目標の名残 |
+| `video-render-artifact` | human | Drive `制作物/動画レンダー/` | render-longform を回す CI は存在しない |
+| `kindle-dist` | human | Drive `制作物/Kindle/`（Git が正本） | CI の check-kindle-format が blob を読むので Git 追跡は維持。Drive は控え |
+| `coconala-asset` | human | Drive `制作物/ココナラ/` | |
+| `note-magazine-cover-png` | human | Drive `制作物/マガジンカバー/` | |
+| `repo-archive` | human | Drive `アーカイブ/repo/` | |
+| `legacy-r2-orphan` | human | 記事画像 2,573 件は削除（参照 0 を確認）・SNS 素材 1,146 件は Drive `アーカイブ/旧R2/sns/` | 完了後 group を削除 |
 
-**公開バケットへ置かないもの**: 教材、購入者限定 PDF、未公開商品、draft 画像。
+**公開バケットへ置かないもの**: 教材、購入者限定 PDF、未公開商品、draft 画像、そして **人しか読まないもの全部**。
 `doboku-note-archive` にはカスタムドメインを付けない（S3 API だけで扱う）。
 
-### 1-1. 教材の文字起こし本文は private Google Drive vault
+### 1-1. Google Drive vault のレイアウト
 
-Drive 側は `~/Google Drive/マイドライブ/doboku-note/` を単一ルートとして管理する（2026-08-29 統合）:
+Drive 側は `マイドライブ/doboku-note/` を単一ルートとして管理する（2026-08-29 統合・2026-09-05 に 4 フォルダへ拡張）。
+マウント先は端末ごとに違う（Mac `~/Library/CloudStorage/GoogleDrive-<account>/マイドライブ/`、Windows `G:\マイドライブ\` など）
+ので、コードは `scripts/lib/drive-vault.mjs` の `resolveVaultRoot()` で解決し、台帳には vault 相対パスだけを書く
+（環境変数 `DOBOKU_DRIVE_VAULT` で上書き可）:
 
 ```
 マイドライブ/doboku-note/
-├── private-sources/textbook/   # L1 中間産物＝文字起こし md・派生図版（旧 doboku-note-private-sources/）
-└── references/                 # L0 原資料＝参考 PDF（読み取り専用）
-    ├── 白書/                   # 白書 44 本（総監の白書根拠）
-    ├── 資格試験/               # 1級土木テキスト・問題集＋診断士（完全一致の重複4dir含め33本・重複解消は未実施）
-    └── 書籍/                   # 土木・建設系の市販書 12 冊（逐語転用禁止）
+├── README.md                    # 貼り紙。Drive を開いた人が最初に読む
+├── 原資料PDF/                   # L0 原本。その隣にページ画像
+│   ├── 白書/ 書籍/ 資格試験/     # 手で整えた既存（白書 44・書籍 23・資格試験 97）
+│   ├── 共通仕様書/{整備局}/      # 国交省の共通仕様書・工事必携 PDF 72 本を 10 局へ
+│   │   ├── common__xxx.pdf
+│   │   └── common__xxx/{pages,text}/   # ← 原本と同名フォルダ＝隣（standards-page-image）
+│   └── 教材/{書名}/**            # content/sources/textbook/{書名}/ の 1:1 ミラー（PDF と img/pages が同居）
+├── 文字起こし/                  # L1 中間産物の .md（content/sources/textbook/ 直下と 1:1）
+├── 制作物/                      # 人が使う成果物
+│   ├── note配布PDF/ IGレンダー/ 動画レンダー/ Kindle/ ココナラ/ マガジンカバー/
+└── アーカイブ/
+    ├── repo/                    # repo-archive
+    └── 旧R2/sns/                # legacy-r2-orphan の SNS 素材
 ```
+
+`原資料PDF/` と `文字起こし/` は同じ内訳で並べる（`共通仕様書/東北地方整備局/` の PDF に
+`文字起こし/共通仕様書/東北地方整備局/` の md が対応）。共通仕様書のファイル名先頭が文書種別で、
+`common__`＝共通仕様書・`hikkei__`＝土木請負工事必携・`special__`＝特記・`local__`＝地方版・
+`manual__`＝手引き。各枝の `_収集メタデータ/` は収集台帳と QA 記録で本文ではない。
+
+`文字起こし/` の直下の名前は `content/sources/textbook/` の直下と 1 対 1 で対応させる（復元がコピー
+1 回で済む前提）。2026-09-05 に英語 2 階層（`private-sources/textbook/`・`references/`）を日本語 1 階層へ
+畳み、`資格試験/` 直下にあった完全一致の重複 4 dir（156MB・84 ファイル）と Word の `~$` 一時ファイル
+12 個を削除した（正本は `資格試験/１級土木施工管理技士/` 配下に現存）。同日、`資格試験/１級土木施工
+管理技士/` の下に埋もれていた共通仕様書を `共通仕様書/` として独立させ、地方整備局ごとに整理した
+（近畿だけ二重にあった PDF 2 本と文字起こし 36 ファイルは削除。照合証跡 zip と qa-report.md は正本側へ退避）。
+整理後の実数は 白書 44・書籍 23・資格試験 97・共通仕様書 78（PDF 側）／文字起こし 502（共通仕様書）
+ほかの計 905 ファイル。
+
+**`文字起こし/共通仕様書/` は `content/sources/textbook/` に対応先を持たない**（1 対 1 の例外）。
+成果物は `content/site/standards-articles/` として公開済みで、repo へ戻す必要が無いため。
+`build-standard-articles` の入力は repo 側の `content/site/standards-library/catalog.json` で、
+Drive のパスは参照しない＝この移動でビルドは壊れない。
 
 `content/sources/textbook/**` の文字起こし本文（.md/.html）と派生図版は、書籍の著作権物をほぼそのまま
 含むため 2026-08-27 に public repo（`doboku-note`）の追跡から外し、`~/Google Drive/マイドライブ/
-doboku-note/private-sources/textbook/` へ移設した（stats47 の `stats47-private-sources/` と同じ命名規約）。
+doboku-note/文字起こし/` へ移設した。
 `.gitignore` の `content/sources/textbook/**`（README.md だけ `!` で例外）が実体。
 
 - **新しい端末での復元**: Google Drive デスクトップアプリで同アカウントにログインし vault を同期 →
@@ -53,6 +111,39 @@ doboku-note/private-sources/textbook/` へ移設した（stats47 の `stats47-pr
 - PDF・ページ画像（§1 表）は従来どおり private R2。今回動いたのは文字起こしテキスト側だけ
 - git 履歴には旧コミットの内容が残る。履歴書換え（force-push）は複数セッション並行環境で危険なため
   未実施 — 必要なら別途、全 worktree 停止の単独作業として計画する
+
+### 1-2. 公的基準のページ画像は「1 ページ = 1 画像 + 1 テキスト」
+
+章記事（`content/site/standards-articles/`）の本文は `part-NN.md`（50 ページ束）までしかページ情報を
+持たず、「この記述は原本の何ページか」を機械で言えなかった。2026-09-05 に共通仕様書 10 文書
+（9 ユニーク・5,949 ページ）をページ単位へ割り、`content/sources/standards/{agencyId}/{documentId}/`
+へ置いた。ID 体系は `standards-library/catalog.json` と同じで、章記事・カタログ・ページ画像が同じキーで引ける。
+
+```
+repo:  content/sources/standards/{agencyId}/{documentId}/manifest.json   # git 追跡。原本 sha256・描画条件・parts のページ範囲・各ページの sha256
+vault: 原資料PDF/共通仕様書/{整備局}/{原本PDF名}/pages/p0001.jpg           # 原本 PDF の隣（同名フォルダ）。pdftoppm 270dpi（2233px）JPEG q85
+       原資料PDF/共通仕様書/{整備局}/{原本PDF名}/text/p0001.txt            # pdftotext -layout をページ境界(\f)で割ったもの
+台帳:  .claude/state/assets/drive-manifest.json（drive-vault.json の standards-page-image group）
+```
+
+実体を private R2 でなく Drive に置くのは §1 の置き場ルール（人か手元のスクリプトだけが使う → Drive）による。
+2026-09-05 に途中まで private R2 へ上げた 2,550 件は、vault 側の全件照合（11,898/11,898 一致）の後に撤去した。
+
+- **原本の同定はファイル名でなく sha256**。Drive 側のファイル名は整理で動くがハッシュは動かない。
+  catalog の `sourceSha256` と引き当たらない PDF は 1 バイトも書かずに落とす（fail-closed）
+- **出典は `section` + 版面ページ番号で指す**。PDF の通しページ（p0120）と版面に刷られたページ
+  （1-42）は一致せず、さらに目次が 1-1..1-77 と進んだあと本文が再び 1-1 から始まるため版面番号だけ
+  では一意にならない。各ページに `section`（front=目次 / body=本文）を持たせ、境界は「同じ編で番号が
+  減った最初の地点」で機械判定する。`check-standards-page-images` は組の重複を FAIL にする
+- **対象 PDF は全て born-digital**（`pdfimages -list` が空＝ラスタ埋め込み無しの純ベクタ）。
+  `text/` は OCR ではなく PDF 自身のテキスト層なので取り違えが原理的に起きない。OCR が要るのは
+  スキャン教材（`content/sources/textbook/`）side で、そちらは `/pdf-to-mdx --scanned` が扱う
+- **沖縄総合事務局は中国地方整備局と原本 sha256 が一致**する。画像は重複生成せず
+  `okinawa/common/manifest.json` に `sameAs: "chugoku/common"` を持たせる（catalog も同じ扱い）
+- 生成には Drive vault の原本と poppler が要る。手元に作業コピーが要るときは
+  `npm run drive-vault-sync -- --pull --path content/sources/standards/{agencyId}/`
+- 整合ゲートは `npm run check-standards-page-images`（`quality:audit` 同梱）。実体が無い端末では
+  manifest だけを検査し「実体検査 0 件」を緑と言わずその旨を出力する
 
 ## 2. 端末の初期設定
 
@@ -68,6 +159,13 @@ cd doboku-note && npm install --legacy-peer-deps
 npm run asset-hydrate -- --group note-cover-png                       # グループ単位
 npm run asset-hydrate -- --path 'content/sources/textbook/{書名}/'    # 前方一致で部分取得
 npm run asset-hydrate -- --group note-cover-png --offline             # cache にあるものだけ
+```
+
+Drive vault 側（human tier）は台帳が別で、取り戻しは `drive-vault-sync --pull`（マウントが要る・ネット不要）:
+
+```bash
+npm run drive-vault-sync -- --pull --group note-delivery-pdf
+npm run drive-vault-sync -- --pull --path 'content/sources/textbook/{書名}/'
 ```
 
 credential が無い端末（会社 PC はプロキシで外部 API が遮断される）は `--offline` を付ける。
@@ -295,6 +393,7 @@ cache は `.local/cache/assets/`（Git 非追跡）。最終アクセス時刻�
 | private `coconala/assets/` | 59（28.3MB） | 台帳 `coconala-asset` | `asset-hydrate --group coconala-asset` |
 | private `archive/repo/` | 13（27.0MB） | 台帳 `repo-archive` | `asset-hydrate --group repo-archive` |
 | private `kindle/dist/` | 76（56.8MB） | Git ＋ 台帳 `kindle-dist`（バックアップのみ） | 通常は Git。R2 は `asset-hydrate --group kindle-dist`（バックアップ確認用） |
+| private `video/render/` | 動画ごとに変動 | 台帳 `video-render-artifact` | `asset-hydrate --group video-render-artifact` |
 | public `posts/` | 5,234 | **Git**（`content/site/**`） | `upload-images-r2` が一方向で同期。配信コピーなので台帳不要 |
 | public `posts/`（ogp.png） | 1,166（607.2MB） | 台帳 `site-ogp-png` | `asset-hydrate --group site-ogp-png` |
 | public `note/covers/` | 813 | 台帳 `note-cover-png` | `asset-hydrate` |
@@ -305,6 +404,12 @@ cache は `.local/cache/assets/`（Git 非追跡）。最終アクセス時刻�
 `repo-archive` / `kindle-dist` の 5 group を新設し R2 へ退避した（`kindle-dist` は Git 追跡を
 維持したままの R2 バックアップ）。`note-cover-png` は前回棚卸し（2026-08-22・777 件）から
 813 件へ増加している。
+
+`kindle-dist` は2026-09-04に76件を再同期し、ローカル・manifest・private R2のbytes/sha256三者一致を
+確認した。ただし `e-01` を `.tmp` へ直接再生成して展開比較すると、UUID・日付以外にも本文からの
+`CareerAffiliate` 除去と画像寸法変更があり、公開版と実内容が一致しなかった。この反例で全冊の内容一致
+条件は不成立と確定したため、Git追跡は維持する。R2は完全バックアップであり、現行generatorを公開済み
+配布版のbyte/内容再現手段とは扱わない。
 
 `content/site/**/ogp.webp`（1,166 件 39.9MB）は **R2 に入っていない**。og:image が参照しない
 未使用の派生ファイルで、prebuild のたび `generate-webp.mjs` が ogp.png から再生成する中間物のため、
@@ -335,6 +440,9 @@ git 追跡のみ解除し退避はしていない。
 
 ## 10. 不変条件
 
+- **置き場は audience で決める**（§1）。`human` を R2 に置くなら `audienceException` に理由を書く。同じパスを両 tier に置かない
+- **マウントへ書けた ≠ クラウドへ上がった**。Drive 側を唯一の実体にする前（R2 やローカルを消す前）は
+  `drive-vault-sync --verify --cloud`（rclone で Drive API の md5 照合）を通す。rclone リモート未設定は fail-closed
 - 確認できないものは Git からもローカルからも外さない（dry-run → upload → sha256 照合 → untrack）
 - `git rm --cached` はローカル実体を消さない。ローカル削除は常に別操作・別判断
 - 台帳に credential・署名 URL・Cookie・ローカル絶対パスを載せない（`sanitizeEntry` の allowlist で機械的に落ちる）

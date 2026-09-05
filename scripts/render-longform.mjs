@@ -18,8 +18,9 @@
 
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { resolve, dirname, join, basename } from 'node:path';
+import sharp from 'sharp';
+import { existsSync, readFileSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
+import { resolve, dirname, join, basename, extname, relative, isAbsolute } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 
@@ -37,6 +38,7 @@ const { values: args } = parseArgs({
     speaker: { type: 'string', default: '1' },
     'skip-tts': { type: 'boolean' },
     'skip-png': { type: 'boolean' },
+    resume: { type: 'boolean' },
   },
 });
 
@@ -54,11 +56,33 @@ const { resolveExam } = await import(
 );
 const { scenes, theme, packTitle } = planLongformRender(manifest, storyboard, resolveExam);
 
+async function loadVisualAsset(scene) {
+  if (scene.visual?.kind !== 'figure') return null;
+  if (!scene.visual.src) throw new Error(`figure scene の visual.src がありません: ${scene.sceneId}`);
+  const assetPath = resolve(ROOT, scene.visual.src);
+  const relativePath = relative(ROOT, assetPath);
+  if (relativePath.startsWith('..') || isAbsolute(relativePath)) {
+    throw new Error(`figure scene がリポジトリ外を参照しています: ${scene.visual.src}`);
+  }
+  const supported = new Set(['.svg', '.png', '.webp', '.jpg', '.jpeg']);
+  if (!supported.has(extname(assetPath).toLowerCase())) {
+    throw new Error(`figure scene の画像形式が未対応です: ${scene.visual.src}`);
+  }
+
+  // satori の data URI 対応差を吸収するため、SVG/WebP/JPEG も PNG に正規化する。
+  const png = await sharp(assetPath)
+    .resize({ width: 704, height: 704, fit: 'contain', withoutEnlargement: true, background: '#ffffff' })
+    .flatten({ background: '#ffffff' })
+    .png()
+    .toBuffer();
+  return `data:image/png;base64,${png.toString('base64')}`;
+}
+
 // ─── 依存（TTS/ffmpeg は mp4 を作るときだけ要求） ─────────────
 const { isRunning, synthesize } = await import(
   pathToFileURL(resolve(ROOT, '.claude/scripts/lib/sns-common/tts-client.mjs')).href
 );
-const { composeShortsVideo, ffmpegAvailable, probeDuration } = await import(
+const { composeStaticSlidesVideo, ffmpegAvailable, probeDuration } = await import(
   pathToFileURL(resolve(ROOT, '.claude/skills/social/yt-shorts-create/scripts/lib/ffmpeg-compose.mjs')).href
 );
 
@@ -95,15 +119,15 @@ async function main() {
     const pngPath = join(imgDir, `${pad}-${scene.sceneId}.png`);
     const wavPath = join(wavDir, `${pad}-${scene.sceneId}.wav`);
 
-    if (!args['skip-png']) {
+    if (!args['skip-png'] && !(args.resume && existsSync(pngPath) && statSync(pngPath).size > 0)) {
       process.stdout.write(`  [PNG ${i + 1}/${scenes.length}] ${scene.sceneId}... `);
-      const node = buildSceneNode(scene, { theme, packTitle });
+      const node = buildSceneNode(scene, { theme, packTitle, assetDataUri: await loadVisualAsset(scene) });
       const svg = await satori(node, { width: LONGFORM_W, height: LONGFORM_H, fonts });
       writeFileSync(pngPath, new Resvg(svg, { fitTo: { mode: 'width', value: LONGFORM_W } }).render().asPng());
       console.log('✓');
     }
 
-    if (!args['skip-tts']) {
+    if (!args['skip-tts'] && !(args.resume && existsSync(wavPath) && statSync(wavPath).size > 0)) {
       process.stdout.write(`  [TTS ${i + 1}/${scenes.length}] ${scene.narration.slice(0, 20)}... `);
       const wavBuf = await synthesize({ text: scene.narration, speaker: Number(args.speaker) });
       writeFileSync(wavPath, Buffer.from(wavBuf));
@@ -129,7 +153,7 @@ async function main() {
   if (!args['skip-tts']) {
     mp4Path = join(outDir, 'video.mp4');
     console.log('\n[ffmpeg] 動画合成中...');
-    await composeShortsVideo({ pngPaths, wavPaths, assPath, outPath: mp4Path, options: { tmpDir: wavDir } });
+    await composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, outPath: mp4Path });
     totalSec = await probeDuration(mp4Path);
     console.log(`  実尺 ${totalSec.toFixed(1)}s（設計尺 ${scenes.at(-1).end}s）`);
   }
@@ -142,6 +166,7 @@ async function main() {
     render: [LONGFORM_W, LONGFORM_H],
     renderedAt: new Date().toISOString(),
     tts: !args['skip-tts'],
+    subtitles: !args['skip-tts'],
     scenes: scenes.map((s, i) => ({
       sceneId: s.sceneId,
       png: basename(pngPaths[i]),

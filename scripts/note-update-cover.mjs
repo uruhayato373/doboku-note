@@ -1,3 +1,4 @@
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-update-cover.mjs — 公開済み note 記事の「カバー画像(eyecatch)」をライブ差し替えする
  *
@@ -28,7 +29,7 @@
  * 検証: ライブ反映後は note API v3 で eyecatch が新 ID・can_read=false・price 不変 を確認すること
  *   （proxy ではなく実体検証。[[feedback_note_prepublish_verify_not_proxy]]）
  *
- * 制約: 永続プロファイル(.local/playwright-note-profile)は 1 Chrome インスタンスのみ
+ * 制約: 永続プロファイル(OS標準auth rootのnote profile)は 1 Chrome インスタンスのみ
  *   ＝複数 list を並列実行不可。大量は 20-28 件チャンク×逐次（background）で回す。
  *
  * 真実源/関連: .claude/knowledge/design-system/note-cover.md / .claude/knowledge/reference/note-api-verification.md
@@ -42,7 +43,7 @@ import { ensureLocal } from './lib/asset-storage.mjs';
 import { recordPublishedAssetHash, recordPublishedMetaHash } from './lib/note-republish-hash.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const PROFILE = join(ROOT, '.local/playwright-note-profile');
+const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const COMMIT = process.argv.includes('--commit');
 const getA = (n) => { const i = process.argv.indexOf(n); return i >= 0 ? process.argv[i + 1] : null; };
 const ART = getA('--article');

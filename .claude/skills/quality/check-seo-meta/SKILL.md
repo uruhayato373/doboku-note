@@ -57,7 +57,9 @@ npm run check-seo-meta -- --json
 npm run check-seo-meta -- --base-url https://doboku-note.com
 ```
 
-結果は `.claude/state/metrics/seo-meta/seo-meta-{timestamp}.json` に時系列保存。
+結果は既定で `.claude/state/metrics/seo-meta/seo-meta-latest.json` を上書きする。約1.2MBの全URL結果を
+実行ごとの別名ファイルとしてGitへ増やさない。リリース前など比較基準を意図して残す時だけ
+`npm run check-seo-meta -- --snapshot` を使い、`seo-meta-{timestamp}.json` を追加する。
 
 ### 結果レポート出力
 

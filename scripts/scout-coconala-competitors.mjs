@@ -27,6 +27,7 @@ import { chromium } from 'playwright';
 import { mkdirSync, writeFileSync, readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 import { todayJst } from './lib/jst-date.mjs';
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 
 const ROOT = process.cwd();
 const CONFIG_PATH = join(ROOT, '.claude/config/coconala-competitors.json');
@@ -38,7 +39,7 @@ const IS_CI = process.env.CI === 'true' || process.env.GITHUB_ACTIONS === 'true'
 // ローカルは従来どおり system Chrome + 永続 profile（デバッグ時の再現性を維持）。
 const PROFILE = IS_CI
   ? join(process.env.RUNNER_TEMP || join(ROOT, '.tmp'), 'playwright-coconala-profile')
-  : join(ROOT, '.local/playwright-coconala-profile');
+  : resolveProfileDir('coconala', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
 const argv = process.argv.slice(2);

@@ -43,12 +43,13 @@
 import { chromium } from 'playwright';
 import { mkdirSync, writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 
 const ROOT = process.cwd();
 const OUT_DIR = join(ROOT, '.claude/state/coconala');
 const OUT_PATH = join(OUT_DIR, 'market-research.json');
 const SUMMARY_PATH = join(OUT_DIR, 'market-summary.json');
-const PROFILE = join(ROOT, '.local/playwright-coconala-profile');
+const PROFILE = resolveProfileDir('coconala', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
 // --- 引数 ---

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-append-cta.mjs
  * ---------------------------------------------------------------------------
@@ -18,7 +19,7 @@
  *   node scripts/note-append-cta.mjs --note <noteId> --text "<文章>" --url <magazineUrl>            # dry-run（安全・既定）
  *   node scripts/note-append-cta.mjs --note <noteId> --text "<文章>" --url <magazineUrl> --commit   # 実更新（公開に進む→更新する）
  *
- * 前提: .local/playwright-note-profile が note.com/dobokunote にログイン済み
+ * 前提: OS標準auth rootのnote profile が note.com/dobokunote にログイン済み
  *       （初回のみ `npm run note-edit-session` で手動ログイン）。
  * ---------------------------------------------------------------------------
  */
@@ -28,7 +29,7 @@ import { mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const PROFILE = join(ROOT, '.local/playwright-note-profile');
+const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };

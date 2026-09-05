@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-append-list-links.mjs — 公開済み note 記事の既存リスト（<ul>）へ
  *   インラインリンク項目 `<li><p><a href>タイトル</a> — 説明</p></li>` を追加する（ライブ反映）。
@@ -29,7 +30,7 @@
  *   }
  *   anchorMagId = 追加先セクションの既存 <ul> を特定するための、その節に既にある任意のマガジン/記事ID。
  *
- * 前提: `.local/playwright-note-profile` が note.com/dobokunote にログイン済み（アカウントゲートで assert）。
+ * 前提: `OS標準auth rootのnote profile` が note.com/dobokunote にログイン済み（アカウントゲートで assert）。
  * 終了コード: 0=成功/DRY・2=account・3=editor・4=本文短すぎ・5=DOM検証NG・6-8=保存フロー・9=例外。
  */
 import { chromium } from 'playwright';
@@ -37,7 +38,7 @@ import { readFileSync, mkdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
-const PROFILE = join(ROOT, '.local/playwright-note-profile');
+const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };
 const COMMIT = argv.includes('--commit');

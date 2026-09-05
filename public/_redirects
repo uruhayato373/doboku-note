@@ -60,6 +60,39 @@
 /docs/pe-comprehensive-management-after-service /exam/pe-comprehensive-management/keywords/customer-satisfaction 301
 /docs/pe-comprehensive-management-service-quality /exam/pe-comprehensive-management/keywords/customer-satisfaction 301
 
+# GSC で確認した接頭辞欠落の旧 /docs URLを正規ページへ救済（2026-09-04）
+# 対応先が一意なものだけを登録し、二重接頭辞・本文断片・数値などは 404 のまま自然消滅させる。
+/docs/civil-construction-1-guide-four-management-5 /exam/civil-construction-1/guide/four-management 301
+/docs/r01-a /exam/civil-construction-1/primary/r01-a 301
+/docs/r07-a /exam/civil-construction-1/primary/r07-a 301
+/docs/h28-a /exam/civil-construction-1/primary/h28-a 301
+/docs/r05-a /exam/civil-construction-1/primary/r05-a 301
+/docs/h28-b /exam/civil-construction-1/primary/h28-b 301
+/docs/r03-b /exam/civil-construction-1/primary/r03-b 301
+/docs/r05-b /exam/civil-construction-1/primary/r05-b 301
+/docs/r06-a /exam/civil-construction-1/primary/r06-a 301
+/docs/r07-b /exam/civil-construction-1/primary/r07-b 301
+/docs/h26-a /exam/civil-construction-1/primary/h26-a 301
+/docs/h29-b /exam/civil-construction-1/primary/h29-b 301
+/docs/h30-b /exam/civil-construction-1/primary/h30-b 301
+/docs/h29-a /exam/civil-construction-1/primary/h29-a 301
+/docs/h26-b /exam/civil-construction-1/primary/h26-b 301
+/docs/r04-b /exam/civil-construction-1/primary/r04-b 301
+/docs/r04-a /exam/civil-construction-1/primary/r04-a 301
+/docs/h27-b /exam/civil-construction-1/primary/h27-b 301
+/docs/r03-a /exam/civil-construction-1/primary/r03-a 301
+/docs/r02-b /exam/civil-construction-1/primary/r02-b 301
+/docs/r01-b /exam/civil-construction-1/primary/r01-b 301
+/docs/h30-a /exam/civil-construction-1/primary/h30-a 301
+/docs/r06-b /exam/civil-construction-1/primary/r06-b 301
+/docs/r02-a /exam/civil-construction-1/primary/r02-a 301
+/docs/h27-a /exam/civil-construction-1/primary/h27-a 301
+/docs/textbook-control-chart /exam/civil-construction-1/textbook/control-chart 301
+/docs/textbook-shovel-excavator /exam/civil-construction-1/textbook/shovel-excavator 301
+/docs/textbook-histogram /exam/civil-construction-1/textbook/histogram 301
+/docs/textbook-transport-machinery /exam/civil-construction-1/textbook/transport-machinery 301
+/docs/exam /exam 301
+
 # BEGIN GENERATED PUBLIC ROUTES
 # /docs flat URLs → intent-based canonical URLs (one-to-one, permanent)
 /docs/civil-construction-1-guide-1-vs-2 /exam/civil-construction-1/guide/1-vs-2 301

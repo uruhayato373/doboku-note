@@ -152,7 +152,9 @@ if (existsSync(ASP_CONFIG)) {
     } else if (!a.accountId) {
       errors.push(`asps.${name}: siteSeparation=none なら accountId（口座 assert 用）が必要`);
     }
-    if (!a.browser?.profileDir) errors.push(`asps.${name}.browser.profileDir が無い`);
+    if (a.browser?.authService !== name) {
+      errors.push(`asps.${name}.browser.authService が ASP 名と一致しない: ${JSON.stringify(a.browser?.authService)}`);
+    }
   }
 }
 

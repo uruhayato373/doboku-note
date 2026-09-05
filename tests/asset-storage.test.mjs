@@ -17,7 +17,7 @@ import { fileURLToPath } from 'node:url';
 import {
   loadConfig, groupFor, r2KeyFor, mimeFor, bucketForFile, visibilityFor,
   findSecrets, sanitizeEntry, cachePathFor, emptyManifest, toPosix,
-  migrateManifestToLeanFormat, expandManifestFromLeanFormat,
+  migrateManifestToLeanFormat, expandManifestFromLeanFormat, AUDIENCE_RULES,
 } from '../scripts/lib/asset-storage.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -32,6 +32,13 @@ test('config: 全 group が bucket / keyFrom / visibilityFrom を正しく宣言
     assert.ok(kf === 'repoRelative' || kf.startsWith('stripPrefix:'), g.id + ' の keyFrom');
     assert.ok(g.reason && g.reason.length > 20, g.id + ' に「なぜその置き場か」が要る');
     assert.ok(g.phase, g.id + ' にどの Phase で動かすかが要る');
+    // 置き場は「誰が使うか」で決める（2026-09-05）。人しか読まないものは R2 でなく Drive vault。
+    assert.ok(['site', 'ci', 'human'].includes(g.audience), g.id + ' に audience（site|ci|human）が要る');
+    if (g.audience === 'human') {
+      assert.ok(typeof g.audienceException === 'string' && g.audienceException.length >= 20, g.id + ' は human なので R2 に残す理由（audienceException）が要る');
+    } else {
+      assert.ok(AUDIENCE_RULES[g.audience].includes(g.bucket), g.id + ': audience=' + g.audience + ' に bucket=' + g.bucket + ' は許されない');
+    }
   }
   for (const need of ['public', 'private']) assert.ok(CFG.buckets[need], 'buckets.' + need);
   assert.equal(CFG.buckets.private.publicHost, null, 'private バケットに公開ホストを持たせない');
@@ -42,6 +49,9 @@ test('groupFor: パスから所属グループを引ける（他グループを�
   assert.equal(groupFor('content/note/技術士総監/x/pdf/a.pdf', CFG).id, 'note-delivery-pdf');
   assert.equal(groupFor('content/sources/textbook/主任技師2022/img/p1.png', CFG).id, 'textbook-page-image');
   assert.equal(groupFor('content/sns/instagram/cem/pack/img/01.png', CFG).id, 'ig-rendered-image');
+  assert.equal(groupFor('.tmp/video-render/sample/video.mp4', CFG).id, 'video-render-artifact');
+  assert.equal(groupFor('.tmp/video-render/sample/wav/00-cover.wav', CFG).id, 'video-render-artifact');
+  assert.equal(groupFor('.tmp/video-render/verify-frames/contact-sheet.png', CFG), null);
   // 対象外は null。サイト記事の図版や原稿を巻き込まない。
   assert.equal(groupFor('content/site/civil-construction-1/guide-x/img/fig.png', CFG), null);
   assert.equal(groupFor('content/note/技術士総監/x/article.md', CFG), null);
@@ -55,6 +65,9 @@ test('r2Key: stripPrefix でキーからリポジトリ内パスの重複が消�
 
   const tb = r2KeyFor('content/sources/textbook/主任技師2022/img/p1.png', groupById('textbook-page-image'));
   assert.equal(tb, 'textbook/主任技師2022/img/p1.png', '既存 rclone 運用のキー体系と一致すること');
+
+  const video = r2KeyFor('.tmp/video-render/sample/video.mp4', groupById('video-render-artifact'));
+  assert.equal(video, 'video/render/sample/video.mp4', 'ローカル一時ディレクトリ名をR2キーへ重複させない');
 });
 
 test('r2Key: stripPrefix に合わないパスは黙って通さず例外にする', () => {
@@ -83,6 +96,10 @@ test('visibility: fixed:private のグループは常に private バケットへ
   const g = groupById('note-delivery-pdf');
   assert.equal(visibilityFor('content/note/a/pdf/x.pdf', g), 'private');
   assert.equal(bucketForFile('content/note/a/pdf/x.pdf', g), 'private');
+
+  const video = groupById('video-render-artifact');
+  assert.equal(visibilityFor('.tmp/video-render/sample/video.mp4', video), 'private');
+  assert.equal(bucketForFile('.tmp/video-render/sample/video.mp4', video), 'private');
 });
 
 test('visibility: IG は status.json の入れ子スキーマを読む（トップレベルだけ見ない）', () => {

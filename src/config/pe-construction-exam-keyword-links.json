@@ -1,0 +1,72 @@
+{
+  "$schema": "pe-construction-exam-keyword-links-v1",
+  "$note": "技術士第二次試験・建設部門の過去問とキーワード記事の双方向導線に関する唯一の正源。articleLevel は科目単位の全記事を扱う。questionLevel は細粒度の中心概念ページだけを対象とし、広い科目記事を設問へ自動付与しない。",
+  "articleLevel": {
+    "subjects": {
+      "required": [
+        "required-exam-themes",
+        "shakai-shihon-ronbun-keyword",
+        "bousai-genseigai-ronbun-keyword",
+        "iji-kanri-ronbun-keyword",
+        "ninaite-dx-ronbun-keyword",
+        "datsutanso-kankyo-ronbun-keyword",
+        "chiiki-dukuri-ronbun-keyword",
+        "bosai-kokudo-kyoujinka",
+        "infra-roukyuuka-iji",
+        "ninaite-kakuho-seisansei",
+        "kensetsu-dx",
+        "carbon-neutral-kensetsu",
+        "kokudo-keisei-chiiki"
+      ],
+      "geotechnical": [
+        "geotechnical-exam-themes",
+        "soil-foundation-ronbun-keyword"
+      ],
+      "steel-concrete": [
+        "steel-concrete-exam-themes",
+        "steel-concrete-ronbun-keyword"
+      ],
+      "urban-planning": [
+        "urban-planning-exam-themes",
+        "urban-planning-ronbun-keyword"
+      ],
+      "river-coast": [
+        "river-coast-exam-themes",
+        "river-coast-ronbun-keyword"
+      ],
+      "port-airport": [
+        "port-airport-exam-themes",
+        "port-airport-ronbun-keyword"
+      ],
+      "power-civil": [
+        "power-civil-exam-themes",
+        "power-civil-ronbun-keyword"
+      ],
+      "road": [
+        "road-exam-themes",
+        "road-ronbun-keyword"
+      ],
+      "railway": [
+        "railway-exam-themes",
+        "railway-ronbun-keyword"
+      ],
+      "tunnel": [
+        "tunnel-exam-themes",
+        "tunnel-ronbun-keyword"
+      ],
+      "construction-planning": [
+        "construction-planning-exam-themes",
+        "construction-planning-ronbun-keyword"
+      ],
+      "environment": [
+        "environment-exam-themes",
+        "construction-environment-ronbun-keyword"
+      ]
+    }
+  },
+  "questionLevel": {
+    "mode": "disabled-until-fine-grained-keywords-exist",
+    "scope": "設問の中心概念に対応する細粒度 keyword ページのみ。articleLevel.subjects にある科目概説・出題分析ページは対象外。",
+    "entries": {}
+  }
+}

@@ -1,8 +1,10 @@
 import { readFileSync, existsSync, readdirSync } from 'node:fs'
+import { dirname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-const ROOT = '/Users/minamidaisuke/doboku-note'
-const MAP = `${ROOT}/.claude/plans/civil-practice-theme-map.md`
-const SRC = `${ROOT}/content/sources/textbook/土木施工実務ノート`
+const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
+const MAP = join(ROOT, '.claude/plans/civil-practice-theme-map.md')
+const SRC = join(ROOT, 'content/sources/textbook/土木施工実務ノート')
 
 // マップの計画スラッグ → 実際に書いた統合スラッグ
 const MERGED = {

@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-magazine-create.mjs
  * note掲載文.txt 駆動で note マガジンを新規作成（/magazines/new）。
@@ -15,7 +16,7 @@ import { fileURLToPath } from 'node:url';
 import { parseNoteText } from './lib/note-meta.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const PROFILE = join(ROOT, '.local/playwright-note-profile');
+const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const argv = process.argv.slice(2);
 const getArg = (n) => { const i = argv.indexOf(n); return i >= 0 ? argv[i + 1] : null; };

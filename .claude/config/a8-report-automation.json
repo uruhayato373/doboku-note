@@ -104,8 +104,9 @@
   "browser": {
     "channel": "chrome",
     "headless": false,
-    "profileDir": ".local/playwright-a8-profile",
-    "stateFile": ".local/playwright-a8-state.json",
+    "authService": "a8",
+    "legacyProfileDir": ".local/playwright-a8-profile",
+    "legacyStateFile": ".local/playwright-a8-state.json",
     "debugDir": ".local/playwright-a8-debug",
     "timeoutMs": 30000,
     "statusIntervalMs": 120000,

@@ -1,7 +1,7 @@
 /**
  * brain-session.mjs — Brain（brain-market.com）Playwright 自動操作の共有セッション基盤
  * ---------------------------------------------------------------------------
- * coconala-session.mjs と同思想。永続プロファイル（.local/playwright-brain-profile）で
+ * coconala-session.mjs と同思想。OS標準auth rootの永続プロファイルで
  * ログイン状態を跨いで保持する。ログイン・CAPTCHA は人（スクリプトは待つだけ）。
  *
  * 提供:
@@ -18,9 +18,10 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { todayJst } from './jst-date.mjs';
 import { BRAIN_LISTINGS_PATH, BRAIN_DIST_ROOT } from './repository-paths.mjs';
+import { resolveProfileDir } from './playwright-auth-profile.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
-export const PROFILE = join(ROOT, '.local/playwright-brain-profile');
+export const PROFILE = resolveProfileDir('brain', { cwd: ROOT, repoRoot: ROOT });
 /** アカウント・認証設定は content/brain へ移行しない（config に残す・DN-0103 対象外）。 */
 export const ACCOUNT_PATH = join(ROOT, '.claude/config/brain-account.json');
 export const CATALOG_PATH = join(ROOT, 'src/lib/brain-products.ts');

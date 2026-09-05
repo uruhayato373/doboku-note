@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "nca88fa269d45"
 noteUrl: "https://note.com/dobokunote/n/nca88fa269d45"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-shiken-quality
 coverTitle: "実務立場別小論文｜試験・検査機関｜品質管理"
 cover:
@@ -21,6 +21,13 @@ cover:
 ---
 
 # コンクリート主任技士 小論文 模範答案｜試験・検査機関｜品質管理
+
+
+![](img/figure-author-authority-concrete.png)
+
+この教材は、技術士（総合技術監理部門）を持つ元・地方自治体の土木職（発注者）がつくっています。コンクリート主任技士・コンクリート診断士にも自分で合格しており、小論文・記述式を書いた当事者です。
+
+総監の5つの管理の視点で記述を分析し、発注者として施工計画書や工事成績評定の書類を審査してきた目で「評価される書き方」を整理しています。
 
 **こんな人のための記事です**
 - 試験機関・検査機関に勤めているが、模範答案が製造側・施工側の話ばかりで自分の実務に当てはめられない方
@@ -54,6 +61,11 @@ cover:
 
 <!-- cta:concrete-mokuji -->
 コンクリート技士・主任技士・診断士の無料記事と教材は「コンクリート資格もくじ」から一覧できます。
+
+
+![](img/figure-author-authority-concrete.png)
+
+上位資格の分析力・発注者として書類を評価してきた目・合格者の当事者性で、あなたの答案を合格ラインへ引き上げます。
 
 https://note.com/dobokunote/n/nd59f471c9214
 

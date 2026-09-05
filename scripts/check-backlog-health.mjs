@@ -76,7 +76,7 @@ const GENERIC_ROOTS = new Set([
  *
  * 2026-08-25: 同じ理由で**一般的な置き場の入口**（`src/lib` `claude/state` `docs/strategy`
  * `query/page` …）も外した。これだけで DN-0106↔DN-0107（GSC の取得課題 ↔ index coverage の
- * 回復プログラム）と DN-0114↔DN-0115（法人向け再包装 ↔ PWA 買い切り導線）という
+ * 回復プログラム）や、法人向け再包装 ↔ PWA 買い切り導線という
  * **中身が全く違う 2 ペア**が候補に居座り、S8 が 0 にならない状態が続いていた。
  */
 export function signatureTokens(body) {

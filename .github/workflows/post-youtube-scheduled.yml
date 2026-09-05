@@ -8,15 +8,19 @@ name: ▶️ YouTube scheduled post (daily)
 #               CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_R2_ACCESS_KEY_ID / CLOUDFLARE_R2_SECRET_ACCESS_KEY
 # 実装パターン: post-instagram-scheduled.yml を参考
 
-# 2026-08-18: cron を撤去して**手動投入**へ切り替えた（ユーザー決定）。
+# 2026-08-18: 旧 Shorts 台帳の cron は撤去して**手動投入**へ切り替えた（ユーザー決定）。
 # 台帳 187 本の publishAt は全件過去（2026-06-11〜08-14）で、cron を戻すと全件が即座に
 # 対象化して 1 日 6 本の自走が始まる。消化ペースを人が決める運用にする。
+# 2026-09-05: QA済みの1級・2級土木 通常動画83本はユーザー承認済み。日次cronは
+# **video-content-status の rendered だけ**を最大12本予約し、旧 Shorts 台帳には触れない。
 # 真実源: docs/marketing/05_YouTube戦略_技術士総監.md（投稿頻度の節）
 on:
+  schedule:
+    - cron: "17 19 * * *" # 毎日 04:17 JST。日次上限後の再開余地を確保する。
   workflow_dispatch:
     inputs:
       max:
-        description: "1回のアップ上限（空なら台帳の uploadBatchPerDay=6）"
+        description: "通常は上限。動画パックは pack:<id>:<phase>:PUBLISH[:RELATED] / batch:civil:PUBLISH:<max>"
         required: false
       dry_run:
         description: "true で対象表示のみ（アップしない）"
@@ -32,12 +36,12 @@ concurrency:
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 360
     steps:
-      - name: 🧰 Checkout main
+      - name: 🧰 Checkout requested ref
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
-          ref: main
+          ref: develop
           fetch-depth: 1
 
       - name: 🟢 Setup Node.js
@@ -58,10 +62,12 @@ jobs:
 
 
       - name: 🔍 Validate schedule (重複チェック)
+        if: ${{ github.event_name == 'workflow_dispatch' && !startsWith(inputs.max, 'pack:') && !startsWith(inputs.max, 'batch:') }}
         run: node .claude/scripts/youtube/validate-schedule.mjs
 
       - name: ▶️ Upload due scheduled shorts
         id: post
+        if: ${{ github.event_name == 'workflow_dispatch' && !startsWith(inputs.max, 'pack:') && !startsWith(inputs.max, 'batch:') }}
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
@@ -76,8 +82,66 @@ jobs:
           if [ -n "${{ inputs.max }}" ]; then ARGS="$ARGS --max ${{ inputs.max }}"; fi
           node .claude/scripts/youtube/post-from-schedule.cjs $ARGS 2>&1 | tee /tmp/yt-post.log
 
+      # workflow_dispatch は既定ブランチに登録済みの workflow だけを起動できるため、
+      # 動画パック用 workflow が main に入るまでの API 公開経路として既存 dispatcher を使う。
+      # max=pack:<packId>:<phase>:PUBLISH[:RELATED]
+      - name: ▶️ Publish video pack through YouTube Data API
+        id: video_pack
+        if: ${{ startsWith(inputs.max, 'pack:') }}
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: |
+          set -o pipefail
+          IFS=':' read -r kind pack_id phase confirm related <<EOF
+          ${{ inputs.max }}
+          EOF
+          if [ "$kind" != "pack" ] || [ -z "$pack_id" ] || [ -z "$phase" ] || [ "$confirm" != "PUBLISH" ]; then
+            echo "::error::max=pack:<packId>:<phase>:PUBLISH[:RELATED] が必要です"
+            exit 1
+          fi
+          args=(--pack-id "$pack_id" --phase "$phase")
+          if [ "$related" = "RELATED" ]; then
+            args+=(--related-confirmed)
+          fi
+          node .claude/scripts/youtube/publish-video-pack.cjs "${args[@]}" 2>&1 | tee /tmp/yt-post.log
+
+      - name: ▶️ Schedule rendered longform batch
+        id: video_batch
+        if: ${{ github.event_name == 'schedule' || startsWith(inputs.max, 'batch:') }}
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: |
+          set -o pipefail
+          if [ "${{ github.event_name }}" = "schedule" ]; then
+            kind=batch
+            scope=civil
+            confirm=PUBLISH
+            batch_max=12
+          else
+            IFS=':' read -r kind scope confirm batch_max <<EOF
+          ${{ inputs.max }}
+          EOF
+            if [ "$kind" != "batch" ] || [ "$scope" != "civil" ] || [ "$confirm" != "PUBLISH" ]; then
+              echo "::error::max=batch:civil:PUBLISH:<max> が必要です"
+              exit 1
+            fi
+          fi
+          args=(--exam civil-construction-1,civil-construction-2 --max "${batch_max:-20}")
+          if [ "${{ inputs.dry_run }}" = "true" ]; then args+=(--dry-run); fi
+          node .claude/scripts/youtube/publish-video-batch.cjs "${args[@]}" 2>&1 | tee /tmp/yt-post.log
+
       - name: 📝 Commit ledger + log
-        if: success() && inputs.dry_run != 'true' && steps.post.outputs.uploaded != '' && steps.post.outputs.uploaded != '0'
+        if: success() && github.event_name == 'workflow_dispatch' && !startsWith(inputs.max, 'pack:') && !startsWith(inputs.max, 'batch:') && inputs.dry_run != 'true' && steps.post.outputs.uploaded != '' && steps.post.outputs.uploaded != '0'
         run: |
           git config user.email "actions@github.com"
           git config user.name "GitHub Actions"
@@ -87,8 +151,19 @@ jobs:
           # "cannot pull with rebase: Your index contains uncommitted changes" で必ず落ちる。
           # 2026-06-17 の run はこれでアップ済み 6 本の台帳を失い、以後 2 か月停止した。
           git commit -m "chore(yt): upload ${{ steps.post.outputs.uploaded }} scheduled shorts [skip ci]"
-          git pull --rebase origin main
-          git push origin main
+          git pull --rebase origin develop
+          git push origin HEAD:develop
+
+      - name: 📝 Commit video pack publication state
+        if: always() && (github.event_name == 'schedule' || startsWith(inputs.max, 'pack:') || startsWith(inputs.max, 'batch:')) && inputs.dry_run != 'true'
+        run: |
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.name "github-actions[bot]"
+          git add .claude/state/video-content-status.json
+          git diff --cached --quiet && exit 0
+          git commit -m "chore(youtube): publish video pack [skip ci]"
+          git pull --rebase origin develop
+          git push origin HEAD:develop
 
       - name: 💬 Notify on failure
         if: failure()

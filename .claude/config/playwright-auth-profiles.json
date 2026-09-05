@@ -66,7 +66,7 @@
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
       "ciAllowed": false,
-      "notes": "Facebook Business Suite 経由。playwrightProfile は ig-account.json 側にも repo 相対パスで記載（Phase 02/03 で共通 resolver 参照へ移行）。"
+      "notes": "Facebook Business Suite 経由。ig-account.json は logical authService のみを持ち、物理パスはこの registry と共通 resolver が決める。"
     },
     "google": {
       "profileDirName": "playwright-google-profile",
@@ -77,7 +77,7 @@
       "sessionMode": "profile",
       "interactiveLoginRequired": true,
       "ciAllowed": false,
-      "notes": "旧 DOBOKU_PROFILE_ROOT（リポジトリ root の意味）を使う例外実装。asp-browser.mjs（a8/moshimo/afb）が同じ profileDir 解決を再利用している。"
+      "notes": "共通 DOBOKU_AUTH_ROOT を使用。旧 DOBOKU_PROFILE_ROOT（repository root の意味）は Phase 05 完了まで config の legacy path と組み合わせる明示 fallback のみ。"
     },
     "a8": {
       "profileDirName": "playwright-a8-profile",

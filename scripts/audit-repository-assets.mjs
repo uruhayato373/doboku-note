@@ -282,7 +282,7 @@ const RULES = [
     id: 'obsidian-env',
     test: (p) => /^\.obsidian\//.test(p),
     bucket: 'KEEP_GIT',
-    reason: 'Obsidian のプラグイン・アイコン素材。制作物ではなくエディタ環境で、全 PC 共有が要る（git-binary-policy.json allowlist で既に判定済み。DN-0154 で退避可否を別途検証中）',
+    reason: 'Obsidian のプラグイン・アイコン素材。制作物ではなくエディタ環境で、全 PC 共有が要る（git-binary-policy.json allowlist で KEEP_GIT 判定済み）',
     regenFrom: null, usedBy: ['Obsidian エディタ'], generator: null, visibility: () => 'n/a',
   },
   {

@@ -6,7 +6,7 @@
  * 月次ロイヤリティを .claude/state/sales/kdp-royalties.json へ正規化保存する
  * **読み取り専用** レポータ。KDP 側には一切書き込まない（クリックはページ送り/月選択のみ）。
  *
- * kdp-publish.mjs と同じ「システム Chrome(channel:chrome) + 永続プロファイル(.local/playwright-kdp-profile)
+ * kdp-publish.mjs と同じ「システム Chrome(channel:chrome) + OS標準auth rootの永続プロファイル
  * + proxy + ignoreHTTPSErrors」方式。ログイン情報はそのプロファイルを共用する。
  *
  * 取得元（2026-07-31 実測。旧 kdp.amazon.co.jp/ja_JP/reports-new は kdpreports へ 302）:
@@ -34,9 +34,10 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { todayJst } from './lib/jst-date.mjs';
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const PROFILE = join(ROOT, '.local/playwright-kdp-profile');
+const PROFILE = resolveProfileDir('kdp', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const TMP = join(ROOT, '.tmp');
 const STATE = join(ROOT, '.claude/state/sales/kdp-royalties.json');

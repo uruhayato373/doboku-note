@@ -33,9 +33,10 @@ import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { homedir } from 'node:os';
 import { resolveBook, validateBook, getDefaults, AI_AMOUNT_LABELS } from './lib/kdp-common.mjs';
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const PROFILE = join(ROOT, '.local/playwright-kdp-profile');
+const PROFILE = resolveProfileDir('kdp', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const TMP = join(ROOT, '.tmp');
 const CATALOG = join(ROOT, 'scripts/kindle-published/catalog.json');

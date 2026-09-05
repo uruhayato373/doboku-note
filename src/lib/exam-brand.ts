@@ -48,7 +48,6 @@ export interface ExamBrand {
   readonly themeVar: string;
   /**
    * CTA タイル/バナーの背景イラスト（cta-bg/*.webp）。省略時はテーマ色のベタ塗りにフォールバック。
-   * コンクリート系（主任技士・診断士）はイラスト未整備のため未設定（ベタ塗りで描画される）。
    */
   readonly ctaBg?: string;
 }
@@ -84,14 +83,15 @@ export const EXAM_BRAND: Record<ExamKey, ExamBrand> = {
     label: 'コンクリート技士',
     themeVar: '--exam-concrete',
   },
-  // コンクリート系は背景イラスト（cta-bg/*.webp）が未整備のため、テーマ色のベタ塗りにフォールバックする。
   'concrete-chief': {
     label: 'コンクリート主任技士',
     themeVar: '--exam-concrete-chief',
+    ctaBg: '/images/cta-bg/concrete-chief.webp',
   },
   'concrete-diagnosis': {
     label: 'コンクリート診断士',
     themeVar: '--exam-concrete-diagnosis',
+    ctaBg: '/images/cta-bg/concrete-diagnosis.webp',
   },
 };
 

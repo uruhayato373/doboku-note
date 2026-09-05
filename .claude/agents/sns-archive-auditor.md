@@ -11,6 +11,8 @@ tools: Read, Glob, Grep
 
 退避運用の真実源は [.claude/knowledge/reference/sns-archive-policy.md](../../.claude/knowledge/reference/sns-archive-policy.md)、実行スクリプトは `npm run upload-sns-r2`（`.claude/scripts/upload-sns-r2.mjs`）。
 
+守備範囲は reels の wav/mp4 → public R2（`upload-sns-r2`）系統だけで、IG カルーセル/ストーリーズ PNG・動画レンダー成果物は Google Drive vault（`/asset-route`）が管轄する守備範囲外。
+
 > **モデル方針**: `model: sonnet`（定型の分類判定を高速・低コストで）。最終判断・実行（`upload-sns-r2` の起動）は親（Opus）。詳細は CLAUDE.md「ハーネス設計原則」§5。
 
 ## 設計原則

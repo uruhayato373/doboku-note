@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-article-price-sweep.mjs
  * ---------------------------------------------------------------------------
@@ -42,7 +43,7 @@ import { dirname, join } from 'node:path';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
 const CREATOR = 'dobokunote';
-const PROFILE = join(ROOT, '.local/playwright-note-profile');
+const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 
 // ---- args ----
@@ -198,8 +199,8 @@ if (toChange.length > 20) console.log(`  ... 他 ${toChange.length - 20} 件`);
     for (const a of risky.slice(0, 10)) console.error(`    ${a.key}  paidBoundary="${id2pb.get(a.key)}"`);
     if (risky.length > 10) console.error(`    ... 他 ${risky.length - 10} 件`);
     console.error(`\n  対処: (a) これらを --exclude で除外する、または`);
-    console.error(`        (b) --allow-boundary-risk を付けて実行後、必ず 'node scripts/note-update-body.mjs --list <対象> --commit' で`);
-    console.error(`            境界を再設定し、'npm run check-note-structure' で FULL_LOCK=0 を実査する。`);
+    console.error(`        (b) --allow-boundary-risk を付けて実行後、必ず 'node scripts/note-reanchor-boundary.mjs --list <対象> --commit' で`);
+    console.error(`            境界だけを再設定する（本文・画像・PDF 添付に触れない。全文置換の note-update-body は添付を消し画像を再アップロードするので使わない）。`);
     process.exit(9);
   }
   if (risky.length && ALLOW_BOUNDARY_RISK) {

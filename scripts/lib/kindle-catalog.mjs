@@ -31,7 +31,7 @@ export function loadKindleCatalog() {
  *  - epub/cover: 値が '/' を含む（例 "kindle-dist/e-01.epub"）→ `scripts/` + 値。
  *                含まない（例 "kindle-A-00-goubon.epub"）→ `scripts/kindle-published/` + 値。
  *  - kdpMemo: 値が 'scripts/' で始まる → そのまま。それ以外 → `scripts/kindle-published/` + 値。
- *  - buildSpec: そのまま（'scripts/kindle-specs/<id>.json'）。無い book（A系7冊）は null。
+ *  - buildSpec: そのまま（'scripts/kindle-specs/<id>.json'）。テーマ駆動の A 系は null。
  */
 export function artifactRelPaths(book) {
   const withPrefix = (v, defaultDir) => {
@@ -50,6 +50,11 @@ export function artifactRelPaths(book) {
   }
 }
 
+/** spec 駆動または theme 駆動の決定的な再ビルド経路があるか。 */
+export function hasBuildRecipe(book) {
+  return Boolean(book.buildSpec || (book.builder && book.buildTheme))
+}
+
 /** fs 検査: 冊ごとの実体確認。存在しない実体は exists:false（推測で埋めない）。 */
 export function inspectKindleInventory(books) {
   return books.map((book) => {
@@ -65,9 +70,11 @@ export function inspectKindleInventory(books) {
       id: book.id,
       epub: fileInfo(rel.epub),
       cover: fileInfo(rel.cover),
-      kdpMemoDead: rel.kdpMemo ? !existsSync(abs(rel.kdpMemo)) : true,
+      // B-G 系のメモは gen-kdp-memo で必要時に生成する派生物。buildSpec があれば
+      // ファイル未生成を「死ポインタ」と数えない。null は参照自体が無いので dead ではない。
+      kdpMemoDead: rel.kdpMemo ? (!existsSync(abs(rel.kdpMemo)) && !book.buildSpec) : false,
       buildSpec: rel.buildSpec ? fileInfo(rel.buildSpec) : null,
-      rebuildable: Boolean(rel.buildSpec),
+      rebuildable: hasBuildRecipe(book),
     }
   })
 }
@@ -204,7 +211,7 @@ export function joinRoyalties(books, royaltiesJson) {
 }
 
 /**
- * 純粋: sync-kindle-dist.mjs の対象選定ロジック（buildSpec 持ちの新刊のみ・id 無指定時は
+ * 純粋: sync-kindle-dist.mjs の対象選定ロジック（spec/theme のビルド経路を持つ本・id 無指定時は
  * live/in_review を上書きしない保護ガード）。id を明示すれば status を問わず対象にする。
  *
  * @param {Array} books catalog.books
@@ -212,7 +219,7 @@ export function joinRoyalties(books, royaltiesJson) {
  * @returns {{targets: Array, skipped: Array}} targets=再ビルド対象、skipped=保護のため除外した冊
  */
 export function selectSyncTargets(books, ids) {
-  const candidates = books.filter((b) => b.buildSpec)
+  const candidates = books.filter(hasBuildRecipe)
   if (ids.length) {
     return { targets: candidates.filter((b) => ids.includes(b.id)), skipped: [] }
   }

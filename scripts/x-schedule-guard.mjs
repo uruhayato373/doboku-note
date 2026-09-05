@@ -26,6 +26,7 @@
  */
 import fs from "fs";
 import path from "path";
+import { resolveProfileDir } from "./lib/playwright-auth-profile.mjs";
 
 const ROOT = process.cwd();
 const ARGV = process.argv.slice(2);
@@ -178,7 +179,7 @@ if (WITH_QUEUE) {
   console.log("📡 X 予約キューをダンプ中（Playwright, headless）...");
   try {
     const { chromium } = await import("playwright");
-    const PROFILE_DIR = path.join(ROOT, ".local/playwright-x-profile");
+    const PROFILE_DIR = resolveProfileDir("x", { cwd: ROOT, repoRoot: ROOT });
     const ctx = await chromium.launchPersistentContext(PROFILE_DIR, {
       headless: true, channel: "chrome",
       viewport: { width: 1280, height: 900 }, locale: "ja-JP", timezoneId: "Asia/Tokyo",

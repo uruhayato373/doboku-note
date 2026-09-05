@@ -50,7 +50,7 @@
     {
       "id": "textbook-source-asset",
       "reason": "市販テキスト・白書の原典 PDF とページ画像。2026-08-22 に両方とも Git 履歴から除去し、R2 private（doboku-note-archive/textbook/）が唯一の実体になった。asset-hydrate で docs/textbook/ 配下へ取り戻せるが、**取り戻したものを再コミットすると元に戻る**。実測でこの経路が素通りだったので、旧配置 docs/textbook/ も明示的に止める",
-      "correctPlace": "R2 private（doboku-note-archive/textbook/）。書名単位で hydrate する",
+      "correctPlace": "Google Drive vault（マイドライブ/doboku-note/原資料PDF/教材/{書名}/）。取り戻しは drive-vault-sync --pull。asset-storage-policy.md §1",
       "match": {
         "pathPrefix": [
           "content/sources/textbook/",
@@ -69,8 +69,8 @@
     },
     {
       "id": "textbook-transcription-text",
-      "reason": "書籍・白書の文字起こし本文（自前 Markdown 化）。2026-08-27 に doboku-note repo が public であることを理由に Git 追跡から外し、private Google Drive vault（doboku-note/private-sources/textbook/）を唯一の実体にした。各ディレクトリの README.md だけは案内のため追跡を継続する",
-      "correctPlace": "Google Drive private vault（マイドライブ/doboku-note/private-sources/textbook/）。asset-storage-policy.md §1-1 参照",
+      "reason": "書籍・白書の文字起こし本文（自前 Markdown 化）。2026-08-27 に doboku-note repo が public であることを理由に Git 追跡から外し、private Google Drive vault（doboku-note/文字起こし/）を唯一の実体にした。各ディレクトリの README.md だけは案内のため追跡を継続する",
+      "correctPlace": "Google Drive private vault（マイドライブ/doboku-note/文字起こし/）。asset-storage-policy.md §1-1 参照",
       "match": {
         "pathPrefix": [
           "content/sources/textbook/"
@@ -220,8 +220,15 @@
       ]
     },
     {
+      "path": ".claude/state/assets/drive-manifest.json",
+      "reason": "Google Drive vault 退避の台帳（drive-vault.json 系・2026-09-05）。R2 側の manifest.json と同じ理由で Git に置くしかない（11,898 件で 6.3 MiB・JSON 上限 4 MiB を超える）。1 エントリ約 550 byte。vaultPath は非 adopted なら group から導出できるので、膨らんだら lean 化で 3 割減らせる。",
+      "appliesTo": [
+        "size"
+      ]
+    },
+    {
       "path": "scripts/kindle-dist/",
-      "reason": "KDP 入稿済み EPUB+表紙 jpg。asset-storage.json の kindle-dist group で R2 private（doboku-note-archive/kindle/dist/）へバックアップ済みだが、check-kindle-format.mjs が ci:true で CI がこの Git 実体を直接検査するため untrack はしない（DN-0151(3) 決着）。untrack するには (i) 全冊再ビルドの内容一致検証 (ii) check-kindle-format の CI 実体依存問題の解決 の両方が要る。",
+      "reason": "KDP 入稿済み EPUB+表紙 jpg。drive-vault.json の kindle-dist group で Google Drive vault（制作物/Kindle/）へ控えを持つが、check-kindle-format.mjs が ci:true で CI がこの Git 実体を直接検査するため untrack はしない（DN-0151(3) 決着）。Git が正本、Drive は控え。untrack するには (i) 全冊再ビルドの内容一致検証 (ii) check-kindle-format の CI 実体依存問題の解決 の両方が要る。",
       "appliesTo": [
         "generated-ebook"
       ]

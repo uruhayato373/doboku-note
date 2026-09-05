@@ -45,14 +45,12 @@ import { chromium, type BrowserContext, type Page, type Locator } from "playwrig
 import * as path from "path";
 import * as fs from "fs";
 import { spawnSync } from "child_process";
+import { resolveProfileDir } from "../../../../scripts/lib/playwright-auth-profile.mjs";
 
 // ─── 設定 ─────────────────────────────────────────────
 const PROJECT_ROOT = path.resolve(__dirname, "../../../..");
 const IG_DIR = path.join(PROJECT_ROOT, "content/sns/instagram");
-// ログインプロファイルはメインチェックアウト固定で共有する（worktree 実行時の再ログイン防止）。
-// .claude/knowledge/reference/playwright-auth-profiles.md
-const PROFILE_ROOT = "/Users/minamidaisuke/doboku-note";
-const PROFILE_DIR = path.join(PROFILE_ROOT, ".local/playwright-ig-bs-profile");
+const PROFILE_DIR = resolveProfileDir("instagram", { cwd: PROJECT_ROOT, repoRoot: PROJECT_ROOT });
 const DEBUG_DIR = path.join(PROJECT_ROOT, ".local/playwright-ig-bs-debug");
 
 const IG_CAPTION_LIMIT = 2200; // Instagram キャプション上限（文字数）

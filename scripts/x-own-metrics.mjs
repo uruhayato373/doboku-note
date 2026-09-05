@@ -17,7 +17,7 @@
  * 【安全弁】scout-x-competitors.mjs と同じ:
  *   - read 専用（`twitter user` / `user-posts` のみ。write コマンドは持たせない）
  *   - 個人アカ uruhayato373 のセッションで**公開プロフィールを読むだけ**。
- *     投稿アカウント @doboku373 のセッション（.local/playwright-x-profile）は触らない
+ *     投稿アカウント @doboku373 の認証プロファイルは触らない
  *   - 取得 0 件は「検査不成立」として exit 1（0件を緑と呼ばない）
  *
  * 使い方:

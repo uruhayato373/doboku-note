@@ -32,6 +32,8 @@
       "narration": "組み合わせは理屈の上では10通りですが、出題は少数に収束します。どの判断にもコストが跳ね返るため、経済性管理を含むペアだけで出題の6〜7割。頻出は、経済性と他の4管理、それに安全と社会環境、人的資源と安全を加えた6ペアです。",
       "caption": "頻出は6ペアに収束する",
       "visual": {
+        "kind": "figure",
+        "src": "content/site/pe-comprehensive-management/management-tradeoffs/img/figure-tradeoff-frequency-matrix.svg",
         "heading": "覚えるのは10ペアでなく6ペア",
         "items": ["経済性×安全／社会環境／人的資源／情報", "安全×社会環境・人的資源×安全", "経済性を含むペアで出題の6〜7割"]
       },

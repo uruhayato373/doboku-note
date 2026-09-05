@@ -93,12 +93,7 @@ const CHECKS = [
   { id: 'ads-tests', npm: 'test:ads', timeout: 120_000, ci: true, note: 'A8/もしも/afb のサイト帰属ガードと CSV 正規化の単体テスト' },
   // 2026-08-17: check-gate-parity で「どこからも呼ばれていない」と判明したため配線（実行して緑を確認）。
   { id: 'public-bloat', npm: 'check-public-bloat', timeout: 60_000, ci: true, note: 'public/ の生成物滞留（放置するとビルドが落ちる）' },
-  { id: 'playwright-auth-wiring', npm: 'check-playwright-auth-wiring', timeout: 60_000, ci: false, note: '読み手＝Playwright 認証共通化の実装担当。永続プロファイルを使うスクリプトが共通 auth guard を経由しているかを棚卸し' },
-  // expectedFail: 「今は失敗が正常」な将来ゲート。--report-only の失敗集計から外す代わりに、
-  // PASS に転じた瞬間に「前提が解消した＝フラグを外して昇格せよ」で赤くする（居座り防止のラチェット）。
-  // ゲート（ci フラグ true）には付けられない（起動時ガード）。毎週の偽再発で report-checks Issue が読み飛ばされる
-  // 状態（#479）の方が §9 に反するので、期日付きで分離する。
-  { id: 'playwright-auth-wiring-strict', npm: 'check-playwright-auth-wiring:strict', timeout: 60_000, ci: false, expectedFail: 'Phase 03（Playwright 認証共通化）完了まで。完了時にこのキーを外し ci フラグを true にして昇格する', note: '読み手＝Playwright 認証共通化の実装担当。Phase 03 完了後に違反 0 を要求する将来ゲート。現状 111 件の既存移行対象があるため report-only' },
+  { id: 'playwright-auth-wiring', npm: 'check-playwright-auth-wiring:strict', timeout: 60_000, ci: true, note: 'Playwright永続プロファイルのMac絶対パス・repo相対path・resolver漏れ・secret露出を0で固定' },
   { id: 'gate-parity', npm: 'check-gate-parity:ci', timeout: 60_000, ci: true, note: 'pre-commit / quality-audit / workflow のどこからも呼ばれていない検査を検出（オーファン化の防止）' },
   { id: 'eslint', npm: 'lint', timeout: 180_000, ci: true },
   { id: 'validate-mdx', npm: 'validate-mdx', timeout: 180_000, ci: true },
@@ -135,6 +130,7 @@ const CHECKS = [
   { id: 'table-references', npm: 'check-table-references', timeout: 90_000, ci: true, note: '本文が指す表N.Mのキャプションが実在するか（転記由来の宙に浮いた参照）' },
   { id: 'keiken-answer-split', npm: 'check-keiken-answer-split', timeout: 120_000, ci: true, note: '1級/2級で異なる経験記述の解答欄の割り振りが混ざっていないか（2級式を1級教材に使うと(2)に3要素が乗り約200字に収まらない）' },
   { id: 'standard-articles', npm: 'check-standard-articles', timeout: 180_000, ci: true, note: '公的基準の構造化章記事を15軸で検査（本文取りこぼし・全ページ割当・SHA-256・表復元・catalog 72文書の被覆と除外理由・章ごとの OGP 被覆）' },
+  { id: 'standards-page-images', npm: 'check-standards-page-images', timeout: 120_000, ci: true, note: '公的基準のページ画像の provenance 整合（catalog↔manifest の原本 sha256・ページ被覆・part 範囲）。実体が無い端末では manifest のみ検査し、その旨を明示する' },
   { id: 'figure-embed-dims', npm: 'check-figure-embed-dims', timeout: 90_000, ci: true, note: 'ArticleImage の width/height と SVG の実 viewBox の突合。従来は r2-audit（週次 cron）と pre-commit(staged) だけで、push 経路に backstop が無かった' },
   { id: 'bold-rendering', npm: 'check-bold-rendering', timeout: 120_000, ci: true, note: '閉じ/開き ** が flanking を満たさず太字にならずアスタリスクが本文に出る事故。remark で実パースして text ノードに ** が残るかで判定する（規則の再実装ではない）' },
   { id: 'table-rendering', npm: 'check-table-rendering', timeout: 120_000, ci: true, note: 'GFM テーブルが table にならず生のパイプ区切りテキストで表示される事故（2026-08-28: 改行の \\r\\r\\n 破損で過去問18本／ヘッダとデリミタのセル数不一致で r02-primary）。原因ごとにルールを足さず、remark 実パースで「デリミタ行が text ノードに残る」症状そのものを見るので未知の原因も同じ網で拾う' },
@@ -150,6 +146,7 @@ const CHECKS = [
   { id: 'home-exam-coverage', npm: 'check-home-exam-coverage', timeout: 60_000, ci: true },
   { id: 'character-avatars', npm: 'check-character-avatars', timeout: 60_000, ci: true, note: 'note CTA のキャラアバター: manifest siteCta ⇔ 配信 webp ⇔ ctaPose union の三者整合（union だけ広げると本番 404）' },
   { id: 'category-curriculum', npm: 'check-category-curriculum', timeout: 60_000, ci: true },
+  { id: 'pe-construction-subject-links', cmd: ['node', 'scripts/check-pe-construction-subject-links.mjs'], timeout: 60_000, ci: true, note: '建設部門の過去問84本↔keyword35本の科目単位双方向導線と、設問単位mapの細粒度限定ポリシーを検証' },
   { id: 'career-separation', npm: 'check-career-separation', timeout: 60_000, ci: true },
   { id: 'ssot-consumers', npm: 'check-ssot-consumers', timeout: 60_000, ci: true },
   { id: 'sales-freshness', npm: 'check-sales-freshness', timeout: 30_000, ci: true, note: '売上転記が止まっていないか（updatedAt が 21 日超で赤）。2026-07 は 18% しか転記されず 34 日誰も気づかなかった' },
@@ -209,6 +206,10 @@ const CHECKS = [
   // アセット退避の整合ゲート（DN-0111 Phase 3・2026-08-21 追加）。R2 へはアクセスせずオフラインで完結。
   // 「Git から外し・ローカルからも消し・R2 には上がっていなかった」は次に必要になるまで表面化しない。
   { id: 'asset-storage', npm: 'check-asset-storage', timeout: 90_000, ci: true, note: '退避台帳と設定とワークツリーの辻褄（公開バケット誤配置・r2Key 衝突・復元不能・manifest への秘密混入）' },
+  // 置き場ルール（誰が使うか: site→public R2 / ci→private R2 / human→Google Drive vault）と Drive 台帳の整合（2026-09-05 追加）。
+  // 共通仕様書のページ画像 3.4GB を private R2 へ上げかけた再発防止。CI は Drive を持たないので
+  // マウント無しでは「実体検査 0 件」と明示して設定・台帳・ルーティング衝突・audience だけを判定する。
+  { id: 'drive-vault', npm: 'check-drive-vault', timeout: 120_000, ci: true, note: 'audience ゲート（site⇒public / ci⇒private|byVisibility / human⇒Drive）・R2 と Drive の同一パス衝突・drive-manifest の整合。マウント無しは実体検査 0 件と明示' },
   // R2 へ退避済みのファイルが git add -f・--no-verify・マージ等で再追跡されていないか（DN-0156・
   // 2026-08-29 追加）。pre-commit（--staged）はローカルでの事故を止めるが、それをバイパスされた
   // ケース（--no-verify commit・他ブランチからのマージ）を HEAD 全体走査で拾う防御層。

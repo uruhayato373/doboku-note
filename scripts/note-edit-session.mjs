@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-edit-session.mjs
  * ---------------------------------------------------------------------------
@@ -31,7 +32,7 @@ const PROJECT_ROOT = join(__dirname, '..');
 const proxy = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 // publish-x と同じ「システム Chrome + 永続プロファイル」方式。
 // 組み込み Chromium だと Google/note に bot 判定されるため channel:'chrome' 必須。
-const userDataDir = join(PROJECT_ROOT, '.local/playwright-note-profile');
+const userDataDir = resolveProfileDir('note', { cwd: PROJECT_ROOT, repoRoot: PROJECT_ROOT });
 
 // 引数を URL へ正規化（フルURL / マガジンkey / パスのいずれも受ける）
 let target = process.argv[2] || 'https://note.com/sitesettings/magazines';

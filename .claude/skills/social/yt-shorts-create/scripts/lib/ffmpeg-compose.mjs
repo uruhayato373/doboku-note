@@ -12,7 +12,7 @@
  */
 
 import { spawn, spawnSync } from 'node:child_process';
-import { writeFileSync, mkdirSync } from 'node:fs';
+import { writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { dirname, join, resolve, isAbsolute } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -20,13 +20,21 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 // .claude/skills/social/yt-shorts-create/scripts/lib/ → .claude/skills/conversion/ogp-create/assets/fonts/
 const FONT_DIR = resolve(__dirname, '../../../../conversion/ogp-create/assets/fonts');
 
+// Homebrew の通常版 ffmpeg は libass 非搭載。keg-only の ffmpeg-full がある Mac では
+// 自動的にそちらを使い、PATH の恒久変更や通常版との link 切替を不要にする。
+const HOMEBREW_FULL = '/opt/homebrew/opt/ffmpeg-full/bin';
+const FFMPEG_BIN = process.env.FFMPEG_BIN ??
+  (existsSync(join(HOMEBREW_FULL, 'ffmpeg')) ? join(HOMEBREW_FULL, 'ffmpeg') : 'ffmpeg');
+const FFPROBE_BIN = process.env.FFPROBE_BIN ??
+  (existsSync(join(HOMEBREW_FULL, 'ffprobe')) ? join(HOMEBREW_FULL, 'ffprobe') : 'ffprobe');
+
 /**
  * ffmpeg / ffprobe が PATH 上に存在するか確認（同期）。
  * @returns {boolean}
  */
 export function ffmpegAvailable() {
   try {
-    const r = spawnSync('ffmpeg', ['-version'], { stdio: 'ignore' });
+    const r = spawnSync(FFMPEG_BIN, ['-version'], { stdio: 'ignore' });
     return r.status === 0;
   } catch {
     return false;
@@ -40,11 +48,11 @@ export function ffmpegAvailable() {
  */
 async function checkFilter(filterName) {
   try {
-    const { stdout } = await runCommand('ffmpeg', ['-help', `filter=${filterName}`]);
+    const { stdout } = await runCommand(FFMPEG_BIN, ['-help', `filter=${filterName}`]);
     return !stdout.includes(`Unknown filter '${filterName}'`);
   } catch {
     try {
-      const r = spawnSync('ffmpeg', ['-help', `filter=${filterName}`], { encoding: 'utf8' });
+      const r = spawnSync(FFMPEG_BIN, ['-help', `filter=${filterName}`], { encoding: 'utf8' });
       return r.stderr ? !r.stderr.includes(`Unknown filter '${filterName}'`) : false;
     } catch {
       return false;
@@ -61,6 +69,7 @@ async function checkFilter(filterName) {
  * @param {object}   [args.options]
  * @param {string}   [args.options.tmpDir] 中間ファイル置き場（既定: dirname(outPath)）
  * @param {boolean}  [args.options.keepIntermediates=false] 中間 mp4 を残すか
+ * @param {boolean}  [args.options.requireSubtitles=false] libass が無ければ字幕なしへ落とさず失敗するか
  * @returns {Promise<{ mp4Path: string, durations: number[] }>}
  */
 export async function composeShortsVideo({
@@ -148,6 +157,12 @@ export async function composeShortsVideo({
       outPath,
     ]);
   } else {
+    if (options.requireSubtitles) {
+      throw new Error(
+        '字幕必須の動画ですが、ffmpeg に libass がありません。Mac は brew install ffmpeg-full、' +
+        '他環境は libass 対応 ffmpeg を FFMPEG_BIN / FFPROBE_BIN で指定してください。'
+      );
+    }
     // libass 未搭載の場合は字幕なしでコピー（WARN を出す）
     process.stderr.write(
       `[WARN] ffmpeg に libass が搭載されていません。字幕なしで出力します。\n` +
@@ -165,10 +180,61 @@ export async function composeShortsVideo({
 }
 
 /**
+ * 静止画＋音声の複数 scene を1回の ffmpeg encode で連結し、字幕を焼き込む。
+ * 長尺では scene ごとの mp4 化＋最終再encodeが律速になるため、通常動画はこちらを使う。
+ */
+export async function composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, outPath }) {
+  if (!Array.isArray(pngPaths) || !Array.isArray(wavPaths) || pngPaths.length === 0) {
+    throw new Error('pngPaths and wavPaths must be non-empty arrays');
+  }
+  if (pngPaths.length !== wavPaths.length) {
+    throw new Error(`pngPaths/wavPaths length mismatch: ${pngPaths.length} vs ${wavPaths.length}`);
+  }
+  if (!assPath || !outPath) throw new Error('assPath and outPath are required');
+
+  const durations = [];
+  for (const wav of wavPaths) durations.push(await probeDuration(wav));
+
+  const args = ['-y'];
+  for (let i = 0; i < pngPaths.length; i++) {
+    args.push('-loop', '1', '-framerate', '1', '-t', String(durations[i]), '-i', pngPaths[i], '-i', wavPaths[i]);
+  }
+
+  const filters = [];
+  const concatInputs = [];
+  for (let i = 0; i < pngPaths.length; i++) {
+    const videoInput = i * 2;
+    const audioInput = videoInput + 1;
+    filters.push(`[${videoInput}:v]fps=30,format=yuv420p,setsar=1[v${i}]`);
+    filters.push(`[${audioInput}:a]aresample=async=1:first_pts=0[a${i}]`);
+    concatInputs.push(`[v${i}][a${i}]`);
+  }
+  filters.push(`${concatInputs.join('')}concat=n=${pngPaths.length}:v=1:a=1[vcat][aout]`);
+
+  const absAssPath = isAbsolute(assPath) ? assPath : resolve(assPath);
+  const escAssPath = absAssPath.replace(/\\/g, '\\\\').replace(/:/g, '\\:');
+  const escFontDir = FONT_DIR.replace(/\\/g, '\\\\').replace(/:/g, '\\:');
+  if (await checkFilter('subtitles')) {
+    filters.push(`[vcat]subtitles=${escAssPath}:fontsdir=${escFontDir}[vout]`);
+  } else {
+    throw new Error('字幕必須の通常動画ですが、ffmpeg に libass がありません');
+  }
+
+  args.push(
+    '-filter_complex', filters.join(';'),
+    '-map', '[vout]', '-map', '[aout]',
+    '-c:v', 'libx264', '-preset', 'veryfast', '-crf', '23', '-pix_fmt', 'yuv420p',
+    '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-shortest', outPath,
+  );
+  await runFFmpeg(args);
+  return { mp4Path: outPath, durations };
+}
+
+/**
  * ffprobe で audio の duration（秒）を取得。
  */
 export async function probeDuration(audioPath) {
-  const { stdout } = await runCommand('ffprobe', [
+  const { stdout } = await runCommand(FFPROBE_BIN, [
     '-v', 'error',
     '-show_entries', 'format=duration',
     '-of', 'default=noprint_wrappers=1:nokey=1',
@@ -224,7 +290,7 @@ export async function generateThumbnail({ storyboard, outPath }) {
 }
 
 function runFFmpeg(args) {
-  return runCommand('ffmpeg', args);
+  return runCommand(FFMPEG_BIN, args);
 }
 
 function runCommand(cmd, args) {

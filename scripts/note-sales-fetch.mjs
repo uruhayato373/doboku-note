@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 /**
  * note-sales-fetch.mjs
  * ---------------------------------------------------------------------------
@@ -44,7 +45,7 @@ import { resolveSaleEntry, reconcileTotal, canonicalizeProductId } from './lib/s
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, '..');
-const PROFILE = join(ROOT, '.local/playwright-note-profile');
+const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 const SALES_LOG = join(ROOT, '.claude/state/sales/sales-log.json');
 const NAME = 'note-sales-fetch';
 

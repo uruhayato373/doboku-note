@@ -31,14 +31,16 @@
  */
 import { chromium } from 'playwright';
 import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
-const ROOT='/Users/minamidaisuke/doboku-note';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
+const ROOT=join(dirname(fileURLToPath(import.meta.url)),'..');
 const PROXY=process.env.HTTPS_PROXY||process.env.HTTP_PROXY||'';
 const sleep=(ms)=>new Promise(r=>setTimeout(r,ms));
 const ROOM=process.argv[2];
 const COMMENT=readFileSync(process.argv[3],'utf8').trim();
 const SUBMIT=process.argv.includes('--submit');
-const ctx=await chromium.launchPersistentContext(join(ROOT,'.local/playwright-coconala-profile'),{
+const ctx=await chromium.launchPersistentContext(resolveProfileDir('coconala',{cwd:ROOT,repoRoot:ROOT}),{
   channel:'chrome',headless:false,ignoreHTTPSErrors:true,viewport:{width:1400,height:1050},
   args:['--disable-blink-features=AutomationControlled'],...(PROXY?{proxy:{server:PROXY}}:{})});
 try{

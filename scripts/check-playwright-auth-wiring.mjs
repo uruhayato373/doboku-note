@@ -3,9 +3,7 @@
  * check-playwright-auth-wiring.mjs — DN-0108 Phase 01 の配線ゲート。
  * ---------------------------------------------------------------------------
  * 全サービス共通 auth root resolver（scripts/lib/playwright-auth-profile.mjs）への移行が
- * どこまで進んでいるかを検出する。**Phase 01 時点では既存違反があるのが正常**——
- * 既存サービススクリプトはまだ移行しない（00-master.md 実行順）ため、既定モードは
- * 検出結果を報告するだけで exit 0 にする。`--strict`（Phase 03 完了後に使う想定）だけが
+ * 直書きへの回帰を検出する。既定モードは診断用に結果を報告し、CIでは`--strict`で
  * 違反 0 件を要求する。`--ratchet` は前回計測（.claude/state/quality/playwright-auth-wiring-last.json）
  * と比較し、**増加した項目だけ**を FAIL にする（減少・横ばいは許容 — 段階移行を妨げない）。
  *
@@ -151,12 +149,12 @@ if (JSON_OUT) {
   for (const f of findings.missingResolverImport) console.log(`      ${f}`);
   console.log(`[${NAME}] 5. profile/state の標準出力への露出候補（ヒューリスティック）: ${counts.stdoutLeak}`);
   for (const f of findings.stdoutLeak.slice(0, 10)) console.log(`      ${f}`);
-  console.log(`[${NAME}] 合計 ${total} 件（Phase 01 時点では既存違反があるのが正常。移行は Phase 02-04 で進める）`);
+  console.log(`[${NAME}] 合計 ${total} 件`);
 }
 
 if (STRICT) {
   if (total > 0) {
-    console.error(`[${NAME}] ✗ --strict: 違反 ${total} 件（Phase 03 完了後に 0 を要求する設計。現時点では失敗が正常）`);
+    console.error(`[${NAME}] ✗ --strict: 違反 ${total} 件`);
     process.exit(1);
   }
   console.log(`[${NAME}] ✓ --strict: 違反 0 件`);

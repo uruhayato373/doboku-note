@@ -19,6 +19,7 @@
  *   npm run check-seo-meta -- --limit 20         # 先頭 20 URL（dry-run）
  *   npm run check-seo-meta -- --base-url https://doboku-note.com  # HTTP 巡回（本番・Bot 注意）
  *   npm run check-seo-meta -- --json             # 結果 JSON を stdout
+ *   npm run check-seo-meta -- --snapshot         # 明示した時だけ timestamp 履歴も残す
  *
  * 依存: Node 20+ / node-html-parser（seo-checks 経由）。
  */
@@ -45,13 +46,14 @@ function loadConfig() {
 
 function parseArgs() {
   const args = process.argv.slice(2);
-  const opts = { limit: null, baseUrl: null, json: false, out: "out" };
+  const opts = { limit: null, baseUrl: null, json: false, out: "out", snapshot: false };
   for (let i = 0; i < args.length; i++) {
     switch (args[i]) {
       case "--limit": opts.limit = parseInt(args[++i], 10); break;
       case "--base-url": opts.baseUrl = args[++i]; break;
       case "--out": opts.out = args[++i]; break;
       case "--json": opts.json = true; break;
+      case "--snapshot": opts.snapshot = true; break;
     }
   }
   return opts;
@@ -254,7 +256,10 @@ async function main() {
 
   mkdirSync(config.output_dir, { recursive: true });
   const ts = new Date().toISOString().replace(/[:.]/g, "-").replace("Z", "");
-  const outPath = join(config.output_dir, `seo-meta-${ts}.json`);
+  const outPath = join(
+    config.output_dir,
+    opts.snapshot ? `seo-meta-${ts}.json` : (config.latest_filename || 'seo-meta-latest.json'),
+  );
   writeFileSync(outPath, JSON.stringify(out, null, 2));
 
   console.log("");

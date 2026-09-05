@@ -1,7 +1,7 @@
 /**
  * note-browser.mjs — note.com 編集スクリプト共通の Playwright ブラウザ起動 / account ゲート
  * ---------------------------------------------------------------------------
- * DN-0083: account ゲート（/settings/account を開いて body に期待アカウント名が
+ * account ゲート（/settings/account を開いて body に期待アカウント名が
  * 出るまで polling する）と launchPersistentContext の起動オプションが、note-*.mjs /
  * check-note-*.mjs 側で 15 本以上コピペされ、リトライ回数・待機 ms・viewport・
  * proxy/ignoreHTTPSErrors の有無がファイルごとに少しずつズレていた
@@ -19,17 +19,19 @@
  *     移行前の挙動を再現すること（デフォルト任せにしない）。
  *
  * 有料境界（paidBoundary）判定ロジックはここには置かない・置かないでください。
- * 収益直結のため各スクリプトへインライン保持する方針（DN-0083 起票時の明示条件）。
+ * 収益直結のため各スクリプトへインライン保持する。
+ * 既存実装は一括移行せず、修正対象になった時点でこの共有 lib へ移し、挙動同一を確認する。
  * ---------------------------------------------------------------------------
  */
 import { chromium } from 'playwright';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { resolveProfileDir } from './playwright-auth-profile.mjs';
 
 export const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..');
 
 /** 全 note-*.mjs / check-note-*.mjs が共有する永続プロファイル（note ログインセッション）。 */
-export const PROFILE = join(ROOT, '.local/playwright-note-profile');
+export const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
 
 /** 会社 PC のプロキシ越しに Chrome を起動するため。未設定なら undefined（システム既定）。 */
 const ENV_PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';

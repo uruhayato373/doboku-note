@@ -10,7 +10,7 @@
 //   実際の是正/予約は `/ig-reconcile` スキルが operator 確認のうえ行う。
 //
 // 真実源: アカウントハンドルは .claude/config/ig-account.json（@dobokunotecom）。
-// 前提: Playwright + ログイン済み永続プロファイル .local/playwright-ig-bs-profile が必要。
+// 前提: Playwright + 共通 auth resolver 配下のログイン済み Instagram プロファイルが必要。
 //   ローカル実行限定（会社 PC のプロキシ下では外部到達不可・[[measurement-incidents]] 参照）。
 //
 // 使い方:
@@ -29,6 +29,7 @@ import { fileURLToPath } from "node:url";
 import { chromium } from "playwright";
 import { IG_DIR, walkPacks, packInfo, readPostedRaw } from "./ig-status.mjs";
 import { markAmbiguousClaims, dropResolvedFalseMatches } from "./lib/ig-ambiguity.mjs";
+import { resolveProfileDir } from "./lib/playwright-auth-profile.mjs";
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), "..");
 const argv = process.argv.slice(2);
@@ -117,7 +118,8 @@ async function postInfo(page, sc) {
 
 // ─── ライブ側（Playwright）─────────────────────────────────────
 async function readLive(account, recordedShortcodes) {
-  const ctx = await chromium.launchPersistentContext(join(ROOT, account.playwrightProfile), {
+  const profile = resolveProfileDir(account.authService, { cwd: ROOT, repoRoot: ROOT });
+  const ctx = await chromium.launchPersistentContext(profile, {
     headless: true, channel: "chrome", viewport: { width: 1500, height: 1400 },
   });
   const page = ctx.pages()[0] || (await ctx.newPage());

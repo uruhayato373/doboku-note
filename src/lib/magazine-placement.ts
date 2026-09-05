@@ -17,6 +17,7 @@
  */
 import type { DocGroupKey } from './doc-classifier';
 import type { MagazineId } from './note-magazines';
+import examCalendar from '../../.claude/config/exam-calendar.json';
 
 export interface PlacementSlot {
   readonly magazineId: MagazineId;
@@ -46,6 +47,20 @@ function utmContentFor(slug: string, position: string): string {
 
 function slot(magazineId: MagazineId, slug: string, position: string): PlacementSlot {
   return { magazineId, utmContent: utmContentFor(slug, position) };
+}
+
+/**
+ * 1級一次ページの主CTAを、試験日のSSOTに合わせて切り替える。
+ * 第二次検定当日（JST）までは二次答案、翌日からは次年度の一次学習を案内する。
+ */
+export function resolveCivil1PrimaryLead(nowMs = Date.now()): MagazineId {
+  const secondExamDate = examCalendar.exams['civil-construction-1'].events.second.date;
+  const examDayStartMs = Date.parse(`${secondExamDate}T00:00:00+09:00`);
+  if (!Number.isFinite(examDayStartMs)) {
+    throw new Error('Invalid civil-construction-1.events.second.date in exam-calendar.json');
+  }
+  const nextDayStartMs = examDayStartMs + 86_400_000;
+  return nowMs < nextDayStartMs ? 'civil-1-experience-essay' : 'civil-1-ichiji-ronten';
 }
 
 /**
@@ -574,12 +589,11 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //     top が必須。inline だけだと描画されない（page.tsx の midEligibleGroup は
   //     guide/pillar/textbook/civil-secondary 限定で primary を含まないため）。
   //     2026-08-17 まで inline のみで note CTA が実質ゼロだった（同型欠陥 4 度目）。
-  //     【季節切替】一次は 7/5 に終わり合格発表も 2026-08-13 に済んでいるので、
-  //     二次(2026-10-04)までは二次商品を lead にする。一次の出る順ノートは
-  //     inline に残し、二次終了後（2026年10月中旬）に top へ戻すこと。
+  //     【季節切替】一次終了後から二次試験当日までは二次商品を lead にし、
+  //     翌日から一次の出る順ノートへ戻す。日付は exam-calendar.json がSSOT。
   if (docGroup === 'primary' && slug.startsWith('civil-construction-1-')) {
     return {
-      top: slot('civil-1-experience-essay', slug, 'top'), // 二次(10/4)が買い場。10月中旬に civil-1-ichiji-ronten へ戻す
+      top: slot(resolveCivil1PrimaryLead(), slug, 'top'),
       inline: [
         slot('civil-1-ichiji-ronten', slug, 'inline-1'), // 一次の出る順ノート（不合格→来年再挑戦の層向け）
         slot('civil-membership-lab', slug, 'inline-2'),
@@ -612,10 +626,14 @@ export function resolvePlacement(slug: string, docGroup: DocGroupKey): ResolvedP
   //    ただし inline は本文 8,000 字が条件で本ページでは発火しないため、上位版は
   //    **本文の該当節（4テーマを挙げる「テーマの傾向と準備」）に <MagazineCard> を直接置いた**。
   //    top は入口の 5 本セットのままにして、入口→上位のラダーにする（入口→上位ラダー方針）。
+  //    2026-09-04: 最上位アンカー cce-marugoto-pack（¥9,800）を新設。top（入口 ¥2,480）は据え置き、
+  //    inline を top と同一マガジンの重複から最上位パックへ差し替えて入口→上位→最上位の 3 段にする。
+  //    本ページで inline が実際に描画されるかは 2026-08-13 時点で未確認のため、確実に出る導線は
+  //    本文末尾の <MagazineCard id="cce-marugoto-pack">（persona-pack と同じ実績のある機構）が担う。
   if (slug === 'concrete-chief-engineer-guide-essay') {
     return {
       top: slot('cce-essay-magazine', slug, 'top'),
-      inline: [slot('cce-essay-magazine', slug, 'inline-1')],
+      inline: [slot('cce-marugoto-pack', slug, 'inline-1')],
     };
   }
 

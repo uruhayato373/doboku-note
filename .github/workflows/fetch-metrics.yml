@@ -164,6 +164,17 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: npm run fetch-ga4-cta-clicks -- --by-label
 
+      # 1級土木PWA Phase 0: 無料演習→Premium関心の匿名ファネル。
+      # eventName別 totalUsers を成功判定に使い、eventCount の重複を購入希望人数へ足さない。
+      - name: Fetch GA4 (quiz Premium Phase 0 funnel)
+        env:
+          GOOGLE_SERVICE_ACCOUNT_KEY_PATH: ./credentials/gsc-service-account.json
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: node scripts/fetch-ga4-quiz-funnel.mjs
+
+      - name: Report quiz Premium Phase 0 gate
+        run: node scripts/report-quiz-premium-funnel.mjs
+
       # アフィリ面改善用: 配置別（cta_placement）の可視 impression / click。
       # article-mid / article-end-mobile / category-sidebar など配置単位の CTR を出す。
       # 要 GA4 カスタムディメンション（イベントスコープ・cta_placement）。登録前データは遡及しない。
@@ -193,6 +204,12 @@ jobs:
       - name: Generate monetization coverage report
         continue-on-error: true
         run: npm run report-monetization-coverage
+
+      # 商品ID付き note CTA のクリック/表示と、同じ期間のマガジン売上を並べる。
+      # 購入者単位の結合ではないため CVR/因果 attribution とは扱わず、期間効率の診断に限定する。
+      - name: Generate note funnel efficiency report
+        continue-on-error: true
+        run: npm run report-note-funnel-efficiency
 
       # bot 混入監視: Japan フィルタ後も残る bot 署名（高外国比率・低engagement の参照元）を surface し
       # bot-audit-*.json を ga4/ に出力（新規スパム候補は STDOUT）。従来 CI 未配線＝2026-05-17 以降実行ゼロ。

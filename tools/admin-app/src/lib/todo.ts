@@ -126,6 +126,16 @@ export interface TodoCard {
   lifecycleStatus: TodoStatus | null;
 }
 
+/**
+ * 週間・月間は「これから実行する項目」を選ぶ画面なので、完了済みは一覧と件数から外す。
+ * 年間は達成済みマイルストーンも振り返る用途があるため、従来どおり全件を残す。
+ */
+export function visibleTodoCards<T extends { complete: boolean }>(cards: T[], layer: string): T[] {
+  return layer === 'weekly' || layer === 'monthly'
+    ? cards.filter((card) => !card.complete)
+    : cards;
+}
+
 function tierOf(text: string): Tier | null {
   for (const [emoji, tier] of Object.entries(TIER)) if (text.includes(emoji)) return tier;
   return null;
@@ -219,6 +229,12 @@ function planTier(priority: string): Tier | null {
   return null;
 }
 
+/** 説明中の「完了条件」「完了後」を完了状態と誤認しない。 */
+export function isPlanItemComplete(rawTitle: string, priority: string, status: string): boolean {
+  if (rawTitle.includes('~~') || priority.includes('✅')) return true;
+  return /^(?:✅|☑️?|完了(?:済み)?|対応済み|実施済み|済み)(?:\s|[（(:：。、]|$)/u.test(status.trim());
+}
+
 function planSection(raw: string): string {
   if (raw.includes('今週やること')) return '今週';
   if (raw.includes('手動キュー')) return '手動';
@@ -275,7 +291,7 @@ function parsePlanTables(lines: string[], f: FileSpec, todoDir: string): TodoCar
       const status = cell('状態', 'Status') || (rawTitle.includes('~~') ? '完了' : '未着手');
       const ownerRaw = cell('担当', 'Owner');
       const owner = ownerRaw.replace(/\s*\[Codex候補\]\s*/, '').trim() || null;
-      const complete = rawTitle.includes('~~') || priority.includes('✅') || /完了|済み/.test(status);
+      const complete = isPlanItemComplete(rawTitle, priority, status);
       const detail = [titleRemainder, ...headers
         .map((header, index) => ({ header, value: cells[index] ?? '' }))
         .filter(({ header, value }, index) =>
@@ -496,11 +512,12 @@ export function todoBoard(): TodoBoard {
       const title = plainInline(lines.find((line) => /^#\s+/.test(line))?.replace(/^#\s+/, '') ?? f.label);
       const summaryLine = lines.find((line) => /^\*\*(今週のゴール|フォーカス)\*\*:/.test(line));
       const summary = plainInline(summaryLine?.replace(/^\*\*[^*]+\*\*:\s*/, '') ?? '');
+      const fileItems = decorated.filter((i) => i.file === f.id);
       return {
         id: f.id,
         label: f.label,
         path: `${TODO_DIR}/${f.file}`,
-        count: decorated.filter((i) => i.file === f.id).length,
+        count: visibleTodoCards(fileItems, f.id).length,
         title,
         summary,
       };

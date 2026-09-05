@@ -29,8 +29,8 @@ API バージョニングはこちらが操作できない外部都合で、こ�
 - `isUnmeasurable` は `note-live-check.mjs` から re-export。alive/unmeasurable/dead/unknown の
   4 値は下記「404 の意味」参照。
 - **creator の全マガジン一覧**（`verify-note-magazines.mjs` が使う）はまだ note-api.mjs に
-  無い——既存 13 本の note API 直叩きは DN-0083 で段階移行の対象。該当スクリプトの実装を
-  直接読むこと（この文書に URL を重複させない）。
+  無い。既存実装は一括移行せず、対象スクリプトを修正するときに共有 lib へ移して挙動同一を確認する。
+  該当スクリプトの実装を直接読むこと（この文書に URL を重複させない）。
 - note は Nuxt 製のため HTML に `__NEXT_DATA__` は無い。HTML スクレイプより JSON API が堅牢。
 
 ### 404 の意味（削除・下書き・非公開を区別しない）
@@ -185,6 +185,8 @@ node scripts/note-update-body.mjs --list   <list.txt>   --commit    # 複数記�
 | コンクリート診断士 記述式 模範答案集 | `答案の方針`（想定問題＝問題文は無料のつかみに残す）。解法ガイドのみ `問題Bの答案の型（5ステップ）` |
 | 有料PDF記事 | `PDF のダウンロードと使い方` |
 | 総監/建設部門 択一・論文 | 既定 `試験問題\|予想問題` |
+
+**境界だけを戻す（2026-09-05 新設）**: 価格変更（`note-article-price-sweep`）は「有料エリア設定」を保存する際にラインを先頭へ戻す。復旧は `npm run note-reanchor-boundary -- --list <paths> --commit`（frontmatter `paidBoundary` の H2 へ再設定し、公開 API の無料プレビューが空でないことを 1 本ずつ検証。本文・画像・PDF 添付に触れない）。全文置換の `note-update-body` を復旧に使うと添付が消え画像を再アップロードするので、境界の復旧には使わない（コンクリート 45 本の ¥1,480 改定で実走・45/45）。
 
 **機械ゲート（2層）**:
 - **事前（ソース・network不要）**: `npm run check-note-boundary`（paid published の paidBoundary 解決可能性＝境界H2実在を検査）。pre-commit `--staged` ＋ quality-audit `ci` ＋ r2-audit 全量。新規paid記事の境界欠落＝RULE_GAP を止める。

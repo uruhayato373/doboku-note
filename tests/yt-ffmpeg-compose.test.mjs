@@ -11,9 +11,31 @@ import { join } from 'node:path';
 
 import {
   composeShortsVideo,
+  composeStaticSlidesVideo,
   probeDuration,
   ffmpegAvailable,
 } from '../.claude/skills/social/yt-shorts-create/scripts/lib/ffmpeg-compose.mjs';
+
+test('composeStaticSlidesVideo: 入力が空なら throw', async () => {
+  await assert.rejects(
+    () => composeStaticSlidesVideo({ pngPaths: [], wavPaths: [], assPath: 'a.ass', outPath: 'out.mp4' }),
+    /non-empty arrays/
+  );
+});
+
+test('composeStaticSlidesVideo: PNG と WAV の本数不一致なら throw', async () => {
+  await assert.rejects(
+    () => composeStaticSlidesVideo({ pngPaths: ['a.png'], wavPaths: [], assPath: 'a.ass', outPath: 'out.mp4' }),
+    /length mismatch/
+  );
+});
+
+test('composeStaticSlidesVideo: 出力先が無ければ throw', async () => {
+  await assert.rejects(
+    () => composeStaticSlidesVideo({ pngPaths: ['a.png'], wavPaths: ['a.wav'], assPath: 'a.ass', outPath: '' }),
+    /assPath and outPath are required/
+  );
+});
 
 test('composeShortsVideo: pngPaths が array でないと throw', async () => {
   await assert.rejects(

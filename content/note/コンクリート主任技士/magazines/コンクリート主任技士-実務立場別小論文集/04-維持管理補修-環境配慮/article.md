@@ -8,7 +8,7 @@ notePublishedAt: "2026-08-22"
 noteId: "n7c43b47e5286"
 noteUrl: "https://note.com/dobokunote/n/n7c43b47e5286"
 noteStatus: published
-price: 980
+price: 1480
 utmCampaign: cce-persona-hoshu-environment
 coverTitle: "実務立場別小論文｜維持管理・補修｜環境配慮"
 cover:
@@ -21,6 +21,13 @@ cover:
 ---
 
 # コンクリート主任技士 小論文 模範答案｜維持管理・補修｜環境配慮
+
+
+![](img/figure-author-authority-concrete.png)
+
+この教材は、技術士（総合技術監理部門）を持つ元・地方自治体の土木職（発注者）がつくっています。コンクリート主任技士・コンクリート診断士にも自分で合格しており、小論文・記述式を書いた当事者です。
+
+総監の5つの管理の視点で記述を分析し、発注者として施工計画書や工事成績評定の書類を審査してきた目で「評価される書き方」を整理しています。
 
 **こんな人のための記事です**
 - 環境配慮テーマで「混和材を使えばCO2が減る」という新設側・配合設計側の話に寄ってしまい、補修担当技術者としての取組みが書けない方
@@ -54,6 +61,11 @@ cover:
 
 <!-- cta:concrete-mokuji -->
 コンクリート技士・主任技士・診断士の無料記事と教材は「コンクリート資格もくじ」から一覧できます。
+
+
+![](img/figure-author-authority-concrete.png)
+
+上位資格の分析力・発注者として書類を評価してきた目・合格者の当事者性で、あなたの答案を合格ラインへ引き上げます。
 
 https://note.com/dobokunote/n/nd59f471c9214
 

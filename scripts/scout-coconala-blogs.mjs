@@ -31,13 +31,14 @@ import { chromium } from 'playwright';
 import { mkdirSync, writeFileSync, readFileSync, existsSync, writeSync } from 'node:fs';
 import { join } from 'node:path';
 import { todayJst } from './lib/jst-date.mjs';
+import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 
 const ROOT = process.cwd();
 const CONFIG_PATH = join(ROOT, '.claude/config/coconala-blog.json');
 const STATE_DIR = join(ROOT, '.claude/state/coconala');
 const HISTORY_DIR = join(STATE_DIR, 'history');
 const LATEST_PATH = join(STATE_DIR, 'blog-competitors.json');
-const PROFILE = join(ROOT, '.local/playwright-coconala-profile');
+const PROFILE = resolveProfileDir('coconala', { cwd: ROOT, repoRoot: ROOT });
 const PROXY = process.env.HTTPS_PROXY || process.env.HTTP_PROXY || '';
 const TAG = '[scout-coconala-blogs]';
 

@@ -20,9 +20,16 @@
  * どれでもないキーは削除せず exit 1。意図的に消すなら --allow-unpreserved を付ける。
  *
  * Usage:
- *   node scripts/delete-r2-objects.mjs                    # dry-run（既定・何も消さない）
+ *   node scripts/delete-r2-objects.mjs                    # dry-run（既定・何も消さない・public バケット）
  *   node scripts/delete-r2-objects.mjs --commit           # 実際に削除する
  *   node scripts/delete-r2-objects.mjs --list <path>      # リストファイルを指定
+ *   node scripts/delete-r2-objects.mjs --bucket private --from-manifest-group standards-page-image
+ *                                                         # private バケットの、退避台帳に載る group の全キーを対象にする
+ *                                                         # （Drive vault へ移した後の R2 側 purge。2026-09-05 追加）
+ *
+ * --bucket は public（既定・doboku-note）か private（doboku-note-archive）。
+ * --from-manifest-group は manifest.json から {bucket, r2Key} を列挙し、--bucket と一致するものだけを対象にする。
+ * byVisibility の group（ig-rendered-image）は両バケットに分かれるので、--bucket ごとに 2 回実行する。
  */
 import { S3Client, DeleteObjectCommand, HeadObjectCommand } from '@aws-sdk/client-s3';
 import fs from 'fs';
@@ -47,7 +54,15 @@ if (!ACCOUNT_ID || !ACCESS_KEY || !SECRET_KEY) {
   process.exit(1);
 }
 
-const BUCKET = 'doboku-note';
+const args = process.argv.slice(2);
+const bucketArgIdx = args.indexOf('--bucket');
+const BUCKET_KEY = bucketArgIdx !== -1 ? args[bucketArgIdx + 1] : 'public';
+const BUCKETS = { public: 'doboku-note', private: 'doboku-note-archive' };
+if (!BUCKETS[BUCKET_KEY]) {
+  console.error(`Error: --bucket は public|private（指定: ${BUCKET_KEY}）`);
+  process.exit(1);
+}
+const BUCKET = BUCKETS[BUCKET_KEY];
 
 const s3 = new S3Client({
   region: 'auto',
@@ -55,34 +70,50 @@ const s3 = new S3Client({
   credentials: { accessKeyId: ACCESS_KEY, secretAccessKey: SECRET_KEY },
 });
 
-const args = process.argv.slice(2);
 const commit = args.includes('--commit');
 const listIdx = args.indexOf('--list');
-const listPath = listIdx !== -1 ? args[listIdx + 1] : '.claude/config/r2-delete-list.txt';
+const groupIdx = args.indexOf('--from-manifest-group');
+const fromGroup = groupIdx !== -1 ? args[groupIdx + 1] : null;
+const listPath = listIdx !== -1 ? args[listIdx + 1] : (fromGroup ? null : '.claude/config/r2-delete-list.txt');
 const allowUnpreserved = args.includes('--allow-unpreserved');
 
-if (!fs.existsSync(listPath)) {
-  console.error(`Error: リストが見つかりません: ${listPath}`);
-  process.exit(1);
-}
-
-const keys = fs
-  .readFileSync(listPath, 'utf8')
-  .split('\n')
-  .map((l) => l.trim())
-  .filter((l) => l && !l.startsWith('#'));
-
-if (keys.length === 0) {
-  console.error(`[delete-r2-objects] リストにキーが 1 件もありません: ${listPath}`);
-  console.error('  検査対象ゼロを成功として扱わないため exit 1 とします。');
-  process.exit(1);
+let keys;
+if (fromGroup) {
+  // 退避台帳から対象を列挙する。台帳に載っている＝sha256 つきで別の場所に保全されている、が前提。
+  // Drive vault へ移した後の purge では、drive-vault-sync --verify --cloud を先に通していること。
+  let m;
+  try { m = JSON.parse(fs.readFileSync(path.join(root, '.claude/state/assets/manifest.json'), 'utf8')); }
+  catch (e) { console.error('Error: manifest.json を読めない: ' + e.message); process.exit(1); }
+  const all = Object.values(m.entries || {}).filter((e) => e.group === fromGroup);
+  keys = all.filter((e) => e.bucket === BUCKET_KEY && e.r2Key).map((e) => e.r2Key);
+  const other = all.length - keys.length;
+  console.log(`[delete-r2-objects] --from-manifest-group ${fromGroup}: 台帳 ${all.length} 件 / bucket=${BUCKET_KEY} ${keys.length} 件${other ? `（他バケット ${other} 件は --bucket を替えて別実行）` : ''}`);
+  if (keys.length === 0) {
+    console.error(`[delete-r2-objects] group ${fromGroup} に bucket=${BUCKET_KEY} のキーが 0 件。検査対象ゼロを成功として扱わないため exit 1。`);
+    process.exit(1);
+  }
+} else {
+  if (!fs.existsSync(listPath)) {
+    console.error(`Error: リストが見つかりません: ${listPath}`);
+    process.exit(1);
+  }
+  keys = fs
+    .readFileSync(listPath, 'utf8')
+    .split('\n')
+    .map((l) => l.trim())
+    .filter((l) => l && !l.startsWith('#'));
+  if (keys.length === 0) {
+    console.error(`[delete-r2-objects] リストにキーが 1 件もありません: ${listPath}`);
+    console.error('  検査対象ゼロを成功として扱わないため exit 1 とします。');
+    process.exit(1);
+  }
 }
 
 // リポジトリに同じパスのファイルが現存するキーは、差し替え後の実体を消してしまうため弾く。
 const guarded = [];
 const targets = [];
 for (const key of keys) {
-  const local = key.startsWith('posts/') ? path.join(root, '.local/r2', key) : null;
+  const local = BUCKET_KEY === 'public' && key.startsWith('posts/') ? path.join(root, '.local/r2', key) : null;
   if (local && fs.existsSync(local)) guarded.push(key);
   else targets.push(key);
 }
@@ -120,7 +151,7 @@ if (unpreserved.length) {
   console.error('  --allow-unpreserved が指定されているため続行します。\n');
 }
 
-console.log(`[delete-r2-objects] リスト ${keys.length} 件 / 削除対象 ${targets.length} 件 / 保護 ${guarded.length} 件`);
+console.log(`[delete-r2-objects] bucket=${BUCKET}（${BUCKET_KEY}）/ リスト ${keys.length} 件 / 削除対象 ${targets.length} 件 / 保護 ${guarded.length} 件`);
 if (guarded.length) {
   console.log('  保護（リポジトリに同名ファイルが現存するため削除しない）:');
   for (const k of guarded) console.log(`    ${k}`);

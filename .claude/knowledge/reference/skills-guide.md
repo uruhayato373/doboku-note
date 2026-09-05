@@ -107,8 +107,10 @@ title: スキル ナビゲーションガイド
 | `/pr-create` | 現ブランチから GitHub PR を作成 | `PR作成`, `/pr-create` |
 | `/simplify` | 変更 diff を点検し最小差分で修正→lint→PR チェーン | `diff確認`, `最小修正`, `/simplify` |
 | `/create-skill` | スキル作成ガイド | `スキルを作りたい`, `/create-skill` |
+| `/playwright-auth` | Windows/Mac各PCのPlaywright認証profileを共通CLIで保存先確認・offline診断・手動login・read-only status・安全copy移行。自動削除/kill/PC間同期なし | `Playwrightログイン`, `認証profile診断`, `auth status`, `/playwright-auth doctor` |
 | `/sync-r2-images` | R2 画像のローカル同期 | `R2同期`, `/sync-r2-images` |
 | `/diff-r2` | ローカル（`content/site/`）↔ R2（prefix `posts/`）の双方向差分検出 | `R2差分`, `/diff-r2` |
+| `/asset-route` | Git の外に置くアセットの置き場を「誰が使うか」で決める決定木＋コマンド（サイト配信→public R2 / CI→private R2 / 人・手元→Google Drive vault）。新 group 追加・R2→Drive 移行の必須順序・マウント無し/プレースホルダサイズの罠。真実源 `asset-storage-policy.md` §1 | `アセットの置き場`, `R2かDriveか`, `/asset-route` |
 | `npm run upload-sns-r2` + `sns-archive-auditor` エージェント | content/sns の reels wav/mp4 等を R2 へ退避（容量削減）。`sns-archive-auditor` が SoT 無傷＝再生成可否で OFFLOAD/ARCHIVE_KEEP/KEEP_LOCAL/BLOCK を判定→`--purge-local` は R2 バイト一致検証後のみ削除。真実源 `sns-archive-policy.md` | `SNS容量削減`, `wav/mp4退避`, `投稿済みパック退避` |
 | `/monitor` | バックグラウンド監視 | `監視`, `/monitor` |
 | `/zenn-audit` | Zenn 本番 CSS との差分検出 | `Zenn差分`, `/zenn-audit` |

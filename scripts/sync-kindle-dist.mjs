@@ -1,5 +1,5 @@
 // Kindle 配布物(EPUB＋表紙)を catalog に基づいて再生成し、git 追跡下の scripts/kindle-dist/ へ同期する。
-// EPUB は各 buildSpec から決定的に再ビルド、表紙は cover spec から再合成。任意で ~/Downloads へも配置。
+// EPUB は各 buildSpec または A 系の buildTheme から決定的に再ビルドし、表紙は cover spec から再合成する。
 // これにより「EPUB/表紙を git 管理しつつ、いつでも spec から再現できる」状態を担保する。
 //
 // 使い方:
@@ -10,9 +10,9 @@
 
 import { execFileSync } from 'node:child_process'
 import { readFileSync, copyFileSync, mkdirSync, existsSync } from 'node:fs'
-import { resolve } from 'node:path'
+import { dirname, resolve } from 'node:path'
 import { homedir } from 'node:os'
-import { selectSyncTargets } from './lib/kindle-catalog.mjs'
+import { artifactRelPaths, selectSyncTargets } from './lib/kindle-catalog.mjs'
 
 const REPO = resolve(import.meta.dirname, '..')
 const DIST = resolve(REPO, 'scripts/kindle-dist')
@@ -36,24 +36,40 @@ const node = process.execPath
 let done = 0
 for (const b of books) {
   const id = b.id
-  // 1) EPUB 再ビルド（builder は spec の場所を outDir 既定 .tmp/kindle-<id>/ に出す）
-  execFileSync(node, [resolve(REPO, b.builder), '--spec', resolve(REPO, b.buildSpec)], { cwd: REPO, stdio: 'ignore' })
-  const epub = resolve(REPO, `.tmp/kindle-${id}/${id}.epub`)
+  const outDir = resolve(REPO, `.tmp/kindle-${id}`)
+  // 1) EPUB 再ビルド。A 系は catalog の buildTheme、B-G 系は buildSpec を使う。
+  let epub
+  if (b.buildSpec) {
+    execFileSync(node, [resolve(REPO, b.builder), '--spec', resolve(REPO, b.buildSpec)], { cwd: REPO, stdio: 'ignore' })
+    epub = resolve(outDir, `${id}.epub`)
+  } else {
+    execFileSync(node, [resolve(REPO, b.builder), '--theme', b.buildTheme, '--format', 'epub', '--outDir', outDir], { cwd: REPO, stdio: 'ignore' })
+    epub = resolve(outDir, `${b.buildTheme}.epub`)
+  }
   if (!existsSync(epub)) { console.error(`EPUB 生成失敗: ${id}`); continue }
-  copyFileSync(epub, resolve(DIST, `${id}.epub`))
+  const rel = artifactRelPaths(b)
+  const epubDest = rel.epub ? resolve(REPO, rel.epub) : resolve(DIST, `${id}.epub`)
+  mkdirSync(dirname(epubDest), { recursive: true })
+  copyFileSync(epub, epubDest)
   // 2) 表紙 再合成
-  const coverSpec = resolve(REPO, `scripts/kindle-covers/specs/${id}.json`)
+  const exactCoverSpec = resolve(REPO, `scripts/kindle-covers/specs/${id}.json`)
+  const lowerCoverSpec = resolve(REPO, `scripts/kindle-covers/specs/${id.toLowerCase()}.json`)
+  const coverSpec = existsSync(exactCoverSpec) ? exactCoverSpec : lowerCoverSpec
   if (existsSync(coverSpec)) {
-    execFileSync(node, [resolve(REPO, 'scripts/kindle-covers/build-kindle-cover.mjs'), '--spec', coverSpec], { cwd: REPO, stdio: 'ignore' })
-    const cover = resolve(REPO, `.tmp/kindle-cover-${id}.jpg`)
-    if (existsSync(cover)) copyFileSync(cover, resolve(DIST, `${id}.jpg`))
+    const cover = resolve(outDir, `${id}.jpg`)
+    execFileSync(node, [resolve(REPO, 'scripts/kindle-covers/build-kindle-cover.mjs'), '--spec', coverSpec, '--out', cover], { cwd: REPO, stdio: 'ignore' })
+    if (existsSync(cover)) {
+      const coverDest = rel.cover ? resolve(REPO, rel.cover) : resolve(DIST, `${id}.jpg`)
+      mkdirSync(dirname(coverDest), { recursive: true })
+      copyFileSync(cover, coverDest)
+    }
   }
   // 3) 任意で Downloads へ（アップロード用の分かりやすい名前）
   if (toDownloads) {
-    copyFileSync(resolve(DIST, `${id}.epub`), resolve(DL, `kindle-${id}.epub`))
-    if (existsSync(resolve(DIST, `${id}.jpg`))) copyFileSync(resolve(DIST, `${id}.jpg`), resolve(DL, `kindle-cover-${id}.jpg`))
+    copyFileSync(epubDest, resolve(DL, `kindle-${id}.epub`))
+    if (rel.cover && existsSync(resolve(REPO, rel.cover))) copyFileSync(resolve(REPO, rel.cover), resolve(DL, `kindle-cover-${id}.jpg`))
   }
   done++
   process.stdout.write(`${id} `)
 }
-console.log(`\n同期完了: ${done} 冊 → scripts/kindle-dist/${toDownloads ? '＋ ~/Downloads/' : ''}`)
+console.log(`\n同期完了: ${done} 冊 → catalog の配布先${toDownloads ? '＋ ~/Downloads/' : ''}`)

@@ -1,117 +1,109 @@
 # Playwright 認証プロファイル運用（doboku-note）
 
-SNS / 各種プラットフォーム自動化（X / Instagram / note / ココナラ）の Playwright ログインを
-「毎回入れ直さない」ための、永続プロファイルの仕組み・置き場所・再ログイン手順・注意点をまとめる。
+SNS・販売・計測サービスの Playwright ログインを、worktree や OS に依存せず再利用するための運用 SSOT。
+保存先の計算は `scripts/lib/playwright-auth-profile.mjs`、サービス一覧は
+`.claude/config/playwright-auth-profiles.json`、人が使う入口は `/playwright-auth` と `auth:*` CLI が担う。
 
-## 方式：サービスごとの永続プロファイル
+## 保存先
 
-各スクリプトは `chromium.launchPersistentContext(PROFILE_DIR, …)` を使い、
-Cookie・localStorage をディレクトリごと保持する。**一度ログインすれば以降は再ログイン不要**。
-プロファイルはサービス単位で分離し、アカウント取り違え事故を防ぐ。
+すべてのサービスは `DOBOKU_AUTH_ROOT` があればその絶対パス、なければ次の OS 標準ローカル領域を使う。
+リポジトリ、worktree、クラウド同期フォルダ、home 直下は保存先にしない。
 
-| プロファイル (`.local/` 配下) | サービス | アカウント (SSOT) | 使用スクリプト | 状態 |
-|---|---|---|---|---|
-| `playwright-x-profile` | X (Twitter) | `@doboku373` — `.claude/config/x-account.json` | `.claude/skills/social/x-repost/{x-repost-exec,x-repost-discover}.ts`, `.claude/skills/social/publish-x/publish-x.ts` | ✅ 稼働中 |
-| `playwright-ig-bs-profile` | Instagram（FB Business Suite 経由） | `@dobokunotecom` — `.claude/config/ig-account.json` | `.claude/skills/social/publish-ig-bs/publish-ig-bs.ts` | ✅ 稼働中 |
-| `playwright-note-profile` | note.com | note アカウント | note 投稿系スクリプト | ✅ 稼働中 |
-| `playwright-coconala-profile` | ココナラ | `dobokunote` / users/6197366 — `.claude/config/coconala-account.json` | `coconala-publish` / `coconala-edit` 系 | ✅ 稼働中 |
-| `playwright-a8-profile` ＋ **`playwright-a8-state.json`** | A8.net（メディア管理画面） | メディアID `a25050375786` — `.claude/config/a8-report-automation.json` の `a8.mediaId` | `.claude/skills/ads/scout-asp/scripts/a8-browser.ts`（提携）/ `scripts/fetch-a8-ui-csv.mjs`（成果レポート） | ✅ 稼働中 |
+| OS | 既定 auth root |
+|---|---|
+| Windows | `%LOCALAPPDATA%\doboku-note\playwright-auth` |
+| macOS | `~/Library/Application Support/doboku-note/playwright-auth` |
+| Linux | `${XDG_STATE_HOME:-~/.local/state}/doboku-note/playwright-auth` |
 
-> [!warning] A8 だけは永続プロファイルに認証が残らない
-> A8 の認証は**揮発性セッション Cookie** で、永続プロファイルには保存されない。よって `storageState`
-> （Cookie 入り JSON）を `.local/playwright-a8-state.json` に捕獲し、起動時に `addCookies` で再注入する。
-> これが認証再利用の実体。**`scripts/fetch-a8-ui-csv.mjs` は人間のログイン成功直後に自身で保存する**
-> （`saveA8Session`）ので、成果レポート経路では別途 login スクリプトを走らせる必要はない。
-> なお `scout-asp/scripts/login.mjs` は `PROFILE_ROOT` が Mac 絶対パス固定で **Windows では別の場所を掘る**
-> ため、Windows では使えない（fetch 側の自動保存を使う）。
->
-> **アカウント assert は「サイト」ではなく「口座（メディアID）」**。A8 の管理画面にサイト切替は無く、
-> ヘッダーの「サイト名」は口座の代表サイト（統計で見る都道府県＝stats47）が常に出るだけ
-> （2026-07-27 実機確定）。doboku-note の分離はレポート単位で行う → `a8-affiliate-pipeline.md`。
+auth root の下は `profiles/`、`states/`、`locks/`、`metadata/` に分ける。Cookie や storageState は
+PC ごとに独立保持し、Windows と Mac の間でコピー・Git・OneDrive・iCloud・Dropbox 同期をしない。
 
-- `PROFILE_DIR` は各スクリプトで `path.join(PROJECT_ROOT, ".local/playwright-*-profile")` として定義。
-- アカウントの真実源（SSOT）は上表の各 config JSON。Playwright 側は「マイページ本文にこの名前が含まれるか」で
-  誤アカウント操作を防ぐ assert を持つ（例：ココナラ `sellerName: dobokunote`）。
+## サービスと例外
 
-> [!warning] Gmail は Playwright の対象外（MCP を使う）
-> `mail.google.com` は永続プロファイルで開いても **Google の自動化検知で「ブロックされました。」** が返り、
-> 1通も読めない（2026-08-17・`playwright-note-profile` で実測。ログイン済みでも同じ）。
-> **メールを読む経路は Gmail MCP コネクタ**（`search_threads` / `get_thread`）だけで、
-> プロファイルを増やして解決する問題ではない。上表に Gmail の行が無いのはそのため。
->
-> ただし **MCP の接続先は `uruhayato373@gmail.com` の1アカウントのみ**。他アドレス宛
-> （ココナラ出品アカウントの `dobokunotecom@gmail.com` 等）は検索してもヒットしない。
-> したがって **0 件は「メールが無い」ではなく「その宛先が見えていない」**——CLAUDE.md 原則9
-> 「検査ゼロを PASS と呼ばない」のメール版。**宛先を確かめずに「通知は来ていません」と報告しない。**
-> プラットフォームの重要通知（出品取り下げ・審査結果）は、メールではなく**サービス側の実体**
-> （ココナラのメッセージ、Brain のマイページ）で確認するのが主経路。
+| service | profile | sessionMode | アカウント assert |
+|---|---|---|---|
+| `note` | `playwright-note-profile` | profile | note の `dobokunote` 表示 |
+| `brain` | `playwright-brain-profile` | profile | `.claude/config/brain-account.json` |
+| `coconala` | `playwright-coconala-profile` | profile | `.claude/config/coconala-account.json` |
+| `kdp` | `playwright-kdp-profile` | profile | KDP 本棚の実体 |
+| `x` | `playwright-x-profile` | profile | `.claude/config/x-account.json` |
+| `instagram` | `playwright-ig-bs-profile` | profile | `.claude/config/ig-account.json` |
+| `google` | `playwright-google-profile` | profile | GSC/GA4 の対象プロパティ |
+| `a8` | `playwright-a8-profile` | profile-plus-state | メディア ID `a25050375786` |
+| `moshimo` | `playwright-moshimo-profile` | profile-plus-state | `.claude/config/affiliate-asp.json` |
+| `afb` | `playwright-afb-profile` | same-process | ASP site guard |
 
-## 「毎回ログインが必要」になる原因と対策
+A8 は揮発性 Cookie のため `states/playwright-a8-state.json` の再注入を併用する。afb は保存 state を
+別プロセスで再利用できない場合があるため、ログインから操作まで同一プロセスで完結させる。
+A8 のヘッダーに表示される代表サイト名はサイト切替ではない。口座をメディア ID で assert し、
+doboku-note への帰属はレポート単位で分ける。
 
-`.local/playwright-*-profile/` は `.gitignore` 対象（`.gitignore:62–73`）なので、
-**`git worktree add` で作った作業ツリーにはプロファイルがコピーされない**。
-SNS スクリプトの `PROJECT_ROOT = path.resolve(__dirname, "…")` は実行元 worktree のルートを指すため、
-**worktree から実行すると毎回まっさらなプロファイル＝再ログイン**になる。
+> [!warning]
+> Gmail は Playwright の対象外。Google の自動化検知を回避せず、メール参照は Gmail コネクタを使う。
+> 接続先に含まれない宛先の検索 0 件を「メールなし」と判定しない。
 
-> **注意**: このリポジトリは CLAUDE.md §10 のとおり **複数セッションが worktree で並行するのが常態**。
-> `.local/*profile` は gitignore なので、この worktree 分裂が「毎回ログイン」の主因。
+## 標準操作
 
-対策：
-
-- **A（恒久対応・適用済み 2026-07-19）**: worktree 相対だった `publish-x.ts` / `x-repost-exec.ts` /
-  `x-repost-discover.ts` / `publish-ig-bs.ts` のプロファイル参照を **本体固定の絶対パス**に変更した。実装は各スクリプトで：
-  ```ts
-  const PROFILE_ROOT = "/Users/minamidaisuke/doboku-note";   // 本体チェックアウト固定
-  const PROFILE_DIR = path.join(PROFILE_ROOT, ".local/playwright-x-profile");
-  ```
-  `PROJECT_ROOT`（debug/drafts/state 用）は worktree 相対のまま。**プロファイルのみ本体を共有**する。
-  本体から実行した場合は従来と同一パスに解決されるため挙動不変。worktree から実行しても同一ログインを共有する。
-- **B（運用の補助）**: それでも投稿・自動操作系は本体リポジトリ `~/doboku-note` から実行するのが無難。
-- **C（恒久対応・適用済み 2026-07-30・Google 系のみ）**: `PROFILE_ROOT` の**ユーザー名ハードコードを撤去**した。
-  `scripts/lib/google-console-browser.mjs` は `DOBOKU_PROFILE_ROOT`（env）→ `~/doboku-note` → 旧 Mac 絶対パス → cwd の順で解決する。
-  `~/doboku-note` は Mac も Windows も本体チェックアウトを指すため、**両機で同じプロファイルへ解決**する。
-  修正前は Windows で Mac パスが存在せず `process.cwd()` に落ち、worktree から実行するとプロファイルが
-  worktree 内に作られて worktree ごと消えていた（GSC UI 取得が実質 Mac 専用になっていた原因）。
-  同ファイルの `profileInitialized()` は「ディレクトリが作られたか」だけを返す＝**ログイン済みの証明ではない**
-  （未ログインの run でも Cookies DB は作られる）。ログイン有無は実際にページを開いて判定する。
-  他サービス（X / IG / note / ココナラ / A8 等）は未適用＝Mac 絶対パスのまま。
-
-## 再ログイン手順（プロファイルが空／期限切れのとき）
-
-X は既存の `.tmp/x-login.ts`（`.local/playwright-x-profile/` にセッション保存。`x-repost-discover.ts` の
-前提コメント参照）を本体リポジトリで実行する。それ以外のサービスは、以下の使い捨てスクリプトで
-対象プロファイルを headed ブラウザで開き、手動ログイン後に保存する。
-
-```js
-// login.mjs — 一度だけ手動ログインしてプロファイルに保存する
-import { chromium } from "playwright";
-const dir = process.argv[2];                       // 例: .local/playwright-x-profile
-const url = process.argv[3] ?? "https://x.com/login";
-const ctx = await chromium.launchPersistentContext(dir, { headless: false });
-const page = ctx.pages()[0] ?? await ctx.newPage();
-await page.goto(url);
-console.log("ログインが完了したら、このターミナルで Enter を押す");
-process.stdin.once("data", async () => { await ctx.close(); process.exit(0); });
-```
+最初にパスとローカル状態を確認する。
 
 ```bash
-# 本体リポジトリ ~/doboku-note で実行すること（worktree 不可）
-node login.mjs .local/playwright-x-profile        https://x.com/login
-node login.mjs .local/playwright-ig-bs-profile    https://business.facebook.com/
-node login.mjs .local/playwright-note-profile     https://note.com/login
-node login.mjs .local/playwright-coconala-profile https://coconala.com/login
+npm run auth:paths -- --service note
+npm run auth:doctor -- --service note
 ```
 
-## 関連ドキュメント
+旧 `.local/playwright-*-profile` がある場合は、サービス単位で dry-run してからコピーする。
+移行先が既に存在する、lock がある、Chrome が使用中のときは中断する。旧 source は自動削除しない。
 
-- X: `.claude/config/x-account.json`（アカウント・プロフィール SSOT）, `content/sns/x/`
-- Instagram: `.claude/config/ig-account.json`（アカウント・プロフィール SSOT）, `content/sns/instagram/`
-- ココナラ: `.claude/config/coconala-account.json`, `.claude/knowledge/reference/coconala-operations.md`, `src/lib/coconala-services.ts`
-- X: `content/sns/x/`
-- `.playwright-mcp/`（Playwright MCP のログ／ページダンプ。認証情報ではない）
+```bash
+npm run auth:migrate -- --service note
+npm run auth:migrate -- --service note --commit
+```
+
+ログインが必要な場合は headed Chrome を開き、password・2FA・CAPTCHA は人が入力する。ログイン後は
+別プロセスの read-only status で、実ページと account/site/property assert が一致したときだけ
+`authenticated` とする。profile ディレクトリの存在だけでは認証済みと判定しない。
+
+```bash
+npm run auth:login -- --service note
+npm run auth:status -- --service note
+```
+
+複数サービスを同時に同じ profile で開かない。投稿・公開・申請・購入・価格変更は各サービスの
+operator/skill が持つ dry-run→`--commit` ゲートに従い、認証 CLI からは行わない。
+
+## 実機検証
+
+DN-0108 の完了には、同じ commit 候補を使った Windows と Mac の独立検証が必要。両 PC 間で profile を
+共有せず、それぞれ `paths`→`doctor`→note login→別プロセス status→Chrome 再起動後 status を行う。
+本体 checkout と worktree のどちらからも同じ OS 標準 root へ解決することを確認する。
+
+### Mac（2026-09-05）
+
+- root: `~/Library/Application Support/doboku-note/playwright-auth`
+- note の旧 `.local/playwright-note-profile` を service 単位でコピー。旧 source は保持
+- `auth:doctor`: root 読み書き可、lock なし
+- 別プロセス `auth:status`: `authenticated`、account assert 一致
+- その profile で note L1/L2 4記事を更新し、全件で `account gate OK (dobokunote)` と公開 API 検証を確認
+
+Windows 実機の同等証拠が揃うまでは DN-0108 を完了扱いにしない。
 
 ## セキュリティ
 
-- `.local/` 配下のプロファイルには**ログイン Cookie が入る**。`.gitignore` 済みだが、**絶対にコミット・共有しない**。
-- 漏洩＝アカウント乗っ取り相当。バックアップを取る場合も暗号化必須。
-- `credentials/`（例：`gsc-service-account.json`）は `700`/`600` 権限。こちらも共有厳禁。
+- `profiles/` と `states/` はログイン Cookie を含む。コミット、共有、ログ添付、クラウド同期をしない
+- registry と metadata に password、Cookie、token、secret、2FA、recovery code を書かない
+- ログやスクリーンショットへメールアドレス・氏名・token 付き URL を残さない
+- 旧 profile の削除は自動化しない。新 root の再利用を一定期間確認してから人が処遇を決める
+- CI は実 profile を使わない。テストが明示した一時 root 以外は resolver が拒否する
+
+## 検証
+
+```bash
+npm run check-playwright-auth-wiring:strict
+npm run auth:doctor -- --json
+node --test tests/playwright-auth-profile.test.mjs tests/playwright-auth-lock.test.mjs tests/playwright-auth-cli.test.mjs
+npm run check-affiliate-wiring
+npm run check-google-ui-ssot
+```
+
+関連: `.claude/skills/dev/playwright-auth/SKILL.md`、
+`.claude/plans/DN-0108-cross-device-playwright-auth/05-cross-device-validation-and-docs.md`

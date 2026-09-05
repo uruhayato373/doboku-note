@@ -30,6 +30,7 @@ import { existsSync, mkdtempSync, writeFileSync, rmSync, statSync } from 'node:f
 import { join, dirname } from 'node:path';
 import { tmpdir } from 'node:os';
 import { loadConfig, loadManifest, groupFor, sha256Stream, toPosix } from './lib/asset-storage.mjs';
+import { loadDriveConfig, driveGroupFor } from './lib/drive-vault.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const argv = process.argv.slice(2);
@@ -60,10 +61,16 @@ const git = (args) =>
 function listLocalAssets(cfg) {
   const seen = new Set();
   const out = [];
+  // Drive vault 管轄（audience=human・active）は CI に運ばない。CI は Drive を持たず、
+  // asset-inbox-ingest も同じ判定で拒否する（ここで省くのは無駄な転送を避けるため）。
+  let dcfg = null;
+  try { dcfg = loadDriveConfig(); } catch { /* 設定が無ければ判定なし */ }
+  let skippedDrive = 0;
   const add = (rel) => {
     const p = toPosix(rel);
     if (!p || seen.has(p)) return;
     seen.add(p);
+    if (dcfg && driveGroupFor(p, dcfg, { includePending: false })) { skippedDrive++; return; }
     const g = groupFor(p, cfg);
     if (!g) return;
     const abs = join(REPO_ROOT, p);
@@ -74,6 +81,7 @@ function listLocalAssets(cfg) {
   // pathspec は付けない。'content' 固定だと content/ 外の group（coconala-asset 等）を
   // 取りこぼす（asset-offload.mjs では 2026-08-29 に同じ理由で外した）。
   for (const l of git(['ls-files', '--others', '--ignored', '--exclude-standard']).split('\n')) add(l);
+  if (skippedDrive) console.log(`[${NAME}] Drive vault 管轄のため CI へ運ばないファイル: ${skippedDrive} 件（drive-vault-sync で vault へ）`);
   return out;
 }
 

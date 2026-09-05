@@ -11,11 +11,11 @@
  *   - ensureTargetSite              : **サイト帰属の確定。失敗は例外**（asp-site-guard に判定を委譲）
  */
 import { readFileSync, existsSync } from "node:fs";
-import { join } from "node:path";
 
 import {
   launchContext,
   profileDir,
+  authStatePath,
   debugRoot,
   downloadTo,
   dumpFailure,
@@ -64,14 +64,11 @@ export function aspBrowserCfg(asp) {
   return { browser: asp.browser };
 }
 
-/** プロファイルと同じ root（Mac 実在→cwd フォールバック）を返す。 */
-export function checkoutRoot(asp) {
-  const bcfg = aspBrowserCfg(asp);
-  const pdir = profileDir(bcfg);
-  return pdir.slice(0, pdir.length - asp.browser.profileDir.length);
-}
-
-const statePath = (asp) => join(checkoutRoot(asp), asp.browser.stateFile);
+const statePath = (asp) => {
+  const path = authStatePath(aspBrowserCfg(asp));
+  if (!path) throw new Error(`${asp.label}: stateFileName が auth registry にありません`);
+  return path;
+};
 
 async function restoreSession(ctx, asp) {
   const p = statePath(asp);

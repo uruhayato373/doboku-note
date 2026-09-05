@@ -9,7 +9,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { transformSync } from 'esbuild';
+import { buildSync } from 'esbuild';
 
 // URL.pathname は Windows で "/C:/..." を返し、readFileSync が "C:\C:\..." と
 // 解決して ENOENT になる（CI は Linux なので緑、ローカルだけ赤という割れ方をする）。
@@ -76,7 +76,13 @@ test('はじめに-合格ラボ: 本文に自己参照 URL が残っていない
 // ── サイト配置: 土木二次は原則 top=買い切り・inline[0]=メンバーシップ ────────
 test('resolvePlacement: 土木二次の原則と書き方ガイド固有CTAを維持する', async () => {
   const ts = read('src/lib/magazine-placement.ts');
-  const js = transformSync(ts, { loader: 'ts', format: 'esm' }).code;
+  const js = buildSync({
+    stdin: { contents: ts, loader: 'ts', resolveDir: ROOT + 'src/lib' },
+    bundle: true,
+    write: false,
+    format: 'esm',
+    platform: 'node',
+  }).outputFiles[0].text;
   const mod = await import('data:text/javascript,' + encodeURIComponent(js));
   const { resolvePlacement } = mod;
   assert.equal(typeof resolvePlacement, 'function', 'resolvePlacement を import できない');
@@ -118,5 +124,30 @@ test('resolvePlacement: 土木二次の原則と書き方ガイド固有CTAを�
     guide.inline.map((slot) => slot.magazineId),
     ['civil-1-experience-essay'],
     '書き方ガイドの中間 CTA は完成答案集 1 件だけであるべき',
+  );
+});
+
+test('resolveCivil1PrimaryLead: 二次試験当日まで二次、翌日から一次へ戻す', async () => {
+  const ts = read('src/lib/magazine-placement.ts');
+  const js = buildSync({
+    stdin: { contents: ts, loader: 'ts', resolveDir: ROOT + 'src/lib' },
+    bundle: true,
+    write: false,
+    format: 'esm',
+    platform: 'node',
+  }).outputFiles[0].text;
+  const { resolveCivil1PrimaryLead } = await import('data:text/javascript,' + encodeURIComponent(js));
+
+  assert.equal(
+    resolveCivil1PrimaryLead(Date.parse('2026-10-03T23:59:59+09:00')),
+    'civil-1-experience-essay',
+  );
+  assert.equal(
+    resolveCivil1PrimaryLead(Date.parse('2026-10-04T23:59:59+09:00')),
+    'civil-1-experience-essay',
+  );
+  assert.equal(
+    resolveCivil1PrimaryLead(Date.parse('2026-10-05T00:00:00+09:00')),
+    'civil-1-ichiji-ronten',
   );
 });
