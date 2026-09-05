@@ -349,7 +349,8 @@
     "x-schedule-guard": "node scripts/x-schedule-guard.mjs",
     "x-schedule-view": "node scripts/x-schedule-view.mjs",
     "x-sync-status": "node scripts/x-sync-status.mjs",
-    "x-thread-replies": "node scripts/x-thread-replies.mjs"
+    "x-thread-replies": "node scripts/x-thread-replies.mjs",
+    "note-reanchor-boundary": "node scripts/note-reanchor-boundary.mjs"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.908.0",
