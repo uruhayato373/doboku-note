@@ -202,7 +202,7 @@
     "keiken-kaizen-example": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -211,8 +211,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-10-02T20:00:00+09:00",
-          "renderedAt": "2026-09-05T05:01:42.029Z"
+          "publishAt": "2026-10-02T11:00:00Z",
+          "renderedAt": "2026-09-05T05:01:42.029Z",
+          "videoId": "1EO4uiMFLQ0",
+          "url": "https://www.youtube.com/watch?v=1EO4uiMFLQ0",
+          "scheduledAt": "2026-09-05T05:04:08.416Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -472,7 +476,7 @@
     "nikyuu-gaiyo-roadmap": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -481,8 +485,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-10-05T20:00:00+09:00",
-          "renderedAt": "2026-09-05T05:01:43.104Z"
+          "publishAt": "2026-10-05T11:00:00Z",
+          "renderedAt": "2026-09-05T05:01:43.104Z",
+          "videoId": "Y3R-39rxwu8",
+          "url": "https://www.youtube.com/watch?v=Y3R-39rxwu8",
+          "scheduledAt": "2026-09-05T05:04:20.653Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -1026,7 +1034,7 @@
     "gakka-2kyu-doko": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -1035,8 +1043,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-10-08T20:00:00+09:00",
-          "renderedAt": "2026-09-05T05:01:43.773Z"
+          "publishAt": "2026-10-08T11:00:00Z",
+          "renderedAt": "2026-09-05T05:01:43.773Z",
+          "videoId": "sqkP7vheZ_Q",
+          "url": "https://www.youtube.com/watch?v=sqkP7vheZ_Q",
+          "scheduledAt": "2026-09-05T05:04:29.138Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -1612,7 +1624,7 @@
     "kikinagashi-anzen-suchi": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -1621,15 +1633,19 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-10-01T07:30:00+09:00",
-          "renderedAt": "2026-09-05T05:01:44.371Z"
+          "publishAt": "2026-09-30T22:30:00Z",
+          "renderedAt": "2026-09-05T05:01:44.371Z",
+          "videoId": "tkVRXXsX-OQ",
+          "url": "https://www.youtube.com/watch?v=tkVRXXsX-OQ",
+          "scheduledAt": "2026-09-05T05:03:58.489Z",
+          "privacyStatus": "private"
         }
       }
     },
     "kikinagashi-doko-suchi": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -1638,8 +1654,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-30T07:30:00+09:00",
-          "renderedAt": "2026-09-05T05:01:44.975Z"
+          "publishAt": "2026-09-29T22:30:00Z",
+          "renderedAt": "2026-09-05T05:01:44.975Z",
+          "videoId": "8JJLbd21itQ",
+          "url": "https://www.youtube.com/watch?v=8JJLbd21itQ",
+          "scheduledAt": "2026-09-05T05:03:51.261Z",
+          "privacyStatus": "private"
         }
       }
     },
