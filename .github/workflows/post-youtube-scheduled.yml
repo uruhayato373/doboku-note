@@ -21,7 +21,7 @@ on:
   workflow_dispatch:
     inputs:
       max:
-        description: "通常は上限。動画パックは pack:<id>:<phase>:PUBLISH[:RELATED] / batch:<civil|concrete>:PUBLISH:<max>"
+        description: "通常は上限。動画パックは pack:<id>:<phase>:PUBLISH[:RELATED] / batch:<civil|concrete>:PUBLISH:<max> / batch:all:metadata:PUBLISH:<max>"
         required: false
       dry_run:
         description: "true で対象表示のみ（アップしない）"
@@ -132,22 +132,31 @@ jobs:
             confirm=PUBLISH
             batch_max=12
           else
-            IFS=':' read -r kind scope confirm batch_max <<EOF
+            IFS=':' read -r kind scope third fourth fifth <<EOF
           ${{ inputs.max }}
           EOF
-            if [ "$kind" != "batch" ] || { [ "$scope" != "civil" ] && [ "$scope" != "concrete" ]; } || [ "$confirm" != "PUBLISH" ]; then
-              echo "::error::max=batch:<civil|concrete>:PUBLISH:<max> が必要です"
+            if [ "$third" = "PUBLISH" ]; then
+              phase=longform
+              confirm="$third"
+              batch_max="$fourth"
+            else
+              phase="$third"
+              confirm="$fourth"
+              batch_max="$fifth"
+            fi
+            if [ "$kind" != "batch" ] || { [ "$scope" != "civil" ] && [ "$scope" != "concrete" ] && [ "$scope" != "all" ]; } || [ "$confirm" != "PUBLISH" ] || { [ "$phase" != "longform" ] && [ "$phase" != "metadata" ]; }; then
+              echo "::error::max=batch:<civil|concrete>:PUBLISH:<max> または batch:all:metadata:PUBLISH:<max> が必要です"
               exit 1
             fi
           fi
-          if [ "$scope" = "active" ]; then
+          if [ "$scope" = "active" ] || [ "$scope" = "all" ]; then
             exams=civil-construction-1,civil-construction-2,concrete-engineer,concrete-chief-engineer
           elif [ "$scope" = "concrete" ]; then
             exams=concrete-engineer,concrete-chief-engineer
           else
             exams=civil-construction-1,civil-construction-2
           fi
-          args=(--exam "$exams" --max "${batch_max:-20}")
+          args=(--exam "$exams" --phase "${phase:-longform}" --max "${batch_max:-20}")
           if [ "${{ inputs.dry_run }}" = "true" ]; then args+=(--dry-run); fi
           if [ "${{ inputs.skip_thumbnail }}" = "true" ]; then args+=(--skip-thumbnail); fi
           node .claude/scripts/youtube/publish-video-batch.cjs "${args[@]}" 2>&1 | tee /tmp/yt-post.log

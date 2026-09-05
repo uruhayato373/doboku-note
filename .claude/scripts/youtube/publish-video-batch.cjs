@@ -21,7 +21,7 @@ const max = Math.max(1, Number(arg('--max', '20')) || 20);
 const phase = arg('--phase', 'longform');
 const dry = process.argv.includes('--dry-run');
 const skipThumbnail = process.argv.includes('--skip-thumbnail');
-if (!['longform', 'thumbnail'].includes(phase)) throw new Error(`--phase は longform|thumbnail: ${phase}`);
+if (!['longform', 'metadata', 'thumbnail'].includes(phase)) throw new Error(`--phase は longform|metadata|thumbnail: ${phase}`);
 
 function walk(dir, out = []) {
   for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -42,7 +42,11 @@ function candidates() {
       const derivative = state.packs?.[manifest.packId]?.derivatives?.longform;
       const statusMatches = phase === 'longform'
         ? derivative?.status === 'rendered'
-        : ['scheduled', 'published'].includes(derivative?.status) && derivative?.thumbnailStatus === 'pending';
+        : phase === 'thumbnail'
+          ? ['scheduled', 'published'].includes(derivative?.status) && derivative?.thumbnailStatus === 'pending'
+          : ['scheduled', 'published'].includes(derivative?.status)
+            && derivative?.videoId
+            && derivative?.productionDisclosure !== 'author-led-ai-assisted';
       if (!exams.has(manifest.exam) || !statusMatches || !fs.existsSync(youtubePath)) return null;
       const youtube = JSON.parse(fs.readFileSync(youtubePath, 'utf8'));
       return { packId: manifest.packId, publishAt: youtube.longform?.publishAt };
@@ -113,7 +117,10 @@ async function main() {
   const unresolved = failed.filter(({ item }) => {
     const current = JSON.parse(fs.readFileSync(STATE_PATH, 'utf8'));
     const derivative = current.packs?.[item.packId]?.derivatives?.longform;
-    return phase === 'longform' ? derivative?.status !== 'scheduled' : derivative?.thumbnailStatus !== 'set';
+    if (phase === 'longform') return derivative?.status !== 'scheduled';
+    if (phase === 'thumbnail') return derivative?.thumbnailStatus !== 'set';
+    return derivative?.productionDisclosure !== 'author-led-ai-assisted'
+      || derivative?.containsSyntheticMedia !== false;
   });
   console.log(`\nbatch result: success=${succeeded} failed=${unresolved.length} remaining=${candidates().length}`);
   if (unresolved.length) process.exitCode = 1;
