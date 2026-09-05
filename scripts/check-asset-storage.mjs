@@ -245,7 +245,9 @@ function main() {
 
   if (fails.length) {
     console.error('[check-asset-storage] FAIL: 不整合 ' + fails.length + ' 件（WARN ' + warns.length + ' 件）');
-    process.exit(1);
+    // console.log 直後の process.exit はパイプ先で stdout が途中で切れる（--json が壊れる。memory: console-log-exit-truncates-json）
+    process.exitCode = 1;
+    return;
   }
   console.log('[check-asset-storage] ✓ 台帳・設定・ワークツリーの辻褄は合っている' + (warns.length ? '（WARN ' + warns.length + ' 件）' : ''));
 }
