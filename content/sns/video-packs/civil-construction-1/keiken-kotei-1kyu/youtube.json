@@ -22,5 +22,46 @@
     "sha256": "4ae4762788ee6073ddf87fae4881626344f2245914c05610a087da4248c2d7ab",
     "thumbnailSha256": "35e49cd358eb2c8edfda5728f81642292dac6e00e59243260549674378078996"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-three-factors-1",
+      "sceneId": "three-factors",
+      "title": "1級土木｜3つの外的要因を整理する #Shorts",
+      "description": "工程管理の対象として、天候不順、工事変更、使用機械の故障の3つが挙げられます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m150c9db08902?utm_source=youtube&utm_medium=video&utm_campaign=keiken-kotei-1kyu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-23T20:00:00+09:00",
+      "r2Key": "video/render/keiken-kotei-1kyu/shorts/point-three-factors-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-kotei-1kyu/shorts/point-three-factors-1/thumbnail.png",
+      "sha256": "1a86d83c48672449711ead01938192ffa6f238332e87d5355ed5543d737af454",
+      "thumbnailSha256": "ebe6c285b916c147488ac657dd32935fa8afdae486803adcf880d025327d6865"
+    },
+    {
+      "key": "point-prevent-in-advance-2",
+      "sceneId": "prevent-in-advance",
+      "title": "1級土木｜事前の検討を書く #Shorts",
+      "description": "土工事と杭工事が競合する工程では、施工順序を検討して安全性を確保しつつ工程短縮を図ります。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m150c9db08902?utm_source=youtube&utm_medium=video&utm_campaign=keiken-kotei-1kyu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-24T07:30:00+09:00",
+      "r2Key": "video/render/keiken-kotei-1kyu/shorts/point-prevent-in-advance-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-kotei-1kyu/shorts/point-prevent-in-advance-2/thumbnail.png",
+      "sha256": "ba22120a7b3bfe1d23855f265deb8df400e732a9640a74cd1040a73acae07986",
+      "thumbnailSha256": "5ef898cf1c049532674f0835d1c09570da85b34e26e2b82120f96762d5576382"
+    }
+  ]
 }

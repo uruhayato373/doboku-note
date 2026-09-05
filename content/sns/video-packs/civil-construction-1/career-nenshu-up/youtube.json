@@ -22,5 +22,46 @@
     "sha256": "e7a721d003fb1309c94073a88b39814d52ba2da7aaf68f974784419ad29873c1",
     "thumbnailSha256": "4fedf0ac628328af7d0342443ecaeed6ebf9d86b391b8c8c8c9c1b10f7869654"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "1級土木｜まず全体像を知る #Shorts",
+      "description": "土木施工管理技術者の年収は、年齢とともに段階的に上がり、50代前半でピークを迎える傾向があります。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=career-nenshu-up&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "施工管理",
+        "キャリア",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-21T20:00:00+09:00",
+      "r2Key": "video/render/career-nenshu-up/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/career-nenshu-up/shorts/point-step1-1/thumbnail.png",
+      "sha256": "5e10ed785e25eb075a178f6edb9ebd6d5fdb9a28e1c315430fb5d485194cfc3e",
+      "thumbnailSha256": "7e8d5323ca6b016968761cd62cc25946b0266621cbb07a7f046a947a53b363f9"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "1級土木｜年収を上げる4ルート #Shorts",
+      "description": "年収を上げる方法は4つ。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=career-nenshu-up&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "施工管理",
+        "キャリア",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-22T12:30:00+09:00",
+      "r2Key": "video/render/career-nenshu-up/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/career-nenshu-up/shorts/point-step2-2/thumbnail.png",
+      "sha256": "378e00befc67e703b3b0e064be92f11b78e3b6fbe23c3402c18f5219f1a8c918",
+      "thumbnailSha256": "21a8e8bfa45a8895542c2067546edb5501804718317100da7f5f999e4dfd3876"
+    }
+  ]
 }

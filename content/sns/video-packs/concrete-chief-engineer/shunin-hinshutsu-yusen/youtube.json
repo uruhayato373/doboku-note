@@ -22,5 +22,46 @@
     "sha256": "d3785f5d22b18929b4c6a686f16d048494d4179218066984c14c0c7d0208abb5",
     "thumbnailSha256": "3246b9557565d0496e8a83caeaad72f97973d229ec7e5fb259864498ea8b7dc3"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "コンクリート主任技士｜出題分野の全体像 #Shorts",
+      "description": "四肢択一は8分野が柱です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-hinshutsu-yusen&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-28T12:30:00+09:00",
+      "r2Key": "video/render/shunin-hinshutsu-yusen/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-hinshutsu-yusen/shorts/point-overview-1/thumbnail.png",
+      "sha256": "98e0d34ff25f8ed1cba2ce41e5033271f864493b56303b229bd53b758d7e7986",
+      "thumbnailSha256": "39efd186e9f4c4cdeb9771e52f46b1f7c55d4e82056bbdc58c0278dc8a687dc9"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "コンクリート主任技士｜定番項目を先に固める #Shorts",
+      "description": "用材料のセメント・骨材・混和材料、性質のフレッシュ・硬化コンクリート、耐久性の劣化機構は、いずれもほぼ毎年出る定番です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-hinshutsu-yusen&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-29T07:30:00+09:00",
+      "r2Key": "video/render/shunin-hinshutsu-yusen/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-hinshutsu-yusen/shorts/point-step1-2/thumbnail.png",
+      "sha256": "8e46a1380e27678d0618c6cc7b20b40d8165f198037a7ddde0ee08c9859741f1",
+      "thumbnailSha256": "a28a50152a73b4b54cdee33a8fac40c1b2406b3669eaf6691131b6eedc4fb409"
+    }
+  ]
 }

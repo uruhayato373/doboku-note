@@ -22,5 +22,46 @@
     "sha256": "70dfbf3c41cfd076de7dd4dacb082a4f511191061a400e24b3eaaff7e1e9666b",
     "thumbnailSha256": "a674d279887a1e5c5a91ecd88ac15674b1c32c73fbce078964f48c7f1c0dc4d8"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "1級土木｜全数検査が向く場面 #Shorts",
+      "description": "全数検査は、品物1個ずつすべてを検査する100%検査です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-hinshitsu-kensa&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-07T12:30:00+09:00",
+      "r2Key": "video/render/gakka-hinshitsu-kensa/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-hinshitsu-kensa/shorts/point-step1-1/thumbnail.png",
+      "sha256": "f226e8bb37f2a9a4dbca096628bcf0fd341c5c6b5749a4ccb40ff7205ed628e9",
+      "thumbnailSha256": "3e10b64fa41442ba1d6c86f039020be8f59226397495567e100d1b1418fbc467"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "1級土木｜抜取検査が向く場面とロット #Shorts",
+      "description": "抜取検査は、ロットから一部のサンプルを抜き取って試験し、その結果でロット全体の合否を判定します。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-hinshitsu-kensa&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-08T07:30:00+09:00",
+      "r2Key": "video/render/gakka-hinshitsu-kensa/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-hinshitsu-kensa/shorts/point-step2-2/thumbnail.png",
+      "sha256": "ea3a4648c8a2695533bd5faa7a1f1291d8e06915be3074a07ffce4520a2de5f5",
+      "thumbnailSha256": "c95d17562b37d0d19234c06bb73b30b7f635b3ccdc3a288539d860683ad8a3f2"
+    }
+  ]
 }

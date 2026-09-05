@@ -22,5 +22,46 @@
     "sha256": "0d7750c9ae98db8b3283c565371496cdaf5a7fdbd66144aeb735776ad6fbcc20",
     "thumbnailSha256": "df3ff450c8c63df8a6fd22ccdef1a6855b159bffa75f0338eb516182152c0613"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "1級土木｜ヒストグラムと工程能力図の違い #Shorts",
+      "description": "ヒストグラムは、品質特性値の区間ごとにデータ数を縦軸にとった柱状図で、分布の形状や規格値との関係がわかります。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-histogram&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-07T20:00:00+09:00",
+      "r2Key": "video/render/gakka-histogram/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-histogram/shorts/point-overview-1/thumbnail.png",
+      "sha256": "59a15d94ed70aefc2d07a9d436186403f05eb2ea97a4aa31f0424571a70eb593",
+      "thumbnailSha256": "8eaea7c651bbfd080e2a28904512d4d256c5cbe55eacecf8adaf73bbe6eed44b"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "1級土木｜分布形状の読み方 #Shorts",
+      "description": "理想はつり鐘型ですが、実際には規格内でもゆとりが少ない形、平均が下限側にずれて規格を割っている形、山が2つに分かれるふた山型など、いろいろな形が現れます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-histogram&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-08T12:30:00+09:00",
+      "r2Key": "video/render/gakka-histogram/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-histogram/shorts/point-step1-2/thumbnail.png",
+      "sha256": "9bf912ca473c14e614f66cf3971b0007051c9213c8d649f4c80037723a7daf42",
+      "thumbnailSha256": "d9b202feedfbf38da0b820539ed5690779ba561d164e6c9a0c336fa0aeedcd52"
+    }
+  ]
 }

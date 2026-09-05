@@ -22,5 +22,46 @@
     "sha256": "f960fcd4d6cb5ac85ba2ef4a238c7f31a078546d03c296f21cbbe1721c7f5c5e",
     "thumbnailSha256": "2cff3f7f683c7582958d679a603116ee56bee505e2e9f1339ba9a09d7f89a5ea"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-qc1-1",
+      "sceneId": "qc1",
+      "title": "コンクリート技士｜呼び方は品質条件を読み解く記号 #Shorts",
+      "description": "レディーミクストコンクリートの呼び方は、種類、呼び強度、スランプ、粗骨材最大寸法、セメント種類を組み合わせた記号です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=gishi-production-qc-ronten&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-04T12:30:00+09:00",
+      "r2Key": "video/render/gishi-production-qc-ronten/shorts/point-qc1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-production-qc-ronten/shorts/point-qc1-1/thumbnail.png",
+      "sha256": "aab197dc8af95f4f8ab477721d1d88597d1b10bb5601a970a2454ab9885a3fca",
+      "thumbnailSha256": "6fac074437d9f8211b74069298aab989c265f865a4726ba530875ed30dafa46a"
+    },
+    {
+      "key": "point-qc2-2",
+      "sceneId": "qc2",
+      "title": "コンクリート技士｜受入れ・計量は表面水がずれの元 #Shorts",
+      "description": "セメントは種類混同と湿気を避けて貯蔵し、骨材は粒径・種類別に区分します。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=gishi-production-qc-ronten&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-05T07:30:00+09:00",
+      "r2Key": "video/render/gishi-production-qc-ronten/shorts/point-qc2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-production-qc-ronten/shorts/point-qc2-2/thumbnail.png",
+      "sha256": "5087555bdcc507b8249370203c63b2d33d3963880665339fbaff640fb449a0f0",
+      "thumbnailSha256": "d634b5551f6fefce3a8eb0bc39f994b436f245177b354f7f02ab3953dd6acb2c"
+    }
+  ]
 }

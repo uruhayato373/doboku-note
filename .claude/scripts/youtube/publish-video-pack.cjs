@@ -414,7 +414,7 @@ async function main() {
     for (const item of publish.shorts) {
       const { videoId } = await upload(youtube, s3, uploadsPlaylistId, item, 'private');
       upsertDerivative(state, PACK_ID, 'shorts', {
-        key: item.key, status: 'scheduled', approvedBy: 'user', videoId,
+        key: item.key, status: 'uploaded_private', approvedBy: 'user', videoId,
         url: `https://www.youtube.com/watch?v=${videoId}`, uploadedAt: now,
         privacyStatus: 'private', relatedVideoId: null, desiredRelatedVideoId: relatedVideoId,
       });

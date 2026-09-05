@@ -22,5 +22,46 @@
     "sha256": "910f2f110d8da547786439543554a381a10810c7b9d30052fe0f3eeea3015eaa",
     "thumbnailSha256": "2be0b6e99fd46eb83854dc27d4f52b7ec5d4afa88c23b75573c4238539ade765"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "コンクリート主任技士｜つの締固め方法 #Shorts",
+      "description": "工場製品の締固め方法は、即時脱型、遠心力、ロール転圧、加圧の4つに整理できます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-products-ronten&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-11T12:30:00+09:00",
+      "r2Key": "video/render/shunin-products-ronten/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-products-ronten/shorts/point-overview-1/thumbnail.png",
+      "sha256": "b98bfa91b743c2b820827794fd04a60a9d0e37a6ad1dc088158f2d4392769cb7",
+      "thumbnailSha256": "c8dd536695d55bdedb4111b3c7540bdff15f5f630a73420a3217de084d409169"
+    },
+    {
+      "key": "point-method-match-2",
+      "sceneId": "method-match",
+      "title": "コンクリート主任技士｜方法と製品を対で覚える #Shorts",
+      "description": "即時脱型は超硬練りコンクリートに振動と圧力を同時に加え、直後に脱型する方法でブロックや平板向きです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-products-ronten&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-12T07:30:00+09:00",
+      "r2Key": "video/render/shunin-products-ronten/shorts/point-method-match-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-products-ronten/shorts/point-method-match-2/thumbnail.png",
+      "sha256": "773c03f181cd271e7c9bfcf82e0918440f7f086271f229f69c3c8dd64ad60603",
+      "thumbnailSha256": "0600ee287f2864b218af8974643be9d51a929d5e3145f528d3a02838cfb15dca"
+    }
+  ]
 }

@@ -22,5 +22,46 @@
     "sha256": "133da42b2b6df4288914b6ca0131d0861f212b10c9639a65d7197e618bbcdd1d",
     "thumbnailSha256": "f2ac05c55d2e523b77f9153ed55b5ab00cb272f94dc900b6e2ab6b0fcac05031"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-soft-ground-judge-1",
+      "sceneId": "soft-ground-judge",
+      "title": "1級土木｜軟弱地盤の判定目安 #Shorts",
+      "description": "最初は軟弱地盤の判定です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=kikinagashi-doko-suchi&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-25T12:30:00+09:00",
+      "r2Key": "video/render/kikinagashi-doko-suchi/shorts/point-soft-ground-judge-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/kikinagashi-doko-suchi/shorts/point-soft-ground-judge-1/thumbnail.png",
+      "sha256": "a47d98dea20494149ff19703e73e337a5d41376c6e380e9982e59a72e2b84626",
+      "thumbnailSha256": "2d8b7c846cacafa89f2d4e4b7c64d4b6d5fc2eca8a720a9f384f1cc653f87a06"
+    },
+    {
+      "key": "point-embankment-check-2",
+      "sceneId": "embankment-check",
+      "title": "1級土木｜安定性検討が必要な条件 #Shorts",
+      "description": "あわせて確認したいのが高盛土と液状化です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=kikinagashi-doko-suchi&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-26T07:30:00+09:00",
+      "r2Key": "video/render/kikinagashi-doko-suchi/shorts/point-embankment-check-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/kikinagashi-doko-suchi/shorts/point-embankment-check-2/thumbnail.png",
+      "sha256": "e28cd78769792e8d37159eeac715aa72eaca1ef9f8db0b7ea1133aafb47e7423",
+      "thumbnailSha256": "1055e5a3793a3743785e05ab2dfe226fe842a2fd0965647ea87f881df5ec151b"
+    }
+  ]
 }

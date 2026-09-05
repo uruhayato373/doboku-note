@@ -22,5 +22,46 @@
     "sha256": "389a0e4fc919e5c5e4d16491f37a3eda3eb9edef6ca164345ea005112974f406",
     "thumbnailSha256": "da7f56897b3c6c87b37aba34a27aa12c4237b1d3fe882646cae0f22ed8ceeacf"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "1級土木｜地山の掘削作業主任者と点検 #Shorts",
+      "description": "掘削面の高さが2メートル以上になる地山の掘削では、地山の掘削作業主任者を選任します。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-dodome-kussaku&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-05T12:30:00+09:00",
+      "r2Key": "video/render/gakka-dodome-kussaku/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-dodome-kussaku/shorts/point-step1-1/thumbnail.png",
+      "sha256": "af746c61dcadcec70ad0e3a4a4aaf5af4e175f12abba56d8b6f0b492a92ac399",
+      "thumbnailSha256": "cd06a29e3d4c4714b474fd2cabeeac7828b3e068c14ac03466c2e070312444a5"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "1級土木｜掘削面の勾配 #Shorts",
+      "description": "掘削面の勾配は、地山の種類と高さで決まります。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-dodome-kussaku&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-06T07:30:00+09:00",
+      "r2Key": "video/render/gakka-dodome-kussaku/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-dodome-kussaku/shorts/point-step2-2/thumbnail.png",
+      "sha256": "d295b9c01bbfee710f1f8fb215001aae79f8de57ddd14ad6ac2e51e6b02f261e",
+      "thumbnailSha256": "b6a8be469c17c611d26a21ebe77a9f8d7145dfd12ec829d1ce557f8f65c58fd2"
+    }
+  ]
 }

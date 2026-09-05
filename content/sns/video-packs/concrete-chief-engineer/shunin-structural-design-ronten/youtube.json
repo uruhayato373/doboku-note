@@ -22,5 +22,46 @@
     "sha256": "40d6222bd677fa1fe2a51dc8197e89ea5afc068c06da13151e9fe47b214cf3f6",
     "thumbnailSha256": "7531f6daccdfb2e5b3963fab5a0834ded2b97b85cb4c8022cd407c59086e01bc"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-bending-assumptions-1",
+      "sceneId": "bending-assumptions",
+      "title": "コンクリート主任技士｜曲げ耐力の4つの仮定 #Shorts",
+      "description": "曲げ耐力の計算には4つの仮定があります。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-structural-design-ronten&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-13T12:30:00+09:00",
+      "r2Key": "video/render/shunin-structural-design-ronten/shorts/point-bending-assumptions-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-structural-design-ronten/shorts/point-bending-assumptions-1/thumbnail.png",
+      "sha256": "e930015b5839955e9109cce748a69e2198f0321050ea4a99005ff6a337b18ec5",
+      "thumbnailSha256": "d786c01cf1d30a5e81e31cb0c8148cd170a9b5011f01aa8601ae628390e9c139"
+    },
+    {
+      "key": "point-shear-capacity-2",
+      "sceneId": "shear-capacity",
+      "title": "コンクリート主任技士｜せん断耐力と設計方針 #Shorts",
+      "description": "せん断耐力は、コンクリートが負担する分とせん断補強筋が負担する分の合計です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-structural-design-ronten&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-14T07:30:00+09:00",
+      "r2Key": "video/render/shunin-structural-design-ronten/shorts/point-shear-capacity-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-structural-design-ronten/shorts/point-shear-capacity-2/thumbnail.png",
+      "sha256": "7dae77ff852a178f8a24e2a6a0a22c0e7cfd75a535b06616b5ff22d0a82a6bf9",
+      "thumbnailSha256": "9347435000d8142da2f2ad809a8515e9e3056961c6028f8a1a31817314039a7b"
+    }
+  ]
 }

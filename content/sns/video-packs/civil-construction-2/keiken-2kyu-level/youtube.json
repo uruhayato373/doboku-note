@@ -22,5 +22,46 @@
     "sha256": "e36036b5a56844fc9e91c45d14500b9c7d8b5d8c8549413890ea9dbe813984bb",
     "thumbnailSha256": "d4dc78e140aa3e55587d2d0b30751dcaa3b80a8be96039874774fb91b2d5d190"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-level-1",
+      "sceneId": "level",
+      "title": "2級土木｜求められるのは主任技術者レベルの管理 #Shorts",
+      "description": "評価されるのは、主任技術者や現場代理人、現場監督といった立場で、現場を適切に管理できているかです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://coconala.com/services/4317349?utm_source=youtube&utm_medium=video&utm_campaign=keiken-2kyu-level&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-19T12:30:00+09:00",
+      "r2Key": "video/render/keiken-2kyu-level/shorts/point-level-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-2kyu-level/shorts/point-level-1/thumbnail.png",
+      "sha256": "35f7ade84f02b6788cb5359fbbbb26f0b14737de15ef2a446350b69d4b5b9c54",
+      "thumbnailSha256": "a91ccd21b1548fbcb57fec296a06524dea0aadf507c6161b2aa370c5803b600e"
+    },
+    {
+      "key": "point-kata-2",
+      "sceneId": "kata",
+      "title": "2級土木｜評価される型 #Shorts",
+      "description": "書き方の型はシンプルです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://coconala.com/services/4317349?utm_source=youtube&utm_medium=video&utm_campaign=keiken-2kyu-level&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-20T07:30:00+09:00",
+      "r2Key": "video/render/keiken-2kyu-level/shorts/point-kata-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-2kyu-level/shorts/point-kata-2/thumbnail.png",
+      "sha256": "9d4506331fa59727928476f3196dfd3f6ff9870fd00b6e0c9a5105dbb2e01201",
+      "thumbnailSha256": "ec14527502c6409dc904b90ce621dcbd090b4bc348ce5e697c1fdf2b86b940ea"
+    }
+  ]
 }

@@ -22,5 +22,46 @@
     "sha256": "fb4ff667297ae895133f8b566d159335e1c02e7cff03ae9582e3f0e94ec70c73",
     "thumbnailSha256": "b476088cab8445af7cd9bc94300e9f09e51523257ed4859007b380f0db944d65"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "2級土木｜コンクリートの4テーマ #Shorts",
+      "description": "扱うのは4テーマ。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n4963f45bd6f8?utm_source=youtube&utm_medium=video&utm_campaign=gakka-2kyu-concrete&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-11T12:30:00+09:00",
+      "r2Key": "video/render/gakka-2kyu-concrete/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-2kyu-concrete/shorts/point-overview-1/thumbnail.png",
+      "sha256": "c12a708a2c40b934503bf13d16e79b68e9df93ce4bb8885d3e115db4b10b2456",
+      "thumbnailSha256": "61232f1370303c606cf618b5d714aa9a173a9a694a5d942066c0db4c25512c37"
+    },
+    {
+      "key": "point-block1-2",
+      "sceneId": "block1",
+      "title": "2級土木｜混和剤と混和材を区別する #Shorts",
+      "description": "まず材料です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n4963f45bd6f8?utm_source=youtube&utm_medium=video&utm_campaign=gakka-2kyu-concrete&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-12T07:30:00+09:00",
+      "r2Key": "video/render/gakka-2kyu-concrete/shorts/point-block1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-2kyu-concrete/shorts/point-block1-2/thumbnail.png",
+      "sha256": "835635f22d1b417a71b0576591a8e9ad589d44bde03b759889ff2bc42aa3b4bc",
+      "thumbnailSha256": "666fb4797227705ba547d62a6c1cd492c23dffcf454fd36cc37edb389db211af"
+    }
+  ]
 }

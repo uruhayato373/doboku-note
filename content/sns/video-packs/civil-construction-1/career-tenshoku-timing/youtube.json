@@ -22,5 +22,46 @@
     "sha256": "821ffc52db6b1b29bcf75beb430516f81a03d3c2c90609c81881259664477a1c",
     "thumbnailSha256": "13fb1a7e7b10f1e5fcd3ee327f7a9dc105e0537121cd5e1524c79e6547959d64"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "1級土木｜現場の切れ目で動く #Shorts",
+      "description": "一番動きやすいのは現場の切れ目です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=career-tenshoku-timing&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "施工管理",
+        "キャリア",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-22T20:00:00+09:00",
+      "r2Key": "video/render/career-tenshoku-timing/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/career-tenshoku-timing/shorts/point-step1-1/thumbnail.png",
+      "sha256": "a544b8956f148389707d959e4cf836c11f1037ea810615314c7f2a82f3d89eef",
+      "thumbnailSha256": "28b9e3809a0aa10e5f7940c0b140d8aba1235e55fb72220ff53e487c36d55810"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "1級土木｜資格取得前か後か #Shorts",
+      "description": "資格取得前か後か。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=career-tenshoku-timing&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "施工管理",
+        "キャリア",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-23T07:30:00+09:00",
+      "r2Key": "video/render/career-tenshoku-timing/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/career-tenshoku-timing/shorts/point-step2-2/thumbnail.png",
+      "sha256": "0741292daf39e995f298f6a0173806a271b633e7240b389ad027cb81fa7016a6",
+      "thumbnailSha256": "5a53266ab1cf718ec5dc7246d0bf93b663f54b96c887f69a02f5ab93e6afcc6b"
+    }
+  ]
 }

@@ -21,7 +21,9 @@ const max = Math.max(1, Number(arg('--max', '20')) || 20);
 const phase = arg('--phase', 'longform');
 const dry = process.argv.includes('--dry-run');
 const skipThumbnail = process.argv.includes('--skip-thumbnail');
-if (!['longform', 'metadata', 'thumbnail'].includes(phase)) throw new Error(`--phase は longform|metadata|thumbnail: ${phase}`);
+if (!['longform', 'metadata', 'thumbnail', 'shorts-upload'].includes(phase)) {
+  throw new Error(`--phase は longform|metadata|thumbnail|shorts-upload: ${phase}`);
+}
 
 function walk(dir, out = []) {
   for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -40,7 +42,14 @@ function candidates() {
       const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
       const youtubePath = path.join(dir, 'youtube.json');
       const derivative = state.packs?.[manifest.packId]?.derivatives?.longform;
-      const statusMatches = phase === 'longform'
+      const youtube = fs.existsSync(youtubePath) ? JSON.parse(fs.readFileSync(youtubePath, 'utf8')) : null;
+      const currentShorts = state.packs?.[manifest.packId]?.derivatives?.shorts ?? [];
+      const statusMatches = phase === 'shorts-upload'
+        ? ['scheduled', 'published'].includes(derivative?.status)
+          && derivative?.videoId
+          && (youtube?.shorts?.length ?? 0) > 0
+          && youtube.shorts.some((item) => !currentShorts.some((entry) => entry.key === item.key && entry.videoId))
+        : phase === 'longform'
         ? derivative?.status === 'rendered'
         : phase === 'thumbnail'
           ? ['scheduled', 'published'].includes(derivative?.status) && derivative?.thumbnailStatus === 'pending'
@@ -48,7 +57,6 @@ function candidates() {
             && derivative?.videoId
             && derivative?.productionDisclosure !== 'author-led-ai-assisted';
       if (!exams.has(manifest.exam) || !statusMatches || !fs.existsSync(youtubePath)) return null;
-      const youtube = JSON.parse(fs.readFileSync(youtubePath, 'utf8'));
       return { packId: manifest.packId, publishAt: youtube.longform?.publishAt };
     })
     .filter(Boolean)
@@ -58,7 +66,7 @@ function candidates() {
 
 function runPack(item) {
   const args = [path.join(__dirname, 'publish-video-pack.cjs'), '--pack-id', item.packId, '--phase', phase];
-  if (skipThumbnail && phase === 'longform') args.push('--skip-thumbnail');
+  if (skipThumbnail && ['longform', 'shorts-upload'].includes(phase)) args.push('--skip-thumbnail');
   const result = spawnSync(process.execPath, args, {
     cwd: ROOT, env: process.env, encoding: 'utf8', maxBuffer: 20 * 1024 * 1024,
   });
@@ -119,11 +127,25 @@ async function main() {
     const derivative = current.packs?.[item.packId]?.derivatives?.longform;
     if (phase === 'longform') return derivative?.status !== 'scheduled';
     if (phase === 'thumbnail') return derivative?.thumbnailStatus !== 'set';
+    if (phase === 'shorts-upload') {
+      const pack = findPackYoutube(item.packId);
+      const actual = current.packs?.[item.packId]?.derivatives?.shorts ?? [];
+      return pack.shorts.some((short) => !actual.some((entry) => entry.key === short.key && entry.videoId));
+    }
     return derivative?.productionDisclosure !== 'author-led-ai-assisted'
       || derivative?.containsSyntheticMedia !== false;
   });
   console.log(`\nbatch result: success=${succeeded} failed=${unresolved.length} remaining=${candidates().length}`);
   if (unresolved.length) process.exitCode = 1;
+}
+
+function findPackYoutube(packId) {
+  for (const manifestPath of walk(PACKS_ROOT)) {
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    if (manifest.packId !== packId) continue;
+    return JSON.parse(fs.readFileSync(path.join(path.dirname(manifestPath), 'youtube.json'), 'utf8'));
+  }
+  throw new Error(`packId がありません: ${packId}`);
 }
 
 main().catch((error) => {

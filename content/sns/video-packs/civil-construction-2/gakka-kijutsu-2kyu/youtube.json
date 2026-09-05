@@ -22,5 +22,46 @@
     "sha256": "33b65d34b10ad3ba0ddaef0b7f2f42fef2f7a283d7a54a714007642180e111a0",
     "thumbnailSha256": "fc2cdb27dce2620100bcfca6aff1a4a9b23ec7623f2333979bbb2666953a9f2a"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-fields-1",
+      "sceneId": "fields",
+      "title": "2級土木｜出る分野は毎年ほぼ同じ #Shorts",
+      "description": "土工、コンクリート工、品質管理、安全管理、工程管理、施工計画・環境対策。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m9a09a8982734?utm_source=youtube&utm_medium=video&utm_campaign=gakka-kijutsu-2kyu&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-18T12:30:00+09:00",
+      "r2Key": "video/render/gakka-kijutsu-2kyu/shorts/point-fields-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-kijutsu-2kyu/shorts/point-fields-1/thumbnail.png",
+      "sha256": "46db798068513a23000a319f64b8070de51e403e5e00a76e27ba7e14cb8bcc70",
+      "thumbnailSha256": "c9b1263732b0d3005d38473646a5ea29230bf581649c617bef0ebad825d20cf1"
+    },
+    {
+      "key": "point-pattern1-2",
+      "sceneId": "pattern1",
+      "title": "2級土木｜解答の型1 穴埋め #Shorts",
+      "description": "型その1は穴埋めです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m9a09a8982734?utm_source=youtube&utm_medium=video&utm_campaign=gakka-kijutsu-2kyu&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-19T07:30:00+09:00",
+      "r2Key": "video/render/gakka-kijutsu-2kyu/shorts/point-pattern1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-kijutsu-2kyu/shorts/point-pattern1-2/thumbnail.png",
+      "sha256": "c92eafe81a78a3aeaa75b8e1336870f43133e452b94b52a0f79306848020a7ff",
+      "thumbnailSha256": "ca735156967bd4c2d392c914fd4ca09058d9bc241c36779688a57b55ef804061"
+    }
+  ]
 }

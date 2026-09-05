@@ -22,5 +22,46 @@
     "sha256": "9b9a56cce34060192153ca12a6d7dc5ab49e3ba9b012ae38192305a0bef016c1",
     "thumbnailSha256": "ee4b36bf66733ea4bc253d632f39bbf2374d255965f3a36dd5a0a43cd4a15b40"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-consistency-1",
+      "sceneId": "consistency",
+      "title": "コンクリート主任技士｜コンシステンシーと測定単位 #Shorts",
+      "description": "コンシステンシーはスランプ試験で測ります。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-properties-ronten&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-01T12:30:00+09:00",
+      "r2Key": "video/render/shunin-properties-ronten/shorts/point-consistency-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-properties-ronten/shorts/point-consistency-1/thumbnail.png",
+      "sha256": "364cb6ad5463ec7823e45dbd2e765b0da144ab1ccbe6fe4bf3e5dd3d229b4657",
+      "thumbnailSha256": "3b7bbbefe456f6e42e20fed5d0cf1c0459832c32e0e2f425d169b1c2037560f3"
+    },
+    {
+      "key": "point-bingham-2",
+      "sceneId": "bingham",
+      "title": "コンクリート主任技士｜ビンガム流体の2パラメータ #Shorts",
+      "description": "フレッシュコンクリートはビンガム流体で近似されます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-properties-ronten&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-02T07:30:00+09:00",
+      "r2Key": "video/render/shunin-properties-ronten/shorts/point-bingham-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-properties-ronten/shorts/point-bingham-2/thumbnail.png",
+      "sha256": "79c592de250db76cd57dde5d58a6c2e1a6c26296d1dd160b0d8e0d6a3afd051e",
+      "thumbnailSha256": "1e664c9dd93fb0c5e0998b31b73d32dc0ef6a07b7cf46a6c1c2a3dd1a9514ab7"
+    }
+  ]
 }

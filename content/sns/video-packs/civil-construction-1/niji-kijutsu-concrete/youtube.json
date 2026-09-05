@@ -22,5 +22,46 @@
     "sha256": "186dfa74cd668fbb831b36fb9e09fcca93914814035f42e4a25e98503870e817",
     "thumbnailSha256": "0d60eb4cc245849f7ad05c3c43e1130057bd268e64d0df532d84e1e52bf7eb90"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overlap-time-1",
+      "sceneId": "overlap-time",
+      "title": "1級土木｜打重ね時間の限度 #Shorts",
+      "description": "まず打重ね時間です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/mcfe1059b3335?utm_source=youtube&utm_medium=video&utm_campaign=niji-kijutsu-concrete&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-26T12:30:00+09:00",
+      "r2Key": "video/render/niji-kijutsu-concrete/shorts/point-overlap-time-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/niji-kijutsu-concrete/shorts/point-overlap-time-1/thumbnail.png",
+      "sha256": "f5552b0228aaedb48b784433298eed6871493ef89b60ebbd9106343284931ddf",
+      "thumbnailSha256": "695742074da8d68d9baa4ac009f8248a6c7d0950a2256dba99265d2480588571"
+    },
+    {
+      "key": "point-vibration-2",
+      "sceneId": "vibration",
+      "title": "1級土木｜締固めの操作手順 #Shorts",
+      "description": "締固めは、棒状バイブレータを下層に10センチメートル程度挿入し、鉛直に、ゆっくり引き抜きます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/mcfe1059b3335?utm_source=youtube&utm_medium=video&utm_campaign=niji-kijutsu-concrete&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-27T07:30:00+09:00",
+      "r2Key": "video/render/niji-kijutsu-concrete/shorts/point-vibration-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/niji-kijutsu-concrete/shorts/point-vibration-2/thumbnail.png",
+      "sha256": "16974303b1aa94b1f2331c48fe794078ebfd066bbfddafd14390e7d5561587cb",
+      "thumbnailSha256": "304b6738108c7c3179920327cc7311dd9519d6da7385548e288e7e502fa190c8"
+    }
+  ]
 }

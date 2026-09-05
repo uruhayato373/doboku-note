@@ -22,5 +22,46 @@
     "sha256": "1da937e24f626ec076173bc9b4b5a7a8bb555a491e307e9faa6295cb184a576f",
     "thumbnailSha256": "eae72440a8e95c46dd74b536f545a6200dea01904725efd244f489d80e59de7e"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-taisai-1",
+      "sceneId": "taisai",
+      "title": "2級土木｜体裁で削られる #Shorts",
+      "description": "字が乱雑で読めない、大きさが揃わずはみ出している答案は、内容以前に評価されません。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://coconala.com/services/4317349?utm_source=youtube&utm_medium=video&utm_campaign=keiken-genten-kyotsuten&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "施工経験記述",
+        "答案診断",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-21T12:30:00+09:00",
+      "r2Key": "video/render/keiken-genten-kyotsuten/shorts/point-taisai-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-genten-kyotsuten/shorts/point-taisai-1/thumbnail.png",
+      "sha256": "55a93a864eff6091a9636240f8c1b44fb2bed68a89b1eb6f4074eb04917475e8",
+      "thumbnailSha256": "7eb2629e61df82b17f3c33f80fc96ed348266627b396922a4da1e99523629a93"
+    },
+    {
+      "key": "point-kaigyo-2",
+      "sceneId": "kaigyo",
+      "title": "2級土木｜不自然な改行は逆効果 #Shorts",
+      "description": "行数を稼ごうとして行末を空けたまま改行する、不自然なタイミングの改行も見抜かれます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://coconala.com/services/4317349?utm_source=youtube&utm_medium=video&utm_campaign=keiken-genten-kyotsuten&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "施工経験記述",
+        "答案診断",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-22T07:30:00+09:00",
+      "r2Key": "video/render/keiken-genten-kyotsuten/shorts/point-kaigyo-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-genten-kyotsuten/shorts/point-kaigyo-2/thumbnail.png",
+      "sha256": "394a8e78a525a57174f62c48953737ff07b9283469f0876d7ddb384be7a826e1",
+      "thumbnailSha256": "0a1ef1bf2cf9f5921b76ab2068e4e1197d80862494bd86e3402275e62c9143b1"
+    }
+  ]
 }

@@ -22,5 +22,46 @@
     "sha256": "93eecae270cfe80005b23d2910a862b908de156680a54504ad2c8d0a275f7c75",
     "thumbnailSha256": "d5ec5b149f0c704649fdda557abe545d63b588c8ec67e65bcf2b43e8a7c7ddfd"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "1級土木｜横線式① バーチャート #Shorts",
+      "description": "バーチャートは、各作業の所要日数や進捗が直感的にわかり、作成も修正も容易です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-kotei-kanri-kiso&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-12T20:00:00+09:00",
+      "r2Key": "video/render/gakka-kotei-kanri-kiso/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-kotei-kanri-kiso/shorts/point-step1-1/thumbnail.png",
+      "sha256": "2cc793fe241f287d1981d989797baed7d7d7b463bac5e50db97cab5c133a3c8a",
+      "thumbnailSha256": "3f43a5e4293f9598227c5a525e94c7571419c4893d7b75c7dbcd379f6541b70c"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "1級土木｜横線式② ガントチャート #Shorts",
+      "description": "ガントチャートは、横軸に達成度をとり、各作業の現時点での進捗度合がよくわかります。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-kotei-kanri-kiso&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-13T07:30:00+09:00",
+      "r2Key": "video/render/gakka-kotei-kanri-kiso/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-kotei-kanri-kiso/shorts/point-step2-2/thumbnail.png",
+      "sha256": "f842e0021b10f3b9b9fec1fe1e1640e33a7ef7e6b14df19221a512154f4cf793",
+      "thumbnailSha256": "308b3cca54bf86da5cc95d6dd4f74c2cad7ea684608d5eaf47a19c767ec3b079"
+    }
+  ]
 }

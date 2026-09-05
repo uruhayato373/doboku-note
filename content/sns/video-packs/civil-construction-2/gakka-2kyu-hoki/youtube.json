@@ -22,5 +22,46 @@
     "sha256": "b3468567919eb4f7ff2bd3e70c7ac9050125854f04dc8fcf22ec84a955394f97",
     "thumbnailSha256": "f8fd2ab08c3c0edba76dbb532010f9f0b774ec16064fafb0010072ae6694923e"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "2級土木｜法規の4つの柱 #Shorts",
+      "description": "扱うのは4つ。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n4963f45bd6f8?utm_source=youtube&utm_medium=video&utm_campaign=gakka-2kyu-hoki&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-17T12:30:00+09:00",
+      "r2Key": "video/render/gakka-2kyu-hoki/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-2kyu-hoki/shorts/point-overview-1/thumbnail.png",
+      "sha256": "cb4c09faba02282d478fd8b33e8f09798bb5bebdb5ac8ced3602a1a56dbd4e2c",
+      "thumbnailSha256": "d7ae17be9bb7338b0190b713b3d3e683b0a08245a0b5f7f64f5bd424a4279a33"
+    },
+    {
+      "key": "point-block1-2",
+      "sceneId": "block1",
+      "title": "2級土木｜労働基準法は数字で覚える #Shorts",
+      "description": "労働基準法は数字で覚えます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n4963f45bd6f8?utm_source=youtube&utm_medium=video&utm_campaign=gakka-2kyu-hoki&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-18T07:30:00+09:00",
+      "r2Key": "video/render/gakka-2kyu-hoki/shorts/point-block1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-2kyu-hoki/shorts/point-block1-2/thumbnail.png",
+      "sha256": "3f504e3b7f6bfb8130a52a8e99fe0586248a2ee50a30e64123d3c6a9d2244298",
+      "thumbnailSha256": "516fe913792c591ff4facbfa452cec6505a2956d04b5750b4b7399d7e757ab52"
+    }
+  ]
 }

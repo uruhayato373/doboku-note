@@ -22,5 +22,46 @@
     "sha256": "103355e1005f2b50f72fda75c948864a1ce871d206aa03dab7d6ff7a775a2ec7",
     "thumbnailSha256": "efa190f4f29e4514206faf7976ed7d69ef522a60cad57ceb3e5f3230e4443a71"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-general-1",
+      "sceneId": "general",
+      "title": "1級土木｜一般論で終わっている答案 #Shorts",
+      "description": "1つ目は、一般論で終わっている答案です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://coconala.com/services/4317375?utm_source=youtube&utm_medium=video&utm_campaign=keiken-kaizen-example&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-29T20:00:00+09:00",
+      "r2Key": "video/render/keiken-kaizen-example/shorts/point-general-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-kaizen-example/shorts/point-general-1/thumbnail.png",
+      "sha256": "2813bc9b421be59c3794c0243a7d3e4ff24b516de3a7f0655b1d924c6aeebfe3",
+      "thumbnailSha256": "a7804f9782f154c9dd37f4383b4fb64fe117953e1107acb03967ab5498068289"
+    },
+    {
+      "key": "point-reasoning-2",
+      "sceneId": "reasoning",
+      "title": "1級土木｜検討理由が項目ごとにない #Shorts",
+      "description": "2つ目は、検討理由が項目ごとに書かれていない答案です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://coconala.com/services/4317375?utm_source=youtube&utm_medium=video&utm_campaign=keiken-kaizen-example&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-30T12:30:00+09:00",
+      "r2Key": "video/render/keiken-kaizen-example/shorts/point-reasoning-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-kaizen-example/shorts/point-reasoning-2/thumbnail.png",
+      "sha256": "beeaf867060da92e1088753ce9088770711beb63f4002f2e436d50da4e1c5997",
+      "thumbnailSha256": "956b0cc3f8cf973b6db7d4f7f02caaa9571a718350c2141fbd1615e68a29f25e"
+    }
+  ]
 }

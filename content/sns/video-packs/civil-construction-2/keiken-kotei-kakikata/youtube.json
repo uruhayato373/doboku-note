@@ -22,5 +22,46 @@
     "sha256": "bfd39a1e71b95b1765c06457cdb65399e96125e5c1629317f085f94baa8f1ea6",
     "thumbnailSha256": "9f4e43e3fe3ec87ab2f47a780423b10adcb26ac37d5b79c0850567ba8df292b0"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-nagare-1",
+      "sceneId": "nagare",
+      "title": "2級土木｜工程管理も5要素の流れ #Shorts",
+      "description": "工程管理も流れは共通です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m1881a9578027?utm_source=youtube&utm_medium=video&utm_campaign=keiken-kotei-kakikata&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-16T12:30:00+09:00",
+      "r2Key": "video/render/keiken-kotei-kakikata/shorts/point-nagare-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-kotei-kakikata/shorts/point-nagare-1/thumbnail.png",
+      "sha256": "10133108fe0c9667fd90c48233f7b5e9ce4bb27e5bda1ee9e390e0fb44404716",
+      "thumbnailSha256": "28448c9b89daf6cc21d903611eb2b55b9148ff5ea60758c5727b28e7de6c677e"
+    },
+    {
+      "key": "point-tenko-2",
+      "sceneId": "tenko",
+      "title": "2級土木｜型① 天候による遅れ #Shorts",
+      "description": "梅雨や台風で作業が遅れる課題には、休工日を見込んだネットワーク工程表を作成し、進捗を確認しながら遅延工程をフォローアップする、という型が使えます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m1881a9578027?utm_source=youtube&utm_medium=video&utm_campaign=keiken-kotei-kakikata&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-17T07:30:00+09:00",
+      "r2Key": "video/render/keiken-kotei-kakikata/shorts/point-tenko-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-kotei-kakikata/shorts/point-tenko-2/thumbnail.png",
+      "sha256": "b7fa9fc3896fce05615573a6a97eeb9b9b0e2306c7df583ef62973cd09aae923",
+      "thumbnailSha256": "ee0caeb7d5777a11131859ebab64b5f9aef15b7d1924cff23d240e4d6da5867f"
+    }
+  ]
 }

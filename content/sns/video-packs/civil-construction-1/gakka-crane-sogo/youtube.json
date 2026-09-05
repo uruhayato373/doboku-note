@@ -22,5 +22,46 @@
     "sha256": "2143e7f827651c1daa32f9f5f5b72df5889e7e4701d189ccf7c4139dee5025a1",
     "thumbnailSha256": "3f5f7013621bf086266d6944f7347f3030c646ceafc151d7b31469c3d6cd8898"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "1級土木｜移動式クレーンの種類 #Shorts",
+      "description": "移動式クレーンは、走破性が高いクローラ、機動性は高いが軟弱地盤に弱いトラック、両方を両立するオールテレーン、狭あい地に強いラフテレーン、貨物運搬も兼ねる積載型に大別されます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-crane-sogo&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-04T20:00:00+09:00",
+      "r2Key": "video/render/gakka-crane-sogo/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-crane-sogo/shorts/point-overview-1/thumbnail.png",
+      "sha256": "f9dbf1f65a5b6ddb62072755245ca7ca21f1746dfadf4f16032f19989f8b35fe",
+      "thumbnailSha256": "081db7cc1baba614a26550d9d62fe363b8a4678f4c16defa9a85d7ec48c317b6"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "1級土木｜定格総荷重と定格荷重 #Shorts",
+      "description": "定格総荷重は、各作業半径でつることができる最大の荷重で、フックなどのつり具の質量を含みます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-crane-sogo&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-05T07:30:00+09:00",
+      "r2Key": "video/render/gakka-crane-sogo/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-crane-sogo/shorts/point-step1-2/thumbnail.png",
+      "sha256": "196e2742847e956a5ed6ab8faadddebcc85349d590507a0cf30c15164ff14711",
+      "thumbnailSha256": "c7e59cfb6941e1f3cf78cf8d7290d236cb99eeef2cde6317c45998e4f363159f"
+    }
+  ]
 }

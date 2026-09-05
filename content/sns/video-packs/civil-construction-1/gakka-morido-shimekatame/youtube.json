@@ -22,5 +22,46 @@
     "sha256": "11a3c2c22158d1101366d008f8a240c34c6529b630427bbf6bc998c67fef54f4",
     "thumbnailSha256": "d309a856be927359b4c0688a35454f50a841a129bcd91d7825ac54eb5c5e17ff"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "1級土木｜基礎地盤の処理と軟弱地盤の目安 #Shorts",
+      "description": "基礎地盤の処理は、なじみをよくする、初期の締固めを円滑にする、支持力を増加させる、有機物腐食による沈下を防ぐ、の4つが目的です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-morido-shimekatame&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-13T20:00:00+09:00",
+      "r2Key": "video/render/gakka-morido-shimekatame/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-morido-shimekatame/shorts/point-overview-1/thumbnail.png",
+      "sha256": "b527565a48856bc36a82369069d5d2a4aa15eaedc57fe480105e39aab844420f",
+      "thumbnailSha256": "1b00592ae5f8c920a0209f2d24f10531c17c71ed49a4eeded1fbaa735dc3cf64"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "1級土木｜敷均し厚さと仕上り厚さ #Shorts",
+      "description": "「敷いたときの厚さ」と「締め固めた後の厚さ」は別の数値です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-morido-shimekatame&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-14T12:30:00+09:00",
+      "r2Key": "video/render/gakka-morido-shimekatame/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-morido-shimekatame/shorts/point-step1-2/thumbnail.png",
+      "sha256": "45c76210192a01ab927d660db98906240053b2bc8b4fb3e125529d277cb2a0da",
+      "thumbnailSha256": "7efd05f7f2cd36074347c96bc6e393486e5dc93a8eb7cf07506f2970ebcc21f9"
+    }
+  ]
 }

@@ -22,5 +22,46 @@
     "sha256": "72fb13c4a4f157569be569821d971bba265f2a306aea47636eacfe34ca562fd9",
     "thumbnailSha256": "c22092b10df0a25c30de49820965030a48c3b896f1edd89fce7ab2659e399845"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "コンクリート技士｜計算前に3つをそろえる #Shorts",
+      "description": "基準は1立方メートル、1000リットル。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=gishi-haigou-keisan&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "勉強法",
+        "答案の書き方",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-10T12:30:00+09:00",
+      "r2Key": "video/render/gishi-haigou-keisan/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-haigou-keisan/shorts/point-step1-1/thumbnail.png",
+      "sha256": "d0007818ef89cfebdc1ae55d01260b32e0bb6188f146a16b96c2bb79c5a4c5a5",
+      "thumbnailSha256": "e79fc63bbc70bcc11290c9e7bd6dfd2040eb10f81d68a2d33a33fd34f4aa61cd"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "コンクリート技士｜単位セメント量は「水÷水セメント比」… #Shorts",
+      "description": "単位セメント量Cは、単位水量Wを水セメント比W/Cで割ります。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=gishi-haigou-keisan&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "勉強法",
+        "答案の書き方",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-11T07:30:00+09:00",
+      "r2Key": "video/render/gishi-haigou-keisan/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-haigou-keisan/shorts/point-step2-2/thumbnail.png",
+      "sha256": "b4eac27e10b4eca327c58015808842ead0702c7687da7bb21fabbfc808beff2e",
+      "thumbnailSha256": "277e10e36d465067423cae3ed050adda968375cc506ca6da4274cb6d54d65824"
+    }
+  ]
 }

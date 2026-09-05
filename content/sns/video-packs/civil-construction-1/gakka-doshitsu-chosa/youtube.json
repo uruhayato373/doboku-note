@@ -22,5 +22,46 @@
     "sha256": "d5d08b54518d014f832efd64f9f5e67a72f9b45fd3bf0ae72e107dc3e327dfa3",
     "thumbnailSha256": "eaba8f02d090991e4bbdc0e36d6da97094491cd36c3655925146e1464124cd06"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-genri-1",
+      "sceneId": "genri",
+      "title": "1級土木｜原位置試験と室内試験の違い #Shorts",
+      "description": "原位置試験は、土をサンプリングせず地盤の中で直接調べる試験です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-doshitsu-chosa&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-05T20:00:00+09:00",
+      "r2Key": "video/render/gakka-doshitsu-chosa/shorts/point-genri-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-doshitsu-chosa/shorts/point-genri-1/thumbnail.png",
+      "sha256": "232d1aa0ddc9c7102c705cc55519277c364486d1f2803c864737ff9412954f19",
+      "thumbnailSha256": "11fb099951c2bf230a5466c30034b3ce723b72c0a2273621ae5da77b7f61ee5b"
+    },
+    {
+      "key": "point-gyakubiki-2",
+      "sceneId": "gyakubiki",
+      "title": "1級土木｜知りたい値→試験名 #Shorts",
+      "description": "土の硬軟を知りたいなら標準貫入試験でエヌ値です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-doshitsu-chosa&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-06T12:30:00+09:00",
+      "r2Key": "video/render/gakka-doshitsu-chosa/shorts/point-gyakubiki-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-doshitsu-chosa/shorts/point-gyakubiki-2/thumbnail.png",
+      "sha256": "5c5f10148b05a64e1c90f1aeaa7c42c99e49fc0bd2c8a7f18302e62e70bd6c40",
+      "thumbnailSha256": "4b1bababf947e6485299328b4a2cb5ee0ed5ba78764f64ec3489caf2979509d7"
+    }
+  ]
 }

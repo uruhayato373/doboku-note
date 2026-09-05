@@ -22,5 +22,46 @@
     "sha256": "26f6a1532ceae5c24db621cdd0f7c07d165d245fd6e55ce6ad7da9124abcc8a0",
     "thumbnailSha256": "640d0df0a346135f3e0d06d5aeebf596739b6d861c4ee8b96e7dbcfc53d4b981"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-gap-to-issue-1",
+      "sceneId": "gap-to-issue",
+      "title": "1級土木｜現場条件と規格値のギャップ #Shorts",
+      "description": "技術的課題は、現場条件と規格値のギャップから立てます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m150c9db08902?utm_source=youtube&utm_medium=video&utm_campaign=keiken-hinshitsu-1kyu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-22T20:00:00+09:00",
+      "r2Key": "video/render/keiken-hinshitsu-1kyu/shorts/point-gap-to-issue-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-hinshitsu-1kyu/shorts/point-gap-to-issue-1/thumbnail.png",
+      "sha256": "b1332ddfc197d9a137cc33b269422c2ad9e7c078ed5fa04530853397628f90db",
+      "thumbnailSha256": "6f987dabd5488cb9afebc76418a8116ec5a811ac1d6c8ab2dd203c31ce6c2432"
+    },
+    {
+      "key": "point-focus-item-2",
+      "sceneId": "focus-item",
+      "title": "1級土木｜品質項目を一つに絞る #Shorts",
+      "description": "品質管理の対象は、盛土・路盤工の締固め管理と、コンクリート工のスランプ・空気量・養生の管理に大きく分かれます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m150c9db08902?utm_source=youtube&utm_medium=video&utm_campaign=keiken-hinshitsu-1kyu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-23T12:30:00+09:00",
+      "r2Key": "video/render/keiken-hinshitsu-1kyu/shorts/point-focus-item-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-hinshitsu-1kyu/shorts/point-focus-item-2/thumbnail.png",
+      "sha256": "c97b700a1c6ad9a3fe0cc930a0338d910b6d9a6a646710b151b55a232bc93ee8",
+      "thumbnailSha256": "760ce3a54ea6cfb82f48d647b544d38298f5085d49f63608578666ea5d76e2b3"
+    }
+  ]
 }

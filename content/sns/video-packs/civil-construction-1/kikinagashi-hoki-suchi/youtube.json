@@ -22,5 +22,46 @@
     "sha256": "c4e28dc4deed0bbeb46107e945989c6698c80a1a712bacdd402c16028647eac4",
     "thumbnailSha256": "ad44ddf57f625d964ce6df34ee00d036a09793c7bef930ad8cf02adf0129e8ed"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-avg-wage-contract-1",
+      "sceneId": "avg-wage-contract",
+      "title": "1級土木｜平均賃金と労働契約期間 #Shorts",
+      "description": "最初は労基法の基本、平均賃金と契約期間です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=kikinagashi-hoki-suchi&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-26T20:00:00+09:00",
+      "r2Key": "video/render/kikinagashi-hoki-suchi/shorts/point-avg-wage-contract-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/kikinagashi-hoki-suchi/shorts/point-avg-wage-contract-1/thumbnail.png",
+      "sha256": "5b8a621e08fb9dd4e84a1696c0a1b4e915b474326b3c014bdb5bc58611b60667",
+      "thumbnailSha256": "0230164406ccb77328c11fb6b11aae67cd1de5c827da076c88ba342b0565fd07"
+    },
+    {
+      "key": "point-dismissal-notice-2",
+      "sceneId": "dismissal-notice",
+      "title": "1級土木｜解雇予告と予告手当 #Shorts",
+      "description": "ここで押さえたいのが解雇予告です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=kikinagashi-hoki-suchi&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-27T07:30:00+09:00",
+      "r2Key": "video/render/kikinagashi-hoki-suchi/shorts/point-dismissal-notice-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/kikinagashi-hoki-suchi/shorts/point-dismissal-notice-2/thumbnail.png",
+      "sha256": "94ec23378ac78b3f9fd79be41aa0b6215241ec21192971a5d1bb81a2ffc8ee69",
+      "thumbnailSha256": "bf95b81906765f5d54e8522ab15b9cfbddd1d026d56a87bc18de42138790b084"
+    }
+  ]
 }

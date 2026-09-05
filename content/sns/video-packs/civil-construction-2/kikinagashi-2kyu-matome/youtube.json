@@ -22,5 +22,46 @@
     "sha256": "34b32e8773d61bd89be68d7d3d25e9ed10056e8bd5306e9ca695788d7870805b",
     "thumbnailSha256": "30ca2f070bf281725bfc5994ba14a85500993b5f77e2dbf60780fab952005d96"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-soil-tests-1",
+      "sceneId": "soil-tests",
+      "title": "2級土木｜土質試験とN値 #Shorts",
+      "description": "地盤を知る手がかりから始めます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n4963f45bd6f8?utm_source=youtube&utm_medium=video&utm_campaign=kikinagashi-2kyu-matome&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-23T12:30:00+09:00",
+      "r2Key": "video/render/kikinagashi-2kyu-matome/shorts/point-soil-tests-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/kikinagashi-2kyu-matome/shorts/point-soil-tests-1/thumbnail.png",
+      "sha256": "95358b5d070e34262aecd7c96e6e8aeb4472f6bc5300a6b52a3de606ab64ddbc",
+      "thumbnailSha256": "5caa3d9192f61fca312572fb5863ada52b5994bbd9b2c019985140d2ac60e5e0"
+    },
+    {
+      "key": "point-soil-volume-2",
+      "sceneId": "soil-volume",
+      "title": "2級土木｜土量変化率のLとC #Shorts",
+      "description": "地盤の次は土量です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n4963f45bd6f8?utm_source=youtube&utm_medium=video&utm_campaign=kikinagashi-2kyu-matome&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-24T07:30:00+09:00",
+      "r2Key": "video/render/kikinagashi-2kyu-matome/shorts/point-soil-volume-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/kikinagashi-2kyu-matome/shorts/point-soil-volume-2/thumbnail.png",
+      "sha256": "513f0922febb19d3af759d281f93010442e176efecb5582a6f43106ad29fba69",
+      "thumbnailSha256": "5839bd6fdfaf0b5e65d796fd5421ca2982d10ceedf3ba5c9e353a5a927ee941e"
+    }
+  ]
 }

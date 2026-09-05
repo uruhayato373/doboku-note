@@ -22,5 +22,46 @@
     "sha256": "cd1b309f85d2f5f9a13db1f4271d0757c8529877ed26e2af1c6b1b5a9209f98b",
     "thumbnailSha256": "6913fa60dab07ffc7bff0b980c166002dcccf633e4b7b337be0e5950daf69dca"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "1級土木｜なぜAI丸投げは落ちるのか #Shorts",
+      "description": "AIに「書いて」と頼むと、工事名も工期も施工量も、あなたの立場も現場の処置も、それらしく埋めてくれます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://brain-market.com/a/b5EDO3UjMgoTZsNWa0JXY?utm_source=youtube&utm_medium=video&utm_campaign=keiken-ai-sekkei&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-28T20:00:00+09:00",
+      "r2Key": "video/render/keiken-ai-sekkei/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-ai-sekkei/shorts/point-overview-1/thumbnail.png",
+      "sha256": "66870a51156b70cfea5dda899cabd455cb97077b2a25aa7563beaf8d0d609b85",
+      "thumbnailSha256": "4945874b9f7381d0f139e2076e0f4e163242c5d905ffd2154bdc5c86226b813d"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "1級土木｜正しい分担の作り方 #Shorts",
+      "description": "正しい使い方は、事実はあなたが出し、AIは構成と検証を手伝うという分担です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://brain-market.com/a/b5EDO3UjMgoTZsNWa0JXY?utm_source=youtube&utm_medium=video&utm_campaign=keiken-ai-sekkei&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-30T12:30:00+09:00",
+      "r2Key": "video/render/keiken-ai-sekkei/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-ai-sekkei/shorts/point-step1-2/thumbnail.png",
+      "sha256": "4cb4edda2f29732a3792c0accc9be40594f9f5cefd3ac4b52bb794c54d66f7ab",
+      "thumbnailSha256": "2252692e99331171124fab16d450f2800c3aa79852107ea0fdbbbaf821e280c8"
+    }
+  ]
 }

@@ -22,5 +22,46 @@
     "sha256": "a53f870c810ec8eb0918bf3ce213ac45da144b2101598e77b886b512e5a94a00",
     "thumbnailSha256": "3305e588d61b53802cc1a0aef1e194ce16ee33f9e858602893c814ab0802503f"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "1級土木｜なぜ丸写しが失格につながるか #Shorts",
+      "description": "他人の答案をそのまま使うと、内容が画一化して気づかれやすくなります。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n9cf7e60661fa?utm_source=youtube&utm_medium=video&utm_campaign=keiken-soteikoji-katsuyo&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-28T12:30:00+09:00",
+      "r2Key": "video/render/keiken-soteikoji-katsuyo/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-soteikoji-katsuyo/shorts/point-overview-1/thumbnail.png",
+      "sha256": "80769e64ee38c5aa7e5e7edeb1cd6e5fa1e9da29c422cd04807e9e576bb4194e",
+      "thumbnailSha256": "f96fe77398474108d55bd14398220bcc27ff8f39c39facb05f0ab07abfbfab74"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "1級土木｜自分の現場に置き換える4ステップ #Shorts",
+      "description": "完成答案を自分の答案に作り替える手順は4つです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n9cf7e60661fa?utm_source=youtube&utm_medium=video&utm_campaign=keiken-soteikoji-katsuyo&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-30T07:30:00+09:00",
+      "r2Key": "video/render/keiken-soteikoji-katsuyo/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-soteikoji-katsuyo/shorts/point-step1-2/thumbnail.png",
+      "sha256": "cca98c7742c6babc441a2220c6a1b9f6cefc93a0563ebbed947101b8cddb52b8",
+      "thumbnailSha256": "235986852573779a0cf42a8f226cc7e1ba9657aeb401eb00ee152b0ccb047ebf"
+    }
+  ]
 }

@@ -1,27 +1,30 @@
-# YouTube Shorts Publisher 品質ポリシー（v7）
+# YouTube Shorts Publisher 品質ポリシー（v8）
 
-戦略 v7（Instagram 一次・YouTube 二次展開）における **YouTube Shorts 派生 mp4 + meta.json の品質基準**。`yt-shorts-publisher-qa` Evaluator がこの文書を真実源とする。
+旧Instagram/per-problem派生と、通常動画を核にする動画パック派生の双方における **YouTube Shorts配信物の品質基準**。`yt-shorts-publisher-qa` Evaluator がこの文書を真実源とする。
 
 関連:
 - SNS 戦略 v7 → [`docs/marketing/01_SNS集客戦略.md`](../../../docs/marketing/01_SNS集客戦略.md)
 - 派生スキル → [`.claude/skills/social/yt-shorts-create/SKILL.md`](../../skills/social/yt-shorts-create/SKILL.md)
 - IG Reels 側真実源 → [`.claude/knowledge/reference/ig-reels-policy.md`](./ig-reels-policy.md)
 
-最終更新: 2026-08-21（YouTube現行仕様＝縦/正方形は最長3分、Shorts外部URLは非クリック、関連動画はクリック可へ同期）
+最終更新: 2026-09-05（承認済み112動画パック×2本の生成・段階予約経路を追加）
 
 ---
 
 ## 1. 入力前提
 
-`yt-shorts-create --from-reels <pack-id>` が出力した `content/sns/youtube/<date>-<pack-id>/` 配下：
+入力は次の2経路を区別する。
+
+- legacy: `yt-shorts-create --from-reels <pack-id>` または `per-problem-shorts.mjs` が出力した `content/sns/youtube/<date>-<pack-id>/`
+- 動画パック: `content/sns/video-packs/{exam}/{packId}/youtube.json.shorts[]` と `storyboard.json`。`render-video-pack-shorts.mjs` が `.tmp/video-render/{packId}/shorts/{key}/` へ出力
 
 | ファイル | 役割 |
 |---|---|
-| `shorts.mp4` | 30-60 秒の縦動画（IG Reels の slide-00/01/02/09 を concat、または `per-problem-shorts.mjs` の YT 専用描画） |
+| `shorts.mp4` | 30-60 秒の縦動画（legacy派生、または動画パックの本文scene＋関連動画CTA） |
 | `thumbnail.png` | 1080×1920 サムネ（`per-problem-shorts.mjs` は `renderExamCoverIg` で YT 専用生成、`yt-shorts-create` は IG cover を直コピー） |
-| `meta.json` | YT Data API 投稿用メタ（タイトル・概要欄・タグ・privacyStatus・UTM 付き URL） |
+| `meta.json` / `youtube.json.shorts[]` | YT Data API 投稿用メタ（タイトル・概要欄・タグ・公開日時・UTM付きURL） |
 
-字幕焼き込みは v7 MVP では未対応（Phase D2 で対応予定）。
+動画パック派生は字幕焼き込み必須。字幕なし許容は既存legacy素材だけに限定する。
 
 ---
 
@@ -69,14 +72,17 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 - **`utm_source=youtube` 必須**（IG 用 `utm_source=instagram` の混入は禁忌）
 - **`utm_medium=video` に統一**（GA4 標準の「Video」チャネル分類。旧 `description`/`youtube-shorts` は非標準値で GA4 が Unassigned に落とす）。配信形式は `utm_content=shorts` で持つ。真実源＝`.claude/scripts/lib/sns-common/sns-config.mjs` ＋ `docs/marketing/02_チャネル動線設計.md §4`
 - `utm_campaign=exam-pack-<pack-id>` でパック単位の経路追跡
+- 動画パック派生は `utm_campaign={packId}&utm_content=shorts` とし、`.claude/config/youtube-production-disclosure.json` の `authorityNotice`（総監取得者が企画・監修、AIは音声・映像制作補助）を1回だけ含める
+- API状態は `productionDisclosure=author-led-ai-assisted`、`containsSyntheticMedia=false` とし、AIが内容判断を担ったように見せない
 
 ### タイトル規約（1 問 1 答・重複禁止）
 
 1 Short = 1 問なので、タイトルは **その問題の論点**を反映する。
 
-- 型: `技術士総監 令和X年度 択一｜{その問題の論点} #Shorts`（例: `…｜NPV・現在価値の計算 #Shorts`）
+- legacy総監の型: `技術士総監 令和X年度 択一｜{その問題の論点} #Shorts`
+- 動画パックの型: `{資格名}｜{固有論点} #Shorts`。`prepare-video-pack-shorts.mjs` が一意な36字以内で生成する
 - **「一問一答」等の汎用語や、動画間で同一のテンプレタイトルは禁止**（スパム/シャドウバン判定の元 → §6）。問題ごとに論点を変える。
-- 40 字以内・年度を含める。
+- 40字以内。年度はlegacy総監では必須、動画パックでは不要。
 - **title は `yt-shorts-title-writer`（Generator）が論点ベースで自動生成**し、`yt-shorts-create` の既定タイトル（`技術士総監 …過去問（管理）`）を上書きする。`yt-shorts-publisher-qa`（Evaluator）が本規約への適合を採点する。
 
 ---
@@ -86,9 +92,9 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 | 軸 | 観点 | 5 点満点の基準 |
 |---|---|---|
 | **1. 尺・画角適正** | 現行Shorts成立条件は縦/正方形かつ最長3分。doboku-noteの派生型は30-60秒を推奨 | ≤180秒かつ縦/正方形。30-60秒の既定型なら満点 |
-| **2. 導線・UTM整合** | 関連通常動画 + `utm_source=youtube` + パック固有campaign | 関連動画設定が可能で、説明欄URLもUTM正規 |
-| **3. タイトル長・検索性** | 40 字以内・年度/パック/管理分野含む | 40 字以内・3 要素すべて含む |
-| **4. 字幕焼き込み** | v7 MVP は字幕無しを許容、メタ整合のみチェック | 字幕無し or duration 一致 |
+| **2. 導線・UTM整合** | 関連通常動画 + 正規UTM + 著者主体/AI制作補助表記 | 関連動画設定が可能で、UTMと`authorityNotice`が正規 |
+| **3. タイトル長・検索性** | legacyは年度＋論点、動画パックは資格名＋固有論点＋一意性 | 経路別の型に適合し40字以内 |
+| **4. 字幕焼き込み** | 動画パックは必須、legacy既存素材のみ字幕無し許容 | 字幕と映像のdurationが一致 |
 
 ### 合否ライン
 
@@ -107,17 +113,19 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 | IG Reels mp4 / slide-NN.mp4 の生成 | `ig-reel-create.mjs`（上流・別工程） |
 | IG Reels script.json / caption.txt の執筆 | `ig-reels-writer`（上流） |
 | YT Shorts 派生 mp4 + meta.json 生成 | `yt-shorts-create --from-reels` または `per-problem-shorts.mjs`（機械処理） |
+| 動画パックShortsの計画・生成・R2受け渡し | `npm run youtube-shorts:prepare` → `youtube-shorts:render` → `youtube-shorts:stage -- --commit` |
 | サムネイル（thumbnail.png）の生成・R2 アップ | `upload-shorts-to-r2.mjs`（mp4 と同時アップ）、または `generate-thumbnails.mjs`（単独実行） |
 | 4 軸採点 | `yt-shorts-publisher-qa` |
 | YouTube Data API 投稿（台帳駆動 CI） | `post-from-schedule.cjs` + `post-youtube-scheduled.yml`（手動 `workflow_dispatch`、`youtube-schedule.json` 台帳管理） |
+| 動画パックShortsの投稿 | `publish-video-pack.cjs`（private upload）→YouTube Studioで関連動画設定→`shorts-publish --related-confirmed`（API予約） |
 | 台帳整合性バリデーション | `validate-schedule.mjs`（CI pre-check。publishAt 重複・perDay 超過・videoId 重複を検知） |
 | 投稿済み動画へのサムネイル後付け | `set-thumbnail-uploaded.mjs`（一回限りの補完ツール） |
 
-## 5. 投稿カーデンス・スケジューリング（2026-08-18 更新）
+## 5. 投稿カーデンス・スケジューリング（2026-09-05 更新）
 
-- cron自走は廃止し、`workflow_dispatch`で人が投入量を決める。
-- 既存在庫を消化すること自体を目的にせず、公開済み通常動画へ関連付けられる論点を優先する。
-- 投稿枠を組む場合はJST `07:30` / `12:30` / `20:00`を候補とし、同日上限は台帳 `uploadBatchPerDay` を超えない。
+- legacy総監台帳の187本はretiredのまま凍結し、cronでは再開しない。
+- 2026-09-05に承認された動画パック112件のShorts224本は、日次cronで最大3 pack/6本をprivate uploadする。公開予約はStudioで関連通常動画を設定・確認した後に限る。
+- 公開枠は通常動画も含めJST `07:30` / `12:30` / `20:00`の最大3投稿/日とし、試験日は投稿しない。
 - **1 Short = 1 問または1論点**。同日に類似論点を連投しない。
 
 ## 6. シャドウバン・低リーチ回避（2026-06-05 確定）
@@ -131,11 +139,13 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 ## 7. 偽成功検証（予約アップロード）
 
 - `post-from-schedule.cjs` のログ「公開設定: unlisted」は**表示バグ**（`publishAt` 指定時の実値は `privacyStatus: private` + `publishAt`）。
-- **報告前に `videos.list(part=status)` で実査**: `privacyStatus === "private"` かつ `publishAt` 設定済み、さらに縦/正方形・`durationSeconds ≤ 180`を確認する。通常動画へのrelated videoも公開後に照合する。
+- **報告前に `videos.list(part=status)` で実査**: `privacyStatus === "private"` かつ `publishAt` 設定済み、さらに縦/正方形・`durationSeconds ≤ 180`を確認する。related videoはData APIで設定・取得できないため、Studioでの保存確認と公開後の運用照合を組み合わせる。
 - これは X `publish-x` の偽成功検証と同じ思想（ログを信じず実体を確認）。
 - サムネイル設定（`thumbnails.set`）の確認: `thumbnails.list(videoId)` で `default`/`medium` に画像が設定されているかを実査する。未設定のままだと YouTube が自動選択したフレームが表示され、クリック率が下がる。
 
 ## 改訂履歴
+
+- v4（2026-09-05）: 動画パック112件からのShorts224本を追加。字幕必須、36字タイトル、著者主体/AI制作補助表記、日次private upload、Studio関連動画設定後のAPI予約を明文化。legacy187本はretiredのまま。
 
 - v3（2026-08-21）: 現行YouTube仕様へ同期。縦/正方形Shortsは最長3分、外部URLは非クリック、関連動画はクリック可。30-60秒はプラットフォーム条件でなくプロジェクト推奨尺へ変更。cron廃止・手動dispatchも反映。
 

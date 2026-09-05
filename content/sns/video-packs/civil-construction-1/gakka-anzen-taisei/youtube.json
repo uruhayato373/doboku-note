@@ -22,5 +22,46 @@
     "sha256": "01345e74e89124aaea83506cc7a9dff9e76140f02cb2e3f4a1f985bfd89f85c5",
     "thumbnailSha256": "bfc5d55daf9650141f4565c77708537b30c088d820ff9038caabec4a199b6f32"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "1級土木｜度数率と強度率 #Shorts",
+      "description": "まず統計指標です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-anzen-taisei&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-03T12:30:00+09:00",
+      "r2Key": "video/render/gakka-anzen-taisei/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-anzen-taisei/shorts/point-step1-1/thumbnail.png",
+      "sha256": "1754a136cc28dcefaaf4116e011a81eff67845567155e102eba0bd3ad2ce3cf4",
+      "thumbnailSha256": "9721e47127474f92205eb88f4d72427abee13f6fb8ffa686d55d3a2ee3048d32"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "1級土木｜事業場単位の選任人数 #Shorts",
+      "description": "次は事業場単位の選任です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-anzen-taisei&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-04T07:30:00+09:00",
+      "r2Key": "video/render/gakka-anzen-taisei/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-anzen-taisei/shorts/point-step2-2/thumbnail.png",
+      "sha256": "96df991ca4ff25afffbd6665d9e7bf3d2f3fbc738348f81734e67aadef322fa3",
+      "thumbnailSha256": "4d6314bc1cc6686da832aca4d5b76b364f52e3ddb2a63d6ec563b9e67059b74b"
+    }
+  ]
 }

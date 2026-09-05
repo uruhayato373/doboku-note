@@ -22,5 +22,46 @@
     "sha256": "e05a6a3d85327c0a19af178005d572c9531d972d57879771c07c0acd0cd393b7",
     "thumbnailSha256": "3fdc62a35e9d6c4d2bb7c93343c561ded0ab213eca81a5ff5351a0b7c56d5938"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-block1-1",
+      "sceneId": "block1",
+      "title": "1級土木｜数値と管理基準を入れる #Shorts",
+      "description": "品質管理の場合は、対応処置のベースとなる管理基準をまず明示します。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m150c9db08902?utm_source=youtube&utm_medium=video&utm_campaign=keiken-taio-hyoka&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-21T20:00:00+09:00",
+      "r2Key": "video/render/keiken-taio-hyoka/shorts/point-block1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-taio-hyoka/shorts/point-block1-1/thumbnail.png",
+      "sha256": "aadeedbeb2a68cb35499ccaa7eee1c7a2ccd15252401cfc72583eb7607a5dfdf",
+      "thumbnailSha256": "601e1d5cd6c480c89daa576ddca31ec4d4712afeb01aa684231a9eb8948e106f"
+    },
+    {
+      "key": "point-block2-2",
+      "sceneId": "block2",
+      "title": "1級土木｜結果だけで終わらせない #Shorts",
+      "description": "「地盤改良工法とした」だけで終わらせず、理由から工法、そして留意点までをつなげて書きます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m150c9db08902?utm_source=youtube&utm_medium=video&utm_campaign=keiken-taio-hyoka&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-22T07:30:00+09:00",
+      "r2Key": "video/render/keiken-taio-hyoka/shorts/point-block2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-taio-hyoka/shorts/point-block2-2/thumbnail.png",
+      "sha256": "1727fbb08f07b11ff9022b9277a899206b31556640efe26cdc4b769af6a58c70",
+      "thumbnailSha256": "9b48745f7d645e65df135f6c88ffeab9869a92930b439cb12827bf6954a1fab0"
+    }
+  ]
 }

@@ -22,5 +22,46 @@
     "sha256": "dda4e600c1cf780d7fc04aeda9151b22486920082cffea3b6448911d5939d792",
     "thumbnailSha256": "ceb3327070525a401098d137dd8bcb54daec11ced8368d1a1c9d44fabd2f4ff4"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "1級土木｜R3〜R5：1テーマ形式の時代 #Shorts",
+      "description": "令和3年度と令和4年度は、安全管理が指定されました。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m3a578194a0a9?utm_source=youtube&utm_medium=video&utm_campaign=keiken-nendo-keiko-1kyu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-28T20:00:00+09:00",
+      "r2Key": "video/render/keiken-nendo-keiko-1kyu/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-nendo-keiko-1kyu/shorts/point-overview-1/thumbnail.png",
+      "sha256": "7b29039e15929595139d65f9a294bbc0d1518b15cd4df00830bb7c50a89d3a84",
+      "thumbnailSha256": "2e01e7950849435bc71d67984a63525dd205a3e1403e4dc0ece757739725ff54"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "1級土木｜R6年度：2テーマ必答への転換 #Shorts",
+      "description": "令和6年度から、出題形式が大きく変わりました。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m3a578194a0a9?utm_source=youtube&utm_medium=video&utm_campaign=keiken-nendo-keiko-1kyu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-29T07:30:00+09:00",
+      "r2Key": "video/render/keiken-nendo-keiko-1kyu/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-nendo-keiko-1kyu/shorts/point-step1-2/thumbnail.png",
+      "sha256": "fb63eb6b6279d1d1472d73b2e1a9c72a6b202da91ce9c5280a9328540982cd94",
+      "thumbnailSha256": "6ce1eb489b2650e7f87d937306b2986416210faf23c81e5fb45cb1e9defa32a4"
+    }
+  ]
 }

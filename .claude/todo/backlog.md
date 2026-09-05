@@ -87,23 +87,23 @@
 
 
 
-### [DN-0110] 土木通常動画84本の公開・pilot派生・6週間判定
+### [DN-0110] 承認済み動画パック112本＋Shorts224本の公開・6週間判定
 タグ: [SNS・マーケ] [種類:改善] [Codex候補] [検証:quality:audit:ci] [起票:2026-08-21]
 
 **戦略SSOT**: [06_動画コンテンツ運用設計.md](../../docs/marketing/06_動画コンテンツ運用設計.md)
 
 **作業契約**: [video-content-policy.md](../knowledge/reference/video-content-policy.md)
 
-2026-09-05のユーザー決定で、QA済みの1級土木66本・2級土木18本は試験日前の通常動画公開を先行する。1級1本は公開済み、残り83本は`video-content-status.json`の`publishAt`を真実源にAPI予約する。残作業は次の順で行う。
+2026-09-05のユーザー決定で、QA済みの1級土木66本・2級土木18本・コンクリート技士12本・主任技士16本の通常動画112本と、各パック2本のShorts計224本を公開工程へ進める。通常動画は112本すべて公開済みまたはAPI予約済み。残作業は次の順で行う。
 
-1. 1級残り65本を2026-09-08〜10-03、2級18本を10-05〜10-22にAPI予約し、全件の`videoId`・`publishAt`・CTAを実査する
-2. pilot 4本からShorts 2本・IG 1組・X 1スレッドを派生する
-3. 薄い`/video-content` skillと`video-script-writer`（Generator）／`video-content-qa`（Evaluator）を追加する
+1. 通常動画の残存メタデータを著者主体・AI制作補助表記へ同期し、全件の`videoId`・`publishAt`・CTAを実査する
+2. Shorts224本をprivate R2へ配置し、日次最大3pack/6本でAPI private uploadする
+3. 各ShortでStudioの関連動画を該当通常動画へ設定してからAPI予約し、通常動画を含む最大3投稿/日・試験日除外を守る
 4. 公開6週間後にShorts→関連動画、視聴維持、YouTube UTM、note/ココナラ遷移から継続・修正・停止を判定する
 
-**制約**: `approved` はユーザーだけが設定する。mp4/wavをGitへ入れない。今回の先行対象はQA済み土木84本だけで、他資格の公開、ThreadsのX単純クロスポスト、未監査記事の一括動画化は行わない。IGの既存リール素材はpilot成立後に判断する。
+**制約**: `approved` はユーザーだけが設定する。mp4/wavをGitへ入れない。今回の対象は明示承認済み112パックだけで、技術士総監・建設部門・診断士・IG/X/Threads/TikTokへ承認を波及させない。legacy総監Shorts187本はretiredのまま再開しない。
 
-**完了条件**: 土木84本の通常動画とpilot関連Shortsを外部実体で照合し、4packの派生が一意にjoinされ、全機械・意味ゲートとadmin型検査/E2EがPASSする。6週間後の継続/修正/停止判断とbaselineを記録したらカードを削除する。
+**完了条件**: 通常動画112本とShorts224本を外部実体で照合し、全Shortsの関連動画・予約日時・著者表記が正しく、全機械・意味ゲートがPASSする。6週間後の継続/修正/停止判断とbaselineを記録したらカードを削除する。
 
 
 

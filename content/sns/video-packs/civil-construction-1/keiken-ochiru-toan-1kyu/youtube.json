@@ -22,5 +22,46 @@
     "sha256": "168fcdc2b3dd9f23825fdf3720ef1e014682eb32408fcbb1cb7655ab08f63316",
     "thumbnailSha256": "b2978c7f689e81fa7c2253690af3a10887cfa283f55f49df734822053a52550d"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-gap-1",
+      "sceneId": "gap",
+      "title": "1級土木｜課題と対応がつながらない #Shorts",
+      "description": "1つ目は、課題と対応がつながっていないパターンです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://coconala.com/services/4317349?utm_source=youtube&utm_medium=video&utm_campaign=keiken-ochiru-toan-1kyu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "施工経験記述",
+        "答案診断",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-30T20:00:00+09:00",
+      "r2Key": "video/render/keiken-ochiru-toan-1kyu/shorts/point-gap-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-ochiru-toan-1kyu/shorts/point-gap-1/thumbnail.png",
+      "sha256": "73279ae26fcfa19599e9928e63fee4a8bd3f2063bfc72001502a50e5da0fec83",
+      "thumbnailSha256": "c960afa2be33d40c1e964e286f62564c25270327ebc5e62b971403d18ce689d5"
+    },
+    {
+      "key": "point-generic-2",
+      "sceneId": "generic",
+      "title": "1級土木｜規模は大きいのに一般論 #Shorts",
+      "description": "2つ目は、規模は大きいのに一般論で終わるパターンです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://coconala.com/services/4317349?utm_source=youtube&utm_medium=video&utm_campaign=keiken-ochiru-toan-1kyu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "施工経験記述",
+        "答案診断",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-31T07:30:00+09:00",
+      "r2Key": "video/render/keiken-ochiru-toan-1kyu/shorts/point-generic-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-ochiru-toan-1kyu/shorts/point-generic-2/thumbnail.png",
+      "sha256": "12c9dea66e66c921c336ba02a932dbf0985bfc5c376140ca5a3e013366c1741f",
+      "thumbnailSha256": "204b862ca62f565770807bc58f67455358ed93bd56335ceb1b9b5ba219e6018b"
+    }
+  ]
 }

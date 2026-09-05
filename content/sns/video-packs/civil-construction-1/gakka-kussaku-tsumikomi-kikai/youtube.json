@@ -22,5 +22,46 @@
     "sha256": "dc78af8a33f525dcf875beed0c62bc410e1c4edf42ca0105e090262dcaeb9940",
     "thumbnailSha256": "a48977cce20b50edf454158738df491ec196c365a957d7c33935a52c473d3688"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-bulldozer-1",
+      "sceneId": "bulldozer",
+      "title": "1級土木｜ブルドーザの走行装置とけん引力 #Shorts",
+      "description": "クローラ式は広い接地面積で軟弱地や急勾配約30度でも走行でき、日本のブルドーザの多くがクローラ式です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-kussaku-tsumikomi-kikai&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-13T12:30:00+09:00",
+      "r2Key": "video/render/gakka-kussaku-tsumikomi-kikai/shorts/point-bulldozer-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-kussaku-tsumikomi-kikai/shorts/point-bulldozer-1/thumbnail.png",
+      "sha256": "a80637a131ba51a4b686bc85da6a8e275389dc4c9f12c2ec53578f5b1ca569e8",
+      "thumbnailSha256": "73cbc6626f4f471b61198d43710bd6105f5c97058849a865ba97a187c8e6ef73"
+    },
+    {
+      "key": "point-shovel-2",
+      "sceneId": "shovel",
+      "title": "1級土木｜ショベル系は掘削の向きで選ぶ #Shorts",
+      "description": "バックホウはバケットを引き寄せて掘るため、設置地盤より低い所を掘るのに適します。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-kussaku-tsumikomi-kikai&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-14T07:30:00+09:00",
+      "r2Key": "video/render/gakka-kussaku-tsumikomi-kikai/shorts/point-shovel-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-kussaku-tsumikomi-kikai/shorts/point-shovel-2/thumbnail.png",
+      "sha256": "4c6ffcef02f3bc7b2fa213438ad3a0ccc42c656835edc0352b19300b328f365a",
+      "thumbnailSha256": "08565edbaf8786e86d30ec7bd46438ccd651f1b4e8c4c4f08b2d3907cc5e2c74"
+    }
+  ]
 }

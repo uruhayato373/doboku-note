@@ -22,5 +22,46 @@
     "sha256": "374b315236f7e2402283817f3cfca688cc99e44891c35d27ddd6f26a5c3701cc",
     "thumbnailSha256": "8e586946da3ce9f0aa8b01019ce1c798150cf43acb0265ac14d8112391f6a853"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "2級土木｜手順1 管理項目に工種を合わせる #Shorts",
+      "description": "工事名を決める前に、本文で書く管理項目を先に決めます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m8554e87ca6ec?utm_source=youtube&utm_medium=video&utm_campaign=keiken-gaiyo-2kyu&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-10T12:30:00+09:00",
+      "r2Key": "video/render/keiken-gaiyo-2kyu/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-gaiyo-2kyu/shorts/point-step1-1/thumbnail.png",
+      "sha256": "4108c75bcf6ee73212a0512ec854c150dd61fbbc711195bb70f233e7fe86d79c",
+      "thumbnailSha256": "d2fe32207fc0f8858f069db4bde844b41273b59b110edc537f48458a26cbf35d"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "2級土木｜手順2 施工量を数量で書く #Shorts",
+      "description": "施工量は一式で済ませません。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m8554e87ca6ec?utm_source=youtube&utm_medium=video&utm_campaign=keiken-gaiyo-2kyu&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-11T07:30:00+09:00",
+      "r2Key": "video/render/keiken-gaiyo-2kyu/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-gaiyo-2kyu/shorts/point-step2-2/thumbnail.png",
+      "sha256": "6f99efb1b56e94b93fbf321f03598d182b94549e7f92f0509b79e27478b432ea",
+      "thumbnailSha256": "e2e56407562b789617ed7e7e76beae080634e62c16368cf1f7738da3bc963e29"
+    }
+  ]
 }

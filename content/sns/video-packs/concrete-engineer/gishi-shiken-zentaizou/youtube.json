@@ -22,5 +22,46 @@
     "sha256": "2880f07e53ce0311f0f236b41d546864e3d525f1db16db22052dbbec24d398ce",
     "thumbnailSha256": "c72740356421a32a2dae3565982a689704202648318b23ebb68658264f43fbbe"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "コンクリート技士｜資格の位置づけ #Shorts",
+      "description": "コンクリート技士は、日本コンクリート工学会が認定する資格です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=gishi-shiken-zentaizou&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "勉強計画",
+        "受検対策",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-24T12:30:00+09:00",
+      "r2Key": "video/render/gishi-shiken-zentaizou/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-shiken-zentaizou/shorts/point-step1-1/thumbnail.png",
+      "sha256": "f27cc5aaf327563acd1df9728c10aee117b2022bcd8080fdcd87fcb3f9296aea",
+      "thumbnailSha256": "19cba0740c1f12fbbf07af79de3d0a9aa4474455222d3e36c28208edea0f5ba0"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "コンクリート技士｜試験方式 #Shorts",
+      "description": "試験は四肢択一式で、主任技士にある小論文はありません。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=gishi-shiken-zentaizou&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "勉強計画",
+        "受検対策",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-26T07:30:00+09:00",
+      "r2Key": "video/render/gishi-shiken-zentaizou/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-shiken-zentaizou/shorts/point-step2-2/thumbnail.png",
+      "sha256": "6b36fa99f8540e9c1caea9240d58a0b035cb760529ef45cffc8ec040b9f6571b",
+      "thumbnailSha256": "fca97fa7b90c01b8ae383d2fb2a3393abf954417b3d625714b0fc6a8e303ba24"
+    }
+  ]
 }

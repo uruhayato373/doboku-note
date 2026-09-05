@@ -22,5 +22,46 @@
     "sha256": "60adbc25cc403ba8e8280c0e5e049315ba513f4519d7273f803242791f91b6a0",
     "thumbnailSha256": "2d6c8e4355db3f76db24a83805cd97ba4451535ee3b985784ec5b0689028309c"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-scraper-1",
+      "sceneId": "scraper",
+      "title": "1級土木｜スクレーパ3種の適用距離 #Shorts",
+      "description": "スクレーパは掘削・積込み・運搬・敷均しを1台で行える機械です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-unpan-shimekatame-kikai&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-19T20:00:00+09:00",
+      "r2Key": "video/render/gakka-unpan-shimekatame-kikai/shorts/point-scraper-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-unpan-shimekatame-kikai/shorts/point-scraper-1/thumbnail.png",
+      "sha256": "ebe0b5fd277d70ef2745c7225862c45b3e5feac096e89448d667796b2675c7fa",
+      "thumbnailSha256": "04af357d4f1df3646099cf3b7bb7a80211e188b82ab8d4d2dac0c9862a67e6b8"
+    },
+    {
+      "key": "point-unpan-2",
+      "sceneId": "unpan",
+      "title": "1級土木｜運搬機械は距離と現場条件で選ぶ #Shorts",
+      "description": "ダンプトラックは中距離以上の運搬に最も多く使われますが、過積載は法令で禁じられています。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-unpan-shimekatame-kikai&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-20T12:30:00+09:00",
+      "r2Key": "video/render/gakka-unpan-shimekatame-kikai/shorts/point-unpan-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-unpan-shimekatame-kikai/shorts/point-unpan-2/thumbnail.png",
+      "sha256": "b4f18ac948e3ccabfab28c686fd8c5007577268e727517d56040157a2c49abdf",
+      "thumbnailSha256": "6164258efab830a244207301388bbb4d308ece08ea25347a15e667d43e76c669"
+    }
+  ]
 }

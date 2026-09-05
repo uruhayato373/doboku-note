@@ -27,6 +27,6 @@ test('全YouTubeメタデータが著者主体・AI制作補助の表記を持�
       assert.ok(item.description.includes(disclosure.authorityNotice), path);
     }
   }
-  assert.equal(videos, 114);
+  assert.equal(videos, 336); // 112 longform + 112 packs × 2 Shorts
   assert.equal(disclosure.containsSyntheticMedia, false);
 });

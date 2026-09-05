@@ -22,5 +22,46 @@
     "sha256": "1ce8c03136e71cb2d4dfbf1c655a036ab31acc814a1b1cbb02ae5cf115df6afc",
     "thumbnailSha256": "7f947b7e085845aa91dcdb9d96a98a003e1b45acd8a5d7a7fd42a29bda25d3e8"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-nendo-1",
+      "sceneId": "nendo",
+      "title": "コンクリート主任技士｜傾向で捉える #Shorts",
+      "description": "1つ目、テーマは年度暗記でなく傾向で捉えます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m758aba129301?utm_source=youtube&utm_medium=video&utm_campaign=shunin-shouronbun-theme&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-15T12:30:00+09:00",
+      "r2Key": "video/render/shunin-shouronbun-theme/shorts/point-nendo-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-shouronbun-theme/shorts/point-nendo-1/thumbnail.png",
+      "sha256": "7ad0292351d0b6b831ff60154116ab367fd8229b9ae30e2ddcdbe1e75415a503",
+      "thumbnailSha256": "31d7e0a586c2bbddc362a522a99cbc36725c4fffabe6b35120a494eab83e3a75"
+    },
+    {
+      "key": "point-ryouiki-2",
+      "sceneId": "ryouiki",
+      "title": "コンクリート主任技士｜論じやすい4領域 #Shorts",
+      "description": "2つ目、論じやすい4つの領域です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m758aba129301?utm_source=youtube&utm_medium=video&utm_campaign=shunin-shouronbun-theme&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-16T07:30:00+09:00",
+      "r2Key": "video/render/shunin-shouronbun-theme/shorts/point-ryouiki-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-shouronbun-theme/shorts/point-ryouiki-2/thumbnail.png",
+      "sha256": "2e4123b96ca9d1ac25d121d023b3c084211dfdfc1e3d361cc3e12f74a782e211",
+      "thumbnailSha256": "b7d5193c9eee2049e1584f98d6d48ba7a56514b772c6d188d8012d050c1ad9b4"
+    }
+  ]
 }

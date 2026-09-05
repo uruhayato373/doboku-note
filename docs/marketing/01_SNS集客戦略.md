@@ -14,7 +14,7 @@ doboku-note（土木・建設系試験対策ハブ。Phase 1 で 1級土木施�
 
 - **X は補助チャネル（2026-06-12 凍結 → 段階的復帰中）**。かつては主力に置いたが、@dobokunotecom 凍結を受けて一次集客の重みは Instagram・note に寄せた。@doboku373 で 2026-07-07 に予約運用を再開し、**2026-08-13 に S2（1日3本・時間帯スロット A/B/C）へ移行**（段階と後退条件は `.claude/knowledge/reference/x-post-policy.md` §11.6／スロットは §11.2.1）。役割は受験生コミュニティへの信頼形成と note 誘導。執筆は `x-post-writer`、月次計画は `/x-campaign-plan`、予約は `/publish-x`（投入は1週間分ずつ）
 - **Instagram が SNS 量産の一次制作チャネル**。`slide-data.json` を起点に、Carousel（4:5 PNG）と Reels（9:16 mp4）を同一データソースから派生生成。Carousel は「保存して試験前日に見返す」ストック教材、Reels は VOICEVOX TTS + ffmpeg で組み立てた音声付き縦動画。**Reels の cover/題材/CTA は Reels 専用テンプレで生成**し、カルーセル流用に起因する「スワイプ」CTA 等の不整合を構造的に排除
-- **YouTubeはShortsと通常動画の二層**。1級・2級土木等のShortsはIG Reels派生を維持し、通常動画は検索・信頼・外部送客のストック資産として動画パックから一次制作する。多資格共通のSSOTは [06_動画コンテンツ運用設計](./06_動画コンテンツ運用設計.md)。Shortsは外部URLへ直接送らず、関連通常動画を主導線にする
+- **YouTubeはShortsと通常動画の二層**。既存過去問ShortsはIG Reels/per-problem派生を維持し、2026-09-05承認済みの1級・2級土木・コンクリート系は動画パックから通常動画と各2本のShortsを直接制作する。多資格共通のSSOTは [06_動画コンテンツ運用設計](./06_動画コンテンツ運用設計.md)。Shortsは外部URLへ直接送らず、関連通常動画を主導線にする
 - **運営者は総監合格済み（土木系公務員〔発注者〕の退職者）**。v5 までの「合格者を名乗れない（受験中）」制約は解消。**X では合格者の視点・思考・受験体験の断片を一次情報として発信**し、信頼と指名検索を作る。フル受験記・解答再現は引き続き note 有料商品（E-1〜E-4）に囲い込む
 - **二系統のチャネル設計**: **IG → YT = SEO・カタログ動線**（IG が一次制作 → YT は派生・再リーチ／キーワード・過去問を検索/保存資産として量産 → サイト → note）。**X = 信頼・コミュニティ・マネタイズ動線**（合格者の発信で関係を作り → note 無料記事 → note 有料マガジン）
 - 共通基盤 `.claude/scripts/lib/sns-common/` を Instagram・YouTube で共有（1080×1350 と 1080×1920 の両サイズ対応済み）
@@ -63,20 +63,20 @@ doboku-note（土木・建設系試験対策ハブ。Phase 1 で 1級土木施�
 > 技術士総監については本節を拡張した独立 SSOT [05_YouTube戦略_技術士総監.md](./05_YouTube戦略_技術士総監.md) を真実源とする（X 凍結後のチャネル再分散を受け、Shorts の 2 経路併存＝IG Reels 派生＋YT 専用再描画と、通常動画 5 ピラーの一次制作を新設）。本節の記述は 1級・2級土木等の他資格と、共通インフラ仕様について引き続き有効。
 
 > [!important] 1級・2級土木の YouTube 戦略も独立 SSOT へ（2026-09-01）
-> 1級・2級土木施工管理技士の資格固有方針（競合回避・ピラー・季節カレンダー・Red Line）は [07_YouTube戦略_土木施工管理技士.md](./07_YouTube戦略_土木施工管理技士.md) を真実源とする。Shorts の IG Reels 派生（経路A）という本節の共通インフラ仕様は変わらない。
+> 1級・2級土木施工管理技士の資格固有方針（競合回避・ピラー・季節カレンダー・Red Line）は [07_YouTube戦略_土木施工管理技士.md](./07_YouTube戦略_土木施工管理技士.md) を真実源とする。承認済み84パックのShortsはIG非依存の動画パック直結経路を使う。
 
 #### 採用フォーマット
 
-**Shorts（二次展開・週 1〜2 本）**
+**Shorts（二次展開。平常時は週1〜2本、承認済み動画パックは全体最大3投稿/日）**
 
 - 解像度: 1080×1920 (9:16)
 - 尺: 運用推奨30-60秒（IG Reels 90-110秒からの短縮派生）。プラットフォーム上限ではなくdoboku-noteの推奨値
 - 内容: 1 動画 = 1 過去問パック（cover + 1 問 + a1 + cta が原則）または 1 キーワード
-- 生成元: **`reels/video.mp4`（gitignore・R2退避＝手元に無ければ R2 取得 or `ig-reel-create` で再生成）を ffmpeg でトリム**
+- 生成元: legacy過去問は `reels/video.mp4` またはper-problem再描画。承認済み動画パックは `youtube.json.shorts[]`＋`storyboard.json` から直接生成
 - 字幕: IG Reels 用 ASS を 30-60 秒尺に合わせて再生成 → ffmpeg で焼き込み
 - 投稿: YouTube Data API v3 (`videos.insert` resumable upload)
 - 導線: 公開済み通常動画をYouTubeの関連動画として設定する。Shorts説明欄・コメントの外部URLはクリック主導線として扱わない
-- **MDX 直結モード（旧 `--slug`）は v7 で廃止**。YouTube 単独制作はしない
+- **MDX 直結モード（旧 `--slug`）は v7 で廃止**。動画パック直結は通常動画との関連付けを前提とする正式経路
 
 **通常動画（検索・信頼・送客の核。DN-0110で4本pilot）**
 
@@ -94,10 +94,10 @@ doboku-note（土木・建設系試験対策ハブ。Phase 1 で 1級土木施�
 {description}
 
 ▼ 詳細解説（doboku-note）
-https://doboku-note.com/docs/{slug}?utm_source=youtube&utm_medium=description&utm_campaign={channel}
+https://doboku-note.com/{path}?utm_source=youtube&utm_medium=video&utm_campaign={packId}&utm_content={shorts|longform}
 
 ▼ 受験記・解答再現（note）
-https://note.com/{author}?utm_source=youtube&utm_medium=description
+https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign={packId}&utm_content={shorts|longform}
 
 #技術士 #技術士総監 #総合技術監理 #{管理分類} #{キーワード}
 ```
@@ -427,7 +427,7 @@ YouTube からは note 商品ページへ概要欄でリンクするだけ。受
 - **毎日複数プラットフォームを同時運用しない**。Phase ごとに1チャネルずつ立ち上げる（Q2 は X、Q3 で IG 一次制作 + YT 派生）
 - **個人的な意見・政治・時事ネタへの言及は避ける**。試験対策アカウントとしての信頼性を守る
 - **YouTube に受験記の中身を投稿しない**。一次情報は note 商品で囲い込む
-- **YouTube Shorts を Instagram とは別パイプラインで作らない**（v7 で廃止）。MDX 直結モード（旧 `yt-shorts-create --slug`）は再開しない。YT は必ず IG Reels mp4 から派生させる
+- **MDX直結の旧 `yt-shorts-create --slug` は再開しない**。動画パックShortsは該当通常動画と1:1で関連付け、IG派生と重複公開しない
 - **Reels に「スワイプで…」等のカルーセル前提 CTA を流用しない**。Reels モード分岐を `slide-data.json` レンダラで持つ（v7 で構造的に対応）
 
 ## 7. フォロワーゼロから立ち上げる1年戦略（X 限定）
@@ -490,12 +490,12 @@ X は手動運用前提。資格試験は年サイクル（1次6月・2次10月�
 
 | リスク | 影響度 | 対策 |
 |---|---|---|
-| **IG パイプライン障害が YT も道連れに（v7 単一障害点）** | 高 | YT は IG Reels mp4 から派生するため、IG が止まると YT も発信停止。**フォールバックは IG カルーセル単独運用に縮退**（カルーセルは静止画のみで Reels パイプラインに依存しない）。Reels mp4 さえ復旧すれば YT は同 mp4 から自動派生のため復旧経路は最短 |
+| **IG パイプライン障害** | 中 | legacy過去問Shortsは影響を受けるが、動画パックShortsはIG非依存で継続できる。両経路の論点重複は公開前に確認する |
 | TTS 量産で SEO 評価ペナルティ | 中 | YouTube 説明欄の文章は IG Reels script.json 由来で品質担保。サムネ・タイトル品質で差別化 |
 | YouTube アルゴリズムの初動評価で埋もれる | 低 | v7 で「主力 → 二次展開」に格下げのため重要度低下。IG Reels の月水金リーチで補う |
 | Lock-On 等が「総監×スキマ時間」に参入 | 低 | 有料講座販促モデルとバッティング、参入可能性は低い |
 | VOICEVOX の商用利用規約違反 | 低 | SNS-prereq の事前作業で採用キャラのライセンスを確認済み。問題があれば差し替え |
-| API レート制限超過 | 低 | YouTube Data API 10,000 units/day で月 8 動画派生は余裕 |
+| API レート制限超過 | 中 | 日次上限を検出したら同日に再試行せず翌日再開。private uploadは最大3 pack/6本ずつ進める |
 | OAuth トークン失効 | 中 | 共通基盤 `media-uploader.mjs` で自動リフレッシュ + 失敗時は `scripts/report-automation-failure.mjs`（`automation-failure` ラベル）で記録 |
 | Reels CTA とカルーセル CTA の混入バグ | 中 | Reels モード分岐をテンプレレンダラ（`.claude/scripts/sns/templates/quiz-ig.mjs`）で持ち、`ig-reels-qa` の軸 4（音声 ↔ 画面整合）で検証 |
 

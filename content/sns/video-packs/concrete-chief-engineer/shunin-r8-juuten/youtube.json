@@ -22,5 +22,46 @@
     "sha256": "df839150625f3aa4a8e53706bf0210f844aeb8d41d183c43999f6494bc8bff7a",
     "thumbnailSha256": "31390a25f5ce539a656d52bb1a24a2c1563b511097ce4074822d2b9939121a7c"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "コンクリート主任技士｜8分野の全体像 #Shorts",
+      "description": "四肢択一は用材料、性質、耐久性、配合設計、製造・品質管理、施工、製品、構造設計の8分野です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-r8-juuten&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-19T12:30:00+09:00",
+      "r2Key": "video/render/shunin-r8-juuten/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-r8-juuten/shorts/point-overview-1/thumbnail.png",
+      "sha256": "f50b637f159766d2b0eed9405fbd8bc05941f8fbf6e70af5a53a2e8c3a4476bc",
+      "thumbnailSha256": "17d91d9301d540df2d5f96cd4f32850899bb93872bd0cd35d2859274e8ef03c2"
+    },
+    {
+      "key": "point-four-tiers-2",
+      "sceneId": "four-tiers",
+      "title": "コンクリート主任技士｜頻出度を4段階で仕分ける #Shorts",
+      "description": "頻出度は、毎年出題、多くの年で出題、低頻度、出題なしの4段階で仕分けられます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-r8-juuten&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-20T07:30:00+09:00",
+      "r2Key": "video/render/shunin-r8-juuten/shorts/point-four-tiers-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-r8-juuten/shorts/point-four-tiers-2/thumbnail.png",
+      "sha256": "2379d25cddd5e00c58b7635e430a1679e4a264beb05fca26d91331f6e56a88ed",
+      "thumbnailSha256": "dd1b440267b2663daf425444e508d90b83b1c4b16ccfbc9b311907298c6914c2"
+    }
+  ]
 }

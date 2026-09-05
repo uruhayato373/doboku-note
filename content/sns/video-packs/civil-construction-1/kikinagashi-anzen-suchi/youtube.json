@@ -22,5 +22,46 @@
     "sha256": "640df256c7d5b55609186dff89faa7a7412f47922d88c166196aa65d3166e19e",
     "thumbnailSha256": "1a3d2bf08791ceb316ebee971ee49ff80eba2f5c0356f9566caa01415a738d54"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-scaffold-platform-1",
+      "sceneId": "scaffold-platform",
+      "title": "1級土木｜足場・作業床の基準 #Shorts",
+      "description": "最初のテーマは足場です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=kikinagashi-anzen-suchi&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-27T12:30:00+09:00",
+      "r2Key": "video/render/kikinagashi-anzen-suchi/shorts/point-scaffold-platform-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/kikinagashi-anzen-suchi/shorts/point-scaffold-platform-1/thumbnail.png",
+      "sha256": "c8b344405d06ea698a789940851949769c61f025cd2e01d54fcbaed802ff6de0",
+      "thumbnailSha256": "58a493a9733af0865af6d801d27972b256076f83b42805c294e9c68918f8cb32"
+    },
+    {
+      "key": "point-scaffold-rail-2",
+      "sceneId": "scaffold-rail",
+      "title": "1級土木｜作業床の端部対策 #Shorts",
+      "description": "あわせて覚えたいのが端部の対策です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=kikinagashi-anzen-suchi&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-28T07:30:00+09:00",
+      "r2Key": "video/render/kikinagashi-anzen-suchi/shorts/point-scaffold-rail-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/kikinagashi-anzen-suchi/shorts/point-scaffold-rail-2/thumbnail.png",
+      "sha256": "e8372b80e2f0e748c7a8d598a72a098a682121dc4a07f0f6ed6db2a9c06e00e8",
+      "thumbnailSha256": "bf9eb250aefc55ae0951b741bc1e4d16cf34c3f1365700411e418dc31214dfcd"
+    }
+  ]
 }

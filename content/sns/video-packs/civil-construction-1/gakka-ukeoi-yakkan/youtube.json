@@ -22,5 +22,46 @@
     "sha256": "14a06210629a1f4176e8bc34ac48cbb371f32f45d7b002580b77eabdad27fea1",
     "thumbnailSha256": "cb3424cc1943ff29dc75a4949f547f3e9bc7d9c88b8245a2e1a491a50fe01050"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "1級土木｜約款の基本構造 #Shorts",
+      "description": "発注者・受注者は約款と設計図書に従って契約を履行する義務を負います。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-ukeoi-yakkan&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-19T12:30:00+09:00",
+      "r2Key": "video/render/gakka-ukeoi-yakkan/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-ukeoi-yakkan/shorts/point-overview-1/thumbnail.png",
+      "sha256": "e085d6e93415fd0e774a9fd127d197659b385475a324f67b2c00fc86bcc0ee41",
+      "thumbnailSha256": "cd1ff77fd3140c4aaefe487798b60c5623194607c94e1b3c27fa6179c62dbb3c"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "1級土木｜通知は誰から誰へ #Shorts",
+      "description": "現場代理人や主任技術者の通知は、受注者から発注者へ書面で行います。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-ukeoi-yakkan&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-20T07:30:00+09:00",
+      "r2Key": "video/render/gakka-ukeoi-yakkan/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-ukeoi-yakkan/shorts/point-step1-2/thumbnail.png",
+      "sha256": "5efcecd90220ea82ca14a96a80791a1c004292b00b7733201c1f3e0f4ef0e100",
+      "thumbnailSha256": "9db3ffc5fcd50e0121d490c398cba28f074f0bceb09690d3170d36f5765ff034"
+    }
+  ]
 }

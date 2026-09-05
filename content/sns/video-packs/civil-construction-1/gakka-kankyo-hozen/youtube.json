@@ -22,5 +22,46 @@
     "sha256": "a029499ef111bd5dbec232a24aa45d1cb2171cd6dbd595e5aac3af390ecac264",
     "thumbnailSha256": "f576f0264aa92f7f1c9ad9905f8450f55ec07b2cad2acde495636a5e6e0035d7"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "1級土木｜特定建設作業になる条件 #Shorts",
+      "description": "著しい騒音や振動を発生させる作業のうち、2日以上にわたるものが特定建設作業です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-kankyo-hozen&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-09T20:00:00+09:00",
+      "r2Key": "video/render/gakka-kankyo-hozen/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-kankyo-hozen/shorts/point-overview-1/thumbnail.png",
+      "sha256": "32175b5d437ebd9f8d8fe02a6d40246a0e0bce71a0d78d84cf447ee2b0cb5d83",
+      "thumbnailSha256": "bee941435c06f113c74a57e9b0d2c82ef11bf61ed6cdbf559aa0e061aae33eec"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "1級土木｜規制基準は敷地の境界線 #Shorts",
+      "description": "規制基準は、作業場所ではなく工事現場の敷地の境界線で測ります。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-kankyo-hozen&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-10T12:30:00+09:00",
+      "r2Key": "video/render/gakka-kankyo-hozen/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-kankyo-hozen/shorts/point-step1-2/thumbnail.png",
+      "sha256": "60e7855330bdfdebd2e8d65fe42cfdeedcaa0b33edfca804697204936dc283ad",
+      "thumbnailSha256": "a243e8f43b03f3fef542a69c08afca6f4f576c2942e1ea7459c32067f4c90456"
+    }
+  ]
 }

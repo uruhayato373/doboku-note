@@ -22,5 +22,46 @@
     "sha256": "7cea888f51d9fb184195d2b8b2a938327f458880f35879e1916d752184899c50",
     "thumbnailSha256": "caacaecd5d9dfbe047384ec1d6064e4473ed8712652c9801729f5fa09e40a43c"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "1級土木｜排出事業者は元請業者 #Shorts",
+      "description": "産業廃棄物は事業者が自らの責任で処理する排出事業者責任があります。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-haikibutsu-recycle&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-06T20:00:00+09:00",
+      "r2Key": "video/render/gakka-haikibutsu-recycle/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-haikibutsu-recycle/shorts/point-overview-1/thumbnail.png",
+      "sha256": "d800b82c2379b78b39f60423f1c6d894ab684014ed08279b50509065d9b3b605",
+      "thumbnailSha256": "84d3a7a61faf86865fe42b75c648e3f239fa253a6fa5bc471a4163335cd0218a"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "1級土木｜委託契約は二者契約 #Shorts",
+      "description": "処理を委託するときは、収集運搬業者・処分業者それぞれと個別に契約する二者契約が原則です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-haikibutsu-recycle&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-07T07:30:00+09:00",
+      "r2Key": "video/render/gakka-haikibutsu-recycle/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-haikibutsu-recycle/shorts/point-step1-2/thumbnail.png",
+      "sha256": "cf4336971e4ab790882044506b8194542e6af495d01e7acb8b123d541bf689a5",
+      "thumbnailSha256": "769442f4694e3931a52021835c2639e699978786d880b9843c6a514adfc88a31"
+    }
+  ]
 }

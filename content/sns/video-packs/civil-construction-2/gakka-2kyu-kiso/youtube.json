@@ -22,5 +22,46 @@
     "sha256": "361a9bc59548a81d3c28f45ed906c8fddd3bbf7b3a6ed70802cda1ceb8e57969",
     "thumbnailSha256": "a8eb975dac3e8db59c62b4ac7acd608d0943a5754029e6cc8dada638ecfa19e1"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "2級土木｜基礎工の5つの柱 #Shorts",
+      "description": "扱うのは5つ。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n4963f45bd6f8?utm_source=youtube&utm_medium=video&utm_campaign=gakka-2kyu-kiso&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-13T12:30:00+09:00",
+      "r2Key": "video/render/gakka-2kyu-kiso/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-2kyu-kiso/shorts/point-overview-1/thumbnail.png",
+      "sha256": "a1bf743158e3dd5e51a4c8ceaee837f6b28ca319ecdbdf79ab9c79a038c76446",
+      "thumbnailSha256": "cf733f33804a952c79199d323a447e14c94a2dd354295c5a3bcbf53776319128"
+    },
+    {
+      "key": "point-block1-2",
+      "sceneId": "block1",
+      "title": "2級土木｜分類は支持層の深さで決まる #Shorts",
+      "description": "分類の軸は支持層の深さです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n4963f45bd6f8?utm_source=youtube&utm_medium=video&utm_campaign=gakka-2kyu-kiso&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-14T07:30:00+09:00",
+      "r2Key": "video/render/gakka-2kyu-kiso/shorts/point-block1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-2kyu-kiso/shorts/point-block1-2/thumbnail.png",
+      "sha256": "52fd6d774b7d8b462cb6a0ad4a7c4e087c40fb6a50c72d095e9d9ba0abb77187",
+      "thumbnailSha256": "cc9a2ec814d3885dbbc92d4b2175a181fcf8ccfab9aeaf22df0ad9a29279ee5f"
+    }
+  ]
 }

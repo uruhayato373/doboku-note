@@ -22,5 +22,46 @@
     "sha256": "5bd78170ec125094d1cab83205038d855f4ce0fd7b0fe87301fe4eb3def1a69a",
     "thumbnailSha256": "fcdd1dd3561c94cfebc1b4e97ed2fba56c3bbc7e1ae9da2843f12903e7c19b32"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "1級土木｜工法を原理で5つに束ねる #Shorts",
+      "description": "軟弱地盤対策工法は、原理によって圧密・排水工法、締固め工法、固結工法、荷重軽減工法、構造物・補強による対策の5つに大別できます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-nanjaku-jiban&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-14T20:00:00+09:00",
+      "r2Key": "video/render/gakka-nanjaku-jiban/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-nanjaku-jiban/shorts/point-overview-1/thumbnail.png",
+      "sha256": "3fdeb06e74fa5990a2dbd343f4f00dc04bf30bf675076379cb81c9f7cb4ef845",
+      "thumbnailSha256": "77bebc6d10e628e402457a53dd0ae75c9b6feaa1fc301165880106610e3eacc4"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "1級土木｜圧密・排水工法の代表例 #Shorts",
+      "description": "圧密・排水工法の代表がバーチカルドレーン工法です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-nanjaku-jiban&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-15T07:30:00+09:00",
+      "r2Key": "video/render/gakka-nanjaku-jiban/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-nanjaku-jiban/shorts/point-step1-2/thumbnail.png",
+      "sha256": "76f5961dde956780995efa5a5ee3a77db458ddbf06a408d4261b911184a8f15a",
+      "thumbnailSha256": "0a0986c75dd223e2fd97b491b975d39d617e42467d2d651bc07162eae869663d"
+    }
+  ]
 }

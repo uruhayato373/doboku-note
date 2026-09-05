@@ -22,5 +22,46 @@
     "sha256": "efe0e0ac671184bcaf6bb9af90f129921636d81c26edbb7285abcf18c436a51e",
     "thumbnailSha256": "afc9a4169535a8bc4a254a675c9138f0a6553e1e31a814e467b0a954ffec60b7"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "コンクリート技士｜現在地を測る #Shorts",
+      "description": "最初の休日に、四肢択一を1回分、資料を見ずに解きます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=gishi-12week-plan&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "勉強計画",
+        "受検対策",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-27T12:30:00+09:00",
+      "r2Key": "video/render/gishi-12week-plan/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-12week-plan/shorts/point-step1-1/thumbnail.png",
+      "sha256": "17598b87b1f15e5fced2cf7f2201483c82239fe1606af5f015674efab22083b1",
+      "thumbnailSha256": "3245f8776d241109b174a8728155b1ea94853ffa5928a4ccd4965c19380304b2"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "コンクリート技士｜1〜4週目：全体像と基礎 #Shorts",
+      "description": "1〜2週目は教材の目次と選考基準を照合し、材料から施工までのつながりを一度通します。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n63568f1ae404?utm_source=youtube&utm_medium=video&utm_campaign=gishi-12week-plan&utm_content=shorts\n\n#コンクリート技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート技士",
+        "コンクリート",
+        "勉強計画",
+        "受検対策",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-28T07:30:00+09:00",
+      "r2Key": "video/render/gishi-12week-plan/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gishi-12week-plan/shorts/point-step2-2/thumbnail.png",
+      "sha256": "a4bc3faf1d38c287553ffd5b60c17ce17230698897ce82360e0ca1204cdba639",
+      "thumbnailSha256": "09cdb2ccb5e79fc335c2d1a8e6a1e34315b825b04e15a43bda450fb0054d85a4"
+    }
+  ]
 }

@@ -22,5 +22,46 @@
     "sha256": "e245ffda3806037b122b9d938a3b96a83fcfd42fabaab0b3b3d451db9795f9fe",
     "thumbnailSha256": "6c2acadf66a55c6ea1ebb2c38f6f8ffe8a7c2e1789640da41d3790b423107f81"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "1級土木｜偶然原因と異常原因 #Shorts",
+      "description": "管理図で扱うバラツキの原因は2種類です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-kanrizu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-10T20:00:00+09:00",
+      "r2Key": "video/render/gakka-kanrizu/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-kanrizu/shorts/point-step1-1/thumbnail.png",
+      "sha256": "be30e904fa8fe8a0348323527b362ecde4d33c2734ac036b70abcd2882a8b264",
+      "thumbnailSha256": "d73ad6f1f77f97b9a5a10e15a3b2dbc228158930abd4b5bd4a1970fd1cd6bc0a"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "1級土木｜安定・異常の判定 #Shorts",
+      "description": "点が管理限界線の内側にあり、並び方にクセがなければ安定状態です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-kanrizu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-11T07:30:00+09:00",
+      "r2Key": "video/render/gakka-kanrizu/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-kanrizu/shorts/point-step2-2/thumbnail.png",
+      "sha256": "a72bd1c15573e18684e722bf71b590654a10902e867ddd0a8a67ba69782da13e",
+      "thumbnailSha256": "55bcf16def7fa474807aa2eb1886f53d5a7a3f6012965c12c998628a1c7675b9"
+    }
+  ]
 }

@@ -22,5 +22,46 @@
     "sha256": "969346566b30b038d1189e770f0295e28b40b44d910ac1f47db857e07beec6cd",
     "thumbnailSha256": "1a86d97fdafe8a50dac9268ef875fc0e68f9aaa2089e93b5ff48a8364c475225"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-identify-hazard-1",
+      "sceneId": "identify-hazard",
+      "title": "1級土木｜危険源を現場条件から特定する #Shorts",
+      "description": "危険源は、法面の急勾配、高所の足場作業、重機の輻輳、大規模な掘削といった現場条件から特定します。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m150c9db08902?utm_source=youtube&utm_medium=video&utm_campaign=keiken-anzen-1kyu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-22T12:30:00+09:00",
+      "r2Key": "video/render/keiken-anzen-1kyu/shorts/point-identify-hazard-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-anzen-1kyu/shorts/point-identify-hazard-1/thumbnail.png",
+      "sha256": "ba87295edc5ed2f37ae9fe387d8ba6fe338c5680c937e96eddd82d68777a0c8e",
+      "thumbnailSha256": "859d71edee3fb9fe96c81186d96538aa049417be3d736ec575e38cf6e9605418"
+    },
+    {
+      "key": "point-compare-measures-2",
+      "sceneId": "compare-measures",
+      "title": "1級土木｜対策を比較して検討する #Shorts",
+      "description": "検討では複数の対策を比較して選んだ理由を書きます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m150c9db08902?utm_source=youtube&utm_medium=video&utm_campaign=keiken-anzen-1kyu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-23T07:30:00+09:00",
+      "r2Key": "video/render/keiken-anzen-1kyu/shorts/point-compare-measures-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-anzen-1kyu/shorts/point-compare-measures-2/thumbnail.png",
+      "sha256": "47b92cc1ab9aa501d58be427c618cb515bd338717a0bafc22c8feb593592aa5e",
+      "thumbnailSha256": "46d8cc59b6e45bc705c9652db3e1bb5dc9b25016d8b17c7fafd08255559b9855"
+    }
+  ]
 }

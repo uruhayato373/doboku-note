@@ -22,5 +22,46 @@
     "sha256": "e53b9614fa9bac04e499608ce3eaca50111fcd68c5b86d0aa1a0df1181d7ed13",
     "thumbnailSha256": "62f23682c2c76443ada1aaceb301ba749e677b15af5aa131359f8f37b154aacb"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-background-1",
+      "sceneId": "background",
+      "title": "1級土木｜出題対象になった経緯 #Shorts",
+      "description": "令和6年度から、5つの管理項目のうち2つが設問1・設問2に指定される形式に変わりました。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m150c9db08902?utm_source=youtube&utm_medium=video&utm_campaign=keiken-kankyo-1kyu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-24T12:30:00+09:00",
+      "r2Key": "video/render/keiken-kankyo-1kyu/shorts/point-background-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-kankyo-1kyu/shorts/point-background-1/thumbnail.png",
+      "sha256": "41b3c37f5f6813155008d70c9a5c3f26be7b5870d1d7af9a1a044ab38c92172a",
+      "thumbnailSha256": "86ee30e1bdd3164a8ff07dee1cdadeac8394b7ad5a4a9c976cd0fa293ddd2899"
+    },
+    {
+      "key": "point-three-categories-2",
+      "sceneId": "three-categories",
+      "title": "1級土木｜検討を3系統に整理する #Shorts",
+      "description": "検討項目は、騒音・振動の低減、建設副産物の再資源化、濁水・粉じんの処理の3系統に整理できます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m150c9db08902?utm_source=youtube&utm_medium=video&utm_campaign=keiken-kankyo-1kyu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-25T07:30:00+09:00",
+      "r2Key": "video/render/keiken-kankyo-1kyu/shorts/point-three-categories-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-kankyo-1kyu/shorts/point-three-categories-2/thumbnail.png",
+      "sha256": "89f011cfa6831a5169fe8a64b324f56ae63e4cad6d0c7324844f8dfbbbbea707",
+      "thumbnailSha256": "5cbeff250b57e53dfcfca13423c933b082414a9e1e586e332fa8d73ecfe02e1d"
+    }
+  ]
 }

@@ -22,5 +22,46 @@
     "sha256": "c7d4c7a4c9558857225171946b07956844839cf1d15d3969e1e974dad448d7fc",
     "thumbnailSha256": "89efc772a7338479b1778ddd951e75cc4a07eaa9e839ee3f215517395971df6d"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "1級土木｜建設業法上の「できること」の違い #Shorts",
+      "description": "2級は主任技術者になれ、現場を1つ任せられます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=roadmap-1kyu-vs-2kyu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強計画",
+        "受検対策",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-11-30T20:00:00+09:00",
+      "r2Key": "video/render/roadmap-1kyu-vs-2kyu/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/roadmap-1kyu-vs-2kyu/shorts/point-step1-1/thumbnail.png",
+      "sha256": "f2b2148f814bbb9de1f119c0fd55fa4c54d4e8abb9e155bd3e3a069eabe651a1",
+      "thumbnailSha256": "1d989a2d449c987e0402acd235165e784f14213d7322c4603c891a78d5b83a8e"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "1級土木｜受験資格の違い #Shorts",
+      "description": "第一次検定は、2級が満17歳以上、1級が満19歳以上で、どちらも実務経験は問われません。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://doboku-note.com/links?utm_source=youtube&utm_medium=video&utm_campaign=roadmap-1kyu-vs-2kyu&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強計画",
+        "受検対策",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-01T07:30:00+09:00",
+      "r2Key": "video/render/roadmap-1kyu-vs-2kyu/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/roadmap-1kyu-vs-2kyu/shorts/point-step2-2/thumbnail.png",
+      "sha256": "ce3069ec917912cdce0cf63188eab194d76e5b9a55ecb7483e7460cc967ec6d9",
+      "thumbnailSha256": "12b81e4085705fb165a0f8d3bae4d3ec88ffed25f06e7478fc78270f8ccf291f"
+    }
+  ]
 }

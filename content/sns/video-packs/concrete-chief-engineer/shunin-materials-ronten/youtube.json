@@ -22,5 +22,46 @@
     "sha256": "6e929e18706bf9d13d9d43347e4447bcd5a9acab49f880f4822e8ab4233b0cb1",
     "thumbnailSha256": "95fe2cb7104dceeac45f441037dcfe7ca0cd908f907a590a150f63dbe673041d"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-clinker-1",
+      "sceneId": "clinker",
+      "title": "コンクリート主任技士｜クリンカー4化合物の特性 #Shorts",
+      "description": "クリンカーの組成化合物は4つ。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-materials-ronten&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-30T12:30:00+09:00",
+      "r2Key": "video/render/shunin-materials-ronten/shorts/point-clinker-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-materials-ronten/shorts/point-clinker-1/thumbnail.png",
+      "sha256": "c54002596df44b427c7cd7bb59682d756d6e954915f86bc032d0e12c6e22a6a7",
+      "thumbnailSha256": "756ccc90d67ca836310c9be24ad1c0d367b13a32df81d011a3d86b8b96d6e391"
+    },
+    {
+      "key": "point-cement-types-2",
+      "sceneId": "cement-types",
+      "title": "コンクリート主任技士｜各種セメントの規定と用途 #Shorts",
+      "description": "早強セメントはC3Sを増やして早期強度を高めます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nfad294307263?utm_source=youtube&utm_medium=video&utm_campaign=shunin-materials-ronten&utm_content=shorts\n\n#コンクリート主任技士 #試験対策 #Shorts",
+      "tags": [
+        "コンクリート主任技士",
+        "コンクリート",
+        "試験対策",
+        "頻出論点",
+        "doboku-note",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-31T07:30:00+09:00",
+      "r2Key": "video/render/shunin-materials-ronten/shorts/point-cement-types-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/shunin-materials-ronten/shorts/point-cement-types-2/thumbnail.png",
+      "sha256": "1e317d15b218734dad547c7c4703e68411be67dec891cd8012dac993b7edde1e",
+      "thumbnailSha256": "07081f3727f6a7bb848947b62f5f7b3e2131f7941f0511c5f74ccb5a1fee3ab3"
+    }
+  ]
 }

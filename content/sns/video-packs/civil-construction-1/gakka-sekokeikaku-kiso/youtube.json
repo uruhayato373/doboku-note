@@ -22,5 +22,46 @@
     "sha256": "18b5552b410df39b07bd5584f1e7ea75efada51b5875f1ef40455d082b8a0b6e",
     "thumbnailSha256": "7fd0b7c5480afca0b04577c7d16436943fb5d28a655478b3974a044a3a468091"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-step1-1",
+      "sceneId": "step1",
+      "title": "1級土木｜事前調査の3カテゴリ #Shorts",
+      "description": "事前調査は、契約条件・工事条件・自然条件の3カテゴリで確認します。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-sekokeikaku-kiso&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-17T20:00:00+09:00",
+      "r2Key": "video/render/gakka-sekokeikaku-kiso/shorts/point-step1-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-sekokeikaku-kiso/shorts/point-step1-1/thumbnail.png",
+      "sha256": "30410368c23c8cd24609298014cd831bc7b1a8de201fe3d1cfca897befa2d99d",
+      "thumbnailSha256": "741494fd344c9c6119df9b49b1412a69f287ca5c4215001bbd2dce2396b6b2d1"
+    },
+    {
+      "key": "point-step2-2",
+      "sceneId": "step2",
+      "title": "1級土木｜施工計画作成の4段階 #Shorts",
+      "description": "施工計画は、事前調査、基本計画、詳細計画、管理計画の4段階で組み立てます。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/nec34238ca6d6?utm_source=youtube&utm_medium=video&utm_campaign=gakka-sekokeikaku-kiso&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-12-18T12:30:00+09:00",
+      "r2Key": "video/render/gakka-sekokeikaku-kiso/shorts/point-step2-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-sekokeikaku-kiso/shorts/point-step2-2/thumbnail.png",
+      "sha256": "0989af3a340f88fa7e8a2f630ea25042ea0e015e13a5161cc0cceaefc23f4559",
+      "thumbnailSha256": "435f9fcd6ccf59721edbfbc7e93637ecf632d78272f3d74977f258f053f746aa"
+    }
+  ]
 }

@@ -22,5 +22,46 @@
     "sha256": "5a1651fba08090667fe5f0e4fc86ea4f6041864ee2522c2d2bee34e31c7fe6fb",
     "thumbnailSha256": "e49f8b9595e9bff5abff8da146e753c1ec1341861562492267c18261fcc63663"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "2級土木｜土工の4テーマ #Shorts",
+      "description": "扱うのは4テーマ。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n4963f45bd6f8?utm_source=youtube&utm_medium=video&utm_campaign=gakka-2kyu-doko&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-09T12:30:00+09:00",
+      "r2Key": "video/render/gakka-2kyu-doko/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-2kyu-doko/shorts/point-overview-1/thumbnail.png",
+      "sha256": "778d764cdf1efb635a62f23538268b41c0ba53e93d2b3527662ed77830a1b32d",
+      "thumbnailSha256": "bdd75ee96f6e68798d48ce56613a7fe7bca08625b89c77212cb4e3543fae08ca"
+    },
+    {
+      "key": "point-block1-2",
+      "sceneId": "block1",
+      "title": "2級土木｜土質試験は目的で覚える #Shorts",
+      "description": "まず土質試験です。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/n/n4963f45bd6f8?utm_source=youtube&utm_medium=video&utm_campaign=gakka-2kyu-doko&utm_content=shorts\n\n#2級土木 #試験対策 #Shorts",
+      "tags": [
+        "2級土木施工管理技士",
+        "2級土木",
+        "試験対策",
+        "頻出論点",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-10-10T07:30:00+09:00",
+      "r2Key": "video/render/gakka-2kyu-doko/shorts/point-block1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/gakka-2kyu-doko/shorts/point-block1-2/thumbnail.png",
+      "sha256": "53a40a95682810f3c3cb857c7397a13cdc5078b794a8fa471a3f9529c935d9ee",
+      "thumbnailSha256": "c0355c196adf917c4cdbb954a598896a80bc9209a25da03bc06b31096b983626"
+    }
+  ]
 }

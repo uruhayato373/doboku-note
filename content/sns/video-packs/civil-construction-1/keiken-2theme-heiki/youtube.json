@@ -22,5 +22,46 @@
     "sha256": "eeb39fd4df120ff5543dd768083d05266cdb166e0739229a98b6d36632255ac5",
     "thumbnailSha256": "0b61aa838f477cb248e94a29bc14e5f316c28bf37dfad53eba6c1e4699af20d9"
   },
-  "shorts": []
+  "shorts": [
+    {
+      "key": "point-overview-1",
+      "sceneId": "overview",
+      "title": "1級土木｜R6年度からの形式変化 #Shorts",
+      "description": "令和5年度までは、1つの管理項目を指定し、設問1で工事概要、設問2でその管理項目を書く形式でした。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m74cfd7c695d6?utm_source=youtube&utm_medium=video&utm_campaign=keiken-2theme-heiki&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-09-25T12:30:00+09:00",
+      "r2Key": "video/render/keiken-2theme-heiki/shorts/point-overview-1/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-2theme-heiki/shorts/point-overview-1/thumbnail.png",
+      "sha256": "d2875d68375be16c9ed6cdbb080bd16300ea4133e0c6a3ed7b4a5d1c73583f57",
+      "thumbnailSha256": "80c230755fcab7b47389f175d071d086e765a21621a4d813e85d551edbecfb56"
+    },
+    {
+      "key": "point-step1-2",
+      "sceneId": "step1",
+      "title": "1級土木｜なぜ書き分けでつまずくか #Shorts",
+      "description": "1つの工事で2つの管理項目を書くと、課題や対応が似通いがちです。詳しい解説は、このShortの関連動画から確認できます。\n\n【この動画の制作について】\n本動画は、技術士（総合技術監理部門）取得者が、実務経験と公的資料に基づいて企画・監修しています。AIはナレーション音声や映像制作の補助に限定して使用しています。解説内容の確認と最終判断は著者が行っています。\n\n▼ 詳しい解説を見る\nhttps://note.com/dobokunote/m/m74cfd7c695d6?utm_source=youtube&utm_medium=video&utm_campaign=keiken-2theme-heiki&utm_content=shorts\n\n#1級土木 #試験対策 #Shorts",
+      "tags": [
+        "1級土木施工管理技士",
+        "1級土木",
+        "勉強法",
+        "答案の書き方",
+        "土木施工管理",
+        "Shorts"
+      ],
+      "categoryId": "27",
+      "publishAt": "2026-09-27T12:30:00+09:00",
+      "r2Key": "video/render/keiken-2theme-heiki/shorts/point-step1-2/shorts.mp4",
+      "thumbnailR2Key": "video/render/keiken-2theme-heiki/shorts/point-step1-2/thumbnail.png",
+      "sha256": "0b227e5bfb503f3519c322fe2eac61388fba5d58b86b21bebfa0508a7d6afc8c",
+      "thumbnailSha256": "ba109548dccaeac37d5eae03d9908d3532587df3806387495b053a8645b34ad7"
+    }
+  ]
 }
