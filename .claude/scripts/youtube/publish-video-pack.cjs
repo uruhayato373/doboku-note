@@ -208,11 +208,22 @@ async function schedulePublic(youtube, videoId, publishAt) {
       },
     },
   });
-  const after = await fetchVideo(youtube, videoId);
-  if (after?.status?.privacyStatus !== 'private' || !after.status?.publishAt) {
-    throw new Error(`${videoId}: 公開予約を実査できません`);
+
+  // videos.update の直後は videos.list に publishAt がまだ出ないことがある。
+  // YouTube 側の eventual consistency を吸収し、API 応答を実査してから成功とする。
+  for (let attempt = 1; attempt <= 10; attempt += 1) {
+    const after = await fetchVideo(youtube, videoId);
+    const actualAt = after?.status?.publishAt;
+    if (
+      after?.status?.privacyStatus === 'private'
+      && actualAt
+      && new Date(actualAt).getTime() === new Date(publishAt).getTime()
+    ) {
+      return after;
+    }
+    if (attempt < 10) await new Promise((resolve) => setTimeout(resolve, 1000));
   }
-  return after;
+  throw new Error(`${videoId}: 公開予約を10回のAPI確認後も実査できません: ${publishAt}`);
 }
 
 async function main() {
