@@ -1689,7 +1689,7 @@
     "career-tenshoku-timing": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -1698,8 +1698,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-28T12:30:00+09:00",
-          "renderedAt": "2026-09-05T04:37:14.707Z"
+          "publishAt": "2026-09-28T03:30:00Z",
+          "renderedAt": "2026-09-05T04:37:14.707Z",
+          "videoId": "5E0l3Sp2oG4",
+          "url": "https://www.youtube.com/watch?v=5E0l3Sp2oG4",
+          "scheduledAt": "2026-09-05T04:39:32.926Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -1727,7 +1731,7 @@
     "career-yameru-mae": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -1736,8 +1740,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-29T07:30:00+09:00",
-          "renderedAt": "2026-09-05T04:37:21.537Z"
+          "publishAt": "2026-09-28T22:30:00Z",
+          "renderedAt": "2026-09-05T04:37:21.537Z",
+          "videoId": "GLG3HqvG68U",
+          "url": "https://www.youtube.com/watch?v=GLG3HqvG68U",
+          "scheduledAt": "2026-09-05T04:39:42.809Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -1807,7 +1815,7 @@
     "sekokan-shippaidan": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -1816,8 +1824,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-29T20:00:00+09:00",
-          "renderedAt": "2026-09-05T04:37:24.482Z"
+          "publishAt": "2026-09-29T11:00:00Z",
+          "renderedAt": "2026-09-05T04:37:24.482Z",
+          "videoId": "j6nCykloqpw",
+          "url": "https://www.youtube.com/watch?v=j6nCykloqpw",
+          "scheduledAt": "2026-09-05T04:39:52.371Z",
+          "privacyStatus": "private"
         }
       }
     },
