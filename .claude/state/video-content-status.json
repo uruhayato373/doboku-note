@@ -139,7 +139,7 @@
     "keiken-kento-kakikata": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -148,8 +148,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-10T07:30:00+09:00",
-          "renderedAt": "2026-09-05T02:32:45.903Z"
+          "publishAt": "2026-09-09T22:30:00Z",
+          "renderedAt": "2026-09-05T02:32:45.903Z",
+          "videoId": "0Ql8BfxfV9g",
+          "url": "https://www.youtube.com/watch?v=0Ql8BfxfV9g",
+          "scheduledAt": "2026-09-05T02:36:03.249Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -640,7 +644,7 @@
     "gakka-crane-sogo": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.67,
             "blocks": 0,
@@ -649,8 +653,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-17T20:00:00+09:00",
-          "renderedAt": "2026-09-05T02:32:49.201Z"
+          "publishAt": "2026-09-17T11:00:00Z",
+          "renderedAt": "2026-09-05T02:32:49.201Z",
+          "videoId": "7rNk0JGxDSg",
+          "url": "https://www.youtube.com/watch?v=7rNk0JGxDSg",
+          "scheduledAt": "2026-09-05T02:37:01.754Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -769,7 +777,7 @@
     "gakka-anzen-taisei": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.5,
             "blocks": 0,
@@ -778,8 +786,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-16T20:00:00+09:00",
-          "renderedAt": "2026-09-05T02:32:52.476Z"
+          "publishAt": "2026-09-16T11:00:00Z",
+          "renderedAt": "2026-09-05T02:32:52.476Z",
+          "videoId": "ccuJn5GifKY",
+          "url": "https://www.youtube.com/watch?v=ccuJn5GifKY",
+          "scheduledAt": "2026-09-05T02:36:51.700Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -1068,7 +1080,7 @@
     "keiken-soteikoji-katsuyo": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.83,
             "blocks": 0,
@@ -1077,8 +1089,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-14T12:30:00+09:00",
-          "renderedAt": "2026-09-05T02:32:55.279Z"
+          "publishAt": "2026-09-14T03:30:00Z",
+          "renderedAt": "2026-09-05T02:32:55.279Z",
+          "videoId": "Fv6uUeLkGM8",
+          "url": "https://www.youtube.com/watch?v=Fv6uUeLkGM8",
+          "scheduledAt": "2026-09-05T02:36:20.417Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -1250,7 +1266,7 @@
     "niji-kijutsu-hinshitsu": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -1259,8 +1275,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-13T20:00:00+09:00",
-          "renderedAt": "2026-09-05T02:33:02.237Z"
+          "publishAt": "2026-09-13T11:00:00Z",
+          "renderedAt": "2026-09-05T02:33:02.237Z",
+          "videoId": "iVzvIDrHYWE",
+          "url": "https://www.youtube.com/watch?v=iVzvIDrHYWE",
+          "scheduledAt": "2026-09-05T02:36:12.290Z",
+          "privacyStatus": "private"
         }
       }
     },
@@ -1299,7 +1319,7 @@
     "roadmap-nanido-goukakuritsu": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 2.67,
             "blocks": 0,
@@ -1308,15 +1328,19 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-16T07:30:00+09:00",
-          "renderedAt": "2026-09-05T02:33:10.288Z"
+          "publishAt": "2026-09-15T22:30:00Z",
+          "renderedAt": "2026-09-05T02:33:10.288Z",
+          "videoId": "hoB1VojQrpc",
+          "url": "https://www.youtube.com/watch?v=hoB1VojQrpc",
+          "scheduledAt": "2026-09-05T02:36:40.055Z",
+          "privacyStatus": "private"
         }
       }
     },
     "roadmap-1kyu-vs-2kyu": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -1325,8 +1349,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-15T07:30:00+09:00",
-          "renderedAt": "2026-09-05T02:33:16.750Z"
+          "publishAt": "2026-09-14T22:30:00Z",
+          "renderedAt": "2026-09-05T02:33:16.750Z",
+          "videoId": "qgFg-Halod4",
+          "url": "https://www.youtube.com/watch?v=qgFg-Halod4",
+          "scheduledAt": "2026-09-05T02:36:31.812Z",
+          "privacyStatus": "private"
         }
       }
     },
