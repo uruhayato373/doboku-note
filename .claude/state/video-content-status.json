@@ -1044,7 +1044,7 @@
     "keiken-2theme-heiki": {
       "derivatives": {
         "longform": {
-          "status": "rendered",
+          "status": "scheduled",
           "qa": {
             "avg": 3,
             "blocks": 0,
@@ -1053,8 +1053,12 @@
           },
           "approvedBy": "user",
           "approvedAt": "2026-09-05T01:43:32.352Z",
-          "publishAt": "2026-09-08T20:00:00+09:00",
-          "renderedAt": "2026-09-05T02:27:29.522Z"
+          "publishAt": "2026-09-08T11:00:00Z",
+          "renderedAt": "2026-09-05T02:27:29.522Z",
+          "videoId": "znkRLmsGkKY",
+          "url": "https://www.youtube.com/watch?v=znkRLmsGkKY",
+          "scheduledAt": "2026-09-05T02:29:11.144Z",
+          "privacyStatus": "private"
         }
       }
     },
