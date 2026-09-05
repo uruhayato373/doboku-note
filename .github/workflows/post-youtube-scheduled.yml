@@ -26,6 +26,9 @@ on:
       dry_run:
         description: "true で対象表示のみ（アップしない）"
         required: false
+      skip_thumbnail:
+        description: "true でサムネイルを後送し、動画予約を優先する（YouTube短時間上限の回避用）"
+        required: false
 
 permissions:
   contents: write
@@ -146,7 +149,25 @@ jobs:
           fi
           args=(--exam "$exams" --max "${batch_max:-20}")
           if [ "${{ inputs.dry_run }}" = "true" ]; then args+=(--dry-run); fi
+          if [ "${{ inputs.skip_thumbnail }}" = "true" ]; then args+=(--skip-thumbnail); fi
           node .claude/scripts/youtube/publish-video-batch.cjs "${args[@]}" 2>&1 | tee /tmp/yt-post.log
+
+      # サムネイルAPIは動画アップロードより厳しい短時間上限を持つ。予約を先に確定し、
+      # pending だけを翌日以降に少量ずつ再送する（失敗しても予約状態のcommitは続ける）。
+      - name: 🖼️ Retry pending longform thumbnails
+        if: ${{ github.event_name == 'schedule' }}
+        continue-on-error: true
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: |
+          node .claude/scripts/youtube/publish-video-batch.cjs \
+            --exam civil-construction-1,civil-construction-2,concrete-engineer,concrete-chief-engineer \
+            --phase thumbnail --max 5
 
       - name: 📝 Commit ledger + log
         if: success() && github.event_name == 'workflow_dispatch' && !startsWith(inputs.max, 'pack:') && !startsWith(inputs.max, 'batch:') && inputs.dry_run != 'true' && steps.post.outputs.uploaded != '' && steps.post.outputs.uploaded != '0'

@@ -18,7 +18,10 @@ function arg(name, fallback = null) {
 
 const exams = new Set(arg('--exam', 'civil-construction-1,civil-construction-2').split(','));
 const max = Math.max(1, Number(arg('--max', '20')) || 20);
+const phase = arg('--phase', 'longform');
 const dry = process.argv.includes('--dry-run');
+const skipThumbnail = process.argv.includes('--skip-thumbnail');
+if (!['longform', 'thumbnail'].includes(phase)) throw new Error(`--phase は longform|thumbnail: ${phase}`);
 
 function walk(dir, out = []) {
   for (const ent of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -37,7 +40,10 @@ function candidates() {
       const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
       const youtubePath = path.join(dir, 'youtube.json');
       const derivative = state.packs?.[manifest.packId]?.derivatives?.longform;
-      if (!exams.has(manifest.exam) || derivative?.status !== 'rendered' || !fs.existsSync(youtubePath)) return null;
+      const statusMatches = phase === 'longform'
+        ? derivative?.status === 'rendered'
+        : ['scheduled', 'published'].includes(derivative?.status) && derivative?.thumbnailStatus === 'pending';
+      if (!exams.has(manifest.exam) || !statusMatches || !fs.existsSync(youtubePath)) return null;
       const youtube = JSON.parse(fs.readFileSync(youtubePath, 'utf8'));
       return { packId: manifest.packId, publishAt: youtube.longform?.publishAt };
     })
@@ -47,9 +53,11 @@ function candidates() {
 }
 
 function runPack(item) {
-  const result = spawnSync(process.execPath, [
-    path.join(__dirname, 'publish-video-pack.cjs'), '--pack-id', item.packId, '--phase', 'longform',
-  ], { cwd: ROOT, env: process.env, encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 });
+  const args = [path.join(__dirname, 'publish-video-pack.cjs'), '--pack-id', item.packId, '--phase', phase];
+  if (skipThumbnail && phase === 'longform') args.push('--skip-thumbnail');
+  const result = spawnSync(process.execPath, args, {
+    cwd: ROOT, env: process.env, encoding: 'utf8', maxBuffer: 20 * 1024 * 1024,
+  });
   if (result.stdout) process.stdout.write(result.stdout);
   if (result.stderr) process.stderr.write(result.stderr);
   return {
@@ -67,7 +75,7 @@ function isRetryableProcessingError(detail) {
 
 async function main() {
   const targets = candidates();
-  console.log(`batch target: ${targets.length}本 / max=${max} / exams=${[...exams].join(',')}`);
+  console.log(`batch target: ${targets.length}本 / phase=${phase} / max=${max} / exams=${[...exams].join(',')}`);
   for (const item of targets) console.log(`  ${item.publishAt} ${item.packId}`);
   if (dry || targets.length === 0) return;
 
@@ -104,7 +112,8 @@ async function main() {
 
   const unresolved = failed.filter(({ item }) => {
     const current = JSON.parse(fs.readFileSync(STATE_PATH, 'utf8'));
-    return current.packs?.[item.packId]?.derivatives?.longform?.status !== 'scheduled';
+    const derivative = current.packs?.[item.packId]?.derivatives?.longform;
+    return phase === 'longform' ? derivative?.status !== 'scheduled' : derivative?.thumbnailStatus !== 'set';
   });
   console.log(`\nbatch result: success=${succeeded} failed=${unresolved.length} remaining=${candidates().length}`);
   if (unresolved.length) process.exitCode = 1;
