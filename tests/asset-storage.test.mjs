@@ -17,7 +17,7 @@ import { fileURLToPath } from 'node:url';
 import {
   loadConfig, groupFor, r2KeyFor, mimeFor, bucketForFile, visibilityFor,
   findSecrets, sanitizeEntry, cachePathFor, emptyManifest, toPosix,
-  migrateManifestToLeanFormat, expandManifestFromLeanFormat,
+  migrateManifestToLeanFormat, expandManifestFromLeanFormat, AUDIENCE_RULES,
 } from '../scripts/lib/asset-storage.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
@@ -32,6 +32,13 @@ test('config: 全 group が bucket / keyFrom / visibilityFrom を正しく宣言
     assert.ok(kf === 'repoRelative' || kf.startsWith('stripPrefix:'), g.id + ' の keyFrom');
     assert.ok(g.reason && g.reason.length > 20, g.id + ' に「なぜその置き場か」が要る');
     assert.ok(g.phase, g.id + ' にどの Phase で動かすかが要る');
+    // 置き場は「誰が使うか」で決める（2026-09-05）。人しか読まないものは R2 でなく Drive vault。
+    assert.ok(['site', 'ci', 'human'].includes(g.audience), g.id + ' に audience（site|ci|human）が要る');
+    if (g.audience === 'human') {
+      assert.ok(typeof g.audienceException === 'string' && g.audienceException.length >= 20, g.id + ' は human なので R2 に残す理由（audienceException）が要る');
+    } else {
+      assert.ok(AUDIENCE_RULES[g.audience].includes(g.bucket), g.id + ': audience=' + g.audience + ' に bucket=' + g.bucket + ' は許されない');
+    }
   }
   for (const need of ['public', 'private']) assert.ok(CFG.buckets[need], 'buckets.' + need);
   assert.equal(CFG.buckets.private.publicHost, null, 'private バケットに公開ホストを持たせない');

@@ -220,6 +220,13 @@
       ]
     },
     {
+      "path": ".claude/state/assets/drive-manifest.json",
+      "reason": "Google Drive vault 退避の台帳（drive-vault.json 系・2026-09-05）。R2 側の manifest.json と同じ理由で Git に置くしかない（11,898 件で 6.3 MiB・JSON 上限 4 MiB を超える）。1 エントリ約 550 byte。vaultPath は非 adopted なら group から導出できるので、膨らんだら lean 化で 3 割減らせる。",
+      "appliesTo": [
+        "size"
+      ]
+    },
+    {
       "path": "scripts/kindle-dist/",
       "reason": "KDP 入稿済み EPUB+表紙 jpg。asset-storage.json の kindle-dist group で R2 private（doboku-note-archive/kindle/dist/）へバックアップ済みだが、check-kindle-format.mjs が ci:true で CI がこの Git 実体を直接検査するため untrack はしない（DN-0151(3) 決着）。untrack するには (i) 全冊再ビルドの内容一致検証 (ii) check-kindle-format の CI 実体依存問題の解決 の両方が要る。",
       "appliesTo": [

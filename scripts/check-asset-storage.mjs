@@ -32,6 +32,7 @@ import {
   loadConfig, loadManifest, r2KeyFor, visibilityFor, bucketForFile,
   findSecrets, cachePathFor, toPosix, MANIFEST_PATH,
 } from './lib/asset-storage.mjs';
+import { loadDriveConfig, driveGroupFor, loadDriveManifest } from './lib/drive-vault.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
 const JSON_OUT = process.argv.includes('--json');
@@ -134,8 +135,18 @@ function main() {
   // ローカルにしか実体が無い状態が無言で続き、次に気づくのはそのマシンを失ったときになる。
   // ここは**ワークツリーを走査する**唯一の検査で、CI（追跡ファイルしか無い）では
   // 走査 0 件になる。0 件を「異常なし」と読ませないため件数を必ず出す。
-  const scan = { walked: 0, matched: 0, tracked: 0, offloaded: 0, orphan: 0, hashed: 0, hashSkipped: 0, stale: 0 };
+  const scan = { walked: 0, matched: 0, tracked: 0, offloaded: 0, orphan: 0, hashed: 0, hashSkipped: 0, stale: 0, drive: 0 };
   const groups = (cfg.groups || []).map((g) => ({ g, re: new RegExp(g.match.pathRegex) }));
+  // Drive vault 管轄（audience=human・active）のファイルは R2 の「未退避」ではない。
+  // 台帳は drive-manifest.json 側で、検査は check-drive-vault が担う。ここで数えると
+  // 移行が済んだグループのファイルが not-offloaded として偽の赤を出す。
+  // 「Drive に居場所がある」＝ active な Drive group に一致する、または drive-manifest に既に登録済み
+  // （移行中 pending の group でも、同期が済んだものは R2 未退避ではない）。
+  let dcfg = null;
+  let driveEntries = new Set();
+  try { dcfg = loadDriveConfig(); driveEntries = new Set(Object.keys(loadDriveManifest().entries || {})); }
+  catch { /* 設定が無ければ Drive 判定なしで続ける（check-drive-vault が別途落とす） */ }
+  const isDriveManaged = (rel) => driveEntries.has(rel) || Boolean(dcfg && driveGroupFor(rel, dcfg, { includePending: false }));
   if (groups.length) {
     // 通常の制作物は content/、16:9動画の重い生成物だけは .tmp/video-render/ に置く。
     // 後者を走査しないと video-render-artifact group を追加しても、offload 忘れが
@@ -153,6 +164,7 @@ function main() {
         if (ent.isDirectory()) { if (ent.name !== '.git' && ent.name !== 'node_modules') stack.push(abs); continue; }
         scan.walked++;
         const rel = toPosix(abs.slice(REPO_ROOT.length + 1));
+        if (isDriveManaged(rel)) { scan.drive++; continue; }
         const hit = groups.find(({ re }) => re.test(rel));
         if (!hit) continue;
         scan.matched++;
@@ -203,8 +215,9 @@ function main() {
     }, null, 2));
   } else {
     console.log('[check-asset-storage] group ' + (cfg.groups || []).length + ' 種 / manifest ' + entries.length + ' エントリを実検査');
-    console.log('  ワークツリー走査 ' + scan.walked + ' ファイル / 退避対象に該当 ' + scan.matched
-      + '（Git 追跡 ' + scan.tracked + ' / 退避済み ' + scan.offloaded + ' / どちらでもない ' + scan.orphan + '）');
+    console.log('  ワークツリー走査 ' + scan.walked + ' ファイル / R2 退避対象に該当 ' + scan.matched
+      + '（Git 追跡 ' + scan.tracked + ' / 退避済み ' + scan.offloaded + ' / どちらでもない ' + scan.orphan + '）'
+      + (scan.drive ? ' / Drive vault 管轄 ' + scan.drive + '（check-drive-vault が検査）' : ''));
     if (scan.matched === 0) console.log('  ※ 該当 0 件。追跡ファイルしか無いツリー（CI・新規 clone）では正常。');
     // 「何件 hash を照合したか」を必ず出す。0 件照合の緑と、実際に一致している緑を区別する。
     console.log('  ローカル実体 ↔ R2 の sha256 照合 ' + scan.hashed + ' 件'

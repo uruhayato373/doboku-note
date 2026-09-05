@@ -16,6 +16,11 @@
 //   node scripts/asset-offload.mjs --group textbook-page-image --limit 20 # 件数を絞る
 //   node scripts/asset-offload.mjs --group note-cover-png --commit        # 実アップロード
 //   node scripts/asset-offload.mjs --group note-cover-png --skip-existing # R2 に同 sha256 があれば省く
+//   node scripts/asset-offload.mjs --forget-group textbook-page-image [--commit]
+//       # Drive vault へ移し R2 側を purge した後、その group の manifest エントリを外す。
+//       # **各キーが drive-manifest.json に同じ sha256 で載っているときだけ**外す（fail-closed）。
+//       # 載っていないものがあれば 1 件も外さない（--allow-unpreserved で強行できるが、それは
+//       # 「復元の確認手段を自分で捨てる」操作なので理由を残すこと）。2026-09-05 追加
 //
 // exit 0 = 成功（dry-run 含む） / exit 1 = 検証失敗・設定不備・対象ゼロで意図不明
 //
@@ -30,6 +35,7 @@ import {
   loadManifest, writeManifestAtomic, sanitizeEntry, toPosix,
 } from './lib/asset-storage.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
+import { loadDriveManifest } from './lib/drive-vault.mjs';
 
 const argv = process.argv.slice(2);
 const flag = (n) => argv.includes(n);
@@ -49,6 +55,8 @@ const SKIP_EXISTING = flag('--skip-existing');
 // コマンドが動かない、という状態を 2026-08-22 に作ってしまった）。
 const INCLUDE_UNTRACKED = flag('--include-untracked');
 const GROUP_ID = val('--group');
+const FORGET_GROUP = val('--forget-group');
+const ALLOW_UNPRESERVED = flag('--allow-unpreserved');
 const LIMIT = Number(val('--limit', '0')) || 0;
 // 直列だと 868 件で約 12 分かかった（571 MiB の up と、sha256 検証のための down で往復 1.1 GB）。
 // 既存の upload-sns-r2 も同じ理由で 20 並列。既定 8 は R2 のレート制限に対して控えめな値。
@@ -132,8 +140,44 @@ async function verifyGroup(cfg, group, targets) {
   console.log('[asset-offload --verify] ✓ 全件がローカル・manifest・R2 で一致した。untrack してよい。');
 }
 
+/**
+ * Drive vault へ移した group の manifest エントリを外す。
+ * 「台帳から消す」は「R2 に無くても気づけなくなる」操作なので、drive-manifest.json に
+ * 同じ sha256 で載っている＝別の場所で保全が確認できるキーだけを外す。
+ */
+function forgetGroup(groupId) {
+  const manifest = loadManifest();
+  const drive = loadDriveManifest();
+  const targets = Object.entries(manifest.entries || {}).filter(([, e]) => e.group === groupId);
+  if (targets.length === 0) {
+    console.error('[asset-offload --forget-group] group "' + groupId + '" のエントリが manifest に 0 件。検査不成立として exit 1。');
+    process.exit(1);
+  }
+  const ok = [];
+  const bad = [];
+  for (const [rel, e] of targets) {
+    const d = drive.entries?.[toPosix(rel)];
+    if (!d) { bad.push([rel, 'drive-manifest に無い']); continue; }
+    if (d.sha256 !== e.sha256) { bad.push([rel, 'drive-manifest の sha256 が違う']); continue; }
+    ok.push(rel);
+  }
+  console.log('[asset-offload --forget-group] group=' + groupId + ' / manifest ' + targets.length + ' 件 / Drive 側で保全確認 ' + ok.length + ' 件 / 未確認 ' + bad.length + ' 件 / mode=' + (COMMIT ? 'COMMIT' : 'DRY-RUN'));
+  for (const [p, why] of bad.slice(0, 15)) console.error('    ' + why + ' — ' + p);
+  if (bad.length > 15) console.error('    ... ほか ' + (bad.length - 15) + ' 件');
+  if (bad.length && !ALLOW_UNPRESERVED) {
+    console.error('  FAIL: Drive 側で保全を確認できないキーがあるので 1 件も外さない。先に drive-vault-sync --group ' + groupId + ' --commit → --verify --cloud。');
+    process.exit(1);
+  }
+  if (!COMMIT) { console.log('  DRY-RUN のため manifest は変更していない。実行は --commit。'); return; }
+  for (const rel of ok) delete manifest.entries[rel];
+  if (ALLOW_UNPRESERVED) for (const [rel] of bad) delete manifest.entries[rel];
+  const total = writeManifestAtomic(manifest);
+  console.log('  ✓ ' + (ok.length + (ALLOW_UNPRESERVED ? bad.length : 0)) + ' 件を manifest から外した（残 ' + total + ' エントリ）。R2 のオブジェクト自体は消していない（delete-r2-objects --bucket private --from-manifest-group を先に）。');
+}
+
 async function main() {
   const cfg = loadConfig();
+  if (FORGET_GROUP) { forgetGroup(FORGET_GROUP); return; }
   if (!GROUP_ID) {
     console.error('[asset-offload] --group が要る。指定できる group: ' + cfg.groups.map((g) => g.id).join(' / '));
     process.exit(1);

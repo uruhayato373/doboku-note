@@ -146,6 +146,15 @@ if [ -z "$SKIP_ASSET_REENTRY" ]; then
   fi
 fi
 
+# 置き場ルール（audience）の破りと、Drive vault 管轄ファイルの Git 混入を staged だけで検知（2026-09-05）。
+# マウントは見ない（設定・ルーティング衝突・audience のみ）。SKIP_DRIVE_VAULT=1 で回避
+if [ -z "$SKIP_DRIVE_VAULT" ]; then
+  node scripts/check-drive-vault.mjs --staged-only
+  if [ $? -ne 0 ]; then
+    exit 1
+  fi
+fi
+
 # 4 領域モデル（docs/content/.claude/実装）への逆戻り検知。廃止した置き場への新規ファイル・
 # docs への制作物混入・content への台帳混入。SKIP_INFORMATION_ARCHITECTURE=1 で回避
 node scripts/check-information-architecture.mjs --staged
