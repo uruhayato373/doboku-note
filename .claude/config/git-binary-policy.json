@@ -105,12 +105,12 @@
     "png": 1.5,
     "jpg": 1.5,
     "jpeg": 1.5,
-    "webp": 1.0,
-    "gif": 1.0,
+    "webp": 1,
+    "gif": 1,
     "svg": 0.3,
-    "pdf": 5.0,
-    "json": 4.0,
-    "default": 5.0
+    "pdf": 5,
+    "json": 4,
+    "default": 5
   },
   "budgets": {
     "_comment": "ディレクトリ別の追跡総量上限（MiB）。個別ファイルが小さくても件数で膨らむ経路を止める。狙いは通常の執筆ペースを妨げず『まとまった投入』を止めること。2026-08-29 の全ストレージ最適化（ogp.png/webp・note magazine cover・coconala/repo-archive・kindle-dist backup を R2 へ退避）で実測が content/note 99.2 / content/site 69.0 / content/sns 28.3 / content/sources 0.0 / scripts 82.2 MiB まで下がったため締め直した。次に大きく下がる移行があればそのたびに再度締める。",
@@ -221,7 +221,7 @@
     },
     {
       "path": ".claude/state/assets/drive-manifest.json",
-      "reason": "Google Drive vault 退避の台帳（drive-vault.json 系・2026-09-05）。R2 側の manifest.json と同じ理由で Git に置くしかない（11,898 件で 6.3 MiB・JSON 上限 4 MiB を超える）。1 エントリ約 550 byte。vaultPath は非 adopted なら group から導出できるので、膨らんだら lean 化で 3 割減らせる。",
+      "reason": "Google Drive vault 退避の台帳（drive-vault.json 系・2026-09-05）。R2 側の manifest.json と同じ理由で Git に置くしかない。2026-09-06（DN-0172）に lean format（導出できる vaultPath / regenerable を省き・1 エントリ 1 行）へ変換して 12.9 → 7.8 MiB（23,485 件）。それでも JSON 上限 4 MiB を超えるので size のみ例外。",
       "appliesTo": [
         "size"
       ]

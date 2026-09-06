@@ -8,7 +8,8 @@
     "サイズとハッシュは必ず読んで測る。Drive のストリーミングマウントは cloud-only のファイルに 16MiB のプレースホルダを stat で返す。",
     "マウントへ書けた＝クラウドへ上がった、ではない。R2 側を消す前は --verify --cloud（Drive API の md5）を通す。リモート未設定なら fail-closed。",
     "CI は Drive を持たない。ワークフローからこの系を呼ばない。マウント無しの検査は「実体検査 0 件」と明示し、無言の緑を作らない。",
-    "同じ repo パスが asset-storage.json と drive-vault.json の両方に一致する状態（active 同士）を作らない。check-drive-vault が衝突として止める。"
+    "同じ repo パスが asset-storage.json と drive-vault.json の両方に一致する状態（active 同士）を作らない。check-drive-vault が衝突として止める。",
+    "台帳 drive-manifest.json は lean format（2026-09-06 DN-0172）。group 定義から導出できる vaultPath（adopted でないもの）と group 既定と同じ regenerable は書かない。読むときは loadDriveManifest が補うので、台帳 JSON を直読みするコードはこの 2 項目を当てにしない。書くときは補完して元に戻ることを全件検証してから置換する。"
   ],
   "vaultRoot": {
     "env": "DOBOKU_DRIVE_VAULT",

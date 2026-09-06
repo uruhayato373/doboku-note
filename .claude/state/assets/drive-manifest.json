@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "note": "Drive vault 台帳。キーは repo 相対パス、vaultPath は vault 相対。絶対パス・秘密値を書かない。マウント先は実行時に resolveVaultRoot が解決する。",
+  "note": "Drive vault 台帳（lean format）。キーは repo 相対パス、vaultPath は vault 相対で、group 定義から導出できるとき（adopted でない）は省く。regenerable も group 既定と同じなら省く。読むときは loadDriveManifest が補う。絶対パス・秘密値を書かない。マウント先は実行時に resolveVaultRoot が解決する。",
   "entries": {
     "content/sources/standards/chubu/common/pages/p0001.jpg": {"group":"standards-page-image","sha256":"95d3e19a52ede434afb59e3f8ad4b5aba147b543b69a35e56c6994838f421455","md5":"36e27084a6fef14a1be31ff178e41f8c","bytes":157237,"width":2233,"height":3158,"syncedAt":"2026-09-05T01:39:57.215Z","verifiedAt":"2026-09-05T01:39:57.219Z"},
     "content/sources/standards/chubu/common/pages/p0002.jpg": {"group":"standards-page-image","sha256":"0c8a6b7c6162d6e229801cddf496ca054286376416dcf30df9bf4522607b9c3a","md5":"aaee963c01c236f5a2997c4e40b80890","bytes":521960,"width":2233,"height":3158,"syncedAt":"2026-09-05T01:39:57.224Z","verifiedAt":"2026-09-05T01:39:57.224Z"},

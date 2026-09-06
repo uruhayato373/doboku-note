@@ -220,11 +220,6 @@ Drive台帳・vault・Drive APIの照合前にローカル実体を削除しな�
 `npm run check-drive-vault`、`npm run check-command-guidance`を通したらカードを削除する。
 
 
-### [DN-0172] drive-manifest.json を lean 化する
-タグ: [インフラ・計測] [種類:改善] [起票:2026-09-05]
-
-11,898 件で 6.3MiB（JSON 上限 4MiB を allowlist で例外扱い）。非 adopted の `vaultPath` は group から導出できるので、R2 側 manifest.json と同じ読み時補完（lean format）で 3 割減らせる。全 group 移行後に。
-
 > [!note] 🟣 は「ユーザー作業待ち」置き場ではない（2026-08-17 是正）
 > 以前は 12 件中 7 件が「ユーザーの手作業待ち」で、判断は済んでいるのに 🟣 に沈殿していた。
 > **待ち先が人であることを理由に 🟣 へ置かない**（ユーザーの手が要ることは本文に書く）。tier は緊急度だけを表す。

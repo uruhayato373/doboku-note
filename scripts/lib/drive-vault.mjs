@@ -231,7 +231,7 @@ export async function realBytesAndHashes(absPath) {
 export function emptyDriveManifest() {
   return {
     version: 1,
-    note: 'Drive vault 台帳。キーは repo 相対パス、vaultPath は vault 相対。絶対パス・秘密値を書かない。マウント先は実行時に resolveVaultRoot が解決する。',
+    note: 'Drive vault 台帳（lean format）。キーは repo 相対パス、vaultPath は vault 相対で、group 定義から導出できるとき（adopted でない）は省く。regenerable も group 既定と同じなら省く。読むときは loadDriveManifest が補う。絶対パス・秘密値を書かない。マウント先は実行時に resolveVaultRoot が解決する。',
     entries: {},
   };
 }
