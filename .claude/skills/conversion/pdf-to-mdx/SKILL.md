@@ -33,7 +33,7 @@ PDF または画像ファイルから doboku-note 用 MDX を生成する統合�
 - **経路A: pdfimages 見開き** — 見開き2ページが90°回転で格納されたスキャン。手順書 Step 1-7（bash。pdfimages 抽出→回転/分割→並列OCR→章分割→図クロップ。bash3.2/zsh/ディスク/破損ページの落とし穴も収録）。
 - **経路B: PyMuPDF 単ページ** — 1 PDF ページ＝1 書籍ページ・正立。pdfimages/ImageMagick が無い環境（会社 Windows 等）でも可。再利用スクリプト一式 **`scripts/scanned/`**（`render_pages.py`→OCR Workflow `ocr_fanout.workflow.js`→**校正 Workflow `proofread.workflow.js`**→`concat_chapters.py`→`prep_figures.py`→図 locate Workflow `figure_bbox.workflow.js`→`crop_embed_figures.py --crop-only`→**図 audit/refine ループ**（`prep_audit_jobs.py`→`figure_crop_audit.workflow.js`→`apply_deltas_recrop.py` を反復）→`crop_embed_figures.py`→`trim_placeholders.py`。runbook = `scripts/scanned/README.md`）。解像度 2200px・図 bbox の候補窓＋groupSize 順次処理（レート制限回避）・確信度しきい値・冪等性の知見を織り込み済み。
 
-ワーカー: 本文 OCR/校正 = サブエージェント `scanned-textbook-transcriber`（Generator・sonnet）／図 locate = `civil-exam-figure-extractor` と同型の Generator／**図クロップ品質監査 = `scanned-figure-crop-auditor`（Evaluator・sonnet。実クロップ PNG を4軸採点し `adjust_bbox` を返す。locate 単発では枠が緩く本文写り込み・切れが残るため必須）**。**市販書籍スキャンは内部リファレンス専用＝公開しない**（`content/sources/textbook/**/img` は r2-sync 対象外＝公開R2へ同期されない。README に明記）。
+ワーカー: 本文 OCR/校正 = サブエージェント `scanned-textbook-transcriber`（Generator・sonnet）／図 locate = `civil-exam-figure-extractor` と同型の Generator／**図クロップ品質監査 = `scanned-figure-crop-auditor`（Evaluator・sonnet。実クロップ PNG を4軸採点し `adjust_bbox` を返す。locate 単発では枠が緩く本文写り込み・切れが残るため必須）**。**市販書籍スキャンは内部リファレンス専用＝公開しない**（`content/sources/textbook/**/img` は r2-sync 対象外＝公開R2へ同期されない。README に明記）。文字起こしには `.claude/config/reference-sources.json` の ID を示す frontmatter を付け、`source-transcript` group で Drive に同期する。
 
 ## 利用可能な exam テンプレート
 
@@ -129,7 +129,7 @@ PDF または画像ファイルから doboku-note 用 MDX を生成する統合�
 
 ### Step 7: frontmatter の付与
 
-テンプレートで定義された必須フィールドを埋める（`title`, `description`, `category`, `tags`, `published`, その他 exam 固有項目）。
+テンプレートで定義された必須フィールドを埋める（`title`, `description`, `category`, `tags`, `published`, その他 exam 固有項目）。原本・一次資料を参照した記事は `sources` に `.claude/config/reference-sources.json` の ID を入れ、自由記述の書名は使わない。
 
 ### Step 8: ファイル保存
 

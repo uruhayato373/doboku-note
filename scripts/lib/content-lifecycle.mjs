@@ -78,6 +78,7 @@ export function videoStatusToStage(status, hasBody = true) {
     case 'approved':
       return 'review';
     case 'rendered':
+    case 'uploaded_private':
     case 'scheduled':
       return 'scheduled';
     case 'published':

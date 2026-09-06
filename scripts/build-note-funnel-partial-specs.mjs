@@ -23,7 +23,13 @@ const rootRel = CONFIG.exams[EXAM].articleGlob;
 const MARKER = '<!-- cta:pack-top -->';
 
 function oldFile(path) {
-  try { return execFileSync('git', ['show', `${BASE}:${path}`], { cwd: ROOT, encoding: 'utf8' }); }
+  try {
+    return execFileSync('git', ['show', `${BASE}:${path}`], {
+      cwd: ROOT,
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+    });
+  }
   catch { return null; }
 }
 
@@ -57,7 +63,9 @@ function liveText(block) {
     .trim();
 }
 
-const changed = execFileSync('git', ['diff', '--name-only', '-z', BASE, '--', rootRel], { cwd: ROOT, encoding: 'utf8' })
+const changed = execFileSync('git', [
+  '-c', 'core.quotepath=false', 'diff', '--name-only', '-z', BASE, '--', rootRel,
+], { cwd: ROOT, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
   .split('\0').filter((path) => path.endsWith('/article.md'));
 mkdirSync(OUT, { recursive: true });
 const specs = [];

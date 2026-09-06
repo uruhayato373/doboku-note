@@ -2,7 +2,7 @@
 /**
  * coconala-profile.mjs — ココナラ出品者プロフィールの自己紹介を account.json から設定
  * ---------------------------------------------------------------------------
- * .claude/config/coconala-account.json の profile（job / appeal / bio）を
+ * .claude/config/coconala-account.json の profile（job / appeal / bio / schedule）を
  * プロフィール編集ページ（/users/{id}/edit 相当）へ流し込む。Vue SPA・input に
  * name/id が無いため placeholder で識別。各セクションの「保存する」を押す。
  * 画像（avatar/cover）はクロッパを挟むため本スクリプトでは扱わない（別途 --image 系 or 手動）。
@@ -101,16 +101,24 @@ try {
   }
   const r2 = await fillByPlaceholder('input', '思いを伝える', p.appeal);
   const r3 = await fillByPlaceholder('textarea', 'ロゴデザインを', p.bio);
-  console.log(`[2] 展開 職業=${o1} 自己紹介=${o2} / fill 職業=${r1} アピール=${r2} 自己紹介文=${r3}`);
+  if (p.schedule && [...p.schedule].length > 600) {
+    console.error(`ABORT: スケジュールが ${[...p.schedule].length} 字（上限 600）`);
+    await ctx.close(); process.exit(3);
+  }
+  const r4 = p.schedule
+    ? await fillByPlaceholder('textarea', '平日の9時-19時', p.schedule)
+    : null;
+  console.log(`[2] 展開 職業=${o1} 自己紹介=${o2} / fill 職業=${r1} アピール=${r2} 自己紹介文=${r3} スケジュール=${r4}`);
   await sleep(800);
   await page.screenshot({ path: join(ROOT, '.tmp/coconala/profile-filled.png'), fullPage: true }).catch(() => {});
 
   if (!COMMIT) { console.log('[dry] --commit なし＝保存しない（.tmp/coconala/profile-filled.png で確認）'); await ctx.close(); process.exit(0); }
 
-  // 保存（職業セクション → 自己紹介セクション）
+  // 保存（職業セクション → 自己紹介セクション → スケジュール）
   const s1 = await saveSection('input', '広告クリエイター'); await sleep(2500);
   const s2 = await saveSection('textarea', 'ロゴデザインを'); await sleep(2500);
-  console.log(`[3] 保存 職業=${s1} 自己紹介=${s2}`);
+  const s3 = p.schedule ? await saveSection('textarea', '平日の9時-19時') : null; await sleep(2500);
+  console.log(`[3] 保存 職業=${s1} 自己紹介=${s2} スケジュール=${s3}`);
   await page.screenshot({ path: join(ROOT, '.tmp/coconala/profile-saved.png'), fullPage: true }).catch(() => {});
 
   // 「保存した」を成功と呼ばない。保存後のページに **入力エラー文言**が出ていないか、
@@ -122,10 +130,11 @@ try {
     return {
       formError: (t.match(/[^。]{0,40}(以下で入力してください|入力してください|エラー)[^。]{0,20}/g) || []).slice(0, 3),
       appealOnPage: want.appeal ? t.includes(want.appeal) : null,
+      scheduleOnPage: want.schedule ? t.includes(want.schedule) : null,
     };
-  }, { appeal: p.appeal });
-  const ok = verify.formError.length === 0 && verify.appealOnPage !== false;
-  console.log(`[4] 検証 入力エラー=${JSON.stringify(verify.formError)} / アピール反映=${verify.appealOnPage}`);
-  console.log('RESULT:', JSON.stringify({ job: r1, appeal: r2, bio: r3, saveJob: s1, saveBio: s2, verified: ok }));
+  }, { appeal: p.appeal, schedule: p.schedule });
+  const ok = verify.formError.length === 0 && verify.appealOnPage !== false && verify.scheduleOnPage !== false;
+  console.log(`[4] 検証 入力エラー=${JSON.stringify(verify.formError)} / アピール反映=${verify.appealOnPage} / スケジュール反映=${verify.scheduleOnPage}`);
+  console.log('RESULT:', JSON.stringify({ job: r1, appeal: r2, bio: r3, schedule: r4, saveJob: s1, saveBio: s2, saveSchedule: s3, verified: ok }));
   if (!ok) { console.error('FAIL: 保存が通っていない可能性（上のエラー文言を確認）'); process.exitCode = 4; }
 } finally { await ctx.close(); }

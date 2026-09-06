@@ -155,6 +155,15 @@ if [ -z "$SKIP_DRIVE_VAULT" ]; then
   fi
 fi
 
+# 参考文献 sources ID・出典粒度・非公開文字起こしのパス/ファイル名漏洩を staged MDX だけで検査。
+# 原本との逐語照合は Drive 実体が必要なのでローカル deep で行う。SKIP_REFERENCE_SOURCES=1 で回避
+if [ -z "$SKIP_REFERENCE_SOURCES" ]; then
+  node scripts/check-reference-sources.mjs --staged
+  if [ $? -ne 0 ]; then
+    exit 1
+  fi
+fi
+
 # 4 領域モデル（docs/content/.claude/実装）への逆戻り検知。廃止した置き場への新規ファイル・
 # docs への制作物混入・content への台帳混入。SKIP_INFORMATION_ARCHITECTURE=1 で回避
 node scripts/check-information-architecture.mjs --staged

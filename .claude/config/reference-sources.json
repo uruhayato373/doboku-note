@@ -1,0 +1,750 @@
+{
+  "version": 1,
+  "description": "参考文献（原本・一次資料）の機械可読 SSOT。区分（class）ごとに逐語転載・図の流用・文字起こしの公開可否と出典の粒度が決まる。記事の frontmatter sources: は必ずここの id（external-primary は id#条番号 も可）で指す。ルールの本文は .claude/knowledge/reference/reference-sources-policy.md。原本の実体は Google Drive vault（drive-vault.json / drive-manifest.json）。",
+  "invariants": [
+    "記事から参考文献を指すときは書名の自由文字列でなく id を書く。書名の表記ゆれは aliases だけに置き、本文・frontmatter には残さない。",
+    "class が許さない使い方をしない。commercial-book の逐語は 1 文でも公開しない（check-reference-sources --deep が文字起こしと突き合わせる）。",
+    "文字起こしは原本の class を継ぐ。transcriptPublic: false の原本の文字起こしは Git にもサイトにも出さず Google Drive vault に留める。",
+    "原本を新しく足したらまずここへ登録する。登録より先に文字起こしや記事を作らない（どの class か決まらないまま素材が増えるのを防ぐ）。",
+    "appliesTo はその原本から作った記事の場所。ここに一致する記事は sources が必須（既存の未付与は reference-sources-baseline.json のラチェットで、増やさない方向にだけ動かす）。",
+    "数値・基準はスキャン教材でなく external-primary（法令・規格・指針）で取り直し、その id を書く。"
+  ],
+  "classes": {
+    "public-standard": {
+      "label": "公的基準（国・自治体が公開する仕様書・示方書）",
+      "verbatim": "allowed",
+      "figureReuse": true,
+      "transcriptPublic": true,
+      "citation": "page",
+      "note": "公開 PDF。逐語の文字起こしを公開してよい（standards-library が実例）。出典は版面ページまで示す。"
+    },
+    "government-publication": {
+      "label": "白書・省庁資料（政府標準利用規約）",
+      "verbatim": "allowed",
+      "figureReuse": true,
+      "transcriptPublic": true,
+      "citation": "title-url",
+      "note": "出典表記が条件。編集・加工したときはその旨も書く（政府標準利用規約 2.0）。"
+    },
+    "exam-official": {
+      "label": "試験実施機関が公開する過去問",
+      "verbatim": "question-only",
+      "figureReuse": true,
+      "transcriptPublic": true,
+      "citation": "section",
+      "note": "問題文の転載は公益目的・出典明示で可。解答と解説は著者独自表現で再構成する（exam-content-policy）。"
+    },
+    "commercial-book": {
+      "label": "市販書籍・スキャン教材",
+      "verbatim": "forbidden",
+      "figureReuse": false,
+      "transcriptPublic": false,
+      "citation": "title",
+      "note": "逐語は 1 文でも公開しない（機械ゲートあり）。図も流用しない。文字起こしは Drive vault に留める。章立て・項目の選択と配列も原本の編集著作物なので、写さず独自に再構成する（推奨・ゲートにはしない）。"
+    },
+    "operator-owned": {
+      "label": "運営者が権利を持つ著作物",
+      "verbatim": "allowed",
+      "figureReuse": true,
+      "transcriptPublic": true,
+      "citation": "title",
+      "note": "運営者が著作権を持つので複製の制約は無い。それでも出典は書く（読者への誠実さと、他書と取り違えないため）。"
+    },
+    "external-primary": {
+      "label": "一次資料（法令・規格・指針・便覧）",
+      "verbatim": "short-quote",
+      "figureReuse": false,
+      "transcriptPublic": null,
+      "citation": "name",
+      "note": "原本を手元に持たず、条文・規格値を引くだけの参照。数値や基準はここで取り直して名称を明記する。条番号は id の後ろに # で付ける（例 labor-safety-rules#第240条）。"
+    }
+  },
+  "sources": [
+    {
+      "id": "standards-catalog",
+      "title": "各地方整備局 土木工事共通仕様書ほか（catalog 展開）",
+      "class": "public-standard",
+      "origin": {
+        "kind": "catalog",
+        "catalog": "content/site/standards-library/catalog.json"
+      },
+      "aliases": {
+        "土木工事共通仕様書": "std:kinki/common",
+        "近畿地方整備局 土木工事共通仕様書（案）令和8年4月改定": "std:kinki/common"
+      },
+      "notes": "catalog.json の documents を std:{agencyId}/{documentId} として展開する。章記事は build-standard-articles が <SourceRef pages> で版面ページを指す。"
+    },
+    {
+      "id": "concrete-chief-textbook-2022",
+      "title": "コンクリート主任技士 試験対策 2022年版",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/教材/コンクリート主任技師2022"
+      },
+      "transcriptDir": "content/sources/textbook/コンクリート主任技師2022",
+      "appliesTo": [
+        "content/site/concrete-chief-engineer/textbook-*/article.mdx"
+      ],
+      "aliases": {
+        "コンクリート主任技師2022": "concrete-chief-textbook-2022",
+        "コンクリート主任技士2022": "concrete-chief-textbook-2022"
+      },
+      "notes": "巻末に平成24〜28年度の過去問。2024年版と重複しない年度を補完する。"
+    },
+    {
+      "id": "concrete-chief-textbook-2024",
+      "title": "コンクリート主任技士 試験対策 2024年版",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/教材/コンクリート主任技師2024"
+      },
+      "transcriptDir": "content/sources/textbook/コンクリート主任技師2024",
+      "appliesTo": [
+        "content/site/concrete-chief-engineer/textbook-*/article.mdx"
+      ],
+      "aliases": {
+        "コンクリート主任技師2024": "concrete-chief-textbook-2024",
+        "コンクリート主任技士2024": "concrete-chief-textbook-2024"
+      }
+    },
+    {
+      "id": "concrete-diagnostician-textbook",
+      "title": "コンクリート診断士 受験対策テキスト",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/教材/コンクリート診断士"
+      },
+      "appliesTo": [
+        "content/site/concrete-diagnostician/textbook-*/article.mdx",
+        "content/site/concrete-diagnostician/primary-*/article.mdx"
+      ],
+      "notes": "2026-07-31: 逐語転記だった択一 98 問を全数自作へ書き換え、スキャン図 25 枚を全数置換した（exam-content-policy 新資格メモ）。"
+    },
+    {
+      "id": "civil1-textbook-general",
+      "title": "土木施工管理技術テキスト（土木一般編）",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/資格試験/１級土木施工管理技士/土木施工管理技術テキスト（土木一般編）"
+      },
+      "transcriptDir": "content/sources/textbook/１級土木施工管理技士/テキスト（土木一般編）",
+      "appliesTo": [
+        "content/site/civil-construction-1/textbook-*/article.mdx"
+      ],
+      "aliases": {
+        "1級土木施工管理技士 テキスト（土木一般編）": "civil1-textbook-general"
+      }
+    },
+    {
+      "id": "civil1-textbook-management",
+      "title": "土木施工管理技術テキスト（施工管理・法規編）",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/資格試験/１級土木施工管理技士/土木施工管理技術テキスト（施工管理・法規編）"
+      },
+      "transcriptDir": "content/sources/textbook/１級土木施工管理技士/テキスト（施工管理・法規編）",
+      "appliesTo": [
+        "content/site/civil-construction-1/textbook-*/article.mdx"
+      ],
+      "aliases": {
+        "1級土木施工管理技士 テキスト（施工管理・法規編）": "civil1-textbook-management"
+      }
+    },
+    {
+      "id": "pe-cem-textbook",
+      "title": "技術士（総合技術監理部門）標準テキスト・受験万全対策・論文対策",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/教材/技術士（総監）"
+      },
+      "transcriptDir": "content/sources/textbook/技術士（総監）",
+      "notes": "キーワードページ 663 本の裏取りに使う。個々の記事への sources 付与は DN-0178。"
+    },
+    {
+      "id": "civil-practice-note",
+      "title": "土木施工実務ノート（市販実務書の再構成ノート）",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "none"
+      },
+      "transcriptDir": "content/sources/textbook/土木施工実務ノート",
+      "appliesTo": [
+        "content/site/civil-practice/*/article.mdx"
+      ],
+      "notes": "原本 PDF は未入手（ノートのみ）。章立て・160 項目の選択と配列は原本の編集著作物なのでテーマ単位で独自に再構成し、数値と基準は external-primary で取り直す（exam-content-policy）。"
+    },
+    {
+      "id": "safety-management-all-7th",
+      "title": "新しい時代の安全管理のすべて 第7版",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/書籍/新しい時代の安全管理のすべて_第7版"
+      },
+      "transcriptDir": "content/sources/textbook/新しい時代の安全管理のすべて_第7版"
+    },
+    {
+      "id": "pe-construction-keyword-book",
+      "title": "技術士 建設部門『論文対策キーワード』（運営者が著作権を保有）",
+      "class": "operator-owned",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/教材/技術士（建設部門）/論文対策キーワード"
+      },
+      "transcriptDir": "content/sources/textbook/技術士（建設部門）/論文対策キーワード",
+      "notes": "運営者が権利を持つため図の流用も可（image-policy の例外）。"
+    },
+    {
+      "id": "cecc-past-exams",
+      "title": "1級・2級土木施工管理技術検定 過去問題（全国建設研修センター）",
+      "class": "exam-official",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.jctc.jp/exam/doboku-1/"
+      },
+      "appliesTo": [
+        "content/site/civil-construction-1/primary-*/article.mdx",
+        "content/site/civil-construction-1/secondary-*/article.mdx",
+        "content/site/civil-construction-2/primary-*/article.mdx",
+        "content/site/civil-construction-2/secondary-*/article.mdx"
+      ],
+      "aliases": {
+        "全国建設研修センター": "cecc-past-exams",
+        "CECC": "cecc-past-exams"
+      }
+    },
+    {
+      "id": "ipej-past-exams",
+      "title": "技術士第一次・第二次試験 過去問題（日本技術士会）",
+      "class": "exam-official",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.engineer.or.jp/"
+      },
+      "appliesTo": [
+        "content/site/pe-first-stage/*/article.mdx",
+        "content/site/pe-comprehensive-management/*-primary/article.mdx",
+        "content/site/pe-comprehensive-management/*-secondary/article.mdx",
+        "content/site/pe-construction/r0*/article.mdx"
+      ],
+      "aliases": {
+        "日本技術士会": "ipej-past-exams"
+      }
+    },
+    {
+      "id": "jcia-past-exams",
+      "title": "コンクリート技士・主任技士・診断士 過去問題（日本コンクリート工学会）",
+      "class": "exam-official",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.jci-net.or.jp/"
+      },
+      "appliesTo": [
+        "content/site/concrete-engineer/primary-*/article.mdx",
+        "content/site/concrete-chief-engineer/primary-*/article.mdx"
+      ],
+      "aliases": {
+        "日本コンクリート工学会": "jcia-past-exams",
+        "JCI": "jcia-past-exams"
+      }
+    },
+    {
+      "id": "labor-safety-act",
+      "title": "労働安全衛生法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "労働安全衛生法第59条・第60条": "labor-safety-act#第59条・第60条",
+        "労働安全衛生法第28条の2": "labor-safety-act#第28条の2"
+      }
+    },
+    {
+      "id": "labor-safety-order",
+      "title": "労働安全衛生法施行令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "労働安全衛生法施行令第20条第16号": "labor-safety-order#第20条第16号",
+        "労働安全衛生法施行令第6条第9号": "labor-safety-order#第6条第9号",
+        "労働安全衛生法施行令第6条第12号": "labor-safety-order#第6条第12号"
+      }
+    },
+    {
+      "id": "labor-safety-rules",
+      "title": "労働安全衛生規則",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "労働安全衛生規則第35条・第36条": "labor-safety-rules#第35条・第36条",
+        "労働安全衛生規則第36条第19号": "labor-safety-rules#第36条第19号",
+        "労働安全衛生規則第237条": "labor-safety-rules#第237条",
+        "労働安全衛生規則第240条": "labor-safety-rules#第240条",
+        "労働安全衛生規則第244条": "labor-safety-rules#第244条",
+        "労働安全衛生規則第349条": "labor-safety-rules#第349条",
+        "労働安全衛生規則第242条": "labor-safety-rules#第242条",
+        "労働安全衛生規則第361条": "labor-safety-rules#第361条",
+        "労働安全衛生規則第359条": "labor-safety-rules#第359条",
+        "労働安全衛生規則第373条": "labor-safety-rules#第373条",
+        "労働安全衛生規則第428条": "labor-safety-rules#第428条",
+        "労働安全衛生規則第429条": "labor-safety-rules#第429条",
+        "労働安全衛生規則第612条の2": "labor-safety-rules#第612条の2",
+        "労働安全衛生規則第164条": "labor-safety-rules#第164条"
+      }
+    },
+    {
+      "id": "crane-safety-rules",
+      "title": "クレーン等安全規則",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "クレーン等安全規則第213条": "crane-safety-rules#第213条",
+        "クレーン等安全規則第215条": "crane-safety-rules#第215条",
+        "クレーン等安全規則第67条": "crane-safety-rules#第67条",
+        "クレーン等安全規則第68条": "crane-safety-rules#第68条"
+      }
+    },
+    {
+      "id": "oshms-guideline",
+      "title": "労働安全衛生マネジメントシステムに関する指針",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "労働安全衛生マネジメントシステムに関する指針": "oshms-guideline",
+        "厚生労働省 労働安全衛生マネジメントシステムに関する指針": "oshms-guideline"
+      }
+    },
+    {
+      "id": "risk-assessment-guideline",
+      "title": "危険性又は有害性等の調査等に関する指針（厚生労働省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "厚生労働省 危険性又は有害性等の調査等に関する指針": "risk-assessment-guideline"
+      }
+    },
+    {
+      "id": "mhlw-safety-education",
+      "title": "安全衛生教育関係資料（厚生労働省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "厚生労働省 安全衛生教育関係資料": "mhlw-safety-education"
+      }
+    },
+    {
+      "id": "construction-business-act",
+      "title": "建設業法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "建設業法": "construction-business-act",
+        "建設業法第26条の4第1項": "construction-business-act#第26条の4第1項"
+      }
+    },
+    {
+      "id": "road-act",
+      "title": "道路法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "道路法第18条": "road-act#第18条",
+        "道路法第46条": "road-act#第46条",
+        "道路法第91条": "road-act#第91条",
+        "道路法第32条": "road-act#第32条"
+      }
+    },
+    {
+      "id": "road-act-rules",
+      "title": "道路法施行規則",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "道路法施行規則": "road-act-rules"
+      }
+    },
+    {
+      "id": "road-special-measures-act",
+      "title": "道路整備特別措置法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "道路整備特別措置法第6条": "road-special-measures-act#第6条",
+        "道路整備特別措置法第7条": "road-special-measures-act#第7条"
+      }
+    },
+    {
+      "id": "road-traffic-act",
+      "title": "道路交通法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "道路交通法第77条": "road-traffic-act#第77条"
+      }
+    },
+    {
+      "id": "road-structure-order",
+      "title": "道路構造令",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "道路構造令": "road-structure-order"
+      }
+    },
+    {
+      "id": "river-act",
+      "title": "河川法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "河川法": "river-act"
+      }
+    },
+    {
+      "id": "noise-regulation-act",
+      "title": "騒音規制法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "騒音規制法": "noise-regulation-act"
+      }
+    },
+    {
+      "id": "vibration-regulation-act",
+      "title": "振動規制法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "振動規制法": "vibration-regulation-act"
+      }
+    },
+    {
+      "id": "water-pollution-act",
+      "title": "水質汚濁防止法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "水質汚濁防止法": "water-pollution-act"
+      }
+    },
+    {
+      "id": "jsce-concrete-spec-construction",
+      "title": "コンクリート標準示方書 施工編（土木学会）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "コンクリート標準示方書 施工編": "jsce-concrete-spec-construction"
+      }
+    },
+    {
+      "id": "jsce-concrete-spec-maintenance",
+      "title": "コンクリート標準示方書 維持管理編（土木学会）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "コンクリート標準示方書 維持管理編": "jsce-concrete-spec-maintenance"
+      }
+    },
+    {
+      "id": "jsce-concrete-pump-guideline",
+      "title": "コンクリートのポンプ施工指針（土木学会）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "コンクリートのポンプ施工指針": "jsce-concrete-pump-guideline"
+      }
+    },
+    {
+      "id": "jsce-ground-improvement",
+      "title": "地盤改良工法技術資料（土木学会）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "土木学会 地盤改良工法技術資料": "jsce-ground-improvement"
+      }
+    },
+    {
+      "id": "road-bridge-spec",
+      "title": "道路橋示方書",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "道路橋示方書": "road-bridge-spec"
+      }
+    },
+    {
+      "id": "road-bridge-inspection",
+      "title": "道路橋定期点検要領",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "道路橋定期点検要領": "road-bridge-inspection"
+      }
+    },
+    {
+      "id": "pavement-handbook",
+      "title": "舗装施工便覧",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "舗装施工便覧": "pavement-handbook"
+      }
+    },
+    {
+      "id": "guard-fence-standard",
+      "title": "防護柵の設置基準",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "防護柵の設置基準": "guard-fence-standard"
+      }
+    },
+    {
+      "id": "road-earthwork-slope",
+      "title": "道路土工 のり面工・斜面安定工指針",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "道路土工 のり面工・斜面安定工指針": "road-earthwork-slope"
+      }
+    },
+    {
+      "id": "road-earthwork-temporary",
+      "title": "道路土工 仮設構造物工指針",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "道路土工 仮設構造物工指針": "road-earthwork-temporary"
+      }
+    },
+    {
+      "id": "mlit-construction-control-standard",
+      "title": "土木工事施工管理基準及び規格値（国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "土木工事施工管理基準及び規格値": "mlit-construction-control-standard"
+      }
+    },
+    {
+      "id": "mlit-safety-guideline",
+      "title": "土木工事安全施工技術指針（国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "国土交通省 土木工事安全施工技術指針": "mlit-safety-guideline"
+      }
+    },
+    {
+      "id": "mlit-cost-estimation",
+      "title": "土木工事費積算要領（国土交通省）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "国土交通省 土木工事費積算要領": "mlit-cost-estimation"
+      }
+    },
+    {
+      "id": "mlit-shikoku-crack-cases",
+      "title": "初期ひび割れ対策事例集（国土交通省四国地方整備局）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "国土交通省四国地方整備局 初期ひび割れ対策事例集": "mlit-shikoku-crack-cases"
+      }
+    },
+    {
+      "id": "mlit-chubu-channel-excavation",
+      "title": "河道掘削資料（国土交通省中部地方整備局）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "国土交通省中部地方整備局 河道掘削資料": "mlit-chubu-channel-excavation"
+      }
+    },
+    {
+      "id": "public-disaster-prevention-outline",
+      "title": "建設工事公衆災害防止対策要綱",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "建設工事公衆災害防止対策要綱": "public-disaster-prevention-outline"
+      }
+    },
+    {
+      "id": "standard-contract-terms",
+      "title": "公共工事標準請負契約約款",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "公共工事標準請負契約約款": "standard-contract-terms"
+      }
+    },
+    {
+      "id": "shoring-first-guideline",
+      "title": "土止め先行工法に関するガイドライン",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "土止め先行工法に関するガイドライン": "shoring-first-guideline"
+      }
+    },
+    {
+      "id": "pwri-repair-manual",
+      "title": "補修対策施工マニュアル（土木研究所）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "土木研究所 補修対策施工マニュアル": "pwri-repair-manual"
+      }
+    },
+    {
+      "id": "pwrc-technical-note",
+      "title": "土木技術資料（土木研究センター）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "土木研究センター 土木技術資料": "pwrc-technical-note"
+      }
+    },
+    {
+      "id": "jgs-standard",
+      "title": "地盤工学会基準（JGS）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "地盤工学会基準（JGS）": "jgs-standard"
+      }
+    },
+    {
+      "id": "jswa-standard",
+      "title": "日本下水道協会基準",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "日本下水道協会基準": "jswa-standard"
+      }
+    },
+    {
+      "id": "landslide-society-horizontal-boring",
+      "title": "横ボーリング工資料（日本地すべり学会）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "日本地すべり学会 横ボーリング工資料": "landslide-society-horizontal-boring"
+      }
+    },
+    {
+      "id": "nikkenren-cip-pile",
+      "title": "場所打ちコンクリート杭の品質管理のポイント（日本建設業連合会 地盤基礎専門部会）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "日本建設業連合会 地盤基礎専門部会 場所打ちコンクリート杭の品質管理のポイント": "nikkenren-cip-pile"
+      }
+    },
+    {
+      "id": "jis",
+      "title": "日本産業規格（JIS）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "JIS A 5372": "jis#A 5372",
+        "JIS A 5308": "jis#A 5308",
+        "JIS Z 3120": "jis#Z 3120",
+        "JIS Z 3881": "jis#Z 3881",
+        "JIS Z 9020-2": "jis#Z 9020-2",
+        "JIS A 1147": "jis#A 1147"
+      }
+    }
+  ]
+}

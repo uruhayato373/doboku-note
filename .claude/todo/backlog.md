@@ -191,6 +191,36 @@ Playwrightのログインprofileはサービス別に永続化されているが
 
 ## 🟢 低 — 時期未定
 
+### [DN-0179] 総監キーワード663本へ参考文献IDを段階付与する
+タグ: [コンテンツ品質] [種類:改善] [Codex候補] [起票:2026-09-06]
+
+総監キーワード663本は参考文献台帳の `appliesTo` に対して一括で原本を決められず、DN-0178 の
+自動付与対象から外した。各記事の定義・数値・参考資料を確認し、`.claude/config/reference-sources.json`
+の正しい ID を `sources` に付ける。白書・法令・規格を優先し、市販教材を機械的に全件付与しない。
+20〜50本単位で進め、`npm run check-reference-sources` の missing baseline を減らす方向だけに更新する。
+
+### [DN-0180] Drive共通仕様書文字起こし350本とstandards-libraryの関係を整理する
+タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-09-06]
+
+Drive `文字起こし/共通仕様書/` 約350本は `source-transcript` のrepo対応外で、公開側の
+`content/site/standards-library/` と別経路になっている。重複・入力元・更新方向を実査し、公開章記事の
+provenanceに必要なもの、監査用にだけ残すもの、台帳対象外でよいものを分類する。削除は別承認とし、
+まず `standards-catalog` ID、原本sha256、版面ページまでの対応表を作る。
+
+### [DN-0181] 逐語一致ゲートの40文字窓幅を実測で校正する
+タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-09-06]
+
+`check-reference-sources --deep` の `commercial-book` 逐語検査は40文字を初期値にした。短い定型句の
+誤検知と、句読点・空白・表記差を挟んだ転載の見逃しを、実記事と合成fixtureで測る。しきい値変更は
+検出率・誤検知率・代表例を示してから判断し、今回確定した `verbatim: forbidden` 自体は変えない。
+
+### [DN-0182] 白書由来記事へgovernment-publicationのsource IDを付与する
+タグ: [コンテンツ品質] [種類:改善] [Codex候補] [起票:2026-09-06]
+
+白書・省庁資料を根拠にする既存記事を抽出し、対応する `government-publication` の ID を
+frontmatter `sources` に付ける。本文の出典には資料名と URL を示し、編集・加工した図表はその旨も
+確認する。書名の自由文字列や推測 ID は追加せず、台帳に原本が無ければ先に登録する。
+
 
 ### [DN-0175] SNS残存画像を公開完了後に再監査する
 タグ: [インフラ・計測] [種類:改善] [Codex候補] [起票:2026-09-06]

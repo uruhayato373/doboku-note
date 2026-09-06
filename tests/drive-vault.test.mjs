@@ -96,13 +96,26 @@ test('driveGroupFor: 台帳・原稿・サイト図版を巻き込まない', ()
   assert.equal(driveGroupFor('content/sources/textbook/x/img/p1.png', DCFG).id, 'textbook-page-image');
   assert.equal(driveGroupFor('content/sources/standards/tohoku/common/manifest.json', DCFG), null);
   assert.equal(driveGroupFor('content/sources/textbook/x/README.md', DCFG), null);
-  assert.equal(driveGroupFor('content/sources/textbook/x/第1章.md', DCFG), null);
+  assert.equal(driveGroupFor('content/sources/textbook/README.md', DCFG), null);
+  assert.equal(driveGroupFor('content/sources/textbook/x/第1章.md', DCFG).id, 'source-transcript');
   assert.equal(driveGroupFor('content/site/civil-construction-1/guide-x/img/fig.png', DCFG), null);
   assert.equal(driveGroupFor('content/note/技術士総監/x/img/cover.png', DCFG), null, 'note カバーは CI が書く R2 側');
   assert.equal(driveGroupFor('content/sns/instagram/x/reels/a.png', DCFG), null, 'reels の中間 PNG はどの group にも属さない（再生成）');
   assert.equal(driveGroupFor('content/sns/instagram/x/reels/wav/a.wav', DCFG).id, 'sns-archived-media');
   assert.equal(driveGroupFor('content/sns/instagram/x/reels/video.mp4', DCFG).id, 'sns-archived-media');
   assert.equal(driveGroupFor('content/sns/youtube/2026-06-08-x/video.mp4', DCFG).id, 'sns-archived-media');
+});
+
+test('source-transcript: 本文 .md だけを Drive に送り、README と R2 への重複配線を許さない', () => {
+  const transcript = 'content/sources/textbook/１級土木施工管理技士/第1章.md';
+  const group = driveGroupFor(transcript, DCFG);
+  assert.equal(group?.id, 'source-transcript');
+  assert.equal(vaultRelFor(transcript, group), '文字起こし/１級土木施工管理技士/第1章.md');
+  assert.equal(driveGroupFor('content/sources/textbook/README.md', DCFG), null);
+  assert.equal(driveGroupFor('content/sources/textbook/１級土木施工管理技士/README.md', DCFG), null);
+  const routing = routingFor(transcript, R2CFG, DCFG);
+  assert.deepEqual(routing.r2, []);
+  assert.deepEqual(routing.driveActive, ['source-transcript']);
 });
 
 test('sanitizeDriveEntry: 許可キー以外を落とし、vaultPath を NFC・/ 区切りに寄せる', () => {
@@ -123,7 +136,7 @@ test('findSecrets: 台帳に絶対パスを書くと検出される（vault の�
 test('routingFor: active な Drive group と R2 group が同じパスに重ならない（pending は別枠）', () => {
   const samples = [
     'content/sources/standards/tohoku/common/pages/p0001.jpg',
-    'content/sources/textbook/x/a.pdf', 'content/sources/textbook/x/img/p1.png',
+    'content/sources/textbook/x/a.pdf', 'content/sources/textbook/x/img/p1.png', 'content/sources/textbook/x/chapter.md',
     'content/note/a/pdf/x.pdf', 'content/note/a/magazines/m/_cover.png', 'content/note/a/img/cover.png',
     'content/sns/instagram/x/img/01.png', 'content/sns/instagram/x/reels/wav/a.wav',
     '.tmp/video-render/p/video.mp4', 'scripts/kindle-dist/a.epub', '.claude/config/coconala/assets/a.png',

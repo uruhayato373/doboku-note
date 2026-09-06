@@ -28,13 +28,13 @@ const tree = div(
   div({ position: 'relative', display: 'flex', flexDirection: 'column', justifyContent: 'center', width: 1180, height: H, paddingLeft: 80 },
     div({ display: 'flex', alignItems: 'center', marginBottom: 20 },
       div({ width: 44, height: 6, backgroundColor: AMBER, marginRight: 16, display: 'flex' }),
-      div({ fontSize: 30, color: NAVY, letterSpacing: 1 }, 'doboku-note ／ 1級・2級土木施工管理技士 経験記述'),
+      div({ fontSize: 30, color: NAVY, letterSpacing: 1 }, '技術士（建設・総監） × 元・自治体土木職（発注者）'),
     ),
     div({ fontSize: 46, lineHeight: 1.3, color: INK, marginBottom: 18, display: 'flex', flexDirection: 'column' },
-      div({ display: 'flex' }, '技術士（建設・総監）を持つ元自治体土木職員が'),
-      div({ display: 'flex' }, '発注者として書類を審査してきた目で経験記述を添削・診断します'),
+      div({ display: 'flex' }, '工事書類を確認してきた読み手の視点で'),
+      div({ display: 'flex' }, '1級・2級土木の経験記述を診断・添削'),
     ),
-    div({ fontSize: 27, color: '#41485a', display: 'flex' }, '合格診断・2テーマ添削・出題分析／完成答案集PDF'),
+    div({ fontSize: 27, color: '#41485a', display: 'flex' }, 'R8対応｜予想模試3回・教材フルパック・ヒアリング構成'),
   ),
 );
 

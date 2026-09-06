@@ -242,6 +242,22 @@
         ".claude/scripts/youtube/per-problem-shorts.mjs"
       ],
       "reason": "IG リールの wav/mp4 と YouTube Shorts の mp4。読むのは人（手元の JIT 投稿）だけで、サイトは配信せず CI も読まない（post-youtube-scheduled.yml の Shorts 台帳は 2026-08-18 に手動投入へ切替済み・pending 0・参照キー sns/youtube-shorts/ は R2 に 0 件）。2026-09-05（DN-0170）に旧 upload-sns-r2 系統（public R2 sns/）から統合。"
+    },
+    {
+      "id": "source-transcript",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sources/textbook/(?!(?:.*/)?README\\.md$).+\\.md$"
+      },
+      "vaultDir": "文字起こし",
+      "keyFrom": "stripPrefix:content/sources/textbook/",
+      "regenerable": false,
+      "generator": "pdf-to-mdx --scanned（scanned-textbook-transcriber が視覚 OCR で書き起こす）",
+      "requiredBy": [
+        "scripts/check-reference-sources.mjs"
+      ],
+      "reason": "原本 PDF の文字起こし（.md）。原本の class を継ぐので市販書籍由来は Git にもサイトにも出さず vault に留める。2026-09-06（参考文献ルール）まで手コピー運用で台帳の外だった。原本との対応は各ファイルの frontmatter（source / sourcePdfs / pdfPages）が持つ。"
     }
   ]
 }

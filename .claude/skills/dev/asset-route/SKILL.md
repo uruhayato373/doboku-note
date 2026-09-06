@@ -32,6 +32,10 @@ description: >
 | site / ci | `.claude/state/assets/manifest.json` | `node scripts/asset-offload.mjs --group <id> [--include-untracked] --commit` | `npm run asset-hydrate -- --group <id>` | `npm run check-asset-storage` |
 | human | `.claude/state/assets/drive-manifest.json` | `npm run drive-vault-sync -- --group <id> --commit` | `npm run drive-vault-sync -- --pull --group <id>` | `npm run check-drive-vault` |
 
+教材文字起こしの既存 group は `source-transcript`（Drive `文字起こし/`）。新しい原本は先に
+`.claude/config/reference-sources.json` へ登録し、文字起こし frontmatter からその ID を指す。詳細は
+`.claude/knowledge/reference/reference-sources-policy.md`。
+
 どちらも既定は dry-run。書き込みは `--commit`。**ローカル削除・untrack・R2 側の削除は別操作・別承認**。
 
 ## 新しい group を足すとき

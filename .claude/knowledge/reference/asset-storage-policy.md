@@ -42,6 +42,7 @@ Google Drive 側が `.claude/config/drive-vault.json`（台帳 `.claude/state/as
 | `sns-archived-media` | human | Drive `制作物/SNS音声動画/` | reels の wav/mp4・YouTube Shorts mp4。投稿は人の JIT。`post-youtube-scheduled.yml` の Shorts 台帳は手動投入へ切替済み（pending 0・参照キー `sns/youtube-shorts/` は R2 に 0 件）なので CI は読んでいない。2026-09-05 DN-0170 で旧 `upload-sns-r2` 系統を廃止（[sns-archive-policy.md](sns-archive-policy.md)） |
 | `standards-page-image` | human | Drive `原資料PDF/共通仕様書/{整備局}/{PDF名}/{pages,text}/` | 原本 PDF の隣（§1-2） |
 | `textbook-source-pdf` / `textbook-page-image` | human | Drive `原資料PDF/教材/{書名}/**` | `content/sources/textbook/{書名}/` の 1:1 ミラー。既存の手動配置 63 本は sha256 で adopt |
+| `source-transcript` | human | Drive `文字起こし/{書名}/**/*.md` | README を除く文字起こし。frontmatter の `source` / `sourcePdfs` で参考文献台帳と原本へ接続 |
 | `note-delivery-pdf` | human | Drive `制作物/note配布PDF/` | 添付は人が `note-attach-file` で実行 |
 | `ig-rendered-image` | human | Drive `制作物/IGレンダー/` | 投稿は人が `publish-ig-bs` で実行。投稿済みを public R2 に置いていたのは旧目標の名残 |
 | `video-render-artifact` | human | Drive `制作物/動画レンダー/` | render-longform を回す CI は存在しない |
@@ -70,7 +71,7 @@ Drive 側は `マイドライブ/doboku-note/` を単一ルートとして管理
 │   │   ├── common__xxx.pdf
 │   │   └── common__xxx/{pages,text}/   # ← 原本と同名フォルダ＝隣（standards-page-image）
 │   └── 教材/{書名}/**            # content/sources/textbook/{書名}/ の 1:1 ミラー（PDF と img/pages が同居）
-├── 文字起こし/                  # L1 中間産物の .md（content/sources/textbook/ 直下と 1:1）
+├── 文字起こし/                  # L1 中間産物の .md（group: source-transcript）
 ├── 制作物/                      # 人が使う成果物
 │   ├── note配布PDF/ IGレンダー/ 動画レンダー/ Kindle/ ココナラ/ マガジンカバー/
 └── アーカイブ/
@@ -83,8 +84,10 @@ Drive 側は `マイドライブ/doboku-note/` を単一ルートとして管理
 `common__`＝共通仕様書・`hikkei__`＝土木請負工事必携・`special__`＝特記・`local__`＝地方版・
 `manual__`＝手引き。各枝の `_収集メタデータ/` は収集台帳と QA 記録で本文ではない。
 
-`文字起こし/` の直下の名前は `content/sources/textbook/` の直下と 1 対 1 で対応させる（復元がコピー
-1 回で済む前提）。2026-09-05 に英語 2 階層（`private-sources/textbook/`・`references/`）を日本語 1 階層へ
+`source-transcript` は `文字起こし/` の `.md` を `content/sources/textbook/` と 1 対 1 で対応させる
+（README は対象外）。原本との対応は文字起こし frontmatter が持ち、公開可否は
+[reference-sources-policy.md](reference-sources-policy.md) に従う。2026-09-05 に英語 2 階層
+（`private-sources/textbook/`・`references/`）を日本語 1 階層へ
 畳み、`資格試験/` 直下にあった完全一致の重複 4 dir（156MB・84 ファイル）と Word の `~$` 一時ファイル
 12 個を削除した（正本は `資格試験/１級土木施工管理技士/` 配下に現存）。同日、`資格試験/１級土木施工
 管理技士/` の下に埋もれていた共通仕様書を `共通仕様書/` として独立させ、地方整備局ごとに整理した
@@ -103,12 +106,13 @@ doboku-note/文字起こし/` へ移設した。
 `.gitignore` の `content/sources/textbook/**`（README.md だけ `!` で例外）が実体。
 
 - **新しい端末での復元**: Google Drive デスクトップアプリで同アカウントにログインし vault を同期 →
-  `content/sources/textbook/{各ディレクトリ}/` へコピー（詳細手順は
+  `npm run drive-vault-sync -- --group source-transcript --pull`（詳細手順は
   `content/sources/textbook/README.md`）
 - **ローカルの読者（`scripts/check-civil-practice-coverage.mjs` 等）**: untrack しても実体はローカルに
   残るため、この Mac 上では従来どおり動く。CI・fresh clone では実体が無い前提でコードを書く
   （現状これらのスクリプトはローカル専用運用で CI には配線されていない）
-- PDF・ページ画像（§1 表）は従来どおり private R2。今回動いたのは文字起こしテキスト側だけ
+- PDF・ページ画像も `textbook-source-pdf` / `textbook-page-image` で Drive vault に置く。文字起こしは
+  `source-transcript` で同じ台帳管理へ揃える
 - git 履歴には旧コミットの内容が残る。履歴書換え（force-push）は複数セッション並行環境で危険なため
   未実施 — 必要なら別途、全 worktree 停止の単独作業として計画する
 
