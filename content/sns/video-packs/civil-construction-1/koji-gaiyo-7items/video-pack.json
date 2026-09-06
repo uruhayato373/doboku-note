@@ -8,7 +8,10 @@
   "promise": "7項目を自分の工事へ置き換える順序と整合チェックが分かる",
   "intent": "howto",
   "sourceRefs": [
-    { "type": "site", "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx" }
+    {
+      "type": "site",
+      "path": "content/site/civil-construction-1/secondary-experience-writing-guide/article.mdx"
+    }
   ],
   "primaryCta": {
     "kind": "note-magazine",
@@ -19,7 +22,7 @@
     "longform": true,
     "shorts": 2,
     "instagramCarousel": true,
-    "instagramReel": false,
+    "instagramReel": 2,
     "xThread": true,
     "threadsBrief": false
   }

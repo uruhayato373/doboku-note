@@ -951,7 +951,9 @@ async function clickBottomRightNext(page: Page): Promise<boolean> {
 
 // 作成→編集→シェアする へ進める
 async function advanceToShareStep(page: Page): Promise<boolean> {
-  for (let i = 0; i < 4; i++) {
+  // 連続投入時は、カバー確定後も動画のサーバー処理が続いて「次へ」が
+  // 一時的に disabled のままになる。最大60秒待ってから失敗扱いにする。
+  for (let i = 0; i < 15; i++) {
     if ((await currentReelStep(page)) === "シェアする") return true;
     if (!(await clickBottomRightNext(page))) {
       console.error("🚨 「次へ」ボタンが見つかりません");
@@ -1058,8 +1060,9 @@ async function awaitSuccessAndDismiss(page: Page): Promise<boolean> {
     return await page.getByRole("button", { name: "後で" }).first().isVisible().catch(() => false);
   };
   let done = false;
-  // 動画のサーバー処理後に予約が確定するため、少なくとも20秒はモーダルを待つ。
-  for (let i = 0; i < 40; i++) {
+  // 動画のサーバー処理後に予約が確定する。1日1本の運用でも送信中表示が残る場合があるため、
+  // 最大30秒は同じ画面で完了を待ち、その後はプランナー照合へ回す。
+  for (let i = 0; i < 60; i++) {
     await page.waitForTimeout(500);
     if (await successModal()) { done = true; console.log("📅 予約成功モーダルを検出"); break; }
   }
@@ -1186,8 +1189,9 @@ async function publishReel(page: Page, pack: Pack, when: Date | null, keepFb: bo
 
 // ─── 引数パース ────────────────────────────────────────
 interface Cli {
-  mode: "login" | "post";
+  mode: "login" | "post" | "batch";
   packArg?: string;
+  batchFile?: string;
   when?: Date | null;
   keepFb: boolean;
   reel: boolean;
@@ -1198,6 +1202,15 @@ function parseArgs(): Cli {
   const mode = args[0];
 
   if (mode === "login") return { mode: "login", keepFb: false, reel: false };
+
+  if (mode === "batch") {
+    const batchFile = args[1];
+    if (!batchFile || !fs.existsSync(batchFile)) {
+      console.error("🚨 batch JSON が見つかりません");
+      process.exit(1);
+    }
+    return { mode: "batch", batchFile: path.resolve(batchFile), keepFb: false, reel: true };
+  }
 
   if (mode !== "post") {
     console.error(
@@ -1292,6 +1305,41 @@ async function main() {
       console.log("✅ セッションを保存しました。ブラウザを閉じます。");
     } finally {
       await page.waitForTimeout(2000);
+      await context.close();
+    }
+    return;
+  }
+
+  if (cli.mode === "batch") {
+    const raw = JSON.parse(fs.readFileSync(cli.batchFile!, "utf-8"));
+    const items = Array.isArray(raw?.items) ? raw.items : [];
+    if (items.length === 0) throw new Error("batch items が空です");
+    const prepared = items.map((item: { packArg?: string; schedule?: string }) => {
+      if (!item.packArg || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}$/.test(item.schedule || "")) {
+        throw new Error("batch item は packArg と schedule(YYYY-MM-DDTHH:MM) が必須です");
+      }
+      const when = new Date(`${item.schedule}+09:00`);
+      const diffMin = (when.getTime() - Date.now()) / 60000;
+      if (diffMin < 20 || diffMin > 29 * 24 * 60) throw new Error(`batch 予約範囲外: ${item.schedule}`);
+      return { pack: loadPack(item.packArg, "reel"), when };
+    });
+    console.log(`🚀 IG リール一括予約 ${prepared.length}本`);
+    const { context, page } = await launch();
+    try {
+      await ensureLogin(page);
+      for (const [index, item] of prepared.entries()) {
+        console.log(`\n[batch ${index + 1}/${prepared.length}] ${item.pack.slug}`);
+        const ok = await publishReel(page, item.pack, item.when, false);
+        if (!ok) throw new Error(`一括予約を停止: ${item.pack.slug}`);
+        updateStatus(item.pack, item.when);
+      }
+      console.log(`\n✅ IG リール一括予約 完了 ${prepared.length}本`);
+    } catch (error) {
+      console.error("エラー:", error);
+      await shot(page, "batch-fatal-error");
+      process.exitCode = 1;
+    } finally {
+      await page.waitForTimeout(3000);
       await context.close();
     }
     return;
