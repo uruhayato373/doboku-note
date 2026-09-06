@@ -187,6 +187,34 @@ Playwrightのログインprofileはサービス別に永続化されているが
 ## 🟢 低 — 時期未定
 
 
+### [DN-0175] SNS残存画像を公開完了後に再監査する
+タグ: [インフラ・計測] [種類:改善] [Codex候補] [起票:2026-09-06]
+
+2026-09-06 のSNS容量監査で、重い動画・音声はDrive退避とローリング削除まで完了した。現時点で
+削除せず保持した小容量資産は、IG CEM PNG 48件（4.09MiB・投稿状態とSoT内訳が未確定）、legacy
+YouTube thumbnail 32件（2.20MiB・private動画と投稿スクリプトが参照）、Xの旧アカウント／投稿済み
+カード104件（約11MiB・Git追跡かつpublisher/checkerがローカル実体を要求）の3群。
+
+**再開条件**: DN-0110 の通常動画112本＋Shorts224本の外部実体照合が完了するか、
+`npm run audit-repo-assets`で`content/sns`が500MiBを再び超えたとき。条件前は容量効果に対して
+復元経路の改修コストが大きいため着手しない。
+
+再開時は次の順で実査する。
+
+1. IG CEMは`slide-data.json`・caption・statusをパック単位で監査し、完成PNGは既存
+   `ig-rendered-image`へ同期、中間PNGは再生成可能性を確認してから削除する
+2. legacy YouTube thumbnailは公開／retiredの実体と参照スクリプトを照合し、参照が残る間は保持する
+3. Xカードは対象が100MiB以上になった場合だけ、Drive group・使用直前hydrate・検査の台帳対応を
+   1セットで実装する。100MiB未満ならKEEP_LOCALを確定してカードを削除する
+
+**禁止**: `content/sns/_assets/`のブランド原本と`content/sns/figures/`の共通図版を退避対象へ含めない。
+Drive台帳・vault・Drive APIの照合前にローカル実体を削除しない。
+
+**完了条件**: 3群をOFFLOAD／REGENERATE_DELETE／KEEP_LOCALへ再分類し、必要な同期・自動復元・検査を
+反映する。`node --test tests/drive-vault.test.mjs tests/video-cache-prune.test.mjs`、
+`npm run check-drive-vault`、`npm run check-command-guidance`を通したらカードを削除する。
+
+
 ### [DN-0172] drive-manifest.json を lean 化する
 タグ: [インフラ・計測] [種類:改善] [起票:2026-09-05]
 
