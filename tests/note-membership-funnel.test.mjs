@@ -40,8 +40,8 @@ function countOccurrences(haystack, needle) {
   return haystack.split(needle).length - 1;
 }
 
-// ── SoT: civil-membership-lab が公開済みで正式加入 URL を持つ ──────────────
-test('note-magazines.ts: civil-membership-lab は published:true・noteUrl=加入URL', () => {
+// ── SoT: 商品 URL と説明記事 URL を分離する ──────────────────────────────
+test('note-magazines.ts: civil-membership-lab は加入URLと無料説明記事URLを持つ', () => {
   const src = read('src/lib/note-magazines.ts');
   const block = src.match(/'civil-membership-lab':\s*\{([\s\S]*?)\n {2}\},/);
   assert.ok(block, "civil-membership-lab エントリが見つからない");
@@ -52,14 +52,24 @@ test('note-magazines.ts: civil-membership-lab は published:true・noteUrl=加�
     /noteUrl:\s*'https:\/\/note\.com\/dobokunote\/membership\/join'/,
     'noteUrl が正式加入 URL(/membership/join) でない',
   );
+  assert.match(
+    body,
+    /landingUrl:\s*'https:\/\/note\.com\/dobokunote\/n\/n6b66793ca20c'/,
+    'landingUrl が無料説明記事でない',
+  );
 });
 
-// ── note 記事: 対象 6 記事に CTA マーカーと加入 URL が各 1 件 ─────────────
+// ── note 記事: 入口5記事は無料説明へ、説明記事だけが加入画面へ ───────────
 for (const rel of TARGET_ARTICLES) {
-  test(`note 記事に CTA マーカーと加入 URL が各1件: ${rel}`, () => {
+  test(`note 記事の会員CTAは段階導線を守る: ${rel}`, () => {
     const content = read(rel);
     assert.equal(countOccurrences(content, CTA_MARKER), 1, `CTA マーカーが 1 件でない: ${rel}`);
-    assert.equal(countOccurrences(content, JOIN_URL), 1, `加入 URL が 1 件でない: ${rel}`);
+    if (rel === INTRO_ARTICLE) {
+      assert.equal(countOccurrences(content, JOIN_URL), 1, `説明記事に加入 URL が 1 件でない: ${rel}`);
+    } else {
+      assert.equal(countOccurrences(content, INTRO_SELF_URL), 1, `入口記事に無料説明 URL が 1 件でない: ${rel}`);
+      assert.equal(countOccurrences(content, JOIN_URL), 0, `入口記事が加入画面へ直送している: ${rel}`);
+    }
   });
 }
 

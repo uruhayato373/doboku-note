@@ -49,6 +49,9 @@ cover:
 <!-- cta:pack-top-light -->
 > 教材費を比較してから選びたい方は、[総監もくじ](https://note.com/dobokunote/n/n3ed4c77ceed6)で無料記事と有料教材をまとめて確認できます。
 
+<!-- cta:pack-top -->
+> 記述式の型、5管理のトレードオフ、設問(3)の国家施策を一つの流れで固めるなら、[記述式コアパック](https://note.com/dobokunote/m/m6e7de5e4ea3d)から始められます。無料記事や立場別の模範論文を比較したい方は、[総監もくじ](https://note.com/dobokunote/n/n3ed4c77ceed6)で現在地に合う教材を選べます。
+
 ## 1. 公務員の総監受験コストは、こう違う
 
 ### 受験料補助・自己啓発支援制度（自治体差大）

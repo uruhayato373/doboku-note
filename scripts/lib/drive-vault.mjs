@@ -22,6 +22,7 @@ import { createHash } from 'node:crypto';
 import { createReadStream, existsSync, mkdirSync, readdirSync, readFileSync, renameSync, unlinkSync, writeFileSync } from 'node:fs';
 import { homedir } from 'node:os';
 import { dirname, join, sep } from 'node:path';
+import { isDeepStrictEqual } from 'node:util';
 import { REPO_ROOT } from './repository-paths.mjs';
 
 export const DRIVE_CONFIG_PATH = join(REPO_ROOT, '.claude/config/drive-vault.json');
@@ -188,10 +189,17 @@ export function routingFor(repoRelPath, r2Cfg, driveCfg) {
   };
 }
 
+// 台帳 2 万件の読み時補完（vaultPath の導出）で同じ manifest.json を何千回も読まないためのメモ。
+// 1 プロセス内でだけ有効（ファイルが変わる運用はビルド 1 回＝1 プロセス）。
+const standardsManifestMemo = new Map();
 function defaultStandardsManifestReader(agencyId, documentId) {
+  const k = agencyId + '/' + documentId;
+  if (standardsManifestMemo.has(k)) return standardsManifestMemo.get(k);
   const p = join(REPO_ROOT, 'content/sources/standards', agencyId, documentId, 'manifest.json');
-  if (!existsSync(p)) return null;
-  try { return JSON.parse(readFileSync(p, 'utf-8')); } catch { return null; }
+  let v = null;
+  if (existsSync(p)) { try { v = JSON.parse(readFileSync(p, 'utf-8')); } catch { v = null; } }
+  standardsManifestMemo.set(k, v);
+  return v;
 }
 
 /** vault 相対パス → 絶対パス（マウント先を付ける）。 */
@@ -223,18 +231,76 @@ export async function realBytesAndHashes(absPath) {
 export function emptyDriveManifest() {
   return {
     version: 1,
-    note: 'Drive vault 台帳。キーは repo 相対パス、vaultPath は vault 相対。絶対パス・秘密値を書かない。マウント先は実行時に resolveVaultRoot が解決する。',
+    note: 'Drive vault 台帳（lean format）。キーは repo 相対パス、vaultPath は vault 相対で、group 定義から導出できるとき（adopted でない）は省く。regenerable も group 既定と同じなら省く。読むときは loadDriveManifest が補う。絶対パス・秘密値を書かない。マウント先は実行時に resolveVaultRoot が解決する。',
     entries: {},
   };
 }
 
-export function loadDriveManifest() {
+/**
+ * 台帳の lean format（2026-09-06・DN-0172）。
+ *
+ * ディスク上の台帳は **group 定義から今まさに導出できる値を持たない**:
+ *   - vaultPath  … adopted でないエントリは vaultRelFor(rel, group) と一致するので省く
+ *   - regenerable … group.regenerable と一致するなら省く
+ * sha256 / md5 / bytes / width / height / syncedAt / verifiedAt / adopted は導出できないので常に持つ。
+ * 読み出し側（loadDriveManifest）は hydrateDriveEntry で省いた値を補うので、台帳を使うコードは
+ * 常に完全なエントリを見る。**台帳 JSON を直読みするコードは vaultPath / regenerable を当てにしない**
+ * （必要なら loadDriveManifest か expandDriveManifest を通す）。
+ *
+ * 間引くのは「導出値と一致するとき」だけ。導出値とずれたエントリ（過去の設定変更・手で置いた原本の adopt）
+ * は明示のまま残す。R2 側 manifest.json の lean format（asset-storage.mjs）と同じ判断。
+ */
+export function hydrateDriveEntry(rel, entry, cfg = loadDriveConfig()) {
+  const out = { ...entry };
+  const g = (cfg.groups || []).find((x) => x.id === entry.group);
+  if (!g) return out;
+  if (out.vaultPath === undefined) {
+    try { out.vaultPath = vaultRelFor(rel, g); } catch { /* 導出不能は undefined のまま。check-drive-vault (b) が拾う */ }
+  }
+  if (out.regenerable === undefined && g.regenerable !== undefined) out.regenerable = g.regenerable;
+  return out;
+}
+
+export function expandDriveManifest(manifest, cfg = loadDriveConfig()) {
+  const out = { ...manifest, entries: {} };
+  for (const [rel, e] of Object.entries(manifest.entries || {})) out.entries[rel] = hydrateDriveEntry(rel, e, cfg);
+  return out;
+}
+
+export function toLeanDriveManifest(manifest, cfg = loadDriveConfig()) {
+  const out = { ...manifest, entries: {} };
+  for (const [rel, e] of Object.entries(manifest.entries || {})) {
+    const lean = sanitizeDriveEntry(e);
+    const g = (cfg.groups || []).find((x) => x.id === e.group);
+    if (g) {
+      if (lean.vaultPath !== undefined && !lean.adopted) {
+        let derived = null;
+        try { derived = vaultRelFor(rel, g); } catch { derived = null; }
+        if (derived !== null && derived === lean.vaultPath) delete lean.vaultPath;
+      }
+      if (lean.regenerable !== undefined && g.regenerable !== undefined && lean.regenerable === g.regenerable) delete lean.regenerable;
+    }
+    out.entries[rel] = lean;
+  }
+  return out;
+}
+
+/** ヘッダは読みやすく、entries は 1 エントリ 1 行（2 万件で 12 行/件の pretty print は diff も容量も無駄）。妥当な JSON。 */
+export function serializeDriveManifest(manifest) {
+  const { entries, ...head } = manifest;
+  const headJson = JSON.stringify(head, null, 2).replace(/\n\}$/, '');
+  const lines = Object.entries(entries || {}).map(([k, v]) => '    ' + JSON.stringify(k) + ': ' + JSON.stringify(v));
+  return headJson + (Object.keys(head).length ? ',\n' : '') + '  "entries": {' + (lines.length ? '\n' + lines.join(',\n') + '\n  ' : '') + '}\n}\n';
+}
+
+/** 台帳を読む。ディスク上は lean format なので、省かれた vaultPath / regenerable を group 定義から補って返す。 */
+export function loadDriveManifest({ hydrate = true } = {}) {
   if (!existsSync(DRIVE_MANIFEST_PATH)) return emptyDriveManifest();
   let m;
   try { m = JSON.parse(readFileSync(DRIVE_MANIFEST_PATH, 'utf-8')); }
   catch (e) { throw new Error('drive-vault: 台帳が壊れている（' + DRIVE_MANIFEST_PATH + '）: ' + e.message); }
   if (!m.entries) m.entries = {};
-  return m;
+  return hydrate ? expandDriveManifest(m) : m;
 }
 
 /** 台帳に載せてよいキーだけを通す。絶対パスやローカル固有の値の混入経路を塞ぐ。 */
@@ -246,15 +312,25 @@ export function sanitizeDriveEntry(e) {
   return out;
 }
 
-/** 一時ファイルへ書いて読み直し、妥当なら置換する。途中で落ちても既存台帳を壊さない。 */
-export function writeDriveManifestAtomic(manifest) {
+/**
+ * 台帳を lean format で書く。一時ファイルへ書いて読み直し、**補完すると元のエントリへ戻ること**を
+ * 全件 deep-equal で確かめてから置換する（戻らないなら 1 件も書かない・fail-closed）。
+ * 途中で落ちても既存台帳を壊さない。
+ */
+export function writeDriveManifestAtomic(manifest, cfg = loadDriveConfig()) {
+  const full = { ...manifest, entries: {} };
+  for (const [rel, e] of Object.entries(manifest.entries || {})) full.entries[rel] = hydrateDriveEntry(rel, sanitizeDriveEntry(e), cfg);
+  const lean = toLeanDriveManifest(full, cfg);
   mkdirSync(dirname(DRIVE_MANIFEST_PATH), { recursive: true });
   const tmp = DRIVE_MANIFEST_PATH + '.tmp';
-  writeFileSync(tmp, JSON.stringify(manifest, null, 2) + '\n');
-  const back = JSON.parse(readFileSync(tmp, 'utf-8'));
-  if (!back.entries || typeof back.entries !== 'object') {
+  writeFileSync(tmp, serializeDriveManifest(lean));
+  let back;
+  try { back = JSON.parse(readFileSync(tmp, 'utf-8')); } catch (e) { unlinkSync(tmp); throw new Error('drive-vault: 台帳の書き出しが JSON として読めないので置換しない: ' + e.message); }
+  if (!back.entries || typeof back.entries !== 'object') { unlinkSync(tmp); throw new Error('drive-vault: 台帳の書き出し検証に失敗したので置換しない'); }
+  const restored = expandDriveManifest(back, cfg);
+  if (!isDeepStrictEqual(restored.entries, full.entries)) {
     unlinkSync(tmp);
-    throw new Error('drive-vault: 台帳の書き出し検証に失敗したので置換しない');
+    throw new Error('drive-vault: lean 化した台帳を補完しても元に戻らないので置換しない（group 定義と台帳の導出がずれている）');
   }
   renameSync(tmp, DRIVE_MANIFEST_PATH);
   return Object.keys(back.entries).length;

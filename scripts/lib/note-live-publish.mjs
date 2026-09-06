@@ -58,8 +58,12 @@ export async function publishLive(
   if (!isPaid) console.log('[5b] 無料記事 → 有料境界の設定・検証をスキップ');
   if (await area.count() && keepBoundary) {
     console.log('[5b] 有料記事フロー（既存境界を保持・動かさない）');
-    await area.first().click(); await sleep(3500);
-    const hasLine = await page.evaluate(() => /このラインより先を有料にする/.test(document.body.innerText || ''));
+    await area.first().click();
+    let hasLine = false;
+    for (let i = 0; i < 8 && !hasLine; i++) {
+      await sleep(1200);
+      hasLine = await page.evaluate(() => /このラインより先を有料にする/.test(document.body.innerText || ''));
+    }
     await page.screenshot({ path: shot('keepboundary') });
     console.log('[5b] 既存境界line=' + hasLine);
     if (!hasLine) {

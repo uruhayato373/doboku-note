@@ -183,7 +183,7 @@ export async function composeShortsVideo({
  * 静止画＋音声の複数 scene を1回の ffmpeg encode で連結し、字幕を焼き込む。
  * 長尺では scene ごとの mp4 化＋最終再encodeが律速になるため、通常動画はこちらを使う。
  */
-export async function composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, outPath }) {
+export async function composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, outPath, options = {} }) {
   if (!Array.isArray(pngPaths) || !Array.isArray(wavPaths) || pngPaths.length === 0) {
     throw new Error('pngPaths and wavPaths must be non-empty arrays');
   }
@@ -220,12 +220,15 @@ export async function composeStaticSlidesVideo({ pngPaths, wavPaths, assPath, ou
     throw new Error('字幕必須の通常動画ですが、ffmpeg に libass がありません');
   }
 
+  const videoArgs = options.videoEncoder === 'h264_videotoolbox'
+    ? ['-c:v', 'h264_videotoolbox', '-b:v', options.videoBitrate ?? '1200k', '-maxrate', options.videoMaxrate ?? '2400k']
+    : ['-c:v', 'libx264', '-preset', 'ultrafast', '-crf', '23'];
   args.push(
     '-filter_complex', filters.join(';'),
     '-map', '[vout]', '-map', '[aout]',
     // 通常動画は静止スライド主体で、画質は CRF が支配する。ultrafast にしても
     // 視覚品質を保ったままエンコード時間だけを大きく短縮できる（容量は増える）。
-    '-c:v', 'libx264', '-preset', 'ultrafast', '-crf', '23', '-pix_fmt', 'yuv420p',
+    ...videoArgs, '-pix_fmt', 'yuv420p',
     '-c:a', 'aac', '-b:a', '192k', '-movflags', '+faststart', '-shortest', outPath,
   );
   await runFFmpeg(args);

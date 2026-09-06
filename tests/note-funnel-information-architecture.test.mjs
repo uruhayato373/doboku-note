@@ -17,7 +17,7 @@ test('L1は技術士第一次試験の公開済み入口を1件だけ持つ', ()
 const L2_CASES = [
   {
     file: 'content/note/技術士総監/総監もくじ/article.md',
-    free: 'https://note.com/dobokunote/n/n3d73729e6cc7',
+    free: 'https://note.com/dobokunote/n/nc874692256bb',
     paid: 'https://note.com/dobokunote/m/m6e7de5e4ea3d',
   },
   {
@@ -28,7 +28,7 @@ const L2_CASES = [
   {
     file: 'content/note/1級・2級土木/土木もくじ/article.md',
     free: 'https://note.com/dobokunote/n/nd1c0e564ef10',
-    paid: 'https://note.com/dobokunote/m/md29a34906314',
+    paid: 'https://note.com/dobokunote/m/m150c9db08902',
   },
 ];
 

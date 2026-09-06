@@ -18,7 +18,7 @@
 > 3. **本文の全面差し替え**（大改稿・本文ほぼ全体）→ **編集画面では不可**。`/new` で作り直す（旧記事は変更履歴に残る）か、note の文字数が許せば 1 段落ずつ `type` で手直しする。**全消去→paste はしない**。
 > 4. **誤って空更新してしまった場合の復旧** → エディタ右上「その他」→「変更履歴」→ 直前のフル版（文字数が正しい版）→「この版を復元」→「公開に進む」→「更新する」。
 >
-> **一回限りの `.tmp/*.mjs` を書く前に**: 末尾追記・free 内アンカー挿入は `note-append-cta.mjs`（既存・冪等・検証込み）、**もくじ等の既存リストへインラインリンク項目追加は `note-append-list-links.mjs`（手段2b・spec JSON 駆動・dry-run/commit・API 実査込み）**で足りる。それ以外の部分置換（手段2）は専用スクリプトが無いので一回限りスクリプトが正当だが、**必ず本 Phase U-B のテンプレに沿わせる**（Selection 限定・通知いいえ・API 実体検証）。MCP playwright ツール（`mcp__playwright__*`）は永続ログインプロファイルを引き継げないため note 編集には使わない＝Playwright スクリプト + `.local/playwright-note-profile` 経路が正。
+> **一回限りの `.tmp/*.mjs` を書く前に**: 末尾追記・free 内アンカー挿入は `note-append-cta.mjs`、もくじ等の既存リストへインラインリンク項目追加は `note-append-list-links.mjs`、**段落・語句・カード・節順の部分更新は `note-update-partial.mjs`** を使う。部分更新は spec JSON 駆動で、dry-run は編集せず対象件数と PDF 添付を読むだけ。`--commit` 時も needle で特定した要素・範囲だけを変更し、更新前後と公開後再読で PDF 添付 URL/ファイル名の完全一致を要求する。MCP playwright ツール（`mcp__playwright__*`）は永続ログインプロファイルを引き継げないため note 編集には使わない＝Playwright スクリプト + OS標準 auth root の note profile 経路が正。
 
 価格変更・誤字修正・CTA 追記などの軽微保守に使う。**本文の大規模差し替えには使わない**（paste 不可のため）。
 
@@ -157,7 +157,18 @@ browser-use --headed --profile "$NOTE_PROFILE" eval "String(document.querySelect
 
 ### Phase U-B: 部分置換（type 方式・段落/価格/節だけを差し替え）
 
-既存の特定テキスト（intro 段落・価格表記・1 セクション）を**別テキストへ差し替える**手段。paste は edit 画面で死んでいる（冒頭 danger）ので、**Selection で対象範囲を限定削除 → type で再入力**する。append（U-A）でも全面差し替え（/new）でもない中間ケース。2026-06-19 に Playwright スクリプト（`.local/playwright-note-profile` 経路）で実証。**専用 npm スクリプトは無い**ため一回限りスクリプトで実装するが、必ず以下の安全弁に沿わせる。
+既存の特定テキスト（intro 段落・価格表記・1 セクション）を**別テキストへ差し替える**手段。paste は edit 画面で死んでいる（冒頭 danger）ので、**Selection で対象範囲を限定削除 → type で再入力**する。append（U-A）でも全面差し替え（/new）でもない中間ケース。2026-06-19 に個別スクリプトで実証し、2026-09-06 に共通 CLI `npm run note-update-partial -- --spec <json> [--commit]` へ昇格した。
+
+共通 CLI の既定は **DRY-READONLY**。spec の全 operation が期待件数と一致してからだけ編集し、select-all と全文 paste は使わない。PDF 添付カードは更新前・編集直後・公開後再読の3点で URL/ファイル名が完全一致しなければ失敗とする。有料記事は既存の有料境界 line を確認し、動かさずに更新する。複数記事は spec パスを1行1件で並べた `--list` を使うと、同じ Chrome セッションで直列処理できる。途中1件でも検証に失敗すれば、そこでバッチを停止する。
+
+```bash
+# 同一文言の一括更新 spec を原稿から生成（生成物は .tmp のみ）
+npm run build-note-text-partial-specs -- --scope <content/note配下> --from '<旧文言>' --to '<新文言>' --name <名前>
+
+# 読み取り専用で全件 preflight → 問題なければ実更新
+npm run note-update-partial -- --list .tmp/note-partial-text/<名前>/<名前>.list.txt
+npm run note-update-partial -- --list .tmp/note-partial-text/<名前>/<名前>.list.txt --commit
+```
 
 **鉄則**:
 - **select-all しない**。対象 needle（差し替えたい文字列・節の先頭/末尾の固有文言）で `Range` を限定する。範囲を間違えると周辺本文を巻き込む。

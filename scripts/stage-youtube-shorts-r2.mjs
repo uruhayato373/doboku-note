@@ -5,6 +5,7 @@
  */
 import { createHash } from 'node:crypto';
 import { createReadStream, existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import { join } from 'node:path';
 import { GetObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
 
@@ -12,6 +13,10 @@ const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const RENDER_ROOT = join(ROOT, '.tmp/video-render');
 const STATE = JSON.parse(readFileSync(join(ROOT, '.claude/state/video-content-status.json'), 'utf8'));
+const DRIVE_MANIFEST_PATH = join(ROOT, '.claude/state/assets/drive-manifest.json');
+const DRIVE_MANIFEST = existsSync(DRIVE_MANIFEST_PATH)
+  ? JSON.parse(readFileSync(DRIVE_MANIFEST_PATH, 'utf8'))
+  : { entries: {} };
 const BUCKET = 'doboku-note-archive';
 const argv = process.argv.slice(2);
 const commit = argv.includes('--commit');
@@ -39,6 +44,29 @@ function sha256(buffer) {
   return createHash('sha256').update(buffer).digest('hex');
 }
 
+function hydrate(file) {
+  if (existsSync(file)) return;
+  const rel = file.slice(ROOT.length + 1).replace(/\\/g, '/');
+  console.log(`[youtube-shorts-stage] Driveから復元: ${rel}`);
+  const result = spawnSync(process.execPath, [join(ROOT, 'scripts/drive-vault-sync.mjs'), '--pull', '--path', rel], {
+    cwd: ROOT,
+    stdio: 'inherit',
+  });
+  if (result.status !== 0 || !existsSync(file)) throw new Error(`${rel}: Driveから復元できません`);
+}
+
+function assertReady(file, expected) {
+  if (existsSync(file) && statSync(file).size > 0) {
+    if (sha256(readFileSync(file)) !== expected) throw new Error(`${file}: sha256がyoutube.jsonと不一致です`);
+    return;
+  }
+  const rel = file.slice(ROOT.length + 1).replace(/\\/g, '/');
+  const entry = DRIVE_MANIFEST.entries?.[rel];
+  if (entry?.group !== 'video-render-artifact' || entry.sha256 !== expected || !(entry.bytes > 0)) {
+    throw new Error(`${rel}: ローカルにも照合済みDrive台帳にもありません`);
+  }
+}
+
 async function bodyBuffer(body) {
   const chunks = [];
   for await (const chunk of body) chunks.push(Buffer.from(chunk));
@@ -59,9 +87,6 @@ function targets() {
         if (current.some((entry) => entry.key === item.key && entry.videoId)) continue;
         const video = join(RENDER_ROOT, packId, 'shorts', item.key, 'shorts.mp4');
         const thumbnail = join(RENDER_ROOT, packId, 'shorts', item.key, 'thumbnail.png');
-        for (const file of [video, thumbnail]) {
-          if (!existsSync(file) || statSync(file).size === 0) throw new Error(`${packId}/${item.key}: レンダー実体がありません ${file}`);
-        }
         if (!/^[a-f0-9]{64}$/.test(item.sha256 ?? '') || !/^[a-f0-9]{64}$/.test(item.thumbnailSha256 ?? '')) {
           throw new Error(`${packId}/${item.key}: youtube.json のsha256が未確定です`);
         }
@@ -74,6 +99,10 @@ function targets() {
 
 async function main() {
   const rows = targets();
+  for (const row of rows) {
+    assertReady(row.video, row.item.sha256);
+    assertReady(row.thumbnail, row.item.thumbnailSha256);
+  }
   console.log(`[youtube-shorts-stage] 対象 ${rows.length}本`);
   for (const row of rows.slice(0, 20)) console.log(`  ${row.item.publishAt} ${row.packId}/${row.item.key}`);
   if (rows.length > 20) console.log(`  ...ほか ${rows.length - 20}本`);
@@ -92,6 +121,8 @@ async function main() {
     },
   });
   async function stageRow(row, index) {
+    hydrate(row.video);
+    hydrate(row.thumbnail);
     const assets = [
       { file: row.video, key: row.item.r2Key, type: 'video/mp4', expected: row.item.sha256 },
       { file: row.thumbnail, key: row.item.thumbnailR2Key, type: 'image/png', expected: row.item.thumbnailSha256 },

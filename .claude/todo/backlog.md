@@ -21,20 +21,6 @@
 
 ## 🔴 高 — 来月中に着手
 
-### [DN-0174] ライブ添付が欠けている note 記事 95 本へ PDF を再添付する
-タグ: [収益化] [種類:不具合] [検証:check-note-attachments] [起票:2026-09-05] [期日:2026-09-12]
-
-2026-09-05 の `node scripts/check-note-attachments.mjs --live`（575 本実査・取得失敗 0）で、本文が PDF 配布を約束しているのにライブに添付が無い記事が 95 本（1級土木/magazines 38本／magazines/総監模範論文-ゼネコン 6本／magazines/総監模範論文-河川コンサル 6本／magazines/総監模範論文-自治体上水道担当 4本／magazines/総監模範論文-自治体下水道担当 4本／magazines/総監模範論文-自治体公園緑地担当 4本／magazines/総監模範論文-自治体契約調達担当 4本／magazines/総監模範論文-自治体技術基準担当 4本／magazines/総監模範論文-自治体河川担当 4本／magazines/総監模範論文-自治体港湾担当 4本／magazines/総監模範論文-自治体砂防担当 4本／magazines/総監模範論文-自治体道路担当 4本／magazines/総監模範論文-自治体都市計画担当 4本／magazines/総監模範論文-都市計画コンサル 4本／magazines/総監模範論文-道路橋梁コンサル 1本）。当日のバナー差し替え 87 本とは無関係（台帳突合で 0 件一致）で、以前から欠けていたものが実査で表面化した。実体 PDF はローカル／Drive vault にある。手順: `node scripts/note-attach-batch.mjs --commit --limit 90`（note の 1 日 100 ファイル上限に合わせて 2 日に分ける）→ 翌日 `check-note-attachments --live` で 0 件を確認。台帳は .claude/state/note-attachments-missing.json。
-
-### [DN-0173] 著者オーソリティ新バナーの残り 141 本をライブ差し替えする
-タグ: [収益化] [種類:改善] [検証:check-note-republish] [起票:2026-09-05] [期日:2026-09-08]
-
-2026-09-05 に正方形バナー＋本文 2 段落へ 93 本（無料 26・会員 8・有料 59）を `note-swap-author-banner` で差し替えた（差し替え済みは全件ハッシュ同期・drift 0）。残り 141 本＝**有料 89**（うち 28 本は frontmatter に `noteStatus` が無く当日のリスト生成から漏れたが API では published＝2テーマ組合せ大全ほか。n9d9a77c66392 は空 p 掃除後の DOM 順序検証で 2 回失敗＝手動で editor を見る）・無料 1（1級経験記述で落ちる答案）・**コンクリート 51**（無料 3 を含む）。対象リストは noteStatus でなく `npm run check-note-republish -- --json` の driftFiles ∩ バナー入り記事から作る。画像アップロードが note の 1 日 100 ファイル上限に数えられるか未確認のため `--daily-limit 90` で日を分ける。手順: `node scripts/note-swap-author-banner.mjs --list <paths> --commit --max-consecutive-fail 3`（30 本ずつ・全文置換はしない）→ 各バッチ後 `node scripts/check-note-structure.mjs --ci` と `node scripts/check-note-attachments.mjs --live`。完了条件＝バナー入り 247 本の本文 drift が 0。
-
-
-
-
-
 ### [DN-0135] 人・外部実体が必要な残務
 タグ: [収益化] [種類:不具合] [起票:2026-08-25]
 
@@ -59,14 +45,30 @@
 
 ## 🟡 中 — 2〜3ヶ月以内
 
+### [DN-0176] 添付実査の偽陰性（全件走査だけ live=0 と出る）をなくす
+タグ: [インフラ・計測] [種類:不具合] [Codex候補] [検証:check-note-attachments] [起票:2026-09-06] [期日:2026-10-31]
+
+`check-note-attachments --live` の全件走査（575本）で、実際には添付がある記事を live=0 と報告する取りこぼしが 2 日で 2 件出た（2026-09-05 の n845a47ddaa83・2026-09-06 の nc6c8bb7fb7d3）。どちらも `--only <noteId>` の単独実測では充足 1・不足 0 になる。走査は 1 記事あたり 2 回リトライするが、全件走査では末尾へのスクロール待ちが足りず添付カードを取り逃していると見られる。
+
+実害は「赤が本物か分からなくなる」こと。添付そのものは `note-attach-file` が編集前に既存 PDF カードを検出して上書きを避けるため、偽陰性から二重添付には至らない（scripts/note-attach-file.mjs:87-105）。
+
+出口: 全件走査が live=0 と判定した記事を、スナップショットへ書く前に単独条件で再実測して確定させる。既知の 2 件を再現ケースに使い、全件走査と `--only` の結果が一致することを確認する。
+
+### [DN-0177] 価格変更・境界再設定のパスに PDF 添付の増減ゲートを付ける
+タグ: [収益化] [インフラ・計測] [種類:不具合] [検証:check-note-attachments] [起票:2026-09-06] [期日:2026-10-31]
+
+nded084d4f646（1級土木 R06 過去問模範答案）が 2026-09-05 の実査では添付ありだったのに、同日 19:00 にバナー差し替えがエディタを開いた時点で添付 0 になっていた（差し替え側は編集前 probe で 0 を観測しており、消したのは別経路）。同日 17:47 の価格一括変更でこの記事だけ `page.goto: net::ERR_ABORTED` で失敗しており、そこが疑わしいが未確定。この記事は 2026-08-12 にも同じ喪失を起こしている。
+
+`note-swap-author-banner.mjs` は編集前後で添付数を数えて減っていれば保存しないゲートを持ち、実際に 252 本で 1 件も落としていない。同じゲートを価格変更・境界再設定の経路にも入れる。
+
+出口: 該当スクリプトを特定し、保存前に `listAttachedFiles` の前後比較を入れて減少時は保存しない。喪失時は `.claude/state/note-attachment-loss.json` の pending へ積む。ERR_ABORTED のような遷移失敗はリトライし、リトライ後も失敗するなら保存に進まない。
+
 ### [DN-0168] コンクリート単品¥980の値上げ可否を試験後に判定する
 タグ: [収益化] [種類:改善] [起票:2026-09-04] [期日:2026-12-12]
 
 2026-09-04 に最上位アンカー `cce-marugoto-pack`（¥9,800）を新設した（既存SKUは据え置き）。残る論点は小論文/記述の単品 45 本（主任技士 37・診断士 8）が一律 ¥980 で、同じ記述式の土木 経験記述 ¥1,680〜1,980 より低いこと。字数単価では ¥183/千字で自社上位帯のため「安すぎる」とは断定できず、実売も 0 件のため値上げの効果は未検証。**アンカー新設の効果（¥9,800 の実売・¥5,980 の動き）を 11-29 試験〜12月上旬で観測してから**、¥1,480 への改定可否を判定する。
 
 実行時の罠: 対象 48 本が `paidBoundary` を持つため `note-article-price-sweep` は既定 ABORT（exit 9）。`--allow-boundary-risk` の後に `note-update-body --commit` で境界を再設定し `npm run check-note-structure` で FULL_LOCK=0 を実査するまでが 1 セット（2026-07-24 に civil 58 本で無料プレビューを消した形）。
-
-
 
 
 ### [DN-0120] 9月中旬のA8成果を取り込み、転職アフィリ継続を再判定する
@@ -82,9 +84,6 @@
 （reference-materials-hyogo-port-materials / river-abandonment / inverted-siphon / floodgate / tunnel-02）
 について、再公開14日後（2026-09-09以降）にGSCでインデックス状況とimpressions/clicksのdeltaを計測し、
 再実験化（EXP系起票）するかを判断する。EXP-002はcancelled（2026-06-27）なので新規起票になる。
-
-
-
 
 
 ### [DN-0110] 承認済み動画パック112本＋Shorts224本の公開・6週間判定
@@ -104,8 +103,6 @@
 **制約**: `approved` はユーザーだけが設定する。mp4/wavをGitへ入れない。今回の対象は明示承認済み112パックだけで、技術士総監・建設部門・診断士・IG/X/Threads/TikTokへ承認を波及させない。legacy総監Shorts187本はretiredのまま再開しない。
 
 **完了条件**: 通常動画112本とShorts224本を外部実体で照合し、全Shortsの関連動画・予約日時・著者表記が正しく、全機械・意味ゲートがPASSする。6週間後の継続/修正/停止判断とbaselineを記録したらカードを削除する。
-
-
 
 
 ### [DN-0115] PWA買い切り・メール主／LINE補助の収益導線pilot
@@ -195,10 +192,33 @@ Playwrightのログインprofileはサービス別に永続化されているが
 ## 🟢 低 — 時期未定
 
 
-### [DN-0172] drive-manifest.json を lean 化する
-タグ: [インフラ・計測] [種類:改善] [起票:2026-09-05]
+### [DN-0175] SNS残存画像を公開完了後に再監査する
+タグ: [インフラ・計測] [種類:改善] [Codex候補] [起票:2026-09-06]
 
-11,898 件で 6.3MiB（JSON 上限 4MiB を allowlist で例外扱い）。非 adopted の `vaultPath` は group から導出できるので、R2 側 manifest.json と同じ読み時補完（lean format）で 3 割減らせる。全 group 移行後に。
+2026-09-06 のSNS容量監査で、重い動画・音声はDrive退避とローリング削除まで完了した。現時点で
+削除せず保持した小容量資産は、IG CEM PNG 48件（4.09MiB・投稿状態とSoT内訳が未確定）、legacy
+YouTube thumbnail 32件（2.20MiB・private動画と投稿スクリプトが参照）、Xの旧アカウント／投稿済み
+カード104件（約11MiB・Git追跡かつpublisher/checkerがローカル実体を要求）の3群。
+
+**再開条件**: DN-0110 の通常動画112本＋Shorts224本の外部実体照合が完了するか、
+`npm run audit-repo-assets`で`content/sns`が500MiBを再び超えたとき。条件前は容量効果に対して
+復元経路の改修コストが大きいため着手しない。
+
+再開時は次の順で実査する。
+
+1. IG CEMは`slide-data.json`・caption・statusをパック単位で監査し、完成PNGは既存
+   `ig-rendered-image`へ同期、中間PNGは再生成可能性を確認してから削除する
+2. legacy YouTube thumbnailは公開／retiredの実体と参照スクリプトを照合し、参照が残る間は保持する
+3. Xカードは対象が100MiB以上になった場合だけ、Drive group・使用直前hydrate・検査の台帳対応を
+   1セットで実装する。100MiB未満ならKEEP_LOCALを確定してカードを削除する
+
+**禁止**: `content/sns/_assets/`のブランド原本と`content/sns/figures/`の共通図版を退避対象へ含めない。
+Drive台帳・vault・Drive APIの照合前にローカル実体を削除しない。
+
+**完了条件**: 3群をOFFLOAD／REGENERATE_DELETE／KEEP_LOCALへ再分類し、必要な同期・自動復元・検査を
+反映する。`node --test tests/drive-vault.test.mjs tests/video-cache-prune.test.mjs`、
+`npm run check-drive-vault`、`npm run check-command-guidance`を通したらカードを削除する。
+
 
 > [!note] 🟣 は「ユーザー作業待ち」置き場ではない（2026-08-17 是正）
 > 以前は 12 件中 7 件が「ユーザーの手作業待ち」で、判断は済んでいるのに 🟣 に沈殿していた。
@@ -246,7 +266,6 @@ Playwrightのログインprofileはサービス別に永続化されているが
 ---
 
 
-
 ### [DN-0155] git履歴の次回切り詰め（.git実体1.0GBの回収）
 タグ: [インフラ・計測] [種類:改善] [起票:2026-08-29]
 
@@ -255,20 +274,6 @@ Playwrightのログインprofileはサービス別に永続化されているが
 `seo-meta` は追跡スナップショットを1件に固定済みで、明示的な`--snapshot`以外は
 `seo-meta-latest.json`を上書きする。履歴切り詰め後に`git count-objects -vH`とfresh clone容量を記録し、
 主要ブランチ・タグ・Cloudflareデプロイ・R2復元経路を確認してからカードを削除する。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 ## 🟣 判断待ち — ユーザーの意思決定が必要

@@ -40,6 +40,9 @@ cover:
 <!-- cta:pack-top-light -->
 > 学習計画を教材の順番まで落とし込みたい方は、[総監もくじ](https://note.com/dobokunote/n/n3ed4c77ceed6)で無料記事と教材を段階別に確認できます。
 
+<!-- cta:pack-top -->
+> 記述式の型、5管理のトレードオフ、設問(3)の国家施策を一つの流れで固めるなら、[記述式コアパック](https://note.com/dobokunote/m/m6e7de5e4ea3d)から始められます。無料記事や立場別の模範論文を比較したい方は、[総監もくじ](https://note.com/dobokunote/n/n3ed4c77ceed6)で現在地に合う教材を選べます。
+
 ## 公務員の1年は「繁忙期」が読める
 
 自治体の技術職員の繁忙には、ある程度決まったパターンがあります。

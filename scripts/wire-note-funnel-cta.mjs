@@ -9,8 +9,10 @@
 // 使い方:
 //   node scripts/wire-note-funnel-cta.mjs --exam tankan            # dry-run（既定）
 //   node scripts/wire-note-funnel-cta.mjs --exam tankan --apply    # 適用
+//   node scripts/wire-note-funnel-cta.mjs --exam tankan --sync-managed --apply
+//     config 管理の冒頭 CTA だけを現在値へ同期（除外へ移った記事からは削除）。
 //
-// 設計原則: 追加のみ（既存 CTA・おすすめ記事は壊さない）。LF で書き出す。
+// 設計原則: 追加のみ（既存 CTA・おすすめ記事は壊さない）。元の改行コードを保持する。
 
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
@@ -21,6 +23,7 @@ const CONFIG = JSON.parse(readFileSync(join(ROOT, '.claude/config/note-funnel.js
 
 const args = process.argv.slice(2);
 const APPLY = args.includes('--apply');
+const SYNC_MANAGED = args.includes('--sync-managed');
 // magazines/ 配下（有料単品記事）も配線対象に含める（既定は除外）。
 // 原則9: 有料単品の冒頭パック上げは wire 非対象で個別直挿し運用だったが、
 // URL 実体での冪等化（下記 topDup）を入れたのでバルク配線を安全に許可する。
@@ -62,12 +65,15 @@ function collectArticles(dir) {
 }
 const articleDirs = collectArticles(baseDir);
 
-let topN = 0, botN = 0, skipTop = 0, skipBot = 0;
+let topN = 0, topSync = 0, topRemove = 0, botN = 0, skipTop = 0, skipBot = 0;
 for (const adir of articleDirs) {
   const d = { name: adir.slice(baseDir.length + 1) || adir };
   const f = join(adir, 'article.md');
   if (!existsSync(f)) continue;
   let raw = readFileSync(f, 'utf8');
+  const originalEol = raw.includes('\r\n') ? '\r\n' : '\n';
+  // 操作中は LF に統一し、書き戻す直前に元の EOL へ戻す。
+  raw = raw.replace(/\r\n/g, '\n');
   // 先頭 UTF-8 BOM を除去してから FM 判定（BOM 付きだと ^--- が非マッチ＝NO-FM 無音スキップになる。
   // 2026-07-05 に civil の 2 記事が BOM で wire を素通り→D1 未配線だった再発防止）。除去分は書き出しにも反映＝ハイジーン改善。
   let hadBom = false;
@@ -89,7 +95,24 @@ for (const adir of articleDirs) {
   // 同じパック URL が本文にあれば冒頭 CTA を二重化しない（マーカーだけでなく URL 実体でも冪等化）。
   const topUrl = (topText.match(/https?:\/\/\S+/) || [])[0];
   const topDup = topUrl && body.includes(topUrl);
-  if (topText && !topExcluded && !body.includes(topMarker) && !topDup) {
+  const markerToken = topMarker ? `<!-- ${topMarker} -->` : '';
+  const markerAt = markerToken ? body.indexOf(markerToken) : -1;
+  if (SYNC_MANAGED && markerAt >= 0) {
+    const firstH2 = body.search(/^##\s/m);
+    if (firstH2 < 0 || markerAt > firstH2) {
+      actions.push('TOP-sync-skip(marker-position)');
+      skipTop++;
+    } else {
+      const oldManaged = body.slice(markerAt, firstH2).trim();
+      if (topExcluded) {
+        body = body.slice(0, markerAt).replace(/\s*$/, '\n\n') + body.slice(firstH2);
+        actions.push('TOP-REMOVE'); topRemove++;
+      } else if (oldManaged.replace(/\r\n/g, '\n') !== topText.trim().replace(/\r\n/g, '\n')) {
+        body = body.slice(0, markerAt) + topText.trim() + '\n\n' + body.slice(firstH2);
+        actions.push('TOP-SYNC'); topSync++;
+      } else { skipTop++; }
+    }
+  } else if (topText && !topExcluded && markerAt < 0 && !topDup) {
     const h2 = body.search(/^##\s/m);
     if (h2 >= 0) { body = body.slice(0, h2) + topText + '\n\n' + body.slice(h2); actions.push('TOP'); topN++; }
     else { actions.push('TOP-skip(noH2)'); skipTop++; }
@@ -114,8 +137,11 @@ for (const adir of articleDirs) {
     botN++;
   } else if (ex.bottomCta.text) { skipBot++; }
 
-  if (actions.length && APPLY) writeFileSync(f, head + body);
+  if (actions.length && APPLY) {
+    const output = head + body;
+    writeFileSync(f, originalEol === '\r\n' ? output.replace(/\n/g, '\r\n') : output);
+  }
   if (actions.length) console.log((APPLY ? '[apply] ' : '[dry] ') + d.name + ' :: ' + actions.join(','));
 }
-console.log(`\nexam=${examKey} files=${articleDirs.length} TOP+${topN} BOTTOM+${botN} skipTop=${skipTop} skipBot=${skipBot} mode=${APPLY ? 'APPLY' : 'DRY'}`);
+console.log(`\nexam=${examKey} files=${articleDirs.length} TOP+${topN} TOP-sync=${topSync} TOP-remove=${topRemove} BOTTOM+${botN} skipTop=${skipTop} skipBot=${skipBot} mode=${APPLY ? 'APPLY' : 'DRY'}`);
 if (!APPLY) console.log('（--apply で適用）');

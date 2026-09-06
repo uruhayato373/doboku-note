@@ -73,8 +73,11 @@ export async function listLeftoverTokens(page) {
  * caret 位置に画像を 1 枚アップロードする内部ヘルパー（＋メニュー→画像→filechooser→完了待ち）。
  * 呼び出し前に caret が挿入したい空段落にあること。@returns {Promise<{ok:boolean, reason?:string}>}
  */
-export async function uploadAtCaret(page, abs, { uploadMs = 40000 } = {}) {
+export async function uploadAtCaret(page, abs, { uploadMs = 40000, acceptSrcChange = false } = {}) {
   const imgBefore = await countEditorImages(page);
+  const srcBefore = acceptSrcChange
+    ? await page.evaluate(() => [...document.querySelectorAll('[contenteditable=true] img')].map((image) => image.src))
+    : [];
   // 「＋」ブロックメニューを開く。caret 行の 1 個のみ存在するため .last() が active（note-attach-file 実証方式）。
   const menuBtn = page.locator('[aria-label="メニューを開く"]');
   if (!(await menuBtn.count())) return { ok: false, reason: '＋メニュー未検出' };
@@ -101,7 +104,11 @@ export async function uploadAtCaret(page, abs, { uploadMs = 40000 } = {}) {
   const t0 = Date.now();
   while (Date.now() - t0 < uploadMs) {
     await sleep(1500);
-    if ((await countEditorImages(page)) > imgBefore) return { ok: true };
+    const current = await page.evaluate(() => [...document.querySelectorAll('[contenteditable=true] img')].map((image) => image.src));
+    if (current.length > imgBefore) return { ok: true, mode: 'insert' };
+    if (acceptSrcChange && current.length === imgBefore && JSON.stringify(current) !== JSON.stringify(srcBefore)) {
+      return { ok: true, mode: 'replace' };
+    }
   }
   return { ok: false, reason: `アップロード滞留（>${uploadMs}ms）` };
 }

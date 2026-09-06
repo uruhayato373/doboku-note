@@ -249,7 +249,8 @@ browser-use --headed --profile "$NOTE_PROFILE" state 2>&1 > /tmp/note-acct.txt
 
 **③ PDF 添付の消失**: 全文置換で添付が消え、**購入者が代金を払って PDF を受け取れなくなった**（施工計画 R08予想 3 本）。note のアップロード 1 日 100 件上限に達して復元が失敗 →「保存しない」で中断 → **エディタには添付削除済みの状態が残る** → 失敗理由を確かめず再実行し、添付 0 を正として上書きした。
 
-- 本文を差し替える有料記事は **`--reattach-pdf`**（置換前に添付を記録し、保存前に貼り直す）
+- 語句・段落・CTA・カード・節順だけなら **`note-update-partial`**（対象要素限定・PDF 添付不変条件・dry-run は読み取りだけ）
+- 全文差し替えが不可避な有料記事だけ **`note-update-body --reattach-pdf`**（置換前に添付を記録し、保存前に貼り直す）
 - **中断した記事をそのまま再実行しない**。`note-update-body` は中断を `.claude/state/note-update-aborted.json` に記録し、次回は SKIP する（`--force-retry` で解除）。解除前に必ず live を実査する
 - アップロードは **1 日 100 件が上限**。`--reattach-pdf` は done-log を見て 90 件で止まる
 

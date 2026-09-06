@@ -449,5 +449,6 @@ git 追跡のみ解除し退避はしていない。
 - 台帳に credential・署名 URL・Cookie・ローカル絶対パスを載せない（`sanitizeEntry` の allowlist で機械的に落ちる）
 - 公開バケットへ非公開判定のものを載せない（`check-asset-storage` が FAIL にする）
 - 判定不能な公開範囲は private へ倒す
+- **`drive-manifest.json` は lean format**（2026-09-06 DN-0172）: group 定義から導出できる `vaultPath`（adopted でないもの）と group 既定と同じ `regenerable` は書かず、`loadDriveManifest` が読むときに補う。台帳 JSON を直読みするコードはこの 2 項目を当てにしない。書くときは補完して元に戻ることを全件検証してから置換する（12.9 → 7.8 MiB・23,485 件）
 
 関連: [image-policy.md](image-policy.md) / [sns-archive-policy.md](sns-archive-policy.md) / [textbook-pdf-archive.md](textbook-pdf-archive.md) / [information-architecture.md](information-architecture.md)

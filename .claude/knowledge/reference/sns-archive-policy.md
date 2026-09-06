@@ -30,6 +30,35 @@
 2. **ローカル作業セット** — 制作中パックの wav/mp4 のみ手元生成・プレビュー。
 3. **アーカイブ** — 投稿済み・旧パックの重いバイナリを Drive vault へ退避し、ローカル削除。
 
+### ローリング作業セットと再発防止
+
+動画パック由来の Instagram Reels は、全件をローカルへ常備しない。Drive 台帳と Drive API の
+MD5/bytes が一致する 224 本を母集団とし、予約済み・投稿済み、または Meta の 29 日予約窓より先の
+`video.mp4` を削除する。公開スクリプトは対象動画だけを `drive-vault-sync --pull --path` で自動復元するため、
+ローカル欠落を理由に全 224 本を再レンダーしない。
+
+```bash
+npm run instagram-reels:prune -- --cloud                         # dry-run
+npm run instagram-reels:prune -- --cloud --commit --intermediates # クラウド一致分だけ削除
+npm run youtube-renders:prune -- --cloud                         # dry-run
+npm run youtube-renders:prune -- --cloud --commit                # 公開済み派生物だけ削除
+```
+
+`prune-instagram-video-pack-reels.mjs` は 224 本すべての台帳・クラウド照合が揃わなければ fail-closed、
+`prune-video-renders.mjs` は QA 待ち・`rendered` の通常動画とサムネイルを保持する。安全ゲートの回帰は
+`tests/video-cache-prune.test.mjs` で固定する。
+
+次の一時物はアーカイブではなく **再生成キャッシュ**。関連プロセスが動いていないことを確認してから削除し、
+Drive へ二重保存しない。
+
+- `.tmp/sns/` — SNS デザイン・CTA の中間レンダー
+- `.tmp/yt-gen/` — YouTube 問題ナレーション／カバー音声の生成キャッシュ
+- `.tmp/voicevox/` — VOICEVOX のダウンロード／展開キャッシュ。別の Engine 実体が動くことを確認してから削除
+
+X のカード PNG、YouTube の未公開サムネイル、`content/sns/_assets/` のブランド素材、共通図版は
+公開処理・検査・複数チャネルの入力なのでローカル／Gitに残す。容量が小さいものへ専用 Drive group を
+増やす前に、復元処理と検査の台帳対応に見合う削減量かを確認する。
+
 ## 退避と取り戻し（共通基盤 `drive-vault-sync`）
 
 group は `.claude/config/drive-vault.json` の `sns-archived-media`（`^content/sns/(instagram|youtube)/.+\.(wav|mp4|m4a)$`・vault `制作物/SNS音声動画/` に `content/sns/` 相対で置く）。台帳は `drive-manifest.json`。

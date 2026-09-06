@@ -25,6 +25,8 @@
       ],
       "topCtaExcludeDirs": [
         "総監R08合格ロードマップ",
+        "再受験対策",
+        "総監受験コスト比較",
         "総監択一-過去問PDF-令和",
         "総監択一-過去問PDF-平成",
         "キーワード集2026変更点",
@@ -118,13 +120,18 @@
       },
       "topCta": {
         "marker": "cta:pack-top",
-        "text": "<!-- cta:pack-top -->\n自分の工事に近い「想定工事」を選んで5管理すべての完成答案をそろえるなら、想定工事150×5管理を全網羅した完全攻略パックが最短です。\n\nhttps://note.com/dobokunote/m/m8290970a7f05"
+        "text": "<!-- cta:pack-top -->\nまず無料の答案診断で弱点を確認し、1級・2級と目的に合う入口教材を選びたい方は「土木もくじ」から始められます。\n\nhttps://note.com/dobokunote/n/n4fde0f62dc20"
       },
       "topCtaOverrides": [
         {
+          "dirPrefix": "1級土木/",
+          "marker": "cta:pack-top",
+          "text": "<!-- cta:pack-top -->\nまず5管理の完成答案で書き方の型を固めるなら、1級の施工経験記述 完成答案集から始められます。自分の工事に近い想定工事や学科記述まで必要なら、購入後に上位パックを選べます。\n\nhttps://note.com/dobokunote/m/m150c9db08902"
+        },
+        {
           "dirPrefix": "2級土木/",
           "marker": "cta:pack-top",
-          "text": "<!-- cta:pack-top -->\n自分の工事に近い「想定工事」を選んで5管理すべての完成答案をそろえるなら、2級の想定工事60×5管理をそろえた想定工事バンクが最短です。\n\nhttps://note.com/dobokunote/m/m8554e87ca6ec"
+          "text": "<!-- cta:pack-top -->\nまず安全・品質・工程の完成答案で書き方の型を固めるなら、2級の施工経験記述 完成答案集から始められます。自分の工事に近い想定工事を広く探したい場合は、購入後に想定工事バンクへ進めます。\n\nhttps://note.com/dobokunote/m/m1881a9578027"
         }
       ],
       "bottomCta": {
