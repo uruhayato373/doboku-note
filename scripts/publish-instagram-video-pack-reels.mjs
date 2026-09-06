@@ -23,6 +23,16 @@ const minTime = now + 20 * 60 * 1000;
 const maxTime = now + 29 * 24 * 60 * 60 * 1000;
 const metaPaths = [];
 function sha256(path) { return createHash('sha256').update(readFileSync(path)).digest('hex'); }
+function hydrateVideo(videoPath) {
+  if (existsSync(videoPath)) return;
+  const rel = relative(ROOT, videoPath).replace(/\\/g, '/');
+  console.log(`[ig-video-pack-reels] Driveから復元: ${rel}`);
+  const result = spawnSync('node', [join(ROOT, 'scripts/drive-vault-sync.mjs'), '--pull', '--path', rel], {
+    cwd: ROOT,
+    stdio: 'inherit',
+  });
+  if (result.status !== 0 || !existsSync(videoPath)) throw new Error(`${rel}: Driveから復元できません`);
+}
 function walk(dir) {
   if (!existsSync(dir)) return;
   for (const name of readdirSync(dir)) {
@@ -52,6 +62,7 @@ if (candidates.length === 0) process.exit(0);
 for (const row of candidates) {
   const video = join(row.reelsDir, 'video.mp4');
   const cover = join(row.reelsDir, 'cover.png');
+  hydrateVideo(video);
   if (!existsSync(video) || !existsSync(cover)) throw new Error(`${row.meta.sourcePackId}/${row.meta.key}: video/cover がありません`);
   if (row.meta.sha256 !== sha256(video) || row.meta.coverSha256 !== sha256(cover)
       || !(Number(row.meta.durationSeconds) >= 30 && Number(row.meta.durationSeconds) <= 60)) {

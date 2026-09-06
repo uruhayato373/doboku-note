@@ -8,6 +8,7 @@
  */
 import { createHash } from 'node:crypto';
 import { createReadStream, existsSync, readFileSync, statSync } from 'node:fs';
+import { spawnSync } from 'node:child_process';
 import { join } from 'node:path';
 import {
   DeleteObjectCommand, GetObjectCommand, HeadObjectCommand, PutObjectCommand, S3Client,
@@ -15,6 +16,7 @@ import {
 
 const ROOT = process.cwd();
 const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
+const DRIVE_MANIFEST_PATH = join(ROOT, '.claude/state/assets/drive-manifest.json');
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const BUCKET = 'doboku-note-archive';
 const argv = process.argv.slice(2);
@@ -26,6 +28,9 @@ const val = (name, fallback = '') => {
 const exams = new Set(val('--exam', 'concrete-engineer,concrete-chief-engineer').split(',').filter(Boolean));
 const commit = flag('--commit');
 const deleting = flag('--delete');
+const DRIVE_MANIFEST = existsSync(DRIVE_MANIFEST_PATH)
+  ? JSON.parse(readFileSync(DRIVE_MANIFEST_PATH, 'utf8'))
+  : { entries: {} };
 
 function loadEnv() {
   const env = { ...process.env };
@@ -41,6 +46,29 @@ function loadEnv() {
 
 function sha256Buffer(buffer) {
   return createHash('sha256').update(buffer).digest('hex');
+}
+
+function hydrate(file) {
+  if (existsSync(file)) return;
+  const rel = file.slice(ROOT.length + 1).replace(/\\/g, '/');
+  console.log(`[youtube-r2-stage] Driveから復元: ${rel}`);
+  const result = spawnSync(process.execPath, [join(ROOT, 'scripts/drive-vault-sync.mjs'), '--pull', '--path', rel], {
+    cwd: ROOT,
+    stdio: 'inherit',
+  });
+  if (result.status !== 0 || !existsSync(file)) throw new Error(`${rel}: Driveから復元できません`);
+}
+
+function assertReady(file, expected) {
+  if (existsSync(file) && statSync(file).size > 0) {
+    if (sha256Buffer(readFileSync(file)) !== expected) throw new Error(`${file}: sha256がyoutube.jsonと不一致です`);
+    return;
+  }
+  const rel = file.slice(ROOT.length + 1).replace(/\\/g, '/');
+  const entry = DRIVE_MANIFEST.entries?.[rel];
+  if (entry?.group !== 'video-render-artifact' || entry.sha256 !== expected || !(entry.bytes > 0)) {
+    throw new Error(`${rel}: ローカルにも照合済みDrive台帳にもありません`);
+  }
 }
 
 async function bodyBuffer(body) {
@@ -70,9 +98,8 @@ function targets() {
       const video = join(ROOT, '.tmp/video-render', packId, 'video.mp4');
       const thumbnail = join(ROOT, '.tmp/video-render', packId, 'img/00-cover.png');
       if (!deleting) {
-        for (const p of [video, thumbnail]) {
-          if (!existsSync(p) || statSync(p).size === 0) throw new Error(`${packId}: レンダー実体がありません ${p}`);
-        }
+        assertReady(video, item.sha256);
+        assertReady(thumbnail, item.thumbnailSha256);
       }
       rows.push({ packId, item, video, thumbnail });
     }
@@ -114,6 +141,9 @@ async function main() {
       console.log(`  [${index + 1}/${rows.length}] deleted ${row.packId}`);
       continue;
     }
+
+    hydrate(row.video);
+    hydrate(row.thumbnail);
 
     const assets = [
       { file: row.video, key: row.item.r2Key, type: 'video/mp4', expected: row.item.sha256 },

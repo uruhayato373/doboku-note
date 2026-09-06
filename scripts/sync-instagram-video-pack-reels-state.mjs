@@ -7,6 +7,7 @@ import { dirname, join, relative } from 'node:path';
 const ROOT = process.cwd();
 const BASE = join(ROOT, 'content/sns/instagram/video-packs');
 const STATE_PATH = join(ROOT, '.claude/state/video-content-status.json');
+const DRIVE_MANIFEST_PATH = join(ROOT, '.claude/state/assets/drive-manifest.json');
 const write = process.argv.includes('--write');
 const metaPaths = [];
 function sha256(path) { return createHash('sha256').update(readFileSync(path)).digest('hex'); }
@@ -20,6 +21,9 @@ function walk(dir) {
 }
 walk(BASE);
 const state = existsSync(STATE_PATH) ? JSON.parse(readFileSync(STATE_PATH, 'utf8')) : { schemaVersion: 1, packs: {} };
+const driveManifest = existsSync(DRIVE_MANIFEST_PATH)
+  ? JSON.parse(readFileSync(DRIVE_MANIFEST_PATH, 'utf8'))
+  : { entries: {} };
 let approved = 0;
 let rendered = 0;
 let scheduled = 0;
@@ -31,8 +35,11 @@ for (const metaPath of metaPaths) {
   const local = existsSync(statusPath) ? JSON.parse(readFileSync(statusPath, 'utf8')).reel : null;
   const videoPath = join(reelsDir, 'video.mp4');
   const coverPath = join(reelsDir, 'cover.png');
-  const validMedia = existsSync(videoPath) && existsSync(coverPath)
-    && meta.sha256 === sha256(videoPath) && meta.coverSha256 === sha256(coverPath)
+  const videoRel = relative(ROOT, videoPath).replace(/\\/g, '/');
+  const archived = driveManifest.entries?.[videoRel];
+  const validVideo = (existsSync(videoPath) && meta.sha256 === sha256(videoPath))
+    || (archived?.group === 'sns-archived-media' && archived.sha256 === meta.sha256);
+  const validMedia = validVideo && existsSync(coverPath) && meta.coverSha256 === sha256(coverPath)
     && Number(meta.durationSeconds) >= 30 && Number(meta.durationSeconds) <= 60;
   let status = 'approved';
   if (validMedia) status = 'rendered';
