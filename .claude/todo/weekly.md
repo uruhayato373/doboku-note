@@ -17,8 +17,7 @@
 
 | surfacer | 今週の出口 |
 |---|---|
-| check-membership-drip | overdue 2件（学科04安全管理=予定09-01・学科05工程管理=予定09-04、いずれもnoteStatus=draft）を本日中に配信する |
-| check-note-republish | driftFiles 242件を、DN-0174のアップロード枠と重ならない09-05・09-08・09-11に90本/日ペースで消化する |
+| check-note-republish | driftFiles 101件（09-06 実測・著者バナー記事は 0 件）を、DN-0174 のアップロード枠と重ならない日に 90本/日ペースで消化する |
 
 ## 手動キュー（ユーザー・別PC／時間差で可）
 

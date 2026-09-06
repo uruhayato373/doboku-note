@@ -39,7 +39,15 @@ if (!existsSync(MISSING)) {
 }
 const { measuredAt, missing } = JSON.parse(readFileSync(MISSING, 'utf8'));
 const done = existsSync(DONE) ? JSON.parse(readFileSync(DONE, 'utf8')) : { attached: [] };
-const doneSet = new Set(done.attached.map((d) => `${d.noteId}\t${d.pdf}`));
+// done-log で飛ばしてよいのは「今回の実査**以後**に添付したもの」だけ。実査より前の添付記録は
+// すでに live=0 と実測された後なので、済み扱いにすると二度と再添付されない。
+// 2026-09-06: nded084d4f646 が 08-11 の done を持ったまま添付を失い、実査で欠落と出ているのに
+// バッチが毎回スキップして放置されていた（手動 note-attach-file でしか戻せない状態）。
+const doneSet = new Set(
+  done.attached
+    .filter((d) => !d.at || String(d.at) >= String(measuredAt))
+    .map((d) => `${d.noteId}\t${d.pdf}`),
+);
 
 // 有料境界は記事ごとに違う。PDF と同じディレクトリの article*.md から noteId で引き当て、
 // frontmatter の paidBoundary を取る。これを渡さないと note-attach-file が既定パターンで
