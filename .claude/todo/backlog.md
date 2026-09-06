@@ -21,6 +21,14 @@
 
 ## 🔴 高 — 来月中に着手
 
+### [DN-0178] 参考文献の共通ルール（原本→文字起こし→記事）を実装しきる
+タグ: [エージェント・SSOT] [種類:改善] [検証:test] [起票:2026-09-06]
+
+台帳 `.claude/config/reference-sources.json`（class 6 区分・原本 55 件）と判定 lib・Drive group `source-transcript` までは入った。
+残りは文字起こし 66 本への frontmatter 付与、記事 47 本の `sources` を書名から台帳 id へ、`check-reference-sources`（既定/--staged/--deep）、
+`reference-sources-policy.md` の新規作成と既存 doc のポインタ化。実装指示書 → ../plans/DN-0178-reference-sources.md
+検証タグは `check-reference-sources` を作った時点でそちらへ差し替える。受入は指示書の検証表（`--deep` で逐語一致 0・`--verify --deep --cloud` で 66 件 3 者一致）。
+
 ### [DN-0135] 人・外部実体が必要な残務
 タグ: [収益化] [種類:不具合] [起票:2026-08-25]
 
