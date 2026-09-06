@@ -228,6 +228,7 @@
     "coconala-blog-delete-draft": "node scripts/coconala-blog-delete-draft.mjs",
     "coconala-content-pdf": "node scripts/build-coconala-content-pdf.mjs",
     "coconala-cover": "node scripts/coconala-cover.mjs",
+    "coconala-gallery": "node scripts/coconala-gallery.mjs",
     "coconala-delete-draft": "node scripts/coconala-delete-draft.mjs",
     "coconala-discover": "node scripts/coconala-discover.mjs",
     "coconala-edit": "node scripts/coconala-edit.mjs",
