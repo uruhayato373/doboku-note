@@ -136,3 +136,23 @@ description: >
 **原因**: MDX v3 のパーサが  と「」の組み合わせで強調の開始・終了を正しく認識できない場合がある。
 
 **対策**: 鉤括弧を太字の外に出す「**text**」、または鉤括弧を除去する。 のチェック項目6に追加済み。
+
+---
+
+## SNS生成バイナリは「アーカイブ・作業セット・一時物」を分離する
+
+**問題**: Instagram Reels・YouTube 動画を全件生成すると、gitignore 済みでもローカルに mp4 / wav / PNG と
+VOICEVOX のダウンロードキャッシュが残り、空き容量を数 GiB 単位で消費した。gitignore は Git への混入を
+防ぐだけで、ローカル実体を片付けない。
+
+**原因**: 完成成果物、近日投稿に必要な作業セット、再生成可能な一時キャッシュを同じ「動画素材」として扱い、
+退避後の自動復元とクラウド到達確認が無いままローカルへ全件常備していた。Google Drive のストリーミング
+マウントを `--verify --deep` で順次読むと、cloud-only ファイルの取得待ちで全件照合が極端に遅くなることもある。
+
+**対策**: (1) 人と手元スクリプトだけが使う完成物は Drive 台帳へ登録し、初回移行は
+`drive-vault-sync --verify --deep --cloud` で台帳・実体・Drive APIを全件照合する、(2) 日常削除は
+`instagram-reels:prune -- --cloud` / `youtube-renders:prune -- --cloud` で Drive API の MD5/bytes と
+ローカル sha256 を照合し、予約済み・公開済み・予約窓外だけを削除する、(3) 公開時は対象だけ自動復元する、
+(4) `.tmp/sns` / `.tmp/yt-gen` / VOICEVOX installer は Drive へ保存せず、プロセス停止と再生成経路を確認して
+削除する。削除判定は fail-closed とし、`tests/video-cache-prune.test.mjs` で「照合不足なら削除しない」
+「QA待ち通常動画は保持」を固定する。

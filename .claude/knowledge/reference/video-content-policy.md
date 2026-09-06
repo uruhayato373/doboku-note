@@ -103,7 +103,15 @@ Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺
 npm run drive-vault-sync -- --group video-render-artifact
 npm run drive-vault-sync -- --group video-render-artifact --commit
 npm run drive-vault-sync -- --pull --group video-render-artifact
+npm run youtube-renders:prune -- --cloud                         # dry-run
+npm run youtube-renders:prune -- --cloud --commit                # Drive一致＋公開済み派生物だけ削除
 ```
+
+YouTube の stage スクリプトはローカル実体が無くても、`video-render-artifact` 台帳の sha256 と一致する
+動画・サムネイルを使用直前に Drive から自動復元する。`youtube-renders:prune` は通常動画が
+`scheduled` / `published` のパックと再生成可能な派生物だけを削除し、QA 待ち・`rendered` の通常動画と
+サムネイルは作業セットとして保持する。台帳外・クラウド未到達・ローカル hash 不一致は削除せず停止する。
+安全ゲートは `tests/video-cache-prune.test.mjs` で機械検証する。
 
 ## 5. 状態モデル
 
