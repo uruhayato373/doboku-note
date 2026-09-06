@@ -21,19 +21,6 @@
 
 ## 🔴 高 — 来月中に着手
 
-### [DN-0174] ライブ添付が欠けている note 記事へ PDF を再添付する
-タグ: [収益化] [種類:不具合] [検証:check-note-attachments] [起票:2026-09-05] [期日:2026-09-12]
-
-2026-09-06 の `node scripts/check-note-attachments.mjs --live`（575 本実査・取得失敗 0）で、本文が PDF 配布を約束しているのにライブに添付が無い記事が 96 本。内訳は 1級土木/magazines 39 本と総監模範論文 57 本で、当日のバナー差し替え（252 本）とは無関係（台帳突合で新規欠落は nded084d4f646 の 1 本のみ・その 1 本もバナー差し替えが開く前の時点で既に live=0）。
-
-09-06 に `note-attach-batch --commit` で 95 本を投入中（pilot 5 + 本体 90・1 本あたり約 6 分・note の 1 日 100 ファイル枠内）。残りは次の 2 つ。
-
-- nded084d4f646（1級土木 R06 過去問模範答案）: 08-11 の done-log があるため旧バッチは永久スキップしていた。done 判定を「実査以後のみ有効」に直した（commit ca5684f00）ので、次回バッチで拾える。
-- バッチが上限や失敗で打ち切られた分。
-
-完了条件: `node scripts/check-note-attachments.mjs --live` で missing 0（取得失敗 0）。台帳は .claude/state/note-attachments-missing.json と .claude/state/note-attach-done.json。
-
-
 ### [DN-0135] 人・外部実体が必要な残務
 タグ: [収益化] [種類:不具合] [起票:2026-08-25]
 
