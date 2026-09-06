@@ -43,7 +43,7 @@
 - **数百ジョブを Workflow args に inline すると破綻**する。**章別ジョブファイル＋コーディネータ agent が Read して構造化返却**（schema で確実にパース）する経路にする。
 - **低確信度 bbox は誤クロップ**になる（写真や別図を掴む）。**confidence<0.55 は未埋め込み扱い**（誤った図を貼るより貼らない）。
 - **crop_embed は冪等でない**（章 md に挿入するため再実行で二重挿入）。再クロップ時は **concat で章 md をクリーン再生成してから**回す。
-- **著作権安全（2026-08-27更新、2026-09-05置き場更新）**: `content/sources/textbook/**`（README.md 以外の本文・`img/**` 含む）は `.gitignore` で public repo の追跡対象外。実体は Google Drive vault が SoT で、**文字起こし .md は `文字起こし/{資格}/{書名}/`、`img/**`（ページ画像・図クロップ）は `原資料PDF/教材/{書名}/**`**（drive-vault.json `textbook-page-image`）へ分かれる。`content/sources/textbook/**/img/**` はそもそも r2-sync（`content/site/**/img/**`）の対象にも入らない＝二重に公開されない。詳細は `.claude/knowledge/reference/asset-storage-policy.md` §1。
+- **著作権安全（2026-08-27更新、2026-09-06台帳化）**: `content/sources/textbook/**`（README.md 以外の本文・`img/**` 含む）は `.gitignore` で public repo の追跡対象外。実体は Google Drive vault が SoT で、**文字起こし .md は `source-transcript` group の `文字起こし/{資格}/{書名}/`、`img/**`（ページ画像・図クロップ）は `原資料PDF/教材/{書名}/**`**（drive-vault.json `textbook-page-image`）へ分かれる。文字起こしの先頭には参考文献 ID と原本 PDF を示す frontmatter を付ける。`content/sources/textbook/**/img/**` は r2-sync（`content/site/**/img/**`）の対象にも入らない＝二重に公開されない。詳細は `.claude/knowledge/reference/reference-sources-policy.md` と `asset-storage-policy.md` §1。
 
 ---
 
@@ -96,7 +96,10 @@ magick "$rot" -crop ${rW}x${H}+${rstart}+0 +repage "$PAGES/gMMMM.jpg"
 - 分割境界の正規表現は **`^## (1\.7|2\.[1-6])[　 ]`** のように**単一数字の節のみ**マッチ（`## 2.1.2` の3桁節は誤って境界にしない）。
 - 一部エージェントが3桁節を `## ` にしてしまうので、各章ファイルで **`## N.M.K` → `### N.M.K` に降格**。
 - 行頭 `&gt;` → `> ` に正規化。3 連以上の空行を 1 行に圧縮。
-- 出力は `content/sources/textbook/{資格}/{書名}/{NN_節タイトル}.md`。各ファイル先頭に **H1（節名）＋ `> 出典:` ブロック**（既存 `コンクリート主任技師2024/*.md` の体裁。frontmatter は付けない＝公開 MDX ではない）。
+- 出力は `content/sources/textbook/{資格}/{書名}/{NN_節タイトル}.md`。各ファイル先頭に
+  `source`（参考文献 ID）/ `sourcePdfs`（Drive 原本キー）/ `pdfPages` / `printedPages` / `method` の
+  **YAML frontmatter**を置き、その後に H1（節名）＋ `> 出典:` ブロックを続ける。値を推測せず、
+  不明な任意項目は省く。
 - 章扉・章導入が節境界をまたぐ場合は次節ファイルの冒頭に寄せる等、見出しと内容の整合を取る。
 - **検証**: 全ファイルで `U+FFFD`（`﹖`）0 件、各ファイルの先頭/末尾 `<!-- p.NN -->` で実ノンブル範囲を確定し README 表に反映。
 
@@ -116,7 +119,7 @@ bbox 判定で `found:false`（「本文のみ／下半分グレー空白」）�
 
 - README（索引）に **ファイル↔節↔ノンブル↔字数表・文字起こし方法・図埋め込み状況・既知の限界**（図プレースホルダ／スキャン末尾の途切れ／原文ママ箇所）を記録。
 - `content/sources/textbook/` は site index 非対象 → **`refresh-indexes` 不要**。純コンテンツ編集ゆえ **`/doc-sync` も対象外**。
-- **`content/sources/textbook/**` は README.md 以外 `.gitignore` 対象（2026-08-27〜、著作権理由で public repo から追跡解除済み）。新規生成した文字起こし .md は git commit の代わりに `~/Google Drive/マイドライブ/doboku-note/文字起こし/{資格}/{書名}/` へコピーして永続化する**（コピーし忘れるとこの Mac のローカルにしか残らず、ディスク整理・端末更改で失われる）。**`img/*.png`（ページ画像・図クロップ）は手コピーせず `npm run drive-vault-sync -- --group textbook-page-image --commit` で `原資料PDF/教材/{書名}/**` へ登録する**（手コピーだと台帳に載らず `check-drive-vault` が未同期として拾う）。README.md の更新のみ `git add` して commit（`git add -A` 禁止・対象ファイルを明示指定）。詳細は `.claude/knowledge/reference/asset-storage-policy.md` §1。一時スクリプトは `.tmp/`（gitignore）に置きコミットしない。
+- **`content/sources/textbook/**` は README.md 以外 `.gitignore` 対象（2026-08-27〜、著作権理由で public repo から追跡解除済み）。新規生成した文字起こし .md は `npm run drive-vault-sync -- --group source-transcript --commit` で `文字起こし/{資格}/{書名}/` へ登録し、`--verify --deep --cloud` で照合する**。**`img/*.png`（ページ画像・図クロップ）は `npm run drive-vault-sync -- --group textbook-page-image --commit` で `原資料PDF/教材/{書名}/**` へ登録する**。手コピーでは台帳に載らず検査できない。README.md の更新のみ `git add` して commit（`git add -A` 禁止・対象ファイルを明示指定）。詳細は `.claude/knowledge/reference/asset-storage-policy.md` §1。一時スクリプトは `.tmp/`（gitignore）に置きコミットしない。
 
 ## 実績
 

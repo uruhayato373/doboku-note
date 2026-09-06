@@ -146,6 +146,52 @@ export function sourcesRequiringArticle(relPath, cfg) {
   return (cfg.sources || []).filter((s) => (s.appliesTo || []).some((g) => globToRegExp(g).test(p)));
 }
 
+/** baseline ラチェット。増えた欠落と、返済されて baseline から外せる欠落を分ける。 */
+export function evaluateMissingSourcesRatchet(currentMissing, baselineMissing) {
+  const current = new Set((currentMissing || []).map(String));
+  const baseline = new Set((baselineMissing || []).map(String));
+  return {
+    increased: [...current].filter((path) => !baseline.has(path)).sort(),
+    repaid: [...baseline].filter((path) => !current.has(path)).sort(),
+  };
+}
+
+/**
+ * class の citation 粒度を、解決済みの台帳参照と記事本文から判定する。
+ * title / name は台帳 id が一意な書名・資料名へ解決すること自体が証拠になる。
+ * page / title-url / section は id だけでは粒度不足なので、本文または ref の詳細を要求する。
+ */
+export function checkCitationEvidence({ citation, source, ref, articleText = '' }) {
+  if (!source?.title) return { ok: false, reason: '台帳の title が無く、出典名を確定できない' };
+  const text = String(articleText);
+  const detail = splitSourceRef(ref).detail;
+
+  if (citation === 'page') {
+    const inRef = /(?:^|\b)(?:p(?:age)?\.?\s*)?\d+(?:\s*[-–〜~]\s*\d+)?$/i.test(detail || '');
+    const inBody = /(?:PDF\s*(?:page|p\.?)\s*\d+|#pdf-page-\d+|<SourceRef\b[^>]*\bpages=|(?:版面|原本)\s*p?\.?\s*\d+)/i.test(text);
+    return inRef || inBody
+      ? { ok: true, evidence: inRef ? 'ref-detail' : 'article-page' }
+      : { ok: false, reason: 'citation=page だが版面ページ（PDF page / #pdf-page / SourceRef pages）が無い' };
+  }
+
+  if (citation === 'title-url') {
+    const url = source.origin?.url || source.origin?.sourceUrl || '';
+    return /^https:\/\//.test(url) || /https:\/\//.test(text)
+      ? { ok: true, evidence: /^https:\/\//.test(url) ? 'registry-url' : 'article-url' }
+      : { ok: false, reason: 'citation=title-url だが https URL が台帳にも本文にも無い' };
+  }
+
+  if (citation === 'section') {
+    const inBody = /(?:第\s*[0-9０-９一二三四五六七八九十]+\s*(?:条|章|節|項|号|問)|(?:問|問題)\s*[0-9０-９]+|<SourceRef\b)/.test(text);
+    return detail || inBody
+      ? { ok: true, evidence: detail ? 'ref-detail' : 'article-section' }
+      : { ok: false, reason: 'citation=section だが条・章・節・問などの箇所指定が無い' };
+  }
+
+  if (citation === 'title' || citation === 'name') return { ok: true, evidence: 'registry-title' };
+  return { ok: false, reason: '未知の citation: ' + citation };
+}
+
 // ------------------------------------------------------------------ 逐語の判定
 
 /**
@@ -176,8 +222,9 @@ export function buildTranscriptIndex(entries, { seed = 20, stride = 10 } = {}) {
     docs.push({ key: e.key, source: e.source ?? null, text });
     for (let i = 0; i + seed <= text.length; i += stride) {
       const k = text.slice(i, i + seed);
-      const at = seeds.get(k);
-      if (at === undefined) seeds.set(k, [di, i]);
+      const positions = seeds.get(k) || [];
+      positions.push([di, i]);
+      seeds.set(k, positions);
     }
   }
   return { docs, seeds, seed, stride };
@@ -193,18 +240,27 @@ export function findVerbatimRuns(articleText, index, { minRun = 40, maxHits = 20
   const hits = [];
   let i = 0;
   while (i + seed <= a.length) {
-    const at = index.seeds.get(a.slice(i, i + seed));
-    if (!at) { i += 1; continue; }
-    const [di, tpos] = at;
-    const t = index.docs[di].text;
-    let s = 0;
-    while (i - s > 0 && tpos - s > 0 && a[i - s - 1] === t[tpos - s - 1]) s++;
-    let e = seed;
-    while (i + e < a.length && tpos + e < t.length && a[i + e] === t[tpos + e]) e++;
-    const run = s + e;
-    if (run >= minRun) {
-      hits.push({ key: index.docs[di].key, source: index.docs[di].source, run, sample: t.slice(tpos - s, tpos - s + Math.min(run, 60)) });
-      i = i + e;               // 同じ塊を何度も報告しない
+    const positions = index.seeds.get(a.slice(i, i + seed));
+    if (!positions) { i += 1; continue; }
+    let best = null;
+    for (const [di, tpos] of positions) {
+      const t = index.docs[di].text;
+      let s = 0;
+      while (i - s > 0 && tpos - s > 0 && a[i - s - 1] === t[tpos - s - 1]) s++;
+      let e = seed;
+      while (i + e < a.length && tpos + e < t.length && a[i + e] === t[tpos + e]) e++;
+      const run = s + e;
+      if (!best || run > best.run) best = { di, tpos, s, e, run };
+    }
+    if (best?.run >= minRun) {
+      const doc = index.docs[best.di];
+      hits.push({
+        key: doc.key,
+        source: doc.source,
+        run: best.run,
+        sample: doc.text.slice(best.tpos - best.s, best.tpos - best.s + Math.min(best.run, 60)),
+      });
+      i += best.e;              // 同じ塊を何度も報告しない
       if (hits.length >= maxHits) break;
     } else {
       i += Math.max(1, stride);

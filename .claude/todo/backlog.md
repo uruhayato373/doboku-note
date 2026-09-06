@@ -21,14 +21,6 @@
 
 ## 🔴 高 — 来月中に着手
 
-### [DN-0178] 参考文献の共通ルール（原本→文字起こし→記事）を実装しきる
-タグ: [エージェント・SSOT] [種類:改善] [検証:test] [起票:2026-09-06]
-
-台帳 `.claude/config/reference-sources.json`（class 6 区分・原本 55 件）と判定 lib・Drive group `source-transcript` までは入った。
-残りは文字起こし 66 本への frontmatter 付与、記事 47 本の `sources` を書名から台帳 id へ、`check-reference-sources`（既定/--staged/--deep）、
-`reference-sources-policy.md` の新規作成と既存 doc のポインタ化。実装指示書 → ../plans/DN-0178-reference-sources.md
-検証タグは `check-reference-sources` を作った時点でそちらへ差し替える。受入は指示書の検証表（`--deep` で逐語一致 0・`--verify --deep --cloud` で 66 件 3 者一致）。
-
 ### [DN-0135] 人・外部実体が必要な残務
 タグ: [収益化] [種類:不具合] [起票:2026-08-25]
 
@@ -198,6 +190,36 @@ Playwrightのログインprofileはサービス別に永続化されているが
 3. 次記事「土木公務員に技術士は必要？」の着手可否は 1・2 の結果を見てから判断する（語順違いの類似ページは作らない）
 
 ## 🟢 低 — 時期未定
+
+### [DN-0179] 総監キーワード663本へ参考文献IDを段階付与する
+タグ: [コンテンツ品質] [種類:改善] [Codex候補] [起票:2026-09-06]
+
+総監キーワード663本は参考文献台帳の `appliesTo` に対して一括で原本を決められず、DN-0178 の
+自動付与対象から外した。各記事の定義・数値・参考資料を確認し、`.claude/config/reference-sources.json`
+の正しい ID を `sources` に付ける。白書・法令・規格を優先し、市販教材を機械的に全件付与しない。
+20〜50本単位で進め、`npm run check-reference-sources` の missing baseline を減らす方向だけに更新する。
+
+### [DN-0180] Drive共通仕様書文字起こし350本とstandards-libraryの関係を整理する
+タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-09-06]
+
+Drive `文字起こし/共通仕様書/` 約350本は `source-transcript` のrepo対応外で、公開側の
+`content/site/standards-library/` と別経路になっている。重複・入力元・更新方向を実査し、公開章記事の
+provenanceに必要なもの、監査用にだけ残すもの、台帳対象外でよいものを分類する。削除は別承認とし、
+まず `standards-catalog` ID、原本sha256、版面ページまでの対応表を作る。
+
+### [DN-0181] 逐語一致ゲートの40文字窓幅を実測で校正する
+タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-09-06]
+
+`check-reference-sources --deep` の `commercial-book` 逐語検査は40文字を初期値にした。短い定型句の
+誤検知と、句読点・空白・表記差を挟んだ転載の見逃しを、実記事と合成fixtureで測る。しきい値変更は
+検出率・誤検知率・代表例を示してから判断し、今回確定した `verbatim: forbidden` 自体は変えない。
+
+### [DN-0182] 白書由来記事へgovernment-publicationのsource IDを付与する
+タグ: [コンテンツ品質] [種類:改善] [Codex候補] [起票:2026-09-06]
+
+白書・省庁資料を根拠にする既存記事を抽出し、対応する `government-publication` の ID を
+frontmatter `sources` に付ける。本文の出典には資料名と URL を示し、編集・加工した図表はその旨も
+確認する。書名の自由文字列や推測 ID は追加せず、台帳に原本が無ければ先に登録する。
 
 
 ### [DN-0175] SNS残存画像を公開完了後に再監査する

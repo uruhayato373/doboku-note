@@ -273,8 +273,12 @@ description: "50〜160文字の説明"
 category: "civil-construction-1"     # 試験または分野
 tags: ["guide", "primary"]           # 分類タグ（複数可）
 published: true                      # false なら下書き・非表示
+sources: ["registry-id#detail"]      # 参考文献台帳の ID。#detail は条番号等（参照時のみ）
 ---
 ```
+
+`sources` は自由記述の書名ではなく `.claude/config/reference-sources.json` の ID を使う。逐語・図・公開可否と
+出典粒度は [reference-sources-policy.md](./reference-sources-policy.md) に従う。
 
 **`title` / `shortTitle` / `subtitle` / `seoTitle` の使い分け**
 

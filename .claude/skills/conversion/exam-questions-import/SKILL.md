@@ -60,7 +60,7 @@ template で定義された問題フォーマットに従って抽出:
 テンプレートの MDX 構造に従って生成。共通要素:
 
 - **見出し**: 設問番号は H2（`## 問題 No.N` or `## Ⅰ-N-M`）
-- **frontmatter**: `toc_max_heading_level: 2` 必須
+- **frontmatter**: `toc_max_heading_level: 2` と、`.claude/config/reference-sources.json` で公式過去問を指す `sources` ID が必須。書名や URL の自由記述を `sources` に入れない
 - **解答は details**: `<details><summary>解答・解説</summary>...</details>`
 - **関連キーワード**: `<RelatedKeywords items={[...]} />`（keyword ページと双方向リンク）
 - **試験対策ポイント**: `<ExamPoint>` （過去問側は簡潔に）

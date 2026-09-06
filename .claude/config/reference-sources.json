@@ -84,8 +84,7 @@
       },
       "transcriptDir": "content/sources/textbook/コンクリート主任技師2022",
       "appliesTo": [
-        "content/site/concrete-chief-engineer/textbook-*/article.mdx",
-        "content/site/concrete-chief-engineer/primary-*/article.mdx"
+        "content/site/concrete-chief-engineer/textbook-*/article.mdx"
       ],
       "aliases": {
         "コンクリート主任技師2022": "concrete-chief-textbook-2022",
@@ -103,8 +102,7 @@
       },
       "transcriptDir": "content/sources/textbook/コンクリート主任技師2024",
       "appliesTo": [
-        "content/site/concrete-chief-engineer/textbook-*/article.mdx",
-        "content/site/concrete-chief-engineer/primary-*/article.mdx"
+        "content/site/concrete-chief-engineer/textbook-*/article.mdx"
       ],
       "aliases": {
         "コンクリート主任技師2024": "concrete-chief-textbook-2024",
@@ -248,7 +246,8 @@
         "url": "https://www.jci-net.or.jp/"
       },
       "appliesTo": [
-        "content/site/concrete-engineer/primary-*/article.mdx"
+        "content/site/concrete-engineer/primary-*/article.mdx",
+        "content/site/concrete-chief-engineer/primary-*/article.mdx"
       ],
       "aliases": {
         "日本コンクリート工学会": "jcia-past-exams",

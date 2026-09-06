@@ -103,6 +103,8 @@ content/
 8. **Git の外へ出すバイナリか**（画像・PDF・レンダー・原本）→ **誰が使うかで決める**: サイトが配信→public R2 ／
    GitHub Actions が読み書き→private R2 ／ 人か手元のスクリプトだけ→Google Drive vault
    （真実源 → [asset-storage-policy.md](./asset-storage-policy.md) §1・決定木は `/asset-route`）
+9. **参考文献の原本・文字起こし・記事を結ぶ情報か** → 原本の区分と参照 ID は
+   [reference-sources-policy.md](./reference-sources-policy.md)、実体の置き場は上記 8、記事は `sources` で ID を持つ
 
 ### 具体例: Brain（1 商品が 4 領域にまたがる場合）
 

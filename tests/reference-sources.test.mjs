@@ -13,7 +13,8 @@ import test from 'node:test';
 import {
   loadReferenceSources, buildSourceIndex, expandCatalogSources, resolveSourceRef, splitSourceRef,
   classRuleOf, globToRegExp, sourcesRequiringArticle, normalizeForCompare, buildTranscriptIndex,
-  findVerbatimRuns, parseTranscriptHeader, loadStandardsCatalog, VERBATIM_RULES, CITATION_RULES,
+  findVerbatimRuns, parseTranscriptHeader, loadStandardsCatalog, evaluateMissingSourcesRatchet,
+  checkCitationEvidence, VERBATIM_RULES, CITATION_RULES,
 } from '../scripts/lib/reference-sources.mjs';
 
 const CFG = loadReferenceSources();
@@ -91,10 +92,37 @@ test('catalog 展開: 72 文書が std:{整備局}/{文書} として引け、�
 test('appliesTo: 原本由来の記事だけが必須になり、ガイド記事を巻き込まない', () => {
   const req = (p) => sourcesRequiringArticle(p, CFG).map((s) => s.id);
   assert.deepEqual(req('content/site/civil-practice/asphalt-pavement-control/article.mdx'), ['civil-practice-note']);
-  assert.ok(req('content/site/concrete-chief-engineer/primary-materials/article.mdx').includes('concrete-chief-textbook-2024'));
+  assert.deepEqual(req('content/site/concrete-chief-engineer/primary-materials/article.mdx'), ['jcia-past-exams'], '主任技士の問題文は市販書籍でなく公式過去問に結ぶ');
   assert.deepEqual(req('content/site/civil-construction-1/guide-age-career/article.mdx'), [], 'キャリア系ガイドは原本由来でない');
   assert.deepEqual(req('content/site/pe-comprehensive-management/keyword-x/article.mdx'), [], '総監キーワードは今回の射程外（DN-0178）');
   assert.deepEqual(req('content/site/standards-articles/kinki/common/chapters/1/index.md'), [], '章記事は生成物で SourceRef を持つ');
+});
+
+test('baseline ratchet: 新しい sources 欠落だけを FAIL 候補、解消分を返済候補に分ける', () => {
+  const result = evaluateMissingSourcesRatchet(
+    ['content/site/a/article.mdx', 'content/site/new/article.mdx'],
+    ['content/site/a/article.mdx', 'content/site/repaid/article.mdx'],
+  );
+  assert.deepEqual(result.increased, ['content/site/new/article.mdx']);
+  assert.deepEqual(result.repaid, ['content/site/repaid/article.mdx']);
+});
+
+test('citation: class ごとの出典粒度を ref 詳細・本文・台帳 URL から判定する', () => {
+  const standard = { title: '土木工事共通仕様書', origin: { kind: 'catalog' } };
+  assert.equal(checkCitationEvidence({ citation: 'page', source: standard, ref: 'std:kinki/common', articleText: '' }).ok, false);
+  assert.equal(checkCitationEvidence({ citation: 'page', source: standard, ref: 'std:kinki/common#85-86', articleText: '' }).ok, true);
+  assert.equal(checkCitationEvidence({ citation: 'page', source: standard, ref: 'std:kinki/common', articleText: 'PDF page 85–86を参照。' }).ok, true);
+
+  const web = { title: '公式ページ', origin: { kind: 'external', url: 'https://example.com/source' } };
+  assert.equal(checkCitationEvidence({ citation: 'title-url', source: web, ref: 'web', articleText: '' }).ok, true);
+  assert.equal(checkCitationEvidence({ citation: 'title-url', source: { title: 'URLなし', origin: { kind: 'none' } }, ref: 'x', articleText: '' }).ok, false);
+
+  const law = { title: '労働安全衛生規則', origin: { kind: 'external' } };
+  assert.equal(checkCitationEvidence({ citation: 'section', source: law, ref: 'labor-safety-rules#第240条', articleText: '' }).ok, true);
+  assert.equal(checkCitationEvidence({ citation: 'section', source: law, ref: 'labor-safety-rules', articleText: '第240条を確認する。' }).ok, true);
+  assert.equal(checkCitationEvidence({ citation: 'section', source: law, ref: 'labor-safety-rules', articleText: '' }).ok, false);
+  assert.equal(checkCitationEvidence({ citation: 'title', source: law, ref: 'x', articleText: '' }).ok, true);
+  assert.equal(checkCitationEvidence({ citation: 'name', source: law, ref: 'x', articleText: '' }).ok, true);
 });
 
 test('globToRegExp: * は / を跨がず、** は跨ぐ', () => {
@@ -137,6 +165,15 @@ test('findVerbatimRuns: 種の間隔より長い共通部分を取りこぼさ�
   const hits = findVerbatimRuns('前' + body + '後', index, { minRun: 40 });
   assert.equal(hits.length, 1);
   assert.ok(hits[0].run >= normalizeForCompare(body).length - 1);
+});
+
+test('findVerbatimRuns: 同じ20文字が先に短く現れても後方の長い一致を検出する', () => {
+  const seed = '同じ語句が繰り返される場合でも逐語検査';
+  const copied = seed + 'は候補位置をすべて比較し最長の一致を選ばなければならない';
+  const index = buildTranscriptIndex([{ key: 'repeat.md', text: seed + '。別の説明。' + copied }], { seed: 20, stride: 1 });
+  const hits = findVerbatimRuns('導入。' + copied + '。結び。', index, { minRun: 40 });
+  assert.equal(hits.length, 1);
+  assert.ok(hits[0].run >= normalizeForCompare(copied).length);
 });
 
 test('parseTranscriptHeader: 新形式の frontmatter と旧形式の `> 出典:` 行の両方を読む', () => {

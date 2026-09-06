@@ -23,7 +23,7 @@
 | キー対応 | `content/sources/textbook/<相対パス>` ↔ `原資料PDF/教材/<相対パス>` |
 | git（元PDF） | `.gitignore` で除外。実体は Drive vault のみ |
 | git（ページ画像・図クロップ） | `.gitignore` で `content/sources/textbook/**/*.{png,jpg,jpeg,webp,pdf}` を除外。実体は Drive vault、台帳は `.claude/state/assets/drive-manifest.json` |
-| 文字起こし `.md` | 従来どおり `マイドライブ/doboku-note/文字起こし/{書名}/`（今回の変更対象外。手順は [content/sources/textbook/README.md](../../../content/sources/textbook/README.md)） |
+| 文字起こし `.md` | `マイドライブ/doboku-note/文字起こし/{書名}/`。group `source-transcript` で台帳化し、原本との対応は frontmatter が保持（手順は [reference-sources-policy.md](reference-sources-policy.md)） |
 | マウント先 | 端末ごとに違う（Mac `~/Library/CloudStorage/GoogleDrive-<account>/マイドライブ/`、Windows `G:\マイドライブ\` 等）。コードは `scripts/lib/drive-vault.mjs` の `resolveVaultRoot()` が解決する |
 
 > [!note] Drive はストリーミングマウント
@@ -56,6 +56,11 @@ node scripts/drive-vault-sync.mjs --group textbook-page-image --from-r2 --dedupe
 
 # 検証（ローカル実体 ↔ 台帳 ↔ Drive の3者照合。--cloud で Drive API の md5 まで見る）
 node scripts/drive-vault-sync.mjs --group textbook-source-pdf --verify --deep --cloud
+
+# 文字起こしを同期・検証（frontmatter と原本の対応は reference-sources の deep 検査）
+node scripts/drive-vault-sync.mjs --group source-transcript --commit
+node scripts/drive-vault-sync.mjs --group source-transcript --verify --deep --cloud
+npm run check-reference-sources -- --deep
 
 # 必要なときに取り戻す（vault → repo。書名単位でパス指定）
 node scripts/drive-vault-sync.mjs --pull --path 'content/sources/textbook/技術士（総監）/'
@@ -94,6 +99,7 @@ rclone ls doboku-gdrive:doboku-note/原資料PDF/教材 | head
 ## 関連
 
 - [asset-storage-policy.md](asset-storage-policy.md) §1 — 置き場ルールの真実源（「誰が使うか」の判断木）
+- [reference-sources-policy.md](reference-sources-policy.md) — 原本・文字起こし・記事を参照 ID で結ぶ共通ルール
 - `/asset-route` スキル — 置き場の決定木
 - [sns-archive-policy.md](sns-archive-policy.md) — SNS バイナリ（wav/mp4）の退避（同じ考え方の先行事例）
 - [measurement-incidents.md](measurement-incidents.md) — 外部 API は CI 供給が正・会社 PC プロキシ遮断の恒久ルール（ローカル退避は自宅端末で行う）

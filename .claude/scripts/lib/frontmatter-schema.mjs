@@ -48,9 +48,9 @@ export const FrontmatterSchema = z
     // gray-matter が YAML の ISO 日付を Date として自動パースするため union で許容
     publishedAt: z.union([z.string(), z.date()]).optional(),
     reviewStatus: ReviewStatus.optional(),
-    // 本文で引用した一次資料（法令・規格・示方書等）の機械可読リスト。
-    // 改訂を追跡したい記事にのみ任意で付与する（例: civil-practice）。
-    // grep 用途: `grep -l "JIS A 5308" content/site/**/article.mdx` で影響記事を洗い出す
+    // 参考文献台帳（.claude/config/reference-sources.json）の id。自由記述の書名は不可。
+    // 逐語・図・公開可否と出典粒度は reference-sources-policy.md を真実源とする。
+    // 条番号等の detail は `source-id#第240条` のように末尾へ付与できる。
     sources: z.array(z.string()).optional(),
   })
   .passthrough();

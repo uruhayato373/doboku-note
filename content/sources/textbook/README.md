@@ -9,16 +9,20 @@
 | 種別 | 置き場 |
 |---|---|
 | 元 PDF・スキャンページ画像 | Google Drive vault `原資料PDF/教材/{書名}/`（台帳 `drive-manifest.json`。[textbook-pdf-archive.md](../../../.claude/knowledge/reference/textbook-pdf-archive.md)） |
-| 文字起こし本文（.md/.html/図版）・作業ファイル | private Google Drive vault `マイドライブ/doboku-note/文字起こし/` |
+| 文字起こし本文（`.md`） | private Google Drive vault `マイドライブ/doboku-note/文字起こし/`（group `source-transcript`） |
+| `.html`・図版・作業ファイル | private Google Drive vault `マイドライブ/doboku-note/文字起こし/`（手動管理） |
 | 各サブディレクトリの README.md | git 追跡を継続（この案内のため） |
 
 ## ローカルで復元する手順
 
 新しい端末で作業する場合:
 
-1. Google Drive デスクトップアプリでこの Mac のアカウントにログインし、`マイドライブ/doboku-note/文字起こし/` を展開・同期する
-2. 展開先を `content/sources/textbook/{各ディレクトリ}/` へコピーする（`.gitignore` により再追跡はされない）
+1. Google Drive デスクトップアプリでこの端末のアカウントにログインし、`マイドライブ/doboku-note/文字起こし/` を展開・同期する
+2. `npm run drive-vault-sync -- --group source-transcript --pull` で台帳にある `.md` を対応する `content/sources/textbook/` 配下へ戻す
 3. PDF・ページ画像が必要な場合は別途 `npm run drive-vault-sync -- --pull --path 'content/sources/textbook/{書名}/'` で Drive から取得する（マウントが要る・ネット不要）
+
+文字起こしの先頭には `source` / `sourcePdfs` / `pdfPages` / `method` 等の frontmatter を付ける。原本から
+記事までの ID 対応と公開条件は [reference-sources-policy.md](../../../.claude/knowledge/reference/reference-sources-policy.md) を参照する。
 
 ## なぜ動かしたか
 
