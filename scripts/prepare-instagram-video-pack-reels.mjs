@@ -16,7 +16,8 @@ const ROOT = process.cwd();
 const PACKS_ROOT = join(ROOT, 'content/sns/video-packs');
 const IG_ROOT = join(ROOT, 'content/sns/instagram/video-packs');
 const ACCOUNT = 'dobokunotecom';
-const SLOT_TIMES = ['12:30:00'];
+// 既存カルーセルの主力帯（12:00 / 19:00）と衝突させず、朝・昼・夜の3本へ分散する。
+const SLOT_TIMES = ['07:30:00', '12:30:00', '21:00:00'];
 const EXAMS = {
   'civil-construction-1': {
     label: '1級土木施工管理技士',
@@ -124,17 +125,28 @@ for (const row of rows) {
   const reel = existsSync(statusPath) ? JSON.parse(readFileSync(statusPath, 'utf8')).reel : null;
   if (['scheduled', 'posted'].includes(reel?.status) && reel.scheduled_at) {
     row.publishAt = reel.scheduled_at.replace('.000+09:00', '+09:00');
-    occupied.add(row.publishAt.slice(0, 10));
+    occupied.add(row.publishAt.slice(0, 19));
   }
 }
+const earliestTime = Date.now() + 20 * 60 * 1000;
 let nextDay = 0;
+let nextSlot = 0;
 for (const row of rows) {
   if (row.publishAt) continue;
-  let day = addDays(args.start, nextDay);
-  while (occupied.has(day)) day = addDays(args.start, ++nextDay);
-  row.publishAt = `${day}T${SLOT_TIMES[0]}+09:00`;
-  occupied.add(day);
-  nextDay += 1;
+  for (;;) {
+    const day = addDays(args.start, nextDay);
+    const slot = SLOT_TIMES[nextSlot];
+    const key = `${day}T${slot}`;
+    nextSlot += 1;
+    if (nextSlot >= SLOT_TIMES.length) {
+      nextSlot = 0;
+      nextDay += 1;
+    }
+    if (occupied.has(key) || new Date(`${key}+09:00`).getTime() < earliestTime) continue;
+    row.publishAt = `${key}+09:00`;
+    occupied.add(key);
+    break;
+  }
 }
 
 if (args.write) {
@@ -171,13 +183,15 @@ if (args.write) {
 }
 
 const counts = Object.fromEntries(Object.keys(EXAMS).map((exam) => [exam, rows.filter((row) => row.exam === exam).length]));
+const publishTimes = rows.map((row) => row.publishAt).sort();
 console.log(JSON.stringify({
   mode: args.write ? 'write' : 'dry-run',
   account: ACCOUNT,
   sourcePacks: new Set(rows.map((row) => row.packId)).size,
   reels: rows.length,
   counts,
-  firstPublishAt: rows[0]?.publishAt ?? null,
-  lastPublishAt: rows.at(-1)?.publishAt ?? null,
+  slotsPerDay: SLOT_TIMES,
+  firstPublishAt: publishTimes[0] ?? null,
+  lastPublishAt: publishTimes.at(-1) ?? null,
   firstTarget: rows[0] ? relative(ROOT, rows[0].destDir).replace(/\\/g, '/') : null,
 }, null, 2));

@@ -43,7 +43,7 @@ for (const metaPath of rows) {
   seen.add(id);
   counts[meta.exam] = (counts[meta.exam] ?? 0) + 1;
   if (meta.schemaVersion !== 1 || meta.channel !== 'instagram' || meta.account !== 'dobokunotecom') fail(label, 'meta 契約不一致');
-  if (!/^\d{4}-\d{2}-\d{2}T(?:12:30|20:30):00\+09:00$/.test(meta.publishAt ?? '')) fail(label, `publishAt 不正: ${meta.publishAt}`);
+  if (!/^\d{4}-\d{2}-\d{2}T(?:07:30|12:30|21:00):00\+09:00$/.test(meta.publishAt ?? '')) fail(label, `publishAt 不正: ${meta.publishAt}`);
   if (meta.approvedBy !== 'user') fail(label, 'approvedBy=user がありません');
   const captionPath = join(reelsDir, 'caption.txt');
   if (!existsSync(captionPath)) { fail(label, 'caption.txt がありません'); continue; }
