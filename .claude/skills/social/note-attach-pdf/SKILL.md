@@ -56,7 +56,7 @@ node scripts/check-note-attachments.mjs --live   # 期待本数 vs ライブ実�
 ディスク上に PDF がある公開記事すべてについて、note ライブの添付リンク（`api/v2/attachments/download`）本数を著者ログインで実測し、不足を exit 1 で落とす。**未ログインの HTML には有料エリアの添付カードが出ない**ため CI では検査できず、この live 層はローカル専用（CI 側は `npm run check-note-attachments` が「約束した PDF がディスクに在るか」だけを見る）。
 
 > [!warning] 本文の全文置換は添付を消す
-> `note-update-body`（Ctrl+A → Delete → paste）は本文内の PDF 添付カードごと消す。SoT の markdown に添付は無いので paste では戻らない。2026-07-28、建設部門の送客リンク是正で 196 本を全文置換し、6/16 に添付した PDF カードを失った。現在は `note-update-body` が既存添付を検出したら既定で中断する（`--allow-attachment-loss` で明示解除・解除したら反映後に必ず再添付）。画像だけ直すなら `--images-only`。
+> `note-update-body`（Ctrl+A → Delete → paste）は本文内の PDF 添付カードごと消す。SoT の markdown に添付は無いので paste では戻らない。2026-07-28、建設部門の送客リンク是正で 196 本を全文置換し、6/16 に添付した PDF カードを失った。**語句・段落・CTA・カード・節順だけを直す場合は `npm run note-update-partial -- --spec <json> [--commit]` を使う**。複数記事は `--list <spec一覧.txt>` で同じ Chrome セッションから直列処理できる。この CLI は select-all を使わず、更新前後と公開後再読で PDF 添付 URL/ファイル名の完全一致を要求する。全文置換が不可避な場合だけ `note-update-body --reattach-pdf`、画像だけなら `--images-only` を使う。
 
 ## 冪等・安全弁
 

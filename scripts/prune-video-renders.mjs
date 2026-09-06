@@ -10,6 +10,7 @@ import {
   existsSync, readFileSync, readdirSync, rmdirSync, statSync, unlinkSync,
 } from 'node:fs';
 import { join, relative, resolve } from 'node:path';
+import { toVaultRel, vaultRelFor } from './lib/drive-vault.mjs';
 
 const ROOT = process.cwd();
 const BASE = join(ROOT, '.tmp/video-render');
@@ -63,7 +64,8 @@ if (verifyCloud) {
     bytes: item.Size,
   }]));
   verified = new Set(archived.flatMap(([rel, entry]) => {
-    const key = entry.vaultPath.replace(`${group.vaultDir}/`, '');
+    // 台帳は lean format（vaultPath は導出値と一致するとき省かれる・DN-0172）。無ければ group から導く
+    const key = toVaultRel(entry.vaultPath ?? vaultRelFor(rel, group)).replace(`${group.vaultDir}/`, '');
     const actual = cloud.get(key);
     return actual?.md5 === entry.md5 && actual.bytes === entry.bytes ? [rel] : [];
   }));

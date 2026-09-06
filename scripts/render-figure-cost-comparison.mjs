@@ -52,10 +52,10 @@ function svgCostComparison() {
   const bars = [
     { label: '独学 1 回合格', tag: '理想形', value: 14000, color: INK_BODY,  highlight: false },
     { label: 'マガジン 1 冊 + 1 回合格', tag: '推奨', value: 16480, color: POSITIVE, highlight: true },
-    { label: 'マガジン全 6 + 1 回合格', tag: '全網羅', value: 28880, color: POSITIVE, highlight: true },
+    { label: '記述式 完全パック + 1 回合格', tag: '記述式一式', value: 23800, color: POSITIVE, highlight: true },
     { label: 'スタディング + 1 回合格', tag: '最安スクール', value: 43700, color: BRAND, highlight: false },
     { label: '独学 6 回受験', tag: '数学的期待値', value: 84000, color: DANGER, highlight: true },
-    { label: 'アガルート フル + 1 回合格', tag: '添削+口頭模試', value: 130000, color: BRAND, highlight: false },
+    { label: 'アガルート フル（下限）+ 1 回合格', tag: '添削+口頭模試', value: 121800, color: BRAND, highlight: false },
     { label: 'JES 総監 + 1 回合格', tag: '個別対応', value: 192100, color: BRAND_DEEP, highlight: false },
   ];
 

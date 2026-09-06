@@ -82,7 +82,7 @@ https://note.com/dobokunote/m/md29a34906314
 <!-- cta:civil-membership-lab -->
 買い切り教材で自習するか、月例予想と添削で伴走してもらうかを比較したい方は、合格ラボの内容をご確認ください。
 
-https://note.com/dobokunote/membership/join
+https://note.com/dobokunote/n/n6b66793ca20c
 
 ## 出典・データについて
 

@@ -10,7 +10,9 @@ import { strict as assert } from 'node:assert';
 import test from 'node:test';
 import {
   loadDriveConfig, resolveVaultRoot, driveGroupFor, vaultRelFor, sanitizeDriveEntry, routingFor, toVaultRel, emptyDriveManifest,
+  hydrateDriveEntry, expandDriveManifest, toLeanDriveManifest, serializeDriveManifest,
 } from '../scripts/lib/drive-vault.mjs';
+import { isDeepStrictEqual } from 'node:util';
 import { loadConfig as loadR2Config, findSecrets, AUDIENCE_RULES } from '../scripts/lib/asset-storage.mjs';
 
 const DCFG = loadDriveConfig();
@@ -143,4 +145,56 @@ test('audience: asset-storage.json の全 group が audience を持ち、site⇒
   }
   // 「サイトが配信する」ものが 1 つは存在し、それが public であること（規則が空回りしていない）
   assert.ok(R2CFG.groups.some((g) => g.audience === 'site' && g.bucket === 'public'));
+});
+
+test('lean format: 導出できる vaultPath / regenerable だけを省き、補完で元に戻る（DN-0172）', () => {
+  const g = dgroup('note-delivery-pdf');
+  const rel = 'content/note/技術士総監/x/pdf/a.pdf';
+  const full = emptyDriveManifest();
+  full.entries[rel] = {
+    group: g.id, vaultPath: vaultRelFor(rel, g), sha256: 'a'.repeat(64), md5: 'b'.repeat(32), bytes: 10,
+    regenerable: g.regenerable, syncedAt: '2026-09-05T00:00:00.000Z', verifiedAt: '2026-09-05T00:00:01.000Z',
+  };
+  // 導出値とずれた vaultPath（手で置いた原本を adopt）は明示のまま残る
+  const adoptedRel = 'content/sources/textbook/本A/a.pdf';
+  full.entries[adoptedRel] = { group: 'textbook-source-pdf', vaultPath: '原資料PDF/書籍/別名.pdf', sha256: 'c'.repeat(64), bytes: 5, adopted: true };
+  // regenerable が group 定義とずれているエントリも残る
+  const driftRel = 'content/note/技術士総監/y/pdf/b.pdf';
+  full.entries[driftRel] = { group: g.id, vaultPath: vaultRelFor(driftRel, g), sha256: 'd'.repeat(64), bytes: 7, regenerable: !g.regenerable };
+
+  const lean = toLeanDriveManifest(full, DCFG);
+  assert.equal(lean.entries[rel].vaultPath, undefined, '導出できる vaultPath は省かれる');
+  assert.equal(lean.entries[rel].regenerable, undefined, 'group と同じ regenerable は省かれる');
+  assert.equal(lean.entries[adoptedRel].vaultPath, '原資料PDF/書籍/別名.pdf', 'adopted の vaultPath は残る');
+  assert.equal(lean.entries[driftRel].regenerable, !g.regenerable, 'ずれた regenerable は残る');
+  assert.equal(lean.entries[rel].sha256, 'a'.repeat(64));
+  assert.equal(lean.entries[rel].md5, 'b'.repeat(32));
+
+  // lean 化は「regenerable 無し」と「group 既定と同じ regenerable」を区別しない（読み時に既定で埋まる）。
+  // 比較の基準は補完後の形。writeDriveManifestAtomic も同じ基準で往復を検証する
+  const restored = expandDriveManifest(lean, DCFG);
+  assert.ok(isDeepStrictEqual(restored.entries, expandDriveManifest(full, DCFG).entries), '補完で元のエントリへ戻る');
+  assert.equal(restored.entries[adoptedRel].vaultPath, '原資料PDF/書籍/別名.pdf');
+  // 単体の補完も同じ
+  assert.deepEqual(hydrateDriveEntry(rel, lean.entries[rel], DCFG), full.entries[rel]);
+});
+
+test('lean format: 未知の group のエントリは触らずに通す（黙って捏造しない）', () => {
+  const e = { group: 'no-such-group', sha256: 'a'.repeat(64), bytes: 1 };
+  assert.deepEqual(hydrateDriveEntry('x/y', e, DCFG), e);
+  const lean = toLeanDriveManifest({ entries: { 'x/y': { ...e, vaultPath: 'p/q' } } }, DCFG);
+  assert.equal(lean.entries['x/y'].vaultPath, 'p/q');
+});
+
+test('serializeDriveManifest: 妥当な JSON で、entries は 1 件 1 行', () => {
+  const m = emptyDriveManifest();
+  m.entries['a/b.png'] = { group: 'g', sha256: 'a'.repeat(64), bytes: 1 };
+  m.entries['c/d.png'] = { group: 'g', sha256: 'b'.repeat(64), bytes: 2, adopted: true };
+  const text = serializeDriveManifest(m);
+  assert.deepEqual(JSON.parse(text), m, '往復で同じ');
+  const entryLines = text.split('\n').filter((l) => l.startsWith('    "'));
+  assert.equal(entryLines.length, 2, '1 エントリ 1 行');
+  assert.ok(text.endsWith('}\n'));
+  // entries が空でも妥当
+  assert.deepEqual(JSON.parse(serializeDriveManifest(emptyDriveManifest())), emptyDriveManifest());
 });

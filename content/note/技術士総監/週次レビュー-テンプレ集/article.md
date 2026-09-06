@@ -14,11 +14,7 @@ price: 980
 ---
 
 <!-- cta:pack-top -->
-本番直前の総仕上げは、出題予想6テーマ×三層骨子で「何が出ても書ける型」を最短装填できるR8予想問題集が決め手。書き方の型から固めるなら、型・設問(3)の弾薬・R8演習を1セットにした記述式コアパックが入口に最適です。
-
-https://note.com/dobokunote/m/m6854c7437d4d
-
-https://note.com/dobokunote/m/m6e7de5e4ea3d
+> 記述式の型、5管理のトレードオフ、設問(3)の国家施策を一つの流れで固めるなら、[記述式コアパック](https://note.com/dobokunote/m/m6e7de5e4ea3d)から始められます。無料記事や立場別の模範論文を比較したい方は、[総監もくじ](https://note.com/dobokunote/n/n3ed4c77ceed6)で現在地に合う教材を選べます。
 
 ## この記事の位置づけ
 
