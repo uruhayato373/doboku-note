@@ -832,6 +832,27 @@ R2 でも同型が起きた。`rclone lsd obsidian-r2:` が空を返したので
 **その remote から見えていないだけ**と分かった（`CLOUDFLARE_ACCOUNT_ID` と rclone の endpoint が別アカウント）。
 見えない環境から「無い」と結論しない。
 
+## 2026-09-07 — A8 管理画面は会社プロキシが CONNECT ごと拒否する（端末制約）
+
+DN-0120（A8 成果の取り込み）を会社 PC で進めようとして `auth:login --service a8` が
+`net::ERR_EMPTY_RESPONSE at https://management.af8.jp/` で失敗した。ホストが死んだのではない。
+
+切り分けの実測（2026-09-07）:
+
+| 経路 | 結果 |
+|---|---|
+| `curl -v https://www.a8.net/` | `CONNECT tunnel` → `HTTP/1.0 200 Connection established` |
+| `curl -v https://management.af8.jp/` | **`Proxy CONNECT aborted`**（トンネル自体を拒否） |
+| アプリ内ブラウザ | `a8.net is blocked by policy`（別レイヤでも遮断） |
+
+**恒久ルール**:
+
+- **A8 の成果取り込みは会社 PC では実行できない**。人がログインすれば済む話ではなく、
+  プロキシが管理ドメインへのトンネルを張らせない。Mac か別回線で実行する。
+- `ERR_EMPTY_RESPONSE` / `Proxy CONNECT aborted` は「サイト障害」でも「認証切れ」でもなく
+  **経路の遮断**。`auth:status` が返す `expired` と混ぜて「再ログインすれば直る」と書かない。
+- 同じ口座でも `www.a8.net` は通る。**トップページが開けることを管理画面の到達性の証拠にしない**。
+
 ## 2026-09-07 — 社内プロキシの 503 ブロック HTML を本番障害と誤読した
 
 `main` デプロイ成功直後に `npm run check-production-ssr` が `doboku-note.pages.dev` と
