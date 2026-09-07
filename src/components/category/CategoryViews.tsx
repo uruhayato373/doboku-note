@@ -215,9 +215,24 @@ export function PracticeView({ groups, mobileCareerAds = [] }: { groups: DocGrou
 
 /** pe-first-stage: 適性・基礎・専門マトリクス */
 export function PeFirstStageView({ groups, mobileCareerAds = [] }: { groups: DocGroup[]; mobileCareerAds?: ReactNode[] }) {
+  const guideGroup = groups.find(g => g.key === 'guide');
   const primaryGroup = groups.find(g => g.title === getGroupLabel('pe-first-stage', 'primary'));
+  const curriculum = resolveCurriculum('pe-first-stage', guideGroup?.docs ?? []);
+  const examGuideDocs = [...(curriculum.examGuide?.docs ?? []), ...curriculum.unassigned];
+  const fieldsCount = curriculum.fields?.blocks.reduce((n, b) => n + b.docs.length, 0) ?? 0;
+
   return (
     <>
+      {examGuideDocs.length > 0 && (
+        <CurriculumSection id="guide" title={curriculum.examGuide?.title ?? '受験ガイド'} description={curriculum.examGuide?.description} count={examGuideDocs.length}>
+          <CurriculumList blocks={[{ docs: examGuideDocs }]} />
+        </CurriculumSection>
+      )}
+      {curriculum.fields && fieldsCount > 0 && (
+        <CurriculumSection id="fields" title={curriculum.fields.title} description={curriculum.fields.description} count={fieldsCount}>
+          <CurriculumList blocks={curriculum.fields.blocks} />
+        </CurriculumSection>
+      )}
       <section className="card-surface-section mb-10 p-5 sm:p-6" aria-labelledby="pe1-free-quiz">
         <div className="text-[11px] font-bold uppercase tracking-wider text-[var(--accent)]">登録不要・無料</div>
         <h2 id="pe1-free-quiz" className="mt-1 font-serif text-[21px] sm:text-[24px] font-black text-[var(--ink)]">

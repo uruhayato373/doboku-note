@@ -32,7 +32,11 @@ const CATEGORY_JUMPS: Record<string, JumpItem[]> = {
     { href: '#sec-textbook', label: 'テキスト' },
     { href: '#sec-primary', label: '過去問' },
   ],
-  'pe-first-stage': [{ href: '#sec-primary', label: '科目別過去問' }],
+  'pe-first-stage': [
+    { href: '#sec-guide', label: '受験ガイド' },
+    { href: '#sec-fields', label: '科目別対策' },
+    { href: '#sec-primary', label: '科目別過去問' },
+  ],
   'pe-comprehensive-management': [
     { href: '#sec-guide', label: '受験ガイド' },
     { href: '#sec-fields', label: '論文対策' },
