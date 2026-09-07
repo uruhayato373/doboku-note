@@ -315,12 +315,26 @@
     "deployment": "pending",
     "afb": {
       "status": "unknown",
-      "reason": "Read-only status attempt reached login screen; no authenticated site data collected."
+      "expectedSiteId": "984453",
+      "actualSiteId": "959426",
+      "reason": "Site switch did not establish doboku-note; site guard stopped collection. No account data imported."
     },
     "ga4Refresh": {
-      "localStatus": "blocked-missing-credentials",
-      "ciRefresh": "pending",
-      "note": "GA4_PROPERTY_ID and GOOGLE_SERVICE_ACCOUNT_KEY_PATH are absent locally; existing GitHub workflow has secrets."
+      "status": "success-via-existing-ci",
+      "runUrl": "https://github.com/uruhayato373/doboku-note/actions/runs/34164469544",
+      "sourceCommit": "d0be3d781",
+      "startDate": "2026-08-10",
+      "endDate": "2026-09-06",
+      "japanOnly": true,
+      "affiliateImpressions": 16386,
+      "affiliateClicks": 10,
+      "buildjobClicks": 4,
+      "kensetsuJobsClicks": 4,
+      "dxConsultingClicks": 2,
+      "articleMidImpressions": 2264,
+      "articleMidClicks": 3,
+      "source": ".claude/state/metrics/ga4/ga4-cta-clicks-by-label-2026-09-07T21-49-53.json",
+      "comparability": "All affiliate surfaces include learning articles and DX; do not treat as career article CTR or join to August A8 conversion rate."
     }
   }
 }
