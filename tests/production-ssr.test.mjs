@@ -7,7 +7,7 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { classify, DEFAULT_URLS, KEYWORDS } from '../scripts/check-production-ssr.mjs';
+import { classify, determineExitCode, DEFAULT_URLS, KEYWORDS } from '../scripts/check-production-ssr.mjs';
 
 const OK_BODY = '<html><body><main class="flex-grow"><h1>1級土木施工管理技士</h1><p>技術士</p></main></body></html>';
 
@@ -26,6 +26,31 @@ test('回帰: HTTP 000 は fail ではなく unreachable（検査不成立）', 
 
 test('code が空でも unreachable として扱う', () => {
   assert.equal(classify({ url: 'https://x', code: '', body: '' }).level, 'unreachable');
+});
+
+test('回帰: 社内プロキシの 503 ブロック HTML は fail ではなく unreachable', () => {
+  const body = '<html><head><TITLE>ブロックされました。</TITLE></head><body>アクセスできません</body></html>';
+  const r = classify({ url: 'https://x', code: '503', body });
+  assert.equal(r.level, 'unreachable');
+  assert.match(r.reason, /プロキシ/);
+});
+
+test('通常の 503 はサイト異常として fail', () => {
+  const r = classify({ url: 'https://x', code: '503', body: '<title>Service Unavailable</title>' });
+  assert.equal(r.level, 'fail');
+  assert.match(r.reason, /HTTP 503/);
+});
+
+test('終了コード: ブロック応答だけなら検査不成立の 2', () => {
+  assert.equal(determineExitCode([{ level: 'unreachable' }, { level: 'unreachable' }]), 2);
+});
+
+test('終了コード: 通常の異常だけなら 1', () => {
+  assert.equal(determineExitCode([{ level: 'fail' }, { level: 'ok' }]), 1);
+});
+
+test('終了コード: 実異常と検査不成立の混在では実異常を優先して 1', () => {
+  assert.equal(determineExitCode([{ level: 'unreachable' }, { level: 'fail' }]), 1);
 });
 
 test('500 は fail（unreachable と混ぜない）', () => {

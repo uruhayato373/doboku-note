@@ -58,7 +58,7 @@ npm run kdp-report        # Kindle 月次ロイヤリティを KDP レポート�
 npm run note-sales-fetch  # note 売上履歴を read-only 取得→検算OKで.claude/state/sales/sales-log.jsonの当月を差し替え（--month YYYY-MM --commit・ログイン要・DN-0018）
 npm run check-magazine-cta # 公開マガジンがサイトで1面以上CTAとして出るか（top/中間CTA/MagazineCard・quality:audit に同梱）
 npm run check-membership-drip # 会員配信ドリップの遅れ・実体欠落（真実源＝メンバーシップ/README.md の配信表。予定日を1日以上過ぎた未配信は赤。日付をカードへ複製すると必ずずれるので複製しない・quality:audit に同梱）
-npm run check-production-ssr # deploy 後の本番 SSR 検証（exit 0=正常 / 1=壊れている / **2=検査不成立＝接続できていない**。会社PCで --noproxy を付けると必ず 000 になり「SSR破壊」と誤読するので手打ち curl で代用しない・/deploy Step 7.5 が呼ぶ）
+npm run check-production-ssr # deploy 後の本番 SSR 検証（exit 0=正常 / 1=壊れている / **2=検査不成立＝接続できていない**。会社PCの HTTP 000／プロキシのブロック HTML をサイト障害と誤読しない・手打ち curl で代用しない・/deploy Step 7.5 が呼ぶ）
 npm run check-backlog-schema # backlog タグ行の語彙・[検証:]の実在・ID(DN-####)必須/重複・完了 prose の混入（pre-commit --staged ＋ quality:audit）
 npm run check-backlog-health # 台帳の候補 surfacer（🟢に沈んだ不具合・種類の矛盾・重複候補・検証ゲート欠落。判定はせず常に exit 0）
 npm run check-codex-compat   # AGENTS.md / .agents/skills が正典（CLAUDE.md / .claude/skills）の生成物と一致するか（第2SSOT再発防止・pre-commit --staged ＋ quality:audit・再生成は sync-codex-compat）
@@ -216,7 +216,7 @@ npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run
 - タスク着手前に「何が通れば完了か」を定義してから始める
 - **MDX 変換**: `/verify-pdf-mdx` でルーブリック ≥ 2.0
 - **UI/SSR 変更**: `curl` で `<main>` + 主要キーワード（土木/技術士）を確認
-- **deploy 後**: `curl` で `doboku-note.pages.dev` の HTTP 200 + `<main>` タグを確認してから「完了」と報告
+- **deploy 後**: `npm run check-production-ssr` を実行し、exit 0 のときだけ「完了」と報告する。exit 1 は本番異常、exit 2 は検査不成立として別経路で切り分ける（手打ち curl で代用しない）
 - **コンテンツ編集完了条件**: MDX 追加・変更後は `npm run refresh-indexes` を実行してからコミット（バックリンク・タグインデックスの不整合を防ぐ）
 - **アセットの置き場は誰が使うかで決める**（サイトが配信→public R2／CI→private R2／人・手元だけ→Google Drive vault。迷ったら `/asset-route`・真実源 [asset-storage-policy.md](.claude/knowledge/reference/asset-storage-policy.md) §1。2026-09-05、共通仕様書のページ画像 3.4GB を private R2 へ上げかけた再発防止）
 - **画像追加**: `generate-webp` → webp 参照で commit → R2 は `main` push 時に CI（`r2-sync.yml`）が自動同期（対象 path = `**/img/**`）。`ogp.png` は git 追跡せず develop push 時に CI（`ogp-supply.yml`、次項参照）が自動生成して R2 へ供給、`ogp.webp` は未使用のため作らない

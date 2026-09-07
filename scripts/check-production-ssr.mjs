@@ -11,7 +11,7 @@
 // 判定の分け方（CLAUDE.md §9「検査ゼロを PASS と呼ばない」の対称形）:
 //   exit 0 … 200 かつ <main あり かつ 主要キーワードあり
 //   exit 1 … 実際に壊れている（200 でない / <main 0 / キーワード 0）
-//   exit 2 … **検査不成立**（接続できていない）。合格でも不合格でもない
+//   exit 2 … **検査不成立**（HTTP 000 または社内プロキシのブロック応答）。合格でも不合格でもない
 //
 // 使い方:
 //   node scripts/check-production-ssr.mjs                 # 既定 2 URL
@@ -27,6 +27,10 @@ import { execFileSync } from 'node:child_process';
 export const DEFAULT_URLS = ['https://doboku-note.pages.dev', 'https://doboku-note.com'];
 export const KEYWORDS = ['土木', '技術士'];
 
+function isProxyBlockPage(body) {
+  return /<title>\s*ブロックされました[。.]*\s*<\/title>/i.test(body);
+}
+
 /**
  * 1 URL 分の判定（純関数・テストから使う）。
  * @param {{url:string, code:string, body:string}} r
@@ -41,6 +45,11 @@ export function classify(r) {
   if (!r.code || r.code === '000') {
     return { url: r.url, level: 'unreachable', reason: '接続できていない（HTTP 000）', mains, keywords };
   }
+  // Digital Arts i-FILTER 等は、接続不能を 503 のブロック HTML として返す。
+  // HTTP コードだけでサイト障害とみなすと偽赤になるため、既知のブロック署名は検査不成立へ分ける。
+  if (isProxyBlockPage(r.body)) {
+    return { url: r.url, level: 'unreachable', reason: `社内プロキシにブロックされた（HTTP ${r.code}）`, mains, keywords };
+  }
   if (r.code !== '200') {
     return { url: r.url, level: 'fail', reason: `HTTP ${r.code}`, mains, keywords };
   }
@@ -53,6 +62,17 @@ export function classify(r) {
     return { url: r.url, level: 'fail', reason: '主要キーワードが 0 件（中身が空の可能性）', mains, keywords };
   }
   return { url: r.url, level: 'ok', reason: `HTTP 200 / <main ${mains} 件 / KW ${keywords} 件`, mains, keywords };
+}
+
+/**
+ * 複数 URL の最終終了コード。実異常は検査不成立より優先し、混在時に障害を隠さない。
+ * @param {Array<{level:'ok'|'fail'|'unreachable'}>} results
+ * @returns {0|1|2}
+ */
+export function determineExitCode(results) {
+  if (results.some((r) => r.level === 'fail')) return 1;
+  if (results.some((r) => r.level === 'unreachable')) return 2;
+  return 0;
 }
 
 function fetchViaCurl(url) {
@@ -79,6 +99,7 @@ function main() {
   const results = targets.map((u) => classify(fetchViaCurl(u)));
   const unreachable = results.filter((r) => r.level === 'unreachable');
   const failed = results.filter((r) => r.level === 'fail');
+  const exitCode = determineExitCode(results);
 
   if (asJson) {
     console.log(JSON.stringify({ targets: targets.length, results }, null, 2));
@@ -90,18 +111,19 @@ function main() {
     }
   }
 
-  if (unreachable.length > 0) {
-    console.error(`\n[${NAME}] 検査不成立: ${unreachable.length}/${targets.length} URL へ接続できていない。`);
-    console.error('  これは「サイトが壊れている」ではない。合格・不合格のどちらとしても報告しないこと。');
-    console.error('  会社 PC でよくある原因: curl に --noproxy を付けている（プロキシを自分で外している）。');
-    console.error('  切り分け: curl -s -o /dev/null -w "%{http_code}" --ssl-no-revoke <URL>');
-    return 2;
-  }
-  if (failed.length > 0) {
+  if (exitCode === 1) {
     console.error(`\n[${NAME}] ✗ ${failed.length}/${targets.length} URL が異常`);
+    if (unreachable.length > 0) console.error(`  ほか ${unreachable.length} URL は検査不成立。実異常を優先して exit 1 とする。`);
     console.error('  500 のときは Cloudflare API token の期限切れを仮説 1 番に確認する（GitHub Secrets で再発行）。');
     console.error('  <main が 0 のときは SSR 破壊。ユーザーへ即報告し .claude/todo/backlog.md へ起票する。');
     return 1;
+  }
+  if (exitCode === 2) {
+    console.error(`\n[${NAME}] 検査不成立: ${unreachable.length}/${targets.length} URL へ接続できていない。`);
+    console.error('  これは「サイトが壊れている」ではない。合格・不合格のどちらとしても報告しないこと。');
+    console.error('  会社 PC でよくある原因: --noproxy による HTTP 000、または社内プロキシのブロック HTML。');
+    console.error('  切り分け: curl -s -o /dev/null -w "%{http_code}" --ssl-no-revoke <URL>');
+    return 2;
   }
   console.log(`[${NAME}] ✓ ${targets.length} URL すべてが HTTP 200・<main あり・キーワードあり`);
   return 0;
