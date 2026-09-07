@@ -1,0 +1,841 @@
+{
+  "schemaVersion": 1,
+  "asOfJst": "2026-09-08",
+  "method": "Read-only local snapshots; exact joins on current career slugs and their old /docs/ and /exam/ URLs. Old/new URL rows summed; article counts use unique slugs. No cross-source rate calculation. No search-volume estimates.",
+  "sources": {
+    "labels": {
+      "path": ".claude/state/metrics/ga4/ga4-cta-clicks-by-label-2026-09-04T09-32-50.json",
+      "sha256": "995e529fbf823cdb0e1d25786c6a42097e84b5eca6f430f5106e1af93ace4380",
+      "meta": {
+        "startDate": "2026-08-07",
+        "endDate": "2026-09-03",
+        "windowKind": "days",
+        "eventNames": [
+          "note_cta_click",
+          "note_cta_impression",
+          "affiliate_cta_click",
+          "affiliate_cta_impression",
+          "note_article_click",
+          "internal_nav_click",
+          "career_need_select"
+        ],
+        "japanOnly": true,
+        "byDevice": false,
+        "byLabel": true,
+        "byPlacement": false,
+        "propertyId": "properties/419382901"
+      }
+    },
+    "placements": {
+      "path": ".claude/state/metrics/ga4/ga4-cta-clicks-by-placement-2026-09-04T09-32-51.json",
+      "sha256": "72194f60515dfcb5ba2cff0b19c5ff2ca2a17dfa582e12b3863065e85b49c739",
+      "meta": {
+        "startDate": "2026-08-07",
+        "endDate": "2026-09-03",
+        "windowKind": "days",
+        "eventNames": [
+          "note_cta_click",
+          "note_cta_impression",
+          "affiliate_cta_click",
+          "affiliate_cta_impression",
+          "note_article_click",
+          "internal_nav_click",
+          "career_need_select"
+        ],
+        "japanOnly": true,
+        "byDevice": false,
+        "byLabel": false,
+        "byPlacement": true,
+        "propertyId": "properties/419382901"
+      }
+    },
+    "pages": {
+      "path": ".claude/state/metrics/ga4/ga4-page-2026-09-04T09-32-47.json",
+      "sha256": "6bbdcd20e3e25c9b9e01d47e8113448a81f3c2e410bf2273dd1deb18e268c1f4",
+      "meta": {
+        "startDate": "2026-08-07",
+        "endDate": "2026-09-03",
+        "dimension": "page",
+        "dimensionApiName": "pagePath",
+        "metrics": [
+          "activeUsers",
+          "sessions",
+          "screenPageViewsPerSession",
+          "averageSessionDuration",
+          "engagementRate",
+          "bounceRate"
+        ],
+        "limit": 100,
+        "organicOnly": false,
+        "snsOnly": false,
+        "snsSources": [],
+        "japanOnly": true,
+        "excludeSpam": true,
+        "spamSourcesExcluded": [],
+        "propertyId": "properties/419382901"
+      }
+    },
+    "gscPages": {
+      "path": ".claude/state/metrics/gsc/gsc-page-2026-09-04T09-32-45.json",
+      "sha256": "a25adc44cdc3ddf5ba2c4ae9e8aebe24cbf4012a4d7b579248e5835a1dca06b5",
+      "meta": {
+        "startDate": "2026-08-04",
+        "endDate": "2026-09-01",
+        "dimensions": [
+          "page"
+        ],
+        "dimension": "page",
+        "limit": null,
+        "pages_fetched": 1,
+        "row_count": 589,
+        "truncated": false,
+        "api_note": "Search Analytics API は全行の返却を保証しない（sampling / privacy filtering で低ボリューム行が欠落し得る）。row_count は startRow ページングの合算実測値であり、母集合全体とは限らない。"
+      }
+    },
+    "gscQueries": {
+      "path": ".claude/state/metrics/gsc/gsc-page-query-2026-09-04T09-32-46.json",
+      "sha256": "b65b40394ed9991d6a4e4ed6fff44300b34916e8b858cc5f8c5c7d2e4305384a",
+      "meta": {
+        "startDate": "2026-08-04",
+        "endDate": "2026-09-01",
+        "dimensions": [
+          "page",
+          "query"
+        ],
+        "limit": null,
+        "pages_fetched": 1,
+        "row_count": 310,
+        "truncated": false,
+        "api_note": "Search Analytics API は全行の返却を保証しない（sampling / privacy filtering で低ボリューム行が欠落し得る）。row_count は startRow ページングの合算実測値であり、母集合全体とは限らない。"
+      }
+    },
+    "campaigns": {
+      "path": ".claude/state/metrics/ga4/ga4-campaign-2026-09-04T09-32-42.json",
+      "sha256": "4f2053b70552af049d0f964e8b37efadb24310805ae468da87ec9866529eb3f9",
+      "meta": {
+        "startDate": "2026-08-07",
+        "endDate": "2026-09-03",
+        "dimension": "campaign",
+        "dimensionApiName": "sessionCampaignName",
+        "metrics": [
+          "activeUsers",
+          "sessions",
+          "screenPageViewsPerSession",
+          "averageSessionDuration",
+          "engagementRate",
+          "bounceRate"
+        ],
+        "limit": 200,
+        "organicOnly": false,
+        "snsOnly": false,
+        "snsSources": [],
+        "japanOnly": true,
+        "excludeSpam": true,
+        "spamSourcesExcluded": [],
+        "propertyId": "properties/419382901"
+      }
+    },
+    "a8": {
+      "path": ".claude/state/metrics/affiliate/a8-results.json",
+      "sha256": "07c920536126b9e375d21a88f91003682e4379b4b957355a7032b62d26e22b25",
+      "meta": {
+        "updatedAt": "2026-08-04T06:17:44.861Z"
+      }
+    }
+  },
+  "limitations": [
+    "GA4 CTA totals are all affiliate placements, including non-career pages and DX. Not a career-article CTR.",
+    "GA4 page snapshot is top 100 only; absent pages are unknown, not zero.",
+    "GSC privacy filtering can omit low-volume queries; no returned query identifies the sole page click.",
+    "GA4 window mixes pre/post Aug 21 redesign and Sep 1 offer switch; no causal evaluation.",
+    "A8 data ends July; August and September conversions/revenue are missing, not zero. A8 clicks are account-wide.",
+    "Local article inventory is not a full live publication audit."
+  ],
+  "careerInventory": [
+    {
+      "file": "content/site/civil-construction-1/guide-future/article.mdx",
+      "slug": "civil-construction-1-guide-future",
+      "canonical": "/exam/civil-construction-1/guide/future",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-consultant/article.mdx",
+      "slug": "civil-construction-1-guide-consultant",
+      "canonical": "/exam/civil-construction-1/guide/consultant",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-career-path/article.mdx",
+      "slug": "civil-construction-1-guide-career-path",
+      "canonical": "/exam/civil-construction-1/guide/career-path",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-salary-by-role/article.mdx",
+      "slug": "civil-construction-1-guide-salary-by-role",
+      "canonical": "/exam/civil-construction-1/guide/salary-by-role",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-age-career/article.mdx",
+      "slug": "civil-construction-1-guide-age-career",
+      "canonical": "/exam/civil-construction-1/guide/age-career",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-quit-honne/article.mdx",
+      "slug": "civil-construction-1-guide-quit-honne",
+      "canonical": "/exam/civil-construction-1/guide/quit-honne",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-allowance/article.mdx",
+      "slug": "civil-construction-1-guide-allowance",
+      "canonical": "/exam/civil-construction-1/guide/allowance",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-hatchu-shien/article.mdx",
+      "slug": "civil-construction-1-guide-hatchu-shien",
+      "canonical": "/exam/civil-construction-1/guide/hatchu-shien",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-salary-up/article.mdx",
+      "slug": "civil-construction-1-guide-salary-up",
+      "canonical": "/exam/civil-construction-1/guide/salary-up",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-career-salary/article.mdx",
+      "slug": "civil-construction-1-guide-career-salary",
+      "canonical": "/exam/civil-construction-1/guide/career-salary",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-white-company/article.mdx",
+      "slug": "civil-construction-1-guide-white-company",
+      "canonical": "/exam/civil-construction-1/guide/white-company",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-timing/article.mdx",
+      "slug": "civil-construction-1-guide-timing",
+      "canonical": "/exam/civil-construction-1/guide/timing",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-dx-jobs/article.mdx",
+      "slug": "civil-construction-1-guide-dx-jobs",
+      "canonical": "/exam/civil-construction-1/guide/dx-jobs",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-public-servant/article.mdx",
+      "slug": "civil-construction-1-guide-public-servant",
+      "canonical": "/exam/civil-construction-1/guide/public-servant",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-career-agents/article.mdx",
+      "slug": "civil-construction-1-guide-career-agents",
+      "canonical": "/exam/civil-construction-1/guide/career-agents",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/public-servant-merit/article.mdx",
+      "slug": "civil-construction-1-public-servant-merit",
+      "canonical": "/exam/civil-construction-1/public-servant-merit",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-company-types/article.mdx",
+      "slug": "civil-construction-1-guide-company-types",
+      "canonical": "/exam/civil-construction-1/guide/company-types",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-career-agent-comparison/article.mdx",
+      "slug": "civil-construction-1-guide-career-agent-comparison",
+      "canonical": "/exam/civil-construction-1/guide/career-agent-comparison",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-career-cases/article.mdx",
+      "slug": "civil-construction-1-guide-career-cases",
+      "canonical": "/exam/civil-construction-1/guide/career-cases",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-grade-comparison/article.mdx",
+      "slug": "civil-construction-1-guide-grade-comparison",
+      "canonical": "/exam/civil-construction-1/guide/grade-comparison",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-interview/article.mdx",
+      "slug": "civil-construction-1-guide-interview",
+      "canonical": "/exam/civil-construction-1/guide/interview",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-career-consultation-before-quit/article.mdx",
+      "slug": "civil-construction-1-guide-career-consultation-before-quit",
+      "canonical": "/exam/civil-construction-1/guide/career-consultation-before-quit",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-women/article.mdx",
+      "slug": "civil-construction-1-guide-women",
+      "canonical": "/exam/civil-construction-1/guide/women",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-resume/article.mdx",
+      "slug": "civil-construction-1-guide-resume",
+      "canonical": "/exam/civil-construction-1/guide/resume",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-quit-or-stay/article.mdx",
+      "slug": "civil-construction-1-guide-quit-or-stay",
+      "canonical": "/exam/civil-construction-1/guide/quit-or-stay",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-buildjob-review/article.mdx",
+      "slug": "civil-construction-1-guide-buildjob-review",
+      "canonical": "/exam/civil-construction-1/guide/buildjob-review",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-market-value/article.mdx",
+      "slug": "civil-construction-1-guide-market-value",
+      "canonical": "/exam/civil-construction-1/guide/market-value",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-1/guide-career/article.mdx",
+      "slug": "civil-construction-1-guide-career",
+      "canonical": "/exam/civil-construction-1/guide/career",
+      "published": true
+    },
+    {
+      "file": "content/site/pe-construction/guide-career/article.mdx",
+      "slug": "pe-construction-guide-career",
+      "canonical": "/exam/pe-construction/guide/career",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-career-change/article.mdx",
+      "slug": "civil-construction-2-guide-career-change",
+      "canonical": "/exam/civil-construction-2/guide/career-change",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-job-reality/article.mdx",
+      "slug": "civil-construction-2-guide-job-reality",
+      "canonical": "/exam/civil-construction-2/guide/job-reality",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-haken-seishain/article.mdx",
+      "slug": "civil-construction-2-guide-haken-seishain",
+      "canonical": "/exam/civil-construction-2/guide/haken-seishain",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-career-agent-comparison/article.mdx",
+      "slug": "civil-construction-2-guide-career-agent-comparison",
+      "canonical": "/exam/civil-construction-2/guide/career-agent-comparison",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-salary/article.mdx",
+      "slug": "civil-construction-2-guide-salary",
+      "canonical": "/exam/civil-construction-2/guide/salary",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-resume/article.mdx",
+      "slug": "civil-construction-2-guide-resume",
+      "canonical": "/exam/civil-construction-2/guide/resume",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-young-career/article.mdx",
+      "slug": "civil-construction-2-guide-young-career",
+      "canonical": "/exam/civil-construction-2/guide/young-career",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-quit-or-stay/article.mdx",
+      "slug": "civil-construction-2-guide-quit-or-stay",
+      "canonical": "/exam/civil-construction-2/guide/quit-or-stay",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-buildjob-review/article.mdx",
+      "slug": "civil-construction-2-guide-buildjob-review",
+      "canonical": "/exam/civil-construction-2/guide/buildjob-review",
+      "published": true
+    },
+    {
+      "file": "content/site/civil-construction-2/guide-career/article.mdx",
+      "slug": "civil-construction-2-guide-career",
+      "canonical": "/exam/civil-construction-2/guide/career",
+      "published": true
+    }
+  ],
+  "noteCareerFiles": [
+    "content/note/1級・2級土木/転職エージェント比較-無料/article.md",
+    "content/note/1級・2級土木/施工管理の失敗談と教訓-無料/article.md",
+    "content/note/1級・2級土木/1級土木で市場価値が変わる-無料/article.md",
+    "content/note/1級・2級土木/転職のベストタイミング-無料/article.md",
+    "content/note/1級・2級土木/転職した方がいい施工管理-発注者視点-無料/article.md",
+    "content/note/1級・2級土木/ホワイトな建設会社の見分け方-無料/article.md",
+    "content/note/1級・2級土木/年収を上げる人の違い-無料/article.md",
+    "content/note/1級・2級土木/公務員土木か民間か-無料/article.md",
+    "content/note/1級・2級土木/ビルドジョブの評判-発注者目線-無料/article.md",
+    "content/note/1級・2級土木/辞める前に確認すること-無料/article.md",
+    "content/note/1級・2級土木/転職エージェントの使い方-無料/article.md"
+  ],
+  "matchedRows": {
+    "pages": [
+      {
+        "slug": "civil-construction-1-guide-grade-comparison",
+        "page": "/docs/civil-construction-1-guide-grade-comparison",
+        "activeUsers": 20,
+        "sessions": 21,
+        "screenPageViewsPerSession": 1.0952380952380953,
+        "averageSessionDuration": 173.93880533333336,
+        "engagementRate": 0.9047619047619048,
+        "bounceRate": 0.09523809523809523
+      }
+    ],
+    "gscPages": [
+      {
+        "slug": "civil-construction-1-guide-buildjob-review",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-1-guide-buildjob-review"
+        ],
+        "clicks": 1,
+        "impressions": 32,
+        "ctr": 0.03125,
+        "position": 38.6875
+      },
+      {
+        "slug": "civil-construction-1-guide-age-career",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-1-guide-age-career"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 45.333333333333336
+      },
+      {
+        "slug": "civil-construction-1-guide-allowance",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-1-guide-allowance"
+        ],
+        "clicks": 0,
+        "impressions": 3,
+        "ctr": 0,
+        "position": 21
+      },
+      {
+        "slug": "civil-construction-1-guide-career",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-1-guide-career"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 66
+      },
+      {
+        "slug": "civil-construction-1-guide-career-path",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-1-guide-career-path"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 3
+      },
+      {
+        "slug": "civil-construction-1-guide-company-types",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-1-guide-company-types"
+        ],
+        "clicks": 0,
+        "impressions": 10,
+        "ctr": 0,
+        "position": 44.6
+      },
+      {
+        "slug": "civil-construction-1-guide-consultant",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-1-guide-consultant"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "slug": "civil-construction-1-guide-public-servant",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-1-guide-public-servant"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 12.5
+      },
+      {
+        "slug": "civil-construction-2-guide-buildjob-review",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-2-guide-buildjob-review"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 7
+      },
+      {
+        "slug": "civil-construction-2-guide-haken-seishain",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-2-guide-haken-seishain"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 5
+      },
+      {
+        "slug": "civil-construction-2-guide-quit-or-stay",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-2-guide-quit-or-stay"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 41
+      },
+      {
+        "slug": "civil-construction-2-guide-resume",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-2-guide-resume"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 60
+      },
+      {
+        "slug": "civil-construction-1-guide-age-career",
+        "keys": [
+          "https://doboku-note.com/exam/civil-construction-1/guide/age-career"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 10
+      },
+      {
+        "slug": "civil-construction-1-guide-career-salary",
+        "keys": [
+          "https://doboku-note.com/exam/civil-construction-1/guide/career-salary"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 61
+      },
+      {
+        "slug": "civil-construction-1-guide-resume",
+        "keys": [
+          "https://doboku-note.com/exam/civil-construction-1/guide/resume"
+        ],
+        "clicks": 0,
+        "impressions": 7,
+        "ctr": 0,
+        "position": 89
+      },
+      {
+        "slug": "pe-construction-guide-career",
+        "keys": [
+          "https://doboku-note.com/exam/pe-construction/guide/career"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 72.5
+      }
+    ],
+    "gscQueries": [
+      {
+        "slug": "civil-construction-1-guide-age-career",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-1-guide-age-career",
+          "施工管理 50代"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 63
+      },
+      {
+        "slug": "civil-construction-1-guide-age-career",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-1-guide-age-career",
+          "施工管理技士 50代 転職"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 63
+      },
+      {
+        "slug": "civil-construction-1-guide-buildjob-review",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-1-guide-buildjob-review",
+          "ビルドジョブ"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 35
+      },
+      {
+        "slug": "civil-construction-1-guide-buildjob-review",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-1-guide-buildjob-review",
+          "ビルドジョブ 口コミ"
+        ],
+        "clicks": 0,
+        "impressions": 6,
+        "ctr": 0,
+        "position": 22.166666666666668
+      },
+      {
+        "slug": "civil-construction-1-guide-buildjob-review",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-1-guide-buildjob-review",
+          "ビルドジョブ 評判"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 23.75
+      },
+      {
+        "slug": "civil-construction-1-guide-buildjob-review",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-1-guide-buildjob-review",
+          "施工管理job 評判"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 79
+      },
+      {
+        "slug": "civil-construction-1-guide-company-types",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-1-guide-company-types",
+          "サブコン ゼネコン"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 91
+      },
+      {
+        "slug": "civil-construction-1-guide-company-types",
+        "keys": [
+          "https://doboku-note.com/docs/civil-construction-1-guide-company-types",
+          "ゼネコン総合建設業違い"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 84
+      },
+      {
+        "slug": "civil-construction-1-guide-career-salary",
+        "keys": [
+          "https://doboku-note.com/exam/civil-construction-1/guide/career-salary",
+          "一級土木施工管理技士 年収"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 61
+      },
+      {
+        "slug": "civil-construction-1-guide-resume",
+        "keys": [
+          "https://doboku-note.com/exam/civil-construction-1/guide/resume",
+          "施工管理 履歴書"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 80
+      },
+      {
+        "slug": "civil-construction-1-guide-resume",
+        "keys": [
+          "https://doboku-note.com/exam/civil-construction-1/guide/resume",
+          "職務 経歴 書 建設 業"
+        ],
+        "clicks": 0,
+        "impressions": 4,
+        "ctr": 0,
+        "position": 94.5
+      },
+      {
+        "slug": "pe-construction-guide-career",
+        "keys": [
+          "https://doboku-note.com/exam/pe-construction/guide/career",
+          "技術 士 年収"
+        ],
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 75
+      },
+      {
+        "slug": "pe-construction-guide-career",
+        "keys": [
+          "https://doboku-note.com/exam/pe-construction/guide/career",
+          "技術士 年収"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 73.5
+      },
+      {
+        "slug": "pe-construction-guide-career",
+        "keys": [
+          "https://doboku-note.com/exam/pe-construction/guide/career",
+          "技術士転職"
+        ],
+        "clicks": 0,
+        "impressions": 2,
+        "ctr": 0,
+        "position": 82.5
+      }
+    ]
+  },
+  "affiliateEvents": {
+    "labels": {
+      "BuildJob-sidebar": {
+        "impressions": 4678,
+        "clicks": 3
+      },
+      "DXConsulting-sidebar": {
+        "impressions": 2697,
+        "clicks": 0
+      },
+      "ビルドジョブ": {
+        "impressions": 2330,
+        "clicks": 3
+      },
+      "KensetsuJobs-sidebar": {
+        "impressions": 1479,
+        "clicks": 1
+      },
+      "BuildJob-endbanner": {
+        "impressions": 1451,
+        "clicks": 0
+      },
+      "ハイクラス DX・コンサル転職": {
+        "impressions": 1078,
+        "clicks": 3
+      },
+      "DXConsulting-endbanner": {
+        "impressions": 785,
+        "clicks": 1
+      },
+      "建設JOBs": {
+        "impressions": 627,
+        "clicks": 1
+      },
+      "KensetsuJobs-endbanner": {
+        "impressions": 303,
+        "clicks": 0
+      },
+      "GKS-sidebar": {
+        "impressions": 50,
+        "clicks": 0
+      },
+      "BuildJob-hubcareer": {
+        "impressions": 3,
+        "clicks": 0
+      }
+    },
+    "placements": {
+      "sidebar": {
+        "impressions": 7957,
+        "clicks": 3
+      },
+      "article-end": {
+        "impressions": 2539,
+        "clicks": 1
+      },
+      "article-mid": {
+        "impressions": 2225,
+        "clicks": 4
+      },
+      "article-inline": {
+        "impressions": 1810,
+        "clicks": 3
+      },
+      "category-sidebar": {
+        "impressions": 855,
+        "clicks": 1
+      },
+      "category-mobile": {
+        "impressions": 92,
+        "clicks": 0
+      },
+      "category-career-section": {
+        "impressions": 3,
+        "clicks": 0
+      }
+    }
+  },
+  "careerNeedEvents": [],
+  "noteCareerCampaigns": [
+    {
+      "campaign": "civil-career-public-vs-private",
+      "activeUsers": 1,
+      "sessions": 1,
+      "screenPageViewsPerSession": 1,
+      "averageSessionDuration": 263.742732,
+      "engagementRate": 1,
+      "bounceRate": 0
+    }
+  ],
+  "summary": {
+    "careerArticles": 39,
+    "publishedInSource": 39,
+    "noteCareerArticles": 11,
+    "gscMatchedUrlRows": 16,
+    "gscMatchedArticleCount": 15,
+    "gscImpressions": 77,
+    "gscClicks": 1,
+    "affiliateImpressions": 15481,
+    "affiliateClicks": 12,
+    "a8Months": [
+      "2026-05",
+      "2026-06",
+      "2026-07"
+    ]
+  }
+}
