@@ -18,8 +18,8 @@
  */
 
 import { execSync } from "child_process";
-import { readFileSync, existsSync } from "fs";
-import { resolve } from "path";
+import { readFileSync, existsSync, readdirSync } from "fs";
+import { join, resolve } from "path";
 
 // --- Check 1: Dark mode border ---
 const BORDER_PATTERN = /border-gray-[123]00/;
@@ -62,18 +62,30 @@ const SKIP_LINE_PATTERN = /^\s*(\/\/|\/\*|\*|import )/;
 // cn() 等の複数行クラス指定で、近隣行に dark:border があれば OK とする探索範囲
 const NEARBY_WINDOW = 5;
 
+function collectUiFiles(directory, results = []) {
+  if (!existsSync(directory)) return results;
+
+  for (const entry of readdirSync(directory, { withFileTypes: true })) {
+    const filePath = join(directory, entry.name);
+    if (entry.isDirectory()) {
+      collectUiFiles(filePath, results);
+    } else if (
+      entry.isFile() &&
+      UI_FILE_PATTERN.test(filePath) &&
+      !EXCLUDE_PATTERN.test(filePath)
+    ) {
+      results.push(filePath);
+    }
+  }
+
+  return results;
+}
+
 function getTargetFiles() {
   const allMode = process.argv.includes("--all");
 
   if (allMode) {
-    try {
-      const output = execSync('find src \\( -name "*.tsx" -o -name "*.css" \\) -not -name "*.stories.tsx"', {
-        encoding: "utf-8",
-      });
-      return output.trim().split("\n").filter(Boolean);
-    } catch {
-      return [];
-    }
+    return collectUiFiles("src").sort();
   }
 
   // ステージされた UI ファイル

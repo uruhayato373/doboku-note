@@ -19,7 +19,7 @@ export default function StandardsAgencySelector({
 
   return (
     <div className="border border-[var(--rule-soft)] bg-[var(--paper)] p-5">
-      <label htmlFor="standards-agency" className="block font-serif text-lg font-bold text-[var(--ink)]">
+      <label htmlFor="standards-agency" className="block text-lg font-bold text-[var(--ink)]">
         地方整備局等を選んで表示
       </label>
       <p className="mt-1 text-[13px] leading-[1.7] text-[var(--ink-muted)]">

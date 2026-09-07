@@ -372,9 +372,10 @@ curl https://<account>.r2.cloudflarestorage.com/
 
 | workflow | cron | **実行ブランチ** | push 先 | 対象 |
 |---|---|---|---|---|
-| `psi-audit.yml` | `0 17 * * *` | **main**（ref 無し） | develop | PSI / Core Web Vitals |
-| `fetch-metrics.yml` | `0 21 * * 4` | **main**（ref 無し） | develop | GA4 / GSC 週次 |
-| `index-coverage.yml` | `0 2 1 * *` | **main**（ref 無し） | develop | GSC index coverage |
+| `psi-audit.yml` | `0 17 * * *` | **develop**（明示） | develop | PSI / Core Web Vitals |
+| `fetch-metrics.yml` | `0 21 * * 4` | **develop**（明示） | develop | GA4 / GSC 週次 |
+| `gsc-auto-review.yml` | `0 3 * * 5` | **develop**（明示） | develop | GSC 週次・月次の記録層 |
+| `index-coverage.yml` | `0 2 1 * *` | **develop**（明示） | develop | GSC index coverage |
 | `weekly-review-guard.yml` | `17 2 * * 1` | **main**（ref 無し） | なし | 週次レビュー実施の督促 |
 | `r2-audit.yml` | `0 22 * * 0` | **main**（明示） | なし | R2 / OGP / 品質ゲート |
 | `post-youtube-scheduled.yml` | `17 8 * * *` | **develop**（明示） | develop | YouTube 通常動画・Shorts 予約投稿 |
@@ -830,6 +831,44 @@ R2 でも同型が起きた。`rclone lsd obsidian-r2:` が空を返したので
 対照実験（中身があると分かっている公開バケットを同じ remote で引く）でも空だったため、
 **その remote から見えていないだけ**と分かった（`CLOUDFLARE_ACCOUNT_ID` と rclone の endpoint が別アカウント）。
 見えない環境から「無い」と結論しない。
+
+## 2026-09-07 — A8 管理画面は会社プロキシが CONNECT ごと拒否する（端末制約）
+
+DN-0120（A8 成果の取り込み）を会社 PC で進めようとして `auth:login --service a8` が
+`net::ERR_EMPTY_RESPONSE at https://management.af8.jp/` で失敗した。ホストが死んだのではない。
+
+切り分けの実測（2026-09-07）:
+
+| 経路 | 結果 |
+|---|---|
+| `curl -v https://www.a8.net/` | `CONNECT tunnel` → `HTTP/1.0 200 Connection established` |
+| `curl -v https://management.af8.jp/` | **`Proxy CONNECT aborted`**（トンネル自体を拒否） |
+| アプリ内ブラウザ | `a8.net is blocked by policy`（別レイヤでも遮断） |
+
+**恒久ルール**:
+
+- **A8 の成果取り込みは会社 PC では実行できない**。人がログインすれば済む話ではなく、
+  プロキシが管理ドメインへのトンネルを張らせない。Mac か別回線で実行する。
+- `ERR_EMPTY_RESPONSE` / `Proxy CONNECT aborted` は「サイト障害」でも「認証切れ」でもなく
+  **経路の遮断**。`auth:status` が返す `expired` と混ぜて「再ログインすれば直る」と書かない。
+- 同じ口座でも `www.a8.net` は通る。**トップページが開けることを管理画面の到達性の証拠にしない**。
+
+## 2026-09-07 — 社内プロキシの 503 ブロック HTML を本番障害と誤読した
+
+`main` デプロイ成功直後に `npm run check-production-ssr` が `doboku-note.pages.dev` と
+`doboku-note.com` の両方を HTTP 503 と判定した。一方、アプリ内ブラウザでは本番トップの
+タイトル・`<main>`・主要コンテンツを正常に確認できた。curl のレスポンス本文は
+`<TITLE>ブロックされました。</TITLE>` であり、Cloudflare の応答ではなく会社 PC の
+社内プロキシが生成したブロックページだった。
+
+**恒久ルール**:
+
+- HTTP ステータスだけで本番障害と断定しない。既知の社内プロキシ・ブロック HTML は
+  「サイトが 503」ではなく「この経路では検査不成立」と扱う。
+- `check-production-ssr` は HTTP 000 に加え、このブロック署名を exit 2 に分類する。
+  通常の 500/503 は引き続き exit 1 であり、サイト障害を隠さない。
+- CLI が検査不成立でもデプロイ成功とは断定せず、GitHub Actions のデプロイ完了と、
+  ブロックされないブラウザ経路で `<main>` と主要キーワードを確認して切り分ける。
 
 ## 2026-09-03 GSC と GA4 の検索流入が 60 倍乖離した（2026-09-04 原因確定）
 

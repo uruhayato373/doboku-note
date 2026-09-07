@@ -3,12 +3,15 @@ import { join, relative, sep } from 'path';
 import matter from 'gray-matter';
 import { loadGitDates, lookupGitDates } from '../.claude/scripts/lib/git-dates.mjs';
 import { SITE_CONTENT_ROOT } from './lib/repository-paths.mjs';
+import { renderSitemapEntry, resolveStaticLastmod } from './lib/sitemap-lastmod.mjs';
 
 const SITE_URL = 'https://doboku-note.com';
 const OUT_DIR = 'out';
 const POSTS_DIR = SITE_CONTENT_ROOT;
 const REDIRECTS_FILE = join('public', '_redirects');
 const CATEGORIES_FILE = join('src', 'config', 'categories.json');
+const STANDARDS_CATALOG_FILE = join('content', 'site', 'standards-library', 'catalog.json');
+const STANDARDS_AS_OF = JSON.parse(readFileSync(STANDARDS_CATALOG_FILE, 'utf8')).asOf;
 const HIDDEN_CATEGORY_PATHS = new Set(
   JSON.parse(readFileSync(CATEGORIES_FILE, 'utf8'))
     .filter((category) => category.visible === false)
@@ -177,7 +180,7 @@ function collectStaticHtmlFiles(dir, files = [], root = dir) {
     if (entry.isDirectory()) {
       collectStaticHtmlFiles(full, files, root);
     } else if (entry.isFile() && name.endsWith('.html') && name !== '404.html') {
-      files.push({ path: full, mtime: statSync(full).mtime });
+      files.push({ path: full });
     }
   }
   return files;
@@ -207,7 +210,7 @@ console.log(gitFallbacks === 0
 const urls = [];
 
 // 静的ページ (/, /about, /contact, /terms, /privacy, /category/*)
-for (const { path, mtime } of collectStaticHtmlFiles(OUT_DIR)) {
+for (const { path } of collectStaticHtmlFiles(OUT_DIR)) {
   // relative() は OS 区切り文字を返す。Windows でそのまま URL にすると
   // <loc>https://doboku-note.com/category\civil-construction-1</loc> のように
   // バックスラッシュが混入する（2026-08-06 実測）。本番デプロイは main への push
@@ -222,7 +225,11 @@ for (const { path, mtime } of collectStaticHtmlFiles(OUT_DIR)) {
   if (/<meta(?=[^>]*name=["']robots["'])(?=[^>]*content=["'][^"']*noindex)[^>]*>/i.test(html)) continue;
   const meta = getUrlMeta(urlPath, null);
   if (!meta) continue;
-  urls.push({ loc: `${SITE_URL}${urlPath}`, lastmod: mtime.toISOString(), ...meta });
+  // out/*.html の mtime はビルドのたびに変わり、実際には未更新のページまで更新済みと
+  // Google に通知してしまう。原典カタログを表示する standards ページだけ catalog.asOf を
+  // 使い、それ以外の静的ページは正確な更新日を持たないため lastmod 自体を省略する。
+  const lastmod = resolveStaticLastmod(urlPath, STANDARDS_AS_OF);
+  urls.push({ loc: `${SITE_URL}${urlPath}`, lastmod, ...meta });
 }
 
 // MDX は意図別 canonical route で生成。旧 /docs は _redirects のみ。
@@ -245,7 +252,7 @@ unique.sort((a, b) => a.loc.localeCompare(b.loc));
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${unique.map((u) => `<url><loc>${u.loc}</loc><lastmod>${u.lastmod}</lastmod><changefreq>${u.changefreq}</changefreq><priority>${u.priority}</priority></url>`).join('\n')}
+${unique.map(renderSitemapEntry).join('\n')}
 </urlset>`;
 
 writeFileSync(join(OUT_DIR, 'sitemap.xml'), sitemap);

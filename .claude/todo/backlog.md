@@ -21,6 +21,33 @@
 
 ## 🔴 高 — 来月中に着手
 
+### [DN-0183] 共通仕様書データ公開・比較基盤を別PCで仕上げてデプロイする
+タグ: [UI・UX] [インフラ・計測] [収益化] [種類:改善] [Codex候補] [進行中] [起票:2026-09-07]
+
+2026-09-07 の作業はこのカードと同じ `develop` の引き継ぎコミットにまとめる。各整備局の共通仕様書を「閲覧HTML（検索対象）＋Markdown/JSON-LD（`X-Robots-Tag: noindex` の再利用データ）」として公開し、地域差比較と加工受託の実績提示までつなぐ。原機関を加工データの publisher と誤表示せず、原本の発行者と doboku-note の加工主体を分離する。
+
+**実装済み**:
+
+- `/standards/data` と `/standards/compare`、文書・章ごとの Markdown/JSON-LD ダウンロード導線
+- `content/site/standards-articles/comparison.json` と生成スクリプト。構造化済み8文書を比較し、近畿基準で同一5局、差分2局（12章・54差分塊）を抽出
+- 8文書・344章・14,432条・707ファイルの公開データ生成と検査。生成物 `public/standards-data/` はGit対象外で、build時に再生成する
+- 出典・原本SHA-256・掲載ページ・章SHA-256・利用条件・加工主体をエクスポートへ付与
+- 共通仕様書ページの上部整理、パンくず・右サイドバー・フォント・カード意匠をサイト全体へ統一
+- データダウンロード計測、問い合わせ種別、情報設計・収益化戦略、Windows対応のbuild/UI検査を更新
+
+**確認済み**: `npm run check-standard-articles` は120検査PASS、`npm run check-standards-data` は8文書/344章/14,432条PASS、`node scripts/lint-ui.mjs --all` は156ファイルPASS、`npm run type-check` と `npm run build` はPASS、`npm run check-seo-meta` はHIGH 0（既存 `/search` の本文薄さだけMEDIUM 1）。アプリ内ブラウザの安全制限で localhost の自動再読込だけ未成立。
+
+**別PCでの再開順**:
+
+1. `develop` を同期し、`npm ci` → `npm run dev`。`/standards`、`/standards/data`、`/standards/compare`、`/standards/kinki/common/chapters/1-1` をPC/スマホ幅・ライト/ダークで目視する
+2. 原本PDF行・章ナビ行が章ページ上部へ戻っていないこと、パンくずが「第1編 共通編」であること、右サイドバーの本文フォントと余白を確認する
+3. `npm run build-standards-data` → `npm run check-standard-articles` → `node scripts/lint-ui.mjs --all` → `npm run type-check` → `npm run build` → `npm run check-seo-meta` を再実行する
+4. 差分をレビューし、今回無関係な自動生成時刻だけの変更を含めずcommitする。`public/standards-data/`はcommitしない
+5. ユーザー承認後に `/deploy` で本番反映し、本番の4ページ・データURL・ヘッダーを確認する
+6. GSCで新規2ページの検出・インデックス状況を記録し、GA4の `standards_data_download` と問い合わせ件数を週次/月次レビューで追う。行政からの直接受注は実績が出るまで売上前提にしない
+
+**完了条件**: 本番でHTML・Markdown・JSON-LD・比較ページが取得でき、正規URL/構造化データ/レスポンスヘッダー/モバイルUIが正常、GSCとGA4の計測開始を確認したらカードを削除する。
+
 ### [DN-0135] 人・外部実体が必要な残務
 タグ: [収益化] [種類:不具合] [起票:2026-08-25]
 
@@ -45,23 +72,7 @@
 
 ## 🟡 中 — 2〜3ヶ月以内
 
-### [DN-0176] 添付実査の偽陰性（全件走査だけ live=0 と出る）をなくす
-タグ: [インフラ・計測] [種類:不具合] [Codex候補] [検証:check-note-attachments] [起票:2026-09-06] [期日:2026-10-31]
 
-`check-note-attachments --live` の全件走査（575本）で、実際には添付がある記事を live=0 と報告する取りこぼしが 2 日で 2 件出た（2026-09-05 の n845a47ddaa83・2026-09-06 の nc6c8bb7fb7d3）。どちらも `--only <noteId>` の単独実測では充足 1・不足 0 になる。走査は 1 記事あたり 2 回リトライするが、全件走査では末尾へのスクロール待ちが足りず添付カードを取り逃していると見られる。
-
-実害は「赤が本物か分からなくなる」こと。添付そのものは `note-attach-file` が編集前に既存 PDF カードを検出して上書きを避けるため、偽陰性から二重添付には至らない（scripts/note-attach-file.mjs:87-105）。
-
-出口: 全件走査が live=0 と判定した記事を、スナップショットへ書く前に単独条件で再実測して確定させる。既知の 2 件を再現ケースに使い、全件走査と `--only` の結果が一致することを確認する。
-
-### [DN-0177] 価格変更・境界再設定のパスに PDF 添付の増減ゲートを付ける
-タグ: [収益化] [インフラ・計測] [種類:不具合] [検証:check-note-attachments] [起票:2026-09-06] [期日:2026-10-31]
-
-nded084d4f646（1級土木 R06 過去問模範答案）が 2026-09-05 の実査では添付ありだったのに、同日 19:00 にバナー差し替えがエディタを開いた時点で添付 0 になっていた（差し替え側は編集前 probe で 0 を観測しており、消したのは別経路）。同日 17:47 の価格一括変更でこの記事だけ `page.goto: net::ERR_ABORTED` で失敗しており、そこが疑わしいが未確定。この記事は 2026-08-12 にも同じ喪失を起こしている。
-
-`note-swap-author-banner.mjs` は編集前後で添付数を数えて減っていれば保存しないゲートを持ち、実際に 252 本で 1 件も落としていない。同じゲートを価格変更・境界再設定の経路にも入れる。
-
-出口: 該当スクリプトを特定し、保存前に `listAttachedFiles` の前後比較を入れて減少時は保存しない。喪失時は `.claude/state/note-attachment-loss.json` の pending へ積む。ERR_ABORTED のような遷移失敗はリトライし、リトライ後も失敗するなら保存に進まない。
 
 ### [DN-0168] コンクリート単品¥980の値上げ可否を試験後に判定する
 タグ: [収益化] [種類:改善] [起票:2026-09-04] [期日:2026-12-12]
@@ -75,6 +86,8 @@ nded084d4f646（1級土木 R06 過去問模範答案）が 2026-09-05 の実査�
 タグ: [収益化] [種類:改善] [起票:2026-08-24] [期日:2026-09-16]
 
 2026-08は現状維持で観測を継続した。実績が確定する9月中旬に`npm run a8-ui:fetch`（ローカルログイン＋CAPTCHA要）で取り込み、(1)継続 / (2)露出を絞る / (3)撤退して自社商品導線へ、を再判定する。比較には`.claude/state/metrics/affiliate/a8-results.json`と配置別クリックを使い、確定成果・EPC・面別母数を同じ期間で揃える。
+
+**実行端末**: 会社PCでは不可。プロキシが `management.af8.jp` への CONNECT を拒否する（2026-09-07 実測。`www.a8.net` は 200 で通るがトンネルは張れない）。Mac か別回線で実行する。EPC の分母（GA4 by-label クリック）と `check-a8-report-due`（2026-09-07 時点で DUE）は手元で足りている。
 
 
 ### [DN-0142] reference-materials 再公開5記事のGSC効果を計測する
@@ -161,24 +174,6 @@ SEO記事・note・SNS
 
 Phase 3の評価を戦略SSOTへ反映し、資格拡張の可否を確定したらカードを削除する。
 
-### [DN-0108] Windows・Mac共通のPlaywright認証永続化基盤
-タグ: [インフラ・計測] [種類:改善] [Codex候補] [起票:2026-08-21]
-
-Playwrightのログインprofileはサービス別に永続化されているが、note/Brain/ココナラ/KDPはrepository配下の`.local`、X/Instagram/A8の一部はMacユーザー名の絶対パス、Googleだけは独自`DOBOKU_PROFILE_ROOT`と保存先規則が分裂している。worktreeやWindows/Macを切り替えると別profileを作り、再ログインや誤アカウント操作の原因になる。一方、Cookie/profileのPC間同期はOS暗号化・漏洩・破損リスクがあるため採用しない。
-
-**実装指示書**: [DN-0108-cross-device-playwright-auth/00-master.md](../plans/DN-0108-cross-device-playwright-auth/00-master.md)
-
-**確定方針**: コード・service registry・account assertだけをGit共有し、認証profile/stateはWindowsとMacで独立保持する。`DOBOKU_AUTH_ROOT`＋OS標準ローカル領域へ統一し、password/2FA/CookieはGit・env・GitHub Secretsへ保存しない。GitHub ActionsはAPI/MCP経路を維持する。
-
-**ハーネス判断**: `.agents/skills/dev/playwright-auth/SKILL.md`をuser-invocableかつ`disable-model-invocation: true`で新設し、`auth:paths/doctor/login/status/migrate`を安全な順番で呼ぶ薄いオーケストレーターにする。skill内へ認証ロジックを複製せず、`skills-registry.md`へ登録する。意味評価や生成がなく決定的scriptで判定できるため、専用agentは作らない。サービス固有操作は既存operator/collectorの責務を維持する。
-
-**機械チェック**: ①CI/ローカル共通=`check-playwright-auth-wiring:strict`でMac/Windows絶対パス、repo相対profile、resolver未使用、secret key候補を0にする、②PCローカルoffline=`auth:paths/doctor`でroot・権限・lock・legacy・profile競合を診断、③PCローカルonline read-only=`auth:status`で`authenticated/expired/blocked/unknown/unsupported`を実ページ＋account assertから判定する。profile存在だけをauthenticatedにしない。CIには実profile・login・statusを持ち込まない。
-
-**残作業**: Windows実機で、Macと同じcommit候補を使い独立した`auth:paths`→`auth:doctor`→noteのlogin/status→Chrome再起動後status→worktree非依存を検証する。Macは2026-09-05に旧note profileをOS標準rootへコピー（旧source保持）し、別プロセス`auth:status`で`authenticated`＋account assert一致までPASS済み。両PCの証拠が揃ったら恒久SSOTを最終確認し、本カードとplanを削除する。
-
-**禁止**: profile/Cookie/storageStateのPC間・クラウド・Git同期、password/2FA自動入力、CAPTCHA回避、旧profileの自動削除、target上書き、profile並行利用時の自動kill、profile存在だけでauthenticated判定、account/site/property assert弱化、Gmail Playwright化、投稿・公開・申請・購入・push・deploy。
-
-**完了条件**: runtimeのMac絶対パスとrepo相対profile直書きが0、全対象が共通resolver利用、Windows/Mac双方でnoteのlogin→close→別プロセスstatusとworktree非依存がPASSする。専用スキルが薄いCLIオーケストレーターとして登録され、専用agentが増えていない。A8 profile-plus-state、afb same-process、Gmail非対応を維持し、`check-playwright-auth-wiring:strict`・auth CLIテスト・affiliate/Google配線・lint/type-check/doc refsがPASS。profile/state/Cookie/password/token/2FAのGit差分は0。
 
 ### [DN-0026] 土木公務員 SEO 第1期の効果測定（handoff 2026-08-17 抽出）
 タグ: [SNS・マーケ] [種類:改善] [期日:2026-09-14]
@@ -191,13 +186,6 @@ Playwrightのログインprofileはサービス別に永続化されているが
 
 ## 🟢 低 — 時期未定
 
-### [DN-0179] 総監キーワード663本へ参考文献IDを段階付与する
-タグ: [コンテンツ品質] [種類:改善] [Codex候補] [起票:2026-09-06]
-
-総監キーワード663本は参考文献台帳の `appliesTo` に対して一括で原本を決められず、DN-0178 の
-自動付与対象から外した。各記事の定義・数値・参考資料を確認し、`.claude/config/reference-sources.json`
-の正しい ID を `sources` に付ける。白書・法令・規格を優先し、市販教材を機械的に全件付与しない。
-20〜50本単位で進め、`npm run check-reference-sources` の missing baseline を減らす方向だけに更新する。
 
 ### [DN-0180] Drive共通仕様書文字起こし350本とstandards-libraryの関係を整理する
 タグ: [エージェント・SSOT] [種類:改善] [Codex候補] [起票:2026-09-06]
@@ -213,13 +201,6 @@ provenanceに必要なもの、監査用にだけ残すもの、台帳対象外�
 `check-reference-sources --deep` の `commercial-book` 逐語検査は40文字を初期値にした。短い定型句の
 誤検知と、句読点・空白・表記差を挟んだ転載の見逃しを、実記事と合成fixtureで測る。しきい値変更は
 検出率・誤検知率・代表例を示してから判断し、今回確定した `verbatim: forbidden` 自体は変えない。
-
-### [DN-0182] 白書由来記事へgovernment-publicationのsource IDを付与する
-タグ: [コンテンツ品質] [種類:改善] [Codex候補] [起票:2026-09-06]
-
-白書・省庁資料を根拠にする既存記事を抽出し、対応する `government-publication` の ID を
-frontmatter `sources` に付ける。本文の出典には資料名と URL を示し、編集・加工した図表はその旨も
-確認する。書名の自由文字列や推測 ID は追加せず、台帳に原本が無ければ先に登録する。
 
 
 ### [DN-0175] SNS残存画像を公開完了後に再監査する

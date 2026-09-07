@@ -27,7 +27,7 @@ export default function StandardsPage() {
     <PageShell variant="default">
       <PageHeader
         variant="band"
-        label="PUBLIC STANDARDS"
+        label="公的基準類ライブラリ"
         title="土木工事共通仕様書・工事必携"
         lead="地方整備局等が公開する共通仕様書・工事必携・施工管理資料を、原本PDFのページ番号を保ったまま全文検索できる形に整理しました。"
         meta={`全国${catalog.totals.agencies}機関・${catalog.totals.documents}文書・${catalog.totals.pages.toLocaleString('ja-JP')}ページ・${catalog.totals.parts}分冊`}
@@ -44,16 +44,38 @@ export default function StandardsPage() {
           ].map(([label, value]) => (
             <SectionCard key={label} padding="compact">
               <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--ink-muted)]">{label}</div>
-              <div className="mt-2 font-serif text-2xl font-bold text-[var(--ink)]">{value}</div>
+              <div className="mt-2 text-2xl font-bold text-[var(--ink)]">{value}</div>
             </SectionCard>
           ))}
+        </div>
+        <div className="mt-5 grid gap-4 md:grid-cols-2">
+          <Link
+            href="/standards/compare"
+            className="focus-ring card-interactive border border-[var(--rule-soft)] bg-[var(--paper)] p-5 transition-[border-color,box-shadow] hover:border-[var(--accent)]"
+          >
+            <div className="text-[11px] font-bold tracking-[0.08em] text-[var(--accent)]">地域差分</div>
+            <h2 className="mt-2 text-lg font-bold text-[var(--ink)]">地方整備局別の違いを見る</h2>
+            <p className="mt-2 text-[14px] leading-[1.8] text-[var(--ink-body)]">
+              近畿版を基準に、本文が一致する仕様書と地域固有の記述を章・行単位で比較します。
+            </p>
+          </Link>
+          <Link
+            href="/standards/data"
+            className="focus-ring card-interactive border border-[var(--rule-soft)] bg-[var(--paper)] p-5 transition-[border-color,box-shadow] hover:border-[var(--accent)]"
+          >
+            <div className="text-[11px] font-bold tracking-[0.08em] text-[var(--accent)]">OPEN DATA</div>
+            <h2 className="mt-2 text-lg font-bold text-[var(--ink)]">JSON-LD・Markdownを利用する</h2>
+            <p className="mt-2 text-[14px] leading-[1.8] text-[var(--ink-body)]">
+              出典・原本ハッシュ・編章節条の階層を保持した機械可読データを公開しています。
+            </p>
+          </Link>
         </div>
       </SectionBlock>
 
       <SectionBlock divider="top" ariaLabel="近畿地方整備局">
         <div className="mb-6">
           <div className="font-mono text-[11px] uppercase tracking-widest text-[var(--accent)]">KINKI</div>
-          <h2 className="mt-2 font-serif text-2xl font-bold text-[var(--ink)]">近畿地方整備局</h2>
+          <h2 className="mt-2 text-2xl font-bold text-[var(--ink)]">近畿地方整備局</h2>
           <p className="mt-2 max-w-[65ch] text-[15px] leading-[1.85] text-[var(--ink-body)]">
             本ライブラリの起点となった「土木工事共通仕様書（案）令和8年4月改定」と「土木請負工事必携 令和6年8月」です。全1,421ページを欠番なく収録しています。
           </p>
@@ -65,7 +87,7 @@ export default function StandardsPage() {
 
       <SectionBlock divider="top" ariaLabel="発行機関別一覧">
         <div className="mb-6">
-          <h2 className="font-serif text-2xl font-bold text-[var(--ink)]">発行機関から探す</h2>
+          <h2 className="text-2xl font-bold text-[var(--ink)]">発行機関から探す</h2>
           <p className="mt-2 text-[14px] leading-[1.8] text-[var(--ink-muted)]">
             共通部分が重なる仕様書は、各機関の文書ページを公開しつつ、重複する全文分冊を検索インデックスから整理しています。
           </p>
@@ -77,7 +99,7 @@ export default function StandardsPage() {
               href={`/standards/${agency.agencyId}`}
               className="focus-ring card-interactive border border-[var(--rule-soft)] bg-[var(--paper)] p-5 transition-[border-color,box-shadow] hover:border-[var(--accent)]"
             >
-              <h3 className="font-serif text-lg font-bold text-[var(--ink)]">{agency.agencyName}</h3>
+              <h3 className="text-lg font-bold text-[var(--ink)]">{agency.agencyName}</h3>
               <p className="mt-2 font-mono text-[11px] text-[var(--ink-muted)]">
                 {agency.documentCount}文書 / {agency.pages.toLocaleString('ja-JP')}ページ / {agency.partCount}分冊
               </p>
@@ -89,7 +111,7 @@ export default function StandardsPage() {
       {guides.length > 0 && (
         <SectionBlock divider="top" ariaLabel="実務向け要点ガイド">
           <div className="mb-6">
-            <h2 className="font-serif text-2xl font-bold text-[var(--ink)]">実務向け要点ガイド</h2>
+            <h2 className="text-2xl font-bold text-[var(--ink)]">実務向け要点ガイド</h2>
             <p className="mt-2 text-[14px] leading-[1.8] text-[var(--ink-muted)]">
               原典全文とは別に、設計・施工時に確認しやすい論点を資料別に整理しています。
             </p>

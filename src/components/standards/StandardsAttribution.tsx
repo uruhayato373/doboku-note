@@ -41,7 +41,7 @@ export default function StandardsAttribution({ document }: { document?: Standard
         </p>
         <p>
           <a
-            href="https://www.mlit.go.jp/links/terms-of-use.html"
+            href="https://www.mlit.go.jp/link.html"
             target="_blank"
             rel="noopener noreferrer"
             className="text-[var(--accent)] underline underline-offset-4"

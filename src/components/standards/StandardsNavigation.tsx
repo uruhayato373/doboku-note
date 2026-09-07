@@ -26,7 +26,7 @@ type StandardsNavigationProps = {
 };
 
 const LINK_BASE =
-  'focus-ring flex min-h-11 items-center gap-3 border-l-4 px-3 py-2 text-[13px] leading-[1.45] transition-colors';
+  'focus-ring flex min-h-11 items-center gap-3 border-l-4 px-3 py-2 text-[14px] leading-[1.55] transition-colors';
 
 function navLinkClass(active: boolean): string {
   return active
@@ -37,9 +37,9 @@ function navLinkClass(active: boolean): string {
 function NavHeading({ children, count }: { children: string; count?: number }) {
   return (
     <div className="flex items-baseline justify-between gap-3 border-b border-[var(--rule-soft)] px-4 py-3">
-      <h3 className="font-serif text-[15px] font-bold text-[var(--ink)]">{children}</h3>
+      <h3 className="text-[15px] font-bold tracking-[0.02em] text-[var(--ink)]">{children}</h3>
       {typeof count === 'number' && (
-        <span className="font-mono text-[10px] tabular-nums text-[var(--ink-muted)]">{count}</span>
+        <span className="font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">{count}</span>
       )}
     </div>
   );
@@ -62,7 +62,7 @@ function AgencyNav({ currentAgency }: { currentAgency: string }) {
                 aria-current={active ? 'page' : undefined}
               >
                 <span className="min-w-0 flex-1">{agency.agencyName}</span>
-                <span className="shrink-0 font-mono text-[10px] tabular-nums text-[var(--ink-muted)]">
+                <span className="shrink-0 font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">
                   {agency.documentCount}
                 </span>
               </Link>
@@ -84,7 +84,7 @@ function DocumentLink({ document, active }: { document: StandardDocument; active
     >
       <span className="min-w-0 flex-1">
         <span className="line-clamp-2">{document.title}</span>
-        <span className="mt-1 block font-mono text-[10px] font-normal text-[var(--ink-muted)]">
+        <span className="mt-1 block font-mono text-[11px] font-normal text-[var(--ink-muted)]">
           {document.role === 'common' ? '共通仕様書' : '工事必携・関連資料'} · {document.pages.toLocaleString('ja-JP')}頁
         </span>
       </span>
@@ -147,33 +147,48 @@ function ChapterNav({
   return (
     <nav aria-label="章を移動" className="border border-[var(--rule-soft)] bg-[var(--paper)]">
       <NavHeading count={total}>章から読む</NavHeading>
-      <div className="py-1" data-standards-nav="chapters">
-        {books.map((book) => (
-          <div key={book.bookNumber}>
-            <p className="px-4 pt-2 pb-1 font-mono text-[10px] tracking-wide text-[var(--ink-muted)]">
-              第{book.bookNumber}編 {book.bookTitle}
-            </p>
-            <ul>
-              {book.chapters.map((chapter) => {
-                const active = chapter.chapterId === currentChapter?.chapterId;
-                return (
-                  <li key={chapter.chapterId}>
-                    <Link
-                      href={standardChapterPath(document, chapter)}
-                      className={navLinkClass(active)}
-                      aria-current={active ? 'page' : undefined}
-                    >
-                      <span className="w-8 shrink-0 font-mono text-[10px] tabular-nums text-[var(--ink-muted)]">
-                        {chapter.chapterNumber}章
-                      </span>
-                      <span className="min-w-0 flex-1">{chapter.chapterTitle}</span>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        ))}
+      <div data-standards-nav="chapters">
+        {books.map((book) => {
+          const activeBook = book.chapters.some(
+            (chapter) => chapter.chapterId === currentChapter?.chapterId,
+          );
+          return (
+            <details
+              key={book.bookNumber}
+              open={activeBook}
+              className="group border-b border-[var(--rule-soft)] last:border-b-0"
+            >
+              <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center gap-2 px-4 py-2 marker:hidden">
+                <span className="min-w-0 flex-1 text-[13px] font-bold leading-[1.5] text-[var(--ink-body)]">
+                  第{book.bookNumber}編 {book.bookTitle}
+                </span>
+                <span className="font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">
+                  {book.chapters.length}
+                </span>
+                <DisclosureChevron className="disclosure-chevron h-4 w-4 shrink-0 text-[var(--ink-muted)]" />
+              </summary>
+              <ul className="border-t border-[var(--rule-soft)] py-1">
+                {book.chapters.map((chapter) => {
+                  const active = chapter.chapterId === currentChapter?.chapterId;
+                  return (
+                    <li key={chapter.chapterId}>
+                      <Link
+                        href={standardChapterPath(document, chapter)}
+                        className={navLinkClass(active)}
+                        aria-current={active ? 'page' : undefined}
+                      >
+                        <span className="w-8 shrink-0 font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">
+                          {chapter.chapterNumber}章
+                        </span>
+                        <span className="min-w-0 flex-1">{chapter.chapterTitle}</span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </details>
+          );
+        })}
       </div>
     </nav>
   );
@@ -195,7 +210,7 @@ function SectionNav({ chapter }: { chapter: StandardChapter }) {
               href={`#${generateHeadingId(section.headingText)}`}
               className={navLinkClass(false)}
             >
-              <span className="w-8 shrink-0 font-mono text-[10px] tabular-nums text-[var(--ink-muted)]">
+              <span className="w-8 shrink-0 font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">
                 {section.number}節
               </span>
               <span className="min-w-0 flex-1">{section.title}</span>
@@ -221,7 +236,7 @@ function PartNav({ document, currentPart }: { document: StandardDocument; curren
                 className={navLinkClass(active)}
                 aria-current={active ? 'page' : undefined}
               >
-                <span className="w-5 shrink-0 font-mono text-[10px] tabular-nums text-[var(--ink-muted)]">
+                <span className="w-5 shrink-0 font-mono text-[11px] tabular-nums text-[var(--ink-muted)]">
                   {String(index + 1).padStart(2, '0')}
                 </span>
                 <span className="min-w-0 flex-1">PDF {part.firstPage}–{part.lastPage}</span>
@@ -272,10 +287,10 @@ function NavigationContents({
   return (
     <>
       {!currentPart && !currentChapter && <DocumentNav currentDocument={currentDocument} />}
+      {currentChapter && <SectionNav chapter={currentChapter} />}
       {hasChapters && !currentPart && (
         <ChapterNav document={currentDocument} currentChapter={currentChapter} />
       )}
-      {currentChapter && <SectionNav chapter={currentChapter} />}
       {(!hasChapters || currentPart) && (
         <PartNav document={currentDocument} currentPart={currentPart} />
       )}
@@ -326,7 +341,7 @@ export default function StandardsNavigation({
       >
         <summary className="focus-ring flex min-h-12 cursor-pointer list-none items-center gap-3 px-4 py-3 marker:hidden">
           <span className="min-w-0 flex-1">
-            <span className="block font-serif text-[15px] font-bold text-[var(--ink)]">資料内を移動</span>
+            <span className="block text-[15px] font-bold tracking-[0.02em] text-[var(--ink)]">資料内を移動</span>
             <span className="mt-0.5 block truncate text-[11px] text-[var(--ink-muted)]">{contextLabel}</span>
           </span>
           <DisclosureChevron className="disclosure-chevron h-4 w-4 shrink-0 text-[var(--ink-muted)]" />
@@ -347,9 +362,9 @@ export default function StandardsNavigation({
   return (
     <div className="sticky top-6 max-h-[calc(100vh-3rem)] space-y-3 overflow-y-auto" data-standards-sidebar>
       <div className="border border-[var(--rule-soft)] bg-[var(--paper)] p-5">
-        <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--accent)]">LIBRARY NAV</div>
-        <h2 className="mt-2 font-serif text-lg font-bold text-[var(--ink)]">基準類を移動</h2>
-        <p className="mt-2 line-clamp-2 text-[12px] leading-[1.65] text-[var(--ink-muted)]">{contextLabel}</p>
+        <div className="text-[11px] font-bold tracking-[0.08em] text-[var(--accent)]">基準類ナビ</div>
+        <h2 className="mt-2 text-[18px] font-bold tracking-[0.02em] text-[var(--ink)]">資料内を移動</h2>
+        <p className="mt-2 line-clamp-2 text-[13px] leading-[1.7] text-[var(--ink-muted)]">{contextLabel}</p>
         <Link
           href={parentHref}
           className="focus-ring mt-3 inline-flex min-h-11 items-center text-[12px] font-bold text-[var(--accent)] hover:underline"

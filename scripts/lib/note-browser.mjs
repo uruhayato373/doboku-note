@@ -79,8 +79,9 @@ export async function launchNoteContext(opts = {}) {
  * 期待アカウント名が出るまで最大 attempts 回 polling する。
  *
  * 既存実装は 2 系統あった。どちらも同じ形（attempts × intervalMs）に一般化できる:
- *   - 単発チェック（check-note-attachments 等）: goto → sleep(1500) → 1回 evaluate
- *     = attempts:1, intervalMs:1500 と等価
+ *   - 単発チェック: goto → sleep(1500) → 1回 evaluate = attempts:1, intervalMs:1500 と等価
+ *     （check-note-attachments はこの形だったが、20 分の走査を 1.5 秒の 1 回判定で ABORT して
+ *       いたため 2026-09-07 に既定へ戻した。単発を選ぶ理由が無いなら既定を使う）
  *   - リトライループ（note-delete-note / note-publish / note-update-body 等）:
  *     for (12 or 10 回) { sleep(2500 or 2000); evaluate（時々 try/catch で握りつぶし） }
  *     = attempts:12/10, intervalMs:2500/2000 と等価

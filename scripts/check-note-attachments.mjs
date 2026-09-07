@@ -23,45 +23,22 @@
  *
  * 使い方:
  *   node scripts/check-note-attachments.mjs                 # source 層（CI）
- *   node scripts/check-note-attachments.mjs --live          # live 層（要ログイン・約15分）
+ *   node scripts/check-note-attachments.mjs --live          # live 層（要ログイン・575 本で 20〜35 分）
  *   node scripts/check-note-attachments.mjs --live --only n155093f42183,na84b001e827e
  *   node scripts/check-note-attachments.mjs --json
  * ---------------------------------------------------------------------------
  */
-import { readdirSync, readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync } from 'node:fs';
 import { join, dirname, relative } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PDF_PROMISE_RE } from './lib/note-frontmatter.mjs';
+import { expectedPdfs, frontmatterValue, needsConfirm, walkArticles } from './lib/note-attachments.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const BASE = join(ROOT, 'content/note');
 
-// 配布 PDF は DN-0111 Phase 4-D で private R2 へ退避し Git 追跡から外した。実体はローカルに
-// 残るが、CI や新規 clone のツリーには無い。ディスクを readdir するだけだと
-// **「本文で約束しているのに実体が無い」が全記事で成立して CI が偽の赤になる**。
-// 退避台帳に sha256 付きで載っているものは「在る」と数える。配布 PDF は 2026-09-05 に
-// R2（manifest.json）から Google Drive vault（drive-manifest.json）へ移した（人 tier）ので両方を見る。
-const MANIFEST_PDFS = (() => {
-  const byDir = new Map();
-  for (const file of ['manifest.json', 'drive-manifest.json']) {
-    let m;
-    try { m = JSON.parse(readFileSync(join(ROOT, '.claude/state/assets', file), 'utf8')); } catch { continue; }
-    for (const [logical, e] of Object.entries(m.entries || {})) {
-      if (e.group !== 'note-delivery-pdf' || !e.sha256 || typeof e.bytes !== 'number') continue;
-      const abs = join(ROOT, logical);
-      const d = dirname(abs);
-      if (!byDir.has(d)) byDir.set(d, []);
-      byDir.get(d).push(abs);
-    }
-  }
-  return byDir;
-})();
-
-/** dir 直下の PDF を「ディスク実体 ∪ 退避台帳」で列挙する。 */
-function pdfsIn(dir) {
-  const disk = existsSync(dir) ? readdirSync(dir).filter((f) => /\.pdf$/i.test(f)).map((f) => join(dir, f)) : [];
-  return [...new Set([...disk, ...(MANIFEST_PDFS.get(dir) || [])])];
-}
+// 期待値の算出（記事 dir の PDF ∪ 退避台帳、型別 article の割り当て）は保存を伴う編集経路と
+// 共有する。単一真実源は scripts/lib/note-attachments.mjs（DN-0177 で切り出し）。
 const ALLOW_PATH = join(ROOT, '.claude/config/note-attachments-allow.json');
 
 const argv = process.argv.slice(2);
@@ -70,8 +47,6 @@ const STAGED = argv.includes('--staged');
 const JSON_OUT = argv.includes('--json');
 const ONLY = (() => { const i = argv.indexOf('--only'); return i >= 0 ? new Set(argv[i + 1].split(',').map((s) => s.trim())) : null; })();
 
-const ARTICLE_RE = /^article(-[^/\\]+)?\.md$/;      // 型別 article-II1.md 等を落とさない
-const TYPE_PDF = { II1: /-II-1-/, II2: /-II-2-/, III: /-III-/ };
 // 本文が「PDF を配る」と約束している signature。prose 側の網。
 // 単一真実源は scripts/lib/note-frontmatter.mjs の PDF_PROMISE_RE（DN-0147 で移設・
 // note-republish-plan.mjs の pdfPromise 判定と同じ正規表現を共有する）。
@@ -79,38 +54,6 @@ const TYPE_PDF = { II1: /-II-1-/, II2: /-II-2-/, III: /-III-/ };
 const allow = existsSync(ALLOW_PATH) ? JSON.parse(readFileSync(ALLOW_PATH, 'utf8')) : { entries: [] };
 const allowMap = new Map((allow.entries || []).map((e) => [e.noteId, e]));
 
-function walk(dir, acc = []) {
-  for (const e of readdirSync(dir, { withFileTypes: true })) {
-    const p = join(dir, e.name);
-    if (e.isDirectory()) walk(p, acc);
-    else if (ARTICLE_RE.test(e.name)) acc.push(p);
-  }
-  return acc;
-}
-const fm = (raw, k) => {
-  const block = raw.match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? '';
-  return (block.match(new RegExp('^' + k + ':\\s*(?:"(.*?)"|\'(.*?)\'|(.+?))\\s*$', 'm')) || []).slice(1).find(Boolean) || '';
-};
-
-// --- 記事ごとに「添付されているべき PDF」を実体から決める（frontmatter に依存しない） ---
-function expectedPdfs(file) {
-  const dir = dirname(file);
-  const name = file.split(/[\\/]/).pop();
-  const here = pdfsIn(dir);
-  const sub = join(dir, 'pdf');
-  const nested = pdfsIn(sub);
-  const type = (name.match(/^article-(.+)\.md$/) || [])[1];
-  if (type && TYPE_PDF[type]) {
-    const hit = here.find((p) => TYPE_PDF[type].test(p.split(/[\\/]/).pop()));
-    return hit ? [hit] : [];
-  }
-  // 型別 article がある dir の素の article.md は、型別の PDF を自分のものと見なさない
-  if (!type) {
-    const siblingTyped = readdirSync(dir).some((f) => /^article-.+\.md$/.test(f));
-    if (siblingTyped) return nested;
-  }
-  return [...here, ...nested];
-}
 
 // --staged: 今回コミットする article*.md だけを見る（pre-commit 用・全量は CI）
 let stagedSet = null;
@@ -121,12 +64,13 @@ if (STAGED) {
 }
 
 const targets = [];
-for (const file of walk(BASE)) {
+for (const file of walkArticles(BASE)) {
   if (stagedSet && !stagedSet.has(relative(ROOT, file).replace(/\\/g, '/'))) continue;
   const raw = readFileSync(file, 'utf8');
-  const noteId = fm(raw, 'noteId');
+  const noteId = frontmatterValue(raw, 'noteId');
   if (!noteId) continue;                                   // 未公開はスキップ
-  if (fm(raw, 'noteStatus') && fm(raw, 'noteStatus') !== 'published') continue;
+  const noteStatus = frontmatterValue(raw, 'noteStatus');
+  if (noteStatus && noteStatus !== 'published') continue;
   if (ONLY && !ONLY.has(noteId)) continue;
   const body = raw.replace(/^---\r?\n[\s\S]*?\r?\n---/, '');
   targets.push({
@@ -134,7 +78,7 @@ for (const file of walk(BASE)) {
     noteId,
     title: (body.split(/\r?\n/).find((l) => l.startsWith('# ')) || '').slice(2, 54),
     promises: PDF_PROMISE_RE.test(body),
-    expected: expectedPdfs(file).map((p) => relative(ROOT, p).replace(/\\/g, '/')),
+    expected: expectedPdfs(file, { root: ROOT }).map((p) => relative(ROOT, p).replace(/\\/g, '/')),
     allow: allowMap.get(noteId) || null,
   });
 }
@@ -197,30 +141,74 @@ const { launchNoteContext, assertAccountGate, sleep } = await import('./lib/note
 const ctx = await launchNoteContext({ viewport: { width: 1280, height: 900 } });
 const page = ctx.pages()[0] || (await ctx.newPage());
 await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded' });
-const gate = await assertAccountGate(page, { url: null, attempts: 1, intervalMs: 1500 });
+// 20 分の走査を 1 回 1.5 秒の判定で中断していた（2026-09-07 実測＝実際は authenticated なのに
+// ABORT）。note-browser の既定（10 回 x 2 秒）へ戻す。ここでの待ちは走査全体から見れば無視できる。
+const gate = await assertAccountGate(page, { url: null });
 if (!gate.ok) {
   console.error('✗ ABORT: note にログインしていない（npm run note-edit-session で1回ログインする）');
   await ctx.close(); process.exit(2);
 }
 console.log(`[check-note-attachments --live] 対象 ${need.length} 件を実査（著者ログイン＝有料エリアも見える）\n`);
 
-const short = []; const fetchFail = []; let ok = 0;
-for (const [i, t] of need.entries()) {
-  let live = null;
-  for (let attempt = 0; attempt < 2 && live === null; attempt++) {
+// 添付カードの描画は記事の重さとプロキシで揺れる。全件走査は短い待ちで流し、**不足と出た記事だけ**を
+// 単独条件で実測し直してから確定させる（2026-09-05 n845a47ddaa83・2026-09-06 nc6c8bb7fb7d3 は
+// `--only` の単独実測なら充足なのに、全件走査だけ live=0 と報告した＝取り逃し）。
+// 待ちを一律に伸ばすと 575 本で数十分伸びるので、代償は「不足と出た件数」にだけ払う。
+const ATTACH_SEL = 'a[href*="api/v2/attachments/download"]';
+// JST 基準。UTC だと JST 09:00 前の実測が前日付になり、note-attach-batch の鮮度判定が
+// 常に「1日古い」と誤警告する。
+const JST_TODAY = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
+const SETTLE_MS = Number(process.env.NOTE_ATTACH_SETTLE_MS || 2500);
+const CONFIRM_SETTLE_MS = Number(process.env.NOTE_ATTACH_CONFIRM_SETTLE_MS || 8000);
+const CONFIRM_WAIT_MS = Number(process.env.NOTE_ATTACH_CONFIRM_WAIT_MS || 15000);
+
+/** 1記事の添付リンク数を実測する。取得できなければ null（0 と区別する）。 */
+async function measureLive(noteId, { settleMs, scrollPasses, waitForAttachmentMs }) {
+  for (let attempt = 0; attempt < 2; attempt++) {
     try {
-      await page.goto(`https://note.com/dobokunote/n/${t.noteId}`, { waitUntil: 'domcontentloaded', timeout: 45000 });
-      await sleep(2500);
+      await page.goto(`https://note.com/dobokunote/n/${noteId}`, { waitUntil: 'domcontentloaded', timeout: 45000 });
+      await sleep(settleMs);
+      for (let p = 1; p <= scrollPasses; p++) {
+        await page.evaluate((n) => window.scrollTo(0, (document.body.scrollHeight * n) / 3), p);
+        await sleep(Math.round(settleMs / 2));
+      }
       await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+      if (waitForAttachmentMs) await page.waitForSelector(ATTACH_SEL, { timeout: waitForAttachmentMs }).catch(() => {});
       await sleep(1500);
-      live = await page.evaluate(() => [...document.querySelectorAll('a')]
-        .filter((a) => /api\/v2\/attachments\/download/.test(a.getAttribute('href') || '')).length);
+      return await page.evaluate((sel) => document.querySelectorAll(sel).length, ATTACH_SEL);
     } catch { await sleep(3000); }
   }
-  if (live === null) { fetchFail.push(t); console.log(`  [${i + 1}/${need.length}] FETCH_ERR ${t.noteId}`); continue; }
+  return null;
+}
+
+const short = []; const fetchFail = []; const provisional = []; const recovered = []; let ok = 0;
+for (const [i, t] of need.entries()) {
   const want = t.allow?.expected ?? t.expected.length;
-  if (live < want) { short.push({ ...t, live, want }); console.log(`  [${i + 1}/${need.length}] ✗ live=${live}/期待${want}  ${t.noteId}  ${t.title}`); }
-  else { ok++; if ((i + 1) % 20 === 0) console.log(`  [${i + 1}/${need.length}] …OK ${ok}`); }
+  const live = await measureLive(t.noteId, { settleMs: SETTLE_MS, scrollPasses: 1, waitForAttachmentMs: 0 });
+  if (live === null) { fetchFail.push(t); console.log(`  [${i + 1}/${need.length}] FETCH_ERR ${t.noteId}`); continue; }
+  if (needsConfirm({ live, want })) {
+    provisional.push({ ...t, live, want });
+    console.log(`  [${i + 1}/${need.length}] △ live=${live}/期待${want} 暫定不足→後で単独再実測  ${t.noteId}`);
+    continue;
+  }
+  ok++; if ((i + 1) % 20 === 0) console.log(`  [${i + 1}/${need.length}] …OK ${ok}`);
+}
+
+// 確定パス（スナップショットへ書く前にここを通す）
+if (provisional.length) {
+  console.log(`\n[confirm] 暫定不足 ${provisional.length} 件を単独条件で再実測（settle ${CONFIRM_SETTLE_MS}ms）`);
+  for (const [i, t] of provisional.entries()) {
+    const live = await measureLive(t.noteId, { settleMs: CONFIRM_SETTLE_MS, scrollPasses: 3, waitForAttachmentMs: CONFIRM_WAIT_MS });
+    if (live === null) { fetchFail.push(t); console.log(`  [${i + 1}/${provisional.length}] FETCH_ERR ${t.noteId}`); continue; }
+    if (live >= t.want) {
+      recovered.push({ noteId: t.noteId, at: JST_TODAY, scanLive: t.live, confirmLive: live, want: t.want });
+      ok++;
+      console.log(`  [${i + 1}/${provisional.length}] ✓ 再実測で充足 live=${live}/期待${t.want}（全件走査の取り逃し）  ${t.noteId}`);
+      continue;
+    }
+    short.push({ ...t, live });
+    console.log(`  [${i + 1}/${provisional.length}] ✗ 確定不足 live=${live}/期待${t.want}  ${t.noteId}  ${t.title}`);
+  }
 }
 await ctx.close();
 
@@ -228,6 +216,7 @@ const inspected = need.length - fetchFail.length;
 const shortPromised = short.filter((s) => s.promises);
 const shortSilent = short.filter((s) => !s.promises);
 console.log(`\n実検査 ${inspected} 件（対象 ${need.length}・取得失敗 ${fetchFail.length}）: 充足 ${ok} / 不足 ${short.length}`);
+console.log(`  暫定不足 ${provisional.length} → 再実測で解消 ${recovered.length} / 確定不足 ${short.length}（解消分は全件走査の取り逃し＝偽陰性）`);
 console.log(`  内訳: **本文で約束していて未添付 ${shortPromised.length} 件（購入者が受け取れない・緊急）** / 本文で触れず未添付 ${shortSilent.length} 件（方針判断）`);
 
 // 復旧は note の 1日100アップロード上限で複数日に分かれる。別日・別PCから再開できるよう
@@ -236,11 +225,15 @@ if (!ONLY) {
   const { writeFileSync, mkdirSync } = await import('node:fs');
   const outPath = join(ROOT, '.claude/state/note-attachments-missing.json');
   mkdirSync(dirname(outPath), { recursive: true });
+  // 既存を丸ごと置き換えると、人が手で足した注記（過去の偽陰性の根拠など）が黙って消える。
+  // 計算した項目だけを上書きし、知らないキーはそのまま残す。
+  const prev = existsSync(outPath) ? JSON.parse(readFileSync(outPath, 'utf8')) : {};
   writeFileSync(outPath, JSON.stringify({
-    // JST 基準。UTC だと JST 09:00 前の実測が前日付になり、note-attach-batch の鮮度判定が
-    // 常に「1日古い」と誤警告する。
-    measuredAt: new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10),
+    ...prev,
+    measuredAt: JST_TODAY,
     inspected, target: need.length, fetchFail: fetchFail.length, satisfied: ok,
+    // 全件走査で不足と出たが単独再実測で充足した記事＝走査側の取りこぼし。偽陰性の履歴を残す。
+    recoveredInConfirm: recovered,
     missingPromised: shortPromised.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected })),
     missingSilent: shortSilent.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected })),
     missing: short.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected, promises: !!s.promises })),

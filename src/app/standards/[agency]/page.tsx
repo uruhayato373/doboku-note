@@ -39,7 +39,7 @@ export default async function StandardsAgencyPage({ params }: { params: Promise<
       <PageHeader
         variant="band"
         breadcrumb={[{ label: 'ホーム', href: '/' }, { label: '基準類', href: '/standards' }, { label: entry.agencyName }]}
-        label="PUBLIC STANDARDS"
+        label="公的基準類ライブラリ"
         title={entry.agencyName}
         lead={`土木工事共通仕様書・工事必携等 ${entry.documentCount}文書を、原本PDFのページ番号を保って公開しています。`}
         meta={`${entry.pages.toLocaleString('ja-JP')}ページ / ${entry.partCount}分冊`}
@@ -54,7 +54,7 @@ export default async function StandardsAgencyPage({ params }: { params: Promise<
         </div>
         <section aria-labelledby="agency-documents">
           <div className="mb-6 border-b border-[var(--rule-soft)] pb-5">
-            <h2 id="agency-documents" className="font-serif text-2xl font-bold text-[var(--ink)]">収録文書</h2>
+            <h2 id="agency-documents" className="text-2xl font-bold text-[var(--ink)]">収録文書</h2>
             <p className="mt-2 text-[14px] leading-[1.8] text-[var(--ink-muted)]">
               文書を選ぶと、原本PDFのページ番号に対応した全文文字起こしを分冊単位で読めます。
             </p>

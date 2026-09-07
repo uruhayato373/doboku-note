@@ -27,6 +27,7 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { publishLive } from './lib/note-live-publish.mjs';
 import { fetchNoteBody } from './lib/note-live-check.mjs';
 import { listAttachedFiles } from './lib/note-attach.mjs';
+import { evaluatePostSaveGate, evaluatePreSaveGate, expectationsByNoteId, recordAttachmentLoss } from './lib/note-attachments.mjs';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const PROFILE = resolveProfileDir('note', { cwd: ROOT, repoRoot: ROOT });
@@ -100,6 +101,8 @@ async function main() {
     headless: false, channel: 'chrome', proxy: PROXY ? { server: PROXY } : undefined,
     ignoreHTTPSErrors: true, viewport: { width: 1366, height: 1000 }, args: ['--disable-blink-features=AutomationControlled'],
   });
+  // 添付（配布 PDF）の期待値。保存前ゲートの基準にする。
+  const EXPECT = expectationsByNoteId({ root: ROOT });
   let ok = 0, fail = 0;
   try {
     const page = await context.newPage();
@@ -110,8 +113,15 @@ async function main() {
         await page.goto(`https://editor.note.com/notes/${a.noteId}/edit/`, { waitUntil: 'domcontentloaded', timeout: 60000 });
         await page.waitForSelector('[contenteditable=true]', { timeout: 30000 });
         await sleep(4000);
-        // PDF 添付ゲート: 本文は触らないが、保存前後で添付数が減っていないことを機械で確認する
+        // PDF 添付ゲート: 本文は触らないが、**保存前**に期待値を下回っていないかを確認し、
+        // 下回っていれば保存しない（保存後の検出だけでは、消えた実体はもう戻らない）。
         const attachedBefore = await listAttachedFiles(page);
+        const expectedPdfs = EXPECT.get(a.noteId)?.expected || [];
+        const pre = evaluatePreSaveGate({ expected: expectedPdfs.length, before: attachedBefore.length });
+        if (!pre.ok) {
+          recordAttachmentLoss({ root: ROOT, noteId: a.noteId, reason: `境界再設定を中止: ${pre.reason}`, dropped: expectedPdfs });
+          console.error(`[FAIL] ${a.noteId} ${pre.reason} → 保存しない（.claude/state/note-attachment-loss.json へ記録）`); fail++; continue;
+        }
         const live = await publishLive(page, a.noteId, a.boundary, true, { screenshotPrefix: 'reanchor' });
         if (!live) { console.error(`[FAIL] ${a.noteId} 境界の再設定に失敗`); fail++; continue; }
         // 「更新する」後はエディタを離れて記事ページへ遷移するため、その DOM で数えると常に 0 になる。
@@ -120,8 +130,10 @@ async function main() {
         await page.waitForSelector('[contenteditable=true]', { timeout: 30000 });
         await sleep(4000);
         const attachedAfter = await listAttachedFiles(page);
-        if (attachedAfter.length < attachedBefore.length) {
-          console.error(`[FAIL] ${a.noteId} 添付が減少 ${attachedBefore.length}→${attachedAfter.length}（保存後）→ 要手動確認`); fail++; continue;
+        const post = evaluatePostSaveGate({ before: attachedBefore.length, after: attachedAfter.length });
+        if (!post.ok) {
+          recordAttachmentLoss({ root: ROOT, noteId: a.noteId, reason: `境界再設定後に ${post.reason}`, dropped: expectedPdfs });
+          console.error(`[FAIL] ${a.noteId} ${post.reason}（保存後）→ 要手動確認（.claude/state/note-attachment-loss.json へ記録）`); fail++; continue;
         }
         if (attachedBefore.length) console.log(`[attach] ${attachedBefore.length} 件維持`);
         await sleep(3000);

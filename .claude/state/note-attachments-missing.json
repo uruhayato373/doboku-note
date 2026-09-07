@@ -1,5 +1,5 @@
 {
-  "measuredAt": "2026-09-06",
+  "measuredAt": "2026-09-07",
   "inspected": 575,
   "target": 575,
   "fetchFail": 0,
@@ -14,5 +14,6 @@
       "how": "check-note-attachments --live --only nc6c8bb7fb7d3 → 実検査1・充足1・不足0",
       "note": "全件実査での live=0 はスクロール待ちの取りこぼしによる偽陰性。08-03/08-25 の添付が現存する"
     }
-  ]
+  ],
+  "recoveredInConfirm": []
 }
