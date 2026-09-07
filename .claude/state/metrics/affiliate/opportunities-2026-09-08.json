@@ -1,0 +1,340 @@
+{
+  "schemaVersion": 1,
+  "observedAt": "2026-09-08T05:52:23+09:00",
+  "site": "doboku-note",
+  "purpose": "A8成果確認と新規・未掲載案件の活用検討。提携台帳を更新するデータではなく時点調査記録。",
+  "sources": [
+    {
+      "path": ".claude/state/metrics/affiliate/a8-report-log.json",
+      "sha256": "419ec009ec3a698cf064661896ddd77820f86a5f0ce6e1815b639417b261f88f"
+    },
+    {
+      "path": ".claude/state/metrics/affiliate/a8-results.json",
+      "sha256": "07c920536126b9e375d21a88f91003682e4379b4b957355a7032b62d26e22b25"
+    },
+    {
+      "path": ".claude/state/metrics/affiliate/a8-ui/last-run.json",
+      "sha256": "d984699e5808dd4c753c23e2de4154ad6cf7a07ba2616859d1b6b28b69889fdd"
+    },
+    {
+      "path": ".claude/state/ads/affiliate-catalog.json",
+      "sha256": "51f3dedbac83b1cae65633c71285bfe432b0695ade5049dbaea669644cfb6af0"
+    },
+    {
+      "path": ".claude/state/ads/a8-catalog.json",
+      "sha256": "72739718510614651c04182f6beb2143c62f23cdecb0171cdbf5473ec7de2905"
+    },
+    {
+      "path": ".claude/scripts/report-buildjob-affiliate.mjs",
+      "sha256": "99f2ee2f02c0239a2556e34c0a183159d0873e14bbd24d444bcea23ef55036fc"
+    },
+    {
+      "path": "src/components/providers/AnalyticsProvider.tsx",
+      "sha256": "8c1351e8cc2fc12b001ab388c9bbea4593e615308508e64d92632f8e5f572c7f"
+    }
+  ],
+  "collectionAttempts": [
+    {
+      "asp": "a8",
+      "mode": "report dry-run",
+      "expectedAccountId": "a25050375786",
+      "accountAssertCompleted": false,
+      "status": "stopped-at-login",
+      "csvDownloaded": 0,
+      "requestedMonths": [
+        "2026-08",
+        "2026-09",
+        "2026-06"
+      ],
+      "septemberIsPartialMonth": true,
+      "dataUpdated": false,
+      "runId": "2026-09-07T20-48-00Z",
+      "artifacts": "empty run directory only; no manifest/CSV; last-run unchanged"
+    },
+    {
+      "asp": "moshimo",
+      "mode": "affiliate:status --asp moshimo",
+      "expectedSiteId": "672381",
+      "siteAssertCompleted": false,
+      "status": "stopped-at-login",
+      "dataUpdated": false
+    },
+    {
+      "asp": "afb",
+      "status": "not-attempted",
+      "dataUpdated": false
+    }
+  ],
+  "lastAvailableA8": {
+    "lastRun": "2026-08-04T06-17-12Z",
+    "siteMonthlyRows": [
+      {
+        "site": "doboku-note",
+        "impressions": 1643,
+        "clicks": 7,
+        "conversions": 0,
+        "grossRevenueYen": 0,
+        "approved": 0,
+        "revenueYen": 0,
+        "cancelledCount": 0,
+        "cancelledYen": 0,
+        "pendingCount": 0,
+        "pendingRevenueYen": 0,
+        "fetchedAt": "2026-07-28T02:25:46.422Z",
+        "period": "202605-202605"
+      },
+      {
+        "site": "doboku-note",
+        "impressions": 17593,
+        "clicks": 74,
+        "conversions": 1,
+        "grossRevenueYen": 50000,
+        "approved": 0,
+        "revenueYen": 0,
+        "cancelledCount": 1,
+        "cancelledYen": 50000,
+        "pendingCount": 0,
+        "pendingRevenueYen": 0,
+        "fetchedAt": "2026-07-28T02:19:03.241Z",
+        "period": "202606-202606"
+      },
+      {
+        "site": "doboku-note",
+        "impressions": 25345,
+        "clicks": 60,
+        "conversions": 0,
+        "grossRevenueYen": 0,
+        "approved": 0,
+        "revenueYen": 0,
+        "cancelledCount": 0,
+        "cancelledYen": 0,
+        "pendingCount": 0,
+        "pendingRevenueYen": 0,
+        "fetchedAt": "2026-08-04T06:17:12.349Z",
+        "period": "202607-202607"
+      }
+    ],
+    "juneCancellationReason": null,
+    "augustAndSeptember": "missing-not-zero",
+    "programClicks": "account-wide; do not use for site EPC denominator"
+  },
+  "serviceCandidates": [
+    {
+      "id": "rsg-kensetsu",
+      "officialUrl": "https://rsg-c.jp/worker/",
+      "observation": "土木施工管理、地場企業、建設コンサルを含む建設業界の支援を案内。求人状況により面談・相談を提供できない場合もある。",
+      "editorialHypothesis": "工種・担当経験を棚卸しし、希望する役割の紹介可否を相談する記事と接続。",
+      "catalogAsOf": "2026-08-04",
+      "historicalCatalog": {
+        "label": "RSG建設転職（建設業界専門の転職支援）",
+        "vertical": "civil-career",
+        "placement": "none",
+        "decision": "**afb で提携済み・A8 では未提携**。A8 側は ¥2,930 / EPC 0 で scout の閾値（0.35）未満だった。afb 側の単価・確定率は未取得。配置するかは afb 側の条件を確認してから。",
+        "asps": {
+          "a8": {
+            "programId": "s00000021947001",
+            "status": "none",
+            "rewardYen": 2930,
+            "epcYen": 0
+          },
+          "moshimo": {
+            "status": "unknown"
+          },
+          "afb": {
+            "pid": "14065",
+            "status": "approved",
+            "rewardYen": 3000,
+            "category": "専門転職（その他）",
+            "note": "2026-07-27 実測。A8 は ¥2,930 / EPC 0 で scout 閾値未満だった。afb も同水準なので見送り判断は変わらない。"
+          }
+        }
+      },
+      "currentPartnershipVerified": false,
+      "currentRewardYen": null,
+      "conversionConditionsVerified": false
+    },
+    {
+      "id": "constwork",
+      "officialUrl": "https://sekoukanri.conv.work/",
+      "observation": "未経験者から経験者までの施工管理職を対象に、休日や働き方を訴求。登録後は電話での面談を案内。",
+      "editorialHypothesis": "休日・残業・雇用形態の条件を比較する記事と接続。土木工種と地域の対象可否は未確認。",
+      "catalogAsOf": "2026-08-04",
+      "historicalCatalog": {
+        "label": "コンストワーク（施工管理の転職サポート）",
+        "vertical": "civil-career",
+        "placement": "none",
+        "decision": "2026-07-27 に もしも で申請 → **即時提携**（審査なし）。リンク発行可能だが**未配置**。配置枠は 3 枠でカニバリ回避の手キュレーションのため、どこに置くかは人が判断する。",
+        "asps": {
+          "a8": {
+            "status": "unavailable"
+          },
+          "moshimo": {
+            "promotionId": "6154",
+            "status": "approved",
+            "rewardYen": 5384
+          },
+          "afb": {
+            "status": "unknown"
+          }
+        }
+      },
+      "currentPartnershipVerified": false,
+      "currentRewardYen": null,
+      "conversionConditionsVerified": false
+    },
+    {
+      "id": "bizken",
+      "officialUrl": "https://career-kensetsu-line.com/",
+      "observation": "施工管理、設計、建設コンサル等を対象に、転勤や働き方の相談を案内。",
+      "editorialHypothesis": "地元で働く条件、現場以外の仕事を検討する記事の出口候補。",
+      "catalogAsOf": "2026-08-04",
+      "historicalCatalog": {
+        "label": "ビズケン（建設業界特化 求人・転職サイト）",
+        "vertical": "civil-career",
+        "placement": "none",
+        "decision": "もしもで申請中（本セッション以前からの申請）。審査待ち・追加操作不要。",
+        "asps": {
+          "a8": {
+            "status": "unavailable"
+          },
+          "moshimo": {
+            "promotionId": "6912",
+            "status": "applying",
+            "rewardYen": 5000
+          },
+          "afb": {
+            "status": "unknown"
+          }
+        }
+      },
+      "currentPartnershipVerified": false,
+      "currentRewardYen": null,
+      "conversionConditionsVerified": false
+    },
+    {
+      "id": "kensetsu-career-plus",
+      "officialUrl": null,
+      "observation": null,
+      "editorialHypothesis": "既存記録では電気設備・通信工事向け。公式と土木への適合を確認できず推奨保留。",
+      "catalogAsOf": "2026-08-04",
+      "historicalCatalog": {
+        "label": "建設キャリアプラス（電気設備・通信工事・電気設備管理）",
+        "vertical": "civil-career",
+        "placement": "none",
+        "decision": "2026-07-27 に もしも で申請 → 審査待ち。設備系で 1級電気工事施工管理と隣接するため読者層に近い。",
+        "asps": {
+          "a8": {
+            "status": "unavailable"
+          },
+          "moshimo": {
+            "promotionId": "5665",
+            "status": "applying",
+            "rewardYen": 15000
+          },
+          "afb": {
+            "status": "unknown"
+          }
+        }
+      },
+      "currentPartnershipVerified": false,
+      "currentRewardYen": null,
+      "conversionConditionsVerified": false
+    }
+  ],
+  "newDiscoveryCandidates": [
+    {
+      "service": "建設転職ナビ",
+      "officialUrl": "https://kensetsutenshokunavi.jp/",
+      "observation": "ヒューマンリソシアの施工管理・設計・設備管理等の転職支援サイト。",
+      "aspAvailability": "unknown",
+      "partnershipStatus": "unknown",
+      "rewardYen": null
+    },
+    {
+      "service": "建築転職",
+      "officialUrl": "https://kenten.jp/company",
+      "operatorUrl": "https://topreform.jp/",
+      "observation": "運営会社による建築系技術者向け人材紹介サービス。トップページは今回403で本文未取得。",
+      "aspAvailability": "unknown",
+      "partnershipStatus": "unknown",
+      "rewardYen": null,
+      "civilReaderFit": "unverified"
+    }
+  ],
+  "measurementFindings": {
+    "wiringCheck": "PASS mats4/catalog11 WARN0",
+    "eventTracking": "AnalyticsProvider uses data-cta=affiliate and label, not an A8-only hostname check",
+    "programRevenueReport": "Fixed labels for buildjob/gks/kensetsu-jobs/dx-consulting; revenue input is A8-only. New ASP requires reporting integration."
+  },
+  "decisions": {
+    "applicationsSubmitted": 0,
+    "newPlacements": 0,
+    "catalogMutated": false,
+    "priority": [
+      "最新成果と6月キャンセル理由・条件を確認",
+      "BuildJob増額期限後の通常単価と成果地点を確認",
+      "未掲載のRSG/コンストワークから用途が明確な1記事の候補を選ぶ",
+      "ビズケンの審査結果を照合",
+      "新規サービスのASP取扱いと土木対象を確認"
+    ]
+  },
+  "executionUpdate": {
+    "dateJst": "2026-09-08",
+    "a8": {
+      "run": "2026-09-07T21-04-01Z",
+      "month": "2026-08",
+      "audit": "WARN",
+      "siteClicks": 71,
+      "siteImpressions": 27299,
+      "siteConversions": 0,
+      "siteApprovedRevenueYen": 0,
+      "allowlistAccountWideClicks": 63,
+      "unexplainedSiteClicks": 8,
+      "programClickAttribution": "account-wide; do not use as own site denominator",
+      "missingMonths": [
+        "2026-09",
+        "2026-06 refresh"
+      ],
+      "failure": "download.saveAs: browser/context closed; September retried and June attempted"
+    },
+    "moshimo": {
+      "siteId": "672381",
+      "selectedMedia": "doboku-note",
+      "approved": [
+        "buildjob",
+        "constwork"
+      ],
+      "applying": [
+        "kensetsu-career-plus",
+        "bizken"
+      ],
+      "falseNegativeStatusList": "Generic listing returned zero known IDs; discarded. Exact detail pages and selected media verified."
+    },
+    "newCandidate": "rsg-craftsman",
+    "currentTermsSoT": ".claude/state/ads/affiliate-catalog.json",
+    "deployment": "pending",
+    "afb": {
+      "status": "unknown",
+      "expectedSiteId": "984453",
+      "actualSiteId": "959426",
+      "reason": "Site switch did not establish doboku-note; site guard stopped collection. No account data imported."
+    },
+    "ga4Refresh": {
+      "status": "success-via-existing-ci",
+      "runUrl": "https://github.com/uruhayato373/doboku-note/actions/runs/34164469544",
+      "sourceCommit": "d0be3d781",
+      "startDate": "2026-08-10",
+      "endDate": "2026-09-06",
+      "japanOnly": true,
+      "affiliateImpressions": 16386,
+      "affiliateClicks": 10,
+      "buildjobClicks": 4,
+      "kensetsuJobsClicks": 4,
+      "dxConsultingClicks": 2,
+      "articleMidImpressions": 2264,
+      "articleMidClicks": 3,
+      "source": ".claude/state/metrics/ga4/ga4-cta-clicks-by-label-2026-09-07T21-49-53.json",
+      "comparability": "All affiliate surfaces include learning articles and DX; do not treat as career article CTR or join to August A8 conversion rate."
+    }
+  }
+}
