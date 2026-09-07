@@ -67,6 +67,9 @@ npm run check-codex-compat   # AGENTS.md / .agents/skills が正典（CLAUDE.md 
 npm run check-project-task-refs # docs/ の恒久文書の廃止参照(task-queue.json)と backlog ID 参照切れ（quality:audit に同梱）
 npm run check-table-references # 本文が指す「表N.M」のキャプションが実在するか（転記由来の宙に浮いた参照）
 npm run build-standard-articles # 公的基準の逐語文字起こし→編・章・節の構造化章記事を生成（`content/site/standards-articles/`。章は PDF 分冊でなく原本の柱＝編・章で切る。対象と canonical 機関は .claude/config/standards-structure.json）
+npm run build-standards-comparison # 近畿版を基準に各地方整備局版の本文差分を章・行単位で生成（`content/site/standards-articles/comparison.json`）
+npm run build-standards-data     # 構造化章記事から公開用 Markdown / JSON-LD / 索引JSONを `public/standards-data/` へ生成（派生物・Git追跡外・本番build同梱）
+npm run check-standards-data     # 公開用データ全章の形式・条数・出典/加工主体分離・noindex/CORSヘッダーを検査（build-standards-dataが自動実行）
 npm run build-standards-ogp     # 章記事ごとの OGP 画像を生成（章は MDX でないため `npm run ogp` の射程外。描画は ogp-create の lib を再利用し見た目をサイトと揃える。R2 供給は ogp-supply.yml が代行）
 npm run check-standard-articles # 上の 15 検査（本文の取りこぼし0・全ページ割当・条番号整合・見出しレベル・SHA-256 一致・重複 indexable・**catalog 72 文書の被覆と除外理由の実データ検証**・表の可逆性・**章ごとの OGP 被覆**。exit 2=検査不成立）
 npm run build-standards-page-images # 公的基準の原本PDF→**1ページ1画像+1テキスト**（270dpi/2233px JPEG＋pdftotext のページ分割）。章記事が part-NN.md（50ページ束）までしかページ情報を持たず「原本の何ページか」を機械で言えない問題を埋める。原本の同定はファイル名でなく **sha256**（Drive のファイル名は整理で動くため）。**実体は Google Drive vault の原本 PDF と同名フォルダ（隣）**、Git には manifest.json だけ

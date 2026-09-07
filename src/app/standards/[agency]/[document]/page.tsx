@@ -6,6 +6,7 @@ import PageHeader from '@/components/layout/PageHeader';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
+import StandardDataLinks from '@/components/standards/StandardDataLinks';
 import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
 import { buildPageMetadata } from '@/lib/metadata';
@@ -21,6 +22,7 @@ import {
   standardChapterPath,
 } from '@/lib/standards-articles';
 import { getTopicsForStandardDocument } from '@/lib/topics';
+import { buildStandardDocumentStructuredData } from '@/lib/standards-structured-data';
 
 type Params = { agency: string; document: string };
 
@@ -54,18 +56,10 @@ export default async function StandardDocumentPage({ params }: { params: Promise
   if (!entry) notFound();
   const relatedTopics = getTopicsForStandardDocument(entry);
   // 章が生成済みなら「章から読む」を主導線にし、分冊一覧は原典照合用の副次セクションへ下げる。
-  const books = groupChaptersByBook(getStandardChapters(agency, document));
+  const chapters = getStandardChapters(agency, document);
+  const books = groupChaptersByBook(chapters);
 
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'DigitalDocument',
-    name: entry.title,
-    inLanguage: 'ja-JP',
-    pagination: `${entry.pages} pages`,
-    publisher: { '@type': 'GovernmentOrganization', name: entry.agencyName },
-    isBasedOn: entry.sourceUrl ?? entry.landing,
-    url: `https://doboku-note.com${standardDocumentPath(entry)}`,
-  };
+  const schema = buildStandardDocumentStructuredData(entry, chapters.length);
 
   return (
     <PageShell
@@ -82,7 +76,7 @@ export default async function StandardDocumentPage({ params }: { params: Promise
           { label: entry.agencyName, href: `/standards/${entry.agencyId}` },
           { label: entry.title },
         ]}
-        label={entry.role === 'common' ? 'COMMON SPECIFICATION' : 'COMPANION DOCUMENT'}
+        label={entry.role === 'common' ? '土木工事共通仕様書' : '工事必携・関連資料'}
         title={entry.title}
         lead={`${entry.agencyName}が公開する原本PDFを、ページ番号と紙面内の改行・空白を保って文字起こししました。`}
         meta={`${books.length > 0 ? `${books.reduce((sum, book) => sum + book.chapters.length, 0)}章 / ` : ''}${entry.pages.toLocaleString('ja-JP')}ページ / ${entry.partCount}分冊 / 原本SHA-256 ${entry.sourceSha256.slice(0, 16)}…`}
@@ -118,13 +112,13 @@ export default async function StandardDocumentPage({ params }: { params: Promise
 
         {books.length > 0 && (
           <section aria-labelledby="chapters" className="mb-12">
-            <h2 id="chapters" className="font-serif text-2xl font-bold text-[var(--ink)]">章から読む</h2>
+            <h2 id="chapters" className="text-2xl font-bold text-[var(--ink)]">章から読む</h2>
             <p className="mt-2 text-[14px] leading-[1.8] text-[var(--ink-muted)]">
               原本の編・章・節の構造で読めます。PDFの分冊位置ではなく、条項の並びのまま通して読める形にしています。
             </p>
             {books.map((book) => (
               <div key={book.bookNumber} className="mt-8">
-                <h3 className="font-serif text-lg font-bold text-[var(--ink)]">
+                <h3 className="text-lg font-bold text-[var(--ink)]">
                   第{book.bookNumber}編 {book.bookTitle}
                 </h3>
                 <ol className="mt-3 divide-y divide-[var(--rule-soft)] border-y border-[var(--rule-soft)] bg-[var(--paper)]">
@@ -153,7 +147,7 @@ export default async function StandardDocumentPage({ params }: { params: Promise
         )}
 
         <section aria-labelledby="transcription-parts">
-          <h2 id="transcription-parts" className="font-serif text-xl font-bold text-[var(--ink)]">原典PDFページで確認する</h2>
+          <h2 id="transcription-parts" className="text-xl font-bold text-[var(--ink)]">原典PDFページで確認する</h2>
           <p className="mt-2 text-[14px] leading-[1.8] text-[var(--ink-muted)]">
             {books.length > 0
               ? '章記事の元になった逐語文字起こしです。紙面の改行・空白・ページ番号をそのまま保っているため、原本との照合に使えます。1分冊は原則50ページです。'
@@ -173,6 +167,8 @@ export default async function StandardDocumentPage({ params }: { params: Promise
             ))}
           </ol>
         </section>
+
+        {books.length > 0 && <StandardDataLinks document={entry} />}
 
         <StandardTopicLinks topics={relatedTopics} />
         <StandardsAttribution document={entry} />

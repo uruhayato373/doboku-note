@@ -22,8 +22,19 @@
 
 ```bash
 npm run build-standard-articles     # 生成（対象は .claude/config/standards-structure.json の build.documents）
+npm run build-standards-comparison  # 近畿版を基準に地域別の実差分を comparison.json へ生成
+npm run build-standards-data        # HTMLと同じ章構造から公開用 Markdown / JSON-LD / 索引JSONを生成
+npm run check-standards-data        # 全章の形式・条数・出典/加工主体分離・公開ヘッダーを検査
 npm run build-standards-ogp         # 章ごとの OGP 画像（未生成のみ。--force で再生成）
 npm run check-standard-articles     # 15 検査（本文の取りこぼし・条番号整合・SHA-256 一致・catalog 全 72 文書の被覆・表の可逆性 ほか）
 ```
+
+機械可読データは `public/standards-data/` へ生成され、本番ビルドごとに作り直します。このディレクトリは派生物なので Git では追跡しません。地域差分の `comparison.json` は判定結果をレビューできるよう本ディレクトリで追跡します。
+
+- Markdown: 文書名、版、原本URL、原本・章SHA-256、原本ページをfrontmatterに保持
+- JSON-LD: 原資料の発行機関とdoboku-noteの加工主体を分離し、編・章・節・条と条本文を保持
+- 公開ヘッダー: `noindex, follow` とCORSを設定し、HTMLを正規の検索対象に保つ
+
+新年度版を追加するときは旧版を上書きする前に版間差分を確定し、原本SHA-256と変更条項を履歴として保存します。地域比較と版間比較は、生成器コメント、`SourceRef`、空白差を除いた本文で判定します。
 
 真実源・設計の説明は `scripts/lib/standards-structure.mjs` の冒頭コメント。

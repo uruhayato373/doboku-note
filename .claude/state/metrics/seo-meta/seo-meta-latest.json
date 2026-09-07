@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "generated_at": "2026-09-01T00:35:06.149Z",
+  "generated_at": "2026-09-07T08:15:02.509Z",
   "base_url": "out/ (static export)",
   "mode": "out",
   "summary": {
-    "urls_checked": 1469,
-    "doc_urls_collected": 1168,
-    "published_total": 1168,
+    "urls_checked": 1520,
+    "doc_urls_collected": 1211,
+    "published_total": 1211,
     "urls_with_violations": 1,
     "by_severity": {
       "HIGH": 0,
@@ -16,7 +16,7 @@
     "by_type": {
       "ssr_thin_body": 1
     },
-    "duration_ms": 12028
+    "duration_ms": 60590
   },
   "results": [
     {
@@ -62,8 +62,8 @@
         "length": 20
       },
       "description": {
-        "value": "doboku-noteへのご質問・ご意見・コンテンツに関するご指摘はこちらからお問い合わせください。",
-        "length": 50
+        "value": "doboku-noteへのご質問・ご意見、公的資料の構造化・データ加工に関するご相談はこちらからお問い合わせください。",
+        "length": 59
       },
       "canonical": "https://doboku-note.com/contact",
       "og_url": "https://doboku-note.com/contact",
@@ -1732,18 +1732,36 @@
     {
       "url": "/exam/civil-construction-1/secondary/r07",
       "title": {
-        "value": "令和 7 年度 第 2 次検定 解答例｜経験記述・コンクリート工・土工・品質管理・施工計画【1級土木施工管理技士 過去問】",
-        "length": 61
+        "value": "令和7年度 第2次検定 全問解答例｜経験記述・コンクリート工・土工【1級土木施工管理技士 過去問】",
+        "length": 49
       },
       "description": {
-        "value": "1級土木施工管理技士 令和7年度第2次検定の全問と模範解答。経験記述・コンクリート工・土工・品質管理・施工計画の記述式過去問で第2次検定対策。",
-        "length": 71
+        "value": "1級土木施工管理技士 令和7年度第2次検定の全11問と模範解答を無料公開。経験記述は品質管理・環境対策の設問攻略、コンクリート工・土工・品質管理・施工計画の記述式過去問も全問解説する第2次検定対策ページ。",
+        "length": 102
       },
       "canonical": "https://doboku-note.com/exam/civil-construction-1/secondary/r07",
       "og_url": "https://doboku-note.com/exam/civil-construction-1/secondary/r07",
       "robots": "index, follow",
       "json_ld": {
         "count": 6
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/civil-construction-1/textbook/asphalt-concrete-pavement",
+      "title": {
+        "value": "アスファルト舗装・コンクリート版の施工｜締固め温度管理・目地・養生【1級土木施工管理技士】",
+        "length": 45
+      },
+      "description": {
+        "value": "1級土木施工管理技士テキスト — アスファルト舗装・コンクリート版の施工の解説。加熱アスファルト混合物の敷均し・締固め温度管理、タックコート、継目、改質・ポーラスアスファルト、コンクリート版の施工手順・目地・養生を整理。",
+        "length": 110
+      },
+      "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/asphalt-concrete-pavement",
+      "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/asphalt-concrete-pavement",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 5
       },
       "violations": []
     },
@@ -1759,6 +1777,96 @@
       },
       "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/building-standards",
       "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/building-standards",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 5
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/civil-construction-1/textbook/cast-in-place-pile",
+      "title": {
+        "value": "場所打ち杭｜オールケーシング・アースドリル・リバース【1級土木施工管理技士】",
+        "length": 38
+      },
+      "description": {
+        "value": "1級土木施工管理技士テキスト — 場所打ち杭の工法と施工管理の解説。オールケーシング・アースドリル・リバースなど機械掘削方式と深礎工法の掘削・鉄筋・コンクリート、支持層確認からスライム処理・杭頭処理までの管理項目を整理。",
+        "length": 110
+      },
+      "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/cast-in-place-pile",
+      "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/cast-in-place-pile",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 5
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/civil-construction-1/textbook/concrete-materials",
+      "title": {
+        "value": "コンクリートの概説と材料｜セメント規格・骨材・混和材料【1級土木施工管理技士】",
+        "length": 39
+      },
+      "description": {
+        "value": "1級土木施工管理技士テキスト — コンクリートの概説と材料の解説。コンクリートの定義・区分・長所短所、セメントの種類と規格、混和材料、骨材の要求性質と規格値、練混ぜ水の品質基準を整理。",
+        "length": 92
+      },
+      "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/concrete-materials",
+      "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/concrete-materials",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 5
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/civil-construction-1/textbook/concrete-mix-design",
+      "title": {
+        "value": "配合設計とレディーミクストコンクリート｜水セメント比・スランプ・空気量【1級土木施工管理技士】",
+        "length": 47
+      },
+      "description": {
+        "value": "1級土木施工管理技士テキスト — 配合設計とレディーミクストコンクリートの解説。配合強度・粗骨材の最大寸法・スランプ・空気量・水セメント比・単位水量・細骨材率・塩化物量の規定値と、JIS A 5308によるレディーミクストコンクリートの品質管理を整理。",
+        "length": 126
+      },
+      "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/concrete-mix-design",
+      "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/concrete-mix-design",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 5
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/civil-construction-1/textbook/concrete-placement",
+      "title": {
+        "value": "コンクリートの運搬・打込み・締固め・養生｜施工の技術基準【1級土木施工管理技士】",
+        "length": 40
+      },
+      "description": {
+        "value": "1級土木施工管理技士テキスト — コンクリートの運搬・打込み・締固め・養生の解説。運搬時間の限度、打重ね時間間隔、棒状バイブレータの挿入間隔、湿潤養生期間など施工管理の数値基準を整理。",
+        "length": 92
+      },
+      "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/concrete-placement",
+      "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/concrete-placement",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 5
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/civil-construction-1/textbook/concrete-properties",
+      "title": {
+        "value": "コンクリートの性質｜施工性・強度・耐久性・維持管理【1級土木施工管理技士】",
+        "length": 37
+      },
+      "description": {
+        "value": "1級土木施工管理技士テキスト — コンクリートの性質の解説。フレッシュコンクリートの施工性、圧縮・引張・曲げ強度と影響要因、ひび割れの原因と防止対策、中性化・塩害・凍害等の劣化機構、点検・補修・補強による維持管理を整理。",
+        "length": 110
+      },
+      "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/concrete-properties",
+      "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/concrete-properties",
       "robots": "index, follow",
       "json_ld": {
         "count": 5
@@ -1928,6 +2036,42 @@
       "violations": []
     },
     {
+      "url": "/exam/civil-construction-1/textbook/earth-retaining-cofferdam",
+      "title": {
+        "value": "土留め・仮締切り｜土留め壁の種類・ヒービング・ボイリング【1級土木施工管理技士】",
+        "length": 40
+      },
+      "description": {
+        "value": "1級土木施工管理技士テキスト — 土留め・仮締切りの解説。土留め壁と支保工の種類、掘削底面の安定検討（ヒービング・ボイリング・盤ぶくれ）、腹起し・切ばり・火打ち・中間杭の施工上の留意点を整理。",
+        "length": 96
+      },
+      "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/earth-retaining-cofferdam",
+      "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/earth-retaining-cofferdam",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 5
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/civil-construction-1/textbook/earthwork-planning",
+      "title": {
+        "value": "土工計画・建設機械の作業能力｜土量変化率・機械選定・作業能力算定式【1級土木施工管理技士】",
+        "length": 45
+      },
+      "description": {
+        "value": "1級土木施工管理技士テキスト — 土工計画と建設機械の作業能力の解説。土量の変化率（L・C）と土量配分の考え方、 建設機械の選定基準、運転時間あたり作業量Qの算定式を整理。",
+        "length": 86
+      },
+      "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/earthwork-planning",
+      "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/earthwork-planning",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 5
+      },
+      "violations": []
+    },
+    {
       "url": "/exam/civil-construction-1/textbook/embankment",
       "title": {
         "value": "盛土｜基礎地盤・法面勾配・締固め管理【1級土木施工管理技士】",
@@ -1957,6 +2101,24 @@
       },
       "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/explosives-act",
       "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/explosives-act",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 5
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/civil-construction-1/textbook/foundation-overview-survey",
+      "title": {
+        "value": "基礎工の概説・地質調査・直接基礎｜基礎形式の分類と地盤調査【1級土木施工管理技士】",
+        "length": 41
+      },
+      "description": {
+        "value": "1級土木施工管理技士テキスト — 基礎工の概説・地質調査・直接基礎の解説。基礎形式の分類と選定条件、サウンディング・サンプリング・物理探査・現場載荷試験などの地質調査手法、直接基礎の適用条件と施工上の留意点を整理。",
+        "length": 107
+      },
+      "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/foundation-overview-survey",
+      "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/foundation-overview-survey",
       "robots": "index, follow",
       "json_ld": {
         "count": 5
@@ -2128,8 +2290,8 @@
     {
       "url": "/exam/civil-construction-1/textbook/network-schedule",
       "title": {
-        "value": "ネットワーク式工程表とは｜EST・LFT・クリティカルパス・フロート【1級土木施工管理技士】",
-        "length": 46
+        "value": "ネットワーク式工程表とは｜EST・LFT・インターフェアリングフロート【1級土木施工管理技士】",
+        "length": 47
       },
       "description": {
         "value": "1級土木施工管理技士テキスト — ネットワーク式工程表の解説。EST・LFT・クリティカルパス・フロートの計算方法を解説。",
@@ -2155,6 +2317,42 @@
       },
       "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/noise-vibration-regulation",
       "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/noise-vibration-regulation",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 5
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/civil-construction-1/textbook/pavement-repair-quality",
+      "title": {
+        "value": "舗装の補修と品質管理｜打換え・オーバーレイ・品質管理【1級土木施工管理技士】",
+        "length": 38
+      },
+      "description": {
+        "value": "1級土木施工管理技士テキスト — 舗装の補修と品質管理の解説。アスファルト舗装・コンクリート舗装の補修工法の種類と選定基準、打換え工法・オーバーレイ工法の施工留意点、品質管理項目と工種別品質管理を整理。",
+        "length": 101
+      },
+      "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/pavement-repair-quality",
+      "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/pavement-repair-quality",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 5
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/civil-construction-1/textbook/pile-foundation-precast",
+      "title": {
+        "value": "杭基礎の種類と既製杭の施工｜打込み杭・中掘り杭・プレボーリング杭【1級土木施工管理技士】",
+        "length": 44
+      },
+      "description": {
+        "value": "1級土木施工管理技士テキスト — 杭基礎の種類と既製杭の施工の解説。杭の構造形式・支持機構・材料区分、打込み杭の設備と作業手順・打止め管理、 中掘り・プレボーリング・鋼管ソイルセメント・回転杭工法の要点を整理。",
+        "length": 105
+      },
+      "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/pile-foundation-precast",
+      "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/pile-foundation-precast",
       "robots": "index, follow",
       "json_ld": {
         "count": 5
@@ -2216,6 +2414,24 @@
       "violations": []
     },
     {
+      "url": "/exam/civil-construction-1/textbook/rebar-formwork",
+      "title": {
+        "value": "鉄筋工と型枠・支保工｜かぶり・継手・取外し時期【1級土木施工管理技士】",
+        "length": 35
+      },
+      "description": {
+        "value": "1級土木施工管理技士テキスト — 鉄筋工と型枠・支保工の解説。鉄筋のかぶり・あきの規定値、重ね継手とガス圧接継手の適用範囲、型枠・支保工の設計荷重と取外し時期のコンクリート圧縮強度を整理。",
+        "length": 94
+      },
+      "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/rebar-formwork",
+      "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/rebar-formwork",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 5
+      },
+      "violations": []
+    },
+    {
       "url": "/exam/civil-construction-1/textbook/river-act",
       "title": {
         "value": "河川法とは｜河川区域3分類・保全区域50m・占用許可【1級土木施工管理技士】",
@@ -2245,6 +2461,24 @@
       },
       "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/road-act",
       "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/road-act",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 5
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/civil-construction-1/textbook/road-earthwork-subbase",
+      "title": {
+        "value": "道路土工・路床・路盤｜路体・安定処理・プライムコート【1級土木施工管理技士】",
+        "length": 38
+      },
+      "description": {
+        "value": "1級土木施工管理技士テキスト — 道路土工・路床・路盤の解説。道路土工各部の名称、路体・路床の工法と施工、舗装の構成と各層の役割、下層路盤・上層路盤の安定処理工法、プライムコートの目的と散布量を整理。",
+        "length": 100
+      },
+      "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/road-earthwork-subbase",
+      "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/road-earthwork-subbase",
       "robots": "index, follow",
       "json_ld": {
         "count": 5
@@ -2416,8 +2650,8 @@
     {
       "url": "/exam/civil-construction-1/textbook/scraper",
       "title": {
-        "value": "スクレーパとは｜3種類の違いと運搬距離を図解【1級土木】",
-        "length": 28
+        "value": "スクレーパとは｜モータースクレーパーと3種類の違い【1級土木】",
+        "length": 31
       },
       "description": {
         "value": "スクレーパは掘削・積込・運搬・敷均を 1 台で連続して行う土工機械。被けん引式・モータスクレーパ・スクレープドーザの 3 種類があり、運搬距離（40〜1,200 m）で使い分ける。各タイプの違いと特徴を図解し、1 級土木施工管理技士の頻出ポイントも整理。",
@@ -2497,6 +2731,24 @@
       },
       "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/soil-investigation-methods",
       "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/soil-investigation-methods",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 5
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/civil-construction-1/textbook/special-concrete-inspection",
+      "title": {
+        "value": "寒中・暑中コンクリート｜養生・品質管理・検査【1級土木施工管理技士】",
+        "length": 34
+      },
+      "description": {
+        "value": "1級土木施工管理技士テキスト — 寒中・暑中・マスコンクリートと品質管理・検査の解説。養生温度・打込み温度の基準、受入れ検査の許容差、圧縮強度試験の合否判定、鉄筋・構造物の検査項目を整理。",
+        "length": 94
+      },
+      "canonical": "https://doboku-note.com/exam/civil-construction-1/textbook/special-concrete-inspection",
+      "og_url": "https://doboku-note.com/exam/civil-construction-1/textbook/special-concrete-inspection",
       "robots": "index, follow",
       "json_ld": {
         "count": 5
@@ -2990,6 +3242,60 @@
       "violations": []
     },
     {
+      "url": "/exam/civil-construction-2/guide/secondary-grading-and-partial-credit",
+      "title": {
+        "value": "第二次検定の採点と部分点の取り方【2級土木施工管理技士】",
+        "length": 28
+      },
+      "description": {
+        "value": "2級土木施工管理技士 第二次検定（令和8年度は2026年10月25日）の公表されている合格基準を確認したうえで、経験記述・学科記述それぞれで部分点を積む具体策を整理する。非公表の採点内訳は推測せず、設問の指示に対応する語を確実に書くという原則で守れる点数を扱う。",
+        "length": 131
+      },
+      "canonical": "https://doboku-note.com/exam/civil-construction-2/guide/secondary-grading-and-partial-credit",
+      "og_url": "https://doboku-note.com/exam/civil-construction-2/guide/secondary-grading-and-partial-credit",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/civil-construction-2/guide/secondary-last-two-weeks-plan",
+      "title": {
+        "value": "2級土木 第二次検定 直前2週間の学習計画｜10月25日に向けた日別配分",
+        "length": 36
+      },
+      "description": {
+        "value": "2級土木施工管理技士の第二次検定（令和8年度は2026年10月25日）まで残り2週間の受験者向けに、経験記述の仕上げと学科記述の反復、当日の持ち物・時間配分までを日別に整理する。",
+        "length": 89
+      },
+      "canonical": "https://doboku-note.com/exam/civil-construction-2/guide/secondary-last-two-weeks-plan",
+      "og_url": "https://doboku-note.com/exam/civil-construction-2/guide/secondary-last-two-weeks-plan",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/civil-construction-2/guide/secondary-written-questions-guide",
+      "title": {
+        "value": "第二次検定 学科記述の対策｜穴埋め・記述式（問題2〜9）【2級土木】",
+        "length": 34
+      },
+      "description": {
+        "value": "2級土木施工管理技士 第二次検定の学科記述（問題2〜9）を対象に、出題構成と土工・コンクリート・品質管理・安全管理・施工計画の頻出語句、穴埋め・記述問題の解答の書き方を整理する。経験記述と対策の進め方が異なる理由から解説する。",
+        "length": 113
+      },
+      "canonical": "https://doboku-note.com/exam/civil-construction-2/guide/secondary-written-questions-guide",
+      "og_url": "https://doboku-note.com/exam/civil-construction-2/guide/secondary-written-questions-guide",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
       "url": "/exam/civil-construction-2/guide/study-method",
       "title": {
         "value": "2級土木施工管理技士は独学で合格できる？勉強時間・勉強法・受験資格を解説【2026】",
@@ -3238,6 +3544,24 @@
       "robots": "index, follow",
       "json_ld": {
         "count": 5
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/civil-construction-2/secondary/experience-writing-by-theme",
+      "title": {
+        "value": "施工経験記述 テーマ別の書き方｜品質・安全・工程の課題と対応処置【2級土木 第2次検定】",
+        "length": 44
+      },
+      "description": {
+        "value": "2級土木施工管理技士 第2次検定の施工経験記述を品質管理・安全管理・工程管理のテーマ別に整理。課題の立て方、検討項目と対応処置の対応関係、テーマごとに減点されやすい書き方を、2級の解答欄構成に沿って解説する。",
+        "length": 104
+      },
+      "canonical": "https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-by-theme",
+      "og_url": "https://doboku-note.com/exam/civil-construction-2/secondary/experience-writing-by-theme",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
       },
       "violations": []
     },
@@ -5768,8 +6092,8 @@
         "length": 26
       },
       "description": {
-        "value": "余力管理の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。",
-        "length": 66
+        "value": "余力管理とは、各工程の生産能力と負荷工数の差を把握し過不足を調整する活動である。計算式・実施手順・JIS Z 8141の定義・工程管理4機能との関係を技術士総合技術監理の視点で整理する。",
+        "length": 93
       },
       "canonical": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/capacity-management",
       "og_url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/capacity-management",
@@ -8338,12 +8662,12 @@
     {
       "url": "/exam/pe-comprehensive-management/keywords/equipment-characteristics",
       "title": {
-        "value": "設備の管理特性 ｜ 技術士 総合技術監理部門 キーワード集",
-        "length": 29
+        "value": "設備の管理特性とは｜RASISの5要素とMTBF・MTTR【技術士総監】",
+        "length": 36
       },
       "description": {
-        "value": "設備の管理特性の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。",
-        "length": 69
+        "value": "設備の管理特性とは、RASIS（信頼性・可用性・保守性・保全性・安全性）の5軸で設備を評価する枠組みである。MTBF・MTTR・稼働率の計算式と保全方式の選び方を技術士総合技術監理の視点で解説する。技術士総合技術監理キーワード集2026（経済性管理）。",
+        "length": 126
       },
       "canonical": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/equipment-characteristics",
       "og_url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/equipment-characteristics",
@@ -8374,12 +8698,12 @@
     {
       "url": "/exam/pe-comprehensive-management/keywords/equipment-maintainability",
       "title": {
-        "value": "設備の保全性 ｜ 技術士 総合技術監理部門 キーワード集",
-        "length": 28
+        "value": "設備の保全性とは｜MTTR計算式と保全方式の分類【技術士総監】",
+        "length": 31
       },
       "description": {
-        "value": "設備の保全性の定義、MTTR（平均修理時間）の計算方法、保全方式の分類と選択基準を解説。技術士総合技術監理キーワード集2026（経済性管理）。",
-        "length": 71
+        "value": "設備の保全性とは、MTTR（平均修理時間）の計算式・保全方式（予防保全・事後保全・改良保全・保全予防）の分類・稼働率との関係を解説。技術士総合技術監理キーワード集2026（経済性管理）。",
+        "length": 93
       },
       "canonical": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/equipment-maintainability",
       "og_url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/equipment-maintainability",
@@ -11996,8 +12320,8 @@
         "length": 32
       },
       "description": {
-        "value": "不適合品率／適合品率の定義、種類、実務上の要点、関連用語を技術士総合技術監理の視点で整理。技術士総合技術監理キーワード集2026（経済性管理）。",
-        "length": 72
+        "value": "不適合品率とは検査総数に対する不適合品の割合を表す品質指標である。計算式・適合品率との関係、p管理図・np管理図による管理手法をISO 9001の要求事項とあわせて整理する。技術士総合技術監理キーワード集2026（経済性管理）。",
+        "length": 114
       },
       "canonical": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/nonconformity-rate",
       "og_url": "https://doboku-note.com/exam/pe-comprehensive-management/keywords/nonconformity-rate",
@@ -17846,8 +18170,8 @@
         "length": 45
       },
       "description": {
-        "value": "技術士第二次試験 建設部門 施工計画、施工設備及び積算科目（選択科目II・III）の令和1〜7年度出題テーマを年度別・設問種別に完全整理。 II-1は土工・契約制度・安全管理・コンクリートの4系統が固定、IIIは担い手確保・働き方改革・入札契約適正化・災害対応が頻出。",
-        "length": 134
+        "value": "技術士第二次試験 建設部門 施工計画、施工設備及び積算科目の令和1〜7年度出題テーマを年度別・設問種別に整理。 II-1は土工・契約制度・安全管理・コンクリートの4系統が固定、IIIは担い手確保・働き方改革・入札契約適正化が頻出。令和8年度の出題予想も掲載。",
+        "length": 129
       },
       "canonical": "https://doboku-note.com/exam/pe-construction/keywords/construction-planning-exam-themes",
       "og_url": "https://doboku-note.com/exam/pe-construction/keywords/construction-planning-exam-themes",
@@ -18346,8 +18670,8 @@
     {
       "url": "/exam/pe-construction/keywords/urban-planning-exam-themes",
       "title": {
-        "value": "技術士 建設部門 都市及び地方計画 出題テーマ分析・傾向（R01〜R07・7年分）",
-        "length": 41
+        "value": "都市及び地方計画 出題テーマ一覧・傾向（R01〜R07）｜技術士建設部門",
+        "length": 36
       },
       "description": {
         "value": "技術士第二次試験 建設部門 都市及び地方計画科目（選択科目II・III）の令和1〜7年度出題テーマを年度別・設問種別に完全整理。 II-1-4の公園緑地が7年連続、立地適正化計画・防災まちづくり・土地区画整理・公民連携が頻出。令和8年度改訂コンピテンシーを踏まえた出題予想を掲載。",
@@ -19898,14 +20222,446 @@
         "length": 23
       },
       "description": {
-        "value": "技術士第一次試験の試験対策。全部門共通の基礎科目・適性科目と、建設部門の専門科目について、令和の過去問を全問解説。第二次試験への登竜門を効率的に攻略。",
-        "length": 75
+        "value": "技術士第一次試験の試験対策。全部門共通の基礎科目・適性科目と、建設部門の専門科目について、平成25〜令和7年度の過去問1,040問を全問解説。第二次試験への登竜門を効率的に攻略。",
+        "length": 89
       },
       "canonical": "https://doboku-note.com/exam/pe-first-stage",
       "og_url": "https://doboku-note.com/exam/pe-first-stage",
       "robots": "index, follow",
       "json_ld": {
         "count": 2
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/guide/after-pass",
+      "title": {
+        "value": "技術士第一次試験 合格後にやること｜二次試験・修習技術者への進み方【2026年度】",
+        "length": 41
+      },
+      "description": {
+        "value": "技術士第一次試験に合格した後の進み方を整理します。修習技術者としての実務経験の積み方、建設部門二次試験の世界、総合技術監理部門という上位区分の存在まで、当サイトの関連ページとあわせて解説します。",
+        "length": 97
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/guide/after-pass",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/guide/after-pass",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/guide/aptitude-subject",
+      "title": {
+        "value": "技術士第一次試験 適性科目の対策｜技術士法・倫理綱領・頻出論点",
+        "length": 31
+      },
+      "description": {
+        "value": "技術士第一次試験 適性科目の出題構成を、技術士法第4章と倫理綱領を軸に整理します。令和元年度から令和7年度の過去問で繰り返し問われる知的財産権・環境・労働法の論点と、正誤判定のコツを解説します。",
+        "length": 97
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/guide/aptitude-subject",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/guide/aptitude-subject",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/guide/basic-subject",
+      "title": {
+        "value": "技術士第一次試験 基礎科目の対策｜5群30問の頻出テーマ【2026年度】",
+        "length": 36
+      },
+      "description": {
+        "value": "技術士第一次試験 基礎科目の5群30問構成を、令和元年度〜令和7年度の過去問実物から整理。設計・計画から環境・エネルギー・技術まで頻出テーマと、各群6問から3問を選ぶコツを解説します。",
+        "length": 92
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/guide/basic-subject",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/guide/basic-subject",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/guide/construction-subject",
+      "title": {
+        "value": "技術士第一次試験 専門科目（建設部門）の対策｜分野別出題傾向【2026年度】",
+        "length": 38
+      },
+      "description": {
+        "value": "技術士第一次試験 専門科目（建設部門）35問の分野別出題数の目安を、令和元年度〜令和7年度の過去問実物から整理。土質・構造力学・鋼構造・コンクリートから建設環境まで、25問を選ぶ戦略と分野別の学習優先度を解説します。",
+        "length": 108
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/guide/construction-subject",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/guide/construction-subject",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/guide/overview",
+      "title": {
+        "value": "技術士第一次試験とは｜2026年度（令和8年度）試験日程・科目構成・合格基準",
+        "length": 38
+      },
+      "description": {
+        "value": "技術士第一次試験の基礎・適性・専門（建設部門）3科目の構成と2026年度（令和8年度）の日程を公式案内に沿って整理。合格基準の考え方、免除制度、二次試験受験資格への道、過去問での学習法まで解説します。",
+        "length": 100
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/guide/overview",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/guide/overview",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/guide/study-plan",
+      "title": {
+        "value": "技術士第一次試験の勉強法｜11月22日から逆算する過去問中心の学習計画【2026年度】",
+        "length": 43
+      },
+      "description": {
+        "value": "技術士第一次試験の勉強法を、2026年度筆記試験（11月22日）から逆算した学習計画として整理します。過去問中心の学習法が効く理由、専門・基礎・適性3科目の時間配分の考え方、週次の回し方を、当サイトの過去問39ページと合わせて解説します。",
+        "length": 119
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/guide/study-plan",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/guide/study-plan",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/primary/h25-aptitude",
+      "title": {
+        "value": "平成25年度 技術士第一次試験 適性科目 過去問解説【技術士 第一次試験】",
+        "length": 37
+      },
+      "description": {
+        "value": "技術士第一次試験 平成25年度 適性科目の全15問と解答解説。公式問題と正答表に基づき、問題文・選択肢・正答を収録。",
+        "length": 58
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/primary/h25-aptitude",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/primary/h25-aptitude",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/primary/h25-basic",
+      "title": {
+        "value": "平成25年度 技術士第一次試験 基礎科目 過去問解説【技術士 第一次試験】",
+        "length": 37
+      },
+      "description": {
+        "value": "技術士第一次試験 平成25年度 基礎科目の全30問と解答解説。公式問題と正答表に基づき、問題文・選択肢・正答を収録。",
+        "length": 58
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/primary/h25-basic",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/primary/h25-basic",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/primary/h25-construction",
+      "title": {
+        "value": "平成25年度 技術士第一次試験 専門科目（建設部門） 過去問解説【技術士 第一次試験】",
+        "length": 43
+      },
+      "description": {
+        "value": "技術士第一次試験 平成25年度 専門科目（建設部門）の全35問と解答解説。公式問題と正答表に基づき、問題文・選択肢・正答を収録。",
+        "length": 64
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/primary/h25-construction",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/primary/h25-construction",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/primary/h26-aptitude",
+      "title": {
+        "value": "平成26年度 技術士第一次試験 適性科目 過去問解説【技術士 第一次試験】",
+        "length": 37
+      },
+      "description": {
+        "value": "技術士第一次試験 平成26年度 適性科目の全15問と解答解説。公式問題と正答表に基づき、問題文・選択肢・正答を収録。",
+        "length": 58
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/primary/h26-aptitude",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/primary/h26-aptitude",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/primary/h26-basic",
+      "title": {
+        "value": "平成26年度 技術士第一次試験 基礎科目 過去問解説【技術士 第一次試験】",
+        "length": 37
+      },
+      "description": {
+        "value": "技術士第一次試験 平成26年度 基礎科目の全30問と解答解説。公式問題と正答表に基づき、問題文・選択肢・正答を収録。",
+        "length": 58
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/primary/h26-basic",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/primary/h26-basic",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/primary/h26-construction",
+      "title": {
+        "value": "平成26年度 技術士第一次試験 専門科目（建設部門） 過去問解説【技術士 第一次試験】",
+        "length": 43
+      },
+      "description": {
+        "value": "技術士第一次試験 平成26年度 専門科目（建設部門）の全35問と解答解説。公式問題と正答表に基づき、問題文・選択肢・正答を収録。",
+        "length": 64
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/primary/h26-construction",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/primary/h26-construction",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/primary/h27-aptitude",
+      "title": {
+        "value": "平成27年度 技術士第一次試験 適性科目 過去問解説【技術士 第一次試験】",
+        "length": 37
+      },
+      "description": {
+        "value": "技術士第一次試験 平成27年度 適性科目の全15問と解答解説。技術士法第4章、技術者倫理、知的財産、情報管理、安全とリスク管理の主要論点を原典に照合して収録。",
+        "length": 79
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/primary/h27-aptitude",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/primary/h27-aptitude",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/primary/h27-basic",
+      "title": {
+        "value": "平成27年度 技術士第一次試験 基礎科目 過去問解説【技術士 第一次試験】",
+        "length": 37
+      },
+      "description": {
+        "value": "技術士第一次試験 平成27年度 基礎科目の全30問と解答解説。設計・計画、情報・論理、解析、材料・化学・バイオ、環境・エネルギー・技術の5群を原典に照合して収録。",
+        "length": 81
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/primary/h27-basic",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/primary/h27-basic",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/primary/h27-construction",
+      "title": {
+        "value": "平成27年度 技術士第一次試験 建設部門 過去問解説【技術士 第一次試験】",
+        "length": 37
+      },
+      "description": {
+        "value": "技術士第一次試験 平成27年度 専門科目（建設部門）の全35問と解答解説。土質、構造、都市、河川、海岸、施工、環境を原典に照合して収録。",
+        "length": 68
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/primary/h27-construction",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/primary/h27-construction",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/primary/h28-aptitude",
+      "title": {
+        "value": "平成28年度 技術士第一次試験 適性科目 過去問解説【技術士 第一次試験】",
+        "length": 37
+      },
+      "description": {
+        "value": "技術士第一次試験 平成28年度 適性科目の全15問と解答解説。技術士法第4章、技術者倫理、知的財産、情報管理、安全とリスク管理の主要論点を原典に照合して収録。",
+        "length": 79
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/primary/h28-aptitude",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/primary/h28-aptitude",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/primary/h28-basic",
+      "title": {
+        "value": "平成28年度 技術士第一次試験 基礎科目 過去問解説【技術士 第一次試験】",
+        "length": 37
+      },
+      "description": {
+        "value": "技術士第一次試験 平成28年度 基礎科目の全30問と解答解説。設計・計画、情報・論理、解析、材料・化学・バイオ、環境・エネルギー・技術の5群を原典に照合して収録。",
+        "length": 81
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/primary/h28-basic",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/primary/h28-basic",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/primary/h28-construction",
+      "title": {
+        "value": "平成28年度 技術士第一次試験 建設部門 過去問解説【技術士 第一次試験】",
+        "length": 37
+      },
+      "description": {
+        "value": "技術士第一次試験 平成28年度 専門科目（建設部門）の全35問と解答解説。土質、構造、都市、河川、海岸、施工、環境を原典に照合して収録。",
+        "length": 68
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/primary/h28-construction",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/primary/h28-construction",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/primary/h29-aptitude",
+      "title": {
+        "value": "平成29年度 技術士第一次試験 適性科目 過去問解説｜全15問【技術士 第一次試験】",
+        "length": 42
+      },
+      "description": {
+        "value": "技術士第一次試験 平成29年度 適性科目の全15問と解答解説。公式問題と公式正答を原典照合し、各選択肢の正誤理由と学習ポイントを収録。",
+        "length": 67
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/primary/h29-aptitude",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/primary/h29-aptitude",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/primary/h29-basic",
+      "title": {
+        "value": "平成29年度 技術士第一次試験 基礎科目 過去問解説｜全30問【技術士 第一次試験】",
+        "length": 42
+      },
+      "description": {
+        "value": "技術士第一次試験 平成29年度 基礎科目の全30問と解答解説。公式問題と公式正答を原典照合し、各選択肢の正誤理由と学習ポイントを収録。",
+        "length": 67
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/primary/h29-basic",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/primary/h29-basic",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/primary/h29-construction",
+      "title": {
+        "value": "平成29年度 技術士第一次試験 専門科目（建設部門） 過去問解説｜全35問【技術士 第一次試験】",
+        "length": 48
+      },
+      "description": {
+        "value": "技術士第一次試験 平成29年度 専門科目（建設部門）の全35問と解答解説。公式問題と公式正答を原典照合し、各選択肢の正誤理由と学習ポイントを収録。",
+        "length": 73
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/primary/h29-construction",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/primary/h29-construction",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/primary/h30-aptitude",
+      "title": {
+        "value": "平成30年度 技術士第一次試験 適性科目 過去問解説｜全15問【技術士 第一次試験】",
+        "length": 42
+      },
+      "description": {
+        "value": "技術士第一次試験 平成30年度 適性科目の全15問と解答解説。公式問題と公式正答を原典照合し、各選択肢の正誤理由と学習ポイントを収録。",
+        "length": 67
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/primary/h30-aptitude",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/primary/h30-aptitude",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/primary/h30-basic",
+      "title": {
+        "value": "平成30年度 技術士第一次試験 基礎科目 過去問解説｜全30問【技術士 第一次試験】",
+        "length": 42
+      },
+      "description": {
+        "value": "技術士第一次試験 平成30年度 基礎科目の全30問と解答解説。公式問題と公式正答を原典照合し、各選択肢の正誤理由と学習ポイントを収録。",
+        "length": 67
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/primary/h30-basic",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/primary/h30-basic",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
+      "url": "/exam/pe-first-stage/primary/h30-construction",
+      "title": {
+        "value": "平成30年度 技術士第一次試験 専門科目（建設部門） 過去問解説｜全35問【技術士 第一次試験】",
+        "length": 48
+      },
+      "description": {
+        "value": "技術士第一次試験 平成30年度 専門科目（建設部門）の全35問と解答解説。公式問題と公式正答を原典照合し、各選択肢の正誤理由と学習ポイントを収録。",
+        "length": 73
+      },
+      "canonical": "https://doboku-note.com/exam/pe-first-stage/primary/h30-construction",
+      "og_url": "https://doboku-note.com/exam/pe-first-stage/primary/h30-construction",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
       },
       "violations": []
     },
@@ -21062,6 +21818,24 @@
       "violations": []
     },
     {
+      "url": "/practice/service-commencement",
+      "title": {
+        "value": "供用開始とは｜道路法18条の公示と道路区域決定の関係【土木施工の実務】",
+        "length": 35
+      },
+      "description": {
+        "value": "供用開始とは、道路や河川などの公共施設を一般の利用に供することである。道路法第18条が定める道路区域の決定と供用開始の公示の関係、供用開始前に必要な工事完成検査・引継ぎ、未供用区間の占用や交通規制の扱いを実務の視点から整理する。",
+        "length": 114
+      },
+      "canonical": "https://doboku-note.com/practice/service-commencement",
+      "og_url": "https://doboku-note.com/practice/service-commencement",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 4
+      },
+      "violations": []
+    },
+    {
       "url": "/practice/sheet-pile-snow-coating",
       "title": {
         "value": "鋼矢板の打込み工法・除雪の出動基準・塗装の層管理｜条件で選ぶ現場判断【土木施工の実務】",
@@ -21514,6 +22288,42 @@
       "robots": "index, follow",
       "json_ld": {
         "count": 2
+      },
+      "violations": []
+    },
+    {
+      "url": "/standards/compare",
+      "title": {
+        "value": "地方整備局別 土木工事共通仕様書の差分比較 | doboku-note",
+        "length": 35
+      },
+      "description": {
+        "value": "近畿地方整備局版を基準に、各地方整備局の土木工事共通仕様書を章・行単位で比較。完全一致する文書と、北陸・四国版の地域固有記述を原文付きで確認できます。",
+        "length": 75
+      },
+      "canonical": "https://doboku-note.com/standards/compare",
+      "og_url": "https://doboku-note.com/standards/compare",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 3
+      },
+      "violations": []
+    },
+    {
+      "url": "/standards/data",
+      "title": {
+        "value": "土木工事共通仕様書のJSON-LD・Markdownデータ | doboku-note",
+        "length": 43
+      },
+      "description": {
+        "value": "地方整備局等の土木工事共通仕様書を、出典・原本SHA-256・編章節条の階層を保持したMarkdownとJSON-LDで公開。地域差分と品質検査方法も確認できます。",
+        "length": 82
+      },
+      "canonical": "https://doboku-note.com/standards/data",
+      "og_url": "https://doboku-note.com/standards/data",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 3
       },
       "violations": []
     },
@@ -26038,12 +26848,12 @@
     {
       "url": "/tools",
       "title": {
-        "value": "無料ツール一覧｜土木施工管理技士 受験対策 | doboku-note",
-        "length": 35
+        "value": "無料ツール一覧｜土木・技術士の試験対策 | doboku-note",
+        "length": 33
       },
       "description": {
-        "value": "土木施工管理技士の受験対策とキャリア整理に使える無料web ツール集。施工経験記述の文字数チェッカー、受験資格チェッカー、過去問ミニ演習、経験の棚卸しツールなど、その場で使えるものをまとめています。",
-        "length": 99
+        "value": "土木施工管理技士・技術士の受験対策とキャリア整理に使える無料Webツール集。過去問演習、施工経験記述の文字数、受験資格、経験の棚卸しなどをその場で使えます。",
+        "length": 78
       },
       "canonical": "https://doboku-note.com/tools",
       "og_url": "https://doboku-note.com/tools",
@@ -26173,6 +26983,24 @@
       },
       "canonical": "https://doboku-note.com/tools/kakomon-quiz",
       "og_url": "https://doboku-note.com/tools/kakomon-quiz",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 2
+      },
+      "violations": []
+    },
+    {
+      "url": "/tools/kakomon-quiz/pe-first-stage",
+      "title": {
+        "value": "技術士第一次試験 過去問 無料演習｜基礎・適性・建設 全1,040問 | doboku-note",
+        "length": 48
+      },
+      "description": {
+        "value": "技術士第一次試験の基礎科目・適性科目・専門科目（建設部門）を無料で演習。平成25〜令和7年度の全1,040問を、年度別・科目別・ランダム・間違い復習で解けます。図・数式・全選択肢解説つき。",
+        "length": 94
+      },
+      "canonical": "https://doboku-note.com/tools/kakomon-quiz/pe-first-stage",
+      "og_url": "https://doboku-note.com/tools/kakomon-quiz/pe-first-stage",
       "robots": "index, follow",
       "json_ld": {
         "count": 2
@@ -26342,6 +27170,24 @@
       "violations": []
     },
     {
+      "url": "/topics/economic-management",
+      "title": {
+        "value": "経済性管理（総監）｜試験・実務・基準を横断 | doboku-note",
+        "length": 35
+      },
+      "description": {
+        "value": "品質・コスト・納期を両立させる総合技術監理の経済性管理。原価管理・工程管理・品質管理・価値工学のキーワードを、総監キーワード集と過去問から横断して確認できます。",
+        "length": 80
+      },
+      "canonical": "https://doboku-note.com/topics/economic-management",
+      "og_url": "https://doboku-note.com/topics/economic-management",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 2
+      },
+      "violations": []
+    },
+    {
       "url": "/topics/environment-decarbonization",
       "title": {
         "value": "建設環境・脱炭素｜試験・実務・基準を横断 | doboku-note",
@@ -26353,6 +27199,42 @@
       },
       "canonical": "https://doboku-note.com/topics/environment-decarbonization",
       "og_url": "https://doboku-note.com/topics/environment-decarbonization",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 2
+      },
+      "violations": []
+    },
+    {
+      "url": "/topics/human-resource-management",
+      "title": {
+        "value": "人的資源管理（総監）｜試験・実務・基準を横断 | doboku-note",
+        "length": 36
+      },
+      "description": {
+        "value": "人の確保・育成・評価・労務。労働関係法・モチベーション理論・教育訓練・働き方改革のキーワードを、総監キーワード集と過去問から横断して確認できます。",
+        "length": 73
+      },
+      "canonical": "https://doboku-note.com/topics/human-resource-management",
+      "og_url": "https://doboku-note.com/topics/human-resource-management",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 2
+      },
+      "violations": []
+    },
+    {
+      "url": "/topics/information-management",
+      "title": {
+        "value": "情報管理（総監）｜試験・実務・基準を横断 | doboku-note",
+        "length": 34
+      },
+      "description": {
+        "value": "情報の収集・共有・セキュリティ・知的財産。情報セキュリティ・DX・ナレッジマネジメントのキーワードを、総監キーワード集と過去問から横断して確認できます。",
+        "length": 76
+      },
+      "canonical": "https://doboku-note.com/topics/information-management",
+      "og_url": "https://doboku-note.com/topics/information-management",
       "robots": "index, follow",
       "json_ld": {
         "count": 2
@@ -26443,6 +27325,42 @@
       },
       "canonical": "https://doboku-note.com/topics/safety-laws",
       "og_url": "https://doboku-note.com/topics/safety-laws",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 2
+      },
+      "violations": []
+    },
+    {
+      "url": "/topics/safety-management-cem",
+      "title": {
+        "value": "安全管理（総監）｜試験・実務・基準を横断 | doboku-note",
+        "length": 34
+      },
+      "description": {
+        "value": "リスクマネジメント・労働安全衛生・危機管理・システム安全工学。リスク評価手法や事故防止のキーワードを、総監キーワード集と過去問から横断して確認できます。",
+        "length": 76
+      },
+      "canonical": "https://doboku-note.com/topics/safety-management-cem",
+      "og_url": "https://doboku-note.com/topics/safety-management-cem",
+      "robots": "index, follow",
+      "json_ld": {
+        "count": 2
+      },
+      "violations": []
+    },
+    {
+      "url": "/topics/social-environment-management",
+      "title": {
+        "value": "社会環境管理（総監）｜試験・実務・基準を横断 | doboku-note",
+        "length": 36
+      },
+      "description": {
+        "value": "環境影響評価・地球環境・循環型社会・環境法規。持続可能性と事業の両立に関わるキーワードを、総監キーワード集と過去問から横断して確認できます。",
+        "length": 70
+      },
+      "canonical": "https://doboku-note.com/topics/social-environment-management",
+      "og_url": "https://doboku-note.com/topics/social-environment-management",
       "robots": "index, follow",
       "json_ld": {
         "count": 2

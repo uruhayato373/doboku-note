@@ -28,7 +28,8 @@ export default function AnalyticsProvider() {
 
   // 収益 CTA（note 有料マガジン / アフィリエイト）・note 無料記事への送客・サイト内回遊ナビの
   // クリックを 1 つのデリゲートリスナーで計測する。各コンポーネントを client 化せず、
-  // サーバー描画の <a> に data-cta="note" | "affiliate" | "note-article" | "nav" | "coconala" | "brain"（+ data-cta-label）
+  // サーバー描画の <a> に data-cta="note" | "affiliate" | "note-article" | "nav" |
+  // "coconala" | "brain" | "standards-data"（+ data-cta-label）
   // を付けるだけで拾える設計。GA4 はイベントに pagePath を自動付与するため、
   // eventName × pagePath × label でページ別・ナビ別クリック数が取れる。
   // note（有料マガジン購入 CTA）と note-article（無料記事ナビ）は別イベントに分離し、
@@ -44,6 +45,7 @@ export default function AnalyticsProvider() {
       nav: "internal_nav_click",
       coconala: "coconala_cta_click",
       brain: "brain_cta_click",
+      "standards-data": "standards_data_download",
       // キャリア hub / 診断ツールで読者が悩みを選んだ遷移（2026-08-21 新設）。
       // label は need キーのみを送る（氏名・会社名・年収などは送らない）。
       "career-need": "career_need_select",
@@ -55,6 +57,7 @@ export default function AnalyticsProvider() {
       nav: "internal-nav",
       coconala: "coconala",
       brain: "brain",
+      "standards-data": "standards-data",
       "career-need": "career-need",
     };
     const onClick = (e: MouseEvent) => {

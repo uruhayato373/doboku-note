@@ -16,7 +16,7 @@ export default function StandardDocumentCard({ document }: { document: StandardD
           <span className="text-[var(--color-warn)]">原本画質注記 {document.unreadableRanges.length}</span>
         )}
       </div>
-      <h3 className="mt-2 font-serif text-lg font-bold leading-[1.55] text-[var(--ink)]">
+      <h3 className="mt-2 text-lg font-bold leading-[1.55] text-[var(--ink)]">
         {document.title}
       </h3>
       <p className="mt-2 text-[13px] leading-[1.75] text-[var(--ink-muted)]">
