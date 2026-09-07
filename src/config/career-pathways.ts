@@ -38,9 +38,9 @@ const careerArticlePath = (slug: string) => {
 export const CAREER_HUB_SLUG = "civil-construction-1-guide-career";
 
 /**
- * サービスの成果点。**同じ「相談」コピーを使い回さない**ための区別。
+ * 既存案件のCTAを区別するキー。ASPの成果条件を読者のサービス体験と混同しない。
  * - consultation: 面談・相談が成果点（ビルドジョブ / GKSキャリア）
- * - registration: 会員登録が成果点（建設JOBs）
+ * - registration: 建設JOBsの既存キー。登録後はカウンセリングと求人紹介がある。
  */
 export type ServiceOutcome = "consultation" | "registration";
 
@@ -52,7 +52,7 @@ interface NeedDefinition {
   /** 記事末の内部次行動に出す見出しと理由。 */
   readonly nextStepTitle: string;
   readonly nextStepReason: string;
-  /** affiliate ボタンの文言。サービスの成果点で言い回しを変える。 */
+  /** affiliate ボタンの文言。登録後に受ける支援を読者へ説明する。 */
   readonly affiliateCta: Readonly<Record<ServiceOutcome, string>>;
 }
 
@@ -71,7 +71,7 @@ export const CAREER_NEEDS: Readonly<Record<CareerNeed, NeedDefinition>> = {
     nextStepReason: "「仕事内容が嫌」なのか「いまの職場が嫌」なのかを切り分ける判断軸。",
     affiliateCta: {
       consultation: "いまの条件で動けるか無料で相談する",
-      registration: "無料登録して条件の違う求人を見る",
+      registration: "条件の違う求人について無料で相談する",
     },
   },
   pay: {
@@ -81,7 +81,7 @@ export const CAREER_NEEDS: Readonly<Record<CareerNeed, NeedDefinition>> = {
     nextStepReason: "資格・工種・役割が待遇にどう反映されるかを確かめてから交渉する。",
     affiliateCta: {
       consultation: "年収相場と提示条件を無料で聞く",
-      registration: "無料登録して年収帯の求人を見る",
+      registration: "年収の希望を伝えて求人紹介を相談する",
     },
   },
   workstyle: {
@@ -91,7 +91,7 @@ export const CAREER_NEEDS: Readonly<Record<CareerNeed, NeedDefinition>> = {
     nextStepReason: "休日・残業・出張が会社を変えれば解けるかを先に切り分ける。",
     affiliateCta: {
       consultation: "休日・現場数・出張の条件を無料で聞く",
-      registration: "無料登録して勤務条件から求人を見る",
+      registration: "休日・残業の希望に合う求人を相談する",
     },
   },
   location: {
@@ -101,7 +101,7 @@ export const CAREER_NEEDS: Readonly<Record<CareerNeed, NeedDefinition>> = {
     nextStepReason: "地元で働き続けられる進路が現場常駐以外にもあるかを比較する。",
     affiliateCta: {
       consultation: "希望地域と転勤条件を無料で相談する",
-      registration: "無料登録して地域から求人を探す",
+      registration: "希望地域の求人について無料で相談する",
     },
   },
   "market-value": {
@@ -111,7 +111,7 @@ export const CAREER_NEEDS: Readonly<Record<CareerNeed, NeedDefinition>> = {
     nextStepReason: "資格だけでなく工種・工事規模・立場で評価がどう変わるかを整理する。",
     affiliateCta: {
       consultation: "経験の棚卸しから狙える条件を無料で聞く",
-      registration: "無料登録して自分の経験で通る求人を見る",
+      registration: "経験を伝えて紹介可能な求人を相談する",
     },
   },
   "career-path": {
@@ -121,7 +121,7 @@ export const CAREER_NEEDS: Readonly<Record<CareerNeed, NeedDefinition>> = {
     nextStepReason: "発注者支援・公務員・建設コンサルを含めて進路を並べて比べる。",
     affiliateCta: {
       consultation: "別職種を含む選択肢を無料で相談する",
-      registration: "無料登録して職種別に求人を見る",
+      registration: "希望職種の求人紹介を無料で相談する",
     },
   },
   application: {
@@ -131,7 +131,7 @@ export const CAREER_NEEDS: Readonly<Record<CareerNeed, NeedDefinition>> = {
     nextStepReason: "工事経歴・工種・立場をどう書けば伝わるかを記入例で確認する。",
     affiliateCta: {
       consultation: "工事経歴の伝え方を無料で相談する",
-      registration: "無料登録して応募先の条件を確かめる",
+      registration: "応募先の条件と準備を無料で相談する",
     },
   },
   "service-choice": {
@@ -141,7 +141,7 @@ export const CAREER_NEEDS: Readonly<Record<CareerNeed, NeedDefinition>> = {
     nextStepReason: "タイプ別の向き不向きと、公表されている情報だけを並べた比較。",
     affiliateCta: {
       consultation: "登録後の流れを無料で確かめる",
-      registration: "無料登録して求人の中身を確かめる",
+      registration: "登録後の求人紹介について相談する",
     },
   },
 };

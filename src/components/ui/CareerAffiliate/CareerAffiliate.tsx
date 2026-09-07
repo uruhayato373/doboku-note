@@ -18,8 +18,9 @@ import {
  *
  * 注意: `program="gks"` は「施工管理/建設の inline 転職枠」を表す**期間連動プリセット**で、
  * 現在は GKS 単体を指さない。campaign 期間（〜2026-08-31）はビルドジョブ（成果 ¥50,000）、
- * 9/1 以降は GKS（¥25,000）へ href・コピーごと自動で切り替わる（`resolveCareerArticleEndCard`
- * と同一 period 境界・ビルド時 SSG 確定）。この preset 指定時、MDX の service/description/points/cta は
+ * 9/8以降はBuildJob通常条件へ集約する。指名記事は期間に関係なく同社に固定。
+ * href・コピーは `resolveCareerArticleEndCard` と同じ方針で、ビルド時に確定する。
+ * この preset 指定時、MDX の service/description/points/cta は
  * resolver の文言で上書きされ無視される（景表法: 表示コピーと遷移先サービスを常に一致させるため）。
  * 真実源: .claude/knowledge/reference/affiliate-operations.md。
  */
@@ -106,7 +107,7 @@ export default function CareerAffiliate({
 }: CareerAffiliateProps) {
   // 期間連動プリセット（program="gks"）: 施工管理/建設の inline 転職枠を、記事末モバイルカードと
   // 同じ period 解決（resolveCareerArticleEndCard）で href・コピーごと出し分ける。
-  // 〜2026-08-31 はビルドジョブ（¥50,000）／9/1 以降は GKS（¥25,000）に自動復帰。
+  // 一般記事は期間に連動し、指名記事は同じサービスを維持する。
   // この preset では MDX の service/description/points/cta は resolver の文言で統一する
   // （景表法: 表示コピーと遷移先サービスを常に一致させる）。href のみ＝計測ピクセルなし
   // （インプレッション計測はサイドバー側の 1 発火を唯一の源として維持＝1 ページ 1 ピクセル）。

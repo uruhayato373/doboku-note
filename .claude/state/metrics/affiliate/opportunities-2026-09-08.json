@@ -277,5 +277,50 @@
       "ビズケンの審査結果を照合",
       "新規サービスのASP取扱いと土木対象を確認"
     ]
+  },
+  "executionUpdate": {
+    "dateJst": "2026-09-08",
+    "a8": {
+      "run": "2026-09-07T21-04-01Z",
+      "month": "2026-08",
+      "audit": "WARN",
+      "siteClicks": 71,
+      "siteImpressions": 27299,
+      "siteConversions": 0,
+      "siteApprovedRevenueYen": 0,
+      "allowlistAccountWideClicks": 63,
+      "unexplainedSiteClicks": 8,
+      "programClickAttribution": "account-wide; do not use as own site denominator",
+      "missingMonths": [
+        "2026-09",
+        "2026-06 refresh"
+      ],
+      "failure": "download.saveAs: browser/context closed; September retried and June attempted"
+    },
+    "moshimo": {
+      "siteId": "672381",
+      "selectedMedia": "doboku-note",
+      "approved": [
+        "buildjob",
+        "constwork"
+      ],
+      "applying": [
+        "kensetsu-career-plus",
+        "bizken"
+      ],
+      "falseNegativeStatusList": "Generic listing returned zero known IDs; discarded. Exact detail pages and selected media verified."
+    },
+    "newCandidate": "rsg-craftsman",
+    "currentTermsSoT": ".claude/state/ads/affiliate-catalog.json",
+    "deployment": "pending",
+    "afb": {
+      "status": "unknown",
+      "reason": "Read-only status attempt reached login screen; no authenticated site data collected."
+    },
+    "ga4Refresh": {
+      "localStatus": "blocked-missing-credentials",
+      "ciRefresh": "pending",
+      "note": "GA4_PROPERTY_ID and GOOGLE_SERVICE_ACCOUNT_KEY_PATH are absent locally; existing GitHub workflow has secrets."
+    }
   }
 }

@@ -46,6 +46,25 @@ const CIVIL_SLUGS = [
 
 const DURING = '2026-08-15T00:00:00Z'; // キャンペーン中
 const AFTER = '2026-09-05T00:00:00Z'; // キャンペーン終了後
+const REVIEWED = '2026-09-07T15:00:00Z'; // 9/8 JST 現行成果条件を照合した方針
+
+test('9/8以降: 記事とhubは通常条件のBuildJob。対象の狭い案件や終了予定GKSへ戻らない', async () => {
+  const { resolveDocsCareerSidebarAd, resolveCareerArticleEndCard, resolveCategoryCareerAds } = await loadCreatives();
+  for (const when of [REVIEWED, '2026-09-28T15:00:00Z', '2027-01-01T00:00:00Z']) {
+    at(when, () => {
+      for (const slug of CIVIL_SLUGS) {
+        const side = resolveDocsCareerSidebarAd('civil-construction-1', slug);
+        const card = resolveCareerArticleEndCard(slug);
+        assert.equal(side.trackLabel, 'BuildJob-sidebar');
+        assert.equal(card.href, side.creative.href);
+        assert.match(card.description, /登録後.*面談/);
+      }
+      for (const category of ['civil-construction-1', 'civil-construction-2', 'pe-construction']) {
+        assert.deepEqual(resolveCategoryCareerAds(category).map(a => a.trackLabel), ['BuildJob-sidebar']);
+      }
+    });
+  }
+});
 
 test('キャンペーン中: civil の docs サイドバーと記事末カードは全 slug で BuildJob', async () => {
   const { resolveDocsCareerSidebarAd, resolveCareerArticleEndCard } = await loadCreatives();
@@ -133,6 +152,21 @@ test('各 creative は計測ピクセルと寸法を持つ（外すと成果が�
       assert.match(c.href, /^https:\/\/px\.a8\.net\/svt\/ejp\?a8mat=/, `href が A8 のリンクでない: ${c.alt}`);
       assert.ok(c.width > 0 && c.height > 0, `width/height が無い（CLS 防止に必須）: ${c.alt}`);
       assert.ok(c.alt && c.alt.length > 0, 'alt が空');
+    }
+  });
+});
+
+// 指名検索から来た読者を、時期だけで別社へ送らない。
+test('ビルドジョブ指名記事は期間をまたいでも全記事枠が同社に一致する', async () => {
+  const { resolveDocsCareerSidebarAd, resolveCareerArticleEndCard } = await loadCreatives();
+  for (const when of [DURING, AFTER]) at(when, () => {
+    for (const category of ['civil-construction-1', 'civil-construction-2']) {
+      const slug = `${category}-guide-buildjob-review`;
+      const sidebar = resolveDocsCareerSidebarAd(category, slug);
+      const card = resolveCareerArticleEndCard(slug);
+      assert.equal(sidebar.trackLabel, 'BuildJob-sidebar');
+      assert.equal(card.service, 'ビルドジョブ');
+      assert.equal(card.href, sidebar.creative.href);
     }
   });
 });
