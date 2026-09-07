@@ -1,0 +1,324 @@
+{
+  "week_id": "2026-W37",
+  "year": 2026,
+  "week": 37,
+  "generated_at": "2026-09-07T21:49:57.370Z",
+  "ranges": {
+    "ga4": {
+      "this": {
+        "start": "2026-08-31",
+        "end": "2026-09-06"
+      },
+      "prev": {
+        "start": "2026-08-24",
+        "end": "2026-08-30"
+      }
+    },
+    "gsc": {
+      "this": {
+        "start": "2026-08-29",
+        "end": "2026-09-04"
+      },
+      "prev": {
+        "start": "2026-08-22",
+        "end": "2026-08-28"
+      }
+    }
+  },
+  "ga4": {
+    "channels": [
+      {
+        "channel": "Organic Search",
+        "thisUsers": 1969,
+        "prevUsers": 1277,
+        "userDelta": 692,
+        "userDeltaPct": 54.189506656225525,
+        "thisSessions": 2745,
+        "prevSessions": 1808,
+        "thisEngagementRate": 0.6925318761384335
+      },
+      {
+        "channel": "Direct",
+        "thisUsers": 265,
+        "prevUsers": 919,
+        "userDelta": -654,
+        "userDeltaPct": -71.16430903155604,
+        "thisSessions": 329,
+        "prevSessions": 958,
+        "thisEngagementRate": 0.3373860182370821
+      },
+      {
+        "channel": "Referral",
+        "thisUsers": 32,
+        "prevUsers": 32,
+        "userDelta": 0,
+        "userDeltaPct": 0,
+        "thisSessions": 120,
+        "prevSessions": 93,
+        "thisEngagementRate": 0.5583333333333333
+      },
+      {
+        "channel": "Organic Social",
+        "thisUsers": 26,
+        "prevUsers": 20,
+        "userDelta": 6,
+        "userDeltaPct": 30,
+        "thisSessions": 26,
+        "prevSessions": 23,
+        "thisEngagementRate": 0.38461538461538464
+      },
+      {
+        "channel": "AI Assistant",
+        "thisUsers": 14,
+        "prevUsers": 13,
+        "userDelta": 1,
+        "userDeltaPct": 7.6923076923076925,
+        "thisSessions": 16,
+        "prevSessions": 17,
+        "thisEngagementRate": 0.5
+      },
+      {
+        "channel": "Unassigned",
+        "thisUsers": 12,
+        "prevUsers": 14,
+        "userDelta": -2,
+        "userDeltaPct": -14.285714285714285,
+        "thisSessions": 12,
+        "prevSessions": 14,
+        "thisEngagementRate": 0.16666666666666666
+      }
+    ],
+    "total": {
+      "thisUsers": 2318,
+      "prevUsers": 2275,
+      "thisSessions": 3248,
+      "prevSessions": 2913,
+      "userDelta": 43,
+      "userDeltaPct": 1.8901098901098903
+    },
+    "organic": {
+      "channel": "Organic Search",
+      "thisUsers": 1969,
+      "prevUsers": 1277,
+      "userDelta": 692,
+      "userDeltaPct": 54.189506656225525,
+      "thisSessions": 2745,
+      "prevSessions": 1808,
+      "thisEngagementRate": 0.6925318761384335
+    }
+  },
+  "ga4_jp": {
+    "channels": [
+      {
+        "channel": "Organic Search",
+        "thisUsers": 1958,
+        "prevUsers": 1265,
+        "userDelta": 693,
+        "userDeltaPct": 54.78260869565217,
+        "thisSessions": 2732,
+        "prevSessions": 1783,
+        "thisEngagementRate": 0.6936310395314788
+      },
+      {
+        "channel": "Direct",
+        "thisUsers": 121,
+        "prevUsers": 877,
+        "userDelta": -756,
+        "userDeltaPct": -86.20296465222349,
+        "thisSessions": 185,
+        "prevSessions": 916,
+        "thisEngagementRate": 0.5135135135135135
+      },
+      {
+        "channel": "Referral",
+        "thisUsers": 31,
+        "prevUsers": 32,
+        "userDelta": -1,
+        "userDeltaPct": -3.125,
+        "thisSessions": 119,
+        "prevSessions": 93,
+        "thisEngagementRate": 0.5630252100840336
+      },
+      {
+        "channel": "Organic Social",
+        "thisUsers": 26,
+        "prevUsers": 19,
+        "userDelta": 7,
+        "userDeltaPct": 36.84210526315789,
+        "thisSessions": 26,
+        "prevSessions": 22,
+        "thisEngagementRate": 0.38461538461538464
+      },
+      {
+        "channel": "AI Assistant",
+        "thisUsers": 14,
+        "prevUsers": 13,
+        "userDelta": 1,
+        "userDeltaPct": 7.6923076923076925,
+        "thisSessions": 16,
+        "prevSessions": 17,
+        "thisEngagementRate": 0.5
+      },
+      {
+        "channel": "Unassigned",
+        "thisUsers": 5,
+        "prevUsers": 10,
+        "userDelta": -5,
+        "userDeltaPct": -50,
+        "thisSessions": 5,
+        "prevSessions": 10,
+        "thisEngagementRate": 0.4
+      }
+    ],
+    "total": {
+      "thisUsers": 2155,
+      "prevUsers": 2216,
+      "thisSessions": 3083,
+      "prevSessions": 2841,
+      "userDelta": -61,
+      "userDeltaPct": -2.752707581227437
+    },
+    "organic": {
+      "channel": "Organic Search",
+      "thisUsers": 1958,
+      "prevUsers": 1265,
+      "userDelta": 693,
+      "userDeltaPct": 54.78260869565217,
+      "thisSessions": 2732,
+      "prevSessions": 1783,
+      "thisEngagementRate": 0.6936310395314788
+    }
+  },
+  "sns": {
+    "sources": [
+      {
+        "source": "x",
+        "thisUsers": 24,
+        "prevUsers": 17,
+        "userDelta": 7,
+        "userDeltaPct": 41.17647058823529,
+        "thisSessions": 24,
+        "prevSessions": 19
+      },
+      {
+        "source": "note",
+        "thisUsers": 23,
+        "prevUsers": 24,
+        "userDelta": -1,
+        "userDeltaPct": -4.166666666666666,
+        "thisSessions": 59,
+        "prevSessions": 51
+      }
+    ],
+    "total": {
+      "thisUsers": 47,
+      "prevUsers": 41,
+      "thisSessions": 83,
+      "userDelta": 6,
+      "userDeltaPct": 14.634146341463413
+    },
+    "snsSources": [
+      "x",
+      "instagram",
+      "youtube",
+      "note"
+    ]
+  },
+  "psi": {
+    "error": "PSI 取得失敗: PSI 500"
+  },
+  "gsc": {
+    "total": {
+      "thisClicks": 69,
+      "prevClicks": 29,
+      "clickDelta": 40,
+      "clickDeltaPct": 137.93103448275863,
+      "thisImpressions": 3294,
+      "prevImpressions": 1318,
+      "impressionDelta": 1976,
+      "thisCtr": 0.020947176684881604,
+      "prevCtr": 0.022003034901365705,
+      "thisPosition": 17.8551912568306,
+      "prevPosition": 23.0257966616085
+    },
+    "topQueries": [
+      {
+        "query": "1級土木施工管理技士 2次試験 解答例 令和6年",
+        "clicks": 3,
+        "impressions": 3,
+        "ctr": 1,
+        "position": 15
+      },
+      {
+        "query": "インターフェアリングフロート",
+        "clicks": 1,
+        "impressions": 120,
+        "ctr": 0.008333333333333333,
+        "position": 8.441666666666666
+      },
+      {
+        "query": "インターフェアリングフロートとは",
+        "clicks": 1,
+        "impressions": 491,
+        "ctr": 0.002036659877800407,
+        "position": 7.242362525458248
+      },
+      {
+        "query": "土木工事共通仕様書 沖縄県",
+        "clicks": 1,
+        "impressions": 5,
+        "ctr": 0.2,
+        "position": 10.4
+      },
+      {
+        "query": "採算速度とは",
+        "clicks": 1,
+        "impressions": 26,
+        "ctr": 0.038461538461538464,
+        "position": 8.961538461538462
+      },
+      {
+        "query": "福井県土木工事書類作成マニュアル",
+        "clicks": 1,
+        "impressions": 2,
+        "ctr": 0.5,
+        "position": 7
+      },
+      {
+        "query": "1級 2級 土木",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 74
+      },
+      {
+        "query": "1級土木 経験記述 文字数",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 9
+      },
+      {
+        "query": "1級土木施工管理技士年収",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 70
+      },
+      {
+        "query": "1級土木施工管理技士補 2級土木施工管理技士 どっちが上",
+        "clicks": 0,
+        "impressions": 1,
+        "ctr": 0,
+        "position": 99
+      }
+    ]
+  },
+  "notes": [
+    "GSC データは 3 日遅延のため、直近期間は 2026-08-29 〜 2026-09-04 を採用",
+    "NSM = Organic Search の activeUsers (definition.md 準拠)",
+    "ga4_jp は country=Japan フィルタ版（bot 流入の影響を受けにくい母数）。incident 2026-04-26 を参照",
+    "sns は sessionSource を SNS source 集合(utm-templates.json)+Japan に絞った source 別 WoW",
+    "PSI は site root 1 URL をモバイル計測（trafficが増えたら field_data も出現）"
+  ]
+}
