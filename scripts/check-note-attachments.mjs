@@ -23,7 +23,7 @@
  *
  * 使い方:
  *   node scripts/check-note-attachments.mjs                 # source 層（CI）
- *   node scripts/check-note-attachments.mjs --live          # live 層（要ログイン・575 本で約20 分）
+ *   node scripts/check-note-attachments.mjs --live          # live 層（要ログイン・575 本で 20〜35 分）
  *   node scripts/check-note-attachments.mjs --live --only n155093f42183,na84b001e827e
  *   node scripts/check-note-attachments.mjs --json
  * ---------------------------------------------------------------------------

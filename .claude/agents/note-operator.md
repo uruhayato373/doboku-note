@@ -174,7 +174,7 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 | 目的 | コマンド | 既定 |
 |---|---|---|
 | 届いていない記事の把握（オフライン） | `npm run check-note-delivery-due -- --json` | read-only |
-| 実査（有料エリアはログインしないと見えない） | `npm run check-note-attachments:live` | read-only・575 本で約20 分（2026-09-07 実測） |
+| 実査（有料エリアはログインしないと見えない） | `npm run check-note-attachments:live` | read-only・575 本で 20〜35 分（2026-09-07 実測。並行して別の Chrome を動かすと延びる） |
 | 添付の復旧 | `node scripts/note-attach-file.mjs --note <id> --file <pdf> --commit` | `--commit` gate |
 | コメント返信 | `npm run note-comment-reply -- <noteId> <本文txt> --submit` | draft-first |
 
