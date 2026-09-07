@@ -1,0 +1,96 @@
+{
+  "meta": {
+    "startDate": "2026-08-24",
+    "endDate": "2026-09-06",
+    "minUsers": 5,
+    "threshold": 0.8
+  },
+  "totals": {
+    "allUsers": 4472,
+    "jpUsers": 4250,
+    "foreignUsers": 224
+  },
+  "rows": [
+    {
+      "source": "bing",
+      "totalUsers": 2951,
+      "jpUsers": 2932,
+      "foreignUsers": 20,
+      "foreignRatio": 0.006777363605557438,
+      "engagementRate": 0.7011933174224344,
+      "flagged": false
+    },
+    {
+      "source": "(direct)",
+      "totalUsers": 1178,
+      "jpUsers": 992,
+      "foreignUsers": 187,
+      "foreignRatio": 0.15874363327674024,
+      "engagementRate": 0.19502719502719504,
+      "flagged": false
+    },
+    {
+      "source": "google",
+      "totalUsers": 113,
+      "jpUsers": 111,
+      "foreignUsers": 2,
+      "foreignRatio": 0.017699115044247787,
+      "engagementRate": 0.5752212389380531,
+      "flagged": false
+    },
+    {
+      "source": "yahoo",
+      "totalUsers": 67,
+      "jpUsers": 67,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.7816901408450704,
+      "flagged": false
+    },
+    {
+      "source": "note",
+      "totalUsers": 43,
+      "jpUsers": 42,
+      "foreignUsers": 1,
+      "foreignRatio": 0.023255813953488372,
+      "engagementRate": 0.7117117117117117,
+      "flagged": false
+    },
+    {
+      "source": "x",
+      "totalUsers": 41,
+      "jpUsers": 41,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.37209302325581395,
+      "flagged": false
+    },
+    {
+      "source": "copilot.com",
+      "totalUsers": 33,
+      "jpUsers": 33,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.5128205128205128,
+      "flagged": false
+    },
+    {
+      "source": "(not set)",
+      "totalUsers": 16,
+      "jpUsers": 5,
+      "foreignUsers": 11,
+      "foreignRatio": 0.6875,
+      "engagementRate": 0,
+      "flagged": false
+    },
+    {
+      "source": "note.com",
+      "totalUsers": 10,
+      "jpUsers": 10,
+      "foreignUsers": 0,
+      "foreignRatio": 0,
+      "engagementRate": 0.37777777777777777,
+      "flagged": false
+    }
+  ]
+}

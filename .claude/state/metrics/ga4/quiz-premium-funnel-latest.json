@@ -1,7 +1,25 @@
 {
-  "measured": false,
-  "status": "not_measured",
-  "source": null,
-  "metrics": null,
-  "gates": null
+  "measured": true,
+  "status": "collecting",
+  "source": {
+    "startDate": "2026-08-10",
+    "endDate": "2026-09-06",
+    "pagePath": "/tools/kakomon-quiz"
+  },
+  "metrics": {
+    "quizUsers": 0,
+    "quizCompletions": 0,
+    "reviewUsers": 0,
+    "premiumViewUsers": 0,
+    "premiumIntentUsers": 0,
+    "premiumIntentRate": null,
+    "emailInterestUsers": 0,
+    "lineInterestUsers": 0,
+    "noteCtaUsers": 0
+  },
+  "gates": {
+    "quizUsers100": false,
+    "premiumIntentRate5Pct": false,
+    "premiumIntentUsers10": false
+  }
 }
