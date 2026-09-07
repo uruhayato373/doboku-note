@@ -37,6 +37,8 @@ import { resolveProfileDir } from './lib/playwright-auth-profile.mjs';
 import { chromium } from 'playwright';
 import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
+import { listAttachedFiles } from './lib/note-attach.mjs';
+import { evaluatePostSaveGate, evaluatePreSaveGate, expectationsByNoteId, recordAttachmentLoss } from './lib/note-attachments.mjs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
 
@@ -225,15 +227,42 @@ const ctx = await chromium.launchPersistentContext(PROFILE, {
 });
 const page = ctx.pages()[0] || (await ctx.newPage());
 
+// 添付（配布 PDF）の期待値。価格変更は本文へ触らないが、**壊れた状態のエディタのまま「更新する」を
+// 押すと添付ごと保存される**（2026-09-05 nded084d4f646＝同日の価格一括変更でこの記事だけ
+// net::ERR_ABORTED になった直後に添付が消えた）。保存の前後で期待値と実測を突き合わせる。
+const EXPECT = expectationsByNoteId({ root: ROOT });
+
 let success = 0, failed = 0;
 const errors = [];
 
 try {
   for (const a of toChange) {
     try {
-      // 記事編集画面を開く
-      await page.goto(`https://editor.note.com/notes/${a.key}/edit/`, { waitUntil: 'networkidle', timeout: 45000 });
+      const expectedPdfCount = (EXPECT.get(a.key)?.expected || []).length;
+
+      // 記事編集画面を開く。遷移失敗（net::ERR_ABORTED 等）はリトライし、**開けないまま保存へ進まない**。
+      let opened = false;
+      for (let attempt = 1; attempt <= 3 && !opened; attempt++) {
+        try {
+          await page.goto(`https://editor.note.com/notes/${a.key}/edit/`, { waitUntil: 'networkidle', timeout: 45000 });
+          await page.waitForSelector('[contenteditable=true]', { timeout: 30000 });
+          opened = true;
+        } catch (e) {
+          console.log(`    goto 失敗 ${attempt}/3: ${String(e).split('\n')[0].slice(0, 60)}`);
+          await page.waitForTimeout(3000);
+        }
+      }
+      if (!opened) throw new Error('エディタを開けない（3回失敗）→ 保存に進まない');
       await page.waitForTimeout(2500);
+
+      // 保存前ゲート: 添付が期待を下回るエディタを「正」として上書きしない
+      const attachedBefore = await listAttachedFiles(page);
+      const pre = evaluatePreSaveGate({ expected: expectedPdfCount, before: attachedBefore.length });
+      if (!pre.ok) {
+        recordAttachmentLoss({ root: ROOT, noteId: a.key, reason: `価格変更を中止: ${pre.reason}`, dropped: EXPECT.get(a.key)?.expected || [] });
+        throw new Error(`${pre.reason} → 保存せず skip（.claude/state/note-attachment-loss.json へ記録）`);
+      }
+      if (expectedPdfCount > 0) console.log(`    [attach] ${pre.reason}`);
 
       // 「公開に進む」をクリック
       const nextBtn = page.locator('button:has-text("公開に進む")').first();
@@ -278,6 +307,20 @@ try {
       if (await updateBtn.isDisabled()) { throw new Error('更新ボタン 無効'); }
       await updateBtn.click();
       await page.waitForTimeout(4500);
+
+      // 保存後照合: 「更新する」後は記事ページへ遷移するため、その DOM で数えると常に 0 になる。
+      // エディタを開き直して保存済みの実体を数える。
+      if (expectedPdfCount > 0) {
+        await page.goto(`https://editor.note.com/notes/${a.key}/edit/`, { waitUntil: 'domcontentloaded', timeout: 45000 }).catch(() => {});
+        await page.waitForSelector('[contenteditable=true]', { timeout: 30000 }).catch(() => {});
+        await page.waitForTimeout(3000);
+        const attachedAfter = await listAttachedFiles(page);
+        const post = evaluatePostSaveGate({ before: attachedBefore.length, after: attachedAfter.length });
+        if (!post.ok) {
+          recordAttachmentLoss({ root: ROOT, noteId: a.key, reason: `価格変更後に ${post.reason}`, dropped: EXPECT.get(a.key)?.expected || [] });
+          console.log(`  ⚠ ${a.key}: ${post.reason} → .claude/state/note-attachment-loss.json へ記録（要再添付）`);
+        }
+      }
 
       console.log(`  ✓ ${a.key}: ¥${a.price} → ¥${PRICE}`);
       success++;

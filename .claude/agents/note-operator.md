@@ -45,7 +45,7 @@ note.com への高レベル操作指示を受け取り、既存の決定的ス�
 
 | スクリプト | 用途 | 引数 |
 |---|---|---|
-| `note-article-price-sweep.mjs` | マガジン収録記事／単独記事の価格一括変更 | `{--pattern <id>｜--magazines <key,...>｜--notes <key,...>} --price <price> [--exclude <key,...>] [--commit]`（`--exclude`=序章/無料リード保護、`--notes`=マガジン非所属の単独note）。**⚠ カスタム paidBoundary を持つ記事の境界を先頭リセット＝全ロック化する**（civil経験記述58本で実損）→ 対象にpaidBoundary持ちが含まれると既定ABORT(exit9)。`--allow-boundary-risk` で上書き時は事後に境界再設定＋実査が必須 |
+| `note-article-price-sweep.mjs` | マガジン収録記事／単独記事の価格一括変更 | `{--pattern <id>｜--magazines <key,...>｜--notes <key,...>} --price <price> [--exclude <key,...>] [--commit]`（`--exclude`=序章/無料リード保護、`--notes`=マガジン非所属の単独note）。**⚠ カスタム paidBoundary を持つ記事の境界を先頭リセット＝全ロック化する**（civil経験記述58本で実損）→ 対象にpaidBoundary持ちが含まれると既定ABORT(exit9)。`--allow-boundary-risk` で上書き時は事後に境界再設定＋実査が必須。**PDF 添付の保存前ゲート付き**（エディタ遷移を3回までリトライ／期待本数を下回れば保存せず skip／保存後に減れば note-attachment-loss.json へ記録） |
 | `note-convert-to-paid.mjs` | **無料で公開済みの記事を有料化**（price+paidBoundary設定→更新→API検証） | `{--list <file>｜--article <path>} --commit`。**背景**: note-publish は `isPaid = notePricing==='paid' && price>0` 判定のため、`price:` 欄が無い paid 記事を**無料公開**する事故がある（2026-07-24、完全攻略パック等21本）。本ツールで既存無料note を有料化（note-publish は noteUrl あると skip＝新規専用のため既存有料化には本ツールが必要）。要 `price:`(>0)+`paidBoundary` frontmatter |
 | `note-edit-magazine.mjs` | マガジン設定（タイトル/説明/価格）編集 | `--key <key> --txt <note掲載文.txt> [--articles] [--commit]` |
 

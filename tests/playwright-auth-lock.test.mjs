@@ -29,7 +29,16 @@ test('lockはatomic createされ、非secret metadataだけを0600で保持す�
     const data = JSON.parse(readFileSync(lock.lockPath, 'utf8'));
     assert.deepEqual(Object.keys(data), ['service', 'hostname', 'pid', 'startedAt', 'command']);
     assert.equal(data.service, 'note');
-    assert.equal(statSync(lock.lockPath).mode & 0o777, 0o600);
+    // POSIX の権限ビットは Windows には無い（Node は書込可能ファイルを 0o666 と報告する）。
+    // ここで無条件に 0600 を期待すると、実装ではなくプラットフォームの都合で Windows だけ必ず赤くなる
+    // ＝直しようのない偽赤になり、他の本物の失敗まで一緒に無視されるようになる（2026-09-07 実測）。
+    // lock が持つのは service/hostname/pid/startedAt/command だけで secret を含まないため、
+    // Windows では「作成できて書き込み可能」までを確認する。
+    if (process.platform === 'win32') {
+      assert.equal(statSync(lock.lockPath).mode & 0o200, 0o200);
+    } else {
+      assert.equal(statSync(lock.lockPath).mode & 0o777, 0o600);
+    }
     assert.equal(lock.release(), true);
     assert.equal(existsSync(lock.lockPath), false);
   } finally {
