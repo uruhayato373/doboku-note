@@ -23,7 +23,6 @@
 | ID | 出口 | 備考 |
 |---|---|---|
 | DN-0135 | 各行の実体解消 | 詳細・完了条件は backlog の DN-0135 の表を参照。片付いた行から消す |
-| DN-0108 | Windows実機で auth:paths→doctor→note login/status→再起動後statusを検証する | 別PC（Windows）作業が律速。Macは検証済み |
 
 ## 今週やらないこと
 
