@@ -18,7 +18,7 @@ import {
   migrateAuthProfile,
   parseAuthArgs,
 } from '../scripts/playwright-auth.mjs';
-import { classifyAuthSnapshot } from '../scripts/lib/playwright-auth-adapters.mjs';
+import { classifyAuthSnapshot, pollAuthStatus } from '../scripts/lib/playwright-auth-adapters.mjs';
 
 function makeFixture() {
   const base = mkdtempSync(join(tmpdir(), 'doboku-auth-cli-'));
@@ -174,6 +174,70 @@ test('fake adapter + local serverでもaccount markerなしをauthenticatedに�
   } finally {
     await new Promise((resolve) => server.close(resolve));
   }
+});
+
+test('ログアウトはURL redirect以外でも検出し、認証済みの設定画面をexpiredにしない', () => {
+  const adapter = {
+    supported: true,
+    expectedMarkers: ['dobokunote'],
+    forbiddenMarkers: [],
+    expiredPattern: /\/login/,
+    loggedOutMarkers: ['ログイン'],
+  };
+
+  // account marker が出ていれば、パスワード変更欄のある設定画面でも authenticated
+  //（note の /settings/account がこの形。ここを取り違えると認証済みを未ログインと呼ぶ）
+  assert.equal(
+    classifyAuthSnapshot(adapter, { url: 'https://note.com/settings/account', text: 'dobokunote さん', hasPasswordField: true }).status,
+    'authenticated',
+  );
+
+  // marker が無くパスワード欄が出ている＝ログインを求められている（x の x.com/ がこの形）
+  assert.equal(
+    classifyAuthSnapshot(adapter, { url: 'https://x.com/', text: '「いま」を見つけよう', hasPasswordField: true }).status,
+    'expired',
+  );
+
+  // marker が無く本文がログイン CTA だけ（brain の /mypage がこの形。redirect しない）
+  assert.equal(
+    classifyAuthSnapshot(adapter, { url: 'https://brain-market.com/mypage', text: 'ログイン' }).status,
+    'expired',
+  );
+
+  // marker も無くログインの手掛かりも無いときは unknown のまま（expired と断定しない）
+  assert.equal(
+    classifyAuthSnapshot(adapter, { url: 'https://example.com/mypage', text: 'generic dashboard' }).status,
+    'unknown',
+  );
+});
+
+test('status判定はunknownのときだけ待ち直し、決着済みの分類は即返す', async () => {
+  const waits = [];
+  const sleep = async (ms) => { waits.push(ms); };
+
+  // authenticated は 1 回目で確定する（待ち直さない）
+  let calls = 0;
+  const ok = await pollAuthStatus(async () => { calls += 1; return { status: 'authenticated' }; }, { sleep });
+  assert.equal(ok.status, 'authenticated');
+  assert.equal(ok.attemptsUsed, 1);
+  assert.equal(calls, 1);
+
+  // expired（login 画面へ redirect）も決着済みなので待ち直さない
+  const expired = await pollAuthStatus(async () => ({ status: 'expired' }), { sleep });
+  assert.equal(expired.attemptsUsed, 1);
+
+  // unknown は指定回数まで待ち直し、最後まで unknown なら回数付きで返す
+  let unknownCalls = 0;
+  const unknown = await pollAuthStatus(async () => { unknownCalls += 1; return { status: 'unknown' }; }, { attempts: 4, sleep });
+  assert.equal(unknown.status, 'unknown');
+  assert.equal(unknown.attemptsUsed, 4);
+  assert.equal(unknownCalls, 4);
+
+  // 途中で描画が間に合えばそこで authenticated になる（描画待ちを未認証と読み替えない）
+  let n = 0;
+  const late = await pollAuthStatus(async () => { n += 1; return { status: n < 3 ? 'unknown' : 'authenticated' }; }, { attempts: 6, sleep });
+  assert.equal(late.status, 'authenticated');
+  assert.equal(late.attemptsUsed, 3);
 });
 
 test('inspectPathsのJSON相当出力にsecret内容を含めない', () => {

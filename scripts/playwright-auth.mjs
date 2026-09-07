@@ -26,7 +26,7 @@ import {
   validateAuthRoot,
 } from './lib/playwright-auth-profile.mjs';
 import { acquireAuthLock, readAuthLock, withAuthLock } from './lib/playwright-auth-lock.mjs';
-import { captureAuthSnapshot, classifyAuthSnapshot, loadAuthAdapter } from './lib/playwright-auth-adapters.mjs';
+import { captureAuthSnapshot, classifyAuthSnapshot, loadAuthAdapter, pollAuthStatus } from './lib/playwright-auth-adapters.mjs';
 
 export const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -290,8 +290,10 @@ export async function statusAuthService(context = {}, service) {
     try {
       opened = await openAuthContext(service, context, false);
       await opened.page.goto(adapter.checkUrl, { waitUntil: 'domcontentloaded', timeout: context.timeoutMs ?? 60000 });
-      await opened.page.waitForTimeout(1500);
-      const result = classifyAuthSnapshot(adapter, await captureAuthSnapshot(service, opened.page));
+      const result = await pollAuthStatus(
+        async () => classifyAuthSnapshot(adapter, await captureAuthSnapshot(service, opened.page)),
+        { attempts: context.statusAttempts ?? 6, sleep: (ms) => opened.page.waitForTimeout(ms) },
+      );
       return { ok: result.status === 'authenticated', service, ...result };
     } catch (error) {
       return { ok: false, service, status: 'blocked', reason: String(error.message).slice(0, 200) };

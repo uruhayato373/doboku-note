@@ -98,15 +98,24 @@ operator/skill が持つ dry-run→`--commit` ゲートに従い、認証 CLI �
   | 分類 | service |
   |---|---|
   | `authenticated` | note / coconala |
-  | `expired`（login 画面へ redirect） | kdp / instagram / a8 / moshimo |
-  | `unknown`（assert 不達） | brain / google / x |
+  | `expired`（次に使うとき人が再ログインする） | brain / kdp / x / instagram / google / a8 / moshimo |
   | `unsupported`（設計どおり） | afb |
 
 > [!note]
-> `unknown` は「login 画面へ飛ばされてはいないが account assert を確認できない」であり、
-> `expired` と同じではない。両者を混ぜて「未ログイン N 件」と数えない。
-> また同日の実測では `status --all` が note を `unknown` と返した一方、`--service note` は 3 回とも
-> `authenticated` だった（`--all` は 1 プロセスで連続起動する）。**判定は `--service` 単位で行う。**
+> この表は当初 brain / google / x を `unknown` と記録していたが、原因は**判定側**にあり、実体は
+> 3 件ともログアウト済みだった。同日に 2 つ直している。
+>
+> - `status` が goto 後に 1 回 1.5 秒待って 1 回だけ判定していた。note は 4 回目（約 6 秒）で
+>   account marker が出るため、`--all` では `unknown`・`--service` では `authenticated` と結果が
+>   割れていた → `unknown` のときだけ待ち直す poll にした（`authenticated` / `expired` /
+>   `blocked` は決着済みなので即返す）
+> - ログアウト判定が URL の redirect だけを見ていた。brain は `/mypage` のままログイン CTA、
+>   google は `/search-console/about` へ退避、x は `x.com/` でパスワード欄を出すため、どれも
+>   redirect パターンに当たらなかった → パスワード欄・ログアウト表示・GSC の about も見る
+>
+> **`unknown` は「まだ判定できていない」であって「ログアウト」ではない。** account marker が
+> 出ているページにパスワード変更欄があっても `expired` にしない（note の `/settings/account` が
+> まさにその形で、判定順を誤ると認証済みを未ログインと呼ぶ）。
 
 Windows と Mac の双方で note の別プロセス再利用・worktree 非依存を確認済み。
 
