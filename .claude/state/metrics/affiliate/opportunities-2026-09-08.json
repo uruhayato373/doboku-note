@@ -312,7 +312,131 @@
     },
     "newCandidate": "rsg-craftsman",
     "currentTermsSoT": ".claude/state/ads/affiliate-catalog.json",
-    "deployment": "pending",
+    "deployment": {
+      "status": "verified-live",
+      "siteSha": "0554fccf83317a0f6fc0a49aa6d026e972c4eaca",
+      "runUrl": "https://github.com/uruhayato373/doboku-note/actions/runs/34165305520",
+      "verifiedAt": "2026-09-07T22:13:08.229Z",
+      "careerArticles": 8,
+      "existingProseBackports": 3,
+      "mobileAndDesktopChecks": [
+        {
+          "path": "/exam/civil-construction-1/guide/buildjob-review",
+          "status": 200,
+          "affiliateLinks": 1,
+          "allBuildJob": true,
+          "overflow": false
+        },
+        {
+          "path": "/exam/civil-construction-1/guide/white-company",
+          "status": 200,
+          "affiliateLinks": 1,
+          "allBuildJob": true,
+          "overflow": false
+        },
+        {
+          "path": "/exam/civil-construction-1/guide/hatchu-shien",
+          "status": 200,
+          "affiliateLinks": 1,
+          "allBuildJob": true,
+          "overflow": false
+        },
+        {
+          "path": "/exam/civil-construction-2/guide/young-career",
+          "status": 200,
+          "affiliateLinks": 1,
+          "allBuildJob": true,
+          "overflow": false
+        },
+        {
+          "path": "/exam/civil-construction-1/guide/career-consultation-before-quit",
+          "status": 200,
+          "affiliateLinks": 1,
+          "allBuildJob": true,
+          "overflow": false
+        },
+        {
+          "path": "/exam/civil-construction-1/guide/career-agent-comparison",
+          "status": 200,
+          "affiliateLinks": 1,
+          "allBuildJob": true,
+          "overflow": false
+        },
+        {
+          "path": "/exam/civil-construction-2/guide/buildjob-review",
+          "status": 200,
+          "affiliateLinks": 1,
+          "allBuildJob": true,
+          "overflow": false
+        },
+        {
+          "path": "/exam/civil-construction-2/guide/career-agent-comparison",
+          "status": 200,
+          "affiliateLinks": 1,
+          "allBuildJob": true,
+          "overflow": false
+        },
+        {
+          "path": "/tools/career-check",
+          "download": "career-preparation.txt",
+          "downloadEvents": 1,
+          "resultEvents": 1
+        },
+        {
+          "path": "/downloads/career-preparation.txt",
+          "status": 200,
+          "characters": 1204
+        },
+        {
+          "path": "desktop BuildJob",
+          "affiliateLinks": 2,
+          "allBuildJob": true
+        }
+      ],
+      "ssr": "HTTP 200, main present and keywords present on pages.dev and custom domain; check-production-ssr exit 0",
+      "notes": [
+        {
+          "id": "na0f42fd52a51",
+          "status": "published",
+          "price": 0,
+          "characters": 1952,
+          "hashtags": 94,
+          "siteLinks": 2,
+          "disclosure": true,
+          "updated": true
+        },
+        {
+          "id": "ne7284dacf78b",
+          "status": "published",
+          "price": 0,
+          "characters": 2199,
+          "hashtags": 94,
+          "siteLinks": 4,
+          "disclosure": true,
+          "updated": true
+        },
+        {
+          "id": "n8b03a7de0c6b",
+          "status": "published",
+          "price": 0,
+          "characters": 2239,
+          "hashtags": 98,
+          "siteLinks": 4,
+          "disclosure": true,
+          "updated": true
+        },
+        {
+          "id": "n5a823955985c",
+          "status": "published",
+          "price": 0,
+          "characters": 2181,
+          "hashtags": 99,
+          "siteLinks": 1,
+          "disclosure": true,
+          "updated": true
+        }
+      ]
+    },
     "afb": {
       "status": "unknown",
       "expectedSiteId": "984453",
@@ -335,6 +459,29 @@
       "articleMidClicks": 3,
       "source": ".claude/state/metrics/ga4/ga4-cta-clicks-by-label-2026-09-07T21-49-53.json",
       "comparability": "All affiliate surfaces include learning articles and DX; do not treat as career article CTR or join to August A8 conversion rate."
+    },
+    "validation": {
+      "relatedTests": 41,
+      "e2ePassed": 60,
+      "e2eSkipped": 4,
+      "contentQualityNewViolations": 0,
+      "mdxDates": "PASS",
+      "notePrepublishDryRun": "4/4 PASS",
+      "globalAudit": {
+        "passedInitial": 85,
+        "failedInitial": 3,
+        "contentQualityRecheck": "PASS after existing prose backports",
+        "remainingOutsideScope": [
+          "sales-freshness: existing note sales record is 22 days old",
+          "drive-vault: existing asset relocation is not reflected in committed manifest"
+        ]
+      },
+      "developCIOutsideScope": [
+        "standards UI E2E: 7 failures",
+        "standards-data gate not wired",
+        "handoff references deleted backlog IDs",
+        "unused exported types from standards changes"
+      ]
     }
   }
 }
