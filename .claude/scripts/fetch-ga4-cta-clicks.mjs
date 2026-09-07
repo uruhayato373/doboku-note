@@ -46,6 +46,10 @@ const EVENT_NAMES = [
   // キャリア hub / 診断ツールで読者が悩みを選んだイベント（2026-08-21 新設）。
   // これが無いと hub→柱 の遷移が測れず Phase 06 の評価が成立しない。
   "career_need_select",
+  // 整理ツールの利用から相談準備までを、広告クリックと分けて確認する。
+  "career_tool_result",
+  "career_checklist_copy",
+  "career_checklist_download",
 ];
 
 function parseArgs() {
