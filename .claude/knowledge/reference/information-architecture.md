@@ -185,7 +185,7 @@ content/
 > あれば新規作成せずコメント追記／**クローズは人間**＝復旧の実体検証を挟む）。
 > 現在の起票元: `ci.yml`（**Pre-merge check が赤**・2026-08-24 追加）・`uptime-ping.yml`（SSR 健全性の失敗・同）・
 > `weekly-review-guard.yml`（記録層の沈黙／**重要 workflow が赤いまま・動いていない**／**quality-audit の report 区分 FAIL**・同）・
-> `index-coverage.yml`（閾値の無条件異常）・クラウドルーティン `doboku-note GSC auto review`（実行時の【要確認】）。
+> `index-coverage.yml`（閾値の無条件異常）・`gsc-auto-review.yml`（CI 実行失敗・記録未生成・実行時の【要確認】）。
 >
 > **2026-08-24 の実査**: それまで `ci.yml` は起票元に含まれておらず、「CI が赤い」ことを読む機械・スキル・
 > ダッシュボード・週次レビューがリポジトリ内に 1 つも無かった。develop の Pre-merge check が

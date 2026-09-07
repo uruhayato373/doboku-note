@@ -372,9 +372,10 @@ curl https://<account>.r2.cloudflarestorage.com/
 
 | workflow | cron | **実行ブランチ** | push 先 | 対象 |
 |---|---|---|---|---|
-| `psi-audit.yml` | `0 17 * * *` | **main**（ref 無し） | develop | PSI / Core Web Vitals |
-| `fetch-metrics.yml` | `0 21 * * 4` | **main**（ref 無し） | develop | GA4 / GSC 週次 |
-| `index-coverage.yml` | `0 2 1 * *` | **main**（ref 無し） | develop | GSC index coverage |
+| `psi-audit.yml` | `0 17 * * *` | **develop**（明示） | develop | PSI / Core Web Vitals |
+| `fetch-metrics.yml` | `0 21 * * 4` | **develop**（明示） | develop | GA4 / GSC 週次 |
+| `gsc-auto-review.yml` | `0 3 * * 5` | **develop**（明示） | develop | GSC 週次・月次の記録層 |
+| `index-coverage.yml` | `0 2 1 * *` | **develop**（明示） | develop | GSC index coverage |
 | `weekly-review-guard.yml` | `17 2 * * 1` | **main**（ref 無し） | なし | 週次レビュー実施の督促 |
 | `r2-audit.yml` | `0 22 * * 0` | **main**（明示） | なし | R2 / OGP / 品質ゲート |
 | `post-youtube-scheduled.yml` | `17 8 * * *` | **develop**（明示） | develop | YouTube 通常動画・Shorts 予約投稿 |

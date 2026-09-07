@@ -468,7 +468,7 @@ gh issue list --label automation-failure --state open --json number,title,create
   **7 日以上 open のものは必ず言及する**（放置＝チャネルが死ぬ）。クローズは復旧の実体を確認した人間が行う
   （`report-automation-failure.mjs` は自動クローズしない）。起票元は `ci.yml`（Pre-merge が赤）・
   `uptime-ping.yml`・`weekly-review-guard.yml`（記録層の沈黙／workflow health／report 区分 FAIL）・
-  `index-coverage.yml`・GSC auto review ルーティン
+  `index-coverage.yml`・`gsc-auto-review.yml`
 
 
 ### Phase 3: 出力（md ファイル保存）
