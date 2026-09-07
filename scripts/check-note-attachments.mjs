@@ -141,7 +141,9 @@ const { launchNoteContext, assertAccountGate, sleep } = await import('./lib/note
 const ctx = await launchNoteContext({ viewport: { width: 1280, height: 900 } });
 const page = ctx.pages()[0] || (await ctx.newPage());
 await page.goto('https://note.com/settings/account', { waitUntil: 'domcontentloaded' });
-const gate = await assertAccountGate(page, { url: null, attempts: 1, intervalMs: 1500 });
+// 20 分の走査を 1 回 1.5 秒の判定で中断していた（2026-09-07 実測＝実際は authenticated なのに
+// ABORT）。note-browser の既定（10 回 x 2 秒）へ戻す。ここでの待ちは走査全体から見れば無視できる。
+const gate = await assertAccountGate(page, { url: null });
 if (!gate.ok) {
   console.error('✗ ABORT: note にログインしていない（npm run note-edit-session で1回ログインする）');
   await ctx.close(); process.exit(2);
@@ -153,6 +155,9 @@ console.log(`[check-note-attachments --live] 対象 ${need.length} 件を実査�
 // `--only` の単独実測なら充足なのに、全件走査だけ live=0 と報告した＝取り逃し）。
 // 待ちを一律に伸ばすと 575 本で数十分伸びるので、代償は「不足と出た件数」にだけ払う。
 const ATTACH_SEL = 'a[href*="api/v2/attachments/download"]';
+// JST 基準。UTC だと JST 09:00 前の実測が前日付になり、note-attach-batch の鮮度判定が
+// 常に「1日古い」と誤警告する。
+const JST_TODAY = new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
 const SETTLE_MS = Number(process.env.NOTE_ATTACH_SETTLE_MS || 2500);
 const CONFIRM_SETTLE_MS = Number(process.env.NOTE_ATTACH_CONFIRM_SETTLE_MS || 8000);
 const CONFIRM_WAIT_MS = Number(process.env.NOTE_ATTACH_CONFIRM_WAIT_MS || 15000);
@@ -176,7 +181,7 @@ async function measureLive(noteId, { settleMs, scrollPasses, waitForAttachmentMs
   return null;
 }
 
-const short = []; const fetchFail = []; const provisional = []; let ok = 0; let recovered = 0;
+const short = []; const fetchFail = []; const provisional = []; const recovered = []; let ok = 0;
 for (const [i, t] of need.entries()) {
   const want = t.allow?.expected ?? t.expected.length;
   const live = await measureLive(t.noteId, { settleMs: SETTLE_MS, scrollPasses: 1, waitForAttachmentMs: 0 });
@@ -196,7 +201,8 @@ if (provisional.length) {
     const live = await measureLive(t.noteId, { settleMs: CONFIRM_SETTLE_MS, scrollPasses: 3, waitForAttachmentMs: CONFIRM_WAIT_MS });
     if (live === null) { fetchFail.push(t); console.log(`  [${i + 1}/${provisional.length}] FETCH_ERR ${t.noteId}`); continue; }
     if (live >= t.want) {
-      recovered++; ok++;
+      recovered.push({ noteId: t.noteId, at: JST_TODAY, scanLive: t.live, confirmLive: live, want: t.want });
+      ok++;
       console.log(`  [${i + 1}/${provisional.length}] ✓ 再実測で充足 live=${live}/期待${t.want}（全件走査の取り逃し）  ${t.noteId}`);
       continue;
     }
@@ -210,7 +216,7 @@ const inspected = need.length - fetchFail.length;
 const shortPromised = short.filter((s) => s.promises);
 const shortSilent = short.filter((s) => !s.promises);
 console.log(`\n実検査 ${inspected} 件（対象 ${need.length}・取得失敗 ${fetchFail.length}）: 充足 ${ok} / 不足 ${short.length}`);
-console.log(`  暫定不足 ${provisional.length} → 再実測で解消 ${recovered} / 確定不足 ${short.length}（解消分は全件走査の取り逃し＝偽陰性）`);
+console.log(`  暫定不足 ${provisional.length} → 再実測で解消 ${recovered.length} / 確定不足 ${short.length}（解消分は全件走査の取り逃し＝偽陰性）`);
 console.log(`  内訳: **本文で約束していて未添付 ${shortPromised.length} 件（購入者が受け取れない・緊急）** / 本文で触れず未添付 ${shortSilent.length} 件（方針判断）`);
 
 // 復旧は note の 1日100アップロード上限で複数日に分かれる。別日・別PCから再開できるよう
@@ -219,11 +225,15 @@ if (!ONLY) {
   const { writeFileSync, mkdirSync } = await import('node:fs');
   const outPath = join(ROOT, '.claude/state/note-attachments-missing.json');
   mkdirSync(dirname(outPath), { recursive: true });
+  // 既存を丸ごと置き換えると、人が手で足した注記（過去の偽陰性の根拠など）が黙って消える。
+  // 計算した項目だけを上書きし、知らないキーはそのまま残す。
+  const prev = existsSync(outPath) ? JSON.parse(readFileSync(outPath, 'utf8')) : {};
   writeFileSync(outPath, JSON.stringify({
-    // JST 基準。UTC だと JST 09:00 前の実測が前日付になり、note-attach-batch の鮮度判定が
-    // 常に「1日古い」と誤警告する。
-    measuredAt: new Date(Date.now() + 9 * 60 * 60 * 1000).toISOString().slice(0, 10),
+    ...prev,
+    measuredAt: JST_TODAY,
     inspected, target: need.length, fetchFail: fetchFail.length, satisfied: ok,
+    // 全件走査で不足と出たが単独再実測で充足した記事＝走査側の取りこぼし。偽陰性の履歴を残す。
+    recoveredInConfirm: recovered,
     missingPromised: shortPromised.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected })),
     missingSilent: shortSilent.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected })),
     missing: short.map((s) => ({ noteId: s.noteId, title: s.title, live: s.live, want: s.want, pdfs: s.expected, promises: !!s.promises })),
