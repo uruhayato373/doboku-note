@@ -285,7 +285,7 @@ node .claude/skills/quality/check-mdx/scripts/rules/svg/audit.mjs --severity=HIG
 
 ### Step 5: コミット
 
-作成完了後、即座にコミットする（CLAUDE.md「コンテンツ編集時のコミット運用」に準拠）。
+作成完了後、即座にコミットする（CLAUDE.md §3「1 記事の修正が完了したら即 commit」に準拠）。
 
 ## 参照
 

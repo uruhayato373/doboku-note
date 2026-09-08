@@ -135,7 +135,7 @@ PDF または画像ファイルから doboku-note 用 MDX を生成する統合�
 
 - テンプレートの出力パス規則に従う
 - 既存ファイルがある場合は上書き確認
-- CLAUDE.md「MDX ファイル書き込みの規約」に従い、`.claude/scripts/lib/mdx-io.mjs` 経由で書き込み（CRLF 維持）
+- CLAUDE.md §3「MDX 書き込みは `writeMdxFile` 経由」に従い、`.claude/scripts/lib/mdx-io.mjs` 経由で書き込み（CRLF 維持）
 
 ### Step 9: post_hooks の実行
 

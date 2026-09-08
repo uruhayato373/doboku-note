@@ -165,13 +165,13 @@ notebooklm CLI が使えない場合（未インストール・ネットワー�
 
 | 修正タイプ | 使うツール |
 |---|---|
-| 構造（見出し・リスト・表） | Edit / Write（CLAUDE.md「MDX ファイル書き込みの規約」遵守：CRLF 維持） |
+| 構造（見出し・リスト・表） | Edit / Write（CLAUDE.md §3「MDX 書き込みは `writeMdxFile` 経由」遵守：CRLF 維持） |
 | コンテンツ追記 | Edit / Write |
 | SVG 新規作成 | `/create-svg` スキル（または直接 SVG を Write） |
 | MDX 互換性 | `/check-mdx` スキル |
 | モバイル視認性 | `/review-mobile` スキル |
 
-1 記事編集が一区切りついたら CLAUDE.md「コンテンツ編集時のコミット運用」に従って**即コミットを提案**（ただし実行は人間承認を得てから）。
+1 記事編集が一区切りついたら CLAUDE.md §3「1 記事の修正が完了したら即 commit」に従って**即コミットを提案**（ただし実行は人間承認を得てから）。
 
 ### Step 5: 完了判定
 

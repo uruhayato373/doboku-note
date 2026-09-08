@@ -8,7 +8,7 @@
 // 分割だけでなく 00_プロジェクト管理/ 等の旧トップ階層も含む）。
 // 人手で追うと必ず漏れるため、壊れた doc 参照を機械検知してコミットを止める。
 //
-// 検査対象（ソース側）: .claude/skills/**/*.md, .claude/agents/**/*.md,
+// 検査対象（ソース側）: .claude/skills/**/*.md, .claude/agents/**/*.md, .claude/rules/**/*.md,
 //                        .claude/knowledge/**/*.md, docs/**/*.md, content/**/*.md, CLAUDE.md
 // 検査対象（参照先）  : docs/... .claude/... src/... で始まり拡張子を持つファイルパス
 //
@@ -80,6 +80,7 @@ if (STAGED) {
     f.startsWith('.claude/skills/') ||
     f.startsWith('.claude/agents/') ||
     f.startsWith('.claude/knowledge/') ||
+    f.startsWith('.claude/rules/') ||
     f.startsWith('docs/') ||
     f.startsWith('content/') ||
     f === 'CLAUDE.md'
@@ -89,6 +90,8 @@ if (STAGED) {
     ...walk('.claude/skills'),
     ...walk('.claude/agents'),
     ...walk('.claude/knowledge'),
+    // 2026-09-08: CLAUDE.md から分離したパス条件付きルール。ここへ足さないと移設した参照が検査対象外になる
+    ...walk('.claude/rules'),
     ...walk('docs'),
     // 2026-08-18: チャネル別制作物は docs/ から content/ へ移した。ここへ足さないと
     // note/ココナラの .md が丸ごと検査対象外になり、緑のまま参照が腐る

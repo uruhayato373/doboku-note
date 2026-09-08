@@ -224,7 +224,7 @@ user-invocable: true
 
 - 1 回の実行で 1 ファイル評価が原則（複数指定時は逐次実行）
 - スキル単体で完結（エージェント呼び出しなし、シンプル設計）
-- 出力は `.claude/state/pe-essay-review/` に保存（CLAUDE.md「機械可読データ」の Tier 3 ではなく Markdown レポート）
+- 出力は `.claude/state/pe-essay-review/` に保存（`.claude/knowledge/reference/workflows.md`「Tier 3 機械可読データ」の JSON ではなく Markdown レポート）
 - note マガジン論文（`content/note/magazines/`）を評価対象にできるが、markdown 互換性（pipe 表・blockquote 等の note レンダリング崩れ）と図版品質は本スキルの管轄外。公開前に別途 `/note-prepublish-review` を流すこと
 
 ## 関連スキル

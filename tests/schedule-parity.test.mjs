@@ -16,7 +16,7 @@ const TSX_CLI = join(ROOT, 'node_modules/tsx/dist/cli.mjs');
  * scripts/lib/schedule-events.mjs の collectScheduleEvents と同じイベントを見ていることを固定する。
  *
  * 守りたい事故: schedule.ts はフィルタと型付けだけのアダプタで、写像ロジックを持たない設計
- * （パーサ二重実装禁止・CLAUDE.md「全体の制約」）。それでも import パス（`../../../../scripts/lib/...`
+ * （パーサ二重実装禁止・CLAUDE.md §7・.claude/rules/code.md）。それでも import パス（`../../../../scripts/lib/...`
  * の階層数）を1つ間違えるだけで admin だけが壊れる、というズレは起きうる。
  *
  * ルート tsconfig.json の exclude に `tools/**` があり `npm run type-check` は schedule.ts を

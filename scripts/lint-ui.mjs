@@ -235,7 +235,7 @@ function main() {
     process.exit(0);
   } else {
     console.error(`\nlint-ui: ✗ ${totalViolations} violation(s) found.\n`);
-    console.error("See CLAUDE.md 'UI コンポーネントの必須ルール' for token reference.\n");
+    console.error("See .claude/rules/code.md (UI コンポーネント) and .claude/knowledge/design-system/design-system.md for token reference.\n");
     process.exit(1);
   }
 }
