@@ -19,6 +19,16 @@ test('uploadsを全ページ取得し詳細の被覆を検証する', async () =
 test('別口座・空集合・ページ循環・詳細欠落は検査不成立', async () => {
   for (const opts of [{ wrongChannel: true }, { missing: true }, { repeated: true }, { empty: true }]) await assert.rejects(channelInventory(mock(opts), expected));
 });
+test('ページ間重複は台帳の補完IDを実査して総数と一致する場合だけ被覆が成立する', async () => {
+  const yt = mock(); let page = 0;
+  yt.playlistItems.list = async () => ({ data: { pageInfo: { totalResults: 2 }, items: [{ contentDetails: { videoId: 'hJYV_U0qKvA' } }], ...(page++ === 0 ? { nextPageToken: 'next' } : {}) } });
+  await assert.rejects(channelInventory(yt, expected), /incomplete/);
+  page = 0;
+  const result = await channelInventory(yt, expected, { knownVideoIds: ['8qhSsq9-x6k'] });
+  assert.equal(result.checked, 2);
+  assert.deepEqual(result.evidence.duplicateIds, ['hJYV_U0qKvA']);
+  assert.deepEqual(result.evidence.supplementedFromLedger, ['8qhSsq9-x6k']);
+});
 test('公開CI向けレポートは手元の秘密鍵でだけ復号でき、改ざんを拒否する', () => {
   const keys = createEnvelopeKeys(), value = { privateTitle: '非公開タイトル', checked: 2 };
   const encrypted = sealReport(value, keys.publicKey);

@@ -38,7 +38,14 @@ async function main() {
   auth.setCredentials({ refresh_token: env.YOUTUBE_REFRESH_TOKEN });
   const expected = JSON.parse(readFileSync(join(root, 'content/sns/video-packs/civil-construction-1/koji-gaiyo-7items/youtube.json'), 'utf8')).channel;
   const trace = [];
-  const result = await channelInventory(google.youtube({ version: 'v3', auth }), expected, { record: entry => {
+  const knownVideoIds = new Set();
+  const collect = value => {
+    if (!value || typeof value !== 'object') return;
+    if (value.videoId) knownVideoIds.add(value.videoId);
+    for (const v of Object.values(value)) collect(v);
+  };
+  for (const path of ['.claude/state/video-content-status.json', '.claude/state/youtube-schedule.json']) collect(JSON.parse(readFileSync(join(root, path))));
+  const result = await channelInventory(google.youtube({ version: 'v3', auth }), expected, { knownVideoIds: [...knownVideoIds], record: entry => {
     trace.push(entry);
     writeFileSync(join(out, 'inventory-trace.enc.json'), JSON.stringify(sealReport({ trace }, publicKey)) + '\n');
   } });
