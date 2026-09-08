@@ -39,7 +39,7 @@ export async function compareThumbnail(expected, actual) {
     }
     scores.push({fit,mean:sum/pixels.length,worstTile});
   };
-  for (const fit of ['contain','cover','fill']) {
+  for (const fit of source.width<source.height && meta.width>meta.height ? ['contain'] : ['contain','cover','fill']) {
     const rendered = await sharp(expected).resize(width,height,{fit,background:'#000000'}).removeAlpha().toColourspace('srgb').raw().toBuffer();
     score(rendered,live,width,height,fit);
   }

@@ -85,3 +85,8 @@ test('実更新jobは明示operation・手動commitでのみ起動し、公開ar
  assert.match(run,/APPLY_THUMBNAILS.*true/);assert.match(run,/--expect-plan-sha256/);
  assert.equal(job.steps.find(s=>s.uses?.startsWith('actions/upload-artifact@')).with.path,'.tmp/youtube-rollout-export/*.enc.json');
 });
+test('Shortsを横長に中央クロップしただけの画像は全体一致と認めない',async()=>{
+ const portrait=await sharp(Buffer.from('<svg width="1080" height="1920"><rect width="1080" height="1920" fill="#0f2742"/><rect x="80" y="100" width="800" height="200" fill="white"/><rect x="150" y="1500" width="500" height="200" fill="gold"/></svg>')).png().toBuffer();
+ const cropped=await sharp(portrait).resize(1280,720,{fit:'cover'}).jpeg({quality:90}).toBuffer();
+ assert.equal((await compareThumbnail(portrait,cropped)).matched,false);
+});
