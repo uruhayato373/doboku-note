@@ -39,13 +39,14 @@
 後から判断できなくなる。
 
 文字起こしは先頭に次の frontmatter を持つ。`sourcePdfs` は
-`.claude/state/assets/drive-manifest.json` の `textbook-source-pdf` キーを指定する。
+`.claude/state/assets/drive-manifest.json` の `reference-book-source-pdf` キーを指定する。
+未移行書籍だけは旧 `textbook-source-pdf` キーも許容する。
 
 ```yaml
 ---
 source: registry-id
 sourcePdfs:
-  - 原資料PDF/教材/example/source.pdf
+  - content/sources/books/registry-id__短い書名/source/001.pdf
 pdfPages: 1-6
 printedPages: 10-15
 method: visual-ocr
@@ -74,15 +75,23 @@ npm run check-reference-sources -- --deep
 ## 3. 参考文献を 1 冊増やす手順
 
 1. `/asset-route` で利用者を判定し、人または手元の変換スクリプトだけが使う原本は Drive vault の
-   `原資料PDF/` 配下へ置く。
+   `原資料PDF/` 配下へ置く。市販書籍の正規形は `書籍/{referenceId}__{短い書名}/`。
 2. `.claude/config/reference-sources.json` の既存 6 class から区分を選び、`id`、`title`、`origin`、必要なら
    `transcriptDir`、`appliesTo`、`aliases` を登録する。新しい class や既存 class の値が必要なら実装を止めて判断する。
-3. `pdf-to-mdx --scanned` 等で文字起こしを作り、§2 の frontmatter を付ける。OCR 本文は原本の再現物なので、
-   公開記事向けの言い換えは文字起こしではなく記事側で行う。
-4. `npm run drive-vault-sync -- --group source-transcript --commit` で同期し、
-   `npm run drive-vault-sync -- --group source-transcript --verify --deep --cloud` でローカル・台帳・Drive を照合する。
-5. 記事の `sources` に ID を追加し、class 所定の粒度で出典を書く。
-6. 通常検査と `--deep` を通す。市販書籍なら逐語一致 0 を確認してから公開する。
+3. `bookBundle` を登録した書籍は `npm run build-reference-book-pages -- --source-id <id>` の dry-run 後、
+   `--commit` で `source/` と通し `pages/`、`book-manifest.json` を作る。
+   取込元が vault 外の同じマイドライブにある場合は、`sourceFiles[].legacyMyDrivePath` にマイドライブルートからの
+   相対 PDF パスを記録する。絶対パス、`..`、PDF 以外、複数の旧配置指定は検査で拒否する。
+   生成器は取込元を削除しないが、正本登録後は正本を優先して読み、旧取込元が無くても動く。
+4. `pdf-to-mdx --scanned` 等で文字起こしを作り、§2 の frontmatter を付ける。OCR 本文は原本の再現物なので、
+   公開記事向けの言い換えは文字起こしではなく記事側で行う。`bookBundle` 書籍の新規 OCR は
+   `content/sources/books/{referenceId}__{短い書名}/ocr/` を論理キーにする。
+5. OCR と最終図 crop を作った `bookBundle` 書籍は `npm run record-reference-book-artifacts` の dry-run 後、
+   `--commit` で Drive・`drive-manifest.json`・`book-manifest.json` へ同時登録する。従来配置の書籍は
+   `npm run drive-vault-sync -- --group source-transcript --commit` を使う。
+   最後に対象 group を `--verify --deep --cloud` でローカル・台帳・Drive と照合する。
+6. 記事の `sources` に ID を追加し、class 所定の粒度で出典を書く。
+7. 通常検査と `--deep` を通す。市販書籍なら逐語一致 0 を確認してから公開する。
 
 Drive や R2 の削除はこの手順に含めない。不要物の削除は対象と復元手段を別途確認してから行う。
 
@@ -90,14 +99,18 @@ Drive や R2 の削除はこの手順に含めない。不要物の削除は対�
 
 | 対象 | Drive vault | 台帳・group |
 |---|---|---|
-| 原本 PDF | `原資料PDF/{区分}/{書名}/` | `reference-sources.json` の `origin` ＋ `textbook-source-pdf` |
-| 原本ページ画像 | `原資料PDF/{区分}/{書名}/pages/` | 原本用の Drive group |
-| 文字起こし | `文字起こし/{書名}/` | `source-transcript`（README を除く `.md`） |
+| 原本 PDF | `原資料PDF/書籍/{referenceId}__{短い書名}/source/` | `reference-sources.json` の `origin` ＋ `reference-book-source-pdf` |
+| 原本ページ画像・クロップ | 同ディレクトリの `pages/`・`crops/` | `reference-book-page-image` ＋ `book-manifest.json` |
+| 文字起こし・校正 | 同ディレクトリの `ocr/` | `source-transcript`（README を除く `.md`）＋ `book-manifest.json` |
 
 文字起こしの `source` が参考文献 ID、`sourcePdfs` が原本 PDF の Drive キーを保持する。これにより Drive の
 フォルダ名を人が読める状態に保ちながら、記事までの機械的な追跡は安定した ID で行える。
+従来の `content/sources/textbook/` 論理キーは `transcriptDir` として互換維持し、物理的には原資料の `ocr/` を指す。
+新規 OCR は `bookBundle.transcriptDir` を使う。原本未入手の資料は明示した `transcriptVaultDir` に置き、
+原本があるように装わない。旧 PDF キーは台帳で正本へ向け、同一内容の PDF を複製しない。
 
-`文字起こし/共通仕様書/` と公開 `standards-library` の関係は未整理の既存債務であり、別タスクで扱う。
+共通仕様書の旧文字起こしは `原資料PDF/共通仕様書/{整備局}/{PDF名}/ocr/` へ統合した。
+公開 `standards-library` / `standards-articles` は repo 側を入力とするため、Drive の物理移動には依存しない。
 
 ## 5. 構成流用の扱い
 

@@ -1,0 +1,577 @@
+{
+  "schemaVersion": 1,
+  "completedAt": "2026-09-07T22:32:00.812Z",
+  "scope": [
+    "vault:原資料PDF/",
+    "mydrive:個人管理/資格試験/1級土木施工管理技士/"
+  ],
+  "movedFiles": 663,
+  "removedTranscriptDirectories": 109,
+  "removedFormerPdfDirectories": 16,
+  "removedPdfs": 78,
+  "removedBytes": 1809438608,
+  "remainingPdfs": 499,
+  "duplicatePdfsRemaining": 0,
+  "verification": {
+    "duplicatePairsSha256": 78,
+    "canonicalCloudMd5": 78,
+    "movedFilesCloudMd5": 663,
+    "bookCanonicalOnlyDryRuns": 26,
+    "referenceTranscriptsChecked": 67,
+    "unitTests": 39,
+    "manifestTargetsPresent": 30473,
+    "bookSourceFilesSha256": 69,
+    "bookPageImageSamplesSha256": 364,
+    "standardsPageImageSamplesSha256": 81,
+    "cloudGuideFiles": 4,
+    "cloudTopLevelDirectories": ["原資料PDF", "制作物", "アーカイブ"]
+  },
+  "aliases": [
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/マンガでわかる2級土木施工管理技士_第一次検定_2026年版.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil2-first-exam-manga-2026__マンガでわかる2級土木第一次検定2026/source/001.pdf",
+      "sha256": "8b8296a99c5be797718b10288ccf4e0527b08152c71ba190799292ee61ae4b81",
+      "bytes": 18185099
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/建設業AI経営.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/construction-ai-management__建設業AI経営/source/001.pdf",
+      "sha256": "43792982e20f82bd6832bd613dea2b79f5c733306d4fefc23d3ce11f429210f9",
+      "bytes": 16418372
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/図解入門 よくわかる最新 気象災害の基本と仕組み.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/weather-disaster-basics__最新気象災害の基本と仕組み/source/001.pdf",
+      "sha256": "b34808389b63fa8ee2b4320ec9f26c40ee560c04643d361661c7fa469108791b",
+      "bytes": 24940840
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/建設業向けClaude Code実践活用ガイド.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/construction-claude-code-guide__建設業向けClaudeCode実践活用ガイド/source/001.pdf",
+      "sha256": "7e83e61b7a0fc179a2f9186766f06ee01e0e2926434f158c9b56d8e5ccafb8e6",
+      "bytes": 23245296
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/最新建設業界の動向とカラクリがよ〜くわかる本［第5版］.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/construction-industry-trends-5th__最新建設業界の動向とカラクリ第5版/source/001.pdf",
+      "sha256": "7a08426bb982dc7f37663c2af422d7542532f63d652344fa1b4d330decdd7a1c",
+      "bytes": 40598315
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/よくわかる最新防災土木の基礎知識.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/disaster-civil-basics__よくわかる最新防災土木の基礎知識/source/001.pdf",
+      "sha256": "2039e396c13bd0958a275a933d5e80ae1e585c0236da10acd67c0a524c4c99c1",
+      "bytes": 34793995
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/土木技術者のための土木施工管理の基礎.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil-construction-basics__土木施工管理の基礎/source/001.pdf",
+      "sha256": "e8d714cc8938fe6d7404939d03b817f06a119cc8d986c6ba25206174d55d3bf8",
+      "bytes": 28541798
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/よくわかる最新土木技術の基本と仕組み.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil-technology-basics__最新土木技術の基本と仕組み/source/001.pdf",
+      "sha256": "ff8c02206203662a503397ef4d339e8a6825f18b59edeaf9c700a45a89e61e36",
+      "bytes": 41132441
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/土木技術者のための建設材料の基本と仕組み.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/construction-materials-basics__建設材料の基本と仕組み/source/001.pdf",
+      "sha256": "cbb88e8eee12885e0b8b5799bcde7bc3987bca834306618690bea3059f488927",
+      "bytes": 36025799
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/最新土木業界の動向とカラクリがよ〜くわかる本［第3版］.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil-industry-trends-3rd__最新土木業界の動向とカラクリ第3版/source/001.pdf",
+      "sha256": "b5fc7f15fbaa00c9950e8014f74e19c7cf9ca161b3ef6584a3ca5fcd3df701ea",
+      "bytes": 41584037
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/よくわかる最新コンクリートの基本と仕組み［第5版］.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/concrete-basics-5th__最新コンクリートの基本と仕組み第5版/source/001.pdf",
+      "sha256": "5afb3fae76ceb450a6a7c841211d6629a1d00f0cd9d60a3dcff5da4a180c7d67",
+      "bytes": 44868165
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/共通仕様書/沖縄総合事務局/hikkei-11__土木請負工事必携_道路工事保安施設設置基準(案).pdf",
+      "canonicalVaultPath": "原資料PDF/共通仕様書/九州地方整備局/road-safety__道路工事保安施設設置基準(案)令和6年2月改定.pdf",
+      "sha256": "e55cbffdefcc21116149521497a38a47a395f7d9bf9d05335c19ddc8778b203d",
+      "bytes": 2008235
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/共通仕様書/沖縄総合事務局/common__土木工事共通仕様書_令和8年3月.pdf",
+      "canonicalVaultPath": "原資料PDF/共通仕様書/中国地方整備局/common__土木工事共通仕様書_令和8年度版.pdf",
+      "sha256": "abe3a86d222d13b4a16479c07d9e52c09b3155e5da20dd6303e1808789b23b73",
+      "bytes": 3958145
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/土木情報学.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil-informatics__土木情報学/source/001.pdf",
+      "sha256": "7e7923fffab18fac3c68f8bbc0b13b22b728bc763a89bdae9ce3cd373b18626a",
+      "bytes": 24761708
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/行政書士/第１部_憲法/第１部_憲法.pdf",
+      "canonicalVaultPath": "原資料PDF/教材/行政書士/第１部_憲法.pdf",
+      "sha256": "14b3b3f5af90f5ab4fa890276667a591758a6ed8d1cc22304dec0352fe4626d1",
+      "bytes": 13671377
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/行政書士/第２部_行政法/第２部_行政法.pdf",
+      "canonicalVaultPath": "原資料PDF/教材/行政書士/第２部_行政法.pdf",
+      "sha256": "860efa2c979eb144f2c684679715b3149fd549fd7437c8b6c8be2ccb2f05f4a8",
+      "bytes": 24525674
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/コンクリート診断士/スキャンした書類.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/concrete-diagnostician-textbook__コンクリート診断士受験対策/source/001.pdf",
+      "sha256": "e6face322fb10ca2f2ef0d20199a0ea14cb64a9269482c91e0f28a2c686a49c9",
+      "bytes": 22788385
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/コンクリート診断士/スキャンした書類 9.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/concrete-diagnostician-textbook__コンクリート診断士受験対策/source/009.pdf",
+      "sha256": "78dc9f3b2c8c768173c9ec041012dbde1b6a895e261db1b86464a7b2c3bcb8ca",
+      "bytes": 22551592
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/建設業法のツボとコツがゼッタイにわかる本［第3版］.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/construction-business-act-tips-3rd__建設業法のツボとコツ第3版/source/001.pdf",
+      "sha256": "3a8080bbb98ff3e25d9f8dfddb2d4a544bda645b0ba48c7da91f76f0dc914340",
+      "bytes": 57687025
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/コンクリート診断士/スキャンした書類 8.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/concrete-diagnostician-textbook__コンクリート診断士受験対策/source/008.pdf",
+      "sha256": "9d302879662f9183790b34d9f9b09a2244ca980a8084fe6f33715cbf2607679d",
+      "bytes": 27145338
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/コンクリート診断士/スキャンした書類 7.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/concrete-diagnostician-textbook__コンクリート診断士受験対策/source/007.pdf",
+      "sha256": "40196bd7542550365895cdea29bdde2c8fc21afb8bb22bb0198e8caabfd10eaa",
+      "bytes": 26086128
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/コンクリート診断士/スキャンした書類 5.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/concrete-diagnostician-textbook__コンクリート診断士受験対策/source/005.pdf",
+      "sha256": "c566ec190589b3d621ae0a132820b0052667aa3ed2b2385c463044ee22e4bad7",
+      "bytes": 24764535
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/コンクリート診断士/スキャンした書類 6.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/concrete-diagnostician-textbook__コンクリート診断士受験対策/source/006.pdf",
+      "sha256": "66a7c9818c77e2f133feb48c9699ab780ecde9d43f9ec7497ee33a25e2f9dc0c",
+      "bytes": 28252385
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/コンクリート診断士/スキャンした書類 4.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/concrete-diagnostician-textbook__コンクリート診断士受験対策/source/004.pdf",
+      "sha256": "d8150372d9c5b432f94bcea696d6f1aa190732bae799b952dd275ec95144499b",
+      "bytes": 23746468
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/コンクリート診断士/スキャンした書類 2.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/concrete-diagnostician-textbook__コンクリート診断士受験対策/source/002.pdf",
+      "sha256": "4a529b864600d0e91110d3cd3c41d9f2de06f395b91e7c1c8e6fec81d96e6869",
+      "bytes": 23588676
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/コンクリート診断士/スキャンした書類 10.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/concrete-diagnostician-textbook__コンクリート診断士受験対策/source/010.pdf",
+      "sha256": "2ed8bb6e3bdae2fe104540613816e182fab7b4ceb196b1fc6eda0a52c12344cb",
+      "bytes": 21948217
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/コンクリート診断士/スキャンした書類 3.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/concrete-diagnostician-textbook__コンクリート診断士受験対策/source/003.pdf",
+      "sha256": "8cea2fb795bafd6b1773548cae073d29d588ef9623c1b657974dd6c33cd92699",
+      "bytes": 28233106
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/新しい時代の安全管理のすべて_第7版/05_第3編_労働安全衛生マネジメントシステム_p260-273.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/safety-management-all-7th__新しい時代の安全管理のすべて_第7版/source/005.pdf",
+      "sha256": "cb656044715d893c809a0ca93ef4e27a01bb149993782137551514bb140cfe51",
+      "bytes": 6087096
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/労働安全衛生テキスト_抜粋スキャン_2026-09/05_スキャンした書類 5.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/safety-management-all-7th__新しい時代の安全管理のすべて_第7版/source/005.pdf",
+      "sha256": "cb656044715d893c809a0ca93ef4e27a01bb149993782137551514bb140cfe51",
+      "bytes": 6087096
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/労働安全衛生テキスト_抜粋スキャン_2026-09/03_スキャンした書類 3.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/safety-management-all-7th__新しい時代の安全管理のすべて_第7版/source/003.pdf",
+      "sha256": "5ebbedde591d423ce3c4db80a95cd3234236bec8b7788c627d28f2d38e854b3b",
+      "bytes": 14942803
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/新しい時代の安全管理のすべて_第7版/03_第2編_安全管理システム_p188-219.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/safety-management-all-7th__新しい時代の安全管理のすべて_第7版/source/003.pdf",
+      "sha256": "5ebbedde591d423ce3c4db80a95cd3234236bec8b7788c627d28f2d38e854b3b",
+      "bytes": 14942803
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/新しい時代の安全管理のすべて_第7版/04_第3編_労働安全衛生マネジメントシステム_p220-259.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/safety-management-all-7th__新しい時代の安全管理のすべて_第7版/source/004.pdf",
+      "sha256": "8185773cbd12bd25a60df5dee36aa87607f2978c29d1cbf9d53e7b5360ea7917",
+      "bytes": 18905588
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/労働安全衛生テキスト_抜粋スキャン_2026-09/04_スキャンした書類 4 (1).pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/safety-management-all-7th__新しい時代の安全管理のすべて_第7版/source/004.pdf",
+      "sha256": "8185773cbd12bd25a60df5dee36aa87607f2978c29d1cbf9d53e7b5360ea7917",
+      "bytes": 18905588
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/新しい時代の安全管理のすべて_第7版/01_第2編_安全管理システム_p106-145.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/safety-management-all-7th__新しい時代の安全管理のすべて_第7版/source/001.pdf",
+      "sha256": "3144ab9865c62d6651c2b61080bd6bbeb1ed9db9780df3ef7f8def2b7d1807d8",
+      "bytes": 16684150
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/コンクリート主任技師2024/コンクリート主任技士2024.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/concrete-chief-textbook-2024__コンクリート主任技士試験対策2024/source/001.pdf",
+      "sha256": "066f7034b31dd5f19256b65f0a4ee538d5c62a9dad053eaff5bcee579bfbda2d",
+      "bytes": 101811129
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/労働安全衛生テキスト_抜粋スキャン_2026-09/01_スキャンした書類.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/safety-management-all-7th__新しい時代の安全管理のすべて_第7版/source/001.pdf",
+      "sha256": "3144ab9865c62d6651c2b61080bd6bbeb1ed9db9780df3ef7f8def2b7d1807d8",
+      "bytes": 16684150
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/新しい時代の安全管理のすべて_第7版/02_第2編_安全管理システム_p146-187.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/safety-management-all-7th__新しい時代の安全管理のすべて_第7版/source/002.pdf",
+      "sha256": "44cf6305b2bf8539a350808b121dc5460dee72585ca2a04299863597cab90626",
+      "bytes": 18724462
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（総監）/テキスト/総合技術監理キーワード集2026.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/ipej-cem-keywords-2026__総合技術監理キーワード集2026/source/001.pdf",
+      "sha256": "c1f744a55c3049a3c9db6828cd6ce145270dc7e0e16c4f66b715595361ff691d",
+      "bytes": 488595
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/書籍/労働安全衛生テキスト_抜粋スキャン_2026-09/02_スキャンした書類 2.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/safety-management-all-7th__新しい時代の安全管理のすべて_第7版/source/002.pdf",
+      "sha256": "44cf6305b2bf8539a350808b121dc5460dee72585ca2a04299863597cab90626",
+      "bytes": 18724462
+    },
+    {
+      "previousScope": "mydrive",
+      "previousPath": "個人管理/資格試験/1級土木施工管理技士/１級土木施工管理第２次試験問題集/１級土木施工管理第２次試験問題集.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/source/001.pdf",
+      "sha256": "302ab5bd6aba5e1cf22f2c8a77d2b57cbbbc1a1344adb74819c29ff572b88906",
+      "bytes": 32392238
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（建設部門）/論文対策キーワード/スキャンした書類 9.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/008.pdf",
+      "sha256": "22953dc7357f820980f7cf6cc41e03ab29ef5496f4c1e0ba1577f6c7b5128865",
+      "bytes": 30607393
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（建設部門）/論文対策キーワード/スキャンした書類 6.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/005.pdf",
+      "sha256": "fa8d65a79b276d268cfdc72251a98574d5deb486973f6fc651c6bb402665ee6c",
+      "bytes": 26098516
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（建設部門）/論文対策キーワード/スキャンした書類 8.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/007.pdf",
+      "sha256": "0ae08f557e1edef8e6c2d3e8fba7d2672a0db3a880fd6506ee9c8fffb48fd0d0",
+      "bytes": 27629256
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（建設部門）/論文対策キーワード/スキャンした書類 7.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/006.pdf",
+      "sha256": "197124fd0231092bf1dad83e0c38d7efd3570321c5697bca1d620db38157cefe",
+      "bytes": 20709867
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（建設部門）/論文対策キーワード/スキャンした書類 5.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/004.pdf",
+      "sha256": "0916c8ad652bb62ca0ee89d3998a40d8fe5d2e952d7c15b1ca381e51283fa6c8",
+      "bytes": 26888324
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（建設部門）/論文対策キーワード/スキャンした書類 2.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/001.pdf",
+      "sha256": "ffcfd5117e9462545675b072586b899a71a58102ba5503bfa6e06477b851f0e0",
+      "bytes": 7681492
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（建設部門）/論文対策キーワード/スキャンした書類 3.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/002.pdf",
+      "sha256": "664cc8d9f2522b903874407389505c95833fde19397844f77b5c3bf0021f8acc",
+      "bytes": 23956731
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（建設部門）/論文対策キーワード/スキャンした書類 4.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/003.pdf",
+      "sha256": "3a107e37169a562a5a1b18d5de2a3bb962f3186338deacf736d975758203e786",
+      "bytes": 24134855
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（総監）/テキスト/総監受験万全対策/3-択一式過去問⑦.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-cem-exam-guide__総監受験万全対策/source/008.pdf",
+      "sha256": "69f2b3920332539d1a4ee43b15a7e22196ef8edbdcd9381c34d6d9145b3cad71",
+      "bytes": 2733530
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（建設部門）/論文対策キーワード/スキャンした書類 10.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード/source/009.pdf",
+      "sha256": "3f784f67909d3d831a4013b1a13ab24d52d135894f099fe3aadd137b9bb6cf71",
+      "bytes": 11871844
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（総監）/テキスト/総監論文対策/総監論文に求められるもの.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-cem-essay-guide__総監論文対策/source/001.pdf",
+      "sha256": "47b5c9cea725e4da7ef6e43be045e8c4409b0b4460c19715fceba18cdaaf316e",
+      "bytes": 9044453
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（総監）/テキスト/総監受験万全対策/3-択一式過去問⑥.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-cem-exam-guide__総監受験万全対策/source/007.pdf",
+      "sha256": "b6fd24f77124744b825b42c84193e2aaca0c9d719886aa9616bffe42efb5a8eb",
+      "bytes": 5475136
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（総監）/テキスト/総監受験万全対策/3-択一式過去問⑤.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-cem-exam-guide__総監受験万全対策/source/006.pdf",
+      "sha256": "882fabdeaf2132efd887836a79aadf67a25a0736185de419b410fff1395cebf6",
+      "bytes": 6441175
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/コンクリート主任技師2022/コンクリート主任技師2022.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/concrete-chief-textbook-2022__コンクリート主任技士試験対策2022/source/001.pdf",
+      "sha256": "e27223deae037974027dcb7ec88b507e978d5840c7eba70a3045ab5ddaeb3711",
+      "bytes": 180955352
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（総監）/テキスト/総監受験万全対策/3-択一式過去問④.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-cem-exam-guide__総監受験万全対策/source/005.pdf",
+      "sha256": "bca50aa4d16dc18d2ea9559bbcf40f9701eb1b2da355c4b9d9a73c9442f5d2e6",
+      "bytes": 6773275
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（総監）/テキスト/総監受験万全対策/3-択一式過去問③.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-cem-exam-guide__総監受験万全対策/source/004.pdf",
+      "sha256": "d2f2f2fe45d270c1ea61fe5dc70061835d51f5854c3e141e32054785b0ed0bb8",
+      "bytes": 6653432
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（総監）/テキスト/総監受験万全対策/3-択一式過去問②.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-cem-exam-guide__総監受験万全対策/source/003.pdf",
+      "sha256": "961932f07c9df69b6e6224a89b8144c2bfa0dcc7b8f0cf5dcfdbcfb8e63ed064",
+      "bytes": 11041389
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（総監）/テキスト/総監受験万全対策/2-出願の留意点.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-cem-exam-guide__総監受験万全対策/source/001.pdf",
+      "sha256": "b023be441331495767be6ea61c9612584c50e9f2105e59de1e4c6ee75d7a2a55",
+      "bytes": 11751627
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（総監）/テキスト/総監受験万全対策/3-択一式過去問①.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-cem-exam-guide__総監受験万全対策/source/002.pdf",
+      "sha256": "64551234d38197dd1dbdb444e92932994941773cf829170058cc20e93e9cf30f",
+      "bytes": 13211293
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（総監）/テキスト/総監標準テキスト/社会環境管理.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-cem-textbook__総監標準テキスト/source/005.pdf",
+      "sha256": "e64968abe8b0db04c06d220110facd70cf53f14799a6308898ef8344ab377708",
+      "bytes": 38906337
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（総監）/テキスト/総監標準テキスト/安全管理.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-cem-textbook__総監標準テキスト/source/004.pdf",
+      "sha256": "8be515fd979ea1a92aca55a6622769820a6dcc3a27a6de76f7ba0fe1508c8271",
+      "bytes": 37161295
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（総監）/テキスト/総監標準テキスト/情報管理.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-cem-textbook__総監標準テキスト/source/003.pdf",
+      "sha256": "0011251fdf5ace4c2c8c9a5dd0a584f5ffdb609d83fe0791d698f81dfb6d5b35",
+      "bytes": 39741843
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（総監）/テキスト/総監標準テキスト/人的資源管理.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-cem-textbook__総監標準テキスト/source/002.pdf",
+      "sha256": "8f115e2bfd0d8e7dcf4e7027261ce37b87b704568fc4dec3b8a2b56d1dd9174a",
+      "bytes": 53987134
+    },
+    {
+      "previousScope": "mydrive",
+      "previousPath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（施工管理・法規編）/第７章_関係法規/第７章_関係法規.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil1-textbook-management__土木施工管理技術テキスト施工管理法規編/source/007.pdf",
+      "sha256": "4acd0e6971e70827d57aaa82d4cb212099b8f4201de28272e6781c3f69a7434a",
+      "bytes": 5436788
+    },
+    {
+      "previousScope": "mydrive",
+      "previousPath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（施工管理・法規編）/第６章_環境保全管理/第６章_環境保全管理.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil1-textbook-management__土木施工管理技術テキスト施工管理法規編/source/006.pdf",
+      "sha256": "ce08105767d691696a3bf87bf14fa1568e97689da3784ae2d3fc97347989cb6c",
+      "bytes": 5808909
+    },
+    {
+      "previousScope": "mydrive",
+      "previousPath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（施工管理・法規編）/第４章_品質管理/第４章_品質管理.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil1-textbook-management__土木施工管理技術テキスト施工管理法規編/source/004.pdf",
+      "sha256": "c1069fe4b66c8953600d75015a453c71952147927fb15773c449435d9a67c474",
+      "bytes": 2088548
+    },
+    {
+      "previousScope": "mydrive",
+      "previousPath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（施工管理・法規編）/第３章_工程管理/第３章_工程管理.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil1-textbook-management__土木施工管理技術テキスト施工管理法規編/source/003.pdf",
+      "sha256": "f33a6c16ddd0fb65aec5aa1e109514b3ec07cbcf557f5bd622ff89b2409ad732",
+      "bytes": 1689083
+    },
+    {
+      "previousScope": "mydrive",
+      "previousPath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（施工管理・法規編）/第２章_施工計画/第２章_施工計画.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil1-textbook-management__土木施工管理技術テキスト施工管理法規編/source/002.pdf",
+      "sha256": "de0fa3b0bc3a9059ec91bfd275ac56717f4088c1273c2deb000a3c87350c17c9",
+      "bytes": 3816254
+    },
+    {
+      "previousScope": "mydrive",
+      "previousPath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（施工管理・法規編）/第１章_施工管理の概要/第１章_施工管理の概要.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil1-textbook-management__土木施工管理技術テキスト施工管理法規編/source/001.pdf",
+      "sha256": "875087c5654e3b82b3be6189f45b25e2eb620a445585ba431d8610416f802fc4",
+      "bytes": 603809
+    },
+    {
+      "previousScope": "mydrive",
+      "previousPath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（施工管理・法規編）/第５章_安全管理/第５章_安全管理.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil1-textbook-management__土木施工管理技術テキスト施工管理法規編/source/005.pdf",
+      "sha256": "3f919ea8aacc0f5f9b67e13894a9b06062dba4092456ad861cafffb1671475c4",
+      "bytes": 12659996
+    },
+    {
+      "previousScope": "mydrive",
+      "previousPath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（土木一般編）/第６章_解体工事/第６章_解体工事.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil1-textbook-general__土木施工管理技術テキスト土木一般編/source/006.pdf",
+      "sha256": "adc196aeddfea5a31ab158e4fc7667f16097cb6d82389f9d4807efb5e69dacf0",
+      "bytes": 1010647
+    },
+    {
+      "previousScope": "mydrive",
+      "previousPath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（土木一般編）/第５章_測量/第５章_測量.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil1-textbook-general__土木施工管理技術テキスト土木一般編/source/005.pdf",
+      "sha256": "3dea8ffb722761f8c4922290be9f3e95f541aea0ae6530b873bcac5f4605cc53",
+      "bytes": 2881256
+    },
+    {
+      "previousScope": "vault",
+      "previousPath": "原資料PDF/教材/技術士（総監）/テキスト/総監標準テキスト/経済性管理.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/pe-cem-textbook__総監標準テキスト/source/001.pdf",
+      "sha256": "b0e935bbdc10b87e3cf81c48cd22c116dc60a9686b253d00d804284ef66f0e90",
+      "bytes": 43435172
+    },
+    {
+      "previousScope": "mydrive",
+      "previousPath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（土木一般編）/第４章_基礎工/第４章_基礎工.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil1-textbook-general__土木施工管理技術テキスト土木一般編/source/004.pdf",
+      "sha256": "0e580acfee00b43f2fd91ac227df3cb58b6fd98588d8b26a150b643d1cb0a9db",
+      "bytes": 6407856
+    },
+    {
+      "previousScope": "mydrive",
+      "previousPath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（土木一般編）/第２章_建設機械/第２章_建設機械.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil1-textbook-general__土木施工管理技術テキスト土木一般編/source/002.pdf",
+      "sha256": "44bea9c1431ac9a790042b9a126bc88c22edf82e20ca795b621b0d0a8ecd5cbe",
+      "bytes": 7872326
+    },
+    {
+      "previousScope": "mydrive",
+      "previousPath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（土木一般編）/第３章_コンクリート工/第３章_コンクリート工.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil1-textbook-general__土木施工管理技術テキスト土木一般編/source/003.pdf",
+      "sha256": "cca2d9be2cc2b4130b26e13f42ed5925c49c1418a14579a57ff11769e3a1c6a9",
+      "bytes": 8545668
+    },
+    {
+      "previousScope": "mydrive",
+      "previousPath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（土木一般編）/第１章_土工/第１章_土工.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil1-textbook-general__土木施工管理技術テキスト土木一般編/source/001.pdf",
+      "sha256": "a645da317850796357bc1241c8cfbcc8b7ed76ffbb052622f75c22630908da68",
+      "bytes": 14237302
+    },
+    {
+      "previousScope": "mydrive",
+      "previousPath": "個人管理/資格試験/1級土木施工管理技士/１級土木施工管理第１次試験問題集/１級土木施工管理第１次試験問題集.pdf",
+      "canonicalVaultPath": "原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/source/001.pdf",
+      "sha256": "e53a0537e079bcad8ac8767915ee6fd7d662f55774f44ab9d197c1130a0b3804",
+      "bytes": 58058134
+    }
+  ]
+}

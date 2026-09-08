@@ -28,6 +28,7 @@ import {
   parseTranscriptHeader,
   resolveSourceRef,
   sourcesRequiringArticle,
+  transcriptDirsForSource,
 } from './lib/reference-sources.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
@@ -75,9 +76,11 @@ function stripFrontmatter(raw) {
 }
 
 function transcriptNamesForSource(source, manifest) {
-  if (!source?.transcriptDir) return [];
+  const dirs = transcriptDirsForSource(source);
+  if (dirs.length === 0) return [];
   return Object.entries(manifest.entries || {})
-    .filter(([path, entry]) => entry.group === 'source-transcript' && path.startsWith(source.transcriptDir + '/'))
+    .filter(([path, entry]) => entry.group === 'source-transcript'
+      && dirs.some((dir) => path === dir || path.startsWith(dir + '/')))
     .map(([path]) => basename(path));
 }
 
@@ -189,15 +192,17 @@ function checkDeepTranscripts({ cfg, index, manifest, articles }) {
         : `source が台帳に無い: "${header.source || ''}"`);
       continue;
     }
-    if (!resolved.source.transcriptDir || !(relPath === resolved.source.transcriptDir || relPath.startsWith(resolved.source.transcriptDir + '/'))) {
+    const allowedTranscriptDirs = transcriptDirsForSource(resolved.source);
+    if (!allowedTranscriptDirs.some((dir) => relPath === dir || relPath.startsWith(dir + '/'))) {
       fail('transcript-source-path', relPath, `source=${resolved.id} の transcriptDir とパスが一致しない`);
     }
     if (header.sourcePdfs !== undefined && !Array.isArray(header.sourcePdfs)) {
       fail('transcript-pdf', relPath, 'sourcePdfs は配列でなければならない');
     }
     for (const sourcePdf of Array.isArray(header.sourcePdfs) ? header.sourcePdfs : []) {
-      if (manifest.entries?.[sourcePdf]?.group !== 'textbook-source-pdf') {
-        fail('transcript-pdf', relPath, `sourcePdfs が textbook-source-pdf 台帳に無い: ${sourcePdf}`);
+      const group = manifest.entries?.[sourcePdf]?.group;
+      if (!['textbook-source-pdf', 'reference-book-source-pdf'].includes(group)) {
+        fail('transcript-pdf', relPath, `sourcePdfs が原本 PDF 台帳に無い: ${sourcePdf}`);
       }
     }
     const entries = bySource.get(resolved.id) || [];

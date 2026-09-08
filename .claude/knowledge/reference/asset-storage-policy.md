@@ -41,8 +41,9 @@ Google Drive 側が `.claude/config/drive-vault.json`（台帳 `.claude/state/as
 | `git-history-bundle` | human（例外） | private R2 | 2.65GB 書き込み一回・復元時だけ。ストリーミングマウント越しの単一巨大 blob は脆い |
 | `sns-archived-media` | human | Drive `制作物/SNS音声動画/` | reels の wav/mp4・YouTube Shorts mp4。投稿は人の JIT。`post-youtube-scheduled.yml` の Shorts 台帳は手動投入へ切替済み（pending 0・参照キー `sns/youtube-shorts/` は R2 に 0 件）なので CI は読んでいない。2026-09-05 DN-0170 で旧 `upload-sns-r2` 系統を廃止（[sns-archive-policy.md](sns-archive-policy.md)） |
 | `standards-page-image` | human | Drive `原資料PDF/共通仕様書/{整備局}/{PDF名}/{pages,text}/` | 原本 PDF の隣（§1-2） |
-| `textbook-source-pdf` / `textbook-page-image` | human | Drive `原資料PDF/教材/{書名}/**` | `content/sources/textbook/{書名}/` の 1:1 ミラー。既存の手動配置 63 本は sha256 で adopt |
-| `source-transcript` | human | Drive `文字起こし/{書名}/**/*.md` | README を除く文字起こし。frontmatter の `source` / `sourcePdfs` で参考文献台帳と原本へ接続 |
+| `textbook-source-pdf` / `textbook-page-image` | human | Drive `原資料PDF/教材/{書名}/**` または台帳の正本パス | 旧論理キーの互換レイヤー。同一 PDF は `adopted` で正本を共有し、旧配置を作り直さない |
+| `reference-book-source-pdf` / `reference-book-page-image` | human | Drive `原資料PDF/書籍/{referenceId}__{短い書名}/{source,pages,crops}/` | Git は `content/sources/books/**/book-manifest.json` だけを追跡し、原本・画像は非公開 |
+| `source-transcript` | human | 原資料ディレクトリ内の `ocr/**/*.md` | README を除く文字起こし。参考文献台帳から置き場を解決し、frontmatter の `source` / `sourcePdfs` で原本へ接続 |
 | `note-delivery-pdf` | human | Drive `制作物/note配布PDF/` | 添付は人が `note-attach-file` で実行 |
 | `ig-rendered-image` | human | Drive `制作物/IGレンダー/` | 投稿は人が `publish-ig-bs` で実行。投稿済みを public R2 に置いていたのは旧目標の名残 |
 | `video-render-artifact` | human | Drive `制作物/動画レンダー/` | render-longform を回す CI は存在しない |
@@ -57,7 +58,7 @@ Google Drive 側が `.claude/config/drive-vault.json`（台帳 `.claude/state/as
 
 ### 1-1. Google Drive vault のレイアウト
 
-Drive 側は `マイドライブ/doboku-note/` を単一ルートとして管理する（2026-08-29 統合・2026-09-05 に 4 フォルダへ拡張）。
+Drive 側は `マイドライブ/doboku-note/` を単一ルートとして管理する。2026-09-08 に文字起こしを原資料へ統合し、トップレベルは以下の3フォルダとした。
 マウント先は端末ごとに違う（Mac `~/Library/CloudStorage/GoogleDrive-<account>/マイドライブ/`、Windows `G:\マイドライブ\` など）
 ので、コードは `scripts/lib/drive-vault.mjs` の `resolveVaultRoot()` で解決し、台帳には vault 相対パスだけを書く
 （環境変数 `DOBOKU_DRIVE_VAULT` で上書き可）:
@@ -65,13 +66,18 @@ Drive 側は `マイドライブ/doboku-note/` を単一ルートとして管理
 ```
 マイドライブ/doboku-note/
 ├── README.md                    # 貼り紙。Drive を開いた人が最初に読む
-├── 原資料PDF/                   # L0 原本。その隣にページ画像
-│   ├── 白書/ 書籍/ 資格試験/     # 手で整えた既存（白書 44・書籍 23・資格試験 97）
+├── 原資料PDF/                   # 原本と、その資料に由来する画像・OCR・校正
+│   ├── 白書/ 資格試験/           # 手で整えた既存
+│   ├── 書籍/{referenceId}__{短い書名}/
+│   │   ├── source/001.pdf        # 分冊も1冊の下へ集約
+│   │   ├── pages/p0001.jpg       # 書籍全体の通しページ
+│   │   ├── ocr/                 # 文字起こし本文・既存章別図版・校正記録
+│   │   ├── crops/                # 原典照合済みの最終クロップ
+│   │   └── book-manifest.json    # Git の provenance manifest と同内容
 │   ├── 共通仕様書/{整備局}/      # 国交省の共通仕様書・工事必携 PDF 72 本を 10 局へ
 │   │   ├── common__xxx.pdf
-│   │   └── common__xxx/{pages,text}/   # ← 原本と同名フォルダ＝隣（standards-page-image）
-│   └── 教材/{書名}/**            # content/sources/textbook/{書名}/ の 1:1 ミラー（PDF と img/pages が同居）
-├── 文字起こし/                  # L1 中間産物の .md（group: source-transcript）
+│   │   └── common__xxx/{pages,text,ocr}/ # 原本と同名フォルダ＝隣
+│   └── 教材/{書名}/**            # 未移行の資料。旧キーの正本は台帳で解決
 ├── 制作物/                      # 人が使う成果物
 │   ├── note配布PDF/ IGレンダー/ 動画レンダー/ Kindle/ ココナラ/ マガジンカバー/
 └── アーカイブ/
@@ -79,30 +85,41 @@ Drive 側は `マイドライブ/doboku-note/` を単一ルートとして管理
     └── 旧R2/sns/                # legacy-r2-orphan の SNS 素材
 ```
 
-`原資料PDF/` と `文字起こし/` は同じ内訳で並べる（`共通仕様書/東北地方整備局/` の PDF に
-`文字起こし/共通仕様書/東北地方整備局/` の md が対応）。共通仕様書のファイル名先頭が文書種別で、
+文字起こし専用のトップレベルフォルダは作らない。原資料の `ocr/` に本文・校正・既存図版をまとめる。
+共通仕様書のファイル名先頭が文書種別で、
 `common__`＝共通仕様書・`hikkei__`＝土木請負工事必携・`special__`＝特記・`local__`＝地方版・
 `manual__`＝手引き。各枝の `_収集メタデータ/` は収集台帳と QA 記録で本文ではない。
 
-`source-transcript` は `文字起こし/` の `.md` を `content/sources/textbook/` と 1 対 1 で対応させる
-（README は対象外）。原本との対応は文字起こし frontmatter が持ち、公開可否は
-[reference-sources-policy.md](reference-sources-policy.md) に従う。2026-09-05 に英語 2 階層
-（`private-sources/textbook/`・`references/`）を日本語 1 階層へ
-畳み、`資格試験/` 直下にあった完全一致の重複 4 dir（156MB・84 ファイル）と Word の `~$` 一時ファイル
-12 個を削除した（正本は `資格試験/１級土木施工管理技士/` 配下に現存）。同日、`資格試験/１級土木施工
-管理技士/` の下に埋もれていた共通仕様書を `共通仕様書/` として独立させ、地方整備局ごとに整理した
-（近畿だけ二重にあった PDF 2 本と文字起こし 36 ファイルは削除。照合証跡 zip と qa-report.md は正本側へ退避）。
-整理後の実数は 白書 44・書籍 23・資格試験 97・共通仕様書 78（PDF 側）／文字起こし 502（共通仕様書）
-ほかの計 905 ファイル。
+`source-transcript` の新規論理キーは `content/sources/books/{referenceId}__{短い書名}/ocr/`。
+既存 `content/sources/textbook/` のキーは読み手の互換性のため残すが、`reference-sources.json` の
+`origin.vaultDir`（原本未入手の場合は `transcriptVaultDir`）から同じ `ocr/` の実体へ解決する。
+未登録の文字起こしは推測して配置せず停止する。原本との対応は frontmatter が持ち、公開可否は
+[reference-sources-policy.md](reference-sources-policy.md) に従う。
 
-**`文字起こし/共通仕様書/` は `content/sources/textbook/` に対応先を持たない**（1 対 1 の例外）。
+**完全一致の PDF は正本を1箇所だけ持つ**。旧論理キーは `drive-manifest.json` の `adopted` エントリとして
+同じ実体へ向ける。同期は採用済みの正本パスを維持し、内容の異なる旧キーによる上書きを拒否する。
+移行時だけ一時的なコピーを許容し、sha256・bytes とクラウド md5 を照合して台帳を切り替えてから、
+ユーザーが許可した重複を削除する。別版・差分のある PDF は重複とみなさない。
+
+市販書籍の新しい正規形は `原資料PDF/書籍/{referenceId}__{短い書名}/` とする。`source/` の PDF 名は
+書名を重ねず `001.pdf` からの読み順連番、元ファイル名は `book-manifest.json` に残す。見開きスキャンは
+`npm run build-reference-book-pages -- --source-id <id> --commit` で正立・左右分割し、1冊通しの
+`p0001.jpg` からに揃える。生成器は登録済みの正本を優先して読み、旧取込元が無くても再生成できる。
+初回は原本と画像を一時名へ書いて bytes / sha256 を
+読み直してから台帳へ載せる。検査は `npm run check-reference-book-pages -- --deep`。
+回転・除外範囲・UI cropを変えて既存ページを作り直すときだけ `--commit --replace-derived` を使う。
+既存 `pages/` は冊子単位で退避され、全件成功後にだけ置換し、失敗時は元へ戻る。
+校正済み OCR は同じ書籍の `ocr/`、監査済み crop は `crops/` へ置く。
+一方または両方を `npm run record-reference-book-artifacts` で登録すると、ページ別 status・bbox・監査結果・hash まで
+`book-manifest.json` に残る。生成器の再実行でも、元ページ hash が同じ成果物の status と来歴は保持する。
+
+**共通仕様書の `ocr/` は `content/sources/textbook/` に対応先を持たない**。
 成果物は `content/site/standards-articles/` として公開済みで、repo へ戻す必要が無いため。
 `build-standard-articles` の入力は repo 側の `content/site/standards-library/catalog.json` で、
 Drive のパスは参照しない＝この移動でビルドは壊れない。
 
 `content/sources/textbook/**` の文字起こし本文（.md/.html）と派生図版は、書籍の著作権物をほぼそのまま
-含むため 2026-08-27 に public repo（`doboku-note`）の追跡から外し、`~/Google Drive/マイドライブ/
-doboku-note/文字起こし/` へ移設した。
+含むため 2026-08-27 に public repo（`doboku-note`）の追跡から外した。現在の実体は Drive の原資料内 `ocr/` にある。
 `.gitignore` の `content/sources/textbook/**`（README.md だけ `!` で例外）が実体。
 
 - **新しい端末での復元**: Google Drive デスクトップアプリで同アカウントにログインし vault を同期 →
