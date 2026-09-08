@@ -15,6 +15,15 @@ name: 🔁 Sync YouTube descriptions
 on:
   workflow_dispatch:
     inputs:
+      operation:
+        description: "descriptions=従来の概要欄同期 / thumbnail-inventory=全動画の読み取りのみ"
+        type: choice
+        options: [descriptions, thumbnail-inventory]
+        default: descriptions
+      report_public_key:
+        description: "サムネ棚卸し用の一時公開鍵（秘密鍵を入力しない）"
+        type: string
+        default: ""
       commit:
         description: "true にすると実際に概要欄を更新する（既定 false = 差分表示のみ）"
         type: boolean
@@ -25,6 +34,7 @@ permissions:
 
 jobs:
   sync:
+    if: inputs.operation == 'descriptions' || inputs.operation == ''
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -78,3 +88,33 @@ jobs:
           echo "::error::検査不成立（台帳が無い / videoId を持つ item が 0 件）。0 件を「差分なし」と読まないための明示的な失敗です。"
           tail -40 /tmp/yt-sync.log || true
           exit 1
+
+  thumbnail-inventory:
+    if: inputs.operation == 'thumbnail-inventory'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: "20"
+          cache: npm
+      - run: npm ci --legacy-peer-deps --ignore-scripts
+      - name: Inventory only (no YouTube writes)
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          YOUTUBE_REPORT_PUBLIC_KEY: ${{ inputs.report_public_key }}
+        run: node scripts/youtube-thumbnail-rollout.mjs --mode inventory --out .tmp/youtube-rollout-export
+      - name: Export encrypted report only
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: youtube-thumbnail-report
+          path: .tmp/youtube-rollout-export/*.enc.json
+          include-hidden-files: true
+          retention-days: 3
+          if-no-files-found: warn

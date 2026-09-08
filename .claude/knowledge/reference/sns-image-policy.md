@@ -49,6 +49,8 @@ YouTube の後付けサムネ処理は `npm run youtube-thumbnail:update`（.cla
 
 保存後は対象 ID・公開状態・日時・実表示を読み直して確認する。予約重複や意図しない即時公開がないことを確認し、「素材生成済み／外部更新済み／実表示確認済み」を区別して報告する。
 
+全チャンネルの対象確認は `scripts/youtube-thumbnail-rollout.mjs --mode inventory`。既存 `sync-yt-descriptions.yml` の手動入力 `operation=thumbnail-inventory` で、選択したrefのコードを使う（従来の `descriptions` jobとは排他）。uploadsを全ページ取得し、総件数・重複・詳細取得の被覆・口座を検査する。0件/欠落は検査不成立。YouTubeへの書き込みはない。公開リポジトリのログへ非公開動画情報を出さず、`--mode keygen` で手元に生成した一時公開鍵だけを `report_public_key` へ渡す。artifactは暗号化JSONのみ・保持3日。秘密鍵は手元の `.tmp/youtube-rollout/keys.json` に留め、Git/CIへ送らない。取得したartifactは `--mode decrypt --input PATH --key-file .tmp/youtube-rollout/keys.json` で手元へ復号する。
+
 
 ## 適用範囲
 
