@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "asOfJst": "2026-09-09",
+  "channelId": "UCHRnXPqoc0Hls8nXiK_ZYqA",
+  "status": "paused-for-font-review",
+  "branch": "codex/character-framing",
+  "taskId": "DN-0184",
+  "scope": "thumbnails-only",
+  "totalVideosAtInventory": 344,
+  "updatedUniqueVideos": 24,
+  "remainingVideosAtInventory": 320,
+  "cdnImageMatched": 24,
+  "publicFeedVerified": false,
+  "videoFilesReuploaded": 0,
+  "visibilityOrScheduleWrites": 0,
+  "oldDesignPlanSha256": "dff5094acf4ff9fb435a6d665ba22feae2491311b0ef5e32848588a2fa73b3f1",
+  "runs": [
+    {
+      "runId": 34285556847,
+      "scope": "public-only",
+      "selected": 16,
+      "newUpdates": 12,
+      "alreadyMatching": 4,
+      "cdnMatchedAfterReadOnlyVerification": 16
+    },
+    {
+      "runId": 34286281856,
+      "scope": "all-videos",
+      "conclusion": "failure",
+      "newUpdatesBeforeStop": 8,
+      "cdnMatchedAfterReadOnlyVerification": 8,
+      "stopReason": "The metadata guard rejected contentDetails.hasCustomThumbnail changing from false to true after the first custom-thumbnail upload. Read-only review found all other protected fields unchanged in these 8 records. No retry or rollback was performed."
+    }
+  ],
+  "receiptStorage": {
+    "aggregateIncludesPrivateVideoIds": false,
+    "note": "This aggregate file contains no private video IDs. Detailed receipts and old thumbnails are encrypted in each run's youtube-thumbnail-report artifact (3-day retention); downloaded ciphertext and private-key/decrypted records remain only on the original PC under .tmp/youtube-rollout. Never commit the private key or decrypted inventory. Use a new local key and fresh read-only inventory on another PC."
+  },
+  "resumeGate": "Review competitors and font treatments on the other PC, approve representative covers, correct and regression-test the hasCustomThumbnail guard, regenerate/review PNGs and their approval hashes, and create a new live inventory/plan before any further write. The old plan is not approval for a new font."
+}

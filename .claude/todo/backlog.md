@@ -26,15 +26,17 @@
 
 **目的**: 「doboku-note先生＋短い極太見出し」の採用方針を生成テンプレートへ実装し、別PCでログイン済みの投稿実体へ反映する。制作・公開の定常運用と6週間計測は DN-0110、このカードは意匠と更新経路の改修を担当する。
 
-**参照**: [SNS画像ポリシー §0・§0.1](../knowledge/reference/sns-image-policy.md)、[キャラクター素材ポリシー](../knowledge/reference/character-asset-policy.md)、[ポーズ台帳](../config/character-poses.json)。制作・QA・投稿スキルはこの共通ルールを参照する。ルールの存在をレンダラーの実装完了とみなさない。
+**参照**: [SNS画像ポリシー §0・§0.1](../knowledge/reference/sns-image-policy.md)、[キャラクター素材ポリシー](../knowledge/reference/character-asset-policy.md)、[ポーズ台帳](../config/character-poses.json)、[YouTube更新実査の集約状態](../state/youtube-thumbnail-rollout.json)。制作・QA・投稿スキルはこの共通ルールを参照する。ルールの存在をレンダラーの実装完了とみなさない。
+
+**再開の前提**: ユーザーはYouTubeらしいキャッチーなフォントの検討と競合分析を別PCで続ける。フォント比較を先に行い、旧デザインでの一括更新をそのまま再開しない。ブランチは `codex/character-framing`。競合・フォントの比較評価は未着手。
 
 **別PCでの再開順**:
 
-1. このカードと関連ルール・スキル・エージェント定義の差分を同期する。今回のサンプルPNGは元PCの `.tmp/sns-design-mockups/` にあるローカル試作でGit同期されない。見た目の再現は共通ルールを基準とし、比較原本が必要なら [アセット置き場](../knowledge/reference/asset-storage-policy.md) に従いDrive vaultへ引き継ぐ。端末固有の絶対パスへ依存しない。
-2. 管理画面「キャラクター素材」（`/gallery/characters`）で用途・配置から候補を選び、同じテーマ「最短工期、どこで決まる？」で、指差し（pointing）・考え中（thinking）・手のひらで解説（explaining）の最低3案を比較する。見出し・配色を揃え、ポーズと配置による差を見られるようにする。必要に応じ笑顔・good-signを締め用に追加し、顔・服装・ヘルメット表記の同一性を確認する。全投稿を指差し1種へ固定せず、問い／解説／締めに合う使い分けを決める。不足する向き・役割だけを新規生成し、目視して既存ポーズ台帳へ登録する。使用前に台帳の `quality` を確認し、要修正素材の透過抜け等を解消する（名称照合の `verified` と画像品質を混同しない）。
+1. ブランチを同期して `npm ci --legacy-peer-deps`。比較用の現行カバーは `npm run youtube-covers -- --spec content/sns/video-packs/civil-construction-1/koji-gaiyo-7items/cover-design.json` で再生成する。人物素材と元データはGit、生成PNGは元PCの `.tmp/youtube-rollout/rendered/` にありGit同期されない。共通レンダラーは `scripts/lib/youtube-cover.mjs`、パック別入力は `cover-design.json`、legacy入力は `content/sns/youtube/cover-design.json`。端末固有の絶対パスへ依存しない。
+2. 土木施工管理・技術士等の競合チャンネルを実画像で比較し、フォントの太さ・字幅・縁取り・影・強調語・情報量を整理する。現行NotoSansJP 900を比較基準として、同じ見出し／人物／配色で複数の文字処理案を作り、16:9と9:16を幅360pxで評価してユーザーに選んでもらう。競合の見た目だけからCTR改善を断定せず、採用フォントのライセンスと埋め込み方法も確認する。ポーズは `pointing` / `thinking` / `explaining` の内容に合う使い分けを保ち、管理画面 `/gallery/characters` の品質・切り取り台帳を使う。
 3. YouTube通常動画サムネ16:9、Shorts/Reels冒頭9:16、Instagram表紙4:5、Xカード16:9へ展開する。文字は編集可能なデータ、人物は既存素材で保持し、媒体別のトークンと共通レンダラーを改修する。幅360pxの画像と動画冒頭を確認し、見出し・人物・字幕・操作ボタンの重なりを解消する。
 4. 元データ／カバー／動画派生物／配信先素材の参照を追跡し、未アップロード分はまとめて再生成する。予定や公開状態はYouTube台帳、IGのstatus/posted、Xのstatusと実機から読む（件数・日時をこのカードへ複製しない）。
-5. 既存の `.claude/scripts/youtube/set-thumbnail-uploaded.mjs` は全videoId対象・既定書き込みのため、ID指定・既定dry-run・アカウント照合・変更前後の記録を実装してから選択対象へ適用する。旧Shorts用台帳だけでなくDN-0110の通常動画／Shorts経路も調べ、対象の取りこぼしを避ける。IGは新規投稿フローと既存予約編集を分け、対応項目を実機確認する。
+5. 更新経路は `scripts/youtube-thumbnail-rollout.mjs` と `sync-yt-descriptions.yml` の明示 `thumbnail-refresh` を使う。まず `scripts/lib/youtube-thumbnail-update.mjs` の保護対象から、カスタムサムネ設定に付随する `contentDetails.hasCustomThumbnail` の扱いだけを見直し、タイトル・公開設定・予約等の保護を維持して回帰テストする。フォント変更後は画像チェック台帳 `.claude/state/youtube-thumbnail-designs.json` と全件計画SHAを再生成・再確認する。別PCでは秘密鍵をGitで移さず新しい鍵でread-only inventoryを取得し、更新済み／未更新を現物から再判定する。不確かな更新を再送しない。IGは新規投稿フローと既存予約編集を分ける。
 6. 予約分を優先し、公開済みYouTubeはサムネ変更から進める。Instagramの本文／Reelsカバー／本体、Xの編集期限を項目別に確認する。動画本体の再アップロードや投稿の削除・再投稿が必要なものは、URL・反応履歴への影響を示してユーザーの依頼範囲内で扱う。保存後にID・予約日時・公開状態・実表示を再照合し、素材生成だけで外部反映済みとしない。
 
 **完了条件**: 3ポーズ以上の比較を経た媒体別テンプレートが実装され、代表画像／動画の目視と該当機械検査が通ること。適用対象の一覧に「反映・実表示確認済み／変更不可と理由／対象外と理由」が揃い、未対応を完了へ混ぜず、予約重複・意図しない即時公開・投稿履歴の無断削除がないこと。機械検査だけで外部反映を判定しない。
