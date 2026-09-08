@@ -398,3 +398,7 @@ content/sns/_assets/character/_source/**
 # `npm run drive-vault-sync -- --pull --path 'content/sources/standards/{agencyId}/'`。
 content/sources/standards/**/pages/*.jpg
 content/sources/standards/**/text/*.txt
+
+# Python の import キャッシュ（scripts 配下の .py を ProcessPool から読むと生える）
+__pycache__/
+*.pyc
