@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import ContentThumbnail from '@/components/ui/ContentThumbnail';
 import type { DocMeta } from '@/lib/docs';
 import { getOgpDisplayUrl } from '@/lib/r2-image-loader';
 import { getPublicDocPath } from '@/lib/content-routes';
@@ -21,16 +21,7 @@ export default function RelatedArticleCard({ doc }: RelatedArticleCardProps) {
       className="card-interactive card-surface-content focus-ring not-prose group flex h-full flex-col overflow-hidden hover:border-brand dark:hover:border-brand"
     >
       <div className="relative aspect-[1200/630] w-full overflow-hidden bg-[var(--bg)]">
-        <Image
-          src={getOgpDisplayUrl(doc.slug)}
-          alt=""
-          width={600}
-          height={315}
-          unoptimized
-          loading="lazy"
-          sizes="(max-width: 640px) 100vw, 320px"
-          className="h-full w-full object-cover"
-        />
+        <ContentThumbnail src={getOgpDisplayUrl(doc.slug)} sizes="(max-width: 640px) 100vw, 320px" />
       </div>
       <div className="flex flex-1 flex-col px-4 py-3">
         <div className="line-clamp-2 text-sm font-semibold text-brand">{doc.title}</div>

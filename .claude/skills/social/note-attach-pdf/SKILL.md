@@ -53,7 +53,7 @@ node scripts/note-attach-file.mjs --note <noteKey> --file <pdf path> --anchor "<
 node scripts/check-note-attachments.mjs --live   # 期待本数 vs ライブ実測
 ```
 
-ディスク上に PDF がある公開記事すべてについて、note ライブの添付リンク（`api/v2/attachments/download`）本数を著者ログインで実測し、不足を exit 1 で落とす。**未ログインの HTML には有料エリアの添付カードが出ない**ため CI では検査できず、この live 層はローカル専用（CI 側は `npm run check-note-attachments` が「約束した PDF がディスクに在るか」だけを見る）。
+ディスク上に PDF がある公開記事すべてについて、note ライブの添付リンク（`api/v2/attachments/download`）本数を著者ログインで実測し、不足を exit 1 で落とす。**不足と出た記事は、スナップショットへ書く前に単独条件（再読み込み・段階スクロール・長い settle）で必ず測り直す**（2026-09-05／09-06 に、`--only` なら充足なのに全件走査だけ live=0 と報告する取りこぼしが 2 件出たため・DN-0176）。出力の「暫定不足 → 再実測で解消 / 確定不足」は、確定不足だけが本物の欠落で、解消分は全件走査の偽陰性。待ちは `NOTE_ATTACH_SETTLE_MS` / `NOTE_ATTACH_CONFIRM_SETTLE_MS` / `NOTE_ATTACH_CONFIRM_WAIT_MS` で伸ばせる（プロキシ下で有効）。**未ログインの HTML には有料エリアの添付カードが出ない**ため CI では検査できず、この live 層はローカル専用（CI 側は `npm run check-note-attachments` が「約束した PDF がディスクに在るか」だけを見る）。
 
 > [!warning] 本文の全文置換は添付を消す
 > `note-update-body`（Ctrl+A → Delete → paste）は本文内の PDF 添付カードごと消す。SoT の markdown に添付は無いので paste では戻らない。2026-07-28、建設部門の送客リンク是正で 196 本を全文置換し、6/16 に添付した PDF カードを失った。**語句・段落・CTA・カード・節順だけを直す場合は `npm run note-update-partial -- --spec <json> [--commit]` を使う**。複数記事は `--list <spec一覧.txt>` で同じ Chrome セッションから直列処理できる。この CLI は select-all を使わず、更新前後と公開後再読で PDF 添付 URL/ファイル名の完全一致を要求する。全文置換が不可避な場合だけ `note-update-body --reattach-pdf`、画像だけなら `--images-only` を使う。

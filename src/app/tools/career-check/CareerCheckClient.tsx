@@ -165,7 +165,7 @@ export default function CareerCheckClient() {
           いまの状況を選ぶ
         </h2>
         <p className="mt-1 text-[13px] text-[var(--ink-muted)]">
-          すべて選択式です。氏名・会社名・連絡先・年収の入力欄はありません。入力は保存も送信もされません。
+          すべて選択式です。氏名・会社名・連絡先・年収の入力欄はありません。利用状況の計測では、選択した資格・経験年数・悩みの分類と操作状況を送信します。
         </p>
 
         <Choice legend="いちばんの悩み" name="concern" options={CONCERNS} value={concern} onChange={setConcern} />
@@ -305,6 +305,19 @@ export default function CareerCheckClient() {
                   >
                     印刷する
                   </button>
+                  <a
+                    href="/downloads/career-preparation.txt"
+                    download
+                    onClick={() => gtag.event({
+                      action: "career_checklist_download",
+                      category: "career-tool",
+                      label: result.need ?? "urgent",
+                      params: { cta_placement: "career-tool" },
+                    })}
+                    className="focus-ring rounded-card-content border border-[var(--rule-soft)] px-4 py-2 text-[14px] text-[var(--ink-body)] transition-colors hover:border-brand dark:border-[var(--rule-soft)]"
+                  >
+                    記入用メモを保存（テキスト）
+                  </a>
                 </div>
               </>
             )}

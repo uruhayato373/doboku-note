@@ -18,6 +18,10 @@ model: sonnet
 >
 > **モデル方針**: `model: sonnet`（Generator = 実行担当）。品質判定は `ig-reels-qa` Evaluator、最終判断は親エージェント（Opus）。
 
+## 表紙・冒頭の制作連携
+
+[SNS 投稿画像ポリシー §0](../knowledge/reference/sns-image-policy.md) を読み、当該論点に固有の短い見出しと、既存 manifest の先生ポーズ候補を示す。画像用コピーは本文の事実と一致させる。既存入力スキーマにない項目を勝手に追加せず、候補を制作担当へ渡す。画像生成・外部投稿の更新完了は文章生成から推定しない。
+
 ## 設計原則
 
 > Generator と Evaluator を分離する — 自己評価バイアスは構造で解決する

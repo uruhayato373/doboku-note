@@ -10,6 +10,12 @@ allowed-tools: Bash, Read, Write
 
 **v7 で MDX 直結モード（旧 `--slug`）は廃止**。詳細は [`docs/marketing/01_SNS集客戦略.md`](../../../../docs/marketing/01_SNS集客戦略.md) v7、品質ルーブリックは [`.claude/knowledge/reference/yt-shorts-publisher-policy.md`](../../../../.claude/knowledge/reference/yt-shorts-publisher-policy.md)。
 
+## 人物・見出しと既存投稿の改修
+
+制作・改修の前に [SNS 投稿画像ポリシー §0・§0.1](../../../knowledge/reference/sns-image-policy.md) を読む。先生キャラクター＋短い極太見出しを媒体別に構成し、既存レンダラーの未対応箇所は実装して代表 1 件を画像確認してから展開する。文字を編集可能な元データとして保持する。
+
+再生成は外部の予約・公開投稿を自動更新しない。動画冒頭を改修する未投稿パックはカバーと動画派生物を揃える。公開済みサムネだけの変更は §0.1 に従い、動画本体の更新と区別する。
+
 ## 前提
 
 1. **ffmpeg / ffprobe が PATH にある**
@@ -95,7 +101,7 @@ v7 MVP では字幕焼き込み無し。IG Reels の slide-NN.mp4 に既に音�
 
 - **背景**: カバーPNG/テンプレだけ刷新して reel 動画を再生成しないと「サムネ＝新・動画1枚目＝旧」の desync が起きる（2026-06-02 cover刷新で `video.mp4` 1枚目が旧カバーのまま残った事故、2026-06-05 検出）。
 - **検知時の復旧**: `node .claude/skills/social/ig-reel-create/scripts/ig-reel-create.mjs --exam-dir <試験> --exam <pack-id>` で reel を再生成してから派生する。
-- **不変条件**: **カバーPNGだけを更新する運用は禁止**。テンプレ刷新時は必ず ig-reel-create で動画も同時再生成する。
+- **未投稿動画の不変条件**: 冒頭テンプレ刷新時はカバーPNGだけを更新せず、ig-reel-create で動画も同時再生成する。公開済み動画のサムネだけを変更する場合は SNS 投稿画像ポリシー §0.1 に従い、動画本体を更新したとは扱わない。
 - ffmpeg 不在・SSIM 非搭載・フレーム抽出失敗時は安全側でスキップ（誤検知で正規生成を止めない）。
 
 ## 全問展開モード（`per-problem-shorts.mjs`・2026-06-06 新設）

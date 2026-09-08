@@ -23,6 +23,7 @@ API バージョニングはこちらが操作できない外部都合で、こ�
 | 用途 | 関数 |
 |---|---|
 | 記事 1 本の状態 | `fetchNote(key)` |
+| 本文・タグ名・カバーの詳細照合 | `fetchNoteDetails(key, { page })` |
 | マガジン 1 本の状態 | `fetchMagazine(key)` |
 | マガジンの収録記事一覧 | `fetchMagazineArticles(key)` |
 
@@ -32,6 +33,10 @@ API バージョニングはこちらが操作できない外部都合で、こ�
   無い。既存実装は一括移行せず、対象スクリプトを修正するときに共有 lib へ移して挙動同一を確認する。
   該当スクリプトの実装を直接読むこと（この文書に URL を重複させない）。
 - note は Nuxt 製のため HTML に `__NEXT_DATA__` は無い。HTML スクレイプより JSON API が堅牢。
+
+`curl --ssl-no-revoke` でも非 JSON の応答になる端末では、`fetchNoteDetails` に
+既存の note.com の Playwright Page を渡して読み取れる。ブラウザ起動・ログイン・書き込みは
+この関数では行わない。取得不能は `data: null` と `error` で返し、本文やタグが空だと解釈しない。
 
 ### 404 の意味（削除・下書き・非公開を区別しない）
 
@@ -243,6 +248,7 @@ npm run note-convert-to-paid -- --article <path> --commit
 > [!warning]
 > **`note-article-price-sweep.mjs` は有料境界を破壊しうる**（2026-07-24 実証）: 価格変更時に「有料エリア設定」を開き**ライン位置を再設定せず**「更新する」するため、note が境界を先頭リセット→全ロック（FULL_LOCK）化する（civil 経験記述 58 本で発生）。カスタム境界を持つ有料記事へ使うときは `--allow-boundary-risk` が要る（既定 ABORT）。
 > **価格変更後は必ず境界を実査する。ただし `check-note-structure` は会社 PC では偽 PASS を返す**（上記 §151）ため、`curl --ssl-no-revoke` でライブ無料本文を取り **ソースの `paidBoundary` 直前の末尾と末尾一致**で突合する。崩れていた記事だけ `note-update-body --commit` で再設定する（無事な記事への本文全文再送は別の事故要因になるので回さない）。
+> **PDF 添付の保存前ゲート（2026-09-07 新設・DN-0177）**: 価格変更は本文へ触らないが、遷移が壊れたエディタのまま「更新する」を押すと添付ごと保存される（2026-09-05 `nded084d4f646`＝同日の一括変更でこの記事だけ `net::ERR_ABORTED` になった直後に添付が消えた）。現在は ①エディタ遷移を最大3回リトライし開けなければ保存へ進まない ②保存前に添付本数が期待を下回れば保存せず skip ③保存後に減っていれば `.claude/state/note-attachment-loss.json` の pending へ積む、を `note-article-price-sweep` と `note-reanchor-boundary` の両方が行う。判定は `scripts/lib/note-attachments.mjs`（実査と共通）。
 > **2026-07-28 実測**: 完全攻略パック 18 本＋BK 系 7 本を価格変更したが、境界破壊は **25/25 で再現しなかった**（無料プレビュー末尾が全件一致）。07-24 の実損 58 本は事実なのでガードと実査は維持するが、「必ず壊れる」前提で全文再送するのは過剰。
 
 ### 単品価格の3層と一貫性ゲート: `check-note-price-consistency`（2026-07-28 新設）

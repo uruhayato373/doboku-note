@@ -10,6 +10,8 @@ import TableOfContents from '@/components/ui/TableOfContents';
 import ExamQuestionNav from '@/components/ui/ExamQuestionNav';
 import CategoryNavCard from '@/components/ui/CategoryNavCard/CategoryNavCard';
 import PillarNavCard from '@/components/ui/PillarNavCard';
+import { SidebarProduct } from '@/components/ui/SidebarDiscovery';
+import RelatedTools from '@/components/ui/RelatedTools';
 
 interface ArticleSidebarProps {
   readonly careerSidebarAd: { creative: SidebarAdCreative; trackLabel: string };
@@ -64,7 +66,10 @@ export default function ArticleSidebar({
       {/* ブロック1: 通常フロー（追従させない）——著者・転職ピクセル・note。
           読者への信頼提示を先に置き、ファーストビューの商業要素を減らす。 */}
       <div className="mb-3">
-        <AuthorSidebarCard />
+        <details className="border border-[var(--rule-soft)] bg-[var(--paper)]">
+          <summary className="focus-ring cursor-pointer px-4 py-3 text-sm font-bold text-[var(--ink)]">運営者・保有資格について</summary>
+          <AuthorSidebarCard />
+        </details>
       </div>
       <div className="mb-3">
         <SidebarAdBanner {...careerSidebarAd.creative} trackLabel={careerSidebarAd.trackLabel} />
@@ -76,6 +81,7 @@ export default function ArticleSidebar({
           <HubCtaBanner cta={sidebarMokuji} placement="article-sidebar" />
         </div>
       )}
+      {!sidebarMokuji && category && categoryArticles.some(d => d.slug === slugStr) && <div className="mb-3"><SidebarProduct category={category} doc={categoryArticles.find(d => d.slug === slugStr)!} placement="article-sidebar" /></div>}
       {/* ブロック2: sticky クラスタ（列の最終要素・読中に追従）——TOC/ナビのみ。
           自身をスクロール可能にし、低解像度でも見切れない（TOC 側の max-h は撤去し高さ制御をここへ一元化）。 */}
       {hasStickyCluster && (
@@ -102,6 +108,7 @@ export default function ArticleSidebar({
               <PillarNavCard variant="sidebar" currentSection={sectionStr} />
             </div>
           )}
+          {category && docGroup !== 'career' && <RelatedTools category={category} slug={slugStr} compact />}
         </div>
       )}
     </>

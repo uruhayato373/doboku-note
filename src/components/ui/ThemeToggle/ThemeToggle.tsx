@@ -12,7 +12,7 @@ import { Sun, Moon } from 'lucide-react';
  * （SSR とクライアントの初期テーマ判定がずれて hydration mismatch になるのを防ぐため）。
  */
 export default function ThemeToggle() {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { setTheme, resolvedTheme } = useTheme();
   const mounted = useSyncExternalStore(
     () => () => undefined,
     () => true,
@@ -30,7 +30,7 @@ export default function ThemeToggle() {
   }
 
   const cycleTheme = () => {
-    if (theme === 'light') {
+    if (resolvedTheme === 'light') {
       setTheme('dark');
     } else {
       setTheme('light');
@@ -45,7 +45,7 @@ export default function ThemeToggle() {
   };
 
   const getAriaLabel = () => {
-    return theme === 'light' ? 'ダークモードに切り替え' : 'ライトモードに切り替え';
+    return resolvedTheme === 'light' ? 'ダークモードに切り替え' : 'ライトモードに切り替え';
   };
 
   return (
@@ -53,11 +53,11 @@ export default function ThemeToggle() {
       onClick={cycleTheme}
       className="focus-ring flex min-h-11 min-w-11 flex-col items-center justify-center space-y-1 rounded-card-inline bg-[var(--bg)] px-3 py-2 transition-colors duration-200 hover:bg-[var(--accent-fill)]"
       aria-label={getAriaLabel()}
-      title={`現在: ${theme === 'dark' ? 'dark' : 'light'}モード`}
+      title={`現在: ${resolvedTheme === 'dark' ? 'dark' : 'light'}モード`}
     >
       {getIcon()}
       <span className="hidden md:block text-xs font-medium text-[var(--ink-body)]">
-        {theme === 'dark' ? 'dark' : 'light'}
+        {resolvedTheme === 'dark' ? 'dark' : 'light'}
       </span>
     </button>
   );

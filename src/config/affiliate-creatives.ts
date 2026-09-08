@@ -128,7 +128,8 @@ function isKensetsuJobsArm(slug: string | undefined): boolean {
 /**
  * キャンペーン終了（2026-09-01）後に slug ハッシュ 50/50 A/B を再開するか（2026-08-04 決定・既定 false）。
  *
- * false = civil セグメントの記事面は **建設JOBs 100%**。理由:
+ * 以下は9/1〜9/7の旧方針。9/8以降は isReviewedCareerPolicyActive が優先する。
+ * false = 旧期間のcivil記事面は建設JOBs 100%。当時の理由:
  * 1. 9/1 に BuildJob（¥50,000 キャンペーン）が終わると arm A の中身は GKS になり、
  *    **A8 公開 EPC が GKS 457 円 < 建設JOBs 709 円と逆転する**。50/50 のまま自動復帰すると
  *    露出の半分を低い側へ流し続ける（backlog P5-a）。
@@ -227,7 +228,21 @@ export const HIGH_INTENT_CAREER_SLUGS: ReadonlySet<string> = new Set([
  * 現実的に貯まらないため（根拠は `POST_CAMPAIGN_AB_ENABLED`）。A/B を再開したくなったら
  * そのフラグを true にするだけで従来のハッシュ振り分けに戻る。
  */
+function isBuildJobArticle(slug: string | undefined): boolean {
+  return slug === "civil-construction-1-guide-buildjob-review" ||
+    slug === "civil-construction-2-guide-buildjob-review";
+}
+
+/** 9/8の実機照合: 建設JOBsは20〜30代・業界経験・電話本人確認が成果条件。
+ * 全年齢の資格読者への一律配置を終了し、通常条件のBuildJobへ集約する。
+ * 過去期間の分岐は検証用に保持。公開EPCを自サイトの勝敗判定には使わない。
+ */
+function isReviewedCareerPolicyActive(): boolean {
+  return Date.now() >= Date.UTC(2026, 8, 7, 15, 0, 0);
+}
+
 function isKensetsuJobsArmEffective(slug: string | undefined): boolean {
+  if (isReviewedCareerPolicyActive()) return false;
   if (isCampaignActive()) return false;
   if (!POST_CAMPAIGN_AB_ENABLED) return true;
   return isKensetsuJobsArm(slug);
@@ -246,6 +261,9 @@ function resolveCareerSidebarAbArm(slug: string | undefined): {
   creative: SidebarAdCreative;
   trackLabel: string;
 } {
+  if (isBuildJobArticle(slug)) {
+    return { creative: BUILDJOB_CAREER_AD, trackLabel: "BuildJob-sidebar" };
+  }
   if (isKensetsuJobsArmEffective(slug)) {
     return { creative: KENSETSU_JOBS_CAREER_AD, trackLabel: "KensetsuJobs-sidebar" };
   }
@@ -279,7 +297,7 @@ function resolveCareerSidebarAd(): {
   creative: SidebarAdCreative;
   trackLabel: string;
 } {
-  if (isCampaignActive()) {
+  if (isCampaignActive() || isReviewedCareerPolicyActive()) {
     return { creative: BUILDJOB_CAREER_AD, trackLabel: "BuildJob-sidebar" };
   }
   return { creative: CIVIL_CAREER_AD, trackLabel: "GKS-sidebar" };
@@ -301,7 +319,7 @@ export type CareerArticleEndCard = {
  * 2026-08-21 に、slug の正規表現をこのファイルへ直書きしていた `BUILDJOB_CTA_BY_THEME` を
  * `career-pathways.ts` の need 解決へ寄せた。**同じ slug 分類が 2 箇所にある状態を作らない**ため。
  * あわせて、面談が成果点のサービス（ビルドジョブ / GKS）と会員登録が成果点のサービス（建設JOBs）で
- * 同じ「相談」コピーを使い回さないようにした（実装契約 03 §2）。
+ * 別キーで管理する。登録型でも担当者との相談・求人紹介があるため、その流れを明記する。
  *
  * need が解決できない slug（キャリア文脈でない学習記事など）は need 非依存の既定文言に倒す。
  * 方針: 「無料相談」の一般訴求ではなく「何がわかるか」を前面に出す。
@@ -331,7 +349,7 @@ function resolveBuildJobCopy(slug?: string, need?: CareerNeed | null): CareerArt
     service: "ビルドジョブ",
     category: "建設業界特化 転職エージェント",
     description:
-      "今すぐ転職すると決めていなくても、資格・経験で狙える求人や年収相場を無料キャリア面談で確認できます。",
+      "土木・建設の経験と希望条件を無料で相談できます。登録後は担当者との面談へ進み、紹介された求人を見て応募するか判断できます。",
     href: BUILDJOB_CAREER_AD.href,
     points: [
       "建設業界に特化した求人紹介",
@@ -352,8 +370,8 @@ function resolveBuildJobCopy(slug?: string, need?: CareerNeed | null): CareerArt
  * ピクセル: このカードは **href のみ（計測ピクセルなし）**。インプレッション計測は
  * サイドバー側の 1 発火を唯一の源として維持する（1 ページ 1 ピクセル原則）。
  *
- * creative は `resolveCareerSidebarAd()` と同じ期間境界で出し分ける
- * （〜2026-08-31 ビルドジョブ ¥50,000 ／ 9-01 以降 GKS に自動復帰）。
+ * creative はサイドバーと同一方針。9/8以降はBuildJob通常条件、
+ * 指名記事は期間非依存でBuildJob。旧期間だけ従来分岐で検証できる。
  * 文言は .claude/knowledge/reference/affiliate-operations.md「6. 配置ポリシー」に従う
  * （広告主の公称値は PR バッジ付きカード内の points に限定し、未確認の数値は記載しない）。
  * 公称値の実体は各 creative 定義の points / CAREER_PRESETS が真実源。
@@ -362,22 +380,24 @@ export function resolveCareerArticleEndCard(
   slug?: string,
   need?: CareerNeed | null,
 ): CareerArticleEndCard {
+  // 指名記事はキャンペーン期間と独立して、本文・サイドバーの相談先を揃える。
+  if (isBuildJobArticle(slug)) return resolveBuildJobCopy(slug, need);
   // A/B arm B（建設JOBs・登録 ¥4,500）。サイドバーと同じ実効 arm 判定で一致させ、同一ページは
   // PC サイドバーと記事末カードが必ず同じ案件になる（href のみ＝ピクセルはサイドバー arm B が源）。
   // キャンペーン中の高意図キャリア slug は arm B を使わずビルドジョブ固定（isKensetsuJobsArmEffective）。
   if (isKensetsuJobsArmEffective(slug)) {
     return {
       service: "建設JOBs",
-      category: "施工管理・建設業界の転職サイト",
+      category: "施工管理・建設業界の転職支援",
       description:
-        "資格取得後のキャリアも視野に。施工管理・建設業界に特化した転職サイトに無料登録して、自分に合う求人を探せます。",
+        "登録後は担当者とのカウンセリングを経て求人紹介へ進みます。経験と希望条件を伝え、紹介できる仕事があるか相談できます。",
       href: KENSETSU_JOBS_CAREER_AD.href,
       points: [
-        "施工管理・建設業界に特化した求人サイト",
-        "登録は無料・スマホで完結",
-        "気になる求人を自分のペースで探せる",
+        "施工管理・建設業界に特化した転職支援",
+        "登録・相談は無料",
+        "希望条件の確認・書類作成・面接をサポート",
       ],
-      cta: resolveNeedCta(slug, "registration", "無料で登録して求人を見る", need),
+      cta: resolveNeedCta(slug, "registration", "経験と希望条件を無料で相談する", need),
     };
   }
   if (resolveCareerSidebarAd().trackLabel === "BuildJob-sidebar") {
@@ -460,6 +480,8 @@ export function resolvePeConsultingArticleEndCard(): CareerArticleEndCard {
 export function resolveCategoryCareerAds(
   category: string,
 ): Array<{ creative: SidebarAdCreative; trackLabel: string }> {
+  // 技士ハブは学習導線を優先し、既存の期間・審査ポリシーで解決した広告を1枠にする。
+  if (category === "concrete-engineer") return [resolveCareerSidebarAd()];
   if (category === "pe-comprehensive-management") {
     return [{ creative: PE_CONSULTING_CAREER_AD, trackLabel: "DXConsulting-sidebar" }];
   }
@@ -471,6 +493,7 @@ export function resolveCategoryCareerAds(
     category === "concrete-diagnostician" ||
     category === "pe-first-stage"
   ) {
+    if (isReviewedCareerPolicyActive()) return [resolveCareerSidebarAd()];
     // カテゴリ hub は低意図のブラウジング文脈。建設JOBs（登録 ¥4,500）とビルドジョブ（面談 ¥50,000）は
     // 行動が異なる**補完案件**（代替でない＝A8 は別プログラムで別々に成果課金）ため、A/B で 1 つに
     // 絞らず**両方**出して読者に選ばせる（harvest・2026-06-29）。記事ページ（読書意図）は別途 slug

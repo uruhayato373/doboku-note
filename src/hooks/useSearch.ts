@@ -1,168 +1,39 @@
 "use client";
 
-import { useState, useCallback } from "react";
-import type {
-  SearchQuery,
-  SearchResult,
-  SearchIndexEntry,
-} from "@/lib/search/search-client";
+import { useState, useEffect } from "react";
+import type { SearchResult } from "@/lib/search/search-client";
 
-// re-export types for consumers
-export type { SearchQuery, SearchResult, SearchIndexEntry };
+const emptyResult: SearchResult = { posts: [], total: 0, page: 1, totalPages: 0, query: "" };
 
-export function useSearch() {
-  const [query, setQuery] = useState("");
-  const [category, setCategory] = useState<string>("");
-  const [tags, setTags] = useState<string[]>([]);
-  const [sortBy, setSortBy] = useState<"relevance">(
-    "relevance"
-  );
-  const [page, setPage] = useState(1);
-  const [limit] = useState(10);
-
-  const [results, setResults] = useState<SearchResult>({
-    posts: [],
-    total: 0,
-    page: 1,
-    totalPages: 0,
-    query: "",
-  });
-
+/** URLの確定条件で検索し、古いリクエストの応答で新しい結果を上書きしない。 */
+export function useSearch({ q, category, page }: { q: string; category: string; page: number }) {
+  const [query, setQuery] = useState(q);
+  const [results, setResults] = useState<SearchResult>(emptyResult);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [suggestions, setSuggestions] = useState<string[]>([]);
 
-  // 検索実行
-  const executeSearch = useCallback(async (searchQuery: SearchQuery) => {
-    if (!searchQuery.q.trim()) {
-      setResults({ posts: [], total: 0, page: 1, totalPages: 0, query: "" });
-      return;
-    }
-
-    setIsLoading(true);
+  useEffect(() => {
+    let active = true;
+    setQuery(q);
     setError(null);
+    setResults(emptyResult);
+    setIsLoading(!!q);
+    if (!q) return;
 
-    try {
-      // 動的インポートでバンドルサイズを抑制
-      const { search } = await import("@/lib/search/search-client");
-      const data = await search(searchQuery);
-      setResults(data);
-    } catch (err) {
-      console.error("検索エラー:", err);
-      setError(
-        err instanceof Error ? err.message : "検索中にエラーが発生しました"
-      );
-      setResults({
-        posts: [],
-        total: 0,
-        page: 1,
-        totalPages: 0,
-        query: searchQuery.q,
-      });
-    } finally {
-      setIsLoading(false);
+    async function run() {
+      try {
+        const { search } = await import("@/lib/search/search-client");
+        const data = await search({ q, category, page, limit: 10 });
+        if (active) setResults(data);
+      } catch (err) {
+        if (active) setError(err instanceof Error ? err.message : "検索中にエラーが発生しました");
+      } finally {
+        if (active) setIsLoading(false);
+      }
     }
-  }, []);
+    void run();
+    return () => { active = false; };
+  }, [q, category, page]);
 
-  // 検索候補の取得
-  const fetchSuggestions = useCallback(async (input: string) => {
-    if (input.length < 2) {
-      setSuggestions([]);
-      return;
-    }
-
-    try {
-      const { getSuggestions } = await import("@/lib/search/search-client");
-      const results = await getSuggestions(input, 5);
-      setSuggestions(results);
-    } catch (err) {
-      console.error("検索候補取得エラー:", err);
-      setSuggestions([]);
-    }
-  }, []);
-
-  // 検索クエリの更新
-  const updateSearchQuery = useCallback(
-    (updates: Partial<SearchQuery>) => {
-      const newQuery: SearchQuery = {
-        q: query,
-        category,
-        tags,
-        sortBy,
-        page: 1,
-        limit,
-        ...updates,
-      };
-
-      if (updates.q !== undefined) setQuery(updates.q);
-      if (updates.category !== undefined) setCategory(updates.category);
-      if (updates.tags !== undefined) setTags(updates.tags);
-      if (updates.sortBy !== undefined) setSortBy(updates.sortBy);
-      if (updates.page !== undefined) setPage(updates.page);
-
-      executeSearch(newQuery);
-    },
-    [query, category, tags, sortBy, limit, executeSearch]
-  );
-
-  // ページ変更
-  const changePage = useCallback(
-    (newPage: number) => {
-      if (newPage < 1 || newPage > results.totalPages) return;
-
-      setPage(newPage);
-      executeSearch({
-        q: query,
-        category,
-        tags,
-        sortBy,
-        page: newPage,
-        limit,
-      });
-    },
-    [
-      query,
-      category,
-      tags,
-      sortBy,
-      limit,
-      results.totalPages,
-      executeSearch,
-    ]
-  );
-
-  // リセット
-  const resetSearch = useCallback(() => {
-    setQuery("");
-    setCategory("");
-    setTags([]);
-    setSortBy("relevance");
-    setPage(1);
-    setResults({ posts: [], total: 0, page: 1, totalPages: 0, query: "" });
-    setError(null);
-    setSuggestions([]);
-  }, []);
-
-  return {
-    query,
-    category,
-    tags,
-    sortBy,
-    page,
-    limit,
-    results,
-    isLoading,
-    error,
-    suggestions,
-
-    setQuery,
-    setCategory,
-    setTags,
-    setSortBy,
-    updateSearchQuery,
-    changePage,
-    resetSearch,
-    executeSearch,
-    fetchSuggestions,
-  };
+  return { query, setQuery, results, isLoading, error };
 }

@@ -56,6 +56,11 @@ const server = createServer((req, res) => {
   if (insideRoot && contentType && existsSync(full) && statSync(full).isFile()) {
     return sendFile(req, res, full, contentType);
   }
+  // ローカルに派生画像がまだなくても原本があれば利用する。
+  const original = full.replace(/ogp-thumb-(248|336|640)\.webp$/, 'ogp.png');
+  if (insideRoot && original !== full && existsSync(original)) {
+    return sendFile(req, res, original, 'image/png');
+  }
   return sendFile(req, res, placeholder, 'image/svg+xml; charset=utf-8', true);
 });
 

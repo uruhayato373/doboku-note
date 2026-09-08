@@ -29,6 +29,31 @@ import { isUnmeasurable, textLen } from './note-live-check.mjs';
 
 const sleepSync = (ms) => spawnSync(process.execPath, ['-e', `setTimeout(()=>{},${ms})`]);
 
+/**
+ * 本文・タグ名・カバーまで照合するための詳細データ（読み取り専用）。
+ * curl が非 JSON 応答になる端末では、呼び出し元の note.com の Page を使う。
+ * 認証やブラウザ起動は行わず、取得不能を空の記事として返さない。
+ */
+export async function fetchNoteDetails(key, { page, ...opts } = {}) {
+  if (!/^n[0-9a-f]{6,}$/.test(key)) throw new Error('Invalid note key');
+  const url = `https://note.com/api/v3/notes/${key}`;
+  let result;
+  if (page) {
+    try {
+      result = await page.evaluate(async (url) => {
+        const response = await fetch(url, { cache: 'no-store' });
+        if (!response.ok) return { json: null, error: `HTTP ${response.status}` };
+        try { return { json: await response.json(), error: null }; }
+        catch { return { json: null, error: 'non-json response' }; }
+      }, url);
+    } catch (error) { return { data: null, error: String(error.message || error) }; }
+  } else result = curlJson(url, opts);
+  if (result.error) return { data: null, error: result.error };
+  const data = result.json?.data;
+  if (!data?.key || result.json?.error || data.error) return { data: null, error: 'note details unavailable' };
+  return { data, error: null };
+}
+
 /** curl で JSON を取る。JSON でない応答（HTML の 404 等）は取得失敗として区別する。 */
 function curlJson(url, { retries = 1, delayMs = 2000, timeoutSec = 25 } = {}) {
   let lastErr = 'unknown';

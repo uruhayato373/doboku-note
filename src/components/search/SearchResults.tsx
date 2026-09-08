@@ -1,9 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { SearchResult } from "@/hooks/useSearch";
+import ContentThumbnail from "@/components/ui/ContentThumbnail";
+import { getCategoryLabel } from "@/lib/categories";
+import { type SearchResult } from "@/lib/search/search-client";
 
 interface SearchResultsProps {
+  images?: Record<string, string>;
   results: SearchResult;
   isLoading: boolean;
   error?: string | null;
@@ -11,6 +14,7 @@ interface SearchResultsProps {
 }
 
 export function SearchResults({
+  images = {},
   results,
   isLoading,
   error,
@@ -75,9 +79,11 @@ export function SearchResults({
         {results.posts.map((post) => (
           <article
             key={post.id}
-            className="card-surface-section p-6 transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-card-hover"
+            className="card-surface-section flex gap-4 p-4 sm:p-6 transition-[border-color,box-shadow] hover:border-[var(--accent)] hover:shadow-card-hover"
           >
+            {images[post.path.replace(/\/$/, "")] && <div className="aspect-[1200/630] w-[100px] sm:w-[168px] shrink-0 self-start"><ContentThumbnail src={images[post.path.replace(/\/$/, "")]!} sizes="(max-width:640px) 100px,168px" /></div>}
             <div className="flex-1 min-w-0">
+              <p className="mb-2 text-xs text-[var(--ink-muted)]">{getCategoryLabel(post.category)} · {post.category === 'concrete-engineer' && post.path.includes('/primary/') ? '演習' : post.path.includes("/guide/") ? "受験ガイド" : post.path.startsWith("/practice/") ? "実務" : /\/(primary|secondary|past-exam)\//.test(post.path) ? "過去問" : post.path.startsWith("/standards/") ? "基準資料" : "解説・学習"}</p>
               <h3 className="text-lg font-bold text-[var(--ink)] mb-2 hover:text-[var(--accent)] transition-colors">
                 <Link href={post.path} className="focus-ring rounded-card-inline">
                   {post.title}

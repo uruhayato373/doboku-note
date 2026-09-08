@@ -4,6 +4,8 @@
  * ページの分類に応じて右サイドバーまたは記事末尾に表示する。
  */
 import Link from 'next/link';
+import { DISCOVERY_CATEGORIES } from '@/lib/sidebar-discovery';
+import { DiscoveryNav } from '@/components/ui/SidebarDiscovery';
 import type { DocMeta } from '@/lib/docs';
 import { classifyDoc, type DocGroupKey } from '@/lib/doc-classifier';
 import { resolveCurriculum } from '@/lib/category-curriculum';
@@ -294,6 +296,7 @@ function LinkListCard({
 
 /* ━━━ メインコンポーネント ━━━ */
 export default function CategoryNavCard({ variant, category, currentSlug, docGroup, categoryArticles }: CategoryNavCardProps) {
+  if (DISCOVERY_CATEGORIES.includes(category)) return <DiscoveryNav category={category} currentSlug={currentSlug} docs={categoryArticles} />;
   if (category === 'pe-comprehensive-management') {
     const currentDoc = categoryArticles.find((m) => m.slug === currentSlug);
     const currentSection = currentDoc?.section as string | undefined;

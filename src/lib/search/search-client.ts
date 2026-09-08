@@ -46,6 +46,7 @@ type PagefindData = {
 };
 
 let pf: PagefindModule | null = null;
+let cachedQuery: { q: string; entries: Promise<SearchIndexEntry[]> } | null = null;
 
 async function getPagefind(): Promise<PagefindModule> {
   if (pf) return pf;
@@ -74,7 +75,10 @@ function stripMark(html: string): string {
 }
 
 function toEntry(data: PagefindData): SearchIndexEntry {
-  const path = data.url;
+  // 静的出力の .html は検索結果の表示用URLに持ち込まない。
+  // 正規URLへ揃えることでdevでの遷移とサムネイル索引の照合も成立する。
+  const url = new URL(data.url, 'https://doboku-note.com');
+  const path = (url.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '').replace(/\/$/, '') || '/') + url.hash;
   return {
     id: path.replace(/^\//, ""),
     title: data.meta.title ?? "",
@@ -93,11 +97,19 @@ export async function search(query: SearchQuery): Promise<SearchResult> {
 
   if (!q) return { posts: [], total: 0, page, totalPages: 0, query: "" };
 
-  const engine = await getPagefind();
-  const raw = await engine.search(q);
-  const dataList = await Promise.all(raw.results.map((r) => r.data()));
-
-  let entries = dataList.map(toEntry);
+  // 資格切替・ページ送りで同じ全件データを再取得しない。
+  // 保持は直近1検索だけ。失敗した取得は次の操作で再試行できる。
+  if (cachedQuery?.q !== q) {
+    const entries = (async () => {
+      const engine = await getPagefind();
+      const raw = await engine.search(q);
+      return (await Promise.all(raw.results.map(r => r.data()))).map(toEntry);
+    })();
+    const cached = { q, entries };
+    cachedQuery = cached;
+    void entries.catch(() => { if (cachedQuery === cached) cachedQuery = null; });
+  }
+  let entries = await cachedQuery.entries;
 
   if (query.category) {
     entries = entries.filter((e) => e.category === query.category);

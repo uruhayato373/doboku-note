@@ -136,10 +136,12 @@ https://note.com/dobokunote/m/m6854c7437d4d
 
 ### 民間技術者・お金/キャリアの方へ（クラスター）
 
+- [技術士・総監取得後の転職準備｜資格名と担当経験を整理する](https://note.com/dobokunote/n/ne747e39c0ba4)
+
 - [民間建設技術者が総監を取る金銭メリット（個人手当／会社価値／市場価値の3レイヤー）](https://note.com/dobokunote/n/n05800ac28d27)
 - [総監受験は「投資」としてペイするか（年代別ROI計算）](https://note.com/dobokunote/n/n9376aac312df)
-- [総監を取って独立した技術者の収入実態（公開情報5ケース）](https://note.com/dobokunote/n/n700c51ea6f00)
-- [土木・建設の資格は「取った後」どう得するか（キャリア×お金マップ）](https://note.com/dobokunote/n/nd2f697ffbc4a)
+- [技術士の独立に関する公開情報](https://note.com/dobokunote/n/n700c51ea6f00)
+- [土木・建設の資格活用キャリアマップ](https://note.com/dobokunote/n/nd2f697ffbc4a)
 
 ---
 

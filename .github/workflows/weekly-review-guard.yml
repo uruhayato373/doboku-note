@@ -98,7 +98,7 @@ jobs:
             node scripts/check-gsc-auto-review.mjs || true
             echo '```'
             echo ""
-            echo "- 確認: 対話セッションで \`/routines\`（list-first）→ ルーティン \`doboku-note GSC auto review\` の enabled / cron / last_fired_at"
+            echo "- 確認: \`gh run list --workflow gsc-auto-review.yml --limit 5\` で直近 run を確認し、必要なら \`gh workflow run gsc-auto-review.yml\` で再実行"
             echo "- 応急: \`/gsc-review\`（月次）・\`/weekly-improve\`（週次）を手動実行して観測ログへ追記"
             echo "- 判定ロジック: \`scripts/check-gsc-auto-review.mjs\`"
           } > /tmp/auto-review-body.md

@@ -123,6 +123,7 @@ export default function Header() {
   const categoryDropdownRef = useRef<HTMLDivElement>(null);
   const drawerRef = useRef<HTMLDivElement>(null);
   const menuTriggerRef = useRef<HTMLButtonElement>(null);
+  const menuWasOpen = useRef(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const closeMenu = () => setIsMenuOpen(false);
@@ -156,9 +157,26 @@ export default function Header() {
     if (isMenuOpen) {
       const firstFocusable = drawerRef.current?.querySelector<HTMLElement>(DRAWER_FOCUSABLE_SELECTOR);
       firstFocusable?.focus();
-    } else {
-      menuTriggerRef.current?.focus();
+    } else if (menuWasOpen.current) {
+      menuTriggerRef.current?.focus({ preventScroll: true });
     }
+    menuWasOpen.current = isMenuOpen;
+  }, [isMenuOpen]);
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+    const body = document.body;
+    const scrollY = window.scrollY;
+    const previous = { position: body.style.position, top: body.style.top, width: body.style.width, overflow: body.style.overflow };
+    Object.assign(body.style, { position: 'fixed', top: `-${scrollY}px`, width: '100%', overflow: 'hidden' });
+    const desktop = window.matchMedia('(min-width: 768px)');
+    const closeOnDesktop = () => { if (desktop.matches) setIsMenuOpen(false); };
+    desktop.addEventListener('change', closeOnDesktop);
+    return () => {
+      Object.assign(body.style, previous);
+      window.scrollTo({ top: scrollY, behavior: 'instant' });
+      desktop.removeEventListener('change', closeOnDesktop);
+    };
   }, [isMenuOpen]);
 
   // 開いている間だけ Tab をドロワー内に閉じ込める（フォーカストラップ）。
@@ -305,6 +323,14 @@ export default function Header() {
               </Link>
 
               <Link
+                href="/tools"
+                className="focus-ring flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
+              >
+                <HardHat className="w-5 h-5" />
+                <span className="text-[11px] font-medium">計算・演習</span>
+              </Link>
+
+              <Link
                 href="/about"
                 className="focus-ring flex flex-col items-center gap-1 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2 rounded-card-inline transition-colors"
               >
@@ -324,7 +350,7 @@ export default function Header() {
         <button
           type="button"
           onClick={closeMenu}
-          className="fixed inset-0 z-40 m-0 appearance-none border-0 bg-black/50 p-0 md:hidden"
+          className="fixed inset-0 z-[60] m-0 appearance-none border-0 bg-black/50 p-0 md:hidden"
           aria-label="メニューを閉じる"
         />
       )}
@@ -333,7 +359,7 @@ export default function Header() {
       <div
         id="mobile-drawer-menu"
         ref={drawerRef}
-        className={`fixed top-0 right-0 h-full w-64 bg-[var(--paper)] shadow-lift z-50 transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 right-0 h-dvh w-64 overflow-y-auto overscroll-contain bg-[var(--paper)] shadow-lift z-[70] transform transition-transform duration-300 ease-in-out md:hidden ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
         role={isMenuOpen ? 'dialog' : undefined}
@@ -345,14 +371,14 @@ export default function Header() {
           {/* 閉じるボタン */}
           <button
             onClick={closeMenu}
-            className="focus-ring absolute top-4 right-4 flex min-h-11 min-w-11 items-center justify-center rounded-card-inline hover:bg-[var(--accent-fill)] text-[var(--ink-body)]"
+            className="focus-ring sticky top-4 z-10 ml-auto flex min-h-11 min-w-11 items-center justify-center rounded-card-inline bg-[var(--paper)] hover:bg-[var(--accent-fill)] text-[var(--ink-body)]"
             aria-label="メニューを閉じる"
           >
             <X className="w-6 h-6" />
           </button>
 
           {/* ナビゲーションリンク */}
-          <nav className="mt-12 space-y-2">
+          <nav className="mt-4 space-y-2">
             {/* 検索リンク */}
             <Link
               href="/search"
@@ -413,6 +439,14 @@ export default function Header() {
             </Link>
 
             {/* Aboutリンク */}
+            <Link
+              href="/tools"
+              onClick={closeMenu}
+              className="focus-ring flex min-h-11 items-center gap-3 text-[var(--ink-body)] hover:text-[var(--accent)] hover:bg-[var(--accent-fill)] px-3 py-2.5 rounded-card-inline transition-colors"
+            >
+              <HardHat className="w-5 h-5" />
+              <span className="font-medium">計算・演習</span>
+            </Link>
             <Link
               href="/about"
               onClick={closeMenu}

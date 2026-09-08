@@ -9,30 +9,36 @@
     "unavailable": "その ASP に案件自体が無い",
     "unknown": "未確認（調べていない。none と区別する）"
   },
-  "updatedAt": "2026-08-04T00:00:00.000Z",
-  "verifiedAt": "2026-08-04",
-  "_verifiedNote": "2026-08-04 に 3 ASP を Playwright 実機で全件突合（ドリフト 0）。A8 は口座 a25050375786 の参加中一覧、もしもは shop_site_id=672381 の各プロモ詳細バッジ、afb は SID 984453（doboku-note）へ Chosen 切替＋form POST 後の提携中一覧で確認。afb は既定 stats47(959426) のため切替必須（切替前 37 件→doboku-note は 2 件）。",
+  "updatedAt": "2026-09-07T21:26:44.604637+00:00",
+  "verifiedAt": "2026-09-08",
+  "_verifiedNote": "2026-09-08部分照合: A8は口座a25050375786の案件詳細、BuildJobは広告作成websiteId002/既存mat一致まで確認。もしも4案件はshop_site_id672381とselectedOption=doboku-noteを実機確認。afbは今回未確認、旧値保持。各ASPのverifiedAt/verificationScopeを参照。",
   "programs": {
     "buildjob": {
       "label": "ビルドジョブ（建設業界特化 転職エージェント）",
       "vertical": "civil-career",
       "placement": "active",
-      "decision": "A8 に寄せる（2026-07-27）。単価はもしもと完全同一（¥50,000・8/31 まで ¥13,847→¥50,000 の同一キャンペーン）だが、**もしもは承認率/EPC を非公開**、A8 は確定率 48.97% / EPC 942 円を開示する。同一案件を 2 ASP で並行運用すると成果の帰属が割れて EPC 集計が二重管理になるため、判断材料の多い A8 を正とする。",
+      "decision": "2026-09-08: A8通常条件で一般配置を継続。既存doboku-note用matを現物照合済み。もしも13,847円との差313円だけでASPを切り替えず、既存計測・リンクの帰属を維持。優劣の成果実証ではなく対象条件と運用整合に基づく。",
       "asps": {
         "a8": {
           "programId": "s00000024757004",
           "status": "approved",
-          "rewardYen": 50000,
-          "epcYen": 942,
-          "confirmRatePct": 48.97
+          "rewardYen": 13534,
+          "epcYen": 319.52,
+          "confirmRatePct": 39.65,
+          "verifiedAt": "2026-09-08",
+          "verificationScope": "account-wide program terms; EPC/confirmRate are ASP-wide, not own performance",
+          "approvalConditions": "広告主新規、60歳未満、WEB申込後30日以内の無料面談完了。海外申込・重複等は否認。"
         },
         "moshimo": {
           "promotionId": "6353",
           "status": "approved",
-          "rewardYen": 50000,
+          "rewardYen": 13847,
           "epcYen": null,
           "confirmRatePct": null,
-          "note": "承認率・EPC は もしも が非公開。運用は A8 側。"
+          "note": "承認率・EPC は もしも が非公開。運用は A8 側。",
+          "verifiedAt": "2026-09-08",
+          "verificationScope": "shop_site_id=672381; selectedOption=doboku-note; detail status",
+          "approvalConditions": "60歳未満、WEB申込後30日以内の無料面談完了。"
         },
         "afb": {
           "status": "unknown"
@@ -42,15 +48,19 @@
     "gks": {
       "label": "GKSキャリア（施工管理 転職エージェント）",
       "vertical": "civil-career",
-      "placement": "active",
-      "decision": "A8 で運用。**2026-08-04 に記事面から外した**（キャンペーン終了後の自動復帰先を GKS → 建設JOBs に変更）。公開 EPC 457 < 建設JOBs 709 と逆転するうえ、分母規律（確定 3 件）に必要なクリックが約 164 と現流量では貯まらないため。撤去ではなく**カテゴリ hub の補完枠として残す**（creative・カード文言もコード温存）。A/B 再開は `POST_CAMPAIGN_AB_ENABLED = true`。根拠 → affiliate-operations.md §6.5 裁定ログ 2026-08-04。",
+      "placement": "none",
+      "decision": "2026-09-08以降の一般配置を停止。対象年齢・地域が限定され9/28終了予定。過去分岐とcreativeのみコード保持。",
       "asps": {
         "a8": {
           "programId": "s00000022176005",
           "status": "approved",
           "rewardYen": 25000,
-          "epcYen": 457,
-          "confirmRatePct": 47.36
+          "epcYen": 360.08,
+          "confirmRatePct": 25.58,
+          "verifiedAt": "2026-09-08",
+          "verificationScope": "account-wide program terms; EPC/confirmRate are ASP-wide, not own performance",
+          "approvalConditions": "19〜32歳、希望勤務地かつ在住が東京・千葉・埼玉・神奈川・愛知・大阪、WEB応募後14日以内面談。中卒・現役学生等は否認。",
+          "endsAt": "2026-09-28"
         },
         "moshimo": {
           "status": "unknown"
@@ -63,15 +73,18 @@
     "kensetsu-jobs": {
       "label": "建設JOBs（施工管理・建設業界 転職サイト）",
       "vertical": "civil-career",
-      "placement": "active",
-      "decision": "A8 で運用。**2026-08-04 に 9/1 以降の civil 記事面の既定案件へ昇格**（slug ハッシュ 50/50 A/B は停止・建設JOBs 100%）。公開 EPC 709 > GKS 457 で、分母規律（確定 3 件）に必要なクリックが約 19 と最短で実測 EPC に到達できるため。キャンペーン中（〜2026-08-31）の記事面は buildjob 固定で、建設JOBs はカテゴリ hub のみ。判定基準・分母規律は affiliate-operations.md §6.5。2026-07 時点は確定成果 0 件で判定不能＝据え置き。",
+      "placement": "none",
+      "decision": "2026-09-08一般配置を停止。20〜30代の建設経験者と電話本人確認が条件で、全年齢記事に会員登録だけのサービスとして配置する前提を撤回。再配置は対象が明確な記事を選定する場合に限る。",
       "asps": {
         "a8": {
           "programId": "s00000023057002",
           "status": "approved",
           "rewardYen": 4500,
-          "epcYen": 709,
-          "confirmRatePct": 91.04
+          "epcYen": 466.78,
+          "confirmRatePct": 94.31,
+          "verifiedAt": "2026-09-08",
+          "verificationScope": "account-wide program terms; EPC/confirmRate are ASP-wide, not own performance",
+          "approvalConditions": "広告主新規、20〜30代、建設業界経験、WEB登録後30日以内の電話本人確認。登録完了だけでは承認条件を満たさない。"
         },
         "moshimo": {
           "status": "unknown"
@@ -107,7 +120,7 @@
       "label": "コンストワーク（施工管理の転職サポート）",
       "vertical": "civil-career",
       "placement": "none",
-      "decision": "2026-07-27 に もしも で申請 → **即時提携**（審査なし）。リンク発行可能だが**未配置**。配置枠は 3 枠でカニバリ回避の手キュレーションのため、どこに置くかは人が判断する。",
+      "decision": "2026-09-08提携継続を確認。未配置。無料会員登録だけでは承認されず電話面談完了が必要。土木工種・雇用形態・希望地域の適合と、もしも成果収集/広告計測を揃えてから1記事の候補として検討。",
       "asps": {
         "a8": {
           "status": "unavailable"
@@ -115,7 +128,10 @@
         "moshimo": {
           "promotionId": "6154",
           "status": "approved",
-          "rewardYen": 5384
+          "rewardYen": 5384,
+          "verifiedAt": "2026-09-08",
+          "verificationScope": "shop_site_id=672381; selectedOption=doboku-note; detail status",
+          "approvalConditions": "無料登録完了で発生、電話面談完了が承認条件。"
         },
         "afb": {
           "status": "unknown"
@@ -134,7 +150,10 @@
         "moshimo": {
           "promotionId": "5665",
           "status": "applying",
-          "rewardYen": 15000
+          "rewardYen": 15000,
+          "verifiedAt": "2026-09-08",
+          "verificationScope": "shop_site_id=672381; selectedOption=doboku-note; detail status",
+          "approvalConditions": "有資格者15,000円/29歳以下3,500円の2条件。電気資格が中心。本人確認必須。50歳以下という募集説明と50歳以上否認の境界矛盾あり要照会。"
         },
         "afb": {
           "status": "unknown"
@@ -153,7 +172,10 @@
         "moshimo": {
           "promotionId": "6912",
           "status": "applying",
-          "rewardYen": 5000
+          "rewardYen": 5000,
+          "verifiedAt": "2026-09-08",
+          "verificationScope": "shop_site_id=672381; selectedOption=doboku-note; detail status",
+          "approvalConditions": "新規会員登録。18歳未満・66歳以上、いたずら・重複・連絡不可能は否認。"
         },
         "afb": {
           "status": "unknown"
@@ -218,8 +240,12 @@
           "status": "approved",
           "note": "2026-08-04 実機で参加中を確認（口座 a25050375786）。"
         },
-        "moshimo": { "status": "unknown" },
-        "afb": { "status": "unknown" }
+        "moshimo": {
+          "status": "unknown"
+        },
+        "afb": {
+          "status": "unknown"
+        }
       }
     },
     "elearning-genba": {
@@ -234,8 +260,35 @@
           "status": "approved",
           "note": "2026-08-04 実機で参加中を確認（口座 a25050375786）。"
         },
-        "moshimo": { "status": "unknown" },
-        "afb": { "status": "unknown" }
+        "moshimo": {
+          "status": "unknown"
+        },
+        "afb": {
+          "status": "unknown"
+        }
+      }
+    },
+    "rsg-craftsman": {
+      "label": "職人から施工管理エージェント",
+      "vertical": "civil-career",
+      "placement": "none",
+      "decision": "2026-09-08新規候補。40歳未満の職人・現場作業員から施工管理へ進む記事に限定して適合を検討。一般の有資格施工管理経験者向けには追加しない。未申請。",
+      "asps": {
+        "a8": {
+          "programId": "s00000021947005",
+          "status": "none",
+          "rewardYen": 2930,
+          "epcYen": null,
+          "confirmRatePct": null,
+          "verifiedAt": "2026-09-08",
+          "approvalConditions": "広告主新規、40歳未満の職人・現場作業員経験者、WEB申込後30日以内の無料相談完了。"
+        },
+        "moshimo": {
+          "status": "unknown"
+        },
+        "afb": {
+          "status": "unknown"
+        }
       }
     }
   },

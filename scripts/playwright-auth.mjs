@@ -26,7 +26,7 @@ import {
   validateAuthRoot,
 } from './lib/playwright-auth-profile.mjs';
 import { acquireAuthLock, readAuthLock, withAuthLock } from './lib/playwright-auth-lock.mjs';
-import { captureAuthSnapshot, classifyAuthSnapshot, loadAuthAdapter } from './lib/playwright-auth-adapters.mjs';
+import { captureAuthSnapshot, classifyAuthSnapshot, loadAuthAdapter, pollAuthStatus } from './lib/playwright-auth-adapters.mjs';
 
 export const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -290,8 +290,10 @@ export async function statusAuthService(context = {}, service) {
     try {
       opened = await openAuthContext(service, context, false);
       await opened.page.goto(adapter.checkUrl, { waitUntil: 'domcontentloaded', timeout: context.timeoutMs ?? 60000 });
-      await opened.page.waitForTimeout(1500);
-      const result = classifyAuthSnapshot(adapter, await captureAuthSnapshot(service, opened.page));
+      const result = await pollAuthStatus(
+        async () => classifyAuthSnapshot(adapter, await captureAuthSnapshot(service, opened.page)),
+        { attempts: context.statusAttempts ?? 6, sleep: (ms) => opened.page.waitForTimeout(ms) },
+      );
       return { ok: result.status === 'authenticated', service, ...result };
     } catch (error) {
       return { ok: false, service, status: 'blocked', reason: String(error.message).slice(0, 200) };
@@ -319,7 +321,12 @@ export async function loginAuthService(context = {}, service) {
       while (Date.now() < deadline) {
         const current = await captureAuthSnapshot(service, opened.page).catch(() => ({ url: opened.page.url() }));
         result = classifyAuthSnapshot(adapter, current);
-        if (result.status === 'blocked') break;
+        // 対話ログインでは本人確認を人間が完了できるよう、その画面を保持する。
+        // 自動操作・再遷移はせず待つ。status の blocked 判定や成功条件は変えない。
+        if (result.status === 'blocked') {
+          await opened.page.waitForTimeout(2500);
+          continue;
+        }
         if (!adapter.expiredPattern.test(current.url ?? '')) {
           await opened.page.goto(adapter.checkUrl, { waitUntil: 'domcontentloaded', timeout: 60000 }).catch(() => {});
           await opened.page.waitForTimeout(1000);

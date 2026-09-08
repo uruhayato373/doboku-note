@@ -7,6 +7,8 @@ title: スキル ナビゲーションガイド
 アクティブなスキルを **用途別** に素早く探すための早引き。  
 設計原則・退役ログ → `skills-registry.md` / 作成手順 → `skills-design-guide.md`
 
+SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§0.1](./sns-image-policy.md) を起点に、ig-post-create／ig-carousel-restyle／ig-reel-create／yt-shorts-create／create-x-card で制作する。既存予約・公開状態は publish-ig-bs／publish-x／ig-reconcile で実体と照合する。ポーズ選びは管理画面 `/gallery/characters` と [キャラクター素材ポリシー](./character-asset-policy.md) を参照する。
+
 ---
 
 ## カテゴリ別クイックリファレンス

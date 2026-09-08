@@ -198,7 +198,7 @@ jobs:
       # 機械ゲート: publish の**後**に走らせる（赤でも取得済みデータは develop に残る）。
       # 赤にするのは「機械が無条件に異常と断定できるもの」だけ（inspected 0 / 1900 件上限到達 /
       # indexed_ratio < 60%）。前月比の低下や hygiene は warning に留め、判断は
-      # クラウドルーティン（GSC auto review）が観測ログへ記録する＝月次 red の狼少年化を防ぐ。
+      # GitHub Actions `gsc-auto-review.yml` が観測ログへ記録する＝月次 red の狼少年化を防ぐ。
       - name: Gate - coverage thresholds
         id: coverage_gate
         run: node .claude/scripts/check-coverage-thresholds.mjs

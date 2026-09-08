@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { type DocMeta } from '@/lib/docs';
-import { DocCard } from '@/components/category/CategorySections';
+import { DocCard, OgpThumbRow } from '@/components/category/CategorySections';
 import { getPublicDocPath } from '@/lib/content-routes';
 import { AFFILIATE_LINK_REL, AffiliatePrBadge } from '@/components/ui/AffiliateParts';
 import DisclosureChevron from '@/components/ui/DisclosureChevron';
@@ -71,7 +71,16 @@ function CurriculumRow({ doc, marker }: { doc: DocMeta; marker: React.ReactNode 
 }
 
 /** 1 ブロック内の行（章頭の要点 → 本文 docs）。開閉カード内・フラット双方で共有。 */
-function ChapterRows({ block, numbered }: { block: CurriculumBlockView; numbered: boolean }) {
+function ChapterRows({ block, numbered, thumbnails, previewFirst = false }: { block: CurriculumBlockView; numbered: boolean; thumbnails: boolean; previewFirst?: boolean }) {
+  if (thumbnails) {
+    return (
+      <ul>
+        {[...(block.intro ?? []), ...block.docs].map(doc => (
+          <OgpThumbRow key={doc.slug} doc={doc} headingLevel={block.label ? 'h4' : 'h3'} />
+        ))}
+      </ul>
+    );
+  }
   return (
     <ul>
       {/* 章の入口: 要点まとめ（本文の前・「要点」マーカーで区別） */}
@@ -82,7 +91,9 @@ function ChapterRows({ block, numbered }: { block: CurriculumBlockView; numbered
           marker={<span className="font-mono text-[10px] font-bold text-[var(--accent)]">要点</span>}
         />
       ))}
-      {block.docs.map((doc, i) => (
+      {block.docs.map((doc, i) => previewFirst && i === 0 ? (
+        <OgpThumbRow key={doc.slug} doc={doc} headingLevel={block.label ? 'h4' : 'h3'} />
+      ) : (
         <CurriculumRow
           key={doc.slug}
           doc={doc}
@@ -113,19 +124,27 @@ export function CurriculumList({
   blocks,
   numbered = false,
   collapsible = false,
+  thumbnails = false,
+  previewFirst = false,
 }: {
   blocks: CurriculumBlockView[];
   numbered?: boolean;
   collapsible?: boolean;
+  /** 記事選択に OGP と説明を添える。章の順序と見出しは維持する。 */
+  thumbnails?: boolean;
+  previewFirst?: boolean;
 }) {
   const visible = blocks.filter((b) => b.docs.length > 0 || (b.intro?.length ?? 0) > 0);
   return (
     <div className={collapsible ? 'space-y-3' : 'space-y-6'}>
+      {previewFirst && <nav aria-label="工種から探す" className="flex flex-wrap gap-2">
+        {visible.map((block, i) => <a key={i} href={`#practice-field-${i}`} className="focus-ring rounded-card-inline border border-[var(--rule-soft)] bg-[var(--paper)] px-3 py-3 text-sm text-[var(--ink)] hover:bg-[var(--accent-fill)]">{block.label ?? 'その他'}</a>)}
+      </nav>}
       {visible.map((block, bi) => {
         const showVolume = !!block.volume && block.volume !== visible[bi - 1]?.volume;
         const count = (block.intro?.length ?? 0) + block.docs.length;
         return (
-          <div key={block.id ?? block.label ?? bi}>
+          <div key={block.id ?? block.label ?? bi} id={previewFirst ? `practice-field-${bi}` : undefined} className="scroll-mt-24">
             {showVolume && (
               /* 分冊見出し（章をまとめる上位区切り）。章タイトル(18px)より一段控えめな
                  13px 太字＋区切り罫線で「ここから別の分冊」を示す（旧: mono 11px muted で
@@ -150,7 +169,7 @@ export function CurriculumList({
                   <DisclosureChevron className="text-[var(--ink-muted)]" />
                 </summary>
                 <div className="border-t border-[var(--rule-soft)] px-4">
-                  <ChapterRows block={block} numbered={numbered} />
+                  <ChapterRows block={block} numbered={numbered} thumbnails={thumbnails} />
                 </div>
               </details>
             ) : (
@@ -160,7 +179,7 @@ export function CurriculumList({
                     {block.label}
                   </h3>
                 )}
-                <ChapterRows block={block} numbered={numbered} />
+                <ChapterRows block={block} numbered={numbered} thumbnails={thumbnails} previewFirst={previewFirst} />
               </>
             )}
           </div>

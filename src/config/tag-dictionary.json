@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "generated_at": "2026-09-06T07:34:53.613Z",
+  "generated_at": "2026-09-08T04:12:58.789Z",
   "summary": {
-    "total_mdx_files": 1230,
-    "total_unique_tags": 191,
+    "total_mdx_files": 1225,
+    "total_unique_tags": 178,
     "allowlist_size": 170,
-    "known_count": 99,
+    "known_count": 86,
     "unknown_count": 92,
     "typo_candidates_count": 5
   },
@@ -4186,18 +4186,6 @@
       ]
     },
     {
-      "name": "reference",
-      "count": 5,
-      "inAllowlist": true,
-      "usedIn": [
-        "reference-materials-floodgate",
-        "reference-materials-hyogo-port-materials",
-        "reference-materials-inverted-siphon",
-        "reference-materials-river-abandonment",
-        "reference-materials-tunnel-02"
-      ]
-    },
-    {
       "name": "schedule-management",
       "count": 5,
       "inAllowlist": true,
@@ -4252,16 +4240,6 @@
         "pe-comprehensive-management-method-planning",
         "pe-comprehensive-management-process-planning-construction",
         "pe-construction-construction-planning-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "kinki-design-manual",
-      "count": 3,
-      "inAllowlist": true,
-      "usedIn": [
-        "reference-materials-floodgate",
-        "reference-materials-inverted-siphon",
-        "reference-materials-tunnel-02"
       ]
     },
     {
@@ -4438,15 +4416,6 @@
       "usedIn": [
         "pe-comprehensive-management-pfi",
         "pe-construction-shakai-shihon-ronbun-keyword"
-      ]
-    },
-    {
-      "name": "river-structure",
-      "count": 2,
-      "inAllowlist": true,
-      "usedIn": [
-        "reference-materials-floodgate",
-        "reference-materials-inverted-siphon"
       ]
     },
     {
@@ -4637,14 +4606,6 @@
       ]
     },
     {
-      "name": "administration",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "reference-materials-river-abandonment"
-      ]
-    },
-    {
       "name": "AI ガバナンス",
       "count": 1,
       "inAllowlist": false,
@@ -4693,22 +4654,6 @@
       ]
     },
     {
-      "name": "floodgate",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "reference-materials-floodgate"
-      ]
-    },
-    {
-      "name": "hyogo-common-specs",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "reference-materials-hyogo-port-materials"
-      ]
-    },
-    {
       "name": "II-1",
       "count": 1,
       "inAllowlist": false,
@@ -4741,14 +4686,6 @@
       ]
     },
     {
-      "name": "inverted-siphon",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "reference-materials-inverted-siphon"
-      ]
-    },
-    {
       "name": "keyword-analysis",
       "count": 1,
       "inAllowlist": false,
@@ -4757,59 +4694,11 @@
       ]
     },
     {
-      "name": "materials",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "reference-materials-hyogo-port-materials"
-      ]
-    },
-    {
-      "name": "port",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "reference-materials-hyogo-port-materials"
-      ]
-    },
-    {
-      "name": "river",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "reference-materials-river-abandonment"
-      ]
-    },
-    {
-      "name": "river-act",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "reference-materials-river-abandonment"
-      ]
-    },
-    {
-      "name": "road",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "reference-materials-tunnel-02"
-      ]
-    },
-    {
       "name": "study-method",
       "count": 1,
       "inAllowlist": true,
       "usedIn": [
         "concrete-diagnostician-guide-study-method"
-      ]
-    },
-    {
-      "name": "tunnel",
-      "count": 1,
-      "inAllowlist": true,
-      "usedIn": [
-        "reference-materials-tunnel-02"
       ]
     },
     {

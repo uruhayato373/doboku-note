@@ -15,10 +15,11 @@ import {
   executeAuthCommand,
   inspectDoctor,
   inspectPaths,
+  loginAuthService,
   migrateAuthProfile,
   parseAuthArgs,
 } from '../scripts/playwright-auth.mjs';
-import { classifyAuthSnapshot } from '../scripts/lib/playwright-auth-adapters.mjs';
+import { classifyAuthSnapshot, pollAuthStatus } from '../scripts/lib/playwright-auth-adapters.mjs';
 
 function makeFixture() {
   const base = mkdtempSync(join(tmpdir(), 'doboku-auth-cli-'));
@@ -176,11 +177,131 @@ test('fake adapter + local serverでもaccount markerなしをauthenticatedに�
   }
 });
 
+test('ログアウトはURL redirect以外でも検出し、認証済みの設定画面をexpiredにしない', () => {
+  const adapter = {
+    supported: true,
+    expectedMarkers: ['dobokunote'],
+    forbiddenMarkers: [],
+    expiredPattern: /\/login/,
+    loggedOutMarkers: ['ログイン'],
+  };
+
+  // account marker が出ていれば、パスワード変更欄のある設定画面でも authenticated
+  //（note の /settings/account がこの形。ここを取り違えると認証済みを未ログインと呼ぶ）
+  assert.equal(
+    classifyAuthSnapshot(adapter, { url: 'https://note.com/settings/account', text: 'dobokunote さん', hasPasswordField: true }).status,
+    'authenticated',
+  );
+
+  // marker が無くパスワード欄が出ている＝ログインを求められている（x の x.com/ がこの形）
+  assert.equal(
+    classifyAuthSnapshot(adapter, { url: 'https://x.com/', text: '「いま」を見つけよう', hasPasswordField: true }).status,
+    'expired',
+  );
+
+  // marker が無く本文がログイン CTA だけ（brain の /mypage がこの形。redirect しない）
+  assert.equal(
+    classifyAuthSnapshot(adapter, { url: 'https://brain-market.com/mypage', text: 'ログイン' }).status,
+    'expired',
+  );
+
+  // marker も無くログインの手掛かりも無いときは unknown のまま（expired と断定しない）
+  assert.equal(
+    classifyAuthSnapshot(adapter, { url: 'https://example.com/mypage', text: 'generic dashboard' }).status,
+    'unknown',
+  );
+});
+
+test('status判定はunknownのときだけ待ち直し、決着済みの分類は即返す', async () => {
+  const waits = [];
+  const sleep = async (ms) => { waits.push(ms); };
+
+  // authenticated は 1 回目で確定する（待ち直さない）
+  let calls = 0;
+  const ok = await pollAuthStatus(async () => { calls += 1; return { status: 'authenticated' }; }, { sleep });
+  assert.equal(ok.status, 'authenticated');
+  assert.equal(ok.attemptsUsed, 1);
+  assert.equal(calls, 1);
+
+  // expired（login 画面へ redirect）も決着済みなので待ち直さない
+  const expired = await pollAuthStatus(async () => ({ status: 'expired' }), { sleep });
+  assert.equal(expired.attemptsUsed, 1);
+
+  // unknown は指定回数まで待ち直し、最後まで unknown なら回数付きで返す
+  let unknownCalls = 0;
+  const unknown = await pollAuthStatus(async () => { unknownCalls += 1; return { status: 'unknown' }; }, { attempts: 4, sleep });
+  assert.equal(unknown.status, 'unknown');
+  assert.equal(unknown.attemptsUsed, 4);
+  assert.equal(unknownCalls, 4);
+
+  // 途中で描画が間に合えばそこで authenticated になる（描画待ちを未認証と読み替えない）
+  let n = 0;
+  const late = await pollAuthStatus(async () => { n += 1; return { status: n < 3 ? 'unknown' : 'authenticated' }; }, { attempts: 6, sleep });
+  assert.equal(late.status, 'authenticated');
+  assert.equal(late.attemptsUsed, 3);
+});
+
 test('inspectPathsのJSON相当出力にsecret内容を含めない', () => {
   const f = makeFixture();
   try {
     const text = JSON.stringify(inspectPaths(f));
     assert.doesNotMatch(text, /password|cookie|token|2fa/i);
+  } finally {
+    rmSync(f.base, { recursive: true, force: true });
+  }
+});
+
+test('対話ログインは本人確認画面を閉じず、人間の完了後にaccountを確認する', async () => {
+  const f = makeFixture();
+  const navigations = [];
+  const events = [];
+  const snapshots = [
+    { url: 'https://note.com/login', text: 'CAPTCHA', title: '' },
+    { url: 'https://note.com/', text: 'ログイン後', title: '' },
+    { url: 'https://note.com/settings/account', text: 'dobokunote', title: '' },
+  ];
+  let closed = false;
+  const page = {
+    goto: async (url) => { navigations.push(url); events.push('goto'); },
+    evaluate: async () => { events.push('snapshot'); return snapshots.shift(); },
+    waitForTimeout: async () => { assert.equal(closed, false); events.push('wait'); },
+  };
+  const browser = { pages: () => [page], close: async () => { closed = true; } };
+  try {
+    const result = await loginAuthService({
+      ...f,
+      timeoutMs: 1000,
+      playwright: { chromium: { launchPersistentContext: async () => browser } },
+    }, 'note');
+    assert.equal(result.status, 'authenticated');
+    assert.deepEqual(events.slice(0, 4), ['goto', 'snapshot', 'wait', 'snapshot']);
+    assert.deepEqual(navigations, ['http://127.0.0.1/login', 'https://note.com/settings/account']);
+    assert.equal(closed, true);
+  } finally {
+    rmSync(f.base, { recursive: true, force: true });
+  }
+});
+
+test('本人確認が完了しない対話ログインは期限後もblockedで終了する', async () => {
+  const f = makeFixture();
+  const navigations = [];
+  let closed = false;
+  const page = {
+    goto: async (url) => { navigations.push(url); },
+    evaluate: async () => ({ url: 'https://note.com/login', text: 'CAPTCHA', title: '' }),
+    waitForTimeout: async () => { await new Promise((resolve) => setTimeout(resolve, 30)); },
+  };
+  const browser = { pages: () => [page], close: async () => { closed = true; } };
+  try {
+    const result = await loginAuthService({
+      ...f,
+      timeoutMs: 20,
+      playwright: { chromium: { launchPersistentContext: async () => browser } },
+    }, 'note');
+    assert.equal(result.ok, false);
+    assert.equal(result.status, 'blocked');
+    assert.deepEqual(navigations, ['http://127.0.0.1/login']);
+    assert.equal(closed, true);
   } finally {
     rmSync(f.base, { recursive: true, force: true });
   }

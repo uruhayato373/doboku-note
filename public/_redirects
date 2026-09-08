@@ -23,14 +23,6 @@
 /docs/pe-comprehensive-management-occupational-safety-act-osh /exam/pe-comprehensive-management/keywords/occupational-safety-act 301
 /docs/pe-comprehensive-management-labor-standards-act-osh /exam/pe-comprehensive-management/keywords/labor-standards-act 301
 
-# reference-materials カテゴリ分離: 旧 slug → 新 slug（2026-04-19）
-# 近畿地整 設計便覧・兵庫県 共通仕様書を civil-construction-1 から独立カテゴリへ
-/docs/civil-construction-1-reference-hyogo-port-materials /standards/guides/hyogo-port-materials 301
-/docs/civil-construction-1-reference-river-abandonment /standards/guides/river-abandonment 301
-/docs/civil-construction-1-reference-inverted-siphon /standards/guides/inverted-siphon 301
-/docs/civil-construction-1-reference-floodgate /standards/guides/floodgate 301
-/docs/civil-construction-1-reference-tunnel-02 /standards/guides/tunnel-02 301
-
 # テキストブック再構成: 旧slug → 新slug（2026-04-16）— 11→34ページ分割
 /docs/civil-construction-1-textbook-construction-machinery-01 /exam/civil-construction-1/textbook/machinery-overview 301
 /docs/civil-construction-1-textbook-construction-machinery-02 /exam/civil-construction-1/textbook/loader 301
@@ -1301,11 +1293,6 @@
 /docs/civil-practice-stacking-heat-machine-safety /practice/stacking-heat-machine-safety 301
 /docs/civil-practice-subbase-subgrade-control /practice/subbase-subgrade-control 301
 /docs/civil-practice-trench-excavation-safety /practice/trench-excavation-safety 301
-/docs/reference-materials-floodgate /standards/guides/floodgate 301
-/docs/reference-materials-hyogo-port-materials /standards/guides/hyogo-port-materials 301
-/docs/reference-materials-inverted-siphon /standards/guides/inverted-siphon 301
-/docs/reference-materials-river-abandonment /standards/guides/river-abandonment 301
-/docs/reference-materials-tunnel-02 /standards/guides/tunnel-02 301
 
 # Legacy category hubs → canonical public hubs
 /category/civil-construction-1 /exam/civil-construction-1 301

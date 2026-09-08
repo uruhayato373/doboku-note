@@ -1,0 +1,23 @@
+{
+  "meta": {
+    "startDate": "2026-08-10",
+    "endDate": "2026-09-06",
+    "windowKind": "days",
+    "days": 28,
+    "pagePath": "/tools/kakomon-quiz",
+    "country": "Japan",
+    "eventNames": [
+      "quiz_start",
+      "quiz_complete",
+      "review_start",
+      "premium_view",
+      "premium_intent",
+      "email_interest",
+      "line_interest",
+      "note_cta_click"
+    ],
+    "placementStatus": "available"
+  },
+  "rows": [],
+  "placementRows": []
+}

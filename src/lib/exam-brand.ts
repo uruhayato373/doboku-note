@@ -42,6 +42,8 @@ export function examKeyOf(id: string): ExamKey {
 }
 
 export interface ExamBrand {
+  /** サイトの商品プレビュー用画像。note上の表紙そのものとは区別する。 */
+  readonly previewImage?: string;
   /** タイルに小さく出す資格ラベル（例: "1級土木"）。 */
   readonly label: string;
   /** globals.css の資格テーマ色トークン名（--exam-*）。 */
@@ -68,6 +70,7 @@ export const EXAM_BRAND: Record<ExamKey, ExamBrand> = {
   'pe-first-stage': {
     label: '技術士 第一次',
     themeVar: '--exam-pe',
+    previewImage: '/images/card-pe-first-stage.webp',
   },
   'civil-1': {
     label: '1級土木',
@@ -82,6 +85,7 @@ export const EXAM_BRAND: Record<ExamKey, ExamBrand> = {
   concrete: {
     label: 'コンクリート技士',
     themeVar: '--exam-concrete',
+    previewImage: '/images/card-concrete-engineer.webp',
   },
   'concrete-chief': {
     label: 'コンクリート主任技士',

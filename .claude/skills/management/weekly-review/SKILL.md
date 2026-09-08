@@ -66,7 +66,7 @@ description: >
   （オフライン・committed state 参照・creds不要）。`missingPromised` が 1 以上なら
   **本文でPDFを約束しているのにライブに添付が無い＝購入者が受け取れない**状態なので、
   他の何より先に出す。`ageDays` が 14 を超えていたら「静か」ではなく**実査していない**。
-  再実査は `npm run check-note-attachments:live`（ローカル・要ログイン・約15分）。
+  再実査は `npm run check-note-attachments:live`（ローカル・要ログイン・575 本で 20〜35 分）。
   `attachmentLossPending` が 1 以上なら、**本文更新で添付を捨てたまま再添付していない**記事がある
   （`--allow-attachment-loss` の負債）。実査は手動なので最大14日気づけない穴を、捨てた瞬間の記録で埋めている。
   ※有料エリアの添付は未ログイン HTML に出ないため CI では原理的に検査できない。
@@ -468,7 +468,7 @@ gh issue list --label automation-failure --state open --json number,title,create
   **7 日以上 open のものは必ず言及する**（放置＝チャネルが死ぬ）。クローズは復旧の実体を確認した人間が行う
   （`report-automation-failure.mjs` は自動クローズしない）。起票元は `ci.yml`（Pre-merge が赤）・
   `uptime-ping.yml`・`weekly-review-guard.yml`（記録層の沈黙／workflow health／report 区分 FAIL）・
-  `index-coverage.yml`・GSC auto review ルーティン
+  `index-coverage.yml`・`gsc-auto-review.yml`
 
 
 ### Phase 3: 出力（md ファイル保存）

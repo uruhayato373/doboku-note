@@ -8,7 +8,7 @@ import { useState } from 'react';
  * TODO 画面の prompt 生成用（DN-0093 順5）。UI からの実行操作は持たない
  * （コピーまで。副作用のある操作は npm run todo:* を人/Agent が実行する）。
  */
-export default function CopyButton({ text }: { text: string }) {
+export default function CopyButton({ text, label = 'promptをコピー' }: { text: string; label?: string }) {
   const [done, setDone] = useState(false);
   return (
     <button
@@ -25,7 +25,7 @@ export default function CopyButton({ text }: { text: string }) {
         }
       }}
     >
-      {done ? 'コピーした' : 'promptをコピー'}
+      {done ? 'コピーした' : label}
     </button>
   );
 }

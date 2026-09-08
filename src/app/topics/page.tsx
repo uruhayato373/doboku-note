@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import TopicIcon from '@/components/topics/TopicIcon';
 import PageShell from '@/components/layout/PageShell';
 import PageHeader from '@/components/layout/PageHeader';
 import SectionBlock from '@/components/layout/SectionBlock';
@@ -32,6 +33,7 @@ export default function TopicsPage() {
                 href={`/topics/${topic.slug}`}
                 className="focus-ring card-interactive border border-[var(--rule-soft)] bg-[var(--paper)] p-5 transition-[border-color,box-shadow] hover:border-[var(--accent)]"
               >
+                <TopicIcon slug={topic.slug} />
                 <h2 className="font-serif text-lg font-bold text-[var(--ink)]">{topic.label}</h2>
                 <p className="mt-2 text-[13px] leading-[1.75] text-[var(--ink-muted)]">{topic.description}</p>
                 <p className="mt-4 font-mono text-[10px] uppercase tracking-widest text-[var(--accent)]">

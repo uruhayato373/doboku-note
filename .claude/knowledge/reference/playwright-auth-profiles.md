@@ -63,6 +63,11 @@ npm run auth:migrate -- --service note --commit
 別プロセスの read-only status で、実ページと account/site/property assert が一致したときだけ
 `authenticated` とする。profile ディレクトリの存在だけでは認証済みと判定しない。
 
+対話用の `auth:login` は、本人確認画面を検出してもブラウザを閉じず、待機期限まで人の操作を待つ。
+本人確認中に自動で入力・クリック・別ページへの移動は行わない。確認が完了しなければ
+`blocked` のまま終了し、認証成功として扱わない。read-only の `auth:status` は従来どおり
+`blocked` を即時に返す。
+
 ```bash
 npm run auth:login -- --service note
 npm run auth:status -- --service note
@@ -73,7 +78,7 @@ operator/skill が持つ dry-run→`--commit` ゲートに従い、認証 CLI �
 
 ## 実機検証
 
-DN-0108 の完了には、同じ commit 候補を使った Windows と Mac の独立検証が必要。両 PC 間で profile を
+新しい PC を運用へ入れるときは、同じ commit 候補で独立検証する。両 PC 間で profile を
 共有せず、それぞれ `paths`→`doctor`→note login→別プロセス status→Chrome 再起動後 status を行う。
 本体 checkout と worktree のどちらからも同じ OS 標準 root へ解決することを確認する。
 
@@ -85,7 +90,39 @@ DN-0108 の完了には、同じ commit 候補を使った Windows と Mac の�
 - 別プロセス `auth:status`: `authenticated`、account assert 一致
 - その profile で note L1/L2 4記事を更新し、全件で `account gate OK (dobokunote)` と公開 API 検証を確認
 
-Windows 実機の同等証拠が揃うまでは DN-0108 を完了扱いにしない。
+### Windows（2026-09-07）
+
+- root: `%LOCALAPPDATA%\doboku-note\playwright-auth`
+- 旧 `.local/playwright-*-profile` の 10 サービスを service 単位で dry-run→`--commit` でコピー（約 2.0GB・旧 source は保持）
+- `auth:doctor`: root 読み書き可、lock なし、10 サービスすべてで profile 存在
+- note: 別プロセス `auth:status` が 3 回とも `authenticated`（account assert 一致）。Chrome 再起動後も同じ
+- worktree 非依存: リポジトリ外（`C:\tmp\...`）の cwd と worktree から実行しても同じ OS 標準 root へ解決し、
+  その profile で `check-note-attachments --live` が著者ログイン状態のまま有料エリアを実査できた
+- 状態の内訳（2026-09-07 実測・再ログインは行っていない）:
+
+  | 分類 | service |
+  |---|---|
+  | `authenticated` | note / coconala |
+  | `expired`（次に使うとき人が再ログインする） | brain / kdp / x / instagram / google / a8 / moshimo |
+  | `unsupported`（設計どおり） | afb |
+
+> [!note]
+> この表は当初 brain / google / x を `unknown` と記録していたが、原因は**判定側**にあり、実体は
+> 3 件ともログアウト済みだった。同日に 2 つ直している。
+>
+> - `status` が goto 後に 1 回 1.5 秒待って 1 回だけ判定していた。note は 4 回目（約 6 秒）で
+>   account marker が出るため、`--all` では `unknown`・`--service` では `authenticated` と結果が
+>   割れていた → `unknown` のときだけ待ち直す poll にした（`authenticated` / `expired` /
+>   `blocked` は決着済みなので即返す）
+> - ログアウト判定が URL の redirect だけを見ていた。brain は `/mypage` のままログイン CTA、
+>   google は `/search-console/about` へ退避、x は `x.com/` でパスワード欄を出すため、どれも
+>   redirect パターンに当たらなかった → パスワード欄・ログアウト表示・GSC の about も見る
+>
+> **`unknown` は「まだ判定できていない」であって「ログアウト」ではない。** account marker が
+> 出ているページにパスワード変更欄があっても `expired` にしない（note の `/settings/account` が
+> まさにその形で、判定順を誤ると認証済みを未ログインと呼ぶ）。
+
+Windows と Mac の双方で note の別プロセス再利用・worktree 非依存を確認済み。
 
 ## セキュリティ
 
@@ -105,5 +142,4 @@ npm run check-affiliate-wiring
 npm run check-google-ui-ssot
 ```
 
-関連: `.claude/skills/dev/playwright-auth/SKILL.md`、
-`.claude/plans/DN-0108-cross-device-playwright-auth/05-cross-device-validation-and-docs.md`
+関連: `.claude/skills/dev/playwright-auth/SKILL.md`

@@ -248,7 +248,7 @@ export async function renderDocPage(slugStr: string) {
 
   // Determine page classification for navigation cards
   const docGroup = classifyDoc(doc.meta);
-  const hasCategoryNavCard = category === 'pe-comprehensive-management' || category === 'civil-construction-1' || category === 'civil-construction-2';
+  const hasCategoryNavCard = Boolean(category);
   const showPillarNav = category === 'pe-comprehensive-management' && docGroup === 'keyword';
   const sectionStr = doc.meta.section as string | undefined;
 

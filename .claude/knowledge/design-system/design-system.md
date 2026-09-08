@@ -26,6 +26,12 @@
 
 ## 1. 設計の前提（doboku-note 固有）
 
+コンクリート技士の資格トップ右列は、学習・復習→note教材1点→関連ツール・資格→既存ルールで選定した広告1枠→運営者紹介の順。教材は商品台帳から公開状態・価格・URLを解決する。スマホでは教材と関連リンクを一覧末尾に置き、広告は既存の本文内配置を使用する。
+
+主任技士・診断士・一次のトップにも公開教材を1点表示する（`sidebar-discovery.ts`）。記事の個別教材は既存 `magazine-placement` の主教材に合わせ、HUB教材と重ねない。記事の運営者紹介は開閉式、教材・広告は通常フロー、目次・復習・無料ツールのみ末尾の追従クラスタに置く。6カテゴリの新しい復習ナビは同分野／科目・同年度を優先し、スマホでは末尾の開閉ナビで共用。基準章の実務リンクは章名が対応する分野に限る。
+
+個別教材カードは `NoteProductCard` で共通化し、資格別の公開画像＋HTMLの商品名を広告バナーと同じ300×250（6:5）のプレビューとして表示する。プレビューは最大幅300px・中央寄せ、外枠余白は広告と同じp-2とし、狭い画面では同比率で縮小する。説明・価格・ボタンはプレビューの下に置く。画像は `exam-brand.ts` の `previewImage`／`ctaBg` から解決し、note上の実表紙とは区別する。画像リンクとボタンは同じ商品URL・位置別UTM・クリック計測を使う。商品名・説明・価格は画像に焼き込まない。
+
 1. **ドキュメントサイト** — ダッシュボードやデータ可視化ではなく、長文テキスト・数式・図表・過去問の閲覧が主目的。
 2. **技術文書の可読性が最重要** — 専門文書を正確に・読みやすく提示する。
 3. **モバイル前提** — 現場（屋外）でスマホ参照が多い。375px で破綻しないこと。
@@ -148,6 +154,7 @@
 | `PageShell`（`layout/PageShell.tsx`） | 全ページの chrome（Header/main/Footer）を 1 箇所に集約 | `variant`: `default`（素の main・ページ側が PageHeader+SectionBlock を構成）/ `content`（内側 content rail を持つ単カラム）/ `article`（2カラム記事・内側で `TwoColumnShell` を使う）。`rail`: `780`(既定)/`820`/`860`。`beforeHeader` |
 | `TwoColumnShell`（`layout/TwoColumnShell.tsx`） | **2カラム（本文＋右サイドバー）の単一定義**。docs 記事・category・standards 下層が共用（旧: 各ページが手書きコピペ）。外枠 `max-w-[1280px]`・カラム間 `gap-10`(40px)・サイドバー `w-[316px]`(316px＝300px バナー + 内側 padding 16px)・`zenn-desktop`(≥993px)でのみサイドバー表示——これらレイアウト値の**真実源はこのファイルのみ**（幅・gap・cap を変えるときはここだけ）。サイドバー中身は `aside` prop へ渡す（`<aside>` 要素・幅・表示制御はシェルが所有） | `gutter`: `flush-mobile`（docs・≤576px 外周0でカードフルブリード）/ `default`（category / standards 等・`px-4 sm:px-6 lg:px-10`）。`mainClassName`(既定 `py-10`)。`aside` |
 | `StandardsNavigation`（`standards/StandardsNavigation.tsx`） | `/standards` 下層の階層ナビ。地域ページ＝発行機関、文書ページ＝同機関の文書＋分冊、文字起こしページ＝分冊＋当該 PDF ページアンカーへ文脈に応じて切替。PC は右サイドバー全体を `sticky top-6`＋内部スクロール、モバイルは同一情報を native `<details>` に畳み、サイドバー非表示時も導線を失わない。広告・著者情報は置かず、公共資料の閲覧ナビに限定する | `agencyId` / `currentDocument?` / `currentPart?` / `pageNumbers?` / `variant`（sidebar/mobile） |
+| `StandardsArticleHeader`（`standards/StandardsArticleHeader.tsx`） | `/standards` の章記事・逐語文字起こし用の記事内ヘッダー。通常記事と同じゴシック見出しを使い、章記事では編ラベル＋章名だけに絞る（文書名・構造説明・原本ページ・分冊内部名の反復は禁止）。原本情報は記事末尾の出典欄へ集約し、逐語ページのみ閲覧方法の lead を許容する | `breadcrumb` / `label` / `title` / `lead?` / `meta?` |
 | `PageHeader`（`layout/PageHeader.tsx`） | 下層ページの breadcrumb + eyebrow label + h1 + lead + meta + actions | `variant`: `band`(全幅帯)/`inline`(帯なし)。`titleSize`: `default`/`lg`。`width`: `wide`(既定)/`860`/`780`/`760` |
 | `SectionBlock`（`layout/SectionBlock.tsx`） | セクション間余白・band 背景を統一 | — |
 | `SectionCard`（`ui/SectionCard/`） | カード（radius/border/shadow を token に統一・カード内カード回避） | — |
@@ -164,6 +171,17 @@
 | `HubCtaBanner`（`ui/HubCtaBanner/HubCtaBanner.tsx`） | **資格別リッチ背景 note CTA / もくじタイル**。カテゴリ hub の本文＋PC サイドバー＋モバイル、および docs 記事の末尾＋サイドバーの**もくじタイル**に共用（NextStepNav が指す「季節 note CTA」の実体）。背景は資格ごと 1 枚 `public/images/cta-bg/*.webp` を使い回し、文言・価格は**画像に焼かず HTML 文字を左に重ねる**（文字色は `--on-image-*` の固定濃色＝背景イラストが常に明色のため dark でも可読）。**季節モード**: 直前期（試験日の 6 週間前〜試験日）は売れ筋の特定商品へ直リンク（`mode=product`・価格ピル）、それ以外は資格別 **L2「もくじ」へ集約**（`mode=mokuji`・マガジンが増えても config 追加不要でスケール）。解決は `src/lib/hub-cta.ts`（`resolveHubCta(category, {utmSuffix?})`・ビルド時 `Date.now()` で switch。カテゴリ hub・docs 記事末尾・docs サイドバーで共用し `utmSuffix`（`-sb`/`-mob`/`-docs-sb`/`-footer`）で面分離）。もくじ URL は **`.claude/config/note-funnel.json` の L2 レジストリと同一 note 永続 ID**（変更時は両方更新）。GA4 は `data-cta="note"`＋`data-cta-label`、色は `--exam-*` トークン | `cta`（`ResolvedHubCta`） |
 | `MagazineHeroCta`（`ui/MagazineHeroCta/`） | **note マガジン単体の画像中心ヒーロー CTA バナー**（高さ ~380px）。資格別背景イラスト（`brandOf(id)` の `cta-bg/*.webp`）を**ブランド紺 `--hero-cta-tint` で覆い**、白キーライン枠の中にバッジ帯→キャッチコピー→短縮説明→マスコット「doboku-note 先生」円形アバター→note 緑の大ボタンを積む。文字は白＋`--hero-cta-*`（テーマ非追従の画像上固定色・`--on-image-*` と同型）。**文言・URL・キャラは全て `note-magazines.ts` から `id` で解決**（`ctaCatch`/`ctaButton`/`ctaPose`・省略時フォールバックあり）＝焼き込みバナーを作らずマガジン追加・価格改定で画像生成が不要。描画元は `MidArticleCta`（note モード＝記事中間 CTA の既定）と MDX `<MagazineCard>`（既定 `variant="hero"`）。強い hero は 1 記事 1 枚を基本とし、複数商品の比較・副次商品は `variant="inline"`＝`MagazineInlineCard` に落とす。inline はモバイルでも縦積みにせず 6:5 の 96px 画像＋テキストを横並びにしてスクロール量を抑える。アバターは `public/images/character/avatar-{pose}.webp`（`npm run character-avatars`）。`getMagazine()` ゲートで未公開は自動非表示。GA4 は商品ID入り `data-cta-label`＋`data-cta-placement`、50%以上表示で `note_cta_impression` を送る | `id`（`MagazineId`）/ `utmContent` / `placement` |
 | `MagazineTopBanner`（`ui/MagazineTopBanner/`） | docs 記事**冒頭**（ArticleHeader と本文 prose の間）に置く 1 行テキスト note CTA（バッジ＋短縮タイトル＋価格＋矢印）。二次系の高 intent ページのみ `resolvePlacement().top`（`src/lib/magazine-placement.ts`）で設定され、記事が長いため冒頭にも到達導線を 1 本置く。**末尾のもくじタイル（`HubCtaBanner`）と別物・重複可**（冒頭=個別商品テキスト／末尾=もくじタイルで役割が違う）。表示可否は `getMagazine()`（published＋noteUrl）ゲート通過で決まり未公開は自動非表示。GA4 は `data-cta="note"`＋`data-cta-label`（utm_content） | `url`/`title`/`price?`/`badge`/`trackLabel` |
+
+**共通フッター**: 資格・実務リンクは既存カテゴリ索引から解決し、PCでは最大3列で表示、スマホでは native `<details>` に折りたたむ。サイト案内は横並び・折り返しとし、紹介文は1行に絞る。広告表記・著作権表示を残し、技術構成の表示は置かない。リンクの操作領域は44px以上を維持する。
+
+**共通操作と一覧の入口（2026-09-08）**:
+
+- ヘッダー・スマホメニュー・フッターから `/tools` を「計算・演習」として案内する。スマホメニューは画面高内でスクロールでき、開いている間は背面を固定する。閉じた時のみトリガーへフォーカスを戻し、初回表示で移動させない。画面幅がPCへ変わった時も固定を解除する。
+- 明暗切替は保存設定の `system` ではなく、実表示の `resolvedTheme` を反転する。アイコン・読み上げ名も同じ状態を使う。
+- 検索の確定条件はURLの `q`・`category`・`page`。再読み込み・戻る・共有で復元し、条件変更は1ページ目へ戻す。資格だけの解除と全検索リセットを分ける。選択ボタンは44px以上＋選択状態のARIAを持ち、ダークの明色アクセントには濃色文字を使う。
+- 資格トップの `CategoryJumpNav` は2〜3列で全項目を表示し、過去問を先頭にする。人気記事は学習セクションの後ろで最大2件。PC右列の先頭は演習・復習と関連ツールへの入口とし、基本は `CategoryStudyNav`、コンクリート技士は専用の学習・教材・関連ツール枠を使う。ツール名とURLは `src/lib/tools.ts` を共有し、記事末の `RelatedTools` は明示した対応記事と資格別の過去問にだけ表示する。
+- テーマ詳細は記事検索を常時表示し、資格・記事種類を開閉欄へ収納する。選択条件・件数・解除は閉じても見える位置に置く。
+- トップはHeroの次に資格一覧を置く。更新情報は下部の「最新の記事」にまとめ、同じ記事の更新帯を重複表示しない。
 
 `not-found` は Header/Footer を持たない設計のため PageShell を使わない（意図的な例外）。
 
@@ -195,7 +213,7 @@
 
 - `/docs/[slug]`（記事 = `ArticleSidebar`）
 - `/category/[slug]`
-- `/standards/[agency]` とその下層（公共基準類ライブラリ = `StandardsNavigation`）
+- `/standards` とその下層（トップ＝テーマ・実務記事・比較／データ利用、地域以下＝`StandardsNavigation`）
 
 以下には**追加しない**: `/links`・`/search`・`/about`・`/privacy`・`/terms`・`/tools`。
 理由 — 検索=入力と結果比較に集中 / links=試験カードを全幅で大きく / about=本文そのもので右に逃さない。
@@ -208,7 +226,11 @@
 
 > sticky クラスタの**下に非 sticky 要素を置かない**（下スクロールで届かなくなる過去事故）。だからクラスタは列の末尾に置く。TOC 自身の `max-h` は撤去し高さ制御を sticky コンテナへ一元化。note もくじタイルは記事末尾（`ArticleFooter`・utm `-footer`）と PC サイドバー（utm `-docs-sb`）に各 1 枚を併掲し全 HUB ページで統一（2026-07・個別マガジンタイルは廃止）。
 
+**`/standards` トップ**: カテゴリページと同じ `card-surface-section` の白い本文面に `PageHeader`・発行機関一覧をまとめる。目視確認件数・文字化け置換文字数など運営向けの品質集計はトップに表示せず、出典・利用上の注意は末尾に残す。全国の入口として各発行機関を同列に扱い、特定地域の文書を重複して特出ししない。内部は罫線とリストで区切り、カードを重ねない。右列は `StandardsExplore` で技術テーマ→公開済み実務記事→地域比較・データ利用を案内し、サイト内回遊を担う。テーマ名・記事名・公開状態・URLは既存索引から解決する。モバイルは同じ回遊カードを本文の後に表示し、出典は別カードで末尾に置く。
+
 **PC 右サイドバー（`/standards` 下層）は閲覧ナビ専用**: 地域→文書→分冊→PDFページのうち現在地に必要な階層だけを表示する。列全体を `sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto` とし、長い分冊・ページ一覧も画面内で操作できる。広告・著者カードは置かない。モバイルでは同一リンク群を `<details>` に畳み、右サイドバーが消える幅でも階層移動を維持する。
+
+**基準類の機関・文書一覧**: `TwoColumnShell` の本文をトップと同じ白い面にまとめ、`PageHeader variant="inline"` と読むための一覧を内包する。機関ページの文書は `StandardDocumentCard variant="row"` でカードの入れ子を避ける。文書の先頭は文書名・版・章数・ページ数、続いて章選択。原本SHA-256・分冊構成・同一原本の情報は末尾の `StandardsAttribution` の開閉欄へ置き、判読注記は本文の入口に残す。モバイルの詳細ナビは一覧の後ろに置き、上位階層へのリンクは冒頭のパンくずで提供する。
 
 ---
 
@@ -239,6 +261,12 @@
 5. **Grid** — 外枠 1280 / content rail で読み幅 / line-height 1.8（日本語長文最適）/ セクション余白は `SectionBlock` で統一。
 
 ---
+
+資格トップの受験ガイドは `CurriculumList thumbnails` で `OgpThumbRow` の画像＋記事名＋説明を表示する。コンクリート3資格はテキスト・演習/過去問の一覧にも適用。章構造・記事順・`sec-*` アンカーは維持し、章見出しがある場合の行見出しは `h4`、ない場合は `h3` とする。年度比較表と大量のキーワード索引は画像化しない。実務は `previewFirst` で工種別ジャンプと各工種の先頭1記事だけ画像を付ける。
+
+一覧のOGP画像は `ContentThumbnail` を共用する。248/336/640pxのWebPを`srcset`で選択し、取得失敗時は原本PNGへ戻る。装飾画像は空alt、画像枠は1200:630、横並びでは`self-start`を必須とする。原本はSNS共有用として維持。生成・供給は`build-ogp-thumbnails.mjs`と`ogp-supply.yml`、置き場は公開R2。サイズ指定だけで転送量を減らしたと扱わない。
+
+テーマ別詳細は `TopicArticles`：ガイド・実務を優先した入口3件と資格別の開閉一覧、資格/種類/キーワード絞り込み。初期HTMLで全記事リンクを保持し、JavaScriptなしでも開閉して閲覧できる。テーマ索引は `TopicIcon` の図記号で区別する。ツール一覧は用途別3区分と入力→結果の説明を添え、実行フォームに装飾画像を増やさない。検索の資格選択肢は`categories.json`から解決し、ガイド・実務結果だけ画像を付ける。基準資料カードは機関・年度・文書種別を優先し、品質数値は詳細で確認する。
 
 ## 6. アクセシビリティ
 

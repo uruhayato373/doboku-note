@@ -7,13 +7,13 @@ import { Mail, Clock, AlertCircle } from 'lucide-react';
 
 export const metadata: Metadata = {
   title: 'お問い合わせ',
-  description: 'doboku-noteへのご質問・ご意見・コンテンツに関するご指摘はこちらからお問い合わせください。',
+  description: 'doboku-noteへのご質問・ご意見、公的資料の構造化・データ加工に関するご相談はこちらからお問い合わせください。',
   // self canonical（root 継承事故の防止。og:url は既に self 指定済み）
   alternates: { canonical: '/contact' },
   openGraph: {
     type: 'website',
     title: 'お問い合わせ | doboku-note',
-    description: 'doboku-noteへのご質問・ご意見・コンテンツに関するご指摘はこちらからお問い合わせください。',
+    description: 'doboku-noteへのご質問・ご意見、公的資料の構造化・データ加工に関するご相談はこちらからお問い合わせください。',
     url: 'https://doboku-note.com/contact',
     images: [
       {
@@ -34,7 +34,7 @@ export default function ContactPage() {
         width="780"
         breadcrumb={[{ label: 'Home', href: '/' }, { label: 'Contact' }]}
         title="お問い合わせ"
-        lead="ご質問・ご意見・コンテンツに関するご指摘をお待ちしております"
+        lead="コンテンツへのご意見や、公的資料の構造化・データ加工に関するご相談を受け付けています"
       />
 
       <SectionBlock width="780" space="md">
@@ -75,6 +75,14 @@ export default function ContactPage() {
             <li className="flex items-start gap-2">
               <span className="text-[var(--accent)] mt-1 shrink-0">●</span>
               <span>サイトの不具合・表示の問題</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-[var(--accent)] mt-1 shrink-0">●</span>
+              <span>共通仕様書・公的資料のHTML／Markdown／JSON-LD化</span>
+            </li>
+            <li className="flex items-start gap-2">
+              <span className="text-[var(--accent)] mt-1 shrink-0">●</span>
+              <span>年度改定差分・原本照合・検索データ整備</span>
             </li>
             <li className="flex items-start gap-2">
               <span className="text-[var(--accent)] mt-1 shrink-0">●</span>

@@ -8,55 +8,56 @@ import { SearchResults } from "@/components/search/SearchResults";
 import { SearchFilters } from "@/components/search/SearchFilters";
 import { SearchPagination } from "@/components/search/SearchPagination";
 import { SearchZeroState } from "@/components/search/SearchZeroState";
-import { type CategoryDef } from "@/lib/categories";
+import { getAllCategories, type CategoryDef } from "@/lib/categories";
 import { type PopularDoc } from "@/lib/popular";
 import { type ExamData } from "@/components/home";
 
 interface SearchPageClientProps {
+  images: Record<string, string>;
   examCards: ExamData[];
   otherCategories: CategoryDef[];
   popular: PopularDoc[];
 }
 
-export default function SearchPageClient({ examCards, otherCategories, popular }: SearchPageClientProps) {
+export default function SearchPageClient({ images, examCards, otherCategories, popular }: SearchPageClientProps) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
+  const q = searchParams.get("q")?.trim() ?? "";
+  const requestedCategory = searchParams.get("category") ?? "";
+  const category = getAllCategories().some(c => c.visible !== false && c.slug === requestedCategory) ? requestedCategory : "";
+  const requestedPage = Number(searchParams.get("page") ?? 1);
+  const page = Number.isSafeInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1;
   const {
     query,
     setQuery,
-    category,
     results,
     isLoading,
     error,
-    updateSearchQuery,
-    changePage,
-    resetSearch,
-  } = useSearch();
+  } = useSearch({ q, category, page });
 
-  // URLの ?q= パラメータから初期検索を実行
+  // 存在しないページ番号で空結果に迷い込まないよう、取得後に最終ページへ戻す。
   useEffect(() => {
-    const q = searchParams.get("q");
-    if (q && q.trim()) {
-      setQuery(q);
-      updateSearchQuery({ q });
+    if (!isLoading && results.query === q && results.page === page && results.totalPages > 0 && page > results.totalPages) {
+      const params = new URLSearchParams(searchParams.toString());
+      if (results.totalPages === 1) params.delete("page");
+      else params.set("page", String(results.totalPages));
+      router.replace(`${pathname}?${params}`, { scroll: false });
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [searchParams]);
+  }, [isLoading, results, q, page, searchParams, router, pathname]);
 
-  const handleSearch = (searchQuery: string) => {
-    setQuery(searchQuery);
-    updateSearchQuery({ q: searchQuery });
-    // 検索クエリを URL(?q=) に同期する。
-    // (1) GA4 拡張計測「サイト内検索」が ?q= を含む pageview から検索イベントを自動生成する
-    // (2) 検索結果が共有/ブックマーク/戻る操作可能になる（UX 改善）
-    // router.replace + scroll:false で履歴汚染とスクロールジャンプを避ける。
-    const qs = searchQuery.trim() ? `?q=${encodeURIComponent(searchQuery.trim())}` : "";
-    router.replace(`${pathname}${qs}`, { scroll: false });
+  const navigate = (next: { q: string; category: string; page: number }) => {
+    const params = new URLSearchParams(searchParams.toString());
+    for (const [key, value] of Object.entries({ q: next.q.trim(), category: next.category, page: next.page > 1 ? String(next.page) : "" })) {
+      if (value) params.set(key, value);
+      else params.delete(key);
+    }
+    const suffix = params.toString();
+    router.push(`${pathname}${suffix ? `?${suffix}` : ""}`, { scroll: false });
   };
-
+  const handleSearch = (searchQuery: string) => navigate({ q: searchQuery, category, page: 1 });
   const handleCategoryChange = (newCategory: string) => {
-    updateSearchQuery({ category: newCategory });
+    navigate({ q, category: newCategory, page: 1 });
   };
 
   return (
@@ -76,7 +77,8 @@ export default function SearchPageClient({ examCards, otherCategories, popular }
         <SearchFilters
           category={category}
           onCategoryChange={handleCategoryChange}
-          onReset={resetSearch}
+          hasQuery={!!q}
+          onReset={() => { setQuery(""); navigate({ q: "", category: "", page: 1 }); }}
         />
       </div>
 
@@ -87,15 +89,15 @@ export default function SearchPageClient({ examCards, otherCategories, popular }
         </div>
       )}
 
-      {query.trim() ? (
+      {q ? (
         /* Pagefind の遅延ロード中はスピナー → 結果でレイアウトが伸びる（PSI 実測 CLS 0.58）ため、
            結果領域の高さを先に確保して下のフッターが跳ねないようにする。 */
         <div className="min-h-[60vh]">
-          <SearchResults
+          <SearchResults images={images}
             results={results}
             isLoading={isLoading}
             error={error}
-            query={query}
+            query={q}
           />
 
           {/* ページネーション */}
@@ -103,7 +105,7 @@ export default function SearchPageClient({ examCards, otherCategories, popular }
             <SearchPagination
               currentPage={results.page}
               totalPages={results.totalPages}
-              onPageChange={changePage}
+              onPageChange={(nextPage) => navigate({ q, category, page: nextPage })}
             />
           )}
         </div>

@@ -1467,6 +1467,936 @@
         "JIS Z 9020-2": "jis#Z 9020-2",
         "JIS A 1147": "jis#A 1147"
       }
+    },
+    {
+      "id": "mlit-white-paper",
+      "title": "国土交通白書（国土交通省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mlit.go.jp/statistics/file000004.html"
+      },
+      "aliases": {
+        "国土交通白書": "mlit-white-paper"
+      }
+    },
+    {
+      "id": "ict-white-paper",
+      "title": "情報通信白書（総務省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.soumu.go.jp/johotsusintokei/whitepaper/"
+      },
+      "aliases": {
+        "情報通信白書": "ict-white-paper"
+      }
+    },
+    {
+      "id": "env-white-paper",
+      "title": "環境白書・循環型社会白書・生物多様性白書（環境省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.env.go.jp/policy/hakusyo/"
+      },
+      "aliases": {
+        "環境・循環型社会・生物多様性白書": "env-white-paper",
+        "環境白書": "env-white-paper"
+      }
+    },
+    {
+      "id": "bousai-white-paper",
+      "title": "防災白書（内閣府）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.bousai.go.jp/kaigirep/hakusho/"
+      },
+      "aliases": {
+        "防災白書": "bousai-white-paper"
+      }
+    },
+    {
+      "id": "keizai-zaisei-white-paper",
+      "title": "年次経済財政報告（経済財政白書・内閣府）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www5.cao.go.jp/keizai3/whitepaper.html"
+      },
+      "aliases": {
+        "経済財政白書": "keizai-zaisei-white-paper"
+      }
+    },
+    {
+      "id": "monodukuri-white-paper",
+      "title": "ものづくり白書（製造基盤白書・経済産業省／厚生労働省／文部科学省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.meti.go.jp/report/whitepaper/index_mono.html"
+      },
+      "aliases": {
+        "ものづくり白書": "monodukuri-white-paper",
+        "製造基盤白書": "monodukuri-white-paper"
+      }
+    },
+    {
+      "id": "tsusho-white-paper",
+      "title": "通商白書（経済産業省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.meti.go.jp/report/whitepaper/index_tuhaku.html"
+      },
+      "aliases": {
+        "通商白書": "tsusho-white-paper"
+      }
+    },
+    {
+      "id": "energy-white-paper",
+      "title": "エネルギー白書（資源エネルギー庁）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.enecho.meti.go.jp/about/whitepaper/"
+      },
+      "aliases": {
+        "エネルギー白書": "energy-white-paper"
+      }
+    },
+    {
+      "id": "shobo-white-paper",
+      "title": "消防白書（総務省消防庁）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.fdma.go.jp/publication/"
+      },
+      "aliases": {
+        "消防白書": "shobo-white-paper"
+      }
+    },
+    {
+      "id": "kagaku-gijutsu-white-paper",
+      "title": "科学技術・イノベーション白書（文部科学省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mext.go.jp/b_menu/hakusho/html/kagaku.htm"
+      },
+      "aliases": {
+        "科学技術・イノベーション白書": "kagaku-gijutsu-white-paper"
+      }
+    },
+    {
+      "id": "mizu-junkan-white-paper",
+      "title": "水循環白書（内閣官房水循環政策本部事務局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.cas.go.jp/jp/seisaku/mizu_junkan/materials/materials/white_paper.html"
+      },
+      "aliases": {
+        "水循環白書": "mizu-junkan-white-paper"
+      }
+    },
+    {
+      "id": "kourei-shakai-white-paper",
+      "title": "高齢社会白書（内閣府）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www8.cao.go.jp/kourei/whitepaper/index-w.html"
+      },
+      "aliases": {
+        "高齢社会白書": "kourei-shakai-white-paper"
+      }
+    },
+    {
+      "id": "koutsu-anzen-white-paper",
+      "title": "交通安全白書（内閣府）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www8.cao.go.jp/koutu/taisaku/index-t.html"
+      },
+      "aliases": {
+        "交通安全白書": "koutsu-anzen-white-paper"
+      }
+    },
+    {
+      "id": "joho-security-white-paper",
+      "title": "情報セキュリティ白書（情報処理推進機構）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.ipa.go.jp/publish/wp-security/index.html"
+      },
+      "aliases": {
+        "情報セキュリティ白書": "joho-security-white-paper"
+      }
+    },
+    {
+      "id": "karoushi-white-paper",
+      "title": "過労死等防止対策白書（厚生労働省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mhlw.go.jp/stf/seisakunitsuite/bunya/0000138529.html"
+      },
+      "aliases": {
+        "過労死等防止対策白書": "karoushi-white-paper"
+      }
+    },
+    {
+      "id": "shokuryo-nogyo-white-paper",
+      "title": "食料・農業・農村白書（農林水産省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.maff.go.jp/j/wpaper/"
+      },
+      "aliases": {
+        "食料・農業・農村白書": "shokuryo-nogyo-white-paper"
+      }
+    },
+    {
+      "id": "suisan-white-paper",
+      "title": "水産白書（水産庁）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.jfa.maff.go.jp/j/kikaku/wpaper/"
+      },
+      "aliases": {
+        "水産白書": "suisan-white-paper"
+      }
+    },
+    {
+      "id": "shinrin-ringyo-white-paper",
+      "title": "森林・林業白書（林野庁）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.rinya.maff.go.jp/j/kikaku/hakusyo/"
+      },
+      "aliases": {
+        "森林・林業白書": "shinrin-ringyo-white-paper"
+      }
+    },
+    {
+      "id": "chihou-zaisei-white-paper",
+      "title": "地方財政白書（総務省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.soumu.go.jp/menu_seisaku/hakusyo/index.html"
+      },
+      "aliases": {
+        "地方財政白書": "chihou-zaisei-white-paper"
+      }
+    },
+    {
+      "id": "danjo-kyodo-white-paper",
+      "title": "男女共同参画白書（内閣府男女共同参画局）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.gender.go.jp/about_danjo/whitepaper/index.html"
+      },
+      "aliases": {
+        "男女共同参画白書": "danjo-kyodo-white-paper"
+      }
+    },
+    {
+      "id": "chusho-kigyo-white-paper",
+      "title": "中小企業白書（中小企業庁）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.chusho.meti.go.jp/koukai/chousa/index.html"
+      },
+      "aliases": {
+        "中小企業白書": "chusho-kigyo-white-paper"
+      }
+    },
+    {
+      "id": "keisatsu-white-paper",
+      "title": "警察白書（警察庁）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.npa.go.jp/publications/whitepaper/index_keisatsu.html"
+      },
+      "aliases": {
+        "警察白書": "keisatsu-white-paper"
+      }
+    },
+    {
+      "id": "kodomo-white-paper",
+      "title": "こども白書（こども家庭庁）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.cfa.go.jp/resources/white-paper/"
+      },
+      "aliases": {
+        "こども白書": "kodomo-white-paper"
+      }
+    },
+    {
+      "id": "genshiryoku-white-paper",
+      "title": "原子力白書（原子力委員会）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.aec.go.jp/kettei/hakusho/"
+      },
+      "aliases": {
+        "原子力白書": "genshiryoku-white-paper"
+      }
+    },
+    {
+      "id": "kousei-roudou-white-paper",
+      "title": "厚生労働白書（厚生労働省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mhlw.go.jp/toukei_hakusho/hakusho/index.html"
+      },
+      "aliases": {
+        "厚生労働白書": "kousei-roudou-white-paper"
+      }
+    },
+    {
+      "id": "roudou-keizai-white-paper",
+      "title": "労働経済の分析（労働経済白書・厚生労働省）",
+      "class": "government-publication",
+      "origin": {
+        "kind": "external",
+        "url": "https://www.mhlw.go.jp/wp/hakusyo/roudou/"
+      },
+      "aliases": {
+        "労働経済白書": "roudou-keizai-white-paper"
+      }
+    },
+    {
+      "id": "labor-standards-act",
+      "title": "労働基準法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "labor-contract-act",
+      "title": "労働契約法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "labor-union-act",
+      "title": "労働組合法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "labor-relations-adjustment-act",
+      "title": "労働関係調整法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "worker-dispatch-act",
+      "title": "労働者派遣法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "minimum-wage-act",
+      "title": "最低賃金法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "equal-employment-opportunity-act",
+      "title": "男女雇用機会均等法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "childcare-family-care-leave-act",
+      "title": "育児・介護休業法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "育児介護休業法": "childcare-family-care-leave-act"
+      }
+    },
+    {
+      "id": "next-generation-support-act",
+      "title": "次世代育成支援対策推進法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "women-advancement-act",
+      "title": "女性活躍推進法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "elderly-employment-stabilization-act",
+      "title": "高年齢者雇用安定法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "disabled-employment-promotion-act",
+      "title": "障害者雇用促進法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "work-style-reform-act",
+      "title": "働き方改革関連法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "part-time-fixed-term-act",
+      "title": "パートタイム・有期雇用労働法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "labor-policy-comprehensive-act",
+      "title": "労働施策総合推進法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "whistleblower-protection-act",
+      "title": "公益通報者保護法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "environment-basic-act",
+      "title": "環境基本法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "air-pollution-control-act",
+      "title": "大気汚染防止法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "soil-contamination-act",
+      "title": "土壌汚染対策法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "environmental-impact-assessment-act",
+      "title": "環境影響評価法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "nature-conservation-act",
+      "title": "自然環境保全法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "circular-society-basic-act",
+      "title": "循環型社会形成推進基本法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "waste-management-act",
+      "title": "廃棄物処理法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "resource-effective-use-act",
+      "title": "資源有効利用促進法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "construction-recycling-act",
+      "title": "建設リサイクル法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "container-packaging-recycling-act",
+      "title": "容器包装リサイクル法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "home-appliance-recycling-act",
+      "title": "家電リサイクル法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "food-recycling-act",
+      "title": "食品リサイクル法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "vehicle-recycling-act",
+      "title": "自動車リサイクル法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "biodiversity-basic-act",
+      "title": "生物多様性基本法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "species-conservation-act",
+      "title": "種の保存法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "global-warming-countermeasures-act",
+      "title": "地球温暖化対策推進法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "energy-saving-act",
+      "title": "省エネ法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "energy-policy-basic-act",
+      "title": "エネルギー政策基本法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "green-purchasing-act",
+      "title": "グリーン購入法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "chemical-substances-control-act",
+      "title": "化学物質審査規制法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "fluorocarbons-emission-act",
+      "title": "フロン排出抑制法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "biodiversity-convention",
+      "title": "生物多様性条約",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "cites-convention",
+      "title": "ワシントン条約",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "ramsar-convention",
+      "title": "ラムサール条約",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "basel-convention",
+      "title": "バーゼル条約",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "paris-agreement",
+      "title": "パリ協定",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "kyoto-protocol",
+      "title": "京都議定書",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "nagoya-protocol",
+      "title": "名古屋議定書",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "montreal-protocol",
+      "title": "モントリオール議定書",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "unfccc",
+      "title": "気候変動枠組条約",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "disaster-countermeasures-basic-act",
+      "title": "災害対策基本法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "civil-protection-act",
+      "title": "国民保護法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "nuclear-disaster-act",
+      "title": "原子力災害対策特別措置法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "flood-control-act",
+      "title": "水防法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "sediment-disaster-act",
+      "title": "土砂災害防止法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "national-resilience-basic-act",
+      "title": "国土強靱化基本法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "antimonopoly-act",
+      "title": "独占禁止法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "unfair-competition-prevention-act",
+      "title": "不正競争防止法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "patent-act",
+      "title": "特許法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "utility-model-act",
+      "title": "実用新案法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "design-act",
+      "title": "意匠法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "trademark-act",
+      "title": "商標法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "copyright-act",
+      "title": "著作権法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "product-liability-act",
+      "title": "製造物責任法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "consumer-product-safety-act",
+      "title": "消費生活用製品安全法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "personal-information-protection-act",
+      "title": "個人情報保護法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "cybersecurity-basic-act",
+      "title": "サイバーセキュリティ基本法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "unauthorized-access-prohibition-act",
+      "title": "不正アクセス禁止法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "gender-equality-basic-act",
+      "title": "男女共同参画社会基本法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "companies-act",
+      "title": "会社法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "financial-instruments-act",
+      "title": "金融商品取引法",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      }
+    },
+    {
+      "id": "iso-9001",
+      "title": "ISO 9001（品質マネジメントシステム）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "ISO 9001": "iso-9001"
+      }
+    },
+    {
+      "id": "iso-14001",
+      "title": "ISO 14001（環境マネジメントシステム）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "ISO 14001": "iso-14001"
+      }
+    },
+    {
+      "id": "iso-31000",
+      "title": "ISO 31000（リスクマネジメント）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "ISO 31000": "iso-31000"
+      }
+    },
+    {
+      "id": "iso-26000",
+      "title": "ISO 26000（社会的責任の手引）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "ISO 26000": "iso-26000"
+      }
+    },
+    {
+      "id": "iso-45001",
+      "title": "ISO 45001（労働安全衛生マネジメントシステム）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "ISO 45001": "iso-45001"
+      }
+    },
+    {
+      "id": "iso-22301",
+      "title": "ISO 22301（事業継続マネジメントシステム）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "ISO 22301": "iso-22301"
+      }
+    },
+    {
+      "id": "iso-27001",
+      "title": "ISO 27001（情報セキュリティマネジメントシステム）",
+      "class": "external-primary",
+      "origin": {
+        "kind": "none"
+      },
+      "aliases": {
+        "ISO 27001": "iso-27001"
+      }
     }
   ]
 }

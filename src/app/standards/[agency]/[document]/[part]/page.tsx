@@ -2,8 +2,9 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import PageShell from '@/components/layout/PageShell';
-import PageHeader from '@/components/layout/PageHeader';
 import TwoColumnShell from '@/components/layout/TwoColumnShell';
+import SectionCard from '@/components/ui/SectionCard/SectionCard';
+import StandardsArticleHeader from '@/components/standards/StandardsArticleHeader';
 import StandardsAttribution from '@/components/standards/StandardsAttribution';
 import StandardsNavigation from '@/components/standards/StandardsNavigation';
 import StandardTopicLinks from '@/components/standards/StandardTopicLinks';
@@ -70,25 +71,9 @@ export default async function StandardPartPage({ params }: { params: Promise<Par
   const next = partIndex >= 0 && partIndex < entry.parts.length - 1 ? entry.parts[partIndex + 1] : null;
 
   return (
-    <PageShell variant="default">
-      <PageHeader
-        variant="band"
-        breadcrumb={[
-          { label: 'ホーム', href: '/' },
-          { label: '基準類', href: '/standards' },
-          { label: entry.agencyName, href: `/standards/${entry.agencyId}` },
-          { label: entry.title, href: standardDocumentPath(entry) },
-          { label: `PDF ${entryPart.firstPage}–${entryPart.lastPage}` },
-        ]}
-        label="VERBATIM TRANSCRIPTION"
-        title={`${entry.title} PDF page ${entryPart.firstPage}–${entryPart.lastPage}`}
-        lead="原本PDFのページ番号を基準に、紙面内の改行・空白を保って表示しています。横に長い表は左右にスクロールできます。"
-        meta={`${entryPart.pageCount}ページ / part SHA-256 ${entryPart.sha256.slice(0, 16)}…`}
-      />
-
+    <PageShell variant="article">
       <TwoColumnShell
-        as="div"
-        mainClassName="py-8 sm:py-10"
+        gutter="flush-mobile"
         aside={(
           <StandardsNavigation
             agencyId={agency}
@@ -98,67 +83,104 @@ export default async function StandardPartPage({ params }: { params: Promise<Par
           />
         )}
       >
-        <div className="mb-6 zenn-desktop:hidden">
-          <StandardsNavigation
-            agencyId={agency}
-            currentDocument={entry}
-            currentPart={entryPart}
-            pageNumbers={pages.map((page) => page.page)}
-            variant="mobile"
-          />
-        </div>
-
-        <nav aria-label="分冊移動" className="flex items-center justify-between gap-4 border-y border-[var(--rule-soft)] py-3 text-sm">
-          {previous ? (
-            <Link href={standardPartPath(entry, previous)} className="text-[var(--accent)] hover:underline">← PDF {previous.firstPage}–{previous.lastPage}</Link>
-          ) : <span />}
-          <Link href={standardDocumentPath(entry)} className="text-[var(--ink-muted)] hover:text-[var(--accent)]">文書目次</Link>
-          {next ? (
-            <Link href={standardPartPath(entry, next)} className="text-[var(--accent)] hover:underline">PDF {next.firstPage}–{next.lastPage} →</Link>
-          ) : <span />}
-        </nav>
-
-        {/* 章記事がある文書では逐語本文をサイト内検索の対象から外す。同じ内容が構造化章記事側で
-            拾えるうえ、版面保持のコードブロックが検索結果のスニペットを埋めてしまうため。 */}
-        <article
-          className="mt-8 space-y-10"
-          aria-label="文字起こし本文"
-          {...(hasStandardChapters(agency, document) ? { 'data-pagefind-ignore': 'all' } : {})}
+        <SectionCard
+          as="article"
+          padding="none"
+          className="overflow-hidden px-10 py-12 transition-colors duration-300 zenn-desktop:px-11 max-zenn-sp:rounded-none max-zenn-sp:border-x-0 max-zenn-sp:px-[var(--article-gutter-sp)] max-zenn-sp:py-[35px]"
         >
-          {pages.map((page) => {
-            const unreadable = entry.unreadableRanges.filter((range) => range.page === page.page);
-            return (
-              <section key={page.page} id={`pdf-page-${page.page}`} className="scroll-mt-6">
-                <div className="mb-3 flex items-baseline justify-between gap-4 border-b border-[var(--rule)] pb-2">
-                  <h2 className="font-serif text-xl font-bold text-[var(--ink)]">PDF page {page.page}</h2>
-                  <a href={`#pdf-page-${page.page}`} className="font-mono text-[10px] text-[var(--ink-muted)] hover:text-[var(--accent)]">#{page.page}</a>
-                </div>
-                {unreadable.map((range) => (
-                  <div key={range.range} className="mb-3 border-l-4 border-[var(--color-warn)] bg-[var(--color-warn-fill)] p-3 text-[13px] leading-[1.7] text-[var(--ink-body)]">
-                    <strong>原本画質による判読注記：</strong>{range.range}
+          <StandardsArticleHeader
+            breadcrumb={[
+              { label: 'ホーム', href: '/' },
+              { label: '基準類', href: '/standards' },
+              { label: entry.agencyName, href: `/standards/${entry.agencyId}` },
+              { label: entry.title, href: standardDocumentPath(entry) },
+            ]}
+            label="原典照合用・逐語文字起こし"
+            title={`${entry.title} PDF page ${entryPart.firstPage}–${entryPart.lastPage}`}
+            lead="原本PDFのページ番号を基準に、紙面内の改行・空白を保って表示しています。横に長い表は左右にスクロールできます。"
+            meta={`${entryPart.pageCount}ページ`}
+          />
+
+          <div className="mt-6 zenn-desktop:hidden">
+            <StandardsNavigation
+              agencyId={agency}
+              currentDocument={entry}
+              currentPart={entryPart}
+              pageNumbers={pages.map((page) => page.page)}
+              variant="mobile"
+            />
+          </div>
+
+          <nav
+            aria-label="分冊移動"
+            className="mt-6 grid grid-cols-3 divide-x divide-[var(--rule-soft)] border-y border-[var(--rule-soft)]"
+          >
+            {previous ? (
+              <Link
+                href={standardPartPath(entry, previous)}
+                className="focus-ring flex min-h-14 items-center px-2 text-left text-[12px] font-bold text-[var(--accent)] transition-colors hover:bg-[var(--accent-fill)] sm:px-3"
+              >
+                ← 前の分冊
+              </Link>
+            ) : <span aria-hidden="true" />}
+            <Link
+              href={standardDocumentPath(entry)}
+              className="focus-ring flex min-h-14 items-center justify-center px-2 text-center text-[12px] font-bold text-[var(--ink-body)] transition-colors hover:bg-[var(--accent-fill)] hover:text-[var(--accent)]"
+            >
+              文書目次
+            </Link>
+            {next ? (
+              <Link
+                href={standardPartPath(entry, next)}
+                className="focus-ring flex min-h-14 items-center justify-end px-2 text-right text-[12px] font-bold text-[var(--accent)] transition-colors hover:bg-[var(--accent-fill)] sm:px-3"
+              >
+                次の分冊 →
+              </Link>
+            ) : <span aria-hidden="true" />}
+          </nav>
+
+          {/* 章記事がある文書では逐語本文をサイト内検索の対象から外す。同じ内容が構造化章記事側で
+              拾えるうえ、版面保持のコードブロックが検索結果のスニペットを埋めてしまうため。 */}
+          <div
+            className="mt-8 space-y-10"
+            aria-label="文字起こし本文"
+            {...(hasStandardChapters(agency, document) ? { 'data-pagefind-ignore': 'all' } : {})}
+          >
+            {pages.map((page) => {
+              const unreadable = entry.unreadableRanges.filter((range) => range.page === page.page);
+              return (
+                <section key={page.page} id={`pdf-page-${page.page}`} className="scroll-mt-6">
+                  <div className="mb-3 flex items-baseline justify-between gap-4 border-b border-[var(--rule)] pb-2">
+                    <h2 className="text-xl font-bold text-[var(--ink)]">PDF page {page.page}</h2>
+                    <a href={`#pdf-page-${page.page}`} className="focus-ring font-mono text-[11px] text-[var(--ink-muted)] hover:text-[var(--accent)]">#{page.page}</a>
                   </div>
-                ))}
-                <div className="overflow-x-auto border border-[var(--rule-soft)] bg-[var(--paper)]">
-                  <pre
-                    data-text-sha256={page.textSha256 ?? undefined}
-                    className="min-w-max p-4 font-mono text-[12px] leading-[1.65] text-[var(--ink-body)]"
-                  >
-                    {page.text}
-                  </pre>
-                </div>
-              </section>
-            );
-          })}
-        </article>
+                  {unreadable.map((range) => (
+                    <div key={range.range} className="mb-3 border-l-4 border-[var(--color-warn)] bg-[var(--color-warn-fill)] p-3 text-[13px] leading-[1.7] text-[var(--ink-body)]">
+                      <strong>原本画質による判読注記：</strong>{range.range}
+                    </div>
+                  ))}
+                  <div className="overflow-x-auto border border-[var(--rule-soft)] bg-[var(--paper)]">
+                    <pre
+                      data-text-sha256={page.textSha256 ?? undefined}
+                      className="min-w-max p-4 font-mono text-[12px] leading-[1.65] text-[var(--ink-body)]"
+                    >
+                      {page.text}
+                    </pre>
+                  </div>
+                </section>
+              );
+            })}
+          </div>
 
-        <nav aria-label="分冊移動" className="mt-10 flex items-center justify-between gap-4 border-y border-[var(--rule-soft)] py-3 text-sm">
-          {previous ? <Link href={standardPartPath(entry, previous)} className="text-[var(--accent)] hover:underline">← 前の分冊</Link> : <span />}
-          <Link href={standardDocumentPath(entry)} className="text-[var(--ink-muted)] hover:text-[var(--accent)]">文書目次</Link>
-          {next ? <Link href={standardPartPath(entry, next)} className="text-[var(--accent)] hover:underline">次の分冊 →</Link> : <span />}
-        </nav>
+          <nav aria-label="分冊移動" className="mt-10 flex items-center justify-between gap-4 border-y border-[var(--rule-soft)] py-3 text-[13px]">
+            {previous ? <Link href={standardPartPath(entry, previous)} className="focus-ring text-[var(--accent)] hover:underline">← 前の分冊</Link> : <span />}
+            <Link href={standardDocumentPath(entry)} className="focus-ring text-[var(--ink-muted)] hover:text-[var(--accent)]">文書目次</Link>
+            {next ? <Link href={standardPartPath(entry, next)} className="focus-ring text-[var(--accent)] hover:underline">次の分冊 →</Link> : <span />}
+          </nav>
 
-        <StandardTopicLinks topics={relatedTopics} />
-        <StandardsAttribution document={entry} />
+          <StandardTopicLinks topics={relatedTopics} />
+        <StandardsAttribution document={entry} part={entryPart} />
+        </SectionCard>
       </TwoColumnShell>
     </PageShell>
   );

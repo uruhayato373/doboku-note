@@ -69,7 +69,7 @@ test('concrete-chief-engineer / pe-first-stage の slug を総監 URL へ誤変�
     'concrete-chief-engineer-primary-materials',
     'pe-first-stage-r03-aptitude',
     'concrete-diagnostician-guide-overview',
-    'reference-materials-tunnel-02',
+    'reference-materials-example',
   ]) {
     const href = buildKeywordHref(slug, CATEGORY_SLUGS);
     assert.ok(
