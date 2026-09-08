@@ -39,32 +39,19 @@
 
 **完了条件**: 3ポーズ以上の比較を経た媒体別テンプレートが実装され、代表画像／動画の目視と該当機械検査が通ること。適用対象の一覧に「反映・実表示確認済み／変更不可と理由／対象外と理由」が揃い、未対応を完了へ混ぜず、予約重複・意図しない即時公開・投稿履歴の無断削除がないこと。機械検査だけで外部反映を判定しない。
 
-### [DN-0183] 共通仕様書データ公開・比較基盤を別PCで仕上げてデプロイする
-タグ: [UI・UX] [インフラ・計測] [収益化] [種類:改善] [Codex候補] [進行中] [起票:2026-09-07]
+### [DN-0185] 共通仕様書データ公開の計測を立ち上げ、加工受託の入口として評価する
+タグ: [インフラ・計測] [収益化] [種類:改善] [起票:2026-09-08]
 
-2026-09-07 の作業はこのカードと同じ `develop` の引き継ぎコミットにまとめる。各整備局の共通仕様書を「閲覧HTML（検索対象）＋Markdown/JSON-LD（`X-Robots-Tag: noindex` の再利用データ）」として公開し、地域差比較と加工受託の実績提示までつなぐ。原機関を加工データの publisher と誤表示せず、原本の発行者と doboku-note の加工主体を分離する。
+2026-09-08 に `/standards/data` と `/standards/compare` を本番反映した（DN-0183 は削除）。
+公開そのものは実査済み＝4ページ 200・データURL 707 件・`X-Robots-Tag: noindex, follow`・
+CORS `*`・canonical・Dataset/DataDownload の構造化データまで確認した。残るのは計測だけ。
 
-**実装済み**:
+1. GSC で `/standards/data` と `/standards/compare` の検出・インデックス状況を記録する
+2. GA4 の `standards_data_download` が発火しているか、問い合わせ種別に「データ加工」が入るかを見る
+3. 週次・月次レビューで 1・2 を追い、行政からの直接受注は実績が出るまで売上前提にしない
 
-- `/standards/data` と `/standards/compare`、文書・章ごとの Markdown/JSON-LD ダウンロード導線
-- `content/site/standards-articles/comparison.json` と生成スクリプト。構造化済み8文書を比較し、近畿基準で同一5局、差分2局（12章・54差分塊）を抽出
-- 8文書・344章・14,432条・707ファイルの公開データ生成と検査。生成物 `public/standards-data/` はGit対象外で、build時に再生成する
-- 出典・原本SHA-256・掲載ページ・章SHA-256・利用条件・加工主体をエクスポートへ付与
-- 共通仕様書ページの上部整理、パンくず・右サイドバー・フォント・カード意匠をサイト全体へ統一
-- データダウンロード計測、問い合わせ種別、情報設計・収益化戦略、Windows対応のbuild/UI検査を更新
-
-**確認済み**: `npm run check-standard-articles` は120検査PASS、`npm run check-standards-data` は8文書/344章/14,432条PASS、`node scripts/lint-ui.mjs --all` は156ファイルPASS、`npm run type-check` と `npm run build` はPASS、`npm run check-seo-meta` はHIGH 0（既存 `/search` の本文薄さだけMEDIUM 1）。アプリ内ブラウザの安全制限で localhost の自動再読込だけ未成立。
-
-**別PCでの再開順**:
-
-1. `develop` を同期し、`npm ci` → `npm run dev`。`/standards`、`/standards/data`、`/standards/compare`、`/standards/kinki/common/chapters/1-1` をPC/スマホ幅・ライト/ダークで目視する
-2. 原本PDF行・章ナビ行が章ページ上部へ戻っていないこと、パンくずが「第1編 共通編」であること、右サイドバーの本文フォントと余白を確認する
-3. `npm run build-standards-data` → `npm run check-standard-articles` → `node scripts/lint-ui.mjs --all` → `npm run type-check` → `npm run build` → `npm run check-seo-meta` を再実行する
-4. 差分をレビューし、今回無関係な自動生成時刻だけの変更を含めずcommitする。`public/standards-data/`はcommitしない
-5. ユーザー承認後に `/deploy` で本番反映し、本番の4ページ・データURL・ヘッダーを確認する
-6. GSCで新規2ページの検出・インデックス状況を記録し、GA4の `standards_data_download` と問い合わせ件数を週次/月次レビューで追う。行政からの直接受注は実績が出るまで売上前提にしない
-
-**完了条件**: 本番でHTML・Markdown・JSON-LD・比較ページが取得でき、正規URL/構造化データ/レスポンスヘッダー/モバイルUIが正常、GSCとGA4の計測開始を確認したらカードを削除する。
+**完了条件**: GSC の索引状況と GA4 のイベント発火を 1 度ずつ記録し、加工受託の入口として
+続けるか畳むかを判断したらカードを削除する。公開の実装は完了しているので作り直さない。
 
 ### [DN-0135] 人・外部実体が必要な残務
 タグ: [収益化] [種類:不具合] [起票:2026-08-25]
