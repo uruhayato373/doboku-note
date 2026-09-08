@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "基礎工の頻出点",
+        "杭とケーソン"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-overview-1": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "基礎工を整理",
+        "５つの柱"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-block1-2": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "基礎の分類",
+        "支持層の深さ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

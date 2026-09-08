@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "検討項目",
+        "どう書く？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    "point-block1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "１級の経験記述",
+        "新形式の配分"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-block2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "１級と２級",
+        "解答欄の違い"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

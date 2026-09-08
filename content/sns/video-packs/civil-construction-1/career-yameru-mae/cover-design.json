@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "辞める前に",
+        "確認すること"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "辞めたい理由",
+        "仕事？環境？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "退職の判断",
+        "確認する３点"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

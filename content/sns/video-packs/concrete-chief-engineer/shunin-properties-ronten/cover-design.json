@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "コンクリート",
+        "性質の頻出点"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-consistency-1": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "コンシステンシー",
+        "測定単位を確認"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-bingham-2": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "ビンガム流体",
+        "２つの指標"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

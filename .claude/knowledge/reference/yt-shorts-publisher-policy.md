@@ -119,7 +119,7 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 | YouTube Data API 投稿（台帳駆動 CI） | `post-from-schedule.cjs` + `post-youtube-scheduled.yml`（手動 `workflow_dispatch`、`youtube-schedule.json` 台帳管理） |
 | 動画パックShortsの投稿 | `publish-video-pack.cjs`（private upload）→YouTube Studioで関連動画設定→`shorts-publish --related-confirmed`（API予約） |
 | 台帳整合性バリデーション | `validate-schedule.mjs`（CI pre-check。publishAt 重複・perDay 超過・videoId 重複を検知） |
-| 投稿済み動画へのサムネイル変更 | `youtube-thumbnail:update`（単一ID・既定dry-run・アカウント照合、詳細はSNS画像ポリシー §0.1） |
+| 投稿済み動画へのサムネイル変更 | 単一IDは `youtube-thumbnail:update`、全件・範囲指定は `scripts/youtube-thumbnail-rollout.mjs`（ともに既定dry-run、詳細はSNS画像ポリシー §0.1） |
 
 ## 5. 投稿カーデンス・スケジューリング（2026-09-05 更新）
 

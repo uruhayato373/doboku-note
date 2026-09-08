@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "土工の頻出点",
+        "要点を押さえる"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-overview-1": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "土工の頻出点",
+        "４テーマで整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-block1-2": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "土質試験は",
+        "目的で覚える"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

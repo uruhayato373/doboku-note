@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "転職エージェント",
+        "選び方と使い方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "転職サービス",
+        "タイプを知る"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "施工管理の転職",
+        "特化型の強み"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

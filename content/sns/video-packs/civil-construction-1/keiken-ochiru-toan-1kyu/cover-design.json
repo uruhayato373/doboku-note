@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述の減点",
+        "共通パターン"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    "point-gap-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "課題と対応",
+        "つながってる？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    "point-generic-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "工事規模は大",
+        "でも答案は",
+        "一般論？"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    }
+  }
+}

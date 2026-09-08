@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "主任技士の直前",
+        "総仕上げの順序"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "主任技士の直前",
+        "小論文を優先"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "主任技士の択一",
+        "定番から固める"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

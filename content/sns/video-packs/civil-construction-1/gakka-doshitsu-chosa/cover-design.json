@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "土質調査は",
+        "目的から逆引き"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-genri-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "原位置試験と",
+        "室内試験の違い"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-gyakubiki-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "知りたい値から",
+        "試験名を選ぶ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

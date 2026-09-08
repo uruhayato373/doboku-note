@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "ヒストグラム",
+        "工程能力図",
+        "読み方を整理"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-overview-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "ヒストグラムと",
+        "工程能力図の",
+        "違いを整理"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-step1-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "ヒストグラム",
+        "分布形状を読む"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

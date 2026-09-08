@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "管理図の読み方",
+        "異常を見つける"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "偶然原因と",
+        "異常原因の違い"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "その管理図",
+        "安定？異常？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "titles": {
+    "r03-pfi": "技術士総監 令和3年度 択一｜PFI・コンセッション方式 #Shorts",
+    "r03-quality": "技術士総監 令和3年度 択一｜管理限界と抜取検査の前提 #Shorts",
+    "r03-critical-path": "技術士総監 令和3年度 択一｜作業分割によるCP短縮計算 #Shorts",
+    "r03-decoupling": "技術士総監 令和3年度 択一｜デカップリングポイントの分類 #Shorts",
+    "r03-break-even": "技術士総監 令和3年度 択一｜損益分岐点と限界利益率計算 #Shorts",
+    "r03-cash-flow": "技術士総監 令和3年度 択一｜間接法キャッシュフローの調整 #Shorts",
+    "r03-maintenance": "技術士総監 令和3年度 択一｜設備管理と保全費の区分 #Shorts",
+    "r07-quality": "技術士総監 令和7年度 択一｜管理限界と規格値の違い #Shorts",
+    "multisource-evaluation": "【総監キーワード】多面評価",
+    "access-control": "【総監キーワード】アクセス制御・アクセス権限設定"
+  },
+  "covers": {
+    "r03-pfi": {"format":"shorts","exam":"pe-comprehensive","headline":["コンセッション","所有と運営を","区別する"],"accentLine":2,"subtitle":"令和３年度 択一","character":{"pose":"explaining","frame":"waist"}},
+    "r03-quality": {"format":"shorts","exam":"pe-comprehensive","headline":["管理限界と","抜取検査の前提"],"accentLine":1,"subtitle":"令和３年度 択一","character":{"pose":"pointing","frame":"waist"}},
+    "r03-critical-path": {"format":"shorts","exam":"pe-comprehensive","headline":["作業を分けると","工期は縮まる？"],"accentLine":1,"subtitle":"令和３年度 択一｜CP短縮計算","character":{"pose":"thinking","frame":"waist"}},
+    "r03-decoupling": {"format":"shorts","exam":"pe-comprehensive","headline":["デカップリング","ポイントの分類"],"accentLine":1,"subtitle":"令和３年度 択一","character":{"pose":"explaining","frame":"waist"}},
+    "r03-break-even": {"format":"shorts","exam":"pe-comprehensive","headline":["損益分岐点と","限界利益率"],"accentLine":1,"subtitle":"令和３年度 択一｜計算の要点","character":{"pose":"pointing","frame":"waist"}},
+    "r03-cash-flow": {"format":"shorts","exam":"pe-comprehensive","headline":["間接法のCF","何を調整する？"],"accentLine":1,"subtitle":"令和３年度 択一","character":{"pose":"thinking","frame":"waist"}},
+    "r03-maintenance": {"format":"shorts","exam":"pe-comprehensive","headline":["設備管理と","保全費の区分"],"accentLine":1,"subtitle":"令和３年度 択一","character":{"pose":"explaining","frame":"waist"}},
+    "r07-quality": {"format":"shorts","exam":"pe-comprehensive","headline":["管理限界と","規格値の違い"],"accentLine":1,"subtitle":"令和７年度 択一","character":{"pose":"pointing","frame":"waist"}},
+    "multisource-evaluation": {"format":"shorts","exam":"pe-comprehensive","headline":["多面評価","複数の視点で"],"accentLine":1,"subtitle":"総監キーワード","character":{"pose":"explaining","frame":"waist"}},
+    "access-control": {"format":"shorts","exam":"pe-comprehensive","headline":["アクセス制御","権限を設定する"],"accentLine":1,"subtitle":"総監キーワード","character":{"pose":"pointing","frame":"waist"}}
+  }
+}

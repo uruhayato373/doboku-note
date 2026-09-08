@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "施工管理の転職",
+        "いつ動く？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    "point-step1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "転職は",
+        "現場の切れ目で"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-step2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "転職するなら",
+        "資格の前？後？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    }
+  }
+}

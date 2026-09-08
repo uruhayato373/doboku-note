@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "技術的課題",
+        "条件から書く"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-block1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "技術的課題",
+        "３要素で書く"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-block2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "課題の原因",
+        "現場条件で",
+        "具体化する"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "施工計画の答案",
+        "検討の幅を出す"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-plan-vs-management-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "施工計画と",
+        "施工管理の違い"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-four-categories-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "施工計画の検討",
+        "４系統で整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

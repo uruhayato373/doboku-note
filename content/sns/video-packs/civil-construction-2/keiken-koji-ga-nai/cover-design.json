@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "書ける工事が",
+        "無いと感じたら"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-taisho-1": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "経験記述の対象",
+        "工事は幅広い"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-taishogai-2": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "経験記述の対象",
+        "対象外を確認"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

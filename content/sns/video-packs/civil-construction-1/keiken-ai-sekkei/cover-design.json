@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述とAI",
+        "丸投げは危険"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    "point-overview-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述",
+        "AI丸投げの",
+        "落とし穴"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    "point-step1-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述とAI",
+        "分担を決める"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

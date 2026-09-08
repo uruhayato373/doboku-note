@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "その小論文",
+        "評価されない？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    "point-ippan-1": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "小論文の弱点",
+        "一般論で",
+        "止まってない？"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    "point-chusho-2": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "小論文の弱点",
+        "抽象表現で",
+        "止まってない？"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    }
+  }
+}

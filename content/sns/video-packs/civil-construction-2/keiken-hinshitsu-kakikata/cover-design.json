@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "品質管理の答案",
+        "組み立て方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-nagare-1": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "品質管理の答案",
+        "５要素の流れ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-kadai-2": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "現場条件と",
+        "規格値のズレ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "小論文のテーマ",
+        "何が問われた？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    "point-nendo-1": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "小論文のテーマ",
+        "傾向で捉える"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-ryouiki-2": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "小論文のテーマ",
+        "４領域で考える"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

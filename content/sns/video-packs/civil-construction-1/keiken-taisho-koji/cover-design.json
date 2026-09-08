@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述に",
+        "書ける工事は？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    "point-block1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述",
+        "書ける工事の",
+        "範囲を知る"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-block2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述",
+        "書けない工事を",
+        "確認する"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

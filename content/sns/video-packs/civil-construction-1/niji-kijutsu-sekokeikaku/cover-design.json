@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "二次の施工計画",
+        "記述の型"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-pattern1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "施工計画",
+        "留意事項の",
+        "穴埋め対策"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-pattern2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "施工計画書",
+        "何を記載する？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    }
+  }
+}

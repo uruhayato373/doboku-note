@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "二次の出題傾向",
+        "５年の流れ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-theme-shift-1": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "経験記述",
+        "テーマと形式の",
+        "変遷を確認"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-gakka-fields-2": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "学科記述で",
+        "毎年出る分野"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

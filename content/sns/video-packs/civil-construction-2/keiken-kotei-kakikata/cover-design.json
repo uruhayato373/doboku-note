@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "工程管理の答案",
+        "組み立て方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-nagare-1": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "工程管理の答案",
+        "５要素の流れ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-tenko-2": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "工程管理の答案",
+        "天候による遅れ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

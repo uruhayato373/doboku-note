@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "２級土木の全体",
+        "学ぶ順序を知る"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-stage-1": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "土木の検定は",
+        "第一次・第二次"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-qualification-2": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "２級土木",
+        "受検資格を確認"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

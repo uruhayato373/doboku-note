@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "コンクリート",
+        "用材料の頻出点"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-clinker-1": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "クリンカーの",
+        "４化合物の特性"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-cement-types-2": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "各種セメント",
+        "規定と用途"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

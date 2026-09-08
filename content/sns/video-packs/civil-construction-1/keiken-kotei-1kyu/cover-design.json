@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "工程管理の答案",
+        "遅延で終えない"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-three-factors-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "工程の外的要因",
+        "３つに整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-prevent-in-advance-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "工程管理の答案",
+        "事前の検討を書く"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

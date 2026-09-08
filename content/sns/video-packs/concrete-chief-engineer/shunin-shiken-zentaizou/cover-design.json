@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "主任技士の全体",
+        "択一と小論文"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-overview-1": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "主任技士とは",
+        "資格の位置づけ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-step1-2": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "主任技士の試験",
+        "択一と小論文"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

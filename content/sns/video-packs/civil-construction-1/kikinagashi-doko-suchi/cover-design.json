@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "耳で覚える",
+        "土工の数字"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-soft-ground-judge-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "軟弱地盤",
+        "判定の目安"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-embankment-check-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "盛土の安定性",
+        "検討が必要な",
+        "条件を確認"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

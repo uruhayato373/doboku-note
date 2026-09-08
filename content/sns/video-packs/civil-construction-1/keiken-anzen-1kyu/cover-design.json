@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "安全管理の答案",
+        "一般論を脱する"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-identify-hazard-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "安全管理の課題",
+        "現場の危険源を",
+        "特定する"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    "point-compare-measures-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "安全管理の検討",
+        "対策を比較する"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

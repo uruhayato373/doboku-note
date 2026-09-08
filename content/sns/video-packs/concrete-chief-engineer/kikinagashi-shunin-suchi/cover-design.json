@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "耳で覚える",
+        "頻出数値とJIS"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-wc-ratio-1": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "水セメント比",
+        "基本を押さえる"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-tanni-saikotsu-kuuki-2": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "単位水量",
+        "細骨材率",
+        "空気量を整理"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

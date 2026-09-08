@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "主任技士小論文",
+        "答案の組立て方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-kanten-1": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "小論文の評価",
+        "４観点で確認"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-kousei-2": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "小論文の構成",
+        "序論・本論・結論"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

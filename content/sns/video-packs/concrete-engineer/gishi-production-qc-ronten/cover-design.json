@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-engineer",
+      "headline": [
+        "製造と品質管理",
+        "検査の頻出点"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-qc1-1": {
+      "format": "shorts",
+      "exam": "concrete-engineer",
+      "headline": [
+        "コンクリートの",
+        "呼び方を読む"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-qc2-2": {
+      "format": "shorts",
+      "exam": "concrete-engineer",
+      "headline": [
+        "受入れと計量",
+        "表面水が",
+        "ずれの元"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "耳で覚える",
+        "２級土木の要点"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-soil-tests-1": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "土質試験とN値",
+        "要点を確認"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-soil-volume-2": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "土量変化率",
+        "LとCを整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

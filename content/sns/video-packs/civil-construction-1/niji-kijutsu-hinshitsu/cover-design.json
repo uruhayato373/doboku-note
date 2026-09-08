@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "二次の品質管理",
+        "試験名と規格値"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-compaction-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "盛土の締固め",
+        "管理は２方式"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-acceptance-test-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "受入検査",
+        "試験名と基準"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

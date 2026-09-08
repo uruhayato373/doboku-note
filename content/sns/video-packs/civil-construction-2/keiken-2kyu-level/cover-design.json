@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "２級の経験記述",
+        "求められる水準"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-level-1": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "２級の経験記述",
+        "主任技術者の",
+        "管理レベル"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-kata-2": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "２級の経験記述",
+        "評価される型"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

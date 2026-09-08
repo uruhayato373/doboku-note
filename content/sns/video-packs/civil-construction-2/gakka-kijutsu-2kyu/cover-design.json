@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "二次の学科記述",
+        "出る分野と型"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-fields-1": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "二次の学科記述",
+        "頻出分野を知る"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-pattern1-2": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "二次の学科記述",
+        "穴埋めの解き方"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

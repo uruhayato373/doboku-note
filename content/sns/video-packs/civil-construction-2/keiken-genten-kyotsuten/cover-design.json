@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-2",
+      "headline": [
+        "経験記述の減点",
+        "共通点を知る"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    "point-taisai-1": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "経験記述の減点",
+        "まず体裁を確認"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    "point-kaigyo-2": {
+      "format": "shorts",
+      "exam": "civil-2",
+      "headline": [
+        "その改行",
+        "不自然じゃない？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    }
+  }
+}

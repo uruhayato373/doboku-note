@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "二次の学科記述",
+        "土工の数字"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-thickness-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "盛土の厚さ",
+        "仕上りと敷均し"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-gradient-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "盛土面とのり面",
+        "勾配を整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

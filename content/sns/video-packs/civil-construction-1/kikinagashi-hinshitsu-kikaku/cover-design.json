@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "耳で覚える",
+        "品質管理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-population-sampling-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "母集団と",
+        "サンプル・ロット"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-full-vs-sampling-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "全数と抜取",
+        "検査の使い分け"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

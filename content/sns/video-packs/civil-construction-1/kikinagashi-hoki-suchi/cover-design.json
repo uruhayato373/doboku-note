@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "耳で覚える",
+        "法規の数字"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-avg-wage-contract-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "平均賃金と",
+        "労働契約期間"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-dismissal-notice-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "解雇予告と",
+        "予告手当"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

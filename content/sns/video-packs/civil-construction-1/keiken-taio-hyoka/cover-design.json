@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "対応処置と評価",
+        "数値で締める"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-block1-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述の対応",
+        "数値と管理基準"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-block2-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "対応処置と評価",
+        "結果だけで",
+        "終わらせない"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

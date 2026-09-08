@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "自分の答案",
+        "採点できる？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    "point-layer-overview-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述の質",
+        "３層で捉える"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-layer-format-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述の形式",
+        "自分で確認する"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

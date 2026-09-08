@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "経験記述の添削",
+        "改善例で学ぶ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-general-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "その経験記述",
+        "一般論で",
+        "終わってない？"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    "point-reasoning-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "検討項目ごとに",
+        "理由を書こう"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

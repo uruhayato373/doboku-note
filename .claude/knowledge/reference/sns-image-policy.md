@@ -51,6 +51,18 @@ YouTube の後付けサムネ処理は `npm run youtube-thumbnail:update`（.cla
 
 全チャンネルの対象確認は `scripts/youtube-thumbnail-rollout.mjs --mode inventory`。既存 `sync-yt-descriptions.yml` の手動入力 `operation=thumbnail-inventory` で、選択したrefのコードを使う（従来の `descriptions` jobとは排他）。uploadsを全ページ取得し、総件数・重複・詳細取得の被覆・口座を検査する。0件/欠落は検査不成立。YouTubeへの書き込みはない。公開リポジトリのログへ非公開動画情報を出さず、`--mode keygen` で手元に生成した一時公開鍵だけを `report_public_key` へ渡す。artifactは暗号化JSONのみ・保持3日。秘密鍵は手元の `.tmp/youtube-rollout/keys.json` に留め、Git/CIへ送らない。取得したartifactは `--mode decrypt --input PATH --key-file .tmp/youtube-rollout/keys.json` で手元へ復号する。
 
+uploadsのページ境界で同じ公開IDが重複する場合は、投稿台帳のIDを `videos.list` で実査して不足を補完する。重複を除くだけで完了とはしない。口座が一致する実体の総数＝uploadsの総数、かつuploads由来の未取得IDが0であることを要求する。重複・補完ID・削除済み台帳IDは暗号化記録へ残し、削除済み動画を再投稿しない。
+
+### 全動画のサムネイル更新
+
+単一IDは前述の `youtube-thumbnail:update`、全件・範囲指定は `scripts/youtube-thumbnail-rollout.mjs` を使う。
+
+1. `--mode prepare --out .tmp/youtube-rollout-prepared` で全パックとlegacyの表紙PNG・`designs.json`を生成する。legacyの元データは `content/sns/youtube/cover-design.json` の `covers` と `titles` 対応表。画像・見出しを確認した後、生成された画像チェック台帳を `.claude/state/youtube-thumbnail-designs.json` に採用する（画像本体はGitへ入れない）。台帳はsourceKey・spec SHA・PNG SHA・寸法であり、公開完了を示さない。
+2. `--mode plan --input PATH_TO_DECRYPTED_INVENTORY --out .tmp/youtube-rollout-plan` で全実体と元データを対応付け、計画とSHAを手元に固定する。元タイトルの不一致、対応0件/複数件、未確認画像は停止する。非公開IDやタイトルを含む計画はGitへ入れない。
+3. CIの手動入力 `operation=thumbnail-refresh`・`plan_sha256`・`report_public_key`・`batch_start`（ID固定順、0始まり）・`batch_limit`（既定1）で実査する。単一試行は `only_video_id`。既定 `commit=false` では書き込まず、更新時だけ `commit=true` を指定する。CLIでは `--mode refresh --expect-plan-sha256 HASH [--start N --limit N | --only-video-id ID] [--commit]`。全件を再取得して計画SHAを照合し、対象ごとに再描画したPNGのSHAが確認済み画像と一致することを要求する。
+4. `thumbnails.set` 以外は書き込まず、前後のタイトル・公開設定・予約・動画情報が不変か検査する。更新前画像と処理段階は `video-NNNN.enc.json` に保存。既存画像の一致は送信せず、不確かな書込結果は自動再送せず停止する。更新後のCDN画像を画素比較し、`cdn-matched` と `accepted-cdn-pending` を分ける。CDN一致は公開フィードの実表示確認ではない。暗号化artifactを保持期限内に手元へ取得し、確認待ちは書き込みなしで再照合する。
+
+既存の概要欄同期・inventory・refreshは排他的な手動jobで、refresh同士も直列に実行する。通常動画やShortsの再投稿、予約の作り直し、公開状態の変更は行わない。
 
 ## 適用範囲
 

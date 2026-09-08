@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "一次のあと",
+        "二次の準備へ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-time-matters-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "二次検定の準備",
+        "期間を活かす"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-overview-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "二次検定",
+        "まず全体像"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

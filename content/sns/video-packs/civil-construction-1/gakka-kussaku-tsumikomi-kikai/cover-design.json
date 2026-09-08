@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "掘削・積込機械",
+        "現場で選ぶ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-bulldozer-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "ブルドーザ",
+        "走行装置と",
+        "けん引力"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-shovel-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "ショベル系機械",
+        "掘削の向きで",
+        "選び分ける"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

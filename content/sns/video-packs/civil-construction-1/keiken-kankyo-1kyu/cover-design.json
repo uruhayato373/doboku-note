@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "環境対策の答案",
+        "準備できてる？"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      }
+    },
+    "point-background-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "環境対策",
+        "出題の経緯"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-three-categories-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "環境対策の検討",
+        "３系統に整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

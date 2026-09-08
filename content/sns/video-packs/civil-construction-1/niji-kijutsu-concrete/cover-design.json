@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "二次の学科記述",
+        "コンクリート"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-overlap-time-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "打重ね時間",
+        "限度を押さえる"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-vibration-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "コンクリート",
+        "締固めの手順"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

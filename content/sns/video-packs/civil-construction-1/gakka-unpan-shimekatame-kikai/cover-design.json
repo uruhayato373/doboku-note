@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "運搬と締固め",
+        "機械の使い分け"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-scraper-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "スクレーパ３種",
+        "適用距離を整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-unpan-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "運搬機械は",
+        "距離と現場で",
+        "選び分ける"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

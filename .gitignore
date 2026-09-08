@@ -196,9 +196,10 @@ public/standards-data/
 # YouTube Shorts: content/sns/youtube/ 配下は全てビルド成果物（mp4/サムネ/meta）で再生成可能。
 # mp4 は Google Drive vault（制作物/SNS音声動画/youtube/・drive-vault.json sns-archived-media）に保管、再現の SoT は exam-packs の slide-data + 事前生成ナレ。
 # 「どの動画をいつ予約したか」の記録は .claude/state/youtube-schedule.json（台帳）が唯一の真実源。
-# チャネル案内 README だけは追跡する（admin /content/content~sns/youtube の行き止まり防止・2026-08-28）。
+# チャネル案内と手書き表紙の元データだけ追跡する（画像・動画・派生metaは追跡しない）。
 content/sns/youtube/*
 !content/sns/youtube/README.md
+!content/sns/youtube/cover-design.json
 
 # IG「1問1リール」(per-problem, --ig-mode) の動画は再生成可能な派生物（YT shorts と同様）。
 # mp4 は gitignore、caption.txt / status.json（予約記録）のみ追跡。再生成は per-problem-shorts.mjs --ig-mode。

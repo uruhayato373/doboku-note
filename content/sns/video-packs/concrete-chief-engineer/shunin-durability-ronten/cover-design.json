@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "concrete-chief",
+      "headline": [
+        "耐久性の頻出点",
+        "劣化を理解する"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-carbonation-1": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "中性化フロント",
+        "塩化物イオンの",
+        "濃縮を理解"
+      ],
+      "accentLine": 2,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-salt-2": {
+      "format": "shorts",
+      "exam": "concrete-chief",
+      "headline": [
+        "塩害を抑える",
+        "対策を整理"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

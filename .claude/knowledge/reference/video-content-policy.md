@@ -117,7 +117,7 @@ YouTube の stage スクリプトはローカル実体が無くても、`video-r
 
 `cover-design.json` の契約は [SNS画像ポリシー §0.1](./sns-image-policy.md)。通常動画レンダラーは `covers.longform` を先頭sceneへ使う。`--resume` でも先頭PNGは再生成し、`--skip-png` は設定のあるパックで拒否する。Shortsレンダラーは `covers[Shortのkey]` を冒頭へ使い、同じPNGから投稿サムネイルを作る。設定がある場合は旧動画のhash一致だけでは再生成を省略しない。設定のないパックは従来意匠を維持する。
 
-全レンダラーでschemaVersion・見出し行数/文字数・正規の試験キーを検査し、動画レンダラーではパックの試験との一致も要求する。公開済みサムネだけの更新結果はstateの対象派生物の `thumbnailUpdate` に記録する（送信画像SHA・保存確認・実画像の確認面・動画本体の変更有無）。`youtube.json` の元レンダーのmedia/thumbnail hashとは分離し、Studio確認を公開フィード確認へ読み替えない。
+全レンダラーでschemaVersion・見出し行数/文字数・正規の試験キーを検査し、動画レンダラーではパックの試験との一致も要求する。単一サムネ更新の結果はstateの対象派生物の `thumbnailUpdate` に記録する（送信画像SHA・保存確認・実画像の確認面・動画本体の変更有無）。一括更新の詳細結果・前後情報・旧画像は暗号化receiptsを正本とし、公開可能な確認結果を必要に応じ既存stateへ反映する。`.claude/state/youtube-thumbnail-designs.json` は画像チェック台帳であり、外部更新完了を示さない。`cdn-matched` は配信画像の画素一致、`accepted-cdn-pending` はAPI受理後の確認待ち。いずれも公開フィード確認とは別である。`youtube.json` の元レンダーのmedia/thumbnail hashとは分離し、Studio/CDN確認を公開フィード確認へ読み替えない。一括手順は [SNS画像ポリシー §0.1](./sns-image-policy.md)。
 
 `npm run youtube-shorts:render -- --pack-dir PATH --key KEY --preview-only --render-root .tmp/preview` は表紙・本文・CTAのPNGだけを `work/` に生成する。投稿サムネ・mp4・youtube.jsonのhashは書き換えない。公開済みサムネだけの更新ではこちらか `youtube-covers` を使い、動画まで更新したとは記録しない。通常動画の `--skip-tts` も完成動画ではなくPNG/字幕設計の確認用。
 

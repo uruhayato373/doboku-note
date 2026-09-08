@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "covers": {
+    "longform": {
+      "format": "longform",
+      "exam": "civil-1",
+      "headline": [
+        "品質管理の答案",
+        "課題から組む"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      }
+    },
+    "point-gap-to-issue-1": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "現場条件と",
+        "規格値のズレ"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    },
+    "point-focus-item-2": {
+      "format": "shorts",
+      "exam": "civil-1",
+      "headline": [
+        "品質管理の答案",
+        "項目を１つに"
+      ],
+      "accentLine": 1,
+      "subtitle": "",
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      }
+    }
+  }
+}

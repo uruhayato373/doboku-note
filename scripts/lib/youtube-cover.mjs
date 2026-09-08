@@ -42,10 +42,14 @@ export function validateCoverDesign(design, { exam } = {}) {
   return design;
 }
 
+const fontsByRoot = new Map();
 export function coverFonts(root) {
-  return [700, 900].map(weight => ({ name: FONT,
+  if (fontsByRoot.has(root)) return fontsByRoot.get(root);
+  const fonts = [700, 900].map(weight => ({ name: FONT,
     data: readFileSync(join(root, `node_modules/@fontsource/noto-sans-jp/files/noto-sans-jp-japanese-${weight}-normal.woff`)),
     weight, style: 'normal' }));
+  fontsByRoot.set(root, fonts);
+  return fonts;
 }
 
 /** Authored typography + reviewed character crop. No remote assets or original image edits. */
