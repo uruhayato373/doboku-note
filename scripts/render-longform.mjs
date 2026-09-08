@@ -25,8 +25,9 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 
 import {
-  LONGFORM_W, LONGFORM_H, buildLongformAss, buildSceneNode, planLongformRender,
+  LONGFORM_W, LONGFORM_H, buildLongformAss, buildSceneNode, planLongformRender, EXAM_TO_PALETTE,
 } from './lib/longform-render.mjs';
+import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -50,6 +51,11 @@ if (!args['pack-dir']) {
 const packDir = resolve(ROOT, args['pack-dir']);
 const manifest = JSON.parse(readFileSync(join(packDir, 'video-pack.json'), 'utf8'));
 const storyboard = JSON.parse(readFileSync(join(packDir, 'storyboard.json'), 'utf8'));
+const coverDesignPath = join(packDir, 'cover-design.json');
+const coverSpec = existsSync(coverDesignPath)
+  ? validateCoverDesign(JSON.parse(readFileSync(coverDesignPath, 'utf8')), { exam: EXAM_TO_PALETTE[manifest.exam] }).covers.longform : null;
+if (coverSpec && args['skip-png']) throw new Error('cover-design があるパックは --skip-png 不可。冒頭と動画を揃えて再生成してください');
+if (coverSpec && coverSpec.format !== 'longform') throw new Error('longform cover の format が不一致');
 
 const { resolveExam } = await import(
   pathToFileURL(resolve(ROOT, '.claude/scripts/sns/lib/exam-palette.mjs')).href
@@ -119,7 +125,11 @@ async function main() {
     const pngPath = join(imgDir, `${pad}-${scene.sceneId}.png`);
     const wavPath = join(wavDir, `${pad}-${scene.sceneId}.wav`);
 
-    if (!args['skip-png'] && !(args.resume && existsSync(pngPath) && statSync(pngPath).size > 0)) {
+    if (i === 0 && coverSpec) {
+      const cover = await renderYoutubeCover(ROOT, coverSpec);
+      writeFileSync(pngPath, cover.buffer);
+      writeFileSync(join(outDir, 'cover-provenance.json'), JSON.stringify(cover.provenance, null, 2) + '\n');
+    } else if (!args['skip-png'] && !(args.resume && existsSync(pngPath) && statSync(pngPath).size > 0)) {
       process.stdout.write(`  [PNG ${i + 1}/${scenes.length}] ${scene.sceneId}... `);
       const node = buildSceneNode(scene, { theme, packTitle, assetDataUri: await loadVisualAsset(scene) });
       const svg = await satori(node, { width: LONGFORM_W, height: LONGFORM_H, fonts });

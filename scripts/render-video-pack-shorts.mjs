@@ -13,6 +13,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 
 import { EXAM_TO_PALETTE, wrapJp } from './lib/longform-render.mjs';
+import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const W = 1080;
@@ -41,6 +42,8 @@ const { values: args } = parseArgs({
     'pack-dir': { type: 'string' },
     'render-root': { type: 'string' },
     force: { type: 'boolean', default: false },
+    key: { type: 'string' },
+    'preview-only': { type: 'boolean', default: false },
   },
 });
 if (!args['pack-dir']) {
@@ -52,6 +55,9 @@ const packDir = resolve(ROOT, args['pack-dir']);
 const manifest = JSON.parse(readFileSync(join(packDir, 'video-pack.json'), 'utf8'));
 const storyboard = JSON.parse(readFileSync(join(packDir, 'storyboard.json'), 'utf8'));
 const publish = JSON.parse(readFileSync(join(packDir, 'youtube.json'), 'utf8'));
+const coverDesignPath = join(packDir, 'cover-design.json');
+const coverDesign = existsSync(coverDesignPath)
+  ? validateCoverDesign(JSON.parse(readFileSync(coverDesignPath, 'utf8')), { exam: EXAM_TO_PALETTE[manifest.exam] }) : null;
 const renderRoot = args['render-root'] ? resolve(args['render-root']) : join(ROOT, '.tmp', 'video-render');
 const sourceRoot = join(renderRoot, manifest.packId);
 
@@ -61,7 +67,7 @@ const { resolveExam } = await import(
 const { composeShortsVideo, ffmpegAvailable, probeDuration } = await import(
   pathToFileURL(resolve(ROOT, '.claude/skills/social/yt-shorts-create/scripts/lib/ffmpeg-compose.mjs')).href
 );
-if (!ffmpegAvailable()) throw new Error('ffmpeg / ffprobe が利用できません');
+if (!args['preview-only'] && !ffmpegAvailable()) throw new Error('ffmpeg / ffprobe が利用できません');
 
 const palette = resolveExam(EXAM_TO_PALETTE[manifest.exam]);
 const theme = { base: palette.base, deep: palette.deep, label: palette.label };
@@ -210,7 +216,11 @@ async function main() {
     throw new Error(`youtube.json shorts は${manifest.outputs?.shorts}件必要です`);
   }
   let changed = false;
-  for (const item of publish.shorts) {
+  const targets = publish.shorts.filter(item => !args.key || item.key === args.key);
+  if (!targets.length) throw new Error('Shorts 対象0件');
+  for (const item of targets) {
+    const coverSpec = coverDesign?.covers?.[item.key];
+    if (coverSpec && coverSpec.format !== 'shorts') throw new Error(`${item.key}: cover format が不一致`);
     const sceneIndex = storyboard.scenes.findIndex((scene) => scene.sceneId === item.sceneId);
     if (sceneIndex < 0) throw new Error(`sceneId がありません: ${item.sceneId}`);
     const scene = storyboard.scenes[sceneIndex];
@@ -225,7 +235,7 @@ async function main() {
 
     const existingVideo = join(outDir, 'shorts.mp4');
     const existingThumbnail = join(outDir, 'thumbnail.png');
-    if (!args.force && existsSync(existingVideo) && existsSync(existingThumbnail)) {
+    if (!args['preview-only'] && !coverSpec && !args.force && existsSync(existingVideo) && existsSync(existingThumbnail)) {
       const videoSha = await sha256(existingVideo);
       const thumbnailSha = await sha256(existingThumbnail);
       if (item.sha256 === videoSha && item.thumbnailSha256 === thumbnailSha) {
@@ -237,9 +247,19 @@ async function main() {
     const coverPng = join(tmpDir, 'cover.png');
     const pointsPng = join(tmpDir, 'points.png');
     const ctaPng = join(tmpDir, 'cta.png');
-    await renderPng(coverNode(item, scene), coverPng);
+    if (coverSpec) {
+      const cover = await renderYoutubeCover(ROOT, coverSpec);
+      writeFileSync(coverPng, cover.buffer);
+      writeFileSync(join(tmpDir, 'cover-provenance.json'), JSON.stringify(cover.provenance, null, 2) + '\n');
+    } else await renderPng(coverNode(item, scene), coverPng);
     await renderPng(pointsNode(scene), pointsPng);
     await renderPng(ctaNode(), ctaPng);
+
+    // Preview never replaces the upload thumbnail, video hash, or publication input.
+    if (args['preview-only']) {
+      console.log(`${item.key}: PNG 3枚を ${tmpDir} に生成。動画/投稿サムネ/台帳は未変更`);
+      continue;
+    }
 
     const sourceDuration = await probeDuration(sourceWav);
     if (sourceDuration <= HOOK_SECONDS + 1) throw new Error(`${item.key}: 音声が短すぎます`);

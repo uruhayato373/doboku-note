@@ -18,24 +18,53 @@
           "privacyStatus": "public",
           "productionDisclosure": "author-led-ai-assisted",
           "containsSyntheticMedia": false,
-          "metadataSyncedAt": "2026-09-05T12:59:51.631Z"
+          "metadataSyncedAt": "2026-09-05T12:59:51.631Z",
+          "thumbnailUpdate": {
+            "verifiedAt": "2026-09-08T20:39:00+09:00",
+            "method": "youtube-studio",
+            "designPath": "content/sns/video-packs/civil-construction-1/koji-gaiyo-7items/cover-design.json",
+            "coverKey": "longform",
+            "uploadedSha256": "fcc8426fbb4878546f13e1d449714b1522b2e38bf9a0fd864bd98881d6b8a47e",
+            "saveConfirmed": true,
+            "visualVerifiedIn": "youtube-studio",
+            "publicFeedVerified": false,
+            "metadataUnchanged": true,
+            "videoFileChanged": false,
+            "privacyBefore": "public",
+            "privacyAfter": "public"
+          }
         },
         "shorts": [
           {
             "key": "koshu-sekoryo",
-            "status": "scheduled",
+            "status": "published",
             "approvedBy": "user",
             "videoId": "8qhSsq9-x6k",
             "url": "https://www.youtube.com/watch?v=8qhSsq9-x6k",
             "uploadedAt": "2026-09-05T00:42:30.207Z",
-            "privacyStatus": "private",
+            "privacyStatus": "public",
             "relatedVideoId": "hJYV_U0qKvA",
             "desiredRelatedVideoId": "hJYV_U0qKvA",
             "scheduledAt": "2026-09-05T01:20:31.582Z",
             "publishAt": "2026-09-05T22:30:00Z",
             "productionDisclosure": "author-led-ai-assisted",
             "containsSyntheticMedia": false,
-            "metadataSyncedAt": "2026-09-05T12:59:51.631Z"
+            "metadataSyncedAt": "2026-09-05T12:59:51.631Z",
+            "thumbnailUpdate": {
+              "verifiedAt": "2026-09-08T20:39:00+09:00",
+              "method": "youtube-studio",
+              "designPath": "content/sns/video-packs/civil-construction-1/koji-gaiyo-7items/cover-design.json",
+              "coverKey": "koshu-sekoryo",
+              "uploadedSha256": "f58e360a6c4d8b91e42df21e5715399491278c08e1c2557f6469b1465f1d1868",
+              "saveConfirmed": true,
+              "visualVerifiedIn": "youtube-studio",
+              "publicFeedVerified": false,
+              "metadataUnchanged": true,
+              "videoFileChanged": false,
+              "privacyBefore": "public",
+              "privacyAfter": "public",
+              "relatedVideoIdUnchanged": "hJYV_U0qKvA"
+            }
           },
           {
             "key": "koki-sekoryo",

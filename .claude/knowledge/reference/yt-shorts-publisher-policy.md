@@ -119,7 +119,7 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 | YouTube Data API 投稿（台帳駆動 CI） | `post-from-schedule.cjs` + `post-youtube-scheduled.yml`（手動 `workflow_dispatch`、`youtube-schedule.json` 台帳管理） |
 | 動画パックShortsの投稿 | `publish-video-pack.cjs`（private upload）→YouTube Studioで関連動画設定→`shorts-publish --related-confirmed`（API予約） |
 | 台帳整合性バリデーション | `validate-schedule.mjs`（CI pre-check。publishAt 重複・perDay 超過・videoId 重複を検知） |
-| 投稿済み動画へのサムネイル後付け | `set-thumbnail-uploaded.mjs`（一回限りの補完ツール） |
+| 投稿済み動画へのサムネイル変更 | `youtube-thumbnail:update`（単一ID・既定dry-run・アカウント照合、詳細はSNS画像ポリシー §0.1） |
 
 ## 5. 投稿カーデンス・スケジューリング（2026-09-05 更新）
 
@@ -141,7 +141,7 @@ https://note.com/{author}?utm_source=youtube&utm_medium=video&utm_campaign=note&
 - `post-from-schedule.cjs` のログ「公開設定: unlisted」は**表示バグ**（`publishAt` 指定時の実値は `privacyStatus: private` + `publishAt`）。
 - **報告前に `videos.list(part=status)` で実査**: `privacyStatus === "private"` かつ `publishAt` 設定済み、さらに縦/正方形・`durationSeconds ≤ 180`を確認する。related videoはData APIで設定・取得できないため、Studioでの保存確認と公開後の運用照合を組み合わせる。
 - これは X `publish-x` の偽成功検証と同じ思想（ログを信じず実体を確認）。
-- サムネイル設定（`thumbnails.set`）の確認: `thumbnails.list(videoId)` で `default`/`medium` に画像が設定されているかを実査する。未設定のままだと YouTube が自動選択したフレームが表示され、クリック率が下がる。
+- サムネイル設定（`thumbnails.set`）の確認: `videos.list(part=snippet,status,contentDetails)` で前後の動画情報を照合し、Studio/公開画面で実画像を確認する。`thumbnails.list` というAPIは存在しない。`snippet.thumbnails` のURLが存在するだけでは旧画像との区別が付かないため、API受理と実表示確認を分ける。Shortsのカスタム画像編集は段階的提供のためアカウントの編集欄を実査する。
 
 ## 改訂履歴
 

@@ -41,7 +41,9 @@ YouTube サムネ・Shorts/Reels 冒頭・Instagram 表紙・X カードでは�
 
 2026-09-08 に確認した [YouTube公式サムネ手順](https://support.google.com/youtube/answer/72431?hl=en) は、通常動画と Shorts のカスタム画像変更を案内している（Shorts は PC の Studio、確認済みアカウントが必要）。[動画差し替えの公式説明](https://support.google.com/youtube/answer/55770?hl=en) は、新規アップロードには新 URL が付くと明記。[X公式編集ヘルプ](https://help.x.com/en/using-x/edit-post) は Premium の対象投稿で送信後 1 時間以内の本文・メディア編集を案内。実行時は最新仕様と対象アカウントの機能を再確認する。Instagram の予約・公開済み編集範囲は今回公式ページの本文を取得できず、実機確認が必要。
 
-既存の YouTube 後付けサムネ処理は .claude/scripts/youtube/set-thumbnail-uploaded.mjs。2026-09-08 時点では videoId のある全件が対象、既定が書き込みで個別絞り込みがない。部分更新にそのまま実行せず、対象一覧の dry-run と ID 指定の実装・照合が必要。既存 IG 投稿スキルは新規投稿用で、既存予約を編集済みとは扱わない。
+YouTube の後付けサムネ処理は `npm run youtube-thumbnail:update`（.claude/scripts/youtube/set-thumbnail-uploaded.mjs）。単一の `--video-id`・`--image`・期待するチャンネルを持つ `--channel-file`（動画パックの youtube.json）を必須とし、既定はローカルdry-run。`--check-live` はアカウントと動画の実査のみ、`--commit --expect-sha256 HASH` は確認した画像だけを送る。APIは `thumbnails.set` だけを書込みに使い、公開設定・予約・本文・動画本体は更新しない。API上限2MBとアカウント一致を検査し、前後記録は `.tmp/youtube-thumbnail-updates/run-*/report.json`。API受理と画面での画像確認は別で、後者はStudio/公開画面で確認する。Shortsは機能の段階的提供があるため、アカウントごとに編集欄を確認する。既存 IG 投稿スキルは新規投稿用で、既存予約を編集済みとは扱わない。
+
+動画パックに `cover-design.json` を置くと、`npm run youtube-covers -- --spec PATH` で人物＋編集可能な見出しの見本（PNG/SVG/来歴manifest）を `.tmp/youtube-covers/run-*/` へ生成する。共通実装は `scripts/lib/youtube-cover.mjs`。`covers.longform` は1920×1080、`covers[Shortのkey]` は1080×1920。各specは `format`・試験パレットの `exam`・2〜3行の `headline`（1行8文字以内）・`accentLine`・`subtitle`（24文字以内）・`character: {pose, frame}` を持つ。原画像は上書き・引き伸ばしせず、要修正素材と長すぎる見出しは停止する。未指定パックとlegacyレンダラーは従来意匠のまま。
 
 動画の冒頭デザインを刷新する未投稿パックは、カバー画像と動画を同時再生成する。公開済み YouTube のサムネだけを変える場合は動画本体を変更したと記録しない。既存投稿の削除・再投稿は同じ ID の編集と異なり、URL・反応履歴への影響を示してユーザーの依頼範囲内で行う。
 
