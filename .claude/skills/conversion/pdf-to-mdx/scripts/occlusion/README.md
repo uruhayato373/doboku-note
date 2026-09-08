@@ -1,22 +1,41 @@
 # ページ画像の写り込み検出
 
 自炊（手持ち撮影）のページ画像には指が写り込み、本文が隠れることがある。
-**視覚OCRは隠れた文字を推測で埋めてしまい、出来上がった文が自然な日本語になるため
-後段の校正では気づけない。** そこで OCR に入る前に候補を機械で挙げる。
+**視覚OCRは隠れた文字を推測で埋め、出来上がった文が自然な日本語になるため
+後段の校正では気づけない。** そこで OCR に入る前に候補を挙げる。
 
 ```bash
-python3 .claude/skills/conversion/pdf-to-mdx/scripts/occlusion/detect_occlusion.py            # 全冊
-python3 .claude/skills/conversion/pdf-to-mdx/scripts/occlusion/detect_occlusion.py --book <id> # 1冊
+python3 .claude/skills/conversion/pdf-to-mdx/scripts/occlusion/detect_occlusion.py --jobs 12 --out out.json
+python3 .claude/skills/conversion/pdf-to-mdx/scripts/occlusion/detect_occlusion.py --book <sourceId>
 ```
 
-紙面はほぼ無彩色なので、肌色域（色相・彩度・明度）の画素比率がしきい値を超えたページを
-候補として挙げる。**候補＝本文が隠れている、ではない**（余白に写った指も拾う）。
-最終判断は目視か視覚OCRが行う。
+紙面はほぼ無彩色なので、肌色域の画素比率がしきい値を超えたページを候補として挙げる。
 
-## 実測（2026-09-08・pe-cem-essay-guide）
+## この検出器で分かること・分からないこと
 
-18 枚中 16 枚が候補。目視で確かめると、実際に本文が読めないのは 16 版面中 9 版面（56%）。
-記録は `content/sources/books/pe-cem-essay-guide__総監論文対策/README.md`。
+> [!warning]
+> **候補率は「本文が隠れている率」ではない。** 2026-09-08 に全 26 冊 6,860 ページを走らせ、
+> 候補率の高い本を抜き取りで目視した結果、候補の多くは本文を隠していなかった。
+
+| 本 | 候補率 | 目視で分かったこと |
+|---|---|---|
+| pe-cem-essay-guide | 88.9% | **本物**。16 版面中 9 版面で本文が読めない |
+| civil2-first-exam-manga-2026 | 94.3% | **誤検出**。マンガの登場人物の肌。紙面は完全に読める |
+| pe-cem-textbook | 69.0% | **ほぼ誤検出**。指は左の余白（ページを押さえる手）で本文にかからない |
+| construction-ai-management | 3.6% | **誤検出**。Kindle 画面の書影（暖色の表紙） |
+| concrete-chief-textbook-2024 | 98.6% | 指は小口のインデックス。ただし**別の欠陥**（下記） |
+
+したがってこの検出器は **「手持ち撮影された本はどれか」を絞る道具**であって、
+再撮影の要否を決める道具ではない。要否は候補ページを目視して決める。
+
+## 検出できない欠陥
+
+- **露出・ピントの失敗**: `concrete-chief-textbook-2024` の p0059 は紙面がほぼ白く飛び、
+  本文がほとんど読めない。肌色比率では捉えられない。
+  暗画素の比率で測ろうとしたが、**文字が薄い版面と、もともと文字が少ない版面
+  （キーワード集・問題集）を区別できず**、しきい値を引けなかった。現状は目視のみ。
+- **見開き分割による切れ**: 版面の端が分割で落ちる。色では捉えられない。
+- **同じ見開きの二重撮影**: `pe-cem-essay-guide` は 18 枚が 16 版面だった。
 
 ## OCR 側の約束
 
