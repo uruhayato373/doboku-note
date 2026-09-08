@@ -43,8 +43,7 @@
     "原資料PDF"
   ],
   "layout": {
-    "原資料PDF": "L0 原本。白書・書籍・資格試験・共通仕様書は手で整えた既存。教材/{書名}/ は content/sources/textbook/{書名}/ の 1:1 ミラー。共通仕様書/{整備局}/{PDF名}/{pages,text}/ はページ画像（PDF の隣）。",
-    "文字起こし": "L1 中間産物の .md（既存・drive-vault-sync の対象外。手順は content/sources/textbook/README.md）。",
+    "原資料PDF": "資料ごとの正本を1か所で管理。書籍/{referenceId}__{短い書名}/{source,pages,ocr,crops}/ に原本・画像・文字起こし・校正記録・図を同居させる。共通仕様書も原本隣接の同名フォルダに pages/text/ocr を置く。",
     "制作物": "人が使う成果物。note配布PDF / IGレンダー / SNS音声動画（reels wav・mp4、YouTube Shorts mp4）/ 動画レンダー / Kindle / ココナラ / マガジンカバー。",
     "アーカイブ": "repo/（repo-archive）と 旧R2/（legacy-r2-orphan の SNS 素材）。"
   },
@@ -99,6 +98,40 @@
         "scanned-figure-crop-auditor"
       ],
       "reason": "教材のページ画像・図クロップ。原本 PDF と同じ 教材/{書名}/ ツリーに置き、PDF とページが同居する。"
+    },
+    {
+      "id": "reference-book-source-pdf",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sources/books/[^/]+/source/[0-9]{3}\\.pdf$"
+      },
+      "vaultDir": "原資料PDF/書籍",
+      "keyFrom": "stripPrefix:content/sources/books/",
+      "regenerable": false,
+      "generator": null,
+      "requiredBy": [
+        "scripts/build-reference-book-pages.mjs",
+        "文字起こし・図クロップの原典照合（人）"
+      ],
+      "reason": "参考文献 ID 単位へ整理した市販書籍の原本 PDF。著作権物であり、読むのは人と手元の OCR・クロップ処理だけなので、1冊1ディレクトリの Drive vault に置く。"
+    },
+    {
+      "id": "reference-book-page-image",
+      "status": "active",
+      "audience": "human",
+      "match": {
+        "pathRegex": "^content/sources/books/[^/]+/(pages/p[0-9]{4}\\.jpe?g|crops/p[0-9]{4}_[^/]+\\.(png|jpe?g|webp))$"
+      },
+      "vaultDir": "原資料PDF/書籍",
+      "keyFrom": "stripPrefix:content/sources/books/",
+      "regenerable": true,
+      "generator": "npm run build-reference-book-pages",
+      "requiredBy": [
+        ".claude/skills/conversion/pdf-to-mdx（--scanned）",
+        "scanned-figure-crop-auditor"
+      ],
+      "reason": "参考文献 ID 単位の通しページ画像と最終図クロップ。原本 PDF と同じ書籍ディレクトリに置き、OCR・原典照合・再クロップをページ単位で再実行できるようにする。"
     },
     {
       "id": "note-delivery-pdf",
@@ -248,16 +281,16 @@
       "status": "active",
       "audience": "human",
       "match": {
-        "pathRegex": "^content/sources/textbook/(?!(?:.*/)?README\\.md$).+\\.md$"
+        "pathRegex": "^content/sources/(textbook/(?!(?:.*/)?README\\.md$).+\\.md|books/[^/]+/ocr/(?!(?:.*/)?README\\.md$).+\\.md)$"
       },
-      "vaultDir": "文字起こし",
-      "keyFrom": "stripPrefix:content/sources/textbook/",
+      "vaultDir": "原資料PDF",
+      "keyFrom": "reference-transcript",
       "regenerable": false,
       "generator": "pdf-to-mdx --scanned（scanned-textbook-transcriber が視覚 OCR で書き起こす）",
       "requiredBy": [
         "scripts/check-reference-sources.mjs"
       ],
-      "reason": "原本 PDF の文字起こし（.md）。原本の class を継ぐので市販書籍由来は Git にもサイトにも出さず vault に留める。2026-09-06（参考文献ルール）まで手コピー運用で台帳の外だった。原本との対応は各ファイルの frontmatter（source / sourcePdfs / pdfPages）が持つ。"
+      "reason": "原本の文字起こしを参考文献 ID から解決し、同じ原本ディレクトリの ocr/ へ置く。旧 repo 論理キーも同じ物理正本へ解決する。市販書籍由来は Git と公開サイトに置かない。"
     }
   ]
 }

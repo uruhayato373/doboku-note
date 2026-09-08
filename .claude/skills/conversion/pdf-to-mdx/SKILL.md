@@ -28,10 +28,14 @@ PDF または画像ファイルから doboku-note 用 MDX を生成する統合�
 
 テキスト抽出ができないスキャン書籍（自炊した教材・参考書・基準書）を、**視覚 OCR で内部リファレンス Markdown（`content/sources/textbook/`）＋図**に変換する。通常モード（テキスト層 → 公開 MDX）とは抽出方式・出力先・図処理がすべて異なるため、**手順は別ファイルに分離**:
 
-→ **`references/scanned-image-pipeline.md`** を参照。**着手前に1ページ目視で2経路を判定**する:
+→ **`references/scanned-image-pipeline.md`** を参照。**着手前に、まず経路C（テキスト層の有無）を機械判定し、視覚OCRが要る本だけ1ページ目視で経路A/Bを判定**する:
 
 - **経路A: pdfimages 見開き** — 見開き2ページが90°回転で格納されたスキャン。手順書 Step 1-7（bash。pdfimages 抽出→回転/分割→並列OCR→章分割→図クロップ。bash3.2/zsh/ディスク/破損ページの落とし穴も収録）。
 - **経路B: PyMuPDF 単ページ** — 1 PDF ページ＝1 書籍ページ・正立。pdfimages/ImageMagick が無い環境（会社 Windows 等）でも可。再利用スクリプト一式 **`scripts/scanned/`**（`render_pages.py`→OCR Workflow `ocr_fanout.workflow.js`→**校正 Workflow `proofread.workflow.js`**→`concat_chapters.py`→`prep_figures.py`→図 locate Workflow `figure_bbox.workflow.js`→`crop_embed_figures.py --crop-only`→**図 audit/refine ループ**（`prep_audit_jobs.py`→`figure_crop_audit.workflow.js`→`apply_deltas_recrop.py` を反復）→`crop_embed_figures.py`→`trim_placeholders.py`。runbook = `scripts/scanned/README.md`）。解像度 2200px・図 bbox の候補窓＋groupSize 順次処理（レート制限回避）・確信度しきい値・冪等性の知見を織り込み済み。
+
+- **経路C: テキスト層抽出（born-digital）** — 原本に使えるテキスト層があり、視覚OCRを1ページも回さずに全文が取れる本。**視覚OCRに着手する前に必ず判定する**（`scripts/text-layer/classify_text_layer.py`）。`book-manifest.json` の `renderProfile.mode` は**ページ画像の作り方**でテキスト層の有無ではないので、`born-digital` を「OCR不要」の根拠にしない（Kindle 画面取込などテキスト層の無い `born-digital` が多数ある）。構造は `pdftohtml -xml` の行頭/行末 x（版面の幾何）で決め、`-layout` の空白数は使わない。runbook = `scripts/text-layer/README.md`。
+
+**着手前の必須チェック（経路A/B 共通）**: 自炊の手持ち撮影は指が写り込んで本文を隠す。視覚OCRは隠れた文字を文脈から埋め、出来上がった文が自然な日本語になるため**後段の校正では検出できない**。OCR に入る前に `scripts/occlusion/detect_occlusion.py` で候補を挙げ、本文が隠れている版面は撮り直しに回す。読めない箇所は 〔判読不能〕 と書き、埋めない。実測例（pe-cem-essay-guide・2026-09-08）＝18枚中16枚が候補、目視で16版面中9版面（56%）が判読不能、既存の文字起こしに推測で埋めた箇所を確認。
 
 ワーカー: 本文 OCR/校正 = サブエージェント `scanned-textbook-transcriber`（Generator・sonnet）／図 locate = `civil-exam-figure-extractor` と同型の Generator／**図クロップ品質監査 = `scanned-figure-crop-auditor`（Evaluator・sonnet。実クロップ PNG を4軸採点し `adjust_bbox` を返す。locate 単発では枠が緩く本文写り込み・切れが残るため必須）**。**市販書籍スキャンは内部リファレンス専用＝公開しない**（`content/sources/textbook/**/img` は r2-sync 対象外＝公開R2へ同期されない。README に明記）。文字起こしには `.claude/config/reference-sources.json` の ID を示す frontmatter を付け、`source-transcript` group で Drive に同期する。
 
@@ -257,4 +261,6 @@ node .claude/scripts/upload-images-to-r2.mjs --prefix {category}/{slug}
 - `.claude/skills/conversion/pdf-to-mdx/references/clean-pdf-artifacts.md` — PDF 残骸除去詳細
 - `.claude/skills/conversion/pdf-to-mdx/references/scanned-image-pipeline.md` — `--scanned` 手順書（経路A/B）
 - `.claude/skills/conversion/pdf-to-mdx/scripts/scanned/` — 経路B（PyMuPDF 単ページ）再利用スクリプト一式＋runbook
+- `.claude/skills/conversion/pdf-to-mdx/scripts/text-layer/` — 経路C（テキスト層抽出）判定スクリプト＋実装例＋runbook
+- `.claude/skills/conversion/pdf-to-mdx/scripts/occlusion/` — 指の写り込み検出（OCR 着手前のゲート）
 - `.claude/scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（必須）
