@@ -29,6 +29,7 @@ import {
   resolveSourceRef,
   sourcesRequiringArticle,
   transcriptDirsForSource,
+  VERBATIM_MIN_RUN,
 } from './lib/reference-sources.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
@@ -220,7 +221,7 @@ function checkDeepTranscripts({ cfg, index, manifest, articles }) {
       || article.resolvedSources.some((item) => item.id === source.id));
     for (const article of derivedArticles) {
       verbatimPairs += 1;
-      const hits = findVerbatimRuns(article.body, transcriptIndex, { minRun: 40 });
+      const hits = findVerbatimRuns(article.body, transcriptIndex, { minRun: VERBATIM_MIN_RUN });
       for (const hit of hits) {
         verbatimHits += 1;
         fail('verbatim', article.relPath, `${source.id} / ${hit.key}: 一致 ${hit.run} 字「${hit.sample}」`);

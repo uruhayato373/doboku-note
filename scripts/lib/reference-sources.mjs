@@ -245,10 +245,29 @@ export function buildTranscriptIndex(entries, { seed = 20, stride = 10 } = {}) {
 }
 
 /**
+ * 逐語とみなす最小の連続一致長。**2026-09-08 に実測して 40 に据え置いた**（DN-0181）。
+ *
+ *   誤検知側: commercial-book の 192 組（文字起こし 1,295,248 字 × 記事 987,365 字）を掃引すると、
+ *             実在する最長の共通部分は 38 字で、40 では 0 件。35 へ下げると 206 件、30 で 502 件出るが、
+ *             その中身は JIS 規格名（「JIS A 5011-2 コンクリート用スラグ骨材－第2部…」35 字）や
+ *             数値付きの技術要件（「日平均気温が 10°C 以上 15°C 未満の場合、普通ポルトランドセメント」33 字）で、
+ *             **言い換えでは短くできない用語**。下げるとゲートが構造的に赤くなる（＝偽赤）。
+ *   見逃し側: 句読点・空白・全角半角の差は normalizeForCompare が落とすので窓幅の問題ではない。
+ *             残る抜け道は語の挿入・削除で run を分断する形だけで、40 なら 40 字ごとの語挿入までは拾う。
+ *             25 字ごとに語を挿し続ける改変は逐語転載ではなくリライトの領域なので、追わない。
+ *   構造制約: buildTranscriptIndex の seed=20 / stride=10 では 20+10-1=29 字以上しか取りこぼしなく拾えない。
+ *             **29 未満へ下げるなら seed / stride も同時に変える**こと（tests/reference-sources.test.mjs が縛る）。
+ *
+ * 余裕は 38→40 の 2 字しかない。将来ここが誤検知したら、閾値を上げるのではなく
+ * 規格名・法令名を比較対象から外す方向で直す（用語の一致は写しではない）。
+ */
+export const VERBATIM_MIN_RUN = 40;
+
+/**
  * 記事本文と索引の共通部分のうち minRun 文字以上のものを返す（最長のものから）。
  * 1 件でも出れば逐語＝class が forbidden の原本では公開してはいけない。
  */
-export function findVerbatimRuns(articleText, index, { minRun = 40, maxHits = 20 } = {}) {
+export function findVerbatimRuns(articleText, index, { minRun = VERBATIM_MIN_RUN, maxHits = 20 } = {}) {
   const a = normalizeForCompare(articleText);
   const { seed, stride } = index;
   const hits = [];

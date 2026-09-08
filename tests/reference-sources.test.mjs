@@ -14,7 +14,7 @@ import {
   loadReferenceSources, buildSourceIndex, expandCatalogSources, resolveSourceRef, splitSourceRef,
   classRuleOf, globToRegExp, sourcesRequiringArticle, normalizeForCompare, buildTranscriptIndex,
   findVerbatimRuns, parseTranscriptHeader, loadStandardsCatalog, evaluateMissingSourcesRatchet,
-  checkCitationEvidence, transcriptDirsForSource, VERBATIM_RULES, CITATION_RULES,
+  checkCitationEvidence, transcriptDirsForSource, VERBATIM_RULES, CITATION_RULES, VERBATIM_MIN_RUN,
 } from '../scripts/lib/reference-sources.mjs';
 
 const CFG = loadReferenceSources();
@@ -139,6 +139,22 @@ test('normalizeForCompare: 空白・記号・コードブロック・ページ�
   assert.equal(a, b, '空白・句読点の違いは落とす');
   assert.equal(normalizeForCompare('前\n```\n表 A B C\n```\n後'), '前後', 'コードブロックは比較対象外');
   assert.equal(normalizeForCompare('前<!-- p.12 -->後'), '前後', 'ページ境界コメントは落とす');
+});
+
+test('VERBATIM_MIN_RUN: 索引の粒度より短い閾値にしない（C・DN-0181 の校正結果を縛る）', () => {
+  // buildTranscriptIndex の既定は seed=20 / stride=10。長さ seed+stride-1 未満の共通部分は
+  // 種を丸ごと含まないことがあり、取りこぼす。閾値だけ下げると「緑なのに見逃す」状態になる。
+  const probe = buildTranscriptIndex([{ key: 'x.md', source: 's', text: 'あ'.repeat(100) }]);
+  assert.equal(probe.seed, 20);
+  assert.equal(probe.stride, 10);
+  assert.ok(
+    VERBATIM_MIN_RUN >= probe.seed + probe.stride - 1,
+    `minRun=${VERBATIM_MIN_RUN} は索引の保証長 ${probe.seed + probe.stride - 1} 未満。seed/stride も変えること`,
+  );
+
+  // 2026-09-08 実測: 実データの最長一致は 38 字。閾値を 38 以下にすると
+  // JIS 規格名・数値付き技術要件が誤検知に変わる（206 件@35）。
+  assert.ok(VERBATIM_MIN_RUN > 38, '実測の最長一致 38 字を下回る閾値は誤検知が出る');
 });
 
 test('findVerbatimRuns: 40 字以上の写しを見つけ、言い換えは拾わない（C）', () => {
