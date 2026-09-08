@@ -2,6 +2,10 @@
 
 > exam-packs（H21〜R7 過去問パック）の真実源。トークンの実体は [`instagram-carousel-tokens.json`](./instagram-carousel-tokens.json)。
 
+## 表紙改修の目標（2026-09-08）
+
+表紙は [SNS 投稿画像ポリシー §0](../reference/sns-image-policy.md) の白背景・極太見出し・先生キャラクターを適用する。以下の現行トークン・レイアウトは既存実装の仕様であり、ルール変更だけで実装済みとはしない。改修時は tokens と cover ビルダーを合わせて更新し、問題・解答の情報量を保つ。
+
 ## 1. 概要
 
 doboku-note の Instagram カルーセル（B シリーズ：過去問パック）は、1パック 10 枚（cover 1 + problem×4 + answer×4 + cta 1）で構成する。本ドキュメントは AIDesigner プロトタイプ（2026-05-27 取得）に準拠した統一デザインを定義する。

@@ -1,0 +1,41 @@
+.catalog { display: grid; gap: 18px; }
+.toolbar { display: flex; flex-wrap: wrap; align-items: end; gap: 12px; padding: 16px; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; }
+.toolbar label { display: grid; gap: 6px; flex: 1 1 145px; font-size: 12px; }
+.toolbar input, .toolbar select, .controls select { width: 100%; min-height: 38px; padding: 7px 10px; color: var(--ink-body); background: var(--panel); border: 1px solid var(--border); border-radius: 6px; font: inherit; }
+.controls { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.controls p { margin: 0; }
+.controls label { display: flex; align-items: center; gap: 8px; }
+.controls select { width: auto; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); gap: 16px; }
+.card, .comparison { border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: var(--panel); }
+.preview { height: 290px; display: grid; place-items: center; padding: 16px; overflow: hidden; color: var(--ink-body); }
+.preview a { display: flex; height: 100%; width: 100%; min-height: 0; justify-content: center; }
+.preview img { display: block; max-height: 100%; max-width: 100%; object-fit: contain; }
+.checker { background: var(--checker-a) repeating-conic-gradient(var(--checker-b) 0% 25%, var(--checker-a) 0% 50%) 50% / 18px 18px; }
+.paper { background: var(--character-paper); }
+.navy { background: var(--character-navy); }
+.preview p { padding: 12px; background: var(--panel); font-size: 12px; }
+.body { padding: 16px; border-top: 1px solid var(--border-soft); display: grid; gap: 12px; }
+.body h2, .comparison h2, .comparison h3 { font-size: 16px; margin: 0; color: var(--ink); }
+.tags, .actions { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.actions { justify-content: space-between; }
+.actions label { display: flex; align-items: center; gap: 6px; cursor: pointer; }
+.body dl { display: grid; grid-template-columns: 72px 1fr; gap: 6px; margin: 0; font-size: 12px; }
+.body dt, .help { color: var(--ink-muted); }
+.body dd { margin: 0; }
+.note { margin: 0; font-size: 12px; line-height: 1.7; }
+.issue { margin: 0; padding: 10px; color: var(--warn); background: var(--warn-fill); font-size: 12px; line-height: 1.7; border-radius: 6px; }
+.help { margin: 0; font-size: 12px; line-height: 1.7; }
+.body summary { cursor: pointer; font-size: 12px; }
+.path { display: block; overflow-wrap: anywhere; margin: 10px 0; font-size: 11px; }
+.comparison { padding: 16px; display: grid; gap: 16px; }
+.compareGrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.compareGrid article { min-width: 0; display: grid; align-content: start; gap: 10px; }
+.compareGrid p { font-size: 12px; margin: 0; }
+.compareGrid button { white-space: normal; }
+@media (max-width: 600px) {
+  .compareGrid { gap: 8px; }
+  .compareGrid .preview { height: 160px; padding: 4px; }
+  .compareGrid h3 { font-size: 12px; }
+  .comparison { padding: 10px; }
+}

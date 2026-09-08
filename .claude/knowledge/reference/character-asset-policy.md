@@ -7,6 +7,10 @@
 - **素材の実体** → `content/sns/_assets/character/*.png`（透過個別）＋ `_source/`（生成元グリッド）
 - **抽出ツール** → `scripts/character-extract.mjs`（`npm run character-extract`）
 
+## SNS 表紙への適用
+
+YouTube・Instagram・X の表紙と動画冒頭は [SNS 投稿画像ポリシー §0](./sns-image-policy.md) に従う。人物は表紙で大きく、解説中は内容の面積を優先する。実装済み範囲と制作上の目標を区別する。
+
 ## 1. アイデンティティ（崩してはいけない不変条件）
 
 設定書の要点。生成・採用時に必ず満たす（詳細は CHARACTER-SPEC.md）。
@@ -29,7 +33,17 @@ content/sns/_assets/character/
 
 - 命名は **ポーズ内容の kebab-case**（`pointing` / `whiteboard` / `congrats` 等）。一覧と分類は manifest が SoT。
 - manifest の `verified:false` は **AI生成からの自動推定名**で、実物との一致が未確認のもの。本人確認後に `true` へ。
-- 現状: 個別 14 ポーズ（初版 2026-06-26）＋ 生成元グリッド 3 枚。
+- 件数・ポーズ一覧は manifest から取得する（過去の初版件数を運用値として複製しない）。
+
+### 画像付きカタログ
+
+管理画面の「コンテンツ → キャラクター素材」（`/gallery/characters`）で、台帳の全ポーズを画像付きで確認する。用途・推奨配置・推奨トリミング・品質確認状態で絞り込み、最大3ポーズを並べて比較できる。透過確認／白／紺の背景切替、PNG保存、素材パスコピーに対応する。カタログは閲覧用で、追加・分類変更は台帳へ反映する。
+
+- `catalog` は分類キーと表示名の真実源。`poses[].composition` に `uses`（用途）、`facing`（顔の向き）、`gestureDirection`（画面に対して示す方向）、`placements`（画像全体の推奨配置）、`crops`（切り取りの目安）、`note`（構図上の注意）、`reviewedAt`（構図を目視した日）を持たせる。
+- `verified` は従来の名称・ポーズ照合状態。画像品質は別の `poses[].quality`（`status` / `note` / `reviewedAt`）に記録し、状態の表示名は `catalog.qualities` で管理する（`ready`＝使用可、`needs-fix`＝要修正、`unreviewed`＝未確認）。名称照合済みでも透過抜け等があれば要修正とする。`composition` や `quality` がまだ無い新ポーズも一覧に出して未登録・未確認と表示する。
+- トリミング指定は制作時の目安であり、カタログの画像は原寸素材全体のプレビュー。自動クロップや左右反転をしない。特にホワイトボードは「素材全体の配置」と「素材内の人物の位置」を区別する。
+- 別PCで画像が無い場合も登録カードを残し「このPCに素材がありません」と表示する。ローカル画像の有無を `verified` へ書き戻さない。取り寄せは [アセット置き場](./asset-storage-policy.md) に従う。
+- 読み取りは `scripts/lib/character-catalog.mjs`。画像を追加し台帳に登録すれば再読み込みで一覧へ反映され、カタログ用の別一覧や静的HTMLは管理しない。
 
 ## 3. 生成 → 抽出ワークフロー（ポーズを足すとき）
 
@@ -42,7 +56,7 @@ AIは「透過」「同一人物9体」を守れないため、**1ポーズ=1画
    npm run character-extract -- --in ~/Downloads/poses --names "a,b,c"     # 確認後にポーズ名で本保存
    ```
    白背景を flood-fill で抜き＋トリムして `content/sns/_assets/character/<name>.png` を生成。淡色背景や影が残る場合は `aidesigner remove_image_background`（Pro 無料枠）で AI 切り抜きに切替。
-3. **登録**: `.claude/config/character-poses.json` の `poses[]` に追記（slug / file / label / category / beats）。本人確認したものは `verified:true`。
+3. **登録**: `.claude/config/character-poses.json` の `poses[]` に追記（slug / file / label / category / beats / verified）。実物を確認して `composition` の用途・向き・配置・切り取り・注意・確認日を登録する。名称照合前は `verified:false`、照合後に `true` へ。カタログで背景を変えて見切れ・背景の残り・透過抜けを確認し、画像の採否は別途 `quality` に記録する。制作担当は `ready` の素材を使い、`needs-fix` と `unreviewed` は修正・確認後に採用する。
 4. **コミット**: 並行セッション保護のため develop は別 worktree で。`git add` は対象 path のみ明示。
 
 ## 4. チャネル別の使い方（設定書 §7 準拠）

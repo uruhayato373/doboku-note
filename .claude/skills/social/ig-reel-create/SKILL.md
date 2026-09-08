@@ -8,6 +8,12 @@ allowed-tools: Bash, Read, Write
 
 `content/sns/instagram/{exam}/exam-packs/<year>/pack-<NN>/slide-data.json` を入力に、**1080×1920 縦型 60-120 秒の IG Reels 動画を完全機械生成**する。
 
+## 人物・見出しと既存投稿の改修
+
+制作・改修の前に [SNS 投稿画像ポリシー §0・§0.1](../../../knowledge/reference/sns-image-policy.md) を読む。先生キャラクター＋短い極太見出しを媒体別に構成し、既存レンダラーの未対応箇所は実装して代表 1 件を画像確認してから展開する。文字を編集可能な元データとして保持する。
+
+再生成は外部の予約・公開投稿を自動更新しない。動画冒頭を改修する未投稿パックはカバーと動画派生物を揃える。公開済みサムネだけの変更は §0.1 に従い、動画本体の更新と区別する。
+
 ## 前提
 
 1. **ffmpeg / ffprobe が PATH にある**

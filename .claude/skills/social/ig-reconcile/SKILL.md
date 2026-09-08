@@ -13,6 +13,10 @@ argument-hint: "[--backfill] [--schedule-unpublished] [--exam=cem]"
 
 IG カルーセルの「実際に公開されているか（現状確認）」と「未公開の予約投稿」を、毎回ゼロから手作業せず**反復実行**するためのオーケストレーションスキル。設計の真実源は [.claude/knowledge/reference/ig-publish-reconcile.md](../../../../.claude/knowledge/reference/ig-publish-reconcile.md)。
 
+## 既存予約・公開済み投稿を改修するとき
+
+[SNS 投稿画像ポリシー §0.1](../../../knowledge/reference/sns-image-policy.md) を先に読む。新規投稿フローを既存投稿の編集代わりに再実行しない。投稿 ID・予約の実体・変更可能項目を確認し、対応する編集処理がない場合はその不足を明示する。保存後の実表示と予約日時・公開状態の再照合までを外部更新の完了条件とする。
+
 ## なぜ必要か（このスキルが生まれた経緯）
 
 手動投稿のあと `posted.json` を残し忘れる／`status.json` を `draft` のまま放置するドリフトが頻発する（2026-06-25、keyword-packs 18件中 6件が未記録・1件 draft 誤記録・削除済み黒背景の旧 URL が記録残存）。`ig-status` はローカルしか見ず検知できなかった。本スキルはライブ照合を起点に SoT を実態へ寄せ、未公開を予約まで運ぶ。

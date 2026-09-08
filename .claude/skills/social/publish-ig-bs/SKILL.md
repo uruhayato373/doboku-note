@@ -13,6 +13,10 @@ argument-hint: "post <pack> --schedule <YYYY-MM-DDTHH:MM> [--reel] [--dry-run] [
 
 Playwright で Business Suite（business.facebook.com）のコンポーザを自動操作し、Instagram カルーセルを予約投稿する。設計は [[publish-x]] に倣う（永続プロファイル・システム Chrome で bot 回避・偽成功を出さない fail-safe・dry-run 必須）。
 
+## 既存予約・公開済み投稿を改修するとき
+
+[SNS 投稿画像ポリシー §0.1](../../../knowledge/reference/sns-image-policy.md) を先に読む。新規投稿フローを既存投稿の編集代わりに再実行しない。投稿 ID・予約の実体・変更可能項目を確認し、対応する編集処理がない場合はその不足を明示する。保存後の実表示と予約日時・公開状態の再照合までを外部更新の完了条件とする。
+
 ## ⚠️ 重要 1: IG 投稿の唯一の経路（予約 --schedule ／ 即時 --now）
 
 - 旧 Graph API ルート **`scripts/publish-ig.mjs` は 2026-06-17 に全廃**。IG 投稿は本スキルに一本化された。

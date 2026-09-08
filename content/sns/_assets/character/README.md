@@ -3,6 +3,8 @@
 SNS（IG/YT）横断のブランドマスコット「doboku-note 先生」の透過 PNG ライブラリ。
 リール（angle-reel-create の `character` 合成）・カルーセル等で再利用する。
 
+**画像で選ぶ**: 管理画面「コンテンツ → キャラクター素材」（`/gallery/characters`）。用途・配置・切り取りで絞り込み、最大3ポーズの比較、背景切替、PNG保存、素材パスコピーができる。追加や分類変更は既存ポーズ台帳へ記録する（カタログ用の二重台帳は作らない）。
+
 **SSOT** — アイデンティティ＝[CHARACTER-SPEC.md](CHARACTER-SPEC.md)（設定書）／ポーズ機械可読＝[`.claude/config/character-poses.json`](../../../../.claude/config/character-poses.json)／運用＝[.claude/knowledge/reference/character-asset-policy.md](../../../../.claude/knowledge/reference/character-asset-policy.md)。追加抽出＝`npm run character-extract`。
 
 - `CHARACTER-SPEC.md` … 人格・外見・ブランド・避けたい表現の設定書（真実源）。

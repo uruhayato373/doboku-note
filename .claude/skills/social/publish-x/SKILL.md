@@ -11,6 +11,10 @@ argument-hint: "<draft> [<YYYY-MM-DDTHH:MM>...] [--tweet N] [--immediate] [--dry
 
 Playwright（永続プロファイル）で X のコンポーザを自動操作し、即時投稿または予約投稿する。
 
+## 既存予約・公開済み投稿を改修するとき
+
+[SNS 投稿画像ポリシー §0.1](../../../knowledge/reference/sns-image-policy.md) を先に読む。新規投稿フローを既存投稿の編集代わりに再実行しない。投稿 ID・予約の実体・変更可能項目を確認し、対応する編集処理がない場合はその不足を明示する。保存後の実表示と予約日時・公開状態の再照合までを外部更新の完了条件とする。
+
 ## ⚠️ 予約運用は再開（ガード必須・2026-07-07〜）
 
 > **アカウントSSOT**: `.claude/config/x-account.json`。旧アカウント @dobokunotecom が「platform manipulation and spam」で凍結（異議却下）。実因は**同一/類似文面の連続予約というスケジューリング失敗**。運用は新アカウント **@doboku373** で継続中（`disable-model-invocation: true` は維持＝Skill 自動起動はせず、人／明示コマンドで実行する）。
