@@ -35,6 +35,8 @@ PDF または画像ファイルから doboku-note 用 MDX を生成する統合�
 
 - **経路C: テキスト層抽出（born-digital）** — 原本に使えるテキスト層があり、視覚OCRを1ページも回さずに全文が取れる本。**視覚OCRに着手する前に必ず判定する**（`scripts/text-layer/classify_text_layer.py`）。`book-manifest.json` の `renderProfile.mode` は**ページ画像の作り方**でテキスト層の有無ではないので、`born-digital` を「OCR不要」の根拠にしない（Kindle 画面取込などテキスト層の無い `born-digital` が多数ある）。構造は `pdftohtml -xml` の行頭/行末 x（版面の幾何）で決め、`-layout` の空白数は使わない。runbook = `scripts/text-layer/README.md`。
 
+**着手前の必須チェック（経路A/B 共通）**: 自炊の手持ち撮影は指が写り込んで本文を隠す。視覚OCRは隠れた文字を文脈から埋め、出来上がった文が自然な日本語になるため**後段の校正では検出できない**。OCR に入る前に `scripts/occlusion/detect_occlusion.py` で候補を挙げ、本文が隠れている版面は撮り直しに回す。読めない箇所は 〔判読不能〕 と書き、埋めない。実測例（pe-cem-essay-guide・2026-09-08）＝18枚中16枚が候補、目視で16版面中9版面（56%）が判読不能、既存の文字起こしに推測で埋めた箇所を確認。
+
 ワーカー: 本文 OCR/校正 = サブエージェント `scanned-textbook-transcriber`（Generator・sonnet）／図 locate = `civil-exam-figure-extractor` と同型の Generator／**図クロップ品質監査 = `scanned-figure-crop-auditor`（Evaluator・sonnet。実クロップ PNG を4軸採点し `adjust_bbox` を返す。locate 単発では枠が緩く本文写り込み・切れが残るため必須）**。**市販書籍スキャンは内部リファレンス専用＝公開しない**（`content/sources/textbook/**/img` は r2-sync 対象外＝公開R2へ同期されない。README に明記）。文字起こしには `.claude/config/reference-sources.json` の ID を示す frontmatter を付け、`source-transcript` group で Drive に同期する。
 
 ## 利用可能な exam テンプレート
@@ -260,4 +262,5 @@ node .claude/scripts/upload-images-to-r2.mjs --prefix {category}/{slug}
 - `.claude/skills/conversion/pdf-to-mdx/references/scanned-image-pipeline.md` — `--scanned` 手順書（経路A/B）
 - `.claude/skills/conversion/pdf-to-mdx/scripts/scanned/` — 経路B（PyMuPDF 単ページ）再利用スクリプト一式＋runbook
 - `.claude/skills/conversion/pdf-to-mdx/scripts/text-layer/` — 経路C（テキスト層抽出）判定スクリプト＋実装例＋runbook
+- `.claude/skills/conversion/pdf-to-mdx/scripts/occlusion/` — 指の写り込み検出（OCR 着手前のゲート）
 - `.claude/scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（必須）
