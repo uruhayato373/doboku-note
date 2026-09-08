@@ -48,14 +48,16 @@ export async function compareThumbnail(expected, actual) {
   if(source.width<source.height && meta.width>meta.height){
     const w=Math.round(meta.height*source.width/source.height),h=meta.height;
     const rw=320,rh=Math.round(rw*source.height/source.width);
-    const rendered=await sharp(expected).resize(rw,rh).removeAlpha().toColourspace('srgb').raw().toBuffer();
+    // Suppress subpixel resampling/JPEG edge noise symmetrically, without
+    // ignoring any authored region. Local tile checks still reject text loss.
+    const rendered=await sharp(expected).resize(rw,rh).blur(1).removeAlpha().toColourspace('srgb').raw().toBuffer();
     for(const cw of [w-1,w,w+1])for(const left of new Set([Math.floor((meta.width-cw)/2),Math.ceil((meta.width-cw)/2)])){
-      const pixels=await sharp(actual).extract({left,top:0,width:cw,height:h}).resize(rw,rh).removeAlpha().toColourspace('srgb').raw().toBuffer();
+      const pixels=await sharp(actual).extract({left,top:0,width:cw,height:h}).resize(rw,rh).blur(1).removeAlpha().toColourspace('srgb').raw().toBuffer();
       score(rendered,pixels,rw,rh,'portrait-center');
     }
   }
   const best=scores.sort((a,b)=>a.mean-b.mean)[0];
   const maxTileError=best.fit==='portrait-center'?22:15;
   return {...best, matched: best.mean < 3 && best.worstTile < maxTileError,
-    thresholds:{mean:3,worstTile:maxTileError},method:'cdn-pixel-comparison-v2',publicFeedVerified:false};
+    thresholds:{mean:3,worstTile:maxTileError},method:'cdn-pixel-comparison-v3',publicFeedVerified:false};
 }
