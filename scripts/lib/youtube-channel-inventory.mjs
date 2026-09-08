@@ -1,4 +1,4 @@
-export async function channelInventory(youtube, expected) {
+export async function channelInventory(youtube, expected, { record = () => {} } = {}) {
   const channels = (await youtube.channels.list({ part: 'snippet,contentDetails,statistics', mine: true })).data.items ?? [];
   const channel = channels[0];
   if (channels.length !== 1 || channel.id !== expected.id || channel.snippet?.title !== expected.title) throw new Error('YouTube account mismatch');
@@ -8,13 +8,15 @@ export async function channelInventory(youtube, expected) {
   let pageToken, reportedTotal;
   do {
     const data = (await youtube.playlistItems.list({ part: 'contentDetails', playlistId, maxResults: 50, ...(pageToken ? { pageToken } : {}) })).data;
+    await record({ kind: 'playlist-page', pageToken: pageToken ?? null, data });
     if (reportedTotal === undefined) reportedTotal = data.pageInfo?.totalResults;
     if (reportedTotal !== data.pageInfo?.totalResults) throw new Error('Channel changed during pagination; repeat inventory');
     const page = data.items ?? [];
     if (!page.length && data.nextPageToken) throw new Error('Empty page with next token');
     for (const item of page) {
       const id = item.contentDetails?.videoId;
-      if (!/^[\w-]{11}$/.test(id ?? '') || ids.includes(id)) throw new Error('Missing or duplicate video id');
+      if (!/^[\w-]{11}$/.test(id ?? '')) throw new Error(`Missing/invalid video id at entry ${ids.length}`);
+      if (ids.includes(id)) throw new Error(`Duplicate video id at entry ${ids.length}; first at ${ids.indexOf(id)}`);
       ids.push(id);
     }
     pageToken = data.nextPageToken;

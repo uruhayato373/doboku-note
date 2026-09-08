@@ -37,7 +37,11 @@ async function main() {
   const auth = new google.auth.OAuth2(env.YOUTUBE_CLIENT_ID, env.YOUTUBE_CLIENT_SECRET);
   auth.setCredentials({ refresh_token: env.YOUTUBE_REFRESH_TOKEN });
   const expected = JSON.parse(readFileSync(join(root, 'content/sns/video-packs/civil-construction-1/koji-gaiyo-7items/youtube.json'), 'utf8')).channel;
-  const result = await channelInventory(google.youtube({ version: 'v3', auth }), expected);
+  const trace = [];
+  const result = await channelInventory(google.youtube({ version: 'v3', auth }), expected, { record: entry => {
+    trace.push(entry);
+    writeFileSync(join(out, 'inventory-trace.enc.json'), JSON.stringify(sealReport({ trace }, publicKey)) + '\n');
+  } });
   writeFileSync(join(out, 'inventory.enc.json'), JSON.stringify(sealReport(result, publicKey)) + '\n');
   console.log(JSON.stringify({ complete: result.complete, checked: result.checked, changed: 0 }));
 }
