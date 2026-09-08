@@ -62,6 +62,14 @@ test('サムネイル取得は既知YouTubeホストと動画IDのみ',async()=>
  for(const url of ['https://evil.example/a','https://i.ytimg.com/vi/wrong/maxresdefault.jpg'])await assert.rejects(fetchThumbnail({...video,snippet:{thumbnails:{maxres:{url,width:1280,height:720}}}},async()=>{fetched++;}));
  assert.equal(fetched,0);
 });
+test('ShortsのYouTube生成の左右背景を除き縦の元画像全体を照合する',async()=>{
+ const portrait=await sharp(Buffer.from('<svg width="1080" height="1920"><rect width="1080" height="1920" fill="#0f2742"/><rect x="80" y="400" width="800" height="300" fill="white"/></svg>')).png().toBuffer();
+ const middle=await sharp(portrait).resize(405,720).png().toBuffer();
+ const served=await sharp({create:{width:1280,height:720,channels:3,background:'#123456'}}).composite([{input:middle,left:438,top:0}]).jpeg({quality:90}).toBuffer();
+ const result=await compareThumbnail(portrait,served);assert.equal(result.matched,true);assert.equal(result.fit,'portrait-center');
+ const different=await sharp(portrait).composite([{input:Buffer.from('<svg width="50" height="80"><rect width="50" height="80" fill="#0f2742"/></svg>'),left:160,top:450}]).png().toBuffer();
+ assert.equal((await compareThumbnail(different,served)).matched,false);
+});
 test('実更新jobは明示operation・手動commitでのみ起動し、公開artifactは暗号文のみ',()=>{
  const wf=yaml.load(readFileSync(new URL('../.github/workflows/sync-yt-descriptions.yml',import.meta.url),'utf8'));
  const job=wf.jobs['thumbnail-refresh'];assert.equal(job.if,"inputs.operation == 'thumbnail-refresh'");

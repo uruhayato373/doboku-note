@@ -23,22 +23,39 @@ export async function fetchThumbnail(video, fetcher = fetch) {
 /** JPEG/resize tolerant but text-sensitive: maximum local tile error as well as mean. */
 export async function compareThumbnail(expected, actual) {
   const meta = await sharp(actual).metadata();
+  const source = await sharp(expected).metadata();
   const width = 640, height = Math.round(width * meta.height / meta.width);
   if (height > 1200 || height < 200) throw new Error('Unexpected thumbnail aspect ratio');
   const live = await sharp(actual).resize(width,height).removeAlpha().toColourspace('srgb').raw().toBuffer();
   const scores = [];
-  for (const fit of ['contain','cover','fill']) {
-    const rendered = await sharp(expected).resize(width,height,{fit,background:'#000000'}).removeAlpha().toColourspace('srgb').raw().toBuffer();
+  const score = (rendered, pixels, w, h, fit) => {
     let sum=0, worstTile=0;
-    for(let y=0;y<height;y+=16)for(let x=0;x<width;x+=16){
+    for(let y=0;y<h;y+=16)for(let x=0;x<w;x+=16){
       let tile=0,n=0;
-      for(let yy=y;yy<Math.min(y+16,height);yy++)for(let xx=x;xx<Math.min(x+16,width);xx++)for(let c=0;c<3;c++){
-        const d=Math.abs(rendered[(yy*width+xx)*3+c]-live[(yy*width+xx)*3+c]);tile+=d;sum+=d;n++;
+      for(let yy=y;yy<Math.min(y+16,h);yy++)for(let xx=x;xx<Math.min(x+16,w);xx++)for(let c=0;c<3;c++){
+        const d=Math.abs(rendered[(yy*w+xx)*3+c]-pixels[(yy*w+xx)*3+c]);tile+=d;sum+=d;n++;
       }
       worstTile=Math.max(worstTile,tile/n);
     }
-    scores.push({fit,mean:sum/live.length,worstTile});
+    scores.push({fit,mean:sum/pixels.length,worstTile});
+  };
+  for (const fit of ['contain','cover','fill']) {
+    const rendered = await sharp(expected).resize(width,height,{fit,background:'#000000'}).removeAlpha().toColourspace('srgb').raw().toBuffer();
+    score(rendered,live,width,height,fit);
+  }
+  // Shorts CDN adds dark enlarged side panels. Compare the ENTIRE authored
+  // portrait, not those YouTube-generated panels; never crop away headline/body.
+  if(source.width<source.height && meta.width>meta.height){
+    const w=Math.round(meta.height*source.width/source.height),h=meta.height;
+    const rw=320,rh=Math.round(rw*source.height/source.width);
+    const rendered=await sharp(expected).resize(rw,rh).removeAlpha().toColourspace('srgb').raw().toBuffer();
+    for(const cw of [w-1,w,w+1])for(const left of new Set([Math.floor((meta.width-cw)/2),Math.ceil((meta.width-cw)/2)])){
+      const pixels=await sharp(actual).extract({left,top:0,width:cw,height:h}).resize(rw,rh).removeAlpha().toColourspace('srgb').raw().toBuffer();
+      score(rendered,pixels,rw,rh,'portrait-center');
+    }
   }
   const best=scores.sort((a,b)=>a.mean-b.mean)[0];
-  return {...best, matched: best.mean < 3 && best.worstTile < 15, method:'cdn-pixel-comparison-v1', publicFeedVerified:false};
+  const maxTileError=best.fit==='portrait-center'?22:15;
+  return {...best, matched: best.mean < 3 && best.worstTile < maxTileError,
+    thresholds:{mean:3,worstTile:maxTileError},method:'cdn-pixel-comparison-v2',publicFeedVerified:false};
 }
