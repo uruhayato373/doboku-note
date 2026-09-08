@@ -221,7 +221,7 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
-# AGENTS.md / .agents/skills が正典（CLAUDE.md / .claude/skills）の生成物と一致するか（第2SSOT再発防止・DN-0098）
+# AGENTS.md / .agents/skills が正典（CLAUDE.md + .claude/rules / .claude/skills）の生成物と一致するか（第2SSOT再発防止・DN-0098）
 node scripts/sync-codex-compat.mjs --staged
 if [ $? -ne 0 ]; then
   exit 1

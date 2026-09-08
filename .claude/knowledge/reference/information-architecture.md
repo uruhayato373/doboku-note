@@ -22,6 +22,7 @@ doboku-note プロジェクトにおけるドキュメント・データの置�
 | Zone | 場所 | 役割 | 形式 | 主な閲覧面 |
 |---|---|---|---|---|
 | Knowledge | `.claude/knowledge/` | エージェントが読む共有知識・ポリシー・設計規約 | md / JSON | Admin `/knowledge` |
+| Rules | `.claude/rules/` | パス条件付きの作業規約（`paths:` frontmatter 必須。該当ファイルを開いたときだけ Claude Code が読む。2026-09-08 に CLAUDE.md から分離） | md | — |
 | Flow | `.claude/plans/` | **一案件だけの実装契約**（完了後に削除する一時文書） | md | Admin `/plans` |
 | Task | `.claude/todo/` | 未完了タスクの 4 層（backlog / annual / monthly / weekly） | md | Admin `/todo` |
 | Runtime | `.claude/state/` / `.claude/config/` | 状態・機械設定 | JSON | Admin / 各機能 |
@@ -146,6 +147,7 @@ content/
 1. 実行タスク・計画 → `.claude/todo/`（backlog / annual / monthly / weekly）。**人が直接開くのは編集時のみで、閲覧は admin `/todo`**
 2. 状態・設定として CI・エージェントが programmatic に読む → `.claude/state/` / `.claude/config/`（JSON）
 3. エージェント間で継続参照する知識・判断・手順 → `.claude/knowledge/`
+   - 毎ターン要る判断の土台だけ → `CLAUDE.md`（150 行上限・`npm run check-claude-md-size`）／特定領域のファイルを触るときだけ要る規約 → `.claude/rules/*.md`（`paths:` 必須）／作業時に都度読む手順・台帳 → `.claude/knowledge/reference/`（索引は同 README.md）
 4. Claude Code の能力定義 → `.claude/skills/` / `.claude/agents/`
 5. 顧客へ届ける制作物とその入力 → `content/{チャネル}/`（note / sns / coconala / kindle / site / sources）
 6. 上記いずれでもない一時メモは作らない（`.tmp/` 配下のみ）
@@ -240,6 +242,7 @@ content/
 .claude/
   todo/             # タスク台帳 4 層（backlog/weekly/monthly/annual・閲覧は admin /todo）
   knowledge/        # 共有SSOT（Admin /knowledge でHTML閲覧）
+  rules/            # パス条件付きルール（paths: 必須・sync-codex-compat が AGENTS.md へ併合）
   content/          # エージェント管理の非公開チャネル原稿・運用SSOT
   skills/           # 実行能力
   agents/           # 実行能力
@@ -282,7 +285,7 @@ content/
 **参照ガード**（`check-doc-refs.mjs`）: スキル・エージェント・docs 内の `.md` / `.mdx` 参照がリポジトリ内に実在するかを検証する。
 
 - 全体検証: `npm run check-doc-refs`
-- pre-commit: staged の `.claude/skills/` `.claude/agents/` `docs/` `CLAUDE.md` を自動検査（`scripts/install-pre-commit.mjs` に登録済み）
+- pre-commit: staged の `.claude/skills/` `.claude/agents/` `.claude/rules/` `docs/` `CLAUDE.md` を自動検査（`scripts/install-pre-commit.mjs` に登録済み）
 - 対象外（実在しなくても正当）: `.claude/state/**`（生成物）・`.claude/plans/**`（一時）・`.claude/projects/**`（memory）・`docs/handoffs/**`・`docs/reviews/**`・`content/sns/**`（point-in-time 記録）。コード参照（`src/*.tsx` 等）は build/type-check/lint が担う別系統
 
 **台帳ガード**（`check-doc-coupling.mjs`・2026-06-12 新設）: skills SKILL.md の追加/削除/description 変更には `skills-guide.md`＋`skills-registry.md`、agents `.md` の同種変更には `agents-registry.md` が同一コミットに staged されているかを検証。違反でコミット停止。正当に不要なら `SKIP_DOC_COUPLING=1`。CLAUDE.md §8 の文章ルールに強制力を与える。

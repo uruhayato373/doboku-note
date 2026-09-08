@@ -11,7 +11,7 @@ MDX コンテンツを書く・編集するときの詳細ルール集。
 **真実源の関係**:
 - コンテンツ品質ルール（ExamPoint 個数・参考資料構成など）の**真実源は `.claude/knowledge/reference/content-principles.md`**
 - このファイルは技術的な書き方ガイド（コンポーネント・構造・画像配信）が主
-- CLAUDE.md 本体には最低限のルール（frontmatter 必須項目・文字化けチェック・CRLF 改行・絵文字禁止）のみ残している
+- CLAUDE.md 本体には最低限のルール（frontmatter 必須項目・文字化けチェック・`writeMdxFile` 経由・絵文字禁止）だけを残し、編集時の詳細は `.claude/rules/content-site.md` が `content/site/**` を開いたときに載せる
 
 ## ペルソナ・コンテンツ原則
 

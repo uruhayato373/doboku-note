@@ -12,7 +12,7 @@ SNSの表紙・冒頭は [SNS画像ポリシー §0](./sns-image-policy.md) を�
 
 **いつ読むか**: サブエージェントを呼び出すときに担当範囲を確認するとき、連携設計時、新規エージェント追加時の命名・責務設計時。
 
-**モデル指定のクイックリファレンス**は CLAUDE.md 本体「ハーネス設計原則」§5 にある（判断の土台として毎ターン読めるようにするため）。このファイルには詳細な担当範囲・Phase 対応・連携パターンを集約。
+**model の既定**（サブエージェントは sonnet・Opus は親のみ）は CLAUDE.md §5「ハーネス設計原則」に置く（判断の土台として毎ターン読めるようにするため）。per-agent の model・担当範囲・Phase 対応・連携パターンはこのファイルの「エージェント一覧」が唯一（CLAUDE.md に per-agent の表は無い）。スキル/エージェント編集時の規約は `.claude/rules/skills-agents.md` が該当ファイルを開いたときに載る。
 
 **audit-only の tools 制限（2026-07-03）**: 「audit-only（修正しない）」を明示宣言する Evaluator（`*-qa` / `*-auditor` / `*-fact-checker` 等）は frontmatter に `tools:` allowlist を持ち、変更ツール（`Edit`/`Write`/`NotebookEdit`）を機構的に除外する（`Read, Glob, Grep, Bash, WebSearch, WebFetch`。`sns-archive-auditor` は「Bash 不可」宣言に従い `Read, Glob, Grep`）。`defaultMode: bypassPermissions` 下でも監査エージェントが誤ってファイルを書き換えないための多層防御。Generator（`*-writer`/`*-rewriter`/`*-restorer` 等）は `tools:` 無指定＝全ツールで従来どおり。新規 Evaluator を追加するときは同じ allowlist を付与する。
 

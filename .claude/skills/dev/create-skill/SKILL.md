@@ -149,7 +149,7 @@ model: sonnet  # または inherit（オーケストレーターのみ）
 
 ### 既存エージェントの model 指定一覧
 
-CLAUDE.md「ハーネス設計原則」のクイックリファレンス表を参照。エージェントを追加したら同表も更新すること。
+CLAUDE.md §5「ハーネス設計原則」の既定（サブエージェントは sonnet・Opus は親のみ）に従う。エージェントを追加したら `.claude/knowledge/reference/agents-registry.md`「エージェント一覧」を更新すること（CLAUDE.md に per-agent の表は無い）。
 
 ### なぜこうするか
 
