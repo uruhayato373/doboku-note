@@ -7,6 +7,8 @@ SNS（IG/YT）横断のブランドマスコット「doboku-note 先生」の透
 
 **SSOT** — アイデンティティ＝[CHARACTER-SPEC.md](CHARACTER-SPEC.md)（設定書）／ポーズ機械可読＝[`.claude/config/character-poses.json`](../../../../.claude/config/character-poses.json)／運用＝[.claude/knowledge/reference/character-asset-policy.md](../../../../.claude/knowledge/reference/character-asset-policy.md)。追加抽出＝`npm run character-extract`。
 
+**全身・腰上・胸上を選ぶ**: 管理画面の「表示する切り取り」で実画像を切り替え、派生PNGまたは投稿用設定JSONを取得する。切り取り座標は同じポーズ台帳の `framing`。一括生成は `npm run character-frames -- --all --commit`（既定は保存しない生成検証）。出力は `.tmp/character-frames/run-*/`。原寸以上に引き伸ばさず、要修正素材は通常書き出しから除外する。
+
 - `CHARACTER-SPEC.md` … 人格・外見・ブランド・避けたい表現の設定書（真実源）。
 - `*.png` … 背景透過の個別ポーズ（全身・正面）。命名はポーズ内容（manifest が一覧の SoT）。
 - `icons/` … 円形プロフィールアイコン（紺ラジアルグラデ円＋バスト）。`npm run character-icons` で生成（master 800 + SNS 400/180）。主ポーズ＝smile（プロフィール本命）。サイト/YouTube/IG のアイコンに使用。背景は意図的にシンプル（スペック§5「情報量多すぎない・SNSでも見やすい」）。

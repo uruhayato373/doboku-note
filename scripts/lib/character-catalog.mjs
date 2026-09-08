@@ -1,8 +1,9 @@
 import { existsSync, readFileSync, realpathSync, statSync } from 'node:fs';
 import { join, relative, isAbsolute } from 'node:path';
+import { validateFraming } from './character-frame-geometry.mjs';
 
 /** @typedef {{uses: string[], facing: string, gestureDirection: string, placements: string[], crops: string[], note: string, reviewedAt: string}} Composition */
-/** @typedef {{slug: string, file: string, label: string, category: string, beats: string[], verified: boolean, siteCta?: boolean, composition?: Composition, quality?: {status: string, note: string, reviewedAt: string}}} Pose */
+/** @typedef {{slug: string, file: string, label: string, category: string, beats: string[], verified: boolean, siteCta?: boolean, composition?: Composition, framing?: import('./character-frame-geometry.mjs').Framing, quality?: {status: string, note: string, reviewedAt: string}}} Pose */
 /** @typedef {{uses: Record<string,string>, facings: Record<string,string>, gestures: Record<string,string>, placements: Record<string,string>, crops: Record<string,string>, qualities: Record<string,string>}} Vocabulary */
 /** @typedef {{assetsDir: string, identity: {name: string, brandColors: {main: string[], sub: string[]}}, catalog: Vocabulary, poses: Pose[]}} Manifest */
 
@@ -27,6 +28,7 @@ export function readCharacterCatalog(root) {
       throw new Error(`キャラクター台帳のID・画像名・品質状態が不正です: ${pose.slug}`);
     }
     seen.add(pose.slug);
+    validateFraming(pose.framing);
     if (pose.quality && (!Object.hasOwn(vocab.qualities, pose.quality.status) || !pose.quality.note || !/^\d{4}-\d{2}-\d{2}$/.test(pose.quality.reviewedAt))) {
       throw new Error(`${pose.slug}: 画像品質の記録が不正です`);
     }

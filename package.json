@@ -52,6 +52,7 @@
     "character-avatars": "node scripts/build-character-avatars.mjs",
     "character-extract": "node scripts/character-extract.mjs",
     "character-icons": "node scripts/generate-character-icons.mjs",
+    "character-frames": "node scripts/render-character-frames.mjs",
     "check-a8-report-due": "node scripts/check-a8-report-due.mjs",
     "check-affiliate-mats": "node scripts/check-affiliate-mats.mjs",
     "backlog-sweep-pick": "node scripts/backlog-sweep-pick.mjs",

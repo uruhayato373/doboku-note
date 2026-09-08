@@ -41,9 +41,25 @@ content/sns/_assets/character/
 
 - `catalog` は分類キーと表示名の真実源。`poses[].composition` に `uses`（用途）、`facing`（顔の向き）、`gestureDirection`（画面に対して示す方向）、`placements`（画像全体の推奨配置）、`crops`（切り取りの目安）、`note`（構図上の注意）、`reviewedAt`（構図を目視した日）を持たせる。
 - `verified` は従来の名称・ポーズ照合状態。画像品質は別の `poses[].quality`（`status` / `note` / `reviewedAt`）に記録し、状態の表示名は `catalog.qualities` で管理する（`ready`＝使用可、`needs-fix`＝要修正、`unreviewed`＝未確認）。名称照合済みでも透過抜け等があれば要修正とする。`composition` や `quality` がまだ無い新ポーズも一覧に出して未登録・未確認と表示する。
-- トリミング指定は制作時の目安であり、カタログの画像は原寸素材全体のプレビュー。自動クロップや左右反転をしない。特にホワイトボードは「素材全体の配置」と「素材内の人物の位置」を区別する。
+- `composition.crops` は用途を絞る目安。実際の切り取りは下記 `framing` の確認済み座標を使い、全身・腰上・胸上を画面上で切り替える。左右反転はしない。ホワイトボードは説明面を切らないため全身のみ。
 - 別PCで画像が無い場合も登録カードを残し「このPCに素材がありません」と表示する。ローカル画像の有無を `verified` へ書き戻さない。取り寄せは [アセット置き場](./asset-storage-policy.md) に従う。
 - 読み取りは `scripts/lib/character-catalog.mjs`。画像を追加し台帳に登録すれば再読み込みで一覧へ反映され、カタログ用の別一覧や静的HTMLは管理しない。
+
+### 全身・腰上・胸上の派生
+
+ポーズごとに `poses[].framing` が原画像の `source`（sha256・width・height）、`reviewedAt`、`variants` を持つ。`full` / `waist` / `bust` の `box` は左・上・幅・高さを0〜1で表した座標。切れた手や小物で意味が失われる形は `box: null` と理由を記録し、無理に全種類を作らない。原画像差し替え後は同寸法でもhash不一致で停止するため、全切り取りを再確認して記録を更新する。
+
+管理画面の「表示する切り取り」で実プレビューを切り替え、「書き出し幅」で人物素材の幅を指定する。原寸を超える指定は警告し、引き伸ばさず原寸に留める。原画像保存と派生PNG保存は別の操作。要修正・未確認素材は確認用プレビューと原画像保存だけを許可し、通常の派生書き出しは拒否する。
+
+```bash
+npm run character-frames -- --all                              # 全ポーズ・全形の生成検証（保存なし）
+npm run character-frames -- --pose pointing --frame bust --width 720 --commit
+npm run character-frames -- --all --commit                      # 使用可能な形をまとめて保存
+```
+
+派生PNGと来歴（原本/出力sha256・切り取り座標・実寸）は `.tmp/character-frames/run-*/` の一時生成物。原画像は複製・上書きせず、Gitには設定とコードだけ追加する。成果物の恒久保存が必要な投稿では既存の投稿素材ディレクトリへ採用し、[アセット置き場](./asset-storage-policy.md)に従う。CLIは要求数・生成数・適用不可と理由・失敗を分けて報告し、失敗または生成0件ならexit 1。
+
+投稿レンダラーは `scripts/lib/character-framing.mjs` の `renderCharacterFrame(root, { pose, frame, width })` を使える。管理画面の「投稿用設定をコピー」はこの入力JSONで、媒体別の配置・見出しは含まない。既存のYouTube/IG/Xレンダラーや円形アイコンへ自動適用したとは扱わない。
 
 ## 3. 生成 → 抽出ワークフロー（ポーズを足すとき）
 
@@ -57,6 +73,7 @@ AIは「透過」「同一人物9体」を守れないため、**1ポーズ=1画
    ```
    白背景を flood-fill で抜き＋トリムして `content/sns/_assets/character/<name>.png` を生成。淡色背景や影が残る場合は `aidesigner remove_image_background`（Pro 無料枠）で AI 切り抜きに切替。
 3. **登録**: `.claude/config/character-poses.json` の `poses[]` に追記（slug / file / label / category / beats / verified）。実物を確認して `composition` の用途・向き・配置・切り取り・注意・確認日を登録する。名称照合前は `verified:false`、照合後に `true` へ。カタログで背景を変えて見切れ・背景の残り・透過抜けを確認し、画像の採否は別途 `quality` に記録する。制作担当は `ready` の素材を使い、`needs-fix` と `unreviewed` は修正・確認後に採用する。
+   派生PNGで使う新ポーズには上記 `framing` も登録し、全身・腰上・胸上を白/紺背景で目視する。未登録でも一覧と原画像保存は残るが、切り取りプレビュー・派生書き出しは使えない。
 4. **コミット**: 並行セッション保護のため develop は別 worktree で。`git add` は対象 path のみ明示。
 
 ## 4. チャネル別の使い方（設定書 §7 準拠）

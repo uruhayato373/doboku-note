@@ -33,6 +33,9 @@
 .compareGrid article { min-width: 0; display: grid; align-content: start; gap: 10px; }
 .compareGrid p { font-size: 12px; margin: 0; }
 .compareGrid button { white-space: normal; }
+.frameDetails { display: grid; gap: 8px; padding: 12px; border: 1px solid var(--border); border-radius: 6px; font-size: 12px; }
+.frameDetails p { margin: 0; line-height: 1.7; }
+.frameDetails button { justify-self: start; }
 @media (max-width: 600px) {
   .compareGrid { gap: 8px; }
   .compareGrid .preview { height: 160px; padding: 4px; }

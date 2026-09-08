@@ -40,3 +40,47 @@ test('キャラクター台帳から検索・絞り込み・3案比較ができ�
   await page.locator('[data-pose="pointing"]').getByRole('link', { name: 'PNGを保存' }).click();
   expect((await download).suggestedFilename()).toBe('pointing.png');
 });
+
+test('全身・腰上・胸上を切り替え、原寸上限と書き出しガードを確認できる', async ({ page, request }) => {
+  test.setTimeout(120_000);
+  await page.goto('/gallery/characters');
+  const pointing = page.locator('[data-pose="pointing"]');
+  await page.getByLabel('表示する切り取り', { exact: true }).selectOption('bust');
+  await page.getByLabel('書き出し幅', { exact: true }).selectOption('1080');
+  await expect(pointing).toContainText('解像度不足');
+  await expect(pointing).toContainText('500 × 430px');
+  await expect.poll(() => pointing.locator('img').evaluate((img: HTMLImageElement) => img.naturalWidth)).toBe(360);
+  const download = page.waitForEvent('download');
+  await pointing.getByRole('link', { name: '選択した切り取りを保存' }).click();
+  expect((await download).suggestedFilename()).toBe('pointing-bust-500.png');
+  await expect(page.locator('[data-pose="whiteboard"]')).toContainText('説明面を切らない');
+  await expect(page.locator('[data-pose="whiteboard"] img')).toHaveCount(0);
+  await expect(page.locator('[data-pose="surprised"]').getByRole('link', { name: '選択した切り取りを保存' })).toHaveCount(0);
+  for (const path of [
+    '/api/character-frame/surprised?download=1',
+    '/api/character-frame/whiteboard?frame=bust',
+    '/api/character-frame/pointing?width=999999',
+    '/api/character-frame/pointing?frame=__proto__',
+    '/api/character-frame/unknown',
+    '/api/character-frame/pointing?preview=1&download=1',
+  ]) expect((await request.get(path)).status()).toBe(400);
+  for (const slug of ['pointing', 'thinking', 'explaining']) await page.locator(`[data-pose="${slug}"]`).getByLabel('比較する').check();
+  for (const frame of ['full', 'waist', 'bust']) {
+    await page.getByLabel('表示する切り取り', { exact: true }).selectOption(frame);
+    await page.getByLabel('背景', { exact: true }).selectOption('navy');
+    for (const pose of manifest.poses) {
+      const card = page.locator(`[data-pose="${pose.slug}"]`);
+      if (pose.framing.variants[frame].box) {
+        await card.scrollIntoViewIfNeeded();
+        await expect.poll(() => card.locator('img').evaluate((img: HTMLImageElement) => img.naturalWidth)).toBeGreaterThan(0);
+      }
+    }
+    await page.evaluate(() => window.scrollTo(0, 0));
+    await page.screenshot({ path: `.tmp/character-framing-qa/${frame}-${test.info().project.name}.png`, fullPage: true });
+    const comparison = page.getByRole('region', { name: '選択ポーズの比較' });
+    await comparison.screenshot({ path: `.tmp/character-framing-qa/comparison-${frame}-${test.info().project.name}.png` });
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true);
+  }
+  await page.evaluate(() => document.documentElement.setAttribute('data-theme', 'dark'));
+  await page.getByRole('region', { name: '選択ポーズの比較' }).screenshot({ path: `.tmp/character-framing-qa/comparison-bust-${test.info().project.name}-dark.png` });
+});

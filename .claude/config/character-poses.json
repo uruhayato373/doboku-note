@@ -38,6 +38,43 @@
     {
       "slug": "pointing",
       "file": "pointing.png",
+      "framing": {
+        "source": {
+          "width": 500,
+          "height": 1227,
+          "sha256": "3472758dce6349f32c9d1e30958cb489ad87b7f6edcddf9977940d3bd8f2ade4"
+        },
+        "reviewedAt": "2026-09-08",
+        "variants": {
+          "full": {
+            "box": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "note": "原画像全体。左右反転なし。"
+          },
+          "waist": {
+            "box": [
+              0,
+              0,
+              1,
+              0.51
+            ],
+            "note": "指先と上げた手を残す。腰上は腰の手まで含める。"
+          },
+          "bust": {
+            "box": [
+              0,
+              0,
+              1,
+              0.35
+            ],
+            "note": "指先と上げた手を残す。腰上は腰の手まで含める。"
+          }
+        }
+      },
       "label": "指差し（指を立てる）",
       "category": "gesture",
       "beats": [
@@ -73,6 +110,43 @@
     {
       "slug": "good-sign",
       "file": "good-sign.png",
+      "framing": {
+        "source": {
+          "width": 512,
+          "height": 1245,
+          "sha256": "d357c3c7de2f6723553ee5f96d8b134878d223c248b687ca818c4624c13ce11f"
+        },
+        "reviewedAt": "2026-09-08",
+        "variants": {
+          "full": {
+            "box": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "note": "原画像全体。左右反転なし。"
+          },
+          "waist": {
+            "box": [
+              0,
+              0,
+              1,
+              0.53
+            ],
+            "note": "親指と上げた腕を残す。腰上は腰の手まで含める。"
+          },
+          "bust": {
+            "box": [
+              0,
+              0,
+              1,
+              0.375
+            ],
+            "note": "親指と上げた腕を残す。腰上は腰の手まで含める。"
+          }
+        }
+      },
       "label": "グッドサイン（親指）",
       "category": "gesture",
       "beats": [
@@ -106,6 +180,43 @@
     {
       "slug": "explaining",
       "file": "explaining.png",
+      "framing": {
+        "source": {
+          "width": 555,
+          "height": 1215,
+          "sha256": "4c11869520bc03fc66ae836abb7621ab03c963aa195c7a3d5f6d295d6bdae34f"
+        },
+        "reviewedAt": "2026-09-08",
+        "variants": {
+          "full": {
+            "box": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "note": "原画像全体。左右反転なし。"
+          },
+          "waist": {
+            "box": [
+              0,
+              0,
+              1,
+              0.505
+            ],
+            "note": "左に開いた手のひらと肘を残す。下げた手は画面外。"
+          },
+          "bust": {
+            "box": [
+              0,
+              0,
+              1,
+              0.41
+            ],
+            "note": "左に開いた手のひらと肘を残す。下げた手は画面外。"
+          }
+        }
+      },
       "label": "手のひらで解説",
       "category": "gesture",
       "beats": [
@@ -137,6 +248,43 @@
     {
       "slug": "wave",
       "file": "wave.png",
+      "framing": {
+        "source": {
+          "width": 476,
+          "height": 1220,
+          "sha256": "17368c0a4317015be89b8cf8dd33c0d982b72407634388f04770108937f971d3"
+        },
+        "reviewedAt": "2026-09-08",
+        "variants": {
+          "full": {
+            "box": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "note": "原画像全体。左右反転なし。"
+          },
+          "waist": {
+            "box": [
+              0,
+              0,
+              1,
+              0.51
+            ],
+            "note": "挨拶の手と肘を残す。下げた手は画面外。"
+          },
+          "bust": {
+            "box": [
+              0,
+              0,
+              1,
+              0.35
+            ],
+            "note": "挨拶の手と肘を残す。下げた手は画面外。"
+          }
+        }
+      },
       "label": "手を振る（挨拶）",
       "category": "gesture",
       "beats": [
@@ -170,6 +318,43 @@
     {
       "slug": "thinking",
       "file": "thinking.png",
+      "framing": {
+        "source": {
+          "width": 408,
+          "height": 1246,
+          "sha256": "9effcfc973c5ec7083e60ab3fd7fa57cadd03b2f69b209cdf1d4deb2ba3007ac"
+        },
+        "reviewedAt": "2026-09-08",
+        "variants": {
+          "full": {
+            "box": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "note": "原画像全体。左右反転なし。"
+          },
+          "waist": {
+            "box": [
+              0,
+              0,
+              1,
+              0.52
+            ],
+            "note": "顎の手と胸の前で組んだ腕を残す。"
+          },
+          "bust": {
+            "box": [
+              0,
+              0,
+              1,
+              0.425
+            ],
+            "note": "顎の手と胸の前で組んだ腕を残す。"
+          }
+        }
+      },
       "label": "考え中（顎に手）",
       "category": "expression",
       "beats": [
@@ -204,6 +389,43 @@
     {
       "slug": "surprised",
       "file": "surprised.png",
+      "framing": {
+        "source": {
+          "width": 516,
+          "height": 1221,
+          "sha256": "13258e4140e4fdd3a6b9819abb4818d7f2d15d9a7941305fbf641a4209a30390"
+        },
+        "reviewedAt": "2026-09-08",
+        "variants": {
+          "full": {
+            "box": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "note": "原画像全体。左右反転なし。"
+          },
+          "waist": {
+            "box": [
+              0,
+              0,
+              1,
+              0.505
+            ],
+            "note": "両手を残す。原画像の透過欠損は未修正。"
+          },
+          "bust": {
+            "box": [
+              0,
+              0,
+              1,
+              0.425
+            ],
+            "note": "両手を残す。原画像の透過欠損は未修正。"
+          }
+        }
+      },
       "label": "驚き（両手を上げる）",
       "category": "expression",
       "beats": [
@@ -236,6 +458,43 @@
     {
       "slug": "congrats",
       "file": "congrats.png",
+      "framing": {
+        "source": {
+          "width": 684,
+          "height": 1229,
+          "sha256": "4b08b39c8e8e3b5998c0887b544ff46649f4c59d4c1f6e5264fba7442a11be35"
+        },
+        "reviewedAt": "2026-09-08",
+        "variants": {
+          "full": {
+            "box": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "note": "原画像全体。左右反転なし。"
+          },
+          "waist": {
+            "box": [
+              0,
+              0,
+              1,
+              0.53
+            ],
+            "note": "頭上の両手を含め、左右を切らない。"
+          },
+          "bust": {
+            "box": [
+              0,
+              0,
+              1,
+              0.43
+            ],
+            "note": "頭上の両手を含め、左右を切らない。"
+          }
+        }
+      },
       "label": "バンザイ（合格祝い）",
       "category": "expression",
       "beats": [
@@ -268,6 +527,43 @@
     {
       "slug": "smile",
       "file": "smile.png",
+      "framing": {
+        "source": {
+          "width": 409,
+          "height": 1225,
+          "sha256": "d5ec0eb67916b3605bdc5ce084502939f26b845d435e4fb9652d021139e0e707"
+        },
+        "reviewedAt": "2026-09-08",
+        "variants": {
+          "full": {
+            "box": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "note": "原画像全体。左右反転なし。"
+          },
+          "waist": {
+            "box": [
+              0,
+              0,
+              1,
+              0.51
+            ],
+            "note": "頭と肩を中心に、下げた両手は画面外。"
+          },
+          "bust": {
+            "box": [
+              0,
+              0,
+              1,
+              0.34
+            ],
+            "note": "頭と肩を中心に、下げた両手は画面外。"
+          }
+        }
+      },
       "label": "笑顔（立ち）",
       "category": "expression",
       "beats": [
@@ -304,6 +600,33 @@
     {
       "slug": "whiteboard",
       "file": "whiteboard.png",
+      "framing": {
+        "source": {
+          "width": 1072,
+          "height": 1192,
+          "sha256": "633bff7d4381da537cfeb7c7e2ab0cbb23877248f0c64bab48c2e811033daff9"
+        },
+        "reviewedAt": "2026-09-08",
+        "variants": {
+          "full": {
+            "box": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "note": "原画像全体。左右反転なし。"
+          },
+          "waist": {
+            "box": null,
+            "note": "説明面を切らないため全身のみ。"
+          },
+          "bust": {
+            "box": null,
+            "note": "説明面を切らないため全身のみ。"
+          }
+        }
+      },
       "label": "ホワイトボード解説",
       "category": "item",
       "beats": [
@@ -335,6 +658,43 @@
     {
       "slug": "pc-work",
       "file": "pc-work.png",
+      "framing": {
+        "source": {
+          "width": 462,
+          "height": 1232,
+          "sha256": "4ea47137e31b1b57dddb9fb68313a103f932e49f70b916595769e285f3220e22"
+        },
+        "reviewedAt": "2026-09-08",
+        "variants": {
+          "full": {
+            "box": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "note": "原画像全体。左右反転なし。"
+          },
+          "waist": {
+            "box": [
+              0,
+              0,
+              1,
+              0.51
+            ],
+            "note": "PC本体・指・支える手まで残す。"
+          },
+          "bust": {
+            "box": [
+              0,
+              0,
+              1,
+              0.43
+            ],
+            "note": "PC本体・指・支える手まで残す。"
+          }
+        }
+      },
       "label": "ノートPC作業",
       "category": "item",
       "beats": [
@@ -368,6 +728,43 @@
     {
       "slug": "reading",
       "file": "reading.png",
+      "framing": {
+        "source": {
+          "width": 443,
+          "height": 1237,
+          "sha256": "2a857dc9b72c0f78a15ab29bba50e920004a6169d8ac018a2847d899982e9f8b"
+        },
+        "reviewedAt": "2026-09-08",
+        "variants": {
+          "full": {
+            "box": [
+              0,
+              0,
+              1,
+              1
+            ],
+            "note": "原画像全体。左右反転なし。"
+          },
+          "waist": {
+            "box": [
+              0,
+              0,
+              1,
+              0.53
+            ],
+            "note": "本と両手を残す。"
+          },
+          "bust": {
+            "box": [
+              0,
+              0,
+              1,
+              0.43
+            ],
+            "note": "本と両手を残す。"
+          }
+        }
+      },
       "label": "教科書を読む",
       "category": "item",
       "beats": [
