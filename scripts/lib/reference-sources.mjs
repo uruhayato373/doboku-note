@@ -28,6 +28,16 @@ export const VERBATIM_RULES = ['allowed', 'question-only', 'short-quote', 'forbi
 export const CITATION_RULES = ['page', 'title-url', 'section', 'title', 'name'];
 export const ORIGIN_KINDS = ['drive', 'catalog', 'external', 'none'];
 
+/**
+ * 文字起こしの許可された repo 相対ディレクトリを返す。
+ *
+ * `transcriptDir` は既存配置、`bookBundle.transcriptDir` は 1冊1ID の新配置。
+ * 書籍を段階移行している間だけ両方を許し、新規 OCR は後者へ保存する。
+ */
+export function transcriptDirsForSource(source) {
+  return [...new Set([source?.transcriptDir, source?.bookBundle?.transcriptDir].filter(Boolean))];
+}
+
 /** id 本体と、その後ろの詳細（条番号・規格番号）を分ける。`labor-safety-rules#第240条` → ['labor-safety-rules', '第240条'] */
 export function splitSourceRef(ref) {
   const s = String(ref ?? '').trim();
@@ -63,7 +73,11 @@ export function loadReferenceSources(path = REFERENCE_SOURCES_PATH) {
     if (!ORIGIN_KINDS.includes(kind)) throw new Error('reference-sources: ' + s.id + ' の origin.kind "' + kind + '" は未知');
     if (kind === 'drive' && !s.origin.vaultDir) throw new Error('reference-sources: ' + s.id + ' は origin.kind=drive なので vaultDir が要る');
     if (kind === 'catalog' && !s.origin.catalog) throw new Error('reference-sources: ' + s.id + ' は origin.kind=catalog なので catalog が要る');
-    if (s.transcriptDir && !s.transcriptDir.startsWith('content/sources/')) throw new Error('reference-sources: ' + s.id + ' の transcriptDir は content/sources/ 配下（repo 相対）で書く');
+    for (const transcriptDir of transcriptDirsForSource(s)) {
+      if (!transcriptDir.startsWith('content/sources/')) {
+        throw new Error('reference-sources: ' + s.id + ' の transcriptDir は content/sources/ 配下（repo 相対）で書く');
+      }
+    }
     // aliases は「移行前の書名 → 正しい参照」の表。値は id か id#詳細、公的基準だけ std:… も許す。
     if (s.aliases !== undefined && (typeof s.aliases !== 'object' || Array.isArray(s.aliases))) {
       throw new Error('reference-sources: ' + s.id + ' の aliases は { 旧表記: 正しい参照 } のオブジェクトで書く');

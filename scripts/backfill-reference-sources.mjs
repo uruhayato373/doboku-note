@@ -27,6 +27,7 @@ import {
   parseTranscriptHeader,
   resolveSourceRef,
   sourcesRequiringArticle,
+  transcriptDirsForSource,
 } from './lib/reference-sources.mjs';
 import { REPO_ROOT } from './lib/repository-paths.mjs';
 
@@ -64,8 +65,8 @@ function walkMdx(dir, out = []) {
 }
 
 function sourceForTranscript(relPath, cfg) {
-  const matches = cfg.sources.filter((source) => source.transcriptDir
-    && (relPath === source.transcriptDir || relPath.startsWith(source.transcriptDir + '/')));
+  const matches = cfg.sources.filter((source) => transcriptDirsForSource(source)
+    .some((dir) => relPath === dir || relPath.startsWith(dir + '/')));
   return matches.length === 1 ? { source: matches[0], matches } : { source: null, matches };
 }
 
@@ -73,8 +74,9 @@ function sourcePdfForLegacy(relPath, source, pdfFile, pdfEntries) {
   if (!pdfFile) return { key: null, matches: [] };
 
   const direct = dirname(relPath).split('\\').join('/') + '/' + pdfFile;
+  const transcriptDirs = transcriptDirsForSource(source);
   const matches = pdfEntries.filter((key) => key === direct
-    || (key.startsWith(source.transcriptDir + '/') && basename(key) === pdfFile));
+    || (transcriptDirs.some((dir) => key.startsWith(dir + '/')) && basename(key) === pdfFile));
   const unique = [...new Set(matches)];
   return unique.length === 1 ? { key: unique[0], matches: unique } : { key: null, matches: unique };
 }

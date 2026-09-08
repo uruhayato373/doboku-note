@@ -141,7 +141,7 @@ async function push(cfg, group, mount, manifest) {
   const rows = [];
   const planErrors = [];
   for (const t of targets) {
-    try { rows.push({ ...t, vaultRel: vaultRelFor(t.rel, t.group) }); }
+    try { rows.push({ ...t, vaultRel: manifest.entries[t.rel]?.adopted ? manifest.entries[t.rel].vaultPath : vaultRelFor(t.rel, t.group) }); }
     catch (e) { planErrors.push([t.rel, e.message]); }
   }
   if (planErrors.length) {
@@ -199,7 +199,7 @@ async function push(cfg, group, mount, manifest) {
     manifest.entries[r.rel] = sanitizeDriveEntry({
       group: r.group.id, vaultPath: extra.vaultPath, sha256: h.sha256, md5: h.md5, bytes: h.bytes,
       regenerable: Boolean(r.group.regenerable), syncedAt: new Date().toISOString(), verifiedAt: new Date().toISOString(),
-      ...(extra.adopted ? { adopted: true } : {}),
+      ...(extra.adopted || manifest.entries[r.rel]?.adopted ? { adopted: true } : {}),
       ...(extra.dims || {}),
     });
     sinceCheckpoint++;
@@ -214,6 +214,7 @@ async function push(cfg, group, mount, manifest) {
 
     const cur = manifest.entries[r.rel];
     if (!FORCE && cur && cur.sha256 === expected.sha256 && existsSync(vaultAbsFor(mount.root, cur.vaultPath))) { unchanged++; return; }
+    if (cur?.adopted && expected.sha256 !== cur.sha256) throw new Error(r.rel + ': 正本への別名参照から内容を変更できない。正本キーを使うこと');
 
     // dedupe: 同じ sha256 が vault のどこかに既にあれば、コピーせずその場所を採用する
     if (dedupeIndex && dedupeIndex.has(expected.sha256)) {

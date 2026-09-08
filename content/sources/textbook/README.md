@@ -8,21 +8,22 @@
 
 | 種別 | 置き場 |
 |---|---|
-| 元 PDF・スキャンページ画像 | Google Drive vault `原資料PDF/教材/{書名}/`（台帳 `drive-manifest.json`。[textbook-pdf-archive.md](../../../.claude/knowledge/reference/textbook-pdf-archive.md)） |
-| 文字起こし本文（`.md`） | private Google Drive vault `マイドライブ/doboku-note/文字起こし/`（group `source-transcript`） |
-| `.html`・図版・作業ファイル | private Google Drive vault `マイドライブ/doboku-note/文字起こし/`（手動管理） |
+| 元 PDF・スキャンページ画像 | Google Drive vault `原資料PDF/書籍/{referenceId}__{短い書名}/{source,pages}/`。未移行資料は台帳の旧配置（[textbook-pdf-archive.md](../../../.claude/knowledge/reference/textbook-pdf-archive.md)） |
+| 文字起こし本文（`.md`） | 同じ原資料ディレクトリ内の `ocr/`（group `source-transcript`） |
+| `.html`・既存図版・校正ファイル | 同じ原資料ディレクトリ内の `ocr/`（新規の監査済み図クロップは `crops/`） |
 | 各サブディレクトリの README.md | git 追跡を継続（この案内のため） |
 
 ## ローカルで復元する手順
 
 新しい端末で作業する場合:
 
-1. Google Drive デスクトップアプリでこの端末のアカウントにログインし、`マイドライブ/doboku-note/文字起こし/` を展開・同期する
-2. `npm run drive-vault-sync -- --group source-transcript --pull` で台帳にある `.md` を対応する `content/sources/textbook/` 配下へ戻す
+1. Google Drive デスクトップアプリでこの端末のアカウントにログインし、`マイドライブ/doboku-note/原資料PDF/` を同期する
+2. `npm run drive-vault-sync -- --group source-transcript --pull` で台帳にある `.md` を対応する論理キーへ戻す（旧分は `content/sources/textbook/`、新規は `content/sources/books/{bookDir}/ocr/`）
 3. PDF・ページ画像が必要な場合は別途 `npm run drive-vault-sync -- --pull --path 'content/sources/textbook/{書名}/'` で Drive から取得する（マウントが要る・ネット不要）
 
 文字起こしの先頭には `source` / `sourcePdfs` / `pdfPages` / `method` 等の frontmatter を付ける。原本から
 記事までの ID 対応と公開条件は [reference-sources-policy.md](../../../.claude/knowledge/reference/reference-sources-policy.md) を参照する。
+旧キーは互換用の別名であり、別の PDF を持つための置き場ではない。Drive の正本は1箇所だけに保つ。
 
 ## なぜ動かしたか
 

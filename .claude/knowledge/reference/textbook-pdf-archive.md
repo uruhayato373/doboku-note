@@ -1,6 +1,6 @@
 # 教材スキャンPDF アーカイブ運用（Google Drive vault）
 
-`content/sources/textbook/` 配下のスキャン教材・白書・過去問の**元PDF**とページ画像（PDF→MDX 変換の入力）を git に溜め込まず、Google Drive vault へ退避し、必要なときだけローカルへ取り戻す運用方針。2026-07-20 制定、2026-09-05 に置き場を private R2 から Drive vault へ改めた。
+`content/sources/textbook/` 配下のスキャン教材・白書・過去問の**元PDF**とページ画像（PDF→MDX 変換の入力）を git に溜め込まず、Google Drive vault へ退避し、必要なときだけローカルへ取り戻す運用方針。2026-07-20 制定、2026-09-05 に置き場を private R2 から Drive vault へ改め、2026-09-07 から参考文献 ID 単位の書籍 bundle へ段階移行している。
 
 ## なぜ Drive vault か
 
@@ -19,12 +19,17 @@
 
 | 項目 | 値 |
 |---|---|
-| 置き場 | Google Drive vault `マイドライブ/doboku-note/原資料PDF/教材/{書名}/`（`content/sources/textbook/{書名}/` の 1:1 ミラー。PDF とページ画像 `pages/` が同居） |
-| キー対応 | `content/sources/textbook/<相対パス>` ↔ `原資料PDF/教材/<相対パス>` |
+| 置き場 | Google Drive vault `マイドライブ/doboku-note/原資料PDF/書籍/{referenceId}__{短い書名}/`。未移行資料は `教材/` 等の既存配置 |
+| キー対応 | 新規は `content/sources/books/`。既存 `content/sources/textbook/` キーは台帳で正本へ解決し、物理コピーを増やさない |
 | git（元PDF） | `.gitignore` で除外。実体は Drive vault のみ |
 | git（ページ画像・図クロップ） | `.gitignore` で `content/sources/textbook/**/*.{png,jpg,jpeg,webp,pdf}` を除外。実体は Drive vault、台帳は `.claude/state/assets/drive-manifest.json` |
-| 文字起こし `.md` | `マイドライブ/doboku-note/文字起こし/{書名}/`。group `source-transcript` で台帳化し、原本との対応は frontmatter が保持（手順は [reference-sources-policy.md](reference-sources-policy.md)） |
+| 文字起こし `.md` | 各原資料ディレクトリ内の `ocr/`。group `source-transcript` で台帳化し、原本との対応は frontmatter が保持（手順は [reference-sources-policy.md](reference-sources-policy.md)） |
 | マウント先 | 端末ごとに違う（Mac `~/Library/CloudStorage/GoogleDrive-<account>/マイドライブ/`、Windows `G:\マイドライブ\` 等）。コードは `scripts/lib/drive-vault.mjs` の `resolveVaultRoot()` が解決する |
+
+上表の `原資料PDF/教材/` は既存 400 件超を壊さず読むための**移行元レイアウト**。参考文献台帳へ登録して
+ページ画像化する市販書籍の新しい正規形は、`原資料PDF/書籍/{referenceId}__{短い書名}/` の下に
+`source/`・`pages/`・`ocr/`・`crops/`・`book-manifest.json` を置く。正本を全件照合して台帳を切り替えた後、
+許可済みの完全一致コピーだけを削除する。生成器は登録済み正本を優先して読むため、旧配置を残す必要はない。
 
 > [!note] Drive はストリーミングマウント
 > `stat`/Finder のサイズは cloud-only ファイルで 16MiB のプレースホルダになる。実サイズは読んで測る（`drive-vault-sync` は常にファイルを読んで sha256/バイト数を確認する）。
@@ -56,6 +61,15 @@ node scripts/drive-vault-sync.mjs --group textbook-page-image --from-r2 --dedupe
 
 # 検証（ローカル実体 ↔ 台帳 ↔ Drive の3者照合。--cloud で Drive API の md5 まで見る）
 node scripts/drive-vault-sync.mjs --group textbook-source-pdf --verify --deep --cloud
+
+# 参考文献 ID 単位の新しい書籍 bundle（dry-run → commit → 原本と全ページのクラウド照合）
+npm run build-reference-book-pages -- --source-id <referenceId>
+npm run build-reference-book-pages -- --source-id <referenceId> --commit
+npm run build-reference-book-pages -- --source-id <referenceId> --commit --replace-derived # 描画条件を変えた派生画像の安全置換
+npm run record-reference-book-artifacts -- --source-id <referenceId> ... # dry-run後に --commit
+npm run check-reference-book-pages -- --source-id <referenceId> --deep
+npm run drive-vault-sync -- --group reference-book-source-pdf --verify --deep --cloud
+npm run drive-vault-sync -- --group reference-book-page-image --verify --deep --cloud
 
 # 文字起こしを同期・検証（frontmatter と原本の対応は reference-sources の deep 検査）
 node scripts/drive-vault-sync.mjs --group source-transcript --commit
