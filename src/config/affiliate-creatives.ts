@@ -480,6 +480,8 @@ export function resolvePeConsultingArticleEndCard(): CareerArticleEndCard {
 export function resolveCategoryCareerAds(
   category: string,
 ): Array<{ creative: SidebarAdCreative; trackLabel: string }> {
+  // 技士ハブは学習導線を優先し、既存の期間・審査ポリシーで解決した広告を1枠にする。
+  if (category === "concrete-engineer") return [resolveCareerSidebarAd()];
   if (category === "pe-comprehensive-management") {
     return [{ creative: PE_CONSULTING_CAREER_AD, trackLabel: "DXConsulting-sidebar" }];
   }

@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { StandardPracticeLinks } from '@/components/ui/SidebarDiscovery';
 import DisclosureChevron from '@/components/ui/DisclosureChevron';
 import {
   getStandardDocuments,
@@ -354,6 +355,7 @@ export default function StandardsNavigation({
             ← {parentLabel}
           </Link>
           {contents}
+          {currentChapter && <StandardPracticeLinks title={currentChapter.title} />}
         </div>
       </details>
     );
@@ -373,6 +375,7 @@ export default function StandardsNavigation({
         </Link>
       </div>
       {contents}
+      {currentChapter && <StandardPracticeLinks title={currentChapter.title} />}
     </div>
   );
 }

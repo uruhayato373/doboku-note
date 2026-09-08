@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import Image from 'next/image';
+import ContentThumbnail from '@/components/ui/ContentThumbnail';
 import { type DocMeta } from '@/lib/docs';
 import { type DocGroup } from '@/lib/category-groups';
 import { getOgpDisplayUrl } from '@/lib/r2-image-loader';
@@ -324,25 +324,16 @@ function PeConstructionExamTable({ docs }: { docs: DocMeta[] }) {
  * 「よく読まれている記事」（rank 付き）と各セクションの OGP 行（rank 無し）で共用する。
  * サムネの縦横比は self-start で保つ（下記コメント参照）。
  */
-export function OgpThumbRow({ doc, rank, eager = false }: { doc: DocMeta; rank?: number; eager?: boolean }) {
+export function OgpThumbRow({ doc, rank, eager = false, headingLevel: Heading = 'h3' }: { doc: DocMeta; rank?: number; eager?: boolean; headingLevel?: 'h3' | 'h4' }) {
   const title = doc.shortTitle || doc.title;
   const excerpt = doc.subtitle || doc.description;
   return (
     <li className="border-b border-[var(--rule-soft)] last:border-b-0">
-      <Link href={getPublicDocPath(doc.slug)} className="group flex gap-3 sm:gap-4 py-4">
+      <Link href={getPublicDocPath(doc.slug)} className="focus-ring group flex gap-3 sm:gap-4 py-4">
         {/* self-start 必須: 親 flex の align-items:stretch がサムネをテキスト列の高さに
             引き伸ばし aspect-[1200/630] を無効化する（縦伸び事故の根治・2026-07-15）。 */}
         <div className="relative aspect-[1200/630] w-[124px] sm:w-[168px] shrink-0 self-start overflow-hidden border border-[var(--rule-soft)] bg-[var(--bg)]">
-          <Image
-            src={getOgpDisplayUrl(doc.slug)}
-            alt=""
-            width={336}
-            height={176}
-            unoptimized
-            loading={eager ? 'eager' : 'lazy'}
-            sizes="(max-width: 640px) 124px, 168px"
-            className="h-full w-full object-cover"
-          />
+          <ContentThumbnail src={getOgpDisplayUrl(doc.slug)} eager={eager} />
         </div>
         <div className="flex min-w-0 flex-1 gap-2.5">
           {rank != null && (
@@ -351,9 +342,9 @@ export function OgpThumbRow({ doc, rank, eager = false }: { doc: DocMeta; rank?:
             </span>
           )}
           <div className="flex min-w-0 flex-col gap-1">
-            <h3 className="font-serif text-[15px] sm:text-lg font-bold leading-snug text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors line-clamp-2">
+            <Heading className="font-serif text-[15px] sm:text-lg font-bold leading-snug text-[var(--ink)] group-hover:text-[var(--accent)] transition-colors">
               {title}
-            </h3>
+            </Heading>
             {excerpt && (
               <p className="text-[13px] sm:text-sm text-[var(--ink-muted)] line-clamp-2">{excerpt}</p>
             )}

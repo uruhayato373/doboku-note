@@ -153,16 +153,35 @@ https://note.com/dobokunote/n/n6b66793ca20c
 
 ## キャリア・転職の無料記事
 
-資格は「取ったあと」に効きます。年収・働き方・転職のタイミングまで、発注者側を経験した運営者の視点でまとめた無料記事です。
+資格取得後の仕事・待遇・応募準備を、いま整理したいことから選べます。
 
-- [ホワイトな建設会社の見分け方](https://note.com/dobokunote/n/ne7284dacf78b) — 残業・休日・離職率でチェックする
-- [施工管理の転職はいつ動くべきか](https://note.com/dobokunote/n/n401905648243) — 在職中の進め方と円満退職
-- [転職した方がいい施工管理の見極め](https://note.com/dobokunote/n/n85d4b322898b) — 発注者視点で見た「動くべきサイン」
-- [年収を上げる人の違い](https://note.com/dobokunote/n/nfbff7b1469b6) — 資格・役割・現場の選び方
-- [転職エージェントの使い方](https://note.com/dobokunote/n/n5a823955985c) — 施工管理職の失敗しない進め方
-- [1級土木で市場価値がどう変わるか](https://note.com/dobokunote/n/n6c68d022a56a) — 資格取得後のキャリア
-- [公務員土木か民間か](https://note.com/dobokunote/n/n8b03a7de0c6b) — 発注者側・受注者側それぞれの実際
-- [施工管理の失敗談と教訓](https://note.com/dobokunote/n/n96f94252c128) — 現場で効く学び
+### 転職するか・いつ動くかを考える
+
+- [施工管理を辞める前に確認すること｜経験・生活費・次の働き方を整理する](https://note.com/dobokunote/n/n7a81ebf1cdc5)
+- [施工管理を続けるか転職するか｜元自治体土木職が考える担当・体制・条件の確認](https://note.com/dobokunote/n/n85d4b322898b)
+- [施工管理の転職はいつ動く？情報収集・応募・入社を分ける在職中の進め方](https://note.com/dobokunote/n/n401905648243)
+- [施工管理でミスを抱え込まない｜報告・分担・次の職場選びの確認メモ](https://note.com/dobokunote/n/n96f94252c128)
+
+### 仕事・勤務地・待遇を比べる
+
+- [土木施工管理の年収を見直す｜資格手当・担当業務・給与内訳で確認すること](https://note.com/dobokunote/n/nfbff7b1469b6)
+- [土木施工管理の内定比較｜同じ年収の2社、給与・休日・担当現場をどう比べる？](https://note.com/dobokunote/n/nf17ae9b9f3f7)
+- [土木施工管理の会社選び｜休日・残業を求人票と面接で確かめる質問](https://note.com/dobokunote/n/ne7284dacf78b)
+- [土木施工管理で地元に転職したい｜「転勤なし」の次に確認する勤務地と出張](https://note.com/dobokunote/n/n01a775d6c669)
+- [施工管理の転職で家族との時間を増やしたい｜休日・帰宅・出張の希望を伝える方法](https://note.com/dobokunote/n/n45e5ec2f687e)
+- [公務員土木か民間か｜仕事内容・働き方・採用ルートで比べる選び方](https://note.com/dobokunote/n/n8b03a7de0c6b)
+- [発注者支援への転職｜仕事内容・常駐先・配属変更で確認したいこと](https://note.com/dobokunote/n/n266f0cdd99ef)
+- [1級土木施工管理技士で市場価値はどう変わる？資格取得後の役割・待遇の確かめ方](https://note.com/dobokunote/n/n6c68d022a56a)
+- [2級土木施工管理技士の転職｜年収と一緒に確かめたい「次に任される仕事」](https://note.com/dobokunote/n/ncb066fce826b)
+
+### 応募書類と相談の準備をする
+
+- [土木施工管理の職務経歴書｜「施工管理を担当しました」で終わらない工事経験の伝え方](https://note.com/dobokunote/n/ne990d6bf4ce1)
+- [土木公務員の職務経歴書｜「調整業務」を民間にも伝わる担当経験へ](https://note.com/dobokunote/n/n433cce5f118f)
+- [施工管理の転職エージェントの使い方｜登録・電話・面談・応募前の準備](https://note.com/dobokunote/n/n5a823955985c)
+- [土木施工管理の転職エージェントの選び方｜工種・勤務地・支援内容で比較する](https://note.com/dobokunote/n/ne49853deac96)
+- [ビルドジョブは土木施工管理に向く？評判を見る前に確認したい経験・勤務地・相談の流れ](https://note.com/dobokunote/n/na0f42fd52a51)
+
 
 ---
 

@@ -355,6 +355,7 @@ content/site/**/ogp.webp
 # node scripts/asset-offload.mjs --group site-ogp-png --commit）。
 # 復元は node scripts/asset-hydrate.mjs --group site-ogp-png。2026-08-29・DN-0111系。
 content/site/**/ogp.png
+content/site/**/ogp-thumb-*.webp
 
 # content/note/**/magazines/*/_cover.png（46件・45.1MB）は実体を Google Drive vault
 # （drive-vault.json の note-magazine-cover-png group・台帳 drive-manifest.json）に置く。

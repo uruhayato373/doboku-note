@@ -1,87 +1,72 @@
-import Link from "next/link";
-import categoriesData from "@/config/categories.json";
-import { CategoryDef, getCategoryHubPath } from "@/lib/categories";
+import Link from 'next/link';
+import DisclosureChevron from '@/components/ui/DisclosureChevron';
+import { getAllCategories, getCategoryHubPath } from '@/lib/categories';
 
-const categories = (categoriesData as CategoryDef[]).filter((category) => category.visible !== false);
+const categories = getAllCategories().filter(category => category.visible !== false);
+const siteLinks = [
+  ['/tools', '計算・演習'],
+  ['/standards', '基準類・仕様書'],
+  ['/topics', 'テーマ別索引'],
+  ['/about', '運営者情報'],
+  ['/contact', 'お問い合わせ'],
+  ['/privacy', 'プライバシーポリシー'],
+  ['/terms', '利用規約'],
+] as const;
+const footerLink = 'focus-ring inline-flex min-h-11 items-center text-sm text-[var(--ink-body)] transition-colors hover:text-[var(--accent)]';
+
+function CategoryLinks() {
+  return (
+    <ul className="grid grid-cols-1 gap-x-5 sm:grid-cols-2 lg:grid-cols-3">
+      {categories.map(category => (
+        <li key={category.slug}>
+          <Link href={getCategoryHubPath(category.slug)} className={footerLink}>
+            {category.label}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[var(--rule-soft)] bg-[var(--paper)] mt-10 transition-colors duration-300">
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-10 py-10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
-          {/* ブランド情報 */}
-          <div className="col-span-2">
-            <Link href="/" className="flex items-baseline gap-2">
-              <span className="font-serif text-2xl font-black tracking-tight text-[var(--ink)]">doboku</span>
-              <span className="font-mono text-[10px] text-[var(--ink-muted)] tracking-widest uppercase">— note</span>
+    <footer className="mt-8 border-t border-[var(--rule-soft)] bg-[var(--paper)] transition-colors duration-300">
+      <div className="mx-auto max-w-[1280px] px-4 py-5 sm:px-6 sm:py-6 lg:px-10">
+        <div className="sm:flex sm:gap-8">
+          <div className="sm:w-48 sm:shrink-0">
+            <Link href="/" aria-label="doboku-note ホーム" className="focus-ring inline-flex min-h-11 items-baseline gap-2 py-2">
+              <span className="font-serif text-xl font-black text-[var(--ink)]">doboku</span>
+              <span className="font-mono text-xs uppercase tracking-widest text-[var(--ink-muted)]">— note</span>
             </Link>
-            <p className="mt-3 text-[var(--ink-muted)] text-[13px] leading-relaxed max-w-[40ch]">
-              土木系資格試験の対策ノート。1級土木施工管理技士および技術士（総合技術監理部門）の学習コンテンツを公開。
-            </p>
+            <p className="text-sm leading-relaxed text-[var(--ink-body)]">土木の資格試験と実務を学ぶ</p>
           </div>
 
-          {/* カテゴリ */}
-          <div>
-            <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--ink-muted)] mb-3">Categories</div>
-            <ul className="space-y-2">
-              {categories.map(cat => (
-                <li key={cat.slug}>
-                  <Link
-                    href={getCategoryHubPath(cat.slug)}
-                    className="inline-flex min-h-11 items-center text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors"
-                  >
-                    {cat.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* サイト情報 */}
-          <div>
-            <div className="font-mono text-[10px] uppercase tracking-widest text-[var(--ink-muted)] mb-3">Site</div>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/standards" className="inline-flex min-h-11 items-center text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
-                  基準類・仕様書
-                </Link>
-              </li>
-              <li>
-                <Link href="/topics" className="inline-flex min-h-11 items-center text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
-                  テーマ別索引
-                </Link>
-              </li>
-              <li>
-                <Link href="/about" className="inline-flex min-h-11 items-center text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy" className="inline-flex min-h-11 items-center text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
-                  Privacy
-                </Link>
-              </li>
-              <li>
-                <Link href="/terms" className="inline-flex min-h-11 items-center text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
-                  Terms
-                </Link>
-              </li>
-              <li>
-                <Link href="/contact" className="inline-flex min-h-11 items-center text-[var(--ink-body)] hover:text-[var(--accent)] transition-colors">
-                  Contact
-                </Link>
-              </li>
-            </ul>
-          </div>
+          <nav aria-label="フッターの資格・実務一覧" className="hidden min-w-0 flex-1 sm:block">
+            <h2 className="mb-1 text-sm font-bold text-[var(--ink)]">資格・実務から探す</h2>
+            <CategoryLinks />
+          </nav>
         </div>
 
-        <p className="mt-8 pt-4 border-t border-[var(--rule-soft)] text-[12px] text-[var(--ink-muted)] leading-relaxed max-w-[60ch]">
-          当サイトは成果報酬型広告（アフィリエイトプログラム）を利用しています。
-        </p>
+        <details className="group mt-3 border-y border-[var(--rule-soft)] sm:hidden">
+          <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center justify-between gap-3 text-sm font-bold text-[var(--ink)] [&::-webkit-details-marker]:hidden">
+            資格・実務から探す<DisclosureChevron />
+          </summary>
+          <nav aria-label="フッターの資格・実務一覧" className="pb-2">
+            <CategoryLinks />
+          </nav>
+        </details>
 
-        <div className="mt-4 flex justify-between text-[11px] font-mono text-[var(--ink-muted)] flex-wrap gap-2">
-          <span>© {new Date().getFullYear()} doboku-note</span>
-          <span>Built with Next.js · Tailwind · MDX</span>
+        <nav aria-label="フッターのサイト案内" className="mt-3 sm:border-t sm:border-[var(--rule-soft)] sm:pt-2">
+          <ul className="flex flex-wrap gap-x-5">
+            {siteLinks.map(([href, label]) => (
+              <li key={href}><Link href={href} className={footerLink}>{label}</Link></li>
+            ))}
+          </ul>
+        </nav>
+
+        <div className="mt-3 flex flex-col gap-2 text-xs leading-relaxed text-[var(--ink-body)] sm:flex-row sm:items-center sm:justify-between sm:gap-5">
+          <p>当サイトは成果報酬型広告（アフィリエイト）を利用しています。</p>
+          <span className="shrink-0 font-mono sm:pr-14">© {new Date().getFullYear()} doboku-note</span>
         </div>
       </div>
     </footer>

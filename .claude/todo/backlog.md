@@ -90,15 +90,6 @@
 **実行端末**: 会社PCでは不可。プロキシが `management.af8.jp` への CONNECT を拒否する（2026-09-07 実測。`www.a8.net` は 200 で通るがトンネルは張れない）。Mac か別回線で実行する。EPC の分母（GA4 by-label クリック）と `check-a8-report-due`（2026-09-07 時点で DUE）は手元で足りている。
 
 
-### [DN-0142] reference-materials 再公開5記事のGSC効果を計測する
-タグ: [インフラ・計測] [種類:改善] [起票:2026-08-26] [期日:2026-09-09]
-
-旧DN-0074の残作業③。2026-08-26に精度向上のうえ再公開した5記事
-（reference-materials-hyogo-port-materials / river-abandonment / inverted-siphon / floodgate / tunnel-02）
-について、再公開14日後（2026-09-09以降）にGSCでインデックス状況とimpressions/clicksのdeltaを計測し、
-再実験化（EXP系起票）するかを判断する。EXP-002はcancelled（2026-06-27）なので新規起票になる。
-
-
 ### [DN-0110] 承認済み動画パック112本＋Shorts224本の公開・6週間判定
 タグ: [SNS・マーケ] [種類:改善] [Codex候補] [検証:quality:audit:ci] [起票:2026-08-21]
 

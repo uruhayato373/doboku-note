@@ -20,6 +20,8 @@ import SidebarAdBanner from '@/components/ui/SidebarAdBanner/SidebarAdBanner';
 import RelatedArticles from '@/components/ui/RelatedArticles';
 import NextStepNav from '@/components/ui/NextStepNav/NextStepNav';
 import AuthorCard from '@/components/ui/AuthorCard/AuthorCard';
+import RelatedTools from '@/components/ui/RelatedTools';
+import { DISCOVERY_CATEGORIES } from '@/lib/sidebar-discovery';
 
 interface ArticleFooterProps {
   readonly references: ReferenceItem[];
@@ -106,6 +108,7 @@ export default function ArticleFooter({
 
   return (
     <>
+      {!isCareer && category && <RelatedTools category={category} slug={slugStr} />}
       {/* 参考資料カード（## 参考資料 セクションを抽出したもの。全カテゴリ共通） */}
       {references.length > 0 && (
         <div className="mt-8">
@@ -208,7 +211,7 @@ export default function ArticleFooter({
       {/* guide/pillar/secondary/textbook: カテゴリナビカード（モバイル） */}
       {hasCategoryNavCard &&
         category &&
-        (docGroup === 'guide' ||
+        (DISCOVERY_CATEGORIES.includes(category) || docGroup === 'guide' ||
           docGroup === 'pillar' ||
           docGroup === 'secondary' ||
           docGroup === 'textbook') && (
@@ -216,7 +219,7 @@ export default function ArticleFooter({
              既定は閉じた details にして、開きたい人だけ展開させる。デスクトップはサイドバーで表示済み。 */
           <details className="mt-8 zenn-desktop:hidden group rounded-card-section border border-[var(--rule-soft)] bg-[var(--paper)] dark:border-[var(--rule-soft)]">
             <summary className="focus-ring flex min-h-11 cursor-pointer list-none items-center justify-between px-4 py-3 text-[14px] font-bold text-[var(--ink)] [&::-webkit-details-marker]:hidden">
-              <span>この資格の記事一覧を開く</span>
+              <span>{category === 'civil-practice' ? '関連する実務記事を開く' : 'この資格の記事一覧を開く'}</span>
               <span aria-hidden="true" className="text-[var(--ink-muted)] transition-transform group-open:rotate-180">⌄</span>
             </summary>
             <div className="px-3 pb-3">

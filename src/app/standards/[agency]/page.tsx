@@ -36,33 +36,37 @@ export default async function StandardsAgencyPage({ params }: { params: Promise<
 
   return (
     <PageShell variant="default">
-      <PageHeader
-        variant="band"
-        breadcrumb={[{ label: 'ホーム', href: '/' }, { label: '基準類', href: '/standards' }, { label: entry.agencyName }]}
-        label="公的基準類ライブラリ"
-        title={entry.agencyName}
-        lead={`土木工事共通仕様書・工事必携等 ${entry.documentCount}文書を、原本PDFのページ番号を保って公開しています。`}
-        meta={`${entry.pages.toLocaleString('ja-JP')}ページ / ${entry.partCount}分冊`}
-      />
       <TwoColumnShell
         as="div"
         mainClassName="py-8 sm:py-10"
         aside={<StandardsNavigation agencyId={agency} />}
       >
-        <div className="mb-6 zenn-desktop:hidden">
-          <StandardsNavigation agencyId={agency} variant="mobile" />
-        </div>
+
+        <div className="card-surface-section px-5 pb-8 sm:px-8 sm:pb-10 lg:px-10">
+      <PageHeader
+        variant="inline"
+        className="border-b border-[var(--rule-soft)] py-6 sm:py-8"
+        breadcrumb={[{ label: 'ホーム', href: '/' }, { label: '基準類', href: '/standards' }, { label: entry.agencyName }]}
+        title={entry.agencyName}
+        meta={<span className="text-sm">{entry.documentCount}文書 · {entry.pages.toLocaleString('ja-JP')}ページ</span>}
+      />
+        <div className="pt-5">
         <section aria-labelledby="agency-documents">
-          <div className="mb-6 border-b border-[var(--rule-soft)] pb-5">
+          <div className="mb-3">
             <h2 id="agency-documents" className="text-2xl font-bold text-[var(--ink)]">収録文書</h2>
             <p className="mt-2 text-[14px] leading-[1.8] text-[var(--ink-muted)]">
-              文書を選ぶと、原本PDFのページ番号に対応した全文文字起こしを分冊単位で読めます。
+              読みたい文書を選んでください。
             </p>
           </div>
-          <div className="grid gap-4 lg:grid-cols-2">
-            {documents.map((document) => <StandardDocumentCard key={document.documentId} document={document} />)}
+          <div className="grid gap-x-5 sm:grid-cols-2">
+            {documents.map((document) => <StandardDocumentCard key={document.documentId} document={document} variant="row" />)}
           </div>
         </section>
+        </div>
+        </div>
+        <div className="mt-6 zenn-desktop:hidden">
+          <StandardsNavigation agencyId={agency} variant="mobile" />
+        </div>
         <StandardsAttribution />
       </TwoColumnShell>
     </PageShell>

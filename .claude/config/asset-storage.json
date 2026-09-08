@@ -87,6 +87,23 @@
       ],
       "reason": "content/site/**/ogp.png は 1,166 件 607MB でリポジトリ git 追跡容量 1,163MB の 52% を占める。配信は既に R2 301（public/_redirects）経由で本番稼働中。R2 キーは upload-images-to-r2.mjs の `posts/${rel}` と機械的に一致するため URL は変わらない。visibility を fixed:public にするのは、現行の r2-sync.yml が published 記事かどうかを問わず全記事の ogp.png を public へ同期している現状の挙動を変えないため。",
       "phase": "site-ogp-offload"
+    },
+    {
+      "id": "site-ogp-thumbnails",
+      "audience": "site",
+      "match": {
+        "pathRegex": "^content/site/.+/ogp-thumb-(248|336|640)[.]webp$"
+      },
+      "bucket": "public",
+      "keyPrefix": "posts/",
+      "keyFrom": "stripPrefix:content/site/",
+      "visibilityFrom": "fixed:public",
+      "regenerable": true,
+      "generator": "npm run build-ogp-thumbnails",
+      "requiredBy": [
+        "src/components/ui/ContentThumbnail.tsx"
+      ],
+      "reason": "保存済みのOGP原本から生成する表示用WebP。ogp-supplyが原本sha256と生成レシピをR2メタデータで照合し、供給後の読み戻しを検証する。原本台帳を真実源とし、派生画像の台帳コピーは持たない。"
     }
   ]
 }

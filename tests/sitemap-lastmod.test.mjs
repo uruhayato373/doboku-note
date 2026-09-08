@@ -9,7 +9,7 @@ test('基準書の生成ページは catalog.asOf を lastmod に使う', () => 
 });
 
 test('MDXガイドと根拠日のない静的ページは lastmod を出さない', () => {
-  assert.equal(resolveStaticLastmod('/standards/guides/floodgate', '2026-08-29'), undefined);
+  assert.equal(resolveStaticLastmod('/standards/guides/example', '2026-08-29'), undefined);
   assert.equal(resolveStaticLastmod('/exam', '2026-08-29'), undefined);
   assert.equal(resolveStaticLastmod('/about', '2026-08-29'), undefined);
 });

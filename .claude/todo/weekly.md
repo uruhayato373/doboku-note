@@ -10,7 +10,6 @@
 
 | 優先 | ID | 今週の出口 |
 |---|---|---|
-| 🟡 | DN-0142 | 期日09-09にGSCでインデックス状況とimpressions/clicksのdeltaを確認し再実験化を判断する |
 
 ## 定常運用（surfacer から pull・backlog ID なし）
 

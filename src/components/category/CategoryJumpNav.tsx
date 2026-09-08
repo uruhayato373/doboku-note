@@ -53,51 +53,41 @@ const CATEGORY_JUMPS: Record<string, JumpItem[]> = {
   ],
 };
 
+export function getCategoryJumps(category: string) {
+  return [...(CATEGORY_JUMPS[category] ?? [])].sort((a, b) => Number(!/primary|pastExam/.test(a.href)) - Number(!/primary|pastExam/.test(b.href)));
+}
+
 export default function CategoryJumpNav({ category }: { category: string }) {
-  const items = CATEGORY_JUMPS[category] ?? [];
+  const items = getCategoryJumps(category);
   if (items.length === 0) return null;
 
   const layoutClass = items.length <= 3
-    ? 'grid grid-cols-3 overflow-hidden'
-    : 'flex overflow-x-auto overflow-y-hidden sm:grid sm:grid-cols-5 sm:overflow-visible';
+    ? 'grid grid-cols-3'
+    : 'grid grid-cols-2 sm:grid-cols-3';
 
   return (
     <nav
       aria-label="この資格の学習メニュー"
       data-cta="nav"
       data-cta-label="category-jump-nav"
-      className="border-b border-[var(--rule-soft)] py-5"
+      className="border-b border-[var(--rule-soft)] py-4"
     >
       <div className="mb-3">
         <div className="text-[17px] font-bold tracking-[0.02em] text-[var(--ink)]">
           学習を始める
         </div>
-        <p className="mt-0.5 text-[12px] leading-5 text-[var(--ink-muted)]">
-          今やりたいことから選べます
-        </p>
       </div>
-      <ul className={`${layoutClass} rounded-card-inline border border-[var(--rule-soft)] bg-[var(--paper)] toc-scroll`}>
-        {items.map((item, index) => (
+      <ul className={`${layoutClass} gap-2`}>
+        {items.map((item) => (
           <li
             key={item.href}
-            className={`${items.length <= 3 ? 'min-w-0' : 'min-w-[148px] sm:min-w-0'} border-r border-[var(--rule-soft)] last:border-r-0`}
+            className="min-w-0"
           >
             <Link
               href={item.href}
-              className="focus-ring group flex min-h-[78px] flex-col justify-between px-2.5 py-3 text-left transition-colors hover:bg-[var(--accent-fill)] sm:px-3.5"
+              className="focus-ring flex h-full min-h-11 items-center justify-between gap-2 rounded-card-inline border border-[var(--rule-soft)] px-3 py-3 text-sm font-bold text-[var(--ink)] transition-colors hover:bg-[var(--accent-fill)]"
             >
-              <span className="flex items-center justify-between font-mono text-[10px] font-bold tracking-[0.14em] text-[var(--accent)]">
-                {String(index + 1).padStart(2, '0')}
-                <span aria-hidden="true" className="text-[13px] font-normal tracking-normal">→</span>
-              </span>
-              <span className="mt-2 block min-w-0">
-                <span className="block text-[12px] font-bold leading-5 text-[var(--ink)] sm:text-[13px]">
-                  {item.goal}
-                </span>
-                <span className="block truncate text-[10px] leading-4 text-[var(--ink-muted)] sm:text-[11px]">
-                  {item.label}
-                </span>
-              </span>
+              <span>{item.label}</span><span aria-hidden="true" className="text-[var(--accent)]">→</span>
             </Link>
           </li>
         ))}

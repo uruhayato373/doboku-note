@@ -1,19 +1,22 @@
 ---
 notePricing: free
 noteStatus: published
-noteUrl: https://note.com/dobokunote/n/n8b03a7de0c6b
+noteUrl: 'https://note.com/dobokunote/n/n8b03a7de0c6b'
 noteId: n8b03a7de0c6b
 utmCampaign: civil-career-public-vs-private
-coverTitle: ["公務員土木か、民間か", "元公務員が考える選び方"]
+coverTitle:
+  - 公務員か民間か
+  - 仕事内容と採用を分ける
 cover:
   variant: crop-safe-v4
-  leadIn: "元自治体土木職員の視点"
-  headline: "公務員か民間か"
-  hi: "無料"
-  hiSuffix: "公開"
-  benefit: "後悔しない選び方が分かる"
+  leadIn: 元自治体土木職員の視点
+  headline: 公務員か民間か
+  hi: 無料
+  hiSuffix: 公開
+  benefit: 仕事内容と採用を分ける
+title: 公務員土木か民間か｜仕事内容・働き方・採用ルートで比べる選び方
 ---
-# 公務員土木か、民間か｜元公務員が考える後悔しない選び方【無料】
+# 公務員土木か民間か｜仕事内容・働き方・採用ルートで比べる選び方
 
 この記事にはPR（アフィリエイト広告）を含みます。
 
@@ -73,7 +76,7 @@ cover:
 
 公務員土木への転職を具体的に知りたい方は、[施工管理から公務員（土木職）への転職](https://doboku-note.com/exam/civil-construction-1/guide/public-servant?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-vs-private&utm_content=public-servant)で、仕事内容・働き方・ルートを整理しています。
 
-一方で、民間側の年収がどう決まるかは[役職・会社規模別の年収](https://doboku-note.com/exam/civil-construction-1/guide/salary-by-role?utm_source=note&utm_medium=referral&utm_campaign=civil-career-public-vs-private&utm_content=salary-by-role)で解説しています。
+給与を比べる際は、基本給・手当・残業代・賞与を分けて確認します。[給与の内訳と評価条件を整理する記事](https://note.com/dobokunote/n/nfbff7b1469b6)も参考にしてください。
 
 両方を読んで、自分にとっての優先順位を見極めてください。どちらに進むか決める前に、いまの経験が民間の転職市場でどう評価されるかを確認しておくと選びやすくなります。
 
@@ -92,6 +95,11 @@ https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
 公務員か民間か——この問いに、万人共通の正解はありません。あなたが「安定」を最優先するのか、「年収やスケール」を求めるのか、「働き方」を重視するのかによって、答えは変わります。
 
 自治体の土木職を経験した立場から伝えたいのは、どちらを選んでも、自分の優先順位に納得して選んだのなら後悔は少ない、ということです。焦らず、両方を天秤にかけて、あなたにとっての最適解を見つけてください。
+
+<!-- career-expansion-links -->
+## 次に整理したいこと
+
+民間の発注者支援を検討する方には[仕事内容・常駐先・配属変更の確認](https://note.com/dobokunote/n/n266f0cdd99ef)を、自治体での経験を応募書類へまとめる方には[土木公務員の「調整業務」を職務経歴書で説明する方法](https://note.com/dobokunote/n/n433cce5f118f)を用意しています。
 
 ---
 

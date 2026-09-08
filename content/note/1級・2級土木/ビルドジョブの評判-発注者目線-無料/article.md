@@ -2,19 +2,22 @@
 notePricing: free
 noteStatus: published
 utmCampaign: civil-career-buildjob-review
-notePublishedAt: "2026-07-14"
-noteId: "na0f42fd52a51"
-noteUrl: "https://note.com/dobokunote/n/na0f42fd52a51"
-coverTitle: ["ビルドジョブは", "施工管理に向くか"]
+notePublishedAt: '2026-07-14'
+noteId: na0f42fd52a51
+noteUrl: 'https://note.com/dobokunote/n/na0f42fd52a51'
+coverTitle:
+  - ビルドジョブの確認事項
+  - 自分の工種と条件を伝える
 cover:
   variant: crop-safe-v4
-  leadIn: "発注者視点の評判"
-  headline: "ビルドジョブ評判"
-  hi: "無料"
-  hiSuffix: "公開"
-  benefit: "使うべき人が分かる"
+  leadIn: 発注者視点の評判
+  headline: ビルドジョブ
+  hi: 無料
+  hiSuffix: 公開
+  benefit: 自分の工種と条件を伝える
+title: ビルドジョブは土木施工管理に向く？評判を見る前に確認したい経験・勤務地・相談の流れ
 ---
-# ビルドジョブは施工管理に向くか｜発注者から見た使いどころ【無料】
+# ビルドジョブは土木施工管理に向く？評判を見る前に確認したい経験・勤務地・相談の流れ
 
 この記事にはPR（アフィリエイト広告）を含みます。
 
@@ -87,6 +90,11 @@ https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
 相談先を比較してから考えたい方は、[施工管理の転職サービス比較](https://doboku-note.com/exam/civil-construction-1/guide/career-agent-comparison?utm_source=note&utm_medium=referral&utm_campaign=civil-career-buildjob-review&utm_content=agent-comparison)も参考にしてください。
 
 経験・希望条件・連絡方法の3点が整理できれば、相談で聞きたいことが具体的になります。
+
+<!-- career-expansion-links -->
+## 次に整理したいこと
+
+相談用の3行を応募書類へ広げたい方は、[土木施工管理の職務経歴書に書く工事経験の整理](https://note.com/dobokunote/n/ne990d6bf4ce1)へ進んでください。
 
 ---
 

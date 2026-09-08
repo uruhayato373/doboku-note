@@ -98,7 +98,7 @@ export default async function StandardPartPage({ params }: { params: Promise<Par
             label="原典照合用・逐語文字起こし"
             title={`${entry.title} PDF page ${entryPart.firstPage}–${entryPart.lastPage}`}
             lead="原本PDFのページ番号を基準に、紙面内の改行・空白を保って表示しています。横に長い表は左右にスクロールできます。"
-            meta={`${entryPart.pageCount}ページ / part SHA-256 ${entryPart.sha256.slice(0, 16)}…`}
+            meta={`${entryPart.pageCount}ページ`}
           />
 
           <div className="mt-6 zenn-desktop:hidden">
@@ -179,7 +179,7 @@ export default async function StandardPartPage({ params }: { params: Promise<Par
           </nav>
 
           <StandardTopicLinks topics={relatedTopics} />
-          <StandardsAttribution document={entry} />
+        <StandardsAttribution document={entry} part={entryPart} />
         </SectionCard>
       </TwoColumnShell>
     </PageShell>

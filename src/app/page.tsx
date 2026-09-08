@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import PageShell from "@/components/layout/PageShell";
-import { Hero, ExamCards, LatestArticles, RecentUpdatesStrip, AboutSection, PremiumNoteHero } from "@/components/home";
+import { Hero, ExamCards, LatestArticles, AboutSection, PremiumNoteHero } from "@/components/home";
 import type { LatestArticle } from "@/components/home";
 import { getAllDocsMeta, type DocMeta } from "@/lib/docs";
-import { getOgpImageUrl } from "@/lib/r2-image-loader";
+import { getOgpDisplayUrl } from "@/lib/r2-image-loader";
 import { buildExamCards } from "@/lib/home-exam-cards";
 import categoriesData from "@/config/categories.json";
 import { CategoryDef } from "@/lib/categories";
@@ -54,7 +54,7 @@ function pickRecent(allMeta: DocMeta[], n: number): LatestArticle[] {
       tags: (meta.tags || []).filter(
         (t) => !["primary", "secondary", "past-questions", "guide", "textbook", "keyword"].includes(t),
       ),
-      image: getOgpImageUrl(meta.slug),
+      image: getOgpDisplayUrl(meta.slug),
     }));
 }
 
@@ -67,7 +67,6 @@ export default async function HomePage() {
   return (
     <PageShell variant="default">
       <Hero />
-      <RecentUpdatesStrip articles={latest.slice(0, 6)} />
       <ExamCards exams={exams} />
       <SectionBlock space="sm" ariaLabel="実務と基準資料">
         <div className="grid gap-4 md:grid-cols-3">

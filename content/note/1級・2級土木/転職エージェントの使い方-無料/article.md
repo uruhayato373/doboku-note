@@ -1,19 +1,22 @@
 ---
 notePricing: free
 noteStatus: published
-noteUrl: https://note.com/dobokunote/n/n5a823955985c
+noteUrl: 'https://note.com/dobokunote/n/n5a823955985c'
 noteId: n5a823955985c
 utmCampaign: civil-career-agent-howto
-coverTitle: ["転職エージェントを", "実際どう使うか"]
+coverTitle:
+  - 転職相談の進め方
+  - 連絡方法と希望を整理する
 cover:
   variant: crop-safe-v4
-  leadIn: "登録〜面談の流れ"
-  headline: "エージェント活用"
-  hi: "無料"
-  hiSuffix: "公開"
-  benefit: "登録から面談まで分かる"
+  leadIn: 登録〜面談の流れ
+  headline: 転職相談の進め方
+  hi: 無料
+  hiSuffix: 公開
+  benefit: 連絡方法と希望を整理する
+title: 施工管理の転職エージェントの使い方｜登録・電話・面談・応募前の準備
 ---
-# 施工管理の転職エージェントを実際どう使うか｜登録〜面談の流れ【無料】
+# 施工管理の転職エージェントの使い方｜登録・電話・面談・応募前の準備
 
 この記事にはPR（アフィリエイト広告）を含みます。
 
@@ -84,6 +87,11 @@ cover:
 https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
 
 応募するかを決める材料は、紹介された求人の具体的な条件です。まずは「変えたいこと」「守りたいこと」「連絡方法」の3行を、自分の言葉で書くところから始めてみてください。
+
+<!-- career-expansion-links -->
+## 次に整理したいこと
+
+面談で話す工事経験をそのまま職務経歴書へ広げたい方には、[「施工管理を担当しました」で終わらない経験の伝え方](https://note.com/dobokunote/n/ne990d6bf4ce1)も用意しています。
 
 ---
 

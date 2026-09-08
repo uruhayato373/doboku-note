@@ -2,19 +2,22 @@
 notePricing: free
 noteStatus: published
 utmCampaign: civil-career-white-company
-notePublishedAt: "2026-07-06"
-noteId: "ne7284dacf78b"
-noteUrl: "https://note.com/dobokunote/n/ne7284dacf78b"
-coverTitle: ["ホワイトな建設会社の", "見分け方"]
+notePublishedAt: '2026-07-06'
+noteId: ne7284dacf78b
+noteUrl: 'https://note.com/dobokunote/n/ne7284dacf78b'
+coverTitle:
+  - 休日と残業の確かめ方
+  - 現場の分担まで質問する
 cover:
   variant: crop-safe-v4
-  leadIn: "残業・休日・離職率"
-  headline: "ホワイト企業診断"
-  hi: "無料"
-  hiSuffix: "公開"
-  benefit: "求人票と面接で見抜ける"
+  leadIn: 残業・休日・離職率
+  headline: 休日と残業
+  hi: 無料
+  hiSuffix: 公開
+  benefit: 現場の分担まで質問する
+title: 土木施工管理の会社選び｜休日・残業を求人票と面接で確かめる質問
 ---
-# ホワイトな建設会社の見分け方｜残業・休日・離職率でチェック【無料】
+# 土木施工管理の会社選び｜休日・残業を求人票と面接で確かめる質問
 
 この記事にはPR（アフィリエイト広告）を含みます。
 
@@ -98,6 +101,11 @@ https://px.a8.net/svt/ejp?a8mat=4B5OO5+FHBA2+5B0Y+NTJWY
 その手順は[施工管理を辞める前に相談すべきこと](https://doboku-note.com/exam/civil-construction-1/guide/career-consultation-before-quit?utm_source=note&utm_medium=referral&utm_campaign=civil-career-white-company&utm_content=before-quit)にまとめました。
 
 そもそも何がきついのかを分解した[「きつい・やめとけ」は本当か](https://doboku-note.com/exam/civil-construction-1/guide/quit-honne?utm_source=note&utm_medium=referral&utm_campaign=civil-career-white-company&utm_content=quit-honne)も、条件の優先順位を決める材料になります。
+
+<!-- career-expansion-links -->
+## 次に整理したいこと
+
+働く地域を優先するなら[「転勤なし」の次に確認する勤務地と出張](https://note.com/dobokunote/n/n01a775d6c669)を、生活時間を見直すなら[帰宅・休日・宿泊出張の希望の伝え方](https://note.com/dobokunote/n/n45e5ec2f687e)を参考に、譲れない条件を具体化できます。
 
 ---
 

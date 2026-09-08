@@ -8,10 +8,10 @@ interface SearchPaginationProps {
   onPageChange: (page: number) => void;
 }
 
-const BTN_BASE = "focus-ring px-3 py-2 text-sm font-medium rounded-card-inline border transition-colors";
+const BTN_BASE = "focus-ring min-h-11 min-w-11 px-3 py-2 text-sm font-medium rounded-card-inline border transition-colors";
 const BTN_INACTIVE =
   "text-[var(--ink-body)] border-[var(--rule-soft)] hover:bg-[var(--accent-fill)] hover:text-[var(--accent)]";
-const BTN_ACTIVE = "bg-[var(--accent)] text-white border-[var(--accent)]";
+const BTN_ACTIVE = "bg-[var(--accent)] text-white dark:text-[var(--bg)] border-[var(--accent)]";
 const BTN_DISABLED = "text-[var(--ink-muted)] opacity-50 border-[var(--rule-soft)] cursor-not-allowed";
 
 export function SearchPagination({
@@ -53,7 +53,7 @@ export function SearchPagination({
   const pageNumbers = getPageNumbers();
 
   return (
-    <div className="flex items-center justify-center space-x-2 py-8">
+    <div className="flex flex-wrap items-center justify-center gap-2 py-8">
       {/* 前のページ */}
       <button
         onClick={() => onPageChange(currentPage - 1)}
@@ -80,6 +80,7 @@ export function SearchPagination({
         <button
           key={page}
           onClick={() => onPageChange(page)}
+          aria-current={page === currentPage ? 'page' : undefined}
           className={cn(BTN_BASE, page === currentPage ? BTN_ACTIVE : BTN_INACTIVE)}
         >
           {page}

@@ -1,4 +1,6 @@
 import { Suspense } from "react";
+import { getPublicDocPath } from "@/lib/content-routes";
+import { getOgpDisplayUrl } from "@/lib/r2-image-loader";
 import type { Metadata } from "next";
 import PageShell from "@/components/layout/PageShell";
 import PageHeader from "@/components/layout/PageHeader";
@@ -30,6 +32,7 @@ export default function SearchPage() {
   const otherCategories = getAllCategories().filter(
     (c) => c.visible !== false && !examSlugs.has(c.slug),
   );
+  const images = Object.fromEntries(getAllDocsMeta().filter(d => d.published !== false && (d.group === "guide" || d.category === "civil-practice")).map(d => [getPublicDocPath(d.slug), getOgpDisplayUrl(d.slug)]));
   const popular = getPopularDocs(getAllDocsMeta(), 6);
 
   return (
@@ -47,7 +50,7 @@ export default function SearchPage() {
           <p className="font-mono text-[12px] text-[var(--ink-muted)]">Loading…</p>
         }
       >
-        <SearchPageClient examCards={examCards} otherCategories={otherCategories} popular={popular} />
+        <SearchPageClient images={images} examCards={examCards} otherCategories={otherCategories} popular={popular} />
       </Suspense>
     </PageShell>
   );

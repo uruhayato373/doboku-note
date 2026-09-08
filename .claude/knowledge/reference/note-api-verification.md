@@ -23,6 +23,7 @@ API バージョニングはこちらが操作できない外部都合で、こ�
 | 用途 | 関数 |
 |---|---|
 | 記事 1 本の状態 | `fetchNote(key)` |
+| 本文・タグ名・カバーの詳細照合 | `fetchNoteDetails(key, { page })` |
 | マガジン 1 本の状態 | `fetchMagazine(key)` |
 | マガジンの収録記事一覧 | `fetchMagazineArticles(key)` |
 
@@ -32,6 +33,10 @@ API バージョニングはこちらが操作できない外部都合で、こ�
   無い。既存実装は一括移行せず、対象スクリプトを修正するときに共有 lib へ移して挙動同一を確認する。
   該当スクリプトの実装を直接読むこと（この文書に URL を重複させない）。
 - note は Nuxt 製のため HTML に `__NEXT_DATA__` は無い。HTML スクレイプより JSON API が堅牢。
+
+`curl --ssl-no-revoke` でも非 JSON の応答になる端末では、`fetchNoteDetails` に
+既存の note.com の Playwright Page を渡して読み取れる。ブラウザ起動・ログイン・書き込みは
+この関数では行わない。取得不能は `data: null` と `error` で返し、本文やタグが空だと解釈しない。
 
 ### 404 の意味（削除・下書き・非公開を区別しない）
 

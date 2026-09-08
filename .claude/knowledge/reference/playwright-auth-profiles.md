@@ -63,6 +63,11 @@ npm run auth:migrate -- --service note --commit
 別プロセスの read-only status で、実ページと account/site/property assert が一致したときだけ
 `authenticated` とする。profile ディレクトリの存在だけでは認証済みと判定しない。
 
+対話用の `auth:login` は、本人確認画面を検出してもブラウザを閉じず、待機期限まで人の操作を待つ。
+本人確認中に自動で入力・クリック・別ページへの移動は行わない。確認が完了しなければ
+`blocked` のまま終了し、認証成功として扱わない。read-only の `auth:status` は従来どおり
+`blocked` を即時に返す。
+
 ```bash
 npm run auth:login -- --service note
 npm run auth:status -- --service note

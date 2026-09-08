@@ -23,6 +23,9 @@ import { resolveHubCta } from '@/lib/hub-cta';
 import SidebarAdBanner from '@/components/ui/SidebarAdBanner';
 import { resolveCategoryCareerAds } from '@/config/affiliate-creatives';
 import CategoryJumpNav from '@/components/category/CategoryJumpNav';
+import CategoryStudyNav from '@/components/category/CategoryStudyNav';
+import { SidebarProduct } from '@/components/ui/SidebarDiscovery';
+import { ConcreteEngineerStudy, ConcreteEngineerProduct, ConcreteEngineerRelated } from '@/components/category/ConcreteEngineerResources';
 
 // グループ化レイアウトを持つカテゴリ（持たないものは従来どおりフラットグリッド）。
 const GROUPED_CATEGORIES = new Set([
@@ -90,10 +93,17 @@ export default async function CategoryPage({
   ));
 
   // 右サイドバー（PC ≥993px・TwoColumnShell の aside prop へ渡す）。上から
-  // 転職アフィリ（SidebarAdBanner＝当ページ唯一のピクセル発火源・各プログラム 1 回ずつ）→
+  // 技士は学習→教材→関連リンクを先頭にまとめる。他資格は演習・復習ナビ。
+  // 転職アフィリ（当ページ唯一のピクセル発火源・各プログラム 1 回ずつ）→
   // 運営者プロフィール（E-E-A-T）→ note もくじ CTA（PC 唯一の note 面・utm -sb）→ 人気記事ランキング。
   const categorySidebar = (
     <div className="space-y-3">
+      {slug === 'concrete-engineer' ? <>
+        <ConcreteEngineerStudy />
+        <ConcreteEngineerProduct placement="category-sidebar" />
+        <ConcreteEngineerRelated />
+      </> : <CategoryStudyNav category={slug} />}
+      {slug !== 'concrete-engineer' && !hubCtaSidebar && <SidebarProduct category={slug} placement="category-sidebar" />}
       {careerAds.map((ad, i) => (
         <SidebarAdBanner
           key={ad.trackLabel + i}
@@ -110,11 +120,7 @@ export default async function CategoryPage({
 
   return (
     <PageShell variant="article">
-        {/* カテゴリ本文 + 右サイドバー（PC ≥993px・常に 2 カラム）。サイドバーは上から
-            転職アフィリ（SidebarAdBanner＝当ページ唯一のピクセル源）→ 運営者プロフィール →
-            人気記事 → note マガジン CTA を配置。note CTA はモバイルでは記事一覧の下に出す。
-            カテゴリ見出しは全幅ヒーロー帯を廃し、左カラム上部にコンパクト配置（2026-06-26）。
-            これにより右サイドバー（転職枠）がファーストビューへ繰り上がる。 */}
+        {/* 学習の入口を本文と右列の先頭に置く。note CTA はモバイルでは記事一覧の下に表示。 */}
         <TwoColumnShell gutter="default" mainClassName="pt-8 sm:pt-10 pb-10" aside={categorySidebar}>
             {/* 左メインカラム全体を 1 枚の白カードに統一（グレー地に白サーフェス・角丸ゼロの
                 エディトリアル面）。見出し・人気記事・各セクションを同一カード内に載せ、内側は
@@ -145,12 +151,6 @@ export default async function CategoryPage({
               </section>
             )}
             <div className="pt-8 text-[17px] leading-[1.9]">
-          {/* よく読まれている記事 特集（GA4 上位 top3・グループ別セクションの上）。データ無しなら描画されない。 */}
-          {popularDocs.length > 0 && (
-            <div className="mb-16">
-              <PopularShowcase items={popularDocs.slice(0, 3)} />
-            </div>
-          )}
           {docs.length === 0 ? (
             <div className="text-center py-12">
               <p className="text-[var(--ink-muted)] text-lg">
@@ -187,10 +187,18 @@ export default async function CategoryPage({
               ))}
             </div>
           )}
+            {popularDocs.length > 0 && (
+              <div className="mt-10"><PopularShowcase items={popularDocs.slice(0, 2)} /></div>
+            )}
             </div>
             </div>
 
             {/* note もくじ CTA（モバイル＜993px のみ）。PC は右サイドバーへ集約。 */}
+            {slug === 'concrete-engineer' && <div className="zenn-desktop:hidden mt-8 space-y-3">
+              <ConcreteEngineerProduct placement="category-mobile" />
+              <ConcreteEngineerRelated />
+            </div>}
+            {slug !== 'concrete-engineer' && !hubCtaMobile && <div className="zenn-desktop:hidden mt-8"><SidebarProduct category={slug} placement="category-mobile" /></div>}
             {hubCtaMobile && (
               <div className="zenn-desktop:hidden pb-10 mx-auto max-w-[360px]">
                 <HubCtaBanner cta={hubCtaMobile} placement="category-mobile" />

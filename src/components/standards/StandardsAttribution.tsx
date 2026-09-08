@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import SectionCard from '@/components/ui/SectionCard/SectionCard';
-import type { StandardDocument } from '@/lib/standards';
+import type { StandardDocument, StandardPart } from '@/lib/standards';
 
-export default function StandardsAttribution({ document }: { document?: StandardDocument }) {
+export default function StandardsAttribution({ document, part }: { document?: StandardDocument; part?: StandardPart }) {
   return (
     <SectionCard as="aside" title="出典・利用上の注意" padding="compact" className="mt-8">
       <div className="space-y-2 text-[13px] leading-[1.8] text-[var(--ink-body)]">
@@ -62,6 +62,17 @@ export default function StandardsAttribution({ document }: { document?: Standard
             当サイト利用規約
           </Link>
         </p>
+        {document && (
+          <details className="border-t border-[var(--rule-soft)] pt-2">
+            <summary className="focus-ring flex min-h-11 cursor-pointer items-center font-bold">原本・文字起こしの詳細</summary>
+            <dl className="space-y-2 break-all pb-3">
+              <div><dt>原本 SHA-256</dt><dd>{document.sourceSha256}</dd></div>
+              <div><dt>文字起こしの構成</dt><dd>{document.partCount}分冊</dd></div>
+              {part && <div><dt>この分冊の SHA-256</dt><dd>{part.sha256}</dd></div>}
+              {document.duplicateOf && <div><dt>同一原本</dt><dd><Link href={`/standards/${document.duplicateOf}`} className="text-[var(--accent)] underline">同じ原本を掲載する文書</Link></dd></div>}
+            </dl>
+          </details>
+        )}
       </div>
     </SectionCard>
   );

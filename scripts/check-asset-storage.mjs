@@ -135,7 +135,7 @@ function main() {
   // ローカルにしか実体が無い状態が無言で続き、次に気づくのはそのマシンを失ったときになる。
   // ここは**ワークツリーを走査する**唯一の検査で、CI（追跡ファイルしか無い）では
   // 走査 0 件になる。0 件を「異常なし」と読ませないため件数を必ず出す。
-  const scan = { walked: 0, matched: 0, tracked: 0, offloaded: 0, orphan: 0, hashed: 0, hashSkipped: 0, stale: 0, drive: 0 };
+  const scan = { walked: 0, matched: 0, tracked: 0, offloaded: 0, orphan: 0, hashed: 0, hashSkipped: 0, stale: 0, drive: 0, derived: 0 };
   const groups = (cfg.groups || []).map((g) => ({ g, re: new RegExp(g.match.pathRegex) }));
   // Drive vault 管轄（audience=human・active）のファイルは R2 の「未退避」ではない。
   // 台帳は drive-manifest.json 側で、検査は check-drive-vault が担う。ここで数えると
@@ -168,6 +168,18 @@ function main() {
         const hit = groups.find(({ re }) => re.test(rel));
         if (!hit) continue;
         scan.matched++;
+        // 表示用OGPは保存済み原本から再生成する派生物。原本台帳がない場合は免除しない。
+        if (hit.g.id === 'site-ogp-thumbnails' && hit.g.regenerable === true) {
+          const sourcePath = rel.replace(/ogp-thumb-(248|336|640)\.webp$/, 'ogp.png');
+          const source = manifest.entries?.[sourcePath];
+          if (sourcePath !== rel && source?.group === 'site-ogp-png' && source.bucket === 'public' && /^[a-f0-9]{64}$/.test(source.sha256) && existsSync(join(REPO_ROOT, 'scripts/build-ogp-thumbnails.mjs'))) {
+            scan.derived++;
+            continue;
+          }
+          fail('derived-source-missing', 'サムネイルの再生成に必要な原本台帳または生成スクリプトがない', rel);
+          scan.orphan++;
+          continue;
+        }
         if (tracked.has(rel)) { scan.tracked++; continue; }
         if (manifest.entries?.[rel]) {
           scan.offloaded++;
@@ -218,12 +230,14 @@ function main() {
       groups: (cfg.groups || []).length,
       manifestEntries: entries.length,
       checkedRecoverable,
+      derivedFromPreservedSource: scan.derived,
       fails: fails.length,
       warns: warns.length,
       problems,
     }, null, 2));
   } else {
     console.log('[check-asset-storage] group ' + (cfg.groups || []).length + ' 種 / manifest ' + entries.length + ' エントリを実検査');
+    console.log('  保存済み原本から再生成できるOGP派生画像: ' + scan.derived + ' 件（R2実体はここでは検査しない）');
     console.log('  ワークツリー走査 ' + scan.walked + ' ファイル / R2 退避対象に該当 ' + scan.matched
       + '（Git 追跡 ' + scan.tracked + ' / 退避済み ' + scan.offloaded + ' / どちらでもない ' + scan.orphan + '）'
       + (scan.drive ? ' / Drive vault 管轄 ' + scan.drive + '（check-drive-vault が検査）' : ''));

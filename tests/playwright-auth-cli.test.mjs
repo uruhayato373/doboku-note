@@ -15,6 +15,7 @@ import {
   executeAuthCommand,
   inspectDoctor,
   inspectPaths,
+  loginAuthService,
   migrateAuthProfile,
   parseAuthArgs,
 } from '../scripts/playwright-auth.mjs';
@@ -245,6 +246,62 @@ test('inspectPathsのJSON相当出力にsecret内容を含めない', () => {
   try {
     const text = JSON.stringify(inspectPaths(f));
     assert.doesNotMatch(text, /password|cookie|token|2fa/i);
+  } finally {
+    rmSync(f.base, { recursive: true, force: true });
+  }
+});
+
+test('対話ログインは本人確認画面を閉じず、人間の完了後にaccountを確認する', async () => {
+  const f = makeFixture();
+  const navigations = [];
+  const events = [];
+  const snapshots = [
+    { url: 'https://note.com/login', text: 'CAPTCHA', title: '' },
+    { url: 'https://note.com/', text: 'ログイン後', title: '' },
+    { url: 'https://note.com/settings/account', text: 'dobokunote', title: '' },
+  ];
+  let closed = false;
+  const page = {
+    goto: async (url) => { navigations.push(url); events.push('goto'); },
+    evaluate: async () => { events.push('snapshot'); return snapshots.shift(); },
+    waitForTimeout: async () => { assert.equal(closed, false); events.push('wait'); },
+  };
+  const browser = { pages: () => [page], close: async () => { closed = true; } };
+  try {
+    const result = await loginAuthService({
+      ...f,
+      timeoutMs: 1000,
+      playwright: { chromium: { launchPersistentContext: async () => browser } },
+    }, 'note');
+    assert.equal(result.status, 'authenticated');
+    assert.deepEqual(events.slice(0, 4), ['goto', 'snapshot', 'wait', 'snapshot']);
+    assert.deepEqual(navigations, ['http://127.0.0.1/login', 'https://note.com/settings/account']);
+    assert.equal(closed, true);
+  } finally {
+    rmSync(f.base, { recursive: true, force: true });
+  }
+});
+
+test('本人確認が完了しない対話ログインは期限後もblockedで終了する', async () => {
+  const f = makeFixture();
+  const navigations = [];
+  let closed = false;
+  const page = {
+    goto: async (url) => { navigations.push(url); },
+    evaluate: async () => ({ url: 'https://note.com/login', text: 'CAPTCHA', title: '' }),
+    waitForTimeout: async () => { await new Promise((resolve) => setTimeout(resolve, 30)); },
+  };
+  const browser = { pages: () => [page], close: async () => { closed = true; } };
+  try {
+    const result = await loginAuthService({
+      ...f,
+      timeoutMs: 20,
+      playwright: { chromium: { launchPersistentContext: async () => browser } },
+    }, 'note');
+    assert.equal(result.ok, false);
+    assert.equal(result.status, 'blocked');
+    assert.deepEqual(navigations, ['http://127.0.0.1/login']);
+    assert.equal(closed, true);
   } finally {
     rmSync(f.base, { recursive: true, force: true });
   }

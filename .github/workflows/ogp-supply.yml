@@ -47,6 +47,8 @@ on:
       # 供給が発火せず、og:image が R2 に無い URL を指したまま本番へ出る。
       - 'content/site/standards-articles/**/manifest.json'
       - 'scripts/build-standards-ogp.mjs'
+      - 'scripts/build-ogp-thumbnails.mjs'
+      - '.github/workflows/ogp-supply.yml'
   workflow_dispatch:
     inputs:
       max:
@@ -243,6 +245,13 @@ jobs:
       - name: Update srcHash for generated slugs
         if: steps.detect.outputs.count != '0'
         run: node scripts/update-ogp-srchash.mjs --write --slugs-file /tmp/ogp-generated-slugs.txt
+
+      - name: Supply responsive OGP thumbnails and verify readback
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: node scripts/build-ogp-thumbnails.mjs --supply
 
       - name: Publish manifest to develop
         if: steps.detect.outputs.count != '0' || steps.chapters.outputs.chapters_generated != '0'

@@ -321,7 +321,12 @@ export async function loginAuthService(context = {}, service) {
       while (Date.now() < deadline) {
         const current = await captureAuthSnapshot(service, opened.page).catch(() => ({ url: opened.page.url() }));
         result = classifyAuthSnapshot(adapter, current);
-        if (result.status === 'blocked') break;
+        // 対話ログインでは本人確認を人間が完了できるよう、その画面を保持する。
+        // 自動操作・再遷移はせず待つ。status の blocked 判定や成功条件は変えない。
+        if (result.status === 'blocked') {
+          await opened.page.waitForTimeout(2500);
+          continue;
+        }
         if (!adapter.expiredPattern.test(current.url ?? '')) {
           await opened.page.goto(adapter.checkUrl, { waitUntil: 'domcontentloaded', timeout: 60000 }).catch(() => {});
           await opened.page.waitForTimeout(1000);

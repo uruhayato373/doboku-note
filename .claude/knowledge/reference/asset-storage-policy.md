@@ -37,6 +37,7 @@ Google Drive 側が `.claude/config/drive-vault.json`（台帳 `.claude/state/as
 | group | audience | 置き場 | 備考 |
 |---|---|---|---|
 | `site-ogp-png` | site | public R2 `posts/` | `ogp-supply.yml` が生成・供給 |
+| `site-ogp-thumbnails` | site | public R2 `posts/` | 原本OGPから248/336/640pxのWebPを生成。`ogp-supply.yml`の`build-ogp-thumbnails --supply`で原本sha256/recipeを照合し、アップロード後に全バイトを読み戻す。派生物は原本台帳から再生成し、個別の台帳コピーは作らない |
 | `note-cover-png` | ci | private R2 `note/covers/` | `note-cover-supply.yml` が書く。2026-09-05（DN-0171）まで byVisibility で公開済みを public にも置いていたが、サイトも note も読まないので private 一本化 |
 | `git-history-bundle` | human（例外） | private R2 | 2.65GB 書き込み一回・復元時だけ。ストリーミングマウント越しの単一巨大 blob は脆い |
 | `sns-archived-media` | human | Drive `制作物/SNS音声動画/` | reels の wav/mp4・YouTube Shorts mp4。投稿は人の JIT。`post-youtube-scheduled.yml` の Shorts 台帳は手動投入へ切替済み（pending 0・参照キー `sns/youtube-shorts/` は R2 に 0 件）なので CI は読んでいない。2026-09-05 DN-0170 で旧 `upload-sns-r2` 系統を廃止（[sns-archive-policy.md](sns-archive-policy.md)） |

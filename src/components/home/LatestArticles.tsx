@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ContentThumbnail from "@/components/ui/ContentThumbnail";
 import { ArrowRight, Hash } from "lucide-react";
 import { getPublicDocPath } from '@/lib/content-routes';
 
@@ -44,18 +45,9 @@ export default function LatestArticles({ articles }: LatestArticlesProps) {
             >
               {/* サムネ（記事別 OGP＝1200:630・資格別テーマ色＋タグ焼き込み。RelatedArticleCard と同系統）。
                   資格別写真プール（guide-covers）は猫/場違い画像の混入により 2026-07-07 に廃止し OGP へ一本化。 */}
-              <div className="relative aspect-[1200/630] w-[128px] shrink-0 overflow-hidden bg-[var(--accent-fill)] sm:w-[188px] md:w-[204px]">
+              <div className="relative aspect-[1200/630] w-[128px] shrink-0 self-start overflow-hidden bg-[var(--accent-fill)] sm:w-[188px] md:w-[204px]">
                 {a.image && (
-                  <img
-                    src={a.image}
-                    alt=""
-                    aria-hidden="true"
-                    width={1024}
-                    height={576}
-                    loading="lazy"
-                    decoding="async"
-                    className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
-                  />
+                  <ContentThumbnail src={a.image} sizes="(max-width: 640px) 128px, (max-width: 768px) 188px, 204px" />
                 )}
               </div>
               <div className="min-w-0 p-4 sm:p-5">
