@@ -20,6 +20,11 @@
 
 ## 経路の選択（最初に1ページ目視で判定）
 
+`bookBundle` と通しページ画像がある書籍は、まず `book-manifest.json` を読み、既存 `pages/` を再利用する。
+新規OCRの論理キーは `content/sources/books/{bookDir}/ocr/`、実体は同じ原資料ディレクトリ内の `ocr/`。
+原本PDFを別の作業用Driveフォルダへ複製しない。以下の旧 `content/sources/textbook/` 経路は互換用で、
+初回の画像抽出が必要な書籍にだけ Step 1–2 を適用する。
+
 スキャン本には2系統あり、**着手前に1ページだけレンダ/抽出して Read し、どちらかを判定する**（回転方向・見開き有無は1冊で一定）。
 
 | | 経路A: pdfimages 見開き | 経路B: PyMuPDF 単ページ |
@@ -43,7 +48,7 @@
 - **数百ジョブを Workflow args に inline すると破綻**する。**章別ジョブファイル＋コーディネータ agent が Read して構造化返却**（schema で確実にパース）する経路にする。
 - **低確信度 bbox は誤クロップ**になる（写真や別図を掴む）。**confidence<0.55 は未埋め込み扱い**（誤った図を貼るより貼らない）。
 - **crop_embed は冪等でない**（章 md に挿入するため再実行で二重挿入）。再クロップ時は **concat で章 md をクリーン再生成してから**回す。
-- **著作権安全（2026-08-27更新、2026-09-06台帳化）**: `content/sources/textbook/**`（README.md 以外の本文・`img/**` 含む）は `.gitignore` で public repo の追跡対象外。実体は Google Drive vault が SoT で、**文字起こし .md は `source-transcript` group の `文字起こし/{資格}/{書名}/`、`img/**`（ページ画像・図クロップ）は `原資料PDF/教材/{書名}/**`**（drive-vault.json `textbook-page-image`）へ分かれる。文字起こしの先頭には参考文献 ID と原本 PDF を示す frontmatter を付ける。`content/sources/textbook/**/img/**` は r2-sync（`content/site/**/img/**`）の対象にも入らない＝二重に公開されない。詳細は `.claude/knowledge/reference/reference-sources-policy.md` と `asset-storage-policy.md` §1。
+- **著作権安全**: `content/sources/textbook/**` の本文・画像および書籍 bundle の原本・OCR・画像は `.gitignore` で追跡対象外。実体は Google Drive vault が SoT。**文字起こしは `source-transcript` group で各原資料の `ocr/`、新規の監査済み図は同じ書籍の `crops/`**。未移行の画像は `textbook-page-image` の台帳パスを使う。文字起こしの先頭には参考文献IDと原本PDFを示すfrontmatterを付ける。これらは r2-sync の対象にも入らない。詳細は `.claude/knowledge/reference/reference-sources-policy.md` と `asset-storage-policy.md` §1。
 
 ---
 
@@ -119,7 +124,7 @@ bbox 判定で `found:false`（「本文のみ／下半分グレー空白」）�
 
 - README（索引）に **ファイル↔節↔ノンブル↔字数表・文字起こし方法・図埋め込み状況・既知の限界**（図プレースホルダ／スキャン末尾の途切れ／原文ママ箇所）を記録。
 - `content/sources/textbook/` は site index 非対象 → **`refresh-indexes` 不要**。純コンテンツ編集ゆえ **`/doc-sync` も対象外**。
-- **`content/sources/textbook/**` は README.md 以外 `.gitignore` 対象（2026-08-27〜、著作権理由で public repo から追跡解除済み）。新規生成した文字起こし .md は `npm run drive-vault-sync -- --group source-transcript --commit` で `文字起こし/{資格}/{書名}/` へ登録し、`--verify --deep --cloud` で照合する**。**`img/*.png`（ページ画像・図クロップ）は `npm run drive-vault-sync -- --group textbook-page-image --commit` で `原資料PDF/教材/{書名}/**` へ登録する**。手コピーでは台帳に載らず検査できない。README.md の更新のみ `git add` して commit（`git add -A` 禁止・対象ファイルを明示指定）。詳細は `.claude/knowledge/reference/asset-storage-policy.md` §1。一時スクリプトは `.tmp/`（gitignore）に置きコミットしない。
+- **本文・画像はGit追跡外**。文字起こしは `npm run drive-vault-sync -- --group source-transcript --commit` で各原資料の `ocr/` へ登録し、`--verify --deep --cloud` で照合する。書籍 bundle のOCR・監査済み図は `npm run record-reference-book-artifacts` でmanifestにも登録する。未移行の `img/*.png` は `npm run drive-vault-sync -- --group textbook-page-image --commit` を使う。手コピーでは台帳に載らず検査できない。Gitへの追加はREADME・manifestなど許可された対象だけを明示指定し、本文・画像を追加しない（`git add -A` 禁止）。詳細は `.claude/knowledge/reference/asset-storage-policy.md` §1。一時生成物は `.tmp/` に置く。
 
 ## 実績
 

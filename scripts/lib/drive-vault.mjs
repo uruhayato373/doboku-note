@@ -24,6 +24,7 @@ import { homedir } from 'node:os';
 import { dirname, join, sep } from 'node:path';
 import { isDeepStrictEqual } from 'node:util';
 import { REPO_ROOT } from './repository-paths.mjs';
+import { loadReferenceSources, transcriptDirsForSource } from './reference-sources.mjs';
 
 export const DRIVE_CONFIG_PATH = join(REPO_ROOT, '.claude/config/drive-vault.json');
 export const DRIVE_MANIFEST_PATH = join(REPO_ROOT, '.claude/state/assets/drive-manifest.json');
@@ -31,7 +32,7 @@ export const DRIVE_MANIFEST_PATH = join(REPO_ROOT, '.claude/state/assets/drive-m
 /** vault 相対パスは常に '/' 区切り・NFC。Windows の '\\' と macOS の NFD を寄せる。 */
 export const toVaultRel = (p) => p.split(sep).join('/').split('\\').join('/').normalize('NFC');
 
-export const KNOWN_KEY_FROM = ['repoRelative', 'standards-beside-pdf'];
+export const KNOWN_KEY_FROM = ['repoRelative', 'standards-beside-pdf', 'reference-transcript'];
 
 export function loadDriveConfig() {
   if (!existsSync(DRIVE_CONFIG_PATH)) {
@@ -148,11 +149,21 @@ export function driveGroupFor(repoRelPath, cfg, { includePending = true } = {}) 
  *   standards-beside-pdf  → 共通仕様書のページ画像専用。content/sources/standards/{a}/{d}/manifest.json の
  *                           sourceFile（例 東北地方整備局/common__xxx.pdf）から
  *                           vaultDir/東北地方整備局/common__xxx/pages/p0001.jpg を導く（原本 PDF と同名フォルダ＝隣）
+ *   reference-transcript  → 新旧の論理キーを参考文献台帳から各原資料の ocr/ へ解決する
  */
-export function vaultRelFor(repoRelPath, group, { readManifest = defaultStandardsManifestReader } = {}) {
+export function vaultRelFor(repoRelPath, group, { readManifest = defaultStandardsManifestReader, sources = null } = {}) {
   const p = toVaultRel(repoRelPath);
   const kf = group.keyFrom || 'repoRelative';
   const dir = toVaultRel(group.vaultDir).replace(/\/+$/, '');
+  if (kf === 'reference-transcript') {
+    if (p.split('/').some(segment => !segment || segment === '.' || segment === '..')) throw new Error('drive-vault: unsafe transcript path: ' + p);
+    const routes = (sources || referenceSourcesMemo()).flatMap(source => transcriptDirsForSource(source).map(prefix => ({ source, prefix })));
+    const match = routes.filter(r => p.startsWith(r.prefix + '/')).sort((a,b) => b.prefix.length-a.prefix.length)[0];
+    const target = match?.source.transcriptVaultDir || (match?.source.origin?.vaultDir ? match.source.origin.vaultDir + '/ocr' : null);
+    if (!target) throw new Error('drive-vault: 文字起こしの参考文献と保管先が未登録: ' + p);
+    if (!target.startsWith('原資料PDF/') || target.includes('\\') || target.split('/').some(s => !s || s === '.' || s === '..')) throw new Error('drive-vault: unsafe transcript destination: ' + target);
+    return target + p.slice(match.prefix.length);
+  }
   if (kf === 'repoRelative') return dir + '/' + p;
   if (kf.startsWith('stripPrefix:')) {
     const prefix = kf.slice('stripPrefix:'.length);
@@ -192,6 +203,10 @@ export function routingFor(repoRelPath, r2Cfg, driveCfg) {
 // 台帳 2 万件の読み時補完（vaultPath の導出）で同じ manifest.json を何千回も読まないためのメモ。
 // 1 プロセス内でだけ有効（ファイルが変わる運用はビルド 1 回＝1 プロセス）。
 const standardsManifestMemo = new Map();
+let referenceMemo;
+function referenceSourcesMemo() {
+  return referenceMemo ||= loadReferenceSources().sources;
+}
 function defaultStandardsManifestReader(agencyId, documentId) {
   const k = agencyId + '/' + documentId;
   if (standardsManifestMemo.has(k)) return standardsManifestMemo.get(k);

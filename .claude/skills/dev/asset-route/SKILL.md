@@ -32,7 +32,7 @@ description: >
 | site / ci | `.claude/state/assets/manifest.json` | `node scripts/asset-offload.mjs --group <id> [--include-untracked] --commit` | `npm run asset-hydrate -- --group <id>` | `npm run check-asset-storage` |
 | human | `.claude/state/assets/drive-manifest.json` | `npm run drive-vault-sync -- --group <id> --commit` | `npm run drive-vault-sync -- --pull --group <id>` | `npm run check-drive-vault` |
 
-教材文字起こしの既存 group は `source-transcript`（Drive `文字起こし/`）。新しい原本は先に
+教材文字起こしの既存 group は `source-transcript`（Drive の各原資料内 `ocr/`）。新しい原本は先に
 `.claude/config/reference-sources.json` へ登録し、文字起こし frontmatter からその ID を指す。詳細は
 `.claude/knowledge/reference/reference-sources-policy.md`。
 
@@ -42,7 +42,7 @@ description: >
 
 1. 決定木で audience を決める。
 2. `site` / `ci` なら `asset-storage.json` に `audience` つきで group を追加。`human` なら `drive-vault.json` に
-   `status: active`・`vaultDir`（4 フォルダのどれか: 原資料PDF / 文字起こし / 制作物 / アーカイブ）・`keyFrom`・`reason` を書く。
+   `status: active`・`vaultDir`（3 フォルダのどれか: 原資料PDF / 制作物 / アーカイブ）・`keyFrom`・`reason` を書く。
 3. `npm test`（`tests/asset-storage.test.mjs` / `tests/drive-vault.test.mjs` が audience と衝突を固定）と
    `npm run check-drive-vault`（同じパスが両 tier に一致しないか）を通す。
 4. `.gitignore` に実体のパターンを足す（拡張子で書く・台帳と README は除外しない）。

@@ -67,6 +67,14 @@ content/sources/textbook/**
 !content/sources/textbook/**/
 !content/sources/textbook/**/README.md
 
+# 参考文献 ID 単位の書籍 bundle。原本・通しページ・OCR・クロップ・QA は著作権物または
+# 再生成可能な内部成果物なので Drive vault のみ。来歴を固定する book-manifest.json と
+# 置き場を説明する README.md だけを Git で追跡する。
+content/sources/books/**
+!content/sources/books/**/
+!content/sources/books/**/book-manifest.json
+!content/sources/books/**/README.md
+
 # Service account keys & credentials
 doboku-note-*.json
 credentials/

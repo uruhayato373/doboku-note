@@ -98,6 +98,10 @@ test('driveGroupFor: 台帳・原稿・サイト図版を巻き込まない', ()
   assert.equal(driveGroupFor('content/sources/textbook/x/README.md', DCFG), null);
   assert.equal(driveGroupFor('content/sources/textbook/README.md', DCFG), null);
   assert.equal(driveGroupFor('content/sources/textbook/x/第1章.md', DCFG).id, 'source-transcript');
+  assert.equal(driveGroupFor('content/sources/books/book-id__書名/source/001.pdf', DCFG).id, 'reference-book-source-pdf');
+  assert.equal(driveGroupFor('content/sources/books/book-id__書名/pages/p0001.jpg', DCFG).id, 'reference-book-page-image');
+  assert.equal(driveGroupFor('content/sources/books/book-id__書名/crops/p0001_fig01.png', DCFG).id, 'reference-book-page-image');
+  assert.equal(driveGroupFor('content/sources/books/book-id__書名/book-manifest.json', DCFG), null);
   assert.equal(driveGroupFor('content/site/civil-construction-1/guide-x/img/fig.png', DCFG), null);
   assert.equal(driveGroupFor('content/note/技術士総監/x/img/cover.png', DCFG), null, 'note カバーは CI が書く R2 側');
   assert.equal(driveGroupFor('content/sns/instagram/x/reels/a.png', DCFG), null, 'reels の中間 PNG はどの group にも属さない（再生成）');
@@ -106,11 +110,31 @@ test('driveGroupFor: 台帳・原稿・サイト図版を巻き込まない', ()
   assert.equal(driveGroupFor('content/sns/youtube/2026-06-08-x/video.mp4', DCFG).id, 'sns-archived-media');
 });
 
+test('reference book: repo 論理パスを1冊ディレクトリ内の source/pages へ写す', () => {
+  const sourcePdf = 'content/sources/books/safety-management-all-7th__新しい時代の安全管理のすべて_第7版/source/001.pdf';
+  const page = 'content/sources/books/safety-management-all-7th__新しい時代の安全管理のすべて_第7版/pages/p0001.jpg';
+  assert.equal(
+    vaultRelFor(sourcePdf, dgroup('reference-book-source-pdf')),
+    '原資料PDF/書籍/safety-management-all-7th__新しい時代の安全管理のすべて_第7版/source/001.pdf',
+  );
+  assert.equal(
+    vaultRelFor(page, dgroup('reference-book-page-image')),
+    '原資料PDF/書籍/safety-management-all-7th__新しい時代の安全管理のすべて_第7版/pages/p0001.jpg',
+  );
+});
+
 test('source-transcript: 本文 .md だけを Drive に送り、README と R2 への重複配線を許さない', () => {
-  const transcript = 'content/sources/textbook/１級土木施工管理技士/第1章.md';
+  const transcript = 'content/sources/textbook/１級土木施工管理技士/テキスト（土木一般編）/第1章.md';
   const group = driveGroupFor(transcript, DCFG);
   assert.equal(group?.id, 'source-transcript');
-  assert.equal(vaultRelFor(transcript, group), '文字起こし/１級土木施工管理技士/第1章.md');
+  const expected = '原資料PDF/書籍/civil1-textbook-general__土木施工管理技術テキスト土木一般編/ocr/第1章.md';
+  assert.equal(vaultRelFor(transcript, group), expected);
+  const canonical = 'content/sources/books/civil1-textbook-general__土木施工管理技術テキスト土木一般編/ocr/第1章.md';
+  assert.equal(driveGroupFor(canonical, DCFG)?.id, 'source-transcript');
+  assert.equal(vaultRelFor(canonical, group), expected);
+  assert.throws(() => vaultRelFor('content/sources/textbook/未登録/第1章.md', group), /未登録/);
+  assert.throws(() => vaultRelFor(canonical.replace('/第1章', '/../第1章'), group), /unsafe/);
+  assert.throws(() => vaultRelFor(canonical, group, { sources: [{ transcriptDir: canonical.slice(0,canonical.lastIndexOf('/')), transcriptVaultDir: '原資料PDF/../外部/ocr' }] }), /unsafe/);
   assert.equal(driveGroupFor('content/sources/textbook/README.md', DCFG), null);
   assert.equal(driveGroupFor('content/sources/textbook/１級土木施工管理技士/README.md', DCFG), null);
   const routing = routingFor(transcript, R2CFG, DCFG);

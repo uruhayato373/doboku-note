@@ -80,9 +80,31 @@
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
-        "vaultDir": "原資料PDF/教材/コンクリート主任技師2022"
+        "vaultDir": "原資料PDF/書籍/concrete-chief-textbook-2022__コンクリート主任技士試験対策2022"
       },
       "transcriptDir": "content/sources/textbook/コンクリート主任技師2022",
+      "bookBundle": {
+        "directory": "concrete-chief-textbook-2022__コンクリート主任技士試験対策2022",
+        "transcriptDir": "content/sources/books/concrete-chief-textbook-2022__コンクリート主任技士試験対策2022/ocr",
+        "renderProfile": {
+          "mode": "pdfimages-auto-spread",
+          "rotation": 90,
+          "splitOrder": ["left", "right"],
+          "gutterOverlapPercent": 3,
+          "singlePageAspectThreshold": 1.15,
+          "jpegQuality": 92,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [{
+          "order": 1,
+          "legacyRepoPath": "content/sources/textbook/コンクリート主任技師2022/コンクリート主任技師2022.pdf",
+          "originalName": "コンクリート主任技師2022.pdf",
+          "expectedPdfPages": 192,
+          "singlePdfPages": [1, 6, 79, 100, 142],
+          "section": "全巻"
+        }]
+      },
       "appliesTo": [
         "content/site/concrete-chief-engineer/textbook-*/article.mdx"
       ],
@@ -98,9 +120,31 @@
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
-        "vaultDir": "原資料PDF/教材/コンクリート主任技師2024"
+        "vaultDir": "原資料PDF/書籍/concrete-chief-textbook-2024__コンクリート主任技士試験対策2024"
       },
       "transcriptDir": "content/sources/textbook/コンクリート主任技師2024",
+      "bookBundle": {
+        "directory": "concrete-chief-textbook-2024__コンクリート主任技士試験対策2024",
+        "transcriptDir": "content/sources/books/concrete-chief-textbook-2024__コンクリート主任技士試験対策2024/ocr",
+        "renderProfile": {
+          "mode": "pdfimages-auto-spread",
+          "rotation": 90,
+          "splitOrder": ["left", "right"],
+          "gutterOverlapPercent": 3,
+          "singlePageAspectThreshold": 1.15,
+          "jpegQuality": 92,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [{
+          "order": 1,
+          "legacyRepoPath": "content/sources/textbook/コンクリート主任技師2024/コンクリート主任技士2024.pdf",
+          "originalName": "コンクリート主任技士2024.pdf",
+          "expectedPdfPages": 111,
+          "singlePdfPages": [3, 10, 11, 12, 16, 44, 77, 88, 91],
+          "section": "全巻"
+        }]
+      },
       "appliesTo": [
         "content/site/concrete-chief-engineer/textbook-*/article.mdx"
       ],
@@ -115,7 +159,33 @@
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
-        "vaultDir": "原資料PDF/教材/コンクリート診断士"
+        "vaultDir": "原資料PDF/書籍/concrete-diagnostician-textbook__コンクリート診断士受験対策"
+      },
+      "bookBundle": {
+        "directory": "concrete-diagnostician-textbook__コンクリート診断士受験対策",
+        "transcriptDir": "content/sources/books/concrete-diagnostician-textbook__コンクリート診断士受験対策/ocr",
+        "renderProfile": {
+          "mode": "pdfimages-auto-spread",
+          "rotation": 90,
+          "splitOrder": ["left", "right"],
+          "gutterOverlapPercent": 3,
+          "singlePageAspectThreshold": 1.15,
+          "jpegQuality": 92,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [
+          {"order": 1, "legacyRepoPath": "content/sources/textbook/コンクリート診断士/スキャンした書類.pdf", "originalName": "スキャンした書類.pdf", "expectedPdfPages": 20, "singlePdfPages": [1, 2], "section": "分冊1"},
+          {"order": 2, "legacyRepoPath": "content/sources/textbook/コンクリート診断士/スキャンした書類 2.pdf", "originalName": "スキャンした書類 2.pdf", "expectedPdfPages": 20, "singlePdfPages": [], "section": "分冊2"},
+          {"order": 3, "legacyRepoPath": "content/sources/textbook/コンクリート診断士/スキャンした書類 3.pdf", "originalName": "スキャンした書類 3.pdf", "expectedPdfPages": 24, "singlePdfPages": [], "section": "分冊3"},
+          {"order": 4, "legacyRepoPath": "content/sources/textbook/コンクリート診断士/スキャンした書類 4.pdf", "originalName": "スキャンした書類 4.pdf", "expectedPdfPages": 20, "singlePdfPages": [], "section": "分冊4"},
+          {"order": 5, "legacyRepoPath": "content/sources/textbook/コンクリート診断士/スキャンした書類 5.pdf", "originalName": "スキャンした書類 5.pdf", "expectedPdfPages": 20, "singlePdfPages": [], "section": "分冊5"},
+          {"order": 6, "legacyRepoPath": "content/sources/textbook/コンクリート診断士/スキャンした書類 6.pdf", "originalName": "スキャンした書類 6.pdf", "expectedPdfPages": 24, "singlePdfPages": [], "section": "分冊6"},
+          {"order": 7, "legacyRepoPath": "content/sources/textbook/コンクリート診断士/スキャンした書類 7.pdf", "originalName": "スキャンした書類 7.pdf", "expectedPdfPages": 21, "singlePdfPages": [], "section": "分冊7"},
+          {"order": 8, "legacyRepoPath": "content/sources/textbook/コンクリート診断士/スキャンした書類 8.pdf", "originalName": "スキャンした書類 8.pdf", "expectedPdfPages": 21, "singlePdfPages": [], "section": "分冊8"},
+          {"order": 9, "legacyRepoPath": "content/sources/textbook/コンクリート診断士/スキャンした書類 9.pdf", "originalName": "スキャンした書類 9.pdf", "expectedPdfPages": 19, "singlePdfPages": [], "section": "分冊9"},
+          {"order": 10, "legacyRepoPath": "content/sources/textbook/コンクリート診断士/スキャンした書類 10.pdf", "originalName": "スキャンした書類 10.pdf", "expectedPdfPages": 18, "singlePdfPages": [], "section": "分冊10"}
+        ]
       },
       "appliesTo": [
         "content/site/concrete-diagnostician/textbook-*/article.mdx",
@@ -129,15 +199,29 @@
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
-        "vaultDir": "原資料PDF/資格試験/１級土木施工管理技士/土木施工管理技術テキスト（土木一般編）"
+        "vaultDir": "原資料PDF/書籍/civil1-textbook-general__土木施工管理技術テキスト土木一般編"
       },
       "transcriptDir": "content/sources/textbook/１級土木施工管理技士/テキスト（土木一般編）",
+      "bookBundle": {
+        "directory": "civil1-textbook-general__土木施工管理技術テキスト土木一般編",
+        "transcriptDir": "content/sources/books/civil1-textbook-general__土木施工管理技術テキスト土木一般編/ocr",
+        "renderProfile": {"mode": "pymupdf-single", "rotation": 0, "jpegQuality": 92, "ocrWidth": 2200, "cropWidth": 2600},
+        "sourceFiles": [
+          {"order": 1, "legacyMyDrivePath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（土木一般編）/第１章_土工/第１章_土工.pdf", "originalName": "第１章_土工.pdf", "expectedPdfPages": 142, "section": "第1章 土工"},
+          {"order": 2, "legacyMyDrivePath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（土木一般編）/第２章_建設機械/第２章_建設機械.pdf", "originalName": "第２章_建設機械.pdf", "expectedPdfPages": 54, "section": "第2章 建設機械"},
+          {"order": 3, "legacyMyDrivePath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（土木一般編）/第３章_コンクリート工/第３章_コンクリート工.pdf", "originalName": "第３章_コンクリート工.pdf", "expectedPdfPages": 89, "section": "第3章 コンクリート工"},
+          {"order": 4, "legacyMyDrivePath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（土木一般編）/第４章_基礎工/第４章_基礎工.pdf", "originalName": "第４章_基礎工.pdf", "expectedPdfPages": 65, "section": "第4章 基礎工"},
+          {"order": 5, "legacyMyDrivePath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（土木一般編）/第５章_測量/第５章_測量.pdf", "originalName": "第５章_測量.pdf", "expectedPdfPages": 23, "section": "第5章 測量"},
+          {"order": 6, "legacyMyDrivePath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（土木一般編）/第６章_解体工事/第６章_解体工事.pdf", "originalName": "第６章_解体工事.pdf", "expectedPdfPages": 12, "section": "第6章 解体工事"}
+        ]
+      },
       "appliesTo": [
         "content/site/civil-construction-1/textbook-*/article.mdx"
       ],
       "aliases": {
         "1級土木施工管理技士 テキスト（土木一般編）": "civil1-textbook-general"
-      }
+      },
+      "notes": "2026-09-08: My Drive の個人管理/資格試験配下で原本6 PDFを再発見。正規bookBundleへ移行し、旧文字起こし6章は継続参照する。"
     },
     {
       "id": "civil1-textbook-management",
@@ -145,26 +229,140 @@
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
-        "vaultDir": "原資料PDF/資格試験/１級土木施工管理技士/土木施工管理技術テキスト（施工管理・法規編）"
+        "vaultDir": "原資料PDF/書籍/civil1-textbook-management__土木施工管理技術テキスト施工管理法規編"
       },
       "transcriptDir": "content/sources/textbook/１級土木施工管理技士/テキスト（施工管理・法規編）",
+      "bookBundle": {
+        "directory": "civil1-textbook-management__土木施工管理技術テキスト施工管理法規編",
+        "transcriptDir": "content/sources/books/civil1-textbook-management__土木施工管理技術テキスト施工管理法規編/ocr",
+        "renderProfile": {"mode": "pymupdf-single", "rotation": 0, "jpegQuality": 92, "ocrWidth": 2200, "cropWidth": 2600},
+        "sourceFiles": [
+          {"order": 1, "legacyMyDrivePath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（施工管理・法規編）/第１章_施工管理の概要/第１章_施工管理の概要.pdf", "originalName": "第１章_施工管理の概要.pdf", "expectedPdfPages": 6, "section": "第1章 施工管理の概要"},
+          {"order": 2, "legacyMyDrivePath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（施工管理・法規編）/第２章_施工計画/第２章_施工計画.pdf", "originalName": "第２章_施工計画.pdf", "expectedPdfPages": 43, "section": "第2章 施工計画"},
+          {"order": 3, "legacyMyDrivePath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（施工管理・法規編）/第３章_工程管理/第３章_工程管理.pdf", "originalName": "第３章_工程管理.pdf", "expectedPdfPages": 20, "section": "第3章 工程管理"},
+          {"order": 4, "legacyMyDrivePath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（施工管理・法規編）/第４章_品質管理/第４章_品質管理.pdf", "originalName": "第４章_品質管理.pdf", "expectedPdfPages": 25, "section": "第4章 品質管理"},
+          {"order": 5, "legacyMyDrivePath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（施工管理・法規編）/第５章_安全管理/第５章_安全管理.pdf", "originalName": "第５章_安全管理.pdf", "expectedPdfPages": 128, "section": "第5章 安全管理"},
+          {"order": 6, "legacyMyDrivePath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（施工管理・法規編）/第６章_環境保全管理/第６章_環境保全管理.pdf", "originalName": "第６章_環境保全管理.pdf", "expectedPdfPages": 55, "section": "第6章 環境保全管理"},
+          {"order": 7, "legacyMyDrivePath": "個人管理/資格試験/1級土木施工管理技士/土木施工管理技術テキスト（施工管理・法規編）/第７章_関係法規/第７章_関係法規.pdf", "originalName": "第７章_関係法規.pdf", "expectedPdfPages": 50, "section": "第7章 関係法規"}
+        ]
+      },
       "appliesTo": [
         "content/site/civil-construction-1/textbook-*/article.mdx"
       ],
       "aliases": {
         "1級土木施工管理技士 テキスト（施工管理・法規編）": "civil1-textbook-management"
-      }
+      },
+      "notes": "2026-09-08: My Drive の個人管理/資格試験配下で原本7 PDFを再発見。正規bookBundleへ移行し、旧文字起こし7章は継続参照する。"
+    },
+    {
+      "id": "civil1-primary-workbook-2021",
+      "title": "2021年版 1級土木施工管理 第一次検定問題解説集",
+      "class": "commercial-book",
+      "origin": {"kind": "drive", "vaultDir": "原資料PDF/書籍/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021"},
+      "bookBundle": {
+        "directory": "civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021",
+        "transcriptDir": "content/sources/books/civil1-primary-workbook-2021__1級土木第一次検定問題解説集2021/ocr",
+        "renderProfile": {"mode": "pymupdf-single", "rotation": 0, "jpegQuality": 92, "ocrWidth": 2200, "cropWidth": 2600},
+        "sourceFiles": [
+          {"order": 1, "legacyMyDrivePath": "個人管理/資格試験/1級土木施工管理技士/１級土木施工管理第１次試験問題集/１級土木施工管理第１次試験問題集.pdf", "originalName": "１級土木施工管理第１次試験問題集.pdf", "expectedPdfPages": 616, "section": "全巻"}
+        ]
+      },
+      "notes": "市販問題解説集。内部参照専用。問題文を記事へ使う場合は実施機関の公式過去問で再照合する。"
+    },
+    {
+      "id": "civil1-secondary-workbook-2021",
+      "title": "2021年版 1級土木施工管理 第二次検定問題解説集",
+      "class": "commercial-book",
+      "origin": {"kind": "drive", "vaultDir": "原資料PDF/書籍/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021"},
+      "bookBundle": {
+        "directory": "civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021",
+        "transcriptDir": "content/sources/books/civil1-secondary-workbook-2021__1級土木第二次検定問題解説集2021/ocr",
+        "renderProfile": {"mode": "pymupdf-single", "rotation": 180, "jpegQuality": 92, "ocrWidth": 2200, "cropWidth": 2600},
+        "sourceFiles": [
+          {"order": 1, "legacyMyDrivePath": "個人管理/資格試験/1級土木施工管理技士/１級土木施工管理第２次試験問題集/１級土木施工管理第２次試験問題集.pdf", "originalName": "１級土木施工管理第２次試験問題集.pdf", "expectedPdfPages": 324, "section": "全巻"}
+        ]
+      },
+      "notes": "市販問題解説集。原本画像が180度回転しているため生成時に正立化する。内部参照専用。"
     },
     {
       "id": "pe-cem-textbook",
-      "title": "技術士（総合技術監理部門）標準テキスト・受験万全対策・論文対策",
+      "title": "技術士（総合技術監理部門）標準テキスト",
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
-        "vaultDir": "原資料PDF/教材/技術士（総監）"
+        "vaultDir": "原資料PDF/書籍/pe-cem-textbook__総監標準テキスト"
       },
-      "transcriptDir": "content/sources/textbook/技術士（総監）",
+      "transcriptDir": "content/sources/textbook/技術士（総監）/テキスト/総監標準テキスト",
+      "bookBundle": {
+        "directory": "pe-cem-textbook__総監標準テキスト",
+        "transcriptDir": "content/sources/books/pe-cem-textbook__総監標準テキスト/ocr",
+        "renderProfile": {
+          "mode": "pdfimages-auto-spread",
+          "rotation": 90,
+          "splitOrder": ["left", "right"],
+          "gutterOverlapPercent": 3,
+          "singlePageAspectThreshold": 1.15,
+          "jpegQuality": 92,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [
+          {"order": 1, "legacyRepoPath": "content/sources/textbook/技術士（総監）/テキスト/総監標準テキスト/経済性管理.pdf", "originalName": "経済性管理.pdf", "expectedPdfPages": 26, "singlePdfPages": [], "section": "経済性管理"},
+          {"order": 2, "legacyRepoPath": "content/sources/textbook/技術士（総監）/テキスト/総監標準テキスト/人的資源管理.pdf", "originalName": "人的資源管理.pdf", "expectedPdfPages": 31, "singlePdfPages": [], "section": "人的資源管理"},
+          {"order": 3, "legacyRepoPath": "content/sources/textbook/技術士（総監）/テキスト/総監標準テキスト/情報管理.pdf", "originalName": "情報管理.pdf", "expectedPdfPages": 33, "singlePdfPages": [1], "section": "情報管理"},
+          {"order": 4, "legacyRepoPath": "content/sources/textbook/技術士（総監）/テキスト/総監標準テキスト/安全管理.pdf", "originalName": "安全管理.pdf", "expectedPdfPages": 35, "singlePdfPages": [], "section": "安全管理"},
+          {"order": 5, "legacyRepoPath": "content/sources/textbook/技術士（総監）/テキスト/総監標準テキスト/社会環境管理.pdf", "originalName": "社会環境管理.pdf", "expectedPdfPages": 35, "singlePdfPages": [], "section": "社会環境管理"}
+        ]
+      },
       "notes": "キーワードページ 663 本の裏取りに使う。個々の記事への sources 付与は DN-0178。"
+    },
+    {
+      "id": "pe-cem-exam-guide",
+      "title": "技術士（総合技術監理部門）受験万全対策",
+      "class": "commercial-book",
+      "origin": {"kind": "drive", "vaultDir": "原資料PDF/書籍/pe-cem-exam-guide__総監受験万全対策"},
+      "transcriptDir": "content/sources/textbook/技術士（総監）/テキスト/総監受験万全対策",
+      "bookBundle": {
+        "directory": "pe-cem-exam-guide__総監受験万全対策",
+        "transcriptDir": "content/sources/books/pe-cem-exam-guide__総監受験万全対策/ocr",
+        "renderProfile": {"mode": "pdfimages-auto-spread", "rotation": 90, "splitOrder": ["left", "right"], "gutterOverlapPercent": 3, "singlePageAspectThreshold": 1.15, "jpegQuality": 92, "ocrWidth": 2200, "cropWidth": 2600},
+        "sourceFiles": [
+          {"order": 1, "legacyRepoPath": "content/sources/textbook/技術士（総監）/テキスト/総監受験万全対策/2-出願の留意点.pdf", "originalName": "2-出願の留意点.pdf", "expectedPdfPages": 9, "singlePdfPages": [], "section": "出願の留意点"},
+          {"order": 2, "legacyRepoPath": "content/sources/textbook/技術士（総監）/テキスト/総監受験万全対策/3-択一式過去問①.pdf", "originalName": "3-択一式過去問①.pdf", "expectedPdfPages": 9, "singlePdfPages": [1], "section": "択一式過去問1"},
+          {"order": 3, "legacyRepoPath": "content/sources/textbook/技術士（総監）/テキスト/総監受験万全対策/3-択一式過去問②.pdf", "originalName": "3-択一式過去問②.pdf", "expectedPdfPages": 8, "singlePdfPages": [], "section": "択一式過去問2"},
+          {"order": 4, "legacyRepoPath": "content/sources/textbook/技術士（総監）/テキスト/総監受験万全対策/3-択一式過去問③.pdf", "originalName": "3-択一式過去問③.pdf", "expectedPdfPages": 5, "singlePdfPages": [], "section": "択一式過去問3"},
+          {"order": 5, "legacyRepoPath": "content/sources/textbook/技術士（総監）/テキスト/総監受験万全対策/3-択一式過去問④.pdf", "originalName": "3-択一式過去問④.pdf", "expectedPdfPages": 5, "singlePdfPages": [], "section": "択一式過去問4"},
+          {"order": 6, "legacyRepoPath": "content/sources/textbook/技術士（総監）/テキスト/総監受験万全対策/3-択一式過去問⑤.pdf", "originalName": "3-択一式過去問⑤.pdf", "expectedPdfPages": 5, "singlePdfPages": [], "section": "択一式過去問5"},
+          {"order": 7, "legacyRepoPath": "content/sources/textbook/技術士（総監）/テキスト/総監受験万全対策/3-択一式過去問⑥.pdf", "originalName": "3-択一式過去問⑥.pdf", "expectedPdfPages": 4, "singlePdfPages": [], "section": "択一式過去問6"},
+          {"order": 8, "legacyRepoPath": "content/sources/textbook/技術士（総監）/テキスト/総監受験万全対策/3-択一式過去問⑦.pdf", "originalName": "3-択一式過去問⑦.pdf", "expectedPdfPages": 2, "singlePdfPages": [], "section": "択一式過去問7"}
+        ]
+      }
+    },
+    {
+      "id": "pe-cem-essay-guide",
+      "title": "技術士（総合技術監理部門）論文対策",
+      "class": "commercial-book",
+      "origin": {"kind": "drive", "vaultDir": "原資料PDF/書籍/pe-cem-essay-guide__総監論文対策"},
+      "transcriptDir": "content/sources/textbook/技術士（総監）/テキスト/総監論文対策",
+      "bookBundle": {
+        "directory": "pe-cem-essay-guide__総監論文対策",
+        "transcriptDir": "content/sources/books/pe-cem-essay-guide__総監論文対策/ocr",
+        "renderProfile": {"mode": "pdfimages-auto-spread", "rotation": 90, "splitOrder": ["left", "right"], "gutterOverlapPercent": 3, "singlePageAspectThreshold": 1.15, "jpegQuality": 92, "ocrWidth": 2200, "cropWidth": 2600},
+        "sourceFiles": [{"order": 1, "legacyRepoPath": "content/sources/textbook/技術士（総監）/テキスト/総監論文対策/総監論文に求められるもの.pdf", "originalName": "総監論文に求められるもの.pdf", "expectedPdfPages": 9, "singlePdfPages": [], "pageTransforms": [{"start": 1, "end": 4, "rotation": 270, "layout": "spread"}, {"start": 5, "end": 8, "rotation": 180, "layout": "spread"}, {"start": 9, "end": 9, "rotation": 0, "layout": "spread"}], "section": "総監論文に求められるもの"}]
+      }
+    },
+    {
+      "id": "ipej-cem-keywords-2026",
+      "title": "総合技術監理キーワード集2026",
+      "class": "government-publication",
+      "origin": {"kind": "drive", "vaultDir": "原資料PDF/書籍/ipej-cem-keywords-2026__総合技術監理キーワード集2026"},
+      "bookBundle": {
+        "directory": "ipej-cem-keywords-2026__総合技術監理キーワード集2026",
+        "transcriptDir": "content/sources/books/ipej-cem-keywords-2026__総合技術監理キーワード集2026/ocr",
+        "renderProfile": {"mode": "born-digital", "rotation": 0, "jpegQuality": 92, "ocrWidth": 2200, "cropWidth": 2600},
+        "sourceFiles": [{"order": 1, "legacyRepoPath": "content/sources/textbook/技術士（総監）/テキスト/総合技術監理キーワード集2026.pdf", "originalName": "総合技術監理キーワード集2026.pdf", "expectedPdfPages": 40, "section": "全巻"}]
+      },
+      "notes": "PDFメタデータの著者は文部科学省。公開利用時は原公開URLを別途確認してtitle-url出典を付ける。"
     },
     {
       "id": "civil-practice-note",
@@ -174,6 +372,7 @@
         "kind": "none"
       },
       "transcriptDir": "content/sources/textbook/土木施工実務ノート",
+      "transcriptVaultDir": "原資料PDF/書籍/civil-practice-note__土木施工実務ノート/ocr",
       "appliesTo": [
         "content/site/civil-practice/*/article.mdx"
       ],
@@ -185,9 +384,507 @@
       "class": "commercial-book",
       "origin": {
         "kind": "drive",
-        "vaultDir": "原資料PDF/書籍/新しい時代の安全管理のすべて_第7版"
+        "vaultDir": "原資料PDF/書籍/safety-management-all-7th__新しい時代の安全管理のすべて_第7版"
       },
-      "transcriptDir": "content/sources/textbook/新しい時代の安全管理のすべて_第7版"
+      "transcriptDir": "content/sources/textbook/新しい時代の安全管理のすべて_第7版",
+      "bookBundle": {
+        "directory": "safety-management-all-7th__新しい時代の安全管理のすべて_第7版",
+        "transcriptDir": "content/sources/books/safety-management-all-7th__新しい時代の安全管理のすべて_第7版/ocr",
+        "renderProfile": {
+          "mode": "pdfimages-spread",
+          "rotation": 90,
+          "splitOrder": [
+            "left",
+            "right"
+          ],
+          "gutterOverlapPercent": 3,
+          "jpegQuality": 92,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [
+          {
+            "order": 1,
+            "legacyRepoPath": "content/sources/textbook/新しい時代の安全管理のすべて_第7版/01_第2編_安全管理システム_p106-145.pdf",
+            "originalName": "01_スキャンした書類.pdf",
+            "expectedPdfPages": 20,
+            "printedPages": {
+              "start": 106,
+              "end": 145
+            },
+            "section": "第2編 安全管理システム"
+          },
+          {
+            "order": 2,
+            "legacyRepoPath": "content/sources/textbook/新しい時代の安全管理のすべて_第7版/02_第2編_安全管理システム_p146-187.pdf",
+            "originalName": "02_スキャンした書類 2.pdf",
+            "expectedPdfPages": 21,
+            "printedPages": {
+              "start": 146,
+              "end": 187
+            },
+            "section": "第2編 安全管理システム"
+          },
+          {
+            "order": 3,
+            "legacyRepoPath": "content/sources/textbook/新しい時代の安全管理のすべて_第7版/03_第2編_安全管理システム_p188-219.pdf",
+            "originalName": "03_スキャンした書類 3.pdf",
+            "expectedPdfPages": 16,
+            "printedPages": {
+              "start": 188,
+              "end": 219
+            },
+            "section": "第2編 安全管理システム"
+          },
+          {
+            "order": 4,
+            "legacyRepoPath": "content/sources/textbook/新しい時代の安全管理のすべて_第7版/04_第3編_労働安全衛生マネジメントシステム_p220-259.pdf",
+            "originalName": "04_スキャンした書類 4 (1).pdf",
+            "expectedPdfPages": 20,
+            "printedPages": {
+              "start": 220,
+              "end": 259
+            },
+            "section": "第3編 労働安全衛生マネジメントシステム"
+          },
+          {
+            "order": 5,
+            "legacyRepoPath": "content/sources/textbook/新しい時代の安全管理のすべて_第7版/05_第3編_労働安全衛生マネジメントシステム_p260-273.pdf",
+            "originalName": "05_スキャンした書類 5.pdf",
+            "expectedPdfPages": 7,
+            "printedPages": {
+              "start": 260,
+              "end": 273
+            },
+            "section": "第3編 労働安全衛生マネジメントシステム"
+          }
+        ]
+      }
+    },
+    {
+      "id": "disaster-civil-basics",
+      "title": "よくわかる最新防災土木の基礎知識",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/書籍/disaster-civil-basics__よくわかる最新防災土木の基礎知識"
+      },
+      "bookBundle": {
+        "directory": "disaster-civil-basics__よくわかる最新防災土木の基礎知識",
+        "transcriptDir": "content/sources/books/disaster-civil-basics__よくわかる最新防災土木の基礎知識/ocr",
+        "renderProfile": {
+          "mode": "born-digital",
+          "rotation": 0,
+          "contentCrop": {"top": 80, "right": 0, "bottom": 0, "left": 0},
+          "jpegQuality": 90,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [
+          {
+            "order": 1,
+            "legacyVaultPath": "原資料PDF/書籍/よくわかる最新防災土木の基礎知識.pdf",
+            "originalName": "よくわかる最新防災土木の基礎知識.pdf",
+            "expectedPdfPages": 250,
+            "excludedPdfPageRanges": [{"start": 244, "end": 250, "reason": "Kindleレビュー画面など書籍本文外"}],
+            "pageTransforms": [{"start": 1, "end": 1, "contentCrop": {"top": 80, "right": 0, "bottom": 118, "left": 0}}],
+            "section": "全巻"
+          }
+        ]
+      },
+      "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
+    },
+    {
+      "id": "civil-construction-basics",
+      "title": "土木技術者のための土木施工管理の基礎",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/書籍/civil-construction-basics__土木施工管理の基礎"
+      },
+      "bookBundle": {
+        "directory": "civil-construction-basics__土木施工管理の基礎",
+        "transcriptDir": "content/sources/books/civil-construction-basics__土木施工管理の基礎/ocr",
+        "renderProfile": {
+          "mode": "born-digital",
+          "rotation": 0,
+          "contentCrop": {"top": 80, "right": 0, "bottom": 0, "left": 0},
+          "jpegQuality": 90,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [
+          {
+            "order": 1,
+            "legacyVaultPath": "原資料PDF/書籍/土木技術者のための土木施工管理の基礎.pdf",
+            "originalName": "土木技術者のための土木施工管理の基礎.pdf",
+            "expectedPdfPages": 250,
+            "pageTransforms": [{"start": 1, "end": 1, "contentCrop": {"top": 80, "right": 0, "bottom": 118, "left": 0}}],
+            "section": "全巻"
+          }
+        ]
+      },
+      "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
+    },
+    {
+      "id": "construction-materials-basics",
+      "title": "土木技術者のための建設材料の基本と仕組み",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/書籍/construction-materials-basics__建設材料の基本と仕組み"
+      },
+      "bookBundle": {
+        "directory": "construction-materials-basics__建設材料の基本と仕組み",
+        "transcriptDir": "content/sources/books/construction-materials-basics__建設材料の基本と仕組み/ocr",
+        "renderProfile": {
+          "mode": "born-digital",
+          "rotation": 0,
+          "contentCrop": {"top": 80, "right": 0, "bottom": 0, "left": 0},
+          "jpegQuality": 90,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [
+          {
+            "order": 1,
+            "legacyVaultPath": "原資料PDF/書籍/土木技術者のための建設材料の基本と仕組み.pdf",
+            "originalName": "土木技術者のための建設材料の基本と仕組み.pdf",
+            "expectedPdfPages": 290,
+            "excludedPdfPageRanges": [{"start": 285, "end": 290, "reason": "Kindleレビュー画面など書籍本文外"}],
+            "pageTransforms": [{"start": 1, "end": 1, "contentCrop": {"top": 80, "right": 0, "bottom": 118, "left": 0}}],
+            "section": "全巻"
+          }
+        ]
+      },
+      "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
+    },
+    {
+      "id": "construction-industry-trends-5th",
+      "title": "最新建設業界の動向とカラクリがよ〜くわかる本 第5版",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/書籍/construction-industry-trends-5th__最新建設業界の動向とカラクリ第5版"
+      },
+      "bookBundle": {
+        "directory": "construction-industry-trends-5th__最新建設業界の動向とカラクリ第5版",
+        "transcriptDir": "content/sources/books/construction-industry-trends-5th__最新建設業界の動向とカラクリ第5版/ocr",
+        "renderProfile": {
+          "mode": "born-digital",
+          "rotation": 0,
+          "contentCrop": {"top": 80, "right": 0, "bottom": 0, "left": 0},
+          "jpegQuality": 90,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [
+          {
+            "order": 1,
+            "legacyVaultPath": "原資料PDF/書籍/最新建設業界の動向とカラクリがよ〜くわかる本［第5版］.pdf",
+            "originalName": "最新建設業界の動向とカラクリがよ〜くわかる本［第5版］.pdf",
+            "expectedPdfPages": 270,
+            "excludedPdfPageRanges": [{"start": 265, "end": 270, "reason": "Kindleレビュー画面など書籍本文外"}],
+            "pageTransforms": [{"start": 1, "end": 1, "contentCrop": {"top": 80, "right": 0, "bottom": 118, "left": 0}}],
+            "section": "全巻"
+          }
+        ]
+      },
+      "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
+    },
+    {
+      "id": "civil-industry-trends-3rd",
+      "title": "最新土木業界の動向とカラクリがよ〜くわかる本 第3版",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/書籍/civil-industry-trends-3rd__最新土木業界の動向とカラクリ第3版"
+      },
+      "bookBundle": {
+        "directory": "civil-industry-trends-3rd__最新土木業界の動向とカラクリ第3版",
+        "transcriptDir": "content/sources/books/civil-industry-trends-3rd__最新土木業界の動向とカラクリ第3版/ocr",
+        "renderProfile": {
+          "mode": "born-digital",
+          "rotation": 0,
+          "contentCrop": {"top": 80, "right": 0, "bottom": 0, "left": 0},
+          "jpegQuality": 90,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [
+          {
+            "order": 1,
+            "legacyVaultPath": "原資料PDF/書籍/最新土木業界の動向とカラクリがよ〜くわかる本［第3版］.pdf",
+            "originalName": "最新土木業界の動向とカラクリがよ〜くわかる本［第3版］.pdf",
+            "expectedPdfPages": 270,
+            "excludedPdfPageRanges": [{"start": 263, "end": 270, "reason": "Kindleレビュー画面など書籍本文外"}],
+            "pageTransforms": [{"start": 1, "end": 1, "contentCrop": {"top": 80, "right": 0, "bottom": 118, "left": 0}}],
+            "section": "全巻"
+          }
+        ]
+      },
+      "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
+    },
+    {
+      "id": "civil-informatics",
+      "title": "土木情報学",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/書籍/civil-informatics__土木情報学"
+      },
+      "bookBundle": {
+        "directory": "civil-informatics__土木情報学",
+        "transcriptDir": "content/sources/books/civil-informatics__土木情報学/ocr",
+        "renderProfile": {
+          "mode": "born-digital",
+          "rotation": 0,
+          "jpegQuality": 90,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [
+          {
+            "order": 1,
+            "legacyVaultPath": "原資料PDF/書籍/土木情報学.pdf",
+            "originalName": "土木情報学.pdf",
+            "expectedPdfPages": 208,
+            "section": "全巻"
+          }
+        ]
+      },
+      "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
+    },
+    {
+      "id": "concrete-basics-5th",
+      "title": "よくわかる最新コンクリートの基本と仕組み 第5版",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/書籍/concrete-basics-5th__最新コンクリートの基本と仕組み第5版"
+      },
+      "bookBundle": {
+        "directory": "concrete-basics-5th__最新コンクリートの基本と仕組み第5版",
+        "transcriptDir": "content/sources/books/concrete-basics-5th__最新コンクリートの基本と仕組み第5版/ocr",
+        "renderProfile": {
+          "mode": "born-digital",
+          "rotation": 0,
+          "contentCrop": {"top": 80, "right": 0, "bottom": 0, "left": 0},
+          "jpegQuality": 90,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [
+          {
+            "order": 1,
+            "legacyVaultPath": "原資料PDF/書籍/よくわかる最新コンクリートの基本と仕組み［第5版］.pdf",
+            "originalName": "よくわかる最新コンクリートの基本と仕組み［第5版］.pdf",
+            "expectedPdfPages": 320,
+            "excludedPdfPageRanges": [{"start": 311, "end": 320, "reason": "Kindleレビュー画面など書籍本文外"}],
+            "pageTransforms": [{"start": 1, "end": 1, "contentCrop": {"top": 80, "right": 0, "bottom": 118, "left": 0}}],
+            "section": "全巻"
+          }
+        ]
+      },
+      "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
+    },
+    {
+      "id": "construction-ai-management",
+      "title": "建設業AI経営",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/書籍/construction-ai-management__建設業AI経営"
+      },
+      "bookBundle": {
+        "directory": "construction-ai-management__建設業AI経営",
+        "transcriptDir": "content/sources/books/construction-ai-management__建設業AI経営/ocr",
+        "renderProfile": {
+          "mode": "born-digital",
+          "rotation": 0,
+          "contentCrop": {"top": 80, "right": 0, "bottom": 0, "left": 0},
+          "jpegQuality": 90,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [
+          {
+            "order": 1,
+            "legacyVaultPath": "原資料PDF/書籍/建設業AI経営.pdf",
+            "originalName": "建設業AI経営.pdf",
+            "expectedPdfPages": 210,
+            "excludedPdfPageRanges": [{"start": 168, "end": 210, "reason": "Kindleレビュー・重複・ライブラリ画面など書籍本文外"}],
+            "pageTransforms": [{"start": 1, "end": 1, "contentCrop": {"top": 80, "right": 0, "bottom": 118, "left": 0}}],
+            "section": "全巻"
+          }
+        ]
+      },
+      "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
+    },
+    {
+      "id": "construction-business-act-tips-3rd",
+      "title": "建設業法のツボとコツがゼッタイにわかる本 第3版",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/書籍/construction-business-act-tips-3rd__建設業法のツボとコツ第3版"
+      },
+      "bookBundle": {
+        "directory": "construction-business-act-tips-3rd__建設業法のツボとコツ第3版",
+        "transcriptDir": "content/sources/books/construction-business-act-tips-3rd__建設業法のツボとコツ第3版/ocr",
+        "renderProfile": {
+          "mode": "born-digital",
+          "rotation": 0,
+          "contentCrop": {"top": 80, "right": 0, "bottom": 0, "left": 0},
+          "jpegQuality": 90,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [
+          {
+            "order": 1,
+            "legacyVaultPath": "原資料PDF/書籍/建設業法のツボとコツがゼッタイにわかる本［第3版］.pdf",
+            "originalName": "建設業法のツボとコツがゼッタイにわかる本［第3版］.pdf",
+            "expectedPdfPages": 460,
+            "excludedPdfPageRanges": [{"start": 451, "end": 460, "reason": "Kindleレビュー画面など書籍本文外"}],
+            "pageTransforms": [{"start": 1, "end": 1, "contentCrop": {"top": 80, "right": 0, "bottom": 118, "left": 0}}],
+            "section": "全巻"
+          }
+        ]
+      },
+      "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
+    },
+    {
+      "id": "civil2-first-exam-manga-2026",
+      "title": "マンガでわかる2級土木施工管理技士 第一次検定 2026年版",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/書籍/civil2-first-exam-manga-2026__マンガでわかる2級土木第一次検定2026"
+      },
+      "bookBundle": {
+        "directory": "civil2-first-exam-manga-2026__マンガでわかる2級土木第一次検定2026",
+        "transcriptDir": "content/sources/books/civil2-first-exam-manga-2026__マンガでわかる2級土木第一次検定2026/ocr",
+        "renderProfile": {
+          "mode": "born-digital",
+          "rotation": 0,
+          "contentCrop": {"top": 80, "right": 0, "bottom": 0, "left": 0},
+          "jpegQuality": 90,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [
+          {
+            "order": 1,
+            "legacyVaultPath": "原資料PDF/書籍/マンガでわかる2級土木施工管理技士_第一次検定_2026年版.pdf",
+            "originalName": "マンガでわかる2級土木施工管理技士_第一次検定_2026年版.pdf",
+            "expectedPdfPages": 125,
+            "excludedPdfPageRanges": [{"start": 124, "end": 125, "reason": "Kindleレビュー画面など書籍本文外"}],
+            "pageTransforms": [{"start": 1, "end": 1, "contentCrop": {"top": 80, "right": 0, "bottom": 118, "left": 0}}],
+            "section": "全巻"
+          }
+        ]
+      },
+      "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
+    },
+    {
+      "id": "civil-technology-basics",
+      "title": "よくわかる最新土木技術の基本と仕組み",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/書籍/civil-technology-basics__最新土木技術の基本と仕組み"
+      },
+      "bookBundle": {
+        "directory": "civil-technology-basics__最新土木技術の基本と仕組み",
+        "transcriptDir": "content/sources/books/civil-technology-basics__最新土木技術の基本と仕組み/ocr",
+        "renderProfile": {
+          "mode": "born-digital",
+          "rotation": 0,
+          "contentCrop": {"top": 80, "right": 0, "bottom": 0, "left": 0},
+          "jpegQuality": 90,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [
+          {
+            "order": 1,
+            "legacyVaultPath": "原資料PDF/書籍/よくわかる最新土木技術の基本と仕組み.pdf",
+            "originalName": "よくわかる最新土木技術の基本と仕組み.pdf",
+            "expectedPdfPages": 320,
+            "excludedPdfPageRanges": [{"start": 315, "end": 320, "reason": "Kindleレビュー画面など書籍本文外"}],
+            "pageTransforms": [{"start": 1, "end": 1, "contentCrop": {"top": 80, "right": 0, "bottom": 118, "left": 0}}],
+            "section": "全巻"
+          }
+        ]
+      },
+      "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
+    },
+    {
+      "id": "weather-disaster-basics",
+      "title": "図解入門 よくわかる最新 気象災害の基本と仕組み",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/書籍/weather-disaster-basics__最新気象災害の基本と仕組み"
+      },
+      "bookBundle": {
+        "directory": "weather-disaster-basics__最新気象災害の基本と仕組み",
+        "transcriptDir": "content/sources/books/weather-disaster-basics__最新気象災害の基本と仕組み/ocr",
+        "renderProfile": {
+          "mode": "born-digital",
+          "rotation": 0,
+          "contentCrop": {"top": 80, "right": 0, "bottom": 0, "left": 0},
+          "jpegQuality": 90,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [
+          {
+            "order": 1,
+            "legacyVaultPath": "原資料PDF/書籍/図解入門 よくわかる最新 気象災害の基本と仕組み.pdf",
+            "originalName": "図解入門 よくわかる最新 気象災害の基本と仕組み.pdf",
+            "expectedPdfPages": 200,
+            "excludedPdfPageRanges": [{"start": 197, "end": 200, "reason": "Kindleレビュー画面など書籍本文外"}],
+            "pageTransforms": [{"start": 1, "end": 1, "contentCrop": {"top": 80, "right": 0, "bottom": 118, "left": 0}}],
+            "section": "全巻"
+          }
+        ]
+      },
+      "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
+    },
+    {
+      "id": "construction-claude-code-guide",
+      "title": "建設業向けClaude Code実践活用ガイド",
+      "class": "commercial-book",
+      "origin": {
+        "kind": "drive",
+        "vaultDir": "原資料PDF/書籍/construction-claude-code-guide__建設業向けClaudeCode実践活用ガイド"
+      },
+      "bookBundle": {
+        "directory": "construction-claude-code-guide__建設業向けClaudeCode実践活用ガイド",
+        "transcriptDir": "content/sources/books/construction-claude-code-guide__建設業向けClaudeCode実践活用ガイド/ocr",
+        "renderProfile": {
+          "mode": "born-digital",
+          "rotation": 0,
+          "contentCrop": {"top": 80, "right": 0, "bottom": 0, "left": 0},
+          "jpegQuality": 90,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [
+          {
+            "order": 1,
+            "legacyVaultPath": "原資料PDF/書籍/建設業向けClaude Code実践活用ガイド.pdf",
+            "originalName": "建設業向けClaude Code実践活用ガイド.pdf",
+            "expectedPdfPages": 230,
+            "excludedPdfPageRanges": [{"start": 160, "end": 230, "reason": "Kindleレビュー・ライブラリ画面など書籍本文外"}],
+            "pageTransforms": [{"start": 1, "end": 1, "contentCrop": {"top": 80, "right": 0, "bottom": 118, "left": 0}}],
+            "section": "全巻"
+          }
+        ]
+      },
+      "notes": "2026-09-07にDrive直下の未整理PDFから1冊1ディレクトリへ登録。文字起こし・図クロップは内部利用に限定する。"
     },
     {
       "id": "pe-construction-keyword-book",
@@ -195,10 +892,35 @@
       "class": "operator-owned",
       "origin": {
         "kind": "drive",
-        "vaultDir": "原資料PDF/教材/技術士（建設部門）/論文対策キーワード"
+        "vaultDir": "原資料PDF/書籍/pe-construction-keyword-book__技術士建設部門論文対策キーワード"
       },
       "transcriptDir": "content/sources/textbook/技術士（建設部門）/論文対策キーワード",
-      "notes": "運営者が権利を持つため図の流用も可（image-policy の例外）。"
+      "bookBundle": {
+        "directory": "pe-construction-keyword-book__技術士建設部門論文対策キーワード",
+        "transcriptDir": "content/sources/books/pe-construction-keyword-book__技術士建設部門論文対策キーワード/ocr",
+        "renderProfile": {
+          "mode": "pdfimages-auto-spread",
+          "rotation": 90,
+          "splitOrder": ["left", "right"],
+          "gutterOverlapPercent": 3,
+          "singlePageAspectThreshold": 1.15,
+          "jpegQuality": 92,
+          "ocrWidth": 2200,
+          "cropWidth": 2600
+        },
+        "sourceFiles": [
+          {"order": 1, "legacyRepoPath": "content/sources/textbook/技術士（建設部門）/論文対策キーワード/スキャンした書類 2.pdf", "originalName": "スキャンした書類 2.pdf", "expectedPdfPages": 7, "singlePdfPages": [], "section": "p42以降 分冊1"},
+          {"order": 2, "legacyRepoPath": "content/sources/textbook/技術士（建設部門）/論文対策キーワード/スキャンした書類 3.pdf", "originalName": "スキャンした書類 3.pdf", "expectedPdfPages": 21, "singlePdfPages": [], "section": "p42以降 分冊2"},
+          {"order": 3, "legacyRepoPath": "content/sources/textbook/技術士（建設部門）/論文対策キーワード/スキャンした書類 4.pdf", "originalName": "スキャンした書類 4.pdf", "expectedPdfPages": 22, "singlePdfPages": [], "section": "p42以降 分冊3"},
+          {"order": 4, "legacyRepoPath": "content/sources/textbook/技術士（建設部門）/論文対策キーワード/スキャンした書類 5.pdf", "originalName": "スキャンした書類 5.pdf", "expectedPdfPages": 24, "singlePdfPages": [], "section": "p42以降 分冊4"},
+          {"order": 5, "legacyRepoPath": "content/sources/textbook/技術士（建設部門）/論文対策キーワード/スキャンした書類 6.pdf", "originalName": "スキャンした書類 6.pdf", "expectedPdfPages": 22, "singlePdfPages": [], "section": "p42以降 分冊5"},
+          {"order": 6, "legacyRepoPath": "content/sources/textbook/技術士（建設部門）/論文対策キーワード/スキャンした書類 7.pdf", "originalName": "スキャンした書類 7.pdf", "expectedPdfPages": 17, "singlePdfPages": [], "section": "p42以降 分冊6"},
+          {"order": 7, "legacyRepoPath": "content/sources/textbook/技術士（建設部門）/論文対策キーワード/スキャンした書類 8.pdf", "originalName": "スキャンした書類 8.pdf", "expectedPdfPages": 22, "singlePdfPages": [], "section": "p42以降 分冊7"},
+          {"order": 8, "legacyRepoPath": "content/sources/textbook/技術士（建設部門）/論文対策キーワード/スキャンした書類 9.pdf", "originalName": "スキャンした書類 9.pdf", "expectedPdfPages": 24, "singlePdfPages": [], "section": "p42以降 分冊8"},
+          {"order": 9, "legacyRepoPath": "content/sources/textbook/技術士（建設部門）/論文対策キーワード/スキャンした書類 10.pdf", "originalName": "スキャンした書類 10.pdf", "expectedPdfPages": 9, "singlePdfPages": [], "section": "p42以降 分冊9"}
+        ]
+      },
+      "notes": "運営者が権利を持つため図の流用も可（image-policy の例外）。現存原本は版面p371の文中で終了し、後続分冊はDrive全体の検索でも未発見（2026-09-07）。OCR・利用範囲はp371までとし、完全な原本とは扱わない。"
     },
     {
       "id": "cecc-past-exams",

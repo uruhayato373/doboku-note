@@ -13,6 +13,8 @@ title: スキル ガバナンス記録
 
 ## カテゴリ構造（件数の SSOT＝`find .claude/skills -name SKILL.md` 実数）
 
+2026-09-08: `asset-route` と `pdf-to-mdx --scanned` の保存経路を原資料内 `ocr/` へ統合。独立した文字起こし階層を廃止し、既存book bundleのページ画像再利用・正本PDFの単一保管・成果物manifest登録を案内した。スキルの追加・削除・description変更はなし。
+
 > このツリーがスキル件数の**唯一の真実源（SSOT）**。CLAUDE.md など他 doc は件数を重複記載せずここを指す。スキルを追加/削除したら同一 commit でここを更新する（`/doc-declutter` → `doc-curator` でドリフトを棚卸し）。
 
 ```

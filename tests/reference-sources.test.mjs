@@ -14,7 +14,7 @@ import {
   loadReferenceSources, buildSourceIndex, expandCatalogSources, resolveSourceRef, splitSourceRef,
   classRuleOf, globToRegExp, sourcesRequiringArticle, normalizeForCompare, buildTranscriptIndex,
   findVerbatimRuns, parseTranscriptHeader, loadStandardsCatalog, evaluateMissingSourcesRatchet,
-  checkCitationEvidence, VERBATIM_RULES, CITATION_RULES,
+  checkCitationEvidence, transcriptDirsForSource, VERBATIM_RULES, CITATION_RULES,
 } from '../scripts/lib/reference-sources.mjs';
 
 const CFG = loadReferenceSources();
@@ -200,4 +200,11 @@ test('config: 文字起こしを持つ原本は transcriptDir が repo 相対で
     const rule = CFG.classes[s.class];
     if (s.class === 'commercial-book') assert.equal(rule.transcriptPublic, false, s.id + ' の文字起こしは公開しない');
   }
+});
+
+test('bookBundle: 新旧の文字起こしディレクトリを段階移行中だけ併用できる', () => {
+  assert.deepEqual(transcriptDirsForSource(src('safety-management-all-7th')), [
+    'content/sources/textbook/新しい時代の安全管理のすべて_第7版',
+    'content/sources/books/safety-management-all-7th__新しい時代の安全管理のすべて_第7版/ocr',
+  ]);
 });
