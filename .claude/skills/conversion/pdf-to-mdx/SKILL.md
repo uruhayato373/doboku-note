@@ -37,6 +37,8 @@ PDF または画像ファイルから doboku-note 用 MDX を生成する統合�
 
 **着手前の必須チェック（経路A/B 共通）**: 自炊の手持ち撮影は指が写り込んで本文を隠す。視覚OCRは隠れた文字を文脈から埋め、出来上がった文が自然な日本語になるため**後段の校正では検出できない**。OCR に入る前に `scripts/occlusion/detect_occlusion.py` で候補を挙げ、本文が隠れている版面は撮り直しに回す。読めない箇所は 〔判読不能〕 と書き、埋めない。**候補率は「本文が隠れている率」ではない**（全26冊6,860p を走らせ、候補率の高い本を抜き取り目視した結果、マンガの登場人物の肌・余白でページを押さえる指・Kindle の書影が多数混じっていた）。絞り込みに使い、要否は候補ページの目視で決める。実測の内訳は scripts/occlusion/README.md、スキャン結果は .claude/state/assets/reference-book-occlusion-scan.json。本物の例＝pe-cem-essay-guide は 16版面中9版面が判読不能で、既存の文字起こしに推測で埋めた箇所があった。
 
+- **経路D: 参考文献 bundle の視覚OCR** — `content/sources/books/` の bundle（Drive の `pages/pNNNN.jpg`）を、Sonnet 第1読（6p/体）→ Tesseract 第二読（無料）→ 一致率の低いページだけ Sonnet 第2読 → 48 ページ part へ連結 → `record-reference-book-artifacts` で Drive と台帳へ、の順で起こす。モデルが読むのは全ページ 1 回＋食い違ったページだけもう 1 回。runbook = `scripts/book-ocr/README.md`。マーカーは画像 id `<!-- p0001 -->`（印字ノンブルではない）。
+
 ワーカー: 本文 OCR/校正 = サブエージェント `scanned-textbook-transcriber`（Generator・sonnet）／図 locate = `civil-exam-figure-extractor` と同型の Generator／**図クロップ品質監査 = `scanned-figure-crop-auditor`（Evaluator・sonnet。実クロップ PNG を4軸採点し `adjust_bbox` を返す。locate 単発では枠が緩く本文写り込み・切れが残るため必須）**。**市販書籍スキャンは内部リファレンス専用＝公開しない**（`content/sources/textbook/**/img` は r2-sync 対象外＝公開R2へ同期されない。README に明記）。文字起こしには `.claude/config/reference-sources.json` の ID を示す frontmatter を付け、`source-transcript` group で Drive に同期する。
 
 ## 利用可能な exam テンプレート
@@ -263,4 +265,5 @@ node .claude/scripts/upload-images-to-r2.mjs --prefix {category}/{slug}
 - `.claude/skills/conversion/pdf-to-mdx/scripts/scanned/` — 経路B（PyMuPDF 単ページ）再利用スクリプト一式＋runbook
 - `.claude/skills/conversion/pdf-to-mdx/scripts/text-layer/` — 経路C（テキスト層抽出）判定スクリプト＋実装例＋runbook
 - `.claude/skills/conversion/pdf-to-mdx/scripts/occlusion/` — 指の写り込み検出（OCR 着手前のゲート）
+- `.claude/skills/conversion/pdf-to-mdx/scripts/book-ocr/` — 経路D（参考文献 bundle の視覚OCR）prep/fanout/tesseract/compare/proofread/concat ＋ runbook
 - `.claude/scripts/lib/mdx-io.mjs` — CRLF 保持 I/O（必須）
