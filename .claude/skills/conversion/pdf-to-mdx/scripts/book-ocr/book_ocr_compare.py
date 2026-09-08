@@ -68,7 +68,9 @@ def main():
                           "lenRatio": round(len(s) / len(t), 2) if t else None,
                           "sonnetChars": len(s), "tessChars": len(t), "figures": figs,
                           # 図が 2 つ以上で本文が 200 字未満＝図版ページ。Tesseract は写真から雑音を拾うので
-                          # 一致率で見直しに回さない（本文ページを 1 図だけで済ませた取りこぼしは対象のまま）
+                          # 一致率で見直しに回さない。これ以上は絞らない: concrete-basics-5th で「図 1 つ以上・
+                          # 400 字未満」まで除外すると、本文の実誤り 5 箇所のうち 3 箇所（怠らす→怠らず、繊密→緻密、
+                          # 重複誤字）が図解ページ上にあり見直しから漏れた。図解本は図の脇に本文が載る
                           "figurePage": figs >= 2 and len(s) < 200,
                           "unreadable": len(UNREAD.findall(s_raw)), "flags": list(problems)})
     if not pages:
@@ -90,7 +92,8 @@ def main():
             p["flags"].append("empty")
         elif p["tessChars"] >= 100 and p["sim"] < cut:
             p["flags"].append("lowSim")
-        if p["lenRatio"] is not None and p["tessChars"] >= 100 and not (0.7 <= p["lenRatio"] <= 1.4):
+        # Sonnet が Tesseract より短い＝行や段落の取りこぼしの疑い。長い側（Tesseract が図で崩れた）は見ない
+        if p["lenRatio"] is not None and p["tessChars"] >= 100 and p["lenRatio"] < 0.7:
             p["flags"].append("lenOff")
     flagged = [p for p in pages if p["flags"] and p["bi"] not in rerun]
     by_batch = {}

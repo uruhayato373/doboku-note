@@ -17,11 +17,20 @@ from concurrent.futures import ThreadPoolExecutor
 
 
 def vault_root():
+    """drive-vault.json と同じ規則で解決する（env 最優先 → 候補のうち README.md が実在するもの）。
+    Mac と Windows の両方で同じ jobs.json を作れるようにする。"""
     env = os.environ.get("DOBOKU_DRIVE_VAULT")
     if env and os.path.isdir(env):
         return env
-    m = glob.glob(os.path.expanduser("~/Library/CloudStorage/GoogleDrive-*/マイドライブ/doboku-note"))
-    return m[0] if m else None
+    cfg = json.load(open(".claude/config/drive-vault.json", encoding="utf-8"))
+    for c in cfg["vaultRoot"]["candidates"]:
+        if c.get("platform") and c["platform"] != sys.platform:
+            continue
+        pattern = os.path.expandvars(os.path.expanduser(c.get("glob") or c.get("path")))
+        for m in sorted(glob.glob(pattern)):
+            if os.path.exists(os.path.join(m, cfg["vaultRoot"].get("marker", "README.md"))):
+                return m
+    return None
 
 
 def sha256(path):
