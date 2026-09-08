@@ -3,12 +3,12 @@ import { digest } from './youtube-cover-rollout.mjs';
 
 /** Serial writes. Persist every phase; never retry ambiguous thumbnails.set outcomes. */
 export async function updateThumbnailBatch(youtube, plan, {
-  commit=false, expectedPlanSha256, start=0, limit=1, onlyVideoId,
+  commit=false, expectedPlanSha256, start=0, limit=1, onlyVideoId, publicOnly=false,
   render, fetchImage, compare, record,
 }) {
   if (!expectedPlanSha256 || expectedPlanSha256 !== plan.sha256) throw new Error('Frozen plan digest mismatch');
   if (!Number.isInteger(start)||start<0||!Number.isInteger(limit)||limit<1||limit>400) throw new Error('Invalid batch bounds');
-  const ordered=[...plan.entries].sort((a,b)=>a.videoId.localeCompare(b.videoId,'en'));
+  const ordered=plan.entries.filter(e=>!publicOnly||e.privacy==='public').sort((a,b)=>a.videoId.localeCompare(b.videoId,'en'));
   const entries=onlyVideoId?ordered.filter(e=>e.videoId===onlyVideoId):ordered.slice(start,start+limit);
   if (!entries.length) throw new Error('Selected zero videos');
   const reports=[];

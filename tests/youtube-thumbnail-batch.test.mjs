@@ -50,6 +50,12 @@ test('取得済み画像が一致なら外部書込なし、backup保存失敗�
  assert.equal(result.alreadyMatching,1);assert.equal(m.writes.length,0);
  await assert.rejects(updateThumbnailBatch(m.youtube,plan,{...opts,commit:true,record:()=>{throw new Error('disk');}}));assert.equal(m.writes.length,0);
 });
+test('公開のみの範囲指定はprivateを変更せず、全件計画のSHAを維持する',async()=>{
+ const m=mock();await assert.rejects(updateThumbnailBatch(m.youtube,plan,{...opts,commit:true,publicOnly:true}),/zero/);
+ assert.equal(m.writes.length,0);
+ const publicPlan={...plan,entries:[{...plan.entries[0],privacy:'public'}]};
+ const result=await updateThumbnailBatch(m.youtube,publicPlan,{...opts,publicOnly:true});assert.equal(result.selected,1);assert.equal(m.writes.length,0);
+});
 test('JPEG派生は画像一致、局所的な文字領域差分は不一致',async()=>{
  const content=Buffer.from('<svg width="1280" height="720"><rect width="1280" height="720" fill="#0f2742"/><rect x="100" y="150" width="300" height="100" fill="white"/></svg>');
  const png=await sharp(content).png().toBuffer(), jpeg=await sharp(png).resize(640,360).jpeg({quality:90}).toBuffer();

@@ -44,6 +44,10 @@ on:
         description: "試行用の単一videoId（空なら開始位置・本数を使用）"
         type: string
         default: ""
+      public_only:
+        description: "公開中の対象を先に処理する（公開設定は変更しない）"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -162,10 +166,12 @@ jobs:
           BATCH_LIMIT: ${{ inputs.batch_limit }}
           ONLY_VIDEO_ID: ${{ inputs.only_video_id }}
           APPLY_THUMBNAILS: ${{ inputs.commit }}
+          PUBLIC_ONLY: ${{ inputs.public_only }}
         run: |
           args=(--mode refresh --out .tmp/youtube-rollout-export --expect-plan-sha256 "$PLAN_SHA256" --start "$BATCH_START" --limit "$BATCH_LIMIT")
           if [ -n "$ONLY_VIDEO_ID" ]; then args+=(--only-video-id "$ONLY_VIDEO_ID"); fi
           if [ "$APPLY_THUMBNAILS" = "true" ]; then args+=(--commit); fi
+          if [ "$PUBLIC_ONLY" = "true" ]; then args+=(--public-only); fi
           node scripts/youtube-thumbnail-rollout.mjs "${args[@]}"
       - name: Export encrypted receipts and old thumbnails only
         if: always()

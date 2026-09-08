@@ -15,7 +15,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const { values: args } = parseArgs({ options: { mode: { type: 'string', default: 'inventory' },
   out: { type: 'string', default: '.tmp/youtube-rollout' }, input: { type: 'string' }, 'key-file': { type: 'string' },
   'expect-plan-sha256': { type: 'string' }, start: { type: 'string', default: '0' }, limit: { type: 'string', default: '1' },
-  'only-video-id': { type: 'string' }, commit: { type: 'boolean', default: false } } });
+  'only-video-id': { type: 'string' }, 'public-only': {type:'boolean',default:false}, commit: { type: 'boolean', default: false } } });
 const out = resolve(args.out);
 async function main() {
   mkdirSync(out, { recursive: true });
@@ -86,7 +86,7 @@ async function main() {
   const plan = buildCoverPlan(result, loadCoverSources(root), JSON.parse(readFileSync(approvalPath)));
   const records = new Map();
   const summary = await updateThumbnailBatch(youtube, plan, {
-    commit:args.commit, expectedPlanSha256:args['expect-plan-sha256'], start:Number(args.start), limit:Number(args.limit), onlyVideoId:args['only-video-id'],
+    commit:args.commit, expectedPlanSha256:args['expect-plan-sha256'], start:Number(args.start), limit:Number(args.limit), onlyVideoId:args['only-video-id'], publicOnly:args['public-only'],
     render:async spec=>(await renderYoutubeCover(root,spec)).buffer, fetchImage:fetchThumbnail, compare:compareThumbnail,
     record:report=>{
       if(!records.has(report.videoId))records.set(report.videoId,records.size);
