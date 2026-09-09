@@ -241,6 +241,14 @@ manifest parse失敗、sourceRefs未解決、status parse失敗はFAIL（PASSに
 
 APIへ非公開アップロード済みで関連動画設定待ちのShortsは `uploaded_private` とする。各Shortのアップロード成功直後に状態を書き、同一パックの2本目が日次上限で失敗しても1本目の`videoId`を失わない。
 
+### 既存動画の新版への移行
+
+動画ファイルは同じYouTube URLのまま差し替えられない。再アップロードと旧版削除をユーザーが承認した場合も、新版の処理完了・再生・サムネ・公開範囲/予約日時・Shortsの関連動画を確認してから旧版を削除する。旧URLの視聴数やコメントは新版に移らない。
+
+`scripts/prepare-youtube-migration.mjs` は完全なチャンネル一覧と検証済みレンダーから移行計画を作る。`--inventory` / `--progress` / `--verification` にローカルJSONを渡し、既定は計画生成のみ、`--commit` はSHA-256付きの動画・サムネ・計画をprivate R2へ一時転送する。公開リポジトリへ非公開動画IDや旧新対応表を追加しない。恒久的な生成物保管先は引き続きDrive。
+
+手動workflow `sync-yt-descriptions.yml` の `migration-upload` は計画のハッシュ・チャンネル・旧動画のメタデータ・送信動画のハッシュを照合する。既定dry-run、`commit=true` で通知なしの非公開アップロードだけを行う。既存タイトルとの一致で旧版を再利用しない。private R2へアップロード意図を先に保存し、応答を失った場合は再投稿せず記録と専用タグを照合する。処理完了は動画の尺・縦横寸法・音声ストリームまで実査する。このoperationに公開設定変更・サムネ更新・旧版削除は含まれない。サムネの日次制限中も非公開アップロードの結果を保持し、制限解除後の残工程へ引き継ぐ。
+
 **公開実体の照合**は 2 本立て。実査 `verify-video-publication`（CI 週次＝`verify-yt-status.yml` に同居・creds 必須）が videos.list で削除/非公開・概要欄の `utm_campaign={packId}`/`utm_source=youtube` 欠落・公開済み Short の `relatedVideoId` 未設定を検出し `.claude/state/video-publication-verify.json` へ記録する。**creds 不足・API 失敗は 記録を書かずに exit 2（検査不成立）**——「creds が無い」を「異常なし」と記録すると以後ずっと緑が出て事故が埋もれるため。ゲート `check-video-publication`（オフライン・quality:audit ci:true）はその記録の有無・網羅・鮮度（既定 14 日）・孤児・報告済みドリフトを見る。**published なのに一度も照合していない**状態が最も危険なので V01 で赤にする。対象 0 件（公開前）は件数を明示して PASS（異常 0 件と混同しない）。是正は人が判断し、スクリプトは台帳を書き戻さない。
 
 - ソース未取得と0件を区別

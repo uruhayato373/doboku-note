@@ -18,7 +18,7 @@ on:
       operation:
         description: "descriptions=概要欄 / thumbnail-inventory=一覧のみ / thumbnail-refresh=確認済みサムネ"
         type: choice
-        options: [descriptions, thumbnail-inventory, thumbnail-refresh]
+        options: [descriptions, thumbnail-inventory, thumbnail-refresh, migration-upload]
         default: descriptions
       report_public_key:
         description: "サムネ棚卸し用の一時公開鍵（秘密鍵を入力しない）"
@@ -185,6 +185,46 @@ jobs:
         with:
           name: youtube-thumbnail-report
           path: .tmp/youtube-rollout-export/*.enc.json
+          include-hidden-files: true
+          retention-days: 3
+          if-no-files-found: warn
+
+  migration-upload:
+    if: inputs.operation == 'migration-upload'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    concurrency:
+      group: youtube-video-migration
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+        with:
+          node-version: '20'
+          cache: npm
+      - run: npm ci --legacy-peer-deps --ignore-scripts
+      - name: Upload verified replacements privately (no old-video deletion)
+        env:
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          YOUTUBE_REPORT_PUBLIC_KEY: ${{ inputs.report_public_key }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+          PLAN_SHA256: ${{ inputs.plan_sha256 }}
+          BATCH_START: ${{ inputs.batch_start }}
+          BATCH_LIMIT: ${{ inputs.batch_limit }}
+          APPLY_MIGRATION: ${{ inputs.commit }}
+        run: node scripts/youtube-migration.mjs
+      - name: Export encrypted migration receipt only
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: youtube-migration-report
+          path: .tmp/youtube-migration-export/*.enc.json
           include-hidden-files: true
           retention-days: 3
           if-no-files-found: warn
