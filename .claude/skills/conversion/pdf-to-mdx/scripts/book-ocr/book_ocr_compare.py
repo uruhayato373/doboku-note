@@ -59,10 +59,19 @@ def main():
             rerun.append(b["bi"])
         for pid in expected:
             s_raw = got.get(pid, "")
-            t_path = os.path.join(tess_dir, pid + ".txt")
-            t_raw = open(t_path, encoding="utf-8", errors="replace").read() if os.path.exists(t_path) else ""
-            s, t = norm(s_raw), norm(t_raw)
-            sim = SequenceMatcher(None, s, t, autojunk=False).ratio() if (s and t) else 0.0
+            s = norm(s_raw)
+            # 横書き読み（tess/）と縦書き読み（tess_vert/・あれば）の良い方を採る。縦書きの本は横書きモデルが
+            # 雑音を返し、表の混じるページは逆になるので、ページごとに選ぶ
+            best_sim, t = 0.0, ""
+            for sub in ("tess", "tess_vert"):
+                t_path = os.path.join(jobs["workDir"], sub, pid + ".txt")
+                if not os.path.exists(t_path):
+                    continue
+                cand = norm(open(t_path, encoding="utf-8", errors="replace").read())
+                cs = SequenceMatcher(None, s, cand, autojunk=False).ratio() if (s and cand) else 0.0
+                if cs > best_sim or not t:
+                    best_sim, t = cs, cand
+            sim = best_sim
             figs = s_raw.count("（図:")
             pages.append({"id": pid, "bi": b["bi"], "sim": round(sim, 3),
                           "lenRatio": round(len(s) / len(t), 2) if t else None,
