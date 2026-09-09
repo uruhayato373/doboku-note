@@ -28,7 +28,7 @@
 
 **参照**: [SNS画像ポリシー §0・§0.1](../knowledge/reference/sns-image-policy.md)、[キャラクター素材ポリシー](../knowledge/reference/character-asset-policy.md)、[ポーズ台帳](../config/character-poses.json)、[YouTube更新実査の集約状態](../state/youtube-thumbnail-rollout.json)。制作・QA・投稿スキルはこの共通ルールを参照する。ルールの存在をレンダラーの実装完了とみなさない。
 
-**再開の前提**: ブランチ `codex/character-framing`。採用画像の復元と代表動画の生成は [動画生成手順](../../content/sns/youtube/VIDEO-RENDER.md) に従う。画像採用と音声付き動画の確認・外部投稿の更新を分ける。
+**再開の前提**: ブランチ `codex/character-framing` の最新を取得する（復元・検査実装の基点は `fc641401`）。採用画像の復元と代表動画の生成は [動画生成手順](../../content/sns/youtube/VIDEO-RENDER.md) に従う。画像はGitに含まれないため、別端末ではDriveから復元する。音声生成にはVOICEVOXとffmpeg/ffprobeを用意する。Mac実機での生成と音声付き動画の検証は未実施。次の別タスクは代表1パック `civil-construction-1/koji-gaiyo-7items` の素材復元・検査から開始し、通常動画とShortsの音声付き出力を目視・試聴する。画像採用と音声付き動画の確認・外部投稿の更新を分ける。
 
 **別PCでの再開順**:
 
