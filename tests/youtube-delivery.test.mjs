@@ -50,13 +50,13 @@ test('uncertain upload/thumbnail outcomes wait for reconciliation', () => {
   assert.equal(deliveryDecision(item, { phase: 'upload-intent' }, ms).blocked, 'upload-outcome-uncertain');
   assert.equal(deliveryDecision(item, { newId: 'new', processingVerifiedAt: 'now', preservationAudit: { playlistInventoryComplete: true }, thumbnail: { phase: 'intent' } }, ms).blocked, 'thumbnail-outcome-uncertain');
 });
-test('no automatic proof manufacture for playback, incoming links or deletion freshness', () => {
+test('playback and link proof remain required, while deletion preflight is automatic', () => {
   const receipt = { oldId: 'private-old', newId: 'new', processingVerifiedAt: 'now', preservationAudit: { playlistInventoryComplete: true }, thumbnail: { phase: 'verified', expectedSha256: item.thumbnail.sha256 } };
   assert.match(deliveryDecision(item, receipt, ms).blocked, /playback/);
   receipt.activation = {}; assert.equal(deliveryDecision(item, receipt, ms).blocked, 'dependent-links');
-  receipt.linkVerification = { matched: true, newId: 'new' }; assert.equal(deliveryDecision(item, receipt, ms).blocked, 'fresh-deletion-audit');
+  receipt.linkVerification = { matched: true, newId: 'new' }; assert.equal(deliveryDecision(item, receipt, ms).phase, 'delete');
   receipt.deletionAudit = { matched: true, oldId: receipt.oldId, newId: receipt.newId, checkedAt: new Date(ms - 3601e3).toISOString() };
-  assert.equal(deliveryDecision(item, receipt, ms).blocked, 'fresh-deletion-audit');
+  assert.equal(deliveryDecision(item, receipt, ms).phase, 'delete');
 });
 test('future Shorts use their approved slot only after deletion; missed slots do not mass-publish', () => {
   const receipt = { newId: 'new', phase: 'deleted', relatedVerification: { matched: true, relatedVideoId: 'parent00001' } };

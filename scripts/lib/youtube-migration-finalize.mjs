@@ -1,5 +1,5 @@
 import { Readable } from 'node:stream';
-import { MIGRATION, writableSnippet, writableStatus, getVideo, assertOldUnchanged, assertProcessed } from './youtube-migration.mjs';
+import { MIGRATION, sha256, writableSnippet, writableStatus, getVideo, assertOldUnchanged, assertProcessed } from './youtube-migration.mjs';
 import { fetchThumbnail, compareThumbnail } from './youtube-thumbnail-image.mjs';
 
 export const THUMBNAIL_RETRY_NOT_BEFORE = '2026-09-10T10:40:47Z';
@@ -107,23 +107,56 @@ export async function activateReplacement(youtube, item, { load, save, commit })
   await save(receipt.oldId, receipt);
   return { phase: 'activated' };
 }
-export async function deleteOldReplacement(youtube, item, { load, save, commit }) {
+function assertActivatedVideo(video, receipt, item) {
+  if (!assertProcessed(video, item)) throw new Error('Replacement unavailable');
+  const expected = desiredStatus({ ...item.oldVideo, status: receipt.activation.status });
+  const scheduleMatches = expected.publishAt ? Date.parse(video.status.publishAt) === Date.parse(expected.publishAt) : !video.status.publishAt;
+  if (video.status.privacyStatus !== expected.privacyStatus || !scheduleMatches || !same(writableStatus(video), writableStatus({ status: expected })) || !same(writableSnippet(video), receipt.activation.snippet)) throw new Error('Replacement changed after activation');
+}
+const authoredCaptions = tracks => (tracks ?? []).filter(c => c.snippet?.trackKind !== 'ASR');
+const captionIdentity = c => ({ id: c.id, language: c.snippet?.language, name: c.snippet?.name, lastUpdated: c.snippet?.lastUpdated, status: c.snippet?.status, isDraft: c.snippet?.isDraft, trackKind: c.snippet?.trackKind });
+
+/** Recheck machine-readable facts just before deletion. UI/link proof is never invented. */
+export async function auditDeletion(youtube, item, { load, save, commit, getBytes, fetchImage = fetchThumbnail, compare = compareThumbnail }) {
   const receipt = await checkedReceipt(item, load);
   if (!receipt.activation || !['activated', 'delete-intent', 'deleted'].includes(receipt.phase)) throw new Error('Replacement not activated');
   assertPreservationReady(receipt, item);
-  // Incoming Shorts can select the replacement longform only after it is
-  // public/unlisted. Repair those links after activation and before deletion.
   if (!receipt.linkVerification?.matched || receipt.linkVerification.newId !== receipt.newId) throw new Error('Dependent links not repaired');
-  const auditTime = Date.parse(receipt.deletionAudit?.checkedAt);
-  if (!receipt.deletionAudit?.matched || receipt.deletionAudit.oldId !== receipt.oldId || receipt.deletionAudit.newId !== receipt.newId || !Number.isFinite(auditTime) || auditTime > Date.now() + 5000 || Date.now() - auditTime > 3600e3) throw new Error('Fresh dependency/deletion audit required');
   const video = await getVideo(youtube, receipt.newId, true);
-  if (!assertProcessed(video, item)) throw new Error('Replacement unavailable');
-  const expected = desiredStatus({ ...item.oldVideo, status: receipt.activation.status });
-  if (video.status.privacyStatus !== expected.privacyStatus || (expected.publishAt && Date.parse(video.status.publishAt) !== Date.parse(expected.publishAt)) || !same(writableSnippet(video), receipt.activation.snippet)) throw new Error('Replacement changed after activation');
+  assertActivatedVideo(video, receipt, item);
   const old = await getVideo(youtube, receipt.oldId);
   if (!old && !['delete-intent', 'deleted'].includes(receipt.phase)) throw new Error('Old video missing before deletion intent');
   if (old) assertOldUnchanged(old, item.oldVideo);
+  const imageMatch = await compare(await getBytes(item.thumbnail), (await fetchImage(video)).data);
+  if (!imageMatch.matched) throw new Error('Replacement thumbnail changed before deletion');
+  const inventory = await inspectPlaylists(youtube);
+  const oldMemberships = inventory.playlists.filter(p => p.items.some(i => i.contentDetails?.videoId === receipt.oldId));
+  if (oldMemberships.some(p => !p.items.some(i => i.contentDetails?.videoId === receipt.newId))) throw new Error('Playlist still depends on old video');
+  const oldTracks = old?.contentDetails?.caption === 'true' ? authoredCaptions((await youtube.captions.list({ part: 'snippet', videoId: receipt.oldId })).data.items) : [];
+  if (oldTracks.length) {
+    const recorded = new Map(authoredCaptions(receipt.preservationAudit.oldCaptions).map(c => [c.id, c]));
+    const fresh = authoredCaptions((await youtube.captions.list({ part: 'snippet', videoId: receipt.newId })).data.items);
+    for (const track of oldTracks) {
+      const savedTrack = recorded.get(track.id), pair = receipt.captionVerification?.tracks?.find(p => p.oldId === track.id);
+      const newTrack = fresh.find(c => c.id === pair?.newId);
+      if (!savedTrack || !same(captionIdentity(savedTrack), captionIdentity(track)) || !receipt.captionVerification?.matched || !pair?.contentMatched || !pair.newLastUpdated || !newTrack || newTrack.snippet.lastUpdated !== pair.newLastUpdated || newTrack.snippet.language !== track.snippet.language || newTrack.snippet.isDraft || newTrack.snippet.status !== 'serving') throw new Error('Authored caption preservation changed or unverified');
+    }
+  }
+  const audit = { matched: true, checkedAt: now(), method: 'live-youtube-api-and-thumbnail', oldId: receipt.oldId, newId: receipt.newId,
+    mediaSha256: receipt.mediaSha256, thumbnailSha256: item.thumbnail.sha256, thumbnail: imageMatch,
+    linkProofSha256: sha256(JSON.stringify(receipt.linkVerification)), playlistIds: oldMemberships.map(p => p.playlist.id), authoredCaptionIds: oldTracks.map(c => c.id), oldAbsent: !old };
+  if (commit) { receipt.deletionAudit = audit; await save(receipt.oldId, receipt); }
+  return { receipt, old, audit };
+}
+export async function deleteOldReplacement(youtube, item, options) {
+  const { load, save, commit } = options;
+  if ((await checkedReceipt(item, load)).phase === 'deleted') return { phase: 'deleted' };
+  const { receipt, old, audit } = await auditDeletion(youtube, item, options);
   if (!commit) return { phase: 'deletion-dry-run' };
+  // Read the durable receipt again. A stale/manual audit cannot authorize deletion.
+  const current = await checkedReceipt(item, load);
+  const checkedAt = Date.parse(current.deletionAudit?.checkedAt);
+  if (!same(current.deletionAudit, audit) || !Number.isFinite(checkedAt) || Date.now() - checkedAt > 3600e3 || checkedAt > Date.now() + 5000 || current.deletionAudit.linkProofSha256 !== sha256(JSON.stringify(current.linkVerification))) throw new Error('Deletion audit changed before deletion');
   if (old) {
     receipt.phase = 'delete-intent'; receipt.deleteRequestedAt = now(); await save(receipt.oldId, receipt);
     await youtube.videos.delete({ id: receipt.oldId }, { retry: false });
