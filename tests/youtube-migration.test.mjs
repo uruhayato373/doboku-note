@@ -4,8 +4,8 @@ import { Readable } from 'node:stream';
 import { uploadReplacement, assertOldUnchanged, assertProcessed, MIGRATION } from '../scripts/lib/youtube-migration.mjs';
 const old = { id: 'oldVideo001', snippet: { channelId: 'channel', title: '題名', description: '概要', categoryId: '27', tags: ['試験'] },
   status: { privacyStatus: 'private', publishAt: '2099-01-01T00:00:00Z', selfDeclaredMadeForKids: false }, contentDetails: { duration: 'PT40S' } };
-const item = { sourceKey: 'exam/pack/longform', oldVideo: old, media: { sha256: 'a'.repeat(64), duration: 40.2, width: 1920, height: 1080 } };
-const processed = { id: 'newVideo001', snippet: { ...old.snippet }, status: { privacyStatus: 'private', uploadStatus: 'processed' }, contentDetails: { duration: 'PT41S' }, processingDetails: { processingStatus: 'succeeded' }, fileDetails: { videoStreams: [{ widthPixels: 1920, heightPixels: 1080 }], audioStreams: [{}] } };
+const item = { sourceKey: 'exam/pack/longform', oldVideo: old, media: { sha256: 'a'.repeat(64), duration: 40.2, width: 1920, height: 1080, bytes: 1000 } };
+const processed = { id: 'newVideo001', snippet: { ...old.snippet }, status: { privacyStatus: 'private', uploadStatus: 'processed' }, contentDetails: { duration: 'PT41S' }, processingDetails: { processingStatus: 'succeeded' }, fileDetails: { durationMs: '40200', fileSize: '1000', videoStreams: [{ widthPixels: 1920, heightPixels: 1080 }], audioStreams: [{}] } };
 function fixture(insertError) {
   let receipt, inserted = 0; const events = [];
   const youtube = { videos: {
@@ -55,4 +55,11 @@ test('processing checks reject truncation, wrong account, and missing audio', ()
 test('receipt from another render cannot be reused', async () => {
   const f = fixture(); await uploadReplacement(f.youtube, item, f.options);
   await assert.rejects(uploadReplacement(f.youtube, { ...item, media: { ...item.media, sha256: 'b'.repeat(64) } }, f.options), /conflict/);
+});
+test('whole-second API rounding is allowed only with precise duration and exact uploaded bytes', () => {
+  const e = { ...item, media: { ...item.media, duration: 92.997333 } };
+  const v = structuredClone(processed); v.contentDetails.duration = 'PT1M34S'; v.fileDetails.durationMs = '92966';
+  assert.equal(assertProcessed(v, e), true);
+  v.fileDetails.durationMs = '92000'; assert.throws(() => assertProcessed(v, e), /duration/);
+  v.fileDetails.durationMs = '92966'; v.fileDetails.fileSize = '999'; assert.throws(() => assertProcessed(v, e), /size/);
 });

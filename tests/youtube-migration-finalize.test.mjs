@@ -3,10 +3,10 @@ import assert from 'node:assert/strict';
 import { MIGRATION } from '../scripts/lib/youtube-migration.mjs';
 import { activateReplacement, deleteOldReplacement, updateReplacementThumbnail, auditReplacement, desiredStatus } from '../scripts/lib/youtube-migration-finalize.mjs';
 const old = { id: 'oldVideo001', snippet: { title: '題名', description: '概要', categoryId: '27', tags: ['試験'], channelId: 'channel' }, status: { privacyStatus: 'private', publishAt: '2099-01-01T00:00:00Z', embeddable: true }, contentDetails: { caption: 'false' } };
-const item = { oldVideo: old, sourceKey: 'exam/pack/longform', media: { sha256: 'a'.repeat(64), duration: 40, width: 1920, height: 1080 }, thumbnail: { sha256: 'b'.repeat(64) } };
+const item = { oldVideo: old, sourceKey: 'exam/pack/longform', media: { sha256: 'a'.repeat(64), duration: 40, width: 1920, height: 1080, bytes: 1000 }, thumbnail: { sha256: 'b'.repeat(64) } };
 function fixture() {
   let oldExists = true, mutations = 0;
-  let video = { id: 'newVideo001', snippet: { ...old.snippet, tags: ['試験', 'temporary-marker'] }, status: { privacyStatus: 'private', embeddable: true, uploadStatus: 'processed' }, contentDetails: { duration: 'PT40S' }, processingDetails: { processingStatus: 'succeeded' }, fileDetails: { videoStreams: [{ widthPixels: 1920, heightPixels: 1080 }], audioStreams: [{}] } };
+  let video = { id: 'newVideo001', snippet: { ...old.snippet, tags: ['試験', 'temporary-marker'] }, status: { privacyStatus: 'private', embeddable: true, uploadStatus: 'processed' }, contentDetails: { duration: 'PT40S' }, processingDetails: { processingStatus: 'succeeded' }, fileDetails: { durationMs: '40000', fileSize: '1000', videoStreams: [{ widthPixels: 1920, heightPixels: 1080 }], audioStreams: [{}] } };
   let receipt = { migration: MIGRATION, oldId: old.id, newId: video.id, mediaSha256: item.media.sha256, phase: 'processed-private', thumbnail: { phase: 'verified', expectedSha256: item.thumbnail.sha256 }, playbackVerification: { channelMatched: true, coverLogoMatched: true, ctaMatched: true }, preservationAudit: { playlistInventoryComplete: true, oldCaptions: [], memberships: [] }, linkVerification: { matched: true, newId: video.id } };
   const youtube = { videos: {
     list: async ({ id }) => ({ data: { items: id === old.id ? (oldExists ? [structuredClone(old)] : []) : [structuredClone(video)] } }),
