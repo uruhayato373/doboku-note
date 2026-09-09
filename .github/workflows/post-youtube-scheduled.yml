@@ -1,227 +1,48 @@
-name: ▶️ YouTube scheduled post (daily)
+name: YouTube scheduled delivery (daily)
 
-# legacy youtube-schedule.json はworkflow_dispatch時だけ扱う。日次cronは承認済み動画パックを
-# longform → Shorts private uploadの順で再開可能に処理し、公開状態をvideo-content-statusへ記録する。
-#
-# 前提 Secrets: YOUTUBE_CLIENT_ID / YOUTUBE_CLIENT_SECRET / YOUTUBE_REFRESH_TOKEN
-#               CLOUDFLARE_ACCOUNT_ID / CLOUDFLARE_R2_ACCESS_KEY_ID / CLOUDFLARE_R2_SECRET_ACCESS_KEY
-# 実装パターン: post-instagram-scheduled.yml を参考
-
-# 2026-08-18: 旧 Shorts 台帳の cron は撤去して**手動投入**へ切り替えた（ユーザー決定）。
-# 台帳 187 本の publishAt は全件過去（2026-06-11〜08-14）で、cron を戻すと全件が即座に
-# 対象化して 1 日 6 本の自走が始まる。消化ペースを人が決める運用にする。
-# 2026-09-05: QA済みの1級・2級土木 通常動画83本はユーザー承認済み。日次cronは
-# **video-content-status の rendered だけ**を最大12本予約し、旧 Shorts 台帳には触れない。
-# 2026-09-05: ユーザー承認によりコンクリート技士・主任技士28本も10/23〜11/19で予約。
-# 真実源: docs/marketing/05_YouTube戦略_技術士総監.md（投稿頻度の節）
 on:
   schedule:
-    # YouTube Data API の日次クォータは太平洋時間0時に更新される。
-    # PST/PDTのどちらでも更新後になるよう、毎日17:17 JSTに実行する。
-    - cron: "17 8 * * *"
+    - cron: "17 11 * * *" # 20:17 JST. Publication itself follows each approved publishAt.
   workflow_dispatch:
     inputs:
-      max:
-        description: "通常は上限。動画パックは pack:<id>:<phase>:PUBLISH[:RELATED] / batch:<civil|concrete|all>:<longform|metadata|shorts-upload>:PUBLISH:<max>"
-        required: false
-      dry_run:
-        description: "true で対象表示のみ（アップしない）"
-        required: false
-      skip_thumbnail:
-        description: "true でサムネイルを後送し、動画予約を優先する（YouTube短時間上限の回避用）"
-        required: false
+      apply:
+        description: "確認済みキューを続行する（falseは書き込みなしの試運転）"
+        type: boolean
+        default: false
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: post-youtube-scheduled
+  group: youtube-video-migration
   cancel-in-progress: false
 
 jobs:
-  post:
+  deliver:
     runs-on: ubuntu-latest
-    timeout-minutes: 360
+    timeout-minutes: 90
     steps:
-      - name: 🧰 Checkout requested ref
+      - name: Checkout reviewed delivery code
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
-          ref: develop
-          fetch-depth: 1
-
-      - name: 🟢 Setup Node.js
-        uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
+          # Pin the implementation while the broader video branch is under review.
+          # Updating this revision requires running the delivery/migration tests.
+          ref: e85b3fb03ca265dbeec9f0ba7ecc65e081e69268
+          persist-credentials: false
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: "20"
-          cache: "npm"
-
-      - name: 📦 Install deps
-        run: npm ci --legacy-peer-deps
-
-      # npm ci（--ignore-scripts なし）は prepare で pre-commit フックを入れる。そのフックの
-      # check-x-campaign-plan などが src/config/doc-meta-index.json を直接読むが、これは
-      # git 追跡外の生成物なので、ここで作らないと **commit の瞬間に ENOENT で落ちる**。
-      # 症状はワークフロー全体の赤で、本来の処理が終わっていても記録が残らない。
-      - name: Build doc meta index
-        run: node .claude/scripts/build-doc-meta-index.mjs --ci
-
-
-      - name: 🔍 Validate schedule (重複チェック)
-        if: ${{ github.event_name == 'workflow_dispatch' && !startsWith(inputs.max, 'pack:') && !startsWith(inputs.max, 'batch:') }}
-        run: node .claude/scripts/youtube/validate-schedule.mjs
-
-      - name: ▶️ Upload due scheduled shorts
-        id: post
-        if: ${{ github.event_name == 'workflow_dispatch' && !startsWith(inputs.max, 'pack:') && !startsWith(inputs.max, 'batch:') }}
+          cache: npm
+      - run: npm ci --legacy-peer-deps --ignore-scripts
+      - name: Verify restart, quota and publication guards
+        run: node --test tests/youtube-delivery*.test.mjs tests/youtube-migration*.test.mjs
+      - name: Resume approved private delivery queue
         env:
+          APPLY_DELIVERY: ${{ github.event_name == 'schedule' || inputs.apply == true }}
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
           YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
           CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
-        run: |
-          set -o pipefail
-          ARGS=""
-          if [ "${{ inputs.dry_run }}" = "true" ]; then ARGS="$ARGS --dry-run"; fi
-          if [ -n "${{ inputs.max }}" ]; then ARGS="$ARGS --max ${{ inputs.max }}"; fi
-          node .claude/scripts/youtube/post-from-schedule.cjs $ARGS 2>&1 | tee /tmp/yt-post.log
-
-      # workflow_dispatch は既定ブランチに登録済みの workflow だけを起動できるため、
-      # 動画パック用 workflow が main に入るまでの API 公開経路として既存 dispatcher を使う。
-      # max=pack:<packId>:<phase>:PUBLISH[:RELATED]
-      - name: ▶️ Publish video pack through YouTube Data API
-        id: video_pack
-        if: ${{ startsWith(inputs.max, 'pack:') }}
-        env:
-          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
-          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
-          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
-          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
-        run: |
-          set -o pipefail
-          IFS=':' read -r kind pack_id phase confirm related <<EOF
-          ${{ inputs.max }}
-          EOF
-          if [ "$kind" != "pack" ] || [ -z "$pack_id" ] || [ -z "$phase" ] || [ "$confirm" != "PUBLISH" ]; then
-            echo "::error::max=pack:<packId>:<phase>:PUBLISH[:RELATED] が必要です"
-            exit 1
-          fi
-          args=(--pack-id "$pack_id" --phase "$phase")
-          if [ "$related" = "RELATED" ]; then
-            args+=(--related-confirmed)
-          fi
-          node .claude/scripts/youtube/publish-video-pack.cjs "${args[@]}" 2>&1 | tee /tmp/yt-post.log
-
-      - name: ▶️ Schedule rendered longform batch
-        id: video_batch
-        if: ${{ github.event_name == 'schedule' || startsWith(inputs.max, 'batch:') }}
-        env:
-          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
-          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
-          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
-          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
-        run: |
-          set -o pipefail
-          if [ "${{ github.event_name }}" = "schedule" ]; then
-            kind=batch
-            scope=active
-            confirm=PUBLISH
-            batch_max=12
-          else
-            IFS=':' read -r kind scope third fourth fifth <<EOF
-          ${{ inputs.max }}
-          EOF
-            if [ "$third" = "PUBLISH" ]; then
-              phase=longform
-              confirm="$third"
-              batch_max="$fourth"
-            else
-              phase="$third"
-              confirm="$fourth"
-              batch_max="$fifth"
-            fi
-            if [ "$kind" != "batch" ] || { [ "$scope" != "civil" ] && [ "$scope" != "concrete" ] && [ "$scope" != "all" ]; } || [ "$confirm" != "PUBLISH" ] || { [ "$phase" != "longform" ] && [ "$phase" != "metadata" ] && [ "$phase" != "shorts-upload" ]; }; then
-              echo "::error::max=batch:<civil|concrete|all>:<longform|metadata|shorts-upload>:PUBLISH:<max> が必要です"
-              exit 1
-            fi
-          fi
-          if [ "$scope" = "active" ] || [ "$scope" = "all" ]; then
-            exams=civil-construction-1,civil-construction-2,concrete-engineer,concrete-chief-engineer
-          elif [ "$scope" = "concrete" ]; then
-            exams=concrete-engineer,concrete-chief-engineer
-          else
-            exams=civil-construction-1,civil-construction-2
-          fi
-          args=(--exam "$exams" --phase "${phase:-longform}" --max "${batch_max:-20}")
-          if [ "${{ inputs.dry_run }}" = "true" ]; then args+=(--dry-run); fi
-          if [ "${{ inputs.skip_thumbnail }}" = "true" ]; then args+=(--skip-thumbnail); fi
-          node .claude/scripts/youtube/publish-video-batch.cjs "${args[@]}" 2>&1 | tee /tmp/yt-post.log
-
-      # 通常動画の予約が全件終わった後だけ候補が生まれる。1 pack=Shorts 2本なので、
-      # videos.insert の日次100本枠に余裕を残し、1日45 pack（90本）までprivate uploadする。
-      - name: ▶️ Upload prepared video-pack Shorts
-        if: ${{ github.event_name == 'schedule' && success() }}
-        env:
-          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
-          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
-          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
-          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
-        run: |
-          node .claude/scripts/youtube/publish-video-batch.cjs \
-            --exam civil-construction-1,civil-construction-2,concrete-engineer,concrete-chief-engineer \
-            --phase shorts-upload --max 45 --skip-thumbnail
-
-      # サムネイルAPIは動画アップロードより厳しい短時間上限を持つ。予約を先に確定し、
-      # pending だけを翌日以降に少量ずつ再送する（失敗しても予約状態のcommitは続ける）。
-      - name: 🖼️ Retry pending longform thumbnails
-        if: ${{ github.event_name == 'schedule' }}
-        continue-on-error: true
-        env:
-          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
-          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
-          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
-          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
-        run: |
-          node .claude/scripts/youtube/publish-video-batch.cjs \
-            --exam civil-construction-1,civil-construction-2,concrete-engineer,concrete-chief-engineer \
-            --phase thumbnail --max 5
-
-      - name: 📝 Commit ledger + log
-        if: success() && github.event_name == 'workflow_dispatch' && !startsWith(inputs.max, 'pack:') && !startsWith(inputs.max, 'batch:') && inputs.dry_run != 'true' && steps.post.outputs.uploaded != '' && steps.post.outputs.uploaded != '0'
-        run: |
-          git config user.email "actions@github.com"
-          git config user.name "GitHub Actions"
-          git add .claude/state/youtube-schedule.json .claude/state/yt-posted-log.jsonl
-          git diff --cached --quiet && exit 0
-          # **commit を pull より先に**。staged のまま rebase すると
-          # "cannot pull with rebase: Your index contains uncommitted changes" で必ず落ちる。
-          # 2026-06-17 の run はこれでアップ済み 6 本の台帳を失い、以後 2 か月停止した。
-          git commit -m "chore(yt): upload ${{ steps.post.outputs.uploaded }} scheduled shorts [skip ci]"
-          git pull --rebase origin develop
-          git push origin HEAD:develop
-
-      - name: 📝 Commit video pack publication state
-        if: always() && (github.event_name == 'schedule' || startsWith(inputs.max, 'pack:') || startsWith(inputs.max, 'batch:')) && inputs.dry_run != 'true'
-        run: |
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config user.name "github-actions[bot]"
-          git add .claude/state/video-content-status.json
-          git diff --cached --quiet && exit 0
-          git commit -m "chore(youtube): publish video pack [skip ci]"
-          git pull --rebase origin develop
-          git push origin HEAD:develop
-
-      - name: 💬 Notify on failure
-        if: failure()
-        run: |
-          echo "::error::YouTube 予約投稿失敗。/tmp/yt-post.log を確認してください"
-          tail -40 /tmp/yt-post.log || true
+        run: node scripts/youtube-delivery.mjs
