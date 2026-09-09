@@ -19,8 +19,8 @@
     "publishAt": "2026-11-10T20:00:00+09:00",
     "r2Key": "video/render/gishi-jis-handan/video.mp4",
     "thumbnailR2Key": "video/render/gishi-jis-handan/img/00-cover.png",
-    "sha256": "a19bf3389d1d5e256b246ab1d46370438907c233811f8078ec084efb5f3bd5f4",
-    "thumbnailSha256": "e82ef916b55c091553cad244414bfb3bed528b85a7fc45fef97954581e86b3be"
+    "sha256": "bd04cd83095ac48cfb521a890aba6ff49b022c71c56d9e8449941ebb9db80115",
+    "thumbnailSha256": "370286cd4675749a248fcf5882750b517740c60646276207172d40150298553b"
   },
   "shorts": [
     {
@@ -40,8 +40,8 @@
       "publishAt": "2026-11-12T12:30:00+09:00",
       "r2Key": "video/render/gishi-jis-handan/shorts/point-step1-1/shorts.mp4",
       "thumbnailR2Key": "video/render/gishi-jis-handan/shorts/point-step1-1/thumbnail.png",
-      "sha256": "329fcc3a7f9b04c6d69b718a066a8e96a8c9585dd7c275bca26bfc8e695ea6d8",
-      "thumbnailSha256": "76e0c26c89e1388e75b2ea27d6bd06a87cb50c945e34f2d0768ab1721824e888"
+      "sha256": "7882d0ae5b0b4a50d839040678153661cf19e15f998895eba250b86b4e606bf1",
+      "thumbnailSha256": "1a4abda5db5e29a2dc90afcab9aacc9de53a0a915b45ace1ed2a1cb20b28488e"
     },
     {
       "key": "point-step2-2",
@@ -60,8 +60,8 @@
       "publishAt": "2026-11-13T07:30:00+09:00",
       "r2Key": "video/render/gishi-jis-handan/shorts/point-step2-2/shorts.mp4",
       "thumbnailR2Key": "video/render/gishi-jis-handan/shorts/point-step2-2/thumbnail.png",
-      "sha256": "c9ba184643d33a96e08ab74e9fc04c25e72cb06642342258511e4866dc649f98",
-      "thumbnailSha256": "490d7a923e22de78d8eb112e0a1851bd0bf073403f0f879a51594785044ecda6"
+      "sha256": "885d088322c7d7842679ca28bb235bdf69611b1082cf6c5e34be644194692e63",
+      "thumbnailSha256": "b5c1970b92b3a48f136ed9162abe292ef00ebf2bacd41cd55ef33e11eff81c80"
     }
   ]
 }

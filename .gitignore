@@ -290,6 +290,8 @@ content/note/**/img/cover*.svg
 # R2 から取り直せる。プロキシ不調時はここだけが頼りになるので **勝手に空にしないこと**
 # （asset-hydrate は上限超過時に最終アクセスの古いものだけを落とす）。
 .local/cache/
+# Driveから復元した原本・旧動画（台帳はGit、バイナリはDrive）
+.local/archive/
 
 # build-pe1-kindle.mjs 用のR2公開画像ミラー（content/site/**/imgをGitの内容と一致させて
 # ローカルに複製したもの＝配信コピーの再配信コピー。Kindleビルド時のみ使う使い捨てキャッシュで、

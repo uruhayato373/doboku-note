@@ -19,8 +19,8 @@
     "publishAt": "2026-09-09T20:00:00+09:00",
     "r2Key": "video/render/keiken-kadai-kakikata/video.mp4",
     "thumbnailR2Key": "video/render/keiken-kadai-kakikata/img/00-cover.png",
-    "sha256": "9b44f4ae99688b5f677cffe29c2d7758ebd138d2e202db87f332fd14e6c86aa5",
-    "thumbnailSha256": "090bf34bfb158204d6bfc20f92542de0ae57c22b40b70992638b7110e6a93b7c"
+    "sha256": "eb0bafa5cb8319f49e4ca70b83505aa98cd464fd6563501b16c3d10faec7ef73",
+    "thumbnailSha256": "57ed8c649f2cc15112cd825a4fdc7b0fe51225c390acf1d2bf3a1f58227cbd11"
   },
   "shorts": [
     {
@@ -40,8 +40,8 @@
       "publishAt": "2026-10-03T12:30:00+09:00",
       "r2Key": "video/render/keiken-kadai-kakikata/shorts/point-block1-1/shorts.mp4",
       "thumbnailR2Key": "video/render/keiken-kadai-kakikata/shorts/point-block1-1/thumbnail.png",
-      "sha256": "bdaa8948eda6afb1a744fbef0791bd512e305b38a3d5a11036a61acf30fcec90",
-      "thumbnailSha256": "c63bd3662cf1247c433138c01e57dcbc67e03896c808554058dbc54f180a1435"
+      "sha256": "7fda290b556302320fd287636aeddb3f896233c943001d87b7fa2fa176a9635c",
+      "thumbnailSha256": "05935ea7416ac17552bae47c25afb62ac5cc657c5cdbafae6cdd373cbef307c7"
     },
     {
       "key": "point-block2-2",
@@ -60,8 +60,8 @@
       "publishAt": "2026-10-05T07:30:00+09:00",
       "r2Key": "video/render/keiken-kadai-kakikata/shorts/point-block2-2/shorts.mp4",
       "thumbnailR2Key": "video/render/keiken-kadai-kakikata/shorts/point-block2-2/thumbnail.png",
-      "sha256": "6369a8c37ac38f1421547ec000b23a15daada1079a3f0918eb7c134a8ab0261a",
-      "thumbnailSha256": "f2936a1ae8f910a83d6ad63097db9e849c292bd55becb3005b00bb18bbcec274"
+      "sha256": "99dbd4b6c21c9fc415fecfea6dcf7723973037df89d76a6cf323a362ca77a601",
+      "thumbnailSha256": "56769032e2717e50131ef14c348dee14bbfa567b9c2e2a536979f0223bbd9775"
     }
   ]
 }

@@ -19,8 +19,8 @@
     "publishAt": "2026-09-20T12:30:00+09:00",
     "r2Key": "video/render/gakka-hoki-kenchiku-kayaku/video.mp4",
     "thumbnailR2Key": "video/render/gakka-hoki-kenchiku-kayaku/img/00-cover.png",
-    "sha256": "17a275cfc9253a23b80fb8dc0dd5f183295086b83df5f10bb4d3bfe360786ca6",
-    "thumbnailSha256": "8d39b06eb2f0f7c39b9b5f46e244636cc6cc5bdfb95b7f4124b91a50d18f4d53"
+    "sha256": "713c8f9aab83f0295c96a27edc2fec2e6011a9c099e8523bf5e9f7815e9fc340",
+    "thumbnailSha256": "cc00befd13b2c24ae7c045a85aaf48be9eecf1ef2e0a66ed852048265915fc6a"
   },
   "shorts": [
     {
@@ -40,8 +40,8 @@
       "publishAt": "2026-12-09T12:30:00+09:00",
       "r2Key": "video/render/gakka-hoki-kenchiku-kayaku/shorts/point-overview-1/shorts.mp4",
       "thumbnailR2Key": "video/render/gakka-hoki-kenchiku-kayaku/shorts/point-overview-1/thumbnail.png",
-      "sha256": "8e431e2582fc39f9d8da4e9324a770dad8f8236318eb3368931941c458c7173e",
-      "thumbnailSha256": "0c9c96b2fec0ec7a5543bcfc26cb9a598ef60cd09d8ec95526cdd3bdf8ef904c"
+      "sha256": "0f9391c88671489e6c02b88089c2fadaa77e54289f9b243e3745c31aaba68463",
+      "thumbnailSha256": "c211bf313b2f1ab579b8254e6d029e38e8957b97dfa002def6c520b33600ced5"
     },
     {
       "key": "point-step1-2",
@@ -60,8 +60,8 @@
       "publishAt": "2026-12-10T07:30:00+09:00",
       "r2Key": "video/render/gakka-hoki-kenchiku-kayaku/shorts/point-step1-2/shorts.mp4",
       "thumbnailR2Key": "video/render/gakka-hoki-kenchiku-kayaku/shorts/point-step1-2/thumbnail.png",
-      "sha256": "a45dc161c76666f1cea98365da7b4d5404472e17156cd449735de1cd4dbb20f7",
-      "thumbnailSha256": "d4781ae257d051538b194619ace877c6b62a6f73af5d13f52b16745483cfe90f"
+      "sha256": "5039adea93193c34e7339434ea5d603c73785607bf2abf2137a7c6c460b5c47e",
+      "thumbnailSha256": "fe0c92119ab1b61ea6c378b1f90bf9d6b98575fe0f98a7f9e824d8aa92f3e8be"
     }
   ]
 }

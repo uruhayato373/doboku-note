@@ -19,8 +19,8 @@
     "publishAt": "2026-09-21T07:30:00+09:00",
     "r2Key": "video/render/gakka-kanrizu/video.mp4",
     "thumbnailR2Key": "video/render/gakka-kanrizu/img/00-cover.png",
-    "sha256": "710e6e35ee3e4c92326a1531accb15ac524c0e3af1601764e10aa6bb666deff9",
-    "thumbnailSha256": "101764f7bd32c65ae96ee4ecb153a4170525b624974b6889ee60d12128c6b567"
+    "sha256": "04b822b24b51f3c23dee0a4915be6169a983a3cfbec206d55bb3fdb238080e9c",
+    "thumbnailSha256": "67d6b1111fe21f0466d5e23be00d053d352f2d5a3ae5a031b16d15f70bfa5854"
   },
   "shorts": [
     {
@@ -40,8 +40,8 @@
       "publishAt": "2026-12-10T20:00:00+09:00",
       "r2Key": "video/render/gakka-kanrizu/shorts/point-step1-1/shorts.mp4",
       "thumbnailR2Key": "video/render/gakka-kanrizu/shorts/point-step1-1/thumbnail.png",
-      "sha256": "1b24835100ff0a962bfd2aa32dd79c3e4d0e3dda2719fb4966090eba4f0c8dec",
-      "thumbnailSha256": "1e8a221e8f48879e459512e0f11f90357238095816ae2ebe44c2cf9c2da56e24"
+      "sha256": "a4943f2b770986843a0c66e37de6297d87733bad6484d295845c6e2d60de3319",
+      "thumbnailSha256": "715b4803554242456fd466c0883ce412a397e1637c3771ceafe5380298962214"
     },
     {
       "key": "point-step2-2",
@@ -60,8 +60,8 @@
       "publishAt": "2026-12-11T07:30:00+09:00",
       "r2Key": "video/render/gakka-kanrizu/shorts/point-step2-2/shorts.mp4",
       "thumbnailR2Key": "video/render/gakka-kanrizu/shorts/point-step2-2/thumbnail.png",
-      "sha256": "4f3ada813c74ebf42f89fc30246546b241fee8d8e1174a4db9a282cd7acc9197",
-      "thumbnailSha256": "1aa6b903b1a383c2ebb9a9b7a408f03d7f88e805b392c4e0b10f7ea57d637dd3"
+      "sha256": "a278946335006db2d8b4409e30ef1ee7861ce4323bfce91a6070b19590b1b372",
+      "thumbnailSha256": "23215ca0cfa5887afec42741988d93500184f3bc90af35f3abe8aa4d6ba63de9"
     }
   ]
 }

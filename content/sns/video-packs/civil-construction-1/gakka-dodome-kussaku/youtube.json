@@ -19,8 +19,8 @@
     "publishAt": "2026-09-18T07:30:00+09:00",
     "r2Key": "video/render/gakka-dodome-kussaku/video.mp4",
     "thumbnailR2Key": "video/render/gakka-dodome-kussaku/img/00-cover.png",
-    "sha256": "3ab39366d8c5fd2b0e9cb88535e8d610505d0c7886b59d0a35d086fb2ff8c8c9",
-    "thumbnailSha256": "ab7c88845fab8daf1aa1de1a5522f0970385a115b24a26d7902f0e3875207c29"
+    "sha256": "d289fc56e8b6397581252bff264b5bb249e2f9a2b4861bc32c092d72bb7c8727",
+    "thumbnailSha256": "ab856fec64f7640f5da7afd364e72bfed5799f0e402dfc5e16339e02271819fe"
   },
   "shorts": [
     {
@@ -40,8 +40,8 @@
       "publishAt": "2026-12-05T12:30:00+09:00",
       "r2Key": "video/render/gakka-dodome-kussaku/shorts/point-step1-1/shorts.mp4",
       "thumbnailR2Key": "video/render/gakka-dodome-kussaku/shorts/point-step1-1/thumbnail.png",
-      "sha256": "8eee0478359128543cbd06813c0b7871354dd4e8543d3f0c1f4b763473fc3ed8",
-      "thumbnailSha256": "950926982dcf8f2183b67bf78728f6fbccafa522d795499ac618afe686c4db2d"
+      "sha256": "fa77a64b2f1f6e477a53074e881cb032bf1ede2d4508126863451281cecd4fa1",
+      "thumbnailSha256": "a06fe17cfdcc1cf23b77f46709091cd576b747118ad6926b153cbec9738e7b98"
     },
     {
       "key": "point-step2-2",
@@ -60,8 +60,8 @@
       "publishAt": "2026-12-06T07:30:00+09:00",
       "r2Key": "video/render/gakka-dodome-kussaku/shorts/point-step2-2/shorts.mp4",
       "thumbnailR2Key": "video/render/gakka-dodome-kussaku/shorts/point-step2-2/thumbnail.png",
-      "sha256": "eb8e55898089c43f3502fcb586488454fff2831851adc6e0ff4dcce773d03f32",
-      "thumbnailSha256": "d95bca28571af1749b966c007f1d61f236864f8e5117b8005675fcbced8bd1d4"
+      "sha256": "c0f8817761890b0485971d0bb2bd6c289a2a68e687b522ed2e801fc3dd8799ed",
+      "thumbnailSha256": "15b02a7a4db9a4e7fd237ca20fa11dbf8ec0cea90062d8cfa6e0989295a31f6c"
     }
   ]
 }

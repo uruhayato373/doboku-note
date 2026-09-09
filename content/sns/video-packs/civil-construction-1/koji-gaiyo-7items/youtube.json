@@ -19,8 +19,8 @@
     "categoryId": "27",
     "r2Key": "video/render/koji-gaiyo-7items/video.mp4",
     "thumbnailR2Key": "video/render/koji-gaiyo-7items/img/00-cover.png",
-    "sha256": "f65cade7c5e1f86d810b7223eb46eba20858709c6544f7d189561078ffe48d6e",
-    "thumbnailSha256": "6276b788c724e38f2b4f2f58a68495f21606dc0c5cfc80d14f8df72c2a24bf04"
+    "sha256": "b6b15420b3d95a0bb2955d36edc3247ca3793477f3a16a92da4b288ea7f59a1d",
+    "thumbnailSha256": "fb3acc8149564025c0b9ad9ad69289c1e0dadf8e49a6721b0dcafc35495ad47d"
   },
   "shorts": [
     {
@@ -39,8 +39,8 @@
       "publishAt": "2026-09-06T07:30:00+09:00",
       "r2Key": "video/render/koji-gaiyo-7items/shorts/koshu-sekoryo/shorts.mp4",
       "thumbnailR2Key": "video/render/koji-gaiyo-7items/shorts/koshu-sekoryo/thumbnail.png",
-      "sha256": "1c12bf050846122b4a87181c3bf147ce8f467dfdeb7d5dfc17efc6ede521a1ba",
-      "thumbnailSha256": "4c0798ec13847f44e238f3120f4ac049c0e76976667d58e77806c94779ff3740"
+      "sha256": "aee821a41ecd3ab26e162e880b9b0258b73eb51e4d0473ad241dc7b11a923591",
+      "thumbnailSha256": "c9ac34794f336978c77024272e69b98d7251d9f00b3fa3bd322628f547e47a35"
     },
     {
       "key": "koki-sekoryo",
@@ -58,8 +58,8 @@
       "publishAt": "2026-09-07T07:30:00+09:00",
       "r2Key": "video/render/koji-gaiyo-7items/shorts/koki-sekoryo/shorts.mp4",
       "thumbnailR2Key": "video/render/koji-gaiyo-7items/shorts/koki-sekoryo/thumbnail.png",
-      "sha256": "0c8b7c4ee4885f90d4bf3ca0305902c062139aa8bbddad680254d2da94d36656",
-      "thumbnailSha256": "0929d017f99a17575f17faad4847755f33a7360d39c85d7abf562ff0ac6cd9d7"
+      "sha256": "3063ff8b88bf14786c69f6013990985d471bce6fdb03d701e3d62f9d73177034",
+      "thumbnailSha256": "c9753f2b54a4b152f157cf6650aeee93ee5b5ebf2672d15a14fde18f140683f3"
     }
   ]
 }

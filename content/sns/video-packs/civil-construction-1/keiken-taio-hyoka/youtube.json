@@ -19,8 +19,8 @@
     "publishAt": "2026-09-10T12:30:00+09:00",
     "r2Key": "video/render/keiken-taio-hyoka/video.mp4",
     "thumbnailR2Key": "video/render/keiken-taio-hyoka/img/00-cover.png",
-    "sha256": "e05a6a3d85327c0a19af178005d572c9531d972d57879771c07c0acd0cd393b7",
-    "thumbnailSha256": "3fdc62a35e9d6c4d2bb7c93343c561ded0ab213eca81a5ff5351a0b7c56d5938"
+    "sha256": "85831f40e2d0e45432eeca8ec5966e3f2b966bac2bd72a65c07866ee1f6c3569",
+    "thumbnailSha256": "52d2280a1364ad4f1941c21f8f4b503d9b9e5db7f4830d91e2ec14b3e91532af"
   },
   "shorts": [
     {
@@ -40,8 +40,8 @@
       "publishAt": "2026-11-21T20:00:00+09:00",
       "r2Key": "video/render/keiken-taio-hyoka/shorts/point-block1-1/shorts.mp4",
       "thumbnailR2Key": "video/render/keiken-taio-hyoka/shorts/point-block1-1/thumbnail.png",
-      "sha256": "aadeedbeb2a68cb35499ccaa7eee1c7a2ccd15252401cfc72583eb7607a5dfdf",
-      "thumbnailSha256": "601e1d5cd6c480c89daa576ddca31ec4d4712afeb01aa684231a9eb8948e106f"
+      "sha256": "26dfeef837f3f299f78198bd6ad382676a1c5dcaed1cef9d88dd1a06b1bb9e0e",
+      "thumbnailSha256": "ecb51ea5bb483611973fe442e381ed3eb662940dbe0b2de59a952943df5a9b60"
     },
     {
       "key": "point-block2-2",
@@ -60,8 +60,8 @@
       "publishAt": "2026-11-22T07:30:00+09:00",
       "r2Key": "video/render/keiken-taio-hyoka/shorts/point-block2-2/shorts.mp4",
       "thumbnailR2Key": "video/render/keiken-taio-hyoka/shorts/point-block2-2/thumbnail.png",
-      "sha256": "1727fbb08f07b11ff9022b9277a899206b31556640efe26cdc4b769af6a58c70",
-      "thumbnailSha256": "9b48745f7d645e65df135f6c88ffeab9869a92930b439cb12827bf6954a1fab0"
+      "sha256": "27cebf9761d197de6fa904f4ddb1d719aa5da005c8979fd0149388625c72f8c1",
+      "thumbnailSha256": "0c40beaaf696d905e8652f6df677f6d6a2df3ef15ffd5cb4730e2600905897da"
     }
   ]
 }

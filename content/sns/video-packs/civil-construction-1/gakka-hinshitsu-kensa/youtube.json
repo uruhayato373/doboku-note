@@ -19,8 +19,8 @@
     "publishAt": "2026-09-19T07:30:00+09:00",
     "r2Key": "video/render/gakka-hinshitsu-kensa/video.mp4",
     "thumbnailR2Key": "video/render/gakka-hinshitsu-kensa/img/00-cover.png",
-    "sha256": "de9932898b02e060d6a6e79001d680c56e9043aa58abd3619b2e7c10a51b47c7",
-    "thumbnailSha256": "919bdeef82f38223f88d1e98c0ee2ee8170365b9af24eec705731d85c3791962"
+    "sha256": "de968b5c56719241df0632445fbfd767910b64f540840a15996c7b779acb9f41",
+    "thumbnailSha256": "873f73944e673f9034b8493b455db88cd36932153117f620fe1d4e61ef378241"
   },
   "shorts": [
     {
@@ -40,8 +40,8 @@
       "publishAt": "2026-12-07T12:30:00+09:00",
       "r2Key": "video/render/gakka-hinshitsu-kensa/shorts/point-step1-1/shorts.mp4",
       "thumbnailR2Key": "video/render/gakka-hinshitsu-kensa/shorts/point-step1-1/thumbnail.png",
-      "sha256": "90241ab7b4b66dd0e2b49c748fbc3e4e33943988deb43046df11ed28b87d5ad3",
-      "thumbnailSha256": "28be3bd95ff22246b1fdfb6e79619d6a767558e443d3deda77b0e3d03c7f2aac"
+      "sha256": "bb02f94074f2151f538292b6a88457ad310c355f7ce11e291feff9416d0ba006",
+      "thumbnailSha256": "ef10566677c4ccae30e3b0240cb2da43435df103a7826f883a767001107eea4a"
     },
     {
       "key": "point-step2-2",
@@ -60,8 +60,8 @@
       "publishAt": "2026-12-08T07:30:00+09:00",
       "r2Key": "video/render/gakka-hinshitsu-kensa/shorts/point-step2-2/shorts.mp4",
       "thumbnailR2Key": "video/render/gakka-hinshitsu-kensa/shorts/point-step2-2/thumbnail.png",
-      "sha256": "18982a7e1efd4148c895cb7b843f9ba854ca7e980258d47058f0a6c8014cd464",
-      "thumbnailSha256": "8f3d3c7b79c0aac94e4cd714aa66b487d359b99c9f9c27df941a3ba69d65230c"
+      "sha256": "bf1859cac3c376239f8a7cfccc8634a0e3bb92bc5a7f138ab07682dfc1794e58",
+      "thumbnailSha256": "e49b97c7c8b18e17c052c883a0cc8a5b404c05c289c5fc03272a1bcf0faf4ebb"
     }
   ]
 }

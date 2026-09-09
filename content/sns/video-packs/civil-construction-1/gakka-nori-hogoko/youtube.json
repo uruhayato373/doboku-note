@@ -19,8 +19,8 @@
     "publishAt": "2026-09-24T12:30:00+09:00",
     "r2Key": "video/render/gakka-nori-hogoko/video.mp4",
     "thumbnailR2Key": "video/render/gakka-nori-hogoko/img/00-cover.png",
-    "sha256": "37becdb22434bf623135471722c951f24e44d5fa91837fd06ef3029e4263940a",
-    "thumbnailSha256": "9c80f8021b35382eb0e579dad516281de7b80138bd6d1a72bf7ed1071b04008a"
+    "sha256": "6144db740326c414f66873b0eca1d223115e6cb40995cbabc3322c9c5bc3efda",
+    "thumbnailSha256": "d4ab8b8647ed943d0118539d62cbafaaa68f99d9d0ac7879e6997b0255cd177d"
   },
   "shorts": [
     {
@@ -40,8 +40,8 @@
       "publishAt": "2026-12-15T20:00:00+09:00",
       "r2Key": "video/render/gakka-nori-hogoko/shorts/point-gensoku-1/shorts.mp4",
       "thumbnailR2Key": "video/render/gakka-nori-hogoko/shorts/point-gensoku-1/thumbnail.png",
-      "sha256": "05254465c4a6dc33484d5b667f6f4beb31765162fecc9a0e912754829cc6e21c",
-      "thumbnailSha256": "0c2136cc5212bca91e4f3f62b7af7b39e80a09daeab0498f5c34f897f565ecf9"
+      "sha256": "0f684353512c7fba4c13c7f83974313b6b82dddfd9720805a70f121d6de733fd",
+      "thumbnailSha256": "031e40c7840bb55196d73fa3830607ab0dda5c6f7aafe2268d9c5b2554187d29"
     },
     {
       "key": "point-hisho-2",
@@ -60,8 +60,8 @@
       "publishAt": "2026-12-16T12:30:00+09:00",
       "r2Key": "video/render/gakka-nori-hogoko/shorts/point-hisho-2/shorts.mp4",
       "thumbnailR2Key": "video/render/gakka-nori-hogoko/shorts/point-hisho-2/thumbnail.png",
-      "sha256": "f78e5b9f88d3ac8f39a51c5f18482ccefbee67104f911713b2871777228b5197",
-      "thumbnailSha256": "2bddda02907d7f527b6f60a6e0bfbf71cb96430f45a68edf63adaf9805ebd86e"
+      "sha256": "f951cc156e83260841cd2c19b5a1a0e1dd29843b0fed51575e22a5c3f960c50e",
+      "thumbnailSha256": "3498dccc8c2e01078c12bfbb6e21af9a035b0feb2ac7c5252a6e3bc9c87e8137"
     }
   ]
 }

@@ -19,8 +19,8 @@
     "publishAt": "2026-09-13T20:00:00+09:00",
     "r2Key": "video/render/niji-kijutsu-hinshitsu/video.mp4",
     "thumbnailR2Key": "video/render/niji-kijutsu-hinshitsu/img/00-cover.png",
-    "sha256": "d6d1ffad817f19555b813ecbf4e384d1b4182f0511e7652b17712ebe7f679452",
-    "thumbnailSha256": "c283959f1818cda6528380f2628ee25320f8d5b8f2e00211ab270ebf731ddb72"
+    "sha256": "fd4edc26cc2fb3c6cca49d19851fde0943bbedaae2a16183cb40a4a277925fb2",
+    "thumbnailSha256": "dd0923fb4b4a7d0bc28f00e8dc4db2ae60664e8d1006cb1d65994a4fc2e37371"
   },
   "shorts": [
     {
@@ -40,8 +40,8 @@
       "publishAt": "2026-11-26T20:00:00+09:00",
       "r2Key": "video/render/niji-kijutsu-hinshitsu/shorts/point-compaction-1/shorts.mp4",
       "thumbnailR2Key": "video/render/niji-kijutsu-hinshitsu/shorts/point-compaction-1/thumbnail.png",
-      "sha256": "5b868ba815e0f46fd9cc32f6622ad01f84b389685afdafb8954f2dbdc039d2fa",
-      "thumbnailSha256": "f76afa41f8f8cec486ad6538b3825823979f2d5105a844553512b7d6b65be673"
+      "sha256": "5aed1b62c3f5c72d2848057b884b1f0da38cd79a7549358e23263faf3f962e6b",
+      "thumbnailSha256": "69c8f471ed07d6ef3b6f710701cd4af3ee90d5e9f4a18dd498b6274d147e50fa"
     },
     {
       "key": "point-acceptance-test-2",
@@ -60,8 +60,8 @@
       "publishAt": "2026-11-27T12:30:00+09:00",
       "r2Key": "video/render/niji-kijutsu-hinshitsu/shorts/point-acceptance-test-2/shorts.mp4",
       "thumbnailR2Key": "video/render/niji-kijutsu-hinshitsu/shorts/point-acceptance-test-2/thumbnail.png",
-      "sha256": "3e2b5cd6a25a0b1dd31a52d3af00bbd7b32c236ec2b85e626327daf6e29762f1",
-      "thumbnailSha256": "3006437632f27736e62fc7a8083ba64e8ec8b0c75faa341f2613260baa3ba2e0"
+      "sha256": "a12a684d3c959cdbcecf33bcd1186099feeb1be7ebfbc9fc3f41203de95c848f",
+      "thumbnailSha256": "600f4847a6c057946bac3e2c6b27ffb1e65b75fe2f009a90b1d85cbc4d866c09"
     }
   ]
 }
