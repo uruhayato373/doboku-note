@@ -19,8 +19,8 @@
     "publishAt": "2026-09-17T20:00:00+09:00",
     "r2Key": "video/render/gakka-crane-sogo/video.mp4",
     "thumbnailR2Key": "video/render/gakka-crane-sogo/img/00-cover.png",
-    "sha256": "2143e7f827651c1daa32f9f5f5b72df5889e7e4701d189ccf7c4139dee5025a1",
-    "thumbnailSha256": "3f5f7013621bf086266d6944f7347f3030c646ceafc151d7b31469c3d6cd8898"
+    "sha256": "d88bbb32a09f01eb25eb88cb15b1ac38d76efd2b690dde0dafd45764ebd30876",
+    "thumbnailSha256": "c4ae1760ab79d40711d4464f086baf405d5c8e17e75d0f7b494396140420ff8f"
   },
   "shorts": [
     {
@@ -40,8 +40,8 @@
       "publishAt": "2026-12-04T20:00:00+09:00",
       "r2Key": "video/render/gakka-crane-sogo/shorts/point-overview-1/shorts.mp4",
       "thumbnailR2Key": "video/render/gakka-crane-sogo/shorts/point-overview-1/thumbnail.png",
-      "sha256": "f9dbf1f65a5b6ddb62072755245ca7ca21f1746dfadf4f16032f19989f8b35fe",
-      "thumbnailSha256": "081db7cc1baba614a26550d9d62fe363b8a4678f4c16defa9a85d7ec48c317b6"
+      "sha256": "dc42768673ef529a9c4ded01f286b48ddfed6ed871b50c72b8712b871465c33d",
+      "thumbnailSha256": "91f2f834de630fb7c617b9a78e9377b6be145e75eb26fdcf1030d506bb3b17d0"
     },
     {
       "key": "point-step1-2",
@@ -60,8 +60,8 @@
       "publishAt": "2026-12-05T07:30:00+09:00",
       "r2Key": "video/render/gakka-crane-sogo/shorts/point-step1-2/shorts.mp4",
       "thumbnailR2Key": "video/render/gakka-crane-sogo/shorts/point-step1-2/thumbnail.png",
-      "sha256": "196e2742847e956a5ed6ab8faadddebcc85349d590507a0cf30c15164ff14711",
-      "thumbnailSha256": "c7e59cfb6941e1f3cf78cf8d7290d236cb99eeef2cde6317c45998e4f363159f"
+      "sha256": "59e3b9debf9242bc654939608ae4a1a27ed5246397b3e509151109a018dfb0b7",
+      "thumbnailSha256": "dfd1d1423a0d74d76f874759f3f6516bee3b9271b546257747024e8a69acb7b7"
     }
   ]
 }

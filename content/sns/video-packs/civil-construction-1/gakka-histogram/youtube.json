@@ -19,8 +19,8 @@
     "publishAt": "2026-09-19T20:00:00+09:00",
     "r2Key": "video/render/gakka-histogram/video.mp4",
     "thumbnailR2Key": "video/render/gakka-histogram/img/00-cover.png",
-    "sha256": "0d7750c9ae98db8b3283c565371496cdaf5a7fdbd66144aeb735776ad6fbcc20",
-    "thumbnailSha256": "df3ff450c8c63df8a6fd22ccdef1a6855b159bffa75f0338eb516182152c0613"
+    "sha256": "a363907c80147838f7eada5c7ed2044e1c31e856d1e3203e0279935cee6ad2f6",
+    "thumbnailSha256": "65c3bb84e276898a87f5028efe7d67a6fa5a25aa8dac8108bf55556bd51972cf"
   },
   "shorts": [
     {
@@ -40,8 +40,8 @@
       "publishAt": "2026-12-07T20:00:00+09:00",
       "r2Key": "video/render/gakka-histogram/shorts/point-overview-1/shorts.mp4",
       "thumbnailR2Key": "video/render/gakka-histogram/shorts/point-overview-1/thumbnail.png",
-      "sha256": "59a15d94ed70aefc2d07a9d436186403f05eb2ea97a4aa31f0424571a70eb593",
-      "thumbnailSha256": "8eaea7c651bbfd080e2a28904512d4d256c5cbe55eacecf8adaf73bbe6eed44b"
+      "sha256": "1a605cfcb6a0fced078c2ddda662d81da08d627de7548e8953433b0ab33d2efb",
+      "thumbnailSha256": "92eef2d08402e1126a619df2a1e1b921a7aeac969420b162f14300a4e69b24c5"
     },
     {
       "key": "point-step1-2",
@@ -60,8 +60,8 @@
       "publishAt": "2026-12-08T12:30:00+09:00",
       "r2Key": "video/render/gakka-histogram/shorts/point-step1-2/shorts.mp4",
       "thumbnailR2Key": "video/render/gakka-histogram/shorts/point-step1-2/thumbnail.png",
-      "sha256": "9bf912ca473c14e614f66cf3971b0007051c9213c8d649f4c80037723a7daf42",
-      "thumbnailSha256": "d9b202feedfbf38da0b820539ed5690779ba561d164e6c9a0c336fa0aeedcd52"
+      "sha256": "ce035db62370e8e115a44d56e640b68d397f3f4e6123e5f59038ec3aa80deb14",
+      "thumbnailSha256": "a458887de8d9d8d9a12c492d9a1fba456edccd0a72f58819b175e06d3d55bb5f"
     }
   ]
 }

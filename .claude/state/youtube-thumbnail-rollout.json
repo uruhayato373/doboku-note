@@ -2,14 +2,14 @@
   "schemaVersion": 1,
   "asOfJst": "2026-09-09",
   "channelId": "UCHRnXPqoc0Hls8nXiK_ZYqA",
-  "status": "prepared-for-video-render",
+  "status": "cta-logo-proposals-ready-and-thumbnail-rate-limited",
   "branch": "codex/character-framing",
   "taskId": "DN-0184",
-  "scope": "thumbnails-only",
+  "scope": "approved-cover-and-presentation-body-render-and-thumbnail-update",
   "totalVideosAtInventory": 344,
-  "updatedUniqueVideos": 24,
-  "remainingVideosAtInventory": 320,
-  "cdnImageMatched": 24,
+  "updatedUniqueVideos": 75,
+  "remainingVideosAtInventory": 269,
+  "cdnImageMatched": 56,
   "publicFeedVerified": false,
   "videoFilesReuploaded": 0,
   "visibilityOrScheduleWrites": 0,
@@ -30,13 +30,44 @@
       "newUpdatesBeforeStop": 8,
       "cdnMatchedAfterReadOnlyVerification": 8,
       "stopReason": "The metadata guard rejected contentDetails.hasCustomThumbnail changing from false to true after the first custom-thumbnail upload. Read-only review found all other protected fields unchanged in these 8 records. No retry or rollback was performed."
+    },
+    {
+      "runId": 34338747117,
+      "scope": "fresh-inventory",
+      "conclusion": "success",
+      "checked": 344
+    },
+    {
+      "runId": 34339765677,
+      "scope": "representative-dry-run",
+      "conclusion": "success",
+      "selected": 1,
+      "newUpdates": 0
+    },
+    {
+      "runId": 34340125806,
+      "scope": "representative-approved-cover",
+      "conclusion": "success",
+      "selected": 1,
+      "newUpdates": 1,
+      "cdnMatchedAfterReadOnlyVerification": 1
+    },
+    {
+      "runId": 34340759814,
+      "scope": "all-approved-covers",
+      "conclusion": "failure",
+      "newUpdatesBeforeStop": 74,
+      "cdnMatchedAfterReadOnlyVerification": 55,
+      "cdnVisualReviewed": 19,
+      "stopReason": "HTTP 429 uploadRateLimitExceeded. The final request was followed by a read-only image check and still showed the previous image. No retry was performed.",
+      "resumeIndexInOriginalPlan": 74
     }
   ],
   "receiptStorage": {
     "aggregateIncludesPrivateVideoIds": false,
-    "note": "This aggregate file contains no private video IDs. Detailed receipts and old thumbnails are encrypted in each run's youtube-thumbnail-report artifact (3-day retention); downloaded ciphertext and private-key/decrypted records remain only on the original PC under .tmp/youtube-rollout. Never commit the private key or decrypted inventory. Use a new local key and fresh read-only inventory on another PC."
+    "note": "Current encrypted receipts were downloaded from the listed runs into .tmp/youtube-rollout-20260909 in the codex/character-framing Mac worktree. Private key and decrypted inventory stay local and untracked. Artifacts expire after 3 days. On another PC generate a fresh local key and inventory; never put private keys or private video IDs in Git."
   },
-  "resumeGate": "Restore the approved PNG bundle and verify one longform and its Shorts with audio before bulk video rendering. Before any YouTube write, correct and regression-test the hasCustomThumbnail guard, obtain a fresh inventory and review the new plan. Existing videos are not authorized for deletion or reupload by design approval.",
+  "resumeGate": "After the retry time, obtain a fresh inventory and review its plan. Prioritize the remaining public videos. Preserve the 75 verified approved-cover updates; compare images read-only before any further write. Video-body migration scope is awaiting the user response because reupload creates new URLs. Do not delete or unschedule existing videos without resolving that scope.",
   "preparation": {
     "approvedAt": "2026-09-09",
     "design": "white-blue-pop",
@@ -69,7 +100,66 @@
       "sha256Matched": 346,
       "method": "existing pull into empty isolated root using cloud-downloaded bytes",
       "host": "win32",
-      "macHardwareTested": false
+      "macHardwareTested": true,
+      "macLocalSha256Matched": 346,
+      "macVerificationDateJst": "2026-09-09"
+    },
+    "rendering": {
+      "status": "paused-for-cta-design",
+      "targetPacks": 112,
+      "targetLongform": 112,
+      "targetShorts": 224,
+      "speaker": 13,
+      "voicevoxVersion": "0.25.2",
+      "timingFixCommit": "a86b5d6a4",
+      "sampleVerification": [
+        "approved-cover-sha256",
+        "visual-cover-and-subtitles",
+        "audio-stream-and-levels",
+        "ASR-from-first-to-last-scene"
+      ],
+      "humanListeningVerified": false,
+      "revision": "presentation-20260909",
+      "readingCorrection": "概要の要は → 概要のかなめは。VOICEVOX audio_query のカナメを確認。",
+      "layout": "White background and existing exam-brand colors; presentation headings, point cards and editable order-chain diagram.",
+      "layoutTextBoxesChecked": 1022,
+      "layoutOverflow": 0,
+      "completedPacks": 22,
+      "verifiedVideos": 66,
+      "cloudVerifiedPacks": 22,
+      "explanationCommit": "74dfbf19b",
+      "shortsSinglePassCommit": "7e8cf4ddf",
+      "remainingPacks": 90
+    },
+    "ctaDesign": {
+      "status": "mockups-only",
+      "recommended": "bridge-notebook",
+      "generatedWith": "built-in image_gen; no imagen2.5 model selector available",
+      "directory": ".tmp/video-render/youtube-cta-20260909",
+      "proposals": [
+        "proposal-a-bridge-notebook.png",
+        "proposal-b-teacher-emblem.png"
+      ],
+      "appliedToVideos": false
     }
+  },
+  "priorDesignCounts": {
+    "design": "previous-dark",
+    "updatedUniqueVideos": 24,
+    "cdnImageMatched": 24
+  },
+  "cdnVisualReviewed": 19,
+  "currentDesign": "white-blue-pop",
+  "currentPlanSha256": "a865879c8b7394f985dd572f48744b997b9a9f596e6eec0c52937a71be31eab2",
+  "rateLimit": {
+    "reason": "uploadRateLimitExceeded",
+    "stoppedAt": "2026-09-09T10:40:47Z",
+    "retryNotBefore": "2026-09-10T10:40:47Z",
+    "basis": "Follow the YouTube Help recommendation to retry 24 hours after a daily thumbnail limit. Exact channel reset time is not exposed.",
+    "helpUrl": "https://support.google.com/youtube/answer/72431?hl=ja"
+  },
+  "verifiedByPrivacyAtInventory": {
+    "public": 5,
+    "private": 70
   }
 }

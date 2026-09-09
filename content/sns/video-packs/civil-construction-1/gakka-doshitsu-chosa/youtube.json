@@ -19,8 +19,8 @@
     "publishAt": "2026-09-18T12:30:00+09:00",
     "r2Key": "video/render/gakka-doshitsu-chosa/video.mp4",
     "thumbnailR2Key": "video/render/gakka-doshitsu-chosa/img/00-cover.png",
-    "sha256": "d5d08b54518d014f832efd64f9f5e67a72f9b45fd3bf0ae72e107dc3e327dfa3",
-    "thumbnailSha256": "eaba8f02d090991e4bbdc0e36d6da97094491cd36c3655925146e1464124cd06"
+    "sha256": "ab91b240523eb9b193d891bdb3c06e9dbef80a72c2ba809e265dec0096c83c10",
+    "thumbnailSha256": "a8fa54b1cecfb7a3af122156e3005bbb3880c0ff2b5117f1ffb93d8443ac597b"
   },
   "shorts": [
     {
@@ -40,8 +40,8 @@
       "publishAt": "2026-12-05T20:00:00+09:00",
       "r2Key": "video/render/gakka-doshitsu-chosa/shorts/point-genri-1/shorts.mp4",
       "thumbnailR2Key": "video/render/gakka-doshitsu-chosa/shorts/point-genri-1/thumbnail.png",
-      "sha256": "232d1aa0ddc9c7102c705cc55519277c364486d1f2803c864737ff9412954f19",
-      "thumbnailSha256": "11fb099951c2bf230a5466c30034b3ce723b72c0a2273621ae5da77b7f61ee5b"
+      "sha256": "defccc0c72cf4813e43b98c890ed322f0959ed621e77ae041fd573465e90fb80",
+      "thumbnailSha256": "53123b3a6ca483615dc76476e41c8e46040bc0951cf79a6e0cc7d20f587cf45a"
     },
     {
       "key": "point-gyakubiki-2",
@@ -60,8 +60,8 @@
       "publishAt": "2026-12-06T12:30:00+09:00",
       "r2Key": "video/render/gakka-doshitsu-chosa/shorts/point-gyakubiki-2/shorts.mp4",
       "thumbnailR2Key": "video/render/gakka-doshitsu-chosa/shorts/point-gyakubiki-2/thumbnail.png",
-      "sha256": "5c5f10148b05a64e1c90f1aeaa7c42c99e49fc0bd2c8a7f18302e62e70bd6c40",
-      "thumbnailSha256": "4b1bababf947e6485299328b4a2cb5ee0ed5ba78764f64ec3489caf2979509d7"
+      "sha256": "c5f71bf4ea3dee2fcac73789563751975220cfcd1d391a0ca06566e11deac940",
+      "thumbnailSha256": "94ea524018c36bf2c83b4f43f2e111e949714aca0770e157735342117a804b98"
     }
   ]
 }
