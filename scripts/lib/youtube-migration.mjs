@@ -48,7 +48,10 @@ export function assertProcessed(video, item) {
   // source while fileDetails retained 92.966s (one video frame shorter).
   // Allow that display rounding, but independently check precise input duration.
   const preciseDuration = Number(video.fileDetails?.durationMs) / 1000;
-  if (!Number.isFinite(preciseDuration) || Math.abs(preciseDuration - item.media.duration) > 0.1 || Math.abs(durationSeconds(video.contentDetails.duration) - item.media.duration) > 1.1) throw new Error(`Replacement duration differs: API=${video.contentDetails.duration}, file=${preciseDuration}s, source=${item.media.duration}s`);
+  const hasPreciseDuration = video.fileDetails?.durationMs !== undefined;
+  // YouTube sometimes omits durationMs even when fileDetailsAvailability=available.
+  // In that case retain the original one-second display tolerance, not zero.
+  if ((hasPreciseDuration && (!Number.isFinite(preciseDuration) || Math.abs(preciseDuration - item.media.duration) > 0.1)) || Math.abs(durationSeconds(video.contentDetails.duration) - item.media.duration) > (hasPreciseDuration ? 1.1 : 1)) throw new Error(`Replacement duration differs: API=${video.contentDetails.duration}, file=${preciseDuration}s, source=${item.media.duration}s`);
   if (Number(video.fileDetails?.fileSize) !== item.media.bytes) throw new Error('Replacement uploaded file size differs');
   const stream = video.fileDetails?.videoStreams?.[0];
   if (!stream || stream.widthPixels !== item.media.width || stream.heightPixels !== item.media.height || !video.fileDetails?.audioStreams?.length) throw new Error('Replacement video/audio stream mismatch');

@@ -30,7 +30,7 @@ async function main() {
       for (const [kind, localPath, expectedSha, ext] of [['media', v.mediaPath, v.sha256, 'mp4'], ['thumbnail', v.thumbnailPath, v.thumbnailSha256, 'png']]) {
         const bytes = readFileSync(localPath), sha = sha256(bytes), key = `youtube-migration/${MIGRATION}/media/${sha}.${ext}`;
         if (sha !== expectedSha || (kind === 'thumbnail' && sha !== source.spec.approvedImage.sha256)) throw new Error('Legacy verified media differs');
-        entry[kind] = { key, sha256: sha, bytes: bytes.length }; assets.set(key, bytes);
+        entry[kind] = { key, sha256: sha, bytes: bytes.length }; assets.set(key, localPath);
       }
       Object.assign(entry.media, { duration: v.duration, width: v.width, height: v.height });
       entry.verification = { status: 'passed', revision: MIGRATION, checkedAt: v.checkedAt, checks: v.checks };
@@ -53,7 +53,7 @@ async function main() {
     if (!parsed.streams.some(s => s.codec_type === 'audio') || video.width !== (short ? 1080 : 1920) || video.height !== (short ? 1920 : 1080)) throw new Error('Missing audio/wrong dimensions');
     for (const [kind, bytes, ext] of [['media', media, 'mp4'], ['thumbnail', thumb, 'png']]) {
       const sha = sha256(bytes), key = `youtube-migration/${MIGRATION}/media/${sha}.${ext}`;
-      entry[kind] = { key, sha256: sha, bytes: bytes.length }; assets.set(key, bytes);
+      entry[kind] = { key, sha256: sha, bytes: bytes.length }; assets.set(key, kind === 'media' ? mediaPath : thumbnailPath);
     }
     Object.assign(entry.media, { duration: Number(parsed.format.duration), width: video.width, height: video.height });
     entry.verification = { status: 'passed', revision: MIGRATION, checkedAt: v.checkedAt, checks: v.checks };
@@ -67,7 +67,9 @@ async function main() {
   const summary = { planSha256: hash, total: entries.length, ready: entries.filter(e => e.media).length, assets: assets.size, youtubeWrites: 0, staged: false };
   if (args.commit) {
     const storage = migrationStorage();
-    for (const [key, value] of assets) {
+    for (const [key, localPath] of assets) {
+      const value = readFileSync(localPath);
+      if (!key.includes(`/media/${sha256(value)}.`)) throw new Error('Local media changed after plan preparation');
       const prior = await storage.get(key);
       if (prior && sha256(prior) !== sha256(value)) throw new Error('Immutable transfer key differs');
       if (!prior) await storage.put(key, value, key.endsWith('.mp4') ? 'video/mp4' : 'image/png');

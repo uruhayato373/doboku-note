@@ -62,4 +62,6 @@ test('whole-second API rounding is allowed only with precise duration and exact 
   assert.equal(assertProcessed(v, e), true);
   v.fileDetails.durationMs = '92000'; assert.throws(() => assertProcessed(v, e), /duration/);
   v.fileDetails.durationMs = '92966'; v.fileDetails.fileSize = '999'; assert.throws(() => assertProcessed(v, e), /size/);
+  v.fileDetails.fileSize = '1000'; delete v.fileDetails.durationMs; assert.throws(() => assertProcessed(v, e), /duration/);
+  v.contentDetails.duration = 'PT41S'; assert.equal(assertProcessed(v, item), true);
 });
