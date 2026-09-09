@@ -11,8 +11,13 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "reading",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-253.png",
+        "sha256": "fde806a0d5192ac5f3f60325a053ca03164dc1d37228ca1519864339584ccdfb",
+        "specSha256": "0102e62ec59cdb2aa6a57e1557614f5a6b18c1ac3ae470e94df0ccd61cdb2a6b"
       }
     },
     "point-wc-ratio-1": {
@@ -25,8 +30,13 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "explaining",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-254.png",
+        "sha256": "ffd483a9fcfe8c71192d3a174a6e982e432fa5a7f470b94c93670bedfa0709cf",
+        "specSha256": "0c9585484d842c3e0bafeb7749ab7902ebd63c9811660facafac16dda3fb9678"
       }
     },
     "point-tanni-saikotsu-kuuki-2": {
@@ -40,8 +50,13 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "explaining",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-255.png",
+        "sha256": "697d6a314cfc5ccdd1ae5e8ebff24511ce23ac072f9f4abecc30b2924ded4094",
+        "specSha256": "801a1557c9e85a669b36fab4ecc9c59fb0ffefbe3adc60b4c4a4a4864f3f0a02"
       }
     }
   }

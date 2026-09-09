@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "asOfJst": "2026-09-09",
   "channelId": "UCHRnXPqoc0Hls8nXiK_ZYqA",
-  "status": "paused-for-font-review",
+  "status": "prepared-for-video-render",
   "branch": "codex/character-framing",
   "taskId": "DN-0184",
   "scope": "thumbnails-only",
@@ -36,5 +36,13 @@
     "aggregateIncludesPrivateVideoIds": false,
     "note": "This aggregate file contains no private video IDs. Detailed receipts and old thumbnails are encrypted in each run's youtube-thumbnail-report artifact (3-day retention); downloaded ciphertext and private-key/decrypted records remain only on the original PC under .tmp/youtube-rollout. Never commit the private key or decrypted inventory. Use a new local key and fresh read-only inventory on another PC."
   },
-  "resumeGate": "Review competitors and font treatments on the other PC, approve representative covers, correct and regression-test the hasCustomThumbnail guard, regenerate/review PNGs and their approval hashes, and create a new live inventory/plan before any further write. The old plan is not approval for a new font."
+  "resumeGate": "Restore the approved PNG bundle and verify one longform and its Shorts with audio before bulk video rendering. Before any YouTube write, correct and regression-test the hasCustomThumbnail guard, obtain a fresh inventory and review the new plan. Existing videos are not authorized for deletion or reupload by design approval.",
+  "preparation": {
+    "approvedAt": "2026-09-09",
+    "design": "white-blue-pop",
+    "images": 346,
+    "poses": 8,
+    "guide": "content/sns/youtube/VIDEO-RENDER.md",
+    "transfer": "local-zip-prepared; Drive upload not performed"
+  }
 }

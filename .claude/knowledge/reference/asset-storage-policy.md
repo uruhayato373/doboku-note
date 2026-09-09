@@ -48,6 +48,7 @@ Google Drive 側が `.claude/config/drive-vault.json`（台帳 `.claude/state/as
 | `note-delivery-pdf` | human | Drive `制作物/note配布PDF/` | 添付は人が `note-attach-file` で実行 |
 | `ig-rendered-image` | human | Drive `制作物/IGレンダー/` | 投稿は人が `publish-ig-bs` で実行。投稿済みを public R2 に置いていたのは旧目標の名残 |
 | `video-render-artifact` | human | Drive `制作物/動画レンダー/` | render-longform を回す CI は存在しない |
+| `youtube-approved-cover` | human | Drive `制作物/動画レンダー/採用カバー/` | 確認済みPNGを別端末へ渡す。制作時の書体が必要なため再生成を前提にしない |
 | `kindle-dist` | human | Drive `制作物/Kindle/`（Git が正本） | CI の check-kindle-format が blob を読むので Git 追跡は維持。Drive は控え |
 | `coconala-asset` | human | Drive `制作物/ココナラ/` | |
 | `note-magazine-cover-png` | human | Drive `制作物/マガジンカバー/` | |

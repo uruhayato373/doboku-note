@@ -13,15 +13,196 @@
     "access-control": "【総監キーワード】アクセス制御・アクセス権限設定"
   },
   "covers": {
-    "r03-pfi": {"format":"shorts","exam":"pe-comprehensive","headline":["コンセッション","所有と運営を","区別する"],"accentLine":2,"subtitle":"令和３年度 択一","character":{"pose":"explaining","frame":"waist"}},
-    "r03-quality": {"format":"shorts","exam":"pe-comprehensive","headline":["管理限界と","抜取検査の前提"],"accentLine":1,"subtitle":"令和３年度 択一","character":{"pose":"pointing","frame":"waist"}},
-    "r03-critical-path": {"format":"shorts","exam":"pe-comprehensive","headline":["作業を分けると","工期は縮まる？"],"accentLine":1,"subtitle":"令和３年度 択一｜CP短縮計算","character":{"pose":"thinking","frame":"waist"}},
-    "r03-decoupling": {"format":"shorts","exam":"pe-comprehensive","headline":["デカップリング","ポイントの分類"],"accentLine":1,"subtitle":"令和３年度 択一","character":{"pose":"explaining","frame":"waist"}},
-    "r03-break-even": {"format":"shorts","exam":"pe-comprehensive","headline":["損益分岐点と","限界利益率"],"accentLine":1,"subtitle":"令和３年度 択一｜計算の要点","character":{"pose":"pointing","frame":"waist"}},
-    "r03-cash-flow": {"format":"shorts","exam":"pe-comprehensive","headline":["間接法のCF","何を調整する？"],"accentLine":1,"subtitle":"令和３年度 択一","character":{"pose":"thinking","frame":"waist"}},
-    "r03-maintenance": {"format":"shorts","exam":"pe-comprehensive","headline":["設備管理と","保全費の区分"],"accentLine":1,"subtitle":"令和３年度 択一","character":{"pose":"explaining","frame":"waist"}},
-    "r07-quality": {"format":"shorts","exam":"pe-comprehensive","headline":["管理限界と","規格値の違い"],"accentLine":1,"subtitle":"令和７年度 択一","character":{"pose":"pointing","frame":"waist"}},
-    "multisource-evaluation": {"format":"shorts","exam":"pe-comprehensive","headline":["多面評価","複数の視点で"],"accentLine":1,"subtitle":"総監キーワード","character":{"pose":"explaining","frame":"waist"}},
-    "access-control": {"format":"shorts","exam":"pe-comprehensive","headline":["アクセス制御","権限を設定する"],"accentLine":1,"subtitle":"総監キーワード","character":{"pose":"pointing","frame":"waist"}}
+    "r03-pfi": {
+      "format": "shorts",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "コンセッション",
+        "所有と運営を",
+        "区別する"
+      ],
+      "accentLine": 2,
+      "subtitle": "令和３年度 択一",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-337.png",
+        "sha256": "e210877fa2d283c01b99af64d0a7aec6d5c1b6efb215aaeb3fa66585adc38aa0",
+        "specSha256": "16dbd359b32ba24deaf38cc09ff48978960052a2b4679cc659090f1323792116"
+      }
+    },
+    "r03-quality": {
+      "format": "shorts",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "管理限界と",
+        "抜取検査の前提"
+      ],
+      "accentLine": 1,
+      "subtitle": "令和３年度 択一",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-338.png",
+        "sha256": "636045ac957893f01965c0092b2c9fb5437d38ad1b26a1a6cae37c8256e47914",
+        "specSha256": "2b86fd4a3cbfe25970ef6f0c0e9c037de170908899dc0bd64cdea384d335c476"
+      }
+    },
+    "r03-critical-path": {
+      "format": "shorts",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "作業を分けると",
+        "工期は縮まる？"
+      ],
+      "accentLine": 1,
+      "subtitle": "令和３年度 択一｜CP短縮計算",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-339.png",
+        "sha256": "c4fa9c19aee907f3183a9a47529592452cb94c4a3ab1914810d47fb162ca717b",
+        "specSha256": "703ce37a86f2162c4cf2d2f0e21489f2d86374cd119eb1e1b2c08abd4b26e92a"
+      }
+    },
+    "r03-decoupling": {
+      "format": "shorts",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "デカップリング",
+        "ポイントの分類"
+      ],
+      "accentLine": 1,
+      "subtitle": "令和３年度 択一",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-340.png",
+        "sha256": "be9e0f37f91859599d61175beeb0d3fcc3d4976377d2f8ed71803ef5fc7b87be",
+        "specSha256": "a2a5b174994c38cecc426c7b5a88d836b370e656b21c413b81532fa5cc0827cd"
+      }
+    },
+    "r03-break-even": {
+      "format": "shorts",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "損益分岐点と",
+        "限界利益率"
+      ],
+      "accentLine": 1,
+      "subtitle": "令和３年度 択一｜計算の要点",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-341.png",
+        "sha256": "543ef81cbe77f59bacd7f430f368147887704a3df031a1b81a28a8f3ac7391ec",
+        "specSha256": "2e0017447b68452d3e9828c4a6386782faf183fd1f3761ee29481620ab35d833"
+      }
+    },
+    "r03-cash-flow": {
+      "format": "shorts",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "間接法のCF",
+        "何を調整する？"
+      ],
+      "accentLine": 1,
+      "subtitle": "令和３年度 択一",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-342.png",
+        "sha256": "607138af83f2a54c09e6b7a5d4be9ead90be53c7426fa0cff2d297d466b66f9a",
+        "specSha256": "4a4331a1cb87fbc0e9f3027b4feb38eb878bde23ec1d67e9256b062d4850894a"
+      }
+    },
+    "r03-maintenance": {
+      "format": "shorts",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "設備管理と",
+        "保全費の区分"
+      ],
+      "accentLine": 1,
+      "subtitle": "令和３年度 択一",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-343.png",
+        "sha256": "8cceecad100d7cb6e369a7301e4cdb4b9d895b8de7b55a68b7242ca8631b998e",
+        "specSha256": "e0216e405afa5e59c07a3250a626ed9fbfd511f67478adecd65d27d853d0a051"
+      }
+    },
+    "r07-quality": {
+      "format": "shorts",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "管理限界と",
+        "規格値の違い"
+      ],
+      "accentLine": 1,
+      "subtitle": "令和７年度 択一",
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-344.png",
+        "sha256": "cf5534d9b7ec06fb69fc27752c123305b17d93c74c0d34e06b4968eff9d7ee42",
+        "specSha256": "a7038a996c4ac98e950730ea19af89d4c3d144368500327ee5ab96d024bbe934"
+      }
+    },
+    "multisource-evaluation": {
+      "format": "shorts",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "多面評価",
+        "複数の視点で"
+      ],
+      "accentLine": 1,
+      "subtitle": "総監キーワード",
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-345.png",
+        "sha256": "157af0bdf66d91ff110ef14bf216e4665208f6bf6db67a5cf3de00ee36ec594e",
+        "specSha256": "a6daa612e92b4c05f4bca1fc96f61b9e0850c913899def81c8cfaf90676f77c8"
+      }
+    },
+    "access-control": {
+      "format": "shorts",
+      "exam": "pe-comprehensive",
+      "headline": [
+        "アクセス制御",
+        "権限を設定する"
+      ],
+      "accentLine": 1,
+      "subtitle": "総監キーワード",
+      "character": {
+        "pose": "pc-work",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-346.png",
+        "sha256": "390c3963fa18c8bdf2ef5f23e49240a2fe007bbd2556812f4a3cdce5ecacfff4",
+        "specSha256": "071c0bdc87e3acb2dab20af110ba95eed314d6002892236dbb43252332ec42f6"
+      }
+    }
   }
 }

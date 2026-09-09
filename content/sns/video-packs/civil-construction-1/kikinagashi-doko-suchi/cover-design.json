@@ -11,8 +11,13 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "explaining",
+        "pose": "smile",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-157.png",
+        "sha256": "25e4f535348c9c5893096ba87f29789c87bb89117ad15f9f127a5c9a62de140b",
+        "specSha256": "e8b4bc62d2f81bcd23711cd0361f60559a7f03d63a3d2450c91d0271b557a1ca"
       }
     },
     "point-soft-ground-judge-1": {
@@ -25,8 +30,13 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "explaining",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-158.png",
+        "sha256": "1a9b840bb7c88d183a7b6c5528dad84ef35c7fbdab928760d516fbbb41d802f6",
+        "specSha256": "1ca8ed7d5a89f9322c29272d72ff18c716e8206a0b7b3855b4cdad21c28b4d10"
       }
     },
     "point-embankment-check-2": {
@@ -40,8 +50,13 @@
       "accentLine": 2,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "explaining",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-159.png",
+        "sha256": "5bf5a04038275baf85084b0cccfdd148908ed55f2b1194c80d5333d2ecee68a0",
+        "specSha256": "8d46c6e3c4389cbab3994696264184bc28b06359eba07b70444b9fc58a2a84ee"
       }
     }
   }

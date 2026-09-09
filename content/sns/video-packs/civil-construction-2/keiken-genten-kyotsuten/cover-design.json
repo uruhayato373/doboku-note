@@ -11,8 +11,13 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pointing",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-229.png",
+        "sha256": "3e9b681d353bcc5ae716c33bfbe115b292616569d1c9105e45a84b1b00bc87e8",
+        "specSha256": "95119a3e8445425fa15898b8a8571dd83f363f86cc2d360ace190aa351a7f620"
       }
     },
     "point-taisai-1": {
@@ -25,8 +30,13 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "thinking",
+        "pose": "pointing",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-230.png",
+        "sha256": "64caa9a138d6019f177c0ad9aa5dab0bc313bb48dfb706f669b9f1587489e91f",
+        "specSha256": "b2884ee45a7ef58496b015a8c8b6f065bb1049ebbe29eda54bb617dd253368ba"
       }
     },
     "point-kaigyo-2": {
@@ -41,6 +51,11 @@
       "character": {
         "pose": "thinking",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-231.png",
+        "sha256": "67c485be2fca0da724751bcbaa2ffe1b9a9d581e066dee1f9e0c6c64f7861d4c",
+        "specSha256": "fe034a3bcf8fe8eb31573a2223bf727ecbe5999ddecc0a9c1ba3e87fb4051484"
       }
     }
   }

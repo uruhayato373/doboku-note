@@ -4,6 +4,7 @@ import { createHash } from 'node:crypto';
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import { renderCharacterFrame } from './character-framing.mjs';
+import { readApprovedCover } from './youtube-approved-cover.mjs';
 import { resolveExam, EXAM_KEYS } from '../../.claude/scripts/sns/lib/exam-palette.mjs';
 
 export const COVER_FORMATS = {
@@ -55,6 +56,8 @@ export function coverFonts(root) {
 /** Authored typography + reviewed character crop. No remote assets or original image edits. */
 export async function renderYoutubeCover(root, spec) {
   const layout = validateCoverSpec(spec);
+  const approved = await readApprovedCover(root, spec, layout);
+  if (approved) return approved;
   const { width, height, fontSize, characterBox } = layout;
   const vertical = spec.format === 'shorts';
   const theme = resolveExam(spec.exam);

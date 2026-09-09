@@ -13,6 +13,11 @@
       "character": {
         "pose": "explaining",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-112.png",
+        "sha256": "dccab58316b6018022b883e8bc6a7b794568c51f27d5c1331676e33c21d06e0f",
+        "specSha256": "67bda1826986baf2472e28177944107b25ad4e646c2553b62492b9ba10890c6f"
       }
     },
     "point-gap-to-issue-1": {
@@ -25,8 +30,13 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "reading",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-113.png",
+        "sha256": "1e0cce557648fd65d4ea9eda22c62d41deb58e4923c4cbbe961e1e35b332bf51",
+        "specSha256": "90eda5ca6bcbf955ee873eeb04ddea30b95a7ba10bc77a8a494a7ba1214b5878"
       }
     },
     "point-focus-item-2": {
@@ -41,6 +51,11 @@
       "character": {
         "pose": "pointing",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-114.png",
+        "sha256": "a0e427adaed985cb31b53aa966d50613a5372fad0931c54e51e96f3a30607787",
+        "specSha256": "38c10f10f8d74388a2c0283d55fe3e4ca2fc129694badd2d6db732d98b11de3b"
       }
     }
   }

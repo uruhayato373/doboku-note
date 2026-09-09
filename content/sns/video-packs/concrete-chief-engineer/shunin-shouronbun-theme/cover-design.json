@@ -13,6 +13,11 @@
       "character": {
         "pose": "thinking",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-295.png",
+        "sha256": "646b6386713cd34e8e0f966e63126bf2b6da6dd4221c4ae5652ae14daeca97b3",
+        "specSha256": "7f793c19a6cf525580026aa5643db51bc8c4e692ff463e2f3290d251d1cf16f2"
       }
     },
     "point-nendo-1": {
@@ -25,8 +30,13 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "reading",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-296.png",
+        "sha256": "08171c1a3040d1e56f353cb1802f371c5e4c49f945cfb39b731a72f0746580a2",
+        "specSha256": "f8ed0caaab112365e9b578a21833d5bb1857ca3657314bd1fce9b6cde5222d1e"
       }
     },
     "point-ryouiki-2": {
@@ -39,8 +49,13 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "explaining",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-297.png",
+        "sha256": "d9d731eddfb5db10553dd799b849a9780461d709f5dcc11a8dc38efce21810fb",
+        "specSha256": "9725c15e344844c31caba22a97aad0a47b6fb46c058e48da011c7b48ac340eb9"
       }
     }
   }

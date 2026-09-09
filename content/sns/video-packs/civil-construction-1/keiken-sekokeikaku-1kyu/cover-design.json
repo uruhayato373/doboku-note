@@ -13,6 +13,11 @@
       "character": {
         "pose": "explaining",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-139.png",
+        "sha256": "cba7c25fb9aac56329320520afc908c768f11c4e4bd761b250b840cd5937a6c5",
+        "specSha256": "54815e56b0363c26f273cedc01af74534a2b1baa1d7d858a8975f005eaeec846"
       }
     },
     "point-plan-vs-management-1": {
@@ -25,8 +30,13 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "thinking",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-140.png",
+        "sha256": "5f8aaff9ea207a33469acb3f1da2516f8de102fe9850a346303ddf05b27f29d2",
+        "specSha256": "964abeb40e7097a4f718cfd513f4472498cd6ff28ae7535a93ce6e2640721777"
       }
     },
     "point-four-categories-2": {
@@ -39,8 +49,13 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "explaining",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-141.png",
+        "sha256": "98de6015b34a497803ef7c943bf7e38594f258ac61e8f13a6ec992db1053c0d6",
+        "specSha256": "d1b15acc09602975ba94f8fdfa68e323b872b0dbe7452524815b6df17168d057"
       }
     }
   }

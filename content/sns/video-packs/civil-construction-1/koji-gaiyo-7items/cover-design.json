@@ -4,26 +4,59 @@
     "longform": {
       "format": "longform",
       "exam": "civil-1",
-      "headline": ["工事概要", "７項目の埋め方"],
+      "headline": [
+        "工事概要",
+        "７項目の埋め方"
+      ],
       "accentLine": 1,
       "subtitle": "施工経験記述｜矛盾を防ぐ確認順序",
-      "character": { "pose": "explaining", "frame": "waist" }
+      "character": {
+        "pose": "pointing",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-166.png",
+        "sha256": "ee5ea45f39d2eeb11ad95926722ef5d9b6962123c1f43a6ef98d3d0bef8e8beb",
+        "specSha256": "a87732ea5ab4964024967a1ed2d3ce453ad4d0154c3249c4ab6f83b90aa0b6e1"
+      }
     },
     "koshu-sekoryo": {
       "format": "shorts",
       "exam": "civil-1",
-      "headline": ["工種と施工量", "セットで書く"],
+      "headline": [
+        "工種と施工量",
+        "セットで書く"
+      ],
       "accentLine": 1,
       "subtitle": "工事概要の書き方",
-      "character": { "pose": "pointing", "frame": "waist" }
+      "character": {
+        "pose": "explaining",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-167.png",
+        "sha256": "4c0798ec13847f44e238f3120f4ac049c0e76976667d58e77806c94779ff3740",
+        "specSha256": "629e6a3ad794587ec39e57fb458fe6f7475b9300526441a4be728be05735d863"
+      }
     },
     "koki-sekoryo": {
       "format": "shorts",
       "exam": "civil-1",
-      "headline": ["その施工量", "工期と合う？"],
+      "headline": [
+        "その施工量",
+        "工期と合う？"
+      ],
       "accentLine": 1,
       "subtitle": "工事概要の整合チェック",
-      "character": { "pose": "thinking", "frame": "waist" }
+      "character": {
+        "pose": "thinking",
+        "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-168.png",
+        "sha256": "0929d017f99a17575f17faad4847755f33a7360d39c85d7abf562ff0ac6cd9d7",
+        "specSha256": "81ab7a3d7e4be9833ab2c43c2559a185f18f118dde42ecacbcdc533aaea07889"
+      }
     }
   }
 }

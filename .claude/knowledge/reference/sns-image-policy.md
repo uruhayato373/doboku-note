@@ -59,7 +59,7 @@ uploadsのページ境界で同じ公開IDが重複する場合は、投稿台�
 
 1. `--mode prepare --out .tmp/youtube-rollout-prepared` で全パックとlegacyの表紙PNG・`designs.json`を生成する。legacyの元データは `content/sns/youtube/cover-design.json` の `covers` と `titles` 対応表。画像・見出しを確認した後、生成された画像チェック台帳を `.claude/state/youtube-thumbnail-designs.json` に採用する（画像本体はGitへ入れない）。台帳はsourceKey・spec SHA・PNG SHA・寸法であり、公開完了を示さない。
 2. `--mode plan --input PATH_TO_DECRYPTED_INVENTORY --out .tmp/youtube-rollout-plan` で全実体と元データを対応付け、計画とSHAを手元に固定する。元タイトルの不一致、対応0件/複数件、未確認画像は停止する。非公開IDやタイトルを含む計画はGitへ入れない。
-3. CIの手動入力 `operation=thumbnail-refresh`・`plan_sha256`・`report_public_key`・`batch_start`（ID固定順、0始まり）・`batch_limit`（既定1）で実査する。単一試行は `only_video_id`。既定 `commit=false` では書き込まず、更新時だけ `commit=true` を指定する。CLIでは `--mode refresh --expect-plan-sha256 HASH [--start N --limit N | --only-video-id ID] [--commit]`。全件を再取得して計画SHAを照合し、対象ごとに再描画したPNGのSHAが確認済み画像と一致することを要求する。
+3. CIの手動入力 `operation=thumbnail-refresh`・`plan_sha256`・`report_public_key`・`batch_start`（ID固定順、0始まり）・`batch_limit`（既定1）で実査する。単一試行は `only_video_id`。既定 `commit=false` では書き込まず、更新時だけ `commit=true` を指定する。CLIでは `--mode refresh --expect-plan-sha256 HASH [--start N --limit N | --only-video-id ID] [--commit]`。全件を再取得して計画SHAを照合し、対象ごとに生成または採用画像から読み込んだPNGのSHAが確認済み画像と一致することを要求する。
 4. `thumbnails.set` 以外は書き込まず、前後のタイトル・公開設定・予約・動画情報が不変か検査する。更新前画像と処理段階は `video-NNNN.enc.json` に保存。既存画像の一致は送信せず、不確かな書込結果は自動再送せず停止する。更新後のCDN画像を画素比較し、`cdn-matched` と `accepted-cdn-pending` を分ける。CDN一致は公開フィードの実表示確認ではない。暗号化artifactを保持期限内に手元へ取得し、確認待ちは書き込みなしで再照合する。
 
 既存の概要欄同期・inventory・refreshは排他的な手動jobで、refresh同士も直列に実行する。通常動画やShortsの再投稿、予約の作り直し、公開状態の変更は行わない。
@@ -333,3 +333,7 @@ PNG だけ修正することは絶対にしない（再生成で消える）。S
 - **セーフエリア**: Stories/Reels ともに上下の UI 領域は端末・OS バージョンで若干変動する。コンテンツを上下各 250〜320px 以内に収めない設計でよい（figure が 4:5 相当なので自然に中央に収まる）。
 - **CTA テキスト**: 下部 UI 領域が隠れるため、「プロフィールのリンクから」など UI に依存しない誘導文を figure 外の上部余白エリアに小さく入れる（オプション）。
 - **動画化**: 静止画を ffmpeg 等で mp4 に変換する場合も同じ 9:16 配置を適用する。
+
+## 採用済みカバー画像の利用
+
+ユーザー確認済みの白＋青・ポップ体カバーは、各specの `approvedImage` でPNGを固定して使う。背景・書体・ポーズはそのPNGが表現し、文字やポーズの入力を変えた場合は画像の再生成と再確認が必要。ファイルの有無だけで採用画像と判断せず、hashと寸法を検査する。Mac等の別端末には画像を移し、フォントを複製しない。詳細は [動画生成手順](../../../content/sns/youtube/VIDEO-RENDER.md)。

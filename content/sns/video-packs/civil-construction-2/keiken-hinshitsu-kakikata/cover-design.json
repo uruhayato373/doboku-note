@@ -13,6 +13,11 @@
       "character": {
         "pose": "explaining",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-232.png",
+        "sha256": "2079b50cfbeda69589fe73005bf031c3c4cacf65d698d1ac7f0ba52223fb2deb",
+        "specSha256": "6e345ad2b5c2d6ae768f0e00cc3b75afddbfcdd499c253cdc6b40db5598a56d8"
       }
     },
     "point-nagare-1": {
@@ -25,8 +30,13 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "explaining",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-233.png",
+        "sha256": "3b96ee3b03c9312776f31da9bffb0ef0886e29a8b80dbffbb698210fc2e99ce7",
+        "specSha256": "1e48b773b6feb6594e34302e17097342e81ce25e9b58bf05b60c6c5e636e0c08"
       }
     },
     "point-kadai-2": {
@@ -39,8 +49,13 @@
       "accentLine": 1,
       "subtitle": "",
       "character": {
-        "pose": "pointing",
+        "pose": "reading",
         "frame": "waist"
+      },
+      "approvedImage": {
+        "path": ".tmp/video-render/youtube-covers-20260909/all-234.png",
+        "sha256": "ac082c201cbc000338a7d9c50e4dc2478c2e0d75027e8d18855c509a982fc4ef",
+        "specSha256": "4c3c90a0b3e1979dd443788d60b13ab4ec29b704f8d5fa7ae8e568e64d21e260"
       }
     }
   }

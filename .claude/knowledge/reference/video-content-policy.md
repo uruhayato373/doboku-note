@@ -95,7 +95,7 @@ title: 動画コンテンツ運用ポリシー
 
 Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺を混同しない。推奨尺はフォーマット別policyに置く。
 
-16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure', heading, items[], src? }` で持ち、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・WAV・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は Mac または GitHub Actions で同コマンドを完走させる。
+16:9通常動画のレンダラーは `npm run render-longform`（`scripts/render-longform.mjs`・純粋ロジックは `scripts/lib/longform-render.mjs`）。scene の視覚要素は additive フィールド `visual: { kind: 'cover'|'points'|'figure', heading, items[], src? }` で持ち、試験色は exam-palette（note-cover-tokens.json）を解決する。`figure` はリポジトリ内の既存SVG/PNG/WebP/JPEGだけを`src`で参照し、本文の図解を1920×1080へ再利用する。出力は `.tmp/video-render/{packId}/`（PNG・WAV・ASS・render-manifest.json・mp4）で、パックディレクトリと Git にはバイナリを書かない。VOICEVOX/ffmpeg の無い環境は `--skip-tts` で PNG/ASS まで生成し、mp4 は VOICEVOX と ffmpeg/ffprobe を用意した Windows / Mac 等で同コマンドを完走させる。現在、動画生成用の GitHub Actions ワークフローは無い。
 
 完成したバイナリは `video-render-artifact` group として Google Drive vault `制作物/動画レンダー/` へ退避する。人しか使わないので未公開動画をpublicバケットへ置かず、private R2も恒久保管先にしない。GitHub ActionsのYouTube API資格情報を使う予約投入時だけ、`youtube-longform:stage` で対象mp4とサムネイルをprivate R2へ一時配置できる。予約状態・videoId・publishAtの実査後、同コマンドの`--delete --commit`で対象キーを削除する。既定dry-runで対象を確認してから同期し、実体・台帳・Driveの一致を確認できたものだけを台帳へ記録する。復元は同じgroupを指定する。
 
@@ -252,3 +252,7 @@ ThreadsはX本文の機械的な複製先にしない。packから「質問」�
 - 新skill: `skills-registry.md` とskills guide
 - 新チャネル派生: `content/sns/README.md` と各channel policy
 - 戦略・KPI変更: `docs/marketing/06_動画コンテンツ運用設計.md`
+
+### 確認済みPNGを使うカバー
+
+`cover-design.json` の各specに `approvedImage: {path, sha256, specSha256}` がある場合、通常動画・Shortsの共通カバーレンダラーは採用済みPNGを使う。pathは `.tmp/video-render/` 配下、specSha256はapprovedImage以外の入力のhash。入力・画像hash・寸法の不一致は停止し、旧デザインへ戻さない。画像が無い場合はDrive台帳からの復元を試み、不成立なら引継ぎZIPの展開を案内する。画像を使う端末に制作時のポップ体フォントは不要。制作時のフォントファイルは移送しない。手順は [動画生成手順](../../../content/sns/youtube/VIDEO-RENDER.md)。

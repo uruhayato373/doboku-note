@@ -199,6 +199,7 @@ public/standards-data/
 # チャネル案内と手書き表紙の元データだけ追跡する（画像・動画・派生metaは追跡しない）。
 content/sns/youtube/*
 !content/sns/youtube/README.md
+!content/sns/youtube/VIDEO-RENDER.md
 !content/sns/youtube/cover-design.json
 
 # IG「1問1リール」(per-problem, --ig-mode) の動画は再生成可能な派生物（YT shorts と同様）。
