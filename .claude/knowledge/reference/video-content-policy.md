@@ -101,7 +101,7 @@ Shortsのプラットフォーム上限と、doboku-noteが採用する推奨尺
 
 通常動画の音声は読み辞書を適用し、字幕は元の漢字表記を保持する。`--resume` は `tts-inputs.json` の入力・話者・音声ハッシュの一致を要求し、古い読みの音声を再利用しない。`--resume --refresh-png` は音声の一致判定を保ったまま本文PNGを再生成する。
 
-通常動画の合成では、静止画を各場面の音声実尺で切ってから連結する。Shortsの字幕は下端から420px上へ配置し、採用カバーのロゴと重ねない。
+通常動画と動画パック派生Shortsの合成では、静止画を各場面の音声実尺で切って連結し、字幕込みで1回のエンコードを行う。Shortsの字幕は下端から420px上へ配置し、採用カバーのロゴと重ねない。
 
 完成したバイナリは `video-render-artifact` group として Google Drive vault `制作物/動画レンダー/` へ退避する。未公開動画をpublicバケットへ置かず、private R2も恒久保管先にしない。GitHub ActionsのYouTube API資格情報を使う予約投入時は `youtube-longform:stage` で対象mp4とサムネイルを、採用サムネ更新時は `node scripts/stage-youtube-covers.mjs --commit` で確認済みPNGをprivate R2へ一時配置できる。前者は予約状態・videoId・publishAtの実査後、後者は更新結果の照合と記録取得後に、それぞれのコマンドの `--delete --commit` で転送用キーを削除する。既定dry-runで対象を確認してから同期し、実体・台帳・Driveの一致を確認できたものだけを台帳へ記録する。復元は同じgroupを指定する。
 

@@ -6,7 +6,7 @@
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import { createHash } from 'node:crypto';
-import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync, rmSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -65,7 +65,7 @@ const sourceRoot = join(renderRoot, manifest.packId);
 const { resolveExam } = await import(
   pathToFileURL(resolve(ROOT, '.claude/scripts/sns/lib/exam-palette.mjs')).href
 );
-const { composeShortsVideo, ffmpegAvailable, probeDuration } = await import(
+const { composeStaticSlidesVideo, ffmpegAvailable, probeDuration } = await import(
   pathToFileURL(resolve(ROOT, '.claude/skills/social/yt-shorts-create/scripts/lib/ffmpeg-compose.mjs')).href
 );
 if (!args['preview-only'] && !ffmpegAvailable()) throw new Error('ffmpeg / ffprobe が利用できません');
@@ -265,13 +265,16 @@ async function main() {
       { text: ctaScene.narration, start: narrationDuration, duration: Math.min(ctaSourceDuration, ctaSeconds) },
     ]), 'utf8');
     const outPath = join(outDir, 'shorts.mp4');
-    await composeShortsVideo({
+    await composeStaticSlidesVideo({
       pngPaths: [coverPng, pointsPng, ctaPng],
       wavPaths: [hookWav, pointsWav, ctaWav],
       assPath,
       outPath,
-      options: { tmpDir, requireSubtitles: true },
     });
+    // The single-pass compositor no longer needs the previous intermediate MP4s.
+    for (const name of ['slide-00.mp4', 'slide-01.mp4', 'slide-02.mp4', '_combined.mp4', 'concat.txt']) {
+      rmSync(join(tmpDir, name), { force: true });
+    }
     const durationSeconds = await probeDuration(outPath);
     if (durationSeconds < 30 || durationSeconds > 60) throw new Error(`${item.key}: 推奨尺外 ${durationSeconds.toFixed(2)}s`);
     const thumbnailPath = join(outDir, 'thumbnail.png');
