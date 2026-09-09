@@ -76,6 +76,10 @@ def main():
         rel = os.path.relpath(path, os.getcwd())
         reg.append(f"node scripts/record-reference-book-artifacts.mjs --source-id {a.book} "
                    f"--ocr-path '{rel}' --ocr-pages {','.join(expected)} --ocr-method '{a.method}' \"$@\"")
+    # 登録が済んだら原寸画像の複製（1 冊 1〜2GB）は用済み。set -e で node 行の成功後にだけ届く。
+    # dry-run では消さない（目視の抜き取りは登録前に行うため）。
+    reg.append(f"case \" $* \" in *\" --commit \"*) rm -rf '{jobs['srcDir']}' && "
+               f"echo '[register] 原寸画像を削除: {jobs['srcDir']}';; esac")
     open(os.path.join(jobs["workDir"], "register.sh"), "w", encoding="utf-8").write("\n".join(reg) + "\n")
     for r in rows:
         print(f"  {r[0]}  {r[1]}〜{r[2]}  {r[3]:,}字  判読不能{r[4]}  図{r[5]}")

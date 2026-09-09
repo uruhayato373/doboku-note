@@ -655,4 +655,5 @@ gh issue list --label automation-failure --state open --json number,title,create
 - `scripts/check-coconala-orders.mjs` — ココナラ取引の突合＋**評価未送信/期限切迫** surfacer（`npm run check-coconala-orders -- --json`）
 - `scripts/check-coconala-blog.mjs` — ココナラブログのハードゲート＋**送客先ドリフト** surfacer（`npm run check-coconala-blog -- --json`）
 - `scripts/check-internal-links-vs-gsc.mjs` — 公開ページ→404/リダイレクト URL の内部リンク検査（`npm run check-internal-links-vs-gsc`）
+- `scripts/check-disk-hygiene.mjs` — ローカル容量の surfacer（`npm run check-disk-hygiene`）。**Mac のローカルでのみ成立**（CI は exit 2＝検査不成立）。掃除は日次 launchd が回すので、レビューで見るのは「止まっていないか」と履歴の棚卸し要否だけ
 - `.claude/skills/management/nsm-experiment/references/definition.md` — NSM 定義の真実源

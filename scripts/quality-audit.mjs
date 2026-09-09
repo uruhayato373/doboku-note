@@ -213,6 +213,11 @@ const CHECKS = [
   // 共通仕様書のページ画像 3.4GB を private R2 へ上げかけた再発防止。CI は Drive を持たないので
   // マウント無しでは「実体検査 0 件」と明示して設定・台帳・ルーティング衝突・audience だけを判定する。
   { id: 'drive-vault', npm: 'check-drive-vault', timeout: 120_000, ci: true, note: 'audience ゲート（site⇒public / ci⇒private|byVisibility / human⇒Drive）・R2 と Drive の同一パス衝突・drive-manifest の整合。マウント無しは実体検査 0 件と明示' },
+  // ローカルディスクの肥大は gitignore 済み・ホーム配下・worktree に溜まるので CI にも pre-commit にも
+  // 映らない（2026-09-10 に空き 7.5GB まで落ちて初めて気づいた）。Mac のローカルでだけ意味がある検査。
+  { id: 'disk-hygiene', npm: 'check-disk-hygiene', timeout: 120_000, ci: false,
+    skip: () => (process.platform === 'darwin' ? null : 'Mac ローカル専用（worktree・~/Library キャッシュ・launchd の停止検知）'),
+    note: 'ローカルディスク肥大の surfacer。読み手＝Mac の SessionStart/Stop フック（--quick）と launchd ログ ~/Library/Logs/doboku-note/。掃除の実体は disk-hygiene:fix（日次 launchd）' },
   { id: 'reference-sources', npm: 'check-reference-sources', timeout: 120_000, ci: true, note: '参考文献 class・記事 sources ID・出典粒度・非公開文字起こしの漏洩・未付与 baseline ラチェットを検査（逐語照合はローカル deep）' },
   // R2 へ退避済みのファイルが git add -f・--no-verify・マージ等で再追跡されていないか（DN-0156・
   // 2026-08-29 追加）。pre-commit（--staged）はローカルでの事故を止めるが、それをバイパスされた

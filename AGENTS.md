@@ -82,6 +82,7 @@ npm run asset-hydrate         # 退避したアセットを取り戻す（ロー
 npm run check-asset-storage   # 退避台帳の整合（公開バケット誤配置・r2Key 衝突・復元不能・秘密混入）。R2 非アクセスでオフライン完結・quality:audit に同梱
 npm run drive-vault-sync      # **人か手元のスクリプトだけが使う**アセット（原本PDF・ページ画像・配布PDF・未投稿レンダー等）を Google Drive vault へ置く／取り戻す（既定 dry-run・--commit・--from-r2・--dedupe-by-sha・--verify [--deep --cloud]・--pull）。置き場は誰が使うかで決める＝サイト配信→public R2／CI→private R2／人→Drive（asset-storage-policy.md §1・/asset-route）
 npm run check-drive-vault     # 置き場ルールのゲート（asset-storage.json の全 group に audience・site⇒public・ci⇒private|byVisibility・human は理由無しに R2 へ置けない）＋R2 と Drive の同一パス衝突＋drive-manifest の整合。**マウント無しは「実体検査 0 件」と明示**して設定・台帳だけで判定・pre-commit --staged-only ＋ quality:audit
+npm run check-disk-hygiene    # ローカル容量の surfacer（マージ済み worktree・古いビルド成果物・各種キャッシュ・**日次掃除が止まっていること**・会話ログ保持期間）。掃除の実体は `npm run disk-hygiene:fix`＝launchd が日次実行（`npm run disk-hygiene:install`）。Claude/Codex 両方の Stop フックが `--quick` を叩く。**macOS 専用・非 mac は exit 2＝検査不成立**
 npm run check-reference-sources # 参考文献台帳・記事 sources ID・出典粒度・非公開文字起こし名の漏洩・未付与 baseline ラチェットを検査（--staged は pre-commit）
 npm run check-reference-sources:deep # Drive の文字起こし frontmatter↔原本台帳と、市販書籍由来記事の40文字以上の逐語一致0を実体照合（Mac・Driveマウント要）
 npm run check-content-layout   # content/ の 6 チャネルに実体があるかを観測（件数・容量。空チャネル＝移行の取りこぼしで fail）
@@ -144,6 +145,7 @@ npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run
 | [.claude/knowledge/reference/sns-image-policy.md](.claude/knowledge/reference/sns-image-policy.md) | SNS 投稿画像ポリシー（IG/X/Shorts のキャンバス・スワイプ方向・記号統一・wrap 算法・長文選択肢自動切替） | `content/sns/{instagram,x,youtube}/` 配下の画像を作成・修正するとき |
 | [.claude/knowledge/reference/sns-archive-policy.md](.claude/knowledge/reference/sns-archive-policy.md) | SNS バイナリ（reels wav/mp4・YouTube Shorts mp4）の退避運用。SoT/生成物の切り分け・3層モデル・置き場は Google Drive vault `制作物/SNS音声動画/`（`drive-vault-sync --group sns-archived-media`。2026-09-05 DN-0170 で旧 `upload-sns-r2`＝public R2 系統を廃止）・`sns-archive-auditor` の判定 | content/sns のバイナリで容量が圧迫されたとき・投稿済みパックを退避するとき |
 | [.claude/knowledge/reference/asset-storage-policy.md](.claude/knowledge/reference/asset-storage-policy.md) | アセット置き場の SSOT（**誰が使うかで決める 3 行ルール**＝サイトが配信→public R2／GitHub Actions が読み書き→private R2／人か手元のスクリプトだけ→Google Drive vault。各 group の行き先表・Drive vault の 4 フォルダ・端末初期設定・R2→Drive 移行の必須順序〔dry-run→commit→`--verify --cloud`→R2 削除→forget〕・退避後に壊れる読み手の直し方・cover PNG が byte 再現できない実測）。機械可読は R2 側 `.claude/config/asset-storage.json`（台帳 `manifest.json`）と Drive 側 `.claude/config/drive-vault.json`（台帳 `drive-manifest.json`）。迷ったら `/asset-route` | 新しい端末を用意するとき・画像/PDF が手元に無いとき・アセットを新規追加したとき・退避対象を読むコードを書くとき |
+| [.claude/knowledge/reference/disk-hygiene.md](.claude/knowledge/reference/disk-hygiene.md) | ローカル容量の運用 SSOT（何が溜まるかの実測・**worktree の置き場と後始末**・`--fix` が消すものとガード・報告のみに留める履歴・launchd の導入/確認/解除・⚠ 行の対処）。機械可読は `.claude/config/disk-hygiene.json`、検査は `npm run check-disk-hygiene` | `[disk-hygiene] ⚠` が出たとき・worktree を切る/畳むとき・空き容量が減ったとき |
 | [.claude/knowledge/reference/links-hub.md](.claude/knowledge/reference/links-hub.md) | `/links` SNS bio 用リンクハブの設計・UTM 設計・メンテ手順・KPI（Linktree 代替の自前実装） | `/links` 新 商品追加・Featured 切替・SNS bio リンク変更時 |
 | [.claude/knowledge/reference/sns-repurpose-policy.md](.claude/knowledge/reference/sns-repurpose-policy.md) | 全 SNS チャネル共通の6切り口リパーパス戦略（結論/理由/体験/反論/数字/ハウツー）。チャネル別適用方法・`angle` パラメータ仕様 | SNS 投稿のネタ展開・複数切り口生成時 |
 | [.claude/knowledge/reference/ig-carousel-skill.md](.claude/knowledge/reference/ig-carousel-skill.md) | IG カルーセル 2 シリーズ運用（A: 択一クイズパック・運営者作問 / B: 過去問パック・H21-R7 全 640 問）・5 管理別色テーマ・slide-data.json スキーマ・配信ロードマップ | IG カルーセル投稿準備・パック編集・SoT 再生成時 |
@@ -235,7 +237,7 @@ npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run
 
 - **サブエージェント**: `model: sonnet` 既定。Opus は親エージェントのみ（詳細 → [agents-registry.md](.claude/knowledge/reference/agents-registry.md)）
 - **同時起動は原則 3 体まで**。それを超える規模は分割して順に回す（`/doc-declutter` の「12 件超は 1 体 5〜8 件に分割」が具体例）。Workflow の並行は 2 本まで
-- **worktree 原則禁止**。2エージェント同時実行・30分以上の条件を両方満たすときのみ例外（詳細 → [workflows.md](.claude/knowledge/reference/workflows.md)）
+- **worktree 原則禁止**。2エージェント同時実行・30分以上の条件を両方満たすときのみ例外（複数セッション常態下での例外と置き場・後始末は §10、容量の実測は [disk-hygiene.md](.claude/knowledge/reference/disk-hygiene.md)）
 - ルーティング・リトライ・ステータスコード処理など、コードで決定できるものはサブエージェントに委ねない
 - **委任基準**: サブエージェントに任せるのは「大きく・独立・並列化できる」作業のみ（例: 複数ファイル横断の調査）。数回のツールコールで終わる作業は委任しない。**自分のインライン作業を検証させるためだけのサブエージェント起動はしない**（モデルは自律検証するので二重になる）。※商品品質の Generator/Evaluator 分離パイプライン（`*-writer` ↔ `*-qa`）は自己評価バイアスを構造で断つ設計なので別物・維持
 - **モデル／reasoning／fork 範囲は実行時の能力**として扱い、プロバイダ固有のルーティング SSOT をリポジトリへ作らない。効果を実測できていない場合は親の既定を継承し、委任には必要最小限の直近コンテキストまたは `fork_turns: none` を使う。過去のユーザー判断そのものが受入条件のときだけ全履歴を渡す
@@ -281,6 +283,7 @@ npm run gsc-indexing:check     # 未登録URLをGSC URL検査で診断（dry-run
 - **複数セッションは worktree で分離する（最重要）**: 別の Claude Code セッションが同じリポジトリで並行作業するのが常態（2026-06-11 確認）。同一ワークツリーを共有すると、あるセッションの `git reset --hard`／`checkout` が他セッションの未 push コミット・作業ツリーを破壊する（**pathspec commit・push 前確認でも防げない**＝reset が HEAD・index・作業ツリーを丸ごと書き換えるため。2026-06-11 実証：commit が別セッションの reset で消失→gc 復旧不能）。各セッションは `git worktree add <別dir> -b <feature> origin/develop` で独立した HEAD／index／作業ツリーを持ち、`develop` へは PR で集約する（`.git` オブジェクトは共有）。**§5「worktree 原則禁止」は複数セッション常態下では非適用**。
 - **同一ワークツリーで並行せざるを得ないとき**: reflog・`develop` 先頭・未コミットが自分の操作と無関係に動くのは正常（共有 `.git/logs/HEAD` に全プロセス混在記録）。push 前に `git log origin/develop..HEAD` で巻き込み確認。commit は `git commit -- <pathspec>`（`git add -A` 禁止）。他テリトリ不可侵。重要な変更は feature ブランチへ即 push して保全。
 - **並行エージェント（同一セッション内）**: 各エージェントが編集したファイルを即 commit（`git status` で staged 確認）。
+- **worktree の置き場と後始末**: 置き場は `.claude/worktrees/`（Claude）と `~/.codex/worktrees/`（Codex）だけ。**`.tmp/` に置かない**（`prune-tmp` が 3 日超のファイルを消す置き場で、worktree の中身が削られる）。マージしたら `git worktree remove <path>` を即実行する（ブランチは残るので履歴は失われない）。worktree の中で `npm run build` しない（E2E に要るときだけ。node_modules＋`.next`＋`out` で 1 本 4〜5GB。2026-09-10 に Codex の worktree 2 本で 8.6GB 溜まって空きが 7.5GB まで落ちた）。長期に残すなら `git worktree lock`。候補は `npm run check-disk-hygiene`、回収は日次 launchd（詳細 → [disk-hygiene.md](.claude/knowledge/reference/disk-hygiene.md)）
 
 ### 11. コードベースの規約に合わせる
 
