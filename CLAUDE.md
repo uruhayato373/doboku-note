@@ -84,7 +84,7 @@ npm run check-reference-sources # 参考文献台帳・記事 sources ID・出�
 npm run check-reference-sources:deep # Drive の文字起こし frontmatter↔原本台帳と、市販書籍由来記事の40文字以上の逐語一致0を実体照合（Mac・Driveマウント要）
 npm run check-content-layout   # content/ の 6 チャネルに実体があるかを観測（件数・容量。空チャネル＝移行の取りこぼしで fail）
 npm run check-video-content    # 動画パック（DN-0110）の整合ゲート（manifest/sourceRef 漏洩/CTA・UTM/storyboard/逐語転用/status。契約 SSOT は .claude/config/video-content.json と video-content-policy.md。exit 2=検査不成立・quality:audit に同梱）
-npm run render-longform        # 動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・会社PCは --skip-tts で PNG/ASS まで、mp4 は Mac/Actions）
+npm run render-longform        # 動画パックの 16:9 通常動画レンダラー（storyboard→1920×1080 PNG＋ASS 字幕＋VOICEVOX/ffmpeg mp4。出力は .tmp/video-render/・音声環境無しは --skip-tts で PNG/ASS まで。VOICEVOXとffmpegがあればWindows/Macでmp4生成可・生成用Actionsは未設置）
 npm run check-video-publication # 公開済み派生物の実体照合が回っているか（未照合・鮮度切れ・記録の孤児・実査ドリフト）。実査本体は verify-video-publication＝CI 週次(verify-yt-status.yml)で creds 必須・**対象0件は明示してPASS**・quality:audit に同梱
 npm run check-relative-links   # Markdown の相対リンク `](../x)` の実在（check-doc-refs はリンク**テキスト**しか見ないので、置き場を変えると href だけ黙って壊れる。pre-commit --staged ＋ quality:audit）
 npm run check-published-vs-redirects # 統合済み記事の再公開を止める（published:true なのに `_redirects` で 301 の転送元＝ページは在るのに別ページへ飛ぶ。統合の記録は frontmatter に無く _redirects にしかないので目視では気づけない。pre-commit --staged ＋ quality:audit）

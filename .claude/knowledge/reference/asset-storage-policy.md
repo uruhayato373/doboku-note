@@ -32,6 +32,22 @@ Google Drive 側が `.claude/config/drive-vault.json`（台帳 `.claude/state/as
 - **Git に残すもの**は変わらない: 記事・SNS の原本（.md / frontmatter / slide-data / caption / status）、真正ベクター .svg、
   各台帳（`manifest.json` / `drive-manifest.json`）と README。
 
+### 1-3. 端末間引き継ぎの完了条件
+
+2026-09-09、Driveマウント無しを転送不能と早合点し、コネクターの確認を後回しにした。画像の転送前にMac向け準備完了と報告し、165MBのZIPがコネクターの100MB上限にも当たった。以後は次の順で確認する。
+
+1. **接続方法**: マウント、設定済みrclone、利用可能なDriveコネクターを確認する。マウント無しはコネクター利用不可を意味しない。接続先の既存vaultと親フォルダーを実査し、別の保管場所を増やさない。
+2. **容量と形式**: 転送前に実バイト数と経路の上限を確認する。現在のDriveコネクターは1ファイル100MiB上限（2026-09-09実測）。画像は個別転送を基本とし、ZIPは補助の控え。制限は利用時のツール仕様も確認する。
+3. **転送と検証**: 同名ファイルの存在を調べ、通信エラー後も再検索して二重作成を防ぐ。全バイト読み戻しのSHA-256を元画像と照合する。ファイル名・サイズだけでは検証完了にしない。
+4. **台帳と復元**: `drive-manifest.json`へ登録し、空の復元先から既存のpull経路で復元してSHA-256を照合する。Mac実機未確認の場合はその制約を明記し、実機で確認したとは報告しない。
+5. **完了報告**: データ準備・クラウド転送・台帳登録・復元検証・実機実行を分けて報告する。必要な作業を残して単に「準備完了」と言わない。
+
+採用済みYouTubeカバーは `npm run check-youtube-cover-handoff` を `quality:audit` に組み込み、Drive台帳の未登録・読み戻し記録欠落・採用後の入力変更・対象0件を停止条件にする。これはオフライン台帳検査で、Drive実体の現存を再確認するものではない。`-- --local` はローカル全件SHAも照合する。
+
+コネクターから転送したファイルは `node scripts/drive-connector-register.mjs --receipt <json>` でdry-runし、全件正常なら同じ引数に `--commit` を付ける。receiptはgroup、実査済みfolder（id/vaultPath）、files（repoPath/id/parentId/name/bytes/sha256/verification=`remote-bytes-sha256`/verifiedAt）を持つ。SHA-256はローカル値を転記せず、Driveから取得した実バイトで計算する。コネクターの一時ダウンロードURLや認証値をGitへ入れない。
+
+登録処理はパス逸脱・group違い・親フォルダー違い・重複・サイズだけの検証・SHA不一致を全件検査し、1件でも不正なら台帳を書かない。`driveFileId`も同じ台帳に保持する。マウントのあるMacでは従来の `drive-vault-sync --pull --group <id>`、無い端末ではこのIDでコネクターから取得してハッシュ照合する。ダウンロード手段が無い場合は転送を保留し、別の場所へ勝手に移さない。
+
 ### 各 group の行き先（2026-09-05 時点）
 
 | group | audience | 置き場 | 備考 |
@@ -287,7 +303,7 @@ xargs -a list.txt git rm --cached                                     # 4. 追�
 
 外部（note / Instagram）へ書き込むスクリプトは `ensureLocalAny()`（`scripts/lib/asset-locate.mjs`＝R2 台帳 → Drive 台帳の順に
 引く。tier を意識させない入口）で使う直前に取り寄せ、**取れなければ外部へ触れる前に止める**。Drive のマウントが無い端末では
-pull が失敗して止まる。それが正しい挙動で、マウント無しで外部へ書かない。カバー無しで公開する・
+自動pullはマウント無しでは停止する。コネクターで取得・SHA照合したローカル実体を用意できれば後続処理へ進み、取得できなければ外部書き込み前に停止する。カバー無しで公開する・
 PDF 無しで添付を名乗るのが最悪の結果になる。
 
 ## 6. 再生成では代替できない

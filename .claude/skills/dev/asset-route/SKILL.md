@@ -27,6 +27,8 @@ description: >
 
 ## 置き場ごとのコマンド
 
+端末間の引き継ぎは、先に [asset-storage-policy.md §1-3](../../../knowledge/reference/asset-storage-policy.md#1-3-端末間引き継ぎの完了条件) の接続・容量・復元確認を行う。マウントが無いだけで転送不能と判断しない。Driveコネクターを利用できる場合は既存フォルダーを特定して個別ファイルを転送し、全バイト読み戻しの記録を `node scripts/drive-connector-register.mjs --receipt <json> [--commit]` で既存台帳へ登録する。ZIPを置いただけの状態と、個別復元可能な状態を区別する。
+
 | audience | 台帳 | 追加・同期 | 取り戻し | 検査 |
 |---|---|---|---|---|
 | site / ci | `.claude/state/assets/manifest.json` | `node scripts/asset-offload.mjs --group <id> [--include-untracked] --commit` | `npm run asset-hydrate -- --group <id>` | `npm run check-asset-storage` |
@@ -74,7 +76,7 @@ node scripts/asset-offload.mjs --forget-group <id> --commit                     
 - **`stat` のサイズが 16,777,216**: ストリーミングマウントのプレースホルダ。cloud-only のファイルは読むまで実サイズが分からない。
   `realBytesAndHashes()`（読んで測る）を使い、`statSync.size` で比較しない。
 - **Windows 会社 PC**: 候補は `G:/マイドライブ/doboku-note`・`%USERPROFILE%/Google Drive/マイドライブ/doboku-note`。
-  プロキシは無関係（マウントしか触らない）。
+  マウント経由の `drive-vault-sync` はプロキシを使わない。コネクター経由は利用可能な接続と取得機能を確認する。
 - **`check-asset-storage` の not-offloaded**: Drive 台帳に載っているか active な Drive group に一致するファイルは数えない。
   出たら R2 tier の未退避＝`asset-offload`。
 - **reels の wav/mp4・YouTube Shorts mp4**（`sns-archived-media`）も 2026-09-05（DN-0170）から Drive vault `制作物/SNS音声動画/`

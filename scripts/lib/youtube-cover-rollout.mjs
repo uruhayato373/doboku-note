@@ -22,7 +22,7 @@ export function loadCoverSources(root) {
       if (!spec) throw new Error('Missing authored cover');
       if (spec.format !== (item.key === 'longform' ? 'longform' : 'shorts')) throw new Error('Cover format mismatch');
       const status = item.key === 'longform' ? derivatives?.longform : derivatives?.shorts?.find(s => s.key === item.key);
-      sources.push({ sourceKey: `${p.exam}/${p.slug}/${item.key}`, designPath: relative(root, path), key: item.key,
+      sources.push({ sourceKey: `${p.exam}/${p.slug}/${item.key}`, designPath: relative(root, path).replaceAll('\\', '/'), key: item.key,
         title: item.title, spec, knownVideoId: status?.videoId ?? null });
     }
   }

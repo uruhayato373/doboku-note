@@ -187,7 +187,7 @@
       "status": "active",
       "audience": "human",
       "match": {
-        "pathRegex": "^\\.tmp/video-render/youtube-covers-[a-z0-9-]+/.+\\.(png|json)$"
+          "pathRegex": "^\\.tmp/video-render/youtube-covers-[a-z0-9-]+/.+\\.png$"
       },
       "vaultDir": "制作物/動画レンダー/採用カバー",
       "keyFrom": "stripPrefix:.tmp/video-render/",

@@ -90,6 +90,7 @@
     },
     {
       "id": "site-ogp-thumbnails",
+      "phase": "site-ogp-thumbnails-supply",
       "audience": "site",
       "match": {
         "pathRegex": "^content/site/.+/ogp-thumb-(248|336|640)[.]webp$"

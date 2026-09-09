@@ -43,12 +43,33 @@
     "images": 346,
     "poses": 8,
     "guide": "content/sns/youtube/VIDEO-RENDER.md",
-    "transfer": "Drive split ZIPs uploaded; parent and byte sizes verified by connector readback; individual PNG vault registration pending",
+    "transfer": "346 individual PNGs uploaded to Drive, remote bytes SHA-256 verified, registered in drive-manifest, and restored into empty isolated root",
     "driveFolderUrl": "https://drive.google.com/drive/folders/10qx4MeGVlRASn1DQjqa_GR4IyLkibONJ",
     "archives": [
-      { "part": 1, "fileId": "1pXrOcZF61q4dDQQuoTEpd4CdnH9XTLXa", "bytes": 57770832 },
-      { "part": 2, "fileId": "1aSVyfnwSc_gH7PrcnGCpE87RI2aCWy_x", "bytes": 58830343 },
-      { "part": 3, "fileId": "1JytGM-U5t7foBvcX4iafS3n_PfGsYwlT", "bytes": 56549266 }
-    ]
+      {
+        "part": 1,
+        "fileId": "1pXrOcZF61q4dDQQuoTEpd4CdnH9XTLXa",
+        "bytes": 57770832
+      },
+      {
+        "part": 2,
+        "fileId": "1aSVyfnwSc_gH7PrcnGCpE87RI2aCWy_x",
+        "bytes": 58830343
+      },
+      {
+        "part": 3,
+        "fileId": "1JytGM-U5t7foBvcX4iafS3n_PfGsYwlT",
+        "bytes": 56549266
+      }
+    ],
+    "individualFolderUrl": "https://drive.google.com/drive/folders/1wP21EWW4E4CPMZpLXk_j5nVMgbVW2YQ-",
+    "restoreVerification": {
+      "checkedAt": "2026-09-09T07:04:31.247Z",
+      "count": 346,
+      "sha256Matched": 346,
+      "method": "existing pull into empty isolated root using cloud-downloaded bytes",
+      "host": "win32",
+      "macHardwareTested": false
+    }
   }
 }

@@ -133,6 +133,7 @@
     "check-asset-reentry:all": "node scripts/check-asset-reentry.mjs --all",
     "drive-vault-sync": "node scripts/drive-vault-sync.mjs",
     "check-drive-vault": "node scripts/check-drive-vault.mjs",
+    "check-youtube-cover-handoff": "node scripts/check-youtube-cover-handoff.mjs",
     "check-drive-vault:deep": "node scripts/check-drive-vault.mjs --deep",
     "backfill-reference-sources": "node scripts/backfill-reference-sources.mjs",
     "check-reference-sources": "node scripts/check-reference-sources.mjs",

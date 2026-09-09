@@ -212,6 +212,7 @@ const CHECKS = [
   // 置き場ルール（誰が使うか: site→public R2 / ci→private R2 / human→Google Drive vault）と Drive 台帳の整合（2026-09-05 追加）。
   // 共通仕様書のページ画像 3.4GB を private R2 へ上げかけた再発防止。CI は Drive を持たないので
   // マウント無しでは「実体検査 0 件」と明示して設定・台帳・ルーティング衝突・audience だけを判定する。
+  { id: 'youtube-cover-handoff', npm: 'check-youtube-cover-handoff', timeout: 120_000, ci: true, note: '採用カバーのDrive台帳登録・読み戻し記録・入力変更を検査。クラウド実体は読まない' },
   { id: 'drive-vault', npm: 'check-drive-vault', timeout: 120_000, ci: true, note: 'audience ゲート（site⇒public / ci⇒private|byVisibility / human⇒Drive）・R2 と Drive の同一パス衝突・drive-manifest の整合。マウント無しは実体検査 0 件と明示' },
   { id: 'reference-sources', npm: 'check-reference-sources', timeout: 120_000, ci: true, note: '参考文献 class・記事 sources ID・出典粒度・非公開文字起こしの漏洩・未付与 baseline ラチェットを検査（逐語照合はローカル deep）' },
   // R2 へ退避済みのファイルが git add -f・--no-verify・マージ等で再追跡されていないか（DN-0156・

@@ -5,12 +5,12 @@
     "by": "user",
     "design": "white-blue-pop",
     "poses": 8,
-    "scope": "reviewed cover pixels; video generation preparation; no upload"
+    "scope": "reviewed cover pixels; video generation preparation; no YouTube publishing"
   },
   "entries": [
     {
       "sourceKey": "civil-construction-1/career-agent-katsuyo/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\career-agent-katsuyo\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/career-agent-katsuyo/cover-design.json",
       "key": "longform",
       "specSha256": "82e609750229f7f367280925b596b3fb61456db6122c9ca80f9e4754a93b9bd1",
       "sha256": "0f79beb5a8216bb627980e42f9dc6d51f1385a9252b05725c648a30a092f9c77",
@@ -20,7 +20,7 @@
     },
     {
       "sourceKey": "civil-construction-1/career-agent-katsuyo/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\career-agent-katsuyo\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/career-agent-katsuyo/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "264436c415a2782b8fddc47d4da309d48fa9a97c949c4c4ed5048570b1856206",
       "sha256": "513c45089707fd4aeea654b147030a39e70e2452750e2863d1fa7c7e1aad3ed9",
@@ -30,7 +30,7 @@
     },
     {
       "sourceKey": "civil-construction-1/career-agent-katsuyo/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\career-agent-katsuyo\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/career-agent-katsuyo/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "2699782a98c35fa2ea8e7400827d694f2c6b4fbd08b82575d37fbe23141a92c2",
       "sha256": "28c3f426d770c561b466c6f81ad470bbe0ed309fb49487053a4f7d3404301385",
@@ -40,7 +40,7 @@
     },
     {
       "sourceKey": "civil-construction-1/career-komuin-minkan/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\career-komuin-minkan\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/career-komuin-minkan/cover-design.json",
       "key": "longform",
       "specSha256": "3d0cffbce2a06c7379f4e499178ae1940afac0673be394033c0243a284292a35",
       "sha256": "fdee000b3ef69f7b122c4c29592814659deb541e096c5b5f456d6690e8a7ca13",
@@ -50,7 +50,7 @@
     },
     {
       "sourceKey": "civil-construction-1/career-komuin-minkan/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\career-komuin-minkan\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/career-komuin-minkan/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "f61a9ceab98052dfd1c87da8814cf8196dbc0d552a45f2568478f28933d7fbfb",
       "sha256": "142b463de02a5e82d673a117bdd3d33444dc709a8ae5ea8e69eb44e2f4af818a",
@@ -60,7 +60,7 @@
     },
     {
       "sourceKey": "civil-construction-1/career-komuin-minkan/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\career-komuin-minkan\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/career-komuin-minkan/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "727e0b7d8c42a8ad95e5627dda57ce50ed813c2abb1a6cdff1c9e62d20335d33",
       "sha256": "a6a678c47783245928e6ed6b242744d305dc3bfc5786fb2d0abf2f1a075365b8",
@@ -70,7 +70,7 @@
     },
     {
       "sourceKey": "civil-construction-1/career-nenshu-up/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\career-nenshu-up\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/career-nenshu-up/cover-design.json",
       "key": "longform",
       "specSha256": "06623dd20dbc4144e6ee888af5df5ff333151fbd974f248c00454e4c55a59254",
       "sha256": "e2cbd45d0ba9e8022393b4ea05b81606aa1d5ad5fda51039f61f298e88801e1f",
@@ -80,7 +80,7 @@
     },
     {
       "sourceKey": "civil-construction-1/career-nenshu-up/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\career-nenshu-up\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/career-nenshu-up/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "673dec5917530a46f792423b633c173b066e17e6ef44cc4f14760c7f603712c9",
       "sha256": "805fec4f9d9d6645c00f677cce02c65fe0ad028563d94f762c3e6a70a82bf37d",
@@ -90,7 +90,7 @@
     },
     {
       "sourceKey": "civil-construction-1/career-nenshu-up/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\career-nenshu-up\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/career-nenshu-up/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "29a6d5276ab6edc0752a0cc82962aad7de71c866cdc493db37824f6fadfeeee2",
       "sha256": "3ff2ac381c11a09a15b9535be3e7de1532ad585a74a166781828a03a32f106ba",
@@ -100,7 +100,7 @@
     },
     {
       "sourceKey": "civil-construction-1/career-tenshoku-timing/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\career-tenshoku-timing\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/career-tenshoku-timing/cover-design.json",
       "key": "longform",
       "specSha256": "986066e90fb6cc52b2e0bce9f0ecf2af0c84a52a9771cef199208ae82ce25a47",
       "sha256": "85d3fcdc818e9cee83046b019b6867c7290cddc6ed10b9e9469d594f11a0e99e",
@@ -110,7 +110,7 @@
     },
     {
       "sourceKey": "civil-construction-1/career-tenshoku-timing/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\career-tenshoku-timing\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/career-tenshoku-timing/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "da72016024caebc335eb0a6266ea5b1682fdc6ec847331ac42e06f571a9bb7f6",
       "sha256": "41cedd8796424d65d54b06fcdfccff532589521834f7c4a391f65aae0e5c8e63",
@@ -120,7 +120,7 @@
     },
     {
       "sourceKey": "civil-construction-1/career-tenshoku-timing/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\career-tenshoku-timing\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/career-tenshoku-timing/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "d8bcaef72d9e7c14d3a138ee5336e3882a6b2b3238dcae14d5f0438d5e1c8b84",
       "sha256": "1d5c84fe33fd60caf219214d19d2f8ae249231759d3d93da35e6325fc5167e0f",
@@ -130,7 +130,7 @@
     },
     {
       "sourceKey": "civil-construction-1/career-white-kigyo/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\career-white-kigyo\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/career-white-kigyo/cover-design.json",
       "key": "longform",
       "specSha256": "b4f418fa0dd2d40d338517cf48658d85291cc69e0f5ce846b7b5bea6c58f379e",
       "sha256": "4d94eb327dcb10fa421fc8e8586b13471db348be57eb2f69e3952e1db97525ad",
@@ -140,7 +140,7 @@
     },
     {
       "sourceKey": "civil-construction-1/career-white-kigyo/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\career-white-kigyo\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/career-white-kigyo/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "a1a8760d6d9535163c1356ff122ed52e68a6a86c880166107679d6a7aac155ad",
       "sha256": "612c00e8f3d5176d7d3ce7e913c769bf307de98047999243ef5f088bb75729ac",
@@ -150,7 +150,7 @@
     },
     {
       "sourceKey": "civil-construction-1/career-white-kigyo/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\career-white-kigyo\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/career-white-kigyo/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "399ab685a8fd109faad28a131fe151330d5dc545df239ead343871d20e428d13",
       "sha256": "635dcdaeb8d4f23e2dc34fe606762e610ef5336f266328de8a16ae667e887aed",
@@ -160,7 +160,7 @@
     },
     {
       "sourceKey": "civil-construction-1/career-yameru-mae/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\career-yameru-mae\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/career-yameru-mae/cover-design.json",
       "key": "longform",
       "specSha256": "038ed32a6b23949856c0609e5b41eb6c958330a8e2c7815eb98329e78704a3e6",
       "sha256": "c03720a478a2e434afaebb4195bde5c8fd0d944e2eb370e963509f54f1adf964",
@@ -170,7 +170,7 @@
     },
     {
       "sourceKey": "civil-construction-1/career-yameru-mae/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\career-yameru-mae\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/career-yameru-mae/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "68a04dba22ab43473a186804a61217b8607c4e0d85bab4cdc6f36c38873cc1c9",
       "sha256": "6f71ece650028c7eb1a691b9e61b35962c98af349c5194121436dadd1769e140",
@@ -180,7 +180,7 @@
     },
     {
       "sourceKey": "civil-construction-1/career-yameru-mae/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\career-yameru-mae\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/career-yameru-mae/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "e05bf11c81e905b4a797f9c43d300417f2c35465fbb2be3abb221f7e05558d44",
       "sha256": "fd2a402e721e326deb7e0fae6ed55c9ee4eba259124b0160e553ad2201da92b3",
@@ -190,7 +190,7 @@
     },
     {
       "sourceKey": "civil-construction-1/chokuzen-check-1kyu-niji/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\chokuzen-check-1kyu-niji\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/chokuzen-check-1kyu-niji/cover-design.json",
       "key": "longform",
       "specSha256": "379da014b585d46d78c4cefa6b37a1b11c50ed85f93380e529ad7b5ba2db1d99",
       "sha256": "58d28c2946130d98cc3c6e2d26abc340486c11344135ddf3cbaaa54b746451f2",
@@ -200,7 +200,7 @@
     },
     {
       "sourceKey": "civil-construction-1/chokuzen-check-1kyu-niji/point-policy-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\chokuzen-check-1kyu-niji\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/chokuzen-check-1kyu-niji/cover-design.json",
       "key": "point-policy-1",
       "specSha256": "84feca4034ffdc3859b26aedf8aeab653b9a32b5dba508ab18c7e492d9c1ca96",
       "sha256": "26609e7d59d502408b19915228a8b63df7b77adc40ac3709cbca702737676a30",
@@ -210,7 +210,7 @@
     },
     {
       "sourceKey": "civil-construction-1/chokuzen-check-1kyu-niji/point-check-3points-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\chokuzen-check-1kyu-niji\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/chokuzen-check-1kyu-niji/cover-design.json",
       "key": "point-check-3points-2",
       "specSha256": "1790f90b581c893b4cbea7409f6bd87b0fb1856fa1350d486122ed6655780745",
       "sha256": "7080ee566445961e4260345c0ca4f3b015022db8fd3b5e947bcf849a1d8f726d",
@@ -220,7 +220,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-anzen-taisei/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-anzen-taisei\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-anzen-taisei/cover-design.json",
       "key": "longform",
       "specSha256": "1b3464d8c1458a3bca41add026dcb76d199e7b489c06021aaf1ac08308483b46",
       "sha256": "2dcd49068f8c26882193ce113c5b1d4ddeb15053b07f1855f03231ce52e81ec2",
@@ -230,7 +230,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-anzen-taisei/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-anzen-taisei\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-anzen-taisei/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "5b033acb67c8c5f4e78622613533aef1c5c0e6591286193448f257f0359a3163",
       "sha256": "df4e4407f5e0946927c1cdd94d4b18f39ffc9cf059692d16797f572210e5f4c4",
@@ -240,7 +240,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-anzen-taisei/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-anzen-taisei\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-anzen-taisei/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "7262daf5d8284151ca5bdc4a28da07bb00c3db5845b10577b81e677d865d4544",
       "sha256": "ed832ec86c2bd68da888f909ebdf690c3489a6eb2dae961f60aab9175594bcb3",
@@ -250,7 +250,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-ashiba-kijun/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-ashiba-kijun\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-ashiba-kijun/cover-design.json",
       "key": "longform",
       "specSha256": "840f7f4ab9421a23363335fc47f5e5dac05123d51e268fce1cdbc30a89b85148",
       "sha256": "c28415993a9a123448b49051b2c06fbcca3568148b362f19560732860a06b828",
@@ -260,7 +260,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-ashiba-kijun/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-ashiba-kijun\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-ashiba-kijun/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "35204eca0ccdd0ab789a557d2e27ba01e8339a28e82ce502ebb1c5daa2d9b69b",
       "sha256": "d02735812f64b9751952d29dbb5a7d91ba962942065f17c41b9b13c198182044",
@@ -270,7 +270,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-ashiba-kijun/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-ashiba-kijun\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-ashiba-kijun/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "ae4dcc42aab13a95f184aaefe6ff83c87425eba5c2fba38970a622fa8c4191d8",
       "sha256": "8f7c81084f4dd7dc01f7e9c2e07ca552c109605bb2ff4831ae3b90028424f1c8",
@@ -280,7 +280,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-crane-sogo/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-crane-sogo\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-crane-sogo/cover-design.json",
       "key": "longform",
       "specSha256": "1b985c83bb788dde47540d2f86a2ce3776981bb7e3ce47867bbfbe55c4a79f5f",
       "sha256": "c4ae1760ab79d40711d4464f086baf405d5c8e17e75d0f7b494396140420ff8f",
@@ -290,7 +290,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-crane-sogo/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-crane-sogo\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-crane-sogo/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "43b75f22396826fc2d5adea9f2f8890944070e6aff54595de172c514997c1198",
       "sha256": "91f2f834de630fb7c617b9a78e9377b6be145e75eb26fdcf1030d506bb3b17d0",
@@ -300,7 +300,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-crane-sogo/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-crane-sogo\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-crane-sogo/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "523d5bed5104b8345962183776b83d3601495d753c089d2bb10ff88351dbd8a1",
       "sha256": "dfd1d1423a0d74d76f874759f3f6516bee3b9271b546257747024e8a69acb7b7",
@@ -310,7 +310,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-dodome-kussaku/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-dodome-kussaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-dodome-kussaku/cover-design.json",
       "key": "longform",
       "specSha256": "22e5f083e60bb539a9b6bdbd1f07b51bb4cb90683c9d6788b2c853c1ae6e29ba",
       "sha256": "ab7c88845fab8daf1aa1de1a5522f0970385a115b24a26d7902f0e3875207c29",
@@ -320,7 +320,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-dodome-kussaku/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-dodome-kussaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-dodome-kussaku/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "743186949ecb4dba22007cd42238e963b13e3ca970dd4197fdc93406e472f73c",
       "sha256": "950926982dcf8f2183b67bf78728f6fbccafa522d795499ac618afe686c4db2d",
@@ -330,7 +330,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-dodome-kussaku/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-dodome-kussaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-dodome-kussaku/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "4b082edc365f911b66fe132af1ac131b598ded0028ba25a1e08786df90eef5ce",
       "sha256": "d95bca28571af1749b966c007f1d61f236864f8e5117b8005675fcbced8bd1d4",
@@ -340,7 +340,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-doshitsu-chosa/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-doshitsu-chosa\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-doshitsu-chosa/cover-design.json",
       "key": "longform",
       "specSha256": "46ecbaeafd4e6ea30fcdfc7ee94af02a0c715f82a8a8cddeaefe2781fe186601",
       "sha256": "a8fa54b1cecfb7a3af122156e3005bbb3880c0ff2b5117f1ffb93d8443ac597b",
@@ -350,7 +350,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-doshitsu-chosa/point-genri-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-doshitsu-chosa\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-doshitsu-chosa/cover-design.json",
       "key": "point-genri-1",
       "specSha256": "5b5879cc382e158bee8d3840952a1fe66fe6e4364f487ddcf3d2cc7454c0edf7",
       "sha256": "53123b3a6ca483615dc76476e41c8e46040bc0951cf79a6e0cc7d20f587cf45a",
@@ -360,7 +360,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-doshitsu-chosa/point-gyakubiki-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-doshitsu-chosa\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-doshitsu-chosa/cover-design.json",
       "key": "point-gyakubiki-2",
       "specSha256": "fa26d0af1f888f5fabe6cef2a8be591e348539004f69beb1ce51c7d550fedf7e",
       "sha256": "94ea524018c36bf2c83b4f43f2e111e949714aca0770e157735342117a804b98",
@@ -370,7 +370,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-haikibutsu-recycle/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-haikibutsu-recycle\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-haikibutsu-recycle/cover-design.json",
       "key": "longform",
       "specSha256": "46f059b5a781229df02bbe9bd43560464dbe04d238944a63212fb838e6090657",
       "sha256": "390cbce1eec0670fd5c6a6b5dcf630c440f78bb135c3cce355de01152d6b254e",
@@ -380,7 +380,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-haikibutsu-recycle/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-haikibutsu-recycle\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-haikibutsu-recycle/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "18b2e0cbb6e9ff34644d743061f2cc1e7c7ccda5f4b07fb20325581a245db5fc",
       "sha256": "b57e2776d3346fdf4773b85babef5bfb2181f96f338de899f41b97f2ae16fae3",
@@ -390,7 +390,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-haikibutsu-recycle/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-haikibutsu-recycle\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-haikibutsu-recycle/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "c87e6192e67c23982635b92e41e4d73420db3ce90ce278152a3422c40c9cd3a0",
       "sha256": "24c7d0ce96c3956ad33c2ed9c364265a55cc9293d912b6a641d36364aa9c1d60",
@@ -400,7 +400,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-hinshitsu-kensa/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-hinshitsu-kensa\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-hinshitsu-kensa/cover-design.json",
       "key": "longform",
       "specSha256": "663c39150bbed54ecc7e1772cd847c843645749f697e283111308b00f567a79d",
       "sha256": "919bdeef82f38223f88d1e98c0ee2ee8170365b9af24eec705731d85c3791962",
@@ -410,7 +410,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-hinshitsu-kensa/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-hinshitsu-kensa\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-hinshitsu-kensa/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "bfd418b6f20d2c9ae6eef569a6e28e784aa67bc5947f9573416d393e90385d12",
       "sha256": "28be3bd95ff22246b1fdfb6e79619d6a767558e443d3deda77b0e3d03c7f2aac",
@@ -420,7 +420,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-hinshitsu-kensa/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-hinshitsu-kensa\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-hinshitsu-kensa/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "51447235743b2823edbd04b2ce36991f4ca92e68967a100e186e1d74897053cc",
       "sha256": "8f3d3c7b79c0aac94e4cd714aa66b487d359b99c9f9c27df941a3ba69d65230c",
@@ -430,7 +430,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-histogram/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-histogram\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-histogram/cover-design.json",
       "key": "longform",
       "specSha256": "dc1b3dede572a53deb0d94f70a506be76c47e1a2186f15132e9f091310bebcb5",
       "sha256": "65c3bb84e276898a87f5028efe7d67a6fa5a25aa8dac8108bf55556bd51972cf",
@@ -440,7 +440,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-histogram/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-histogram\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-histogram/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "76cea19c37c3804989c49bcbb649ac2a7614929995255fe9d2b12b04484245c0",
       "sha256": "92eef2d08402e1126a619df2a1e1b921a7aeac969420b162f14300a4e69b24c5",
@@ -450,7 +450,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-histogram/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-histogram\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-histogram/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "f9f755616172f61a35b21e40be55b2d16eb50805ce1eb551ec16f3d6d2e0d44f",
       "sha256": "a458887de8d9d8d9a12c492d9a1fba456edccd0a72f58819b175e06d3d55bb5f",
@@ -460,7 +460,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-hoki-kasen-doro/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-hoki-kasen-doro\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-hoki-kasen-doro/cover-design.json",
       "key": "longform",
       "specSha256": "2dd6fdfb282d26ae42cf4d6d90cc74a1e6659c646564f9d607e9c257e15c2012",
       "sha256": "cbada09743a0164e4208157103526639626917a9fcc75e03c92a8cb98e78e3d3",
@@ -470,7 +470,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-hoki-kasen-doro/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-hoki-kasen-doro\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-hoki-kasen-doro/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "8b653599059201fcc9d510fdf803c4e0f0d08f42c37d81b02de68301b0b4ad36",
       "sha256": "bce83cfa4a10fb57f151bfabcf7f2d0ce783d71734434fdcb8dbeb3daebddb24",
@@ -480,7 +480,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-hoki-kasen-doro/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-hoki-kasen-doro\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-hoki-kasen-doro/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "db513c58dbc175f718c359b9f8aeb72b85c42f1f6f9409092b2451687abd4981",
       "sha256": "7215b34e29df32235d80d3b13f1016e20efd9424c337fee1abb47443ff917cd5",
@@ -490,7 +490,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-hoki-kenchiku-kayaku/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-hoki-kenchiku-kayaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku/cover-design.json",
       "key": "longform",
       "specSha256": "c0b9bc2a6d9ba756e04abd6ad33cc5627d937048e81f0e1420e487a75ac985a7",
       "sha256": "8d39b06eb2f0f7c39b9b5f46e244636cc6cc5bdfb95b7f4124b91a50d18f4d53",
@@ -500,7 +500,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-hoki-kenchiku-kayaku/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-hoki-kenchiku-kayaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "7fbbd02cbe9e8fc4bb259f25afb218a2a4337c7b689fa72e3e69468ad083ca54",
       "sha256": "0c9c96b2fec0ec7a5543bcfc26cb9a598ef60cd09d8ec95526cdd3bdf8ef904c",
@@ -510,7 +510,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-hoki-kenchiku-kayaku/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-hoki-kenchiku-kayaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "fa35a282a9c68459448217b6cc8b4932ebba405d06d62454e5c57ccb4f601ab7",
       "sha256": "d4781ae257d051538b194619ace877c6b62a6f73af5d13f52b16745483cfe90f",
@@ -520,7 +520,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-kankyo-hozen/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-kankyo-hozen\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-kankyo-hozen/cover-design.json",
       "key": "longform",
       "specSha256": "706a6bb2cfd968365690834bda357cc05ddefc49e1dddce91ca6325df52670e1",
       "sha256": "06f5ef65aed8d32d2ea1e39370ec47260f03cdcc17c3e126b1a8c5ba0e6226dc",
@@ -530,7 +530,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-kankyo-hozen/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-kankyo-hozen\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-kankyo-hozen/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "0a2c1991261c1cd1b957295e63820897e301d729290d2e843c231e14394ce2ff",
       "sha256": "9a5ec05002f671a4da92d9413defe89990f0380dc0e5e0df3759f6ae1c56babb",
@@ -540,7 +540,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-kankyo-hozen/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-kankyo-hozen\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-kankyo-hozen/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "44870e24a9ff1fd2a8e56da9f19655d1a3dc6275019c4889adc01f4a1999b010",
       "sha256": "1dcd9e66c855fd951f35fa0e316b003c8fd08d8a5891b08ff02721451e6fa035",
@@ -550,7 +550,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-kanrizu/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-kanrizu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-kanrizu/cover-design.json",
       "key": "longform",
       "specSha256": "4824b97520ebe5024a489869e5a7c4b942a9485a5c7b23a6dadd83997da4babf",
       "sha256": "101764f7bd32c65ae96ee4ecb153a4170525b624974b6889ee60d12128c6b567",
@@ -560,7 +560,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-kanrizu/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-kanrizu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-kanrizu/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "55135d0521f47f0314cfe219b84a78a971805bf92e7caca2fc31d8782a1604f3",
       "sha256": "1e8a221e8f48879e459512e0f11f90357238095816ae2ebe44c2cf9c2da56e24",
@@ -570,7 +570,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-kanrizu/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-kanrizu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-kanrizu/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "6b0da7598f1328b2b02570d1d710ce62458869bd4e661b91485449b8f2bcacbe",
       "sha256": "1aa6b903b1a383c2ebb9a9b7a408f03d7f88e805b392c4e0b10f7ea57d637dd3",
@@ -580,7 +580,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-kensetsugyoho/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-kensetsugyoho\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-kensetsugyoho/cover-design.json",
       "key": "longform",
       "specSha256": "f8e7b7cf5708e34cdaeb6d907e9ea59e97b5cced5a9ad7d2110048c483fdc055",
       "sha256": "5f6344c64888e1059335ac949f38c591f3e6d30c950a189627d01e1e1097ae3f",
@@ -590,7 +590,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-kensetsugyoho/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-kensetsugyoho\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-kensetsugyoho/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "fc546559dcd81eafb4b6c7665fa4bf9f864dfe3bc0510a2ff689ab25e1ed5ead",
       "sha256": "26557b8b23d133df28051d54a4be515c80da115bc08a61b3a3f644a1c1493ecd",
@@ -600,7 +600,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-kensetsugyoho/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-kensetsugyoho\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-kensetsugyoho/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "48c7046503c4dd66401cec11d8d1bb3484be5df609469cf33f5b5d3152c5c523",
       "sha256": "38f6a583cfca668af7b884f59adea45e7280812793156341a9f1e29d01d65441",
@@ -610,7 +610,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-kikai-kiso/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-kikai-kiso\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-kikai-kiso/cover-design.json",
       "key": "longform",
       "specSha256": "8a163cfc67e94cb86570cf0329bd4ec6790ce7b68141f71b666b40b8c2c5c6b1",
       "sha256": "c3c54d3ebdbefe540bf9e7bbd0958e4753b2f470f51428cf612cca8211ed8d9f",
@@ -620,7 +620,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-kikai-kiso/point-bunrui-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-kikai-kiso\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-kikai-kiso/cover-design.json",
       "key": "point-bunrui-1",
       "specSha256": "ecac86a87eb2fb9cc000da2eb7161dcb19abb0a4b139d6301411f961fa4440e2",
       "sha256": "988704684122045d0e43bf446d4914088be4320bc4b0eb7e676332ca6191e803",
@@ -630,7 +630,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-kikai-kiso/point-gendoki-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-kikai-kiso\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-kikai-kiso/cover-design.json",
       "key": "point-gendoki-2",
       "specSha256": "cfdd090fae7c1647635c6caa0e976982528310d7153a89d2051eaf2601fc4183",
       "sha256": "edbac1aff85a118d733c8f9dd33960b24f633e939b434fc3b815cc31fdd88656",
@@ -640,7 +640,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-kotei-kanri-kiso/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-kotei-kanri-kiso\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-kotei-kanri-kiso/cover-design.json",
       "key": "longform",
       "specSha256": "1f02e97f537bfd3712019608ee6b48f7fccfc90dbf83bd5e86e20099bdfea21f",
       "sha256": "3dea1365f59fc25f9959bca7c80c39cd0a8e7cc66debdc50e3293142e9448be0",
@@ -650,7 +650,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-kotei-kanri-kiso/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-kotei-kanri-kiso\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-kotei-kanri-kiso/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "ad2a41afce8ec6c32a264e4ca98b554e365cab9e4b1004a615f48cb14895271b",
       "sha256": "8e4a83f3f845d948b4dbe0179d84a79b9b1dada97df1443c7ece4b73e0989a50",
@@ -660,7 +660,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-kotei-kanri-kiso/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-kotei-kanri-kiso\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-kotei-kanri-kiso/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "9ab96d4fe123d13a0fd8a398af391d59cf56c072ac6445663b0ac5ecfd42ce29",
       "sha256": "725035279586cfd1921d9ce8a3d46686021f674e5d6c2a09270e8463060ad6a0",
@@ -670,7 +670,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-kussaku-tsumikomi-kikai/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-kussaku-tsumikomi-kikai\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-kussaku-tsumikomi-kikai/cover-design.json",
       "key": "longform",
       "specSha256": "117905aed51215d71603f6e46b829029abbe6f990f7b68e5a8516536a01b6273",
       "sha256": "a635277e79f63f8289070388a8d8a194270660224a6c8b7916bfa2b3844fa578",
@@ -680,7 +680,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-kussaku-tsumikomi-kikai/point-bulldozer-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-kussaku-tsumikomi-kikai\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-kussaku-tsumikomi-kikai/cover-design.json",
       "key": "point-bulldozer-1",
       "specSha256": "aae111c954153d089739890e7250a8deedfd3ae4c573c829934e5f359a7c46df",
       "sha256": "85517e78bba9621171a43041b74894d0b5a50b1d4faed4e890e3291ddef43c42",
@@ -690,7 +690,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-kussaku-tsumikomi-kikai/point-shovel-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-kussaku-tsumikomi-kikai\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-kussaku-tsumikomi-kikai/cover-design.json",
       "key": "point-shovel-2",
       "specSha256": "90c2e062ec3695bd786bad7433a1006a29aea2e4e99f8269e6df494e90d10801",
       "sha256": "34bc49c1cabc072b05792df51a853f0eb81c7f18e9c1be57e0bfcc841889b5e2",
@@ -700,7 +700,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-morido-shimekatame/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-morido-shimekatame\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-morido-shimekatame/cover-design.json",
       "key": "longform",
       "specSha256": "625dc153762a094e65925e5cd9d42c44794a8113455450a753cf60fc6c2facfb",
       "sha256": "fee1b01bc27bb8eefddb5c8a57f922b03531e8349f231d6f431e5e9d36ab03bb",
@@ -710,7 +710,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-morido-shimekatame/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-morido-shimekatame\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-morido-shimekatame/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "c00375660c13dc1fa71b0080de93415ef9dd72da7d04b77cad893b1ee83ffbda",
       "sha256": "b752222d844bdb2fc04ad393e3151a861b7843a17d42912d3ce6c239aa7974ee",
@@ -720,7 +720,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-morido-shimekatame/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-morido-shimekatame\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-morido-shimekatame/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "c851a9bc2c995a876d2cf735f12990e1bff2629198df8111e4620d28187a2e38",
       "sha256": "08b8df0252d76eb259d59c1ac46f11a2ffe7be2b5596ada56cd60931b432e73c",
@@ -730,7 +730,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-nanjaku-jiban/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-nanjaku-jiban\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-nanjaku-jiban/cover-design.json",
       "key": "longform",
       "specSha256": "7d151a0b4f0be8c02b4f0c6f20c094170139cf5b8cbaca73b3f98e47b1f58cd1",
       "sha256": "4f64089cf6c6543ab62fab762b1afd82b7e8083dcf93e3a93c2cd6b086f8d1a0",
@@ -740,7 +740,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-nanjaku-jiban/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-nanjaku-jiban\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-nanjaku-jiban/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "e489c70dab372193a76e60dcf8312c8c6464e1c5ae853eb1eab690b7a9a055be",
       "sha256": "acb335f8d3d234a54eee7539fe459f21bd6bab4306ab19ea4757a3d6ae3e4e89",
@@ -750,7 +750,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-nanjaku-jiban/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-nanjaku-jiban\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-nanjaku-jiban/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "3dc42b259c5babf34d1dbfe87917981092ab39d93554b11fc3d1d7da488e2e91",
       "sha256": "3107aac44251bdfd220a7a343de9154a2b068ad9d5e245ec2ff2d8db74eec5db",
@@ -760,7 +760,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-network-koteihyo/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-network-koteihyo\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-network-koteihyo/cover-design.json",
       "key": "longform",
       "specSha256": "2ac81062a72780ea634cb7e0a0d8f950db880f576540dbbd2ad585d190e7c2ae",
       "sha256": "df3703c72da8df80b4a3ad52f02cf5a295f68ed4083f0411c72481a82b564eb3",
@@ -770,7 +770,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-network-koteihyo/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-network-koteihyo\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-network-koteihyo/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "8ff2f87358b352f32328becbbae500aa477bdd4429b96975049a981e796f8f69",
       "sha256": "1b9432b9413641ed435304d8898b50b90126c5e77cf417e51c1515bf7c9ad5fd",
@@ -780,7 +780,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-network-koteihyo/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-network-koteihyo\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-network-koteihyo/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "d8a4989610e044f49822fd1e49874fa39121526cf88e30e9f8c51bd71631dff5",
       "sha256": "6a66cfc0339e22b8beae425490e1f70b5672e0001c2366d17e645b77e55d4c03",
@@ -790,7 +790,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-nori-hogoko/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-nori-hogoko\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-nori-hogoko/cover-design.json",
       "key": "longform",
       "specSha256": "ed7d0eeda2124bf9211c0c7f1010e67d5e6f1f6a11821fc7e191cfdf15784a92",
       "sha256": "6d34aa80cbb95fa7344c118893ab557e30e1dd52d522f0b248949af903085f9c",
@@ -800,7 +800,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-nori-hogoko/point-gensoku-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-nori-hogoko\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-nori-hogoko/cover-design.json",
       "key": "point-gensoku-1",
       "specSha256": "578ef8536d3a0f35f6856f1f79cd89dff6911cb04661097e7e2bc5c5e16f8e6f",
       "sha256": "58827a703feb3f2d2c53b0a58dd363e3949062bdf3c5c2349f82b3793085f32a",
@@ -810,7 +810,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-nori-hogoko/point-hisho-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-nori-hogoko\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-nori-hogoko/cover-design.json",
       "key": "point-hisho-2",
       "specSha256": "3a279c0c40b85b91fab2bc1e5bec41aee7e3cc3ef17969079480c50350e67e03",
       "sha256": "397f849f643cfb503fea3b9e3101a2eaa62af37399ce0e3baf45eca393674334",
@@ -820,7 +820,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-risk-assessment/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-risk-assessment\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-risk-assessment/cover-design.json",
       "key": "longform",
       "specSha256": "d7c94ff7207d97b269b0bd4f95dc075672bb0fc66384deb51ddac881367f73c0",
       "sha256": "f9bfa9793c1672d7654c69a719b23b1d2db98f5f88448eb67af77425f799c65f",
@@ -830,7 +830,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-risk-assessment/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-risk-assessment\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-risk-assessment/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "342f208113b19d00ddd7084dd3a86951179f925331c66a559bbadfc3c2be9e3a",
       "sha256": "b8afa7e76fea14471e1c4166a9d05afb64525a086818963cb92b9f50a97aa73d",
@@ -840,7 +840,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-risk-assessment/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-risk-assessment\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-risk-assessment/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "03a03e2b998b4d900d43528e4591c41f507a518720e6347837582f2343948bc4",
       "sha256": "26f4a27e1b8fa6836cad5878a34b9b4f14753b8a0a0b0b473e501fb4ecf7dcb0",
@@ -850,7 +850,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-roudou-kijun/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-roudou-kijun\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-roudou-kijun/cover-design.json",
       "key": "longform",
       "specSha256": "aea424c625bc98caa8c134a0b298845c98fe38ffd3b123d599addd43678ed4c1",
       "sha256": "da349f4caab6aa554b0acb558ebe8cf19cfcc43081e906ef26d98557801ed060",
@@ -860,7 +860,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-roudou-kijun/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-roudou-kijun\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-roudou-kijun/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "b750a6fbfb8136ded002fbeaf21d9cdca44fde8965e1b15e8b35651929d130f9",
       "sha256": "ba5ae2b4183d9f0d4ae0e068e86fe1951de2e79de8b771bbd5a50b35c5dd0a94",
@@ -870,7 +870,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-roudou-kijun/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-roudou-kijun\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-roudou-kijun/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "0a1e03df9052925ac78dca23b1f31106fd58d5271e4c64c2826d6520e345c93c",
       "sha256": "1e58cf0e22741eb23e18e0a081db5a70c7b77e1493734316ed801749201baee7",
@@ -880,7 +880,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-sekokeikaku-kiso/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-sekokeikaku-kiso\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-sekokeikaku-kiso/cover-design.json",
       "key": "longform",
       "specSha256": "6b5c31bb8b004b39bd622beb437e59e11605c061f333cd1981b3fafb9b75857b",
       "sha256": "7eafe49c56d7036ee51a1190f3ab6bbe4a2334583ce19af7e653aaf086f6c8e8",
@@ -890,7 +890,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-sekokeikaku-kiso/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-sekokeikaku-kiso\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-sekokeikaku-kiso/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "fb9593c7ed8fe031c9b412c8209a4b1ffdd4ed6334aa9af19d04c6ef572a0e39",
       "sha256": "c41bdc7ddc87b7ac3e1b093badddc91282fb35b3493380d48e3241a1f3e2b12f",
@@ -900,7 +900,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-sekokeikaku-kiso/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-sekokeikaku-kiso\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-sekokeikaku-kiso/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "26e9ac8d5ec3a1118830cfb65c77c89ddbc94b8f97b215ecde5719c2f74f6d9c",
       "sha256": "87da856e5925185a5caf2a4d04f71fbb422438b36a2bf6db33a76cd3b2c25776",
@@ -910,7 +910,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-sokuryo-3ten/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-sokuryo-3ten\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-sokuryo-3ten/cover-design.json",
       "key": "longform",
       "specSha256": "fd2739da844d43f6cbcaf2c5d006c311958aad986afd65b0ab2de3ec6ff8fdb6",
       "sha256": "9963ceb128aa7b1108498abeb1f7d560fc299859fdc6672478f35aab65e40329",
@@ -920,7 +920,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-sokuryo-3ten/point-kijun-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-sokuryo-3ten\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-sokuryo-3ten/cover-design.json",
       "key": "point-kijun-1",
       "specSha256": "6eebad5d84b866f992d56978380efa4499fa3c4c5db67204cd6bddf2d7866b9d",
       "sha256": "f054221be9f1c82f04f0f00279af6be0a4503da2b122d5197f33733a61facf05",
@@ -930,7 +930,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-sokuryo-3ten/point-suijun-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-sokuryo-3ten\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-sokuryo-3ten/cover-design.json",
       "key": "point-suijun-2",
       "specSha256": "54f49c372c0a306014cf5b019bfc86fcda673e4c9055b0b358708e0f81b0a0ea",
       "sha256": "04f103d30f06dd2a5e37c147b3f14b4c79cc06a9d281bd61d63468bd170afd6f",
@@ -940,7 +940,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-ukeoi-yakkan/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-ukeoi-yakkan\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-ukeoi-yakkan/cover-design.json",
       "key": "longform",
       "specSha256": "c291ca4b0a7c1ef727a42e7af4fcdda1c43e77dd5c20d25458822cffb6bca2f6",
       "sha256": "cbb3410897e4a50733ca51a967ec8cab4f91d600a406c1050557c79e3772bd71",
@@ -950,7 +950,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-ukeoi-yakkan/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-ukeoi-yakkan\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-ukeoi-yakkan/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "29243d0e035e518b937def99446e8cb29c57190b217d748e759d8b2ddbed1e01",
       "sha256": "04b95719af7e8aa1cb015fcaf2a0a7e79edf667ea96240f6c90ee16fbb5b2523",
@@ -960,7 +960,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-ukeoi-yakkan/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-ukeoi-yakkan\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-ukeoi-yakkan/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "9d971ac0fda9e08b662e5512e06e899e4501aace7a20761178f9ae34be6c4a6e",
       "sha256": "cf7b1b50e446ca382b93c641705b787738af0d1742ee0d603449820dfe487ba3",
@@ -970,7 +970,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-unpan-shimekatame-kikai/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-unpan-shimekatame-kikai\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-unpan-shimekatame-kikai/cover-design.json",
       "key": "longform",
       "specSha256": "ec42a20a0e64feced59ea95f08ef45774effa43106ec866eb20f2067fe1e3ff0",
       "sha256": "6768e34c2d3b62033304440161dfcf2c184336ce7eec5264a5fa3a80a9b80b3b",
@@ -980,7 +980,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-unpan-shimekatame-kikai/point-scraper-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-unpan-shimekatame-kikai\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-unpan-shimekatame-kikai/cover-design.json",
       "key": "point-scraper-1",
       "specSha256": "609a54ae6f1eefd6fad48b9603f838f19db2bfdb5148bf79684ab3acee5c49ba",
       "sha256": "d474eb89775e2ce350d16a65e1439dfa62d0f8eeb21cf2970f39f5a938d93668",
@@ -990,7 +990,7 @@
     },
     {
       "sourceKey": "civil-construction-1/gakka-unpan-shimekatame-kikai/point-unpan-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\gakka-unpan-shimekatame-kikai\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/gakka-unpan-shimekatame-kikai/cover-design.json",
       "key": "point-unpan-2",
       "specSha256": "18d101d15ada893e8ed1834829cba00cb8cea82d1cc680cfbcd71d5c9eeb5df4",
       "sha256": "ac4de2523937f73b56654e6cd772c1a95aae82f43b9966287d56c7348478cbd1",
@@ -1000,7 +1000,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-2theme-heiki/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-2theme-heiki\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-2theme-heiki/cover-design.json",
       "key": "longform",
       "specSha256": "e81138e849980e52747a873105e19670201381067689e8f644b23586abd384cc",
       "sha256": "05b4cac8e3aec90474eb307a6fa56203a228c05ca575ddb27fa174f2e5695bfa",
@@ -1010,7 +1010,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-2theme-heiki/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-2theme-heiki\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-2theme-heiki/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "a754e22a7d969a470dcc6bc76e4117d181172c384fff36a678b2ba1227301ec7",
       "sha256": "2461677497679f9fb9fc9e6cbb0e5061204ba50ea9875e57ea7c682ffb09afd1",
@@ -1020,7 +1020,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-2theme-heiki/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-2theme-heiki\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-2theme-heiki/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "27f94efc4f165e9d9958ffd3b2086679f0bbacc0dc0b52637e7a5c69fd947499",
       "sha256": "968121e0e3f2b470b07865fefd43f02eb3173fc717b064c2d48783a6478c0409",
@@ -1030,7 +1030,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-ai-sekkei/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-ai-sekkei\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-ai-sekkei/cover-design.json",
       "key": "longform",
       "specSha256": "01155ff60da170b8aac165100273f9c5e037ab51b179de3d1848b75429cf01be",
       "sha256": "ff95d1751cfff0f28a4e766bf5da270a228bd15b3b98d2bad5575ba0caa98a65",
@@ -1040,7 +1040,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-ai-sekkei/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-ai-sekkei\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-ai-sekkei/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "0a1c84dd7dfb9d6777419db860bc9a2baf3f121b2219630e8eb97aee0749443c",
       "sha256": "655ea64e9ce4ccd17f4f538d9715af5563574e0fedc409b780042b3a85bcc379",
@@ -1050,7 +1050,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-ai-sekkei/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-ai-sekkei\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-ai-sekkei/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "69907de01344f8f4ad18c1390e857dbdd3663e4e3115ca365e9a0f97e2994e4f",
       "sha256": "ecdbfb23be6d5498c9af81384e252b4fd9f87a8c37b4d4653f03c13f39c5c8d3",
@@ -1060,7 +1060,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-anzen-1kyu/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-anzen-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-anzen-1kyu/cover-design.json",
       "key": "longform",
       "specSha256": "1386a02321d07a901df6bfa819f7361d9aa003416791d9ee18f47702e89c5b9f",
       "sha256": "705ed5d55349f9907ffc7c33ae460bf5db027e3f9526c9fdaa5935bccb75d84a",
@@ -1070,7 +1070,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-anzen-1kyu/point-identify-hazard-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-anzen-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-anzen-1kyu/cover-design.json",
       "key": "point-identify-hazard-1",
       "specSha256": "bb8e959083f7bace5a75b34ef98af3d121037834a97528303b0697a89a6a0a86",
       "sha256": "ccba778ee047d803e41bada229aadfde6cf8aabc3603f5c9a970fae6146183c9",
@@ -1080,7 +1080,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-anzen-1kyu/point-compare-measures-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-anzen-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-anzen-1kyu/cover-design.json",
       "key": "point-compare-measures-2",
       "specSha256": "20a80d20b4876bfcbc38226f8804214c965388630556eadd2d5d3de9315f9266",
       "sha256": "d0fd81d053e63f9a36e882791dd3b3596d81c6fbe032984bee74a37ce520ab1a",
@@ -1090,7 +1090,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-dokugaku-genkai/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-dokugaku-genkai\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-dokugaku-genkai/cover-design.json",
       "key": "longform",
       "specSha256": "f6f92a25d7350d143a8a76626e55fbe25782ba39948956f3baa9aae9d043cdc2",
       "sha256": "b3d23e1fc823f8a69e5d5e1d3e3e7b2743d7641fdfdcddb117a858b878c0c82a",
@@ -1100,7 +1100,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-dokugaku-genkai/point-layer-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-dokugaku-genkai\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-dokugaku-genkai/cover-design.json",
       "key": "point-layer-overview-1",
       "specSha256": "7b0922d30fa510ed494dad19ab85cdbf3a3ec5aa214111454ac13ec6d28e3972",
       "sha256": "9ef3e03e97f3000dab94322a438516a7c576bbe2cf904c86144b3b149e60fd43",
@@ -1110,7 +1110,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-dokugaku-genkai/point-layer-format-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-dokugaku-genkai\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-dokugaku-genkai/cover-design.json",
       "key": "point-layer-format-2",
       "specSha256": "25131ad9149005e081a17010addf2e57830c891b5856245d7ea81c4a65c6047b",
       "sha256": "198e73e090ebcc0e47345568cc8610b13eb4acd12fe3c924689612eb8dbde928",
@@ -1120,7 +1120,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-hinshitsu-1kyu/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-hinshitsu-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-hinshitsu-1kyu/cover-design.json",
       "key": "longform",
       "specSha256": "bd8d9042a91d3583a4fe2aaac03178cd94544d6abd8b5d5599e0b9ce9bdf710a",
       "sha256": "dccab58316b6018022b883e8bc6a7b794568c51f27d5c1331676e33c21d06e0f",
@@ -1130,7 +1130,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-hinshitsu-1kyu/point-gap-to-issue-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-hinshitsu-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-hinshitsu-1kyu/cover-design.json",
       "key": "point-gap-to-issue-1",
       "specSha256": "70a13021b0af7ba1cdaff1f1f8aaf95d19f8c3a83adf6add857512317b29e838",
       "sha256": "1e0cce557648fd65d4ea9eda22c62d41deb58e4923c4cbbe961e1e35b332bf51",
@@ -1140,7 +1140,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-hinshitsu-1kyu/point-focus-item-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-hinshitsu-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-hinshitsu-1kyu/cover-design.json",
       "key": "point-focus-item-2",
       "specSha256": "fce1200a330a051d44bda14b1392ba40349a852c3429d6e49e1df93efc537295",
       "sha256": "a0e427adaed985cb31b53aa966d50613a5372fad0931c54e51e96f3a30607787",
@@ -1150,7 +1150,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-kadai-kakikata/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-kadai-kakikata\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-kadai-kakikata/cover-design.json",
       "key": "longform",
       "specSha256": "ae55390b3442c8850b005690fee6bcb547c03df8d04437902ab793b3fbea2739",
       "sha256": "81ad668e31458bfad97aa0539eaa446a7379de39da813ed111cb75b964f39b51",
@@ -1160,7 +1160,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-kadai-kakikata/point-block1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-kadai-kakikata\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-kadai-kakikata/cover-design.json",
       "key": "point-block1-1",
       "specSha256": "e91ddadc9c06aac12b8d20647f3872e8184437367c03d8d6d807bb8d151f322a",
       "sha256": "bca363003b4cd3e63da935937368724212217535d3b648a8798f8244184dbaef",
@@ -1170,7 +1170,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-kadai-kakikata/point-block2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-kadai-kakikata\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-kadai-kakikata/cover-design.json",
       "key": "point-block2-2",
       "specSha256": "53d1933d9f9946184c4e00819f29612d0bd1e1286616fc8c2939ea391e85aa99",
       "sha256": "e9a54ce0357e9b18f695453dd66d3e19db8462fcb2801e2f9e881b0d428ccde9",
@@ -1180,7 +1180,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-kaizen-example/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-kaizen-example\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-kaizen-example/cover-design.json",
       "key": "longform",
       "specSha256": "de60e780cc85bd27a360f59b5499c1475e9101d5b9036e3d9e38841d5b6d7cbc",
       "sha256": "7a67bb2804ef85cda294749a875393f5cd768b3405252a51fd0b54311b33881d",
@@ -1190,7 +1190,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-kaizen-example/point-general-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-kaizen-example\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-kaizen-example/cover-design.json",
       "key": "point-general-1",
       "specSha256": "71306adb43d0a2aaa72f32d604f0e8f559e6746648093dc10b73197dba365b94",
       "sha256": "0f6653629b2782faee57107fd0320e7b39d2b6d277dbb7b3b9b40bd0d29852c1",
@@ -1200,7 +1200,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-kaizen-example/point-reasoning-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-kaizen-example\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-kaizen-example/cover-design.json",
       "key": "point-reasoning-2",
       "specSha256": "cb402abfdd1bf5a65e81ae353680ad23ab2e1b5bff229a484eb97bcd888cf758",
       "sha256": "c00302b0f639d68cbfbf110c035ea143a17b639d0515dc1f1448032f33ddc25b",
@@ -1210,7 +1210,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-kankyo-1kyu/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-kankyo-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-kankyo-1kyu/cover-design.json",
       "key": "longform",
       "specSha256": "817bc94e4989e8022867da0dbeb2ccaea80a3aa171405bc0922cbe433565f572",
       "sha256": "f17f6907748fe60c3b7dfc92eedbdc1ce0a36a49362ee63e760777263b1a4c91",
@@ -1220,7 +1220,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-kankyo-1kyu/point-background-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-kankyo-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-kankyo-1kyu/cover-design.json",
       "key": "point-background-1",
       "specSha256": "9e430ff6cf344481ef96e163eb3657b6ad7afe87bca1b92b52f87b2bd2d2e5c2",
       "sha256": "f076ca39a23306facfb81ec8f340a0b630d4e2faf5b5fcd2bc232538e3ae9c6e",
@@ -1230,7 +1230,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-kankyo-1kyu/point-three-categories-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-kankyo-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-kankyo-1kyu/cover-design.json",
       "key": "point-three-categories-2",
       "specSha256": "441bc24e5bd1c54b00cd780db9637e0e2988766cd26fdcacfcd7fa6737b74669",
       "sha256": "1e13fb207427c9280b85f6aff18f0be966f6cb190e494329de5f9e19955a3a30",
@@ -1240,7 +1240,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-kento-kakikata/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-kento-kakikata\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-kento-kakikata/cover-design.json",
       "key": "longform",
       "specSha256": "2bbed0a11269e854685654e4d2e3d09f0cbdad8aa27060fb024374b79687d4b9",
       "sha256": "6fd315f6dded75d6e5a653da438e78c2515ac0ae461e09a97447f310e9898c87",
@@ -1250,7 +1250,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-kento-kakikata/point-block1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-kento-kakikata\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-kento-kakikata/cover-design.json",
       "key": "point-block1-1",
       "specSha256": "b1982429722e1d90ddf2c847874e7e6885614047935e1715ff9d13b734b51ed4",
       "sha256": "de10e97b3e958173ac90b7ff37fff240ea820ac7eda57dd2c013adb1ba2169ac",
@@ -1260,7 +1260,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-kento-kakikata/point-block2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-kento-kakikata\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-kento-kakikata/cover-design.json",
       "key": "point-block2-2",
       "specSha256": "4ee512c52daabc47680daac9a7cb4cefe91c7f21d59800597c2e2aca84057257",
       "sha256": "f49bfaf7d426e665f9ea874810e56b242a17adad2103010808629d9e3814f976",
@@ -1270,7 +1270,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-kotei-1kyu/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-kotei-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-kotei-1kyu/cover-design.json",
       "key": "longform",
       "specSha256": "d6e1819962613a0490359235af7689aa6dd88ebfbe450dca90b7c659d18061ae",
       "sha256": "ca4188db4fed583f9a4766fa59f9d21889f375a21e8cae5a320cd59e994d30f2",
@@ -1280,7 +1280,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-kotei-1kyu/point-three-factors-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-kotei-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-kotei-1kyu/cover-design.json",
       "key": "point-three-factors-1",
       "specSha256": "d79d00169e540a05fdb9280f7798eede186b1df9103a1ad9fd886b9ac316f5ae",
       "sha256": "5a8836708b4f1140baaf7f6c92bfc37887355b2b1f843f91d4e5dcbedfb10e80",
@@ -1290,7 +1290,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-kotei-1kyu/point-prevent-in-advance-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-kotei-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-kotei-1kyu/cover-design.json",
       "key": "point-prevent-in-advance-2",
       "specSha256": "71d7911239cf1ce6b3b1450b1b47693f533ac29455c2d6614e974fdfa8dd70d3",
       "sha256": "68b2caebb1adae59f75454fffdfbbed61cc63b60ee953093aa68c8a659cb4185",
@@ -1300,7 +1300,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-nendo-keiko-1kyu/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-nendo-keiko-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-nendo-keiko-1kyu/cover-design.json",
       "key": "longform",
       "specSha256": "d7cfc35bb5191b271495d5b7c8a8dbd11531f3d9a4c27ebca0298d3e2ede00c8",
       "sha256": "9bdeb94fa8724176f6fcb9051ef17e93f2332bb03a6c419f2415ee5d3e3bedd2",
@@ -1310,7 +1310,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-nendo-keiko-1kyu/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-nendo-keiko-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-nendo-keiko-1kyu/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "9f0789e3592079859f177770e38c4234d4fdf871489783e03b15f459997a0d92",
       "sha256": "d571034c55839e54e10f8093c496130aa0b98b5ab128f014536f851c9f39f01d",
@@ -1320,7 +1320,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-nendo-keiko-1kyu/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-nendo-keiko-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-nendo-keiko-1kyu/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "836c00037b70bb098bc5fb8318be5f19075819ca025320e607bc8a507666dfee",
       "sha256": "03458531869083dc5ec4edc95b5b0aa877ee3104521c7d665892631c74ad02de",
@@ -1330,7 +1330,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-ochiru-toan-1kyu/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-ochiru-toan-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-ochiru-toan-1kyu/cover-design.json",
       "key": "longform",
       "specSha256": "6d2c767e4e941578a1b20ff3c9028e8f08623267b81e78bb609346aac5d79397",
       "sha256": "9680158a6cd89a45af6141dd5eb8dfe7734b6158db79fa5b8b98b84ccdf9a0c0",
@@ -1340,7 +1340,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-ochiru-toan-1kyu/point-gap-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-ochiru-toan-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-ochiru-toan-1kyu/cover-design.json",
       "key": "point-gap-1",
       "specSha256": "7912835d8cb83518696c7efbf98e1bf2aa6d00cacc4e738b4741601e4f9a9449",
       "sha256": "2e74c72e60fc1aad46e358ecaafb460309721b5ac8c82633b2389f433897fd7d",
@@ -1350,7 +1350,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-ochiru-toan-1kyu/point-generic-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-ochiru-toan-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-ochiru-toan-1kyu/cover-design.json",
       "key": "point-generic-2",
       "specSha256": "0923968ecda4d3f3d7ed0a9faa822f57d7102f7a5ea4b2c90421c17a30a9e1c5",
       "sha256": "555b1856306707e80aed1f75bc8df0a89271d3b01231016a9d82542c9b6a0b28",
@@ -1360,7 +1360,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-r6-shinkeishiki/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-r6-shinkeishiki\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-r6-shinkeishiki/cover-design.json",
       "key": "longform",
       "specSha256": "df136f3be0a8ee06ae81af65abec2db437783c410c0774a2a9867fdf96b81fd8",
       "sha256": "f23fc5c23a1408b64a2eba3705ac517b960c3fd41dda1ebc03b3f5141307a3e1",
@@ -1370,7 +1370,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-r6-shinkeishiki/point-change-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-r6-shinkeishiki\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-r6-shinkeishiki/cover-design.json",
       "key": "point-change-1",
       "specSha256": "d02e50d60be0e51eb133f8672f99786a1dbf7a0c929322e71789192897b54e18",
       "sha256": "3bce922dab6f3630ee6fe9e58d3c0e8a04ffa8245c53e04d4a851fc9dcd2a38a",
@@ -1380,7 +1380,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-r6-shinkeishiki/point-structure-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-r6-shinkeishiki\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-r6-shinkeishiki/cover-design.json",
       "key": "point-structure-2",
       "specSha256": "ae108d80ffdf91ad1ab15153b2414e24b19d8f21e0af458676a727dbd1869c71",
       "sha256": "831930cb4c379f72ce75ea28101a28c8ac7de20688b6491b20393729db1e79a3",
@@ -1390,7 +1390,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-sekokeikaku-1kyu/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-sekokeikaku-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-sekokeikaku-1kyu/cover-design.json",
       "key": "longform",
       "specSha256": "9d42f7f754ed775932ddd872dc9e29d041f09ab3fd63afbf7eed21a0ee643486",
       "sha256": "cba7c25fb9aac56329320520afc908c768f11c4e4bd761b250b840cd5937a6c5",
@@ -1400,7 +1400,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-sekokeikaku-1kyu/point-plan-vs-management-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-sekokeikaku-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-sekokeikaku-1kyu/cover-design.json",
       "key": "point-plan-vs-management-1",
       "specSha256": "3ed4c8a69bee4c4a53e9cfd98bdd9c4e7663ec3cfcdd58a78886e4d0d65ebd45",
       "sha256": "5f8aaff9ea207a33469acb3f1da2516f8de102fe9850a346303ddf05b27f29d2",
@@ -1410,7 +1410,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-sekokeikaku-1kyu/point-four-categories-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-sekokeikaku-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-sekokeikaku-1kyu/cover-design.json",
       "key": "point-four-categories-2",
       "specSha256": "e5ea791a640069a52bfeb9d6b74f536a2de30bee9b4416390e3df6d9db88cf0a",
       "sha256": "98de6015b34a497803ef7c943bf7e38594f258ac61e8f13a6ec992db1053c0d6",
@@ -1420,7 +1420,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-soteikoji-katsuyo/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-soteikoji-katsuyo\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-soteikoji-katsuyo/cover-design.json",
       "key": "longform",
       "specSha256": "efb113c649fd56b4fdd782aedec750fa004538a65fdb1e1e3a5f7b5c022042c5",
       "sha256": "81f31286f020bec9817b9165813027b699d69517cb1897ca7a8363f60540dc95",
@@ -1430,7 +1430,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-soteikoji-katsuyo/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-soteikoji-katsuyo\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-soteikoji-katsuyo/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "65958a280f27c4b1f8af90cf38f0446980f29e76e58087dca07d7115d84eb61e",
       "sha256": "43f3953dad485147561fa071c97121bbeca301c7dcc00ea637d7cfeeebbea526",
@@ -1440,7 +1440,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-soteikoji-katsuyo/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-soteikoji-katsuyo\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-soteikoji-katsuyo/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "9956f6da496fa7b67444ed235819b3352de21e9652d7d3725adcfccf9abaf63a",
       "sha256": "364bc06f9280528219803c42a6061a6ab6922e2ece9e867772ce4d180fdce01c",
@@ -1450,7 +1450,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-taio-hyoka/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-taio-hyoka\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-taio-hyoka/cover-design.json",
       "key": "longform",
       "specSha256": "68d684dae18e20949719e46f17677ee6bf134c2405d8646ead59e31e589f705d",
       "sha256": "f519ab48b932495ae0b2eeb82851b54f38912f4a73c6eff97acce418df53d527",
@@ -1460,7 +1460,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-taio-hyoka/point-block1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-taio-hyoka\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-taio-hyoka/cover-design.json",
       "key": "point-block1-1",
       "specSha256": "504b7ced559ab1e2683ab34c64f4280ce013d46f826a5d3e0881530971db4672",
       "sha256": "68126685e4bab55ff86e332bc9f5ad4ba96c51f5a53b1e6cf5a7b4b562aecb01",
@@ -1470,7 +1470,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-taio-hyoka/point-block2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-taio-hyoka\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-taio-hyoka/cover-design.json",
       "key": "point-block2-2",
       "specSha256": "1db2c325281bb8ef07dd165b2382d93e5fd4c5175abdc0c6b187db976b5b57c1",
       "sha256": "517a741f90956d8f4d12ebb2e0dbefda84a1eb83110d4e680a09c0a18e8d279c",
@@ -1480,7 +1480,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-taisho-koji/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-taisho-koji\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-taisho-koji/cover-design.json",
       "key": "longform",
       "specSha256": "d809e21b35d4cc28de8e8e960cf50e9239ad2b9f2206c3d4dcf866b1446d0271",
       "sha256": "a36cf60ed8821a44b069298df95a3cb08502ac1045f3a24387b70033b8fc52e9",
@@ -1490,7 +1490,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-taisho-koji/point-block1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-taisho-koji\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-taisho-koji/cover-design.json",
       "key": "point-block1-1",
       "specSha256": "3f7b00ab891dd58f2b48904e1e6eaf2f8d02dd48a6cc3108ce7b7f6b2177b4ff",
       "sha256": "3e98a8427304aa1752bb726791689f7322dd8760f9776a25b8651e2229be7f22",
@@ -1500,7 +1500,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-taisho-koji/point-block2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-taisho-koji\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-taisho-koji/cover-design.json",
       "key": "point-block2-2",
       "specSha256": "24304fbe2ebba468b87bdeda191b8d717e1cc0b524cefb36ecc71752f14cf73e",
       "sha256": "a60976a15e4802171653a87eefdd52e2599f5ee575c29ffc48887e3b3df1a6ca",
@@ -1510,7 +1510,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-yosou-renshu/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-yosou-renshu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-yosou-renshu/cover-design.json",
       "key": "longform",
       "specSha256": "26de82effa41b515647bba6c1e3b16255d93c0b1c1d8c9cdcdcf6106f7a1103d",
       "sha256": "df057c56f82b872700a6c9280e5257fae46508d5bfab009c70e88abc7cc9ece1",
@@ -1520,7 +1520,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-yosou-renshu/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-yosou-renshu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-yosou-renshu/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "0b1aa348a39a813c345eca3781cff265f2475c7cacd117de76517a356094daa2",
       "sha256": "6066449e3451927d4eb43c937456862c6512946773359841b5a30b40351dc820",
@@ -1530,7 +1530,7 @@
     },
     {
       "sourceKey": "civil-construction-1/keiken-yosou-renshu/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\keiken-yosou-renshu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/keiken-yosou-renshu/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "4b37ae66df3f4692c6b3c21576ae167111e6b83b52ce736edbb5b25e6e6e4256",
       "sha256": "215496923ae955d3076935202e968301a4ef5f83a449ffdf7727b0b56f80ec8b",
@@ -1540,7 +1540,7 @@
     },
     {
       "sourceKey": "civil-construction-1/kikinagashi-anzen-suchi/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\kikinagashi-anzen-suchi\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/kikinagashi-anzen-suchi/cover-design.json",
       "key": "longform",
       "specSha256": "b7d4eb0255ea452a181853e7df54750c1fedd6947ddd6752707af91556c7fb10",
       "sha256": "cf9e42aacac812d0bc3eba8b32e37fba6b1798da1fd341403ca30fc47580a232",
@@ -1550,7 +1550,7 @@
     },
     {
       "sourceKey": "civil-construction-1/kikinagashi-anzen-suchi/point-scaffold-platform-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\kikinagashi-anzen-suchi\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/kikinagashi-anzen-suchi/cover-design.json",
       "key": "point-scaffold-platform-1",
       "specSha256": "073782484fc55a6a0de8dfb47270be07d0304b5c46245339480d96227620c3f1",
       "sha256": "baa650ae8e530f635ecdc7748ac7412a13bc9751714955a63d9c6ae43cedc16d",
@@ -1560,7 +1560,7 @@
     },
     {
       "sourceKey": "civil-construction-1/kikinagashi-anzen-suchi/point-scaffold-rail-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\kikinagashi-anzen-suchi\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/kikinagashi-anzen-suchi/cover-design.json",
       "key": "point-scaffold-rail-2",
       "specSha256": "2dbc91002c5886d4212a786efc3b843e06194149ef5ebdc5f4a801a441c5a82d",
       "sha256": "3055612d192cc0d3f4d1667fa012fbef662542b80a3ed1945a34941a550a650b",
@@ -1570,7 +1570,7 @@
     },
     {
       "sourceKey": "civil-construction-1/kikinagashi-doko-suchi/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\kikinagashi-doko-suchi\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/kikinagashi-doko-suchi/cover-design.json",
       "key": "longform",
       "specSha256": "e51f5277c188fbc779b37da105877d5ee73b392d13386c84daf55260b884ee46",
       "sha256": "25e4f535348c9c5893096ba87f29789c87bb89117ad15f9f127a5c9a62de140b",
@@ -1580,7 +1580,7 @@
     },
     {
       "sourceKey": "civil-construction-1/kikinagashi-doko-suchi/point-soft-ground-judge-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\kikinagashi-doko-suchi\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/kikinagashi-doko-suchi/cover-design.json",
       "key": "point-soft-ground-judge-1",
       "specSha256": "0cde28fe00f2008a501c5d627e6c04881c97c2dc335031f62110e9f139753414",
       "sha256": "1a9b840bb7c88d183a7b6c5528dad84ef35c7fbdab928760d516fbbb41d802f6",
@@ -1590,7 +1590,7 @@
     },
     {
       "sourceKey": "civil-construction-1/kikinagashi-doko-suchi/point-embankment-check-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\kikinagashi-doko-suchi\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/kikinagashi-doko-suchi/cover-design.json",
       "key": "point-embankment-check-2",
       "specSha256": "6968aa92ba8b379fb4935ac8319e4ea624f60a3778669c68c2702c50982d510d",
       "sha256": "5bf5a04038275baf85084b0cccfdd148908ed55f2b1194c80d5333d2ecee68a0",
@@ -1600,7 +1600,7 @@
     },
     {
       "sourceKey": "civil-construction-1/kikinagashi-hinshitsu-kikaku/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\kikinagashi-hinshitsu-kikaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/cover-design.json",
       "key": "longform",
       "specSha256": "7d047860b6326ac55e720292478495fcb7b6f246340deb4e7184817242b98adb",
       "sha256": "3e5cec5454e17df0e019aeef1559de9f35e8558c6c662a95b5c9620187ced701",
@@ -1610,7 +1610,7 @@
     },
     {
       "sourceKey": "civil-construction-1/kikinagashi-hinshitsu-kikaku/point-population-sampling-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\kikinagashi-hinshitsu-kikaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/cover-design.json",
       "key": "point-population-sampling-1",
       "specSha256": "3162a669366d5b68a2d9faa249492cb350223436fa2ca91c7e41b73c25d1a804",
       "sha256": "0da6362ecd4deda4b8cc8f1af9a3a6cbb74403e5534a1c2d7b852c7a0cdf9320",
@@ -1620,7 +1620,7 @@
     },
     {
       "sourceKey": "civil-construction-1/kikinagashi-hinshitsu-kikaku/point-full-vs-sampling-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\kikinagashi-hinshitsu-kikaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/kikinagashi-hinshitsu-kikaku/cover-design.json",
       "key": "point-full-vs-sampling-2",
       "specSha256": "235b1f0affcdec88ff39ddb6b5800db0873ebed13dcab91b12a57ff8c1a83994",
       "sha256": "af60bbac522e9ec4482d9419d08c2d6319091959f66308e269f001719eb72ba2",
@@ -1630,7 +1630,7 @@
     },
     {
       "sourceKey": "civil-construction-1/kikinagashi-hoki-suchi/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\kikinagashi-hoki-suchi\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/kikinagashi-hoki-suchi/cover-design.json",
       "key": "longform",
       "specSha256": "fa2f01d9e2642d1299986de7edd1a6da02c1fb8f7be94c139c6a8f5638dfa2c3",
       "sha256": "3582628e2cc732d553dda3597ef4bc795535f429a84e7f46e85d3600e08f5735",
@@ -1640,7 +1640,7 @@
     },
     {
       "sourceKey": "civil-construction-1/kikinagashi-hoki-suchi/point-avg-wage-contract-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\kikinagashi-hoki-suchi\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/kikinagashi-hoki-suchi/cover-design.json",
       "key": "point-avg-wage-contract-1",
       "specSha256": "9897a4ff9532505464de6a778c7f585ea3fbd7e7ebfdacfd4fec615d58e9c8ad",
       "sha256": "fd7a00b40a8f81264131f26f0b62a6f4ab18c59bbfbae78681c73045d52d9a9f",
@@ -1650,7 +1650,7 @@
     },
     {
       "sourceKey": "civil-construction-1/kikinagashi-hoki-suchi/point-dismissal-notice-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\kikinagashi-hoki-suchi\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/kikinagashi-hoki-suchi/cover-design.json",
       "key": "point-dismissal-notice-2",
       "specSha256": "e7d7824d66f54025631a166951b61fb8ae17f52a579087cae378ba4571d74ac5",
       "sha256": "31e4e2f62eed1c2e063a34860af28a6eee1e44ac39e830789920f3949e697c73",
@@ -1660,7 +1660,7 @@
     },
     {
       "sourceKey": "civil-construction-1/koji-gaiyo-7items/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\koji-gaiyo-7items\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/koji-gaiyo-7items/cover-design.json",
       "key": "longform",
       "specSha256": "02d062295a6a62a0dc6f2a6568a51c99b38837aa84ed8abeb1e22d99f329be0d",
       "sha256": "ee5ea45f39d2eeb11ad95926722ef5d9b6962123c1f43a6ef98d3d0bef8e8beb",
@@ -1670,7 +1670,7 @@
     },
     {
       "sourceKey": "civil-construction-1/koji-gaiyo-7items/koshu-sekoryo",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\koji-gaiyo-7items\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/koji-gaiyo-7items/cover-design.json",
       "key": "koshu-sekoryo",
       "specSha256": "5cbdba961f3c6cd9211d1a9321a838ccd3a71aa8e2594193dc1d3710be3f6711",
       "sha256": "4c0798ec13847f44e238f3120f4ac049c0e76976667d58e77806c94779ff3740",
@@ -1680,7 +1680,7 @@
     },
     {
       "sourceKey": "civil-construction-1/koji-gaiyo-7items/koki-sekoryo",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\koji-gaiyo-7items\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/koji-gaiyo-7items/cover-design.json",
       "key": "koki-sekoryo",
       "specSha256": "dbea8ea3272f5d24dd357bbb7d382c6ade0e686ccb47e8c76d0b9c35e550ce5e",
       "sha256": "0929d017f99a17575f17faad4847755f33a7360d39c85d7abf562ff0ac6cd9d7",
@@ -1690,7 +1690,7 @@
     },
     {
       "sourceKey": "civil-construction-1/niji-junbi-roadmap/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\niji-junbi-roadmap\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/niji-junbi-roadmap/cover-design.json",
       "key": "longform",
       "specSha256": "1d51ac91b51aa0b0f90e9504dc4009fbcf055f68e658ca9058bacd7c60b52cfb",
       "sha256": "15b9a23bc907e9c13f75c23a1612072af626033e58de467e99c2f1c55d73cee0",
@@ -1700,7 +1700,7 @@
     },
     {
       "sourceKey": "civil-construction-1/niji-junbi-roadmap/point-time-matters-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\niji-junbi-roadmap\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/niji-junbi-roadmap/cover-design.json",
       "key": "point-time-matters-1",
       "specSha256": "16c38c64a4bfead3e0c17af6e5a2b9c5210ff4d02929edaad09bd997cd2cd80d",
       "sha256": "7fbd801e51b161783bc08b6a51636e679f49737b33cd65045ff194a1c3d4e3cb",
@@ -1710,7 +1710,7 @@
     },
     {
       "sourceKey": "civil-construction-1/niji-junbi-roadmap/point-overview-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\niji-junbi-roadmap\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/niji-junbi-roadmap/cover-design.json",
       "key": "point-overview-2",
       "specSha256": "fdc53f1557015313d15641f243de9366fa2ae5ca0a5db3ba254ad1325d7e38b4",
       "sha256": "105e3c3baa8ac7bc351b29f4ab3b1f5528b30e397f18d0750a76ea3a6f78ab6a",
@@ -1720,7 +1720,7 @@
     },
     {
       "sourceKey": "civil-construction-1/niji-kijutsu-concrete/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\niji-kijutsu-concrete\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/niji-kijutsu-concrete/cover-design.json",
       "key": "longform",
       "specSha256": "d62ea4144150c4cf4ab05c6436c9adcbfb0e6fc5ee0b9cb969ab06730e7dde45",
       "sha256": "c2ebfde8ee2675f4242323914d730323506316604b0de2b19464ad625807c961",
@@ -1730,7 +1730,7 @@
     },
     {
       "sourceKey": "civil-construction-1/niji-kijutsu-concrete/point-overlap-time-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\niji-kijutsu-concrete\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/niji-kijutsu-concrete/cover-design.json",
       "key": "point-overlap-time-1",
       "specSha256": "ac8cf57bb126be8b277645f77da1b7256b86a336d49302f07e8c1ceaa9c05020",
       "sha256": "763a574bce8a00211f5653499b78ecdb89e6717626c7b96074e2eeb30c80f54b",
@@ -1740,7 +1740,7 @@
     },
     {
       "sourceKey": "civil-construction-1/niji-kijutsu-concrete/point-vibration-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\niji-kijutsu-concrete\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/niji-kijutsu-concrete/cover-design.json",
       "key": "point-vibration-2",
       "specSha256": "cdef9ba27ba22ca0a8a55a7f41724148c1ce6065cf2d270bc511b7182798af7a",
       "sha256": "3f1ab4d6d8a08258c9db93549dd18a92d27676bb4ec9ec6ece4c6d2129766eb5",
@@ -1750,7 +1750,7 @@
     },
     {
       "sourceKey": "civil-construction-1/niji-kijutsu-doko/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\niji-kijutsu-doko\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/niji-kijutsu-doko/cover-design.json",
       "key": "longform",
       "specSha256": "2b9ea7e49226eda785c33b3a7539cefc1d6651ecc2f52f25c6c9664aa99f0a5f",
       "sha256": "71bb7b53d8ae7926802b7aa1c7b8e08c853deb69568c6031821c6ef7ff488e54",
@@ -1760,7 +1760,7 @@
     },
     {
       "sourceKey": "civil-construction-1/niji-kijutsu-doko/point-thickness-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\niji-kijutsu-doko\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/niji-kijutsu-doko/cover-design.json",
       "key": "point-thickness-1",
       "specSha256": "e4129dba943472ec34055597e4540d9a2ae4041d3ac42930319e3f1a654f95c3",
       "sha256": "05d47a4abb57059d2fa86af61b85c2516daaba7cf7a1766686a966e030991c83",
@@ -1770,7 +1770,7 @@
     },
     {
       "sourceKey": "civil-construction-1/niji-kijutsu-doko/point-gradient-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\niji-kijutsu-doko\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/niji-kijutsu-doko/cover-design.json",
       "key": "point-gradient-2",
       "specSha256": "e3f6f1273860eed571e706e7f1f9222928fcd1d76ffabfac0f00abef11d75977",
       "sha256": "662f040e9d9695b4c16f82e917567c9ddc708764585a96f560f1d0ddc3bcdc30",
@@ -1780,7 +1780,7 @@
     },
     {
       "sourceKey": "civil-construction-1/niji-kijutsu-hinshitsu/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\niji-kijutsu-hinshitsu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/niji-kijutsu-hinshitsu/cover-design.json",
       "key": "longform",
       "specSha256": "b4906da6014430b6ccce5255a18717c4c46eb5e6fcd339c32a115770405a4250",
       "sha256": "a2c2c52d6877f21d6f577a420fda6226bc76f8e2f637b8ee019ba00825fb5aaa",
@@ -1790,7 +1790,7 @@
     },
     {
       "sourceKey": "civil-construction-1/niji-kijutsu-hinshitsu/point-compaction-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\niji-kijutsu-hinshitsu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/niji-kijutsu-hinshitsu/cover-design.json",
       "key": "point-compaction-1",
       "specSha256": "227ada72675536be3da21258f3f3de1160fc9411681591f2ca1501380c096480",
       "sha256": "1d2caf492a18e0a103ce3629231b9bb9cb1b3d8222c638b1ec43f5b1eca1e921",
@@ -1800,7 +1800,7 @@
     },
     {
       "sourceKey": "civil-construction-1/niji-kijutsu-hinshitsu/point-acceptance-test-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\niji-kijutsu-hinshitsu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/niji-kijutsu-hinshitsu/cover-design.json",
       "key": "point-acceptance-test-2",
       "specSha256": "33b46a7a5ff4c0920dcdc78f9e8fa3a4e9797001598c364688dae753d7f5153d",
       "sha256": "47e8702a31715e06e840ba09c60693c5154440cd973382d96a90e5ce4018ff5d",
@@ -1810,7 +1810,7 @@
     },
     {
       "sourceKey": "civil-construction-1/niji-kijutsu-sekokeikaku/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\niji-kijutsu-sekokeikaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/niji-kijutsu-sekokeikaku/cover-design.json",
       "key": "longform",
       "specSha256": "1955cd066f8f0e5ad466985c1dc4b2a622c22238cbc72ee428b8293cae7b173e",
       "sha256": "7fb7f0408effb4ae19c2b670f3c5ad66091e6bd0c3a5f38a1598ecf75afd8b85",
@@ -1820,7 +1820,7 @@
     },
     {
       "sourceKey": "civil-construction-1/niji-kijutsu-sekokeikaku/point-pattern1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\niji-kijutsu-sekokeikaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/niji-kijutsu-sekokeikaku/cover-design.json",
       "key": "point-pattern1-1",
       "specSha256": "8dea0dbc0d3d45cd0cb4af068bd541f70504bcce54de0f3af2d70bbf376ccc49",
       "sha256": "229ed9b9e224e481b7e350bc3825944055e93f152c91e7f20b7c67112d836f99",
@@ -1830,7 +1830,7 @@
     },
     {
       "sourceKey": "civil-construction-1/niji-kijutsu-sekokeikaku/point-pattern2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\niji-kijutsu-sekokeikaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/niji-kijutsu-sekokeikaku/cover-design.json",
       "key": "point-pattern2-2",
       "specSha256": "2ad870011113769c9e9f32c7790e98a26d9c1e2d9a3f21c39086e75f93be1182",
       "sha256": "9bac780029d217b6cbe82a1bcb632c47439a58c0bea04e9469562bd2e4708e8e",
@@ -1840,7 +1840,7 @@
     },
     {
       "sourceKey": "civil-construction-1/roadmap-1kyu-vs-2kyu/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\roadmap-1kyu-vs-2kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/cover-design.json",
       "key": "longform",
       "specSha256": "6163e9db062eda6cdc341a7d3a9321ca09746ba92162e5cef78d18dc60145a67",
       "sha256": "9d52f9eacafc7f285b2c5df750583d610970af62ab7c7975b47bb430fab82617",
@@ -1850,7 +1850,7 @@
     },
     {
       "sourceKey": "civil-construction-1/roadmap-1kyu-vs-2kyu/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\roadmap-1kyu-vs-2kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "b1c62ce68ed77d3f5a6c32cb3ef465d91f768eaf5c6d6c93b4a4f381dff15574",
       "sha256": "8ae1a7f20333b11b7d1678f2342450db036adcdaa8cc07f0be9d7d3ba6b879b7",
@@ -1860,7 +1860,7 @@
     },
     {
       "sourceKey": "civil-construction-1/roadmap-1kyu-vs-2kyu/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\roadmap-1kyu-vs-2kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "8000b3e130d8c370fdd04a35f4c40cc7b1c6cf92ab65ac7f7ad5d686d9306271",
       "sha256": "bdef5ffcbe5591b947cf5ada5d2f6d585d08a1464d2db8832047c5d0b30c5ce6",
@@ -1870,7 +1870,7 @@
     },
     {
       "sourceKey": "civil-construction-1/roadmap-juken-shikaku/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\roadmap-juken-shikaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/roadmap-juken-shikaku/cover-design.json",
       "key": "longform",
       "specSha256": "6cdd2906997c3b17fd428320bf4f0e349f79caf2753d9d3feeb1b28a6e8daefb",
       "sha256": "4f2998978009e90889fb7bcfec8f703e1196a0cbb42082ea1cabcccb59d806b0",
@@ -1880,7 +1880,7 @@
     },
     {
       "sourceKey": "civil-construction-1/roadmap-juken-shikaku/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\roadmap-juken-shikaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/roadmap-juken-shikaku/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "1b8492a03897c72939491a3f1598471955bb571def591b518861d0c980d8d29e",
       "sha256": "2d91e4ac56e603392d3290fa8b077711d1f1f6ca98985e2f969fc83a48d285a8",
@@ -1890,7 +1890,7 @@
     },
     {
       "sourceKey": "civil-construction-1/roadmap-juken-shikaku/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\roadmap-juken-shikaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/roadmap-juken-shikaku/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "31bee47e6f0bc2a43573c24f7efd34470214157473522a39a9e9a0a1c48251b9",
       "sha256": "bb8efe9c064146754829789ae7c95a464733c856a9a905ace6212a5d8bc52c48",
@@ -1900,7 +1900,7 @@
     },
     {
       "sourceKey": "civil-construction-1/roadmap-nanido-goukakuritsu/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\roadmap-nanido-goukakuritsu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/roadmap-nanido-goukakuritsu/cover-design.json",
       "key": "longform",
       "specSha256": "78b6079a14b4c410fc5093372e454b241f8dfc80b318ea8f402797e2a7af3b49",
       "sha256": "3c778630580c4eda97fc6edaa82a0153bdfda89805d2de6d40cf5599cbe608ff",
@@ -1910,7 +1910,7 @@
     },
     {
       "sourceKey": "civil-construction-1/roadmap-nanido-goukakuritsu/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\roadmap-nanido-goukakuritsu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/roadmap-nanido-goukakuritsu/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "69c501208fc319731de550b992746ba6ef5a34ca7d13995b502714a8f1ec5dae",
       "sha256": "361603658d3c2da0babcfee5dda639962570a4e11b367ab6447fa0bf53014f4d",
@@ -1920,7 +1920,7 @@
     },
     {
       "sourceKey": "civil-construction-1/roadmap-nanido-goukakuritsu/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\roadmap-nanido-goukakuritsu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/roadmap-nanido-goukakuritsu/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "c45a8441fc14782c0d1b6be68e0b836f2ecd8070ec8ffaa7ad35a3f1e43671e0",
       "sha256": "c15a636944e3a48c1161dc5ea0f667347b2bdb56ff4110904ff54b3755f4868c",
@@ -1930,7 +1930,7 @@
     },
     {
       "sourceKey": "civil-construction-1/sekokan-shippaidan/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\sekokan-shippaidan\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/sekokan-shippaidan/cover-design.json",
       "key": "longform",
       "specSha256": "90b2732ebfec15f5ae0792b9350b1c4f650f5f4d4b5b0bfed2c808f46d147eb1",
       "sha256": "1a54f240b46825be42f3a688000d0f1d6a0055c8cafb17c734de6520f0b12da7",
@@ -1940,7 +1940,7 @@
     },
     {
       "sourceKey": "civil-construction-1/sekokan-shippaidan/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\sekokan-shippaidan\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/sekokan-shippaidan/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "ce15398a46702de451b76980c9831af0d7c3e2bc27f46964c68d1caf92305a0c",
       "sha256": "76a55b326dc03c4f482ec4d4af7fa5085d831683f751677ed7d0c5cd4a9de4ba",
@@ -1950,7 +1950,7 @@
     },
     {
       "sourceKey": "civil-construction-1/sekokan-shippaidan/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\sekokan-shippaidan\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/sekokan-shippaidan/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "82f8ccce8c9a496e6ca2d3dc141e5edc0812f053dc4cdc1fd387c99c6ee0970b",
       "sha256": "8288ecf25c95bcc7801926cbd994d384405e290e901dc4eea9724b9ff9c62c10",
@@ -1960,7 +1960,7 @@
     },
     {
       "sourceKey": "civil-construction-1/study-plan-1kyu/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\study-plan-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/study-plan-1kyu/cover-design.json",
       "key": "longform",
       "specSha256": "d4dca72aa490e9469770b5659ce9f71b0d9b8e9953a15fbb988084e33f861137",
       "sha256": "6b57982db00c924949f34a5feb5f55630cb89f2f40e35b3293449808db8b3763",
@@ -1970,7 +1970,7 @@
     },
     {
       "sourceKey": "civil-construction-1/study-plan-1kyu/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\study-plan-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/study-plan-1kyu/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "5c7a4fe83c65c263e90c468961648dfdb61bdf7f9f7b740b32dbb49ed47682f7",
       "sha256": "25cec8ca344b0ddeed07f687e50a51ffb114855865ab75bd0aec7b94feb74ccd",
@@ -1980,7 +1980,7 @@
     },
     {
       "sourceKey": "civil-construction-1/study-plan-1kyu/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-1\\study-plan-1kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-1/study-plan-1kyu/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "5e54938b10ea809a65bbcd9118ff074a0282dea3546db51686a93039a1f5ed87",
       "sha256": "b7c43dfc3280c5ffb340a075b6159342d8fe248d58a18ec19ddef25c2c0780b4",
@@ -1990,7 +1990,7 @@
     },
     {
       "sourceKey": "civil-construction-2/anzen-ippanron-3riyu/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\anzen-ippanron-3riyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/cover-design.json",
       "key": "longform",
       "specSha256": "0f5ea94b6dcab121c468d37075e0ef2b3136ef7ac69f4666b79b02ede3f74223",
       "sha256": "b207aa103f29333b75c07c04203e65bd88039f49da51880fe0700156320a765e",
@@ -2000,7 +2000,7 @@
     },
     {
       "sourceKey": "civil-construction-2/anzen-ippanron-3riyu/point-cause1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\anzen-ippanron-3riyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/cover-design.json",
       "key": "point-cause1-1",
       "specSha256": "415544602a44bd6f67052e025d5797d925dc66a8e7ae0830db77c5bea5d76d31",
       "sha256": "2668a73f98b01c089e552eb91264af973d50140af780df08ab7495066e1a452c",
@@ -2010,7 +2010,7 @@
     },
     {
       "sourceKey": "civil-construction-2/anzen-ippanron-3riyu/point-cause2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\anzen-ippanron-3riyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/anzen-ippanron-3riyu/cover-design.json",
       "key": "point-cause2-2",
       "specSha256": "49de43f172b99d81bc1d585765e02d14913b2b07ec82ff493f46229a5e8e639b",
       "sha256": "e00cdccb46955276cf4ae189c7846dc8eaacd59f2ab7d4dfd207400e98579435",
@@ -2020,7 +2020,7 @@
     },
     {
       "sourceKey": "civil-construction-2/gakka-2kyu-concrete/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\gakka-2kyu-concrete\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/cover-design.json",
       "key": "longform",
       "specSha256": "b3a653193170757887a94f603566d49766a605412587f92658a00209ad211b8a",
       "sha256": "0a3b087e03039afb53ac82cd864a46834be1f4a277e04f2110bb910ada091800",
@@ -2030,7 +2030,7 @@
     },
     {
       "sourceKey": "civil-construction-2/gakka-2kyu-concrete/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\gakka-2kyu-concrete\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "6de0f60546f1cf7a6c338b4d0f85d5162ead8a557d3e68af86ef1fc50970ada3",
       "sha256": "5bea09f051e64c5936f8bd9d1a85d87a9a5a2255c3e149e887ff0a1bb281ac9a",
@@ -2040,7 +2040,7 @@
     },
     {
       "sourceKey": "civil-construction-2/gakka-2kyu-concrete/point-block1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\gakka-2kyu-concrete\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/gakka-2kyu-concrete/cover-design.json",
       "key": "point-block1-2",
       "specSha256": "1212516909efcef2def762622b72324578b2e3ce9abc5a91a12d4835def329ab",
       "sha256": "abce91a7b39aa2905ad6141186ab62d7fef44ef9eb2bc17c7f0f66c0966b488c",
@@ -2050,7 +2050,7 @@
     },
     {
       "sourceKey": "civil-construction-2/gakka-2kyu-doko/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\gakka-2kyu-doko\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/cover-design.json",
       "key": "longform",
       "specSha256": "43b63654eacd8c219c776403dbee74bc24c1dfce7aed11bef13da7c44b202821",
       "sha256": "9bcbf3c2695437caa7b37ce64d6328d877bdd8948a2254e5867c8a9492bb5989",
@@ -2060,7 +2060,7 @@
     },
     {
       "sourceKey": "civil-construction-2/gakka-2kyu-doko/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\gakka-2kyu-doko\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "9fe4a2e90dce65b4db4a202c64f631ccbd00a76242e9037402899f26a85d42b9",
       "sha256": "c7d9cfb2d4e6b549ee405ee2b47622651ae9f94235e243434c5c100e498dd0a3",
@@ -2070,7 +2070,7 @@
     },
     {
       "sourceKey": "civil-construction-2/gakka-2kyu-doko/point-block1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\gakka-2kyu-doko\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/gakka-2kyu-doko/cover-design.json",
       "key": "point-block1-2",
       "specSha256": "e0ed353bd906e847ea499089ae81f4a0699dba242729cf934f5d26caa8165f57",
       "sha256": "4d8e9c09d0a60b1842309812871b1e6ffcb102ba29d7626af7bf2f4be693b86f",
@@ -2080,7 +2080,7 @@
     },
     {
       "sourceKey": "civil-construction-2/gakka-2kyu-hoki/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\gakka-2kyu-hoki\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/gakka-2kyu-hoki/cover-design.json",
       "key": "longform",
       "specSha256": "53cc8376efe87cfaae654672189e93d3042d34abf78cd46cc7c956fba628d66d",
       "sha256": "a17d23d2c76411009ae2574347b51931a9a9d168553e91d1d0f5278d1ecc9be2",
@@ -2090,7 +2090,7 @@
     },
     {
       "sourceKey": "civil-construction-2/gakka-2kyu-hoki/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\gakka-2kyu-hoki\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/gakka-2kyu-hoki/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "6d8cf08894af18c2b9a11e5a5c2bbe6404dc3ac301330ee3ccb160815f7d661e",
       "sha256": "5a3ea241b4f23fc48d567c7e7f1b9d49d0efb3f66b6470db0722ffdb3ddc546c",
@@ -2100,7 +2100,7 @@
     },
     {
       "sourceKey": "civil-construction-2/gakka-2kyu-hoki/point-block1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\gakka-2kyu-hoki\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/gakka-2kyu-hoki/cover-design.json",
       "key": "point-block1-2",
       "specSha256": "ac96ead215bd6b8d88f76da340e73bcf0890c4d3bec9e05c0bb3958deee14584",
       "sha256": "24250b6e78ddb3bcdd526969b5d92d26cbebbb95877ee2faabb89dd32c4cd994",
@@ -2110,7 +2110,7 @@
     },
     {
       "sourceKey": "civil-construction-2/gakka-2kyu-kiso/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\gakka-2kyu-kiso\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/gakka-2kyu-kiso/cover-design.json",
       "key": "longform",
       "specSha256": "4a9abf7388c2826e7254f707d1c62f22899039846790f88df33e58b1fb079d02",
       "sha256": "8907bf0bd6e2dbabf26bda73c5e398215680677317feea11e7836d7cc4a9c5c1",
@@ -2120,7 +2120,7 @@
     },
     {
       "sourceKey": "civil-construction-2/gakka-2kyu-kiso/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\gakka-2kyu-kiso\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/gakka-2kyu-kiso/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "60d480100dc4877feec20259eb330f955b47793c31c382a016f4411e1c614802",
       "sha256": "e36273f73c80eb6f5555c25404b19ffa9f9eef9290ce6fef59581fa81da71422",
@@ -2130,7 +2130,7 @@
     },
     {
       "sourceKey": "civil-construction-2/gakka-2kyu-kiso/point-block1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\gakka-2kyu-kiso\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/gakka-2kyu-kiso/cover-design.json",
       "key": "point-block1-2",
       "specSha256": "076316e2f60c8adf184559ba5f996ed6d0e1be44f388b51a42e2dd0b8300428c",
       "sha256": "90c0b04326e77877a25870cd5e9fa877412b2f5d9270bd6fc6e6a1e8a0f6177e",
@@ -2140,7 +2140,7 @@
     },
     {
       "sourceKey": "civil-construction-2/gakka-2kyu-sekokeikaku/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\gakka-2kyu-sekokeikaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku/cover-design.json",
       "key": "longform",
       "specSha256": "17ba24da864ce73c0b9efbadcf8ac0635d37998e39d6f9c6ec6fa89fd133d6e0",
       "sha256": "c35f14c598a2daeb3019c7aa1f7005499adc90a1d47293666652177dc7168b2c",
@@ -2150,7 +2150,7 @@
     },
     {
       "sourceKey": "civil-construction-2/gakka-2kyu-sekokeikaku/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\gakka-2kyu-sekokeikaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "b006b5eb9ee37866c1b9c1353de5c8d8d90a97236b62a4c3918f9c8803db9f61",
       "sha256": "0ad679887ed3ddcd846c03a1cd1519e2da754b5a16bf3c49de65be9928365a20",
@@ -2160,7 +2160,7 @@
     },
     {
       "sourceKey": "civil-construction-2/gakka-2kyu-sekokeikaku/point-block1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\gakka-2kyu-sekokeikaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/gakka-2kyu-sekokeikaku/cover-design.json",
       "key": "point-block1-2",
       "specSha256": "18a6ef767531006cc8d685795b0673c0477424e79bd48948e6a14173ee8a26ff",
       "sha256": "7b102a4abfd74dcbe2e406c7186f25e0fda7acc16d6292c5f367a936cbf7c017",
@@ -2170,7 +2170,7 @@
     },
     {
       "sourceKey": "civil-construction-2/gakka-kijutsu-2kyu/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\gakka-kijutsu-2kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/gakka-kijutsu-2kyu/cover-design.json",
       "key": "longform",
       "specSha256": "33e6a837f69a253edfb0e0af680a9f51427cd99fce43f38f7379fe8ad93f7cad",
       "sha256": "1e3e87970619754aeb15b5e62a37bdd54adfbd36e28cf7d1dac91f80a656a77b",
@@ -2180,7 +2180,7 @@
     },
     {
       "sourceKey": "civil-construction-2/gakka-kijutsu-2kyu/point-fields-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\gakka-kijutsu-2kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/gakka-kijutsu-2kyu/cover-design.json",
       "key": "point-fields-1",
       "specSha256": "bb4a94b72ae3fb03e8319ed73739ab9b8c1499bb237678896dc3775f9fdc6ddc",
       "sha256": "beb9e710eae92156c28301dbd62cfcf02aed7fd270320cf1d793a1bbb4eb6f6a",
@@ -2190,7 +2190,7 @@
     },
     {
       "sourceKey": "civil-construction-2/gakka-kijutsu-2kyu/point-pattern1-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\gakka-kijutsu-2kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/gakka-kijutsu-2kyu/cover-design.json",
       "key": "point-pattern1-2",
       "specSha256": "4909b50d0e9065f4ff72860225be1fb2e6f4d334a80d925e2a2b8e47d2a50cef",
       "sha256": "c6b5008f5605e29035bd2ffab24ccf18559403d0d69da6c036afdeacdcaa6f02",
@@ -2200,7 +2200,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-2kyu-level/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-2kyu-level\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-2kyu-level/cover-design.json",
       "key": "longform",
       "specSha256": "485e2dcebf58bdb149b8aa6e98c22ca69419ed1ba66103b1886c54ca4951bcd5",
       "sha256": "6f29c48fda1891c98dc68269c60fe718340f600d89185077c754bbe7afa0b572",
@@ -2210,7 +2210,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-2kyu-level/point-level-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-2kyu-level\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-2kyu-level/cover-design.json",
       "key": "point-level-1",
       "specSha256": "4e4f743b8d172a4ddffa2673aec17ed4ee19aeb9093f5834a6b4b8d1b044f377",
       "sha256": "b8f4684d6359aba7639a8e5ec69067fff89e1ff5100636da59f205694b739715",
@@ -2220,7 +2220,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-2kyu-level/point-kata-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-2kyu-level\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-2kyu-level/cover-design.json",
       "key": "point-kata-2",
       "specSha256": "277437f84aae7bd7e4ffd14ae0c7ac2e723f922961a5923f8438ba384be1886a",
       "sha256": "99a98c09cb02b6ceb7ae8ceeeb2ff5a34fb3f6633d33845fb06119a817235b05",
@@ -2230,7 +2230,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-anzen-2kyu-kakikata/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-anzen-2kyu-kakikata\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/cover-design.json",
       "key": "longform",
       "specSha256": "e9cc70c56b96d6fae013b3eb3f89365b2ac77cf8f971aa94c7a003f07a9e9133",
       "sha256": "12292a1481980352df3907298554c52494236b8712e4ab5fdfdd8921cfb2eb2e",
@@ -2240,7 +2240,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-anzen-2kyu-kakikata/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-anzen-2kyu-kakikata\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "1147df3515b6cc45e3bb2244dc940ab3b3c2e95ac1e67954d1e16d01fc50c473",
       "sha256": "4b04929be6593067ca388fc0139085d9106e7e52bb642e9a5acd897adfb3510f",
@@ -2250,7 +2250,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-anzen-2kyu-kakikata/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-anzen-2kyu-kakikata\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "f93197f615df9011518d95b92766718f61588f80fcd963f3779f2ae4bfc36505",
       "sha256": "c5520e2c1aba341d6d9a5524d4191551efc6f6a4d6c72a0b75bc0424467d436e",
@@ -2260,7 +2260,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-gaiyo-2kyu/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-gaiyo-2kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-gaiyo-2kyu/cover-design.json",
       "key": "longform",
       "specSha256": "4e4866e7f0f9ae70a6f4a4f2cce501673aa9013259b1c236d6d089449729d235",
       "sha256": "0f4a7de853c637026a5560e9879aefb8542815949d55cc5b0031a303071a1887",
@@ -2270,7 +2270,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-gaiyo-2kyu/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-gaiyo-2kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-gaiyo-2kyu/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "b8870fda3c064ab1bc9fa9ed03915a14209c14a2ba45a58fdd0fe22ef3ec64d2",
       "sha256": "3e43d20e73e394a5a7ab5e5a5efe918aa2af2d661f71b3ccf6af5c8e75e3ec04",
@@ -2280,7 +2280,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-gaiyo-2kyu/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-gaiyo-2kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-gaiyo-2kyu/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "72bf85a79e2825d3c87d0f0b78e52f5697af86d6380ee34ffc6dcfbfdb2762a9",
       "sha256": "20aa8607db8dbbe36ebd97029af63e8b2db6ba3d22c2b45a6bb9e31b6537ae5a",
@@ -2290,7 +2290,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-genten-kyotsuten/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-genten-kyotsuten\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/cover-design.json",
       "key": "longform",
       "specSha256": "48b61173f935eea0bf4fb239eb9a83e77499f00f507aa19188bc1ea83ef86f51",
       "sha256": "3e9b681d353bcc5ae716c33bfbe115b292616569d1c9105e45a84b1b00bc87e8",
@@ -2300,7 +2300,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-genten-kyotsuten/point-taisai-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-genten-kyotsuten\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/cover-design.json",
       "key": "point-taisai-1",
       "specSha256": "259e511438145549a2d1c2bb822ca1ab185d14526932039b4459e4af5cc43dbe",
       "sha256": "64caa9a138d6019f177c0ad9aa5dab0bc313bb48dfb706f669b9f1587489e91f",
@@ -2310,7 +2310,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-genten-kyotsuten/point-kaigyo-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-genten-kyotsuten\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-genten-kyotsuten/cover-design.json",
       "key": "point-kaigyo-2",
       "specSha256": "02c10351c69b03361dbdd660af0b744395f7c36666d4f8f73ff3810abcd3e8c3",
       "sha256": "67c485be2fca0da724751bcbaa2ffe1b9a9d581e066dee1f9e0c6c64f7861d4c",
@@ -2320,7 +2320,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-hinshitsu-kakikata/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-hinshitsu-kakikata\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/cover-design.json",
       "key": "longform",
       "specSha256": "ffd2d9af5b466590cb6af45f30bc05eec65d9aecbe67a9acc38ad5f543cc71ca",
       "sha256": "2079b50cfbeda69589fe73005bf031c3c4cacf65d698d1ac7f0ba52223fb2deb",
@@ -2330,7 +2330,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-hinshitsu-kakikata/point-nagare-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-hinshitsu-kakikata\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/cover-design.json",
       "key": "point-nagare-1",
       "specSha256": "a5736a3f2331fd321805e40da06666cb273ca6d3379e893be6d75174b3c4c00e",
       "sha256": "3b96ee3b03c9312776f31da9bffb0ef0886e29a8b80dbffbb698210fc2e99ce7",
@@ -2340,7 +2340,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-hinshitsu-kakikata/point-kadai-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-hinshitsu-kakikata\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-hinshitsu-kakikata/cover-design.json",
       "key": "point-kadai-2",
       "specSha256": "6a9caba74bf06c00ace1ba032a62ca0460d53841da7926c43b2f4107f716b14c",
       "sha256": "ac082c201cbc000338a7d9c50e4dc2478c2e0d75027e8d18855c509a982fc4ef",
@@ -2350,7 +2350,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-koji-ga-nai/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-koji-ga-nai\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-koji-ga-nai/cover-design.json",
       "key": "longform",
       "specSha256": "c26f4bda6c6fa77d4fc4215beea0adcca7feb9ad5b40aaf510290bdfc05b0b97",
       "sha256": "9a6765d9e8e01aac3ac2c23990b8895518090c8333c1546a7ad7222425261d04",
@@ -2360,7 +2360,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-koji-ga-nai/point-taisho-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-koji-ga-nai\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-koji-ga-nai/cover-design.json",
       "key": "point-taisho-1",
       "specSha256": "d3a8cf826034d3c2cded47fc11556e3994db5176bf82e749e96b185e52077e5d",
       "sha256": "752f68fa0ae2f73bfc90ad8e2c0f4317cba37e58ecf0c1cea11834b4fc6a7ab4",
@@ -2370,7 +2370,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-koji-ga-nai/point-taishogai-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-koji-ga-nai\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-koji-ga-nai/cover-design.json",
       "key": "point-taishogai-2",
       "specSha256": "47cf73fd03771df2f86fd9ae7dff53332f9ba2b851616dff41f43b925efb1b47",
       "sha256": "aa03d38e4d3b82adb9b22518325cf009e5d9f480ea16ea0f16a72a4e9404ff5e",
@@ -2380,7 +2380,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-kotei-kakikata/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-kotei-kakikata\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-kotei-kakikata/cover-design.json",
       "key": "longform",
       "specSha256": "7d13c759c699bdd948238ead8243386458dc26c13bebc20851732202cce65887",
       "sha256": "ba6e3b82f7afd2c7512736f78f3c0d3b7ff09716e1e52675efb11249cc80b6e3",
@@ -2390,7 +2390,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-kotei-kakikata/point-nagare-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-kotei-kakikata\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-kotei-kakikata/cover-design.json",
       "key": "point-nagare-1",
       "specSha256": "c7181510d6fe95981bccf75faaabdbb4894b872068c9f390e4d5c23c16f74f8b",
       "sha256": "f164769d1990266eb9d63adf27aae38f6bbc1a857309ee8ce65de754beeda693",
@@ -2400,7 +2400,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-kotei-kakikata/point-tenko-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-kotei-kakikata\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-kotei-kakikata/cover-design.json",
       "key": "point-tenko-2",
       "specSha256": "b99bdddacb5c8ccb9d08817d795d6b342190ff4956653bb3120d2ca3375c9da1",
       "sha256": "36330dcc21bf14cea8541c1b871fd3c39ba7e3b88e9320d9aa9f0799e76f0593",
@@ -2410,7 +2410,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-nendo-keiko-2kyu/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-nendo-keiko-2kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu/cover-design.json",
       "key": "longform",
       "specSha256": "8727eea2632c366f4da058aa2b05caac4dbca16a9217960af50ff8e2809bb449",
       "sha256": "041fc433ceb7a699ab790da27f4343fc205bd6eeca9c1df820335ae5f7c98b95",
@@ -2420,7 +2420,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-nendo-keiko-2kyu/point-theme-shift-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-nendo-keiko-2kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu/cover-design.json",
       "key": "point-theme-shift-1",
       "specSha256": "54310677f046b0d5e995b030d1baa2bd91f04d734eee377c6cfecf683525bb8f",
       "sha256": "969da8ee5ea417fb8cdfde18f4e0c6f0900c0ca7c1e4ae78820105ec0de66b07",
@@ -2430,7 +2430,7 @@
     },
     {
       "sourceKey": "civil-construction-2/keiken-nendo-keiko-2kyu/point-gakka-fields-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\keiken-nendo-keiko-2kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/keiken-nendo-keiko-2kyu/cover-design.json",
       "key": "point-gakka-fields-2",
       "specSha256": "1aedf2f5d843e8bab531b94811be06e3a907657ab11003f81c7e5a4d058c1917",
       "sha256": "175075ef1e147a91356f94adb5cfc16a4fac91e5f9138ca4c41d372847210bce",
@@ -2440,7 +2440,7 @@
     },
     {
       "sourceKey": "civil-construction-2/kikinagashi-2kyu-matome/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\kikinagashi-2kyu-matome\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/kikinagashi-2kyu-matome/cover-design.json",
       "key": "longform",
       "specSha256": "0f91178803ba8ca5472b7406220e4ce75b3a1961b75d51d9ffe596bb5b0591ca",
       "sha256": "9e95cb2f0246ffaa154779986043a33fa4f78437b7517ab9f8cdf18cde20d3d4",
@@ -2450,7 +2450,7 @@
     },
     {
       "sourceKey": "civil-construction-2/kikinagashi-2kyu-matome/point-soil-tests-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\kikinagashi-2kyu-matome\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/kikinagashi-2kyu-matome/cover-design.json",
       "key": "point-soil-tests-1",
       "specSha256": "8a1dc12a4ef182981bb38fe72fd12cc2dcef5143d8bf59f6de15090d60063424",
       "sha256": "7f806cbf8c30320cf78fa921252e025827b53feed55690ee627bbaff80f684b3",
@@ -2460,7 +2460,7 @@
     },
     {
       "sourceKey": "civil-construction-2/kikinagashi-2kyu-matome/point-soil-volume-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\kikinagashi-2kyu-matome\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/kikinagashi-2kyu-matome/cover-design.json",
       "key": "point-soil-volume-2",
       "specSha256": "e388c8f4c7c4881659f371937ba2e8a270314494f3d4d1534a86be1bd8784dd0",
       "sha256": "c35065e1b220c993c2567b62500d41cdc926ba95d62704e2966a9137bff80f63",
@@ -2470,7 +2470,7 @@
     },
     {
       "sourceKey": "civil-construction-2/nikyuu-gaiyo-roadmap/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\nikyuu-gaiyo-roadmap\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/cover-design.json",
       "key": "longform",
       "specSha256": "8ca36a8b607214374531f1fb0cb58d71c6dd88cc4fe0aa84aa3367a7f1cc63ed",
       "sha256": "6645769931cd30a719ffdecb4c0592f30d08ba90b25f4af6b38c146d6cabdb3c",
@@ -2480,7 +2480,7 @@
     },
     {
       "sourceKey": "civil-construction-2/nikyuu-gaiyo-roadmap/point-stage-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\nikyuu-gaiyo-roadmap\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/cover-design.json",
       "key": "point-stage-1",
       "specSha256": "5dab5f5136713dfc77105d04cb924fd71101cb875ea6f66cc84241b5e412bec2",
       "sha256": "fa265989da212ff9ab3f5cd004f86240667bf8f9a82b71ade2368c1ecd202d1b",
@@ -2490,7 +2490,7 @@
     },
     {
       "sourceKey": "civil-construction-2/nikyuu-gaiyo-roadmap/point-qualification-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\nikyuu-gaiyo-roadmap\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/nikyuu-gaiyo-roadmap/cover-design.json",
       "key": "point-qualification-2",
       "specSha256": "01f22c7a21bc0b8f93a1443d51736aab246a064c746958721bba13e928fc032e",
       "sha256": "eaa4b9603a5cf49d0fc7d00d48f4018f14062ed31ee8c3448fddb533d58f4ef5",
@@ -2500,7 +2500,7 @@
     },
     {
       "sourceKey": "civil-construction-2/study-plan-2kyu/longform",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\study-plan-2kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/study-plan-2kyu/cover-design.json",
       "key": "longform",
       "specSha256": "c944171fde09c144bcbec5c1c7f9e81f10f1825e2ebeb7ae2862aa6d929bff53",
       "sha256": "368501dec23e631cd4157b5cabd135a9a1be024d096c710ad43bc2024d912f4a",
@@ -2510,7 +2510,7 @@
     },
     {
       "sourceKey": "civil-construction-2/study-plan-2kyu/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\study-plan-2kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/study-plan-2kyu/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "52d4c520d3f54ccbe244b7019c308c229f3808caba01ad4474bef83df6b7a88c",
       "sha256": "bc22efba0fbca3fbb5cad4375ecc9a621d91e6abff0bfd8ad30d27b5267e7ee7",
@@ -2520,7 +2520,7 @@
     },
     {
       "sourceKey": "civil-construction-2/study-plan-2kyu/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\civil-construction-2\\study-plan-2kyu\\cover-design.json",
+      "designPath": "content/sns/video-packs/civil-construction-2/study-plan-2kyu/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "968133c95b5faa7b678aaacba72cd559b41a51db6cdd581260824b33f81be95b",
       "sha256": "0151e6c7ed20cfd433a6f333f8f88db8dcb12c1fdc07ae6fd76e4d56a5e8221d",
@@ -2530,7 +2530,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/kikinagashi-shunin-suchi/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\kikinagashi-shunin-suchi\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/cover-design.json",
       "key": "longform",
       "specSha256": "82c255c8f13e2892eec66d440af8abeb2cfd1159b79009a87585a34a8c2225cb",
       "sha256": "fde806a0d5192ac5f3f60325a053ca03164dc1d37228ca1519864339584ccdfb",
@@ -2540,7 +2540,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/kikinagashi-shunin-suchi/point-wc-ratio-1",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\kikinagashi-shunin-suchi\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/cover-design.json",
       "key": "point-wc-ratio-1",
       "specSha256": "0224e40e1dc6ee534b8522140e4c7a34648dbd06f22f5b71c22cffc7b954a5e6",
       "sha256": "ffd483a9fcfe8c71192d3a174a6e982e432fa5a7f470b94c93670bedfa0709cf",
@@ -2550,7 +2550,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/kikinagashi-shunin-suchi/point-tanni-saikotsu-kuuki-2",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\kikinagashi-shunin-suchi\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/cover-design.json",
       "key": "point-tanni-saikotsu-kuuki-2",
       "specSha256": "6ca8a320bc316037d96e1d1d535f2a451375aeebd2ee19b47db308bc5c248675",
       "sha256": "697d6a314cfc5ccdd1ae5e8ebff24511ce23ac072f9f4abecc30b2924ded4094",
@@ -2560,7 +2560,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-chokuzen-senryaku/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-chokuzen-senryaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/cover-design.json",
       "key": "longform",
       "specSha256": "cd349a48c1360e9282592a8313dc90ac3a9f9f0dcc2c7df1249eab8474f905ae",
       "sha256": "eb0d6afe8ef3e2a73d59eba14324f7c93d1c5ee0a9b3d7da88c9610f3d2c4f79",
@@ -2570,7 +2570,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-chokuzen-senryaku/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-chokuzen-senryaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "7eaf15d72cf46f989af48a90d0f5bf5425f8bb6274fe84a6c561d5939874331b",
       "sha256": "525fe3663b3b7b15b3bea540538975157cded8ecc037454b86befd29f8b7c29b",
@@ -2580,7 +2580,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-chokuzen-senryaku/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-chokuzen-senryaku\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-chokuzen-senryaku/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "a888e95ef43a3434d441b3d6700a5fed9037fff1066d7b5f5b380f6d557c30ab",
       "sha256": "9fd923eab951bb3da7253cbc478d86251f62129b5b666d818230dbdcabd74b61",
@@ -2590,7 +2590,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-construction-ronten/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-construction-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-construction-ronten/cover-design.json",
       "key": "longform",
       "specSha256": "4450f4bceb894ef4b75817784093e0828c54897bbbbfd1ab2872997af53ecadf",
       "sha256": "ed1cdd327b920f7e2bf68a86b98d107e3b1a60f60237c75ba968dcdd2015ff3f",
@@ -2600,7 +2600,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-construction-ronten/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-construction-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-construction-ronten/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "dac19c7b4a3cee376d1a12296004a94b88533affde58dae020058092f7db72d3",
       "sha256": "f301ee94b228c50a1c271315ffdc4e504db51c18e1ee62fdc64aa1ac702bb7f9",
@@ -2610,7 +2610,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-construction-ronten/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-construction-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-construction-ronten/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "90bd1ba66214e98f7dfc4304ce643089dd7694902b01b207471bc4de25cee063",
       "sha256": "e5518a0afe423078f804f267ed08d1975ad11116f9d9d68c7d9adc17f854152c",
@@ -2620,7 +2620,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-durability-ronten/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-durability-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-durability-ronten/cover-design.json",
       "key": "longform",
       "specSha256": "e85d006e417c74221fa9c3159e293a46f2b3e523483f51ef671ac8c07183ac6a",
       "sha256": "4dcee18f434f4f1c14940c7be88c08937fe56e97e7a7776edb9570049d4ab600",
@@ -2630,7 +2630,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-durability-ronten/point-carbonation-1",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-durability-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-durability-ronten/cover-design.json",
       "key": "point-carbonation-1",
       "specSha256": "1d6ffc44bc3e64bf03b320215733b545ce08b1452349a6044af15c97a6cbbdc2",
       "sha256": "692c72f1a869425ebc98a892808bb543fdc3dc3c7f51bebc79d578fa9984ebda",
@@ -2640,7 +2640,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-durability-ronten/point-salt-2",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-durability-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-durability-ronten/cover-design.json",
       "key": "point-salt-2",
       "specSha256": "36c0acdd52404a1731c18630cd4a9bab52d975dc721997a957d0aca77a52dfdd",
       "sha256": "6a13ad80868f36ec4793cb6bc417e860d846284d924222f5cfe18a6ab4d06b5a",
@@ -2650,7 +2650,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-hinshutsu-yusen/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-hinshutsu-yusen\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/cover-design.json",
       "key": "longform",
       "specSha256": "cf0e14cdf763a8d6c26106c6f519132def8c033243ec5c00928d287c2d9c410c",
       "sha256": "cc4ef4186714ae653abf79a85a467bc9cf88d91f3bb3630c799bdb09710169dc",
@@ -2660,7 +2660,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-hinshutsu-yusen/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-hinshutsu-yusen\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "4f9a0be474562686ff7825d9e6b523f1d25726beb27b988544bdc19b50fb83ef",
       "sha256": "17a091068615f66586d7a45cbf7b019e5eaa9354265f24ed059757f80c416056",
@@ -2670,7 +2670,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-hinshutsu-yusen/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-hinshutsu-yusen\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-hinshutsu-yusen/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "e4ebe0a3f9d60731a66930486391823068d693f7bb41d03ac64fc5126b39b8ee",
       "sha256": "b369d1e884ed7d46c7e4ee848001657a3bbf79fadf0fe553d20a7ddd99a27d4c",
@@ -2680,7 +2680,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-materials-ronten/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-materials-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-materials-ronten/cover-design.json",
       "key": "longform",
       "specSha256": "d1c11022c1f6052152b90ef3a28e17dedd11517a1a8715e1ce8d43a6aeb5f7e4",
       "sha256": "fd66e1ba9162ed3504fb5702dc779e6321b1c80215c290bd8ffb945d0196d9b9",
@@ -2690,7 +2690,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-materials-ronten/point-clinker-1",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-materials-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-materials-ronten/cover-design.json",
       "key": "point-clinker-1",
       "specSha256": "463af48bcf1776b97b17523440242be8058f8fa770f86faf82ff64154e5004c4",
       "sha256": "bafae37f4552b7c8d7309649dd80afdd220471efeff4694dff79632490584288",
@@ -2700,7 +2700,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-materials-ronten/point-cement-types-2",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-materials-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-materials-ronten/cover-design.json",
       "key": "point-cement-types-2",
       "specSha256": "f8faa2b231889e23cd4e009ea94fdef2b6b6b28caed6dfca8685f5b9a681b4f7",
       "sha256": "9017c9aaa72793a8e8cccd96ad4eed552abce63ccb01021b3a1d15aab8c29172",
@@ -2710,7 +2710,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-mix-design-ronten/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-mix-design-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-mix-design-ronten/cover-design.json",
       "key": "longform",
       "specSha256": "e5432646e76363e81570f4c73746236835f1196497e70c134d58b85e82496553",
       "sha256": "0486daaff07a8d95a36c1a0da15cc6956d52e3b4497fc1336da3fa6048403c6e",
@@ -2720,7 +2720,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-mix-design-ronten/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-mix-design-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-mix-design-ronten/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "c87669de0aed3314fa27938971e9694652aeda0876b6f05e917e9855feb8248f",
       "sha256": "ab5c02656be9898f2d8e5094757131f4322fe3055c114668d73f250e2a7ccff6",
@@ -2730,7 +2730,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-mix-design-ronten/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-mix-design-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-mix-design-ronten/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "dc2b244bd783aab3282967e3bd664d7dff70da9f819d228ac5bbb90b5a7de94f",
       "sha256": "6d0d2efbe6079a864f60492348f108da0e769017b4f28794853c5548a8641a29",
@@ -2740,7 +2740,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-ochiru-shouronbun/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-ochiru-shouronbun\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/cover-design.json",
       "key": "longform",
       "specSha256": "01e88c0e6edad227a3e7ac17c6bc0f6be491c84dad615cbec7747c8ed416284f",
       "sha256": "ecec1d87f7096f4c08cbe7ccf8cd1f3f30f0c579024d5aea188644544ce659e3",
@@ -2750,7 +2750,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-ochiru-shouronbun/point-ippan-1",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-ochiru-shouronbun\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/cover-design.json",
       "key": "point-ippan-1",
       "specSha256": "8539b5a374d556a83fc85c436cb37d573c26b75285a7960902a631bbda3420b6",
       "sha256": "31e7c4eccf7853dd11ae677802633f15bef3d069c95c480a9ba2bf5218cb4907",
@@ -2760,7 +2760,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-ochiru-shouronbun/point-chusho-2",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-ochiru-shouronbun\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-ochiru-shouronbun/cover-design.json",
       "key": "point-chusho-2",
       "specSha256": "37bdfa12fa6820239ef5d6bf33f2853665aa9db3b745ffbf5823cc4a33124488",
       "sha256": "cbc97b40bcc8b731d0271aaecba642bf774dfe1fdb21e112dc67fbbd958fda08",
@@ -2770,7 +2770,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-production-qc-ronten/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-production-qc-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-production-qc-ronten/cover-design.json",
       "key": "longform",
       "specSha256": "1b87cccc1b2887504e949bc14372d371f1c4673cd3a93866dc5cca457c3d7f70",
       "sha256": "19c85fee75c1d2e7519c5e3809dda70aaf513d4f8606c54314169737c2d13c90",
@@ -2780,7 +2780,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-production-qc-ronten/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-production-qc-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-production-qc-ronten/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "f8717b07304c3b3876b66e90479f0a329a13491baf2ae85ef43943dd5db190c8",
       "sha256": "04f0cd83da28d529aea8cc80a8a585bb69579cd4d09ad158d91d85a8bdf6d9b6",
@@ -2790,7 +2790,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-production-qc-ronten/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-production-qc-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-production-qc-ronten/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "18f386c882bc66b30b3afbe45c0b376375199572df9b2cbab15f7ae0edc4e8a3",
       "sha256": "468f369dd7e04e4e5ef4665b6a4239957086d18a323a776151250080476cd004",
@@ -2800,7 +2800,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-products-ronten/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-products-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-products-ronten/cover-design.json",
       "key": "longform",
       "specSha256": "e7f854839c1c9cca27f13fd1aeb8ca2720a4a8cb17de554fdc99f698f6cf2367",
       "sha256": "166be627af96900fd4d49e01640cf27e2adf541d5e561ab02397f7a794ebf5a6",
@@ -2810,7 +2810,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-products-ronten/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-products-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-products-ronten/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "b0c5a0f5361f96fde2499863bcd9fe277796e0e87b27e1d78cdbee42646988d8",
       "sha256": "282ac31f8b95cf8a4ef8c073443a2e6c5e9e8c456325dc99439ae60c10b1d826",
@@ -2820,7 +2820,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-products-ronten/point-method-match-2",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-products-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-products-ronten/cover-design.json",
       "key": "point-method-match-2",
       "specSha256": "8868ba0ca6939a4ecdf9a66eeef7cae432523467a1957b01a05ea3705a5d0057",
       "sha256": "f580c7429f998467a85b636914f4dfc0cb86499f50b720432b667c72f806a0a1",
@@ -2830,7 +2830,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-properties-ronten/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-properties-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten/cover-design.json",
       "key": "longform",
       "specSha256": "318b4d8c7ff22098433a44f747f48030a276eaf0e34a92fb37813e033b72824b",
       "sha256": "df08698307a8b5229d8ff8a2a6788813ee3d1798056d8a7d17fed638a03b374a",
@@ -2840,7 +2840,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-properties-ronten/point-consistency-1",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-properties-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten/cover-design.json",
       "key": "point-consistency-1",
       "specSha256": "33377386d6f5450f7dfb7f8b044479b164970ca616811e2e2ae27f18f3a27093",
       "sha256": "031fe1392f92e318d94067fd1e7427620ffaee1ce12c8359b6a828c10ae258b8",
@@ -2850,7 +2850,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-properties-ronten/point-bingham-2",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-properties-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-properties-ronten/cover-design.json",
       "key": "point-bingham-2",
       "specSha256": "c066b4ccd7aa17ee8bec5710d369f592d352c8e07e31feb4569465b2298653bb",
       "sha256": "407f4e9db0c0ee4493d424b7cdfeaea274ccf27da8bf8644a50928848c50bea7",
@@ -2860,7 +2860,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-r8-juuten/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-r8-juuten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/cover-design.json",
       "key": "longform",
       "specSha256": "d4c9a3ce547b77d8d72a7b25635a5450dac152083d543d9cdaaa3500c14129a9",
       "sha256": "f8fd7e98d49cff36beb6774ae5f402eba6475ec0974aef7a5dcb7e8753219657",
@@ -2870,7 +2870,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-r8-juuten/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-r8-juuten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "84206e9108bcb218b1a86b199322a6c26573ad9f021d2445fc334902bf018aca",
       "sha256": "ba82519898dbbc53ad04184a78fe38353529dd8dddbdebbeee245903275a02cc",
@@ -2880,7 +2880,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-r8-juuten/point-four-tiers-2",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-r8-juuten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-r8-juuten/cover-design.json",
       "key": "point-four-tiers-2",
       "specSha256": "82e0138c848fea94d7ace55030e73b22d00c55a1007a7b7d93b669b379a5c152",
       "sha256": "10178dfa2bd05d5396f0963a4674b2d7144d061bb0dc0ca51fb7d6fc3d65298b",
@@ -2890,7 +2890,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-shiken-zentaizou/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-shiken-zentaizou\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/cover-design.json",
       "key": "longform",
       "specSha256": "7f6561cdca15173ad5b8d6b3711b3ffce8baf861ee5db9c4bd915baea2392f74",
       "sha256": "ebcff5028a68801ec22826c74adaa7c31054d3271992cb5cf59c7db50e943e3a",
@@ -2900,7 +2900,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-shiken-zentaizou/point-overview-1",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-shiken-zentaizou\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/cover-design.json",
       "key": "point-overview-1",
       "specSha256": "ac6313c418caaf521a9a7fb930805ac527b2f224d8af09780371e9447740ab5c",
       "sha256": "eeff7e2808091f0fba5dfb39345880486a0e40c0c4a7950091e33fc08168c31a",
@@ -2910,7 +2910,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-shiken-zentaizou/point-step1-2",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-shiken-zentaizou\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-shiken-zentaizou/cover-design.json",
       "key": "point-step1-2",
       "specSha256": "05dbbf3ed865f763ca3f51fcd13ff6ad680530c3da1edb6855a11947475a5739",
       "sha256": "1fe904cdfa6f878793bc532e3bfa1412b4fb35ea8f1af6042bf32fa54f61e0dc",
@@ -2920,7 +2920,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-shouronbun-kousei/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-shouronbun-kousei\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/cover-design.json",
       "key": "longform",
       "specSha256": "d154c3ea845889a3b4e60de02c7b59f94ea517eedf4d5824505f76a6626c681e",
       "sha256": "a51b0104364717c7453d192bce5c2ebdaa220d2be1f7c11dbb0449438db737a9",
@@ -2930,7 +2930,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-shouronbun-kousei/point-kanten-1",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-shouronbun-kousei\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/cover-design.json",
       "key": "point-kanten-1",
       "specSha256": "69130d5db0f6cecaa29dcb91305726127069e817c822c6ab49aaf943b0361bb5",
       "sha256": "ee0bdb4b8591a881f7c32ce5808732d2deef85ffd0da6f3ae7bd9afb6514c7c4",
@@ -2940,7 +2940,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-shouronbun-kousei/point-kousei-2",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-shouronbun-kousei\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-kousei/cover-design.json",
       "key": "point-kousei-2",
       "specSha256": "cbc45b4f7ae8d037a050e06ed7197ae05ba80be2a44e52dfeed5e0f2332d9908",
       "sha256": "dc94c8b7853119e2410abdbf41f43d23fd174ae66e1816807a0f4d88d3a84569",
@@ -2950,7 +2950,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-shouronbun-theme/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-shouronbun-theme\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-theme/cover-design.json",
       "key": "longform",
       "specSha256": "4d1bea982208c41b344d440934d54c04e4d5e830ea3e9a62f5ebeb273261ae0a",
       "sha256": "646b6386713cd34e8e0f966e63126bf2b6da6dd4221c4ae5652ae14daeca97b3",
@@ -2960,7 +2960,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-shouronbun-theme/point-nendo-1",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-shouronbun-theme\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-theme/cover-design.json",
       "key": "point-nendo-1",
       "specSha256": "30b5147d1e2a6735dd4b61a646986842562696a741d01cae62d026c93d093317",
       "sha256": "08171c1a3040d1e56f353cb1802f371c5e4c49f945cfb39b731a72f0746580a2",
@@ -2970,7 +2970,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-shouronbun-theme/point-ryouiki-2",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-shouronbun-theme\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-shouronbun-theme/cover-design.json",
       "key": "point-ryouiki-2",
       "specSha256": "191a50a5a999fcba2c56f2aae75e8d7217963673e783fde00b5cfc59f0df55ac",
       "sha256": "d9d731eddfb5db10553dd799b849a9780461d709f5dcc11a8dc38efce21810fb",
@@ -2980,7 +2980,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-structural-design-ronten/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-structural-design-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/cover-design.json",
       "key": "longform",
       "specSha256": "94853c4a0db5d97a1d0111baff12579eaa52176d153e4d2eeb975fbf4579bb52",
       "sha256": "02cca8c5d14ecd61826c3d9c7a3257a1d601ea8853a1c1561d43e32a64336155",
@@ -2990,7 +2990,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-structural-design-ronten/point-bending-assumptions-1",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-structural-design-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/cover-design.json",
       "key": "point-bending-assumptions-1",
       "specSha256": "3cb1be1257c13491c5ba078114cb4f03530051dca38c5f31aec3ebe98038b389",
       "sha256": "61d8557248f60e1718e1a802a56c2e0b1ff671fc22e314497f8d008d7691ff95",
@@ -3000,7 +3000,7 @@
     },
     {
       "sourceKey": "concrete-chief-engineer/shunin-structural-design-ronten/point-shear-capacity-2",
-      "designPath": "content\\sns\\video-packs\\concrete-chief-engineer\\shunin-structural-design-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-chief-engineer/shunin-structural-design-ronten/cover-design.json",
       "key": "point-shear-capacity-2",
       "specSha256": "1dbdd2becc682e7b01587af4a942af6acf997ee9d70d6a34445799ed107905b2",
       "sha256": "6a6eb67a3274e408c70261d4efad8a3b63437febff11442c84da85cfcf5bf989",
@@ -3010,7 +3010,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-12week-plan/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-12week-plan\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-12week-plan/cover-design.json",
       "key": "longform",
       "specSha256": "cf41d3341a98f541584177d7498585e4557943211d9e3e1f576ed9c2ecc4d5ff",
       "sha256": "38f7bd85f5a0969f8f4dd254321cd405e495f8abea7170e0f1012524d19a81db",
@@ -3020,7 +3020,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-12week-plan/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-12week-plan\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-12week-plan/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "51bacee1249d804dddd64031accc8321820781509b5a3091fa9825b624d03667",
       "sha256": "5f54ab0b09cb177a2c2e21cec6894e85f46c1235423104e57b420e0de9682b2a",
@@ -3030,7 +3030,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-12week-plan/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-12week-plan\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-12week-plan/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "5caebec4edbb6d08cae73c3405cc63a694e777439bfa6070cd05dcd000180728",
       "sha256": "3ccbf0f2df7c2fc1bfee43eb71a27da7af870dc0e2e0c9e85cf1d0be8d44e979",
@@ -3040,7 +3040,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-construction-ronten/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-construction-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-construction-ronten/cover-design.json",
       "key": "longform",
       "specSha256": "e6695f06cd5bb919455df64d4ad100b6d7996dd69943e0358f1e1b0bf5ff2f1f",
       "sha256": "323c90ae36f38ad9489ea1c21b301e343aa0e7023e25dacd4d2010a20754d34e",
@@ -3050,7 +3050,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-construction-ronten/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-construction-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-construction-ronten/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "8e6d80ae02fd71e340fb7ae70b49e4a693ade3e0386c9dfc9e9c0407c6dcc90c",
       "sha256": "6bfdca0acaccf5ca29f13b75f2db99a8d11dd63c8852360f18912fb9ca2cb0e5",
@@ -3060,7 +3060,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-construction-ronten/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-construction-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-construction-ronten/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "69845f60e862df9d586d43dca356bcb59ddafe71c7890367a15ae03f0d063ccf",
       "sha256": "b9fe2e103c26b4353ccfb28277c6806ba06750017f362ccd436469613ee7ca39",
@@ -3070,7 +3070,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-environment-ronten/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-environment-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-environment-ronten/cover-design.json",
       "key": "longform",
       "specSha256": "de4a88ff347eb93393e2fb8b0a173da62053cb8c17ac78857b6c0f3836e7b7a2",
       "sha256": "7a4549c4e50117e091900d64d3182c201ba0a7e6c9111f5cd63e7d68d1528072",
@@ -3080,7 +3080,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-environment-ronten/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-environment-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-environment-ronten/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "17c26ae3d675efbedf4d31c86417f4eea8701d2cd526e0ec7ac4db8ec7fe7425",
       "sha256": "c55283b482c6708c9c417d45c9414b748af8e75e1971a0886bf0c23be52345f7",
@@ -3090,7 +3090,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-environment-ronten/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-environment-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-environment-ronten/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "20d743fc8f9b2188a8a63c60d05e602ab4e8d6ba6dcf069a79992b17d06510c7",
       "sha256": "c00e025bd267a96529fc7d1b2168d6f982841e477d347cb9a1192c463050c26b",
@@ -3100,7 +3100,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-haigou-keisan/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-haigou-keisan\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-haigou-keisan/cover-design.json",
       "key": "longform",
       "specSha256": "77a7cbf9907fa6e48b82b29ca272869ac74b619046f8d89e77a47379f0d5385c",
       "sha256": "ca6a513bebbe206d3f73f224ad96be25868164280b31ce5009faf16ada7ac598",
@@ -3110,7 +3110,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-haigou-keisan/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-haigou-keisan\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-haigou-keisan/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "bd22cd3d42887606dcb685a34a4ec39294aa0bb74ddc819f4ded0cff23dee13b",
       "sha256": "c95b2b5653dcb319e5a980293c426568feb525a276000e98a267cebc6b17e3fd",
@@ -3120,7 +3120,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-haigou-keisan/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-haigou-keisan\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-haigou-keisan/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "4ab9cc3b772cd126adcab151abc07fe525e66b3f3eab6bbc5b528db0945099a4",
       "sha256": "ab1089e7c75c8ffda228fadfac70a040d1e35f706587a976d6c060c3b4a63239",
@@ -3130,7 +3130,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-jis-handan/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-jis-handan\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-jis-handan/cover-design.json",
       "key": "longform",
       "specSha256": "365ed74f87c6224cd018532123ce9183ff0655ef328a7ddcb76710aa51e09ace",
       "sha256": "ff31f67cc8f7b0a5800b4bf4e75e20b636218f10d2c709592fd7caea577869fc",
@@ -3140,7 +3140,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-jis-handan/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-jis-handan\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-jis-handan/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "4db3abc699ac2940ebcc776e2b6bc7c6e799a4c27e4e332200c741120e668985",
       "sha256": "02795840bf2a7c357ca70ada610555117b555ced61062b1e0268abd1006f8b0c",
@@ -3150,7 +3150,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-jis-handan/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-jis-handan\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-jis-handan/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "535574c27cb2e9f4d0bb40435caa21300662c4059a66019688d11ebbde106147",
       "sha256": "61f14eed0b399248c3adc41859268ce20664d87560e5ee8fedce3b308ee95abb",
@@ -3160,7 +3160,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-jukenshikaku-2026/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-jukenshikaku-2026\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-jukenshikaku-2026/cover-design.json",
       "key": "longform",
       "specSha256": "febb8966e2d7490da0faeab4044c1750ba5c88f0910c36c357bde9cae5aad877",
       "sha256": "60fe2e702dad3f2edef3b43d353f90275a47bb3c5bf6d9b1ac55d276dffdb991",
@@ -3170,7 +3170,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-jukenshikaku-2026/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-jukenshikaku-2026\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-jukenshikaku-2026/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "c349abc009316b760ac9f748996b15142581bbf0149caf0df47b9fb1e3592715",
       "sha256": "70efa22d9feb530d3be45ec4b5a854b36c2b9bf4b3eaf5bc2e6d9806d0bc93de",
@@ -3180,7 +3180,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-jukenshikaku-2026/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-jukenshikaku-2026\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-jukenshikaku-2026/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "86c5df9d1dabbdbf6727a9b5759442991d61641f4c660ed2bc23e856da665e01",
       "sha256": "6beeab90ee933243f37bf38f5206ba21a0186cbee39150868fc134dcc8c85c3d",
@@ -3190,7 +3190,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-materials-ronten/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-materials-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-materials-ronten/cover-design.json",
       "key": "longform",
       "specSha256": "1c12b4d6f733f4cec65e785085f6abbc5ddcd96b34d3bb003ced2ba1e36fbdf4",
       "sha256": "2a892c887f368280c94d1bfde33ca65c80268f2dfac6a229dac58096d0f8b0fd",
@@ -3200,7 +3200,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-materials-ronten/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-materials-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-materials-ronten/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "8f6a34a5adf5b5b31a5a43ba374ab49c9d344c9c183b915c2a7f89f9b0df631d",
       "sha256": "96be7430817c211184890edf4aaa154b2d15892152418b40469a71a8160ef37c",
@@ -3210,7 +3210,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-materials-ronten/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-materials-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-materials-ronten/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "ac98e4a02787fe23a980f68bb686d2ae501969a72eb34edac53c8df73ef75e90",
       "sha256": "532b0e2112f45c96c49584926c6a79f0543c0816f101edc075e76c61e5835a6b",
@@ -3220,7 +3220,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-mix-design-ronten/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-mix-design-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-mix-design-ronten/cover-design.json",
       "key": "longform",
       "specSha256": "1d928b348dcc02a0957727d551574242422a1b1b7ff6150f288cc42ce78f683a",
       "sha256": "a827f044a53944689145a3d27997be7e0d6759e545ed341d42d2224ca1f1a24d",
@@ -3230,7 +3230,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-mix-design-ronten/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-mix-design-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-mix-design-ronten/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "92a1145b3b09c3c196ec0e60dae213e152796932072ca57b6c76b030423bddd4",
       "sha256": "d421dfddbe624606971c02a539cf985da571809694be1939a9951195f00909c9",
@@ -3240,7 +3240,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-mix-design-ronten/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-mix-design-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-mix-design-ronten/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "2c589fea0e2ace062bcfee73d8f31f0af2380f053a693d01b317b7936791a50f",
       "sha256": "28578bdf2c5aff1c3e90bff8b0a359a7edb0b9356ea2c40d438362c41066af3a",
@@ -3250,7 +3250,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-production-qc-ronten/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-production-qc-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-production-qc-ronten/cover-design.json",
       "key": "longform",
       "specSha256": "c4fbfea39069fddac29815be386fce204e6da9c0d9fa023ddc06debcbb1ae1a8",
       "sha256": "b98747a19b627f6787cd8ed3f9f5ff84a1d0c5a575643b1a248a9bec4320f708",
@@ -3260,7 +3260,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-production-qc-ronten/point-qc1-1",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-production-qc-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-production-qc-ronten/cover-design.json",
       "key": "point-qc1-1",
       "specSha256": "ef7359bb0b80f59595706f678b72f9174894da14baa85dabae8e132f1629c142",
       "sha256": "b801b673a0e7ea37093e8916e74e1e3da4a1044fe6015e60c7e166264e780381",
@@ -3270,7 +3270,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-production-qc-ronten/point-qc2-2",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-production-qc-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-production-qc-ronten/cover-design.json",
       "key": "point-qc2-2",
       "specSha256": "78727d63e4d6a6b1f2f1c4af9abdfb711fa6a81a3aa3f90873bd63af81e88b9f",
       "sha256": "6da5e9008bd1d0b51f2c67c307eae58be9282f66ba6d873238196a7c66df4fd1",
@@ -3280,7 +3280,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-properties-testing-ronten/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-properties-testing-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-properties-testing-ronten/cover-design.json",
       "key": "longform",
       "specSha256": "ea41fbc9447b5258eb0c1675755b6a6a331b6725f56cc444927206876f89743a",
       "sha256": "3cf1a284e7ec11c6e3e4f7399358440af3070ff949dc624549b48ee15c4a6c3b",
@@ -3290,7 +3290,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-properties-testing-ronten/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-properties-testing-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-properties-testing-ronten/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "67a7060016d652ebaae1c1a0b7a4a105f12a0ad8ed7483c6dd123de81f58f431",
       "sha256": "c15dc6e77eb91f242c8f79d2a20b025d396beb4d08fad47c22faf9e643e456cd",
@@ -3300,7 +3300,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-properties-testing-ronten/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-properties-testing-ronten\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-properties-testing-ronten/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "b656b80c51cc617be5566531c2b0268c5abc07d611e29966aa3737c5e897707a",
       "sha256": "c7ff0309367113268046c4bd983acd710900cd68cd4f41687d54cdf81cd1c733",
@@ -3310,7 +3310,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-shiken-zentaizou/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-shiken-zentaizou\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-shiken-zentaizou/cover-design.json",
       "key": "longform",
       "specSha256": "ffab0805c211accb9f355d6033862a967ba2a3359fe8992267901bb2ed662173",
       "sha256": "566e4427b0b72eb28925bb3212c09d9afda28a8b25746223c19c5a27902671ed",
@@ -3320,7 +3320,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-shiken-zentaizou/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-shiken-zentaizou\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-shiken-zentaizou/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "6af8492f4a81928647b13bc571019ca7838910f1698752b693668fabe993e1ff",
       "sha256": "e9bc3df2b646f2ce556da9ece4c79b96d248775eb29ac0d7ca1a38894d5c7344",
@@ -3330,7 +3330,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-shiken-zentaizou/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-shiken-zentaizou\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-shiken-zentaizou/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "09b3a5f4b9de92fe4d06ec656b014f5c8b979fcd49a63b05df79e2f02aad597b",
       "sha256": "01c3e91d8f570e24dfd5c7a1e539dad865006d628e1ee7e069ed168eab5419ab",
@@ -3340,7 +3340,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-shunin-dochira/longform",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-shunin-dochira\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-shunin-dochira/cover-design.json",
       "key": "longform",
       "specSha256": "fbfdba5b939ef8657433b1c6dd1093d7e67a41b69577a22effdb301fdfbcde8f",
       "sha256": "3ac6c555ff585fde09c39a921d9512f1f343971333891f71d9355c3795f8f3d6",
@@ -3350,7 +3350,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-shunin-dochira/point-step1-1",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-shunin-dochira\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-shunin-dochira/cover-design.json",
       "key": "point-step1-1",
       "specSha256": "5b9fb1af2f717d0be24b2d36ba46c30d41f5bb94fcad9e539ad2c2a935eae397",
       "sha256": "9ed03993e6ba8012a64aab919a1007f07131a337020c67386cb184b08edc3936",
@@ -3360,7 +3360,7 @@
     },
     {
       "sourceKey": "concrete-engineer/gishi-shunin-dochira/point-step2-2",
-      "designPath": "content\\sns\\video-packs\\concrete-engineer\\gishi-shunin-dochira\\cover-design.json",
+      "designPath": "content/sns/video-packs/concrete-engineer/gishi-shunin-dochira/cover-design.json",
       "key": "point-step2-2",
       "specSha256": "88638b3d9af2a152975ceaf463744f0de26a18e7a86e668e6590a2c20e9946a0",
       "sha256": "f7370ad41dce2742527dd7c2431e7c0da65d98df418a06159e76b2eca10f47a8",

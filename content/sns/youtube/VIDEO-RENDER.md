@@ -1,49 +1,47 @@
 # 採用カバーから動画を生成する
 
-カバーの入力は各パックの `cover-design.json`。`approvedImage` がある場合、確認済みPNGをそのまま使う。
-文字・ポーズとPNGのhashを照合するので、Mac側にポップ体フォントをインストールする必要はない。
-PNGを失った場合、旧デザインへの自動フォールバックはしない。
+採用画像346枚はGoogle Driveに個別PNGとして保存し、全バイト読み戻しのSHA-256照合とDrive台帳への登録を完了した。確認済みPNGをそのまま使うため、Macに制作時のポップ体フォントは不要。
 
-## 端末の準備
+[採用画像フォルダー](https://drive.google.com/drive/folders/1wP21EWW4E4CPMZpLXk_j5nVMgbVW2YQ-)
 
-Windows / Mac のどちらでも、Node依存関係・VOICEVOXエンジン・ffmpeg/ffprobeが必要。
-`npm ci --legacy-peer-deps` を実行し、VOICEVOXを起動する。
-現在、動画を生成するGitHub Actionsワークフローは無い。
+## Macで素材を復元する
 
-採用画像346枚は [Google Drive の採用カバーフォルダー](https://drive.google.com/drive/folders/10qx4MeGVlRASn1DQjqa_GR4IyLkibONJ) に `youtube-video-ready-20260909-part-1.zip`〜`part-3.zip` の3ファイルで保存済み（2026-09-09）。コネクターの100MB上限に合わせた分割で、3つはそれぞれ単独で開けるZIP。
-Macでは3つともダウンロードし、リポジトリ直下で以下を実行する（ZIPの置き場所は実際のダウンロード先に合わせる）。
+Gitの作業ブランチ `codex/character-framing` を最新にし、依存関係を `npm ci --legacy-peer-deps` で用意する。Google Driveアプリでdoboku-noteのvaultを同期してから、リポジトリ直下で実行する。
 
 ```bash
-for part in 1 2 3; do
-  unzip -o "$HOME/Downloads/youtube-video-ready-20260909-part-${part}.zip" -d .
-done
+npm run drive-vault-sync -- --pull --group youtube-approved-cover
+npm run check-youtube-cover-handoff -- --local
 ```
 
-`.tmp/video-render/youtube-covers-20260909/` が復元される。PNG個別のDrive台帳登録は未実施のため、現時点ではZIPから復元する。今後、個別ファイルをDrive台帳へ登録した後は次でも復元できる。
+Drive上の場所は `制作物/動画レンダー/採用カバー/youtube-covers-20260909/`。復元先は `.tmp/video-render/youtube-covers-20260909/`。台帳が欠けた画像やハッシュが違う画像は正常扱いにしない。動画生成時にも欠けた採用PNGはDriveから自動pullを試し、取得できなければ停止する。
+
+マウントがない端末ではDriveコネクターを確認する。個別ファイルIDは `.claude/state/assets/drive-manifest.json` の `driveFileId` にある。取得後は上記ローカル検査を通す。
+
+## 音声付き動画を生成する
+
+Windows/MacのどちらでもVOICEVOXエンジンとffmpeg/ffprobeが必要。VOICEVOXを起動して以下を実行する。動画生成用のGitHub Actionsは現在ない。
 
 ```bash
-node scripts/drive-vault-sync.mjs --pull --path .tmp/video-render/youtube-covers-20260909/
-```
-
-## 代表パックを先に確認する
-
-```bash
-# 表紙・本文・字幕の準備（音声環境なしでも実行可）
 node scripts/render-longform.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-7items --skip-tts
-
-# 音声を含む通常動画。青山龍星（speaker 13）を明示する
 node scripts/render-longform.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-7items --speaker 13
-
-# 通常動画の音声生成後にShortsを生成する
 node scripts/render-video-pack-shorts.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-7items
 ```
 
-出力先は `.tmp/video-render/{packId}/`。先頭カバーが採用PNGと同じか、音声と字幕、文字と人物の重なりを動画で確認する。
-採用した画像は表紙・冒頭用。本文スライド全体を白＋青へ変更したことは意味しない。
-legacy総監カバーはサムネ更新用として保全し、上記動画パックの一括生成には混ぜない。
+出力先は `.tmp/video-render/{packId}/`。最初の1パックで表紙・読み上げ・字幕・切り替わりを確認してから一括生成する。採用画像は表紙・冒頭用で、本文スライドの意匠変更は含まない。legacy総監カバーは動画パックの一括生成には混ぜない。
 
-## 公開への引き継ぎ
+## 今回の検証範囲
 
-公開済み動画はサムネ変更と動画本体の再投稿を分ける。新しい画像承認は再投稿・予約変更の指示ではない。
-更新前に新しい実体一覧・画像計画を作り、既存のサムネ更新保護処理を確認する。
-PNGの生成・動画の生成・YouTubeへの反映はそれぞれ別の状態として扱う。
+Driveの個別PNG346枚を読み戻し、元画像とのSHA-256一致を確認。読み戻した実データを使って、空の独立した復元先に既存pull処理で346枚を復元し、再度全件SHA-256一致を確認した。保存先解決はWindows/Macの模擬テストを実施。Mac実機と音声付きmp4の生成は未実施。
+
+## 補助ZIP
+
+[親フォルダー](https://drive.google.com/drive/folders/10qx4MeGVlRASn1DQjqa_GR4IyLkibONJ)の3つのZIPは控えとして残す。ZIPで復元する場合も画像だけを展開し、過去の同梱手順でGitの最新版を上書きしない。
+
+```bash
+for part in 1 2 3; do
+  unzip -o "$HOME/Downloads/youtube-video-ready-20260909-part-${part}.zip" ".tmp/video-render/*" -d .
+done
+npm run check-youtube-cover-handoff -- --local
+```
+
+YouTubeへの公開・再投稿は別工程。公開済み動画を書き換える前には、既存のサムネ更新保護処理を直して新しい実体一覧と計画を確認する。
