@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "asOfJst": "2026-09-09 21:22:30 JST",
   "channelId": "UCHRnXPqoc0Hls8nXiK_ZYqA",
-  "status": "logo-a-representative-verified-and-thumbnail-rate-limited",
+  "status": "logo-a-all-video-migration-preparing",
   "branch": "codex/character-framing",
   "taskId": "DN-0184",
   "scope": "approved-cover-and-presentation-body-render-and-thumbnail-update",
@@ -67,7 +67,7 @@
     "aggregateIncludesPrivateVideoIds": false,
     "note": "Current encrypted receipts were downloaded from the listed runs into .tmp/youtube-rollout-20260909 in the codex/character-framing Mac worktree. Private key and decrypted inventory stay local and untracked. Artifacts expire after 3 days. On another PC generate a fresh local key and inventory; never put private keys or private video IDs in Git."
   },
-  "resumeGate": "After the retry time, obtain a fresh inventory and review its plan. Prioritize the remaining public videos. Preserve the 75 verified approved-cover updates; compare images read-only before any further write. Video-body migration scope is awaiting the user response because reupload creates new URLs. Do not delete or unschedule existing videos without resolving that scope.",
+  "resumeGate": "User authorized reupload of all existing/scheduled videos and deletion of replaced originals. Thumbnail rate limit remains; upload privately first.",
   "preparation": {
     "approvedAt": "2026-09-09",
     "design": "white-blue-pop",
@@ -119,20 +119,20 @@
         "ASR-from-first-to-last-scene"
       ],
       "humanListeningVerified": false,
-      "revision": "presentation-20260909",
+      "revision": "bridge-notebook-a-20260909",
       "readingCorrection": "概要の要は → 概要のかなめは。VOICEVOX audio_query のカナメを確認。",
       "layout": "White background and existing exam-brand colors; presentation headings, point cards and editable order-chain diagram.",
       "layoutTextBoxesChecked": 1022,
       "layoutOverflow": 0,
-      "completedPacks": 22,
-      "verifiedVideos": 66,
-      "cloudVerifiedPacks": 22,
+      "completedPacks": 28,
+      "verifiedVideos": 81,
+      "cloudVerifiedPacks": 13,
       "explanationCommit": "74dfbf19b",
       "shortsSinglePassCommit": "7e8cf4ddf",
-      "remainingPacks": 90
+      "remainingPacks": 84
     },
     "ctaDesign": {
-      "status": "representative-render-verified",
+      "status": "all-inputs-cloud-verified-videos-rendering",
       "recommended": "bridge-notebook",
       "generatedWith": "built-in image_gen; no imagen2.5 model selector available",
       "directory": ".tmp/video-render/youtube-cta-20260909",
@@ -156,11 +156,13 @@
         30.2
       ],
       "cloudVerified": true,
-      "scope": "工事概要7項目の通常動画1本とShorts2本。ほかのパックのCTAとYouTube公開実体は未更新。",
+      "scope": "採用表紙346枚と112パックのCTA入力へ展開。動画本体とYouTubeは順次移行中。",
       "thumbnailPlanNeedsRefresh": true,
       "cloudVerification": "full-byte-readback-sha256",
-      "cloudVerifiedFiles": 51,
-      "verification": "3 videos fully decoded; 50 subtitle events; scene audio, subtitle timing, cover/CTA/media hashes matched"
+      "cloudVerifiedFiles": 459,
+      "verification": "3 videos fully decoded; 50 subtitle events; scene audio, subtitle timing, cover/CTA/media hashes matched",
+      "coversApplied": 346,
+      "packInputsApplied": 112
     }
   },
   "priorDesignCounts": {
@@ -169,7 +171,7 @@
     "cdnImageMatched": 24
   },
   "cdnVisualReviewed": 19,
-  "currentDesign": "white-blue-pop",
+  "currentDesign": "bridge-notebook-a",
   "currentPlanSha256": "a865879c8b7394f985dd572f48744b997b9a9f596e6eec0c52937a71be31eab2",
   "rateLimit": {
     "reason": "uploadRateLimitExceeded",
@@ -181,5 +183,29 @@
   "verifiedByPrivacyAtInventory": {
     "public": 5,
     "private": 70
+  },
+  "migration": {
+    "revision": "bridge-notebook-a-20260909",
+    "authorizedBy": "user",
+    "authorizedOnJst": "2026-09-09",
+    "scope": "all existing and scheduled videos",
+    "deleteOldVersions": true,
+    "deleteGate": "replacement processing/playback, thumbnail, visibility/schedule and related-video links verified first",
+    "inventory": {
+      "checked": 344,
+      "public": 18,
+      "private": 326,
+      "scheduled": 106,
+      "longform": 112,
+      "packShorts": 221,
+      "legacy": 11,
+      "generatedAt": "2026-09-09T12:32:24Z"
+    },
+    "uploadedNew": 1,
+    "deletedOld": 0,
+    "privateRecords": ".tmp/youtube-migration-20260909/",
+    "representativePlaybackVerified": true,
+    "status": "private-upload-batch-running",
+    "updatedAt": "2026-09-09T13:22:50.218Z"
   }
 }

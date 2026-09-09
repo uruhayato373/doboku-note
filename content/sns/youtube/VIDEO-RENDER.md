@@ -13,7 +13,7 @@ npm run drive-vault-sync -- --pull --group youtube-approved-cover
 npm run check-youtube-cover-handoff -- --local
 ```
 
-Drive上の場所は `制作物/動画レンダー/採用カバー/youtube-covers-20260909/`。復元先は `.tmp/video-render/youtube-covers-20260909/`。台帳が欠けた画像やハッシュが違う画像は正常扱いにしない。動画生成時にも欠けた採用PNGはDriveから自動pullを試し、取得できなければ停止する。
+現在のA案はDriveの `制作物/動画レンダー/採用カバー/youtube-covers-a-rollout-20260909/` に保存し、`.tmp/video-render/youtube-covers-a-rollout-20260909/` へ復元する。旧 `youtube-covers-20260909/` の原版も保持する。台帳が欠けた画像やハッシュが違う画像は正常扱いにしない。動画生成時にも欠けた採用PNGはDriveから自動pullを試し、取得できなければ停止する。
 
 マウントがない端末ではDriveコネクターを確認する。個別ファイルIDは `.claude/state/assets/drive-manifest.json` の `driveFileId` にある。取得後は上記ローカル検査を通す。
 
@@ -48,4 +48,6 @@ YouTubeへの公開・再投稿は別工程。サムネ更新前に新しい実�
 
 説明画面だけを更新する再生成は `--resume --refresh-png` を使う。音声は `tts-inputs.json` の読み替え後の入力・話者・WAVハッシュが一致するときだけ再利用し、読み修正や話者変更、旧キャッシュの来歴不明時は再合成する。
 
-「工事概要7項目」の確認版は、2026-09-09採用のA案（橋＋ノートのロゴ）を通常動画の表紙右上と締めへ適用した。表紙の版は `.tmp/video-render/youtube-covers-logo-a-20260909/`、CTA素材は `.tmp/video-render/youtube-cta-20260909/` に置き、元の採用画像も保持する。これらもDrive vaultから復元する。`cta-design.json` が締め画像の入力とSHA-256を持つ。Shortsは同じブランド意匠で「関連動画へ」と案内し、専用の音声と字幕を使う。Shorts生成前に通常動画を `--speaker 13 --resume --refresh-png` で生成し、話者をrender-manifestへ記録する。A案の適用状況は更新状態の `preparation.ctaDesign` で確認する。
+2026-09-09採用のA案（橋＋ノートのロゴ）は、通常動画の表紙右上とShorts表紙の下部へ展開した。`.claude/config/video-brand.json` が共通ロゴ・背景・Shorts CTAを指定する。`node scripts/apply-video-brand.mjs --preview` で代表画像を確認し、`--commit` でローカルの全表紙と各パックのCTA入力を更新する。このコマンドはYouTubeへ書き込まない。原版を残してロゴを合成し、各動画の締め見出しと教材名はstoryboardから描画する。表紙はAPI上限の2MB以内に収める。
+
+共通素材は `.tmp/video-render/youtube-cta-20260909/`、各動画用の締め画像は `.tmp/video-render/youtube-cta-a-rollout-20260909/`。これらもDrive vaultから復元する。各 `cta-design.json` が締め画像の入力とSHA-256を持つ。確認版の「工事概要7項目」は採用時のCTA画像を保持する。動画パックのShortsは同じブランド意匠で「関連動画へ」と案内し、専用の音声と字幕を使う。Shorts生成前に通常動画を `--speaker 13 --resume --refresh-png` で生成し、話者をrender-manifestへ記録する。画像の全展開と動画本体・YouTubeの移行完了は別で、適用状況は更新状態の `preparation.ctaDesign` と `migration` で確認する。
