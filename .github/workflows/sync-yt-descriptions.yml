@@ -18,7 +18,7 @@ on:
       operation:
         description: "descriptions=概要欄 / thumbnail-inventory=一覧のみ / thumbnail-refresh=確認済みサムネ"
         type: choice
-        options: [descriptions, thumbnail-inventory, thumbnail-refresh, migration-upload]
+        options: [descriptions, thumbnail-inventory, thumbnail-refresh, migration-upload, migration-audit, migration-thumbnail, migration-activate, migration-delete]
         default: descriptions
       report_public_key:
         description: "サムネ棚卸し用の一時公開鍵（秘密鍵を入力しない）"
@@ -190,7 +190,7 @@ jobs:
           if-no-files-found: warn
 
   migration-upload:
-    if: inputs.operation == 'migration-upload'
+    if: startsWith(inputs.operation, 'migration-')
     runs-on: ubuntu-latest
     timeout-minutes: 90
     concurrency:
@@ -205,7 +205,7 @@ jobs:
           node-version: '20'
           cache: npm
       - run: npm ci --legacy-peer-deps --ignore-scripts
-      - name: Upload verified replacements privately (no old-video deletion)
+      - name: Run selected migration phase with verified private receipts
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
           YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
@@ -218,6 +218,7 @@ jobs:
           BATCH_START: ${{ inputs.batch_start }}
           BATCH_LIMIT: ${{ inputs.batch_limit }}
           APPLY_MIGRATION: ${{ inputs.commit }}
+          MIGRATION_OPERATION: ${{ inputs.operation }}
         run: node scripts/youtube-migration.mjs
       - name: Export encrypted migration receipt only
         if: always()

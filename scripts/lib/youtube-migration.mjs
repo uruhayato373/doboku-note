@@ -17,6 +17,7 @@ export function assertPlan(plan) {
   for (const item of plan.entries) {
     if (!/^[\w-]{11}$/.test(item.oldVideo.id) || item.oldVideo.snippet.channelId !== plan.channel.id) throw new Error('Wrong old video');
     if (!item.media) continue;
+    if (item.desiredSnippet && (item.desiredSnippet.title !== item.oldVideo.snippet.title || typeof item.desiredSnippet.description !== 'string' || item.desiredSnippet.description.length > 5000 || !item.desiredSnippet.categoryId)) throw new Error('Invalid replacement metadata');
     if (item.verification?.status !== 'passed' || item.verification.revision !== MIGRATION) throw new Error('Unverified media');
     for (const media of [item.media, item.thumbnail]) {
       if (!/^[a-f0-9]{64}$/.test(media?.sha256 ?? '') || media.key !== `youtube-migration/${MIGRATION}/media/${media.sha256}.${media === item.media ? 'mp4' : 'png'}` || !(media.bytes > 0)) throw new Error('Invalid immutable media');
@@ -43,7 +44,7 @@ export function assertOldUnchanged(actual, frozen) {
 export function assertProcessed(video, item) {
   if (!video || video.snippet.channelId !== item.oldVideo.snippet.channelId || video.id === item.oldVideo.id) throw new Error('Wrong replacement video');
   if (video.processingDetails?.processingStatus !== 'succeeded' || video.status.uploadStatus !== 'processed') return false;
-  if (Math.abs(durationSeconds(video.contentDetails.duration) - item.media.duration) > 1) throw new Error('Replacement duration differs');
+  if (Math.abs(durationSeconds(video.contentDetails.duration) - item.media.duration) > 1) throw new Error(`Replacement duration differs: API=${video.contentDetails.duration}, source=${item.media.duration}s`);
   const stream = video.fileDetails?.videoStreams?.[0];
   if (!stream || stream.widthPixels !== item.media.width || stream.heightPixels !== item.media.height || !video.fileDetails?.audioStreams?.length) throw new Error('Replacement video/audio stream mismatch');
   return true;
@@ -62,10 +63,11 @@ export async function uploadReplacement(youtube, item, { load, save, getMedia, c
     const media = await getMedia(item.media);
     receipt = { migration: MIGRATION, oldId: old.id, sourceKey: item.sourceKey, mediaSha256: item.media.sha256,
       phase: 'upload-intent', marker: migrationMarker(item), startedAt: new Date().toISOString(), oldVideo: old };
+    if (item.desiredSnippet) receipt.desiredSnippet = item.desiredSnippet;
     // Durable private journal first. A lost response must never create a second copy.
     await save(old.id, receipt);
     try {
-      const snippet = writableSnippet(old);
+      const snippet = structuredClone(item.desiredSnippet ?? writableSnippet(old));
       snippet.tags = [...(snippet.tags ?? []), receipt.marker];
       const response = await youtube.videos.insert({ part: 'snippet,status', notifySubscribers: false,
         requestBody: { snippet, status: { ...writableStatus(old), privacyStatus: 'private' } },
@@ -84,6 +86,8 @@ export async function uploadReplacement(youtube, item, { load, save, getMedia, c
     }
   }
   const video = await getVideo(youtube, receipt.newId, true);
+  receipt.processingObservation = { checkedAt: new Date().toISOString(), video };
+  await save(old.id, receipt);
   if (video && video.status.privacyStatus !== 'private') throw new Error('Replacement unexpectedly public');
   if (assertProcessed(video, item)) {
     receipt.phase = 'processed-private';

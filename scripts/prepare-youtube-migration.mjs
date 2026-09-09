@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /** Local verified renders → immutable private transfer plan. Never changes YouTube. */
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { parseArgs } from 'node:util';
 import { dirname, join, resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
@@ -23,7 +23,20 @@ async function main() {
     if (!matches.length) matches = sources.filter(s => s.title === oldVideo.snippet.title);
     if (matches.length !== 1 || matches[0].title !== oldVideo.snippet.title) throw new Error('Missing/ambiguous source');
     const source = matches[0], entry = { sourceKey: source.sourceKey, oldVideo };
-    if (source.sourceKey.startsWith('legacy/')) return entry;
+    if (source.sourceKey.startsWith('legacy/')) {
+      const reportPath = '.tmp/video-render/legacy-brand-a/verification.json';
+      const v = existsSync(reportPath) ? read(reportPath)[source.key] : null;
+      if (v?.status !== 'passed' || v.revision !== MIGRATION || v.visualVerification !== 'passed') return entry;
+      for (const [kind, localPath, expectedSha, ext] of [['media', v.mediaPath, v.sha256, 'mp4'], ['thumbnail', v.thumbnailPath, v.thumbnailSha256, 'png']]) {
+        const bytes = readFileSync(localPath), sha = sha256(bytes), key = `youtube-migration/${MIGRATION}/media/${sha}.${ext}`;
+        if (sha !== expectedSha || (kind === 'thumbnail' && sha !== source.spec.approvedImage.sha256)) throw new Error('Legacy verified media differs');
+        entry[kind] = { key, sha256: sha, bytes: bytes.length }; assets.set(key, bytes);
+      }
+      Object.assign(entry.media, { duration: v.duration, width: v.width, height: v.height });
+      entry.verification = { status: 'passed', revision: MIGRATION, checkedAt: v.checkedAt, checks: v.checks };
+      entry.desiredSnippet = read('content/sns/youtube/legacy-metadata.json').entries[source.key];
+      return entry;
+    }
     const packDir = dirname(source.designPath), pack = packDir.split('/').at(-1), p = progress[pack], v = verification[pack];
     if (p?.status !== 'done' || p.revision !== MIGRATION || v?.status !== 'passed') return entry;
     const pub = read(packDir + '/youtube.json'), short = source.key !== 'longform';
