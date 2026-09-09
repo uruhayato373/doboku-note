@@ -75,3 +75,28 @@ compare / concat はこの正規表現で照合する: `<!--\s*(p\d{4})(?:\s+印
 - **原本スキャンの欠陥**: civil1 第一次は上端の欠け・二重写りが約 60 ページ（〔判読不能〕204 箇所）。OCR では回復できず再スキャンが要る。埋めずに README に件数を出す
 - **見直し条件を絞りすぎない**: 「図 1 つ以上・400 字未満」まで除外すると本文の実誤り 5 箇所中 3 箇所が図解ページ上にあり漏れた。図版除外は「図 2 つ以上・200 字未満」のまま
 
+## 旧経路で章別に起こした本を台帳へ載せる（`book_ocr_align_legacy.py`）
+
+章ファイルにページ id が無い旧経路の文字起こしは、そのままでは `record-reference-book-artifacts` に
+`--ocr-pages` を渡せない。割り当ての根拠は次の順で採る。
+
+1. 章ファイルの frontmatter に `pdfPages`（原本 PDF の見開きページ）があれば、book-manifest の
+   `sourcePdfPage` で決定的に引き当てる（主任技士 2022/2024）。Tesseract 一致の平均を README に併記する
+2. 無ければ各ページの Tesseract 読みと章テキストの 2-gram 再現率を、「第N章」順（無ければ当たりページの
+   中央値順）を保つ Viterbi で割り当てる
+3. 手持ち撮影でぼけたページは Tesseract が雑音を返す。同じ章に挟まれたページと、目次順で前後の章に
+   挟まれた連続区間だけ「内挿」として章へ入れ、README に件数と区間を明示する（文字で確かめていない）
+4. どの章にも当たらないページは登録しない（前付け・目次・図だけ・未転記）。主任技士 2022 はテキスト部
+   200 ページが未転記と分かった
+
+```bash
+python3 .claude/skills/conversion/pdf-to-mdx/scripts/book-ocr/book_ocr_prep.py --book $B   # 検証済み複製
+python3 .claude/skills/conversion/pdf-to-mdx/scripts/book-ocr/book_ocr_tesseract.py --book $B
+# Drive の ocr/*.md を content/sources/books/<dir>/ocr/ へ複製（README.md 以外）
+python3 .claude/skills/conversion/pdf-to-mdx/scripts/book-ocr/book_ocr_align_legacy.py --book $B --write
+sh .tmp/ocr/$B/register.sh --commit
+```
+
+旧 `content/sources/textbook/**.md` キーは同じ Drive ファイルを指すので、登録後に `adopted` 別名へ
+変えないと `check-drive-vault` が vault-collision で止まる（2026-09-10 に 36 件を別名化）。
+
