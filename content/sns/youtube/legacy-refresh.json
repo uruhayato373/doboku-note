@@ -1,0 +1,157 @@
+{
+  "schemaVersion": 1,
+  "design": "bridge-notebook-a",
+  "entries": [
+    {
+      "key": "r03-pfi",
+      "original": ".local/archive/legacy-r2/sns/youtube-shorts/r03-pack-01-q2.mp4",
+      "cuts": [
+        6.082031,
+        17.722031,
+        31.962031
+      ],
+      "duration": 39.898667,
+      "originalSha256": "bf0e0810382e663a8401df931372f1d0d3564d602063c81a6010e86bc20100d6"
+    },
+    {
+      "key": "r03-quality",
+      "original": ".local/archive/legacy-r2/sns/youtube-shorts/r03-pack-01-q3.mp4",
+      "cuts": [
+        6.082031,
+        17.922031,
+        35.607031
+      ],
+      "duration": 43.543667,
+      "originalSha256": "119bae95665f977ec39885ae26a3ea56d11f6b7fd603b23143fa7f6527db385f"
+    },
+    {
+      "key": "r03-critical-path",
+      "original": ".local/archive/legacy-r2/sns/youtube-shorts/r03-pack-01-q4.mp4",
+      "cuts": [
+        6.082031,
+        17.925,
+        28.165
+      ],
+      "duration": 36.101667,
+      "originalSha256": "c32db70301caaff597190178faa4de5c8bb4682e273b2f21e4e0434932c98589"
+    },
+    {
+      "key": "r03-decoupling",
+      "original": ".local/archive/legacy-r2/sns/youtube-shorts/r03-pack-02-q1.mp4",
+      "cuts": [
+        6.082031,
+        17.135,
+        32.431016
+      ],
+      "duration": 40.367667,
+      "originalSha256": "42fd8ea22a36903f7d8d9a7fa68914b96c1eb795e38125f4ab30a4a2831c8387"
+    },
+    {
+      "key": "r03-break-even",
+      "original": ".local/archive/legacy-r2/sns/youtube-shorts/r03-pack-02-q2.mp4",
+      "cuts": [
+        6.082031,
+        18.082031,
+        30.615
+      ],
+      "duration": 38.551667,
+      "originalSha256": "30a5fc341b30545c2bf24fb0125ed3eb8c54d47c03bf403b729b32a0a13f8111"
+    },
+    {
+      "key": "r03-cash-flow",
+      "original": ".local/archive/legacy-r2/sns/youtube-shorts/r03-pack-02-q3.mp4",
+      "cuts": [
+        6.082031,
+        17.442031,
+        33.741016
+      ],
+      "duration": 41.677667,
+      "originalSha256": "9e3ef9f8a8844444cbb42d7eda2d1d155468c4307573479d9d4bd6e81846e296"
+    },
+    {
+      "key": "r03-maintenance",
+      "original": ".local/archive/legacy-r2/sns/youtube-shorts/r03-pack-02-q4.mp4",
+      "cuts": [
+        6.082031,
+        17.093047,
+        32.869062
+      ],
+      "duration": 40.805667,
+      "originalSha256": "b4d60ea196b4ec07e0f52a5d9cc3a516fe30b12298ebf23d4787dd45b46d50e0"
+    },
+    {
+      "key": "r07-quality",
+      "original": ".local/archive/legacy-r2/sns/youtube-shorts/r07-pack-01-q1.mp4",
+      "cuts": [
+        6.082031,
+        17.455,
+        31.335
+      ],
+      "duration": 39.271667,
+      "originalSha256": "3b3cea55e5d598230be8b5a0c7bcd4364c48180e7d31facfca69bbac57e0416c"
+    },
+    {
+      "key": "multisource-evaluation",
+      "source": "content/site/pe-comprehensive-management/360-degree-evaluation/article.mdx",
+      "intro": "多面評価。上司だけに頼らない、人事評価の考え方です。",
+      "scenes": [
+        {
+          "heading": "複数の視点で評価する",
+          "items": [
+            "上司・同僚・部下・本人",
+            "行動を多角的に捉える"
+          ],
+          "narration": "多面評価は、上司だけでなく、同僚、部下、本人など、複数の視点から対象者を評価する手法です。"
+        },
+        {
+          "heading": "何のために使う？",
+          "items": [
+            "処遇を決めるため",
+            "育成・能力開発のため"
+          ],
+          "narration": "活用の目的には、処遇の決定と、育成、能力開発があります。導入前に、何のために評価するのかを明確にします。"
+        },
+        {
+          "heading": "率直に答えられる設計",
+          "items": [
+            "評価者の匿名性を確保",
+            "評価基準をそろえる"
+          ],
+          "narration": "率直な評価を集めるには匿名性の確保が大切です。評価者への研修で、基準の理解もそろえます。"
+        }
+      ]
+    },
+    {
+      "key": "access-control",
+      "source": "content/site/pe-comprehensive-management/access-control/article.mdx",
+      "intro": "アクセス制御。認証と認可の違いを、三つの段階で整理します。",
+      "scenes": [
+        {
+          "heading": "操作の範囲を決める",
+          "items": [
+            "情報へのアクセスを管理",
+            "操作できる範囲を制限"
+          ],
+          "narration": "アクセス制御は、誰が、何に、どのような操作を行えるかを管理する仕組みです。"
+        },
+        {
+          "heading": "アクセス制御の3段階",
+          "items": [
+            "識別：誰なのかを名乗る",
+            "認証：本人かを確かめる",
+            "認可：操作の範囲を決める"
+          ],
+          "narration": "識別は、誰なのかを名乗ること。認証は、名乗った本人かを確かめること。認可は、許可された操作の範囲を決めることです。"
+        },
+        {
+          "heading": "権限は必要な分だけ",
+          "items": [
+            "業務に必要な最小限",
+            "許可していない操作は拒否"
+          ],
+          "narration": "権限は、業務に必要な最小限だけを付与します。明示的に許可されていない操作は拒否することが基本です。"
+        }
+      ]
+    }
+  ]
+}

@@ -201,6 +201,8 @@ content/sns/youtube/*
 !content/sns/youtube/README.md
 !content/sns/youtube/VIDEO-RENDER.md
 !content/sns/youtube/cover-design.json
+!content/sns/youtube/legacy-refresh.json
+!content/sns/youtube/legacy-metadata.json
 
 # IG「1問1リール」(per-problem, --ig-mode) の動画は再生成可能な派生物（YT shorts と同様）。
 # mp4 は gitignore、caption.txt / status.json（予約記録）のみ追跡。再生成は per-problem-shorts.mjs --ig-mode。
