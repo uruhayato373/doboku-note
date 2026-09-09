@@ -253,11 +253,11 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 残工程も同じworkflowでphaseを指定する。`migration-audit` は旧版の字幕・再生リスト所属と新版の処理完了を取得し、`commit=true` の場合だけprivate台帳へ記録する（YouTubeへの書き込みなし）。`migration-thumbnail` は再試行可能日時を守り、設定後のCDN画像を比較する。受理済みで表示待ちの場合は再送しない。明示的な上限拒否は24時間の待機後に再試行できる状態として記録し、通信断などで結果不明の場合は再送せず照合する。
 
-`migration-activate` はサムネ実表示・再生・再生リスト/手動字幕・Shorts自身の関連動画の状態が台帳にそろったものだけ、旧版の公開範囲と未来の予約日時へ切り替え、APIで読み直す。確認記録は自動で「確認済み」にせず実査後にprivate台帳へ残す。通常動画を公開した後、その動画を指すShortsや管理台帳の参照を新版へ更新する。`migration-delete` は依存リンクの更新完了と1時間以内の旧新IDに紐づく再確認を要求し、削除意図を先に記録してから旧版だけを削除し、APIで不存在を確認する。削除応答を失っても新たな対象を推測しない。自動アップロードworkflowを移行中に一時停止した場合は、旧新IDの参照更新と残投稿の素材更新が済んでから元の設定へ戻す。
+`migration-activate` はサムネ実表示・再生・再生リスト/手動字幕・Shorts自身の関連動画の状態が台帳にそろったものだけ、旧版の公開範囲と未来の予約日時へ切り替え、APIで読み直す。確認記録は自動で「確認済み」にせず実査後にprivate台帳へ残す。通常動画を公開した後、その動画を指すShortsや管理台帳の参照を新版へ更新する。`migration-delete` は依存リンクの更新完了と1時間以内の旧新IDに紐づく再確認を要求し、削除意図を先に記録してから旧版だけを削除し、APIで不存在を確認する。削除応答を失っても新たな対象を推測しない。移行中は旧IDを参照する日次投入を停止し、次節のprivate台帳キューへ切り替える。
 
 ### 定期予約・公開CI（2026-09-10）
 
-`post-youtube-scheduled.yml` は毎日20:17 JSTに、固定した検証済みコードの `node scripts/youtube-delivery.mjs` を実行する。これはAPIへ予約を投入する時刻であり、視聴者への公開は既存カレンダーの `publishAt` にYouTube側が実行する。手動実行は `apply=false` が既定。`apply=true` は同じprivate台帳から続行する。旧 `publish-video-batch.cjs` のタイトル検索による日次投入には戻さず、置換対象IDを固定したキューへ切り替える。
+`post-youtube-scheduled.yml` は毎日20:17 JSTに、固定した検証済みコードの `node scripts/youtube-delivery.mjs` を実行する。これはAPIへ予約を投入する時刻であり、視聴者への公開は既存カレンダーの `publishAt` にYouTube側が実行する。手動実行は `apply=false` が既定。`apply=true` は同じprivate台帳から続行する。旧 `publish-video-batch.cjs` のタイトル検索による日次投入には戻さず、置換対象IDを固定したキューへ切り替える。停止はActionsのDisable workflowで行う。コードや設定を更新するときは検査を通したコミットをpushし、workflowのcheckout refも更新する。
 
 対象・日次上限は `.claude/config/youtube-delivery.json`。初期対象はA案への置換を承認した既存344本で、legacyのretired 187本や未承認の新規企画は追加しない。現行プラン外の新規動画は自動追加しない。今回の設定を将来の無制限な新規公開承認として流用しない。
 

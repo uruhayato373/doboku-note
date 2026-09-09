@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfJst": "2026-09-10 00:15:41 JST",
+  "asOfJst": "2026-09-10 06:42:11 JST",
   "channelId": "UCHRnXPqoc0Hls8nXiK_ZYqA",
-  "status": "logo-a-generated-youtube-daily-limits",
+  "status": "logo-a-daily-ci-active",
   "branch": "codex/character-framing",
   "taskId": "DN-0184",
   "scope": "all existing and scheduled videos: A logo cover, presentation body and branded CTA",
@@ -200,8 +200,8 @@
     "deletedOld": 0,
     "privateRecords": ".tmp/youtube-migration-20260909/",
     "representativePlaybackVerified": true,
-    "status": "waiting-for-youtube-daily-limits",
-    "updatedAt": "2026-09-09T15:08:30.465811Z",
+    "status": "daily-ci-enabled-waiting-for-youtube-limits-and-review",
+    "updatedAt": "2026-09-09T21:42:11.418611Z",
     "processedNew": 86,
     "uploadedLongform": 38,
     "uploadedShorts": 48,
@@ -224,18 +224,37 @@
     },
     "automaticUploadWorkflow": {
       "name": "post-youtube-scheduled.yml",
-      "state": "disabled_manually",
-      "restoreAfter": "runtime references and remaining upload inputs migrated; prior state active"
+      "state": "active",
+      "mode": "approved-private-delivery-queue",
+      "scheduleJst": "毎日20:17",
+      "workflowRegisteredOn": "main",
+      "workflowCommit": "594c1bd3311dee1398dc4c647a72ff4aae9b0922",
+      "codeCommit": "e85b3fb03ca265dbeec9f0ba7ecc65e081e69268",
+      "dryRun": {
+        "runId": 34407833315,
+        "conclusion": "success",
+        "total": 344,
+        "pendingUpload": 258,
+        "pendingThumbnail": 86,
+        "youtubeWrites": 0
+      },
+      "liveState": "private R2 delivery-state.json; Git snapshot is not updated by the daily job",
+      "firstApplyRun": {
+        "runId": 34408088204,
+        "conclusion": "success",
+        "youtubeWrites": 0,
+        "reason": "upload and thumbnail cooldowns respected",
+        "privateStateReadbackVerified": true
+      }
     },
     "remainingWork": [
       "upload remaining replacements after quota reset",
       "verify on-YouTube playback and A thumbnails",
       "activate in original visibility/schedule",
       "update Shorts related-video links and private runtime references",
-      "fresh dependency verification and delete old videos",
-      "restore previous automatic upload workflow state"
+      "fresh dependency verification and delete old videos"
     ],
-    "automaticContinuation": "not configured",
+    "automaticContinuation": "GitHub Actions daily at 20:17 JST; quota cooldown and proof gates persist across runs",
     "finalPlan": {
       "planSha256": "fbabccd82444da5a4b34b2b2e0791b5f0a816b4ee84a2b5e5d79bb4205a775db",
       "total": 344,
