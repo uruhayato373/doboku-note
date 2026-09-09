@@ -1,17 +1,14 @@
 {
   "schemaVersion": 1,
-  "asOfJst": "2026-09-09 21:22:30 JST",
+  "asOfJst": "2026-09-10 00:15:41 JST",
   "channelId": "UCHRnXPqoc0Hls8nXiK_ZYqA",
-  "status": "logo-a-all-video-migration-preparing",
+  "status": "logo-a-generated-youtube-daily-limits",
   "branch": "codex/character-framing",
   "taskId": "DN-0184",
-  "scope": "approved-cover-and-presentation-body-render-and-thumbnail-update",
+  "scope": "all existing and scheduled videos: A logo cover, presentation body and branded CTA",
   "totalVideosAtInventory": 344,
-  "updatedUniqueVideos": 75,
-  "remainingVideosAtInventory": 269,
-  "cdnImageMatched": 56,
   "publicFeedVerified": false,
-  "videoFilesReuploaded": 0,
+  "videoFilesReuploaded": 86,
   "visibilityOrScheduleWrites": 0,
   "oldDesignPlanSha256": "dff5094acf4ff9fb435a6d665ba22feae2491311b0ef5e32848588a2fa73b3f1",
   "runs": [
@@ -105,7 +102,7 @@
       "macVerificationDateJst": "2026-09-09"
     },
     "rendering": {
-      "status": "paused-after-logo-a-representative",
+      "status": "complete",
       "targetPacks": 112,
       "targetLongform": 112,
       "targetShorts": 224,
@@ -124,15 +121,19 @@
       "layout": "White background and existing exam-brand colors; presentation headings, point cards and editable order-chain diagram.",
       "layoutTextBoxesChecked": 1022,
       "layoutOverflow": 0,
-      "completedPacks": 28,
-      "verifiedVideos": 81,
-      "cloudVerifiedPacks": 13,
+      "completedPacks": 112,
+      "verifiedVideos": 336,
+      "cloudVerifiedPacks": 112,
       "explanationCommit": "74dfbf19b",
       "shortsSinglePassCommit": "7e8cf4ddf",
-      "remainingPacks": 84
+      "remainingPacks": 0,
+      "canonicalUploadAssetsVerifiedPacks": 112,
+      "legacySourceVideosVerified": 10,
+      "legacyYouTubeInstances": 11,
+      "verificationEvidence": "All 336 pack videos fully decoded; input/publication SHA matched; all 112 packs read back from Drive; all 672 canonical upload objects read back with SHA matching."
     },
     "ctaDesign": {
-      "status": "all-inputs-cloud-verified-videos-rendering",
+      "status": "all-video-files-generated-and-verified",
       "recommended": "bridge-notebook",
       "generatedWith": "built-in image_gen; no imagen2.5 model selector available",
       "directory": ".tmp/video-render/youtube-cta-20260909",
@@ -170,19 +171,13 @@
     "updatedUniqueVideos": 24,
     "cdnImageMatched": 24
   },
-  "cdnVisualReviewed": 19,
   "currentDesign": "bridge-notebook-a",
-  "currentPlanSha256": "a865879c8b7394f985dd572f48744b997b9a9f596e6eec0c52937a71be31eab2",
   "rateLimit": {
     "reason": "uploadRateLimitExceeded",
     "stoppedAt": "2026-09-09T10:40:47Z",
     "retryNotBefore": "2026-09-10T10:40:47Z",
     "basis": "Follow the YouTube Help recommendation to retry 24 hours after a daily thumbnail limit. Exact channel reset time is not exposed.",
     "helpUrl": "https://support.google.com/youtube/answer/72431?hl=ja"
-  },
-  "verifiedByPrivacyAtInventory": {
-    "public": 5,
-    "private": 70
   },
   "migration": {
     "revision": "bridge-notebook-a-20260909",
@@ -201,11 +196,69 @@
       "legacy": 11,
       "generatedAt": "2026-09-09T12:32:24Z"
     },
-    "uploadedNew": 1,
+    "uploadedNew": 86,
     "deletedOld": 0,
     "privateRecords": ".tmp/youtube-migration-20260909/",
     "representativePlaybackVerified": true,
-    "status": "private-upload-batch-running",
-    "updatedAt": "2026-09-09T13:22:50.218Z"
+    "status": "waiting-for-youtube-daily-limits",
+    "updatedAt": "2026-09-09T15:08:30.465811Z",
+    "processedNew": 86,
+    "uploadedLongform": 38,
+    "uploadedShorts": 48,
+    "activatedNew": 0,
+    "readOnlyAuditRun": 34364364028,
+    "readOnlyAudit": {
+      "checked": 86,
+      "processingMatched": 86,
+      "oldCaptionTracks": 0,
+      "playlistMemberships": 0
+    },
+    "remainingUploads": 258,
+    "uploadRateLimit": {
+      "runId": 34362894603,
+      "status": 429,
+      "reason": "Video Uploads per day quota exceeded",
+      "retryNotBefore": "2026-09-10T07:00:00Z",
+      "basis": "Daily quota resets at midnight Pacific Time; September uses PDT (JST 16:00).",
+      "source": "https://developers.google.com/youtube/v3/determine_quota_cost"
+    },
+    "automaticUploadWorkflow": {
+      "name": "post-youtube-scheduled.yml",
+      "state": "disabled_manually",
+      "restoreAfter": "runtime references and remaining upload inputs migrated; prior state active"
+    },
+    "remainingWork": [
+      "upload remaining replacements after quota reset",
+      "verify on-YouTube playback and A thumbnails",
+      "activate in original visibility/schedule",
+      "update Shorts related-video links and private runtime references",
+      "fresh dependency verification and delete old videos",
+      "restore previous automatic upload workflow state"
+    ],
+    "automaticContinuation": "not configured",
+    "finalPlan": {
+      "planSha256": "fbabccd82444da5a4b34b2b2e0791b5f0a816b4ee84a2b5e5d79bb4205a775db",
+      "total": 344,
+      "ready": 344,
+      "assets": 686,
+      "youtubeWrites": 0,
+      "staged": true,
+      "storage": "private R2 immutable migration plan",
+      "localSummary": ".tmp/youtube-migration-20260909/final-plan/staged-summary.json"
+    },
+    "localGenerationComplete": true,
+    "localEvidenceFilesPersisted": 7
+  },
+  "thumbnailRefreshBeforeLogoA": {
+    "scope": "thumbnail-only updates before adoption of the A logo",
+    "updatedUniqueVideos": 75,
+    "remainingVideosAtInventory": 269,
+    "cdnImageMatched": 56,
+    "cdnVisualReviewed": 19,
+    "verifiedByPrivacyAtInventory": {
+      "public": 5,
+      "private": 70
+    },
+    "currentPlanSha256": "a865879c8b7394f985dd572f48744b997b9a9f596e6eec0c52937a71be31eab2"
   }
 }
