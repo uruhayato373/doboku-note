@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOfJst": "2026-09-10 06:42:11 JST",
+  "asOfJst": "2026-09-10 07:24:19 JST",
   "channelId": "UCHRnXPqoc0Hls8nXiK_ZYqA",
   "status": "logo-a-daily-ci-active",
   "branch": "codex/character-framing",
@@ -201,7 +201,7 @@
     "privateRecords": ".tmp/youtube-migration-20260909/",
     "representativePlaybackVerified": true,
     "status": "daily-ci-enabled-waiting-for-youtube-limits-and-review",
-    "updatedAt": "2026-09-09T21:42:11.418611Z",
+    "updatedAt": "2026-09-09T22:24:19.382580Z",
     "processedNew": 86,
     "uploadedLongform": 38,
     "uploadedShorts": 48,
@@ -228,8 +228,8 @@
       "mode": "approved-private-delivery-queue",
       "scheduleJst": "毎日20:17",
       "workflowRegisteredOn": "main",
-      "workflowCommit": "594c1bd3311dee1398dc4c647a72ff4aae9b0922",
-      "codeCommit": "e85b3fb03ca265dbeec9f0ba7ecc65e081e69268",
+      "workflowCommit": "f3d02707e3777b22d3f725940affbe71fc049bc4",
+      "codeCommit": "1dd9e3b8332688184eaf9ae99774e9af2a7e116a",
       "dryRun": {
         "runId": 34407833315,
         "conclusion": "success",
@@ -245,6 +245,12 @@
         "youtubeWrites": 0,
         "reason": "upload and thumbnail cooldowns respected",
         "privateStateReadbackVerified": true
+      },
+      "latestApplyRun": {
+        "runId": 34411734118,
+        "conclusion": "success",
+        "testsPassed": 43,
+        "youtubeWrites": 0
       }
     },
     "remainingWork": [
@@ -266,7 +272,33 @@
       "localSummary": ".tmp/youtube-migration-20260909/final-plan/staged-summary.json"
     },
     "localGenerationComplete": true,
-    "localEvidenceFilesPersisted": 7
+    "localEvidenceFilesPersisted": 7,
+    "deleteAutomation": {
+      "mode": "ci-live-preflight-and-delete",
+      "configuration": ".claude/config/youtube-delivery.json",
+      "backlogId": "DN-0184",
+      "additionalDeletionApprovalRequired": false,
+      "manualFreshAuditTimestampRequired": false,
+      "requiredExistingEvidence": [
+        "replacement playback",
+        "Shorts related-video state",
+        "dependent links and runtime references repaired"
+      ],
+      "liveChecks": [
+        "replacement processing, metadata, visibility and schedule",
+        "displayed thumbnail",
+        "playlist membership preservation",
+        "authored caption identity and preservation"
+      ],
+      "completionCommand": "npm run check-youtube-delivery -- --require-deleted",
+      "latestCompletionCheck": {
+        "checkedAt": "2026-09-09T22:21:44.392Z",
+        "exitCode": 1,
+        "total": 344,
+        "deleted": 0,
+        "remaining": 344
+      }
+    }
   },
   "thumbnailRefreshBeforeLogoA": {
     "scope": "thumbnail-only updates before adoption of the A logo",
