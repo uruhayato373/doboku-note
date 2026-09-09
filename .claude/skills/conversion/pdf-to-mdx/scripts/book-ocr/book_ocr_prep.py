@@ -140,7 +140,9 @@ def main():
             "srcDir": src_dir, "imgDir": read_dir, "imgWidth": a.width or None,
             "pagesDir": read_dir, "workDir": work, "outDir": out_dir, "batchSize": a.batch,
             "pageIds": ids, "pages": [{"id": p["id"], "image": os.path.join(read_dir, os.path.basename(p["image"])),
-                                       "printedPage": p.get("printedPage"), "section": p.get("section")} for p in man["pages"]],
+                                       "printedPage": p.get("printedPage"), "section": p.get("section"),
+                                       "sourceFile": p.get("sourceFile"), "sourcePdfPage": p.get("sourcePdfPage"),
+                                       "side": p.get("side")} for p in man["pages"]],
             "batches": batches, "sections": {k: [v[0], v[-1]] for k, v in sections.items()},
             "transcriptDir": os.path.abspath(f"content/sources/books/{man['directory']}/ocr")}
     json.dump(jobs, open(os.path.join(work, "jobs.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
