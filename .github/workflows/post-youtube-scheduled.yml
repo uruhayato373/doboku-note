@@ -27,7 +27,7 @@ jobs:
         with:
           # Pin the implementation while the broader video branch is under review.
           # Updating this revision requires running the delivery/migration tests.
-          ref: e85b3fb03ca265dbeec9f0ba7ecc65e081e69268
+          ref: 1dd9e3b8332688184eaf9ae99774e9af2a7e116a
           persist-credentials: false
       - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
