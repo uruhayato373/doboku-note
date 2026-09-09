@@ -188,6 +188,7 @@ SNSの人物・見出しを改修するときは [SNS画像ポリシー §0・§
 3. `/publish-ig-bs post {pack|reels-pp/q<N>} [--reel] --schedule …` — IG カルーセル/リールを Business Suite で**予約投稿**（即時は `--now`。Graph API 経路は 2026-06-17 全廃）
    - **リール JIT**（生成→予約→mp4削除で在庫を持たない）: `node scripts/publish-reel-jit.mjs --pack {r07-pack-01} --question 1 --schedule {YYYY-MM-DDTHH:MM}`。動画 mp4・wav は gitignore（コミットは slide-data + script.txt + caption.txt、wav は Drive vault 退避＝drive-vault-sync --group sns-archived-media／再生成可）
 4. `/yt-shorts-create --from-reels {pack-id}` — IG Reels mp4 → YouTube Shorts 派生
+   - 共有合成ライブラリの通常動画は、各静止画を音声の実尺へ揃えてから連結する。時刻同期の実機検査は `RUN_FFMPEG_INTEGRATION=1 node --test tests/longform-timing.integration.test.mjs`（ffmpeg＋libassが必要）。
 5. `/create-x-card` — X 投稿カード作成（`/publish-x` 予約運用は 2026-07-07 再開・ガード付きフロー必須。policy §11.5 / skills-guide §69）
 
 **IG ハイライト整備**（戦略 v7.1、`node` スクリプト）:
