@@ -27,11 +27,11 @@ node scripts/render-longform.mjs --pack-dir content/sns/video-packs/civil-constr
 node scripts/render-video-pack-shorts.mjs --pack-dir content/sns/video-packs/civil-construction-1/koji-gaiyo-7items
 ```
 
-出力先は `.tmp/video-render/{packId}/`。最初の1パックで表紙・読み上げ・字幕・切り替わりを確認してから一括生成する。採用画像は表紙・冒頭用で、本文スライドの意匠変更は含まない。legacy総監カバーは動画パックの一括生成には混ぜない。
+出力先は `.tmp/video-render/{packId}/`。最初の1パックで表紙・読み上げ・字幕・切り替わりを確認してから一括生成する。採用画像は表紙・冒頭に使い、説明画面は白と資格別のブランド色を軸にしたプレゼン形式へ統一する。大きな結論見出し、STEPラベル、淡い要点カードを使い、文字数・項目数に応じて文字サイズと配置を調整する。legacy総監カバーは動画パックの一括生成には混ぜない。
 
 ## 今回の検証範囲
 
-Driveの個別PNG346枚を読み戻し、元画像とのSHA-256一致を確認。読み戻した実データを使って、空の独立した復元先に既存pull処理で346枚を復元し、再度全件SHA-256一致を確認した。保存先解決はWindows/Macの模擬テストを実施。Mac実機と音声付きmp4の生成は未実施。
+Mac実機で採用PNG346枚を復元し、全件のSHA-256一致を確認した。VOICEVOX 0.25.2・話者13で代表パックの通常動画とShortsを生成し、映像・字幕・音声ストリーム・音量、音声認識による台本の冒頭から末尾までの収録を確認した。人による試聴済みとは扱わない。通常動画の場面を音声実尺へ揃える修正を適用し、実ffmpegの時刻同期テストを通した。ユーザーの試聴指摘を受け「概要の要は」を「概要のかなめは」に読み替え、VOICEVOXの音素を確認した。字幕は漢字のまま保持する。全体の生成・保存とYouTube更新の進捗は [更新状態](../../../.claude/state/youtube-thumbnail-rollout.json) を参照する。
 
 ## 補助ZIP
 
@@ -45,3 +45,5 @@ npm run check-youtube-cover-handoff -- --local
 ```
 
 YouTubeへの公開・再投稿は別工程。サムネ更新前に新しい実体一覧と計画を確認する。採用PNGは `node scripts/stage-youtube-covers.mjs` で検査し、`--commit` でprivate R2へ一時転送する。CIの `thumbnail-refresh` は採用SHA一致を検査して復元する。更新結果の照合・記録取得後は同スクリプトの `--delete --commit` で転送用キーを削除する。更新処理は初回サムネ設定で変わる `hasCustomThumbnail` だけを許容し、タイトル・公開設定・予約などを保持する。
+
+説明画面だけを更新する再生成は `--resume --refresh-png` を使う。音声は `tts-inputs.json` の読み替え後の入力・話者・WAVハッシュが一致するときだけ再利用し、読み修正や話者変更、旧キャッシュの来歴不明時は再合成する。

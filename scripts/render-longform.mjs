@@ -5,7 +5,7 @@
  * 経路: storyboard.json → 1920×1080 PNG（satori）＋ VOICEVOX TTS wav ＋ ASS 字幕 → ffmpeg mp4
  *
  * 出力は .tmp/video-render/{packId}/（パックディレクトリには書かない＝mp4/wav の Git 混入防止。
- * 完成 mp4/wav は R2 へ、状態は .claude/state/video-content-status.json へ）。
+ * 完成 mp4/wav は Google Drive vault へ、状態は .claude/state/video-content-status.json へ）。
  *
  * 会社PC（VOICEVOX/ffmpeg なし）では --skip-tts で PNG + ASS + render-manifest.json まで生成し、
  * mp4 合成は Mac または GitHub Actions で同コマンドを完走させる（戦略 06 §5.3）。
@@ -19,7 +19,7 @@
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
 import sharp from 'sharp';
-import { existsSync, readFileSync, statSync, writeFileSync, mkdirSync } from 'node:fs';
+import { existsSync, readFileSync, statSync, writeFileSync, mkdirSync, renameSync } from 'node:fs';
 import { resolve, dirname, join, basename, extname, relative, isAbsolute } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
@@ -27,6 +27,7 @@ import { parseArgs } from 'node:util';
 import {
   LONGFORM_W, LONGFORM_H, buildLongformAss, buildSceneNode, planLongformRender, EXAM_TO_PALETTE,
 } from './lib/longform-render.mjs';
+import { narrationInput, reusableNarration, sha256 } from './lib/video-narration-cache.mjs';
 import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -40,6 +41,7 @@ const { values: args } = parseArgs({
     'skip-tts': { type: 'boolean' },
     'skip-png': { type: 'boolean' },
     resume: { type: 'boolean' },
+    'refresh-png': { type: 'boolean' },
   },
 });
 
@@ -63,7 +65,7 @@ const { resolveExam } = await import(
 const { scenes, theme, packTitle } = planLongformRender(manifest, storyboard, resolveExam);
 
 async function loadVisualAsset(scene) {
-  if (scene.visual?.kind !== 'figure') return null;
+  if (scene.visual?.kind !== 'figure' || scene.visual.flow) return null;
   if (!scene.visual.src) throw new Error(`figure scene の visual.src がありません: ${scene.sceneId}`);
   const assetPath = resolve(ROOT, scene.visual.src);
   const relativePath = relative(ROOT, assetPath);
@@ -117,6 +119,8 @@ async function main() {
   mkdirSync(imgDir, { recursive: true });
   mkdirSync(wavDir, { recursive: true });
 
+  const cachePath = join(outDir, 'tts-inputs.json');
+  const cache = existsSync(cachePath) ? JSON.parse(readFileSync(cachePath, 'utf8')) : {};
   const pngPaths = [];
   const wavPaths = [];
 
@@ -129,7 +133,7 @@ async function main() {
       const cover = await renderYoutubeCover(ROOT, coverSpec);
       writeFileSync(pngPath, cover.buffer);
       writeFileSync(join(outDir, 'cover-provenance.json'), JSON.stringify(cover.provenance, null, 2) + '\n');
-    } else if (!args['skip-png'] && !(args.resume && existsSync(pngPath) && statSync(pngPath).size > 0)) {
+    } else if (!args['skip-png'] && !(args.resume && !args['refresh-png'] && existsSync(pngPath) && statSync(pngPath).size > 0)) {
       process.stdout.write(`  [PNG ${i + 1}/${scenes.length}] ${scene.sceneId}... `);
       const node = buildSceneNode(scene, { theme, packTitle, assetDataUri: await loadVisualAsset(scene) });
       const svg = await satori(node, { width: LONGFORM_W, height: LONGFORM_H, fonts });
@@ -137,11 +141,20 @@ async function main() {
       console.log('✓');
     }
 
-    if (!args['skip-tts'] && !(args.resume && existsSync(wavPath) && statSync(wavPath).size > 0)) {
-      process.stdout.write(`  [TTS ${i + 1}/${scenes.length}] ${scene.narration.slice(0, 20)}... `);
-      const wavBuf = await synthesize({ text: scene.narration, speaker: Number(args.speaker) });
-      writeFileSync(wavPath, Buffer.from(wavBuf));
-      console.log('✓');
+    if (!args['skip-tts']) {
+      const input = narrationInput(scene.narration, Number(args.speaker));
+      const reusable = args.resume && existsSync(wavPath)
+        && reusableNarration(cache[scene.sceneId], input, readFileSync(wavPath));
+      if (!reusable) {
+        process.stdout.write(`  [TTS ${i + 1}/${scenes.length}] ${scene.narration.slice(0, 20)}... `);
+        const wavBuf = await synthesize({ text: input.text, speaker: Number(args.speaker) });
+        writeFileSync(wavPath + '.tmp', Buffer.from(wavBuf));
+        renameSync(wavPath + '.tmp', wavPath);
+        cache[scene.sceneId] = { inputSha256: input.inputSha256, sha256: sha256(wavBuf) };
+        writeFileSync(cachePath + '.tmp', JSON.stringify(cache, null, 2) + '\n');
+        renameSync(cachePath + '.tmp', cachePath);
+        console.log('✓');
+      }
     }
 
     pngPaths.push(pngPath);
@@ -168,7 +181,7 @@ async function main() {
     console.log(`  実尺 ${totalSec.toFixed(1)}s（設計尺 ${scenes.at(-1).end}s）`);
   }
 
-  // 後続（R2 upload / status 更新 / QA）が読む機械可読サマリ
+  // 後続（Drive 保存 / status 更新 / QA）が読む機械可読サマリ
   const renderManifest = {
     packId: manifest.packId,
     exam: manifest.exam,

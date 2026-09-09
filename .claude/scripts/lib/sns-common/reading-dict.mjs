@@ -11,6 +11,8 @@ const READING_DICT = {
   // サービス名
   'doboku-note.com': 'どぼくのーとどっとこむ',
   'doboku-note': 'どぼくのーと',
+  // 単独の「要」だけを文脈付きで指定し、必要・要点・要否などの熟語を壊さない。
+  '概要の要は': '概要のかなめは',
   // 試験用語（「問」を「もん」と読ませる。辞書なしだと VOICEVOX が訓読みで「かことい/ぜんとい」と誤読）
   '過去問': 'かこもん',
   '全問': 'ぜんもん',
@@ -43,7 +45,7 @@ const READING_DICT = {
  */
 export function applyReadingDict(text) {
   let result = text;
-  for (const [from, to] of Object.entries(READING_DICT)) {
+  for (const [from, to] of Object.entries(READING_DICT).sort(([a], [b]) => b.length - a.length)) {
     result = result.replaceAll(from, to);
   }
   return result;

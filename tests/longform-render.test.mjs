@@ -92,7 +92,7 @@ test('buildSceneNode: figure は既存画像と要点を左右配置する', () 
   );
   const flat = JSON.stringify(node);
   assert.ok(flat.includes('data:image/png;base64,iVBORw0KGgo='));
-  assert.ok(flat.includes('"width":704'));
+  assert.ok(flat.includes('"type":"img"'));
   assert.ok(flat.includes('頻出ペア'));
   assert.ok(flat.includes('経済性×安全'));
   assert.ok(flat.includes('objectFit'));

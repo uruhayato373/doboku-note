@@ -1,3 +1,4 @@
+import { buildExplanationNode } from './video-explanation.mjs';
 /**
  * longform-render.mjs — 動画パック（DN-0110 Phase 1）の 16:9 通常動画レンダリング・ライブラリ。
  *
@@ -30,8 +31,6 @@ export const EXAM_TO_PALETTE = {
 };
 
 const WHITE = '#ffffff';
-const INK_STRONG = '#222222';
-const INK_BODY = '#3a3a3a';
 const FONT_JP = "'NotoSansJP', 'Noto Sans JP'";
 
 /** 字幕・キャプションを maxChars で改行する（和文単純折返し） */
@@ -105,7 +104,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text`
  * @param {object} ctx { theme: { base, deep, accent, label }, packTitle }
  */
 export function buildSceneNode(scene, ctx) {
-  const { theme, packTitle, assetDataUri } = ctx;
+  const { theme } = ctx;
   const visual = scene.visual ?? { kind: 'points', heading: scene.caption ?? '' };
   const kind = visual.kind ?? 'points';
 
@@ -159,175 +158,7 @@ export function buildSceneNode(scene, ctx) {
     };
   }
 
-  if (kind === 'figure') {
-    if (!assetDataUri) throw new Error(`figure scene に画像データがありません: ${scene.sceneId}`);
-    return {
-      type: 'div',
-      props: {
-        style: {
-          display: 'flex', flexDirection: 'column',
-          width: `${LONGFORM_W}px`, height: `${LONGFORM_H}px`,
-          background: WHITE, fontFamily: FONT_JP,
-        },
-        children: [
-          {
-            type: 'div',
-            props: {
-              style: {
-                display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                width: `${LONGFORM_W}px`, height: 96, background: theme.deep,
-                padding: '0 64px', flexShrink: 0,
-              },
-              children: [
-                { type: 'span', props: { style: { color: WHITE, fontSize: 36, fontWeight: 700, fontFamily: FONT_JP }, children: theme.label } },
-                { type: 'span', props: { style: { color: 'rgba(255,255,255,0.75)', fontSize: 30, fontWeight: 500, fontFamily: FONT_JP }, children: packTitle } },
-              ],
-            },
-          },
-          {
-            type: 'div',
-            props: {
-              style: {
-                display: 'flex', flex: 1, alignItems: 'center', gap: 64,
-                padding: '48px 80px 160px 80px', borderLeft: `14px solid ${theme.base}`,
-              },
-              children: [
-                {
-                  type: 'div',
-                  props: {
-                    style: {
-                      display: 'flex', width: 760, height: 760, alignItems: 'center', justifyContent: 'center',
-                      background: '#f7f8fa', border: '2px solid #d7d7d7', borderRadius: 24, padding: 28,
-                    },
-                    children: [{
-                      type: 'img',
-                      props: {
-                        src: assetDataUri,
-                        width: 704,
-                        height: 704,
-                        style: { objectFit: 'contain' },
-                      },
-                    }],
-                  },
-                },
-                {
-                  type: 'div',
-                  props: {
-                    style: { display: 'flex', flex: 1, flexDirection: 'column', justifyContent: 'center' },
-                    children: [
-                      { type: 'div', props: { style: { display: 'flex', fontSize: 58, fontWeight: 700, color: INK_STRONG, lineHeight: 1.45, fontFamily: FONT_JP, marginBottom: 36 }, children: visual.heading } },
-                      ...(visual.items ?? []).map((item) => ({
-                        type: 'div',
-                        props: {
-                          style: { display: 'flex', alignItems: 'flex-start', marginBottom: 24 },
-                          children: [
-                            { type: 'div', props: { style: { display: 'flex', width: 16, height: 16, borderRadius: 8, background: theme.base, marginTop: 22, marginRight: 24, flexShrink: 0 }, children: '' } },
-                            { type: 'div', props: { style: { display: 'flex', flexWrap: 'wrap', flex: 1, fontSize: 40, fontWeight: 500, color: INK_BODY, lineHeight: 1.6, fontFamily: FONT_JP }, children: item } },
-                          ],
-                        },
-                      })),
-                    ],
-                  },
-                },
-              ],
-            },
-          },
-        ],
-      },
-    };
-  }
-
-  // points（既定）: 上部バー + 見出し + 箇条書き。下 160px は字幕焼込み用に空ける
-  return {
-    type: 'div',
-    props: {
-      style: {
-        display: 'flex', flexDirection: 'column',
-        width: `${LONGFORM_W}px`, height: `${LONGFORM_H}px`,
-        background: WHITE, fontFamily: FONT_JP,
-      },
-      children: [
-        {
-          type: 'div',
-          props: {
-            style: {
-              display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-              width: `${LONGFORM_W}px`, height: 96, background: theme.deep,
-              padding: '0 64px', flexShrink: 0,
-            },
-            children: [
-              {
-                type: 'span',
-                props: {
-                  style: { color: WHITE, fontSize: 36, fontWeight: 700, fontFamily: FONT_JP },
-                  children: theme.label,
-                },
-              },
-              {
-                type: 'span',
-                props: {
-                  style: { color: 'rgba(255,255,255,0.75)', fontSize: 30, fontWeight: 500, fontFamily: FONT_JP },
-                  children: packTitle,
-                },
-              },
-            ],
-          },
-        },
-        {
-          type: 'div',
-          props: {
-            style: {
-              display: 'flex', flexDirection: 'column', flex: 1,
-              padding: '72px 96px 160px 96px',
-              borderLeft: `14px solid ${theme.base}`,
-            },
-            children: [
-              {
-                type: 'div',
-                props: {
-                  style: {
-                    display: 'flex', flexWrap: 'wrap',
-                    fontSize: 64, fontWeight: 700, color: INK_STRONG,
-                    lineHeight: 1.5, fontFamily: FONT_JP, marginBottom: 48,
-                  },
-                  children: visual.heading,
-                },
-              },
-              ...(visual.items ?? []).map((item) => ({
-                type: 'div',
-                props: {
-                  style: { display: 'flex', alignItems: 'flex-start', marginBottom: 28 },
-                  children: [
-                    {
-                      type: 'div',
-                      props: {
-                        style: {
-                          display: 'flex', width: 18, height: 18, borderRadius: 9,
-                          background: theme.base, marginTop: 24, marginRight: 28, flexShrink: 0,
-                        },
-                        children: '',
-                      },
-                    },
-                    {
-                      type: 'div',
-                      props: {
-                        style: {
-                          display: 'flex', flexWrap: 'wrap', flex: 1,
-                          fontSize: 46, fontWeight: 500, color: INK_BODY,
-                          lineHeight: 1.65, fontFamily: FONT_JP,
-                        },
-                        children: item,
-                      },
-                    },
-                  ],
-                },
-              })),
-            ],
-          },
-        },
-      ],
-    },
-  };
+  return buildExplanationNode(scene, ctx);
 }
 
 /**

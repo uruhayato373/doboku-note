@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * 動画パックの通常動画用 storyboard と生成済み WAV から、関連 Shorts を再生成する。
- * 出力は .tmp/video-render/{packId}/shorts/{key}/。Git には入れず private R2 へ退避する。
+ * 出力は .tmp/video-render/{packId}/shorts/{key}/。Git には入れず Google Drive vault へ保存する。
  */
 import satori from 'satori';
 import { Resvg } from '@resvg/resvg-js';
@@ -12,6 +12,7 @@ import { spawnSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { parseArgs } from 'node:util';
 
+import { buildExplanationNode } from './lib/video-explanation.mjs';
 import { EXAM_TO_PALETTE, wrapJp } from './lib/longform-render.mjs';
 import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
 
@@ -120,32 +121,7 @@ function coverNode(item, scene) {
 }
 
 function pointsNode(scene) {
-  const visual = scene.visual ?? { heading: scene.caption, items: [] };
-  return {
-    type: 'div',
-    props: {
-      style: { display: 'flex', flexDirection: 'column', width: `${W}px`, height: `${H}px`, background: '#fff', fontFamily: FONT_JP },
-      children: [
-        {
-          type: 'div', props: { style: { display: 'flex', height: 180, padding: '0 58px', alignItems: 'center', justifyContent: 'space-between', background: theme.deep }, children: [
-            textNode(theme.label, { color: '#fff', fontSize: 38, fontWeight: 700 }),
-            textNode(examProfile.short, { color: 'rgba(255,255,255,.74)', fontSize: 32, fontWeight: 500 }),
-          ] },
-        },
-        {
-          type: 'div', props: { style: { display: 'flex', flex: 1, flexDirection: 'column', padding: '105px 72px 390px', borderLeft: `14px solid ${theme.base}` }, children: [
-            textNode(wrapJp(visual.heading ?? scene.caption ?? '', 13).join('\n'), { fontSize: 72, fontWeight: 700, lineHeight: 1.45, whiteSpace: 'pre-wrap', color: '#222', marginBottom: 70 }),
-            ...(visual.items ?? []).map((item) => ({
-              type: 'div', props: { style: { display: 'flex', alignItems: 'flex-start', marginBottom: 48 }, children: [
-                textNode('●', { color: theme.base, fontSize: 36, marginRight: 28, marginTop: 8 }),
-                textNode(chunkJpBalanced(item, 17).join('\n'), { color: '#343434', fontSize: 47, fontWeight: 500, lineHeight: 1.65, whiteSpace: 'pre-wrap', flex: 1 }),
-              ] },
-            })),
-          ] },
-        },
-      ],
-    },
-  };
+  return buildExplanationNode(scene, { theme, packTitle: manifest.title, portrait: true });
 }
 
 function fitText(text, maxChars) {
