@@ -1428,6 +1428,17 @@
             "privacyStatus": "private",
             "relatedVideoId": null,
             "desiredRelatedVideoId": "XePxJSqRIVc"
+          },
+          {
+            "key": "point-taishogai-2",
+            "status": "uploaded_private",
+            "approvedBy": "user",
+            "videoId": "_M1Fvem0sqI",
+            "url": "https://www.youtube.com/watch?v=_M1Fvem0sqI",
+            "uploadedAt": "2026-09-09T12:58:49.586Z",
+            "privacyStatus": "private",
+            "relatedVideoId": null,
+            "desiredRelatedVideoId": "XePxJSqRIVc"
           }
         ]
       }
@@ -5523,6 +5534,17 @@
             "privacyStatus": "private",
             "relatedVideoId": null,
             "desiredRelatedVideoId": "DSXvla-qsYQ"
+          },
+          {
+            "key": "point-soil-volume-2",
+            "status": "uploaded_private",
+            "approvedBy": "user",
+            "videoId": "pqgTgxwbnyw",
+            "url": "https://www.youtube.com/watch?v=pqgTgxwbnyw",
+            "uploadedAt": "2026-09-09T12:58:51.854Z",
+            "privacyStatus": "private",
+            "relatedVideoId": null,
+            "desiredRelatedVideoId": "DSXvla-qsYQ"
           }
         ]
       }
@@ -6474,6 +6496,17 @@
             "privacyStatus": "private",
             "relatedVideoId": null,
             "desiredRelatedVideoId": "I7BzF7nWqLc"
+          },
+          {
+            "key": "point-step1-2",
+            "status": "uploaded_private",
+            "approvedBy": "user",
+            "videoId": "buc9u3n2ugY",
+            "url": "https://www.youtube.com/watch?v=buc9u3n2ugY",
+            "uploadedAt": "2026-09-09T12:58:53.712Z",
+            "privacyStatus": "private",
+            "relatedVideoId": null,
+            "desiredRelatedVideoId": "I7BzF7nWqLc"
           }
         ]
       }
@@ -6600,6 +6633,17 @@
             "privacyStatus": "private",
             "relatedVideoId": null,
             "desiredRelatedVideoId": "RpdNdRh78eg"
+          },
+          {
+            "key": "point-step2-2",
+            "status": "uploaded_private",
+            "approvedBy": "user",
+            "videoId": "D2a6c8aGAO0",
+            "url": "https://www.youtube.com/watch?v=D2a6c8aGAO0",
+            "uploadedAt": "2026-09-09T12:59:20.218Z",
+            "privacyStatus": "private",
+            "relatedVideoId": null,
+            "desiredRelatedVideoId": "RpdNdRh78eg"
           }
         ]
       }
@@ -6622,7 +6666,8 @@
           "url": "https://www.youtube.com/watch?v=osT2Ja5ye7I",
           "scheduledAt": "2026-09-05T12:14:50.508Z",
           "privacyStatus": "private",
-          "thumbnailStatus": "pending"
+          "thumbnailStatus": "set",
+          "thumbnailSetAt": "2026-09-09T12:59:22.126Z"
         },
         "instagramReel": [
           {
@@ -6690,7 +6735,8 @@
           "url": "https://www.youtube.com/watch?v=kfxid99mS4s",
           "scheduledAt": "2026-09-05T12:14:55.565Z",
           "privacyStatus": "private",
-          "thumbnailStatus": "pending"
+          "thumbnailStatus": "set",
+          "thumbnailSetAt": "2026-09-09T12:59:30.235Z"
         },
         "instagramReel": [
           {
@@ -6826,7 +6872,8 @@
           "url": "https://www.youtube.com/watch?v=gtFUtgVhNsc",
           "scheduledAt": "2026-09-05T12:15:03.217Z",
           "privacyStatus": "private",
-          "thumbnailStatus": "pending"
+          "thumbnailStatus": "set",
+          "thumbnailSetAt": "2026-09-09T12:59:40.180Z"
         },
         "instagramReel": [
           {
@@ -7325,6 +7372,30 @@
             "productionDisclosure": "author-led-ai-assisted",
             "renderedAt": "2026-09-05T23:35:49.044Z"
           }
+        ],
+        "shorts": [
+          {
+            "key": "point-ippan-1",
+            "status": "uploaded_private",
+            "approvedBy": "user",
+            "videoId": "j9NcClJn2oI",
+            "url": "https://www.youtube.com/watch?v=j9NcClJn2oI",
+            "uploadedAt": "2026-09-09T12:59:04.932Z",
+            "privacyStatus": "private",
+            "relatedVideoId": null,
+            "desiredRelatedVideoId": "CBNGHtxSuc4"
+          },
+          {
+            "key": "point-chusho-2",
+            "status": "uploaded_private",
+            "approvedBy": "user",
+            "videoId": "dmoG5fjdFEk",
+            "url": "https://www.youtube.com/watch?v=dmoG5fjdFEk",
+            "uploadedAt": "2026-09-09T12:59:04.932Z",
+            "privacyStatus": "private",
+            "relatedVideoId": null,
+            "desiredRelatedVideoId": "CBNGHtxSuc4"
+          }
         ]
       }
     },
@@ -7436,6 +7507,30 @@
             "sourcePath": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi-point-wc-ratio-1",
             "productionDisclosure": "author-led-ai-assisted",
             "renderedAt": "2026-09-05T23:36:57.449Z"
+          }
+        ],
+        "shorts": [
+          {
+            "key": "point-wc-ratio-1",
+            "status": "uploaded_private",
+            "approvedBy": "user",
+            "videoId": "VPbmtpZ0Igo",
+            "url": "https://www.youtube.com/watch?v=VPbmtpZ0Igo",
+            "uploadedAt": "2026-09-09T12:59:12.442Z",
+            "privacyStatus": "private",
+            "relatedVideoId": null,
+            "desiredRelatedVideoId": "HlDYdjBXCMs"
+          },
+          {
+            "key": "point-tanni-saikotsu-kuuki-2",
+            "status": "uploaded_private",
+            "approvedBy": "user",
+            "videoId": "YnOFx25pBaA",
+            "url": "https://www.youtube.com/watch?v=YnOFx25pBaA",
+            "uploadedAt": "2026-09-09T12:59:12.442Z",
+            "privacyStatus": "private",
+            "relatedVideoId": null,
+            "desiredRelatedVideoId": "HlDYdjBXCMs"
           }
         ]
       }
@@ -7687,6 +7782,30 @@
             "productionDisclosure": "author-led-ai-assisted",
             "renderedAt": "2026-09-05T23:33:53.825Z"
           }
+        ],
+        "shorts": [
+          {
+            "key": "point-step1-1",
+            "status": "uploaded_private",
+            "approvedBy": "user",
+            "videoId": "Sny0JX8lPSs",
+            "url": "https://www.youtube.com/watch?v=Sny0JX8lPSs",
+            "uploadedAt": "2026-09-09T12:58:55.637Z",
+            "privacyStatus": "private",
+            "relatedVideoId": null,
+            "desiredRelatedVideoId": "zwQ1L3otO6E"
+          },
+          {
+            "key": "point-step2-2",
+            "status": "uploaded_private",
+            "approvedBy": "user",
+            "videoId": "OT6z37KO_QM",
+            "url": "https://www.youtube.com/watch?v=OT6z37KO_QM",
+            "uploadedAt": "2026-09-09T12:58:55.637Z",
+            "privacyStatus": "private",
+            "relatedVideoId": null,
+            "desiredRelatedVideoId": "zwQ1L3otO6E"
+          }
         ]
       }
     },
@@ -7777,7 +7896,8 @@
           "url": "https://www.youtube.com/watch?v=_08FSnE36CE",
           "scheduledAt": "2026-09-05T12:14:52.817Z",
           "privacyStatus": "private",
-          "thumbnailStatus": "pending"
+          "thumbnailStatus": "set",
+          "thumbnailSetAt": "2026-09-09T12:59:26.332Z"
         },
         "instagramReel": [
           {
@@ -7845,7 +7965,8 @@
           "url": "https://www.youtube.com/watch?v=6Fe199kKyF8",
           "scheduledAt": "2026-09-05T12:14:59.694Z",
           "privacyStatus": "private",
-          "thumbnailStatus": "pending"
+          "thumbnailStatus": "set",
+          "thumbnailSetAt": "2026-09-09T12:59:36.296Z"
         },
         "instagramReel": [
           {
