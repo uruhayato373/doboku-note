@@ -255,6 +255,18 @@ APIへ非公開アップロード済みで関連動画設定待ちのShortsは `
 
 `migration-activate` はサムネ実表示・再生・再生リスト/手動字幕・Shorts自身の関連動画の状態が台帳にそろったものだけ、旧版の公開範囲と未来の予約日時へ切り替え、APIで読み直す。確認記録は自動で「確認済み」にせず実査後にprivate台帳へ残す。通常動画を公開した後、その動画を指すShortsや管理台帳の参照を新版へ更新する。`migration-delete` は依存リンクの更新完了と1時間以内の旧新IDに紐づく再確認を要求し、削除意図を先に記録してから旧版だけを削除し、APIで不存在を確認する。削除応答を失っても新たな対象を推測しない。自動アップロードworkflowを移行中に一時停止した場合は、旧新IDの参照更新と残投稿の素材更新が済んでから元の設定へ戻す。
 
+### 定期予約・公開CI（2026-09-10）
+
+`post-youtube-scheduled.yml` は毎日20:17 JSTに、固定した検証済みコードの `node scripts/youtube-delivery.mjs` を実行する。これはAPIへ予約を投入する時刻であり、視聴者への公開は既存カレンダーの `publishAt` にYouTube側が実行する。手動実行は `apply=false` が既定。`apply=true` は同じprivate台帳から続行する。旧 `publish-video-batch.cjs` のタイトル検索による日次投入には戻さず、置換対象IDを固定したキューへ切り替える。
+
+対象・日次上限は `.claude/config/youtube-delivery.json`。初期対象はA案への置換を承認した既存344本で、legacyのretired 187本や未承認の新規企画は追加しない。現行プラン外の新規動画は自動追加しない。今回の設定を将来の無制限な新規公開承認として流用しない。
+
+処理は処理完了監査→サムネ→公開範囲/予約復元→旧版削除→未予約Shortsの予約→残りの非公開アップロード。Pacific日付ごとの上限をAPI呼出し前に保存するため、手動で同日に再実行しても枠をリセットしない。APIの日次上限は次のPacific午前0時、チャンネルのアップロード/サムネ日次制限は24時間待つ。制限は待機として扱い、認証・データ不一致・応答不明は停止する。1回の予算消化で未処理が残っても次回へ持ち越す。
+
+実行状態はprivate R2の `youtube-migration/bridge-notebook-a-20260909/delivery-state.json` と `receipts/`、生エラーは同prefixの `delivery-error.json`。公開Git・Actionsログ・ジョブサマリーへは件数と固定の待機理由だけを出し、未公開動画IDを含めない。手動移行workflowと同じconcurrency groupで直列化する。
+
+再生確認、Shorts関連動画、依存リンク更新、削除前1時間以内の実査は、証拠がない間は待機理由として残す。CIは確認済みフラグを自作しない。旧版削除済みの未予約Shortsは、関連先IDの確認記録と公開/限定公開の実体を確認し、各 `youtube.json` の未来の日時へ予約する。過ぎた枠を一斉公開に読み替えず `expired-publication-slot` として停止する。移行中の公開Git台帳には旧IDが残るため、private台帳との参照更新を済ませるまでは依存リンク確認を完了扱いにしない。
+
 旧形式の10素材（YouTube実体は重複1本を含む11本）は `content/sns/youtube/legacy-refresh.json` と `scripts/refresh-legacy-youtube.mjs` で再生成する（`--only <key>` で部分再生成）。過去問8素材はハッシュ照合した原本の設問・解答・音声を保ち、表紙とCTAを差し替える。キーワード2素材は既存サイト記事に基づく編集可能なスライド原稿から再描画する。出力は `.tmp/video-render/legacy-brand-a/`、画像確認前の状態は `rendered` であり公開可能とは扱わない。確認後の移行計画は `legacy-metadata.json` の既存タイトル・現内容に即した概要欄・正規URL/UTMを取り込む。
 
 **公開実体の照合**は 2 本立て。実査 `verify-video-publication`（CI 週次＝`verify-yt-status.yml` に同居・creds 必須）が videos.list で削除/非公開・概要欄の `utm_campaign={packId}`/`utm_source=youtube` 欠落・公開済み Short の `relatedVideoId` 未設定を検出し `.claude/state/video-publication-verify.json` へ記録する。**creds 不足・API 失敗は 記録を書かずに exit 2（検査不成立）**——「creds が無い」を「異常なし」と記録すると以後ずっと緑が出て事故が埋もれるため。ゲート `check-video-publication`（オフライン・quality:audit ci:true）はその記録の有無・網羅・鮮度（既定 14 日）・孤児・報告済みドリフトを見る。**published なのに一度も照合していない**状態が最も危険なので V01 で赤にする。対象 0 件（公開前）は件数を明示して PASS（異常 0 件と混同しない）。是正は人が判断し、スクリプトは台帳を書き戻さない。
