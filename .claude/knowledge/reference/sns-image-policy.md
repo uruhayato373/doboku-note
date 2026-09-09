@@ -60,7 +60,9 @@ uploadsのページ境界で同じ公開IDが重複する場合は、投稿台�
 1. `--mode prepare --out .tmp/youtube-rollout-prepared` で全パックとlegacyの表紙PNG・`designs.json`を生成する。legacyの元データは `content/sns/youtube/cover-design.json` の `covers` と `titles` 対応表。画像・見出しを確認した後、生成された画像チェック台帳を `.claude/state/youtube-thumbnail-designs.json` に採用する（画像本体はGitへ入れない）。台帳はsourceKey・spec SHA・PNG SHA・寸法であり、公開完了を示さない。
 2. `--mode plan --input PATH_TO_DECRYPTED_INVENTORY --out .tmp/youtube-rollout-plan` で全実体と元データを対応付け、計画とSHAを手元に固定する。元タイトルの不一致、対応0件/複数件、未確認画像は停止する。非公開IDやタイトルを含む計画はGitへ入れない。
 3. CIの手動入力 `operation=thumbnail-refresh`・`plan_sha256`・`report_public_key`・`batch_start`（ID固定順、0始まり）・`batch_limit`（既定1）で実査する。単一試行は `only_video_id`。既定 `commit=false` では書き込まず、更新時だけ `commit=true` を指定する。CLIでは `--mode refresh --expect-plan-sha256 HASH [--start N --limit N | --only-video-id ID] [--commit]`。全件を再取得して計画SHAを照合し、対象ごとに生成または採用画像から読み込んだPNGのSHAが確認済み画像と一致することを要求する。
-4. `thumbnails.set` 以外は書き込まず、前後のタイトル・公開設定・予約・動画情報が不変か検査する。更新前画像と処理段階は `video-NNNN.enc.json` に保存。既存画像の一致は送信せず、不確かな書込結果は自動再送せず停止する。更新後のCDN画像を画素比較し、`cdn-matched` と `accepted-cdn-pending` を分ける。CDN一致は公開フィードの実表示確認ではない。暗号化artifactを保持期限内に手元へ取得し、確認待ちは書き込みなしで再照合する。
+4. `thumbnails.set` 以外は書き込まず、前後のタイトル・公開設定・予約・動画情報を検査する。初回設定に伴う `contentDetails.hasCustomThumbnail` の未設定/false→trueだけを正常な変化として許容し、`thumbnails` 以外のsnippet・status・その他contentDetailsは不変を要求する。更新前画像と処理段階は `video-NNNN.enc.json` に保存。既存画像の一致は送信せず、不確かな書込結果は自動再送せず停止する。更新後のCDN画像を画素比較し、`cdn-matched` と `accepted-cdn-pending` を分ける。CDN一致は公開フィードの実表示確認ではない。暗号化artifactを保持期限内に手元へ取得し、確認待ちは書き込みなしで再照合する。
+
+採用PNGを使うCI更新の前に、`node scripts/stage-youtube-covers.mjs` で全画像を検査し、`--commit` でprivate R2へ一時転送する。`thumbnail-refresh` jobは同スクリプトの `--pull` で採用SHAが一致する画像だけを復元する。恒久保存先はDriveのまま。更新結果の照合と暗号化記録の取得後に `node scripts/stage-youtube-covers.mjs --delete --commit` で転送用キーだけを削除する。
 
 既存の概要欄同期・inventory・refreshは排他的な手動jobで、refresh同士も直列に実行する。通常動画やShortsの再投稿、予約の作り直し、公開状態の変更は行わない。
 

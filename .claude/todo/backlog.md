@@ -36,7 +36,7 @@
 2. 全動画への展開前に、代表動画の字幕・音声・冒頭と本文の見た目を確認する。短縮候補の見出しを変更する場合は、PNGと採用hashを再生成して画像一覧で確認する。
 3. YouTube通常動画サムネ16:9、Shorts/Reels冒頭9:16、Instagram表紙4:5、Xカード16:9へ展開する。文字は編集可能なデータ、人物は既存素材で保持し、媒体別のトークンと共通レンダラーを改修する。幅360pxの画像と動画冒頭を確認し、見出し・人物・字幕・操作ボタンの重なりを解消する。
 4. 元データ／カバー／動画派生物／配信先素材の参照を追跡し、未アップロード分はまとめて再生成する。予定や公開状態はYouTube台帳、IGのstatus/posted、Xのstatusと実機から読む（件数・日時をこのカードへ複製しない）。
-5. 更新経路は `scripts/youtube-thumbnail-rollout.mjs` と `sync-yt-descriptions.yml` の明示 `thumbnail-refresh` を使う。まず `scripts/lib/youtube-thumbnail-update.mjs` の保護対象から、カスタムサムネ設定に付随する `contentDetails.hasCustomThumbnail` の扱いだけを見直し、タイトル・公開設定・予約等の保護を維持して回帰テストする。画像を変更した場合は画像チェック台帳 `.claude/state/youtube-thumbnail-designs.json` と全件計画SHAを再生成・再確認する。別PCでは秘密鍵をGitで移さず新しい鍵でread-only inventoryを取得し、更新済み／未更新を現物から再判定する。不確かな更新を再送しない。IGは新規投稿フローと既存予約編集を分ける。
+5. 更新経路は `scripts/youtube-thumbnail-rollout.mjs` と `sync-yt-descriptions.yml` の明示 `thumbnail-refresh` を使う。画像を変更した場合は画像チェック台帳 `.claude/state/youtube-thumbnail-designs.json` と全件計画SHAを再生成・再確認する。別PCでは秘密鍵をGitで移さず新しい鍵でread-only inventoryを取得し、更新済み／未更新を現物から再判定する。不確かな更新を再送しない。IGは新規投稿フローと既存予約編集を分ける。
 6. 予約分を優先し、公開済みYouTubeはサムネ変更から進める。Instagramの本文／Reelsカバー／本体、Xの編集期限を項目別に確認する。動画本体の再アップロードや投稿の削除・再投稿が必要なものは、URL・反応履歴への影響を示してユーザーの依頼範囲内で扱う。保存後にID・予約日時・公開状態・実表示を再照合し、素材生成だけで外部反映済みとしない。
 
 **完了条件**: 3ポーズ以上の比較を経た媒体別テンプレートが実装され、代表画像／動画の目視と該当機械検査が通ること。適用対象の一覧に「反映・実表示確認済み／変更不可と理由／対象外と理由」が揃い、未対応を完了へ混ぜず、予約重複・意図しない即時公開・投稿履歴の無断削除がないこと。機械検査だけで外部反映を判定しない。

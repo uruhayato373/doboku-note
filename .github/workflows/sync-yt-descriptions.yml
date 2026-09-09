@@ -155,6 +155,12 @@ jobs:
           node-version: "20"
           cache: npm
       - run: npm ci --legacy-peer-deps --ignore-scripts
+      - name: Restore approved covers from private transfer storage
+        env:
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          CLOUDFLARE_R2_ACCESS_KEY_ID: ${{ secrets.CLOUDFLARE_R2_ACCESS_KEY_ID }}
+          CLOUDFLARE_R2_SECRET_ACCESS_KEY: ${{ secrets.CLOUDFLARE_R2_SECRET_ACCESS_KEY }}
+        run: node scripts/stage-youtube-covers.mjs --pull
       - name: Update only checked thumbnails
         env:
           YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}

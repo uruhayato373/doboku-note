@@ -8,14 +8,14 @@ const channel = { id: 'UCHRnXPqoc0Hls8nXiK_ZYqA', title: 'doboku-note' };
 const videoId = 'hJYV_U0qKvA';
 const buffer = await sharp({ create: { width: 1280, height: 720, channels: 3, background: '#0f2742' } }).png().toBuffer();
 const input = await thumbnailInput(buffer, { videoId, channel });
-function mock({ wrongChannel = false, missing = false, drift = false, uploadFailure = false } = {}) {
+function mock({ wrongChannel = false, missing = false, drift = false, uploadFailure = false, beforeCustom, afterRead } = {}) {
   let reads = 0;
   const calls = [];
   const video = { id: videoId, snippet: { channelId: channel.id, title: 'そのまま', description: 'そのまま', tags: ['土木'], thumbnails: {} },
-    status: { privacyStatus: 'private', publishAt: '2026-10-01T10:00:00Z' }, contentDetails: { duration: 'PT2M51S' } };
+    status: { privacyStatus: 'private', publishAt: '2026-10-01T10:00:00Z' }, contentDetails: { duration: 'PT2M51S', hasCustomThumbnail: beforeCustom } };
   const youtube = {
     channels: { list: async () => ({ data: { items: [{ id: wrongChannel ? 'other' : channel.id, snippet: { title: channel.title } }] } }) },
-    videos: { list: async () => { reads++; const v = structuredClone(video); if (drift && reads > 1) v.status.privacyStatus = 'public'; return { data: { items: missing ? [] : [v] } }; } },
+    videos: { list: async () => { reads++; const v = structuredClone(video); if (drift && reads > 1) v.status.privacyStatus = 'public'; if (reads > 1) afterRead?.(v); return { data: { items: missing ? [] : [v] } }; } },
     thumbnails: { set: async (request, options) => { calls.push({ request, options }); if (uploadFailure) throw new Error('timeout'); return { data: { items: [{}] } }; } },
   };
   return { youtube, calls };
@@ -61,6 +61,29 @@ test('公開設定ドリフトを成功にせず、自動的な公開/復旧を�
   await assert.rejects(updateThumbnail(youtube, input, buffer, { commit: true, record: r => { phase = r.phase; } }), /サムネイル以外/);
   assert.equal(calls.length, 1);
   assert.equal(phase, 'accepted-but-verification-failed');
+});
+test('初回サムネ設定に伴うhasCustomThumbnailのtrue化を受理する', async () => {
+  for (const beforeCustom of [undefined, false, true]) {
+    const { youtube, calls } = mock({ beforeCustom, afterRead: v => { v.contentDetails.hasCustomThumbnail = true; } });
+    const result = await updateThumbnail(youtube, input, buffer, { commit: true });
+    assert.equal(result.phase, 'api-accepted-visual-check-required');
+    assert.equal(calls.length, 1);
+    assert.deepEqual(result.before.status, result.after.status);
+  }
+});
+test('サムネフラグ以外の変更とtrueからfalseへの変化は引き続き停止する', async () => {
+  for (const change of [
+    v => { v.snippet.title = '変化'; },
+    v => { v.status.publishAt = '2026-11-01T10:00:00Z'; },
+    v => { v.contentDetails.duration = 'PT3M'; },
+    v => { v.contentDetails.hasCustomThumbnail = false; },
+  ]) {
+    const { youtube, calls } = mock({ beforeCustom: true, afterRead: change });
+    let phase;
+    await assert.rejects(updateThumbnail(youtube, input, buffer, { commit: true, record: r => { phase = r.phase; } }), /サムネイル以外/);
+    assert.equal(phase, 'accepted-but-verification-failed');
+    assert.equal(calls.length, 1);
+  }
 });
 test('不確定な書込結果を自動再試行しない', async () => {
   const { youtube, calls } = mock({ uploadFailure: true });

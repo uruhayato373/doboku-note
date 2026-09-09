@@ -45,9 +45,14 @@ export async function updateThumbnail(youtube, input, buffer, { commit = false, 
     report.after = await fetchVideo();
     const protectedFields = video => {
       const { thumbnails: _thumbnails, ...snippet } = video.snippet;
-      return { id: video.id, snippet, status: video.status, contentDetails: video.contentDetails };
+      const { hasCustomThumbnail: _hasCustomThumbnail, ...contentDetails } = video.contentDetails ?? {};
+      return { id: video.id, snippet, status: video.status, contentDetails };
     };
-    if (!isDeepStrictEqual(protectedFields(report.before), protectedFields(report.after))) throw new Error('サムネイル以外の動画情報に変化があります。自動復旧せず実機確認が必要');
+    const beforeCustom = report.before.contentDetails?.hasCustomThumbnail;
+    const afterCustom = report.after.contentDetails?.hasCustomThumbnail;
+    const customThumbnailExpected = beforeCustom === afterCustom ||
+      ([undefined, false].includes(beforeCustom) && afterCustom === true);
+    if (!customThumbnailExpected || !isDeepStrictEqual(protectedFields(report.before), protectedFields(report.after))) throw new Error('サムネイル以外の動画情報に変化があります。自動復旧せず実機確認が必要');
     report.phase = 'api-accepted-visual-check-required';
     await record(report);
     return report;

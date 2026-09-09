@@ -44,4 +44,4 @@ done
 npm run check-youtube-cover-handoff -- --local
 ```
 
-YouTubeへの公開・再投稿は別工程。公開済み動画を書き換える前には、既存のサムネ更新保護処理を直して新しい実体一覧と計画を確認する。
+YouTubeへの公開・再投稿は別工程。サムネ更新前に新しい実体一覧と計画を確認する。採用PNGは `node scripts/stage-youtube-covers.mjs` で検査し、`--commit` でprivate R2へ一時転送する。CIの `thumbnail-refresh` は採用SHA一致を検査して復元する。更新結果の照合・記録取得後は同スクリプトの `--delete --commit` で転送用キーを削除する。更新処理は初回サムネ設定で変わる `hasCustomThumbnail` だけを許容し、タイトル・公開設定・予約などを保持する。
