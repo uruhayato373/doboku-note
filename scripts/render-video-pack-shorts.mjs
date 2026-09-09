@@ -15,6 +15,8 @@ import { parseArgs } from 'node:util';
 import { buildExplanationNode } from './lib/video-explanation.mjs';
 import { EXAM_TO_PALETTE, wrapJp } from './lib/longform-render.mjs';
 import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
+import { readVideoCta } from './lib/video-cta.mjs';
+import { narrationInput, reusableNarration, sha256 as bytesSha256 } from './lib/video-narration-cache.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const W = 1080;
@@ -61,6 +63,7 @@ const coverDesign = existsSync(coverDesignPath)
   ? validateCoverDesign(JSON.parse(readFileSync(coverDesignPath, 'utf8')), { exam: EXAM_TO_PALETTE[manifest.exam] }) : null;
 const renderRoot = args['render-root'] ? resolve(args['render-root']) : join(ROOT, '.tmp', 'video-render');
 const sourceRoot = join(renderRoot, manifest.packId);
+const cta = await readVideoCta(ROOT, packDir, 'shorts');
 
 const { resolveExam } = await import(
   pathToFileURL(resolve(ROOT, '.claude/scripts/sns/lib/exam-palette.mjs')).href
@@ -187,6 +190,22 @@ async function sha256(path) {
   return createHash('sha256').update(readFileSync(path)).digest('hex');
 }
 
+async function customCtaWav() {
+  const render = JSON.parse(readFileSync(join(sourceRoot, 'render-manifest.json'), 'utf8'));
+  if (!render.tts || !Number.isInteger(render.speaker)) throw new Error('CTA音声の話者を確定するため通常動画を先に再生成してください');
+  const path = join(sourceRoot, 'wav', 'shorts-cta.wav');
+  const recordPath = join(sourceRoot, 'shorts-cta-input.json');
+  const record = existsSync(recordPath) ? JSON.parse(readFileSync(recordPath, 'utf8')) : null;
+  const input = narrationInput(cta.narration, render.speaker);
+  if (existsSync(path) && reusableNarration(record, input, readFileSync(path))) return path;
+  const { isRunning, synthesize } = await import('../.claude/scripts/lib/sns-common/tts-client.mjs');
+  if (!(await isRunning())) throw new Error('Shorts CTA音声の合成にはVOICEVOXが必要です');
+  const bytes = Buffer.from(await synthesize({ text: input.text, speaker: render.speaker }));
+  writeFileSync(path, bytes);
+  writeFileSync(recordPath, JSON.stringify({ inputSha256: input.inputSha256, sha256: bytesSha256(bytes) }, null, 2) + '\n');
+  return path;
+}
+
 async function main() {
   if (!Array.isArray(publish.shorts) || publish.shorts.length !== manifest.outputs?.shorts) {
     throw new Error(`youtube.json shorts は${manifest.outputs?.shorts}件必要です`);
@@ -194,6 +213,7 @@ async function main() {
   let changed = false;
   const targets = publish.shorts.filter(item => !args.key || item.key === args.key);
   if (!targets.length) throw new Error('Shorts 対象0件');
+  const authoredCtaWav = cta && !args['preview-only'] ? await customCtaWav() : null;
   for (const item of targets) {
     const coverSpec = coverDesign?.covers?.[item.key];
     if (coverSpec && coverSpec.format !== 'shorts') throw new Error(`${item.key}: cover format が不一致`);
@@ -204,14 +224,14 @@ async function main() {
     if (ctaIndex < 0) throw new Error(`${item.key}: cta scene がありません`);
     const ctaScene = storyboard.scenes[ctaIndex];
     const sourceWav = join(sourceRoot, 'wav', `${String(sceneIndex).padStart(2, '0')}-${scene.sceneId}.wav`);
-    const ctaSourceWav = join(sourceRoot, 'wav', `${String(ctaIndex).padStart(2, '0')}-${ctaScene.sceneId}.wav`);
+    const ctaSourceWav = authoredCtaWav ?? join(sourceRoot, 'wav', `${String(ctaIndex).padStart(2, '0')}-${ctaScene.sceneId}.wav`);
     const outDir = join(sourceRoot, 'shorts', item.key);
     const tmpDir = join(outDir, 'work');
     mkdirSync(tmpDir, { recursive: true });
 
     const existingVideo = join(outDir, 'shorts.mp4');
     const existingThumbnail = join(outDir, 'thumbnail.png');
-    if (!args['preview-only'] && !coverSpec && !args.force && existsSync(existingVideo) && existsSync(existingThumbnail)) {
+    if (!args['preview-only'] && !coverSpec && !cta && !args.force && existsSync(existingVideo) && existsSync(existingThumbnail)) {
       const videoSha = await sha256(existingVideo);
       const thumbnailSha = await sha256(existingThumbnail);
       if (item.sha256 === videoSha && item.thumbnailSha256 === thumbnailSha) {
@@ -229,7 +249,10 @@ async function main() {
       writeFileSync(join(tmpDir, 'cover-provenance.json'), JSON.stringify(cover.provenance, null, 2) + '\n');
     } else await renderPng(coverNode(item, scene), coverPng);
     await renderPng(pointsNode(scene), pointsPng);
-    await renderPng(ctaNode(), ctaPng);
+    if (cta) {
+      writeFileSync(ctaPng, cta.buffer);
+      writeFileSync(join(tmpDir, 'cta-provenance.json'), JSON.stringify(cta.provenance, null, 2) + '\n');
+    } else await renderPng(ctaNode(), ctaPng);
 
     // Preview never replaces the upload thumbnail, video hash, or publication input.
     if (args['preview-only']) {
@@ -262,7 +285,7 @@ async function main() {
     const assPath = join(outDir, 'subtitles.ass');
     writeFileSync(assPath, buildAss([
       { text: scene.narration, start: 0, duration: narrationDuration },
-      { text: ctaScene.narration, start: narrationDuration, duration: Math.min(ctaSourceDuration, ctaSeconds) },
+      { text: cta?.narration ?? ctaScene.narration, start: narrationDuration, duration: Math.min(ctaSourceDuration, ctaSeconds) },
     ]), 'utf8');
     const outPath = join(outDir, 'shorts.mp4');
     await composeStaticSlidesVideo({

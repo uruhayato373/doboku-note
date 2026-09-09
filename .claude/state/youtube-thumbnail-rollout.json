@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "asOfJst": "2026-09-09",
+  "asOfJst": "2026-09-09 21:22:30 JST",
   "channelId": "UCHRnXPqoc0Hls8nXiK_ZYqA",
-  "status": "cta-logo-proposals-ready-and-thumbnail-rate-limited",
+  "status": "logo-a-representative-verified-and-thumbnail-rate-limited",
   "branch": "codex/character-framing",
   "taskId": "DN-0184",
   "scope": "approved-cover-and-presentation-body-render-and-thumbnail-update",
@@ -105,7 +105,7 @@
       "macVerificationDateJst": "2026-09-09"
     },
     "rendering": {
-      "status": "paused-for-cta-design",
+      "status": "paused-after-logo-a-representative",
       "targetPacks": 112,
       "targetLongform": 112,
       "targetShorts": 224,
@@ -132,7 +132,7 @@
       "remainingPacks": 90
     },
     "ctaDesign": {
-      "status": "mockups-only",
+      "status": "representative-render-verified",
       "recommended": "bridge-notebook",
       "generatedWith": "built-in image_gen; no imagen2.5 model selector available",
       "directory": ".tmp/video-render/youtube-cta-20260909",
@@ -140,7 +140,27 @@
         "proposal-a-bridge-notebook.png",
         "proposal-b-teacher-emblem.png"
       ],
-      "appliedToVideos": false
+      "appliedToVideos": true,
+      "adopted": "bridge-notebook-a",
+      "adoptedBy": "user",
+      "adoptedOnJst": "2026-09-09",
+      "representativePack": "civil-construction-1/koji-gaiyo-7items",
+      "longformCoverLogo": true,
+      "longformCta": true,
+      "shortsCta": true,
+      "shortsCtaNarration": "dedicated-related-video-guidance",
+      "verifiedVideos": 3,
+      "durationSeconds": [
+        134.474667,
+        30.2,
+        30.2
+      ],
+      "cloudVerified": true,
+      "scope": "工事概要7項目の通常動画1本とShorts2本。ほかのパックのCTAとYouTube公開実体は未更新。",
+      "thumbnailPlanNeedsRefresh": true,
+      "cloudVerification": "full-byte-readback-sha256",
+      "cloudVerifiedFiles": 51,
+      "verification": "3 videos fully decoded; 50 subtitle events; scene audio, subtitle timing, cover/CTA/media hashes matched"
     }
   },
   "priorDesignCounts": {

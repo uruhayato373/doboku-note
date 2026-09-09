@@ -47,3 +47,5 @@ npm run check-youtube-cover-handoff -- --local
 YouTubeへの公開・再投稿は別工程。サムネ更新前に新しい実体一覧と計画を確認する。採用PNGは `node scripts/stage-youtube-covers.mjs` で検査し、`--commit` でprivate R2へ一時転送する。CIの `thumbnail-refresh` は採用SHA一致を検査して復元する。更新結果の照合・記録取得後は同スクリプトの `--delete --commit` で転送用キーを削除する。更新処理は初回サムネ設定で変わる `hasCustomThumbnail` だけを許容し、タイトル・公開設定・予約などを保持する。
 
 説明画面だけを更新する再生成は `--resume --refresh-png` を使う。音声は `tts-inputs.json` の読み替え後の入力・話者・WAVハッシュが一致するときだけ再利用し、読み修正や話者変更、旧キャッシュの来歴不明時は再合成する。
+
+「工事概要7項目」の確認版は、2026-09-09採用のA案（橋＋ノートのロゴ）を通常動画の表紙右上と締めへ適用した。表紙の版は `.tmp/video-render/youtube-covers-logo-a-20260909/`、CTA素材は `.tmp/video-render/youtube-cta-20260909/` に置き、元の採用画像も保持する。これらもDrive vaultから復元する。`cta-design.json` が締め画像の入力とSHA-256を持つ。Shortsは同じブランド意匠で「関連動画へ」と案内し、専用の音声と字幕を使う。Shorts生成前に通常動画を `--speaker 13 --resume --refresh-png` で生成し、話者をrender-manifestへ記録する。A案の適用状況は更新状態の `preparation.ctaDesign` で確認する。

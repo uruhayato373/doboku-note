@@ -29,6 +29,7 @@ import {
 } from './lib/longform-render.mjs';
 import { narrationInput, reusableNarration, sha256 } from './lib/video-narration-cache.mjs';
 import { renderYoutubeCover, validateCoverDesign } from './lib/youtube-cover.mjs';
+import { readVideoCta } from './lib/video-cta.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = resolve(__dirname, '..');
@@ -63,6 +64,8 @@ const { resolveExam } = await import(
   pathToFileURL(resolve(ROOT, '.claude/scripts/sns/lib/exam-palette.mjs')).href
 );
 const { scenes, theme, packTitle } = planLongformRender(manifest, storyboard, resolveExam);
+const cta = await readVideoCta(ROOT, packDir, 'longform');
+if (cta && args['skip-png']) throw new Error('cta-design があるパックは --skip-png 不可');
 
 async function loadVisualAsset(scene) {
   if (scene.visual?.kind !== 'figure' || scene.visual.flow) return null;
@@ -133,6 +136,9 @@ async function main() {
       const cover = await renderYoutubeCover(ROOT, coverSpec);
       writeFileSync(pngPath, cover.buffer);
       writeFileSync(join(outDir, 'cover-provenance.json'), JSON.stringify(cover.provenance, null, 2) + '\n');
+    } else if (scene.sceneId === 'cta' && cta) {
+      writeFileSync(pngPath, cta.buffer);
+      writeFileSync(join(outDir, 'cta-provenance.json'), JSON.stringify(cta.provenance, null, 2) + '\n');
     } else if (!args['skip-png'] && !(args.resume && !args['refresh-png'] && existsSync(pngPath) && statSync(pngPath).size > 0)) {
       process.stdout.write(`  [PNG ${i + 1}/${scenes.length}] ${scene.sceneId}... `);
       const node = buildSceneNode(scene, { theme, packTitle, assetDataUri: await loadVisualAsset(scene) });
@@ -189,6 +195,7 @@ async function main() {
     render: [LONGFORM_W, LONGFORM_H],
     renderedAt: new Date().toISOString(),
     tts: !args['skip-tts'],
+    speaker: args['skip-tts'] ? null : Number(args.speaker),
     subtitles: !args['skip-tts'],
     scenes: scenes.map((s, i) => ({
       sceneId: s.sceneId,

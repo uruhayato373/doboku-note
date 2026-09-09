@@ -127,6 +127,8 @@ YouTube の stage スクリプトはローカル実体が無くても、`video-r
 
 `npm run youtube-shorts:render -- --pack-dir PATH --key KEY --preview-only --render-root .tmp/preview` は表紙・本文・CTAのPNGだけを `work/` に生成する。投稿サムネ・mp4・youtube.jsonのhashは書き換えない。公開済みサムネだけの更新ではこちらか `youtube-covers` を使い、動画まで更新したとは記録しない。通常動画の `--skip-tts` も完成動画ではなくPNG/字幕設計の確認用。
 
+採用した締め画像はパックの `cta-design.json`（schemaVersion 1）で指定する。`longform` / `shorts` はそれぞれ `{path, sha256}` を持ち、1920×1080 / 1080×1920 のPNGを全画面で使う。画像の復元・hash・寸法の検査は表紙と共通で、不一致時は停止する。通常動画ではsceneId `cta` を置換し、`--resume` でも反映、`--skip-png` は拒否する。Shorts側には画像に対応する `narration` も必須で、通常動画の `render-manifest.json` に記録した `speaker` と同じ話者で合成し、字幕もこの文面に揃える。音声キャッシュは入力・話者・WAV hashで照合する。`--preview-only` はCTA画像までを検査し、音声は生成しない。設定のない形式は従来のCTAを使う。
+
 ## 5. 状態モデル
 
 共通statusは次の順序を基本とする。
