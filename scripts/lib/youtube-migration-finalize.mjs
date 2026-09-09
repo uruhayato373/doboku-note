@@ -55,7 +55,13 @@ export async function updateReplacementThumbnail(youtube, item, options) {
       await youtube.thumbnails.set({ videoId: receipt.newId, media: { mimeType: 'image/png', body: Readable.from(bytes) } }, { retry: false });
     } catch (error) {
       const reasons = error.response?.data?.error?.errors?.map(e => e.reason) ?? [];
-      if (reasons.some(r => /uploadRateLimitExceeded|quotaExceeded|rateLimitExceeded/.test(r))) await saveControl({ ...control, thumbnailRetryNotBefore: new Date(Date.now() + 24 * 3600e3).toISOString() });
+      if ([403, 429].includes(error.response?.status) && reasons.some(r => /uploadRateLimitExceeded|quotaExceeded|rateLimitExceeded/.test(r))) {
+        // An explicit rejection is safe to retry after cooldown. A lost response
+        // remains "intent" and must be reconciled without another upload.
+        receipt.thumbnail.phase = 'rejected'; receipt.thumbnail.rejectedAt = now();
+        await save(receipt.oldId, receipt);
+        await saveControl({ ...control, thumbnailRetryNotBefore: new Date(Date.now() + 24 * 3600e3).toISOString() });
+      }
       throw error;
     }
     receipt.thumbnail.acceptedSha256 = item.thumbnail.sha256; receipt.thumbnail.phase = 'accepted'; await save(receipt.oldId, receipt);
@@ -80,7 +86,6 @@ export function assertPreservationReady(receipt, item) {
   if (audit.oldCaptions?.some(c => c.snippet?.trackKind !== 'ASR') && !receipt.captionVerification?.matched) throw new Error('Authored captions require migration');
   if (audit.memberships?.length && !receipt.playlistVerification?.matched) throw new Error('Playlist membership not restored');
   if (!item.sourceKey.endsWith('/longform') && !receipt.relatedVerification?.matched) throw new Error('Shorts related-video state not verified');
-  if (!receipt.linkVerification?.matched || receipt.linkVerification.newId !== receipt.newId) throw new Error('Dependent links not repaired');
 }
 /** Visibility and deletion are separate, restartable phases. No deletion occurs during activation. */
 export async function activateReplacement(youtube, item, { load, save, commit }) {
@@ -106,6 +111,9 @@ export async function deleteOldReplacement(youtube, item, { load, save, commit }
   const receipt = await checkedReceipt(item, load);
   if (!receipt.activation || !['activated', 'delete-intent', 'deleted'].includes(receipt.phase)) throw new Error('Replacement not activated');
   assertPreservationReady(receipt, item);
+  // Incoming Shorts can select the replacement longform only after it is
+  // public/unlisted. Repair those links after activation and before deletion.
+  if (!receipt.linkVerification?.matched || receipt.linkVerification.newId !== receipt.newId) throw new Error('Dependent links not repaired');
   const auditTime = Date.parse(receipt.deletionAudit?.checkedAt);
   if (!receipt.deletionAudit?.matched || receipt.deletionAudit.oldId !== receipt.oldId || receipt.deletionAudit.newId !== receipt.newId || !Number.isFinite(auditTime) || auditTime > Date.now() + 5000 || Date.now() - auditTime > 3600e3) throw new Error('Fresh dependency/deletion audit required');
   const video = await getVideo(youtube, receipt.newId, true);

@@ -21,8 +21,8 @@ test('activation removes staging marker, preserves schedule, never deletes', asy
   assert.deepEqual(f.receipt().activation.snippet.tags, ['試験']); assert.equal(f.receipt().activation.status.publishAt, old.status.publishAt); assert.equal(f.mutations(), 1);
   await activateReplacement(f.youtube, item, f.options); assert.equal(f.mutations(), 1);
 });
-test('missing display, playback, links, or playlist proof blocks activation without mutations', async () => {
-  for (const key of ['thumbnail', 'playbackVerification', 'linkVerification', 'preservationAudit']) {
+test('missing display, playback, or playlist proof blocks activation without mutations', async () => {
+  for (const key of ['thumbnail', 'playbackVerification', 'preservationAudit']) {
     const f = fixture(); f.mutateReceipt(r => { delete r[key]; });
     await assert.rejects(activateReplacement(f.youtube, item, f.options)); assert.equal(f.mutations(), 0);
   }
@@ -31,6 +31,15 @@ test('missing display, playback, links, or playlist proof blocks activation with
 });
 test('Shorts cannot activate without related-video state verification', async () => {
   const f = fixture(); await assert.rejects(activateReplacement(f.youtube, { ...item, sourceKey: 'exam/pack/short' }, f.options), /related-video/);
+});
+test('incoming links can be repaired after activation but must block old-video deletion', async () => {
+  const f = fixture(); f.mutateReceipt(r => { delete r.linkVerification; });
+  await activateReplacement(f.youtube, item, f.options);
+  f.mutateReceipt(r => { r.deletionAudit = { matched: true, oldId: r.oldId, newId: r.newId, checkedAt: new Date().toISOString() }; });
+  await assert.rejects(deleteOldReplacement(f.youtube, item, f.options), /Dependent links/);
+  assert.equal(f.mutations(), 1);
+  f.mutateReceipt(r => { r.linkVerification = { matched: true, newId: r.newId }; });
+  assert.equal((await deleteOldReplacement(f.youtube, item, f.options)).phase, 'deleted');
 });
 test('audit checks processing and records explicitly empty captions and playlist memberships', async () => {
   const f = fixture(); const result = await auditReplacement(f.youtube, item, { ...f.options, playlists: { complete: true, playlists: [] } });
@@ -56,4 +65,17 @@ test('scheduled dates that have passed become public, future dates remain unchan
 test('thumbnail cooldown returns before downloading or writing', async () => {
   const f = fixture(); const result = await updateReplacementThumbnail(f.youtube, item, { ...f.options, loadControl: async () => ({ thumbnailRetryNotBefore: '2099-01-01T00:00:00Z' }), getBytes: () => assert.fail('Must wait') });
   assert.equal(result.phase, 'thumbnail-rate-limit-wait'); assert.equal(f.mutations(), 0);
+});
+test('explicit thumbnail limit is retryable after cooldown, lost response stays uncertain', async t => {
+  t.mock.method(Date, 'now', () => Date.parse('2090-01-01T00:00:00Z'));
+  for (const explicit of [true, false]) {
+    const f = fixture(); f.mutateReceipt(r => { delete r.thumbnail; }); let control = {}, calls = 0;
+    f.youtube.thumbnails.set = async () => { calls++; const e = new Error('stopped'); if (explicit) e.response = { status: 429, data: { error: { errors: [{ reason: 'uploadRateLimitExceeded' }] } } }; throw e; };
+    const options = { ...f.options, loadControl: async () => control, saveControl: async x => { control = x; }, getBytes: async () => Buffer.from('cover'), fetchImage: async () => ({ data: Buffer.from('old') }), compare: async () => ({ matched: false }) };
+    await assert.rejects(updateReplacementThumbnail(f.youtube, item, options));
+    assert.equal(f.receipt().thumbnail.phase, explicit ? 'rejected' : 'intent');
+    const result = await updateReplacementThumbnail(f.youtube, item, options);
+    assert.equal(result.phase, explicit ? 'thumbnail-rate-limit-wait' : 'thumbnail-outcome-uncertain'); assert.equal(calls, 1);
+    if (explicit) { control = {}; await assert.rejects(updateReplacementThumbnail(f.youtube, item, options)); assert.equal(calls, 2); }
+  }
 });
