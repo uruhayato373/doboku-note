@@ -10,8 +10,16 @@ Windows / Mac のどちらでも、Node依存関係・VOICEVOXエンジン・ffm
 `npm ci --legacy-peer-deps` を実行し、VOICEVOXを起動する。
 現在、動画を生成するGitHub Actionsワークフローは無い。
 
-採用画像ZIPをリポジトリ直下で展開し、`.tmp/video-render/youtube-covers-20260909/` を復元する。
-Driveへ登録済みの場合は次でも復元できる。
+採用画像346枚は [Google Drive の採用カバーフォルダー](https://drive.google.com/drive/folders/10qx4MeGVlRASn1DQjqa_GR4IyLkibONJ) に `youtube-video-ready-20260909-part-1.zip`〜`part-3.zip` の3ファイルで保存済み（2026-09-09）。コネクターの100MB上限に合わせた分割で、3つはそれぞれ単独で開けるZIP。
+Macでは3つともダウンロードし、リポジトリ直下で以下を実行する（ZIPの置き場所は実際のダウンロード先に合わせる）。
+
+```bash
+for part in 1 2 3; do
+  unzip -o "$HOME/Downloads/youtube-video-ready-20260909-part-${part}.zip" -d .
+done
+```
+
+`.tmp/video-render/youtube-covers-20260909/` が復元される。PNG個別のDrive台帳登録は未実施のため、現時点ではZIPから復元する。今後、個別ファイルをDrive台帳へ登録した後は次でも復元できる。
 
 ```bash
 node scripts/drive-vault-sync.mjs --pull --path .tmp/video-render/youtube-covers-20260909/

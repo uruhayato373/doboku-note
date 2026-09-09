@@ -43,6 +43,12 @@
     "images": 346,
     "poses": 8,
     "guide": "content/sns/youtube/VIDEO-RENDER.md",
-    "transfer": "local-zip-prepared; Drive upload not performed"
+    "transfer": "Drive split ZIPs uploaded; parent and byte sizes verified by connector readback; individual PNG vault registration pending",
+    "driveFolderUrl": "https://drive.google.com/drive/folders/10qx4MeGVlRASn1DQjqa_GR4IyLkibONJ",
+    "archives": [
+      { "part": 1, "fileId": "1pXrOcZF61q4dDQQuoTEpd4CdnH9XTLXa", "bytes": 57770832 },
+      { "part": 2, "fileId": "1aSVyfnwSc_gH7PrcnGCpE87RI2aCWy_x", "bytes": 58830343 },
+      { "part": 3, "fileId": "1JytGM-U5t7foBvcX4iafS3n_PfGsYwlT", "bytes": 56549266 }
+    ]
   }
 }
