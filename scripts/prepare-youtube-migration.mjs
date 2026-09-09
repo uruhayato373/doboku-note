@@ -18,7 +18,14 @@ async function main() {
   const inventory = read(args.inventory), progress = read(args.progress), verification = read(args.verification), sources = loadCoverSources(root);
   if (!inventory.complete || inventory.checked !== inventory.videos.length) throw new Error('Complete channel inventory required');
   const assets = new Map();
-  const entries = inventory.videos.map(oldVideo => {
+  let storage;
+  const remote = () => storage ??= migrationStorage();
+  const mediaBytes = async (localPath, expectedSha) => {
+    const bytes = existsSync(localPath) ? readFileSync(localPath) : await remote().get(`youtube-migration/${MIGRATION}/media/${expectedSha}.mp4`);
+    if (!bytes || sha256(bytes) !== expectedSha) throw new Error('Local/staged verified media missing or changed');
+    return bytes;
+  };
+  const buildEntry = async oldVideo => {
     let matches = sources.filter(s => s.knownVideoId === oldVideo.id);
     if (!matches.length) matches = sources.filter(s => s.title === oldVideo.snippet.title);
     if (matches.length !== 1 || matches[0].title !== oldVideo.snippet.title) throw new Error('Missing/ambiguous source');
@@ -28,7 +35,7 @@ async function main() {
       const v = existsSync(reportPath) ? read(reportPath)[source.key] : null;
       if (v?.status !== 'passed' || v.revision !== MIGRATION || v.visualVerification !== 'passed') return entry;
       for (const [kind, localPath, expectedSha, ext] of [['media', v.mediaPath, v.sha256, 'mp4'], ['thumbnail', v.thumbnailPath, v.thumbnailSha256, 'png']]) {
-        const bytes = readFileSync(localPath), sha = sha256(bytes), key = `youtube-migration/${MIGRATION}/media/${sha}.${ext}`;
+        const bytes = kind === 'media' ? await mediaBytes(localPath, expectedSha) : readFileSync(localPath), sha = sha256(bytes), key = `youtube-migration/${MIGRATION}/media/${sha}.${ext}`;
         if (sha !== expectedSha || (kind === 'thumbnail' && sha !== source.spec.approvedImage.sha256)) throw new Error('Legacy verified media differs');
         entry[kind] = { key, sha256: sha, bytes: bytes.length }; assets.set(key, localPath);
       }
@@ -43,11 +50,11 @@ async function main() {
     const item = short ? pub.shorts.find(s => s.key === source.key) : pub.longform;
     const folder = `.tmp/video-render/${pack}${short ? '/shorts/' + source.key : ''}`;
     const mediaPath = `${folder}/${short ? 'shorts' : 'video'}.mp4`, thumbnailPath = `${folder}/${short ? 'thumbnail.png' : 'img/00-cover.png'}`;
-    const media = readFileSync(mediaPath), thumb = readFileSync(thumbnailPath);
+    const media = await mediaBytes(mediaPath, item.sha256), thumb = readFileSync(thumbnailPath);
     if (sha256(media) !== item.sha256 || sha256(thumb) !== item.thumbnailSha256 || sha256(thumb) !== source.spec.approvedImage.sha256) throw new Error('Publication/approved cover mismatch');
     const recorded = p.outputs.find(o => o.path === mediaPath);
     if (recorded?.sha256 !== item.sha256 || recorded.bytes !== media.length) throw new Error('Verified render differs');
-    const probe = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=codec_type,width,height:format=duration', '-of', 'json', mediaPath], { encoding: 'utf8' });
+    const probe = spawnSync('ffprobe', ['-v', 'error', '-show_entries', 'stream=codec_type,width,height:format=duration', '-of', 'json', 'pipe:0'], { input: media, encoding: 'utf8' });
     if (probe.status !== 0) throw new Error('Video probe failed');
     const parsed = JSON.parse(probe.stdout), video = parsed.streams.find(s => s.codec_type === 'video');
     if (!parsed.streams.some(s => s.codec_type === 'audio') || video.width !== (short ? 1080 : 1920) || video.height !== (short ? 1920 : 1080)) throw new Error('Missing audio/wrong dimensions');
@@ -58,7 +65,10 @@ async function main() {
     Object.assign(entry.media, { duration: Number(parsed.format.duration), width: video.width, height: video.height });
     entry.verification = { status: 'passed', revision: MIGRATION, checkedAt: v.checkedAt, checks: v.checks };
     return entry;
-  }).sort((a, b) => Number(!a.media) - Number(!b.media) || Number(a.sourceKey.split('/').at(-1) !== 'longform') - Number(b.sourceKey.split('/').at(-1) !== 'longform') || Number(a.oldVideo.status.privacyStatus !== 'public') - Number(b.oldVideo.status.privacyStatus !== 'public') || (a.oldVideo.status.publishAt ?? '9999').localeCompare(b.oldVideo.status.publishAt ?? '9999') || a.sourceKey.localeCompare(b.sourceKey));
+  };
+  const entries = [];
+  for (const oldVideo of inventory.videos) entries.push(await buildEntry(oldVideo));
+  entries.sort((a, b) => Number(!a.media) - Number(!b.media) || Number(a.sourceKey.split('/').at(-1) !== 'longform') - Number(b.sourceKey.split('/').at(-1) !== 'longform') || Number(a.oldVideo.status.privacyStatus !== 'public') - Number(b.oldVideo.status.privacyStatus !== 'public') || (a.oldVideo.status.publishAt ?? '9999').localeCompare(b.oldVideo.status.publishAt ?? '9999') || a.sourceKey.localeCompare(b.sourceKey));
   const plan = { schemaVersion: 1, migration: MIGRATION, channel: inventory.channel, sourceInventoryAt: inventory.generatedAt, entries };
   assertPlan(plan);
   const bytes = Buffer.from(JSON.stringify(plan, null, 2) + '\n'), hash = sha256(bytes);
@@ -66,11 +76,11 @@ async function main() {
   writeFileSync(join(out, `plan-${hash}.json`), bytes, { mode: 0o600 });
   const summary = { planSha256: hash, total: entries.length, ready: entries.filter(e => e.media).length, assets: assets.size, youtubeWrites: 0, staged: false };
   if (args.commit) {
-    const storage = migrationStorage();
+    const storage = remote();
     for (const [key, localPath] of assets) {
-      const value = readFileSync(localPath);
-      if (!key.includes(`/media/${sha256(value)}.`)) throw new Error('Local media changed after plan preparation');
       const prior = await storage.get(key);
+      const value = existsSync(localPath) ? readFileSync(localPath) : prior;
+      if (!value || !key.includes(`/media/${sha256(value)}.`)) throw new Error('Local/staged media changed after plan preparation');
       if (prior && sha256(prior) !== sha256(value)) throw new Error('Immutable transfer key differs');
       if (!prior) await storage.put(key, value, key.endsWith('.mp4') ? 'video/mp4' : 'image/png');
     }
