@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.222Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-sokuryo-3ten/shorts/point-suijun-2/shorts.mp4",
-  "durationSeconds": 36,
-  "sha256": "86d6e9344dd2ee91a72d4f47b2d284b4087cbf16a1ec96933affc5dcddc9457c",
-  "coverSha256": "f39234773a27e004a3a5bc0d9bde763ae442bb151e668b955cb4206695f6b382",
-  "renderedAt": "2026-09-06T00:07:24.081Z"
+  "durationSeconds": 30.2,
+  "sha256": "6e8b92fb4cee7d868d5cac54551fc66788e7b1d75ee6a2fc926ef5ce922b548a",
+  "coverSha256": "daf089b77e04c510fe816c2e993b6ceb4d776a51f22ac07365a69f4a7948da65",
+  "renderedAt": "2026-09-10T11:43:08.493Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "bee959a939decac989c95100e091f86c610ba352957c6f71428ca546ac8f2f2e",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "dc0e776b29f59af1f02e2f3e70dcc4f541ea771ed0c844a0662dd210166e4099",
+  "speaker": 13,
+  "narration": "水準測量では、後視の読みから前視の読みを引いて高低差を求めます。後視1.256メートル、前視0.875メートルなら、高低差はプラス0.381メートルです。この差を既知点の標高に加えます。前視と後視の順番を逆にしないことが計算の要点です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "0eb64fedc70e2f5130ef27d09361dd2f184bcd29acf343d7461074c9fa1c210b",
+    "points": "0850e01f14f6edea8a88abc5a3d595f48fee024f41d3d2940481fd345da1a673",
+    "pointsImage": "21ebfc5214506cb55b46b2a09f6216d15c34e43f9d1442cbea908b3a03d56a52",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:43:08.493Z"
+  }
 }

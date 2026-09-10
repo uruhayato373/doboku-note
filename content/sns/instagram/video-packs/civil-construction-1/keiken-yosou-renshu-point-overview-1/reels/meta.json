@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.227Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-yosou-renshu/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 30.1,
-  "sha256": "074ea4f744bdd9551191c003ce7162874ed86df2c413fbf45286799bad4ae306",
-  "coverSha256": "55465de761dcb8b08698e7215b2c8c3ce7ef4f3fe2adff15b7b4603dc2dbecfe",
-  "renderedAt": "2026-09-06T00:10:35.391Z"
+  "durationSeconds": 30.2,
+  "sha256": "4c59a83ca5129bb67a7aaa42a236bb64e10a15d302c9ee8c72584333553474ad",
+  "coverSha256": "0d6c9a66d9018e4720549d3ea47836f70490843bfdff6c1a53485dff6c2d3168",
+  "renderedAt": "2026-09-10T11:57:09.654Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "e7d7470cc074ea8b73ed4bcb9a201714d25608f29eb06f88ceecaf714c3d80cb",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "a1db9893c2bd4f7ecbdc016d9945d03400add306bcb0dcefbff3ff3fd7142a6a",
+  "speaker": 13,
+  "narration": "経験記述の練習は、一つの答案を覚えるだけで終わらせないことが大切です。指定される管理項目や条件が変わっても答えられるよう、自分の工事を違う視点から書いてみましょう。二つの管理項目を扱う形式では、課題や対応が重複していないかも確認します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "ea2c86459e1233750824299f77708405dd280341bbbec5ab2d21864798450ec3",
+    "points": "a4a545555d1343d133da533771ff7c833dcd523b31b9b9d4f99e13c1ba479ff0",
+    "pointsImage": "635e846af4e6f5ccc3070591fd2f0dab1045d701a2de0aeaea90d8317d7af263",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:57:09.654Z"
+  }
 }

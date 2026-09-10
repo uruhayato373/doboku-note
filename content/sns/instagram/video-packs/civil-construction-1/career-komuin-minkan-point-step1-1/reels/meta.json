@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/career-komuin-minkan/shorts/point-step1-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "c6f8a14600262776048cf23579f41279a640be5a1726b0327a17122598ee23e3",
-  "coverSha256": "2ef9f693155739a6119f989baf59a9a3553e8a917e9fddc9df1bb99748a7d552",
-  "renderedAt": "2026-09-06T00:08:07.432Z"
+  "sha256": "15c9da58623b9cf2a0c85e2ce0e87d003a23bde4f1ca1615e758c56d8d7f574a",
+  "coverSha256": "8f8db3ea535a6762061af533e4de33ca0c17c2952e412b884559973b5a118eaa",
+  "renderedAt": "2026-09-10T11:46:38.564Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "a0ff374e3a751591b4ea5d819ab969ab8f9c93a25e0b16ddd9d4fa557ad8a852",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "7ecbce4b44fe61ec44bc1d0647a5197aad7b295f905e384acdbe643aa6148957",
+  "speaker": 13,
+  "narration": "公務員の土木職は、発注者として公共工事の計画、発注、監督、維持管理を担います。民間の施工経験は、図面の読み取りや工程の検討に生かせます。施工者として何をしたかに加え、発注者の判断へどう生かせるかを説明しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "82264b40264a51557827145db415772933c3ef44c795d50c46884b24f1b1fc24",
+    "points": "a9be6903e2714f4f68ec73737483476c21c5ffb33c750576abd77d77299952a1",
+    "pointsImage": "4df0ae690ecfa33fd7e414f690fe1a26c5f9a877f02e444935b2e901a44fa390",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:46:38.564Z"
+  }
 }

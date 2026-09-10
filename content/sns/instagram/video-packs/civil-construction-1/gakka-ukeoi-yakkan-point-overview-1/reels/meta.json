@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-ukeoi-yakkan/shorts/point-overview-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "e7161eddaa62e805476fae0f3cd2c4070de4fbe1c88b43baeb4893e5213ee9d6",
-  "coverSha256": "0fd31ac61f9134f3a3d5c28063eb843704fed59767eacfe1e3112f7b3974a3e5",
-  "renderedAt": "2026-09-06T00:07:21.331Z"
+  "sha256": "5f76b45aa3deefad85ee16c8ff30fa37d4cffc5a35c1fdfc19dc8d130bcaa479",
+  "coverSha256": "1002e50b0be3a39b52c0b98b9d4a028b3e4ec2b0a8064824eb51aca5e1129aa5",
+  "renderedAt": "2026-09-10T11:43:51.395Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "351d7363a22e924113b7a1ec6e3ed0c90ccd84f015121c5c4e6cb62382d3d965",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "cf837e5df4f044b3fda967740e3d99746995dc2b61f2b2428776527e2239f9bb",
+  "speaker": 13,
+  "narration": "公共工事の標準請負契約約款では、発注者と受注者の役割を分けて読みます。双方が約款と設計図書に従って契約を履行することが基本です。一括下請負の禁止など、受注者に課される事項もあります。条文を読むときは、誰が何をする義務かを確認しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "7c9494e9b97cdfb33434720e1d16a15a7ae2877d2c10bcc94b297afd62c53dd6",
+    "points": "ff982b38fdc6f767e106760162fb405f16ab17e1a261fbfab851ff5abdd19991",
+    "pointsImage": "dde6c8f38db441152227d1b079bf5648c9f30747a9095331bc499484f2b8436c",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:43:51.395Z"
+  }
 }

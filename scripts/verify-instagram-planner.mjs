@@ -4,6 +4,7 @@ import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { chromium } from 'playwright';
+import { assessInstagramPlanner } from './lib/instagram-planner-check.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const account = JSON.parse(readFileSync(join(ROOT, '.claude/config/ig-account.json'), 'utf8'));
@@ -35,29 +36,17 @@ try {
   if (/login|checkpoint|two_factor/u.test(page.url())) throw new Error('Metaログインが必要です');
   await page.locator('[role="button"], button').filter({ hasText: /^月$/u }).first().click({ force: true }).catch(() => {});
   await page.waitForTimeout(4000);
+  await page.waitForFunction(() => [...document.querySelectorAll('*')].filter(node =>
+    node.children.length === 0 && /^\d{1,2}日$/u.test((node.textContent || '').trim()) && node.getBoundingClientRect().height > 0).length >= 28,
+  null, { timeout: 45_000 }).catch(() => {});
   const body = await page.locator('body').innerText();
   const days = await page.$$eval('*', (nodes) => nodes
-    .filter((node) => /^\d{1,2}日$/u.test((node.textContent || '').trim()) && node.children.length === 0)
+    .filter((node) => /^\d{1,2}日$/u.test((node.textContent || '').trim()) && node.children.length === 0 && node.getBoundingClientRect().height > 0)
     .map((node) => { const rect = node.getBoundingClientRect(); return { day: (node.textContent || '').trim(), x: Math.round(rect.x), y: Math.round(rect.y) }; }));
   const chips = await page.$$eval('*', (nodes) => nodes
-    .filter((node) => /^\d{1,2}:\d{2}$/u.test((node.textContent || '').trim()) && node.children.length === 0)
+    .filter((node) => /^\d{1,2}:\d{2}$/u.test((node.textContent || '').trim()) && node.children.length === 0 && node.getBoundingClientRect().height > 0)
     .map((node) => { const rect = node.getBoundingClientRect(); return { time: (node.textContent || '').trim(), x: Math.round(rect.x), y: Math.round(rect.y) }; }));
-  const byDay = {};
-  for (const chip of chips) {
-    let best = null;
-    let distance = Number.POSITIVE_INFINITY;
-    for (const day of days) {
-      if (chip.y < day.y || Math.abs(chip.x - day.x) >= 80 || chip.y - day.y >= 260) continue;
-      const candidate = Math.abs(chip.x - day.x) + (chip.y - day.y) * 0.2;
-      if (candidate < distance) { best = day; distance = candidate; }
-    }
-    if (best) (byDay[best.day] ||= []).push(chip.time);
-  }
-  const time = expected ? expected.slice(11, 16) : '';
-  const dayLabel = expected ? `${Number(expected.slice(8, 10))}日` : '';
-  const timeFound = !time || chips.some((chip) => chip.time === time) || body.includes(time);
-  const dateTimeFound = !expected || (byDay[dayLabel] || []).includes(time);
-  const textFound = !expectedText || body.includes(expectedText);
+  const assessment = assessInstagramPlanner({ body, days, chips, expected, expectedText });
   const debugDir = join(ROOT, '.local/playwright-ig-bs-debug');
   mkdirSync(debugDir, { recursive: true });
   const screenshot = join(debugDir, 'planner-latest.png');
@@ -67,18 +56,15 @@ try {
     account: account.handle,
     expected: expected || null,
     expectedText: expectedText || null,
-    timeFound,
-    dateTimeFound,
-    textFound,
-    pass: dateTimeFound,
-    daySlots: byDay,
-    timeChips: [...new Set(chips.map((chip) => chip.time))].sort(),
+    verificationScope: 'calendar-time-slot',
+    postIdentityVerified: false,
+    ...assessment,
     screenshot: screenshot.slice(ROOT.length + 1),
   };
   const stateDir = join(ROOT, '.claude/state/ig-reconcile');
   if (existsSync(stateDir)) writeFileSync(join(stateDir, 'planner-latest.json'), `${JSON.stringify(result, null, 2)}\n`);
   console.log(JSON.stringify(result, null, 2));
-  if (!result.pass) process.exitCode = 1;
+  if (!result.pass) process.exitCode = result.calendarReady ? 1 : 2;
 } finally {
   await context.close();
 }

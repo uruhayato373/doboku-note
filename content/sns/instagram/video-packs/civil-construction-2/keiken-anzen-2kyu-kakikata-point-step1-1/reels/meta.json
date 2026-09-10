@@ -13,12 +13,12 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-anzen-2kyu-kakikata/shorts/point-step1-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "2b6c5babff2b29b2c55a03c01ae6983c5f961091d305b7018ade4bea90916e3b",
+  "sha256": "9c3a0967b7c43dd114e9695ca214e6311270f5462d51649599fadd58f5111d69",
   "coverSha256": "20e3dd9408f771cc3f8edd5d783a1e23ed5a2f207fae6ba3ec24801c85e5a143",
-  "renderedAt": "2026-09-10T09:34:39.614Z",
+  "renderedAt": "2026-09-10T10:50:16.053Z",
   "design": "bridge-notebook-a-v1",
-  "inputDigest": "8398f615c51294a460f0788c68fb3662d7718aa2c5bcc8a62501ee15957efa83",
-  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "inputDigest": "d54b6f1171219a8330b0ccebafad2139dac9d5345813ff326b5392b3a17d2887",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
   "scriptSha256": "c5549a3215836a516996e649c45a3d10fb5f26212c7f5d86703d88c204737c97",
   "speaker": 13,
   "narration": "安全管理の課題は、現場の具体的な条件から絞りましょう。高所の作業なら墜落、深い掘削なら崩壊など、どんな危険が生じたかを説明します。高さ、地盤、周辺の状況と、必要な安全対策をつなげることで、その現場で検討した理由が伝わります。",
@@ -34,6 +34,6 @@
     "audio": true,
     "duration": true,
     "fullDecode": true,
-    "checkedAt": "2026-09-10T09:34:39.614Z"
+    "checkedAt": "2026-09-10T10:50:16.053Z"
   }
 }

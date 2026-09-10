@@ -43,7 +43,7 @@
       "heading": "通路とはしご道の数値",
       "items": [
         "架設通路は勾配30度以下が基本で、15度を超える場合は踏さん等を設けます。",
-        "はしご道は上端を60cm以上突出させ、幅30cm以上を確保します。"
+        "はしご道は上端を\n60cm以上突出させます。"
       ],
       "sourceRef": "content/site/civil-construction-1/textbook-safety-scaffolding/article.mdx"
     },
@@ -84,7 +84,7 @@
       "heading": "酸素と硫化水素を分けて管理",
       "items": [
         "酸素欠乏は、空気中の酸素濃度が18%未満の状態です。",
-        "第2種では硫化水素も測定し、10ppm以下に保つことが必要です。",
+        "第2種では硫化水素も測定し、\n10ppm以下に保ちます。",
         "作業前の測定と作業中の換気を、濃度の基準とセットで確認します。"
       ],
       "sourceRef": "content/site/civil-construction-1/textbook-safety-work-environment/article.mdx"

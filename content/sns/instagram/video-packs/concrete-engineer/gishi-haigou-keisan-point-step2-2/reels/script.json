@@ -10,8 +10,8 @@
     "heading": "単位セメント量は「水÷水セメント比」の型",
     "items": [
       "C＝W÷（W/C）",
-      "例：170kg/m³÷0.50＝340kg/m³",
-      "百分率を0.50へ直し忘れると計算が崩れる"
+      "例：170kg/m³\n÷0.50\n＝340kg/m³",
+      "50%＝0.50に直して計算"
     ]
   },
   "sourceRef": "content/site/concrete-engineer/textbook-mix-design/article.mdx",

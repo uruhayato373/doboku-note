@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.222Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-unpan-shimekatame-kikai/shorts/point-scraper-1/shorts.mp4",
-  "durationSeconds": 30.4,
-  "sha256": "e6058f0fa3ab0c23a5719edebfef63ccf17fef49490fbb1bb5a39f7d19d8b461",
-  "coverSha256": "8a13bfb28ae033dac7439894a89ae0be1a17377891a36b9a72116a92a2c46ca3",
-  "renderedAt": "2026-09-06T00:07:39.267Z"
+  "durationSeconds": 30.2,
+  "sha256": "a6f090a92a5fa2335f51c15644e51ebf9be8cc52ca9e07cae368f0759965d09d",
+  "coverSha256": "611d76c68cd8cbcb23ad9b5fc128d365d8a85fce45369d69d083f1cc5ad63acc",
+  "renderedAt": "2026-09-10T11:44:25.794Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "08edc259e15dfeb66657ed85d4644b7915fe48d76e097b1d3f9b8c87e8b2ff0c",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "f4b4e02fdc126d7c45788d3d2fe1a16869a8d5533060c5b872bcf7b4d000c5d2",
+  "speaker": 13,
+  "narration": "スクレーパは掘削・積込み・運搬・敷均しを1台で行える機械です。被けん引式は60から400メートル、モータスクレーパは200から1,200メートル、スクレープドーザは軟弱地の40から250メートルに向きます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "c69fbbd106198db1c6087f5a23b810cb663ef12d41a5d1fa12c66614f3a2c6b0",
+    "points": "c0b7d9ffd91deb939c4ae4e5320341b23589f9bbd81a129000e4a9e17778edad",
+    "pointsImage": "cdfc433ea7b0da5a672f6c71a20dd6ac08074f5cacf7169b5808e678ed1500ef",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:44:25.794Z"
+  }
 }

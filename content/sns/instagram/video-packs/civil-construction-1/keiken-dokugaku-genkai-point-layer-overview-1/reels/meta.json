@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.228Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-dokugaku-genkai/shorts/point-layer-overview-1/shorts.mp4",
-  "durationSeconds": 30.13,
-  "sha256": "e607785c279b8ce7e4f4a8e3a1b403c177e0ca72d0219ddc564057a3abb01522",
-  "coverSha256": "b513cec49fcd2830ca2ae2fa2101999fbfb8b9c41ecfdf38694d1dd4d594358f",
-  "renderedAt": "2026-09-06T00:11:05.335Z"
+  "durationSeconds": 30.2,
+  "sha256": "a3929022b0ad73a2052acc0a0d227d3fa01ae736ff8efdf1332810899dbe9813",
+  "coverSha256": "84e0296689b6b1ba1b7a4501532cbab0bec8682f43d23e30bc978acf580f0bec",
+  "renderedAt": "2026-09-10T12:00:28.569Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "cfcba0916a91febba48a95b53da22b266b27bfefcf197e366958d8cacb197403",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "bab43d462dcb0ed10168fcebec16a446ed10adc1cf850cf7d9f5584de767091c",
+  "speaker": 13,
+  "narration": "経験記述の自己点検は、形式、具体性、論理の三つに分けると進めやすくなります。まず解答欄と設問に合うか、次に自分の現場の事実があるか、最後に課題と対応がつながるかを確認します。これは見直しのための整理で、公式の採点基準を示すものではありません。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "1e9f1ebced1f42c31175123e4c6c1006a01c24d7ca4ee7195faeae9fe043dd2b",
+    "points": "1f13d6278909f8a647d0c5f05865ba5f8b533410fe48866dd88535f70f4575cf",
+    "pointsImage": "3f422fd36ed7fc70cf6eed4876415495f906f87602dc1a603defb670d91353f7",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T12:00:28.569Z"
+  }
 }

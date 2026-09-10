@@ -13,11 +13,11 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/koji-gaiyo-7items/shorts/koshu-sekoryo/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "dd6a5d0b9c9ecdbc68b8e07141e62bf5b7fa90de27335c64dd057c6fd5ed9601",
+  "sha256": "a2f4b5bfb093d0e78d6f34fbbc95007584208342682f6d4a9c8bd089f207d5dd",
   "coverSha256": "62b40b6221592212c4f9dd81faba9f5e2327d33509232c093cd62c8a944a347f",
-  "renderedAt": "2026-09-10T09:26:49.995Z",
+  "renderedAt": "2026-09-10T10:43:39.855Z",
   "design": "bridge-notebook-a-v1",
-  "inputDigest": "13c53f6f8c54f07677f54bdf57f9a713e8a7462302b7f200efd4de532b10a135",
+  "inputDigest": "1e0986e57024e3488101a1ba145c7ce64111a776703fdbea1795933be89c6077",
   "scriptSha256": "9385bf305497b02eef3c463fa90b3540441b0a120b6da30fc346d69670d336fc",
   "speaker": 13,
   "narration": "工種と施工量は、対にして整理しましょう。本文で取り上げる施工部分を先に決め、その工種に対応する数量を単位つきで書きます。たとえば道路工だけで済ませず、道路土工や排水構造物工に分けると、何をどれだけ施工したかが伝わります。",
@@ -33,7 +33,7 @@
     "audio": true,
     "duration": true,
     "fullDecode": true,
-    "checkedAt": "2026-09-10T09:26:49.995Z"
+    "checkedAt": "2026-09-10T10:43:39.855Z"
   },
-  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f"
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162"
 }

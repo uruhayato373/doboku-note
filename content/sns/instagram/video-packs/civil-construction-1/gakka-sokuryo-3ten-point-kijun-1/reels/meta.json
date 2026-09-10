@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.222Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-sokuryo-3ten/shorts/point-kijun-1/shorts.mp4",
-  "durationSeconds": 31,
-  "sha256": "ecab6f90c7a1dfd8639cb4f5dc3d595c5a6ce62c5150f5ce60b2859d352da70c",
-  "coverSha256": "21ae69dfd9aa18fd1700b11edeadcbfd3d71a91d3b9b9a33bfd13c063d2d891b",
-  "renderedAt": "2026-09-06T00:07:06.316Z"
+  "durationSeconds": 30.2,
+  "sha256": "361fea2c1a7662a5545a5932ceba0d23e7f96a014e8f7ff5eb6ff80c4de578f1",
+  "coverSha256": "d930d1682e9027b6250c6466a5fb8e3c840b4143fe870c6223e3d7a155b880da",
+  "renderedAt": "2026-09-10T11:41:59.791Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "82274176d6861ade6eea21a4c6c410cf02ca19f9113f7713ab2403148438e53d",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "509090558aae419fc52e329cd221c666bbd418f9cfb822567c7226f09a17833f",
+  "speaker": 13,
+  "narration": "日本の測量は、2002年4月に世界測地系へ移行しました。日本水準原点は東京都千代田区永田町にあり、標高は24.3900メートルです。座標の基準と高さの基準は役割が違います。測量問題では、何の基準を聞かれているかを区別しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "aa555aa415e6cd2bcb236b6d0df3018ee5d14e6a0ef3d172f24fba8fd36040c8",
+    "points": "c10989b051db6c3690728cb9d4029059546ec198037a7be16996b591379448d5",
+    "pointsImage": "7456c2ff815f75c87502683ca4b0fa3b70931014d2e7782440327ecb800cc088",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:41:59.791Z"
+  }
 }

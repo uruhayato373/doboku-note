@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.214Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-histogram/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 32.43,
-  "sha256": "e91860722c59541187b8624b47f907147b0dbe1a2482a1f268648f849e63cb46",
-  "coverSha256": "a8b3a526a27825f3d43ef4ba9cc91ca1c9426e5e69264a3d6d8b5a33189b49c3",
-  "renderedAt": "2026-09-06T00:02:43.022Z"
+  "durationSeconds": 30.2,
+  "sha256": "d9cc376166cbd2d8cc79f27fc06b134d5c403f1e07433eeb5aeaa7b3f7ba0c8c",
+  "coverSha256": "6bbf94d1960dd41e43314ed90883f4612cff14b90bf012737305524c0ae5b09d",
+  "renderedAt": "2026-09-10T11:21:38.854Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "24cec0d1f408c47ed3fe61f0e625e515fec0aa209ae56eceed60eff6108f755b",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "0ad113134ae72030732d7f76e2474c2bc0582c26b541739ffdaa6f8b03f1726e",
+  "speaker": 13,
+  "narration": "ヒストグラムは、品質特性値の区間ごとにデータ数を縦軸にとった柱状図で、分布の形状や規格値との関係がわかります。工程能力図は横軸に測定順、縦軸に品質特性値をとり、規格値の線と対比しながら時間順に打点する図です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "e095a47e39054cd9a173c36bfb7b3909f784dc7db6af6d8974c2a4f6278d1303",
+    "points": "8c99eabeabfb4d2ddbae9fdaef47bc45526c0b8dd33e96f134234061d4812744",
+    "pointsImage": "1070bfa32c16480e4ace9736fefd567e99aa49d8a4cdc574655a310fdb2ccb83",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:21:38.854Z"
+  }
 }

@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.203Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-r8-juuten/shorts/point-four-tiers-2/shorts.mp4",
-  "durationSeconds": 42,
-  "sha256": "360e9ab911aef12679a99de791c310636c94e68cb69b336b7fa3da721d325ecf",
-  "coverSha256": "9b3d36aabd4392725d6ab52aa4b455f29b8cd38df0a4f594490dc9009af6f8d3",
-  "renderedAt": "2026-09-05T23:36:26.510Z"
+  "durationSeconds": 30.2,
+  "sha256": "961ee4c594d698d76b61821a732cf6f627333193ae8bfb88d0255f3d7b4b2839",
+  "coverSha256": "09d1ea19cd902ce9f36e54a8efac7240a5663cb9313348a3b156c973ae90b137",
+  "renderedAt": "2026-09-10T11:07:07.492Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "b5d2a29225661aed62312a5c16234b60772b47418680844269c1435fbb3aa1fb",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "3904728bb4abd35024b4d347835db1a5b2b1b46c7b39dd72de54b37047957950",
+  "speaker": 13,
+  "narration": "出題傾向は、調べた年度の範囲を決めて整理しましょう。毎年、多くの年、低頻度、その範囲では出題なし、というように分けると優先順位を付けられます。ただし、過去に出ていないことは次も出ない根拠にはなりません。頻出分野を軸にしながら、全体の抜けも確認します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "07ee1cbc8243a6ec63a4c56214c6bcf6fcec239b1d877489b2f494c55abed92b",
+    "points": "cf2f60fee3b18b0d72766ac4299febb5969622947eb72c65b3e70400becad11c",
+    "pointsImage": "4d20ea2a9f8eeb09d59c03e901fdceb99933d72995e4727f0a765001da1f53e4",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:07:07.492Z"
+  }
 }

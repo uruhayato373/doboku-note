@@ -13,20 +13,20 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-kadai-kakikata/shorts/point-block2-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "eb970bb8f65f165590a9ce7d9df57d312c8488fd115fd934c95d2cae7d71aed0",
+  "sha256": "e49063717bbef0dc3c9e70521d0d25250b8fd0eebdaba071c8c077a872d508be",
   "coverSha256": "3fb6824ba545d0269e2ce44bb4a28f35821f37a21dc6f9997018f8da6fe1c116",
-  "renderedAt": "2026-09-10T09:42:25.733Z",
+  "renderedAt": "2026-09-10T10:54:49.784Z",
   "design": "bridge-notebook-a-v1",
-  "inputDigest": "d163f13bae5672faf972a35d8ae46de4db647f9703351b4fc273a203cb9fb41a",
-  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
-  "scriptSha256": "b958e98f7b4bdca8444ce6483889292960fa9be92afc62930d32588c4f416968",
+  "inputDigest": "570aba592d7ab98fc07ac5148104e9c53054092efe55f5b01046bc0a9c156861",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "b857c635546789d6326e29c97d9926226ad1bd32adf76bab3754d67c4d67d797",
   "speaker": 13,
   "narration": "原因は現場条件、気象条件、作業条件のいずれかで具体化します。現場条件なら地盤や周辺環境、気象条件なら梅雨の時期や冬季の低温、作業条件なら機械の搬入やヤードの広さです。",
   "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
   "mediaInputs": {
     "hook": "2f617d279882915c4bfff690ee01742230f6e33a73369976444e8998c752d9f3",
     "points": "6abab3392870085812c93a46b72294dd7fd90f61a3d3404ebd7d64f0bacb2230",
-    "pointsImage": "37020dfc45ab65a7a570c170bfbfa75c44da754bfebdc03b28002ec554f898c9",
+    "pointsImage": "38b69eb01b6f6785a4ca28fa2b15697c83f42fcbcebf927de896660567aaaaad",
     "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
   },
   "validation": {
@@ -34,6 +34,6 @@
     "audio": true,
     "duration": true,
     "fullDecode": true,
-    "checkedAt": "2026-09-10T09:42:25.733Z"
+    "checkedAt": "2026-09-10T10:54:49.784Z"
   }
 }

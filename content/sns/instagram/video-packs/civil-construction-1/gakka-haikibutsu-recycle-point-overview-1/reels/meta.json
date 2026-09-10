@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.213Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-haikibutsu-recycle/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 30.17,
-  "sha256": "30a66dc054778b1f51b5e7f0d192ed9b24acbd3303335089f31abef72dfdd5bf",
-  "coverSha256": "54fdd1fe463312db210c2934bc5cf1de8ae011925994530d7d969cfe300592f5",
-  "renderedAt": "2026-09-06T00:01:58.380Z"
+  "durationSeconds": 30.2,
+  "sha256": "9cb33c7e4ec7a093090b0b21d751c4ea67e1909f3c1b62623352a4b507322240",
+  "coverSha256": "f70c2a725a584e86f794043524fd102c0cc3fe992d1cd45d98c75a8f0c002e5e",
+  "renderedAt": "2026-09-10T11:20:47.547Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "3466dfe325e022bb2cd50a9ef6d2e0e0c3f24bac579b63e9dd4b4e81921b04e0",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "106391fad30fa6e902808a3c5d9a248d7167488b7442084fe8181f33b93928b7",
+  "speaker": 13,
+  "narration": "建設工事で生じる産業廃棄物は、元請業者が排出事業者として処理の責任を負います。下請業者が施工した部分の廃棄物も含めて考えます。許可業者へ処理を委託しても、元請の責任がなくなるわけではありません。委託先と処理状況の確認までが重要です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "a63078885a075afbee686fde95dcaa4bb7aca2482384b669ecbd00308ebd1171",
+    "points": "fbb174b346bd195a3373f2b2424b96f0c300e6ee8b3a64e60c10125427d127ac",
+    "pointsImage": "7bf207d633da3603ca98b4e55f87c98126747c115d447e95b937e02766b4204f",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:20:47.547Z"
+  }
 }

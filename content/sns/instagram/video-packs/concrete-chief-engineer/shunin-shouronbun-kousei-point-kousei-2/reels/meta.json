@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.203Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-shouronbun-kousei/shorts/point-kousei-2/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "7fbc154a383da5e3423dc8a208c422ae270476f859206cd65359f7fca3e11f28",
-  "coverSha256": "97e8dfcb5186a301126196bc5a2b4d617a81a1229ba9f81f4d5b9483278ffb8e",
-  "renderedAt": "2026-09-05T23:34:22.902Z"
+  "durationSeconds": 30.2,
+  "sha256": "aac3e70adf5f4e36d0353f20a3497951dd2f241caf606f9fdd1b9397d8bda3f6",
+  "coverSha256": "6f60cd6c93d44892d1917681992123454ca8a5a7f87c151feb0d25df1d966ada",
+  "renderedAt": "2026-09-10T11:06:32.047Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "505fcb6c747f7ee54f3c03b1cf2d7a2215d87a4fd206373276ab93ed5aa0ee90",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "c2ed3a64b1ea3319efddf6ed36f1ddd4b33ebb37606c50ec4bda6c2453a4f71f",
+  "speaker": 13,
+  "narration": "序論・本論・結論の3部構成で、重みは本論に置きます。序論で課題と背景を短く示し、本論で原因分析と具体策を述べ、結論で留意点に触れます。字数の大半は本論に割きます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "5118dfa198aab583e1478e45997110b94895bc6463e2ced2db70210e02b1d422",
+    "points": "3cf35626b2876afda43ca7465cdc46ca27bd55c9b1a74e911f6d0a568a99bb52",
+    "pointsImage": "ddb5eecee4c0aef8efd0e1aad9489a8242841eedfa904f6f3c64fd1472b88d3f",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:06:32.047Z"
+  }
 }

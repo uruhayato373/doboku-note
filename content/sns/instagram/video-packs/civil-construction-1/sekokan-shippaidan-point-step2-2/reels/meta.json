@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.225Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/sekokan-shippaidan/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "643840d9d82190331ddab1466ad5da2cd259aafd907c7d78a806aaf328075ac9",
-  "coverSha256": "73e643e71e718263d7e5d86bf456a34030847d6a45798a9af06f9793e0739858",
-  "renderedAt": "2026-09-06T00:09:38.726Z"
+  "durationSeconds": 30.2,
+  "sha256": "8502216b1db03d3cebccf3559b6eb0ed055ef4d93927fb966a7dbc3c15a131b3",
+  "coverSha256": "ffeb0cb1f13850c1ed2678c4551419fecc82d08ab4543bca5336b7a2208fdb9a",
+  "renderedAt": "2026-09-10T11:50:35.283Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "b525ada5d22c0e48a0010121170c0b76db9ce8828c95c7590e650f6d2c269ab2",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "1301abbd8570253dffb886045b8cd413af5bca752f82398af5898fe91b2da82e",
+  "speaker": 13,
+  "narration": "長時間労働や休日の少なさが続いても、それを当然と決めつけないことが大切です。自分の働き方を記録し、契約内容や社内制度と比べてみましょう。改善の相談先や、他の職場での働き方を知ることで、今の環境を見直すための判断材料が得られます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "0ddcc418fb9bd56dc3c46a3630f9e911db5d69d608dc92a5543c94f68d4a2020",
+    "points": "bfaa82ac9ca6cd4f1697dc569f75ac2517a481f288938ee123c66ab960e220f6",
+    "pointsImage": "984758cdb409a3fbb9d9cd3350d3167c3fdd24ce8b128b9ffcfe0d34a8bfef48",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:50:35.283Z"
+  }
 }

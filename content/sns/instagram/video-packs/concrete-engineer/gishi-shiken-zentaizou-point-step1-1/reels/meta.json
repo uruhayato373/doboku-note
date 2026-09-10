@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-shiken-zentaizou/shorts/point-step1-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "7371a806ddce6d37ca7aebbdf12c65e0a3a009b693b309572a7b98856a694b3d",
-  "coverSha256": "382da2e57f027f04725b32bbe06e0852202c3663f51d8a2daaef39abf0d6cb2f",
-  "renderedAt": "2026-09-05T23:23:15.187Z"
+  "sha256": "4bea44ebf78eebe985300b3f2dbc8e3e9e18da31d53461cb608b6948f913c09e",
+  "coverSha256": "729ba080f3839fa03db1dbdd8c9adc3079e0301de6717715f5d3992fc778cac9",
+  "renderedAt": "2026-09-10T10:57:54.572Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "a25b9e7bb0b2d586c6f6bcb0d8b68384c340715ea8aad0a0c933cfd124d10a0b",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "e3707eb0e3671ec4eb2e4ccf3b0e092ad176bffcd7e4ee46bd783fd3c34f2789",
+  "speaker": 13,
+  "narration": "コンクリート技士は、日本コンクリート工学会が認定する資格です。製造、施工、試験、検査、管理など、日常のコンクリート技術業務を適切に実施する能力が対象です。生コン工場だけに限らず、自分の仕事のどの場面で知識を使うかを意識して学びましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "599888778313bf111c2a5da8028b029292349f69bb9b5b9bc3591855fe6a179e",
+    "points": "15c9ddb75f17304f41b2fbb2f7b2ff87a078e2f9c0361be707bed081c942f92d",
+    "pointsImage": "0b77558c104e2fdf38d2308aaa83d76b15740b8970dbce116f8ec30dcb0bb04c",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:57:54.572Z"
+  }
 }

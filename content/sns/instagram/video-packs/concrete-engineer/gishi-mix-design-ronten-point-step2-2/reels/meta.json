@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.195Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-mix-design-ronten/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 31,
-  "sha256": "b7070999083a2020f2171418821ccee815d746a2b55e500937da298f94a7c741",
-  "coverSha256": "f55fcd6ac8ed672368cd66a0f02ee51d8e3adebf8c664576ae252fe09c81da53",
-  "renderedAt": "2026-09-05T23:28:22.009Z"
+  "durationSeconds": 30.2,
+  "sha256": "827ac8bc52dc9fa93301cd50274f1dc2cf6c2480477fc9eb95f9c17bd7c81292",
+  "coverSha256": "210cc7bc47cca9bcaa9b4119a6f6207011996675347453c0ecabc0c69b3b1468",
+  "renderedAt": "2026-09-10T11:00:52.272Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "c4590dab70d40c1ab95eeb6edb6624e151646964e25b8ef66a085ad2dd600729",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "daa18f42b6eb9ce01b271a6ce917ecfc77a3974596085e191227758d58f17a0b",
+  "speaker": 13,
+  "narration": "水セメント比は、強度から求める上限と、耐久性から求める上限を比較し、厳しい方を採用します。強度条件で55パーセント以下、耐久性条件で50パーセント以下なら、50パーセント以下を選ぶという考え方です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "ef906c68d77a228e8244e2bf5f07ca7781aeba70269a87c7e5b16c3818892f20",
+    "points": "97442b519f02cb32831730416e8af42057846cd640c6f35ddf1d2ff818c2bb4a",
+    "pointsImage": "ee8f0308caa31235c90a09f7b6d9375e425632c6a6e91b6af909923deb3d294b",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:00:52.272Z"
+  }
 }

@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.198Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-environment-ronten/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "bb0bc2da7d8ff567cc0b8ff541902ce765d963053216f7deb29230e4aa9e6319",
-  "coverSha256": "53652a13e94bb9e911ac22f765d1cbe18489d5bed8e6a92042e486f0b6b56d31",
-  "renderedAt": "2026-09-05T23:30:08.917Z"
+  "durationSeconds": 30.2,
+  "sha256": "df6073db95edc4d504fe3d3f74c2277f8d664054af38bccdec9c9f5d9669b0d3",
+  "coverSha256": "aab4e02e2eabc8998ccb5a2f9201a6776e217731fd94ca4cf41a59f7ecbbc894",
+  "renderedAt": "2026-09-10T11:03:37.060Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "520ab8c891a41b972f68bae19e0417a90445bdcb84fe642905bcb87093a1e1c9",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "f1006b19ba67df8d36bf0683ced772869ea1e71395056bcbb2ec313794851cb1",
+  "speaker": 13,
+  "narration": "高炉スラグ微粉末やフライアッシュは結合材の一部として使うとクリンカー使用量を抑えられます。ただし置換率を大きくすれば無条件に良いわけではなく、所要強度、脱型時期、耐久性、養生能力の確認が必要です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "deb9bdbbeed96997bef850cdd6eccf7650b03fbe93f348222b6345e0f638d436",
+    "points": "bc2a1e7e9e118af924cd4abef58468f4e5e621788214df6cd074ca599b2d84ad",
+    "pointsImage": "ae42e606aa46bc7f9ee2517f4e4861b4a5e4b48e3cfc61b1ca83c8e84c7ad457",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:03:37.060Z"
+  }
 }

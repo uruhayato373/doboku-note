@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/sekokan-shippaidan/shorts/point-step1-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "e867969931946739b7ec772fff33445fdf72cfb34aa4612aee216779442e94ab",
-  "coverSha256": "e330cbcb81f1f7d800995563d08b89ae9923bbfe6dd76a709861bb4f942b55e7",
-  "renderedAt": "2026-09-06T00:09:24.381Z"
+  "sha256": "548dd1e9402193b00bfa255a2d34849e3cff16df962def7e5f2ffc73a9c899f8",
+  "coverSha256": "4262e66a0fbcede73499a9a0152a53985ae315bf33ec0e9edd224754c18feb04",
+  "renderedAt": "2026-09-10T11:50:17.394Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "d8386a6b8d96d933ae8ff3947595a3599588bb6842b5f40ebfcc745ea7e65513",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "63893f25f68efe5342d005061fccc84170db869e22641e73d94a45ac2fc90ed6",
+  "speaker": 13,
+  "narration": "施工管理の仕事を一人で抱え込んでいないか、担当範囲を見直してみましょう。工程、品質、安全、原価を一人で背負うと、確認や相談の時間が足りなくなります。自分の力量だけの問題とせず、役割分担や応援体制を具体的に相談することも大切です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "44a5ce118454247b64831ac51802b3028df316075334e1654f271b95a52397ff",
+    "points": "384722d8a0a88deb8d70b81f01d52d0cce6eb620cc522307a393d50ff9dab0a9",
+    "pointsImage": "941d7930d3c1ab48911dcf436723f77bf662798fb0983b0708b8828ea8cf8868",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:50:17.394Z"
+  }
 }

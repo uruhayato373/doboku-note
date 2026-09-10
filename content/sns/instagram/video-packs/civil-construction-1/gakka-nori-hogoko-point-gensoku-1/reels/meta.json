@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-nori-hogoko/shorts/point-gensoku-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "f6d78d3108e0e43e562883b03a933cdf8b08797eaff727069b578fe198630f46",
-  "coverSha256": "97afd71daf699196374c29ae4b9dea092c2dc1d3720b250e8fab29bee1272db5",
-  "renderedAt": "2026-09-06T00:06:07.252Z"
+  "sha256": "af37df1d60c9cfc15fc419050fb06d3cdae18a115b9e89b365b62859d87caa9c",
+  "coverSha256": "5225ab59f02d369859e3d3302966d76dd4d033f2b5f90ae8d327e378a1d2c0f4",
+  "renderedAt": "2026-09-10T11:36:10.361Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "f205d43090a744c537ac1f839d7aaf35fa048b01c39e32e28ec9000a43350b86",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "7024568d961064f3a5ec20854e1302cc27f9cfcba081cff939aecee597b2195a",
+  "speaker": 13,
+  "narration": "法面が安定した土質なら植生工です。侵食されやすく崩れやすいなら植生工に構造物工を併用します。湧水のある場所は法枠工やブロック張り工、落石のおそれには落石防護工・アンカー工です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "87dc6b76fa45e2a58bdcf81a6303c909e6d1c00d41ea5c812bce1db34a1d34f5",
+    "points": "db6ec88b4dfeece4ce2c23eba1b733f313f2c413729e4a109cff8adf4a713536",
+    "pointsImage": "6310e87463d3935383e800b010aeb06c49ea9844cc706960ef16b29c4cd4cd5e",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:36:10.361Z"
+  }
 }

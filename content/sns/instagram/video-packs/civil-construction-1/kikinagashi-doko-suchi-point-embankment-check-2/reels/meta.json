@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.226Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/kikinagashi-doko-suchi/shorts/point-embankment-check-2/shorts.mp4",
-  "durationSeconds": 30.54,
-  "sha256": "49d4df444d246979d942da779e6981424aaeeeb6da396df0cb889ca1c3207145",
-  "coverSha256": "88b232ce691551e5d7030df4924a00cdcd39c19dc9243f92cfe1106ea1f3b37f",
-  "renderedAt": "2026-09-06T00:09:53.214Z"
+  "durationSeconds": 30.2,
+  "sha256": "2b26c49f98160c31e424c4e622a1c675e4c79402db081ebd5374758e738e2bb3",
+  "coverSha256": "579de2551f623a4a695a6f1d2bf897980b3ad6684c92fd784b4e52bdec542620",
+  "renderedAt": "2026-09-10T11:52:49.832Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "bc5b6777d13aa335189872579ccaea431f0da41153ddd812903c83a944b6c14f",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "3e26f3b75c568e4ad8013f6a36925b329b317552be9662449ff418086f8f2a29",
+  "speaker": 13,
+  "narration": "盛土の安定性は、高さだけで決まりません。高い盛土では、地盤の強さ、地下水、のり面形状などを合わせて確認します。砂地盤の液状化も、エヌ値だけで断定せず、地下水位や土の粒度などを調べます。一つの数値を安全と危険の万能な境目にしないことが大切です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "72c6abaa335eb47f93541c9cc25050b3ddac1032df9d5c86d15681e90308c1d9",
+    "points": "ea13d127e2cf3154d08b2623747ecf97583216ffc675849434d99fc1be958b54",
+    "pointsImage": "7308474dd018db56ee4f626d74322140f5c50cde222bbb6932c70f26a24599de",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:52:49.832Z"
+  }
 }

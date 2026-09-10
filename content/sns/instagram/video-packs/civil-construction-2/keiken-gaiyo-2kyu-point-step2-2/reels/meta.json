@@ -13,12 +13,12 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-gaiyo-2kyu/shorts/point-step2-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "7f5e28cca086269c2f90ad749a087118ef3f6b3604313b4ebf5d283e0c819a12",
+  "sha256": "15d93e42a91659f7b0ac0818c8bbd13b700e8268838fc1dbcfee3d85cbd86811",
   "coverSha256": "fea0b7b3d37d30e0f979ff607db5ab52d1af50df87172fe0b7e769cd00a6acc1",
-  "renderedAt": "2026-09-10T09:28:31.886Z",
+  "renderedAt": "2026-09-10T10:48:49.343Z",
   "design": "bridge-notebook-a-v1",
-  "inputDigest": "28ddb38b7777703ffbf9a166e685dfdc607f59877b0a6d8d54d0d9d78d8f32a3",
-  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "inputDigest": "560945d650ededff0661bd324c869aa515b5c25e51bc178a8b76644f9c30e926",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
   "scriptSha256": "6a73e4b9c42332c6c25d5fbba2feaec2a79fc3d4485da5a4fb06618e92ef8ad1",
   "speaker": 13,
   "narration": "施工量は、「一式」だけで済ませず、工種に対応する数量を単位つきで示しましょう。たとえば護岸の延長と掘削土量では、メートルと立方メートルを使い分けます。例文の数値は写さず、自分の工事記録で確認します。規模と本文の課題がつながるかも見直しましょう。",
@@ -34,6 +34,6 @@
     "audio": true,
     "duration": true,
     "fullDecode": true,
-    "checkedAt": "2026-09-10T09:28:31.886Z"
+    "checkedAt": "2026-09-10T10:48:49.343Z"
   }
 }

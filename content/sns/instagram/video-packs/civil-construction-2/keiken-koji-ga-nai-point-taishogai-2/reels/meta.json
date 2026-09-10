@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.190Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-koji-ga-nai/shorts/point-taishogai-2/shorts.mp4",
-  "durationSeconds": 30.68,
-  "sha256": "9ced3cd995364a54b276968de0f7d283cee47547e06356ac1bc20fbb75f0ac6a",
-  "coverSha256": "3c089bf6f3b6db5acbdbb0e787ca76cd6ba21c8fdcd93b8f66262f740b03d033",
-  "renderedAt": "2026-09-05T23:21:18.968Z"
+  "durationSeconds": 30.2,
+  "sha256": "c9e4a26a0af214aa990495534141184c8d0c4977642d6ed7f4e1ff14169233f2",
+  "coverSha256": "04d48d22d9cba137b6687973acf4f27eccbae7c9c7329cdf9954f0047aa0bd74",
+  "renderedAt": "2026-09-10T10:56:08.786Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "160cc67dd8ff9ec0651016456211966a666f2b7b29d930c52da4a3f61d38e807",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "32c411a4ce61c44658d1b72855c749e42765d7c2116f81be2d59ffcac7cdef9b",
+  "speaker": 13,
+  "narration": "経験記述の題材は、対象外の一覧にないだけで決めないようにしましょう。同じ現場でも、施工管理と、設計や調査などの業務は区別されます。自分が担当した作業と管理内容を書き出し、受検する級の手引で確認します。判断に迷う場合は試験実施機関へ確認しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "ffb501e7f9ce207a8cb37bcdf4cce80d6c2390092266081b781f29098f8d8bc4",
+    "points": "3b8d26df6e26092dd8b3ebec27e640f9488ba2624233861c51e221eb345335eb",
+    "pointsImage": "d15d19784885a27188aae270924f677b59dff951aa8cb95cc574b273d445123e",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:56:08.786Z"
+  }
 }

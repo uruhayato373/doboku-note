@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.194Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-properties-ronten/shorts/point-bingham-2/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "3e440c966d93290279a804ed05493c58aacb3109e0ee24fe7d50d57884bc4c37",
-  "coverSha256": "33e81729279b4ae12393dee10d5a26ea2c8795b9eb2ca048b5b3ff1f89bfa7c9",
-  "renderedAt": "2026-09-05T23:26:15.794Z"
+  "durationSeconds": 30.2,
+  "sha256": "311f7856e8e65a2c8ff754f5a201cb2e039849684eeb338062214e7a37441112",
+  "coverSha256": "53614a4d0027f4ab6e7aafff6cc766b8563fda3cdf08e32ad27e277d55b85193",
+  "renderedAt": "2026-09-10T11:00:28.928Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "fff6448d8addf670626827ae88efaf24626e33373217e72eb08a1e066b01e558",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "3f53c9989d09c17d34b8031f6131b27618a5ed45dea404301e2a7307c2d49447",
+  "speaker": 13,
+  "narration": "フレッシュコンクリートは、ビンガム流体として近似して考えられます。降伏値は変形し始めるまでの抵抗で、大きいほどスランプは小さくなる傾向です。塑性粘度は流動中の粘りで、大きいほど圧送負荷が増えます。動き始めと動いている間の違いで区別しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "ffe12d9fd0e90ac461c39dafa8bebbb1b63428d870664480a122a49c9750f282",
+    "points": "c7be20e7b6737306b118cd1117b4ebc38156a10b55f199f6de057b36ea890028",
+    "pointsImage": "fa3682287d98a5227c2bc52b51046d05f5288587ae3a58da31981ba4c7bedd9c",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:00:28.928Z"
+  }
 }

@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "keiken-anzen-2kyu-kakikata",
-  "inputDigest": "cbeb4dc31c5294e4120385f8270d996c9a7e8d70fa78e211db8a14726a899a6b",
-  "sourceSha256": "cba0bb987bd30421397fb11396af04b01344bad0523a667d3dc1fd3951caceae",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:33:08.170Z",
+  "inputDigest": "1f4014d4f2ee76f8c1176d666370f770b1c1cf7d2504cf46d7a30e916f0539a9",
+  "sourceSha256": "828bc2d9b8ce28b974ebbc14b591c7cab5a14eb6d1a6d3c4db21a1b74a1bef6f",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:34:21.631Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/carousel/img/00-cover.png",
@@ -30,8 +30,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/civil-construction-2/keiken-anzen-2kyu-kakikata/carousel/img/03-point.png",
-      "sha256": "aa29e799bd48b030ca5409e3441ed6d98c37528dbd80ba4b2be7bf5cd3d77b22",
-      "bytes": 149451,
+      "sha256": "943ac24cc3416b5d628e815e25281752371e710ad8c1cb060f356378d5c581f8",
+      "bytes": 152067,
       "width": 1080,
       "height": 1350
     },

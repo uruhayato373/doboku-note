@@ -13,12 +13,12 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-2theme-heiki/shorts/point-step1-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "f301b15dff9eb4039f6a419abb9b67cd797c9db135280edcb1ad2351d665834e",
+  "sha256": "9ab6dc98a1f6854dce49bba9ee235bf3debb0ddac6afccd6b507109cb69cd34e",
   "coverSha256": "eb9b3f839b59b5f3bd199643275bdd2d54e43c71086ca7ecfca9b6461b563e78",
-  "renderedAt": "2026-09-10T09:37:37.638Z",
+  "renderedAt": "2026-09-10T10:52:26.238Z",
   "design": "bridge-notebook-a-v1",
-  "inputDigest": "4bd0a81ba84e380affb11f37530eda27297322baf028139192319d1cf0b2ba06",
-  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "inputDigest": "336140fd6a2fcd2e6743fa7ebdaba1ba3848b2071aa19f165be8771a11cd472c",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
   "scriptSha256": "13bfe18a346fa34620d12445740ece8b98d816f32b007e80ea533f2a7386ff1b",
   "speaker": 13,
   "narration": "1つの工事で2つの管理項目を書くと、課題や対応が似通いがちです。同じ工事でも管理項目ごとに困った場面は違います。橋梁工事なら、品質は温度ひび割れ、安全は高所作業の墜落防止というように場面を分けます。",
@@ -34,6 +34,6 @@
     "audio": true,
     "duration": true,
     "fullDecode": true,
-    "checkedAt": "2026-09-10T09:37:37.638Z"
+    "checkedAt": "2026-09-10T10:52:26.238Z"
   }
 }

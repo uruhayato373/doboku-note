@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.219Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-network-koteihyo/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 34.5,
-  "sha256": "9e162b5675dede04b2fcd7933721cd1ef66dfba996d1f9ab232000678cca9d39",
-  "coverSha256": "fc2981803468f3690bbbe1e8227a34356e24055cbc33494c83073b367630f2de",
-  "renderedAt": "2026-09-06T00:05:52.234Z"
+  "durationSeconds": 30.2,
+  "sha256": "b66bd3ea1f2ae5c829da802216b8333fa3e637e38dff79092ce7135ba3b4821f",
+  "coverSha256": "7b2ce22a0c2b844b6223a06e6a3e9ac0f762309ae7c664b984751fab1b6c65d0",
+  "renderedAt": "2026-09-10T11:35:53.386Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "88d231900405b62a5593dbed057b5f1e80b5ad1376490834d18cc0f05b038178",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "1fb1ec3a1629ec77f02d253e492add48f9dcecd0acb66f26bd2254f8555e12e9",
+  "speaker": 13,
+  "narration": "ネットワーク工程表の矢線は作業を表し、尾が開始、頭が終了です。丸は作業のつながるイベントを表し、番号を付けます。ダミーは、実際の作業を伴わず、先行関係を正しく示すための矢線です。所要時間がゼロという点を、通常の作業と区別しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "93587760e6e1c21a4e17189352ac7c9b97fd6779e8757fdb275008484f59a263",
+    "points": "2f77b4a520d33b22a2cfe013d8408a53aaa816ec284c18b410434474c845c4b9",
+    "pointsImage": "5038e1a6d465630a61a3d572c86510cfc27ad50eb14e31434fa989ca6044dc5f",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:35:53.386Z"
+  }
 }

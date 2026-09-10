@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.201Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-structural-design-ronten/shorts/point-bending-assumptions-1/shorts.mp4",
-  "durationSeconds": 39.17,
-  "sha256": "3e0fe6c01c4832fe287f1d42a9472cb81d6dc7933bdddc74bf878787dee0f3d9",
-  "coverSha256": "0a94c0bcd9db98f2bbb43dce9926ba5556fc426d8ad1b4bd9a7a2084fd1653ad",
-  "renderedAt": "2026-09-05T23:32:41.686Z"
+  "durationSeconds": 30.7,
+  "sha256": "5af7fea22c8e0380eeaf84f997a0f3c31dd152cfadc0513713c4321b3334d091",
+  "coverSha256": "3cb730a3a93185d604da530ab17eedefdd406755020deec9e74bf73f39de9150",
+  "renderedAt": "2026-09-10T11:05:06.000Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "8c80d2b27c02b91406dca04df09b55cafe7e8469b929539520b2bea73579cd7c",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "b07789a2fb42fd1c302595f8b1685c412c579189ae4ac40852b49331edbe676f",
+  "speaker": 13,
+  "narration": "曲げ耐力の計算には4つの仮定があります。鉄筋とコンクリートが一体で滑らない完全付着、ひずみが中立軸からの距離に比例する平面保持、コンクリートの引張は無視する仮定、そして圧縮側は等価応力ブロックで扱う仮定です。コンクリートを弾性体として仮定する、という選択肢は不適当なので注意してください。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "816b1b8035410826483f4d858504a15cea4cdf8ceb56136035a4618d0bf1492d",
+    "points": "411deca3501c343454e1773453840f4fd627d840536afac457f8f623da6d63f4",
+    "pointsImage": "f84c6abf66aa5ff997b11fa111e4c213f243876446aed29e888c8497de517b77",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:05:06.000Z"
+  }
 }

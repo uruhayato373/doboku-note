@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "gakka-crane-sogo",
-  "inputDigest": "49bacf6dcc0dc6a207400e4122da61f8e46ad08a858462bf0a6e0300e88fd7fb",
-  "sourceSha256": "17262ef8ee54cb37dd5c063852c901938949b859c4b641c829a60f3226712ab5",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:44:41.347Z",
+  "inputDigest": "b76090eb5d10490307df088ac81604e3e77cb7237b3a7540c016776f0b84d265",
+  "sourceSha256": "24bc3693fd7c257e74dd6c522d996727758e9b2352be660b03e1940ec99c131a",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:21:41.268Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-crane-sogo/carousel/img/00-cover.png",
@@ -44,8 +44,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-crane-sogo/carousel/img/05-point.png",
-      "sha256": "f43c8c840151c019cb37321d21f33461ece407da73739bee95c7c266cf54e8e2",
-      "bytes": 143484,
+      "sha256": "69c1d84f7f5019be92426c779dd14fb3171ecf0cf097afbf16781e5e6cf61919",
+      "bytes": 143772,
       "width": 1080,
       "height": 1350
     },

@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.213Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-dodome-kussaku/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "85b48e205ab1450ec83374bec99af5c89306f75425fc684185409d947ec4352d",
-  "coverSha256": "afc264dd438caf7a4d8399b38ecc389a8bd6a76bacb54704d2778db90e8dc75f",
-  "renderedAt": "2026-09-06T00:01:39.121Z"
+  "durationSeconds": 30.2,
+  "sha256": "86d5cc9433ffea27aaee52b5b98589e0b70c88eb1ea8851dffef9794bcd1bc0f",
+  "coverSha256": "b1a74185b98a327767d294b8a27b409a8782cceb0b1a2a9d11ef507bad1843ae",
+  "renderedAt": "2026-09-10T11:20:17.506Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "687fdb41b851c491d1bd306abfa14058da797bc83c484cbe23fddc0610b130a2",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "cb02b74d98deaad96b8d66c6581c9933be2b0b003e44af1b5918e22e475bcaa3",
+  "speaker": 13,
+  "narration": "手掘りの地山掘削では、土質と掘削面の高さを対にして勾配を確認します。岩盤や堅い粘土と、その他の地山では同じ高さでも上限が異なります。砂からなる地山には別の規定があるため、一つの数値をすべての土質に当てはめないことが大切です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "6ee8d4be35192a394b9cfea70e0a63b66365c8fc81db3c602825f71262639af4",
+    "points": "42a5902d043fe14a3a3072acbdcbdf073c7fbd58f07262149093259c48db69a1",
+    "pointsImage": "0f7ab80dbbeb24a14c6cb19739974b5b4f63e17d15346b37a3bc102d990c2ae4",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:20:17.506Z"
+  }
 }

@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "niji-kijutsu-hinshitsu",
-  "inputDigest": "cddd0c78d5603716903674d59db1da41105eac6be9aea009a00ed80484d98a05",
-  "sourceSha256": "c82982f42f1bc1341bfe7e1431a629b52051508b9ae71c9772d269f70f606962",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:32:35.445Z",
+  "inputDigest": "e5facdca195e8b7e3c6b63008e68c19f79b00b540c0c118d3b02d43d2aaecfd7",
+  "sourceSha256": "02140588f923a41470d28c1f899b6fbac64d239a9cc7deb46929047021d66659",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:29:48.137Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-hinshitsu/carousel/img/00-cover.png",
@@ -30,8 +30,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-hinshitsu/carousel/img/03-point.png",
-      "sha256": "aaf2a3379498865499e1c629900eda88b08aaf51c3475c8d26a3c531e360ca71",
-      "bytes": 143719,
+      "sha256": "4409f41cb9c9410dc178ef5475c3a31d37f2b3bcef190d0677e7707c55bc44f7",
+      "bytes": 141970,
       "width": 1080,
       "height": 1350
     },

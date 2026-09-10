@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.214Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-hoki-kasen-doro/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "3add36b64cbb322a95019968d162abcad7373e3d0cbd96db4bd33ac560bd953b",
-  "coverSha256": "6525d0cacb541f4ab02e6294ca46918485494d52032cd743a0c2eabb80da5642",
-  "renderedAt": "2026-09-06T00:03:00.240Z"
+  "durationSeconds": 30.2,
+  "sha256": "ab3f491556a3e639f7fe3e083448c76f8565df111035727a8388f412a20e493f",
+  "coverSha256": "700c6b7d30fbad8a647c9d96a6cdb88aa71068e6b45ff0b46c8792fa14920a40",
+  "renderedAt": "2026-09-10T11:22:39.290Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "369a91502d8cc772c36001bfd1f48aef06d57996562b7d272bc04b3fde2fd01e",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "096adbaa8a72728d20ff484ce38cfdfd98657d272195921ba8f4e7e84a8de690",
+  "speaker": 13,
+  "narration": "河川区域内の手続では、土地の占用と、工作物の設置や掘削を区別します。占用許可は河川管理者が管理する土地が対象です。一方、工作物の設置や掘削は、民有地でも許可が必要になる場合があります。土地の所有者だけで判断せず、行為の種類を確認しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "108f7f4f64cedfe264b9993c56a8ffa81bd4f4ad8958b7308944c86f189ebb0d",
+    "points": "04d8d6e8a78b2d41c8a9e2f0f224732e8e92fc4f2cd8f9b3cb16766482209886",
+    "pointsImage": "58bd2458ccab2af7f0a6ca13ca002a731a2b3ee12979b4241b2c989f5bc578a6",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:22:39.290Z"
+  }
 }

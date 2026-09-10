@@ -13,12 +13,12 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-r6-shinkeishiki/shorts/point-change-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "9c54dfd79c97651a39a49bcc4405a4214d4bf17133b8afeb4e5769b289e8cd2a",
+  "sha256": "bb42b3bb7149fd2317d59981fc2029d1e4d17cf19943f446aaab8a158f511c8e",
   "coverSha256": "9c4452ef672df32819a7ccad198cfd0bc39c556f2f44418b636609af80bcc472",
-  "renderedAt": "2026-09-10T09:27:28.968Z",
+  "renderedAt": "2026-09-10T10:47:02.818Z",
   "design": "bridge-notebook-a-v1",
-  "inputDigest": "5385d27c4336ead559cf689c42d09a05c20f64c5dfbf6717060b02d6bfd53bbe",
-  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "inputDigest": "d5a81e0b31d003cf7957fe38e7681a56f4345adf22eea76c49823461bab9eef3",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
   "scriptSha256": "bffb6981ef884ac6f872a828bf3623730cf29914f65db46e810cebf2dfb8bfee",
   "speaker": 13,
   "narration": "令和5年度までは1つの管理項目が指定され、設問1で概要、設問2でその項目を書きました。令和6年度からは5項目のうち2つが指定され、同じ工事で両方必答します。設問1と設問2は同一内容にできません。",
@@ -34,6 +34,6 @@
     "audio": true,
     "duration": true,
     "fullDecode": true,
-    "checkedAt": "2026-09-10T09:27:28.968Z"
+    "checkedAt": "2026-09-10T10:47:02.818Z"
   }
 }

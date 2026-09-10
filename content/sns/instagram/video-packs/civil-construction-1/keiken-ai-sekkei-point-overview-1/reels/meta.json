@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.209Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-ai-sekkei/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 32,
-  "sha256": "d2921203300ae13155387f86f278a7138ee7e4074ec507649785a5948a173ee6",
-  "coverSha256": "6ffcc6b229dee15453e7ce3fcf5cdd9ac602f43531ab505d30cf7ccf723dfd8c",
-  "renderedAt": "2026-09-05T23:56:21.515Z"
+  "durationSeconds": 30.2,
+  "sha256": "3a9ae0a0998cbc64574bc47ebe584c29a717bb20f6911ce1c07d2f72798874fb",
+  "coverSha256": "f5aa6b01f3e1206b3cc0d8cb5b2602d7b0ad9d7c2277eb36bbe918eb59d346aa",
+  "renderedAt": "2026-09-10T11:14:49.319Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "ab75311b6dac6b5d204f5ed15adef106e2d12d2b0960353f9fdaa4cd356489f8",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "e2e078240f9fbca13bf924034ad83c75407ebe714a82d00e2e7c36e5c756fb28",
+  "speaker": 13,
+  "narration": "経験記述をAIに任せるときは、事実まで作らせないことが大切です。工事名、工期、施工量や現場の処置がもっともらしく書かれても、自分の経験と一致するとは限りません。原稿の数値と行動を記録に照らし、分からないところは本人が確認してから補いましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "900485a364139f9427fc306cc572a6d7a58698b1e5cc334d93f21c78ad24f8b1",
+    "points": "37b95f4990e074b95e6abb3cce00801fd12ca537f69aec26f821f695d27cd9d7",
+    "pointsImage": "cd35763c4366e691ae3e04cc8e473f7db695636f622e0babbd24b736a4e40fae",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:14:49.319Z"
+  }
 }

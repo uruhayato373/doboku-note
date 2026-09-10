@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.200Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-products-ronten/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "7966728cc04ca65eeaac82f7d9d9dc9f55086ef0d6c39760e5fdf6412d4d636b",
-  "coverSha256": "8ba2a8817e07e0ace8f4a35e341901b8bfed845c56d8a8db7fd1823062f7a605",
-  "renderedAt": "2026-09-05T23:31:33.989Z"
+  "durationSeconds": 30.2,
+  "sha256": "3b75e9e66dccf23ba135249d9d8de0c1b90dc471ff6325904013a3cf38108cb5",
+  "coverSha256": "98f536a0e6323811f8af3f085f29622b0a2442f0c798c35e3d329868927f812d",
+  "renderedAt": "2026-09-10T11:04:27.095Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "dc5703b323e1e322654f426947501863ccb8167d8c38e364baaa29c222cffddb",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "0be6547f3569350d38e7e79269fee8b6b197db5badb04c68894684353a4393bd",
+  "speaker": 13,
+  "narration": "コンクリート工場製品は、形や製造方法に合わせて締め固めます。即時脱型はブロックや平板、遠心力やロール転圧は管のような形状に使われます。加圧する方法もあります。方法名だけでなく、どんな製品をつくるための技術かを対にすると覚えやすくなります。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "79c2301009aad868376a660ec1bb7ca7f0a8e7610927126ccb5943669225d042",
+    "points": "d037d06e8ee2e12f6abd3b80e61b8eee7839f6b4c11aa5b0b9ee616298439bd1",
+    "pointsImage": "5285f89810d7b2c4e1759a53cf64689782fad9fdeadd462c3cc5db824e3e5373",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:04:27.095Z"
+  }
 }

@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.196Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-production-qc-ronten/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 34,
-  "sha256": "c7e3ae7df8f10c116b6bcd7903dd454387640a295634abdf0e796168c75b67fc",
-  "coverSha256": "4d9a75675da3dece47edf4c97a7e38ebf3103f1591c8158f991bd81a73613e60",
-  "renderedAt": "2026-09-05T23:29:12.879Z"
+  "durationSeconds": 30.2,
+  "sha256": "4c964d73f5719bb9c7f9e02db4efcd0df89971534ea4665e8a06939c8a12dbb1",
+  "coverSha256": "9dc8d11dfdf8cdc868bcaf7df780797598c2743766d952b532c0a843e56fe171",
+  "renderedAt": "2026-09-10T11:01:51.192Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "f2a567648ddf28ed174a74dbe6e6e48643197d358174add91f972d34f0e8d920",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "a58a40be51453ead302fbfa0dc8b01e36968a227681a9c754b1fa4559fb85d12",
+  "speaker": 13,
+  "narration": "生コンクリートの呼び方は、種類、呼び強度、スランプ、粗骨材の最大寸法、セメント種類の順に読みます。呼び強度は購入時の品質条件、配合強度は製造時に目指す値です。ばらつきを見込むため、配合強度は呼び強度より高く設定するという関係を押さえましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "1780dcee8ce3d2ee716ded7e1a866d58f905aac0369d1ae4f156f7f69cf03cd0",
+    "points": "a392f3b8d1241c00f0cb2ec42cb0f5d59c7bd08c1942d6cfef3d864b8c4189a0",
+    "pointsImage": "24e98069907189cd6b3179d861598a3f5122cae7dda9515745e13dbd14779516",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:01:51.192Z"
+  }
 }

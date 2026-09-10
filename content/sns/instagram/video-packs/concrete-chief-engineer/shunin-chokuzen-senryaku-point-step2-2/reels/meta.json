@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.204Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-chokuzen-senryaku/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 34,
-  "sha256": "c8c2ca505b8818ad011f7d80a25f08c023c4120668bf0f73487a04973c682aed",
-  "coverSha256": "523f3437e3fbd28223cca17018e56b11524058a33aa8821c3ef8ea3695e3a8da",
-  "renderedAt": "2026-09-05T23:37:28.211Z"
+  "durationSeconds": 30.2,
+  "sha256": "ea8cc99398ae29c4bc1cae0672a514338594e3bc37ac7a38243eabe19ace9f62",
+  "coverSha256": "c0fdaa02d8e8d08feb433befcca42f37292f22ad9b9ef955f58cab370c05bc87",
+  "renderedAt": "2026-09-10T11:08:09.847Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "716a5053970343a911c3a7291e353e0e5b84f35e7b6d79c53f943a001bafee9e",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "723373cac64ef5774b363fa70e6c5af16421b63700094565aaf4dcd20f5570e7",
+  "speaker": 13,
+  "narration": "択一は定番項目から総仕上げします。用材料、性質、耐久性、配合設計、そして施工の運搬・打込み・締固め・打継ぎ、養生・仕上げ、型枠・支保工、鉄筋、寒中暑中、マスコンが優先です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "058b757051c89b5c21867f05c2088e1c8b59fa218dd02f401f9bdab5df272c31",
+    "points": "ef45e90f4fcb172cee55390c152a4bc4f5a9fefc416e84fa99521870e364eb45",
+    "pointsImage": "cfa277680ce3c5676a375e9dc16f07d0a9764e7aefdcb939a33d96215e10da3a",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:08:09.847Z"
+  }
 }

@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "keiken-ai-sekkei",
-  "inputDigest": "ba2ebb2969d012712884c3131392fb725f5cf36690507153a4845b3c917f379a",
-  "sourceSha256": "85d54330da93421e2bf8332abf0b3d44fbcf1721e4304daecba19e0e0dc7dfb1",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:30:34.874Z",
+  "inputDigest": "3fce1498c54c95735c2409719db6012f042e2897f998c98717e349ada701e40d",
+  "sourceSha256": "c828b690c9a814a6ca9369d07053e90a1577d47d129e4d74aba9ca0ca9958a03",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:25:09.897Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-ai-sekkei/carousel/img/00-cover.png",
@@ -16,8 +16,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/keiken-ai-sekkei/carousel/img/01-point.png",
-      "sha256": "f1ba1266ee88d3741ecf73ec786a489da88e3be984e1721904278a2fe31f065a",
-      "bytes": 98169,
+      "sha256": "203e6e54a757377183c4a5e452794a7b0c9c66fe2436a062110180d2c14ef8fd",
+      "bytes": 97858,
       "width": 1080,
       "height": 1350
     },

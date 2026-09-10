@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.212Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-dodome-kussaku/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 30.55,
-  "sha256": "064c4f65530a7d36bd7d68f91dff11a90c2d8566469da82fb1b8fe3c4f2fe336",
-  "coverSha256": "2a024e12ba5cb993dcdd5d56b08c4865870c4602a01de014a7063095ba09094b",
-  "renderedAt": "2026-09-06T00:01:22.309Z"
+  "durationSeconds": 30.2,
+  "sha256": "d824d475cc1e531d7aea0e44cbdafc466fa3d231d00cf53dbfa7337af772c810",
+  "coverSha256": "baa31908b835b121f019b17ad45539c3158c64f3e74d770589840b44b098b7e7",
+  "renderedAt": "2026-09-10T11:19:45.902Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "5c2787504aaa148bbfc28d72213124823a94b605f7ca4db60014b6fc273678b1",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "c750e061098370f4e067226f067b5b91fb1c1a710b65a539cff03ea5d8d9b4cc",
+  "speaker": 13,
+  "narration": "掘削面の高さが2メートル以上になる地山の掘削では、地山の掘削作業主任者を選任します。点検は、作業開始前、大雨の後、中震以上の地震の後、発破を行った後の4つの契機で行います。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "30ac69f76fd68610167845592969a63ac64f65dd2f094694a2c2bee8836cb255",
+    "points": "24f273616f2df62385a00b3d84300104b171404befc444d7fec6619fd25f5df0",
+    "pointsImage": "2795f4eb26230834a03848412d6d3ac33a2625e145c818598a9a2944efc90237",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:19:45.902Z"
+  }
 }

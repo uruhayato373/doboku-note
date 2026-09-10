@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-soteikoji-katsuyo/shorts/point-overview-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "bfdcf6d3fbf53bd070148a9a71548a104ec1f1e07f2892470a135ca8b54be6cf",
-  "coverSha256": "d67e7d7ccd37f6e0fab183bce55d622176c9492e1b81726528160e99c1162b41",
-  "renderedAt": "2026-09-05T23:55:16.009Z"
+  "sha256": "4fa12dc7c5d638a450fd31dd201c10e2358fe216ba563edac60db3448b27da67",
+  "coverSha256": "04a30a4a53b854e7e77efef60053972f7340f8dd6745e61d5b8325d86433b001",
+  "renderedAt": "2026-09-10T11:14:32.066Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "859a34edd27c00a957a3765979460cbc08c5d5315a577e86505cb607d61d7335",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "3f0c6886ee412e8f973c93202f722d071ea2cf79771800889579e32e91885b41",
+  "speaker": 13,
+  "narration": "完成答案は、文章の組み立てを学ぶための見本です。他人の工事名や数量、実施した対策をそのまま使っても、自分の施工経験にはなりません。課題と対応をどうつないでいるかを読み取り、内容は自分が経験した工事と記録に基づいて組み立て直しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "8fe6c99fb8de49087c68fc81e5f228503c93fde49e20795fbdf375af9e8f36d7",
+    "points": "2eff1fd2ae1e4de65522dbc69db1160f8e720424d0f43817f1d8475cfe4b637c",
+    "pointsImage": "3a805ddda69c4169d0c70d3cf81d54db06b1f31ae63f83dd8d708d10b5bfaadb",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:14:32.066Z"
+  }
 }

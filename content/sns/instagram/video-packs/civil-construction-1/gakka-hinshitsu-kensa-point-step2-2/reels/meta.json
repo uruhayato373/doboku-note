@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.214Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-hinshitsu-kensa/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 36,
-  "sha256": "928e65051d31b6109e8115a63b12da263d14aaa595bdf44ff1f9f4e4947c8d24",
-  "coverSha256": "ad099ffc9544ab2820fa1eb09357b276c948ac05180d062c341a675edb9b3652",
-  "renderedAt": "2026-09-06T00:02:45.954Z"
+  "durationSeconds": 30.2,
+  "sha256": "d59eca6ad7efc147099ea04bbf2e59c7254d8ec96267423eeda93ae2d8bb2ec1",
+  "coverSha256": "f2106c0e6c7f7ca3c922db440524746f9d06aa6c942fce2ec23000afcbf9896a",
+  "renderedAt": "2026-09-10T11:21:55.054Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "c9663d11c7890d3f189b8f6bc0d1a974048f4f1b4b93a7c7ca39690d335adb98",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "47c2a4c808caf68572251f6b9fa1513999d7e2b1e606554132fa86a4146349f3",
+  "speaker": 13,
+  "narration": "抜取検査は、ロットの一部を調べ、その結果からロット全体の合否を判定する方法です。破壊試験のように全数を調べられない場合や、検査数が多い場合に使います。どの範囲を一つのロットにするか、何点を抜き取るかは、適用する検査基準で確認します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "f0ad9df1dba4990f36a31004565266ad2b8cca2d0e031d0dcb1c1141d57cb3b6",
+    "points": "d59eedbd3ff1932ab992b98ef582d66db7f4240022cbeef2275d46518912a0ac",
+    "pointsImage": "cb9ceedb338d4a0d1d82cf84fe87004400723c11bca5820c93ebf3e4dbe0f3d5",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:21:55.054Z"
+  }
 }

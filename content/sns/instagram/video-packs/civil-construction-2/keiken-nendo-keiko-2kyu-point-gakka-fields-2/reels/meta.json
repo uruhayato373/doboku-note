@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.191Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-nendo-keiko-2kyu/shorts/point-gakka-fields-2/shorts.mp4",
-  "durationSeconds": 30.62,
-  "sha256": "d8cc285623f32e27f26f8abee7c14cf5d8984979895c6131da8eaa2b32be34d1",
-  "coverSha256": "dd706f228ebfcebaf8b28f873f0d0f29db6896f86d598ecdb11e1dd6803b7666",
-  "renderedAt": "2026-09-05T23:22:47.919Z"
+  "durationSeconds": 30.2,
+  "sha256": "baf353d8e9031a6337e02dbcdc97e76319d9486f01652b24f8323a2c32d1de41",
+  "coverSha256": "c861728e6312c00939e4b5b4b0c2677a7622a1f5908521ba90e2c7a727ada221",
+  "renderedAt": "2026-09-10T10:57:16.246Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "d3f30046097940881d912db0d45a110063bd230cc06dba7303e2a45ccc4b7ac6",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "d85005d0467d36e4eeaf28d354740a677f1e92a43e8f62488ccb3a5729ad3fe6",
+  "speaker": 13,
+  "narration": "問題2以降の学科記述は、土工、コンクリート工、品質管理、安全管理、工程管理が、ほぼ毎年繰り返し登場します。範囲は広く見えますが、出てくる分野の顔ぶれ自体は毎年大きくは変わりません。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "4c54e2d7bd54abee155904761cbfc47c58e7d659245a222b4ce92b383eda5249",
+    "points": "f665f9aedf2482d59b7e810215e4778f4df94a59bca171e40c61d79ab5df5c46",
+    "pointsImage": "1427e569c5213e7438fd17e093e23857716e5c5829ed2b7abb9c9460a26a35d2",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:57:16.246Z"
+  }
 }

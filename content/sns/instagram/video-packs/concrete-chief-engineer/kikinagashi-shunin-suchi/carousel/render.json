@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "kikinagashi-shunin-suchi",
-  "inputDigest": "fa7130ae233dcee273aa1a7906b29805b0a95a77fb861b643f9e693d739dda10",
-  "sourceSha256": "a844926a212e8d216ad4cd29449a7008d17a94f3d8ae1749146868c1c2ab3b40",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:34:35.733Z",
+  "inputDigest": "ffddbcab9c754c3040ee8b1b942122c735d7953e5797c56572bee5c73262fa21",
+  "sourceSha256": "aa6a1bd02152fff6f2905f1958aaf4ce5271e195c805b7c51521610747f35d06",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:35:52.206Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/00-cover.png",
@@ -65,8 +65,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/concrete-chief-engineer/kikinagashi-shunin-suchi/carousel/img/08-point.png",
-      "sha256": "e3b0d8833f2d122a69d7085bf79d195f8018a3af0bbf377bfffc964a7a536c1d",
-      "bytes": 149749,
+      "sha256": "c256d2d849973a8cc2c66a01883aecf844e5d4a8cac684000ef7c8ec63f0a34d",
+      "bytes": 146196,
       "width": 1080,
       "height": 1350
     },

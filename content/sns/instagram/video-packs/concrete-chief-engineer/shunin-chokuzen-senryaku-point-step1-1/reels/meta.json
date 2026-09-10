@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-chokuzen-senryaku/shorts/point-step1-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "347c715d124a23501bbe41b7cff6a342bb4196a20a016573928bd27578cef1b5",
-  "coverSha256": "b00401aee015b9d6bcaf525cef87a4eac8034e3e9e6fa7389c626072ee8cfdfc",
-  "renderedAt": "2026-09-05T23:36:50.936Z"
+  "sha256": "5916e9ce17f3922f4d30a8b684807430a248ce3f207f6afb5ae490e9d219c588",
+  "coverSha256": "70108d653fb58176159e435de3c71f16bfa6e26b587492db3f52cb2cac56416e",
+  "renderedAt": "2026-09-10T11:07:34.107Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "820dfdbdb2eb3372678ac0320fca190399baf9345f9923a30a2e68da6752262c",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "dc7290df9eb46d8dc5ff1b7eeb92e55dd8d9675c83e1d61590823c7d10b54822",
+  "speaker": 13,
+  "narration": "主任技士の小論文は、直前期にも実際に書く時間を確保しましょう。論点を決め、原因と対策をつなぎ、設問への答えを明確にする練習です。下書きでは箇条書きで整理しても、答案は問題文の指示に合わせます。文章量だけでなく、論旨が通っているかを見直しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "a14b72a9a55a8f6ee2dce1761a217ef67197afc577c6c26c1ceff6a16b0bd1f6",
+    "points": "56a60d89bf10f784eb9a7e860c43ec8d986eb473f8ea1c127d29f26880f72bec",
+    "pointsImage": "823a52ca505de7add954c4f685f6fc67e8a7115f4e8f577002ec3a5c0a12c4b6",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:07:34.107Z"
+  }
 }

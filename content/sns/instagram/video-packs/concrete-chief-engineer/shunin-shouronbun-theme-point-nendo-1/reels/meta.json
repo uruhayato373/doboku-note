@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.202Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-shouronbun-theme/shorts/point-nendo-1/shorts.mp4",
-  "durationSeconds": 30.54,
-  "sha256": "0df22da592d7bd25267eeecf1fa3abb6fecb0f4bf4d19030e6d17abeb8f04ceb",
-  "coverSha256": "ad74cbcfbab7afbe82b906cef92b91b2549bb917560425a71b31e805e0e9a4bc",
-  "renderedAt": "2026-09-05T23:33:22.381Z"
+  "durationSeconds": 30.2,
+  "sha256": "b57b97be8810f16e3bed78c6332f2fe9fef3c3023f78210adf84c3e7fcd02bee",
+  "coverSha256": "0a2ef677fe2ec6cb4373fe79c2c53fcc6ecda830e4ce1b1a6f2e58879ad24ffe",
+  "renderedAt": "2026-09-10T11:05:44.723Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "74355741fc25933bc3b2fad0d2b80b557b96dea8f98655482d2fc02d184dafa5",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "7a89ce7b74fe9678f181b6adcd5ddb72ffedaca59a2ad59010f571756c6119b5",
+  "speaker": 13,
+  "narration": "テーマは年度暗記でなく傾向で捉えます。出題テーマはコンクリート技術の実務に直結する領域から選ばれ、どのテーマにも対応できる経験の引き出しを用意しておくのが準備の本筋です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "fbb8a9fa2b0f270a55a195f9faed704417008032751fb6e4fb920a6ba8b3e6d1",
+    "points": "6c77edb0ed49864dd28c901563d88dc6be49832afc7a8eba1d3b2ed40ca3ddbc",
+    "pointsImage": "d4ca9b9f7820062c0b70c4103777b981b7d3f0af7dce32d313834949de2d6f2e",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:05:44.723Z"
+  }
 }

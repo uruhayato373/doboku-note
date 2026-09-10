@@ -13,12 +13,12 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/study-plan-2kyu/shorts/point-step2-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "eb179f6a33cdcd8ecd7b55b288940bccca5b32c7c54e3ce911ab4fa8a4520890",
+  "sha256": "7df9604777cf778bf0bb163a4a0eace7ca9233c50aa5337b698195dd8beed8d2",
   "coverSha256": "ac476dd99f3bed2962e2295c8d6dc3aab0b3afe25cb8e2b8b94f0781b3f5fe10",
-  "renderedAt": "2026-09-10T09:26:49.192Z",
+  "renderedAt": "2026-09-10T10:43:59.446Z",
   "design": "bridge-notebook-a-v1",
-  "inputDigest": "8ad7a99becf36803b552298f330384623ecf30052dc284c95802d4d16bb3aca8",
-  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "inputDigest": "b686fa39d259dc663c5018618b35f416d58ae91b99dbc163ebfc139bb5b6c1ac",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
   "scriptSha256": "efd992be019e1f302482f8661be658bfca0a0bc61159cb1099c10ab492d20405",
   "speaker": 13,
   "narration": "2級土木の第一次対策は、テキストで全体をつかみ、過去問演習で理解を確かめる流れが基本です。五年分など範囲を決めて繰り返し、間違えた問題は根拠をテキストへ戻って確認します。年数だけで十分と決めず、説明できない選択肢を減らしていきましょう。",
@@ -34,6 +34,6 @@
     "audio": true,
     "duration": true,
     "fullDecode": true,
-    "checkedAt": "2026-09-10T09:26:49.192Z"
+    "checkedAt": "2026-09-10T10:43:59.446Z"
   }
 }

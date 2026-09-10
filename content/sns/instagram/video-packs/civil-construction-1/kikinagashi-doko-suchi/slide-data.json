@@ -22,7 +22,7 @@
       "sceneId": "soft-ground-judge",
       "heading": "軟弱地盤の判定は目安と条件",
       "items": [
-        "教材の目安は、N値4未満・コーン指数250kN/m²以下です。",
+        "教材の目安：N値4未満\nコーン指数は\n250kN/m²以下です。",
         "一軸圧縮強度50kN/m²未満も目安として、地盤の性質と併せて確認します。"
       ],
       "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
@@ -32,8 +32,8 @@
       "sceneId": "spreading-thickness",
       "heading": "敷均し厚さと仕上り厚さ",
       "items": [
-        "路体の例：35〜45cmで敷き均し、仕上り厚さ30cm以下に締め固めます。",
-        "路床の例：25〜30cmで敷き均し、仕上り厚さ20cm以下に締め固めます。"
+        "路体の例：敷均し35〜45cm\n締固め後は30cm以下",
+        "路床の例：敷均し25〜30cm\n締固め後は20cm以下"
       ],
       "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
     },
@@ -53,7 +53,7 @@
       "heading": "盛土法面は材料と高さで読む",
       "items": [
         "高さ5m以下の例：粒度の良い砂・礫は1:1.5〜1.8です。",
-        "同じ高さでも火山灰質粘性土は1:1.8〜2.0が例示されています。",
+        "同じ高さでも火山灰質粘性土は\n1:1.8〜2.0が例示されています。",
         "標準勾配は材料・高さの条件を外さずに覚えます。"
       ],
       "sourceRef": "content/site/civil-construction-1/textbook-embankment/article.mdx"
@@ -63,7 +63,7 @@
       "sceneId": "vegetation-slope",
       "heading": "植生工と排水の役割",
       "items": [
-        "植生工の目安は一般に1:0.8より緩く、寒冷地では1:1.5より緩い勾配です。",
+        "植生工の目安は一般に\n1:0.8より緩く、寒冷地では\n1:1.5より緩い勾配です。",
         "盛土面には4〜5%程度の排水勾配を保ち、雨水の浸入を抑えます。"
       ],
       "sourceRef": "content/site/civil-construction-1/textbook-cut-slope-protection/article.mdx"

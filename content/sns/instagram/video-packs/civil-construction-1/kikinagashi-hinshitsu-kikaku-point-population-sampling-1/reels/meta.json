@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/kikinagashi-hinshitsu-kikaku/shorts/point-population-sampling-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "66cab09b56ac126a10b7c8b0c3346a70c0c2bce7172f2e4bf158f8d4ec842897",
-  "coverSha256": "0779f63bc693fc806a741c932ee4de5f04ef36b41ff8d98ded1ddd79dd1e919f",
-  "renderedAt": "2026-09-06T00:09:51.248Z"
+  "sha256": "f15076dfa0bb7a7b424571d8f26f87c3ada54a9a00d9fe8cc9cdd5f9e521cb68",
+  "coverSha256": "4cb34b188fc6bca6e94dd4c8b4e6152c16a7cdc1a3890a631b6870cd60ae959d",
+  "renderedAt": "2026-09-10T11:51:58.630Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "024cb6b30895c20c81c7735553090da706af70aff3b411e4d076d21b9b57eebb",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "cb3e40a9e908530425ca3e712c07a45d3f867aca0fbc5b86259dd9276174a6f5",
+  "speaker": 13,
+  "narration": "品質管理の基本用語は、集団の範囲で区別します。調べたい対象の全体が母集団、そこから抜き取るものがサンプルです。検査のために一まとまりとして扱う単位をロットと呼びます。サンプルを調べた結果が、どの範囲の判定に使われるのかを確認しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "35a848f9cceff24272588882191d669f6d1b0bd37622ebca624a503014b48c71",
+    "points": "b8f33c4c32ae7e1eadecea03ecd3afd0e945afa361dd1ec31c4be7b9dc38e305",
+    "pointsImage": "0dbdb6578cc70cffff246b1361b7702f920f5ec9f06a1d7dbff927117c3b81af",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:51:58.630Z"
+  }
 }

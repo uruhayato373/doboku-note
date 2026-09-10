@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.218Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-kotei-kanri-kiso/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "cb0b5e2b71b070eba28af32d373764ef7b7416309516fb542cd46fbec6c037ec",
-  "coverSha256": "510097e851000069e0151580a66734eb6fc94d18f249798cbea93360deb8d0d0",
-  "renderedAt": "2026-09-06T00:04:58.591Z"
+  "durationSeconds": 30.2,
+  "sha256": "c0ddbf9600e9e7a7b689d15dc9f29599f5afa43ad667b7ea52d136f5beeab09c",
+  "coverSha256": "a4cd1d57867616c23ee084153ccf82b1818d19d532f524349d9523ed4e48e094",
+  "renderedAt": "2026-09-10T11:30:07.616Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "7b80955368dae21e296504d3ba6a87b208142b848737eb2a06fbf56b3d1bd79f",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "d0aa6da273992ac1cac5381160bd91b0882cc8fbbb8001ed4c9f11bcd6bb68d6",
+  "speaker": 13,
+  "narration": "ガントチャートは、横軸に達成度をとり、各作業の現時点での進捗度合がよくわかります。ただし、必要な日数も工期に影響する作業もわかりません。バーチャートと混同しないよう注意が必要です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "28370a9c026eedf0f7a8bc8336732082d7d40558942d44bac66fbe1c6ba89e67",
+    "points": "7ab586a89b77416922e6fd53b54237b73e27c258c8de8312afaf00c40cee5238",
+    "pointsImage": "b005344ae579c5e9e2c43ee91641a35752337a3be24de39a33e8685436c652f3",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:30:07.616Z"
+  }
 }

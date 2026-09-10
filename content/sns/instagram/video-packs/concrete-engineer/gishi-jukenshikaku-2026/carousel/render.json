@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "gishi-jukenshikaku-2026",
-  "inputDigest": "a85c64f72f6497c3e11e69984cf29ed26315a065d382744978d4014bd417b471",
-  "sourceSha256": "ad5b0c8c9d283c332a713c8d7a987d9f2880734facaa24ea1378edb8a15471e6",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:38:18.224Z",
+  "inputDigest": "0bee6496cb0690664970591e92d57376559805812f7afb1cdc2c103079245470",
+  "sourceSha256": "d6a03329f15bf9efd8bb0a9e8a687ef0a1da48c93a4e39e01eb90e3ecf6c694d",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:40:51.294Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026/carousel/img/00-cover.png",
@@ -30,8 +30,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jukenshikaku-2026/carousel/img/03-point.png",
-      "sha256": "a481be0c3187128d0968781cb0383a0c3f468a14c6cf63e617ef5e79a1805d4c",
-      "bytes": 150161,
+      "sha256": "13e30eed19c52b02c35e8af74f79989326dab1aef1e804b38248e8e02e1e78f6",
+      "bytes": 150160,
       "width": 1080,
       "height": 1350
     },

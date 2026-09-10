@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.191Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-nendo-keiko-2kyu/shorts/point-theme-shift-1/shorts.mp4",
-  "durationSeconds": 42,
-  "sha256": "277562839aa90cfe0d0492a9dd05251c88646c69fc11ba2b449827cb72cdb66b",
-  "coverSha256": "2cbc341fd09f76f70fdce74711d0f872e58592190c6c56f90e660a26fb3f681f",
-  "renderedAt": "2026-09-05T23:21:51.373Z"
+  "durationSeconds": 32.73,
+  "sha256": "ce010b79da39a7605145907b35a4c2fe411cbc9c846b290908a94d35b47f040d",
+  "coverSha256": "e6e461a2e1a17952c0369c25849206169aba57d9f48fb78742867ae049eb9533",
+  "renderedAt": "2026-09-10T10:56:49.424Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "6e0250df309961082ad41055101254e04453eb668139a5dac35e5fa0779315e9",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "35637216846b5f9d306db87dffbeacadd45d2fb5acda351f80d291d2c9681551",
+  "speaker": 13,
+  "narration": "令和3年度は安全か品質、令和4年度は品質か工程、令和5年度は安全か工程を1つ選ぶ形式でした。令和6年度からは設問1・設問2で異なる管理項目が固定され、両方を必答する形式に変わっています。令和6年度は品質と工程、令和7年度は安全と工程でした。この節目が一番の要点です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "231627d237363c392382542a59761d2cede85608ed6f577e402b6c9327cbec2e",
+    "points": "409045870e80e070e0250b3293522ae847e9dbb22973f0051e4a58afc6b93668",
+    "pointsImage": "10c58d4d5a2a3be399bbdf948b1abc684de1b8a61d63bf6d73b16a46467ec870",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:56:49.424Z"
+  }
 }

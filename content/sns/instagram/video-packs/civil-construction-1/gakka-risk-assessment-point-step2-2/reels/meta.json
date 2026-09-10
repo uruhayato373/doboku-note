@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-risk-assessment/shorts/point-step2-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "b417bb4a082e536af71c5a29f916b2483ee7ba3d840cb257ce642e05369089db",
-  "coverSha256": "a828dcaf42f5dcd672912491e76910deabb55ec3efbbe4bdb1c25f76b5158c62",
-  "renderedAt": "2026-09-06T00:06:34.911Z"
+  "sha256": "3e200f4c7df9ba6c018c46a7ba33a823f4d096b4609d573a52fc9a5f490f40f2",
+  "coverSha256": "976f4829f9b79a57e5da38f4cb549aa3007fed570f697bf5b50f808be2f73826",
+  "renderedAt": "2026-09-10T11:37:51.910Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "937914b563fbaea8c51cc7d12978081db95225ba670b95cfafe6cc42627ad75f",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "626a1e1e8ebadb407c0f24c5c2551d08c6589785193efeb2d150c01212fa569f",
+  "speaker": 13,
+  "narration": "リスク低減措置には優先順位があります。最も優先されるのは、危険な作業をなくす本質的対策です。次は工学的対策、その次は管理的対策です。個人用保護具は、これらで除去しきれないリスクに使う最後の手段です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "0b5c1ddf81bb61376d8c27fed81b5b0ab59e33d44fc48755d1cffdd5c529f151",
+    "points": "3d69a2cf3e336eb995056dff762c26a0e6d71bc32b970cbaa2d4dc23b82d3918",
+    "pointsImage": "e1c95c999c8a6ae9d6fd433d7b40baf01867e82fcb3483c15b935eaf8317e91b",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:37:51.910Z"
+  }
 }

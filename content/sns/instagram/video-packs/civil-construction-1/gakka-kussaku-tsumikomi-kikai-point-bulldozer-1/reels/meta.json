@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.218Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-kussaku-tsumikomi-kikai/shorts/point-bulldozer-1/shorts.mp4",
-  "durationSeconds": 43.43,
-  "sha256": "1cd2941362a3eea06c3ed1658984e932695902194fd7798d04be7e05b595849a",
-  "coverSha256": "265ea4730c2a73d4816622e1ea96c54c787e42d80b927faedc5cb98a85519181",
-  "renderedAt": "2026-09-06T00:05:01.524Z"
+  "durationSeconds": 30.2,
+  "sha256": "bfa8c1ddc81e210a76daaa4a8b9c9aa779dbfab2ccbac069d0b61f3ee38ba45d",
+  "coverSha256": "32b85002ed23d31e0d94abaf2765bcaf697714490d6db328e038d883b1c63d29",
+  "renderedAt": "2026-09-10T11:30:47.487Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "22a95ac6044ce0fe1b019bd046498879ed14b02dfe45e9277546a698ff5139e2",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "89b570e2f27ef1f948e5e5ea4c1a71c35c3d4c4412f523e8a79c9998e434c350",
+  "speaker": 13,
+  "narration": "ブルドーザの走行装置は、クローラ式とホイール式で特徴が異なります。クローラ式は接地面積が広く、ホイール式は移動性に優れます。使えるけん引力は機械の重量と地盤との付着条件に制約されるため、エンジン出力だけを大きくしても、そのまま増えるとは限りません。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "457923cbf6a22bdb3bd0614535a231b12c3d3bd6c591765bc4c93bdd96092146",
+    "points": "6148175aca643e6e9a9f13e2e3593a2aad5df61b5f5be3eff04c2319237126dd",
+    "pointsImage": "6d13bb09ae87df8a1529ebb54588e01a43d20db79ec1fc0eaebba6d02911ea4a",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:30:47.487Z"
+  }
 }

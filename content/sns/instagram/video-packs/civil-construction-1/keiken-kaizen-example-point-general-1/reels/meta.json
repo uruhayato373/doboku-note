@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.228Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-kaizen-example/shorts/point-general-1/shorts.mp4",
-  "durationSeconds": 32,
-  "sha256": "48c8ac9e52166627e26357a028720858fe4f8ce0e4d0e91419c8022224bff207",
-  "coverSha256": "ee516db38e014bb04dcefa5f5adadd92f4053ae7ed5cad7d9b2423c592ba7cfc",
-  "renderedAt": "2026-09-06T00:11:22.475Z"
+  "durationSeconds": 30.2,
+  "sha256": "84faf61e670003083aebaac3ed17428a980ed2940bad5766414c397e0eb1db99",
+  "coverSha256": "5217d221df3ea2e15c0d038fa30f1af0b703eec2cb8257a9e06524fd4ec3ff88",
+  "renderedAt": "2026-09-10T12:01:08.109Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "e4c58b4a2a289770c67ebe8a699ddcf430c099b18cf71201d02e8cce9e8bbbb9",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "420cccdfb97b30774c2cea888a503b73aec6e3b0bc9cc61014ace7254521f722",
+  "speaker": 13,
+  "narration": "経験記述は、「品質に留意した」だけでは現場の特徴が伝わりません。工事概要を踏まえ、どの施工部分で、どんな条件から課題が生じたかを説明しましょう。実際の数量や作業条件を入れ、なぜその管理が必要だったのかを自分の経験に基づいて書きます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "51983488b79f4a87d5e25b28b8cb6a9800d5585cead99bcdb423d809092702ff",
+    "points": "f05e93e68fca64a6d9b5de0c3c309e586567034d7ce13f1ef6ea039f9cd0b177",
+    "pointsImage": "7a3180399adcd44d8f1d17de164f8c66133adcd9d1f67d8905c961d626539ad7",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T12:01:08.109Z"
+  }
 }

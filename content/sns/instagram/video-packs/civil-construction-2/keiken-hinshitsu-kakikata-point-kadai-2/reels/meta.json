@@ -13,12 +13,12 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-hinshitsu-kakikata/shorts/point-kadai-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "2a1b87e46521c473c0e56467a300b06cff9f0b021c95746317fd8cc1d80dcbde",
+  "sha256": "58d61d00130cdff104dd0940c39109c4e29b187d9347136f3ccbac611d41202d",
   "coverSha256": "791c8b22a145de45acb630f608cbc281cd21fef36be3f4577270837e78fff62d",
-  "renderedAt": "2026-09-10T09:38:03.005Z",
+  "renderedAt": "2026-09-10T10:52:38.536Z",
   "design": "bridge-notebook-a-v1",
-  "inputDigest": "5b4fec0a3da37f25ad7ac126e87dc0a4fc1e2a57d7f429193089bcdba79205a7",
-  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "inputDigest": "7189c35b01a32336893a1339f1c0625857241a5fc5732a58602fc597330e16cb",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
   "scriptSha256": "c130c9256aa409dc9f42a585210257a6a7ba829bcc2f03e0c8d49ca219358a05",
   "speaker": 13,
   "narration": "品質管理の課題は、現場条件がどの品質に影響するかを考えて立てます。計画、材料、施工、養生、検査、周知などの観点から、自分が検討したことを整理しましょう。梅雨や暑さ寒さ、地盤条件を挙げたら、それが品質確保を難しくした理由まで説明します。",
@@ -34,6 +34,6 @@
     "audio": true,
     "duration": true,
     "fullDecode": true,
-    "checkedAt": "2026-09-10T09:38:03.005Z"
+    "checkedAt": "2026-09-10T10:52:38.536Z"
   }
 }

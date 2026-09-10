@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.226Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/kikinagashi-hinshitsu-kikaku/shorts/point-full-vs-sampling-2/shorts.mp4",
-  "durationSeconds": 30.62,
-  "sha256": "0b13c9303b67e40b78aa7e3317d12a96bee02babc15f8e6c495dd4b124d72397",
-  "coverSha256": "10df151a38ea94e7950a78bc440ffbf18aaa172ff3675375697a393ad5d4706a",
-  "renderedAt": "2026-09-06T00:10:07.855Z"
+  "durationSeconds": 30.2,
+  "sha256": "c6e3232ded58cced85d80b6d389282ab43a31fa10ec94a88063b5f3af4fa0e03",
+  "coverSha256": "be99694b15fe527549d7a0a1d54d841e6033952417284c6ee14615541a5de1fe",
+  "renderedAt": "2026-09-10T11:53:43.164Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "7998f000ccf55b3a249996665bbf462de8efac1d4594ba5991342e49d90b6782",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "e33539c3d805d1c18b4d02e3c1c2d981d297f6258018e9b739d6d1890134f7d9",
+  "speaker": 13,
+  "narration": "全数検査と抜取検査は、検査の目的と対象から使い分けます。不良品の混入を許せない場合やロットが小さい場合は、全数検査が候補です。破壊試験や検査数が多い場合は、抜取検査を検討します。どちらも、適用する検査基準と合否判定の方法を先に確認します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "4ebf004cf89d9dc56d0593532a9429edebb3c4a693808de71f09ddcf758e63e6",
+    "points": "fa383ec6f15c33a53c34f87961f64f2230fc26f8695835a892f98e208e755670",
+    "pointsImage": "76484478ad98af66d1c915106b2e7b9505a403dabbca69c4cbf40afce6858f8e",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:53:43.164Z"
+  }
 }

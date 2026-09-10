@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.203Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-ochiru-shouronbun/shorts/point-ippan-1/shorts.mp4",
-  "durationSeconds": 30.7,
-  "sha256": "ed0a81975c925fc2884667de19f156d2021c02b38a8639709d4f6267b9c1b8e4",
-  "coverSha256": "311cc8697a7aada964e9bb165911b9b4f06e5a55762ce081feef40b495ced822",
-  "renderedAt": "2026-09-05T23:35:49.044Z"
+  "durationSeconds": 30.2,
+  "sha256": "48624866850517e1274c15e89924baaf00a13d67e17fe0b8227119e9116eb27a",
+  "coverSha256": "95fbaaa8ce86478ef5a927ea95a026bff5ceffe67a83dd14a3ad1c6a48e8ee94",
+  "renderedAt": "2026-09-10T11:06:40.574Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "955dec87feb0dadb8dbe8071e909a659a24e12933e6e3c1b103d956003075f30",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "81dc75a43d8a97a3b39081d1b5058abbb2409f3df5c1ba4823aabb67f88808b0",
+  "speaker": 13,
+  "narration": "パターン1、一般論に終始している答案です。教科書的な記述だけで、自分の現場や判断が出てきません。他の受験者が書いても同じ内容になっていないか、読み返して確認します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "3ecd986f2ed198d31330905bdc998e6c6d282489872006247577425070f53204",
+    "points": "7431edf215368c758e8266a9438bcaace2fa111c8f27da41245d0c2f375a3cea",
+    "pointsImage": "e4248010cc3f387f5f92fc9e9975b6509c029be0739b578dca32254ac33d290e",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:06:40.574Z"
+  }
 }

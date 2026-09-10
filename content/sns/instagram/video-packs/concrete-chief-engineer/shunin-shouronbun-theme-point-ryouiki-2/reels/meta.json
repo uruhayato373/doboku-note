@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.202Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-shouronbun-theme/shorts/point-ryouiki-2/shorts.mp4",
-  "durationSeconds": 35.27,
-  "sha256": "59a9dfeaa7958f3335dcf64fd3182c92166f4f7f4a11af9b15b2358fec494df2",
-  "coverSha256": "d8a21d505f2cf6e341c71fda14b5f916f46d8b1b987246a1746072a168bffc6e",
-  "renderedAt": "2026-09-05T23:33:29.922Z"
+  "durationSeconds": 30.2,
+  "sha256": "ec40e2f2e8ae55b6599d950deb76d1cc028c8581e662d76c4c71412c004f1316",
+  "coverSha256": "a978813aea4beca20b3780f731acd22c1075164db003f1eda26816a3e9228581",
+  "renderedAt": "2026-09-10T11:05:54.565Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "1456c3627f2f551e2f26e86bd896541263350bcfc1c5095e47d0a6112265c3da",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "1cf0fa1b8e2fcaad7e9ffd4476f4a541ab10d88491274997b790312ba490a263",
+  "speaker": 13,
+  "narration": "小論文の題材は四つの領域で整理できます。耐久性では、中性化や塩害などの劣化機構と対策を扱います。品質管理では、配合や検査、養生を考えます。環境配慮では資源循環やCO2低減、施工トラブル対応では現場の不具合と対策を整理しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "6559a5c45e78d2bb0eb670d75b7a7012aeb3ba9fa9eba12befcf62ea7af20200",
+    "points": "4fade75c4f9d64d9fb101f90993087a8c6dc9026a41a95d66fcec19a0af49c3d",
+    "pointsImage": "5a4c33b1e8ae171695a316befaa0e6f7f0f848e87a75366cb2d55030fc3caad9",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:05:54.565Z"
+  }
 }

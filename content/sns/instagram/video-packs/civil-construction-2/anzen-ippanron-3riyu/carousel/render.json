@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "anzen-ippanron-3riyu",
-  "inputDigest": "6e2a1e2a75723ca45096681213004238d846e3e530c0785c7865e8dc68b82e3c",
-  "sourceSha256": "594528a4f09679407d2d6382558d5e2a99a5accf1ec48593f59740a8503bdd19",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:32:46.225Z",
+  "inputDigest": "46ea88858aa60fc9cbd2761d97fe6ee167d1b71aa3e04b4b9144c2b2b9b00813",
+  "sourceSha256": "d5cedd3cdd5c0b32f6ed0d503bb1a33fcc86d3d66035fc905c6af56bdeb0c5da",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T12:05:34.899Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu/carousel/img/00-cover.png",
@@ -23,8 +23,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu/carousel/img/02-point.png",
-      "sha256": "19e41659e62884789abcc62676d7893c1d4597d44b9f90ca8e1af3a3a7fe3c17",
-      "bytes": 124430,
+      "sha256": "6804c31f1f3ded32b410fe8552f80a6147d8f1d311184822ad80b8bb09317c5a",
+      "bytes": 124570,
       "width": 1080,
       "height": 1350
     },

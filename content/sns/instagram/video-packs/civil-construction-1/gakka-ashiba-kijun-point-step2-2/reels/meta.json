@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.212Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-ashiba-kijun/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 31,
-  "sha256": "5944e8bd88edaee9f325b0d74f0766898d45a8a6608a1c932c7ad08334e4b3b5",
-  "coverSha256": "83f7686d42c890270037b250fc9c71559cb07ba04d2f5803177038e43564952e",
-  "renderedAt": "2026-09-06T00:00:42.442Z"
+  "durationSeconds": 30.2,
+  "sha256": "e7bf982a14baebe50dc943872ba3a324c021c116882036ef9682de101724c67b",
+  "coverSha256": "f884ec92175c2c8c1b1a6e04dbb0b4848ccd665d2f27ab92bbfb6d8c2889e5a0",
+  "renderedAt": "2026-09-10T11:18:53.790Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "d11d81b2f6ca01b607bb4feac8d758ac56fef7c69d1c56211180e8168f76455e",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "5cb47727b54c18704136fa5345a3268851a4137d61b25c4d4798e3e44ad04786",
+  "speaker": 13,
+  "narration": "次は架設通路です。勾配は30度以下。15度を超えると踏さんなどの滑り止めが必要です。高さ8メートル以上の登り桟橋には、7メートル以内ごとに踊り場を設けます。はしご道は上端を60センチメートル以上突出させます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "13398dd0c1e61dc0bfd19397fddd397ea3b2385c454cfef9bb116ecdc88983cd",
+    "points": "bf130d453df7deacef4a81f8f6e565ee1353ae8da8da5e2a133d75c91a5e3899",
+    "pointsImage": "3baf392182496a6f511e867e826a92f3985f2c4c5702204699cc633afc1c4d5f",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:18:53.790Z"
+  }
 }

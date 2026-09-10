@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "gakka-hoki-kenchiku-kayaku",
-  "inputDigest": "9afa9962c0682b00c8266608be26bc10e73868543788db59c44a58b2cd653d62",
-  "sourceSha256": "4931f522327854e24720776548fe490712b62c9433870461599f5a263d85e0d3",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:28:46.353Z",
+  "inputDigest": "3dc29579b0066f2a1be58fb5e367870dae958e0e088231182bed66181ed30a20",
+  "sourceSha256": "52fd9196c2c5801505ee438608c69a8bec0ef1920b04fb75f35d935f4478fc1e",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T12:05:20.413Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku/carousel/img/00-cover.png",
@@ -30,8 +30,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hoki-kenchiku-kayaku/carousel/img/03-point.png",
-      "sha256": "327550dd800d7be8cde9147cbf6d34f843b18e65238aa2b1c2997ffbd6259f96",
-      "bytes": 111746,
+      "sha256": "29c083f90003a18e9115cfa30799bdb2306fc6f0fac069da4275f25d3f73f639",
+      "bytes": 111925,
       "width": 1080,
       "height": 1350
     },

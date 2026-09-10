@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-anzen-1kyu/shorts/point-compare-measures-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "846048925eb5c0117ce9f6b52b67f06b7af640e51e6c5ac6b2ad62b5ec902fad",
-  "coverSha256": "cdef766d88c9d82ca60baa6afeeffb0c7151c920b747fb926a89f4bfaf80d02f",
-  "renderedAt": "2026-09-05T23:49:24.963Z"
+  "sha256": "e417aa3a848a4293b794355baccc1789aaaf4046f906184131eba1f22f66a8c3",
+  "coverSha256": "acce02a02807677cae79889d807b42a19dd61d3eb26991ad6700c66aef18a0f2",
+  "renderedAt": "2026-09-10T11:09:30.509Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "fd66824b930c1d5a2833ea7a7dd21dc1f4f7627b78d247a1f044bfbba39f53d9",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "b62d263d513635018ceb50cb5468fedf6e15634cd350988cb047d7f6d2a9faab",
+  "speaker": 13,
+  "narration": "安全管理の検討では、危険に対して何を比較し、なぜその対策を選んだかを書きます。高所作業なら墜落防止、掘削なら崩壊防止というように、現場条件と対策を結びつけましょう。設備名を並べるだけでなく、採用理由と実際に講じた処置がつながることが大切です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "98f7448ce025ce9b7927c253e16ef08d19c4304c7b8a1c68a7854133ea76fcbf",
+    "points": "5c8b5188c905a4d8cbe9140afe7b479ee74de8d0160f6fd03fb84893f5a96564",
+    "pointsImage": "1ef625f4cd4e8ee93acfe7d00e093f781de2e88c919958bb8bfcdbda28f1825f",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:09:30.509Z"
+  }
 }

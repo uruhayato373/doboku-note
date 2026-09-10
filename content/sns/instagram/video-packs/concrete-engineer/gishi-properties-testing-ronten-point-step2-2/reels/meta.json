@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.194Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-properties-testing-ronten/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 30.07,
-  "sha256": "75a05f9b3516e7612a5b4c4c62abba9c58f9ee8a94abc870f56dcc030ee1d1a3",
-  "coverSha256": "f7280b29ee7d8ff9e323aa7bf5e32291f5df24cd86f322279add434e794af3cd",
-  "renderedAt": "2026-09-05T23:25:57.151Z"
+  "durationSeconds": 30.2,
+  "sha256": "19a3869b3e3e81dda79089676f9b4cfa9ceca4dbe5232fc81da97077d0aacbda",
+  "coverSha256": "2f6998de5bbd635ba4ca4f65586edad6647105d2a96d2c41348d97d1dd915cc7",
+  "renderedAt": "2026-09-10T11:00:09.900Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "a4f9788e48a35ac3a442824125cc0afe95c1a58d5ccf2202763822a84c2825c8",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "26141144c44ff4ec00d3a0f73285b14a4e6ac9179aee18358100cbfe95152002",
+  "speaker": 13,
+  "narration": "スランプ試験は、試料を詰めたコーンを引き上げた後、コンクリートがどれだけ下がったかを測ります。採取方法や経過時間、気温も結果に影響します。現場で水を足して数値を合わせると、水セメント比と品質条件が変わるため、受入時の調整方法として扱わないようにしましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "0122a03c11d87e30e0dce33b32ab346ac754e7667e12b30a72c133a1f792201a",
+    "points": "b00de27cc9971df4b23903d165c5b6a98256e45690d1e5207157441c7eeb13df",
+    "pointsImage": "7d60d821cba3fc36ab2c13f558012c5b075670b60c0042068572f874e2f320de",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:00:09.900Z"
+  }
 }

@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "gakka-hinshitsu-kensa",
-  "inputDigest": "56c12d8cfd5de737316c0e4613857b73b263fa44590ce1973910394e99617e46",
-  "sourceSha256": "8ca2a2353075a2fbb333fb336669072937939e8d263f6cb9b735f845d648661e",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:28:20.179Z",
+  "inputDigest": "c272c3f00feb83fe2b4cce288de3bc9d6d279a4ee74f845b31b3d355cdc096b7",
+  "sourceSha256": "4b1a88901ffc27c4fe5314400e9389ac878527580fcaa2521c7fedc09d883fcd",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T12:05:15.291Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hinshitsu-kensa/carousel/img/00-cover.png",
@@ -16,8 +16,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hinshitsu-kensa/carousel/img/01-point.png",
-      "sha256": "8de66fd24e0e1418eedc6af27f6320f0b5ccc3c85fd031f62d4c8bce35da2389",
-      "bytes": 114212,
+      "sha256": "1a7cea0b5f35f897b63686ee9d1311444fe02f88c5e7a8039351e102fc5a4622",
+      "bytes": 114889,
       "width": 1080,
       "height": 1350
     },
@@ -30,8 +30,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-hinshitsu-kensa/carousel/img/03-point.png",
-      "sha256": "b2f7021e1ec138562383ce13b296ca03148df5886dd009f8cfdeabf35548f009",
-      "bytes": 149464,
+      "sha256": "198322c5a43e8bcc50c6290c507709fd3ece19aed3aca1db2232af3d6b7d0953",
+      "bytes": 146847,
       "width": 1080,
       "height": 1350
     },

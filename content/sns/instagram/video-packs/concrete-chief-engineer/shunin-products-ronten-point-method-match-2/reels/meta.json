@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.200Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-products-ronten/shorts/point-method-match-2/shorts.mp4",
-  "durationSeconds": 37.1,
-  "sha256": "772845f70defc2d66c2c27c5491305be7b0a39fa025ae91a34684bb43870c5e1",
-  "coverSha256": "f7d4d42f106ffddac717940d91210c3726ab6fa246cca9a3fc995759ff67eb07",
-  "renderedAt": "2026-09-05T23:31:42.655Z"
+  "durationSeconds": 30.2,
+  "sha256": "335123ea6e90fa1611579505fabd8a86c1fcae751da152476e25a92728a20544",
+  "coverSha256": "205228b7ca45ac833056e7096fbd391baf23cc69054d98d8d56be2d2f514cdf2",
+  "renderedAt": "2026-09-10T11:04:36.250Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "d4a0218a6fff8b617cb4a2eb3ae3aa5367416b160bb6b3586599d5431d16784e",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "2ea14a76a8f736a5fdbdec7b0079d5f9463116cc7c31e16399f3e59ed63b425a",
+  "speaker": 13,
+  "narration": "即時脱型は超硬練りコンクリートに振動と圧力を同時に加え、直後に脱型する方法でブロックや平板向きです。遠心力とロール転圧は筒状型枠を使う管状製品向きで、コンクリート管やマンホールに用います。加圧は余剰水を絞り出して緻密化する方法で、矢板やPC板に適用します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "1467c74e030004f8229909cbbdfe44b35d5cbe67095a6a899a9a62fe9c829203",
+    "points": "d7b2b145865f47d3a9a0110904d6b6311b4582471e107be395e225795ce3747a",
+    "pointsImage": "2c13898278d9d3d88f78997032a52a83b809693cdf462833782254d8bfbdaec5",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:04:36.250Z"
+  }
 }

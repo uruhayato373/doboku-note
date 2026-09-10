@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.195Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-mix-design-ronten/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 34,
-  "sha256": "eac261d5ab39d6c8ebc97e1f2f1bfe5156d899d5c42422b1b2c8e890a35961a2",
-  "coverSha256": "3bcb250c6ac1a4aa65cdf9b4e795ab4ee6d8600a48d5a2a07b4b44fbec78ae5b",
-  "renderedAt": "2026-09-05T23:26:19.955Z"
+  "durationSeconds": 30.2,
+  "sha256": "5cc00dfaebc463f73e6f32c8ab3f3e68bd793709d906cd51f1636404b91dd155",
+  "coverSha256": "12e926c155b9c1e52cc7b875334a720b591fd5c254e58b3c021d5d4789c07cf0",
+  "renderedAt": "2026-09-10T11:00:38.798Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "a0fb3be8cfae50974289a96e9e23f2593be70ebf78797bc343c8b69bad5afb21",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "69bc6aaf9ee5b53950c0a04e738a02826c52210aecf27f050625d614005b52d5",
+  "speaker": 13,
+  "narration": "配合は強度、耐久性、施工性、経済性を同時に満たすように決めます。まず要求性能から強度と水セメント比を決め、施工性から単位水量を決め、水セメント比から単位セメント量を計算し、最後に絶対容積を1立方メートルへ配分します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "e3da74b06d6ed0785338103c8b8d289ab0fb809314176872ed56f9f21a899c6d",
+    "points": "a9db9014be771e92c205d52e4e8356c8c206191fda5fe8ccf5cb27deac2ecf1a",
+    "pointsImage": "67de374741a5cce7bfea9f394684eea4d2c07cc82da0463aca6d53d1ecc5efdb",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:00:38.798Z"
+  }
 }

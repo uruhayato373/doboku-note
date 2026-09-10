@@ -13,12 +13,12 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-2theme-heiki/shorts/point-overview-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "382ade420b75c6c3db3c5fc472f39df730218f620ef1fbabe96e87da35c29a4c",
+  "sha256": "bc29b46c7c23945c510e1c96e1a176187958d858cdf4776fbb574ade45759309",
   "coverSha256": "9d6cb44388d15e8ce55e80d0fba402f5c87fa6192e6bbc9a4631c3a89ea9bac0",
-  "renderedAt": "2026-09-10T09:36:18.002Z",
+  "renderedAt": "2026-09-10T10:51:54.867Z",
   "design": "bridge-notebook-a-v1",
-  "inputDigest": "6bf68845677c612c5a9cb0fef7cb3bfb5629cb316d1e3099f65dcb166638ce47",
-  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "inputDigest": "98de1fb2324e7629a794feee8758a47f2958291a26f612f4053fbe97d7d9bf35",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
   "scriptSha256": "28030dd750f0ca2b55d283c452186defb34793b78fc76bb8950a81e276b03e6a",
   "speaker": 13,
   "narration": "令和5年度までは、1つの管理項目を指定し、設問1で工事概要、設問2でその管理項目を書く形式でした。令和6年度からは、品質・安全・工程・施工計画・環境対策の5項目のうち2つが指定され、同一工事の異なる側面を書き分けます。",
@@ -34,6 +34,6 @@
     "audio": true,
     "duration": true,
     "fullDecode": true,
-    "checkedAt": "2026-09-10T09:36:18.002Z"
+    "checkedAt": "2026-09-10T10:51:54.867Z"
   }
 }

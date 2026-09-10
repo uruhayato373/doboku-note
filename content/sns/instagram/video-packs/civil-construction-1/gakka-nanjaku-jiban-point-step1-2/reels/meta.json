@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.219Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-nanjaku-jiban/shorts/point-step1-2/shorts.mp4",
-  "durationSeconds": 40.43,
-  "sha256": "ef185802df679b2f2443db70b83d22851efbae2a88ca64ebc40ac98ea7bbcb03",
-  "coverSha256": "9d1c64b2b7174f047bea0de6c4ebc6ca46534139e8ddc7e24b9dd74be36340eb",
-  "renderedAt": "2026-09-06T00:05:54.418Z"
+  "durationSeconds": 30.2,
+  "sha256": "4c3eaccc8c1103b0c3e9edc9814169abba8d0870380981920bae431c4428d5b7",
+  "coverSha256": "3b8cfd111fe10ddf96c4a28315200ff95f293ad6b9348ad70bfed9bb499e0fc4",
+  "renderedAt": "2026-09-10T11:35:33.623Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "38ca568c990c705a624c75d596fe42e68e365d64fdf01436e6c33184ea525a44",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "5696e63700ce967009732056a4f8b715e09972e56ee8a9800415ecd5c6e2fcea",
+  "speaker": 13,
+  "narration": "バーチカルドレーン工法は、鉛直の排水路で水の移動距離を短くし、圧密を促進します。砂柱を使うサンドドレーンと、人工材料を使うドレーンがあります。排水距離を短くする対策と、プレロードなどで荷重を先に加える対策を区別すると、原理が整理できます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "2369f2492db903912362545f11308dcb8566c826afd718121edb2e34adf7e912",
+    "points": "c3d91119f40762ed6243171f4222065cd28c88f924cb63d52bdf1a047e8d2b84",
+    "pointsImage": "50f7928cddb47959c7868a8843b9322247dc4e0f414f3dec8be6f2815263ccb9",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:35:33.623Z"
+  }
 }

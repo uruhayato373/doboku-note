@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.203Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-r8-juuten/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 34.27,
-  "sha256": "1fa3ce13deb991cce24cc21e0bb1bcb422c4821fcfb517eb06f29f509aabac67",
-  "coverSha256": "9eaa871307cc10eb454dd550eecf05b358bc016ff0ef4bfd537774b496a82919",
-  "renderedAt": "2026-09-05T23:36:20.697Z"
+  "durationSeconds": 31.93,
+  "sha256": "544eaac05f9cd4cba6f53547e44c21214587fca36644016043b928fd1b2bad83",
+  "coverSha256": "6b191b9359aa4e74b9190ca5269888abdeee0e4e1ed9fff6b6b1743b54261a9c",
+  "renderedAt": "2026-09-10T11:06:58.624Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "f37f1aefc810d03cf104265d08c5c6a5f477770d0335542f8fa399a0692ee347",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "e4839d943cbd9db2663183b3eb8781a75d7bb8005d46a9b79ff8328b879a6657",
+  "speaker": 13,
+  "narration": "主任技士の学習範囲は、用材料、性質、耐久性、配合設計、製造と品質管理、施工、製品、構造設計の八分野で整理できます。施工には運搬や打込み、養生など多くの項目があります。出題の多さだけで偏らず、教材の目次と過去問を使って全体を確認しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "d9c929c2c0fe93b81df7bde4314df31c5eda77eca9469dbf2ac374cacaabbc68",
+    "points": "94e8685ba2e99cee630dfe0b595af6084e23fe453793b4c039cb944a10bbe898",
+    "pointsImage": "d3ee40b434662f6da3ac7f1f0e94661189d283feffbf497ce4aa7331c708b788",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:06:58.624Z"
+  }
 }

@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.224Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/career-komuin-minkan/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "158643177deee8c929aef78007515e0a14f728222008aff8321ff4f81c31859e",
-  "coverSha256": "5105b06a54b51560eedfe577023d638f9c8e18086db9379f06e0b2dff28b6cfb",
-  "renderedAt": "2026-09-06T00:08:23.461Z"
+  "durationSeconds": 30.2,
+  "sha256": "128f5358defa41a42f3d04d0ce5915f128cca52b6ec5676e91328c7bf8424496",
+  "coverSha256": "2055af2abd930768ff50038ea705ecd7276678da6edeabb4936767e794449695",
+  "renderedAt": "2026-09-10T11:47:17.070Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "12141bf67b85d43bd8ed43727f798272ba979ed844e620ef468a737cbff4c4c9",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "95d21210a82e8e29c519a774128a765c2a451ab205ff27b9dc2a75e7b0785298",
+  "speaker": 13,
+  "narration": "公務員土木への転職では、安定というイメージだけで判断しないことが大切です。給与表や手当、担当業務、災害対応、休日の実態を確認しましょう。民間との比較も年収だけにせず、仕事内容と働き方を同じ項目で並べると判断しやすくなります。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "541810096a8bffa8567f61b66c294712a53d38b834ddfdff89005cf152922160",
+    "points": "b8dceb89d13776ba30ff537f56602b93d1d791e7652b632e26d7f5a9457d3847",
+    "pointsImage": "553150e9c47eb08fceca9b9a0e20d160e912f24be8a1752a03e14a268e3d5bde",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:47:17.070Z"
+  }
 }

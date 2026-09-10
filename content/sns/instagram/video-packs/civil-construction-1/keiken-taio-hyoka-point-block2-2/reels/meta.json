@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.205Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-taio-hyoka/shorts/point-block2-2/shorts.mp4",
-  "durationSeconds": 30.1,
-  "sha256": "17ca0934d0482f21304c6922c237bf925b2b99781d5a3c2f22f1b2e4fd5e264b",
-  "coverSha256": "30217126ce6335fef724188ae1c46c286e5423e3be2562cde8f5e2408f525434",
-  "renderedAt": "2026-09-05T23:37:59.526Z"
+  "durationSeconds": 30.2,
+  "sha256": "3e2a1a72be3f22280175c7215bf74868c2ad3755c217a88528857466c2a9ce5b",
+  "coverSha256": "b2a968aff7edfea4eaae125f1aaee5c21e74b20947f7ca59fae920c01839d0a8",
+  "renderedAt": "2026-09-10T11:08:41.932Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "87ab1374ec2b9431b1ba725796e33c7e51e78b46251e8fe776de0fec02b1c787",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "86e856434440eedc642d1e3c995984ab942e70b4f191937513e7981a3fab46a3",
+  "speaker": 13,
+  "narration": "対応処置は、「地盤改良工法とした」という結果だけで終わらせないようにしましょう。なぜその方法を選び、実施時に何へ留意したのかまでつなげます。理由、工法、留意点の順に読むと、検討した内容が処置へ反映されているかを確認できます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "db6a3aded1c27733d3b08cb80b8da3b15f807db6ab4056c46dee2b31997512c9",
+    "points": "eb4768c743226a266c1a337d3b4ed84752445fd87e734b1b4bc5ce92de241bc2",
+    "pointsImage": "f9ebda05cb6644cf26cf2e414d3dba8eb6cf183fd34ec9943f8798b7be7e263a",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:08:41.932Z"
+  }
 }

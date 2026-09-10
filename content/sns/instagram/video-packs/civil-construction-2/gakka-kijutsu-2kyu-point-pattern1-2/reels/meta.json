@@ -13,12 +13,12 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-kijutsu-2kyu/shorts/point-pattern1-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "9a916154b37ffbbb99e0cd1ca8761429a364a53e22a285dd7752046da1280f53",
+  "sha256": "ea496710afa72472ed8166babdecaea669702e7629757bd6a236872820148246",
   "coverSha256": "75882c6549f16feeb66028ef1529620233f399fcadae0945dbac5bfceb3dd64a",
-  "renderedAt": "2026-09-10T09:42:47.289Z",
+  "renderedAt": "2026-09-10T10:55:02.851Z",
   "design": "bridge-notebook-a-v1",
-  "inputDigest": "73a94e3a61a92d579f1ef3e27a361082518e80d698e9a9301a4015539c204d77",
-  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "inputDigest": "87607f738c08922093d8f827536804a090426d597819f3fcd2fe7bdb149a02da",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
   "scriptSha256": "6444913d4d0805ae97bd463921e15dbb42c009d9023cc1dc6579a21a49544c21",
   "speaker": 13,
   "narration": "学科記述の穴埋めは、空欄に入る語句や数値を、文章の意味から選びます。用語は定義だけでなく、どの作業や管理の場面で使うかまで整理しましょう。空欄の直前だけを見ず、文全体のつながりを確認すると、似た選択肢の取り違えを減らせます。",
@@ -34,6 +34,6 @@
     "audio": true,
     "duration": true,
     "fullDecode": true,
-    "checkedAt": "2026-09-10T09:42:47.289Z"
+    "checkedAt": "2026-09-10T10:55:02.851Z"
   }
 }

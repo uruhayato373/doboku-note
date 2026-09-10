@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "roadmap-1kyu-vs-2kyu",
-  "inputDigest": "fa031a35f288812ca7a8d40294c29cc6967d61a15923a9e235a5b258b0abf67f",
-  "sourceSha256": "96c2517a4caa8c0eca92f1cae7740b01a03954090238564de89a2ef8d93610d7",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:32:37.915Z",
+  "inputDigest": "50d17d09d6969a28d088dfe11e131490ee198c98a9e13938d47e7554e98989ca",
+  "sourceSha256": "c0fdd8ab867936c9085ce22905d1c3493104edd0de59690115f42c931fe79632",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:30:20.836Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/carousel/img/00-cover.png",
@@ -30,8 +30,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/roadmap-1kyu-vs-2kyu/carousel/img/03-point.png",
-      "sha256": "f361f44c8b4696c7d1a08d83db62befaf9d88704d66b174ec71033bae529e222",
-      "bytes": 135951,
+      "sha256": "63ddee2adb1484217cbdb49033204b8b05700f6d7632d142541d7900f2598f27",
+      "bytes": 130826,
       "width": 1080,
       "height": 1350
     },

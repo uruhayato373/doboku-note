@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.184Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-kento-kakikata/shorts/point-block1-1/shorts.mp4",
-  "durationSeconds": 31.43,
-  "sha256": "ae017c219a1734ec3492e5d5ad7f1c35a1fdccaa17dd93a121d14d37985f9d6a",
-  "coverSha256": "718bb56b56f7fed45a368323623bce3166d4be7b1f08cbfddf3cdf1f5cd5ba3e",
-  "renderedAt": "2026-09-05T23:15:22.473Z"
+  "durationSeconds": 30.2,
+  "sha256": "f493780489860e51990fb8f3e7278756273d0748a9fbdb5190be5b46a0beb639",
+  "coverSha256": "b0c6c8caca572d4f6785d904ae99c98d88634bcca7bdbb216c3f4dc41f4e074a",
+  "renderedAt": "2026-09-10T10:55:23.295Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "d91ca2d016f91ac9756ea215dc8b9ce9c7f9a7db95828f5dc1cc951a04096b46",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "910778c93463139bc803c20db0fee9343efdebb33179f5daccf2e81178ab73fc",
+  "speaker": 13,
+  "narration": "1級土木の令和6年度以降の経験記述は、検討項目をどの欄に書くかが大切です。一つ目の区画には、現場状況と技術的課題に加え、検討した項目まで入れます。二つ目には、その項目への対応処置と評価を書きます。書き始める前に、区画ごとの要求を確認しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "e34007251abf7fa6968c6cb565815b271eb555adb4798fd06e502d4384d3ae47",
+    "points": "fb4ca1c549b1f3db6ac5f55bda8f6f6b9bfbfe73ebf288cfd047e4f9e37e0e7c",
+    "pointsImage": "6edf1993f1b9222a01c5c6d04ec3bd1a1aabb7ec407526310d6bb7728e599743",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:55:23.295Z"
+  }
 }

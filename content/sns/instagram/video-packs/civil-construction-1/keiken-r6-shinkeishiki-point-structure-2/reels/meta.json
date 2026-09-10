@@ -13,20 +13,20 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-r6-shinkeishiki/shorts/point-structure-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "e0649a6e10b23e1cf41bf3088a5d16028ac82fbd18a5c168ab9b92b956fd37b8",
+  "sha256": "7f78925d73aa13c920d41d8ad249a727659cce7fd8e24bff122de67ec33e7b68",
   "coverSha256": "0316ef48380ba02e006dfa57d792a9eee1dc5b68000132183540a01d8940f7a7",
-  "renderedAt": "2026-09-10T09:34:57.909Z",
+  "renderedAt": "2026-09-10T10:51:01.002Z",
   "design": "bridge-notebook-a-v1",
-  "inputDigest": "60083abf3e7ba31baba596cd06d20c24b1d0ca16dbd4246957af7cbff09cb466",
-  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
-  "scriptSha256": "647e80b5cdefa26540ba3158925822fa06dfee9b98de127a9b16296941aeef09",
+  "inputDigest": "69034a20951a4b148d5167414beb6533377f85c8ec24252cad1755e2df1b3a31",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "ffa5e781bdea6a7ee0cbd3c3f862b955c8ed05175491dab7b84073e35476a79e",
   "speaker": 13,
   "narration": "設問1・設問2とも、(1)(2)の2区画で書きます。(1)には現場状況と技術的課題、そして検討した項目まで入れます。(2)には(1)の検討項目に対する対応処置と評価を書きます。",
   "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
   "mediaInputs": {
     "hook": "98c45476e80410c9d062296988fce9c7e4ced9a924718cb3351e4e2ed3a6f1f9",
     "points": "1be7e1679216ee1fc5e2d76996f765ec95de362cf982a3d6f8c84aec7ceb9f3e",
-    "pointsImage": "82e07aaee4cf8b11281380c2c501456bcd128c110188da6cd5f7e2026d8ba53c",
+    "pointsImage": "505c169335387901b03e36d333e5cb6f2a6f2ad26d4d8fec0ced6a8dc7258c20",
     "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
   },
   "validation": {
@@ -34,6 +34,6 @@
     "audio": true,
     "duration": true,
     "fullDecode": true,
-    "checkedAt": "2026-09-10T09:34:57.909Z"
+    "checkedAt": "2026-09-10T10:51:01.002Z"
   }
 }

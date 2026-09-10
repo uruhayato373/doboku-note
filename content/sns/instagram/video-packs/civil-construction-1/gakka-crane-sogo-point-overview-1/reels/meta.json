@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.212Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-crane-sogo/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 35,
-  "sha256": "289fd2ea2d0cf7aab62a385a6dc1be6e9179878ceedfc13b4b68002dad3394eb",
-  "coverSha256": "f608497c364d566d1bed5f5593491df9fd28212dce89a42ed8f5fc93704091ad",
-  "renderedAt": "2026-09-06T00:00:35.093Z"
+  "durationSeconds": 30.2,
+  "sha256": "07d9fa4d6e0e4505dfc9cedd3121a6f7b135423299c37e36f09323196f1c29b0",
+  "coverSha256": "a767c08059f44ce79225bf3d53df26fa22f2e294cf94a479b1b55abc557e453a",
+  "renderedAt": "2026-09-10T11:19:12.053Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "66ee5c7c2851e458d44292482f4f031957f60ac5371c5ab94d35f50cdb5528b6",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "f515a0c03cdf59a4f0ce1fb429743a73785b0861dd8fc8cbf03e407dd7ce35a1",
+  "speaker": 13,
+  "narration": "移動式クレーンは、走行装置と現場条件を組み合わせて選びます。クローラ式は走破性、トラック式やオールテレーンは移動性、ラフテレーンは狭い現場での機動性が特徴です。積載型は貨物運搬も兼ねますが、どの形式でも地盤や作業半径の確認が欠かせません。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "40f2e36922534892e6d650a2089a9a543225231e5578f383b6bcf9ea75479c41",
+    "points": "db9e188725e5d693e37ae8d29ca2c7781991e9fdcb7f2a6a7156ba3ad48245ef",
+    "pointsImage": "746c513884c9b2bb3320ea0975b36f1fd62443e77bd82e126f5ecb16f4a78f84",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:19:12.053Z"
+  }
 }

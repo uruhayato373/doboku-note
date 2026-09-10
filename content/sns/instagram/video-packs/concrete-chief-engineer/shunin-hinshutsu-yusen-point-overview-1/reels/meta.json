@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.193Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-hinshutsu-yusen/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 30.2,
-  "sha256": "303e8c3dab75c1ff1d3c0dcce0dc878dc455114deaa7586e4f798c043ed654ae",
-  "coverSha256": "3ec12402c6c85ef8a71096f35e8d3c01f0bf113ce1bd42a3a9b5d02e92dc07be",
-  "renderedAt": "2026-09-05T23:24:16.420Z"
+  "durationSeconds": 31.53,
+  "sha256": "2c73a1b864de261e6f90bccd1339bc4c99f8c67020bc70000c4beca1c5cb1ba4",
+  "coverSha256": "e6f3a6d4f76f6780eed6a40d5e2c39fac4695864a6bc486633c9ba7c726ddea8",
+  "renderedAt": "2026-09-10T10:58:59.460Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "5c1df6c6e80202def5ce9282d356d64898932b773f86c10fbb623ae710d5bb16",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "5e2c1b12928019853389d2573b105170cde11507e04cce18c9ea69c8b99834e8",
+  "speaker": 13,
+  "narration": "主任技士の択一対策は、八つの分野に分けて全体を確認しましょう。用材料、性質、耐久性、配合設計、製造と品質管理、施工、製品、構造設計です。施工だけでも扱う論点が多いため、目次と過去問を照らし合わせ、学習の抜けを見つけることが大切です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "f9eeb89cc86fcda11be66bc86d5f86334981ae2892c893552c5c891eef4bb5fe",
+    "points": "157e1a4a7c3ab93d8d8e1c4eb53b86467ed79f85fb0d7e380ee3021f236cb7b6",
+    "pointsImage": "268c132627e04b140c47a1ca2adcde61a5b511e3591c4a492e7a393911458d23",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:58:59.460Z"
+  }
 }

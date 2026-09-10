@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.200Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-haigou-keisan/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 35.17,
-  "sha256": "07db05528ca13d57464ae7e3805b41e8ceece65d1e65d1cfaad15c3be0a4a67a",
-  "coverSha256": "29f1ff025b894d0eaf597f4858e65cf746158d2151cd99fb3e169411b606efdf",
-  "renderedAt": "2026-09-05T23:31:04.720Z"
+  "durationSeconds": 30.2,
+  "sha256": "8da51d55d0714944e4f7b431ad5ac209bc3a3d2e3999c9c8ef366133391e1c1f",
+  "coverSha256": "5480efd306319128e33f5cd23efbd01f64f5cdc08cfcdcf90bfe623aecd2dd75",
+  "renderedAt": "2026-09-10T11:04:16.850Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "18f46939681b7d2904a601a669ac70a14a3c84a1c2d7633320c7bd0e102c1501",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "46fe63f9034965a441a1b74637ba0b137c3ff948de161e228b5ff18b9fdaf179",
+  "speaker": 13,
+  "narration": "単位セメント量は、単位水量を水セメント比で割ります。コンクリート1立方メートルあたりの水が170キログラム、水セメント比が50パーセントなら、170を0.50で割って、セメントは340キログラムです。百分率を50のまま使わず、0.50へ直しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "bc8bb2ee872bb84a14e51cb1f0e67e90ec77002d4dfdb923cf788d6abff73029",
+    "points": "977bd9964c9436cb7a61c4f2a481326da9d95c889813e7bb7955d6886041f224",
+    "pointsImage": "b79319d8d7855bbe9b63af533f2c4c10e08a9c24c59e0065c4e08f7cebe76834",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:04:16.850Z"
+  }
 }

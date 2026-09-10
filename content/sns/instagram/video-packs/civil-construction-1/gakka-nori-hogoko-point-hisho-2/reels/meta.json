@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.220Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-nori-hogoko/shorts/point-hisho-2/shorts.mp4",
-  "durationSeconds": 34,
-  "sha256": "e27156af42fb944a8ebcbbc14a4c573bf814ed192ba18edcf95b140ab321ed30",
-  "coverSha256": "1621cc59e8ea302376c93f6c1785c53656c466bc2a940b02339ca96b5293353d",
-  "renderedAt": "2026-09-06T00:06:19.555Z"
+  "durationSeconds": 30.2,
+  "sha256": "59ad9b675fa537d2bac15d8837e72ea726119ed0816bc20242d5da1420e643c5",
+  "coverSha256": "8c2652221a77bc239d95666ae572e5f062a5e9e4d2db980583b3f169adca8008",
+  "renderedAt": "2026-09-10T11:36:57.398Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "b4eaddbf08cd832400f0e675f33845dd0cf77a2007d6eb8b2244a285108dba9b",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "a51bdfb27fb7d67d4ea65d12f06e11f983adea762cf1c5054434d9e3cdc81c94",
+  "speaker": 13,
+  "narration": "植生工を選ぶときは、植物が育つ土壌、施工時期、のり面の勾配を確認します。安定した土質で侵食防止を図るのが基本で、急勾配や寒冷地では適用条件が変わります。勾配の数字だけで決めず、植生の工法と地域条件を組み合わせて選びましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "c403b64bf45477942f2661ccb1844859e92b3cd368ed68db35469c0d2b6d233b",
+    "points": "ad1a69ee3c39e90ae6a5339d7578d7b481e0bca9622d874a22dd282c223de929",
+    "pointsImage": "f14036f3dcc6d87b1c5a2a5f10aecac88696da8fedbe812fb5c58088685f013a",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:36:57.398Z"
+  }
 }

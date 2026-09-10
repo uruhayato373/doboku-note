@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.207Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/niji-kijutsu-doko/shorts/point-gradient-2/shorts.mp4",
-  "durationSeconds": 30.17,
-  "sha256": "5b08ead1813d250b1ab215df4848fd6ec396fb94bd38cfa0be2b8178212e57f2",
-  "coverSha256": "1ccc18d025fd39fbd6bc70181ba9ccdd9756f98890efdd426fe67b40a56a6148",
-  "renderedAt": "2026-09-05T23:53:49.458Z"
+  "durationSeconds": 30.2,
+  "sha256": "6c624e41fd64d0f7aedc082465790ff2c9d7147c9a8f2d0caf4c676d34b93eea",
+  "coverSha256": "07826cc84dbf5ce408efaa57300a29a22b6d278c2c5cc4a84f529b4e8dba0264",
+  "renderedAt": "2026-09-10T11:12:32.418Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "a1714baf7cd225fa8b18d6f0a9398e60c5e103988e5c118d28cc31b613a533b2",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "4c87aba22807da03b845867df924ee7cc4d1f17590479ca503c9022daf805e04",
+  "speaker": 13,
+  "narration": "盛土やのり面の勾配は、何のための数値かを分けて覚えます。盛土面の横断勾配は排水、のり面の勾配は安定や植生の適用、傾斜地盤の段切りは盛土とのなじみをよくするためです。似た比率が並んでも、場所と目的を確認してから数値を当てはめましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "f7ef70937a1af1e5e2e29c7444450df198437597a86c0c4c371b112ab1664939",
+    "points": "973de813e69f0682dfe05150a905bf8545729c2b9e125b20db819a070fc5a0c4",
+    "pointsImage": "7329bafba529cb1f092fcd0934a255ccd29a1a00c70b4c88ce21c4726462c725",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:12:32.418Z"
+  }
 }

@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.209Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-ai-sekkei/shorts/point-step1-2/shorts.mp4",
-  "durationSeconds": 30.4,
-  "sha256": "78d90407daa9af525018334a644d6d9108daaf10f96b8f3f10e0b621f2bf598a",
-  "coverSha256": "eb5b4f46d09d4808b6810058bdfb3762b1cbef70c4959e80aae78abf25372a99",
-  "renderedAt": "2026-09-05T23:57:32.445Z"
+  "durationSeconds": 30.2,
+  "sha256": "e60889d62726d684c301c42181a5ef1fffe993081473fa6b7bbd87186a2bfe58",
+  "coverSha256": "201a0850617ada3a844bc6d8392602473cb12582d44d0305fbca93f29a478ad9",
+  "renderedAt": "2026-09-10T11:15:22.667Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "3b544feeef43d4e667b6a260dfbe675eeab232d2a0617f89419a9d48697a4576",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "90b194b1ee2d1a1c4189b66432d0fb8d281203db6031b099ef418fd518d08433",
+  "speaker": 13,
+  "narration": "正しい使い方は、事実はあなたが出し、AIは構成と検証を手伝うという分担です。工事名・工期・施工量・立場・現場条件はあなたが記入し、分からない数値はAIに埋めさせず空欄で止めます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "58567ae616f0f926fa77858cfc4372957440e8cb80546a6cb33ea9e1a4e903ef",
+    "points": "404cf15201d5e43e96c9d3806f7372e5d73f8c10c9850317346129e3f98cce17",
+    "pointsImage": "2ebdfba8908eb17f360f002bf0d125a8936bf7c64d37e9aaddaaabac30b3e70f",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:15:22.667Z"
+  }
 }

@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "gakka-2kyu-doko",
-  "inputDigest": "b6087ea0c689e5a210bff79baaf049ef2219293129bc600324e3b28735ab30f4",
-  "sourceSha256": "70ad6dfbd65941283041e71b056841e6f852a918efc4b7aa04876e241f6040fc",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:32:49.615Z",
+  "inputDigest": "7eae7ee38617596332dab060b52c9332fab8aa7d16d1ab05f461e6212420f3a0",
+  "sourceSha256": "f8c12a0e0e5079bfccfbe4e34dbe3edb6dc2483ac3530f84ffb4e58fe1db1140",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:32:32.069Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko/carousel/img/00-cover.png",
@@ -37,8 +37,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/civil-construction-2/gakka-2kyu-doko/carousel/img/04-point.png",
-      "sha256": "bc33fb6ce0761a0f23e5a92506e8779ddc9bd9a0c79d5b0642b0d50bc2147c1d",
-      "bytes": 134534,
+      "sha256": "5d5aa8b8c470a56c1a9fdc329f799c391d7ac393b836218612e48546b4fc7011",
+      "bytes": 129406,
       "width": 1080,
       "height": 1350
     },

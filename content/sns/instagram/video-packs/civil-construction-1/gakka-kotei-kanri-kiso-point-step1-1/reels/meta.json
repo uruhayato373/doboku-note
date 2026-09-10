@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.218Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-kotei-kanri-kiso/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 34.47,
-  "sha256": "76391065b4c84105ffc1d0a92547c967a3b9384e8049e84c255a418f94fcb1ec",
-  "coverSha256": "19b8d6c98b815e5ce2acf07d90c305780462ca34052a0cb57fd1bf6052d76b19",
-  "renderedAt": "2026-09-06T00:04:45.162Z"
+  "durationSeconds": 30.2,
+  "sha256": "6a17ec5bebcb879444ccfb76cf4667666c9963aee2891fcbacc00c2dfb5c39df",
+  "coverSha256": "ca2c3dff8f26aeb7f51aee3c4f3a57b1b9d434296be6ccab94dcd1baafdfed50",
+  "renderedAt": "2026-09-10T11:29:29.518Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "ade3935738b3025ab8049723d1ab25be8ecb5c3f64ea6a1d9d0f14f41061bf8c",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "778fb72d1a104d0a4fe1014374a2564404669e0ca158356dc9f576ecf7cd8bfb",
+  "speaker": 13,
+  "narration": "バーチャートは、各作業の所要日数や進捗が直感的にわかり、作成も修正も容易です。ただし、工期に影響する作業はわかりません。日程の組み方には、着手日から決める順行法、竣工日からたどる逆算法、重点工種を固定する重点法があります。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "9f3668754355360d816a0423565eac0e59d2400ce7e435f15b171b879eef2328",
+    "points": "7ecf9057420686052cc020dfbf929e3fa748427076d26d9742157b8a98693a1f",
+    "pointsImage": "ee8879c196c6fe66f4935b59861ffe3c3c63560d266ea0181d828d82257c24a2",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:29:29.518Z"
+  }
 }

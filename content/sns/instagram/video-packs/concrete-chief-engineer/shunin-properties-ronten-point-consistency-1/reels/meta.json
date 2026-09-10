@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.194Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-properties-ronten/shorts/point-consistency-1/shorts.mp4",
-  "durationSeconds": 30.56,
-  "sha256": "019b005e50bbc7c1acc3bdd1a0b380bc1b62cace8037df9b6d31d87624bdb93c",
-  "coverSha256": "24b3ed5918227def4aeae80ada00337efbbddc9ed83eec730c150b401faeae34",
-  "renderedAt": "2026-09-05T23:25:53.706Z"
+  "durationSeconds": 30.2,
+  "sha256": "622affbcf043aa75e4aefdfa54971e8a2d4d3bcdbce8f6cd33247cf6d85f17ad",
+  "coverSha256": "5f9167b506083d9148e32b58bcba0254f6b701e5e13b68c30ad56a5f0460dd35",
+  "renderedAt": "2026-09-10T11:00:19.674Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "734cd8180ab0e27f843c77216a958cb8fb27ea1698998b4e60af3c172fd099ae",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "aab6dda9278260a5deda74685fa7dc7ffa1d15cc95dc64f6624d6952ecb54c22",
+  "speaker": 13,
+  "narration": "コンシステンシーはスランプ試験で測ります。高流動コンクリートのスランプフロー試験では、最大とその直交方向の直径を1ミリ単位で測り、平均値を5ミリまたは0.5センチ単位に丸めます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "7ffd826d52bf472b3e814cbb7066ce0dea20846854318c972891b1926c6b7b45",
+    "points": "a8b114e6b3ed0b21a530e377a2e32bf5535f8ac1f69dcec49dca2510f0848bb3",
+    "pointsImage": "e12071fb0f99392202e3fe4f382114b2a21a65d6d7ca3567558ec012d0d84196",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:00:19.674Z"
+  }
 }

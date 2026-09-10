@@ -13,20 +13,20 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-2kyu-kiso/shorts/point-overview-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "e3817747c7f62485378e91dbb07bed5fba8b376d599fd8dab973b2e3b97c0b31",
+  "sha256": "1a660be7179160a4c7d75d9b9974f7c68a2c32c188c8dfbc93a1ee79fbc6c08b",
   "coverSha256": "f73800261909a31a38a616609ea9a87ef69b6de089583b95e5bb4bf0d97c10cc",
-  "renderedAt": "2026-09-10T09:35:53.606Z",
+  "renderedAt": "2026-09-10T10:51:44.623Z",
   "design": "bridge-notebook-a-v1",
-  "inputDigest": "d8a2cc72cd4860f22d09fce2c91c7e56aacf69beddca538b1c0f27e6ec3a64bc",
-  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
-  "scriptSha256": "a4778a2c17fd38b6544540c0488dbe1599f0e8ed6ae9f07aab3a0e3d2162c3d2",
+  "inputDigest": "e32db717c6d146c0f0d35297d766dad046b070ead6448e2871039f8a1b68a4c5",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "e81c9c86b4be13e16cdfa5be3ac0025e8a3f948c737d492f57d1a6e623a94f1e",
   "speaker": 13,
   "narration": "基礎工の全体像は、形式の選定、直接基礎、杭基礎、ケーソン基礎、掘削時の安定に分けて整理します。構造物をどこで支えるかに加え、施工中の地盤をどう安定させるかも重要です。土留めと掘削底面の破壊現象まで、基礎本体とつなげて学びましょう。",
   "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
   "mediaInputs": {
     "hook": "dc9a7b3bf01c36222d706efdd69997f0a4934dc14598aae61e3e7c5561d4ab3a",
     "points": "c945d42941cf3163fc593597569656e36869c047320566b5c68608d070fa4d58",
-    "pointsImage": "14f74f1026577c992c6144115fe549716844ef98c3eae7c9371caf1c067a1f8b",
+    "pointsImage": "5d7cfeb4f39aefc9fa7333f2cac465dd1086194d4010ff58699d66d4647bda49",
     "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
   },
   "validation": {
@@ -34,6 +34,6 @@
     "audio": true,
     "duration": true,
     "fullDecode": true,
-    "checkedAt": "2026-09-10T09:35:53.606Z"
+    "checkedAt": "2026-09-10T10:51:44.623Z"
   }
 }

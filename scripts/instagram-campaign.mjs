@@ -2,7 +2,7 @@
 import { existsSync, readFileSync, writeFileSync, mkdirSync, readdirSync } from 'node:fs';
 import { resolve, join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { CAMPAIGN_PATH, inspectCampaign, json, validateCampaign } from './lib/instagram-campaign.mjs';
+import { CAMPAIGN_PATH, inspectCampaign, json, validateCampaign, buildInstagramSchedule } from './lib/instagram-campaign.mjs';
 import { IG_DESIGN } from './lib/instagram-video-design.mjs';
 import { loadDriveManifest } from './lib/drive-vault.mjs';
 
@@ -18,7 +18,7 @@ if (args.includes('--prepare')) {
     if (!byTopic.has(key)) {
       const manifest = json(join(root, 'content/sns/video-packs', exam, m.sourcePackId, 'video-pack.json'));
       byTopic.set(key, { exam, sourcePackId: m.sourcePackId, title: manifest.title,
-        carousel: `${base}/${exam}/${m.sourcePackId}`, reels: [], timeSensitive: /R0?8|令和8|直前|予想|重点/u.test(manifest.title) });
+        carousel: `${base}/${exam}/${m.sourcePackId}`, reels: [], timeSensitive: /2026|R0?8|令和8|直前|予想|重点/u.test(manifest.title) });
     }
     byTopic.get(key).reels.push(dir);
   }
@@ -39,18 +39,27 @@ if (args.includes('--check')) {
   console.log(JSON.stringify({ complete: result.complete, counts: result.counts, problems: result.rows.filter(r => !r.ready).slice(0, 8).map(r => ({ path: r.path, problems: r.problems })) }, null, 2));
   if (!result.complete) process.exitCode = 1;
 }
+if (args.includes('--schedule')) {
+  const plan = validateCampaign(json(join(root, CAMPAIGN_PATH)));
+  const rows = buildInstagramSchedule(plan);
+  const out = join(root, '.tmp/instagram-campaign/schedule.json');
+  mkdirSync(dirname(out), { recursive: true });
+  writeFileSync(out, JSON.stringify({ campaign: plan.id, account: plan.account, startDate: plan.cadence.startDate, timezone: plan.cadence.timezone, rows }, null, 2) + '\n');
+  console.log(`${out}: ${rows.length}件・${rows.at(-1).dayOffset + 1}日分。${plan.cadence.startDate ? '開始日設定済み' : '開始日未確定・相対日程のみ'}。外部予約なし。`);
+}
 if (args.includes('--gallery')) {
   const plan = validateCampaign(json(join(root, CAMPAIGN_PATH)));
   const progress = inspectCampaign(root);
   const readiness = new Map(progress.rows.map(row => [row.path, row.ready]));
   const esc = s => String(s).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[ch]);
   const url = p => `file://${encodeURI(join(root, p))}`;
+  const labels = { 'civil-construction-1': '1級土木施工管理', 'civil-construction-2': '2級土木施工管理', 'concrete-engineer': 'コンクリート技士', 'concrete-chief-engineer': 'コンクリート主任技士' };
   const cards = plan.topics.map((t, i) => {
     const record = join(root, t.carousel, 'carousel/render.json');
     const images = readiness.get(t.carousel) && existsSync(record) ? json(record).images : [];
-    return `<article data-exam="${esc(t.exam)}"><span class="number">${String(i + 1).padStart(3, '0')}</span><h2>${esc(t.title)}</h2><p>${esc(t.exam)}${t.timeSensitive ? ' · 公開前に年度を確認' : ''}</p><details><summary>カルーセル ${images.length}枚</summary><div class="slides">${images.map(im => `<a href="${url(im.path)}"><img loading="lazy" src="${url(im.path)}"></a>`).join('')}</div><pre>${esc(existsSync(join(root, t.carousel, 'carousel/caption.txt')) ? readFileSync(join(root, t.carousel, 'carousel/caption.txt'), 'utf8') : '原稿制作中')}</pre></details>${t.reels.map(d => { const caption = readFileSync(join(root, d, 'reels/caption.txt'), 'utf8'); return `<details><summary>リール：${esc(caption.split('\n')[0])}</summary>${readiness.get(d) ? `<video controls preload="none" poster="${url(d + '/reels/cover.png')}" src="${url(d + '/reels/video.mp4')}"></video>` : '<p>動画を生成・確認中です。</p>'}<pre>${esc(caption)}</pre></details>`; }).join('')}</article>`;
+    return `<article data-exam="${esc(t.exam)}"><span class="number">${String(i + 1).padStart(3, '0')} · 配信開始から${i * 2 + 1}〜${i * 2 + 2}日目</span><h2>${esc(t.title)}</h2><p>${esc(labels[t.exam] ?? t.exam)}${t.timeSensitive ? ' · 公開前に年度・時期を確認' : ''}</p><details><summary>カルーセル ${images.length}枚</summary><div class="slides">${images.map(im => `<a href="${url(im.path)}"><img loading="lazy" src="${url(im.path)}"></a>`).join('')}</div><pre>${esc(existsSync(join(root, t.carousel, 'carousel/caption.txt')) ? readFileSync(join(root, t.carousel, 'carousel/caption.txt'), 'utf8') : '原稿制作中')}</pre></details>${t.reels.map(d => { const caption = readFileSync(join(root, d, 'reels/caption.txt'), 'utf8'); return `<details><summary>リール：${esc(caption.split('\n')[0])}</summary>${readiness.get(d) ? `<video controls preload="none" poster="${url(d + '/reels/cover.png')}" src="${url(d + '/reels/video.mp4')}"></video>` : '<p>動画を生成・確認中です。</p>'}<pre>${esc(caption)}</pre></details>`; }).join('')}</article>`;
   }).join('');
-  const html = `<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>doboku-note｜Instagram制作一覧</title><style>body{margin:0;background:#f1f6fc;color:#0f2742;font:16px system-ui}header,main{max-width:1120px;margin:auto;padding:32px}header{border-top:12px solid #1858b5}h1{font-size:36px;margin-bottom:12px}h2{font-size:21px}header p{line-height:1.8}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}article{background:white;border:1px solid #d8e3f1;border-radius:16px;padding:24px}.number{font-weight:bold;color:#1858b5}summary{cursor:pointer;padding:16px 0;border-top:1px solid #ddd}.slides{display:flex;gap:12px;overflow-x:auto}.slides img{width:270px}video{width:100%;max-height:600px}pre{white-space:pre-wrap;font:14px/1.8 system-ui}select{padding:12px;border-radius:8px;border:1px solid #1858b5}</style><header><h1>Instagram制作一覧</h1><p>完成：カルーセル ${progress.counts.carousels}/112 投稿 · リール ${progress.counts.reels}/224 本</p><p>A案ロゴと読みやすい見出しで、112テーマを336投稿に。<br>すべての制作・検査を終えてから配信します。1日1〜2本を目安に、リール→保存用カルーセル→別論点リールの順で展開。開始日は既存予約との照合後に確定します。</p><select onchange="document.querySelectorAll('article').forEach(a=>a.hidden=this.value&&a.dataset.exam!==this.value)"><option value="">すべての資格</option>${[...new Set(plan.topics.map(t => t.exam))].map(exam => `<option>${esc(exam)}</option>`).join('')}</select></header><main class="grid">${cards}</main></html>`;
+  const html = `<!doctype html><html lang="ja"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><title>doboku-note｜Instagram制作一覧</title><style>body{margin:0;background:#f1f6fc;color:#0f2742;font:16px system-ui}header,main{max-width:1120px;margin:auto;padding:32px}header{border-top:12px solid #1858b5}h1{font-size:36px;margin-bottom:12px}h2{font-size:21px}header p{line-height:1.8}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px}article{background:white;border:1px solid #d8e3f1;border-radius:16px;padding:24px}.number{font-weight:bold;color:#1858b5}summary{cursor:pointer;padding:16px 0;border-top:1px solid #ddd}.slides{display:flex;gap:12px;overflow-x:auto}.slides img{width:270px}video{width:100%;max-height:600px}pre{white-space:pre-wrap;font:14px/1.8 system-ui}select{padding:12px;border-radius:8px;border:1px solid #1858b5}</style><header><h1>Instagram制作一覧</h1><p>完成：カルーセル ${progress.counts.carousels}/112 投稿 · リール ${progress.counts.reels}/224 本</p><p>A案ロゴと読みやすい見出しで、112テーマを336投稿に。<br>すべての制作・検査を終えてから配信します。1日1〜2件を目安に、リール→保存用カルーセル→別論点リールの順で展開。開始日は既存予約との照合後に確定します。</p><select onchange="document.querySelectorAll('article').forEach(a=>a.hidden=this.value&&a.dataset.exam!==this.value)"><option value="">すべての資格</option>${[...new Set(plan.topics.map(t => t.exam))].map(exam => `<option value="${esc(exam)}">${esc(labels[exam] ?? exam)}</option>`).join('')}</select></header><main class="grid">${cards}</main></html>`;
   const out = join(root, '.tmp/instagram-campaign/gallery.html'); mkdirSync(dirname(out), { recursive: true }); writeFileSync(out, html); console.log(out);
 }
-if (!args.some(a => ['--prepare', '--check', '--gallery'].includes(a))) console.log('Usage: node scripts/instagram-campaign.mjs --prepare | --check [--media] | --gallery');
+if (!args.some(a => ['--prepare', '--check', '--gallery', '--schedule'].includes(a))) console.log('Usage: node scripts/instagram-campaign.mjs --prepare | --check [--media] | --gallery | --schedule');

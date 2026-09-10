@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "gakka-ashiba-kijun",
-  "inputDigest": "6e8120ebf6970d3a3871f5a67a80640ef2d38d06583210e8b00741780a6b9e26",
-  "sourceSha256": "91a3d6143fee52676cbc3ce6acd3a117a8f576d6253c70aec1e871b279baa4bc",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:26:56.943Z",
+  "inputDigest": "e67592a2fa7c51785b69e3b29fc7f78ce0d5b4bbbb78b1a9d76cd98400378381",
+  "sourceSha256": "f33d4845368fb1f84bb760bce7af7bc2295335e3d3c3893def033f8c3f4305f5",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:21:31.442Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-ashiba-kijun/carousel/img/00-cover.png",
@@ -30,8 +30,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/gakka-ashiba-kijun/carousel/img/03-point.png",
-      "sha256": "31f122f74681cd4cb077f5eb8208fdc1f020269b21e8fd06428a433931358a75",
-      "bytes": 119479,
+      "sha256": "bce21afdac04ffa5721f3cf116fb1b3e32afec5190a7eb09c739c466deabf3ac",
+      "bytes": 123655,
       "width": 1080,
       "height": 1350
     },

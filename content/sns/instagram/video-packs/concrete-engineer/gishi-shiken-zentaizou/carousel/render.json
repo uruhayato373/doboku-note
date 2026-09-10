@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "gishi-shiken-zentaizou",
-  "inputDigest": "cedc8caed820cada8ea8d8d84e862a61090d99bab5b66de5bf186f99f8f7915b",
-  "sourceSha256": "993c9735ec1553683226efb69d78ec77f93d8c615df79e241345468e55470045",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:39:09.481Z",
+  "inputDigest": "d9c0ec78a757cc02fb6096af59443359ea81f4b9cec0ee8179fb828006b4b496",
+  "sourceSha256": "de5f76ae2dfea22574bd04da367e494454a3a911842dea341edded94f7103761",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:42:51.200Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou/carousel/img/00-cover.png",
@@ -23,15 +23,15 @@
     },
     {
       "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou/carousel/img/02-point.png",
-      "sha256": "9a0fa0d9d29d6903db254780d3ba04bb4444420befe4943ebf6d45cf80985622",
-      "bytes": 100931,
+      "sha256": "416a561b68b255c11218739ac81b1ef1ff7536ba71c1b94a0f4547dea8883ff2",
+      "bytes": 100731,
       "width": 1080,
       "height": 1350
     },
     {
       "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-shiken-zentaizou/carousel/img/03-point.png",
-      "sha256": "02b85cb4cac6352af9f63640ea5460740c48edf9668b5f9dd2796a1f7ef456c7",
-      "bytes": 102449,
+      "sha256": "337b86d66852b1a3cd54228fd0ccaa8179be7982b8522300edae440c64b7cdb4",
+      "bytes": 102163,
       "width": 1080,
       "height": 1350
     },

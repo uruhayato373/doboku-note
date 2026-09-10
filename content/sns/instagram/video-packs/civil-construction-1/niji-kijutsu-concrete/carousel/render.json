@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "niji-kijutsu-concrete",
-  "inputDigest": "3dd4a31d7fdf245ca5207dcfb4e040d60a49f6acf3b4d4058b6d53eb74b07ab2",
-  "sourceSha256": "1ecc0e0d1df6848ea6c4e9c90060636052764331fd360b203a8a1d56e7debd77",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:32:32.543Z",
+  "inputDigest": "f782a9a5db8e53c0e65e584d4f9c6e8f23fb63204ef391e4dee770e10978474c",
+  "sourceSha256": "17a02f8a9417313ac677c6fd47c5d836a9f4baa27d6bbbedc675b59a23293ba4",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:28:19.618Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-concrete/carousel/img/00-cover.png",
@@ -23,8 +23,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/niji-kijutsu-concrete/carousel/img/02-point.png",
-      "sha256": "e1d001ccb3d861d57ce3f7326c045f9ab5bbd1f3de6781b17f6dd2c11a4a91f3",
-      "bytes": 140955,
+      "sha256": "b1a9efba332ab69d474d363ae5b51a0fba2e8ee45ee2b904669d227c5605e790",
+      "bytes": 131428,
       "width": 1080,
       "height": 1350
     },

@@ -13,20 +13,20 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/anzen-ippanron-3riyu/shorts/point-cause2-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "d81961a1daa8f951856699adddf4acd66c02c98557d69f05d136b4b10e8d7b94",
-  "coverSha256": "08198daeb4fdc9b8da59c93fe77ebffff9b5a0161605b85aa8a1a14c166d22c4",
-  "renderedAt": "2026-09-10T09:27:30.122Z",
+  "sha256": "b9ba993ea81beadb170a33b4047eb86f53d0e2d398a11cf3bea57d3e43a2e600",
+  "coverSha256": "fe7b8f1b2dc712040332244a150f45d804c9afe5086fafffac20ad9d518b0f1e",
+  "renderedAt": "2026-09-10T10:46:10.667Z",
   "design": "bridge-notebook-a-v1",
-  "inputDigest": "2d84ede6bd9f9ff85c43452fdb3d5eda41ee7f22543f9582a599531450593be4",
-  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
-  "scriptSha256": "ea864403a92c9e86627d3dec1a84d9f8e2f28a6ae9b329074490fac628eb63a5",
+  "inputDigest": "859248c75a026b5250bfa63311afd0f5435df31713ae46b482293b8f5b96e8a4",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "27c146fc3bab3f3b549c6ec307005800d9f8c53c2e8ac55e6c556d6eddc4fda3",
   "speaker": 13,
-  "narration": "経験記述は、対策を並べるだけでは検討の過程が伝わりません。現場状況から課題を立て、検討した理由、実施した処置、評価へつなげます。交通誘導員だけの記述を除くなど、問題文に条件がある場合は、その指示に従って別の技術的対策を扱いましょう。",
+  "narration": "経験記述は、対策を並べるだけでは検討の過程が伝わりません。現場状況から課題を立て、検討した理由と対応処置をつなげます。評価の要否や分量は受検年度の設問を優先し、除外された内容ではなく、指示に合う技術的対策を扱いましょう。",
   "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
   "mediaInputs": {
-    "hook": "94729b94e2103ff74060d9390df9e042628d90059ad0f46f1532355a03a4a08b",
-    "points": "52af10d2f1970ce274996c58468b62ee193c909a8b25a6d664ed3dc5a6afe524",
-    "pointsImage": "2141703eb865e4fd35d4f2632d048c0359bc81ee42dcb1ba84dde0faeac05e37",
+    "hook": "e056ffddfbb0aa6cdac5192462d9be8952052f2f0020bd86ddfa13e3d352aa7b",
+    "points": "e8acdc465dda4c35409d376bbd039ec0f2fe8e37f94b6b6b326e2a9e1235ef20",
+    "pointsImage": "c3524cd73410e327eefe473fe4caa20d7f031d4c490aafbb9be27e9f570c4a52",
     "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
   },
   "validation": {
@@ -34,6 +34,6 @@
     "audio": true,
     "duration": true,
     "fullDecode": true,
-    "checkedAt": "2026-09-10T09:27:30.122Z"
+    "checkedAt": "2026-09-10T10:46:10.667Z"
   }
 }

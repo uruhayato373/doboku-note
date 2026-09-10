@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "kikinagashi-anzen-suchi",
-  "inputDigest": "0a48258b821fc0f7f99faae5e5b8e9686ab7a82b057f097066514e44a45706ed",
-  "sourceSha256": "15134981831f1b43a121fdbea493b938bc54c82bc043747f52851b8a93924921",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:32:02.878Z",
+  "inputDigest": "09483d9c58d43a218c15966984bd5262f4349aa2b9d61216179e09b6bd90a9c2",
+  "sourceSha256": "3c58e1080ea07770bf3ecd2f63d93ddbed55ea6d0c52da3e0be78af773bb68cd",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:26:55.638Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-anzen-suchi/carousel/img/00-cover.png",
@@ -30,8 +30,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-anzen-suchi/carousel/img/03-point.png",
-      "sha256": "67438511e5748f1177c1e40429cb6a696e7052f871b35fc586ab40192d9e6986",
-      "bytes": 133014,
+      "sha256": "cace051c4c7b0c8605a6a402a1c81af733668b3b65918d38fa73e57e4c89a77a",
+      "bytes": 122879,
       "width": 1080,
       "height": 1350
     },
@@ -58,8 +58,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-anzen-suchi/carousel/img/07-point.png",
-      "sha256": "386090d9ae84856bde5fbe6cb2c4b102c5235c5df48693f9909792c22a0f89dd",
-      "bytes": 146670,
+      "sha256": "476b62326d1b0dbd267622de3d8988c6233a87370bfdee1657189b557bd4581b",
+      "bytes": 145159,
       "width": 1080,
       "height": 1350
     },

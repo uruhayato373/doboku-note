@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "shunin-production-qc-ronten",
-  "inputDigest": "45bd9905033f15a33d6f84f7903b5e2658199c7c3c8338894a5bce8fbe7ec4d2",
-  "sourceSha256": "14f2ea4471f3c14a85d09e889fefafefa9a8eb64e3434f646bd8851586b79fff",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:36:18.381Z",
+  "inputDigest": "c2e3c6168f75a268f7c6f0741f9b53f53e8a286f0f4315472ef677ddef86bec8",
+  "sourceSha256": "e027697048c19dfc37990f49ab00355ced66bacee078140c0687c3c7eec40f90",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:37:20.737Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-production-qc-ronten/carousel/img/00-cover.png",
@@ -30,8 +30,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/concrete-chief-engineer/shunin-production-qc-ronten/carousel/img/03-point.png",
-      "sha256": "a1b62ba65393b9689d80fad449a3cc2fb19e13ee33a4b672811bfbf75309d28f",
-      "bytes": 148453,
+      "sha256": "5b16aae22b654d81d59198be7f141f086086699b180c7e264982b37c38163132",
+      "bytes": 145224,
       "width": 1080,
       "height": 1350
     },

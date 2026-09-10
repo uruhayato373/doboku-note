@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.216Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-kanrizu/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 35,
-  "sha256": "9e651e5c815b608316e925bbdde2b85f2c2a0d3ef1b08f0a13818cf57a7bab3f",
-  "coverSha256": "ebc48952a6981796103288209e7afc1b9134fd95c235553e844c8a0860f983cc",
-  "renderedAt": "2026-09-06T00:04:09.814Z"
+  "durationSeconds": 30.2,
+  "sha256": "2bacd23ee50efc4d0029accef662e1c93ee756968c98c06463658faef7117654",
+  "coverSha256": "7aaa0dea60e469c6e7fd72d3d663bab1fe9677e22025a4068ee1d9a0d2470bcd",
+  "renderedAt": "2026-09-10T11:25:27.479Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "599330f9898dbc53311731b99af54994f4b0805c2543b521dc47964579af6aad",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "66e3d58a6a8e336a2779f1b43eba6a4e3853629f21f350a48b3aca2ec3edc0cc",
+  "speaker": 13,
+  "narration": "管理図は、点が管理限界の内側にあるかだけで判定しません。限界の外に出た点に加え、連続した偏りや上昇傾向など、並び方の規則性も確認します。中心付近への集中なども、一定の判定ルールで扱います。一点の印象だけで異常と決めつけないことが大切です。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "6464aabc580c3088ac01f8c4049d1b947c2a880f33c6b33c3fafeffb2264f173",
+    "points": "651a57face0ea3f446689dcb33b838caf551f9479d1bef65db5c8c0b1c734bb4",
+    "pointsImage": "3381e0e017e4e6c8abde01ae9823f915bb9235e7dc2847806683cc191ad43e2b",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:25:27.479Z"
+  }
 }

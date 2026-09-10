@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.229Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/chokuzen-check-1kyu-niji/shorts/point-policy-1/shorts.mp4",
-  "durationSeconds": 30.65,
-  "sha256": "8cbd5974ba1efc20a5a16f421cf9245e90fb848727eccc7d03376a34a2d9c053",
-  "coverSha256": "0e27b6865280c6a5d2c0a01f00649e5c6928d64f0b036d150aa6ecc1a710d6b8",
-  "renderedAt": "2026-09-06T00:11:48.792Z"
+  "durationSeconds": 30.2,
+  "sha256": "49c8ced17ec8d350b292b1399aa90c87f5ac5b31ac2fee7ae400deb2f01d98e1",
+  "coverSha256": "f6998d18de8306dad140f71972c173a3c009d98941da46957cf52c8d0e7c150a",
+  "renderedAt": "2026-09-10T12:04:02.698Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "4e123d6638d819301594466abea6596500d4cbbbb69f77538bbcb30786fce65b",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "02bf6170357e80c949d52313efbc7ea8232e6de777439a52ebbf9a54b43c47a6",
+  "speaker": 13,
+  "narration": "試験直前の一週間は、準備済みの内容を仕上げる時間にしましょう。経験記述では設問への対応と工事概要の整合、学科記述では間違えやすい用語や数値を確認します。新しい教材を広げすぎず、見つかった弱点を絞って補うと、復習の目的が明確になります。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "ef2ad6e547be193d7b1abb13bc409a5eb02afe244eba51e5899cfc014afc2d5c",
+    "points": "1030c239c86336c94acf90d4da78f404f9627c8c8135b1df908ccdded4c05a1d",
+    "pointsImage": "ce8a243af1399051d530d6dbdb252360d792f7c49d4b2a4544ad2a99c79a038e",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T12:04:02.698Z"
+  }
 }

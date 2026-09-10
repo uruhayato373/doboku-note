@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "gishi-mix-design-ronten",
-  "inputDigest": "9a2a83ee86dfbd545ee7f04302656880ed7150f0fc94f417e2620241eed2825a",
-  "sourceSha256": "344bf82d8d5c00bc13551150265a0220f3c9a49a5508af84eea2a77e510aa0f6",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:38:39.724Z",
+  "inputDigest": "287ce9390f8f902fc12ebaf0daae6904ef596849cd94831ffc056b9768c5ec8e",
+  "sourceSha256": "c644d68b0801b6cbc504b2d5c2451c285e35dc7b3a6026822d227ce024bfd162",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:41:37.900Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-mix-design-ronten/carousel/img/00-cover.png",
@@ -37,8 +37,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-mix-design-ronten/carousel/img/04-point.png",
-      "sha256": "88f3210308761558c0231da221caa24f18791fd4bcd8402859601e2456c56ef8",
-      "bytes": 117497,
+      "sha256": "0a364473b0859e42db1a4ea790dc2edfed8c9a7e067f94fe9a1874cc840e4fc3",
+      "bytes": 117221,
       "width": 1080,
       "height": 1350
     },

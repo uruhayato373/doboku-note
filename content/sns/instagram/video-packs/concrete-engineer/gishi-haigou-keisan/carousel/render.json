@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "gishi-haigou-keisan",
-  "inputDigest": "1cea95a9cea489c1e697de8c73d4ca0ae34badd3e58190c8f5c706aa31c223e9",
-  "sourceSha256": "247bd798f4d4737a1f26c42ca68897693830594da84934ce4afe43ef58f91eff",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:38:10.455Z",
+  "inputDigest": "c9452d025694e8f41f0d7a70f310104ef8c68b558e38397c7f9127cb6b23ae31",
+  "sourceSha256": "cb915ec5f5cfbbc604d2a2ccf968975e6c7b41b89839540b44e83dfee402957e",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:39:44.014Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-haigou-keisan/carousel/img/00-cover.png",
@@ -16,8 +16,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-haigou-keisan/carousel/img/01-point.png",
-      "sha256": "28212d1104df7227914632a61fb0496cab776a46804f3e33426b500372975dc8",
-      "bytes": 113690,
+      "sha256": "7c5a19353bac16fb483a9d60586c5253779347bf7f2ca23f3b5e63dc41d54b4e",
+      "bytes": 116340,
       "width": 1080,
       "height": 1350
     },
@@ -30,22 +30,22 @@
     },
     {
       "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-haigou-keisan/carousel/img/03-point.png",
-      "sha256": "429e7a64ff91b40bd95b90ef053e4bb5597d04315bb3242d80ca994096dc8c03",
-      "bytes": 107823,
+      "sha256": "3f6e5467cffdb33b4e2c5874faa5e29395497335fb74947052396e7be7d0d16e",
+      "bytes": 109565,
       "width": 1080,
       "height": 1350
     },
     {
       "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-haigou-keisan/carousel/img/04-point.png",
-      "sha256": "29277921550982820e826fdada7cb3ae25ab89b0ca653afe56e6c8815e0475a3",
-      "bytes": 136636,
+      "sha256": "62a484eafc0b3f68dce2b5137f684e3a544ab184e731e046b985895724a96c49",
+      "bytes": 134716,
       "width": 1080,
       "height": 1350
     },
     {
       "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-haigou-keisan/carousel/img/05-point.png",
-      "sha256": "7e165b6558cf749e85599cfe746f5a82083b6bfbc2079b70d0b4e7ea9edb5243",
-      "bytes": 116638,
+      "sha256": "be87abebfb56da3a68ee2d9f9b839f5bc4f9ab2db265c8ae1e7e9788d72aa656",
+      "bytes": 118397,
       "width": 1080,
       "height": 1350
     },

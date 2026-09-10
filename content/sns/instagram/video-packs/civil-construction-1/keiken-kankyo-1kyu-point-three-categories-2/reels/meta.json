@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.206Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-kankyo-1kyu/shorts/point-three-categories-2/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "5a680e41628ac5c9f2608fae01facfc0dc6793c7a944f5e7d5216ab3a2033376",
-  "coverSha256": "67466cefe25340ed8e8845a68e1974b15eab0a33e7f0a6ed7ac3f5a21b6f03dc",
-  "renderedAt": "2026-09-05T23:52:40.983Z"
+  "durationSeconds": 30.2,
+  "sha256": "31fbe79139893f472cb07e8ce6dc47a7ceac97978ffbef2f9dbee1fcd089b578",
+  "coverSha256": "98d8d1ae0fd5a95d03ab9fe58541119c6b4797aec4dfa3da6686703498ddaac5",
+  "renderedAt": "2026-09-10T11:11:36.536Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "733b7db0929412342a4160d482537bf064860ed1aa008b75b04bcdbe40b7580a",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "7b48b68df3b9e3adc830922fbe45f23bdde81ed4d30ef718e9196d670fe37a4b",
+  "speaker": 13,
+  "narration": "環境対策の経験は、騒音と振動、建設副産物、濁水や粉じんの三つの系統で整理できます。自分の工事で周辺へどんな影響が想定され、何を検討したかを振り返りましょう。対策名を並べるより、現場条件と採用した処置の理由をつなげると、内容が具体的になります。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "81f773e19a83e7de01c0eebf25fe79cfaa7470c3302dba687ae1cda54d540014",
+    "points": "01ff4f1ab1822658f7ed2e28ff294cb7bb632e8dd027cd39f9ecfc802313ced3",
+    "pointsImage": "77eba6ef2f2503ada9b2833b0a32704da033c485839fb6898d5eef3630b72b28",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:11:36.536Z"
+  }
 }

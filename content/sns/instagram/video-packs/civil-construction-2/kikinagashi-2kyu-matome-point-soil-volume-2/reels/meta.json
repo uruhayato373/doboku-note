@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/kikinagashi-2kyu-matome/shorts/point-soil-volume-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "15c68f736c3c57b257bece237898707a84ea0584a98735066685ce5d6d592011",
-  "coverSha256": "0e968806e9b4f33ee06f608ad012f845581ed4333898cc530f0fa6870f77d57c",
-  "renderedAt": "2026-09-05T23:23:09.351Z"
+  "sha256": "438704d5904449d55c9f771361995b3bd737a7d3e6e062556ed3788cbd69559f",
+  "coverSha256": "a8b69d776b51b5ae13d1658f81f3b5c02702cd3df15b554973938527a44e232b",
+  "renderedAt": "2026-09-10T10:57:44.983Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "5f01eff9bd788d845e3a39e4393f5fe97066f48592dd9b7573f88deb82603963",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "9e9e26303791d111d04f4aed1bec369586b69276f2997bcd972e24d9b6859a85",
+  "speaker": 13,
+  "narration": "土量変化率は、土がどの状態かを先に確認します。ほぐし率のエルは、地山から掘り出した土の体積変化を表し、運搬土量の計算に使います。締固め率のシーは、締め固めた後の体積との関係です。運搬と盛土の仕上がりで、使う係数を取り違えないようにしましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "7abdcd450a78a2960f9197a3284d44762deee2988058d08f734092262a6d6162",
+    "points": "66dc806d0ecd1fe250667d759aff3ea6be624676919506fc0337fe20b7071f3e",
+    "pointsImage": "9ef7ec72052f9886d9813f83fd4301c6678c7d2074b239ee3b45eb1082f5903f",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:57:44.983Z"
+  }
 }

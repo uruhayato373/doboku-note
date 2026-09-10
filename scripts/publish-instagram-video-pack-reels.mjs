@@ -10,7 +10,8 @@ import { spawnSync } from 'node:child_process';
 import { assertInstagramPublicationReady } from './lib/instagram-campaign.mjs';
 
 const ROOT = process.cwd();
-assertInstagramPublicationReady(ROOT);
+const campaign = assertInstagramPublicationReady(ROOT);
+const campaignSchedule = campaign && new Map(campaign.schedule.filter(row => row.format === 'reel').map(row => [row.path, row.publishAt]));
 const BASE = join(ROOT, 'content/sns/instagram/video-packs');
 const PUBLISHER = join(ROOT, '.claude/skills/social/publish-ig-bs/publish-ig-bs.ts');
 const argv = process.argv.slice(2);
@@ -49,6 +50,11 @@ const candidates = metaPaths.map((metaPath) => {
   const reelsDir = dirname(metaPath);
   const packDir = dirname(reelsDir);
   const meta = JSON.parse(readFileSync(metaPath, 'utf8'));
+  if (campaignSchedule) {
+    const scheduledAt = campaignSchedule.get(relative(ROOT, packDir).replace(/\\/g, '/'));
+    if (!scheduledAt) throw new Error(`固定キャンペーンにないリールです: ${relative(ROOT, packDir)}`);
+    meta.publishAt = scheduledAt;
+  }
   const statusPath = join(packDir, 'status.json');
   const status = existsSync(statusPath) ? JSON.parse(readFileSync(statusPath, 'utf8')).reel : null;
   return { meta, packDir, reelsDir, status };

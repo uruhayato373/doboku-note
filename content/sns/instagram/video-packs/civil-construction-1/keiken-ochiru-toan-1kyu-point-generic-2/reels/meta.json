@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.229Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-ochiru-toan-1kyu/shorts/point-generic-2/shorts.mp4",
-  "durationSeconds": 31,
-  "sha256": "021356dee70b2b5185e5301adec8fe9817ea3640b61e1ad2e87c3b696a960e0c",
-  "coverSha256": "ae5cb3d9f305233a31bb91af213d5be5877859be3fc13c6f4df74db017d04e86",
-  "renderedAt": "2026-09-06T00:11:50.710Z"
+  "durationSeconds": 30.2,
+  "sha256": "53141a10c8e3e362f6672d715ae5171af8064d4018a88880204bfe931d13780d",
+  "coverSha256": "73e3c8788849afe3dc1b1bd3549c53985131b712462ae4c2696d5c1a4e3396a8",
+  "renderedAt": "2026-09-10T12:03:45.553Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "451417f87eb1ecb6e94c4194b2ba279e97cae9b554c45ec760f1f427d2e2bbe4",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "099659ae9865a5e2d98f55f01b54af8cd1f8f8fcfb1c4bd7b0a7f173c50b880f",
+  "speaker": 13,
+  "narration": "2つ目は、規模は大きいのに一般論で終わるパターンです。「品質管理を徹底した」は、その現場に行っていなくても書けます。管理基準値・試験方法・有資格者の選任など、数値と固有条件が入っているかを確認します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "cdb94fea6cc457af8c0435aeba6ad7061344b36e92b6c24366bbb808ab593097",
+    "points": "6a3e556cb303c65da161f208f10b2571cd7497cff60b377340e7cea05a7e2783",
+    "pointsImage": "4bd91d7531e5f77a07812bf90450eb20353fb0f0785b0993fe200eb4c8d39a34",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T12:03:45.553Z"
+  }
 }

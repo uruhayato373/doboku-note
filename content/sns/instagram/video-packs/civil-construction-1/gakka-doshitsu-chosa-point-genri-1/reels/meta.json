@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.212Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-doshitsu-chosa/shorts/point-genri-1/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "bcd70a2428095021a6cd5e9005c4ca9ac40d5130e4ef08973635076eb2c1c72d",
-  "coverSha256": "0208485334654bc47fa0026c4b45976b3b335bbbf7a5cafec32ae954a2356624",
-  "renderedAt": "2026-09-06T00:01:42.620Z"
+  "durationSeconds": 30.2,
+  "sha256": "64f9981272d1fb97d3ea3301b4a3660198d7f6ba723d6120a7a71a0cfdf63e64",
+  "coverSha256": "f71d0ad1bdc324b7e945e022ad7085481c9774db0ebba78b3d3e3c1cc00d7ee1",
+  "renderedAt": "2026-09-10T11:20:02.159Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "66d45ab5c51dd1456893963537769e67ad935fe438ec056e7cbc669d6990afd9",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "1288cdf148f2a4fb30fb324e090b575ae96b7057b6c0f9c174e2a2a880cf3b87",
+  "speaker": 13,
+  "narration": "原位置試験は、地盤の中で直接性質を調べる試験です。室内試験は、採取した試料を試験室へ持ち帰って調べます。試験名だけで覚えず、どこで測るのか、どんな値を求めたいのかを対にすると整理できます。原位置試験でも地盤を乱す操作はあります。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "67e14aec1448d9f33133da30c1145a5ac53c5c6a5a58f562ef194f1521e24861",
+    "points": "e97862b54bed6427b961e9bd3ab0f3aff868e1e8e2c503d31e0e83240b77d614",
+    "pointsImage": "5d333e765c3ddcd81f05f76f52fd333f2cc484cf5237ce2e671efcbe9f6dd9f2",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:20:02.159Z"
+  }
 }

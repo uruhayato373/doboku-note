@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.202Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-shouronbun-kousei/shorts/point-kanten-1/shorts.mp4",
-  "durationSeconds": 31,
-  "sha256": "3ce511179d80c08c6eb5ed74324922e4d26daedeb06658a89a7f74dff3e0b0c4",
-  "coverSha256": "a1413d02d2a82fe7a53aef5c80daaf6a6fccd15297c2d78eb30a6aaf79dba0d5",
-  "renderedAt": "2026-09-05T23:34:28.871Z"
+  "durationSeconds": 30.2,
+  "sha256": "a13b6fc10c815963f628896fd37d17376b2ec7504d3e706d2140edefe2f36f27",
+  "coverSha256": "92d729e8de23bda4d8979225abbdb7a1fafff664be21ac452d02771181c5ab8b",
+  "renderedAt": "2026-09-10T11:06:22.671Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "86ebeb98073c6a42796835ef14b8a854437992ad5cdb5d74efc532113adbaf94",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "84104ffeea39762f7795396c2bc3b97791b400201f3c2a2d6218b7e98586d676",
+  "speaker": 13,
+  "narration": "小論文の見直しでは、技術的に妥当か、論理がつながるか、実務の具体性があるか、技術への理解が伝わるかを確認しましょう。これは自己点検のための四つの観点です。公式の配点表ではないので、まず設問が求める内容とずれていないかを確かめます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "7e4fc46773bbb9026ebf8fcf4e61e3d84aaaaa997bac0c3ba3f503b86380288d",
+    "points": "58d0669161901035c17abb1c6fdf927bc326d3c9173237515f5a681ba11ea6b1",
+    "pointsImage": "9bf6fc57e90f78a61d763ccfd2a331bcec9f54c7e078cb8b902ad45e892ad40c",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:06:22.671Z"
+  }
 }

@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.224Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/career-nenshu-up/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 30.66,
-  "sha256": "4957baf1fe14f60dcdf0b71ac00fa782c1143eb98ac6ab23138497af969024c4",
-  "coverSha256": "bbf25929705c1ece6db7d76ff9108def5d61cb3dfaa56dc33758b6e0401444c9",
-  "renderedAt": "2026-09-06T00:08:40.294Z"
+  "durationSeconds": 30.2,
+  "sha256": "95aebf21010cd403fd37a9985cf144686f66b4d2206a25b02684031c8c6bfdbb",
+  "coverSha256": "9a67f2ea017358a3a19cd3d53369f6809013f70b9e0eaacde70614d49ff51513",
+  "renderedAt": "2026-09-10T11:47:35.959Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "64d5dd66e11db330f92e63b0c0ca2cb8f428b8b6ed352f530c448b658aa14545",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "ab8fca3646a7984408a9c0880d81a1db3140c8fd9ef59d888dd771e65e9c07f6",
+  "speaker": 13,
+  "narration": "年収を見直すときは、現職での昇進、資格手当、転職、長期的な専門性の向上という選択肢を整理しましょう。資格取得や独立だけで収入増が約束されるわけではありません。必要な経験や費用、働き方への影響も含めて、自分に合う経路を比較します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "adfe5d45b30e590de5f5c7395407db52451a670e061775432a418f96e46858c2",
+    "points": "e41d6eb3a92cead12baeddabf12b9c89ec3dbad9a9cc874ff8072d449d626b91",
+    "pointsImage": "5ad1c0eb0c185ee25a77b159abf9c9872d54f51d4c42ea52f295b4926ea0cfdd",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:47:35.959Z"
+  }
 }

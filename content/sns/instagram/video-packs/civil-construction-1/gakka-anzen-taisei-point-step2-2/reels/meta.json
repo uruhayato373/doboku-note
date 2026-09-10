@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-anzen-taisei/shorts/point-step2-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "18beb16737411ff085329db2715447cd49d83863ad54a7fb1e3fcfbce7b870c1",
-  "coverSha256": "51373c776da8f15d17a963fcac3573ef551484ea58effb7b0b7a0d950aa05e9c",
-  "renderedAt": "2026-09-06T00:00:05.223Z"
+  "sha256": "d417877330a18a67eecd4e9baaf0c0acd20e0e8f21f28379fb92cf99ee76897a",
+  "coverSha256": "e824c21e69e0ba100b8090657a328d9b0770dd5d3e35ade9d0d0ad51fe6524e1",
+  "renderedAt": "2026-09-10T11:18:37.849Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "5ee8cb1b1b22e22fbfbd5947af5799ae4bc2a7e54dcb3fa82688d2d1a73b44af",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "580135769ce71eafcccdeb18045174d3d962ba8837e33801b4b3a22e6431e8f3",
+  "speaker": 13,
+  "narration": "建設業の事業場では、常時使用する労働者数を基準に選任義務を確認します。総括安全衛生管理者は100人以上、安全管理者と衛生管理者はそれぞれ50人以上が基準です。工事現場全体を統括する別の制度と混同せず、事業場単位の人数として覚えましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "434938fd7cf85a32a1068322020377525f02e5ebdcc89a80a70d6a102c8fbf69",
+    "points": "fa8682f908062efa45a8afbeca88f6425bd834d06fb0f6eb0c0058b23730aa83",
+    "pointsImage": "9e6b1214cd80ec9917b2c2eb298ddd0ba5d3fa5b037827bc59246d1d69485a46",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:18:37.849Z"
+  }
 }

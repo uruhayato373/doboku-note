@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "career-white-kigyo",
-  "inputDigest": "c66bd76588f3bfaa344e57866598d3d10bb5d32371e833e08962e40cb31014f1",
-  "sourceSha256": "bb58a83776fef8f559476a0967763d2712ab87071066feb1878d8cfcd0ab960d",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:26:08.879Z",
+  "inputDigest": "96f39f15ffe6f4eca0b3971f5282660f11305eb3ea361a1eb531d337be9f3c89",
+  "sourceSha256": "d1e62a9053e1867211de60e6cd26b15e4b6b5c5144d44164eca09aea05ffddbe",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:21:10.360Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/career-white-kigyo/carousel/img/00-cover.png",
@@ -30,8 +30,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/civil-construction-1/career-white-kigyo/carousel/img/03-point.png",
-      "sha256": "38c18d2abee8b2f14bd78d33ed2e159e30638bb72e3c48dd42ebf418bf1a561f",
-      "bytes": 128081,
+      "sha256": "fd8e275600e479ebe16ef1b5bf978027c4be634cf8fdf289ef87d933a504f609",
+      "bytes": 128798,
       "width": 1080,
       "height": 1350
     },

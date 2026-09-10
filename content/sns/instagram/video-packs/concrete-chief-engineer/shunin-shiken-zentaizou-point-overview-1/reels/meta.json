@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.192Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-shiken-zentaizou/shorts/point-overview-1/shorts.mp4",
-  "durationSeconds": 30.07,
-  "sha256": "b76474e7a9862acfc5658fb00a711c578165625b8d3c187fa3084d4b395df3fa",
-  "coverSha256": "600502317e9a63b4dbc8c252834fb061b16006e04c1ceb387655512c704476e3",
-  "renderedAt": "2026-09-05T23:23:43.979Z"
+  "durationSeconds": 30.2,
+  "sha256": "cc4862f352559d370dee60b5becb9ef35e7e8d1d75ced2c49861fbd1d50b7168",
+  "coverSha256": "c7c06e5e2bd5529abe5148be2535a44d01cac31ae29da77cfd77d3ac07a01aa3",
+  "renderedAt": "2026-09-10T10:58:19.129Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "30d944b62d5c74814187352de8d3a9aac36b07a1dceba6efb3d02a8a10d95761",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "9a0b3c0a68ed60fd5f3038322f70f8d0c8497d77ae0f44698d829f651b845c50",
+  "speaker": 13,
+  "narration": "コンクリート主任技士は、日本コンクリート工学会が認定する資格です。製造や工事、研究の実施に加え、計画、管理、指導を担う高度な技術者として位置づけられます。学習でも用語を知るだけでなく、なぜその判断をするのかまで説明することを意識しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "4e482da9bac11b2810ad45d6590668ca352db72d436b56c617e9bee56e0587a3",
+    "points": "acebc25e147f5c7fe7e91f71676536dc492e88a9592bdc7c75d09379c751e9d8",
+    "pointsImage": "5759105b2c12bed36c8f3f3950ace015bfb2b581a2184b66c0c14d14da18e643",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:58:19.129Z"
+  }
 }

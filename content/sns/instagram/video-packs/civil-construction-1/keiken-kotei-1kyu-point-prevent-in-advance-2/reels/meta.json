@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.206Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-kotei-1kyu/shorts/point-prevent-in-advance-2/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "bee4e9a537bc540cd2700b57d67432930581456ee79d60573dbe3f3c9df39c7d",
-  "coverSha256": "cd6145b6c56cd03c9faf65b922687a8318146c10f128b24914e82845e80329f7",
-  "renderedAt": "2026-09-05T23:52:11.907Z"
+  "durationSeconds": 30.2,
+  "sha256": "cd7c687ce39a4dae9889ed9c46024bfdfb91d7c23c18b7e7d46d30c15f1b3ba5",
+  "coverSha256": "71e5b862bf049750fe80a6206fd14aea5beb5ac8314afe4fe27078e9cb773c60",
+  "renderedAt": "2026-09-10T11:10:27.720Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "ef2aba1977d463747abb56f0e8e2e911b9f46bce53232971d29c2bdb6e4b32cd",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "4b3470e726d2065bbe0e329af81985a9ddc2a25e4809b7d06b1aa2a5b7b1a43a",
+  "speaker": 13,
+  "narration": "工程管理は、遅れてから挽回した経験だけが題材ではありません。土工事と杭工事が競合する場合など、事前に施工順序を検討した経験も整理できます。どの競合を予想し、安全を確保しながら工程にどう反映したかを、実際に行った検討と結果で説明しましょう。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "e7dc11c3aeab681e67014012cb7fb84ed1dc5694ed6def3179c5cc518a440044",
+    "points": "cc8132717c775944623ba743ee50de28f37ddf15f23495a7f82f1b20dd6df829",
+    "pointsImage": "bf0d43f62ce4c09076f4fbe8d3530dc498b22554cc7b58c09bd6939937c03531",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:10:27.720Z"
+  }
 }

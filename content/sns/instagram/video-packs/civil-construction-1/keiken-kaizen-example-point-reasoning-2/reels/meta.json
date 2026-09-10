@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.229Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-kaizen-example/shorts/point-reasoning-2/shorts.mp4",
-  "durationSeconds": 30,
-  "sha256": "63120a6e94b91d0a5ef407be93c742d323e09421c0becebd75d491003827c8cc",
-  "coverSha256": "93c8bd722b0155d17cb3d6dfc8392bbf1171d7184cbfb165065fde21bb0c6366",
-  "renderedAt": "2026-09-06T00:11:34.477Z"
+  "durationSeconds": 30.2,
+  "sha256": "180b1f69baa760ac5710eb11ee6aaf98b3ba30dd4bcc162a3aa9c8d3c509636a",
+  "coverSha256": "57a0c641a0c8159608c6e256aa14c29f3fb9d421b890b490cc45a8a5e8bc6733",
+  "renderedAt": "2026-09-10T12:02:38.637Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "35f1c97d79ab9c97c4a4ca3418c5acb753efcd0d46ab7ddd97f0ee1ee523fc23",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "73548ce2e732ef0b6c363e1d97b9fb316686ed5a32119cd86ab8688b5b44c0a2",
+  "speaker": 13,
+  "narration": "2つ目は、検討理由が項目ごとに書かれていない答案です。検討した項目を並べるだけで、なぜその項目を検討したのかがありません。項目を1つ挙げるごとに、理由もセットで書きます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "94d7c393caee2156e0ca78e8c91100883f802c333e7beabda2221aa556ef4661",
+    "points": "21059803ccabdd382839a4135dd4b379153042335772a474a594c1374c2e5932",
+    "pointsImage": "5a3bd3405b50759153fe651df98d0037b9186db6498e2577af4692978f95d64e",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T12:02:38.637Z"
+  }
 }

@@ -22,6 +22,34 @@ export function validateCampaign(plan) {
   return plan;
 }
 
+export function buildInstagramSchedule(plan, { requireStart = false } = {}) {
+  validateCampaign(plan);
+  const cadence = plan.cadence;
+  if (cadence?.timezone !== 'Asia/Tokyo' || cadence.maxPerDay !== 2 || cadence.sequence?.length !== 3) throw new Error('Instagram配信間隔の設定が不正です');
+  const formats = new Set(), slots = new Set();
+  for (const slot of cadence.sequence) {
+    if (![0, 1].includes(slot.day) || !/^(?:[01]\d|2[0-3]):[0-5]\d$/.test(slot.time)
+      || !['reel-1', 'carousel', 'reel-2'].includes(slot.format) || formats.has(slot.format) || slots.has(`${slot.day}/${slot.time}`)) throw new Error('Instagram投稿枠の重複・形式不正');
+    formats.add(slot.format); slots.add(`${slot.day}/${slot.time}`);
+  }
+  if ([0, 1].some(day => cadence.sequence.filter(s => s.day === day).length > cadence.maxPerDay)) throw new Error('Instagramの日次投稿数を超えています');
+  const start = cadence.startDate;
+  if (!start && requireStart) throw new Error('既存予約と年度を確認し、Instagramキャンペーンの開始日を確定してください。旧動画の予約日は使いません。');
+  let startMs = null;
+  if (start) {
+    startMs = Date.parse(`${start}T00:00:00Z`);
+    if (!/^\d{4}-\d{2}-\d{2}$/.test(start) || !Number.isFinite(startMs) || new Date(startMs).toISOString().slice(0, 10) !== start) throw new Error('Instagramの開始日が不正です');
+  }
+  return plan.topics.flatMap((topic, i) => cadence.sequence.map(slot => {
+    const dayOffset = i * 2 + slot.day;
+    const date = startMs === null ? null : new Date(startMs + dayOffset * 86400000).toISOString().slice(0, 10);
+    return { path: slot.format === 'carousel' ? topic.carousel : topic.reels[slot.format === 'reel-1' ? 0 : 1],
+      sourcePackId: topic.sourcePackId, exam: topic.exam, format: slot.format === 'carousel' ? 'carousel' : 'reel',
+      dayOffset, time: slot.time, publishAt: date ? `${date}T${slot.time}:00+09:00` : null,
+      timeSensitive: topic.timeSensitive === true };
+  })).sort((a, b) => a.dayOffset - b.dayOffset || a.time.localeCompare(b.time));
+}
+
 export function inspectCampaign(root, { media = false, archived = {} } = {}) {
   const plan = validateCampaign(json(join(root, CAMPAIGN_PATH)));
   const rendererHashes = Object.fromEntries(['carousel', 'reel'].map(type => [type, instagramRendererDigest(root, type)]));
@@ -73,7 +101,9 @@ export function assertInstagramPublicationReady(root) {
   if (!existsSync(join(root, CAMPAIGN_PATH))) return;
   const plan = validateCampaign(json(join(root, CAMPAIGN_PATH)));
   if (!plan.publicationEnabled) throw new Error('全件制作を先に完了する運用です。instagram-campaign --check --media と既存予約の照合後に配信を有効化してください。');
+  const schedule = buildInstagramSchedule(plan, { requireStart: true });
   const archive = join(root, '.claude/state/assets/drive-manifest.json');
   const result = inspectCampaign(root, { media: true, archived: existsSync(archive) ? json(archive).entries : {} });
   if (!result.complete) throw new Error(`Instagram全件制作未完了: ${result.counts.ready}/336。部分的に投稿を始めません。`);
+  return { plan, schedule, result };
 }

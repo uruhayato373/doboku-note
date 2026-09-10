@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "reviewedAt": "2026-09-10",
+  "reviewedAt": "2026-09-10T10:21:12.257128+00:00",
   "purpose": "Instagram制作時の校正結果。Instagram側の修正を元記事・YouTube動画の修正完了と扱わない。",
   "findings": [
     {
@@ -2391,6 +2391,88 @@
       "verificationStatus": "editorial-review",
       "sourceUrls": [],
       "instagramSource": "content/sns/instagram/video-packs/concrete-engineer/gishi-properties-testing-ronten-point-step2-2/reels/script.json",
+      "upstreamStatus": "needs-review"
+    },
+    {
+      "channel": "reel",
+      "sourcePackId": "gakka-ashiba-kijun",
+      "exam": "civil-construction-1",
+      "sceneId": "step2",
+      "issue": "はしご道の画面に、移動はしごの幅30cm規定を併記していた。",
+      "verificationStatus": "primary-source-linked",
+      "sourceUrls": [
+        "https://www.mhlw.go.jp/web/t_doc?dataId=74003000&dataType=0&pageNo=9"
+      ],
+      "instagramSource": "content/sns/instagram/video-packs/civil-construction-1/gakka-ashiba-kijun-point-step2-2/reels/script.json",
+      "upstreamStatus": "needs-review"
+    },
+    {
+      "channel": "reel",
+      "sourcePackId": "anzen-ippanron-3riyu",
+      "exam": "civil-construction-2",
+      "sceneId": "cause2",
+      "issue": "2級の答案で評価を一律の必須要素とする読み方が残っていた。R7公式問題p.2では安全は検討項目と対応処置、工程は対策と理由を要求。",
+      "verificationStatus": "primary-source-linked",
+      "sourceUrls": [
+        "https://www.jctc.jp/wjctcp/wp-content/uploads/2025/10/20251027d_mondaib1.pdf"
+      ],
+      "instagramSource": "content/sns/instagram/video-packs/civil-construction-2/anzen-ippanron-3riyu-point-cause2-2/reels/script.json",
+      "upstreamStatus": "needs-review"
+    },
+    {
+      "sourcePackId": "gakka-ashiba-kijun",
+      "exam": "civil-construction-1",
+      "sceneId": "step2",
+      "channel": "carousel",
+      "issue": "はしご道の説明に、移動はしごの幅30cm規定を併記していた。",
+      "correction": "はしご道は上端60cm以上の突出を示し、移動はしごの幅規定を混ぜない。",
+      "verificationStatus": "verified-primary",
+      "sourceUrls": [
+        "https://www.mhlw.go.jp/web/t_doc?dataId=74003000&dataType=0&pageNo=9"
+      ],
+      "instagramSource": "content/sns/instagram/video-packs/civil-construction-1/gakka-ashiba-kijun/slide-data.json",
+      "treatment": "corrected",
+      "upstreamStatus": "needs-review"
+    },
+    {
+      "sourcePackId": "kikinagashi-anzen-suchi",
+      "exam": "civil-construction-1",
+      "sceneId": "walkway",
+      "channel": "carousel",
+      "issue": "はしご道の説明に、移動はしごの幅30cm規定を併記していた。",
+      "correction": "はしご道は上端60cm以上の突出を示し、移動はしごの幅規定を混ぜない。",
+      "verificationStatus": "verified-primary",
+      "sourceUrls": [
+        "https://www.mhlw.go.jp/web/t_doc?dataId=74003000&dataType=0&pageNo=9"
+      ],
+      "instagramSource": "content/sns/instagram/video-packs/civil-construction-1/kikinagashi-anzen-suchi/slide-data.json",
+      "treatment": "corrected",
+      "upstreamStatus": "needs-review"
+    },
+    {
+      "channel": "carousel",
+      "sourcePackId": "gishi-haigou-keisan",
+      "exam": "concrete-engineer",
+      "sceneId": "step2",
+      "issue": "配合計算の式で入力をkg、出力をkg/m³と書き、対象体積を省略していた。",
+      "correction": "入力と出力をともに単位量kg/m³にそろえる。原本・YouTube側は該当式を再照合する。",
+      "verificationStatus": "dimensional-consistency",
+      "sourceUrls": [],
+      "instagramSource": "content/sns/instagram/video-packs/concrete-engineer/gishi-haigou-keisan/slide-data.json",
+      "treatment": "corrected",
+      "upstreamStatus": "needs-review"
+    },
+    {
+      "channel": "carousel",
+      "sourcePackId": "gishi-haigou-keisan",
+      "exam": "concrete-engineer",
+      "sceneId": "step4",
+      "issue": "配合計算の式で入力をkg、出力をkg/m³と書き、対象体積を省略していた。",
+      "correction": "入力と出力をともに単位量kg/m³にそろえる。原本・YouTube側は該当式を再照合する。",
+      "verificationStatus": "dimensional-consistency",
+      "sourceUrls": [],
+      "instagramSource": "content/sns/instagram/video-packs/concrete-engineer/gishi-haigou-keisan/slide-data.json",
+      "treatment": "corrected",
       "upstreamStatus": "needs-review"
     }
   ]

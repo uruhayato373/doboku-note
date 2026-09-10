@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.214Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-histogram/shorts/point-step1-2/shorts.mp4",
-  "durationSeconds": 39.07,
-  "sha256": "af52d804f7dec9b48ae10b4a162dad41ce2df6d61e96740b816b3f213a16de25",
-  "coverSha256": "9e9f8f5c09451e0f5b646a0e2c8c3ba7c0ed5b6476cf6ce1dd0135b1f4355ab8",
-  "renderedAt": "2026-09-06T00:03:02.448Z"
+  "durationSeconds": 30.2,
+  "sha256": "872ce6a6262969c977d58dfaf497a181abecafce730680d71fd11e72469916c1",
+  "coverSha256": "59702d867c38779e6814c1f15fd05e21c84141da7b130974239de984816bc542",
+  "renderedAt": "2026-09-10T11:22:15.937Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "1b78edbbfdc04e9210a216e6a2155a40cb01133cf4cf3775492895a19b88ebf7",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "5c3b5e96e765943e307ac93549568f5aa89fc39cf7a28f8a161cdd5a84b52991",
+  "speaker": 13,
+  "narration": "ヒストグラムでは、分布の形と規格値との位置関係を確認します。規格内でも端に寄っていれば余裕は小さくなります。山が二つある場合は、異なる機械や材料のデータが混ざっていないかを調べましょう。形だけで原因を断定せず、データの採り方も確認します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "2daa591636433355cb70d273f258eaa783160b353ee2d54a1ae4ce94e6f8374d",
+    "points": "0dce689fff9cece2691aabc7b89a0e8a1ce2e9de51d04225da8fc0c37610f971",
+    "pointsImage": "2e04e497000e4b2f1066217aa749df24c388d4d8d13a33072caf61c6784a3874",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:22:15.937Z"
+  }
 }

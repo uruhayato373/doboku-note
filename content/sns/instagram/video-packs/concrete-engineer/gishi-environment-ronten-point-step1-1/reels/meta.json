@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.198Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-environment-ronten/shorts/point-step1-1/shorts.mp4",
-  "durationSeconds": 38,
-  "sha256": "49574dcb35d327db2a3a0ef976ea60d55db895512c6840c50362699c912637ec",
-  "coverSha256": "13c18ec479e445a3b3c407b2a0672b6bb92a8eda7f3acc19b7e8abd872fa713b",
-  "renderedAt": "2026-09-05T23:30:12.465Z"
+  "durationSeconds": 31.13,
+  "sha256": "3bdb893372cf62c518980e7637ad4931e3962d4105e64f939c54eb6683b88768",
+  "coverSha256": "c28508f1347a477fb88d5a38cf38ab59afb3d809ab6f707c790ca2ce194da4e4",
+  "renderedAt": "2026-09-10T11:03:25.473Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "651d0bf4c6498cc6149a319449a6152b04ba5dfcba404a09f8459f21ff697612",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "64813125411d5c2b15ab1e2b611ac314effb2a3e71a92011899806c017b923a1",
+  "speaker": 13,
+  "narration": "環境負荷は、材料製造時のCO2だけでなく、原料採取、輸送、施工、供用、解体・再資源化までの全段階で生じます。判断軸は、低炭素、資源循環、長寿命、地域環境の四つです。耐久性が不足すれば、ライフサイクル全体の負荷はかえって増えます。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "b1ea5f7640b368491f94db351745a81bdfe8ed111febcbec56862f563001e59d",
+    "points": "06b163041dc8bafbdc702bf76de5d42d0fd315f3d11aa8915b454674c59a1567",
+    "pointsImage": "34a0c4b62c38c1400eb74155eefc728b0d74e997d70affbacbb8b8d20c64ac55",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:03:25.473Z"
+  }
 }

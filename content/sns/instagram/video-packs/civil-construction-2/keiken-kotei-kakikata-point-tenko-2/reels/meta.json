@@ -13,12 +13,12 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/keiken-kotei-kakikata/shorts/point-tenko-2/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "85964f731c73bd65fbc9d2d43958472b4dd60bf6bb4432681efeedead148069b",
+  "sha256": "d2bda6a82e23a9ba46e5328f663ef58d2e0cdbbd21d3beeea7e1404170f3f2e4",
   "coverSha256": "da5a47a4f918689b16d7a5516f41ccbfa1dfd09c453fa1159b53ade2dce35dae",
-  "renderedAt": "2026-09-10T09:40:10.019Z",
+  "renderedAt": "2026-09-10T10:53:40.125Z",
   "design": "bridge-notebook-a-v1",
-  "inputDigest": "d98ab42afc2e79bdc50cb4bfd9a545fb366d28259f2f0280a95058b82797e8c6",
-  "rendererSha256": "43e4708f2239a8c5bbfad7dbfbe52b5123a858dd1edaa6a15d937f8eb586680f",
+  "inputDigest": "9d2636124cc91bf9f16611046f0f2120690d388e5681a594f6e08879952ec3f3",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
   "scriptSha256": "cb2cab7ac3badf17044d12f84b176a2e7e4982606908e5618bfdc9de005ce27b",
   "speaker": 13,
   "narration": "天候による工程の遅れは、見込みと実際の対応を分けて書くと整理できます。梅雨や台風による休工日を工程計画に織り込み、進捗を確認して必要な調整を行うという流れです。自分の工事で何を見込み、どの作業をどう見直したかを、実際の経験で説明しましょう。",
@@ -34,6 +34,6 @@
     "audio": true,
     "duration": true,
     "fullDecode": true,
-    "checkedAt": "2026-09-10T09:40:10.019Z"
+    "checkedAt": "2026-09-10T10:53:40.125Z"
   }
 }

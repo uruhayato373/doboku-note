@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "design": "bridge-notebook-a-v1",
   "sourcePackId": "gishi-jis-handan",
-  "inputDigest": "ee59d66390c9bffef013b2b488bd9ac25669aa63537f456c0bb9917589f64d26",
-  "sourceSha256": "dab1bf60b268f54006327ef42cf6c88a6eaed7b1e667fcba121e9891d519bc80",
-  "rendererSha256": "f8f23d94a498a0d0bee4cfd4def640d47fca480c44551fc3cda20ce87f0953dd",
-  "renderedAt": "2026-09-10T09:38:13.602Z",
+  "inputDigest": "ef3174e873bb18a2f37909c3f731adbbb444bdfefae8a1d665b3ad89de217b30",
+  "sourceSha256": "994dcd6e63d4774deecab506682e3a94cc2402248ada92d3ba4c3c87a8712ca7",
+  "rendererSha256": "b04b4ad581c8ab70d15dc33ebed74face3677e1a938690139aa14dad15697a30",
+  "renderedAt": "2026-09-10T10:40:09.440Z",
   "images": [
     {
       "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan/carousel/img/00-cover.png",
@@ -44,8 +44,8 @@
     },
     {
       "path": "content/sns/instagram/video-packs/concrete-engineer/gishi-jis-handan/carousel/img/05-point.png",
-      "sha256": "3b2c896d031ac3071d4fe61b4c38170f1c2f7703dbb3801ca8e63280540c6d95",
-      "bytes": 149878,
+      "sha256": "ebc884fb0ce39576f9c26570e71bf0870c9cb1bdd5b3602380ff790f0ed937e2",
+      "bytes": 148293,
       "width": 1080,
       "height": 1350
     },

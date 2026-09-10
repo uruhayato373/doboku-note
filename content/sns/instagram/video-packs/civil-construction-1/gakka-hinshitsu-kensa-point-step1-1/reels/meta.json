@@ -13,7 +13,27 @@
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gakka-hinshitsu-kensa/shorts/point-step1-1/shorts.mp4",
   "durationSeconds": 30.2,
-  "sha256": "4cbdf377569fd73f0374c3e2a3a3bd7b2311d3d98beb846187df5df4ba7d5c0c",
-  "coverSha256": "f43b71c692b91ca970ff1bbcb0b333926d2b57d77c882a9f3d979a44cce96bfc",
-  "renderedAt": "2026-09-06T00:02:18.717Z"
+  "sha256": "95c8afa18d390fb549a555dd1ac2d57164d84097236ef231f5325853f3b7444b",
+  "coverSha256": "e59981693047f15bea098353811e8a2d64c674ebb839c30908663f6af71ad46a",
+  "renderedAt": "2026-09-10T11:21:20.672Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "2308b00bb4481172649d61cb8607193a27599d268f2d2e46820daac077beddab",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "a5423159c1bdfbd989243ecbe7471802af372dbf275bb8450ad2f592dc26c535",
+  "speaker": 13,
+  "narration": "全数検査は、品物1個ずつすべてを検査する100%検査です。不良品混入が許せない場合、検査が容易な場合、品質を良くしたい場合、そしてロットが小さく抜取の意味がない場合に使います。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "076407f00e2f471cc38a72867c8f57549ae2a3c797ad642d136a9ccad4f86b76",
+    "points": "c9b8edf34537cc5b31792e9827a76095db97a90d1e653fa3b0c4580692eb3729",
+    "pointsImage": "0fff3918169e782dccd67a725c18f5f21d4ba94320c571decc2984365bbf37ec",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:21:20.672Z"
+  }
 }

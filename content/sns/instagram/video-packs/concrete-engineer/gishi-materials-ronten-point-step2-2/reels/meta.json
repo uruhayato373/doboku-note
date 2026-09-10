@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.193Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/gishi-materials-ronten/shorts/point-step2-2/shorts.mp4",
-  "durationSeconds": 32,
-  "sha256": "09703d6c5d0bc2a89c2c2b9539696735c71e3a761788b3a505ca46f4920e5a23",
-  "coverSha256": "b793b13070dc84cf40596ca11930fa429dabf74e02ebe5a3901bbb0415b0a467",
-  "renderedAt": "2026-09-05T23:24:58.923Z"
+  "durationSeconds": 31.5,
+  "sha256": "9770a565e21f4621c6d60c17d76da0c659d7db91297ccd974596cd84b395b0e3",
+  "coverSha256": "c7fd3bc3985d0105956e13c161f3d03e083e11bfc5d269e52170ac6551a3c716",
+  "renderedAt": "2026-09-10T10:59:27.576Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "cd1d4e10ab06215e36c4090c90bf24c6cddcfe55940e344914beae887b232539",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "45a05330c643a10343f9366a8e70cfd2d307b3d7dafc80835d4353278c16fd67",
+  "speaker": 13,
+  "narration": "骨材の含水状態は、絶乾、気乾、表面乾燥飽水、湿潤に分けます。配合計算の基準は表面乾燥飽水、つまり内部は水で満たされ、表面に余分な水がない状態です。雨などで表面水が付いた骨材は、その水分も計算に含め、練混ぜ水や骨材の計量値を補正します。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "e61bdb57b5e35689fb845e61e4c33ff1a8190ac7c13be253d8350c35267d6141",
+    "points": "4e0d50eb1d5faed2260342dc9d99229fa4a28ea2d17690ebe964a326c75ccb94",
+    "pointsImage": "023a96d8f99f1d4b72948cf6df1d1ea3510ad6e61bdfe501e20ac2af1a37ed70",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T10:59:27.576Z"
+  }
 }

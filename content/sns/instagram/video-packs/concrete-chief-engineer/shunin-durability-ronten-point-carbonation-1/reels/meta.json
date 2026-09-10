@@ -12,8 +12,28 @@
   "approvedAt": "2026-09-05T23:09:47.198Z",
   "productionDisclosure": "author-led-ai-assisted",
   "sourceShort": ".tmp/video-render/shunin-durability-ronten/shorts/point-carbonation-1/shorts.mp4",
-  "durationSeconds": 30.1,
-  "sha256": "c92c1bd1e42968519deccb873247493ce59ab8ce30a19dc55352a00ce0e6b966",
-  "coverSha256": "f90cada20ca4a7922d943a3158afc8ba5a48040a5123dd5f10c846baf6818e06",
-  "renderedAt": "2026-09-05T23:30:28.850Z"
+  "durationSeconds": 30.2,
+  "sha256": "6efc9b2c8f4465535702fc15808ebc1e1d8b1c07073574655da593167505e4df",
+  "coverSha256": "5eae2405268a2789493f83a7420c10d3c968d3452fa4f9e870836dce559b0dda",
+  "renderedAt": "2026-09-10T11:03:46.565Z",
+  "design": "bridge-notebook-a-v1",
+  "inputDigest": "b7331752526adad88cb7065f32010379425ad57bcc5ffb365ef00a35af2e0f00",
+  "rendererSha256": "6b66bed1e425bc6b38818ef1b89dbb1f2ff49b46dd8a7c70c11df611a8460162",
+  "scriptSha256": "5a986847c3ae25fdae79bbbd4fc477c70f5045789dd020d2a5d11b94fd4240e2",
+  "speaker": 13,
+  "narration": "中性化は、二酸化炭素の作用でコンクリートのアルカリ性が低下する現象です。鉄筋の周囲まで進むと、腐食を抑える不動態皮膜が保ちにくくなります。また、固定されていた塩化物イオンが解放され、未中性化の内部側へ移動して濃縮する場合があります。",
+  "ctaNarration": "フォローして、試験対策を続けましょう。詳しい解説はプロフィールのリンクからご覧ください。",
+  "mediaInputs": {
+    "hook": "67ec5bf0310b46e184579ac28ae51d5d4e4c5548eb84656bd4e7074e7b38c3e0",
+    "points": "8433f882bab44e05dc96f21277ebca6e0b8679d07a6641caa5fb4d44223d865a",
+    "pointsImage": "7452c3c49175c7bf13bdbec9dc7e03ba358fcb56de77060df11d79c69175d585",
+    "ctaImage": "5d4cd3772991d77a99a6178b570a5720392bc9028f57d7eca7c21204209f75fb"
+  },
+  "validation": {
+    "dimensions": "1080x1920",
+    "audio": true,
+    "duration": true,
+    "fullDecode": true,
+    "checkedAt": "2026-09-10T11:03:46.565Z"
+  }
 }
