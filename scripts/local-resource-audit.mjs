@@ -7,12 +7,12 @@ import { scanTree, machineResources, processInventory, warningsFor, acquireLock,
 const args = process.argv.slice(2);
 const policy = JSON.parse(readFileSync(join(root, '.claude/config/local-resources.json'), 'utf8'));
 const quick = args.includes('--quick');
-const release = acquireLock(root, 'audit');
+const release = quick ? () => {} : acquireLock(root, 'audit');
 try {
   const snapshot = { at: new Date().toISOString(), machine: machineResources(root), mode: quick ? 'quick' : 'full' };
   const dir = join(root, '.local/resource-audit');
   const latest = join(dir, 'latest.json');
-  const previous = existsSync(latest) ? JSON.parse(readFileSync(latest, 'utf8')) : null;
+  const previous = !quick && existsSync(latest) ? JSON.parse(readFileSync(latest, 'utf8')) : null;
   if (!quick) {
     const deadline = Date.now() + policy.scanTimeoutMs;
     snapshot.directories = policy.roots.map(rel => scanTree(root, rel, deadline));

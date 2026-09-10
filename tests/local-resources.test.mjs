@@ -46,3 +46,10 @@ test('heavy-work wrapper propagates child failure and releases its lock', () => 
   assert.equal(run().status, 7);
   assert.equal(run().status, 7);
 });
+test('quick startup probe remains available while a full audit holds its lock', () => {
+  const release = acquireLock(process.cwd(), 'audit');
+  try {
+    const result = spawnSync(process.execPath, ['scripts/local-resource-audit.mjs', '--quick'], { encoding: 'utf8', timeout: 10000 });
+    assert.equal(result.status, 0, result.stderr);
+  } finally { release(); }
+});

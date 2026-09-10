@@ -48,7 +48,7 @@ export function cleanMain(args = process.argv.slice(2)) {
       const tracked = spawnSync('git', ['ls-files', '-z', '--', rel], { cwd: root, encoding: 'utf8', timeout: 15000 });
       const registered = protectedPaths.some(p => p === rel || p.startsWith(`${rel}/`));
       const eligible = tracked.status === 0 && !tracked.stdout && !registered && canClean(row, minAgeDays, processes, category);
-      rows.push({ path: rel, files: row.files, bytes: row.bytes, eligible, reason: eligible ? 'expired regenerable output' : 'active, recent, tracked, registered, linked or inspection incomplete' });
+      rows.push({ path: rel, files: row.files, bytes: row.bytes, eligible, inspectionIncomplete: tracked.status !== 0 || row.errors.length > 0, reason: eligible ? 'expired regenerable output' : 'active, recent, tracked, registered, linked or inspection incomplete' });
       if (!commit || !eligible) continue;
       // Rescan immediately before deletion; changes since planning abort the whole category.
       const fresh = scanTree(root, rel, Date.now() + policy.scanTimeoutMs, true);
@@ -65,7 +65,7 @@ export function cleanMain(args = process.argv.slice(2)) {
       void abs;
     }
     console.log(JSON.stringify({ mode: commit ? 'commit' : 'dry-run', category, processInspection: processes.complete, rows, deleted, freedBytes: bytes }, null, 2));
-    if (!processes.complete) process.exitCode = 2;
+    if (!processes.complete || rows.some(row => row.inspectionIncomplete)) process.exitCode = 2;
   } finally { releaseHeavy?.(); release(); }
 }
 if (import.meta.url === pathToFileURL(process.argv[1]).href) cleanMain();
