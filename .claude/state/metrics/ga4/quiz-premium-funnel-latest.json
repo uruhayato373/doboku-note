@@ -2,12 +2,12 @@
   "measured": true,
   "status": "collecting",
   "source": {
-    "startDate": "2026-08-10",
-    "endDate": "2026-09-06",
+    "startDate": "2026-08-13",
+    "endDate": "2026-09-09",
     "pagePath": "/tools/kakomon-quiz"
   },
   "metrics": {
-    "quizUsers": 0,
+    "quizUsers": 1,
     "quizCompletions": 0,
     "reviewUsers": 0,
     "premiumViewUsers": 0,

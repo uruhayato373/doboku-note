@@ -1,40 +1,28 @@
 {
   "schemaVersion": 1,
   "window": {
-    "startDate": "2026-08-10",
-    "endDate": "2026-09-06"
+    "startDate": "2026-08-13",
+    "endDate": "2026-09-09"
   },
-  "generatedAt": "2026-09-07T21:49:58.373Z",
+  "generatedAt": "2026-09-10T22:52:38.853Z",
   "rows": [
     {
       "productId": "pe-construction-road-pack",
       "impressions": 3,
       "clicks": 0,
       "ctr": 0,
-      "sales": 2,
-      "revenue": 9960,
+      "sales": 1,
+      "revenue": 4980,
       "salesPerClick": null,
       "salesProductIds": [
         "bk-road-pack"
       ]
     },
     {
-      "productId": "pe-construction-railway-magazine",
-      "impressions": 1,
-      "clicks": 0,
-      "ctr": 0,
-      "sales": 1,
-      "revenue": 2980,
-      "salesPerClick": null,
-      "salesProductIds": [
-        "bk-railway-secondary-magazine"
-      ]
-    },
-    {
       "productId": "civil-2-pastexam-essay",
-      "impressions": 390,
-      "clicks": 32,
-      "ctr": 0.08205128205128205,
+      "impressions": 561,
+      "clicks": 36,
+      "ctr": 0.06417112299465241,
       "sales": 0,
       "revenue": 0,
       "salesPerClick": 0,
@@ -42,39 +30,9 @@
     },
     {
       "productId": "civil-2-experience-essay",
-      "impressions": 246,
-      "clicks": 26,
-      "ctr": 0.10569105691056911,
-      "sales": 0,
-      "revenue": 0,
-      "salesPerClick": 0,
-      "salesProductIds": []
-    },
-    {
-      "productId": "civil-1-experience-essay",
-      "impressions": 200,
-      "clicks": 10,
-      "ctr": 0.05,
-      "sales": 0,
-      "revenue": 0,
-      "salesPerClick": 0,
-      "salesProductIds": []
-    },
-    {
-      "productId": "civil-2-koji-bank",
-      "impressions": 1334,
-      "clicks": 9,
-      "ctr": 0.006746626686656672,
-      "sales": 0,
-      "revenue": 0,
-      "salesPerClick": 0,
-      "salesProductIds": []
-    },
-    {
-      "productId": "tankan-takuitsu-reiwa-pdf",
-      "impressions": 175,
-      "clicks": 8,
-      "ctr": 0.045714285714285714,
+      "impressions": 357,
+      "clicks": 33,
+      "ctr": 0.09243697478991597,
       "sales": 0,
       "revenue": 0,
       "salesPerClick": 0,
@@ -82,19 +40,39 @@
     },
     {
       "productId": "civil-1-pastexam-essay",
-      "impressions": 65,
-      "clicks": 7,
-      "ctr": 0.1076923076923077,
+      "impressions": 131,
+      "clicks": 22,
+      "ctr": 0.16793893129770993,
       "sales": 0,
       "revenue": 0,
       "salesPerClick": 0,
       "salesProductIds": []
     },
     {
-      "productId": "civil-1-combo-essay",
-      "impressions": 60,
-      "clicks": 5,
-      "ctr": 0.08333333333333333,
+      "productId": "civil-1-experience-essay",
+      "impressions": 310,
+      "clicks": 15,
+      "ctr": 0.04838709677419355,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-2-koji-bank",
+      "impressions": 1867,
+      "clicks": 9,
+      "ctr": 0.0048205677557579,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "tankan-takuitsu-reiwa-pdf",
+      "impressions": 215,
+      "clicks": 8,
+      "ctr": 0.037209302325581395,
       "sales": 0,
       "revenue": 0,
       "salesPerClick": 0,
@@ -102,19 +80,19 @@
     },
     {
       "productId": "civil-2-r8-mock3-pdf",
-      "impressions": 18,
-      "clicks": 5,
-      "ctr": 0.2777777777777778,
+      "impressions": 30,
+      "clicks": 7,
+      "ctr": 0.23333333333333334,
       "sales": 0,
       "revenue": 0,
       "salesPerClick": 0,
       "salesProductIds": []
     },
     {
-      "productId": "pe-construction-required-magazine",
-      "impressions": 111,
-      "clicks": 5,
-      "ctr": 0.04504504504504504,
+      "productId": "civil-1-combo-essay",
+      "impressions": 92,
+      "clicks": 6,
+      "ctr": 0.06521739130434782,
       "sales": 0,
       "revenue": 0,
       "salesPerClick": 0,
@@ -122,19 +100,9 @@
     },
     {
       "productId": "civil-membership-lab",
-      "impressions": 881,
-      "clicks": 4,
-      "ctr": 0.004540295119182747,
-      "sales": 0,
-      "revenue": 0,
-      "salesPerClick": 0,
-      "salesProductIds": []
-    },
-    {
-      "productId": "cce-essay-magazine",
-      "impressions": 49,
-      "clicks": 3,
-      "ctr": 0.061224489795918366,
+      "impressions": 1303,
+      "clicks": 6,
+      "ctr": 0.004604758250191865,
       "sales": 0,
       "revenue": 0,
       "salesPerClick": 0,
@@ -142,29 +110,19 @@
     },
     {
       "productId": "civil-1-ichiji-ronten",
-      "impressions": 110,
-      "clicks": 3,
-      "ctr": 0.02727272727272727,
+      "impressions": 156,
+      "clicks": 5,
+      "ctr": 0.03205128205128205,
       "sales": 0,
       "revenue": 0,
       "salesPerClick": 0,
       "salesProductIds": []
     },
     {
-      "productId": "cce-essay-persona-pack",
-      "impressions": 8,
-      "clicks": 2,
-      "ctr": 0.25,
-      "sales": 0,
-      "revenue": 0,
-      "salesPerClick": 0,
-      "salesProductIds": []
-    },
-    {
-      "productId": "civil-1-keiken-complete-pack",
-      "impressions": 349,
-      "clicks": 2,
-      "ctr": 0.0057306590257879654,
+      "productId": "pe-construction-required-magazine",
+      "impressions": 133,
+      "clicks": 5,
+      "ctr": 0.03759398496240601,
       "sales": 0,
       "revenue": 0,
       "salesPerClick": 0,
@@ -172,19 +130,9 @@
     },
     {
       "productId": "civil-2-anki-note",
-      "impressions": 30,
-      "clicks": 2,
-      "ctr": 0.06666666666666667,
-      "sales": 0,
-      "revenue": 0,
-      "salesPerClick": 0,
-      "salesProductIds": []
-    },
-    {
-      "productId": "essay-complete-pack",
-      "impressions": 20,
-      "clicks": 2,
-      "ctr": 0.1,
+      "impressions": 42,
+      "clicks": 4,
+      "ctr": 0.09523809523809523,
       "sales": 0,
       "revenue": 0,
       "salesPerClick": 0,
@@ -192,9 +140,59 @@
     },
     {
       "productId": "pe1-takuitsu-pdf",
-      "impressions": 94,
+      "impressions": 191,
+      "clicks": 4,
+      "ctr": 0.020942408376963352,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "cce-essay-magazine",
+      "impressions": 61,
+      "clicks": 3,
+      "ctr": 0.04918032786885246,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "essay-complete-pack",
+      "impressions": 23,
+      "clicks": 3,
+      "ctr": 0.13043478260869565,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "cce-essay-persona-pack",
+      "impressions": 10,
       "clicks": 2,
-      "ctr": 0.02127659574468085,
+      "ctr": 0.2,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-1-keiken-complete-pack",
+      "impressions": 543,
+      "clicks": 2,
+      "ctr": 0.003683241252302026,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "civil-1-niji-marugoto-pack",
+      "impressions": 646,
+      "clicks": 2,
+      "ctr": 0.0030959752321981426,
       "sales": 0,
       "revenue": 0,
       "salesPerClick": 0,
@@ -202,9 +200,9 @@
     },
     {
       "productId": "cce-mix-calculation-practice",
-      "impressions": 15,
+      "impressions": 30,
       "clicks": 1,
-      "ctr": 0.06666666666666667,
+      "ctr": 0.03333333333333333,
       "sales": 0,
       "revenue": 0,
       "salesPerClick": 0,
@@ -212,9 +210,9 @@
     },
     {
       "productId": "cd-essay-magazine",
-      "impressions": 27,
+      "impressions": 32,
       "clicks": 1,
-      "ctr": 0.037037037037037035,
+      "ctr": 0.03125,
       "sales": 0,
       "revenue": 0,
       "salesPerClick": 0,
@@ -222,9 +220,9 @@
     },
     {
       "productId": "essay-core-pack",
-      "impressions": 3,
+      "impressions": 4,
       "clicks": 1,
-      "ctr": 0.3333333333333333,
+      "ctr": 0.25,
       "sales": 0,
       "revenue": 0,
       "salesPerClick": 0,
@@ -242,9 +240,9 @@
     },
     {
       "productId": "pe-construction-environment-magazine",
-      "impressions": 2,
+      "impressions": 3,
       "clicks": 1,
-      "ctr": 0.5,
+      "ctr": 0.3333333333333333,
       "sales": 0,
       "revenue": 0,
       "salesPerClick": 0,
@@ -252,9 +250,9 @@
     },
     {
       "productId": "pe-construction-river-coast-magazine",
-      "impressions": 6,
+      "impressions": 7,
       "clicks": 1,
-      "ctr": 0.16666666666666666,
+      "ctr": 0.14285714285714285,
       "sales": 0,
       "revenue": 0,
       "salesPerClick": 0,
@@ -281,18 +279,38 @@
       "salesProductIds": []
     },
     {
-      "productId": "tankan-reading-guide",
-      "impressions": 20,
+      "productId": "r8-essay-forecast",
+      "impressions": 4,
       "clicks": 1,
-      "ctr": 0.05,
+      "ctr": 0.25,
       "sales": 0,
       "revenue": 0,
       "salesPerClick": 0,
       "salesProductIds": []
     },
     {
+      "productId": "tankan-reading-guide",
+      "impressions": 31,
+      "clicks": 1,
+      "ctr": 0.03225806451612903,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": 0,
+      "salesProductIds": []
+    },
+    {
+      "productId": "cce-marugoto-pack",
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
       "productId": "cce-r8-mc-50",
-      "impressions": 32,
+      "impressions": 45,
       "clicks": 0,
       "ctr": 0,
       "sales": 0,
@@ -302,7 +320,7 @@
     },
     {
       "productId": "ce-mix-jis-practice",
-      "impressions": 4,
+      "impressions": 10,
       "clicks": 0,
       "ctr": 0,
       "sales": 0,
@@ -322,17 +340,7 @@
     },
     {
       "productId": "civil-1-gakka-kijutsu",
-      "impressions": 72,
-      "clicks": 0,
-      "ctr": 0,
-      "sales": 0,
-      "revenue": 0,
-      "salesPerClick": null,
-      "salesProductIds": []
-    },
-    {
-      "productId": "civil-1-niji-marugoto-pack",
-      "impressions": 296,
+      "impressions": 103,
       "clicks": 0,
       "ctr": 0,
       "sales": 0,
@@ -352,7 +360,7 @@
     },
     {
       "productId": "civil-2-gakka-kijutsu",
-      "impressions": 114,
+      "impressions": 162,
       "clicks": 0,
       "ctr": 0,
       "sales": 0,
@@ -362,7 +370,7 @@
     },
     {
       "productId": "civil-2-takuitsu-pdf",
-      "impressions": 32,
+      "impressions": 56,
       "clicks": 0,
       "ctr": 0,
       "sales": 0,
@@ -442,7 +450,7 @@
     },
     {
       "productId": "essay-road-municipality-magazine",
-      "impressions": 10,
+      "impressions": 17,
       "clicks": 0,
       "ctr": 0,
       "sales": 0,
@@ -531,8 +539,18 @@
       "salesProductIds": []
     },
     {
-      "productId": "pe-construction-tunnel-magazine",
+      "productId": "pe-construction-railway-magazine",
       "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "sales": 0,
+      "revenue": 0,
+      "salesPerClick": null,
+      "salesProductIds": []
+    },
+    {
+      "productId": "pe-construction-tunnel-magazine",
+      "impressions": 4,
       "clicks": 0,
       "ctr": 0,
       "sales": 0,
@@ -551,18 +569,8 @@
       "salesProductIds": []
     },
     {
-      "productId": "r8-essay-forecast",
-      "impressions": 3,
-      "clicks": 0,
-      "ctr": 0,
-      "sales": 0,
-      "revenue": 0,
-      "salesPerClick": null,
-      "salesProductIds": []
-    },
-    {
       "productId": "setsumon3-policy-bank",
-      "impressions": 3,
+      "impressions": 4,
       "clicks": 0,
       "ctr": 0,
       "sales": 0,
@@ -572,7 +580,7 @@
     },
     {
       "productId": "tankan-takuitsu-heisei-pdf",
-      "impressions": 35,
+      "impressions": 37,
       "clicks": 0,
       "ctr": 0,
       "sales": 0,
@@ -582,7 +590,7 @@
     },
     {
       "productId": "tradeoff-5kanri",
-      "impressions": 3,
+      "impressions": 4,
       "clicks": 0,
       "ctr": 0,
       "sales": 0,
@@ -592,14 +600,14 @@
     }
   ],
   "summary": {
-    "products": 58,
-    "impressions": 4872,
-    "clicks": 136,
-    "sales": 3,
-    "revenue": 12940,
-    "excludedGa4Rows": 58,
+    "products": 59,
+    "impressions": 7280,
+    "clicks": 182,
+    "sales": 1,
+    "revenue": 4980,
+    "excludedGa4Rows": 60,
     "excludedArticleSales": 2,
-    "excludedOutsideWindow": 275
+    "excludedOutsideWindow": 277
   },
   "interpretation": {
     "metric": "同一期間のマガジン売上件数 ÷ 商品ID付きnote CTAクリック数",
