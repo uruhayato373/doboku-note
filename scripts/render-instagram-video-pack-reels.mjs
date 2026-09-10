@@ -27,7 +27,7 @@ const { values: args } = parseArgs({
     all: { type: 'boolean', default: false },
     dir: { type: 'string' },
     max: { type: 'string', default: '999' },
-    concurrency: { type: 'string', default: '4' },
+    concurrency: { type: 'string', default: '1' },
     force: { type: 'boolean', default: false },
     speaker: { type: 'string', default: '1' },
     software: { type: 'boolean', default: false },
@@ -244,7 +244,7 @@ async function renderOne(metaPath, index, total) {
 }
 
 const metaPaths = selectedMeta();
-const concurrency = Math.max(1, Math.min(8, Number(args.concurrency) || 4));
+const concurrency = Math.max(1, Math.min(8, Number(args.concurrency) || 1));
 let cursor = 0;
 async function worker() {
   while (cursor < metaPaths.length) {

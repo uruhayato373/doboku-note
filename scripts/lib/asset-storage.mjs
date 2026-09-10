@@ -284,7 +284,12 @@ function igPackVisibility(imgRelPath) {
 
 export function sha256File(absPath) {
   const h = createHash('sha256');
-  h.update(readFileSync(absPath));
+  const fd = openSync(absPath, 'r');
+  const buffer = Buffer.allocUnsafe(1024 * 1024);
+  try {
+    let bytes;
+    while ((bytes = readSync(fd, buffer, 0, buffer.length, null)) > 0) h.update(buffer.subarray(0, bytes));
+  } finally { closeSync(fd); }
   return h.digest('hex');
 }
 

@@ -25,8 +25,10 @@
   },
   "cache": {
     "dir": ".local/cache/assets",
-    "maxBytes": 3221225472,
-    "note": "Git 非追跡。hydrate が R2 から取ったものを置く。プロキシ不調時は既存 cache を使い、勝手に空にしない。上限超過時は最終アクセスが古いものから落とす。"
+    "maxBytes": 536870912,
+    "maxRestoreMiB": 512,
+    "retainDownloadedCopies": false,
+    "note": "Git 非追跡・上限512MiB。復元先のbytes/sha256検証後は同じキャッシュコピーを保持しない。オフライン用の二重保管が必要な作業だけ --keep-cache。既存キャッシュは上限内なら維持。1回の復元も既定512MiBまで（--max-mibで明示変更）。"
   },
   "groups": [
     {

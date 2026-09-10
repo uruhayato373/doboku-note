@@ -93,6 +93,7 @@ const CHECKS = [
   { id: 'ads-tests', npm: 'test:ads', timeout: 120_000, ci: true, note: 'A8/もしも/afb のサイト帰属ガードと CSV 正規化の単体テスト' },
   // 2026-08-17: check-gate-parity で「どこからも呼ばれていない」と判明したため配線（実行して緑を確認）。
   { id: 'public-bloat', npm: 'check-public-bloat', timeout: 60_000, ci: true, note: 'public/ の生成物滞留（放置するとビルドが落ちる）' },
+  { id: 'local-resources', npm: 'test:resources', timeout: 60_000, ci: true, note: 'ローカル掃除のリンク・使用中・欠測保護とストリーミング復元の破損拒否を検査' },
   { id: 'playwright-auth-wiring', npm: 'check-playwright-auth-wiring:strict', timeout: 60_000, ci: true, note: 'Playwright永続プロファイルのMac絶対パス・repo相対path・resolver漏れ・secret露出を0で固定' },
   { id: 'gate-parity', npm: 'check-gate-parity:ci', timeout: 60_000, ci: true, note: 'pre-commit / quality-audit / workflow のどこからも呼ばれていない検査を検出（オーファン化の防止）' },
   { id: 'eslint', npm: 'lint', timeout: 180_000, ci: true },
